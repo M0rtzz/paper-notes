@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ACL2025 论文笔记 TODO
 
-总计: 2279 篇 | 已完成: 679 | 待更新: 1600
+总计: 2279 篇 | 已完成: 734 | 待更新: 1545
 
 ---
 
@@ -278,7 +278,7 @@
 - [x] [boosting llms molecular structure elucidation with knowledge enhanced tree searc](llm_nlp/boosting_llms_molecular_structure_elucidation_with_knowledge_enhanced_tree_searc.md) | arXiv: 2506.23056
 - [ ] [boosting long-context information seeking via query-guided activation refilling](llm_efficiency/boosting_long-context_information_seeking_via_query-guided_activation_refilling.md)
 - [x] [boosting vulnerability detection of llms via curriculum preference optimization ](llm_alignment/boosting_vulnerability_detection_of_llms_via_curriculum_preference_optimization_.md) | arXiv: 2506.07390
-- [ ] [bpp-search enhancing tree of thought reasoning for mathematical modeling problem](llm_reasoning/bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md) | arXiv: 2411.17404
+- [x] [bpp-search enhancing tree of thought reasoning for mathematical modeling problem](llm_reasoning/bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md) | arXiv: 2411.17404
 - [ ] [bqa body language question answering dataset for video large language models](human_understanding/bqa_body_language_question_answering_dataset_for_video_large_language_models.md)
 - [ ] [brainecho semantic brain signal decoding through vector-quantized spectrogram re](model_compression/brainecho_semantic_brain_signal_decoding_through_vector-quantized_spectrogram_re.md) | arXiv: 2410.14971
 - [x] [breaking the ceiling exploring the potential of jailbreak attacks through expand](llm_alignment/breaking_the_ceiling_exploring_the_potential_of_jailbreak_attacks_through_expand.md) | arXiv: 2505.21277
@@ -356,14 +356,14 @@
 - [x] [chain-of-jailbreak attack for image generation models via editing step by step](llm_alignment/chain-of-jailbreak_attack_for_image_generation_models_via_editing_step_by_step.md) | arXiv: 2410.03869
 - [ ] [chain-of-reasoning towards unified mathematical reasoning in large language mode](llm_reasoning/chain-of-reasoning_towards_unified_mathematical_reasoning_in_large_language_mode.md) | arXiv: 2501.11110
 - [x] [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](llm_reasoning/chain_of_reasoning_unified_math.md) | arXiv: 2501.11110
-- [ ] [chain-talker chain understanding and rendering for empathetic conversational spe](audio_speech/chain-talker_chain_understanding_and_rendering_for_empathetic_conversational_spe.md) | arXiv: 2505.12597
+- [x] [chain-talker chain understanding and rendering for empathetic conversational spe](audio_speech/chain-talker_chain_understanding_and_rendering_for_empathetic_conversational_spe.md) | arXiv: 2505.12597
 - [x] [ChainEdit: Propagating Ripple Effects in LLM Knowledge Editing through Logical Rule-Guided Chains](llm_nlp/chainedit_propagating_ripple_effects_in_llm.md) | arXiv: 2507.08427
 - [x] [ChartCoder: Advancing Multimodal Large Language Model for Chart-to-Code Generation](multimodal_vlm/chartcoder_chart_to_code.md) | arXiv: 2501.06598
 - [ ] [chartlens fine-grained visual attribution in charts](others/chartlens_fine-grained_visual_attribution_in_charts.md) | arXiv: 2505.19360
 - [ ] [chatbench from static benchmarks to human-ai evaluation](others/chatbench_from_static_benchmarks_to_human-ai_evaluation.md) | arXiv: 2504.07114
 - [ ] [chatsop an sop-guided mcts planning framework for controllable llm dialogue agen](llm_nlp/chatsop_an_sop-guided_mcts_planning_framework_for_controllable_llm_dialogue_agen.md)
 - [x] [Cheems: A Practical Guidance for Building and Evaluating Chinese Reward Models from Scratch](llm_alignment/cheems_chinese_reward_models.md) | arXiv: 2502.17173
-- [ ] [cheer-ekman fine-grained embodied emotion classification](robotics/cheer-ekman_fine-grained_embodied_emotion_classification.md) | arXiv: 2506.01047
+- [x] [cheer-ekman fine-grained embodied emotion classification](robotics/cheer-ekman_fine-grained_embodied_emotion_classification.md) | arXiv: 2506.01047
 - [ ] [chemactor enhancing automated extraction of chemical synthesis actions with llm-](aigc_detection/chemactor_enhancing_automated_extraction_of_chemical_synthesis_actions_with_llm-.md)
 - [x] [CheXalign: Preference Fine-tuning in Chest X-ray Interpretation Models without Human Feedback](medical_imaging/chexalign_preference_finetuning.md) | arXiv: 2410.07025
 - [ ] [childmandarin a comprehensive mandarin speech dataset for young children aged 3-](others/childmandarin_a_comprehensive_mandarin_speech_dataset_for_young_children_aged_3-.md)
@@ -379,8 +379,8 @@
 - [x] [CKnowEdit: A New Chinese Knowledge Editing Dataset for Linguistics, Facts, and Logic Error Correction in LLMs](llm_nlp/cknowedit_chinese_knowledge_editing_dataset_llms.md) | arXiv: 2409.05806
 - [ ] [clac at semeval-2025 task 6 a multi-architecture approach for corporate environm](others/clac_at_semeval-2025_task_6_a_multi-architecture_approach_for_corporate_environm.md) | arXiv: 2505.23538
 - [ ] [claim mitigating multilingual object hallucination in large vision-language mode](multimodal_vlm/claim_mitigating_multilingual_object_hallucination_in_large_vision-language_mode.md)
-- [ ] [claimpkg enhancing claim verification via pseudo-subgraph generation with lightw](graph_learning/claimpkg_enhancing_claim_verification_via_pseudo-subgraph_generation_with_lightw.md) | arXiv: 2505.22552
-- [ ] [clamp 3 universal music information retrieval across unaligned modalities and un](audio_speech/clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un.md) | arXiv: 2502.10362
+- [x] [claimpkg enhancing claim verification via pseudo-subgraph generation with lightw](graph_learning/claimpkg_enhancing_claim_verification_via_pseudo-subgraph_generation_with_lightw.md) | arXiv: 2505.22552
+- [x] [clamp 3 universal music information retrieval across unaligned modalities and un](audio_speech/clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un.md) | arXiv: 2502.10362
 - [x] [CLaSp: In-Context Layer Skip for Self-Speculative Decoding](llm_efficiency/clasp_self_speculative_decoding.md) | arXiv: 2505.24196
 - [ ] [class distillation with mahalanobis contrast an efficient training paradigm for ](model_compression/class_distillation_with_mahalanobis_contrast_an_efficient_training_paradigm_for_.md)
 - [x] [Classifying Unreliable Narrators with Large Language Models](llm_nlp/classifying_unreliable_narrators.md) | arXiv: 2506.10231
@@ -421,7 +421,7 @@
 - [x] [Comparing LLM-generated and human-authored news text using formal syntactic theory](aigc_detection/llm_vs_human_formal_syntax.md) | arXiv: 2506.01407
 - [x] [Comparing Moral Values in Western English-speaking Societies and LLMs with Word Associations](llm_nlp/moral_values_western.md) | arXiv: 2505.19674
 - [ ] [comparison-based active preference learning for multi-dimensional personalizatio](llm_alignment/comparison-based_active_preference_learning_for_multi-dimensional_personalizatio.md)
-- [ ] [comparisonqa evaluating factuality robustness of llms through knowledge frequenc](llm_nlp/comparisonqa_evaluating_factuality_robustness_of_llms_through_knowledge_frequenc.md) | arXiv: 2412.20251
+- [x] [comparisonqa evaluating factuality robustness of llms through knowledge frequenc](llm_nlp/comparisonqa_evaluating_factuality_robustness_of_llms_through_knowledge_frequenc.md) | arXiv: 2412.20251
 - [ ] [compileagent automated real-world repo-level compilation with tool-integrated ll](llm_nlp/compileagent_automated_real-world_repo-level_compilation_with_tool-integrated_ll.md) | arXiv: 2505.04254
 - [ ] [compke complex question answering under knowledge editing](nlp_understanding/compke_complex_question_answering_under_knowledge_editing.md) | arXiv: 2506.00829
 - [x] [Completing A Systematic Review in Hours instead of Months with Interactive AI Agents](others/completing_a_systematic_review_in_hours.md) | arXiv: 2504.14822
@@ -452,7 +452,7 @@
 - [ ] [controllable style arithmetic with language models](llm_nlp/controllable_style_arithmetic_with_language_models.md)
 - [ ] [controlled low-rank adaptation with subspace regularization for continued traini](llm_nlp/controlled_low-rank_adaptation_with_subspace_regularization_for_continued_traini.md)
 - [x] [ControlSpeech: Towards Simultaneous and Independent Zero-shot Speaker Cloning and Zero-shot Language Style Control](audio_speech/controlspeech_zero_shot.md) | arXiv: 2406.01205
-- [ ] [convert language model into a value-based strategic planner](llm_nlp/convert_language_model_into_a_value-based_strategic_planner.md) | arXiv: 2505.06987
+- [x] [convert language model into a value-based strategic planner](llm_nlp/convert_language_model_into_a_value-based_strategic_planner.md) | arXiv: 2505.06987
 - [ ] [cool-fusion fuse large language models without training](llm_nlp/cool-fusion_fuse_large_language_models_without_training.md)
 - [ ] [cooperative or competitive understanding the interaction between attention heads](others/cooperative_or_competitive_understanding_the_interaction_between_attention_heads.md)
 - [ ] [coordinating chaos a structured review of linguistic coordination methodologies](others/coordinating_chaos_a_structured_review_of_linguistic_coordination_methodologies.md)
@@ -473,7 +473,7 @@
 - [ ] [cot-valve length-compressible chain-of-thought tuning](llm_reasoning/cot-valve_length-compressible_chain-of-thought_tuning.md)
 - [ ] [counterfactual-consistency prompting for relative temporal understanding in larg](causal_inference/counterfactual-consistency_prompting_for_relative_temporal_understanding_in_larg.md) | arXiv: 2502.11425
 - [x] [Counterspeech the Ultimate Shield! Multi-Conditioned Counterspeech Generation through Attributed Prefix Learning](others/hippro_counterspeech_gen.md) | arXiv: 2505.11958
-- [ ] [cove compressed vocabulary expansion makes better llm-based recommender systems](recommender/cove_compressed_vocabulary_expansion_makes_better_llm-based_recommender_systems.md) | arXiv: 2506.19993
+- [x] [cove compressed vocabulary expansion makes better llm-based recommender systems](recommender/cove_compressed_vocabulary_expansion_makes_better_llm-based_recommender_systems.md) | arXiv: 2506.19993
 - [ ] [crab a novel configurable role-playing llm with assessing benchmark](llm_nlp/crab_a_novel_configurable_role-playing_llm_with_assessing_benchmark.md)
 - [ ] [cracking factual knowledge a comprehensive analysis of degenerate knowledge neur](llm_nlp/cracking_factual_knowledge_a_comprehensive_analysis_of_degenerate_knowledge_neur.md)
 - [x] [Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence](multimodal_vlm/cracking_hallucination_vhd.md) | arXiv: 2412.13949
@@ -484,10 +484,10 @@
 - [x] [critic-cot boosting the reasoning abilities of large language model via chain-of](llm_reasoning/critic-cot_boosting_the_reasoning_abilities_of_large_language_model_via_chain-of.md) | arXiv: 2408.16326
 - [ ] [critiq mining data quality criteria from human preferences](others/critiq_mining_data_quality_criteria_from_human_preferences.md) | arXiv: 2502.19279
 - [x] [Croppable Knowledge Graph Embedding](graph_learning/croppable_knowledge_graph_embedding.md) | arXiv: 2407.02779
-- [ ] [cross-document contextual coreference resolution in knowledge graphs](graph_learning/cross-document_contextual_coreference_resolution_in_knowledge_graphs.md) | arXiv: 2504.05767
+- [x] [cross-document contextual coreference resolution in knowledge graphs](graph_learning/cross-document_contextual_coreference_resolution_in_knowledge_graphs.md) | arXiv: 2504.05767
 - [ ] [cross-lingual auto evaluation for assessing multilingual llms](llm_nlp/cross-lingual_auto_evaluation_for_assessing_multilingual_llms.md)
 - [x] [Cross-Lingual Generalization and Compression: From Language-Specific to Shared Neurons](model_compression/cross_lingual_neurons_compression.md) | arXiv: 2506.01629
-- [ ] [cross-lingual optimization for language transfer in large language models](llm_nlp/cross-lingual_optimization_for_language_transfer_in_large_language_models.md) | arXiv: 2505.14297
+- [x] [cross-lingual optimization for language transfer in large language models](llm_nlp/cross-lingual_optimization_for_language_transfer_in_large_language_models.md) | arXiv: 2505.14297
 - [x] [Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models](llm_nlp/crosslingual_pitfalls.md) | arXiv: 2505.18673
 - [ ] [cross-lingual representation alignment through contrastive image-caption tuning](others/cross-lingual_representation_alignment_through_contrastive_image-caption_tuning.md) | arXiv: 2505.13628
 - [ ] [cross-lingual transfer of cultural knowledge an asymmetric phenomenon](others/cross-lingual_transfer_of_cultural_knowledge_an_asymmetric_phenomenon.md) | arXiv: 2506.01675
@@ -504,10 +504,10 @@
 - [ ] [culemo cultural lenses on emotion - benchmarking llms for cross-cultural emotion](llm_nlp/culemo_cultural_lenses_on_emotion_-_benchmarking_llms_for_cross-cultural_emotion.md)
 - [ ] [culfit a fine-grained cultural-aware llm training paradigm via multilingual crit](llm_nlp/culfit_a_fine-grained_cultural-aware_llm_training_paradigm_via_multilingual_crit.md) | arXiv: 2505.19484
 - [ ] [cultivating gaming sense for yourself making vlms gaming experts](multimodal_vlm/cultivating_gaming_sense_for_yourself_making_vlms_gaming_experts.md)
-- [ ] [cultural learning-based culture adaptation of language models](llm_nlp/cultural_learning-based_culture_adaptation_of_language_models.md) | arXiv: 2504.02953
+- [x] [cultural learning-based culture adaptation of language models](llm_nlp/cultural_learning-based_culture_adaptation_of_language_models.md) | arXiv: 2504.02953
 - [ ] [culturalbench a robust diverse and challenging benchmark for measuring lms cultu](others/culturalbench_a_robust_diverse_and_challenging_benchmark_for_measuring_lms_cultu.md)
 - [ ] [culturalbench a robust diverse and challenging cultural benchmark by human-ai cu](others/culturalbench_a_robust_diverse_and_challenging_cultural_benchmark_by_human-ai_cu.md) | arXiv: 2410.02677
-- [ ] [culture is not trivia sociocultural theory for cultural nlp](llm_nlp/culture_is_not_trivia_sociocultural_theory_for_cultural_nlp.md) | arXiv: 2502.12057
+- [x] [culture is not trivia sociocultural theory for cultural nlp](llm_nlp/culture_is_not_trivia_sociocultural_theory_for_cultural_nlp.md) | arXiv: 2502.12057
 - [ ] [culture matters in toxic language detection in persian](others/culture_matters_in_toxic_language_detection_in_persian.md) | arXiv: 2506.03458
 - [x] [Curiosity-Driven Reinforcement Learning from Human Feedback](llm_alignment/curiosity_driven_rlhf.md) | arXiv: 2501.11463
 - [ ] [curriculum debiasing toward robust parameter-efficient fine-tuning against datas](model_compression/curriculum_debiasing_toward_robust_parameter-efficient_fine-tuning_against_datas.md)
@@ -556,7 +556,7 @@
 - [ ] [denselora dense low-rank adaptation of large language models](model_compression/denselora_dense_low-rank_adaptation_of_large_language_models.md)
 - [x] [Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models](llm_nlp/deontological_keyword_bias.md) | arXiv: 2506.11068
 - [ ] [design choices for extending the context length of visual language models](llm_efficiency/design_choices_for_extending_the_context_length_of_visual_language_models.md)
-- [ ] [detecting referring expressions in visually grounded dialogue with autoregressiv](llm_nlp/detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md) | arXiv: 2506.21294
+- [x] [detecting referring expressions in visually grounded dialogue with autoregressiv](llm_nlp/detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md) | arXiv: 2506.21294
 - [ ] [detecting sockpuppetry on wikipedia using meta-learning](others/detecting_sockpuppetry_on_wikipedia_using_meta-learning.md) | arXiv: 2506.10314
 - [ ] [detection of human and machine-authored fake news in urdu](others/detection_of_human_and_machine-authored_fake_news_in_urdu.md) | arXiv: 2410.19517
 - [ ] [developmentally-plausible working memory shapes a critical period for language a](others/developmentally-plausible_working_memory_shapes_a_critical_period_for_language_a.md)
@@ -564,11 +564,11 @@
 - [ ] [dialogue systems for emotional support via value reinforcement](nlp_generation/dialogue_systems_for_emotional_support_via_value_reinforcement.md) | arXiv: 2501.17182
 - [ ] [dialogue-rag enhancing retrieval for llms via node-linking utterance rewriting](llm_nlp/dialogue-rag_enhancing_retrieval_for_llms_via_node-linking_utterance_rewriting.md)
 - [ ] [dialup modeling the language continuum by adapting models to dialects and dialec](others/dialup_modeling_the_language_continuum_by_adapting_models_to_dialects_and_dialec.md)
-- [ ] [dice-bench evaluating the tool-use capabilities of large language models in mult](llm_nlp/dice-bench_evaluating_the_tool-use_capabilities_of_large_language_models_in_mult.md) | arXiv: 2506.22853
+- [x] [dice-bench evaluating the tool-use capabilities of large language models in mult](llm_nlp/dice-bench_evaluating_the_tool-use_capabilities_of_large_language_models_in_mult.md) | arXiv: 2506.22853
 - [ ] [dictionaries to the rescue cross-lingual vocabulary transfer for low-resource la](others/dictionaries_to_the_rescue_cross-lingual_vocabulary_transfer_for_low-resource_la.md) | arXiv: 2506.01535
 - [x] [Did Translation Models Get More Robust Without Anyone Even Noticing?](others/translation_robustness.md) | arXiv: 2403.03923
-- [ ] [different speech translation models encode and translate speaker gender differen](audio_speech/different_speech_translation_models_encode_and_translate_speaker_gender_differen.md) | arXiv: 2506.02172
-- [ ] [difflm controllable synthetic data generation via diffusion language models](llm_nlp/difflm_controllable_synthetic_data_generation_via_diffusion_language_models.md) | arXiv: 2411.03250
+- [x] [different speech translation models encode and translate speaker gender differen](audio_speech/different_speech_translation_models_encode_and_translate_speaker_gender_differen.md) | arXiv: 2506.02172
+- [x] [difflm controllable synthetic data generation via diffusion language models](llm_nlp/difflm_controllable_synthetic_data_generation_via_diffusion_language_models.md) | arXiv: 2411.03250
 - [x] [DiffPO: Diffusion Alignment with Direct Preference Optimization](llm_alignment/diffpo_diffusion_alignment.md) | arXiv: 2503.04240
 - [x] [DiffuseDef: Improved Robustness to Adversarial Attacks via Iterative Denoising](image_restoration/diffusedef_adversarial_defense.md) | arXiv: 2407.00248
 - [ ] [diffusion directed acyclic transformer for non-autoregressive machine translatio](nlp_generation/diffusion_directed_acyclic_transformer_for_non-autoregressive_machine_translatio.md)
@@ -577,12 +577,12 @@
 - [ ] [digital gatekeepers googles role in curating hashtags and subreddits](others/digital_gatekeepers_googles_role_in_curating_hashtags_and_subreddits.md) | arXiv: 2506.14370
 - [ ] [dior adaptive cognitive detection and contextual retrieval optimization for dyna](others/dior_adaptive_cognitive_detection_and_contextual_retrieval_optimization_for_dyna.md)
 - [ ] [direct behavior optimization unlocking the potential of lightweight llms](model_compression/direct_behavior_optimization_unlocking_the_potential_of_lightweight_llms.md) | arXiv: 2506.06401
-- [ ] [direct confidence alignment aligning verbalized confidence with internal confide](llm_nlp/direct_confidence_alignment_aligning_verbalized_confidence_with_internal_confide.md) | arXiv: 2512.11998
+- [x] [direct confidence alignment aligning verbalized confidence with internal confide](llm_nlp/direct_confidence_alignment_aligning_verbalized_confidence_with_internal_confide.md) | arXiv: 2512.11998
 - [ ] [direct prompt optimization with continuous representations](llm_nlp/direct_prompt_optimization_with_continuous_representations.md)
 - [ ] [disambiguate first parse later generating interpretations for ambiguity resoluti](nlp_understanding/disambiguate_first_parse_later_generating_interpretations_for_ambiguity_resoluti.md) | arXiv: 2502.18448
 - [ ] [disambiguating reference in visually grounded dialogues through joint modeling o](multimodal_vlm/disambiguating_reference_in_visually_grounded_dialogues_through_joint_modeling_o.md)
 - [ ] [disc plug-and-play decoding intervention with similarity of characters for chine](others/disc_plug-and-play_decoding_intervention_with_similarity_of_characters_for_chine.md)
-- [ ] [disco device-server collaborative llm-based text streaming services](llm_nlp/disco_device-server_collaborative_llm-based_text_streaming_services.md) | arXiv: 2502.11417
+- [x] [disco device-server collaborative llm-based text streaming services](llm_nlp/disco_device-server_collaborative_llm-based_text_streaming_services.md) | arXiv: 2502.11417
 - [ ] [discourse relation-enhanced neural coherence modeling](others/discourse_relation-enhanced_neural_coherence_modeling.md)
 - [ ] [disentangled multi-span evolutionary network against temporal knowledge graph re](graph_learning/disentangled_multi-span_evolutionary_network_against_temporal_knowledge_graph_re.md) | arXiv: 2505.14020
 - [ ] [disentangling biased knowledge from reasoning in large language models via machi](llm_nlp/disentangling_biased_knowledge_from_reasoning_in_large_language_models_via_machi.md)
@@ -600,12 +600,12 @@
 - [ ] [dncasr end-to-end training for speaker-attributed asr](audio_speech/dncasr_end-to-end_training_for_speaker-attributed_asr.md) | arXiv: 2506.01916
 - [x] [do emotions really affect argument convincingness a dynamic approach with llm-ba](robotics/do_emotions_really_affect_argument_convincingness_a_dynamic_approach_with_llm-ba.md) | arXiv: 2503.00024
 - [ ] [do language models have semantics on the five standard positions](llm_nlp/do_language_models_have_semantics_on_the_five_standard_positions.md)
-- [ ] [do language models mirror human confidence exploring psychological insights to a](llm_nlp/do_language_models_mirror_human_confidence_exploring_psychological_insights_to_a.md) | arXiv: 2506.00582
-- [ ] [do language models understand honorific systems in javanese](llm_nlp/do_language_models_understand_honorific_systems_in_javanese.md) | arXiv: 2502.20864
-- [ ] [do language models understand the cognitive tasks given to them investigations w](llm_nlp/do_language_models_understand_the_cognitive_tasks_given_to_them_investigations_w.md) | arXiv: 2412.18120
+- [x] [do language models mirror human confidence exploring psychological insights to a](llm_nlp/do_language_models_mirror_human_confidence_exploring_psychological_insights_to_a.md) | arXiv: 2506.00582
+- [x] [do language models understand honorific systems in javanese](llm_nlp/do_language_models_understand_honorific_systems_in_javanese.md) | arXiv: 2502.20864
+- [x] [do language models understand the cognitive tasks given to them investigations w](llm_nlp/do_language_models_understand_the_cognitive_tasks_given_to_them_investigations_w.md) | arXiv: 2412.18120
 - [x] [Do Large Language Models Have an English Accent? Evaluating and Improving the Naturalness of Multilingual LLMs](llm_nlp/multilingual_llm_english_accent.md) | arXiv: 2410.15956
 - [x] [do large language models perform latent multi-hop reasoning without exploiting s](llm_nlp/do_large_language_models_perform_latent_multi-hop_reasoning_without_exploiting_s.md) | arXiv: 2411.16679
-- [ ] [do llms give psychometrically plausible responses in educational assessments](llm_nlp/do_llms_give_psychometrically_plausible_responses_in_educational_assessments.md) | arXiv: 2506.09796
+- [x] [do llms give psychometrically plausible responses in educational assessments](llm_nlp/do_llms_give_psychometrically_plausible_responses_in_educational_assessments.md) | arXiv: 2506.09796
 - [ ] [do llms understand dialogues a case study on dialogue acts](llm_nlp/do_llms_understand_dialogues_a_case_study_on_dialogue_acts.md)
 - [ ] [do multimodal large language models truly see what we point at investigating ind](multimodal_vlm/do_multimodal_large_language_models_truly_see_what_we_point_at_investigating_ind.md)
 - [ ] [do not abstain identify and solve the uncertainty](others/do_not_abstain_identify_and_solve_the_uncertainty.md)
@@ -618,7 +618,7 @@
 - [ ] [does context matter contextualjudgebench for evaluating llm-based judges in cont](llm_nlp/does_context_matter_contextualjudgebench_for_evaluating_llm-based_judges_in_cont.md)
 - [ ] [does the emotional understanding of lvlms vary under high-stress environments an](multimodal_vlm/does_the_emotional_understanding_of_lvlms_vary_under_high-stress_environments_an.md)
 - [x] [does time have its place temporal heads where language models recall time-specif](llm_nlp/does_time_have_its_place_temporal_heads_where_language_models_recall_time-specif.md) | arXiv: 2502.14258
-- [ ] [does your voice assistant remember analyzing conversational context recall and u](audio_speech/does_your_voice_assistant_remember_analyzing_conversational_context_recall_and_u.md) | arXiv: 2502.19759
+- [x] [does your voice assistant remember analyzing conversational context recall and u](audio_speech/does_your_voice_assistant_remember_analyzing_conversational_context_recall_and_u.md) | arXiv: 2502.19759
 - [ ] [dolphin document image parsing via heterogeneous anchor prompting](object_detection/dolphin_document_image_parsing_via_heterogeneous_anchor_prompting.md) | arXiv: 2505.14059
 - [ ] [dolphin moving towards closed-loop auto-research through thinking practice and f](others/dolphin_moving_towards_closed-loop_auto-research_through_thinking_practice_and_f.md)
 - [x] [DoMIX: An Efficient Framework for Exploiting Domain Knowledge in Fine-Tuning](others/domix_an_efficient_framework_for_exploiting.md) | arXiv: 2507.02302
@@ -629,10 +629,10 @@
 - [ ] [dont miss the forest for the trees attentional vision calibration for large visi](multimodal_vlm/dont_miss_the_forest_for_the_trees_attentional_vision_calibration_for_large_visi.md) | arXiv: 2405.17820
 - [ ] [dont reinvent the wheel efficient instruction-following text embedding based on ](others/dont_reinvent_the_wheel_efficient_instruction-following_text_embedding_based_on_.md) | arXiv: 2505.24754
 - [ ] [dont say no jailbreaking llm by suppressing refusal](llm_alignment/dont_say_no_jailbreaking_llm_by_suppressing_refusal.md) | arXiv: 2404.16369
-- [ ] [double entendre robust audio-based ai-generated lyrics detection via multi-view ](audio_speech/double_entendre_robust_audio-based_ai-generated_lyrics_detection_via_multi-view_.md) | arXiv: 2506.15981
+- [x] [double entendre robust audio-based ai-generated lyrics detection via multi-view ](audio_speech/double_entendre_robust_audio-based_ai-generated_lyrics_detection_via_multi-view_.md) | arXiv: 2506.15981
 - [x] [drae dynamic retrieval-augmented expert networks for lifelong learning and task ](robotics/drae_dynamic_retrieval-augmented_expert_networks_for_lifelong_learning_and_task_.md) | arXiv: 2507.04661
 - [x] [DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination](model_compression/drag_distilling_rag_slm.md) | arXiv: 2506.01954
-- [ ] [drama diverse augmentation from large language models to smaller dense retriever](llm_nlp/drama_diverse_augmentation_from_large_language_models_to_smaller_dense_retriever.md) | arXiv: 2502.18460
+- [x] [drama diverse augmentation from large language models to smaller dense retriever](llm_nlp/drama_diverse_augmentation_from_large_language_models_to_smaller_dense_retriever.md) | arXiv: 2502.18460
 - [x] [DREsS: Dataset for Rubric-based Essay Scoring on EFL Writing](others/dress_dataset_rubric_based_essay_scoring_efl_writing.md) | arXiv: 2402.16733
 - [ ] [drift enhancing llm faithfulness in rationale generation via dual-reward probabi](llm_nlp/drift_enhancing_llm_faithfulness_in_rationale_generation_via_dual-reward_probabi.md)
 - [x] [DRPruning: Efficient Large Language Model Pruning through Distributionally Robust Optimization](model_compression/drpruning_robust_pruning.md) | arXiv: 2411.14055
@@ -649,7 +649,7 @@
 - [x] [dynamic chunking and selection for reading comprehension of ultra-long context i](llm_efficiency/dynamic_chunking_and_selection_for_reading_comprehension_of_ultra-long_context_i.md) | arXiv: 2506.00773
 - [ ] [dynamic evaluation with cognitive reasoning for multi-turn safety of large langu](llm_nlp/dynamic_evaluation_with_cognitive_reasoning_for_multi-turn_safety_of_large_langu.md)
 - [ ] [dynamic head selection for neural lexicalized constituency parsing](others/dynamic_head_selection_for_neural_lexicalized_constituency_parsing.md)
-- [ ] [dynamic knowledge integration for evidence-driven counter-argument generation wi](llm_nlp/dynamic_knowledge_integration_for_evidence-driven_counter-argument_generation_wi.md) | arXiv: 2503.05328
+- [x] [dynamic knowledge integration for evidence-driven counter-argument generation wi](llm_nlp/dynamic_knowledge_integration_for_evidence-driven_counter-argument_generation_wi.md) | arXiv: 2503.05328
 - [ ] [dynamic label name refinement for few-shot dialogue intent classification](others/dynamic_label_name_refinement_for_few-shot_dialogue_intent_classification.md)
 - [x] [Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis](nlp_understanding/dot_absa_template.md) | arXiv: 2406.11130
 - [ ] [dynamic parallel tree search for efficient llm reasoning](llm_nlp/dynamic_parallel_tree_search_for_efficient_llm_reasoning.md)
@@ -659,7 +659,7 @@
 - [ ] [ecerc evidence-cause attention network for multi-modal emotion recognition in co](multimodal_vlm/ecerc_evidence-cause_attention_network_for_multi-modal_emotion_recognition_in_co.md)
 - [x] [ECLM: Entity Level Language Model for Spoken Language Understanding with Chain of Intent](llm_nlp/eclm_entity_level_language_model_spoken_language_understanding.md) | arXiv: 2403.04481
 - [x] [EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association](others/ecomscriptbench.md) | arXiv: 2505.15196
-- [ ] [edit once update everywhere a simple framework for cross-lingual knowledge synch](llm_nlp/edit_once_update_everywhere_a_simple_framework_for_cross-lingual_knowledge_synch.md) | arXiv: 2502.14645
+- [x] [edit once update everywhere a simple framework for cross-lingual knowledge synch](llm_nlp/edit_once_update_everywhere_a_simple_framework_for_cross-lingual_knowledge_synch.md) | arXiv: 2502.14645
 - [x] [EdiText: Controllable Coarse-to-Fine Text Editing with Diffusion Language Models](llm_nlp/editext_diffusion_text_editing.md) | arXiv: 2502.19765
 - [ ] [editinspector a benchmark for evaluation of text-guided image edits](others/editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits.md)
 - [ ] [educationq evaluating llms teaching capabilities through multi-agent dialogue fr](llm_nlp/educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)
@@ -707,7 +707,7 @@
 - [x] [Enhancing Hyperbole and Metaphor Detection with Their Bidirectional Dynamic Interaction and Emotion Knowledge](others/hyperbole_metaphor_detection.md) | arXiv: 2506.15504
 - [ ] [enhancing input-label mapping in in-context learning with contrastive decoding](llm_nlp/enhancing_input-label_mapping_in_in-context_learning_with_contrastive_decoding.md)
 - [x] [Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models](llm_agent/llm_agent_image_classification.md) | arXiv: 2506.01334
-- [ ] [enhancing lexicon-based text embeddings with large language models](llm_nlp/enhancing_lexicon-based_text_embeddings_with_large_language_models.md) | arXiv: 2501.09749
+- [x] [enhancing lexicon-based text embeddings with large language models](llm_nlp/enhancing_lexicon-based_text_embeddings_with_large_language_models.md) | arXiv: 2501.09749
 - [ ] [enhancing llm agent safety via causal influence prompting](llm_agent/enhancing_llm_agent_safety_via_causal_influence_prompting.md) | arXiv: 2507.00979
 - [ ] [enhancing machine translation with self-supervised preference data](self_supervised/enhancing_machine_translation_with_self-supervised_preference_data.md)
 - [ ] [enhancing marker scoring accuracy through ordinal confidence modelling in educat](others/enhancing_marker_scoring_accuracy_through_ordinal_confidence_modelling_in_educat.md) | arXiv: 2505.23315
@@ -724,7 +724,7 @@
 - [ ] [enhancing spoken discourse modeling in language models using gestural cues](llm_nlp/enhancing_spoken_discourse_modeling_in_language_models_using_gestural_cues.md)
 - [ ] [enhancing text editing for grammatical error correction arabic as a case study](nlp_generation/enhancing_text_editing_for_grammatical_error_correction_arabic_as_a_case_study.md)
 - [ ] [enhancing the comprehensibility of text explanations via unsupervised concept di](others/enhancing_the_comprehensibility_of_text_explanations_via_unsupervised_concept_di.md) | arXiv: 2505.20293
-- [ ] [enhancing transformation from natural language to signal temporal logic using ll](llm_nlp/enhancing_transformation_from_natural_language_to_signal_temporal_logic_using_ll.md) | arXiv: 2505.20658
+- [x] [enhancing transformation from natural language to signal temporal logic using ll](llm_nlp/enhancing_transformation_from_natural_language_to_signal_temporal_logic_using_ll.md) | arXiv: 2505.20658
 - [x] [Enhancing Transformers for Generalizable First-Order Logical Entailment](others/enhancing_fol_entailment.md) | arXiv: 2501.00759
 - [ ] [enhancing unsupervised sentence embeddings via knowledge-driven data augmentatio](self_supervised/enhancing_unsupervised_sentence_embeddings_via_knowledge-driven_data_augmentatio.md)
 - [ ] [enigmatom improve llms theory-of-mind reasoning capabilities with neural knowled](llm_nlp/enigmatom_improve_llms_theory-of-mind_reasoning_capabilities_with_neural_knowled.md) | arXiv: 2503.03340
@@ -745,10 +745,10 @@
 - [x] [EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents](llm_nlp/escapebench_creative_agent.md) | arXiv: 2412.13549
 - [x] [Establishing Trustworthy LLM Evaluation via Shortcut Neuron Analysis](llm_nlp/shortcut_neuron_eval.md) | arXiv: 2506.04142
 - [ ] [estimating privacy leakage of augmented contextual knowledge in language models](ai_safety/estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
-- [ ] [eta-wavlm efficient speaker identity removal in self-supervised speech represent](audio_speech/eta-wavlm_efficient_speaker_identity_removal_in_self-supervised_speech_represent.md) | arXiv: 2505.19273
+- [x] [eta-wavlm efficient speaker identity removal in self-supervised speech represent](audio_speech/eta-wavlm_efficient_speaker_identity_removal_in_self-supervised_speech_represent.md) | arXiv: 2505.19273
 - [ ] [etf an entity tracing framework for hallucination detection in code summaries](others/etf_an_entity_tracing_framework_for_hallucination_detection_in_code_summaries.md) | arXiv: 2410.14748
 - [ ] [evaluating design decisions for dual encoder-based entity disambiguation](others/evaluating_design_decisions_for_dual_encoder-based_entity_disambiguation.md) | arXiv: 2505.11683
-- [ ] [evaluating implicit bias in large language models by attacking from a psychometr](llm_nlp/evaluating_implicit_bias_in_large_language_models_by_attacking_from_a_psychometr.md) | arXiv: 2406.14023
+- [x] [evaluating implicit bias in large language models by attacking from a psychometr](llm_nlp/evaluating_implicit_bias_in_large_language_models_by_attacking_from_a_psychometr.md) | arXiv: 2406.14023
 - [x] [Evaluating Language Models as Synthetic Data Generators](llm_nlp/evaluating_lms_synthetic_data_gen.md) | arXiv: 2412.03679
 - [ ] [evaluating lexical proficiency in neural language models](llm_nlp/evaluating_lexical_proficiency_in_neural_language_models.md)
 - [ ] [evaluating llms for portuguese sentence simplification with linguistic insights](llm_nlp/evaluating_llms_for_portuguese_sentence_simplification_with_linguistic_insights.md)
@@ -770,7 +770,7 @@
 - [ ] [exclusion of thought mitigating cognitive load in large language models for enha](llm_nlp/exclusion_of_thought_mitigating_cognitive_load_in_large_language_models_for_enha.md)
 - [ ] [execute a multilingual benchmark for llm token understanding](llm_nlp/execute_a_multilingual_benchmark_for_llm_token_understanding.md) | arXiv: 2505.17784
 - [ ] [exit context-aware extractive compression for enhancing retrieval-augmented gene](model_compression/exit_context-aware_extractive_compression_for_enhancing_retrieval-augmented_gene.md) | arXiv: 2412.12559
-- [ ] [expectation confirmation preference optimization for multi-turn conversational r](llm_alignment/expectation_confirmation_preference_optimization_for_multi-turn_conversational_r.md) | arXiv: 2506.14302
+- [x] [expectation confirmation preference optimization for multi-turn conversational r](llm_alignment/expectation_confirmation_preference_optimization_for_multi-turn_conversational_r.md) | arXiv: 2506.14302
 - [ ] [expert an explainable image captioning evaluation metric with structured explana](multimodal_vlm/expert_an_explainable_image_captioning_evaluation_metric_with_structured_explana.md) | arXiv: 2506.24016
 - [ ] [expetrans llms are experiential transfer learners](llm_nlp/expetrans_llms_are_experiential_transfer_learners.md)
 - [ ] [explain-then-process using grammar prompting to enhance grammatical acceptabilit](llm_nlp/explain-then-process_using_grammar_prompting_to_enhance_grammatical_acceptabilit.md) | arXiv: 2506.02302
@@ -807,20 +807,20 @@
 - [x] [fairi tales evaluation of fairness in indian contexts with a focus on bias and s](ai_safety/fairi_tales_evaluation_of_fairness_in_indian_contexts_with_a_focus_on_bias_and_s.md) | arXiv: 2506.23111
 - [ ] [fairness beyond performance revealing reliability disparities across groups in l](ai_safety/fairness_beyond_performance_revealing_reliability_disparities_across_groups_in_l.md)
 - [x] [Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs](ai_safety/fairness_difference_awareness.md) | arXiv: 2502.01926
-- [ ] [fairsteer inference time debiasing for llms with dynamic activation steering](llm_nlp/fairsteer_inference_time_debiasing_for_llms_with_dynamic_activation_steering.md) | arXiv: 2504.14492
+- [x] [fairsteer inference time debiasing for llms with dynamic activation steering](llm_nlp/fairsteer_inference_time_debiasing_for_llms_with_dynamic_activation_steering.md) | arXiv: 2504.14492
 - [ ] [faithful and robust llm-driven theorem proving for nli explanations](llm_nlp/faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations.md) | arXiv: 2505.24264
 - [x] [FaithfulRAG: Fact-Level Conflict Modeling for Context-Faithful Retrieval-Augmented Generation](others/faithfulrag_fact_level_conflict.md) | arXiv: 2506.08938
 - [ ] [fast or slow integrating fast intuition and deliberate thinking for enhancing vi](multimodal_vlm/fast_or_slow_integrating_fast_intuition_and_deliberate_thinking_for_enhancing_vi.md)
-- [ ] [fast-and-frugal text-graph transformers are effective link predictors](graph_learning/fast-and-frugal_text-graph_transformers_are_effective_link_predictors.md) | arXiv: 2408.06778
+- [x] [fast-and-frugal text-graph transformers are effective link predictors](graph_learning/fast-and-frugal_text-graph_transformers_are_effective_link_predictors.md) | arXiv: 2408.06778
 - [ ] [fastdraft how to train your draft](others/fastdraft_how_to_train_your_draft.md) | arXiv: 2411.11055
 - [ ] [faster speculative decoding via effective draft decoder with pruned candidate tr](llm_efficiency/faster_speculative_decoding_via_effective_draft_decoder_with_pruned_candidate_tr.md)
 - [ ] [fastmcts a simple sampling strategy for data synthesis](others/fastmcts_a_simple_sampling_strategy_for_data_synthesis.md) | arXiv: 2502.11476
 - [ ] [fcmr robust evaluation of financial cross-modal multi-hop reasoning](others/fcmr_robust_evaluation_of_financial_cross-modal_multi-hop_reasoning.md) | arXiv: 2412.12567
 - [x] [FEA-Bench: A Benchmark for Evaluating Repository-Level Code Generation for Feature Implementation](nlp_generation/feabench_repo_code_gen.md) | arXiv: 2503.06680
 - [ ] [feat a preference feedback dataset through a cost-effective auto-generation and ](others/feat_a_preference_feedback_dataset_through_a_cost-effective_auto-generation_and_.md) | arXiv: 2506.19325
-- [ ] [federated data-efficient instruction tuning for large language models](llm_alignment/federated_data-efficient_instruction_tuning_for_large_language_models.md) | arXiv: 2410.10926
+- [x] [federated data-efficient instruction tuning for large language models](llm_alignment/federated_data-efficient_instruction_tuning_for_large_language_models.md) | arXiv: 2410.10926
 - [x] [FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models](model_compression/fedex_lora_federated_exact_aggregation.md) | arXiv: 2410.09432
-- [ ] [fidelis faithful reasoning in large language model for knowledge graph question ](graph_learning/fidelis_faithful_reasoning_in_large_language_model_for_knowledge_graph_question_.md) | arXiv: 2405.13873
+- [x] [fidelis faithful reasoning in large language model for knowledge graph question ](graph_learning/fidelis_faithful_reasoning_in_large_language_model_for_knowledge_graph_question_.md) | arXiv: 2405.13873
 - [ ] [fiha autonomous hallucination evaluation in vision-language models with davidson](multimodal_vlm/fiha_autonomous_hallucination_evaluation_in_vision-language_models_with_davidson.md) | arXiv: 2409.13612
 - [ ] [filter-and-refine a mllm based cascade system for industrial-scale video content](multimodal_vlm/filter-and-refine_a_mllm_based_cascade_system_for_industrial-scale_video_content.md) | arXiv: 2507.17204
 - [x] [FinanceReasoning: Benchmarking Financial Numerical Reasoning More Credible, Comprehensive and Challenging](others/financereasoning_benchmarking_financial_numerical_reasoning_more.md) | arXiv: 2506.05828
@@ -870,7 +870,7 @@
 - [ ] [from perceptions to decisions wildfire evacuation decision prediction with behav](llm_nlp/from_perceptions_to_decisions_wildfire_evacuation_decision_prediction_with_behav.md)
 - [ ] [from real to synthetic synthesizing millions of diversified and complicated user](others/from_real_to_synthetic_synthesizing_millions_of_diversified_and_complicated_user.md) | arXiv: 2506.03968
 - [x] [from selection to generation a survey](llm_nlp/from_selection_to_generation_a_survey.md)
-- [ ] [from selection to generation a survey of llm-based active learning](llm_nlp/from_selection_to_generation_a_survey_of_llm-based_active_learning.md) | arXiv: 2502.11767
+- [x] [from selection to generation a survey of llm-based active learning](llm_nlp/from_selection_to_generation_a_survey_of_llm-based_active_learning.md) | arXiv: 2502.11767
 - [ ] [from sub-ability diagnosis to human-aligned generation bridging the gap for text](others/from_sub-ability_diagnosis_to_human-aligned_generation_bridging_the_gap_for_text.md)
 - [ ] [from teacher to student tracking memorization through model distillation](video_understanding/from_teacher_to_student_tracking_memorization_through_model_distillation.md) | arXiv: 2506.16170
 - [ ] [from tools to teammates evaluating llms in multi-session coding interactions](llm_nlp/from_tools_to_teammates_evaluating_llms_in_multi-session_coding_interactions.md) | arXiv: 2502.13791
@@ -969,7 +969,7 @@
 - [ ] [hiagent hierarchical working memory management for solving long-horizon agent ta](llm_nlp/hiagent_hierarchical_working_memory_management_for_solving_long-horizon_agent_ta.md)
 - [x] [HiCUPID: Exploring the Potential of LLMs as Personalized Assistants](llm_nlp/exploring_the_potential_of_llms_as.md) | arXiv: 2506.01262
 - [ ] [hidden in plain sight evaluation of the deception detection capabilities of llms](multimodal_vlm/hidden_in_plain_sight_evaluation_of_the_deception_detection_capabilities_of_llms.md) | arXiv: 2506.09424
-- [ ] [hiddendetect detecting jailbreak attacks against multimodal large language model](llm_alignment/hiddendetect_detecting_jailbreak_attacks_against_multimodal_large_language_model.md) | arXiv: 2502.14744
+- [x] [hiddendetect detecting jailbreak attacks against multimodal large language model](llm_alignment/hiddendetect_detecting_jailbreak_attacks_against_multimodal_large_language_model.md) | arXiv: 2502.14744
 - [x] [HiDe-LLaVA: Hierarchical Decoupling for Continual Instruction Tuning of Multimodal Large Language Model](multimodal_vlm/hidellava_hierarchical_decoupling_for_continual_instruction.md) | arXiv: 2503.12941
 - [ ] [hierarchical attention generates better proofs](others/hierarchical_attention_generates_better_proofs.md)
 - [x] [Hierarchical Bracketing Encodings for Dependency Parsing as Tagging](others/hierarchical_bracketing_dep_parsing.md) | arXiv: 2505.11693
@@ -1005,7 +1005,7 @@
 - [x] [hygenar an llm-driven hybrid genetic algorithm for few-shot grammar generation](llm_nlp/hygenar_an_llm-driven_hybrid_genetic_algorithm_for_few-shot_grammar_generation.md) | arXiv: 2505.16978
 - [ ] [hykge a hypothesis knowledge graph enhanced rag framework for accurate and relia](medical_imaging/hykge_a_hypothesis_knowledge_graph_enhanced_rag_framework_for_accurate_and_relia.md)
 - [ ] [hyperfm fact-centric multimodal fusion for link prediction over hyper-relational](graph_learning/hyperfm_fact-centric_multimodal_fusion_for_link_prediction_over_hyper-relational.md)
-- [ ] [hypothetical documents or knowledge leakage rethinking llm-based query expansion](llm_nlp/hypothetical_documents_or_knowledge_leakage_rethinking_llm-based_query_expansion.md) | arXiv: 2504.14175
+- [x] [hypothetical documents or knowledge leakage rethinking llm-based query expansion](llm_nlp/hypothetical_documents_or_knowledge_leakage_rethinking_llm-based_query_expansion.md) | arXiv: 2504.14175
 - [ ] [i see what you mean co-speech gestures for reference resolution in multimodal di](human_understanding/i_see_what_you_mean_co-speech_gestures_for_reference_resolution_in_multimodal_di.md) | arXiv: 2503.00071
 - [ ] [i0t embedding standardization method towards zero modality gap](others/i0t_embedding_standardization_method_towards_zero_modality_gap.md)
 - [x] [iagent llm agent as a shield between user and recommender systems](llm_agent/iagent_llm_agent_as_a_shield_between_user_and_recommender_systems.md) | arXiv: 2502.14662
@@ -1035,7 +1035,7 @@
 - [ ] [improving contextual faithfulness of large language models via retrieval heads-i](llm_nlp/improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
 - [ ] [improving continual pre-training through seamless data packing](others/improving_continual_pre-training_through_seamless_data_packing.md) | arXiv: 2505.22018
 - [ ] [improving dialogue discourse parsing through discourse-aware utterance clarifica](others/improving_dialogue_discourse_parsing_through_discourse-aware_utterance_clarifica.md)
-- [ ] [improving dialogue state tracking through combinatorial search for in-context ex](video_understanding/improving_dialogue_state_tracking_through_combinatorial_search_for_in-context_ex.md) | arXiv: 2506.00622
+- [x] [improving dialogue state tracking through combinatorial search for in-context ex](video_understanding/improving_dialogue_state_tracking_through_combinatorial_search_for_in-context_ex.md) | arXiv: 2506.00622
 - [ ] [improving fairness of large language models in multi-document summarization](ai_safety/improving_fairness_of_large_language_models_in_multi-document_summarization.md) | arXiv: 2506.07479
 - [x] [Improving Language and Modality Transfer in Translation by Character-level Modeling](others/improving_language_and_modality_transfer_in.md) | arXiv: 2505.24561
 - [x] [improving low-resource morphological inflection via self-supervised objectives](self_supervised/improving_low-resource_morphological_inflection_via_self-supervised_objectives.md) | arXiv: 2506.05227
@@ -1089,7 +1089,7 @@
 - [x] [Intuitive Fine-Tuning: Towards Simplifying Alignment into a Single Process](others/intuitive_fine_tuning.md) | arXiv: 2405.11870
 - [ ] [investalign overcoming data scarcity in aligning large language models with inve](llm_nlp/investalign_overcoming_data_scarcity_in_aligning_large_language_models_with_inve.md)
 - [ ] [investigating and enhancing the robustness of large multimodal models against te](multimodal_vlm/investigating_and_enhancing_the_robustness_of_large_multimodal_models_against_te.md)
-- [ ] [investigating and enhancing vision-audio capability in omnimodal large language ](audio_speech/investigating_and_enhancing_vision-audio_capability_in_omnimodal_large_language_.md) | arXiv: 2503.00059
+- [x] [investigating and enhancing vision-audio capability in omnimodal large language ](audio_speech/investigating_and_enhancing_vision-audio_capability_in_omnimodal_large_language_.md) | arXiv: 2503.00059
 - [ ] [investigating and extending homans social exchange theory with large language mo](llm_nlp/investigating_and_extending_homans_social_exchange_theory_with_large_language_mo.md)
 - [ ] [investigating context-faithfulness in large language models the roles of memory ](llm_nlp/investigating_context-faithfulness_in_large_language_models_the_roles_of_memory_.md) | arXiv: 2409.10955
 - [ ] [investigating language preference of multilingual rag systems](others/investigating_language_preference_of_multilingual_rag_systems.md) | arXiv: 2502.11175
@@ -1268,7 +1268,7 @@
 - [ ] [lost in literalism how supervised training shapes translationese in llms](llm_nlp/lost_in_literalism_how_supervised_training_shapes_translationese_in_llms.md)
 - [ ] [lost in multilinguality dissecting cross-lingual factual inconsistency in transf](llm_nlp/lost_in_multilinguality_dissecting_cross-lingual_factual_inconsistency_in_transf.md) | arXiv: 2504.04264
 - [ ] [lost in the context insufficient and distracted attention to contexts in prefere](others/lost_in_the_context_insufficient_and_distracted_attention_to_contexts_in_prefere.md)
-- [ ] [lotus a leaderboard for detailed image captioning from quality to societal bias ](recommender/lotus_a_leaderboard_for_detailed_image_captioning_from_quality_to_societal_bias_.md) | arXiv: 2507.19362
+- [x] [lotus a leaderboard for detailed image captioning from quality to societal bias ](recommender/lotus_a_leaderboard_for_detailed_image_captioning_from_quality_to_societal_bias_.md) | arXiv: 2507.19362
 - [ ] [low-bit quantization favors undertrained llms](model_compression/low-bit_quantization_favors_undertrained_llms.md)
 - [ ] [low-perplexity llm-generated sequences and where to find them](aigc_detection/low-perplexity_llm-generated_sequences_and_where_to_find_them.md) | arXiv: 2507.01844
 - [ ] [low-rank interconnected adaptation across layers](others/low-rank_interconnected_adaptation_across_layers.md) | arXiv: 2407.09946
@@ -1365,7 +1365,7 @@
 - [ ] [mining complex patterns of argumentative reasoning in natural language dialogue](others/mining_complex_patterns_of_argumentative_reasoning_in_natural_language_dialogue.md)
 - [ ] [mining the uncertainty patterns of humans and models in the annotation of moral ](others/mining_the_uncertainty_patterns_of_humans_and_models_in_the_annotation_of_moral_.md)
 - [ ] [mir methodology inspiration retrieval for scientific research problems](others/mir_methodology_inspiration_retrieval_for_scientific_research_problems.md) | arXiv: 2506.00249
-- [ ] [mira empowering one-touch ai services on smartphones with mllm-based instruction](recommender/mira_empowering_one-touch_ai_services_on_smartphones_with_mllm-based_instruction.md) | arXiv: 2509.13773
+- [x] [mira empowering one-touch ai services on smartphones with mllm-based instruction](recommender/mira_empowering_one-touch_ai_services_on_smartphones_with_mllm-based_instruction.md) | arXiv: 2509.13773
 - [ ] [mirage exploring how large language models perform in complex social interactive](llm_nlp/mirage_exploring_how_large_language_models_perform_in_complex_social_interactive.md)
 - [ ] [mire enhancing multimodal queries representation via fusion-free modality intera](multimodal_vlm/mire_enhancing_multimodal_queries_representation_via_fusion-free_modality_intera.md) | arXiv: 2411.08334
 - [ ] [mis-prompt benchmarking large language models for proactive error handling](llm_nlp/mis-prompt_benchmarking_large_language_models_for_proactive_error_handling.md)
@@ -1394,7 +1394,7 @@
 - [x] [mmmu pro robust benchmark](multimodal_vlm/mmmu_pro_robust_benchmark.md)
 - [x] [MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark](multimodal_vlm/mmmupro_a_more_robust_multidiscipline_multimodal.md) | arXiv: 2409.02813
 - [ ] [mmrc a large-scale benchmark for understanding multimodal large language model i](multimodal_vlm/mmrc_a_large-scale_benchmark_for_understanding_multimodal_large_language_model_i.md)
-- [ ] [mms-llama efficient llm-based audio-visual speech recognition with minimal multi](audio_speech/mms-llama_efficient_llm-based_audio-visual_speech_recognition_with_minimal_multi.md) | arXiv: 2503.11315
+- [x] [mms-llama efficient llm-based audio-visual speech recognition with minimal multi](audio_speech/mms-llama_efficient_llm-based_audio-visual_speech_recognition_with_minimal_multi.md) | arXiv: 2503.11315
 - [x] [MMSafeAware: Can't See the Forest for the Trees: Benchmarking Multimodal Safety Awareness for Multimodal LLMs](multimodal_vlm/cant_see_the_forest_for_the.md) | arXiv: 2502.11184
 - [ ] [mmscibench benchmarking language models on chinese multimodal scientific problem](multimodal_vlm/mmscibench_benchmarking_language_models_on_chinese_multimodal_scientific_problem.md) | arXiv: 2503.01891
 - [ ] [mmunlearner reformulating multimodal machine unlearning in the era of multimodal](multimodal_vlm/mmunlearner_reformulating_multimodal_machine_unlearning_in_the_era_of_multimodal.md) | arXiv: 2502.11051
@@ -1662,13 +1662,13 @@
 - [ ] [rageval scenario specific rag evaluation dataset generation framework](others/rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)
 - [ ] [rank chunk and expand lineage-oriented reasoning for taxonomy expansion](others/rank_chunk_and_expand_lineage-oriented_reasoning_for_taxonomy_expansion.md) | arXiv: 2505.13282
 - [ ] [rankcot refining knowledge for retrieval-augmented generation through ranking ch](llm_reasoning/rankcot_refining_knowledge_for_retrieval-augmented_generation_through_ranking_ch.md)
-- [ ] [ranked voting based self-consistency of large language models](llm_reasoning/ranked_voting_based_self-consistency_of_large_language_models.md) | arXiv: 2505.10772
+- [x] [ranked voting based self-consistency of large language models](llm_reasoning/ranked_voting_based_self-consistency_of_large_language_models.md) | arXiv: 2505.10772
 - [ ] [ranking unraveled recipes for llm rankings in head-to-head ai combat](llm_nlp/ranking_unraveled_recipes_for_llm_rankings_in_head-to-head_ai_combat.md)
 - [x] [RARE: Retrieval-Augmented Reasoning Enhancement for Large Language Models](llm_nlp/rare_retrieval_augmented_reasoning.md) | arXiv: 2412.02830
 - [ ] [rate-nav region-aware termination enhancement for zero-shot object navigation wi](multimodal_vlm/rate-nav_region-aware_termination_enhancement_for_zero-shot_object_navigation_wi.md) | arXiv: 2506.02354
 - [ ] [rationales are not silver bullets measuring the impact of rationales on model pe](others/rationales_are_not_silver_bullets_measuring_the_impact_of_rationales_on_model_pe.md) | arXiv: 2505.24147
 - [ ] [rationalyst pre-training process-supervision for improving reasoning](others/rationalyst_pre-training_process-supervision_for_improving_reasoning.md)
-- [ ] [raven robust advertisement video violation temporal grounding via reinforcement ](video_understanding/raven_robust_advertisement_video_violation_temporal_grounding_via_reinforcement_.md) | arXiv: 2510.16455
+- [x] [raven robust advertisement video violation temporal grounding via reinforcement ](video_understanding/raven_robust_advertisement_video_violation_temporal_grounding_via_reinforcement_.md) | arXiv: 2510.16455
 - [x] [Re-identification of De-identified Documents with Autoregressive Infilling](others/reidentification_deidentified.md) | arXiv: 2505.12859
 - [x] [Re-ranking Using Large Language Models for Mitigating Exposure to Harmful Content on Social Media Platforms](llm_nlp/llm_reranking_harmful_content.md) | arXiv: 2501.13977
 - [ ] [re-task revisiting llm tasks from capability skill and knowledge perspectives](llm_nlp/re-task_revisiting_llm_tasks_from_capability_skill_and_knowledge_perspectives.md) | arXiv: 2408.06904
@@ -1687,7 +1687,7 @@
 - [x] [Recurrent Knowledge Identification and Fusion for Language Model Continual Learning](llm_nlp/recurrent_kif_continual_learning.md) | arXiv: 2502.17510
 - [ ] [recursive question understanding for complex question answering over heterogeneo](nlp_understanding/recursive_question_understanding_for_complex_question_answering_over_heterogeneo.md) | arXiv: 2505.11900
 - [x] [red queen safeguarding large language models against concealed multi-turn jailbr](llm_alignment/red_queen_safeguarding_large_language_models_against_concealed_multi-turn_jailbr.md) | arXiv: 2409.17458
-- [ ] [red-teaming llm multi-agent systems via communication attacks](llm_nlp/red-teaming_llm_multi-agent_systems_via_communication_attacks.md) | arXiv: 2502.14847
+- [x] [red-teaming llm multi-agent systems via communication attacks](llm_nlp/red-teaming_llm_multi-agent_systems_via_communication_attacks.md) | arXiv: 2502.14847
 - [ ] [redactor an llm-powered framework for automatic clinical data de-identification](medical_imaging/redactor_an_llm-powered_framework_for_automatic_clinical_data_de-identification.md) | arXiv: 2505.18380
 - [ ] [redundancy isotropy and intrinsic dimensionality of prompt-based text embeddings](llm_nlp/redundancy_isotropy_and_intrinsic_dimensionality_of_prompt-based_text_embeddings.md) | arXiv: 2506.01435
 - [ ] [redundancy principles for mllms benchmarks](multimodal_vlm/redundancy_principles_for_mllms_benchmarks.md)
@@ -1920,7 +1920,7 @@
 - [ ] [sticking to the mean detecting sticky tokens in text embedding models](others/sticking_to_the_mean_detecting_sticky_tokens_in_text_embedding_models.md) | arXiv: 2507.18171
 - [ ] [stitchllm serving llms one block at a time](llm_efficiency/stitchllm_serving_llms_one_block_at_a_time.md)
 - [x] [stochastic chameleons irrelevant context hallucinations reveal class-based misge](llm_nlp/stochastic_chameleons_irrelevant_context_hallucinations_reveal_class-based_misge.md) | arXiv: 2505.22630
-- [ ] [stress-testing machine generated text detection shifting language models writing](llm_nlp/stress-testing_machine_generated_text_detection_shifting_language_models_writing.md) | arXiv: 2505.24523
+- [x] [stress-testing machine generated text detection shifting language models writing](llm_nlp/stress-testing_machine_generated_text_detection_shifting_language_models_writing.md) | arXiv: 2505.24523
 - [x] [stricta structured reasoning in critical text assessment for peer review and bey](others/stricta_structured_reasoning_in_critical_text_assessment_for_peer_review_and_bey.md) | arXiv: 2409.05367
 - [x] [STRICTA: Structured Reasoning in Critical Text Assessment for Peer Review and Beyond](llm_reasoning/stricta_structured_reasoning_peer_review.md) | arXiv: 2409.05367
 - [x] [StrucText-Eval: Evaluating Large Language Model's Reasoning Ability in Structure-Rich Text](llm_nlp/structext_eval.md) | arXiv: 2406.10621
@@ -1937,7 +1937,7 @@
 - [ ] [surveypilot an agentic framework for automated human opinion collection from soc](llm_agent/surveypilot_an_agentic_framework_for_automated_human_opinion_collection_from_soc.md)
 - [ ] [swiltra-bench the swiss legal translation benchmark](others/swiltra-bench_the_swiss_legal_translation_benchmark.md)
 - [x] [Symmetrical Visual Contrastive Optimization: Aligning Vision-Language Models with Minimal Contrastive Images](multimodal_vlm/symmetrical_visual_contrastive_optimization_aligning_visionlanguage.md) | arXiv: 2502.13928
-- [ ] [synapticrag enhancing temporal memory retrieval in large language models through](llm_nlp/synapticrag_enhancing_temporal_memory_retrieval_in_large_language_models_through.md) | arXiv: 2410.13553
+- [x] [synapticrag enhancing temporal memory retrieval in large language models through](llm_nlp/synapticrag_enhancing_temporal_memory_retrieval_in_large_language_models_through.md) | arXiv: 2410.13553
 - [ ] [synergistic weak-strong collaboration by aligning preferences](others/synergistic_weak-strong_collaboration_by_aligning_preferences.md)
 - [x] [Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection](multimodal_vlm/llm_label_propagation.md) | arXiv: 2506.00488
 - [ ] [synergizing unsupervised episode detection with llms for large-scale news events](llm_nlp/synergizing_unsupervised_episode_detection_with_llms_for_large-scale_news_events.md) | arXiv: 2408.04873
@@ -1983,7 +1983,7 @@
 - [ ] [temporal reasoning for timeline summarisation in social media](others/temporal_reasoning_for_timeline_summarisation_in_social_media.md)
 - [ ] [temporal relation extraction in clinical texts a span-based graph transformer ap](medical_imaging/temporal_relation_extraction_in_clinical_texts_a_span-based_graph_transformer_ap.md)
 - [ ] [terdy temporal relation dynamics through frequency decomposition for temporal kn](graph_learning/terdy_temporal_relation_dynamics_through_frequency_decomposition_for_temporal_kn.md)
-- [ ] [tess 2 a large-scale generalist diffusion language model](llm_nlp/tess_2_a_large-scale_generalist_diffusion_language_model.md) | arXiv: 2502.13917
+- [x] [tess 2 a large-scale generalist diffusion language model](llm_nlp/tess_2_a_large-scale_generalist_diffusion_language_model.md) | arXiv: 2502.13917
 - [ ] [testnuc enhancing test-time computing approaches and scaling through neighboring](others/testnuc_enhancing_test-time_computing_approaches_and_scaling_through_neighboring.md) | arXiv: 2502.19163
 - [ ] [tetris optimal draft token selection for batch speculative decoding](llm_efficiency/tetris_optimal_draft_token_selection_for_batch_speculative_decoding.md)
 - [ ] [texpert a multi-level benchmark for evaluating latex code generation by llms](nlp_generation/texpert_a_multi-level_benchmark_for_evaluating_latex_code_generation_by_llms.md) | arXiv: 2506.16990
@@ -2064,7 +2064,7 @@
 - [ ] [towards effective and efficient continual pre-training of large language models](llm_nlp/towards_effective_and_efficient_continual_pre-training_of_large_language_models.md)
 - [ ] [towards effective extraction and evaluation of factual claims](others/towards_effective_extraction_and_evaluation_of_factual_claims.md) | arXiv: 2502.10855
 - [ ] [towards enhanced immersion and agency for llm-based interactive drama](llm_nlp/towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)
-- [ ] [towards explainable temporal reasoning in large language models a structure-awar](llm_nlp/towards_explainable_temporal_reasoning_in_large_language_models_a_structure-awar.md) | arXiv: 2505.15245
+- [x] [towards explainable temporal reasoning in large language models a structure-awar](llm_nlp/towards_explainable_temporal_reasoning_in_large_language_models_a_structure-awar.md) | arXiv: 2505.15245
 - [ ] [towards fairness assessment of dutch hate speech detection](ai_safety/towards_fairness_assessment_of_dutch_hate_speech_detection.md) | arXiv: 2506.12502
 - [ ] [towards fully exploiting llm internal states to enhance knowledge boundary perce](llm_nlp/towards_fully_exploiting_llm_internal_states_to_enhance_knowledge_boundary_perce.md)
 - [x] [Towards Geo-Culturally Grounded LLM Generations](llm_nlp/geocultural_grounded_llm.md) | arXiv: 2502.13497
@@ -2162,10 +2162,10 @@
 - [ ] [unravelling the logic investigating the generalisation of transformers in numeri](others/unravelling_the_logic_investigating_the_generalisation_of_transformers_in_numeri.md)
 - [ ] [unseentimeqa time-sensitive question-answering beyond llms memorization](llm_nlp/unseentimeqa_time-sensitive_question-answering_beyond_llms_memorization.md) | arXiv: 2407.03525
 - [x] [Unsolvable Problem Detection: Evaluating Trustworthiness of Large Multimodal Models](multimodal_vlm/unsolvable_problem_detection.md) | arXiv: 2403.20331
-- [ ] [unsupervised morphological tree tokenizer](llm_nlp/unsupervised_morphological_tree_tokenizer.md) | arXiv: 2406.15245
+- [x] [unsupervised morphological tree tokenizer](llm_nlp/unsupervised_morphological_tree_tokenizer.md) | arXiv: 2406.15245
 - [ ] [untie the knots an efficient data augmentation strategy for long-context pre-tra](llm_efficiency/untie_the_knots_an_efficient_data_augmentation_strategy_for_long-context_pre-tra.md)
 - [ ] [unveil unified visual-textual integration and distillation for multi-modal docum](multimodal_vlm/unveil_unified_visual-textual_integration_and_distillation_for_multi-modal_docum.md)
-- [ ] [unveiling and addressing pseudo forgetting in large language models](llm_nlp/unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md) | arXiv: 2411.11932
+- [x] [unveiling and addressing pseudo forgetting in large language models](llm_nlp/unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md) | arXiv: 2411.11932
 - [ ] [unveiling attractor cycles in large language models a dynamical systems view of ](nlp_generation/unveiling_attractor_cycles_in_large_language_models_a_dynamical_systems_view_of_.md)
 - [ ] [unveiling cultural blind spots analyzing the limitations of mllms in procedural ](multimodal_vlm/unveiling_cultural_blind_spots_analyzing_the_limitations_of_mllms_in_procedural_.md)
 - [ ] [unveiling dual quality in product reviews an nlp-based approach](others/unveiling_dual_quality_in_product_reviews_an_nlp-based_approach.md) | arXiv: 2505.19254
@@ -2213,7 +2213,7 @@
 - [ ] [voxrag a step toward transcription-free rag systems in spoken question answering](nlp_understanding/voxrag_a_step_toward_transcription-free_rag_systems_in_spoken_question_answering.md) | arXiv: 2505.17326
 - [ ] [vqaguider guiding multimodal large language models to answer complex video quest](multimodal_vlm/vqaguider_guiding_multimodal_large_language_models_to_answer_complex_video_quest.md)
 - [x] [VReST: Enhancing Reasoning in Large Vision-Language Models through Tree Search and Self-Reward Mechanism](multimodal_vlm/vrest_tree_search_vlm_reasoning.md) | arXiv: 2506.08691
-- [ ] [vulnerability of llms to vertically aligned text manipulations](robotics/vulnerability_of_llms_to_vertically_aligned_text_manipulations.md) | arXiv: 2410.20016
+- [x] [vulnerability of llms to vertically aligned text manipulations](robotics/vulnerability_of_llms_to_vertically_aligned_text_manipulations.md) | arXiv: 2410.20016
 - [ ] [waffle fine-tuning multi-modal model for automated front-end development](multimodal_vlm/waffle_fine-tuning_multi-modal_model_for_automated_front-end_development.md)
 - [x] [Wait, that's not an option: LLMs Robustness with Incorrect Multiple-Choice Options](llm_nlp/llm_robustness_incorrect_mcq.md) | arXiv: 2409.00113
 - [ ] [walk in others shoes with a single glance human-centric visual grounding with to](multimodal_vlm/walk_in_others_shoes_with_a_single_glance_human-centric_visual_grounding_with_to.md)
@@ -2264,7 +2264,7 @@
 - [ ] [wicked a simple method to make multiple choice benchmarks more challenging](others/wicked_a_simple_method_to_make_multiple_choice_benchmarks_more_challenging.md)
 - [ ] [wikimixqa a multimodal benchmark for question answering over tables and charts](multimodal_vlm/wikimixqa_a_multimodal_benchmark_for_question_answering_over_tables_and_charts.md) | arXiv: 2506.15594
 - [ ] [winspot gui grounding benchmark with multimodal large language models](multimodal_vlm/winspot_gui_grounding_benchmark_with_multimodal_large_language_models.md)
-- [ ] [wirelessmathbench a mathematical modeling benchmark for llms in wireless communi](signal_comm/wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi.md) | arXiv: 2505.14354
+- [x] [wirelessmathbench a mathematical modeling benchmark for llms in wireless communi](signal_comm/wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi.md) | arXiv: 2505.14354
 - [ ] [wizard of shopping target-oriented e-commerce dialogue generation with decision ](others/wizard_of_shopping_target-oriented_e-commerce_dialogue_generation_with_decision_.md)
 - [ ] [words of warmth trust and sociability norms for over 26k english words](others/words_of_warmth_trust_and_sociability_norms_for_over_26k_english_words.md) | arXiv: 2506.03993
 - [ ] [world modeling makes a better planner dual preference optimization for embodied ](llm_alignment/world_modeling_makes_a_better_planner_dual_preference_optimization_for_embodied_.md)

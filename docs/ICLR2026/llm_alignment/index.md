@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐 / RLHF
 
-**🔬 ICLR2026** · 共 **34** 篇
+**🔬 ICLR2026** · 共 **28** 篇
 
 **[A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models](a2d_any-order_any-step_safety_alignment_for_diffusion_language_models.md)**
 
@@ -75,21 +75,9 @@
 
 :   提出**D3S**（Dynamic Dual-Level Down-Sampling）框架，在sample层最大化advantage方差、在token层优先选取高熵+高advantage的token，配合动态调度策略，用不到20% token实现更快收敛和更优性能。
 
-**[Learning Ordinal Probabilistic Reward from Preferences (OPRM)](learning_ordinal_probabilistic_reward_from_preferences.md)**
-
-:   提出序数概率奖励模型(OPRM)，将响应质量离散化为1-9序数等级并学习完整概率分布，结合区域洪泛调优(RgFT)实现数据高效训练。在RewardBench达89.3%，比现有RM提升2.9%-7.4%，同时提供不确定性估计和标注分歧检测。
-
-**[Learning to Reason without External Rewards](learning_to_reason_without_external_rewards.md)**
-
-:   提出 Intuitor，一种用模型自身置信度（self-certainty，即输出分布与均匀分布的 KL 散度）替代外部可验证奖励的 RLIF 方法，在数学推理上匹配 GRPO 性能，同时在代码生成等域外任务上展现更好的泛化能力。
-
 **[Mitigating Mismatch within Reference-based Preference Optimization](mitigating_mismatch_within_reference-based_preference_optimization.md)**
 
 :   揭示 DPO 的"过早满足"问题——当 reference 策略对 chosen 的概率低于 rejected 时（~45% pairs），DPO 的梯度被 reference 的悲观信号不必要地衰减（即使策略仍然错误即 $\Delta_\theta < 0$）；提出 HyPO（一行代码修改：$\max(0, \Delta_{ref})$ 裁剪 reference margin），在 AlpacaEval 2.0 上相对 DPO 提升 41.2%。
-
-**[Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization](mitigating_the_safety_alignment_tax_with_null-space_constrained_policy_optimizat.md)**
-
-:   提出 NSPO，将安全对齐的策略梯度投影到通用任务表征的零空间中，从几何层面保证安全优化不损害通用能力，仅用 40% 安全数据即在 7 个安全 benchmark 上达到 SOTA，同时在数学/代码/指令遵循上几乎无性能损失。
 
 **[Reasoned Safety Alignment: Ensuring Jailbreak Defense via Answer-Then-Check](reasoned_safety_alignment_ensuring_jailbreak_defense_via_answer-then-check.md)**
 
@@ -103,17 +91,9 @@
 
 :   重新审视安全约束 RLHF 目标并证明其存在闭式最优策略，据此推导出等价的可处理目标 SafeDPO，仅需在标准 DPO 上加入安全感知数据变换和安全 margin 项（1 个额外超参数），无需奖励/代价模型，在 PKU-SafeRLHF-30K 上实现 96.87% 无害率且保持竞争力的有用性，训练速度比 SafeRLHF 快 25×。
 
-**[Skywork-Reward-V2: Scaling Preference Data Curation via Human-AI Synergy](skywork-reward-v2_scaling_preference_data_curation_via_human-ai_synergy.md)**
-
-:   提出Human-AI协同的两阶段偏好数据策展流程：第一阶段人工验证+错误驱动检索+偏好引导LLM标注迭代8轮积累1M对，第二阶段一致性过滤扩展到26M对。训练的Skywork-Reward-V2 8B模型在RewardBench达97.8%，在7个基准上平均88.6%超越所有开源70B模型。
-
 **[Superficial Safety Alignment Hypothesis](superficial_safety_alignment_hypothesis.md)**
 
 :   提出"浅层安全对齐假说"(SSAH)：安全对齐本质上是教模型做一个隐式的二分类任务（执行还是拒绝），只需约1.3%的神经元即可建立安全护栏；冻结这些安全关键单元可在微调时保持安全性，利用冗余单元作为"对齐预算"可消除对齐税。
-
-**[Swap-guided Preference Learning for Personalized RLHF (SPL)](swap-guided_preference_learning_for_personalized_reinforcement_learning_from_hum.md)**
-
-:   解决变分偏好学习(VPL)中的后验崩坏问题：提出SPL，通过swap引导基础正则化(强制潜变量编码用户偏好而非被忽略)+Preferential-IAF分解swap可逆/不可逆信号+自适应潜变量调节。在Llama-3.1-8B上达63.71%准确率+97.10%活跃单元，而VPL崩坏到57.14%+0%。
 
 **[Token-Importance Guided Direct Preference Optimization (TI-DPO)](token-importance_guided_direct_preference_optimization.md)**
 
@@ -122,10 +102,6 @@
 **[Toward Universal and Transferable Jailbreak Attacks on Vision-Language Models (UltraBreak)](toward_universal_and_transferable_jailbreak_attacks_on_vision-language_models.md)**
 
 :   提出 UltraBreak，通过语义对抗目标（用cosine相似度替代交叉熵优化出平滑loss景观）+ 输入空间约束（随机变换+TV正则化产生变换不变特征），训练单张通用对抗图像即可跨6+个VLM架构和商业模型实现越狱，黑盒平均ASR达71%（SafeBench），远超此前方法。
-
-**[Towards Understanding Valuable Preference Data for LLM Alignment](towards_understanding_valuable_preference_data_for_large_language_model_alignmen.md)**
-
-:   挑战“数据质量是固有属性”的假设：发现偏好数据价值是模型相关的——对一个模型有益的数据可能伤害另一个。提出截断影响函数(TIF)识别高价值数据，及高效的LossDiff-IRM代理，仅用50-64%数据即提升WinRate 13.58%。
 
 **[Uni-DPO: A Unified Paradigm for Dynamic Preference Optimization of LLMs](uni-dpo_a_unified_paradigm_for_dynamic_preference_optimization_of_llms.md)**
 

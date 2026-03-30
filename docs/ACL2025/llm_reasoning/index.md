@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**💬 ACL2025** · 共 **34** 篇
+**💬 ACL2025** · 共 **26** 篇
 
 **[Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework](aristotle_logical_reasoning.md)**
 
@@ -11,17 +11,9 @@
 
 :   提出 BPP-Search 算法，将 Beam Search、过程奖励模型 (PRM) 和 Pairwise Preference 机制整合到 Tree-of-Thought 框架中，用于运筹学数学建模问题的自动求解，在 StructuredOR 等数据集上以更少的推理步骤显著超越 CoT/SC/ToT 基线。
 
-**[Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](chain-of-reasoning_towards_unified_mathematical_reasoning_in_large_language_mode.md)**
-
-:   提出 Chain-of-Reasoning (CoR) 框架，将自然语言推理 (NLR)、算法推理 (AR) 和符号推理 (SR) 三种范式统一整合，通过渐进范式训练 (PPT) 策略训练出 CoR-Math-7B，在定理证明任务上零样本超越 GPT-4o 41%，在 MATH 上超越 RL 方法 15%。
-
 **[Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](chain_of_reasoning_unified_math.md)**
 
 :   提出 Chain-of-Reasoning（CoR）框架，将自然语言推理（NLR）、算法推理（AR）和符号推理（SR）三种范式统一在一个推理链中，通过渐进范式训练（PPT）策略让 7B 模型（CoR-Math-7B）在零样本下超越 GPT-4o 41% 的定理证明准确率，在 MATH 基准上超过 RL 方法 15%。
-
-**[ClozeMath: Improving Mathematical Reasoning in Language Models by Learning to Fill Equations](clozemath_improving_mathematical_reasoning_in_language_models_by_learning_to_fil.md)**
-
-:   提出 ClozeMath，一种在微调时额外加入"方程填空"（text-infilling）目标的训练策略，让模型学会根据自然语言推理链预测被遮掩的数学方程，在 GSM8K/MATH 上显著超越 Masked Thought 基线，同时提高鲁棒性和 test-time scaling 效率。
 
 **[CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought](cot-uq_improving_response-wise_uncertainty_quantification_in_llms_with_chain-of-.md)**
 
@@ -55,10 +47,6 @@
 
 :   通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。
 
-**[Local Look-Ahead Guidance via Verifier-in-the-Loop for Automated Theorem Proving](local_look-ahead_guidance_via_verifier-in-the-loop_for_automated_theorem_proving.md)**
-
-:   提出 LeanListener，在自动定理证明(ATP)中引入 verifier-in-the-loop 设计，利用 Lean 验证器在每步提供中间反馈（子目标数变化）而非仅轨迹级奖励，通过在线 GRPO 训练使 ReProver 的 tactic 有效率和证明率均获提升，证明速度快 20%。
-
 **[LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning](logicpro_program_guided_reasoning.md)**
 
 :   提出 LogicPro 数据合成方法，利用 LeetCode 算法题和 Python 代码解作为逻辑源，通过"问题生成→代码中间变量提取→程序引导推理生成"三步流水线，从 2360 道算法题合成 540K 高质量文本推理数据，在 BBH27、LogicBench、DROP 等多个 OOD 基准上显著超越现有推理数据集。
@@ -70,14 +58,6 @@
 **[MMBoundary: Advancing MLLM Knowledge Boundary Awareness through Reasoning Step Confidence Calibration](mmboundary_reasoning_step_confidence.md)**
 
 :   提出 MMBoundary 框架，通过在推理链的每一步插入自然语言置信度表述（而非只在最终回答后给置信度），结合文本+跨模态的自奖励信号估计置信度，并用 SFT+RL 两阶段训练实现步级置信度校准，平均降低 7.5% 校准误差并提升 8.3% 任务准确率。
-
-**[One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL](one_missing_piece_for_open-source_reasoning_models_a_dataset_to_mitigate_cold-st.md)**
-
-:   构建 100K 长 CoT 数据集解决开源短 CoT LLM 在 RL 训练中的冷启动问题——用 1K 种子数据捕捉 o1 的推理流模式，然后用短 CoT LLM (GPT-4o) 扩展为长推理链，训练后的模型在 RLVR 初始化后获得 2-3 倍更大的收益。
-
-**[PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation](pcot_persuasion-augmented_chain_of_thought_for_detecting_fake_news_and_social_me.md)**
-
-:   提出 PCoT，一种零样本方法，利用说服知识增强虚假信息检测——受心理学研究启发（识别说服谬误可提高假新闻检测），两阶段处理：先识别分析说服信号，再将说服分析融入推理判断，平均提升 15%。
 
 **[PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation](pcot_persuasion_chain_of_thought_fake_news.md)**
 
@@ -114,18 +94,6 @@
 **[Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering](test_time_scaling_selective_qa.md)**
 
 :   首次评估 test-time scaling 模型（DeepSeek R1、S1）在选择性问答（允许拒绝回答）场景下的表现，发现增加推理计算不仅提高正确率还提升对正确答案的置信度，提出基于置信度阈值的选择函数和 "Jeopardy Odds" 效用函数来评估非零错误惩罚下的 test-time scaling 性能。
-
-**[ThinkGuard: Deliberative Slow Thinking Leads to Cautious Guardrails](thinkguard_deliberative_slow_thinking_leads_to_cautious_guardrails.md)**
-
-:   提出 ThinkGuard，一种批判增强的安全护栏模型，通过从强 LLM 蒸馏结构化批判(安全标签+详细理由)来训练护栏模型，实现“慢思考”式安全判断，相比 LLaMA Guard 3 准确率提升 16.1%、宏 F1 提升 27.0%。
-
-**[Towards Better Chain-of-Thought: A Reflection on Effectiveness and Faithfulness](towards_better_chain-of-thought_a_reflection_on_effectiveness_and_faithfulness.md)**
-
-:   系统分析 CoT 有效性和忠实性的影响因素，发现 CoT 有效性取决于问题难度、信息增益和信息流向，忠实性是有效性的关键前提，提出 QUIRE 方法（先回忆再增强）提升有效性 2.4% 和忠实性 5.6%。
-
-**[Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation](towards_safety_reasoning_in_llms_ai-agentic_deliberation_for_policy-embedded_cot.md)**
-
-:   提出 AIDsafe 多智能体审议框架，自动生成嵌入安全策略的 CoT 训练数据，通过多 agent 协作扩展安全推理链并过滤欺骗性/冗余思维，微调后的模型在安全性和越狱鲁棒性上显著提升且不影响实用性。
 
 **[TRACT: Regression-Aware Fine-tuning Meets Chain-of-Thought Reasoning](tract_regression_cot.md)**
 

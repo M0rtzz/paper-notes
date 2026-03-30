@@ -1,5 +1,5 @@
 # Auto-generated: CVPR2026 paper notes ignore
-# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
+# 由 src/sync_notes.py 根据 TODO.md 自动生成
 
 # 默认忽略所有笔记
 *.md
@@ -8,8 +8,9 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
+!index.md
 
-# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
+# 排除已完成笔记所在的子目录
 !3d_vision/
 !ai_safety/
 !audio_speech/
@@ -37,7 +38,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (358 篇)
+# 已完成笔记 (372 篇)
 !3d_vision/4dequine_disentangling_motion_and_appearance_for_4.md
 !3d_vision/ada3drift_adaptive_trainingtime_drifting_for_onest.md
 !3d_vision/ava_bench_atomic_visual_ability_vfm.md
@@ -125,24 +126,32 @@
 !image_restoration/rawdomain_degradation_models_smartphone_sr.md
 !llm_agent/gui-ceval_a_hierarchical_and_comprehensive_chinese_benchmark_for_mobile_gui_agen.md
 !llm_agent/hats_hardnessaware_trajectory_synthesis_gui_agent.md
+!llm_agent/nerfify_a_multi-agent_framework_for_turning_nerf_papers_into_code.md
+!llm_agent/realm_an_mllm-agent_framework_for_open_world_3d_reasoning_segmentation_and_editi.md
 !llm_agent/realm_mllm_agent_3d_reasoning_gaussian.md
+!llm_agent/sceneassistant_a_visual_feedback_agent_for_open-vocabulary_3d_scene_generation.md
 !llm_agent/sceneassistant_a_visual_feedback_agent_for_openvoc.md
 !llm_agent/think_then_verify_a_hypothesis-verification_multi-agent_framework_for_long_video.md
 !llm_agent/watch_and_learn_computer_use_from_videos.md
 !llm_alignment/bases_of_steerable_kernels_for_equivariant_cnns_fr.md
+!llm_alignment/bases_of_steerable_kernels_for_equivariant_cnns_from_2d_rotations_to_the_lorentz.md
 !llm_alignment/mapreduce_lora_advancing_the_pareto_front_in_multi-preference_optimization_for_g.md
 !llm_alignment/mesh-pro_asynchronous_advantage-guided_ranking_preference_optimization_for_artis.md
 !llm_alignment/mod-dpo_towards_mitigating_cross-modal_hallucinations_in_omni_llms_using_modalit.md
+!llm_alignment/physmodpo_physically-plausible_humanoid_motion_with_preference_optimization.md
 !llm_alignment/physmodpo_physicallyplausible_humanoid_motion_with.md
 !llm_alignment/φ-dpo_fairness_direct_preference_optimization_approach_to_continual_learning_in_.md
 !llm_efficiency/ace-merging_data-free_model_merging_with_adaptive_covariance_estimation.md
 !llm_efficiency/attribution-guided_model_rectification_of_unreliable_neural_network_behaviors.md
 !llm_efficiency/boosting_quantitive_and_spatial_awareness_for_zero-shot_object_counting.md
+!llm_efficiency/edit-as-act_goal-regressive_planning_for_open-vocabulary_3d_indoor_scene_editing.md
 !llm_efficiency/model_merging_in_the_essential_subspace.md
+!llm_efficiency/storytailora_zero-shot_pipeline_for_action-rich_multi-subject_visual_narratives.md
 !llm_nlp/composing_concepts_from_images_and_videos_via_concept-prompt_binding.md
 !llm_nlp/cross-scale_pansharpening_via_scaleformer_and_the_panscale_benchmark.md
 !llm_nlp/defending_unauthorized_model_merging_via_dual-stage_weight_protection.md
 !llm_nlp/evatok_adaptive_length_video_tokenization_for_eff.md
+!llm_nlp/hier-cos_making_deep_features_hierarchy-aware_via_composition_of_orthogonal_subs.md
 !llm_nlp/hiercos_making_deep_features_hierarchyaware_via_co.md
 !llm_nlp/iapl_aigenerated_image_detection_adaptive_prompt.md
 !llm_nlp/weavetime_streaming_video_llm_memory.md
@@ -150,9 +159,11 @@
 !llm_reasoning/e-comiq-zh_a_human-aligned_dataset_and_benchmark_for_fine-grained_evaluation_of_.md
 !llm_reasoning/facecot_cot_reasoning_face_anti_spoofing.md
 !llm_reasoning/harnessing_chain-of-thought_reasoning_in_multimodal_large_language_models_for_fa.md
+!llm_reasoning/rationale-enhanced_decoding_for_multi-modal_chain-of-thought.md
 !llm_reasoning/red_rationale_enhanced_decoding_cot.md
 !llm_reasoning/step-cot_stepwise_visual_chain-of-thought_for_medical_visual_question_answering.md
 !llm_reasoning/visref_visual_refocusing_test_time_scaling.md
+!llm_reasoning/visref_visual_refocusing_while_thinking_improves_test-time_scaling_in_multi-moda.md
 !medical_imaging/a_protocol_for_evaluating_robustness_to_he_stainin.md
 !medical_imaging/a_semisupervised_framework_for_breast_ultrasound_s.md
 !medical_imaging/accelerating_stroke_mri_with_diffusion_probabilist.md
@@ -319,7 +330,11 @@
 !object_detection/rehark_refined_hybrid_adaptive_rbf_kernels_for_rob.md
 !object_detection/show_dont_tell_detecting_novel_objects_by_watching.md
 !object_detection/slice_semantic_latent_injection_via_compartmentali.md
+!optimization/dynamic_momentum_recalibration_in_online_gradient_learning.md
+!optimization/fed-ade_adaptive_learning_rate_for_federated_post-adaptation_under_distribution_.md
+!optimization/otprune_distribution-aligned_visual_token_pruning_via_optimal_transport.md
 !optimization/scope_semantic_coreset_with_orthogonal_projection.md
+!optimization/unifusion_a_unified_image_fusion_framework_with_robust_representation_and_source.md
 !others/assistmimic_physics_grounded_humanoid_assistance.md
 !others/bendfm_a_taxonomy_and_synthetic_cad_dataset_for_ma.md
 !others/bounds_on_agreement_between_subjective_and_objecti.md

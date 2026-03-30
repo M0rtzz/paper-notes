@@ -1,11 +1,15 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐 / RLHF
 
-**📷 CVPR2026** · 共 **6** 篇
+**📷 CVPR2026** · 共 **8** 篇
 
 **[Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group](bases_of_steerable_kernels_for_equivariant_cnns_fr.md)**
 
 :   提出一种直接从输入/输出表示构造可操纵核显式基的方法，无需计算 Clebsch-Gordan 系数，统一覆盖 SO(2)、O(2)、SO(3)、O(3) 到非紧致 Lorentz 群，大幅简化等变 CNN 的核设计流程。
+
+**[Bases Of Steerable Kernels For Equivariant Cnns From 2D Rotations To The Lorentz](bases_of_steerable_kernels_for_equivariant_cnns_from_2d_rotations_to_the_lorentz.md)**
+
+:   提出一种绕过 Clebsch-Gordan 系数的方法来求解等变CNN中的可转向核（steerable kernel）约束，通过在稳定子群上求解简单的不变性条件再"转向（steer）"到任意点，为 SO(2) 到 Lorentz 群等不同对称群给出了显式的核基底。
 
 **[MapReduce LoRA: Advancing the Pareto Front in Multi-Preference Optimization for Generative Models](mapreduce_lora_advancing_the_pareto_front_in_multi-preference_optimization_for_g.md)**
 
@@ -18,6 +22,10 @@
 **[MoD-DPO: Towards Mitigating Cross-modal Hallucinations in Omni LLMs using Modality Decoupled Preference Optimization](mod-dpo_towards_mitigating_cross-modal_hallucinations_in_omni_llms_using_modalit.md)**
 
 :   提出 MoD-DPO（Modality-Decoupled DPO），通过不变性正则化、敏感性正则化和语言先验去偏三个机制解耦多模态 LLM 中各模态的贡献，有效缓解跨模态幻觉（如用听觉信息回答视觉问题），并推导出闭式最优策略。
+
+**[Physmodpo Physically-Plausible Humanoid Motion With Preference Optimization](physmodpo_physically-plausible_humanoid_motion_with_preference_optimization.md)**
+
+:   将 DPO 偏好优化引入扩散运动生成模型的后训练阶段，通过物理仿真控制器自动构造偏好数据对，使生成的人体运动既符合文本/空间控制指令又满足物理约束，并成功零样本迁移到 Unitree G1 真实机器人。
 
 **[PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization](physmodpo_physicallyplausible_humanoid_motion_with.md)**
 

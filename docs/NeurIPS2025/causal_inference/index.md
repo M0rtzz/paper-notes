@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🧠 NeurIPS2025** · 共 **15** 篇
+**🧠 NeurIPS2025** · 共 **11** 篇
 
 **[A Principle of Targeted Intervention for Multi-Agent Reinforcement Learning](a_principle_of_targeted_intervention_for_multi-agent_reinforcement_learning.md)**
 
@@ -19,14 +19,6 @@
 
 :   CAPE 通过从表格数据中学习特征间的因果DAG结构，将其嵌入双曲空间生成因果感知的旋转位置编码（RoPE），使 Transformer 能处理非序列但因果相关的特征数据，在多组学数据的下游任务上显著提升性能。
 
-**[Characterization and Learning of Causal Graphs from Hard Interventions](characterization_and_learning_of_causal_graphs_from_hard_interventions.md)**
-
-:   首次系统分析硬干预（hard interventions）与软干预在因果发现中的差异，证明硬干预通过非局部打破d-分离关系提供更强的图区分能力，提出广义do-演算和基于孪生增强MAG的因果发现算法，实验表明硬干预将Markov等价类缩小37-57%。
-
-**[Conformal Prediction for Causal Effects of Continuous Treatments](conformal_prediction_for_causal_effects_of_continuous_treatments.md)**
-
-:   首次为连续处理（如药物剂量）的因果效应开发共形预测（CP）区间，通过倾向性散度标准化处理干预诱导的分布偏移，在已知/未知倾向性两种场景下提供有限样本 $1-\alpha$ 覆盖保证，在MIMIC-III临床数据上验证了实用性。
-
 **[Cyclic Counterfactuals under Shift–Scale Interventions](cyclic_counterfactuals_under_shift-scale_interventions.md)**
 
 :   为含有反馈循环的循环结构因果模型(cyclic SCM)建立了移位-缩放(shift-scale)干预下的反事实推断理论框架，证明了全局收缩条件下唯一可解性、干预复合封闭性，以及反事实泛函的sub-Gaussian集中不等式。
@@ -43,10 +35,6 @@
 
 :   将 BN-LTE（贝叶斯网络+潜在时间嵌入）应用于 ADNI 真实 AD 数据，推断随疾病伪时间演变的动态因果图，伪时间预测诊断 AUC 0.82 远超年龄 0.59，并揭示了新型生物标志物 NfL/GFAP 与传统 AD 标志物之间的动态因果关系。
 
-**[Few-Shot Knowledge Distillation Of Llms With Counterfactual Explanations](few-shot_knowledge_distillation_of_llms_with_counterfactual_explanations.md)**
-
-:   提出 CoD（Counterfactual-explanation-infused Distillation），通过系统性地将反事实解释（CFE）注入少样本训练集——CFE 位于 teacher 决策边界附近，作为"boundary pegs"将 student 的决策面钉在 teacher 附近——在 6 个数据集上用仅 8-512 样本的超低数据量显著超越标准蒸馏方法。
-
 **[From Black-box to Causal-box: Towards Building More Interpretable Models](from_black-box_to_causal-box_towards_building_more_interpretable_models.md)**
 
 :   提出"因果可解释性"（causal interpretability）的形式化定义，证明黑盒模型和概念瓶颈模型均不满足该性质，给出完整的图判据确定哪些模型架构能一致地回答反事实问题，揭示了因果可解释性与预测精度之间的根本性权衡。
@@ -58,7 +46,3 @@
 **[Practical do-Shapley Explanations with Estimand-Agnostic Causal Inference](practical_do-shapley_explanations_with_estimand-agnostic_causal_inference.md)**
 
 :   提出 Estimand-Agnostic（EA）方法和 Frontier-Reducibility Algorithm（FRA）来高效计算因果 Shapley 值（do-SV），通过训练单个 SCM 学习观测分布即可回答任意可辨识的因果查询，并通过联盟约减将计算量降低约 90%。
-
-**[Revealing Multimodal Causality With Large Language Models](revealing_multimodal_causality_with_large_language_models.md)**
-
-:   提出 MLLM-CD，首个面向多模态非结构化数据因果发现的框架，包含三个模块：(1) 对比因子发现利用 MLLM 从模态内/间交互中识别因果变量；(2) 统计因果结构发现；(3) 迭代多模态反事实推理利用 MLLM 的世界知识生成反事实样本来消除结构歧义。在合成和真实数据集上显著优于现有方法。

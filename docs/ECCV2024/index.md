@@ -1,14 +1,14 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎞️ ECCV2024 论文笔记
 
-共 **224** 篇笔记，覆盖 **20** 个领域。
+共 **220** 篇笔记，覆盖 **20** 个领域。
 
 ## 领域概览
 
 | 领域 | 篇数 |
 |:-----|-----:|
-| 🧩 [多模态 VLM](#multimodal_vlm) | 82 |
-| 💬 [LLM / NLP](#llm_nlp) | 50 |
+| 🧩 [多模态 VLM](#multimodal_vlm) | 81 |
+| 💬 [LLM / NLP](#llm_nlp) | 47 |
 | 🧊 [3D 视觉](#3d_vision) | 20 |
 | 🦾 [LLM Agent](#llm_agent) | 10 |
 | 🎨 [图像生成](#image_generation) | 8 |
@@ -99,10 +99,6 @@
 **[CLAP: Isolating Content from Style Through Contrastive Learning with Augmented Prompts](multimodal_vlm/clap_isolating_content_from_style_through_contrastive_learni.md)**
 
 :   从因果生成模型视角出发，提出CLAP（Contrastive Learning with Augmented Prompts），通过文本增强（而非图像增强）在预训练CLIP的特征空间中解耦内容与风格信息，以极低训练成本（<1小时）显著提升CLIP在零样本/少样本分类和对抗鲁棒性上的表现。
-
-**[CLAP: Isolating Content from Style through Contrastive Learning with Augmented Prompts](multimodal_vlm/clap_isolating_content_from_style_through_contrastive_learning_with_augmented_pr.md)**
-
-:   从因果生成模型视角出发，提出 CLAP（Contrastive Learning with Augmented Prompts），通过文本 prompt 增强 + 对比学习训练一个轻量解耦网络，将 CLIP 预训练特征中的 content 与 style 分离，仅用文本训练即可同时提升图像和文本两侧的表征质量，在 zero-shot、few-shot 分类和对抗鲁棒性上均取得一致提升。
 
 **[Dataset Growth (InfoGrowth)](multimodal_vlm/dataset_growth.md)**
 
@@ -480,17 +476,9 @@
 
 :   提出从原始、无标签的互联网视频中学习动物 3D 关节运动生成模型的方法，核心是一个视频光几何自编码框架，将训练视频分解为静止姿态形状、关节姿态序列和纹理，实现无需姿态标注的 3D 运动 VAE 学习。
 
-**[Prompting Language-Informed Distribution for Compositional Zero-Shot Learning](llm_nlp/prompting_language-informed_distribution_for_compositional_zero-shot_learning.md)**
-
-:   本文提出 PLID 方法，利用 LLM 生成的句子级类别描述构建语言知识驱动的高斯分布，配合视觉-语言原语分解和随机 logit 融合，在组合零样本学习（CZSL）任务上取得 SOTA。
-
 **[PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts](llm_nlp/promptiqa_boosting_the_performance_and_generalization_for_no-reference_image_qua.md)**
 
 :   提出 PromptIQA，通过少量"图像-分数对"（ISP）作为 prompt 的方式，使 NR-IQA 模型训练完成后无需微调即可自适应适配新的质量评估需求，在 12 个数据集、5 类 IQA 任务上均达到 SOTA 性能和泛化能力。
-
-**[Propose, Assess, Search: Harnessing LLMs for Goal-Oriented Planning in Instructional Videos](llm_nlp/propose_assess_search_harnessing_llms_for_goal-oriented_planning_in_instructiona.md)**
-
-:   本文提出 VidAssist 框架，利用 LLM 作为知识库和评估工具，结合「提议-评估-搜索」的广度优先搜索机制，在零样本/少样本设置下实现教学视频中的目标导向规划，few-shot 下超越全监督 SOTA。
 
 **[Reprojection Errors as Prompts for Efficient Scene Coordinate Regression](llm_nlp/reprojection_errors_as_prompts_for_efficient_scene_coordinate_regression.md)**
 
@@ -539,10 +527,6 @@
 **[Tracking Meets LoRA: Faster Training, Larger Model, Stronger Performance](llm_nlp/tracking_meets_lora_faster_training_larger_model_strong.md)**
 
 :   首次将 LoRA 引入视觉目标跟踪领域，通过解耦位置编码和设计 MLP-only 头网络，使大规模 ViT 模型（最大 ViT-g）在实验室级资源下实现高效训练和 SOTA 跟踪性能。
-
-**[VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding](llm_nlp/visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding.md)**
-
-:   本文提出 VisFocus，通过在 Swin Transformer 视觉编码器的 patch merging 层中引入 ViLMA（Vision-Language Merging Attention）交叉注意力层，并配合 LMPM（Localized Masked Prompt Modeling）预训练任务，使视觉编码器能感知用户 prompt 并聚焦文档中相关文本区域，在多个 VQA 基准上取得同等规模模型的 SOTA。
 
 **[VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding](llm_nlp/visfocus_promptguided_vision_encoders_for_ocrfree_dense.md)**
 

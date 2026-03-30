@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🧠 NeurIPS2025** · 共 **16** 篇
+**🧠 NeurIPS2025** · 共 **13** 篇
 
 **[A Controllable Examination for Long-Context Language Models](a_controllable_examination_for_longcontext_language_models.md)**
 
@@ -35,22 +35,6 @@
 
 :   提出 BNMusic，一个两阶段框架将环境噪声融合到个性化生成音乐中：第一阶段通过 mel-spectrogram 的 outpainting + inpainting 生成与噪声节奏对齐的音乐，第二阶段利用听觉掩蔽理论自适应放大音乐信号以降低噪声感知，无需额外训练，在 EPIC-SOUNDS 和 ESC-50 上显著优于 baseline。
 
-**[Can LLMs Outshine Conventional Recommenders? A Comparative Evaluation](can_llms_outshine_conventional_recommenders_a_comparative_evaluation.md)**
-
-:   提出RecBench全面评估框架，在5个数据集上对比17个LLM和10个传统DLRM，发现LLM推荐器准确率提升5-170%但推理速度慢10-100×，传统DLRM+LLM特征组合以20×更快速度达到LLM~95%的性能，揭示了LLM-as-RS的实际部署不可行性。
-
-**[Embedding Alignment In Code Generation For Audio](embedding_alignment_in_code_generation_for_audio.md)**
-
-:   通过双MLP+对比学习将代码嵌入和音频嵌入映射到公共空间，使LLM生成的音频代码能隐式捕捉音乐相似性（CKA从0.090提升到0.590）。
-
-**[Eurospeech A Multilingual Speech Corpus](eurospeech_a_multilingual_speech_corpus.md)**
-
-:   构建EuroSpeech多语言语音数据集：从欧洲议会录音中自动化提取61K小时、覆盖22种语言的高质量语音数据，ASR WER降低41.8%。
-
-**[Generating Physically Sound Designs From Text And A Set Of Physical Constraints](generating_physically_sound_designs_from_text_and_a_set_of_physical_constraints.md)**
-
-:   联合优化视觉目标（CLIP文本对齐）和物理目标（可微分FEM结构约束），生成满足工程要求且包含文本指定特征的结构设计。
-
 **[Instance-Specific Test-Time Training for Speech Editing in the Wild](instance-specific_test-time_training_for_speech_editing_in_the_wild.md)**
 
 :   提出面向野外语音编辑的实例特定测试时训练方法：在推理前利用未编辑区域的真实声学特征做直接监督、编辑区域通过时长约束和音素预测辅助损失做间接监督，对模型进行实例级自适应微调，有效缓解编辑边界的带宽不连续问题，并支持通过 mask 长度调整精确控制语速，在野外 benchmark 上主客观评估均超越现有系统。
@@ -66,3 +50,7 @@
 **[Seeing Sound, Hearing Sight: Uncovering Modality Bias and Conflict of AI Models in Sound Localization](seeing_sound_hearing_sight_uncovering_modality_bias_and_conflict_of_ai_models_in.md)**
 
 :   系统性地揭示了AI声源定位(SSL)模型存在严重视觉偏见——在视听冲突时降到随机水平，提出神经科学启发的EchoPin模型（HRTF滤波+耳蜗图+立体声），在AudioCOCO数据集上大幅超越现有方法并展现出类人的水平>垂直定位精度偏差。
+
+**[Sound Logical Explanations for Mean Aggregation Graph Neural Networks](sound_logical_explanations_for_mean_aggregation_graph_neural_networks.md)**
+
+:   针对使用均值聚合函数的 GNN（MAGNN，即非负权重的 mean-GNN），证明了能够作为其 sound 解释的单调逻辑规则的精确类别，并构造了一个一阶逻辑的受限片段来解释任意 MAGNN 预测，实验表明限制非负权重不显著影响性能且能有效提取 sound 规则。

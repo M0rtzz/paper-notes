@@ -1,27 +1,15 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🧠 NeurIPS2025** · 共 **18** 篇
+**🧠 NeurIPS2025** · 共 **15** 篇
 
 **[BLISS: Bandit Layer Importance Sampling Strategy for Efficient Training of Graph Neural Networks](bliss_bandit_layer_importance_sampling_strategy_for_efficient_training_of_graph_.md)**
 
 :   提出 BLISS，将 GNN 的层级邻居采样建模为多臂老虎机问题，用 EXP3 算法动态调整每条边的采样概率，根据邻居对节点表示的方差贡献作为奖励信号，在 GCN 和 GAT 上维持或超越全批次训练精度。
 
-**[Deliberation on Priors: Trustworthy Reasoning of LLMs on Knowledge Graphs](deliberation_on_priors_trustworthy_reasoning_of_large_language_models_on_knowled.md)**
-
-:   提出Deliberation over Priors（DP）框架，通过渐进式知识蒸馏（SFT+KTO偏好优化）提升关系路径生成的忠实度，并通过约束引导的内省-回溯机制保障可靠性，在ComplexWebQuestions上H@1提升13%且LLM调用次数减少77%。
-
 **[Diagnosing and Addressing Pitfalls in KG-RAG Datasets: Toward More Reliable Benchmarking](diagnosing_and_addressing_pitfalls_in_kg-rag_datasets_toward_more_reliable_bench.md)**
 
 :   系统审计16个KGQA数据集发现平均事实正确率仅57%（WebQSP 52%，MetaQA 20%），提出KGQAGen框架——通过LLM引导的子图扩展+SPARQL自动验证构建高质量多跳QA数据集KGQAGen-10k（96.3%准确率），揭示KG-RAG的主要瓶颈在检索而非推理。
-
-**[Disentangling Hyperedges through the Lens of Category Theory](disentangling_hyperedges_through_the_lens_of_category_theory.md)**
-
-:   首次用范畴论分析超边解耦，导出"因子表示一致性"自然性标准（聚合后解耦 vs 解耦后聚合应一致），提出Natural-HNN模型在癌症分型任务上比最佳baseline提升4.7%（BRCA F1从75.7%到80.4%），并100%正确捕获功能通路上下文。
-
-**[Geometric Imbalance In Semi-Supervised Node Classification](geometric_imbalance_in_semi-supervised_node_classification.md)**
-
-:   在黎曼流形上形式化半监督节点分类中的几何不平衡问题，提出伪标签对齐框架，在9个基准上一致超越基线，特别在严重类别不平衡时效果显著。
 
 **[GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](gfm-rag_graph_foundation_model_for_retrieval_augmented_generation.md)**
 

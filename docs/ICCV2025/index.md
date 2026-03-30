@@ -1,45 +1,36 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 ICCV2025 论文笔记
 
-共 **133** 篇笔记，覆盖 **21** 个领域。
+共 **121** 篇笔记，覆盖 **20** 个领域。
 
 ## 领域概览
 
 | 领域 | 篇数 |
 |:-----|-----:|
-| 🧊 [3D 视觉](#3d_vision) | 49 |
+| 🧊 [3D 视觉](#3d_vision) | 45 |
 | 🧩 [多模态 VLM](#multimodal_vlm) | 22 |
 | 🚗 [自动驾驶](#autonomous_driving) | 9 |
 | 🎨 [图像生成](#image_generation) | 6 |
-| ✂️ [语义分割](#segmentation) | 6 |
-| 🏥 [医学图像](#medical_imaging) | 5 |
+| ✂️ [语义分割](#segmentation) | 5 |
+| 🏥 [医学图像](#medical_imaging) | 4 |
 | 🧑 [人体理解](#human_understanding) | 3 |
 | 🖼️ [图像恢复](#image_restoration) | 3 |
 | 🎯 [目标检测](#object_detection) | 3 |
-| 🔄 [自监督/表示学习](#self_supervised) | 3 |
 | 🎬 [视频理解](#video_understanding) | 3 |
 | 🛡️ [AI 安全](#ai_safety) | 2 |
 | 🎵 [音频/语音](#audio_speech) | 2 |
-| 📦 [模型压缩](#model_compression) | 2 |
-| 🔗 [因果推理](#causal_inference) | 1 |
+| 🔄 [自监督/表示学习](#self_supervised) | 2 |
 | 🦾 [LLM Agent](#llm_agent) | 1 |
 | 💬 [LLM / NLP](#llm_nlp) | 1 |
 | 💡 [LLM 推理](#llm_reasoning) | 1 |
+| 📦 [模型压缩](#model_compression) | 1 |
 | 🛰️ [遥感](#remote_sensing) | 1 |
 | 🤖 [机器人/具身智能](#robotics) | 1 |
-| 📂 [其他](#others) | 9 |
+| 📂 [其他](#others) | 6 |
 
 ---
 
 ## 🧊 3D 视觉 { #3d_vision }
-
-**[TRAN-D: 2D Gaussian Splatting-based Sparse-view Transparent Object Depth Reconstruction via Physics Simulation for Scene Update](3d_vision/2d_gaussian_splattingbased_sparseview_transparent_object_dep.md)**
-
-:   提出TRAN-D，一种基于2D Gaussian Splatting的稀疏视角透明物体深度重建方法，通过分割引导的object-aware损失优化遮挡区域Gaussian分布，并利用物理仿真（MPM）实现物体移除后的场景动态更新，仅需单张图像即可完成场景刷新。
-
-**[3D Gaussian Map with Open-Set Semantic Grouping for Vision-Language Navigation](3d_vision/3d_gaussian_map_with_openset_semantic_grouping_for_visionlan.md)**
-
-:   提出基于3D高斯溅射的场景地图表示（3D Gaussian Map），结合开放集语义分组机制，为视觉-语言导航（VLN）构建兼顾几何结构与丰富语义的3D环境表示，并设计多层级动作预测策略（Multi-Level Action Prediction）融合多粒度空间-语义线索辅助导航决策。
 
 **[3D Mesh Editing using Masked LRMs](3d_vision/3d_mesh_editing_using_masked_lrms.md)**
 
@@ -52,10 +43,6 @@
 **[3DGraphLLM: Combining Semantic Graphs and Large Language Models for 3D Scene Understanding](3d_vision/3dgraphllm_combining_semantic_graphs_and_large_language_mode.md)**
 
 :   提出3DGraphLLM，首个将**3D语义场景图的可学习表示**直接输入LLM的方法——通过k近邻子图+三元组(object1, relation, object2)编码物体间语义关系，然后投影到LLM的token嵌入空间。在ScanRefer上Acc@0.5提升+6.4%（vs无语义关系的Chat-Scene），在Multi3DRefer上F1@0.5提升+7.5%，推理速度比GPT4Scene-HDM快5倍。
-
-**[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3d_vision/3dgslm_faster_gaussiansplatting_optimization_with_levenbergm.md)**
-
-:   将3D Gaussian Splatting的ADAM优化器替换为定制化的Levenberg-Marquardt（LM）二阶优化器，通过高效CUDA并行化的PCG算法和梯度缓存结构实现Jacobian-向量积加速，在保持相同重建质量的前提下将优化时间缩短约20%。
 
 **[4D Gaussian Splatting SLAM](3d_vision/4d_gaussian_splatting_slam.md)**
 
@@ -80,10 +67,6 @@
 **[A Recipe for Generating 3D Worlds from a Single Image](3d_vision/a_recipe_for_generating_3d_worlds_from_a_single_image.md)**
 
 :   将单图到3D世界生成分解为两个更简单的子问题——全景合成（无训练in-context learning）和点云条件修复（仅5k步微调ControlNet），结合3DGS重建出可在VR中2米范围内导航的沉浸式3D环境，在图像质量指标上全面超越WonderJourney和DimensionX。
-
-**[A Simple yet Mighty Hartley Diffusion Versatilist for Generalizable Dense Vision Tasks](3d_vision/a_simple_yet_mighty_hartley_diffusion_versatilist_for_genera.md)**
-
-:   提出HarDiff——基于离散Hartley变换的频域学习策略，通过低频训练（从源域提取结构先验）和高频采样（利用目标域细节引导）增强扩散模型在稠密视觉任务上的跨域泛化能力，在语义分割、深度估计和去雾等12个基准上取得SOTA。
 
 **[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](3d_vision/aaagaussians_antialiased_and_artifactfree_3d_gaussian_render.md)**
 
@@ -393,10 +376,6 @@
 
 ## ✂️ 语义分割 { #segmentation }
 
-**[A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions](segmentation/a_plugandplay_physical_motion_restoration_approach_for_inthe.md)**
-
-:   提出即插即用的物理运动修复框架，通过Mask条件运动校正模块（MCM）修复视频运动捕捉中的缺陷帧，结合基于RL测试时适应的物理运动传输模块（PTM），首次实现对野外高难度运动（如体操、武术后空翻）的物理仿真修复。
-
 **[CorrCLIP: Reconstructing Patch Correlations in CLIP for Open-Vocabulary Semantic Segmentation](segmentation/corrclip_reconstructing_patch_correlations_in_clip_for_openv.md)**
 
 :   揭示CLIP用于分割时patch间"类间相关性"是性能瓶颈的根本原因，提出CorrCLIP通过SAM限制patch交互范围（scope reconstruction）+DINO计算更一致的相似度值（value reconstruction）+空间/语义特征增强+SAM mask后处理，在8个benchmark上training-free方法平均mIoU从48.6%提升到53.6%。
@@ -420,10 +399,6 @@
 ---
 
 ## 🏥 医学图像 { #medical_imaging }
-
-**[AcZeroTS: Active Learning for Zero-shot Tissue Segmentation in Pathology Images](medical_imaging/aczerots_active_learning_for_zeroshot_tissue_segmentation_in.md)**
-
-:   提出AcZeroTS框架，将主动学习与基于VLM的原型引导零样本分割模型ProZS结合，通过同时考虑不确定性、多样性和原型覆盖unseen类的能力来选择最有价值的标注样本，以最少标注实现seen和unseen组织类型的高质量分割。
 
 **[An OpenMind for 3D Medical Vision Self-supervised Learning](medical_imaging/an_openmind_for_3d_medical_vision_selfsupervised_learning.md)**
 
@@ -491,22 +466,6 @@
 
 ---
 
-## 🔄 自监督/表示学习 { #self_supervised }
-
-**[A Token-level Text Image Foundation Model for Document Understanding](self_supervised/a_tokenlevel_text_image_foundation_model_for_document_unders.md)**
-
-:   本文提出「A Token-level Text Image Foundation Model for Document Understanding」。摘要暂缺，待获取原文后补充详细内容。
-
-**[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](self_supervised/loftup_learning_a_coordinatebased_feature_upsampler_for_visi.md)**
-
-:   提出LoftUp，通过坐标-cross-attention架构直接将低分辨率VFM特征映射到任意高分辨率，并用class-agnostic mask精炼+自蒸馏构建全分辨率伪GT进行训练，在6个下游任务上平均提升10-20%且在视频目标分割上提升近50%。
-
-**[Scaling Language-Free Visual Representation Learning](self_supervised/scaling_languagefree_visual_representation_learning.md)**
-
-:   通过在MetaCLIP的20亿web图像上训练DINOv2/MAE系列模型（1B-7B参数），系统性地证明纯视觉自监督学习在模型和数据规模上展现优于CLIP的scaling behavior，5B+参数时在VQA平均性能上超越CLIP——包括传统认为需要语言监督的OCR/Chart任务。
-
----
-
 ## 🎬 视频理解 { #video_understanding }
 
 **[4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding](video_understanding/4dbench_benchmarking_multimodal_large_language_models_for_4d.md)**
@@ -547,23 +506,15 @@
 
 ---
 
-## 📦 模型压缩 { #model_compression }
+## 🔄 自监督/表示学习 { #self_supervised }
 
-**[A Good Teacher Adapts Their Knowledge for Distillation](model_compression/a_good_teacher_adapts_their_knowledge_for_distillation.md)**
+**[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](self_supervised/loftup_learning_a_coordinatebased_feature_upsampler_for_visi.md)**
 
-:   本文揭示了知识蒸馏中教师-学生容量差距问题的本质原因在于**输出分布的类内分布不匹配**，并提出 AID（Adapted Intra-class Distribution）方法，在蒸馏前对教师模型进行微调以优化其类内分布使之更符合学生的学习能力，在多种架构组合上取得了SOTA性能。
+:   提出LoftUp，通过坐标-cross-attention架构直接将低分辨率VFM特征映射到任意高分辨率，并用class-agnostic mask精炼+自蒸馏构建全分辨率伪GT进行训练，在6个下游任务上平均提升10-20%且在视频目标分割上提升近50%。
 
-**[TokenBridge: Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation](model_compression/bridging_continuous_and_discrete_tokens_for_autoregressive_v.md)**
+**[Scaling Language-Free Visual Representation Learning](self_supervised/scaling_languagefree_visual_representation_learning.md)**
 
-:   TokenBridge提出对预训练VAE连续特征进行后训练维度级量化，将连续token无损转化为离散token，再通过轻量级维度级自回归头高效建模指数级大词表空间，在ImageNet 256×256上用标准交叉熵损失达到了与连续token方法（如MAR）相当的生成质量（FID=1.55），且推理快5.94倍。
-
----
-
-## 🔗 因果推理 { #causal_inference }
-
-**[A Visual Leap in CLIP Compositionality Reasoning through Generation of Counterfactual Sets](causal_inference/a_visual_leap_in_clip_compositionality_reasoning_through_gen.md)**
-
-:   提出基于LLM+扩散模型的block-based diffusion方法自动生成高质量反事实图文对数据集，配套设计set-aware损失函数，无需人工标注即可显著提升CLIP的组合推理能力，在ARO/VL-Checklist等benchmark上以更少数据超越SOTA。
+:   通过在MetaCLIP的20亿web图像上训练DINOv2/MAE系列模型（1B-7B参数），系统性地证明纯视觉自监督学习在模型和数据规模上展现优于CLIP的scaling behavior，5B+参数时在VQA平均性能上超越CLIP——包括传统认为需要语言监督的OCR/Chart任务。
 
 ---
 
@@ -591,6 +542,14 @@
 
 ---
 
+## 📦 模型压缩 { #model_compression }
+
+**[TokenBridge: Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation](model_compression/bridging_continuous_and_discrete_tokens_for_autoregressive_v.md)**
+
+:   TokenBridge提出对预训练VAE连续特征进行后训练维度级量化，将连续token无损转化为离散token，再通过轻量级维度级自回归头高效建模指数级大词表空间，在ImageNet 256×256上用标准交叉熵损失达到了与连续token方法（如MAR）相当的生成质量（FID=1.55），且推理快5.94倍。
+
+---
+
 ## 🛰️ 遥感 { #remote_sensing }
 
 **[Towards a Unified Copernicus Foundation Model for Earth Vision](remote_sensing/towards_a_unified_copernicus_foundation_model_for_earth_visi.md)**
@@ -613,21 +572,9 @@
 
 :   提出首个全面的3D空间推理基准3DSRBench，包含2,772个人工标注的VQA对（12种问题类型），通过平衡数据分布和新型FlipEval策略实现鲁棒评估，揭示SOTA LMM（包括GPT-4o、Gemini）在3D空间推理上远落后于人类水平（≈52% vs 95.7%），且在非常规视角下性能显著退化。
 
-**[A Hidden Stumbling Block in Generalized Category Discovery: Distracted Attention](others/a_hidden_stumbling_block_in_generalized_category_discovery_d.md)**
-
-:   发现GCD中未标注数据（尤其是未知类别）的ViT注意力会分散到背景区域（distracted attention），提出Attention Focusing（AF）模块通过多尺度token重要性度量+自适应剪枝来纠正注意力，作为即插即用模块在SimGCD上最高带来15.4%的性能提升。
-
 **[A Real-world Display Inverse Rendering Dataset](others/a_realworld_display_inverse_rendering_dataset.md)**
 
 :   构建了首个基于LCD显示器-相机系统的真实世界逆渲染数据集，包含16个物体的OLAT（逐像素点亮）采集图像、偏振信息和GT几何，并提出简单有效的基线方法（基于Cook-Torrance BRDF的可微渲染优化），在150秒内超越现有逆渲染方法。
-
-**[ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training](others/aceg_improving_generalization_of_scene_coordinate_regression.md)**
-
-:   将场景坐标回归器拆分为「场景无关的Transformer」和「场景特定的map code」，通过在数万场景上进行交替的mapping/query预训练，显著提升SCR方法在光照、视角变化下的泛化能力，同时保持轻量化的计算开销。
-
-**[AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes](others/adaptiveae_an_adaptive_exposure_strategy_for_hdr_capturing_i.md)**
-
-:   本文提出AdaptiveAE，利用深度强化学习将HDR曝光包围拍摄建模为马尔可夫决策过程（MDP），同时优化ISO和快门速度的组合，在用户定义的时间预算内自适应地为动态场景选择最优曝光参数，在HDRV数据集上达到PSNR 39.70，比之前最好的方法Hasinoff et al. (37.59) 高出2.1 dB。
 
 **[AFUNet: Cross-Iterative Alignment-Fusion Synergy for HDR Reconstruction via Deep Unfolding Paradigm](others/afunet_crossiterative_alignmentfusion_synergy_for_hdr_recons.md)**
 

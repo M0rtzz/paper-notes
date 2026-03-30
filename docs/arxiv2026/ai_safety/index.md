@@ -1,11 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**📄 arxiv2026** · 共 **3** 篇
-
-**[Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning](deep_learningbased_assessment_relation.md)**
-
-:   靠近下颌管的下颌第三磨牙的阻生会增加下牙槽神经损伤的风险。
+**📄 arxiv2026** · 共 **2** 篇
 
 **[Stake the Points: Structure-Faithful Instance Unlearning](stake_points_structurefaithful_instance.md)**
 

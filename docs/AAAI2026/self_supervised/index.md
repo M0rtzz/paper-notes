@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🤖 AAAI2026** · 共 **9** 篇
+**🤖 AAAI2026** · 共 **6** 篇
 
 **[BCE3S: Binary Cross-Entropy Based Tripartite Synergistic Learning for Long-tailed Recognition](bce3s_binary_cross-entropy_based_tripartite_synergistic_learning_for_long-tailed.md)**
 
@@ -26,15 +26,3 @@
 **[Let The Void Be Void Robust Open-Set Semi-Supervised Learning Via Selective Non-](let_the_void_be_void_robust_open-set_semi-supervised_learning_via_selective_non-.md)**
 
 :   提出 SkipAlign 框架，在对比学习的传统 pull/push 操作之外引入第三种 "skip" 操作，对低置信度样本选择性跳过对齐（只做温和排斥），使 ID 类形成紧凑"星系"、OOD 样本自然散布于"星际虚空"，在未见过的 OOD 检测中平均 AUC 提升 +3.1，最高 +7.1。
-
-**[MovSemCL: Movement-Semantics Contrastive Learning for Trajectory Similarity](movsemcl_movement-semantics_contrastive_learning_for_trajectory_similarity_exten.md)**
-
-:   提出 MovSemCL，将 GPS 轨迹转化为运动语义特征（位移向量+航向角+空间图嵌入），通过 patch 级双层注意力（intra-patch 局部 + inter-patch 全局）实现层次编码（复杂度从 $O(L^2)$ 降为近线性），并设计曲率引导增广保留转弯/路口等关键片段，在轨迹相似性搜索上精度提升达 72.6%、推理延迟降低 43.4%。
-
-**[NeuroBridge: Bio-Inspired Self-Supervised EEG-to-Image Decoding](neurobridge_bio-inspired_self-supervised_eeg-to-image_decoding_via_cognitive_pri.md)**
-
-:   提出 NeuroBridge，通过认知先验增强（CPA，对 EEG 和图像分别用非对称增广模拟感知变异性）+ 共享语义投影器（SSP，双向对齐到统一语义空间），在 200 类零样本 EEG-图像检索任务上达到 63.2% Top-1（+12.3%）和 89.9% Top-5（+10.2%），大幅超越现有 SOTA。
-
-**[Robust Tabular Foundation Models](robust_tabular_foundation_models.md)**
-
-:   提出 RTFM，一种模型无关的对抗训练框架，通过在参数化合成数据生成过程中寻找 TFM 表现不佳的"困难区域"（相比树模型基线的最优性差距最大），仅用 <10万额外合成数据集将 TabPFN V2 的平均归一化 AUC 提升最高 6%。

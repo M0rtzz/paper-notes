@@ -1,11 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**📹 ICCV2025** · 共 **3** 篇
-
-**[A Token-level Text Image Foundation Model for Document Understanding](a_tokenlevel_text_image_foundation_model_for_document_unders.md)**
-
-:   本文提出「A Token-level Text Image Foundation Model for Document Understanding」。摘要暂缺，待获取原文后补充详细内容。
+**📹 ICCV2025** · 共 **2** 篇
 
 **[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](loftup_learning_a_coordinatebased_feature_upsampler_for_visi.md)**
 

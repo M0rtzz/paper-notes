@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🔬 ICLR2026** · 共 **56** 篇
+**🔬 ICLR2026** · 共 **51** 篇
 
 **[A Federated Generalized Expectation-Maximization Algorithm for Mixture Models with an Unknown Number of Components](a_federated_generalized_expectation-maximization_algorithm_for_mixture_models_wi.md)**
 
@@ -147,10 +147,6 @@
 
 :   提出 $(\phi,\varepsilon)$-Gaussian certifiability——基于假设检验 trade-off 函数的高维机器遗忘隐私框架，严格证明在高维比例体系 ($p \sim n$) 下单步 Newton 更新 + 校准高斯噪声即可同时满足隐私 (GPAR) 和精度 (GED→0) 要求，推翻了 Zou et al. (2025) "至少需两步 Newton" 的结论，并从理论上揭示旧 $\varepsilon$-certifiability 与噪声添加机制不兼容的根本原因。
 
-**[Implicit Bias of Per-sample Adam on Separable Data: Departure from the Full-batch Regime](implicit_bias_of_per-sample_adam_on_separable_data_departure_from_the_full-batch.md)**
-
-:   分析逐样本 Adam（batch size=1）的隐含偏置，证明其在可分数据上失去全批 Adam 的 $\ell_\infty$ 间隔保证，收敛到数据依赖解，收敛率 $O(1/\sqrt{t})$，揭示batch size≥2即可恢复 $\ell_\infty$ 偏置。
-
 **[In-Context Algebra](in-context_algebra.md)**
 
 :   本文设计了一个 **in-context 代数任务**——令 token 成为纯变量、每条序列重新随机分配含义——发现 Transformer 在此设定下不再学习经典的傅里叶/几何表示，而是涌现出三种 **符号推理机制**（交换复制、单位元识别、闭包消去），并揭示了训练过程中这些能力按阶段性相变依次出现的规律。
@@ -175,17 +171,9 @@
 
 :   提出**ADAlign**框架，利用**神经谱差异(NSD)**在频域自适应对齐源/目标图嵌入分布，通过可学习频率采样器自动发现并优先对齐每个迁移场景中最关键的分布差异维度。
 
-**[Learning on a Razor's Edge: Identifiability and Singularity of Polynomial Neural Networks](learning_on_a_razors_edge_identifiability_and_singularity_of_polynomial_neural_n.md)**
-
-:   用代数几何方法研究多项式激活神经网络的可辨识性，证明 MLP 具有一般有限可辨识性（非唯一），CNN 可达到唯一可辨识性，揭示 FPT 奇异性与参数计数的联系。
-
 **[LipNeXt: Scaling up Lipschitz-based Certified Robustness to Billion-parameter Models](lipnext_scaling_up_lipschitz-based_certified_robustness_to_billion-parameter_mod.md)**
 
 :   提出 LipNeXt——首个无约束、无卷积的 1-Lipschitz 架构，通过流形优化（直接在正交流形上更新）和 Spatial Shift Module（理论证明唯一保范 depthwise 卷积是 ±1 位移）突破 Lipschitz 网络的 scaling 瓶颈，首次将认证鲁棒性扩展到 10 亿参数，在 CIFAR-10/100/ImageNet 上达 SOTA 认证鲁棒准确率。
-
-**[Missing Mass for Differentially Private Domain Discovery](missing_mass_for_differentially_private_domain_discovery.md)**
-
-:   为差分隐私下的域发现问题提供首个原则性算法——结合加权高斯机制和经典"missing mass"估计器，证明在 VC 维参数化下的 FPT 算法和匹配的下界（$\Omega(n\log n)$）。
 
 **[Mitigating Spurious Correlation via Distributionally Robust Learning with Hierarchical Ambiguity Sets](mitigating_spurious_correlation_via_distributionally_robust_learning_with_hierar.md)**
 
@@ -207,17 +195,9 @@
 
 :   提出**NcPU**框架，通过**噪声对鲁棒的非对比损失(NoiSNCL)** 在不可靠监督下对齐类内表示，配合**幻影标签消歧(PLD)** 迭代优化伪标签，无需辅助负样本或预估类先验即可在PU学习中逼近甚至超越有监督性能。
 
-**[Non-Clashing Teaching in Graphs: Algorithms, Complexity, and Bounds](non-clashing_teaching_in_graphs_algorithms_complexity_and_bounds.md)**
-
-:   研究图上非冲突教学问题的算法和复杂度——通过邻域查询识别目标节点，提供 VC 维参数化的 FPT 算法和紧的 $\Omega(n\log n)$ 下界，对树/平面图给出多项式界。
-
 **[Non-Collaborative User Simulators for Tool Agents](non-collaborative_user_simulators_for_tool_agents.md)**
 
 :   提出非协作用户模拟器框架，定义四类真实非协作行为（不可用服务/跑题/不耐烦/不完整表述），揭示当前工具 Agent 面对非协作用户时显著退化（跑题平均降 29.1%），并证明混合训练可提升鲁棒性至 93.5%。
-
-**[Predicting kernel regression learning curves from only raw data statistics](predicting_kernel_regression_learning_curves_from_only_raw_data_statistics.md)**
-
-:   提出 Hermite 特征结构假设（HEA），仅从协方差矩阵（无需训练数据）推导核回归学习曲线的闭式预测公式，对高斯数据预测误差 <5%，支持多种核族和高效模型选择。
 
 **[Speculative Actions: A Lossless Framework for Faster AI Agents](speculative_actions_faster_ai_agents.md)**
 

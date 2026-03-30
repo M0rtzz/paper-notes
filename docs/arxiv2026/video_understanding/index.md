@@ -1,27 +1,11 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频理解
 
-**📄 arxiv2026** · 共 **16** 篇
-
-**[4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video](4dequine_disentangling_motion_appearance.md)**
-
-:   4D reconstruction of equine family (e.g.
+**📄 arxiv2026** · 共 **9** 篇
 
 **[DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification](dirpa_addressing_prior_shift.md)**
 
 :   在这项工作中，我们扩展了原始研究的地理范围。
-
-**[DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning](dreamvideoomni_omnimotion_controlled_multisubject.md)**
-
-:   虽然大规模扩散模型彻底改变了视频合成，但实现对多主体身份和多粒度运动的精确控制仍然是一个重大挑战。
-
-**[FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance](flashmotion_fewstep_controllable_video.md)**
-
-:   轨迹可控视频生成的最新进展取得了显着的进展。
-
-**[Geometry-Guided Camera Motion Understanding in VideoLLMs](geometryguided_camera_motion_understanding.md)**
-
-:   相机运动是塑造视觉感知和电影风格的基本几何信号，但当前支持视频的视觉语言模型 (VideoLLM) 很少明确地表示它，并且经常无法处理细粒度的运动基元。
 
 **[L2GTX: From Local to Global Time Series Explanations](l2gtx_local_global_time.md)**
 
@@ -47,10 +31,6 @@
 
 :   错误检测对于工业培训、医疗保健和装配质量控制至关重要。
 
-**[Semantic Satellite Communications for Synchronized Audiovisual Reconstruction](semantic_satellite_communications_synchronized.md)**
-
-:   卫星通信在支持高保真同步视听服务方面面临严重瓶颈，因为传统方案在波动的信道条件、有限的带宽和较长的传播延迟下难以实现跨模态一致性。
-
 **[Team LEYA in 10th ABAW Competition: Multimodal Ambivalence/Hesitancy Recognition Approach](team_leya_10th_abaw.md)**
 
 :   本文为第十届 ABAW 竞赛提出了一种视频级矛盾/犹豫识别的多模态方法。
@@ -58,11 +38,3 @@
 **[Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach](team_ras_10th_abaw.md)**
 
 :   我们提出了一种用于价唤醒估计 ITW 的多模态方法。
-
-**[Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos](towards_spatiotemporal_world_scene.md)**
-
-:   时空场景图为建模不断演变的对象交互提供了原则性的表示，但现有方法基本上仍然以帧为中心：它们仅推理当前可见的对象，在遮挡时丢弃实体，并在 2D 中操作。
-
-**[Weakly Supervised Temporal Action Localization via Dual-Prior Collaborative Learning Guided by Multimodal Large Language Models](weakly_supervised_teacherstudent_framework.md)**
-
-:   多模态大语言模型 (MLLM) 的最新突破在深度学习社区中获得了显着认可，其中视频基础模型 (VFM) 和大语言模型 (LLM) 的融合已被证明有助于构建强大的视频理解系统，有效克服与预定义视觉任务相关的约束。

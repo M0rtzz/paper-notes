@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**🧠 NeurIPS2025** · 共 **17** 篇
+**🧠 NeurIPS2025** · 共 **16** 篇
 
 **[A Set of Generalized Components to Achieve Effective Poison-only Clean-label Backdoor Attacks with Collaborative Sample Selection and Triggers](a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac.md)**
 
@@ -62,10 +62,6 @@
 **[OmniFC: Rethinking Federated Clustering via Lossless and Secure Distance Reconstruction](omnifc_rethinking_federated_clustering_via_lossless_and_secure_distance_reconstr.md)**
 
 :   提出 OmniFC，一个模型无关的联邦聚类框架：通过 Lagrange 编码计算在有限域上精确重建全局成对距离矩阵，任意集中式聚类方法（K-Means/谱聚类/DBSCAN/层次聚类等）可直接在其上运行，仅需一轮通信，天然抵抗 Non-IID，在 7 个数据集上全面超越 k-FED/MUFC/FedSC 等专用方法。
-
-**[SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders](saemark_steering_personalized_multilingual_llm_watermarks_with_sparse_autoencode.md)**
-
-:   利用稀疏自编码器（SAE）作为特征提取器，通过特征引导的拒绝采样实现多语言、多比特 LLM 水印，无需白盒访问或 logit 操纵，英文/中文 Acc 99%+。
 
 **[The Unseen Threat Residual Knowledge In Machine Unlearning Under Perturbed Sampl](the_unseen_threat_residual_knowledge_in_machine_unlearning_under_perturbed_sampl.md)**
 

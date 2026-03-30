@@ -1,7 +1,11 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**💬 ACL2025** · 共 **5** 篇
+**💬 ACL2025** · 共 **7** 篇
+
+**[CHEER-Ekman: Fine-grained Embodied Emotion Classification](cheer-ekman_fine-grained_embodied_emotion_classification.md)**
+
+:   本文提出CHEER-Ekman数据集，将CHEER数据集的二元具身情感标注扩展为Ekman六类基础情绪，并采用基于LLM的自动Best-Worst Scaling（BWS）技术实现无需任务特定训练的细粒度情感分类，性能超越有监督BERT。
 
 **[Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context](dice_idiomaticity.md)**
 
@@ -22,3 +26,7 @@
 **[SELF-PERCEPT: Introspection Improves LLMs' Detection of Multi-Person Mental Manipulation in Conversations](self_percept_manipulation_detection.md)**
 
 :   提出 SELF-PERCEPT 两阶段 prompting 框架，借鉴心理学自我知觉理论（Self-Perception Theory），引导 LLM 先观察对话参与者的行为线索再推断内在态度，显著提升多人多轮对话中心理操纵的检测效果。
+
+**[Vulnerability of LLMs to Vertically Aligned Text Manipulations](vulnerability_of_llms_to_vertically_aligned_text_manipulations.md)**
+
+:   本文系统揭示了LLM对垂直排列文本输入的严重脆弱性：仅将少量关键词垂直排列即可导致文本分类准确率下降25-45个百分点，CoT推理无法缓解此问题，但精心设计的few-shot learning可有效恢复性能。

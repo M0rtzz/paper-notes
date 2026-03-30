@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🧠 NeurIPS2025** · 共 **22** 篇
+**🧠 NeurIPS2025** · 共 **21** 篇
 
 **[3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)**
 
@@ -70,10 +70,6 @@
 **[LoMix: Learnable Weighted Multi-Scale Logits Mixing for Medical Image Segmentation](lomix_learnable_weighted_multi-scale_logits_mixing_for_medical_image_segmentatio.md)**
 
 :   LoMix 提出通过组合突变模块（CMM）生成多尺度 logits 的"突变体"——4 种融合算子（加法/乘法/拼接/注意力加权）× 所有子集组合——配合 NAS 风格的 Softplus 可学习权重自动平衡各 logits 的贡献，在 Synapse 8 器官分割上 DICE 从 80.9% 提升到 85.1%（+4.2%），5% 训练数据下提升 +9.23%。
-
-**[Mol-Llama Towards General Understanding Of Molecules In Large Molecular Language](mol-llama_towards_general_understanding_of_molecules_in_large_molecular_language.md)**
-
-:   构建分子语言模型Mol-LLaMA，通过multi-modal encoder（2D图、3D构象、SMILES文本）实现对分子特征和性质的通用理解。
 
 **[QoQ-Med: Building Multimodal Clinical Foundation Models with Domain-Aware GRPO Training](qoq-med_building_multimodal_clinical_foundation_models_with_domain-aware_grpo_tr.md)**
 

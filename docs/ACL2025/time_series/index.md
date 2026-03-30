@@ -3,9 +3,9 @@
 
 **💬 ACL2025** · 共 **3** 篇
 
-**[CTPD: Cross-Modal Temporal Pattern Discovery for Enhanced Multimodal Electronic Health Records Analysis](ctpd_cross-modal_temporal_pattern_discovery_for_enhanced_multimodal_electronic_h.md)**
+**[G2S: A General-to-Specific Learning Framework for Temporal Knowledge Graph Forecasting with Large Language Models](g2s_a_general-to-specific_learning_framework_for_temporal_knowledge_graph_foreca.md)**
 
-:   提出 CTPD 框架，利用 Slot Attention 从多模态 EHR 数据（不规则时间序列+临床笔记）中发现跨模态共享的时序原型模式，通过 TP-NCE 对比损失对齐两模态的时序语义，在 MIMIC-III 的死亡率预测和表型分类任务上取得 SOTA。
+:   提出 G2S 框架，将时序知识图谱（TKG）预测中的通用模式（时序结构规律）与场景信息（具体实体/关系）解耦，先在匿名化时序结构上学习通用模式，再注入场景信息，有效提升 LLM 在 TKG 预测中的泛化能力。
 
 **[LETS-C: Leveraging Text Embedding for Time Series Classification](lets-c_leveraging_text_embedding_for_time_series_classification.md)**
 

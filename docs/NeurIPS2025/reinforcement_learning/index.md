@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🧠 NeurIPS2025** · 共 **43** 篇
+**🧠 NeurIPS2025** · 共 **37** 篇
 
 **[A Generalized Bisimulation Metric of State Similarity between Markov Decision Processes: From Theoretical Propositions to Applications](a_generalized_bisimulation_metric_of_state_similarity_betwee.md)**
 
@@ -99,14 +99,6 @@
 
 :   在非严格单调平均场博弈(MFG)中，提出基于 KL 散度的近端点(PP)方法实现渐近最后迭代收敛(LIC)，并证明正则化镜像下降(RMD)以指数速率收敛到正则化均衡，两者结合的 APP 算法在标准基准上可靠收敛到非正则化均衡。
 
-**[Learning Interactive World Model for Object-Centric Reinforcement Learning](learning_interactive_world_model_for_object-centric_reinforcement_learning.md)**
-
-:   提出因子化交互式对象中心世界模型（FIOC-WM），通过显式学习对象间交互图和静态/动态属性分解，结合层级策略实现长程任务的有效分解，在属性/组合泛化任务上显著超越 Dreamer-V3 等基线。
-
-**[Learning Memory-Enhanced Improvement Heuristics For Flexible Job Shop Scheduling](learning_memory-enhanced_improvement_heuristics_for_flexible_job_shop_scheduling.md)**
-
-:   用异构图表示+记忆增强GNN解决柔性作业车间调度(FJSP)，通过提升启发式策略超越SOTA构造型DRL方法，并具备规模无关的泛化能力。
-
 **[Massively Parallel Imitation Learning of Mouse Forelimb Musculoskeletal Reaching Dynamics](massively_parallel_imitation_learning_of_mouse_forelimb_musculoskeletal_reaching.md)**
 
 :   基于 MIMIC-MJX 平台构建小鼠前肢肌肉骨骼模拟学习流水线，通过 JAX 加速的大规模并行 PPO（120 万步/秒）训练物理感知模仿学习策略，证明控制成本正则化能使模拟肌肉活动更好地预测真实 EMG 信号，并用基于 Takens 定理的非线性动力学方法从关节运动学预测肌肉激活。
@@ -126,10 +118,6 @@
 **[Qimeng-Salv Signal-Aware Learning For Verilog Code Generation](qimeng-salv_signal-aware_learning_for_verilog_code_generation.md)**
 
 :   从部分正确的Verilog模块中提取信号级正确实现用于信号感知DPO训练，使7B模型在RTLLM v1.1上达到671B DeepSeek-v3的水平（62.6% pass@1）。
-
-**[Real-World Reinforcement Learning of Active Perception Behaviors](real-world_reinforcement_learning_of_active_perception_behaviors.md)**
-
-:   提出 AAWR（Asymmetric Advantage Weighted Regression），通过训练时利用 privileged 传感器信息（如物体检测mask、真实位置）训练价值函数、部署时仅用部分观测，在8个真实机器人任务上大幅超越对称RL和模仿学习基线，实现高效主动感知行为学习。
 
 **[Reasoning Gym: Reasoning Environments for Reinforcement Learning with Verifiable Rewards](reasoning_gym_reasoning_environments_for_reinforcement_learning_with_verifiable_.md)**
 
@@ -159,18 +147,6 @@
 
 :   首次将强化学习 (RL) 应用于真实世界软件工程任务（GitHub PR/Issue 修复），仅用基于规则的序列相似度奖励训练 Llama-3.3-70B，在 SWE-bench Verified 上达到 41.0% 解决率（中等规模模型 SOTA），且 RL 训练仅在 issue-solving 数据上进行，却涌现出在代码推理、数学、通用语言理解等域外任务上的泛化推理能力。
 
-**[The Burden Of Interactive Alignment With Inconsistent Preferences](the_burden_of_interactive_alignment_with_inconsistent_preferences.md)**
-
-:   研究用户与参与度驱动算法的交互对齐问题，证明存在关键视野阈值，充分的前瞻性或低成本信号可显著降低对齐负担。
-
 **[Training Language Models to Reason Efficiently](training_language_models_to_reason_efficiently.md)**
 
 :   通过在 RL 奖励中加入长度惩罚项——正确回答的奖励乘以 $(1 - \alpha \cdot \sigma(\text{norm\_len}))$，用单一超参数 $\alpha$ 控制 token-准确率权衡曲线，仅 100 步 RL 训练即可让 7B 推理模型减少 50% token 使用量而准确率仅下降 <5%。
-
-**[VolleyBots: A Testbed for Multi-Drone Volleyball Game Combining Motion Control and Strategic Play](volleybots_a_testbed_for_multi-drone_volleyball_game_combining_motion_control_an.md)**
-
-:   提出 VolleyBots——首个整合低层运动控制与高层策略规划的多无人机排球对抗平台，包含从单机训练到3v3对抗的9级任务课程，揭示了现有多智能体RL算法在需要联合控制+决策的复杂运动任务上的瓶颈。
-
-**[Zero-Shot Context Generalization In Reinforcement Learning From Few Training Con](zero-shot_context_generalization_in_reinforcement_learning_from_few_training_con.md)**
-
-:   提出基于context-enhanced Bellman方程的数据增强方法，使RL agent在仅见过少量训练context的情况下零样本泛化到新context。

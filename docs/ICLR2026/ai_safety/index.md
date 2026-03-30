@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**🔬 ICLR2026** · 共 **32** 篇
+**🔬 ICLR2026** · 共 **27** 篇
 
 **[Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective](adaptive_methods_are_preferable_in_high_privacy_settings_an_sde_perspective.md)**
 
@@ -79,17 +79,9 @@
 
 :   提出 EAPrivacy——首个评估 LLM 物理世界隐私感知的 4 层级基准（400+ 程序化生成场景，60+ 物理场景），发现所有 frontier 模型存在"非对称保守"（任务执行过度保守但隐私保护不足），开启 reasoning 模式反而降低隐私表现，最佳模型（Gemini 2.5 Pro）在动态环境中仅 59% 准确率。
 
-**[Membership Inference Attacks Against Fine-tuned Diffusion Language Models (SAMA)](membership_inference_attacks_against_fine-tuned_diffusion_language_models.md)**
-
-:   首次系统研究扩散语言模型(DLM)的成员推断攻击漏洞，提出SAMA方法：利用DLM的双向掩码结构创造指数级探测机会，通过渐进式掩码+符号投票+自适应加权处理稀疏且重尾的成员信号，在9个数据集上AUC达0.81，比最优baseline高30%。
-
 **[Membership Privacy Risks of Sharpness Aware Minimization](membership_privacy_risks_of_sharpness_aware_minimization.md)**
 
 :   发现反直觉现象：SAM 比 SGD 泛化更好但更容易被成员推断攻击（MIA）——SAM 的锐度正则化隐式降低输出方差，使成员/非成员的信号分离更清晰，攻击 AUC 提升 1-3.4%；机制分析表明 SAM 的泛化收益来自"结构化记忆"（学习少数类子模式）而非简单泛化。
-
-**[OFMU: Optimization-Driven Framework for Machine Unlearning](ofmu_optimization-driven_framework_for_machine_unlearning.md)**
-
-:   将机器遗忘建模为双层优化问题：内层最大化遗忘损失+梯度去相关防止破坏保留集，外层最小化保留损失+惩罚项强制内层平稳点。在TOFU基准上同时实现高遗忘质量和高模型效用保留，平衡性超越现有GA/GradDiff/NPO/RMU方法。
 
 **[PMark: Towards Robust and Distortion-free Semantic-level Watermarking with Channel Constraints](pmark_towards_robust_and_distortion-free_semantic-level_watermarking_with_channe.md)**
 
@@ -103,10 +95,6 @@
 
 :   RedSage 是开源的 8B 网络安全专用 LLM，通过 11.8B token 安全语料持续预训练 + 266K 样本智能体增强 SFT + 偏好对齐三阶段训练，配套提出覆盖知识/技能/工具三维的 RedSage-Bench（30K MCQ + 240 开放题），在现有网络安全基准上达到 SOTA。
 
-**[SHIELD: Suppressing Hallucinations In LVLM Encoders via Bias and Vulnerability Defense](shield_suppressing_hallucinations_in_lvlm_encoders_via_bias_and_vulnerability_de.md)**
-
-:   提出SHIELD，一个无需训练的LVLM幻觉抑制框架：识别视觉编码器中的三类问题(统计偏差/固有偏差/脆弱性)，通过token重加权+token减法+对比解码三模块精准纠正，在LLaVA-1.5上CHAIR得分比OPERA降低18%，同时提升了MME等通用基准。
-
 **[Train Once, Answer All: Many Pretraining Experiments for the Cost of One](train_once_answer_all_many_pretraining_experiments_for_the_cost_of_one.md)**
 
 :   提出在单次 LLM 预训练中同时运行多个独立实验的方法论框架，在训练 2.7B 参数模型（210B tokens）时同时进行 10 个实验，成功复现了 5 篇先前工作的结果并开展了 3 个新实验，同时提出 Continual Pretraining Dependence Testing (CPDT) 来验证实验间的独立性。
@@ -119,14 +107,6 @@
 
 :   提出 X-GRAAD，一种推理时后门防御方法：结合注意力异常评分和梯度重要性评分定位触发器token，再通过字符级扰动中和触发器。在5个Transformer模型×3种攻击上ASR降至接近0%，同时保持88-95%+的CACC，且速度比PURE快30倍。
 
-**[Veritas: Generalizable Deepfake Detection via Pattern-Aware Reasoning](veritas_generalizable_deepfake_detection_via_pattern-aware_reasoning.md)**
-
-:   提出Veritas，用模式感知推理增强MLLM做深伪检测：带工件分类的SFT+混合偏好优化(MiPO)+模式感知GRPO(P-GRPO)两阶段训练，并构建HydraFake(100K)基准。跨伪造类型准确率8.3%，跨域准确率82.2%，平均超过此前SOTA 6%。
-
 **[VPI-Bench: Visual Prompt Injection Attacks for Computer-Use Agents](vpi-bench_visual_prompt_injection_attacks_for_computer-use_agents.md)**
 
 :   构建首个完整的视觉prompt注入攻击基准VPI-Bench（306样本），系统评估Computer-Use和Browser-Use Agent在5个平台上的安全性。发现Browser-Use Agent极度脆弱（Amazon/Booking上100% AR），即使Anthropic的CUA也存在严重漏洞（最高59% AR），系统prompt防御无效。
-
-**[Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information](why_do_unlearnable_examples_work_a_novel_perspective_of_mutual_information.md)**
-
-:   从互信息(MI)角度解释不可学习样本(UE)的工作原理：有效的UE降低了干净特征与下毒特征间的MI。基于此提出MI-UE方法，在CIFAR-10上将测试准确率从94.45%压到9.95%，超趇现有EM(24.17%)。
