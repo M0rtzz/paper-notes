@@ -1,13 +1,9 @@
----
-title: "MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark"
-conference: "ACL 2025"
-arxiv: "2409.02813"
-code: "https://mmmu-benchmark.github.io/#leaderboard"
-domain: "multimodal_vlm"
-keywords: ["benchmark", "multimodal reasoning", "vision-language model", "robustness evaluation", "MMMU"]
----
-
 # MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark
+
+**会议**: ACL 2025  
+**arXiv**: [2409.02813](https://arxiv.org/abs/2409.02813)  
+**代码**: 无  
+**领域**: 多模态VLM  
 
 ## 一句话总结
 

@@ -1,5 +1,5 @@
 # Auto-generated: ICCV2025 paper notes ignore
-# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
+# 由 src/sync_notes.py 根据 TODO.md 自动生成
 
 # 默认忽略所有笔记
 *.md
@@ -8,8 +8,9 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
+!index.md
 
-# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
+# 排除已完成笔记所在的子目录
 !3d_vision/
 !ai_safety/
 !audio_speech/
@@ -31,7 +32,7 @@
 !self_supervised/
 !video_understanding/
 
-# 已完成笔记 (120 篇)
+# 已完成笔记 (121 篇)
 !3d_vision/3d_mesh_editing_using_masked_lrms.md
 !3d_vision/3d_testtime_adaptation_via_graph_spectral_driven_point_shift.md
 !3d_vision/3dgraphllm_combining_semantic_graphs_and_large_language_mode.md
@@ -70,6 +71,7 @@
 !3d_vision/bridging_diffusion_models_and_3d_representations_a_3d_consis.md
 !3d_vision/bring_your_rear_cameras_for_egocentric_3d_human_pose_estimat.md
 !3d_vision/bufferx_towards_zeroshot_point_cloud_registration_in_diverse.md
+!3d_vision/cadrecode_reverse_engineering_cad_code_from_point_clouds.md
 !3d_vision/can3tok_canonical_3d_tokenization_and_latent_modeling_of_sce.md
 !3d_vision/catsplat_contextaware_transformer_with_spatial_guidance_for.md
 !3d_vision/charm3r_towards_unseen_camera_height_robust_monocular_3d_det.md

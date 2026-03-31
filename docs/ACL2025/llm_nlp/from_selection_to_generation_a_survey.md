@@ -1,12 +1,9 @@
----
-title: "From Selection to Generation: A Survey of LLM-based Active Learning"
-conference: "ACL 2025"
-arxiv: "2502.11767"
-domain: "nlp_generation"
-keywords: ["active learning", "LLM", "data selection", "data generation", "annotation", "survey"]
----
-
 # From Selection to Generation: A Survey of LLM-based Active Learning
+
+**会议**: ACL 2025  
+**arXiv**: [2502.11767](https://arxiv.org/abs/2502.11767)  
+**代码**: 无  
+**领域**: LLM / NLP  
 
 ## 一句话总结
 

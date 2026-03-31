@@ -1,13 +1,9 @@
----
-title: "EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models"
-authors: "Zekun Wang, Minghua Ma, Zexin Wang, Rongchuan Mu, Liping Shan, Ming Liu, Bing Qin"
-venue: "ACL 2025"
-arxiv_id: "2506.00479"
-date: 2025-06-01
-tags: [benchmark, LVLM, efficiency, token-compression, parameter-compression, KV-cache]
----
-
 # EffiVLM-Bench: 大型视觉语言模型免训练加速的综合评测基准
+
+**会议**: ACL 2025  
+**arXiv**: 无  
+**代码**: 无  
+**领域**: 多模态VLM  
 
 ## 一句话总结
 

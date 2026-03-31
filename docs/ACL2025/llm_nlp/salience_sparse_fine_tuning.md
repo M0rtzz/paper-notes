@@ -1,13 +1,9 @@
----
-title: "Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models"
-conference: "ACL 2025"
-arxiv: "2412.13488"
-code: "https://github.com/0-ml/speft"
-domain: "model_compression"
-keywords: ["parameter-efficient fine-tuning", "sparse adaptation", "salience metrics", "LoRA", "PEFT"]
----
-
 # Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models
+
+**会议**: ACL 2025  
+**arXiv**: [2412.13488](https://arxiv.org/abs/2412.13488)  
+**代码**: 无  
+**领域**: LLM / NLP  
 
 ## 一句话总结
 

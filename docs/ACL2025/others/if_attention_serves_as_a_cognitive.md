@@ -1,13 +1,9 @@
----
-title: "If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?"
-conference: "ACL 2025"
-arxiv: "2502.11469"
-code: "https://github.com/osekilab/TG-NAE"
-domain: "others"
-keywords: ["attention mechanism", "cognitive model", "memory retrieval", "Transformer Grammar", "psycholinguistics"]
----
-
 # If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?
+
+**会议**: ACL 2025  
+**arXiv**: [2502.11469](https://arxiv.org/abs/2502.11469)  
+**代码**: 无  
+**领域**: 其他  
 
 ## 一句话总结
 

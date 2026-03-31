@@ -1,13 +1,9 @@
----
-title: "SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL"
-conference: "ACL 2025"
-arxiv: "2506.00391"
-code: "https://github.com/quge2023/SHARE"
-domain: "others"
-keywords: ["text-to-sql", "self-correction", "small language model", "action model", "error correction"]
----
-
 # SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL
+
+**会议**: ACL 2025  
+**arXiv**: [2506.00391](https://arxiv.org/abs/2506.00391)  
+**代码**: 无  
+**领域**: 其他  
 
 ## 一句话总结
 

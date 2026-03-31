@@ -1,9 +1,9 @@
 # Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race
 
-**会议**: ACL 2025  
-**arXiv**: [2506.00253](https://arxiv.org/abs/2506.00253)  
-**代码**: [https://github.com/slhleosun/aligned-but-blind](https://github.com/slhleosun/aligned-but-blind)  
-**领域**: LLM对齐 / 偏见分析  
+**会议**: ACL 2025
+**arXiv**: [2506.00253](https://arxiv.org/abs/2506.00253)
+**代码**: [https://github.com/slhleosun/aligned-but-blind](https://github.com/slhleosun/aligned-but-blind)
+**领域**: LLM对齐 / 偏见分析
 **关键词**: implicit bias, alignment side-effect, race awareness, representation analysis, bias mitigation, race-blindness
 
 ## 一句话总结

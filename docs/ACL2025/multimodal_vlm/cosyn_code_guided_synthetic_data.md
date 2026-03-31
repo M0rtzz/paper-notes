@@ -1,13 +1,9 @@
----
-title: "Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation (CoSyn)"
-conference: "ACL 2025"
-arxiv: "2502.14846"
-code: "https://yueyang1996.github.io/cosyn"
-domain: "multimodal_vlm"
-keywords: ["synthetic data", "text-rich image", "vision-language model", "code generation", "chart understanding"]
----
-
 # CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation
+
+**会议**: ACL 2025  
+**arXiv**: [2502.14846](https://arxiv.org/abs/2502.14846)  
+**代码**: 无  
+**领域**: 多模态VLM  
 
 ## 一句话总结
 
