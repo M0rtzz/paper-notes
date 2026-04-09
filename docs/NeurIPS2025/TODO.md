@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # NeurIPS2025 论文笔记 TODO
 
-总计: 2525 篇 | 已完成: 1475 | 待更新: 1050
+总计: 2525 篇 | 已完成: 1464 | 待更新: 1061
 
 ---
 
@@ -151,7 +151,7 @@
 - [x] [Amortized Active Generation of Pareto Sets](medical_imaging/amortized_active_generation_of_pareto_sets.md) | arXiv: 2510.21052
 - [x] [Amortized Sampling with Transferable Normalizing Flows](image_generation/amortized_sampling_with_transferable_normalizing_flows.md) | arXiv: 2508.18175
 - [x] [an adaptive algorithm for bilevel optimization on riemannian manifolds](optimization/an_adaptive_algorithm_for_bilevel_optimization_on_riemannian_manifolds.md) | arXiv: 2504.06042
-- [x] [an analysis of causal effect estimation using outcome invariant data augmentatio](causal_inference/an_analysis_of_causal_effect_estimation_using_outcome_invariant_data_augmentatio.md) | arXiv: 2510.25128
+- [ ] [an analysis of causal effect estimation using outcome invariant data augmentatio](causal_inference/an_analysis_of_causal_effect_estimation_using_outcome_invariant_data_augmentatio.md) | arXiv: 2510.25128
 - [x] [an analysis of concept bottleneck models measuring understanding and mitigating ](others/an_analysis_of_concept_bottleneck_models_measuring_understanding_and_mitigating_.md) | arXiv: 2505.16705
 - [x] [an empirical investigation of neural odes and symbolic regression for dynamical ](others/an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md) | arXiv: 2601.20637
 - [x] [an evidence-based post-hoc adjustment framework for anomaly detection under data](others/an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md) | arXiv: 2510.21296
@@ -179,7 +179,7 @@
 - [x] [Ascent Fails to Forget](object_detection/ascent_fails_to_forget.md) | arXiv: 2509.26427
 - [x] [asciibench evaluating language-model-based understanding of visually-oriented te](aigc_detection/asciibench_evaluating_language-model-based_understanding_of_visually-oriented_te.md) | arXiv: 2512.04125
 - [x] [ask a strong llm judge when your reward model is uncertain](llm_alignment/ask_a_strong_llm_judge_when_your_reward_model_is_uncertain.md) | arXiv: 2510.20369
-- [x] [associative syntax and maximal repetitions reveal context-dependent complexity i](audio_speech/associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i.md) | arXiv: 2512.01033
+- [ ] [associative syntax and maximal repetitions reveal context-dependent complexity i](audio_speech/associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i.md) | arXiv: 2512.01033
 - [x] [astroco self-supervised conformer-style transformers for light-curve embeddings](physics/astroco_self-supervised_conformer-style_transformers_for_light-curve_embeddings.md) | arXiv: 2509.24134
 - [x] [astrovisbench a code benchmark for scientific computing and visualization in ast](llm_nlp/astrovisbench_a_code_benchmark_for_scientific_computing_and_visualization_in_ast.md) | arXiv: 2505.20538
 - [x] [asymmetric duos sidekicks improve uncertainty](others/asymmetric_duos_sidekicks_improve_uncertainty.md) | arXiv: 2505.18636
@@ -222,7 +222,7 @@
 - [x] [Balanced Token Pruning: Accelerating Vision Language Models Beyond Local Optimization](multimodal_vlm/balanced_token_pruning_accelerating_vision_language_models_b.md) | arXiv: 2505.22038
 - [x] [balancing performance and costs in best arm identification](recommender/balancing_performance_and_costs_in_best_arm_identification.md) | arXiv: 2505.20583
 - [ ] [bandit and delayed feedback in online structured prediction](reinforcement_learning/bandit_and_delayed_feedback_in_online_structured_prediction.md) | arXiv: 2502.18709
-- [x] [barcodemamba advancing state-space models for fungal biodiversity research](medical_imaging/barcodemamba_advancing_state-space_models_for_fungal_biodiversity_research.md) | arXiv: 2512.15931
+- [ ] [barcodemamba advancing state-space models for fungal biodiversity research](medical_imaging/barcodemamba_advancing_state-space_models_for_fungal_biodiversity_research.md) | arXiv: 2512.15931
 - [x] [barista brain scale informed spatiotemporal representation of human intracranial](model_compression/barista_brain_scale_informed_spatiotemporal_representation_of_human_intracranial.md) | arXiv: 2512.12135
 - [x] [Base Models Know How to Reason, Thinking Models Learn When](llm_reasoning/base_models_know_how_to_reason_thinking_models_learn_when.md) | arXiv: 2510.07364
 - [x] [bayesian ego-graph inference for networked multi-agent reinforcement learning](autonomous_driving/bayesian_ego-graph_inference_for_networked_multi-agent_reinforcement_learning.md) | arXiv: 2509.16606
@@ -310,7 +310,7 @@
 - [x] [cam a constructivist view of agentic memory for llm-based reading comprehension](llm_agent/cam_a_constructivist_view_of_agentic_memory_for_llm-based_reading_comprehension.md) | arXiv: 2510.05520
 - [x] [CAMILA: Context-Aware Masking for Image Editing with Language Alignment](image_generation/camila_contextaware_masking_for_image_editing_with_language.md)
 - [x] [camit a time-aware car model dataset for classification and generation](image_generation/camit_a_time-aware_car_model_dataset_for_classification_and_generation.md) | arXiv: 2510.17626
-- [x] [can agents fix agent issues](robotics/can_agents_fix_agent_issues.md) | arXiv: 2505.20749
+- [ ] [can agents fix agent issues](robotics/can_agents_fix_agent_issues.md) | arXiv: 2505.20749
 - [x] [Can DPO Learn Diverse Human Values? A Theoretical Scaling Law](llm_alignment/can_dpo_learn_diverse_human_values_a_theoretical_scaling_law.md) | arXiv: 2408.03459
 - [x] [can knowledge-graph-based retrieval augmented generation really retrieve what yo](image_generation/can_knowledge-graph-based_retrieval_augmented_generation_really_retrieve_what_yo.md) | arXiv: 2510.16582
 - [x] [can large language models master complex card games](llm_nlp/can_large_language_models_master_complex_card_games.md) | arXiv: 2509.01328
@@ -318,7 +318,7 @@
 - [x] [can llms reason over non-text modalities in a training-free manner a case study ](multimodal_vlm/can_llms_reason_over_non-text_modalities_in_a_training-free_manner_a_case_study_.md) | arXiv: 2509.17552
 - [x] [Can LLMs Write Faithfully? An Agent-Based Evaluation of LLM-generated Islamic Content](3d_vision/can_llms_write_faithfully_an_agent-based_evaluation_of_llm-generated_islamic_con.md) | arXiv: 2510.24438
 - [x] [can multi-modal llms provide live step-by-step task guidance](multimodal_vlm/can_multi-modal_llms_provide_live_step-by-step_task_guidance.md) | arXiv: 2511.21998
-- [x] [CAPability: A Comprehensive Visual Caption Benchmark for Evaluating Both Correctness and Thoroughness](multimodal_vlm/capability_a_comprehensive_visual_caption_benchmark_for_eval.md) | arXiv: 2502.14914
+- [ ] [CAPability: A Comprehensive Visual Caption Benchmark for Evaluating Both Correctness and Thoroughness](multimodal_vlm/capability_a_comprehensive_visual_caption_benchmark_for_eval.md) | arXiv: 2502.14914
 - [x] [capturing individual human preferences with reward features](llm_alignment/capturing_individual_human_preferences_with_reward_features.md) | arXiv: 2503.17338
 - [x] [care-pd a multi-site anonymized clinical dataset for parkinsons disease gait ass](medical_imaging/care-pd_a_multi-site_anonymized_clinical_dataset_for_parkinsons_disease_gait_ass.md) | arXiv: 2510.04312
 - [x] [CAS-Spec: Cascade Adaptive Self-Speculative Decoding for On-the-Fly Lossless Inference Acceleration of LLMs](model_compression/casspec_cascade_adaptive_selfspeculative_decoding_for_onthef.md) | arXiv: 2510.26843
@@ -504,7 +504,7 @@
 - [x] [deltaphi physical states residual learning for neural operators in data-limited ](scientific_computing/deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_.md) | arXiv: 2406.09795
 - [x] [deltaproduct improving state-tracking in linear rnns via householder products](video_understanding/deltaproduct_improving_state-tracking_in_linear_rnns_via_householder_products.md) | arXiv: 2502.10297
 - [x] [delving into cascaded instability a lipschitz continuity view on image restorati](object_detection/delving_into_cascaded_instability_a_lipschitz_continuity_view_on_image_restorati.md) | arXiv: 2510.24232
-- [x] [demandcast global hourly electricity demand forecasting](time_series/demandcast_global_hourly_electricity_demand_forecasting.md) | arXiv: 2510.08000
+- [ ] [demandcast global hourly electricity demand forecasting](time_series/demandcast_global_hourly_electricity_demand_forecasting.md) | arXiv: 2510.08000
 - [x] [demo generative ai helps radiotherapy planning with user preference](medical_imaging/demo_generative_ai_helps_radiotherapy_planning_with_user_preference.md) | arXiv: 2512.08996
 - [x] [demo guide-rag evidence-driven corpus curation for retrieval-augmented generatio](medical_imaging/demo_guide-rag_evidence-driven_corpus_curation_for_retrieval-augmented_generatio.md) | arXiv: 2510.15782
 - [x] [demystifying language model forgetting with low-rank example associations](llm_nlp/demystifying_language_model_forgetting_with_low-rank_example_associations.md) | arXiv: 2406.14026
@@ -839,7 +839,7 @@
 - [x] [forensichub a unified benchmark codebase for all-domain fake image detection and](ai_safety/forensichub_a_unified_benchmark_codebase_for_all-domain_fake_image_detection_and.md) | arXiv: 2505.11003
 - [x] [Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation](video_understanding/foresight_adaptive_layer_reuse_for_accelerated_and_highquali.md)
 - [ ] [fostering the ecosystem of ai for social impact requires expanding and strengthe](others/fostering_the_ecosystem_of_ai_for_social_impact_requires_expanding_and_strengthe.md) | arXiv: 2510.18238
-- [ ] [foundation cures personalization improving personalized models prompt consistenc](self_supervised/foundation_cures_personalization_improving_personalized_models_prompt_consistenc.md) | arXiv: 2411.15277
+- [x] [foundation cures personalization improving personalized models prompt consistenc](self_supervised/foundation_cures_personalization_improving_personalized_models_prompt_consistenc.md) | arXiv: 2411.15277
 - [x] [foundation models as world models a foundational study in text-based gridworlds](reinforcement_learning/foundation_models_as_world_models_a_foundational_study_in_text-based_gridworlds.md) | arXiv: 2509.15915
 - [ ] [foundation models for scientific discovery from paradigm enhancement to paradigm](self_supervised/foundation_models_for_scientific_discovery_from_paradigm_enhancement_to_paradigm.md) | arXiv: 2510.15280
 - [x] [foxes a framework for operational x-ray emission synthesis](medical_imaging/foxes_a_framework_for_operational_x-ray_emission_synthesis.md) | arXiv: 2510.22801
@@ -940,7 +940,7 @@
 - [x] [graph your own prompt](model_compression/graph_your_own_prompt.md) | arXiv: 2509.23373
 - [x] [graph-based neural space weather forecasting](image_generation/graph-based_neural_space_weather_forecasting.md) | arXiv: 2509.19605
 - [x] [graphchain large language models for large-scale graph analysis via tool chainin](human_understanding/graphchain_large_language_models_for_large-scale_graph_analysis_via_tool_chainin.md) | arXiv: 2511.00457
-- [x] [graphfaas serverless gnn inference for burst-resilient real-time intrusion detec](graph_learning/graphfaas_serverless_gnn_inference_for_burst-resilient_real-time_intrusion_detec.md) | arXiv: 2511.10554
+- [ ] [graphfaas serverless gnn inference for burst-resilient real-time intrusion detec](graph_learning/graphfaas_serverless_gnn_inference_for_burst-resilient_real-time_intrusion_detec.md) | arXiv: 2511.10554
 - [x] [graphkeeper graph domain-incremental learning via knowledge disentanglement and ](model_compression/graphkeeper_graph_domain-incremental_learning_via_knowledge_disentanglement_and_.md) | arXiv: 2511.00097
 - [x] [graphtop graph topology-oriented prompting for graph neural networks](graph_learning/graphtop_graph_topology-oriented_prompting_for_graph_neural_networks.md) | arXiv: 2510.22451
 - [x] [grasp2grasp vision-based dexterous grasp translation via schrödinger bridges](image_generation/grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md) | arXiv: 2506.02489
@@ -1423,7 +1423,7 @@
 - [x] [mozart modularized and efficient moe training on 35d wafer-scale chiplet archite](llm_efficiency/mozart_modularized_and_efficient_moe_training_on_35d_wafer-scale_chiplet_archite.md) | arXiv: 2603.07006
 - [ ] [mpcache mpc-friendly kv cache eviction for efficient private llm inference](ai_safety/mpcache_mpc-friendly_kv_cache_eviction_for_efficient_private_llm_inference.md) | arXiv: 2501.06807
 - [ ] [mpmavatar learning 3d gaussian avatars with accurate and robust physics-based dy](3d_vision/mpmavatar_learning_3d_gaussian_avatars_with_accurate_and_robust_physics-based_dy.md) | arXiv: 2510.01619
-- [x] [mro enhancing reasoning in diffusion language models via multi-reward optimizati](image_restoration/mro_enhancing_reasoning_in_diffusion_language_models_via_multi-reward_optimizati.md) | arXiv: 2510.21473
+- [ ] [mro enhancing reasoning in diffusion language models via multi-reward optimizati](image_restoration/mro_enhancing_reasoning_in_diffusion_language_models_via_multi-reward_optimizati.md) | arXiv: 2510.21473
 - [ ] [ms-bart unified modeling of mass spectra and molecules for structure elucidation](image_restoration/ms-bart_unified_modeling_of_mass_spectra_and_molecules_for_structure_elucidation.md) | arXiv: 2510.20615
 - [x] [msf-cnn patch-based multi-stage fusion with convolutional neural networks for ti](llm_nlp/msf-cnn_patch-based_multi-stage_fusion_with_convolutional_neural_networks_for_ti.md) | arXiv: 2505.11483
 - [ ] [mstar box-free multi-query scene text retrieval with attention recycling](object_detection/mstar_box-free_multi-query_scene_text_retrieval_with_attention_recycling.md) | arXiv: 2506.10609
@@ -1596,7 +1596,7 @@
 - [x] [out of control -- why alignment needs formal control theory and an alignment con](llm_agent/out_of_control_--_why_alignment_needs_formal_control_theory_and_an_alignment_con.md) | arXiv: 2506.17846
 - [ ] [out-of-distribution generalisation is hard evidence from arc-like tasks](llm_nlp/out-of-distribution_generalisation_is_hard_evidence_from_arc-like_tasks.md) | arXiv: 2505.09716
 - [x] [over-squashing in spatiotemporal graph neural networks](graph_learning/over-squashing_in_spatiotemporal_graph_neural_networks.md) | arXiv: 2506.15507
-- [x] [overcoming sparsity artifacts in crosscoders to interpret chat-tuning](recommender/overcoming_sparsity_artifacts_in_crosscoders_to_interpret_chat-tuning.md) | arXiv: 2504.02922
+- [ ] [overcoming sparsity artifacts in crosscoders to interpret chat-tuning](recommender/overcoming_sparsity_artifacts_in_crosscoders_to_interpret_chat-tuning.md) | arXiv: 2504.02922
 - [ ] [overfitting in adaptive robust optimization](others/overfitting_in_adaptive_robust_optimization.md) | arXiv: 2509.16451
 - [x] [overlaybench a benchmark for layout-to-image generation with dense overlaps](object_detection/overlaybench_a_benchmark_for_layout-to-image_generation_with_dense_overlaps.md) | arXiv: 2509.19282
 - [ ] [overt a benchmark for over-refusal evaluation on text-to-image models](image_generation/overt_a_benchmark_for_over-refusal_evaluation_on_text-to-image_models.md) | arXiv: 2505.21347
@@ -1942,7 +1942,7 @@
 - [ ] [sceneforge enhancing 3d-text alignment with structured scene compositions](3d_vision/sceneforge_enhancing_3d-text_alignment_with_structured_scene_compositions.md) | arXiv: 2509.15693
 - [ ] [sceneweaver all-in-one 3d scene synthesis with an extensible and self-reflective](3d_vision/sceneweaver_all-in-one_3d_scene_synthesis_with_an_extensible_and_self-reflective.md) | arXiv: 2509.20414
 - [ ] [schrödinger bridge matching for tree-structured costs and entropic wasserstein b](image_generation/schrödinger_bridge_matching_for_tree-structured_costs_and_entropic_wasserstein_b.md) | arXiv: 2506.17197
-- [x] [sciarena an open evaluation platform for non-verifiable scientific literature-gr](self_supervised/sciarena_an_open_evaluation_platform_for_non-verifiable_scientific_literature-gr.md) | arXiv: 2507.01001
+- [ ] [sciarena an open evaluation platform for non-verifiable scientific literature-gr](self_supervised/sciarena_an_open_evaluation_platform_for_non-verifiable_scientific_literature-gr.md) | arXiv: 2507.01001
 - [ ] [scmrdr a scalable and flexible framework for unpaired single-cell multi-omics da](others/scmrdr_a_scalable_and_flexible_framework_for_unpaired_single-cell_multi-omics_da.md) | arXiv: 2510.24987
 - [ ] [scope saliency-coverage oriented token pruning for efficient multimodel llms](multimodal_vlm/scope_saliency-coverage_oriented_token_pruning_for_efficient_multimodel_llms.md) | arXiv: 2510.24214
 - [ ] [score-informed neural operator for enhancing ordering-based causal discovery](image_generation/score-informed_neural_operator_for_enhancing_ordering-based_causal_discovery.md) | arXiv: 2508.12650
@@ -2187,7 +2187,7 @@
 - [ ] [the computational complexity of counting linear regions in relu neural networks](others/the_computational_complexity_of_counting_linear_regions_in_relu_neural_networks.md) | arXiv: 2505.16716
 - [ ] [the cost of robustness tighter bounds on parameter complexity for robust memoriz](others/the_cost_of_robustness_tighter_bounds_on_parameter_complexity_for_robust_memoriz.md) | arXiv: 2510.24643
 - [x] [the curse of depth in large language models](llm_nlp/the_curse_of_depth_in_large_language_models.md) | arXiv: 2502.05795
-- [x] [the effect of optimal self-distillation in noisy gaussian mixture model](image_restoration/the_effect_of_optimal_self-distillation_in_noisy_gaussian_mixture_model.md) | arXiv: 2501.16226
+- [ ] [the effect of optimal self-distillation in noisy gaussian mixture model](image_restoration/the_effect_of_optimal_self-distillation_in_noisy_gaussian_mixture_model.md) | arXiv: 2501.16226
 - [x] [the emergence of sparse attention impact of data distribution and benefits of re](llm_efficiency/the_emergence_of_sparse_attention_impact_of_data_distribution_and_benefits_of_re.md) | arXiv: 2505.17863
 - [ ] [the geometry of cortical computation manifold disentanglement and predictive dyn](others/the_geometry_of_cortical_computation_manifold_disentanglement_and_predictive_dyn.md) | arXiv: 2508.02995
 - [x] [the graphon limit hypothesis understanding neural network pruning via infinite w](model_compression/the_graphon_limit_hypothesis_understanding_neural_network_pruning_via_infinite_w.md) | arXiv: 2510.17515
@@ -2364,7 +2364,7 @@
 - [x] [understanding the generalization of stochastic gradient adam in learning neural ](optimization/understanding_the_generalization_of_stochastic_gradient_adam_in_learning_neural_.md) | arXiv: 2510.11354
 - [ ] [uni-lora one vector is all you need](model_compression/uni-lora_one_vector_is_all_you_need.md) | arXiv: 2506.00799
 - [ ] [uni-mumer unified multi-task fine-tuning of vision-language model for handwritte](multimodal_vlm/uni-mumer_unified_multi-task_fine-tuning_of_vision-language_model_for_handwritte.md) | arXiv: 2505.23566
-- [x] [uniedit a unified knowledge editing benchmark for large language models](graph_learning/uniedit_a_unified_knowledge_editing_benchmark_for_large_language_models.md) | arXiv: 2505.12345
+- [ ] [uniedit a unified knowledge editing benchmark for large language models](graph_learning/uniedit_a_unified_knowledge_editing_benchmark_for_large_language_models.md) | arXiv: 2505.12345
 - [ ] [unified all-atom molecule generation with neural fields](medical_imaging/unified_all-atom_molecule_generation_with_neural_fields.md) | arXiv: 2511.15906
 - [ ] [unified reinforcement and imitation learning for vision-language models](multimodal_vlm/unified_reinforcement_and_imitation_learning_for_vision-language_models.md) | arXiv: 2510.19307
 - [ ] [uniformer unified and efficient transformer for reasoning across general and cus](others/uniformer_unified_and_efficient_transformer_for_reasoning_across_general_and_cus.md) | arXiv: 2511.08135
