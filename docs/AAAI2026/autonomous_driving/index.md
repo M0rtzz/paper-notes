@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🤖 AAAI2026** · 共 **29** 篇
+**🤖 AAAI2026** · 共 **41** 篇
 
 **[A Data-Driven Model Predictive Control Framework for Multi-Aircraft TMA Routing Under Travel Time Uncertainty](a_data-driven_model_predictive_control_framework_for_multi-aircraft_tma_routing_.md)**
 
@@ -79,13 +79,21 @@
 
 :   提出 FastDriveVLA，通过 MAE 风格的前景像素重建训练轻量级 plug-and-play 的 ReconPruner 模块（仅 0.07B），利用对抗前景-背景重建策略优先保留驾驶决策所需的前景 token，在 nuScenes 开环规划基准上各剪枝率均达 SOTA，一次训练可迁移至同一视觉编码器的不同 VLA 模型。
 
+**[Fine-Grained Representation for Lane Topology Reasoning](fine-grained_representation_for_lane_topology_reasoning.md)**
+
+:   提出TopoFG框架，用细粒度查询（每条车道线由多个空间感知查询表示）替代传统单查询建模，结合层级先验提取、区域聚焦解码和基于边界点的鲁棒拓扑推理，在OpenLane-V2上以48.0% OLS（subset_A）和45.4% OLS（subset_B）达到新SOTA。
+
 **[FQ-PETR: Fully Quantized Position Embedding Transformation for Multi-View 3D Object Detection](fq-petr_fully_quantized_position_embedding_transformation_fo.md)**
 
 :   首次实现PETR系列3D检测器的全INT8量化部署，通过量化友好的LiDAR-ray位置编码(QFPE)解决多模态特征幅度不匹配问题、双查找表(DULUT)高效逼近非线性算子、数值稳定后量化(QANS)避免softmax注意力失真，在PETR/StreamPETR/PETRv2/MV2D上W8A8精度损失<1%且延迟降低75%（3.9×加速）。
 
-**[Generalising Traffic Forecasting To Regions Without Traffic Observations](generalising_traffic_forecasting_to_regions_without_traffic_observations.md)**
+**[Generalising Traffic Forecasting to Regions without Traffic Observations](generalising_traffic_forecasting_to_regions_without_traffic_observations.md)**
 
 :   本文提出 GenCast 模型，通过物理信息神经网络（引入 LWR 交通方程作为软约束）、动态外部天气信号融合和空间分组模块三大创新，实现了从有传感器区域到无传感器连续区域的交通预测泛化，在五个真实数据集上一致性地超越了现有最优方法。
+
+**[HD2-SSC: High-Dimension High-Density Semantic Scene Completion for Autonomous Driving](hd2-ssc_high-dimension_high-density_semantic_scene_completion_for_autonomous_dri.md)**
+
+:   本文提出 HD2-SSC 框架，通过高维语义解耦（HSD）模块解决 2D→3D 的输入-输出维度间隙（将像素特征沿伪维度展开并正交解耦），以及高密度占用精炼（HOR）模块解决标注-现实密度间隙（"检测-精炼"范式对齐几何和语义关键体素），在 SemanticKITTI 和 SSCBench-KITTI-360 上达到 SOTA。
 
 **[LiDARCrafter: Dynamic 4D World Modeling from LiDAR Sequences](lidarcrafter_dynamic_4d_world_modeling_from_lidar_sequences.md)**
 
@@ -95,6 +103,14 @@
 
 :   提出 MambaSeg，用双分支并行 Mamba 编码器分别处理 RGB 图像和事件流，通过空间-时间双维度交互模块 (DDIM) 实现细粒度跨模态融合，在 DDD17 和 DSEC 数据集上以 25.44M 参数取得 77.56%/75.10% mIoU 的 SOTA，效率远优于 Transformer 方案。
 
+**[Meta Dynamic Graph for Traffic Flow Prediction](meta_dynamic_graph_for_traffic_flow_prediction.md)**
+
+:   提出MetaDG框架，通过在每个时间步生成动态节点表示并利用时空相关性增强，将动态性建模从仅影响邻接矩阵扩展到同时生成meta参数、邻接矩阵和边权调整矩阵，实现时空异质性的统一建模（ST-unification），在PEMS03/04/07/08四个数据集上达到SOTA。
+
+**[Minimum-Cost Network Flow with Dual Predictions](minimum-cost_network_flow_with_dual_predictions.md)**
+
+:   首次提出基于对偶预测的最小费用网络流算法，在经典ε-relaxation上通过机器学习的对偶初始解实现warm-start，理论上将时间复杂度与预测误差的∞范数挂钩（一致且鲁棒），在交通网络和芯片逃逸布线上分别实现12.74×和1.64×的平均加速。
+
 **[SPARC: 用单一策略驾驶100辆未见车辆的OOD泛化](out-of-distribution_generalization_with_a_sparc_racing_100_u.md)**
 
 :   提出 SPARC（Single-Phase Adaptation for Robust Control），将 RMA 的两阶段上下文编码与历史适应统一为单阶段训练，在 Gran Turismo 7 高保真赛车模拟器中用单一策略驾驶100+未见车辆实现SOTA OOD泛化性能。
@@ -103,13 +119,37 @@
 
 :   提出 PriorDrive 框架，通过 Unified Vector Encoder (UVE) 和 Hybrid Prior Representation (HPQuery) 将多种向量化先验地图（SD地图、旧HD地图、历史预测地图）统一编码并集成到各种在线建图模型中，在 nuScenes 上 mAP 提升 14.3，兼容 query-based 和 non-query-based 两类建图架构。
 
+**[Rast A Retrieval Augmented Spatio-Temporal Framework For Traffic Prediction](rast_a_retrieval_augmented_spatio-temporal_framework_for_traffic_prediction.md)**
+
+:   将 Retrieval-Augmented Generation (RAG) 思想引入时空预测，通过维护双维度 memory bank 存储历史时空 pattern 并在推理时检索融合，构建通用的 retrieval-augmented 时空预测框架 RAST，在 6 个交通数据集上取得 SOTA 且计算效率优异。
+
 **[ReflexDiffusion: 反思增强的高侧向加速度自动驾驶轨迹规划](reflexdiffusion_reflection-enhanced_trajectory_planning_for_.md)**
 
 :   提出 ReflexDiffusion，在扩散模型推理阶段引入物理感知的反思机制，通过梯度注入强化曲率-速度-加速度耦合约束（a_y = κv²），在 nuPlan 高侧向加速度长尾场景中驾驶分数提升 14.1%，架构无关可直接部署到现有扩散规划器。
 
+**[Rethinking the Spatio-Temporal Alignment of End-to-End 3D Perception](rethinking_the_spatio-temporal_alignment_of_end-to-end_3d_perception.md)**
+
+:   提出HAT（multiple Hypotheses spAtio-Temporal alignment），一个即插即用的时空对齐模块，通过多种显式运动模型生成对齐假设，并利用query中隐含的运动线索自适应解码最优对齐方案，在nuScenes上一致提升多种3D时序检测器和跟踪器，并在E2E自动驾驶中降低碰撞率达32-48%。
+
+**[Smart: 基于 GNN 与 LLM 融合的 Dragonfly 系统应用运行时代理模型](smart_a_surrogate_model_for_predicting_application_runtime_in_dragonfly_systems.md)**
+
+:   提出 Smart（Surrogate Model for Predicting Application RunTime），首次将 GNN 和 LLM（Time-LLM）融合用于 Dragonfly 互连网络中的应用迭代运行时预测，在 1,056 节点系统上 MAPE 最低达 1.78%（LAMMPS），推理时间仅 0.515 秒，相比原始仿真实现数量级加速。
+
+**[STRIDE-QA: Visual Question Answering Dataset for Spatiotemporal Reasoning in Urban Driving Scenes](stride-qa_visual_question_answering_dataset_for_spatiotemporal_reasoning_in_urba.md)**
+
+:   构建了自动驾驶领域最大规模时空推理VQA数据集STRIDE-QA（270K帧、16M QA对），定义了三类时空推理任务（物体间空间/自车空间/自车时空），通过微调VLM使空间定位成功率从近零提升至55%、时序一致性从0提升至28.4%。
+
 **[Task Prototype-Based Knowledge Retrieval for Multi-Task Learning from Partially Annotated Data](task_prototype-based_knowledge_retrieval_for_multi-task_lear.md)**
 
 :   提出基于任务原型的知识检索框架，通过可学习 Task Prototype 嵌入任务特性并量化任务关联、Knowledge Retrieval Transformer 基于 task-affinity score 自适应精炼特征表示，在部分标注多任务学习（MTPSL）中避免依赖未标注任务的预测，PASCAL-Context 和 NYUD-v2 上全面超越 SOTA。
+
+**[TSBOW: Traffic Surveillance Benchmark for Occluded Vehicles Under Various Weather Conditions](tsbow_traffic_surveillance_benchmark_for_occluded_vehicles_under_various_weather.md)**
+
+:   提出TSBOW——一个基于CCTV的大规模交通监控数据集，包含198个视频、超32小时真实交通数据和320万帧，覆盖全年四季天气（晴/霾/雨/雪含极端灾害场景），涵盖8类交通参与者，重点解决恶劣天气下遮挡车辆检测的挑战。
+
+**[Unleashing Semantic And Geometric Priors For 3D Scene Completion](unleashing_semantic_and_geometric_priors_for_3d_scene_completion.md)**
+
+:   提出 FoundationSSC 框架，通过 source-level 和 pathway-level 双层解耦设计释放 Vision Foundation Model 的语义与几何先验，配合 Axis-Aware Fusion 模块融合互补 3D 特征，在 SemanticKITTI 上达到 19.32 mIoU / 48.12 IoU SOTA。
 
 **[VILTA: A VLM-in-the-Loop Adversary for Enhancing Driving Policy Robustness](vilta_a_vlm-in-the-loop_adversary_for_enhancing_driving_poli.md)**
 
@@ -118,3 +158,11 @@
 **[Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction (Oral)](visiononly_gaussian_splatting_for_collaborative_semantic_occupancy_p.md)**
 
 :   首次将 3D 高斯 Splatting 作为多智能体协同感知的通信媒介和中间表征，利用高斯基元的刚体变换可解析性和稀疏性，通过高斯打包（ROI 裁剪+刚体变换）和跨智能体邻域融合模块，实现了高效且可解释的视觉协同语义占用预测。
+
+**[When Person Re-Identification Meets Event Camera A Benchmark Dataset And An Attr](when_person_re-identification_meets_event_camera_a_benchmark_dataset_and_an_attr.md)**
+
+:   构建首个大规模 RGB-Event 行人重识别数据集 EvReID（1200 ID / 118,988 图像对），并提出基于行人属性引导的三阶段对比学习框架 TriPro-ReID，通过正负属性 prompt 和跨模态 prompt 融合 RGB 与 Event 两种模态特征，mAP 达 69.3%。
+
+**[WorldRFT: Latent World Model Planning with Reinforcement Fine-Tuning for Autonomous Driving](worldrft_latent_world_model_planning_with_reinforcement_fine-tuning_for_autonomo.md)**
+
+:   提出面向规划的潜在世界模型框架WorldRFT，通过VGGT空间编码、分层规划分解+局部感知迭代精炼、基于GRPO的碰撞感知强化微调，在nuScenes上将碰撞率降低83%（0.30%→0.05%），在NavSim上仅用相机即逼近LiDAR SOTA（87.8 vs 88.1 PDMS）。

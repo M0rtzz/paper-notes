@@ -1,12 +1,9 @@
----
-title: "Generative Modeling of Full-Atom Protein Conformations using Latent Diffusion on Graph Embeddings"
-conference: "NeurIPS 2025"
-arxiv_id: "2506.17064"
----
-
 # Generative Modeling of Full-Atom Protein Conformations using Latent Diffusion on Graph Embeddings
 
-**会议**: NeurIPS 2025  **arXiv**: [2506.17064](https://arxiv.org/abs/2506.17064)  **代码**: 有（开源）  **领域**: medical_imaging / computational_biology  **关键词**: 蛋白质构象生成, 潜在扩散, 图神经网络, 全原子建模, GPCR
+**会议**: NeurIPS 2025  **arXiv**: [2506.17064](https://arxiv.org/abs/2506.17064)  **代码**: 有（开源）  **领域**: medical_imaging / computational_biology  **关键词**: 蛋白质构象生成, 潜在扩散, 图神经网络, 全原子建模, GPCR  
+**arXiv**: [2506.17064](https://arxiv.org/abs/2506.17064)  
+**代码**: 无  
+**领域**: 医学图像  
 
 ## 一句话总结
 

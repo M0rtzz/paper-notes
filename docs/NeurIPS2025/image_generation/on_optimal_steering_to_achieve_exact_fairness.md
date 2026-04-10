@@ -1,14 +1,10 @@
----
-title: "On Optimal Steering to Achieve Exact Fairness"
-authors: "Mohit Sharma, Amit Jayant Deshpande, Chiranjib Bhattacharyya, Rajiv Ratn Shah"
-venue: "NeurIPS 2025"
-date: 2025-09-22
-tags: [fairness, optimal-transport, distribution-steering, LLM-representation, Bayes-optimal]
-arxiv: "2509.15759"
----
-
 # On Optimal Steering to Achieve Exact Fairness
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2509.15759](https://arxiv.org/abs/2509.15759)  
+**代码**: 无  
+**领域**: 图像生成  
+**关键词**: fairness, optimal-transport, distribution-steering, LLM-representation, Bayes-optimal  
 ## 一句话总结
 
 本文定义了"理想分布"——使任意代价敏感风险下的 Bayes 最优分类器都满足精确公平性的数据分布，并提出通过 KL 散度最小化寻找最近理想分布的优化框架，为公平预处理和 LLM 表示引导提供了可证明的公平性保证。

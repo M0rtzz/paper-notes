@@ -1,15 +1,10 @@
----
-title: "Partial Information Decomposition via Normalizing Flows in Latent Gaussian Distributions"
-venue: "NeurIPS 2025"
-authors: "Wenyuan Zhao, Adithya Balachandran, Chao Tian, Paul Pu Liang"
-affiliations: "Texas A&M University, MIT"
-arxiv: "2510.04417"
-date: 2025-10-06
-tags: ["partial information decomposition", "normalizing flows", "multimodal learning", "information theory", "Gaussian PID"]
----
-
 # Partial Information Decomposition via Normalizing Flows in Latent Gaussian Distributions
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2510.04417](https://arxiv.org/abs/2510.04417)  
+**代码**: 无  
+**领域**: 多模态VLM  
+**关键词**: partial information decomposition, normalizing flows, multimodal learning, information theory, Gaussian PID  
 ## 总结
 
 本文提出了一种高效的偏信息分解（PID）估计框架，用于量化多模态数据中冗余、唯一和协同信息的分布。核心思路分两步：首先提出 Thin-PID 算法，在高斯分布下高效精确地计算 PID；然后提出 Flow-PID 框架，通过 normalizing flows 将任意分布映射到潜在高斯空间，在保持互信息不变的前提下利用 Thin-PID 完成计算。作者同时解决了一个关于 GPID 联合高斯解最优性的开放问题。在合成数据和多个真实多模态基准上验证了方法的准确性、效率和实用性。

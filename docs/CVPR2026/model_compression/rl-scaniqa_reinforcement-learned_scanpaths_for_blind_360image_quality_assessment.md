@@ -1,15 +1,10 @@
----
-title: "RL-ScanIQA: Reinforcement-Learned Scanpaths for Blind 360° Image Quality Assessment"
-venue: "CVPR 2026"
-authors: "Yujia Wang, Yuyan Li, Jiuming Liu, Fang-Lue Zhang, Xinhu Zheng, Neil A. Dodgson"
-affiliations: "Victoria University of Wellington, HKUST(GZ), Cambridge, UNSW"
-arxiv: "2603.14297"
-date: 2026-03-15
-tags: ["360 image quality", "reinforcement learning", "scanpath", "blind IQA", "PPO", "active perception"]
----
-
 # RL-ScanIQA: Reinforcement-Learned Scanpaths for Blind 360° Image Quality Assessment
 
+**会议**: CVPR 2026  
+**arXiv**: [2603.14297](https://arxiv.org/abs/2603.14297)  
+**代码**: 无  
+**领域**: 模型压缩  
+**关键词**: 360 image quality, reinforcement learning, scanpath, blind IQA, PPO, active perception  
 ## 总结
 
 本文提出 RL-ScanIQA，首个基于强化学习的端到端盲 360° 图像质量评估（BIQA）框架。核心思想是将扫描路径（scanpath）生成建模为序列决策过程，使用 PPO 策略直接从质量评估反馈中学习任务驱动的观看策略，而非依赖人类注视数据的模仿学习。框架包含扫描路径生成器和质量评估器两个联合优化的模块，辅以多层级奖励（步级探索、集合多样性、任务对齐感知）和失真空间数据增强。在 CVIQD、OIQA、JUFE 三个基准上取得了 SOTA 性能和优异的跨数据集泛化能力。

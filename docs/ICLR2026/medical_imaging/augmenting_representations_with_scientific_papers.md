@@ -1,14 +1,10 @@
----
-title: "Augmenting Representations with Scientific Papers"
-conference: "ICLR 2026"
-arxiv: "2603.04516"
-code: ""
-domain: "Multimodal Learning / Scientific Foundation Models"
-keywords: ["对比学习", "多模态表示", "X射线光谱", "科学文献", "基础模型", "异常检测", "天文学"]
----
-
 # Augmenting Representations with Scientific Papers
 
+**会议**: ICLR 2026  
+**arXiv**: [2603.04516](https://arxiv.org/abs/2603.04516)  
+**代码**: 无  
+**领域**: Multimodal Learning / Scientific Foundation Models  
+**关键词**: 对比学习, 多模态表示, X射线光谱, 科学文献, 基础模型, 异常检测, 天文学  
 ## 一句话总结
 
 提出首个将 X 射线光谱与科学文献通过对比学习对齐的多模态基础模型框架，在共享潜在空间中实现 20% Recall@1% 的跨模态检索，物理参数估计提升 16–18%，同时发现候选脉动超亮 X 射线源等罕见天体。

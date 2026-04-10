@@ -1,15 +1,10 @@
----
-title: "Information Theoretic Optimal Surveillance for Epidemic Prevalence in Networks"
-authors: "Ritwick Mishra, Abhijin Adiga, Madhav Marathe, S. S. Ravi, Ravi Tandon, Anil Vullikanti"
-venue: "AAAI 2026"
-date: 2025-01-08
-arxiv: "2601.04267"
-tags: ["流行病监测", "信息论", "互信息", "网络传播", "传感器选择"]
-category: "multimodal_vlm"
----
-
 # Information Theoretic Optimal Surveillance for Epidemic Prevalence in Networks
 
+**会议**: AAAI 2026  
+**arXiv**: [2601.04267](https://arxiv.org/abs/2601.04267)  
+**代码**: 无  
+**领域**: 多模态VLM  
+**关键词**: 流行病监测, 信息论, 互信息, 网络传播, 传感器选择  
 ## 一句话总结
 
 本文首次提出以互信息作为优化准则的流行病监测框架 TestPrev，旨在选择网络中的最优节点子集以最大化与疾病流行度分布的互信息，从而提供传统方法无法给出的暴发规模分布级别洞察，并证明了其 NP-hard 性质，设计了贪心算法 GreedyMI 在合成与真实网络上优于基线方法。

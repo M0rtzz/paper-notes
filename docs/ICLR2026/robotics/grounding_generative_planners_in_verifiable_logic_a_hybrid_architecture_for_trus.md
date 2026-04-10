@@ -1,16 +1,10 @@
----
-title: "Grounding Generative Planners in Verifiable Logic: A Hybrid Architecture for Trustworthy Embodied AI"
-authors: "Feiyu Wu, Xu Zheng, Yue Qu, Zhuocheng Wang, Zicheng Feng, Hui Li"
-venue: "ICLR 2026"
-date: 2026-02-12
-arxiv: "2602.08373"
-code: "https://github.com/Sn0wm1an/VIRF"
-domain: "robotics"
-tags: ["embodied AI", "neuro-symbolic", "safe planning", "LLM agent", "formal verification"]
----
-
 # Grounding Generative Planners in Verifiable Logic: A Hybrid Architecture for Trustworthy Embodied AI
 
+**会议**: ICLR 2026  
+**arXiv**: [2602.08373](https://arxiv.org/abs/2602.08373)  
+**代码**: https://github.com/Sn0wm1an/VIRF  
+**领域**: 机器人  
+**关键词**: embodied AI, neuro-symbolic, safe planning, LLM agent, formal verification  
 ## 一句话总结
 
 提出 VIRF（Verifiable Iterative Refinement Framework），通过神经-符号混合架构将确定性的逻辑导师（Logic Tutor）与 LLM 规划器结合，以可验证的形式化本体作为安全锚点，在 SafeAgentBench 上实现 0% 危险动作率（HAR）和 77.3% 任务完成率（GCR），证明严格安全保障无需牺牲智能体效用。

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🤖 AAAI2026** · 共 **14** 篇
+**🤖 AAAI2026** · 共 **20** 篇
 
 **[3DTeethSAM: Taming SAM2 for 3D Teeth Segmentation](3dteethsam_taming_sam2_for_3d_teeth_segmentation.md)**
 
@@ -58,3 +58,27 @@
 **[InfoCLIP: Bridging Vision-Language Pretraining and Open-Vocabulary Semantic Segmentation via Information-Theoretic Alignment Transfer](infoclip_bridging_vision-language_pretraining_and_open-vocab.md)**
 
 :   提出InfoCLIP，基于信息论视角设计信息瓶颈压缩和互信息蒸馏两个目标，在CLIP微调过程中去除预训练pixel-text对齐中的噪声并保留语义对齐知识，在6个开放词汇语义分割测试集上全面超越SOTA（A-847: 16.6, A-150: 38.5, PC-59: 63.5 mIoU），且仅增加0.53M参数和极少计算开销。
+
+**[JoDiffusion: Jointly Diffusing Image with Pixel-Level Annotations for Semantic Segmentation Promotion](jodiffusion_jointly_diffusing_image_with_pixel-level_annotations_for_semantic_se.md)**
+
+:   提出JoDiffusion框架，通过在潜在空间中联合扩散图像与像素级标注掩码，首次实现仅基于文本提示同时生成语义一致的图像-标注对，在Pascal VOC、COCO和ADE20K上显著超越现有Image2Mask和Mask2Image方法。
+
+**[LWGANet: Addressing Spatial and Channel Redundancy in Remote Sensing Visual Tasks with Light-Weight Grouped Attention](lwganet_addressing_spatial_and_channel_redundancy_in_remote_sensing_visual_tasks.md)**
+
+:   针对遥感图像中的空间冗余（大面积均质背景）和通道冗余（极端尺度变化导致单一特征空间低效）问题，提出 LWGANet 轻量化骨干，通过 Top-K 稀疏全局特征交互（TGFI）和异构分组注意力（LWGA）模块实现高效多尺度特征表示，在 12 个数据集 4 类遥感任务上达到 SOTA。
+
+**[Multigranular Evaluation for Brain Visual Decoding](multigranular_evaluation_for_brain_visual_decoding.md)**
+
+:   提出 BASIC 多粒度评估框架，从结构（分割 mask 匹配）、推理（对象/属性/关系语义图）和上下文（场景叙事一致性）三个维度统一评估脑视觉解码质量，解决现有指标饱和、缺乏神经科学基础、无法区分模型差异的问题。
+
+**[OmniVDiff: Omni Controllable Video Diffusion for Generation and Understanding](omnivdiff_omni_controllable_video_diffusion_for_generation_and_understanding.md)**
+
+:   提出 OmniVDiff，一个统一的可控视频扩散框架，通过将多种视觉模态（RGB、深度、分割、Canny）在颜色空间中联合建模，并引入自适应模态控制策略（AMCS），在单一扩散模型中同时支持文本条件生成、X 条件生成和视频理解三种任务，在 VBench 上达到 SOTA。
+
+**[Otter: Mitigating Background Distractions of Wide-Angle Few-Shot Action Recognition with Enhanced RWKV](otter_mitigating_background_distractions_of_wide-angle_few-shot_action_recogniti.md)**
+
+:   针对广角视频中小样本动作识别的背景干扰问题（主体占比小、时序关系退化），提出基于增强 RWKV 的 Otter 框架，通过复合分割模块（CSM）突出主体和时序重建模块（TRM）恢复时序关系，在 SSv2/Kinetics/UCF101/HMDB51 等基准上达到 SOTA。
+
+**[Segment and Matte Anything in a Unified Model (SAMA)](segment_and_matte_anything_in_a_unified_model.md)**
+
+:   提出SAMA——一种SAM的轻量级扩展框架，通过多视图局部编码器(MVLE)捕获细粒度局部特征、局部化适配器(Local-Adapter)将局部细节注入解码过程，以及双任务预测头，仅增加1.8%参数即可在统一模型中同时实现高质量交互式分割和Alpha Matting，在DIS-5K和多个Matting基准上达到SOTA。

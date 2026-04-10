@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # arxiv2026 论文笔记 TODO
 
-总计: 175 篇 | 已完成: 5 | 待更新: 170
+总计: 175 篇 | 已完成: 7 | 待更新: 168
 
 ---
 
@@ -93,7 +93,7 @@
 - [ ] [LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction](3d_vision/lrsgs_robust_lidarreflectanceguided_salient.md) | arXiv: 2603.12647
 - [ ] [MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction](segmentation/mapgclr_geospatial_contrastive_learning.md) | arXiv: 2603.10688
 - [ ] [Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies](3d_vision/markerbased_3d_reconstruction_aggregates.md) | arXiv: 2603.12667
-- [ ] [Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning](multimodal_vlm/mastering_negation_boosting_grounding.md) | arXiv: 2603.12606
+- [x] [Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning](multimodal_vlm/mastering_negation_boosting_grounding.md) | arXiv: 2603.12606
 - [ ] [MetaDAT: Generalizable Trajectory Prediction via Meta Pre-training and Data-Adaptive Test-Time Updating](segmentation/metadat_generalizable_trajectory_prediction.md) | arXiv: 2603.09419
 - [ ] [MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging](object_detection/metaspectra_compact_broadband_metasurface.md) | arXiv: 2603.09116
 - [ ] [MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](medical_imaging/milpf_multiple_instance_learning.md) | arXiv: 2603.09374
@@ -123,7 +123,7 @@
 - [ ] [RADAR: Closed-Loop Robotic Data Generation via Semantic Planning and Autonomous Causal Environment Reset](multimodal_vlm/radar_closedloop_robotic_data.md) | arXiv: 2603.11811
 - [ ] [RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images](object_detection/rdnet_region_proportionaware_dynamic.md) | arXiv: 2603.12215
 - [ ] [Real-World Point Tracking with Verifier-Guided Pseudo-Labeling](video_understanding/realworld_point_tracking_verifierguided.md) | arXiv: 2603.12217
-- [ ] [Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback](image_generation/referencefree_image_quality_assessment.md) | arXiv: 2603.13057
+- [x] [Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback](image_generation/referencefree_image_quality_assessment.md) | arXiv: 2603.13057
 - [ ] [Regularizing INR with diffusion prior self-supervised 3D reconstruction of neutron computed tomography data](3d_vision/regularizing_inr_diffusion_prior.md) | arXiv: 2603.10947
 - [ ] [ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation](multimodal_vlm/rehark_refined_hybrid_adaptive.md) | arXiv: 2603.11542
 - [ ] [Reinforcing the Weakest Links: Modernizing SIENA with Targeted Deep Learning Integration](segmentation/reinforcing_weakest_links_modernizing.md) | arXiv: 2603.12951

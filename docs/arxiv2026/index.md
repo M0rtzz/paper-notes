@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📄 arxiv2026 论文笔记
 
-共 **77** 篇笔记，覆盖 **11** 个领域。
+共 **79** 篇笔记，覆盖 **11** 个领域。
 
 ## 领域概览
 
@@ -10,11 +10,11 @@
 | 🎯 [目标检测](#object_detection) | 13 |
 | 🏥 [医学图像](#medical_imaging) | 12 |
 | 🧊 [3D 视觉](#3d_vision) | 11 |
-| 🧩 [多模态 VLM](#multimodal_vlm) | 10 |
+| 🧩 [多模态 VLM](#multimodal_vlm) | 11 |
 | 🎬 [视频理解](#video_understanding) | 9 |
 | 📦 [模型压缩](#model_compression) | 7 |
 | ✂️ [语义分割](#segmentation) | 7 |
-| 🎨 [图像生成](#image_generation) | 4 |
+| 🎨 [图像生成](#image_generation) | 5 |
 | 🛡️ [AI 安全](#ai_safety) | 2 |
 | 🔄 [自监督/表示学习](#self_supervised) | 1 |
 | 📂 [其他](#others) | 1 |
@@ -191,6 +191,10 @@
 
 :   为此，我们提出了 EvoPrompt，这是一种新颖的框架，旨在明确引导提示轨迹，以实现稳定、保留知识的微调。
 
+**[Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning](multimodal_vlm/mastering_negation_boosting_grounding.md)**
+
+:   当前的视觉语言检测和基础模型主要关注具有积极语义的提示，并且常常难以准确解释和基础包含消极语义的复杂表达。
+
 **[NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval](multimodal_vlm/nanovdr_distilling_2b_visionlanguage.md)**
 
 :   基于视觉语言模型 (VLM) 的检索器具有先进的视觉文档检索 (VDR)，质量令人印象深刻。
@@ -338,6 +342,10 @@
 **[Editing Away the Evidence: Diffusion-Based Image Manipulation and the Failure Modes of Robust Watermarking](image_generation/editing_away_evidence_diffusionbased.md)**
 
 :   在本文中，我们提供了统一的理论和实证分析，表明非对抗性扩散编辑可能会无意中降低或删除鲁棒水印。
+
+**[Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback](image_generation/referencefree_image_quality_assessment.md)**
+
+:   给定人物图像和服装图像，基于图像的虚拟试穿（VTON）会合成穿着目标服装的人的试穿图像。
 
 **[SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking](image_generation/slice_semantic_latent_injection.md)**
 

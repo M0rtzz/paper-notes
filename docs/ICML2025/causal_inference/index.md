@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🧪 ICML2025** · 共 **13** 篇
+**🧪 ICML2025** · 共 **16** 篇
 
 **[Causal Abstraction Inference under Lossy Representations](causal_abstraction_inference_under_lossy_representations.md)**
 
@@ -39,9 +39,17 @@
 
 :   提出"孤立因果效应"（Isolated Causal Effect）的形式化估计框架，通过双重稳健估计器和遗漏变量偏差（OVB）敏感性分析，将焦点语言属性的因果效应从相关的非焦点语言中隔离出来。
 
+**[Latent Variable Causal Discovery under Selection Bias](latent_variable_causal_discovery_under_selection_bias.md)**
+
+:   首次研究选择偏差下的潜变量因果发现：发现虽然选择偏差极大地复杂化了联合分布，但有偏协方差矩阵的秩仍保留了因果结构和选择机制的有意义信息，并在单因子模型上证明了可识别性。
+
 **[Learning Time-Aware Causal Representation for Model Generalization in Evolving Domains](learning_time-aware_causal_representation_for_model_generalization_in_evolving_d.md)**
 
 :   提出时间感知结构因果模型 (time-aware SCM) 和 SYNC 方法，通过同时学习静态与动态因果表示并建模因果机制漂移，在演化域泛化 (EDG) 任务中有效消除虚假相关，实现优越的时序泛化性能。
+
+**[MPF: Aligning and Debiasing Language Models post Deployment via Multi Perspective Fusion](mpf_aligning_and_debiasing_language_models_post_deployment_via_multi_perspective.md)**
+
+:   提出 Multiperspective Fusion (MPF)，一种无需微调的后部署对齐框架，通过将基线情感分布分解为可解释的视角成分，引导 LLM 生成与人类基线对齐的响应，有效缓解模型偏见。
 
 **[Position Causal Machine Learning Requires Rigorous Synthetic Experiments For Bro](position_causal_machine_learning_requires_rigorous_synthetic_experiments_for_bro.md)**
 
@@ -50,6 +58,10 @@
 **[RATE: Causal Explainability of Reward Models with Imperfect Counterfactuals](rate_causal_explainability_of_reward_models_with_imperfect_counterfactuals.md)**
 
 :   提出 RATE（Rewrite-based Attribute Treatment Estimator），通过"双重重写"策略消除 LLM 不完美反事实重写引入的偏差，从而正确估计高层属性对奖励模型评分的因果效应。
+
+**[RE-IMAGINE: Symbolic Benchmark Synthesis for Reasoning Evaluation](re-imagine_symbolic_benchmark_synthesis_for_reasoning_evaluation.md)**
+
+:   受 Pearl 因果阶梯启发，提出 RE-IMAGINE 框架，通过将问题转化为中间符号表示（代码）并在计算图上执行多层级变异，生成不可通过记忆化解决的基准变体，系统评估 LLM 的真实推理能力。
 
 **[Transformer-Based Spatial-Temporal Counterfactual Outcomes Estimation](transformer-based_spatial-temporal_counterfactual_outcomes_estimation.md)**
 

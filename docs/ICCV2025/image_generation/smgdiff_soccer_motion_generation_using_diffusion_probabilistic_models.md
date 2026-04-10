@@ -1,14 +1,10 @@
----
-title: "SMGDiff: Soccer Motion Generation using Diffusion Probabilistic Models"
-conference: ICCV2025
-arxiv: "2411.16216"
-code: "https://github.com/SMGDiff/SMGDiff"
-domain: image_generation
-keywords: motion generation, diffusion model, soccer animation, human-object interaction, character control
----
-
 # SMGDiff: Soccer Motion Generation using Diffusion Probabilistic Models
 
+**会议**: ICCV 2025  
+**arXiv**: [2411.16216](https://arxiv.org/abs/2411.16216)  
+**代码**: https://github.com/SMGDiff/SMGDiff  
+**领域**: 图像生成  
+**关键词**: motion generation, diffusion model, soccer animation, human-object interaction, character control  
 ## 一句话总结
 
 提出 SMGDiff，一个两阶段扩散模型框架，能够根据用户控制信号实时生成高质量、多样化的足球运动动画，同时通过接触引导模块优化球-脚交互细节。

@@ -1,12 +1,9 @@
----
-title: "RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics"
-conference: "NeurIPS 2025"
-arxiv_id: "2506.04308"
----
-
 # RoboRefer: Towards Spatial Referring with Reasoning in Vision-Language Models for Robotics
 
-**会议**: NeurIPS 2025  **arXiv**: [2506.04308](https://arxiv.org/abs/2506.04308)  **代码**: [zhoues.github.io/RoboRefer](https://zhoues.github.io/RoboRefer)  **领域**: multimodal_vlm / embodied_ai  **关键词**: 空间指代, 视觉语言模型, 多步推理, 强化微调, 机器人操作
+**会议**: NeurIPS 2025  **arXiv**: [2506.04308](https://arxiv.org/abs/2506.04308)  **代码**: [zhoues.github.io/RoboRefer](https://zhoues.github.io/RoboRefer)  **领域**: multimodal_vlm / embodied_ai  **关键词**: 空间指代, 视觉语言模型, 多步推理, 强化微调, 机器人操作  
+**arXiv**: [2506.04308](https://arxiv.org/abs/2506.04308)  
+**代码**: 无  
+**领域**: 多模态VLM  
 
 ## 一句话总结
 

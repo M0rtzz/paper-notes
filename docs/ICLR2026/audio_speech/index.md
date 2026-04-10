@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🔬 ICLR2026** · 共 **21** 篇
+**🔬 ICLR2026** · 共 **26** 篇
 
 **[AC-Foley: Reference-Audio-Guided Video-to-Audio Synthesis with Acoustic Transfer](ac-foley_reference-audio-guided_video-to-audio_synthesis_with_acoustic_transfer.md)**
 
@@ -35,6 +35,10 @@
 
 :   将博弈论中的多任务 peer prediction 机制引入 LLM 多源摘要管线，提出 Truthful Text Summarization (TTS) 框架：通过 leave-one-out 交叉构造评价声明集、提取每个来源对声明的立场、用 informative agreement 评分来源可靠性并过滤不可靠来源后重新摘要，理论上证明"如实报告是效用最大策略"，实验中有效抵御 prompt injection、虚假信息源和协同攻击。
 
+**[Knowing When to Quit: Probabilistic Early Exits for Speech Separation](knowing_when_to_quit_probabilistic_early_exits_for_speech_separation.md)**
+
+:   提出 PRESS（Probabilistic Early-exit for Speech Separation）方法和 PRESS-Net 架构，通过概率框架联合建模干净语音信号和误差方差，推导出基于信噪比（SNR）的可解释早退出条件，实现语音分离网络的细粒度动态计算缩放，同时保持与SOTA静态模型竞争力的性能。
+
 **[Latent Speech-Text Transformer](latent_speech_text_transformer.md)**
 
 :   提出 Latent Speech-Text Transformer (LST)，将离散语音 token 聚合为更高层级的"潜在语音 patch"作为自回归单元（类似 BLT 对 bytes 的处理），对齐语音和文本的序列建模粒度（从 20× 缩小到 ~1:1），在 speech HellaSwag 上获得 +6.5% 绝对提升且增益从 420M→7B 持续增长，同时降低 ASR/TTS 推理计算成本。
@@ -59,6 +63,10 @@
 
 :   提出 QSTar 框架，通过在整个处理流程中嵌入问题引导（Query Guidance），并引入空间-时序-频域三维度交互模块（特别是利用频谱特征区分音色），显著提升了音乐场景下的音频-视觉问答（Music AVQA）性能。
 
+**[ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory](reasoningbank_scaling_agent_self-evolving_with_reasoning_memory.md)**
+
+:   提出 ReasoningBank 记忆框架，从 Agent 自我判断的成功和失败经验中蒸馏可泛化的推理策略存入记忆库，并提出 memory-aware test-time scaling (MaTTS) 建立记忆与测试时扩展的协同效应，在 WebArena、Mind2Web 和 SWE-Bench 上一致超越基线（最高 34.2% 相对提升），同时减少 16% 交互步数。
+
 **[RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments](redteamcua_adversarial_testing_agents.md)**
 
 :   构建首个混合 Web-OS 环境的 CUA 红队测试框架 RedTeamCUA 和 864 个测试用例的 RTC-Bench，系统评估 9+ 前沿 CUA 对间接 prompt injection 的脆弱性，发现所有 CUA 均可被攻击（最高 ASR 83%），且能力越强的模型越危险——攻击尝试率（AR）远高于成功率（ASR）意味着模型能力提升将直接转化为更高的攻击成功率。
@@ -67,6 +75,14 @@
 
 :   提出 Speech-guided Machine Translation（SMT）框架，用 TTS 将源文本合成语音后与文本联合输入 MLLM 做翻译，通过自我进化机制自动筛选有益的合成语音样本进行持续训练。在 Multi30K 超越所有 MMT 方法取得 SOTA，在 FLORES-200 的 108 个翻译方向上以仅 9B 参数达到平均 SOTA。
 
+**[SiNGER: A Clearer Voice Distills Vision Transformers Further](singer_a_clearer_voice_distills_vision_transformers_further.md)**
+
+:   提出 SiNGER（Singular Nullspace-Guided Energy Reallocation）框架，通过在教师特征的零空间方向施加扰动来抑制 ViT 中的高范数伪影，同时保留信息信号，结合轻量 LoRA 适配器实现高效蒸馏，在多个下游任务上取得 SOTA 性能并生成更清晰可解释的表征。
+
+**[SNAP-UQ: Self-supervised Next-Activation Prediction for Single-Pass Uncertainty](snap-uq_self-supervised_next-activation_prediction_for_single-pass_uncertainty_i.md)**
+
+:   SNAP-UQ 提出一种面向 TinyML 场景的单次前向传播不确定性估计方法：在骨干网络的选定层附加微型 int8 预测头，用自监督方式预测下一层的激活统计量，将实际激活与预测之间的偏差（"surprisal"）聚合为不确定性分数，无需额外前向传播、时序缓冲或集成，仅增加几十 KB 闪存即可在微控制器上实现可靠的分布偏移检测和故障检测。
+
 **[Stitch: Simultaneous Thinking and Talking with Chunked Reasoning for Spoken Language Models](stitch_simultaneous_thinking_and_talking_with_chunked_reasoning_for_spoken_langu.md)**
 
 :   提出 Stitch，在口语语言模型中实现"边想边说"——将无声推理 token 与语音 token 交替分块生成，利用音频播放期间的空闲算力完成推理。Stitch-S 首帧延迟与无推理基线一致，数学推理准确率提升约 15 个百分点。
@@ -74,6 +90,10 @@
 **[SyncTrack: Rhythmic Stability and Synchronization in Multi-Track Music Generation](synctrack_rhythmic_stability_and_synchronization_in_multi-track_music_generation.md)**
 
 :   提出 SyncTrack，通过轨道共享模块（双跨轨注意力确保节奏同步）和轨道特定模块（可学习乐器先验保留音色差异）的统一架构，以及三个新的节奏一致性评估指标（IRS/CBS/CBD），显著提升多轨音乐生成质量（FAD 从 6.55→1.26，主观 MOS 3.42 vs 1.57）。
+
+**[Toward Complex-Valued Neural Networks for Waveform Generation](toward_complex-valued_neural_networks_for_waveform_generation.md)**
+
+:   提出 ComVo，首个在生成器和判别器中均使用复值神经网络（CVNN）的 iSTFT 声码器，通过相位量化层稳定训练，并引入块矩阵计算方案将训练时间减少 25%，在 LibriTTS 上合成质量超过 Vocos 等实值基线。
 
 **[TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization](triplesumm_adaptive_triple-modality_fusion_for_video_summarization.md)**
 

@@ -83,7 +83,7 @@
 
 :   提出 Estimand-Agnostic（EA）方法和 Frontier-Reducibility Algorithm（FRA）来高效计算因果 Shapley 值（do-SV），通过训练单个 SCM 学习观测分布即可回答任意可辨识的因果查询，并通过联盟约减将计算量降低约 90%。
 
-**[Revealing Multimodal Causality With Large Language Models](revealing_multimodal_causality_with_large_language_models.md)**
+**[Revealing Multimodal Causality with Large Language Models](revealing_multimodal_causality_with_large_language_models.md)**
 
 :   提出 MLLM-CD，首个面向多模态非结构化数据的因果发现框架，通过对比因子发现识别跨模态因果变量，结合统计因果结构推断，并利用 MLLM 的世界知识生成多模态反事实样本来迭代消除结构歧义，在合成和真实数据集上均显著优于现有方法。
 

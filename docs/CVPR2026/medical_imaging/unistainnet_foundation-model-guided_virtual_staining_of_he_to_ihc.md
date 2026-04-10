@@ -1,14 +1,10 @@
----
-title: "UNIStainNet: Foundation-Model-Guided Virtual Staining of H&E to IHC"
-conference: "CVPR 2026"
-arxiv: "2603.12716"
-domain: "medical_imaging"
-keywords: ["虚拟染色", "H&E to IHC", "SPADE-UNet", "病理基础模型", "多染色统一模型"]
----
-
 # UNIStainNet: Foundation-Model-Guided Virtual Staining of H&E to IHC
 
-**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.12716](https://arxiv.org/abs/2603.12716) &nbsp; **代码**: [有](https://github.com/facevoid/UNIStainNet) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: 虚拟染色, H&E to IHC, SPADE-UNet, 病理基础模型, 多染色统一模型
+**会议**: CVPR 2026 &nbsp;  
+**arXiv**: [2603.12716](https://arxiv.org/abs/2603.12716)  
+**代码**: 无  
+**领域**: 医学图像  
+**关键词**: 虚拟染色, H&E to IHC, SPADE-UNet, 病理基础模型, 多染色统一模型  
 
 ## 一句话总结
 

@@ -1,18 +1,11 @@
----
-title: "Real-Time Trust Verification for Safe Agentic Actions Using TrustBench"
-conference: "AAAI2026"
-arxiv: "2603.09157"
-domain: "LLM智能体"
-keywords: ["信任验证", "Agent安全", "TrustBench", "实时监控"]
----
-
 # Real-Time Trust Verification for Safe Agentic Actions Using TrustBench
 
 **会议**: AAAI 2026  
 **arXiv**: [2603.09157](https://arxiv.org/abs/2603.09157)  
-**代码**: 有  
-**领域**: LLM Agent / 安全  
-**关键词**: 信任验证, Agent安全, 实时干预, 领域插件, 校准学习
+**代码**: 无  
+**领域**: LLM智能体  
+**关键词**: 信任验证, Agent安全, TrustBench, 实时监控  
+
 
 ## 一句话总结
 提出TrustBench双模式框架：(1) 基准模式——结合传统指标和LLM-as-a-Judge评估8个信任维度，学习Agent置信度与实际正确率的校准映射；(2) 验证模式——在Agent制定行动后、执行前实时计算信任分数，阻止87%的有害行动，延迟低于200ms，通过领域插件（医疗/金融/QA）实现专业化验证。

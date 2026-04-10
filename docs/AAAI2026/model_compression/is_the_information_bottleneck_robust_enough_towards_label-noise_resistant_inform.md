@@ -1,14 +1,10 @@
----
-title: "Is the Information Bottleneck Robust Enough? Towards Label-Noise Resistant Information Bottleneck Learning"
-authors: "Yi Huang, Qingyun Sun, Yisen Gao, Haonan Yuan, Xingcheng Fu, Jianxin Li"
-venue: "AAAI 2026"
-date: 2025-12-14
-arxiv: "2512.10573"
-code: "https://github.com/RingBDStack/LaT-IB"
-tags: ["information bottleneck", "label noise", "representation learning", "robustness", "mutual information"]
-category: "model_compression"
----
+# Is the Information Bottleneck Robust Enough? Towards Label-Noise Resistant Information Bottleneck Learning
 
+**会议**: AAAI 2026  
+**arXiv**: [2512.10573](https://arxiv.org/abs/2512.10573)  
+**代码**: https://github.com/RingBDStack/LaT-IB  
+**领域**: 模型压缩  
+**关键词**: information bottleneck, label noise, representation learning, robustness, mutual information  
 # LaT-IB：面向标签噪声鲁棒的信息瓶颈学习
 
 ## 一句话总结

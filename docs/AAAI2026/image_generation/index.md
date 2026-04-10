@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🤖 AAAI2026** · 共 **31** 篇
+**🤖 AAAI2026** · 共 **43** 篇
 
 **[AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs](abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)**
 
@@ -107,9 +107,21 @@
 
 :   提出 EfficientFlow，将等变性引入 Flow Matching 策略学习框架，理论证明各向同性先验+等变速度网络保证动作分布等变，并提出 Flow Acceleration Upper Bound (FABO) 正则化加速采样，在 MimicGen 12 个任务上实现比 EquiDiff 快 20-56 倍的推理速度且性能更优。
 
+**[FGM-HD: Boosting Generation Diversity of Fractal Generative Models through Hausdorff Dimension Induction](fgm-hd_boosting_generation_diversity_of_fractal_generative_models_through_hausdo.md)**
+
+:   本文首次将 Hausdorff 维数（HD）引入分形生成模型（FGM），提出可学习的 HD 估计模块、单调动量驱动调度策略（MMDS）和 HD 引导的拒绝采样，在 ImageNet 上实现 39% 的生成多样性提升（Recall），同时保持图像质量。
+
+**[Flowing Backwards: Improving Normalizing Flows via Reverse Representation Alignment](flowing_backwards_improving_normalizing_flows_via_reverse_representation_alignme.md)**
+
+:   提出 R-REPA（Reverse Representation Alignment），创造性地利用 Normalizing Flows 的可逆性，在生成（反向）路径上将中间特征与视觉基础模型对齐，同时提出免训练分类算法，在 ImageNet 64×64 和 256×256 上实现 NF 新 SOTA，训练加速 3.3 倍。
+
 **[HACK: Head-Aware KV Cache Compression for Efficient Visual Autoregressive Modeling](head-aware_kv_cache_compression_for_efficient_visual_autoreg.md)**
 
 :   发现VAR模型中attention head天然分为Contextual Heads（语义一致性，垂直注意力模式）和Structural Heads（空间连贯性，多对角线模式），提出HACK框架通过非对称预算分配和模式特定压缩策略，在70%压缩率下实现无损生成质量，Infinity-8B上1.75×显存减少和1.57×加速。
+
+**[Hierarchicalprune Position-Aware Compression For Large-Scale Diffusion Models](hierarchicalprune_position-aware_compression_for_large-scale_diffusion_models.md)**
+
+:   基于 MMDiT 的双层级结构洞察（inter-block + intra-block hierarchy），提出 position-aware 的剪枝+蒸馏+量化框架，将 SD3.5 Large (8B) 从 15.8GB 压缩至 3.2GB（80% 内存降低），质量仅下降 ~5%。
 
 **[Infinite-Story: A Training-Free Consistent Text-to-Image Generation](infinite-story_a_training-free_consistent_text-to-image_gene.md)**
 
@@ -119,10 +131,46 @@
 
 :   通过从 MM-DiT 复制参数初始化布局控制网络、设计专用初始化方案（布局编码器初始化为纯文本编码器 + 输出零初始化）、并用 FLUX 自己生成的图像构建 LaySyn 数据集来缓解分布偏移，实现了在 FLUX 上高质量的布局到图像生成。
 
+**[Mass Concept Erasure in Diffusion Models with Concept Hierarchy](mass_concept_erasure_in_diffusion_models_with_concept_hierarchy.md)**
+
+:   提出基于supertype-subtype概念层级的分组擦除策略和Supertype-Preserving LoRA (SuPLoRA)，通过冻结down-projection矩阵（正交于supertype子空间）仅训练up-projection矩阵，在大规模多领域概念擦除中实现擦除效果与生成质量的最优平衡。
+
+**[Multi-Metric Preference Alignment For Generative Speech Restoration](multi-metric_preference_alignment_for_generative_speech_restoration.md)**
+
+:   提出多指标偏好对齐策略（Multi-Metric Preference Alignment），通过构建要求多个互补指标一致同意的偏好数据集 GenSR-Pref（80K 对），利用 DPO 对三种生成式语音修复范式（AR、MGM、FM）进行后训练对齐，显著提升修复质量并有效缓解 reward hacking。
+
 **[ORVIT: Near-Optimal Online Distributionally Robust Reinforcement Learning](orvit_near-optimal_online_distributionally_robust_reinforcement_learning.md)**
 
 :   本文研究在线分布鲁棒强化学习，提出了基于 $f$-散度不确定性集的 RVI-$f$ 算法，在 $\chi^2$ 和 KL 散度下均实现了近似极小极大最优的遗憾界，且不依赖任何结构性假设。
 
+**[SimDiff: Simpler Yet Better Diffusion Model for Time Series Point Forecasting](simdiff_simpler_yet_better_diffusion_model_for_time_series_point_forecasting.md)**
+
+:   提出SimDiff——首个纯端到端扩散模型实现时间序列点预测SOTA，通过统一的Transformer网络同时充当去噪器和预测器，结合Normalization Independence处理分布偏移和Median-of-Means集成策略将概率采样转化为精确点预测，在9个数据集上6个第一、3个第二。
+
+**[Stabilizing Self-Consuming Diffusion Models with Latent Space Filtering](stabilizing_self-consuming_diffusion_models_with_latent_space_filtering.md)**
+
+:   提出Latent Space Filtering (LSF)方法，通过分析自消费扩散模型隐空间中潜在表示的低维结构退化现象，利用probing classifier的置信度分数过滤低质量合成数据，在固定训练预算下有效缓解模型坍塌，无需额外真实数据或增大训练集。
+
+**[Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model](structure-based_rna_design_by_step-wise_optimization_of_latent_diffusion_model.md)**
+
+:   提出SOLD框架，将潜在扩散模型（LDM）与强化学习（RL）结合，通过步进式单步采样优化策略，直接优化RNA逆折叠中不可微的结构指标（二级结构相似度SS、最小自由能MFE、LDDT），在多个指标上全面超越现有方法。
+
+**[Studying Classifier(-Free) Guidance From A Classifier-Centric Perspective](studying_classifier-free_guidance_from_a_classifier-centric_perspective.md)**
+
+:   通过系统实证研究揭示了classifier guidance和classifier-free guidance的本质机制——两者都通过将去噪轨迹推离分类器的决策边界来实现条件生成，并提出基于流匹配的后处理方法在高维数据上验证了这一"分类器中心"视角。
+
 **[T2I-RiskyPrompt: A Benchmark for Safety Evaluation, Attack, and Defense on Text-to-Image Model](t2i-riskyprompt_a_benchmark_for_safety_evaluation_attack_and_defense_on_text-to-.md)**
 
 :   构建T2I-RiskyPrompt——一个包含6,432条有效风险prompt的综合基准，涵盖6大类14细分风险类别，每条prompt带有层次化标注和详细风险原因，并提出reason-driven的MLLM风险检测方法（3B模型达91.8%准确率），系统评估了8个T2I模型、9种防御方法、5种安全过滤器和5种攻击策略。
+
+**[Talk, Snap, Complain: Validation-Aware Multimodal Expert Framework for Fine-Grained Customer Grievances](talk_snap_complain_validation-aware_multimodal_expert_framework_for_fine-grained.md)**
+
+:   提出VALOR框架，结合Chain-of-Thought推理的多专家路由架构与语义对齐验证机制，在多轮多模态客服对话中实现细粒度投诉方面(Aspect)和严重度(Severity)的联合分类，较最强baseline Gemma-3绝对提升12.94%/6.51%。
+
+**[Voicecloak A Multi-Dimensional Defense Framework Against Unauthorized Diffusion-](voicecloak_a_multi-dimensional_defense_framework_against_unauthorized_diffusion-.md)**
+
+:   针对 diffusion-based voice cloning (VC) 的主动防御框架，通过多维度对抗扰动同时实现说话人身份混淆和感知质量退化，显著优于现有防御方法。
+
+**[X2Edit Revisiting Arbitrary-Instruction Image Editing Through Self-Constructed D](x2edit_revisiting_arbitrary-instruction_image_editing_through_self-constructed_d.md)**
+
+:   构建 370 万高质量编辑数据集（14 类任务），并提出基于 Task-Aware MoE-LoRA + Contrastive Learning 的轻量级（0.9B 参数）plug-and-play 编辑模块，性能媲美 12B 全参数训练模型。

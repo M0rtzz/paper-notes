@@ -11,12 +11,16 @@
 
 # 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
+!image_generation/
+!multimodal_vlm/
 !object_detection/
 !segmentation/
 
-# 已完成笔记 (5 篇)
+# 已完成笔记 (7 篇)
 !3d_vision/ada3drift_adaptive_trainingtime_drifting.md
 !3d_vision/cmhanet_crossmodal_hybrid_attention.md
 !3d_vision/igasa_integrated_geometryaware_skipattention.md
+!image_generation/referencefree_image_quality_assessment.md
+!multimodal_vlm/mastering_negation_boosting_grounding.md
 !object_detection/empowering_semanticsensitive_underwater_image.md
 !segmentation/sap_segment_any_4k.md

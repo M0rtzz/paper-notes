@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**📄 arxiv2026** · 共 **10** 篇
+**📄 arxiv2026** · 共 **11** 篇
 
 **[Adaptive Vision-Language Model Routing for Computer Use Agents](adaptive_visionlanguage_model_routing.md)**
 
@@ -14,6 +14,10 @@
 **[Evolving Prompt Adaptation for Vision-Language Models](evolving_prompt_adaptation_visionlanguage.md)**
 
 :   为此，我们提出了 EvoPrompt，这是一种新颖的框架，旨在明确引导提示轨迹，以实现稳定、保留知识的微调。
+
+**[Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning](mastering_negation_boosting_grounding.md)**
+
+:   当前的视觉语言检测和基础模型主要关注具有积极语义的提示，并且常常难以准确解释和基础包含消极语义的复杂表达。
 
 **[NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval](nanovdr_distilling_2b_visionlanguage.md)**
 

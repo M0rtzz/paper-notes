@@ -1,12 +1,10 @@
----
-title: "TranSUN: A Preemptive Paradigm to Eradicate Retransformation Bias Intrinsically from Regression Models in Recommender Systems"
-authors: "Jiahao Yu, Haozhuang Liu, Yeqiu Yang, Lu Chen, Jian Wu, Yuning Jiang, Bo Zheng"
-venue: "NeurIPS 2025"
-date: 2025-05-20
-arxiv_id: "2505.13881"
-tags: ["retransformation bias", "regression model", "recommender system", "target transformation", "debiasing"]
----
+# TranSUN: A Preemptive Paradigm to Eradicate Retransformation Bias Intrinsically from Regression Models in Recommender Systems
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2505.13881](https://arxiv.org/abs/2505.13881)  
+**代码**: 无  
+**领域**: 自动驾驶  
+**关键词**: retransformation bias, regression model, recommender system, target transformation, debiasing  
 # TranSUN: A Preemptive Paradigm to Eradicate Retransformation Bias Intrinsically from Regression Models
 
 ## 一句话总结

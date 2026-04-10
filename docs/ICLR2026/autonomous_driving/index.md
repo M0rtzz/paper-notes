@@ -1,7 +1,11 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🔬 ICLR2026** · 共 **18** 篇
+**🔬 ICLR2026** · 共 **19** 篇
+
+**[Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation](adaptive_augmentation-aware_latent_learning_for_robust_lidar_semantic_segmentati.md)**
+
+:   提出 A3Point 框架，通过语义混淆先验（SCP）隐式学习和语义偏移区域（SSR）定位两个核心组件，自适应地利用不同强度的数据增强来提升 LiDAR 语义分割在恶劣天气下的鲁棒性，在多个泛化基准上取得 SOTA。
 
 **[SMART-R1: Advancing Multi-agent Traffic Simulation via R1-Style Reinforcement Fine-Tuning](advancing_multi-agent_traffic_simulation_via_r1-style_reinforcement_fine-tuning.md)**
 

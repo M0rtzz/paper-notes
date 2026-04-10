@@ -31,7 +31,7 @@
 
 :   提出 EASE——面向边缘部署小语言模型（SLM）的安全对齐框架，通过两阶段设计解决"浅层拒绝不够安全 vs 深度推理太贵"的矛盾：第一阶段从大型推理模型蒸馏安全推理能力到 SLM，第二阶段用选择性推理激活（仅对脆弱语义区域的对抗查询启用推理，良性查询直接响应），越狱攻击成功率降低 17%（vs 浅层对齐）同时推理开销降低 90%（vs 全推理）。
 
-**[Enhancing Uncertainty Estimation In Llms With Expectation Of Aggregated Internal](enhancing_uncertainty_estimation_in_llms_with_expectation_of_aggregated_internal.md)**
+**[Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal States](enhancing_uncertainty_estimation_in_llms_with_expectation_of_aggregated_internal.md)**
 
 :   提出EAGLE方法，通过聚合LLM多个中间层隐藏状态的logits并计算置信度分布的期望值来估计不确定性，无需训练额外参数，在多个数据集和模型上ECE从12.6%降至3.2%，AUROC从59.0%提升至61.6%。
 

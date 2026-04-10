@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**🧠 NeurIPS2025** · 共 **54** 篇
+**🧠 NeurIPS2025** · 共 **65** 篇
 
 **[A Single-Loop First-Order Algorithm for Linearly Constrained Bilevel Optimization](a_single-loop_first-order_algorithm_for_linearly_constrained_bilevel_optimizatio.md)**
 
@@ -195,6 +195,38 @@
 
 :   证明正交多索引模型 $f_*(\mathbf{x}) = \sum_{k=1}^P \phi(\mathbf{v}_k^* \cdot \mathbf{x})$ 可通过两阶段在线 SGD 以 $\tilde{O}(dP^{L-1})$ 样本复杂度学习（$L$ 为链接函数最低高阶 Hermite 阶），远优于仅用最低阶信息的 $\tilde{O}(Pd^{L-1})$——关键在于先用 2 阶项恢复子空间，再用 $L$ 阶项恢复方向，联合利用不同阶的 Hermite 分量。
 
+**[Learning Parameterized Skills from Demonstrations](learning_parameterized_skills_from_demonstrations.md)**
+
+:   提出 DEPS，一种端到端从专家示范中发现参数化技能的算法，通过三层层次策略（离散技能选择→连续参数选择→底层动作）和信息瓶颈设计，学习可解释且可泛化的技能抽象，在LIBERO和MetaWorld上显著优于基线。
+
+**[Learning Provably Improves the Convergence of Gradient Descent](learning_provably_improves_the_convergence_of_gradient_descent.md)**
+
+:   首次严格证明了基于unrolling的Learn to Optimize (L2O)框架（Math-L2O）的训练收敛性，利用NTK理论建立了线性收敛速率，并提出确定性初始化策略确保L2O可证明地改善梯度下降算法的收敛性能，实验验证相比标准GD提升超50%的最优性。
+
+**[Learning Reconfigurable Representations for Multimodal Federated Learning with Missing Data](learning_reconfigurable_representations_for_multimodal_federated_learning_with_m.md)**
+
+:   提出 PEPSY 框架，通过学习客户端侧的嵌入控制来编码数据缺失模式，将全局聚合表示重新配置为适应各客户端本地上下文的数据完整特征，在多模态联邦学习中处理模态缺失和特征缺失两类问题。
+
+**[Learning Single-Index Models via Harmonic Decomposition](learning_single-index_models_via_harmonic_decomposition.md)**
+
+:   提出以球谐函数（spherical harmonics）代替 Hermite 多项式作为单指标模型（SIM）的自然基底，利用旋转对称性刻画任意球对称输入分布下学习 SIM 的样本与计算复杂度，构造了两族最优估计器（张量展开 + 在线 SGD），并揭示了高斯情形之外出现的样本-运行时间权衡现象。
+
+**[Learning Sparse Approximate Inverse Preconditioners for Conjugate Gradient Solvers on GPUs](learning_sparse_approximate_inverse_preconditioners_for_conjugate_gradient_solve.md)**
+
+:   提出一种基于图神经网络（GNN）的稀疏近似逆（SPAI）预条件子学习方法，利用 SPAI 的局部性与 GNN 消息传递的天然兼容性，并引入尺度不变损失函数（SAI loss），在 GPU 上实现 40%-53% 的求解时间缩减（68%-113% 加速）。
+
+**[Learning Theory for Kernel Bilevel Optimization](learning_theory_for_kernel_bilevel_optimization.md)**
+
+:   首次为核双层优化（KBO）建立了有限样本泛化界，证明目标函数值和梯度的插入估计误差均以$\mathcal{O}(1/\sqrt{m}+1/\sqrt{n})$的参数速率一致收敛，并将该理论应用于双层梯度下降算法的统计精度分析。
+
+**[Learning to Insert for Constructive Neural Vehicle Routing Solver](learning_to_insert_for_constructive_neural_vehicle_routing_solver.md)**
+
+:   提出 L2C-Insert，首个基于学习的插入式构造范式用于神经组合优化，通过允许在部分解的任意合法位置插入节点（而非仅追加到末尾），显著提升 TSP/CVRP 的构造质量和灵活性。
+
+**[MDNS: Masked Diffusion Neural Sampler via Stochastic Optimal Control](mdns_masked_diffusion_neural_sampler_via_stochastic_optimal_control.md)**
+
+:   提出 Masked Diffusion Neural Sampler (MDNS)，基于连续时间马尔可夫链（CTMC）的随机最优控制理论，通过对齐路径测度来训练离散神经采样器，在状态空间基数高达 $10^{122}$ 的 Ising/Potts 模型上准确采样，大幅超越现有学习型基线。
+
 **[Memory-Augmented Potential Field Theory: A Framework for Adaptive Control in Non-Convex Domains](memory-augmented_potential_field_theory_a_framework_for_adaptive_control_in_non-.md)**
 
 :   提出记忆增强势场理论（MAPFT），在随机最优控制中维护一个动态记忆模块来检测并编码状态空间的拓扑特征（局部最小值、低梯度区等），通过动态修改价值函数景观实现非凸环境下的自适应控制，在 Humanoid-v4 等任务上比最优 RL 方法（SAC）提升 27% 累积奖励，且局部最优逃逸率从 ~30% 提升到 ~72%。
@@ -207,9 +239,21 @@
 
 :   首次提出在线两阶段子模最大化（O2SSM）问题，针对加权阈值势函数（WTP）设计了 RAOCO 算法，通过分数松弛+随机管道舍入实现多项式时间运行下的次线性 $(1-1/e)^2$-regret 保证，同时改进了离线问题的近似比。
 
+**[Optimality and NP-Hardness of Transformers in Learning Markovian Dynamical Functions](optimality_and_np-hardness_of_transformers_in_learning_markovian_dynamical_funct.md)**
+
+:   从优化理论角度分析 Transformer 学习马尔可夫动态函数的 ICL 能力：推导单层线性自注意力的全局最优解（闭式表达），证明从扩展参数空间恢复 Transformer 参数是 NP-hard 的，并揭示多层 LSA 等价于预条件多目标优化。
+
 **[Optimistic Online-to-Batch Conversions for Accelerated Convergence and Universality](optimistic_online-to-batch_conversions_for_accelerated_convergence_and_universal.md)**
 
 :   提出乐观在线到批量（O2B）转换框架，将乐观性从在线算法中释放到转换机制本身，使简单的在线梯度下降就能实现 $O(T^{-2})$ 加速收敛率，并首次通过 O2B 转换实现强凸光滑目标的最优收敛，同时达到对光滑性的通用性。
+
+**[Quantitative Convergence of Trained Single Layer Neural Networks to Gaussian Processes](quantitative_convergence_of_trained_single_layer_neural_networks_to_gaussian_pro.md)**
+
+:   为梯度下降训练的浅层神经网络提供了在任意正训练时间 $t \geq 0$ 下向高斯过程收敛的显式定量上界，证明了二次Wasserstein距离以 $O(\log n_1 / n_1)$ 的速率多项式衰减。
+
+**[Streaming Federated Learning with Markovian Data](streaming_federated_learning_with_markovian_data.md)**
+
+:   首次严格分析了非凸目标函数下具有马尔可夫数据流的流式联邦学习，证明 Minibatch SGD、Local SGD 和 Local SGD-M 均能实现与客户端数成反比的样本复杂度（线性加速），且 Local SGD-M 无需异质性假设即可匹配 Minibatch SGD 的通信复杂度。
 
 **[Understanding the Generalization of Stochastic Gradient Adam in Learning Neural Networks](understanding_the_generalization_of_stochastic_gradient_adam_in_learning_neural_.md)**
 

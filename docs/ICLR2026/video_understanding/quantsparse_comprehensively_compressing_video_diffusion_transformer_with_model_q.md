@@ -1,20 +1,10 @@
----
-title: "QuantSparse: Comprehensively Compressing Video Diffusion Transformer with Model Quantization and Attention Sparsification"
-authors: "Weilun Feng, Chuanguang Yang, Haotong Qin, Mingqiang Wu, Yuqi Li, Xiangqi Li, Zhulin An, Libo Huang, Yulun Zhang, Michele Magno, Yongjun Xu"
-venue: "ICLR 2026"
-date: 2026-03-07
-arxiv: "2509.23681"
-tags: ["video-generation", "model-compression", "quantization", "sparse-attention", "diffusion-transformer"]
-status: "完成"
----
-
 # QuantSparse: Comprehensively Compressing Video Diffusion Transformer with Model Quantization and Attention Sparsification
 
-**会议**: ICLR2026
-**arXiv**: [2509.23681](https://arxiv.org/abs/2509.23681)
-**代码**: [GitHub](https://github.com/wlfeng0509/QuantSparse)
-**领域**: video_understanding
-**关键词**: video diffusion, quantization, sparse attention, model compression, DiT
+**会议**: ICLR 2026  
+**arXiv**: [2509.23681](https://arxiv.org/abs/2509.23681)  
+**代码**: [GitHub](https://github.com/wlfeng0509/QuantSparse)  
+**领域**: video_understanding  
+**关键词**: video-generation, model-compression, quantization, sparse-attention, diffusion-transformer  
 
 ## 一句话总结
 

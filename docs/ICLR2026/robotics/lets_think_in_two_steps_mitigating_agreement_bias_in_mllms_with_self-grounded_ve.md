@@ -1,20 +1,10 @@
----
-title: "Let's Think in Two Steps: Mitigating Agreement Bias in MLLMs with Self-Grounded Verification"
-authors: "Moises Andrade, Joonhyuk Cha, Brandon Ho, Vriksha Srihari, Karmesh Yadav, Zsolt Kira"
-venue: "ICLR 2026"
-date: 2026-03-08
-arxiv: "2507.11662"
-tags: ["mllm-as-verifier", "agreement-bias", "self-grounded-verification", "agent-evaluation", "robotics"]
-status: "完成"
----
-
 # Let's Think in Two Steps: Mitigating Agreement Bias in MLLMs with Self-Grounded Verification
 
-**会议**: ICLR2026
-**arXiv**: [2507.11662](https://arxiv.org/abs/2507.11662)
-**代码**: [项目主页](https://github.com/GT-RIPL/SGV)
-**领域**: robotics
-**关键词**: MLLM-as-verifier, agreement bias, self-grounded verification, agent evaluation
+**会议**: ICLR 2026  
+**arXiv**: [2507.11662](https://arxiv.org/abs/2507.11662)  
+**代码**: [项目主页](https://github.com/GT-RIPL/SGV)  
+**领域**: robotics  
+**关键词**: mllm-as-verifier, agreement-bias, self-grounded-verification, agent-evaluation, robotics  
 
 ## 一句话总结
 

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🧪 ICML2025** · 共 **15** 篇
+**🧪 ICML2025** · 共 **23** 篇
 
 **[A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints](a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints.md)**
 
@@ -19,9 +19,25 @@
 
 :   在 162K 个体的 25 亿小时可穿戴行为数据上训练基础模型（WBM），系统优化不规则采样行为数据的 tokenizer 和架构，在 57 项健康检测任务上展示强大表现，特别在行为驱动任务（如睡眠预测）上表现突出。
 
+**[CLARIFY: Contrastive Preference Reinforcement Learning for Untangling Ambiguous Queries](clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q.md)**
+
+:   提出 CLARIFY 方法，通过对比学习构建融合偏好信息的轨迹嵌入空间，利用拒绝采样选择更清晰可区分的偏好查询，从而提升离线 PbRL 在非理想反馈下的标注效率和策略性能。
+
 **[Clustering Properties of Self-Supervised Learning](clustering_properties_of_self-supervised_learning.md)**
 
 :   从理论角度分析自监督学习（SSL）表示的聚类性质，证明 SSL 方法（对比学习、正则化方法等）在优化充分时会产生具有聚类结构的表示——类内紧凑、类间分离，连接了 SSL 与有监督学习中的神经塌缩现象。
+
+**[Collapse-Proof Non-Contrastive Self-Supervised Learning](collapse-proof_non-contrastive_self-supervised_learning.md)**
+
+:   提出 FALCON 方法，基于超维计算 (hyperdimensional computing) 原理设计投影器和损失函数，理论证明可同时避免四种已知训练失败模式（表示崩塌、维度崩塌、聚类崩塌、簇内崩塌），并使表征自然具备去相关和聚类特性。
+
+**[Contextures: Representations from Contexts](contextures_representations_from_contexts.md)**
+
+:   建立 contexture 理论，统一证明监督学习、自监督学习和流形学习等多种表示学习范式都可被理解为学习上下文变量诱导的期望算子的 top-$d$ 奇异函数，并揭示模型规模增大的边际递减效应以及提出上下文质量评估指标。
+
+**[Deep Learning is Not So Mysterious or Different](deep_learning_is_not_so_mysterious_or_different.md)**
+
+:   本文是一篇 position paper，论证深度学习中被认为"神秘"的泛化现象（良性过拟合、双重下降、过参数化的成功）并非深度学习独有，也不神秘，可以通过长期存在的泛化框架（PAC-Bayes、可数假设界）形式化描述，并提出**软归纳偏置（soft inductive biases）**作为统一解释原则。
 
 **[Foundation Model Insights and a Multi-Model Approach for Superior Fine-Grained One-shot Subset Selection](foundation_model_insights_and_a_multi-model_approach_for_superior_fine-grained_o.md)**
 
@@ -34,6 +50,10 @@
 **[Griffin: Towards a Graph-Centric Relational Database Foundation Model](griffin_towards_a_graph-centric_relational_database_foundation_model.md)**
 
 :   Griffin 是首个面向关系数据库（RDB）的基础模型，通过将多表结构转化为异构图，结合统一编码器/解码器、交叉注意力和层级聚合的 MPNN，在 150M+ 行数据上进行自监督掩码补全预训练 + 联合 SFT，实现跨数据库、跨域、跨任务的泛化预测。
+
+**[L2D: Large Language Models to Diffusion Finetuning](large_language_models_to_diffusion_finetuning.md)**
+
+:   提出L2D——将预训练LLM微调为能利用扩散框架的模型：通过增加扩散步数实现单调递增精度的测试时计算缩放，不修改原始权重保留单步生成能力，与传统微调和搜索方法互补。
 
 **[MTL-UE: Learning to Learn Nothing for Multi-Task Learning](mtl-ue_learning_to_learn_nothing_for_multi-task_learning.md)**
 
@@ -59,6 +79,18 @@
 
 :   提出 FoCal 框架，在推理阶段利用 CLIP 和 Stable Diffusion 的视觉先验，通过"变换-排序"策略将输入图像变换为最具视觉典型性的版本，无需重训练即可提升模型对视角、光照、旋转等变换的鲁棒性。
 
+**[Test-Time Training Provably Improves Transformers as In-Context Learners](test-time_training_provably_improves_transformers_as_in-context_learners.md)**
+
+:   本文从理论上严格证明了测试时训练（TTT）能够可证明地提升 Transformer 的上下文学习（ICL）能力，并在表格基础模型 TabPFN 上验证 TTT 可将所需样本量减少 3-5 倍，同时带来显著的推理效率提升。
+
+**[Towards Benchmarking Foundation Models for Tabular Data With Text](towards_benchmarking_foundation_models_for_tabular_data_with_text.md)**
+
+:   首个系统性研究表格基础模型处理文本特征能力的工作：手动策划含语义丰富文本列的真实数据集集合，比较fastText/Skrub/AutoGluon三种文本嵌入策略，揭示现有方法对语义模式的捕捉仍有显著不足。
+
 **[Update Your Transformer to the Latest Release: Re-Basin of Task Vectors](update_your_transformer_to_the_latest_release_re-basin_of_task_vectors.md)**
 
 :   提出 TransFusion，一种专为 Transformer 设计的两级权重置换方法（头间+头内），实现将旧模型的微调知识（任务向量）免数据免训练地迁移至新版基础模型。
+
+**[What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models](what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models.md)**
+
+:   开发了一种"归纳偏置探测"技术来评估基础模型是否学到了真实的世界模型：在轨道力学/格子问题/Othello等领域发现，基础模型虽然预测准确但并未学到底层物理/规则，而是发展了任务特定的启发式。

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🤖 AAAI2026** · 共 **22** 篇
+**🤖 AAAI2026** · 共 **29** 篇
 
 **[A Disease-Aware Dual-Stage Framework for Chest X-ray Report Generation](a_disease-aware_dual-stage_framework_for_chest_x-ray_report_.md)**
 
@@ -79,13 +79,41 @@
 
 :   提出 DiA-gnostic VLVAE，通过视觉-语言混合专家VAE学习三因子潜空间（视觉特有/语言特有/共享），配合正交性+对比对齐的双约束实现解纠缠，使模型在临床上下文缺失时仍能生成可靠的放射学报告，在 IU X-Ray 和 MIMIC-CXR 上达到竞争性 BLEU@4。
 
+**[Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation](divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for.md)**
+
+:   针对联邦医学图像分割中的"层间风格偏差累积"和"上下文表征不完整"两大挑战，提出FedBCS框架：通过频域自适应风格重校准（FSR）构建领域不变原型，并设计上下文感知的双层原型对齐（CDPA）融合编解码器多层级语义，在组织核分割和前列腺MRI分割任务上达到SOTA。
+
 **[EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services](egoems_a_high-fidelity_multimodal_egocentric_dataset_for_cognitive_assistance_in.md)**
 
 :   发布首个高保真多人多模态自我中心EMS数据集，包含233个试验20小时视频、9项干预67个关键步骤标注，提供三个基准任务（步骤分类/在线分割/CPR质量估计）推动EMS认知协助系统开发。
 
+**[Experience with Single Domain Generalization in Real World Medical Imaging Deployments](experience_with_single_domain_generalization_in_real_world_medical_imaging_deplo.md)**
+
+:   提出DL+EKE框架，将领域不变的专家知识与深度学习集成，解决医学影像中稀有类（rare class）的单域泛化（SDG）问题，在糖尿病视网膜病变分级、rs-fMRI癫痫灶定位和应激心电图CAD检测三个真实部署场景中显著优于SOTA SDG方法。
+
+**[Expert-Guided Prompting And Retrieval-Augmented Generation For Emergency Medical](expert-guided_prompting_and_retrieval-augmented_generation_for_emergency_medical.md)**
+
+:   构建了首个 EMS 领域多选问答数据集 EMSQA（24.3K 题），并提出 Expert-CoT + ExpertRAG 框架，通过注入 subject area 和 certification level 等专业属性引导 LLM 推理和检索，最高带来 4.59% 的准确率提升。
+
+**[Intervention Efficiency and Perturbation Validation Framework: Capacity-Aware and Robust Clinical Model Selection under the Rashomon Effect](intervention_efficiency_and_perturbation_validation_framework_capacity-aware_and.md)**
+
+:   针对临床小样本、类别不平衡场景下多个模型性能相近（Rashomon Effect）导致的模型选择困难，提出 **Intervention Efficiency (IE)** 容量感知评估指标和 **Perturbation Validation Framework (PVF)** 鲁棒性验证框架，联合实现资源约束下的可靠模型选择。
+
 **[Learning Cell-Aware Hierarchical Multi-Modal Representations for Robust Molecular Modeling](learning_cell-aware_hierarchical_multi-modal_representations.md)**
 
 :   提出CHMR框架，将分子结构(1D/2D/3D)与细胞形态/基因表达等生物模态联合建模，通过结构感知的模态增强解决>90%的外部生物模态缺失问题，用树状向量量化(Tree-VQ)捕获分子-细胞-基因的层次化依赖关系，在9个benchmark的728个任务上超越SOTA，分类平均AUC提升3.6%，回归MAE降低17.2%。
+
+**[Learning With Preserving For Continual Multitask Learning](learning_with_preserving_for_continual_multitask_learning.md)**
+
+:   提出 Learning with Preserving (LwP) 框架，通过 Dynamically Weighted Distance Preservation (DWDP) 损失保持 latent space 的几何结构，在无需 replay buffer 的条件下解决 Continual Multitask Learning (CMTL) 中的灾难性遗忘，是唯一超越 single-task baseline 的方法。
+
+**[Mergedna Context-Aware Genome Modeling With Dynamic Tokenization Through Token M](mergedna_context-aware_genome_modeling_with_dynamic_tokenization_through_token_m.md)**
+
+:   提出 MergeDNA，通过可微分的 Token Merging 机制实现上下文感知的动态 DNA tokenization，结合层次化 autoencoder Transformer 和自适应 masked token modeling 预训练，在多个基因组 benchmark 上取得 SOTA。
+
+**[PINGS-X: Physics-Informed Normalized Gaussian Splatting with Axes Alignment for Efficient Super-Resolution of 4D Flow MRI](pings-x_physics-informed_normalized_gaussian_splatting_with_axes_alignment_for_e.md)**
+
+:   提出PINGS-X框架，将3D高斯溅射（3DGS）的显式表示思想引入物理信息超分辨率领域，通过归一化高斯溅射（NGS）、轴对齐高斯和高斯合并三项创新，在合成CFD和真实4D Flow MRI数据集上实现了比PINN快一个数量级的训练速度，同时保持更高的超分辨率精度。
 
 **[ProtSAE: Disentangling and Interpreting Protein Language Models via Semantically-Guided Sparse Autoencoders](protsae_disentangling_and_interpreting_protein_language_models_via_semantically-.md)**
 

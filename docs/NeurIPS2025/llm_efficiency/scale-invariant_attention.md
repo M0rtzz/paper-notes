@@ -111,9 +111,3 @@
 - 实验充分度: ⭐⭐⭐⭐ 多个基线对比、消融实验、needle-in-a-haystack 评估全面；扣分在于模型规模有限
 - 写作质量: ⭐⭐⭐⭐⭐ 理论推导清晰自洽，从定义到定理到实现的逻辑链完整
 - 价值: ⭐⭐⭐⭐ 实现极简（一行代码）但效果显著的长上下文方案，工程落地门槛极低
-
-**会议**: NEURIPS2025  
-**arXiv**: [2505.17083](https://arxiv.org/abs/2505.17083)  
-**代码**: 无  
-**领域**: llm_efficiency  
-**关键词**: scale invariance, attention logits, long context, zero-shot length generalization, pp-RoPE, entropy control

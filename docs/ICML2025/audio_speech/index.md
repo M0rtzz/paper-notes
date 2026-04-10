@@ -1,7 +1,11 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🧪 ICML2025** · 共 **3** 篇
+**🧪 ICML2025** · 共 **6** 篇
+
+**[Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition](bridging_the_language_gap_synthetic_voice_diversity_via_latent_mixup_for_equitab.md)**
+
+:   提出LatentVoiceMix——在语音转换模型的风格编码器潜在空间中做Mixup，通过扩展说话人特征的凸包来增加合成语音多样性，显著提升低资源语言ASR性能并优于现有增强策略。
 
 **[FLAM: Frame-Wise Language-Audio Modeling](flam_frame-wise_language-audio_modeling.md)**
 
@@ -14,3 +18,11 @@
 **[One Wave To Explain Them All: A Unifying Perspective On Feature Attribution](one_wave_to_explain_them_all_a_unifying_perspective_on_feature_attribution.md)**
 
 :   提出 Wavelet Attribution Method (WAM)，将特征归因从像素域迁移到小波域，利用小波系数的空间-尺度局部性为音频、图像、体数据提供统一且更具结构信息的模型解释。
+
+**[Sortformer: A Novel Approach for Permutation-Resolved Speaker Supervision in Speech-to-Text Systems](sortformer_a_novel_approach_for_permutation-resolved_speaker_supervision_in_spee.md)**
+
+:   提出 Sortformer——一个基于编码器的说话人日志模型，通过 Sort Loss 按说话人到达时间排序来解决排列问题，替代或辅助传统的排列不变损失（PIL），并设计正弦核函数将说话人标签注入 ASR 编码器，使多说话人 ASR 训练可直接使用标准交叉熵损失，在 LibriSpeechMix 上实现 2-mix/3-mix 相对误差降低 30%/25%。
+
+**[Teaching Physical Awareness to LLMs through Sounds](teaching_physical_awareness_to_llms_through_sounds.md)**
+
+:   提出 ACORN 框架，通过基于物理的声学通道仿真器生成大规模训练数据，配合同时捕获幅度和相位信息的音频编码器，教会 LLM 从声音中理解物理世界现象。

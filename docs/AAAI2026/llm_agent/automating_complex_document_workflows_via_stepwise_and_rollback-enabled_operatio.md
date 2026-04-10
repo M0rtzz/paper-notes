@@ -1,13 +1,10 @@
----
-title: "Automating Complex Document Workflows via Stepwise and Rollback-Enabled Operations"
-conference: "AAAI2026"
-arxiv: "2512.04445"
-domain: "LLM智能体"
-keywords: ["文档工作流", "多步操作", "回滚机制", "错误恢复", "AutoDW"]
----
-
 # Automating Complex Document Workflows via Stepwise and Rollback-Enabled Operations
 
+**会议**: AAAI 2026  
+**arXiv**: [2512.04445](https://arxiv.org/abs/2512.04445)  
+**代码**: 无  
+**领域**: LLM智能体  
+**关键词**: 文档工作流, 多步操作, 回滚机制, 错误恢复, AutoDW  
 ## 一句话总结
 
 提出AutoDW框架，通过逐步规划（每次生成一个API调用）+自适应回滚（参数级+API级两层回滚）实现复杂文档工作流自动化，在250会话/1708指令的DWBench上达到90%指令级和62%会话级完成率，分别超越最强基线40%和76%。

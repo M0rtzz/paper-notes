@@ -1,0 +1,341 @@
+# Geometric Priors for Generalizable World Models via Vector Symbolic Architecture
+
+**会议**: NeurIPS 2025  
+**arXiv**: [2602.21467](https://arxiv.org/abs/2602.21467)  
+**作者**: William Youngwoo Chung, Calvin Yeung, Hansen Jin Lillemark, Zhuowen Zou, Xiangjian Liu, Mohsen Imani (UC Irvine & UC San Diego)  
+**代码**: 未公开  
+**领域**: others  
+**关键词**: World Models, Vector Symbolic Architecture, Hyperdimensional Computing, FHRR, Geometric Deep Learning, Neurosymbolic AI  
+
+## 一句话总结
+
+提出将 Vector Symbolic Architecture (VSA) 中的 Fourier Holographic Reduced Representation (FHRR) 作为几何先验引入世界模型，通过 element-wise 复数乘法建模状态转移，在离散 GridWorld 上实现 87.5% 的 zero-shot 泛化准确率和 4 倍于 MLP 的噪声鲁棒性。
+
+---
+
+## 研究背景与动机
+
+### 问题定义
+
+世界模型（World Models）学习环境的转移动力学 $T: S \times A \to S$，用于强化学习中的规划和决策。当前主流方法使用无结构的 MLP 逼近转移函数，存在三个核心痛点：
+
+1. **采样效率低**：黑盒拟合需要大量数据，无法利用环境中固有的对称性
+2. **泛化能力弱**：对未见的 state-action 组合无法外推，zero-shot 准确率接近 0
+3. **长时程误差累积**：多步 rollout 时误差指数增长，latent space 缺乏显式几何结构进行纠错
+
+### 已有方案的不足
+
+- **Model-based RL**（Ha & Schmidhuber 2018, Hafner 2019）：虽然取得了 Atari/连续控制上的成功，但转移函数仍是非结构化映射，缺乏可解释性
+- **Geometric Deep Learning**（Kipf 2019, Park 2022）：引入了对称性但 latent 表示本身不具备代数可组合性，无法直接进行向量运算式的规划
+- **VSA/超维计算**：已在分类、时间序列、图推理中展现潜力，但在可学习的转移建模中尚未探索
+
+### 核心动机
+
+生物系统利用环境中的对称性和几何结构来简化学习（如大脑中的 grid cells）。如果 latent space 本身具有群结构，那么转移就可以通过简单的代数运算完成，天然支持组合、求逆和纠错。
+
+---
+
+## 方法详解
+
+### 1. 环境动力学的群论形式化
+
+将确定性环境的转移建模为群作用：
+
+$$\cdot: G \times S \to S, \quad (g, s) \mapsto g \cdot s$$
+
+每个动作 $a \in A$ 对应群 $G$ 的一个生成元 $g_a$，满足 $T(s, a) = g_a \cdot s$。群性质保证恒等元 $e = g_a \circ g_a^{-1}$ 存在，且组合满足结合律 $(g_1 \circ g_2) \cdot s = g_1 \cdot (g_2 \cdot s)$。
+
+### 2. FHRR 编码器
+
+使用可学习的 FHRR 编码器将状态和动作映射到 $D$ 维复数单位向量空间 $\mathcal{Z} = (S^1)^D$：
+
+$$\phi_S(s) = [e^{i\theta_{j,s}^\top s}]_{j=1}^D, \quad \phi_A(a) = [e^{i\theta_{j,a}^\top a}]_{j=1}^D$$
+
+其中 $\Theta_s \in \mathbb{C}^{D \times n_s}$ 和 $\Theta_a \in \mathbb{C}^{D \times n_a}$ 为可学习的投影参数。每个分量均落在单位圆上，整体构成一个群 $(\mathcal{Z}, \odot)$。
+
+### 3. Latent Transition 模型
+
+状态转移通过 binding 操作（element-wise 复数乘法）实现，而非 MLP 的拼接+前馈：
+
+$$\phi_S(s_{t+1}) = \phi_S(s_t) \odot \phi_A(a_t)$$
+
+在 phase 坐标下等价于相位加法：
+
+$$\Theta_s^\top s_{t+1} = \Theta_s^\top s_t + \Theta_a^\top a_t \pmod{2\pi}$$
+
+多步 rollout 自然扩展为连续 binding（无需递归前馈）：
+
+$$\phi_S(s_{t+k}) = \phi_S(s_t) \odot \prod_{j=1}^k \phi_A(a_{t+j-1})$$
+
+与 MLP 的关键差异：MLP 将 state 和 action 拼接后通过非线性层映射，无法分离两者的编码；而 FHRR 通过 element-wise 乘法保持了代数可分解性。
+
+### 4. Cleanup 纠错机制
+
+VSA 的独特优势——通过 state codebook 进行最近邻搜索来纠正累积误差：
+
+$$s^\star = \arg\max_{s \in \mathcal{S}} \operatorname{Re}\langle x, \Phi_s \rangle$$
+
+可靠性由高维空间的两个几何性质保证：
+- **自相似性集中**：噪声嵌入与真实嵌入的相似度集中在 1 附近，方差为 $\mathcal{O}(1/D)$
+- **交叉相似性集中**：不同状态嵌入近似正交，分离间距为 $\text{margin} \sim 1 - \mathcal{O}(1/\sqrt{D})$
+
+实现上维护一个状态 codebook 矩阵 $\Phi \in \mathbb{C}^{|\mathcal{S}| \times D}$，cleanup 操作归结为矩阵向量乘法 + argmax，在离散状态空间下开销可忽略。
+
+### 5. 训练目标
+
+三个损失函数的加权组合：
+
+| 损失项 | 公式 | 作用 |
+|--------|------|------|
+| Binding loss | $\mathcal{L}_{\text{bind}} = \|\phi_S(s_{t+1}) - \phi_S(s_t) \odot \phi_A(a_t)\|^2$ | 鼓励转移等变性 |
+| Invertibility loss | $\mathcal{L}_{\text{inv}} = \sum_{(a,a^{-1})} \|\phi_A(a) \odot \phi_A(a^{-1}) - \mathbf{1}\|^2$ | 鼓励动作表示满足群结构 |
+| Orthogonality loss | $\mathcal{L}_{\text{ortho}} = \sum_{i \neq j} (\langle \phi_S(s_i), \phi_S(s_j) \rangle)^2$ | 鼓励不同状态嵌入正交分离 |
+
+总损失：$\mathcal{L} = \lambda_{\text{bind}} \mathcal{L}_{\text{bind}} + \lambda_{\text{inv}} \mathcal{L}_{\text{inv}} + \lambda_{\text{ortho}} \mathcal{L}_{\text{ortho}}$
+
+超参数：$\lambda_{\text{bind}}=2, \lambda_{\text{inv}}=0.5, \lambda_{\text{ortho}}=0.05$，学习率 0.007（VSA）/ 0.0005（MLP），梯度裁剪为 1，训练 500 epochs。
+
+---
+
+## 实验关键数据
+
+实验环境：$10 \times 10$ GridWorld（100 离散状态，4 个确定性动作：上下左右），80% 训练 / 20% zero-shot 划分。
+
+### Table 1: VSA vs MLP 动力学建模对比
+
+| 指标 | FHRR (Ours) | MLP-S | MLP-M | MLP-L |
+|------|-------------|-------|-------|-------|
+| 1-step 准确率 | **96.3%** | 80.0% | 80.0% | 80.25% |
+| 1-step Zero-Shot | **87.5%** | 0.0% | 0.0% | 1.25% |
+| Cosine Similarity | **83.0** | 79.5 | 79.9 | 80.6 |
+| Zero-Shot Cosine Sim | **80.5** | 0.9 | 0.15 | 3.1 |
+| Rollout 5 步 | **74.6%** | 39.8% | 38.0% | 40.8% |
+| Rollout 20 步 | **34.6%** | 2.0% | 4.0% | 6.2% |
+| Rollout 20 步 + Cleanup | **61.4%** | 5.4% | 7.8% | 8.4% |
+| Rollout 100 步 | 1.8% | 0.8% | 1.8% | 2.0% |
+| Rollout 100 步 + Cleanup | **38.6%** | 2.8% | 4.0% | 3.2% |
+
+### Table 2: 参数量与推理速度对比
+
+| 指标 | VSA (HRR) | VSA (FHRR) | MLP-S | MLP-M | MLP-L |
+|------|-----------|------------|-------|-------|-------|
+| 参数量 | 53,248 | 53,248 | 41,600 | 241,024 | 1,394,048 |
+| 参数倍率 | 1× | 1× | 0.8× | 4.5× | 26.2× |
+| 推理时间 (ms) | 0.2063 | 0.1528 | 0.1174 | 0.1715 | 0.3135 |
+| 推理+Cleanup (ms) | 0.2632 | 0.2421 | 0.1743 | 0.2317 | 0.3761 |
+
+---
+
+## 亮点与洞察
+
+1. **Zero-shot 泛化能力碾压 MLP**：FHRR 在未见 state-action 对上达 87.5% 准确率，三种规模的 MLP 均接近 0%，说明扩大 MLP 参数量（从 42K 到 1.4M）无法弥补结构性缺陷
+2. **Cleanup 显著提升长时程预测**：20 步 rollout 准确率从 34.6% 提升至 61.4%（+26.8%），比最佳 MLP+Cleanup（8.4%）高 53 个百分点
+3. **噪声鲁棒性 4 倍于 MLP**：在高斯噪声 $\sigma \in [0, 5]$ 下，FHRR 保持 80%+ 准确率，MLP-M 迅速衰减；消融实验表明增大维度 $D$ 可进一步提高鲁棒性
+4. **Latent 结构可解释**：t-SNE 可视化显示 FHRR 学到了与 grid 行列结构对应的有序嵌入空间，MLP 则完全无结构
+5. **参数极其高效**：FHRR 仅 53K 参数（与 MLP-S 相当），推理速度 0.15ms，且所有 VSA 操作均为 element-wise，易于硬件加速
+6. **理论与 Random Fourier Features 的联系**：FHRR 编码等价于 RFF，因此 $\langle \phi(x), \phi(y) \rangle / D \approx K(x - y)$，将 VSA 与 kernel methods 统一
+
+---
+
+## 局限性
+
+1. **仅在极小规模离散环境验证**：$10 \times 10$ GridWorld（100 状态 × 4 动作）与现实世界的复杂度差距巨大
+2. **确定性转移假设**：真实环境通常是 stochastic 或 partially observable 的，当前框架无法处理
+3. **Cleanup 依赖有限状态 codebook**：连续状态空间下需要全新的 cleanup 设计（如 approximate nearest neighbor），论文未讨论
+4. **缺乏 RL/Planning 集成实验**：未展示在实际 model-based RL 任务中的端到端效果
+5. **Baseline 偏弱**：仅与 vanilla MLP 对比，未与 GNN-based、Attention-based 或其它结构化 world model 比较
+6. **高维观测输入未验证**：图像或连续感知输入下的可扩展性未知
+
+---
+
+## 相关工作
+
+- **Model-Based RL 中的 World Models**：Ha & Schmidhuber (2018), Hafner et al. (2019/2020), Hansen et al. (2023, TD-MPC) 等将 world model 用于 RL 规划，但转移函数为非结构化黑盒，存在 rollout 误差累积和可解释性差的问题
+- **Geometric Deep Learning**：Kipf et al. (2019) 和 Park et al. (2022) 将对称性引入对象级别的 world model，但 latent 表示不具备代数可组合性，规划仍需完整的前向传播
+- **Vector Symbolic Architecture (VSA)**：Kanerva (2009), Kleyko et al. (2022) 综述了 VSA/超维计算在分类、时序、图推理中的应用；Yeung et al. (2025) 用 VSA 构建 cognitive map；Ni et al. (2024) 将 VSA 用于 RL 分类——但 VSA 用于可学习 world model 的转移建模尚属首次
+- **FHRR 与 Kernel Methods**：Plate (2003) 提出 FHRR 框架；Rahimi & Recht 的 Random Fourier Features 建立了 FHRR 编码与 kernel 近似的理论联系
+
+---
+
+## 评分
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 新颖性 | ⭐⭐⭐⭐ | VSA/FHRR 的代数结构作为 world model 的 geometric prior 是新颖角度 |
+| 理论深度 | ⭐⭐⭐⭐ | 群论形式化完整，从群作用到等变表示到 kernel 近似 |
+| 实验充分度 | ⭐⭐ | 仅 10×10 GridWorld，baseline 偏弱，缺乏标准 benchmark |
+| 写作质量 | ⭐⭐⭐⭐ | 理论推导清晰，可视化直观，结构紧凑 |
+| 实用价值 | ⭐⭐⭐ | idea 有潜力但验证规模不足，距离实际应用有距离 |
+<!-- 由 src/gen_stubs.py 自动生成 -->
+# Geometric Priors for Generalizable World Models via Vector Symbolic Architecture
+
+**会议**: NEURIPS2025  
+**arXiv**: [2602.21467](https://arxiv.org/abs/2602.21467)  
+**代码**: 待确认  
+**领域**: others  
+**关键词**: World Models, Vector Symbolic Architecture, Hyperdimensional Computing, FHRR, Geometric Deep Learning, Neurosymbolic AI  
+
+## 一句话总结
+
+提出基于 Vector Symbolic Architecture (VSA) 的世界模型，利用 FHRR 将状态和动作编码为高维复数向量，用 element-wise 复数乘法建模转移，实现强泛化、长时域稳定和噪声鲁棒的动力学预测。
+
+---
+
+## Problem
+
+当前世界模型（World Models）主要用无结构的神经网络（如 MLP）拟合转移函数 $T: S \times A \to S$，存在三大问题：
+
+1. **采样效率低**：黑盒拟合需要大量数据才能学到动力学
+2. **泛化能力差**：对未见过的 state-action 组合几乎无法外推（zero-shot 准确率接近 0）
+3. **长时程误差累积**：多步 rollout 时误差指数增长，latent space 缺乏显式几何含义
+
+生物系统利用环境中的对称性和几何结构来降低学习复杂度，但现有方法没有将这种 geometric prior 有效融入 latent representation。
+
+---
+
+## Core Idea
+
+核心思想是将 **Vector Symbolic Architecture (VSA)** 的代数结构作为 geometric prior 引入世界模型：
+
+- 用 **Fourier Holographic Reduced Representation (FHRR)** 将状态和动作编码为单位圆上的复数向量 $\mathbf{v} = [e^{i\theta_j}]_{j=1}^D \in \mathbb{C}^D$
+- 状态转移建模为 latent space 中的 **element-wise 复数乘法**（binding 操作），而非 MLP 的拼接 + 前馈
+- 训练编码器使动作表示近似满足 **群结构**（group homomorphism），保证可组合、可逆、可 cleanup
+
+这样 latent space 具有显式的代数结构，支持多步组合和 error correction。
+
+---
+
+## Method
+
+### 环境建模为群作用
+
+将环境的状态空间 $S$、动作空间 $A$ 和确定性转移函数 $T$ 形式化为群作用：
+
+$$\cdot: G \times S \to S, \quad (g, s) \mapsto g \cdot s$$
+
+每个动作 $a \in A$ 对应群 $G$ 的一个生成元 $g_a$，满足 $T(s, a) = g_a \cdot s$。
+
+### FHRR 编码器
+
+学习状态编码器 $\phi_S$ 和动作编码器 $\phi_A$，将输入映射到 $D$ 维复数单位向量空间 $\mathcal{Z} = (S^1)^D$：
+
+$$\phi_S(s) = [e^{i\theta_{j,s}^\top s}]_{j=1}^D, \quad \phi_A(a) = [e^{i\theta_{j,a}^\top a}]_{j=1}^D$$
+
+其中 $\Theta_s, \Theta_a$ 为可学习参数。
+
+### Latent Transition
+
+转移通过 binding 操作（element-wise 复数乘法）实现：
+
+$$\phi_S(s_{t+1}) = \phi_S(s_t) \odot \phi_A(a_t)$$
+
+在 phase 坐标下等价于相位加法：
+
+$$\Theta_s^\top s_{t+1} = \Theta_s^\top s_t + \Theta_a^\top a_t \pmod{2\pi}$$
+
+多步 rollout 自然扩展为连续 binding：
+
+$$\phi_S(s_{t+k}) = \phi_S(s_t) \odot \prod_{j=1}^k \phi_A(a_{t+j-1})$$
+
+### Cleanup 机制
+
+VSA 的核心优势——通过 state codebook 进行最近邻搜索来纠错：
+
+$$s^\star = \arg\max_{s \in \mathcal{S}} \operatorname{Re}\langle x, \Phi_s \rangle$$
+
+在高维空间中，不同状态嵌入近似正交，噪声向量仍然最接近其真实状态，分离间距为 $\text{margin} \sim 1 - \mathcal{O}(1/\sqrt{D})$，维度越高 cleanup 越可靠。
+
+---
+
+## Training/Inference
+
+### 训练目标
+
+三个损失函数的加权组合：
+
+1. **Binding loss**（转移等变性）：$\mathcal{L}_{\text{bind}} = \|\phi_S(s_{t+1}) - \phi_S(s_t) \odot \phi_A(a_t)\|^2$
+2. **Invertibility loss**（动作可逆性）：$\mathcal{L}_{\text{inv}} = \sum_{(a, a^{-1})} \|\phi_A(a) \odot \phi_A(a^{-1}) - \mathbf{1}\|^2$
+3. **Orthogonality loss**（状态分离）：$\mathcal{L}_{\text{ortho}} = \sum_{i \neq j} (\langle \phi_S(s_i), \phi_S(s_j) \rangle)^2$
+
+总损失：$\mathcal{L} = \lambda_{\text{bind}} \mathcal{L}_{\text{bind}} + \lambda_{\text{inv}} \mathcal{L}_{\text{inv}} + \lambda_{\text{ortho}} \mathcal{L}_{\text{ortho}}$
+
+超参数：$\lambda_{\text{bind}}=2, \lambda_{\text{inv}}=0.5, \lambda_{\text{ortho}}=0.05$，学习率 0.007，梯度裁剪为 1。
+
+### 推理
+
+- 训练复杂度：每样本 $O(D)$（binding 为 element-wise）
+- 多步 rollout 在 phase space 中线性时间完成
+- Cleanup 操作为 codebook 矩阵向量乘法 + argmax
+
+### 实现细节
+
+- FHRR 嵌入维度 $D=512$，参数量 53,248
+- MLP baseline 使用 $D_s=64, D_a=16$，MLP-S/M/L 分别为 2/4/6 隐藏层
+- 训练 500 epochs，80% 数据训练，20% zero-shot 评估
+
+---
+
+## Experiments
+
+在 $10 \times 10$ GridWorld 上（100 离散状态，4 个确定性动作）进行评估。
+
+### 实验设置
+
+- 500 epochs 训练，80/20 train/zero-shot split
+- Rollout 测试：500 次随机轨迹采样
+- Cleanup 每 2 步应用一次（VSA 和 MLP 均做 cleanup 对比）
+
+---
+
+## Results
+
+| 指标 | FHRR (Ours) | MLP-S | MLP-M | MLP-L |
+|------|-------------|-------|-------|-------|
+| 1-step 准确率 | **96.3%** | 80.0% | 80.0% | 80.25% |
+| 1-step Zero-Shot | **87.5%** | 0.0% | 0.0% | 1.25% |
+| Cosine Similarity | **83.0** | 79.5 | 79.9 | 80.6 |
+| Zero-Shot Cosine Sim | **80.5** | 0.9 | 0.15 | 3.1 |
+| Rollout 5 步 | **74.6%** | 39.8% | 38.0% | 40.8% |
+| Rollout 20 步 | **34.6%** | 2.0% | 4.0% | 6.2% |
+| Rollout 20 步 + Cleanup | **61.4%** | 5.4% | 7.8% | 8.4% |
+| Rollout 100 步 + Cleanup | **38.6%** | 2.8% | 4.0% | 3.2% |
+
+关键发现：
+
+- **Zero-shot 泛化**：FHRR 在未见 state-action 对上达 87.5%，MLP 几乎完全失败（≤1.25%）
+- **长时程 rollout**：20 步 rollout 比 MLP-L 高 53.6%；cleanup 机制将 FHRR 的 20 步准确率从 34.6% 提升至 61.4%（+26.8%）
+- **噪声鲁棒性**：在高斯噪声 $\sigma \in [0, 5]$ 下，FHRR 保持 80%+ 准确率，鲁棒性为 MLP 的 4 倍
+- **Latent 可视化**：t-SNE 显示 FHRR 学到了与 grid 结构对应的有序 latent space，MLP 则无结构
+- **参数效率**：FHRR 参数量（53K）与 MLP-S（42K）相当，但远优于 MLP-L（1.4M）
+- **推理速度**：FHRR 推理 0.15ms，加 cleanup 0.24ms，与 MLP 相当
+
+---
+
+## Limitations
+
+1. **仅在小规模离散环境验证**：$10 \times 10$ GridWorld 与真实世界的复杂度差距巨大
+2. **确定性假设**：仅考虑确定性转移，无法处理 stochastic 或 partially observable 环境
+3. **离散状态限制**：cleanup 机制依赖有限状态 codebook，连续状态空间需要额外设计
+4. **缺乏 RL 集成实验**：未展示在实际 model-based RL 或 planning 任务中的效果
+5. **可扩展性存疑**：高维连续感知输入（如图像）下的表现未验证
+6. **MLP baseline 偏弱**：未与更强的结构化 world model（如 GNN-based 或 attention-based）对比
+
+---
+
+## My Notes
+
+**创新点**：将 VSA/FHRR 的代数结构作为归纳偏置引入 world model 是一个新颖角度。核心洞察是——如果 latent space 具有群结构，那么转移可以通过简单的 element-wise 乘法完成，天然支持组合、逆运算和 cleanup。
+
+**理论基础扎实**：论文给出了完整的群论形式化，从群作用到等变表示再到 FHRR 编码的 kernel 近似性质，数学框架自洽。
+
+**实际局限性大**：$10 \times 10$ GridWorld 太小太简单，所有 MLP baseline 都偏弱。真正有说服力需要在 Atari/DMControl 等标准 benchmark 上验证。另外，连续状态空间下 cleanup 机制如何设计是关键开放问题。
+
+**与 Geometric Deep Learning 的联系**：本文从 VSA 角度切入 GDL，与 equivariant network 的思路殊途同归。不同之处在于 VSA 直接在 latent space 施加代数结构约束，而非在网络架构层面实现等变性。
+
+**潜在应用方向**：若能扩展到连续高维场景，在 model-based RL、robot planning、cognitive map 构建等领域有较大潜力。
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐ (VSA 用于 world model 的新角度)
+- 实验充分度: ⭐⭐ (仅 10×10 GridWorld，baseline 偏弱)
+- 写作质量: ⭐⭐⭐⭐ (理论清晰，可视化直观)
+- 价值: ⭐⭐⭐ (idea 有潜力但验证不足)

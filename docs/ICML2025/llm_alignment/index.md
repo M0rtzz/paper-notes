@@ -1,7 +1,19 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐 / RLHF
 
-**🧪 ICML2025** · 共 **23** 篇
+**🧪 ICML2025** · 共 **31** 篇
+
+**[ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)**
+
+:   将DPO思想引入扩散式人体网格恢复(HMR)：训练HMR-Scorer评估预测质量，构建偏好数据集(winner/loser对)，用DPO微调基座扩散模型，无需3D标注即可提升in-the-wild图像上的HMR性能。
+
+**[AlphaPO: Reward Shape Matters for LLM Alignment](alphapo_reward_shape_matters_for_llm_alignment.md)**
+
+:   AlphaPO 在 Direct Alignment Algorithms（DAA）框架中引入 $\alpha$ 参数来改变奖励函数的"形状"，从标准的 log 奖励推广到更一般的幂次变换形式，从而细粒度控制 likelihood displacement 和 over-optimization，在 Mistral-7B 和 Llama3-8B 上相对 SimPO 提升 7%-10%，相对 DPO 提升 15%-50%。
+
+**[AMPO: Active Multi-Preference Optimization for Self-play Preference Selection](ampo_active_multi-preference_optimization_for_self-play_preference_selection.md)**
+
+:   提出 AMPO 框架，将在线策略生成、多偏好组对比损失和主动子集选择相结合，通过从大规模候选响应池中智能挑选少量但信息丰富的子集进行偏好优化，在 AlpacaEval 上达到 SOTA。
 
 **[AssistanceZero: Scalably Solving Assistance Games](assistancezero_scalably_solving_assistance_games.md)**
 
@@ -23,6 +35,10 @@
 
 :   Position paper，主张从算法中心转向数据中心的 AI 对齐视角，系统分析了人类反馈和 AI 反馈在数据层面的可靠性挑战（标注者不一致、时间漂移、上下文依赖、AI 反馈偏差等），并提出改进反馈收集/清洗/验证的未来研究方向。
 
+**[Configurable Preference Tuning with Rubric-Guided Synthetic Data](configurable_preference_tuning_with_rubric-guided_synthetic_data.md)**
+
+:   提出Configurable Preference Tuning (CPT)框架，通过基于细粒度rubric生成的合成偏好数据训练LLM，使模型能在推理时仅通过修改system prompt就动态调整行为风格，无需重新训练，在多个基座模型上准确率从0.52-0.68提升至0.76-0.83。
+
 **[ConfPO: Exploiting Policy Model Confidence for Critical Token Selection in Preference Optimization](confpo_exploiting_policy_model_confidence_for_critical_token_selection_in_prefer.md)**
 
 :   提出 ConfPO，通过策略模型自身的置信度分数识别偏好关键 token 并仅对其优化，无需额外模型或计算开销，在 AlpacaEval 2 和 Arena-Hard 上一致优于均匀优化的 DAA 方法，同时缓解奖励黑客问题。
@@ -39,9 +55,21 @@
 
 :   本文提出 Reinforced Token Optimization (RTO)，将 RLHF 建模为 token 级别的 MDP（而非句子级 bandit），利用 DPO 隐式地提取 token-wise 奖励信号后用 PPO 进行策略优化，在 AlpacaEval 2 上比 PPO 高 7.5 分、在 Arena-Hard 上高 4.1 分，且仅需 1/8 数据量即可达到 PPO 级别性能。
 
+**[Improving LLM Safety Alignment with Dual-Objective Optimization](improving_llm_safety_alignment_with_dual-objective_optimization.md)**
+
+:   通过梯度分析揭示DPO在安全对齐中的两大缺陷（学习率饱和与OOD泛化差），提出DOOR/W-DOOR双目标优化框架（鲁棒拒绝训练+有害知识遗忘+token级加权），在Llama-3-8B和Gemma-2-2B上显著降低了prefilling/suffix/multi-turn等多种越狱攻击的成功率，同时保持通用能力。
+
+**[Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day](instruction_tuning_of_large_language_models_for_tabular_data_generation-in_one_d.md)**
+
+:   本文首次探索用指令微调提升 LLM 的表格数据生成能力，通过构建仅 10K 条高质量指令数据集并在单张 A100 上微调 Llama3.1-8B-Instruct 不到 6 小时，即可达到与 GPT-4o 相当的表格数据生成性能。
+
 **[Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models](layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v.md)**
 
 :   本文发现了 VLM 中图像编码器的"早退出"漏洞（ICET）——跳过图像编码器的部分层会大幅增加有害输出概率，提出 Layer-wise PPO (L-PPO) 修改 Clipped-PPO 算法在不同层级做多模态 RLHF，在 ASR 上降低高达 48%、毒性分数降低 33.64%。
+
+**[M³HF: Multi-agent Reinforcement Learning from Multi-phase Human Feedback of Mixed Quality](m3hf_multi-agent_reinforcement_learning_from_multi-phase_human_feedback_of_mixed.md)**
+
+:   提出 M³HF 框架，在多智能体强化学习训练过程中整合多阶段、混合质量的人类自然语言反馈，利用 LLM 解析反馈并通过预定义模板和自适应权重更新奖励函数，显著提升多智能体协作性能。
 
 **[MMedPO: Aligning Medical Vision-Language Models with Clinical-Aware Multimodal Preference Optimization](mmedpo_aligning_medical_vision-language_models_with_clinical-aware_multimodal_pr.md)**
 
@@ -94,3 +122,7 @@
 **[TGDPO: Harnessing Token-Level Reward Guidance for Enhancing Direct Preference Optimization](tgdpo_harnessing_token-level_reward_guidance_for_enhancing_direct_preference_opt.md)**
 
 :   将序列级PPO分解为一系列token级近端策略优化问题，并引入token级奖励引导函数 $f(\hat{r}(s_t, a_t))$ 来替代DPO中的固定常数 $\beta$，使不同token根据各自奖励值呈现不同程度的偏离参考策略，在MT-Bench/AlpacaEval 2/Arena-Hard上分别提升最多7.5/6.2/4.3个胜率点。
+
+**[Vulnerability-Aware Alignment: Mitigating Uneven Forgetting in Harmful Fine-Tuning](vulnerability-aware_alignment_mitigating_uneven_forgetting_in_harmful_fine-tunin.md)**
+
+:   揭示安全对齐数据在有害微调(HFT)过程中存在**不均匀遗忘**现象——某些样本子集在不同微调任务和有害数据比例下始终更容易被破坏，据此提出 Vulnerability-Aware Alignment (VAA)：先通过代理微调识别脆弱/非脆弱样本分组，再利用 Group DRO 框架学习对抗采样器进行平衡训练，在四个下游微调任务上将平均有害率从 34.5% 降至 24.8%，同时保持下游任务精度。

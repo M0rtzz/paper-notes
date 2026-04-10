@@ -1,12 +1,9 @@
----
-title: "Convergence Theorems for Entropy-Regularized and Distributional Reinforcement Learning"
-conference: "NeurIPS 2025"
-arxiv_id: "2510.08526"
----
-
 # Convergence Theorems for Entropy-Regularized and Distributional Reinforcement Learning
 
-**会议**: NeurIPS 2025  **arXiv**: [2510.08526](https://arxiv.org/abs/2510.08526)  **代码**: 无  **领域**: reinforcement_learning  **关键词**: 熵正则化, 分布式强化学习, 收敛性, 温度解耦, 最优策略
+**会议**: NeurIPS 2025  **arXiv**: [2510.08526](https://arxiv.org/abs/2510.08526)  **代码**: 无  **领域**: reinforcement_learning  **关键词**: 熵正则化, 分布式强化学习, 收敛性, 温度解耦, 最优策略  
+**arXiv**: [2510.08526](https://arxiv.org/abs/2510.08526)  
+**代码**: 无  
+**领域**: 强化学习  
 
 ## 一句话总结
 

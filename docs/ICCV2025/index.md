@@ -570,7 +570,7 @@
 
 :   提出 ShortFT，利用轨迹保持少步扩散模型构建去噪捷径（shortcut），将原本冗长的去噪链大幅缩短，从而实现完整的端到端奖励梯度反向传播，高效且有效地将扩散模型与奖励函数对齐。
 
-**[Smgdiff Soccer Motion Generation Using Diffusion Probabilistic Models](image_generation/smgdiff_soccer_motion_generation_using_diffusion_probabilistic_models.md)**
+**[SMGDiff: Soccer Motion Generation using Diffusion Probabilistic Models](image_generation/smgdiff_soccer_motion_generation_using_diffusion_probabilistic_models.md)**
 
 :   提出 SMGDiff，一个两阶段扩散模型框架，能够根据用户控制信号实时生成高质量、多样化的足球运动动画，同时通过接触引导模块优化球-脚交互细节。
 

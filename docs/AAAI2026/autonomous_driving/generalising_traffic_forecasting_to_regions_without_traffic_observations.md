@@ -1,14 +1,10 @@
----
-title: "Generalising Traffic Forecasting to Regions without Traffic Observations"
-authors: "Xinyu Su, Majid Sarvi, Feng Liu, Egemen Tanin, Jianzhong Qi"
-venue: "AAAI 2026"
-date: 2025-08-13
-arxiv: "2508.08947"
-code: "https://github.com/suzy0223/GenCast"
-tags: ["traffic forecasting", "spatial-temporal", "physics-informed", "graph neural network", "generalization"]
-category: "autonomous_driving"
----
+# Generalising Traffic Forecasting to Regions without Traffic Observations
 
+**会议**: AAAI 2026  
+**arXiv**: [2508.08947](https://arxiv.org/abs/2508.08947)  
+**代码**: https://github.com/suzy0223/GenCast  
+**领域**: 自动驾驶  
+**关键词**: traffic forecasting, spatial-temporal, physics-informed, graph neural network, generalization  
 # GenCast：面向无观测区域的交通预测泛化
 
 ## 一句话总结

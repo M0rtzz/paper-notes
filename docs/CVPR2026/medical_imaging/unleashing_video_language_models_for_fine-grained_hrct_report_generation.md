@@ -1,14 +1,10 @@
----
-title: "Unleashing Video Language Models for Fine-grained HRCT Report Generation"
-conference: "CVPR 2026"
-arxiv: "2603.12469"
-domain: "medical_imaging"
-keywords: ["CT报告生成", "视频语言模型", "Chain-of-Thought", "DPO", "异常检测"]
----
-
 # Unleashing Video Language Models for Fine-grained HRCT Report Generation
 
-**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.12469](https://arxiv.org/abs/2603.12469) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: CT 报告生成, 视频语言模型, Chain-of-Thought, DPO, 异常检测
+**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.12469](https://arxiv.org/abs/2603.12469) 
+**arXiv**: [2603.12469](https://arxiv.org/abs/2603.12469)  
+**代码**: 无  
+**领域**: 医学图像  
+**关键词**: CT报告生成, 视频语言模型, Chain-of-Thought, DPO, 异常检测  
 
 ## 一句话总结
 

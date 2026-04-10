@@ -1,14 +1,10 @@
----
-title: "SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation"
-authors: "Zixuan Pan, Kaiyuan Tang, Jun Xia, Yifan Qin, Lin Gu, Chaoli Wang, Jianxu Chen, Yiyu Shi"
-venue: "CVPR 2026"
-arxiv: "2603.07789"
-date: 2026-04-09
-tags: ["2D Gaussian Splatting", "image representation", "neural compression", "entropy coding", "multi-scale optimization"]
----
-
 # SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation
 
+**会议**: CVPR 2026  
+**arXiv**: [2603.07789](https://arxiv.org/abs/2603.07789)  
+**代码**: 无  
+**领域**: 3D视觉  
+**关键词**: 2D Gaussian Splatting, image representation, neural compression, entropy coding, multi-scale optimization  
 ## 一句话总结
 
 SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无结构高斯原语组织为种子驱动的神经高斯、结合上下文引导的熵编码和多尺度拟合策略，在高分辨率图像表示中实现最高 7.5× 压缩比和 6.5× 优化加速，同时保持甚至提升重建保真度。

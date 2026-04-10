@@ -1,14 +1,10 @@
----
-title: "VisualAD: Language-Free Zero-Shot Anomaly Detection via Vision Transformer"
-conference: "CVPR 2026"
-arxiv: "2603.07952"
-domain: "medical_imaging"
-keywords: ["零样本异常检测", "Vision Transformer", "无语言分支", "可学习token", "工业+医学"]
----
-
 # VisualAD: Language-Free Zero-Shot Anomaly Detection via Vision Transformer
 
-**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.07952](https://arxiv.org/abs/2603.07952) &nbsp; **代码**: [有](https://github.com/7HHHHH/VisualAD) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: 零样本异常检测, Vision Transformer, 无语言分支, 可学习 token, 工业+医学
+**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.07952](https://arxiv.org/abs/2603.07952) 
+**arXiv**: [2603.07952](https://arxiv.org/abs/2603.07952)  
+**代码**: 无  
+**领域**: 医学图像  
+**关键词**: 零样本异常检测, Vision Transformer, 无语言分支, 可学习token, 工业+医学  
 
 ## 一句话总结
 

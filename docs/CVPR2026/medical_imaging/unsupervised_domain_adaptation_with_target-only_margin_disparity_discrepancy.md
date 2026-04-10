@@ -1,14 +1,10 @@
----
-title: "Unsupervised Domain Adaptation with Target-Only Margin Disparity Discrepancy"
-conference: "CVPR 2026"
-arxiv: "2603.09932"
-domain: "medical_imaging"
-keywords: ["无监督域自适应", "Margin Disparity Discrepancy", "CBCT", "肝脏分割", "介入影像"]
----
-
 # Unsupervised Domain Adaptation with Target-Only Margin Disparity Discrepancy
 
-**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.09932](https://arxiv.org/abs/2603.09932) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: 无监督域自适应, Margin Disparity Discrepancy, CBCT, 肝脏分割, 介入影像
+**会议**: CVPR 2026 &nbsp; **arXiv**: [2603.09932](https://arxiv.org/abs/2603.09932) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: 无监督域自适应, Margin Disparity Discrepancy, CBCT, 肝脏分割, 介入影像  
+**arXiv**: [2603.09932](https://arxiv.org/abs/2603.09932)  
+**代码**: 无  
+**领域**: 医学图像  
+**关键词**: 无监督域自适应, Margin Disparity Discrepancy, CBCT, 肝脏分割, 介入影像  
 
 ## 一句话总结
 

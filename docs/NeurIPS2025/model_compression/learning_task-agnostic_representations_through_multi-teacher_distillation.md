@@ -1,16 +1,10 @@
----
-title: "Learning Task-Agnostic Representations through Multi-Teacher Distillation"
-authors: "Philippe Formont, Maxime Darrin, Banafsheh Karimian, Jackie CK Cheung, Eric Granger, Ismail Ben Ayed, Mohammadhadi Shateri, Pablo Piantanida"
-venue: "NeurIPS 2025"
-date: 2025-10-24
-arxiv_id: "2510.18680"
-tags: ["knowledge distillation", "multi-teacher", "task-agnostic", "representation learning", "mutual information"]
-category: "model_compression"
-status: "completed"
----
-
 # Learning Task-Agnostic Representations through Multi-Teacher Distillation
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2510.18680](https://arxiv.org/abs/2510.18680)  
+**代码**: 无  
+**领域**: 模型压缩  
+**关键词**: knowledge distillation, multi-teacher, task-agnostic, representation learning, mutual information  
 ## 一句话总结
 
 提出基于互信息最大化的任务无关多教师蒸馏框架，通过高斯核估计教师嵌入的条件分布来训练学生模型，使其在不依赖任何下游任务标签的情况下学到高信息密度的通用表示，在文本、视觉和分子建模三个领域均取得了同体量最优性能。

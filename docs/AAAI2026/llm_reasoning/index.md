@@ -119,7 +119,7 @@
 
 :   研究Simple Stable Voting (SSV)——已在数百次实际选举中使用的递归投票规则——是否总是精化(refine)Split Cycle (SC)方法的猜想，通过数学证明（≤5候选人）和SAT求解（6-7候选人）确定：猜想在≤6候选人时成立，≥7候选人时被反驳，并通过构造性证明推广到任意多候选人。
 
-**[Text-To-Scene With Large Reasoning Models](text-to-scene_with_large_reasoning_models.md)**
+**[Text-to-Scene with Large Reasoning Models](text-to-scene_with_large_reasoning_models.md)**
 
 :   提出Reason-3D，利用大推理模型（LRM）的多步空间推理能力，通过语义投票式物体检索+双阶段布局（自回归放置+碰撞感知优化）实现从文本到3D场景的零样本生成，在人工评价中Elo评分达2248（远超Holodeck的1500和LayoutVLM的1650）。
 

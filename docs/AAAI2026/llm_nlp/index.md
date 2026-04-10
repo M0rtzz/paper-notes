@@ -103,7 +103,7 @@
 
 :   通过representation-level和token-level两种消融实验，发现LLM在ICL中直接依赖的"性能关键token"是模板和停用词token（如"Answer:"），而非人类会关注的内容token（如实际文本），并揭示了LLM通过将内容信息聚合到这些关键token的表示中来间接利用内容。
 
-**[Improving Sustainability Of Adversarial Examples In Class-Incremental Learning](improving_sustainability_of_adversarial_examples_in_class-incremental_learning.md)**
+**[Improving Sustainability of Adversarial Examples in Class-Incremental Learning](improving_sustainability_of_adversarial_examples_in_class-incremental_learning.md)**
 
 :   提出SAE框架解决类增量学习（CIL）中对抗样本因域漂移而失效的问题，通过语义校正模块（CLIP+CIL模型联合引导）和过滤增强模块（去除语义混淆样本），使对抗样本在类别数增长9倍后仍保持攻击效果，平均攻击成功率提升31.28%。
 
@@ -115,7 +115,7 @@
 
 :   提出 Spatial Decay Transformer（SDT），首次将数据依赖的空间衰减机制从 1D 序列建模适配到 2D 视觉 Transformer，通过 Context-Aware Gating（CAG）生成动态的、内容相关的 patch 交互衰减强度，在 ImageNet-1K 分类和生成任务上一致超越 RMT 等强基线。
 
-**[Llm-As-A-Judge For Scalable Test Coverage Evaluation Accuracy Operational Reliab](llm-as-a-judge_for_scalable_test_coverage_evaluation_accuracy_operational_reliab.md)**
+**[LLM-as-a-Judge for Scalable Test Coverage Evaluation](llm-as-a-judge_for_scalable_test_coverage_evaluation_accuracy_operational_reliab.md)**
 
 :   将LLM-as-Judge范式应用于Gherkin验收测试覆盖率评估，在20种模型配置x500次评估中系统量化准确性-可靠性-成本三维权衡，发现GPT-4o Mini以6.07 MAAE、96.6% ECR@1和$1.01/1K评估成为最优生产选择，成本仅为GPT-5高推理版的1/78。
 
@@ -191,7 +191,7 @@
 
 :   将Prediction-Powered Inference（PPI）框架扩展到子实例级别的排序指标（如Precision@K），通过仅30-100条人工标注+大量LLM评判结果获得无偏的排序指标估计，计算复杂度从 $O(2^{|C|})$ 降至 $O(2^K)$，在印度电商搜索场景中成功指导LLM查询改写系统上线。
 
-**[Profuser Progressive Fusion Of Large Language Models](profuser_progressive_fusion_of_large_language_models.md)**
+**[ProFuser: Progressive Fusion of Large Language Models](profuser_progressive_fusion_of_large_language_models.md)**
 
 :   提出ProFuser，通过双模式优势评估（训练模式Min-CE + 推理模式Reward Model投票）全面识别各源模型在不同维度的优势，再用渐进式融合策略（先推理模式→后训练模式的easy-to-hard课程）将异构LLM的互补能力整合到单个目标模型中，在知识/推理/安全6个基准上平均提升1.65%。
 

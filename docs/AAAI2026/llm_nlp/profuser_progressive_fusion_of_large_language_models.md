@@ -1,18 +1,10 @@
----
-title: "ProFuser: Progressive Fusion of Large Language Models"
-conference: "AAAI2026"
-arxiv: "2408.04998"
-domain: "LLM NLP"
-keywords: ["模型融合", "渐进式融合", "多模型集成", "知识蒸馏"]
----
-
 # ProFuser: Progressive Fusion of Large Language Models
 
 **会议**: AAAI 2026  
 **arXiv**: [2408.04998](https://arxiv.org/abs/2408.04998)  
-**代码**: https://github.com/Stycoo/ProFuser  
-**领域**: LLM/NLP  
-**关键词**: 模型融合, 知识蒸馏, 双模式评估, 渐进式训练
+**代码**: 无  
+**领域**: LLM NLP  
+**关键词**: 模型融合, 渐进式融合, 多模型集成, 知识蒸馏  
 
 ## 一句话总结
 提出ProFuser，通过双模式优势评估（训练模式Min-CE + 推理模式Reward Model投票）全面识别各源模型在不同维度的优势，再用渐进式融合策略（先推理模式→后训练模式的easy-to-hard课程）将异构LLM的互补能力整合到单个目标模型中，在知识/推理/安全6个基准上平均提升1.65%。

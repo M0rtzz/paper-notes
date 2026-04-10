@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🧪 ICML2025** · 共 **22** 篇
+**🧪 ICML2025** · 共 **32** 篇
 
 **[A Cognac Shot To Forget Bad Memories: Corrective Unlearning for Graph Neural Networks](a_cognac_shot_to_forget_bad_memories_corrective_unlearning_for_graph_neural_netw.md)**
 
@@ -23,6 +23,10 @@
 
 :   Banyan 通过**纠缠层次树结构**和**对角化消息传递**两大创新，仅用 14 个非嵌入参数就在语义文本相似度任务上超越了大规模 Transformer 模型，为低资源语言的语义表示学习提供了高效可行的替代方案。
 
+**[Beyond Message Passing: Neural Graph Pattern Machine](beyond_message_passing_neural_graph_pattern_machine.md)**
+
+:   提出 Neural Graph Pattern Machine (GPM)，用随机游走采样图模式，通过语义路径与匿名路径的双编码器捕捉节点特征和拓扑结构，再用 Transformer 识别任务相关的关键模式，彻底绕过消息传递范式，在节点/边/图级任务上全面超越 SOTA。
+
 **[CoDy: Counterfactual Explainers for Dynamic Graphs](cody_counterfactual_explainers_for_dynamic_graphs.md)**
 
 :   提出 CoDy——首个用于时序图神经网络（TGNN）的反事实解释方法，通过蒙特卡洛树搜索（MCTS）结合时空启发式策略高效探索可能的解释子图空间，在多个数据集上 AUFSC+ 提升 16%。
@@ -30,6 +34,10 @@
 **[Diss-l-ECT: Dissecting Graph Data with Local Euler Characteristic Transforms](diss-l-ect_dissecting_graph_data_with_local_euler_characteristic_transforms.md)**
 
 :   提出 Local Euler Characteristic Transform (ℓ-ECT)，将经典 ECT 拓扑不变量扩展到图的局部邻域，为每个节点生成无损的拓扑-几何指纹，在节点分类任务（尤其是高异质性图）上超越标准 GNN，同时提供理论可逆性保证与可解释性。
+
+**[Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis](does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis.md)**
+
+:   首次从"数据操作"角度为 Graph Prompt 提供完整理论框架：证明 Prompt 能通过模拟图数据变换将原始图映射到"桥接图"使冻结模型适配下游任务，并推导了单图/多图场景下的误差上界与分布。
 
 **[From RAG to Memory: Non-Parametric Continual Learning for Large Language Models](from_rag_to_memory_non-parametric_continual_learning_for_large_language_models.md)**
 
@@ -55,6 +63,10 @@
 
 :   将消息传递建模为双曲偏微分方程组，证明节点特征的解空间由拉普拉斯矩阵的特征向量张成，从而将拓扑结构信息内嵌到节点表示中，并通过多项式近似建立与谱 GNN 的桥梁以增强其性能。
 
+**[Is Complex Query Answering Really Complex?](is_complex_query_answering_really_complex.md)**
+
+:   本文揭示了知识图谱复杂查询回答（CQA）现有基准中高达 98% 的"复杂"查询实际上可被简化为简单的单链接预测问题，由此导致研究进展被严重高估；作者提出了平衡采样的新基准（FB15k237+H、NELL995+H、ICEWS18+H），并引入混合求解器 CQD-Hybrid 验证了这一发现，在新基准上所有 SOTA 方法的 MRR 大幅下降（最多超过 30 个点）。
+
 **[Learnable Spatial-Temporal Positional Encoding for Link Prediction](learnable_spatial-temporal_positional_encoding_for_link_prediction.md)**
 
 :   提出 L-STEP，一种可学习的时空位置编码方法，从时空谱角度证明可保持图属性，仅用 MLP 即可达到 Transformer 性能，在 13 个数据集和 TGB 基准上取得领先表现，且计算复杂度更优。
@@ -71,9 +83,21 @@
 
 :   提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。
 
+**[Mixed-Curvature Decision Trees and Random Forests](mixed-curvature_decision_trees_and_random_forests.md)**
+
+:   将经典决策树和随机森林算法从欧几里得空间推广到混合曲率乘积流形（hyperbolic × spherical × Euclidean），通过角度重参数化（angular reformulation）构造尊重流形几何的分裂准则，在 57 个分类/回归/链路预测任务上表现优异（29 个第一，41 个前二）。
+
+**[GlycanAA: Modeling All-Atom Glycan Structures via Hierarchical Message Passing and Multi-Scale Pre-training](modeling_all-atom_glycan_structures_via_hierarchical_message_passing_and_multi-s.md)**
+
+:   提出 GlycanAA，首个全原子级糖链建模方法：将糖链表示为包含原子节点和单糖节点的异构图，通过层次消息传递捕获从局部原子交互到全局单糖交互的多尺度信息，并通过多尺度掩码预测预训练（PreGlycanAA）进一步增强，在 GlycanML 基准 11 个任务上获得第一。
+
 **[Neural Graph Matching Improves Retrieval Augmented Generation in Molecular Machine Learning](neural_graph_matching_improves_retrieval_augmented_generation_in_molecular_machi.md)**
 
 :   提出 MARASON，将**神经图匹配（Neural Graph Matching）**引入分子机器学习的检索增强生成（RAG）框架，通过可微分的碎片级对齐机制，把检索到的参考分子谱图信息有效融入目标分子的质谱预测中，在 NIST 数据集上将 top-1 检索准确率从 19% 提升到 28%。
+
+**[On Measuring Long-Range Interactions in Graph Neural Networks](on_measuring_long-range_interactions_in_graph_neural_networks.md)**
+
+:   形式化定义了图任务中的"长距离交互"概念，提出基于距离×影响力的range measure来量化算子的作用范围，发现常用LRGB基准和架构在实际中并非真正"长距离"的。
 
 **[Open Your Eyes: Vision Enhances Message Passing Neural Networks in Link Prediction](open_your_eyes_vision_enhances_message_passing_neural_networks_in_link_predictio.md)**
 
@@ -83,6 +107,14 @@
 
 :   理论证明位置编码（PE）和持续同调（PH）互不可比——各存在对方失败但自身成功的图构造，提出 PiPE 方法统一两者，可证明比单独使用更具表达力，在分子/分类/OOD任务上表现优异。
 
+**[Representation Shattering in Transformers: A Synthetic Study with Knowledge Editing](representation_shattering_in_transformers_a_synthetic_study_with_knowledge_editi.md)**
+
+:   通过在环形结构知识图谱上训练Transformer的合成实验，发现知识编辑（KE）会"粉碎"模型内部学到的几何表示流形，且粉碎程度与编辑距离正相关（$r^2=0.905$），从而提出"表示粉碎"（representation shattering）作为KE损害模型能力的机制性假说，并在Llama 3和Mamba上验证了该现象的普遍性。
+
+**[TINED: GNNs-to-MLPs by Teacher Injection and Dirichlet Energy Distillation](tined_gnns-to-mlps_by_teacher_injection_and_dirichlet_energy_distillation.md)**
+
+:   提出 TINED，将 GNN 中特征变换（FT）的参数直接注入 MLP（Teacher Injection），并用 Dirichlet 能量蒸馏传递 GNN 层中 FT 与图传播（GP）的对立平滑特性，在 7 个数据集上超越 GNN 教师，推理速度提升 94 倍。
+
 **[Toward Data-centric Directed Graph Learning: An Entropy-driven Approach](toward_data-centric_directed_graph_learning_an_entropy-driven_approach.md)**
 
 :   提出 EDEN（熵驱动有向图知识蒸馏），从数据中心视角利用层级知识树和互信息量化揭示有向图中拓扑与节点属性的潜在关联，作为即插即用模块增强任意 DiGNN 性能。
@@ -90,3 +122,11 @@
 **[Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees](towards_graph_foundation_models_learning_generalities_across_graphs_via_task-tre.md)**
 
 :   提出 Task-Tree 作为统一学习实例对齐节点/边/图级任务，理论分析其稳定性/可迁移性/泛化性，构建图基础模型 GIT 在 32 个图上通过微调/上下文学习/零样本展现跨域跨任务泛化能力。
+
+**[Unifews: You Need Fewer Operations for Efficient Graph Neural Networks](unifews_you_need_fewer_operations_for_efficient_graph_neural_networks.md)**
+
+:   Unifews 提出统一的逐元素稀疏化框架，将 GNN 的图传播和特征变换视为矩阵运算，基于幅值阈值同时剪枝图边和模型权重，通过谱图平滑理论给出有界近似误差保证，在十亿边级别图上实现高达 100x 加速且不损失精度。
+
+**[WILTing Trees: Interpreting the Distance Between MPNN Embeddings](wilting_trees_interpreting_the_distance_between_mpnn_embeddings.md)**
+
+:   本文发现MPNN学到的嵌入距离与任务相关的functional distance对齐（而非结构距离），并提出基于加权Weisfeiler-Leman标记树（WILT）的最优传输距离来蒸馏和解释MPNN距离，边权揭示了少量关键子图主导了嵌入空间的度量结构。

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**🧪 ICML2025** · 共 **3** 篇
+**🧪 ICML2025** · 共 **7** 篇
 
 **[Causal Foundation Models: Disentangling Physics from Instrument Properties](causal_foundation_models_disentangling_physics_from_instrument_properties.md)**
 
@@ -11,6 +11,22 @@
 
 :   提出 ExPLoRA，通过解冻 1-2 个 ViT block 并对其余层施加 LoRA，以参数高效的方式在目标域上继续自监督预训练，在遥感等域偏移场景下以 <10% 参数量超越从头全量预训练的 SOTA。
 
+**[High-Resolution Live Fuel Moisture Content (LFMC) Maps for Wildfire Risk from Multimodal Earth Observation Data](high-resolution_live_fuel_moisture_content_lfmc_maps_for_wildfire_risk_from_mult.md)**
+
+:   利用预训练多模态地球观测模型 Galileo 微调生成 10 米分辨率的活体燃料含水量（LFMC）地图，相比随机初始化模型 RMSE 降低 20%+，并通过 2025 年洛杉矶野火案例验证了管线的实用性。
+
 **[LIGHTHOUSE: Fast and Precise Distance to Shoreline Calculations from Anywhere on Earth](lighthouse_fast_and_precise_distance_to_shoreline_calculations_from_anywhere_on_.md)**
 
 :   提出了一个全球10米分辨率的海岸线数据集和毫秒级查询库 Lighthouse，通过融合 ESA WorldCover 与 OpenStreetMap 数据，结合分层 BallTree + 球面 Voronoi 索引实现仅需1 CPU/2GB RAM的实时海岸距离查询，精度比已有数据集提升100倍以上。
+
+**[MapEval: A Map-Based Evaluation of Geo-Spatial Reasoning in Foundation Models](mapeval_a_map-based_evaluation_of_geo-spatial_reasoning_in_foundation_models.md)**
+
+:   提出 MapEval 基准，通过 700 道涵盖文本、API 和视觉三类任务的多选题，系统评估 30 个基础模型在地图场景下的地理空间推理能力，发现最强模型准确率不超过 67%，且所有模型落后人类表现 20% 以上。
+
+**[Neural Augmented Kalman Filters for Road Network Assisted GNSS Positioning](neural_augmented_kalman_filters_for_road_network_assisted_gnss_positioning.md)**
+
+:   首个用深度学习将道路网络信息集成到GNSS卡尔曼滤波中的方法——训练时序图神经网络(TGNN)预测正确道路段及其不确定性，作为KF的量测更新，在城市场景中定位误差降低29%。
+
+**[Resampling Augmentation For Time Series Contrastive Learning Application To Remo](resampling_augmentation_for_time_series_contrastive_learning_application_to_remo.md)**
+
+:   论文提出一种面向时间序列对比学习的重采样增强（resampling augmentation），通过“上采样 + 不相交子序列抽取 + 对齐回原时间轴”构造正样本对，在多项 SITS 农业分类任务上优于常见增强策略，并在 S2-Agri100 上取得领先结果。

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✍️ 文本生成
 
-**🔬 ICLR2026** · 共 **5** 篇
+**🔬 ICLR2026** · 共 **6** 篇
 
 **[AP-OOD: Attention Pooling for Out-of-Distribution Detection](ap-ood_attention_pooling_for_out-of-distribution_detection.md)**
 
@@ -10,6 +10,10 @@
 **[FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model](fs-dfm_fast_and_accurate_long_text_generation_with_few-step_diffusion_language_m.md)**
 
 :   提出 FS-DFM（Few-Step Discrete Flow-Matching），通过步数感知训练和累积标量更新规则，将离散 flow-matching 语言模型的采样步数从 1024 步降低到 8 步，实现 128 倍加速，同时保持相当的困惑度和生成质量。
+
+**[Lossless Vocabulary Reduction for Auto-Regressive Language Models](lossless_vocabulary_reduction_for_auto-regressive_language_models.md)**
+
+:   建立了一个**无损词表缩减**的理论框架，能够将任意自回归语言模型高效转换为使用任意小词表的等价模型，且不损失精度，从而实现不同分词方案的语言模型之间的高效协作（如模型集成）。
 
 **[Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning](paper2code_automating_code_generation_from_scientific_papers_in_machine_learning.md)**
 

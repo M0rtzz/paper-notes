@@ -1,15 +1,10 @@
----
-title: "Provable Watermarking for Data Poisoning Attacks"
-authors: "Yifan Zhu, Lijia Yu, Xiao-Shan Gao"
-venue: "NeurIPS 2025"
-year: 2025
-arxiv: "2510.09210"
-category: "ai_safety"
-tags: ["watermarking", "data poisoning", "backdoor attack", "availability attack", "provable guarantee"]
----
-
 # Provable Watermarking for Data Poisoning Attacks
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2510.09210](https://arxiv.org/abs/2510.09210)  
+**代码**: 无  
+**领域**: AI安全  
+**关键词**: watermarking, data poisoning, backdoor attack, availability attack, provable guarantee  
 ## 一句话总结
 
 本文提出两种可证明的水印方案（后投毒水印和投毒并行水印），为数据投毒攻击提供透明性声明机制，理论证明在特定水印长度条件下可同时保证水印可检测性和投毒有效性。

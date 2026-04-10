@@ -1,0 +1,127 @@
+# Seek-CAD: A Self-Refined Generative Modeling for 3D Parametric CAD Using Local Inference via DeepSeek
+
+**会议**: ICLR 2026
+**arXiv**: [2505.17702](https://arxiv.org/abs/2505.17702)
+**代码**: [https://github.com/Sunny-Hack/Seek-CAD](https://github.com/Sunny-Hack/Seek-CAD)
+**领域**: CAD 生成 / LLM 推理
+**关键词**: CAD 参数化建模, DeepSeek-R1, 无训练, Chain-of-Thought, 自我精炼, SSR 设计范式
+
+## 一句话总结
+
+提出 Seek-CAD，首个基于本地部署的推理 LLM（DeepSeek-R1）的无训练 CAD 参数化模型生成框架，通过分步视觉反馈与思维链 (CoT) 协同实现自我精炼，并设计新的 SSR 三元组设计范式支持复杂 CAD 模型生成。
+
+## 研究背景与动机
+
+CAD 参数化模型的自动生成对工业制造自动化至关重要。现有方法分为两类：
+1. **微调方法**（如 CAD-Llama）：需要大量计算资源
+2. **无训练方法**（如 3D-PreMise、CADCodeVerify）：使用 GPT-4 但缺乏利用思维链 (CoT) 的机制
+
+此外，现有数据集主要基于简单的 SE（Sketch-Extrude）范式，仅支持草图和拉伸等基本操作，无法生成满足工业需求的复杂 CAD 模型（如带倒角、圆角、薄壁等特征）。
+
+## 方法详解
+
+### 整体框架
+
+Seek-CAD 包含两大部分：
+1. **初始 CAD 代码生成**：RAG 增强 + 知识约束 + DeepSeek-R1 推理
+2. **CAD 代码精炼**：分步视觉反馈 + CoT 对齐评估 + 迭代修正
+
+### 关键设计一：本地推理流水线
+
+- **知识约束** $Cons = (\Phi, \mathcal{D}, \mathcal{E})$：系统提示约束 DeepSeek-R1 按 SSR 范式生成
+- **RAG**：在 10,000 个 CAD 模型的本地语料库上检索，混合向量搜索和全文搜索
+
+$$g_i^{\text{final}} = \lambda \cdot g_i^{\text{vec}} + (1-\lambda) \cdot g_i^{\text{full}}, \quad \lambda = 0.3$$
+
+取 Top-3 候选与输入拼接触发初始代码生成。
+
+### 关键设计二：分步视觉反馈 (SVF)
+
+**核心创新**：不仅展示最终 CAD 形态，还保留整个构建过程的中间形态视觉信息：
+
+中间形态图像：$M_I = [R(S_1), R(\bar{S_1} \oplus S_2), \cdots, R(\bar{S_1} \oplus \cdots \oplus S_n)]$
+
+最终形态图像：$M_U = R(S_1 \oplus S_2 \oplus \cdots \oplus S_n)$
+
+使用 Gemini-2.0 判断分步图像与 DeepSeek-R1 的 CoT 是否对齐：
+
+$$F_{\text{call}} \sim P(F_{\text{call}} | G, M, CoT)$$
+
+若不对齐则生成具体反馈，送回 DeepSeek-R1 精炼代码。
+
+### 关键设计三：SSR 三元组设计范式
+
+$$S = (s, f, \langle r_1, r_2, \dots, r_k \rangle \text{ or } \varnothing)$$
+
+- $s$：2D 草图
+- $f \in \mathcal{F}$：草图基特征（拉伸、旋转等）
+- $\langle r_1, \dots, r_k \rangle$：精修特征序列（倒角、圆角、薄壳等）
+
+完整 CAD 模型通过布尔运算组合多个 SSR 三元组：
+
+$$\mathcal{M} = \langle \mathcal{S}_1, \text{op}_1, \mathcal{S}_2, \text{op}_2, \dots, \mathcal{S}_n \rangle$$
+
+**CapType 引用机制**：通过 START/END/SWEPT 三种类型追踪拓扑原语。
+
+## 实验
+
+### 生成质量（500 个 CAD 模型）
+
+| 策略 | 方法 | CD↓ | HD↓ | IoGT↑ | G-Score↑ | Novel↑ |
+|------|------|-----|-----|-------|---------|--------|
+| 微调 | CAD-Llama | 0.2147 | 0.5864 | 0.7023 | 3.3385 | 77.64% |
+| 无训练 | 3D-PreMise | 0.2203 | 0.6137 | 0.6315 | 3.2022 | 49.57% |
+| 无训练 | CADCodeVerify | 0.2164 | 0.5917 | 0.6562 | 3.3927 | 55.38% |
+| 无训练 | **Seek-CAD** | **0.1979** | **0.5566** | **0.7226** | **3.5185** | 64.04% |
+
+### 精炼轮次消融
+
+| 轮次 | Pass@2↑ | CD↓ | IoGT↑ | G-Score↑ |
+|------|---------|-----|-------|---------|
+| 0 | 0.77 | 0.2275 | 0.6183 | 3.1401 |
+| 1 | 0.72 | 0.1979 | 0.7226 | 3.5185 |
+| 2 | 0.55 | 0.1966 | 0.7347 | 3.5314 |
+
+1 轮精炼效果显著，2 轮边际收益递减且编译失败率增加。
+
+### 消融实验
+
+- 移除本地 CAD 语料库 → 完全无法生成可编译代码
+- 移除知识约束 → Pass@1 从 0.68 降至 0.44
+- 移除 SVF 中的 CoT → 反馈质量下降
+- 移除中间图像 → 反馈信息不完整
+
+### 关键发现
+
+- CoT 有效表达了设计逻辑，帮助 VLM 更清楚地理解构建过程
+- SSR 范式支持更多样和复杂的 CAD 模型（包含倒角、圆角、薄壳等特征）
+- 无训练框架在几何精度上可与微调方法（CAD-Llama）竞争
+- RAG 中混合搜索比单一搜索效果好
+
+## 亮点
+
+- 首个探索本地部署推理 LLM（DeepSeek-R1）用于 CAD 生成的工作
+- 分步视觉反馈 + CoT 对齐的精炼策略设计新颖
+- SSR 三元组范式显著扩展了可生成的 CAD 操作范围
+- 完全无训练，在单张 RTX 3090 上即可运行
+
+## 局限性
+
+- 受 DeepSeek-R1:32B-Q4 推理能力限制，复杂模型精度有限
+- 每轮精炼都有编译失败风险，限制了迭代次数
+- CapType 机制仅覆盖 START/END/SWEPT 三种引用类型
+- 依赖 Gemini-2.0 API 进行视觉评估，增加外部依赖
+- 数据集仅 40K 样本，覆盖的 CAD 操作仍有限
+
+## 相关工作
+
+- **CAD 生成**：DeepCAD、SkexGen、Mamba-CAD 等基于序列的方法
+- **LLM for CAD**：Text2CAD、CAD-MLLM、CAD-assistant 等
+- **无训练方法**：3D-PreMise、CADCodeVerify 使用 GPT-4
+
+## 评分
+
+- 新颖性：⭐⭐⭐⭐ — 首次利用推理 LLM + CoT 反馈做 CAD 生成
+- 实用性：⭐⭐⭐⭐ — 无训练 + 本地部署，门槛低
+- 数据贡献：⭐⭐⭐⭐ — SSR 范式和 40K 数据集有一定贡献
+- 实验：⭐⭐⭐ — 500 个测试模型规模适中，消融比较全面

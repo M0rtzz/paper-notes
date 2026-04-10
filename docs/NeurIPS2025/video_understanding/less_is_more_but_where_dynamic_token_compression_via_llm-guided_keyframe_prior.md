@@ -1,14 +1,10 @@
----
-title: "Less is More but Where: Dynamic Token Compression via LLM-Guided Keyframe Prior"
-authors: "Yulin Li, Haokun Gui, Ziyang Fan, Junjie Wang, Bin Kang, Bin Chen, Zhuotao Tian"
-venue: "NeurIPS 2025"
-date: 2025-12-09
-arxiv_id: "2512.06866"
-tags: [video-understanding, token-compression, vllm, efficiency, keyframe-selection]
-category: video_understanding
-rating: 8
----
+# Less is More but Where: Dynamic Token Compression via LLM-Guided Keyframe Prior
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2512.06866](https://arxiv.org/abs/2512.06866)  
+**代码**: 无  
+**领域**: 视频理解  
+**关键词**: video-understanding, token-compression, vllm, efficiency, keyframe-selection  
 ## 一句话总结
 
 提出 DyToK，一种无需训练的视频 token 动态压缩方法，利用 VLLM 深层注意力中固有的 query 条件关键帧先验，为不同帧自适应分配 token 预算，实现即插即用式的效率-精度最优权衡。

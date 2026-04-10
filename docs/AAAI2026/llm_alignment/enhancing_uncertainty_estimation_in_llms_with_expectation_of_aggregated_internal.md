@@ -1,11 +1,10 @@
----
-title: "Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal States"
-conference: "AAAI2026"
-arxiv: "2509.01564"
-domain: "LLM对齐"
-keywords: ["不确定性估计", "内部状态聚合", "置信度校准", "EAGLE", "隐藏层"]
----
+# Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal States
 
+**会议**: AAAI 2026  
+**arXiv**: [2509.01564](https://arxiv.org/abs/2509.01564)  
+**代码**: 无  
+**领域**: LLM对齐  
+**关键词**: 不确定性估计, 内部状态聚合, 置信度校准, EAGLE, 隐藏层  
 # Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal Belief
 
 ## 一句话总结

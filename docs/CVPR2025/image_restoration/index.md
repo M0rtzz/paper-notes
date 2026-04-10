@@ -1,7 +1,11 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📷 CVPR2025** · 共 **3** 篇
+**📷 CVPR2025** · 共 **4** 篇
+
+**[Augmenting Perceptual Super-Resolution via Image Quality Predictors](augmenting_perceptual_super-resolution_via_image_quality_predictors.md)**
+
+:   利用无参考图像质量评估（NR-IQA）模型代替人工标注，通过加权采样和直接优化两种方式提升感知超分辨率的图像质量，在无需人工数据的条件下超越依赖人工反馈的 SOTA 方法。
 
 **[Polishing The Sky Wide-Field And High-Dynamic Range Interferometric Image Recons](polishing_the_sky_wide-field_and_high-dynamic_range_interferometric_image_recons.md)**
 

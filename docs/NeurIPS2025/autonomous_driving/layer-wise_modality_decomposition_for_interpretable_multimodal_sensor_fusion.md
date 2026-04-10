@@ -1,16 +1,10 @@
----
-title: "Layer-wise Modality Decomposition for Interpretable Multimodal Sensor Fusion"
-authors: "Jaehyun Park, Konyul Park, Daehun Kim, Junseo Park, Jun Won Choi"
-venue: "NeurIPS 2025"
-date: 2025-11-01
-arxiv_id: "2511.00859"
-tags: ["interpretability", "sensor fusion", "autonomous driving", "modality decomposition", "LRP"]
-category: "autonomous_driving"
-status: "completed"
----
-
 # Layer-wise Modality Decomposition for Interpretable Multimodal Sensor Fusion
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2511.00859](https://arxiv.org/abs/2511.00859)  
+**代码**: 无  
+**领域**: 自动驾驶  
+**关键词**: interpretability, sensor fusion, autonomous driving, modality decomposition, LRP  
 ## 一句话总结
 
 提出 LMD（Layer-Wise Modality Decomposition），一种事后、模型无关的可解释性方法，通过逐层线性化神经网络操作将多模态融合模型的预测精确分解为各传感器模态的贡献，首次实现了自动驾驶感知模型中对单个输入模态的预测归因，并在 camera-radar、camera-LiDAR、camera-radar-LiDAR 多种融合设置下验证了有效性。

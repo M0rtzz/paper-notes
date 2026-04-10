@@ -1,20 +1,10 @@
----
-title: "AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization"
-authors: "Saeed Hedayatian, Stefanos Nikolaidis"
-affiliations: "University of Southern California, Archimedes AI"
-venue: "ICLR 2026"
-arxiv: "2506.05634"
-code: "https://github.com/conflictednerd/autoqd-code"
-tags: ["quality-diversity", "occupancy measure", "random Fourier features", "MMD", "CMA-MAE", "behavior descriptor", "policy diversity"]
-rating:
-  novelty: 4
-  experiments: 4
-  writing: 4
-  value: 4
----
-
 # AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization
 
+**会议**: ICLR 2026  
+**arXiv**: [2506.05634](https://arxiv.org/abs/2506.05634)  
+**代码**: https://github.com/conflictednerd/autoqd-code  
+**领域**: 强化学习  
+**关键词**: quality-diversity, occupancy measure, random Fourier features, MMD, CMA-MAE, behavior descriptor, policy diversity  
 ## 一句话总结
 
 提出 AutoQD，利用占用度量 (occupancy measure) 的随机 Fourier 特征嵌入自动生成行为描述子 (behavioral descriptor)，替代传统 QD 优化中的手工设计描述子，在 6 个连续控制任务上展现了强大的多样化策略发现能力。

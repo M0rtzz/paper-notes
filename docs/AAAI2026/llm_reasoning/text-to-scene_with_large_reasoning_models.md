@@ -1,13 +1,10 @@
----
-title: "Text-to-Scene with Large Reasoning Models"
-conference: "AAAI2026"
-arxiv: "2509.26091"
-domain: "LLM推理"
-keywords: ["文本到3D场景", "大推理模型", "结构化推理", "场景生成", "Reason-3D"]
----
-
 # Text-to-Scene with Large Reasoning Models
 
+**会议**: AAAI 2026  
+**arXiv**: [2509.26091](https://arxiv.org/abs/2509.26091)  
+**代码**: 无  
+**领域**: LLM推理  
+**关键词**: 文本到3D场景, 大推理模型, 结构化推理, 场景生成, Reason-3D  
 ## 一句话总结
 
 提出Reason-3D，利用大推理模型（LRM）的多步空间推理能力，通过语义投票式物体检索+双阶段布局（自回归放置+碰撞感知优化）实现从文本到3D场景的零样本生成，在人工评价中Elo评分达2248（远超Holodeck的1500和LayoutVLM的1650）。

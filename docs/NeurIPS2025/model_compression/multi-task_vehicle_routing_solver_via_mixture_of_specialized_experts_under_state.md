@@ -1,12 +1,9 @@
----
-title: "Multi-Task Vehicle Routing Solver via Mixture of Specialized Experts under State-Decomposable MDP"
-conference: "NeurIPS 2025"
-arxiv_id: "2510.21453"
----
-
 # Multi-Task Vehicle Routing Solver via Mixture of Specialized Experts under State-Decomposable MDP
 
-**会议**: NeurIPS 2025  **arXiv**: [2510.21453](https://arxiv.org/abs/2510.21453)  **代码**: [github.com/panyxy/moses_vrp](https://github.com/panyxy/moses_vrp)  **领域**: model_compression / combinatorial_optimization  **关键词**: 车辆路径问题, 混合专家, 状态可分解MDP, LoRA, 多任务学习
+**会议**: NeurIPS 2025  **arXiv**: [2510.21453](https://arxiv.org/abs/2510.21453)  **代码**: [github.com/panyxy/moses_vrp](https://github.com/panyxy/moses_vrp)  **领域**: model_compression / combinatorial_optimization  **关键词**: 车辆路径问题, 混合专家, 状态可分解MDP, LoRA, 多任务学习  
+**arXiv**: [2510.21453](https://arxiv.org/abs/2510.21453)  
+**代码**: 无  
+**领域**: 模型压缩  
 
 ## 一句话总结
 

@@ -1,11 +1,15 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**🧪 ICML2025** · 共 **42** 篇
+**🧪 ICML2025** · 共 **56** 篇
 
 **[A Generalization Result for Convergence in Learning-to-Optimize](a_generalization_result_for_convergence_in_learning-to-optimize.md)**
 
 :   提出一个概率框架，将 PAC-Bayesian 泛化理论与变分分析中的 Kurdyka-Łojasiewicz (KL) 收敛定理相结合，首次在不限制学习算法设计的前提下，以高概率证明了学习型优化算法收敛到临界点。
+
+**[A Near-Optimal Single-Loop Stochastic Algorithm for Convex Finite-Sum Coupled Compositional Optimization](a_near-optimal_single-loop_stochastic_algorithm_for_convex_finite-sum_coupled_co.md)**
+
+:   本文提出 ALEXR 算法——一种高效的单循环原始-对偶块坐标随机算法，用于求解凸有限和耦合复合优化（cFCCO）问题，在光滑和非光滑条件下均达到近最优收敛速率，并通过推导下界证明了算法的最优性。
 
 **[A Unified View on Learning Unnormalized Distributions via Noise-Contrastive Estimation](a_unified_view_on_learning_unnormalized_distributions_via_noise-contrastive_esti.md)**
 
@@ -18,6 +22,10 @@
 **[AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs](advprompter_fast_adaptive_adversarial_prompting_for_llms.md)**
 
 :   提出 AdvPrompter——用一个 LLM（AdvPrompter）在秒级速度内为目标 LLM 生成人类可读的对抗提示后缀，通过交替优化算法训练，在 AdvBench 和 HarmBench 上实现高攻击成功率，且可迁移到闭源黑盒 LLM，同时展示了用生成的对抗后缀进行对抗训练以增强目标 LLM 鲁棒性的策略。
+
+**[Autoformulation of Mathematical Optimization Models Using LLMs](autoformulation_of_mathematical_optimization_models_using_llms.md)**
+
+:   本文提出一种利用大语言模型结合蒙特卡洛树搜索（MCTS）自动将自然语言描述的优化问题转化为可求解器求解的数学规划模型的方法，通过符号剪枝和 LLM 价值评估显著提升了搜索效率。
 
 **[Benefits Of Early Stopping In Gradient Descent For Overparameterized Logistic Re](benefits_of_early_stopping_in_gradient_descent_for_overparameterized_logistic_re.md)**
 
@@ -59,6 +67,10 @@
 
 :   提出 Tail Transform Flow (TTF)，在 normalizing flow 的**最后一层**添加基于互补误差函数的非 Lipschitz 变换，将高斯尾部转换为可调权重的重尾分布，避免了使用重尾基分布导致的神经网络优化困难问题。
 
+**[FSL-SAGE: Accelerating Federated Split Learning via Smashed Activation Gradient Estimation](fsl-sage_accelerating_federated_split_learning_via_smashed_activation_gradient_e.md)**
+
+:   本文提出 FSL-SAGE，一种联邦分裂学习算法，通过辅助模型估计服务端梯度反馈，在保持与 FedAvg 相当的 $O(1/\sqrt{T})$ 收敛速率的同时，大幅降低通信开销和客户端内存需求。
+
 **[GCAL: Adapting Graph Models to Evolving Domain Shifts](gcal_adapting_graph_models_to_evolving_domain_shifts.md)**
 
 :   提出 Graph Continual Adaptive Learning (GCAL)，通过"适应+生成记忆"双层优化策略，在图模型面对持续演变的 OOD 图序列时，利用信息最大化进行无监督域适应，同时基于信息瓶颈理论设计变分记忆图生成模块来压缩历史图知识，有效缓解灾难性遗忘。
@@ -87,6 +99,10 @@
 
 :   在差分隐私约束下研究非光滑非凸（NSNC）随机优化，通过改进梯度估计器的有效灵敏度，将已知最优样本复杂度降低了 $\Omega(\sqrt{d})$ 倍，并首次证明 Goldstein 稳定性可从经验损失泛化到总体损失。
 
+**[In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention](in-context_linear_regression_demystified_training_dynamics_and_mechanistic_inter.md)**
+
+:   本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。
+
 **[Incremental Gradient Descent with Small Epoch Counts is Surprisingly Slow on Ill-Conditioned Problems](incremental_gradient_descent_with_small_epoch_counts_is_surprisingly_slow_on_ill.md)**
 
 :   揭示IGD（确定性排列SGD）在小epoch情形(K<kappa)的令人惊讶的慢收敛：即使所有组件强凸仍无法快于均匀SGD；非凸组件导致指数级退化。
@@ -99,13 +115,29 @@
 
 :   本文首次识别了SDP松弛用于深度神经网络验证时的"内点消失"(interior-point vanishing)问题——随着网络深度增加，SDP问题丧失严格可行性导致数值不稳定和求解失败——并提出五种缓解方法，其中B-Remove（移除层边界约束）最有效，解决了88%原本无法求解的问题。
 
+**[Layer-wise Quantization for Quantized Optimistic Dual Averaging](layer-wise_quantization_for_quantized_optimistic_dual_averaging.md)**
+
+:   通过层级量化（为不同层分配不同量化方案）和乐观对偶平均算法(QODA)，在单调变分不等式上达到竞争性收敛率，在WGAN分布式训练中实现150%端到端加速。
+
+**[Learning Mixtures of Experts with EM: A Mirror Descent Perspective](learning_mixtures_of_experts_with_em_a_mirror_descent_perspective.md)**
+
+:   本文从镜像下降的视角严格分析了 EM 算法训练混合专家（MoE）模型的收敛性，证明 EM 等价于以 KL 散度为正则项的投影镜像下降，并给出了局部线性收敛的条件，在合成数据和真实数据上验证 EM 优于梯度下降。
+
 **[Learning to Plan & Reason for Evaluation with Thinking-LLM-as-a-Judge](learning_to_plan_reason_for_evaluation_with_thinking-llm-as-a-judge.md)**
 
 :   提出 EvalPlanner，通过将 LLM-as-a-Judge 的推理过程解耦为"评估计划生成"和"计划执行"两个阶段，并在自训练循环中用 DPO 迭代优化计划与执行的偏好对，在 RewardBench 上以仅 22K 合成偏好对达到 93.9 的生成式奖励模型新 SOTA。
 
+**[M3-JEPA: Multimodal Alignment via Multi-gate MoE based on JEPA](m3-jepa_multimodal_alignment_via_multi-gate_moe_based_on_the_joint-embedding_pre.md)**
+
+:   将JEPA(联合嵌入预测架构)推广到任意模态组合的多模态对齐中，用Multi-gate MoE作为跨模态预测器在潜在空间对齐，通过交替梯度下降解决不同模态任务间的梯度冲突，在视觉-语言/音频-语言等任务上达SOTA。
+
 **[MetaAgent: Automatically Constructing Multi-Agent Systems Based on Finite State Machines](metaagent_automatically_constructing_multi-agent_systems_based_on_finite_state_m.md)**
 
 :   提出 MetaAgent，一个基于有限状态机（FSM）的框架，给定任务描述即可自动设计多智能体系统，无需外部训练数据，支持工具调用和状态回溯，在文本任务、ML 任务和软件开发任务上超越现有自动设计方法并逼近人工设计系统性能。
+
+**[Nearly Optimal Sample Complexity for Learning with Label Proportions](nearly_optimal_sample_complexity_for_learning_with_label_proportions.md)**
+
+:   本文研究从标签比例学习（LLP）的样本复杂度，在平方损失下给出了近最优的样本复杂度上下界，并设计了基于 ERM 和 SGD 的算法，在关于 bag size 的依赖关系上显著改进了现有结果。
 
 **[Nonparametric Teaching for Graph Property Learners](nonparametric_teaching_for_graph_property_learners.md)**
 
@@ -122,6 +154,10 @@
 **[POPri: Private Federated Learning using Preference-Optimized Synthetic Data](popri_private_federated_learning_using_preference-optimized_synthetic_data.md)**
 
 :   将差分隐私联邦学习中的合成数据生成问题重新建模为 LLM 策略优化（DPO）问题，利用客户端 DP 反馈构建偏好对来微调 LLM，比传统 Private Evolution 提升更大——在 ε=1 下将隐私-性能差距缩小 58%。
+
+**[Provable Benefit of Random Permutations over Uniform Sampling in Stochastic Coordinate Descent](provable_benefit_of_random_permutations_over_uniform_sampling_in_stochastic_coor.md)**
+
+:   本文首次理论证明了在正定二次函数的坐标下降中，随机排列坐标下降（RPCD）的收缩率严格优于均匀随机坐标下降（RCD），从而解决了一个长期悬而未决的理论问题。
 
 **[Provable In-Context Vector Arithmetic via Retrieving Task Concepts](provable_in-context_vector_arithmetic_via_retrieving_task_concepts.md)**
 
@@ -143,13 +179,29 @@
 
 :   提出 SDP-CROWN，将半定规划（SDP）松弛的紧致性融入线性界传播框架，每层仅增加一个参数 λ，便可在 ℓ₂ 扰动下将验证松弛度最多收紧 √n 倍，同时保持与 α-CROWN 同级的可扩展性。
 
+**[Sparse Causal Discovery with Generative Intervention for Unsupervised Graph Domain Adaptation](sparse_causal_discovery_with_generative_intervention_for_unsupervised_graph_doma.md)**
+
+:   提出 SLOGAN 框架，通过稀疏因果图构建与信息瓶颈解耦因果/虚假特征，结合跨域虚假特征交换的生成式干预机制和类别自适应伪标签动态校准，实现无监督图域自适应中稳定的因果特征迁移。
+
 **[Statistical and Computational Guarantees of Kernel Max-Sliced Wasserstein Distances](statistical_and_computational_guarantees_of_kernel_max-sliced_wasserstein_distan.md)**
 
 :   本文为 Kernel Max-Sliced (KMS) Wasserstein 距离提供了**尖锐的有限样本统计保证**（无维度依赖、收敛速率 $n^{-1/(2p)}$）和**计算保证**（证明精确计算是 NP-hard 后提出高效的半定松弛 SDR 及一阶算法），并在高维两样本检验、人体活动检测和生成建模上验证了优越性能。
 
+**[Subspace Optimization for Large Language Models with Convergence Guarantees](subspace_optimization_for_large_language_models_with_convergence_guarantees.md)**
+
+:   本文揭示了 GaLore（子空间优化算法）在随机设定下不总是收敛，并提出了 GoLore（梯度随机低秩投影）——一种可证明收敛的变体，即使在标准 batch 大小下也能保证收敛。
+
 **[Synonymous Variational Inference for Perceptual Image Compression](synonymous_variational_inference_for_perceptual_image_compression.md)**
 
 :   基于语义信息论中的同义性视角，提出同义变分推断 (SVI) 方法，从理论上证明感知图像压缩的优化方向是率-失真-感知三元权衡，并设计渐进式同义图像压缩 (SIC) 编解码器，单模型即可覆盖多码率多感知质量级别。
+
+**[The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions](the_butterfly_effect_neural_network_training_trajectories_are_highly_sensitive_t.md)**
+
+:   通过"产卵-扰动"实验范式，系统研究神经网络训练轨迹对初始条件的敏感性，发现训练初期极微小的扰动（甚至单个权重）就能导致完全不同的收敛结果——即"蝴蝶效应"，且这种不稳定性与训练噪声无关，随训练进展迅速消减。
+
+**[The Panaceas for Improving Low-Rank Decomposition in Communication-Efficient Federated Learning](the_panaceas_for_improving_low-rank_decomposition_in_communication-efficient_fed.md)**
+
+:   针对联邦学习中低秩分解的三个核心问题（分解什么、怎么分解、怎么聚合），分别提出 MUD（模型更新分解）、BKD（分块 Kronecker 分解）和 AAD（聚合感知分解）三种互补技术，在保持低通信开销的同时实现更快收敛和更高精度。
 
 **[Tilted Sharpness-Aware Minimization](tilted_sharpness-aware_minimization.md)**
 
@@ -170,3 +222,7 @@
 **[Understanding the Statistical Accuracy-Communication Trade-off in Personalized Federated Learning with Minimax Guarantees](understanding_the_statistical_accuracy-communication_trade-off_in_personalized_f.md)**
 
 :   本文首次定量刻画了个性化联邦学习中个性化程度 $\lambda$ 如何同时影响统计精度和通信效率，建立了 minimax 最优统计速率，并提出 FedCLUP 算法实现了统计-通信的最优权衡。
+
+**[Widening the Network Mitigates the Impact of Data Heterogeneity on FedAvg](widening_the_network_mitigates_the_impact_of_data_heterogeneity_on_fedavg.md)**
+
+:   从 NTK 理论出发，证明 FedAvg 中数据异质性导致的模型发散上界为 $\mathcal{O}(n^{-1/2})$（$n$ 为网络宽度），在无穷宽极限下全局和局部模型均线性化，FedAvg 在相同迭代次数下等价于集中式梯度下降，泛化性能一致。

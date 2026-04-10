@@ -1,12 +1,9 @@
----
-title: "Cross-fluctuation Phase Transitions Reveal Sampling Dynamics in Diffusion Models"
-conference: "NeurIPS 2025"
-arxiv_id: "2511.00124"
----
-
 # Cross-fluctuation Phase Transitions Reveal Sampling Dynamics in Diffusion Models
 
-**会议**: NeurIPS 2025  **arXiv**: [2511.00124](https://arxiv.org/abs/2511.00124)  **代码**: 无  **领域**: image_generation / diffusion_models  **关键词**: 扩散模型, 相变, 交叉涨落, 采样动力学, 条件生成
+**会议**: NeurIPS 2025  **arXiv**: [2511.00124](https://arxiv.org/abs/2511.00124)  **代码**: 无  **领域**: image_generation / diffusion_models  **关键词**: 扩散模型, 相变, 交叉涨落, 采样动力学, 条件生成  
+**arXiv**: [2511.00124](https://arxiv.org/abs/2511.00124)  
+**代码**: 无  
+**领域**: 图像生成  
 
 ## 一句话总结
 

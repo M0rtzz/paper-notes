@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🔬 ICLR2026** · 共 **29** 篇
+**🔬 ICLR2026** · 共 **30** 篇
 
 **[A Problem-Oriented Perspective and Anchor Verification for Code Optimization](a_problem-oriented_perspective_and_anchor_verification_for_code_optimization.md)**
 
@@ -75,7 +75,7 @@
 
 :   首次研究联邦 Prompt Learning 场景下的后门攻击威胁，并提出 SABRE-FL——一种基于 embedding 空间异常检测的轻量级服务器端防御方法，无需访问客户端原始数据即可有效过滤中毒 prompt 更新。
 
-**[Sage Spatial-Visual Adaptive Graph Exploration For Efficient Visual Place Recogn](sage_spatial-visual_adaptive_graph_exploration_for_efficient_visual_place_recogn.md)**
+**[SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition](sage_spatial-visual_adaptive_graph_exploration_for_efficient_visual_place_recogn.md)**
 
 :   提出 SAGE，一个统一的 VPR 训练框架：引入轻量 Soft Probing 模块增强局部特征判别力，每个 epoch 在线重建融合地理距离与视觉相似度的亲和图，再通过贪心加权团扩展聚焦最难样本，冻结 DINOv2 骨干仅训练 1.96M 参数即在 8 个基准上全面 SOTA。
 
@@ -118,3 +118,7 @@
 **[When Agents "Misremember" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems](when_agents_misremember_collectively_exploring_the_mandela_effect_in_llm-based_m.md)**
 
 :   首次系统研究LLM多Agent系统中的曼德拉效应(集体虚假记忆)：提出ManBench(4类任务×5种交互协议×4838问题)→评估13个LLM→量化曼德拉效应的存在和影响因素(群组组成/规模/知识域/模型规模/记忆时间尺度)→提出prompt级(认知锚定/来源审查)和模型级(对齐)缓解策略→平均降低74.40%的曼德拉效应。
+
+**[Zero-shot HOI Detection with MLLM-based Detector-agnostic Interaction Recognition](zero-shot_hoi_detection_with_mllm-based_detector-agnostic_interaction_recognitio.md)**
+
+:   提出将目标检测与交互识别完全解耦的零样本 HOI 检测框架 DA-HOI，利用 MLLM 的 VQA 能力替代传统 CLIP 特征做交互识别，核心贡献是确定性生成（training-free 即达 31.50 mAP）、空间感知池化（引入空间先验和跨注意力）和单次确定性匹配（M 次前向变 1 次），在 HICO-DET 四种零样本设定下全面超越 SOTA，且训练后可即插即用切换任意检测器。

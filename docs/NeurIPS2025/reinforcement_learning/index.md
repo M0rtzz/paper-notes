@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🧠 NeurIPS2025** · 共 **79** 篇
+**🧠 NeurIPS2025** · 共 **94** 篇
 
 **[A Generalized Bisimulation Metric of State Similarity between Markov Decision Processes: From Theoretical Propositions to Applications](a_generalized_bisimulation_metric_of_state_similarity_betwee.md)**
 
@@ -107,7 +107,7 @@
 
 :   提出 CKA-RL，为每个任务维护知识向量（task-specific knowledge vector），通过 softmax 加权的动态知识适配和自适应知识合并机制，在三个持续 RL 基准上实现 4.20% 的整体性能提升和 8.02% 的前向迁移提升。
 
-**[Convergence Theorems For Entropy-Regularized And Distributional Reinforcement Le](convergence_theorems_for_entropy-regularized_and_distributional_reinforcement_le.md)**
+**[Convergence Theorems for Entropy-Regularized and Distributional Reinforcement Learning](convergence_theorems_for_entropy-regularized_and_distributional_reinforcement_le.md)**
 
 :   提出 **温度解耦策略（temperature decoupling gambit）**，证明在熵正则化强化学习中，通过解耦评估温度和行为温度，可以在温度趋于零时保证策略和回报分布收敛到一个可解释的、保持多样性的最优策略。
 
@@ -211,7 +211,7 @@
 
 :   本文对结构化 bandit 问题中的贪心算法（Greedy）进行了完整的理论刻画，提出 self-identifiability 作为贪心算法能否获得 sublinear regret 的充要条件，并将结论推广到上下文 bandit 及一般交互决策框架 DMSO。
 
-**[Horizon Reduction Makes Rl Scalable](horizon_reduction_makes_rl_scalable.md)**
+**[Horizon Reduction Makes RL Scalable](horizon_reduction_makes_rl_scalable.md)**
 
 :   本文通过大规模实验（最高 10 亿转移数据）揭示离线 RL 的可扩展性瓶颈源于决策时域过长（curse of horizon），并证明通过 n-step 回报和层次策略等时域缩减技术可显著提升扩展性，进而提出了简洁有效的 SHARSA 方法。
 
@@ -235,6 +235,18 @@
 
 :   本文提出在 shooting-based 规划和 MBRL 中将动作持续时间作为额外优化变量，配合 MAB 自动选择持续时间范围，在多个环境中显著加速规划并解决标准方法无法解决的困难任务。
 
+**[Improving Retrieval-Augmented Generation through Multi-Agent Reinforcement Learning](improving_retrieval-augmented_generation_through_multi-agent_reinforcement_learn.md)**
+
+:   将复杂 RAG 流水线中的多个组件（Query Rewriter、Selector、Generator）建模为协作多智能体系统，使用 MAPPO 算法进行联合优化，以最终答案的 F1 分数作为共享奖励，在多个 QA 基准上超越现有单模块优化方法。
+
+**[Incremental Sequence Classification with Temporal Consistency](incremental_sequence_classification_with_temporal_consistency.md)**
+
+:   将强化学习中时序差分（TD）学习的思想引入序列分类任务，提出 TC-$\lambda$ 损失函数，通过要求相邻时间步的预测分布满足时序一致性条件来训练增量式序列分类器，在文本分类和 LLM 验证任务上均优于标准交叉熵方法。
+
+**[Inner Speech as Behavior Guides: Steerable Imitation of Diverse Behaviors for Human-AI Coordination](inner_speech_as_behavior_guides_steerable_imitation_of_diverse_behaviors_for_hum.md)**
+
+:   受维果茨基内心语言理论启发，提出 MIMIC 框架，利用语言作为感知与动作之间的中介表征，通过 VLM 提供语言脚手架训练 CVAE 生成内心语言，再以扩散策略在条件化于内心语言的情况下生成多样且可控的行为。
+
 **[Interactive and Hybrid Imitation Learning: Provably Beating Behavior Cloning](interactive_and_hybrid_imitation_learning_provably_beating_behavior_cloning.md)**
 
 :   当标注成本按**状态**而非轨迹计量时，证明交互式方法 Stagger 在 $\mu$-可恢复条件下可证明地超越 Behavior Cloning（次优性 $O(\mu H \log B / N)$ vs $O(RH \log B / CN)$，$\mu \ll R$ 时优势显著）；进一步提出混合 IL 算法 Warm-Stagger，结合离线数据和交互标注，在特定 MDP 上实现两种数据源的严格互补优势。
@@ -243,13 +255,33 @@
 
 :   提出 IO-LVM（Inverse Optimization Latent Variable Model），用 VAE 式编码器映射观测的 COP 解到潜在成本空间，通过 Fenchel-Young 损失和黑盒求解器（Dijkstra/TSP solver）在解码端保证可行性，无需 agent 标签即可从路径数据中学到成本函数的分布，成功不可监督地分离不同 agent 的导航偏好。
 
+**[Kimina Lean Server: A High-Performance Lean Server for Large-Scale Verification](kimina_lean_server_a_high-performance_lean_server_for_large-scale_verification.md)**
+
+:   提出Kimina Lean Server——一个面向大规模强化学习训练的高性能Lean 4验证服务器，通过服务端并行化和LRU缓存机制实现1.5-2倍的速度提升，已用于训练SOTA定理证明模型Kimina-Prover。
+
+**[Knowledge-based Visual Question Answer with Multimodal Processing, Retrieval and Filtering](knowledge-based_visual_question_answer_with_multimodal_processing_retrieval_and_.md)**
+
+:   提出 Wiki-PRF，一套三阶段（处理-检索-过滤）的多模态 RAG 框架，通过强化学习训练 VLM 自主调用视觉工具和过滤检索结果，在 E-VQA 和 InfoSeek 上达到 SOTA。
+
 **[Last Iterate Convergence In Monotone Mean Field Games](last_iterate_convergence_in_monotone_mean_field_games.md)**
 
 :   在非严格单调平均场博弈(MFG)中，提出基于 KL 散度的近端点(PP)方法实现渐近最后迭代收敛(LIC)，并证明正则化镜像下降(RMD)以指数速率收敛到正则化均衡，两者结合的 APP 算法在标准基准上可靠收敛到非正则化均衡。
 
+**[Learning from Demonstrations via Capability-Aware Goal Sampling](learning_from_demonstrations_via_capability-aware_goal_sampling.md)**
+
+:   提出Cago方法，通过动态追踪智能体在专家演示轨迹上的达成能力，自适应采样处于能力边界的中间目标，构建隐式课程引导长视野稀疏奖励任务学习。
+
 **[Learning in Stackelberg Mean Field Games: A Non-Asymptotic Analysis](learning_in_stackelberg_mean_field_games_a_non-asymptotic_analysis.md)**
 
 :   提出首个具有非渐近收敛保证的单循环Actor-Critic算法AC-SMFG，用于求解Stackelberg平均场博弈（SMFG），收敛速率达到 $\widetilde{\mathcal{O}}(k^{-1/2})$。
+
+**[Learning Interestingness in Automated Mathematical Theory Formation](learning_interestingness_in_automated_mathematical_theory_formation.md)**
+
+:   提出 Fermat——一个将数学理论形成建模为 MDP 的强化学习环境，以及 EvoAbstract——一个带抽象学习的 LLM 驱动进化算法，用于自动合成数学对象的"兴趣度"度量函数，在初等数论和有限域上显著超越硬编码基线。
+
+**[Learning Memory-Enhanced Improvement Heuristics for Flexible Job Shop Scheduling](learning_memory-enhanced_improvement_heuristics_for_flexible_job_shop_scheduling.md)**
+
+:   提出 MIStar——首个基于深度强化学习 (DRL) 的改进型启发式框架，用于求解柔性作业车间调度问题 (FJSP)。核心创新包括有向异构析取图表示、记忆增强异构图神经网络 (MHGNN) 和并行贪心搜索策略，在合成数据和公开 benchmark 上全面超越手工改进启发式和 SOTA 构造型 DRL 方法。
 
 **[Massively Parallel Imitation Learning of Mouse Forelimb Musculoskeletal Reaching Dynamics](massively_parallel_imitation_learning_of_mouse_forelimb_musculoskeletal_reaching.md)**
 
@@ -279,6 +311,10 @@
 
 :   提出REBMBO框架，将高斯过程（局部建模）、能量模型EBM（全局探索）和PPO强化学习（多步前瞻）统一为贝叶斯优化闭环，在高维/多峰黑盒优化中显著优于传统BO方法。
 
+**[Parameter Efficient Fine-tuning via Explained Variance Adaptation](parameter_efficient_fine-tuning_via_explained_variance_adaptation.md)**
+
+:   提出 Explained Variance Adaptation (EVA)，通过对激活向量进行增量 SVD 来初始化 LoRA 矩阵，可证明地最大化期望梯度信号，并结合自适应秩分配机制在语言生成/理解、图像分类、强化学习等多领域建立了精度-效率的新 Pareto 前沿。
+
 **[Qimeng-Salv Signal-Aware Learning For Verilog Code Generation](qimeng-salv_signal-aware_learning_for_verilog_code_generation.md)**
 
 :   从部分正确的Verilog模块中提取信号级正确实现用于信号感知DPO训练，使7B模型在RTLLM v1.1上达到671B DeepSeek-v3的水平（62.6% pass@1）。
@@ -303,6 +339,10 @@
 
 :   提出 RTZ-VI-LCB 算法用于离线鲁棒两人零和 Markov 博弈（RTZM G），通过乐观鲁棒值迭代 + Bernstein 风格惩罚，实现近最优样本复杂度 $O(C_r^* \cdot H^4 \cdot S \cdot (A+B) / \varepsilon^2)$，较此前最优结果 $O(H^5 \cdot S^2 \cdot AB / \varepsilon^2)$ 在状态空间和动作空间依赖上均有显著改善。
 
+**[Ensemble++: Scalable Exploration via Ensemble](scalable_exploration_via_ensemble.md)**
+
+:   提出 Ensemble++，通过共享因子矩阵的增量更新机制，仅需 $\Theta(d\log T)$ 的集成大小即可实现与精确 Thompson Sampling 相当的遗憾界，并自然扩展到非线性/神经网络场景。
+
 **[Solving Neural Min-Max Games: The Role of Architecture, Initialization & Dynamics](solving_neural_min-max_games_the_role_of_architecture_initialization_dynamics.md)**
 
 :   首次为两层神经网络参数化的零和博弈提供收敛保证，证明在适当过参数化、随机初始化和交替梯度下降上升（AltGDA）下，能以高概率收敛到 $\epsilon$-近似纳什均衡。
@@ -315,6 +355,26 @@
 
 :   首次将强化学习 (RL) 应用于真实世界软件工程任务（GitHub PR/Issue 修复），仅用基于规则的序列相似度奖励训练 Llama-3.3-70B，在 SWE-bench Verified 上达到 41.0% 解决率（中等规模模型 SOTA），且 RL 训练仅在 issue-solving 数据上进行，却涌现出在代码推理、数学、通用语言理解等域外任务上的泛化推理能力。
 
+**[Temporal-Difference Variational Continual Learning](temporal-difference_variational_continual_learning.md)**
+
+:   提出TD-VCL目标函数，将变分持续学习（VCL）中的学习目标重新表示为多个过去后验估计的加权组合，揭示了与强化学习中时序差分（TD）方法的深层联系，通过"分散"正则化压力有效缓解了近似误差的逐步累积问题。
+
+**[The Burden of Interactive Alignment with Inconsistent Preferences](the_burden_of_interactive_alignment_with_inconsistent_preferences.md)**
+
+:   将用户与参与度驱动算法的交互建模为多领导者-单跟随者 Stackelberg 博弈，证明存在关键的前瞻视野阈值：超过该阈值的用户可实现对齐，否则反被算法对齐；同时证明引入低成本信号（如额外点击）可大幅降低对齐负担。
+
+**[Tractable Multinomial Logit Contextual Bandits with Non-Linear Utilities](tractable_multinomial_logit_contextual_bandits_with_non-linear_utilities.md)**
+
+:   首次为MNL上下文赌博机问题在非线性效用函数（含神经网络）下设计了**计算可行**且**统计最优**的算法ONL-MNL，在不依赖NTK假设的情况下达到$\widetilde{\mathcal{O}}(\sqrt{T})$的遗憾上界。
+
 **[Training Language Models to Reason Efficiently](training_language_models_to_reason_efficiently.md)**
 
 :   通过在 RL 奖励中加入长度惩罚项——正确回答的奖励乘以 $(1 - \alpha \cdot \sigma(\text{norm\_len}))$，用单一超参数 $\alpha$ 控制 token-准确率权衡曲线，仅 100 步 RL 训练即可让 7B 推理模型减少 50% token 使用量而准确率仅下降 <5%。
+
+**[Zero-Shot Context Generalization in Reinforcement Learning from Few Training Contexts](zero-shot_context_generalization_in_reinforcement_learning_from_few_training_con.md)**
+
+:   提出 Context-Enhanced Bellman Equation (CEBE) 和 Context Sample Enhancement (CSE) 方法，通过利用环境动力学和奖励函数对上下文参数的一阶导数信息，在仅训练于单一上下文的情况下实现对未见上下文的零样本泛化。
+
+**[Zeroth-Order Optimization Finds Flat Minima](zeroth-order_optimization_finds_flat_minima.md)**
+
+:   首次从理论上证明标准零阶优化（两点梯度估计）具有隐式正则化效果——收敛到Hessian迹最小的平坦极小值（flat minima），在凸且充分光滑条件下给出了$T = \mathcal{O}(d^4/\epsilon^2)$的收敛复杂度保证。

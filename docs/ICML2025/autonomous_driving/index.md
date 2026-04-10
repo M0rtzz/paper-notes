@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🧪 ICML2025** · 共 **7** 篇
+**🧪 ICML2025** · 共 **11** 篇
 
 **[Don't be so negative! Score-based Generative Modeling with Oracle-assisted Guidance](dont_be_so_negative_score-based_generative_modeling_with_oracle-assisted_guidanc.md)**
 
@@ -27,6 +27,22 @@
 
 :   提出首个混合量子-经典多智能体路径规划（MAPF）最优算法 QP/QCP，基于分支-割-定价框架，通过将受限 ILP 子问题转化为 QUBO 问题在量子硬件上求解，在基准数据上优于先前 QUBO 方法和 SOTA MAPF 求解器。
 
+**[InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory](infocons_identifying_interpretable_critical_concepts_in_point_clouds_via_informa.md)**
+
+:   提出InfoCons框架，用信息论原理将点云分解为3D概念，通过可学习先验检验每个概念对模型预测的因果效应，生成既忠实（保留因果影响点）又概念连贯（语义有意义）的解释。
+
+**[R3DM: Enabling Role Discovery and Diversity Through Dynamics Models in Multi-agent Reinforcement Learning](r3dm_enabling_role_discovery_and_diversity_through_dynamics_models_in_multi-agen.md)**
+
+:   提出 R3DM 框架，通过最大化智能体角色、历史轨迹与未来预期行为之间的互信息，利用动力学模型驱动的内在奖励实现角色多样性与协调性的平衡，在 SMAC/SMACv2 环境中将胜率提升最高 20%。
+
 **[SafeMap: Robust HD Map Construction from Incomplete Observations](safemap_robust_hd_map_construction_from_incomplete_observations.md)**
 
 :   SafeMap 提出了一个即插即用的鲁棒高精地图构建框架，通过高斯采样视角重建（G-PVR）和蒸馏式 BEV 校正（D-BEVC）两个模块，在相机视角缺失的不完整观测条件下仍能准确构建矢量化高精地图。
+
+**[SPHINX: Structural Prediction using Hypergraph Inference Network](sphinx_structural_prediction_using_hypergraph_inference_network.md)**
+
+:   提出SPHINX模型以无监督方式从点级信号中推断潜在超图结构：将超边发现建模为聚类问题，用k-subset可微采样生成离散超图，可插入任何超图网络，在轨迹预测和节点分类上超越现有方法。
+
+**[When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network](when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md)**
+
+:   提出多模态异步混合网络，结合事件相机的高时间分辨率（异步 GNN 处理）和 RGB 相机的丰富空间特征（CNN 处理），在交通异常检测中实现 579 FPS 的推理速度和 1.17s 的平均响应时间，首次将事件流引入自动驾驶异常检测领域。

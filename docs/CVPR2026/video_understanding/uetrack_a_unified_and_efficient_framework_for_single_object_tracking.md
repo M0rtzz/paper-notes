@@ -1,16 +1,10 @@
----
-title: "UETrack: A Unified and Efficient Framework for Single Object Tracking"
-authors: "Ben Kang, Jie Zhao, Xin Chen, Wanting Geng, Bin Zhang, Lu Zhang, Dong Wang, Huchuan Lu"
-venue: "CVPR 2026"
-date: 2026-03-03
-arxiv: "2603.01412"
-code: "https://github.com/kangben258/UETrack"
-domain: "video_understanding"
-tags: ["single object tracking", "multi-modal tracking", "mixture of experts", "knowledge distillation", "efficient inference"]
----
-
 # UETrack: A Unified and Efficient Framework for Single Object Tracking
 
+**会议**: CVPR 2026  
+**arXiv**: [2603.01412](https://arxiv.org/abs/2603.01412)  
+**代码**: https://github.com/kangben258/UETrack  
+**领域**: 视频理解  
+**关键词**: single object tracking, multi-modal tracking, mixture of experts, knowledge distillation, efficient inference  
 ## 总结
 
 本文提出 UETrack，一个统一高效的单目标跟踪框架，能同时处理 RGB、深度（Depth）、热红外（Thermal）、事件相机（Event）和语言（Language）五种模态。UETrack 填补了高效多模态跟踪的空白：现有高效跟踪器仅限 RGB，而多模态跟踪器因复杂设计导致速度过慢。核心创新包括：(1) Token-Pooling-based Mixture-of-Experts (TP-MoE)——通过基于相似度的软分配替代传统门控机制，实现高效的专家协作与特化；(2) Target-aware Adaptive Distillation (TAD)——自适应判断每个样本是否适合蒸馏，过滤不可靠的教师信号。在 12 个基准、3 个硬件平台上，UETrack 实现了速度-精度的最优平衡，如 UETrack-B 在 LaSOT 上 69.2% AUC，GPU/CPU/AGX 分别 163/56/60 FPS。

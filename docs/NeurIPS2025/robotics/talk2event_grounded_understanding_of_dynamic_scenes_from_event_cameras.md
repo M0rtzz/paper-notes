@@ -1,13 +1,10 @@
----
-title: "Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras"
-authors: "Lingdong Kong, Dongyue Lu, Ao Liang, Rong Li, Yuhao Dong, Tianshuai Hu, Lai Xing Ng, Wei Tsang Ooi, Benoit R. Cottereau"
-venue: "NeurIPS 2025"
-date: 2025-07-23
-arxiv_id: "2507.17664"
-tags: ["event camera", "visual grounding", "multimodal", "mixture of experts", "autonomous driving", "benchmark"]
-status: "completed"
----
+# Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2507.17664](https://arxiv.org/abs/2507.17664)  
+**代码**: 无  
+**领域**: 机器人  
+**关键词**: event camera, visual grounding, multimodal, mixture of experts, autonomous driving, benchmark  
 # Talk2Event: 基于事件相机的动态场景语言定位
 
 ## 一句话总结

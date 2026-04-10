@@ -1,16 +1,10 @@
----
-title: "Information Shapes Koopman Representation"
-authors: "Xiaoyuan Cheng, Wenxuan Yuan, Yiming Yang, Yuanzhao Zhang, Sibo Cheng, Yi He, Zhuo Sun"
-venue: "ICLR 2026"
-date: 2025-10-17
-arxiv: "2510.13025"
-code: "https://github.com/Wenxuan52/InformationKoopman"
-domain: "model_compression"
-tags: ["koopman operator", "information bottleneck", "dynamical systems", "representation learning", "von neumann entropy"]
----
-
 # Information Shapes Koopman Representation
 
+**会议**: ICLR 2026  
+**arXiv**: [2510.13025](https://arxiv.org/abs/2510.13025)  
+**代码**: https://github.com/Wenxuan52/InformationKoopman  
+**领域**: 模型压缩  
+**关键词**: koopman operator, information bottleneck, dynamical systems, representation learning, von neumann entropy  
 ## 总结
 
 本文从信息瓶颈（Information Bottleneck, IB）的视角重新审视 Koopman 算子的有限维表示学习问题。Koopman 算子将非线性动力系统提升为无穷维线性演化，但实际应用需要在有限维子空间中近似，导致表示学习面临"简洁性 vs 表达力"的根本矛盾。作者证明：(1) 潜在互信息控制预测误差的上界，但过度最大化会导致模态坍塌（mode collapse）；(2) von Neumann 熵可防止坍塌并保持有效维度。基于此，提出了一个信息论 Lagrangian 公式，统一平衡时间一致性（temporal coherence）、预测充分性（predictive sufficiency）和结构一致性（structural consistency）三大目标，并推导出可计算的损失函数。在物理仿真、视觉控制和图结构动力学三类任务上均优于现有 Koopman 方法。

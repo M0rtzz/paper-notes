@@ -1,15 +1,10 @@
----
-title: "Horizon Reduction Makes RL Scalable"
-authors: "Seohong Park, Kevin Frans, Deepinder Mann, Benjamin Eysenbach, Aviral Kumar, Sergey Levine"
-venue: "NeurIPS 2025"
-date: 2025-06-05
-arxiv_id: "2506.04168"
-tags: ["offline RL", "scalability", "horizon reduction", "hierarchical RL", "goal-conditioned RL"]
-status: "completed"
----
-
 # Horizon Reduction Makes RL Scalable
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2506.04168](https://arxiv.org/abs/2506.04168)  
+**代码**: 无  
+**领域**: 强化学习  
+**关键词**: offline RL, scalability, horizon reduction, hierarchical RL, goal-conditioned RL  
 ## 一句话总结
 
 本文通过大规模实验（最高 10 亿转移数据）揭示离线 RL 的可扩展性瓶颈源于决策时域过长（curse of horizon），并证明通过 n-step 回报和层次策略等时域缩减技术可显著提升扩展性，进而提出了简洁有效的 SHARSA 方法。

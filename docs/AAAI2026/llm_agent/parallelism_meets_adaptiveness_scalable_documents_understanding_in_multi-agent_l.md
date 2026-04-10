@@ -1,13 +1,10 @@
----
-title: "Parallelism Meets Adaptiveness: Scalable Documents Understanding in Multi-Agent LLM Systems"
-conference: "AAAI2026"
-arxiv: "2507.17061"
-domain: "LLM智能体"
-keywords: ["多Agent系统", "并行处理", "文档理解", "自适应调度", "金融分析", "竞争评估"]
----
-
 # Parallelism Meets Adaptiveness: Scalable Documents Understanding in Multi-Agent LLM Systems
 
+**会议**: AAAI 2026  
+**arXiv**: [2507.17061](https://arxiv.org/abs/2507.17061)  
+**代码**: 无  
+**领域**: LLM智能体  
+**关键词**: 多Agent系统, 并行处理, 文档理解, 自适应调度, 金融分析, 竞争评估  
 ## 一句话总结
 
 提出自适应协调的多 Agent LLM 框架，通过并行竞争评估、动态任务路由和双向反馈机制，在高复杂度金融文档分析任务中实现 27% 的合规准确率提升和 74% 的修订率降低。

@@ -1,20 +1,10 @@
----
-title: "AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints"
-authors: "Yirong Zeng, Xiao Ding, Yufei Liu, Yuxian Wang, Qunyao Du, Yutai Hou, Wu Ning, Haonan Song, Duyu Tang, Dandan Tu, Bing Qin, Ting Liu"
-affiliations: "Harbin Institute of Technology, Peking University, Huawei Technologies"
-venue: "ICLR 2026"
-arxiv: "2603.13348"
-code: ""
-tags: ["tool use", "reinforcement learning", "test-time scaling", "entropy constraint", "GRPO", "agentic LLM"]
-rating:
-  novelty: 4
-  experiments: 4
-  writing: 4
-  value: 4
----
-
 # AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints
 
+**会议**: ICLR 2026  
+**arXiv**: [2603.13348](https://arxiv.org/abs/2603.13348)  
+**代码**: 无  
+**领域**: 强化学习  
+**关键词**: tool use, reinforcement learning, test-time scaling, entropy constraint, GRPO, agentic LLM  
 ## 一句话总结
 
 提出解耦自适应熵约束 (Decoupled Adaptive Entropy Constraints) 的强化学习策略，使 LLM 在工具调用任务中根据问题难度自动切换长/短推理模式，在提升 9.8% 准确率的同时减少约 81% 的推理 token 开销。

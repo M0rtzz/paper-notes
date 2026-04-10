@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2025** · 共 **5** 篇
+**📷 CVPR2025** · 共 **6** 篇
 
 **[Alternating Gradient Flow Utility A Unified Metric For Structural Pruning And Dy](alternating_gradient_flow_utility_a_unified_metric_for_structural_pruning_and_dy.md)**
 
@@ -14,6 +14,10 @@
 **[Arche Autoregressive Residual Compression With Hyperprior And Excitation](arche_autoregressive_residual_compression_with_hyperprior_and_excitation.md)**
 
 :   提出ARCHE端到端学习型图像压缩框架，在统一概率架构中整合分层Hyperprior、掩码空间自回归上下文、通道条件化和SE激励通道重校准，无需Transformer或循环组件，在Kodak上相对Ballé基线BD-Rate降低约48%，相对VVC Intra降低约5.6%，仅95M参数和222ms解码时间。
+
+**[BHViT: Binarized Hybrid Vision Transformer](bhvit_binarized_hybrid_vision_transformer.md)**
+
+:   针对 ViT 二值化性能严重下降的问题，提出专为二值化设计的混合 ViT 架构 BHViT，包含多尺度分组空洞卷积 token mixer、量化分解注意力矩阵二值化、shift 增强的 MLP 和正则化损失，在 ImageNet-1K 上达到 1-bit 二值化模型的 SOTA 性能。
 
 **[GeoChemAD: Benchmarking Unsupervised Geochemical Anomaly Detection for Mineral Exploration](geochemad_benchmarking_unsupervised_geochemical_anomaly_detection_for_mineral_ex.md)**
 

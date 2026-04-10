@@ -1,16 +1,9 @@
----
-title: "Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs"
-conference: "NeurIPS2025"
-domain: "robotics"
-arxiv: "2509.16204"
-authors: ["Xingang Guo", "Yaxin Li", "Xiangyi Kong", "Yilan Jiang", "Xiayu Zhao", "Zhihua Gong", "Yufan Zhang", "Bin Hu"]
-affiliations: ["University of Illinois at Urbana-Champaign", "University of Pennsylvania", "UC San Diego", "University of Michigan", "Amazon AGI"]
-code: "https://agi4engineering.github.io/Eng-Design/"
-status: "done"
----
-
 # Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2509.16204](https://arxiv.org/abs/2509.16204)  
+**代码**: https://agi4engineering.github.io/Eng-Design/  
+**领域**: 机器人  
 ## 总结
 
 本文提出 EngDesign，首个面向多领域工程设计的 LLM 基准测试。与传统 QA 式基准不同，EngDesign 包含 101 个横跨 9 个工程领域（操作系统、计算机体系结构、控制系统、机械系统、结构设计、数字硬件、模拟 IC、机器人、信号处理）的实际设计任务。每个任务配有基于仿真的自动评估流水线，通过 SPICE 仿真、有限元分析、MATLAB 等专业工具验证设计的功能正确性。评估了 12+ 个前沿 LLM，发现即使最强的推理模型（o3）通过率也仅约 34%，突显了当前 LLM 在实际工程设计中的巨大差距。

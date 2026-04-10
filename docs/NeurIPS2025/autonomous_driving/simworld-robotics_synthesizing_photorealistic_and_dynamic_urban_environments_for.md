@@ -1,14 +1,10 @@
----
-title: "SimWorld-Robotics: Synthesizing Photorealistic and Dynamic Urban Environments for Multimodal Robot Navigation and Collaboration"
-authors: "Yan Zhuang, Jiawei Ren, Xiaokang Ye, Jianzhi Shen, Ruixuan Zhang, Tianai Yue, Muhammad Faayez, Xuhong He, Xiyan Zhang, Ziqiao Ma, Lianhui Qin, Zhiting Hu, Tianmin Shu"
-venue: "NeurIPS 2025"
-date: 2025-12-13
-arxiv_id: "2512.10046"
-tags: [simulation, embodied-ai, urban-navigation, multi-robot, benchmark]
-category: autonomous_driving
-rating: 8
----
+# SimWorld-Robotics: Synthesizing Photorealistic and Dynamic Urban Environments for Multimodal Robot Navigation and Collaboration
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2512.10046](https://arxiv.org/abs/2512.10046)  
+**代码**: 无  
+**领域**: 自动驾驶  
+**关键词**: simulation, embodied-ai, urban-navigation, multi-robot, benchmark  
 ## 一句话总结
 
 提出 SimWorld-Robotics (SWR)，一个基于 Unreal Engine 5 的大规模城市仿真平台，支持程序化生成无限逼真城市环境，并以此构建了多模态导航（SimWorld-MMNav）和多机器人搜索（SimWorld-MRS）两个新 benchmark，揭示了当前 VLM 在户外城市任务中的严重能力缺陷。

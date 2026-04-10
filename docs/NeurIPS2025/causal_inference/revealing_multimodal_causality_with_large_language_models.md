@@ -1,16 +1,10 @@
----
-title: "Revealing Multimodal Causality with Large Language Models"
-conference: NeurIPS 2025
-arxiv: "2509.17784"
-code: "https://github.com/JinLi-i/MLLM-CD"
-authors: "Jin Li, Shoujin Wang, Qi Zhang, Feng Liu, Tongliang Liu, Longbing Cao, Shui Yu, Fang Chen"
-affiliations: "UTS, 同济大学, 墨尔本大学, 悉尼大学, 麦考瑞大学"
-keywords: "Causal Discovery, Multimodal LLM, Counterfactual Reasoning, Contrastive Factor Discovery, Unstructured Data"
-domain: "causal_inference"
----
-
 # Revealing Multimodal Causality with Large Language Models
 
+**会议**: NeurIPS 2025  
+**arXiv**: [2509.17784](https://arxiv.org/abs/2509.17784)  
+**代码**: https://github.com/JinLi-i/MLLM-CD  
+**领域**: 因果推理  
+**关键词**: Causal Discovery, Multimodal LLM, Counterfactual Reasoning, Contrastive Factor Discovery, Unstructured Data  
 ## 一句话总结
 
 提出 MLLM-CD，首个面向多模态非结构化数据的因果发现框架，通过对比因子发现识别跨模态因果变量，结合统计因果结构推断，并利用 MLLM 的世界知识生成多模态反事实样本来迭代消除结构歧义，在合成和真实数据集上均显著优于现有方法。

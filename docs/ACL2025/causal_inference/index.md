@@ -1,15 +1,23 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**💬 ACL2025** · 共 **4** 篇
+**💬 ACL2025** · 共 **6** 篇
 
 **[CausalRAG: Integrating Causal Graphs into Retrieval-Augmented Generation](causalrag_integrating_causal_graphs_into_retrieval-augmented_generation.md)**
 
 :   提出 CausalRAG，将因果图集成到 RAG 的检索过程中——从文档构建文本图并识别因果关系，在查询时通过因果路径发现和因果摘要生成来检索上下文，在文档问答中显著提升上下文精度（92.86%）和检索召回率。
 
+**[FitCF: A Framework for Automatic Feature Importance-guided Counterfactual Example Generation](fitcf_a_framework_for_automatic_feature_importance-guided_counterfactual_example.md)**
+
+:   提出 FitCF 框架，利用 BERT 特征归因方法（LIME/IG/SHAP等）提取重要词来引导 LLM 在 zero-shot 下生成反事实样本（ZeroCF），再经标签翻转验证筛选后作为 few-shot 示例，在新闻分类和情感分析任务上一致性超越 Polyjuice、BAE、FIZLE 三种基线。
+
 **[IRIS: An Iterative and Integrated Framework for Verifiable Causal Discovery](iris_an_iterative_and_integrated_framework.md)**
 
 :   提出 IRIS 框架——仅需一组初始变量名作为输入，即可自动检索文档、提取变量值构建结构化数据、通过混合因果发现（GES 统计算法 + LLM 因果关系验证）构建因果图，并通过缺失变量提议组件迭代扩展变量集合，放松了传统方法的无环和因果充分性假设，在 Cancer、Diabetes、Obesity、ADNI、Insurance 等 6 个数据集上 F1 全面超越 0-shot/CoT/RAG 基线。
+
+**[Leveraging Variation Theory in Counterfactual Data Augmentation for Optimized Active Learning](leveraging_variation_theory_in_counterfactual_data_augmentation_for_optimized_ac.md)**
+
+:   本文将变异理论(Variation Theory)引入反事实数据增强(CDA)框架，通过保留神经符号模式的方式使用LLM生成反事实样本，并结合三级过滤流水线筛选高质量数据，用于优化主动学习中的少样本文本分类，在多个数据集上取得显著F1提升。
 
 **[On the Reliability of Large Language Models for Causal Discovery](llm_causal_discovery_reliability.md)**
 

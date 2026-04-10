@@ -1,14 +1,10 @@
----
-title: "SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition"
-conference: "ICLR2026"
-arxiv: "2509.25723"
-code: "https://github.com/chenshunpeng/SAGE"
-domain: "目标检测/视觉定位"
-keywords: ["Visual Place Recognition", "DINOv2", "Graph-based Sampling", "Hard Sample Mining", "Parameter-Efficient Fine-Tuning"]
----
-
 # SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition
 
+**会议**: ICLR 2026  
+**arXiv**: [2509.25723](https://arxiv.org/abs/2509.25723)  
+**代码**: https://github.com/chenshunpeng/SAGE  
+**领域**: 目标检测/视觉定位  
+**关键词**: Visual Place Recognition, DINOv2, Graph-based Sampling, Hard Sample Mining, Parameter-Efficient Fine-Tuning  
 ## 一句话总结
 
 提出 SAGE，一个统一的 VPR 训练框架：引入轻量 Soft Probing 模块增强局部特征判别力，每个 epoch 在线重建融合地理距离与视觉相似度的亲和图，再通过贪心加权团扩展聚焦最难样本，冻结 DINOv2 骨干仅训练 1.96M 参数即在 8 个基准上全面 SOTA。

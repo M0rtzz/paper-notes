@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**🤖 AAAI2026** · 共 **6** 篇
+**🤖 AAAI2026** · 共 **7** 篇
 
 **[Asymmetric Cross-Modal Knowledge Distillation: Bridging Modalities with Weak Semantic Consistency](asymmetric_cross-modal_knowledge_distillation_bridging_modalities_with_weak_sema.md)**
 
@@ -26,3 +26,7 @@
 **[TDCNet: Spatio-Temporal Context Learning with Temporal Difference Convolution for Moving IRSTD](spatio-temporal_context_learning_with_temporal_difference_convolution_for_moving.md)**
 
 :   提出 TDCNet，将时间差分和 3D 卷积融合为统一的时间差分卷积 (TDC)，通过重参数化实现推理零额外开销，配合 TDC 引导的时空注意力，在自建 IRSTD-UAV 数据集上 F1 达 97.12%（AP50 93.83%），同时发布 15,106 帧真实红外无人机数据集。
+
+**[Uniabg Unified Adversarial View Bridging And Graph Correspondence For Unsupervis](uniabg_unified_adversarial_view_bridging_and_graph_correspondence_for_unsupervis.md)**
+
+:   提出双阶段无监督跨视角地理定位框架 UniABG，通过对抗式视角桥接 (VAAB) 消除无人机/卫星视角域差距，再用异构图过滤校准 (HGFC) 净化跨视角关联，在 University-1652 上 Satellite→Drone AP 达 93.29%，超过多数有监督方法。

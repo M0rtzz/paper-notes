@@ -1,14 +1,10 @@
----
-title: "UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution"
-authors: "Cao Thien Tan, Trang Phan Thi Thu, Duc Nghiem Do, Ho Ngoc Anh, Hanyang Zhuang, Duc Dung Nguyen"
-venue: "CVPR 2026"
-arxiv: "2603.11680"
-date: 2026-03-12
-tags: ["image_restoration", "super_resolution", "lightweight", "attention", "linear_attention"]
----
-
 # UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution
 
+**会议**: CVPR 2026  
+**arXiv**: [2603.11680](https://arxiv.org/abs/2603.11680)  
+**代码**: 无  
+**领域**: 图像恢复  
+**关键词**: image_restoration, super_resolution, lightweight, attention, linear_attention  
 ## 一句话总结
 
 提出 UCAN，一种统一卷积与注意力的轻量级超分网络，通过 Hedgehog Attention 突破线性注意力的低秩瓶颈，结合 Flash Attention 大窗口建模、大核蒸馏模块和跨层参数共享，在极低计算量下实现了与大模型可比的超分性能。

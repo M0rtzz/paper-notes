@@ -1,14 +1,10 @@
----
-title: "X-WIN: Building Chest Radiograph World Model via Predictive Sensing"
-conference: "CVPR 2026"
-arxiv: "2511.14918"
-domain: "medical_imaging"
-keywords: ["世界模型", "胸片表征学习", "CT知识蒸馏", "对比学习", "域自适应"]
----
-
 # X-WIN: Building Chest Radiograph World Model via Predictive Sensing
 
-**会议**: CVPR 2026 &nbsp; **arXiv**: [2511.14918](https://arxiv.org/abs/2511.14918) &nbsp; **代码**: [有](https://github.com/RPIDIAL/X-WIN) &nbsp; **领域**: 医学图像 &nbsp; **关键词**: 世界模型, 胸片表征学习, CT 知识蒸馏, 对比学习, 域自适应
+**会议**: CVPR 2026 
+**arXiv**: [2511.14918](https://arxiv.org/abs/2511.14918)  
+**代码**: 无  
+**领域**: 医学图像  
+**关键词**: 世界模型, 胸片表征学习, CT知识蒸馏, 对比学习, 域自适应  
 
 ## 一句话总结
 

@@ -1,13 +1,10 @@
----
-title: "Improving Sustainability of Adversarial Examples in Class-Incremental Learning"
-conference: "AAAI2026"
-arxiv: "2511.09088"
-domain: "LLM NLP/对抗鲁棒性"
-keywords: ["对抗样本", "增量学习", "持续学习", "鲁棒性保持", "CLIP语义"]
----
-
 # Improving Sustainability of Adversarial Examples in Class-Incremental Learning
 
+**会议**: AAAI 2026  
+**arXiv**: [2511.09088](https://arxiv.org/abs/2511.09088)  
+**代码**: 无  
+**领域**: LLM NLP/对抗鲁棒性  
+**关键词**: 对抗样本, 增量学习, 持续学习, 鲁棒性保持, CLIP语义  
 ## 一句话总结
 
 提出SAE框架解决类增量学习（CIL）中对抗样本因域漂移而失效的问题，通过语义校正模块（CLIP+CIL模型联合引导）和过滤增强模块（去除语义混淆样本），使对抗样本在类别数增长9倍后仍保持攻击效果，平均攻击成功率提升31.28%。

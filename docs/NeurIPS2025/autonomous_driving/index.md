@@ -1,7 +1,7 @@
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🧠 NeurIPS2025** · 共 **30** 篇
+**🧠 NeurIPS2025** · 共 **33** 篇
 
 **[3EED: Ground Everything Everywhere in 3D](3eed_ground_everything_everywhere_in_3d.md)**
 
@@ -91,9 +91,21 @@
 
 :   提出 LabelAny3D，一个基于分析合成（analysis-by-synthesis）的自动 3D 标注流水线，从单目图像重建完整 3D 场景以获取高质量 3D 包围框标注；基于此构建了 COCO3D 基准，覆盖 80 类日常物体，在开放词汇单目 3D 检测上显著提升性能。
 
-**[Layer-Wise Modality Decomposition For Interpretable Multimodal Sensor Fusion](layer-wise_modality_decomposition_for_interpretable_multimodal_sensor_fusion.md)**
+**[Layer-wise Modality Decomposition for Interpretable Multimodal Sensor Fusion](layer-wise_modality_decomposition_for_interpretable_multimodal_sensor_fusion.md)**
 
 :   提出 LMD（Layer-Wise Modality Decomposition），一种事后、模型无关的可解释性方法，通过逐层线性化神经网络操作将多模态融合模型的预测精确分解为各传感器模态的贡献，首次实现了自动驾驶感知模型中对单个输入模态的预测归因，并在 camera-radar、camera-LiDAR、camera-radar-LiDAR 多种融合设置下验证了有效性。
+
+**[FlowScene: Learning Temporal 3D Semantic Scene Completion via Optical Flow Guidance](learning_temporal_3d_semantic_scene_completion_via_optical_flow_guidance.md)**
+
+:   提出 FlowScene，利用光流引导时序特征聚合并结合遮挡掩码进行体素细化，在仅使用2帧历史输入的条件下，在 SemanticKITTI 和 SSCBench-KITTI-360 基准上达到 SOTA（mIoU 17.70 / 20.81）。
+
+**[Leveraging Depth and Language for Open-Vocabulary Domain-Generalized Semantic Segmentation](leveraging_depth_and_language_for_open-vocabulary_domain-generalized_semantic_se.md)**
+
+:   提出Vireo框架，首次将开放词汇语义分割（OVSS）和域泛化语义分割（DGSS）统一到单阶段框架中，通过GeoText Query融合深度几何特征与语言线索，在极端环境和未见类别上均实现SOTA表现。
+
+**[Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving](model-based_policy_adaptation_for_closed-loop_end-to-end_autonomous_driving.md)**
+
+:   提出 MPA 框架，通过 3DGS 仿真生成反事实轨迹数据，训练扩散策略适配器和多原则 Q 值模型，在推理时引导预训练 E2E 驾驶模型提升闭环场景下的安全性和泛化能力。
 
 **[Neurosymbolic Diffusion Models](neurosymbolic_diffusion_models.md)**
 
@@ -107,7 +119,7 @@
 
 :   提出 SDTagNet，首次通过 BERT 编码 OpenStreetMap 文本标注（路名/车道数/单行道等）并用点级图 Transformer 编码所有 SD 地图元素（点/线/关系），在远距离 HD 地图构建上相比无先验方法提升 +5.9 mAP（+45%），超越已有 SD 地图先验方法 +3.2 mAP（+20%）。
 
-**[Simworld-Robotics Synthesizing Photorealistic And Dynamic Urban Environments For](simworld-robotics_synthesizing_photorealistic_and_dynamic_urban_environments_for.md)**
+**[SimWorld-Robotics: Synthesizing Photorealistic and Dynamic Urban Environments for Multimodal Robot Navigation and Collaboration](simworld-robotics_synthesizing_photorealistic_and_dynamic_urban_environments_for.md)**
 
 :   提出 SimWorld-Robotics (SWR)，一个基于 Unreal Engine 5 的大规模城市仿真平台，支持程序化生成无限逼真城市环境，并以此构建了多模态导航（SimWorld-MMNav）和多机器人搜索（SimWorld-MRS）两个新 benchmark，揭示了当前 VLM 在户外城市任务中的严重能力缺陷。
 
@@ -115,7 +127,7 @@
 
 :   本文提出首个**可迁移的 LiDAR 世界模型**，通过 Swin Transformer VAE 实现 192× 高压缩比（SOTA 重建精度）、条件流匹配（CFM）替代扩散模型实现 SOTA 语义占据预测（仅需前人 4.38% FLOPs），并在三种域迁移任务中以 5% 标注数据超越 OccWorld 全量训练。
 
-**[Transun A Preemptive Paradigm To Eradicate Retransformation Bias Intrinsically F](transun_a_preemptive_paradigm_to_eradicate_retransformation_bias_intrinsically_f.md)**
+**[TranSUN: A Preemptive Paradigm to Eradicate Retransformation Bias Intrinsically from Regression Models in Recommender Systems](transun_a_preemptive_paradigm_to_eradicate_retransformation_bias_intrinsically_f.md)**
 
 :   针对推荐系统中变换 MSE 回归模型的逆变换偏差（retransformation bias）问题，提出先发制人（preemptive）的 TranSUN 方法，通过联合学习辅助分支显式建模偏差，在训练阶段即从模型内部消除偏差，具有理论无偏保证和良好收敛性，并已部署在淘宝首页猜你喜欢的商品和短视频推荐场景。
 
