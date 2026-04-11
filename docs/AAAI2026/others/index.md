@@ -11,10 +11,6 @@
 
 :   将多智能体系统中的法律设计问题（包括"有用法律"和"无责任缺口法律"）形式化为超图上的顶点覆盖问题，证明了两类法律最小化问题都是NP-hard的，并给出了基于超图顶点覆盖近似算法的多项式时间近似方案。
 
-**[A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)**
-
-:   从图论角度研究多智能体系统中的法律设计问题，将 useful law 和 gap-free law 的最小化设计分别归约为超图的顶点覆盖问题，证明了 NP-hardness 并给出近似算法。
-
 **[A Mind Cannot Be Smeared Across Time](a_mind_cannot_be_smeared_across_time.md)**
 
 :   从 Stack Theory 出发形式化证明：在时间窗口内的存在性时序实现不保持合取——系统可以跨时间实现意识体验的每个成分而永远不在同一时刻实例化它们的合取，从而区分 Chord（共时性必要）和 Arpeggio（序列即可）两个意识假设，论证纯序列硬件上的软件意识在 Chord 假设下不可能。

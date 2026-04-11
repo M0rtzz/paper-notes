@@ -5,7 +5,7 @@ tags:
   - ReLU网络
   - 线性区域
   - 计算复杂性
-  - #P-hard
+  - "#P-hard"
   - NP-hard
 ---
 
