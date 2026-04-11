@@ -2,9 +2,6 @@
 description: "【论文笔记】SDMatte: Grafting Diffusion Models for Interactive Matting 论文解读 | ICCV 2025 | arXiv 2508.00443 | 交互式抠图 | 本文提出 SDMatte，基于 Stable Diffusion 的交互式抠图模型，通过视觉提示驱动交叉注意力、坐标/不透明度嵌入和掩码自注意力三项设计，将扩散模型的文本交互能力转化为视觉提示交互能力，在多个数据集上显著超越 SAM-based 方法。"
 tags:
   - ICCV 2025
-  - 交互式抠图
-  - 扩散模型先验
-  - 视觉提示
 ---
 
 # SDMatte: Grafting Diffusion Models for Interactive Matting

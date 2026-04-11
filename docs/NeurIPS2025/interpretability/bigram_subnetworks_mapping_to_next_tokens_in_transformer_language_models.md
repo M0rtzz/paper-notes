@@ -2,9 +2,6 @@
 description: "【论文笔记】Bigram Subnetworks: Mapping to Next Tokens in Transformer Language Models 论文解读 | NeurIPS 2025 | arXiv 2504.15471 | Bigram子网络 | 通过连续稀疏化在Transformer语言模型中找到仅包含~10M参数的bigram子网络，它们集中在第一个MLP层，足以复现bigram预测（$r>0.95$），且被消融后模型性能大幅下降，证明这些子网络是语言模型中既必要又充分的最小next-token预测电路。"
 tags:
   - NeurIPS 2025
-  - Bigram子网络
-  - 机制可解释性
-  - 连续稀疏化
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

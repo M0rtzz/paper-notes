@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaLRS: Loss-Guided Adaptive Learning Rate Search for Efficient Foundation Model Pretraining 论文解读 | NeurIPS 2025 | arXiv 2506.13274 | learning rate search | 提出AdaLRS，一种即插即用的在线学习率搜索算法，通过监控损失下降速度（loss velocity）来自适应调整学习率，将学习率超参搜索的成本从多次独立训练降低到单次训练，实现~50%的训练成本节省。"
 tags:
   - NeurIPS 2025
-  - learning rate search
-  - online optimization
-  - loss velocity
 ---
 
 # AdaLRS: Loss-Guided Adaptive Learning Rate Search for Efficient Foundation Model Pretraining

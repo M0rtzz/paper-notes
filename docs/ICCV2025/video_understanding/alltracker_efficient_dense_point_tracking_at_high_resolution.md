@@ -2,9 +2,6 @@
 description: "【论文笔记】AllTracker: Efficient Dense Point Tracking at High Resolution 论文解读 | ICCV 2025 | arXiv 2506.07310 | 密集点跟踪 | 提出AllTracker，将点跟踪重新表述为多帧长程光流问题，在低分辨率网格上通过2D卷积+像素对齐时序注意力迭代优化对应估计再上采样，仅16M参数即实现SOTA准确率和高分辨率（768×1024）全像素密集跟踪，跟踪速度接近光流方法。"
 tags:
   - ICCV 2025
-  - 密集点跟踪
-  - 光流
-  - 长程对应
 ---
 
 # AllTracker: Efficient Dense Point Tracking at High Resolution

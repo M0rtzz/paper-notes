@@ -2,11 +2,8 @@
 description: "【论文笔记】TurboBoA: Faster and Exact Attention-aware Quantization without Backpropagation 论文解读 | ICLR 2026 | arXiv 2602.04929 | 量化 post-training quantization | TurboBoA 提出了一种无需反向传播的 LLM 后训练量化方法，通过多 out-channel 联合量化、前层误差补偿和自适应网格选择三大创新，在保留 BoA 精度优势的同时实现了 3 倍以上加速。"
 tags:
   - ICLR 2026
-  - post-training quantization
   - 量化
-  - attention-aware
   - 注意力机制
-  - backpropagation-free
 ---
 
 # TurboBoA: Faster and Exact Attention-aware Quantization without Backpropagation

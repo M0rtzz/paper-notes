@@ -2,9 +2,7 @@
 description: "【论文笔记】CardiacNet: Learning to Reconstruct Abnormalities for Cardiac Disease Assessment from Echocardiogram Videos 论文解读 | ECCV2024 | arXiv 2410.20769 | echocardiogram | 提出基于重建的心脏疾病评估框架 CardiacNet，通过 Consistency Deformation Codebook (CDC) 和 Consistency Deformation Discriminator (CDD) 学习正常与异常心脏超声视频之间的结构和运动差异，在射血分数预测、肺动脉高压和房间隔缺损分类三个任务上达到 SOTA。"
 tags:
   - ECCV2024
-  - echocardiogram
-  - cardiac disease assessment
-  - video reconstruction
+  - 量化
 ---
 
 # CardiacNet: Learning to Reconstruct Abnormalities for Cardiac Disease Assessment from Echocardiogram Videos

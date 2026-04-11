@@ -2,9 +2,6 @@
 description: "【论文笔记】DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation 论文解读 | NeurIPS 2025 | arXiv 2509.23829 | 灵巧操作 | 提出 DexFlyWheel，一个从单个人类示教出发、通过 IL + 残差 RL + 数据增强组成的自改进循环逐步扩展数据多样性的灵巧操作数据生成框架，在 4 个任务上生成 2000+ 示教，策略平均成功率 81.9%，真实世界迁移成功率 78.3%。"
 tags:
   - NeurIPS 2025
-  - 灵巧操作
-  - 数据飞轮
-  - 模仿学习
 ---
 
 # DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating Few-Shot Pill Recognition Under Visual Domain Shift 论文解读 | CVPR 2026 | arXiv 2603.10833 | [小样本学习 | 从部署导向视角系统评估了小样本药丸识别在跨数据集域偏移下的表现，发现语义分类1-shot即可饱和(准确率>0.989)，但遮挡重叠场景下定位和召回急剧退化，训练数据的视觉真实性(多药丸、杂乱场景)是决定小样本泛化鲁棒性的主要因素。"
 tags:
   - CVPR 2026
-  - [小样本学习
-  - 药丸识别
-  - 域偏移
 ---
 
 # Evaluating Few-Shot Pill Recognition Under Visual Domain Shift

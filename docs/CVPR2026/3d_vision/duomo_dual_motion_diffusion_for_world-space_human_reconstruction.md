@@ -2,9 +2,6 @@
 description: "【论文笔记】DuoMo: Dual Motion Diffusion for World-Space Human Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.03265 | 人体运动重建 | 提出 DuoMo，将世界空间人体运动重建分解为两个独立的扩散模型：camera-space 模型从视频提取泛化性强的相机坐标运动估计，world-space 模型将 lifting 后的噪声提案精炼为全局一致的世界坐标运动。直接生成 mesh 顶点运动而非 SMPL 参数，在 EMDB 上 W-MPJPE 降低 16%，RICH 上降低 30%。"
 tags:
   - CVPR 2026
-  - 人体运动重建
-  - 扩散模型
-  - 世界坐标系
 ---
 
 # DuoMo: Dual Motion Diffusion for World-Space Human Reconstruction

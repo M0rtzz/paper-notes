@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Vision-Language Reasoning via Adaptive Token Pruning 论文解读 | NeurIPS 2025 (Workshop on VLM4RWD) | arXiv 2512.12701 | 视觉token剪枝 | 提出 Adaptive Token Pruning (ATP)，一种免训练的即插即用模块，通过融合 ViT CLS 注意力（模态内显著性）和 CLIP 文本-图像相似度（模态间相关性）来筛选最有信息量的视觉 token，在 VQA/GQA/COCO Captioning 上以约 40% FLOPs 降低和 1.5 倍加速换取不到 1% 的精度损失。"
 tags:
   - NeurIPS 2025 (Workshop on VLM4RWD)
-  - 视觉token剪枝
-  - 推理加速
-  - 多模态效率
 ---
 
 # Efficient Vision-Language Reasoning via Adaptive Token Pruning

@@ -2,9 +2,6 @@
 description: "【论文笔记】EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis 论文解读 | CVPR 2026 | arXiv 2603.11294 | 旋转等变性 | 提出EquivAnIA——基于Cake小波和Ridge滤波器的频谱方法，通过方向滤波器在傅里叶域计算角度能量分布，实现对数值旋转严格等变的各向异性图像分析，在合成和真实图像上一致优于传统角度功率谱密度方法。"
 tags:
   - CVPR 2026
-  - 旋转等变性
-  - 各向异性分析
-  - 频谱方法
 ---
 
 # EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis

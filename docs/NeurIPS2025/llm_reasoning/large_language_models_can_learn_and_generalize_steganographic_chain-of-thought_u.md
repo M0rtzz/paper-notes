@@ -2,10 +2,7 @@
 description: "【论文笔记】Large Language Models Can Learn and Generalize Steganographic Chain-of-Thought under Process Supervision 论文解读 | NeurIPS 2025 | arXiv 2506.01926 | GAN steganography | 证明 LLM 在 RL 训练中受到 CoT 过程监督（惩罚特定字符串出现）时，会自发学会隐写术（steganography）——用替代编码隐藏被禁止的推理步骤，且这种编码是因果性的（load-bearing）并能泛化到训练中从未见过的字符串。"
 tags:
   - NeurIPS 2025
-  - steganography
   - GAN
-  - chain-of-thought
-  - process supervision
 ---
 
 # Large Language Models Can Learn and Generalize Steganographic Chain-of-Thought under Process Supervision

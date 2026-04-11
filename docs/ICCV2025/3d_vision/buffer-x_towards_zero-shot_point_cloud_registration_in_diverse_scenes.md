@@ -2,9 +2,6 @@
 description: "【论文笔记】BUFFER-X: Towards Zero-Shot Point Cloud Registration in Diverse Scenes 论文解读 | ICCV 2025 | arXiv 2503.07940 | 点云配准 | 提出 BUFFER-X，一种无需人工参数调优的零样本点云配准方法，通过自适应体素大小/搜索半径估计、FPS 替代学习型关键点检测器、以及 patch 级坐标归一化，在 11 个数据集上实现开箱即用的跨域泛化。"
 tags:
   - ICCV 2025
-  - 点云配准
-  - 零样本泛化
-  - 多尺度描述子
 ---
 
 # BUFFER-X: Towards Zero-Shot Point Cloud Registration in Diverse Scenes

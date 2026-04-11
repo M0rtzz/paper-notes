@@ -2,9 +2,6 @@
 description: "【论文笔记】When Data-Free Knowledge Distillation Meets Non-Transferable Teacher: Escaping Out-of-Distribution 论文解读 | ICML 2025 | arXiv 2507.04119 | 无数据知识蒸馏 | 本文研究了在教师模型为\"不可迁移\"（non-transferable）设计时无数据知识蒸馏面临的挑战——合成样本容易落入分布外区域导致蒸馏失败，提出了逃逸分布外区域（escaping OOD）的方法来实现有效蒸馏。"
 tags:
   - ICML 2025
-  - 无数据知识蒸馏
-  - 不可迁移教师
-  - 分布外样本
 ---
 
 # When Data-Free Knowledge Distillation Meets Non-Transferable Teacher: Escaping Out-of-Distribution

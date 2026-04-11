@@ -2,9 +2,6 @@
 description: "【论文笔记】FEA-Bench: A Benchmark for Evaluating Repository-Level Code Generation for Feature Implementation 论文解读 | ACL 2025 | arXiv 2503.06680 | 代码生成 | 提出 FEA-Bench——首个评估 LLM 在仓库级代码库中实现新特性（Feature Implementation）能力的基准，包含来自 83 个 GitHub 仓库的 1401 个任务实例，每个实例配有单元测试。最强模型 DeepSeek-R1 仅解决约 10% 的任务，揭示了仓库级增量开发对当前 LLM 的巨大挑战。"
 tags:
   - ACL 2025
-  - 代码生成
-  - 仓库级开发
-  - 新特性实现
 ---
 
 # FEA-Bench: A Benchmark for Evaluating Repository-Level Code Generation for Feature Implementation

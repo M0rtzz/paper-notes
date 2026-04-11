@@ -2,9 +2,6 @@
 description: "【论文笔记】Model Immunization from a Condition Number Perspective 论文解读 | ICML 2025 | arXiv 2505.23760 | 模型免疫 | 从Hessian矩阵条件数的角度定义和分析模型免疫问题，提出最大化/最小化条件数的正则化器，使预训练模型难以被微调用于有害任务而不影响正常任务性能。"
 tags:
   - ICML 2025
-  - 模型免疫
-  - 条件数
-  - Hessian矩阵
 ---
 
 # Model Immunization from a Condition Number Perspective

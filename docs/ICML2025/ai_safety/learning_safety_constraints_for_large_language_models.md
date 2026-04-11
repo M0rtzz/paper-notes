@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Safety Constraints for Large Language Models 论文解读 | ICML 2025 | arXiv 2505.24445 | LLM Safety | 论文提出 SaP（Safety Polytope）：在 LLM 表征空间中学习一个“安全多面体”，并在推理时把不安全生成轨迹几何地拉回安全区域，以在不改模型权重的前提下实现可解释的安全约束。"
 tags:
   - ICML 2025
-  - LLM Safety
-  - Safety Polytope
-  - CMDP
 ---
 
 # Learning Safety Constraints for Large Language Models

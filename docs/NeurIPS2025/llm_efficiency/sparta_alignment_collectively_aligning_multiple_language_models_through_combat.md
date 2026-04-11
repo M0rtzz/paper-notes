@@ -2,9 +2,6 @@
 description: "【论文笔记】SPARTA Alignment: Collectively Aligning Multiple Language Models through Combat 论文解读 | NeurIPS 2025 | arXiv 2506.04721 | 集体对齐 | 让多个LLM组成\"斯巴达部落\"互相竞技和互评，通过声誉加权的判断聚合生成偏好对，再用DPO迭代训练所有模型，在12个任务中的10个上超越Self-Rewarding等自对齐基线，平均提升7%。"
 tags:
   - NeurIPS 2025
-  - 集体对齐
-  - 多模型竞技
-  - 声誉系统
 ---
 
 # SPARTA Alignment: Collectively Aligning Multiple Language Models through Combat

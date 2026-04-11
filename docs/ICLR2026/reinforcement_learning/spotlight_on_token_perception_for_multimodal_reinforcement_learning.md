@@ -2,9 +2,6 @@
 description: "【论文笔记】Spotlight on Token Perception for Multimodal Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2510.09285 | RLVR | 提出 VPPO（Visually-Perceptive Policy Optimization），通过量化每个 token 的视觉依赖度，在轨迹级和 token 级两个层次对学习信号进行精细化调控，显著提升大视觉语言模型的多模态推理能力。"
 tags:
   - ICLR 2026
-  - RLVR
-  - 多模态推理
-  - token感知
 ---
 
 # Spotlight on Token Perception for Multimodal Reinforcement Learning

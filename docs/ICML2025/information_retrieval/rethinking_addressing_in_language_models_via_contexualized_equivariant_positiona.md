@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Addressing in Language Models via Contextualized Equivariant Positional Encoding 论文解读 | ICML 2025 | arXiv 2501.00712 | positional encoding | 本文提出 TAPE（contexTualized equivariAnt Position Encoding），通过在各层动态地根据序列内容更新位置编码来取代传统的固定位置模式，同时强制排列和正交等变性以保证稳定性，在语言建模、算术推理和长上下文检索任务上显著超越现有位置编码方法。"
 tags:
   - ICML 2025
-  - positional encoding
-  - TAPE
-  - context-aware
 ---
 
 # Rethinking Addressing in Language Models via Contextualized Equivariant Positional Encoding

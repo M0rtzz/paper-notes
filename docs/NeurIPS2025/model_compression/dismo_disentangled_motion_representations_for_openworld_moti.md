@@ -2,9 +2,6 @@
 description: "【论文笔记】DisMo: Disentangled Motion Representations for Open-World Motion Transfer 论文解读 | NeurIPS 2025 | arXiv 2511.23428 | 运动解耦 | DisMo 通过双流架构（运动提取器 + 帧生成器）和图像空间重建目标，从原始视频中学习与外观、姿态、类别无关的抽象运动表征，实现跨类别/跨视角的开放世界运动迁移，并在零样本动作分类上大幅超越 V-JEPA 等视频表征模型。"
 tags:
   - NeurIPS 2025
-  - 运动解耦
-  - 开放世界运动迁移
-  - flow matching
 ---
 
 # DisMo: Disentangled Motion Representations for Open-World Motion Transfer

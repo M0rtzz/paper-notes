@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing CLIP Robustness via Cross-Modality Alignment 论文解读 | NeurIPS 2025 (Spotlight) | arXiv 2510.24038 | CLIP | 提出COLA——一个training-free的框架，通过将对抗扰动后的图像特征投影到文本特征张成的子空间来消除非语义噪声，再用最优传输(OT)在分布层面细粒度对齐图文特征，在14个零样本分类基准上平均提升6.7%的对抗鲁棒准确率，同时维持干净样本性能。"
 tags:
   - NeurIPS 2025 (Spotlight)
-  - CLIP
-  - 对抗鲁棒性
-  - 最优传输
 ---
 
 # Enhancing CLIP Robustness via Cross-Modality Alignment

@@ -2,9 +2,6 @@
 description: "【论文笔记】Predict and Resist: Long-Term Accident Anticipation under Sensor Noise 论文解读 | AAAI 2026 | arXiv 2511.08640 | 事故预测 | 提出统一框架，将基于扩散模型的双层去噪模块与时间感知的Actor-Critic强化学习模型结合，在传感器噪声条件下实现鲁棒的长期交通事故预测，在三个基准数据集上取得了准确率（AP）和平均事故前预警时间（mTTA）的最优性能。"
 tags:
   - AAAI 2026
-  - 事故预测
-  - 扩散去噪
-  - Actor-Critic强化学习
 ---
 
 # Predict and Resist: Long-Term Accident Anticipation under Sensor Noise

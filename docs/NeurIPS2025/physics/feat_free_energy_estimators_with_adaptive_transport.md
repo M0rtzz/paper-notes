@@ -2,9 +2,6 @@
 description: "【论文笔记】FEAT: Free energy Estimators with Adaptive Transport 论文解读 | NEURIPS2025 | arXiv 2504.11516 | free energy estimation | 提出 FEAT 框架，基于随机插值学习自适应传输，通过 escorted Jarzynski 等式和 Crooks 定理提供一致、最小方差的自由能差估计器，统一了平衡与非平衡方法。"
 tags:
   - NEURIPS2025
-  - free energy estimation
-  - stochastic interpolants
-  - Jarzynski equality
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

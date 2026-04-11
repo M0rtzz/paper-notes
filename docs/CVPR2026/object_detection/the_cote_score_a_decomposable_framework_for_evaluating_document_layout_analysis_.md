@@ -2,9 +2,6 @@
 description: "【论文笔记】The COTe Score: A Decomposable Framework for Evaluating Document Layout Analysis Models 论文解读 | CVPR2026 | arXiv 2603.12718 | 文档布局分析 | 提出面向文档布局分析（DLA）的可分解评估框架 COTe（Coverage, Overlap, Trespass, Excess），以及结构语义单元 SSU，相比传统 IoU/mAP/F1 能更准确地反映页面解析质量，并揭示不同模型的特异性失败模式。"
 tags:
   - CVPR2026
-  - 文档布局分析
-  - 评估指标
-  - 可分解指标
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

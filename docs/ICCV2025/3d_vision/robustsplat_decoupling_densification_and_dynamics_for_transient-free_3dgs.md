@@ -2,9 +2,6 @@
 description: "【论文笔记】RobustSplat: Decoupling Densification and Dynamics for Transient-Free 3DGS 论文解读 | ICCV 2025 | arXiv 2506.02751 | 3D高斯溅射 | 本文发现 3DGS 的高斯致密化过程是导致瞬态物体伪影的关键因素，提出延迟高斯生长策略和尺度级联掩码自举方法来解耦致密化与动态区域建模，在多个基准数据集上实现了最优的无瞬态新视角合成效果。"
 tags:
   - ICCV 2025
-  - 3D高斯溅射
-  - 新视角合成
-  - 瞬态物体去除
 ---
 
 # RobustSplat: Decoupling Densification and Dynamics for Transient-Free 3DGS

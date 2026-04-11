@@ -2,9 +2,6 @@
 description: "【论文笔记】Horizon Imagination: Efficient On-Policy Rollout in Diffusion World Models 论文解读 | ICLR 2026 | arXiv 2602.08032 | 扩散世界模型 | 提出Horizon Imagination(HI)——扩散世界模型中的高效在策略想象过程：并行去噪多个未来观测(而非逐帧串行)，引入稳定化机制和新型采样调度(将去噪预算从有效horizon解耦+支持亚帧预算)，在Atari 100K和Craftium上仅用一半去噪步骤即保持控制性能，系统分析串行vs并行生成的质量trade-off。"
 tags:
   - ICLR 2026
-  - 扩散世界模型
-  - 并行去噪
-  - 想象效率
 ---
 
 # Horizon Imagination: Efficient On-Policy Rollout in Diffusion World Models

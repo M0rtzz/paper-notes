@@ -2,9 +2,6 @@
 description: "【论文笔记】BATCLIP: Bimodal Online Test-Time Adaptation for CLIP 论文解读 | ICCV 2025 | arXiv 2412.02837 | CLIP | 提出BATCLIP，一种针对CLIP的双模态在线测试时自适应（TTA）方法，通过同时适应视觉编码器和文本编码器的LayerNorm参数，引入投影匹配损失和类间可分性损失来增强图文特征对齐和类别区分度，在CIFAR-10C/100C/ImageNet-C上达到SOTA效果。"
 tags:
   - ICCV 2025
-  - CLIP
-  - 测试时自适应
-  - 双模态适应
 ---
 
 # BATCLIP: Bimodal Online Test-Time Adaptation for CLIP

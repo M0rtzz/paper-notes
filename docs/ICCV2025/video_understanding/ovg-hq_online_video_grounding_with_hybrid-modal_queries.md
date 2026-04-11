@@ -2,9 +2,6 @@
 description: "【论文笔记】OVG-HQ: Online Video Grounding with Hybrid-modal Queries 论文解读 | ICCV 2025 | arXiv 2508.11903 | 在线视频定位 | 提出在线视频定位新任务 OVG-HQ，支持文本/图像/视频片段等混合模态查询，通过参数化记忆块（PMB）保留历史信息和混合蒸馏策略缓解模态不平衡，在流式视频中实时定位目标片段。"
 tags:
   - ICCV 2025
-  - 在线视频定位
-  - 混合模态查询
-  - 参数化记忆
 ---
 
 # OVG-HQ: Online Video Grounding with Hybrid-modal Queries

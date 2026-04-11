@@ -2,9 +2,7 @@
 description: "【论文笔记】MotionShot: Adaptive Motion Transfer across Arbitrary Objects for Text-to-Video Generation 论文解读 | ICCV 2025 | arXiv 2507.16310 | motion transfer | 提出 MotionShot，一个无需训练的运动迁移框架，通过高层语义对齐和低层形态对齐的两级运动对齐策略，实现在外观和结构差异显著的任意参考-目标物体对之间的高保真运动迁移。"
 tags:
   - ICCV 2025
-  - motion transfer
-  - text-to-video
-  - training-free
+  - 注意力机制
 ---
 
 # MotionShot: Adaptive Motion Transfer across Arbitrary Objects for Text-to-Video Generation

@@ -2,10 +2,7 @@
 description: "【论文笔记】Layer by layer, module by module: Choose both for optimal OOD probing of ViT 论文解读 | ICLR 2026 (CAO Workshop) | arXiv 2603.05280 | Transformer Vision Transformer | 通过大规模线性探测实验系统研究预训练ViT的中间层行为，发现分布偏移是深层性能退化的主因，并在模块级别揭示了最优探测点取决于偏移程度：显著偏移时探测FFN激活最优，弱偏移时探测MHSA归一化输出最优。"
 tags:
   - ICLR 2026 (CAO Workshop)
-  - Vision Transformer
   - Transformer
-  - 线性探测
-  - 分布偏移
 ---
 
 # Layer by layer, module by module: Choose both for optimal OOD probing of ViT

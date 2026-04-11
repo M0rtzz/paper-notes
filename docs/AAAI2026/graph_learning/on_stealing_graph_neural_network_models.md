@@ -2,10 +2,7 @@
 description: "【论文笔记】On Stealing Graph Neural Network Models 论文解读 | AAAI2026 | arXiv 2511.07170 | 图神经网络 GNN模型窃取 | 证明了在严格查询限制下（如仅100次查询），攻击者可通过\"本地获取encoder（随机初始化/SSL训练）+ K-means策略性查询选择\"两阶段方法高效窃取GNN模型，在Physics数据集上仅用100次查询即达91%准确率，而现有SOTA需约5000次查询加额外embedding访问才能达到类似水平。"
 tags:
   - AAAI2026
-  - GNN模型窃取
   - 图神经网络
-  - 模型安全
-  - 自监督学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

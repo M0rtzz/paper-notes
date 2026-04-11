@@ -2,10 +2,7 @@
 description: "【论文笔记】Capacity Matters: A Proof-of-Concept for Transformer Memorization on Real-World Data 论文解读 | ACL 2025 (L2M2 Workshop) | arXiv 2506.14704 | Transformer Transformer记忆容量 | 本文以SNOMED医学知识图谱为数据源，系统研究了decoder-only Transformer在结构化数据上的记忆容量，发现嵌入维度是决定学习速度和容量的主要因素，而增加层数收效甚微，Softmax激活函数表现最稳定。"
 tags:
   - ACL 2025 (L2M2 Workshop)
-  - Transformer记忆容量
   - Transformer
-  - 知识图谱
-  - 嵌入维度
 ---
 
 # Capacity Matters: A Proof-of-Concept for Transformer Memorization on Real-World Data

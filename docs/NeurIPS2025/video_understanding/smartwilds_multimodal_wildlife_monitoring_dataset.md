@@ -2,9 +2,6 @@
 description: "【论文笔记】SmartWilds: Multimodal Wildlife Monitoring Dataset 论文解读 | NeurIPS 2025 | arXiv 2509.18894 | 多模态数据集 | 发布SmartWilds数据集首版，包含在俄亥俄州The Wilds野生动物园同步采集的无人机影像、相机陷阱照片/视频和生物声学录音，共101GB/20K+文件，支持多模态AI在濒危物种保护和栖息地管理中的研究。"
 tags:
   - NeurIPS 2025
-  - 多模态数据集
-  - 野生动物监测
-  - 无人机影像
 ---
 
 # SmartWilds: Multimodal Wildlife Monitoring Dataset

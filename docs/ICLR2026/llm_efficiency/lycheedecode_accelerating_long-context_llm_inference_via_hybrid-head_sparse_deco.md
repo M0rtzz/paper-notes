@@ -2,9 +2,6 @@
 description: "【论文笔记】LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding 论文解读 | ICLR 2026 | arXiv 2602.04541 | 长上下文推理 | 提出 LycheeDecode，通过将注意力头细粒度分为少量 retrieval heads（负责全注意力选关键 token）和大量 sparse heads（复用选出的 token 做稀疏计算），并用 HardKuma 分布端到端学习头类型，在 128K 上下文下实现 2.7× 加速且性能不降。"
 tags:
   - ICLR 2026
-  - 长上下文推理
-  - 稀疏注意力
-  - 注意力头特化
 ---
 
 # LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding

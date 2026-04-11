@@ -2,9 +2,7 @@
 description: "【论文笔记】AFF-ttention! Affordances and Attention models for Short-Term Object Interaction Anticipation 论文解读 | ECCV 2024 | arXiv 2406.01194 | Short-Term Anticipation | 提出 STAformer 架构和两个基于 affordance 的模块（环境 affordance 数据库 + 交互热点），将第一人称视频中的短期物体交互预测（STA）在 Ego4D 和 EPIC-Kitchens 上提升了 30-45% 的相对性能。"
 tags:
   - ECCV 2024
-  - Short-Term Anticipation
-  - Affordances
-  - Egocentric Video
+  - 注意力机制
 ---
 
 # AFF-ttention! Affordances and Attention models for Short-Term Object Interaction Anticipation

@@ -2,9 +2,6 @@
 description: "【论文笔记】ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation 论文解读 | arXiv 2026 | arXiv 2603.10188 | arche | 基于学习的图像压缩的最新进展表明，通过联合学习紧凑的潜在表示和概率熵模型，端到端优化可以大大优于传统编解码器。"
 tags:
   - arXiv 2026
-  - arche
-  - autoregressive
-  - residual
 ---
 
 # ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation

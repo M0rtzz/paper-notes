@@ -2,9 +2,6 @@
 description: "【论文笔记】Coarse-to-Fine Open-Set Graph Node Classification with Large Language Models 论文解读 | AAAI2026 | arXiv 2512.16244 | open-set classification | 提出 Coarse-to-Fine Classification (CFC) 框架，利用 LLM 的零样本推理能力为图节点开放集分类提供语义化 OOD 样本和潜在 OOD 标签空间，实现不仅检测 OOD 还能将其分类到具体未知类别的能力。"
 tags:
   - AAAI2026
-  - open-set classification
-  - OOD detection
-  - graph neural networks
   - 图神经网络
 ---
 

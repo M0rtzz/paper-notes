@@ -2,9 +2,6 @@
 description: "【论文笔记】Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts 论文解读 | CVPR2025 | arXiv 2603.09531 | PPFE | 在两个大规模肺癌筛查队列（NLST 7980 例、SUMMIT 8561 例）中验证了基于深度学习自动量化的 PPFE（胸膜肺实质纤维弹性组织增生）进展与全因死亡率独立相关，提出 PPFE 纵向变化可作为筛查人群中识别高呼吸发病风险个体的影像生物标志物。"
 tags:
   - CVPR2025
-  - PPFE
-  - Lung Cancer Screening
-  - CT Imaging Biomarker
 ---
 
 # Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts

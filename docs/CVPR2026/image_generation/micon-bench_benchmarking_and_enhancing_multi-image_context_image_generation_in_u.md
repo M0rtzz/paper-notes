@@ -2,9 +2,6 @@
 description: "【论文笔记】MICON-Bench: Benchmarking and Enhancing Multi-Image Context Image Generation in Unified Multimodal Models 论文解读 | CVPR 2026 | arXiv 2602.19497 | 多图上下文生成 | 提出 MICON-Bench，覆盖 6 项任务（1043 案例）的多图上下文生成基准，配合 MLLM 驱动的 Evaluation-by-Checkpoint 自动评估框架；同时提出 DAR（Dynamic Attention Rebalancing）训练无关机制，通过动态调整推理时注意力权重提升 UMM 的多图生成一致性和质量。"
 tags:
   - CVPR 2026
-  - 多图上下文生成
-  - 统一多模态模型
-  - 基准测试
 ---
 
 # MICON-Bench: Benchmarking and Enhancing Multi-Image Context Image Generation in Unified Multimodal Models

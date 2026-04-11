@@ -2,9 +2,6 @@
 description: "【论文笔记】RePoseD: Efficient Relative Pose Estimation with Known Depth Information 论文解读 | ICCV 2025 | arXiv 2501.07742 | 相对位姿估计 | 本文提出了一组高效的相对位姿最小求解器，将单目深度估计（MDE）的尺度和仿射参数与相对位姿联合估计，在标定/共焦距/不同焦距三种配置下均超越SOTA深度感知求解器，并通过大规模实验回答了\"MDE深度是否有助于相对位姿估计\"这一核心问题。"
 tags:
   - ICCV 2025
-  - 相对位姿估计
-  - 单目深度估计
-  - 最小求解器
 ---
 
 # RePoseD: Efficient Relative Pose Estimation with Known Depth Information

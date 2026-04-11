@@ -2,9 +2,6 @@
 description: "【论文笔记】A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems 论文解读 | ACL 2025 | arXiv 2506.02998 | 方言偏差 | 提出多 Agent 协作框架缓解隐私政策 QA 中的方言偏差——Dialect Agent 将方言查询翻译为标准美式英语（SAE）并验证意图保留，Privacy Policy Agent 利用领域专长生成答案，两者迭代协商至达成一致。在 PrivacyQA 和 PolicyQA 上将 GPT-4o-mini 零样本准确率从 0.394 提升至 0.601，方言间最大 F1 差距降低 82%。"
 tags:
   - ACL 2025
-  - 方言偏差
-  - 隐私政策QA
-  - 多Agent框架
 ---
 
 # A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems

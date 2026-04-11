@@ -2,9 +2,6 @@
 description: "【论文笔记】Reparameterized Tensor Ring Functional Decomposition for Multi-Dimensional Data Recovery 论文解读 | CVPR2026 | arXiv 2603.01034 | Tensor Ring分解 | 提出 RepTRFD：通过将 Tensor Ring 因子重参数化为\"可学习隐张量 × 固定基\"的形式，解决 INR 参数化 TR 因子的频谱偏置问题，在图像修复/去噪/超分/点云恢复等任务上全面超越 SOTA。"
 tags:
   - CVPR2026
-  - Tensor Ring分解
-  - 隐式神经表示
-  - 重参数化
 ---
 
 # Reparameterized Tensor Ring Functional Decomposition for Multi-Dimensional Data Recovery

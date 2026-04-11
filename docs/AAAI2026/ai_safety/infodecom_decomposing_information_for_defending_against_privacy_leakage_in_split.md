@@ -2,9 +2,6 @@
 description: "【论文笔记】InfoDecom: Decomposing Information for Defending Against Privacy Leakage in Split Inference 论文解读 | AAAI 2026 | arXiv 2511.13365 | 分割推理 | 提出 InfoDecom，通过两级信息分解（频域视觉信息去除 + 互信息抑制）减少 smashed data 中的冗余信息，再添加闭式计算的高斯噪声提供理论隐私保证，在浅层客户端模型下实现远优于现有方法的 utility-privacy trade-off。"
 tags:
   - AAAI 2026
-  - 分割推理
-  - 数据重构攻击
-  - 隐私保护
 ---
 
 # InfoDecom: Decomposing Information for Defending Against Privacy Leakage in Split Inference

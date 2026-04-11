@@ -2,9 +2,6 @@
 description: "【论文笔记】Doxing via the Lens: Revealing Location-related Privacy Leakage on Multi-modal Large Reasoning Models 论文解读 | ICLR 2026 | arXiv 2504.19373 | 多模态推理模型 | 本文首次系统研究了多模态大推理模型（MLRMs）从用户生成图像中推断敏感地理位置信息的隐私泄露风险，提出三级隐私风险框架、DoxBench 基准和 Glare 信息论评估指标，发现 MLRMs 在地理推断上超越非专家人类，显著降低了攻击者获取敏感位置信息的门槛。"
 tags:
   - ICLR 2026
-  - 多模态推理模型
-  - 隐私泄露
-  - 地理定位
 ---
 
 # Doxing via the Lens: Revealing Location-related Privacy Leakage on Multi-modal Large Reasoning Models

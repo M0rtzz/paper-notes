@@ -2,9 +2,6 @@
 description: "【论文笔记】Progressive Test Time Energy Adaptation for Medical Image Segmentation 论文解读 | ICCV 2025 | arXiv 2503.16616 | test-time adaptation | 提出一种基于能量模型的渐进式测试时自适应方法，训练一个形状能量模型作为分布内/外判别器，在测试时通过最小化能量值引导分割模型适应目标域，在心脏、脊髓、肺部等 8 个公共数据集上持续超越基线。"
 tags:
   - ICCV 2025
-  - test-time adaptation
-  - energy-based model
-  - medical image segmentation
   - 图像分割
 ---
 

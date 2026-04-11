@@ -2,9 +2,6 @@
 description: "【论文笔记】Difficult Examples Hurt Unsupervised Contrastive Learning: A Theoretical Perspective 论文解读 | ICLR 2026 | arXiv 2501.01317 | 对比学习 | 通过相似度图模型理论分析严格证明\"困难样本\"（跨类高相似度样本对）会损害无监督对比学习性能——困难样本使泛化误差界严格恶化，提出删除困难样本、调节 margin 和温度缩放三种理论指导的缓解策略，在 TinyImageNet 上带来高达 10.42% 的线性探测准确率提升。这一发现是反直觉的：深度学习中通常\"更多数据更好\"，但对比学习中精心移除困难样本反而有益。"
 tags:
   - ICLR 2026
-  - 对比学习
-  - 困难样本
-  - 相似度图模型
 ---
 
 # Difficult Examples Hurt Unsupervised Contrastive Learning: A Theoretical Perspective

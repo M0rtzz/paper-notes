@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-modal Data Spectrum: Multi-modal Datasets are Multi-dimensional 论文解读 | ICLR2026 | arXiv 2509.23499 | 多模态基准评测 | 大规模实证研究揭示23个VQA基准中存在严重的单模态依赖问题——许多为消除文本偏差而设计的基准反而引入了图像偏差，模型利用单模态捷径而非真正的跨模态推理。"
 tags:
   - ICLR2026
-  - 多模态基准评测
-  - VQA
-  - 模态偏差
 ---
 
 # Multi-modal Data Spectrum: Multi-modal Datasets are Multi-dimensional

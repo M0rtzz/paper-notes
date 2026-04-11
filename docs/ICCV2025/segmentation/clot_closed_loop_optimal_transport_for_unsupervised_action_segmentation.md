@@ -2,9 +2,6 @@
 description: "【论文笔记】CLOT: Closed Loop Optimal Transport for Unsupervised Action Segmentation 论文解读 | ICCV 2025 | arXiv 2507.03539 | 无监督动作分割 | 提出闭环最优传输（CLOT）框架，通过三级循环特征学习（帧嵌入→段嵌入→交叉注意力精化帧嵌入）联合求解三个OT问题，在帧级和段级表征之间建立显式反馈循环，显著提升无监督动作分割的边界检测和聚类质量。"
 tags:
   - ICCV 2025
-  - 无监督动作分割
-  - 最优传输
-  - 闭环学习
 ---
 
 # CLOT: Closed Loop Optimal Transport for Unsupervised Action Segmentation

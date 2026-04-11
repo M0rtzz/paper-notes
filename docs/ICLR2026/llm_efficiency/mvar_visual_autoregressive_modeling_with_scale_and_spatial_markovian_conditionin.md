@@ -2,9 +2,6 @@
 description: "【论文笔记】MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning 论文解读 | ICLR 2026 | arXiv 2505.12742 | 视觉自回归 | 提出 MVAR（Markovian Visual AutoRegressive），通过引入尺度 Markov 假设（仅依赖相邻尺度而非所有前序尺度）和空间 Markov 注意力（限制邻域大小 k），将 VAR 模型的注意力计算复杂度从 $\mathcal{O}(N^2)$ 降至 $\mathcal{O}(Nk)$，在 ImageNet 256×256 上实现同等或更优性能的同时，推理显存降低 3.0-4.2×，且仅需 8 张 RTX 4090 即可训练。"
 tags:
   - ICLR 2026
-  - 视觉自回归
-  - Next-Scale Prediction
-  - Markov假设
 ---
 
 # MVAR: Visual Autoregressive Modeling with Scale and Spatial Markovian Conditioning

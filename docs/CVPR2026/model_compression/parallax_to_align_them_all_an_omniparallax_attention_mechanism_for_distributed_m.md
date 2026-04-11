@@ -2,9 +2,6 @@
 description: "【论文笔记】Parallax to Align Them All: An OmniParallax Attention Mechanism for Distributed Multi-View Image Compression 论文解读 | CVPR 2026 | arXiv 2603.03615 | 多视角图像压缩 | 提出 OmniParallax Attention Mechanism (OPAM) 用于分布式多视角图像压缩（DMIC），通过两阶段视差注意力显式建模任意视角对之间的相关性和对齐特征，构建的 ParaHydra 框架首次让 DMIC 方法显著超越 SOTA MIC 编码器，同时大幅降低计算开销。"
 tags:
   - CVPR 2026
-  - 多视角图像压缩
-  - 分布式编码
-  - 视差注意力
 ---
 
 # Parallax to Align Them All: An OmniParallax Attention Mechanism for Distributed Multi-View Image Compression

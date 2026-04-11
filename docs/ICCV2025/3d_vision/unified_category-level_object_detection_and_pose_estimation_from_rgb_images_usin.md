@@ -2,9 +2,6 @@
 description: "【论文笔记】Unified Category-Level Object Detection and Pose Estimation from RGB Images using 3D Prototypes 论文解读 | ICCV 2025 | arXiv 2508.02157 | 类别级位姿估计 | 首次提出将物体检测与类别级位姿估计统一到单一模型的 RGB-only 框架，利用 Neural Mesh Models 作为3D原型表示，通过特征匹配和多模型 RANSAC PnP 同时实现检测和 9D 位姿估计，在 REAL275 上所有 scale-agnostic 指标均超越 SOTA。"
 tags:
   - ICCV 2025
-  - 类别级位姿估计
-  - 物体检测
-  - Neural Mesh Models
 ---
 
 # Unified Category-Level Object Detection and Pose Estimation from RGB Images using 3D Prototypes

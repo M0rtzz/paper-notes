@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Language Prior of LVLMs by Contrasting Chain-of-Embedding 论文解读 | ICLR 2026 | arXiv 2509.23050 | 语言先验 | 通过对比有/无视觉输入的逐层隐藏表征（chain-of-embedding），发现LVLM中存在一个\"视觉整合点\"(VIP)层，并据此提出Total Visual Integration (TVI)指标来量化语言先验的强度。"
 tags:
   - ICLR 2026
-  - 语言先验
-  - 视觉整合点
-  - 大视觉语言模型
 ---
 
 # Understanding Language Prior of LVLMs by Contrasting Chain-of-Embedding

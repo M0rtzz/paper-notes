@@ -2,9 +2,6 @@
 description: "【论文笔记】Realism Control One-step Diffusion for Real-World Image Super-Resolution 论文解读 | AAAI 2026 | arXiv 2509.10122 | 图像超分辨率 | 提出 RCOD 框架，通过潜在域分组策略和退化感知采样，赋予单步扩散（OSD）超分辨率方法在推理阶段灵活控制保真度-真实感平衡的能力，同时引入视觉提示注入模块替代文本提示来提升恢复精度。"
 tags:
   - AAAI 2026
-  - 图像超分辨率
-  - 单步扩散
-  - 真实感控制
 ---
 
 # Realism Control One-step Diffusion for Real-World Image Super-Resolution

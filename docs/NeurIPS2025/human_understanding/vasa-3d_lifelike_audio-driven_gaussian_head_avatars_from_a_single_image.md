@@ -2,9 +2,6 @@
 description: "【论文笔记】VASA-3D: Lifelike Audio-Driven Gaussian Head Avatars from a Single Image 论文解读 | NeurIPS 2025 | arXiv 2512.14677 | 3D头部化身 | 提出VASA-3D，通过将VASA-1的2D运动隐空间适配到3D高斯溅射表征，并利用VASA-1合成训练数据进行单图定制优化，实现了从单张肖像照到逼真音频驱动3D头部化身的实时生成（512×512, 75fps）。"
 tags:
   - NeurIPS 2025
-  - 3D头部化身
-  - 音频驱动
-  - 高斯溅射
 ---
 
 # VASA-3D: Lifelike Audio-Driven Gaussian Head Avatars from a Single Image

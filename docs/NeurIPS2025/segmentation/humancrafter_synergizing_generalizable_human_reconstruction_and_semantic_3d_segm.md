@@ -2,9 +2,6 @@
 description: "【论文笔记】HumanCrafter: Synergizing Generalizable Human Reconstruction and Semantic 3D Segmentation 论文解读 | NeurIPS 2025 | arXiv 2511.00468 | 3D Gaussian Splatting | 提出HumanCrafter——首个统一单图3D人体重建与人体部位语义分割的前馈框架，通过人体几何先验引导的Transformer聚合多视角特征，结合DINOv2自监督语义先验构建3D特征场，在2K2K和THuman2.1上同时超越现有3D重建和分割SOTA。"
 tags:
   - NeurIPS 2025
-  - 3D Gaussian Splatting
-  - 人体重建
-  - 3D语义分割
 ---
 
 # HumanCrafter: Synergizing Generalizable Human Reconstruction and Semantic 3D Segmentation

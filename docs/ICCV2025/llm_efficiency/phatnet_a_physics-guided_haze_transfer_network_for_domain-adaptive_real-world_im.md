@@ -2,9 +2,6 @@
 description: "【论文笔记】PHATNet: A Physics-guided Haze Transfer Network for Domain-adaptive Real-world Image Dehazing 论文解读 | ICCV 2025 | arXiv 2507.14826 | 图像去雾 | 提出物理引导的雾迁移网络PHATNet，通过将大气散射模型（ASM）扩展到潜空间来解耦和迁移雾模式，生成域自适应的微调数据集，使去雾模型在测试时有效适应未见过的真实世界雾场景。"
 tags:
   - ICCV 2025
-  - 图像去雾
-  - 域适应
-  - 雾迁移
 ---
 
 # PHATNet: A Physics-guided Haze Transfer Network for Domain-adaptive Real-world Image Dehazing

@@ -2,9 +2,6 @@
 description: "【论文笔记】Private Model Personalization Revisited 论文解读 | ICML 2025 | arXiv 2506.19220 | 差分隐私 | 在用户级差分隐私约束下，提出高效联邦模型个性化算法 Private FedRep，通过共享低维嵌入学习实现个性化，在自然参数区间下将隐私误差相比先前工作降低 O(dk) 倍，并给出维度无关的分类风险界。"
 tags:
   - ICML 2025
-  - 差分隐私
-  - 模型个性化
-  - 共享表示学习
 ---
 
 # Private Model Personalization Revisited

@@ -2,9 +2,6 @@
 description: "【论文笔记】Quant Experts: Token-aware Adaptive Error Reconstruction for Large VLM Quantization 论文解读 | CVPR 2026 | arXiv 2602.24059 | PTQ量化 | 揭示VLM中重要通道的分布和出现频率在跨模态和token间差异显著，提出基于MoE的token感知PTQ框架：共享专家补偿全局token无关误差，路由专家自适应补偿局部token依赖误差，72B模型W4A6恢复5.09%精度。"
 tags:
   - CVPR 2026
-  - PTQ量化
-  - MoE
-  - VLM
 ---
 
 # Quant Experts: Token-aware Adaptive Error Reconstruction for Large VLM Quantization

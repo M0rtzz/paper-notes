@@ -2,9 +2,6 @@
 description: "【论文笔记】Cover Learning for Large-Scale Topology Representation 论文解读 | ICML2025 | arXiv 2503.09767 | 拓扑数据分析 | 提出将\"覆盖学习\"作为独立优化问题：学习几何数据集的拓扑忠实覆盖，由此构建的单纯复形在大小上优于标准拓扑推断方法，在大尺度拓扑表示上优于Mapper类算法。"
 tags:
   - ICML2025
-  - 拓扑数据分析
-  - 覆盖学习
-  - 单纯复形
 ---
 
 # Cover Learning for Large-Scale Topology Representation

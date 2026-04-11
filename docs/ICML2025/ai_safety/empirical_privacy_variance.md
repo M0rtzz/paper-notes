@@ -2,9 +2,6 @@
 description: "【论文笔记】Empirical Privacy Variance 论文解读 | ICML2025 | arXiv 2503.12314 | 差分隐私 | 揭示了在相同 $(ε,δ)$-DP 保证下，DP-SGD 不同超参数配置训练出的语言模型在经验隐私（记忆化程度）上存在显著差异，并提出了兼顾经验隐私的超参数选择启发式方法。"
 tags:
   - ICML2025
-  - 差分隐私
-  - DP-SGD
-  - 经验隐私
 ---
 
 # Empirical Privacy Variance

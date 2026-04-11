@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking External Slow-Thinking: From Snowball Errors to Probability of Correct Reasoning 论文解读 | ICML 2025 | arXiv 2501.15602 | Test-time scaling | 本文从信息论视角系统分析了 LLM 推理中的\"雪球误差\"现象，建立了雪球误差与推理正确概率之间的理论联系，证明了外部慢思考方法（如 BoN、MCTS）本质上是通过扩展搜索宽度来缓解误差累积，并在理论和实验上证明了方法效果主要取决于总推理代价和奖励函数可靠性，而非搜索框架本身。"
 tags:
   - ICML 2025
-  - Test-time scaling
-  - 雪球误差
-  - 信息论
 ---
 
 # Rethinking External Slow-Thinking: From Snowball Errors to Probability of Correct Reasoning

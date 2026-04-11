@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Accuracy: Dissecting Mathematical Reasoning for LLMs Under Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2506.04723 | SPARKLE | 提出 SPARKLE 三轴分析框架（计划执行、知识整合、子问题分解）细粒度剖析 RL 如何改变 LLM 推理行为，发现 RL 主要增强了知识整合能力和计划灵活性而非计划执行能力，并提出 SparkleRL-PSS 多阶段 RL 训练 pipeline 通过 partial step scaffolding 有效利用难题数据。"
 tags:
   - NeurIPS 2025
-  - SPARKLE
-  - GRPO
-  - plan following
 ---
 
 # Beyond Accuracy: Dissecting Mathematical Reasoning for LLMs Under Reinforcement Learning

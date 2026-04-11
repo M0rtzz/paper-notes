@@ -2,9 +2,7 @@
 description: "【论文笔记】Boolean Satisfiability via Imitation Learning 论文解读 | ICLR2026 | arXiv 2509.25411 | SAT | 提出 ImitSAT，首个基于模仿学习的 CDCL 求解器分支策略：通过将求解器运行压缩为无冲突的 KeyTrace 专家序列，将分支决策建模为前缀条件的自回归预测任务，以少量查询预算显著减少传播次数和求解时间，并在结构化 SAT 问题上展现良好泛化能力。"
 tags:
   - ICLR2026
-  - SAT
-  - 模仿学习
-  - CDCL
+  - Transformer
 ---
 
 # Boolean Satisfiability via Imitation Learning

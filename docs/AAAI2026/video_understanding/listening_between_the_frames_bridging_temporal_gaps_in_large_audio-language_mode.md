@@ -2,9 +2,6 @@
 description: "【论文笔记】Listening Between the Frames: Bridging Temporal Gaps in Large Audio-Language Models 论文解读 | AAAI 2026 | arXiv 2511.11039 | 音频语言模型 | 提出 TimeAudio，通过时间标记（Temporal Markers）、绝对时间编码（Absolute Time-aware Encoding）和段级 Token 合并（Segment-level Token Merging）三个关键模块，赋予大型音频语言模型（LALM）精确的时间定位能力和端到端长音频理解能力，并构建了 FTAR 数据集用于细粒度时间推理的指令微调。"
 tags:
   - AAAI 2026
-  - 音频语言模型
-  - 时间定位
-  - 细粒度音频理解
 ---
 
 # Listening Between the Frames: Bridging Temporal Gaps in Large Audio-Language Models

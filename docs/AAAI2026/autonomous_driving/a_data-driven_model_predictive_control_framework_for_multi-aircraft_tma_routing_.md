@@ -2,9 +2,6 @@
 description: "【论文笔记】A Data-Driven Model Predictive Control Framework for Multi-Aircraft TMA Routing Under Travel Time Uncertainty 论文解读 | AAAI 2026 | arXiv 2511.19452 | 终端区管理 | 提出面向终端管制区（TMA）多机冲突解脱和着陆调度的闭环 MPC 框架——集成 XGBoost 到达时间预测、MILP 优化模型（路径选择+速度调整+等待约束）和交通仿真器，在樟宜机场 50 海里 STAR 网络上实现实时无冲突调度，高峰期计算时间比一次性优化降低 7 倍，Monte Carlo 仿真验证鲁棒性。"
 tags:
   - AAAI 2026
-  - 终端区管理
-  - STAR路径调度
-  - 模型预测控制
 ---
 
 # A Data-Driven Model Predictive Control Framework for Multi-Aircraft TMA Routing Under Travel Time Uncertainty

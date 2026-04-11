@@ -2,9 +2,6 @@
 description: "【论文笔记】The Reasoning Trap — Logical Reasoning as a Mechanistic Pathway to Situational Awareness 论文解读 | ICLR 2026 | arXiv 2603.09200 | 情境感知 | 立场论文，提出 RAISE 框架论证逻辑推理能力的提升（演绎/归纳/溯因）会系统性地使 LLM 获得情境感知（situational awareness）能力，从而开启自我推理→战略欺骗的升级路径，并指出当前安全措施不足以阻止这一趋势。"
 tags:
   - ICLR 2026
-  - 情境感知
-  - AI安全
-  - 逻辑推理
 ---
 
 # The Reasoning Trap — Logical Reasoning as a Mechanistic Pathway to Situational Awareness

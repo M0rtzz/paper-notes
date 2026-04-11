@@ -2,9 +2,6 @@
 description: "【论文笔记】Sample Complexity of Distributionally Robust Off-Dynamics Reinforcement Learning with Online Interaction 论文解读 | ICML2025 | arXiv 2511.05396 | Robust MDP | 提出 supremal visitation ratio $C_{vr}$ 度量在线鲁棒 MDP 的探索难度，设计首个支持一般 $f$-散度（TV/KL/$\chi^2$）的高效在线算法 ORBIT，并给出匹配的上下界，证明 $C_{vr}$ 是刻画 off-dynamics RL 在线可学习性的紧致度量。"
 tags:
   - ICML2025
-  - Robust MDP
-  - Off-dynamics RL
-  - Sample Complexity
 ---
 
 # Sample Complexity of Distributionally Robust Off-Dynamics Reinforcement Learning with Online Interaction

@@ -2,9 +2,6 @@
 description: "【论文笔记】Weight Decay may matter more than μP for Learning Rate Transfer in Practice 论文解读 | ICLR2026 | arXiv 2510.19093 | μP | 大规模实证研究表明 μP 的核心对齐假设在实际 LLM 训练中仅在开始时短暂成立，之后是 independent weight decay（而非 μP）正确稳定了不同宽度模型间的特征学习动态，使得学习率迁移成为可能。μP 的实际作用被重新解释为一种隐式学习率 warmup。"
 tags:
   - ICLR2026
-  - μP
-  - weight decay
-  - learning rate transfer
 ---
 
 # Weight Decay may matter more than μP for Learning Rate Transfer in Practice

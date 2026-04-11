@@ -2,9 +2,6 @@
 description: "【论文笔记】NERFIFY: 多智能体框架将NeRF论文自动转化为可运行代码 论文解读 | CVPR 2026 | arXiv 2603.00805 | NeRF | 提出NERFIFY——通过6项关键创新（CFG约束、GoT代码合成、引用链组件恢复、视觉反馈修复、知识增强、系统评测），将NeRF论文可靠转化为可训练的Nerfstudio插件，在无公开实现的论文上达到±0.5dB PSNR的专家级复现质量，实现时间从数周降至数分钟。"
 tags:
   - CVPR 2026
-  - NeRF
-  - 论文转代码
-  - 多智能体
 ---
 
 # NERFIFY: 多智能体框架将NeRF论文自动转化为可运行代码

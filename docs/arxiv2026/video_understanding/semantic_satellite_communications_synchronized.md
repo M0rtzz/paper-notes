@@ -2,9 +2,6 @@
 description: "【论文笔记】Semantic Satellite Communications for Synchronized Audiovisual Reconstruction 论文解读 | arXiv 2026 | arXiv 2603.10791 | semantic | 卫星通信在支持高保真同步视听服务方面面临严重瓶颈，因为传统方案在波动的信道条件、有限的带宽和较长的传播延迟下难以实现跨模态一致性。"
 tags:
   - arXiv 2026
-  - semantic
-  - satellite
-  - communications
 ---
 
 # Semantic Satellite Communications for Synchronized Audiovisual Reconstruction

@@ -2,9 +2,6 @@
 description: "【论文笔记】CodeBrain: Virtual Full-stack Scanning of Brain MRI via Imputing Any Quantised Code 论文解读 | CVPR 2026 | arXiv 2501.18328 | brain MRI | CodeBrain将脑MRI多模态补全(any-to-any imputation)重新定义为区域级全栈量化码预测问题：Stage I用有限标量量化(FSQ)将完整MRI集编码为紧凑code map + 模态无关公共特征，Stage II从不完整模态预测code map(用grading loss保持量化空间平滑性)，在IXI和BraTS 2023上超越5种SOTA方法，生成的模态可接近真实数据的脑肿瘤分割性能。"
 tags:
   - CVPR 2026
-  - brain MRI
-  - modality imputation
-  - scalar quantisation
 ---
 
 # CodeBrain: Virtual Full-stack Scanning of Brain MRI via Imputing Any Quantised Code

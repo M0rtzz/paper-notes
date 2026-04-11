@@ -2,9 +2,6 @@
 description: "【论文笔记】ICLR: Inter-Chrominance and Luminance Interaction for Natural Color Restoration in Low-Light Image Enhancement 论文解读 | AAAI 2026 | arXiv 2511.13607 | 低光图像增强 | 针对HVI色彩空间中色度和亮度分支分布差异大导致互补特征提取不足、以及色度分支间弱相关导致梯度冲突的问题，提出ICLR框架，通过双流交互增强模块(DIEM)和协方差校正损失(CCL)分别从融合增强和统计分布优化两个角度解决，在LOL系列数据集上取得SOTA。"
 tags:
   - AAAI 2026
-  - 低光图像增强
-  - HVI色彩空间
-  - 色度-亮度交互
 ---
 
 # ICLR: Inter-Chrominance and Luminance Interaction for Natural Color Restoration in Low-Light Image Enhancement

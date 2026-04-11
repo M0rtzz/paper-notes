@@ -2,9 +2,6 @@
 description: "【论文笔记】Q-RAG: Long Context Multi-Step Retrieval via Value-Based Embedder Training 论文解读 | ICLR 2026 Oral | arXiv 2511.07328 | multi-step retrieval | 将多步检索建模为 MDP，用基于值的 RL（soft Q-learning）微调 **embedder 而非 LLM**，Q 函数设计为状态嵌入和动作嵌入的内积（理论证明为万能近似器），结合 RoPE 相对位置编码实现时序推理，在单卡 A100 上训练 12 小时，4K 训练泛化到 1M+ token 上下文，RULER 基准达到近乎完美的 NIAH 性能。"
 tags:
   - ICLR 2026 Oral
-  - multi-step retrieval
-  - value-based RL
-  - embedder training
 ---
 
 # Q-RAG: Long Context Multi-Step Retrieval via Value-Based Embedder Training

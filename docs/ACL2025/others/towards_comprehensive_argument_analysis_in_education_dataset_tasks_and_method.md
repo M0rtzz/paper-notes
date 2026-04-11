@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Comprehensive Argument Analysis in Education: Dataset, Tasks, and Method 论文解读 | ACL 2025 | arXiv 2505.12028 | Argument Mining | 本文针对中文高中议论文，提出包含纵向（论证关系）和横向（话语关系）两个维度共 14 种细粒度论证关系类型的标注方案，并在论证成分检测、关系预测和自动评分三个任务上建立了全面的 benchmark。"
 tags:
   - ACL 2025
-  - Argument Mining
-  - 论证关系
-  - 教育评估
 ---
 
 # Towards Comprehensive Argument Analysis in Education: Dataset, Tasks, and Method

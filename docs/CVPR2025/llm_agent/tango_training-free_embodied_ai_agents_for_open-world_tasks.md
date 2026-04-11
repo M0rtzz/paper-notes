@@ -2,9 +2,6 @@
 description: "【论文笔记】TANGO: Training-free Embodied AI Agents for Open-world Tasks 论文解读 | CVPR 2025 | arXiv 2412.10402 | Embodied AI | 提出 TANGO，通过 LLM 的程序组合能力编排两个最小化的导航基础原语（PointGoal Navigation + 记忆驱动探索策略），无需任何任务特定训练，仅用 few-shot 示例即可在 Open-Set ObjectGoal Navigation、Multi-Modal Lifelong Navigation 和 Open Embodied QA 三个不同的具身 AI 任务上达到 SOTA，体现了\"最小原语集 + LLM 组合\"的通用性。"
 tags:
   - CVPR 2025
-  - Embodied AI
-  - 导航
-  - LLM程序合成
 ---
 
 # TANGO: Training-free Embodied AI Agents for Open-world Tasks

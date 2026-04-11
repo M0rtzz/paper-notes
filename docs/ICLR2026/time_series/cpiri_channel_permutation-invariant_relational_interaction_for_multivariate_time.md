@@ -2,9 +2,6 @@
 description: "【论文笔记】CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting 论文解读 | ICLR2026 | arXiv 2601.20318 | 多变量时间序列预测 | 提出 CPiRi 框架，通过冻结的预训练时序编码器 + 轻量空间 Transformer + 通道打乱训练策略，实现通道排列不变 (CPI) 的跨通道关系建模，在 5 个基准上达到 SOTA 且通道打乱后性能几乎无损 ($\Delta$WAPE < 0.25%)。"
 tags:
   - ICLR2026
-  - 多变量时间序列预测
-  - 通道排列不变性
-  - 时空解耦
 ---
 
 # CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting

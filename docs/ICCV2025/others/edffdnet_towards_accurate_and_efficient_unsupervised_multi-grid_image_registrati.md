@@ -2,9 +2,6 @@
 description: "【论文笔记】EDFFDNet: Towards Accurate and Efficient Unsupervised Multi-Grid Image Registration 论文解读 | ICCV 2025 | arXiv 2509.07662 | 图像配准 | 提出 EDFFDNet，采用指数衰减自由形变 (EDFFD) 替代传统 B-spline FFD 和 TPS 进行图像配准，配合自适应稀疏运动聚合器 (ASMA) 和渐进式相关策略，在 UDIS-D 数据集上以减少 70.5% 参数、32.6% 显存的代价实现 +0.5dB PSNR 提升。"
 tags:
   - ICCV 2025
-  - 图像配准
-  - 自由形变
-  - 指数衰减基函数
 ---
 
 # EDFFDNet: Towards Accurate and Efficient Unsupervised Multi-Grid Image Registration

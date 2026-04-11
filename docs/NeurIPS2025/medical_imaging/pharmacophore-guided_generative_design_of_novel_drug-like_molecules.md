@@ -2,9 +2,6 @@
 description: "【论文笔记】Pharmacophore-Guided Generative Design of Novel Drug-Like Molecules 论文解读 | NeurIPS 2025 | arXiv 2510.01480 | 药效团引导 | 提出一种药效团引导的分子生成框架，在强化学习模型（FREED++）的奖励函数中同时最大化药效团相似度和最小化结构相似度，生成既保留生物活性特征又具有高结构新颖性的候选药物分子。"
 tags:
   - NeurIPS 2025
-  - 药效团引导
-  - 分子生成
-  - 强化学习
 ---
 
 # Pharmacophore-Guided Generative Design of Novel Drug-Like Molecules

@@ -2,9 +2,6 @@
 description: "【论文笔记】Evolution of Concepts in Language Model Pre-Training 论文解读 | ICLR 2026 | arXiv 2509.17196 | mechanistic interpretability | 首次将 crosscoders（跨快照稀疏字典学习）应用于追踪语言模型预训练过程中特征的涌现和演化，发现预训练存在\"统计学习→特征学习\"两阶段相变，并通过归因分析将微观特征演化与宏观下游任务指标因果关联。"
 tags:
   - ICLR 2026
-  - mechanistic interpretability
-  - crosscoders
-  - sparse autoencoders
 ---
 
 # Evolution of Concepts in Language Model Pre-Training

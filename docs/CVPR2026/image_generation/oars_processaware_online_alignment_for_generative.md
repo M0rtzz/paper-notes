@@ -2,10 +2,7 @@
 description: "【论文笔记】OARS: Process-Aware Online Alignment for Generative Real-World Image Super-Resolution 论文解读 | CVPR 2026 | arXiv 2603.12811 | 超分辨率 Real-World Super-Resolution | 提出了OARS框架，通过基于MLLM的过程感知奖励模型COMPASS和渐进式在线强化学习，将生成式真实世界超分辨率模型与人类视觉偏好对齐，在感知质量和保真度之间实现自适应平衡。"
 tags:
   - CVPR 2026
-  - Real-World Super-Resolution
   - 超分辨率
-  - Online RL
-  - MLLM Reward
 ---
 
 # OARS: Process-Aware Online Alignment for Generative Real-World Image Super-Resolution

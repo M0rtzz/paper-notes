@@ -2,9 +2,6 @@
 description: "【论文笔记】Out of Control -- Why Alignment Needs Formal Control Theory (and an Alignment Control Stack) 论文解读 | NeurIPS 2025 | arXiv 2506.17846 | AI对齐 | 本文是一篇 position paper，主张将形式化最优控制理论作为 AI 对齐研究的核心工具，并提出\"对齐控制栈\"(Alignment Control Stack, ACS)——一个从物理硬件层到社会治理层的十层分层框架，用于系统地组织和分析不同对齐方法的测量、控制与互操作性。"
 tags:
   - NeurIPS 2025
-  - AI对齐
-  - 控制论
-  - 对齐控制栈
 ---
 
 # Out of Control -- Why Alignment Needs Formal Control Theory (and an Alignment Control Stack)

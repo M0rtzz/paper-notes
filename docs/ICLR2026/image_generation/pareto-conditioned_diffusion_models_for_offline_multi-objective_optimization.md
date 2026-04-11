@@ -2,9 +2,6 @@
 description: "【论文笔记】Pareto-Conditioned Diffusion Models for Offline Multi-Objective Optimization 论文解读 | ICLR 2026 | arXiv 2602.00737 | 离线多目标优化 | 提出 Pareto-Conditioned Diffusion (PCD)，将离线多目标优化重构为条件采样问题，直接以目标权衡为条件生成高质量解，无需显式代理模型，在多种基准上实现最佳一致性。"
 tags:
   - ICLR 2026
-  - 离线多目标优化
-  - 条件扩散模型
-  - Pareto 前沿
 ---
 
 # Pareto-Conditioned Diffusion Models for Offline Multi-Objective Optimization

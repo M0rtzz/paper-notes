@@ -2,9 +2,6 @@
 description: "【论文笔记】FRACTAL: Fine-Grained Scoring from Aggregate Text Labels 论文解读 | ACL 2025 | arXiv 2404.04817 | 细粒度评分 | 提出 FRACTAL 方法，将回复级别（response-level）的聚合标签分解为句子级别（sentence-level）的伪标签，利用多实例学习（MIL）和标签比例学习（LLP）技术结合先验信息（文档-句子余弦相似度）训练句子级评分模型，覆盖检索、问答、摘要和数学推理四类任务。"
 tags:
   - ACL 2025
-  - 细粒度评分
-  - 多实例学习
-  - 标签比例学习
 ---
 
 # FRACTAL: Fine-Grained Scoring from Aggregate Text Labels

@@ -2,9 +2,6 @@
 description: "【论文笔记】Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding 论文解读 | ICLR2026 | arXiv 2602.06733 | MAPF | 提出 HMAGAT，用有向超图注意力网络替代 GNN 的成对消息传递来建模多智能体路径规划中的群体交互，仅用 1M 参数和 1% 训练数据即超越 85M 参数的 SOTA 模型。"
 tags:
   - ICLR2026
-  - MAPF
-  - 超图神经网络
-  - 注意力机制
 ---
 
 # Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding

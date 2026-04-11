@@ -2,9 +2,6 @@
 description: "【论文笔记】Unsupervised Visual Chain-of-Thought Reasoning via Preference Optimization 论文解读 | ICCV 2025 | arXiv 2504.18397 | Visual CoT | 提出UV-CoT框架，通过自动生成偏好数据和改进的Score-DPO损失函数，在不需要人工标注bounding box的情况下实现图像级链式思维（Visual CoT）推理，在6个基准上超越有监督的Visual-CoT方法。"
 tags:
   - ICCV 2025
-  - Visual CoT
-  - 偏好优化
-  - 无监督学习
 ---
 
 # Unsupervised Visual Chain-of-Thought Reasoning via Preference Optimization

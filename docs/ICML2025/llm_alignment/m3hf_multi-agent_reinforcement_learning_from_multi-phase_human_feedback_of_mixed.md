@@ -2,9 +2,6 @@
 description: "【论文笔记】M³HF: Multi-agent Reinforcement Learning from Multi-phase Human Feedback of Mixed Quality 论文解读 | ICML 2025 | arXiv 2503.02077 | 多智能体强化学习 | 提出 M³HF 框架，在多智能体强化学习训练过程中整合多阶段、混合质量的人类自然语言反馈，利用 LLM 解析反馈并通过预定义模板和自适应权重更新奖励函数，显著提升多智能体协作性能。"
 tags:
   - ICML 2025
-  - 多智能体强化学习
-  - 人类反馈
-  - 奖励设计
 ---
 
 # M³HF: Multi-agent Reinforcement Learning from Multi-phase Human Feedback of Mixed Quality

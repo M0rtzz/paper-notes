@@ -2,9 +2,6 @@
 description: "【论文笔记】Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret in Noise-Free Gaussian Process Bandits 论文解读 | NeurIPS 2025 | arXiv 2502.19006 | Gaussian Process Bandits | 本文证明 GP-UCB 在 noise-free GP bandit 问题中可达到 nearly-optimal regret，首次在 SE 核下实现 $O(1)$ 常数累积遗憾、在 Matérn 核（$d < \nu$）下实现 $O(1)$ 累积遗憾，弥合了 GP-UCB 理论与实践之间的长期差距。"
 tags:
   - NeurIPS 2025
-  - Gaussian Process Bandits
-  - GP-UCB
-  - Regret Bounds
 ---
 
 # Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret in Noise-Free Gaussian Process Bandits

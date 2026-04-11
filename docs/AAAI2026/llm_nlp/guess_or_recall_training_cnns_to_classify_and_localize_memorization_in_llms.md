@@ -2,10 +2,7 @@
 description: "【论文笔记】Guess or Recall? Training CNNs to Classify and Localize Memorization in LLMs 论文解读 | AAAI 2026 | arXiv 2508.02573 | memorization taxonomy | 在 LLM 注意力权重上训练 CNN 来评估记忆化分类法与实际注意力机制的对齐程度，提出新的三类分类法（Guess/Recall/Non-Memorized），最小 F1 从 64.7% 提升至 89.0%，并定位了不同记忆类型分别依赖低层（Guess）和高层（Recall）注意力。"
 tags:
   - AAAI 2026
-  - memorization taxonomy
-  - attention analysis
   - 注意力机制
-  - CNN classifier
 ---
 
 # Guess or Recall? Training CNNs to Classify and Localize Memorization in LLMs

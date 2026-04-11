@@ -2,9 +2,6 @@
 description: "【论文笔记】Banyan: Improved Representation Learning with Explicit Structure 论文解读 | ICML 2025 | arXiv 2407.17771 | 递归神经网络 | Banyan 通过**纠缠层次树结构**和**对角化消息传递**两大创新，仅用 14 个非嵌入参数就在语义文本相似度任务上超越了大规模 Transformer 模型，为低资源语言的语义表示学习提供了高效可行的替代方案。"
 tags:
   - ICML 2025
-  - 递归神经网络
-  - 层次结构学习
-  - 语义表示
 ---
 
 # Banyan: Improved Representation Learning with Explicit Structure

@@ -2,9 +2,6 @@
 description: "【论文笔记】Fused-Planes: Why Train a Thousand Tri-Planes When You Can Share? 论文解读 | ICLR 2026 | arXiv 2410.23742 | tri-plane | 提出 Fused-Planes，通过宏观-微观分解将 Tri-Plane 表示分为共享的类级基平面（macro）和对象特有的细节平面（micro），结合潜空间渲染，实现 7× 训练加速、3× 内存压缩，同时保持甚至超越独立 Tri-Plane 的重建质量。"
 tags:
   - ICLR 2026
-  - tri-plane
-  - NeRF
-  - shared representation
 ---
 
 # Fused-Planes: Why Train a Thousand Tri-Planes When You Can Share?

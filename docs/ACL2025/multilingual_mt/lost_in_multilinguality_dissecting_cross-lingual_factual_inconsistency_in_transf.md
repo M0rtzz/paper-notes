@@ -2,9 +2,6 @@
 description: "【论文笔记】Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models 论文解读 | ACL 2025 | arXiv 2504.04264 | cross-lingual consistency | 用机制可解释性方法解剖多语言 LLM 的跨语言事实不一致问题，发现模型在大多数层中以语言无关的概念空间处理知识，但在最后几层的\"语言转换\"过程中失败导致不一致，提出线性快捷方法绕过最后层以提升一致性和准确率。"
 tags:
   - ACL 2025
-  - cross-lingual consistency
-  - mechanistic interpretability
-  - language transition
 ---
 
 # Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models

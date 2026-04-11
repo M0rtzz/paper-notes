@@ -2,10 +2,7 @@
 description: "【论文笔记】Flipping Knowledge Distillation: Leveraging Small Models' Expertise to Enhance LLMs in Text Matching 论文解读 | ACL 2025 | arXiv 2507.05617 | 知识蒸馏 knowledge distillation | 本文提出\"反向知识蒸馏\"范式——让 LLM 从微调过的小模型学习文本匹配的领域专家知识，通过将 decoder-only LLM 重新解释为 encoder-decoder 架构（用 LoRA 的压缩矩阵做 encoder）并设计 Margin-aware Contrastive Loss 来对齐表示相似度。"
 tags:
   - ACL 2025
-  - knowledge distillation
   - 知识蒸馏
-  - text matching
-  - reverse distillation
 ---
 
 # Flipping Knowledge Distillation: Leveraging Small Models' Expertise to Enhance LLMs in Text Matching

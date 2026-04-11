@@ -2,9 +2,6 @@
 description: "【论文笔记】4DGCPro: Efficient Hierarchical 4D Gaussian Compression for Progressive Volumetric Video Streaming 论文解读 | NeurIPS 2025 | arXiv 2509.17513 | 4D Gaussian Splatting | 提出层级化的4D高斯压缩框架4DGCPro，通过感知加权的层级高斯表示、运动感知自适应分组和端到端熵优化训练，在单一模型内实现多码率渐进式体积视频流媒体，可在移动设备上实时解码和渲染，RD性能超越现有SOTA。"
 tags:
   - NeurIPS 2025
-  - 4D Gaussian Splatting
-  - 渐进式流媒体
-  - 体积视频压缩
 ---
 
 # 4DGCPro: Efficient Hierarchical 4D Gaussian Compression for Progressive Volumetric Video Streaming

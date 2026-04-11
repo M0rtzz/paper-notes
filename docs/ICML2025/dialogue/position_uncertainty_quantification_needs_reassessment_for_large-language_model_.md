@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Uncertainty Quantification Needs Reassessment for Large-Language Model Agents 论文解读 | ICML2025 | arXiv 2505.22655 | 不确定性量化 | 这篇 position paper 挑战了传统\"偶然 vs 认知\"不确定性二分法在 LLM Agent 场景中的适用性，指出两类不确定性的定义本身相互矛盾，并提出三个面向 Agent 交互的新研究方向：欠规范不确定性、交互式学习、以及丰富的输出不确定性表达。"
 tags:
   - ICML2025
-  - 不确定性量化
-  - 认知不确定性
-  - 偶然不确定性
 ---
 
 # Position: Uncertainty Quantification Needs Reassessment for Large-Language Model Agents

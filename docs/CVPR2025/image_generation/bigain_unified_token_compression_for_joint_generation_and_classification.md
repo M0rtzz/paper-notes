@@ -2,9 +2,6 @@
 description: "【论文笔记】BiGain: Unified Token Compression for Joint Generation and Classification 论文解读 | CVPR 2025 | arXiv 2603.12240 | Token压缩 | BiGain 首次将扩散模型的 token 压缩重新定义为生成+分类的双目标优化问题，提出拉普拉斯门控 token 合并（L-GTM）和插值-外推 KV 下采样（IE-KVD）两个频率感知算子，在保持生成质量同时显著提升分类准确率（ImageNet-1K 70%合并比下 Acc +7.15%，FID -0.34）。"
 tags:
   - CVPR 2025
-  - Token压缩
-  - 扩散模型分类
-  - 频率感知
 ---
 
 # BiGain: Unified Token Compression for Joint Generation and Classification

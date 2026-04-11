@@ -2,10 +2,7 @@
 description: "【论文笔记】FineRS: Fine-grained Reasoning and Segmentation of Small Objects with Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2510.21311 | 图像分割 small object segmentation | 提出 FineRS 两阶段 MLLM 强化学习框架（全局语义探索 GSE → 局部感知精化 LPR），通过 locate-informed retrospective reward 耦合两阶段，在自建 FineRS-4k UAV 高分辨率数据集上实现超小目标的推理与分割，gIoU 达 55.1%（超 Seg-Zero† 8.5%），同时支持 VQA（MVQA 83.3%）。"
 tags:
   - NeurIPS 2025
-  - small object segmentation
   - 图像分割
-  - MLLM
-  - reinforcement learning
   - 强化学习
 ---
 

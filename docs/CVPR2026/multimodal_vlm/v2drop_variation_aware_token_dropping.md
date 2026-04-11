@@ -2,9 +2,7 @@
 description: "【论文笔记】V2Drop: Variation-aware Vision Token Dropping for Faster Large Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2509.01552 | 视觉token压缩 | 首次从token变化量视角出发，发现LLM层间变化小的\"懒惰\"视觉token对输出影响可忽略，提出V2Drop渐进式剪除低变化token，在图像理解上保留94.0%性能同时减少31.5%生成延迟，视频理解上保留98.6%性能减少74.2%延迟，且完全兼容FlashAttention。"
 tags:
   - CVPR 2026
-  - 视觉token压缩
-  - LVLM推理加速
-  - token变化量
+  - 注意力机制
 ---
 
 # V2Drop: Variation-aware Vision Token Dropping for Faster Large Vision-Language Models

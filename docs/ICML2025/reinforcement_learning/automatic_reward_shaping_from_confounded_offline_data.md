@@ -2,9 +2,6 @@
 description: "【论文笔记】Automatic Reward Shaping from Confounded Offline Data 论文解读 | ICML2025 | arXiv 2505.11478 | 奖励塑形 | 首次提出从含混淆偏差的离线数据中自动学习奖励塑形函数——利用因果状态值上界作为PBRS的势函数，证明了在UCB框架下的gap-dependent后悔界改进。"
 tags:
   - ICML2025
-  - 奖励塑形
-  - 因果推断
-  - 混淆偏差
 ---
 
 # Automatic Reward Shaping from Confounded Offline Data

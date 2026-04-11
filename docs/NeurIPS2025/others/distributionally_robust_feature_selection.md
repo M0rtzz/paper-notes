@@ -2,9 +2,6 @@
 description: "【论文笔记】Distributionally Robust Feature Selection 论文解读 | NeurIPS 2025 | arXiv 2510.21113 | 特征选择 | 本文提出一种模型无关的分布鲁棒特征选择方法，通过向协变量注入可控高斯噪声实现离散选择的连续松弛，并优化 Bayes 最优预测器的条件方差，使选出的特征子集能在多个子群体上同时训练出高质量下游模型。"
 tags:
   - NeurIPS 2025
-  - 特征选择
-  - 分布鲁棒优化
-  - Group DRO
 ---
 
 # Distributionally Robust Feature Selection

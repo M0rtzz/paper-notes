@@ -2,9 +2,6 @@
 description: "【论文笔记】The Silent Assistant: NoiseQuery as Implicit Guidance for Goal-Driven Image Generation 论文解读 | ICCV 2025 | arXiv 2412.05101 | 初始噪声优化 | 本文提出 NoiseQuery，一种免训练的 T2I 生成增强方法，通过预构建大规模噪声库并在推理时检索与用户目标最匹配的初始噪声，实现高级语义和低级视觉属性的细粒度控制，仅需 0.002 秒/prompt 的额外开销即可提升多种 T2I 模型和增强技术的效果。"
 tags:
   - ICCV 2025
-  - 初始噪声优化
-  - Noise Library
-  - 跨模型一致性
 ---
 
 # The Silent Assistant: NoiseQuery as Implicit Guidance for Goal-Driven Image Generation

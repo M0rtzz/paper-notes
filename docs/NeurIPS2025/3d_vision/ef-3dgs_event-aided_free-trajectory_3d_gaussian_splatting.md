@@ -2,9 +2,7 @@
 description: "【论文笔记】EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting 论文解读 | NeurIPS 2025 | arXiv 2410.15392 | event camera | EF-3DGS 首次将事件相机引入自由轨迹场景重建，通过事件生成模型（EGM）重建帧间潜在图像做连续监督、对比度最大化（CMax）结合线性事件模型（LEGM）挖掘运动信息校准位姿，以及光度 BA + Fixed-GS 策略解决颜色不一致问题，在高速场景下 PSNR 提升 3dB、ATE 降低 40%。"
 tags:
   - NeurIPS 2025
-  - event camera
-  - 3D Gaussian Splatting
-  - free-trajectory
+  - 位姿估计
 ---
 
 # EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting

@@ -2,9 +2,6 @@
 description: "【论文笔记】PIGDreamer: Privileged Information Guided World Models for Safe Partially Observable RL 论文解读 | ICML2025 | arXiv 2508.02159 | 安全RL | 提出PIGDreamer——用特权信息增强安全RL中的世界模型：理论上定义了ACPOMDP框架刻画特权信息在安全RL中的优势，实践上通过特权表示对齐+非对称Actor-Critic结构在部分可观测安全任务上超越现有方法。"
 tags:
   - ICML2025
-  - 安全RL
-  - 部分可观测
-  - 特权信息
 ---
 
 # PIGDreamer: Privileged Information Guided World Models for Safe Partially Observable RL

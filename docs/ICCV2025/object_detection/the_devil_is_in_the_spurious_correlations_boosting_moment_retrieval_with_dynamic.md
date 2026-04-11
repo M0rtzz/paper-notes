@@ -2,9 +2,6 @@
 description: "【论文笔记】The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning 论文解读 | ICCV 2025 | arXiv 2501.07305 | Moment Retrieval | 首次揭示文本查询与视频背景帧之间的虚假相关性是时刻检索性能瓶颈的根本原因，提出 TD-DETR 框架通过动态上下文视频合成和文本-动态交互增强两个策略来缓解该问题，在 QVHighlights 和 Charades-STA 上达到 SOTA。"
 tags:
   - ICCV 2025
-  - Moment Retrieval
-  - Spurious Correlation
-  - Video Synthesis
 ---
 
 # The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning

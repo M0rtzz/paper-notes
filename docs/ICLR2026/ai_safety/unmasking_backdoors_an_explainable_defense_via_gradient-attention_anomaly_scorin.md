@@ -2,9 +2,6 @@
 description: "【论文笔记】Unmasking Backdoors: An Explainable Defense via Gradient-Attention Anomaly Scoring for Pre-trained Language Models 论文解读 | ICLR 2026 | arXiv 2510.04347 | 后门检测 | 提出 X-GRAAD，一种推理时后门防御方法：结合注意力异常评分和梯度重要性评分定位触发器token，再通过字符级扰动中和触发器。在5个Transformer模型×3种攻击上ASR降至接近0%，同时保持88-95%+的CACC，且速度比PURE快30倍。"
 tags:
   - ICLR 2026
-  - 后门检测
-  - 梯度-注意力异常评分
-  - 可解释防御
 ---
 
 # Unmasking Backdoors: An Explainable Defense via Gradient-Attention Anomaly Scoring for Pre-trained Language Models

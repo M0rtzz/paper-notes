@@ -2,9 +2,6 @@
 description: "【论文笔记】TIMING: Temporality-Aware Integrated Gradients for Time Series Explanation 论文解读 | ICML2025 | arXiv 2506.05035 | Integrated Gradients | 提出 TIMING 方法，通过引入时序感知的分段随机掩码基线改进 Integrated Gradients，同时设计新评估指标 CPD/CPP 解决现有时序 XAI 评估中正负归因相互抵消的问题，在多个真实数据集上全面超越现有基线。"
 tags:
   - ICML2025
-  - Integrated Gradients
-  - 时间序列解释
-  - 特征归因
 ---
 
 # TIMING: Temporality-Aware Integrated Gradients for Time Series Explanation

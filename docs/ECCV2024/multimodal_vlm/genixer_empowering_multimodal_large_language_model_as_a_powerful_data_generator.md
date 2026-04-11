@@ -2,9 +2,6 @@
 description: "【论文笔记】Genixer: Empowering Multimodal Large Language Model as a Powerful Data Generator 论文解读 | ECCV2024 | arXiv 2312.06731 | 多模态大语言模型 | 提出 Genixer 数据生成流水线，训练 MLLM 自身作为数据生成器，无需依赖 GPT-4V 即可自动生成高质量视觉指令微调数据，生成的 915K VQA 数据和 350K REC 数据分别提升 LLaVA1.5 和 Shikra 在多个基准上的表现。"
 tags:
   - ECCV2024
-  - 多模态大语言模型
-  - 视觉指令微调
-  - 数据生成
 ---
 
 # Genixer: Empowering Multimodal Large Language Model as a Powerful Data Generator

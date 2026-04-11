@@ -2,11 +2,9 @@
 description: "【论文笔记】TRACE: Your Diffusion Model is Secretly an Instance Edge Detector 论文解读 | ICLR 2026 | arXiv 2503.07982 | 扩散模型 diffusion model | 发现文本到图像扩散模型的自注意力图在去噪过程特定时间步隐式编码了实例边界信息，提出 TRACE 框架通过实例涌现点(IEP)和注意力边界散度(ABDiv)提取这些边界，并蒸馏为单步边缘检测器，在无监督实例分割和弱监督全景分割上大幅超越已有方法。"
 tags:
   - ICLR 2026
-  - diffusion model
   - 扩散模型
-  - instance edge
-  - unsupervised segmentation
   - 图像分割
+  - 注意力机制
 ---
 
 # TRACE: Your Diffusion Model is Secretly an Instance Edge Detector

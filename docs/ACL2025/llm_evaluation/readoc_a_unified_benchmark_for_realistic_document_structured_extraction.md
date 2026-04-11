@@ -2,9 +2,6 @@
 description: "【论文笔记】READoc: A Unified Benchmark for Realistic Document Structured Extraction 论文解读 | ACL 2025 | arXiv 2409.05137 | 文档结构化提取 | READoc 提出了首个将文档结构化提取（DSE）定义为端到端 PDF 到 Markdown 转换的统一基准，包含 3,576 篇来自 arXiv/GitHub/Zenodo 的真实文档和三模块评估套件（标准化+分割+评分），首次揭示了当前 DSE 系统与真实场景需求之间的差距。"
 tags:
   - ACL 2025
-  - 文档结构化提取
-  - 统一基准
-  - PDF转Markdown
 ---
 
 # READoc: A Unified Benchmark for Realistic Document Structured Extraction

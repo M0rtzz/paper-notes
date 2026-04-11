@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding the Limits of Deep Tabular Methods with Temporal Shift 论文解读 | ICML 2025 | arXiv 2502.20260 | 表格数据 | 揭示深度表格模型在时间分布偏移下失败的根因——训练滞后与验证偏差导致模型选择失效，以及模型表示丢失周期/趋势信息——并提出改进的时序划分策略和基于傅里叶级数的即插即用时间嵌入方法。"
 tags:
   - ICML 2025
-  - 表格数据
-  - 时间分布偏移
-  - 数据划分策略
 ---
 
 # Understanding the Limits of Deep Tabular Methods with Temporal Shift

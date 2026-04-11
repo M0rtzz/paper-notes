@@ -2,7 +2,6 @@
 description: "【论文笔记】LOCORE: Image Re-ranking with Long-Context Sequence Modeling 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：We introduce LOCORE, Long-Context Re-ranker, a model that takes as input local descriptors corresponding to an image query and a list of gallery images and outputs similarity scores between the query and each gallery image. This model is used for image retrieval, where typically a first ranking is p"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # LOCORE: Image Re-ranking with Long-Context Sequence Modeling

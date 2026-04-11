@@ -2,9 +2,6 @@
 description: "【论文笔记】SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders 论文解读 | NeurIPS 2025 | arXiv 2508.08211 | LLM水印 | 提出SAEMark框架，利用稀疏自编码器（SAE）提取文本的语义特征浓度评分，通过推理阶段的特征引导拒绝采样实现多比特水印嵌入，无需修改模型权重或logits，天然支持黑盒API、多语言和代码等场景，在英文/中文/代码上均达到领先的水印精度与文本质量。"
 tags:
   - NeurIPS 2025
-  - LLM水印
-  - 稀疏自编码器
-  - 多语言水印
 ---
 
 # SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders

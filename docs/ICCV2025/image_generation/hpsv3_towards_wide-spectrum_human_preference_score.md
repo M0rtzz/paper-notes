@@ -2,9 +2,6 @@
 description: "【论文笔记】HPSv3: Towards Wide-Spectrum Human Preference Score 论文解读 | ICCV 2025 | arXiv 2508.03789 | 人类偏好评分 | HPSv3 构建了首个宽谱人类偏好数据集 HPDv3（1.08M 图文对、1.17M 标注对），采用 VLM 骨干（Qwen2-VL）+ 不确定性感知排序损失训练偏好模型，并提出 CoHP 链式思维迭代生成方法，显著提升图像生成评估的准确性和覆盖范围。"
 tags:
   - ICCV 2025
-  - 人类偏好评分
-  - 图像质量评估
-  - 不确定性感知排序
 ---
 
 # HPSv3: Towards Wide-Spectrum Human Preference Score

@@ -2,9 +2,6 @@
 description: "【论文笔记】PACE: Pretrained Audio Continual Learning 论文解读 | ICLR 2026 | arXiv 2602.03355 | 音频持续学习 | 首次系统性构建音频持续学习基准，揭示预训练音频模型因底层频谱特征主导导致的上游-下游不匹配问题，提出 PACE 方法（改进首会话适应 + 自适应子空间正交 PEFT + 边界感知扰动），在 6 个音频 CL 基准上大幅超越 SOTA。"
 tags:
   - ICLR 2026
-  - 音频持续学习
-  - 预训练模型
-  - 参数高效微调
 ---
 
 # PACE: Pretrained Audio Continual Learning

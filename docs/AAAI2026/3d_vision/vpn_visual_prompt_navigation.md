@@ -2,9 +2,6 @@
 description: "【论文笔记】VPN: Visual Prompt Navigation 论文解读 | AAAI 2026 | arXiv 2508.01766 | 视觉导航 | 提出视觉提示导航（VPN）新范式：用户在 2D 俯视图上标注视觉轨迹（箭头连接关键路点）来引导智能体导航，替代自然语言指令和图像目标指令，构建了 R2R-VP 和 R2R-CE-VP 两个数据集及 VPNet 基线模型，结合视图级和轨迹级数据增强后在离散和连续环境中均取得优异性能。"
 tags:
   - AAAI 2026
-  - 视觉导航
-  - 视觉提示
-  - 俯视图
 ---
 
 # VPN: Visual Prompt Navigation

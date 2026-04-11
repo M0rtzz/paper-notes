@@ -2,9 +2,6 @@
 description: "【论文笔记】MEraser: An Effective Fingerprint Erasure Approach for Large Language Models 论文解读 | ACL 2025 | arXiv 2506.12551 | fingerprint erasure | 提出 MEraser（Mismatched Eraser），通过两阶段微调策略（错配数据擦除 + 干净数据恢复）以不到 1000 条样本完全移除 LLM 中基于后门的指纹水印，同时保持模型性能，并首创可迁移的 LoRA 擦除适配器。"
 tags:
   - ACL 2025
-  - fingerprint erasure
-  - backdoor removal
-  - model IP protection
 ---
 
 # MEraser: An Effective Fingerprint Erasure Approach for Large Language Models

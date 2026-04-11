@@ -2,9 +2,6 @@
 description: "【论文笔记】Masking in Multi-hop QA: How LMs Perform with Context Permutation 论文解读 | ACL 2025 | arXiv 2505.11754 | multi-hop QA | 系统分析因果掩码对 LLM 多跳 QA 的影响，发现 encoder-decoder（Flan-T5 770M）零样本多跳性能优于 decoder-only（Qwen 7B），且 prefix mask 可提升 decoder-only 的多跳推理能力 5.1%。"
 tags:
   - ACL 2025
-  - multi-hop QA
-  - causal mask
-  - attention
   - 注意力机制
 ---
 

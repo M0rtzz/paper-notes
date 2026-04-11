@@ -2,9 +2,6 @@
 description: "【论文笔记】DiffOP: Reinforcement Learning of Optimization-Based Control Policies via Implicit Policy Gradients 论文解读 | AAAI2026 | arXiv 2411.07484 | optimization-based control | 提出 DiffOP 框架，将优化型控制策略（如 MPC）视为可微分模块，通过隐式微分推导解析策略梯度，实现端到端强化学习训练，并给出首个非渐近收敛保证。"
 tags:
   - AAAI2026
-  - optimization-based control
-  - implicit differentiation
-  - policy gradient
 ---
 
 # DiffOP: Reinforcement Learning of Optimization-Based Control Policies via Implicit Policy Gradients

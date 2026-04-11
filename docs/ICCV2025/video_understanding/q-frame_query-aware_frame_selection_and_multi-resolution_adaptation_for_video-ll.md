@@ -2,9 +2,6 @@
 description: "【论文笔记】Q-Frame: Query-aware Frame Selection and Multi-Resolution Adaptation for Video-LLMs 论文解读 | ICCV 2025 | arXiv 2506.22139 | 视频帧选择 | 提出 Q-Frame，一种无需训练的即插即用视频帧选择与多分辨率自适应框架，利用 CLIP 跨模态匹配和 Gumbel-Max 技巧实现查询感知的帧选择，使 Video-LLM 在相同计算预算下处理更多关键帧，在 MLVU、LongVideoBench、Video-MME 三个基准上显著提升性能。"
 tags:
   - ICCV 2025
-  - 视频帧选择
-  - 多分辨率适配
-  - Video-LLM
 ---
 
 # Q-Frame: Query-aware Frame Selection and Multi-Resolution Adaptation for Video-LLMs

@@ -2,9 +2,6 @@
 description: "【论文笔记】SceneJailEval: A Scenario-Adaptive Multi-Dimensional Framework for Jailbreak Evaluation 论文解读 | AAAI 2026 | arXiv 2508.06194 | 越狱评估 | 提出SceneJailEval，一个场景自适应的多维度越狱评估框架，定义14个越狱场景和10个评估维度，通过场景分类→维度动态选择→多维检测→加权危害评分的流程，在自建数据集上F1达0.917（超SOTA 6%），在JBB上达0.995（超SOTA 3%），同时支持危害程度量化而非仅二分类。"
 tags:
   - AAAI 2026
-  - 越狱评估
-  - 场景自适应
-  - 多维度评估
 ---
 
 # SceneJailEval: A Scenario-Adaptive Multi-Dimensional Framework for Jailbreak Evaluation

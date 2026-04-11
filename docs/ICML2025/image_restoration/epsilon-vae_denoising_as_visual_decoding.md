@@ -2,10 +2,7 @@
 description: "【论文笔记】ε-VAE: Denoising as Visual Decoding 论文解读 | ICML 2025 | arXiv 2410.04081 | 扩散模型 Diffusion Model | 提出 ε-VAE，将传统自编码器中的单步确定性解码器替换为扩散/去噪过程，实现\"去噪即解码\"（Denoising as Decoding），在相同压缩率下重建质量提升 40%、下游生成质量提升 22%，或在保持生成质量的同时通过提高压缩率实现 2.3 倍推理加速。"
 tags:
   - ICML 2025
-  - Diffusion Model
   - 扩散模型
-  - VAE
-  - Image Tokenizer
 ---
 
 # ε-VAE: Denoising as Visual Decoding

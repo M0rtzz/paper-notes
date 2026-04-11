@@ -2,9 +2,6 @@
 description: "【论文笔记】Horizon Reduction Makes RL Scalable 论文解读 | NeurIPS 2025 | arXiv 2506.04168 | offline RL | 本文通过大规模实验（最高 10 亿转移数据）揭示离线 RL 的可扩展性瓶颈源于决策时域过长（curse of horizon），并证明通过 n-step 回报和层次策略等时域缩减技术可显著提升扩展性，进而提出了简洁有效的 SHARSA 方法。"
 tags:
   - NeurIPS 2025
-  - offline RL
-  - scalability
-  - horizon reduction
 ---
 
 # Horizon Reduction Makes RL Scalable

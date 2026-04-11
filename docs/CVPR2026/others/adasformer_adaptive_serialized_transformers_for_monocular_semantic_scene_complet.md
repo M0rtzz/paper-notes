@@ -2,10 +2,7 @@
 description: "【论文笔记】AdaSFormer: Adaptive Serialized Transformers for Monocular Semantic Scene Completion from Indoor Environments 论文解读 | CVPR 2026 | arXiv 2603.25494 | 语义场景补全 | 提出AdaSFormer，一种针对室内单目语义场景补全(MSSC)的序列化Transformer框架，通过自适应序列化注意力(可学习偏移量)、中心相对位置编码和卷积调制层归一化三个核心设计，在NYUv2和Occ-ScanNet上达到SOTA。"
 tags:
   - CVPR 2026
-  - 语义场景补全
-  - 序列化Transformer
   - Transformer
-  - 自适应注意力
 ---
 
 # AdaSFormer: Adaptive Serialized Transformers for Monocular Semantic Scene Completion from Indoor Environments

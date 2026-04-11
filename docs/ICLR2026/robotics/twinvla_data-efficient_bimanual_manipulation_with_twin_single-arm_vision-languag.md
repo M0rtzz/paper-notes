@@ -2,9 +2,6 @@
 description: "【论文笔记】TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models 论文解读 | ICLR 2026 | arXiv 2511.05275 | 双臂操作 | 提出TwinVLA——将两个预训练单臂VLA通过联合注意力组合为双臂VLA的模块化框架：不需要双臂预训练数据→仅用公开单臂数据预训练SingleVLA→复制为twin→联合注意力+MoE协调→少量双臂数据微调即可→数据效率(800h单臂+50 episode双臂)和计算效率(25 GPU-day)远优于RDT-1B和π0。"
 tags:
   - ICLR 2026
-  - 双臂操作
-  - VLA
-  - 模块化组合
 ---
 
 # TwinVLA: Data-Efficient Bimanual Manipulation with Twin Single-Arm Vision-Language-Action Models

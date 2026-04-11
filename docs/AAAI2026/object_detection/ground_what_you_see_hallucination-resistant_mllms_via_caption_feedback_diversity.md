@@ -2,10 +2,7 @@
 description: "【论文笔记】Ground What You See: Hallucination-Resistant MLLMs via Caption Feedback, Diversity-Aware Sampling, and Conflict Regularization 论文解读 | AAAI2026 | arXiv 2601.06224 | MLLM hallucination | 针对多模态大模型（MLLM）在强化学习训练中产生幻觉的三大根因——视觉误解、探索多样性不足、样本冲突——分别提出 Caption Reward、奖励方差引导的样本选择、以及基于 NTK 相似度的 InfoNCE 正则化，在多个基准上显著降低幻觉率。"
 tags:
   - AAAI2026
-  - MLLM hallucination
-  - reinforcement learning
   - 强化学习
-  - GRPO
 ---
 
 # Ground What You See: Hallucination-Resistant MLLMs via Caption Feedback, Diversity-Aware Sampling, and Conflict Regularization

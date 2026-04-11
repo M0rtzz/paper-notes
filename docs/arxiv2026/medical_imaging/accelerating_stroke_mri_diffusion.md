@@ -2,9 +2,7 @@
 description: "【论文笔记】Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning 论文解读 | arXiv 2026 | arXiv 2603.13007 | accelerating | 目的：开发一种利用扩散概率生成模型 (DPM) 加速 MRI 重建的数据高效策略，当只有有限的完全采样数据样本可用时，可以加快临床中风 MRI 的扫描时间。"
 tags:
   - arXiv 2026
-  - accelerating
-  - stroke
-  - mri
+  - 扩散模型
 ---
 
 # Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning

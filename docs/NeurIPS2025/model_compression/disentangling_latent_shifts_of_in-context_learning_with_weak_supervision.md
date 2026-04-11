@@ -2,9 +2,6 @@
 description: "【论文笔记】Disentangling Latent Shifts of In-Context Learning with Weak Supervision 论文解读 | NeurIPS 2025 | arXiv 2410.01508 | In-Context Learning | WILDA 将 ICL 视为弱监督信号，用 teacher-student 框架将示例引发的潜在偏移编码进轻量 LoRA 适配器，实现无需重复 prompting 的高效推理，且 student 通过伪标签修正和覆盖扩展超越 teacher（弱到强泛化）。"
 tags:
   - NeurIPS 2025
-  - In-Context Learning
-  - 弱监督
-  - 适配器算术
 ---
 
 # Disentangling Latent Shifts of In-Context Learning with Weak Supervision

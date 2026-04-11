@@ -2,10 +2,8 @@
 description: "【论文笔记】Fine-grained Spatiotemporal Grounding on Egocentric Videos 论文解读 | ICCV 2025 | arXiv 2508.00518 | egocentric video | 提出 EgoMask，首个面向自我中心视频的像素级时空定位基准，包含短/中/长时视频评测集和大规模训练集 EgoMask-Train，通过系统分析揭示了自我中心与外中心视频之间的关键差异，并证明微调后模型性能可大幅提升。"
 tags:
   - ICCV 2025
-  - egocentric video
-  - spatiotemporal grounding
-  - pixel-level segmentation
   - 图像分割
+  - 视频理解
 ---
 
 # Fine-grained Spatiotemporal Grounding on Egocentric Videos

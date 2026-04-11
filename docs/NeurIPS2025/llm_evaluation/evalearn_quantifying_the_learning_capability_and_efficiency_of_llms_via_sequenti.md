@@ -2,9 +2,6 @@
 description: "【论文笔记】EvaLearn: Quantifying the Learning Capability and Efficiency of LLMs via Sequential Problem Solving 论文解读 | NeurIPS 2025 | arXiv 2506.02672 | LLM evaluation | 提出 EvaLearn 基准，通过**序列化问题求解**范式评估 LLM 的学习能力和学习效率，揭示静态能力强的模型不一定具备更强的学习潜力。"
 tags:
   - NeurIPS 2025
-  - LLM evaluation
-  - sequential learning
-  - learning capability
 ---
 
 # EvaLearn: Quantifying the Learning Capability and Efficiency of LLMs via Sequential Problem Solving

@@ -2,10 +2,7 @@
 description: "【论文笔记】EvoPrompt: Evolving Prompt Adaptation for Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2603.09493 | 提示学习 prompt learning | EvoPrompt 通过轨迹感知的 prompt 进化策略（统一 embedding 投影 + 方向-幅度解耦训练 + 特征几何正则化）解决 VLM prompt learning 中的灾难性遗忘和模态偏差问题，在 few-shot/跨数据集/域泛化任务上全面 SOTA 且保持 zero-shot 能力。"
 tags:
   - CVPR 2026
-  - prompt learning
   - 提示学习
-  - 灾难性遗忘
-  - 低秩分解
 ---
 
 # EvoPrompt: Evolving Prompt Adaptation for Vision-Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Progress Driven Multi-Agent Curriculum 论文解读 | ICML2025 | arXiv 2205.10016 | 多智能体强化学习 | 提出 SPMARL，以基于 TD 误差的学习进度（而非回报）驱动智能体数量的自适应课程分布，解决多智能体稀疏奖励任务中回报估计高方差与信用分配困难两大问题。"
 tags:
   - ICML2025
-  - 多智能体强化学习
-  - 课程学习
-  - 学习进度
 ---
 
 # Learning Progress Driven Multi-Agent Curriculum

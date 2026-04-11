@@ -2,9 +2,6 @@
 description: "【论文笔记】Investigating Language Preference of Multilingual RAG Systems 论文解读 | ACL 2025 | arXiv 2502.11175 | 多语言RAG | 系统研究多语言RAG系统在检索和生成两个阶段的语言偏好问题，提出 MLRS 指标量化检索器语言偏好，并设计 DKM-RAG 框架通过融合翻译段落与模型内部知识来缓解偏好问题。"
 tags:
   - ACL 2025
-  - 多语言RAG
-  - 语言偏好
-  - 检索器偏好
 ---
 
 # Investigating Language Preference of Multilingual RAG Systems

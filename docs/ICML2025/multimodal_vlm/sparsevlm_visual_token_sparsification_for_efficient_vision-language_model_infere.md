@@ -2,9 +2,6 @@
 description: "【论文笔记】SparseVLM: Visual Token Sparsification for Efficient VLM Inference 论文解读 | ICML2025 | arXiv 2410.04417 | VLM加速 | 提出SparseVLM——无训练的文本引导视觉token优化：用自注意力矩阵中文本token对视觉token的评分来确定重要性，自适应确定每层稀疏化比例，并用token回收压缩被剪token为紧凑表示。"
 tags:
   - ICML2025
-  - VLM加速
-  - 视觉token稀疏化
-  - 无训练
 ---
 
 # SparseVLM: Visual Token Sparsification for Efficient VLM Inference

@@ -2,9 +2,6 @@
 description: "【论文笔记】Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation 论文解读 | AAAI 2026 | arXiv 2410.12265 | LLM evaluation | 提出 Auto-PRE 框架，通过自动资格考试从一致性、相关性、自信度三个维度筛选合格的 LLM 评估者，在无需人工标注的前提下实现了 SOTA 评估性能并大幅降低成本。"
 tags:
   - AAAI 2026
-  - LLM evaluation
-  - peer review
-  - evaluator selection
 ---
 
 # Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation

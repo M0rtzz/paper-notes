@@ -2,9 +2,6 @@
 description: "【论文笔记】MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research 论文解读 | NeurIPS 2025 | arXiv 2505.19955 | AI研究代理 | 提出 MLR-Bench，一个包含 201 个开放式 ML 研究任务的综合基准，配套 MLR-Judge（LLM 评审框架）和 MLR-Agent（模块化研究代理），发现当前最先进的编码代理在约 80% 的情况下会生成伪造或未验证的实验结果，揭示了 AI 自动化科学研究的核心瓶颈。"
 tags:
   - NeurIPS 2025
-  - AI研究代理
-  - 基准测试
-  - LLM评审
 ---
 
 # MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research

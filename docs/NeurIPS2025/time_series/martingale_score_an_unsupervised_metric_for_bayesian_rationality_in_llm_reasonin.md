@@ -2,9 +2,6 @@
 description: "【论文笔记】Martingale Score: An Unsupervised Metric for Bayesian Rationality in LLM Reasoning 论文解读 | NeurIPS 2025 | arXiv 2512.02914 | Martingale Score | 提出 Martingale Score 作为无监督度量指标，基于贝叶斯统计中的鞅性质(Martingale property)来量化 LLM 推理过程中的信念固化(belief entrenchment)现象，发现该现象普遍存在且与准确率下降显著相关。"
 tags:
   - NeurIPS 2025
-  - Martingale Score
-  - 信念固化
-  - 贝叶斯理性
 ---
 
 # Martingale Score: An Unsupervised Metric for Bayesian Rationality in LLM Reasoning

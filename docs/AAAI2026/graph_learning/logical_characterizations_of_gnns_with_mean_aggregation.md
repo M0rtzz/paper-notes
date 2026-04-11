@@ -2,10 +2,7 @@
 description: "【论文笔记】Logical Characterizations of GNNs with Mean Aggregation 论文解读 | AAAI 2026 | arXiv 2507.18145 | 图神经网络 GNN表达能力 | 系统刻画了以均值（mean）为聚合函数的 GNN 的表达能力：非一致设定下等价于比率模态逻辑（RML）；一致设定下（相对 MSO）等价于模态逻辑（ML）；当额外要求组合函数连续、分类函数为阈值时，表达能力显著下降至交替无关模态逻辑（AFML）。"
 tags:
   - AAAI 2026
-  - GNN表达能力
   - 图神经网络
-  - 均值聚合
-  - 模态逻辑
 ---
 
 # Logical Characterizations of GNNs with Mean Aggregation

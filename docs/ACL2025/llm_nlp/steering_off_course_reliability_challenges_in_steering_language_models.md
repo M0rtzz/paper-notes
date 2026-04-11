@@ -2,9 +2,6 @@
 description: "【论文笔记】Steering off Course: Reliability Challenges in Steering Language Models 论文解读 | ACL 2025 | arXiv 2504.04635 | 语言模型引导 | 本文系统性地评估了三种主流的语言模型引导方法（DoLa、功能向量、任务向量）在多达36个模型上的泛化性，发现这些方法存在严重的脆弱性和高方差问题，并揭示了其底层假设的根本缺陷。"
 tags:
   - ACL 2025
-  - 语言模型引导
-  - 激活修补
-  - DoLa
 ---
 
 # Steering off Course: Reliability Challenges in Steering Language Models

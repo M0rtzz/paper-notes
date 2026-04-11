@@ -2,9 +2,6 @@
 description: "【论文笔记】Regression Trees Know Calculus 论文解读 | NeurIPS 2025 | arXiv 2405.13846 | 回归树 | 揭示常叶回归树中隐含的梯度信息——通过相邻节点均值差的有限差分类比，高效提取梯度估计，进而将活跃子空间（Active Subspace）和集成梯度（Integrated Gradient）等微分工具引入树模型，拓展了树模型的可解释性和预测改进能力。"
 tags:
   - NeurIPS 2025
-  - 回归树
-  - 梯度估计
-  - 活跃子空间
 ---
 
 # Regression Trees Know Calculus

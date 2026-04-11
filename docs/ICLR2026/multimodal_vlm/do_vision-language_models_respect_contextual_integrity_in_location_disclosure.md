@@ -2,9 +2,6 @@
 description: "【论文笔记】Do Vision-Language Models Respect Contextual Integrity in Location Disclosure 论文解读 | ICLR 2026 | arXiv 2602.05023 | 视觉语言模型 | 本文提出 VLM-GEOPRIVACY 基准，系统评估了14个主流 VLM 在判断图像位置信息披露适当程度方面的能力，发现这些模型虽然可以精确地理定位图像，但在隐私对齐方面严重不足——经常在敏感场景中过度披露，且容易受到基于提示的攻击。"
 tags:
   - ICLR 2026
-  - 视觉语言模型
-  - 隐私保护
-  - 上下文完整性
 ---
 
 # Do Vision-Language Models Respect Contextual Integrity in Location Disclosure

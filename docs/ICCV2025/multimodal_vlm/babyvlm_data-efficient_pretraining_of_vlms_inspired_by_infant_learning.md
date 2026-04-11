@@ -2,9 +2,6 @@
 description: "【论文笔记】BabyVLM: Data-Efficient Pretraining of VLMs Inspired by Infant Learning 论文解读 | ICCV 2025 | arXiv 2504.09426 | 数据高效预训练 | 受人类婴儿高效学习能力的启发，提出BabyVLM框架，包括合成训练数据集（将通用数据转化为儿童导向的格式）和多个发展对齐的评估基准，实现了紧凑VLM在有限数据下的高效预训练，性能优于仅用SAYCam或通用数据训练的模型。"
 tags:
   - ICCV 2025
-  - 数据高效预训练
-  - 婴儿学习启发
-  - 视觉语言模型
 ---
 
 # BabyVLM: Data-Efficient Pretraining of VLMs Inspired by Infant Learning

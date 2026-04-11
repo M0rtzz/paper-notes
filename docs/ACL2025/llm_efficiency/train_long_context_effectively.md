@@ -2,9 +2,6 @@
 description: "【论文笔记】How to Train Long-Context Language Models (Effectively) 论文解读 | ACL 2025 | arXiv 2410.02660 | 长上下文训练 | 本文系统研究了如何通过持续预训练和监督微调（SFT）有效训练长上下文语言模型，提出了包括数据配比、训练长度缩放等一系列关键发现，最终训练出的 ProLong-8B 模型仅用 Llama-3.1 5% 的长上下文训练数据量即在 128K 长度上达到同规模最优性能。"
 tags:
   - ACL 2025
-  - 长上下文训练
-  - 持续预训练
-  - 数据配比
 ---
 
 # How to Train Long-Context Language Models (Effectively)

@@ -2,9 +2,6 @@
 description: "【论文笔记】CHDP: Cooperative Hybrid Diffusion Policies for RL in Parametric Environments 论文解读 | AAAI 2026 | arXiv 2601.05675 | 混合动作空间 | 将混合动作空间问题建模为两个agent的全合作博弈，分别用离散和连续扩散策略生成动作，通过顺序更新和Q引导码本解决策略冲突与高维可扩展性问题，成功率最高提升19.3%。"
 tags:
   - AAAI 2026
-  - 混合动作空间
-  - 扩散策略
-  - 多智能体合作
 ---
 
 # CHDP: Cooperative Hybrid Diffusion Policies for RL in Parametric Environments

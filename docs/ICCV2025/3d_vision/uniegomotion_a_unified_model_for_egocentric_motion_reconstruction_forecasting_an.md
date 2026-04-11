@@ -2,9 +2,6 @@
 description: "【论文笔记】UniEgoMotion: A Unified Model for Egocentric Motion Reconstruction, Forecasting, and Generation 论文解读 | ICCV 2025 | arXiv 2508.01126 | 自中心运动 | 提出 UniEgoMotion，首个统一的自中心运动模型，通过条件运动扩散框架和头部中心运动表示，在单一模型中实现自中心视角下的3D人体运动重建、预测和生成三项任务，并发布大规模EE4D-Motion数据集。"
 tags:
   - ICCV 2025
-  - 自中心运动
-  - 扩散模型
-  - 运动重建
 ---
 
 # UniEgoMotion: A Unified Model for Egocentric Motion Reconstruction, Forecasting, and Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】TreeRL: LLM Reinforcement Learning with On-Policy Tree Search 论文解读 | ACL 2025 | arXiv 2506.11902 | 树搜索 | 提出 TreeRL，将基于熵引导的树搜索（EPTree）直接集成到 LLM 的 on-policy 强化学习训练中，通过在高不确定性 token 处分叉来扩展推理路径多样性，并利用树结构提供的全局+局部优势作为过程监督信号，在数学和代码推理任务上超过传统的多链采样 RL。"
 tags:
   - ACL 2025
-  - 树搜索
-  - 强化学习
-  - 过程监督
 ---
 
 # TreeRL: LLM Reinforcement Learning with On-Policy Tree Search

@@ -2,9 +2,6 @@
 description: "【论文笔记】Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games 论文解读 | ICML2025 | arXiv 2505.19537 | heavy ball momentum | 通过连续时间ODE建模，系统揭示了Heavy Ball动量在min-max博弈中与极小化问题截然不同的行为：**更小的动量**（包括负动量）能扩大收敛步长范围并引导轨迹走向更浅梯度区域，而**交替更新**比同步更新收敛更快且放大了这一正则化效应。"
 tags:
   - ICML2025
-  - heavy ball momentum
-  - min-max games
-  - 连续时间分析
 ---
 
 # Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games

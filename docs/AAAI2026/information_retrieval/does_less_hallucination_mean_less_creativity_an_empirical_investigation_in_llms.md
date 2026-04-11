@@ -2,9 +2,6 @@
 description: "【论文笔记】Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs 论文解读 | AAAI 2026 | arXiv 2512.11509 | 幻觉缓解 | 系统研究三种幻觉缓解方法（CoVe、DoLa、RAG）对LLM创造力的影响，发现它们对发散性创造力有截然相反的效果——CoVe增强、DoLa抑制、RAG无影响——而收敛性创造力基本不受影响，这一规律跨模型家族和参数规模一致成立。"
 tags:
   - AAAI 2026
-  - 幻觉缓解
-  - 创造力
-  - LLM
 ---
 
 # Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs

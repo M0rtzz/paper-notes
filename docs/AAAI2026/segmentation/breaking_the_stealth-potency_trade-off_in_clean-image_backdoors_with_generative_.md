@@ -2,8 +2,6 @@
 description: "【论文笔记】Breaking the Stealth-Potency Trade-off in Clean-Image Backdoors with Generative Trigger Optimization 论文解读 | AAAI2026 | arXiv 2511.07210 | backdoor attack | 提出 Generative Clean-Image Backdoors (GCB)，通过 Conditional InfoGAN (C-InfoGAN) 自动发现图像中天然存在且与分类任务无关的特征作为后门触发器，以极低投毒率（≤0.5%）实现高攻击成功率（≥90% ASR）且几乎不损伤干净准确率（CA drop ≤1%），首次打破了 clean-image backdoor 中隐蔽性与攻击力的固有矛盾。"
 tags:
   - AAAI2026
-  - backdoor attack
-  - clean-image backdoor
   - GAN
 ---
 

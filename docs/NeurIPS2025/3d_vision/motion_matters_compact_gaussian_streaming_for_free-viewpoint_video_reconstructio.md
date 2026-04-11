@@ -2,9 +2,6 @@
 description: "【论文笔记】Motion Matters: Compact Gaussian Streaming for Free-Viewpoint Video Reconstruction 论文解读 | NeurIPS 2025 | arXiv 2505.16533 | 3D Gaussian Splatting | 提出ComGS框架，利用动态场景中运动的局部性和一致性，通过仅约200个关键点驱动整个运动区域的高斯点运动，实现了相比3DGStream 159倍、相比QUEEN 14倍的存储压缩，同时保持了竞争性的视觉质量和渲染速度。"
 tags:
   - NeurIPS 2025
-  - 3D Gaussian Splatting
-  - 自由视点视频
-  - 在线重建
 ---
 
 # Motion Matters: Compact Gaussian Streaming for Free-Viewpoint Video Reconstruction

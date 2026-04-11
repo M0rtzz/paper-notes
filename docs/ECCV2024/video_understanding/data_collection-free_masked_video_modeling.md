@@ -2,9 +2,6 @@
 description: "【论文笔记】Data Collection-Free Masked Video Modeling 论文解读 | ECCV 2024 | arXiv 2409.06665 | 自监督学习 | 提出基于伪运动生成器（PMG）从静态图像递归生成伪运动视频，结合掩码视频建模（VideoMAE）进行自监督预训练，完全摆脱真实视频数据的采集成本和隐私/版权顾虑，甚至可用合成图像实现有效的视频Transformer预训练。"
 tags:
   - ECCV 2024
-  - 自监督学习
-  - 掩码视频建模
-  - 伪运动视频
 ---
 
 # Data Collection-Free Masked Video Modeling

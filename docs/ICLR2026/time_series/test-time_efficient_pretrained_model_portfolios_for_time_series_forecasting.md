@@ -2,9 +2,6 @@
 description: "【论文笔记】Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting 论文解读 | ICLR 2026 | arXiv 2510.06419 | 模型组合 | 探索时间序列基础模型的替代范式：不训练单一大模型→而是构建小型预训练模型组合(portfolio)+测试时通过集成/选择组合,发现(1)专家模型组合(各自在特定域/频率上训练)持续优于独立训练的通用组合,(2)从通用模型后训练产出专家→训练计算减少10x,(3)集成/选择在测试时比微调更高效,性能媲美SOTA大型单体模型。"
 tags:
   - ICLR 2026
-  - 模型组合
-  - 专家组合
-  - 测试时选择
 ---
 
 # Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting

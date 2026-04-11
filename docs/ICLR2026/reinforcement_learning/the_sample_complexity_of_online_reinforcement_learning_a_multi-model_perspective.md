@@ -2,9 +2,6 @@
 description: "【论文笔记】The Sample Complexity of Online Reinforcement Learning: A Multi-Model Perspective 论文解读 | ICLR 2026 | arXiv 2501.15910 | 样本复杂度 | 本文为连续状态-动作空间下的非线性动力系统提出了一套在线强化学习算法，通过多模型后验采样和确定性等价策略实现对未知系统的在线学习，并给出了从有限模型集到参数化模型族的非渐近策略遗憾保证。"
 tags:
   - ICLR 2026
-  - 样本复杂度
-  - 在线强化学习
-  - 多模型自适应控制
 ---
 
 # The Sample Complexity of Online Reinforcement Learning: A Multi-Model Perspective

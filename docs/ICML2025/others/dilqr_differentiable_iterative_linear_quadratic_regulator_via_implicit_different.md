@@ -2,9 +2,6 @@
 description: "【论文笔记】DiLQR: Differentiable Iterative LQR via Implicit Differentiation 论文解读 | ICML2025 | arXiv 2506.17473 | 可微控制 | 提出DiLQR——通过隐式微分在iLQR控制器的不动点处计算梯度，使反向传播成本恒定(不随迭代次数增加)，实现128倍加速和10^6倍学习性能提升。"
 tags:
   - ICML2025
-  - 可微控制
-  - iLQR
-  - 隐式微分
 ---
 
 # DiLQR: Differentiable Iterative LQR via Implicit Differentiation

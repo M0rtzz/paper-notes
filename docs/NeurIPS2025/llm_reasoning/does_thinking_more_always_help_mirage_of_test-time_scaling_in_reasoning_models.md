@@ -2,9 +2,6 @@
 description: "【论文笔记】Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models 论文解读 | NeurIPS 2025 | arXiv 2506.04210 | 测试时扩展 | 通过系统实验揭示 LRM 测试时扩展（反复 \"Wait\" 提示延长推理）的性能呈先升后降的非单调趋势，用概率模型证明这种\"提升\"只是方差增大导致的海市蜃楼而非真正推理能力提升，并提出 parallel thinking 策略在相同 token 预算下准确率提升最高 22%。"
 tags:
   - NeurIPS 2025
-  - 测试时扩展
-  - 过度思考
-  - 并行推理
 ---
 
 # Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models

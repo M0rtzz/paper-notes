@@ -2,9 +2,6 @@
 description: "【论文笔记】Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation 论文解读 | CVPR2025 | arXiv 2603.12581 | MRI合成 | 提出 MSG-LDM 框架，在潜在空间中显式解耦风格与结构信息，通过高频注入块 (HFIB)、多模态结构特征融合 (MMSF) 和多尺度结构增强 (MSSE) 提取模态不变的多尺度结构先验来引导扩散过程，解决任意模态缺失下 MRI 翻译的解剖不一致和纹理退化问题。"
 tags:
   - CVPR2025
-  - MRI合成
-  - 潜在扩散模型
-  - 多模态翻译
 ---
 
 # Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation

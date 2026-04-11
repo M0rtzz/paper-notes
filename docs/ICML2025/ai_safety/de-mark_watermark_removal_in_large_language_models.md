@@ -2,9 +2,6 @@
 description: "【论文笔记】De-mark: Watermark Removal in Large Language Models 论文解读 | ICML2025 | arXiv 2410.13808 | 水印去除 | 提出De-mark框架，通过随机选择探测(random selection probing)策略估计n-gram水印强度并重建红绿列表，无需知道哈希函数即可去除水印，并提供去除后LM分布与原始分布之间的理论差距保证。"
 tags:
   - ICML2025
-  - 水印去除
-  - LLM水印
-  - n-gram水印
 ---
 
 # De-mark: Watermark Removal in Large Language Models

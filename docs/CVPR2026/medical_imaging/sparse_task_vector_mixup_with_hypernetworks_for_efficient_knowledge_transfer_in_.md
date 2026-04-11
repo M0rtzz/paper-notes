@@ -2,9 +2,6 @@
 description: "【论文笔记】Sparse Task Vector Mixup with Hypernetworks for Efficient Knowledge Transfer in Whole-Slide Image Prognosis 论文解读 | CVPR2026 | arXiv 2603.10526 | 全切片图像 (WSI) | 提出 STEPH，通过任务向量混合 (Task Vector Mixup) 与超网络驱动的稀疏聚合，将多个癌种预后模型的可泛化知识高效迁移到目标癌种，在 13 个 TCGA 数据集上平均 C-Index 提升 5.14%，且无需大规模联合训练或多模型推理。"
 tags:
   - CVPR2026
-  - 全切片图像 (WSI)
-  - 生存分析
-  - 模型融合
 ---
 
 # Sparse Task Vector Mixup with Hypernetworks for Efficient Knowledge Transfer in Whole-Slide Image Prognosis

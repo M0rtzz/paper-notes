@@ -2,9 +2,6 @@
 description: "【论文笔记】Maximum Total Correlation Reinforcement Learning 论文解读 | ICML2025 | arXiv 2505.16734 | total correlation | 提出最大化轨迹总相关（Total Correlation）作为 RL 的归纳偏置，鼓励策略产生简单、可压缩的轨迹，从而在不牺牲任务性能的前提下显著提升对观测噪声、动作噪声和动力学变化的零样本鲁棒性。"
 tags:
   - ICML2025
-  - total correlation
-  - 轨迹一致性
-  - 信息论正则化
 ---
 
 # Maximum Total Correlation Reinforcement Learning

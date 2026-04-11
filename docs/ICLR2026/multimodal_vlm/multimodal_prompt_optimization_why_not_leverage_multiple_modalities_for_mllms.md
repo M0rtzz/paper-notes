@@ -2,9 +2,6 @@
 description: "【论文笔记】Multimodal Prompt Optimization: Why Not Leverage Multiple Modalities for MLLMs 论文解读 | ICLR 2026 | arXiv 2510.09201 | 多模态提示 | 首次定义并解决\"多模态提示优化\"问题，提出MPO框架通过对齐保持的联合探索（统一反馈→同步更新文本+非文本提示）和先验继承的贝叶斯UCB选择（父提示性能作为先验warm-start），在图像/视频/分子等10个数据集上全面超越文本only优化。"
 tags:
   - ICLR 2026
-  - 多模态提示
-  - 自动提示优化
-  - 贝叶斯选择
 ---
 
 # Multimodal Prompt Optimization: Why Not Leverage Multiple Modalities for MLLMs

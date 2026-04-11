@@ -2,9 +2,6 @@
 description: "【论文笔记】FlowCast: Advancing Precipitation Nowcasting with Conditional Flow Matching 论文解读 | ICLR 2026 | arXiv 2511.09731 | Conditional Flow Matching | 首次将条件流匹配(CFM)作为端到端概率生成模型应用于降水临近预报，在压缩潜空间中学习噪声到数据的直接映射，以更少的采样步数超越扩散模型的预测精度和概率性能。"
 tags:
   - ICLR 2026
-  - Conditional Flow Matching
-  - 降水临近预报
-  - 概率预测
 ---
 
 # FlowCast: Advancing Precipitation Nowcasting with Conditional Flow Matching

@@ -2,9 +2,6 @@
 description: "【论文笔记】RNE: plug-and-play diffusion inference-time control and energy-based training 论文解读 | ICLR 2026 | arXiv 2506.05668 | 扩散模型 | 提出 Radon-Nikodym 估计器 (RNE)，基于路径分布间的密度比揭示边际密度与转移核的基本联系，提供统一的即插即用框架，同时实现扩散密度估计、推理时控制和能量扩散训练。"
 tags:
   - ICLR 2026
-  - 扩散模型
-  - 密度比估计
-  - 推理时控制
 ---
 
 # RNE: plug-and-play diffusion inference-time control and energy-based training

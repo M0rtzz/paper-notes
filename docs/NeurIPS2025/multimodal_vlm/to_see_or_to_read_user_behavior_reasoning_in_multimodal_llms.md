@@ -2,9 +2,6 @@
 description: "【论文笔记】To See or To Read: User Behavior Reasoning in Multimodal LLMs 论文解读 | NeurIPS 2025 | arXiv 2511.03845 | 用户行为推理 | 提出BehaviorLens基准框架，系统比较文本、散点图和流程图三种用户行为历史的表示方式对MLLM次购预测的影响，发现图像表示相比等效文本表示最高可提升87.5%的预测准确率，且无需额外计算开销。"
 tags:
   - NeurIPS 2025
-  - 用户行为推理
-  - 模态权衡
-  - 序列推荐
 ---
 
 # To See or To Read: User Behavior Reasoning in Multimodal LLMs

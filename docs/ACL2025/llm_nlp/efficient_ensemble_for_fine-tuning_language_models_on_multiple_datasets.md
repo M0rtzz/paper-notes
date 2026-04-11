@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Ensemble for Fine-tuning Language Models on Multiple Datasets 论文解读 | ACL 2025 | arXiv 2505.21930 | 集成学习 | 提出 EnsembleLoRA——一种面向多数据集微调的高效集成方法，利用一阶 Taylor 近似快速估计任务亲和度将数据集分组，为每组训练一个 adapter 后加权组合，在 10 个 SuperGLUE 任务上以仅 9% 额外计算代价将 QLoRA 的平均测试准确率提升 10%。"
 tags:
   - ACL 2025
-  - 集成学习
-  - LoRA
-  - 多数据集微调
 ---
 
 # Efficient Ensemble for Fine-tuning Language Models on Multiple Datasets

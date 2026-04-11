@@ -2,9 +2,6 @@
 description: "【论文笔记】Domain-Adapted Granger Causality for Real-Time Cross-Slice Attack Attribution in 6G Networks 论文解读 | NEURIPS2025 | arXiv 2510.05165 | Granger causality | 提出一种面向6G网络切片的域适应Granger因果框架，将增强型Granger因果检验与网络资源争用建模相结合，实现实时跨切片攻击归因，在1100个攻击场景上达到89.2%准确率和87ms响应时间，显著超越现有统计、深度学习和因果发现方法。"
 tags:
   - NEURIPS2025
-  - Granger causality
-  - 6G network slicing
-  - cross-slice attack attribution
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

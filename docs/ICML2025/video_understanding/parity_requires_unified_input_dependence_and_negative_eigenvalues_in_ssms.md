@@ -2,9 +2,6 @@
 description: "【论文笔记】Parity Requires Unified Input Dependence and Negative Eigenvalues in SSMs 论文解读 | ICML2025 | arXiv 2508.07395 | 状态空间模型 | 从理论上证明了线性SSM（如S4/Mamba）无法计算奇偶校验(parity)函数——即使允许输入依赖参数化——除非状态转移矩阵包含负特征值，为SSM的表达力瓶颈提供了精确的数学刻画。"
 tags:
   - ICML2025
-  - 状态空间模型
-  - 奇偶校验
-  - 表达力
 ---
 
 # Parity Requires Unified Input Dependence and Negative Eigenvalues in SSMs

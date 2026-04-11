@@ -2,9 +2,6 @@
 description: "【论文笔记】Photography Perspective Composition: Towards Aesthetic Perspective Recommendation 论文解读 | NeurIPS 2025 | arXiv 2505.20655 | 摄影构图 | 首次提出摄影视角构图（PPC），超越传统 2D 裁剪，通过 3D 透视变换生成\"差→优\"的构图过程视频，并基于人类评估训练视角质量评估模型，帮助普通用户提升摄影构图水平。"
 tags:
   - NeurIPS 2025
-  - 摄影构图
-  - 视角变换
-  - 视频生成
 ---
 
 # Photography Perspective Composition: Towards Aesthetic Perspective Recommendation

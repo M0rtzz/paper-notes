@@ -2,9 +2,6 @@
 description: "【论文笔记】Representations of Fact, Fiction and Forecast in Large Language Models: Epistemics and Attitudes 论文解读 | ACL 2025 | arXiv 2506.01512 | epistemic modality | 通过受控故事任务评估 8 个开源 LLM 对认识情态（may/must、know/believe/doubt）的语义知识，发现 LLM 在生成恰当认知表达方面表现有限且不鲁棒——必然性（must）优于可能性（may），事实陈述优于信念陈述。"
 tags:
   - ACL 2025
-  - epistemic modality
-  - modal auxiliaries
-  - attitude verbs
 ---
 
 # Representations of Fact, Fiction and Forecast in Large Language Models: Epistemics and Attitudes

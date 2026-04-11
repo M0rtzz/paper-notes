@@ -2,9 +2,6 @@
 description: "【论文笔记】Ab Initio Nonparametric Variable Selection for Scalable Symbolic Regression with Large p 论文解读 | ICML2025 | arXiv 2410.13681 | 符号回归 | 提出 PAN+SR 框架，通过基于 BART 的非参数变量预筛选，将高维符号回归问题降维至低维子空间，使 19 种现有 SR 方法在高维场景下均获显著性能提升。"
 tags:
   - ICML2025
-  - 符号回归
-  - 变量选择
-  - 非参数方法
 ---
 
 # Ab Initio Nonparametric Variable Selection for Scalable Symbolic Regression with Large p

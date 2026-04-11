@@ -2,9 +2,6 @@
 description: "【论文笔记】There Was Never a Bottleneck in Concept Bottleneck Models 论文解读 | ICLR 2026 | arXiv 2506.04877 | 概念瓶颈模型 | 指出概念瓶颈模型（CBM）实际上并不存在真正的\"瓶颈\"——表征变量 $z_j$ 能预测概念 $c_j$ 不意味着它只编码 $c_j$ 的信息。提出 MCBM（Minimal Concept Bottleneck Model），通过信息瓶颈正则化约束每个 $z_j$ 仅保留对应概念的信息，实现真正的解耦表征和可靠的概念干预。"
 tags:
   - ICLR 2026
-  - 概念瓶颈模型
-  - 信息瓶颈
-  - 信息泄漏
 ---
 
 # There Was Never a Bottleneck in Concept Bottleneck Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation 论文解读 | ICCV 2025 | arXiv 2507.01367 | 3D Gaussian Splatting | 提出首个基于3D高斯体（3DGS）的物理对抗攻击框架PGA，通过解决高斯体的互遮挡和自遮挡问题保证跨视角一致性，并设计min-max优化策略过滤非鲁棒对抗特征，在数字域和物理域均大幅超越SOTA方法。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - 物理对抗攻击
-  - 对抗伪装
 ---
 
 # 3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation

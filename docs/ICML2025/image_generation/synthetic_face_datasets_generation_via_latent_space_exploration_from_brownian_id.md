@@ -2,9 +2,6 @@
 description: "【论文笔记】Synthetic Face Datasets Generation via Latent Space Exploration from Brownian Identity Diffusion 论文解读 | ICML 2025 | arXiv 2405.00228 | 合成人脸数据 | 受物理中软粒子布朗运动的启发，本文提出在潜空间中通过随机力驱动的身份采样方法（Langevin、Dispersion、DisCo 三种算法），生成大规模多样化的合成人脸数据集用于训练人脸识别模型，同时防止训练数据泄漏。"
 tags:
   - ICML 2025
-  - 合成人脸数据
-  - 隐空间探索
-  - 布朗运动
 ---
 
 # Synthetic Face Datasets Generation via Latent Space Exploration from Brownian Identity Diffusion

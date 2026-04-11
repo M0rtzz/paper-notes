@@ -2,9 +2,6 @@
 description: "【论文笔记】GraspLDP: Towards Generalizable Grasping Policy via Latent Diffusion 论文解读 | CVPR 2026 | arXiv 2602.22862 | 机器人抓取 | 提出 GraspLDP，将预训练抓取检测器的 grasp pose 先验和 graspness map 视觉线索注入潜在扩散策略框架，通过 VAE 编码的动作潜空间引导和自监督重建目标，显著提升抓取精度和泛化能力。"
 tags:
   - CVPR 2026
-  - 机器人抓取
-  - 潜在扩散策略
-  - 抓取先验
 ---
 
 # GraspLDP: Towards Generalizable Grasping Policy via Latent Diffusion

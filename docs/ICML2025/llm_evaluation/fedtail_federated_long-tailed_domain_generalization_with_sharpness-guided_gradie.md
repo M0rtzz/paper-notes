@@ -2,10 +2,7 @@
 description: "【论文笔记】FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching 论文解读 | ICML 2025 | arXiv 2506.08518 | 联邦学习 Federated Learning | FedTAIL 提出了一个联邦域泛化框架，通过梯度一致性正则化、逐类锐度感知最小化和曲率感知动态加权三个模块，同时解决域偏移和长尾类别不平衡的双重挑战，在多个基准上达到 SOTA。"
 tags:
   - ICML 2025
-  - Federated Learning
   - 联邦学习
-  - Domain Generalization
-  - Long-Tailed
 ---
 
 # FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching

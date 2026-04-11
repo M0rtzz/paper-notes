@@ -2,9 +2,6 @@
 description: "【论文笔记】QQSUM: 面向评论型产品问答的定量查询聚焦摘要 论文解读 | ACL2025 | arXiv 2506.04020 | query-focused summarization | 提出 QQSUM 任务和 QQSUM-RAG 框架，通过 KP 导向检索与聚类、Next-KP-Generation 训练策略，从产品评论中生成包含多元观点及其流行度量化的 Key Point 摘要，解决传统 PQA 只输出单一视角答案的问题。"
 tags:
   - ACL2025
-  - query-focused summarization
-  - key point analysis
-  - product QA
 ---
 
 # QQSUM: A Novel Task and Model of Quantitative Query-Focused Summarization for Review-based Product Question Answering

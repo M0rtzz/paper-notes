@@ -2,9 +2,6 @@
 description: "【论文笔记】Provable Watermarking for Data Poisoning Attacks 论文解读 | NeurIPS 2025 | arXiv 2510.09210 | watermarking | 本文提出两种可证明的水印方案（后投毒水印和投毒并行水印），为数据投毒攻击提供透明性声明机制，理论证明在特定水印长度条件下可同时保证水印可检测性和投毒有效性。"
 tags:
   - NeurIPS 2025
-  - watermarking
-  - data poisoning
-  - backdoor attack
 ---
 
 # Provable Watermarking for Data Poisoning Attacks

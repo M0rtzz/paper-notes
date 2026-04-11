@@ -2,9 +2,6 @@
 description: "【论文笔记】Ouroboros: Single-step Diffusion Models for Cycle-consistent Forward and Inverse Rendering 论文解读 | ICCV 2025 | arXiv 2508.14461 | 逆渲染 | 本文提出 Ouroboros，一个由两个单步扩散模型（分别负责逆渲染 RGB→X 和前向渲染 X→RGB）组成的统一框架，通过循环一致性训练确保双向渲染的一致性，在多个数据集上取得 SOTA 的同时推理速度比多步扩散方法快 50 倍，并可零样本迁移到视频分解。"
 tags:
   - ICCV 2025
-  - 逆渲染
-  - 前向渲染
-  - 循环一致性
 ---
 
 # Ouroboros: Single-step Diffusion Models for Cycle-consistent Forward and Inverse Rendering

@@ -2,9 +2,6 @@
 description: "【论文笔记】FlexHook: Rethinking Two-Stage Referring-by-Tracking in RMOT 论文解读 | CVPR 2026 | arXiv 2503.07516 | referring multi-object tracking | FlexHook重新激活了两阶段RBT(Referring-by-Tracking)范式：用C-Hook从backbone直接采样目标特征(替代双编码)并注入语言条件线索，用PCD(成对对应解码器)替代CLIP余弦相似度做主动对应建模，首次让两阶段方法全面超越一阶段RMOT的SOTA——Refer-KITTI-V2上HOTA从10.32(iKUN)提升到42.53，训练仅1.91小时(2×4090)。"
 tags:
   - CVPR 2026
-  - referring multi-object tracking
-  - two-stage RBT
-  - language-conditioned sampling
 ---
 
 # FlexHook: Rethinking Two-Stage Referring-by-Tracking in RMOT

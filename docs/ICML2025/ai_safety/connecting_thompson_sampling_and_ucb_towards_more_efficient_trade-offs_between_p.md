@@ -2,9 +2,6 @@
 description: "【论文笔记】Connecting Thompson Sampling and UCB: Towards More Efficient Trade-offs Between Privacy and Regret 论文解读 | ICML2025 | arXiv 2505.02383 | Thompson Sampling | 提出 DP-TS-UCB 算法，通过限制高斯采样次数并复用最大模型值，在 Thompson Sampling 和 UCB 之间建立连接，实现 $\tilde{O}(T^{0.25(1-\alpha)})$-GDP 隐私保证和 $O(K\ln^{\alpha+1}(T)/\Delta)$ 遗憾上界的参数化权衡。"
 tags:
   - ICML2025
-  - Thompson Sampling
-  - UCB
-  - 差分隐私
 ---
 
 # Connecting Thompson Sampling and UCB: Towards More Efficient Trade-offs Between Privacy and Regret

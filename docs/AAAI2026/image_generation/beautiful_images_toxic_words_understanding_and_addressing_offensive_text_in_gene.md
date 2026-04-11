@@ -2,10 +2,7 @@
 description: "【论文笔记】Beautiful Images, Toxic Words: Understanding and Addressing Offensive Text in Generated Images 论文解读 | AAAI2026 | arXiv 2502.05066 | 扩散模型 Diffusion Models | 揭示扩散模型在生成图像中嵌入 NSFW 文字的新威胁，提出基于文本生成层定向 LoRA 微调的 NSFW-Intervention 方法，并发布 ToxicBench 基准。"
 tags:
   - AAAI2026
-  - Diffusion Models
   - 扩散模型
-  - NSFW Safety
-  - Text-in-Image
 ---
 
 # Beautiful Images, Toxic Words: Understanding and Addressing Offensive Text in Generated Images

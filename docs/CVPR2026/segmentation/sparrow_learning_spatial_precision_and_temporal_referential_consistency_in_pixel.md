@@ -2,9 +2,6 @@
 description: "【论文笔记】SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs 论文解读 | CVPR 2026 | arXiv 2603.12382 | 视频像素级定位 | 提出 SPARROW 框架，通过 **目标特定追踪特征（TSF）** 注入时间一致性监督、**双提示（[BOX]+[SEG]）粗到细解码** 稳定首帧初始化，以即插即用方式集成到现有视频 MLLM 上，在 6 个基准 3 个任务上取得一致提升。"
 tags:
   - CVPR 2026
-  - 视频像素级定位
-  - 参考视频目标分割
-  - 时间一致性
 ---
 
 # SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs

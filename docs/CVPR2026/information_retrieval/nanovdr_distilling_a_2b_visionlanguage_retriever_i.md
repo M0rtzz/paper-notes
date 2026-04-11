@@ -2,9 +2,6 @@
 description: "【论文笔记】NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval 论文解读 | CVPR 2026 | arXiv 2603.12824 | 知识蒸馏 | NanoVDR 利用查询-文档的不对称性，将 2B 参数的 VLM 文档检索器通过 pointwise cosine alignment 蒸馏成 69M 的纯文本查询编码器，在 ViDoRe 基准上保留 95.1% 的教师模型性能，查询延迟降低 50 倍，训练仅需 13 GPU 小时。"
 tags:
   - CVPR 2026
-  - 知识蒸馏
-  - 视觉文档检索
-  - 非对称编码
 ---
 
 # NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval

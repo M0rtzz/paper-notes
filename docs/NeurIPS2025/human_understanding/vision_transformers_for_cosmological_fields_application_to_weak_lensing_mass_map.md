@@ -2,10 +2,7 @@
 description: "【论文笔记】Vision Transformers for Cosmological Fields: Application to Weak Lensing Mass Maps 论文解读 | NeurIPS 2025 | arXiv 2512.07125 | Transformer Vision Transformer | 首次将 Vision Transformers（ViT 和 Swin Transformer）应用于弱引力透镜收敛场的宇宙学参数（$\Omega_m$ 和 $S_8$）约束，通过模拟推断框架系统比较了注意力架构与 CNN 的性能。"
 tags:
   - NeurIPS 2025
-  - Vision Transformer
   - Transformer
-  - 弱引力透镜
-  - 宇宙学参数
 ---
 
 # Vision Transformers for Cosmological Fields: Application to Weak Lensing Mass Maps

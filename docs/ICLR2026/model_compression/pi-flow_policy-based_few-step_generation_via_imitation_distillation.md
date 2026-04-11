@@ -2,9 +2,6 @@
 description: "【论文笔记】π-Flow: Policy-Based Few-Step Generation via Imitation Distillation 论文解读 | ICLR 2026 | arXiv 2510.14974 | 流匹配模型蒸馏 | 提出 π-Flow，通过修改学生流模型的输出层使其预测一个\"策略\"（policy），该策略在单个网络评估内通过多个子步生成动态流速度进行精确 ODE 积分，并采用模仿蒸馏（imitation distillation）方法在学生自己的轨迹上匹配教师速度，从而实现稳定可扩展的少步生成并避免质量-多样性权衡。"
 tags:
   - ICLR 2026
-  - 流匹配模型蒸馏
-  - 少步生成
-  - 策略学习
 ---
 
 # π-Flow: Policy-Based Few-Step Generation via Imitation Distillation

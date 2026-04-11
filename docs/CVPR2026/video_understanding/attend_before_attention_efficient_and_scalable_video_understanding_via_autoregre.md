@@ -2,9 +2,6 @@
 description: "【论文笔记】Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing 论文解读 | CVPR2026 | arXiv 2603.12254 | 视频冗余去除 | 提出 AutoGaze——一个仅 3M 参数的轻量自回归模块，在 ViT 之前以多尺度方式选择最少量 patch 并去除时空冗余，实现 4×-100× token 压缩和最高 19× ViT 加速，使 MLLM 可扩展到 1K 帧 4K 分辨率视频。"
 tags:
   - CVPR2026
-  - 视频冗余去除
-  - 自回归注视
-  - 多尺度patch选择
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

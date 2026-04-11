@@ -2,9 +2,6 @@
 description: "【论文笔记】Enough Coin Flips Can Make LLMs Act Bayesian 论文解读 | ACL 2025 | arXiv 2503.04722 | 贝叶斯推理 | 通过受控的有偏硬币抛掷实验，证明 LLM 在获得足够的上下文示例后能以贝叶斯方式更新其先验，但初始先验通常存在系统性偏差（偏向正面），且注意力幅度对贝叶斯推理影响甚微。"
 tags:
   - ACL 2025
-  - 贝叶斯推理
-  - 上下文学习
-  - 概率建模
 ---
 
 # Enough Coin Flips Can Make LLMs Act Bayesian

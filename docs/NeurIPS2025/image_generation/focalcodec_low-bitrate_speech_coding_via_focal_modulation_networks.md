@@ -2,9 +2,6 @@
 description: "【论文笔记】FocalCodec: Low-Bitrate Speech Coding via Focal Modulation Networks 论文解读 | NeurIPS 2025 | arXiv 2502.04465 | 语音编解码 | 提出 FocalCodec——基于 Focal Modulation 的低比特率语音编解码器，使用**单个二值码本**将语音压缩至 0.16–0.65 kbps，在语音重合成、语音转换和多项下游任务中达到与多码本 SOTA 方法可比甚至更优的性能。"
 tags:
   - NeurIPS 2025
-  - 语音编解码
-  - 低比特率
-  - Focal Modulation
 ---
 
 # FocalCodec: Low-Bitrate Speech Coding via Focal Modulation Networks

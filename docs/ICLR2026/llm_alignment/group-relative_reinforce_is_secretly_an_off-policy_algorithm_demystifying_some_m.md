@@ -2,9 +2,6 @@
 description: "【论文笔记】Group-Relative REINFORCE Is Secretly an Off-Policy Algorithm: Demystifying Some Myths About GRPO and Its Friends 论文解读 | ICLR 2026 | arXiv 2509.24203 | GRPO | 通过 first-principles 推导揭示 group-relative REINFORCE（如 GRPO）天然具有 off-policy 解释，无需假设数据采样分布。发现 clipping 而非 importance sampling 是稳定性的关键，提出 REC 系列算法统一解释 GRPO、Kimi OPMD 和 Meta AsymRE。"
 tags:
   - ICLR 2026
-  - GRPO
-  - off-policy RL
-  - importance sampling
 ---
 
 # Group-Relative REINFORCE Is Secretly an Off-Policy Algorithm: Demystifying Some Myths About GRPO and Its Friends

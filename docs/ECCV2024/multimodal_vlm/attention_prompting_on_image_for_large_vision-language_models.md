@@ -2,9 +2,6 @@
 description: "【论文笔记】Attention Prompting on Image for Large Vision-Language Models 论文解读 | ECCV 2024 | arXiv 2409.17143 | 视觉提示 | 本文提出Attention Prompting on Image（API），通过辅助模型（如CLIP或LLaVA）根据文本查询生成注意力热力图，将热力图叠加到原始图像上作为视觉提示输入LVLM，在不修改模型参数的情况下在MM-Vet、LLaVA-Bench等多个VL基准上稳定提升多种LVLM的性能（LLaVA-1.5提升3.8%/2.9%）。"
 tags:
   - ECCV 2024
-  - 视觉提示
-  - 注意力热力图
-  - LVLM
 ---
 
 # Attention Prompting on Image for Large Vision-Language Models

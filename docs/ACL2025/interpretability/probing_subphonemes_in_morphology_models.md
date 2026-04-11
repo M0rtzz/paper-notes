@@ -2,8 +2,6 @@
 description: "【论文笔记】Probing Subphonemes in Morphology Models 论文解读 | ACL 2025 | arXiv 2505.11297 | 形态学变形 | 本文提出了一种语言无关的探测方法，研究在形态学变形任务上训练的 Transformer 模型如何隐式习得音韵特征，发现局部特征（如末辅音清化）在音素嵌入中编码良好，而长距离依赖（如元音和谐）在编码器层的上下文化表示中更显著。"
 tags:
   - ACL 2025
-  - 形态学变形
-  - 音韵特征探测
   - Transformer
 ---
 

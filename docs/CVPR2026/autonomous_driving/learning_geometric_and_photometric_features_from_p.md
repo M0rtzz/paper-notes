@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization 论文解读 | CVPR 2026 | arXiv 2603.12663 | [室外场景分类 | 构建大规模室外场景数据集MPO（含Velodyne稀疏和FARO稠密两种LiDAR点云），提出结合水平循环卷积(HCC)和行级最大池化(RWMP)的CNN架构，利用全景深度图和反射率图的多模态融合（Softmax Average），在6类室外场景分类上达97.87%准确率，显著超越传统手工特征方法。"
 tags:
   - CVPR 2026
-  - [室外场景分类
-  - 全景LiDAR
-  - 深度+反射率融合
 ---
 
 # Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization

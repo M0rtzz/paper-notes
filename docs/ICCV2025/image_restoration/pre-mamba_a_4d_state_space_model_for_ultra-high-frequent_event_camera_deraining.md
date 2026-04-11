@@ -2,9 +2,6 @@
 description: "【论文笔记】PRE-Mamba: A 4D State Space Model for Ultra-High-Frequent Event Camera Deraining 论文解读 | ICCV 2025 | arXiv 2505.05307 | 事件相机去雨 | 首个基于点的事件相机去雨框架，利用4D事件云表示和多尺度状态空间模型（MS3M），在保持微秒级时间精度的同时实现高效去雨，仅0.26M参数即达到SOTA性能。"
 tags:
   - ICCV 2025
-  - 事件相机去雨
-  - 状态空间模型
-  - Mamba
 ---
 
 # PRE-Mamba: A 4D State Space Model for Ultra-High-Frequent Event Camera Deraining

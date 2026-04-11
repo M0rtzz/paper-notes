@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD 论文解读 | CVPR 2026 | arXiv 2603.10933 | CBCT 报告生成 | 提出 CBCTRepD——面向口腔颌面 CBCT 的双语报告生成系统，基于 7,408 例高质量配对数据集训练，通过放射科医生-AI 协作工作流，帮助不同经验水平的放射科医生系统性提升报告质量：初级→中级、中级→高级、高级减少遗漏。"
 tags:
   - CVPR 2026
-  - CBCT 报告生成
-  - 口腔颌面影像
-  - 放射科医生-AI 协作
 ---
 
 # Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD

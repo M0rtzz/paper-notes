@@ -2,9 +2,6 @@
 description: "【论文笔记】STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization 论文解读 | ICML 2025 | arXiv 2506.03863 | 技能抽象 | 提出STAR框架，通过旋转增强残差技能量化（RaRSQ）解决VQ-VAE的codebook坍塌问题，并通过因果技能Transformer（CST）建模技能间依赖关系，在LIBERO基准上整体成功率达93.6%，比此前SOTA QueST提升约12%。"
 tags:
   - ICML 2025
-  - 技能抽象
-  - 向量量化
-  - codebook collapse
 ---
 
 # STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization

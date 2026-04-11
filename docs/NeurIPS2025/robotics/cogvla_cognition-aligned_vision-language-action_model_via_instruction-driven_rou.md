@@ -2,9 +2,6 @@
 description: "【论文笔记】CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification 论文解读 | NeurIPS 2025 | arXiv 2508.21046 | VLA | 提出 CogVLA——模仿人类多模态认知的三阶段 VLA 架构：(1) EFA-Routing 将视觉 token 压缩至 25%；(2) LFP-Routing 裁剪 50% 的 LLM 无关 token；(3) V-L-A 耦合注意力保持语义一致性——在 LIBERO 上达 97.4% 成功率，训练成本降 2.5×，推理延迟降 2.8×。"
 tags:
   - NeurIPS 2025
-  - VLA
-  - token routing
-  - sparsification
 ---
 
 # CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification

@@ -2,9 +2,6 @@
 description: "【论文笔记】The Noisy Path from Source to Citation: Measuring How Scholars Engage with Past Research 论文解读 | ACL 2025 | arXiv 2502.20581 | 引用保真度 | 本文构建了一个大规模计算管道来量化引用保真度（citation fidelity），基于 1300 万引用句对分析发现：引用保真度与时间/学科接近度、开放获取和团队规模等因素显著相关，并通过准实验证实了中介引用导致信息失真的\"电话效应\"。"
 tags:
   - ACL 2025
-  - 引用保真度
-  - 知识传播
-  - 电话效应
 ---
 
 # The Noisy Path from Source to Citation: Measuring How Scholars Engage with Past Research

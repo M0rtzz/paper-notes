@@ -2,10 +2,8 @@
 description: "【论文笔记】Diffusion-Classifier Synergy: Reward-Aligned Learning via Mutual Boosting Loop for FSCIL 论文解读 | NEURIPS2025 | arXiv 2510.03608 | Few-Shot Class-Incremental Learning | 提出 Diffusion-Classifier Synergy (DCS) 框架，通过在扩散模型和分类器之间建立互相增强的闭环，利用多层次奖励函数（特征级+logits级）引导扩散模型生成对分类器最有益的图像，在 FSCIL 基准上取得 SOTA。"
 tags:
   - NEURIPS2025
-  - Few-Shot Class-Incremental Learning
-  - Diffusion Model
   - 扩散模型
-  - Reward-Aligned Generation
+  - 数据增强
 ---
 
 # Diffusion-Classifier Synergy: Reward-Aligned Learning via Mutual Boosting Loop for FSCIL

@@ -2,9 +2,6 @@
 description: "【论文笔记】From Black Boxes to Transparent Minds: Evaluating and Enhancing the Theory of Mind in Multimodal Large Language Models 论文解读 | ICML2025 | arXiv 2506.14224 | Theory of Mind | 本文从可解释性角度评估多模态大模型（MLLM）的心智理论（ToM）能力，构建了基于 2D 网格世界的多模态 ToM 数据集 GridToM，并提出一种无需训练的注意力头激活干预方法来显著提升模型的 ToM 表现。"
 tags:
   - ICML2025
-  - Theory of Mind
-  - 多模态大模型
-  - 可解释性
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

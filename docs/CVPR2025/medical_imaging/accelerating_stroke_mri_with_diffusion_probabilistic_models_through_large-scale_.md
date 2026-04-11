@@ -2,10 +2,7 @@
 description: "【论文笔记】Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning 论文解读 | CVPR2025 | arXiv 2603.13007 | 扩散模型 Diffusion Probabilistic Models | 借鉴基础模型范式，在大规模公开脑 MRI 数据上预训练扩散概率模型（DPM），再在仅 20 例中风患者数据上微调，实现数据受限场景下加速 MRI 重建，临床读者研究证实 2× 加速图像质量不劣于标准治疗。"
 tags:
   - CVPR2025
-  - Diffusion Probabilistic Models
   - 扩散模型
-  - MRI Reconstruction
-  - Foundation Models
 ---
 
 # Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning

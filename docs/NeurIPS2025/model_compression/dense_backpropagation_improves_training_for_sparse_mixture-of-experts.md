@@ -2,9 +2,6 @@
 description: "【论文笔记】Dense Backpropagation Improves Training for Sparse Mixture-of-Experts 论文解读 | NeurIPS 2025 | arXiv 2504.12463 | Mixture-of-Experts | 提出 Default MoE 方法，用指数移动平均（EMA）近似非激活 expert 的输出，使 MoE router 获得稠密梯度更新，在不显著增加计算开销的情况下提升稀疏 MoE 的训练性能。"
 tags:
   - NeurIPS 2025
-  - Mixture-of-Experts
-  - sparse routing
-  - dense gradient
 ---
 
 # Dense Backpropagation Improves Training for Sparse Mixture-of-Experts

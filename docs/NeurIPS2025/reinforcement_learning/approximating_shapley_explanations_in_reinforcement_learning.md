@@ -2,9 +2,6 @@
 description: "【论文笔记】FastSVERL: Approximating Shapley Explanations in Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2511.06094 | Shapley值 | 提出 FastSVERL——首个针对 RL 的可扩展 Shapley 值近似方法，用参数化模型分摊计算成本，解决 RL 特有的时序依赖、off-policy 数据和策略演化等挑战，为 RL 决策提供原则性的特征归因解释。"
 tags:
   - NeurIPS 2025
-  - Shapley值
-  - 可解释RL
-  - 特征归因
 ---
 
 # FastSVERL: Approximating Shapley Explanations in Reinforcement Learning

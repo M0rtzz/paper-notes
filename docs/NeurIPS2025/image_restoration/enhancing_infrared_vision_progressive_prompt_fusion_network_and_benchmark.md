@@ -2,10 +2,7 @@
 description: "【论文笔记】Enhancing Infrared Vision: Progressive Prompt Fusion Network and Benchmark 论文解读 | NeurIPS 2025 | arXiv 2510.09343 | 热红外图像增强 | 针对热红外(TIR)图像中低对比度、模糊、噪声等多种退化耦合的问题，提出基于双提示融合的渐进式网络PPFN和选择性渐进训练策略SPT，并构建首个大规模多场景TIR基准数据集HM-TIR，在复合退化场景下PSNR提升8.76%。"
 tags:
   - NeurIPS 2025
-  - 热红外图像增强
-  - Prompt学习
   - 提示学习
-  - All-in-One复原
 ---
 
 # Enhancing Infrared Vision: Progressive Prompt Fusion Network and Benchmark

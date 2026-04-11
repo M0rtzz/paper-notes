@@ -2,9 +2,6 @@
 description: "【论文笔记】FG-CLIP: Fine-Grained Visual and Textual Alignment 论文解读 | ICML2025 | arXiv 2505.05071 | CLIP | FG-CLIP通过三大创新增强CLIP的细粒度理解：1.6B长描述-图像对用于全局语义，12M图像+40M区域标注用于精细对齐，10M硬负样本用于区分微妙语义差异，在细粒度理解/OV检测/检索等任务上全面超越CLIP。"
 tags:
   - ICML2025
-  - CLIP
-  - 细粒度理解
-  - 长描述
 ---
 
 # FG-CLIP: Fine-Grained Visual and Textual Alignment

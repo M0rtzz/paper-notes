@@ -2,9 +2,6 @@
 description: "【论文笔记】See, Think, Act: Teaching Multimodal Agents to Effectively Interact with GUI by Identifying Toggles (StaR) 论文解读 | CVPR 2026 | arXiv 2509.13615 | GUI Agent | 揭示现有多模态GUI Agent在开关控制(toggle)任务上的严重失败（GPT-5仅37% O-AMR），提出State-aware Reasoning (StaR)方法通过三步推理链（感知当前状态→分析目标状态→决定是否操作）将执行准确率提升30%+，同时不损害通用Agent能力。"
 tags:
   - CVPR 2026
-  - GUI Agent
-  - 开关控制
-  - 状态感知推理
 ---
 
 # See, Think, Act: Teaching Multimodal Agents to Effectively Interact with GUI by Identifying Toggles (StaR)

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Representation Level Analysis of NMT Model Robustness to Grammatical Errors 论文解读 | ACL 2025 | arXiv 2505.21224 | 机器翻译鲁棒性 | 从模型内部表示视角分析 NMT 对语法错误的鲁棒性机制——发现编码器先\"检测\"语法错误（GED 探测精度在前半层上升），再\"纠正\"它（不正确词的表示向正确形式靠拢），并识别出\"鲁棒性头\"（Robustness Heads）——特定注意力头关注可解释的语言单元以修正错误表示，微调后模型更多依赖这些头。"
 tags:
   - ACL 2025
-  - 机器翻译鲁棒性
-  - 语法错误
-  - 表示分析
 ---
 
 # A Representation Level Analysis of NMT Model Robustness to Grammatical Errors

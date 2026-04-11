@@ -2,9 +2,7 @@
 description: "【论文笔记】Hephaestus: Mixture Generative Modeling with Energy Guidance for Large-scale QoS Degradation 论文解读 | NeurIPS 2025 | arXiv 2510.17036 | QoS Degradation | 提出 Hephaestus 三阶段生成框架（Forge-Morph-Refine），结合预测路径加压算法、能量引导的混合 CVAE 和潜在空间 RL 优化，用于大规模网络 QoS 降级问题的求解。"
 tags:
   - NeurIPS 2025
-  - QoS Degradation
-  - Mixture CVAE
-  - Energy-Based Model
+  - 强化学习
 ---
 
 # Hephaestus: Mixture Generative Modeling with Energy Guidance for Large-scale QoS Degradation

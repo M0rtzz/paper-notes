@@ -2,9 +2,6 @@
 description: "【论文笔记】Thinking on the Fly: Test-Time Reasoning Enhancement via Latent Thought Policy Optimization 论文解读 | ICLR 2026 | arXiv 2510.04182 | 潜在推理 | 本文提出潜在思维策略优化（LTPO），一种无需更新模型参数的测试时推理增强框架，通过将中间潜在\"思维\"向量视为可优化的动态参数，利用在线策略梯度方法和内在置信度奖励信号来增强冻结LLM的推理能力。"
 tags:
   - ICLR 2026
-  - 潜在推理
-  - 测试时优化
-  - 策略梯度
 ---
 
 # Thinking on the Fly: Test-Time Reasoning Enhancement via Latent Thought Policy Optimization

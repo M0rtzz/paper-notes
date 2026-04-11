@@ -2,9 +2,6 @@
 description: "【论文笔记】Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting 论文解读 | NeurIPS 2025 | arXiv 2508.12720 | 3D高斯溅射 | 揭示了稀疏视角 3DGS 中外观伪影的根本原因——高斯体之间的协同适应（co-adaptation），提出 Co-Adaptation Score 度量指标，以及 Gaussian Dropout 和不透明度噪声注入两种即插即用缓解策略。"
 tags:
   - NeurIPS 2025
-  - 3D高斯溅射
-  - 稀疏视角
-  - 协同适应
 ---
 
 # Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting

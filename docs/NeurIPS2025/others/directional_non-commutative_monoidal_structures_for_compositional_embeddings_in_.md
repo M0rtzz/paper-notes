@@ -2,9 +2,7 @@
 description: "【论文笔记】Directional Non-Commutative Monoidal Structures for Compositional Embeddings in Machine Learning 论文解读 | NEURIPS2025 | arXiv 2505.15507 | non-commutative algebra | 提出一种基于方向性非交换幺半群算子的代数框架，为多维组合嵌入提供统一数学基础，将 SSM 递归、Transformer 自注意力和 RoPE 位置编码统一为特例。"
 tags:
   - NEURIPS2025
-  - non-commutative algebra
-  - compositional embeddings
-  - monoidal structure
+  - Transformer
 ---
 
 # Directional Non-Commutative Monoidal Structures for Compositional Embeddings in Machine Learning

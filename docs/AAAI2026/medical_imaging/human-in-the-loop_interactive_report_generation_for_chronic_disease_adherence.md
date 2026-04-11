@@ -2,9 +2,6 @@
 description: "【论文笔记】Human-in-the-Loop Interactive Report Generation for Chronic Disease Adherence 论文解读 | AAAI 2026 | arXiv 2601.06364 | 人在回路 | 本文设计了一个\"医生在回路\"的交互界面，将 AI 限定于数据组织和草稿生成角色，通过单页面编辑器、图表-文本配对和自动紧急度分级，实现了高效且可问责的慢性病依从性报告生成。试点研究揭示了一个\"问责悖论\"：即便 AI 生成质量达到了医生手动撰写基线水平，审阅时间仍无法显著减少，因为临床责任要求完整核验。"
 tags:
   - AAAI 2026
-  - 人在回路
-  - 慢性病管理
-  - 报告生成
 ---
 
 # Human-in-the-Loop Interactive Report Generation for Chronic Disease Adherence

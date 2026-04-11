@@ -2,9 +2,6 @@
 description: "【论文笔记】ContextBench: Modifying Contexts for Targeted Latent Activation 论文解读 | ICLR 2026 | arXiv 2506.15735 | 上下文修改 | 提出 ContextBench 基准（715 个任务）评估自动生成流畅且能激活特定潜在特征的输入文本的方法，并开发两种 EPO 增强变体（LLM辅助和扩散模型修补），在激活强度和语言流畅度的权衡上 Pareto 优于标准 EPO。"
 tags:
   - ICLR 2026
-  - 上下文修改
-  - 潜在特征激活
-  - AI安全
 ---
 
 # ContextBench: Modifying Contexts for Targeted Latent Activation

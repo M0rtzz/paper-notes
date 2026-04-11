@@ -2,9 +2,6 @@
 description: "【论文笔记】CLCR: Cross-Level Semantic Collaborative Representation for Multimodal Learning 论文解读 | CVPR 2026 | arXiv 2602.19605 | 跨层语义对齐 | 提出 CLCR 框架，将每个模态特征组织为三层语义层级（浅/中/深），通过层内受控交换域（IntraCED）限制跨模态交互仅在共享子空间进行，通过层间协同聚合域（InterCAD）实现跨层自适应融合，解决多模态学习中的跨层语义不同步问题。"
 tags:
   - CVPR 2026
-  - 跨层语义对齐
-  - 共享-私有解耦
-  - 多模态融合
 ---
 
 # CLCR: Cross-Level Semantic Collaborative Representation for Multimodal Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】LeapFactual: Reliable Visual Counterfactual Explanation Using Conditional Flow Matching 论文解读 | NeurIPS 2025 | arXiv 2510.14623 | 反事实解释 | 提出LeapFactual，一种基于条件流匹配(CFM)的反事实解释算法，通过\"起飞-降落\"(Leap)机制在扁平化和结构化潜在空间之间建立桥梁，生成可靠且分布内的反事实样本，即使在学习决策边界与真实边界不一致时也能有效工作。"
 tags:
   - NeurIPS 2025
-  - 反事实解释
-  - 条件流匹配
-  - 可靠性
 ---
 
 # LeapFactual: Reliable Visual Counterfactual Explanation Using Conditional Flow Matching

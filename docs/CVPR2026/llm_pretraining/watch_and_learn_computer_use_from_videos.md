@@ -2,9 +2,6 @@
 description: "【论文笔记】Watch and Learn: Learning to Use Computers from Online Videos 论文解读 | CVPR 2026 | arXiv 2510.04673 | computer-using agent | 提出 Watch & Learn 框架, 通过逆动力学模型 (IDM) 将 YouTube 教程视频自动转化为可执行的 UI 轨迹数据 (53K+ 轨迹, 免去人工标注), 基于此数据增强 CUA 能力, 在 OSWorld 上让 Qwen 2.5VL-7B 提升 +11.1%, UI-TARS-1.5-7B 提升 +3.8%."
 tags:
   - CVPR 2026
-  - computer-using agent
-  - inverse dynamics model
-  - trajectory generation
 ---
 
 # Watch and Learn: Learning to Use Computers from Online Videos

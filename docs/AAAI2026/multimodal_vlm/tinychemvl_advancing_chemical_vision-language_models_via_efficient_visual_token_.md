@@ -2,9 +2,6 @@
 description: "【论文笔记】TinyChemVL: Advancing Chemical Vision-Language Models via Efficient Visual Token Reduction and Complex Reaction Tasks 论文解读 | AAAI 2026 | arXiv 2511.06283 | 化学VLM | TinyChemVL 是一个仅4B参数的化学领域VLM，通过自适应token合并与剪枝策略将视觉token压缩至原来的1/16，并引入反应级别任务和基准ChemRxn-V，在分子和反应级别的视觉化学任务上达到SOTA性能，同时显著提升推理和训练速度。"
 tags:
   - AAAI 2026
-  - 化学VLM
-  - 视觉token压缩
-  - 分子识别
 ---
 
 # TinyChemVL: Advancing Chemical Vision-Language Models via Efficient Visual Token Reduction and Complex Reaction Tasks

@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchical Bracketing Encodings for Dependency Parsing as Tagging 论文解读 | ACL 2025 | arXiv 2505.11693 | 依存句法分析 | 提出层次化括号编码家族用于依存句法分析的序列标注范式，证明现有4-bit编码是该家族的非最优特例，推导出仅需12个标签的最优编码，并将其推广到处理任意非投射性。"
 tags:
   - ACL 2025
-  - 依存句法分析
-  - 序列标注
-  - 括号编码
 ---
 
 # Hierarchical Bracketing Encodings for Dependency Parsing as Tagging

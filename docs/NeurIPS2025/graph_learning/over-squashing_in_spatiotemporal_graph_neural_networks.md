@@ -2,10 +2,7 @@
 description: "【论文笔记】Over-squashing in Spatiotemporal Graph Neural Networks 论文解读 | NeurIPS 2025 | arXiv 2506.15507 | over-squashing | 首次形式化时空图神经网络(STGNN)中的 over-squashing 问题，揭示了因果卷积中反直觉的\"时间远处偏好\"现象（最早时间步对最终表示影响最大），并证明 time-and-space 和 time-then-space 架构在信息瓶颈上等价，为使用计算高效的 TTS 架构提供理论支持。"
 tags:
   - NeurIPS 2025
-  - over-squashing
-  - 时空GNN
   - 图神经网络
-  - 因果卷积
 ---
 
 # Over-squashing in Spatiotemporal Graph Neural Networks

@@ -2,9 +2,6 @@
 description: "【论文笔记】Semantic Shift Estimation via Dual-Projection and Classifier Reconstruction for Exemplar-Free Class-Incremental Learning 论文解读 | ICML2025 | arXiv 2503.05423 | 类增量学习 | 提出 DPCR 方法，通过双投影（任务级 TSSP + 类别级 CIP）估计语义漂移，并用岭回归无BP地重建分类器，同时解决无样例类增量学习中的语义漂移和决策偏差问题，在多个基准上超越 SOTA。"
 tags:
   - ICML2025
-  - 类增量学习
-  - 无样例存储
-  - 语义漂移估计
 ---
 
 # Semantic Shift Estimation via Dual-Projection and Classifier Reconstruction for Exemplar-Free Class-Incremental Learning

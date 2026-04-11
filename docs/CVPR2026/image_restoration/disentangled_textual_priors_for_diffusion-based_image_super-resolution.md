@@ -2,9 +2,6 @@
 description: "【论文笔记】Disentangled Textual Priors for Diffusion-based Image Super-Resolution 论文解读 | CVPR 2026 | arXiv 2603.07430 | 扩散模型超分 | 提出 DTPSR，通过将文本先验沿空间层级（全局/局部）和频率语义（低频/高频）两个维度解耦，构建解耦的跨注意力注入管线和多分支 CFG 策略，实现感知质量优越的扩散超分辨率。"
 tags:
   - CVPR 2026
-  - 扩散模型超分
-  - 文本引导
-  - 解耦先验
 ---
 
 # Disentangled Textual Priors for Diffusion-based Image Super-Resolution

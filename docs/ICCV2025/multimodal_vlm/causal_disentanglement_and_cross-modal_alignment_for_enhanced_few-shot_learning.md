@@ -2,9 +2,6 @@
 description: "【论文笔记】Causal Disentanglement and Cross-Modal Alignment for Enhanced Few-Shot Learning 论文解读 | ICCV 2025 | arXiv 2508.03102 | 少样本学习 | 提出 Causal CLIP Adapter (CCA)，利用 ICA 对 CLIP 视觉特征进行因果解纠缠，并通过单向微调文本分类器和双向交叉注意力增强跨模态对齐，在 11 个基准数据集上实现了少样本分类 SOTA。"
 tags:
   - ICCV 2025
-  - 少样本学习
-  - CLIP
-  - 因果解纠缠
 ---
 
 # Causal Disentanglement and Cross-Modal Alignment for Enhanced Few-Shot Learning

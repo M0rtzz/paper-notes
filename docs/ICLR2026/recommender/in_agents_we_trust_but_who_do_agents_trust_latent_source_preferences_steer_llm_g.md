@@ -2,9 +2,6 @@
 description: "【论文笔记】In Agents We Trust, but Who Do Agents Trust? Latent Source Preferences Steer LLM Generations 论文解读 | ICLR 2026 | arXiv 2602.15456 | LLM Agent | 通过对12个LLM在新闻、学术、电商三个领域的大规模控制实验，揭示了LLM存在系统性的**隐式信息源偏好**（latent source preferences），这种偏好可以压倒内容本身的影响，且无法通过简单提示消除。"
 tags:
   - ICLR 2026
-  - LLM Agent
-  - 信息源偏好
-  - 信任偏见
 ---
 
 # In Agents We Trust, but Who Do Agents Trust? Latent Source Preferences Steer LLM Generations

@@ -2,9 +2,6 @@
 description: "【论文笔记】KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education? 论文解读 | ACL 2025 | arXiv 2412.08985 | RAG鲁棒性 | 构建了 KnowShiftQA 数据集（3,005 道题，覆盖 5 个学科），通过假设性知识更新模拟教科书与 LLM 参数知识的差异，系统评估 RAG 系统面对知识偏移时的鲁棒性，发现现有 RAG 系统在知识偏移下性能下降 22-27%。"
 tags:
   - ACL 2025
-  - RAG鲁棒性
-  - 知识偏移
-  - K-12教育
 ---
 
 # KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?

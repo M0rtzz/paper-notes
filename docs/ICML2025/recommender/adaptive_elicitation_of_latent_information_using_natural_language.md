@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Elicitation of Latent Information Using Natural Language 论文解读 | ICML 2025 | arXiv 2504.04204 | 自适应信息获取 | 提出一种基于 LLM 的自适应信息获取框架，通过元学习预测模型对未来观测进行自回归前向模拟，量化并区分认知不确定性与偶然不确定性，自适应选择最具信息量的自然语言问题来高效减少对潜变量实体的认知不确定性。"
 tags:
   - ICML 2025
-  - 自适应信息获取
-  - 不确定性量化
-  - 元学习
 ---
 
 # Adaptive Elicitation of Latent Information Using Natural Language

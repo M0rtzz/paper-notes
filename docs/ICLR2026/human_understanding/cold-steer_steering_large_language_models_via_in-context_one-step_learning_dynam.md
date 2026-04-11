@@ -2,9 +2,6 @@
 description: "【论文笔记】COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics 论文解读 | ICLR 2026 | arXiv 2603.06495 | 激活转向 | 提出 COLD-Steer，通过近似梯度下降在上下文示例上产生的表征变化来实现无训练的 LLM 激活转向，在仅用 50 分之一样本量的情况下达到 95% 的转向效果。"
 tags:
   - ICLR 2026
-  - 激活转向
-  - 学习动力学
-  - 无训练推理
 ---
 
 # COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics

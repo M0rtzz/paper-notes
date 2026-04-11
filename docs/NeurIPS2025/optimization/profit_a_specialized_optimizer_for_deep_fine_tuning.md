@@ -2,9 +2,6 @@
 description: "【论文笔记】PROFIT: A Specialized Optimizer for Deep Fine Tuning 论文解读 | NeurIPS 2025 | arXiv 2412.01930 | 微调优化器 | PROFIT 将微调视为时间维度上的多任务学习问题，通过将新任务梯度对\"回归平衡点\"方向做正交化投影，实现了无需额外数据或参数的抗遗忘微调优化器。"
 tags:
   - NeurIPS 2025
-  - 微调优化器
-  - 灾难性遗忘
-  - 梯度正交化
 ---
 
 # PROFIT: A Specialized Optimizer for Deep Fine Tuning

@@ -2,9 +2,6 @@
 description: "【论文笔记】HiFo-Prompt: Prompting with Hindsight and Foresight for LLM-based Automatic Heuristic Design 论文解读 | ICLR 2026 | arXiv 2508.13333 | 自动启发式设计 | 提出 HiFo-Prompt 框架，通过 Hindsight（回顾式知识池）和 Foresight（前瞻式进化导航器）两个协同模块提升 LLM 驱动的自动启发式设计（AHD），在 TSP 和 FSSP 等任务上显著超越现有方法。"
 tags:
   - ICLR 2026
-  - 自动启发式设计
-  - LLM+进化计算
-  - 知识管理
 ---
 
 # HiFo-Prompt: Prompting with Hindsight and Foresight for LLM-based Automatic Heuristic Design

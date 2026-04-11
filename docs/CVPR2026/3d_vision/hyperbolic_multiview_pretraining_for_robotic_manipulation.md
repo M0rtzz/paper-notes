@@ -2,9 +2,6 @@
 description: "【论文笔记】HyperMVP: Hyperbolic Multiview Pretraining for Robotic Manipulation 论文解读 | CVPR 2026 | arXiv 2603.04848 | 双曲空间 | 提出 HyperMVP，首个在双曲空间中进行3D多视角自监督预训练的框架，通过 GeoLink 编码器学习双曲多视角表征并迁移到机器人操作任务，在 COLOSSEUM 最困难的 All Perturbations 设置下实现 2.1× 性能提升。"
 tags:
   - CVPR 2026
-  - 双曲空间
-  - 多视角预训练
-  - 机器人操作
 ---
 
 # HyperMVP: Hyperbolic Multiview Pretraining for Robotic Manipulation

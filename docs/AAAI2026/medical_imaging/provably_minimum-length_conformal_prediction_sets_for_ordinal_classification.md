@@ -2,9 +2,6 @@
 description: "【论文笔记】Provably Minimum-Length Conformal Prediction Sets for Ordinal Classification 论文解读 | AAAI 2026 | arXiv 2511.16845 | 保形预测 | 提出 min-CPS 及其正则化变体 min-RCPS，一种模型无关的序数保形预测方法，通过线性时间滑动窗口算法求解每个样本的最小长度预测区间，在保证覆盖率的同时平均减少 15% 的预测集大小，且提供了实例级最优性的理论保证。"
 tags:
   - AAAI 2026
-  - 保形预测
-  - 序数分类
-  - 预测集大小
 ---
 
 # Provably Minimum-Length Conformal Prediction Sets for Ordinal Classification

@@ -2,9 +2,6 @@
 description: "【论文笔记】Creativity or Brute Force? Using Brainteasers as a Window into the Problem-Solving Abilities of Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.10844 | 脑筋急转弯 | 构建Braingle Brainteaser基准（242数学+236逻辑谜题），系统评估LLM在脑筋急转弯上的推理策略——发现模型有时能产生创造性洞察式解法，但也常在有巧妙解法可用时退回暴力穷举，且自纠错能力有限、将叙事→数学格式翻译可小幅提升性能。"
 tags:
   - NeurIPS 2025
-  - 脑筋急转弯
-  - 创造性推理
-  - 暴力搜索
 ---
 
 # Creativity or Brute Force? Using Brainteasers as a Window into the Problem-Solving Abilities of Large Language Models

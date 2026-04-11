@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlearned but Not Forgotten: Data Extraction after Exact Unlearning in LLM 论文解读 | NeurIPS 2025 | arXiv 2505.24379 | 数据提取攻击 | 揭示了即使精确遗忘（从头重训练去除数据影响）也存在隐私泄露风险：攻击者利用遗忘前后两个模型检查点的差异，通过逆向模型引导和 token 过滤策略，可显著提升已删除数据的提取成功率，在某些场景下提取率翻倍。"
 tags:
   - NeurIPS 2025
-  - 数据提取攻击
-  - 机器遗忘
-  - LLM隐私
 ---
 
 # Unlearned but Not Forgotten: Data Extraction after Exact Unlearning in LLM

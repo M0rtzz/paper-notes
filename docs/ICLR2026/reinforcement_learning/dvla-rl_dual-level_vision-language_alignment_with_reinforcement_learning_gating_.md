@@ -2,9 +2,6 @@
 description: "【论文笔记】DVLA-RL: Dual-Level Vision-Language Alignment with Reinforcement Learning Gating for Few-Shot Learning 论文解读 | ICLR 2026 | arXiv 2602.00795 | 少样本学习 | 提出 DVLA-RL 框架，通过双层语义构建（DSC）生成互补的低层属性和高层描述，并以 RL 门控注意力（RLA）动态平衡自注意力和交叉注意力在不同网络层的贡献，实现从低层到高层的层次化视觉-语言对齐，在 9 个少样本学习基准上达到 SOTA。"
 tags:
   - ICLR 2026
-  - 少样本学习
-  - 视觉-语言对齐
-  - 强化学习门控
 ---
 
 # DVLA-RL: Dual-Level Vision-Language Alignment with Reinforcement Learning Gating for Few-Shot Learning

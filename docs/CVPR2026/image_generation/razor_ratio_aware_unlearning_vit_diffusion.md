@@ -2,9 +2,7 @@
 description: "【论文笔记】RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models 论文解读 | CVPR 2026 | arXiv 2603.14819 | machine unlearning | 提出 RAZOR, 一种基于比率感知梯度评分的多层协调编辑方法, 用于 ViT 和扩散模型的目标遗忘: 通过 forget/retain 梯度的比率和余弦对齐度联合评分, 识别对遗忘贡献最大且对保留损害最小的层/头, 实现一次性高效遗忘, 在 CLIP 身份遗忘上达到 SOTA."
 tags:
   - CVPR 2026
-  - machine unlearning
-  - ratio-aware editing
-  - ViT
+  - 扩散模型
 ---
 
 # RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models

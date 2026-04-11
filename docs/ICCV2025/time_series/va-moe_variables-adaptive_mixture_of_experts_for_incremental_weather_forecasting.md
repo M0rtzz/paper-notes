@@ -2,9 +2,6 @@
 description: "【论文笔记】VA-MoE: Variables-Adaptive Mixture of Experts for Incremental Weather Forecasting 论文解读 | ICCV 2025 | arXiv 2412.02503 | 天气预报 | 提出增量天气预报新范式和VA-MoE框架，通过变量自适应的MoE架构和索引嵌入机制，实现在仅25%可训练参数和50%初始训练数据的条件下达到与全量训练可比的预报精度。"
 tags:
   - ICCV 2025
-  - 天气预报
-  - 增量学习
-  - 混合专家模型
 ---
 
 # VA-MoE: Variables-Adaptive Mixture of Experts for Incremental Weather Forecasting

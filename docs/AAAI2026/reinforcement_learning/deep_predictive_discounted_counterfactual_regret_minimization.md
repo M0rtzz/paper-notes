@@ -2,9 +2,6 @@
 description: "【论文笔记】Deep (Predictive) Discounted Counterfactual Regret Minimization 论文解读 | AAAI 2026 | arXiv 2511.08174 | 反事实遗憾最小化 | 提出VR-DeepDCFR+和VR-DeepPDCFR+两种无模型神经CFR算法，通过自举累积优势估计、折扣裁剪机制和基线方差缩减，首次将高级表格CFR变体（DCFR+/PDCFR+）有效整合到神经网络近似框架中，在典型不完全信息博弈中实现更快收敛。"
 tags:
   - AAAI 2026
-  - 反事实遗憾最小化
-  - 不完全信息博弈
-  - 纳什均衡
 ---
 
 # Deep (Predictive) Discounted Counterfactual Regret Minimization

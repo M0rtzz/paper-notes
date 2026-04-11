@@ -2,10 +2,7 @@
 description: "【论文笔记】A Diffusion Model for Regular Time Series Generation from Irregular Data with Completion and Masking 论文解读 | NeurIPS 2025 | arXiv 2510.06699 | irregular time series | 提出两步框架从不规则采样时序数据生成规则时序：先用 TST 自编码器补全缺失值构造\"自然邻域\"，再在视觉扩散模型中用 masking 策略仅在观测像素上计算损失，避免对补全值的过度依赖，在判别分数上平均改善 70%，训练速度提升 6.5 倍。"
 tags:
   - NeurIPS 2025
-  - irregular time series
-  - diffusion model
   - 扩散模型
-  - image representation
 ---
 
 # A Diffusion Model for Regular Time Series Generation from Irregular Data with Completion and Masking

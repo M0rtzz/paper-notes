@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Multi-head Contrastive Learning 论文解读 | ECCV 2024 | arXiv 2310.05615 | 对比学习 | AMCL提出使用多个投影头（各自产生不同特征）+ 对每个样本对和每个头自适应学习温度参数，从最大似然估计推导出损失函数，作为通用插件在SimCLR/MoCo/Barlow Twins/CAN/LGP上一致提升1-5%性能。"
 tags:
   - ECCV 2024
-  - 对比学习
-  - 多头投影
-  - 自适应温度
 ---
 
 # Adaptive Multi-head Contrastive Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Creating Blank Canvas Against AI-Enabled Image Forgery 论文解读 | AAAI 2026 | arXiv 2511.22237 | 图像篡改检测 | 提出\"空白画布\"机制，通过对抗扰动使 SAM 对受保护图像\"视而不见\"，当图像被篡改后篡改区域会被 SAM 自动识别，实现无需篡改训练数据的主动式篡改定位。"
 tags:
   - AAAI 2026
-  - 图像篡改检测
-  - 对抗扰动
-  - SAM
 ---
 
 # Creating Blank Canvas Against AI-Enabled Image Forgery

@@ -2,9 +2,6 @@
 description: "【论文笔记】Evading Data Provenance in Deep Neural Networks 论文解读 | ICCV 2025 | arXiv 2508.01074 | 数据溯源 | 揭示了当前数据集所有权验证（DOV）方法的安全假象——通过一个统一的规避框架 Escaping DOV，利用教师模型在 OOD 数据集上向代理学生传输任务相关但标识无关的知识，成功同时绕过所有 11 种 DOV 方法。"
 tags:
   - ICCV 2025
-  - 数据溯源
-  - 数据集所有权验证
-  - 规避攻击
 ---
 
 # Evading Data Provenance in Deep Neural Networks

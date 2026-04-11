@@ -2,9 +2,6 @@
 description: "【论文笔记】Reliable Decision Making via Calibration Oriented Retrieval Augmented Generation 论文解读 | NeurIPS 2025 | arXiv 2411.08891 | RAG | 提出 CalibRAG 框架，通过训练一个温度条件化的 forecasting function 来确保 RAG 辅助决策过程中的置信度校准，不仅改善校准质量还提升了准确率。"
 tags:
   - NeurIPS 2025
-  - RAG
-  - calibration
-  - decision-making
 ---
 
 # Reliable Decision Making via Calibration Oriented Retrieval Augmented Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM Agents for Knowledge Discovery in Atomic Layer Processing 论文解读 | NeurIPS 2025 | arXiv 2509.26201 | LLM agent | 通过让 LLM Agent 控制模拟化学反应器（黑盒函数），证明 Agent 能在无先验知识下通过试错探索、发现并总结未知化学系统的规则，揭示了 Agent 进行开放式科学发现的能力与局限。"
 tags:
   - NeurIPS 2025
-  - LLM agent
-  - knowledge discovery
-  - atomic layer processing
 ---
 
 # LLM Agents for Knowledge Discovery in Atomic Layer Processing

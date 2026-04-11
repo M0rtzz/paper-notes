@@ -2,9 +2,6 @@
 description: "【论文笔记】PunchBench: Benchmarking MLLMs in Multimodal Punchline Comprehension 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.11906 | 梗图理解 | 提出PunchBench（6,000图文对、54,000 QA对），通过同义/反义标题替换消除文本捷径、多种问题格式与两层任务（感知+推理）全面评测MLLM的多模态梗图理解能力，并设计SC-CoQ由简到繁的提问策略显著提升表现，但GPT-4o仍远低于人类98%+水平。"
 tags:
   - ACL 2025 (Long Paper)
-  - 梗图理解
-  - 多模态幽默
-  - 讽刺理解
 ---
 
 # PunchBench: Benchmarking MLLMs in Multimodal Punchline Comprehension

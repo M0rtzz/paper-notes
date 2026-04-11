@@ -2,9 +2,6 @@
 description: "【论文笔记】A Unified Stability Analysis of SAM vs SGD: Role of Data Coherence and Emergence of Simplicity Bias 论文解读 | NeurIPS 2025 | arXiv 2511.17378 | SAM | 通过线性稳定性分析框架，证明了\"平坦极小值⇒好泛化\"和\"SGD偏好简单函数\"是同一枚硬币的两面——数据一致性(coherence)同时控制着两者，且SAM通过更严格的稳定性条件进一步放大了简单性偏好。"
 tags:
   - NeurIPS 2025
-  - SAM
-  - SGD
-  - 线性稳定性
 ---
 
 # A Unified Stability Analysis of SAM vs SGD: Role of Data Coherence and Emergence of Simplicity Bias

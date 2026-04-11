@@ -2,9 +2,6 @@
 description: "【论文笔记】ELECTRA: A Cartesian Network for 3D Charge Density Prediction with Floating Orbitals 论文解读 | NeurIPS 2025 | arXiv 2503.08305 | charge density prediction | ELECTRA 提出用可学习的浮动轨道（Floating Orbitals）表示电子电荷密度，通过 Cartesian 张量等变网络预测轨道位置、权重和协方差矩阵，结合对称性打破机制和去偏层，在 QM9 基准上达到 SOTA 精度同时推理速度快 170 倍，并能将 DFT 自洽场迭代减少 50%。"
 tags:
   - NeurIPS 2025
-  - charge density prediction
-  - floating orbitals
-  - equivariant network
 ---
 
 # ELECTRA: A Cartesian Network for 3D Charge Density Prediction with Floating Orbitals

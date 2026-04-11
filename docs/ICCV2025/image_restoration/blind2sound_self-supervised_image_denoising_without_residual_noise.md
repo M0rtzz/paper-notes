@@ -2,9 +2,6 @@
 description: "【论文笔记】Blind2Sound: Self-Supervised Image Denoising without Residual Noise 论文解读 | ICCV2025 | arXiv 2303.05183 | 自监督去噪 | 提出 Blind2Sound 框架，通过自适应重可见损失（adaptive re-visible loss）感知噪声水平并实现个性化去噪，配合 Cramer Gaussian 损失提升噪声参数估计精度，在自监督盲去噪中消除残余噪声，性能超越同期所有自监督方法甚至部分有监督基线。"
 tags:
   - ICCV2025
-  - 自监督去噪
-  - Poisson-Gaussian噪声
-  - 盲去噪
 ---
 
 # Blind2Sound: Self-Supervised Image Denoising without Residual Noise

@@ -2,9 +2,6 @@
 description: "【论文笔记】Brain Harmony: A Multimodal Foundation Model Unifying Morphology and Function into 1D Tokens 论文解读 | NeurIPS 2025 | arXiv 2509.24693 | 脑影像基础模型 | 首个统一脑结构形态（T1 sMRI）与功能动态（fMRI）的多模态脑基础模型，通过几何谐波预对齐和时序自适应 Patch Embedding（TAPE）将高维神经影像压缩为紧凑的 1D token 表示，在神经发育/退行性疾病诊断和认知预测任务上全面超越先前方法。"
 tags:
   - NeurIPS 2025
-  - 脑影像基础模型
-  - 多模态融合
-  - fMRI
 ---
 
 # Brain Harmony: A Multimodal Foundation Model Unifying Morphology and Function into 1D Tokens

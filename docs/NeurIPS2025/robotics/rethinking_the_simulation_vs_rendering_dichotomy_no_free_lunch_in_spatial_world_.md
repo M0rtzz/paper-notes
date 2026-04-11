@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking the Simulation vs. Rendering Dichotomy: No Free Lunch in Spatial World Modelling 论文解读 | NeurIPS 2025 | arXiv 2510.20835 | 空间世界模型 | 从认知神经科学视角挑战\"模拟与渲染可分离\"的传统观点：论证空间推理依赖于精细的感知表征而非粗粒度抽象，并指出AI空间世界模型同样需要保留丰富的感知细节——空间建模没有免费午餐。"
 tags:
   - NeurIPS 2025
-  - 空间世界模型
-  - 心理旋转
-  - 失imagery症
 ---
 
 # Rethinking the Simulation vs. Rendering Dichotomy: No Free Lunch in Spatial World Modelling

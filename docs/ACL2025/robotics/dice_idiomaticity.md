@@ -2,9 +2,6 @@
 description: "【论文笔记】Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context 论文解读 | ACL 2025 | arXiv 2410.16069 | 习语理解 | 提出 DICE 数据集，通过严格控制习语表面形式不变而仅改变上下文，揭示 LLM 在习语消歧任务上的高准确率很大程度来自对表面线索的依赖而非真正的上下文理解，并发现句子概率和搭配频率对模型表现有复杂影响。"
 tags:
   - ACL 2025
-  - 习语理解
-  - 对比评估
-  - 上下文推理
 ---
 
 # Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context

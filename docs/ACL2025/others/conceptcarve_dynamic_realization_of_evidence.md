@@ -2,9 +2,6 @@
 description: "【论文笔记】ConceptCarve: Dynamic Realization of Evidence 论文解读 | ACL 2025 | arXiv 2504.07228 | 证据检索 | 提出 ConceptCarve 框架，利用 LLM 动态构建概念树来表征证据在不同社区中的具体实现方式，在处理推理鸿沟和领域敏感性方面显著优于传统检索系统。"
 tags:
   - ACL 2025
-  - 证据检索
-  - 概念树
-  - LLM推理
 ---
 
 # ConceptCarve: Dynamic Realization of Evidence

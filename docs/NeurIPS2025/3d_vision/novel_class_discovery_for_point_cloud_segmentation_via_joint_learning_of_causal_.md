@@ -2,9 +2,6 @@
 description: "【论文笔记】Novel Class Discovery for Point Cloud Segmentation via Joint Learning of Causal Representation and Reasoning 论文解读 | NeurIPS 2025 | arXiv 2510.13307 | 新类发现 | 本文首次将因果学习引入3D点云新类发现（3D-NCD），通过结构因果模型（SCM）分析基类中的混杂因子和基-新类间的因果关系，提出因果表示原型学习（通过对抗网络消除混杂因子）和基于图的因果推理（GCN生成伪标签），在SemanticKITTI和SemanticPOSS上取得了SOTA结果。"
 tags:
   - NeurIPS 2025
-  - 新类发现
-  - 点云语义分割
-  - 因果学习
 ---
 
 # Novel Class Discovery for Point Cloud Segmentation via Joint Learning of Causal Representation and Reasoning

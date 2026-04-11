@@ -2,9 +2,6 @@
 description: "【论文笔记】A Survey of Automatic Prompt Optimization with Instruction-focused Heuristic-based Search Algorithm 论文解读 | ACL 2025 | arXiv 2502.18746 | 自动提示优化 | 系统综述 80+ 种基于启发式搜索算法的自动 Prompt 优化方法，提出五维分类体系（Where/What/What criteria/Which operators/Which algorithms）将碎片化研究统一到一个完整的分析框架下。"
 tags:
   - ACL 2025
-  - 自动提示优化
-  - 启发式搜索
-  - 指令优化
 ---
 
 # A Survey of Automatic Prompt Optimization with Instruction-focused Heuristic-based Search Algorithm

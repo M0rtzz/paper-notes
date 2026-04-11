@@ -2,9 +2,6 @@
 description: "【论文笔记】ActionMesh: Animated 3D Mesh Generation with Temporal 3D Diffusion 论文解读 | CVPR 2026 | arXiv 2601.16148 | 动画3D网格生成 | 提出 ActionMesh，通过最小化扩展预训练3D扩散模型增加时间轴（时序3D扩散），再用时序3D自编码器将独立形状序列转为拓扑一致的动画网格，仅2分钟即可从视频/文本/3D网格等多种输入生成产品级动画3D网格，在几何精度和时间一致性上均达SOTA。"
 tags:
   - CVPR 2026
-  - 动画3D网格生成
-  - 时序3D扩散
-  - 拓扑一致
 ---
 
 # ActionMesh: Animated 3D Mesh Generation with Temporal 3D Diffusion

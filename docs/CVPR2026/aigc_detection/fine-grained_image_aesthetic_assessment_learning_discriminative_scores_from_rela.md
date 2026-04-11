@@ -2,9 +2,6 @@
 description: "【论文笔记】Fine-grained Image Aesthetic Assessment: Learning Discriminative Scores from Relative Ranks 论文解读 | CVPR 2026 | arXiv 2603.03907 | 图像美学评估 | 基于相对排序学习判别审美评分，通过排序关系而非绝对评分捕捉微妙审美差异"
 tags:
   - CVPR 2026
-  - 图像美学评估
-  - 细粒度评分
-  - 相对排序
 ---
 
 # Fine-grained Image Aesthetic Assessment: Learning Discriminative Scores from Relative Ranks

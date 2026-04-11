@@ -2,9 +2,6 @@
 description: "【论文笔记】REOrdering Patches Improves Vision Models 论文解读 | NeurIPS 2025 | arXiv 2505.23751 | patch排列顺序 | 揭示了视觉模型中 patch 排列顺序对长序列模型性能有显著影响，并提出 REOrder 框架通过信息论先验和强化学习自动发现最优 patch 排列，在 ImageNet-1K 上提升高达 3.01%，在 FMoW 上提升 13.35%。"
 tags:
   - NeurIPS 2025
-  - patch排列顺序
-  - 长序列模型
-  - Mamba
 ---
 
 # REOrdering Patches Improves Vision Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】BANet: Bilateral Aggregation Network for Mobile Stereo Matching 论文解读 | ICCV 2025 | arXiv 2503.03259 | 立体匹配 | 提出双边聚合网络BANet，通过空间注意力将代价体分离为高频细节体和低频平滑体并分别聚合，仅使用2D卷积即可在移动设备上实时运行并大幅超越MobileStereoNet-2D（KITTI 2015上精度提升35.3%），3D版本在GPU上达到实时方法最高精度。"
 tags:
   - ICCV 2025
-  - 立体匹配
-  - 移动端部署
-  - 双边聚合
 ---
 
 # BANet: Bilateral Aggregation Network for Mobile Stereo Matching

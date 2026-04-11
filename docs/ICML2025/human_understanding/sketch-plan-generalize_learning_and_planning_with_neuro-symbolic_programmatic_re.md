@@ -2,9 +2,6 @@
 description: "【论文笔记】Sketch-Plan-Generalize: Learning and Planning with Neuro-Symbolic Programmatic Representations for Inductive Spatial Concepts 论文解读 | ICML2025 | arXiv 2404.07774 | Neuro-Symbolic | 提出 SPG（Sketch-Plan-Generalize）——一种神经符号智能体框架，将归纳式概念学习分解为三阶段流水线：概念签名推断（Sketch）、基于 MCTS 的 grounded 动作序列搜索（Plan）、以及 LLM 驱动的程序归纳泛化（Generalize），在从少量演示中学习可组合、可泛化的空间抽象概念方面显著优于纯 LLM 和纯神经方法。"
 tags:
   - ICML2025
-  - Neuro-Symbolic
-  - Program Synthesis
-  - MCTS
 ---
 
 # Sketch-Plan-Generalize: Learning and Planning with Neuro-Symbolic Programmatic Representations for Inductive Spatial Concepts

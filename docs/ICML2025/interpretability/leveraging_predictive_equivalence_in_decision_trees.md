@@ -2,9 +2,6 @@
 description: "【论文笔记】Leveraging Predictive Equivalence in Decision Trees 论文解读 | ICML2025 | arXiv 2506.14143 | 决策树 | 提出将决策树转换为最小析取范式(DNF)表示，消除\"预测等价性\"问题，统一表示具有相同决策边界的不同决策树，进而改善变量重要性度量、缺失数据鲁棒性和特征获取成本优化。"
 tags:
   - ICML2025
-  - 决策树
-  - 预测等价性
-  - 析取范式(DNF)
 ---
 
 # Leveraging Predictive Equivalence in Decision Trees

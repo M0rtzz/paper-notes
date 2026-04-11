@@ -2,10 +2,7 @@
 description: "【论文笔记】APPLE: Toward General Active Perception via Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2505.06182 | active perception | 提出APPLE——一种结合强化学习与监督学习的通用主动感知框架，将主动感知建模为POMDP，奖励函数设计为RL奖励减去预测损失，梯度自然分解为策略梯度和预测损失梯度两部分，基于off-policy算法（SAC/CrossQ）和共享ViViT骨干网络，在5个不同任务基准上验证通用性，其中CrossQ变体无需逐任务调参且训练效率提高53%。"
 tags:
   - ICLR 2026
-  - active perception
-  - reinforcement learning
   - 强化学习
-  - POMDP
 ---
 
 # APPLE: Toward General Active Perception via Reinforcement Learning

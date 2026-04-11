@@ -2,9 +2,7 @@
 description: "【论文笔记】COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation 论文解读 | ECCV2024 | arXiv 2407.11294 | Urban Layout Generation | 提出基于图掩码自编码器 (GMAE) 的城市级 2.5D 布局生成方法，通过规范图表示捕获建筑-街区-社区的多层语义上下文，结合优先级调度的迭代采样，在 330 个美国城市上实现了兼具真实感、语义一致性和正确性的大规模城市布局生成。"
 tags:
   - ECCV2024
-  - Urban Layout Generation
-  - Graph Masked Autoencoder
-  - Context Sensitivity
+  - 量化
 ---
 
 # COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】P-DRUM: Post-hoc Descriptor-based Residual Uncertainty Modeling for Machine Learning Potentials 论文解读 | NeurIPS 2025 (Workshop: ML4PS) | arXiv 2509.02927 | 不确定性量化 | 提出 P-DRUM，一种简单高效的事后（post-hoc）不确定性量化框架，利用已训练图神经网络势的描述子来估计预测残差，作为不确定性代理，无需修改原模型架构或训练流程。"
 tags:
   - NeurIPS 2025 (Workshop: ML4PS)
-  - 不确定性量化
-  - 机器学习原子间势
-  - 残差建模
 ---
 
 # P-DRUM: Post-hoc Descriptor-based Residual Uncertainty Modeling for Machine Learning Potentials

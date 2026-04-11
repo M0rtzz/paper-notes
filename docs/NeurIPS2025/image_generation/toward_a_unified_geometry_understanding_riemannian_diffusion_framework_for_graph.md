@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward a Unified Geometry Understanding: Riemannian Diffusion Framework for Graph Generation and Prediction 论文解读 | NeurIPS 2025 | arXiv 2510.04522 | 图扩散模型 | 提出 GeoMancer 框架，通过黎曼 GyroKernel 自编码器替代数值不稳定的指数映射，将多层级图特征解耦到任务特定的积流形上，并引入流形约束扩散和自引导生成策略，在分子生成、节点分类和图回归等任务上统一建模并取得 SOTA 性能。"
 tags:
   - NeurIPS 2025
-  - 图扩散模型
-  - 黎曼流形
-  - 积流形
 ---
 
 # Toward a Unified Geometry Understanding: Riemannian Diffusion Framework for Graph Generation and Prediction

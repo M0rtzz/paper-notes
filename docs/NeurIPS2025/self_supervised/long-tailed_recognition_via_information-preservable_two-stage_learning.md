@@ -2,9 +2,6 @@
 description: "【论文笔记】Long-Tailed Recognition via Information-Preservable Two-Stage Learning 论文解读 | NeurIPS 2025 | arXiv 2510.08836 | 长尾识别 | 提出信息保持的两阶段学习框架：第一阶段用 Balanced Negative Sampling (BNS) 基于互信息最大化学习有效且可分的特征空间，第二阶段用 Information-Preservable DPP (IP-DPP) 采样数学上信息量最大的样本来纠正多数类偏向的决策边界，在多个长尾数据集上取得 SOTA。"
 tags:
   - NeurIPS 2025
-  - 长尾识别
-  - 对比学习
-  - 信息论
 ---
 
 # Long-Tailed Recognition via Information-Preservable Two-Stage Learning

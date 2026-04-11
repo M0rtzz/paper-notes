@@ -2,9 +2,6 @@
 description: "【论文笔记】BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning 论文解读 | NeurIPS 2025 | arXiv 2506.06072 | 动作Tokenizer | BEAST 用 B 样条曲线参数化动作序列——通过岭回归估计控制点并均匀量化为固定长度 token，实现 20× token 压缩（100 步→5 token）、数学保证的动作块间 $C^0$ 连续过渡，在 LIBERO-Long 上成功率排名第 1（86.4%），推理吞吐量 617 Hz（比 π₀ 快 2.14×、比 OpenVLA 快 101×）。"
 tags:
   - NeurIPS 2025
-  - 动作Tokenizer
-  - B样条
-  - 并行解码
 ---
 
 # BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning

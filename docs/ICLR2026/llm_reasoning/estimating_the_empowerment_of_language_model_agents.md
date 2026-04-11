@@ -2,9 +2,6 @@
 description: "【论文笔记】Estimating the Empowerment of Language Model Agents 论文解读 | ICLR 2026 | arXiv 2509.22504 | empowerment | 提出 EELMA 算法，利用信息论中的\"赋权\"（empowerment，即 agent 动作与未来状态的互信息）作为目标无关的 LM Agent 能力度量指标，在语言游戏和真实网页浏览场景中与任务表现强相关（$r=0.83$–$0.94$），可用于开放式 agent 监控与安全评估。"
 tags:
   - ICLR 2026
-  - empowerment
-  - information theory
-  - mutual information
 ---
 
 # Estimating the Empowerment of Language Model Agents

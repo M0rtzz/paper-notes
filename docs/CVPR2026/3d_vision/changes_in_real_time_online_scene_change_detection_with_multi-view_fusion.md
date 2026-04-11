@@ -2,9 +2,6 @@
 description: "【论文笔记】Changes in Real Time: Online Scene Change Detection with Multi-View Fusion 论文解读 | CVPR 2026 | arXiv 2511.12370 | 场景变化检测 | 提出首个同时具备在线、姿态无关、无标注、多视角一致性的场景变化检测（SCD）方法，通过自监督融合损失将像素级和特征级变化线索集成到 3DGS 变化表示中，在超过 10 FPS 的实时速率下超越了所有已有离线方法的检测精度。"
 tags:
   - CVPR 2026
-  - 场景变化检测
-  - 3D高斯泼溅
-  - 在线推理
 ---
 
 # Changes in Real Time: Online Scene Change Detection with Multi-View Fusion

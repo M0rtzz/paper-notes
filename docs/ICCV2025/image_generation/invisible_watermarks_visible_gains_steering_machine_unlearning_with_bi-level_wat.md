@@ -2,9 +2,6 @@
 description: "【论文笔记】Invisible Watermarks, Visible Gains: Steering Machine Unlearning with Bi-Level Watermarking Design 论文解读 | ICCV 2025 | arXiv 2508.10065 | 机器遗忘 | 提出 Water4MU，通过双层优化（BLO）框架将数字水印机制与机器遗忘（MU）相结合，在上层优化水印网络使其有利于遗忘，在下层执行遗忘优化，从而在不显著损害模型效用的前提下显著提升遗忘效果。"
 tags:
   - ICCV 2025
-  - 机器遗忘
-  - 数字水印
-  - 双层优化
 ---
 
 # Invisible Watermarks, Visible Gains: Steering Machine Unlearning with Bi-Level Watermarking Design

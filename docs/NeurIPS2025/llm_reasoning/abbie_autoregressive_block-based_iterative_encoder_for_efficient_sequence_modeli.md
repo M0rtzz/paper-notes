@@ -2,10 +2,7 @@
 description: "【论文笔记】AbbIE: Autoregressive Block-Based Iterative Encoder for Efficient Sequence Modeling 论文解读 | NeurIPS 2025 | arXiv 2507.08567 | Transformer recurrent Transformer | 提出 AbbIE，一种将 decoder-only Transformer 的中间层（Body）进行递归迭代的架构，只需训练时用 2 次迭代，推理时即可通过增加迭代次数实现 upward generalization，在语言建模困惑度和 zero-shot ICL 任务上均超过标准 Transformer，且可作为标准 Transformer 的 drop-in 替代。"
 tags:
   - NeurIPS 2025
-  - recurrent Transformer
   - Transformer
-  - iterative encoder
-  - test-time scaling
 ---
 
 # AbbIE: Autoregressive Block-Based Iterative Encoder for Efficient Sequence Modeling

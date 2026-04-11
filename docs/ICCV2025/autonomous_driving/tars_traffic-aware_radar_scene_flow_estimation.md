@@ -2,9 +2,6 @@
 description: "【论文笔记】TARS: Traffic-Aware Radar Scene Flow Estimation 论文解读 | ICCV2025 | arXiv 2503.10210 | 雷达场景流 | 提出 TARS，一种交通感知的雷达场景流估计方法，通过联合目标检测构建交通向量场（TVF），在交通层面而非实例层面捕获刚体运动，在 VOD 和专有数据集上分别超越 SOTA 15% 和 23%。"
 tags:
   - ICCV2025
-  - 雷达场景流
-  - 交通向量场
-  - 点云运动估计
 ---
 
 # TARS: Traffic-Aware Radar Scene Flow Estimation

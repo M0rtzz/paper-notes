@@ -2,9 +2,6 @@
 description: "【论文笔记】RAGTrack: Language-aware RGBT Tracking with Retrieval-Augmented Generation 论文解读 | CVPR2026 | arXiv 2603.03617 | RGBT跟踪 | 首次将文本描述引入 RGBT 跟踪，提出基于检索增强生成（RAG）的框架 RAGTrack，通过多模态 Transformer 编码器、自适应 Token 融合和上下文感知推理模块，在四个 RGBT 基准上取得 SOTA。"
 tags:
   - CVPR2026
-  - RGBT跟踪
-  - 检索增强生成
-  - 多模态融合
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

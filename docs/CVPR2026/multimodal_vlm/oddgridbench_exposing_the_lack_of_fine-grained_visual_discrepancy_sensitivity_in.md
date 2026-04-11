@@ -2,9 +2,6 @@
 description: "【论文笔记】OddGridBench: Exposing the Lack of Fine-Grained Visual Discrepancy Sensitivity in Multimodal Large Language Models 论文解读 | CVPR 2026 | arXiv 2603.09326 | 视觉差异感知 | 提出 OddGridBench 评估 MLLM 的细粒度视觉差异感知能力（找出网格中与其他元素在颜色/大小/旋转/位置上不同的那个），发现所有 MLLM 远低于人类水平，进而提出 OddGrid-GRPO（课程学习 + 距离感知奖励）显著提升模型的视觉辨别力。"
 tags:
   - CVPR 2026
-  - 视觉差异感知
-  - Benchmark
-  - GRPO
 ---
 
 # OddGridBench: Exposing the Lack of Fine-Grained Visual Discrepancy Sensitivity in Multimodal Large Language Models

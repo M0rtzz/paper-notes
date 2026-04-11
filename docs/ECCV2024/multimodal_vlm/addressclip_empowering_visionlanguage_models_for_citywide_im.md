@@ -2,9 +2,6 @@
 description: "【论文笔记】AddressCLIP: Empowering Vision-Language Models for City-wide Image Address Localization 论文解读 | ECCV 2024 | arXiv 2407.08156 | 图像地址定位 | AddressCLIP 定义了\"图像地址定位\"(IAL) 新任务，提出端到端框架通过图像-文本对齐（图像↔地址/场景描述的对比学习）和图像-地理匹配（流形学习约束特征空间距离与地理距离一致）直接预测图像拍摄的可读文本地址，在自建的 Pittsburgh 和 San Francisco 数据集上优于现有 VLM 迁移方法。"
 tags:
   - ECCV 2024
-  - 图像地址定位
-  - CLIP
-  - 视觉-语言对齐
 ---
 
 # AddressCLIP: Empowering Vision-Language Models for City-wide Image Address Localization

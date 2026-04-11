@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Symbolic Mechanisms: Emergent Symbol Processing in Vision Language Models 论文解读 | ICLR 2026 Oral | arXiv 2506.15871 | visual binding | 发现 VLM 内部涌现了一套三阶段符号处理机制（ID retrieval → ID selection → feature retrieval），利用内容无关的空间位置索引（position IDs）来解决视觉绑定问题，并证明绑定错误可直接追溯到这些机制的失败。"
 tags:
   - ICLR 2026 Oral
-  - visual binding
-  - position IDs
-  - mechanistic interpretability
 ---
 
 # Visual Symbolic Mechanisms: Emergent Symbol Processing in Vision Language Models

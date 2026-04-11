@@ -2,9 +2,6 @@
 description: "【论文笔记】EMGauss: Continuous Slice-to-3D Reconstruction via Dynamic Gaussian Modeling in Volume Electron Microscopy 论文解读 | CVPR 2026 | arXiv 2512.06684 | 3D高斯溅射 | 将体电子显微镜(vEM)的各向异性切片重建问题重新建模为基于可变形2D高斯溅射的动态3D场景渲染任务，通过Teacher-Student伪标签机制在数据稀疏条件下实现高保真连续切片合成。"
 tags:
   - CVPR 2026
-  - 3D高斯溅射
-  - 体电子显微镜
-  - 各向异性重建
 ---
 
 # EMGauss: Continuous Slice-to-3D Reconstruction via Dynamic Gaussian Modeling in Volume Electron Microscopy

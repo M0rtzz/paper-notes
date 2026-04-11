@@ -2,9 +2,6 @@
 description: "【论文笔记】From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning 论文解读 | ICLR 2026 | arXiv 2602.04326 | 不确定性感知规划 | 提出 PCE（Planner-Composer-Evaluator）框架，将 LLM 推理链中隐含的环境假设显式提取并组织为决策树，通过似然度-增益-成本评分实现不确定性感知的行动选择，大幅减少多智能体协作中的通信开销。"
 tags:
   - ICLR 2026
-  - 不确定性感知规划
-  - LLM多智能体协作
-  - 决策树
 ---
 
 # From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning

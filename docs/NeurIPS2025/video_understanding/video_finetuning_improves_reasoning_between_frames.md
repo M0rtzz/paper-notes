@@ -2,9 +2,6 @@
 description: "【论文笔记】Video Finetuning Improves Reasoning Between Frames 论文解读 | NeurIPS 2025 | arXiv 2511.12868 | 视频微调 | 本文通过提出视觉思维链（vCoT）方法，系统地比较了图像LLM与视频微调LLM在帧间推理能力上的差异，发现视频微调使模型隐式学会了帧间过渡推理，且这种能力可迁移到静态图像的关系推理任务中。"
 tags:
   - NeurIPS 2025
-  - 视频微调
-  - 多模态大语言模型
-  - 帧间推理
 ---
 
 # Video Finetuning Improves Reasoning Between Frames

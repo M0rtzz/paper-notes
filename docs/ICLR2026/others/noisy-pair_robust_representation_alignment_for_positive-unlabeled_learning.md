@@ -2,9 +2,6 @@
 description: "【论文笔记】Noisy-Pair Robust Representation Alignment for Positive-Unlabeled Learning 论文解读 | ICLR 2026 | arXiv 2510.01278 | PU学习 | 提出NcPU框架解决PU学习中判别性表示学习的瓶颈：(1) NoiSNCL噪声对鲁棒的非对比损失使clean pair梯度主导训练；(2) PhantomGate伪标签消歧提供保守负标签。两者在EM框架下迭代互利，在CIFAR-100上将差距（vs 监督学习）从14.26%缩至接近0。"
 tags:
   - ICLR 2026
-  - PU学习
-  - 非对比表示学习
-  - 噪声对鲁棒
 ---
 
 # Noisy-Pair Robust Representation Alignment for Positive-Unlabeled Learning

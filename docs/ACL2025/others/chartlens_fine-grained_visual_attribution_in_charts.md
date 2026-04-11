@@ -2,9 +2,6 @@
 description: "【论文笔记】ChartLens: Fine-Grained Visual Attribution in Charts 论文解读 | ACL 2025 | arXiv 2505.19360 | 图表归因 | 提出图表的事后细粒度视觉归因（Post-Hoc Fine-grained Visual Attribution）任务，设计 ChartLens 算法利用分割技术标记图表元素并通过 Set-of-Marks 提示多模态 LLM 进行精确归因，同时构建 ChartVA-Eval 基准，在三类图表上取得 26-66% 的 F1 提升。"
 tags:
   - ACL 2025
-  - 图表归因
-  - 视觉定位
-  - 多模态LLM
 ---
 
 # ChartLens: Fine-Grained Visual Attribution in Charts

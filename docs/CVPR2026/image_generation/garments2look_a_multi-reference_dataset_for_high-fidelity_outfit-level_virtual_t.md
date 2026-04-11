@@ -2,9 +2,6 @@
 description: "【论文笔记】Garments2Look: A Multi-Reference Dataset for High-Fidelity Outfit-Level Virtual Try-On with Clothing and Accessories 论文解读 | CVPR 2026 | arXiv 2603.14153 | 虚拟试穿 | 提出 Garments2Look，首个大规模多模态整套搭配级虚拟试穿数据集（80K 对，40 类，300+ 子类），每组包含 3-12 件参考服饰图、模特穿搭图和详细文本标注，揭示现有方法在多层搭配和配饰一致性上的重大不足。"
 tags:
   - CVPR 2026
-  - 虚拟试穿
-  - 多参考图像
-  - 整套搭配
 ---
 
 # Garments2Look: A Multi-Reference Dataset for High-Fidelity Outfit-Level Virtual Try-On with Clothing and Accessories

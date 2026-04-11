@@ -2,9 +2,6 @@
 description: "【论文笔记】LinPrim: Linear Primitives for Differentiable Volumetric Rendering 论文解读 | NeurIPS 2025 | arXiv 2501.16312 | 新视角合成 | 提出 LinPrim，用线性基元（八面体和四面体）替代3D高斯核作为新视角合成的场景表示，通过可微光栅化pipeline实现端到端优化，在真实数据集上以更少的基元数量达到与3DGS可比的重建质量，同时保持实时渲染能力。"
 tags:
   - NeurIPS 2025
-  - 新视角合成
-  - 可微渲染
-  - 体积渲染
 ---
 
 # LinPrim: Linear Primitives for Differentiable Volumetric Rendering

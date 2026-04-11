@@ -2,9 +2,6 @@
 description: "【论文笔记】MorphTok: Morphologically Grounded Tokenization for Indian Languages 论文解读 | ICML 2025 (TokShop Workshop) | arXiv 2504.10335 | 分词 | 提出 MorphTok 框架，通过形态学感知的预分词步骤（查找表/语言模型）和约束 BPE（CBPE）算法处理印度语言中的依存元音问题，在机器翻译和语言建模任务上提升下游性能，并引入人类评估指标 EvalTok。"
 tags:
   - ICML 2025 (TokShop Workshop)
-  - 分词
-  - 预分词
-  - 形态学感知分割
 ---
 
 # MorphTok: Morphologically Grounded Tokenization for Indian Languages

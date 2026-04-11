@@ -2,9 +2,7 @@
 description: "【论文笔记】Convert Language Model into a Value-based Strategic Planner 论文解读 | ACL 2025 | arXiv 2505.06987 | emotional support conversation | 提出 straQ* 框架，将 LLM 转化为基于 Q-learning 的策略规划器，用平均 logit 作为 Q 值实现策略级 MDP，在情感支持对话中基于长期回报选择最优策略，超越直接推理、CoT 和微调等基线。"
 tags:
   - ACL 2025
-  - emotional support conversation
-  - Q-learning
-  - strategic planning
+  - 强化学习
 ---
 
 # Convert Language Model into a Value-based Strategic Planner

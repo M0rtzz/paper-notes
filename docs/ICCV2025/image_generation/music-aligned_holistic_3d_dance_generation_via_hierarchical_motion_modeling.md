@@ -2,9 +2,6 @@
 description: "【论文笔记】Music-Aligned Holistic 3D Dance Generation via Hierarchical Motion Modeling 论文解读 | ICCV 2025 | arXiv 2507.14915 | 舞蹈生成 | 提出 SoulDance 数据集（首个含身体+手部+面部的高质量3D舞蹈数据集）和 SoulNet 框架（层次化残差向量量化 + 音乐对齐生成模型 + 跨模态检索），实现首个面部表情与身体手部动作协调一致、与音乐节奏情感对齐的全身3D舞蹈生成。"
 tags:
   - ICCV 2025
-  - 舞蹈生成
-  - 音乐对齐
-  - 全身动作
 ---
 
 # Music-Aligned Holistic 3D Dance Generation via Hierarchical Motion Modeling

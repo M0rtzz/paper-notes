@@ -2,9 +2,6 @@
 description: "【论文笔记】Merge-Friendly Post-Training Quantization for Multi-Target Domain Adaptation 论文解读 | ICML2025 | arXiv 2505.23651 | 模型量化 | 首次系统研究量化对模型融合的影响，提出HDRQ方法通过Hessian和距离正则化联合约束，使量化模型保持融合友好特性，语义分割任务中相比传统PTQ提升4.21 mIoU。"
 tags:
   - ICML2025
-  - 模型量化
-  - 模型融合
-  - 多目标域适应
 ---
 
 # Merge-Friendly Post-Training Quantization for Multi-Target Domain Adaptation

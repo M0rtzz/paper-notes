@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation 论文解读 | ACL 2025 | arXiv 2502.14846 | 合成数据 | 提出CoSyn框架，利用纯文本LLM的代码生成能力自动创建40万张文本丰富图像（图表、文档、图表等）+270万条指令微调数据，训练的7B VLM在7个基准上达到SOTA，超越GPT-4V和Gemini 1.5 Flash。"
 tags:
   - ACL 2025
-  - 合成数据
-  - 代码引导
-  - 文本丰富图像
 ---
 
 # Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation

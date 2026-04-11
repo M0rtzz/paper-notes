@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Graph Descriptive Order Affect Solving Graph Problems with LLMs? 论文解读 | ACL 2025 | arXiv 2402.07140 | 图推理 | 首次系统研究了图描述顺序（BFS、DFS、PageRank、PPR）对LLM解决图推理问题的影响，发现有序描述显著优于随机描述，且不同任务偏好不同的排列策略。"
 tags:
   - ACL 2025
-  - 图推理
-  - 图描述顺序
-  - Prompt Engineering
   - 提示学习
 ---
 

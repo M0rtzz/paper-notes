@@ -2,9 +2,6 @@
 description: "【论文笔记】GeoDistill: Geometry-Guided Self-Distillation for Weakly Supervised Cross-View Localization 论文解读 | ICCV 2025 | arXiv 2507.10935 | 跨视角定位 | 提出GeoDistill框架，通过基于视场角（FoV）遮挡的教师-学生自蒸馏范式增强局部判别性特征学习，在弱监督条件下（仅需粗略GPS标注）实现稳健的跨视角定位，性能提升超过10%且可即插即用于不同定位框架。"
 tags:
   - ICCV 2025
-  - 跨视角定位
-  - 弱监督学习
-  - 自蒸馏
 ---
 
 # GeoDistill: Geometry-Guided Self-Distillation for Weakly Supervised Cross-View Localization

@@ -2,9 +2,6 @@
 description: "【论文笔记】DSS: Discover, Segment, and Select - A Progressive Mechanism for Zero-shot Camouflaged Object Segmentation 论文解读 | CVPR 2026 | arXiv 2602.19944 | 伪装目标分割 | 提出三阶段零样本伪装目标分割框架DSS：先用DINOv2特征聚类+部件组合发现候选区域（Discover），再用SAM分割（Segment），最后用MLLM逐对比较选最优mask（Select），无需任何训练即在四个COD基准上全面超越先前零样本方法，尤其在多实例场景中优势显著。"
 tags:
   - CVPR 2026
-  - 伪装目标分割
-  - 零样本
-  - DINOv2聚类
 ---
 
 # DSS: Discover, Segment, and Select - A Progressive Mechanism for Zero-shot Camouflaged Object Segmentation

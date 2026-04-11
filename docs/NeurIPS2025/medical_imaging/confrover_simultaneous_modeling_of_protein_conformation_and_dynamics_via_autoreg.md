@@ -2,9 +2,6 @@
 description: "【论文笔记】ConfRover: Simultaneous Modeling of Protein Conformation and Dynamics via Autoregression 论文解读 | NeurIPS 2025 | arXiv 2505.17478 | protein dynamics | ConfRover 提出自回归框架将蛋白质 MD 轨迹分解为逐帧条件生成 $p(\mathbf{x}^{1:L}) = \prod_l p(\mathbf{x}^l | \mathbf{x}^{<l})$，通过编码器 + 因果 Transformer + SE(3) 扩散解码器的模块化架构，首次在单一模型中统一轨迹模拟、时间无关构象采样和构象插值三大任务，在 ATLAS 数据集上全面超越 MDGen。"
 tags:
   - NeurIPS 2025
-  - protein dynamics
-  - autoregressive generation
-  - SE(3) diffusion
   - 扩散模型
 ---
 

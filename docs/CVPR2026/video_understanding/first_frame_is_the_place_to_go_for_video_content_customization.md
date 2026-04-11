@@ -2,9 +2,6 @@
 description: "【论文笔记】First Frame Is the Place to Go for Video Content Customization 论文解读 | CVPR 2026 | arXiv 2511.15700 | 视频定制生成 | FFGo 揭示了视频生成模型的一个被忽视的固有能力——将首帧作为概念记忆缓冲区存储多个参考主体，仅通过 20-50 个训练样本的轻量 LoRA 适配即可激活这一能力，实现无需架构修改的多参考视频内容定制，在用户研究中以 81.2% 的首选率大幅超越现有方法。"
 tags:
   - CVPR 2026
-  - 视频定制生成
-  - 首帧记忆缓冲
-  - 多参考主体混合
 ---
 
 # First Frame Is the Place to Go for Video Content Customization

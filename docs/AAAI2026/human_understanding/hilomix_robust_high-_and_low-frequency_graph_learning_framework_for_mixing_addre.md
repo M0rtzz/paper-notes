@@ -2,9 +2,6 @@
 description: "【论文笔记】HiLoMix: Robust High- and Low-Frequency Graph Learning Framework for Mixing Address Association 论文解读 | AAAI 2026 | arXiv 2511.07759 | 图神经网络 | 提出 HiLoMix，一种针对混币地址关联任务的鲁棒图学习框架，通过异质属性混合交互图（HAMIG）、频率感知图对比学习和基于置信度的标签加权监督学习，分别解决图稀疏、标签稀缺和标签噪声三大挑战，在 F1、AUC、MRR 上分别超越次优基线 5.69%、7.34% 和 15.61%。"
 tags:
   - AAAI 2026
-  - 图神经网络
-  - 区块链分析
-  - 频率感知对比学习
 ---
 
 # HiLoMix: Robust High- and Low-Frequency Graph Learning Framework for Mixing Address Association

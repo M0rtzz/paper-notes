@@ -2,9 +2,6 @@
 description: "【论文笔记】BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2506.22099 | 3D Gaussian Splatting | 用可学习的Bézier曲线显式建模动态物体的运动轨迹，替代传统依赖精确bbox标注的范式，实现了对自动驾驶街景中动/静态成分的准确分离与高保真重建。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - Bézier曲线
-  - 动态场景重建
 ---
 
 # BézierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting

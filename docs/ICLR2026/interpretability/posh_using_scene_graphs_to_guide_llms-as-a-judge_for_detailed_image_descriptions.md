@@ -2,9 +2,6 @@
 description: "【论文笔记】PoSh: Using Scene Graphs To Guide LLMs-as-a-Judge For Detailed Image Descriptions 论文解读 | ICLR 2026 | arXiv 2510.19060 | 图像描述评估 | 提出PoSh评估指标，用场景图作为结构化评分标准引导LLM-as-Judge对详细图像描述进行细粒度错误定位（属性/关系误附着），配合DOCENT艺术品详细描述基准（1750专家描述+900细粒度人工判断），在人类判断相关性上超越GPT-4o-as-Judge且完全开源可复现。"
 tags:
   - ICLR 2026
-  - 图像描述评估
-  - 场景图
-  - LLM-as-Judge
 ---
 
 # PoSh: Using Scene Graphs To Guide LLMs-as-a-Judge For Detailed Image Descriptions

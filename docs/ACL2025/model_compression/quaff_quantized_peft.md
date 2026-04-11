@@ -2,10 +2,7 @@
 description: "【论文笔记】Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis 论文解读 | ACL 2025 | arXiv 2505.14742 | 量化 quantization | 本文提出 Outlier Spatial Stability Hypothesis (OSSH)——微调期间激活异常通道的空间位置保持稳定——并基于此设计了 Quaff 框架，通过目标动量缩放仅处理少量不变的异常通道，实现 1.73× 延迟降低和 30% 内存节省，同时在 GPQA 上精度还提升了 0.6%。"
 tags:
   - ACL 2025
-  - quantization
   - 量化
-  - PEFT
-  - activation outlier
 ---
 
 # Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis

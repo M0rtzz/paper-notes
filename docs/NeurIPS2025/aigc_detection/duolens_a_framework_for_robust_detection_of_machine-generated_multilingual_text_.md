@@ -2,9 +2,6 @@
 description: "【论文笔记】DuoLens: A Framework for Robust Detection of Machine-Generated Multilingual Text and Code 论文解读 | NeurIPS 2025 | arXiv 2510.18904 | AI生成文本检测 | 提出 DuoLens，一种基于 CodeBERT + CodeBERTa 双编码器融合的 AI 生成内容检测框架，在多语言文本（8 种语言）和源代码（7 种编程语言）检测上以极低计算成本（延迟降低 8-12×，VRAM 降低 3-5×）实现 AUROC 0.97-0.99，远超 GPT-4o 等大模型。"
 tags:
   - NeurIPS 2025
-  - AI生成文本检测
-  - 代码检测
-  - 多语言
 ---
 
 # DuoLens: A Framework for Robust Detection of Machine-Generated Multilingual Text and Code

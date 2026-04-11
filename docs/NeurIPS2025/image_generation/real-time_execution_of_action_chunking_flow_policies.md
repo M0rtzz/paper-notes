@@ -2,9 +2,6 @@
 description: "【论文笔记】Real-Time Execution of Action Chunking Flow Policies 论文解读 | NeurIPS 2025 | arXiv 2506.07339 | 实时推理 | 提出 Real-Time Chunking (RTC)，将异步动作分块执行建模为修复（inpainting）问题，通过冻结已执行动作并\"修复\"其余部分，实现扩散/流策略的实时平滑执行，无需重新训练。"
 tags:
   - NeurIPS 2025
-  - 实时推理
-  - 动作分块
-  - 流匹配
 ---
 
 # Real-Time Execution of Action Chunking Flow Policies

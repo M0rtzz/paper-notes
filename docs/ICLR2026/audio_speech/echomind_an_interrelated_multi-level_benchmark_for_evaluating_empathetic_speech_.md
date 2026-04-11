@@ -2,9 +2,6 @@
 description: "【论文笔记】EchoMind: An Interrelated Multi-level Benchmark for Evaluating Empathetic Speech Language Models 论文解读 | ICLR2026 | arXiv 2510.22758 | Speech Language Model | 提出 EchoMind，首个面向共情对话的多层级关联基准，通过理解→推理→对话的认知流程，系统评估 Speech Language Models 感知非语言声学线索并生成共情回复的能力。"
 tags:
   - ICLR2026
-  - Speech Language Model
-  - Empathetic Dialogue
-  - Benchmark
 ---
 
 # EchoMind: An Interrelated Multi-level Benchmark for Evaluating Empathetic Speech Language Models

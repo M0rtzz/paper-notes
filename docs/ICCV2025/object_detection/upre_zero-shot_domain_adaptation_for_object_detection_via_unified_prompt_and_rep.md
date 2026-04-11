@@ -2,9 +2,6 @@
 description: "【论文笔记】UPRE: Zero-Shot Domain Adaptation for Object Detection via Unified Prompt and Representation Enhancement 论文解读 | ICCV 2025 | arXiv 2507.00721 | 零样本域自适应 | 提出 UPRE 框架，通过联合优化多视角域提示（MDP）和统一表示增强（URE）来同时缓解零样本域自适应目标检测中的检测偏差和域偏差，在恶劣天气、跨城市、虚拟到现实三类场景的九个数据集上取得 SOTA 性能。"
 tags:
   - ICCV 2025
-  - 零样本域自适应
-  - 目标检测
-  - Prompt学习
   - 提示学习
 ---
 

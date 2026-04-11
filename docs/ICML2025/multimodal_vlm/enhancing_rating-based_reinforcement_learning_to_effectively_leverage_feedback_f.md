@@ -2,9 +2,6 @@
 description: "【论文笔记】ERL-VLM: Enhancing Rating-Based RL to Leverage Feedback from Large VLMs 论文解读 | ICML2025 | arXiv 2506.12822 | RLHF | 提出 ERL-VLM，用大型视觉语言模型（VLM）对单条轨迹做绝对评分（rating）而非成对比较（preference），结合分层采样和 MAE 损失解决数据不平衡与噪声标签问题，显著提升 VLM 反馈驱动的奖励函数学习效果。"
 tags:
   - ICML2025
-  - RLHF
-  - Rating-based RL
-  - VLM Feedback
 ---
 
 # ERL-VLM: Enhancing Rating-Based RL to Leverage Feedback from Large VLMs

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties 论文解读 | ECCV 2024 | arXiv 2312.13764 | 属性级标签空间 | ProLab 用 LLM 生成类别的常识性描述，通过句子嵌入和 K-Means 聚类将其压缩为 256 个可解释的描述性属性，构建属性级多热标签空间替代传统 one-hot 类别标签来监督分割模型，在五个经典基准上一致超越类别级监督且涌现出域外泛化能力。"
 tags:
   - ECCV 2024
-  - 属性级标签空间
-  - LLM知识检索
-  - 描述性属性
 ---
 
 # A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties

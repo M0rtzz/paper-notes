@@ -2,9 +2,7 @@
 description: "【论文笔记】On Geometry-Enhanced Parameter-Efficient Fine-Tuning for 3D Scene Segmentation 论文解读 | NeurIPS 2025 | arXiv 2505.22444 | 参数高效微调 | 提出 Geometry Encoding Mixer (GEM)，一种专为3D点云Transformer设计的几何感知PEFT模块，通过空间适配器捕获局部几何细节和上下文适配器注入全局场景信息，仅更新1.6%参数即可达到甚至超越全量微调性能。"
 tags:
   - NeurIPS 2025
-  - 参数高效微调
-  - 点云分割
-  - 几何编码
+  - Transformer
 ---
 
 # On Geometry-Enhanced Parameter-Efficient Fine-Tuning for 3D Scene Segmentation

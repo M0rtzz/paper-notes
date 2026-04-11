@@ -2,9 +2,6 @@
 description: "【论文笔记】Non-Stationary Bandit Convex Optimization: A Comprehensive Study 论文解读 | NeurIPS 2025 | arXiv 2506.02980 | Bandit凸优化 | 系统研究了非平稳环境下的Bandit凸优化问题，提出两个算法（TEWA-SE和cExO），统一建立了三种非平稳度量（切换数S、总变差Δ、路径长度P）下的遗憾上下界，多个设定下达到极小极大最优。"
 tags:
   - NeurIPS 2025
-  - Bandit凸优化
-  - 非平稳环境
-  - 动态遗憾
 ---
 
 # Non-Stationary Bandit Convex Optimization: A Comprehensive Study

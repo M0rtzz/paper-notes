@@ -2,9 +2,6 @@
 description: "【论文笔记】GOMPSNR: Reflourish the Signal-to-Noise Ratio Metric for Audio Generation Tasks 论文解读 | AAAI2026 | arXiv 2601.13758 | signal-to-noise ratio | 通过引入全方位相位导数（omnidirectional phase derivatives）替换瞬时相位来重构 SNR 指标，提出 GOMPSNR 作为更可靠的音频质量评估指标，并衍生出一系列新的损失函数显著提升神经声码器性能。"
 tags:
   - AAAI2026
-  - signal-to-noise ratio
-  - phase derivatives
-  - audio quality metric
 ---
 
 # GOMPSNR: Reflourish the Signal-to-Noise Ratio Metric for Audio Generation Tasks

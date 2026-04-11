@@ -2,9 +2,6 @@
 description: "【论文笔记】SemEval-2025 Task 1: AdMIRe -- Advancing Multimodal Idiomaticity Representation 论文解读 | ACL 2025 (SemEval Workshop) | arXiv 2503.15358 | 习语理解 | 设计了 SemEval-2025 AdMIRe 共享任务——通过图像排序和图像序列补全两个子任务，在多模态（文本+图像）和多语言（英语+巴西葡萄牙语）场景下评估模型对习语表达的理解能力，最佳系统通过混合专家和多查询平滑策略达到了接近人类水平的表现。"
 tags:
   - ACL 2025 (SemEval Workshop)
-  - 习语理解
-  - 多模态
-  - 视觉-语言模型
 ---
 
 # SemEval-2025 Task 1: AdMIRe -- Advancing Multimodal Idiomaticity Representation

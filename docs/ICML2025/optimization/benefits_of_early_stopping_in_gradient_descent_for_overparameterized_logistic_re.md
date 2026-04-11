@@ -2,9 +2,6 @@
 description: "【论文笔记】Benefits of Early Stopping in Gradient Descent for Overparameterized Logistic Regression 论文解读 | ICML2025 | arXiv 2502.13283 | early stopping | 在过参数化逻辑回归中，理论证明了早停梯度下降（early-stopped GD）相比渐近 GD 具有统计优势：早停 GD 是校准且一致的，而渐近 GD 的 logistic risk 趋于无穷且校准误差不消失；同时建立了早停与 $\ell_2$ 正则化之间的定量联系。"
 tags:
   - ICML2025
-  - early stopping
-  - implicit regularization
-  - logistic regression
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Tell Apart: Weakly Supervised Video Anomaly Detection via Disentangled Semantic Alignment 论文解读 | AAAI 2026 | arXiv 2511.10334 | 弱监督视频异常检测 | 本文提出DSANet，通过自引导正常模式建模（SG-NM，粗粒度）和解耦对比语义对齐（DCSA，细粒度）从两个层面增强弱监督视频异常检测中正常与异常特征的可区分性，在XD-Violence上AP达86.95%（+1.14%），在UCF-Crime细粒度mAP达13.01%（+3.39%），均为SOTA。"
 tags:
   - AAAI 2026
-  - 弱监督视频异常检测
-  - 语义解耦
-  - 正常模式建模
 ---
 
 # Learning to Tell Apart: Weakly Supervised Video Anomaly Detection via Disentangled Semantic Alignment

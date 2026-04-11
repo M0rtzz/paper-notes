@@ -2,9 +2,7 @@
 description: "【论文笔记】Adaptive Discretization for Consistency Models 论文解读 | NeurIPS 2025 | arXiv 2510.17266 | consistency model | 提出ADCM框架，将一致性模型(CM)的离散化步长选择形式化为约束优化问题，通过Gauss-Newton方法得到解析解，在局部一致性（可训练性）和全局一致性（稳定性）之间自适应平衡，以仅4%的额外计算开销实现显著的训练效率提升和FID改善。"
 tags:
   - NeurIPS 2025
-  - consistency model
-  - discretization
-  - adaptive training
+  - 图像生成
 ---
 
 # Adaptive Discretization for Consistency Models

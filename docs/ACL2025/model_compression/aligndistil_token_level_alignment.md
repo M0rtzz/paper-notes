@@ -2,9 +2,6 @@
 description: "【论文笔记】AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation 论文解读 | ACL 2025 | arXiv 2503.02832 | LLM对齐 | AlignDistil 证明了 RLHF 目标函数与 token 级蒸馏过程的理论等价性，并据此设计了一种简单的蒸馏方法：用 DPO 模型和反向 DPO 模型的 logit 分布线性组合构造教师分布，配合 token 自适应外推机制实现 token 级奖励优化，在 AlpacaEval 2.0、MT-Bench 和 Arena-Hard 上优于现有方法且收敛更快。"
 tags:
   - ACL 2025
-  - LLM对齐
-  - DPO
-  - 蒸馏
 ---
 
 # AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation

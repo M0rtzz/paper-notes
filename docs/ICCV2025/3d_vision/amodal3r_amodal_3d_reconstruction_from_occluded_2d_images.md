@@ -2,11 +2,9 @@
 description: "【论文笔记】Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images 论文解读 | ICCV 2025 | arXiv 2503.13439 | 3D重建 Amodal 3D Reconstruction | 提出Amodal3R，一个端到端的遮挡感知3D重建模型，通过在TRELLIS基础上引入mask加权交叉注意力和遮挡感知注意力层，直接在3D潜空间中从部分遮挡的2D图像重建完整的3D物体形状和外观，大幅超越先前\"2D补全→3D重建\"的两阶段方法。"
 tags:
   - ICCV 2025
-  - Amodal 3D Reconstruction
   - 3D重建
-  - Occlusion-aware
-  - Diffusion Model
   - 扩散模型
+  - 注意力机制
 ---
 
 # Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images

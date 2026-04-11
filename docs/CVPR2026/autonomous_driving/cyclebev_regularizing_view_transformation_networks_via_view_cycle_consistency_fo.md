@@ -2,9 +2,6 @@
 description: "【论文笔记】CycleBEV: Regularizing View Transformation Networks via View Cycle Consistency for Bird's-Eye-View Semantic Segmentation 论文解读 | CVPR2026 | arXiv 2602.23575 | BEV语义分割 | 提出 CycleBEV 正则化框架：训练时引入逆视角变换（IVT）网络将 BEV 分割图映射回透视图（PV）分割图，通过循环一致性损失及高度感知几何正则化、跨视角隐空间对齐两项新目标来增强现有 BEV 语义分割模型，推理时不增加任何开销。"
 tags:
   - CVPR2026
-  - BEV语义分割
-  - 视角变换
-  - 循环一致性
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

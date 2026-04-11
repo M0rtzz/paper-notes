@@ -2,10 +2,7 @@
 description: "【论文笔记】OuroMamba: A Data-Free Quantization Framework for Vision Mamba 论文解读 | ICCV 2025 | arXiv 2503.10959 | 量化 Data-Free Quantization | 首个面向 Vision Mamba 模型（VMM）的无数据后训练量化框架，通过增强隐式注意力生成高质量合成数据，并结合动态异常值检测的混合精度量化方案，在 W4A4 设置下显著超越现有数据驱动 PTQ 方法。"
 tags:
   - ICCV 2025
-  - Data-Free Quantization
   - 量化
-  - Vision Mamba
-  - SSM
 ---
 
 # OuroMamba: A Data-Free Quantization Framework for Vision Mamba

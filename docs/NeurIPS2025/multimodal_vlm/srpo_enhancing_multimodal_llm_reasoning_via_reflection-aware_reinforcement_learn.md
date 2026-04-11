@@ -2,9 +2,6 @@
 description: "【论文笔记】SRPO: Enhancing Multimodal LLM Reasoning via Reflection-Aware Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2506.01713 | 多模态推理 | 提出 SRPO（Self-Reflection enhanced reasoning with Group Relative Policy Optimization），一个两阶段反思感知 RL 框架：第一阶段用大模型生成反思数据做 SFT cold-start，第二阶段设计反思感知奖励函数在 GRPO 中强化简洁有效的自我反思能力，在 MathVista/MathVision/MMMU-Pro 等多模态推理基准上以 7B/32B 模型显著超越同规模 SOTA。"
 tags:
   - NeurIPS 2025
-  - 多模态推理
-  - 自我反思
-  - 强化学习
 ---
 
 # SRPO: Enhancing Multimodal LLM Reasoning via Reflection-Aware Reinforcement Learning

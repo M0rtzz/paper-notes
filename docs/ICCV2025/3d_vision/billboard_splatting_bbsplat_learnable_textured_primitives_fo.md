@@ -2,9 +2,6 @@
 description: "【论文笔记】BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis 论文解读 | ICCV 2025 | arXiv 2411.08508 | Gaussian Splatting | 提出BBSplat——用可学习的RGB纹理和alpha贴图替代2D Gaussian Splatting中的高斯分布不透明度，使每个平面基元具有任意形状和逐像素颜色控制，在用更少基元的情况下弥补2DGS与3DGS之间的渲染质量差距，同时保留精确网格提取能力并实现最高×17的存储压缩。"
 tags:
   - ICCV 2025
-  - Gaussian Splatting
-  - 纹理化基元
-  - 新视角合成
 ---
 
 # BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis

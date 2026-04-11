@@ -2,9 +2,6 @@
 description: "【论文笔记】Rewis3d: Reconstruction Improves Weakly-Supervised Semantic Segmentation 论文解读 | CVPR2026 | arXiv 2603.06374 | 弱监督语义分割 | Rewis3d 利用前馈式多视图3D重建生成的点云作为辅助监督信号，通过双师生架构实现2D图像与3D点云之间的双向跨模态一致性学习，在稀疏标注（点/涂鸦/粗标注）下将弱监督语义分割性能提升2-7% mIoU，推理时仅需2D图像。"
 tags:
   - CVPR2026
-  - 弱监督语义分割
-  - 3D重建
-  - 跨模态一致性
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

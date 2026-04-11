@@ -2,10 +2,7 @@
 description: "【论文笔记】Efficient and Accurate Prompt Optimization: the Benefit of Memory in Exemplar-Guided Reflection 论文解读 | ACL 2025 | arXiv 2411.07446 | 提示学习 prompt optimization | 提出 ERM 方法，通过指导性元提示生成带详细解题过程的 exemplar 来增强 feedback 质量，并引入 Feedback Memory 和 Exemplar Factory 两种长期记忆机制来高效存储和复用历史反馈与示例，在多个任务上以约一半的优化步数超越了 SOTA prompt 优化方法。"
 tags:
   - ACL 2025
-  - prompt optimization
   - 提示学习
-  - feedback memory
-  - exemplar retrieval
 ---
 
 # Efficient and Accurate Prompt Optimization: the Benefit of Memory in Exemplar-Guided Reflection

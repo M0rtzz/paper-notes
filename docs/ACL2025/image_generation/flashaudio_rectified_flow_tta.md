@@ -2,9 +2,6 @@
 description: "【论文笔记】FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation 论文解读 | ACL 2025 | arXiv 2410.12266 | 文本转音频 | 将整流流（Rectified Flow）引入文本转音频生成，通过双焦采样器优化时间步分布、不混溶流减少数据-噪声总距离、锚定优化修正 CFG 引导误差，实现单步生成 FAD=1.49 超越百步扩散模型，生成速度达实时 400 倍。"
 tags:
   - ACL 2025
-  - 文本转音频
-  - 整流流
-  - 快速生成
 ---
 
 # FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】ConstStyle: Robust Domain Generalization with Unified Style Transformation 论文解读 | ICCV 2025 | arXiv 2509.05975 | 域泛化 | 提出ConstStyle框架，通过构建一个理论驱动的\"统一域\"（Unified Domain），在训练时将所有样本风格对齐到该统一域，测试时将未见域样本部分投影到统一域，有效缩小域间差距并提升泛化性能。"
 tags:
   - ICCV 2025
-  - 域泛化
-  - 风格变换
-  - 统一域
 ---
 
 # ConstStyle: Robust Domain Generalization with Unified Style Transformation

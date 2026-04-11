@@ -2,9 +2,6 @@
 description: "【论文笔记】FinanceReasoning: Benchmarking Financial Numerical Reasoning More Credible, Comprehensive and Challenging 论文解读 | ACL 2025 | arXiv 2506.05828 | 金融数值推理 | 提出 FinanceReasoning benchmark，通过重标注公开数据集、构建 3,133 个 Python 金融函数库和新增 908 道专家标注难题，在可信度、全面性和挑战性三个维度提升金融数值推理评估能力。"
 tags:
   - ACL 2025
-  - 金融数值推理
-  - Benchmark
-  - 大推理模型
 ---
 
 # FinanceReasoning: Benchmarking Financial Numerical Reasoning More Credible, Comprehensive and Challenging

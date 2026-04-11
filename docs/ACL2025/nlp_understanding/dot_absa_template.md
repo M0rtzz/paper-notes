@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis 论文解读 | ACL 2025 (Short) | arXiv 2406.11130 | 方面级情感分析 | 提出 Dynamic Order Template（DOT）方法用于生成式方面级情感分析——为每个实例动态创建最优的预测模板顺序（只含必要的视角），在 ASQP 和 ACOS 数据集上提升 F1 的同时显著减少推理时间。"
 tags:
   - ACL 2025 (Short)
-  - 方面级情感分析
-  - 模板预测
-  - 动态排序
 ---
 
 # Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis

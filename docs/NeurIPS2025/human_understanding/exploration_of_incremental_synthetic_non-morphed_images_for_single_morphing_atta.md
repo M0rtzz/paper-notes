@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploration of Incremental Synthetic Non-Morphed Images for Single Morphing Attack Detection 论文解读 | NeurIPS 2025 (LXAI Workshop) | arXiv 2510.09836 | S-MAD | 系统研究了在单图像变形攻击检测（S-MAD）训练中增量引入合成非变形人脸图像的效果，发现适量的合成数据（~75%增量）可提升跨数据集泛化能力（EER从6.17%降至6.10%），但过度使用或仅用合成数据会导致性能严重退化（EER升至~38%）。"
 tags:
   - NeurIPS 2025 (LXAI Workshop)
-  - S-MAD
-  - 合成人脸数据
-  - 增量训练
 ---
 
 # Exploration of Incremental Synthetic Non-Morphed Images for Single Morphing Attack Detection

@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards a Mechanistic Explanation of Diffusion Model Generalization 论文解读 | ICML 2025 | arXiv 2411.19339 | 扩散模型 | 通过比较神经网络去噪器与理论最优经验去噪器的近似误差，发现扩散模型的泛化源于跨架构共享的**局部归纳偏置**——神经网络在去噪时倾向于执行局部化操作，并据此提出无需训练的 Patch Set Posterior Composites (PSPC) 去噪器，通过聚合局部经验去噪器来复现网络行为，证实 patch 去噪与组合是扩散模型泛化的重要机制。"
 tags:
   - ICML 2025
-  - 扩散模型
-  - 泛化机制
-  - 归纳偏置
 ---
 
 # Towards a Mechanistic Explanation of Diffusion Model Generalization

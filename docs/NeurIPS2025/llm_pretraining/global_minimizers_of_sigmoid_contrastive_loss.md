@@ -2,9 +2,6 @@
 description: "【论文笔记】Global Minimizers of Sigmoid Contrastive Loss 论文解读 | NeurIPS 2025 | arXiv 2509.18552 | 对比学习 | 首次在实践相关的 N≫d 区间严格刻画了 Sigmoid 对比损失（SigLIP）在可训练温度和偏置下的全局最小值几何结构，提出了 (m, b_rel)-Constellation 这一新型组合对象，并用其解释了 SigLIP 的检索成功、模态间隙现象，以及提出了显式 relative bias 参数化改进训练动态。"
 tags:
   - NeurIPS 2025
-  - 对比学习
-  - Sigmoid Loss
-  - SigLIP
 ---
 
 # Global Minimizers of Sigmoid Contrastive Loss

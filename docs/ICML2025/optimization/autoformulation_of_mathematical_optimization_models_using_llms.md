@@ -2,9 +2,7 @@
 description: "【论文笔记】Autoformulation of Mathematical Optimization Models Using LLMs 论文解读 | ICML 2025 | arXiv 2411.01679 | autoformulation | 本文提出一种利用大语言模型结合蒙特卡洛树搜索（MCTS）自动将自然语言描述的优化问题转化为可求解器求解的数学规划模型的方法，通过符号剪枝和 LLM 价值评估显著提升了搜索效率。"
 tags:
   - ICML 2025
-  - autoformulation
-  - LLM
-  - Monte-Carlo Tree Search
+  - 剪枝
 ---
 
 # Autoformulation of Mathematical Optimization Models Using LLMs

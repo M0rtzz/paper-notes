@@ -2,9 +2,6 @@
 description: "【论文笔记】SMARTIES: Spectrum-Aware Multi-Sensor Auto-Encoder for Remote Sensing Images 论文解读 | ICCV 2025 | arXiv 2506.19585 | 遥感基础模型 | 提出 SMARTIES，一个统一的传感器无关遥感基础模型，通过光谱感知投影将异构传感器数据映射到共享空间，结合跨传感器 token 混合和掩码重建进行自监督预训练，在单模态和多模态任务上超越专用传感器模型，并可泛化到预训练未见过的传感器。"
 tags:
   - ICCV 2025
-  - 遥感基础模型
-  - 多传感器
-  - 光谱感知
 ---
 
 # SMARTIES: Spectrum-Aware Multi-Sensor Auto-Encoder for Remote Sensing Images

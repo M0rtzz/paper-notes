@@ -2,9 +2,6 @@
 description: "【论文笔记】Knowledge-based Visual Question Answer with Multimodal Processing, Retrieval and Filtering 论文解读 | NeurIPS 2025 | arXiv 2510.14605 | KB-VQA | 提出 Wiki-PRF，一套三阶段（处理-检索-过滤）的多模态 RAG 框架，通过强化学习训练 VLM 自主调用视觉工具和过滤检索结果，在 E-VQA 和 InfoSeek 上达到 SOTA。"
 tags:
   - NeurIPS 2025
-  - KB-VQA
-  - RAG
-  - 多模态检索
 ---
 
 # Knowledge-based Visual Question Answer with Multimodal Processing, Retrieval and Filtering

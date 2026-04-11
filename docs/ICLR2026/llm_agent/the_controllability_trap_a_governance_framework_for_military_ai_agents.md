@@ -2,9 +2,6 @@
 description: "【论文笔记】The Controllability Trap: A Governance Framework for Military AI Agents 论文解读 | ICLR 2026 | arXiv 2603.03515 | AI治理 | 提出 Agentic Military AI Governance Framework (AMAGF)，将人类对军事AI agent的控制从\"有/无\"的二元判断转变为以 Control Quality Score (CQS) 为核心的连续量化监控体系，涵盖预防-侦测-纠正三大支柱。"
 tags:
   - ICLR 2026
-  - AI治理
-  - 军事AI
-  - 人类控制
 ---
 
 # The Controllability Trap: A Governance Framework for Military AI Agents

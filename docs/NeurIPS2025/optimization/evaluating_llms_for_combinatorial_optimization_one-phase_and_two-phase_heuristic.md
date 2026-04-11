@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating LLMs for Combinatorial Optimization: One-Phase and Two-Phase Heuristics for 2D Bin-Packing 论文解读 | NeurIPS 2025 | arXiv 2509.22255 | LLM评估 | 本文提出一个结合 LLM 与进化算法的系统性评估框架，用于评估 LLM 在 2D 装箱问题上生成和优化启发式算法的能力，GPT-4o 在 2 轮迭代内即达到最优解，将平均箱数从 16 降至 15，空间利用率从 0.76-0.78 提升至 0.83。"
 tags:
   - NeurIPS 2025
-  - LLM评估
-  - 组合优化
-  - 2D装箱问题
 ---
 
 # Evaluating LLMs for Combinatorial Optimization: One-Phase and Two-Phase Heuristics for 2D Bin-Packing

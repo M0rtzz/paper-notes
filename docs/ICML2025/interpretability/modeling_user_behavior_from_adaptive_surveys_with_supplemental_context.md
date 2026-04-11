@@ -2,9 +2,6 @@
 description: "【论文笔记】LANTERN: Modeling User Behavior from Adaptive Surveys with Supplemental Context 论文解读 | ICML2025 | arXiv 2507.20919 | 用户行为建模 | 提出LANTERN——模块化的用户行为建模架构，通过选择性门控+残差连接+后期融合交叉注意力将调查数据作为主信号、外部上下文作为补充，在多标签调查响应预测中超越纯调查基线。"
 tags:
   - ICML2025
-  - 用户行为建模
-  - 调查数据
-  - 后期融合
 ---
 
 # LANTERN: Modeling User Behavior from Adaptive Surveys with Supplemental Context

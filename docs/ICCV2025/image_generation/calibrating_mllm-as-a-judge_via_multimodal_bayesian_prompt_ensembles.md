@@ -2,9 +2,6 @@
 description: "【论文笔记】Calibrating MLLM-as-a-Judge via Multimodal Bayesian Prompt Ensembles 论文解读 | ICCV 2025 | arXiv 2509.08777 | MLLM-as-a-Judge | 提出Multimodal Mixture-of-Bayesian Prompt Ensembles (MMB)，通过基于图像聚类的多模态感知提示权重学习，显著改善MLLM作为评判者时的校准性和判断准确性，解决了标准提示集成方法在多模态场景下失效的问题。"
 tags:
   - ICCV 2025
-  - MLLM-as-a-Judge
-  - 提示集成
-  - 贝叶斯推理
 ---
 
 # Calibrating MLLM-as-a-Judge via Multimodal Bayesian Prompt Ensembles

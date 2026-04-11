@@ -2,9 +2,6 @@
 description: "【论文笔记】Eliminating VAE for Fast and High-Resolution Generative Detail Restoration 论文解读 | ICLR 2026 | arXiv 2602.10630 | VAE消除 | 通过用 ×8 pixel-(un)shuffle 替代 VAE 的编码器和解码器，将潜空间扩散超分（GenDR）逆转为像素空间超分（GenDR-Pix），结合多阶段对抗蒸馏和 PadCFG 推理策略，实现 2.8× 加速和 60% 显存节省，同时保持可忽略的视觉退化，首次实现 1 秒内 4K 图像恢复仅需 6GB 显存。"
 tags:
   - ICLR 2026
-  - VAE消除
-  - 超分辨率
-  - 像素空间扩散
 ---
 
 # Eliminating VAE for Fast and High-Resolution Generative Detail Restoration

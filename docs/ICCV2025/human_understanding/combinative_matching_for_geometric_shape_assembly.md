@@ -2,9 +2,6 @@
 description: "【论文笔记】Combinative Matching for Geometric Shape Assembly 论文解读 | ICCV 2025 | arXiv 2508.09780 | 形状组装 | 提出组合匹配（Combinative Matching）方法，同时建模互锁部件的\"表面形状一致性\"和\"体积占用相反性\"两大属性，通过等变网络学习方向对齐、形状匹配与占用匹配三个目标，大幅减少几何组装中的局部歧义。"
 tags:
   - ICCV 2025
-  - 形状组装
-  - 点云匹配
-  - 等变网络
 ---
 
 # Combinative Matching for Geometric Shape Assembly

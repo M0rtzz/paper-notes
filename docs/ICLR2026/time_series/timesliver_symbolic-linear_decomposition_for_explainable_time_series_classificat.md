@@ -2,9 +2,6 @@
 description: "【论文笔记】TimeSliver: Symbolic-Linear Decomposition for Explainable Time Series Classification 论文解读 | ICLR 2026 | arXiv 2601.21289 | 时间归因 | 提出TimeSliver——可解释性驱动的深度学习框架,联合利用原始时序数据和符号抽象(分箱)构建保持原始时间结构的表示,每个元素线性编码对应时间段对最终预测的贡献→赋予每个时间点正/负归因分数,在7个数据集上时间归因准确率超越其他方法11%,同时在26个UEA基准上预测性能持平SOTA。"
 tags:
   - ICLR 2026
-  - 时间归因
-  - 符号抽象
-  - 线性组合
 ---
 
 # TimeSliver: Symbolic-Linear Decomposition for Explainable Time Series Classification

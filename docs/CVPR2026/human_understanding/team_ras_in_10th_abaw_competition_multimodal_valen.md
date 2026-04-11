@@ -2,9 +2,6 @@
 description: "【论文笔记】Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach 论文解读 | CVPR 2026 (ABAW Workshop) | arXiv 2603.13056 | 效价-唤醒估计 | 提出三模态连续VA估计方法，首次将VLM(Qwen3-VL-4B)生成的情感行为描述嵌入作为独立模态，与GRADA人脸编码器和WavLM音频特征通过两种融合策略(DCMMOE和RAAV)组合，在Aff-Wild2上达到CCC 0.658(dev)/0.62(test)。"
 tags:
   - CVPR 2026 (ABAW Workshop)
-  - 效价-唤醒估计
-  - 多模态融合
-  - VLM行为描述
 ---
 
 # Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach

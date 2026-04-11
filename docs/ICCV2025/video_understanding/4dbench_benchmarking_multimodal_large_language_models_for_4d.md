@@ -2,9 +2,6 @@
 description: "【论文笔记】4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding 论文解读 | ICCV 2025 | arXiv 2503.17827 | 4D理解 | 提出 4D-Bench，首个评估多模态大语言模型对4D物体（具有时间演化的3D物体）理解能力的基准，包含4D物体问答（751 QA对）和4D物体描述（580物体×5标注）两大任务，发现即使SOTA的GPT-4o也仅达63%准确率（人类91%），揭示了MLLM在多视角时空理解上的巨大差距。"
 tags:
   - ICCV 2025
-  - 4D理解
-  - 多模态大语言模型
-  - Benchmark
 ---
 
 # 4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding

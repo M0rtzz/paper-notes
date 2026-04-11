@@ -2,9 +2,6 @@
 description: "【论文笔记】How Different from the Past? Spatio-Temporal Time Series Forecasting with Self-Supervised Deviation Learning 论文解读 | NeurIPS 2025 | arXiv 2510.04908 | 时空预测 | 提出 ST-SSDL 框架，通过自监督偏差学习（SSDL）捕捉当前输入与历史模式之间的动态偏差，利用可学习原型离散化隐空间并以对比损失+偏差损失实现相对距离一致性，在六个时空基准上取得 SOTA。"
 tags:
   - NeurIPS 2025
-  - 时空预测
-  - 自监督学习
-  - 偏差建模
 ---
 
 # How Different from the Past? Spatio-Temporal Time Series Forecasting with Self-Supervised Deviation Learning

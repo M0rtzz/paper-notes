@@ -2,9 +2,6 @@
 description: "【论文笔记】AMoPO: Adaptive Multi-objective Preference Optimization without Reward Models and Reference Models 论文解读 | ACL 2025 (Findings) | arXiv 2506.07165 | 多目标偏好对齐 | 提出AMoPO框架，通过将生成空间建模为高斯分布实现维度感知的自适应权重分配，在不依赖奖励模型和参考模型的情况下完成多目标偏好对齐，在HelpSteer2数据集上超越SOTA 28.5%，并在7B/14B/32B模型上验证了缩放能力。"
 tags:
   - ACL 2025 (Findings)
-  - 多目标偏好对齐
-  - 自适应权重
-  - 高斯分布
 ---
 
 # AMoPO: Adaptive Multi-objective Preference Optimization without Reward Models and Reference Models

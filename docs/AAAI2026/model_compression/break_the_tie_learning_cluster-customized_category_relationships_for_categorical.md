@@ -2,9 +2,6 @@
 description: "【论文笔记】Break the Tie: Learning Cluster-Customized Category Relationships for Categorical Data Clustering 论文解读 | AAAI 2026 | arXiv 2511.09049 | categorical data clustering | 提出 DISC 方法，为每个聚类簇学习定制化的属性类别关系（而非全局统一距离），通过关系树建模与聚类联合优化，在 12 个数据集上以平均排名 1.25 大幅超越现有最佳方法（5.21）。"
 tags:
   - AAAI 2026
-  - categorical data clustering
-  - distance metric learning
-  - subspace clustering
 ---
 
 # Break the Tie: Learning Cluster-Customized Category Relationships for Categorical Data Clustering

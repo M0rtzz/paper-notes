@@ -2,9 +2,6 @@
 description: "【论文笔记】How to Take a Memorable Picture? Empowering Users with Actionable Feedback 论文解读 | CVPR 2026 | arXiv 2602.21877 | 图像记忆性 | 定义了记忆性反馈（MemFeed）新任务，提出 MemCoach——一种 training-free 的 MLLM 激活导向方法，通过教师-学生策略将记忆性感知知识注入模型激活空间，使 MLLM 能生成提升照片记忆性的自然语言可操作建议。"
 tags:
   - CVPR 2026
-  - 图像记忆性
-  - 可操作反馈
-  - 激活导向
 ---
 
 # How to Take a Memorable Picture? Empowering Users with Actionable Feedback

@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Adaptive Federated Optimization 论文解读 | NeurIPS 2025 | arXiv 2410.18117 | 联邦学习 | FedAda2/FedAda2++ 提出在联邦学习中实现高效的服务器-客户端联合自适应优化：客户端本地预条件器从零初始化（无需服务器传输），并可选地用 SM3 等内存高效优化器压缩本地统计量，在理论上保持与完整联合自适应相同的 $O(T^{-1/2})$ 收敛率，实测通信成本与 FedAvg 一致。"
 tags:
   - NeurIPS 2025
-  - 联邦学习
-  - 自适应优化
-  - 通信效率
 ---
 
 # Efficient Adaptive Federated Optimization

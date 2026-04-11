@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Bridge the Gaps between Machine Unlearning and AI Regulation 论文解读 | NeurIPS 2025 | arXiv 2502.12430 | 机器遗忘 | 系统分析了机器遗忘（Machine Unlearning）在欧盟人工智能法案（AIA）合规中的六大潜在应用场景，指出每个场景中 SOTA 与实际需求之间的技术差距，呼吁研究社区弥补这些差距以释放机器遗忘在 AI 监管中的潜力。"
 tags:
   - NeurIPS 2025
-  - 机器遗忘
-  - AI监管
-  - EU AI Act
 ---
 
 # Position: Bridge the Gaps between Machine Unlearning and AI Regulation

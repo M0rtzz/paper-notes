@@ -2,10 +2,7 @@
 description: "【论文笔记】Graph Neural Networks for Efficient AC Power Flow Prediction in Power Grids 论文解读 | NeurIPS 2025 | arXiv 2502.05702 | 图神经网络 GNN | 将电力网络建模为图结构（母线为节点、输电线为边），探索 GCN、GAT、SAGEConv 和 GraphConv 四种 GNN 架构预测 AC 潮流解（电压幅值和相角），在 IEEE 14/30/57/118 母线测试系统上展示了 GNN 可高效替代传统 Newton-Raphson 求解器。"
 tags:
   - NeurIPS 2025
-  - GNN
   - 图神经网络
-  - AC 潮流计算
-  - 电力系统
 ---
 
 # Graph Neural Networks for Efficient AC Power Flow Prediction in Power Grids

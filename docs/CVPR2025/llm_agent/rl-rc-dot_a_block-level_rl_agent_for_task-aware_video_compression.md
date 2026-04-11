@@ -2,9 +2,6 @@
 description: "【论文笔记】RL-RC-DoT: A Block-level RL Agent for Task-Aware Video Compression 论文解读 | CVPR 2025 | arXiv 2501.12216 | 视频压缩 | 提出 RL-RC-DoT，一个基于强化学习的宏块级量化参数（QP）控制 agent，用于任务感知视频压缩。通过将 QP 选择建模为 RL 的顺序决策问题，agent 学习在给定码率约束下为任务相关区域分配更多码率，在车辆检测和 ROI 显著性编码两个任务上显著提升性能。关键优势在于推理时不需要运行下游任务模型，适合边缘设备部署。"
 tags:
   - CVPR 2025
-  - 视频压缩
-  - 强化学习
-  - 任务感知编码
 ---
 
 # RL-RC-DoT: A Block-level RL Agent for Task-Aware Video Compression

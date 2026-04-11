@@ -2,10 +2,7 @@
 description: "【论文笔记】Distillation Dynamics: Towards Understanding Feature-Based Distillation in Vision Transformers 论文解读 | AAAI 2026 | arXiv 2511.06848 | 知识蒸馏 | 提出\"蒸馏动力学\"分析框架（频谱分析+信息熵+激活幅值），揭示ViT具有独特的U型信息处理模式（先压缩后扩展），证明feature-based蒸馏在ViT中失败的根本原因是teacher后层的分布式高维编码范式与student有限通道容量之间的表征范式不匹配，而非简单的容量差距。"
 tags:
   - AAAI 2026
-  - 知识蒸馏
-  - Vision Transformer
   - Transformer
-  - 频谱分析
 ---
 
 # Distillation Dynamics: Towards Understanding Feature-Based Distillation in Vision Transformers

@@ -2,9 +2,6 @@
 description: "【论文笔记】MV-Adapter: Multi-view Consistent Image Generation Made Easy 论文解读 | ICCV 2025 | arXiv 2412.03632 | Multi-view Generation | 提出首个基于Adapter的多视角图像生成方案MV-Adapter，通过复制self-attention层+并行注意力架构实现即插即用的多视角生成，在SDXL上达到768分辨率，兼容各种T2I衍生模型。"
 tags:
   - ICCV 2025
-  - Multi-view Generation
-  - Adapter
-  - Diffusion Model
   - 扩散模型
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】DPA: A One-Stop Metric to Measure Bias Amplification in Classification Datasets 论文解读 | NeurIPS 2025 | arXiv 2412.11060 | 偏差放大 | 本文提出 Directional Predictability Amplification (DPA)，一种基于可预测性的偏差放大度量指标，是唯一同时满足方向性、适用于平衡/非平衡数据集、能正确识别正负偏差放大的一站式指标，通过测量模型偏差与数据集偏差的相对变化来量化偏差放大程度。"
 tags:
   - NeurIPS 2025
-  - 偏差放大
-  - 公平性度量
-  - 可预测性
 ---
 
 # DPA: A One-Stop Metric to Measure Bias Amplification in Classification Datasets

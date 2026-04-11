@@ -2,9 +2,6 @@
 description: "【论文笔记】Action-Constrained Imitation Learning 论文解读 | ICML2025 | arXiv 2508.14379 | 模仿学习 | 形式化了\"动作约束模仿学习(ACIL)\"新问题——受限Agent从无约束专家学习，提出DTWIL通过MPC+DTW距离生成替代性约束轨迹来消除占用度量失配，在多种机器人任务上显著优于基线。"
 tags:
   - ICML2025
-  - 模仿学习
-  - 动作约束
-  - 动态时间规整
 ---
 
 # Action-Constrained Imitation Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Conceptual Belief-Informed Reinforcement Learning 论文解读 | ICML 2025 | arXiv 2410.01739 | 样本效率 | 提出 HI-RL（Human Intelligence-RL）——将认知科学中的概念抽象和概率先验信念机制引入 RL，从经验中提取高层概念并构建概念关联的自适应先验来指导值函数/策略更新，作为算法无关插件一致提升 DQN/PPO/SAC/TD3 的样本效率。"
 tags:
   - ICML 2025
-  - 样本效率
-  - 概念抽象
-  - 贝叶斯先验
 ---
 
 # Conceptual Belief-Informed Reinforcement Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE) 论文解读 | ICML 2025 | arXiv 2507.07100 | 域增量学习 | DCE 提出频率感知专家组 + 动态专家选择器的双阶段训练框架，同时解决域增量学习中域内类别不平衡和跨域类别分布偏移两个难题，在四个 benchmark 上达到 SOTA。"
 tags:
   - ICML 2025
-  - 域增量学习
-  - 类别不平衡
-  - 专家混合
 ---
 
 # Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)

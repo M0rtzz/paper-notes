@@ -2,9 +2,6 @@
 description: "【论文笔记】MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2501.00332 | 多Agent过滤 | 提出 MAIN-RAG，一个无需训练的多 Agent RAG 过滤框架，通过 Predictor→Judge→Final-Predictor 三个 LLM Agent 协作评估检索文档的相关性，并设计自适应阈值（基于分数均值和标准差）动态过滤噪声文档，在 4 个 QA 基准上实现 2-11% 的准确率提升。"
 tags:
   - ACL 2025
-  - 多Agent过滤
-  - 文档噪声
-  - 自适应阈值
 ---
 
 # MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation

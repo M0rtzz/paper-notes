@@ -2,9 +2,6 @@
 description: "【论文笔记】Unsupervised Joint Learning of Optical Flow and Intensity with Event Cameras 论文解读 | ICCV 2025 | arXiv 2503.17262 | 事件相机 | 提出首个基于单一网络的无监督学习框架，从事件相机数据中联合估计光流和图像亮度，核心是新推导的事件光度误差（PhE）与对比度最大化（CMax）的互补损失函数。"
 tags:
   - ICCV 2025
-  - 事件相机
-  - 光流估计
-  - 图像亮度重建
 ---
 
 # Unsupervised Joint Learning of Optical Flow and Intensity with Event Cameras

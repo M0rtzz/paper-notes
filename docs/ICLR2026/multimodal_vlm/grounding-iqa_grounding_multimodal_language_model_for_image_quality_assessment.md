@@ -2,9 +2,6 @@
 description: "【论文笔记】Grounding-IQA: Grounding Multimodal Language Models for Image Quality Assessment 论文解读 | ICLR 2026 | arXiv 2411.17237 | 图像质量评估 | 将空间定位（referring + grounding）与图像质量评估结合，构建 GIQA-160K 数据集训练多模态 LLM 生成带有边界框的质量描述和空间 VQA，在细粒度质量感知上显著优于通用 MLLM。"
 tags:
   - ICLR 2026
-  - 图像质量评估
-  - 空间定位
-  - 多模态LLM
 ---
 
 # Grounding-IQA: Grounding Multimodal Language Models for Image Quality Assessment

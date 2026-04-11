@@ -2,9 +2,6 @@
 description: "【论文笔记】SynCoGen: Synthesizable 3D Molecule Generation via Joint Reaction and Coordinate Modeling 论文解读 | ICLR 2026 | arXiv 2507.11818 | 可合成分子生成 | SynCoGen 提出了一种结合掩码图扩散和流匹配的多模态生成框架，能够同时采样分子构建块反应图和3D原子坐标，在保证合成可行性的同时实现高质量的3D分子生成。"
 tags:
   - ICLR 2026
-  - 可合成分子生成
-  - 3D构象生成
-  - 掩码图扩散
 ---
 
 # SynCoGen: Synthesizable 3D Molecule Generation via Joint Reaction and Coordinate Modeling

@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling the Long Video Understanding of Multimodal Large Language Models via Visual Memory Mechanism 论文解读 | CVPR2026 | arXiv 2603.29252 | 长视频理解 | 提出 FlexMem——一种训练免的视觉记忆机制，通过迭代式双路径 KV 缓存压缩构建视觉记忆库，结合编码式和快速索引式记忆召回策略，让 MLLM 在单张 3090 GPU 上处理 1000+ 帧长视频，大幅超越现有高效视频理解方法。"
 tags:
   - CVPR2026
-  - 长视频理解
-  - 视觉记忆
-  - KV缓存压缩
 ---
 
 # Scaling the Long Video Understanding of Multimodal Large Language Models via Visual Memory Mechanism

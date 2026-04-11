@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchical Memory Organization for Wikipedia Generation 论文解读 | ACL 2025 | arXiv 2506.23393 | 维基百科生成 | 提出 Memory Organization-based Generation（MOG）框架，从网页文档中提取细粒度记忆单元（factoid），通过递归聚类-摘要算法组织为层次化 Wikipedia 大纲结构，使每个章节都有直接的记忆支撑，在 FreshWiki 和 WikiStart 数据集上信息量、引用率和可验证性全面超越 RAG 和 STORM 基线。"
 tags:
   - ACL 2025
-  - 维基百科生成
-  - 层次化记忆
-  - RAG
 ---
 
 # Hierarchical Memory Organization for Wikipedia Generation

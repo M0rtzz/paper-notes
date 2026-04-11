@@ -2,10 +2,7 @@
 description: "【论文笔记】Entropy Rectifying Guidance for Diffusion and Flow Models 论文解读 | NeurIPS 2025 | arXiv 2504.13987 | 扩散模型 diffusion models | 提出 Entropy Rectifying Guidance (ERG)，通过操控注意力层的 Hopfield 能量景观（温度缩放、步长调整）来获取弱预测信号，替代传统 CFG 中的无条件预测，在文本到图像、类条件和无条件生成中同时提升质量、多样性和一致性。"
 tags:
   - NeurIPS 2025
-  - diffusion models
   - 扩散模型
-  - guidance mechanism
-  - attention energy
   - 注意力机制
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation 论文解读 | ECCV 2024 (Oral) | arXiv 2408.09042 | 相机位姿估计 | ADen提出生成器-判别器框架统一位姿回归和概率位姿估计：生成器输出多个6DoF位姿假设来建模多模态分布（处理对称歧义），判别器选出最佳假设，在稀疏视角位姿估计上同时实现了更高精度和更低运行时间。"
 tags:
   - ECCV 2024 (Oral)
-  - 相机位姿估计
-  - 稀疏视角
-  - 生成-判别框架
 ---
 
 # ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation

@@ -2,9 +2,6 @@
 description: "【论文笔记】COS3D: Collaborative Open-Vocabulary 3D Segmentation 论文解读 | NeurIPS 2025 | arXiv 2510.20238 | 开放词汇3D分割 | 提出COS3D协作式开放词汇3D分割框架，在3D Gaussian Splatting中同时维护instance field（学习清晰边界）和language field（学习语义），通过两阶段训练实现Ins2Lang映射，推理时Language→Instance prompt精化实现互补协作，在LeRF数据集上mIoU达50.76%，大幅超越Dr.Splat（43.58%）。"
 tags:
   - NeurIPS 2025
-  - 开放词汇3D分割
-  - 3D Gaussian Splatting
-  - 协作场
 ---
 
 # COS3D: Collaborative Open-Vocabulary 3D Segmentation

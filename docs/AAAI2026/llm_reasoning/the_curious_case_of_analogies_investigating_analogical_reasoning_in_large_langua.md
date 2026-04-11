@@ -2,9 +2,6 @@
 description: "【论文笔记】The Curious Case of Analogies: Investigating Analogical Reasoning in Large Language Models 论文解读 | AAAI 2026 | arXiv 2511.20344 | 类比推理 | 通过 Patchscopes、注意力屏蔽和线性探针等机制可解释性工具，系统揭示了 LLM 类比推理的内部机制：模型能在中上层有效编码关系信息，但**应用**关系信息到新实体是比**提取**更大的瓶颈；成功的类比推理与故事间强结构对齐相关联，失败则反映弱化或错位的对齐。"
 tags:
   - AAAI 2026
-  - 类比推理
-  - 机制可解释性
-  - 关系信息编码
 ---
 
 # The Curious Case of Analogies: Investigating Analogical Reasoning in Large Language Models

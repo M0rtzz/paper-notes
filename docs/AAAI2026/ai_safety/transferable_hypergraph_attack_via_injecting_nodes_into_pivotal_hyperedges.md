@@ -2,9 +2,6 @@
 description: "【论文笔记】Transferable Hypergraph Attack via Injecting Nodes into Pivotal Hyperedges 论文解读 | AAAI 2026 | arXiv 2511.10698 | 超图神经网络 | 提出 TH-Attack，一种面向超图神经网络（HGNNs）的可迁移节点注入攻击框架，通过识别信息聚合路径中的关键超边并注入语义反转的恶意节点，在黑盒场景下实现对多种 HGNN 架构的有效攻击，Accuracy 可从 80%+ 降至 30% 以下。"
 tags:
   - AAAI 2026
-  - 超图神经网络
-  - 对抗攻击
-  - 节点注入
 ---
 
 # Transferable Hypergraph Attack via Injecting Nodes into Pivotal Hyperedges

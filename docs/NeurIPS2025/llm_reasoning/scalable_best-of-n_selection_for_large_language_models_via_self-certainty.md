@@ -2,9 +2,6 @@
 description: "【论文笔记】Scalable Best-of-N Selection for Large Language Models via Self-Certainty 论文解读 | NeurIPS 2025 | arXiv 2502.18581 | Best-of-N | 提出Self-Certainty度量，利用LLM输出的token概率分布量化模型信心，在无需额外奖励模型的情况下实现可扩展的Best-of-N选择，性能媲美或超越基于奖励模型的方法。"
 tags:
   - NeurIPS 2025
-  - Best-of-N
-  - 自信度
-  - 分布量化
 ---
 
 # Scalable Best-of-N Selection for Large Language Models via Self-Certainty

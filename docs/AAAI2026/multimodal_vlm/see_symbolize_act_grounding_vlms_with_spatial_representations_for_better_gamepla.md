@@ -2,9 +2,6 @@
 description: "【论文笔记】See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay 论文解读 | AAAI 2026 | arXiv 2603.11601 | 符号接地 | 系统性评估了符号化空间表示（物体坐标）对VLM游戏能力的影响，发现符号信息仅在检测准确时有益，当VLM自提取符号时效果取决于模型能力和场景复杂度，视觉帧始终不可或缺。"
 tags:
   - AAAI 2026
-  - 符号接地
-  - VLM游戏智能体
-  - 空间推理
 ---
 
 # See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay

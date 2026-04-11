@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs 论文解读 | NeurIPS 2025 | arXiv 2602.00862 | 蛋白质表示学习 | 提出SSHG（Secondary Structure-based Hierarchical Graph）框架，基于蛋白质二级结构motif构建两级层次化图表示（残基级内部图+motif级全局图），用两阶段GNN分别学习局部和全局特征，理论证明保持最大表达力的同时在酶分类和配体亲和力预测上同时提升精度和降低计算成本。"
 tags:
   - NeurIPS 2025
-  - 蛋白质表示学习
-  - 图神经网络
-  - 多尺度
 ---
 
 # Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs

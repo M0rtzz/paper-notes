@@ -2,9 +2,6 @@
 description: "【论文笔记】Implicit Bias of Spectral Descent and Muon on Multiclass Separable Data 论文解读 | NeurIPS 2025 | arXiv 2502.04664 | implicit bias | 本文首次完整刻画了归一化最速下降（NSD）和归一化动量最速下降（NMD）在多分类线性可分数据上的隐式偏差：这些算法以 $\mathcal{O}(1/\sqrt{t})$ 的速率收敛到相应 $p$-范数的最大 margin 解，涵盖 Spectral Descent（谱范数）和 Muon 作为特例，并扩展至 Adam（max-范数 margin）。"
 tags:
   - NeurIPS 2025
-  - implicit bias
-  - spectral descent
-  - Muon
 ---
 
 # Implicit Bias of Spectral Descent and Muon on Multiclass Separable Data

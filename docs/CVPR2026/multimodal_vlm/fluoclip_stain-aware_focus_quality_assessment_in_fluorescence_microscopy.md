@@ -2,9 +2,6 @@
 description: "【论文笔记】FluoCLIP: Stain-Aware Focus Quality Assessment in Fluorescence Microscopy 论文解读 | CVPR 2026 | arXiv 2602.23791 | 荧光显微镜 | 提出 FluoCLIP，一个两阶段视觉-语言框架：先通过染色锚定（stain-grounding）让 CLIP 学习荧光染色的语义，再通过染色引导排序（stain-guided ranking）实现染色感知的对焦质量评估，并引入首个多染色组织级荧光显微镜数据集 FluoMix。"
 tags:
   - CVPR 2026
-  - 荧光显微镜
-  - 对焦质量评估
-  - CLIP
 ---
 
 # FluoCLIP: Stain-Aware Focus Quality Assessment in Fluorescence Microscopy

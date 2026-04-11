@@ -2,9 +2,6 @@
 description: "【论文笔记】Flexible Tails for Normalizing Flows 论文解读 | ICML 2025 | arXiv 2406.16971 | normalizing flows | 提出 Tail Transform Flow (TTF)，在 normalizing flow 的**最后一层**添加基于互补误差函数的非 Lipschitz 变换，将高斯尾部转换为可调权重的重尾分布，避免了使用重尾基分布导致的神经网络优化困难问题。"
 tags:
   - ICML 2025
-  - normalizing flows
-  - heavy tails
-  - extreme value theory
 ---
 
 # Flexible Tails for Normalizing Flows

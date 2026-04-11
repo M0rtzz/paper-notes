@@ -2,9 +2,6 @@
 description: "【论文笔记】EgoNight: Towards Egocentric Vision Understanding at Night with a Challenging Benchmark 论文解读 | ICLR 2026 | arXiv 2510.06218 | 夜间视觉 | 构建首个系统性夜间第一人称视觉基准 EgoNight，包含日夜对齐的合成/真实视频和 3658 个 QA 对（12种类型，300+小时人工标注），揭示所有 SOTA MLLM 在日夜转换中的显著性能下降。"
 tags:
   - ICLR 2026
-  - 夜间视觉
-  - 第一人称
-  - 视觉问答
 ---
 
 # EgoNight: Towards Egocentric Vision Understanding at Night with a Challenging Benchmark

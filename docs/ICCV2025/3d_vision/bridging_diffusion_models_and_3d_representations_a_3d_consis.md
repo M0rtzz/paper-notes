@@ -2,9 +2,6 @@
 description: "【论文笔记】3DSR: Bridging Diffusion Models and 3D Representations for 3D Consistent Super-Resolution 论文解读 | ICCV 2025 | arXiv 2508.04090 | 3D一致超分 | 提出3DSR——将扩散超分模型与3DGS表示交替迭代实现3D一致超分：每步去噪后将SR图像训练到3DGS中获得3D一致渲染→重编码回潜在空间引导下一步去噪，无需微调任何模型即显式保证跨视角一致性，在LLFF上PSNR提升1.16dB+FID降低50%(vs StableSR)。"
 tags:
   - ICCV 2025
-  - 3D一致超分
-  - 扩散模型
-  - 3DGS
 ---
 
 # 3DSR: Bridging Diffusion Models and 3D Representations for 3D Consistent Super-Resolution

@@ -2,9 +2,6 @@
 description: "【论文笔记】AnchorDS: Anchoring Dynamic Sources for Semantically Consistent Text-to-3D Generation 论文解读 | AAAI 2026 | arXiv 2511.11692 | Text-to-3D | 揭示 SDS 中源分布是动态演化而非静态的关键问题，提出 AnchorDS，通过将当前渲染图像作为图像条件输入双条件扩散模型来锚定源分布，解决了 SDS 的语义过度平滑和多视角不一致问题，在 T3Bench 上全面超越 SDS/VSD/SDS-Bridge。"
 tags:
   - AAAI 2026
-  - Text-to-3D
-  - Score Distillation Sampling
-  - 扩散模型
 ---
 
 # AnchorDS: Anchoring Dynamic Sources for Semantically Consistent Text-to-3D Generation

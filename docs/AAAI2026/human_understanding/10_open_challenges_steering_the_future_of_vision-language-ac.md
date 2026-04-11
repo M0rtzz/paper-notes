@@ -2,9 +2,6 @@
 description: "【论文笔记】10 Open Challenges Steering the Future of Vision-Language-Action Models 论文解读 | AAAI 2026 | arXiv 2511.05936 | VLA模型 | 一篇针对Vision-Language-Action(VLA)模型的综述/展望论文，系统梳理了VLA领域的10大开放挑战（多模态感知、鲁棒推理、数据质量、评估、跨机器人泛化、效率、全身协调、安全、多智能体、人机协作）以及4大新兴趋势（层次化规划、空间理解、世界动力学建模、数据合成），为VLA研究指明方向。"
 tags:
   - AAAI 2026
-  - VLA模型
-  - 具身AI
-  - 机器人操控
 ---
 
 # 10 Open Challenges Steering the Future of Vision-Language-Action Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Trajectory Physics-Informed Neural Networks for HJB Equations with Hard-Zero Terminal Inventory: Optimal Execution on Synthetic & SPY Data 论文解读 | NeurIPS 2025 (Workshop on Generative AI in Finance) | arXiv 2512.12708 | Physics-Informed Neural Networks | 针对最优交易执行中 HJB 方程的硬零终端库存约束（$X_T=0$），提出 Multi-Trajectory PINN (MT-PINN)，通过基于轨迹展开的终端损失与 $\lambda$-curriculum 训练策略，在合成数据和 SPY 实盘回测中显著优于 vanilla PINN，终端库存违规率大幅降低。"
 tags:
   - NeurIPS 2025 (Workshop on Generative AI in Finance)
-  - Physics-Informed Neural Networks
-  - Hamilton-Jacobi-Bellman
-  - 最优执行
 ---
 
 # Multi-Trajectory Physics-Informed Neural Networks for HJB Equations with Hard-Zero Terminal Inventory: Optimal Execution on Synthetic & SPY Data

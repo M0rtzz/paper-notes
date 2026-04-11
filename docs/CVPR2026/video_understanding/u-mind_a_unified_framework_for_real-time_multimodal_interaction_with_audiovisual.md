@@ -2,9 +2,6 @@
 description: "【论文笔记】U-Mind: A Unified Framework for Real-Time Multimodal Interaction with Audiovisual Generation 论文解读 | CVPR 2026 | arXiv 2602.23739 | 多模态交互 | 提出 U-Mind，首个统一实时全栈多模态交互系统，支持高层推理对话和指令跟随，在单一交互循环中联合生成文本、语音、动作，并渲染为逼真视频，通过排练驱动学习和文本优先解码策略兼顾推理保持与跨模态对齐。"
 tags:
   - CVPR 2026
-  - 多模态交互
-  - 实时生成
-  - 数字人
 ---
 
 # U-Mind: A Unified Framework for Real-Time Multimodal Interaction with Audiovisual Generation

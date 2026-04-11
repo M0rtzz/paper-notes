@@ -2,9 +2,6 @@
 description: "【论文笔记】Breaking the SFT Plateau: Multimodal Structured Reinforcement Learning for Chart-to-Code Generation 论文解读 | ICLR 2026 | arXiv 2508.13587 | Chart-to-Code | 针对图表到代码生成任务中SFT的性能瓶颈问题，提出多模态结构化强化学习（MSRL），通过文本+视觉双层奖励函数和两阶段RL策略，在ChartMimic和ReachQA上分别提升6.2%和9.9%的高层指标，达到开源SOTA并媲美GPT-4o。"
 tags:
   - ICLR 2026
-  - Chart-to-Code
-  - 强化学习
-  - SFT瓶颈
 ---
 
 # Breaking the SFT Plateau: Multimodal Structured Reinforcement Learning for Chart-to-Code Generation

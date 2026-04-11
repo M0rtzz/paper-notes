@@ -2,10 +2,7 @@
 description: "【论文笔记】Guided Diffusion Sampling on Function Spaces with Applications to PDEs 论文解读 | NeurIPS 2025 | arXiv 2505.17004 | 函数空间扩散模型 | 提出 **FunDPS（Function-space Diffusion Posterior Sampling）**，在函数空间中训练无条件扩散模型，推理时通过梯度引导实现 plug-and-play 的 PDE 逆问题后验采样；理论上将 Tweedie 公式推广到无穷维 Banach 空间，实验上在 5 个 PDE 任务中仅用 3% 观测即可获得比 DiffusionPDE 平均高 32% 的精度并减少 4 倍采样步数。"
 tags:
   - NeurIPS 2025
-  - 函数空间扩散模型
-  - PDE逆问题
   - 偏微分方程
-  - 后验采样
 ---
 
 # Guided Diffusion Sampling on Function Spaces with Applications to PDEs

@@ -2,9 +2,6 @@
 description: "【论文笔记】Dense Policy: Bidirectional Autoregressive Learning of Actions 论文解读 | ICCV 2025 | arXiv 2503.13217 | 自回归策略 | 提出 Dense Policy，一种基于双向自回归扩展的机器人操作策略，通过对数时间的粗到细层次化动作生成，在仿真和真实世界任务中超越 Diffusion Policy 和 ACT 等主流生成式策略。"
 tags:
   - ICCV 2025
-  - 自回归策略
-  - 双向扩展
-  - 粗到细生成
 ---
 
 # Dense Policy: Bidirectional Autoregressive Learning of Actions

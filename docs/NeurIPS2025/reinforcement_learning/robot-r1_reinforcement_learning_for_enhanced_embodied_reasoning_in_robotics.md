@@ -2,9 +2,6 @@
 description: "【论文笔记】Robot-R1: Reinforcement Learning for Enhanced Embodied Reasoning in Robotics 论文解读 | NeurIPS 2025 | arXiv 2506.00070 | 具身推理 | Robot-R1 提出利用强化学习（GRPO）训练大视觉语言模型（LVLM）进行具身推理，通过将下一关键状态预测转化为多选题并用 RL 优化推理路径，仅凭 7B 参数在低级控制推理任务上超越 GPT-4o。"
 tags:
   - NeurIPS 2025
-  - 具身推理
-  - 强化学习
-  - 机器人控制
 ---
 
 # Robot-R1: Reinforcement Learning for Enhanced Embodied Reasoning in Robotics

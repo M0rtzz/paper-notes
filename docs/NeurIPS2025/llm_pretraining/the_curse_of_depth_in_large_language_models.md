@@ -2,9 +2,7 @@
 description: "【论文笔记】The Curse of Depth in Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2502.05795 | Pre-Layer Normalization | 揭示 Pre-LN Transformer 中输出方差指数增长导致深层退化为恒等映射的根本原因，提出无参数的 LayerNorm Scaling（LNS）策略——仅在 LayerNorm 后乘以 $1/\sqrt{\ell}$，将方差从指数增长压缩为多项式增长，在 130M-7B 全规模上稳定改进困惑度 5-8%。"
 tags:
   - NeurIPS 2025
-  - Pre-Layer Normalization
-  - 深度诅咒
-  - 方差控制
+  - Transformer
 ---
 
 # The Curse of Depth in Large Language Models

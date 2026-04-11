@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning Circuits in Language Models: A Mechanistic Interpretation of Syllogistic Inference 论文解读 | ACL 2025 | arXiv 2408.08590 | 机械可解释性 | 用机械可解释性技术（激活补丁 + Logit Lens + 电路消融）发现语言模型中实现三段论推理的完整电路：三阶段机制——长归纳偏差→中间项抑制（h11.10）→传递项移动，该电路在符号输入上既充分又必要，可迁移到自然语言输入，且跨 GPT-2/Pythia/LLaMA/Qwen 四种架构存在兼容模式。"
 tags:
   - ACL 2025
-  - 机械可解释性
-  - 三段论推理
-  - 注意力电路
 ---
 
 # Reasoning Circuits in Language Models: A Mechanistic Interpretation of Syllogistic Inference

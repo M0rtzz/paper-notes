@@ -2,9 +2,6 @@
 description: "【论文笔记】SITE: towards Spatial Intelligence Thorough Evaluation 论文解读 | ICCV2025 | arXiv 2505.05456 | 空间智能 | 本文提出 SITE，一个基于认知科学三重分类体系的空间智能综合基准，涵盖 8,068 个多选 VQA 任务（覆盖 31 个数据集、图像+视频），评估结果显示当前最强 VLM（GPT-4o）在整体空间推理上仍落后人类专家约 32%，且 VLM 的空间智能与机器人操控任务的成功率呈高度正相关（Pearson $r=0.902$）。"
 tags:
   - ICCV2025
-  - 空间智能
-  - VLM基准测试
-  - 多视角推理
 ---
 
 # SITE: towards Spatial Intelligence Thorough Evaluation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Inference of Vision Instruction-Following Models with Elastic Cache 论文解读 | ECCV 2024 | arXiv 2407.18121 | KV Cache 管理 | Elastic Cache 提出一种针对多模态指令遵循模型的 KV Cache 管理方法，在指令编码阶段采用基于重要性的 cache 合并策略（而非丢弃），在输出生成阶段采用固定点淘汰策略，以\"一个序列、两种策略\"实现任意加速比的高效推理，在 KV Cache 预算仅 0.2 时实现 78% 的实际速度提升且保持生成质量。"
 tags:
   - ECCV 2024
-  - KV Cache 管理
-  - 多模态大模型
-  - 推理加速
 ---
 
 # Efficient Inference of Vision Instruction-Following Models with Elastic Cache

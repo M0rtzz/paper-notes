@@ -2,9 +2,6 @@
 description: "【论文笔记】QVGen: Pushing the Limit of Quantized Video Generative Models 论文解读 | ICLR 2026 | arXiv 2505.11497 | 视频扩散模型 | 提出 QVGen，一种面向视频扩散模型的量化感知训练（QAT）框架，通过引入辅助模块降低梯度范数以改善收敛性，并设计秩衰减策略在训练中逐步消除辅助模块的推理开销，首次在 4-bit 量化下实现接近全精度的视频生成质量。"
 tags:
   - ICLR 2026
-  - 视频扩散模型
-  - 量化感知训练
-  - 低比特量化
 ---
 
 # QVGen: Pushing the Limit of Quantized Video Generative Models

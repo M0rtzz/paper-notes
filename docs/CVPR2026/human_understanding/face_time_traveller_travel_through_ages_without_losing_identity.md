@@ -2,9 +2,6 @@
 description: "【论文笔记】Face Time Traveller: Travel Through Ages Without Losing Identity 论文解读 | CVPR2026 | arXiv 2602.22819 | 人脸老化 | 提出 FaceTT 框架，通过面部属性感知提示词精炼、角度反演和自适应注意力控制三大模块，实现高保真、身份一致的人脸年龄变换，在多个基准上超越现有方法。"
 tags:
   - CVPR2026
-  - 人脸老化
-  - 扩散模型
-  - 身份保持
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

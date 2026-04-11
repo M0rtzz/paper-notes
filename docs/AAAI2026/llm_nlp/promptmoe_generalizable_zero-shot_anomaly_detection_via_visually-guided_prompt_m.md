@@ -2,9 +2,6 @@
 description: "【论文笔记】PromptMoE: Generalizable Zero-Shot Anomaly Detection via Visually-Guided Prompt Mixing of Experts 论文解读 | AAAI 2026 | arXiv 2511.18116 | 零样本异常检测 | PromptMoE 将提示学习从单体式（monolithic）范式转变为组合式（compositional）范式，通过视觉引导的混合专家（MoE）机制从可学习的语义原语库中动态组合实例自适应的正常/异常状态提示，在 15 个工业和医学数据集上实现 ZSAD SOTA。"
 tags:
   - AAAI 2026
-  - 零样本异常检测
-  - CLIP
-  - 混合专家
 ---
 
 # PromptMoE: Generalizable Zero-Shot Anomaly Detection via Visually-Guided Prompt Mixing of Experts

@@ -2,9 +2,6 @@
 description: "【论文笔记】OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images 论文解读 | ICCV 2025 | arXiv 2503.06146 | 开放提示检测 | 提出OpenRSD通用遥感开放提示目标检测框架，支持文本和图像多模态提示，集成对齐头和融合头平衡速度与精度，配合三阶段训练流水线和47万张图像的ORSD+数据集，在7个公开数据集上取得最优平均性能，同时保持20.8 FPS实时推理。"
 tags:
   - ICCV 2025
-  - 开放提示检测
-  - 遥感目标检测
-  - 旋转框检测
 ---
 
 # OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images

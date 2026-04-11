@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Self-Supervised Foundation Models for Critical Care Time Series 论文解读 | NeurIPS 2025 | arXiv 2509.19885 | 自监督学习 | 基于双轴Transformer（BAT）架构，在多个ICU数据集上进行自监督预训练，构建重症监护时间序列基础模型，在小数据集场景下显著优于监督学习基线。"
 tags:
   - NeurIPS 2025
-  - 自监督学习
-  - 基础模型
-  - 重症监护
 ---
 
 # Towards Self-Supervised Foundation Models for Critical Care Time Series

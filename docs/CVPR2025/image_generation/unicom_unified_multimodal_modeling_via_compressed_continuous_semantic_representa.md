@@ -2,10 +2,8 @@
 description: "【论文笔记】UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations 论文解读 | CVPR2025 | arXiv 2603.10702 | 多模态 unified multimodal model | 提出 UniCom，通过对 VLM 连续语义特征进行**通道维度压缩**（而非空间下采样），构建紧凑连续表示空间，用 Transfusion 架构统一多模态理解与生成，在统一模型中达到 SOTA 生成质量。"
 tags:
   - CVPR2025
-  - unified multimodal model
   - 多模态
-  - continuous representation
-  - semantic compression
+  - 图像生成
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

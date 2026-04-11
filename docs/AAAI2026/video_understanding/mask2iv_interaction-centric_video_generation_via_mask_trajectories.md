@@ -2,9 +2,6 @@
 description: "【论文笔记】Mask2IV: Interaction-Centric Video Generation via Mask Trajectories 论文解读 | AAAI 2026 | arXiv 2510.03135 | 交互视频生成 | 提出 Mask2IV，一个两阶段解耦框架——先预测交互者和物体的 mask 运动轨迹，再基于轨迹生成视频——实现了无需密集 mask 标注的、以交互为中心的可控视频生成，支持人-物交互和机器人操作两个场景。"
 tags:
   - AAAI 2026
-  - 交互视频生成
-  - mask轨迹
-  - 人物交互
 ---
 
 # Mask2IV: Interaction-Centric Video Generation via Mask Trajectories

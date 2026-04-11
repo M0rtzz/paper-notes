@@ -2,9 +2,6 @@
 description: "【论文笔记】All in One: Unifying Deepfake Detection, Tampering Localization, and Source Tracing with a Robust Landmark-Identity Watermark 论文解读 | CVPR2026 | arXiv 2602.23523 | deepfake detection | 提出 LIDMark，首个将 deepfake 检测、篡改区域定位和源追踪统一到单一主动取证框架中的方法——通过嵌入 152 维 Landmark-Identity 水印（136D 面部关键点 + 16D 源 ID），利用内在/外在一致性实现三合一取证，PSNR/SSIM 和检测精度均超越现有方法。"
 tags:
   - CVPR2026
-  - deepfake detection
-  - watermarking
-  - tampering localization
 ---
 
 # All in One: Unifying Deepfake Detection, Tampering Localization, and Source Tracing with a Robust Landmark-Identity Watermark

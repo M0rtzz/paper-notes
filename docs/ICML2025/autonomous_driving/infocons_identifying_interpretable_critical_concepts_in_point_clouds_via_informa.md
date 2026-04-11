@@ -2,9 +2,6 @@
 description: "【论文笔记】InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory 论文解读 | ICML2025 | arXiv 2505.19820 | 点云解释 | 提出InfoCons框架，用信息论原理将点云分解为3D概念，通过可学习先验检验每个概念对模型预测的因果效应，生成既忠实（保留因果影响点）又概念连贯（语义有意义）的解释。"
 tags:
   - ICML2025
-  - 点云解释
-  - 信息瓶颈
-  - 3D概念
 ---
 
 # InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory

@@ -2,9 +2,6 @@
 description: "【论文笔记】Encoding and Understanding Astrophysical Information in Large Language Model-Generated Summaries 论文解读 | NeurIPS 2025 | arXiv 2511.14685 | LLM嵌入 | 探究LLM嵌入是否能编码从X射线天文观测导出的物理量（硬度比、幂律指数、变异性），发现结构化prompt设计可将物理属性聚类纯度提升5.9%-57.5%，稀疏自编码器揭示LLM通过识别天体类型来推断未显式给出的物理参数。"
 tags:
   - NeurIPS 2025
-  - LLM嵌入
-  - 天体物理
-  - 稀疏自编码器
 ---
 
 # Encoding and Understanding Astrophysical Information in Large Language Model-Generated Summaries

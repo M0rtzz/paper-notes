@@ -2,9 +2,6 @@
 description: "【论文笔记】Context-Aware Sentiment Forecasting via LLM-based Multi-Perspective Role-Playing Agents 论文解读 | ACL 2025 | arXiv 2505.24331 | 情感预测 | 提出一个基于 LLM 的多视角角色扮演框架（MPR），通过主观 Agent 模拟用户发帖、客观 Agent（微调的\"心理学家\"LLM）审查行为一致性，以迭代纠正的方式预测社交媒体用户对实时事件的未来情感反应，在宏观和微观层面均大幅超越传统方法。"
 tags:
   - ACL 2025
-  - 情感预测
-  - 角色扮演
-  - 多智能体
 ---
 
 # Context-Aware Sentiment Forecasting via LLM-based Multi-Perspective Role-Playing Agents

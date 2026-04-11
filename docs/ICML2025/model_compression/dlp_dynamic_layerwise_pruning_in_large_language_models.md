@@ -2,9 +2,6 @@
 description: "【论文笔记】DLP: Dynamic Layerwise Pruning in Large Language Models 论文解读 | ICML 2025 | arXiv 2505.23807 | LLM剪枝 | 提出动态层级剪枝方法 DLP，利用权重与激活值的中位数自适应计算每层的相对重要性，按\"越重要稀疏率越低\"的原则进行非均匀剪枝，在 70% 高稀疏率下将 LLaMA2-7B 的困惑度降低 7.79、平均零样本准确率提升 2.7%。"
 tags:
   - ICML 2025
-  - LLM剪枝
-  - 非均匀层级稀疏
-  - 中位数
 ---
 
 # DLP: Dynamic Layerwise Pruning in Large Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Entailment-Preserving First-order Logic Representations in Natural Language Entailment 论文解读 | ACL 2025 | arXiv 2502.16757 | 一阶逻辑 | 形式化定义了蕴含保持一阶逻辑表示（EPF）任务及无参考评价指标（EPR系列），提出迭代learning-to-rank训练方法，通过BRIO损失优化T5模型的NL→FOL翻译，使其生成的FOL表示能被自动定理证明器验证蕴含关系，在三个数据集上EPR提升1.8-2.7%、EPR@16提升17.4-20.6%。"
 tags:
   - ACL 2025
-  - 一阶逻辑
-  - 自然语言蕴含
-  - 语义解析
 ---
 
 # Entailment-Preserving First-order Logic Representations in Natural Language Entailment

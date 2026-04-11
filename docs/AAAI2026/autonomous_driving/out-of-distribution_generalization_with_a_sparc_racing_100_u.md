@@ -2,9 +2,6 @@
 description: "【论文笔记】SPARC: 用单一策略驾驶100辆未见车辆的OOD泛化 论文解读 | AAAI 2026 | arXiv 2511.09737 | OOD泛化 | 提出 SPARC（Single-Phase Adaptation for Robust Control），将 RMA 的两阶段上下文编码与历史适应统一为单阶段训练，在 Gran Turismo 7 高保真赛车模拟器中用单一策略驾驶100+未见车辆实现SOTA OOD泛化性能。"
 tags:
   - AAAI 2026
-  - OOD泛化
-  - 上下文强化学习
-  - 单阶段适应
 ---
 
 # SPARC: 用单一策略驾驶100辆未见车辆的OOD泛化

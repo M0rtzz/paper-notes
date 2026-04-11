@@ -2,9 +2,6 @@
 description: "【论文笔记】RetimeGS: Continuous-Time Reconstruction of 4D Gaussian Splatting 论文解读 | CVPR2026 | arXiv 2603.13783 | 4D Gaussian Splatting | 提出 RetimeGS，通过正则化时间不透明度 + Catmull-Rom 样条轨迹 + 双向光流监督 + 三重渲染等策略，解决 4DGS 在离散帧间插值时的鬼影/时间别名问题，实现任意时间戳的无鬼影连续时间 4D 重建。"
 tags:
   - CVPR2026
-  - 4D Gaussian Splatting
-  - 动态场景重建
-  - 时间插值
 ---
 
 # RetimeGS: Continuous-Time Reconstruction of 4D Gaussian Splatting

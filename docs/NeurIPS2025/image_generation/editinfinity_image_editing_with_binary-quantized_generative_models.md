@@ -2,9 +2,6 @@
 description: "【论文笔记】EditInfinity: Image Editing with Binary-Quantized Generative Models 论文解读 | NeurIPS 2025 | arXiv 2510.20217 | 二值量化生成模型 | 提出 EditInfinity，首次将经典\"图像反演-图像编辑\"范式应用于二值量化自回归生成模型 Infinity，利用量化表示可获取精确中间监督的优势实现高精度图像反演，配合分段线性平滑核实现高保真编辑效果，在 PIE-Bench 上全面超越扩散模型基线。"
 tags:
   - NeurIPS 2025
-  - 二值量化生成模型
-  - Infinity
-  - 图像反演
 ---
 
 # EditInfinity: Image Editing with Binary-Quantized Generative Models

@@ -2,10 +2,7 @@
 description: "【论文笔记】AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing 论文解读 | NeurIPS 2025 | arXiv 2510.21935 | 对比学习 contrastive learning | 提出 AutoSciDACT 管线：先用有监督对比学习将高维科学数据压缩到 4 维嵌入空间，再用 NPLM（New Physics Learning Machine）似然比检验对嵌入空间中的分布偏差进行统计量化，在天文、粒子物理、病理、图像和合成数据集上以 ≤1% 的信号注入比例实现 ≥3σ 发现。"
 tags:
   - NeurIPS 2025
-  - contrastive learning
   - 对比学习
-  - anomaly detection
-  - hypothesis testing
 ---
 
 # AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing

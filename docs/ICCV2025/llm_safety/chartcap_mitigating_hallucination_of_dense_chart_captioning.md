@@ -2,9 +2,6 @@
 description: "【论文笔记】ChartCap: Mitigating Hallucination of Dense Chart Captioning 论文解读 | ICCV 2025 | arXiv 2508.03164 | 图表理解 | 构建了包含56.5万张真实图表-描述对的大规模数据集ChartCap，通过类型特定的描述模式排除无关信息、强调结构与关键洞察，并提出无参考的Visual Consistency Score评估指标，有效减少VLM在图表描述中的幻觉问题。"
 tags:
   - ICCV 2025
-  - 图表理解
-  - 视觉语言模型
-  - 幻觉缓解
 ---
 
 # ChartCap: Mitigating Hallucination of Dense Chart Captioning

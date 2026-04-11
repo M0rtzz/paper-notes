@@ -2,9 +2,6 @@
 description: "【论文笔记】OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction 论文解读 | NeurIPS 2025 | arXiv 2505.19719 | 链接预测 | 揭示高阶公共邻居（CN）在链接预测中的冗余和过平滑问题，提出正交化（Gram-Schmidt 去除阶间线性相关）+ 归一化（除以路径数，广义资源分配启发式）解决方案，在 7 个数据集上平均提升 HR@100 7.7%，DDI 数据集上提升 13.3%。"
 tags:
   - NeurIPS 2025
-  - 链接预测
-  - 高阶公共邻居
-  - 正交化
 ---
 
 # OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction

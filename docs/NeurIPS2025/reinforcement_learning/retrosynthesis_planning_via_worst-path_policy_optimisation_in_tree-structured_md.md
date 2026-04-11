@@ -2,9 +2,6 @@
 description: "【论文笔记】Retrosynthesis Planning via Worst-path Policy Optimisation in Tree-structured MDPs 论文解读 | NeurIPS 2025 | arXiv 2509.10504 | retrosynthesis | 将逆合成规划重新建模为树结构MDP中的最差路径优化问题，用自模仿学习确保所有合成路线都能终止于可购买的起始材料。"
 tags:
   - NeurIPS 2025
-  - retrosynthesis
-  - tree MDP
-  - worst-path optimization
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

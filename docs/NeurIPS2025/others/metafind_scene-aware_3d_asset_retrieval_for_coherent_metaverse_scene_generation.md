@@ -2,9 +2,6 @@
 description: "【论文笔记】MetaFind: Scene-Aware 3D Asset Retrieval for Coherent Metaverse Scene Generation 论文解读 | NeurIPS 2025 | arXiv 2510.04057 | 3D 资产检索 | MetaFind 是一个场景感知的三模态（文本+图像+点云）3D 资产检索框架，通过引入 SE(3) 等变的空间-语义图神经网络 (ESSGNN) 编码场景布局信息，实现了在元宇宙场景生成中风格一致、空间合理的迭代式资产检索。"
 tags:
   - NeurIPS 2025
-  - 3D 资产检索
-  - 场景感知
-  - 图神经网络
 ---
 
 # MetaFind: Scene-Aware 3D Asset Retrieval for Coherent Metaverse Scene Generation

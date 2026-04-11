@@ -2,9 +2,6 @@
 description: "【论文笔记】Empirical Stability Analysis of Kolmogorov-Arnold Networks in Hard-Constrained Recurrent Physics-Informed Discovery 论文解读 | ICLR2026 | arXiv 2602.09988 | KAN | 系统实证分析将 KAN（Kolmogorov-Arnold Networks）集成到硬约束递归物理信息架构（HRPINN）中的表现——发现小型 KAN 在单变量多项式残差（Duffing）上具有竞争力，但在乘法项（Van der Pol）上严重失败且超参数极度脆弱，标准 MLP 稳定性远优。"
 tags:
   - ICLR2026
-  - KAN
-  - physics-informed
-  - oscillator
 ---
 
 # Empirical Stability Analysis of Kolmogorov-Arnold Networks in Hard-Constrained Recurrent Physics-Informed Discovery

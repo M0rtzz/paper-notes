@@ -2,9 +2,7 @@
 description: "【论文笔记】Accelerating Parallel Diffusion Model Serving with Residual Compression 论文解读 | NeurIPS 2025 | arXiv 2507.17511 | parallel inference | 提出 CompactFusion 框架，通过残差压缩（仅传输相邻去噪步骤间的激活差异而非完整激活）来消除并行扩散推理中的通信冗余，在 4×L20 上实现 3.0× 加速且生成质量远优于 DistriFusion，在模拟以太网带宽下实现 6.7× 加速，甚至在 100× 压缩下仍优于 DistriFusion。"
 tags:
   - NeurIPS 2025
-  - parallel inference
-  - communication compression
-  - residual compression
+  - 扩散模型
 ---
 
 # Accelerating Parallel Diffusion Model Serving with Residual Compression

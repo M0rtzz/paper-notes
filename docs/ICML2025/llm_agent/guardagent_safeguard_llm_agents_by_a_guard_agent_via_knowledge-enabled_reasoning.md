@@ -2,9 +2,6 @@
 description: "【论文笔记】GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning 论文解读 | ICML2025 | arXiv 2406.09187 | Agent 安全 | GuardAgent 是首个\"用 Agent 守护 Agent\"的框架，通过将安全规则动态转化为可执行的护栏代码来检查目标 Agent 的动作是否违规，在医疗访问控制和 Web 安全控制两个新基准上分别达到 98%+ 和 83%+ 的护栏准确率。"
 tags:
   - ICML2025
-  - Agent 安全
-  - 护栏代理
-  - 代码生成执行
 ---
 
 # GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning

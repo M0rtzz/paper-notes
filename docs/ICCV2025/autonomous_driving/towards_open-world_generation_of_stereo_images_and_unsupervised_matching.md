@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Open-World Generation of Stereo Images and Unsupervised Matching 论文解读 | ICCV 2025 | arXiv 2503.12720 | 立体图像生成 | 提出 GenStereo，一种基于扩散模型的立体图像生成框架，通过视差感知坐标嵌入、跨视图注意力和自适应融合机制，同时实现高视觉质量和高几何精度的立体图像生成，并推动无监督立体匹配达到新 SOTA。"
 tags:
   - ICCV 2025
-  - 立体图像生成
-  - 扩散模型
-  - 无监督立体匹配
 ---
 
 # Towards Open-World Generation of Stereo Images and Unsupervised Matching

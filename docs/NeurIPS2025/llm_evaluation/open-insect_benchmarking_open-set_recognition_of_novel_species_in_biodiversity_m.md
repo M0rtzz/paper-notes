@@ -2,9 +2,6 @@
 description: "【论文笔记】Open-Insect: Benchmarking Open-Set Recognition of Novel Species in Biodiversity Monitoring 论文解读 | NeurIPS 2025 | arXiv 2503.01691 | 开放集识别 | 提出Open-Insect——首个面向昆虫物种发现的大规模细粒度开放集识别基准数据集，涵盖三个地理区域和三类开放集划分，系统评测38种OSR算法，发现简单的后验方法（如MSP）在细粒度场景中仍是强基线，同时验证了领域相关辅助数据对提升OSR性能的关键作用。"
 tags:
   - NeurIPS 2025
-  - 开放集识别
-  - 细粒度分类
-  - 昆虫物种发现
 ---
 
 # Open-Insect: Benchmarking Open-Set Recognition of Novel Species in Biodiversity Monitoring

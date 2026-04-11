@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Multi-Objective Controlled Decoding of Large Language Models 论文解读 | ICLR 2026 | arXiv 2503.08796 | 多目标对齐 | 提出RMOD（Robust Multi-Objective Decoding），一种推理时算法，通过求解最小最大博弈的Nash均衡来动态计算最坏情况目标权重，在无需先验权重信息的情况下实现LLM的鲁棒多目标对齐。"
 tags:
   - ICLR 2026
-  - 多目标对齐
-  - 推理时对齐
-  - 控制解码
 ---
 
 # Robust Multi-Objective Controlled Decoding of Large Language Models

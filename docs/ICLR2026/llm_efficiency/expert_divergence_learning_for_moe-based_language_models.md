@@ -2,9 +2,6 @@
 description: "【论文笔记】Expert Divergence Learning for MoE-based Language Models 论文解读 | ICLR 2026 | arXiv 2603.00054 | 混合专家 | 解决 MoE 训练中的专家同质化问题，通过最大化不同数据域之间路由分布的 Jensen-Shannon 散度，鼓励不同域激活不同专家子集，在 15B-A1.5B 模型上提升专家特化程度和语言建模性能。"
 tags:
   - ICLR 2026
-  - 混合专家
-  - 专家同质化
-  - 路由多样性
 ---
 
 # Expert Divergence Learning for MoE-based Language Models

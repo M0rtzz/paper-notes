@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Binary Encoded Crime Linkage Analysis Using Siamese Network 论文解读 | AAAI 2026 | arXiv 2511.07651 | 犯罪关联分析 | 提出基于 **Siamese Autoencoder** 的犯罪关联分析框架，通过 **decoder 阶段融合地理时间特征** 和 **领域专家驱动的数据降维策略**，在英国 NCA 的真实 ViCLAS 数据库上实现了 AUC 提升最高 9%，为高维稀疏二进制编码犯罪数据提供了有效的机器学习解决方案。"
 tags:
   - AAAI 2026
-  - 犯罪关联分析
-  - 孪生网络
-  - 自编码器
 ---
 
 # Enhancing Binary Encoded Crime Linkage Analysis Using Siamese Network

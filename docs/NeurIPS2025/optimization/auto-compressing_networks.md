@@ -2,9 +2,6 @@
 description: "【论文笔记】Auto-Compressing Networks 论文解读 | NeurIPS 2025 | arXiv 2506.09714 | 自动压缩 | Auto-Compressing Networks（ACN）用长程前向连接（所有层输出直接汇聚到最终输出）替代短残差连接，使得梯度的 Direct Gradient 成分远强于 Forward Gradient，隐式地将信息压缩到早期层——ViT 仅需 6 层达到标准 12 层性能，BERT 节省 75% 层数，还额外获得噪声鲁棒性（+6.4%）和持续学习抗遗忘（-18%）。"
 tags:
   - NeurIPS 2025
-  - 自动压缩
-  - 残差连接
-  - 层冗余
 ---
 
 # Auto-Compressing Networks

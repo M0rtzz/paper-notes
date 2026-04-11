@@ -2,9 +2,6 @@
 description: "【论文笔记】ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS 论文解读 | NeurIPS 2025 | arXiv 2505.23734 | 3D Gaussian Splatting | 从信息瓶颈（Information Bottleneck）原理出发分析前馈式3DGS的容量瓶颈，提出轻量级、与架构无关的ZPressor模块，通过将多视角输入压缩为紧凑的锚点视角表示，使现有模型能扩展到100+输入视角（480P，80GB GPU），在DL3DV-10K和RealEstate10K上持续提升性能。"
 tags:
   - NeurIPS 2025
-  - 3D Gaussian Splatting
-  - 前馈式3DGS
-  - 信息瓶颈
 ---
 
 # ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS

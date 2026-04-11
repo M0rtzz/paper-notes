@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic and Generalizable Process Reward Modeling 论文解读 | ACL 2025 | arXiv 2507.17849 | 过程奖励模型 | DG-PRM 提出了一种动态可泛化的过程奖励建模框架，通过奖励树存储多维度评估标准并动态选择步骤相关的奖励信号，用 Pareto 支配估计处理多面奖励，在 PRMBench 上达到 SOTA 且具有优异的跨领域泛化能力。"
 tags:
   - ACL 2025
-  - 过程奖励模型
-  - 动态评估标准
-  - 奖励树
 ---
 
 # Dynamic and Generalizable Process Reward Modeling

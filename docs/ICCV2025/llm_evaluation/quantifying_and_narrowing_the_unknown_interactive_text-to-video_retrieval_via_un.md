@@ -2,9 +2,6 @@
 description: "【论文笔记】Quantifying and Narrowing the Unknown: Interactive Text-to-Video Retrieval via Uncertainty Minimization 论文解读 | ICCV 2025 | arXiv 2507.15504 | 文本视频检索 | 提出UMIVR框架，通过显式量化文本歧义、映射不确定性和帧质量三种不确定性，自适应生成澄清问题来迭代精化用户查询，在MSR-VTT-1k等多个基准上实现交互式文本视频检索的显著提升。"
 tags:
   - ICCV 2025
-  - 文本视频检索
-  - 不确定性量化
-  - 交互式检索
 ---
 
 # Quantifying and Narrowing the Unknown: Interactive Text-to-Video Retrieval via Uncertainty Minimization

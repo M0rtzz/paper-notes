@@ -2,9 +2,6 @@
 description: "【论文笔记】Assessing Agentic LLMs in Multilingual National Bias 论文解读 | ACL 2025 | arXiv 2502.17945 | 国籍偏见 | 首次研究 LLM 作为推理型 Agent 在多语言场景下的国籍偏见——在大学申请/旅行/搬迁三个决策场景中，让 GPT-3.5/GPT-4/Sonnet 对同一实体（大学/城市）用不同语言打分，发现普遍存在\"本地语言偏向\"（用中文问清华得 10 分，用英文问只得 7 分），GPT-4 在英语上偏见减少但非英语上偏见显著，CoT 不一定缓解反而可能放大偏差。"
 tags:
   - ACL 2025
-  - 国籍偏见
-  - 多语言
-  - 推理Agent
 ---
 
 # Assessing Agentic LLMs in Multilingual National Bias

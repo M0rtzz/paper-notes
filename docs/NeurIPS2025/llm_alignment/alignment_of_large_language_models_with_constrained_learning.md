@@ -2,9 +2,6 @@
 description: "【论文笔记】Alignment of Large Language Models with Constrained Learning 论文解读 | NeurIPS 2025 | arXiv 2505.19387 | 约束对齐 | 将LLM对齐形式化为约束优化问题（最大化主要奖励同时满足次要效用约束如安全性），提出基于拉格朗日对偶的迭代方法交替更新LLM策略和对偶变量，理论上刻画了分布空间与LLM参数空间之间的原对偶间隙和最优性间隙，证明方法可以找到近最优约束LLM策略。"
 tags:
   - NeurIPS 2025
-  - 约束对齐
-  - 拉格朗日对偶
-  - LLM策略搜索
 ---
 
 # Alignment of Large Language Models with Constrained Learning

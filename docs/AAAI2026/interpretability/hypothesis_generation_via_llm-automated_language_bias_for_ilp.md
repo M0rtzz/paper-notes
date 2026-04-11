@@ -2,9 +2,6 @@
 description: "【论文笔记】Hypothesis Generation via LLM-Automated Language Bias for ILP 论文解读 | AAAI 2026 | arXiv 2505.21486 | 归纳逻辑编程 | 提出首个端到端框架：多Agent LLM系统（Actor/Critic）自动从原始文本构建ILP语言偏差（谓词系统+类型声明+模式约束），Translator将文本翻译为Prolog事实，再由MAXSYNTH求解器基于MDL原则归纳全局最优规则集。在SHOES和ZENDO任务上分别达88.3%和81.3%准确率，跨4种LLM方差<5%。"
 tags:
   - AAAI 2026
-  - 归纳逻辑编程
-  - 语言偏差
-  - 多Agent
 ---
 
 # Hypothesis Generation via LLM-Automated Language Bias for ILP

@@ -2,9 +2,6 @@
 description: "【论文笔记】Difference Vector Equalization for Robust Fine-tuning of Vision-Language Models 论文解读 | AAAI 2026 | arXiv 2511.09973 | CLIP微调 | 提出DiVE方法，通过约束预训练和微调模型嵌入之间的\"差异向量\"在各样本间保持相等，从而在CLIP微调过程中保持嵌入空间的几何结构，同时在ID、OOD、零样本三个指标上取得全面优于现有方法的结果（零样本平均提升8+点）。"
 tags:
   - AAAI 2026
-  - CLIP微调
-  - 鲁棒微调
-  - 嵌入几何结构保持
 ---
 
 # Difference Vector Equalization for Robust Fine-tuning of Vision-Language Models

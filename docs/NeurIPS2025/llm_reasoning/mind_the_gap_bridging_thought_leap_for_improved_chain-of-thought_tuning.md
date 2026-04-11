@@ -2,9 +2,6 @@
 description: "【论文笔记】Mind the Gap: Bridging Thought Leap for Improved Chain-of-Thought Tuning 论文解读 | NeurIPS 2025 | arXiv 2505.14684 | Chain-of-Thought | 本文首次系统性地定义了 CoT 推理链中的\"思维跳跃\"(Thought Leap)现象，提出 CoT-Bridge 模型自动检测并补全推理链中被省略的中间步骤，在 NuminaMath 上最高提升 +5.87%，并可作为即插即用模块增强蒸馏和 RL 流程。"
 tags:
   - NeurIPS 2025
-  - Chain-of-Thought
-  - Thought Leap
-  - 推理完整性
 ---
 
 # Mind the Gap: Bridging Thought Leap for Improved Chain-of-Thought Tuning

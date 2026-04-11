@@ -2,9 +2,6 @@
 description: "【论文笔记】HAWAII: Hierarchical Visual Knowledge Transfer for Efficient VLM 论文解读 | NeurIPS 2025 | arXiv 2506.19072 | 知识蒸馏 | 提出 Hawaii 框架，通过混合 LoRA 适配器（MoLA）和分层知识蒸馏（HKD），将多个视觉专家的知识蒸馏到单个视觉编码器中，在不增加推理成本的前提下显著提升 VLM 的视觉理解能力。"
 tags:
   - NeurIPS 2025
-  - 知识蒸馏
-  - 视觉编码器
-  - LoRA
 ---
 
 # HAWAII: Hierarchical Visual Knowledge Transfer for Efficient VLM

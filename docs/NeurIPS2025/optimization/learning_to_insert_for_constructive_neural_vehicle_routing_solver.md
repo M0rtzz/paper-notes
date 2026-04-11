@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Insert for Constructive Neural Vehicle Routing Solver 论文解读 | NeurIPS 2025 | arXiv 2505.13904 | 车辆路径问题 | 提出 L2C-Insert，首个基于学习的插入式构造范式用于神经组合优化，通过允许在部分解的任意合法位置插入节点（而非仅追加到末尾），显著提升 TSP/CVRP 的构造质量和灵活性。"
 tags:
   - NeurIPS 2025
-  - 车辆路径问题
-  - 神经组合优化
-  - 插入式构造
 ---
 
 # Learning to Insert for Constructive Neural Vehicle Routing Solver

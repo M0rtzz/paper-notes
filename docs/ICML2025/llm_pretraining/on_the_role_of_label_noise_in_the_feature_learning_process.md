@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Role of Label Noise in the Feature Learning Process 论文解读 | ICML 2025 | arXiv 2505.18909 | label noise | 从理论和实证角度分析标签噪声在神经网络特征学习中的作用，发现适量的标签噪声可以促进更鲁棒的特征学习（类似正则化效果），但过多噪声会破坏特征质量。"
 tags:
   - ICML 2025
-  - label noise
-  - feature learning
-  - neural networks
 ---
 
 # On the Role of Label Noise in the Feature Learning Process

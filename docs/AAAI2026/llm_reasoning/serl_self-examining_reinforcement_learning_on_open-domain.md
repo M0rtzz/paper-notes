@@ -2,9 +2,6 @@
 description: "【论文笔记】SERL: Self-Examining Reinforcement Learning on Open-Domain 论文解读 | AAAI 2026 | arXiv 2511.07922 | 自我改进 | 提出SERL自我改进框架，LLM同时作为Actor（生成者）和Judge（评估者），用Copeland成对比较方法从自身判断中推导奖励信号，无需外部奖励模型或人工标注，使Qwen3-8B在AlpacaEval 2.0上从52.37%提升到59.90%（+7.53%），接近Qwen3-32B水平。"
 tags:
   - AAAI 2026
-  - 自我改进
-  - 强化学习
-  - 成对比较
 ---
 
 # SERL: Self-Examining Reinforcement Learning on Open-Domain

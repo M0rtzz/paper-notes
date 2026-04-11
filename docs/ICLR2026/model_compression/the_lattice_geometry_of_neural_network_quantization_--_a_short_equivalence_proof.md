@@ -2,9 +2,6 @@
 description: "【论文笔记】The Lattice Geometry of Neural Network Quantization -- A Short Equivalence Proof of GPTQ and Babai's Algorithm 论文解读 | ICLR 2026 | arXiv 2508.01077 | GPTQ | 独立于 Chen et al. (2026)，以更简洁优雅的方式证明 GPTQ 等价于 Babai 最近平面算法，并阐明格基约减可能改进神经网络量化的前景。"
 tags:
   - ICLR 2026
-  - GPTQ
-  - Babai算法
-  - 格理论
 ---
 
 # The Lattice Geometry of Neural Network Quantization -- A Short Equivalence Proof of GPTQ and Babai's Algorithm

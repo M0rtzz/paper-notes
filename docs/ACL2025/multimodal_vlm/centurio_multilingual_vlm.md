@@ -2,9 +2,7 @@
 description: "【论文笔记】Centurio: On Drivers of Multilingual Ability of Large Vision-Language Model 论文解读 | ACL 2025 (Long Paper) | arXiv 2501.05122 | 多语言VLM | 系统研究多语言LVLM训练策略，发现可以同时支持100种语言、只需25-50%非英文数据即可大幅提升多语言性能且不损英语性能，最终训练的Centurio在14个任务56种语言上达到SOTA。"
 tags:
   - ACL 2025 (Long Paper)
-  - 多语言VLM
-  - 训练数据分布
-  - LVLM
+  - OCR
 ---
 
 # Centurio: On Drivers of Multilingual Ability of Large Vision-Language Model

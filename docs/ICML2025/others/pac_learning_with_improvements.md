@@ -2,9 +2,6 @@
 description: "【论文笔记】PAC Learning with Improvements 论文解读 | ICML2025 | arXiv 2503.03184 | PAC学习 | 提出\"带改进的PAC学习\"框架：当agent能真正提升自身特征时，学习器可以通过保守分类实现零误差，且可学性与标准PAC模型和策略性分类模型存在本质分离。"
 tags:
   - ICML2025
-  - PAC学习
-  - 策略性改进
-  - 样本复杂度
 ---
 
 # PAC Learning with Improvements

@@ -2,9 +2,6 @@
 description: "【论文笔记】DDIS: When Model Knowledge Meets Diffusion Model — Diffusion-assisted Data-free Image Synthesis 论文解读 | ICML 2025 | arXiv 2506.15381 | 无数据图像合成 | 提出 DDIS，首次将 T2I 扩散模型作为强图像先验用于无数据图像合成，通过域对齐引导（DAG）和类对齐 Token（CAT）使生成图像在域和类两个层面精准对齐预训练模型的训练数据分布，在 PACS 和 ImageNet 的无数据 KD/剪枝中达到 SOTA。"
 tags:
   - ICML 2025
-  - 无数据图像合成
-  - 扩散模型
-  - 域对齐
 ---
 
 # DDIS: When Model Knowledge Meets Diffusion Model — Diffusion-assisted Data-free Image Synthesis

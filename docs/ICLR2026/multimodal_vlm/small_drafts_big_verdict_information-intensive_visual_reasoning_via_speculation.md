@@ -2,9 +2,6 @@
 description: "【论文笔记】Small Drafts, Big Verdict: Information-Intensive Visual Reasoning via Speculation 论文解读 | ICLR 2026 | arXiv 2510.20812 | 信息密集推理 | 提出Speculative Verdict(SV)——受推测解码启发的免训练多模态推理框架：多个轻量VLM作为\"草案专家\"生成多样推理路径(提供不同的定位和证据)，大型VLM作为\"裁决者\"综合这些路径产出最终答案→纠正47-53%单模型或投票失败的案例，在InfographicVQA/ChartQA等信息密集基准上超越GPT-4o达10%。"
 tags:
   - ICLR 2026
-  - 信息密集推理
-  - 推测解码
-  - 草案-裁决
 ---
 
 # Small Drafts, Big Verdict: Information-Intensive Visual Reasoning via Speculation

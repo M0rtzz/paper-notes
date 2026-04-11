@@ -2,9 +2,6 @@
 description: "【论文笔记】A Framework for Double-Blind Federated Adaptation of Foundation Models 论文解读 | ICCV 2025 | arXiv 2502.01289 | 双盲联邦学习 | BlindFed提出了双盲联邦基础模型适配框架：通过FHE友好的架构重设计（多项式近似非线性操作）+ 两阶段分割学习（离线知识蒸馏 + 在线加密推理）+ 隐私增强（样本置换 + 随机块采样），在数据方看不到模型、模型方看不到数据的约束下实现了接近LoRA的适配精度。"
 tags:
   - ICCV 2025
-  - 双盲联邦学习
-  - 全同态加密
-  - 分割学习
 ---
 
 # A Framework for Double-Blind Federated Adaptation of Foundation Models

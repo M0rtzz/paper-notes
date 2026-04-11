@@ -2,9 +2,6 @@
 description: "【论文笔记】Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making 论文解读 | ICML 2025 | arXiv 2410.12539 | 反事实推理 | 提出一种双层因果分解框架，将多智能体序列决策中某动作的总反事实效应（TCFE）系统地分解为\"通过智能体行为传播的效应\"（tot-ASE）和\"通过状态转移传播的效应\"（r-SSE），并分别用 Shapley 值和内在因果贡献（ICC）进一步归因到每个智能体和每个状态变量。"
 tags:
   - ICML 2025
-  - 反事实推理
-  - 因果解释
-  - 多智能体MDP
 ---
 
 # Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making

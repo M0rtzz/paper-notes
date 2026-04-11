@@ -2,9 +2,7 @@
 description: "【论文笔记】PAK-UCB Contextual Bandit: An Online Learning Approach to Prompt-Aware Selection of Generative Models and LLMs 论文解读 | ICML2025 | arXiv 2410.13287 | contextual bandit | 提出 PAK-UCB 上下文老虎机算法，通过为每个生成模型学习独立的核函数，在线预测给定 prompt 下的最优模型，实现 prompt 级别的生成模型/LLM 选择，并用随机傅里叶特征（RFF）降低计算开销。"
 tags:
   - ICML2025
-  - contextual bandit
-  - 生成模型选择
-  - 核方法
+  - 提示学习
 ---
 
 # PAK-UCB Contextual Bandit: An Online Learning Approach to Prompt-Aware Selection of Generative Models and LLMs

@@ -2,9 +2,6 @@
 description: "【论文笔记】Stabilizing Self-Consuming Diffusion Models with Latent Space Filtering 论文解读 | AAAI2026 | arXiv 2511.12742 | 自消费训练 | 提出Latent Space Filtering (LSF)方法，通过分析自消费扩散模型隐空间中潜在表示的低维结构退化现象，利用probing classifier的置信度分数过滤低质量合成数据，在固定训练预算下有效缓解模型坍塌，无需额外真实数据或增大训练集。"
 tags:
   - AAAI2026
-  - 自消费训练
-  - 模型坍塌
-  - 扩散模型
 ---
 
 # Stabilizing Self-Consuming Diffusion Models with Latent Space Filtering

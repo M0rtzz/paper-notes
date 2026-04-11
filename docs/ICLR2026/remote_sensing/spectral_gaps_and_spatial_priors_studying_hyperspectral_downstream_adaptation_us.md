@@ -2,9 +2,6 @@
 description: "【论文笔记】Spectral Gaps and Spatial Priors: Studying Hyperspectral Downstream Adaptation Using TerraMind 论文解读 | ICLR 2026 | arXiv 2603.06690 | 高光谱成像 | 研究未经高光谱预训练的多模态地理空间基础模型 TerraMind 能否通过通道适配策略（朴素波段选择 vs. SRF 分组）有效适配高光谱下游任务，结果表明朴素波段选择一致优于物理感知的 SRF 方法，但性能差距随任务光谱复杂度增大而扩大。"
 tags:
   - ICLR 2026
-  - 高光谱成像
-  - 地理空间基础模型
-  - 通道适配
 ---
 
 # Spectral Gaps and Spatial Priors: Studying Hyperspectral Downstream Adaptation Using TerraMind

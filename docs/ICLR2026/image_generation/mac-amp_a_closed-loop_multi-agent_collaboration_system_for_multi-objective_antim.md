@@ -2,9 +2,6 @@
 description: "【论文笔记】MAC-AMP: A Closed-Loop Multi-Agent Collaboration System for Multi-Objective Antimicrobial Peptide Design 论文解读 | ICLR 2026 | arXiv 2602.14926 | 抗菌肽设计 | 提出 MAC-AMP，首个闭环多智能体协作系统，将抗菌肽（AMP）设计重构为协调多智能体优化问题，通过 AI 模拟同行评审和自适应奖励设计实现多目标优化。"
 tags:
   - ICLR 2026
-  - 抗菌肽设计
-  - 多智能体协作
-  - 闭环强化学习
 ---
 
 # MAC-AMP: A Closed-Loop Multi-Agent Collaboration System for Multi-Objective Antimicrobial Peptide Design

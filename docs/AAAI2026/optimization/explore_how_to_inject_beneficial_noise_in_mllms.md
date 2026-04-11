@@ -2,9 +2,6 @@
 description: "【论文笔记】Explore How to Inject Beneficial Noise in MLLMs 论文解读 | AAAI 2026 | arXiv 2511.12917 | 正激励噪声 | 提出 Multimodal Noise Generator (MuNG)，通过变分推断框架从图文对中动态生成\"有益噪声\"注入冻结的MLLM视觉特征中，以抑制无关语义、增强跨模态表征对齐，仅需约1%额外参数即可超越全参数微调和LoRA等PEFT方法。"
 tags:
   - AAAI 2026
-  - 正激励噪声
-  - 参数高效微调
-  - 多模态大模型
 ---
 
 # Explore How to Inject Beneficial Noise in MLLMs

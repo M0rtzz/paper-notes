@@ -2,9 +2,6 @@
 description: "【论文笔记】VoluMe: Authentic 3D Video Calls from Live Gaussian Splat Prediction 论文解读 | ICCV 2025 | arXiv 2507.21311 | 3D视频通话 | 微软提出首个从单目2D摄像头实时预测3D高斯泼溅重建的方法，实现真实感、保真性、实时性和时序稳定性四项要求的统一，使任何人仅用标准笔记本摄像头即可进行体积3D视频通话。"
 tags:
   - ICCV 2025
-  - 3D视频通话
-  - Gaussian Splatting
-  - 单目重建
 ---
 
 # VoluMe: Authentic 3D Video Calls from Live Gaussian Splat Prediction

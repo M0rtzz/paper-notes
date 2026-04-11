@@ -2,9 +2,6 @@
 description: "【论文笔记】First create a python scrip??# First??等闪# First create a python scrip??# First??等闪#?学（如希伯来语 la\'avod \"工作\"中根辅音被模板字母隔开），马来语和格鲁吉亚语则含有分裂词缀，导致标准线性分词器将词切成形态学上不连贯的 token。 论文解读 | ACL 2025 | arXiv 2503.14433 | tokenization | 提出 Splinter，一种预分词步骤，通过迭代剪除模板字符将非拼接性语言（希伯来语、阿拉伯语、马来语）的词重排为线性形式，使标准 BPE/UnigramLM 能发现形态学上有意义的连续片段，在内在指标和希伯来语下游任务上均优于原始分词。"
 tags:
   - ACL 2025
-  - tokenization
-  - nonconcatenative morphology
-  - Hebrew
 ---
 
 # Splintering Nonconcatenative Languages for Better Tokenization

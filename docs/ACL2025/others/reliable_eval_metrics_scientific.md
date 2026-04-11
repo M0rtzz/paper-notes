@@ -2,9 +2,6 @@
 description: "【论文笔记】Identifying Reliable Evaluation Metrics for Scientific Text Revision 论文解读 | ACL 2025 | arXiv 2506.04772 | 文本修订 | 系统分析了传统相似度指标（ROUGE、BERTScore 等）在科学文本修订评估中的局限性，发现它们强相关于编辑距离且惩罚深度修改，并证明结合 LLM-as-Judge 和任务特定指标的混合方法最能对齐人类评判。"
 tags:
   - ACL 2025
-  - 文本修订
-  - 评估指标
-  - LLM-as-Judge
 ---
 
 # Identifying Reliable Evaluation Metrics for Scientific Text Revision

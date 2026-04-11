@@ -2,9 +2,6 @@
 description: "【论文笔记】Realistic Synthetic Household Data Generation at Scale 论文解读 | AAAI 2026 | arXiv 2602.07243 | 合成数据生成 | 提出一个基于 LLM 的双向耦合生成框架，通过人物画像驱动环境生成、环境语义引导行为生成的迭代循环过程，大规模生成包含家庭环境配置、人类行为和人机交互的合成数据集，用于训练家用机器人。"
 tags:
   - AAAI 2026
-  - 合成数据生成
-  - 家庭环境建模
-  - 双向耦合
 ---
 
 # Realistic Synthetic Household Data Generation at Scale

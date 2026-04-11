@@ -2,9 +2,6 @@
 description: "【论文笔记】Easy to Learn, Yet Hard to Forget: Towards Robust Unlearning Under Bias 论文解读 | AAAI2026 | arXiv 2602.21773 | machine unlearning | 提出 CUPID 框架，通过损失景观的锐度分析将遗忘集划分为因果/偏差子集，并识别和分离模型中的因果/偏差通路，实现对有偏模型的精准类别遗忘，有效解决\"捷径遗忘\"问题。"
 tags:
   - AAAI2026
-  - machine unlearning
-  - shortcut learning
-  - data bias
 ---
 
 # Easy to Learn, Yet Hard to Forget: Towards Robust Unlearning Under Bias

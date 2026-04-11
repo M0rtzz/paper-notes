@@ -2,9 +2,6 @@
 description: "【论文笔记】Diff-V2M: A Hierarchical Conditional Diffusion Model with Explicit Rhythmic Modeling for Video-to-Music Generation 论文解读 | AAAI 2026 | arXiv 2511.09090 | 视频到音乐生成 | 提出 Diff-V2M，一个基于层次条件扩散 Transformer 的视频到音乐生成框架，通过显式节奏建模（低分辨率 ODF）和层次交叉注意力机制整合情感/语义/节奏特征，在域内和域外数据集上均达到 SOTA。"
 tags:
   - AAAI 2026
-  - 视频到音乐生成
-  - 扩散模型
-  - 节奏建模
 ---
 
 # Diff-V2M: A Hierarchical Conditional Diffusion Model with Explicit Rhythmic Modeling for Video-to-Music Generation

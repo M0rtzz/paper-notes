@@ -2,9 +2,7 @@
 description: "【论文笔记】Evaluation of LLM Vulnerabilities to Being Misused for Personalized Disinformation Generation 论文解读 | ACL 2025 | arXiv 2412.13666 | disinformation | 系统评估了 6 个主流 LLM 生成个性化虚假信息的能力，发现大多数 LLM 能生成高质量个性化虚假新闻，且个性化请求反而降低了安全过滤器的触发率（相当于一种 jailbreak），同时轻微降低了机器生成文本的可检测性。"
 tags:
   - ACL 2025
-  - disinformation
-  - personalization
-  - LLM safety
+  - 文本检测
 ---
 
 # Evaluation of LLM Vulnerabilities to Being Misused for Personalized Disinformation Generation

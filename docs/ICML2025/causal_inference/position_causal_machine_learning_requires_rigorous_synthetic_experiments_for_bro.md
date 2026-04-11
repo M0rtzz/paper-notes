@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Causal Machine Learning Requires Rigorous Synthetic Experiments for Broader Adoption 论文解读 | ICML2025 | arXiv 2508.08883 | 因果推断 | 本文是一篇 Position Paper，主张合成实验对因果机器学习 (Causal ML) 方法的严格评估**不可或缺**，但当前的合成实验设计存在偏差和复杂度不足，需要遵循一套原则来提高实验质量，从而推动 Causal ML 的广泛采用。"
 tags:
   - ICML2025
-  - 因果推断
-  - 合成数据
-  - 实验评估
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

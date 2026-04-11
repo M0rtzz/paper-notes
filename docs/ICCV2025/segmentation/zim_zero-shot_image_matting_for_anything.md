@@ -2,9 +2,6 @@
 description: "【论文笔记】ZIM: Zero-Shot Image Matting for Anything 论文解读 | ICCV 2025 | arXiv 2411.00626 | 图像抠图 | 提出ZIM——一种零样本图像抠图模型，通过标签转换器将SA1B分割标签转为精细抠图标签构建SA1B-Matte数据集，并设计层次像素解码器和提示感知遮罩注意力机制，在保持零样本泛化能力的同时实现微观级精细抠图。"
 tags:
   - ICCV 2025
-  - 图像抠图
-  - 零样本
-  - SAM
 ---
 
 # ZIM: Zero-Shot Image Matting for Anything

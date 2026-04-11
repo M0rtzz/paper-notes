@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Generalizable AI-Generated Image Detection via Image-Adaptive Prompt Learning 论文解读 | CVPR 2026 | arXiv 2508.01603 | AI生成图像检测 | 提出 Image-Adaptive Prompt Learning (IAPL)，在推理时根据每张测试图像动态调整 CLIP 编码器的 prompt，通过测试时 token 调优和条件信息学习器实现对未见生成器的强泛化，在 UniversalFakeDetect 和 GenImage 上分别达到 95.61% 和 96.7% 平均准确率的 SOTA 性能。"
 tags:
   - CVPR 2026
-  - AI生成图像检测
-  - 提示学习
-  - 测试时适应
 ---
 
 # Towards Generalizable AI-Generated Image Detection via Image-Adaptive Prompt Learning

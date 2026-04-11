@@ -2,9 +2,6 @@
 description: "【论文笔记】Investigating Context-Faithfulness in Large Language Models: The Roles of Memory Strength and Evidence Style 论文解读 | ACL 2025 | arXiv 2409.10955 | context faithfulness | 通过测量 LLM 对同一问题不同释义的回答一致性来量化\"记忆强度\"，发现 LLM 对外部证据的接受度与记忆强度高度负相关，且改写式证据比重复或详细证据更有效。"
 tags:
   - ACL 2025
-  - context faithfulness
-  - RAG
-  - memory strength
 ---
 
 # Investigating Context-Faithfulness in Large Language Models: The Roles of Memory Strength and Evidence Style

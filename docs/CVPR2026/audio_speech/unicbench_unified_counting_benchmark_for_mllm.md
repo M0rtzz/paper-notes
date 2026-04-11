@@ -2,9 +2,6 @@
 description: "【论文笔记】UNICBench: UNIfied Counting Benchmark for MLLM 论文解读 | CVPR 2026 | arXiv 2603.00595 | 计数基准 | 推出 UNICBench，首个统一的跨模态（图像/文本/音频）多层级计数基准，含 5,508+5,888+2,905 个 QA 对及三级能力/难度分类，系统评估 45 个 SOTA MLLM 揭示其在推理和困难任务上的显著不足。"
 tags:
   - CVPR 2026
-  - 计数基准
-  - 多模态大模型
-  - 图像/文本/音频
 ---
 
 # UNICBench: UNIfied Counting Benchmark for MLLM

@@ -2,10 +2,7 @@
 description: "【论文笔记】PriOr-Flow: Enhancing Primitive Panoramic Optical Flow with Orthogonal View 论文解读 | ICCV 2025 | arXiv 2506.23897 | 光流 panoramic optical flow | 提出双分支框架 PriOr-Flow，利用正交视图的低畸变先验来补偿 ERP 全景图像极区的严重畸变，从而显著提升全景光流估计精度，在 MPFDataset 和 FlowScape 上分别降低 EPE 30.0% 和 29.6%。"
 tags:
   - ICCV 2025
-  - panoramic optical flow
   - 光流
-  - equirectangular projection
-  - dual-branch
 ---
 
 # PriOr-Flow: Enhancing Primitive Panoramic Optical Flow with Orthogonal View

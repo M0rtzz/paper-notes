@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring Neural Granger Causality with xLSTMs: Unveiling Temporal Dependencies in Complex Data 论文解读 | NEURIPS2025 | arXiv 2502.09981 | Granger Causality | 提出 GC-xLSTM，利用 xLSTM 架构结合新颖的动态稀疏优化策略，在多变量时间序列中挖掘 Granger 因果关系，在多个数据集上取得 SOTA 性能。"
 tags:
   - NEURIPS2025
-  - Granger Causality
-  - xLSTM
-  - Sparsity
 ---
 
 # Exploring Neural Granger Causality with xLSTMs: Unveiling Temporal Dependencies in Complex Data

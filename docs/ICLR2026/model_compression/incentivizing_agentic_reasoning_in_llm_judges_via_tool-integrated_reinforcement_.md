@@ -2,9 +2,6 @@
 description: "【论文笔记】Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2510.23038 | LLM-as-a-Judge | 提出 TIR-Judge，一个端到端的 RL 框架，训练 LLM 评判模型在评估过程中交替使用推理和代码执行工具，在7个公开基准上以 8B 参数超越 32B 推理奖励模型，且无需蒸馏的 TIR-Judge-Zero 可自举提升。"
 tags:
   - ICLR 2026
-  - LLM-as-a-Judge
-  - 工具集成推理
-  - 强化学习
 ---
 
 # Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning

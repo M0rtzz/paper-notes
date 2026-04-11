@@ -2,9 +2,6 @@
 description: "【论文笔记】Fern: Chaining Spectral Pearls — Ellipsoidal Forecasting Beyond Trajectories for Time Series 论文解读 | NeurIPS 2025 | arXiv 2505.17370 | long-term time series forecasting | 提出 Fern (Forecasting with Ellipsoidal RepresentatioN)，通过逐 patch 的椭球体传输（旋转-缩放-平移）替代传统轨迹预测，在混沌系统上大幅超越基线，并在标准 LTSF 基准上保持竞争力。"
 tags:
   - NeurIPS 2025
-  - long-term time series forecasting
-  - optimal transport
-  - Koopman operator
 ---
 
 # Fern: Chaining Spectral Pearls — Ellipsoidal Forecasting Beyond Trajectories for Time Series

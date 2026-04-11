@@ -2,9 +2,6 @@
 description: "【论文笔记】Bayesian Meta-Analyses Could Be More: A Case Study in Trial of Labor After a Cesarean-section Outcomes and Complications 论文解读 | AAAI 2026 | arXiv 2601.10089 | Bayesian meta-analysis | 提出一种层次贝叶斯 meta-analysis 方法，通过对未记录的决策变量（Bishop 分数）建模为截断隐变量，纠正传统固定效应 meta-analysis 中因忽略混杂因子而导致的偏差结论，在 TOLAC（剖宫产后试产）场景中证明机械扩张与 Pitocin 无显著差异。"
 tags:
   - AAAI 2026
-  - Bayesian meta-analysis
-  - hidden confounders
-  - probabilistic programming
 ---
 
 # Bayesian Meta-Analyses Could Be More: A Case Study in Trial of Labor After a Cesarean-section Outcomes and Complications

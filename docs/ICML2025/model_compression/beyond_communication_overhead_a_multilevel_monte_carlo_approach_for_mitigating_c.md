@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Communication Overhead: A Multilevel Monte Carlo Approach for Mitigating Compression Bias in Distributed Learning 论文解读 | ICML 2025 | arXiv 2507.05508 | 分布式学习 | 本文提出了一种基于多级蒙特卡洛（MLMC）的梯度压缩方案，利用有偏压缩器构造统计无偏的梯度估计，将压缩偏差转化为可控方差，从而在保持有偏压缩器经验效率的同时享受无偏方法的理论保证，结合自适应概率优化在 BERT 微调和 CIFAR-10 上验证了优越性。"
 tags:
   - ICML 2025
-  - 分布式学习
-  - 梯度压缩
-  - 多级蒙特卡洛
 ---
 
 # Beyond Communication Overhead: A Multilevel Monte Carlo Approach for Mitigating Compression Bias in Distributed Learning

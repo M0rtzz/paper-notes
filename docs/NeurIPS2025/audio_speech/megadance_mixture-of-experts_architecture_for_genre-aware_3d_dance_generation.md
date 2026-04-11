@@ -2,9 +2,6 @@
 description: "【论文笔记】MEGADance: Mixture-of-Experts Architecture for Genre-Aware 3D Dance Generation 论文解读 | NeurIPS 2025 | arXiv 2505.17543 | 音乐驱动舞蹈生成 | 提出 MEGADance，首个基于混合专家 (MoE) 架构的音乐驱动 3D 舞蹈生成方法，通过将编舞一致性解耦为\"舞蹈通用性\"（Universal Expert）和\"风格特异性\"（Specialized Expert），配合 FSQ 量化和 Mamba-Transformer 混合骨干网络，实现了 SOTA 的舞蹈质量和强风格可控性。"
 tags:
   - NeurIPS 2025
-  - 音乐驱动舞蹈生成
-  - 混合专家(MoE)
-  - Mamba-Transformer
   - Transformer
 ---
 

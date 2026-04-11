@@ -2,9 +2,6 @@
 description: "【论文笔记】Semantic Glitch: Agency and Artistry in an Autonomous Pixel Cloud 论文解读 | NeurIPS 2025 | arXiv 2511.16048 | 语义推理导航 | 设计了一个像素风格的软体飞行机器人艺术装置\"Semantic Glitch\"，拒绝传统LiDAR/SLAM传感器，仅依靠多模态大语言模型(MLLM)的语义理解进行自主导航，通过\"物理故障\"身体与\"叙事心智\"的结合创造出具有角色性的不完美机器伴侣。"
 tags:
   - NeurIPS 2025
-  - 语义推理导航
-  - MLLM
-  - 弱机器人
 ---
 
 # Semantic Glitch: Agency and Artistry in an Autonomous Pixel Cloud

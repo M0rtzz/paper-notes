@@ -2,10 +2,7 @@
 description: "【论文笔记】Class-Partitioned VQ-VAE and Latent Flow Matching for Point Cloud Scene Generation 论文解读 | AAAI2026 | arXiv 2601.12391 | 点云 point cloud generation | 提出类别分区的 VQ-VAE（CPVQ-VAE）和潜空间流匹配模型（LFMM），实现了首个无需外部数据库检索的纯点云场景生成方法，在复杂客厅场景上将 Chamfer 距离降低了 70.4%。"
 tags:
   - AAAI2026
-  - point cloud generation
   - 点云
-  - scene generation
-  - VQ-VAE
 ---
 
 # Class-Partitioned VQ-VAE and Latent Flow Matching for Point Cloud Scene Generation

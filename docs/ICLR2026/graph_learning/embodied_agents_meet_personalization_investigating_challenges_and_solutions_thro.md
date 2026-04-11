@@ -2,9 +2,6 @@
 description: "【论文笔记】Embodied Agents Meet Personalization: Investigating Challenges and Solutions Through the Lens of Memory Utilization 论文解读 | ICLR 2026 | arXiv 2505.16348 | 具身智能体 | 提出 Memento 评估框架，系统揭示 LLM 具身智能体在个性化辅助任务中的记忆利用瓶颈（信息过载、多记忆协调失败），并设计层次化知识图谱用户画像记忆模块显著改善性能。"
 tags:
   - ICLR 2026
-  - 具身智能体
-  - 个性化辅助
-  - 记忆利用
 ---
 
 # Embodied Agents Meet Personalization: Investigating Challenges and Solutions Through the Lens of Memory Utilization

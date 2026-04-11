@@ -2,9 +2,6 @@
 description: "【论文笔记】A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation 论文解读 | ECCV 2024 | arXiv 2406.07320 | 分层抽样 | 提出一个统计框架，通过分层（stratification）、采样设计（sampling）和估计器（estimation）三个组件的协同设计，在仅标注少量测试样本的情况下精确估计CV模型准确率，最高可实现10倍的效率增益（即用1/10的标注量达到同等精度）。"
 tags:
   - ECCV 2024
-  - 分层抽样
-  - Horvitz-Thompson估计
-  - 差分估计器
 ---
 
 # A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation

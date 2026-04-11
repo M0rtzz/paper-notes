@@ -2,9 +2,6 @@
 description: "【论文笔记】SafeRAG: Benchmarking Security in Retrieval-Augmented Generation of Large Language Model 论文解读 | ACL 2025 | arXiv 2501.18636 | RAG安全 | 提出 SafeRAG 安全基准，定义了四种增强型攻击任务（银噪声、上下文间冲突、软广告、白色拒绝服务），通过在 RAG 管道不同阶段注入攻击文本来系统评估 14 种 RAG 组件的安全漏洞，揭示了即使最明显的攻击也能轻松绕过现有防御。"
 tags:
   - ACL 2025
-  - RAG安全
-  - 数据注入攻击
-  - 检索增强生成
 ---
 
 # SafeRAG: Benchmarking Security in Retrieval-Augmented Generation of Large Language Model

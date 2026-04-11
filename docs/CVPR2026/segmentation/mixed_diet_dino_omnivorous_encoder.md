@@ -2,9 +2,6 @@
 description: "【论文笔记】A Mixed Diet Makes DINO An Omnivorous Vision Encoder 论文解读 | CVPR 2026 | arXiv 2602.24181 | DINOv2 | 发现DINOv2的特征在不同模态间几乎零对齐（同一场景RGB和深度图的特征相似度≈随机图像对），提出Omnivorous Vision Encoder通过跨模态对齐+冻结教师蒸馏的双目标训练，让单一编码器产出模态无关的统一特征空间。"
 tags:
   - CVPR 2026
-  - DINOv2
-  - 多模态对齐
-  - 视觉编码器
 ---
 
 # A Mixed Diet Makes DINO An Omnivorous Vision Encoder

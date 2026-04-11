@@ -2,10 +2,7 @@
 description: "【论文笔记】AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer 论文解读 | ICLR 2026 | arXiv 2602.12100 | 3D generation | 提出 AssetFormer，基于 Llama 架构的自回归 Transformer，将模块化 3D 资产（由 primitive 序列组成）建模为离散 token 序列，通过 DFS/BFS 图遍历重排序和联合词汇表解码实现从文本描述生成可直接用于游戏引擎的模块化 3D 资产。"
 tags:
   - ICLR 2026
-  - 3D generation
-  - autoregressive transformer
   - Transformer
-  - modular assets
 ---
 
 # AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer

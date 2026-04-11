@@ -2,9 +2,6 @@
 description: "【论文笔记】Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning 论文解读 | CVPR 2026 | arXiv 2603.12988 | 公平性诊断 | 在 ConvNeXt 骨干上构建注意力 MIL 模型，并通过梯度反转层（GRL）对抗性地消除扫描表征中的性别信息，再配合 focal loss、子群过采样和 5-fold 集成，实现胸部 CT 四类肺疾病的公平诊断。"
 tags:
   - CVPR 2026
-  - 公平性诊断
-  - 胸部CT
-  - 多示例学习
 ---
 
 # Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning

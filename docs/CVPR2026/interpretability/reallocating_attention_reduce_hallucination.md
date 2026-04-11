@@ -2,9 +2,6 @@
 description: "【论文笔记】Reallocating Attention Across Layers to Reduce Multimodal Hallucination 论文解读 | CVPR 2026 | arXiv 2510.10285 | 多模态幻觉 | 将多模态推理模型幻觉分解为浅层的感知偏差和深层的推理漂移两种失效模式，通过识别感知/推理功能头并选择性放大其贡献，以即插即用、无需训练的方式平均提升4.2%准确率，仅增加约1%计算开销。"
 tags:
   - CVPR 2026
-  - 多模态幻觉
-  - 注意力头重分配
-  - 感知-推理分层
 ---
 
 # Reallocating Attention Across Layers to Reduce Multimodal Hallucination

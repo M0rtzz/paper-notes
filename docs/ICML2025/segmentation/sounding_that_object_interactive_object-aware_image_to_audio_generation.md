@@ -2,9 +2,6 @@
 description: "【论文笔记】Sounding that Object: Interactive Object-Aware Image to Audio Generation 论文解读 | ICML 2025 | arXiv 2506.04214 | 对象感知音频生成 | 提出一种交互式对象感知音频生成模型，通过多模态点积注意力学习图像区域与声音的关联，在测试时用分割掩码替代注意力权重，允许用户通过选择图像中的视觉对象来生成对应的声音。"
 tags:
   - ICML 2025
-  - 对象感知音频生成
-  - 条件潜扩散模型
-  - 分割掩码
 ---
 
 # Sounding that Object: Interactive Object-Aware Image to Audio Generation

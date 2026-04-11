@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards a Principled Evaluation of Knowledge Editors 论文解读 | ACL 2025 | arXiv 2507.05937 | Knowledge Editing | 本文系统性地揭示了知识编辑评估中不同评分方法（argmax、多选、生成匹配）和不同编辑批量大小会导致知识编辑器排名发生逆转的问题，并通过人工评估发现基于字符串匹配的评估方法存在假阳性倾向。"
 tags:
   - ACL 2025
-  - Knowledge Editing
-  - Model Editing
-  - 评估方法论
 ---
 
 # Towards a Principled Evaluation of Knowledge Editors

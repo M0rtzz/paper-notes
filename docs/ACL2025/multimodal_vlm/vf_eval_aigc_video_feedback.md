@@ -2,9 +2,6 @@
 description: "【论文笔记】VF-Eval: Evaluating Multimodal LLMs for Generating Feedback on AIGC Videos 论文解读 | ACL 2025 | arXiv 2505.23693 | AIGC视频评估 | 提出VF-Eval基准，通过一致性验证、错误感知、错误类型检测、推理评估四大任务系统评估13个MLLM为AIGC视频提供反馈的能力，发现即使GPT-4.1也难以在所有任务上表现一致，揭示了AIGC视频理解的挑战性。"
 tags:
   - ACL 2025
-  - AIGC视频评估
-  - 视频生成反馈
-  - 错误检测
 ---
 
 # VF-Eval: Evaluating Multimodal LLMs for Generating Feedback on AIGC Videos

@@ -1,12 +1,7 @@
 ---
-title: "Intention-Conditioned Flow Occupancy Models"
-authors: "Chongyi Zheng, Seohong Park, Sergey Levine, Benjamin Eysenbach"
-venue: "ICLR 2026"
-year: 2026
-date: 2025-06-08
-arxiv: "2506.08902"
-domain: "image_generation"
-keywords: ["reinforcement learning", "flow matching", "occupancy models", "pre-training", "fine-tuning", "latent variable model", "successor representations"]
+description: "【论文笔记】Intention-Conditioned Flow Occupancy Models 论文解读 | 提出 InFOM，利用流匹配（flow matching）构建意图条件化的占据模型（occupancy model），通过变分推断推理数据中的潜在意图，实现无标注数据上的 RL 预训练，在 36 个状态任务和 4 个视觉任务上取得 1.8× 中位回报提升和 36% 成功率提升。"
+tags:
+
 ---
 
 # Intention-Conditioned Flow Occupancy Models

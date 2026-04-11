@@ -2,9 +2,6 @@
 description: "【论文笔记】HOG-Diff: Higher-Order Guided Diffusion for Graph Generation 论文解读 | ICLR 2026 | arXiv 2502.04308 | 图生成 | 本文提出 HOG-Diff，一个利用高阶拓扑结构（如环、三角形、motif）作为生成引导的图扩散框架，通过胞复形过滤（CCF）提取高阶骨架并结合广义 OU 扩散桥实现\"由粗到细\"的渐进式图生成，在分子和通用图生成的 8 个基准上取得了 SOTA 性能。"
 tags:
   - ICLR 2026
-  - 图生成
-  - 扩散模型
-  - 高阶拓扑
 ---
 
 # HOG-Diff: Higher-Order Guided Diffusion for Graph Generation

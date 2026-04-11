@@ -2,9 +2,6 @@
 description: "【论文笔记】Grokking at the Edge of Linear Separability 论文解读 | ICML2025 | arXiv 2410.04489 | grokking | 在最简单的逻辑回归二分类任务中揭示了 grokking（延迟泛化）的根本原因：当数据维度与样本数之比 $\lambda = d/N$ 接近临界点 $\lambda_c = 1/2$ 时，训练动力学会在过拟合解附近停留任意长时间后才收敛到泛化解，类似于物理学中的\"临界减速\"现象。"
 tags:
   - ICML2025
-  - grokking
-  - 延迟泛化
-  - 逻辑回归
 ---
 
 # Grokking at the Edge of Linear Separability

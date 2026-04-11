@@ -2,9 +2,7 @@
 description: "【论文笔记】3DRealCar: An In-the-wild RGB-D Car Dataset with 360-degree Views 论文解读 | ICCV 2025 | arXiv 2406.04875 | 3D Car Dataset | 提出首个大规模3D真实汽车数据集3DRealCar，包含2,500辆真实汽车的高分辨率（1920×1440）360度RGB-D扫描（平均每辆200张视角），覆盖100+品牌和三种光照条件（标准/高反光/暗光），提供点云、解析图等丰富标注，并基准测试了多种3D重建方法，揭示了反光和暗光条件下的重建挑战。"
 tags:
   - ICCV 2025
-  - 3D Car Dataset
-  - RGB-D
-  - 360-degree Views
+  - 3D重建
 ---
 
 # 3DRealCar: An In-the-wild RGB-D Car Dataset with 360-degree Views

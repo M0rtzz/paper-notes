@@ -2,9 +2,6 @@
 description: "【论文笔记】3D-GSW: 3D Gaussian Splatting for Robust Watermarking 论文解读 | CVPR 2025 | arXiv 2409.13222 | Watermarking | 提出3D-GSW，首个专为3D Gaussian Splatting设计的鲁棒数字水印方法，通过频率引导致密化（FGD）移除冗余高斯并在高频区域分裂高斯来增强鲁棒性，结合梯度掩码和小波子带损失保持渲染质量，在Blender/LLFF/Mip-NeRF 360数据集上同时实现了最优的水印鲁棒性和渲染质量。"
 tags:
   - CVPR 2025
-  - Watermarking
-  - 3D-GS
-  - Frequency-Guided Densification
 ---
 
 # 3D-GSW: 3D Gaussian Splatting for Robust Watermarking

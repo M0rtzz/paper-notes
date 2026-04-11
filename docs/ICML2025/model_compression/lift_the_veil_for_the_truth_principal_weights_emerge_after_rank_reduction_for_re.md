@@ -2,9 +2,6 @@
 description: "【论文笔记】LIFT the Veil for the Truth: Principal Weights Emerge after Rank Reduction for Reliable Model Merging 论文解读 | ICML 2025 | arXiv 2506.00772 | sparse fine-tuning | 发现低秩近似后幅值最大的权重（Principal Weights）是微调关键参数，提出 LIFT——仅更新 top 5% 的 Principal Weights 就在推理任务上超越全参数微调，同时保持 LoRA 级别的内存效率。"
 tags:
   - ICML 2025
-  - sparse fine-tuning
-  - rank reduction
-  - principal weights
 ---
 
 # LIFT the Veil for the Truth: Principal Weights Emerge after Rank Reduction for Reliable Model Merging

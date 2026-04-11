@@ -2,9 +2,6 @@
 description: "【论文笔记】ChronoGraph: A Real-World Graph-Based Multivariate Time Series Dataset 论文解读 | NEURIPS2025 | arXiv 2509.04449 | 微服务遥测 | 提出 ChronoGraph——首个同时包含多元时间序列、显式服务依赖图和事件标签的真实世界微服务数据集（6个月 / ~700服务 / 5维指标 / 8005时间步），基准测试表明现有预测和异常检测方法在长期预测和拓扑感知方面均存在较大提升空间。"
 tags:
   - NEURIPS2025
-  - 微服务遥测
-  - 图时间序列
-  - 异常检测
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

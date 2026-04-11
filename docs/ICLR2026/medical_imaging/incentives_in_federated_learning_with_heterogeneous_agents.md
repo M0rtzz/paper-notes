@@ -2,9 +2,6 @@
 description: "【论文笔记】Incentives in Federated Learning with Heterogeneous Agents 论文解读 | ICLR 2026 | arXiv 2509.21612 | 联邦学习 | 建立了数据异构联邦学习的博弈论框架——agent的效用取决于\"谁\"提供数据而非仅总量,证明纯Nash均衡可能不存在且最优均衡成本可无限倍于合作最优,证明最小成本贡献向量计算是NP-hard但可用LP获得对数近似,并设计出唯一的策略防伪机制(付你所贡献)。"
 tags:
   - ICLR 2026
-  - 联邦学习
-  - 博弈论
-  - 激励机制
 ---
 
 # Incentives in Federated Learning with Heterogeneous Agents

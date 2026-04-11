@@ -2,9 +2,6 @@
 description: "【论文笔记】Causal Discovery of Latent Variables in Galactic Archaeology 论文解读 | ICML 2025 | arXiv 2507.00134 | 因果发现 | 利用基于秩的潜变量因果发现算法（RLCD），仅从五个可观测恒星属性中，以纯数据驱动的方式自动恢复出两个物理上有意义的潜变量——出生半径和引导半径，验证了因果发现方法在天体物理学中发现隐藏物理量的潜力。"
 tags:
   - ICML 2025
-  - 因果发现
-  - 潜变量
-  - 银河考古学
 ---
 
 # Causal Discovery of Latent Variables in Galactic Archaeology

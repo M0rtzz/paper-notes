@@ -2,9 +2,6 @@
 description: "【论文笔记】FAPEX: Fractional Amplitude-Phase Expressor for Robust Cross-Subject Seizure Prediction 论文解读 | NEURIPS2025 | arXiv 2511.03263 | seizure prediction | 提出 FAPEX 框架，通过可学习的分数阶神经帧算子 (FrNFO) 实现自适应时频分解，结合幅度-相位交叉编码和空间相关性聚合，在 12 个跨物种、跨模态的癫痫预测基准上全面超越 33 个基线方法。"
 tags:
   - NEURIPS2025
-  - seizure prediction
-  - EEG
-  - fractional Fourier transform
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

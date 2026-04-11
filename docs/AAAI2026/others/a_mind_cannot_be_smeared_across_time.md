@@ -2,9 +2,6 @@
 description: "【论文笔记】A Mind Cannot Be Smeared Across Time 论文解读 | AAAI 2026 | arXiv 2601.11620 | Stack Theory | 从 Stack Theory 出发形式化证明：在时间窗口内的存在性时序实现不保持合取——系统可以跨时间实现意识体验的每个成分而永远不在同一时刻实例化它们的合取，从而区分 Chord（共时性必要）和 Arpeggio（序列即可）两个意识假设，论证纯序列硬件上的软件意识在 Chord 假设下不可能。"
 tags:
   - AAAI 2026
-  - Stack Theory
-  - 时间性
-  - 意识
 ---
 
 # A Mind Cannot Be Smeared Across Time

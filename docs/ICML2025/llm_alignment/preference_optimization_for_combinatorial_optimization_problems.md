@@ -2,9 +2,6 @@
 description: "【论文笔记】Preference Optimization for Combinatorial Optimization Problems 论文解读 | ICML 2025 | arXiv 2505.08735 | Preference Optimization | 将RLHF中的偏好优化思想引入组合优化（COP），把定量奖励信号转化为定性偏好信号，结合熵正则化目标和局部搜索微调，在TSP/CVRP/FFSP等标准基准上实现了1.5x-2.5x的收敛加速和更优解质量。"
 tags:
   - ICML 2025
-  - Preference Optimization
-  - 组合优化
-  - REINFORCE
 ---
 
 # Preference Optimization for Combinatorial Optimization Problems

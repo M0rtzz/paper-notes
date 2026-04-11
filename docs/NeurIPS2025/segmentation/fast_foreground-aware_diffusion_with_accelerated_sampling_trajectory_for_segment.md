@@ -2,10 +2,7 @@
 description: "【论文笔记】FAST: Foreground-aware Diffusion with Accelerated Sampling Trajectory for Segmentation-oriented Anomaly Synthesis 论文解读 | NEURIPS2025 | arXiv 2509.20295 | anomaly synthesis | 提出 FAST，一个面向分割的工业异常合成框架，通过前景感知重建模块（FARM）和异常感知加速采样（AIAS）在仅 10 步去噪下生成高质量合成异常，在 MVTec-AD 上 mIoU 达 76.72%，超越所有先前方法。"
 tags:
   - NEURIPS2025
-  - anomaly synthesis
-  - industrial anomaly segmentation
   - 图像分割
-  - diffusion model
   - 扩散模型
 ---
 

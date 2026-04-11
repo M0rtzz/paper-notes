@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Bundling with Large Language Models for Zero-Shot Inference on Text-Attributed Graphs 论文解读 | NeurIPS 2025 | arXiv 2505.17599 | 文本属性图 | DENSE 提出\"文本捆绑\"策略，将拓扑/语义相近的节点文本打包后查询 LLM 获取 bundle 级别标签，再用 entropy-based 和 ranking-based 损失监督 GNN 训练，并动态精炼 bundle 排除噪声节点，在 10 个 TAG 数据集上零样本推理全面超越 GPT-4o 和图基础模型。"
 tags:
   - NeurIPS 2025
-  - 文本属性图
-  - 零样本推理
-  - LLM
 ---
 
 # Dynamic Bundling with Large Language Models for Zero-Shot Inference on Text-Attributed Graphs

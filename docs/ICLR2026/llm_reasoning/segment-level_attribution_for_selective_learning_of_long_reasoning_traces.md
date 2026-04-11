@@ -2,9 +2,6 @@
 description: "【论文笔记】Segment-Level Attribution for Selective Learning of Long Reasoning Traces 论文解读 | ICLR2026 | arXiv 2602.00425 | reasoning trace | 用Integrated Gradients计算长推理链中每个segment对最终答案的归因强度和方向一致性，识别重要segment进行选择性SFT，相比全CoT训练提升准确率达4.7%同时缩短输出18%。"
 tags:
   - ICLR2026
-  - reasoning trace
-  - integrated gradients
-  - selective SFT
 ---
 
 # Segment-Level Attribution for Selective Learning of Long Reasoning Traces

@@ -2,9 +2,6 @@
 description: "【论文笔记】Moving Beyond Medical Exams: A Clinician-Annotated Fairness Dataset of Real-World Tasks and Ambiguity in Mental Healthcare 论文解读 | ICLR 2026 | arXiv 2502.16051 | 精神科评估 | 提出MENTAT——由精神科临床医生创建和标注的数据集,覆盖5个心理健康实践领域(诊断/治疗/分诊/监测/文档),通过人口统计变量替换(年龄/种族/性别)系统评估LM决策中的偏见→不同于考试题→捕捉真实临床模糊性(多个有效答案+不确定性标注)→评估22个LM发现显著的决策质量差异和人口统计敏感性。"
 tags:
   - ICLR 2026
-  - 精神科评估
-  - 临床决策
-  - 公平性偏见
 ---
 
 # Moving Beyond Medical Exams: A Clinician-Annotated Fairness Dataset of Real-World Tasks and Ambiguity in Mental Healthcare

@@ -2,9 +2,6 @@
 description: "【论文笔记】PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation 论文解读 | ECCV 2024 | arXiv 2403.09192 | PEFT | 提出PYRA方法同时实现训练高效和推理高效的任务适配，通过并行生成通道和token维度的自适应调制权重，在token合并前对特征进行re-activation校准，在ViT-L/16上1.7×加速仅掉0.1%精度、3×加速下消除\"逆向压缩\"现象。"
 tags:
   - ECCV 2024
-  - PEFT
-  - token merging
-  - training-inference efficiency
 ---
 
 # PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation

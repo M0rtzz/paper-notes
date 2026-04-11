@@ -2,9 +2,6 @@
 description: "【论文笔记】Words of Warmth: Trust and Sociability Norms for over 26k English Words 论文解读 | ACL 2025 | arXiv 2506.03993 | 社会认知 | 构建了首个大规模人工标注的英文词汇-温暖（Warmth）关联词库 Words of Warmth，覆盖 26k+ 词汇的信任（Trust）和社会性（Sociability）维度评分，并利用该资源研究了儿童词汇习得和社交媒体刻板印象。"
 tags:
   - ACL 2025
-  - 社会认知
-  - 温暖-能力维度
-  - 信任
 ---
 
 # Words of Warmth: Trust and Sociability Norms for over 26k English Words

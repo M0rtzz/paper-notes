@@ -2,10 +2,8 @@
 description: "【论文笔记】SparseMM: Head Sparsity Emerges from Visual Concept Responses in MLLMs 论文解读 | ICCV 2025 | arXiv 2506.05344 | visual heads | 发现MLLM中仅约5%的attention head主动参与视觉理解（称为\"visual heads\"），提出基于OCR任务的training-free识别方法量化每个head的视觉相关性，并设计SparseMM——按visual score非对称分配KV-Cache预算的策略，在DocVQA上仅用5.3%的cache（256/4830）即可维持Qwen2-VL的性能，实现1.87×加速和50%内存减少。"
 tags:
   - ICCV 2025
-  - visual heads
-  - attention sparsity
   - 注意力机制
-  - KV-Cache compression
+  - OCR
 ---
 
 # SparseMM: Head Sparsity Emerges from Visual Concept Responses in MLLMs

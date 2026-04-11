@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Structure-Semantic Evolution Trajectories for Graph Domain Adaptation 论文解读 | ICLR 2026 | arXiv 2602.10506 | 图域适应 | 提出DiffGDA——首个将扩散模型引入图域适应(GDA)的方法，用随机微分方程(SDE)建模源图到目标图的连续时间结构-语义联合演化过程，配合基于密度比的域感知引导网络驾驶扩散轨迹朝向目标域，理论证明收敛到最优适应路径，在8个真实数据集14个迁移任务上全面超越SOTA。"
 tags:
   - ICLR 2026
-  - 图域适应
-  - 扩散模型
-  - SDE
 ---
 
 # Learning Structure-Semantic Evolution Trajectories for Graph Domain Adaptation

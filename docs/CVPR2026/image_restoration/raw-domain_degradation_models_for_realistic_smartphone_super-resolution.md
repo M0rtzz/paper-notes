@@ -2,10 +2,7 @@
 description: "【论文笔记】RAW-Domain Degradation Models for Realistic Smartphone Super-Resolution 论文解读 | CVPR 2026 | arXiv 2603.12493 | 超分辨率 super-resolution | 提出基于标定的 RAW 域退化建模框架，通过为多款智能手机相机精确标定 SR 模糊核与传感器噪声模型，将公开 sRGB 图像\"反处理\"为逼真的 LR RAW 数据用于训练，在相机特定和跨相机盲超分辨率场景中均显著超越基于通用退化池的基线方法。"
 tags:
   - CVPR 2026
-  - super-resolution
   - 超分辨率
-  - RAW domain
-  - degradation modeling
 ---
 
 # RAW-Domain Degradation Models for Realistic Smartphone Super-Resolution

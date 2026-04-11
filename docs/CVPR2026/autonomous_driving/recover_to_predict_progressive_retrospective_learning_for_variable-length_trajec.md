@@ -2,9 +2,6 @@
 description: "【论文笔记】Recover to Predict: Progressive Retrospective Learning for Variable-Length Trajectory Prediction 论文解读 | CVPR2026 | arXiv 2603.10597 | 轨迹预测 | 提出渐进式回溯框架 PRF，通过级联回溯单元逐步将不完整观测的特征对齐到完整观测，大幅提升变长轨迹预测性能，且即插即用兼容现有方法。"
 tags:
   - CVPR2026
-  - 轨迹预测
-  - 变长观测
-  - 渐进式回溯
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

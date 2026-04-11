@@ -2,9 +2,6 @@
 description: "【论文笔记】Unified Privacy Guarantees for Decentralized Learning via Matrix Factorization 论文解读 | ICLR 2026 | arXiv 2510.17480 | 矩阵分解 | 将中心化DP的矩阵分解(MF)方法推广到去中心化学习——将DL算法和信任模型统一建模为矩阵乘法形式→推广MF理论到更广泛的工作负载矩阵→得到现有DP-DL算法更紧的隐私界+设计新算法MAFALDA-SGD(用户级相关噪声gossip→在合成和真实图上超越现有方法)。"
 tags:
   - ICLR 2026
-  - 矩阵分解
-  - 去中心化学习
-  - 差分隐私
 ---
 
 # Unified Privacy Guarantees for Decentralized Learning via Matrix Factorization

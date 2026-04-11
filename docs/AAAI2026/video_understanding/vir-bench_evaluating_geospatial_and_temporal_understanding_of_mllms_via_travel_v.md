@@ -2,9 +2,6 @@
 description: "【论文笔记】VIR-Bench: Evaluating Geospatial and Temporal Understanding of MLLMs via Travel Video Itinerary Reconstruction 论文解读 | AAAI 2026 | arXiv 2509.19002 | 地理空间理解 | 提出VIR-Bench——一个基于200个日本旅行vlog视频的benchmark，通过行程重建任务（visiting order graph构建）评估MLLM的地理空间和时间理解能力，发现SOTA模型（包括GPT-4.1和Gemini-2.5）在POI识别和时间转移推理上仍困难重重。"
 tags:
   - AAAI 2026
-  - 地理空间理解
-  - 时间推理
-  - 旅行视频
 ---
 
 # VIR-Bench: Evaluating Geospatial and Temporal Understanding of MLLMs via Travel Video Itinerary Reconstruction

@@ -2,9 +2,6 @@
 description: "【论文笔记】MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning 论文解读 | ICLR 2026 | arXiv 2506.00555 | 多智能体协作 | 提出MMedAgent-RL——RL驱动的多智能体医学推理框架：模拟临床流程(分诊→专科→主治)，用GRPO分别优化分诊医生(准确分科)和主治医生(整合专家意见做最终决策)，创新性地引入课程学习驱动的熵感知RL(C-MARL)渐进教主治医生处理不同质量的专家意见(全对→部分对→全错)，在5个医学VQA基准上平均超越基线23.6%。"
 tags:
   - ICLR 2026
-  - 多智能体协作
-  - 医学推理
-  - GRPO
 ---
 
 # MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning

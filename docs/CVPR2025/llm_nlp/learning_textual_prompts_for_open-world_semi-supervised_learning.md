@@ -2,7 +2,6 @@
 description: "【论文笔记】Learning Textual Prompts for Open-World Semi-Supervised Learning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Traditional semi-supervised learning achieves significant success in closed-world scenarios. To better align with the openness of the real world, researchers propose open-world semi-supervised learning (OWSSL), which enables models to effectively recognize known and unknown classes even without labe"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Learning Textual Prompts for Open-World Semi-Supervised Learning

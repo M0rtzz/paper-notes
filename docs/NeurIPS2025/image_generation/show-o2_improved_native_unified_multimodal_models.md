@@ -2,9 +2,6 @@
 description: "【论文笔记】Show-o2: Improved Native Unified Multimodal Models 论文解读 | NeurIPS 2025 | arXiv 2506.15564 | 统一多模态模型 | 提出 Show-o2，一种基于自回归建模和 Flow Matching 的原生统一多模态模型，通过双路径空间（时间）融合在 3D 因果 VAE 空间中构建统一视觉表示，实现跨文本、图像、视频的多模态理解与生成，并设计两阶段训练策略有效保留语言知识。"
 tags:
   - NeurIPS 2025
-  - 统一多模态模型
-  - 自回归建模
-  - Flow Matching
 ---
 
 # Show-o2: Improved Native Unified Multimodal Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】FedVG: Gradient-Guided Aggregation for Enhanced Federated Learning 论文解读 | CVPR2026 | arXiv 2602.21399 | 联邦学习 | FedVG 提出利用全局验证集上的逐层梯度范数为各客户端打分，梯度越平坦（范数越小）的客户端获得越高聚合权重，从而在高度数据异质性场景下显著提升联邦学习的泛化性能。"
 tags:
   - CVPR2026
-  - 联邦学习
-  - 梯度聚合
-  - 数据异质性
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

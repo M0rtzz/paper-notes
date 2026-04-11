@@ -2,9 +2,6 @@
 description: "【论文笔记】FoundationSLAM: 释放深度基础模型在端到端稠密视觉SLAM中的潜力 论文解读 | AAAI 2026 (Oral) | arXiv 2512.25008 | 单目SLAM | 将深度基础模型的几何先验注入光流式SLAM系统，通过混合光流网络、双向一致BA层和可靠性感知精炼三个模块形成闭环，在TUM/EuRoC/7Scenes/ETH3D四大数据集取得SOTA轨迹精度和稠密重建质量，18 FPS实时运行。"
 tags:
   - AAAI 2026 (Oral)
-  - 单目SLAM
-  - 深度基础模型
-  - 光流估计
 ---
 
 # FoundationSLAM: 释放深度基础模型在端到端稠密视觉SLAM中的潜力

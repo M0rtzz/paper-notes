@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Destructive Language Model 论文解读 | ICLR 2026 | arXiv 2505.12186 | 有害微调防御 | 提出 Seam，通过耦合良性和有害数据的优化轨迹（使梯度方向相反），将 LLM 转变为\"自毁模型\"——在有害微调时自动触发灾难性性能崩溃，创造攻击者的两难困境：低强度攻击无效，高强度攻击导致模型报废。"
 tags:
   - ICLR 2026
-  - 有害微调防御
-  - 自毁模型
-  - 梯度耦合
 ---
 
 # Self-Destructive Language Model

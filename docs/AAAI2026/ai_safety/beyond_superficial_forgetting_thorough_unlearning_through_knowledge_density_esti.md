@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Superficial Forgetting: Thorough Unlearning through Knowledge Density Estimation and Block Re-insertion 论文解读 | AAAI 2026 | arXiv 2511.11667 | Machine Unlearning | 提出 KUnBR 框架，通过梯度引导的知识密度估计定位有害知识富集层，并采用块重插入策略绕过 cover layer 的梯度遮蔽效应，实现对 LLM 有害知识的深度遗忘而非表面抑制。"
 tags:
   - AAAI 2026
-  - Machine Unlearning
-  - Knowledge Density
-  - Block Re-insertion
 ---
 
 # Beyond Superficial Forgetting: Thorough Unlearning through Knowledge Density Estimation and Block Re-insertion

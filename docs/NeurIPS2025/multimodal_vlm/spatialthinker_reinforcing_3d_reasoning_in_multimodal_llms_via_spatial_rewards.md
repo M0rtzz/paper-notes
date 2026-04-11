@@ -2,9 +2,6 @@
 description: "【论文笔记】SpatialThinker: Reinforcing 3D Reasoning in Multimodal LLMs via Spatial Rewards 论文解读 | NeurIPS 2025 | arXiv 2511.07403 | 空间推理 | 提出 SpatialThinker，通过在线 RL 结合多目标密集空间奖励（格式→计数→准确性→空间定位的字典序门控）训练 MLLM 构建场景图并进行结构化空间推理，仅用 7K 样本超越 GPT-4o 在 3DSRBench 上 12.1%。"
 tags:
   - NeurIPS 2025
-  - 空间推理
-  - 场景图
-  - 强化学习
 ---
 
 # SpatialThinker: Reinforcing 3D Reasoning in Multimodal LLMs via Spatial Rewards

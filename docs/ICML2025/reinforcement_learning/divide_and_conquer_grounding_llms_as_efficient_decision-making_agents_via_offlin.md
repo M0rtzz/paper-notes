@@ -2,9 +2,6 @@
 description: "【论文笔记】Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning 论文解读 | ICML 2025 | arXiv 2505.19761 | 层次化强化学习 | GLIDER 引入参数高效的层次化结构——高层策略学习抽象的分步计划并指导低层控制器执行，通过离线层次化 RL 将复杂长时域决策分解为连贯的 CoT 推理子任务，在 ScienceWorld 和 ALFWorld 上取得一致的性能提升和更强的泛化能力。"
 tags:
   - ICML 2025
-  - 层次化强化学习
-  - 离线RL
-  - LLM决策
 ---
 
 # Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning

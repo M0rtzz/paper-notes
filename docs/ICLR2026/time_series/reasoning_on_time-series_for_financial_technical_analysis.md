@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning on Time-Series for Financial Technical Analysis 论文解读 | ICLR2026 | arXiv 2511.08616 | 时间序列推理 | 提出 Verbal Technical Analysis (VTA) 框架，结合 LLM 的语言推理能力与时间序列模型的模式捕捉能力，通过 Time-GRPO 强化学习优化推理链，并以推理属性条件化时序预测，实现了兼具准确性和可解释性的金融时间序列预测。"
 tags:
   - ICLR2026
-  - 时间序列推理
-  - 金融技术分析
-  - 强化学习
 ---
 
 # Reasoning on Time-Series for Financial Technical Analysis

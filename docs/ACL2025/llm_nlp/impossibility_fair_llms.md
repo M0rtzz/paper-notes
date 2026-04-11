@@ -2,9 +2,6 @@
 description: "【论文笔记】The Impossibility of Fair LLMs 论文解读 | ACL 2025 (Long Paper) | arXiv 2406.03198 | LLM Fairness | 系统分析了多种技术公平性框架（fairness through unawareness、group fairness、fair representations、multi-sided fairness等）在通用LLM上的适用性，论证了每种框架要么在逻辑上无法扩展到通用AI场景、要么在实践中不可行——主要源于非结构化训练数据的敏感属性不可剥离、用例/人群组合的组合爆炸、以及公平性不具备可组合性。"
 tags:
   - ACL 2025 (Long Paper)
-  - LLM Fairness
-  - Impossibility Result
-  - Group Fairness
 ---
 
 # The Impossibility of Fair LLMs

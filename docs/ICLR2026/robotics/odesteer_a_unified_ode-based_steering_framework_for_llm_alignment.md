@@ -2,9 +2,6 @@
 description: "【论文笔记】ODESteer: A Unified ODE-Based Steering Framework for LLM Alignment 论文解读 | ICLR 2026 | arXiv 2602.17560 | 激活操纵 | 提出基于常微分方程(ODE)的统一激活操纵理论框架，揭示传统激活加法是ODE的一阶Euler近似，将操纵方向识别与控制论障碍函数统一，据此设计ODESteer进行多步自适应操纵，在TruthfulQA/UltraFeedback/RealToxicityPrompts上分别提升5.7%/2.5%/2.4%。"
 tags:
   - ICLR 2026
-  - 激活操纵
-  - ODE
-  - 障碍函数
 ---
 
 # ODESteer: A Unified ODE-Based Steering Framework for LLM Alignment

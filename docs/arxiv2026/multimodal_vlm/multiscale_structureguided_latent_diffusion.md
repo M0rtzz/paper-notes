@@ -2,9 +2,8 @@
 description: "【论文笔记】Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation 论文解读 | arXiv 2026 | arXiv 2603.12581 | multiscale | 尽管扩散模型在多模态磁共振成像（MRI）翻译任务中取得了显着进展，但现有方法在处理任意模态缺失场景时仍然容易出现解剖学不一致或纹理细节退化的问题。"
 tags:
   - arXiv 2026
-  - multiscale
-  - structure-guided
-  - latent
+  - 扩散模型
+  - 多模态
 ---
 
 # Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation

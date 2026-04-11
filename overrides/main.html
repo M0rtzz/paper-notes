@@ -8,8 +8,14 @@
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   "name": "{{ page.title | e }}",
+  "headline": "论文解读: {{ page.title | e }}",
   "description": "{{ page.meta.description | e }}",
   "url": "{{ page.canonical_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "ZhaoYang",
+    "url": "https://github.com/zhaoyang97"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "AI Paper Notes"

@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Spurious Correlation via Distributionally Robust Learning with Hierarchical Ambiguity Sets 论文解读 | ICLR 2026 | arXiv 2510.02818 | 虚假相关 | 提出层次化DRO框架，同时捕获组间（group proportion shifts）和组内（intra-group distributional shifts）不确定性。使用W_∞距离在语义空间定义组内模糊集，在标准基准上达SOTA，且在新设计的少数群体分布偏移设置下——其他方法均失败时——仍保持强鲁棒性。"
 tags:
   - ICLR 2026
-  - 虚假相关
-  - 分布鲁棒优化
-  - 层次模糊集
 ---
 
 # Mitigating Spurious Correlation via Distributionally Robust Learning with Hierarchical Ambiguity Sets

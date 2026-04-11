@@ -2,9 +2,6 @@
 description: "【论文笔记】SR3R: Rethinking Super-Resolution 3D Reconstruction With Feed-Forward Gaussian Splatting 论文解读 | CVPR2026 | arXiv 2602.24020 | 3D超分辨率 | 将3D超分辨率(3DSR)重新定义为从稀疏低分辨率视图到高分辨率3DGS的**前馈映射**问题，通过高斯偏移学习和特征精炼实现高保真HR 3DGS重建，无需逐场景优化即可实现强零样本泛化。"
 tags:
   - CVPR2026
-  - 3D超分辨率
-  - 3D高斯溅射
-  - 前馈重建
 ---
 
 # SR3R: Rethinking Super-Resolution 3D Reconstruction With Feed-Forward Gaussian Splatting

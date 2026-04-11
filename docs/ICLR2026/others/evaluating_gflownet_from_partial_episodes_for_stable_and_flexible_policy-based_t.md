@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating GFlowNet from Partial Episodes for Stable and Flexible Policy-Based Training 论文解读 | ICLR 2026 | arXiv 2603.01047 | GFlowNet | 建立GFlowNet中状态流函数与策略评价函数之间的理论联系，提出子轨迹评价平衡（Sub-EB）目标用于可靠学习评价函数，增强策略基GFlowNet训练的稳定性和灵活性。"
 tags:
   - ICLR 2026
-  - GFlowNet
-  - 策略梯度
-  - 评价函数
 ---
 
 # Evaluating GFlowNet from Partial Episodes for Stable and Flexible Policy-Based Training

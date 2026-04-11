@@ -2,9 +2,6 @@
 description: "【论文笔记】IdealTSF: Can Non-Ideal Data Contribute to Enhancing Time Series Forecasting? 论文解读 | AAAI 2026 | arXiv 2512.05442 | 时序预测 | 提出 IdealTSF 框架，通过三阶段渐进式设计——负样本预训练（用稳定分布+多尺度噪声+结构删除模拟非理想数据）、正样本训练（混合平滑插值修复数据）、ECOS 优化器（对抗扰动引导到平坦极值）——使基础 attention 模型在含噪声/缺失的时序数据上获得约 10% 的性能提升。"
 tags:
   - AAAI 2026
-  - 时序预测
-  - 负样本预训练
-  - 对抗训练
 ---
 
 # IdealTSF: Can Non-Ideal Data Contribute to Enhancing Time Series Forecasting?

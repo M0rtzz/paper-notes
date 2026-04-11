@@ -2,9 +2,6 @@
 description: "【论文笔记】Reflective Translation: Improving Low-Resource Machine Translation via Structured Self-Reflection 论文解读 | NeurIPS 2025 | arXiv 2601.19871 | 低资源机器翻译 | 提出Reflective Translation提示框架，让LLM通过结构化的多轮自我评估和修正来改善低资源语言翻译质量，在英语-isiZulu和英语-isiXhosa上取得统计显著的改进。"
 tags:
   - NeurIPS 2025
-  - 低资源机器翻译
-  - 自反省
-  - 提示工程
 ---
 
 # Reflective Translation: Improving Low-Resource Machine Translation via Structured Self-Reflection

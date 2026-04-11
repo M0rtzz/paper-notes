@@ -2,9 +2,6 @@
 description: "【论文笔记】Riemannian Consistency Model 论文解读 | NeurIPS 2025 | arXiv 2510.00983 | 一致性模型 | 首次将一致性模型（Consistency Model）扩展到黎曼流形上，利用指数映射参数化和协变导数推导出离散和连续时间 RCM 目标函数，实现在球面、平坦环面和 SO(3) 等非欧几何上的高质量少步生成。"
 tags:
   - NeurIPS 2025
-  - 一致性模型
-  - 黎曼流形
-  - 流匹配
 ---
 
 # Riemannian Consistency Model

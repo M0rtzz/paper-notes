@@ -2,9 +2,6 @@
 description: "【论文笔记】Diversity by Design: Leveraging Distribution Matching for Offline Model-Based Optimization 论文解读 | ICML 2025 | arXiv 2501.18768 | 离线模型优化 | DynAMO 在离线模型优化 (MBO) 中将设计多样性建模为分布匹配问题，通过对抗训练使生成设计的分布捕捉离线数据集中的固有多样性，在多个科学领域显著提升候选方案的多样性而不牺牲质量。"
 tags:
   - ICML 2025
-  - 离线模型优化
-  - 设计多样性
-  - 分布匹配
 ---
 
 # Diversity by Design: Leveraging Distribution Matching for Offline Model-Based Optimization

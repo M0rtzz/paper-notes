@@ -2,9 +2,6 @@
 description: "【论文笔记】CrossGLG: LLM Guides One-Shot Skeleton-Based 3D Action Recognition in a Cross-Level Manner 论文解读 | ECCV 2024 | arXiv 2403.10082 | 骨架动作识别 | 提出CrossGLG框架，利用LLM生成的文本描述以\"全局→局部→全局\"的方式引导骨架特征学习，在单样本3D动作识别中以仅2.8%的SOTA模型参数量大幅超越对手。"
 tags:
   - ECCV 2024
-  - 骨架动作识别
-  - 单样本学习
-  - 大语言模型
 ---
 
 # CrossGLG: LLM Guides One-Shot Skeleton-Based 3D Action Recognition in a Cross-Level Manner

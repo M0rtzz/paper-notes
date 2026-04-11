@@ -2,9 +2,6 @@
 description: "【论文笔记】SCoPe: Intrinsic Semantic Space Control for Mitigating Copyright Infringement in LLMs 论文解读 | AAAI 2026 | arXiv 2511.07001 | 版权保护 | 将LLM版权侵权缓解问题重新定义为内在语义空间控制，利用稀疏自编码器(SAE)将隐状态映射到高维稀疏空间，识别版权敏感子空间并在解码时钳制其激活，无需外部过滤器或参数更新即可有效减少版权内容复制，同时保持模型通用能力。"
 tags:
   - AAAI 2026
-  - 版权保护
-  - 稀疏自编码器(SAE)
-  - 语义子空间
 ---
 
 # SCoPe: Intrinsic Semantic Space Control for Mitigating Copyright Infringement in LLMs

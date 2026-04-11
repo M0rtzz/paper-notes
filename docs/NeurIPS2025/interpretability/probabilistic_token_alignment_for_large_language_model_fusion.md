@@ -2,9 +2,6 @@
 description: "【论文笔记】Probabilistic Token Alignment for Large Language Model Fusion 论文解读 | NeurIPS 2025 | arXiv 2509.17276 | Optimal Transport | 将 LLM 融合中的 token 对齐问题重新建模为最优传输（Optimal Transport）问题，用动态 token 配对 + Sinkhorn 算法实现\"软\"概率对齐取代传统硬映射，在 6 大基准 78 个任务上相比 FuseLLM 平均提升 +1.72%，同时在困难任务上大幅缓解性能退化（从 -13.04% 降至 -4.07%）。"
 tags:
   - NeurIPS 2025
-  - Optimal Transport
-  - Sinkhorn算法
-  - 概率Token对齐
 ---
 
 # Probabilistic Token Alignment for Large Language Model Fusion

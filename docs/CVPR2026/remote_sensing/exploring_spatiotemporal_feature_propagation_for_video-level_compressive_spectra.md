@@ -2,9 +2,7 @@
 description: "【论文笔记】Exploring Spatiotemporal Feature Propagation for Video-Level Compressive Spectral Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.00611 | 光谱压缩成像 | 首次将光谱压缩成像 (SCI) 从图像级推进到视频级重建，构建了首个高质量动态高光谱数据集 DynaSpec，提出 PG-SVRT Transformer 通过时空特征传播实现高光谱视频高质量、时间一致的重建。"
 tags:
   - CVPR 2026
-  - 光谱压缩成像
-  - 高光谱视频重建
-  - 时空特征传播
+  - Transformer
 ---
 
 # Exploring Spatiotemporal Feature Propagation for Video-Level Compressive Spectral Reconstruction

@@ -2,9 +2,6 @@
 description: "【论文笔记】PermLLM: Learnable Channel Permutation for N:M Sparse Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.10136 | N:M稀疏 | 提出 PermLLM，首个可学习通道排列（LCP）框架，通过Sinkhorn归一化将离散排列矩阵松弛为可微分的软排列矩阵实现端到端优化，结合块级排列策略大幅降低计算开销，有效提升N:M稀疏LLM的性能。"
 tags:
   - NeurIPS 2025
-  - N:M稀疏
-  - 通道排列
-  - 模型剪枝
 ---
 
 # PermLLM: Learnable Channel Permutation for N:M Sparse Large Language Models

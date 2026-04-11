@@ -2,9 +2,6 @@
 description: "【论文笔记】Doubly Robust Alignment for Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.01183 | RLHF | DRPO 借鉴因果推断中的双重稳健估计方法，提出一种偏好优化算法，当偏好模型或参考策略任一正确指定时即可保持一致性，在理论和实验上均优于 PPO/DPO 及其变体。"
 tags:
   - NeurIPS 2025
-  - RLHF
-  - 双重稳健
-  - 偏好优化
 ---
 
 # Doubly Robust Alignment for Large Language Models

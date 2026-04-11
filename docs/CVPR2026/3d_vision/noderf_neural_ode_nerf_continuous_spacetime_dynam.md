@@ -2,9 +2,6 @@
 description: "【论文笔记】Node-RF: Learning Generalized Continuous Space-Time Scene Dynamics with Neural ODE-based NeRFs 论文解读 | CVPR 2026 | arXiv 2603.12078 | Neural ODE | Node-RF 将 Neural ODE 与 NeRF 紧密耦合，通过在隐空间中用微分方程建模场景动态演化，实现了超越训练时间范围的长程外推、跨序列泛化以及动态系统行为分析。"
 tags:
   - CVPR 2026
-  - Neural ODE
-  - NeRF
-  - 动态场景
 ---
 
 # Node-RF: Learning Generalized Continuous Space-Time Scene Dynamics with Neural ODE-based NeRFs

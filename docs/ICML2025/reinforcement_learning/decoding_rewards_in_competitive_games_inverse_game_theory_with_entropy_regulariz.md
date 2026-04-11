@@ -2,9 +2,6 @@
 description: "【论文笔记】Decoding Rewards in Competitive Games: Inverse Game Theory with Entropy Regularization 论文解读 | ICML2025 | arXiv 2601.12707 | 逆博弈论 | 提出基于熵正则化的零和博弈逆问题统一框架，利用 Quantal Response Equilibrium (QRE) 在线性假设下建立奖励函数的可辨识性条件，并给出从观测动作恢复奖励函数的置信集构造算法，附带 $\mathcal{O}(T^{-1/2})$ 收敛速率保证。"
 tags:
   - ICML2025
-  - 逆博弈论
-  - 零和博弈
-  - 熵正则化
 ---
 
 # Decoding Rewards in Competitive Games: Inverse Game Theory with Entropy Regularization

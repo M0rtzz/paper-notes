@@ -2,9 +2,6 @@
 description: "【论文笔记】From 2D Alignment to 3D Plausibility: Unifying Heterogeneous 2D Priors and Penetration-Free Diffusion for Occlusion-Robust Two-Hand Reconstruction 论文解读 | CVPR 2026 | arXiv 2503.17788 | 双手重建 | 将双手重建解耦为 2D 结构对齐（融合关键点/分割/深度先验）和 3D 空间交互对齐（穿透消除扩散模型），在 InterHand2.6M 上 MPJPE 达到 5.36mm，大幅超越 SOTA。"
 tags:
   - CVPR 2026
-  - 双手重建
-  - 2D先验融合
-  - 扩散模型
 ---
 
 # From 2D Alignment to 3D Plausibility: Unifying Heterogeneous 2D Priors and Penetration-Free Diffusion for Occlusion-Robust Two-Hand Reconstruction

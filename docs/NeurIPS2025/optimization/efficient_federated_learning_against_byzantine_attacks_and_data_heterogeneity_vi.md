@@ -2,10 +2,7 @@
 description: "【论文笔记】Efficient Federated Learning against Byzantine Attacks and Data Heterogeneity via Aggregating Normalized Gradients 论文解读 | NeurIPS 2025 | arXiv 2408.09539 | 联邦学习 Federated Learning | 提出 Fed-NGA 算法，通过对客户端上传的梯度做归一化后加权平均来实现聚合，以 $\mathcal{O}(pM)$ 的极低时间复杂度同时抵御 Byzantine 攻击与数据异质性，并在非凸损失函数下首次证明了特定温和条件下的零最优性间隙收敛。"
 tags:
   - NeurIPS 2025
-  - Federated Learning
   - 联邦学习
-  - Byzantine Robustness
-  - Gradient Normalization
 ---
 
 # Efficient Federated Learning against Byzantine Attacks and Data Heterogeneity via Aggregating Normalized Gradients

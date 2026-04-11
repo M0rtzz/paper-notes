@@ -2,9 +2,6 @@
 description: "【论文笔记】Atomic Diffusion Models for Small Molecule Structure Elucidation from NMR Spectra 论文解读 | NEURIPS2025 | arXiv 2512.03127 | NMR光谱 | 提出 ChefNMR，首个基于 3D 原子扩散模型的端到端框架，仅从 1D NMR 光谱和化学式直接预测未知小分子（尤其是复杂天然产物）的分子结构，在合成和实验数据集上均达到 SOTA。"
 tags:
   - NEURIPS2025
-  - NMR光谱
-  - 分子结构解析
-  - 扩散模型
 ---
 
 # Atomic Diffusion Models for Small Molecule Structure Elucidation from NMR Spectra

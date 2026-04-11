@@ -2,9 +2,6 @@
 description: "【论文笔记】The Impact of Scaling Training Data on Adversarial Robustness 论文解读 | NeurIPS 2025 | arXiv 2509.25927 | 对抗鲁棒性 | 系统评估 36 个 SOTA 视觉模型在 6 类黑盒攻击下的鲁棒性，发现攻击成功率(ASR)随数据量和模型规模按对数律下降，但 **数据质量和模型规模比数据量本身更关键**。"
 tags:
   - NeurIPS 2025
-  - 对抗鲁棒性
-  - 缩放定律
-  - 黑盒攻击
 ---
 
 # The Impact of Scaling Training Data on Adversarial Robustness

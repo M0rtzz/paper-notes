@@ -2,9 +2,6 @@
 description: "【论文笔记】GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction 论文解读 | CVPR 2026 | arXiv 2603.21943 | 跨视图地理定位 | 提出GeoFlow，将精细跨视图地理定位(FG-CVG)重新表述为概率位移回归——模型学习从任意假设位置到真实位置的位移场(距离+方向的概率分布)，配合迭代精化采样(IRS)算法让多个随机假设从不同起点\"流向\"共识位置，以7.8×更少参数和4×更少计算量实现29FPS实时推理+竞争性定位精度。"
 tags:
   - CVPR 2026
-  - 跨视图地理定位
-  - 流预测
-  - 迭代精化
 ---
 
 # GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction

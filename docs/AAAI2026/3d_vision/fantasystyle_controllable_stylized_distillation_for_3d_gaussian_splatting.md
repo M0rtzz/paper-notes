@@ -2,9 +2,6 @@
 description: "【论文笔记】FantasyStyle: Controllable Stylized Distillation for 3D Gaussian Splatting 论文解读 | AAAI 2026 | arXiv 2508.08136 | 3DGS风格迁移 | 本文提出FantasyStyle，首个完全基于扩散模型蒸馏的3DGS风格迁移框架，通过多视图频率一致性（MVFC）机制抑制低频分量减少视角间冲突，并设计可控风格化蒸馏（CSD）引入负引导消除风格图像的内容泄漏，在风格化质量和内容保持上均超越现有VGG和扩散方法。"
 tags:
   - AAAI 2026
-  - 3DGS风格迁移
-  - 扩散模型蒸馏
-  - 多视图一致性
 ---
 
 # FantasyStyle: Controllable Stylized Distillation for 3D Gaussian Splatting

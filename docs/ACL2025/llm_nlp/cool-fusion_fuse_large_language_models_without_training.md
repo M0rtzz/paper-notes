@@ -2,9 +2,6 @@
 description: "【论文笔记】Cool-Fusion: Fuse Large Language Models without Training 论文解读 | ACL 2025 | arXiv 2407.19807 | LLM融合 | 提出 Cool-Fusion，一种无需任何训练即可融合异构 LLM 的方法，通过在文本段粒度上让多个模型互相评估和重排序生成内容，在 GSM8K 上相对最强源模型提升 17.4% 准确率。"
 tags:
   - ACL 2025
-  - LLM融合
-  - 无训练集成
-  - 困惑度重排序
 ---
 
 # Cool-Fusion: Fuse Large Language Models without Training

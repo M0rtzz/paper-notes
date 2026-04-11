@@ -2,9 +2,6 @@
 description: "【论文笔记】Automated Structured Radiology Report Generation 论文解读 | ACL 2025 | arXiv 2505.24223 | 放射学报告生成 | 提出结构化放射学报告生成（SRRG）新任务，利用LLM将自由文本报告重构为标准化格式，同时引入55标签的SRR-BERT疾病分类模型和F1-SRR-BERT评估指标，解决传统报告生成中风格多样导致的生成与评估困难。"
 tags:
   - ACL 2025
-  - 放射学报告生成
-  - 结构化报告
-  - 疾病分类
 ---
 
 # Automated Structured Radiology Report Generation

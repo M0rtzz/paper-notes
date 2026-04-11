@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Selection Bias with Node Pruning and Auxiliary Options 论文解读 | ACL 2025 | arXiv 2409.18857 | 选择偏差 | 提出Bias Node Pruning (BNP)和Auxiliary Option Injection (AOI)两种互补方法，从模型内部和输入端同时缓解LLM在多选题中的选择偏差，仅剪除0.002%权重即可将Llama-3准确率从52.3%提升至65.3%（+24.9%组合提升）。"
 tags:
   - ACL 2025
-  - 选择偏差
-  - 模型剪枝
-  - 多选题
 ---
 
 # Mitigating Selection Bias with Node Pruning and Auxiliary Options

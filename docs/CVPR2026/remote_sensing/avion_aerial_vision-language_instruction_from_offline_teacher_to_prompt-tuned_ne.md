@@ -2,9 +2,6 @@
 description: "【论文笔记】AVION: Aerial Vision-Language Instruction from Offline Teacher to Prompt-Tuned Network 论文解读 | CVPR 2026 | arXiv 2603.12659 | 视觉-语言模型 | 提出 AVION 知识蒸馏框架，通过 LLM 生成语义丰富的文本原型和视觉-文本双侧提示调优，解决遥感 VLM 适配中的语义贫乏和视觉刚性问题，在少样本分类、基类到新类泛化和跨模态检索上全面超越 SOTA。"
 tags:
   - CVPR 2026
-  - 视觉-语言模型
-  - 知识蒸馏
-  - 参数高效微调
 ---
 
 # AVION: Aerial Vision-Language Instruction from Offline Teacher to Prompt-Tuned Network

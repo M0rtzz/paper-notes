@@ -2,10 +2,7 @@
 description: "【论文笔记】If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation? 论文解读 | ACL 2025 | arXiv 2502.11469 | 注意力机制 Attention | 本文探究 Transformer Grammar（TG）的注意力机制能否作为人类记忆检索的认知模型，通过 Normalized Attention Entropy（NAE）将模型与人类阅读时间关联，发现基于句法结构的注意力比基于 token 的注意力更能解释人类句子处理行为，且两者提供独立互补的贡献。"
 tags:
   - ACL 2025
-  - Attention
   - 注意力机制
-  - 人类记忆检索
-  - Transformer Grammar
   - Transformer
 ---
 

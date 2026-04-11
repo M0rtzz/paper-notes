@@ -2,9 +2,6 @@
 description: "【论文笔记】SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking 论文解读 | CVPR 2026 | arXiv 2602.23963 | 脉冲神经网络 | 提出 SpikeTrack，首个完全符合脉冲驱动范式的 RGB 视觉跟踪框架，通过非对称时间步扩展、单向信息流和脑启发记忆检索模块（MRM），在 SNN 跟踪器中达到 SOTA 并与 ANN 跟踪器持平，同时能耗仅为 TransT 的 1/26。"
 tags:
   - CVPR 2026
-  - 脉冲神经网络
-  - 视觉跟踪
-  - 能效
 ---
 
 # SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking

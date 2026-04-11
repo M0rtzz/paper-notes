@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient and Reliable Hitting-Set Computations for the Implicit Hitting Set Approach 论文解读 | AAAI 2026 | arXiv 2508.07015 | 隐式打击集 | 探索IHS框架中打击集计算的替代方案（PB推理+随机局部搜索），发现商业IP最高效但有数值不稳定性，PB推理可提供竞争性效率+正确性保证+计算证书。"
 tags:
   - AAAI 2026
-  - 隐式打击集
-  - PB推理
-  - IP求解器
 ---
 
 # Efficient and Reliable Hitting-Set Computations for the Implicit Hitting Set Approach

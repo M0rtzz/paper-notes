@@ -2,10 +2,7 @@
 description: "【论文笔记】PrefixKV: Adaptive Prefix KV Cache is What Vision Instruction-Following Models Need for Efficient Generation 论文解读 | NeurIPS 2025 | arXiv 2412.03409 | KV cache compression | 提出 PrefixKV，将 LVLM 各层 KV 缓存大小的确定转化为搜索最优全局前缀配置的问题，通过二分搜索找到信息保留阈值实现自适应逐层 KV 保留，在 20% 压缩率下仍保持接近原模型性能，提供 1.8× 推理加速。"
 tags:
   - NeurIPS 2025
-  - KV cache compression
-  - vision-language model
   - 视觉语言
-  - adaptive layer-wise
 ---
 
 # PrefixKV: Adaptive Prefix KV Cache is What Vision Instruction-Following Models Need for Efficient Generation

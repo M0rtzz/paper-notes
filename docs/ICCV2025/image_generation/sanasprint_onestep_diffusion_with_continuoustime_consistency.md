@@ -2,10 +2,7 @@
 description: "【论文笔记】SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation 论文解读 | ICCV 2025 | arXiv 2503.09641 | 扩散模型 one-step diffusion | 将预训练的SANA flow matching模型通过无损数学变换转化为TrigFlow，结合连续时间一致性蒸馏（sCM）和潜空间对抗蒸馏（LADD）的混合策略，实现统一的1-4步自适应高质量图像生成，1步生成1024×1024图像仅需0.1s（H100），以7.59 FID和0.74 GenEval超越FLUX-schnell且速度快10倍。"
 tags:
   - ICCV 2025
-  - one-step diffusion
   - 扩散模型
-  - consistency distillation
-  - flow matching
 ---
 
 # SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation

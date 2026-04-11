@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking the Bias of Foundation Model under Long-tailed Distribution 论文解读 | ICML 2025 | arXiv 2501.15955 | 长尾学习 | 揭示基础模型微调在长尾任务上受\"参数不平衡\"（预训练数据偏差）和\"数据不平衡\"（下游数据偏差）的双重影响，发现参数不平衡更关键且无法被现有 logit 调整方法解决，提出基于因果后门调整的方法消除不完整语义因子的混杂效应，在三个长尾基准上平均提升约 1.67%。"
 tags:
   - ICML 2025
-  - 长尾学习
-  - 基础模型偏差
-  - 参数不平衡
 ---
 
 # Rethinking the Bias of Foundation Model under Long-tailed Distribution

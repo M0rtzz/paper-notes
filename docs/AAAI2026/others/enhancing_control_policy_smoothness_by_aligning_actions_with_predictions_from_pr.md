@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Control Policy Smoothness by Aligning Actions with Predictions from Preceding States 论文解读 | AAAI 2026 | arXiv 2601.18479 | 强化学习 | 提出 **ASAP（Action Smoothing by Aligning Actions with Predictions from Preceding States）**，一种基于**转移诱导相似状态定义**的强化学习动作平滑方法，通过空间约束（对齐前一状态的预测动作）和时间约束（惩罚二阶动作差异）有效抑制高频动作振荡，在 Gymnasium 和 Isaac-Lab 环境中优于现有方法。"
 tags:
   - AAAI 2026
-  - 强化学习
-  - 动作平滑
-  - Lipschitz约束
 ---
 
 # Enhancing Control Policy Smoothness by Aligning Actions with Predictions from Preceding States

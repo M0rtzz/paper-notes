@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning 论文解读 | ACL 2025 | arXiv 2411.17679 | Token Internal Structure | 提出 TIPA（Token Internal Position Awareness）方法，通过在 tokenizer 词汇表上进行逆序字符预测训练，增强 LLM 对 token 内部字符结构和位置的感知能力，显著提升中文拼写纠错等字符级任务的表现。"
 tags:
   - ACL 2025
-  - Token Internal Structure
-  - Character-Level Understanding
-  - BPE Tokenization
 ---
 
 # Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning

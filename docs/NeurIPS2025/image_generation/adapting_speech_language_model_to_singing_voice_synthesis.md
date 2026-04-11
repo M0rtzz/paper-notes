@@ -2,9 +2,6 @@
 description: "【论文笔记】Adapting Speech Language Model to Singing Voice Synthesis 论文解读 | NeurIPS 2025 (Workshop) | arXiv 2512.14657 | Speech Language Model | 将 1.7B 参数的 TTS 预训练 Speech Language Model 适配到歌声合成（SVS）任务，通过乐谱 tokenization + multi-stream LM 预测 + conditional flow matching 精修 + vocoder，仅用 135 小时合成歌声数据达到与专用 SVS 系统可比的性能。"
 tags:
   - NeurIPS 2025 (Workshop)
-  - Speech Language Model
-  - SVS
-  - Flow Matching
 ---
 
 # Adapting Speech Language Model to Singing Voice Synthesis

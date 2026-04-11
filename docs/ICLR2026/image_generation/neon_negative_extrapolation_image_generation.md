@@ -2,9 +2,6 @@
 description: "【论文笔记】Neon: Negative Extrapolation From Self-Training Improves Image Generation 论文解读 | ICLR 2026 Oral | arXiv 2510.03597 | self-training | 提出 Neon，一种仅需 <1% 额外训练计算的后处理方法：先用模型自身生成的合成数据微调导致退化，再反向外推远离退化权重，证明 mode-seeking 采样器导致合成/真实数据梯度反对齐，因此负外推等价于向真实数据分布优化，在 ImageNet 256×256 上将 xAR-L 提升至 SOTA FID 1.02。"
 tags:
   - ICLR 2026 Oral
-  - self-training
-  - model collapse
-  - weight merging
 ---
 
 # Neon: Negative Extrapolation From Self-Training Improves Image Generation

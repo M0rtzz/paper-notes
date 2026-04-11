@@ -2,9 +2,6 @@
 description: "【论文笔记】Split Gibbs Discrete Diffusion Posterior Sampling 论文解读 | NeurIPS 2025 | arXiv 2503.01161 | 离散扩散模型 | 提出 SGDD（Split Gibbs Discrete Diffusion），一种基于分裂 Gibbs 采样原理的即插即用离散扩散后验采样算法，通过引入辅助变量和基于 Hamming 距离的正则化势函数，将后验采样分解为似然采样步和先验采样步交替进行，在 DNA 序列设计、离散图像逆问题和音乐填充等任务上大幅超越基线。"
 tags:
   - NeurIPS 2025
-  - 离散扩散模型
-  - 后验采样
-  - Split Gibbs Sampling
 ---
 
 # Split Gibbs Discrete Diffusion Posterior Sampling

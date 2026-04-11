@@ -2,9 +2,7 @@
 description: "【论文笔记】BEAT: Visual Backdoor Attacks on VLM-based Embodied Agents via Contrastive Trigger Learning 论文解读 | ICLR 2026 | arXiv 2510.27623 | backdoor attack | 提出 BEAT，首个针对 VLM 驱动具身智能体的视觉后门攻击框架，使用环境中的物体（如刀具）作为触发器，通过两阶段训练（SFT + Contrastive Trigger Learning）实现精准的后门激活，攻击成功率最高 80%，同时维持正常任务性能，揭示了 VLM 具身智能体的关键安全漏洞。"
 tags:
   - ICLR 2026
-  - backdoor attack
-  - embodied agent
-  - VLM security
+  - 对比学习
 ---
 
 # BEAT: Visual Backdoor Attacks on VLM-based Embodied Agents via Contrastive Trigger Learning

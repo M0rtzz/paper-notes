@@ -2,9 +2,6 @@
 description: "【论文笔记】Meta-Black-Box-Optimization through Offline Q-function Learning (Q-Mamba) 论文解读 | ICML2025 | arXiv 2505.02010 | Meta-BBO | 提出 Q-Mamba，首个离线 MetaBBO 框架，通过 Q 函数分解 + 保守 Q 学习 + Mamba 架构，在不到在线方法一半训练预算下达到可比甚至更优的 BBO 算法配置性能。"
 tags:
   - ICML2025
-  - Meta-BBO
-  - 离线强化学习
-  - Q函数分解
 ---
 
 # Meta-Black-Box-Optimization through Offline Q-function Learning (Q-Mamba)

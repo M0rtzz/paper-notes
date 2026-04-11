@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Disparate Impact of Differentially Private Learning through Bounded Adaptive Clipping 论文解读 | NeurIPS 2025 | arXiv 2506.01396 | 差分隐私 | 通过在自适应梯度剪裁中引入可调整的下界（bounded adaptive clipping），防止 clipping bound 在训练过程中过度萎缩，从而改善少数群体的精度，在 DP 约束下缓解算法不公平。"
 tags:
   - NeurIPS 2025
-  - 差分隐私
-  - 公平性
-  - 梯度剪裁
 ---
 
 # Mitigating Disparate Impact of Differentially Private Learning through Bounded Adaptive Clipping

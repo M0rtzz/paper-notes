@@ -2,9 +2,6 @@
 description: "【论文笔记】LightsOut: Diffusion-based Outpainting for Enhanced Lens Flare Removal 论文解读 | ICCV 2025 | arXiv 2510.15868 | 镜头光斑去除 | 提出 LightsOut，一个基于扩散模型的图像外推框架，通过预测和重建画面外的光源来增强现有单图光斑去除(SIFR)方法的性能，作为即插即用的预处理模块无需额外训练即可提升任意 SIFR 模型的效果。"
 tags:
   - ICCV 2025
-  - 镜头光斑去除
-  - 扩散模型
-  - 图像外推
 ---
 
 # LightsOut: Diffusion-based Outpainting for Enhanced Lens Flare Removal

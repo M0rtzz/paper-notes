@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Utility-Preserving Text Anonymization Based on Large Language Models 论文解读 | ACL 2025 | arXiv 2407.11770 | 文本匿名化 | 提出RUPTA框架，通过隐私评估器、效用评估器和优化器三个LLM组件协同工作，迭代编辑文本以实现防御LLM重识别攻击的同时保留下游任务效用，并通过DPO蒸馏将匿名化能力迁移到轻量模型。"
 tags:
   - ACL 2025
-  - 文本匿名化
-  - 隐私保护
-  - LLM重识别
 ---
 
 # Robust Utility-Preserving Text Anonymization Based on Large Language Models

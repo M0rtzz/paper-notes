@@ -2,9 +2,6 @@
 description: "【论文笔记】PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion 论文解读 | ICML 2025 | arXiv 2412.17780 | 治疗性肽设计 | PepTune 结合 Masked Discrete Language Model (MDLM) 和蒙特卡罗树搜索 (MCTS) 多目标引导策略，在离散肽 SMILES 空间中同时优化多种治疗属性（结合亲和力、溶解性、膜通透性等），生成含非天然氨基酸和环化修饰的从头设计肽药物。"
 tags:
   - ICML 2025
-  - 治疗性肽设计
-  - 离散扩散
-  - 多目标优化
 ---
 
 # PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion

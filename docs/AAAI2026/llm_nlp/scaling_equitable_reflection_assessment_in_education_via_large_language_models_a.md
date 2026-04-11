@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Equitable Reflection Assessment in Education via Large Language Models 论文解读 | AAAI 2026 | arXiv 2511.11772 | 教育评估 | 研究用 LLM 自动评估教育场景中学生的反思写作质量——在保持与人类评分者高一致性的同时，系统分析了 LLM 评估在种族、性别、社会经济背景等维度上的公平性，发现 LLM 评分可以达到甚至超越人类评分者间的一致性，但在某些人口统计维度上仍存在偏差。"
 tags:
   - AAAI 2026
-  - 教育评估
-  - LLM评分
-  - 反思写作
 ---
 
 # Scaling Equitable Reflection Assessment in Education via Large Language Models

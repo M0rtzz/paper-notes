@@ -2,9 +2,6 @@
 description: "【论文笔记】A Fano-Style Accuracy Upper Bound for LLM Single-Pass Reasoning in Multi-Hop QA 论文解读 | ICLR 2026 | arXiv 2509.21199 | 多跳问答 | 用信息论推导出 LLM 单次推理在多跳 QA 中的 Fano 式准确率上界，揭示当任务信息需求超过模型输出容量时准确率会\"悬崖式\"骤降的现象，并据此设计多轮推理框架 InfoQA，通过容量感知分解、依赖显式工作流和迭代查询压缩来突破单次推理瓶颈。"
 tags:
   - ICLR 2026
-  - 多跳问答
-  - 信息论
-  - Fano不等式
 ---
 
 # A Fano-Style Accuracy Upper Bound for LLM Single-Pass Reasoning in Multi-Hop QA

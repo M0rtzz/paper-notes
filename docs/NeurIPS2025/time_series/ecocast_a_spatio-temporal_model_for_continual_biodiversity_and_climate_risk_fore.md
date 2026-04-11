@@ -2,8 +2,6 @@
 description: "【论文笔记】EcoCast: Spatio-Temporal Model for Continual Biodiversity Forecasting 论文解读 | NeurIPS 2025 | arXiv 2512.02260 | 生物多样性预测 | 提出EcoCast，基于Transformer的时空模型，整合Sentinel-2、ERA5和GBIF数据进行近期物种分布预测，配合EWC持续学习机制，在非洲鸟类分布预测上F1从0.31提升至0.65。"
 tags:
   - NeurIPS 2025
-  - 生物多样性预测
-  - 物种分布
   - Transformer
 ---
 

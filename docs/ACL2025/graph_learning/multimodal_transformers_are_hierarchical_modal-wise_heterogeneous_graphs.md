@@ -2,8 +2,6 @@
 description: "【论文笔记】Multimodal Transformers are Hierarchical Modal-wise Heterogeneous Graphs 论文解读 | ACL 2025 | arXiv 2505.01068 | 多模态情感分析 | 从图论视角证明了多模态 Transformer（MulTs）本质上是层次化模态异质图（HMHG），并基于此提出 GsiT 模型，通过 Interlaced Mask 机制实现仅 1/3 参数的 All-Modal-In-One 融合，同时性能显著超越传统 MulTs。"
 tags:
   - ACL 2025
-  - 多模态情感分析
-  - 图结构
   - Transformer
 ---
 

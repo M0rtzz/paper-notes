@@ -2,9 +2,6 @@
 description: "【论文笔记】Split-Layer: Enhancing Implicit Neural Representation by Maximizing the Dimensionality of Feature Space 论文解读 | AAAI 2026 | arXiv 2511.10142 | 隐式神经表示 | 提出 Split-Layer，将 MLP 全连接层拆分为多个并行分支并用 Hadamard 积整合输出，在不增加参数和计算的前提下将特征空间维度从 $C$ 指数级扩展到 $\binom{C/\sqrt{N}+N-1}{N}$，显著提升隐式神经表示（INR）的表征能力。"
 tags:
   - AAAI 2026
-  - 隐式神经表示
-  - 特征空间
-  - MLP重构
 ---
 
 # Split-Layer: Enhancing Implicit Neural Representation by Maximizing the Dimensionality of Feature Space

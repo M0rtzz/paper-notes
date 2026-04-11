@@ -2,9 +2,6 @@
 description: "【论文笔记】InfoSEM: A Deep Generative Model with Informative Priors for Gene Regulatory Network Inference 论文解读 | ICML2025 | arXiv 2503.04483 | 基因调控网络 | 提出InfoSEM——无监督生成框架利用文本基因嵌入作为信息先验推断基因调控网络(GRN)：无需GT标签即超越监督方法38.5%，有标签作为额外先验时再提11.1%，同时发现现有监督方法学到的是基因特定偏差而非真正的调控机制。"
 tags:
   - ICML2025
-  - 基因调控网络
-  - 无监督生成模型
-  - 文本嵌入先验
 ---
 
 # InfoSEM: A Deep Generative Model with Informative Priors for Gene Regulatory Network Inference

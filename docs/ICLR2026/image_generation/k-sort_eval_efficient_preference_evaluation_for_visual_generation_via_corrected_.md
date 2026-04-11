@@ -2,9 +2,6 @@
 description: "【论文笔记】K-Sort Eval: Efficient Preference Evaluation for Visual Generation via Corrected VLM-as-a-Judge 论文解读 | ICLR 2026 | arXiv 2602.09411 | VLM-as-a-Judge | 提出 K-Sort Eval 框架，通过后验校正和动态匹配策略，使 VLM 能可靠高效地替代人类进行视觉生成模型的偏好评估，通常只需不到 90 次模型运行即可得出与人类 Arena 一致的结果。"
 tags:
   - ICLR 2026
-  - VLM-as-a-Judge
-  - 偏好评估
-  - 后验校正
 ---
 
 # K-Sort Eval: Efficient Preference Evaluation for Visual Generation via Corrected VLM-as-a-Judge

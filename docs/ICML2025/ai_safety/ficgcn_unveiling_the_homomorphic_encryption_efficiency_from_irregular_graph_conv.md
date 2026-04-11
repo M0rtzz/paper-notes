@@ -2,9 +2,6 @@
 description: "【论文笔记】FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks 论文解读 | ICML2025 | arXiv 2506.10399 | 同态加密 | 提出FicGCN框架利用GCN的稀疏特性在同态加密(HE)下实现高效隐私推理：延迟感知打包方案+稀疏密文内聚合(SpIntra-CA)+区域数据重排，在保护数据隐私的同时比最新方案加速4.10倍。"
 tags:
   - ICML2025
-  - 同态加密
-  - 图卷积网络
-  - 隐私推理
 ---
 
 # FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks

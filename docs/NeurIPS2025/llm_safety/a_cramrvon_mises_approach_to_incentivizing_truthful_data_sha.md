@@ -2,9 +2,6 @@
 description: "【论文笔记】A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing 论文解读 | NeurIPS 2025 | arXiv 2506.07272 | 数据共享激励 | 提出一种基于 Cramér-von Mises 两样本检验统计量的激励机制，在贝叶斯和无先验两种设定下均能证明\"如实提交数据\"构成（近似）Nash 均衡，同时鼓励参与者提交更多真实数据，且不依赖对数据分布的强假设（如高斯、伯努利）。"
 tags:
   - NeurIPS 2025
-  - 数据共享激励
-  - Cramér-von Mises 检验
-  - Nash 均衡
 ---
 
 # A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization 论文解读 | ICLR 2026 | arXiv 2510.08916 | Hawkes过程 | 为线性多元 Hawkes 过程在 RKHS 框架下的触发核估计建立了新型表示定理，证明最优估计器可用等价核在数据点上的线性组合表示且对偶系数全部解析地等于 1，无需求解对偶优化问题，从而实现高效可扩展的非参数估计。"
 tags:
   - ICLR 2026
-  - Hawkes过程
-  - 表示定理
-  - RKHS
 ---
 
 # A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization

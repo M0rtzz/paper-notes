@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Adaptive Distribution Alignment with Neural Characteristic Function for Graph Domain Adaptation 论文解读 | ICLR 2026 | arXiv 2602.10489 | 图域适应 | 提出ADAlign框架，利用神经特征函数在谱域自适应对齐源/目标图分布——无需手动选择对齐标准，自动识别每个迁移场景中最显著的分布差异。在10个数据集16个迁移任务上达SOTA，同时降低内存和训练时间。"
 tags:
   - ICLR 2026
-  - 图域适应
-  - 特征函数
-  - 谱域对齐
 ---
 
 # Learning Adaptive Distribution Alignment with Neural Characteristic Function for Graph Domain Adaptation

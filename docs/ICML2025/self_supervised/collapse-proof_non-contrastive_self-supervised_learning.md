@@ -2,9 +2,6 @@
 description: "【论文笔记】Collapse-Proof Non-Contrastive Self-Supervised Learning 论文解读 | ICML 2025 | arXiv 2410.04959 | 非对比自监督学习 | 提出 FALCON 方法，基于超维计算 (hyperdimensional computing) 原理设计投影器和损失函数，理论证明可同时避免四种已知训练失败模式（表示崩塌、维度崩塌、聚类崩塌、簇内崩塌），并使表征自然具备去相关和聚类特性。"
 tags:
   - ICML 2025
-  - 非对比自监督学习
-  - 崩塌避免
-  - 超维计算
 ---
 
 # Collapse-Proof Non-Contrastive Self-Supervised Learning

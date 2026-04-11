@@ -2,9 +2,6 @@
 description: "【论文笔记】MyVLM: Personalizing VLMs for User-Specific Queries 论文解读 | ECCV 2024 | arXiv 2403.14599 | VLM个性化 | 提出MyVLM，通过外部概念识别头（concept head）和可学习的概念嵌入向量（concept embedding），在不修改VLM原始权重的情况下实现个性化视觉语言交互——仅需3-5张图片即可让VLM识别并描述用户特定概念（如\"你的狗\"、\"你的朋友\"），在BLIP-2和LLaVA上均取得了显著的个性化效果。"
 tags:
   - ECCV 2024
-  - VLM个性化
-  - 概念学习
-  - 图像描述
 ---
 
 # MyVLM: Personalizing VLMs for User-Specific Queries

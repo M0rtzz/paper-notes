@@ -2,9 +2,6 @@
 description: "【论文笔记】AeroDGS: Physically Consistent Dynamic Gaussian Splatting for Single-Sequence Aerial 4D Reconstruction 论文解读 | CVPR2026 | arXiv 2602.22376 | 4D重建 | 提出 AeroDGS，一个面向单目无人机视频的物理引导 4D 高斯泼溅框架，通过单目几何提升模块重建可靠的静态与动态几何，并引入可微的地面支撑、直立稳定性和轨迹平滑性物理先验，将模糊的图像线索转化为物理一致的运动估计，在合成与真实 UAV 场景上均优于现有方法。"
 tags:
   - CVPR2026
-  - 4D重建
-  - 3D高斯泼溅
-  - 物理先验
 ---
 
 # AeroDGS: Physically Consistent Dynamic Gaussian Splatting for Single-Sequence Aerial 4D Reconstruction

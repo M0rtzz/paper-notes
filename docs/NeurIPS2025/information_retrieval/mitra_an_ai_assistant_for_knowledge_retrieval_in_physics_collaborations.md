@@ -2,9 +2,6 @@
 description: "【论文笔记】MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations 论文解读 | NeurIPS 2025 | arXiv 2603.09800 | RAG | 提出 MITRA，一个面向大型物理实验协作（如 CERN CMS）的本地化 RAG 系统，采用两层向量数据库架构（摘要库 + 全文库）和完全本地部署策略，在语义检索任务上显著优于传统关键词搜索（BM25），Precision@1 从 0.13 提升至 0.75。"
 tags:
   - NeurIPS 2025
-  - RAG
-  - 科学协作
-  - 本地部署
 ---
 
 # MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations

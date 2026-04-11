@@ -2,9 +2,6 @@
 description: "【论文笔记】Can LLMs Generate High-Quality Test Cases for Algorithm Problems? TestCase-Eval 论文解读 | ACL 2025 (Short) | arXiv 2506.12278 | 测试用例生成 | 提出 TestCase-Eval 基准评估 LLM 生成算法题测试用例的能力，包含 500 道 Codeforces 算法题和 10 万条人工解答，聚焦两个任务——故障覆盖（测试集能覆盖多少潜在错误）和故障暴露（能否为特定错误代码生成暴露性测试），对 19 个 SOTA LLM 的评估揭示了当前模型在测试生成上的能力和局限。"
 tags:
   - ACL 2025 (Short)
-  - 测试用例生成
-  - 算法题
-  - 代码测试
 ---
 
 # Can LLMs Generate High-Quality Test Cases for Algorithm Problems? TestCase-Eval

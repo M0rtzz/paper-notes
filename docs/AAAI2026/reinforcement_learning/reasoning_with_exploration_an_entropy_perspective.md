@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning with Exploration: An Entropy Perspective 论文解读 | AAAI 2026 | arXiv 2506.14758 | 熵 | 本文从熵（entropy）的视角分析LLM中探索性推理行为（关键token、自我反思、稀有行为）与高熵区域的正相关性，提出一种极简的熵基优势函数塑形方法——仅需一行代码修改——即可显著增强LLM的Pass@K推理能力边界。"
 tags:
   - AAAI 2026
-  - 熵
-  - 探索性推理
-  - 优势函数塑形
 ---
 
 # Reasoning with Exploration: An Entropy Perspective

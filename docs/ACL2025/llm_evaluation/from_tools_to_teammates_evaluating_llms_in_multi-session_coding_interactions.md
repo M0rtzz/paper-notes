@@ -2,9 +2,6 @@
 description: "【论文笔记】From Tools to Teammates: Evaluating LLMs in Multi-Session Coding Interactions 论文解读 | ACL 2025 | arXiv 2502.13791 | multi-session dialogue | 提出 MemoryCode 合成多会话数据集评估 LLM 在长期交互中追踪和执行编码指令的能力，发现即使 GPT-4o 在提供完整对话历史时准确率也下降 67%，揭示了当前 LLM 在前瞻性记忆和信息整合上的根本局限。"
 tags:
   - ACL 2025
-  - multi-session dialogue
-  - long-term memory
-  - coding instructions
 ---
 
 # From Tools to Teammates: Evaluating LLMs in Multi-Session Coding Interactions

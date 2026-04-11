@@ -2,9 +2,7 @@
 description: "【论文笔记】POQD: Performance-Oriented Query Decomposer for Multi-Vector Retrieval 论文解读 | ICML 2025 | arXiv 2505.19189 | Multi-Vector Retrieval | 提出 POQD，一个面向性能的查询分解框架，利用 LLM-based Prompt Optimizer 迭代优化查询分解 prompt，并通过交替训练算法联合优化 prompt 和下游 RAG 模型参数，在检索和端到端 QA 任务上大幅超越现有方法。"
 tags:
   - ICML 2025
-  - Multi-Vector Retrieval
-  - Query Decomposition
-  - RAG
+  - 提示学习
 ---
 
 # POQD: Performance-Oriented Query Decomposer for Multi-Vector Retrieval

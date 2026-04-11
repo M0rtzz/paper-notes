@@ -2,9 +2,6 @@
 description: "【论文笔记】SK-VQA: Synthetic Knowledge Generation at Scale for Training Context-Augmented Multimodal LLMs 论文解读 | ICML2025 | arXiv 2406.19593 | 知识型VQA | 利用 GPT-4 全自动生成包含 200 万+ QA 对的大规模合成 KB-VQA 数据集 SK-VQA，训练 MLLM 适配上下文增强生成，在跨域泛化性能上显著优于已有数据集。"
 tags:
   - ICML2025
-  - 知识型VQA
-  - 合成数据
-  - 多模态RAG
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】GAP: Gaussianize Any Point Clouds with Text Guidance 论文解读 | ICCV 2025 | arXiv 2508.05631 | 点云转Gaussian | 提出GAP框架,利用深度感知图像扩散模型将无色点云转化为高保真3D Gaussian表示,通过表面锚定机制确保几何精度,并设计基于扩散的inpainting策略补全难以观测区域。"
 tags:
   - ICCV 2025
-  - 点云转Gaussian
-  - 文本引导
-  - 扩散模型
 ---
 
 # GAP: Gaussianize Any Point Clouds with Text Guidance

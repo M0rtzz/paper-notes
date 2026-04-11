@@ -2,9 +2,6 @@
 description: "【论文笔记】Certified Branch-and-Bound MaxSAT Solving (Extended Version) 论文解读 | AAAI 2026 | arXiv 2511.10273 | MaxSAT | 为 Branch-and-Bound MaxSAT 求解器实现了基于 VeriPB 证明系统的认证，覆盖了 look-ahead 边界方法和多值决策图（MDD）编码两大核心技术，在 MaxCDCL 求解器上的实验表明证明日志的中位开销仅 19%，填补了 MaxSAT 求解范式认证的最后空白。"
 tags:
   - AAAI 2026
-  - MaxSAT
-  - 证明日志
-  - 分支定界
 ---
 
 # Certified Branch-and-Bound MaxSAT Solving (Extended Version)

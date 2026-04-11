@@ -2,9 +2,6 @@
 description: "【论文笔记】I2MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts 论文解读 | ICML2025 | arXiv 2505.19190 | 多模态融合 | 提出I2MoE——端到端MoE框架用不同交互专家+弱监督交互损失显式建模多模态交互（唯一性/冗余/协同），加上重加权模型提供样本级和数据集级解释，在医疗和通用数据集上一致提升性能和可解释性。"
 tags:
   - ICML2025
-  - 多模态融合
-  - 部分信息分解
-  - MoE
 ---
 
 # I2MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts

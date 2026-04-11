@@ -2,9 +2,6 @@
 description: "【论文笔记】AGO: Adaptive Grounding for Open World 3D Occupancy Prediction 论文解读 | ICCV 2025 | arXiv 2504.10117 | 3D占位预测 | 提出AGO框架，通过噪声增强的接地训练(grounding training)处理已知类别 + 模态适配器的自适应对齐处理未知类别，并用基于信息熵的开放世界识别器在推理时动态选择最佳特征，在Occ3D-nuScenes自监督基准上超越VEON 4.09 mIoU，同时具备开放世界零样本/少样本迁移能力。"
 tags:
   - ICCV 2025
-  - 3D占位预测
-  - 开放世界
-  - VLM知识蒸馏
 ---
 
 # AGO: Adaptive Grounding for Open World 3D Occupancy Prediction

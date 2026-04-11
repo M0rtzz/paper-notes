@@ -2,9 +2,6 @@
 description: "【论文笔记】3D-Agent: Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation 论文解读 | NeurIPS 2025 | arXiv 2601.04404 | 3D物体标注 | 提出 Tri-MARF 三模态多智能体框架，通过 VLM 标注 Agent（多视角多候选描述）+ 信息聚合 Agent（BERT 聚类 + CLIP 加权 + UCB1 多臂赌博机选择）+ 点云门控 Agent（Uni3D 文本-点云对齐过滤幻觉），实现 CLIPScore 88.7（超越人类标注 82.4）、吞吐量 12k 物体/小时，已标注约 200 万 3D 模型。"
 tags:
   - NeurIPS 2025
-  - 3D物体标注
-  - 多智能体协作
-  - VLM
 ---
 
 # 3D-Agent: Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation

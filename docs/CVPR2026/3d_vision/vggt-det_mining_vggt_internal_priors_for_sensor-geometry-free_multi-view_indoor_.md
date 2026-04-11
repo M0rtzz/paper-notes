@@ -2,9 +2,7 @@
 description: "【论文笔记】VGGT-Det: Mining VGGT Internal Priors for Sensor-Geometry-Free Multi-View Indoor 3D Object Detection 论文解读 | CVPR2026 | arXiv 2603.00912 | 多视图3D目标检测 | 提出 VGGT-Det，首个面向无传感器几何输入 (SG-Free) 的多视图室内3D目标检测框架，通过挖掘 VGGT 编码器内部的语义先验（注意力引导查询生成 AG）和几何先验（查询驱动特征聚合 QD），在 ScanNet 和 ARKitScenes 上分别超越最优方法 4.4 和 8.6 mAP@0.25。"
 tags:
   - CVPR2026
-  - 多视图3D目标检测
-  - 室内场景理解
-  - 无传感器几何
+  - Transformer
 ---
 
 # VGGT-Det: Mining VGGT Internal Priors for Sensor-Geometry-Free Multi-View Indoor 3D Object Detection

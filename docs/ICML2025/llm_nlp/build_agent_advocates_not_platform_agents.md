@@ -2,9 +2,6 @@
 description: "【论文笔记】Build Agent Advocates, Not Platform Agents 论文解读 | ICML 2025 | arXiv 2505.04345 | LLM Agent | Position paper，指出LMA（语言模型代理）若被平台公司控制将成为加剧监控、锁定和注意力操控的\"platform agents\"，提出应发展用户控制的\"agent advocates\"来保护个人自主权，并给出三大干预措施：开放模型/算力、互操作性标准、市场监管。"
 tags:
   - ICML 2025
-  - LLM Agent
-  - 平台经济
-  - 用户自主权
 ---
 
 # Build Agent Advocates, Not Platform Agents

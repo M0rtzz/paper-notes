@@ -2,7 +2,6 @@
 description: "【论文笔记】Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-Supervised Medical Image Segmentation 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Foundational models such as the Segment Anything Model (SAM) are gaining traction in medical imaging segmentation, supporting multiple downstream tasks. However, such models are supervised in nature, still relying on large annotated datasets or prompts supplied by experts. Conventional techniques su"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-Supervised Medical Image Segmentation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Kuramoto Orientation Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2509.15328 | Kuramoto模型 | 将生物系统中的Kuramoto同步动力学引入score-based生成模型，在周期域上构建前向同步/反向去同步的扩散框架，对指纹、纹理等方向密集数据实现显著优于标准扩散模型的生成质量，同时在CIFAR-10上保持竞争力。"
 tags:
   - NeurIPS 2025
-  - Kuramoto模型
-  - 同步动力学
-  - 方向场
 ---
 
 # Kuramoto Orientation Diffusion Models

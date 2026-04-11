@@ -2,9 +2,6 @@
 description: "【论文笔记】GoRA: Gradient-Driven Adaptive Low Rank Adaptation 论文解读 | NeurIPS 2025 | arXiv 2502.12171 | LoRA | 提出 GoRA，利用**预计算梯度信息**在训练前同时完成自适应秩分配和权重初始化——基于参数敏感度分配各层 rank，用梯度伪逆初始化 $B$ 矩阵使初始输出近似一步梯度下降，统一解决 LoRA 的两大瓶颈。"
 tags:
   - NeurIPS 2025
-  - LoRA
-  - 自适应秩分配
-  - 梯度驱动初始化
 ---
 
 # GoRA: Gradient-Driven Adaptive Low Rank Adaptation

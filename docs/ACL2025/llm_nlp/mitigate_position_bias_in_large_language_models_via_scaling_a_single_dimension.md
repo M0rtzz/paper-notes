@@ -2,9 +2,7 @@
 description: "【论文笔记】Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel 论文解读 | ACL 2025 | arXiv 2406.02536 | position bias | 发现 LLM 隐状态中存在编码绝对位置信息的特定通道（positional hidden states），通过缩放这单一通道即可缓解\"lost in the middle\"位置偏差，在多文档 QA 基准上提升高达 15.2%，且不影响模型其他能力。"
 tags:
   - ACL 2025
-  - position bias
-  - lost in the middle
-  - hidden states
+  - 注意力机制
 ---
 
 # Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel

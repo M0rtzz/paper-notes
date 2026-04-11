@@ -2,9 +2,6 @@
 description: "【论文笔记】WET: Overcoming Paraphrasing Vulnerabilities in Embeddings-as-a-Service with Linear Transformation Watermark 论文解读 | ACL 2025 | arXiv 2409.04459 | EaaS水印 | 揭示了现有 EaaS 嵌入水印（EmbMarker/WARDEN）可被改写攻击绕过，提出 WET（线性变换水印），通过秘密循环矩阵对嵌入做线性变换注入水印，理论和实验证明其对改写攻击具有鲁棒性，验证 AUC 接近 100%。"
 tags:
   - ACL 2025
-  - EaaS水印
-  - 嵌入保护
-  - 改写攻击
 ---
 
 # WET: Overcoming Paraphrasing Vulnerabilities in Embeddings-as-a-Service with Linear Transformation Watermark

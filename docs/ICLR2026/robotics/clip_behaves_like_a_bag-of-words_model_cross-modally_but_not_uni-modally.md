@@ -2,9 +2,7 @@
 description: "【论文笔记】CLIP Behaves like a Bag-of-Words Model Cross-modally but not Uni-modally 论文解读 | ICLR 2026 | arXiv 2502.03566 | CLIP | 通过线性探测实验证明 CLIP 的 BoW（词袋）行为并非源于编码器缺乏绑定信息，而是跨模态对齐的失败；提出 LABCLIP，仅训练一个轻量线性变换即可显著恢复属性-对象绑定能力。"
 tags:
   - ICLR 2026
-  - CLIP
-  - compositionality
-  - bag-of-words
+  - 跨模态
 ---
 
 # CLIP Behaves like a Bag-of-Words Model Cross-modally but not Uni-modally

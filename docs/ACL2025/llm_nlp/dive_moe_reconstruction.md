@@ -2,9 +2,6 @@
 description: "【论文笔记】DIVE into MoE: Diversity-Enhanced Reconstruction of Large Language Models from Dense into Mixture-of-Experts 论文解读 | ACL 2025 | arXiv 2506.09351 | Mixture-of-Experts | 提出 DIVE，一种将 Dense LLM 重构为 MoE 架构的方法，核心洞察是不同领域的校准数据集会让结构化剪枝产生不同的剪枝结果，利用这种多样性构建领域特异的专家，配合高效的两阶段重训练（router dense训练 + expert LoRA稀疏训练），在仅调不到 1% 参数的情况下实现优于现有剪枝和 MoE 重构方法的效果。"
 tags:
   - ACL 2025
-  - Mixture-of-Experts
-  - 结构化剪枝
-  - Dense-to-MoE转换
 ---
 
 # DIVE into MoE: Diversity-Enhanced Reconstruction of Large Language Models from Dense into Mixture-of-Experts

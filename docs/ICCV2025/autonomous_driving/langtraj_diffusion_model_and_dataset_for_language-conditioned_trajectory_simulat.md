@@ -2,10 +2,8 @@
 description: "【论文笔记】LangTraj: Diffusion Model and Dataset for Language-Conditioned Trajectory Simulation 论文解读 | ICCV 2025 | arXiv 2504.11521 | traffic simulation | 提出 LangTraj，首个在训练阶段直接以自然语言为条件的扩散模型轨迹仿真器，并构建了包含 150K 人工标注交互行为的 InterDrive 数据集，支持语言可控的多智能体交互仿真和安全关键场景生成。"
 tags:
   - ICCV 2025
-  - traffic simulation
-  - language conditioning
-  - diffusion model
   - 扩散模型
+  - 自动驾驶
 ---
 
 # LangTraj: Diffusion Model and Dataset for Language-Conditioned Trajectory Simulation

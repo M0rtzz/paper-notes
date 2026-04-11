@@ -2,9 +2,6 @@
 description: "【论文笔记】ASPO: Adaptive Sentence-Level Preference Optimization for Fine-Grained Multimodal Reasoning 论文解读 | ACL 2025 | arXiv 2505.19100 | DPO | 提出 ASPO（Adaptive Sentence-level Preference Optimization）——将 DPO 的偏好单元从\"整个回复\"细化到\"每个句子\"，为每个句子动态计算自适应奖励值（基于模型自身预测评估正确性和重要性），在多模态推理任务上显著优于传统回复级 DPO，有效减少幻觉并提升细粒度推理能力。"
 tags:
   - ACL 2025
-  - DPO
-  - 句子级偏好
-  - 自适应奖励
 ---
 
 # ASPO: Adaptive Sentence-Level Preference Optimization for Fine-Grained Multimodal Reasoning

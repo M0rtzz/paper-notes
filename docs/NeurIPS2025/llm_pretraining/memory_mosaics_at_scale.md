@@ -2,9 +2,6 @@
 description: "【论文笔记】Memory Mosaics at Scale 论文解读 | NeurIPS 2025 | arXiv 2507.03285 | 内存马赛克 | Memory Mosaics v2 将关联存储网络扩展至 10B 参数、1T token 训练规模，在新任务学习和上下文学习上显著超越同规模甚至 8T token 训练的 Transformer。"
 tags:
   - NeurIPS 2025
-  - 内存马赛克
-  - 高斯核回归
-  - 上下文学习
 ---
 
 # Memory Mosaics at Scale

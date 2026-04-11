@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Offline Reinforcement Learning with Linearly Structured f-Divergence Regularization 论文解读 | ICML 2025 | arXiv 2411.18612 | 鲁棒离线RL | 本文提出 d-rectangular linear RRMDP 框架，将潜在线性结构引入转移核和正则化，设计 R2PVI 算法实现离线数据下的鲁棒策略学习，证明了接近最优的样本复杂度。"
 tags:
   - ICML 2025
-  - 鲁棒离线RL
-  - f-散度正则化
-  - 线性结构
 ---
 
 # Robust Offline Reinforcement Learning with Linearly Structured f-Divergence Regularization

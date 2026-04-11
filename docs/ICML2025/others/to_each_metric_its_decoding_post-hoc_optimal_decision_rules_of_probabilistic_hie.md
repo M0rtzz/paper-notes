@@ -2,9 +2,6 @@
 description: "【论文笔记】To Each Metric Its Decoding: Post-Hoc Optimal Decision Rules of Probabilistic Hierarchical Classifiers 论文解读 | ICML 2025 | arXiv 2506.01552 | hierarchical classification | 本文提出了针对概率层次分类器的后处理最优解码框架，为不同评价指标（如层次 $F_\beta$）推导了最优决策规则，在候选集限于节点集时给出通用算法，对子集预测推导了专门的层次 $hF_\beta$ 最优策略。"
 tags:
   - ICML 2025
-  - hierarchical classification
-  - decision rules
-  - optimal decoding
 ---
 
 # To Each Metric Its Decoding: Post-Hoc Optimal Decision Rules of Probabilistic Hierarchical Classifiers

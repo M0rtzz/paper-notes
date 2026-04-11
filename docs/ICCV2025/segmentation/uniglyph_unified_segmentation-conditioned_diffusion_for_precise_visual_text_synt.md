@@ -2,9 +2,6 @@
 description: "【论文笔记】UniGlyph: Unified Segmentation-Conditioned Diffusion for Precise Visual Text Synthesis 论文解读 | ICCV 2025 | arXiv 2507.00992 | 视觉文本生成 | 提出 UniGlyph，一种以分割掩码为统一条件信号的视觉文本生成框架，通过自适应字形条件（AGC）和字形区域损失（GRL）替代传统的渲染字形条件，实现单一 ControlNet 架构下中英文文字图像生成的 SOTA，尤其在小字体和复杂排版场景大幅领先。"
 tags:
   - ICCV 2025
-  - 视觉文本生成
-  - 分割掩码条件
-  - 扩散模型
 ---
 
 # UniGlyph: Unified Segmentation-Conditioned Diffusion for Precise Visual Text Synthesis

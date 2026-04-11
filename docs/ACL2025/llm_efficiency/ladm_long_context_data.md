@@ -2,9 +2,6 @@
 description: "【论文笔记】LADM: Long-context Training Data Selection with Attention-based Dependency Measurement 论文解读 | ACL 2025 | arXiv 2503.02502 | long-context | 提出 LADM 框架，利用注意力机制的内在检索能力来度量长上下文数据中的跨 span 依赖关系，从大规模预训练语料中高效筛选高质量长上下文训练数据，仅用 1B token 持续预训练即可显著提升多种 LLM 的长上下文能力。"
 tags:
   - ACL 2025
-  - long-context
-  - data selection
-  - attention mechanism
   - 注意力机制
 ---
 

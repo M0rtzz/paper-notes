@@ -2,9 +2,6 @@
 description: "【论文笔记】RealMath: A Continuous Benchmark for Evaluating Language Models on Research-Level Mathematics 论文解读 | NeurIPS 2025 | arXiv 2505.12575 | 数学推理 | 提出 RealMath，一个从 arXiv 论文和 Math StackExchange 中自动提取可验证数学问题的**可持续刷新**基准，用于评估 LLM 在真实研究级数学任务上的能力。"
 tags:
   - NeurIPS 2025
-  - 数学推理
-  - 研究级数学
-  - benchmark
 ---
 
 # RealMath: A Continuous Benchmark for Evaluating Language Models on Research-Level Mathematics

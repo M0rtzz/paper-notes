@@ -2,9 +2,6 @@
 description: "【论文笔记】Magical: Medical Lay Language Generation via Semantic Invariance and Layperson-tailored Adaptation 论文解读 | NeurIPS 2025 | arXiv 2508.08730 | 医学通俗语言生成 | 提出 Magical，一种面向医学通俗语言生成（MLLG）的非对称 LoRA 架构，通过共享矩阵 A 上的语义不变性约束和多个独立矩阵 B 实现语义保真与多样化通俗风格生成，在减少 31.66% 可训练参数的同时超越所有 LoRA 变体。"
 tags:
   - NeurIPS 2025
-  - 医学通俗语言生成
-  - LoRA
-  - 语义不变性
 ---
 
 # Magical: Medical Lay Language Generation via Semantic Invariance and Layperson-tailored Adaptation

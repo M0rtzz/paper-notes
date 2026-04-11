@@ -2,10 +2,7 @@
 description: "【论文笔记】Backdoor Attacks on Open Vocabulary Object Detectors via Multi-Modal Prompt Tuning 论文解读 | AAAI2026 | arXiv 2511.12735 | backdoor attack | 首次研究开放词汇目标检测器（OVOD）的后门攻击，提出 TrAP（Trigger-Aware Prompt tuning），通过联合优化视觉和文本分支的 learnable prompt 与可学习触发器，在不修改模型权重的前提下注入高成功率后门。"
 tags:
   - AAAI2026
-  - backdoor attack
-  - open-vocabulary object detection
   - 目标检测
-  - prompt tuning
   - 提示学习
 ---
 

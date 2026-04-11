@@ -2,9 +2,6 @@
 description: "【论文笔记】Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment 论文解读 | AAAI 2026 | arXiv 2511.06852 | LLM安全 | 将 LLM 安全对齐的内部表征从传统的\"单一拒绝方向\"解构为功能独立的\"危害检测方向\"和\"拒绝执行方向\"，在此基础上提出 DBDI 框架，分别用自适应投影消除和直接引导两种策略精准干预两个方向，在 Llama-2 上实现 97.88% 的越狱成功率。"
 tags:
   - AAAI 2026
-  - LLM安全
-  - 越狱攻击
-  - 激活操控
 ---
 
 # Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment

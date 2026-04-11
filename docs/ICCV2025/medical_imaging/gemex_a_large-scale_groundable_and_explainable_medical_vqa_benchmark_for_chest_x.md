@@ -2,9 +2,6 @@
 description: "【论文笔记】GEMeX: A Large-Scale, Groundable, and Explainable Medical VQA Benchmark for Chest X-ray Diagnosis 论文解读 | ICCV 2025 | arXiv 2411.16778 | 医学视觉问答 | 构建了当前最大的胸部X光 VQA 数据集 GEMeX（151K 图像、1.6M 问题），首次同时提供文本推理解释和视觉区域定位，涵盖四种问题类型，并系统评估了 12 个代表性大视觉语言模型。"
 tags:
   - ICCV 2025
-  - 医学视觉问答
-  - 胸部X光
-  - 可解释性
 ---
 
 # GEMeX: A Large-Scale, Groundable, and Explainable Medical VQA Benchmark for Chest X-ray Diagnosis

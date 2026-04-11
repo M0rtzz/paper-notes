@@ -2,9 +2,6 @@
 description: "【论文笔记】CD-Buffer: Complementary Dual-Buffer Framework for Test-Time Adaptation in Adverse Weather Object Detection 论文解读 | CVPR 2026 | arXiv 2603.26092 | 测试时适应 | 提出 CD-Buffer 框架，通过统一的域差异度量驱动减性缓冲（通道抑制）和加性缓冲（轻量适配器补偿）的互补协作，实现跨不同严重程度恶劣天气条件下的鲁棒测试时目标检测适应。"
 tags:
   - CVPR 2026
-  - 测试时适应
-  - 恶劣天气
-  - 目标检测
 ---
 
 # CD-Buffer: Complementary Dual-Buffer Framework for Test-Time Adaptation in Adverse Weather Object Detection

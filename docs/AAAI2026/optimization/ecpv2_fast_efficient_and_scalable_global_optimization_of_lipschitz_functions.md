@@ -2,9 +2,6 @@
 description: "【论文笔记】ECPv2: Fast, Efficient, and Scalable Global Optimization of Lipschitz Functions 论文解读 | AAAI2026 | arXiv 2511.16575 | 全局优化 | 提出ECPv2算法，通过三项创新（自适应下界、Worst-$m$ memory、固定随机投影），将Lipschitz函数全局优化的运行时从$\Omega(n^2 d)$降至$\Omega(n(m+d)\log n)$，同时保持与minimax下界匹配的$O(n^{-1/d})$ regret收敛速率。"
 tags:
   - AAAI2026
-  - 全局优化
-  - Lipschitz函数
-  - 黑盒优化
 ---
 
 # ECPv2: Fast, Efficient, and Scalable Global Optimization of Lipschitz Functions

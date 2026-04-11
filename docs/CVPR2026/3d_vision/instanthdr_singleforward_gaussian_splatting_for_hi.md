@@ -2,9 +2,6 @@
 description: "【论文笔记】InstantHDR: Single-forward Gaussian Splatting for High Dynamic Range 3D Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.11298 | [HDR新视角合成 | 提出首个前馈HDR新视角合成方法InstantHDR，通过几何引导的外观建模和色调映射元网络，从未标定多曝光LDR图像中单次前向重建HDR 3D高斯场景，速度比优化方法快~700×，后优化版本快~20×且质量可比。"
 tags:
   - CVPR 2026
-  - [HDR新视角合成
-  - 前馈3D重建
-  - 3D高斯溅射
 ---
 
 # InstantHDR: Single-forward Gaussian Splatting for High Dynamic Range 3D Reconstruction

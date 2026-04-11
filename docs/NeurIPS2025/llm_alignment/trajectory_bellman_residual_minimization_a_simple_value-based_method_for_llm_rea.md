@@ -2,9 +2,6 @@
 description: "【论文笔记】Trajectory Bellman Residual Minimization: A Simple Value-Based Method for LLM Reasoning 论文解读 | NeurIPS 2025 | arXiv 2505.15311 | 贝尔曼残差 | TBRM 通过最小化轨迹级贝尔曼残差，将 LLM 输出 logits 视为隐式 Q 值，仅需每个 prompt 一次前向采样即可训练，复杂度远低于 PPO/GRPO 但数学推理性能相当或更优。"
 tags:
   - NeurIPS 2025
-  - 贝尔曼残差
-  - 价值学习
-  - 单次采样
 ---
 
 # Trajectory Bellman Residual Minimization: A Simple Value-Based Method for LLM Reasoning

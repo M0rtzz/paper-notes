@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos 论文解读 | CVPR 2026 | arXiv 2603.00881 | 半监督分割 | 提出 SMART 框架，基于 SAM3 的概念提示分割构建 Teacher-Student 半监督模型，结合渐进置信度正则化和双流时序一致性策略，仅用极少标注在 X 射线冠脉造影视频中实现 SOTA 血管分割。"
 tags:
   - CVPR 2026
-  - 半监督分割
-  - 冠脉造影
-  - SAM3
 ---
 
 # Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos

@@ -2,9 +2,6 @@
 description: "【论文笔记】Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System 论文解读 | ACL 2025 | arXiv 2410.09403 | 科学发现 | 提出基于 LLM 的多智能体系统 Virtual Scientists（VirSci），模拟真实科研团队的协作过程——组织多个 agent 团队协作生成、评估和改进科研 idea，在生成新颖科学想法方面超越单智能体 SOTA。"
 tags:
   - ACL 2025
-  - 科学发现
-  - 多智能体
-  - idea生成
 ---
 
 # Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System

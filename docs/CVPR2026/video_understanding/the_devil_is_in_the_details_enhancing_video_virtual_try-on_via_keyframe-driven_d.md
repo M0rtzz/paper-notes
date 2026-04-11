@@ -2,10 +2,7 @@
 description: "【论文笔记】The Devil is in the Details: Enhancing Video Virtual Try-On via Keyframe-Driven Details Injection 论文解读 | CVPR2026 | arXiv 2512.20340 | video virtual try-on | 提出 KeyTailor 框架，通过关键帧驱动的细节注入策略（服装动态增强 + 协同背景优化）在不修改 DiT 架构的前提下，大幅提升视频虚拟试穿的服装保真度与背景一致性，同时发布 15K 高清数据集 ViT-HD。"
 tags:
   - CVPR2026
-  - video virtual try-on
-  - diffusion transformer
   - Transformer
-  - keyframe injection
 ---
 
 # The Devil is in the Details: Enhancing Video Virtual Try-On via Keyframe-Driven Details Injection

@@ -2,9 +2,6 @@
 description: "【论文笔记】MTL-UE: Learning to Learn Nothing for Multi-Task Learning 论文解读 | ICML2025 | arXiv 2505.05279 | 不可学习样本 | 提出 MTL-UE，首个针对多任务学习数据的不可学习样本框架，通过编码器-解码器注入类别先验嵌入并结合任务内/任务间嵌入正则化，有效保护 MTL 和 STL 模型免受未授权训练。"
 tags:
   - ICML2025
-  - 不可学习样本
-  - 多任务学习
-  - 数据保护
 ---
 
 # MTL-UE: Learning to Learn Nothing for Multi-Task Learning

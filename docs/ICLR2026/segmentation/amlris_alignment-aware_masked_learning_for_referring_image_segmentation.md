@@ -2,11 +2,9 @@
 description: "【论文笔记】AMLRIS: Alignment-aware Masked Learning for Referring Image Segmentation 论文解读 | ICLR 2026 | arXiv 2602.22740 | 图像分割 referring image segmentation | 提出对齐感知遮蔽学习(AML)策略，通过量化视觉-语言 patch 级对齐度并过滤低对齐像素，让 RIS 模型在训练时聚焦可靠区域，无需架构改动即在 RefCOCO 全部 8 个 split 上达到 SOTA。"
 tags:
   - ICLR 2026
-  - referring image segmentation
   - 图像分割
-  - vision-language alignment
   - 视觉语言
-  - masked learning
+  - 跨模态
 ---
 
 # AMLRIS: Alignment-aware Masked Learning for Referring Image Segmentation

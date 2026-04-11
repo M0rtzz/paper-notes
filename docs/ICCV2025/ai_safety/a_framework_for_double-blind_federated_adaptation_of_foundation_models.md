@@ -2,9 +2,6 @@
 description: "【论文笔记】A Framework for Double-Blind Federated Adaptation of Foundation Models 论文解读 | ICCV 2025 | arXiv 2502.01289 | 联邦学习 | 本文提出BlindFed框架，通过全同态加密（FHE）友好的架构改造、两阶段分割学习和隐私增强策略，实现了基础模型的\"双盲\"联邦适配——数据方看不到模型，服务方看不到数据，在CIFAR-10上达到94.28%准确率，接近LoRA的95.92%。"
 tags:
   - ICCV 2025
-  - 联邦学习
-  - 全同态加密
-  - 基础模型适配
 ---
 
 # A Framework for Double-Blind Federated Adaptation of Foundation Models

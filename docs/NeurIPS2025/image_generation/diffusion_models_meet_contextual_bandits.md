@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion Models Meet Contextual Bandits 论文解读 | NeurIPS 2025 | arXiv 2402.10028 | 扩散模型 | 将预训练扩散模型作为上下文赌博机 (contextual bandits) 问题中动作参数的表达性先验，提出 diffusion Thompson Sampling (dTS) 算法，通过高效的层次化后验近似实现快速更新与采样，在大动作空间下显著优于传统方法。"
 tags:
   - NeurIPS 2025
-  - 扩散模型
-  - 上下文赌博机
-  - Thompson 采样
 ---
 
 # Diffusion Models Meet Contextual Bandits

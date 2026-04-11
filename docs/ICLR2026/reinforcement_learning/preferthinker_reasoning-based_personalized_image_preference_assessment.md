@@ -2,9 +2,6 @@
 description: "【论文笔记】PreferThinker: Reasoning-based Personalized Image Preference Assessment 论文解读 | ICLR 2026 | arXiv 2511.00609 | 个性化偏好 | 提出PreferThinker——基于推理的个性化图像偏好评估系统：引入由15种视觉元素组成的偏好画像作为用户间桥梁，构建6万用户的CoT风格数据集(PreferImg-CoT)，采用\"预测偏好画像→多维可解释评分\"的predict-then-assess范式，通过冷启动SFT+GRPO强化学习+相似度感知预测奖励实现结构化推理，在个性化偏好评估上超越SOTA。"
 tags:
   - ICLR 2026
-  - 个性化偏好
-  - CoT推理
-  - 偏好画像
 ---
 
 # PreferThinker: Reasoning-based Personalized Image Preference Assessment

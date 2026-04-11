@@ -2,9 +2,6 @@
 description: "【论文笔记】Agint: Agentic Graph Compilation for Software Engineering Agents 论文解读 | NeurIPS 2025 (DL4C Workshop) | arXiv 2511.19635 | agentic graph compiler | 提出 Agint，一个将自然语言意图编译为类型化、效果感知的DAG（有向无环图）的 agentic 图编译器，通过六层类型地板（TEXT→TYPED→SPEC→STUB→SHIM→PURE）渐进式精化自然语言为可执行代码，支持中间表示可执行、混合JIT运行时和Unix风格的可组合工具链。"
 tags:
   - NeurIPS 2025 (DL4C Workshop)
-  - agentic graph compiler
-  - DAG编译
-  - 类型系统
 ---
 
 # Agint: Agentic Graph Compilation for Software Engineering Agents

@@ -2,9 +2,6 @@
 description: "【论文笔记】MUSTAFAR: Promoting Unstructured Sparsity for KV Cache Pruning in LLM Inference 论文解读 | NeurIPS 2025 | arXiv 2505.22913 | KV缓存压缩 | 提出 MUSTAFAR 框架，系统性地证明了非结构化稀疏性在 KV 缓存剪枝中的优越性（Key 和 Value 均可达 70% 稀疏度且不损精度），并设计了基于 bitmap 的稀疏格式和自定义注意力内核，实现了端到端推理吞吐量 2.23 倍加速。"
 tags:
   - NeurIPS 2025
-  - KV缓存压缩
-  - 非结构化稀疏
-  - 大语言模型推理
 ---
 
 # MUSTAFAR: Promoting Unstructured Sparsity for KV Cache Pruning in LLM Inference

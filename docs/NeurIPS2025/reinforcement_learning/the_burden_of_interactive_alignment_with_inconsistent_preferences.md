@@ -2,9 +2,6 @@
 description: "【论文笔记】The Burden of Interactive Alignment with Inconsistent Preferences 论文解读 | NeurIPS 2025 | arXiv 2510.16368 | interactive alignment | 将用户与参与度驱动算法的交互建模为多领导者-单跟随者 Stackelberg 博弈，证明存在关键的前瞻视野阈值：超过该阈值的用户可实现对齐，否则反被算法对齐；同时证明引入低成本信号（如额外点击）可大幅降低对齐负担。"
 tags:
   - NeurIPS 2025
-  - interactive alignment
-  - inconsistent preferences
-  - Stackelberg game
 ---
 
 # The Burden of Interactive Alignment with Inconsistent Preferences

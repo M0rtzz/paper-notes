@@ -2,9 +2,6 @@
 description: "【论文笔记】Neural Deprojection of Galaxy Stellar Mass Profiles 论文解读 | NeurIPS 2025 | arXiv 2511.20746 | 星系质量轮廓 | 用神经网络解决星系恒星质量轮廓的去投影问题——从 2D 投影光度轮廓恢复 3D 空间质量分布，替代传统的 Abel 反演解析方法，在处理噪声数据和复杂轮廓时更鲁棒且更快。"
 tags:
   - NeurIPS 2025
-  - 星系质量轮廓
-  - 去投影
-  - 神经网络
 ---
 
 # Neural Deprojection of Galaxy Stellar Mass Profiles

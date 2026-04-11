@@ -2,9 +2,6 @@
 description: "【论文笔记】Oracle-Efficient Combinatorial Semi-Bandits 论文解读 | NeurIPS 2025 | arXiv 2510.21431 | 组合半老虎机 | 提出两种oracle高效框架（自适应和调度式），将组合半老虎机问题中的oracle调用次数从线性 $\Theta(T)$ 降低到双对数 $O(\log\log T)$，同时保持近最优的遗憾界。"
 tags:
   - NeurIPS 2025
-  - 组合半老虎机
-  - oracle效率
-  - 遗憾界
 ---
 
 # Oracle-Efficient Combinatorial Semi-Bandits

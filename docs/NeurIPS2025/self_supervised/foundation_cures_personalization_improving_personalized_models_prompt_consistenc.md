@@ -2,10 +2,8 @@
 description: "【论文笔记】Foundation Cures Personalization: Improving Personalized Models' Prompt Consistency via Hidden Foundation Knowledge 论文解读 | NeurIPS2025 | arXiv 2411.15277 | face personalization | 提出 FreeCure，一个 training-free 框架，通过发掘个性化模型中隐藏的 foundation model 知识来修复 prompt consistency 退化问题，同时保持 identity fidelity。"
 tags:
   - NeurIPS2025
-  - face personalization
-  - prompt consistency
   - 提示学习
-  - identity fidelity
+  - 注意力机制
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

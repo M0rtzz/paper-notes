@@ -2,9 +2,7 @@
 description: "【论文笔记】What If: Understanding Motion Through Sparse Interactions 论文解读 | ICCV 2025 | arXiv 2510.12777 | 运动理解 | 提出 Flow Poke Transformer (FPT)，直接预测场景中物体运动的**多模态概率分布**（而非单一确定性结果），通过稀疏\"戳动 (poke)\"交互条件化，实现可解释的运动理解和运动部件分割。"
 tags:
   - ICCV 2025
-  - 运动理解
-  - 光流分布预测
-  - 稀疏交互
+  - Transformer
 ---
 
 # What If: Understanding Motion Through Sparse Interactions

@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Improving Skill Learning for Robust Skill-based Meta-Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2502.03752 | meta-RL | 提出 SISL（Self-Improving Skill Learning），通过解耦高层策略和技能改进策略，结合最大回报重标注的技能优先级机制，在噪声离线演示数据下实现鲁棒的技能学习，显著提升基于技能的元强化学习在长时域任务中的性能。"
 tags:
   - ICLR 2026
-  - meta-RL
-  - skill learning
-  - noisy demonstrations
 ---
 
 # Self-Improving Skill Learning for Robust Skill-based Meta-Reinforcement Learning

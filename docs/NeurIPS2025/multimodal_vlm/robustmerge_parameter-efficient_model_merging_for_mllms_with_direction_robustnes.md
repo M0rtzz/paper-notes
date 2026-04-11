@@ -2,9 +2,6 @@
 description: "【论文笔记】RobustMerge: Parameter-Efficient Model Merging for MLLMs with Direction Robustness 论文解读 | NeurIPS 2025 | arXiv 2502.17159 | 模型合并 | 本文从低秩分解的角度揭示了参数高效模块合并中\"方向鲁棒性\"是关键因素（而非全参数合并中的符号冲突），提出RobustMerge通过互补参数自适应缩放和跨任务归一化维持奇异值方向稳定性，在多模态生成任务上平均提升3.4%（已见任务）和4.5%（未见任务）。"
 tags:
   - NeurIPS 2025
-  - 模型合并
-  - LoRA
-  - 参数高效微调
 ---
 
 # RobustMerge: Parameter-Efficient Model Merging for MLLMs with Direction Robustness

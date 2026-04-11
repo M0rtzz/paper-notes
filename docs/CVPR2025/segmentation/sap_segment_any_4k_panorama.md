@@ -2,9 +2,6 @@
 description: "【论文笔记】SAP: Segment Any 4K Panorama 论文解读 | CVPR 2025 | arXiv 2603.12759 | 全景图分割 | 将 360° 全景图分割重新定义为透视视频分割问题，通过沿 zigzag 轨迹分解全景图为重叠 patch 序列并微调 SAM2 的 memory 模块，配合 183K 合成 4K 全景图的大规模训练，实现零样本全景分割 +17.2 mIoU 的提升。"
 tags:
   - CVPR 2025
-  - 全景图分割
-  - SAM2
-  - 等距柱状投影
 ---
 
 # SAP: Segment Any 4K Panorama

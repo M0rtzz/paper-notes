@@ -2,9 +2,6 @@
 description: "【论文笔记】ChangeBridge: Spatiotemporal Image Generation with Multimodal Controls for Remote Sensing 论文解读 | CVPR 2026 | arXiv 2507.04678 | 时空图像生成 | 提出ChangeBridge，首个遥感条件时空图像生成模型，基于漂移异步扩散桥实现从前事态图像+多模态条件（坐标文本/语义掩码/实例布局）生成后事态图像，同时建模前景事件驱动变化和背景时间演化，并可作为下游变化检测任务的数据引擎。"
 tags:
   - CVPR 2026
-  - 时空图像生成
-  - 扩散桥
-  - 异步漂移
 ---
 
 # ChangeBridge: Spatiotemporal Image Generation with Multimodal Controls for Remote Sensing

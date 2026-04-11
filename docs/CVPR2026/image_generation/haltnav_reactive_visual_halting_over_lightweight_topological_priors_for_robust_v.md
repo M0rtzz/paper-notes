@@ -2,9 +2,6 @@
 description: "【论文笔记】HaltNav: Reactive Visual Halting over Lightweight Topological Priors for Robust Vision-Language Navigation 论文解读 | CVPR 2026 | arXiv 2603.12696 | VLN | 提出 HaltNav，一个层级化导航框架，结合轻量级文本拓扑先验（osmAG）做全局规划，用 VLN 模型做局部执行，并通过 Reactive Visual Halting 机制检测意外障碍、动态更新拓扑并重规划，在仿真和真机上均显著提升长程导航鲁棒性。"
 tags:
   - CVPR 2026
-  - VLN
-  - 拓扑先验
-  - osmAG
 ---
 
 # HaltNav: Reactive Visual Halting over Lightweight Topological Priors for Robust Vision-Language Navigation

@@ -2,10 +2,7 @@
 description: "【论文笔记】Balancing Multimodal Domain Generalization via Gradient Modulation and Projection 论文解读 | AAAI2026 | arXiv 2603.14175 | 多模态 Multimodal Domain Generalization | 提出 Gradient Modulation Projection (GMP) 策略，通过解耦分类与域不变梯度的调制（IGDM）以及冲突自适应梯度投影（CAGP），解决多模态域泛化中模态间优化不平衡和任务间梯度冲突问题，在多个基准上达到 SOTA。"
 tags:
   - AAAI2026
-  - Multimodal Domain Generalization
   - 多模态
-  - Gradient Modulation
-  - Gradient Projection
 ---
 
 # Balancing Multimodal Domain Generalization via Gradient Modulation and Projection

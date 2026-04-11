@@ -2,9 +2,6 @@
 description: "【论文笔记】ArithmAttack: Evaluating Robustness of LLMs to Noisy Context in Math Problem Solving 论文解读 | ACL 2025 | arXiv 2501.08203 | LLM鲁棒性 | 提出 ArithmAttack，通过在数学题上下文中随机插入标点符号（不改变任何单词）来测试 LLM 的鲁棒性，发现八个主流 LLM（包括 Llama3、Mistral、DeepSeek）在面对这种简单噪声时性能都显著下降。"
 tags:
   - ACL 2025
-  - LLM鲁棒性
-  - 数学推理
-  - 对抗攻击
 ---
 
 # ArithmAttack: Evaluating Robustness of LLMs to Noisy Context in Math Problem Solving

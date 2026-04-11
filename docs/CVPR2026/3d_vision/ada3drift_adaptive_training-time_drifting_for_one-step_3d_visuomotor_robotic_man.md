@@ -2,9 +2,6 @@
 description: "【论文笔记】Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation 论文解读 | CVPR 2026 | arXiv 2603.11984 | 扩散策略 | 针对扩散策略多步去噪慢、Flow Matching 单步快但模式平均导致碰撞的问题，提出 Ada3Drift：在训练阶段构造 drifting field 将预测吸引到最近 expert demonstration 并排斥其他模式，配合多尺度场聚合和 sigmoid 调度损失过渡，实现 1 NFE 推理下保持多模态动作分布，在 Adroit/Meta-World/RoboTwin 和真实机器人上达到 SOTA。"
 tags:
   - CVPR 2026
-  - 扩散策略
-  - Flow Matching
-  - 单步推理
 ---
 
 # Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation

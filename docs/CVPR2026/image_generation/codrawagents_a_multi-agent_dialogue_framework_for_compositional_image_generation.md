@@ -2,9 +2,6 @@
 description: "【论文笔记】coDrawAgents: A Multi-Agent Dialogue Framework for Compositional Image Generation 论文解读 | CVPR 2026 | arXiv 2603.12829 | 多智能体协作 | 提出 coDrawAgents，一个交互式多智能体对话框架（Interpreter-Planner-Checker-Painter），通过分而治之的增量布局规划、视觉上下文驱动的空间推理和显式错误纠正机制，大幅提升复杂场景下组合式文本到图像生成的忠实度。"
 tags:
   - CVPR 2026
-  - 多智能体协作
-  - 组合式图像生成
-  - 布局规划
 ---
 
 # coDrawAgents: A Multi-Agent Dialogue Framework for Compositional Image Generation

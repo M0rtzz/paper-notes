@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Code Localization with Repository Memory 论文解读 | ICLR 2026 | arXiv 2510.01003 | 代码定位 | 通过利用代码仓库的 commit 历史构建情景记忆（过去 commit）和语义记忆（活跃代码功能摘要），增强语言代理的代码定位能力，在 SWE-bench 上取得显著提升。"
 tags:
   - ICLR 2026
-  - 代码定位
-  - 仓库记忆
-  - commit历史
 ---
 
 # Improving Code Localization with Repository Memory

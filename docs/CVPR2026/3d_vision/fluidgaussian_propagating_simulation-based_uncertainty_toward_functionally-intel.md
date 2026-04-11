@@ -2,9 +2,6 @@
 description: "【论文笔记】FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.21356 | 3D Gaussian Splatting | 提出 FluidGaussian，通过流体模拟传播的不确定性指标来指导 3D 重建中的主动视角选择，使重建结果不仅视觉逼真，还具备物理交互的合理性。"
 tags:
   - CVPR 2026
-  - 3D Gaussian Splatting
-  - 物理感知重建
-  - 流体模拟
 ---
 
 # FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction

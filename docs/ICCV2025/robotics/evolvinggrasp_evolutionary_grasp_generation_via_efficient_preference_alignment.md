@@ -2,9 +2,6 @@
 description: "【论文笔记】EvolvingGrasp: Evolutionary Grasp Generation via Efficient Preference Alignment 论文解读 | ICCV 2025 | arXiv 2503.14329 | 灵巧抓取 | 提出 EvolvingGrasp，通过 Handpose-wise Preference Optimization (HPO) 和 Physics-Aware Consistency Model (PCM) 实现灵巧抓取姿态的高效进化式生成与人类偏好对齐，在四个基准数据集上取得 SOTA，并实现 30 倍加速。"
 tags:
   - ICCV 2025
-  - 灵巧抓取
-  - 偏好对齐
-  - 一致性模型
 ---
 
 # EvolvingGrasp: Evolutionary Grasp Generation via Efficient Preference Alignment

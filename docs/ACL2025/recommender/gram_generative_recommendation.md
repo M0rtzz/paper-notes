@@ -2,9 +2,6 @@
 description: "【论文笔记】GRAM: Generative Recommendation via Semantic-aware Multi-granular Late Fusion 论文解读 | ACL 2025 | arXiv 2506.01673 | 生成式推荐 | 提出 GRAM 生成式推荐模型，通过语义到词汇的翻译（将隐式物品关系编码到 LLM 词汇空间）和多粒度迟融合（分别编码不同粒度提示后在解码时融合），在四个基准上比八个 SOTA 方法在 Recall@5 上提升 11.5-16.0%。"
 tags:
   - ACL 2025
-  - 生成式推荐
-  - 多粒度融合
-  - 语义翻译
 ---
 
 # GRAM: Generative Recommendation via Semantic-aware Multi-granular Late Fusion

@@ -2,9 +2,6 @@
 description: "【论文笔记】Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar 论文解读 | ICML 2025 | arXiv 2505.22948 | 分子语法 | FMG 利用多模态基础模型（MMFM）的化学知识，通过将分子渲染为图像并用文本描述，结合 prompt learning 跨模态对齐来归纳出可解释的分子图语法，替代传统依赖专家标注或启发式的语法学习方法。"
 tags:
   - ICML 2025
-  - 分子语法
-  - 多模态基础模型
-  - 图语法
 ---
 
 # Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar

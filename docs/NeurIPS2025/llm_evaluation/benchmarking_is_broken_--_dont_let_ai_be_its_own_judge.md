@@ -2,9 +2,6 @@
 description: "【论文笔记】Benchmarking is Broken — Don't Let AI be its Own Judge 论文解读 | NeurIPS 2025 | arXiv 2510.07575 | 基准评估 | 系统性批评当前 AI 基准评估的根本缺陷——数据污染（MMLU 45%+ 重叠）、选择性报告、缺乏监考——并提出 PeerBench 方案：借鉴高考/GRE 的监考范式，用滚动更新的保密题库 + 同行评审质量控制 + 声誉加权评分 + 加密承诺机制构建下一代 AI 评估基础设施。"
 tags:
   - NeurIPS 2025
-  - 基准评估
-  - 数据污染
-  - PeerBench
 ---
 
 # Benchmarking is Broken — Don't Let AI be its Own Judge

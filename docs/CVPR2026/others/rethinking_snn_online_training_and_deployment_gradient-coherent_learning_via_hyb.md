@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking SNN Online Training and Deployment: Gradient-Coherent Learning via Hybrid-Driven LIF Model 论文解读 | CVPR 2026 | arXiv 2410.07547 | 脉冲神经网络 | 提出 Hybrid-Driven LIF (HD-LIF) 模型族，通过在阈值上下区域采用不同脉冲计算机制实现梯度可分离性和对齐性，解决了 SNN 在线训练中前向-反向传播不一致的根本问题，同时实现了训练精度、内存复杂度和推理功耗的全阶段优化。"
 tags:
   - CVPR 2026
-  - 脉冲神经网络
-  - 在线训练
-  - 梯度一致性
 ---
 
 # Rethinking SNN Online Training and Deployment: Gradient-Coherent Learning via Hybrid-Driven LIF Model

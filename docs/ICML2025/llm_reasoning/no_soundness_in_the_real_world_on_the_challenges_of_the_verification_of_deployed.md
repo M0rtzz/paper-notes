@@ -2,9 +2,6 @@
 description: "【论文笔记】No Soundness in the Real World: On the Challenges of the Verification of Deployed Neural Networks 论文解读 | ICML 2025 | arXiv 2506.01054 | 神经网络验证 | 本文证明所有当前最先进的神经网络验证器都只提供\"理论健全性\"（约束全精度输出）而非\"实际健全性\"（约束部署环境中的浮点输出），并通过构造环境敏感的对抗性后门网络，实证验证了所有测试验证器均可被欺骗。"
 tags:
   - ICML 2025
-  - 神经网络验证
-  - 浮点运算
-  - soundness
 ---
 
 # No Soundness in the Real World: On the Challenges of the Verification of Deployed Neural Networks

@@ -2,9 +2,6 @@
 description: "【论文笔记】RADAR: Enhancing Radiology Report Generation with Supplementary Knowledge Injection 论文解读 | ACL 2025 | arXiv 2505.14318 | 放射学报告生成 | 提出 Radar 框架，通过\"内部知识提取+外部补充知识检索+聚合注入\"三步策略增强放射学报告生成——先提取 LLM 已有的与专家分类一致的知识，再检索缺失的补充知识，最终聚合两者生成更准确的放射学报告，在 MIMIC-CXR/CheXpert-Plus/IU X-ray 三个数据集上超越 SOTA。"
 tags:
   - ACL 2025
-  - 放射学报告生成
-  - 知识注入
-  - 多模态LLM
 ---
 
 # RADAR: Enhancing Radiology Report Generation with Supplementary Knowledge Injection

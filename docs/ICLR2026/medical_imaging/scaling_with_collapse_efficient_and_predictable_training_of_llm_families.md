@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling with Collapse: Efficient and Predictable Training of LLM Families 论文解读 | ICLR 2026 | arXiv 2509.25087 | 训练损失曲线崩塞 | 证明 LLM 家族的训练损失曲线在优化超参数与数据预算匹配时会“崩塞”到同一条通用曲线上，并利用这一现象实现两个实用应用：(1) 偏离崩塞作为训练病理的早期诊断信号，(2) 崩塞曲线的可预测性实现大规模超参调优的早停。"
 tags:
   - ICLR 2026
-  - 训练损失曲线崩塞
-  - 超参缩放
-  - 训练诊断
 ---
 
 # Scaling with Collapse: Efficient and Predictable Training of LLM Families

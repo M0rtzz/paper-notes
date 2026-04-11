@@ -2,9 +2,6 @@
 description: "【论文笔记】Principled Fast and Meta Knowledge Learners for Continual Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2603.00903 | continual RL | 受人脑海马体-大脑皮层交互机制启发，提出 FAME 双学习器框架，通过快速学习器进行知识迁移、元学习器进行知识整合，在原则性地最小化灾难性遗忘的前提下实现高效的持续强化学习。"
 tags:
   - ICLR 2026
-  - continual RL
-  - catastrophic forgetting
-  - knowledge transfer
 ---
 
 # Principled Fast and Meta Knowledge Learners for Continual Reinforcement Learning

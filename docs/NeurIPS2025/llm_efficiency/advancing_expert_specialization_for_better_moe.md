@@ -2,9 +2,6 @@
 description: "【论文笔记】Advancing Expert Specialization for Better MoE 论文解读 | NeurIPS 2025 | arXiv 2505.22323 | Mixture-of-Experts | 通过正交性损失（减少专家间投影重叠）和方差损失（增大路由分数差异）双目标优化，在不修改 MoE 架构的前提下将专家重叠减少 45%、路由方差提升 150%，11 个基准任务平均提升 23.79%，同时完全保持负载均衡。"
 tags:
   - NeurIPS 2025
-  - Mixture-of-Experts
-  - expert specialization
-  - orthogonality loss
 ---
 
 # Advancing Expert Specialization for Better MoE

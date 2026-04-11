@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Posterior Inference of Galaxy Properties with Image-Based Conditional Flow Matching 论文解读 | NeurIPS 2025 | arXiv 2512.05078 | conditional flow matching | 提出基于条件流匹配（CFM）的框架，将星系图像的形态学信息与测光数据联合建模，显著提升星系物理属性（恒星质量、恒星形成率、金属丰度、尘埃消光等）的后验推断精度。"
 tags:
   - NeurIPS 2025
-  - conditional flow matching
-  - galaxy property estimation
-  - simulation-based inference
 ---
 
 # Improving Posterior Inference of Galaxy Properties with Image-Based Conditional Flow Matching

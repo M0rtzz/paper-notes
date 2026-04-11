@@ -2,10 +2,7 @@
 description: "【论文笔记】HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers 论文解读 | CVPR 2026 | arXiv 2603.12222 | Transformer Vision Transformer剪枝 | HiAP 把 ViT 剪枝写成一个端到端的预算感知学习问题，同时对整头/整块和头内维度/FFN 神经元两种粒度做随机可微门控，在一次训练里自动长出满足算力预算的稠密子网络，省掉了常见的排序、阈值搜索和额外微调流程。"
 tags:
   - CVPR 2026
-  - Vision Transformer剪枝
   - Transformer
-  - 多粒度结构化剪枝
-  - Gumbel-Sigmoid门控
 ---
 
 # HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers

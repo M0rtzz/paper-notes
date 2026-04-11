@@ -2,9 +2,6 @@
 description: "【论文笔记】FeatureBench: Benchmarking Agentic Coding for Complex Feature Development 论文解读 | ICLR 2026 | arXiv 2602.10975 | agentic coding | 提出 FeatureBench——面向特征级软件开发的代码智能体评测基准，通过测试驱动的自动化流水线从开源仓库中提取可验证的 feature 实现任务，最强 Claude Opus 4.5 仅解决 11.0%，揭示当前 Agent 在复杂特征开发上的巨大差距。"
 tags:
   - ICLR 2026
-  - agentic coding
-  - benchmark
-  - feature development
 ---
 
 # FeatureBench: Benchmarking Agentic Coding for Complex Feature Development

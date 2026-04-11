@@ -2,9 +2,6 @@
 description: "【论文笔记】Integrating Biological Knowledge for Robust Microscopy Image Profiling on De Novo Cell Lines 论文解读 | ICCV 2025 | arXiv 2507.10737 | 显微图像表征学习 | 提出将外部生物知识（蛋白质互作图谱+单细胞基础模型的转录组特征）整合到显微图像预训练中，显式解耦扰动特异性和细胞系特异性表征，提升模型在未见细胞系上的扰动筛查泛化能力。"
 tags:
   - ICCV 2025
-  - 显微图像表征学习
-  - 扰动筛查
-  - 生物知识图谱
 ---
 
 # Integrating Biological Knowledge for Robust Microscopy Image Profiling on De Novo Cell Lines

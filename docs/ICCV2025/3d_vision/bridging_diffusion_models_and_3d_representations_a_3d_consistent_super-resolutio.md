@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging Diffusion Models and 3D Representations: A 3D Consistent Super-Resolution Framework 论文解读 | ICCV 2025 | arXiv 2508.04090 | 3D超分辨率 | 提出3DSR框架，将扩散模型的2D超分辨率与3D高斯溅射（3DGS）表示相结合，在每个扩散去噪步骤中通过3DGS渲染来强制多视图3D一致性，实现高保真且空间一致的3D场景超分辨率。"
 tags:
   - ICCV 2025
-  - 3D超分辨率
-  - 扩散模型
-  - 3D高斯溅射
 ---
 
 # Bridging Diffusion Models and 3D Representations: A 3D Consistent Super-Resolution Framework

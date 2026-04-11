@@ -2,10 +2,7 @@
 description: "【论文笔记】Guided Perturbation Sensitivity (GPS): Detecting Adversarial Text via Embedding Stability and Word Importance 论文解读 | AAAI 2026 | arXiv 2508.11667 | 文本检测 adversarial text detection | 提出 Guided Perturbation Sensitivity (GPS) 框架，通过对重要词进行遮蔽并测量嵌入表示的稳定性变化来检测对抗文本样本，在3个数据集、3种攻击、2个模型上实现85%+检测准确率，且无需重训练即可跨数据集/攻击/模型泛化。"
 tags:
   - AAAI 2026
-  - adversarial text detection
   - 文本检测
-  - embedding stability
-  - word importance
 ---
 
 # Guided Perturbation Sensitivity (GPS): Detecting Adversarial Text via Embedding Stability and Word Importance

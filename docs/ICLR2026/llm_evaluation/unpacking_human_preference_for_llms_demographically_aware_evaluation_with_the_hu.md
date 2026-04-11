@@ -2,9 +2,6 @@
 description: "【论文笔记】Unpacking Human Preference for LLMs: Demographically Aware Evaluation with the HUMAINE Framework 论文解读 | ICLR 2026 | arXiv 2603.04409 | LLM evaluation | 提出 HUMAINE 框架，通过 23,404 名人口统计学分层参与者对 28 个模型的多维度评估，揭示了人类偏好中年龄是最大分歧轴、单一排行榜掩盖关键差异的发现。"
 tags:
   - ICLR 2026
-  - LLM evaluation
-  - human preference
-  - demographic bias
 ---
 
 # Unpacking Human Preference for LLMs: Demographically Aware Evaluation with the HUMAINE Framework

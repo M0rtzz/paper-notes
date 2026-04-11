@@ -2,9 +2,6 @@
 description: "【论文笔记】A Novel Approach to Classification of ECG Arrhythmia Types with Latent ODEs 论文解读 | NeurIPS 2025 | arXiv 2511.16933 | Latent ODE | 将 Latent ODE 编码器与梯度提升决策树结合，构建端到端 ECG 心律失常分类流水线，在 360Hz→45Hz 降采样下 AUC-ROC 仅从 0.984 降至 0.976，展示了对低采样率的鲁棒性。"
 tags:
   - NeurIPS 2025
-  - Latent ODE
-  - ECG分类
-  - 心律失常
 ---
 
 # A Novel Approach to Classification of ECG Arrhythmia Types with Latent ODEs

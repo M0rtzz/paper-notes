@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffuse Everything: Multimodal Diffusion Models on Arbitrary State Spaces 论文解读 | ICML 2025 | arXiv 2506.07903 | 多模态扩散模型 | 提出了一个在任意状态空间上构建多模态扩散模型的统一框架，通过为每种模态引入独立的解耦噪声调度（decoupled noise schedule），在单个模型中同时实现无条件生成和模态条件生成，无需外部的 tokenizer 或 VAE 预处理。"
 tags:
   - ICML 2025
-  - 多模态扩散模型
-  - 混合状态空间
-  - 解耦噪声调度
 ---
 
 # Diffuse Everything: Multimodal Diffusion Models on Arbitrary State Spaces

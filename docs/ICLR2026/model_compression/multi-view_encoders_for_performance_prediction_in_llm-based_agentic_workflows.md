@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows 论文解读 | ICLR 2026 | arXiv 2505.19764 | 性能预测 | 提出 Agentic Predictor，一种多视图工作流编码框架，通过联合建模图结构、代码语义和提示信息来预测 LLM Agent 工作流的性能，显著减少昂贵的试错评估。"
 tags:
   - ICLR 2026
-  - 性能预测
-  - 多视图编码
-  - Agent工作流
 ---
 
 # Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows

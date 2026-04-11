@@ -2,9 +2,6 @@
 description: "【论文笔记】Augmenting Perceptual Super-Resolution via Image Quality Predictors 论文解读 | CVPR 2025 | arXiv 2504.18524 | 超分辨率 | 利用无参考图像质量评估（NR-IQA）模型代替人工标注，通过加权采样和直接优化两种方式提升感知超分辨率的图像质量，在无需人工数据的条件下超越依赖人工反馈的 SOTA 方法。"
 tags:
   - CVPR 2025
-  - 超分辨率
-  - 无参考图像质量评估
-  - 感知质量
 ---
 
 # Augmenting Perceptual Super-Resolution via Image Quality Predictors

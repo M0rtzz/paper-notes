@@ -2,9 +2,6 @@
 description: "【论文笔记】E-LDA: Toward Interpretable LDA Topic Models with Strong Guarantees in Logarithmic Parallel Time 论文解读 | ICML2025 | arXiv 2506.07747 | LDA | 提出 E-LDA（Exemplar-LDA），通过将 LDA 的 MAP 主题-词分配问题重新形式化为单调子模函数最大化问题，首次获得了具有 $1-1/e$ 近似保证的实用算法，并且在对数并行时间内收敛，同时保证每个学到的主题都具有基于关键词的形式化可解释性。"
 tags:
   - ICML2025
-  - LDA
-  - 主题模型
-  - 子模优化
 ---
 
 # E-LDA: Toward Interpretable LDA Topic Models with Strong Guarantees in Logarithmic Parallel Time

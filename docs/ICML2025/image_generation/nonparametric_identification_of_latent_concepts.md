@@ -2,9 +2,6 @@
 description: "【论文笔记】Nonparametric Identification of Latent Concepts 论文解读 | ICML2025 | arXiv 2510.00136 | 概念学习 | 提出首个非参数概念可识别性理论框架，证明在不假设概念类型、函数关系或参数生成模型的情况下，仅通过多类别观测的多样性即可识别隐藏概念（至逐元素变换+置换不确定性）。"
 tags:
   - ICML2025
-  - 概念学习
-  - 可识别性
-  - 非参数
 ---
 
 # Nonparametric Identification of Latent Concepts

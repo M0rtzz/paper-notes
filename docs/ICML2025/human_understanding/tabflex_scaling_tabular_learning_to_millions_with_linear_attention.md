@@ -2,9 +2,6 @@
 description: "【论文笔记】TabFlex: Scaling Tabular Learning to Millions with Linear Attention 论文解读 | ICML2025 | arXiv 2506.05584 | 线性注意力 | 用线性注意力替换 TabPFN 中的 softmax 注意力，将表格分类的 ICL 方法从小数据集扩展到百万级样本，实现 2× 以上加速且性能不降。"
 tags:
   - ICML2025
-  - 线性注意力
-  - In-Context Learning
-  - TabPFN
 ---
 
 # TabFlex: Scaling Tabular Learning to Millions with Linear Attention

@@ -2,9 +2,6 @@
 description: "【论文笔记】ViT-Linearizer: Distilling Quadratic Knowledge into Linear-Time Vision Models 论文解读 | ICCV 2025 | arXiv 2504.00037 | 跨架构蒸馏 | 提出 ViT-Linearizer，一种跨架构蒸馏框架，通过**激活匹配**和**掩码预测**两个核心机制，将 ViT 自注意力中学习到的\"二次知识\"高效迁移到线性复杂度的循环模型（Mamba-based Adventurer），在 ImageNet 上达到 84.3% 准确率，同时在高分辨率任务中实现最高 4.2× 的推理加速。"
 tags:
   - ICCV 2025
-  - 跨架构蒸馏
-  - ViT
-  - Mamba
 ---
 
 # ViT-Linearizer: Distilling Quadratic Knowledge into Linear-Time Vision Models

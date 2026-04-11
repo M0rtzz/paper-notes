@@ -2,9 +2,7 @@
 description: "【论文笔记】SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated learning 论文解读 | CVPR2026 | arXiv 2603.12976 | 联邦学习 | SCOPE 用一个零训练的视觉语言几何打分器，把每个样本压缩成表示性、多样性和负类边界接近度三个标量，再由服务器只聚合这些轻量统计量形成全局共识，指导各客户端先删语义异常样本、再删多数类冗余样本，从而在强非 IID 和长尾联邦场景下兼顾精度、鲁棒性和极低通信开销。"
 tags:
   - CVPR2026
-  - 联邦学习
-  - coreset selection
-  - 长尾分布
+  - 视觉语言
 ---
 
 # SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated learning

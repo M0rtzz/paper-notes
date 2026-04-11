@@ -2,9 +2,6 @@
 description: "【论文笔记】SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling 论文解读 | CVPR 2026 | arXiv 2602.23013 | 少样本异常检测 | SubspaceAD 证明了在强视觉基础模型（DINOv2-G）特征上做一次 PCA 拟合就足以超越所有需要训练/记忆库/提示调优的少样本异常检测方法，1-shot 下在 MVTec-AD 上达 98.0% 图像级 AUROC 和 97.6% 像素级 AUROC。"
 tags:
   - CVPR 2026
-  - 少样本异常检测
-  - PCA
-  - DINOv2
 ---
 
 # SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling

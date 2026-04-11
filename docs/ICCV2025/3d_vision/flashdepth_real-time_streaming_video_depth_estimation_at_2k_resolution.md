@@ -2,9 +2,6 @@
 description: "【论文笔记】FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution 论文解读 | ICCV 2025 | arXiv 2504.07093 | 视频深度估计 | 提出FlashDepth，在Depth Anything v2基础上添加Mamba循环模块实现帧间尺度一致性，并设计Small-Large混合架构在2K分辨率下达到24 FPS的实时流式视频深度估计，边界清晰度远超现有方法。"
 tags:
   - ICCV 2025
-  - 视频深度估计
-  - 实时流式处理
-  - 2K分辨率
 ---
 
 # FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution

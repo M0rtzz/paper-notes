@@ -2,9 +2,6 @@
 description: "【论文笔记】GaRAGe: A Benchmark with Grounding Annotations for RAG Evaluation 论文解读 | ACL 2025 | arXiv 2506.07671 | RAG benchmark | GaRAGe 是一个包含 2366 个问题和超过 35K 条人工标注 grounding 段落的 RAG 基准，通过细粒度的 grounding 相关性标注，系统评估 LLM 在 RAG 场景下识别相关信息、拒绝回答和归因引用的能力。"
 tags:
   - ACL 2025
-  - RAG benchmark
-  - grounding annotation
-  - factuality
 ---
 
 # GaRAGe: A Benchmark with Grounding Annotations for RAG Evaluation

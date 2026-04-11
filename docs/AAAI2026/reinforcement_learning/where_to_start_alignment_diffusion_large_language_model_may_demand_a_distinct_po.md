@@ -2,9 +2,6 @@
 description: "【论文笔记】Where to Start Alignment? Diffusion Large Language Model May Demand a Distinct Position 论文解读 | AAAI 2026 (Oral) | arXiv 2508.12398 | 扩散语言模型 | 首次系统分析扩散大语言模型（dLLM）的安全特性，发现与自回归 LLM 不同，dLLM 中**中间 token** 对安全性更关键，且攻击者受限于模型固有的顺序生成倾向难以操控中间 token，基于此不对称性提出 MOSA（Middle-tOken Safety Alignment）防御方法。"
 tags:
   - AAAI 2026 (Oral)
-  - 扩散语言模型
-  - 安全对齐
-  - 中间token
 ---
 
 # Where to Start Alignment? Diffusion Large Language Model May Demand a Distinct Position

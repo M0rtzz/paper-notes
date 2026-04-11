@@ -2,9 +2,6 @@
 description: "【论文笔记】Orochi: Versatile Biomedical Image Processor 论文解读 | NeurIPS 2025 | arXiv 2509.22583 | 生物医学图像处理 | 提出 Orochi——首个面向底层生物医学图像处理的通用基础模型，通过任务相关联合嵌入预训练（TJP）和多头层级 Mamba 架构，在配准、融合、复原和超分辨率四大任务上以轻量微调（<5% 参数）即可达到或超越专用 SOTA 模型。"
 tags:
   - NeurIPS 2025
-  - 生物医学图像处理
-  - 通用基础模型
-  - 自监督预训练
 ---
 
 # Orochi: Versatile Biomedical Image Processor

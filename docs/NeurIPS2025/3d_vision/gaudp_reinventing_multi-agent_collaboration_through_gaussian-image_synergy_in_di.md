@@ -2,9 +2,6 @@
 description: "【论文笔记】GauDP: Reinventing Multi-Agent Collaboration through Gaussian-Image Synergy in Diffusion Policies 论文解读 | NeurIPS 2025 | arXiv 2511.00998 | 3D Gaussian Splatting | 提出 GauDP，通过从多智能体的去中心化 RGB 观测中构建全局一致的 3D 高斯场，并将高斯属性动态分配回各智能体的局部视角，实现可扩展的、感知增强的多智能体协作模仿学习。"
 tags:
   - NeurIPS 2025
-  - 3D Gaussian Splatting
-  - 多智能体协作
-  - 扩散策略
 ---
 
 # GauDP: Reinventing Multi-Agent Collaboration through Gaussian-Image Synergy in Diffusion Policies

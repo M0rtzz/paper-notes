@@ -2,9 +2,6 @@
 description: "【论文笔记】AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios 论文解读 | AAAI 2026 | arXiv 2511.21053 | RMOT | 构建了首个面向无人机场景的大规模 Referring Multi-Object Tracking（RMOT）基准数据集 AerialMind，并提出 HawkEyeTrack（HETrack）方法，通过视觉-语言共进化融合编码器和尺度自适应上下文精炼模块，在无人机航拍场景中实现语言引导的多目标跟踪。"
 tags:
   - AAAI 2026
-  - RMOT
-  - 无人机
-  - 视觉-语言融合
 ---
 
 # AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios

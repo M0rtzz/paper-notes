@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Modal Masked Autoencoders for Galaxy Evolution and Cosmology 论文解读 | NeurIPS 2025 | arXiv 2510.22527 | 掩码自编码器 | 将多模态掩码自编码器 (MMAE) 应用于星系图像和光谱的联合重建，构建了 134,533 个星系的图像+光谱数据集，实现了光谱和图像的交叉重建以及仅从图像的红移回归，$\sigma_{\text{NMAD}} = 0.016$ 优于 AstroCLIP。"
 tags:
   - NeurIPS 2025
-  - 掩码自编码器
-  - 星系图像
-  - 光谱
 ---
 
 # Multi-Modal Masked Autoencoders for Galaxy Evolution and Cosmology

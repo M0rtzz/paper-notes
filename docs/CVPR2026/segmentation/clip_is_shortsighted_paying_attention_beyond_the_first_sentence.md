@@ -2,9 +2,6 @@
 description: "【论文笔记】CLIP Is Shortsighted: Paying Attention Beyond the First Sentence 论文解读 | CVPR2026 | arXiv 2602.22419 | CLIP | 揭示 CLIP 系列模型对长文本中首句摘要和早期 token 的系统性偏差，提出 DeBias-CLIP 通过去除摘要句、句子子采样和 token 填充三种文本增强策略消除该偏差，在不引入额外参数的条件下实现长/短文本检索 SOTA。"
 tags:
   - CVPR2026
-  - CLIP
-  - 长文本检索
-  - 文本-图像对齐
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

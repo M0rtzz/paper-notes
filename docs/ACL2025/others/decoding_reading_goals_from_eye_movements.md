@@ -1,10 +1,7 @@
 ---
-title: "Decoding Reading Goals from Eye Movements"
-authors: "Omer Shubi, Cfir Avraham Hadar, Yevgeni Berzak"
-venue: "ACL 2025"
-arxiv: "2410.20779"
-date: 2024-10-28
-domain: "others"
+description: "【论文笔记】Decoding Reading Goals from Eye Movements 论文解读 | ACL 2025 | arXiv 2410.20779 | 本文首次提出从眼动轨迹中解码读者阅读目标（信息检索 vs. 普通阅读）的任务，通过 12 种模型的系统比较发现基于 Transformer 的扫视路径+语言建模方案（RoBERTa-Eye-F）最优，可在阅读早期即实现高精度实时预测。"
+tags:
+  - ACL 2025
 ---
 
 # Decoding Reading Goals from Eye Movements

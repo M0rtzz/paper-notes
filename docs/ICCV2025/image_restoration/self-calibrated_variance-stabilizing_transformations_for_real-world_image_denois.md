@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Calibrated Variance-Stabilizing Transformations for Real-World Image Denoising 论文解读 | ICCV 2025 | arXiv 2407.17399 | 图像去噪 | 提出 Noise2VST 框架，通过自监督学习一个无模型假设的方差稳定化变换（VST），使现成的高斯去噪器无需额外训练即可高效处理真实世界噪声图像。"
 tags:
   - ICCV 2025
-  - 图像去噪
-  - 方差稳定化变换
-  - 零样本学习
 ---
 
 # Self-Calibrated Variance-Stabilizing Transformations for Real-World Image Denoising

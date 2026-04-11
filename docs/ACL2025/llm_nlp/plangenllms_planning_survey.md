@@ -2,9 +2,6 @@
 description: "【论文笔记】PlanGenLLMs: A Modern Survey of LLM Planning Capabilities 论文解读 | ACL 2025 | arXiv 2502.11221 | LLM规划 | PlanGenLLMs 是一篇系统性综述，基于经典 AI 规划评估框架提出完整性、可执行性、最优性、表示、泛化性和效率六大评估准则，全面梳理了 LLM 作为规划器的方法、评估和未来方向。"
 tags:
   - ACL 2025
-  - LLM规划
-  - 综述
-  - 任务分解
 ---
 
 # PlanGenLLMs: A Modern Survey of LLM Planning Capabilities

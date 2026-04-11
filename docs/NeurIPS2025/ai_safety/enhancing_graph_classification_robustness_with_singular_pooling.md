@@ -2,10 +2,7 @@
 description: "【论文笔记】Enhancing Graph Classification Robustness with Singular Pooling 论文解读 | NeurIPS 2025 | arXiv 2510.22643 | 图神经网络 GNN robustness | 首次系统分析 flat pooling（Sum/Avg/Max）对图分类对抗鲁棒性的影响，推导各自的对抗风险上界，并提出 RS-Pool——利用节点嵌入矩阵的主奇异向量构建图级表示，在不牺牲 clean accuracy 的前提下显著提升对抗鲁棒性。"
 tags:
   - NeurIPS 2025
-  - GNN robustness
   - 图神经网络
-  - graph classification
-  - pooling
 ---
 
 # Enhancing Graph Classification Robustness with Singular Pooling

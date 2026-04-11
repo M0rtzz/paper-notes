@@ -2,10 +2,7 @@
 description: "【论文笔记】The Coherence Trap: MLLM-Crafted Narratives Exploit Manipulated Visual Contexts 论文解读 | CVPR 2026 | arXiv 2505.17476 | 多模态 multimodal manipulation detection | 揭示现有多模态虚假信息检测的两个根本缺陷（低估MLLM生成的语义一致虚假叙事+依赖简单不对齐的伪影），构建441k样本的MDSM数据集（图像篡改+MLLM生成语义对齐文本），并提出AMD框架（Artifact Pre-perception + Manipulation-Oriented Reasoning），在跨域检测中达88.18 ACC / 60.25 mAP / 61.02 mIoU。"
 tags:
   - CVPR 2026
-  - multimodal manipulation detection
   - 多模态
-  - MLLM-driven disinformation
-  - semantic alignment
 ---
 
 # The Coherence Trap: MLLM-Crafted Narratives Exploit Manipulated Visual Contexts

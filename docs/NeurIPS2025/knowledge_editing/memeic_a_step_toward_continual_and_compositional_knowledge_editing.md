@@ -2,9 +2,6 @@
 description: "【论文笔记】MemEIC: A Step Toward Continual and Compositional Knowledge Editing 论文解读 | NEURIPS2025 | arXiv 2510.25798 | knowledge editing | 提出 MemEIC 框架，通过外部双模态检索记忆 + 内部模态分离 LoRA 适配器 + 仿脑 Knowledge Connector 三层架构，实现大视觉语言模型的持续、组合式知识编辑，在新提出的 CCKEB 基准上大幅超越现有方法。"
 tags:
   - NEURIPS2025
-  - knowledge editing
-  - LVLM
-  - continual learning
 ---
 
 # MemEIC: A Step Toward Continual and Compositional Knowledge Editing

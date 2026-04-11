@@ -2,9 +2,6 @@
 description: "【论文笔记】K-DeCore: Facilitating Knowledge Transfer in Continual Structured Knowledge Reasoning 论文解读 | NeurIPS 2025 | arXiv 2509.16929 | 持续学习 | 提出 K-DeCore 框架，通过知识解耦将结构化知识推理分为任务无关的 schema 过滤和任务特定的 query 构建两阶段，配合双视角记忆构建和结构引导的伪数据合成策略，在固定参数量下实现跨异构 SKR 任务的有效知识迁移。"
 tags:
   - NeurIPS 2025
-  - 持续学习
-  - 结构化知识推理
-  - 知识解耦
 ---
 
 # K-DeCore: Facilitating Knowledge Transfer in Continual Structured Knowledge Reasoning

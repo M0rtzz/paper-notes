@@ -2,9 +2,6 @@
 description: "【论文笔记】Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection 论文解读 | ICML 2025 | arXiv 2506.03964 | 多变量异常检测 | 提出 CAROTS——将因果关系融入对比学习的多变量时间序列异常检测框架，用因果保持增强作为正样本（正常变化），因果破坏增强作为负样本（模拟异常），训练编码器基于因果结构区分正常与异常。"
 tags:
   - ICML 2025
-  - 多变量异常检测
-  - 因果关系
-  - 对比学习
 ---
 
 # Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection

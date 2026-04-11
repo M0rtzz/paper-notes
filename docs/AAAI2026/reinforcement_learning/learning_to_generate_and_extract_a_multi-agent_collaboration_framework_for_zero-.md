@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Generate and Extract: A Multi-Agent Collaboration Framework for Zero-shot Document-level Event Arguments Extraction 论文解读 | AAAI 2026 | arXiv 2603.02909 | 零样本学习 | 提出\"提议-评估-修改\"多智能体协作框架（生成智能体+评估智能体）解决零样本文档级事件论元提取（ZS-DEAE），通过生成智能体合成未见事件的训练数据，评估智能体评分引导强化学习迭代优化，同时提升合成数据质量和抽取性能。"
 tags:
   - AAAI 2026
-  - 零样本学习
-  - 文档级事件论元提取
-  - 多智能体协作
 ---
 
 # Learning to Generate and Extract: A Multi-Agent Collaboration Framework for Zero-shot Document-level Event Arguments Extraction

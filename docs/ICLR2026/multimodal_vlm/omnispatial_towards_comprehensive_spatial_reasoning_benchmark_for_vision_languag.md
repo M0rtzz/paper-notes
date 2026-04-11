@@ -2,9 +2,6 @@
 description: "【论文笔记】OmniSpatial: Towards Comprehensive Spatial Reasoning Benchmark for Vision Language Models 论文解读 | ICLR 2026 | arXiv 2506.03135 | 空间推理 | 提出OmniSpatial基准，基于认知心理学系统覆盖4大空间推理维度（动态推理/复杂空间逻辑/空间交互/透视转换）50个子类别的8400+人工标注题目，发现o3/Gemini-2.5-Pro等最强模型在现有基准上>90%但在OmniSpatial上仍显著挣扎。"
 tags:
   - ICLR 2026
-  - 空间推理
-  - VLM基准
-  - 认知心理学
 ---
 
 # OmniSpatial: Towards Comprehensive Spatial Reasoning Benchmark for Vision Language Models

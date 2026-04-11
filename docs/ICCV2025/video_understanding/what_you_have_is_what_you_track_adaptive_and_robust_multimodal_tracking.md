@@ -2,9 +2,6 @@
 description: "【论文笔记】What You Have is What You Track: Adaptive and Robust Multimodal Tracking 论文解读 | ICCV 2025 | arXiv 2507.05899 | 多模态跟踪 | 提出FlexTrack——首个系统研究**时序性不完整多模态数据**下跟踪性能的框架，通过异构MoE融合机制（HMoE）实现自适应计算复杂度，配合视频级masking训练策略，在9个基准上取得SOTA，完整模态提升2.6%，缺失模态场景提升10.2%。"
 tags:
   - ICCV 2025
-  - 多模态跟踪
-  - 缺失模态
-  - Mixture-of-Experts
 ---
 
 # What You Have is What You Track: Adaptive and Robust Multimodal Tracking

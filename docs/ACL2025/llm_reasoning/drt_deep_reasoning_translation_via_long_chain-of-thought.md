@@ -2,9 +2,6 @@
 description: "【论文笔记】DRT: Deep Reasoning Translation via Long Chain-of-Thought 论文解读 | ACL 2025 | arXiv 2412.17498 | 机器翻译 | 将长 CoT 推理引入机器翻译，构建多智能体框架（翻译器→顾问→评估器）迭代精炼含比喻/隐喻的文学翻译，合成 22K 长思维翻译训练样本，训练的 DRT-14B 在文学翻译上超越 QwQ-32B 和 DeepSeek-R1-Distill-32B 等大模型。"
 tags:
   - ACL 2025
-  - 机器翻译
-  - Chain-of-Thought
-  - 文学翻译
 ---
 
 # DRT: Deep Reasoning Translation via Long Chain-of-Thought

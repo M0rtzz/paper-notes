@@ -2,9 +2,6 @@
 description: "【论文笔记】General Agents Contain World Models 论文解读 | ICML 2025 | arXiv 2506.01622 | 世界模型 | 本文从理论上证明：任何能在多步目标导向任务上泛化的智能体，必然隐式学到了一个其环境的预测模型（世界模型），且该模型可以从智能体的策略中提取出来——智能体越强、目标越复杂，其隐含的世界模型越准确。"
 tags:
   - ICML 2025
-  - 世界模型
-  - 目标导向智能体
-  - 强化学习理论
 ---
 
 # General Agents Contain World Models

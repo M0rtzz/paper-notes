@@ -2,9 +2,6 @@
 description: "【论文笔记】Concept-Based Unsupervised Domain Adaptation 论文解读 | ICML 2025 | arXiv 2505.05195 | 概念瓶颈模型 | 提出 CUDA 框架——将概念瓶颈模型（CBM）与无监督域适应（UDA）结合，通过松弛一致性对齐概念表示（允许域间小差异）和目标域的无标注概念推断，首次在域偏移下同时提供可解释性和跨域泛化，并提供理论保证。"
 tags:
   - ICML 2025
-  - 概念瓶颈模型
-  - 域适应
-  - 可解释性
 ---
 
 # Concept-Based Unsupervised Domain Adaptation

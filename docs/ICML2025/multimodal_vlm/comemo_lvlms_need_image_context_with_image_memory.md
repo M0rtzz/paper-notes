@@ -2,9 +2,6 @@
 description: "【论文笔记】CoMemo: LVLMs Need Image Context with Image Memory 论文解读 | ICML2025 | arXiv 2506.06279 | 大视觉语言模型 | 提出CoMemo双路径架构：Context路径保持自回归处理图像上下文，Memory路径用交叉注意力作为图像记忆避免\"中间遗失\"问题，配合RoPE-DHR位置编码保持2D空间感知，在7类基准上全面超越单路径LVLM。"
 tags:
   - ICML2025
-  - 大视觉语言模型
-  - 双路径架构
-  - 位置编码
 ---
 
 # CoMemo: LVLMs Need Image Context with Image Memory

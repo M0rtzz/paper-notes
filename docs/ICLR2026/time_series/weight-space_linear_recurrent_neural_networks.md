@@ -2,9 +2,6 @@
 description: "【论文笔记】WARP: 权重空间线性循环神经网络 论文解读 | ICLR 2026 | arXiv 2506.01153 | 权重空间学习 | 提出 WARP（Weight-space Adaptive Recurrent Prediction），将线性 RNN 的隐状态显式参数化为辅助 MLP 的权重和偏置，利用输入差分驱动线性递推来更新权重，结合非线性解码实现高效序列建模，在分类、预测和动力系统重建等任务上达到 SOTA。"
 tags:
   - ICLR 2026
-  - 权重空间学习
-  - 线性RNN
-  - 自适应预测
 ---
 
 # WARP: 权重空间线性循环神经网络

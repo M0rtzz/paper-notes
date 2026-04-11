@@ -2,9 +2,6 @@
 description: "【论文笔记】SplitFlow: Flow Decomposition for Inversion-Free Text-to-Image Editing 论文解读 | NeurIPS 2025 | arXiv 2510.25970 | 矫正流 | 提出 SplitFlow，将目标 prompt 语义分解为多个子 prompt，为每个子 prompt 计算独立的编辑流，再通过投影和自适应聚合机制组合成统一编辑轨迹，解决梯度纠缠问题，在无需反转的前提下实现更高保真度和可编辑性的文本引导图像编辑。"
 tags:
   - NeurIPS 2025
-  - 矫正流
-  - 无反转编辑
-  - 流分解
 ---
 
 # SplitFlow: Flow Decomposition for Inversion-Free Text-to-Image Editing

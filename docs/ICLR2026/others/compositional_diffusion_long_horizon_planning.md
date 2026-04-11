@@ -2,10 +2,7 @@
 description: "【论文笔记】Compositional Diffusion with Guided Search for Long-Horizon Planning 论文解读 | ICLR 2026 | arXiv 2601.00126 | 扩散模型 compositional diffusion | 提出 CDGS（Compositional Diffusion with Guided Search），通过在扩散去噪过程中嵌入基于种群的搜索机制（迭代重采样 + 似然剪枝），解决组合式扩散模型在多模态局部分布合成时的模式平均问题，从短时域模型采样出全局一致的长时域规划。"
 tags:
   - ICLR 2026
-  - compositional diffusion
   - 扩散模型
-  - long-horizon planning
-  - mode averaging
 ---
 
 # Compositional Diffusion with Guided Search for Long-Horizon Planning

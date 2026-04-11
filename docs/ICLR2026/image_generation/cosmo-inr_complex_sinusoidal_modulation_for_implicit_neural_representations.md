@@ -2,9 +2,6 @@
 description: "【论文笔记】COSMO-INR: Complex Sinusoidal Modulation for Implicit Neural Representations 论文解读 | ICLR2026 | arXiv 2505.11640 | Implicit Neural Representation | 通过谐波失真分析和 Chebyshev 多项式逼近，证明奇/偶对称激活函数在后激活频谱中存在衰减，提出用复正弦项调制激活函数 (COSMO-RC) 来保留完整频谱支持，在图像重建上平均 PSNR 比最强基线高 +5.67 dB。"
 tags:
   - ICLR2026
-  - Implicit Neural Representation
-  - 激活函数
-  - 频谱分析
 ---
 
 # COSMO-INR: Complex Sinusoidal Modulation for Implicit Neural Representations

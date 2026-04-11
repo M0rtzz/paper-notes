@@ -2,9 +2,6 @@
 description: "【论文笔记】Agentic Retoucher for Text-To-Image Generation 论文解读 | CVPR 2026 | arXiv 2601.02046 | 文本到图像生成 | 将 T2I 扩散模型输出的局部失真（手指畸变、面部异常、文字错误等）校正问题建模为感知-推理-行动的多智能体循环系统 Agentic Retoucher，通过 Perception Agent 的上下文感知失真显著性图定位缺陷、Reasoning Agent 的结构化推理诊断失真类型、Action Agent 的工具选择执行修复，并配合 GenBlemish-27K 数据集实现端到端的迭代式自动修正。"
 tags:
   - CVPR 2026
-  - 文本到图像生成
-  - 后处理校正
-  - 多智能体系统
 ---
 
 # Agentic Retoucher for Text-To-Image Generation

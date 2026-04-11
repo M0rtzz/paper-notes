@@ -2,9 +2,6 @@
 description: "【论文笔记】PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation 论文解读 | ACL 2025 | arXiv 2506.06842 | 假新闻检测 | 提出 PCoT（说服增强的思维链）方法，通过两阶段推理——先让 LLM 分析文本中的说服策略，再结合说服分析结果判断是否为虚假信息——在零样本设置下，5 个 LLM 和 5 个数据集上平均提升 15% 的检测 F1。"
 tags:
   - ACL 2025
-  - 假新闻检测
-  - 说服策略
-  - Chain-of-Thought
 ---
 
 # PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation

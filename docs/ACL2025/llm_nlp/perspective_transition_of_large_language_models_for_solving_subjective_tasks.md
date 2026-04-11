@@ -2,9 +2,6 @@
 description: "【论文笔记】Perspective Transition of Large Language Models for Solving Subjective Tasks 论文解读 | ACL 2025 | arXiv 2501.09265 | 视角转换 | 提出 RPT（Reasoning through Perspective Transition），通过在同一 prompt 中让 LLM 依次探索直接/角色扮演/第三人称三种视角、按置信度排序、选最优视角推理，在 12 个主观任务、4 个模型（GPT-4/GPT-3.5/Llama-3/Qwen-2）上均超越固定视角与集成基线，GPT-3.5 上平均提升 +4.56 点。"
 tags:
   - ACL 2025
-  - 视角转换
-  - 主观任务
-  - 置信度排序
 ---
 
 # Perspective Transition of Large Language Models for Solving Subjective Tasks

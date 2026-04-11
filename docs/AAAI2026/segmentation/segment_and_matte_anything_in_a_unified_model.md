@@ -2,9 +2,6 @@
 description: "【论文笔记】Segment and Matte Anything in a Unified Model (SAMA) 论文解读 | AAAI 2026 | arXiv 2601.12147 | SAM扩展 | 提出SAMA——一种SAM的轻量级扩展框架，通过多视图局部编码器(MVLE)捕获细粒度局部特征、局部化适配器(Local-Adapter)将局部细节注入解码过程，以及双任务预测头，仅增加1.8%参数即可在统一模型中同时实现高质量交互式分割和Alpha Matting，在DIS-5K和多个Matting基准上达到SOTA。"
 tags:
   - AAAI 2026
-  - SAM扩展
-  - 统一分割与抠图
-  - 多视图局部编码器
 ---
 
 # Segment and Matte Anything in a Unified Model (SAMA)

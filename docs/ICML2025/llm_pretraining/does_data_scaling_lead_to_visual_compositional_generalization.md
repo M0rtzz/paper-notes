@@ -2,9 +2,6 @@
 description: "【论文笔记】Does Data Scaling Lead to Visual Compositional Generalization? 论文解读 | ICML 2025 | arXiv 2507.07102 | 组合泛化 | 本文通过受控实验系统研究了数据规模与数据多样性对视觉模型组合泛化能力的影响，发现组合泛化的关键驱动力是数据多样性而非数据量，并证明当表示呈线性分解结构时仅需每个概念值2个组合样本即可完美泛化。"
 tags:
   - ICML 2025
-  - 组合泛化
-  - 数据多样性
-  - 线性分解表示
 ---
 
 # Does Data Scaling Lead to Visual Compositional Generalization?

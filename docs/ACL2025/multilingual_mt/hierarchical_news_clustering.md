@@ -2,9 +2,7 @@
 description: "【论文笔记】Hierarchical Level-Wise News Article Clustering via Multilingual Matryoshka Embeddings 论文解读 | ACL 2025 | arXiv 2506.00277 | Matryoshka embeddings | 本文提出利用多语言 Matryoshka 嵌入的分层特性进行新闻文章聚类：低维捕捉主题级相似度、中维捕捉叙事级相似度、高维捕捉事件级相似度，结合改良的 RAC 层级聚类算法，在 SemEval 2022 Task 8 上达到 SOTA（Pearson ρ = 0.816）。"
 tags:
   - ACL 2025
-  - Matryoshka embeddings
-  - hierarchical clustering
-  - multilingual
+  - 对比学习
 ---
 
 # Hierarchical Level-Wise News Article Clustering via Multilingual Matryoshka Embeddings

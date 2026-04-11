@@ -2,10 +2,7 @@
 description: "【论文笔记】BALM: A Model-Agnostic Framework for Balanced Multimodal Learning under Imbalanced Missing Rates 论文解读 | CVPR 2026 | arXiv 2603.19718 | 多模态 Multimodal Learning | BALM 提出一个模型无关的即插即用框架来解决**不均衡缺失率（IMR）**下的多模态学习问题，通过特征校准模块（FCM）对齐不同缺失模式下的表征、以及梯度再平衡模块（GRM）从分布和空间两个维度平衡各模态的优化动态，在多个多模态情感识别基准上持续提升各类骨干网络的鲁棒性。"
 tags:
   - CVPR 2026
-  - Multimodal Learning
   - 多模态
-  - Missing Modality
-  - Imbalanced Missing Rate
 ---
 
 # BALM: A Model-Agnostic Framework for Balanced Multimodal Learning under Imbalanced Missing Rates

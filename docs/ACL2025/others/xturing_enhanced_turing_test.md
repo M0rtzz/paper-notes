@@ -2,9 +2,6 @@
 description: "【论文笔记】X-Turing: Towards an Enhanced and Efficient Turing Test for Long-Term Dialogue Agents 论文解读 | ACL 2025 | arXiv 2408.09853 | Turing Test | 提出 X-Turing 框架，通过引入 burst 对话模式和伪对话生成技术来增强和高效化图灵测试，能够评估 LLM 在长期对话中的人类模仿能力，发现 LLM 随着对话轮次增加表现显著下降。"
 tags:
   - ACL 2025
-  - Turing Test
-  - Long-term Dialogue
-  - Burst Dialogue
 ---
 
 # X-Turing: Towards an Enhanced and Efficient Turing Test for Long-Term Dialogue Agents

@@ -2,9 +2,6 @@
 description: "【论文笔记】Neural MJD: Neural Non-Stationary Merton Jump Diffusion for Time Series Prediction 论文解读 | NeurIPS 2025 | arXiv 2506.04542 | 跳跃扩散 | 提出 Neural MJD，用神经网络参数化非平稳 Merton 跳跃扩散模型，将预测建模为 SDE 仿真问题，结合时变 Itô 扩散（捕获连续漂移）和时变复合 Poisson 过程（建模突变跳跃），配合似然截断和 Euler-Maruyama with Restart 求解器实现可扩展学习与推理。"
 tags:
   - NeurIPS 2025
-  - 跳跃扩散
-  - 随机微分方程
-  - 非平稳
 ---
 
 # Neural MJD: Neural Non-Stationary Merton Jump Diffusion for Time Series Prediction

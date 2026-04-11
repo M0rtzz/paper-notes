@@ -2,9 +2,6 @@
 description: "【论文笔记】Quadratic Upper Bound for Boosting Robustness 论文解读 | ICML2025 | arXiv 2601.13645 | 对抗训练 | 利用交叉熵损失关于 logit 的凸性，推导出对抗训练损失的二次上界 (QUB)，作为即插即用的损失函数替换应用于现有快速对抗训练方法，显著提升鲁棒性。"
 tags:
   - ICML2025
-  - 对抗训练
-  - 快速对抗训练
-  - 二次上界
 ---
 
 # Quadratic Upper Bound for Boosting Robustness

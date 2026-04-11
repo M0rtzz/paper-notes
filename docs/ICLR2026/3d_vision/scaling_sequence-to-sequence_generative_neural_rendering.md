@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Sequence-to-Sequence Generative Neural Rendering 论文解读 | ICLR 2026 | arXiv 2510.04236 | Neural Rendering | 提出 Kaleido，一系列将 3D 视为视频特殊子域的生成模型，通过序列到序列的图像合成范式和 Masked Autoregressive 框架实现无需显式 3D 表示的新视角合成，首次在多视角设置下匹配逐场景优化方法的质量。"
 tags:
   - ICLR 2026
-  - Neural Rendering
-  - View Synthesis
-  - Rectified Flow Transformer
   - Transformer
 ---
 

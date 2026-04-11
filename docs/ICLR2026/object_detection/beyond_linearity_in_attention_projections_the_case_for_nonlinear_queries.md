@@ -2,10 +2,8 @@
 description: "【论文笔记】Beyond Linearity in Attention Projections: The Case for Nonlinear Queries 论文解读 | ICLR 2026 Workshop (GRaM) | arXiv 2603.13381 | nonlinear query | 基于 $W_Q$ 代数冗余性的理论发现，将线性 Query 投影替换为非线性残差形式 $Q(X)=(X+f_\theta(X))/2$，在不增加参数的情况下超越 +12.5% 参数的基线模型。"
 tags:
   - ICLR 2026 Workshop (GRaM)
-  - nonlinear query
-  - attention projection
   - 注意力机制
-  - identity prior
+  - Transformer
 ---
 
 # Beyond Linearity in Attention Projections: The Case for Nonlinear Queries

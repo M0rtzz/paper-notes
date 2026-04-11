@@ -2,9 +2,6 @@
 description: "【论文笔记】Mamba Goes HoME: Hierarchical Soft Mixture-of-Experts for 3D Medical Image Segmentation 论文解读 | NeurIPS 2025 | arXiv 2507.06363 | 3D医学图像分割 | 提出Mamba-HoME架构，将层次化Soft MoE（HoME）与Mamba SSM结合，通过两级token路由机制实现局部-全局特征建模，在CT/MRI/US三种模态的3D医学图像分割任务上超越现有SOTA方法，同时保持线性计算复杂度。"
 tags:
   - NeurIPS 2025
-  - 3D医学图像分割
-  - Mamba
-  - Mixture-of-Experts
 ---
 
 # Mamba Goes HoME: Hierarchical Soft Mixture-of-Experts for 3D Medical Image Segmentation

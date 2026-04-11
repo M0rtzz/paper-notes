@@ -2,9 +2,6 @@
 description: "【论文笔记】IE-SRGS: An Internal-External Knowledge Fusion Framework for High-Fidelity 3D Gaussian Splatting Super-Resolution 论文解读 | AAAI 2026 | arXiv 2511.22233 | 3D高斯溅射 | 提出IE-SRGS框架，通过融合外部2D超分辨率模型提供的高频纹理先验（外部知识）与多尺度3DGS模型提供的跨视图一致深度/纹理特征（内部知识），配合掩码引导融合策略，从低分辨率输入实现高保真3DGS超分辨率重建，在合成和真实场景上均达到SOTA。"
 tags:
   - AAAI 2026
-  - 3D高斯溅射
-  - 超分辨率
-  - 内外知识融合
 ---
 
 # IE-SRGS: An Internal-External Knowledge Fusion Framework for High-Fidelity 3D Gaussian Splatting Super-Resolution

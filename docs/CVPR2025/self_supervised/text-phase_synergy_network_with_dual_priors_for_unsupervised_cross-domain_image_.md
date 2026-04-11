@@ -2,9 +2,6 @@
 description: "【论文笔记】Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval 论文解读 | CVPR2025 | arXiv 2603.12711 | 无监督跨域图像检索 | 提出 TPSNet，利用文本-相位双先验解决无监督跨域图像检索：域提示（text prior）提供比伪标签更精确的语义监督，相位特征（phase prior）实现保持语义的域不变对齐，两者通过交叉注意力协同融合。"
 tags:
   - CVPR2025
-  - 无监督跨域图像检索
-  - CLIP
-  - 文本先验
 ---
 
 # Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval

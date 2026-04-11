@@ -2,9 +2,6 @@
 description: "【论文笔记】An Effective Incorporating Heterogeneous Knowledge Curriculum Learning for Sequence Labeling 论文解读 | ACL 2025 | arXiv 2402.13534 | 课程学习 | 提出面向序列标注任务的双阶段课程学习（DCL）框架，通过数据级和模型级两阶段的由易到难训练策略以及基于贝叶斯不确定性的动态难度度量，在提升性能的同时加速训练超过 25%。"
 tags:
   - ACL 2025
-  - 课程学习
-  - 序列标注
-  - 贝叶斯不确定性
 ---
 
 # An Effective Incorporating Heterogeneous Knowledge Curriculum Learning for Sequence Labeling

@@ -2,9 +2,6 @@
 description: "【论文笔记】NTIL: Advancing Sequential Numerical Prediction in Autoregressive Models 论文解读 | ACL 2025 | arXiv 2505.13077 | 数值token完整性 | 提出 NTIL（Numerical Token Integrity Loss）解决自回归模型数值预测的两大缺陷——(1) token 级用 EMD 替代交叉熵保留数字间序数关系+指数位置加权，(2) 序列级通过可微数值构建+相对偏差度量评估整体数值误差。首次将 EMD 用于自回归模型优化，在目标检测/文本识别/数学推理上显著提升。"
 tags:
   - ACL 2025
-  - 数值token完整性
-  - Earth Mover's Distance
-  - 序列数值预测
 ---
 
 # NTIL: Advancing Sequential Numerical Prediction in Autoregressive Models

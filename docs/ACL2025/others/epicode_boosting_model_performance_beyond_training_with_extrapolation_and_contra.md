@@ -2,9 +2,6 @@
 description: "【论文笔记】EpiCoDe: Boosting Model Performance Beyond Training with Extrapolation and Contrastive Decoding 论文解读 | ACL 2025 | arXiv 2506.03489 | 模型外推 | 提出 EpiCoDe，一种结合模型外推（Model Extrapolation）和对比解码（Contrastive Decoding）的无训练方法，在数据稀缺场景中通过参数空间外推和推理时logit差异对比来提升微调模型性能，并从logit误差角度给出了理论分析框架。"
 tags:
   - ACL 2025
-  - 模型外推
-  - 对比解码
-  - 数据稀缺
 ---
 
 # EpiCoDe: Boosting Model Performance Beyond Training with Extrapolation and Contrastive Decoding

@@ -2,9 +2,6 @@
 description: "【论文笔记】Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval 论文解读 | ICLR 2026 | arXiv 2603.09250 | LLM 个性化 | 受认知科学双过程理论启发，提出 RF-Mem 框架，通过 Familiarity（快速相似度匹配）和 Recollection（深层链式重建）双路径自适应切换的记忆检索机制，实现高效且可扩展的 LLM 个性化。"
 tags:
   - ICLR 2026
-  - LLM 个性化
-  - 记忆检索
-  - 双过程理论
 ---
 
 # Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval

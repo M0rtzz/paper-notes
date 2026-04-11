@@ -2,9 +2,6 @@
 description: "【论文笔记】A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints 论文解读 | ICML 2025 | arXiv 2410.05612 | 贝叶斯模型选择 | 引入\"下游自由能\"作为预训练检查点的贝叶斯模型选择准则——衡量检查点附近参数空间中适合下游任务的参数浓度，并证明可仅用预训练数据近似（预训练自由能），为选择最优检查点提供理论指导。"
 tags:
   - ICML 2025
-  - 贝叶斯模型选择
-  - 预训练检查点
-  - 自由能
 ---
 
 # A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints

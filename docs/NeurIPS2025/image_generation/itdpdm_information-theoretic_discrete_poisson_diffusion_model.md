@@ -2,10 +2,7 @@
 description: "【论文笔记】ItDPDM: Information-Theoretic Discrete Poisson Diffusion Model 论文解读 | NeurIPS 2025 | arXiv 2505.05082 | 扩散模型 Discrete Diffusion | 提出 ItDPDM（信息论离散泊松扩散模型），通过泊松噪声信道和泊松重建损失（PRL）实现非负离散数据的精确似然估计，避免了 ELBO 近似和 dequantization，在合成数据及 CIFAR-10 和 MIDI 音乐上取得优于现有离散扩散模型的似然估计。"
 tags:
   - NeurIPS 2025
-  - Discrete Diffusion
   - 扩散模型
-  - Poisson Process
-  - Information Theory
 ---
 
 # ItDPDM: Information-Theoretic Discrete Poisson Diffusion Model

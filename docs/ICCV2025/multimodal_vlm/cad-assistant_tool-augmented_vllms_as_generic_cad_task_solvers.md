@@ -2,9 +2,6 @@
 description: "【论文笔记】CAD-Assistant: Tool-Augmented VLLMs as Generic CAD Task Solvers 论文解读 | ICCV 2025 | arXiv 2412.13810 | CAD Agent | 提出CAD-Assistant，首个面向通用CAD任务的工具增强视觉大语言模型框架，通过集成CAD专用工具集（草图参数化器、渲染模块、约束检查器等）和FreeCAD Python API，在零样本设置下超越了监督式任务特定方法。"
 tags:
   - ICCV 2025
-  - CAD Agent
-  - 工具增强
-  - VLLM
 ---
 
 # CAD-Assistant: Tool-Augmented VLLMs as Generic CAD Task Solvers

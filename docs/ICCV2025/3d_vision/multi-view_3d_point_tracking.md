@@ -2,9 +2,7 @@
 description: "【论文笔记】Multi-View 3D Point Tracking 论文解读 | ICCV 2025 | arXiv 2508.21060 | 多视角3D点跟踪 | 提出 MVTracker——首个数据驱动的多视角3D点跟踪器，通过将多视图深度图反投影为统一的3D特征点云，利用 kNN 关联和 Transformer 迭代优化，在仅需4个相机的实用配置下实现鲁棒的长程3D点轨迹估计，在 Panoptic Studio 和 DexYCB 上分别达到 3.1 cm 和 2.0 cm 的中位轨迹误差。"
 tags:
   - ICCV 2025
-  - 多视角3D点跟踪
-  - 点云特征融合
-  - kNN关联
+  - Transformer
 ---
 
 # Multi-View 3D Point Tracking

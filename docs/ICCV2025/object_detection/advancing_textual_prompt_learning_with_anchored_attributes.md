@@ -2,10 +2,7 @@
 description: "【论文笔记】Advancing Textual Prompt Learning with Anchored Attributes 论文解读 | ICCV 2025 | arXiv 2412.09442 | 提示学习 Prompt Learning | 本文提出 ATPrompt，通过在文本 prompt 中嵌入通用属性 token（如颜色、形状），将软 prompt 的学习空间从一维类别级别拓展到多维属性级别，作为即插即用的模块可无缝集成到现有文本 prompt 学习方法中，在 11 个数据集上一致性提升基线性能。"
 tags:
   - ICCV 2025
-  - Prompt Learning
   - 提示学习
-  - CLIP
-  - 属性锚定
 ---
 
 # Advancing Textual Prompt Learning with Anchored Attributes

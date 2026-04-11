@@ -2,9 +2,6 @@
 description: "【论文笔记】VidCapBench: A Comprehensive Benchmark of Video Captioning for Controllable Text-to-Video Generation 论文解读 | ACL 2025 | arXiv 2502.12782 | 视频描述 | 提出 VidCapBench，首个专为可控文生视频（T2V）设计的视频描述评估 benchmark，从美学/内容/运动/物理规律四个维度评估 caption 质量，643 个视频+10,644 个 QA 对，实验证明 VidCapBench 分数与 T2V 生成质量高度正相关。"
 tags:
   - ACL 2025
-  - 视频描述
-  - benchmark
-  - 文生视频
 ---
 
 # VidCapBench: A Comprehensive Benchmark of Video Captioning for Controllable Text-to-Video Generation

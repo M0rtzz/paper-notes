@@ -2,9 +2,6 @@
 description: "【论文笔记】Target-Aware Video Diffusion Models 论文解读 | ICLR 2026 | arXiv 2503.18950 | 视频扩散模型 | 提出 target-aware 视频扩散模型，仅需一张输入图像和目标物体的分割 mask，即可生成演员与指定目标交互的视频；核心创新是引入 [TGT] 特殊 token 并设计选择性交叉注意力损失，使模型关注目标的空间位置，在目标对齐和视频质量上全面超越基线。"
 tags:
   - ICLR 2026
-  - 视频扩散模型
-  - 目标感知
-  - 交叉注意力损失
 ---
 
 # Target-Aware Video Diffusion Models

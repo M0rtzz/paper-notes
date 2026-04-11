@@ -2,9 +2,6 @@
 description: "【论文笔记】One Size Fits None: Rethinking Fairness in Medical AI 论文解读 | ACL 2025 | arXiv 2506.14400 | 公平性 | 本文在三个多模态医学预测任务（ICU死亡率、移植物失败、急诊分诊）上进行子群体性能分析，揭示聚合指标掩盖的群体间性能差异，主张将公平性与透明度紧密结合，通过常规化的子群体报告推动负责任的医学AI部署。"
 tags:
   - ACL 2025
-  - 公平性
-  - 子群体分析
-  - 医学ML
 ---
 
 # One Size Fits None: Rethinking Fairness in Medical AI

@@ -2,9 +2,6 @@
 description: "【论文笔记】Retrospective Learning from Interactions 论文解读 | ACL 2025 | arXiv 2410.13852 | 隐式反馈 | 提出 ReSpect 方法，让多模态 LLM 通过回顾性地解码用户在多轮交互中的隐式反馈信号来自我改进，无需任何外部标注，在数千次人机交互中将任务完成率从 31% 提升至 82%。"
 tags:
   - ACL 2025
-  - 隐式反馈
-  - 交互学习
-  - 持续学习
 ---
 
 # Retrospective Learning from Interactions

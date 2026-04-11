@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Relative Gene Expression Trends from Pathology Images in Spatial Transcriptomics 论文解读 | NeurIPS 2025 | arXiv 2512.06612 | 空间转录组 | 提出 STRank 损失函数，将病理图像基因表达估计重新定义为排序分数估计任务，利用二项分布/多项分布建模表达计数的随机噪声特性，使模型能从包含批次效应和随机波动的空间转录组数据中学习到鲁棒的相对表达关系。"
 tags:
   - NeurIPS 2025
-  - 空间转录组
-  - 基因表达估计
-  - 排序学习
 ---
 
 # Learning Relative Gene Expression Trends from Pathology Images in Spatial Transcriptomics

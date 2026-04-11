@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Improved Sentence Representations using Token Graphs 论文解读 | ICLR 2026 | arXiv 2603.03389 | 句子表征 | 提出 Glot，一种轻量结构感知池化模块，将冻结 LLM 的 token 级隐状态构建为潜在相似性图，通过 GNN 细化后聚合为句子表征，在 GLUE/MTEB 上与微调方法竞争力相当但仅需 20× 更少参数和 100× 更快训练。"
 tags:
   - ICLR 2026
-  - 句子表征
-  - 图神经网络
-  - Token图
 ---
 
 # Towards Improved Sentence Representations using Token Graphs

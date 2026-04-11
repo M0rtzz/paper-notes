@@ -2,9 +2,6 @@
 description: "【论文笔记】EfficientFSL: Enhancing Few-Shot Classification via Query-Only Tuning in Vision Transformers 论文解读 | AAAI 2026 | arXiv 2601.08499 | 少样本学习 | 提出 EfficientFSL，一种针对 ViT 少样本分类的 query-only 参数高效微调框架，通过 Forward Block（解耦的主动/冻结子块）、Combine Block（自适应多层特征融合）和 SQ Attention Block（支持-查询分布对齐）三个模块，仅用1.25M~2.48M可训练参数即可在4个域内+6个跨域基准上达到 SOTA。"
 tags:
   - AAAI 2026
-  - 少样本学习
-  - 参数高效微调
-  - Vision Transformer
   - Transformer
 ---
 

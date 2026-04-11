@@ -2,11 +2,8 @@
 description: "【论文笔记】DIIP: Diffusion Image Prior 论文解读 | ICCV 2025 | arXiv 2503.21410 | 扩散模型 Diffusion Model | 发现预训练扩散模型在重建退化图像时存在类似 Deep Image Prior 的隐式偏置——迭代优化过程中先生成干净图像再过拟合到退化输入——且比 DIP 适用更广泛的退化类型，据此提出完全盲（无需退化模型）的图像复原方法 DIIP。"
 tags:
   - ICCV 2025
-  - Diffusion Model
   - 扩散模型
-  - Blind Image Restoration
   - 图像恢复
-  - Deep Image Prior
 ---
 
 # DIIP: Diffusion Image Prior

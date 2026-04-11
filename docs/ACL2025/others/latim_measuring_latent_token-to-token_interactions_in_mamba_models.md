@@ -2,9 +2,6 @@
 description: "【论文笔记】LaTIM: Measuring Latent Token-to-Token Interactions in Mamba Models 论文解读 | ACL 2025 | arXiv 2502.15612 | 状态空间模型 | 提出 LaTIM，一种针对 Mamba-1 和 Mamba-2 的 token 级分解方法，将 SSM 的隐式计算重构为类似 Transformer 注意力的 token-to-token 贡献矩阵，实现对 Mamba 模型的细粒度可解释性分析。"
 tags:
   - ACL 2025
-  - 状态空间模型
-  - Mamba
-  - 可解释性
 ---
 
 # LaTIM: Measuring Latent Token-to-Token Interactions in Mamba Models

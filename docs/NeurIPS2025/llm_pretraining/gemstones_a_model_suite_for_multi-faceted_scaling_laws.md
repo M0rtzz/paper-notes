@@ -2,7 +2,6 @@
 description: "【论文笔记】Gemstones: A Model Suite for Multi-Faceted Scaling Laws 论文解读 | NeurIPS 2025 | arXiv 2502.06857 | 宽度-深度比、计算最优性、扩展律、模型设计 | Gemstones开源4000+检查点数据集（至2B参数），系统研究宽度-深度-训练代币在缩放律中的影响，揭示缩放律对设计选择的高度敏感性。"
 tags:
   - NeurIPS 2025
-  - 宽度-深度比、计算最优性、扩展律、模型设计
 ---
 
 # Gemstones: A Model Suite for Multi-Faceted Scaling Laws

@@ -2,9 +2,6 @@
 description: "【论文笔记】Large Language Models for Predictive Analysis: How Far Are They? 论文解读 | ACL 2025 | arXiv 2505.17149 | predictive analysis | 提出 PredictiQ 基准（1130 查询×44 真实数据集×8 领域），从文本分析、代码生成和文本-代码对齐三个维度评估 12 个 LLM 的预测分析能力，发现现有 LLM 在此领域仍面临巨大挑战。"
 tags:
   - ACL 2025
-  - predictive analysis
-  - benchmark
-  - code generation
 ---
 
 # Large Language Models for Predictive Analysis: How Far Are They?

@@ -2,9 +2,6 @@
 description: "【论文笔记】Mario: Multimodal Graph Reasoning with Large Language Models 论文解读 | CVPR 2026 | arXiv 2603.05181 | 多模态图 | 提出 Mario，针对多模态图（MMG）上的 LLM 推理，通过图条件视觉语言模型（GVLM）实现拓扑感知的跨模态对齐，再用模态自适应提示路由器（MAPR）为每个节点选择最优模态配置，在节点分类和链接预测上达到 SOTA。"
 tags:
   - CVPR 2026
-  - 多模态图
-  - LLM推理
-  - 视觉语言对齐
 ---
 
 # Mario: Multimodal Graph Reasoning with Large Language Models

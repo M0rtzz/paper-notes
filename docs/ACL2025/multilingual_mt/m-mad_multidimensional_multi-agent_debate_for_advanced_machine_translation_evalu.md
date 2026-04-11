@@ -2,9 +2,6 @@
 description: "【论文笔记】M-MAD: Multidimensional Multi-Agent Debate for Advanced Machine Translation Evaluation 论文解读 | ACL2025 | arXiv 2412.20127 | 机器翻译评估 | 提出 M-MAD 框架，将 MQM 评估标准解耦为独立维度（准确性、流畅性、风格、术语），在每个维度内进行多智能体正反方辩论，最后由裁判智能体综合各维度结果，在 segment 级别显著超越已有 LLM-as-a-judge 方法，甚至用 GPT-4o mini 就能媲美 SOTA 有参考自动指标。"
 tags:
   - ACL2025
-  - 机器翻译评估
-  - 多智能体辩论
-  - LLM-as-a-judge
 ---
 
 # M-MAD: Multidimensional Multi-Agent Debate for Advanced Machine Translation Evaluation

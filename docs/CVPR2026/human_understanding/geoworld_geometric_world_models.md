@@ -2,9 +2,6 @@
 description: "【论文笔记】GeoWorld: Geometric World Models 论文解读 | CVPR 2026 | arXiv 2602.23058 | 世界模型 | 在V-JEPA 2中引入双曲流形表示（Hyperbolic JEPA）和几何强化学习（GRL），利用测地线距离编码层次关系，通过能量函数优化实现更稳定的长时域规划，3步规划提升约3% SR，超越GPT-5 zero-shot。"
 tags:
   - CVPR 2026
-  - 世界模型
-  - 双曲空间
-  - JEPA
 ---
 
 # GeoWorld: Geometric World Models

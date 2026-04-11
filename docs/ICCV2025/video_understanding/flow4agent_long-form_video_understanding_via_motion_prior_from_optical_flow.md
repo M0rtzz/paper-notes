@@ -2,11 +2,9 @@
 description: "【论文笔记】Flow4Agent: Long-form Video Understanding via Motion Prior from Optical Flow 论文解读 | ICCV 2025 | arXiv 2510.05836 | 视频理解 long-form video understanding | Flow4Agent 首次将光流运动先验引入 LLM-based 视频理解，通过时域粒度优化（TGO）利用粗粒度光流聚类视频事件并用语义先验过滤冗余场景，通过运动 Token 剪枝（MTP）利用细粒度光流去除帧内静态冗余 token，在 VideoMME/MLVU/LongVideoBench 等长视频基准上取得领先表现。"
 tags:
   - ICCV 2025
-  - long-form video understanding
   - 视频理解
-  - optical flow
   - 光流
-  - motion prior
+  - 剪枝
 ---
 
 # Flow4Agent: Long-form Video Understanding via Motion Prior from Optical Flow

@@ -2,9 +2,6 @@
 description: "【论文笔记】Speculative Decoding in Decentralized LLM Inference: Turning Communication Latency into Computation Throughput 论文解读 | ICML2025 | arXiv 2511.11733 | 推测解码 | 提出 Decentralized Speculative Decoding (DSD)，一种即插即用的去中心化LLM推理加速框架，通过将跨节点通信等待时间转化为有效计算，结合基于语义重要性的自适应验证策略，在无需重训练的前提下实现最高 2.59× 的端到端加速。"
 tags:
   - ICML2025
-  - 推测解码
-  - 去中心化推理
-  - LLM加速
 ---
 
 # Speculative Decoding in Decentralized LLM Inference: Turning Communication Latency into Computation Throughput

@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Reliable and Holistic Visual In-Context Learning Prompt Selection 论文解读 | NeurIPS 2025 | arXiv 2509.25989 | 视觉上下文学习 | 本文提出RH-Partial2Global方法，通过Jackknife共形预测构建可靠的候选集，并利用覆盖设计实现全面均匀的成对偏好采样，提升视觉上下文学习中的提示选择质量。"
 tags:
   - NeurIPS 2025
-  - 视觉上下文学习
-  - 共形预测
-  - 覆盖设计
 ---
 
 # Towards Reliable and Holistic Visual In-Context Learning Prompt Selection

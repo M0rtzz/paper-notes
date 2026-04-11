@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward Data-centric Directed Graph Learning: An Entropy-driven Approach 论文解读 | ICML2025 | arXiv 2505.00983 | 有向图学习 | 提出 EDEN（熵驱动有向图知识蒸馏），从数据中心视角利用层级知识树和互信息量化揭示有向图中拓扑与节点属性的潜在关联，作为即插即用模块增强任意 DiGNN 性能。"
 tags:
   - ICML2025
-  - 有向图学习
-  - 数据中心ML
-  - 知识蒸馏
 ---
 
 # Toward Data-centric Directed Graph Learning: An Entropy-driven Approach

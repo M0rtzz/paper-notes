@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Single-Index Models via Harmonic Decomposition 论文解读 | NeurIPS2025 | arXiv 2506.09887 | single-index models | 提出以球谐函数（spherical harmonics）代替 Hermite 多项式作为单指标模型（SIM）的自然基底，利用旋转对称性刻画任意球对称输入分布下学习 SIM 的样本与计算复杂度，构造了两族最优估计器（张量展开 + 在线 SGD），并揭示了高斯情形之外出现的样本-运行时间权衡现象。"
 tags:
   - NeurIPS2025
-  - single-index models
-  - spherical harmonics
-  - harmonic decomposition
 ---
 
 # Learning Single-Index Models via Harmonic Decomposition

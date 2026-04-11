@@ -2,9 +2,6 @@
 description: "【论文笔记】Agent-RewardBench: Towards a Unified Benchmark for Reward Modeling across Perception, Planning, and Safety in Real-World Multimodal Agents 论文解读 | ACL 2025 | arXiv 2506.21252 | 奖励模型 | Agent-RewardBench 提出了首个面向多模态 Agent 的奖励建模评测基准，覆盖感知/规划/安全 3 个维度、7 个真实场景、1136 个高质量样本，实验发现即使 GPT-4o 也仅达 61.4% 准确率，揭示了 Agent 奖励建模的巨大挑战。"
 tags:
   - ACL 2025
-  - 奖励模型
-  - Agent评测
-  - 多模态Agent
 ---
 
 # Agent-RewardBench: Towards a Unified Benchmark for Reward Modeling across Perception, Planning, and Safety in Real-World Multimodal Agents

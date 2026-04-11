@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Play Multi-Follower Bayesian Stackelberg Games 论文解读 | ICLR 2026 | arXiv 2510.01387 | Stackelberg博弈 | 首次研究多追随者贝叶斯Stackelberg博弈的在线学习问题，通过几何化最佳响应区域实现类型反馈下 $\tilde{O}(\sqrt{\min\{L, nK\} \cdot T})$ 的遗憾界（关于追随者数n不呈多项式增长），并提供几乎匹配的下界。"
 tags:
   - ICLR 2026
-  - Stackelberg博弈
-  - 贝叶斯博弈
-  - 在线学习
 ---
 
 # Learning to Play Multi-Follower Bayesian Stackelberg Games

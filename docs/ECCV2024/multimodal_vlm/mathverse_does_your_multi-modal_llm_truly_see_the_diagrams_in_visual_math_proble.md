@@ -2,9 +2,6 @@
 description: "【论文笔记】MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems? 论文解读 | ECCV 2024 | arXiv 2403.14624 | 视觉数学推理 | 提出MathVerse——一个包含2612道视觉数学题目（转化为6个版本共15K测试样本）的多模态数学推理评测基准，通过系统性地调控文本与图像中的信息分配来检验MLLM是否真正\"看懂\"了数学图表，并提出CoT评估策略进行细粒度推理过程评分，揭示了大多数MLLM严重依赖文本而非视觉图表进行数学推理。"
 tags:
   - ECCV 2024
-  - 视觉数学推理
-  - 多模态评测基准
-  - 图表理解
 ---
 
 # MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?

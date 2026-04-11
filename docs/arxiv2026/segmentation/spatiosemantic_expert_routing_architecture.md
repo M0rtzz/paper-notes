@@ -2,9 +2,6 @@
 description: "【论文笔记】Spatio-Semantic Expert Routing Architecture with Mixture-of-Experts for Referring Image Segmentation 论文解读 | arXiv 2026 | arXiv 2603.12538 | spatio-semantic | 参考图像分割旨在为由自然语言表达描述的图像区域产生像素级掩模。"
 tags:
   - arXiv 2026
-  - spatio-semantic
-  - expert
-  - routing
 ---
 
 # Spatio-Semantic Expert Routing Architecture with Mixture-of-Experts for Referring Image Segmentation

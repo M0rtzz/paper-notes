@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Entropy: Region Confidence Proxy for Wild Test-Time Adaptation 论文解读 | ICML 2025 | arXiv 2505.20704 | 测试时适应 | 揭示熵最小化在野外测试时适应（WTTA）中的根本局限——局部区域内语义相似样本的预测不一致导致冲突优化动态，提出 ReCAP 框架用概率区域建模和有限到无穷渐近近似将不可处理的区域置信度转化为高效可优化的代理目标，在 ImageNet-C 上一致超越 SOTA。"
 tags:
   - ICML 2025
-  - 测试时适应
-  - 熵最小化
-  - 区域置信度
 ---
 
 # Beyond Entropy: Region Confidence Proxy for Wild Test-Time Adaptation

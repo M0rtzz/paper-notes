@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncovering Strategic Egoism Behaviors in Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2511.09920 | 策略性自利 | 本文首次系统研究了大语言模型中的\"策略性自利\"（Strategic Egoism）行为，发布了包含160个场景的SEBench基准，发现7个主流LLM中自利行为平均占比69.11%，且与毒性语言正相关。"
 tags:
   - NeurIPS 2025
-  - 策略性自利
-  - 大语言模型
-  - 安全基准
 ---
 
 # Uncovering Strategic Egoism Behaviors in Large Language Models

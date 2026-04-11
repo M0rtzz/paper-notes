@@ -2,9 +2,6 @@
 description: "【论文笔记】AquaSentinel: Next-Generation AI System Integrating Sensor Networks for Urban Underground Water Pipeline Anomaly Detection via Collaborative MoE-LLM Agent Architecture 论文解读 | AAAI 2026 | arXiv 2511.15870 | 城市管网 | 提出AquaSentinel，一个物理信息驱动的AI系统，通过稀疏传感器部署+物理增强虚拟传感器+MoE时空GNN集成+双阈值RTCA检测算法+因果流定位+LLM报告生成，仅用20-30%节点覆盖即可实现全网管道泄漏检测，在110个泄漏场景中达到100%检测率。"
 tags:
   - AAAI 2026
-  - 城市管网
-  - 泄漏检测
-  - 稀疏传感
 ---
 
 # AquaSentinel: Next-Generation AI System Integrating Sensor Networks for Urban Underground Water Pipeline Anomaly Detection via Collaborative MoE-LLM Agent Architecture

@@ -2,9 +2,6 @@
 description: "【论文笔记】FedPM: Federated Learning Using Second-order Optimization with Preconditioned Mixing of Local Parameters 论文解读 | AAAI 2026 | arXiv 2511.09100 | 联邦学习 | 提出 FedPM（Federated Preconditioned Mixing），一种新型联邦学习方法，通过在服务器端用\"预条件混合\"替代传统的简单参数平均，解决了现有二阶联邦优化方法中局部预条件器漂移问题，在理论上证明了强凸目标的超线性收敛速率，并在异质数据场景中显著超越现有方法。"
 tags:
   - AAAI 2026
-  - 联邦学习
-  - 二阶优化
-  - 预条件混合
 ---
 
 # FedPM: Federated Learning Using Second-order Optimization with Preconditioned Mixing of Local Parameters

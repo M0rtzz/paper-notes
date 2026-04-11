@@ -2,11 +2,9 @@
 description: "【论文笔记】PPCL: Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers 论文解读 | CVPR 2026 | arXiv 2511.16156 | Transformer diffusion transformer | 提出 PPCL 框架对大型扩散 Transformer (DiT, 8-20B 参数) 进行结构化剪枝: 通过线性探针+CKA 一阶差分识别连续冗余层区间, 深度方向+宽度方向联合剪枝, 搭配即插即用交替蒸馏, 在 Qwen-Image 20B 上实现 50% 参数缩减, 仅 3% 生成质量下降."
 tags:
   - CVPR 2026
-  - diffusion transformer
   - Transformer
-  - model pruning
   - 剪枝
-  - layer pruning
+  - 知识蒸馏
 ---
 
 # PPCL: Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers

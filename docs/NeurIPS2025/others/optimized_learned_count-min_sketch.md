@@ -2,9 +2,6 @@
 description: "【论文笔记】Optimized Learned Count-Min Sketch 论文解读 | NeurIPS 2025 (Workshop: ML for Systems) | arXiv 2512.12252 | Count-Min Sketch | 提出 OptLCMS，通过将分数空间分区并用 KKT 条件解析求解 CMS 参数、动态规划优化阈值，大幅加速构建过程，同时提供不可容忍误差概率的理论保证。"
 tags:
   - NeurIPS 2025 (Workshop: ML for Systems)
-  - Count-Min Sketch
-  - 频率估计
-  - 学习型数据结构
 ---
 
 # Optimized Learned Count-Min Sketch

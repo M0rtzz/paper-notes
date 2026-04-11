@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond RLHF and NLHF: Population-Proportional Alignment under an Axiomatic Framework 论文解读 | ICLR 2026 | arXiv 2506.05619 | RLHF | 提出基于社会选择理论公理的偏好学习框架，从成对比较数据中推断评估者人群分布的可行集，构造满足人群比例对齐(PPA)和人群有界可操纵性(PBM)公理的策略。"
 tags:
   - ICLR 2026
-  - RLHF
-  - NLHF
-  - 偏好学习
 ---
 
 # Beyond RLHF and NLHF: Population-Proportional Alignment under an Axiomatic Framework

@@ -2,7 +2,6 @@
 description: "【论文笔记】CAT: Circular-Convolutional Attention for Sub-Quadratic Transformers 论文解读 | NeurIPS 2025 | arXiv 2504.06704 | 注意力机制 循环卷积、FFT加速、Self-Attention、复杂度优化 | 本文提出CAT（Circular-convolutional Attention），通过FFT计算循环卷积将Self-Attention复杂度从O(N²)降至O(N log N)，同时保持完整的softmax机制和全局注意力。"
 tags:
   - NeurIPS 2025
-  - 循环卷积、FFT加速、Self-Attention、复杂度优化
   - 注意力机制
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】KVSmooth: Mitigating Hallucination in Multi-modal Large Language Models through Key-Value Smoothing 论文解读 | CVPR 2026 | arXiv 2602.04268 | 多模态幻觉 | KVSmooth 提出了一种免训练的即插即用方法，通过对 KV-Cache 中的 Key 和 Value 施加注意力行熵引导的自适应指数移动平均（EMA）平滑，将 LLaVA-1.5 的 CHAIR_S 从 41.8 降至 18.2（降低 56%），同时 F1 从 77.5 提升到 79.2。"
 tags:
   - CVPR 2026
-  - 多模态幻觉
-  - KV缓存平滑
-  - 注意力熵
 ---
 
 # KVSmooth: Mitigating Hallucination in Multi-modal Large Language Models through Key-Value Smoothing

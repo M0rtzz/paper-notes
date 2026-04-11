@@ -2,11 +2,8 @@
 description: "【论文笔记】SABRE-FL: Selective and Accurate Backdoor Rejection for Federated Prompt Learning 论文解读 | ICLR2026 | arXiv 2506.22506 | 联邦学习 Federated Learning | 首次研究联邦 Prompt Learning 场景下的后门攻击威胁，并提出 SABRE-FL——一种基于 embedding 空间异常检测的轻量级服务器端防御方法，无需访问客户端原始数据即可有效过滤中毒 prompt 更新。"
 tags:
   - ICLR2026
-  - Federated Learning
   - 联邦学习
-  - Prompt Learning
   - 提示学习
-  - Backdoor Attack
 ---
 
 # SABRE-FL: Selective and Accurate Backdoor Rejection for Federated Prompt Learning

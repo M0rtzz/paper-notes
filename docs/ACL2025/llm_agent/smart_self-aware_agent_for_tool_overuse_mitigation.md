@@ -2,9 +2,6 @@
 description: "【论文笔记】SMART: Self-Aware Agent for Tool Overuse Mitigation 论文解读 | ACL 2025 | arXiv 2502.11435 | 工具过度使用 | 揭示 LLM Agent 中的\"工具过度使用\"现象（≥30% 的工具调用是不必要的），提出 SMART 元认知范式，通过在推理步骤中显式标注\"知识驱动 vs 工具依赖\"来训练 Agent 的自感知能力，7B 模型匹配 GPT-4o 水平。"
 tags:
   - ACL 2025
-  - 工具过度使用
-  - 元认知
-  - 自感知Agent
 ---
 
 # SMART: Self-Aware Agent for Tool Overuse Mitigation

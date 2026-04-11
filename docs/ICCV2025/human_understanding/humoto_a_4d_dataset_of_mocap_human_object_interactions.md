@@ -2,9 +2,6 @@
 description: "【论文笔记】HUMOTO: A 4D Dataset of Mocap Human Object Interactions 论文解读 | ICCV 2025 | arXiv 2504.10414 | 人物交互数据集 | 提出 HUMOTO，一个高保真 4D 人物交互数据集，包含 735 段序列（7875 秒，30fps），涵盖 63 个精确建模物体和 72 个可动部件，创新性地使用 LLM 驱动的场景脚本生成流程和多传感器捕获系统，在手部姿态精度和交互质量上显著超越现有数据集。"
 tags:
   - ICCV 2025
-  - 人物交互数据集
-  - 动作捕捉
-  - 手部姿态
 ---
 
 # HUMOTO: A 4D Dataset of Mocap Human Object Interactions

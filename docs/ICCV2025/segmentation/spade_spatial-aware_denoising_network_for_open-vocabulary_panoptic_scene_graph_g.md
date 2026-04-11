@@ -2,9 +2,7 @@
 description: "【论文笔记】SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation 论文解读 | ICCV 2025 | arXiv 2507.05798 | 全景场景图生成 | 提出SPADE——一种面向开放词汇全景场景图生成（PSG）的空间感知去噪网络，通过DDIM逆向校准将预训练扩散模型适配为PSG特定的空间先验提取器，并设计关系图Transformer捕获长程和局部上下文，在闭集和开集场景中均大幅超越SOTA，尤其在空间关系预测上表现突出。"
 tags:
   - ICCV 2025
-  - 全景场景图生成
-  - 开放词汇
-  - 扩散模型
+  - Transformer
 ---
 
 # SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation

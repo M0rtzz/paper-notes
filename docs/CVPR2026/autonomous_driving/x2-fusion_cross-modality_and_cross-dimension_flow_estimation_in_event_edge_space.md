@@ -2,9 +2,6 @@
 description: "【论文笔记】x2-Fusion: Cross-Modality and Cross-Dimension Flow Estimation in Event Edge Space 论文解读 | CVPR 2026 | arXiv 2603.16671 | 光流 | 提出 x2-Fusion，以事件相机的时空边缘信号为锚构建统一的 Event Edge Space，将图像/LiDAR/事件特征对齐到同质边缘空间后进行可靠性感知自适应融合和跨维度对比学习，同时估计 2D 光流和 3D 场景流，在合成和真实数据上达到 SOTA。"
 tags:
   - CVPR 2026
-  - 光流
-  - 场景流
-  - 事件相机
 ---
 
 # x2-Fusion: Cross-Modality and Cross-Dimension Flow Estimation in Event Edge Space

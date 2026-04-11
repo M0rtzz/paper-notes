@@ -2,9 +2,7 @@
 description: "【论文笔记】GyroSwin: 5D Surrogates for Gyrokinetic Plasma Turbulence Simulations 论文解读 | NeurIPS 2025 | arXiv 2510.07314 | 等离子体湍流 | 首次提出可扩展的5D神经网络代理模型 GyroSwin，将 Swin Transformer 扩展至5维回旋动力学相空间，通过交叉注意力实现3D↔5D交互、通道式模态分离捕获带状流，在等离子体湍流模拟中实现比传统准线性方法更高的精度，且比数值求解器（GKW）快3个数量级。"
 tags:
   - NeurIPS 2025
-  - 等离子体湍流
-  - 回旋动力学
-  - 5D代理模型
+  - Transformer
 ---
 
 # GyroSwin: 5D Surrogates for Gyrokinetic Plasma Turbulence Simulations

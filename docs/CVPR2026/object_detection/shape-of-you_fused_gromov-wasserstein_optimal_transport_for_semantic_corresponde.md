@@ -2,9 +2,6 @@
 description: "【论文笔记】Shape-of-You: Fused Gromov-Wasserstein Optimal Transport for Semantic Correspondence in-the-Wild 论文解读 | CVPR2026 | arXiv 2603.11618 | 语义对应 | 将语义对应问题重新建模为 Fused Gromov-Wasserstein (FGW) 最优传输问题，利用 3D 基础模型提供的几何结构约束来生成全局一致的伪标签，解决了传统最近邻匹配因局部性和 2D 外观歧义导致的几何不一致问题。"
 tags:
   - CVPR2026
-  - 语义对应
-  - 最优传输
-  - Gromov-Wasserstein
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Context Matters: Query-aware Dynamic Long Sequence Modeling of Gigapixel Images 论文解读 | ICML 2025 | arXiv 2501.18984 | 全切片图像 | 提出 Querent 框架——通过 query-aware 的动态区域重要性评估实现千亿像素全切片图像（WSI）中的高效长程上下文建模，在理论上有界逼近完整自注意力，在 10+ 个 WSI 数据集的生物标志物预测/基因突变预测/癌症分型/生存分析中超越 SOTA。"
 tags:
   - ICML 2025
-  - 全切片图像
-  - 多实例学习
-  - 动态注意力
 ---
 
 # Context Matters: Query-aware Dynamic Long Sequence Modeling of Gigapixel Images

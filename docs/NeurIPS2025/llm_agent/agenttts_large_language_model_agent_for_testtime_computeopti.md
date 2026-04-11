@@ -2,9 +2,6 @@
 description: "【论文笔记】AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks 论文解读 | NeurIPS 2025 | arXiv 2508.00890 | test-time scaling | 提出 AgentTTS，一个用 LLM agent 自动搜索多阶段复杂任务中**测试时计算最优缩放策略**（模型选择+预算分配）的框架，通过迭代反馈驱动的交互显著提升搜索效率和性能。"
 tags:
   - NeurIPS 2025
-  - test-time scaling
-  - compute-optimal
-  - multi-stage tasks
 ---
 
 # AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks

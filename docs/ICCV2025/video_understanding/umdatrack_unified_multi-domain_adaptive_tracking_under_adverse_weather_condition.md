@@ -2,10 +2,8 @@
 description: "【论文笔记】UMDATrack: Unified Multi-Domain Adaptive Tracking Under Adverse Weather Conditions 论文解读 | ICCV 2025 | arXiv 2507.00648 | visual object tracking | UMDATrack 提出了首个统一多域自适应跟踪框架，利用文本引导扩散模型合成少量（<2% 帧）多天气条件无标注视频，通过域定制适配器（DCA）高效迁移目标表征到不同天气域，并引入基于最优传输的目标感知置信度对齐（TCA）增强跨域定位一致性，在夜间/雾天/雨天等场景中大幅超越现有 SOTA 跟踪器。"
 tags:
   - ICCV 2025
-  - visual object tracking
-  - multi-domain adaptation
   - 域适应
-  - adverse weather
+  - 扩散模型
 ---
 
 # UMDATrack: Unified Multi-Domain Adaptive Tracking Under Adverse Weather Conditions

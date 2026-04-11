@@ -2,9 +2,6 @@
 description: "【论文笔记】Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study 论文解读 | CVPR 2026 | arXiv 2603.13044 | 通用视觉模型 | 在统一训练和评估协议下对比11个专用医学分割架构(SMA)和通用视觉模型(GP-VM)，发现GP-VM在三个异质医学数据集上超越大多数SMA，且Grad-CAM分析表明GP-VM无需领域特定设计即可捕获临床相关结构。"
 tags:
   - CVPR 2026
-  - 通用视觉模型
-  - 医学分割
-  - 跨数据集评估
 ---
 
 # Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study

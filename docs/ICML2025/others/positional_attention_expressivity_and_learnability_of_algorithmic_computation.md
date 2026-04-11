@@ -2,11 +2,8 @@
 description: "【论文笔记】Positional Attention: Expressivity and Learnability of Algorithmic Computation 论文解读 | ICML2025 | arXiv 2410.01686 | 注意力机制 Positional Attention | 提出 **Positional Transformer**——注意力权重仅由位置编码决定、与输入数据无关的 Transformer 变体，证明其保持了与 MPC 并行计算模型等价的表达力（仅增加 $O(\log n)$ 深度代价），并在算法任务上展现出显著更优的分布外泛化能力。"
 tags:
   - ICML2025
-  - Positional Attention
   - 注意力机制
-  - Transformer 表达力
   - Transformer
-  - 算法执行
 ---
 
 # Positional Attention: Expressivity and Learnability of Algorithmic Computation

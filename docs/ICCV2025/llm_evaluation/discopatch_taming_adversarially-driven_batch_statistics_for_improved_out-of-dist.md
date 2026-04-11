@@ -2,9 +2,6 @@
 description: "【论文笔记】DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection 论文解读 | ICCV 2025 | arXiv 2501.08005 | 分布外检测 | 提出DisCoPatch框架，利用对抗性VAE中BatchNorm对批统计量的内在偏向性来区分ID和OOD样本，通过推理时将同一图像的多个patch组成batch来保证分布一致性，在协变量偏移OOD检测（ImageNet-1K(-C) 95.5% AUROC）和近分布OOD检测（95.0% AUROC）上达到SOTA，模型仅25MB且延迟低一个数量级。"
 tags:
   - ICCV 2025
-  - 分布外检测
-  - 批归一化
-  - 对抗性VAE
 ---
 
 # DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection

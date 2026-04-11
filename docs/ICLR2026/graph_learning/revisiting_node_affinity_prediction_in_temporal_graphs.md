@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Node Affinity Prediction in Temporal Graphs 论文解读 | ICLR 2026 | arXiv 2510.06940 | 时序图神经网络 | 分析为什么简单启发式（持续预测、移动平均）在时序图节点亲和力预测上优于复杂 TGNN，证明启发式是线性 SSM 的特例且标准 RNN/LSTM/GRU 无法表达最基本的持续预测，据此提出 NAViS——基于虚拟全局状态的线性 SSM 架构配合排序损失，在 TGB 上超越所有基线。"
 tags:
   - ICLR 2026
-  - 时序图神经网络
-  - 节点亲和力预测
-  - 状态空间模型
 ---
 
 # Revisiting Node Affinity Prediction in Temporal Graphs

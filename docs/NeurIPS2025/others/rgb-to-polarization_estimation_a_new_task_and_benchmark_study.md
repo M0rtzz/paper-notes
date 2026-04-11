@@ -2,9 +2,6 @@
 description: "【论文笔记】RGB-to-Polarization Estimation: A New Task and Benchmark Study 论文解读 | NeurIPS 2025 | arXiv 2505.13050 | 偏振估计 | 定义了从标准RGB图像估计偏振信息的新任务，建立首个全面基准，系统评估修复型和生成型深度学习模型在该任务上的表现，揭示不同模型家族的优势与局限。"
 tags:
   - NeurIPS 2025
-  - 偏振估计
-  - Stokes参数
-  - RGB图像
 ---
 
 # RGB-to-Polarization Estimation: A New Task and Benchmark Study

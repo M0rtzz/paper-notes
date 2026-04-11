@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back Home 论文解读 | ACL 2025 | arXiv 2501.12835 | 自适应检索 | 对 35 种自适应检索方法（含 8 种最新方法和 27 种不确定性估计方法）进行了全面评测，发现经典的不确定性估计技术在效率和自知能力方面往往优于复杂的专用流水线，同时保持相当的 QA 性能。"
 tags:
   - ACL 2025
-  - 自适应检索
-  - RAG
-  - 不确定性估计
 ---
 
 # Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back Home

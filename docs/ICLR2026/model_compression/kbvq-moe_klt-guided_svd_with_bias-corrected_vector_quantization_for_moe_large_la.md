@@ -2,9 +2,6 @@
 description: "【论文笔记】KBVQ-MoE: KLT-guided SVD with Bias-Corrected Vector Quantization for MoE Large Language Models 论文解读 | ICLR 2026 | arXiv 2602.11184 | MoE量化 | 提出 KBVQ-MoE，首个专为MoE架构设计的向量量化框架，通过KLT引导的SVD消除专家间冗余共享（IDRE），以及偏差校正的输出稳定化（BCOS），在2-bit量化下比现有方法提升10%+准确率。"
 tags:
   - ICLR 2026
-  - MoE量化
-  - 向量量化
-  - KLT变换
 ---
 
 # KBVQ-MoE: KLT-guided SVD with Bias-Corrected Vector Quantization for MoE Large Language Models

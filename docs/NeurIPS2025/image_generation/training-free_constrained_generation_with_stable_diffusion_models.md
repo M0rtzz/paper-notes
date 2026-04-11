@@ -2,10 +2,7 @@
 description: "【论文笔记】Training-Free Constrained Generation with Stable Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2502.05625 | 约束生成 | 提出一种无需重新训练的约束生成方法，通过在 Stable Diffusion 的反向去噪过程中嵌入近端 Langevin 动力学（Proximal Langevin Dynamics），将图像空间中的约束通过解码器反向传播到潜空间，实现对生成输出的严格约束满足。"
 tags:
   - NeurIPS 2025
-  - 约束生成
-  - Stable Diffusion
   - 扩散模型
-  - 近端映射
 ---
 
 # Training-Free Constrained Generation with Stable Diffusion Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Diverging Preferences: When do Annotators Disagree and do Models Know? 论文解读 | ICML 2025 | arXiv 2410.14632 | 偏好分歧 | 本文系统分析了 RLHF 偏好数据集中标注者分歧的原因（建立了包含 10 个类别的分类法），发现超过 75% 的分歧源于个人偏好而非标注噪声，提出了分布式奖励模型（Mean-Var Reward Model）来有效区分分歧偏好与高一致偏好，并揭示了 LLM-as-Judge 评估方法在分歧情况下的系统性偏见。"
 tags:
   - ICML 2025
-  - 偏好分歧
-  - 奖励建模
-  - 多元化对齐
 ---
 
 # Diverging Preferences: When do Annotators Disagree and do Models Know?

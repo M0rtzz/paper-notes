@@ -2,7 +2,6 @@
 description: "【论文笔记】Argus: Vision-Centric Reasoning with Grounded Chain-of-Thought 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Recent advances in multimodal large language models (MLLMs) have demonstrated remarkable capabilities in vision-language tasks, yet they often struggle with vision-centric scenarios where precise visual focus is needed for accurate reasoning. In this paper, we introduce Argus to address these limita"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Argus: Vision-Centric Reasoning with Grounded Chain-of-Thought

@@ -2,9 +2,6 @@
 description: "【论文笔记】Consistency-based Abductive Reasoning over Perceptual Errors of Multiple Pre-trained Models in Novel Environments 论文解读 | AAAI 2026 | arXiv 2505.19361 | 溯因推理 | 将多个预训练感知模型在新环境中的冲突预测建模为一致性溯因推理问题，通过逻辑程序编码各模型的错误检测规则和领域约束，寻找在保持不一致率低于阈值的同时最大化预测覆盖率的最优假设，在15个航拍测试集上平均F1提升13.6%。"
 tags:
   - AAAI 2026
-  - 溯因推理
-  - 元认知AI
-  - 分布偏移
 ---
 
 # Consistency-based Abductive Reasoning over Perceptual Errors of Multiple Pre-trained Models in Novel Environments

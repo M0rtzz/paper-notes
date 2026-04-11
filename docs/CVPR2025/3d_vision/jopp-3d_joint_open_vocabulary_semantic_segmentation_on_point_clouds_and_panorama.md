@@ -2,9 +2,6 @@
 description: "【论文笔记】JOPP-3D: Joint Open Vocabulary Semantic Segmentation on Point Clouds and Panoramas 论文解读 | CVPR 2025 | arXiv 2603.06168 | 开放词汇分割 | 提出 JOPP-3D 框架，通过将全景图切线分解为透视图像、利用 SAM+CLIP 进行3D实例-语义对齐，首次实现对3D点云和全景图像的联合开放词汇语义分割，在 Stanford-2D-3D-s 和 ToF-360 数据集上超越现有方法。"
 tags:
   - CVPR 2025
-  - 开放词汇分割
-  - 点云语义分割
-  - 全景图像
 ---
 
 # JOPP-3D: Joint Open Vocabulary Semantic Segmentation on Point Clouds and Panoramas

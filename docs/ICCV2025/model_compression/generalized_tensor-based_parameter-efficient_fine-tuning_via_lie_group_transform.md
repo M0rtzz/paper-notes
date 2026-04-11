@@ -2,9 +2,6 @@
 description: "【论文笔记】Generalized Tensor-based Parameter-Efficient Fine-Tuning via Lie Group Transformations 论文解读 | ICCV 2025 | arXiv 2504.00851 | PEFT | 提出 LieRA，利用李群理论将矩阵级 PEFT 方法（如 LoRA）推广到高维参数空间（如卷积核），通过在李代数中表示扰动并用指数映射回李群，在保持参数空间结构性质的同时实现高效微调。"
 tags:
   - ICCV 2025
-  - PEFT
-  - LoRA
-  - Lie Group
 ---
 
 # Generalized Tensor-based Parameter-Efficient Fine-Tuning via Lie Group Transformations

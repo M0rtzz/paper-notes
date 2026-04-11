@@ -2,10 +2,7 @@
 description: "【论文笔记】Do LLMs Feel? Teaching Emotion Recognition with Prompts, Retrieval, and Curriculum Learning 论文解读 | AAAI2026 | arXiv 2511.07061 | Emotion Recognition in Conversation | 提出 PRC-Emo 框架，通过显式/隐式情感提示、专用检索库和课程学习策略三位一体地提升 LLM 在对话情感识别（ERC）任务上的表现，在 IEMOCAP 和 MELD 两个基准上取得 SOTA。"
 tags:
   - AAAI2026
-  - Emotion Recognition in Conversation
-  - Prompt Engineering
   - 提示学习
-  - Retrieval-Augmented Generation
 ---
 
 # Do LLMs Feel? Teaching Emotion Recognition with Prompts, Retrieval, and Curriculum Learning

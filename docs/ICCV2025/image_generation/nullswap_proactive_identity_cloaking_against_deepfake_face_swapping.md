@@ -2,9 +2,6 @@
 description: "【论文笔记】NullSwap: Proactive Identity Cloaking Against Deepfake Face Swapping 论文解读 | ICCV2025 | arXiv 2503.18678 | Deepfake防御 | 提出 NullSwap，通过在源图像中嵌入身份引导的不可见扰动来伪装面部身份信息，使 Deepfake 换脸模型无法提取正确身份，从而在纯黑盒场景下主动防御换脸攻击。"
 tags:
   - ICCV2025
-  - Deepfake防御
-  - 人脸换脸
-  - 主动扰动
 ---
 
 # NullSwap: Proactive Identity Cloaking Against Deepfake Face Swapping

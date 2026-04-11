@@ -2,9 +2,6 @@
 description: "【论文笔记】Agentic Persona Control and Task State Tracking for Realistic User Simulation 论文解读 | NeurIPS 2025 (Workshop on SEA) | arXiv 2601.15290 | 多agent框架 | 提出三 agent 协作框架用于逼真的用户模拟——User Agent（协调）+ State Tracking Agent（结构化任务状态）+ Message Attributes Generation Agent（基于 persona 和状态的行为属性控制），在餐厅点餐场景中综合仿真质量（CRRS）提升 102.6%，persona 保持度 +19.9%，行为自然度 +284.5%，且核心发现：无状态感知的行为控制导致 BVS=0（完全刚性）。"
 tags:
   - NeurIPS 2025 (Workshop on SEA)
-  - 多agent框架
-  - 用户模拟
-  - persona控制
 ---
 
 # Agentic Persona Control and Task State Tracking for Realistic User Simulation

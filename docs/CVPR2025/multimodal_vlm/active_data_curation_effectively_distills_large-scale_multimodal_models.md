@@ -2,9 +2,6 @@
 description: "【论文笔记】Active Data Curation Effectively Distills Large-Scale Multimodal Models 论文解读 | CVPR 2025 | arXiv 2411.18674 | 知识蒸馏 | 提出 ACID（主动数据筛选即隐式蒸馏）和 ACED（结合显式蒸馏），证明用大模型作为参考来主动筛选训练数据是一种比传统知识蒸馏更有效的多模态模型压缩方式，两者互补结合后在 27 个零样本任务上以更少推理 FLOPs 达到 SOTA。"
 tags:
   - CVPR 2025
-  - 知识蒸馏
-  - 主动数据筛选
-  - 对比学习
 ---
 
 # Active Data Curation Effectively Distills Large-Scale Multimodal Models

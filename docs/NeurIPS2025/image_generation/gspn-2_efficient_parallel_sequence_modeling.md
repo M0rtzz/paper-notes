@@ -2,10 +2,9 @@
 description: "【论文笔记】GSPN-2: Efficient Parallel Sequence Modeling 论文解读 | NEURIPS2025 | arXiv 2512.07884 | 注意力机制 efficient attention | GSPN-2 通过算法-系统联合重设计（单 kernel 融合、紧凑通道传播、共享内存优化），将 GSPN-1 的 2D 空间传播加速最高 40×，在 ImageNet 分类和文本到图像生成中达到 Transformer 级精度且计算成本显著更低。"
 tags:
   - NEURIPS2025
-  - efficient attention
   - 注意力机制
-  - spatial propagation
-  - CUDA optimization
+  - Transformer
+  - 图像生成
 ---
 
 # GSPN-2: Efficient Parallel Sequence Modeling

@@ -2,9 +2,6 @@
 description: "【论文笔记】DiST-4D: Disentangled Spatiotemporal Diffusion with Metric Depth for 4D Driving Scene Generation 论文解读 | ICCV 2025 | arXiv 2503.15208 | 4D场景生成 | 提出DiST-4D，首个前馈式4D驾驶场景生成框架，通过将时间预测（DiST-T）和空间新视角合成（DiST-S）解耦为两个扩散过程，以度量深度（metric depth）为几何桥梁，在nuScenes上同时实现SOTA的时间视频生成（FVD 22.67）和空间NVS（FID 10.12），无需逐场景优化。"
 tags:
   - ICCV 2025
-  - 4D场景生成
-  - 时空解耦扩散
-  - 度量深度
 ---
 
 # DiST-4D: Disentangled Spatiotemporal Diffusion with Metric Depth for 4D Driving Scene Generation

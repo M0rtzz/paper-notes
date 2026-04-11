@@ -2,9 +2,6 @@
 description: "【论文笔记】Reparameterized LLM Training via Orthogonal Equivalence Transformation 论文解读 | NeurIPS 2025 | arXiv 2506.08001 | reparameterized training | 提出 POET 训练框架，通过将权重矩阵重参数化为\"两个可学习正交矩阵 × 固定随机权重\"的形式来保持谱性质不变，实现更稳定的训练和更好的泛化，且比 AdamW 更节省参数。"
 tags:
   - NeurIPS 2025
-  - reparameterized training
-  - orthogonal transformation
-  - spectrum preservation
 ---
 
 # Reparameterized LLM Training via Orthogonal Equivalence Transformation

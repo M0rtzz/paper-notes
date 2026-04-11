@@ -2,9 +2,6 @@
 description: "【论文笔记】GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning 论文解读 | ACL 2025 | arXiv 2505.21863 | 多智能体推理 | 提出 GETReason，一个层级化多智能体框架，通过将公共事件图像的上下文提取分解为地理空间、时间和事件三个子任务，并由专门化的 Agent 协作完成，实现比现有方法更准确的图像上下文推理。"
 tags:
   - ACL 2025
-  - 多智能体推理
-  - 事件理解
-  - 视觉语言模型
 ---
 
 # GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning

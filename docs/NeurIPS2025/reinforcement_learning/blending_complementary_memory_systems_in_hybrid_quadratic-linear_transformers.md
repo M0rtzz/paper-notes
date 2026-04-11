@@ -2,10 +2,8 @@
 description: "【论文笔记】Blending Complementary Memory Systems in Hybrid Quadratic-Linear Transformers 论文解读 | NeurIPS 2025 | arXiv 2506.00744 | hybrid memory | 提出混合二次-线性 Transformer（HQLT），将 KV-memory（softmax attention，精确检索但二次复杂度）与 FW-memory（DeltaNet/线性 attention，线性复杂度但检索粗糙）融合为互补记忆系统，比较三种混合策略（延迟流式/延迟分块/同步），在 340M 和 1.3B 参数规模的语言建模、检索、算法推理和 RL 任务上验证同步混合最优。"
 tags:
   - NeurIPS 2025
-  - hybrid memory
-  - softmax attention
   - 注意力机制
-  - fast weight programming
+  - Transformer
 ---
 
 # Blending Complementary Memory Systems in Hybrid Quadratic-Linear Transformers

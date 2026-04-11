@@ -2,9 +2,7 @@
 description: "【论文笔记】Counting Stacked Objects 论文解读 | ICCV 2025 | arXiv 2411.19149 | 3D object counting | 将堆叠物体计数问题分解为\"体积估计\"和\"占空比估计\"两个子问题，前者用多视角3D重建解决，后者用深度图驱动的神经网络从可见表面推断，首次实现了对不可见堆叠物体的准确计数，性能远超人类。"
 tags:
   - ICCV 2025
-  - 3D object counting
-  - occupancy estimation
-  - multi-view reconstruction
+  - 深度估计
 ---
 
 # Counting Stacked Objects

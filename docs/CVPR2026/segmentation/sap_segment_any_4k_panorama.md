@@ -2,9 +2,6 @@
 description: "【论文笔记】SAP: Segment Any 4K Panorama 论文解读 | CVPR 2026 | arXiv 2603.12759 | 全景分割 | 将全景分割重构为拓扑-记忆对齐问题，通过列优先锯齿扫描将ERP全景图转为透视伪视频序列，完美复用SAM2的流式记忆机制，在零样本4K全景分割上比vanilla SAM2平均提升+17.2 mIoU。"
 tags:
   - CVPR 2026
-  - 全景分割
-  - SAM2
-  - 等距柱状投影
 ---
 
 # SAP: Segment Any 4K Panorama

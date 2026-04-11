@@ -2,9 +2,6 @@
 description: "【论文笔记】Robot-Gated Interactive Imitation Learning with Adaptive Intervention Mechanism 论文解读 | ICML2025 | arXiv 2506.09176 | Interactive Imitation Learning | 提出自适应干预机制 AIM，通过学习代理 Q 函数模拟人类干预决策，让机器人主动请求专家帮助，相比不确定性基线 Thrifty-DAgger 在人类接管成本和学习效率上提升 40%。"
 tags:
   - ICML2025
-  - Interactive Imitation Learning
-  - Robot-Gated Intervention
-  - Proxy Q-function
 ---
 
 # Robot-Gated Interactive Imitation Learning with Adaptive Intervention Mechanism

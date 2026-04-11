@@ -2,9 +2,6 @@
 description: "【论文笔记】Establishing Linear Surrogate Regret Bounds for Convex Smooth Losses via Convolutional Fenchel–Young Losses 论文解读 | NeurIPS 2025 | arXiv 2505.09432 | surrogate regret bound | 通过构造基于卷积负熵（convolutional negentropy）的 Fenchel–Young 损失，首次证明凸且光滑的代理损失可以同时拥有线性代理遗憾界，打破了此前社区认为光滑性与线性遗憾率不可兼得的固有认知。"
 tags:
   - NeurIPS 2025
-  - surrogate regret bound
-  - convex smooth loss
-  - Fenchel–Young loss
 ---
 
 # Establishing Linear Surrogate Regret Bounds for Convex Smooth Losses via Convolutional Fenchel–Young Losses

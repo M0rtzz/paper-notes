@@ -2,9 +2,6 @@
 description: "【论文笔记】The Boundaries of Fair AI in Medical Image Prognosis: A Causal Perspective 论文解读 | NeurIPS 2025 | arXiv 2510.08840 | 公平性 | FairTTE是首个系统研究医学影像中时间-事件(TTE)预测公平性的综合框架，利用因果分析量化五种偏差来源，通过训练超过20000个模型揭示了现有公平性方法的局限性，特别是在分布偏移下公平性难以维持的根本挑战。"
 tags:
   - NeurIPS 2025
-  - 公平性
-  - 时间-事件预测
-  - 因果分析
 ---
 
 # The Boundaries of Fair AI in Medical Image Prognosis: A Causal Perspective

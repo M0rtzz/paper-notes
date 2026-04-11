@@ -2,9 +2,6 @@
 description: "【论文笔记】A Certified Unlearning Approach without Access to Source Data 论文解读 | ICML 2025 | arXiv 2506.06486 | 机器遗忘 | 提出首个无需访问原始训练数据的认证遗忘框架，利用代理数据集（surrogate dataset）近似原始数据统计特性，通过基于源分布与代理分布之间统计距离的噪声缩放机制，实现可证明的数据删除保证。"
 tags:
   - ICML 2025
-  - 机器遗忘
-  - 认证遗忘
-  - 代理数据集
 ---
 
 # A Certified Unlearning Approach without Access to Source Data

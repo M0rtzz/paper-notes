@@ -2,9 +2,6 @@
 description: "【论文笔记】Mixed Signals: A Diverse Point Cloud Dataset for Heterogeneous LiDAR V2X Collaboration 论文解读 | ICCV 2025 | arXiv 2502.14156 | V2X 协作感知 | Mixed Signals 是首个包含异构 LiDAR 配置（不同高度和倾斜角）的真实世界 V2X 数据集，由 3 辆自动驾驶车 + 路侧单元采集，提供 4.51 万点云帧和 24.06 万标注框，同时也是首个左行交通国家（澳大利亚）的 V2X 数据集。"
 tags:
   - ICCV 2025
-  - V2X 协作感知
-  - 点云数据集
-  - 异构传感器
 ---
 
 # Mixed Signals: A Diverse Point Cloud Dataset for Heterogeneous LiDAR V2X Collaboration

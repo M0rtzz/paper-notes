@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting the Data Sampling in Multimodal Post-training from a Difficulty-Distinguish View 论文解读 | AAAI 2026 | arXiv 2511.06722 | 多模态后训练 | 提出两种多模态数据难度评估策略——PISM（渐进图像语义遮蔽）和CMAB（跨模态注意力平衡），发现在难度分层数据上仅用GRPO训练即可一致超越传统SFT+GRPO流水线，证明了战略性数据筛选比复杂训练范式更重要。"
 tags:
   - AAAI 2026
-  - 多模态后训练
-  - 难度感知采样
-  - GRPO
 ---
 
 # Revisiting the Data Sampling in Multimodal Post-training from a Difficulty-Distinguish View

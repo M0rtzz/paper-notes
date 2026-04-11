@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlocking the Power of Rehearsal in Continual Learning: A Theoretical Perspective 论文解读 | ICML 2025 | arXiv 2506.00205 | continual learning | 从理论角度分析持续学习中排练（rehearsal/experience replay）策略的有效性，建立排练缓冲区大小、任务数量与遗忘程度之间的精确关系，证明适当的排练策略可以有效缓解灾难性遗忘。"
 tags:
   - ICML 2025
-  - continual learning
-  - rehearsal
-  - experience replay
 ---
 
 # Unlocking the Power of Rehearsal in Continual Learning: A Theoretical Perspective

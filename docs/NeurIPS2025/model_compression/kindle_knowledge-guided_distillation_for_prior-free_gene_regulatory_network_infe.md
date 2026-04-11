@@ -2,10 +2,8 @@
 description: "【论文笔记】KINDLE: Knowledge-Guided Distillation for Prior-Free Gene Regulatory Network Inference 论文解读 | NeurIPS 2025 | arXiv 2505.09664 | Gene Regulatory Network | 提出 KINDLE 三阶段框架，通过知识蒸馏将先验引导的教师模型中学到的基因调控知识迁移到无先验的学生模型，在不依赖任何外部先验知识的情况下实现了基因调控网络（GRN）推断的 SOTA 性能。"
 tags:
   - NeurIPS 2025
-  - Gene Regulatory Network
-  - Knowledge Distillation
   - 知识蒸馏
-  - Prior-Free Inference
+  - 注意力机制
 ---
 
 # KINDLE: Knowledge-Guided Distillation for Prior-Free Gene Regulatory Network Inference

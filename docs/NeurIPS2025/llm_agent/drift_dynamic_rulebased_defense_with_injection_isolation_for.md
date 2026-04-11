@@ -2,10 +2,7 @@
 description: "【论文笔记】DRIFT: Dynamic Rule-Based Defense with Injection Isolation for Securing LLM Agents 论文解读 | NeurIPS 2025 | arXiv 2506.12104 | 提示学习 prompt injection | 提出 DRIFT 系统级 Agent 安全框架，通过 Secure Planner（预规划函数轨迹+参数检查表）、Dynamic Validator（基于 Read/Write/Execute 权限的动态策略更新）和 Injection Isolator（从 memory stream 中检测并屏蔽注入指令）三层防御，在 AgentDojo 上将 ASR 从 30.7% 降至 1.3%，同时比 CaMeL 提升 20.1% utility。"
 tags:
   - NeurIPS 2025
-  - prompt injection
   - 提示学习
-  - agent security
-  - dynamic policy
 ---
 
 # DRIFT: Dynamic Rule-Based Defense with Injection Isolation for Securing LLM Agents

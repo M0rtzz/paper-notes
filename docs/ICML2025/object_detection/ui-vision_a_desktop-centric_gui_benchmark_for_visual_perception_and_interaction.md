@@ -2,9 +2,6 @@
 description: "【论文笔记】UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction 论文解读 | ICML 2025 | arXiv 2503.15661 | GUI 基准 | 提出 UI-Vision，首个面向桌面环境的许可开放、离线评估基准，覆盖 83 个软件应用，定义了元素定位、布局定位和动作预测三个由细到粗的评估任务，揭示了 SOTA 模型（如 UI-TARS-72B）在专业软件理解和空间推理上的关键局限。"
 tags:
   - ICML 2025
-  - GUI 基准
-  - 桌面环境
-  - 元素定位
 ---
 
 # UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction

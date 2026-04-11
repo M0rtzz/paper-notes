@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Silent Data Corruption in LLM Training 论文解读 | ACL 2025 | arXiv 2502.12340 | 静默数据损坏 | 本文首次系统研究了真实世界静默数据损坏（SDC）对LLM训练的影响，通过将不健康节点与健康节点配对并引入同步机制，在子模块计算、单步梯度、累积训练三个层面揭示了SDC的特征和影响模式。"
 tags:
   - ACL 2025
-  - 静默数据损坏
-  - LLM训练
-  - 硬件故障
 ---
 
 # Understanding Silent Data Corruption in LLM Training

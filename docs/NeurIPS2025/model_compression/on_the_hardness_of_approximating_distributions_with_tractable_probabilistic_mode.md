@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Hardness of Approximating Distributions with Tractable Probabilistic Models 论文解读 | NeurIPS 2025 | arXiv 2506.01281 | 概率电路 | 本文证明了用可处理概率模型（如分解概率电路）在有界f-散度下近似任意分布是NP-hard的，并证明了在近似建模条件下分解PC和（确定性+分解）PC之间存在指数级大小差距，揭示了近似放宽并不能缓解精确建模中的复杂度瓶颈。"
 tags:
   - NeurIPS 2025
-  - 概率电路
-  - 可处理概率模型
-  - 近似建模
 ---
 
 # On the Hardness of Approximating Distributions with Tractable Probabilistic Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Computational Hardness of Reinforcement Learning with Partial $q^\pi$-Realizability 论文解读 | NeurIPS 2025 | arXiv 2510.21888 | 强化学习 | 引入\"部分 $q^\pi$-可实现性\"概念，证明在此设定下使用贪心策略集时学习近优策略是 NP-hard 的，使用 softmax 策略集时在 rETH 假设下需要指数时间，弥合了 $q^*$-可实现性和 $q^\pi$-可实现性之间的理论空白。"
 tags:
   - NeurIPS 2025
-  - 强化学习
-  - 计算复杂度
-  - 线性函数逼近
 ---
 
 # Computational Hardness of Reinforcement Learning with Partial $q^\pi$-Realizability

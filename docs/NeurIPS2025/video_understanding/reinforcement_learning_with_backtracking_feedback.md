@@ -2,9 +2,6 @@
 description: "【论文笔记】Reinforcement Learning with Backtracking Feedback 论文解读 | NeurIPS 2025 | arXiv 2602.08377 | RL | 提出带回溯反馈的强化学习框架 RLBF，当 agent 陷入死胡同时允许回溯到之前的状态重新探索，通过回溯信号改善信用分配，在稀疏奖励环境中显著提升探索效率。"
 tags:
   - NeurIPS 2025
-  - RL
-  - 回溯反馈
-  - 探索策略
 ---
 
 # Reinforcement Learning with Backtracking Feedback

@@ -2,9 +2,6 @@
 description: "【论文笔记】AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation 论文解读 | ECCV 2024 | arXiv 2312.03795 | Text-to-4D | 提出 AnimatableDreamer，通过 Canonical Score Distillation (CSD) 技术，从单目视频提取骨骼和运动后生成文本引导的可动画化 3D 非刚体模型，在生成质量和时序一致性上全面超越现有方法。"
 tags:
   - ECCV 2024
-  - Text-to-4D
-  - Non-rigid 3D
-  - Score Distillation
 ---
 
 # AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation

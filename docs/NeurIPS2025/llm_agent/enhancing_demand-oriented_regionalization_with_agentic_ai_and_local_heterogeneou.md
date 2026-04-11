@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Demand-Oriented Regionalization with Agentic AI and Local Heterogeneous Data for Adaptation Planning 论文解读 | NeurIPS 2025 (UrbanAI Workshop) | arXiv 2511.10857 | Agentic AI | 本文提出一个基于 Agentic AI 的规划支持系统，通过 LLM 智能体引导非技术用户进行数据驱动的需求导向区域化（demand-oriented regionalization），核心算法为 RepSC-SOM（带代表性初始化的空间约束自组织映射），支持人机协作迭代优化区域划分，用于灾害风险管理和气候适应规划。"
 tags:
   - NeurIPS 2025 (UrbanAI Workshop)
-  - Agentic AI
-  - 区域化
-  - 城市规划
 ---
 
 # Enhancing Demand-Oriented Regionalization with Agentic AI and Local Heterogeneous Data for Adaptation Planning

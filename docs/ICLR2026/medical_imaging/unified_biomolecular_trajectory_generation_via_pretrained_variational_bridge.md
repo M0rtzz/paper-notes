@@ -2,9 +2,6 @@
 description: "【论文笔记】Unified Biomolecular Trajectory Generation via Pretrained Variational Bridge 论文解读 | ICLR 2026 | arXiv 2602.07588 | 分子动力学 | PVB（Pretrained Variational Bridge）通过编码器-解码器架构结合增强桥匹配，统一了单结构预训练和配对轨迹微调的训练目标，实现了跨领域生物分子轨迹生成，并通过RL微调加速蛋白质-配体holo态探索。"
 tags:
   - ICLR 2026
-  - 分子动力学
-  - 轨迹生成
-  - 变分桥匹配
 ---
 
 # Unified Biomolecular Trajectory Generation via Pretrained Variational Bridge

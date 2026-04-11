@@ -2,7 +2,6 @@
 description: "【论文笔记】Reflection-Driven Control for Trustworthy Code Agents 论文解读 | AAAI 2026 | arXiv 2512.21354 | 反思驱动控制、安全代码生成、自检机制、动态记忆库、可信Agent | 提出 Reflection-Driven Control 模块，将\"自我反思\"从事后补丁提升为 Agent 推理过程中的一等控制回路，通过轻量自检、证据驱动修复和反思记忆库三个组件，在安全代码生成任务上显著提升代码安全率。"
 tags:
   - AAAI 2026
-  - 反思驱动控制、安全代码生成、自检机制、动态记忆库、可信Agent
 ---
 
 # Reflection-Driven Control for Trustworthy Code Agents

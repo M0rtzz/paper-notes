@@ -2,9 +2,6 @@
 description: "【论文笔记】Chain of Event-Centric Causal Thought for Physically Plausible Video Generation 论文解读 | CVPR 2026 | arXiv 2603.09094 | 物理合理视频生成 | 将物理现象建模为因果连接的事件序列，通过物理公式驱动的事件链推理分解复杂物理过程，再用渐进式语义-视觉双提示引导现成视频扩散模型生成物理合理的因果演进视频。"
 tags:
   - CVPR 2026
-  - 物理合理视频生成
-  - 事件链推理
-  - 链式思维
 ---
 
 # Chain of Event-Centric Causal Thought for Physically Plausible Video Generation

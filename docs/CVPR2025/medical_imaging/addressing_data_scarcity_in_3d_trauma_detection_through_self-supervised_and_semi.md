@@ -2,11 +2,8 @@
 description: "【论文笔记】Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding 论文解读 | CVPR2025 | arXiv 2603.12514 | 目标检测 3D Object Detection | 提出两阶段标签高效学习框架：先在 1206 例无标注 CT 上用 Masked Image Modeling 自监督预训练 3D U-Net 编码器，再结合 VDETR + Vertex RPE 和 Mean Teacher 半监督学习，仅用 144 例标注数据实现腹部创伤 3D 检测 mAP@0.50 达 45.30%（+115%）。"
 tags:
   - CVPR2025
-  - 3D Object Detection
   - 目标检测
-  - Self-Supervised Learning
   - 自监督学习
-  - Semi-Supervised Learning
   - 半监督学习
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncertainty Quantification for Reduced-Order Surrogate Models Applied to Cloud Microphysics 论文解读 | NeurIPS 2025 | arXiv 2511.04534 | 降阶模型 | 本文提出一种后验的、模型无关的不确定性量化框架，利用共形预测为潜空间降阶模型的重建、潜在动力学和端到端预测提供统计有效的预测区间，并在云微物理ROM上验证。"
 tags:
   - NeurIPS 2025
-  - 降阶模型
-  - 共形预测
-  - 云微物理
 ---
 
 # Uncertainty Quantification for Reduced-Order Surrogate Models Applied to Cloud Microphysics

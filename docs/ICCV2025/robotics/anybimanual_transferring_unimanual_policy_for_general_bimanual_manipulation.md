@@ -2,9 +2,6 @@
 description: "【论文笔记】AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation 论文解读 | ICCV 2025 | arXiv 2412.06779 | 双臂操控 | 提出 AnyBimanual，一个即插即用的框架，通过技能管理器和视觉对齐器将预训练的单臂操控策略迁移到通用双臂操控场景，在仅有少量双臂示范的情况下实现显著的多任务泛化能力。"
 tags:
   - ICCV 2025
-  - 双臂操控
-  - 策略迁移
-  - 技能原语
 ---
 
 # AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation

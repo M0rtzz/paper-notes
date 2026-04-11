@@ -2,10 +2,7 @@
 description: "【论文笔记】Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions 论文解读 | CVPR2025 | arXiv 2603.12468 | 域适应 Source-Free Domain Adaptation | 提出 SFDA-DeP 方法，受机器遗忘启发，通过识别并纠正源模型在目标域的预测偏差（over-predict 某些类别），解决组织病理学中弱监督定位模型跨器官/跨中心域适应时预测偏差被放大的问题。"
 tags:
   - CVPR2025
-  - Source-Free Domain Adaptation
   - 域适应
-  - Weakly Supervised Localization
-  - Histopathology
 ---
 
 # Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions

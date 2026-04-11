@@ -2,9 +2,6 @@
 description: "【论文笔记】GAVEL: Towards Rule-Based Safety through Activation Monitoring 论文解读 | ICLR 2026 | arXiv 2601.19768 | activation monitoring | 提出 GAVEL 框架，将 LLM 安全从\"粗粒度误用数据集训练分类器\"范式转向\"可组合认知元素 (CE) + 布尔规则\"范式：定义可解释的激活级原语（如\"发出威胁\"、\"处理支付\"），组合为精确的策略规则，实现高精度、可定制、可审计的实时安全监控。"
 tags:
   - ICLR 2026
-  - activation monitoring
-  - cognitive elements
-  - rule-based safety
 ---
 
 # GAVEL: Towards Rule-Based Safety through Activation Monitoring

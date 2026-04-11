@@ -2,9 +2,6 @@
 description: "【论文笔记】Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models 论文解读 | AAAI 2026 | arXiv 2506.10634 | Flow Matching | 提出对称流匹配（SymmFlow），将语义分割、分类和图像生成统一到单一模型中，通过对称学习目标联合建模正反向流变换，仅需25步推理即在语义图像合成上达到SOTA（CelebAMask-HQ FID 11.9，COCO-Stuff FID 7.0），同时在分割和分类上取得有竞争力的结果。"
 tags:
   - AAAI 2026
-  - Flow Matching
-  - 语义分割
-  - 图像生成
 ---
 
 # Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models

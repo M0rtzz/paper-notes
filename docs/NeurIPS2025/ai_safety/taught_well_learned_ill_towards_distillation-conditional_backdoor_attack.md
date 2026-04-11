@@ -2,9 +2,6 @@
 description: "【论文笔记】Taught Well, Learned Ill: Towards Distillation-Conditional Backdoor Attack 论文解读 | NeurIPS 2025 | arXiv 2509.23871 | 知识蒸馏 | 本文提出了蒸馏条件后门攻击（DCBA）范式及其实现方法SCAR，通过双层优化在教师模型中植入\"休眠\"后门，该后门在教师模型上不可检测但会在知识蒸馏过程中被激活传递到学生模型，即使蒸馏数据集完全干净。"
 tags:
   - NeurIPS 2025
-  - 知识蒸馏
-  - 后门攻击
-  - 双层优化
 ---
 
 # Taught Well, Learned Ill: Towards Distillation-Conditional Backdoor Attack

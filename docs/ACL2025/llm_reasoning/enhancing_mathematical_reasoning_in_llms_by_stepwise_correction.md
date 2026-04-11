@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Mathematical Reasoning in LLMs by Stepwise Correction 论文解读 | ACL 2025 | arXiv 2410.12934 | 数学推理 | 本文提出StepCo（Stepwise Correction），一种迭代式\"验证-修正\"框架：利用过程监督验证器（PSV）逐步定位LLM推理路径中的首个错误步骤并触发LLM修正，在8个数学推理基准上以GPT-4o为后端取得94.1%平均准确率，超越Best-of-10方法+2.4个点，同时减少77.8%的token消耗。"
 tags:
   - ACL 2025
-  - 数学推理
-  - 逐步修正
-  - Process Supervised Verifier
 ---
 
 # Enhancing Mathematical Reasoning in LLMs by Stepwise Correction

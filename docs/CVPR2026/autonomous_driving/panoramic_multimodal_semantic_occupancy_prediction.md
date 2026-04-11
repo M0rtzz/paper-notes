@@ -2,9 +2,6 @@
 description: "【论文笔记】Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots 论文解读 | CVPR 2026 | arXiv 2603.13108 | 全景占据预测 | 面向四足机器人构建首个全景多模态（RGB+热成像+偏振+LiDAR）语义占据数据集PanoMMOcc，并提出VoxelHound框架，通过垂直抖动补偿（VJC）和多模态信息提示融合（MIPF）模块实现鲁棒的3D占据预测，达到23.34% mIoU（+4.16%）。"
 tags:
   - CVPR 2026
-  - 全景占据预测
-  - 四足机器人
-  - 多模态融合
 ---
 
 # Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots

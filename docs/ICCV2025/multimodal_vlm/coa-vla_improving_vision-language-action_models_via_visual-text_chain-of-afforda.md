@@ -2,9 +2,6 @@
 description: "【论文笔记】CoA-VLA: Improving Vision-Language-Action Models via Visual-Textual Chain-of-Affordance 论文解读 | ICCV 2025 | arXiv 2412.20451 | VLA | 提出 CoA-VLA，将四类机器人可供性（物体、抓取、空间、运动）组织为链式推理，通过视觉-文本协同注入模块融合到扩散策略网络中，显著提升 VLA 模型在多任务操作中的精度和泛化能力。"
 tags:
   - ICCV 2025
-  - VLA
-  - Chain-of-Affordance
-  - 机器人操作
 ---
 
 # CoA-VLA: Improving Vision-Language-Action Models via Visual-Textual Chain-of-Affordance

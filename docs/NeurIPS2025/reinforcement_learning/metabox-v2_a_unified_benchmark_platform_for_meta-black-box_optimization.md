@@ -2,9 +2,6 @@
 description: "【论文笔记】MetaBox-v2: A Unified Benchmark Platform for Meta-Black-Box Optimization 论文解读 | NeurIPS 2025 | arXiv 2505.17745 | 元黑箱优化 | MetaBox-v2 是对元黑箱优化（MetaBBO）基准平台的里程碑式升级，统一支持 RL/SL/NE/ICL 四大学习范式，复现 23 个基线算法，集成 18 个测试套件（1900+ 问题实例），并通过向量化环境和分布式测试实现 10-40 倍加速。"
 tags:
   - NeurIPS 2025
-  - 元黑箱优化
-  - 基准平台
-  - 并行化
 ---
 
 # MetaBox-v2: A Unified Benchmark Platform for Meta-Black-Box Optimization

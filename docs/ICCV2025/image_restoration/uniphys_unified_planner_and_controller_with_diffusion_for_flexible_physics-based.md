@@ -2,9 +2,7 @@
 description: "【论文笔记】UniPhys: Unified Planner and Controller with Diffusion for Flexible Physics-Based Character Control 论文解读 | ICCV 2025 | arXiv 2504.12540 | 物理仿真角色控制 | 提出 UniPhys，一个基于扩散模型的行为克隆框架，将运动规划和物理控制统一到单一模型中，通过 Diffusion Forcing 训练范式处理累积预测误差，实现了灵活的文本驱动、速度控制、目标达到和动态避障等多任务物理角色运动生成。"
 tags:
   - ICCV 2025
-  - 物理仿真角色控制
   - 扩散模型
-  - 行为克隆
 ---
 
 # UniPhys: Unified Planner and Controller with Diffusion for Flexible Physics-Based Character Control

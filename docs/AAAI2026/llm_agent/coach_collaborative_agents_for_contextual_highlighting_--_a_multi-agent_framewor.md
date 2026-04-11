@@ -2,7 +2,6 @@
 description: "【论文笔记】COACH: Collaborative Agents for Contextual Highlighting -- A Multi-Agent Framework for Sports Video Analysis 论文解读 | AAAI 2026 | arXiv 2512.01853 | 多智能体系统、视频问答、视频摘要、结构化思维链、角色专业化 | 提出 COACH 框架——一个基于共享骨干模型的可重配置多智能体系统，通过意图驱动的策略编排和结构化 CoT 微调实现角色专业化，在羽毛球视频分析的 QA 和摘要两个任务上显著超越 Gemini 2.5 Pro 等通才模型。"
 tags:
   - AAAI 2026
-  - 多智能体系统、视频问答、视频摘要、结构化思维链、角色专业化
 ---
 
 # COACH: Collaborative Agents for Contextual Highlighting -- A Multi-Agent Framework for Sports Video Analysis

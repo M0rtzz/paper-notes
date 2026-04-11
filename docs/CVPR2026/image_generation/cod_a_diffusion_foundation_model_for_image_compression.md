@@ -2,9 +2,6 @@
 description: "【论文笔记】CoD: A Diffusion Foundation Model for Image Compression 论文解读 | CVPR 2026 | arXiv 2511.18706 | 压缩导向扩散 | 提出首个面向压缩的扩散基础模型 CoD，从零训练学习端到端的压缩-生成联合优化，替换 Stable Diffusion 后在下游扩散编解码器中实现超低码率（0.0039 bpp）下的 SOTA 性能，训练成本仅为 SD 的 0.3%。"
 tags:
   - CVPR 2026
-  - 压缩导向扩散
-  - 基础模型
-  - rectified flow
 ---
 
 # CoD: A Diffusion Foundation Model for Image Compression

@@ -2,9 +2,6 @@
 description: "【论文笔记】MIORe & VAR-MIORe: Benchmarks to Push the Boundaries of Restoration 论文解读 | ICCV 2025 | arXiv 2509.06803 | 运动去模糊 | 提出 MIORe 和 VAR-MIORe 两个多任务运动复原基准数据集，使用 1000fps 工业级相机和专业镜头阵列采集，涵盖从极微到极端的全运动幅度谱，通过自适应帧平均机制生成一致运动模糊，为去模糊、帧插值和光流估计提供统一评估平台。"
 tags:
   - ICCV 2025
-  - 运动去模糊
-  - 视频帧插值
-  - 光流估计
 ---
 
 # MIORe & VAR-MIORe: Benchmarks to Push the Boundaries of Restoration

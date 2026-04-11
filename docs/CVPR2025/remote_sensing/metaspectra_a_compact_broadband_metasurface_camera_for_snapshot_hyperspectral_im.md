@@ -2,9 +2,6 @@
 description: "【论文笔记】MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging 论文解读 | CVPR2025 | arXiv 2603.09116 | 超表面 | 提出 MetaSpectra+，一种基于超表面-折射混合光学的紧凑多功能相机，通过双层超表面独立控制各通道色散/曝光/偏振，在约 250nm 可见光带宽内实现快照式高光谱+HDR 或高光谱+偏振联合成像，重建精度在基准数据集上达到 SOTA。"
 tags:
   - CVPR2025
-  - 超表面
-  - 高光谱成像
-  - 快照成像
 ---
 
 # MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging

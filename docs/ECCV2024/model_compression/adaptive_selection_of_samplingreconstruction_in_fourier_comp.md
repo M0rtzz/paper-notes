@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing 论文解读 | ECCV 2024 | arXiv 2409.11738 | 傅里叶压缩感知 | 提出ℋ1.5框架：为每个输入数据自适应选择最佳采样mask-重建网络对（J=3对），利用超分辨率空间生成模型量化高频贝叶斯不确定性来决定采样策略，理论证明优于联合优化ℋ1（非自适应）和自适应采样ℋ2（Pareto次优）。"
 tags:
   - ECCV 2024
-  - 傅里叶压缩感知
-  - 自适应采样
-  - MRI加速
 ---
 
 # Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing

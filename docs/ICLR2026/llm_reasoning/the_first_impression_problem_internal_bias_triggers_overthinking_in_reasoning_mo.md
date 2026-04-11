@@ -2,9 +2,6 @@
 description: "【论文笔记】The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models 论文解读 | ICLR 2026 (Poster) | arXiv 2505.16448 | 过度思考 | 发现推理模型（如 o1 风格模型）的过度思考（overthinking）现象源于模型在看到问题后立即形成的\"内部偏差\"（preliminary guess），当这种初始猜测与后续推理冲突时会触发过度反思，通过反事实干预实验证明了因果关系，并发现现有缓解方法均无法消除此偏差影响。"
 tags:
   - ICLR 2026 (Poster)
-  - 过度思考
-  - 内部偏差
-  - 推理模型
 ---
 
 # The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】$\textbf{Re}^{2}$: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving 论文解读 | ICLR 2026 | arXiv 2603.07197 | RLVR | 本文提出 Re² 方法，通过纯强化学习训练 LLM 学会在推理过程中主动放弃无效思维链并重新开始求解，将罕见的 redo 行为从 0.5% 提升至 30% 以上，在相同训练计算预算下显著超越标准 RLVR 方法。"
 tags:
   - ICLR 2026
-  - RLVR
-  - LLM推理
-  - 思维链优化
 ---
 
 # $\textbf{Re}^{2}$: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving

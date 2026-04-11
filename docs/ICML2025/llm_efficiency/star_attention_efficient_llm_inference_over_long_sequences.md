@@ -2,9 +2,6 @@
 description: "【论文笔记】Star Attention: Efficient LLM Inference over Long Sequences 论文解读 | ICML2025 | arXiv 2411.17116 | 长序列推理 | 提出Star Attention两阶段块稀疏注意力：第一阶段将上下文分块在多主机上局部注意力编码，第二阶段查询通过聚合全局注意力生成，无需微调即可兼容现有LLM，推理加速11倍且保持97-100%精度。"
 tags:
   - ICML2025
-  - 长序列推理
-  - 稀疏注意力
-  - 分布式推理
 ---
 
 # Star Attention: Efficient LLM Inference over Long Sequences

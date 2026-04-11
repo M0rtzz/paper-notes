@@ -2,9 +2,6 @@
 description: "【论文笔记】VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues 论文解读 | ACL 2025 | arXiv 2502.12084 | 视觉线索匹配 | 本文提出VLM2-Bench，一个专门评估视觉语言模型（VLM）跨图像/帧\"视觉线索关联\"能力的基准，涵盖通用线索、物体中心线索和人物中心线索3大类9个子任务共3000+测试样本，发现即使最先进的商业模型在该任务上也落后人类30%以上，揭示了VLM在基础视觉匹配能力上的重大差距。"
 tags:
   - ACL 2025
-  - 视觉线索匹配
-  - 视觉语言模型
-  - 多图像理解
 ---
 
 # VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues

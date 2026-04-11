@@ -2,9 +2,6 @@
 description: "【论文笔记】DAG-Math: Graph-of-Thought Guided Mathematical Reasoning in LLMs 论文解读 | ICLR 2026 | arXiv 2510.19842 | mathematical reasoning | 将 LLM 的 CoT 推理形式化为 DAG 上的基于规则的随机过程，提出\"逻辑闭合性\"（logical closeness）度量来评估模型是否通过搜索还是严格逻辑推理得到答案，构建了 2894 个金标准 DAG-MATH benchmark，发现即使 PASS@k 相近的模型在推理忠实度上也存在显著差异。"
 tags:
   - ICLR 2026
-  - mathematical reasoning
-  - DAG
-  - chain-of-thought
 ---
 
 # DAG-Math: Graph-of-Thought Guided Mathematical Reasoning in LLMs

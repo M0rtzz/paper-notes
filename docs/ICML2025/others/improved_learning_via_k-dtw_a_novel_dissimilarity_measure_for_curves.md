@@ -2,9 +2,6 @@
 description: "【论文笔记】Improved Learning via k-DTW: A Novel Dissimilarity Measure for Curves 论文解读 | ICML2025 | arXiv 2505.23431 | 动态时间规整 | 提出 $k$-DTW——一种对多边形曲线的新型不相似度量，仅关注遍历中**最大的 $k$ 个距离之和**，兼具 DTW 的鲁棒性与 Fréchet 距离的度量性质，并首次证明了曲线聚类的**无维度依赖**学习界。"
 tags:
   - ICML2025
-  - 动态时间规整
-  - 曲线相似性
-  - Fréchet距离
 ---
 
 # Improved Learning via k-DTW: A Novel Dissimilarity Measure for Curves

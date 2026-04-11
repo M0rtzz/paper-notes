@@ -2,9 +2,6 @@
 description: "【论文笔记】CHLU: The Causal Hamiltonian Learning Unit as a Symplectic Primitive for Deep Learning 论文解读 | ICLR 2026 | arXiv 2603.01768 | 哈密顿神经网络 | CHLU 是一种基于相对论哈密顿力学和辛积分的计算学习原语，通过强制相空间体积守恒和引入因果速度上限，解决了 LSTM 的梯度爆炸/消失和 Neural ODE 的信息耗散问题，实现无限时域稳定性和热力学生成能力。"
 tags:
   - ICLR 2026
-  - 哈密顿神经网络
-  - 辛积分
-  - 相对论动能
 ---
 
 # CHLU: The Causal Hamiltonian Learning Unit as a Symplectic Primitive for Deep Learning

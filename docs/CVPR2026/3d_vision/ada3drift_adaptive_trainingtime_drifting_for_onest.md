@@ -2,9 +2,6 @@
 description: "【论文笔记】Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation 论文解读 | CVPR 2026 | arXiv 2603.11984 | 单步生成 | 利用计算预算不对称性，将扩散策略的迭代细化从推理时移至训练时——通过自适应漂移场将预测动作吸引向专家模式并排斥其他生成样本，从3D点云实现单步（1 NFE）高保真多模态动作生成，比扩散策略快10倍以上。"
 tags:
   - CVPR 2026
-  - 单步生成
-  - 漂移场
-  - 模态保持
 ---
 
 # Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation

@@ -2,9 +2,6 @@
 description: "【论文笔记】OnlineHMR: Video-based Online World-Grounded Human Mesh Recovery 论文解读 | CVPR 2026 | arXiv 2603.17355 | 人体网格恢复 | 提出 OnlineHMR，首个同时满足系统因果性、忠实性、时序一致性和高效性四项准则的在线世界坐标人体网格恢复框架，通过滑动窗口因果学习 + KV 缓存推理实现流式相机坐标 HMR，结合以人为中心的增量 SLAM 和 EMA 轨迹校正实现在线全局定位。"
 tags:
   - CVPR 2026
-  - 人体网格恢复
-  - 在线推理
-  - SLAM
 ---
 
 # OnlineHMR: Video-based Online World-Grounded Human Mesh Recovery

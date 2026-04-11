@@ -2,9 +2,6 @@
 description: "【论文笔记】Implicit Statistical Inference in Transformers: Approximating Likelihood-Ratio Tests In-Context 论文解读 | ICLR 2026 / **arXiv**: [2603.10573](https://arxiv.org/abs/2603.10573) | in-context learning | 从统计决策论视角出发，证明Transformer在上下文学习中能近似Bayes最优的**似然比检验**充分统计量，并通过机制分析揭示模型对线性/非线性任务采用不同深度的自适应电路。"
 tags:
   - ICLR 2026 / **arXiv**: [2603.10573](https://arxiv.org/abs/2603.10573)
-  - in-context learning
-  - likelihood-ratio test
-  - mechanistic interpretability
 ---
 
 # Implicit Statistical Inference in Transformers: Approximating Likelihood-Ratio Tests In-Context

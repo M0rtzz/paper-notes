@@ -2,9 +2,6 @@
 description: "【论文笔记】EB-JDAT: Energy-based Joint Distribution Adversarial Training 论文解读 | CVPR 2026 | arXiv 2505.19459 | adversarial training | 通过能量景观分析揭示AT和JEM的互补性(AT缩小clean-adv能量差→鲁棒性；JEM缩小clean-generated能量差→生成+精度)，提出EB-JDAT建模联合分布p(x,x̃,y)，用min-max能量优化对齐三种数据的能量分布——CIFAR-10上鲁棒性68.76%(AutoAttack, 超SOTA AT +10.78%)，同时保持90.39%清洁精度和竞争力的生成质量(FID=27.42)。"
 tags:
   - CVPR 2026
-  - adversarial training
-  - energy-based model
-  - JEM
 ---
 
 # EB-JDAT: Energy-based Joint Distribution Adversarial Training

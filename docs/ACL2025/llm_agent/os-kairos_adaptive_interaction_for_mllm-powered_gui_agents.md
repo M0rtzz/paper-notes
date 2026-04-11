@@ -2,9 +2,6 @@
 description: "【论文笔记】OS-Kairos: Adaptive Interaction for MLLM-Powered GUI Agents 论文解读 | ACL 2025 | arXiv 2503.16465 | GUI Agent | 提出 OS-Kairos，通过协作探测框架标注每步置信度分数并微调进基座模型，使 GUI Agent 能在每步预测置信度、自主决定执行或请求人类干预，在复杂场景下任务成功率 (TSR) 从 OS-Atlas-Pro-7B 的 14.29% 提升到 88.20%，在 AITZ 和 Meta-GUI 基准上也有 24~87% 的绝对提升。"
 tags:
   - ACL 2025
-  - GUI Agent
-  - 置信度驱动交互
-  - 人机协作
 ---
 
 # OS-Kairos: Adaptive Interaction for MLLM-Powered GUI Agents

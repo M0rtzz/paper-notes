@@ -2,9 +2,6 @@
 description: "【论文笔记】RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection 论文解读 | arXiv 2026 | arXiv 2603.12685 | rsonet | 本文重点研究 RGB 图像和热图像之间显着区域的不一致。"
 tags:
   - arXiv 2026
-  - rsonet
-  - region-guided
-  - selective
 ---
 
 # RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection

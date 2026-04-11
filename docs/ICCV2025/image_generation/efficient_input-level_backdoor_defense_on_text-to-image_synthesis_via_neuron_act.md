@@ -2,9 +2,7 @@
 description: "【论文笔记】Efficient Input-Level Backdoor Defense on Text-to-Image Synthesis via Neuron Activation Variation 论文解读 | ICCV 2025 | arXiv 2503.06453 | 后门防御 | NaviT2I 发现了文生图扩散模型中后门触发器导致的\"早期步骤激活变化\"（Early-step Activation Variation）现象，基于此提出了一种仅需分析第一步扩散迭代的高效输入级后门防御框架，在 8 种主流攻击上平均 AUROC 达 96.3%，耗时仅为已有方法的 3.8%~16.7%。"
 tags:
   - ICCV 2025
-  - 后门防御
-  - 文生图模型
-  - 神经元激活变化
+  - 扩散模型
 ---
 
 # Efficient Input-Level Backdoor Defense on Text-to-Image Synthesis via Neuron Activation Variation

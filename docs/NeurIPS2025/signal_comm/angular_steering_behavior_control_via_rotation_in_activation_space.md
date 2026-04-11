@@ -2,9 +2,6 @@
 description: "【论文笔记】Angular Steering: Behavior Control via Rotation in Activation Space 论文解读 | NeurIPS 2025 | arXiv 2510.26243 | 激活引导 | 提出 Angular Steering，将 LLM 激活引导统一建模为固定 2D 子空间中的旋转操作，提供连续、细粒度、范数保持的行为控制，统一了现有的激活加法和方向消融方法，在多个 LLM 家族（3B-14B）上实现鲁棒的行为控制。"
 tags:
   - NeurIPS 2025
-  - 激活引导
-  - 行为控制
-  - 旋转变换
 ---
 
 # Angular Steering: Behavior Control via Rotation in Activation Space

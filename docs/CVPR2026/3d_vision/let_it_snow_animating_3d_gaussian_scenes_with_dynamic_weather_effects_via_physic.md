@@ -2,9 +2,6 @@
 description: "【论文笔记】Let it Snow! Animating 3D Gaussian Scenes with Dynamic Weather Effects via Physics-Guided Score Distillation 论文解读 | CVPR2026 | arXiv 2504.05296 | 3D Gaussian Splatting | 提出 Physics-Guided Score Distillation 框架，利用物理仿真（MPM）作为运动先验引导 Video-SDS 优化，在静态 3DGS 场景中生成具有物理合理运动和真实感外观的动态天气效果（降雪、降雨、雾、沙尘暴）。"
 tags:
   - CVPR2026
-  - 3D Gaussian Splatting
-  - 动态场景编辑
-  - 天气效果
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

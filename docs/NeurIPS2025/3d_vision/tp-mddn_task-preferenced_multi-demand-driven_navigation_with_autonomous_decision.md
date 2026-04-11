@@ -2,9 +2,6 @@
 description: "【论文笔记】TP-MDDN: Task-Preferenced Multi-Demand-Driven Navigation with Autonomous Decision-Making 论文解读 | NeurIPS 2025 | arXiv 2511.17225 | 具身导航 | 提出任务偏好多需求驱动导航（TP-MDDN）基准和AWMSystem自主决策系统，通过指令分解、动态目标选择和任务状态监控三个LLM模块配合多维度累积语义地图，实现长程多子任务导航。"
 tags:
   - NeurIPS 2025
-  - 具身导航
-  - 长程任务规划
-  - 多需求驱动
 ---
 
 # TP-MDDN: Task-Preferenced Multi-Demand-Driven Navigation with Autonomous Decision-Making

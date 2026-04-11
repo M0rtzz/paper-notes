@@ -2,9 +2,6 @@
 description: "【论文笔记】GameFactory: Creating New Games with Generative Interactive Videos 论文解读 | ICCV 2025 | arXiv 2501.08325 | 游戏生成 | 提出 GameFactory，通过在预训练视频扩散模型上**解耦游戏风格与动作控制**的多阶段训练策略，实现了从小规模 Minecraft 数据学到的动作控制能力**泛化到开放域任意场景**的交互式游戏视频生成——这是首个提供完整技术论文且验证复杂动作空间（7键+鼠标）的场景泛化方法。"
 tags:
   - ICCV 2025
-  - 游戏生成
-  - 视频扩散模型
-  - 动作控制
 ---
 
 # GameFactory: Creating New Games with Generative Interactive Videos

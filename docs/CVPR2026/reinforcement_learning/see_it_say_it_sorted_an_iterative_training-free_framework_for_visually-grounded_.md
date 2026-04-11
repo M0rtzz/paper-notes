@@ -2,9 +2,6 @@
 description: "【论文笔记】See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs 论文解读 | CVPR 2026 | arXiv 2602.21497 | 视觉定位 | 提出一个无需训练的迭代框架，通过\"看到-说出-排序\"的循环过程增强大视觉语言模型的视觉定位多模态推理能力，在多个推理任务上显著提升性能。"
 tags:
   - CVPR 2026
-  - 视觉定位
-  - 多模态推理
-  - 免训练
 ---
 
 # See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs

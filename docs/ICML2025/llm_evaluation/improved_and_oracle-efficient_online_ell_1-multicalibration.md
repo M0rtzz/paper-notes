@@ -2,9 +2,6 @@
 description: "【论文笔记】Improved and Oracle-Efficient Online $\ell_1$-Multicalibration 论文解读 | ICML2025 | arXiv 2505.17365 | multicalibration | 提出将在线 $\ell_1$-multicalibration 归约为新定义的在线线性乘积优化 (OLPO) 问题，分别达到 $\widetilde{O}(T^{-1/3})$（改进速率）和 $\widetilde{O}(T^{-1/4})$（oracle 高效速率）的多校准误差上界。"
 tags:
   - ICML2025
-  - multicalibration
-  - online learning
-  - fairness
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

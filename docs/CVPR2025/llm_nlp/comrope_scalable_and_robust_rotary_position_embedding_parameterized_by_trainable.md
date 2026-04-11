@@ -2,7 +2,6 @@
 description: "【论文笔记】ComRoPE: Scalable and Robust Rotary Position Embedding Parameterized by Trainable Commuting Angle Matrices 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：The Transformer architecture has revolutionized various fields since it was proposed, where positional encoding plays an essential role in effectively capturing sequential order and context. Therefore, Rotary Positional Encoding (RoPE) was proposed to alleviate these issues, which integrates positio"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # ComRoPE: Scalable and Robust Rotary Position Embedding Parameterized by Trainable Commuting Angle Matrices

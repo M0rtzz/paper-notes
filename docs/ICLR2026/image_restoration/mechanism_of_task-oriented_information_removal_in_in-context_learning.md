@@ -2,9 +2,6 @@
 description: "【论文笔记】Mechanism of Task-oriented Information Removal in In-context Learning 论文解读 | ICLR 2026 | arXiv 2509.21012 | in-context learning | 从\"信息移除\"的新视角解释 In-context Learning（ICL）的内部机制：发现 LM 在零样本时将查询编码为包含所有可能任务信息的\"非选择性表征\"（导致随机输出），而 few-shot ICL 的核心作用是模拟一种\"任务导向的信息移除\"过程——通过识别出的\"Denoising Heads\"（去噪注意力头）从纠缠的表征中选择性移除冗余任务信息，引导模型聚焦目标任务。消融实验证实阻断去噪头后 ICL 准确率显著下降。"
 tags:
   - ICLR 2026
-  - in-context learning
-  - information removal
-  - denoising heads
   - 去噪
 ---
 

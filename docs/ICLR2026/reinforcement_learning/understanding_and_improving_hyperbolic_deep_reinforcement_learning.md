@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding and Improving Hyperbolic Deep Reinforcement Learning 论文解读 | ICLR2026 | arXiv 2512.14202 | 双曲空间 | 通过形式化梯度分析揭示双曲深度 RL 的训练不稳定根源（大范数嵌入导致信赖域违反），提出 Hyper++ 三组件方案（RMSNorm + 学习缩放 + 分类值损失）实现稳定训练并超越现有方法。"
 tags:
   - ICLR2026
-  - 双曲空间
-  - PPO
-  - 梯度分析
 ---
 
 # Understanding and Improving Hyperbolic Deep Reinforcement Learning

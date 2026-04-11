@@ -2,9 +2,6 @@
 description: "【论文笔记】Blueprint-Bench: Comparing Spatial Intelligence of LLMs, Agents and Image Models 论文解读 | ICLR 2026 | arXiv 2509.25229 | 空间智能 | Blueprint-Bench 通过\"从公寓内部照片生成 2D 平面图\"的任务来评测 AI 模型的空间推理能力，结果显示大多数 LLM、图像生成模型和 Agent 系统的表现接近或低于随机基线，揭示了当前 AI 在空间智能上的重大盲区。"
 tags:
   - ICLR 2026
-  - 空间智能
-  - 平面图生成
-  - benchmark
 ---
 
 # Blueprint-Bench: Comparing Spatial Intelligence of LLMs, Agents and Image Models

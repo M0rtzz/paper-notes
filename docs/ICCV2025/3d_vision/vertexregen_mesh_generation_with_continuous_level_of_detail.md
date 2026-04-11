@@ -2,9 +2,6 @@
 description: "【论文笔记】VertexRegen: Mesh Generation with Continuous Level of Detail 论文解读 | ICCV 2025 | arXiv 2508.09062 | 网格生成 | 提出VertexRegen，受渐进网格启发将网格生成重新定义为边折叠(edge collapse)的逆操作——顶点分裂(vertex split)的学习，实现连续细节层级的\"随时停止\"网格生成。"
 tags:
   - ICCV 2025
-  - 网格生成
-  - 渐进网格
-  - 连续细节层级
 ---
 
 # VertexRegen: Mesh Generation with Continuous Level of Detail

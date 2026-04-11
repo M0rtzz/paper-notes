@@ -2,9 +2,6 @@
 description: "【论文笔记】HiMo-CLIP: Modeling Semantic Hierarchy and Monotonicity in Vision-Language Alignment 论文解读 | AAAI 2026 | arXiv 2511.06653 | 视觉语言对齐 | 提出 HiMo-CLIP，通过对文本嵌入做 batch 内 PCA 分解（HiDe）提取多粒度语义成分，配合双分支单调性感知对比损失（MoLo），在不修改编码器的前提下让 CLIP 学会\"文本越完整、对齐分数越高\"的语义单调性，在长文本检索上显著超越现有方法。"
 tags:
   - AAAI 2026
-  - 视觉语言对齐
-  - 语义层次
-  - 语义单调性
 ---
 
 # HiMo-CLIP: Modeling Semantic Hierarchy and Monotonicity in Vision-Language Alignment

@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision Function Layer in Multimodal LLMs 论文解读 | NeurIPS 2025 | arXiv 2509.24791 | MLLM可解释性 | 发现 MLLM 中视觉相关的功能解码分布在特定的窄层中（视觉功能层/VFL），不同功能呈现一致的层级模式（识别→计数→定位→OCR），并据此设计了 VFL-LoRA 和 VFL-select 方法。"
 tags:
   - NeurIPS 2025
-  - MLLM可解释性
-  - 视觉功能层
-  - Token交换
 ---
 
 # Vision Function Layer in Multimodal LLMs

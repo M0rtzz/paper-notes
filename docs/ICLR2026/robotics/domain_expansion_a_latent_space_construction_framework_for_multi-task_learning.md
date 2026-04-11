@@ -2,9 +2,6 @@
 description: "【论文笔记】Domain Expansion: A Latent Space Construction Framework for Multi-Task Learning 论文解读 | ICLR 2026 | arXiv 2601.20069 | 多任务学习 | 提出 Domain Expansion 框架，通过正交池化(Orthogonal Pooling)将潜在空间重构为互相正交的子空间，从结构上防止多目标训练中的梯度冲突与表征崩塌，实现可解释、可组合的概念代数。"
 tags:
   - ICLR 2026
-  - 多任务学习
-  - 正交池化
-  - 潜在空间构造
 ---
 
 # Domain Expansion: A Latent Space Construction Framework for Multi-Task Learning

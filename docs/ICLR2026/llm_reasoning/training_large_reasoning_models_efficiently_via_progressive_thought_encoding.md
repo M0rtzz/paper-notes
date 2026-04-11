@@ -2,9 +2,6 @@
 description: "【论文笔记】Training Large Reasoning Models Efficiently via Progressive Thought Encoding 论文解读 | ICLR 2026 | arXiv 2602.16839 | 大推理模型 | 提出 Progressive Thought Encoding，在 KV 缓存受限条件下将被驱逐的思维 token 编码进 LoRA 权重，使大推理模型在 RL 训练时显存减半的同时推理准确率反超全缓存 LoRA（AIME2024/2025 上最高提升 +23.4%）。"
 tags:
   - ICLR 2026
-  - 大推理模型
-  - 强化学习训练效率
-  - KV缓存压缩
 ---
 
 # Training Large Reasoning Models Efficiently via Progressive Thought Encoding

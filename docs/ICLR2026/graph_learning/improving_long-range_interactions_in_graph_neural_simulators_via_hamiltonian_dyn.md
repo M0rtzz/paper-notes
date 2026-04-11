@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Long-Range Interactions in Graph Neural Simulators via Hamiltonian Dynamics 论文解读 | ICLR 2026 | arXiv 2511.08185 | 图神经仿真器 | 提出 Information-preserving Graph Neural Simulators (IGNS)，利用 port-Hamiltonian 动力学结构在图上保持信息不耗散，结合 warmup 初始化、几何编码和多步训练目标，在 6 个物理仿真基准上全面超越现有图神经仿真器。"
 tags:
   - ICLR 2026
-  - 图神经仿真器
-  - 哈密顿动力学
-  - 长程交互
 ---
 
 # Improving Long-Range Interactions in Graph Neural Simulators via Hamiltonian Dynamics

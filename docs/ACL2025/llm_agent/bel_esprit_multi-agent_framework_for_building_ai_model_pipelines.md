@@ -2,9 +2,6 @@
 description: "【论文笔记】Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines 论文解读 | ACL 2025 | arXiv 2412.14684 | AI管线构建 | 提出 Bel Esprit——基于多 Agent 框架的对话式 AI 管线构建系统，通过子 Agent 协作（需求澄清→管线构建→验证→模型填充）将用户的模糊需求转化为由多个 AI 模型组成的可执行管线（如多语言视频配音→语音识别+翻译×3+TTS×3），在人工策划和合成数据上验证有效性。"
 tags:
   - ACL 2025
-  - AI管线构建
-  - 多Agent框架
-  - 模型编排
 ---
 
 # Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines

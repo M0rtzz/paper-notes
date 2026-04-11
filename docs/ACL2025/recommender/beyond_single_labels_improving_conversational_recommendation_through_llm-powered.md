@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation 论文解读 | ACL 2025 | arXiv 2508.05657 | 对话推荐系统 | 针对对话推荐系统中的假阴性问题（用户可能喜欢的item被错误标记为负样本），提出基于LLM的数据增强框架，通过语义检索+相关性打分生成合成标签，再通过两阶段训练策略平衡语义相关性和协同信息。"
 tags:
   - ACL 2025
-  - 对话推荐系统
-  - 数据增强
-  - 假阴性问题
 ---
 
 # Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation

@@ -2,9 +2,6 @@
 description: "【论文笔记】DSCA: Dynamic Subspace Concept Alignment for Lifelong VLM Editing 论文解读 | CVPR 2026 | arXiv 2604.07965 | 知识编辑 | DSCA通过将VLM的表征空间分解为一组正交语义子空间，在每个子空间内进行门控残差干预来实现知识编辑，从而在1000次连续编辑后仍保持>95%的编辑成功率且近乎零遗忘。"
 tags:
   - CVPR 2026
-  - 知识编辑
-  - 视觉语言模型
-  - 子空间分解
 ---
 
 # DSCA: Dynamic Subspace Concept Alignment for Lifelong VLM Editing

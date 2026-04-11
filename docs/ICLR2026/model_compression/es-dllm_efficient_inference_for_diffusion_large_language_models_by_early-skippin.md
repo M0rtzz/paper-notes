@@ -2,10 +2,7 @@
 description: "【论文笔记】ES-dLLM: Efficient Inference for Diffusion Large Language Models by Early-Skipping 论文解读 | ICLR2026 | arXiv 2603.10088 | 扩散模型 Diffusion LLM | 针对扩散大语言模型（dLLM）推理中大量 token 计算冗余的问题，提出无需训练的 Early-Skipping 加速框架 ES-dLLM，通过估计 token 重要性并在早期层跳过低重要性位置，在 LLaDA-8B 和 Dream-7B 上实现 5.6×–16.8× 加速且不损失生成质量。"
 tags:
   - ICLR2026
-  - Diffusion LLM
   - 扩散模型
-  - Inference Acceleration
-  - Token Skipping
 ---
 
 # ES-dLLM: Efficient Inference for Diffusion Large Language Models by Early-Skipping

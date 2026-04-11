@@ -2,9 +2,6 @@
 description: "【论文笔记】RAGNet: Large-scale Reasoning-based Affordance Segmentation Benchmark towards General Grasping 论文解读 | ICCV 2025 | arXiv 2507.23734 | affordance 分割 | 构建了首个大规模推理式 affordance 分割基准 RAGNet（273k 图像、180 类别、26k 推理指令），并提出 AffordanceNet 框架，将 VLM 预训练的 affordance 预测与抓取姿态生成相结合，展现出强大的开放世界泛化和推理能力。"
 tags:
   - ICCV 2025
-  - affordance 分割
-  - 机器人抓取
-  - 推理指令
 ---
 
 # RAGNet: Large-scale Reasoning-based Affordance Segmentation Benchmark towards General Grasping

@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating In Silico Creativity: An Expert Review of AI Chess Compositions 论文解读 | NeurIPS 2025 | arXiv 2510.23772 | 国际象棋 | 使用生成式神经网络（自回归Transformer、离散扩散、MaskGit）+强化学习生成国际象棋谜题，通过奖励函数筛选具有唯一解和反直觉性的谜题，并邀请三位世界级国际象棋专家评审AI生成谜题的创造力和美学品质。"
 tags:
   - NeurIPS 2025
-  - 国际象棋
-  - AI创造力
-  - 谜题生成
 ---
 
 # Evaluating In Silico Creativity: An Expert Review of AI Chess Compositions

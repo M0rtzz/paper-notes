@@ -2,9 +2,7 @@
 description: "【论文笔记】Learning Generalizable Shape Completion with SIM(3) Equivariance 论文解读 | NeurIPS 2025 | arXiv 2509.26631 | shape completion | 提出首个 SIM(3) 等变形状补全网络 SIMECO，通过特征规范化→相似不变几何推理→变换恢复的三阶段模块设计，在去偏评估协议下超越所有增广和等变基线，KITTI 上 MMD 降低 17%、OmniObject3D 上 CD-$\ell_1$ 降低 14%，且在更严格协议下仍优于竞争者在其偏向性设置下的表现。"
 tags:
   - NeurIPS 2025
-  - shape completion
-  - SIM(3) equivariance
-  - vector neurons
+  - 点云
 ---
 
 # Learning Generalizable Shape Completion with SIM(3) Equivariance

@@ -2,9 +2,6 @@
 description: "【论文笔记】Brain-tuning Improves Generalizability and Efficiency of Brain Alignment in Speech Models 论文解读 | NEURIPS2025 | arXiv 2510.21520 | brain-tuning | 提出 Multi-brain-tuning 方法，通过联合多个被试的 fMRI 数据微调预训练语音模型，将脑对齐所需数据量降低 5 倍，同时脑对齐度提升最高 50%，并可泛化到全新被试和数据集。"
 tags:
   - NEURIPS2025
-  - brain-tuning
-  - fMRI
-  - speech model
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

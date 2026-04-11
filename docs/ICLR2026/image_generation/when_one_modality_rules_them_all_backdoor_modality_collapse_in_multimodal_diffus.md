@@ -2,9 +2,6 @@
 description: "【论文笔记】When One Modality Rules Them All: Backdoor Modality Collapse in Multimodal Diffusion Models 论文解读 | ICLR 2026 | arXiv 2603.06508 | 后门攻击 | 首次揭示并系统研究多模态扩散模型中的\"后门模态坍缩\"现象——多模态后门攻击中后门效果退化为仅依赖单一模态（通常是文本），提出TMA和CTI两个基于Shapley值的新指标量化模态贡献和跨模态交互，发现\"赢者通吃\"动态和负交互。"
 tags:
   - ICLR 2026
-  - 后门攻击
-  - 模态坍缩
-  - 多模态扩散
 ---
 
 # When One Modality Rules Them All: Backdoor Modality Collapse in Multimodal Diffusion Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Model Performance-Guided Evaluation Data Selection for Effective Prompt Optimization 论文解读 | ACL 2025 | arXiv 2505.10736 | 提示优化 | 提出 IPOMP——一种两阶段评估数据选择方法，第一阶段通过语义聚类和边界分析选取多样化样本，第二阶段利用提示优化过程中的实时模型性能迭代替换冗余样本，在 BIG-bench 和 LIAR 上将提示优化效果提升 1.6%-3.1%，稳定性提升 50%+，额外开销不到 1%。"
 tags:
   - ACL 2025
-  - 提示优化
-  - 核心集选择
-  - 评估数据选取
 ---
 
 # Model Performance-Guided Evaluation Data Selection for Effective Prompt Optimization

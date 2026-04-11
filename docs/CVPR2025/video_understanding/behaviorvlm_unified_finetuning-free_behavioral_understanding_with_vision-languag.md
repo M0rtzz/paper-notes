@@ -2,9 +2,6 @@
 description: "【论文笔记】BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning 论文解读 | CVPR 2025 | arXiv 2603.12176 | 动物行为理解 | 提出 BehaviorVLM，一个统一的无需微调的视觉语言框架，通过多阶段结构化推理管线同时解决动物姿态估计和行为理解两大任务，仅需 3 帧人工标注即可实现可靠的关键点追踪，并通过深度嵌入聚类 + VLM 描述 + LLM 语义合并实现可解释的多动物行为分割。"
 tags:
   - CVPR 2025
-  - 动物行为理解
-  - 姿态估计
-  - 视觉语言模型
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

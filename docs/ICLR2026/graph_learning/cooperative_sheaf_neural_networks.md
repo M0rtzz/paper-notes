@@ -2,9 +2,6 @@
 description: "【论文笔记】Cooperative Sheaf Neural Networks 论文解读 | ICLR2026 | arXiv 2507.00647 | Sheaf Neural Networks | 提出 Cooperative Sheaf Neural Network (CSNN)，通过在有向图上定义 cellular sheaf 的入度/出度 Laplacian，使节点能独立选择是否广播 (PROPAGATE) 或监听 (LISTEN) 信息，从而缓解过压缩并提升异质图节点分类性能。"
 tags:
   - ICLR2026
-  - Sheaf Neural Networks
-  - 有向图
-  - 协作行为
 ---
 
 # Cooperative Sheaf Neural Networks

@@ -2,9 +2,6 @@
 description: "【论文笔记】Studying Classifier(-Free) Guidance From A Classifier-Centric Perspective 论文解读 | AAAI 2026 | arXiv 2503.10638 | 分类器引导 | 通过系统实证研究揭示了classifier guidance和classifier-free guidance的本质机制——两者都通过将去噪轨迹推离分类器的决策边界来实现条件生成，并提出基于流匹配的后处理方法在高维数据上验证了这一\"分类器中心\"视角。"
 tags:
   - AAAI 2026
-  - 分类器引导
-  - 无分类器引导
-  - 决策边界
 ---
 
 # Studying Classifier(-Free) Guidance From A Classifier-Centric Perspective

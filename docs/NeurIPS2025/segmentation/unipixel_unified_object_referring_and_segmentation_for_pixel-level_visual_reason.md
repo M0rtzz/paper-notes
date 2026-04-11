@@ -2,9 +2,6 @@
 description: "【论文笔记】UniPixel: Unified Object Referring and Segmentation for Pixel-Level Visual Reasoning 论文解读 | NeurIPS 2025 | arXiv 2509.18094 | 多模态大模型 | UniPixel 提出了首个端到端统一对象引用 (referring) 和分割 (segmentation) 的大型多模态模型，通过创新的 Object Memory Bank 设计将稀疏视觉提示转化为稠密对象掩码特征并注入推理过程，在 10 个基准上实现 SOTA，还引入了需要同时完成引用、分割和问答的 PixelQA 新任务。"
 tags:
   - NeurIPS 2025
-  - 多模态大模型
-  - 像素级推理
-  - 对象引用与分割统一
 ---
 
 # UniPixel: Unified Object Referring and Segmentation for Pixel-Level Visual Reasoning

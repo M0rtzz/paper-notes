@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation 论文解读 | ICCV 2025 | arXiv 2508.03256 | 手写文本生成 | 提出 DiffBrush，首个基于扩散模型的手写文本行生成方法，通过内容解耦的风格学习（列/行掩码）和多尺度内容判别器（行/词级别），在风格模仿和内容准确性上大幅超越现有方法。"
 tags:
   - ICCV 2025
-  - 手写文本生成
-  - 扩散模型
-  - 文本行生成
 ---
 
 # Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation

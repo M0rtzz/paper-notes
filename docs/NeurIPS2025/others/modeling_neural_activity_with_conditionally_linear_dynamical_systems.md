@@ -2,9 +2,6 @@
 description: "【论文笔记】Modeling Neural Activity with Conditionally Linear Dynamical Systems 论文解读 | NeurIPS 2025 | arXiv 2502.18347 | 线性动力系统 | 提出条件线性动力系统（CLDS），通过高斯过程先验让线性动力系统参数随观测到的实验协变量非线性变化，在保留线性模型可解释性和高效推断的同时建模神经回路的非线性动态。"
 tags:
   - NeurIPS 2025
-  - 线性动力系统
-  - 高斯过程
-  - 神经活动建模
 ---
 
 # Modeling Neural Activity with Conditionally Linear Dynamical Systems

@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning Meets Representation: Envisioning Neuro-Symbolic Wireless Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2511.16369 | 神经符号AI | 提出将神经符号（Neuro-Symbolic）范式与无线物理层基础模型（WPFM）结合的愿景框架，通过整合数据驱动的神经网络表征与基于规则和逻辑的符号推理，构建可解释、可泛化且可验证的无线AI系统。"
 tags:
   - NeurIPS 2025
-  - 神经符号AI
-  - 无线基础模型
-  - 知识图谱
 ---
 
 # Reasoning Meets Representation: Envisioning Neuro-Symbolic Wireless Foundation Models

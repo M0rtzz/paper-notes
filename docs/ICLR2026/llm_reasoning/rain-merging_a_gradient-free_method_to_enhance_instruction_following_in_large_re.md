@@ -2,9 +2,6 @@
 description: "【论文笔记】RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format 论文解读 | ICLR 2026 | arXiv 2602.22538 | 模型合并 | 针对大推理模型（LRM）推理能力强但指令遵循能力弱的矛盾，提出 RAIN-Merging 方法，通过零空间投影保持 thinking 格式不变、注意力引导系数增强指令相关性，无需梯度训练即可将指令微调模型（ITM）的能力合并进 LRM，在 4 个指令遵循和 9 个推理基准上均取得稳定提升。"
 tags:
   - ICLR 2026
-  - 模型合并
-  - 指令遵循
-  - 大推理模型
 ---
 
 # RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format

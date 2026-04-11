@@ -2,9 +2,6 @@
 description: "【论文笔记】NexusSum: Hierarchical LLM Agents for Long-Form Narrative Summarization 论文解读 | ACL 2025 | arXiv 2505.24575 | 长文本摘要 | 提出 NexusSum，一个三阶段多Agent LLM框架（对话转描述→层次摘要→迭代压缩），无需微调即可处理书籍/电影/电视剧等长叙事文本的摘要生成，在 BookSum 上 BERTScore 提升达 30%。"
 tags:
   - ACL 2025
-  - 长文本摘要
-  - 叙事理解
-  - 多Agent框架
 ---
 
 # NexusSum: Hierarchical LLM Agents for Long-Form Narrative Summarization

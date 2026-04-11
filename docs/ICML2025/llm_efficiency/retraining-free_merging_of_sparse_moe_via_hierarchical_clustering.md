@@ -2,9 +2,6 @@
 description: "【论文笔记】Retraining-Free Merging of Sparse MoE via Hierarchical Clustering 论文解读 | ICML 2025 | arXiv 2410.08589 | Sparse Mixture-of-Experts | 提出 HC-SMoE，一种基于专家输出层次聚类的无需重训练专家合并框架，通过输出相似度度量和层次聚类实现 SMoE 模型的高效压缩，在 Qwen 和 Mixtral 上分别实现 25%-50% 的专家参数缩减并保持优越性能。"
 tags:
   - ICML 2025
-  - Sparse Mixture-of-Experts
-  - 专家合并
-  - 层次聚类
 ---
 
 # Retraining-Free Merging of Sparse MoE via Hierarchical Clustering

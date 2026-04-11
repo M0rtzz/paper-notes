@@ -2,10 +2,8 @@
 description: "【论文笔记】CIARD: Cyclic Iterative Adversarial Robustness Distillation 论文解读 | ICCV 2025 | arXiv 2509.12633 | adversarial robustness distillation | 提出CIARD，通过对比推离损失（Contrastive Push Loss）解决双教师ARD框架中clean teacher和robust teacher的优化目标冲突，并设计迭代教师训练（ITT）策略持续更新robust teacher以防止性能退化，在CIFAR-10/100和Tiny-ImageNet上同时提升对抗鲁棒性+3.53%和干净准确率+5.87%。"
 tags:
   - ICCV 2025
-  - adversarial robustness distillation
-  - knowledge distillation
   - 知识蒸馏
-  - adversarial training
+  - 模型压缩
 ---
 
 # CIARD: Cyclic Iterative Adversarial Robustness Distillation

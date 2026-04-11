@@ -2,9 +2,6 @@
 description: "【论文笔记】AndroidGen: Building an Android Language Agent under Data Scarcity 论文解读 | ACL 2025 (Long Paper) | Android Agent | 提出AndroidGen——一个在数据稀缺条件下增强Android Agent能力的框架（ExpSearch+ReflectPlan+AutoCheck+StepCritic四模块），在AndroidWorld上以GPT-4o达到46.8%成功率（vs M3A的27.7%），并能自动生成高质量轨迹数据训练开源模型达到竞争力水平。"
 tags:
   - ACL 2025 (Long Paper)
-  - Android Agent
-  - 数据稀缺
-  - 轨迹生成
 ---
 
 # AndroidGen: Building an Android Language Agent under Data Scarcity

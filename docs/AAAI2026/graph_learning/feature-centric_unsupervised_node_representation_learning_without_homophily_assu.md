@@ -2,9 +2,6 @@
 description: "【论文笔记】Feature-Centric Unsupervised Node Representation Learning Without Homophily Assumption 论文解读 | AAAI 2026 | arXiv 2512.15112 | 无监督节点表示学习 | 提出 FUEL 方法，通过以节点特征为中心的聚类方案自适应学习图卷积的使用程度，无需同配性假设即可在同配和非同配图上均获得高质量的无监督节点表示。"
 tags:
   - AAAI 2026
-  - 无监督节点表示学习
-  - 图卷积
-  - 非同配图
 ---
 
 # Feature-Centric Unsupervised Node Representation Learning Without Homophily Assumption

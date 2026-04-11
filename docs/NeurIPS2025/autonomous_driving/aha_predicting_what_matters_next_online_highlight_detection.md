@@ -2,9 +2,6 @@
 description: "【论文笔记】AHA -- Predicting What Matters Next: Online Highlight Detection Without Looking Ahead 论文解读 | NeurIPS 2025 | arXiv 2509.16421 | online highlight detection | 提出 AHA，一个自回归高光检测框架，在**不访问未来帧**的情况下根据自然语言任务描述实时预测每帧视频的相关性——利用多模态视觉语言模型+轻量解耦头+Dynamic SinkCache实现无限长度流媒体的恒定内存推理，在TVSum上超越离线全上下文方法+5.9% mAP、在Mr. Hisum上+8.3% mAP。"
 tags:
   - NeurIPS 2025
-  - online highlight detection
-  - streaming video
-  - autoregressive
 ---
 
 # AHA -- Predicting What Matters Next: Online Highlight Detection Without Looking Ahead

@@ -2,9 +2,6 @@
 description: "【论文笔记】From Linear to Nonlinear: Provable Weak-to-Strong Generalization through Feature Learning 论文解读 | NeurIPS 2025 | arXiv 2510.24812 | weak-to-strong generalization | 本文首次在非线性特征学习设定（线性 CNN → 两层 ReLU CNN）下严格分析了 weak-to-strong 泛化现象，揭示了数据匮乏和数据丰富两种机制下的不同行为：前者通过良性过拟合实现泛化（或因有害过拟合失败），后者通过早停的标签纠正实现泛化（但过训练会退化）。"
 tags:
   - NeurIPS 2025
-  - weak-to-strong generalization
-  - superalignment
-  - benign overfitting
 ---
 
 # From Linear to Nonlinear: Provable Weak-to-Strong Generalization through Feature Learning

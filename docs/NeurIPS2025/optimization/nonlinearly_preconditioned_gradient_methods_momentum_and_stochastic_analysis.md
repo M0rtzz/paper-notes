@@ -2,9 +2,6 @@
 description: "【论文笔记】Nonlinearly Preconditioned Gradient Methods: Momentum and Stochastic Analysis 论文解读 | NeurIPS 2025 | arXiv 2510.11312 | 非线性预条件 | 在各向异性下降不等式框架下，为非线性预条件梯度方法引入重球法动量，并分析其随机变体在多种噪声假设下的收敛性质，统一了梯度裁剪与归一化梯度方法的理论分析。"
 tags:
   - NeurIPS 2025
-  - 非线性预条件
-  - 梯度裁剪
-  - 各向异性光滑性
 ---
 
 # Nonlinearly Preconditioned Gradient Methods: Momentum and Stochastic Analysis

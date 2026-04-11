@@ -2,9 +2,6 @@
 description: "【论文笔记】Extreme Value Policy Optimization for Safe Reinforcement Learning 论文解读 | ICML2025 | arXiv 2601.12008 | 安全RL | 提出 EVO 算法，将极值理论 (EVT) 引入约束强化学习，用广义 Pareto 分布 (GPD) 建模代价尾部的极端样本，并设计极端分位数约束与极端优先回放机制，在训练中实现零约束违反的同时保持竞争性策略性能。"
 tags:
   - ICML2025
-  - 安全RL
-  - 极值理论
-  - 约束满足
 ---
 
 # Extreme Value Policy Optimization for Safe Reinforcement Learning

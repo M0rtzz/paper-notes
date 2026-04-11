@@ -2,9 +2,6 @@
 description: "【论文笔记】State-Covering Trajectory Stitching for Diffusion Planners 论文解读 | NeurIPS 2025 | arXiv 2506.00895 | 扩散规划器 | 提出 SCoTS（State-Covering Trajectory Stitching），一种无需奖励信号的轨迹增强框架，通过在时间距离保持的潜空间中迭代拼接短轨迹片段，系统性地扩展状态空间覆盖，显著提升扩散规划器在长时域、分布外任务上的泛化能力。"
 tags:
   - NeurIPS 2025
-  - 扩散规划器
-  - 轨迹拼接
-  - 状态覆盖
 ---
 
 # State-Covering Trajectory Stitching for Diffusion Planners

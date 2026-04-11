@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Parameterized Skills from Demonstrations 论文解读 | NeurIPS 2025 | arXiv 2510.24095 | 参数化技能 | 提出 DEPS，一种端到端从专家示范中发现参数化技能的算法，通过三层层次策略（离散技能选择→连续参数选择→底层动作）和信息瓶颈设计，学习可解释且可泛化的技能抽象，在LIBERO和MetaWorld上显著优于基线。"
 tags:
   - NeurIPS 2025
-  - 参数化技能
-  - 示范学习
-  - 层次策略
 ---
 
 # Learning Parameterized Skills from Demonstrations

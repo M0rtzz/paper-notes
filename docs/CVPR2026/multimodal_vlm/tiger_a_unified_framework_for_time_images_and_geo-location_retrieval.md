@@ -2,10 +2,7 @@
 description: "【论文笔记】TIGeR: A Unified Framework for Time, Images and Geo-location Retrieval 论文解读 | CVPR2026 | arXiv 2603.24749 | 地理时间感知检索 | 提出TIGeR框架，通过多模态Transformer联合学习图像-位置-时间的统一地理时间嵌入空间，实现地理定位、拍摄时间预测和地理时间感知图像检索三个任务的统一，并构建了4.5M规模的高质量基准数据集。"
 tags:
   - CVPR2026
-  - 地理时间感知检索
-  - 多模态Transformer
   - Transformer
-  - 地理定位
 ---
 
 # TIGeR: A Unified Framework for Time, Images and Geo-location Retrieval

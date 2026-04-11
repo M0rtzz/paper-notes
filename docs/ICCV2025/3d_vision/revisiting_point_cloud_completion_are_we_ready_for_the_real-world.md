@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Point Cloud Completion: Are We Ready For The Real-World? 论文解读 | ICCV 2025 | arXiv 2411.17580 | 点云补全 | 通过代数拓扑和持久同调（PH）工具揭示现有合成点云数据集缺乏真实世界中丰富的拓扑特征，贡献了首个真实世界工业点云补全数据集RealPC（~40,000对、21类），并提出BOSHNet通过采样代理同调骨架作为拓扑先验，在真实世界点云补全上取得显著改进。"
 tags:
   - ICCV 2025
-  - 点云补全
-  - 真实世界数据集
-  - 持久同调
 ---
 
 # Revisiting Point Cloud Completion: Are We Ready For The Real-World?

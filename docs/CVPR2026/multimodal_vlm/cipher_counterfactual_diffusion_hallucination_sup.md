@@ -2,9 +2,6 @@
 description: "【论文笔记】CIPHER: 用反事实对抗幻觉——扩散引导的LVLM幻觉抑制 论文解读 | CVPR 2026 | arXiv 2603.10470 | hallucination | 提出CIPHER——通过构建扩散编辑的反事实图像数据集提取视觉幻觉的低秩子空间表示，推理时将隐层状态投影远离该子空间来免训练地抑制LVLM幻觉，首次专门针对视觉诱导的幻觉而非文本诱导的幻觉。"
 tags:
   - CVPR 2026
-  - hallucination
-  - counterfactual
-  - diffusion
   - 扩散模型
 ---
 

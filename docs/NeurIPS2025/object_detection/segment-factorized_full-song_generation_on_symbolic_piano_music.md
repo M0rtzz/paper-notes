@@ -2,8 +2,6 @@
 description: "【论文笔记】Segment-Factorized Full-Song Generation on Symbolic Piano Music 论文解读 | NeurIPS 2025 (AI for Music Workshop) | arXiv 2510.05881 | 符号音乐生成 | 提出Segmented Full-Song模型（SFS），将歌曲分解为片段，通过选择性注意结构相关上下文自回归生成各片段，实现比现有方法更快速、更结构化的钢琴全曲生成，并支持交互式人机共创。"
 tags:
   - NeurIPS 2025 (AI for Music Workshop)
-  - 符号音乐生成
-  - 全曲生成
   - Transformer
 ---
 

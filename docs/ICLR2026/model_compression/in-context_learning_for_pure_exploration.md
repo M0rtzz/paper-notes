@@ -2,9 +2,7 @@
 description: "【论文笔记】In-Context Learning for Pure Exploration 论文解读 | ICLR 2026 | arXiv 2506.01876 | 上下文学习 | 提出 ICPE（In-Context Pure Exploration），一种结合监督学习和强化学习的上下文学习框架，使用 Transformer 从经验中直接学习探索策略，在主动序列假设检验/纯探索问题中实现接近最优的实例自适应算法性能，无需显式建模信息结构。"
 tags:
   - ICLR 2026
-  - 上下文学习
-  - 纯探索
-  - 假设检验
+  - Transformer
 ---
 
 # In-Context Learning for Pure Exploration

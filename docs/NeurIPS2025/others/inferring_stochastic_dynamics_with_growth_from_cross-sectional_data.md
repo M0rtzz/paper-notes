@@ -2,9 +2,7 @@
 description: "【论文笔记】Inferring Stochastic Dynamics with Growth from Cross-Sectional Data 论文解读 | NEURIPS2025 | arXiv 2505.13197 | stochastic dynamics | 提出 Unbalanced Probability Flow Inference (UPFI)，通过 Fokker-Planck 方程的 Lagrangian 形式化，从横截面 (cross-sectional) 快照数据中同时推断含细胞增殖/死亡的随机动力学系统中的 drift、noise 和 growth rate。"
 tags:
   - NEURIPS2025
-  - stochastic dynamics
-  - cross-sectional data
-  - Fokker-Planck equation
+  - 扩散模型
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Dataset Distillation via Spectral Filtering 论文解读 | ICLR 2026 | arXiv 2503.01212 | dataset distillation | 本文提出 UniDD 谱滤波框架，将多种数据集蒸馏方法统一为在特征-特征相关矩阵（FFC）上应用不同滤波函数来匹配特征-标签相关矩阵（FLC）的频率信息，并基于此洞见提出了课程频率匹配（CFM）方法。"
 tags:
   - ICLR 2026
-  - dataset distillation
-  - spectral filtering
-  - frequency matching
 ---
 
 # Understanding Dataset Distillation via Spectral Filtering

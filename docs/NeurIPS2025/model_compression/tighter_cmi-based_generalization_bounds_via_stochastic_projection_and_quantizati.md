@@ -2,9 +2,6 @@
 description: "【论文笔记】Tighter CMI-Based Generalization Bounds via Stochastic Projection and Quantization 论文解读 | NeurIPS 2025 | arXiv 2510.23485 | generalization bounds | 通过在 CMI（条件互信息）框架中引入**随机投影**和**有损压缩**，推导出更紧的泛化界，解决了经典 CMI 界在 SCO 反例上失效的问题，并证明记忆化对良好泛化并非必要。"
 tags:
   - NeurIPS 2025
-  - generalization bounds
-  - conditional mutual information
-  - stochastic projection
 ---
 
 # Tighter CMI-Based Generalization Bounds via Stochastic Projection and Quantization

@@ -2,7 +2,6 @@
 description: "【论文笔记】CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Recently, large efforts have been made to design efficient linear-complexity visual Transformers. However, current linear attention models are generally unsuitable to be deployed in resource-constrained mobile devices, due to suffering from either few efficiency gains or significant accuracy drops."
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction

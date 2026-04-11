@@ -2,9 +2,6 @@
 description: "【论文笔记】AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations 论文解读 | ICLR 2026 | arXiv 2603.01966 | 对话记忆评测 | 提出AMemGym——首个支持on-policy交互式评估的长程对话记忆基准环境，通过结构化数据采样（用户画像→状态演化→个性化问答）驱动LLM模拟用户进行角色扮演，揭示了off-policy评估的排名偏差问题，并系统诊断了RAG/长上下文/Agent记忆系统的write/read/utilization三阶段失败模式。"
 tags:
   - ICLR 2026
-  - 对话记忆评测
-  - on-policy评估
-  - 用户状态追踪
 ---
 
 # AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations

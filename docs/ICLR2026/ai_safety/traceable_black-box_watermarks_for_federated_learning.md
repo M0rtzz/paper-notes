@@ -2,9 +2,6 @@
 description: "【论文笔记】Traceable Black-box Watermarks for Federated Learning 论文解读 | ICLR 2026 | arXiv 2505.13651 | 联邦学习水印 | 首次形式化差分隐私可追溯黑盒水印注入FL的问题定义,提出TraMark——通过将模型参数空间分为主任务区域(聚合)和水印区域(独立)→为每个client生成独特的后门水印模型→黑盒设定下验证模型泄露源(谁泄露了模型)→主任务性能仅下降0.54%→所有水印模型可追溯。"
 tags:
   - ICLR 2026
-  - 联邦学习水印
-  - 黑盒可追溯
-  - 参数空间分割
 ---
 
 # Traceable Black-box Watermarks for Federated Learning

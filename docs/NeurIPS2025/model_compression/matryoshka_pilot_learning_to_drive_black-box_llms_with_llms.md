@@ -2,9 +2,6 @@
 description: "【论文笔记】Matryoshka Pilot: Learning to Drive Black-Box LLMs with LLMs 论文解读 | NeurIPS 2025 | arXiv 2410.20749 | Black-Box LLM | 提出 Matryoshka Pilot (M-Pilot)，用轻量级白盒 LLM 作为控制器，通过生成中间引导（任务分解、高层计划、用户画像）来驱动黑盒 LLM 在推理、规划和个性化等复杂长程任务上的性能，并通过迭代 DPO 实现自我改进。"
 tags:
   - NeurIPS 2025
-  - Black-Box LLM
-  - White-Box Controller
-  - 迭代DPO
 ---
 
 # Matryoshka Pilot: Learning to Drive Black-Box LLMs with LLMs

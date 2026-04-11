@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Grounding for Object-Level Generalization in Reinforcement Learning 论文解读 | ECCV2024 | arXiv 2408.01942 | visual grounding | 利用视觉语言模型 (MineCLIP) 的 visual grounding 能力生成目标物体的 confidence map，通过奖励设计和任务表征两条路径将 VLM 知识迁移到强化学习中，实现对未见物体和指令的零样本泛化。"
 tags:
   - ECCV2024
-  - visual grounding
-  - zero-shot generalization
-  - VLM
 ---
 
 # Visual Grounding for Object-Level Generalization in Reinforcement Learning

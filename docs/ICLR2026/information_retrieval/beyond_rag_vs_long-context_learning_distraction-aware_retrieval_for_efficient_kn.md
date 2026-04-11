@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond RAG vs. Long-Context: Learning Distraction-Aware Retrieval for Efficient Knowledge Grounding 论文解读 | ICLR 2026 | arXiv 2509.21865 | RAG | 提出 LDAR（Learning Distraction-Aware Retrieval），一个轻量级自适应检索器，通过学习基于查询-段落相似度分布选择段落的连续区间（band），在平衡信息覆盖与干扰段落影响的同时，以约一半的 token 用量超越长上下文方法的性能。"
 tags:
   - ICLR 2026
-  - RAG
-  - 长上下文
-  - 干扰感知检索
 ---
 
 # Beyond RAG vs. Long-Context: Learning Distraction-Aware Retrieval for Efficient Knowledge Grounding

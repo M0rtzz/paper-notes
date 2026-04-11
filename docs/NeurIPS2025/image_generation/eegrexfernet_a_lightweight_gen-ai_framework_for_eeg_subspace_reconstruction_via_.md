@@ -2,9 +2,6 @@
 description: "【论文笔记】EEGReXferNet: A Lightweight Gen-AI Framework for EEG Subspace Reconstruction via Cross-Subject Transfer Learning and Channel-Aware Embedding 论文解读 | NeurIPS 2025 | arXiv 2511.02848 | EEG重建 | 提出 EEGReXferNet，一种轻量级生成式 AI 框架，通过邻域通道感知输入选择、频带特定子窗口卷积编解码、动态滑窗隐空间和参考统计量缩放，在跨被试迁移学习设置下实现 EEG 子空间重建，参数减少约 45%、推理延迟 <1ms，同时保持 PSD 相关性 $\geq 0.95$ 和谱图 RV 系数 $\geq 0.85$。"
 tags:
   - NeurIPS 2025
-  - EEG重建
-  - 轻量级生成模型
-  - 跨被试迁移学习
 ---
 
 # EEGReXferNet: A Lightweight Gen-AI Framework for EEG Subspace Reconstruction via Cross-Subject Transfer Learning and Channel-Aware Embedding

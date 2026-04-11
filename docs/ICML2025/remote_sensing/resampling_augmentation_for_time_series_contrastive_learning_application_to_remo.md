@@ -2,9 +2,6 @@
 description: "【论文笔记】Resampling Augmentation for Time Series Contrastive Learning: Application to Remote Sensing 论文解读 | ICML2025 | arXiv 2506.18587 | 对比学习 | 论文提出一种面向时间序列对比学习的重采样增强（resampling augmentation），通过“上采样 + 不相交子序列抽取 + 对齐回原时间轴”构造正样本对，在多项 SITS 农业分类任务上优于常见增强策略，并在 S2-Agri100 上取得领先结果。"
 tags:
   - ICML2025
-  - 对比学习
-  - 时间序列增强
-  - 遥感时序
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

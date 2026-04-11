@@ -2,9 +2,6 @@
 description: "【论文笔记】FlowScene: Learning Temporal 3D Semantic Scene Completion via Optical Flow Guidance 论文解读 | NeurIPS 2025 | arXiv 2502.14520 | 3D Semantic Scene Completion | 提出 FlowScene，利用光流引导时序特征聚合并结合遮挡掩码进行体素细化，在仅使用2帧历史输入的条件下，在 SemanticKITTI 和 SSCBench-KITTI-360 基准上达到 SOTA（mIoU 17.70 / 20.81）。"
 tags:
   - NeurIPS 2025
-  - 3D Semantic Scene Completion
-  - 光流引导
-  - 时序建模
 ---
 
 # FlowScene: Learning Temporal 3D Semantic Scene Completion via Optical Flow Guidance

@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust or Suggestible? Exploring Non-Clinical Induction in LLM Drug-Safety Decisions 论文解读 | NeurIPS 2025 | arXiv 2510.13931 | LLM公平性 | 通过基于Persona的评估框架发现，ChatGPT-4o和Bio-Medical-Llama-3-8B在药物不良事件预测中会受到临床无关的社会人口属性（教育、保险、住房等）系统性影响，展现出显式和隐式两种偏差模式。"
 tags:
   - NeurIPS 2025
-  - LLM公平性
-  - 药物安全
-  - 不良事件预测
 ---
 
 # Robust or Suggestible? Exploring Non-Clinical Induction in LLM Drug-Safety Decisions

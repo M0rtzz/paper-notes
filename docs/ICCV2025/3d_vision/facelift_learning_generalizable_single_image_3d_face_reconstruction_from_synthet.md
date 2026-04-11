@@ -2,9 +2,6 @@
 description: "【论文笔记】FaceLift: Learning Generalizable Single Image 3D Face Reconstruction from Synthetic Heads 论文解读 | ICCV 2025 | arXiv 2412.17812 | 3D人脸重建 | 提出 FaceLift，一种仅在合成数据上训练但能良好泛化到真实图像的单图360度高质量3D人头重建方法，通过多视图潜扩散模型生成身份一致的多视角图像，再用基于 Transformer 的重建器生成像素对齐的3D高斯表示。"
 tags:
   - ICCV 2025
-  - 3D人脸重建
-  - 3D高斯溅射
-  - 合成数据
 ---
 
 # FaceLift: Learning Generalizable Single Image 3D Face Reconstruction from Synthetic Heads

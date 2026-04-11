@@ -2,9 +2,6 @@
 description: "【论文笔记】Clinician-in-the-Loop Smart Home System to Detect Urinary Tract Infection Flare-Ups via Uncertainty-Aware Decision Support 论文解读 | AAAI 2026 | arXiv 2511.18334 | 智能家居 | 提出一种临床医师参与闭环的智能家居系统，利用环境传感器数据提取行为标记，结合新颖的共形校准区间（CCI）方法量化预测不确定性，实现对老年人尿路感染（UTI）发作的可靠检测与\"不确定时弃权\"的决策支持。"
 tags:
   - AAAI 2026
-  - 智能家居
-  - 尿路感染检测
-  - 不确定性量化
 ---
 
 # Clinician-in-the-Loop Smart Home System to Detect Urinary Tract Infection Flare-Ups via Uncertainty-Aware Decision Support

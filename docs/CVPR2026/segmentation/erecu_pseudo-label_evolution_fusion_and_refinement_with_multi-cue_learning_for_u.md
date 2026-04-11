@@ -2,9 +2,6 @@
 description: "【论文笔记】EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection 论文解读 | CVPR 2026 | arXiv 2603.11521 | 伪装目标检测 | 提出统一的无监督伪装目标检测框架 EReCu，通过多线索原生感知(MNP)、伪标签进化融合(PEF)和局部伪标签精炼(LPR)三个协同模块，在不依赖人工标注的情况下实现了边界精确、细节丰富的伪装目标分割。"
 tags:
   - CVPR 2026
-  - 伪装目标检测
-  - 无监督分割
-  - 伪标签学习
 ---
 
 # EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection

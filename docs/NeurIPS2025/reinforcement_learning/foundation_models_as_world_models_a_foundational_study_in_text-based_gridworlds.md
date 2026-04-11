@@ -2,9 +2,6 @@
 description: "【论文笔记】Foundation Models as World Models: A Foundational Study in Text-Based GridWorlds 论文解读 | NeurIPS 2025 | arXiv 2509.15915 | 基础模型 | 系统性评估了基础模型（LLM）作为零样本世界模型（FWM）和直接决策智能体（FA）在文本网格世界中的表现，揭示了两种策略在确定性/随机性环境中的互补优势。"
 tags:
   - NeurIPS 2025
-  - 基础模型
-  - 世界模型
-  - 网格世界
 ---
 
 # Foundation Models as World Models: A Foundational Study in Text-Based GridWorlds

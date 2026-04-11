@@ -2,9 +2,6 @@
 description: "【论文笔记】TokenBridge: Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation 论文解读 | ICCV 2025 | arXiv 2503.16430 | 自回归生成 | TokenBridge提出对预训练VAE连续特征进行后训练维度级量化，将连续token无损转化为离散token，再通过轻量级维度级自回归头高效建模指数级大词表空间，在ImageNet 256×256上用标准交叉熵损失达到了与连续token方法（如MAR）相当的生成质量（FID=1.55），且推理快5.94倍。"
 tags:
   - ICCV 2025
-  - 自回归生成
-  - 视觉Token化
-  - 后训练量化
 ---
 
 # TokenBridge: Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation

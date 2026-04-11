@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring the Impact of Instruction-Tuning on LLMs' Susceptibility to Misinformation 论文解读 | ACL 2025 | arXiv 2507.18203 | instruction-tuning | 首次系统研究指令微调如何影响 LLM 对虚假信息的易感性，发现指令微调使模型从偏信 assistant-role 转变为偏信 user-role，当虚假信息以独立 user-turn 呈现时易感性最高，揭示了指令微调的\"副作用\"。"
 tags:
   - ACL 2025
-  - instruction-tuning
-  - misinformation
-  - sycophancy
 ---
 
 # Exploring the Impact of Instruction-Tuning on LLMs' Susceptibility to Misinformation

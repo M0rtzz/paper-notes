@@ -2,9 +2,6 @@
 description: "【论文笔记】Internal Value Alignment in Large Language Models through Controlled Value Vector Activation 论文解读 | ACL 2025 | arXiv 2507.11316 | 价值对齐 | 提出 ConVA（Controlled Value Vector Activation）框架，通过上下文控制的数据集精准识别 LLM 隐空间中的价值向量，并用门控最小扰动机制在推理时激活目标价值，在 Schwartz 10 种基本价值上实现平均 29.6% 的控制成功率提升，同时保持 97%+ 的文本流畅度和通用能力。"
 tags:
   - ACL 2025
-  - 价值对齐
-  - 激活工程
-  - 价值向量
 ---
 
 # Internal Value Alignment in Large Language Models through Controlled Value Vector Activation

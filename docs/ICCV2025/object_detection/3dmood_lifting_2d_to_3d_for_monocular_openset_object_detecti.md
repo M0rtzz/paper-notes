@@ -2,9 +2,6 @@
 description: "【论文笔记】3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection 论文解读 | ICCV 2025 | arXiv 2507.23567 | 单目3D目标检测 | 提出首个端到端的单目开放集3D目标检测器3D-MOOD，通过将开放集2D检测\"提升\"到3D空间，结合几何感知3D query生成与canonical image space设计，在Omni3D闭集和Argoverse 2/ScanNet开集基准上均达到SOTA。"
 tags:
   - ICCV 2025
-  - 单目3D目标检测
-  - 开放集检测
-  - 2D-to-3D lifting
 ---
 
 # 3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection

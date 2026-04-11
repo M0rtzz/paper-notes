@@ -2,9 +2,6 @@
 description: "【论文笔记】Masked Representation Modeling for Domain-Adaptive Segmentation 论文解读 | CVPR 2026 | arXiv 2509.13801 | 掩码建模 | 提出 Masked Representation Modeling (MRM)，在潜在空间而非像素空间进行掩码与重建，作为 UDA 分割的即插即用辅助任务，在 GTA→Cityscapes 上平均为 4 种 baseline 带来 +2.3 mIoU 提升。"
 tags:
   - CVPR 2026
-  - 掩码建模
-  - 表示重建
-  - 域自适应分割
 ---
 
 # Masked Representation Modeling for Domain-Adaptive Segmentation

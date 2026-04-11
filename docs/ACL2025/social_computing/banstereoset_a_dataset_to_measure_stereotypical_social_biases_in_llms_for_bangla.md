@@ -2,9 +2,6 @@
 description: "【论文笔记】BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla 论文解读 | ACL 2025 | arXiv 2409.11638 | 偏见检测 | 构建 BanStereoSet，一个包含 1194 条填空式样本、覆盖 9 类偏见（种族/性别/宗教/职业/美貌/年龄/种姓/地区等）的孟加拉语刻板印象偏见数据集，用于评估多语言 LLM 在孟加拉语中的社会偏见，发现 GPT-4o 偏见最高，Mistral 最低。"
 tags:
   - ACL 2025
-  - 偏见检测
-  - 孟加拉语
-  - 刻板印象
 ---
 
 # BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla

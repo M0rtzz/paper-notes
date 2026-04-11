@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncovering Grounding IDs: How External Cues Shape Multimodal Binding 论文解读 | ICLR 2026 | arXiv 2509.24072 | Grounding ID | 揭示LVLM中外部视觉线索改善推理的内部机制——发现Grounding IDs(潜在标识符，绑定视觉特征到外部线索对应文本)，因果实验(swap accuracy=0.98)证明分区诱导外部线索→准确跨模态对齐→减少幻觉→增强推理。"
 tags:
   - ICLR 2026
-  - Grounding ID
-  - 外部视觉线索
-  - 多模态绑定
 ---
 
 # Uncovering Grounding IDs: How External Cues Shape Multimodal Binding

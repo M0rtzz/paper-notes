@@ -2,9 +2,6 @@
 description: "【论文笔记】Aether: Geometric-Aware Unified World Modeling 论文解读 | ICCV 2025 | arXiv 2503.18945 | world model | 提出Aether统一框架，通过任务交错特征学习联合优化4D动态重建、动作条件视频预测和目标条件视觉规划三个核心能力，实现geometry-aware的世界建模，纯合成数据训练即可零样本泛化到真实世界。"
 tags:
   - ICCV 2025
-  - world model
-  - 4D reconstruction
-  - action-conditioned prediction
 ---
 
 # Aether: Geometric-Aware Unified World Modeling

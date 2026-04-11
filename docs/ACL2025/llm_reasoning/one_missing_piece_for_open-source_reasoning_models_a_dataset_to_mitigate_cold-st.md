@@ -2,9 +2,6 @@
 description: "【论文笔记】One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL 论文解读 | ACL 2025 | arXiv 2506.02338 | 长链式思维 | 提出 Long CoT Collection——一个由短链式思维 LLM（如 GPT-4o）标注的 100K 长链式推理数据集，通过从 o1 提取推理流程作为引导，使短 CoT LLM 也能生成长 CoT 数据，从而解决强化学习中的冷启动问题，训练在该数据上初始化的模型在后续 RL 中获得 2-3 倍的性能提升。"
 tags:
   - ACL 2025
-  - 长链式思维
-  - 冷启动
-  - 强化学习
 ---
 
 # One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL

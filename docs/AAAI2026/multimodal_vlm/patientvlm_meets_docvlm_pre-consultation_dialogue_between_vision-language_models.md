@@ -2,9 +2,6 @@
 description: "【论文笔记】PatientVLM Meets DocVLM: Pre-Consultation Dialogue Between Vision-Language Models for Efficient Diagnosis 论文解读 | AAAI 2026 | arXiv 2601.10945 | 医学诊断 | 提出Pre-Consultation Dialogue Framework (PCDF)，通过两个VLM（DocVLM和PatientVLM）模拟医生-患者多轮对话，生成image-dialogue-diagnosis三元组用于微调DocVLM，在四个医学影像基准上平均F1提升11.48。"
 tags:
   - AAAI 2026
-  - 医学诊断
-  - 多轮对话
-  - VLM交互
 ---
 
 # PatientVLM Meets DocVLM: Pre-Consultation Dialogue Between Vision-Language Models for Efficient Diagnosis

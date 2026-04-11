@@ -2,9 +2,6 @@
 description: "【论文笔记】CC-VQA: Conflict- and Correlation-Aware Method for Mitigating Knowledge Conflict in Knowledge-Based Visual Question Answering 论文解读 | CVPR2026 | arXiv 2602.23952 | 知识冲突 | 提出 CC-VQA，一种 training-free 的知识冲突缓解方法，通过视觉中心的上下文冲突推理和相关度引导的编码/解码两阶段策略，在 E-VQA、InfoSeek、OK-VQA 三个基准上取得 3.3%-6.4% 的绝对精度提升。"
 tags:
   - CVPR2026
-  - 知识冲突
-  - 检索增强生成
-  - KB-VQA
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations 论文解读 | ACL 2025 | arXiv 2502.01220 | temporal robustness | 发布 TimeStress 数据集（521K 陈述，2003 条时间事实），评估 18 个 LLM 在时间上下文变化下的事实知识鲁棒性，发现最好的模型仅对 11% 的事实实现完美鲁棒，且存在人类不会犯的关键错误。"
 tags:
   - ACL 2025
-  - temporal robustness
-  - factual knowledge
-  - TimeStress
 ---
 
 # Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations

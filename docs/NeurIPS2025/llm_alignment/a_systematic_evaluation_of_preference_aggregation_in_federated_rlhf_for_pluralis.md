@@ -2,10 +2,7 @@
 description: "【论文笔记】A Systematic Evaluation of Preference Aggregation in Federated RLHF for Pluralistic Alignment of LLMs 论文解读 | NEURIPS2025 | arXiv 2512.08786 | 联邦学习 Federated Learning | 提出一种自适应 Alpha 聚合策略，在联邦 RLHF 框架中根据各用户群体的历史对齐表现动态调整奖励权重，从而在多元偏好对齐中同时实现高公平性和强对齐性能。"
 tags:
   - NEURIPS2025
-  - Federated Learning
   - 联邦学习
-  - RLHF
-  - Pluralistic Alignment
 ---
 
 # A Systematic Evaluation of Preference Aggregation in Federated RLHF for Pluralistic Alignment of LLMs

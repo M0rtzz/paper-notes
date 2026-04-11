@@ -2,9 +2,6 @@
 description: "【论文笔记】Splat and Distill: Augmenting Teachers with Feed-Forward 3D Reconstruction for 3D-Aware Distillation 论文解读 | ICLR 2026 | arXiv 2602.06032 | 3D感知 | 提出Splat and Distill(SnD)——通过前馈3D重建增强teacher对student进行3D感知蒸馏：将teacher 2D特征提升到3D高斯表示→从新视角渲染特征→监督student→与逐场景优化不同→前馈提升避免特征平均化→teacher一致性随student迭代改善(EMA)→在深度/法线/分割/对应4个任务上全面超越FiT3D/MEF等先前方法。"
 tags:
   - ICLR 2026
-  - 3D感知
-  - 视觉基础模型
-  - 前馈3D重建
 ---
 
 # Splat and Distill: Augmenting Teachers with Feed-Forward 3D Reconstruction for 3D-Aware Distillation

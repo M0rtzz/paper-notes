@@ -2,9 +2,6 @@
 description: "【论文笔记】MaterialRefGS: Reflective Gaussian Splatting with Multi-view Consistent Material Inference 论文解读 | NeurIPS 2025 | arXiv 2510.11387 | 高斯splatting | 提出MaterialRefGS，通过多视角一致的材质推断约束和基于2DGS光线追踪的环境建模策略，实现反射表面的高保真新视角合成和精确光照分解。"
 tags:
   - NeurIPS 2025
-  - 高斯splatting
-  - 反射建模
-  - 多视角一致性
 ---
 
 # MaterialRefGS: Reflective Gaussian Splatting with Multi-view Consistent Material Inference

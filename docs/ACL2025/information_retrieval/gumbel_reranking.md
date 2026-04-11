@@ -2,9 +2,6 @@
 description: "【论文笔记】Gumbel Reranking: Differentiable End-to-End Reranker Optimization 论文解读 | ACL 2025 | arXiv 2502.11116 | 检索增强生成 | 将 RAG 系统中的重排序过程重新建模为文档级 Top-k 注意力掩码问题，利用 Gumbel 技巧和松弛 Top-k 采样实现端到端可微优化，直接最小化最终语言建模损失，在 HotpotQA 上 Recall@5 提升 10.4%。"
 tags:
   - ACL 2025
-  - 检索增强生成
-  - 重排序器
-  - 端到端优化
 ---
 
 # Gumbel Reranking: Differentiable End-to-End Reranker Optimization

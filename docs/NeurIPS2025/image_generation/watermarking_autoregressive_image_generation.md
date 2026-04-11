@@ -2,9 +2,6 @@
 description: "【论文笔记】Watermarking Autoregressive Image Generation 论文解读 | NeurIPS 2025 | arXiv 2506.16349 | 自回归图像生成 | 首次将 LLM 水印技术（KGW green/red scheme）适配到自回归图像生成模型的 token 层，识别并解决了关键挑战——反向循环一致性（RCC）不足，通过 tokenizer-detokenizer 微调和水印同步层实现了鲁棒的、具有理论保证的图像水印检测。"
 tags:
   - NeurIPS 2025
-  - 自回归图像生成
-  - 水印
-  - 反向循环一致性
 ---
 
 # Watermarking Autoregressive Image Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions 论文解读 | ACL 2025 | arXiv 2405.03205 | 位置偏差 | 首次对 GPT-2 系列在选择题中的\"锚定偏差\"（始终偏好选项 A）进行全面机械可解释性分析——通过 Logit Lens 定位导致偏差的 MLP 值向量和注意力头，然后更新值向量+重校准注意力权重，以最小干预消除偏差并将 MCQ 准确率平均提升 70%+。"
 tags:
   - ACL 2025
-  - 位置偏差
-  - 锚定偏差
-  - GPT-2
 ---
 
 # Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions

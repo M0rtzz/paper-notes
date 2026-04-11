@@ -2,9 +2,6 @@
 description: "【论文笔记】Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users 论文解读 | CVPR2025 | arXiv 2603.12914 | LEO卫星通信 | 研究多 LEO 卫星联合服务多天线地面用户的分布式 MIMO 下行通信，提出联合传输与流式传输两种模式：前者通过 WMMSE 迭代优化预编码器最大化和频谱效率，后者通过匈牙利算法的流-卫星关联减少前传开销，实现性能与前传负载的灵活权衡。"
 tags:
   - CVPR2025
-  - LEO卫星通信
-  - 分布式MIMO
-  - 多流传输
 ---
 
 # Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users

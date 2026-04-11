@@ -2,9 +2,6 @@
 description: "【论文笔记】Adversarial Combinatorial Semi-bandits with Graph Feedback 论文解读 | ICML 2025 | arXiv 2502.18826 | 组合半臂赌博机 | 本文将图反馈（graph feedback）引入对抗组合半臂赌博机（combinatorial semi-bandits）框架，提出 OSMD-G 算法，建立了最优遗憾（regret）界 $\widetilde{\Theta}(S\sqrt{T} + \sqrt{\alpha S T})$，其中 $S$ 是组合决策大小，$\alpha$ 是反馈图的独立数，关键技术在于利用随机化轮换舍入（randomized swap rounding）实现负相关采样。"
 tags:
   - ICML 2025
-  - 组合半臂赌博机
-  - 图反馈
-  - 对抗在线学习
 ---
 
 # Adversarial Combinatorial Semi-bandits with Graph Feedback

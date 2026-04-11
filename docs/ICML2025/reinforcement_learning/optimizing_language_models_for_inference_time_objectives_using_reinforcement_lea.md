@@ -2,9 +2,6 @@
 description: "【论文笔记】Optimizing Language Models for Inference Time Objectives using Reinforcement Learning 论文解读 | ICML2025 | arXiv 2503.19595 | inference-time compute | 提出在 RL 训练阶段显式优化推理时 k-sample 目标（pass@k / majority voting），通过 leave-one-out 控制变量构造无偏低方差梯度估计，在 MATH 和 CodeContests 上显著提升推理时性能。"
 tags:
   - ICML2025
-  - inference-time compute
-  - pass@k
-  - majority voting
 ---
 
 # Optimizing Language Models for Inference Time Objectives using Reinforcement Learning

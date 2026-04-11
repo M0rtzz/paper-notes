@@ -2,9 +2,6 @@
 description: "【论文笔记】Cross-Modal Redundancy and the Geometry of Vision-Language Embeddings 论文解读 | ICLR 2026 | arXiv 2602.06218 | 模态间隙 | 提出 Iso-Energy 假设（真正跨模态共享的概念在不同模态中应具有相同的平均激活能量），并设计 Aligned SAE 作为分析工具，揭示 VLM 嵌入空间中双模态原子承载跨模态对齐信号、单模态原子完全解释模态间隙的几何结构。"
 tags:
   - ICLR 2026
-  - 模态间隙
-  - 稀疏自编码器
-  - 跨模态冗余
 ---
 
 # Cross-Modal Redundancy and the Geometry of Vision-Language Embeddings

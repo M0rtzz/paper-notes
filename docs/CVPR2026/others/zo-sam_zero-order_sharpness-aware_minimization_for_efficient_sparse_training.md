@@ -2,9 +2,6 @@
 description: "【论文笔记】ZO-SAM: Zero-Order Sharpness-Aware Minimization for Efficient Sparse Training 论文解读 | CVPR 2026 | arXiv 2603.13115 | 稀疏训练 | 提出 ZO-SAM，在 SAM 的扰动步骤中用零阶梯度估计替代反向传播，将 SAM 的计算开销从 2 次反传减少为 1 次，首次让 SAM 在稀疏训练中变得实用，在 CIFAR-10/100 和 ImageNet-1K 上一致提升所有主流稀疏训练方法 0.38%-2.54%。"
 tags:
   - CVPR 2026
-  - 稀疏训练
-  - SAM
-  - 零阶优化
 ---
 
 # ZO-SAM: Zero-Order Sharpness-Aware Minimization for Efficient Sparse Training

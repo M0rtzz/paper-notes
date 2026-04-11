@@ -2,10 +2,7 @@
 description: "【论文笔记】PreP-OCR: A Complete Pipeline for Document Image Restoration and Enhanced OCR Accuracy 论文解读 | ACL 2025 | arXiv 2505.20429 | 文档图像修复 | 提出 PreP-OCR 两阶段流水线：先用合成退化数据训练的 ResShift 模型修复历史文档图像（多方向 patch 提取+中值融合），再用 ByT5 做 OCR 后语义纠错，在 13,831 页真实历史文档上降低 CER 63.9-70.3%。"
 tags:
   - ACL 2025
-  - 文档图像修复
-  - OCR后纠错
   - OCR
-  - 合成数据
 ---
 
 # PreP-OCR: A Complete Pipeline for Document Image Restoration and Enhanced OCR Accuracy

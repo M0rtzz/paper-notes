@@ -2,9 +2,6 @@
 description: "【论文笔记】MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents 论文解读 | NeurIPS 2025 | arXiv 2503.10809 | adversarial attack | 揭示针对多模态OS Agent的新型攻击向量——Malicious Image Patches (MIPs)：在屏幕截图中嵌入人类不可察觉的对抗性扰动图像块，当OS Agent截屏时自动触发恶意行为（如数据泄露、内存溢出），且可跨用户指令、屏幕布局和屏幕解析器泛化，甚至具备\"计算机蠕虫\"般的自传播潜力。"
 tags:
   - NeurIPS 2025
-  - adversarial attack
-  - OS agent
-  - malicious image patch
 ---
 
 # MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents

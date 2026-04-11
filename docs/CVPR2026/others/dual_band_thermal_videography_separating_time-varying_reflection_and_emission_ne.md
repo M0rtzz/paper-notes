@@ -2,9 +2,6 @@
 description: "【论文笔记】Dual-Band Thermal Videography: Separating Time-Varying Reflection and Emission Near Ambient Conditions 论文解读 | CVPR 2026 | arXiv 2509.11334 | 热成像 | 提出一种双波段长波红外视频分析框架，利用光谱线索（双波段发射率比恒定）和时间线索（物体辐射平滑变化、背景辐射突变）联合约束，首次实现近环境温度条件下动态场景中反射与发射分量的逐像素分离，并恢复物体发射率和温度场。"
 tags:
   - CVPR 2026
-  - 热成像
-  - 双波段
-  - 反射-发射分离
 ---
 
 # Dual-Band Thermal Videography: Separating Time-Varying Reflection and Emission Near Ambient Conditions

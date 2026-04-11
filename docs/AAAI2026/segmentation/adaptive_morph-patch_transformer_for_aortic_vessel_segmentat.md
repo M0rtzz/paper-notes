@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Morph-Patch Transformer for Aortic Vessel Segmentation 论文解读 | AAAI 2026 | arXiv 2511.06897 | 主动脉分割 | 提出 Morph-Patch Transformer (MPT)，通过基于速度场的自适应 patch 划分策略生成形态感知 patch（保持血管拓扑完整性），并引入语义聚类注意力（SCA）动态聚合语义相似 patch 的特征，在 AVT、AortaSeg24 和 TBAD 三个主动脉分割数据集上均达 SOTA。"
 tags:
   - AAAI 2026
-  - 主动脉分割
-  - 形态感知 patch
-  - 语义聚类注意力
 ---
 
 # Adaptive Morph-Patch Transformer for Aortic Vessel Segmentation

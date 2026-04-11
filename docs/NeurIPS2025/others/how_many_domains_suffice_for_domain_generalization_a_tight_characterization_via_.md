@@ -2,9 +2,6 @@
 description: "【论文笔记】How Many Domains Suffice for Domain Generalization? A Tight Characterization via the Domain Shattering Dimension 论文解读 | NeurIPS2025 | arXiv 2506.16704 | domain generalization | 提出 **domain shattering dimension** 这一新组合度量，紧致地刻画了 domain generalization 所需的 domain 数量（domain sample complexity），并建立其与经典 VC dimension 之间的精确定量关系，证明 PAC 可学习性蕴含 domain generalization 可学习性。"
 tags:
   - NeurIPS2025
-  - domain generalization
-  - learning theory
-  - domain shattering dimension
 ---
 
 # How Many Domains Suffice for Domain Generalization? A Tight Characterization via the Domain Shattering Dimension

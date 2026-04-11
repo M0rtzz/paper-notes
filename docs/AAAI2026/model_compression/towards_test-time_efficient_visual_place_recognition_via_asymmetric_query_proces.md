@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing 论文解读 | AAAI 2026 | arXiv 2512.13055 | 视觉位置识别 | 提出面向视觉位置识别（VPR）的高效非对称框架 AsymVPR，通过**地理记忆库**替代昂贵的 k-NN 预计算，以及**隐式嵌入增强**弥合轻量查询网络与高容量图库网络的能力差距，实现仅用 ~8% FLOPs 的轻量网络达到接近全尺寸模型的检索性能。"
 tags:
   - AAAI 2026
-  - 视觉位置识别
-  - 非对称检索
-  - 地理记忆库
 ---
 
 # Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing

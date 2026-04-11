@@ -2,10 +2,7 @@
 description: "【论文笔记】Object-level Correlation for Few-Shot Segmentation 论文解读 | ICCV 2025 | arXiv 2509.07917 | 图像分割 few-shot segmentation | 提出 OCNet，通过模仿生物视觉过程构建**目标级别**（而非图像级别）的 support-query 关联，先挖掘查询图像中的通用物体，再从中识别目标物体，有效抑制背景中的无关物体噪声。"
 tags:
   - ICCV 2025
-  - few-shot segmentation
   - 图像分割
-  - object-level correlation
-  - prototype learning
 ---
 
 # Object-level Correlation for Few-Shot Segmentation

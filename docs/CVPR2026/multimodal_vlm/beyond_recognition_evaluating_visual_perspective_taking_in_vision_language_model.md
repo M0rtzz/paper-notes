@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models 论文解读 | CVPR 2026 | arXiv 2505.03821 | 视觉透视能力 | 通过心理学启发的受控LEGO场景构建Isle-Brick-V2基准，系统揭示当前VLM在视觉透视能力(VPT)上的显著不足——即使场景理解近乎完美，空间推理和透视能力仍大幅退化，且存在顽固的方向偏置。"
 tags:
   - CVPR 2026
-  - 视觉透视能力
-  - 心智理论
-  - 空间推理
 ---
 
 # Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models

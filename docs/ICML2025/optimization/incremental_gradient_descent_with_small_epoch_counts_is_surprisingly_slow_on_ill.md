@@ -2,9 +2,6 @@
 description: "【论文笔记】Incremental Gradient Descent with Small Epoch Counts is Surprisingly Slow on Ill-Conditioned Problems 论文解读 | ICML 2025 | arXiv 2506.04126 | incremental gradient descent | 揭示IGD（确定性排列SGD）在小epoch情形(K<kappa)的令人惊讶的慢收敛：即使所有组件强凸仍无法快于均匀SGD；非凸组件导致指数级退化。"
 tags:
   - ICML 2025
-  - incremental gradient descent
-  - small epoch regime
-  - condition number
 ---
 
 # Incremental Gradient Descent with Small Epoch Counts is Surprisingly Slow on Ill-Conditioned Problems

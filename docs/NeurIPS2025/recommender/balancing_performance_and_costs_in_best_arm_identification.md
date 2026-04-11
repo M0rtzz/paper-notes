@@ -2,9 +2,6 @@
 description: "【论文笔记】Balancing Performance and Costs in Best Arm Identification 论文解读 | NeurIPS 2025 | arXiv 2505.20583 | 最优臂识别 | 提出将最优臂识别（BAI）从固定预算/固定置信度框架重新定义为\"误识别概率/简单遗憾 + 采样成本\"的风险泛函最小化问题，推导出含相变现象的下界（差距过小时最优策略是直接猜），设计 DBCARE 算法在动态预算下达到对数因子内最优。"
 tags:
   - NeurIPS 2025
-  - 最优臂识别
-  - 代价-性能权衡
-  - 相变现象
 ---
 
 # Balancing Performance and Costs in Best Arm Identification

@@ -2,9 +2,6 @@
 description: "【论文笔记】The Trilemma of Truth in Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.23921 | veracity probing | 提出 sAwMIL（稀疏感知多实例学习）三类探测框架，结合 MIL 和保形预测，将 LLM 内部激活分类为 true/false/neither，揭示真假信号并非简单的双向对称编码，而是跨越多维子空间的分布式表征。"
 tags:
   - NeurIPS 2025
-  - veracity probing
-  - multiple-instance learning
-  - conformal prediction
 ---
 
 # The Trilemma of Truth in Large Language Models

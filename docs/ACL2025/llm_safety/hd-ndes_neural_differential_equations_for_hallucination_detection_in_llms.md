@@ -2,9 +2,6 @@
 description: "【论文笔记】HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs 论文解读 | ACL 2025 | arXiv 2506.00088 | 幻觉检测 | 本文首次将神经微分方程（Neural DEs）应用于LLM幻觉检测，通过对隐空间中token激活的连续轨迹建模来系统评估陈述的真实性，在True-False数据集上AUC-ROC超过SOTA 14%以上。"
 tags:
   - ACL 2025
-  - 幻觉检测
-  - Neural ODE
-  - Neural CDE
 ---
 
 # HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs

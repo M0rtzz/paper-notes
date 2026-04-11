@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning 3D Object Spatial Relationships from Pre-trained 2D Diffusion Models 论文解读 | ICCV 2025 | arXiv 2503.19914 | 物体空间关系 | 提出从预训练 2D 扩散模型合成图像中学习物体间 3D 空间关系（OOR），通过 3D 提升管线构建配对数据集，训练文本条件化的 score-based 扩散模型对物体对的相对位姿和尺度分布建模，并扩展至多物体场景布局和场景编辑。"
 tags:
   - ICCV 2025
-  - 物体空间关系
-  - 扩散模型
-  - 3D场景布局
 ---
 
 # Learning 3D Object Spatial Relationships from Pre-trained 2D Diffusion Models

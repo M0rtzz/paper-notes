@@ -2,11 +2,8 @@
 description: "【论文笔记】AccuQuant: Simulating Multiple Denoising Steps for Quantizing Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2510.20348 | 量化 post-training quantization | 提出AccuQuant，一种用于扩散模型的训练后量化（PTQ）方法，通过在校准过程中显式模拟多个去噪步骤来最小化量化误差的累积效应，并通过新型目标函数将内存复杂度从O(n)降至O(1)。"
 tags:
   - NeurIPS 2025
-  - post-training quantization
   - 量化
-  - diffusion model
   - 扩散模型
-  - error accumulation
 ---
 
 # AccuQuant: Simulating Multiple Denoising Steps for Quantizing Diffusion Models

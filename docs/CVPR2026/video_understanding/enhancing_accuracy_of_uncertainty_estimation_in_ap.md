@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Accuracy of Uncertainty Estimation in Appearance-based Gaze Tracking 论文解读 | CVPR 2026 | arXiv 2501.14894 | gaze tracking | 提出基于等保序回归的后校准(post-hoc calibration)方法，仅用50个标定样本即可修正视线追踪模型在域偏移下的不确定性估计失准，并引入CPE(Coverage Probability Error)指标替代EUC正确评估不确定性质量——校准后CPE从8%-45%降至~5%，95%置信区间覆盖率从16%-67%提升至86%-89%。"
 tags:
   - CVPR 2026
-  - gaze tracking
-  - uncertainty estimation
-  - post-hoc calibration
 ---
 
 # Enhancing Accuracy of Uncertainty Estimation in Appearance-based Gaze Tracking

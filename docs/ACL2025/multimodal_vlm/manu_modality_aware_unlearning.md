@@ -2,9 +2,6 @@
 description: "【论文笔记】Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models 论文解读 | ACL 2025 (Long Paper) | arXiv 2502.15910 | 机器遗忘 | 提出MANU框架解决MLLM中的多模态遗忘不平衡问题：通过四种重要性函数（绝对/频率/方差/RMS）识别跨模态知识纠缠的神经元，选择性剪枝实现多模态输入和纯文本输入下的均衡知识遗忘，同时保持模型通用能力。"
 tags:
   - ACL 2025 (Long Paper)
-  - 机器遗忘
-  - MLLM
-  - 神经元剪枝
 ---
 
 # Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models

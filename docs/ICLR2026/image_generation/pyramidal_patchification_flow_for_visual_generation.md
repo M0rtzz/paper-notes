@@ -2,9 +2,6 @@
 description: "【论文笔记】Pyramidal Patchification Flow for Visual Generation 论文解读 | ICLR 2026 | arXiv 2506.23543 | 金字塔 patch 化 | 提出 Pyramidal Patchification Flow (PPFlow)，通过在高噪声时间步使用大 patch、低噪声时使用小 patch，在保持生成质量的同时实现 1.6-2.0× 去噪加速，且无需重噪声技巧。"
 tags:
   - ICLR 2026
-  - 金字塔 patch 化
-  - 流匹配
-  - DiT
 ---
 
 # Pyramidal Patchification Flow for Visual Generation

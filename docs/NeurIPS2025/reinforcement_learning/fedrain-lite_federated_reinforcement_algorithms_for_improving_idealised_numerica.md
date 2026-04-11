@@ -2,9 +2,6 @@
 description: "【论文笔记】FedRAIN-Lite: Federated Reinforcement Algorithms for Improving Idealised Numerical Weather and Climate Models 论文解读 | NeurIPS 2025 | arXiv 2508.14315 | 联邦强化学习 | 提出 FedRAIN-Lite 联邦强化学习框架，将 RL 智能体分配到不同纬度带学习局部气候参数化策略并定期全局聚合，在层次化理想能量平衡模型上验证 DDPG 在热带和中纬度区域可将面积加权 RMSE 降低 50% 以上，为 RL 扩展到全尺度 GCM 提供了可行路径。"
 tags:
   - NeurIPS 2025
-  - 联邦强化学习
-  - 气候模型
-  - 参数化
 ---
 
 # FedRAIN-Lite: Federated Reinforcement Algorithms for Improving Idealised Numerical Weather and Climate Models

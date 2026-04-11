@@ -2,9 +2,6 @@
 description: "【论文笔记】REAL-MM-RAG: A Real-World Multi-Modal Retrieval Benchmark 论文解读 | ACL 2025 | arXiv 2502.12342 | 多模态检索 | 提出 REAL-MM-RAG 多模态文档检索基准，定义了真实世界检索基准的四大关键属性（多模态文档、增强难度、真实 RAG 查询、准确标注），引入多级查询改写鲁棒性评估，并通过针对性训练集（改写数据集+金融表格数据集）实现 SOTA 检索性能。"
 tags:
   - ACL 2025
-  - 多模态检索
-  - RAG
-  - 检索增强生成
 ---
 
 # REAL-MM-RAG: A Real-World Multi-Modal Retrieval Benchmark

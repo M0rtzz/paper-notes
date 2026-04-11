@@ -2,9 +2,6 @@
 description: "【论文笔记】ChartNet: A Million-Scale, High-Quality Multimodal Dataset for Robust Chart Understanding 论文解读 | CVPR 2026 | arXiv 2603.27064 | 图表理解 | 发布 ChartNet——150 万规模的高质量多模态图表数据集，通过代码引导合成管线生成包含图像-代码-数据表-文本-推理QA 的对齐五元组，在图表理解和推理任务上显著提升 VLM 性能，小模型微调后超越 GPT-4o。"
 tags:
   - CVPR 2026
-  - 图表理解
-  - 大规模数据集
-  - 代码引导生成
 ---
 
 # ChartNet: A Million-Scale, High-Quality Multimodal Dataset for Robust Chart Understanding

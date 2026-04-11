@@ -2,9 +2,6 @@
 description: "【论文笔记】A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions 论文解读 | ICCV 2025 | arXiv 2412.17377 | 物理动作恢复 | 提出即插即用的物理动作恢复方法，通过Mask条件运动修正模块（MCM）修复视频动捕中的瑕疵帧，以及基于预训练+测试时适应的物理运动迁移模块（PTM）实现高难度野外动作的物理仿真，显著提升动作的物理真实性。"
 tags:
   - ICCV 2025
-  - 物理动作恢复
-  - 动作模仿
-  - 测试时适应
 ---
 
 # A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions

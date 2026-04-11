@@ -2,9 +2,6 @@
 description: "【论文笔记】\"As Eastern Powers, I Will Veto.\" : An Investigation of Nation-Level Bias of Large Language Models in International Relations 论文解读 | AAAI 2026 | arXiv 2511.10695 | 国家级偏见 | 系统性地研究 LLM 在国际关系领域的国家级偏见，基于联合国安理会真实数据设计三种偏见测试（直接问答、关联测试、投票模拟），揭示偏见的多维性——随模型和评知上下文变化，并提出 RAG+Reflexion 去偏框架。"
 tags:
   - AAAI 2026
-  - 国家级偏见
-  - 国际关系
-  - 联合国安理会
 ---
 
 # "As Eastern Powers, I Will Veto." : An Investigation of Nation-Level Bias of Large Language Models in International Relations

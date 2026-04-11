@@ -2,9 +2,6 @@
 description: "【论文笔记】Few-Shot Precise Event Spotting via Unified Multi-Entity Graph and Distillation 论文解读 | AAAI 2026 | arXiv 2511.14186 | 精确事件定位 | 提出 UMEG-Net，面向少样本精确事件定位（PES）任务，通过构建统一多实体图（融合人体骨架、运动物体关键点和环境标志点），结合高效的时空图卷积和无参数多尺度时序平移模块，并通过多模态知识蒸馏将图特征迁移至 RGB 学生网络，在五个运动数据集上以极少标注数据显著超越现有方法。"
 tags:
   - AAAI 2026
-  - 精确事件定位
-  - 少样本学习
-  - 统一多实体图
 ---
 
 # Few-Shot Precise Event Spotting via Unified Multi-Entity Graph and Distillation

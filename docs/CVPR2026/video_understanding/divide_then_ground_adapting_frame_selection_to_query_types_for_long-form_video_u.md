@@ -2,9 +2,6 @@
 description: "【论文笔记】DIvide, then Ground: Adapting Frame Selection to Query Types for Long-Form Video Understanding 论文解读 | CVPR 2026 | arXiv 2512.04000 | 长视频理解 | 提出 DIG，一个免训练的帧选择框架，通过将查询分为全局查询和定位查询两类，对全局查询使用均匀采样、对定位查询使用一套专门的内容自适应帧选择+LMM奖励评分+视频精炼流水线，在三个长视频理解基准上持续超越现有方法。"
 tags:
   - CVPR 2026
-  - 长视频理解
-  - 帧选择
-  - 查询分类
 ---
 
 # DIvide, then Ground: Adapting Frame Selection to Query Types for Long-Form Video Understanding

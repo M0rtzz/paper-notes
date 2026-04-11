@@ -2,9 +2,6 @@
 description: "【论文笔记】Bilevel MCTS for Amortized O(1) Node Selection in Classical Planning 论文解读 | AAAI 2026 | arXiv 2508.08385 | MCTS | 提出双层MCTS（Bilevel MCTS），在MCTS选中的叶节点处运行深度比例预算的最优优先搜索，将节点选择均摊复杂度从 $O(\log N)$ 降至 $O(1)$，辅以树崩塌（Tree Collapsing）减少动作选择步数，最终整合为 Nεbula 规划器，在IPC2018/2023基准上以192.2/230.6解题数（5min/30min）超越LAMA、DecStar、NOLAN、SM-Type-LAMA等全部SOTA。"
 tags:
   - AAAI 2026
-  - MCTS
-  - 经典规划
-  - O(1)节点选择
 ---
 
 # Bilevel MCTS for Amortized O(1) Node Selection in Classical Planning

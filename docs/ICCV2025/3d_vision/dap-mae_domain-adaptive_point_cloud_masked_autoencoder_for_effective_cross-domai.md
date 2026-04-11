@@ -2,10 +2,9 @@
 description: "【论文笔记】DAP-MAE: Domain-Adaptive Point Cloud Masked Autoencoder for Effective Cross-Domain Learning 论文解读 | ICCV 2025 | arXiv 2510.21635 | masked autoencoder | 提出 DAP-MAE，通过异构域适配器（HDA）和域特征生成器（DFG）协同学习多域点云数据，仅需一次预训练即可适配物体分类、表情识别、部件分割和3D检测等多种下游任务。"
 tags:
   - ICCV 2025
-  - masked autoencoder
-  - cross-domain learning
-  - point cloud
   - 点云
+  - 域适应
+  - 自监督学习
 ---
 
 # DAP-MAE: Domain-Adaptive Point Cloud Masked Autoencoder for Effective Cross-Domain Learning

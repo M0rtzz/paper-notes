@@ -2,9 +2,6 @@
 description: "【论文笔记】Graph2Eval: Automatic Multimodal Task Generation for Agents via Knowledge Graphs 论文解读 | CVPR 2026 | arXiv 2510.00507 | 知识图谱 | 提出 Graph2Eval，一个基于知识图谱的自动化多模态 Agent 任务生成框架——从异构外部数据源构建知识图谱作为结构化任务空间，通过子图采样和元路径引导的任务构造生成语义一致且可解的 Agent 评测任务，相比 LLM 直接生成的任务提升语义一致性 20% 和可解性 17%，并发布了 1,319 个任务的 Graph2Eval-Bench 数据集。"
 tags:
   - CVPR 2026
-  - 知识图谱
-  - 自动任务生成
-  - Agent评估
 ---
 
 # Graph2Eval: Automatic Multimodal Task Generation for Agents via Knowledge Graphs

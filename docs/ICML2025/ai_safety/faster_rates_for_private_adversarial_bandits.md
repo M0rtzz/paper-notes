@@ -2,9 +2,6 @@
 description: "【论文笔记】Faster Rates for Private Adversarial Bandits 论文解读 | ICML 2025 | arXiv 2505.21790 | 差分隐私 | 为差分隐私对抗性 bandits 问题提出简洁高效的非私有→私有转换框架，通过批量化损失+Laplace 噪声实现 O(√(KT/ε)) 的后悔界，首次证明中心 DP 和本地 DP 在该问题上存在分离，并给出首个私有 bandits with expert advice 算法。"
 tags:
   - ICML 2025
-  - 差分隐私
-  - 对抗性bandits
-  - 专家建议bandits
 ---
 
 # Faster Rates for Private Adversarial Bandits

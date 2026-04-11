@@ -2,9 +2,6 @@
 description: "【论文笔记】Optimal Transport-Based Token Weighting for Enhanced Preference Optimization 论文解读 | ACL 2025 | arXiv 2505.18720 | DPO | OTPO 利用无平衡最优传输（UOT）在 chosen/rejected 回复的 token 表示之间计算语义对齐权重，使偏好优化聚焦于关键差异 token 而非均等对待所有 token，在 AlpacaEval2 上将 DPO 的 LC WR 从 48.14% 提升至 55.84%，并将 DPO/SimPO/SamPO/LDDPO 统一为 token 加权的特例。"
 tags:
   - ACL 2025
-  - DPO
-  - optimal transport
-  - token weighting
 ---
 
 # Optimal Transport-Based Token Weighting for Enhanced Preference Optimization

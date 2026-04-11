@@ -2,10 +2,7 @@
 description: "【论文笔记】On the Possible Detectability of Image-in-Image Steganography 论文解读 | CVPR 2026 | arXiv 2603.11876 | GAN Steganography | 揭示了基于可逆神经网络(INN)的图像隐写方案存在严重安全漏洞：嵌入过程本质上是一种混合过程，可通过ICA进行盲源分离，仅用8维特征+SVM即可达到84.6%检测率，而传统SRM+SVM更是达到99%以上。"
 tags:
   - CVPR 2026
-  - Steganography
   - GAN
-  - Steganalysis
-  - ICA
 ---
 
 # On the Possible Detectability of Image-in-Image Steganography

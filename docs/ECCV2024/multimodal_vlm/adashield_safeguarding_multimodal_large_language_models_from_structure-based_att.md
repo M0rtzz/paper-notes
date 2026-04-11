@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaShield: Safeguarding Multimodal Large Language Models from Structure-based Attack via Adaptive Shield Prompting 论文解读 | ECCV 2024 | arXiv 2403.09513 | MLLM安全 | AdaShield通过在MLLM输入前添加防御提示(defense prompt)来防御结构化越狱攻击（图像中嵌入有害文本），提出静态手动提示和自适应自动精化框架两种方案，无需微调模型即可显著提升安全性且不损害正常能力。"
 tags:
   - ECCV 2024
-  - MLLM安全
-  - 越狱攻击防御
-  - 防御提示
 ---
 
 # AdaShield: Safeguarding Multimodal Large Language Models from Structure-based Attack via Adaptive Shield Prompting

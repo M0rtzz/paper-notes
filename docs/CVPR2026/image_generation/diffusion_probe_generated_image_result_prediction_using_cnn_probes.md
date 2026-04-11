@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion Probe: Generated Image Result Prediction Using CNN Probes 论文解读 | CVPR 2026 | arXiv 2602.23783 | 扩散模型 | 发现扩散模型早期去噪步骤的交叉注意力分布与最终图像质量高度相关，提出 Diffusion Probe——用轻量CNN从早期注意力图预测生成结果质量，实现在完成10%去噪即可预筛选低质量生成路径，加速 Prompt 优化、Seed 选择和 GRPO 训练。"
 tags:
   - CVPR 2026
-  - 扩散模型
-  - 探针
-  - 交叉注意力
 ---
 
 # Diffusion Probe: Generated Image Result Prediction Using CNN Probes

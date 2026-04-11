@@ -2,9 +2,6 @@
 description: "【论文笔记】Document-Level Text Generation with Minimum Bayes Risk Decoding using Optimal Transport 论文解读 | ACL 2025 | arXiv 2505.23078 | MBR解码 | 提出 MBR-OT，将最优传输（Wasserstein距离）引入最小贝叶斯风险（MBR）解码，实现用句子级效用函数评估文档级输出质量，在文档级机器翻译、文本简化和密集图像描述任务上显著优于标准 MBR 解码。"
 tags:
   - ACL 2025
-  - MBR解码
-  - 最优传输
-  - 文档级生成
 ---
 
 # Document-Level Text Generation with Minimum Bayes Risk Decoding using Optimal Transport

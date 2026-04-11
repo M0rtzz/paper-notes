@@ -2,9 +2,6 @@
 description: "【论文笔记】Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections 论文解读 | NeurIPS 2025 | arXiv 2505.23864 | 联邦学习 | 提出FedAux框架，通过可微分的辅助投影向量（APV）将节点嵌入映射到一维空间并用高斯核进行软排序聚合，APV既作为局部子图的紧凑隐私保护摘要用于服务器端相似度计算，又参与客户端的联合优化，实现了个性化的子图联邦学习。"
 tags:
   - NeurIPS 2025
-  - 联邦学习
-  - 图神经网络
-  - 个性化聚合
 ---
 
 # Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections

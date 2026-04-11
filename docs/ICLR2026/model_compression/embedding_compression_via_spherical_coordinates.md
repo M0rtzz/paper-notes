@@ -2,9 +2,6 @@
 description: "【论文笔记】Embedding Compression via Spherical Coordinates 论文解读 | ICLR 2026 | arXiv 2602.00079 | 嵌入压缩 | 提出一种基于球坐标变换的嵌入向量压缩方法，利用高维单位向量的球坐标角度集中在 $\pi/2$ 附近的数学性质，使 IEEE 754 浮点数的指数位和高阶尾数位熵大幅降低，实现 1.5× 压缩率，比最优无损方法提升 25%，重建误差低于 float32 机器精度。"
 tags:
   - ICLR 2026
-  - 嵌入压缩
-  - 球坐标
-  - IEEE 754
 ---
 
 # Embedding Compression via Spherical Coordinates

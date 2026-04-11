@@ -2,9 +2,6 @@
 description: "【论文笔记】Topology and Geometry of the Learning Space of ReLU Networks: Connectivity and Size 论文解读 | ICLR 2026 | arXiv 2602.00693 | ReLU 网络 | 从代数几何和代数拓扑的视角，系统研究了基于一般 DAG 架构的前馈 ReLU 网络参数空间的连通性和奇异性，揭示了瓶颈节点和平衡条件在决定参数空间拓扑结构中的关键作用，并建立了奇异性与可微剪枝的理论联系。"
 tags:
   - ICLR 2026
-  - ReLU 网络
-  - 参数空间拓扑
-  - 连通性
 ---
 
 # Topology and Geometry of the Learning Space of ReLU Networks: Connectivity and Size

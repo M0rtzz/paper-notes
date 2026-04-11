@@ -2,9 +2,6 @@
 description: "【论文笔记】Reverse Preference Optimization for Complex Instruction Following 论文解读 | ACL 2025 | arXiv 2505.22172 | 指令遵循 | 提出反向偏好优化（RPO），通过动态反转指令中未满足的约束将任意回复转化为\"完美\"chosen 样本，消除多约束偏好对中的噪声，在多轮复杂指令遵循任务上显著超越 DPO 基线。"
 tags:
   - ACL 2025
-  - 指令遵循
-  - 偏好优化
-  - DPO
 ---
 
 # Reverse Preference Optimization for Complex Instruction Following

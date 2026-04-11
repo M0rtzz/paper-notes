@@ -2,9 +2,6 @@
 description: "【论文笔记】Think&Cite: Improving Attributed Text Generation with Self-Guided Tree Search and Progress Reward Modeling 论文解读 | ACL 2025 | arXiv 2412.14860 | 归因文本生成 | 将归因文本生成（带引用的文本生成）建模为多步推理问题，提出自引导蒙特卡洛树搜索（SG-MCTS）结合进度奖励建模（PRM），通过多路径搜索+中间状态反思+生成/归因双维度进度奖励，在 ALCE 基准三个数据集上显著超越所有基线。"
 tags:
   - ACL 2025
-  - 归因文本生成
-  - 蒙特卡洛树搜索
-  - 自反思
 ---
 
 # Think&Cite: Improving Attributed Text Generation with Self-Guided Tree Search and Progress Reward Modeling

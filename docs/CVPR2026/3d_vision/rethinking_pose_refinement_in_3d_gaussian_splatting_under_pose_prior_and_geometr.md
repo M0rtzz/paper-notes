@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty 论文解读 | CVPR2026 | arXiv 2603.16538 | 3D Gaussian Splatting | 提出 UGS-Loc 框架，通过蒙特卡洛位姿采样和 Fisher 信息引导的 PnP 优化，联合建模位姿先验不确定性和几何不确定性，在无需重训练的条件下显著提升 3DGS 场景中的相机位姿精化鲁棒性。"
 tags:
   - CVPR2026
-  - 3D Gaussian Splatting
-  - 视觉定位
-  - 位姿优化
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

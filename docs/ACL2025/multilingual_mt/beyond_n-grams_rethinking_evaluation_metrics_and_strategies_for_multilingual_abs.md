@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond N-Grams: Rethinking Evaluation Metrics and Strategies for Multilingual Abstractive Summarization 论文解读 | ACL 2025 | arXiv 2507.08342 | 摘要评估 | 系统评估了 n-gram 和神经指标在 8 种语言（4 种类型学家族）上与人工判断的相关性，发现 n-gram 指标在融合语言中可靠性差，而专门训练的神经指标 COMET 在所有语言上一致优于其他指标；还发现分词策略可以显著改善融合语言的评估效果。"
 tags:
   - ACL 2025
-  - 摘要评估
-  - 多语言
-  - n-gram指标
 ---
 
 # Beyond N-Grams: Rethinking Evaluation Metrics and Strategies for Multilingual Abstractive Summarization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Neural Networks Learn Generic Multi-Index Models Near Information-Theoretic Limit 论文解读 | ICLR 2026 | arXiv 2511.15120 | Multi-Index模型 | 证明在通用非退化假设下，标准两层神经网络通过分层梯度下降可以用 $\tilde{O}(d)$ 样本和 $\tilde{O}(d^2)$ 时间学习通用高斯 Multi-Index 模型 $f(\bm{x})=g(\bm{U}\bm{x})$，样本和时间复杂度都达到信息论最优，首次证明神经网络可以高效学习层次化函数。"
 tags:
   - ICLR 2026
-  - Multi-Index模型
-  - 信息论下界
-  - 特征学习
 ---
 
 # Neural Networks Learn Generic Multi-Index Models Near Information-Theoretic Limit

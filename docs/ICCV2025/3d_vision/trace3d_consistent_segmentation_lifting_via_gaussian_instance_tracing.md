@@ -2,9 +2,6 @@
 description: "【论文笔记】Trace3D: Consistent Segmentation Lifting via Gaussian Instance Tracing 论文解读 | ICCV 2025 | arXiv 2508.03227 | 3D分割 | 提出Gaussian Instance Tracing (GIT)机制，通过反向光栅化为每个高斯核维护跨视角的实例权重矩阵，统一解决2D分割多视角不一致和边界高斯模糊两大问题，在离线对比学习和在线自提示两种设定下均显著提升3D分割质量。"
 tags:
   - ICCV 2025
-  - 3D分割
-  - Gaussian Splatting
-  - 2D-to-3D提升
 ---
 
 # Trace3D: Consistent Segmentation Lifting via Gaussian Instance Tracing

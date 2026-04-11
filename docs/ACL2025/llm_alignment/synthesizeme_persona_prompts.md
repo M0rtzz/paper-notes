@@ -2,9 +2,6 @@
 description: "【论文笔记】SynthesizeMe! Inducing Persona-Guided Prompts for Personalized Reward Models in LLMs 论文解读 | ACL 2025 | arXiv 2506.05598 | 个性化奖励模型 | 提出SynthesizeMe，通过bootstrap推理→合成用户画像→筛选信息性示例三步流程，无需微调即可为个性化奖励模型构建有效prompt，在Chatbot Arena上提升LLM-as-a-Judge个性化准确率4.4%。"
 tags:
   - ACL 2025
-  - 个性化奖励模型
-  - 用户画像合成
-  - LLM-as-a-Judge
 ---
 
 # SynthesizeMe! Inducing Persona-Guided Prompts for Personalized Reward Models in LLMs

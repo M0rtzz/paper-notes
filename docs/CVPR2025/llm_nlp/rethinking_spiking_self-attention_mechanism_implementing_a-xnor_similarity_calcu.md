@@ -2,7 +2,6 @@
 description: "【论文笔记】Rethinking Spiking Self-Attention Mechanism: Implementing a-XNOR Similarity Calculation in Spiking Transformers 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Transformers significantly raise the performance limits across various tasks, spurring research into integrating them into spiking neural networks. However, a notable performance gap remains between existing spiking Transformers and their artificial neural network counterparts. Here, we first analyz"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Rethinking Spiking Self-Attention Mechanism: Implementing a-XNOR Similarity Calculation in Spiking Transformers

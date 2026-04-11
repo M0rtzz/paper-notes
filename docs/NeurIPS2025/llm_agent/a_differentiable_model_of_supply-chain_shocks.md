@@ -2,9 +2,6 @@
 description: "【论文笔记】A Differentiable Model of Supply-Chain Shocks 论文解读 | NeurIPS 2025 | arXiv 2511.05231 | 供应链建模 | 本文用 JAX 实现了一个可微分的供应链 Agent-Based Model（ABM），通过 GPU 并行化和自动微分实现了比传统无梯度方法快 3 个数量级的贝叶斯参数校准，为大规模供应网络建模打开了可能性。"
 tags:
   - NeurIPS 2025
-  - 供应链建模
-  - 可微分编程
-  - Agent-Based Model
 ---
 
 # A Differentiable Model of Supply-Chain Shocks

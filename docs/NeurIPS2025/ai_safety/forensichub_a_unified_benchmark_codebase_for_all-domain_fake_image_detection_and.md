@@ -2,9 +2,6 @@
 description: "【论文笔记】ForensicHub: A Unified Benchmark & Codebase for All-Domain Fake Image Detection and Localization 论文解读 | NeurIPS 2025 | arXiv 2505.11003 | 图像伪造检测 | ForensicHub 提出首个统一所有域（Deepfake/IMDL/AIGC/文档篡改）的假图检测与定位基准平台，包含 4 个任务、23 个数据集、42 个模型、6 个骨干网络和 11 个 GPU 加速评估指标，通过模块化架构和适配器设计打破领域孤岛，并进行了 16 种跨域评估得出 8 条关键洞察。"
 tags:
   - NeurIPS 2025
-  - 图像伪造检测
-  - 统一基准
-  - Deepfake
 ---
 
 # ForensicHub: A Unified Benchmark & Codebase for All-Domain Fake Image Detection and Localization

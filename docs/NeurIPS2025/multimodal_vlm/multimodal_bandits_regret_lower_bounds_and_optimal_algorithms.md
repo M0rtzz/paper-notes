@@ -2,9 +2,6 @@
 description: "【论文笔记】Multimodal Bandits: Regret Lower Bounds and Optimal Algorithms 论文解读 | NeurIPS 2025 | arXiv 2510.25811 | 多模态赌博机 | 针对奖励函数至多有 $m$ 个极值的多模态多臂赌博机问题，提出首个计算可行的算法求解 Graves-Lai 优化问题，实现渐近最优的遗憾界，并证明局部搜索策略是次优的。"
 tags:
   - NeurIPS 2025
-  - 多模态赌博机
-  - Graves-Lai界
-  - 动态规划
 ---
 
 # Multimodal Bandits: Regret Lower Bounds and Optimal Algorithms

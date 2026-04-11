@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors 论文解读 | ICML2025 | arXiv 2506.05479 | Metrical Task Systems | 在度量任务系统(MTS)中，当算法仅能以 bandit 方式（每步只查询一个启发式且需连续查询 $m$ 步才能观测状态）访问 $\ell$ 个启发式时，本文给出了 regret 为 $O(\text{OPT}^{2/3})$ 的算法，并证明该界是紧的。"
 tags:
   - ICML2025
-  - Metrical Task Systems
-  - 学习增强算法
-  - Bandit反馈
 ---
 
 # Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors

@@ -2,9 +2,6 @@
 description: "【论文笔记】MAPS: Motivation-Aware Personalized Search via LLM-Driven Consultation Alignment 论文解读 | ACL 2025 | arXiv 2503.01711 | 个性化搜索 | 首次建模电商搜索中的\"搜索动机\"——用户在搜索前的咨询行为蕴含的真实需求，提出MAPS框架融合LLM语义、MoAE池化和双重对齐机制，在真实商业数据上HR@10提升24.4%（从0.5685到0.7071）。"
 tags:
   - ACL 2025
-  - 个性化搜索
-  - 搜索动机
-  - 咨询对齐
 ---
 
 # MAPS: Motivation-Aware Personalized Search via LLM-Driven Consultation Alignment

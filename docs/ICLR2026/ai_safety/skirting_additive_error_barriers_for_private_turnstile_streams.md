@@ -2,9 +2,6 @@
 description: "【论文笔记】Skirting Additive Error Barriers for Private Turnstile Streams 论文解读 | ICLR 2026 | arXiv 2602.10360 | 差分隐私 | 证明差分隐私旋转门流(支持插入和删除)中的多项式加性误差下界可以通过引入乘性误差来绕过——对不同元素计数问题实现polylog(T)乘性+polylog(T)加性误差(而非此前的Ω(T^{1/4})纯加性误差)，对F2矩实现1+o(1)乘性+polylog(T)加性误差(而非Ω(T)纯加性误差)，且仅需polylog空间。"
 tags:
   - ICLR 2026
-  - 差分隐私
-  - 连续发布
-  - 旋转门流
 ---
 
 # Skirting Additive Error Barriers for Private Turnstile Streams

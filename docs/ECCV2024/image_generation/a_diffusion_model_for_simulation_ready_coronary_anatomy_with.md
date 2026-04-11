@@ -2,9 +2,6 @@
 description: "【论文笔记】A Diffusion Model for Simulation Ready Coronary Anatomy with Morpho-skeletal Control 论文解读 | ECCV 2024 | arXiv 2407.15631 | 冠状动脉生成 | 用潜在扩散模型（LDM）可控生成3D多组织冠状动脉分割图，通过拓扑交互损失保证解剖合理性，通过形态-骨架双通道条件化实现对截面形态和分支结构的解耦控制，并提出自适应空条件引导（ANG）以非可微回归器高效增强条件保真度，最终支持面向有限元仿真的反事实解剖结构编辑。"
 tags:
   - ECCV 2024
-  - 冠状动脉生成
-  - 潜在扩散模型
-  - 拓扑正则化
 ---
 
 # A Diffusion Model for Simulation Ready Coronary Anatomy with Morpho-skeletal Control

@@ -2,9 +2,6 @@
 description: "【论文笔记】MetaGDPO: Alleviating Catastrophic Forgetting with Metacognitive Knowledge through Group Direct Preference Optimization 论文解读 | AAAI 2026 | arXiv 2511.12113 | 灾难性遗忘 | 提出MetaGDPO方法，从数据侧（基于元认知知识的5K数据构建MetaKL）和训练侧（GDPO——将GRPO的在线采样替换为大模型离线response group的DPO变体）两方面缓解小模型（<8B）在推理能力蒸馏中的灾难性遗忘问题。"
 tags:
   - AAAI 2026
-  - 灾难性遗忘
-  - 知识蒸馏
-  - DPO
 ---
 
 # MetaGDPO: Alleviating Catastrophic Forgetting with Metacognitive Knowledge through Group Direct Preference Optimization

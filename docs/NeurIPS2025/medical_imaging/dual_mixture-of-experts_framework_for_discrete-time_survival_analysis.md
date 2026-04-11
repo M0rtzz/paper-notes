@@ -2,9 +2,6 @@
 description: "【论文笔记】Dual Mixture-of-Experts Framework for Discrete-Time Survival Analysis 论文解读 | NeurIPS 2025 (TS4H Workshop) | arXiv 2510.26014 | 生存分析 | 提出双混合专家（Dual MoE）框架用于离散时间生存分析，结合特征编码器 MoE（建模患者亚组异质性）与风险网络 MoE（捕获时间动态），在 METABRIC 和 GBSG 乳腺癌数据集上提升 time-dependent C-index 最高 0.04。"
 tags:
   - NeurIPS 2025 (TS4H Workshop)
-  - 生存分析
-  - 混合专家
-  - 离散时间
 ---
 
 # Dual Mixture-of-Experts Framework for Discrete-Time Survival Analysis

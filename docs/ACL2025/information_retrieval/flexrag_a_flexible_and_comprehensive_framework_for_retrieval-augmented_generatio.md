@@ -2,9 +2,7 @@
 description: "【论文笔记】FlexRAG: A Flexible and Comprehensive Framework for Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2506.12494 | Retrieval-Augmented Generation | 提出 FlexRAG，一个面向研究和原型开发的开源 RAG 框架，支持文本、多模态和 Web 检索三种模式，通过内存映射和异步处理实现比同类框架（FlashRAG）低一个数量级的资源开销。"
 tags:
   - ACL 2025
-  - Retrieval-Augmented Generation
-  - RAG Framework
-  - Dense Retrieval
+  - 多模态
 ---
 
 # FlexRAG: A Flexible and Comprehensive Framework for Retrieval-Augmented Generation

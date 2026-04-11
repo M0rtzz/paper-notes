@@ -2,9 +2,6 @@
 description: "【论文笔记】FuXi-RTM: A Physics-Guided Prediction Framework with Radiative Transfer Modeling 论文解读 | ICCV 2025 | arXiv 2503.19940 | 物理引导深度学习 | 提出 FuXi-RTM，首个将深度学习辐射传输模型 (DLRTM) 作为可微物理正则化器集成到天气预报框架中的混合物理引导体系，在 88.51% 的变量-预报时效组合上超越无约束基线。"
 tags:
   - ICCV 2025
-  - 物理引导深度学习
-  - 辐射传输建模
-  - 天气预报
 ---
 
 # FuXi-RTM: A Physics-Guided Prediction Framework with Radiative Transfer Modeling

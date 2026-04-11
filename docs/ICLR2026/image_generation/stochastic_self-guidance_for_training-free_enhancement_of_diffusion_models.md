@@ -2,9 +2,6 @@
 description: "【论文笔记】Stochastic Self-Guidance for Training-Free Enhancement of Diffusion Models 论文解读 | ICLR2026 | arXiv 2508.12880 | 扩散模型 | 本文提出S²-Guidance，通过在去噪过程中**随机丢弃transformer block激活子网络**作为弱模型进行自引导，无需额外训练即可修正CFG的次优预测，在文生图和文生视频任务上一致超越CFG及其他高级引导策略。"
 tags:
   - ICLR2026
-  - 扩散模型
-  - Classifier-Free Guidance
-  - 子网络
 ---
 
 # Stochastic Self-Guidance for Training-Free Enhancement of Diffusion Models

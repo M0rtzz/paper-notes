@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Generative Geospatial Diffusion Models Excel as Discriminative Geospatial Foundation Models? 论文解读 | ICCV 2025 | arXiv 2503.07890 | 遥感基础模型 | 提出SatDiFuser框架，将生成式地理空间扩散模型（DiffusionSat）转化为判别式遥感基础模型，通过系统分析多阶段多时间步扩散特征并设计三种融合策略（全局加权、局部加权、MoE联合融合），在语义分割和分类任务上优于现有SOTA遥感基础模型，最高提升+5.7% mIoU和+7.9% F1。"
 tags:
   - ICCV 2025
-  - 遥感基础模型
-  - 扩散模型
-  - 特征融合
 ---
 
 # Can Generative Geospatial Diffusion Models Excel as Discriminative Geospatial Foundation Models?

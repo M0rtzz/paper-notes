@@ -2,9 +2,6 @@
 description: "【论文笔记】Preventing Rogue Agents Improves Multi-Agent Collaboration 论文解读 | ACL 2025 | arXiv 2502.05986 | 多智能体协作 | 提出一种通过实时监控 Agent 不确定性来检测\"失控 Agent\"（rogue agent）并进行干预的框架，在自建的 WhoDunitEnv 多智能体协作环境以及代码生成和资源可持续性任务上分别取得高达 17.4%、2.5% 和 20% 的性能提升。"
 tags:
   - ACL 2025
-  - 多智能体协作
-  - 异常检测
-  - 不确定性估计
 ---
 
 # Preventing Rogue Agents Improves Multi-Agent Collaboration

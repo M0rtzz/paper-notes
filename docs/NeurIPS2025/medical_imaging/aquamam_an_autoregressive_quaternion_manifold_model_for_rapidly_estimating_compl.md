@@ -2,9 +2,6 @@
 description: "【论文笔记】AQuaMaM: An Autoregressive Quaternion Manifold Model for Rapidly Estimating Complex Protein Structures 论文解读 | NeurIPS 2025 | arXiv 2301.08838 | 蛋白质结构预测 | AQuaMaM 提出基于四元数流形的自回归蛋白质结构预测模型——将蛋白质骨架的旋转表示为四元数（在 $S^3$ 流形上），用自回归方式沿序列逐步预测每个残基的局部坐标系旋转，实现比 AlphaFold 快数个量级的结构估计。"
 tags:
   - NeurIPS 2025
-  - 蛋白质结构预测
-  - 四元数
-  - 自回归模型
 ---
 
 # AQuaMaM: An Autoregressive Quaternion Manifold Model for Rapidly Estimating Complex Protein Structures

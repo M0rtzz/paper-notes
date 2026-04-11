@@ -2,9 +2,6 @@
 description: "【论文笔记】Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration 论文解读 | ICCV 2025 | arXiv 2411.17240 | 单目相机标定 | 提出DM-Calib——基于扩散模型的单目相机内参估计方法：设计Camera Image表示（将内参无损编码为3通道图像=方位角+仰角+灰度图），微调Stable Diffusion生成Camera Image，用RANSAC提取内参，在5个零样本数据集上超越所有基线，并将相机标定扩展到度量深度估计、位姿估计和稀疏视角3D重建。"
 tags:
   - ICCV 2025
-  - 单目相机标定
-  - Camera Image
-  - 扩散模型先验
 ---
 
 # Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration

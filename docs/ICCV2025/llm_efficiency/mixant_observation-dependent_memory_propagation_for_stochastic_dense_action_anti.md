@@ -2,9 +2,6 @@
 description: "【论文笔记】MixANT: Observation-dependent Memory Propagation for Stochastic Dense Action Anticipation 论文解读 | ICCV 2025 | arXiv 2509.11394 | 动作预测 | 提出 MixANT，通过混合专家方法为 Mamba 的遗忘门（A 矩阵）引入输入依赖性，动态选择上下文相关的 A 矩阵控制时序记忆传播，在 50Salads、Breakfast 和 Assembly101 三个密集动作预测数据集上全面超越 SOTA。"
 tags:
   - ICCV 2025
-  - 动作预测
-  - Mamba
-  - 混合专家
 ---
 
 # MixANT: Observation-dependent Memory Propagation for Stochastic Dense Action Anticipation

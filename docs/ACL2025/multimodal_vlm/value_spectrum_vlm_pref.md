@@ -2,9 +2,6 @@
 description: "【论文笔记】Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition 论文解读 | ACL 2025 | arXiv 2411.11479 | VLM preferences | 提出 Value-Spectrum 基准，通过 50K+ 社交媒体短视频截图和 Schwartz 价值理论框架，系统评估 VLM 的内在价值偏好及角色扮演时的偏好适配能力。"
 tags:
   - ACL 2025
-  - VLM preferences
-  - Schwartz values
-  - social media
 ---
 
 # Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition

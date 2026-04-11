@@ -2,9 +2,6 @@
 description: "【论文笔记】3D-Free Meets 3D Priors: Novel View Synthesis from a Single Image with Pretrained Diffusion Guidance 论文解读 | AAAI 2026 | arXiv 2408.06157 | 新视角合成 | 提出将 3D-free 方法（HawkI 风格的 test-time optimization）与 3D-based 先验（Zero123++ 的弱引导图）结合的框架，无需额外 3D 数据或训练即可从单张图片生成指定仰角/方位角的相机控制视图，在复杂场景下 LPIPS、CLIP-Score 等指标全面超越 Zero123++、HawkI 和 Stable Zero123。"
 tags:
   - AAAI 2026
-  - 新视角合成
-  - 单图生成
-  - Stable Diffusion
   - 扩散模型
 ---
 

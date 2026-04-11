@@ -2,9 +2,6 @@
 description: "【论文笔记】It's Not a Walk in the Park! Challenges of Idiom Translation in Speech-to-text Systems 论文解读 | ACL 2025 | arXiv 2506.02995 | 习语翻译 | 本文首次系统比较了语音到文本翻译（SLT）、文本机器翻译（MT）和大语言模型（LLM）在习语翻译任务上的表现，发现 SLT 系统在处理习语时性能大幅下降，即便在编码器高层仍倾向于字面翻译，而 MT 和 LLM 对习语的处理能力明显更优。"
 tags:
   - ACL 2025
-  - 习语翻译
-  - 语音到文本翻译
-  - DecoderLens
 ---
 
 # It's Not a Walk in the Park! Challenges of Idiom Translation in Speech-to-text Systems

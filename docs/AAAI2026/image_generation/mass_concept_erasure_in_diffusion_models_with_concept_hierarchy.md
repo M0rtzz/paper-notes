@@ -2,9 +2,6 @@
 description: "【论文笔记】Mass Concept Erasure in Diffusion Models with Concept Hierarchy 论文解读 | AAAI2026 | arXiv 2601.03305 | 概念擦除 | 提出基于supertype-subtype概念层级的分组擦除策略和Supertype-Preserving LoRA (SuPLoRA)，通过冻结down-projection矩阵（正交于supertype子空间）仅训练up-projection矩阵，在大规模多领域概念擦除中实现擦除效果与生成质量的最优平衡。"
 tags:
   - AAAI2026
-  - 概念擦除
-  - 扩散模型
-  - LoRA
 ---
 
 # Mass Concept Erasure in Diffusion Models with Concept Hierarchy

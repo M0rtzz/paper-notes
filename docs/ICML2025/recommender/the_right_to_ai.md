@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: The Right to AI 论文解读 | ICML 2025 | arXiv 2501.17899 | AI治理 | 本文是一篇 position paper，提出\"AI 权利\"（Right to AI）的概念，主张受 AI 系统影响的个人和社区应当有权参与 AI 的开发和治理，并借鉴城市规划中\"城市权利\"理论，构建了一个四层公民参与模型。"
 tags:
   - ICML 2025
-  - AI治理
-  - 参与式设计
-  - AI权利
 ---
 
 # Position: The Right to AI

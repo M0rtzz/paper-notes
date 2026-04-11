@@ -2,9 +2,6 @@
 description: "【论文笔记】R²ec: Towards Large Recommender Models with Reasoning 论文解读 | NeurIPS 2025 | arXiv 2505.16994 | 推荐系统 | 提出R²ec，首个将推理能力内生地集成到推荐模型中的统一大推荐模型，通过双头架构实现推理链生成与高效物品预测的一体化，并设计RecPO强化学习框架在无推理标注数据下联合优化推理与推荐目标。"
 tags:
   - NeurIPS 2025
-  - 推荐系统
-  - 大语言模型推理
-  - 强化学习
 ---
 
 # R²ec: Towards Large Recommender Models with Reasoning

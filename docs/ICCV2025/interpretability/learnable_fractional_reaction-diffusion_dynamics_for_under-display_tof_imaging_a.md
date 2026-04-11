@@ -2,9 +2,6 @@
 description: "【论文笔记】Learnable Fractional Reaction-Diffusion Dynamics for Under-Display ToF Imaging and Beyond 论文解读 | ICCV 2025 | arXiv 2511.01704 | 屏下ToF成像 | LFRD² 提出一种混合框架，将可学习的时间分数阶反应-扩散方程与神经网络结合，用于屏下 ToF（UD-ToF）深度图恢复。通过分数阶微积分捕获迭代过程中的长期记忆依赖，并引入高效的连续卷积算子替代离散卷积，在 UD-ToF 深度恢复、ToF 去噪和深度超分辨率任务上均取得最优性能。"
 tags:
   - ICCV 2025
-  - 屏下ToF成像
-  - 分数阶反应-扩散
-  - 连续卷积
 ---
 
 # Learnable Fractional Reaction-Diffusion Dynamics for Under-Display ToF Imaging and Beyond

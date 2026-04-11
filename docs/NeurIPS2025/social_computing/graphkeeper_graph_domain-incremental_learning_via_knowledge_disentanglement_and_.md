@@ -2,9 +2,6 @@
 description: "【论文笔记】GraphKeeper: Graph Domain-Incremental Learning via Knowledge Disentanglement and Preservation 论文解读 | NeurIPS 2025 | arXiv 2511.00097 | 图增量学习 | 提出 GraphKeeper 框架应对**图域增量学习（Graph Domain-IL）**中的灾难性遗忘，通过域特异性 LoRA 参数隔离 + 领域内/间解耦 + 基于岭回归的无偏差知识保存三组件，比次优方法提升 6.5%-16.6%，且可无缝集成图基础模型。"
 tags:
   - NeurIPS 2025
-  - 图增量学习
-  - 域增量学习
-  - LoRA
 ---
 
 # GraphKeeper: Graph Domain-Incremental Learning via Knowledge Disentanglement and Preservation

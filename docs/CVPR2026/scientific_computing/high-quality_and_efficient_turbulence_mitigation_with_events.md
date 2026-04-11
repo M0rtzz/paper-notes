@@ -2,9 +2,6 @@
 description: "【论文笔记】EHETM: High-Quality and Efficient Turbulence Mitigation with Events 论文解读 | CVPR 2026 | arXiv 2603.20708 | 大气湍流缓解 | 提出EHETM，首次利用事件相机的微秒时间分辨率突破传统多帧湍流缓解(TM)方法的精度-效率瓶颈，发现两个关键物理现象——湍流诱导事件的极性交替与清晰梯度相关、动态物体形成时空相干\"事件管\"——设计极性加权梯度和事件管约束两个互补模块，数据开销降低77.3%、系统延迟降低89.5%，尤其在动态物体场景显著超越SOTA。"
 tags:
   - CVPR 2026
-  - 大气湍流缓解
-  - 事件相机
-  - 极性加权梯度
 ---
 
 # EHETM: High-Quality and Efficient Turbulence Mitigation with Events

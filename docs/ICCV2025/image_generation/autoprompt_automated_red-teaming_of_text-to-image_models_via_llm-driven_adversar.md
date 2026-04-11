@@ -2,9 +2,6 @@
 description: "【论文笔记】AutoPrompt: Automated Red-Teaming of Text-to-Image Models via LLM-Driven Adversarial Prompts 论文解读 | ICCV 2025 | arXiv 2510.24034 | Red-Teaming | 本文提出APT（AutoPrompT），一种基于LLM的黑盒红队测试框架，通过\"优化-微调\"交替训练管线和双规避策略，自动生成可被人类阅读且不被内容过滤器拦截的对抗性后缀，有效突破T2I模型的安全机制，并具有零样本跨提示迁移能力。"
 tags:
   - ICCV 2025
-  - Red-Teaming
-  - Text-to-Image
-  - Adversarial Prompts
   - 提示学习
 ---
 

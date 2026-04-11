@@ -2,9 +2,6 @@
 description: "【论文笔记】Importance Sampling for Nonlinear Models 论文解读 | ICML2025 | arXiv 2505.12353 | importance sampling | 通过引入非线性映射的伴随算子（adjoint operator），将线性模型中经典的范数采样和杠杆分数采样系统性地推广到非线性模型，首次为神经网络等非线性模型的重要性采样提供了理论近似保证。"
 tags:
   - ICML2025
-  - importance sampling
-  - nonlinear adjoint
-  - leverage scores
 ---
 
 # Importance Sampling for Nonlinear Models

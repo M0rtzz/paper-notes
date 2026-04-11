@@ -2,9 +2,6 @@
 description: "【论文笔记】Vocabulary Customization for Efficient Domain-Specific LLM Deployment 论文解读 | NEURIPS2025 | arXiv 2509.26124 | vocabulary extension | 提出一种保证不增加任何输入 token 数的词表扩展算法，通过向预训练 LLM 的 tokenizer 添加领域特定 token，在电商场景实现输入序列缩短 20%、推理吞吐量提升 20-30%，且不损失模型质量。"
 tags:
   - NEURIPS2025
-  - vocabulary extension
-  - tokenizer
-  - domain adaptation
   - 域适应
 ---
 

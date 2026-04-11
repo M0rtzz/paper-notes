@@ -2,9 +2,6 @@
 description: "【论文笔记】Doctor Approved: Generating Medically Accurate Skin Disease Images through AI-Expert Feedback 论文解读 | NeurIPS 2025 | arXiv 2506.12323 | 医学图像生成 | 提出 MAGIC 框架，通过将皮肤科专家定义的临床检查清单转化为 MLLM（如 GPT-4o）可执行的评估反馈，利用 DPO 或奖励模型微调扩散模型，生成临床准确的皮肤病图像用于数据增强，在 20 类皮肤病分类任务上提升 +9.02%，少样本场景提升 +13.89%。"
 tags:
   - NeurIPS 2025
-  - 医学图像生成
-  - 扩散模型
-  - DPO
 ---
 
 # Doctor Approved: Generating Medically Accurate Skin Disease Images through AI-Expert Feedback

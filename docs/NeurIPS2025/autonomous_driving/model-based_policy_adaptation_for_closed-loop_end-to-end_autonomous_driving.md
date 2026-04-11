@@ -2,9 +2,6 @@
 description: "【论文笔记】Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving 论文解读 | NeurIPS 2025 | arXiv 2511.21584 | 端到端自动驾驶 | 提出 MPA 框架，通过 3DGS 仿真生成反事实轨迹数据，训练扩散策略适配器和多原则 Q 值模型，在推理时引导预训练 E2E 驾驶模型提升闭环场景下的安全性和泛化能力。"
 tags:
   - NeurIPS 2025
-  - 端到端自动驾驶
-  - 闭环评估
-  - 反事实数据
 ---
 
 # Model-Based Policy Adaptation for Closed-Loop End-to-End Autonomous Driving

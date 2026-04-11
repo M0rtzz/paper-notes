@@ -2,9 +2,6 @@
 description: "【论文笔记】MesaTask: Towards Task-Driven Tabletop Scene Generation via 3D Spatial Reasoning 论文解读 | NeurIPS 2025 | arXiv 2509.22281 | 桌面场景生成 | 提出 MesaTask 框架，通过 Spatial Reasoning Chain 将任务描述分解为对象推理→空间关系推理→场景图构建→3D 布局，结合 10K+ 人工标注数据集和 DPO 优化，生成物理合理且任务对齐的桌面操控场景。"
 tags:
   - NeurIPS 2025
-  - 桌面场景生成
-  - 空间推理链
-  - LLM场景生成
 ---
 
 # MesaTask: Towards Task-Driven Tabletop Scene Generation via 3D Spatial Reasoning

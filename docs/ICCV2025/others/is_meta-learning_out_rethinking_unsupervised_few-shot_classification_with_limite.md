@@ -2,9 +2,6 @@
 description: "【论文笔记】Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy 论文解读 | ICCV 2025 | arXiv 2509.13185 | 元学习 | 本文通过提出\"熵受限监督设定\"建立了元学习与全类训练（WCT）的公平比较框架，从理论上证明了元学习有更紧的泛化界，并揭示了其对标签噪声更鲁棒、更适合异构任务的特性，据此提出 MINO 框架在无监督少样本和零样本任务上取得了 SOTA。"
 tags:
   - ICCV 2025
-  - 元学习
-  - 少样本分类
-  - 无监督学习
 ---
 
 # Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy

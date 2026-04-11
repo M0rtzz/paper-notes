@@ -2,7 +2,6 @@
 description: "【论文笔记】Upcycling Instruction Tuning from Dense to Mixture-of-Experts via Parameter Merging 论文解读 | ACL 2025 | arXiv 2410.01610 | Mixture-of-Experts、Upcycling、参数合并、专家多样性、路由初始化 | 本文提出UpIT (Upcycling Instruction Tuning)，利用密集模型指令微调过程中的中间checkpoint作为专业化专家，通过遗传算法扩展专家数量和路由预优化，实现数据高效且灵活的dense-to-MoE转换。"
 tags:
   - ACL 2025
-  - Mixture-of-Experts、Upcycling、参数合并、专家多样性、路由初始化
 ---
 
 # Upcycling Instruction Tuning from Dense to Mixture-of-Experts via Parameter Merging

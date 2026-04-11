@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Bradley-Terry Models: A General Preference Model for Language Model Alignment 论文解读 | ICML 2025 | arXiv 2410.02197 | 偏好建模 | 提出偏好嵌入（Preference Embedding）——将响应嵌入到多维潜空间中捕捉复杂偏好结构（包括不可传递偏好），实现 $O(K)$ 的查询复杂度（与 BT 模型相同但表达力更强），配合 General Preference Optimization (GPO) 在 RewardBench 和 AlpacaEval2.0 上超越 BT 奖励模型。"
 tags:
   - ICML 2025
-  - 偏好建模
-  - Bradley-Terry
-  - 偏好嵌入
 ---
 
 # Beyond Bradley-Terry Models: A General Preference Model for Language Model Alignment

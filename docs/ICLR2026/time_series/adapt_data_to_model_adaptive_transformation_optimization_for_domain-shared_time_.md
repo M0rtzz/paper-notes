@@ -2,9 +2,6 @@
 description: "【论文笔记】Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models 论文解读 | ICLR 2026 | arXiv 2603.00629 | 时间序列基础模型 | 提出TATO框架，通过自动优化数据预处理 pipeline（包括上下文裁切、尺度归一化、异常值校正），让冻结的大型时序模型（LTM）在不微调的情况下适配不同下游领域，平均降低MSE 13.6%，最高65.4%。"
 tags:
   - ICLR 2026
-  - 时间序列基础模型
-  - 数据变换优化
-  - 零样本预测
 ---
 
 # Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models

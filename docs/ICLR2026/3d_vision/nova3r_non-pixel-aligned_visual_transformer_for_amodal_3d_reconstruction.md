@@ -2,9 +2,6 @@
 description: "【论文笔记】NOVA3R: Non-pixel-aligned Visual Transformer for Amodal 3D Reconstruction 论文解读 | ICLR 2026 | arXiv 2603.04179 | 非像素对齐 | 提出NOVA3R——从无位姿图像进行非像素对齐的完整3D重建：用可学习场景token跨视角聚合全局信息 + 基于flow-matching的扩散3D解码器生成完整(含遮挡区域)的点云，解决像素对齐方法只能重建可见面且重叠区域有冗余几何的两大根本限制，在SCRREAM/GSO等数据集上场景级和物体级重建均超越SOTA。"
 tags:
   - ICLR 2026
-  - 非像素对齐
-  - amodal 3D重建
-  - 场景token
 ---
 
 # NOVA3R: Non-pixel-aligned Visual Transformer for Amodal 3D Reconstruction

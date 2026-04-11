@@ -2,9 +2,6 @@
 description: "【论文笔记】R1-Onevision: Advancing Generalized Multimodal Reasoning through Cross-Modal Formalization 论文解读 | ICCV 2025 | arXiv 2503.10615 | 多模态推理 | 提出 R1-Onevision，通过跨模态推理管线将图像转换为形式化文本表示，结合 SFT + 基于规则的强化学习（GRPO）的两阶段后训练策略，显著提升视觉语言模型的多模态推理能力，在多个数学推理基准上超越 GPT-4o。"
 tags:
   - ICCV 2025
-  - 多模态推理
-  - 跨模态形式化
-  - 强化学习
 ---
 
 # R1-Onevision: Advancing Generalized Multimodal Reasoning through Cross-Modal Formalization

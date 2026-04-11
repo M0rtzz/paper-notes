@@ -2,9 +2,6 @@
 description: "【论文笔记】Minerva: Evaluating Complex Video Reasoning 论文解读 | ICCV 2025 | arXiv 2505.00681 | 视频推理 | 提出 Minerva——一个包含 1515 个手工标注的复杂视频推理问答数据集，每题配有 5 个选项和详细推理链（reasoning trace），用于评估多模态大模型的视频推理能力，并建立了视频推理错误分类体系（Temporal/Perceptual/Logical/Completeness）和 MiRA 自动评估框架。"
 tags:
   - ICCV 2025
-  - 视频推理
-  - 推理链评估
-  - 视频问答
 ---
 
 # Minerva: Evaluating Complex Video Reasoning

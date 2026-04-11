@@ -2,9 +2,6 @@
 description: "【论文笔记】Context is Key: A Benchmark for Forecasting with Essential Textual Information 论文解读 | ICML 2025 | arXiv 2410.18959 | 多模态预测 | 提出 CiK 基准——将数值时间序列与精心设计的文本上下文配对，要求模型必须理解文本才能成功预测，评估统计模型、时序基础模型和 LLM 预测器，发现简单的 LLM 提示方法在需要上下文信息的任务上表现最优。"
 tags:
   - ICML 2025
-  - 多模态预测
-  - 文本上下文
-  - 时间序列基准
 ---
 
 # Context is Key: A Benchmark for Forecasting with Essential Textual Information

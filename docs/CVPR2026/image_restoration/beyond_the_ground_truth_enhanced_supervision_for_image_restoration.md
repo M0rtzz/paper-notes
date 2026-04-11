@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond the Ground Truth: Enhanced Supervision for Image Restoration 论文解读 | CVPR 2026 | arXiv 2512.03932 | 监督增强 | 提出通过超分辨率+频域自适应混合来增强现有数据集中次优GT图像的感知质量，并训练轻量级ORNet精修模块，无需修改预训练修复模型即可提升输出的感知质量。"
 tags:
   - CVPR 2026
-  - 监督增强
-  - 频域混合
-  - 超分辨率
 ---
 
 # Beyond the Ground Truth: Enhanced Supervision for Image Restoration

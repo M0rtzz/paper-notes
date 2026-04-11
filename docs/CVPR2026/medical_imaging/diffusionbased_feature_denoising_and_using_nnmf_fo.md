@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification 论文解读 | CVPR 2026 | arXiv 2603.13182 | brain tumor classification | 将 MRI 脑肿瘤分类任务分解为 NNMF 特征提取 → 统计特征筛选 → 轻量 CNN 分类 → 特征空间扩散净化四阶段流水线，在 AutoAttack 下将鲁棒精度从基线 0.5% 提升到 59.5%。"
 tags:
   - CVPR 2026
-  - brain tumor classification
-  - NNMF
-  - diffusion-based defense
   - 扩散模型
 ---
 

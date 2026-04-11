@@ -2,9 +2,6 @@
 description: "【论文笔记】A Survey on Foundation Language Models for Single-cell Biology 论文解读 | ACL 2025 (Long Paper) | single-cell biology | 首篇从语言建模视角系统综述单细胞生物学基础语言模型的工作，将现有模型划分为 PLM（从头预训练）和 LLM（利用已有大模型）两大类，全面分析了数据 tokenization 策略、预训练/微调范式以及下游任务。"
 tags:
   - ACL 2025 (Long Paper)
-  - single-cell biology
-  - foundation language model
-  - pre-trained language model
 ---
 
 # A Survey on Foundation Language Models for Single-cell Biology

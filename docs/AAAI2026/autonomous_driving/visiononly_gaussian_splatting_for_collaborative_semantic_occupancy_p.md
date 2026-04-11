@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction (Oral) 论文解读 | AAAI 2026 | arXiv 2508.10936 | Collaborative Perception | 首次将 3D 高斯 Splatting 作为多智能体协同感知的通信媒介和中间表征，利用高斯基元的刚体变换可解析性和稀疏性，通过高斯打包（ROI 裁剪+刚体变换）和跨智能体邻域融合模块，实现了高效且可解释的视觉协同语义占用预测。"
 tags:
   - AAAI 2026
-  - Collaborative Perception
-  - 3D Gaussian Splatting
-  - Semantic Occupancy
 ---
 
 # Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction (Oral)

@@ -2,9 +2,6 @@
 description: "【论文笔记】Deep Hierarchical Learning with Nested Subspace Networks for Large Language Models 论文解读 | ICLR 2026 | arXiv 2509.17874 | 嵌套子空间 | 提出嵌套子空间网络（NSN），通过低秩分解使线性层形成严格嵌套的子空间层次，配合不确定性感知多秩训练，使单个模型在测试时可即时调节计算量与性能的权衡（50% FLOPs 减少仅损失 5% 精度），且可后验应用于预训练 LLM。"
 tags:
   - ICLR 2026
-  - 嵌套子空间
-  - 动态推理
-  - 低秩分解
 ---
 
 # Deep Hierarchical Learning with Nested Subspace Networks for Large Language Models

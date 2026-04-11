@@ -2,9 +2,6 @@
 description: "【论文笔记】High Resolution UDF Meshing via Iterative Networks 论文解读 | NeurIPS 2025 | arXiv 2509.17212 | 无符号距离场 | 本文提出首个针对无符号距离场（UDF）的迭代式网格化方法，通过多轮次前向传播逐步将邻域信息传播到局部体素的伪符号预测中，有效解决了高分辨率下神经 UDF 噪声导致的表面空洞和不连续问题，在多个数据集上显著优于现有单遍方法。"
 tags:
   - NeurIPS 2025
-  - 无符号距离场
-  - 网格化
-  - 迭代网络
 ---
 
 # High Resolution UDF Meshing via Iterative Networks

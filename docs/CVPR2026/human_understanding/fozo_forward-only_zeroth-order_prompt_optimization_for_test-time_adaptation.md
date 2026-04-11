@@ -2,9 +2,6 @@
 description: "【论文笔记】FOZO: Forward-Only Zeroth-Order Prompt Optimization for Test-Time Adaptation 论文解读 | CVPR2026 | arXiv 2603.04733 | Test-Time Adaptation | 提出 FOZO，一种仅需前向传播的零阶 prompt 优化范式，通过 SPSA 梯度估计 + 动态扰动策略 + 深浅层特征统计对齐，在不修改模型权重的情况下实现高效 TTA，在 ImageNet-C 上以 59.52% 准确率超越所有前向方法（含 FOA 58.13%），并支持 INT8 量化模型。"
 tags:
   - CVPR2026
-  - Test-Time Adaptation
-  - 零阶优化
-  - Visual Prompt
   - 提示学习
 ---
 

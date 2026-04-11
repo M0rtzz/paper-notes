@@ -2,9 +2,6 @@
 description: "【论文笔记】An Empirical Study of Many-to-Many Summarization with Large Language Models 论文解读 | ACL 2025 | arXiv 2505.12983 | many-to-many summarization | 首次系统研究LLM在多对多摘要（M2MS）任务上的表现，整合8个数据集构建涵盖5个领域6种语言的47.8K样本基准，评测18个LLM发现零样本LLM可媲美微调传统模型，指令微调后显著超越，但事实性问题仍是关键瓶颈。"
 tags:
   - ACL 2025
-  - many-to-many summarization
-  - multilingual
-  - LLM
 ---
 
 # An Empirical Study of Many-to-Many Summarization with Large Language Models

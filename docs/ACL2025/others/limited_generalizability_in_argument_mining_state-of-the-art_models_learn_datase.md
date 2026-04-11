@@ -2,9 +2,7 @@
 description: "【论文笔记】Limited Generalizability in Argument Mining: State-Of-The-Art Models Learn Datasets, Not Arguments 论文解读 | ACL 2025 | arXiv 2505.22137 | argument mining | 对 4 种 Transformer 模型在 17 个英语句子级论辩挖掘数据集上进行首次大规模跨数据集泛化评估，发现 SOTA 模型主要学到了数据集特有的词汇模式而非论辩的结构性信号，泛化能力远低于基准表现，但任务相关预训练和联合数据训练可部分缓解这一问题。"
 tags:
   - ACL 2025
-  - argument mining
-  - generalization
-  - shortcut learning
+  - Transformer
 ---
 
 # Limited Generalizability in Argument Mining: State-Of-The-Art Models Learn Datasets, Not Arguments

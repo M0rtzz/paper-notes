@@ -2,10 +2,7 @@
 description: "【论文笔记】SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design 论文解读 | ICRA 2026 (arXiv标注为CVPR2026列表) | arXiv 2603.13098 | CAD generation | 构建SldprtNet——含242K+工业CAD零件的大规模多模态数据集，每个样本包含.sldprt/.step模型、7视角合成图、参数化建模脚本(13种命令无损编解码)和Qwen2.5-VL生成的自然语言描述，baseline实验验证多模态输入(图+文)在CAD生成上优于纯文本输入。"
 tags:
   - ICRA 2026 (arXiv标注为CVPR2026列表)
-  - CAD generation
-  - multimodal dataset
   - 多模态
-  - parametric modeling
 ---
 
 # SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design

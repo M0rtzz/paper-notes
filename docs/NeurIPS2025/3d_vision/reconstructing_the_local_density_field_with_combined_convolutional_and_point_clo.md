@@ -2,9 +2,6 @@
 description: "【论文笔记】Reconstructing the Local Density Field with Combined Convolutional and Point Cloud Architecture 论文解读 | NeurIPS 2025 (ML4PS Workshop) | arXiv 2510.08573 | 暗物质密度场重建 | 提出一种混合卷积（U-Net）与点云（DeepSets）的神经网络架构，用于从暗物质晕的视线方向特异速度重建局部暗物质密度场，在小尺度上显著优于纯卷积和线性重建方法。"
 tags:
   - NeurIPS 2025 (ML4PS Workshop)
-  - 暗物质密度场重建
-  - U-Net
-  - DeepSets
 ---
 
 # Reconstructing the Local Density Field with Combined Convolutional and Point Cloud Architecture

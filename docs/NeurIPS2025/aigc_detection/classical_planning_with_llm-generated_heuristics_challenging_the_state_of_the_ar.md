@@ -2,9 +2,6 @@
 description: "【论文笔记】Classical Planning with LLM-Generated Heuristics: Challenging the State of the Art with Python Code 论文解读 | NeurIPS 2025 | arXiv 2503.18809 | 经典规划 | 让 LLM 为经典规划问题生成 Python 启发式函数代码，从 n 个候选中选最优，在 IPC 2023 基准上用纯 Python 规划器超越了 C++ 实现的 SOTA 启发式（如 hFF），且保证所有计划正确。"
 tags:
   - NeurIPS 2025
-  - 经典规划
-  - LLM代码生成
-  - 启发式函数
 ---
 
 # Classical Planning with LLM-Generated Heuristics: Challenging the State of the Art with Python Code

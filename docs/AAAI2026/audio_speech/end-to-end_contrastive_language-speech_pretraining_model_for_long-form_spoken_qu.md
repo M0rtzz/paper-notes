@@ -2,10 +2,7 @@
 description: "【论文笔记】End-to-end Contrastive Language-Speech Pretraining Model For Long-form Spoken Question Answering 论文解读 | AAAI2026 | arXiv 2511.09282 | Spoken Question Answering | 提出 CLSR，一种端到端对比式语言-语音检索器，通过将声学表示先转换为 text-like representation 再与文本对齐，高效地从长音频中提取与问题相关的片段，为下游 LALM 的长语音问答提供 RAG 支持。"
 tags:
   - AAAI2026
-  - Spoken Question Answering
-  - Contrastive Learning
   - 对比学习
-  - Retrieval-Augmented Generation
 ---
 
 # End-to-end Contrastive Language-Speech Pretraining Model For Long-form Spoken Question Answering

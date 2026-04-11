@@ -2,9 +2,6 @@
 description: "【论文笔记】Awes, Laws, and Flaws From Today's LLM Research 论文解读 | ACL 2025 | arXiv 2408.15409 | 科学方法论 | 对 2020-2024 年 2000+ 篇 LLM 相关论文进行科学方法论的系统批判——基于统计检验/可复现性/伦理声明等标准评估研究质量，发现多种趋势：伦理声明减少、LLM 作为评估器增多、无人工评估的推理能力声称增多、统计严谨性下降，但会议检查清单（如 ACL 强制 limitations 章节）确实有效缓解部分问题。"
 tags:
   - ACL 2025
-  - 科学方法论
-  - LLM研究
-  - 可复现性
 ---
 
 # Awes, Laws, and Flaws From Today's LLM Research

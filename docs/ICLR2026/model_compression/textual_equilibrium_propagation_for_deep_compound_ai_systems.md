@@ -2,9 +2,6 @@
 description: "【论文笔记】Textual Equilibrium Propagation for Deep Compound AI Systems 论文解读 | ICLR 2026 | arXiv 2601.21064 | 复合AI系统 | 提出文本平衡传播（TEP），一种基于局部学习原理的复合AI系统优化方法，通过自由阶段和微扰阶段的两阶段设计，避免全局文本反向传播中的梯度爆炸/消失问题，在深层工作流上显著优于 TextGrad。"
 tags:
   - ICLR 2026
-  - 复合AI系统
-  - 文本梯度
-  - 平衡传播
 ---
 
 # Textual Equilibrium Propagation for Deep Compound AI Systems

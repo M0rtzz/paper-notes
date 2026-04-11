@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems 论文解读 | NeurIPS 2025 | arXiv 2505.08909 | Plug-and-Play | 提出共循环保守(CoCo)去噪器概念，通过广义Helmholtz分解设计新的训练策略——Hamiltonian正则化促进保守性 + 谱正则化促进共循环性——使去噪器成为隐式弱凸先验的近端算子，从而在Poisson逆问题（光子受限去卷积、低剂量CT等）中实现有收敛保证且性能优越的PnP方法。"
 tags:
   - NeurIPS 2025
-  - Plug-and-Play
-  - Poisson逆问题
-  - 共循环去噪器
 ---
 
 # Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems

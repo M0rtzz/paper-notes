@@ -2,10 +2,7 @@
 description: "【论文笔记】Breaking AR's Sampling Bottleneck: Provable Acceleration via Diffusion Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.21400 | 扩散模型 diffusion language model | 从信息论角度为扩散语言模型建立收敛保证，证明采样误差（KL散度）随迭代次数T成反比衰减且与token间互信息线性相关，关键证明了T<L（迭代次数可少于序列长度L）时仍可生成高质量样本，从理论上打破了自回归模型需要L步的基本采样瓶颈，并建立了匹配的上下界证明分析的紧致性。"
 tags:
   - NeurIPS 2025
-  - diffusion language model
   - 扩散模型
-  - autoregressive bottleneck
-  - 收敛保证
 ---
 
 # Breaking AR's Sampling Bottleneck: Provable Acceleration via Diffusion Language Models

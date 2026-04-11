@@ -2,9 +2,6 @@
 description: "【论文笔记】Back on Track: Bundle Adjustment for Dynamic Scene Reconstruction 论文解读 | ICCV 2025 (Oral) | arXiv 2504.14516 | 束调整(Bundle Adjustment) | 提出BA-Track框架，通过学习型3D点追踪器将观测到的运动解耦为相机引起的运动和物体自身运动，使传统束调整(BA)能够无差别地处理静态和动态点，在相机位姿估计(ATE在Sintel上达到0.034，较SOTA降低一半以上)和稠密3D重建上取得显著提升。"
 tags:
   - ICCV 2025 (Oral)
-  - 束调整(Bundle Adjustment)
-  - 动态场景重建
-  - 运动解耦
 ---
 
 # Back on Track: Bundle Adjustment for Dynamic Scene Reconstruction

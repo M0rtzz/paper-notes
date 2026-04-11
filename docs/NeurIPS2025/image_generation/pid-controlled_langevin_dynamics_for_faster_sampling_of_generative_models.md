@@ -2,9 +2,6 @@
 description: "【论文笔记】PID-controlled Langevin Dynamics for Faster Sampling of Generative Models 论文解读 | NeurIPS 2025 | arXiv 2511.12603 | Langevin 动力学 | 将 PID 控制理论引入 Langevin 动力学采样，利用梯度历史（积分项）提供动量穿越能量壁垒、利用梯度趋势（微分项）抑制振荡实现快速稳定收敛，无需额外训练即可在 SGM 和 EBM 上实现 10 倍以上采样加速。"
 tags:
   - NeurIPS 2025
-  - Langevin 动力学
-  - PID 控制
-  - 采样加速
 ---
 
 # PID-controlled Langevin Dynamics for Faster Sampling of Generative Models

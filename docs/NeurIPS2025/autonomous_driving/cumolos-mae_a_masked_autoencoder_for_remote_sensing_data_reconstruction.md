@@ -2,9 +2,6 @@
 description: "【论文笔记】CuMoLoS-MAE: A Masked Autoencoder for Remote Sensing Data Reconstruction 论文解读 | NEURIPS2025 | arXiv 2508.14957 | Masked Autoencoder | 提出 CuMoLoS-MAE，一种结合课程掩码策略和 Monte Carlo 随机集成的 Masked Autoencoder，用于遥感大气廓线数据的高保真重建与逐像素不确定性量化。"
 tags:
   - NEURIPS2025
-  - Masked Autoencoder
-  - 遥感数据重建
-  - 不确定性量化
 ---
 
 # CuMoLoS-MAE: A Masked Autoencoder for Remote Sensing Data Reconstruction

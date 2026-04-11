@@ -2,9 +2,6 @@
 description: "【论文笔记】AirDDE: Multifactor Neural Delay Differential Equations for Air Quality Forecasting 论文解读 | AAAI2026 | arXiv 2603.17529 | air quality forecasting | 首个将神经延迟微分方程（NDDE）引入空气质量预测的框架，通过记忆增强注意力模块和物理引导的延迟演化函数，对污染物连续时间传播中的延迟效应进行建模，在三个数据集上平均 MAE 降低 8.79%。"
 tags:
   - AAAI2026
-  - air quality forecasting
-  - neural delay differential equations
-  - physics-guided
 ---
 
 # AirDDE: Multifactor Neural Delay Differential Equations for Air Quality Forecasting

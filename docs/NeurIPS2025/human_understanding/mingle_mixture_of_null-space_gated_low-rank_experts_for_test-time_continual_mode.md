@@ -2,9 +2,6 @@
 description: "【论文笔记】Mingle: Mixture of Null-Space Gated Low-Rank Experts for Test-Time Continual Model Merging 论文解读 | NeurIPS 2025 | arXiv 2505.11883 | 持续学习 | 提出测试时持续模型合并(TTCMM)新范式及Mingle框架，通过低秩专家混合架构和自适应零空间约束门控机制，在测试时利用少量无标签样本实现模型动态合并，在多个基准上以7-9%的优势超越SOTA，同时将遗忘降至接近零。"
 tags:
   - NeurIPS 2025
-  - 持续学习
-  - 模型合并
-  - 测试时适应
 ---
 
 # Mingle: Mixture of Null-Space Gated Low-Rank Experts for Test-Time Continual Model Merging

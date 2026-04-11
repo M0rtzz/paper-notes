@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Chromosome Parallelization for Precision Medicine Genomic Workflows 论文解读 | AAAI 2026 | arXiv 2511.15977 | 基因组工作流 | 提出三种互补的染色体级基因组并行化调度方案——静态调度（优化处理顺序）、动态调度（背包问题式批处理+在线RAM预测）和符号回归RAM预测器，在模拟和真实精准医学流水线中显著降低了内存溢出和执行时间。"
 tags:
   - AAAI 2026
-  - 基因组工作流
-  - 染色体并行化
-  - RAM预测
 ---
 
 # Efficient Chromosome Parallelization for Precision Medicine Genomic Workflows

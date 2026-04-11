@@ -2,9 +2,6 @@
 description: "【论文笔记】Opinion: Towards Unified Expressive Policy Optimization for Robust Robot Learning 论文解读 | NeurIPS 2025 | arXiv 2511.10087 | 离线到在线 RL | 提出 UEPO 框架，通过多种子动力学感知扩散策略、动态分歧正则化和基于扩散的数据增强三大核心组件，解决离线到在线强化学习中多模态行为覆盖不足和分布偏移问题，在 D4RL 基准上超越 Uni-O4。"
 tags:
   - NeurIPS 2025
-  - 离线到在线 RL
-  - 扩散策略
-  - 策略多样性
 ---
 
 # Opinion: Towards Unified Expressive Policy Optimization for Robust Robot Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Proactive Scene Decomposition and Reconstruction 论文解读 | ICCV 2025 | arXiv 2510.16272 | 动态SLAM | 提出基于主动人-物交互的在线场景分解与重建任务,通过观察自我中心视角下的交互行为来定义分解粒度,实现渐进式对象解耦和高质量全局重建。"
 tags:
   - ICCV 2025
-  - 动态SLAM
-  - 场景分解
-  - 人-物交互
 ---
 
 # Proactive Scene Decomposition and Reconstruction

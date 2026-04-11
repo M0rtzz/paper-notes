@@ -2,9 +2,6 @@
 description: "【论文笔记】Training Turn-by-Turn Verifiers for Dialogue Tutoring Agents: The Curious Case of LLMs as Your Coding Tutors 论文解读 | ACL 2025 | arXiv 2502.13311 | dialogue tutoring | 提出 **Traver**（Trace-and-Verify）agent 工作流，通过**知识追踪**显式估计学生知识状态 + **逐轮验证器**（turn-by-turn verifier）对候选辅导话语打分选优，并设计 **Dict** 自动评估协议（模拟学生 + 代码生成测试），在编程辅导场景中将学生 Pass 率从 38.7% 提升至 43.7%（相对提升 106.5%），显著超越 Vanilla Instruct、Self-Refine 和 TreeInstruct。"
 tags:
   - ACL 2025
-  - dialogue tutoring
-  - coding tutor
-  - knowledge tracing
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】The Structure of Relation Decoding Linear Operators in Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.26543 | 线性关系解码 | 揭示 Transformer 语言模型中的线性关系解码器（LRE）并非编码细粒度关系，而是提取共享的粗粒度语义属性（如\"国家\"、\"性别\"），并利用阶-3 张量网络将大量关系解码矩阵压缩数个数量级。"
 tags:
   - NeurIPS 2025
-  - 线性关系解码
-  - 张量网络
-  - 知识压缩
 ---
 
 # The Structure of Relation Decoding Linear Operators in Large Language Models

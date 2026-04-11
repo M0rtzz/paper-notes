@@ -2,10 +2,7 @@
 description: "【论文笔记】NeuroGaze-Distill: Brain-informed Distillation and Depression-Inspired Geometric Priors for Robust Facial Emotion Recognition 论文解读 | ICLR 2026 | arXiv 2509.11916 | facial emotion recognition | 提出 NeuroGaze-Distill 跨模态蒸馏框架：从 EEG 脑电训练的教师模型中提取静态 Valence-Arousal 原型，通过 Proto-KD 和抑郁症启发的几何先验（D-Geo）注入纯视觉学生模型，无需 EEG-人脸配对数据，提升表情识别的跨数据集鲁棒性。"
 tags:
   - ICLR 2026
-  - facial emotion recognition
-  - knowledge distillation
   - 知识蒸馏
-  - EEG prototypes
 ---
 
 # NeuroGaze-Distill: Brain-informed Distillation and Depression-Inspired Geometric Priors for Robust Facial Emotion Recognition

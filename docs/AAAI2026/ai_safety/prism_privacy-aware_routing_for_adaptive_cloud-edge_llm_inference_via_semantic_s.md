@@ -2,9 +2,6 @@
 description: "【论文笔记】PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration 论文解读 | AAAI 2026 | arXiv 2511.22788 | 隐私保护 | 提出 PRISM 框架，通过上下文感知的软门控路由机制将用户 prompt 动态分配到云端/边缘/协作三种推理模式，并在协作模式中使用自适应两层本地差分隐私（LDP）和语义草图协作，实现隐私-效用-效率的三方平衡。"
 tags:
   - AAAI 2026
-  - 隐私保护
-  - 云边协同推理
-  - LLM隐私
 ---
 
 # PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration

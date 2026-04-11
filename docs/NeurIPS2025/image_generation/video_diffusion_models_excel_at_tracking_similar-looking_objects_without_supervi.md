@@ -2,9 +2,6 @@
 description: "【论文笔记】Video Diffusion Models Excel at Tracking Similar-Looking Objects Without Supervision 论文解读 | NeurIPS 2025 | arXiv 2512.02339 | 视频扩散模型 | 本文发现预训练视频扩散模型在高噪声去噪阶段内在地学到了运动表征，无需任何跟踪专用训练即可用于跟踪外观相似的物体，提出的 TED 方法在 DAVIS 等基准上以最高 6% 的改进超越了 17 种自监督方法。"
 tags:
   - NeurIPS 2025
-  - 视频扩散模型
-  - 自监督跟踪
-  - 运动表征
 ---
 
 # Video Diffusion Models Excel at Tracking Similar-Looking Objects Without Supervision

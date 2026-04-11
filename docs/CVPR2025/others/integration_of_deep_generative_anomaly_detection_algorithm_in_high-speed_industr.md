@@ -2,9 +2,7 @@
 description: "【论文笔记】Integration of deep generative Anomaly Detection algorithm in high-speed industrial line 论文解读 | CVPR2025 | arXiv 2603.07577 | Anomaly Detection | 基于 GAN + 残差自编码器（DRAE）的半监督异常检测框架，在制药 BFS 高速产线上实现了仅用正常样本训练、单 patch 推理 0.17ms 的实时在线质检部署，通过 Perlin 噪声增强和 Noise Loss 优化重建质量。"
 tags:
   - CVPR2025
-  - Anomaly Detection
   - GAN
-  - 残差自编码器
 ---
 
 # Integration of deep generative Anomaly Detection algorithm in high-speed industrial line

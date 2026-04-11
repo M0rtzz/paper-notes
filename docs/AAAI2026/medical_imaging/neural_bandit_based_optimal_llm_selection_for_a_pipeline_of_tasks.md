@@ -2,9 +2,6 @@
 description: "【论文笔记】Neural Bandit Based Optimal LLM Selection for a Pipeline of Tasks 论文解读 | AAAI 2026 | arXiv 2508.09958 | LLM选择 | 提出 Sequential Bandits 算法，一种基于神经上下文多臂老虎机的在线学习方法，用于在任务流水线（如\"摘要→诊断\"）中为每个子任务选择最优 LLM，同时优化准确率和成本，在医学诊断和电信问答两个流水线任务上优于现有 bandit 基线。"
 tags:
   - AAAI 2026
-  - LLM选择
-  - 多臂老虎机
-  - 神经上下文bandit
 ---
 
 # Neural Bandit Based Optimal LLM Selection for a Pipeline of Tasks

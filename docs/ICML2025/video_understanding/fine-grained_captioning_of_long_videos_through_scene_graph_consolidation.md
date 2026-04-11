@@ -2,9 +2,6 @@
 description: "【论文笔记】Fine-Grained Captioning of Long Videos through Scene Graph Consolidation 论文解读 | ICML 2025 | arXiv 2502.16427 | 长视频描述 | 提出 SGVC 框架，通过将视频各段的文本描述解析为场景图、用 Hungarian 算法迭代合并为统一图表示、再用轻量图到文本解码器生成视频级描述，以极低计算开销实现了超越 LLM-based 方法的零样本长视频描述性能。"
 tags:
   - ICML 2025
-  - 长视频描述
-  - 场景图
-  - 图合并
 ---
 
 # Fine-Grained Captioning of Long Videos through Scene Graph Consolidation

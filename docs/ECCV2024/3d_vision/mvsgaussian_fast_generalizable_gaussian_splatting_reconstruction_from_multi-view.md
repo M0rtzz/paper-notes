@@ -2,9 +2,6 @@
 description: "【论文笔记】MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo 论文解读 | ECCV 2024 | arXiv 2405.12218 | Gaussian Splatting | 将MVS的代价体深度估计与3D高斯溅射结合，通过混合渲染(splatting+volume rendering)提升泛化性，并提出基于多视图几何一致性的点云聚合策略，使per-scene优化仅需45秒就超越3D-GS的10分钟效果。"
 tags:
   - ECCV 2024
-  - Gaussian Splatting
-  - MVS
-  - 泛化重建
 ---
 
 # MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo

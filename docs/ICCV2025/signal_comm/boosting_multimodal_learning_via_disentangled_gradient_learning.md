@@ -2,9 +2,6 @@
 description: "【论文笔记】Boosting Multimodal Learning via Disentangled Gradient Learning 论文解读 | ICCV 2025 | arXiv 2507.10213 | 多模态学习 | 本文揭示了多模态学习中模态编码器和融合模块之间的优化冲突——融合模块会抑制回传到各模态编码器的梯度，导致即使是优势模态也比单模态模型表现差，并提出解耦梯度学习（DGL）框架通过截断融合模块到编码器的梯度并用独立的单模态损失替代来解决此问题。"
 tags:
   - ICCV 2025
-  - 多模态学习
-  - 梯度解耦
-  - 模态欠优化
 ---
 
 # Boosting Multimodal Learning via Disentangled Gradient Learning

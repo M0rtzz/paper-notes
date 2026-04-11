@@ -2,9 +2,6 @@
 description: "【论文笔记】PHASE-Net: Physics-Grounded Harmonic Attention System for Efficient Remote Photoplethysmography Measurement 论文解读 | CVPR 2026 | arXiv 2509.24850 | 远程光电容积脉搏波 | 从 Navier-Stokes 方程出发推导 rPPG 信号的二阶阻尼谐振子模型，证明其离散解等价于因果卷积，为使用 TCN 提供物理理论依据，设计轻量 PHASE-Net 实现 SOTA。"
 tags:
   - CVPR 2026
-  - 远程光电容积脉搏波
-  - 物理信息网络
-  - 时间卷积网络
 ---
 
 # PHASE-Net: Physics-Grounded Harmonic Attention System for Efficient Remote Photoplethysmography Measurement

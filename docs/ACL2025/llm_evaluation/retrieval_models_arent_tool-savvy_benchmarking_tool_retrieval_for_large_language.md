@@ -2,9 +2,6 @@
 description: "【论文笔记】Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models 论文解读 | ACL 2025 | arXiv 2503.01763 | Tool Retrieval | 提出 ToolRet——首个大规模工具检索基准（7.6k 任务 + 43k 工具语料库），系统评估了现有 IR 模型在工具检索场景下的表现，发现即使强力检索器也表现不佳，并贡献了超过 200k 训练实例显著提升检索质量。"
 tags:
   - ACL 2025
-  - Tool Retrieval
-  - Information Retrieval
-  - Tool Learning
 ---
 
 # Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models

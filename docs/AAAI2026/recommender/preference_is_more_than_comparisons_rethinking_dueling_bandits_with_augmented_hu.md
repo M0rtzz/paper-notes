@@ -2,9 +2,6 @@
 description: "【论文笔记】Preference is More Than Comparisons: Rethinking Dueling Bandits with Augmented Human Feedback 论文解读 | AAAI 2026 | arXiv 2511.09047 | Dueling Bandits | 提出一种基于增强人类反馈的无模型Dueling Bandit框架IPEA-HF，通过增强置信界（Augmented Confidence Bounds）集成上下文相似性和依赖关系来校准不确定性，在推荐、多目标优化和LLM响应优化等多个基准上表现优异。"
 tags:
   - AAAI 2026
-  - Dueling Bandits
-  - 偏好引出
-  - 人类反馈增强
 ---
 
 # Preference is More Than Comparisons: Rethinking Dueling Bandits with Augmented Human Feedback

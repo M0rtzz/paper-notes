@@ -2,7 +2,6 @@
 description: "【论文笔记】Attribution as Retrieval: Model-Agnostic AI-Generated Image Attribution 论文解读 | CVPR 2026 | arXiv 2603.10583 | AIGC 归因、实例检索、低位平面指纹、少样本学习、Deepfake 检测 | 将 AI 生成图像归因从分类范式重新定义为实例检索问题，提出 LIDA 框架：利用低位平面提取生成器指纹，通过无监督预训练 + 少样本适配实现开放集归因，在 GenImage 和 WildFake 上全面超越现有方法。"
 tags:
   - CVPR 2026
-  - AIGC 归因、实例检索、低位平面指纹、少样本学习、Deepfake 检测
 ---
 
 # Attribution as Retrieval: Model-Agnostic AI-Generated Image Attribution

@@ -2,9 +2,6 @@
 description: "【论文笔记】Hybrid eTFCE-GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry 论文解读 | CVPR 2025 | arXiv 2603.11344 | TFCE | 将 eTFCE 的并查集精确聚类大小查询与 pTFCE 的解析 GRF p 值推断结合，首次在单一框架中实现精确聚类检索+无需置换检验的统计推断，速度比置换 TFCE 快 1300 倍，在全脑体素形态测量中保持严格 FWER 控制。"
 tags:
   - CVPR 2025
-  - TFCE
-  - 体素形态测量
-  - 高斯随机场
 ---
 
 # Hybrid eTFCE-GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry

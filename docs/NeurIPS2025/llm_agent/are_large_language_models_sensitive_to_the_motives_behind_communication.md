@@ -2,9 +2,6 @@
 description: "【论文笔记】Are Large Language Models Sensitive to the Motives Behind Communication? 论文解读 | NeurIPS 2025 | arXiv 2510.19687 | 动机警觉 | 系统评估 LLM 对通信动机的敏感性（motivational vigilance）——在控制实验中 LLM 能像人类一样折扣有偏见信源的建议（与理性模型相关系数 r>0.78），但在真实场景（YouTube 赞助广告）中表现大幅下降（r<0.2），通过简单的 prompt steering 可部分恢复。"
 tags:
   - NeurIPS 2025
-  - 动机警觉
-  - LLM评估
-  - 社会认知
 ---
 
 # Are Large Language Models Sensitive to the Motives Behind Communication?

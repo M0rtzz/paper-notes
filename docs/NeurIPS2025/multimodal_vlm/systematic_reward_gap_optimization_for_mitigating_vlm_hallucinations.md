@@ -2,9 +2,6 @@
 description: "【论文笔记】Systematic Reward Gap Optimization for Mitigating VLM Hallucinations 论文解读 | NeurIPS 2025 | arXiv 2411.17265 | VLM 幻觉 | 提出 Topic-level Preference Rewriting（TPR），通过 topic 级别的细粒度语义控制系统性优化偏好数据中的 reward gap 配置，结合课程学习策略逐步提高负样本难度，在多个幻觉基准上实现约 93% 的幻觉减少。"
 tags:
   - NeurIPS 2025
-  - VLM 幻觉
-  - DPO
-  - 偏好学习
 ---
 
 # Systematic Reward Gap Optimization for Mitigating VLM Hallucinations

@@ -2,9 +2,6 @@
 description: "【论文笔记】T-Rex-Omni: Integrating Negative Visual Prompt in Generic Object Detection 论文解读 | AAAI 2026 | arXiv 2511.08997 | 开放集检测 | 提出T-Rex-Omni框架，首次将负视觉提示（negative visual prompts）系统性地引入开放集目标检测，通过训练免费的NNC模块和NNH损失，显著缩小了视觉提示和文本提示检测方法之间的性能差距，在长尾场景中表现尤为突出（LVIS-minival APr达到51.2）。"
 tags:
   - AAAI 2026
-  - 开放集检测
-  - 负视觉提示
-  - 长尾识别
 ---
 
 # T-Rex-Omni: Integrating Negative Visual Prompt in Generic Object Detection

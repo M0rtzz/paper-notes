@@ -2,9 +2,6 @@
 description: "【论文笔记】Directional Embedding Smoothing for Robust Vision Language Models 论文解读 | ICLR2026 | arXiv 2603.15259 | VLM safety | 将 RESTA（Randomized Embedding Smoothing and Token Aggregation）防御方法从 LLM 扩展到 VLM，发现方向性嵌入噪声（directional noise）在安全-实用性权衡上显著优于各向同性噪声（isotropic noise），可作为推理时的轻量防御层抵御多模态越狱攻击。"
 tags:
   - ICLR2026
-  - VLM safety
-  - jailbreak defense
-  - randomized smoothing
 ---
 
 # Directional Embedding Smoothing for Robust Vision Language Models

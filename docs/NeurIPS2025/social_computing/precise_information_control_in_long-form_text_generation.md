@@ -2,9 +2,6 @@
 description: "【论文笔记】Precise Information Control in Long-Form Text Generation 论文解读 | NeurIPS 2025 | arXiv 2506.06589 | 精确信息控制 | 提出Precise Information Control (PIC)任务——要求LLM生成的长文严格基于给定声明集合（不遗漏不添加），构建PIC-Bench评测8个任务发现SOTA模型70%以上生成包含忠实性幻觉，通过弱监督偏好数据构建+DPO训练的PIC-LM将8B模型F1从69.1%提升至91.0%。"
 tags:
   - NeurIPS 2025
-  - 精确信息控制
-  - 忠实性幻觉
-  - 可验证声明
 ---
 
 # Precise Information Control in Long-Form Text Generation

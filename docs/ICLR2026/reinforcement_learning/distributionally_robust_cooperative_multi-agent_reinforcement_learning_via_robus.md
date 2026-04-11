@@ -2,9 +2,6 @@
 description: "【论文笔记】Distributionally Robust Cooperative Multi-Agent Reinforcement Learning via Robust Value Factorization 论文解读 | ICLR 2026 | arXiv 2602.11437 | 分布鲁棒优化 | 提出 Distributionally Robust IGM (DrIGM) 原则，将分布鲁棒优化引入协作多智能体 RL 的值分解框架，使得 VDN/QMIX/QTRAN 等经典方法能够在训练环境与部署环境存在分布偏移时仍保持稳健的去中心化执行性能。"
 tags:
   - ICLR 2026
-  - 分布鲁棒优化
-  - 多智能体强化学习
-  - 值分解
 ---
 
 # Distributionally Robust Cooperative Multi-Agent Reinforcement Learning via Robust Value Factorization

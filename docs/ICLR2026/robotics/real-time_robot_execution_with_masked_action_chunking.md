@@ -2,9 +2,6 @@
 description: "【论文笔记】Real-Time Robot Execution with Masked Action Chunking 论文解读 | ICLR 2026 | arXiv 2601.20130 | 实时执行 | 提出REMAC，通过掩码动作分块训练策略和前缀保持采样管线，系统性解决异步推理下的段内不一致（intra-chunk inconsistency）和段间不连续（inter-chunk discontinuity）两大问题，在不引入额外推理延迟的前提下实现更可靠的实时机器人控制。"
 tags:
   - ICLR 2026
-  - 实时执行
-  - 动作分块
-  - 异步推理
 ---
 
 # Real-Time Robot Execution with Masked Action Chunking

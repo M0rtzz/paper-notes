@@ -2,9 +2,6 @@
 description: "【论文笔记】KeepLoRA: Continual Learning with Residual Gradient Adaptation 论文解读 | ICLR 2026 | arXiv 2601.19659 | 持续学习 | 通过分析预训练模型权重的SVD分解，发现通用知识编码在主子空间、领域特定知识编码在残差子空间，提出KeepLoRA方法将新任务的LoRA更新约束在残差子空间中，同时用梯度信息初始化以保持可塑性，在持续学习中达到前向稳定、后向稳定和可塑性的最优平衡。"
 tags:
   - ICLR 2026
-  - 持续学习
-  - LoRA
-  - 梯度投影
 ---
 
 # KeepLoRA: Continual Learning with Residual Gradient Adaptation

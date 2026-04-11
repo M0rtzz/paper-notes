@@ -2,7 +2,6 @@
 description: "【论文笔记】CausalTrace: A Neurosymbolic Causal Analysis Agent for Smart Manufacturing 论文解读 | AAAI 2026 | arXiv 2510.12033 | 神经符号系统、因果分析、根因分析、知识图谱、工业CoPilot | 提出 CausalTrace——一个集成于工业 CoPilot（SmartPilot）中的神经符号因果分析智能体，融合数据驱动因果发现与工业本体/知识图谱，实现了实时的根因分析、反事实推理和可解释决策支持。"
 tags:
   - AAAI 2026
-  - 神经符号系统、因果分析、根因分析、知识图谱、工业CoPilot
 ---
 
 # CausalTrace: A Neurosymbolic Causal Analysis Agent for Smart Manufacturing

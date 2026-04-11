@@ -2,10 +2,7 @@
 description: "【论文笔记】Prompt and Parameter Co-Optimization for Large Language Models 论文解读 | ICLR 2026 | arXiv 2509.24245 | 提示学习 prompt优化 | 提出 MetaTuner 框架，通过共享 meta encoder 同时生成 prompt 和 LoRA 参数，将离散 prompt 优化与连续参数微调统一为端到端可优化的联合框架，在数学推理和问答任务上大幅超越单独优化的方法。"
 tags:
   - ICLR 2026
-  - prompt优化
   - 提示学习
-  - 微调
-  - 联合优化
 ---
 
 # Prompt and Parameter Co-Optimization for Large Language Models

@@ -2,9 +2,7 @@
 description: "【论文笔记】ALINE: Joint Amortization for Bayesian Inference and Active Data Acquisition 论文解读 | NeurIPS 2025 | arXiv 2506.07259 | 分摊推断 | ALINE 提出统一的分摊贝叶斯推断和主动数据获取框架，用 Transformer 架构 + RL 训练，使模型能同时策略性地选择最有信息量的数据点并即时完成后验推断，还支持灵活地针对特定参数子集或预测目标进行数据获取。"
 tags:
   - NeurIPS 2025
-  - 分摊推断
-  - 主动学习
-  - 贝叶斯实验设计
+  - Transformer
 ---
 
 # ALINE: Joint Amortization for Bayesian Inference and Active Data Acquisition

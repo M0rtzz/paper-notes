@@ -2,10 +2,7 @@
 description: "【论文笔记】DSAS: A Universal Plug-and-Play Framework for Attention Optimization in Multi-Document Question Answering 论文解读 | NeurIPS 2025 | arXiv 2510.12251 | Multi-doc QA | 提出Dual-Stage Adaptive Sharpening (DSAS)，一个无需训练的即插即用注意力优化框架，通过Contextual Gate Weighting (CGW)增强关键段落对问题和目标位置的注意力、通过Reciprocal Attention Suppression (RAS)抑制关键与无关段落间的信息交换，在多文档QA上平均F1提升达4.2%。"
 tags:
   - NeurIPS 2025
-  - Multi-doc QA
-  - attention sharpening
   - 注意力机制
-  - lost-in-the-middle
 ---
 
 # DSAS: A Universal Plug-and-Play Framework for Attention Optimization in Multi-Document Question Answering

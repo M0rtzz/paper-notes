@@ -2,9 +2,6 @@
 description: "【论文笔记】JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs 论文解读 | ACL 2025 | arXiv 2402.05668 | Jailbreak Attack | 本文提出了一个全面的越狱攻击评估框架 JailbreakRadar，收集了17种代表性越狱攻击方法，建立了六类攻击分类体系，并在9个对齐LLM上进行了大规模系统性评测，揭示了不同类型攻击在实用性和防御鲁棒性上的关键差异。"
 tags:
   - ACL 2025
-  - Jailbreak Attack
-  - LLM Safety
-  - Attack Taxonomy
 ---
 
 # JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs

@@ -2,10 +2,7 @@
 description: "【论文笔记】Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification 论文解读 | arXiv 2026 | arXiv 2603.13182 | 扩散模型 diffusion-based | 磁共振成像（也称为 MRI）的脑肿瘤分类在计算机辅助诊断系统中发挥着敏感的作用。"
 tags:
   - arXiv 2026
-  - diffusion-based
   - 扩散模型
-  - feature
-  - denoising
   - 去噪
 ---
 

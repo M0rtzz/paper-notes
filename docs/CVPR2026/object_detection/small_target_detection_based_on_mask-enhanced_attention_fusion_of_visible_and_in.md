@@ -2,9 +2,6 @@
 description: "【论文笔记】Small Target Detection Based on Mask-Enhanced Attention Fusion of Visible and Infrared Remote Sensing Images 论文解读 | CVPR 2026 | arXiv 2603.06925 | 小目标检测 | 提出 ESM-YOLO+，一个轻量级可见光-红外融合小目标检测网络，通过 Mask-Enhanced Attention Fusion (MEAF) 模块实现像素级跨模态自适应融合，并引入训练时结构表示增强提升空间判别力，在 VEDAI 上达 84.71% mAP 同时参数量减少 93.6%。"
 tags:
   - CVPR 2026
-  - 小目标检测
-  - 可见光红外融合
-  - 遥感
 ---
 
 # Small Target Detection Based on Mask-Enhanced Attention Fusion of Visible and Infrared Remote Sensing Images

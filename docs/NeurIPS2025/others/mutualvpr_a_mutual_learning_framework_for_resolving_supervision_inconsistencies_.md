@@ -2,9 +2,6 @@
 description: "【论文笔记】MutualVPR: A Mutual Learning Framework for Resolving Supervision Inconsistencies via Adaptive Clustering 论文解读 | NeurIPS 2025 | arXiv 2412.09199 | Visual Place Recognition | 提出 MutualVPR 互学习框架，通过特征驱动的自适应 K-means 聚类动态分配场景类别标签，解决分类式 VPR 方法中由视角变化和遮挡导致的监督不一致问题。"
 tags:
   - NeurIPS 2025
-  - Visual Place Recognition
-  - 自适应聚类
-  - 互学习
 ---
 
 # MutualVPR: A Mutual Learning Framework for Resolving Supervision Inconsistencies via Adaptive Clustering

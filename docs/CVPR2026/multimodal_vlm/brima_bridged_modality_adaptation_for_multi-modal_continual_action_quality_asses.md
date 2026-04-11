@@ -2,9 +2,6 @@
 description: "【论文笔记】BriMA: Bridged Modality Adaptation for Multi-Modal Continual Action Quality Assessment 论文解读 | CVPR2026 | arXiv 2602.19170 | 动作质量评估 | 提出 BriMA，通过记忆引导的桥接补全和模态感知回放机制，解决多模态持续动作质量评估中非平稳模态不平衡问题，在三个基准上平均提升 6-8% 相关系数、降低 12-15% 误差。"
 tags:
   - CVPR2026
-  - 动作质量评估
-  - 持续学习
-  - 模态缺失
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

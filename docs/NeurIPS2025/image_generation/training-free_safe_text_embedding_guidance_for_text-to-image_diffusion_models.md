@@ -2,9 +2,6 @@
 description: "【论文笔记】Training-Free Safe Text Embedding Guidance for Text-to-Image Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2510.24012 | 安全生成 | 提出 Safe Text embedding Guidance (STG)，一种无需训练的安全文本到图像生成方法，通过在扩散采样过程中基于安全函数对预期去噪图像的评估来动态调整文本嵌入方向，在有效去除不安全内容的同时最大程度保留原始语义意图。"
 tags:
   - NeurIPS 2025
-  - 安全生成
-  - 文本嵌入引导
-  - 扩散模型
 ---
 
 # Training-Free Safe Text Embedding Guidance for Text-to-Image Diffusion Models

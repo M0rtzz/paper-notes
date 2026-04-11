@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Impact of Human Feedback via Influence Functions 论文解读 | ACL 2025 | arXiv 2501.05790 | influence functions | 首次将影响函数应用于 RLHF 奖励模型的反馈数据审计，结合 OPORP 向量压缩实现 2.5 倍加速，在偏差检测上超越 GPT-4o（AUC 0.8 vs 0.747），并从 Anthropic-HH 数据集中发现 47% 的错标样本。"
 tags:
   - ACL 2025
-  - influence functions
-  - RLHF
-  - reward model
 ---
 
 # Understanding Impact of Human Feedback via Influence Functions

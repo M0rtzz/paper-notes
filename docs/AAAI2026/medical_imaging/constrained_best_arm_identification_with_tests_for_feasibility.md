@@ -2,9 +2,6 @@
 description: "【论文笔记】Constrained Best Arm Identification with Tests for Feasibility 论文解读 | AAAI 2026 | arXiv 2511.09808 | Best Arm Identification | 提出带可行性约束的最优臂识别新框架，允许决策者分别测试臂的性能或可行性约束，设计了渐近最优算法，可自适应地选择通过性能或可行性中更容易的方式淘汰次优臂。"
 tags:
   - AAAI 2026
-  - Best Arm Identification
-  - feasibility constraints
-  - fixed confidence
 ---
 
 # Constrained Best Arm Identification with Tests for Feasibility

@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Agentic AI for Spatial Reasoning with a Dynamic API 论文解读 | CVPR 2025 | arXiv 2502.06787 | 3D空间推理 | 提出 VADAR，一种 agentic 程序合成方法用于 3D 空间推理。多个 LLM agent 协作生成 Pythonic API 并在求解过程中动态扩展新函数来解决常见子问题，克服了 VisProg/ViperGPT 等先前方法依赖静态人工定义 API 的局限。同时引入涉及多步空间定位和推理的新 benchmark，在 3D 理解任务上超越现有零样本方法。"
 tags:
   - CVPR 2025
-  - 3D空间推理
-  - 程序合成
-  - 动态API
 ---
 
 # Visual Agentic AI for Spatial Reasoning with a Dynamic API

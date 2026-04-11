@@ -2,8 +2,6 @@
 description: "【论文笔记】Domain-Adaptive Transformer for Data-Efficient Glioma Segmentation in Sub-Saharan MRI 论文解读 | NeurIPS 2025 | arXiv 2511.02928 | 脑胶质瘤分割 | 提出 SegFormer3D+，一种面向撒哈拉以南非洲异质 MRI 数据的域自适应 Transformer 架构，通过直方图匹配、影像组学分层采样、频率感知双路径编码器和双注意力机制，在仅 60 例标注数据微调下实现胶质瘤分割 mean Dice 0.81，超越 nnU-Net +2.5%。"
 tags:
   - NeurIPS 2025
-  - 脑胶质瘤分割
-  - 域自适应
   - Transformer
 ---
 

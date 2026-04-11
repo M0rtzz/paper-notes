@@ -2,9 +2,6 @@
 description: "【论文笔记】Problem-Solving Logic Guided Curriculum ICL for LLMs Complex Reasoning 论文解读 | ACL 2025 | arXiv 2502.15401 | in-context learning | 提出问题解决逻辑引导的课程式 ICL，基于 QDMR 分析解题步骤结构来选择和排序 few-shot 示例（按步骤数从易到难），在多个复杂推理基准上超越现有 ICL 方法。"
 tags:
   - ACL 2025
-  - in-context learning
-  - curriculum learning
-  - QDMR
 ---
 
 # Problem-Solving Logic Guided Curriculum ICL for LLMs Complex Reasoning

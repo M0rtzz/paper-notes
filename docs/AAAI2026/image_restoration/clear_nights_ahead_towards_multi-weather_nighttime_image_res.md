@@ -2,10 +2,7 @@
 description: "【论文笔记】Clear Nights Ahead: Towards Multi-Weather Nighttime Image Restoration 论文解读 | AAAI 2026 | arXiv 2505.16479 | 图像恢复 nighttime image restoration | 首次定义并探索多天气夜间图像复原任务，构建 AllWeatherNight 数据集（8K 训练 + 1K 合成测试 + 1K 真实测试），提出 ClearNight 统一框架通过 Retinex 双先验引导和天气感知动态专一性-共性协作，一阶段同时移除雾/雨条/雨滴/雪/flare 复合退化，仅 2.84M 参数全面超越 SOTA。"
 tags:
   - AAAI 2026
-  - nighttime image restoration
   - 图像恢复
-  - multi-weather
-  - Retinex prior
 ---
 
 # Clear Nights Ahead: Towards Multi-Weather Nighttime Image Restoration

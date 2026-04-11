@@ -2,9 +2,6 @@
 description: "【论文笔记】Hypothetical Documents or Knowledge Leakage? Rethinking LLM-based Query Expansion 论文解读 | ACL2025 | arXiv 2504.14175 | 查询扩展 | 质疑 LLM-based 查询扩展（HyDE/Query2doc）的性能提升是否来自\"假设性文档生成\"，发现性能增益仅在 LLM 生成的文档包含与 gold evidence 语义一致的句子时才一致出现，揭示了 benchmark 中可能存在的知识泄露问题。"
 tags:
   - ACL2025
-  - 查询扩展
-  - 知识泄露
-  - 事实验证
 ---
 
 # Hypothetical Documents or Knowledge Leakage? Rethinking LLM-based Query Expansion

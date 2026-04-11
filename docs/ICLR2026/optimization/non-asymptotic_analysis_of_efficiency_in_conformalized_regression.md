@@ -2,9 +2,6 @@
 description: "【论文笔记】Non-Asymptotic Analysis of Efficiency in Conformalized Regression 论文解读 | ICLR 2026 | arXiv 2510.07093 | 保形预测 | 首次建立保形分位数回归（CQR）和保形中位数回归（CMR）在 SGD 训练下的非渐近效率界，明确刻画了预测集长度偏差与训练样本量 $n$、校准样本量 $m$ 和误覆盖率 $\alpha$ 的联合依赖关系。"
 tags:
   - ICLR 2026
-  - 保形预测
-  - 分位数回归
-  - 非渐近分析
 ---
 
 # Non-Asymptotic Analysis of Efficiency in Conformalized Regression

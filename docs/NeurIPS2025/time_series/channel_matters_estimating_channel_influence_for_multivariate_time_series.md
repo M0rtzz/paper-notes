@@ -2,9 +2,6 @@
 description: "【论文笔记】Channel Matters: Estimating Channel Influence for Multivariate Time Series 论文解读 | NeurIPS 2025 | arXiv 2408.14763 | 通道影响函数 | 提出 Channel-wise Influence (ChInf)——首个能量化多变量时间序列中不同通道对模型性能影响的影响函数方法，将 TracIn 从整体样本级分解到通道级，衍生出通道级异常检测和通道剪枝两个应用，在 5 个异常检测基准上排名第一。"
 tags:
   - NeurIPS 2025
-  - 通道影响函数
-  - 多变量时间序列
-  - 异常检测
 ---
 
 # Channel Matters: Estimating Channel Influence for Multivariate Time Series

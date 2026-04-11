@@ -2,9 +2,6 @@
 description: "【论文笔记】MapQaTor: An Extensible Framework for Efficient Annotation of Map-Based QA Datasets 论文解读 | ACL 2025 | arXiv 2412.21015 | 地理空间推理 | 提出 MapQaTor——一个可扩展的开源 Web 框架，通过集成多种地图 API（Google Maps、OpenStreetMap 等），将地理空间 QA 数据集的标注速度提升至少 30 倍，同时通过 API 响应缓存确保数据可复现性。"
 tags:
   - ACL 2025
-  - 地理空间推理
-  - QA 数据集标注
-  - 地图 API
 ---
 
 # MapQaTor: An Extensible Framework for Efficient Annotation of Map-Based QA Datasets

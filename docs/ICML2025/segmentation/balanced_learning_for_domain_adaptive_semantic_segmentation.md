@@ -2,9 +2,6 @@
 description: "【论文笔记】Balanced Learning for Domain Adaptive Semantic Segmentation 论文解读 | ICML 2025 | arXiv 2512.06886 | 域自适应 | 提出 BLDA——通过分析网络预测 logit 的分布来评估和缓解域自适应语义分割中的类别偏差，用共享锚点分布对齐各类 logit 分布，并在自训练中在线校正 logit 生成无偏伪标签。"
 tags:
   - ICML 2025
-  - 域自适应
-  - 语义分割
-  - 类别不平衡
 ---
 
 # Balanced Learning for Domain Adaptive Semantic Segmentation

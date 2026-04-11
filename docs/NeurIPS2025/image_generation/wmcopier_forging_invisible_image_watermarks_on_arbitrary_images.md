@@ -2,9 +2,6 @@
 description: "【论文笔记】WMCopier: Forging Invisible Image Watermarks on Arbitrary Images 论文解读 | NeurIPS 2025 | arXiv 2503.22330 | 水印伪造攻击 | 提出 WMCopier，首个基于扩散模型的 no-box 水印伪造攻击方法，无需任何目标水印算法的先验知识，通过训练无条件扩散模型学习水印分布、浅层反演注入水印信号、迭代精炼优化质量，在开源和商业水印系统（包括 Amazon）上实现高成功率伪造。"
 tags:
   - NeurIPS 2025
-  - 水印伪造攻击
-  - 扩散模型
-  - DDIM 反演
 ---
 
 # WMCopier: Forging Invisible Image Watermarks on Arbitrary Images

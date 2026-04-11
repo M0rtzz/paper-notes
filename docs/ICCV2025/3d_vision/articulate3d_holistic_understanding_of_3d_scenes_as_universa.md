@@ -2,9 +2,6 @@
 description: "【论文笔记】Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description 论文解读 | ICCV 2025 | arXiv 2412.01398 | 3D场景理解 | 提出Articulate3D（280个真实室内场景、8类铰接标注的大规模数据集）和USDNet（基于Mask3D扩展的统一框架），通过密集逐点预测机制同时完成可动零件分割和运动参数估计，在铰接参数预测上比Mask3D†提升5.7%，并支持LLM场景编辑和机器人策略训练。"
 tags:
   - ICCV 2025
-  - 3D场景理解
-  - 铰接物体
-  - USD格式
 ---
 
 # Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description

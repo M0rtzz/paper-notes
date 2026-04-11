@@ -2,9 +2,6 @@
 description: "【论文笔记】Improved Generalization Bounds for Transductive Learning by Transductive Local Complexity and Its Applications 论文解读 | ICML2025 | arXiv 2309.16858 | 转导学习 | 提出转导局部复杂度（TLC）框架，将经典的局部 Rademacher 复杂度扩展到转导学习设定，获得了与归纳学习几乎一致的超额风险界（仅差对数因子），并解决了十年未决的开放问题。"
 tags:
   - ICML2025
-  - 转导学习
-  - 泛化界
-  - 局部Rademacher复杂度
 ---
 
 # Improved Generalization Bounds for Transductive Learning by Transductive Local Complexity and Its Applications

@@ -2,10 +2,7 @@
 description: "【论文笔记】JanusVLN: Decoupling Semantics and Spatiality with Dual Implicit Memory for Vision-Language Navigation 论文解读 | ICLR2026 | arXiv 2509.22548 | 视觉语言 Vision-Language Navigation | 受人类左脑语义理解、右脑空间认知的启发，提出 JanusVLN——首个为 VLN 设计的双隐式神经记忆框架，将空间几何记忆和视觉语义记忆分别建模为固定大小的 KV Cache，仅凭 RGB 视频即可实现高效空间推理，在 VLN-CE 基准上取得 SOTA。"
 tags:
   - ICLR2026
-  - Vision-Language Navigation
   - 视觉语言
-  - Dual Implicit Memory
-  - Spatial-Geometric Encoding
 ---
 
 # JanusVLN: Decoupling Semantics and Spatiality with Dual Implicit Memory for Vision-Language Navigation

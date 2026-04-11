@@ -2,9 +2,6 @@
 description: "【论文笔记】Supercharging Floorplan Localization with Semantic Rays 论文解读 | ICCV 2025 | arXiv 2507.09291 | 室内定位 | 提出一种语义感知的平面图定位框架，将语义光线预测与深度光线融合为结构-语义概率体，配合由粗到细策略，在两个标准数据集上实现了2-3倍的性能提升。"
 tags:
   - ICCV 2025
-  - 室内定位
-  - 平面图定位
-  - 语义光线
 ---
 
 # Supercharging Floorplan Localization with Semantic Rays

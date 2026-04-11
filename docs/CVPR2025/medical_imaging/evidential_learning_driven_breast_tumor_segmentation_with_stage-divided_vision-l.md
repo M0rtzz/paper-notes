@@ -2,11 +2,9 @@
 description: "【论文笔记】Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction 论文解读 | CVPR2025 | arXiv 2603.11206 | 图像分割 breast tumor segmentation | 提出 TextBCS 模型，通过阶段分割的视觉-语言交互模块（SVLI）和证据学习（EL）策略，利用文本提示辅助乳腺肿瘤分割，在 Duke-Breast-Cancer-MRI 数据集上 Dice 达 85.33%，超越所有对比方法。"
 tags:
   - CVPR2025
-  - breast tumor segmentation
   - 图像分割
-  - vision-language
   - 视觉语言
-  - evidential learning
+  - 注意力机制
 ---
 
 # Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction

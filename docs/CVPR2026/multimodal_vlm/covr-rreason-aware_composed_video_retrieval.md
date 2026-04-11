@@ -2,9 +2,6 @@
 description: "【论文笔记】CoVR-R: Reason-Aware Composed Video Retrieval 论文解读 | CVPR 2026 | arXiv 2603.20190 | 组合视频检索 | CoVR-R 提出了推理优先的零样本组合视频检索框架，利用大型多模态模型（Qwen3-VL）显式推理编辑操作隐含的\"后效应\"（状态转换、时间阶段、镜头变化等），并构建了包含结构化推理轨迹和困难干扰项的 CoVR-R 基准来评估推理能力，在检索准确率上大幅超越现有方法。"
 tags:
   - CVPR 2026
-  - 组合视频检索
-  - 推理感知检索
-  - 后效应推理
 ---
 
 # CoVR-R: Reason-Aware Composed Video Retrieval

@@ -2,9 +2,6 @@
 description: "【论文笔记】Movie101v2: Improved Movie Narration Benchmark 论文解读 | ACL 2025 | arXiv 2404.13370 | 电影叙事 | 提出 Movie101v2，一个包含 203 部电影、46K 双语（中英文）视频-叙事对的大规模电影叙事基准，将自动电影叙事任务分解为三个渐进式目标（视觉事实描述 L1 → 情节叙述 L2 → 可部署 AD L3），并基于 LLM 提出新的评估框架，全面基线测试了包括 GPT-4V 在内的多种视觉语言模型。"
 tags:
   - ACL 2025
-  - 电影叙事
-  - 视频描述
-  - 基准数据集
 ---
 
 # Movie101v2: Improved Movie Narration Benchmark

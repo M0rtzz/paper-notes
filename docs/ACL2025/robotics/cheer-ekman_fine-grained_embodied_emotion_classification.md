@@ -2,9 +2,6 @@
 description: "【论文笔记】CHEER-Ekman: Fine-grained Embodied Emotion Classification 论文解读 | ACL 2025 | arXiv 2506.01047 | 具身情感分类 | 本文提出CHEER-Ekman数据集，将CHEER数据集的二元具身情感标注扩展为Ekman六类基础情绪，并采用基于LLM的自动Best-Worst Scaling（BWS）技术实现无需任务特定训练的细粒度情感分类，性能超越有监督BERT。"
 tags:
   - ACL 2025
-  - 具身情感分类
-  - Ekman情绪
-  - Best-Worst Scaling
 ---
 
 # CHEER-Ekman: Fine-grained Embodied Emotion Classification

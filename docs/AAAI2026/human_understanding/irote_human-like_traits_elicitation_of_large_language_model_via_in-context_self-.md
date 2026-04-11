@@ -2,9 +2,6 @@
 description: "【论文笔记】IROTE: Human-like Traits Elicitation of Large Language Model via In-Context Self-Reflective Optimization 论文解读 | AAAI 2026 | arXiv 2508.08719 | LLM人格模拟 | 提出 IROTE，一种基于信息瓶颈理论的上下文自我反思优化方法，通过迭代生成并优化紧凑且富有唤起力的文本\"自我反思\"（self-reflection），无需微调即可稳定地激发 LLM 在多种下游任务中表现出目标人类特质（价值观、道德、人格），一致性超越现有基线。"
 tags:
   - AAAI 2026
-  - LLM人格模拟
-  - 特质激发
-  - 信息瓶颈
 ---
 
 # IROTE: Human-like Traits Elicitation of Large Language Model via In-Context Self-Reflective Optimization

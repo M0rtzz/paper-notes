@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Laws of SignSGD in Linear Regression: When Does It Outperform SGD? 论文解读 | ICLR 2026 | arXiv 2603.02069 | SignSGD | 在幂律随机特征（Power-Law Random Features）模型下，系统分析了 SignSGD 的缩放定律，揭示了 SignSGD 相对于 SGD 的两个独特效应——漂移归一化和噪声重塑，并证明在噪声主导的情形下 SignSGD 的计算最优斜率可以超过 SGD。"
 tags:
   - ICLR 2026
-  - SignSGD
-  - 缩放定律
-  - 线性回归
 ---
 
 # Scaling Laws of SignSGD in Linear Regression: When Does It Outperform SGD?

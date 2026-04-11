@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Recursive Multi-Scale Representations for Irregular Multivariate Time Series Forecasting 论文解读 | ICLR 2026 | arXiv 2602.21498 | 不规则时间序列 | 提出 ReIMTS，通过基于时间段的递归分割（而非重采样）来保留不规则多变量时间序列的原始采样模式，结合不规则感知的表示融合机制实现多尺度建模，作为插件在六种 IMTS 骨干上平均提升 27.1%。"
 tags:
   - ICLR 2026
-  - 不规则时间序列
-  - 多尺度建模
-  - 递归分割
 ---
 
 # Learning Recursive Multi-Scale Representations for Irregular Multivariate Time Series Forecasting

@@ -2,9 +2,6 @@
 description: "【论文笔记】Pragmatics in the Era of Large Language Models: A Survey on Datasets, Evaluation, Opportunities and Challenges 论文解读 | ACL 2025 | arXiv 2502.12378 | 语用学 | 全面梳理用于评估 NLP 系统语用能力的资源——按语用现象（隐含义、指称、言语行为、会话含义、预设等）分类数据集，分析任务设计、数据收集方法和评估方式，揭示了现代 LLM 在处理语境相关语言使用上的趋势、挑战和空白。"
 tags:
   - ACL 2025
-  - 语用学
-  - 综述
-  - 隐含义
 ---
 
 # Pragmatics in the Era of Large Language Models: A Survey on Datasets, Evaluation, Opportunities and Challenges

@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning Through Execution: Unifying Process and Outcome Rewards for Code Generation 论文解读 | ICML 2025 | arXiv 2412.15118 | 过程监督 | 提出 ORPS（Outcome-Refining Process Supervision），通过将代码执行反馈与 LLM 自我批评结合，在树状搜索框架中统一过程奖励与结果奖励，无需训练 PRM 即可在代码生成中实现 26.9% 的正确率提升和 42.2% 的效率提升。"
 tags:
   - ICML 2025
-  - 过程监督
-  - 结果监督
-  - 代码生成
 ---
 
 # Reasoning Through Execution: Unifying Process and Outcome Rewards for Code Generation

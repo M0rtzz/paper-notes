@@ -2,9 +2,6 @@
 description: "【论文笔记】EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.13549 | 创造性智能 | 提出EscapeBench密室逃脱游戏基准（36个场景、3种难度）评估LM agent的创造性智能，并设计EscapeAgent通过Foresight（工具使用假设生成）和Reflection（未解任务追踪）模块将提示依赖降低约50%，但仍远落后于人类。"
 tags:
   - ACL 2025 (Long Paper)
-  - 创造性智能
-  - 密室逃脱
-  - LLM Agent
 ---
 
 # EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents

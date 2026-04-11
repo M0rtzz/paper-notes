@@ -2,9 +2,6 @@
 description: "【论文笔记】PASDF: Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation 论文解读 | ICCV 2025 | arXiv 2505.24431 | 3D异常检测 | 提出PASDF框架，通过姿态对齐模块(PAM)将点云对齐到标准姿态 + 神经SDF网络学习连续几何表示 + 基于SDF偏差的异常评分，统一实现3D点云异常检测与异常修复(Marching Cubes提取零等值面作为修复模板)，在Real3D-AD上O-AUROC 80.2%、Anomaly-ShapeNet上90.0%均达SOTA。"
 tags:
   - ICCV 2025
-  - 3D异常检测
-  - SDF
-  - 姿态对齐
 ---
 
 # PASDF: Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation

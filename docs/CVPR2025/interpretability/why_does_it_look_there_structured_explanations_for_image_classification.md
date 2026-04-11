@@ -2,9 +2,6 @@
 description: "【论文笔记】Why Does It Look There? Structured Explanations for Image Classification 论文解读 | CVPR2025 | arXiv 2603.10234 | 可解释AI | 提出I2X框架，通过追踪训练过程中模型置信度与原型强度的协同演化，将非结构化的显著性图解释转化为结构化的解释，回答模型\"为什么看那里\"的问题，并可指导微调提升性能。"
 tags:
   - CVPR2025
-  - 可解释AI
-  - 结构化解释
-  - 原型学习
 ---
 
 # Why Does It Look There? Structured Explanations for Image Classification

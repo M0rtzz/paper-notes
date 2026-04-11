@@ -2,9 +2,6 @@
 description: "【论文笔记】Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework 论文解读 | ACL 2025 | arXiv 2412.16953 | 逻辑推理 | 提出 Aristotle 逻辑推理框架，将符号表达式和逻辑规则全面融入 Decompose-Search-Resolve 的每个阶段，通过逻辑分解器、搜索路由器和消解器三大组件实现逻辑完备的推理，在多个逻辑推理基准上以 GPT-4 平均提升 4.5%、GPT-4o 平均提升 5.4% 超越 SOTA。"
 tags:
   - ACL 2025
-  - 逻辑推理
-  - 符号推理
-  - 反证法
 ---
 
 # Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework

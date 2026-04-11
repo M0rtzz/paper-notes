@@ -2,9 +2,6 @@
 description: "【论文笔记】Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought 论文解读 | CVPR 2026 | arXiv 2507.07685 | CoT推理 | 发现现有 LVLM 在多模态 CoT 推理中会忽略生成的 rationale 内容（图像 token 主导注意力），提出 Rationale-Enhanced Decoding (RED)——将 CoT 重新表述为 KL 约束的 rationale 条件对数似然奖励最大化问题，最优解为将图像条件分布 $p(y|x,q)$ 和 rationale 条件分布 $p(y|r,q)^\lambda$ 相乘，无需训练即可显著提升多个基准上的推理性能。"
 tags:
   - CVPR 2026
-  - CoT推理
-  - 解码策略
-  - rationale grounding
 ---
 
 # Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought

@@ -2,9 +2,6 @@
 description: "【论文笔记】Provable Maximum Entropy Manifold Exploration via Diffusion Models 论文解读 | ICML2025 | arXiv 2506.15385 | 扩散模型 | 提出 S-MEME 算法，将扩散模型的探索问题形式化为近似数据流形上的熵最大化，通过利用 score 函数与熵一阶变分的内在联系绕开密度估计，以镜像下降方式迭代微调预训练扩散模型，并证明收敛到最优探索策略。"
 tags:
   - ICML2025
-  - 扩散模型
-  - 最大熵探索
-  - 流形探索
 ---
 
 # Provable Maximum Entropy Manifold Exploration via Diffusion Models

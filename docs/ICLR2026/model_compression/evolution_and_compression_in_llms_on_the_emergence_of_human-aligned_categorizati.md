@@ -2,9 +2,6 @@
 description: "【论文笔记】Evolution and compression in LLMs: On the emergence of human-aligned categorization 论文解读 | ICLR2026 | arXiv 2509.08093 | Information Bottleneck | 通过 Information Bottleneck (IB) 框架和迭代上下文语言学习 (IICLL) 范式，证明 LLM 能够在未经 IB 目标训练的情况下，自发涌现出与人类语义分类系统高度对齐的、近最优压缩效率的类别结构。"
 tags:
   - ICLR2026
-  - Information Bottleneck
-  - color naming
-  - iterated learning
 ---
 
 # Evolution and compression in LLMs: On the emergence of human-aligned categorization

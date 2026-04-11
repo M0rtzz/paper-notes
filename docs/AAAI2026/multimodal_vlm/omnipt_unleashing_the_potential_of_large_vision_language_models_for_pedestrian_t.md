@@ -2,9 +2,6 @@
 description: "【论文笔记】OmniPT: Unleashing the Potential of Large Vision Language Models for Pedestrian Tracking and Understanding 论文解读 | AAAI 2026 | arXiv 2511.17053 | 行人跟踪 | 本文提出OmniPT，一个基于大视觉语言模型（LVLM）的统一行人跟踪框架，通过RL-Mid Training-SFT-RL四阶段训练策略，同时支持传统MOT、基于语言引用的跟踪（RMOT/CRMOT）和语义理解（SMOT），在多个基准上取得SOTA结果，尤其在BenSMOT上HOTA达75.04，较前SOTA提升3.06。"
 tags:
   - AAAI 2026
-  - 行人跟踪
-  - 大视觉语言模型
-  - 多目标跟踪
 ---
 
 # OmniPT: Unleashing the Potential of Large Vision Language Models for Pedestrian Tracking and Understanding

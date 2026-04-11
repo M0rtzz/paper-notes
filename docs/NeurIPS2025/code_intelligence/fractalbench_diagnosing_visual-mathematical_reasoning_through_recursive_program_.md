@@ -2,9 +2,6 @@
 description: "【论文笔记】FractalBench: Diagnosing Visual-Mathematical Reasoning Through Recursive Program Synthesis 论文解读 | NeurIPS 2025 | arXiv 2511.06522 | 分形 | 提出 FractalBench，一个通过分形图像程序合成诊断 MLLM 视觉-数学推理能力的 benchmark：12 种经典分形、610 张测试图、4 个 MLLM，揭示 76% 的代码能执行但仅 4% 视觉正确，暴露了模型在递归抽象能力上的根本缺陷。"
 tags:
   - NeurIPS 2025
-  - 分形
-  - 视觉数学推理
-  - 程序合成
 ---
 
 # FractalBench: Diagnosing Visual-Mathematical Reasoning Through Recursive Program Synthesis

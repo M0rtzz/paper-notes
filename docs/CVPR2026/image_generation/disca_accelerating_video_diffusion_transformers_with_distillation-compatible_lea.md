@@ -2,9 +2,7 @@
 description: "【论文笔记】DisCa: Accelerating Video Diffusion Transformers with Distillation-Compatible Learnable Feature Caching 论文解读 | CVPR2026 | arXiv 2602.05449 | 视频扩散模型加速 | 提出 DisCa，首次将**可学习特征缓存**与**步骤蒸馏**相结合，通过轻量级神经预测器替代手工缓存策略，并设计 Restricted MeanFlow 稳定大规模视频模型蒸馏，在 HunyuanVideo 上实现 11.8× 加速且几乎无质量损失。"
 tags:
   - CVPR2026
-  - 视频扩散模型加速
-  - 特征缓存
-  - 步骤蒸馏
+  - GAN
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

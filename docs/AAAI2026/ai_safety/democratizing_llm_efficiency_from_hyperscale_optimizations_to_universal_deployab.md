@@ -2,9 +2,6 @@
 description: "【论文笔记】Democratizing LLM Efficiency: From Hyperscale Optimizations to Universal Deployability 论文解读 | AAAI 2026 | arXiv 2511.20662 | LLM效率 | 本文是一篇立场论文（position paper），指出当前 LLM 效率研究被超大规模假设所主导，提出面向中小规模部署者的五大开放研究挑战，并倡导以开销感知效率（OAE）重新定义效率指标。"
 tags:
   - AAAI 2026
-  - LLM效率
-  - 民主化部署
-  - 超大规模优化
 ---
 
 # Democratizing LLM Efficiency: From Hyperscale Optimizations to Universal Deployability

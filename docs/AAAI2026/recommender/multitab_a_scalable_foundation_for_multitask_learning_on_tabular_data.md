@@ -2,9 +2,7 @@
 description: "【论文笔记】MultiTab: A Scalable Foundation for Multitask Learning on Tabular Data 论文解读 | AAAI 2026 | arXiv 2511.09970 | 多任务学习 | 提出MultiTab-Net——首个面向表格数据的多任务Transformer架构，通过多任务掩码注意力机制缓解任务竞争，在推荐、人口普查、物理等多个领域的数据集上显著超越现有MLP-based多任务模型和单任务Transformer模型。"
 tags:
   - AAAI 2026
-  - 多任务学习
   - Transformer
-  - 表格数据
 ---
 
 # MultiTab: A Scalable Foundation for Multitask Learning on Tabular Data

@@ -2,9 +2,6 @@
 description: "【论文笔记】Federated ADMM from Bayesian Duality 论文解读 | ICLR 2026 | arXiv 2506.13150 | ADMM | 从变分贝叶斯(VB)视角推导出ADMM的贝叶斯对偶结构，证明经典ADMM是VB在各向同性高斯族上的特例，并导出Newton-like（二次目标一轮收敛）和Adam-like（深度异构场景+7%准确率）两个新扩展。"
 tags:
   - ICLR 2026
-  - ADMM
-  - 变分贝叶斯
-  - 自然梯度
 ---
 
 # Federated ADMM from Bayesian Duality

@@ -2,9 +2,6 @@
 description: "【论文笔记】EvRT-DETR: Latent Space Adaptation of Image Detectors for Event-based Vision 论文解读 | ICCV 2025 | arXiv 2412.02890 | 事件相机 | 提出I2EvDet框架，通过在冻结的RT-DETR检测器的潜空间中插入轻量级RNN时序模块，以最小的架构修改将主流图像检测器适配为事件相机视频检测模型，在Gen1和1Mpx基准上分别取得+2.3和+1.4 mAP的SOTA。"
 tags:
   - ICCV 2025
-  - 事件相机
-  - 目标检测
-  - RT-DETR
 ---
 
 # EvRT-DETR: Latent Space Adaptation of Image Detectors for Event-based Vision

@@ -2,9 +2,6 @@
 description: "【论文笔记】CLIPSym: Delving into Symmetry Detection with CLIP 论文解读 | ICCV 2025 | arXiv 2508.14197 | 对称性检测 | 提出 CLIPSym，首次利用预训练 CLIP 模型的多模态理解能力进行反射和旋转对称性检测，设计语义感知提示分组 (SAPG) 策略整合文本语义线索，并引入具有旋转等变保证的解码器，在 DENDI、SDRW、LDRS 三个基准上达到 SOTA。"
 tags:
   - ICCV 2025
-  - 对称性检测
-  - CLIP
-  - 旋转等变
 ---
 
 # CLIPSym: Delving into Symmetry Detection with CLIP

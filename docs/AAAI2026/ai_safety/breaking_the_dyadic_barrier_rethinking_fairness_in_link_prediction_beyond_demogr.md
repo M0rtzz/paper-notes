@@ -2,9 +2,6 @@
 description: "【论文笔记】Breaking the Dyadic Barrier: Rethinking Fairness in Link Prediction Beyond Demographic Parity 论文解读 | AAAI 2026 | arXiv 2511.06568 | 链接预测 | 本文揭示了链接预测中二元公平性（dyadic fairness）和 Demographic Parity（ΔDP）的三大根本缺陷——GNN 表达力不足、子群偏差被掩盖、对排序不敏感——并提出基于 NDKL 的排序感知公平度量和后处理算法 MORAL，在六个数据集上实现了 SOTA 的公平性-效用权衡。"
 tags:
   - AAAI 2026
-  - 链接预测
-  - 公平性
-  - Demographic Parity
 ---
 
 # Breaking the Dyadic Barrier: Rethinking Fairness in Link Prediction Beyond Demographic Parity

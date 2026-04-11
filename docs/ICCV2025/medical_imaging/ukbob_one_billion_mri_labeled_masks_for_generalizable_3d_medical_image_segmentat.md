@@ -2,9 +2,6 @@
 description: "【论文笔记】UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation 论文解读 | ICCV 2025 | arXiv 2504.06908 | 医学图像分割 | 本文构建了UKBOB——迄今最大的标注医学影像分割数据集（51,761个MRI 3D样本，72类器官，13.7亿2D分割mask），提出Specialized Organ Label Filter (SOLF)清洗自动标注和Entropy Test-Time Adaptation (ETTA)处理带噪标签的域迁移，训练的Swin-BOB基础模型在BRATS和BTCV基准上达到SOTA。"
 tags:
   - ICCV 2025
-  - 医学图像分割
-  - UK Biobank
-  - 大规模数据集
 ---
 
 # UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation

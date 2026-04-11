@@ -2,10 +2,7 @@
 description: "【论文笔记】From Simulations to Surveys: Domain Adaptation for Galaxy Observations 论文解读 | NeurIPS 2025 | arXiv 2511.18590 | 域适应 domain adaptation | 构建从模拟星系（TNG50）到真实巡天观测（SDSS）的域适应 pipeline，通过特征级对齐（欧几里得距离 + 最优传输 + top-$k$ 软匹配损失）和可训练权重调度，将星系形态分类的目标域准确率从 46.8%（无适应）提升到 87.3%，Macro F1 从 0.298 提升到 0.626。"
 tags:
   - NeurIPS 2025
-  - domain adaptation
   - 域适应
-  - galaxy morphology
-  - optimal transport
 ---
 
 # From Simulations to Surveys: Domain Adaptation for Galaxy Observations

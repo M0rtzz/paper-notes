@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion-based 3D Hand Motion Recovery with Intuitive Physics 论文解读 | ICCV 2025 | arXiv 2508.01835 | 扩散模型 | 提出一种物理增强的条件扩散模型，通过迭代去噪过程将逐帧 3D 手部重建结果细化为时序一致的运动序列，并结合直觉物理约束（运动学约束和稳定性约束）大幅提升重建精度和物理合理性。"
 tags:
   - ICCV 2025
-  - 扩散模型
-  - 3D手部重建
-  - 运动细化
 ---
 
 # Diffusion-based 3D Hand Motion Recovery with Intuitive Physics

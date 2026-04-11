@@ -2,9 +2,6 @@
 description: "【论文笔记】Ascent Fails to Forget 论文解读 | NeurIPS 2025 | arXiv 2509.26427 | machine unlearning | 挑战了机器遗忘领域的常见信念，证明梯度上升（gradient ascent）基于的无约束优化方法在遗忘/保留集之间存在统计依赖时会系统性失败——遗忘集指标的降低不可避免地损害整体测试性能，logistic 回归示例甚至展示了遗忘过程使模型比原始模型更远离 oracle 的灾难性情况。"
 tags:
   - NeurIPS 2025
-  - machine unlearning
-  - gradient ascent
-  - statistical dependence
 ---
 
 # Ascent Fails to Forget

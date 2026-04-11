@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: We Need An Algorithmic Understanding of Generative AI 论文解读 | ICML 2025 | arXiv 2507.07544 | 算法理解 | 提出 AlgEval 框架，倡导系统性地研究生成式 AI 学习和使用的算法——包括算法原语（vocabulary）及其组合（grammar）——作为替代纯粹规模扩展的理解路径，并通过图导航任务的案例研究展示了 top-down 假说与 bottom-up 验证相结合的方法论。"
 tags:
   - ICML 2025
-  - 算法理解
-  - 可解释性
-  - 机制解释性
 ---
 
 # Position: We Need An Algorithmic Understanding of Generative AI

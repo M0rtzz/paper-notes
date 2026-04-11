@@ -2,7 +2,6 @@
 description: "【论文笔记】STAA-SNN: Spatial-Temporal Attention Aggregator for Spiking Neural Networks 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Spiking Neural Networks (SNNs) have gained significant attention due to their biological plausibility and energy efficiency, making them promising alternatives to Artificial Neural Networks (ANNs). However, the performance gap between SNNs and ANNs remains a substantial challenge hindering the wides"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # STAA-SNN: Spatial-Temporal Attention Aggregator for Spiking Neural Networks

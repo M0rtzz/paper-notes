@@ -2,9 +2,6 @@
 description: "【论文笔记】LASeR: Learning to Adaptively Select Reward Models with Multi-Armed Bandits 论文解读 | NeurIPS 2025 | arXiv 2410.01735 | 奖励模型选择 | 将多个奖励模型（RM）的选择建模为上下文多臂老虎机（LinUCB）问题，在迭代 LLM 训练中自适应地为每个 batch 选择最合适的 RM，在推理、指令跟随和长上下文任务上以 2-3 倍效率优势全面超越 RM 集成和单 RM 基线。"
 tags:
   - NeurIPS 2025
-  - 奖励模型选择
-  - 多臂老虎机
-  - 迭代训练
 ---
 
 # LASeR: Learning to Adaptively Select Reward Models with Multi-Armed Bandits

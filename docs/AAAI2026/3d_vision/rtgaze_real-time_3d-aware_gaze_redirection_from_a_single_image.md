@@ -2,9 +2,6 @@
 description: "【论文笔记】RTGaze: Real-Time 3D-Aware Gaze Redirection from a Single Image 论文解读 | AAAI 2026 | arXiv 2511.11289 | 视线重定向 | 提出 RTGaze，一个实时 3D 感知视线重定向方法，通过混合频率特征编码器 + 视线注入模块 + 3D 面部几何先验蒸馏，从单张图像实现 61ms/帧的高质量视线重定向，比前 SOTA 3D 方法（GazeNeRF）快 800 倍。"
 tags:
   - AAAI 2026
-  - 视线重定向
-  - 3D感知
-  - NeRF
 ---
 
 # RTGaze: Real-Time 3D-Aware Gaze Redirection from a Single Image

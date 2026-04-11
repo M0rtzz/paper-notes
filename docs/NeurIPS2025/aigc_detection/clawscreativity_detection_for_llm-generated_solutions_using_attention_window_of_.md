@@ -2,9 +2,6 @@
 description: "【论文笔记】CLAWS: Creativity Detection for LLM-Generated Solutions Using Attention Window of Sections 论文解读 | NeurIPS 2025 | arXiv 2510.17921 | LLM创造力检测 | 提出 CLAWS，通过分析 LLM 在生成数学解答时对不同 prompt 区段的注意力权重分布，无需人工评估即可将生成内容分类为\"创造性\"、\"典型\"或\"幻觉\"三类。"
 tags:
   - NeurIPS 2025
-  - LLM创造力检测
-  - 注意力分析
-  - 数学推理
 ---
 
 # CLAWS: Creativity Detection for LLM-Generated Solutions Using Attention Window of Sections

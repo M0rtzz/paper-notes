@@ -2,9 +2,8 @@
 description: "【论文笔记】Physics-Informed Neural Networks with Fourier Features and Attention-Driven Decoding 论文解读 | NeurIPS 2025 (AI for Science Workshop) | arXiv 2510.05385 | PINNs | 提出 Spectral PINNsformer (S-Pformer)，用 Fourier 特征嵌入替换 PINNsformer 的编码器，结合仅解码器 Transformer 架构，在减少 18.6% 参数量的同时在多个 PDE benchmark 上取得更优性能，有效缓解了频谱偏置问题。"
 tags:
   - NeurIPS 2025 (AI for Science Workshop)
-  - PINNs
   - Transformer
-  - Fourier Features
+  - 偏微分方程
 ---
 
 # Physics-Informed Neural Networks with Fourier Features and Attention-Driven Decoding

@@ -2,9 +2,6 @@
 description: "【论文笔记】MathCoder-VL: Bridging Vision and Code for Enhanced Multimodal Mathematical Reasoning 论文解读 | ACL 2025 | arXiv 2505.10557 | 多模态数学推理 | 提出利用代码作为跨模态对齐的监督信号，构建860万图像-代码对数据集ImgCode-8.6M和300万多模态数学指令微调数据集MM-MathInstruct-3M，训练的MathCoder-VL在开源模型中达到多模态数学推理SOTA，在几何问题上超越GPT-4o和Claude 3.5 Sonnet。"
 tags:
   - ACL 2025
-  - 多模态数学推理
-  - 图像到代码
-  - 跨模态对齐
 ---
 
 # MathCoder-VL: Bridging Vision and Code for Enhanced Multimodal Mathematical Reasoning

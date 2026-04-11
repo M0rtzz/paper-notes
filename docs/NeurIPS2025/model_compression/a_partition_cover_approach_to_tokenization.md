@@ -2,9 +2,6 @@
 description: "【论文笔记】A Partition Cover Approach for Tokenization 论文解读 | NeurIPS 2025 | arXiv 2501.06246 | tokenization | 将分词（tokenization）问题重新建模为**分区覆盖（partition cover）**优化问题，证明其为NP-hard，并提出多项式时间的贪心算法GreedTok，在压缩率和1B参数LLM预训练下游任务上均优于BPE。"
 tags:
   - NeurIPS 2025
-  - tokenization
-  - BPE
-  - partition cover
 ---
 
 # A Partition Cover Approach for Tokenization

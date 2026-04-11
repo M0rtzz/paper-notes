@@ -2,9 +2,6 @@
 description: "【论文笔记】L4Q: Parameter Efficient Quantization-Aware Fine-Tuning on Large Language Models 论文解读 | ACL 2025 | arXiv 2402.04902 | 量化感知训练 | 提出 L4Q，将量化感知训练 (QAT) 与 LoRA 深度整合：先合并权重与LoRA参数再统一量化，通过定制反向传播路径消除权重梯度存储开销，实现联合优化量化与微调参数，在4-bit和3-bit量化下显著超越现有方法。"
 tags:
   - ACL 2025
-  - 量化感知训练
-  - LoRA
-  - 低精度推理
 ---
 
 # L4Q: Parameter Efficient Quantization-Aware Fine-Tuning on Large Language Models

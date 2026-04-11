@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-supervised Learning of Hybrid Part-aware 3D Representations of 2D Gaussians and Superquadrics 论文解读 | ICCV 2025 | arXiv 2408.10789 | 部件感知重建 | 提出 PartGS，一个自监督的部件感知3D重建框架，将2D Gaussian Splatting与超二次曲面混合耦合，通过参数共享和多种正则化实现同时高质量几何分解和纹理重建，在DTU、ShapeNet和真实场景上在重建精度上比SOTA提升75.9%，PSNR提升16.13dB。"
 tags:
   - ICCV 2025
-  - 部件感知重建
-  - 2D高斯溅射
-  - 超二次曲面
 ---
 
 # Self-supervised Learning of Hybrid Part-aware 3D Representations of 2D Gaussians and Superquadrics

@@ -2,9 +2,6 @@
 description: "【论文笔记】Faster and Better 3D Splatting via Group Training 论文解读 | ICCV 2025 | arXiv 2412.07608 | 3D高斯泼溅 | 提出 **Group Training** 策略，通过将高斯基元周期性分组为\"训练组\"和\"缓存组\"来加速 3DGS 训练，结合**基于透明度的优先采样**（OPS），在4个标准数据集上实现约 **30% 训练加速**的同时**提升渲染质量**和**减少模型体积**，且可即插即用于 3DGS 和 Mip-Splatting 等框架。"
 tags:
   - ICCV 2025
-  - 3D高斯泼溅
-  - 训练加速
-  - Group Training
 ---
 
 # Faster and Better 3D Splatting via Group Training

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Cross Modal Knowledge Distillation & Data Augmentation Recipe for Improving Transcriptomics Representations through Morphological Features 论文解读 | ICML 2025 | arXiv 2505.21317 | 跨模态知识蒸馏 | 提出 Semi-Clipped（基于 CLIP 的跨模态蒸馏方法）和 PEA（扰动嵌入增强），在弱配对数据场景下将显微镜图像的丰富形态学特征蒸馏到转录组学表征中，在保持基因表达可解释性的同时显著提升其预测能力。"
 tags:
   - ICML 2025
-  - 跨模态知识蒸馏
-  - 数据增强
-  - 转录组学
 ---
 
 # A Cross Modal Knowledge Distillation & Data Augmentation Recipe for Improving Transcriptomics Representations through Morphological Features

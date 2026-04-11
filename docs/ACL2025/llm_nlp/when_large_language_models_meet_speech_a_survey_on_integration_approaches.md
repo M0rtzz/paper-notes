@@ -2,9 +2,7 @@
 description: "【论文笔记】When Large Language Models Meet Speech: A Survey on Integration Approaches 论文解读 | ACL 2025 | arXiv 2502.19548 | speech-LLM integration | 系统综述语音与大语言模型的集成方法，将现有工作分为文本级、隐表示级、音频token级三大类，覆盖 ASR/S2TT/S2ST/TTS 等应用场景，并给出各方法的优劣对比与未来挑战。"
 tags:
   - ACL 2025
-  - speech-LLM integration
-  - text-based integration
-  - latent-representation
+  - 多模态
 ---
 
 # When Large Language Models Meet Speech: A Survey on Integration Approaches

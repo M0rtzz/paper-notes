@@ -2,9 +2,6 @@
 description: "【论文笔记】RS-ORT: A Reduced-Space Branch-and-Bound Algorithm for Optimal Regression Trees 论文解读 | ICLR 2026 | arXiv 2510.23901 | 最优决策树 | 提出 RS-ORT 算法，通过将回归树训练重构为两阶段优化问题并在缩减空间上进行分支定界（仅对树结构变量分支），结合闭式叶预测、阈值离散化和精确末层子树解析等加速策略，首次在包含连续特征的 200 万样本数据集上实现了有全局最优性保证的回归树学习。"
 tags:
   - ICLR 2026
-  - 最优决策树
-  - 回归树
-  - 分支定界
 ---
 
 # RS-ORT: A Reduced-Space Branch-and-Bound Algorithm for Optimal Regression Trees

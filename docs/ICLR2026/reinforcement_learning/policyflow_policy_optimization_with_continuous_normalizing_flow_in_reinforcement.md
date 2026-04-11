@@ -2,9 +2,6 @@
 description: "【论文笔记】PolicyFlow: Policy Optimization with Continuous Normalizing Flow in Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2602.01156 | 连续归一化流 | 提出PolicyFlow——将连续归一化流(CNF)策略与PPO式目标结合的在线RL算法：通过沿插值路径评估速度场变化近似重要性比率(避免全流路径昂贵的反向传播)，提出受布朗运动启发的隐式熵正则器(促进单调熵增长防止模式坍缩)，在MultiGoal/PointMaze/IsaacLab/MuJoCo上超越高斯PPO和流式基线(FPO/DPPO)，特别擅长多模态动作分布。"
 tags:
   - ICLR 2026
-  - 连续归一化流
-  - PPO
-  - 多模态策略
 ---
 
 # PolicyFlow: Policy Optimization with Continuous Normalizing Flow in Reinforcement Learning

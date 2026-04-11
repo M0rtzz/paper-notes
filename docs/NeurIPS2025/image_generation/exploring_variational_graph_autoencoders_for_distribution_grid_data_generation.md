@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring Variational Graph Autoencoders for Distribution Grid Data Generation 论文解读 | NeurIPS 2025 | arXiv 2509.02469 | 变分图自编码器 | 探索变分图自编码器（VGAE）生成合成配电网拓扑的能力，评估四种解码器架构在两个数据集上的表现，揭示 VGAE 在小型同质网络上效果良好但在大型异质网络上面临挑战。"
 tags:
   - NeurIPS 2025
-  - 变分图自编码器
-  - 配电网
-  - 合成数据
 ---
 
 # Exploring Variational Graph Autoencoders for Distribution Grid Data Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】UniRain: Unified Image Deraining with RAG-based Dataset Distillation and Multi-objective Reweighted Optimization 论文解读 | CVPR 2026 | arXiv 2603.03967 | image_restoration | 提出 UniRain，一个统一的去雨框架，通过 RAG 驱动的数据集蒸馏从 200 万+ 公开图像对中筛选高质量训练样本，结合非对称 MoE 架构和多目标自适应重加权优化策略，首次在单一模型中同时处理白天/夜晚的雨条纹和雨滴四种退化。"
 tags:
   - CVPR 2026
-  - image_restoration
-  - deraining
-  - mixture_of_experts
 ---
 
 # UniRain: Unified Image Deraining with RAG-based Dataset Distillation and Multi-objective Reweighted Optimization

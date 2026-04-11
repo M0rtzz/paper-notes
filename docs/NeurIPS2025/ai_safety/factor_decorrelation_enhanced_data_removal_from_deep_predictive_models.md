@@ -2,9 +2,6 @@
 description: "【论文笔记】Factor Decorrelation Enhanced Data Removal from Deep Predictive Models 论文解读 | NeurIPS 2025 | arXiv 2509.23443 | machine unlearning | 提出 DecoRemoval 框架，通过判别性保持的因子去相关（基于随机傅里叶特征的空间映射+自适应权重）和平滑损失扰动两大模块，在不重训的前提下实现数据移除，尤其在分布外（OOD）场景下显著优于现有方法。"
 tags:
   - NeurIPS 2025
-  - machine unlearning
-  - certified removal
-  - factor decorrelation
 ---
 
 # Factor Decorrelation Enhanced Data Removal from Deep Predictive Models

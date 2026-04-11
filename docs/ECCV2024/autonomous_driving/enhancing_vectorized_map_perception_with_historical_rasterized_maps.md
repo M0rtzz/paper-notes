@@ -2,9 +2,7 @@
 description: "【论文笔记】Enhancing Vectorized Map Perception with Historical Rasterized Maps 论文解读 | ECCV2024 | arXiv 2409.00620 | vectorized map perception | 提出 HRMapNet，通过维护一张低成本的全局历史栅格化地图（historical rasterized map），为在线矢量化地图感知提供互补先验信息，在 BEV 特征聚合和 query 初始化两个层面增强现有方法，在 nuScenes 和 Argoverse 2 上取得显著提升。"
 tags:
   - ECCV2024
-  - vectorized map perception
-  - historical rasterized map
-  - BEV
+  - 自动驾驶
 ---
 
 # Enhancing Vectorized Map Perception with Historical Rasterized Maps

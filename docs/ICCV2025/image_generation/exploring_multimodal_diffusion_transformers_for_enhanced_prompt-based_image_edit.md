@@ -2,10 +2,8 @@
 description: "【论文笔记】Exploring Multimodal Diffusion Transformers for Enhanced Prompt-based Image Editing 论文解读 | ICCV 2025 | arXiv 2508.07519 | MM-DiT | 系统分析了多模态扩散Transformer（MM-DiT）的注意力机制，将注意力矩阵分解为四个功能性子块（I2I/T2I/I2T/T2T），并基于分析结果提出了一种高效的、通过替换图像输入投影（$\mathbf{q}_i, \mathbf{k}_i$）实现的prompt-based图像编辑方法，适用于SD3系列和Flux.1等多种MM-DiT变体。"
 tags:
   - ICCV 2025
-  - MM-DiT
-  - 注意力机制分析
-  - Prompt-based Editing
   - 提示学习
+  - 扩散模型
 ---
 
 # Exploring Multimodal Diffusion Transformers for Enhanced Prompt-based Image Editing

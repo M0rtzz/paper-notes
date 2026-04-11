@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Multiple Missing Values-Resistant Unsupervised Graph Anomaly Detection 论文解读 | AAAI 2026 | arXiv 2511.09917 | 图异常检测 | 提出 M2V-UGAD 框架，首次解决节点属性和图拓扑同时缺失下的无监督图异常检测问题，通过双通路独立填补、超球潜空间融合和伪异常生成三个核心机制，克服跨视图干扰和填补偏差，在7个基准数据集上一致超越现有方法。"
 tags:
   - AAAI 2026
-  - 图异常检测
-  - 缺失值
-  - 无监督学习
 ---
 
 # Towards Multiple Missing Values-Resistant Unsupervised Graph Anomaly Detection

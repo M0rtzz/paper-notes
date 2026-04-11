@@ -2,9 +2,6 @@
 description: "【论文笔记】ConFu: Contemplate the Future for Better Speculative Sampling 论文解读 | ICLR 2026 | arXiv 2603.08899 | speculative decoding | 提出 ConFu，在推测解码的 draft model 中引入 contemplate tokens 让其预见 target model 的未来生成方向，结合 MoE 动态机制和锚点采样训练，在 EAGLE-3 基础上提升 8-11% 的接受率和生成速度。"
 tags:
   - ICLR 2026
-  - speculative decoding
-  - contemplate tokens
-  - future prediction
 ---
 
 # ConFu: Contemplate the Future for Better Speculative Sampling

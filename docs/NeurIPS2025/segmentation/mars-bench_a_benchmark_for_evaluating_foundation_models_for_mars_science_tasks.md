@@ -2,7 +2,6 @@
 description: "【论文笔记】Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks 论文解读 | NeurIPS 2025 | arXiv 2510.24010 | 火星科学、基准测试、Foundation Model、遥感分割、行星科学 | 本文提出 Mars-Bench——首个面向火星科学任务的综合基准，涵盖20个数据集（分类/分割/目标检测三大任务类型），系统评估了 ImageNet 预训练模型、地球观测基础模型和视觉语言模型在火星数据上的表现，发现当前通用模型在火星领域仍有明显不足，呼吁开发火星专用基础模型。"
 tags:
   - NeurIPS 2025
-  - 火星科学、基准测试、Foundation Model、遥感分割、行星科学
 ---
 
 # Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks

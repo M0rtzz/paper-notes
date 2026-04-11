@@ -2,10 +2,8 @@
 description: "【论文笔记】Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis 论文解读 | CVPR2025 | arXiv 2603.12903 | LiDAR view synthesis | SG-NLF 提出一种无需精确位姿的 LiDAR NeRF 框架，通过混合频谱-几何表征重建平滑几何、置信度感知位姿图实现全局对齐、对抗学习增强跨帧一致性，在低频 LiDAR 场景下重建质量和位姿精度分别超越 SOTA 35.8% 和 68.8%。"
 tags:
   - CVPR2025
-  - LiDAR view synthesis
-  - NeRF
-  - pose estimation
   - 位姿估计
+  - 点云
 ---
 
 # Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis

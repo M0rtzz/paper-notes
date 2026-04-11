@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Neighborhood-Constrained Q Learning for Offline Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2511.02567 | offline RL | 提出 ANQ（Adaptive Neighborhood-constrained Q learning），在离线 RL 中引入基于优势函数的自适应邻域约束，在密度约束（过于保守）和支持约束（需精确建模行为策略）之间找到灵活的中间方案，通过双层优化框架实现高效 Q 学习，在 D4RL 基准上达到 SOTA。"
 tags:
   - NeurIPS 2025
-  - offline RL
-  - neighborhood constraint
-  - OOD actions
 ---
 
 # Adaptive Neighborhood-Constrained Q Learning for Offline Reinforcement Learning

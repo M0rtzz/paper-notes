@@ -2,9 +2,6 @@
 description: "【论文笔记】GTA-CLIP: Generate, Transduct, Adapt — Iterative Transduction with VLMs 论文解读 | ICCV 2025 | arXiv 2501.06031 | Transductive Learning | 提出 GTA-CLIP，通过迭代执行\"LLM 属性生成→属性增强传导推理→编码器微调\"三步，在 12 个数据集上 zero-shot 平均提升 9.5%，few-shot 提升 3-4%，首次在零标签场景下统一了属性发现、传导推理和模型适配。"
 tags:
   - ICCV 2025
-  - Transductive Learning
-  - Zero-shot Classification
-  - CLIP
 ---
 
 # GTA-CLIP: Generate, Transduct, Adapt — Iterative Transduction with VLMs

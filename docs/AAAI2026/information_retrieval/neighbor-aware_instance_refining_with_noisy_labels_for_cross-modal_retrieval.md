@@ -2,9 +2,6 @@
 description: "【论文笔记】Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval 论文解读 | AAAI 2026 | arXiv 2512.24064 | 跨模态检索 | 提出 NIRNL 框架，通过跨模态边距保持（CMP）增强样本区分度，并利用邻域感知实例精炼（NIR）将训练数据三分为纯净/困难/噪声子集，分别定制不同优化策略，统一了鲁棒学习、标签校准和实例选择三种范式，在高噪声率下实现了 SOTA 跨模态检索性能。"
 tags:
   - AAAI 2026
-  - 跨模态检索
-  - 噪声标签
-  - 邻域感知
 ---
 
 # Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval

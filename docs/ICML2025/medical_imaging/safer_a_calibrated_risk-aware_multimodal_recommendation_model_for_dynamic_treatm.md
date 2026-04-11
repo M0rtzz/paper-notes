@@ -2,9 +2,6 @@
 description: "【论文笔记】SAFER: A Calibrated Risk-Aware Multimodal Recommendation Model for Dynamic Treatment Regimes 论文解读 | ICML2025 | arXiv 2506.06649 | 动态治疗策略(DTR) | 提出 SAFER 框架，融合结构化 EHR 与临床笔记的多模态信息，通过 KL 散度度量标签不确定性并结合保形推断控制 FDR，为高风险动态治疗推荐提供统计安全保障。"
 tags:
   - ICML2025
-  - 动态治疗策略(DTR)
-  - 多模态融合
-  - 不确定性量化
 ---
 
 # SAFER: A Calibrated Risk-Aware Multimodal Recommendation Model for Dynamic Treatment Regimes

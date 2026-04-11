@@ -2,10 +2,7 @@
 description: "【论文笔记】Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work 论文解读 | ICML2025 | arXiv 2411.09222 | OCR democratic AI | 提出\"Democracy Levels\"（民主等级）框架，将 AI 决策权从单方面权威向民主系统的转移划分为 L0–L5 六个等级，并配套维度评估体系和实操工具，为 AI 治理的民主化提供了系统性路线图。"
 tags:
   - ICML2025
-  - democratic AI
   - OCR
-  - participatory AI
-  - pluralistic alignment
 ---
 
 # Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work

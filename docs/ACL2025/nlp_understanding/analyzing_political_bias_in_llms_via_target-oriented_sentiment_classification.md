@@ -2,9 +2,6 @@
 description: "【论文笔记】Analyzing Political Bias in LLMs via Target-Oriented Sentiment Classification 论文解读 | ACL 2025 | arXiv 2505.19776 | 政治偏见 | 提出基于目标导向情感分类（TSC）不一致性的 LLM 政治偏见分析新方法——在 450 个政治句子中插入 1319 名不同政治光谱/人口特征的政治家名字，用 7 个模型×6 种语言预测情感，定义熵基不一致性指标量化预测变异性，发现所有模型均存在显著偏见（左翼正面/极右翼负面），大模型偏见更强且更一致，用虚构名字替换可部分缓解。"
 tags:
   - ACL 2025
-  - 政治偏见
-  - 目标导向情感分类
-  - 熵基不一致性
 ---
 
 # Analyzing Political Bias in LLMs via Target-Oriented Sentiment Classification

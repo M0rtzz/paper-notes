@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Generative Modeling with Residual Vector Quantization-Based Tokens 论文解读 | ICML2025 | arXiv 2412.10208 | ResGen | ResGen 通过直接预测累积RVQ嵌入而非单个令牌，解耦了生成迭代次数与序列长度和量化深度的关系，实现了高保真、快速采样的高效生成模型。"
 tags:
   - ICML2025
-  - ResGen
-  - 残差向量量化
-  - 掩码预测
 ---
 
 # Efficient Generative Modeling with Residual Vector Quantization-Based Tokens

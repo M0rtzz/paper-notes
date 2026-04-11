@@ -2,10 +2,7 @@
 description: "【论文笔记】Panoptic Captioning: An Equivalence Bridge for Image and Text 论文解读 | NEURIPS2025 | arXiv 2505.16334 | panoptic captioning | 提出 Panoptic Captioning 新任务，追求图像的\"最小文本等价\"——生成包含所有实体、位置、属性、关系和全局状态的全面描述，13B 模型配合解耦学习即超越 78B 开源和 GPT-4o 等商业模型。"
 tags:
   - NEURIPS2025
-  - panoptic captioning
-  - multimodal LLM
   - 多模态
-  - image-text equivalence
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

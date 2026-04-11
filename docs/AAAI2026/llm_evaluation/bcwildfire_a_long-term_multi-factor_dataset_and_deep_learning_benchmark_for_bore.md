@@ -2,9 +2,6 @@
 description: "【论文笔记】BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction 论文解读 | AAAI 2026 | arXiv 2511.17597 | 野火风险预测 | 本文构建了一个覆盖加拿大BC省2.4亿公顷、跨度25年的多模态野火风险预测数据集BCWildfire，包含38个驱动因子，并对CNN/Linear/Transformer/Mamba四大范式的时序预测模型进行了系统评测，揭示了当前模型在野火预测中的性能上限和关键影响因子。"
 tags:
   - AAAI 2026
-  - 野火风险预测
-  - 时间序列预测
-  - 多模态数据集
 ---
 
 # BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction

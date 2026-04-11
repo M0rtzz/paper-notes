@@ -2,9 +2,6 @@
 description: "【论文笔记】Safeguarding Vision-Language Models: Mitigating Vulnerabilities to Gaussian Noise in Perturbation-based Attacks 论文解读 | ICCV 2025 | arXiv 2504.01308 | VLM安全 | 发现主流VLM普遍缺乏高斯噪声鲁棒性，提出Robust-VLGuard安全数据集（含图文对齐/不对齐场景）配合噪声增强微调提升高斯噪声鲁棒性，再结合DiffPure将对抗噪声转化为高斯噪声，构建DiffPure-VLM通用防御框架，有效抵御多种强度的对抗攻击。"
 tags:
   - ICCV 2025
-  - VLM安全
-  - 高斯噪声
-  - 对抗攻击防御
 ---
 
 # Safeguarding Vision-Language Models: Mitigating Vulnerabilities to Gaussian Noise in Perturbation-based Attacks

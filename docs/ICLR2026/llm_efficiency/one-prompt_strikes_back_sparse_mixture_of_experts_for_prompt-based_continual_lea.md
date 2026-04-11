@@ -2,10 +2,7 @@
 description: "【论文笔记】One-Prompt Strikes Back: Sparse Mixture of Experts for Prompt-based Continual Learning 论文解读 | ICLR 2026 | arXiv 2509.24483 | Continual Learning | 提出 SMoPE 框架，将单个共享 prompt 组织为稀疏 MoE 结构中的多个 prompt expert，通过 prompt-attention score aggregation 实现动态稀疏激活，在保持高参数效率的同时显著缓解知识干扰，在多个持续学习 benchmark 上达到 SOTA。"
 tags:
   - ICLR 2026
-  - Continual Learning
-  - Prompt Tuning
   - 提示学习
-  - Mixture of Experts
 ---
 
 # One-Prompt Strikes Back: Sparse Mixture of Experts for Prompt-based Continual Learning

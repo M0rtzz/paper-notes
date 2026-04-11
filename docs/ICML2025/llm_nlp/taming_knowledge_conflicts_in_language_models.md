@@ -2,9 +2,6 @@
 description: "【论文笔记】Taming Knowledge Conflicts in Language Models 论文解读 | ICML 2025 | arXiv 2503.10996 | 知识冲突 | 揭示了语言模型注意力头中\"上下文信息与参数记忆的叠加\"（CP Superposition）现象，提出 JuICE（Just Run Twice）方法，通过双次推理的注意力干预策略，在不微调的前提下灵活引导模型偏向参数知识或上下文知识，在 11 个数据集 × 6 种模型架构上达到 SOTA。"
 tags:
   - ICML 2025
-  - 知识冲突
-  - 注意力干预
-  - 参数记忆
 ---
 
 # Taming Knowledge Conflicts in Language Models

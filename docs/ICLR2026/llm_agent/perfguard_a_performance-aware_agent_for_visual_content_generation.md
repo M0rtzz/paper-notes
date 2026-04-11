@@ -2,9 +2,7 @@
 description: "【论文笔记】PerfGuard: A Performance-Aware Agent for Visual Content Generation 论文解读 | ICLR 2026 | arXiv 2601.22571 | visual content generation | 提出 PerfGuard，一个性能感知的 agent 框架用于视觉内容生成，通过多维性能评分矩阵替代文本描述来建模工具能力边界，结合自适应偏好更新和能力对齐规划优化，显著提升工具选择准确率（错误率从 77.8% 降至 14.2%）和视觉生成质量。"
 tags:
   - ICLR 2026
-  - visual content generation
-  - agent
-  - tool selection
+  - 图像生成
 ---
 
 # PerfGuard: A Performance-Aware Agent for Visual Content Generation

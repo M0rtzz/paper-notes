@@ -2,9 +2,6 @@
 description: "【论文笔记】FairContrast: Enhancing Fairness through Contrastive Learning and Customized Augmentation 论文解读 | NeurIPS 2025 | arXiv 2510.02017 | 公平性 | FairContrast 提出一种面向表格数据的公平对比学习框架，通过策略性的正对样本选择（将优势组有利结果样本与对应弱势组样本配对），结合有监督或自监督对比损失与交叉熵损失的端到端训练，在不引入额外公平约束损失的前提下显著降低了预测偏差，且精度损失极小。"
 tags:
   - NeurIPS 2025
-  - 公平性
-  - 对比学习
-  - 表格数据
 ---
 
 # FairContrast: Enhancing Fairness through Contrastive Learning and Customized Augmentation

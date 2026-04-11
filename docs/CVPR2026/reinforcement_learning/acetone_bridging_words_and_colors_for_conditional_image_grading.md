@@ -2,9 +2,6 @@
 description: "【论文笔记】AceTone: Bridging Words and Colors for Conditional Image Grading 论文解读 | CVPR 2026 | arXiv 2604.00530 | 色彩调色 | 提出AceTone，首个支持文本和参考图像多模态条件色彩调色的统一框架，通过VQ-VAE将3D-LUT压缩为64个离散token，训练VLM预测LUT token序列，再用GRPO强化学习对齐色彩相似度和美学偏好，在风格迁移和指令调色上LPIPS改善50%。"
 tags:
   - CVPR 2026
-  - 色彩调色
-  - 3D-LUT
-  - VQ-VAE tokenizer
 ---
 
 # AceTone: Bridging Words and Colors for Conditional Image Grading

@@ -2,9 +2,6 @@
 description: "【论文笔记】Human Cognitive Biases in Explanation-based Interaction: The Case of Within and Between Session Order Effect 论文解读 | AAAI 2026 | arXiv 2512.04764 | 解释性交互学习 | 本文通过两项大规模用户研究（总计 713 名参与者）系统评估了**顺序效应**（order effect）对解释性交互学习（XIL）的影响，发现顺序效应对用户反馈质量的影响**有限且不一致**，且仅在 session 内（而非 session 间）有显著但微弱的影响——总体结论是顺序效应不构成 XIL 实际应用的重大障碍。"
 tags:
   - AAAI 2026
-  - 解释性交互学习
-  - 认知偏差
-  - 顺序效应
 ---
 
 # Human Cognitive Biases in Explanation-based Interaction: The Case of Within and Between Session Order Effect

@@ -2,9 +2,6 @@
 description: "【论文笔记】Camera Height Doesn't Change: Unsupervised Training for Metric Monocular Road-Scene Depth Estimation 论文解读 | ECCV 2024 | arXiv 2312.04530 | 单目深度估计 | 提出FUMET训练框架,利用道路上检测到的车辆尺寸先验聚合为相机高度估计,并利用相机高度在同一视频序列中不变的事实作为度量尺度监督,使任意单目深度网络无需辅助传感器即可学习绝对尺度。"
 tags:
   - ECCV 2024
-  - 单目深度估计
-  - 度量尺度
-  - 自监督学习
 ---
 
 # Camera Height Doesn't Change: Unsupervised Training for Metric Monocular Road-Scene Depth Estimation

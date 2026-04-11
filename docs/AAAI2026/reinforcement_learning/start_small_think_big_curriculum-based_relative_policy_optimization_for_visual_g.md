@@ -2,9 +2,6 @@
 description: "【论文笔记】Start Small, Think Big: Curriculum-based Relative Policy Optimization for Visual Grounding 论文解读 | AAAI 2026 | arXiv 2511.13924 | 视觉定位 | 发现 CoT 推理在视觉定位任务中可能适得其反，提出 CuRPO（Curriculum-based Relative Policy Optimization），利用 CoT 长度和 gIoU 奖励作为数据复杂度指标进行课程式 RL 训练，在 RefCOCO 上比 Visual-RFT 提升最高 +12.52 mAP。"
 tags:
   - AAAI 2026
-  - 视觉定位
-  - 课程学习
-  - GRPO
 ---
 
 # Start Small, Think Big: Curriculum-based Relative Policy Optimization for Visual Grounding

@@ -2,9 +2,6 @@
 description: "【论文笔记】DOTA: Distributional Test-Time Adaptation of Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2409.19375 | test-time adaptation | 提出 DOTA（DistributiOnal Test-time Adaptation），不再简单缓存测试样本，而是**持续估计测试数据流的底层分布**，通过贝叶斯定理计算后验概率实现自适应，解决了缓存容量有限导致的灾难性遗忘问题，在多个分布偏移基准上达到 SOTA。"
 tags:
   - NeurIPS 2025
-  - test-time adaptation
-  - CLIP
-  - distribution estimation
 ---
 
 # DOTA: Distributional Test-Time Adaptation of Vision-Language Models

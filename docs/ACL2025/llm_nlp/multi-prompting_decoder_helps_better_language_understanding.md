@@ -2,10 +2,7 @@
 description: "【论文笔记】Multi-Prompting Decoder Helps Better Language Understanding 论文解读 | ACL2025 | arXiv 2406.06279 | Model-as-a-Service | 提出 Multi-Prompting Decoder（MPD）框架，通过多提示查询 PLM 获取多组隐状态和类别分数，结合最优传输匹配和校准解码策略，在 MaaS（模型即服务）场景下的 few-shot 分类任务上显著超越现有方法。"
 tags:
   - ACL2025
-  - Model-as-a-Service
-  - prompt tuning
   - 提示学习
-  - optimal transport
 ---
 
 # Multi-Prompting Decoder Helps Better Language Understanding

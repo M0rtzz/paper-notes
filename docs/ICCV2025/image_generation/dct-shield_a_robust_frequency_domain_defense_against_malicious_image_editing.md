@@ -2,9 +2,6 @@
 description: "【论文笔记】DCT-Shield: A Robust Frequency Domain Defense against Malicious Image Editing 论文解读 | ICCV 2025 | arXiv 2504.17894 | 图像免疫 | 提出 DCT-Shield，在离散余弦变换（DCT）域中引入对抗扰动而非像素空间，使免疫噪声高度不可感知，并天然具备JPEG压缩鲁棒性，有效抵御基于扩散模型的恶意图像编辑。"
 tags:
   - ICCV 2025
-  - 图像免疫
-  - 对抗扰动
-  - DCT频域
 ---
 
 # DCT-Shield: A Robust Frequency Domain Defense against Malicious Image Editing

@@ -2,10 +2,7 @@
 description: "【论文笔记】Error as Signal: Stiffness-Aware Diffusion Sampling via Embedded Runge-Kutta Guidance 论文解读 | ICLR2026 | arXiv 2603.03692 | 扩散模型 diffusion sampling | 提出 ERK-Guid，利用嵌入式 Runge-Kutta 求解器的阶差误差作为 guidance 信号，在刚性区域自适应纠正局部截断误差（LTE），无需额外网络评估即可提升扩散模型采样质量。"
 tags:
   - ICLR2026
-  - diffusion sampling
   - 扩散模型
-  - stiffness
-  - local truncation error
 ---
 
 # Error as Signal: Stiffness-Aware Diffusion Sampling via Embedded Runge-Kutta Guidance

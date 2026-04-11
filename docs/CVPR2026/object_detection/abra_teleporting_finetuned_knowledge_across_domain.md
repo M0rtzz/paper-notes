@@ -2,9 +2,7 @@
 description: "【论文笔记】ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection 论文解读 | CVPR 2026 | arXiv 2603.12409 | 开放词汇检测 | 将域适应建模为权重空间的SVD旋转对齐问题：分解域与类知识，通过闭式正交Procrustes解将源域类特定残差\"传送\"到无标注的目标域，实现零样本跨域类别检测。"
 tags:
   - CVPR 2026
-  - 开放词汇检测
-  - 域适应
-  - 权重空间传输
+  - OCR
 ---
 
 # ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection

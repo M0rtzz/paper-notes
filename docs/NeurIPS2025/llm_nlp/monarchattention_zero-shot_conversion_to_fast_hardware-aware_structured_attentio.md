@@ -2,10 +2,7 @@
 description: "【论文笔记】MonarchAttention: Zero-Shot Conversion to Fast, Hardware-Aware Structured Attention 论文解读 | NeurIPS 2025 | arXiv 2505.18698 | 注意力机制 efficient attention | 提出 MonarchAttention，利用 Monarch 矩阵的结构化特性，通过 softmax 变分形式的交替优化，实现 $\Theta(N\sqrt{N}d)$ 复杂度的注意力近似，无需额外训练即可零样本替换预训练 Transformer 的注意力层，同时在 GPU 上相比 FlashAttention-2 实现 1.4×–8.2× 的加速。"
 tags:
   - NeurIPS 2025
-  - efficient attention
   - 注意力机制
-  - Monarch matrices
-  - sub-quadratic attention
 ---
 
 # MonarchAttention: Zero-Shot Conversion to Fast, Hardware-Aware Structured Attention

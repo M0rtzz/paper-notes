@@ -2,9 +2,6 @@
 description: "【论文笔记】Interpretable Zero-Shot Learning with Locally-Aligned Vision-Language Model 论文解读 | ICCV 2025 | arXiv 2506.23822 | 零样本学习 | 提出 LaZSL，通过最优传输（Optimal Transport）实现局部视觉区域与语义属性之间的细粒度对齐，在无需额外训练的前提下构建可解释的零样本分类器，在9个数据集上取得了兼顾准确性、可解释性和域泛化的优异表现。"
 tags:
   - ICCV 2025
-  - 零样本学习
-  - 可解释性
-  - 最优传输
 ---
 
 # Interpretable Zero-Shot Learning with Locally-Aligned Vision-Language Model

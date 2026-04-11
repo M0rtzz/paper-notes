@@ -2,9 +2,6 @@
 description: "【论文笔记】Reference Recommendation based Membership Inference Attack against Hybrid-based Recommender Systems 论文解读 | AAAI 2026 | arXiv 2512.09442 | 成员推理攻击 | 提出基于参考推荐的成员推理攻击（MIA），设计相对成员度量 $\rho(u) = d(v_t, v_h) / d(v_t, v_r)$，利用混合推荐系统的个性化特性获取参考推荐，首次有效攻击混合推荐系统，攻击成功率高达 93.4% 且计算成本仅需 10 秒。"
 tags:
   - AAAI 2026
-  - 成员推理攻击
-  - 混合推荐系统
-  - 参考推荐
 ---
 
 # Reference Recommendation based Membership Inference Attack against Hybrid-based Recommender Systems

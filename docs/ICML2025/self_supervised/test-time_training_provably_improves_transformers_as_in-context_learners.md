@@ -2,9 +2,6 @@
 description: "【论文笔记】Test-Time Training Provably Improves Transformers as In-Context Learners 论文解读 | ICML 2025 | arXiv 2503.11842 | test-time-training | 本文从理论上严格证明了测试时训练（TTT）能够可证明地提升 Transformer 的上下文学习（ICL）能力，并在表格基础模型 TabPFN 上验证 TTT 可将所需样本量减少 3-5 倍，同时带来显著的推理效率提升。"
 tags:
   - ICML 2025
-  - test-time-training
-  - in-context-learning
-  - transformer
   - Transformer
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】CD-DPE: Dual-Prompt Expert Network Based on Convolutional Dictionary Feature Decoupling for Multi-Contrast MRI Super-Resolution 论文解读 | AAAI 2026 | arXiv 2511.14014 | 多对比度MRI超分辨率 | 提出 CD-DPE 网络，通过迭代卷积字典特征解耦模块（CD-FDM）将多对比度 MRI 特征分离为跨对比度共有和模态特有成分，再利用双提示特征融合专家模块（DP-FFEM）进行自适应融合重建，在多个公开数据集上超越现有 SOTA 方法。"
 tags:
   - AAAI 2026
-  - 多对比度MRI超分辨率
-  - 卷积字典
-  - 特征解耦
 ---
 
 # CD-DPE: Dual-Prompt Expert Network Based on Convolutional Dictionary Feature Decoupling for Multi-Contrast MRI Super-Resolution

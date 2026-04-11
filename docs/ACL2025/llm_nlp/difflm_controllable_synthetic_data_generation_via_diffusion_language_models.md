@@ -2,10 +2,8 @@
 description: "【论文笔记】DiffLM: Controllable Synthetic Data Generation via Diffusion Language Models 论文解读 | ACL 2025 | arXiv 2411.03250 | 扩散模型 diffusion model | 提出 DiffLM，将扩散模型应用于文本合成数据生成，通过引导函数实现对生成文本属性的精细控制，在多个下游任务上生成的合成数据质量超越 GPT-4 和传统增强方法。"
 tags:
   - ACL 2025
-  - diffusion model
   - 扩散模型
-  - synthetic data
-  - controllable generation
+  - 数据增强
 ---
 
 # DiffLM: Controllable Synthetic Data Generation via Diffusion Language Models

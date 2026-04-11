@@ -2,9 +2,6 @@
 description: "【论文笔记】Leveraging Robust Optimization for LLM Alignment under Distribution Shifts 论文解读 | NeurIPS 2025 | arXiv 2504.05831 | LLM alignment | 提出 DoRA（Distribution-aware optimization for Robust Alignment），通过训练分布分类器为每个样本分配校准权重，结合 KL-DRO 框架最小化最坏情况损失，以模型无关的即插即用方式提升多种对齐算法在分布偏移下的鲁棒性，在 DPO/RRHF/LIRE 等基线上一致提升性能。"
 tags:
   - NeurIPS 2025
-  - LLM alignment
-  - distributionally robust optimization
-  - distribution shift
 ---
 
 # Leveraging Robust Optimization for LLM Alignment under Distribution Shifts

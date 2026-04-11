@@ -2,9 +2,6 @@
 description: "【论文笔记】Optimal Sensor Scheduling and Selection for Continuous-Discrete Kalman Filtering with Auxiliary Dynamics 论文解读 | ICML2025 | arXiv 2507.11240 | 传感器调度 | 提出一种面向连续-离散卡尔曼滤波 (CD-KF) 的最优传感器调度框架：将多传感器观测建模为独立 Poisson 过程，推导后验协方差矩阵的可微上界，利用梯度优化方法联合优化观测频率与辅助动力学输入，并通过 Wasserstein-2 最优量化确定性地选取观测时刻。"
 tags:
   - ICML2025
-  - 传感器调度
-  - 卡尔曼滤波
-  - 连续-离散系统
 ---
 
 # Optimal Sensor Scheduling and Selection for Continuous-Discrete Kalman Filtering with Auxiliary Dynamics

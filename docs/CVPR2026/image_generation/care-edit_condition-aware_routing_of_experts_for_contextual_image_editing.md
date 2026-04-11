@@ -2,9 +2,7 @@
 description: "【论文笔记】CARE-Edit: Condition-Aware Routing of Experts for Contextual Image Editing 论文解读 | CVPR2026 | arXiv 2603.08589 | 图像编辑 | 提出 CARE-Edit，一种条件感知的专家路由框架，通过异构专家（Text/Mask/Reference/Base）配合轻量级 latent-attention 路由器，在 DiT 骨干上实现动态计算分配，有效解决统一图像编辑器中多条件信号（文本、掩码、参考图）冲突导致的颜色溢出、身份漂移等问题。"
 tags:
   - CVPR2026
-  - 图像编辑
-  - Mixture-of-Experts
-  - 条件感知路由
+  - Transformer
 ---
 
 # CARE-Edit: Condition-Aware Routing of Experts for Contextual Image Editing

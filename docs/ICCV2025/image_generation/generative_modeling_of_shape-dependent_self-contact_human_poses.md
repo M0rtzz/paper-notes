@@ -2,9 +2,6 @@
 description: "【论文笔记】Generative Modeling of Shape-Dependent Self-Contact Human Poses 论文解读 | ICCV 2025 | arXiv 2509.23393 | Self-Contact | 构建首个大规模精确形状标注的自接触姿态数据集Goliath-SC（383K姿态/130个subject），提出形状条件的部件感知潜在扩散模型PAPoseDiff来建模体型依赖的自接触姿态分布，并利用学到的扩散先验进行单视角姿态refinement，在unseen subject上超越BUDDI和SMPLer-X等SOTA方法。"
 tags:
   - ICCV 2025
-  - Self-Contact
-  - Body Shape
-  - Diffusion Model
   - 扩散模型
 ---
 

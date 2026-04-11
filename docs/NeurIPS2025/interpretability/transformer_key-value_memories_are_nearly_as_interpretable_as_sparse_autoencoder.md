@@ -2,9 +2,6 @@
 description: "【论文笔记】Transformer Key-Value Memories Are Nearly as Interpretable as Sparse Autoencoders 论文解读 | NeurIPS 2025 | arXiv 2510.22332 | 稀疏自编码器 | 系统比较了Transformer前馈层（FF）的键值记忆特征与稀疏自编码器（SAE）学到的特征的可解释性，发现两者在现有评测指标上表现相当，FF-KV在某些方面甚至更优，质疑了SAE作为特征发现工具的必要性。"
 tags:
   - NeurIPS 2025
-  - 稀疏自编码器
-  - 前馈层
-  - 键值记忆
 ---
 
 # Transformer Key-Value Memories Are Nearly as Interpretable as Sparse Autoencoders

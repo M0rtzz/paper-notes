@@ -2,9 +2,6 @@
 description: "【论文笔记】Directional Textual Inversion for Personalized Text-to-Image Generation 论文解读 | ICLR 2026 | arXiv 2512.13672 | Textual Inversion | 本文发现 Textual Inversion (TI) 学到的 token embedding 存在范数膨胀（norm inflation）问题，导致复杂 prompt 的文本对齐下降；提出 Directional Textual Inversion (DTI)，将 embedding 范数固定在分布内尺度、仅在单位超球面上用 Riemannian SGD 优化方向，结合 von Mises-Fisher 先验，显著提升 prompt 忠实度。"
 tags:
   - ICLR 2026
-  - Textual Inversion
-  - 方向优化
-  - 超球面
 ---
 
 # Directional Textual Inversion for Personalized Text-to-Image Generation

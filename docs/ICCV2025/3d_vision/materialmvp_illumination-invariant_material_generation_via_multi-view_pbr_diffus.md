@@ -2,9 +2,6 @@
 description: "【论文笔记】MaterialMVP: Illumination-Invariant Material Generation via Multi-view PBR Diffusion 论文解读 | ICCV 2025 | arXiv 2503.10289 | PBR材质生成 | MaterialMVP 是一个端到端的多视图 PBR 纹理生成模型，通过参考注意力、一致性正则化训练和双通道材质生成框架，从3D网格和图像提示生成光照不变且多视图一致的高质量 PBR 材质。"
 tags:
   - ICCV 2025
-  - PBR材质生成
-  - 多视图扩散
-  - 纹理生成
 ---
 
 # MaterialMVP: Illumination-Invariant Material Generation via Multi-view PBR Diffusion

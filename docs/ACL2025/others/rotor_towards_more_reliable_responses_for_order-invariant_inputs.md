@@ -2,9 +2,6 @@
 description: "【论文笔记】RoToR: Towards More Reliable Responses for Order-Invariant Inputs 论文解读 | ACL 2025 | arXiv 2502.08662 | 位置偏差 | 提出 RoToR，一种基于全局排序和循环位置编码分配的零样本顺序不变语言模型，通过最小化位置 ID 修改来实现稳定的顺序不变性，并设计选择路由（Selective Routing）机制自适应处理混合输入类型。"
 tags:
   - ACL 2025
-  - 位置偏差
-  - 顺序不变性
-  - 位置编码
 ---
 
 # RoToR: Towards More Reliable Responses for Order-Invariant Inputs

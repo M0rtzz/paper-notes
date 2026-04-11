@@ -2,9 +2,6 @@
 description: "【论文笔记】MotionAnymesh: Physics-Grounded Articulation for Simulation-Ready Digital Twins 论文解读 | CVPR 2026 | arXiv 2603.12936 | 铰接物体 | 提出MotionAnymesh，一个零样本自动框架，通过运动感知分割（SP4D先验+VLM推理）和几何-物理联合优化关节估计，将静态3D网格转化为无碰撞的仿真就绪铰接数字孪生，在PartNet-Mobility和Objaverse上物理可执行性达87%。"
 tags:
   - CVPR 2026
-  - 铰接物体
-  - 数字孪生
-  - URDF
 ---
 
 # MotionAnymesh: Physics-Grounded Articulation for Simulation-Ready Digital Twins

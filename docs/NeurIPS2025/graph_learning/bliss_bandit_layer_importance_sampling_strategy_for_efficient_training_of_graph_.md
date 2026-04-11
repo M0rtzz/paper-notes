@@ -2,9 +2,7 @@
 description: "【论文笔记】BLISS: Bandit Layer Importance Sampling Strategy for Efficient Training of Graph Neural Networks 论文解读 | NeurIPS 2025 | arXiv 2512.22388 | 图采样 | 提出 BLISS，将 GNN 的层级邻居采样建模为多臂老虎机问题，用 EXP3 算法动态调整每条边的采样概率，根据邻居对节点表示的方差贡献作为奖励信号，在 GCN 和 GAT 上维持或超越全批次训练精度。"
 tags:
   - NeurIPS 2025
-  - 图采样
-  - 层级重要性采样
-  - 多臂老虎机
+  - 图神经网络
 ---
 
 # BLISS: Bandit Layer Importance Sampling Strategy for Efficient Training of Graph Neural Networks

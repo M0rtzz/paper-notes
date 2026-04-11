@@ -2,9 +2,6 @@
 description: "【论文笔记】NOVUM: Neural Object Volumes for Robust Object Classification 论文解读 | ECCV2024 | arXiv 2305.14668 | 3D物体表征 | 提出 NOVUM 架构，为每个物体类别维护一个由 3D 高斯组成的神经体积表征，通过将图像特征与各类别的高斯特征匹配实现分类，在遮挡/损坏/真实 OOD 场景下相比 ResNet/ViT/Swin 等标准架构分类准确率提升 6-33%，同时支持 3D 位姿估计和可解释性可视化。"
 tags:
   - ECCV2024
-  - 3D物体表征
-  - 鲁棒分类
-  - 3D高斯
 ---
 
 # NOVUM: Neural Object Volumes for Robust Object Classification

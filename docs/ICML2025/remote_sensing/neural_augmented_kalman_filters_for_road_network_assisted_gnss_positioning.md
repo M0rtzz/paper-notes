@@ -2,9 +2,6 @@
 description: "【论文笔记】Neural Augmented Kalman Filters for Road Network Assisted GNSS Positioning 论文解读 | ICML2025 | arXiv 2507.00654 | GNSS定位 | 首个用深度学习将道路网络信息集成到GNSS卡尔曼滤波中的方法——训练时序图神经网络(TGNN)预测正确道路段及其不确定性，作为KF的量测更新，在城市场景中定位误差降低29%。"
 tags:
   - ICML2025
-  - GNSS定位
-  - 卡尔曼滤波
-  - 道路网络
 ---
 
 # Neural Augmented Kalman Filters for Road Network Assisted GNSS Positioning

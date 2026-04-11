@@ -2,9 +2,6 @@
 description: "【论文笔记】Temporal Sparse Autoencoders: Leveraging the Sequential Nature of Language for Interpretability 论文解读 | ICLR 2026 | arXiv 2511.05541 | 稀疏自编码器 | 提出 Temporal SAEs (T-SAEs)，通过引入时间对比损失鼓励高层特征在相邻 token 间保持一致激活，在无显式语义信号的自监督训练下实现语义与句法特征的解耦，恢复更平滑、连贯的语义概念且不牺牲重构质量。"
 tags:
   - ICLR 2026
-  - 稀疏自编码器
-  - 时间一致性
-  - 语义解耦
 ---
 
 # Temporal Sparse Autoencoders: Leveraging the Sequential Nature of Language for Interpretability

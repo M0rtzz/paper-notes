@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Numeric Rewards: In-Context Dueling Bandits with LLM Agents 论文解读 | ACL 2025 | arXiv 2407.01887 | 上下文强化学习 | 系统评估了 LLM 在 Dueling Bandits（偏好反馈强化学习）中的零样本上下文决策能力，发现 GPT-4 Turbo 在弱遗憾（weak regret）上表现出色但强遗憾（strong regret）存在差距，进而提出 LEAD 框架（LLM with Enhanced Algorithmic Dueling），通过将经典 DB 算法与 LLM 智能体细粒度自适应融合来同时获得理论保证和鲁棒性。"
 tags:
   - ACL 2025
-  - 上下文强化学习
-  - Dueling Bandits
-  - LLM决策
 ---
 
 # Beyond Numeric Rewards: In-Context Dueling Bandits with LLM Agents

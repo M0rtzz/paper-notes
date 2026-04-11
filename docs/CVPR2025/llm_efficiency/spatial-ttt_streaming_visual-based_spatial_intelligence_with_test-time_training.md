@@ -2,7 +2,6 @@
 description: "【论文笔记】Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training 论文解读 | CVPR 2025 | arXiv 2603.12255 | 待补充 | > 基于摘要：Humans perceive and understand real-world spaces through a stream of visual observations. Therefore, the ability to streamingly maintain and update spatial evidence from potentially unbounded video streams is essential for spatial intelligence. The core challenge is not simply longer context windows"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training

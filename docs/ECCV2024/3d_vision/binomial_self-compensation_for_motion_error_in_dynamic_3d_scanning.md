@@ -2,9 +2,6 @@
 description: "【论文笔记】Binomial Self-compensation for Motion Error in Dynamic 3D Scanning 论文解读 | ECCV 2024 | arXiv 2404.06693 | 相位移轮廓术 | 提出二项式自补偿(BSC)算法,通过对运动受影响的相位序列按二项式系数加权求和,无需任何中间变量即可指数级消除四步相位移轮廓术中的运动误差,实现与相机帧率相同的高精度动态3D扫描。"
 tags:
   - ECCV 2024
-  - 相位移轮廓术
-  - 动态3D扫描
-  - 运动误差补偿
 ---
 
 # Binomial Self-compensation for Motion Error in Dynamic 3D Scanning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Benchmarking Overton Pluralism in LLMs 论文解读 | ICLR 2026 | arXiv 2512.01351 | Overton多元主义 | 提出 OvertonBench 框架，通过大规模人类研究（1208名美国代表性参与者、60个主观问题、8个LLM）将 Overton 多元主义形式化为集合覆盖度指标 OvertonScore，发现当前所有模型得分仅 0.35–0.41（理论上限为 1.0），并构建了与人类判断高度相关（ρ=0.88）的自动化评测工具。"
 tags:
   - ICLR 2026
-  - Overton多元主义
-  - LLM偏见
-  - 基准测试
 ---
 
 # Benchmarking Overton Pluralism in LLMs

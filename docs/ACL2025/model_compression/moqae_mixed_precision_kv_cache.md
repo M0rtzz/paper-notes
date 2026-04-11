@@ -2,10 +2,7 @@
 description: "【论文笔记】MoQAE: Mixed-Precision Quantization for Long-Context LLM Inference via Mixture of Quantization-Aware Experts 论文解读 | ACL 2025 | arXiv 2506.07533 | 量化 KV cache quantization | MoQAE 创造性地将不同量化比特宽度配置视为 MoE 中的\"专家\"，通过轻量路由器学习每个 chunk 的最优量化策略，结合路由冻结和路由共享机制，在几乎不损失精度的情况下大幅减少长上下文推理的 KV cache 内存。"
 tags:
   - ACL 2025
-  - KV cache quantization
   - 量化
-  - mixed-precision
-  - MoE
 ---
 
 # MoQAE: Mixed-Precision Quantization for Long-Context LLM Inference via Mixture of Quantization-Aware Experts

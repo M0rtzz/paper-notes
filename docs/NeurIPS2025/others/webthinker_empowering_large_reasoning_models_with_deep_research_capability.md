@@ -2,9 +2,6 @@
 description: "【论文笔记】笔记4：WebThinker - 赋予推理模型深度研究能力 论文解读 | NeurIPS 2025 | arXiv 2504.21776 | 深度研究 | WebThinker赋予大型推理模型(LRM)自主的网络搜索与导航能力，通过Think-Search-Draft策略实现推理、信息采集与报告生成的无缝交织，经RL优化后在复杂推理与科学报告生成任务上超越o1与Gemini。"
 tags:
   - NeurIPS 2025
-  - 深度研究
-  - Web导航
-  - 交互搜索
 ---
 
 # 笔记4：WebThinker - 赋予推理模型深度研究能力

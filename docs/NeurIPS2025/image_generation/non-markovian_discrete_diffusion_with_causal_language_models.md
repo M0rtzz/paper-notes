@@ -2,9 +2,6 @@
 description: "【论文笔记】Non-Markovian Discrete Diffusion with Causal Language Models 论文解读 | NeurIPS 2025 | arXiv 2502.09767 | 离散扩散模型 | 提出CaDDi框架，通过非马尔可夫离散扩散过程让每步去噪都能访问完整生成轨迹，并将其统一到因果语言模型架构中，使预训练LLM可直接复用为离散扩散模型。"
 tags:
   - NeurIPS 2025
-  - 离散扩散模型
-  - 非马尔可夫
-  - 因果语言模型
 ---
 
 # Non-Markovian Discrete Diffusion with Causal Language Models

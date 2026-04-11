@@ -2,9 +2,6 @@
 description: "【论文笔记】GLEAM: A Multimodal Imaging Dataset and HAMM for Glaucoma Classification 论文解读 | CVPR 2026 | arXiv 2603.12800 | 青光眼分类 | 提出首个公开三模态青光眼数据集 GLEAM（SLO 眼底图 + 环乳头 OCT + 视野偏差图，标注四个疾病阶段），以及层级注意力掩码建模 (HAMM) 框架，将跨模态自监督表示学习聚焦在编码器端，实现多模态青光眼精准分类。"
 tags:
   - CVPR 2026
-  - 青光眼分类
-  - 多模态成像
-  - 层级注意力掩码建模
 ---
 
 # GLEAM: A Multimodal Imaging Dataset and HAMM for Glaucoma Classification

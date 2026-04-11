@@ -2,10 +2,8 @@
 description: "【论文笔记】SENC: Handling Self-collision in Neural Cloth Simulation 论文解读 | ECCV2024 | arXiv 2407.12479 | cloth simulation | 提出 SENC，通过基于 Global Intersection Analysis (GIA) 的自碰撞损失和自碰撞感知图神经网络，首次在自监督神经布料模拟中有效解决布料自碰撞问题。"
 tags:
   - ECCV2024
-  - cloth simulation
-  - self-collision
-  - graph neural network
   - 图神经网络
+  - 自监督学习
 ---
 
 # SENC: Handling Self-collision in Neural Cloth Simulation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Re-Depth Anything: Test-Time Depth Refinement via Self-Supervised Re-lighting 论文解读 | CVPR 2026 | arXiv 2512.17908 | 单目深度估计 | 提出 Re-Depth Anything，通过在推理时对预测深度图进行重光照增强并利用 2D 扩散模型的 SDS 损失进行自监督优化，在无标签的情况下精细化 Depth Anything V2/3 的深度预测。"
 tags:
   - CVPR 2026
-  - 单目深度估计
-  - 测试时优化
-  - Score Distillation Sampling
 ---
 
 # Re-Depth Anything: Test-Time Depth Refinement via Self-Supervised Re-lighting

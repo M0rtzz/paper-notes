@@ -2,9 +2,6 @@
 description: "【论文笔记】Automatic Generation of Inference Making Questions for Reading Comprehension Assessments 论文解读 | ACL 2025 | arXiv 2506.08260 | 阅读理解 | 开发了一套阅读理解推理题分类法（代词桥接/文本连接/填补空白），用 GPT-4o few-shot 提示自动生成针对特定推理类型的多项选择题；93.8% 的题目质量合格，但仅 42.6% 准确匹配目标推理类型，说明 LLM 在精确推理能力控制上仍有不足。"
 tags:
   - ACL 2025
-  - 阅读理解
-  - 推理题生成
-  - 桥接推理分类法
 ---
 
 # Automatic Generation of Inference Making Questions for Reading Comprehension Assessments

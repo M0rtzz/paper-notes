@@ -2,9 +2,6 @@
 description: "【论文笔记】ByteFlow: Language Modeling through Adaptive Byte Compression without a Tokenizer 论文解读 | ICLR 2026 | arXiv 2603.03583 | byte-level LM | 提出 ByteFlow Net，一种无需分词器的分层字节级语言模型，利用信息论中的编码率(coding rate)自适应地将原始字节流压缩为语义单元，在预训练损失和下游任务上超越 BPE 基线和已有字节级架构。"
 tags:
   - ICLR 2026
-  - byte-level LM
-  - tokenizer-free
-  - coding rate
 ---
 
 # ByteFlow: Language Modeling through Adaptive Byte Compression without a Tokenizer

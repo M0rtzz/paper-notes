@@ -2,9 +2,6 @@
 description: "【论文笔记】RAM-W600: A Multi-Task Wrist Dataset and Benchmark for Rheumatoid Arthritis 论文解读 | NeurIPS 2025 | arXiv 2507.05193 | 类风湿关节炎 | 首个公开的多任务腕骨常规X光数据集RAM-W600，包含1048张影像，支持腕骨实例分割和SvdH骨侵蚀评分两大任务，并提供全面的基准测试。"
 tags:
   - NeurIPS 2025
-  - 类风湿关节炎
-  - 腕骨分割
-  - 骨侵蚀评分
 ---
 
 # RAM-W600: A Multi-Task Wrist Dataset and Benchmark for Rheumatoid Arthritis

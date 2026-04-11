@@ -2,9 +2,6 @@
 description: "【论文笔记】RMIT-ADM+S at the MMU-RAG NeurIPS 2025 Competition 论文解读 | NeurIPS 2025 (Competition) | arXiv 2602.20735 | 检索增强生成 | 提出R2RAG系统，通过查询复杂度分类将查询路由到单次RAG或迭代Agent管线，使用Qwen3-4B等小型LLM在单块消费级GPU上实现高效的深度研究RAG，获得NeurIPS 2025 MMU-RAG竞赛最佳动态评估奖。"
 tags:
   - NeurIPS 2025 (Competition)
-  - 检索增强生成
-  - 查询分类
-  - 迭代检索
 ---
 
 # RMIT-ADM+S at the MMU-RAG NeurIPS 2025 Competition

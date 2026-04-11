@@ -2,9 +2,6 @@
 description: "【论文笔记】Sparse Additive Model Pruning for Order-Based Causal Structure Learning 论文解读 | AAAI2026 | arXiv 2602.15306 | causal discovery | 提出 SARTRE 框架，利用随机化树嵌入与组稀疏回归学习稀疏加性模型，替代 CAM-pruning 中基于假设检验的冗余边修剪，在基于拓扑序的因果结构学习中实现显著加速且精度不降。"
 tags:
   - AAAI2026
-  - causal discovery
-  - sparse additive model
-  - DAG pruning
   - 剪枝
 ---
 

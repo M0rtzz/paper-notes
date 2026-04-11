@@ -2,9 +2,6 @@
 description: "【论文笔记】Contextures: Representations from Contexts 论文解读 | ICML 2025 | arXiv 2505.01557 | 表示学习理论 | 建立 contexture 理论，统一证明监督学习、自监督学习和流形学习等多种表示学习范式都可被理解为学习上下文变量诱导的期望算子的 top-$d$ 奇异函数，并揭示模型规模增大的边际递减效应以及提出上下文质量评估指标。"
 tags:
   - ICML 2025
-  - 表示学习理论
-  - contexture
-  - 奇异函数
 ---
 
 # Contextures: Representations from Contexts

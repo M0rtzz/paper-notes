@@ -2,9 +2,6 @@
 description: "【论文笔记】Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization 论文解读 | CVPR2026 | arXiv 2603.12369 | 单源域泛化 | 提出 GenEval，通过域共形界（DCB）量化因果覆盖差距，并将人类专家知识量化精炼后与医学 VLM（MedGemma-4B）融合，以 LoRA 微调实现单源域泛化，在 DR 分级和癫痫灶检测上显著超越基线。"
 tags:
   - CVPR2026
-  - 单源域泛化
-  - 视觉语言模型
-  - 因果覆盖
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Do Not Mimic My Voice: Speaker Identity Unlearning for Zero-Shot Text-to-Speech 论文解读 | ICML 2025 | arXiv 2507.20140 | 机器遗忘 | 首次提出零样本TTS中的说话人身份遗忘任务，设计了Teacher-Guided Unlearning (TGU) 框架，通过引入随机性使模型\"忘记\"目标说话人的声纹特征，同时保持对其他说话人的高质量语音合成能力，并提出 spk-ZRF 指标量化遗忘效果。"
 tags:
   - ICML 2025
-  - 机器遗忘
-  - 零样本语音合成
-  - 说话人隐私
 ---
 
 # Do Not Mimic My Voice: Speaker Identity Unlearning for Zero-Shot Text-to-Speech

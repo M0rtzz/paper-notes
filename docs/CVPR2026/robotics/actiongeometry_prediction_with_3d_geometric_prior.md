@@ -2,9 +2,6 @@
 description: "【论文笔记】Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation 论文解读 | CVPR 2026 | arXiv 2602.23814 | 双臂操作 | 利用预训练3D几何基础模型π3作为感知骨干，融合3D几何、2D语义和本体感知特征，通过扩散模型联合预测未来动作chunk和未来3D Pointmap，仅使用RGB输入就在RoboTwin双臂基准上全面超越点云方法。"
 tags:
   - CVPR 2026
-  - 双臂操作
-  - 3D几何基础模型
-  - 联合动作-几何预测
 ---
 
 # Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation

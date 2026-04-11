@@ -2,9 +2,6 @@
 description: "【论文笔记】EdiText: Controllable Coarse-to-Fine Text Editing with Diffusion Language Models 论文解读 | ACL 2025 | arXiv 2502.19765 | 文本编辑 | 提出 EdiText，基于嵌入扩散模型（LD4LG）的可控文本编辑框架，通过将 SDEdit 技术从图像域迁移到文本域实现粗粒度编辑（控制加噪时间步），并创新性地利用自条件化（self-conditioning）机制实现细粒度编辑（将参考文本嵌入注入为去噪条件），两者结合实现从粗到细的多粒度文本属性编辑。"
 tags:
   - ACL 2025
-  - 文本编辑
-  - 嵌入扩散模型
-  - SDEdit
 ---
 
 # EdiText: Controllable Coarse-to-Fine Text Editing with Diffusion Language Models

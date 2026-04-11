@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring Persona Sentiment Sensitivity in Personalized Dialogue Generation 论文解读 | ACL 2025 | arXiv 2502.11423 | 个性化对话 | 大规模分析 LLM 对人设情感极性的敏感性，发现负面人设导致过度强调人设属性和对话矛盾、弱/中性人设产生低质量对话，提出结合逐轮生成、人设排序和情感感知提示的对话生成框架来缓解这些问题。"
 tags:
   - ACL 2025
-  - 个性化对话
-  - 人设情感
-  - LLM敏感性
 ---
 
 # Exploring Persona Sentiment Sensitivity in Personalized Dialogue Generation

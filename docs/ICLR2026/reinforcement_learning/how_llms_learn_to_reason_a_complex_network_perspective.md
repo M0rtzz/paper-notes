@@ -2,9 +2,6 @@
 description: "【论文笔记】How LLMs Learn to Reason: A Complex Network Perspective 论文解读 | ICLR 2026 | arXiv 2509.23629 | RLVR | 从复杂网络视角统一解释RLVR训练的四大谜题（两阶段学习曲线、V型回复长度、灾难性遗忘、策略坍缩），提出稀疏概念网假说（平均度≈2），并据此设计Annealed-RLVR算法在Minerva和AIME上超越标准RLVR。"
 tags:
   - ICLR 2026
-  - RLVR
-  - 概念网络
-  - 稀疏图
 ---
 
 # How LLMs Learn to Reason: A Complex Network Perspective

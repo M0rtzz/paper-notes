@@ -2,9 +2,6 @@
 description: "【论文笔记】Novel Architecture of RPA In Oral Cancer Lesion Detection 论文解读 | CVPR 2026 | arXiv 2603.10928 | 口腔癌检测 | 将软件设计模式（Singleton + Batch Processing）融入Python自动化流程，使口腔癌病变检测的推理速度相比传统RPA平台（UiPath/Automation Anywhere）提升60-100倍。"
 tags:
   - CVPR 2026
-  - 口腔癌检测
-  - RPA
-  - EfficientNetV2B1
 ---
 
 # Novel Architecture of RPA In Oral Cancer Lesion Detection

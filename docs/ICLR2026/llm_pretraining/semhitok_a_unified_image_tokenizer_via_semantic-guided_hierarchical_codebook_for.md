@@ -2,9 +2,6 @@
 description: "【论文笔记】SemHiTok: A Unified Image Tokenizer via Semantic-Guided Hierarchical Codebook 论文解读 | ICLR 2026 | arXiv 2503.06764 | 图像tokenizer | 提出SemHiTok——通过语义引导层次codebook(SGHC)统一理解和生成的tokenizer：预训练语义codebook上建像素子codebook，结构和训练解耦(分阶段优化)避免联合训练的语义-像素冲突，LLaVA设定下离散tokenizer中理解和重建都SOTA。"
 tags:
   - ICLR 2026
-  - 图像tokenizer
-  - 层次codebook
-  - 语义引导
 ---
 
 # SemHiTok: A Unified Image Tokenizer via Semantic-Guided Hierarchical Codebook

@@ -2,9 +2,6 @@
 description: "【论文笔记】MUSE: Harnessing Precise and Diverse Semantics for Few-Shot Whole Slide Image Classification 论文解读 | CVPR2026 | arXiv 2602.20873 | 全切片图像分类 | 提出 MUSE 框架，通过 MoE 驱动的样本级细粒度语义增强（SFSE）和基于 LLM 知识库的随机多视角语义优化（SMMO），在少样本全切片图像分类任务上显著提升泛化能力。"
 tags:
   - CVPR2026
-  - 全切片图像分类
-  - 少样本学习
-  - 多实例学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

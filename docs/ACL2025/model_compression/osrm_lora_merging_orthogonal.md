@@ -2,9 +2,6 @@
 description: "【论文笔记】Unraveling LoRA Interference: Orthogonal Subspaces for Robust Model Merging 论文解读 | ACL 2025 | arXiv 2505.22934 | LoRA merging | OSRM 发现 LoRA 模型合并失败的根因是参数与数据分布的交互干扰（而非仅仅是参数冲突），提出在微调前通过数据协方差矩阵的特征分解来初始化 LoRA 矩阵 A，使其子空间与其他任务的数据分布正交，从而在合并时最小化跨任务干扰，在 8 个数据集、5 个模型上显著提升合并性能。"
 tags:
   - ACL 2025
-  - LoRA merging
-  - model merging
-  - orthogonal subspace
 ---
 
 # Unraveling LoRA Interference: Orthogonal Subspaces for Robust Model Merging

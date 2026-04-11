@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Value of Cross-Modal Misalignment in Multimodal Representation Learning 论文解读 | NeurIPS 2025 | arXiv 2504.10143 | 多模态对比学习 | 提出潜变量模型将跨模态失配形式化为选择偏差和扰动偏差两种机制，理论证明MMCL学到的表征恰好捕获与两种偏差无关的不变语义子集，统一了\"失配有害/有益\"两种对立观点。"
 tags:
   - NeurIPS 2025
-  - 多模态对比学习
-  - 跨模态失配
-  - 潜变量模型
 ---
 
 # On the Value of Cross-Modal Misalignment in Multimodal Representation Learning

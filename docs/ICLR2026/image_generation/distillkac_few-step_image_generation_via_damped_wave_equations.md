@@ -2,9 +2,6 @@
 description: "【论文笔记】DistillKac: Few-Step Image Generation via Damped Wave Equations 论文解读 | ICLR 2026 | arXiv 2509.21513 | damped wave equation | 用阻尼波方程（telegrapher equation）及其随机 Kac 表示替代 Fokker-Planck 方程作为生成模型的概率流基础，实现有限速度传播的概率流，并提出端点蒸馏（endpoint distillation）方法实现少步生成，在 CIFAR-10 上 4 步 FID=4.14、1 步 FID=5.66。"
 tags:
   - ICLR 2026
-  - damped wave equation
-  - Kac process
-  - finite-speed flow
 ---
 
 # DistillKac: Few-Step Image Generation via Damped Wave Equations

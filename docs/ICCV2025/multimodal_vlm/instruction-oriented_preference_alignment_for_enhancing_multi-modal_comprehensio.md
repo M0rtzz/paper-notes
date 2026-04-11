@@ -2,9 +2,6 @@
 description: "【论文笔记】Instruction-Oriented Preference Alignment for Enhancing Multi-Modal Comprehension Capability of MLLMs 论文解读 | ICCV 2025 | arXiv 2503.20309 | 多模态大模型 | 提出**指令导向偏好对齐（IPA）**框架，通过自动化偏好构建机制和渐进式偏好数据收集管线，将对齐信号锚定在**指令完成效能**而非仅局限于幻觉因素，在 Qwen2VL-7B 上跨 9 个基准（幻觉评估、通用VQA、文本理解）实现一致性提升。"
 tags:
   - ICCV 2025
-  - 多模态大模型
-  - 偏好对齐
-  - 指令遵循
 ---
 
 # Instruction-Oriented Preference Alignment for Enhancing Multi-Modal Comprehension Capability of MLLMs

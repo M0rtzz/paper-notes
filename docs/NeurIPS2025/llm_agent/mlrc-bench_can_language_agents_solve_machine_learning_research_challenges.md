@@ -2,9 +2,6 @@
 description: "【论文笔记】MLRC-Bench: Can Language Agents Solve Machine Learning Research Challenges? 论文解读 | NeurIPS 2025 | arXiv 2504.09702 | Language Agents | 基于真实 ML 会议竞赛构建动态基准 MLRC-Bench，评估 LLM Agent 提出和实现新颖研究方法的能力，发现最强 Agent（Gemini）仅达人类顶级方案 9.3% 的相对改进，且提供 AI/人类想法并不能一致改善实现质量。"
 tags:
   - NeurIPS 2025
-  - Language Agents
-  - ML Research
-  - Benchmark
 ---
 
 # MLRC-Bench: Can Language Agents Solve Machine Learning Research Challenges?

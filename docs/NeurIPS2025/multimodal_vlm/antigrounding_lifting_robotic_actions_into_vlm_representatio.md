@@ -2,9 +2,6 @@
 description: "【论文笔记】AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making 论文解读 | NeurIPS 2025 | arXiv 2506.12374 | VLM | 提出 AntiGrounding，逆转传统指令 grounding 过程——不是将语言映射到动作空间，而是将候选机器人动作\"提升\"到 VLM 表示空间（通过多视角轨迹渲染 + 结构化 VQA），实现零样本闭环机器人轨迹合成。"
 tags:
   - NeurIPS 2025
-  - VLM
-  - robotic manipulation
-  - grounding
 ---
 
 # AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making

@@ -2,10 +2,7 @@
 description: "【论文笔记】Few-Shot Knowledge Distillation of LLMs With Counterfactual Explanations 论文解读 | NeurIPS 2025 | arXiv 2510.21631 | 知识蒸馏 Knowledge Distillation | 提出 CoD（Counterfactual-explanation-infused Distillation），通过将反事实解释注入少样本训练集来精确映射 teacher 决策边界，在 6 个数据集上仅用 8–512 样本即显著超越标准蒸馏方法。"
 tags:
   - NeurIPS 2025
-  - Knowledge Distillation
   - 知识蒸馏
-  - Counterfactual Explanation
-  - Few-shot Learning
 ---
 
 # Few-Shot Knowledge Distillation of LLMs With Counterfactual Explanations

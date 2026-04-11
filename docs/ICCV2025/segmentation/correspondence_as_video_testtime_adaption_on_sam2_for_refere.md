@@ -2,10 +2,7 @@
 description: "【论文笔记】Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild 论文解读 | ICCV 2025 | arXiv 2508.07759 | SAM2 | 将reference-target图像对之间的对应关系表示为用扩散模型生成的伪视频序列，利用SAM2的iVOS能力进行分割，结合test-time轻量微调对齐几何变化，在跨域few-shot分割上比SOTA方法提升约5% mIoU，且无需meta-training。"
 tags:
   - ICCV 2025
-  - SAM2
-  - reference segmentation
   - 图像分割
-  - 伪视频
 ---
 
 # Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild

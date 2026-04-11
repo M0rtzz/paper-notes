@@ -2,9 +2,6 @@
 description: "【论文笔记】Are Bias Evaluation Methods Biased? 论文解读 | ACL 2025 | arXiv 2506.17111 | 偏见评估 | 严格控制变量后比较三种主流偏见评估方法（结构化问答 BBQ、LLM-as-a-Judge、情感分析），发现不同方法对同一组 LLM 产生显著不同的偏见排名——偏见评估方法本身就是有偏的，企业不应依赖单一偏见基准来选择模型。"
 tags:
   - ACL 2025
-  - 偏见评估
-  - 排名一致性
-  - 社会偏见
 ---
 
 # Are Bias Evaluation Methods Biased?

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning a Distance Measure from the Information-Estimation Geometry of Data 论文解读 | ICLR 2026 | arXiv 2510.02514 | 信息估计度量 | 提出 Information-Estimation Metric (IEM)，一种由数据概率密度几何诱导的新型距离函数，通过比较不同噪声水平下的 score 向量场来度量信号间距离，无监督训练的 IEM 在预测人类感知判断上可媲美有监督方法。"
 tags:
   - ICLR 2026
-  - 信息估计度量
-  - 去噪误差
-  - 概率密度几何
 ---
 
 # Learning a Distance Measure from the Information-Estimation Geometry of Data

@@ -2,7 +2,6 @@
 description: "【论文笔记】A Phase Transition for Opinion Dynamics with Competing Biases 论文解读 | AAAI 2026 | arXiv 2511.09434 | 相变、观点动力学、有向图、偏差竞争、亚稳态 | 在有向随机图上建模两种对立力量（外部颠覆性偏差 vs 个体顽固性）对二元观点传播的影响，证明系统存在尖锐相变：偏差超过临界阈值 $p_c$ 时群体快速达成新共识，低于阈值则长期处于亚稳极化状态，且临界点仅由度序列的两个简单统计量决定。"
 tags:
   - AAAI 2026
-  - 相变、观点动力学、有向图、偏差竞争、亚稳态
 ---
 
 # A Phase Transition for Opinion Dynamics with Competing Biases

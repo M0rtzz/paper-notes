@@ -2,9 +2,6 @@
 description: "【论文笔记】Omni-iEEG: A Large-Scale, Comprehensive iEEG Dataset and Benchmark for Epilepsy Research 论文解读 | ICLR 2026 | arXiv 2602.16072 | 颅内脑电 | 构建Omni-iEEG——迄今最大规模的术前iEEG数据集(302患者×178小时×8个癫痫中心)+3.6万+专家标注病理事件,定义临床意义任务+统一评估指标→展示端到端建模可匹敌/超越临床生物标志物,发现跨域迁移(音频预训练→iEEG)有效→为可重复、可泛化的癫痫研究建立基础。"
 tags:
   - ICLR 2026
-  - 颅内脑电
-  - 癫痫
-  - 大规模数据集
 ---
 
 # Omni-iEEG: A Large-Scale, Comprehensive iEEG Dataset and Benchmark for Epilepsy Research

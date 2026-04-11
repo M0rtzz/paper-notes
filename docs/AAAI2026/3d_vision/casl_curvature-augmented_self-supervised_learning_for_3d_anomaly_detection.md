@@ -2,10 +2,8 @@
 description: "【论文笔记】CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection 论文解读 | AAAI2026 | arXiv 2511.12909 | 3D anomaly detection | 发现点云曲率本身就是强大的异常检测线索，提出曲率增强的自监督学习框架 CASL，通过多尺度曲率提示引导坐标重建来学习通用 3D 表征，无需任何异常检测专用机制即可在 Real3D-AD 上以 5.6% O-AUROC 优势刷新 SOTA。"
 tags:
   - AAAI2026
-  - 3D anomaly detection
-  - self-supervised learning
   - 自监督学习
-  - curvature
+  - 点云
 ---
 
 # CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection

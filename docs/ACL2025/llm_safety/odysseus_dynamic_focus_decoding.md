@@ -2,9 +2,6 @@
 description: "【论文笔记】Odysseus Navigates the Sirens' Song: Dynamic Focus Decoding for Factual and Diverse Open-Ended Text Generation 论文解读 | ACL 2025 | arXiv 2503.08057 | 解码策略 | 提出动态聚焦解码（DFD），通过追踪 LLM 各层间分布差异（KL 散度）来识别知识密集型解码步骤，自适应调整温度——知识密集步用低温保事实性，非知识密集步用高温促多样性——在七个数据集上同时提升事实性和多样性。"
 tags:
   - ACL 2025
-  - 解码策略
-  - 事实性
-  - 多样性
 ---
 
 # Odysseus Navigates the Sirens' Song: Dynamic Focus Decoding for Factual and Diverse Open-Ended Text Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】DrivingGen: A Comprehensive Benchmark for Generative Video World Models in Autonomous Driving 论文解读 | ICLR 2026 | arXiv 2601.01528 | 视频世界模型 | DrivingGen 提出首个面向自动驾驶视频世界模型的综合性基准，包含跨天气/地域/时间/复杂场景的多样化评估数据集和四维度评估指标体系（分布、质量、时序一致性、轨迹对齐），对 14 个 SOTA 模型的评测揭示了通用模型与驾驶专用模型之间的核心权衡。"
 tags:
   - ICLR 2026
-  - 视频世界模型
-  - 基准测试
-  - 驾驶场景生成
 ---
 
 # DrivingGen: A Comprehensive Benchmark for Generative Video World Models in Autonomous Driving

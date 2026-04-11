@@ -2,9 +2,6 @@
 description: "【论文笔记】SkyDiffusion: Leveraging BEV Paradigm for Ground-to-Aerial Image Synthesis 论文解读 | ICCV 2025 | arXiv 2408.01812 | 跨视角图像合成 | 提出SkyDiffusion，结合Curved-BEV变换和BEV引导扩散模型，实现从地面街景图像到航拍/卫星图像的高质量跨视角合成，并引入Ground2Aerial-3多场景数据集。"
 tags:
   - ICCV 2025
-  - 跨视角图像合成
-  - 鸟瞰图变换
-  - 扩散模型
 ---
 
 # SkyDiffusion: Leveraging BEV Paradigm for Ground-to-Aerial Image Synthesis

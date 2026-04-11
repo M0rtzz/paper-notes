@@ -2,9 +2,6 @@
 description: "【论文笔记】P-SLCR: Unsupervised Point Cloud Semantic Segmentation via Prototypes Structure Learning and Consistent Reasoning 论文解读 | CVPR 2025 | arXiv 2603.06321 | 无监督语义分割 | 提出 P-SLCR，一种原型库驱动的无监督点云语义分割方法，通过将点分离为\"一致\"和\"模糊\"两类，用一致结构学习对齐一致点与原型 + 语义关系一致性推理约束两个原型库，在 S3DIS 上无监督达 47.1% mIoU，超越全监督 PointNet。"
 tags:
   - CVPR 2025
-  - 无监督语义分割
-  - 点云
-  - 原型学习
 ---
 
 # P-SLCR: Unsupervised Point Cloud Semantic Segmentation via Prototypes Structure Learning and Consistent Reasoning

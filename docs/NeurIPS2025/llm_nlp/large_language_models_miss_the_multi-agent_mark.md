@@ -2,9 +2,6 @@
 description: "【论文笔记】Large Language Models Miss the Multi-Agent Mark 论文解读 | NeurIPS 2025 | arXiv 2505.21298 | 多智能体系统 | Position paper 指出当前 MAS LLMs 在四个方面违背了传统多智能体系统（MAS）的基本原则：LLM 缺乏原生社会行为、环境设计以 LLM 为中心、缺少异步协调和标准通信协议、涌现行为缺乏量化评估，并为每个问题提出研究方向。"
 tags:
   - NeurIPS 2025
-  - 多智能体系统
-  - Position Paper
-  - 社会智能
 ---
 
 # Large Language Models Miss the Multi-Agent Mark

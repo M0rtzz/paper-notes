@@ -2,9 +2,6 @@
 description: "【论文笔记】Exo-Plore: Exploring Exoskeleton Control Space through Human-Aligned Simulation 论文解读 | ICLR2026 | arXiv 2601.22550 | exoskeleton optimization | 提出 Exo-plore 框架，通过神经力学仿真与深度强化学习相结合，无需真人实验即可优化髋关节外骨骼控制参数，并能推广到病理步态场景。"
 tags:
   - ICLR2026
-  - exoskeleton optimization
-  - neuromechanical simulation
-  - deep reinforcement learning
   - 强化学习
 ---
 

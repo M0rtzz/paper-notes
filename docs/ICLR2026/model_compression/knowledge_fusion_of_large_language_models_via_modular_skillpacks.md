@@ -2,9 +2,6 @@
 description: "【论文笔记】Knowledge Fusion of Large Language Models Via Modular Skillpacks 论文解读 | ICLR 2026 | arXiv 2505.18502 | knowledge grafting | 提出GraftLLM——将异构源模型的能力提取为紧凑可迁移的\"SkillPack\"（模块化技能包），通过模块感知自适应压缩策略存储参数增量，支持知识迁移、异构模型融合和无遗忘持续学习，在多个场景下显著优于现有PEFT和参数融合方法。"
 tags:
   - ICLR 2026
-  - knowledge grafting
-  - SkillPack
-  - heterogeneous model fusion
 ---
 
 # Knowledge Fusion of Large Language Models Via Modular Skillpacks

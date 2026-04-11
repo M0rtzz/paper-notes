@@ -2,9 +2,6 @@
 description: "【论文笔记】Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis 论文解读 | CVPR 2025 | arXiv 2603.12997 | 噪声标签学习 | 通过提供完美的oracle噪声转移矩阵T，证明Forward Correction在理想条件下仍会训练崩塌（先升后降最终与无校正基线收敛），从宏观（收敛终态）、微观（梯度动力学）、信息论（噪声信道不可逆信息损失）三个层面系统诊断了失败的根本原因——这不是T估计不准的问题，而是有限样本下高容量网络的结构性缺陷。"
 tags:
   - CVPR 2025
-  - 噪声标签学习
-  - 噪声转移矩阵
-  - 前向校正
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

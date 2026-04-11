@@ -2,9 +2,6 @@
 description: "【论文笔记】Offline Reinforcement Learning with Generative Trajectory Policies 论文解读 | ICLR 2026 | arXiv 2510.11499 | 生成轨迹策略 | 提出 Generative Trajectory Policy (GTP)，通过学习 ODE 完整解映射统一扩散、流匹配和一致性模型，配合分数近似和值驱动引导两项关键适配技术，在 D4RL 上达到 SOTA。"
 tags:
   - ICLR 2026
-  - 生成轨迹策略
-  - ODE 解映射
-  - 一致性模型
 ---
 
 # Offline Reinforcement Learning with Generative Trajectory Policies

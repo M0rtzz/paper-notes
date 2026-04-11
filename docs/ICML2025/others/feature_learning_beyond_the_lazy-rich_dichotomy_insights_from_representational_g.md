@@ -2,9 +2,6 @@
 description: "【论文笔记】Feature Learning beyond the Lazy-Rich Dichotomy: Insights from Representational Geometry 论文解读 | ICML2025 (Spotlight) | arXiv 2503.18114 | feature learning | 提出用**流形容量 (manifold capacity)** 及其关联的几何度量 (GLUE) 来刻画特征学习的丰富程度，超越传统的 lazy vs rich 二分法，揭示了不同学习阶段、学习策略以及在神经科学和 OOD 泛化问题中的新洞察。"
 tags:
   - ICML2025 (Spotlight)
-  - feature learning
-  - lazy-rich regime
-  - manifold capacity
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

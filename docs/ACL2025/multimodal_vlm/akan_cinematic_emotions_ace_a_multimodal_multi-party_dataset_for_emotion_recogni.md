@@ -2,9 +2,6 @@
 description: "【论文笔记】AkaCE: A Multimodal Multi-party Dataset for Emotion Recognition in Movie Dialogues 论文解读 | ACL 2025 | arXiv 2502.10973 | 阿坎语 | 构建 AkaCE——首个非洲语言多模态对话情感识别数据集，覆盖阿坎语（加纳主要语言，约 2000 万使用者），含 385 段对话 6162 条发言（音频+视觉+文本三模态）、308 名说话人（性别平衡 155男/153女），并提供首个非洲语言词级韵律突出标注。"
 tags:
   - ACL 2025
-  - 阿坎语
-  - 对话情感识别
-  - 多模态数据集
 ---
 
 # AkaCE: A Multimodal Multi-party Dataset for Emotion Recognition in Movie Dialogues

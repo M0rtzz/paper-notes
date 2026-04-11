@@ -2,9 +2,6 @@
 description: "【论文笔记】Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning 论文解读 | CVPR2026 | arXiv 2603.12606 | 视觉定位 | 提出 D-Negation 数据集和 Grouped Opposition-Based Learning (GOBL) 微调机制，通过对立语义配对和两个专用损失函数，仅微调不到 10% 参数即大幅提升视觉定位模型对否定语义的理解能力（最高 +5.7 mAP）。"
 tags:
   - CVPR2026
-  - 视觉定位
-  - 否定语义理解
-  - 对立学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

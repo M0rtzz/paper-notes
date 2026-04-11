@@ -2,9 +2,6 @@
 description: "【论文笔记】A Unified Convergence Analysis for Semi-Decentralized Learning: Sampled-to-Sampled vs. Sampled-to-All Communication 论文解读 | AAAI 2026 | arXiv 2511.11560 | 半去中心化学习 | 本文在统一的收敛分析框架下，首次系统比较了半去中心化联邦学习中两种服务器-设备通信原语（S2S仅返回被采样设备 vs. S2A广播给所有设备），揭示了S2S在高组间异质性下更优、S2A在低异质性下更优的不同regime，并给出了实用的系统配置指南。"
 tags:
   - AAAI 2026
-  - 半去中心化学习
-  - Sampled-to-Sampled
-  - Sampled-to-All
 ---
 
 # A Unified Convergence Analysis for Semi-Decentralized Learning: Sampled-to-Sampled vs. Sampled-to-All Communication

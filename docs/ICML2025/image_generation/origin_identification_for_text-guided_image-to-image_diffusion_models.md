@@ -2,9 +2,6 @@
 description: "【论文笔记】Origin Identification for Text-Guided Image-to-Image Diffusion Models 论文解读 | ICML 2025 | arXiv 2501.02376 | 图像溯源 | 本文提出 ID2 任务（文本引导图像到图像扩散模型的原始图像识别），构建了首个数据集 OriPID，并证明了通过对 VAE 嵌入进行线性变换可以泛化地找到生成图像的原始来源，在 mAP 上超越相似度方法 31.6%。"
 tags:
   - ICML 2025
-  - 图像溯源
-  - 扩散模型安全
-  - VAE 嵌入
 ---
 
 # Origin Identification for Text-Guided Image-to-Image Diffusion Models

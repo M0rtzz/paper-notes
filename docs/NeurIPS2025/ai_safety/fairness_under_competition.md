@@ -2,9 +2,6 @@
 description: "【论文笔记】Fairness under Competition 论文解读 | NeurIPS 2025 | arXiv 2505.16291 | 算法公平性 | 本文首次研究竞争环境下多个公平分类器的联合公平性问题，理论证明即使每个分类器都满足 Equal Opportunity (EO)，生态系统可能仍然不公平，且对偏差分类器进行公平性调整反而可能降低生态系统公平性。"
 tags:
   - NeurIPS 2025
-  - 算法公平性
-  - 竞争生态
-  - Equal Opportunity
 ---
 
 # Fairness under Competition

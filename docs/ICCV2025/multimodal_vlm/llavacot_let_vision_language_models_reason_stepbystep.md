@@ -2,9 +2,6 @@
 description: "【论文笔记】LLaVA-CoT: Let Vision Language Models Reason Step-by-Step 论文解读 | ICCV 2025 | arXiv 2411.10440 | VLM推理 | 通过构建包含结构化推理标注的LLaVA-CoT-100k数据集，训练VLM自主执行\"总结→视觉解读→逻辑推理→结论\"四阶段推理，配合测试时SWIRES搜索策略，11B模型超越GPT-4o-mini和Gemini-1.5-pro等大模型。"
 tags:
   - ICCV 2025
-  - VLM推理
-  - Chain-of-Thought
-  - 多阶段推理
 ---
 
 # LLaVA-CoT: Let Vision Language Models Reason Step-by-Step

@@ -2,9 +2,6 @@
 description: "【论文笔记】AnimalClue: Recognizing Animals by their Traces 论文解读 | ICCV 2025 | arXiv 2507.20240 | 动物痕迹识别 | 提出 AnimalClue，首个大规模动物痕迹识别数据集，包含 159,605 个边界框覆盖 968 个物种的五类间接线索（脚印、粪便、蛋、骨骼、羽毛），并建立了分类、检测、实例分割和特征预测四项基准。"
 tags:
   - ICCV 2025
-  - 动物痕迹识别
-  - 野生动物保护
-  - 间接证据
 ---
 
 # AnimalClue: Recognizing Animals by their Traces

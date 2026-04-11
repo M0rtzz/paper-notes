@@ -2,9 +2,6 @@
 description: "【论文笔记】ReWeaver: Towards Simulation-Ready and Topology-Accurate Garment Reconstruction 论文解读 | CVPR2026 | arXiv 2601.16672 | 服装重建 | 提出 ReWeaver 框架，从最少4张多视图RGB图像中联合重建3D服装几何与2D缝纫图案（sewing pattern），通过双路径Transformer预测3D曲面片/曲线及其拓扑连接，再经组内注意力将3D结构展平为2D面板边缘，首次实现拓扑准确且可直接用于物理仿真的服装资产恢复。"
 tags:
   - CVPR2026
-  - 服装重建
-  - 缝纫模式
-  - 拓扑重建
 ---
 
 # ReWeaver: Towards Simulation-Ready and Topology-Accurate Garment Reconstruction

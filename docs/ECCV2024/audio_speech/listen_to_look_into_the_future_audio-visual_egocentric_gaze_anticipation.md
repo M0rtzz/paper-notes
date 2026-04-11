@@ -2,9 +2,6 @@
 description: "【论文笔记】Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation 论文解读 | ECCV 2024 | arXiv 2305.03907 | 第一人称注视预测 | 提出 CSTS（Contrastive Spatial-Temporal Separable）音视频融合方法，首次将音频信号引入第一人称注视预测任务，通过空间和时间分离融合模块分别建模音视频的空间共现和时序相关性，并用后融合对比学习增强表示，在 Ego4D 和 Aria 数据集上超越 SOTA。"
 tags:
   - ECCV 2024
-  - 第一人称注视预测
-  - 音视频融合
-  - 对比学习
 ---
 
 # Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation 论文解读 | CVPR 2026 | arXiv 2603.12864 | 驾驶世界模型 | 提出 CompoSIA，一个基于 Wan2.1 DiT 的组合式驾驶视频模拟器，通过对场景结构（3D bbox）、物体身份（单张参考图）和自车动作（相机轨迹）三因素的显式解耦注入，实现对抗性驾驶场景的细粒度可控生成，碰撞率提升 173%。"
 tags:
   - CVPR 2026
-  - 驾驶世界模型
-  - 解耦控制
-  - 对抗场景生成
 ---
 
 # Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation

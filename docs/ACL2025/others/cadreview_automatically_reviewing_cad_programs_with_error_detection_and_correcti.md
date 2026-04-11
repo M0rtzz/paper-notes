@@ -2,9 +2,6 @@
 description: "【论文笔记】CADReview: Automatically Reviewing CAD Programs with Error Detection and Correction 论文解读 | ACL 2025 | arXiv 2505.22304 | CAD 程序审查 | 提出 CAD 程序审查任务及 ReCAD 框架，基于参考图像自动检测 CAD 程序中的错误并生成修正反馈，构建了包含 20K+ 样本（8 类错误）的 CADReview 数据集。"
 tags:
   - ACL 2025
-  - CAD 程序审查
-  - 3D 建模
-  - 多模态大语言模型
 ---
 
 # CADReview: Automatically Reviewing CAD Programs with Error Detection and Correction

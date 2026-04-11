@@ -2,9 +2,6 @@
 description: "【论文笔记】TR2M: Transferring Monocular Relative Depth to Metric Depth with Language Descriptions and Dual-Level Scale-Oriented Contrast 论文解读 | CVPR2026 | arXiv 2506.13387 | 单目深度估计 | 提出 TR2M 框架，利用图像和文本描述预测像素级的 scale/shift 映射图，将泛化性强但无尺度的相对深度转换为度量深度，仅用 19M 可训练参数和 102K 训练图像即可实现跨域零样本度量深度估计。"
 tags:
   - CVPR2026
-  - 单目深度估计
-  - 相对深度转度量深度
-  - 语言描述
 ---
 
 # TR2M: Transferring Monocular Relative Depth to Metric Depth with Language Descriptions and Dual-Level Scale-Oriented Contrast

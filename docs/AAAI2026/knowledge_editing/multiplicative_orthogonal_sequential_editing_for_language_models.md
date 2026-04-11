@@ -2,9 +2,6 @@
 description: "【论文笔记】Multiplicative Orthogonal Sequential Editing for Language Models (MOSE) 论文解读 | AAAI 2026 | arXiv 2601.07873 | 知识编辑 | 提出 MOSE（乘法正交序列编辑），用正交矩阵左乘（而非加法更新）参数矩阵来注入新知识，严格保持编辑后矩阵的范数和条件数不变，在序列编辑中实现 12.08% 的性能提升并保留 95.73% 通用能力。"
 tags:
   - AAAI 2026
-  - 知识编辑
-  - 正交变换
-  - 序列编辑
 ---
 
 # Multiplicative Orthogonal Sequential Editing for Language Models (MOSE)

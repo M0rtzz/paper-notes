@@ -2,9 +2,8 @@
 description: "【论文笔记】Graph-guided Cross-composition Feature Disentanglement for Compositional Zero-shot Learning 论文解读 | ACL 2025 | arXiv 2408.09786 | compositional zero-shot learning | DCDA 提出图引导的跨组合特征解耦方案，通过双适配器（L-Adapter 用于文本端 GNN 特征聚合、V-Adapter 用于视觉端跨注意力解耦）注入冻结 CLIP，在组合零样本学习任务上显著超越现有方法。"
 tags:
   - ACL 2025
-  - compositional zero-shot learning
-  - CLIP adapter
-  - feature disentanglement
+  - 图神经网络
+  - 注意力机制
 ---
 
 # Graph-guided Cross-composition Feature Disentanglement for Compositional Zero-shot Learning

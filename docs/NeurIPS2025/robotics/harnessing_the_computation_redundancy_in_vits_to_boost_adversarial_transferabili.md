@@ -2,9 +2,6 @@
 description: "【论文笔记】Harnessing the Computation Redundancy in ViTs to Boost Adversarial Transferability 论文解读 | NeurIPS 2025 | arXiv 2504.10804 | 对抗迁移性 | 深入挖掘 ViT 中数据级和模型级的计算冗余，提出注意力稀疏化、注意力头置换、干净 token 正则化、Ghost MoE 多样化和鲁棒化 token 五种技术，结合在线学习策略动态选择操作，在 ImageNet-1K 上以 86.9% 平均 fooling rate 大幅超越所有基线。"
 tags:
   - NeurIPS 2025
-  - 对抗迁移性
-  - ViT 计算冗余
-  - 注意力稀疏化
 ---
 
 # Harnessing the Computation Redundancy in ViTs to Boost Adversarial Transferability

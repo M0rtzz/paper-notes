@@ -2,9 +2,6 @@
 description: "【论文笔记】Grounding and Enhancing Informativeness and Utility in Dataset Distillation 论文解读 | ICLR 2026 | arXiv 2601.21296 | Dataset Distillation | 提出InfoUtil框架，用博弈论Shapley Value最大化样本信息量（找到最重要的patch），用梯度范数最大化样本效用（选择对训练最有价值的样本），在ImageNet-1K上比前SOTA提升6.1%。"
 tags:
   - ICLR 2026
-  - Dataset Distillation
-  - Shapley Value
-  - 梯度范数
 ---
 
 # Grounding and Enhancing Informativeness and Utility in Dataset Distillation

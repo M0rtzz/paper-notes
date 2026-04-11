@@ -2,9 +2,6 @@
 description: "【论文笔记】WildSeg3D: Segment Any 3D Objects in the Wild from 2D Images 论文解读 | ICCV 2025 | arXiv 2503.08407 | 3D分割 | 提出 WildSeg3D，首个前馈式3D分割模型，无需场景特定训练，通过动态全局对齐(DGA)解决多视角点图对齐误差，结合多视角组映射(MGM)实现实时交互式3D分割，比现有SOTA快40倍且精度更优。"
 tags:
   - ICCV 2025
-  - 3D分割
-  - 前馈式
-  - SAM2
 ---
 
 # WildSeg3D: Segment Any 3D Objects in the Wild from 2D Images

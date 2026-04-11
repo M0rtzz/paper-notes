@@ -2,9 +2,6 @@
 description: "【论文笔记】VideoLucy: Deep Memory Backtracking for Long Video Understanding 论文解读 | NeurIPS 2025 | arXiv 2510.12422 | 长视频理解 | 提出VideoLucy框架，通过层次化记忆结构和基于Agent的迭代回溯机制，模拟人类从粗到细的回忆过程，在多个长视频理解基准上大幅超越现有方法，甚至超过GPT-4o等商业模型。"
 tags:
   - NeurIPS 2025
-  - 长视频理解
-  - 层次化记忆
-  - Agent系统
 ---
 
 # VideoLucy: Deep Memory Backtracking for Long Video Understanding

@@ -2,9 +2,6 @@
 description: "【论文笔记】Flow Matching with Injected Noise for Offline-to-Online Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2602.18117 | Flow Matching | 通过在流匹配训练中注入可控噪声扩大策略覆盖范围，并结合熵引导的采样机制在在线微调时动态平衡探索与利用，在有限交互预算下显著提升离线到在线RL的样本效率。"
 tags:
   - ICLR 2026
-  - Flow Matching
-  - 离线-在线RL
-  - 噪声注入
 ---
 
 # Flow Matching with Injected Noise for Offline-to-Online Reinforcement Learning

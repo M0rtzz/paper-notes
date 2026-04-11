@@ -2,9 +2,6 @@
 description: "【论文笔记】EVATok: 自适应长度视频Tokenization用于高效视觉自回归生成 论文解读 | CVPR 2026 | arXiv 2603.12267 | video tokenizer | 提出EVATok框架——通过最优token分配估计+轻量路由器+自适应tokenizer训练的三步流程，让视频tokenizer按片段复杂度自适应分配token长度，在UCF-101上节省24.4%+ token同时达到SOTA生成质量。"
 tags:
   - CVPR 2026
-  - video tokenizer
-  - adaptive token
-  - autoregressive generation
 ---
 
 # EVATok: 自适应长度视频Tokenization用于高效视觉自回归生成

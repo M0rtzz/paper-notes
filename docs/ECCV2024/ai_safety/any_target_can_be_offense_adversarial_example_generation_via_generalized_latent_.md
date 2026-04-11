@@ -2,9 +2,6 @@
 description: "【论文笔记】Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection 论文解读 | ECCV 2024 | arXiv 2407.12292 | Adversarial Attack | 提出 GAKer，首个可泛化到未知目标类别的定向对抗攻击生成器，通过在 UNet 中间层注入目标特征（latent infection）+ 余弦距离损失替代交叉熵实现类别无关训练，在未知类上的攻击成功率比 HGN 高 14.13%。"
 tags:
   - ECCV 2024
-  - Adversarial Attack
-  - Targeted Attack
-  - Generalization
 ---
 
 # Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection

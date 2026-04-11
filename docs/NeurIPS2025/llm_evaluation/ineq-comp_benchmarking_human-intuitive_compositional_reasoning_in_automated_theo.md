@@ -2,9 +2,6 @@
 description: "【论文笔记】Ineq-Comp: Benchmarking Human-Intuitive Compositional Reasoning in Automated Theorem Proving on Inequalities 论文解读 | NeurIPS 2025 | arXiv 2505.12680 | automated theorem proving | 提出 Ineq-Comp 基准，通过对简单不等式种子问题施加人类直觉可轻松处理的组合变换（变量复制、代数重写），揭示当前 LLM 形式化定理证明器在组合推理上的根本性缺陷——即使 DeepSeek-Prover-V2-7B 也有 20%+ 的性能下降。"
 tags:
   - NeurIPS 2025
-  - automated theorem proving
-  - compositional reasoning
-  - formal verification
 ---
 
 # Ineq-Comp: Benchmarking Human-Intuitive Compositional Reasoning in Automated Theorem Proving on Inequalities

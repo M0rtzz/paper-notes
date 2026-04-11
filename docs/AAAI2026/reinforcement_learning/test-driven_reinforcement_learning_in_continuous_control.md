@@ -2,9 +2,6 @@
 description: "【论文笔记】Test-driven Reinforcement Learning in Continuous Control 论文解读 | AAAI 2026 (Oral) | arXiv 2511.07904 | Test-driven RL | 提出 Test-driven Reinforcement Learning (TdRL) 框架，用多个测试函数（pass-fail 测试定义最优目标 + indicative 测试引导学习）替代单一奖励函数表示任务目标，通过字典序启发式轨迹比较学习回报函数，在 DeepMind Control Suite 上匹配或超越手工奖励方法，天然支持多目标优化。"
 tags:
   - AAAI 2026 (Oral)
-  - Test-driven RL
-  - Satisficing Theory
-  - 多目标优化
 ---
 
 # Test-driven Reinforcement Learning in Continuous Control

@@ -2,9 +2,6 @@
 description: "【论文笔记】Combining the Best of Both Worlds: A Method for Hybrid NMT and LLM Translation 论文解读 | ACL2025 | arXiv 2505.13554 | 机器翻译 | 提出基于源句特征的NMT与LLM混合翻译调度策略（PPLT与JDM），在保持翻译质量最优的同时将LLM调用比例降至约25-30%，大幅减少计算开销。"
 tags:
   - ACL2025
-  - 机器翻译
-  - NMT-LLM融合
-  - 调度策略
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Format Matters: The Robustness of Multimodal LLMs in Reviewing Evidence from Tables and Charts 论文解读 | AAAI 2026 | arXiv 2511.10075 | 科学声明验证 | 本文系统研究了多模态LLM在使用表格和图表作为证据验证科学声明时的鲁棒性，通过扩展SciTabAlign和ChartMimic两个数据集构建了表格-图表对齐的评估基准，发现12个多模态LLM在表格证据上的表现一致优于图表证据，而人类在两种格式上表现一致，揭示了当前模型在图表理解方面的关键短板。"
 tags:
   - AAAI 2026
-  - 科学声明验证
-  - 表格vs图表
-  - 多模态鲁棒性
 ---
 
 # Format Matters: The Robustness of Multimodal LLMs in Reviewing Evidence from Tables and Charts

@@ -2,9 +2,6 @@
 description: "【论文笔记】Flow Density Control: Generative Optimization Beyond Entropy-Regularized Fine-Tuning 论文解读 | NeurIPS 2025 | arXiv 2511.22640 | 流模型微调 | 提出 Flow Density Control（FDC），将预训练流/扩散模型的微调从 KL 正则期望奖励最大化推广到**任意分布效用函数 + 任意散度正则**的通用框架，通过将非线性目标分解为一系列线性微调子任务实现，并提供收敛保证。"
 tags:
   - NeurIPS 2025
-  - 流模型微调
-  - 生成优化
-  - 镜像下降
 ---
 
 # Flow Density Control: Generative Optimization Beyond Entropy-Regularized Fine-Tuning

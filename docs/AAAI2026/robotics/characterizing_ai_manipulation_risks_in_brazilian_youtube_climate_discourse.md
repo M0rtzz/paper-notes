@@ -2,9 +2,6 @@
 description: "【论文笔记】Characterizing AI Manipulation Risks in Brazilian YouTube Climate Discourse 论文解读 | AAAI2026 | arXiv 2511.06091 | Climate Discourse | 通过心理语言学框架分析巴西 YouTube 上 22.6 万条气候变化视频和 275 万条评论，揭示情感/道德修辞显著驱动用户互动，并展示微调 LLM 可自动生成高互动性的气候否认评论，警示生成式 AI 在舆论操控中的潜在风险。"
 tags:
   - AAAI2026
-  - Climate Discourse
-  - Persuasion
-  - Theory of Mind
 ---
 
 # Characterizing AI Manipulation Risks in Brazilian YouTube Climate Discourse

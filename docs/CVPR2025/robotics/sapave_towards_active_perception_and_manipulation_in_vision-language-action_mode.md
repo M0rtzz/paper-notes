@@ -2,9 +2,6 @@
 description: "【论文笔记】SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics 论文解读 | CVPR 2025 | arXiv 2603.12193 | VLA | SaPaVe 提出了一种端到端的主动操作框架，通过解耦相机运动和操作动作的 action space，采用自底向上的两阶段训练策略（先学语义相机控制，再联合优化），在 200K 语义相机运动数据集上训练主动感知先验，配合 3D 几何感知模块增强视角变化下的执行鲁棒性，在真实世界任务中比 GR00T N1 和 $\pi_0$ 分别高 31.25% 和 40% 成功率。"
 tags:
   - CVPR 2025
-  - VLA
-  - 主动感知
-  - 主动操作
 ---
 
 # SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics

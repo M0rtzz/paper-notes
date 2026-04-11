@@ -2,9 +2,6 @@
 description: "【论文笔记】SD-PSFNet: Sequential and Dynamic Point Spread Function Network for Image Deraining 论文解读 | AAAI 2026 | arXiv 2511.17993 | image deraining | 提出基于动态 PSF 机制的级联 CNN 去雨网络 SD-PSFNet，通过多尺度可学习 PSF 字典建模雨滴光学效应，配合自适应门控融合的序列化修复架构，在 Rain100H 达 33.12 dB、RealRain-1k-L 达 42.28 dB 均为 SOTA，对比基线 MPRNet 累计提升 5.04 dB（13.5%）。"
 tags:
   - AAAI 2026
-  - image deraining
-  - point spread function
-  - physics-aware
 ---
 
 # SD-PSFNet: Sequential and Dynamic Point Spread Function Network for Image Deraining

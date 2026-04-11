@@ -2,10 +2,7 @@
 description: "【论文笔记】Attention to the Burstiness in Visual Prompt Tuning! 论文解读 | ICCV 2025 | arXiv 2506.22908 | 提示学习 Visual Prompt Tuning | 本文揭示了视觉Prompt Tuning中自注意力模块数据的\"爆发性\"（burstiness）和非高斯分布问题，提出通过数据白化和双线性模型来学习\"爆发性prompt\"，在多个基准上大幅超越VPT及其变体，如CUB数据集上从42.15%提升至77.86%。"
 tags:
   - ICCV 2025
-  - Visual Prompt Tuning
   - 提示学习
-  - Burstiness
-  - Data Whitening
 ---
 
 # Attention to the Burstiness in Visual Prompt Tuning!

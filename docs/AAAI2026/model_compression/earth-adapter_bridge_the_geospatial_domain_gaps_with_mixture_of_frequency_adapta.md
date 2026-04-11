@@ -2,9 +2,6 @@
 description: "【论文笔记】Earth-Adapter: Bridge Geospatial Domain Gaps with Mixture of Frequency Adaptation 论文解读 | AAAI 2026 | arXiv 2504.06220 | 遥感语义分割 | 提出 Earth-Adapter，首个针对遥感图像**伪影问题**设计的参数高效微调 (PEFT) 方法，通过频率引导的混合适配器 (MoA) 将特征分解为高低频子空间、独立优化后动态聚合，在遥感语义分割 (SS)、域自适应 (DA) 和域泛化 (DG) 三个设定中均超越基线 Rein。"
 tags:
   - AAAI 2026
-  - 遥感语义分割
-  - 参数高效微调
-  - 频域分解
 ---
 
 # Earth-Adapter: Bridge Geospatial Domain Gaps with Mixture of Frequency Adaptation

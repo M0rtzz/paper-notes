@@ -2,9 +2,6 @@
 description: "【论文笔记】Test-time Ego-Exo-centric Adaptation for Action Anticipation via Multi-Label Prototype Growing and Dual-Clue Consistency 论文解读 | CVPR2026 | arXiv 2603.09798 | Test-Time Adaptation | 首次提出 Test-time Ego-Exo Adaptation for Action Anticipation（TE2A3）任务，设计 DCPGN 网络通过多标签原型增长和双线索（视觉+文本）一致性，在测试时将源视角训练模型在线适配到目标视角进行动作预测，大幅超越现有 TTA 方法。"
 tags:
   - CVPR2026
-  - Test-Time Adaptation
-  - Ego-Exo
-  - Action Anticipation
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

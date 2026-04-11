@@ -2,9 +2,6 @@
 description: "【论文笔记】Verb Mirage: Unveiling and Assessing Verb Concept Hallucinations in Multimodal Large Language Models 论文解读 | AAAI 2026 | arXiv 2412.04939 | 动词幻觉 | 首次系统研究多模态大语言模型（MLLM）中的动词概念幻觉问题，构建了多维度基准测试，发现现有幻觉缓解方法对动词幻觉无效，并提出基于丰富动词知识微调的基线方法，显著缓解动词幻觉。"
 tags:
   - AAAI 2026
-  - 动词幻觉
-  - MLLM
-  - 幻觉评测
 ---
 
 # Verb Mirage: Unveiling and Assessing Verb Concept Hallucinations in Multimodal Large Language Models

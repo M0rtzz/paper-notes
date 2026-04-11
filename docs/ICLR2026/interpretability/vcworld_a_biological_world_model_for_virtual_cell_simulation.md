@@ -2,9 +2,6 @@
 description: "【论文笔记】VCWorld: A Biological World Model for Virtual Cell Simulation 论文解读 | ICLR 2026 | arXiv 2512.00306 | Virtual Cell | 提出 VCWorld，一个细胞级白盒模拟器，通过整合结构化生物知识与大语言模型的迭代推理能力来构建生物世界模型，以数据高效的方式生成可解释的扰动预测和机制假说。"
 tags:
   - ICLR 2026
-  - Virtual Cell
-  - World Model
-  - LLM Reasoning
 ---
 
 # VCWorld: A Biological World Model for Virtual Cell Simulation

@@ -2,9 +2,6 @@
 description: "【论文笔记】A General Graph Spectral Wavelet Convolution via Chebyshev Order Decomposition 论文解读 | ICML 2025 | arXiv 2405.13806 | 图小波 | 提出 WaveGC——通过分离 Chebyshev 多项式的奇偶项构建严格满足可容许性条件的可学习图小波，结合矩阵值滤波核的多分辨率图谱卷积网络，在短程和长程图任务上均实现一致改进（VOC 上提升 15.7%）。"
 tags:
   - ICML 2025
-  - 图小波
-  - 谱卷积
-  - Chebyshev多项式
 ---
 
 # A General Graph Spectral Wavelet Convolution via Chebyshev Order Decomposition

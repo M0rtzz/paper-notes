@@ -2,9 +2,6 @@
 description: "【论文笔记】CHOICE: Benchmarking the Remote Sensing Capabilities of Large Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2411.18145 | 遥感 | 提出 CHOICE，一个面向遥感领域的大规模多层级 VLM 基准，包含 10,507 道全新采集题目，覆盖感知与推理 2 大维度、6 个子维度、23 个叶任务，首次实现对 VLM 遥感能力的系统化与客观化评估。"
 tags:
   - NeurIPS 2025
-  - 遥感
-  - VLM基准
-  - 多层级评估
 ---
 
 # CHOICE: Benchmarking the Remote Sensing Capabilities of Large Vision-Language Models

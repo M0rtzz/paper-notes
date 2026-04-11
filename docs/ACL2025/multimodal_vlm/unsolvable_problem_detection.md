@@ -2,9 +2,6 @@
 description: "【论文笔记】Unsolvable Problem Detection: Evaluating Trustworthiness of Large Multimodal Models 论文解读 | ACL 2025 | arXiv 2403.20331 | 不可解问题检测 | 本文提出不可解问题检测（UPD）任务评估大型多模态模型（LMM）的鲁棒理解能力，包含三种不可解场景（答案缺失AAD、答案集不兼容IASD、图像问题不兼容IVQD），构建 MM-UPD Bench 基准，实验揭示现有 LMM 在标准 MCQA 上表现良好但在 UPD 上显著挣扎，且现有基准性能与 UPD 能力之间缺乏相关性。"
 tags:
   - ACL 2025
-  - 不可解问题检测
-  - 多模态大模型
-  - 可信度评估
 ---
 
 # Unsolvable Problem Detection: Evaluating Trustworthiness of Large Multimodal Models

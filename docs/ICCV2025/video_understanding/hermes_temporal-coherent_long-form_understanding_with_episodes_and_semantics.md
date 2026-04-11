@@ -2,9 +2,6 @@
 description: "【论文笔记】HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics 论文解读 | ICCV 2025 | arXiv 2408.17443 | 长视频理解 | 提出 HERMES 框架，通过情景压缩器 (ECO) 和语义检索器 (SeTR) 两个通用模块分别捕获视频的情景记忆和语义信息，既可作为独立系统达到 SOTA，也可即插即用地增强现有视频语言模型，同时降低推理延迟达 43% 和内存消耗达 46%。"
 tags:
   - ICCV 2025
-  - 长视频理解
-  - 情景压缩
-  - 语义检索
 ---
 
 # HERMES: temporal-coHERent long-forM understanding with Episodes and Semantics

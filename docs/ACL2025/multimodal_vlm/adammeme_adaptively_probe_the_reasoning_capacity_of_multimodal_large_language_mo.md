@@ -2,9 +2,6 @@
 description: "【论文笔记】AdamMeme: Adaptively Probe the Reasoning Capacity of Multimodal Large Language Models on Harmfulness 论文解读 | ACL 2025 | arXiv 2507.01702 | meme理解 | 提出AdamMeme——一个基于多智能体协作的自适应评估框架，通过迭代生成更具挑战性的meme样本来探测多模态大语言模型(mLLM)在有害内容理解上的推理能力和特定弱点。"
 tags:
   - ACL 2025
-  - meme理解
-  - 有害性检测
-  - 多模态评估
 ---
 
 # AdamMeme: Adaptively Probe the Reasoning Capacity of Multimodal Large Language Models on Harmfulness

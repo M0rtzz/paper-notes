@@ -2,9 +2,6 @@
 description: "【论文笔记】SCORE: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation 论文解读 | ICCV 2025 | arXiv 2507.12857 | 开放词汇实例分割 | 提出SCORE框架，通过引入区域上下文（RAI）和全局上下文适配（GCA）两个模块，将遥感专用CLIP的多粒度场景知识注入到开放词汇实例分割pipeline中，在多个遥感数据集上的跨数据集评估中平均mAP超越前SOTA 5.53%。"
 tags:
   - ICCV 2025
-  - 开放词汇实例分割
-  - 遥感
-  - 场景上下文
 ---
 
 # SCORE: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation

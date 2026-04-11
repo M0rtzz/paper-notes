@@ -2,9 +2,6 @@
 description: "【论文笔记】Deceptive-NeRF/3DGS: Diffusion-Generated Pseudo-observations for High-Quality Sparse-View Reconstruction 论文解读 | ECCV2024 | arXiv 2305.15171 | 稀疏视图重建 | 利用微调的 Stable Diffusion + ControlNet 将粗糙 NeRF/3DGS 渲染结果转化为高质量伪观测图像，将稀疏输入视图增密 5-10 倍后重新训练，在 Hypersim/LLFF/ScanNet 等数据集上超越 FreeNeRF 等方法 1-2dB PSNR，训练速度比扩散正则化方法快约 10 倍。"
 tags:
   - ECCV2024
-  - 稀疏视图重建
-  - 扩散模型
-  - NeRF
 ---
 
 # Deceptive-NeRF/3DGS: Diffusion-Generated Pseudo-observations for High-Quality Sparse-View Reconstruction

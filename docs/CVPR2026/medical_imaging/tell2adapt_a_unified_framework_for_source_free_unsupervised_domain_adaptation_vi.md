@@ -2,11 +2,9 @@
 description: "【论文笔记】Tell2Adapt: A Unified Framework for Source Free Unsupervised Domain Adaptation via Vision Foundation Model 论文解读 | CVPR 2026 | arXiv 2603.05012 | 域适应 source-free domain adaptation | 提出 Tell2Adapt 统一框架，利用视觉基础模型（BiomedParse）的泛化知识，通过上下文感知提示正则化（CAPR）生成高质量伪标签，再经视觉合理性精炼（VPR）去除解剖学不合理预测，实现跨 10 个域迁移方向、22 个解剖目标的统一无源域自适应医学图像分割。"
 tags:
   - CVPR 2026
-  - source-free domain adaptation
   - 域适应
-  - vision foundation model
-  - medical image segmentation
   - 图像分割
+  - 提示学习
 ---
 
 # Tell2Adapt: A Unified Framework for Source Free Unsupervised Domain Adaptation via Vision Foundation Model

@@ -2,9 +2,6 @@
 description: "【论文笔记】SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion 论文解读 | CVPR 2026 | arXiv 2603.12764 | Ego-Exo | 提出Align-Fuse-Detect框架SAVA-X，通过Gumbel Top-K自适应采样去冗余、场景自适应视角嵌入缩小域差距、双向交叉注意力融合互补语义，在EgoMe数据集上Mean AUPRC达22.36，超越最强baseline +13.56%。"
 tags:
   - CVPR 2026
-  - Ego-Exo
-  - 模仿错误检测
-  - 跨视角融合
 ---
 
 # SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion

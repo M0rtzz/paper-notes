@@ -2,9 +2,6 @@
 description: "【论文笔记】Trust but Verify: Programmatic VLM Evaluation in the Wild 论文解读 | ICCV 2025 | arXiv 2410.13121 | VLM评测 | 提出 PROVE（Programmatic VLM Evaluation）评测范式，通过从超详细图像描述构建高保真场景图，并利用 LLM 生成可编程验证的开放式视觉问答对，在统一的场景图框架内同时评估 VLM 回答的**有用性**（helpfulness）和**真实性**（truthfulness），揭示当前模型在两者之间难以取得良好平衡。"
 tags:
   - ICCV 2025
-  - VLM评测
-  - 幻觉检测
-  - 场景图
 ---
 
 # Trust but Verify: Programmatic VLM Evaluation in the Wild

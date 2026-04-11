@@ -2,9 +2,6 @@
 description: "【论文笔记】DeepVideo-R1: Video Reinforcement Fine-Tuning via Difficulty-aware Regressive GRPO 论文解读 | NeurIPS 2025 | arXiv 2506.07464 | VideoLLM | 探索GRPO在VideoLLM中的应用，发现\"安全门依赖\"和\"优势消失\"两个阻碍有效学习的问题，提出Reg-GRPO（将GRPO loss重建为直接回归优势值的任务，消除clipping/min等安全门操作）和难度感知数据增强策略，在多个视频推理benchmark上显著提升性能。"
 tags:
   - NeurIPS 2025
-  - VideoLLM
-  - GRPO
-  - reinforcement learning
   - 强化学习
 ---
 

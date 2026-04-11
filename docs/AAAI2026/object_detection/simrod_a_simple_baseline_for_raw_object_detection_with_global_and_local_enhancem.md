@@ -2,9 +2,6 @@
 description: "【论文笔记】SimROD: A Simple Baseline for Raw Object Detection with Global and Local Enhancements 论文解读 | AAAI 2026 | arXiv 2503.07101 | RAW图像 | 提出SimROD，一种极其轻量（仅0.003M参数）的RAW图像目标检测方法，通过全局Gamma增强（4个可学习参数）和绿色通道引导的局部增强，在多个RAW检测基准上超越了复杂的SOTA方法。"
 tags:
   - AAAI 2026
-  - RAW图像
-  - 目标检测
-  - Gamma增强
 ---
 
 # SimROD: A Simple Baseline for Raw Object Detection with Global and Local Enhancements

@@ -2,9 +2,6 @@
 description: "【论文笔记】CWNet: Causal Wavelet Network for Low-Light Image Enhancement 论文解读 | ICCV 2025 | arXiv 2507.10689 | 低光图像增强 | 提出因果小波网络CWNet，通过结构因果模型将低光增强中的语义信息视为因果因子、亮度/颜色退化视为非因果因子，结合小波变换骨干网络实现频域特征的精细化恢复。"
 tags:
   - ICCV 2025
-  - 低光图像增强
-  - 因果推理
-  - 小波变换
 ---
 
 # CWNet: Causal Wavelet Network for Low-Light Image Enhancement

@@ -2,9 +2,6 @@
 description: "【论文笔记】Scene Coordinate Reconstruction Priors 论文解读 | ICCV 2025 | arXiv 2510.12387 | 场景坐标回归 | 提出场景坐标回归(SCR)的概率化训练框架，引入手工设计的深度分布先验和基于3D点云扩散模型的学习先验，在多视角约束不足时显著改善场景重建质量、相机位姿估计和下游任务表现。"
 tags:
   - ICCV 2025
-  - 场景坐标回归
-  - 重建先验
-  - 3D扩散模型
 ---
 
 # Scene Coordinate Reconstruction Priors

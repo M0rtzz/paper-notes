@@ -2,9 +2,6 @@
 description: "【论文笔记】Machine Learning for Sustainable Rice Production: Region-Scale Monitoring of Water-Saving Practices in Punjab, India 论文解读 | AAAI 2026 | arXiv 2507.08605 | 水稻种植监测 | 提出维度分类方法将水稻节水实践识别解耦为播种维度(DSR vs PTR)和灌溉维度(AWD vs CF)两个独立二分类任务，仅使用Sentinel-1 SAR影像实现播种F1=0.80和灌溉F1=0.74，并在旁遮普邦300万+地块上进行大规模推理，地区级采纳率与政府统计高度相关（Spearman ρ=0.69）。"
 tags:
   - AAAI 2026
-  - 水稻种植监测
-  - 节水实践
-  - Sentinel-1 SAR
 ---
 
 # Machine Learning for Sustainable Rice Production: Region-Scale Monitoring of Water-Saving Practices in Punjab, India

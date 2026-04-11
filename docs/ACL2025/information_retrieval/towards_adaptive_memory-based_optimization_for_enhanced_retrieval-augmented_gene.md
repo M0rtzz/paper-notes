@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2504.05312 | RAG | 提出 Amber 框架，通过 Agent 协作式记忆更新器、自适应信息收集器和多粒度内容过滤器三个组件协同工作，在迭代式 RAG 范式中提升开放域问答的检索效率和答案质量。"
 tags:
   - ACL 2025
-  - RAG
-  - 自适应检索
-  - 记忆更新
 ---
 
 # Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation

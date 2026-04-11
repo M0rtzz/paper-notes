@@ -2,9 +2,7 @@
 description: "【论文笔记】Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning 论文解读 | CVPR2026 | arXiv 2601.09708 | VLA | 提出 Fast-ThinkAct，通过将冗长的文本 CoT 推理（~250 token）压缩为 6 个可语言化的连续 latent token，结合 reward-guided preference distillation 和 visual trajectory alignment，实现 89.3% 推理延迟降低（9.3× faster than ThinkAct-7B）同时保持甚至超越 SOTA reasoning VLA 的性能。"
 tags:
   - CVPR2026
-  - VLA
-  - reasoning
-  - latent CoT
+  - 知识蒸馏
 ---
 
 # Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning

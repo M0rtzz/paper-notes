@@ -2,10 +2,7 @@
 description: "【论文笔记】SparseVILA: Decoupling Visual Sparsity for Efficient VLM Inference 论文解读 | ICCV 2025 | arXiv 2510.17777 | 剪枝 visual token pruning | 提出SparseVILA，将VLM推理时的视觉token稀疏化解耦为两个阶段——prefill阶段做query-agnostic剪枝（去冗余）、decode阶段做query-aware检索（精选相关token），在长视频任务上实现4.0×prefill加速、2.5×decode加速、2.6×端到端加速，同时在视频理解benchmark上精度不降反升。"
 tags:
   - ICCV 2025
-  - visual token pruning
   - 剪枝
-  - decoupled sparsity
-  - prefill-decode
 ---
 
 # SparseVILA: Decoupling Visual Sparsity for Efficient VLM Inference

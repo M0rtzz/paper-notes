@@ -2,9 +2,6 @@
 description: "【论文笔记】System-Aware Unlearning Algorithms: Use Lesser, Forget Faster 论文解读 | ICML2025 | arXiv 2506.06073 | machine unlearning | 提出系统感知遗忘 (system-aware unlearning) 新定义，将攻击者的能力限制为只能访问系统实际存储的内容而非全部剩余数据，并基于核心集 (core set) + 选择采样 (selective sampling) 设计了线性分类的精确遗忘算法，实现亚线性内存和极低删除时间。"
 tags:
   - ICML2025
-  - machine unlearning
-  - system-aware
-  - selective sampling
 ---
 
 # System-Aware Unlearning Algorithms: Use Lesser, Forget Faster

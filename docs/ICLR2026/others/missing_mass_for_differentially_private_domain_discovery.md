@@ -2,9 +2,6 @@
 description: "【论文笔记】Missing Mass for Differentially Private Domain Discovery 论文解读 | ICLR 2026 | arXiv 2603.14016 | 差分隐私 | 为差分隐私域发现问题提供首批绝对效用保证——用缺失质量(recovered mass fraction)替代基数(unique items)度量,证明简单的加权高斯机制(WGM)在Zipf数据上有近最优ℓ1缺失质量保证且有分布无关的ℓ∞保证,并将WGM作为域发现前驱用于私有top-k和k-hitting set问题获得新效用保证,实验在6个真实数据集上验证。"
 tags:
   - ICLR 2026
-  - 差分隐私
-  - 集合并集
-  - 缺失质量
 ---
 
 # Missing Mass for Differentially Private Domain Discovery

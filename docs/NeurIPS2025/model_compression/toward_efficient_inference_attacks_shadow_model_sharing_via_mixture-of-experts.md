@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward Efficient Inference Attacks: Shadow Model Sharing via Mixture-of-Experts 论文解读 | NeurIPS 2025 | arXiv 2510.13451 | 推理攻击 | 提出基于 Mixture-of-Experts 的影子模型共享方案，通过在多种推理攻击任务间共享影子模型的特征提取层、仅训练任务特定的轻量专家模块来降低影子模型的整体训练成本，同时保持或提升攻击性能。"
 tags:
   - NeurIPS 2025
-  - 推理攻击
-  - 影子模型
-  - 混合专家
 ---
 
 # Toward Efficient Inference Attacks: Shadow Model Sharing via Mixture-of-Experts

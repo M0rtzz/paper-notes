@@ -2,10 +2,7 @@
 description: "【论文笔记】Rejuvenating Cross-Entropy Loss in Knowledge Distillation for Recommender Systems 论文解读 | ICLR 2026 | arXiv 2509.20989 | 知识蒸馏 knowledge distillation | 理论证明 CE 损失在推荐系统 KD 中最大化 NDCG 下界需满足\"闭合性假设\"（子集需包含学生 top 项目），但实际目标是蒸馏教师 top 项目的排序——两者冲突导致 vanilla CE 表现差。据此提出 RCE-KD：将教师 top-K 项目按是否在学生 top-K 中分两组，分别用精确 CE 和采样近似闭合性 CE，自适应融合权重随训练动态调整。"
 tags:
   - ICLR 2026
-  - knowledge distillation
   - 知识蒸馏
-  - cross-entropy
-  - NDCG
 ---
 
 # Rejuvenating Cross-Entropy Loss in Knowledge Distillation for Recommender Systems

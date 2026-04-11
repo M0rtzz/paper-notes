@@ -2,9 +2,6 @@
 description: "【论文笔记】NameTag 3: A Tool and a Service for Multilingual/Multitagset NER 论文解读 | ACL 2025 | arXiv 2506.05949 | 命名实体识别 | 本文介绍 NameTag 3，一个开源的多语言、多数据集、多标签集命名实体识别工具和云服务，基于微调的预训练语言模型，单个 355M 参数模型在 15 种语言的 21 个测试集上达到 SOTA，同时比 DeepSeek-R1 等 LLM 快 10,000 倍以上。"
 tags:
   - ACL 2025
-  - 命名实体识别
-  - 多语言NER
-  - 嵌套NER
 ---
 
 # NameTag 3: A Tool and a Service for Multilingual/Multitagset NER

@@ -2,9 +2,6 @@
 description: "【论文笔记】SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules 论文解读 | CVPR 2026 | arXiv 2603.12307 | cryo-EM | SHREC利用谱嵌入技术从2D冷冻电镜投影图像直接恢复螺旋分子的投影角度（无需螺旋对称参数先验），通过证明螺旋片段投影构成一维闭合流形(同胚于圆)实现角度恢复，在TMV、VipA/VipB和MakA三个公开数据集上实现接近发表水平的高分辨率重建(3.66Å–8.23Å)。"
 tags:
   - CVPR 2026
-  - cryo-EM
-  - helical reconstruction
-  - spectral embedding
 ---
 
 # SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules

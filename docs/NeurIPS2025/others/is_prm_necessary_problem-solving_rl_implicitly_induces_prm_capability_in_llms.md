@@ -2,9 +2,6 @@
 description: "【论文笔记】笔记2：PRM必要吗？RL隐式诱导PRM能力 论文解读 | NeurIPS 2025 | arXiv 2505.11227 | Process Reward Model | 令人惊讶地，纯RL训练无需显式PRM监督即可诱发出强大的过程理解能力，且现有PRMs在SOTA模型上甚至不如简单多数投票有效。"
 tags:
   - NeurIPS 2025
-  - Process Reward Model
-  - 奖励模型
-  - RL训练
 ---
 
 # 笔记2：PRM必要吗？RL隐式诱导PRM能力

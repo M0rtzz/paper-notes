@@ -2,9 +2,6 @@
 description: "【论文笔记】MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding 论文解读 | CVPR2026 | arXiv 2512.02906 | 高分辨率图像理解 | 提出 MRD，一个 training-free 的多分辨率检索-检测融合框架，通过多分辨率语义融合缓解目标碎片化，结合开放词汇检测器抑制背景干扰，显著提升 MLLM 对高分辨率图像的理解能力。"
 tags:
   - CVPR2026
-  - 高分辨率图像理解
-  - 多模态大模型
-  - 检索增强感知
 ---
 
 # MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding

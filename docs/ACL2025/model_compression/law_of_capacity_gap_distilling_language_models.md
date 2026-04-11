@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards the Law of Capacity Gap in Distilling Language Models 论文解读 | ACL 2025 | arXiv 2311.07052 | 知识蒸馏 | 揭示了语言模型蒸馏中的\"容量差距定律\"——最优教师模型的参数量与学生模型成线性关系（约 2.5 倍），将 LLM 蒸馏中的\"不可能三角\"转化为可解问题，并据此成功蒸馏出 3B 的 MiniMA 模型。"
 tags:
   - ACL 2025
-  - 知识蒸馏
-  - 容量差距
-  - Scaling Law
 ---
 
 # Towards the Law of Capacity Gap in Distilling Language Models

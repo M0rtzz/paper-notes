@@ -2,9 +2,6 @@
 description: "【论文笔记】Leveraging Partial SMILES Validation Scheme for Enhanced Drug Design in Reinforcement Learning Frameworks 论文解读 | ICML2025 | arXiv 2505.00530 | SMILES分子生成 | 提出 PSV-PPO 算法，在自回归 SMILES 分子生成的每一步引入部分 SMILES 验证（PSV）真值表，实时惩罚无效 token，在保持分子有效性的同时增强化学空间探索能力。"
 tags:
   - ICML2025
-  - SMILES分子生成
-  - 强化学习
-  - PPO
 ---
 
 # Leveraging Partial SMILES Validation Scheme for Enhanced Drug Design in Reinforcement Learning Frameworks

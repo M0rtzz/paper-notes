@@ -2,9 +2,6 @@
 description: "【论文笔记】MonoSOWA: Scalable Monocular 3D Object Detector Without Human Annotations 论文解读 | ICCV2025 | arXiv 2501.09481 | 单目3D检测 | 提出首个完全不依赖人工标注（包括 2D 和 3D）的单目 3D 物体检测方法，通过新提出的局部目标运动模型（LOMM）解耦帧间运动来源，自动标注速度比前人快 700 倍，并通过规范目标空间（COS）融合不同相机设置的多数据集训练。"
 tags:
   - ICCV2025
-  - 单目3D检测
-  - 弱监督
-  - 自动标注
 ---
 
 # MonoSOWA: Scalable Monocular 3D Object Detector Without Human Annotations

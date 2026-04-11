@@ -2,9 +2,7 @@
 description: "【论文笔记】Self-Organizing Visual Prototypes for Non-Parametric Representation Learning 论文解读 | ICML 2025 | arXiv 2505.21533 | 自监督学习 | 提出 Self-Organizing Prototypes (SOP) 策略，用多个语义相似的支持嵌入（support embeddings）替代传统 SSL 中单一原型来表示特征空间的局部区域，并引入非参数化 MIM 任务，在检索、检测、分割等下游任务上取得 SOTA 表现。"
 tags:
   - ICML 2025
-  - 自监督学习
-  - 非参数化原型
-  - 支持嵌入
+  - Transformer
 ---
 
 # Self-Organizing Visual Prototypes for Non-Parametric Representation Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations 论文解读 | ICML 2025 | arXiv 2506.13776 | Human Baseline | 本文对 AI 评估中\"人类基线\"（human baseline）的方法论进行了系统审查，发现现有 115 项人类基线研究在严谨性和透明度方面存在严重不足，并提出了覆盖基线全生命周期的方法建议和报告清单。"
 tags:
   - ICML 2025
-  - Human Baseline
-  - AI评估方法论
-  - 评估透明度
 ---
 
 # Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations

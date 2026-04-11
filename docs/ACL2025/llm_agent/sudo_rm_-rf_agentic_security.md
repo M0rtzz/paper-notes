@@ -2,9 +2,6 @@
 description: "【论文笔记】SUDO: Screen-based Universal Detox2tox Offense for Agentic Security 论文解读 | ACL 2025 | arXiv 2503.20279 | 计算机使用Agent | 提出 SUDO 两阶段攻击框架针对计算机使用 Agent：静态阶段用 Detox2tox 将恶意请求去毒化→生成执行计划→回毒化恢复恶意载荷；动态阶段用检查清单迭代优化攻击，在 MANUS 上达到 63.19% 攻击成功率。"
 tags:
   - ACL 2025
-  - 计算机使用Agent
-  - 越狱攻击
-  - Detox2tox
 ---
 
 # SUDO: Screen-based Universal Detox2tox Offense for Agentic Security

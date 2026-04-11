@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond the Fold: Quantifying Split-Level Noise and the Case for Leave-One-Dataset-Out AU Evaluation 论文解读 | CVPR 2026 | arXiv 2604.02162 | 面部动作单元检测 | 揭示面部AU检测中被试独立交叉验证本身引入±0.065 F1的随机噪声（noise floor），许多声称的SOTA提升落入此噪声带内不可区分，并提出Leave-One-Dataset-Out（LODO）协议作为更稳定可靠的替代评估方案。"
 tags:
   - CVPR 2026
-  - 面部动作单元检测
-  - 交叉验证噪声
-  - 评估协议
 ---
 
 # Beyond the Fold: Quantifying Split-Level Noise and the Case for Leave-One-Dataset-Out AU Evaluation

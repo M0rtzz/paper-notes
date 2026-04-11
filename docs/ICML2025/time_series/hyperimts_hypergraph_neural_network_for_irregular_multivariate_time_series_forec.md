@@ -2,9 +2,6 @@
 description: "【论文笔记】HyperIMTS: Hypergraph Neural Network for Irregular Multivariate Time Series Forecasting 论文解读 | ICML 2025 | arXiv 2505.17431 | 不规则多元时间序列 | 提出 HyperIMTS，利用超图结构表示不规则多元时间序列（IMTS）中的观测值和其依赖关系，通过三种消息传递机制（节点→超边、超边→超边、超边→节点）实现不规则性感知的时间和变量依赖学习，在 5 个 IMTS 数据集上达到 SOTA 且计算效率优于 padding 方法。"
 tags:
   - ICML 2025
-  - 不规则多元时间序列
-  - 超图神经网络
-  - 时间感知消息传递
 ---
 
 # HyperIMTS: Hypergraph Neural Network for Irregular Multivariate Time Series Forecasting

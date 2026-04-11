@@ -2,9 +2,6 @@
 description: "【论文笔记】BOTS: A Unified Framework for Bayesian Online Task Selection in LLM Reinforcement Finetuning 论文解读 | ICLR 2026 | arXiv 2510.26374 | 强化微调 | 提出 BOTS 框架，将 LLM 强化微调中的在线任务选择建模为贝叶斯推断问题，通过融合显式证据（直接评估）和隐式证据（跨任务推断）来自适应估计任务难度，并利用 Thompson 采样平衡探索与利用，显著提升训练效率。"
 tags:
   - ICLR 2026
-  - 强化微调
-  - 任务选择
-  - 贝叶斯推断
 ---
 
 # BOTS: A Unified Framework for Bayesian Online Task Selection in LLM Reinforcement Finetuning

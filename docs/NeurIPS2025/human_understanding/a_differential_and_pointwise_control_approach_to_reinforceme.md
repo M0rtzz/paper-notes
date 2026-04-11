@@ -2,9 +2,6 @@
 description: "【论文笔记】A Differential and Pointwise Control Approach to Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2404.15617 | 微分强化学习 | 将RL问题通过连续时间控制的微分对偶形式重新表述，利用哈密顿结构嵌入物理先验，提出dfPO算法实现逐点策略优化，在科学计算任务（曲面建模、网格控制、分子动力学）上以更少样本超越12个RL基线。"
 tags:
   - NeurIPS 2025
-  - 微分强化学习
-  - 哈密顿结构
-  - 逐点收敛
 ---
 
 # A Differential and Pointwise Control Approach to Reinforcement Learning

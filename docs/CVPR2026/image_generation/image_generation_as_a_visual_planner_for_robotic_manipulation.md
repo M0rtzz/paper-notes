@@ -2,9 +2,6 @@
 description: "【论文笔记】Image Generation as a Visual Planner for Robotic Manipulation 论文解读 | CVPR 2026 | arXiv 2512.00532 | 视觉规划 | 将预训练图像生成模型（DiT）通过 LoRA 微调适配为机器人操作的视觉规划器，以 3×3 网格图像形式生成时序连贯的操作序列，支持文本条件和轨迹条件两种控制模式。"
 tags:
   - CVPR 2026
-  - 视觉规划
-  - 机器人操作
-  - 扩散模型
 ---
 
 # Image Generation as a Visual Planner for Robotic Manipulation

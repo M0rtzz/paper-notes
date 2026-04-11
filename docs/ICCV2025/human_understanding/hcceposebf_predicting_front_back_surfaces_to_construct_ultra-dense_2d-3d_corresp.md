@@ -2,9 +2,6 @@
 description: "【论文笔记】HccePose(BF): Predicting Front & Back Surfaces to Construct Ultra-Dense 2D-3D Correspondences for Pose Estimation 论文解读 | ICCV 2025 | arXiv 2510.10177 | 位姿估计 | 提出同时预测物体前后表面的3D坐标并在两表面间密集采样，构建超密集2D-3D对应关系，配合新颖的层级连续坐标编码（HCCE），在BOP七大核心数据集上超越现有SOTA方法。"
 tags:
   - ICCV 2025
-  - 位姿估计
-  - 2D-3D对应
-  - 前后表面预测
 ---
 
 # HccePose(BF): Predicting Front & Back Surfaces to Construct Ultra-Dense 2D-3D Correspondences for Pose Estimation

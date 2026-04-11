@@ -2,9 +2,6 @@
 description: "【论文笔记】Golden Noise for Diffusion Models: A Learning Framework 论文解读 | ICCV 2025 | arXiv 2411.09502 | 噪声提示 | 本文提出\"噪声提示\"（Noise Prompt）概念，设计了一个轻量级噪声提示网络（NPNet），通过 Re-denoise Sampling 收集 10 万对噪声数据训练 NPNet，将随机高斯噪声转化为承载语义信息的\"黄金噪声\"，作为即插即用模块提升 SDXL 等多种扩散模型的生成质量，仅增加 3% 推理时间。"
 tags:
   - ICCV 2025
-  - 噪声提示
-  - 黄金噪声
-  - 扩散模型
 ---
 
 # Golden Noise for Diffusion Models: A Learning Framework

@@ -2,9 +2,6 @@
 description: "【论文笔记】CARE: Towards Clinical Accountability in Multi-Modal Medical Reasoning with an Evidence-Grounded Agentic Framework 论文解读 | ICLR 2026 | arXiv 2603.01607 | 医学VQA | 提出 CARE Agent 框架，将医学 VQA 分解为实体提议、指称分割和证据引导推理三个专家模块，通过 GPT-5 作为动态协调器，在医学 VQA 基准上以 77.54% 准确率超越 32B 模型。"
 tags:
   - ICLR 2026
-  - 医学VQA
-  - 证据引导
-  - Agent框架
 ---
 
 # CARE: Towards Clinical Accountability in Multi-Modal Medical Reasoning with an Evidence-Grounded Agentic Framework

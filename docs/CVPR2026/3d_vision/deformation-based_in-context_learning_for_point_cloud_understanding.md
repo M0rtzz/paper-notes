@@ -2,9 +2,6 @@
 description: "【论文笔记】Deformation-based In-Context Learning for Point Cloud Understanding 论文解读 | CVPR 2026 | arXiv 2604.02845 | 点云上下文学习 | 提出 DeformPIC，将点云 In-Context Learning 从\"掩码重建\"范式重新定义为\"形变迁移\"范式，通过 Deformation Extraction Network 提取任务语义 + Deformation Transfer Network 迁移形变到查询点云，在重建/去噪/配准上分别降低 CD 1.6/1.8/4.7。"
 tags:
   - CVPR 2026
-  - 点云上下文学习
-  - 形变网络
-  - 几何推理
 ---
 
 # Deformation-based In-Context Learning for Point Cloud Understanding

@@ -2,9 +2,6 @@
 description: "【论文笔记】MotionStream: Real-Time Video Generation with Interactive Motion Controls 论文解读 | ICLR 2026 | arXiv 2511.01266 | 实时视频生成 | 提出MotionStream实现首个运动控制的实时流式视频生成——将双向运动控制teacher通过Self Forcing+DMD蒸馏为因果student，引入注意力沉降+滑动窗口KV缓存实现无限长度恒速生成，单GPU达29FPS+亚秒延迟，运动跟踪质量达SOTA。"
 tags:
   - ICLR 2026
-  - 实时视频生成
-  - 运动控制
-  - 流式推理
 ---
 
 # MotionStream: Real-Time Video Generation with Interactive Motion Controls

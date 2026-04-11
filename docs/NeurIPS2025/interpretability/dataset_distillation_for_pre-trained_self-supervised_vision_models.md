@@ -2,10 +2,7 @@
 description: "【论文笔记】Dataset Distillation for Pre-Trained Self-Supervised Vision Models 论文解读 | NeurIPS 2025 | arXiv 2511.16674 | dataset distillation | 提出 Linear Gradient Matching 方法，为预训练自监督视觉模型蒸馏合成数据集：每类仅需一张合成图就能训练出接近全数据集表现的线性分类器，且蒸馏图像可跨模型架构迁移。"
 tags:
   - NeurIPS 2025
-  - dataset distillation
-  - self-supervised learning
   - 自监督学习
-  - linear probing
 ---
 
 # Dataset Distillation for Pre-Trained Self-Supervised Vision Models

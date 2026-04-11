@@ -2,9 +2,6 @@
 description: "【论文笔记】Streaming Autoregressive Video Generation via Diagonal Distillation 论文解读 | ICLR 2026 | arXiv 2603.09488 | 对角蒸馏 | 提出 DiagDistill 对角蒸馏框架，通过对角去噪策略（早期多步、后期少步）和光流分布匹配，实现实时流式自回归视频生成，5秒视频仅需2.61秒（31 FPS），比未蒸馏模型加速277.3倍。"
 tags:
   - ICLR 2026
-  - 对角蒸馏
-  - 自回归视频生成
-  - 流分布匹配
 ---
 
 # Streaming Autoregressive Video Generation via Diagonal Distillation

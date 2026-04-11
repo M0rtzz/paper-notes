@@ -2,9 +2,7 @@
 description: "【论文笔记】Diffusion-based Image-to-Image Translation by Noise Correction via Prompt Interpolation 论文解读 | ECCV 2024 | arXiv 2409.08077 | 图像翻译 | 提出PIC（Prompt Interpolation-based Correction），一种无训练的扩散模型图像翻译方法，通过渐进式prompt嵌入插值构造噪声校正项，将其与源图像噪声预测线性组合，实现结构保持的高保真图像编辑，且推理速度（18.1s）优于所有对比方法。"
 tags:
   - ECCV 2024
-  - 图像翻译
-  - 无训练方法
-  - 噪声校正
+  - 提示学习
 ---
 
 # Diffusion-based Image-to-Image Translation by Noise Correction via Prompt Interpolation

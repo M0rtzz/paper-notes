@@ -2,9 +2,6 @@
 description: "【论文笔记】iDPA: Instance Decoupled Prompt Attention for Incremental Medical Object Detection 论文解读 | ICML 2025 | arXiv 2506.00406 | 增量目标检测 | 提出 iDPA 框架，通过实例级 Prompt 生成（IPG）和解耦 Prompt 注意力（DPA）两大模块，在冻结的视觉-语言目标检测模型上实现增量医学目标检测（IMOD），仅训练 1.4% 的参数即在 13 个跨模态医学数据集上全面超越 SOTA。"
 tags:
   - ICML 2025
-  - 增量目标检测
-  - 持续学习
-  - Prompt Tuning
   - 提示学习
 ---
 

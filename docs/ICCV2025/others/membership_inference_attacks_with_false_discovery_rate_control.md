@@ -2,9 +2,6 @@
 description: "【论文笔记】Membership Inference Attacks with False Discovery Rate Control 论文解读 | ICCV 2025 | arXiv 2508.07066 | 成员推理攻击 | 提出MIAFdR，首个能提供错误发现率（FDR）理论保证的成员推理攻击方法，通过设计新颖的非成员一致性分数函数和基于调整的成员判定策略来控制FDR，可作为即插即用的wrapper无缝集成到现有MIA方法中，在保持攻击性能的同时提供FDR控制。"
 tags:
   - ICCV 2025
-  - 成员推理攻击
-  - 错误发现率控制
-  - 保形推断
 ---
 
 # Membership Inference Attacks with False Discovery Rate Control

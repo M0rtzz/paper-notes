@@ -2,10 +2,7 @@
 description: "【论文笔记】The Panaceas for Improving Low-Rank Decomposition in Communication-Efficient Federated Learning 论文解读 | ICML2025 | arXiv 2505.23176 | 联邦学习 federated learning | 针对联邦学习中低秩分解的三个核心问题（分解什么、怎么分解、怎么聚合），分别提出 MUD（模型更新分解）、BKD（分块 Kronecker 分解）和 AAD（聚合感知分解）三种互补技术，在保持低通信开销的同时实现更快收敛和更高精度。"
 tags:
   - ICML2025
-  - federated learning
   - 联邦学习
-  - low-rank decomposition
-  - communication efficiency
 ---
 
 # The Panaceas for Improving Low-Rank Decomposition in Communication-Efficient Federated Learning

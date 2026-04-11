@@ -2,9 +2,6 @@
 description: "【论文笔记】RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images 论文解读 | arXiv 2026 | arXiv 2603.12215 | rdnet | 由于对象大小的巨大变化、自注意力机制的计算成本以及基于 CNN 的提取器在捕获全局上下文和远程依赖性方面的局限性，遥感图像中的显着对象检测 (SOD) 面临着重大挑战。"
 tags:
   - arXiv 2026
-  - rdnet
-  - region
-  - proportion-aware
 ---
 
 # RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images

@@ -2,9 +2,6 @@
 description: "【论文笔记】Bilevel Layer-Positioning LoRA for Real Image Dehazing 论文解读 | CVPR 2026 | arXiv 2603.10872 | 图像去雾 | 提出H2C文本引导无监督损失（利用CLIP将去雾重构为语义对齐问题）和BiLaLoRA双层优化策略（自动搜索最佳LoRA注入层），实现高效且即插即用的合成到真实域去雾适配。"
 tags:
   - CVPR 2026
-  - 图像去雾
-  - LoRA
-  - CLIP
 ---
 
 # Bilevel Layer-Positioning LoRA for Real Image Dehazing

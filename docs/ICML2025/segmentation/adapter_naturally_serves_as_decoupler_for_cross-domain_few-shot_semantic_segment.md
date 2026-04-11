@@ -2,9 +2,6 @@
 description: "【论文笔记】Adapter Naturally Serves as Decoupler for Cross-Domain Few-Shot Semantic Segmentation 论文解读 | ICML2025 | arXiv 2506.07376 | 跨域少样本分割 | 本文发现 adapter 天然具有领域信息解耦能力（基于结构而非损失），据此提出 Domain Feature Navigator (DFN) 作为结构化领域解耦器，配合 SAM-SVN 防止源域过拟合，在跨域少样本语义分割 (CD-FSS) 上以 1-shot 平均 63.99% / 5-shot 平均 69.77% MIoU 显著超越 SOTA。"
 tags:
   - ICML2025
-  - 跨域少样本分割
-  - adapter
-  - 领域解耦
 ---
 
 # Adapter Naturally Serves as Decoupler for Cross-Domain Few-Shot Semantic Segmentation

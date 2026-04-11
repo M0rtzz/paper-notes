@@ -2,9 +2,6 @@
 description: "【论文笔记】Cheating Stereo Matching in Full-Scale: Physical Adversarial Attack against Binocular Depth Estimation 论文解读 | AAAI 2026 | arXiv 2511.14386 | 对抗攻击 | 提出首个针对立体匹配模型的3D全表面纹理物理对抗攻击，通过立体对齐渲染模块和区域感知的融合攻击（merging attack），使对抗车辆在深度图中与背景无缝融合，导致自动驾驶感知系统严重失效。"
 tags:
   - AAAI 2026
-  - 对抗攻击
-  - 立体匹配
-  - 双目深度估计
 ---
 
 # Cheating Stereo Matching in Full-Scale: Physical Adversarial Attack against Binocular Depth Estimation

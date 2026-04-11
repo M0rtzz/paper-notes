@@ -2,10 +2,8 @@
 description: "【论文笔记】Soft Prompt Generation for Domain Generalization 论文解读 | ECCV 2024 | arXiv 2404.19286 | domain generalization | 提出 SPG（Soft Prompt Generation），首次将生成模型引入 VLM 的 prompt learning，通过 CGAN 从图像动态生成实例特定的软提示，将域知识存储在生成模型中而非提示向量中，实现更好的领域泛化性能。"
 tags:
   - ECCV 2024
-  - domain generalization
-  - prompt learning
   - 提示学习
-  - CLIP
+  - GAN
 ---
 
 # Soft Prompt Generation for Domain Generalization

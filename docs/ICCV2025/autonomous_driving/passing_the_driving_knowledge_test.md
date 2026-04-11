@@ -2,9 +2,6 @@
 description: "【论文笔记】Passing the Driving Knowledge Test 论文解读 | ICCV 2025 | arXiv 2508.21824 | Driving Knowledge Test | 构建DriveQA——首个大规模文本+视觉双模态驾驶知识测试基准（26K文本QA + 448K图像QA），系统评估LLM/MLLM在交通规则、标志识别和路权判断等驾驶知识上的能力，揭示其在数值推理和复杂路权场景中的显著不足，并展示DriveQA预训练对下游驾驶任务的泛化增益。"
 tags:
   - ICCV 2025
-  - Driving Knowledge Test
-  - LLM
-  - MLLM
 ---
 
 # Passing the Driving Knowledge Test

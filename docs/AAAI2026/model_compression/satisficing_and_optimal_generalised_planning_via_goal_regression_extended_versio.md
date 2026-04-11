@@ -2,9 +2,7 @@
 description: "【论文笔记】Satisficing and Optimal Generalised Planning via Goal Regression (Extended Version) 论文解读 | AAAI 2026 | arXiv 2511.11095 | generalised planning | 提出 Moose 规划器，利用目标回归（goal regression）从训练问题中合成泛化规划程序：将训练问题的目标拆解为单目标子问题逐个最优求解，通过回归和提升（lifting）得到一阶条件-动作规则集，用于满足性规划（直接执行规则）或最优规划（编码为公理剪枝搜索空间）。"
 tags:
   - AAAI 2026
-  - generalised planning
-  - goal regression
-  - policy synthesis
+  - 剪枝
 ---
 
 # Satisficing and Optimal Generalised Planning via Goal Regression (Extended Version)

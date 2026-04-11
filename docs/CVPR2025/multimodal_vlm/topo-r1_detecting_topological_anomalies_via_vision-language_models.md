@@ -2,9 +2,6 @@
 description: "【论文笔记】Topo-R1: Detecting Topological Anomalies via Vision-Language Models 论文解读 | CVPR 2025 | arXiv 2603.13054 | 拓扑异常检测 | 发现现有 VLM（包括 GPT-5.2、Gemini-2.5）在拓扑异常检测上几乎为零（F1@0.5 < 1.5%），提出 Topo-R1 框架通过 SFT + GRPO（含拓扑感知复合 reward，集成 type-aware Hungarian matching + clDice）赋予 VLM 拓扑感知能力，最佳 F1@0.5 达 45.2%。"
 tags:
   - CVPR 2025
-  - 拓扑异常检测
-  - 管状结构
-  - 强化学习
 ---
 
 # Topo-R1: Detecting Topological Anomalies via Vision-Language Models

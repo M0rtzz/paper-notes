@@ -2,9 +2,6 @@
 description: "【论文笔记】Activation Matters: Test-time Activated Negative Labels for OOD Detection with Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2603.25250 | OOD检测 | 提出 TANL（Test-time Activated Negative Labels），通过在测试时动态评估负标签在OOD样本上的\"激活程度\"来挖掘最有效的负标签，配合激活感知评分函数，在 ImageNet 基准上将 FPR95 从 17.5% 大幅降至 9.8%，且完全免训练、测试高效。"
 tags:
   - CVPR 2026
-  - OOD检测
-  - 视觉语言模型
-  - 负标签
 ---
 
 # Activation Matters: Test-time Activated Negative Labels for OOD Detection with Vision-Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback 论文解读 | ACL 2025 | arXiv 2411.01834 | 口语语言模型 | 首次将偏好优化（DPO + RLAIF）应用于无文本口语语言模型（SLM）——从预训练 TWIST 模型生成多个语音续写候选，通过 ASR→LLM 评分自动创建偏好数据对，用 DPO 训练 SLM 一致性地生成语义更好的语音续写，结合课程学习进一步提升。在 ZeroSpeech/StoryCloze 基准上达到 SLM SOTA（sWUGGY 77.9%、S-StoryCloze 61.1%、T-StoryCloze 86.8%）。"
 tags:
   - ACL 2025
-  - 口语语言模型
-  - 偏好优化
-  - DPO
 ---
 
 # Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback

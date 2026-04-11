@@ -2,9 +2,6 @@
 description: "【论文笔记】Q-resafe: Assessing Safety Risks and Quantization-aware Safety Patching for Quantized Large Language Models 论文解读 | ICML 2025 | arXiv 2506.20251 | 量化安全性 | 系统评估了主流量化方法（AWQ、AQLM、LLM-QAT、QLoRA）在不同校准数据集和位宽下对LLM安全性的影响，发现所有量化方法均导致ASR大幅上升（0.3%→85%），并提出Q-resafe框架通过安全补丁数据构建+DPO对齐+选择性安全关键权重更新，以极低计算开销高效恢复量化模型的安全能力。"
 tags:
   - ICML 2025
-  - 量化安全性
-  - 安全补丁
-  - DPO对齐
 ---
 
 # Q-resafe: Assessing Safety Risks and Quantization-aware Safety Patching for Quantized Large Language Models

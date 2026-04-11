@@ -2,9 +2,6 @@
 description: "【论文笔记】NegMerge: Sign-Consensual Weight Merging for Machine Unlearning 论文解读 | ICML2025 | arXiv 2410.05583 | 机器遗忘 | 提出 NegMerge，通过合并多个不同超参数微调模型的任务向量、仅保留符号一致的权重元素来构造更有效的遗忘向量，在零样本与标准分类场景中均取得 SOTA 遗忘效果。"
 tags:
   - ICML2025
-  - 机器遗忘
-  - 任务向量
-  - 模型合并
 ---
 
 # NegMerge: Sign-Consensual Weight Merging for Machine Unlearning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Semi-supervised Graph Anomaly Detection via Robust Homophily Learning 论文解读 | NeurIPS 2025 | arXiv 2506.15448 | 图异常检测 | 提出RHO (Robust Homophily Learning)方法，通过自适应频率响应滤波器(AdaFreq)和图正常性对齐(GNA)模块，解决半监督图异常检测中正常节点同质性多样性的问题，在8个真实数据集上超越现有方法。"
 tags:
   - NeurIPS 2025
-  - 图异常检测
-  - 同质性学习
-  - 自适应频率滤波器
 ---
 
 # Semi-supervised Graph Anomaly Detection via Robust Homophily Learning

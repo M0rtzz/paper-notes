@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning? 论文解读 | ACL 2025 | arXiv 2502.19361 | 长链推理 | 本文提出DeltaBench——首个系统评估o1类模型长CoT推理质量和现有LLM/PRM错误检测能力的基准数据集，通过对1,236个样本的精细人工标注，揭示了o1类模型约27%推理冗余、67.8%反思无效，以及最强critic模型GPT-4-turbo-128k也仅达F1=40.8%的令人警醒的现状。"
 tags:
   - ACL 2025
-  - 长链推理
-  - 错误检测
-  - Process Reward Model
 ---
 
 # Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?

@@ -2,9 +2,6 @@
 description: "【论文笔记】Summaries as Centroids for Interpretable and Scalable Text Clustering 论文解读 | ICLR 2026 | arXiv 2502.09667 | 文本聚类 | 提出 k-NLPmeans 和 k-LLMmeans，通过在 k-means 迭代中周期性地用文本摘要替换数值质心（summary-as-centroid），在保持 k-means 标准目标的同时实现可解释的聚类原型，且 LLM 调用量与数据集大小无关。"
 tags:
   - ICLR 2026
-  - 文本聚类
-  - k-means
-  - 摘要即中心
 ---
 
 # Summaries as Centroids for Interpretable and Scalable Text Clustering

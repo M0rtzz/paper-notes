@@ -2,9 +2,6 @@
 description: "【论文笔记】SegAnyPET: Universal Promptable Segmentation from Positron Emission Tomography Images 论文解读 | ICCV 2025 | arXiv 2502.14351 | PET分割 | 本文构建了迄今最大的PET分割数据集PETS-5k（5731例3D全身PET图像，超130万张2D切片），并提出SegAnyPET——首个针对PET影像的3D可提示分割基础模型，通过跨提示置信学习（CPCL）策略处理标注质量不一致问题，在已见和未见目标上均大幅超越现有基础模型和任务专用模型。"
 tags:
   - ICCV 2025
-  - PET分割
-  - 基础模型
-  - 3D分割
 ---
 
 # SegAnyPET: Universal Promptable Segmentation from Positron Emission Tomography Images

@@ -2,10 +2,7 @@
 description: "【论文笔记】SparseLaneSTP: Leveraging Spatio-Temporal Priors with Sparse Transformers for 3D Lane Detection 论文解读 | ICCV 2025 | arXiv 2601.04968 | 3D车道线检测 | 提出 SparseLaneSTP，将车道线几何先验（平行性、连续性）和时序信息融合进稀疏 Transformer 架构，通过 Catmull-Rom 样条表示、时空注意力机制和时序正则化，在多个 3D 车道线检测基准上取得 SOTA。"
 tags:
   - ICCV 2025
-  - 3D车道线检测
-  - 稀疏Transformer
   - Transformer
-  - 时空先验
 ---
 
 # SparseLaneSTP: Leveraging Spatio-Temporal Priors with Sparse Transformers for 3D Lane Detection

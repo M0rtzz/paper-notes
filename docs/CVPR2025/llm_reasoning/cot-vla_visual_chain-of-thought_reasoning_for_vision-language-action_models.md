@@ -2,7 +2,6 @@
 description: "【论文笔记】CoT-VLA: Visual Chain-of-Thought Reasoning for Vision-Language-Action Models 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Vision-language-action models (VLAs) have shown potential in leveraging pretrained vision-language models and diverse robot demonstrations for learning generalizable sensorimotor control. While this paradigm effectively utilizes large-scale data from both robotic and non-robotic sources, current VLA"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # CoT-VLA: Visual Chain-of-Thought Reasoning for Vision-Language-Action Models

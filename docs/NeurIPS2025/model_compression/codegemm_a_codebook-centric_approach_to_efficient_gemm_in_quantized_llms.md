@@ -2,9 +2,6 @@
 description: "【论文笔记】CodeGEMM: A Codebook-Centric Approach to Efficient GEMM in Quantized LLMs 论文解读 | NeurIPS 2025 | arXiv 2512.17970 | 模型量化 | 提出 CodeGEMM，一种以 codebook 为中心的 GEMM kernel，通过预计算 centroid 与 activation 的内积并缓存为 Psumbook，替代传统反量化流程，在 2-bit 量化 LLM 上实现 1.83×（8B）到 8.93×（70B）的端到端加速。"
 tags:
   - NeurIPS 2025
-  - 模型量化
-  - codebook 量化
-  - GEMM 加速
 ---
 
 # CodeGEMM: A Codebook-Centric Approach to Efficient GEMM in Quantized LLMs

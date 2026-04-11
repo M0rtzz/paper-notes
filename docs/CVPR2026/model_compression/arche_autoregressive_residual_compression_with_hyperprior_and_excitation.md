@@ -2,9 +2,6 @@
 description: "【论文笔记】ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation 论文解读 | CVPR 2026 | arXiv 2603.10188 | 学习型图像压缩 | 提出 ARCHE 端到端图像压缩框架，在无 Transformer 和循环模块的纯卷积架构下，通过统一层级超先验、Masked PixelCNN 空间自回归上下文、通道条件化、SE 通道重标定和潜在残差预测五个互补组件，在 Kodak 上相对 Balle 基线降低 48% BD-Rate、相对 VVC Intra 降低 5.6%，同时仅需 95M 参数和 222ms 解码时间。"
 tags:
   - CVPR 2026
-  - 学习型图像压缩
-  - 自回归先验
-  - 超先验
 ---
 
 # ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation

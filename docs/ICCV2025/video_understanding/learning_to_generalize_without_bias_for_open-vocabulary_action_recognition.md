@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Generalize Without Bias for Open-Vocabulary Action Recognition 论文解读 | ICCV 2025 | arXiv 2502.20158 | 开放词汇动作识别 | 本文提出 Open-MeDe，一个基于元学习的开放词汇动作识别框架，通过跨批次元优化模拟\"已知到开放\"的泛化任务，并结合高斯自集成稳定化策略，在不依赖 CLIP 正则化的情况下同时提升上下文内和上下文外场景的泛化能力。"
 tags:
   - ICCV 2025
-  - 开放词汇动作识别
-  - 元学习
-  - 静态偏置消除
 ---
 
 # Learning to Generalize Without Bias for Open-Vocabulary Action Recognition

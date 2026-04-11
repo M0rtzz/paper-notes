@@ -2,9 +2,6 @@
 description: "【论文笔记】Simple and Efficient Heterogeneous Temporal Graph Neural Network 论文解读 | NeurIPS 2025 | arXiv 2510.18467 | 异构时序图 | 提出 SE-HTGNN，通过动态注意力机制将时序建模融入空间学习，并用 LLM 初始化注意力系数，在异构时序图任务上实现 10 倍加速的同时保持最优预测精度。"
 tags:
   - NeurIPS 2025
-  - 异构时序图
-  - 图神经网络
-  - 动态注意力
 ---
 
 # Simple and Efficient Heterogeneous Temporal Graph Neural Network

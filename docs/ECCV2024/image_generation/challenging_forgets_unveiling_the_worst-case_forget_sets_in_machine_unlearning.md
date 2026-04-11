@@ -2,9 +2,6 @@
 description: "【论文笔记】Challenging Forgets: Unveiling the Worst-Case Forget Sets in Machine Unlearning 论文解读 | ECCV 2024 | arXiv 2403.07362 | Machine Unlearning | 提出从对抗视角识别\"最坏情况遗忘集\"的方法，通过双层优化框架找到最难被遗忘的数据子集，利用 SignSGD 将二阶 BLO 简化为一阶问题，从而更可靠地评估机器遗忘方法的真实效能。"
 tags:
   - ECCV 2024
-  - Machine Unlearning
-  - Bi-Level Optimization
-  - Worst-Case Evaluation
 ---
 
 # Challenging Forgets: Unveiling the Worst-Case Forget Sets in Machine Unlearning

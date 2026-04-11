@@ -2,11 +2,8 @@
 description: "【论文笔记】LVFace: Progressive Cluster Optimization for Large Vision Models in Face Recognition 论文解读 | ICCV 2025 | arXiv 2501.13420 | 人脸识别 face recognition | 提出 LVFace，通过渐进式聚类优化（PCO）策略解决 ViT 在大规模人脸识别中训练不稳定的问题，将训练分解为特征对齐、质心稳定和边界精炼三个阶段，在多个基准上取得 SOTA。"
 tags:
   - ICCV 2025
-  - face recognition
   - 人脸识别
-  - Vision Transformer
   - Transformer
-  - progressive optimization
 ---
 
 # LVFace: Progressive Cluster Optimization for Large Vision Models in Face Recognition

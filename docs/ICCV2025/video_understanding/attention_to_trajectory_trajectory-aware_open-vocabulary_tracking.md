@@ -2,9 +2,6 @@
 description: "【论文笔记】Attention to Trajectory: Trajectory-Aware Open-Vocabulary Tracking 论文解读 | ICCV 2025 | arXiv 2503.08145 | Open-Vocabulary MOT | 本文提出TRACT，一种利用轨迹级信息增强开放词汇多目标跟踪（OV-MOT）的方法，通过轨迹一致性强化（TCR）改善关联、通过轨迹特征聚合（TFA）和轨迹语义丰富（TSE）改善分类，在OV-TAO基准上显著提升了跟踪性能，尤其是分类准确率。"
 tags:
   - ICCV 2025
-  - Open-Vocabulary MOT
-  - Trajectory Information
-  - CLIP
 ---
 
 # Attention to Trajectory: Trajectory-Aware Open-Vocabulary Tracking

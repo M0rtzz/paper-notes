@@ -2,10 +2,7 @@
 description: "【论文笔记】Disentangling and Integrating Relational and Sensory Information in Transformer Architectures 论文解读 | ICML 2025 | arXiv 2405.16727 | 注意力机制 Dual Attention | 本文提出了 Dual Attention Transformer（DAT），通过在标准注意力机制中引入\"关系注意力\"头，将感知信息和关系信息解耦后并行处理再整合，在关系推理基准、数学问题求解、图像识别和语言建模等任务上均展现出显著的数据效率和参数效率提升。"
 tags:
   - ICML 2025
-  - Dual Attention
   - 注意力机制
-  - 关系推理
-  - Transformer架构
   - Transformer
 ---
 

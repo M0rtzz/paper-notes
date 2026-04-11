@@ -2,9 +2,6 @@
 description: "【论文笔记】Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence 论文解读 | ICML 2025 | arXiv 2410.11163 | 群体智能 | 借鉴粒子群优化（PSO）算法，将多个 LLM 专家视为\"粒子\"，在权重空间中协作搜索，通过个体最优/全局最优/全局最差三个信号引导专家迭代移动，仅需 200 个样本即可实现无需微调的模型适配，在 9 个任务上平均超越 12 个基线 13.3%。"
 tags:
   - ICML 2025
-  - 群体智能
-  - 模型融合
-  - 粒子群优化
 ---
 
 # Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence

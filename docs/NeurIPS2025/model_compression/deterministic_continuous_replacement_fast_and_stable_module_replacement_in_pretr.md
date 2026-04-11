@@ -2,9 +2,7 @@
 description: "【论文笔记】Deterministic Continuous Replacement: Fast and Stable Module Replacement in Pretrained Transformers 论文解读 | NeurIPS 2025 (ScaleOPT Workshop) | arXiv 2511.18670 | 模块替换 | DCR 通过确定性退火权重 α(t) 混合 teacher 和 student 模块输出，消除了随机门控（如 BERT-of-Theseus）带来的梯度方差，在冷启动模块替换场景下实现更快收敛和更强的特征对齐。"
 tags:
   - NeurIPS 2025 (ScaleOPT Workshop)
-  - 模块替换
-  - 确定性混合
-  - 梯度方差
+  - Transformer
 ---
 
 # Deterministic Continuous Replacement: Fast and Stable Module Replacement in Pretrained Transformers

@@ -2,9 +2,6 @@
 description: "【论文笔记】TDATR: Improving End-to-End Table Recognition via Table Detail-Aware Learning and Cell-Level Visual Alignment 论文解读 | CVPR2026 | arXiv 2603.22819 | 表格识别 | 提出TDATR框架，通过\"先感知后融合\"策略和结构引导的单元格定位模块，在有限标注数据下实现端到端表格识别，在7个基准上无需数据集特定微调即达到SOTA。"
 tags:
   - CVPR2026
-  - 表格识别
-  - 端到端
-  - 细节感知学习
 ---
 
 # TDATR: Improving End-to-End Table Recognition via Table Detail-Aware Learning and Cell-Level Visual Alignment

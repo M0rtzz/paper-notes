@@ -2,9 +2,6 @@
 description: "【论文笔记】TRiCo: Triadic Game-Theoretic Co-Training for Robust Semi-Supervised Learning 论文解读 | NeurIPS 2025 | arXiv 2509.21526 | 半监督学习 | 提出 TRiCo 框架，将半监督学习重构为教师-双学生-对抗生成器的三方博弈（Stackelberg 博弈），用互信息替代置信度做伪标签筛选，元学习教师自适应调节训练动态，在低标签场景下实现 SOTA 性能。"
 tags:
   - NeurIPS 2025
-  - 半监督学习
-  - 博弈论
-  - 协作训练
 ---
 
 # TRiCo: Triadic Game-Theoretic Co-Training for Robust Semi-Supervised Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】VILTA: A VLM-in-the-Loop Adversary for Enhancing Driving Policy Robustness 论文解读 | AAAI 2026 | arXiv 2601.12672 | VLM-in-the-Loop | VILTA 将 VLM（Gemini-2.5-Flash）直接嵌入自动驾驶 RL 训练循环中，通过\"Vision-Language-Editing\"（VLE）范式让 VLM 编辑周围车辆的未来轨迹来生成具有挑战性的危险场景，训练出的驾驶策略在 CARLA 挑战场景中路线完成率提升 13.3%、碰撞率降低 28.5%。"
 tags:
   - AAAI 2026
-  - VLM-in-the-Loop
-  - 对抗轨迹生成
-  - 闭环训练
 ---
 
 # VILTA: A VLM-in-the-Loop Adversary for Enhancing Driving Policy Robustness

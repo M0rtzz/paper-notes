@@ -2,9 +2,6 @@
 description: "【论文笔记】MUG: Meta-path-aware Universal Heterogeneous Graph Pre-Training 论文解读 | AAAI 2026 | arXiv 2602.22645 | 异质图 | 首次提出无需 LLM 的通用异质图预训练方法 MUG，通过上下文结构编码统一异质节点/关系类型、维度感知编码器对齐不同图的表示空间，并利用元路径视图共享编码器 + 全局散射正则化实现跨域可迁移的编码与聚合，在跨域和小样本节点分类中显著超越已有方法。"
 tags:
   - AAAI 2026
-  - 异质图
-  - 通用图预训练
-  - 元路径
 ---
 
 # MUG: Meta-path-aware Universal Heterogeneous Graph Pre-Training

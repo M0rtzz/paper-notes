@@ -2,9 +2,6 @@
 description: "【论文笔记】Tri-Bench: Stress-Testing VLM Reliability on Spatial Reasoning under Camera Tilt and Object Interference 论文解读 | AAAI 2026 | arXiv 2512.08860 | 空间推理基准 | Tri-Bench 是一个包含400张实拍三角形图像的紧凑基准，通过控制相机姿态（平面/倾斜）和物体干扰两个因素，系统测试了四个领先VLM的空间几何推理能力，发现模型默认依赖2D图像平面线索而非3D真实几何（即使提供了明确的参考框架提示），在非多数类形状上准确率降至接近0%。"
 tags:
   - AAAI 2026
-  - 空间推理基准
-  - 几何推理
-  - 相机姿态鲁棒性
 ---
 
 # Tri-Bench: Stress-Testing VLM Reliability on Spatial Reasoning under Camera Tilt and Object Interference

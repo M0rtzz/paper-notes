@@ -2,9 +2,6 @@
 description: "【论文笔记】Predict-Optimize-Distill: A Self-Improving Cycle for 4D Object Understanding 论文解读 | ICCV 2025 | arXiv 2504.17441 | 4D重建 | 提出 Predict-Optimize-Distill (POD) 框架，通过预测-优化-蒸馏的自改进循环，从单目长视频中恢复铰接物体的4D部件姿态，性能随视频长度和迭代次数持续提升。"
 tags:
   - ICCV 2025
-  - 4D重建
-  - 铰接物体
-  - 自改进循环
 ---
 
 # Predict-Optimize-Distill: A Self-Improving Cycle for 4D Object Understanding

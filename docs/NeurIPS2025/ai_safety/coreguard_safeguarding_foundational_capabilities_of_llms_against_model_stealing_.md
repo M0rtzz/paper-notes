@@ -2,9 +2,6 @@
 description: "【论文笔记】CoreGuard: Safeguarding Foundational Capabilities of LLMs Against Model Stealing in Edge Deployment 论文解读 | NeurIPS 2025 | arXiv 2410.13903 | model protection | 提出 CoreGuard，通过行置换（row permutation）锁定 Transformer 线性层权重 + 列置换传播协议（propagation protocol）将 TEE 授权次数降至 1 次，以极低计算和通信开销保护边缘部署 LLM 的基础能力不被模型窃取攻击利用。"
 tags:
   - NeurIPS 2025
-  - model protection
-  - edge deployment
-  - TEE
 ---
 
 # CoreGuard: Safeguarding Foundational Capabilities of LLMs Against Model Stealing in Edge Deployment

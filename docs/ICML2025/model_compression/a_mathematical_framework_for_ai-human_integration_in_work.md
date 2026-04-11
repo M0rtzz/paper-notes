@@ -2,9 +2,6 @@
 description: "【论文笔记】A Mathematical Framework for AI-Human Integration in Work 论文解读 | ICML 2025 | arXiv 2505.23432 | AI-人类协作 | 本文提出了一个评估 AI-人类工作集成的数学框架，将技能分解为决策层和执行层两类子技能，理论证明了工作成功概率存在相变效应、互补技能融合可带来超加性收益，并解释了 GenAI 辅助中低技能工人获益更大的\"生产力压缩\"现象，通过 O*NET 和 Big-bench Lite 数据验证了框架的实用性。"
 tags:
   - ICML 2025
-  - AI-人类协作
-  - 数学框架
-  - 技能分解
 ---
 
 # A Mathematical Framework for AI-Human Integration in Work

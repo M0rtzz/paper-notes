@@ -2,9 +2,6 @@
 description: "【论文笔记】VoiceCloak: A Multi-Dimensional Defense Framework against Unauthorized Diffusion-based Voice Cloning 论文解读 | AAAI2026 | arXiv 2505.12332 | voice cloning defense | 针对 diffusion-based voice cloning (VC) 的主动防御框架，通过多维度对抗扰动同时实现说话人身份混淆和感知质量退化，显著优于现有防御方法。"
 tags:
   - AAAI2026
-  - voice cloning defense
-  - adversarial perturbation
-  - diffusion model
   - 扩散模型
 ---
 

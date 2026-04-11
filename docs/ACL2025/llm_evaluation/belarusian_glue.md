@@ -2,9 +2,6 @@
 description: "【论文笔记】BelarusianGLUE: Towards a Natural Language Understanding Benchmark for Belarusian 论文解读 | ACL 2025 (Long Paper, acl-long.25) | Belarusian | 为白俄罗斯语（Belarusian，东斯拉夫语族）构建了首个NLU benchmark——BelarusianGLUE，包含5个任务约15K条实例，系统评估了BERT系列和LLM的表现，发现简单任务（情感分析）接近人类水平但难任务（Winograd）仍有显著差距，且最优模型类型因任务而异。"
 tags:
   - ACL 2025 (Long Paper, acl-long.25)
-  - Belarusian
-  - NLU Benchmark
-  - Low-Resource Language
 ---
 
 # BelarusianGLUE: Towards a Natural Language Understanding Benchmark for Belarusian

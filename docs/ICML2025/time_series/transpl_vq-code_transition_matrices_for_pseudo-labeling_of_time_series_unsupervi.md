@@ -2,9 +2,6 @@
 description: "【论文笔记】TransPL: VQ-Code Transition Matrices for Pseudo-Labeling of Time Series Unsupervised Domain Adaptation 论文解读 | ICML 2025 | arXiv 2505.09955 | 无监督域适应 | 提出 TransPL，通过将时间序列 patch 离散化为 VQ 码并构建类别-通道级转移矩阵，利用贝叶斯定理在目标域生成可解释伪标签，实现时间序列无监督域适应中平均 6.1% 准确率和 4.9% F1 的提升。"
 tags:
   - ICML 2025
-  - 无监督域适应
-  - 伪标签
-  - 向量量化
 ---
 
 # TransPL: VQ-Code Transition Matrices for Pseudo-Labeling of Time Series Unsupervised Domain Adaptation

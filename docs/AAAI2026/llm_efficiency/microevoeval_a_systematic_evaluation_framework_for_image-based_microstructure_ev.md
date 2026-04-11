@@ -2,9 +2,6 @@
 description: "【论文笔记】MicroEvoEval: A Systematic Evaluation Framework for Image-Based Microstructure Evolution Prediction 论文解读 | AAAI 2026 | arXiv 2511.08955 | 微观结构演化 | 提出 MicroEvoEval，首个面向图像级微观结构演化预测的标准化基准：涵盖 4 个代表性物理任务（平面波、晶粒生长、旋节分解、枝晶凝固）、14 个模型（5 个领域特定 + 9 个通用时空架构）、多维度评估（数值精度 + 物理保真度 + 计算效率），发现现代通用架构（如 VMamba）在长期稳定性和物理保真度上优于领域特定模型，且计算效率高一个数量级。"
 tags:
   - AAAI 2026
-  - 微观结构演化
-  - 时空预测
-  - 基准评估
 ---
 
 # MicroEvoEval: A Systematic Evaluation Framework for Image-Based Microstructure Evolution Prediction

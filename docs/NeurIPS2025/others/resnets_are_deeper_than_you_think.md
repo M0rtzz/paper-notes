@@ -2,9 +2,6 @@
 description: "【论文笔记】ResNets Are Deeper Than You Think 论文解读 | NeurIPS 2025 | arXiv 2506.14386 | 残差网络 | 证明残差网络与前馈网络居于不同的函数空间（非简单重参数化），并通过后训练部分线性化实验表明变深度架构（类ResNet）即使在排除可训练性差异后仍优于固定深度架构，暗示残差连接提供了超越优化的归纳偏好。"
 tags:
   - NeurIPS 2025
-  - 残差网络
-  - 函数空间
-  - 归纳偏好
 ---
 
 # ResNets Are Deeper Than You Think

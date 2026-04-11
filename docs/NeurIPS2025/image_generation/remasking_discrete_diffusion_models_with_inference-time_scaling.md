@@ -2,9 +2,6 @@
 description: "【论文笔记】Remasking Discrete Diffusion Models with Inference-Time Scaling 论文解读 | NeurIPS 2025 | arXiv 2503.00307 | 离散扩散模型 | 提出 ReMDM 采样器，通过在生成过程中允许已解码 token 被重新掩码（remask），赋予离散掩码扩散模型迭代纠错能力，实现推理时计算缩放，在文本、图像和分子设计任务上显著提升采样质量。"
 tags:
   - NeurIPS 2025
-  - 离散扩散模型
-  - 重掩码采样
-  - 推理时计算缩放
 ---
 
 # Remasking Discrete Diffusion Models with Inference-Time Scaling

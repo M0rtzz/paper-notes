@@ -2,9 +2,6 @@
 description: "【论文笔记】Using Shapley Interactions to Understand How Models Use Structure 论文解读 | ACL 2025 | arXiv 2403.13106 | Shapley交互 | 利用 Shapley Taylor 交互指数（STII）分析语言模型和语音模型如何在内部表征中编码输入的结构关系，发现自回归模型在句法邻近度、非组合语义和语音协同发音方面均展现出有意义的非线性交互模式。"
 tags:
   - ACL 2025
-  - Shapley交互
-  - 句法结构
-  - 多词表达
 ---
 
 # Using Shapley Interactions to Understand How Models Use Structure

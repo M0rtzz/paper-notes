@@ -2,9 +2,6 @@
 description: "【论文笔记】PocketLLM: Ultimate Compression of Large Language Models via Meta Networks 论文解读 | AAAI2026 | arXiv 2511.17637 | LLM压缩 | PocketLLM提出通过元网络（编码器-码本-解码器）在潜空间中压缩LLM权重向量，用小型解码器+紧凑码本+索引替代原始权重矩阵，在Llama 2-7B上实现10×压缩且精度损失可忽略，突破了传统量化/剪枝在极端压缩比下的精度瓶颈。"
 tags:
   - AAAI2026
-  - LLM压缩
-  - 元网络
-  - 码本量化
 ---
 
 <!-- PocketLLM 论文笔记 -->

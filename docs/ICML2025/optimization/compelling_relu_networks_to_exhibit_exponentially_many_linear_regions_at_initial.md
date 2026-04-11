@@ -2,9 +2,6 @@
 description: "【论文笔记】Compelling ReLU Networks to Exhibit Exponentially Many Linear Regions at Initialization and During Training 论文解读 | ICML2025 | arXiv 2311.18022 | ReLU网络 | 提出一种基于非对称三角波的 ReLU 网络重参数化方法，使深度为 $d$ 的 4 神经元宽网络在初始化时即产生 $2^d$ 个线性区域，并在预训练中保持该指数级表达能力，在一维函数逼近任务上将误差降低了 **3 个数量级**。"
 tags:
   - ICML2025
-  - ReLU网络
-  - 线性区域
-  - 网络初始化
 ---
 
 # Compelling ReLU Networks to Exhibit Exponentially Many Linear Regions at Initialization and During Training

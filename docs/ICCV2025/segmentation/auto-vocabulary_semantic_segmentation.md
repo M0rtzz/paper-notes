@@ -2,10 +2,7 @@
 description: "【论文笔记】Auto-Vocabulary Semantic Segmentation 论文解读 | ICCV 2025 | arXiv 2312.04539 | 图像分割 auto-vocabulary segmentation | 本文提出 Auto-Vocabulary Semantic Segmentation (AVS) 新任务，通过 AutoSeg 框架自动从图像中发现目标类别并分割，无需人为指定词汇表，在 PASCAL VOC 上达到 87.1 mIoU，远超唯一同类方法 ZeroSeg (20.1)，甚至超越部分需要指定类别的开放词汇方法。"
 tags:
   - ICCV 2025
-  - auto-vocabulary segmentation
   - 图像分割
-  - open-vocabulary
-  - BLIP
 ---
 
 # Auto-Vocabulary Semantic Segmentation

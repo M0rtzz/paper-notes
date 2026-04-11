@@ -2,9 +2,6 @@
 description: "【论文笔记】Controllable 3D Outdoor Scene Generation via Scene Graphs 论文解读 | ICCV 2025 | arXiv 2503.07152 | 3D场景生成 | 首次提出以场景图（Scene Graph）作为控制信号生成大规模3D室外场景的方法——通过GNN将稀疏场景图编码为BEV嵌入图，再经2D→3D级联离散扩散模型生成语义3D场景，并配套交互系统让用户直接编辑场景图来控制生成。"
 tags:
   - ICCV 2025
-  - 3D场景生成
-  - 场景图
-  - 离散扩散模型
 ---
 
 # Controllable 3D Outdoor Scene Generation via Scene Graphs

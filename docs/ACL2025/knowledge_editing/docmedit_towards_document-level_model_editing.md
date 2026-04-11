@@ -2,9 +2,6 @@
 description: "【论文笔记】DocMEdit: Towards Document-Level Model Editing 论文解读 | ACL 2025 | arXiv 2505.19572 | 模型编辑 | 首次提出文档级模型编辑任务，构建包含 37,990 条数据、105,652 个编辑事实的 DocMEdit 基准，揭示现有编辑方法在长上下文、多事实并行编辑场景下的严重不足。"
 tags:
   - ACL 2025
-  - 模型编辑
-  - 文档级任务
-  - 知识更新
 ---
 
 # DocMEdit: Towards Document-Level Model Editing

@@ -2,9 +2,6 @@
 description: "【论文笔记】Sparse-Dense Side-Tuner for Efficient Video Temporal Grounding 论文解读 | ICCV 2025 | arXiv 2507.07744 | 视频时序定位 | 提出 SDST（Sparse-Dense Side-Tuner），首个无锚框（anchor-free）的 Side-Tuning 架构，通过稀疏-稠密双流设计同时处理时刻检索（MR）和高光检测（HD），并提出 Reference-based Deformable Self-Attention（RDSA）解决可变形注意力的上下文缺失问题，在 QVHighlights、TACoS、Charades-STA 上取得 SOTA 或高度竞争性结果，同时将可训练参数量减少至现有 SOTA 的 27%。"
 tags:
   - ICCV 2025
-  - 视频时序定位
-  - Side-Tuning
-  - 参数高效微调
 ---
 
 # Sparse-Dense Side-Tuner for Efficient Video Temporal Grounding

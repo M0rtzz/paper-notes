@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator 论文解读 | ICLR 2026 | arXiv 2505.19236 | creativity evaluation | 提出基于上下文感知的成对比较框架来评估文本创造力，构建了包含 100K+ 人类级别和 1M+ 合成数据的 CreataSet 数据集，训练出 CrEval 评估器，在与人类判断的对齐度上超越 GPT-4o 达 18.7%。"
 tags:
   - ICLR 2026
-  - creativity evaluation
-  - LLM-as-a-judge
-  - pairwise comparison
 ---
 
 # Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator

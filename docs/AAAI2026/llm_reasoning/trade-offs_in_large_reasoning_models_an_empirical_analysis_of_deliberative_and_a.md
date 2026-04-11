@@ -2,9 +2,6 @@
 description: "【论文笔记】Trade-offs in Large Reasoning Models: An Empirical Analysis of Deliberative and Adaptive Reasoning over Foundational Capabilities 论文解读 | AAAI 2026 | arXiv 2503.17979 | Large Reasoning Models | 系统评估了LRM（如DeepSeek-R1、QwQ、OpenThinker等）在获取深度推理能力后对基础能力（helpfulness和harmlessness）的负面影响，发现deliberative reasoning显著降低指令遵循和安全性能力，并提出Zero-Thinking、Less-Thinking、Summary-Thinking等自适应推理模式可有效缓解这些缺陷。"
 tags:
   - AAAI 2026
-  - Large Reasoning Models
-  - 推理-基础能力权衡
-  - 自适应推理
 ---
 
 # Trade-offs in Large Reasoning Models: An Empirical Analysis of Deliberative and Adaptive Reasoning over Foundational Capabilities

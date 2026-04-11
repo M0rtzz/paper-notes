@@ -2,9 +2,6 @@
 description: "【论文笔记】LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation 论文解读 | ACL 2025 | arXiv 2502.07365 | 长上下文扩展 | 本文系统分析了长上下文LLM在短文本任务上性能退化的两个原因（分布漂移和灾难性遗忘），并提出LongReD方法，通过短文本蒸馏和短到长蒸馏两个训练目标来最小化扩展模型与原始模型之间的分布差异，在保持长文本建模能力的同时将短文本性能保留至原始模型的99.4%。"
 tags:
   - ACL 2025
-  - 长上下文扩展
-  - 知识蒸馏
-  - 分布漂移
 ---
 
 # LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation

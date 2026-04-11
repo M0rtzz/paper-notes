@@ -2,9 +2,6 @@
 description: "【论文笔记】FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields 论文解读 | ICML2025 | arXiv 2507.08285 | 拖拽编辑 | 提出 FlowDrag，通过从图像构建 3D 网格并利用 SR-ARAP 变形传播拖拽信息生成 2D 向量流场，解决了现有 drag-based 编辑方法的几何不一致性问题。"
 tags:
   - ICML2025
-  - 拖拽编辑
-  - 3D网格变形
-  - 向量流场
 ---
 
 # FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields

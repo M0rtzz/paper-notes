@@ -2,10 +2,7 @@
 description: "【论文笔记】OmniRet: Efficient and High-Fidelity Omni Modality Retrieval 论文解读 | CVPR 2026 | arXiv 2603.02098 | omni-modal retrieval | 提出首个支持文本-视觉-音频三模态组合查询的统一检索模型 OmniRet，通过共享媒体重采样器（Shared Media Resampler）提升计算效率，并引入注意力切片 Wasserstein 池化（ASWP）保留细粒度信息，在 13 个检索任务上取得 12 项领先。"
 tags:
   - CVPR 2026
-  - omni-modal retrieval
-  - multimodal embedding
   - 多模态
-  - Sliced Wasserstein
 ---
 
 # OmniRet: Efficient and High-Fidelity Omni Modality Retrieval

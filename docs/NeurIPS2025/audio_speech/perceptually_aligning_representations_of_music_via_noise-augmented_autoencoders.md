@@ -2,9 +2,6 @@
 description: "【论文笔记】Perceptually Aligning Representations of Music via Noise-Augmented Autoencoders 论文解读 | NeurIPS 2025 (AI for Music Workshop) | arXiv 2511.05350 | 感知对齐 | 证明在自编码器训练中对潜变量加噪（noise-augmented latent training）配合感知损失，能使编码空间形成\"感知层次结构\"——感知最显著的音乐特征（如音高）编码在最粗粒度的潜在结构中，而次要特征（如音色细节）编码在细粒度结构中。这种对齐改善了潜在扩散解码下的音乐惊奇感估计和 EEG 脑响应预测。"
 tags:
   - NeurIPS 2025 (AI for Music Workshop)
-  - 感知对齐
-  - 噪声增强自编码器
-  - 潜在扩散
 ---
 
 # Perceptually Aligning Representations of Music via Noise-Augmented Autoencoders

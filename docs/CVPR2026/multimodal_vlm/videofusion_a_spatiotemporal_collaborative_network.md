@@ -2,10 +2,8 @@
 description: "【论文笔记】VideoFusion: A Spatio-Temporal Collaborative Network for Multi-modal Video Fusion 论文解读 | CVPR 2026 | arXiv 2503.23359 | 多模态 multi-modal video fusion | 构建M3SVD大规模红外-可见光视频数据集（220视频/15万帧），并提出VideoFusion框架，通过跨模态差分强化模块(CmDRM)+完整模态引导融合(CMGF)+双向时序共注意力(BiCAM)+变分一致性损失，实现时空协同的多模态视频融合，在融合质量和时序一致性上超越现有图像融合和视频融合方法。"
 tags:
   - CVPR 2026
-  - multi-modal video fusion
   - 多模态
-  - infrared-visible
-  - temporal consistency
+  - 跨模态
 ---
 
 # VideoFusion: A Spatio-Temporal Collaborative Network for Multi-modal Video Fusion

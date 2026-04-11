@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Ice Crystal Habit Diversity with Self-Supervised Learning 论文解读 | NeurIPS 2025 | arXiv 2509.07688 | 自监督学习 | 利用 iBOT-vMF 自监督视觉 Transformer 从大规模云粒子图像中学习冰晶的潜在表征，实现数据驱动的冰晶多样性量化，为气候模型中冰云参数化提供新方法。"
 tags:
   - NeurIPS 2025
-  - 自监督学习
-  - 冰晶形态
-  - Vision Transformer
   - Transformer
 ---
 

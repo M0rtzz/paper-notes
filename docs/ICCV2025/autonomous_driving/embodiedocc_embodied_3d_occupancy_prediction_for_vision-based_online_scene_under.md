@@ -2,9 +2,7 @@
 description: "【论文笔记】EmbodiedOcc: Embodied 3D Occupancy Prediction for Vision-based Online Scene Understanding 论文解读 | ICCV 2025 | arXiv 2412.04380 | 3D occupancy prediction | 提出EmbodiedOcc框架，利用3D语义高斯作为全局记忆，通过逐步探索和局部更新实现基于单目视觉输入的在线室内场景三维占据预测。"
 tags:
   - ICCV 2025
-  - 3D occupancy prediction
-  - embodied perception
-  - 3D Gaussian
+  - 场景理解
 ---
 
 # EmbodiedOcc: Embodied 3D Occupancy Prediction for Vision-based Online Scene Understanding

@@ -2,9 +2,6 @@
 description: "【论文笔记】Do It Yourself: Learning Semantic Correspondence from Pseudo-Labels 论文解读 | ICCV 2025 | arXiv 2506.05312 | 语义对应 | 本文提出 DIY-SC，通过3D感知的伪标签生成策略（链式传播+松弛循环一致性+球面原型过滤）训练轻量适配器来改进基础模型特征的语义对应能力，在 SPair-71k 上实现了超越先前 SOTA 4.5%（PCK@0.1 per-keypoint）的性能，且无需人工关键点标注。"
 tags:
   - ICCV 2025
-  - 语义对应
-  - 伪标签
-  - 3D感知
 ---
 
 # Do It Yourself: Learning Semantic Correspondence from Pseudo-Labels

@@ -2,9 +2,6 @@
 description: "【论文笔记】EgoXtreme: A Dataset for Robust Object Pose Estimation in Egocentric Views under Extreme Conditions 论文解读 | CVPR 2026 | arXiv 2603.25135 | 第一人称视角 | 提出 EgoXtreme，首个面向极端条件下第一人称视角的大规模 6D 物体位姿估计基准数据集，涵盖严重运动模糊、动态光照和烟雾遮挡三种真实挑战，揭示了当前 SOTA 位姿估计器在这些条件下的严重失效。"
 tags:
   - CVPR 2026
-  - 第一人称视角
-  - 6D位姿估计
-  - 极端条件
 ---
 
 # EgoXtreme: A Dataset for Robust Object Pose Estimation in Egocentric Views under Extreme Conditions

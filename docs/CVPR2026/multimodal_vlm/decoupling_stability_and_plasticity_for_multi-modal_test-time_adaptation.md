@@ -2,9 +2,6 @@
 description: "【论文笔记】Decoupling Stability and Plasticity for Multi-Modal Test-Time Adaptation 论文解读 | CVPR 2026 | arXiv 2603.00574 | 多模态测试时适应 | 提出 DASP，通过冗余度评分诊断偏置模态，再用非对称适应策略解耦稳定性与可塑性，解决多模态测试时适应中的负迁移和灾难性遗忘问题。"
 tags:
   - CVPR 2026
-  - 多模态测试时适应
-  - 稳定性-可塑性解耦
-  - 冗余度评分
 ---
 
 # Decoupling Stability and Plasticity for Multi-Modal Test-Time Adaptation

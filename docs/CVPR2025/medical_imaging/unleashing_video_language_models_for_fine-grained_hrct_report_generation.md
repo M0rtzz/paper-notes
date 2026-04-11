@@ -2,9 +2,6 @@
 description: "【论文笔记】Unleashing Video Language Models for Fine-grained HRCT Report Generation 论文解读 | CVPR 2025 | arXiv 2603.12469 | HRCT 报告生成 | 提出 AbSteering 框架，通过异常中心化 CoT 训练和基于临床混淆异常硬负例的 DPO 优化，将通用视频语言模型（VideoLMs）高效迁移到 HRCT 报告生成任务，性能超越专用 CT 基础模型。"
 tags:
   - CVPR 2025
-  - HRCT 报告生成
-  - 视频语言模型
-  - Chain-of-Thought
 ---
 
 # Unleashing Video Language Models for Fine-grained HRCT Report Generation

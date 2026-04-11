@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Dynamics of RNNs in Closed-Loop Environments 论文解读 | NeurIPS 2025 | arXiv 2505.13567 | RNN学习动力学 | 从数学理论上揭示了 RNN 在闭环（agent-环境交互）与开环（监督学习）训练下呈现根本不同的学习动力学，闭环学习遵循三阶段过程，由短期策略改进与长期稳定性之间的竞争驱动。"
 tags:
   - NeurIPS 2025
-  - RNN学习动力学
-  - 闭环学习
-  - 开环vs闭环
 ---
 
 # Learning Dynamics of RNNs in Closed-Loop Environments

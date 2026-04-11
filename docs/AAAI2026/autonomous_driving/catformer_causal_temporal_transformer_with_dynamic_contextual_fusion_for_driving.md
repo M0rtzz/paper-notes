@@ -2,8 +2,6 @@
 description: "【论文笔记】CaTFormer: Causal Temporal Transformer with Dynamic Contextual Fusion for Driving Intention Prediction 论文解读 | AAAI2026 | arXiv 2507.13425 | driving intention prediction | 提出 CaTFormer，通过因果时序 Transformer 显式建模驾驶员行为与环境上下文之间的因果交互，在 Brain4Cars 数据集上以 98.6% F1 达到 SOTA。"
 tags:
   - AAAI2026
-  - driving intention prediction
-  - causal inference
   - Transformer
 ---
 

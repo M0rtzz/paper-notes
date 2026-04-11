@@ -2,9 +2,6 @@
 description: "【论文笔记】Dual form Complementary Masking for Domain-Adaptive Image Segmentation 论文解读 | ICML 2025 | arXiv 2507.12008 | 无监督域自适应 | 提出 MaskTwins 框架，将掩码重建理论化为稀疏信号重建问题，证明互补掩码对（dual form complementary masks）在提取域无关特征方面具有理论优势，并在端到端训练中通过互补掩码一致性约束实现域自适应分割。"
 tags:
   - ICML 2025
-  - 无监督域自适应
-  - 互补掩码
-  - 掩码图像建模
 ---
 
 # Dual form Complementary Masking for Domain-Adaptive Image Segmentation

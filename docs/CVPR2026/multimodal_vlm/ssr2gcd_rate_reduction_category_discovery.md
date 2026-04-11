@@ -2,9 +2,6 @@
 description: "【论文笔记】SSR2-GCD: Multi-Modal Representation Learning via Semi-Supervised Rate Reduction for Generalized Category Discovery 论文解读 | CVPR 2026 | arXiv 2602.19910 | 广义类别发现 | 提出SSR2-GCD框架，通过半监督率缩减(SSR2)损失替代传统对比损失来学习均匀压缩的结构化表示，并发现模态间对齐在多模态GCD中不仅不必要甚至有害，在Stanford Cars和Flowers102上分别领先SOTA 3.1%和6.3%。"
 tags:
   - CVPR 2026
-  - 广义类别发现
-  - 最大编码率缩减
-  - 模态内对齐
 ---
 
 # SSR2-GCD: Multi-Modal Representation Learning via Semi-Supervised Rate Reduction for Generalized Category Discovery

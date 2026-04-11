@@ -2,9 +2,6 @@
 description: "【论文笔记】PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data 论文解读 | ACL 2025 | arXiv 2502.20616 | 个性化 | 提出一套合成数据生成管线，创建包含多样化用户画像和模拟私有文档（对话记录、AI 交互、购买历史）的 PersonaBench 基准，用于评估 AI 模型从嘈杂用户数据中提取个人信息的能力，实验表明当前 RAG 方案远不能胜任这一任务。"
 tags:
   - ACL 2025
-  - 个性化
-  - RAG
-  - 合成数据
 ---
 
 # PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data

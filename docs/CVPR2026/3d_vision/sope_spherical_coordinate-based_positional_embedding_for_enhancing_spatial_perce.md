@@ -2,9 +2,7 @@
 description: "【论文笔记】SoPE: Spherical Coordinate-Based Positional Embedding for Enhancing Spatial Perception of 3D LVLMs 论文解读 | CVPR2026 | arXiv 2602.22716 | positional embedding | 提出球坐标位置编码 SoPE，将点云 token 从一维序列索引重映射到球坐标 $(t,r,\theta,\phi)$ 空间，并配合多维频率分配与多尺度频率混合策略，显著增强 3D 大视觉-语言模型的空间感知能力。"
 tags:
   - CVPR2026
-  - positional embedding
-  - 3D LVLM
-  - spherical coordinates
+  - 点云
 ---
 
 # SoPE: Spherical Coordinate-Based Positional Embedding for Enhancing Spatial Perception of 3D LVLMs

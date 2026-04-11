@@ -2,9 +2,6 @@
 description: "【论文笔记】\"Are We Done Yet?\": A Vision-Based Judge for Autonomous Task Completion of Computer Use Agents 论文解读 | AAAI2026 | arXiv 2511.20067 | Computer Use Agent | 提出基于 VLM 的自主任务完成评估框架，通过截图+任务描述判断 CUA 是否完成任务，并将评估反馈回传给 Agent 实现自我纠正，在 macOS 环境上达到 73% 评估准确率和 27% 的任务成功率相对提升。"
 tags:
   - AAAI2026
-  - Computer Use Agent
-  - Task Completion Evaluation
-  - Vision-Language Model
   - 视觉语言
 ---
 

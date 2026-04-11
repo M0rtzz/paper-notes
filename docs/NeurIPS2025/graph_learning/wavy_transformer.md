@@ -3,8 +3,6 @@ description: "【论文笔记】Wavy Transformer 论文解读 | NeurIPS 2025 | a
 tags:
   - NeurIPS 2025
   - Transformer
-  - 过平滑
-  - 波动方程
 ---
 
 # Wavy Transformer

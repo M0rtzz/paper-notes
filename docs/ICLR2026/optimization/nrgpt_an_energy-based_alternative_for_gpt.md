@@ -2,9 +2,6 @@
 description: "【论文笔记】NRGPT: An Energy-based Alternative for GPT 论文解读 | ICLR 2026 | arXiv 2512.16762 | 能量基模型 | 提出NRGPT(eNeRgy-GPT)——将GPT设定与能量基模型(EBM)框架统一的最小修改方案：设计能量函数使推理过程成为tokens在能量landscape上的探索,证明某些条件下此探索等价于梯度下降(虽然非梯度下降不一定最差),在Shakespeare/ListOPS/OpenWebText上验证可行性,观察到可能更抗过拟合的特性。"
 tags:
   - ICLR 2026
-  - 能量基模型
-  - GPT
-  - 自回归
 ---
 
 # NRGPT: An Energy-based Alternative for GPT

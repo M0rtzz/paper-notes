@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation 论文解读 | ACL2025 | arXiv 2505.21784 | 安全推理 | 提出 AIDsafe 多智能体迭代审议框架，自动生成嵌入安全策略的高质量 CoT 数据，微调后的模型在安全泛化和越狱鲁棒性上显著优于传统安全训练，同时引入 ear-whisperer agent 解决 DPO 偏好数据中 selected/rejected 难以区分的问题。"
 tags:
   - ACL2025
-  - 安全推理
-  - Chain-of-Thought
-  - 多智能体审议
 ---
 
 # Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation

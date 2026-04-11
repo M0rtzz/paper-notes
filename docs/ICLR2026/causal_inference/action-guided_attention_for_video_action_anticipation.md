@@ -2,9 +2,6 @@
 description: "【论文笔记】Action-Guided Attention for Video Action Anticipation 论文解读 | ICLR 2026 | arXiv 2603.01743 | 动作预期 | 提出动作引导注意力 (AGA) 机制，用模型自身的动作预测序列作为注意力的 Query 和 Key（而非像素特征），结合自适应门控融合历史上下文和当前帧特征，在 EPIC-Kitchens-100 上实现从验证集到测试集的良好泛化，同时支持训练后的可解释性分析。"
 tags:
   - ICLR 2026
-  - 动作预期
-  - 注意力机制
-  - 视频Transformer
   - Transformer
 ---
 

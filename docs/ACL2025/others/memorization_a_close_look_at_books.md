@@ -2,9 +2,6 @@
 description: "【论文笔记】Memorization: A Close Look at Books 论文解读 | ACL 2025 | arXiv 2504.12549 | LLM 记忆化 | 系统研究 Llama 3 系列模型对完整书籍的记忆化程度，发现书籍提取率与其流行度（训练数据重复度代理）高度正相关，并通过 LoRA 微调揭示指令微调的抗反刍缓解措施仅涉及极少量集中在底层 transformer block 的权重变化。"
 tags:
   - ACL 2025
-  - LLM 记忆化
-  - 训练数据提取
-  - 版权
 ---
 
 # Memorization: A Close Look at Books

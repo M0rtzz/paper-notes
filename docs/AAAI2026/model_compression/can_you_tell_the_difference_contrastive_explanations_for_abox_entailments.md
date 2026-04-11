@@ -2,9 +2,6 @@
 description: "【论文笔记】Can You Tell the Difference? Contrastive Explanations for ABox Entailments 论文解读 | AAAI 2026 | arXiv 2511.11281 | 对比解释 | 提出对比式ABox解释（Contrastive ABox Explanations）的形式化框架，用于回答\"为什么a是C的实例而b不是\"的问题，在描述逻辑知识库中同时考虑正向蕴涵和缺失蕴涵，并分析不同描述逻辑和优化准则下的计算复杂度。"
 tags:
   - AAAI 2026
-  - 对比解释
-  - 描述逻辑
-  - ABox推理
 ---
 
 # Can You Tell the Difference? Contrastive Explanations for ABox Entailments

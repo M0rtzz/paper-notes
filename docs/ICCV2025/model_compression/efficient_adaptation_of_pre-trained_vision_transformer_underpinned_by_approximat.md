@@ -2,9 +2,7 @@
 description: "【论文笔记】Efficient Adaptation of Pre-Trained Vision Transformer Underpinned by Approximation Theory 论文解读 | ICCV 2025 | arXiv 2507.13260 | 参数高效微调 | 本文发现预训练 ViT 权重矩阵的行/列向量具有近似正交性，而 LoRA/Adapter 的投影矩阵不具备此性质；提出 AOFT 策略，用单个可学习向量生成近似正交的下/上投影矩阵，使其与骨干网络性质对齐，从而降低泛化误差上界，在 FGVC 和 VTAB-1k 上用更少参数达到竞争性能。"
 tags:
   - ICCV 2025
-  - 参数高效微调
-  - 近似正交
-  - LoRA
+  - Transformer
 ---
 
 # Efficient Adaptation of Pre-Trained Vision Transformer Underpinned by Approximation Theory

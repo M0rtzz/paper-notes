@@ -2,9 +2,6 @@
 description: "【论文笔记】DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning 论文解读 | ICML2025 | arXiv 2511.05784 | LLM unlearning | 提出 DRAGON，一种无需微调的 LLM 遗忘框架，通过双层检测模块识别需遗忘的 prompt，再由 CoT guard 模型生成推理指令做上下文干预，在不修改模型参数的前提下实现高效遗忘。"
 tags:
   - ICML2025
-  - LLM unlearning
-  - in-context learning
-  - chain-of-thought
 ---
 
 # DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning

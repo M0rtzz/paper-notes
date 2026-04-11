@@ -2,9 +2,6 @@
 description: "【论文笔记】BulletGen: Improving 4D Reconstruction with Bullet-Time Generation 论文解读 | CVPR 2026 | arXiv 2506.18601 | 4D重建 | 提出 BulletGen，在选定的\"子弹时间\"冻结帧用静态视频扩散模型生成新视角，精确定位后用于监督 4D 高斯场景优化，在仅有单目视频输入的情况下实现极端新视角合成和 2D/3D 追踪的 SOTA。"
 tags:
   - CVPR 2026
-  - 4D重建
-  - 子弹时间
-  - 视频扩散模型
 ---
 
 # BulletGen: Improving 4D Reconstruction with Bullet-Time Generation

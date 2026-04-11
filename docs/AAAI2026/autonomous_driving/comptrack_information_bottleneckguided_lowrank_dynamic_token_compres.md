@@ -2,9 +2,6 @@
 description: "【论文笔记】CompTrack: 信息瓶颈引导的低秩动态Token压缩用于点云跟踪 (Oral) 论文解读 | AAAI 2026 | arXiv 2511.15580 | 3D单目标跟踪 | 针对LiDAR点云3D单目标跟踪中的\"双重冗余\"问题（空间冗余：大量背景噪声；信息冗余：前景中大量不具区分性的平面点），提出SFP前景预测器+IB-DTC信息瓶颈引导动态Token压缩两个模块，在KITTI/nuScenes/Waymo上达到SOTA，90 FPS实时运行（比P2P快1.4倍）。"
 tags:
   - AAAI 2026
-  - 3D单目标跟踪
-  - 点云
-  - 信息瓶颈
 ---
 
 # CompTrack: 信息瓶颈引导的低秩动态Token压缩用于点云跟踪 (Oral)

@@ -2,9 +2,6 @@
 description: "【论文笔记】Expert Pyramid Tuning: Efficient Parameter Fine-Tuning for Expertise-Driven Task Allocation 论文解读 | CVPR 2026 | arXiv 2603.12577 | [参数高效微调 | 提出 Expert Pyramid Tuning (EPT)，将 CV 中的多尺度特征金字塔思想引入 MoE-LoRA 框架，通过共享元知识子空间 + 不同尺度的反卷积专家 + 对比学习任务嵌入，以仅 0.41M 参数/任务在 GLUE 上达到 87.0% 均分（超越所有 MoE-LoRA 基线）。"
 tags:
   - CVPR 2026
-  - [参数高效微调
-  - 专家金字塔
-  - 反卷积投影
 ---
 
 # Expert Pyramid Tuning: Efficient Parameter Fine-Tuning for Expertise-Driven Task Allocation

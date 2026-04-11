@@ -2,10 +2,7 @@
 description: "【论文笔记】unMORE: Unsupervised Multi-Object Segmentation via Center-Boundary Reasoning 论文解读 | ICML2025 | arXiv 2506.01778 | 图像分割 unsupervised segmentation | 提出 unMORE，通过学习三层物体中心表征（存在性/中心场/边界距离场）并设计无网络的多目标推理模块，实现无监督多目标分割，在 COCO 等 6 个数据集上大幅超越所有无监督方法。"
 tags:
   - ICML2025
-  - unsupervised segmentation
   - 图像分割
-  - object-centric representation
-  - center field
 ---
 
 # unMORE: Unsupervised Multi-Object Segmentation via Center-Boundary Reasoning

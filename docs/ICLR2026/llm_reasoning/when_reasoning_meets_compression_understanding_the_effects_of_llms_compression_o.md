@@ -2,9 +2,6 @@
 description: "【论文笔记】When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models 论文解读 | ICLR 2026 | arXiv 2504.02010 | 模型压缩 | 系统性基准测试与机制解释压缩（量化/蒸馏/剪枝）对大推理模型的影响，发现三大核心结论：参数数量对知识记忆影响大于推理能力；蒸馏模型最后一层 MLP up_proj 是最关键权重；保护仅 2% 的被过度压缩权重即可提升平均准确率 6.57%。"
 tags:
   - ICLR 2026
-  - 模型压缩
-  - 大推理模型
-  - 量化
 ---
 
 # When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models

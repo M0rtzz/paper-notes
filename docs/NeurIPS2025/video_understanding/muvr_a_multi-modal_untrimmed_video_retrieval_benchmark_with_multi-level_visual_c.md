@@ -2,9 +2,6 @@
 description: "【论文笔记】MUVR: A Multi-Modal Untrimmed Video Retrieval Benchmark with Multi-Level Visual Correspondence 论文解读 | NeurIPS 2025 | arXiv 2510.21406 | 视频检索 | 提出 MUVR 基准，面向长视频平台的多模态未剪辑视频检索任务，设计了以视频为中心的多模态查询格式（视频+文本+标签+掩码）和六级视觉对应匹配准则，包含 53K 视频和 1050 个查询，系统评估了检索模型和 MLLM 的局限性。"
 tags:
   - NeurIPS 2025
-  - 视频检索
-  - 多模态查询
-  - 未剪辑视频
 ---
 
 # MUVR: A Multi-Modal Untrimmed Video Retrieval Benchmark with Multi-Level Visual Correspondence

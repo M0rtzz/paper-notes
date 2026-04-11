@@ -2,9 +2,6 @@
 description: "【论文笔记】Stable Matching with Ties: Approximation Ratios and Learning 论文解读 | NeurIPS 2025 | arXiv 2411.03270 | 稳定匹配 | 研究有并列偏好的双边匹配市场，提出最优稳定份额(OSS)比率概念衡量公平性，证明稳定匹配分布下OSS-ratio为$\Omega(N)$但一般匹配分布下可达$O(\log N)$（渐近紧），并将离线近似结果扩展到bandit学习场景。"
 tags:
   - NeurIPS 2025
-  - 稳定匹配
-  - 偏好并列
-  - 近似比
 ---
 
 # Stable Matching with Ties: Approximation Ratios and Learning

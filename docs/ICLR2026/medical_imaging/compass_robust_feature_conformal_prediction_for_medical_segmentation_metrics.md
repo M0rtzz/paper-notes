@@ -2,9 +2,6 @@
 description: "【论文笔记】COMPASS: Robust Feature Conformal Prediction for Medical Segmentation Metrics 论文解读 | ICLR 2026 | arXiv 2509.22240 | 共形预测 | 提出 COMPASS 框架，在分割模型的中间特征空间而非输出空间做共形预测，通过沿 Jacobian 确定的低维敏感子空间扰动特征来构建预测区间，在多个医学分割数据集上以更紧凑的区间达到目标覆盖率。"
 tags:
   - ICLR 2026
-  - 共形预测
-  - 特征扰动
-  - 医学分割
 ---
 
 # COMPASS: Robust Feature Conformal Prediction for Medical Segmentation Metrics

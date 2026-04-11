@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Hop Question Generation via Dual-Perspective Keyword Guidance 论文解读 | ACL 2025 | arXiv 2505.15299 | 多跳问题生成 | 定义了双视角关键词——问题关键词（捕捉提问者意图）和文档关键词（反映 QA 对相关内容），并提出 DPKG 框架，通过扩展 Transformer 编码器和两个答案感知解码器，将关键词无缝集成到多跳问题生成过程中。"
 tags:
   - ACL 2025
-  - 多跳问题生成
-  - 双视角关键词
-  - 答案感知注意力
 ---
 
 # Multi-Hop Question Generation via Dual-Perspective Keyword Guidance

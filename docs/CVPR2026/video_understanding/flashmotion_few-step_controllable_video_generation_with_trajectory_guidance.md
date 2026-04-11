@@ -2,9 +2,6 @@
 description: "【论文笔记】FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance 论文解读 | CVPR 2026 | arXiv 2603.12146 | 轨迹可控视频生成 | 提出 FlashMotion，一个三阶段训练框架，将多步轨迹可控视频生成模型蒸馏为少步版本，通过混合扩散+对抗目标微调 adapter，在少步推理下同时保持视频质量和轨迹准确性。"
 tags:
   - CVPR 2026
-  - 轨迹可控视频生成
-  - 蒸馏加速
-  - 少步推理
 ---
 
 # FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance

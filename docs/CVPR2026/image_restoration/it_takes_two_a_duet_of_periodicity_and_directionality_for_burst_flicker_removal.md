@@ -2,9 +2,6 @@
 description: "【论文笔记】Flickerformer: A Duet of Periodicity and Directionality for Burst Flicker Removal 论文解读 | CVPR 2026 | arXiv 2603.22794 | Burst去闪烁 | 揭示闪烁伪影的两个内在物理特性——**周期性**(空间-时间重复的亮暗条纹模式)和**方向性**(沿行式曝光方向传播)——提出Flickerformer Transformer架构：基于相位的融合模块(PFM)利用帧间相位相关自适应聚合burst特征、自相关前馈网络(AFFN)利用帧内结构规律、小波方向注意力模块(WDAM)用高频方向信息引导低频暗区修复，在burst闪烁去除上全面超越SOTA。"
 tags:
   - CVPR 2026
-  - Burst去闪烁
-  - 周期性
-  - 方向性
 ---
 
 # Flickerformer: A Duet of Periodicity and Directionality for Burst Flicker Removal

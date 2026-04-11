@@ -2,9 +2,6 @@
 description: "【论文笔记】Stochastic Momentum Methods for Non-smooth Non-Convex Finite-Sum Coupled Compositional Optimization 论文解读 | NeurIPS2025 | arXiv 2506.02504 | FCCO | 针对非光滑非凸有限和耦合复合优化 (FCCO) 问题，提出两种随机动量方法 SONEX（单循环）和 ALEXR2（双循环），通过外层 Moreau 包络平滑和嵌套平滑技术将迭代复杂度从 $O(1/\epsilon^6)$ 改进至 $O(1/\epsilon^5)$，并在非凸不等式约束优化中取得同等最优复杂度。"
 tags:
   - NeurIPS2025
-  - FCCO
-  - 非光滑非凸优化
-  - 随机动量法
 ---
 
 # Stochastic Momentum Methods for Non-smooth Non-Convex Finite-Sum Coupled Compositional Optimization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Synchronization of Multiple Videos 论文解读 | ICCV 2025 | arXiv 2510.14051 | 视频同步 | 提出 Temporal Prototype Learning (TPL)，一个基于原型的视频同步框架，从预训练模型提取的高维嵌入中构建共享的紧凑1D表征，通过学习统一的原型序列锚定关键动作阶段来对齐多个视频，首次解决了生成式AI视频的同步问题。"
 tags:
   - ICCV 2025
-  - 视频同步
-  - 时序原型学习
-  - 时间对齐
 ---
 
 # Synchronization of Multiple Videos

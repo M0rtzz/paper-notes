@@ -2,9 +2,6 @@
 description: "【论文笔记】pySpatial: Generating 3D Visual Programs for Zero-Shot Spatial Reasoning 论文解读 | ICLR 2026 | arXiv 2603.00905 | 视觉编程 | 提出pySpatial——视觉编程框架让MLLM通过生成Python代码调用3D空间工具(重建/相机恢复/新视角渲染)实现零样本3D空间推理：将2D输入转化为可探索的3D场景→MLLM在结构化3D表示上显式推理而非隐式想象,在MindCube上超越GPT-4.1-mini 12.94%,并成功用于真实室内四足机器人导航。"
 tags:
   - ICLR 2026
-  - 视觉编程
-  - 3D重建
-  - 空间推理
 ---
 
 # pySpatial: Generating 3D Visual Programs for Zero-Shot Spatial Reasoning

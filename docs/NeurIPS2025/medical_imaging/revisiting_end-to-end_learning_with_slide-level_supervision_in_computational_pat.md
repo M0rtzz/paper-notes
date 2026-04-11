@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology 论文解读 | NeurIPS 2025 | arXiv 2506.02408 | 计算病理 | 重新审视计算病理中切片级监督的端到端(E2E)学习，首次揭示稀疏注意力MIL在E2E训练中导致的优化困难，提出ABMILX通过多头注意力和全局注意力校正模块解决该问题，使E2E训练的ResNet在多个基准上超越SOTA基础模型。"
 tags:
   - NeurIPS 2025
-  - 计算病理
-  - 端到端学习
-  - 多实例学习
 ---
 
 # Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning from Videos for 3D World: Enhancing MLLMs with 3D Vision Geometry Priors 论文解读 | NeurIPS 2025 | arXiv 2505.24625 | MLLM | VG LLM提出将3D视觉几何编码器（VGGT）集成到多模态大语言模型中，仅从视频输入（无需显式3D数据）即可提取和融合3D几何先验，在3D场景理解和空间推理任务上显著提升MLLM性能，4B模型在VSI-Bench上超越Gemini-1.5-Pro。"
 tags:
   - NeurIPS 2025
-  - MLLM
-  - 3D视觉几何
-  - 空间推理
 ---
 
 # Learning from Videos for 3D World: Enhancing MLLMs with 3D Vision Geometry Priors

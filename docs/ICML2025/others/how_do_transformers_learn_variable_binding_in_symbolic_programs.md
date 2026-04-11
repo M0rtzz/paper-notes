@@ -2,10 +2,7 @@
 description: "【论文笔记】How Do Transformers Learn Variable Binding in Symbolic Programs? 论文解读 | ICML2025 | arXiv 2505.20896 | 变量绑定 | 通过训练Transformer在合成程序上做变量解引用(dereference)，揭示了三阶段发展轨迹：(1)随机预测→(2)浅层启发式→(3)系统性解引用机制，因果干预证明模型学会将残差流用作可寻址内存空间。"
 tags:
   - ICML2025
-  - 变量绑定
-  - Transformer机制
   - Transformer
-  - 残差流
 ---
 
 # How Do Transformers Learn Variable Binding in Symbolic Programs?

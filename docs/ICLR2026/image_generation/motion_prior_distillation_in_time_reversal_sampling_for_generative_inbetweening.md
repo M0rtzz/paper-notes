@@ -2,9 +2,6 @@
 description: "【论文笔记】Motion Prior Distillation in Time Reversal Sampling for Generative Inbetweening 论文解读 | ICLR 2026 | arXiv 2602.12679 | 生成式帧插值 | 提出 Motion Prior Distillation (MPD)，一种推理时蒸馏方法，将前向路径的运动残差蒸馏到后向路径中，从根本上解决了时间反转采样中双向运动先验冲突的问题，无需额外训练即可实现更连贯的生成式帧插值。"
 tags:
   - ICLR 2026
-  - 生成式帧插值
-  - 运动先验
-  - 时间反转采样
 ---
 
 # Motion Prior Distillation in Time Reversal Sampling for Generative Inbetweening

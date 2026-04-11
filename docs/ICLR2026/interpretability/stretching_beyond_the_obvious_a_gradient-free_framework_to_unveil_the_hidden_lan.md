@@ -2,9 +2,6 @@
 description: "【论文笔记】Stretching Beyond the Obvious: A Gradient-Free Framework to Unveil the Hidden Landscape of Visual Invariance 论文解读 | ICLR 2026 | arXiv 2506.17040 | visual invariance | 提出 Stretch-and-Squeeze（SnS）算法，一个无梯度、模型无关的双目标优化框架，通过在不同处理层级\"拉伸\"表征同时\"压缩\"目标单元激活来系统性地探测视觉系统的不变性流形，揭示了标准与鲁棒 CNN 之间不变性可解释性的分层差异。"
 tags:
   - ICLR 2026
-  - visual invariance
-  - gradient-free optimization
-  - adversarial examples
 ---
 
 # Stretching Beyond the Obvious: A Gradient-Free Framework to Unveil the Hidden Landscape of Visual Invariance

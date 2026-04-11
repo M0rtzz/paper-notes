@@ -2,10 +2,7 @@
 description: "【论文笔记】ICEdit: Enabling Instructional Image Editing with In-Context Generation in Large Scale Diffusion Transformer 论文解读 | NEURIPS2025 | arXiv 2504.20690 | 指令图像编辑 | ICEdit 提出一种基于大规模 Diffusion Transformer (DiT) 的上下文编辑范式，通过 in-context prompt + 最小化 LoRA-MoE 微调 + VLM 早期筛选推理时缩放，仅用 0.1% 训练数据即达到 SOTA 编辑性能。"
 tags:
   - NEURIPS2025
-  - 指令图像编辑
-  - Diffusion Transformer
   - Transformer
-  - In-Context Learning
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

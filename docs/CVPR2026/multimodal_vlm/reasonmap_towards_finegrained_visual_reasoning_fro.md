@@ -2,9 +2,6 @@
 description: "【论文笔记】ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps 论文解读 | CVPR 2026 | arXiv 2505.18675 | visual reasoning | 提出ReasonMap基准——用30个城市的高分辨率地铁图+1008个人工验证问答对评估MLLM的细粒度视觉理解与空间推理能力，发现反直觉现象：开源推理模型反而不如base模型而闭源相反，揭示视觉定位（grounding）是开闭源差距的关键因素。"
 tags:
   - CVPR 2026
-  - visual reasoning
-  - transit maps
-  - MLLM benchmark
 ---
 
 # ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps

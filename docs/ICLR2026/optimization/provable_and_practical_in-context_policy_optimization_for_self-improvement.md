@@ -2,9 +2,6 @@
 description: "【论文笔记】Provable and Practical In-Context Policy Optimization for Self-Improvement 论文解读 | ICLR 2026 | arXiv 2603.01335 | in-context learning | 提出 In-Context Policy Optimization (ICPO) 框架，理论证明单层线性自注意力 Transformer 经充分预训练后可在上下文中模拟策略优化算法，并设计实用的 ME-ICPO 算法通过最小熵选择和自评估奖励实现测试时多轮自反思，在数学推理任务上取得显著提升（AIME 2024 上 Qwen2.5-Math-7B 从 11% 提升到 30%）。"
 tags:
   - ICLR 2026
-  - in-context learning
-  - policy optimization
-  - test-time scaling
 ---
 
 # Provable and Practical In-Context Policy Optimization for Self-Improvement

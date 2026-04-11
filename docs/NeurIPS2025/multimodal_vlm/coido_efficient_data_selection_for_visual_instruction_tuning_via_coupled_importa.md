@@ -2,9 +2,6 @@
 description: "【论文笔记】CoIDO: Efficient Data Selection for Visual Instruction Tuning via Coupled Importance-Diversity Optimization 论文解读 | NeurIPS 2025 | arXiv 2510.17847 | 数据选择 | 提出 CoIDO，一个双目标优化数据选择框架，通过联合优化数据重要性和多样性，仅用 20% 随机数据训练轻量评分器，即可从 LLaVA-665K 中选出 20% 子集达到全量微调 98.2% 的性能，同时计算开销为所有方法最低。"
 tags:
   - NeurIPS 2025
-  - 数据选择
-  - 指令微调
-  - 重要性-多样性优化
 ---
 
 # CoIDO: Efficient Data Selection for Visual Instruction Tuning via Coupled Importance-Diversity Optimization

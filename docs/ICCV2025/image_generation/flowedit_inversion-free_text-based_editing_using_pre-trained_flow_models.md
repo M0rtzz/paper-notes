@@ -2,9 +2,6 @@
 description: "【论文笔记】FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models 论文解读 | ICCV 2025 | arXiv 2412.08629 | 图像编辑 | FlowEdit 提出一种无需反转（inversion-free）、无需优化、模型无关的文本编辑方法，直接在预训练 Flow 模型的源/目标分布之间构建 ODE 路径，实现比 inversion 更低传输代价的结构保持编辑。"
 tags:
   - ICCV 2025
-  - 图像编辑
-  - Flow模型
-  - Rectified Flow
 ---
 
 # FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models

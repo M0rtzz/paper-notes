@@ -2,9 +2,6 @@
 description: "【论文笔记】LoMAP: Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning 论文解读 | ICML2025 | arXiv 2506.00867 | 扩散规划 | 提出LoMAP——训练无关的扩散规划修正方法，通过在每个反向扩散步将引导后的样本投影到由离线数据近邻构建的局部低秩子空间上，防止不可行轨迹生成，在AntMaze等长horizon稀疏奖励任务上显著提升可靠性。"
 tags:
   - ICML2025
-  - 扩散规划
-  - 流形偏离
-  - 低秩投影
 ---
 
 # LoMAP: Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning

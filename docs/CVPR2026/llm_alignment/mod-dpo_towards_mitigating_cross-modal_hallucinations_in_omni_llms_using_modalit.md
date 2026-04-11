@@ -2,10 +2,7 @@
 description: "【论文笔记】MoD-DPO: Towards Mitigating Cross-modal Hallucinations in Omni LLMs using Modality Decoupled Preference Optimization 论文解读 | CVPR2026 | arXiv 2603.03192 | omni LLM | 提出 MoD-DPO（Modality-Decoupled DPO），通过不变性正则化、敏感性正则化和语言先验去偏三个机制解耦多模态 LLM 中各模态的贡献，有效缓解跨模态幻觉（如用听觉信息回答视觉问题），并推导出闭式最优策略。"
 tags:
   - CVPR2026
-  - omni LLM
-  - cross-modal hallucination
   - 跨模态
-  - DPO
 ---
 
 # MoD-DPO: Towards Mitigating Cross-modal Hallucinations in Omni LLMs using Modality Decoupled Preference Optimization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Value Iteration Networks to 5000 Layers for Extreme Long-Term Planning 论文解读 | ICML2025 | arXiv 2406.08404 | Value Iteration Network | 提出 Dynamic Transition VIN (DT-VIN)，通过引入动态转移核增强隐式 MDP 的表征能力，并设计自适应 highway loss 缓解梯度消失，将 VIN 成功扩展至 5000 层，在 $100 \times 100$ 迷宫中实现 1800 步长期规划（原版 VIN 仅支持 $25 \times 25$ 迷宫中 120 步规划）。"
 tags:
   - ICML2025
-  - Value Iteration Network
-  - 长期规划
-  - 动态转移核
 ---
 
 # Scaling Value Iteration Networks to 5000 Layers for Extreme Long-Term Planning

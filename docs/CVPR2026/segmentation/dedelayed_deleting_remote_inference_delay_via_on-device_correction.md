@@ -2,9 +2,6 @@
 description: "【论文笔记】DeDelayed: Deleting Remote Inference Delay via On-Device Correction 论文解读 | CVPR 2026 | arXiv 2510.13714 | 协同推理 | 提出 DeDelayed 端云协同推理框架，将轻量本地图像模型与延迟感知的云端时序预测视频模型结合，通过时序预测训练补偿网络延迟，在 100ms 延迟下比纯本地推理提升 6.4 mIoU、比纯远程推理提升 9.8 mIoU。"
 tags:
   - CVPR 2026
-  - 协同推理
-  - 实时视频分割
-  - 延迟补偿
 ---
 
 # DeDelayed: Deleting Remote Inference Delay via On-Device Correction

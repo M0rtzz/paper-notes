@@ -2,10 +2,7 @@
 description: "【论文笔记】When Worse is Better: Navigating the Compression-Generation Trade-off in Visual Tokenization 论文解读 | NeurIPS 2025 | arXiv 2412.16326 | 视觉 Tokenizer | 系统研究视觉 Tokenizer 的压缩-生成权衡，发现更激进的压缩反而有利于小模型生成，并提出因果正则化 Tokenization（CRT）方法，通过嵌入自回归归纳偏置使 token 更易建模，实现 2-3 倍计算效率提升。"
 tags:
   - NeurIPS 2025
-  - 视觉 Tokenizer
-  - VQGAN
   - GAN
-  - 自回归生成
 ---
 
 # When Worse is Better: Navigating the Compression-Generation Trade-off in Visual Tokenization

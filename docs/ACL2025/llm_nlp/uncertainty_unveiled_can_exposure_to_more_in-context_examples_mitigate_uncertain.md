@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncertainty Unveiled: Can Exposure to More In-context Examples Mitigate Uncertainty for Large Language Models? 论文解读 | ACL2025 | arXiv 2505.21003 | 不确定性量化 | 本文系统研究了长上下文 ICL 中增加示例数量对 LLM 预测不确定性的影响，通过不确定性分解揭示性能提升主要源于认知不确定性（EU）的降低，并从残差流投影角度解释了不确定性减少的内部机制。"
 tags:
   - ACL2025
-  - 不确定性量化
-  - 上下文学习
-  - many-shot ICL
 ---
 
 # Uncertainty Unveiled: Can Exposure to More In-context Examples Mitigate Uncertainty for Large Language Models?

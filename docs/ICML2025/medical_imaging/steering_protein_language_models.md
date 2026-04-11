@@ -2,9 +2,6 @@
 description: "【论文笔记】Steering Protein Language Models 论文解读 | ICML2025 | arXiv 2509.07983 | 蛋白质语言模型 | 首次将LLM中的Activation Steering技术应用于蛋白质语言模型(PLM)：通过编辑内部激活来引导蛋白质生成/优化朝向目标属性，无需额外训练，并提出基于steering vector相异度的突变位点识别算法。"
 tags:
   - ICML2025
-  - 蛋白质语言模型
-  - 激活导向
-  - 蛋白质设计
 ---
 
 # Steering Protein Language Models

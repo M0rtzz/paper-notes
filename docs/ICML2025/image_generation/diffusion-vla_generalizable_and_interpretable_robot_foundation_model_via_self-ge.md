@@ -2,10 +2,7 @@
 description: "【论文笔记】Diffusion-VLA: Generalizable and Interpretable Robot Foundation Model via Self-Generated Reasoning 论文解读 | ICML 2025 | arXiv 2412.03293 | 视觉语言 Vision-Language-Action | 提出 DiffusionVLA (DiVLA)，将自回归 VLM 的推理能力与扩散模型的动作生成能力统一到一个端到端框架中，通过推理注入模块（Reasoning Injection Module）将自生成的语言推理直接嵌入策略学习过程，实现了对未见物体的泛化分类、可解释的动作决策以及高速推理（2B 模型 82Hz）。"
 tags:
   - ICML 2025
-  - Vision-Language-Action
   - 视觉语言
-  - 扩散策略
-  - 自回归推理
 ---
 
 # Diffusion-VLA: Generalizable and Interpretable Robot Foundation Model via Self-Generated Reasoning

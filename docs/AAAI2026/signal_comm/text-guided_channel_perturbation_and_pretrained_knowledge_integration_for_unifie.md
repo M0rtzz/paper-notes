@@ -2,9 +2,6 @@
 description: "【论文笔记】Text-Guided Channel Perturbation and Pretrained Knowledge Integration for Unified Multi-Modality Image Fusion 论文解读 | AAAI2026 | arXiv 2511.12432 | 多模态图像融合 | 提出 UP-Fusion 统一多模态图像融合框架，通过语义感知通道剪枝 (SCPM)、几何仿射调制 (GAM) 和 CLIP 文本引导通道扰动 (TCPM) 三个模块，用单组权重（仅在红外-可见光数据上训练）同时处理 IVIF 和医学图像融合，在两类任务上均达到 SOTA。"
 tags:
   - AAAI2026
-  - 多模态图像融合
-  - 统一模型
-  - 通道扰动
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Hi Robot: Open-Ended Instruction Following with Hierarchical Vision-Language-Action Models 论文解读 | ICML 2025 | arXiv 2502.19417 | 层次化机器人控制 | 提出 Hi Robot，一个层次化 VLM 系统：高层 VLM 将复杂用户指令/反馈推理为原子命令，低层 VLA (π0) 执行动作，结合合成数据生成方案，在三类机器人平台上实现了远超 GPT-4o 和扁平 VLA 的开放式指令跟随能力。"
 tags:
   - ICML 2025
-  - 层次化机器人控制
-  - 视觉-语言-动作模型 (VLA)
-  - 合成数据
 ---
 
 # Hi Robot: Open-Ended Instruction Following with Hierarchical Vision-Language-Action Models

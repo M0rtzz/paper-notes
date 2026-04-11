@@ -2,9 +2,6 @@
 description: "【论文笔记】Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information 论文解读 | ICLR 2026 | arXiv 2603.03725 | 不可学习样本 | 从互信息(MI)视角统一解释不可学习样本(UE)的有效性——有效UE必然降低干净/下毒特征间MI。据此提出MI-UE方法，通过协方差缩减最大化MI降低，将CIFAR-10测试准确率压至9.95%。"
 tags:
   - ICLR 2026
-  - 不可学习样本
-  - 互信息
-  - 数据下毒
 ---
 
 # Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information

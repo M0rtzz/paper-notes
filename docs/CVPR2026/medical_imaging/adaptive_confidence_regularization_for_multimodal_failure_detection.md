@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Confidence Regularization for Multimodal Failure Detection 论文解读 | CVPR2026 | arXiv 2603.02200 | 多模态失败检测 | 提出 ACR 框架，通过自适应置信度损失（惩罚多模态融合置信度低于单模态的\"置信度退化\"现象）和多模态特征交换（在特征空间合成失败样本）两个互补模块，首次系统解决多模态场景下的误分类检测问题，在四个数据集上全面超越已有方法。"
 tags:
   - CVPR2026
-  - 多模态失败检测
-  - 置信度退化
-  - 自适应置信度正则化
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

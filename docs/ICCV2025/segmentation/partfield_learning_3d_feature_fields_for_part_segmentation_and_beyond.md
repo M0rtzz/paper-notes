@@ -2,9 +2,6 @@
 description: "【论文笔记】PartField: Learning 3D Feature Fields for Part Segmentation and Beyond 论文解读 | ICCV 2025 | arXiv 2504.11451 | 3D 部件分割 | PartField 通过前馈模型学习连续 3D 特征场，用对比学习从混合的 2D/3D 部件提案中蒸馏知识，在类别无关的 3D 部件分割上比现有方法精度提高 20%+ 同时推理速度快数个数量级。"
 tags:
   - ICCV 2025
-  - 3D 部件分割
-  - 特征场
-  - 对比学习
 ---
 
 # PartField: Learning 3D Feature Fields for Part Segmentation and Beyond

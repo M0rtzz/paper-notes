@@ -2,9 +2,6 @@
 description: "【论文笔记】Multimodal Classification of Radiation-Induced Contrast Enhancements and Tumor Recurrence Using Deep Learning 论文解读 | CVPR 2026 | arXiv 2603.11827 | 胶质母细胞瘤 | 提出RICE-NET，一种多模态3D ResNet-18模型，融合纵向T1加权MRI数据与放射治疗剂量分布图，在92例胶质母细胞瘤患者队列上实现F1=0.92的RICE vs 肿瘤复发自动分类，消融实验揭示放疗剂量图是最具信息量的单模态输入。"
 tags:
   - CVPR 2026
-  - 胶质母细胞瘤
-  - 放射性对比增强(RICE)
-  - 多模态MRI
 ---
 
 # Multimodal Classification of Radiation-Induced Contrast Enhancements and Tumor Recurrence Using Deep Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Assessing Dialect Fairness and Robustness of Large Language Models in Reasoning Tasks 论文解读 | ACL 2025 | arXiv 2410.11005 | 方言公平性 | 本文提出首个系统评估LLM在非标准方言（AAVE）推理任务中公平性与鲁棒性的研究，构建了包含1.2K+平行查询对的ReDial基准，发现几乎所有主流LLM在AAVE输入上表现出显著的性能下降和不公平。"
 tags:
   - ACL 2025
-  - 方言公平性
-  - AAVE
-  - 推理任务
 ---
 
 # Assessing Dialect Fairness and Robustness of Large Language Models in Reasoning Tasks

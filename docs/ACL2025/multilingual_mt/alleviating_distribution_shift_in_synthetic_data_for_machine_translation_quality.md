@@ -2,9 +2,6 @@
 description: "【论文笔记】Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation 论文解读 | ACL 2025 | arXiv 2502.19941 | Quality Estimation | 提出 DCSQE 框架，通过约束波束搜索生成更真实的合成翻译、利用独立的标注模型纠正标签偏差、以及 SPCE 算法将 token 级标签聚合为短语级标签，有效缓解合成 QE 数据的分布偏移问题，在有监督和无监督设置下均超越 CometKiwi 等 SOTA 基线。"
 tags:
   - ACL 2025
-  - Quality Estimation
-  - 分布偏移
-  - 合成数据
 ---
 
 # Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation

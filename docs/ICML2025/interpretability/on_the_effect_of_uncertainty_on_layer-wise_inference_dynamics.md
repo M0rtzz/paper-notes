@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Effect of Uncertainty on Layer-wise Inference Dynamics 论文解读 | ICML 2025 (Actionable Interpretability Workshop) | arXiv 2507.06722 | uncertainty | 利用 Tuned Lens 分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的推理动力学高度对齐，挑战了基于简单层间特征检测不确定性的可行性。"
 tags:
   - ICML 2025 (Actionable Interpretability Workshop)
-  - uncertainty
-  - layer-wise dynamics
-  - Tuned Lens
 ---
 
 # On the Effect of Uncertainty on Layer-wise Inference Dynamics

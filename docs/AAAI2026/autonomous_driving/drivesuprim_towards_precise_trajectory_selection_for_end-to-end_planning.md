@@ -2,9 +2,6 @@
 description: "【论文笔记】DriveSuprim: Towards Precise Trajectory Selection for End-to-End Planning 论文解读 | AAAI 2026 | arXiv 2506.06659 | 端到端规划 | 提出 DriveSuprim，通过粗到精的轨迹筛选范式、旋转数据增强和自蒸馏软标签框架，解决选择式端到端规划中难以区分相似轨迹、方向偏差和硬标签不稳定的问题，在 NAVSIM v1/v2 和 Bench2Drive 上达到 SOTA。"
 tags:
   - AAAI 2026
-  - 端到端规划
-  - 轨迹选择
-  - 粗到精
 ---
 
 # DriveSuprim: Towards Precise Trajectory Selection for End-to-End Planning

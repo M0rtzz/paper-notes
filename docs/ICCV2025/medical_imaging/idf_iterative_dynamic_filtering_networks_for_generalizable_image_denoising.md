@@ -2,9 +2,6 @@
 description: "【论文笔记】IDF: Iterative Dynamic Filtering Networks for Generalizable Image Denoising 论文解读 | ICCV 2025 | arXiv 2508.19649 | 图像去噪 | 提出迭代动态滤波网络 (IDF)，仅用约 0.04M 参数，通过逐像素动态核预测 + 自适应迭代精炼策略，仅在单一级别高斯噪声上训练即可泛化到各种未见噪声类型（高斯/泊松/椒盐/蒙特卡洛渲染/真实噪声），实现出色的 OOD 去噪性能。"
 tags:
   - ICCV 2025
-  - 图像去噪
-  - 动态滤波
-  - 泛化能力
 ---
 
 # IDF: Iterative Dynamic Filtering Networks for Generalizable Image Denoising

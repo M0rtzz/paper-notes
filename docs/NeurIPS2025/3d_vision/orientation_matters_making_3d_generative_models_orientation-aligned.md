@@ -2,9 +2,6 @@
 description: "【论文笔记】Orientation Matters: Making 3D Generative Models Orientation-Aligned 论文解读 | NeurIPS 2025 | arXiv 2506.08640 | 3D生成 | 提出朝向对齐3D物体生成任务，构建了跨1008个类别14832个朝向对齐3D模型的Objaverse-OA数据集，通过微调Trellis和Wonder3D两种主流3D生成框架实现朝向对齐的物体生成，并展示零样本朝向估计和箭头旋转操控两个下游应用。"
 tags:
   - NeurIPS 2025
-  - 3D生成
-  - 朝向对齐
-  - 数据集构建
 ---
 
 # Orientation Matters: Making 3D Generative Models Orientation-Aligned

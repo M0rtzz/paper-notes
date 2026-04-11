@@ -2,9 +2,6 @@
 description: "【论文笔记】MOBA: A Material-Oriented Backdoor Attack against LiDAR-based 3D Object Detection 论文解读 | AAAI 2026 | arXiv 2511.09999 | 后门攻击 | 提出 MOBA（Material-Oriented Backdoor Attack），首个基于**材料反射特性建模**的物理可实现后门攻击框架，通过系统性选择二氧化钛（TiO₂）作为触发材料并利用**Oren-Nayar BRDF模型的角度无关近似**进行LiDAR强度仿真，在真实物理数据上实现了**93.50%攻击成功率**，比现有方法高出41%以上。"
 tags:
   - AAAI 2026
-  - 后门攻击
-  - LiDAR 3D目标检测
-  - 物理可实现攻击
 ---
 
 # MOBA: A Material-Oriented Backdoor Attack against LiDAR-based 3D Object Detection

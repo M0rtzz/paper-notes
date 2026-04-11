@@ -2,9 +2,6 @@
 description: "【论文笔记】REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting 论文解读 | CVPR 2026 | arXiv 2510.16410 | 3D推理分割 | 提出 REALM 框架，通过 MLLM agent 对 3D 高斯泼溅(3DGS)渲染的视图进行推理分割，设计全局-局部空间接地策略(GLSpaG)聚合多视角MLLM推理结果，在隐式指令下的3D分割中大幅超越现有方法（LERF上mIoU 92.88% vs 基线44.82%），并支持3D编辑。"
 tags:
   - CVPR 2026
-  - 3D推理分割
-  - 多模态大语言模型
-  - 高斯泼溅
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

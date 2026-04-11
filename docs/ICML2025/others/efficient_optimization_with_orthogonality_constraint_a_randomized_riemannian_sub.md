@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Optimization with Orthogonality Constraint: a Randomized Riemannian Submanifold Method 论文解读 | ICML2025 | arXiv 2505.12378 | 正交约束优化 | 提出随机黎曼子流形下降方法 (RSDM)，通过将每步更新限制在随机低维子流形上，将正交约束优化中 retraction 操作的复杂度从 $O(np^2)$ 降至 $O(r^3)$，同时保持与全空间黎曼梯度下降相匹配的总计算复杂度。"
 tags:
   - ICML2025
-  - 正交约束优化
-  - Riemannian优化
-  - Stiefel流形
 ---
 
 # Efficient Optimization with Orthogonality Constraint: a Randomized Riemannian Submanifold Method

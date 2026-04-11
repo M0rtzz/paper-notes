@@ -2,9 +2,6 @@
 description: "【论文笔记】Controllable Exploration in Hybrid-Policy RLVR for Multi-Modal Reasoning 论文解读 | ICLR 2026 | arXiv 2602.20197 | RLVR | CalibRL 将专家数据重新定义为分布校准基线（而非严格模仿目标），通过 LeakyReLU 不对称激活 + 优势加权实现对 MLLM 推理训练中探索-利用平衡的精细控制，解决 RLVR 中的熵崩溃问题，在几何推理等任务上大幅超越 GRPO/DAPO。"
 tags:
   - ICLR 2026
-  - RLVR
-  - 混合策略优化
-  - 多模态推理
 ---
 
 # Controllable Exploration in Hybrid-Policy RLVR for Multi-Modal Reasoning

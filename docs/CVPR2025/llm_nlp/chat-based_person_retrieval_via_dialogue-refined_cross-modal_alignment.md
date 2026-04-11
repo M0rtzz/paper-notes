@@ -2,7 +2,6 @@
 description: "【论文笔记】Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Traditional text-based person retrieval (TPR) relies on a single-shot text as query to retrieve the target person, assuming that the query completely captures the user's search intent. However, in real-world scenarios, it can be challenging to ensure the information completeness of such single-shot"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment

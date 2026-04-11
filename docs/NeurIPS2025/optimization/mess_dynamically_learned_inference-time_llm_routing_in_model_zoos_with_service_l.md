@@ -2,7 +2,6 @@
 description: "【论文笔记】MESS+: Dynamically Learned Inference-Time LLM Routing in Model Zoos with Service Level Guarantees 论文解读 | NeurIPS 2025 | arXiv 2505.19947 | 成本优化、学习路由、虚拟队列、约束优化 | MESS+是首个成本最优的LLM路由框架，通过在线学习请求满足度预测和虚拟队列约束，动态选择模型同时保证SLA合规，相比现有方法实现平均2倍成本节省。"
 tags:
   - NeurIPS 2025
-  - 成本优化、学习路由、虚拟队列、约束优化
 ---
 
 # MESS+: Dynamically Learned Inference-Time LLM Routing in Model Zoos with Service Level Guarantees

@@ -2,9 +2,6 @@
 description: "【论文笔记】PCR-GS: COLMAP-Free 3D Gaussian Splatting via Pose Co-Regularizations 论文解读 | ICCV 2025 | arXiv 2507.13891 | 3D Gaussian Splatting | 提出 PCR-GS，通过 DINO 特征重投影正则化和基于小波变换的频率正则化对相机位姿进行协同约束，在无需 COLMAP 先验的条件下实现了复杂相机轨迹场景的高质量 3D-GS 重建与位姿估计。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - COLMAP-Free
-  - 相机位姿估计
 ---
 
 # PCR-GS: COLMAP-Free 3D Gaussian Splatting via Pose Co-Regularizations

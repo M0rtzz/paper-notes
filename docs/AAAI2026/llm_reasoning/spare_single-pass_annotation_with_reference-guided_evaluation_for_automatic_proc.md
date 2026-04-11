@@ -2,9 +2,6 @@
 description: "【论文笔记】SPARE: Single-Pass Annotation with Reference-Guided Evaluation for Automatic Process Supervision 论文解读 | AAAI 2026 | arXiv 2506.15498 | 过程奖励模型 | 提出 SPARE 框架，通过单次结构化生成同时完成解题步骤与参考解的对齐和准确性判断（含显式推理），无需额外训练数据，比 MCTS 方法快 2.3 倍且仅需 16% 训练样本即可实现 OOD 泛化。"
 tags:
   - AAAI 2026
-  - 过程奖励模型
-  - 自动标注
-  - 参考引导
 ---
 
 # SPARE: Single-Pass Annotation with Reference-Guided Evaluation for Automatic Process Supervision

@@ -2,9 +2,6 @@
 description: "【论文笔记】Communicating Activations Between Language Model Agents 论文解读 | ICML 2025 | arXiv 2501.14082 | 多智能体通信 | 提出让 LLM 智能体通过中间层激活（而非自然语言）进行通信的方法——在模型 B 的前向传播中间层注入模型 A 的激活向量，无需额外参数和数据，在多项推理基准上比自然语言通信提升 27%，计算量仅为 1/4。"
 tags:
   - ICML 2025
-  - 多智能体通信
-  - 激活空间
-  - 模型嫁接
 ---
 
 # Communicating Activations Between Language Model Agents

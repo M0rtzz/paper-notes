@@ -2,9 +2,6 @@
 description: "【论文笔记】MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation 论文解读 | ICML2025 | arXiv 2504.20094 | 游戏推荐 | 提出MATCHA多Agent框架解决游戏对话推荐的三大挑战：复杂约束（Intent+Tool Agent）、知识时效（Multi-LLM Ranking+Reflection Agent）、安全风险（Risk Control+Explanation Agent），Hit@5提升20%、流行度偏差降低24%、对抗防御达97.9%。"
 tags:
   - ICML2025
-  - 游戏推荐
-  - 对话推荐
-  - 多Agent
 ---
 
 # MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation

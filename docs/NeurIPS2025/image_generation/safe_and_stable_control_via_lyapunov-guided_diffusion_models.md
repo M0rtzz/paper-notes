@@ -2,9 +2,6 @@
 description: "【论文笔记】Safe and Stable Control via Lyapunov-Guided Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2509.25375 | 扩散模型 | 提出 S²Diff，一个基于模型的扩散规划框架，利用控制 Lyapunov 屏障函数（CLBF）引导扩散采样生成轨迹级控制策略，无需控制仿射假设与二次规划，在多种非线性动力系统上同时保证安全性和稳定性，平均安全率达 98.75%。"
 tags:
   - NeurIPS 2025
-  - 扩散模型
-  - Lyapunov稳定性
-  - 安全控制
 ---
 
 # Safe and Stable Control via Lyapunov-Guided Diffusion Models

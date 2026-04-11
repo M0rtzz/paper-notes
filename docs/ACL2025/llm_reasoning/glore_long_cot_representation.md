@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlocking General Long Chain-of-Thought Reasoning Capabilities of Large Language Models via Representation Engineering 论文解读 | ACL 2025 | arXiv 2503.11314 | 长思维链 | 从表示空间角度发现 LLM 将长 CoT 推理编码为一种与普通 CoT 明确区分的通用能力，提出 GLoRE（General Long CoT Reasoning via Representation Engineering）——通过对比推理模式注入和领域特定表示调整来解锁长 CoT 能力，无需训练即可在域内和跨域场景下超越 SFT 方法。"
 tags:
   - ACL 2025
-  - 长思维链
-  - 表示工程
-  - 跨领域推理
 ---
 
 # Unlocking General Long Chain-of-Thought Reasoning Capabilities of Large Language Models via Representation Engineering

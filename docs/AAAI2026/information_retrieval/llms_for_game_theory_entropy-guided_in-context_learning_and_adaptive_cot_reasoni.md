@@ -2,9 +2,6 @@
 description: "【论文笔记】LLMs for Game Theory: Entropy-Guided In-Context Learning and Adaptive CoT Reasoning 论文解读 | AAAI 2026 | arXiv 2601.10775 | 大语言模型 | 提出一种基于熵引导的自适应 LLM 推理框架，结合动态上下文检索和自适应链式思维（CoT）推理，在井字棋博弈任务中将 LLM 的平均对局结果从 -11.6% 提升至 +9.5%，同时保持较低的 LLM 查询次数。"
 tags:
   - AAAI 2026
-  - 大语言模型
-  - 博弈论
-  - 熵引导推理
 ---
 
 # LLMs for Game Theory: Entropy-Guided In-Context Learning and Adaptive CoT Reasoning

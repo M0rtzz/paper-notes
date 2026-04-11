@@ -2,9 +2,6 @@
 description: "【论文笔记】PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model 论文解读 | ICML2025 | arXiv 2505.06274 | 多目标对齐 | 提出PARM——统一的Preference-Aware自回归奖励模型，通过PBLoRA双线性低秩适配以偏好向量为条件，实现单个ARM替代K个独立ARM的多目标测试时对齐，还支持弱到强引导（小PARM引导大LLM）。"
 tags:
   - ICML2025
-  - 多目标对齐
-  - 测试时对齐
-  - 自回归奖励模型
 ---
 
 # PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model

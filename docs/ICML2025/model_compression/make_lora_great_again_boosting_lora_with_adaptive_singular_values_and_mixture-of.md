@@ -2,9 +2,6 @@
 description: "【论文笔记】Make LoRA Great Again: Boosting LoRA with Adaptive Singular Values and Mixture-of-Experts Optimization Alignment 论文解读 | ICML 2025 | arXiv 2502.16894 | LoRA | GOAT 通过“按 SVD 分段初始化的 LoRA-MoE + 理论推导的缩放对齐”，在不改训练算法和主体架构的前提下显著提升 LoRA 表现，并在 25 个任务上达到 SOTA、明显缩小与 Full FT 的差距。"
 tags:
   - ICML 2025
-  - LoRA
-  - Mixture-of-Experts
-  - SVD Initialization
 ---
 
 # Make LoRA Great Again: Boosting LoRA with Adaptive Singular Values and Mixture-of-Experts Optimization Alignment

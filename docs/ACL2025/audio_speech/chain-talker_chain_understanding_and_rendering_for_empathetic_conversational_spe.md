@@ -2,9 +2,6 @@
 description: "【论文笔记】Chain-Talker: Chain Understanding and Rendering for Empathetic Conversational Speech Synthesis 论文解读 | ACL 2025 | arXiv 2505.12597 | 对话语音合成 | 提出 Chain-Talker，通过三阶段链式建模（情感理解→语义理解→共情渲染）实现可解释的共情对话语音合成，并开发 CSS-EmCap 自动标注管道为对话语音生成情感描述。"
 tags:
   - ACL 2025
-  - 对话语音合成
-  - 共情语音
-  - 链式建模
 ---
 
 # Chain-Talker: Chain Understanding and Rendering for Empathetic Conversational Speech Synthesis

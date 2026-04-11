@@ -2,9 +2,6 @@
 description: "【论文笔记】DAWN: Pixel Motion Diffusion is What We Need for Robot Control 论文解读 | CVPR 2026 | arXiv 2509.22652 | 像素运动扩散 | 提出 DAWN，一个两阶段全扩散的视觉语言动作框架——Motion Director（潜扩散模型）生成稠密像素运动场作为可解释的中间表示，Action Expert（扩散 Transformer 策略）将像素运动转换为可执行机器人动作；在 CALVIN 基准上取得 SOTA（平均长度 4.00），并在真实世界单臂/双臂操控中展现强泛化能力。"
 tags:
   - CVPR 2026
-  - 像素运动扩散
-  - 视觉语言动作
-  - 机器人操控
 ---
 
 # DAWN: Pixel Motion Diffusion is What We Need for Robot Control

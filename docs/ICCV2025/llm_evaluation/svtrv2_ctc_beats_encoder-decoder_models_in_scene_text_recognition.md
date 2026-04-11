@@ -2,9 +2,6 @@
 description: "【论文笔记】SVTRv2: CTC Beats Encoder-Decoder Models in Scene Text Recognition 论文解读 | ICCV 2025 | arXiv 2411.15858 | 场景文字识别 | 提出 SVTRv2，通过多尺寸resize策略（MSR）、特征重排模块（FRM）和语义引导模块（SGM）三大设计，让 CTC 模型首次在多场景基准上全面超越编码器-解码器方法，同时保持推理速度优势。"
 tags:
   - ICCV 2025
-  - 场景文字识别
-  - CTC
-  - 不规则文本
 ---
 
 # SVTRv2: CTC Beats Encoder-Decoder Models in Scene Text Recognition

@@ -2,9 +2,6 @@
 description: "【论文笔记】Gene Incremental Learning for Single-Cell Transcriptomics 论文解读 | AAAI 2026 | arXiv 2511.13762 | 基因增量学习 | 本文提出了基因增量学习（GIL）框架，利用单细胞转录组学数据的无序性特点，将类增量学习（CIL）的范式扩展到 token（基因）维度，设计了基因回放和基因蒸馏两种基线方法，并建立了包含基因级回归和基因级分类两种评估方式的完整基准。"
 tags:
   - AAAI 2026
-  - 基因增量学习
-  - 单细胞转录组学
-  - 灾难性遗忘
 ---
 
 # Gene Incremental Learning for Single-Cell Transcriptomics

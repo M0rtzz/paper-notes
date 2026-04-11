@@ -2,9 +2,6 @@
 description: "【论文笔记】ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval 论文解读 | ACL 2025 | arXiv 2501.06582 | 合同条款检索 | 构建首个面向合同起草的专家标注条款检索基准 ACORD——114 个律师编写的查询、126,000+ 查询-条款对、1-5 星相关性评分，聚焦责任限制/赔偿/控制权变更/最惠国等复杂条款；bi-encoder 检索 + LLM 点式重排序表现有前景但距律师需求仍有显著差距。LLM 直接起草对比律师修改暴露了多种缺陷。"
 tags:
   - ACL 2025
-  - 合同条款检索
-  - 法律NLP
-  - 专家标注
 ---
 
 # ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval

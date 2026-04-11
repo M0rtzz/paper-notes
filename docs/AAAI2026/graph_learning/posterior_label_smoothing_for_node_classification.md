@@ -2,9 +2,6 @@
 description: "【论文笔记】Posterior Label Smoothing for Node Classification 论文解读 | AAAI 2026 | arXiv 2406.00410 | Label Smoothing | 提出PosteL（Posterior Label Smoothing），通过贝叶斯后验分布从邻域标签中推导soft label用于节点分类，自然适应同质图和异质图，在8种backbone×10个数据集的80个组合中76个取得精度提升。"
 tags:
   - AAAI 2026
-  - Label Smoothing
-  - 节点分类
-  - 后验分布
 ---
 
 # Posterior Label Smoothing for Node Classification

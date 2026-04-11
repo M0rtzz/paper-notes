@@ -2,9 +2,6 @@
 description: "【论文笔记】InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing 论文解读 | CVPR 2026 | arXiv 2603.13082 | 多人运动编辑 | 首次定义多人3D运动编辑(TMME)任务，构建5161个源-目标-指令三元组的InterEdit3D数据集，提出基于同步无分类器引导的条件扩散模型InterEdit，通过语义感知规划Token对齐和交互感知频域Token对齐两个核心模块，在指令跟随(g2t R@1 30.82%)和源保持(g2s R@1 17.08%)上全面超越基线。"
 tags:
   - CVPR 2026
-  - 多人运动编辑
-  - 文本引导扩散模型
-  - 交互感知频域对齐
 ---
 
 # InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing

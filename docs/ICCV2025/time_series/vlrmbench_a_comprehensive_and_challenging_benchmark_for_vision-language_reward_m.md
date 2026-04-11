@@ -2,9 +2,6 @@
 description: "【论文笔记】VLRMBench: A Comprehensive and Challenging Benchmark for Vision-Language Reward Models 论文解读 | ICCV 2025 | arXiv 2503.07478 | 奖励模型 | 提出 VLRMBench，一个包含 12634 个问题、12 项任务的综合且具有挑战性的视觉语言奖励模型（VLRM）基准，覆盖过程理解、结果判断和批评生成三大方面，在 26 个模型上的广泛实验揭示了当前 VLRM 的显著不足。"
 tags:
   - ICCV 2025
-  - 奖励模型
-  - 视觉语言理解
-  - 基准测试
 ---
 
 # VLRMBench: A Comprehensive and Challenging Benchmark for Vision-Language Reward Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learned Image Compression with Hierarchical Progressive Context Modeling 论文解读 | ICCV 2025 | arXiv 2507.19125 | 学习图像压缩 | 提出分层渐进上下文模型 (HPCM)，通过将 latent 划分为多尺度子表征并从小到大依次编码，结合跨编码步的渐进上下文融合机制（基于交叉注意力），实现更高效的远程依赖建模和更准确的熵参数估计，在图像压缩性能和计算复杂度之间取得更好的平衡。"
 tags:
   - ICCV 2025
-  - 学习图像压缩
-  - 上下文建模
-  - 熵编码
 ---
 
 # Learned Image Compression with Hierarchical Progressive Context Modeling

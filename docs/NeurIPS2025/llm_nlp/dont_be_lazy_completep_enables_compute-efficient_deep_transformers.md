@@ -2,9 +2,6 @@
 description: "【论文笔记】Don't Be Lazy: CompleteP Enables Compute-Efficient Deep Transformers 论文解读 | NeurIPS 2025 | arXiv 2505.01618 | 参数化 | CompleteP 参数化（α=1）是唯一同时实现深度方向超参转移和完全特征学习的方案，在深模型上相比 μP 节省 12-34% FLOPs。"
 tags:
   - NeurIPS 2025
-  - 参数化
-  - 深度缩放
-  - 超参转移
 ---
 
 # Don't Be Lazy: CompleteP Enables Compute-Efficient Deep Transformers

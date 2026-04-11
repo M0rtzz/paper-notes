@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond World Models: Rethinking Understanding in AI Models 论文解读 | AAAI 2026 | arXiv 2511.12239 | 世界模型 | 本文通过三个来自科学哲学的案例研究（多米诺计算机、数学证明、玻尔原子理论），论证世界模型（world models）框架不足以刻画人类级别的\"理解\"，指出仅靠追踪状态和状态转换无法捕获理解所需的抽象推理、动机洞察和问题情境把握能力。"
 tags:
   - AAAI 2026
-  - 世界模型
-  - AI理解
-  - 科学哲学
 ---
 
 # Beyond World Models: Rethinking Understanding in AI Models

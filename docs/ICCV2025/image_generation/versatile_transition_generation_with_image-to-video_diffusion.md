@@ -2,9 +2,6 @@
 description: "【论文笔记】Versatile Transition Generation with Image-to-Video Diffusion 论文解读 | ICCV 2025 | arXiv 2508.01698 | 过渡视频生成 | 本文提出 VTG，一个统一的过渡视频生成框架，通过插值初始化（噪声/LoRA/文本 SLERP）、双向运动微调和 DINOv2 表征对齐正则化，在单一框架中处理物体变形、运动预测、概念混合和场景过渡四类任务。"
 tags:
   - ICCV 2025
-  - 过渡视频生成
-  - 图像变形
-  - 概念混合
 ---
 
 # Versatile Transition Generation with Image-to-Video Diffusion

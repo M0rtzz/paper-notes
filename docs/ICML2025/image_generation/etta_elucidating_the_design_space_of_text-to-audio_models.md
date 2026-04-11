@@ -2,9 +2,6 @@
 description: "【论文笔记】ETTA: Elucidating the Design Space of Text-to-Audio Models 论文解读 | ICML 2025 | arXiv 2412.19351 | 文本到音频 | ETTA 通过大规模系统性实验阐明了文本到音频(TTA)模型的设计空间（数据、架构、训练目标、采样策略），并基于分析结论构建了当前公开数据下最优的 TTA 模型。"
 tags:
   - ICML 2025
-  - 文本到音频
-  - 扩散模型
-  - Flow Matching
 ---
 
 # ETTA: Elucidating the Design Space of Text-to-Audio Models

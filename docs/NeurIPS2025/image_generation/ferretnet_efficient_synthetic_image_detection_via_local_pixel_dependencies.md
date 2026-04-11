@@ -2,9 +2,6 @@
 description: "【论文笔记】FerretNet: Efficient Synthetic Image Detection via Local Pixel Dependencies 论文解读 | NeurIPS 2025 | arXiv 2509.20890 | synthetic image detection | 基于 Markov Random Field 理论提出局部像素依赖（LPD）特征表示，结合仅 1.1M 参数的轻量 FerretNet 网络，仅在 4 类 ProGAN 数据上训练即在 22 个生成模型上达到 97.1% 平均准确率。"
 tags:
   - NeurIPS 2025
-  - synthetic image detection
-  - local pixel dependencies
-  - Markov Random Fields
 ---
 
 # FerretNet: Efficient Synthetic Image Detection via Local Pixel Dependencies

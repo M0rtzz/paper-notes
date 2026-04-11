@@ -2,10 +2,7 @@
 description: "【论文笔记】C²Prompt: Class-aware Client Knowledge Interaction for Federated Continual Learning 论文解读 | NeurIPS 2025 | arXiv 2509.19674 | 联邦持续学习 | 针对联邦持续学习中prompt通信时的类级知识不一致问题，提出C²Prompt方法，通过局部类分布补偿（LCDC）和类感知prompt聚合（CPA）两个机制显式增强跨客户端的类级知识一致性，在ImageNet-R上Avg准确率达87.20%，超出SOTA Powder 2.51%。"
 tags:
   - NeurIPS 2025
-  - 联邦持续学习
-  - prompt学习
   - 提示学习
-  - 类感知聚合
 ---
 
 # C²Prompt: Class-aware Client Knowledge Interaction for Federated Continual Learning

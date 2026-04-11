@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Subgroups with Maximum Treatment Effects without Causal Heuristics 论文解读 | AAAI 2026 | arXiv 2511.20189 | 处理效应 | 在 SCM 框架下证明最大处理效应子群必须具有同质点效应（定理1），在分区模型假设下证明最优子群发现可化简为标准监督学习（定理2），用 CART+Gini 指数即可实现——在 77 个 ACIC-2016 半合成数据集上均值处理效应 10.54（vs 次优 7.84），51.9% 排名第一。"
 tags:
   - AAAI 2026
-  - 处理效应
-  - 子群发现
-  - CART
 ---
 
 # Learning Subgroups with Maximum Treatment Effects without Causal Heuristics

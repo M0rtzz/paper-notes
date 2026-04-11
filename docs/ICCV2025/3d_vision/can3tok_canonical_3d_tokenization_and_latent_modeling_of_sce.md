@@ -2,9 +2,6 @@
 description: "【论文笔记】Can3Tok: Canonical 3D Tokenization and Latent Modeling of Scene-Level 3D Gaussians 论文解读 | ICCV 2025 | arXiv 2508.01464 | 场景级3DGS | 提出Can3Tok——首个场景级3DGS VAE：通过cross-attention将大量(40K)无序3D Gaussian压缩到低维canonical token(256×768→64×64×4) + 3DGS归一化解决跨场景尺度不一致 + 语义感知过滤去除floater噪声，在DL3DV-10K上唯一成功的场景级3DGS潜在建模方法(L2=30.1, 失败率2.5%)，支持text-to-3DGS和image-to-3DGS前馈生成。"
 tags:
   - ICCV 2025
-  - 场景级3DGS
-  - VAE
-  - 3D tokenization
 ---
 
 # Can3Tok: Canonical 3D Tokenization and Latent Modeling of Scene-Level 3D Gaussians

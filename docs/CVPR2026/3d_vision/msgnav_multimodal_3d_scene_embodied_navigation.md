@@ -2,9 +2,6 @@
 description: "【论文笔记】MSGNav: Unleashing the Power of Multi-modal 3D Scene Graph for Zero-Shot Embodied Navigation 论文解读 | CVPR 2026 | arXiv 2511.10376 | 多模态3D场景图 | 提出多模态 3D 场景图（M3DSG）——用动态分配的图像替代纯文本关系边保留视觉线索，基于此构建 MSGNav 零样本导航系统，包含关键子图选择、自适应词汇更新、闭环推理和基于可见性的视角决策模块，在 GOAT-Bench 和 HM3D-ObjNav 上取得 SOTA。"
 tags:
   - CVPR 2026
-  - 多模态3D场景图
-  - 零样本导航
-  - 开放词汇
 ---
 
 # MSGNav: Unleashing the Power of Multi-modal 3D Scene Graph for Zero-Shot Embodied Navigation

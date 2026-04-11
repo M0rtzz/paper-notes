@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncovering Visual-Semantic Psycholinguistic Properties from the Distributional Structure of Text Embedding Space 论文解读 | ACL 2025 | arXiv 2505.23029 | Imageability | 提出 Neighborhood Stability Measure (NSM)，仅通过文本嵌入空间中邻域的\"尖锐度\"来无监督估计词汇的可意象性(imageability)和具体性(concreteness)，无需视觉模态或生成模型即可超越现有方法。"
 tags:
   - ACL 2025
-  - Imageability
-  - Concreteness
-  - 邻域稳定性
 ---
 
 # Uncovering Visual-Semantic Psycholinguistic Properties from the Distributional Structure of Text Embedding Space

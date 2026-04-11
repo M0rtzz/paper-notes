@@ -2,9 +2,6 @@
 description: "【论文笔记】Hybrid Deep Searcher: Scalable Parallel and Sequential Search Reasoning 论文解读 | ICLR 2026 | arXiv 2508.19113 | 深度搜索 | 提出 HybridDeepSearcher，通过构建 HDS-QA 数据集训练大语言推理模型（LRM）区分可并行化和顺序依赖的搜索查询，在 FanOutQA 上 F1 提升 +15.9、BrowseComp 子集上提升 +11.5，同时显著降低推理延迟并展示出一致的测试时搜索扩展能力。"
 tags:
   - ICLR 2026
-  - 深度搜索
-  - 并行搜索
-  - 检索增强生成
 ---
 
 # Hybrid Deep Searcher: Scalable Parallel and Sequential Search Reasoning

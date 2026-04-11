@@ -2,9 +2,6 @@
 description: "【论文笔记】CLIPoint3D: Language-Grounded Few-Shot Unsupervised 3D Point Cloud Domain Adaptation 论文解读 | CVPR2026 | arXiv 2602.20409 | 3D点云域自适应 | 首个基于 CLIP 的少样本无监督 3D 点云域自适应框架，通过知识驱动的 prompt tuning、参数高效微调、熵引导视图选取和不确定性感知对齐损失，在 PointDA-10 和 GraspNetPC-10 上以仅 ~11M 可训练参数取得 3-16% 的一致性精度提升。"
 tags:
   - CVPR2026
-  - 3D点云域自适应
-  - CLIP
-  - 视觉-语言模型
 ---
 
 # CLIPoint3D: Language-Grounded Few-Shot Unsupervised 3D Point Cloud Domain Adaptation

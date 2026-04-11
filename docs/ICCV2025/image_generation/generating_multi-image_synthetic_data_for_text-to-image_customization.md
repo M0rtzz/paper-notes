@@ -2,9 +2,6 @@
 description: "【论文笔记】Generating Multi-Image Synthetic Data for Text-to-Image Customization 论文解读 | ICCV 2025 | arXiv 2502.01720 | 文本到图像定制化 | 提出 SynCD（合成定制数据集）及其生成管线，利用共享注意力和 3D 资产先验合成多图一致性对象数据集，训练的编码器模型在无需测试时优化的情况下超越现有编码器方法。"
 tags:
   - ICCV 2025
-  - 文本到图像定制化
-  - 合成数据集
-  - 共享注意力
 ---
 
 # Generating Multi-Image Synthetic Data for Text-to-Image Customization

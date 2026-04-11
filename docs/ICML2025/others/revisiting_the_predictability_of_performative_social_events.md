@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting the Predictability of Performative, Social Events 论文解读 | ICML2025 | arXiv 2503.11713 | performative prediction | 本文用现代学习理论工具（performative prediction + outcome indistinguishability）重新回答了20世纪社会科学中的经典问题：在预测会主动影响结果的情况下，社会事件是否仍可被准确预测？答案是肯定的——但这种\"准确\"的预测可能毫无用处。"
 tags:
   - ICML2025
-  - performative prediction
-  - multicalibration
-  - outcome indistinguishability
 ---
 
 # Revisiting the Predictability of Performative, Social Events

@@ -2,9 +2,6 @@
 description: "【论文笔记】When to Restart? Exploring Escalating Restarts on Convergence 论文解读 | ICLR 2026 | arXiv 2603.04117 | 学习率调度 | 提出 SGD-ER（SGD with Escalating Restarts），一种收敛感知的学习率调度策略：当检测到训练停滞时触发重启并线性升高学习率，帮助优化器逃离尖锐局部极小值、探索更平坦的损失景观区域，在 CIFAR-10/100 和 TinyImageNet 上取得 0.5-4.5% 的测试精度提升。"
 tags:
   - ICLR 2026
-  - 学习率调度
-  - 自适应重启
-  - 收敛感知
 ---
 
 # When to Restart? Exploring Escalating Restarts on Convergence

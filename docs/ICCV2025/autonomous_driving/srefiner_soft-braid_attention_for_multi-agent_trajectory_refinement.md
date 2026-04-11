@@ -2,9 +2,6 @@
 description: "【论文笔记】SRefiner: Soft-Braid Attention for Multi-Agent Trajectory Refinement 论文解读 | ICCV 2025 | arXiv 2507.04263 | 轨迹预测 | 提出 Soft-Braid Attention，通过\"软交叉点\"显式建模轨迹间和轨迹与车道间的时空拓扑关系来指导多智能体轨迹精炼，在 Argoverse v2 和 INTERACTION 两个数据集上对四种基线方法均实现显著提升，建立了轨迹精炼任务的新 SOTA。"
 tags:
   - ICCV 2025
-  - 轨迹预测
-  - 轨迹精炼
-  - 拓扑结构
 ---
 
 # SRefiner: Soft-Braid Attention for Multi-Agent Trajectory Refinement

@@ -2,9 +2,6 @@
 description: "【论文笔记】PolyPose: Deformable 2D/3D Registration via Polyrigid Transformations 论文解读 | NeurIPS 2025 | arXiv 2505.19256 | 2D/3D配准 | 提出PolyPose，一种基于多刚体变换（polyrigid）的可变形2D/3D配准方法，利用\"骨骼是刚体\"这一解剖学先验，将复杂3D形变场参数化为多个刚体变换在切空间 $\mathfrak{se}(3)$ 中的加权组合，无需正则化和超参数调优即可从少至两张X光片实现精确的3D体积配准。"
 tags:
   - NeurIPS 2025
-  - 2D/3D配准
-  - 多刚体变换
-  - 可微分X射线渲染
 ---
 
 # PolyPose: Deformable 2D/3D Registration via Polyrigid Transformations

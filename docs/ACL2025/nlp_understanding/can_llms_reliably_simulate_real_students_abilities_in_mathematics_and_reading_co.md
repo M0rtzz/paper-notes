@@ -2,9 +2,7 @@
 description: "【论文笔记】Can LLMs Reliably Simulate Real Students' Abilities in Mathematics and Reading Comprehension? 论文解读 | ACL 2025 | arXiv 2507.08232 | LLM评估 | 利用项目反应理论(IRT)将11个LLM与真实学生放在同一能力量表上评估，发现在无引导情况下强模型远超学生平均水平，而\"扮演某年级学生\"的提示虽能改变表现，但**没有任何模型-提示组合**能在所有学科和年级上可靠模拟平均学生。"
 tags:
   - ACL 2025
-  - LLM评估
-  - 模拟学生
-  - 项目反应理论(IRT)
+  - 提示学习
 ---
 
 # Can LLMs Reliably Simulate Real Students' Abilities in Mathematics and Reading Comprehension?

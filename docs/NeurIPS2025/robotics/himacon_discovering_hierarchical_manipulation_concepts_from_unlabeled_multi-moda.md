@@ -2,9 +2,6 @@
 description: "【论文笔记】HiMaCon: Discovering Hierarchical Manipulation Concepts from Unlabeled Multi-Modal Data 论文解读 | NeurIPS 2025 | arXiv 2510.11321 | 操作概念 | 提出自监督框架从无标注多模态机器人演示中学习层级操作概念，通过跨模态相关性网络和多时域子目标预测器组织表示，增强模仿学习策略在新物体、新障碍和新环境下的泛化能力。"
 tags:
   - NeurIPS 2025
-  - 操作概念
-  - 层级表示
-  - 跨模态相关性
 ---
 
 # HiMaCon: Discovering Hierarchical Manipulation Concepts from Unlabeled Multi-Modal Data

@@ -2,9 +2,6 @@
 description: "【论文笔记】AmbiK: Dataset of Ambiguous Tasks in Kitchen Environment 论文解读 | ACL 2025 | arXiv 2506.04089 | 歧义检测 | 提出 AmbiK，一个专门用于厨房环境中歧义指令检测的纯文本数据集，包含 1000 对歧义/非歧义指令，按三种歧义类型（用户偏好/常识/安全）分类标注，并评估了多种基于 conformal prediction 的歧义检测方法，发现现有方法在该基准上表现很差。"
 tags:
   - ACL 2025
-  - 歧义检测
-  - 机器人任务规划
-  - 厨房环境
 ---
 
 # AmbiK: Dataset of Ambiguous Tasks in Kitchen Environment

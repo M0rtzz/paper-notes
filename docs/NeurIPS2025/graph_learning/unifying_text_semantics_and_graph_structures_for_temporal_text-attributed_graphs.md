@@ -2,9 +2,6 @@
 description: "【论文笔记】Unifying Text Semantics and Graph Structures for Temporal Text-attributed Graphs with LLMs 论文解读 | NeurIPS 2025 | arXiv 2503.14411 | 时序文本属性图 | 提出 Cross 框架——用 LLM 在策略采样的时间点上动态总结节点邻域的语义演变（Temporal Reasoning Chain），然后通过语义-结构协同编码器双向融合文本语义和图结构时序信息，在时序链接预测上平均 MRR 提升 24.7%，工业数据（微信）上 AUC 提升 3.7%。"
 tags:
   - NeurIPS 2025
-  - 时序文本属性图
-  - LLM
-  - 语义-结构协同编码
 ---
 
 # Unifying Text Semantics and Graph Structures for Temporal Text-attributed Graphs with LLMs

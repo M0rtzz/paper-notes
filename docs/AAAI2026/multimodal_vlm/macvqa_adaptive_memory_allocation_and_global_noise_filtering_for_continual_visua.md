@@ -2,9 +2,6 @@
 description: "【论文笔记】MacVQA: Adaptive Memory Allocation and Global Noise Filtering for Continual Visual Question Answering 论文解读 | AAAI 2026 | arXiv 2601.01926 | 持续学习 | 本文提出MacVQA框架，通过全局噪声过滤（GonF）增强视觉特征的鲁棒性，并通过自适应记忆分配（AMA）基于原型检索和记忆衰减优化知识保留与更新，在VQA v2的10个持续学习任务上实现43.38%平均准确率（+3.57%）和2.32%遗忘率。"
 tags:
   - AAAI 2026
-  - 持续学习
-  - 视觉问答
-  - 噪声过滤
 ---
 
 # MacVQA: Adaptive Memory Allocation and Global Noise Filtering for Continual Visual Question Answering

@@ -2,9 +2,6 @@
 description: "【论文笔记】Parallel In-context Learning for Large Vision Language Models 论文解读 | CVPR 2026 | arXiv 2603.16092 | In-context Learning | 提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。"
 tags:
   - CVPR 2026
-  - In-context Learning
-  - 推理加速
-  - Product-of-Experts
 ---
 
 # Parallel In-context Learning for Large Vision Language Models

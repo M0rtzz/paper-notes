@@ -2,9 +2,6 @@
 description: "【论文笔记】Continuous Visual Autoregressive Generation via Score Maximization 论文解读 | ICML 2025 | arXiv 2505.07812 | 连续自回归 | 提出连续视觉自回归（Continuous VAR）框架——基于严格适当评分规则（strictly proper scoring rules）的理论，用能量分数（energy score）作为训练目标，实现不需要向量量化的连续 token 自回归图像生成。"
 tags:
   - ICML 2025
-  - 连续自回归
-  - 评分规则
-  - 能量分数
 ---
 
 # Continuous Visual Autoregressive Generation via Score Maximization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Heterogeneous Data Game: Characterizing the Model Competition Across Multiple Data Sources 论文解读 | ICML 2025 | arXiv 2505.07688 | data heterogeneity | 提出\"异构数据博弈\"框架分析多ML模型提供者在异构数据源上的竞争，揭示三种PNE模式（不存在/同质化/异质化），给出不同选择模型和市场结构下PNE存在性的充分必要条件。"
 tags:
   - ICML 2025
-  - data heterogeneity
-  - Nash equilibrium
-  - model competition
 ---
 
 # Heterogeneous Data Game: Characterizing the Model Competition Across Multiple Data Sources

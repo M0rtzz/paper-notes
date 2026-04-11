@@ -2,9 +2,6 @@
 description: "【论文笔记】What Makes an Ensemble (Un)interpretable? 论文解读 | ICML 2025 | arXiv 2506.08216 | ensemble learning | 系统研究集成学习方法的可解释性问题——什么因素使集成模型难以解释，以及如何在保持预测性能的同时提高集成的可解释性，提出了量化集成可解释性的理论框架和实用的可解释集成构建方法。"
 tags:
   - ICML 2025
-  - ensemble learning
-  - interpretability
-  - model complexity
 ---
 
 # What Makes an Ensemble (Un)interpretable?

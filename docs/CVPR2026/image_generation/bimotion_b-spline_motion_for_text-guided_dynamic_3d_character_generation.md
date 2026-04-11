@@ -2,9 +2,7 @@
 description: "【论文笔记】BiMotion: B-spline Motion for Text-guided Dynamic 3D Character Generation 论文解读 | CVPR2026 | arXiv 2602.18873 | B-spline | 提出 BiMotion，用连续可微的 B 样条曲线将变长运动序列压缩为固定数量控制点，配合专用 VAE 和 flow-matching 扩散模型，实现快速、高表达力、语义完整的文本引导动态 3D 角色生成，在质量和效率上均超越现有方法。"
 tags:
   - CVPR2026
-  - B-spline
-  - 运动生成
-  - 文本引导
+  - 扩散模型
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

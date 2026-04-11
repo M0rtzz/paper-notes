@@ -2,10 +2,7 @@
 description: "【论文笔记】GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis 论文解读 | CVPR2025 | arXiv 2603.09446 | 图神经网络 graph neural network | 提出 GIIM，一种基于多异构图（MHG）的多视图医学图像分类框架，同时建模视图内（intra-view）和视图间（inter-view）的病灶依赖关系，在肝脏 CT、乳腺 X 线和乳腺 MRI 三种模态上均显著优于现有多视图方法，并对缺失视图具有鲁棒性。"
 tags:
   - CVPR2025
-  - graph neural network
   - 图神经网络
-  - multi-view
-  - heterogeneous graph
 ---
 
 # GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis

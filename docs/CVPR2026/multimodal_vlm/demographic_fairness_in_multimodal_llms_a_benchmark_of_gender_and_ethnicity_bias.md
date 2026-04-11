@@ -2,9 +2,6 @@
 description: "【论文笔记】Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification 论文解读 | CVPR 2026 | arXiv 2603.25613 | 多模态大模型 | 首次系统性地评估了 9 个开源 MLLM 在人脸验证任务上的人口统计公平性，在 IJB-C 和 RFW 两个 benchmark 上使用 4 种 FMR-based 公平性指标衡量性别和族裔偏差，发现 MLLM 的偏见模式与传统人脸识别系统不同。"
 tags:
   - CVPR 2026
-  - 多模态大模型
-  - 人脸验证
-  - 人口统计公平性
 ---
 
 # Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification

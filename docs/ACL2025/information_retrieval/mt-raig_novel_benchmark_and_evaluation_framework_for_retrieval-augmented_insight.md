@@ -2,9 +2,6 @@
 description: "【论文笔记】MT-RAIG: Novel Benchmark and Evaluation Framework for Retrieval-Augmented Insight Generation over Multiple Tables 论文解读 | ACL 2025 | arXiv 2502.11735 | 多表格推理 | 提出MT-RAIG Bench——首个面向多表格检索增强洞察生成的大规模基准，以及MT-RAIG Eval——基于分解的细粒度自动评估框架，实验表明即使前沿LLM在多表格推理上仍表现不佳（忠实度仅约40%，完整度约60%）。"
 tags:
   - ACL 2025
-  - 多表格推理
-  - 检索增强生成
-  - 表格问答
 ---
 
 # MT-RAIG: Novel Benchmark and Evaluation Framework for Retrieval-Augmented Insight Generation over Multiple Tables

@@ -2,9 +2,6 @@
 description: "【论文笔记】SocialEval: Evaluating Social Intelligence of Large Language Models 论文解读 | ACL 2025 | arXiv 2506.00900 | Social Intelligence | 提出基于叙事脚本的双语社会智能基准 SocialEval，通过\"世界树\"结构整合结果导向的目标达成评估和过程导向的人际能力评估，全面评测 LLM 的社会智能。"
 tags:
   - ACL 2025
-  - Social Intelligence
-  - Benchmark
-  - World Tree
 ---
 
 # SocialEval: Evaluating Social Intelligence of Large Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Parameterized Approximation Algorithms for TSP on Non-Metric Graphs 论文解读 | AAAI 2026 | arXiv 2503.03642 | 旅行商问题 | 本文针对非度量图上的旅行商问题（TSP），提出了关于参数 $p$（违反三角不等式的顶点数）和 $q$（最小违反集大小）的改进FPT近似算法，将 $p$ 参数下的近似比从2.5改进到1.5，$q$ 参数下从11改进到3。"
 tags:
   - AAAI 2026
-  - 旅行商问题
-  - 参数化近似算法
-  - 非度量图
 ---
 
 # Parameterized Approximation Algorithms for TSP on Non-Metric Graphs

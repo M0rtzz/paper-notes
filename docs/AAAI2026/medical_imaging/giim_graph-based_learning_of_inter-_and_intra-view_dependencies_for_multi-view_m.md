@@ -2,9 +2,6 @@
 description: "【论文笔记】GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis 论文解读 | AAAI 2026 | arXiv 2603.09446 | 图神经网络 | 提出基于多异构图（MHG）的GIIM框架，通过图结构同时建模病灶间的视图内依赖和视图间动态变化，并引入四种缺失视图表示策略，在肝脏CT、乳腺X线和乳腺MRI三种模态上显著超越现有多视图方法。"
 tags:
   - AAAI 2026
-  - 图神经网络
-  - 多视图学习
-  - 异构图
 ---
 
 # GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis

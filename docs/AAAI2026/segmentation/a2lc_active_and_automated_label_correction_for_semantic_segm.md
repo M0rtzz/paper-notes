@@ -2,9 +2,6 @@
 description: "【论文笔记】A²LC: Active and Automated Label Correction for Semantic Segmentation 论文解读 | AAAI 2026 | arXiv 2506.11599 | 主动标签校正 | 提出 A²LC 框架，在传统主动标签校正（人工逐一纠错）的基础上增加一个自动校正阶段（Label Correction Module），利用标注员的反馈自动修正相似的错误mask，并设计自适应平衡采集函数缓解类别不平衡，在 Cityscapes 上仅用 20% 预算即超越前 SOTA，同等预算下 mIoU 提升 27.23%。"
 tags:
   - AAAI 2026
-  - 主动标签校正
-  - 自动标签校正
-  - 伪标签
 ---
 
 # A²LC: Active and Automated Label Correction for Semantic Segmentation

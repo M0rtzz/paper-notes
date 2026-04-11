@@ -2,9 +2,6 @@
 description: "【论文笔记】Benchmarking Vision-Language Models under Contradictory Virtual Content Attacks in Augmented Reality 论文解读 | CVPR 2026 | arXiv 2604.05510 | 增强现实安全 | 本文构建了首个AR环境下矛盾虚拟内容攻击基准ContrAR（312个真实AR视频），系统评估了11个VLM在检测AR场景中语义矛盾方面的能力，发现当前VLM在准确性与延迟之间难以平衡。"
 tags:
   - CVPR 2026
-  - 增强现实安全
-  - 语义矛盾检测
-  - VLM鲁棒性
 ---
 
 # Benchmarking Vision-Language Models under Contradictory Virtual Content Attacks in Augmented Reality

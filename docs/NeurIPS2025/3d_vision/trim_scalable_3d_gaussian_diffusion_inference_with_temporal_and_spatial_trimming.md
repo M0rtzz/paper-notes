@@ -2,9 +2,6 @@
 description: "【论文笔记】TRIM: Scalable 3D Gaussian Diffusion Inference with Temporal and Spatial Trimming 论文解读 | NeurIPS 2025 | arXiv 2511.16642 | 3D生成 | 提出TRIM（Trajectory Reduction and Instance Mask denoising），一种后训练框架，通过时间维度的轨迹预筛选和空间维度的背景token裁剪来加速3D高斯扩散模型推理，同时提升生成质量，在T3Bench文本生成3D和GSO图像生成3D任务上均优于DiffSplat等基线。"
 tags:
   - NeurIPS 2025
-  - 3D生成
-  - 高斯扩散
-  - 推理加速
 ---
 
 # TRIM: Scalable 3D Gaussian Diffusion Inference with Temporal and Spatial Trimming

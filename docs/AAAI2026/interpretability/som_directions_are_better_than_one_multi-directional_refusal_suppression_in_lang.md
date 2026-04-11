@@ -2,9 +2,6 @@
 description: "【论文笔记】SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models 论文解读 | AAAI 2026 | arXiv 2511.08379 | 拒绝抑制 | 证明LLM的拒绝行为并非由单一方向编码，而是形成低维流形，利用自组织映射（SOM）提取多个拒绝方向并通过贝叶斯优化搜索最优消融组合，在多个模型上超越单方向基线和专用越狱算法。"
 tags:
   - AAAI 2026
-  - 拒绝抑制
-  - 自组织映射
-  - 多方向消融
 ---
 
 # SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models

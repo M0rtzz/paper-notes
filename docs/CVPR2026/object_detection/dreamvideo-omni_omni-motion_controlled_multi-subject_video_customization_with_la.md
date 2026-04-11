@@ -2,9 +2,6 @@
 description: "【论文笔记】DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning 论文解读 | CVPR 2026 | arXiv 2603.12257 | 视频定制生成 | 提出 DreamVideo-Omni，通过两阶段渐进训练范式（全运动身份监督微调 + 潜空间身份奖励反馈学习），在单一 DiT 架构中首次统一实现多主体定制与全粒度运动控制（全局包围盒 + 局部轨迹 + 相机运动）。"
 tags:
   - CVPR 2026
-  - 视频定制生成
-  - 多主体身份保持
-  - 全运动控制
 ---
 
 # DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning

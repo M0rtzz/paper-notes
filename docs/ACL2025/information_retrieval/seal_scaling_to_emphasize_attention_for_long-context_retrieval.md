@@ -2,9 +2,6 @@
 description: "【论文笔记】SEAL: Scaling to Emphasize Attention for Long-Context Retrieval 论文解读 | ACL 2025 | arXiv 2501.15225 | 长上下文检索 | 通过剪枝分析发现特定注意力头与长上下文检索高度相关，提出 SEAL（可学习标量/向量缩放注意力头/通道），仅需 ~1024 个额外参数 + 50 个合成样本训练，即可将 LongChat-7B 在 31K 上的检索准确率从 0.32 提升到 0.88，且缩放参数可离线合并到权重中实现零推理开销。"
 tags:
   - ACL 2025
-  - 长上下文检索
-  - 注意力头缩放
-  - 零推理开销
 ---
 
 # SEAL: Scaling to Emphasize Attention for Long-Context Retrieval

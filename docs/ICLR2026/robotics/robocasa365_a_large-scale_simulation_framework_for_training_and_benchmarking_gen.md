@@ -2,9 +2,6 @@
 description: "【论文笔记】RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots 论文解读 | ICLR 2026 | arXiv 2603.04356 | 仿真平台 | RoboCasa365 构建了一个包含 365 个日常厨房任务、2500 个多样化厨房场景和超过 2000 小时机器人交互数据的大规模仿真基准，系统评估了多任务学习、基础模型训练和终身学习三大范式下通用机器人策略的性能表现，发现预训练数据的任务多样性是提升下游泛化能力的关键因素。"
 tags:
   - ICLR 2026
-  - 仿真平台
-  - 家庭移动操作
-  - 多任务学习
 ---
 
 # RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots

@@ -2,9 +2,6 @@
 description: "【论文笔记】Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online Reinforcement Learning 论文解读 | ICML2025 | arXiv 2506.05968 | Bellman算子 | 提出 Annealed Q-learning (AQ-L)，通过期望分位损失（expectile loss）的参数 τ 从接近1退火至0.5，实现从 Bellman 最优算子到 Bellman 算子的平滑过渡，在连续动作空间中既加速了早期学习又抑制了后期过估计偏差，与 TD3/SAC 结合后在多种运动控制和操控任务上显著优于基线。"
 tags:
   - ICML2025
-  - Bellman算子
-  - 过估计偏差
-  - Actor-Critic
 ---
 
 # Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online Reinforcement Learning

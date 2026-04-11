@@ -2,9 +2,6 @@
 description: "【论文笔记】Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2506.03136 | 自演化 | 提出CURE框架，通过单元测试生成器与代码生成器的相互监督和共同进化，在无需ground-truth代码的情况下显著提升LLM代码生成能力。"
 tags:
   - NeurIPS 2025
-  - 自演化
-  - RL
-  - 单元测试生成
 ---
 
 # Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning

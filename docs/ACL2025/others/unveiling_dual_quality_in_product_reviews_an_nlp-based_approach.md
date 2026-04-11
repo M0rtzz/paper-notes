@@ -2,9 +2,7 @@
 description: "【论文笔记】Unveiling Dual Quality in Product Reviews: An NLP-Based Approach 论文解读 | ACL 2025 | arXiv 2505.19254 | 产品双重质量 | 首次将\"产品双重质量\"（同一品牌产品在不同市场存在质量差异）问题定义为 NLP 任务，构建了 1957 条波兰语评论的标注数据集，并系统评估了 SetFit、Transformer 编码器和 LLM 等多种方法在该任务上的表现。"
 tags:
   - ACL 2025
-  - 产品双重质量
-  - 评论检测
-  - SetFit
+  - Transformer
 ---
 
 # Unveiling Dual Quality in Product Reviews: An NLP-Based Approach

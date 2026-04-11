@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Lifetime Tuning is Incompatible with Continual Reinforcement Learning 论文解读 | ICML2025 | arXiv 2404.02113 | 持续学习 | 指出RL中广泛采用的\"终身调优\"做法在持续学习研究中有误导性：通过在整个生命周期上调参，任何算法都能表现良好，掩盖了真实持续学习能力差异。提出k%-tuning方案作为更合理的评估框架。"
 tags:
   - ICML2025
-  - 持续学习
-  - 超参调优
-  - 强化学习
 ---
 
 # Position: Lifetime Tuning is Incompatible with Continual Reinforcement Learning

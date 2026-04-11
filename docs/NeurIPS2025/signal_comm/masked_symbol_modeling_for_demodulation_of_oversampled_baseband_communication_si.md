@@ -2,8 +2,6 @@
 description: "【论文笔记】Masked Symbol Modeling for Demodulation of Oversampled Baseband Communication Signals 论文解读 | NeurIPS 2025 | arXiv 2512.01428 | 解调 | 提出 Masked Symbol Modeling，将 BERT 的掩码预测范式应用于通信物理层，将脉冲成形引起的符号间贡献视为上下文信息，训练 Transformer 在干净信号上学习波形结构，推理时通过上下文恢复被冲激噪声破坏的符号。"
 tags:
   - NeurIPS 2025
-  - 解调
-  - BERT
   - Transformer
 ---
 

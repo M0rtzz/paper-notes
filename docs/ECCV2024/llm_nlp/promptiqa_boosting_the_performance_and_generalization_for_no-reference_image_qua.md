@@ -2,10 +2,8 @@
 description: "【论文笔记】PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts 论文解读 | ECCV 2024 | arXiv 2403.04993 | no-reference IQA | 提出 PromptIQA，通过少量\"图像-分数对\"（ISP）作为 prompt 的方式，使 NR-IQA 模型训练完成后无需微调即可自适应适配新的质量评估需求，在 12 个数据集、5 类 IQA 任务上均达到 SOTA 性能和泛化能力。"
 tags:
   - ECCV 2024
-  - no-reference IQA
-  - image-score pairs prompt
   - 提示学习
-  - mixed training
+  - 数据增强
 ---
 
 # PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts

@@ -2,9 +2,6 @@
 description: "【论文笔记】VecGlypher: Unified Vector Glyph Generation with Language Models 论文解读 | CVPR 2026 | arXiv 2602.21461 | 字体生成 | 提出VecGlypher——首个统一文本和图像引导的矢量字形生成语言模型，通过两阶段训练(大规模SVG语法学习+专家标注对齐)直接自回归生成可编辑SVG路径，无需光栅中间步骤或向量化后处理。"
 tags:
   - CVPR 2026
-  - 字体生成
-  - 矢量图形
-  - SVG
 ---
 
 # VecGlypher: Unified Vector Glyph Generation with Language Models

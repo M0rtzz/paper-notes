@@ -2,9 +2,6 @@
 description: "【论文笔记】ReAG: Reasoning-Augmented Generation for Knowledge-based Visual Question Answering 论文解读 | CVPR 2026 | arXiv 2511.22715 | KB-VQA | 提出 ReAG，一个推理增强的多模态 RAG 方法，结合粗细粒度检索与 Critic 过滤模型减少噪声，并通过 GRPO 强化学习训练生成器进行显式推理，在知识密集型 VQA 上达到新 SOTA。"
 tags:
   - CVPR 2026
-  - KB-VQA
-  - RAG
-  - 强化学习
 ---
 
 # ReAG: Reasoning-Augmented Generation for Knowledge-based Visual Question Answering

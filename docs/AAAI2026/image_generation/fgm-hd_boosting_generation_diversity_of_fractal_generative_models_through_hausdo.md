@@ -2,9 +2,6 @@
 description: "【论文笔记】FGM-HD: Boosting Generation Diversity of Fractal Generative Models through Hausdorff Dimension Induction 论文解读 | AAAI 2026 | arXiv 2511.08945 | Fractal Generative Model | 本文首次将 Hausdorff 维数（HD）引入分形生成模型（FGM），提出可学习的 HD 估计模块、单调动量驱动调度策略（MMDS）和 HD 引导的拒绝采样，在 ImageNet 上实现 39% 的生成多样性提升（Recall），同时保持图像质量。"
 tags:
   - AAAI 2026
-  - Fractal Generative Model
-  - Hausdorff Dimension
-  - 生成多样性
 ---
 
 # FGM-HD: Boosting Generation Diversity of Fractal Generative Models through Hausdorff Dimension Induction

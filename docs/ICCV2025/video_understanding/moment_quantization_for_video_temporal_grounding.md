@@ -2,9 +2,6 @@
 description: "【论文笔记】Moment Quantization for Video Temporal Grounding 论文解读 | ICCV 2025 | arXiv 2504.02286 | 视频时序定位 | 提出 MQVTG，首次将向量量化引入视频时序定位任务，通过时刻码本和软量化将视频片段映射为离散向量，增强前景/背景的区分度，在 6 个基准上取得 SOTA。"
 tags:
   - ICCV 2025
-  - 视频时序定位
-  - 向量量化
-  - 时刻码本
 ---
 
 # Moment Quantization for Video Temporal Grounding

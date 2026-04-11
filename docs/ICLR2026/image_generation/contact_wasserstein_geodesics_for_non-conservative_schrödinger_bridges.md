@@ -2,9 +2,6 @@
 description: "【论文笔记】Contact Wasserstein Geodesics for Non-Conservative Schrödinger Bridges 论文解读 | ICLR2026 | arXiv 2511.06856 | Schrödinger bridge | 提出非守恒广义 Schrödinger 桥 (NCGSB)——基于接触哈密顿力学允许能量随时间变化，通过 Contact Wasserstein Geodesic (CWG) 将桥问题转化为有限维 Jacobi 度量上的测地线计算，用 ResNet 参数化实现近线性复杂度且支持引导生成，在流形导航、分子动力学、图像生成等任务上大幅超越迭代式 SB 求解器。"
 tags:
   - ICLR2026
-  - Schrödinger bridge
-  - contact Hamiltonian
-  - Wasserstein geodesic
 ---
 
 # Contact Wasserstein Geodesics for Non-Conservative Schrödinger Bridges

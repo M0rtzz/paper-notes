@@ -2,9 +2,6 @@
 description: "【论文笔记】Knowing When to Quit: Probabilistic Early Exits for Speech Separation 论文解读 | ICLR 2026 | arXiv 2507.09768 | 语音分离 | 提出 PRESS（Probabilistic Early-exit for Speech Separation）方法和 PRESS-Net 架构，通过概率框架联合建模干净语音信号和误差方差，推导出基于信噪比（SNR）的可解释早退出条件，实现语音分离网络的细粒度动态计算缩放，同时保持与SOTA静态模型竞争力的性能。"
 tags:
   - ICLR 2026
-  - 语音分离
-  - 早退出
-  - 概率模型
 ---
 
 # Knowing When to Quit: Probabilistic Early Exits for Speech Separation

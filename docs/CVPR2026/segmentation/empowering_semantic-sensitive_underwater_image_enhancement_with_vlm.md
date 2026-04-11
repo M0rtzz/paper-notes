@@ -2,9 +2,6 @@
 description: "【论文笔记】Empowering Semantic-Sensitive Underwater Image Enhancement with VLM 论文解读 | CVPR 2026 | arXiv 2603.12773 | 水下图像增强 | 提出一种利用 VLM 生成语义引导图的即插即用策略（-SS），通过交叉注意力注入和语义对齐损失的双重引导机制，使水下图像增强模型在恢复时聚焦语义关键区域，显著提升感知质量和下游检测/分割性能。"
 tags:
   - CVPR 2026
-  - 水下图像增强
-  - 语义引导
-  - VLM
 ---
 
 # Empowering Semantic-Sensitive Underwater Image Enhancement with VLM

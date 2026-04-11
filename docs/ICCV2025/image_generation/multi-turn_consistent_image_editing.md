@@ -2,9 +2,7 @@
 description: "【论文笔记】Multi-turn Consistent Image Editing 论文解读 | ICCV2025 | arXiv 2505.04320 | multi-turn editing | 提出基于 flow matching 的多轮图像编辑框架，通过双目标 LQR 引导和自适应注意力机制，有效抑制多轮编辑中的误差累积，在保持内容一致性的同时实现灵活可控的迭代编辑。"
 tags:
   - ICCV2025
-  - multi-turn editing
-  - flow matching
-  - LQR control
+  - 注意力机制
 ---
 
 # Multi-turn Consistent Image Editing

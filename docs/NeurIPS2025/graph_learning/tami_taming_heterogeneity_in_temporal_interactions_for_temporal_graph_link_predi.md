@@ -2,9 +2,6 @@
 description: "【论文笔记】TAMI: Taming Heterogeneity in Temporal Interactions for Temporal Graph Link Prediction 论文解读 | NeurIPS 2025 | arXiv 2510.23577 | 时序图 | 首次系统识别时序图交互中的异质性问题（交互间隔呈幂律分布），提出TAMI框架包含对数时间编码(LTE)和链接历史聚合(LHA)两个模块，可无缝集成到现有TGNN中，在16个数据集上持续提升链接预测性能，最高提升87.05%。"
 tags:
   - NeurIPS 2025
-  - 时序图
-  - 链接预测
-  - 时间编码
 ---
 
 # TAMI: Taming Heterogeneity in Temporal Interactions for Temporal Graph Link Prediction

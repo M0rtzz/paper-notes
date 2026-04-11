@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning 3D Scene Analogies with Neural Contextual Scene Maps 论文解读 | ICCV 2025 | arXiv 2503.15897 | 3D场景类比 | 提出3D场景类比任务，通过神经上下文场景映射（neural contextual scene maps）在共享相似语义上下文的场景区域间建立稠密三维映射，支持轨迹迁移与物体放置迁移等下游应用。"
 tags:
   - ICCV 2025
-  - 3D场景类比
-  - 场景映射
-  - 描述子场
 ---
 
 # Learning 3D Scene Analogies with Neural Contextual Scene Maps

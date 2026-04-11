@@ -2,9 +2,6 @@
 description: "【论文笔记】Interaction-Merged Motion Planning: Effectively Leveraging Diverse Motion Datasets for Robust Planning 论文解读 | ICCV 2025 | arXiv 2507.04790 | 运动规划 | 提出 IMMP（Interaction-Merged Motion Planning），通过两阶段策略——交互保持预合并（构建多指标检查点池）和交互迁移合并（按交互模块分组的任务向量加权合并）——将来自不同轨迹数据集的智能体行为和交互知识迁移到目标域，有效提升运动规划的跨域适应性。"
 tags:
   - ICCV 2025
-  - 运动规划
-  - 模型合并
-  - 域适应
 ---
 
 # Interaction-Merged Motion Planning: Effectively Leveraging Diverse Motion Datasets for Robust Planning

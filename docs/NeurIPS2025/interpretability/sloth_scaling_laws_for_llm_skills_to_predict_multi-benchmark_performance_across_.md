@@ -2,9 +2,6 @@
 description: "【论文笔记】Sloth: Scaling Laws for LLM Skills to Predict Multi-Benchmark Performance Across Families 论文解读 | NeurIPS 2025 | arXiv 2412.06540 | scaling laws | 提出Skills Scaling Laws (Sloth)，通过假设LLM性能由低维潜在技能（如推理、指令遵循）驱动，利用benchmark间的相关性构建跨模型家族的缩放定律，用少量家族数据即可预测大模型在多个benchmark上的表现。"
 tags:
   - NeurIPS 2025
-  - scaling laws
-  - LLM benchmarks
-  - latent skills
 ---
 
 # Sloth: Scaling Laws for LLM Skills to Predict Multi-Benchmark Performance Across Families

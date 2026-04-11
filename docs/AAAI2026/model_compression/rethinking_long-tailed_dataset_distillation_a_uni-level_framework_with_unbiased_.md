@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Long-tailed Dataset Distillation: A Uni-Level Framework with Unbiased Recovery and Relabeling 论文解读 | AAAI 2026 | arXiv 2511.18858 | 数据集蒸馏 | 提出首个面向长尾分布的单层(uni-level)数据集蒸馏框架，通过专家模型去偏、BN统计量公平校准和置信度引导初始化三大策略，在CIFAR-100-LT上提升15.6%、Tiny-ImageNet-LT上提升11.8%，全面超越DAMED。"
 tags:
   - AAAI 2026
-  - 数据集蒸馏
-  - 长尾分布
-  - 单层优化
 ---
 
 # Rethinking Long-tailed Dataset Distillation: A Uni-Level Framework with Unbiased Recovery and Relabeling

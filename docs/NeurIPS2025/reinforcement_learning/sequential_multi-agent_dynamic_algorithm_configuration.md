@@ -2,9 +2,6 @@
 description: "【论文笔记】Sequential Multi-Agent Dynamic Algorithm Configuration 论文解读 | NeurIPS 2025 | arXiv 2510.23535 | 动态算法配置 | 提出 Seq-MADAC 框架，将多超参数动态配置建模为上下文顺序多智能体 MDP，通过顺序优势分解网络（SADN）利用参数间的固有依赖关系，在多目标优化算法配置上超越现有 MARL 方法。"
 tags:
   - NeurIPS 2025
-  - 动态算法配置
-  - 多智能体强化学习
-  - 顺序依赖
 ---
 
 # Sequential Multi-Agent Dynamic Algorithm Configuration

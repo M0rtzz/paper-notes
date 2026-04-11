@@ -2,9 +2,6 @@
 description: "【论文笔记】Know You First and Be You Better: Modeling Human-Like User Simulators via Implicit Profiles 论文解读 | ACL 2025 | arXiv 2502.18968 | 用户模拟器 | 本文提出 USP（User Simulator with Implicit Profiles）框架，通过从人机对话中提取隐式用户画像，并结合条件监督微调和基于循环一致性的强化学习，在真实性、一致性和多样性三个维度上显著超越基线方法，语义相似度和风格相似度分别提升约 34% 和 43%。"
 tags:
   - ACL 2025
-  - 用户模拟器
-  - 隐式画像
-  - 循环一致性
 ---
 
 # Know You First and Be You Better: Modeling Human-Like User Simulators via Implicit Profiles

@@ -2,9 +2,6 @@
 description: "【论文笔记】cryoSENSE: Compressive Sensing Enables High-throughput Microscopy with Sparse and Generative Priors on the Protein Cryo-EM Image Manifold 论文解读 | CVPR 2026 | arXiv 2511.12931 | 冷冻电镜 | 提出 cryoSENSE，首个冷冻电镜压缩成像的计算框架，证明蛋白质 cryo-EM 图像在稀疏先验（DCT/小波/TV）和生成先验（扩散模型）下均可从欠采样测量中高保真重建，在保持 3D 分辨率的同时实现最高 2.5× 通量提升。"
 tags:
   - CVPR 2026
-  - 冷冻电镜
-  - 压缩感知
-  - 扩散模型
 ---
 
 # cryoSENSE: Compressive Sensing Enables High-throughput Microscopy with Sparse and Generative Priors on the Protein Cryo-EM Image Manifold

@@ -2,9 +2,6 @@
 description: "【论文笔记】Spotting Out-of-Character Behavior: Atomic-Level Evaluation of Persona Fidelity in Open-Ended Generation 论文解读 | ACL 2025 | arXiv 2506.19352 | persona fidelity | 提出原子级（句子级）评估框架，通过三个指标（ACC_atom、IC_atom、RC_atom）细粒度检测大语言模型在开放式文本生成中的角色偏离（Out-of-Character）行为，弥补了传统整体评分方法无法捕捉长文本中微妙人格不一致的问题。"
 tags:
   - ACL 2025
-  - persona fidelity
-  - LLM evaluation
-  - personality
 ---
 
 # Spotting Out-of-Character Behavior: Atomic-Level Evaluation of Persona Fidelity in Open-Ended Generation

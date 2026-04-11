@@ -2,9 +2,6 @@
 description: "【论文笔记】Preconditioned Langevin Dynamics with Score-Based Generative Models for Infinite-Dimensional Linear Bayesian Inverse Problems 论文解读 | NeurIPS 2025 | arXiv 2505.18276 | 预条件Langevin动力学 | 在无穷维 Hilbert 空间中严格分析了分数生成模型 (SGM) 驱动的 Langevin 后验采样器，首次推导出依赖分数近似误差的收敛界，并发现了同时依赖前向算子和分数误差的最优预条件器形式，保证所有后验模态的均匀收敛速率。"
 tags:
   - NeurIPS 2025
-  - 预条件Langevin动力学
-  - 分数生成模型
-  - 无穷维贝叶斯反问题
 ---
 
 # Preconditioned Langevin Dynamics with Score-Based Generative Models for Infinite-Dimensional Linear Bayesian Inverse Problems

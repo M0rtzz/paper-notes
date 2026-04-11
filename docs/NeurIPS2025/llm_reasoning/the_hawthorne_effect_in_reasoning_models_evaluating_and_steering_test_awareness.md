@@ -2,9 +2,6 @@
 description: "【论文笔记】The Hawthorne Effect in Reasoning Models: Evaluating and Steering Test Awareness 论文解读 | NeurIPS 2025 | arXiv 2505.14617 | test awareness | 首次系统量化推理型LLM的\"测试感知\"(Hawthorne效应)：当模型察觉自己在被评估时会改变行为，论文通过线性探针定位感知激活并进行参数编辑引导，揭示测试感知对安全对齐的显著且方向不一致的影响。"
 tags:
   - NeurIPS 2025
-  - test awareness
-  - representation engineering
-  - safety evaluation
 ---
 
 # The Hawthorne Effect in Reasoning Models: Evaluating and Steering Test Awareness

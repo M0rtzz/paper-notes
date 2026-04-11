@@ -2,9 +2,6 @@
 description: "【论文笔记】Banana100: Breaking NR-IQA Metrics by 100 Iterative Image Replications with Nano Banana Pro 论文解读 | CVPR 2026 | arXiv 2604.03400 | Image Quality Assessment | Banana100 通过让 Nano Banana Pro 迭代复制图像 100 次来系统性研究多轮编辑中的质量退化问题，构建了包含 28,000 张退化图像的数据集，并揭示了一个惊人发现：21 种主流无参考图像质量评估（NR-IQA）指标均无法可靠检测迭代退化——大多数指标甚至给噪声图像打出比干净图像更高的分数。"
 tags:
   - CVPR 2026
-  - Image Quality Assessment
-  - NR-IQA
-  - Iterative Degradation
 ---
 
 # Banana100: Breaking NR-IQA Metrics by 100 Iterative Image Replications with Nano Banana Pro

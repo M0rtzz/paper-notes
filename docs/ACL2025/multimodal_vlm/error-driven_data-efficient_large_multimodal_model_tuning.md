@@ -2,9 +2,6 @@
 description: "【论文笔记】Error-driven Data-efficient Large Multimodal Model Tuning 论文解读 | ACL 2025 | arXiv 2412.15652 | 数据高效微调 | 提出一种错误驱动的数据高效微调框架，通过教师模型分析学生模型的错误推理步骤并识别缺失技能，从外部数据集检索针对性训练样本进行微调，无需任务特定数据即可实现平均 7.01% 的性能提升。"
 tags:
   - ACL 2025
-  - 数据高效微调
-  - 错误驱动学习
-  - 教师-学生框架
 ---
 
 # Error-driven Data-efficient Large Multimodal Model Tuning

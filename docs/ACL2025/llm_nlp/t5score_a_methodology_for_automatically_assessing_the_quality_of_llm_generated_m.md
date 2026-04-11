@@ -2,9 +2,6 @@
 description: "【论文笔记】T5Score: A Methodology for Automatically Assessing the Quality of LLM Generated Multi-Document Topic Sets 论文解读 | ACL 2025 | arXiv 2407.17390 | 主题提取评估 | 提出 T5Score 方法论，将 LLM 生成的自由文本主题集(FT-topics)的质量分解为五个可量化维度（可解释性、主题覆盖、文档覆盖、非重叠性、内部排序），通过简单标注任务实现高标注者一致性，并验证 LLM 可作为自动评估器替代人工。"
 tags:
   - ACL 2025
-  - 主题提取评估
-  - 自由文本主题
-  - LLM-as-Judge
 ---
 
 # T5Score: A Methodology for Automatically Assessing the Quality of LLM Generated Multi-Document Topic Sets

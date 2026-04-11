@@ -2,9 +2,6 @@
 description: "【论文笔记】LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models 论文解读 | ICCV 2025 | arXiv 2504.14032 | feature upsampling | 提出LoftUp，通过坐标-cross-attention架构直接将低分辨率VFM特征映射到任意高分辨率，并用class-agnostic mask精炼+自蒸馏构建全分辨率伪GT进行训练，在6个下游任务上平均提升10-20%且在视频目标分割上提升近50%。"
 tags:
   - ICCV 2025
-  - feature upsampling
-  - vision foundation model
-  - coordinate-based
 ---
 
 # LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models

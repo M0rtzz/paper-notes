@@ -2,9 +2,7 @@
 description: "【论文笔记】When Can In-Context Learning Generalize Out of Task Distribution? 论文解读 | ICML2025 | arXiv 2506.05574 | in-context learning | 通过在线性回归ICL任务上系统改变训练任务分布的覆盖范围（超球面帽的半角 $\phi$），发现transformer存在从\"专用解\"到\"通用解\"的sharp phase transition：当任务多样性超过临界阈值（$\phi \gtrsim 120°$）时，模型能泛化到整个任务空间，甚至超越贝叶斯最优估计器的OOD性能。"
 tags:
   - ICML2025
-  - in-context learning
-  - out-of-distribution generalization
-  - task diversity
+  - Transformer
 ---
 
 # When Can In-Context Learning Generalize Out of Task Distribution?

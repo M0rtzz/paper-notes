@@ -2,9 +2,6 @@
 description: "【论文笔记】Gender Inclusivity Fairness Index (GIFI): A Multilevel Framework 论文解读 | ACL 2025 | arXiv 2506.15568 | gender fairness | 提出 GIFI（Gender Inclusivity Fairness Index），一个多层次综合评估框架，涵盖代词识别、情感中立性、毒性、反事实公平性、刻板印象关联、职业公平性和推理性能一致性七个维度，在 22 个 LLM 上系统评估二元与非二元性别的公平性。"
 tags:
   - ACL 2025
-  - gender fairness
-  - non-binary pronouns
-  - LLM evaluation
 ---
 
 # Gender Inclusivity Fairness Index (GIFI): A Multilevel Framework

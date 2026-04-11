@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Autoregressive Modeling for Instruction-Guided Image Editing 论文解读 | ICLR 2026 | arXiv 2508.15772 | 视觉自回归 | VAREdit将指令引导图像编辑重构为next-scale预测问题，提出Scale-Aligned Reference (SAR)模块解决最细尺度条件与粗目标特征间的尺度不匹配，在EMU-Edit和PIE-Bench上GPT-Balance分数超越最强扩散基线64.9%和45.3%，512×512编辑仅需1.2秒。"
 tags:
   - ICLR 2026
-  - 视觉自回归
-  - 图像编辑
-  - 多尺度预测
 ---
 
 # Visual Autoregressive Modeling for Instruction-Guided Image Editing

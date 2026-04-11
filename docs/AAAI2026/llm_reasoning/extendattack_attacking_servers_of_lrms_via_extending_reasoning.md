@@ -2,9 +2,6 @@
 description: "【论文笔记】ExtendAttack: Attacking Servers of LRMs via Extending Reasoning 论文解读 | AAAI 2026 | arXiv 2506.13737 | LRM安全 | 提出 ExtendAttack，一种针对大推理模型（LRM）的资源耗尽攻击：通过将 prompt 中的字符随机转换为多进制 ASCII 编码，迫使模型在回答问题前先执行大量逐字符解码推理，使 o3 的响应长度增加 2.7 倍以上、延迟翻倍，同时保持答案准确率基本不变。"
 tags:
   - AAAI 2026
-  - LRM安全
-  - 资源耗尽攻击
-  - 推理延长
 ---
 
 # ExtendAttack: Attacking Servers of LRMs via Extending Reasoning

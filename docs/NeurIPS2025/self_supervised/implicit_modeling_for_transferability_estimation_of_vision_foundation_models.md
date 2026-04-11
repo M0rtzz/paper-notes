@@ -2,9 +2,6 @@
 description: "【论文笔记】Implicit Modeling for Transferability Estimation of Vision Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2510.23145 | 可迁移性估计 | 提出隐式可迁移性建模（ITM）框架，通过隐变量z隐式编码模型-任务对的迁移能力，结合分治变分近似（DVA）高效模拟嵌入空间演化，在10个下游任务和10个多样化预训练模型上的加权Kendall tau_w从此前最优的0.45提升至0.61。"
 tags:
   - NeurIPS 2025
-  - 可迁移性估计
-  - 预训练模型选择
-  - 嵌入空间演化
 ---
 
 # Implicit Modeling for Transferability Estimation of Vision Foundation Models

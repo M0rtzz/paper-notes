@@ -2,9 +2,7 @@
 description: "【论文笔记】Multimodal OCR: Parse Anything from Documents 论文解读 | CVPR 2025 | arXiv 2603.13032 | 文档解析 | 提出 Multimodal OCR (MOCR) 范式，将文档中的文本和图形（图表、图标、UI 等）统一解析为结构化文本表示（包括 SVG 代码），3B 模型在 olmOCR-Bench 上达到 83.9 SOTA，图形解析超越 Gemini 3 Pro。"
 tags:
   - CVPR 2025
-  - 文档解析
   - OCR
-  - SVG
 ---
 
 # Multimodal OCR: Parse Anything from Documents

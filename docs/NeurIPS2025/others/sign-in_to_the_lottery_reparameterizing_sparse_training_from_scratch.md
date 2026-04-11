@@ -2,9 +2,6 @@
 description: "【论文笔记】Sign-In to the Lottery: Reparameterized Sparse Training from Scratch 论文解读 | NeurIPS 2025 | arXiv 2504.12801 | 稀疏训练 | 本文发现稀疏网络从头训练(PaI)性能差的根本原因是无法像dense-to-sparse方法那样学习正确的参数符号，为此提出Sign-In重参数化方法（θ=m⊙w），通过引入内部自由度来促进符号翻转，理论证明其能解决一种互补于过参数化的符号翻转情况，实验中显著提升了稀疏从头训练的性能。"
 tags:
   - NeurIPS 2025
-  - 稀疏训练
-  - 彩票假说
-  - 符号翻转
 ---
 
 # Sign-In to the Lottery: Reparameterized Sparse Training from Scratch

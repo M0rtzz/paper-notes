@@ -2,9 +2,6 @@
 description: "【论文笔记】Securing the Language of Life: Inheritable Watermarks from DNA Language Models to Proteins 论文解读 | NeurIPS 2025 | arXiv 2509.18207 | DNA水印 | 提出 DNAMark 和 CentralMark 两种水印方案，针对 DNA 语言模型生成的序列嵌入鲁棒水印：前者利用同义密码子替换实现功能不变水印，后者实现从 DNA 到蛋白质的可遗传水印。"
 tags:
   - NeurIPS 2025
-  - DNA水印
-  - 生物安全
-  - 语言模型
 ---
 
 # Securing the Language of Life: Inheritable Watermarks from DNA Language Models to Proteins

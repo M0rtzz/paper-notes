@@ -2,9 +2,6 @@
 description: "【论文笔记】No Pose at All: Self-Supervised Pose-Free 3D Gaussian Splatting from Sparse Views 论文解读 | ICCV 2025 | arXiv 2508.01171 | 3D Gaussian Splatting | 提出SPFSplat,首个在训练和推理时均不需要真值位姿的自监督3DGS框架,通过共享ViT骨干同时预测Gaussian基元和相机位姿,在极端视角变化下超越需要位姿的SOTA方法。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - 无位姿训练
-  - 自监督
 ---
 
 # No Pose at All: Self-Supervised Pose-Free 3D Gaussian Splatting from Sparse Views

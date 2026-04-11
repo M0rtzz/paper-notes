@@ -2,9 +2,6 @@
 description: "【论文笔记】Hybrid Autoencoders for Tabular Data: Leveraging Model-Based Augmentation in Low-Label Settings 论文解读 | NeurIPS 2025 | arXiv 2511.06961 | 表格数据 | 提出 TANDEM（Tree-And-Neural Dual Encoder Model），一种混合自编码器架构，通过联合训练神经网络编码器和遗忘软决策树（OSDT）编码器，并引入样本级随机门控网络作为可学习的数据增强，在低标签表格数据场景下实现了超越强基线（包括树模型和深度学习方法）的性能。"
 tags:
   - NeurIPS 2025
-  - 表格数据
-  - 自监督学习
-  - 混合自编码器
 ---
 
 # Hybrid Autoencoders for Tabular Data: Leveraging Model-Based Augmentation in Low-Label Settings

@@ -2,9 +2,6 @@
 description: "【论文笔记】MCAM: Multimodal Causal Analysis Model for Ego-Vehicle-Level Driving Video Understanding 论文解读 | ICCV 2025 | arXiv 2507.06072 | 驾驶视频理解 | 提出 MCAM，通过驾驶状态有向无环图 (DSDAG) 构建视觉-语言模态间的因果结构，结合多层级特征提取和因果分析模块，用于自车级别驾驶视频理解中的行为描述与原因推理。"
 tags:
   - ICCV 2025
-  - 驾驶视频理解
-  - 因果分析
-  - 有向无环图
 ---
 
 # MCAM: Multimodal Causal Analysis Model for Ego-Vehicle-Level Driving Video Understanding

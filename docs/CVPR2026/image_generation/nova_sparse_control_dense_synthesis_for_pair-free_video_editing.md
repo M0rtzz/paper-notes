@@ -2,9 +2,6 @@
 description: "【论文笔记】NOVA: Sparse Control, Dense Synthesis for Pair-Free Video Editing 论文解读 | CVPR 2026 | arXiv 2603.02802 | 无配对视频编辑 | 提出 NOVA，首次形式化\"稀疏控制、密集合成\"范式用于视频编辑：稀疏分支从用户编辑的多关键帧提供语义引导，密集分支从原始视频注入运动和纹理信息；配合退化模拟训练策略实现无需配对数据的学习，在编辑保真度、运动保持和时序一致性上全面超越现有方法。"
 tags:
   - CVPR 2026
-  - 无配对视频编辑
-  - 双分支架构
-  - 稀疏控制
 ---
 
 # NOVA: Sparse Control, Dense Synthesis for Pair-Free Video Editing

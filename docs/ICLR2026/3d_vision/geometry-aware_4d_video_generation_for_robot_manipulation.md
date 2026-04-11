@@ -2,9 +2,6 @@
 description: "【论文笔记】Geometry-aware 4D Video Generation for Robot Manipulation 论文解读 | ICLR 2026 | arXiv 2507.01099 | 4D视频生成 | 提出几何感知的4D视频生成框架，通过跨视角 pointmap 对齐监督在视频扩散模型中强制多视角3D一致性，无需相机位姿输入即可从新视角生成时空对齐的未来 RGB-D 序列，并可直接用 FoundationPose 从生成视频中恢复机器人末端执行器轨迹。"
 tags:
   - ICLR 2026
-  - 4D视频生成
-  - 跨视角一致性
-  - pointmap
 ---
 
 # Geometry-aware 4D Video Generation for Robot Manipulation

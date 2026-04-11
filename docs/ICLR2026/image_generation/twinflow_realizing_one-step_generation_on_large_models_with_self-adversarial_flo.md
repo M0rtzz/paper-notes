@@ -2,9 +2,6 @@
 description: "【论文笔记】TwinFlow: Realizing One-step Generation on Large Models with Self-adversarial Flows 论文解读 | ICLR 2026 | arXiv 2512.05150 | one-step generation | 提出 TwinFlow，一种无需辅助训练模型（判别器/冻结教师）的自对抗流匹配框架，通过模型自身多步输出作为单步的教学目标实现单步生成，首次将 1-NFE 生成能力成功扩展到 20B 参数的 Qwen-Image 模型，GenEval 0.86（1-NFE）接近原始 100-NFE 的 0.87。"
 tags:
   - ICLR 2026
-  - one-step generation
-  - self-adversarial
-  - flow matching
 ---
 
 # TwinFlow: Realizing One-step Generation on Large Models with Self-adversarial Flows

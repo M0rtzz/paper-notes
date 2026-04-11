@@ -2,9 +2,6 @@
 description: "【论文笔记】ACE-Merging: Data-Free Model Merging with Adaptive Covariance Estimation 论文解读 | CVPR 2026 | arXiv 2603.02945 | 模型合并 | 本文从理论上证明了微调参数差蕴含输入协方差信息，据此提出 ACE-Merging，通过自适应协方差估计、集体结构先验和谱精炼三步实现无数据闭式模型合并，在 GPT-2 上比之前方法平均提升 4%，在 RoBERTa-Base 上提升 5%。"
 tags:
   - CVPR 2026
-  - 模型合并
-  - 数据无关
-  - 协方差估计
 ---
 
 # ACE-Merging: Data-Free Model Merging with Adaptive Covariance Estimation

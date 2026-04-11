@@ -2,9 +2,6 @@
 description: "【论文笔记】Sherlock: Self-Correcting Reasoning in Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.22651 | self-correction | 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。"
 tags:
   - NeurIPS 2025
-  - self-correction
-  - preference learning
-  - trajectory-level
 ---
 
 # Sherlock: Self-Correcting Reasoning in Vision-Language Models

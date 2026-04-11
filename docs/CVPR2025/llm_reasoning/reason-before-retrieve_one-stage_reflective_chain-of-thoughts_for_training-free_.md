@@ -2,7 +2,6 @@
 description: "【论文笔记】Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Composed Image Retrieval (CIR) aims to retrieve target images that closely resemble a reference image while integrating user-specified textual modifications, thereby capturing user intent more accurately. Existing training-free zero-shot CIR (ZS-CIR) methods often employ a two-stage process: they fi"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval

@@ -1,9 +1,7 @@
 ---
 description: "【论文笔记】Developmentally-plausible Working Memory Shapes a Critical Period for Language Acquisition 论文解读 | 关键期假说 | 受\"Less-is-More\"假说启发，本文提出 DynamicLimit-Exp 方法，将人类工作记忆在关键期内的指数增长特征集成到语言模型训练中（通过动态调节 ALiBi 斜率），在 Child-Directed Speech 数据上训练的 GPT-2 模型在句法评估中显著优于无记忆约束和静态约束的基线。"
 tags:
-  - 关键期假说
-  - 工作记忆
-  - 语言习得
+
 ---
 
 # Developmentally-plausible Working Memory Shapes a Critical Period for Language Acquisition

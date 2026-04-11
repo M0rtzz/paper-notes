@@ -2,9 +2,6 @@
 description: "【论文笔记】HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring 论文解读 | ACL 2025 | arXiv 2506.02959 | 细粒度检测 | 提出人机共创场景下的细粒度MGT检测任务和数据集HACo-Det，通过多轮LLM改写构建了11,200篇带词级别标注的共创文本，将7种主流检测器适配到词级/句级任务后发现：微调方法（DeBERTa）远优于基于度量的方法，但整体检测水平仍远未解决该问题。"
 tags:
   - ACL 2025
-  - 细粒度检测
-  - 人机共创文本
-  - 词级别标注
 ---
 
 # HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring

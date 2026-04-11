@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Solve Orienteering Problem with Time Windows and Variable Profits 论文解读 | ICLR 2026 | arXiv 2603.06260 | 定向问题 | 提出DeCoST——学习式两阶段方法解决带时间窗和可变利润的定向问题(OPTWVP)：第一阶段并行解码器预测路径和初始服务时间分配,第二阶段用线性规划在固定路径上全局最优化服务时间(证明全局最优性),通过利润加权时间分配比(pTAR)提供跨阶段反馈→在解质量和效率上超越SOTA构造式和元启发式方法(最高6.6x推理加速)。"
 tags:
   - ICLR 2026
-  - 定向问题
-  - 时间窗
-  - 可变利润
 ---
 
 # Learning to Solve Orienteering Problem with Time Windows and Variable Profits

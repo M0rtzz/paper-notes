@@ -2,9 +2,6 @@
 description: "【论文笔记】4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video 论文解读 | CVPR 2025 | arXiv 2603.10125 | 4D重建 | 将单目视频的4D马匹重建解耦为运动估计（AniMoFormer时空Transformer）和外观重建（EquineGS单图前馈3DGS），依托VAREN参数化模型和两个大规模合成数据集，在真实数据上达到SOTA几何+外观重建效果，且能零样本泛化到驴和斑马。"
 tags:
   - CVPR 2025
-  - 4D重建
-  - 马匹重建
-  - 3D Gaussian Splatting
 ---
 
 # 4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video

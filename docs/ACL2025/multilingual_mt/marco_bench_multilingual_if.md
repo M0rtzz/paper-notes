@@ -2,9 +2,6 @@
 description: "【论文笔记】Marco-Bench-MIF: On Multilingual Instruction-Following Capability of Large Language Models 论文解读 | ACL 2025 | arXiv 2507.11882 | multilingual benchmark | 将英文IFEval基准扩展到30种语言并进行文化本地化，揭示LLM在多语言指令遵循中高/低资源语言间25-35%的准确率差距，以及机器翻译数据低估模型性能7-22%。"
 tags:
   - ACL 2025
-  - multilingual benchmark
-  - instruction following
-  - localization
 ---
 
 # Marco-Bench-MIF: On Multilingual Instruction-Following Capability of Large Language Models

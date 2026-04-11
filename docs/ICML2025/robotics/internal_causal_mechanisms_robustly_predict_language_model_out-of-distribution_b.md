@@ -2,9 +2,6 @@
 description: "【论文笔记】Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors 论文解读 | ICML 2025 | arXiv 2505.11770 | 因果可解释性 | 利用LLM内部已识别的因果机制来预测模型在分布外输入上的输出正确性，提出反事实模拟和值探测两种方法，在OOD设置中比现有基线平均AUC-ROC提升13.84%。"
 tags:
   - ICML 2025
-  - 因果可解释性
-  - 分布外泛化
-  - 正确性预测
 ---
 
 # Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors

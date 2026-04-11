@@ -2,9 +2,6 @@
 description: "【论文笔记】SafePath: Preventing Harmful Reasoning in Chain-of-Thought via Early Alignment 论文解读 | NeurIPS 2025 | arXiv 2505.14667 | LRM safety | 提出 SafePath，仅在推理开始处微调 8 个 token 的\"Safety Primer\"（\"Let's think about safety first\"），即可有效引导 LRM 走向安全推理路径，在 DeepSeek-R1-Distill 上减少 90% 有害输出且仅需 Direct Refusal 1/296 的训练计算量。"
 tags:
   - NeurIPS 2025
-  - LRM safety
-  - chain-of-thought
-  - safety alignment
 ---
 
 # SafePath: Preventing Harmful Reasoning in Chain-of-Thought via Early Alignment

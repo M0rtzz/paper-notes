@@ -2,9 +2,6 @@
 description: "【论文笔记】MVGBench: a Comprehensive Benchmark for Multi-view Generation Models 论文解读 | ICCV 2025 | arXiv 2507.00006 | 多视图生成 | 提出 MVGBench——多视图生成模型的综合评估框架，创新性地引入基于 3DGS 自一致性的 3D 一致性指标（无需 3D GT），系统评估了 12 个 SOTA 方法在最佳性能、泛化和鲁棒性三方面的表现，并基于分析提出的最佳实践构建了新方法 ViFiGen。"
 tags:
   - ICCV 2025
-  - 多视图生成
-  - 3D一致性
-  - Benchmark
 ---
 
 # MVGBench: a Comprehensive Benchmark for Multi-view Generation Models

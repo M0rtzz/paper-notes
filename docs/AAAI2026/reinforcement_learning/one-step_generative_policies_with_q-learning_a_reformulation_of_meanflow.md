@@ -2,9 +2,6 @@
 description: "【论文笔记】One-Step Generative Policies with Q-Learning: A Reformulation of MeanFlow 论文解读 | AAAI 2026 | arXiv 2511.13035 | Offline RL | 将MeanFlow重新形式化为残差映射 $g(a_t,b,t) = a_t - u(a_t,b,t)$，实现一步噪声→动作的生成式策略，无需蒸馏或多步ODE积分，可直接与Q-learning联合训练，在OGBench和D4RL的73个任务上取得强性能。"
 tags:
   - AAAI 2026
-  - Offline RL
-  - MeanFlow
-  - 生成式策略
 ---
 
 # One-Step Generative Policies with Q-Learning: A Reformulation of MeanFlow

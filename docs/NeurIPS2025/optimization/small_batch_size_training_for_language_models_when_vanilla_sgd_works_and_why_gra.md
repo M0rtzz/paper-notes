@@ -2,9 +2,6 @@
 description: "【论文笔记】Small Batch Size Training for Language Models: When Vanilla SGD Works, and Why Gradient Accumulation Is Wasteful 论文解读 | NeurIPS 2025 | arXiv 2507.07101 | 小批量训练 | 本文系统研究了小批量（甚至batch size=1）在语言模型预训练和微调中的表现，提出了基于\"token半衰期\"固定的Adam β₂缩放规则，发现小批量不仅训练稳定，还使vanilla SGD具备与自适应优化器相当的竞争力，并建议避免使用梯度累积。"
 tags:
   - NeurIPS 2025
-  - 小批量训练
-  - SGD
-  - Adam
 ---
 
 # Small Batch Size Training for Language Models: When Vanilla SGD Works, and Why Gradient Accumulation Is Wasteful

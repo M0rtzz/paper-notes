@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Vision-Language Model Routing for Computer Use Agents 论文解读 | CVPR 2026 | arXiv 2603.12823 | VLM路由 | 在CUA编排器和VLM池之间插入轻量语义路由层，通过难度分类+logprob置信度探测+记忆注入三机制，将大部分GUI操作交给小模型处理，推理成本降低78%且精度仅下降2个百分点。"
 tags:
   - CVPR 2026
-  - VLM路由
-  - GUI智能体
-  - 成本优化
 ---
 
 # Adaptive Vision-Language Model Routing for Computer Use Agents

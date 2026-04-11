@@ -2,9 +2,6 @@
 description: "【论文笔记】Closed-form Symbolic Solutions: A New Perspective on Solving Partial Differential Equations 论文解读 | ICML 2025 | arXiv 2405.14620 | 符号回归 | 本文提出 SymPDE 框架，利用深度强化学习直接搜索 PDE 的闭式符号解，绕过了 PINNs 数值解精度不足和可解释性差的问题，在 Poisson 方程和热方程上达到 90% 的恢复率。"
 tags:
   - ICML 2025
-  - 符号回归
-  - 偏微分方程
-  - 深度强化学习
 ---
 
 # Closed-form Symbolic Solutions: A New Perspective on Solving Partial Differential Equations

@@ -2,10 +2,7 @@
 description: "【论文笔记】Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation 论文解读 | CVPR 2025 | arXiv 2603.13099 | 多模态 multimodal reasoning | 提出 CRYSTAL benchmark（6372 实例），通过 Match F1 和 Ordered Match F1 两个指标在中间推理步骤层面评估 MLLM，揭示了普遍的 cherry-picking 行为和推理顺序混乱问题，并提出 CPR-Curriculum 训练策略改善推理质量。"
 tags:
   - CVPR 2025
-  - multimodal reasoning
   - 多模态
-  - benchmark
-  - step-level evaluation
 ---
 
 # Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation

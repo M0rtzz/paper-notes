@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Critique Guided Iterative Reasoning for Multi-hop Question Answering 论文解读 | ACL2025 | arXiv 2505.19112 | 多跳问答 | 提出 SiGIR 框架，通过端到端训练使模型具备迭代问题分解、检索、推理和自我评估能力，在推理阶段利用自我批评反馈引导 iteration-level beam search 选择最优推理路径，在三个多跳 QA 数据集上平均超越 SOTA 8.6%。"
 tags:
   - ACL2025
-  - 多跳问答
-  - 检索增强生成
-  - 自我批评
 ---
 
 # Self-Critique Guided Iterative Reasoning for Multi-hop Question Answering

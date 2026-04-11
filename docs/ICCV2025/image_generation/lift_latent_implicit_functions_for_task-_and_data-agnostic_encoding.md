@@ -2,9 +2,6 @@
 description: "【论文笔记】LIFT: Latent Implicit Functions for Task- and Data-Agnostic Encoding 论文解读 | ICCV 2025 | arXiv 2503.15420 | 隐式神经表示 | LIFT 提出了一个基于元学习的多尺度隐式神经表示框架，通过并行局部隐式函数和层次化潜变量生成器，实现跨任务（生成、分类）和跨数据模态（2D 图像、3D 体素）的统一编码，在重建和生成任务上均达到 SOTA 且计算成本大幅降低。"
 tags:
   - ICCV 2025
-  - 隐式神经表示
-  - 元学习
-  - 多尺度潜变量
 ---
 
 # LIFT: Latent Implicit Functions for Task- and Data-Agnostic Encoding

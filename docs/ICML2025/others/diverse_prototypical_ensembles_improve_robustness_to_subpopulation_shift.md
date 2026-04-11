@@ -2,9 +2,6 @@
 description: "【论文笔记】Diverse Prototypical Ensembles Improve Robustness to Subpopulation Shift 论文解读 | ICML2025 | arXiv 2505.23027 | subpopulation shift | 提出 Diversified Prototypical Ensemble (DPE)，用多个多样化的原型分类器替换标准线性分类头，通过显式（inter-prototype similarity loss）和隐式（bootstrap 采样）两种多样化策略，在不需要子群标注的情况下自适应发现子群决策边界，显著提升 worst-group accuracy。"
 tags:
   - ICML2025
-  - subpopulation shift
-  - prototype classifier
-  - ensemble diversity
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】MedCLIPSeg: Probabilistic Vision-Language Adaptation for Data-Efficient and Generalizable Medical Image Segmentation 论文解读 | CVPR2026 | arXiv 2602.20423 | 医学图像分割 | 在冻结CLIP编码器的基础上，通过概率交叉模态注意力（PVL）实现图文双向交互与预测不确定性建模，配合软patch级对比损失，在16个医学分割数据集上兼顾数据效率、域泛化能力和可解释性。"
 tags:
   - CVPR2026
-  - 医学图像分割
-  - CLIP适配
-  - 概率注意力
 ---
 
 # MedCLIPSeg: Probabilistic Vision-Language Adaptation for Data-Efficient and Generalizable Medical Image Segmentation

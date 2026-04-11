@@ -2,7 +2,6 @@
 description: "【论文笔记】Quantifying Misattribution Unfairness in Authorship Attribution 论文解读 | ACL 2025 | arXiv 2506.02321 | 作者归因、公平性、错误归因、嵌入分布、排名偏差 | 本文提出MAUI_k指标量化作者归因系统中\"错误归因不公平性\"——某些作者系统性地更容易被误判为可疑作者，并发现这种不公平与作者嵌入在向量空间中距质心的距离高度相关。"
 tags:
   - ACL 2025
-  - 作者归因、公平性、错误归因、嵌入分布、排名偏差
 ---
 
 # Quantifying Misattribution Unfairness in Authorship Attribution

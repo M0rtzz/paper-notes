@@ -2,9 +2,6 @@
 description: "【论文笔记】AntiLeakBench: Preventing Data Contamination by Automatically Constructing Benchmarks with Updated Real-World Knowledge 论文解读 | ACL 2025 | arXiv 2412.13670 | 数据污染 | 提出 AntiLeakBench——自动化反泄露基准框架，通过识别 LLM 知识截止后更新的真实世界新知识自动构建 QA 测试样本（而非简单收集新发布数据），确保测试知识严格不在训练集中，全自动流程无需人工标注，实验证实截止后性能普遍下降验证了数据污染的普遍存在。"
 tags:
   - ACL 2025
-  - 数据污染
-  - 基准更新
-  - 反泄露
 ---
 
 # AntiLeakBench: Preventing Data Contamination by Automatically Constructing Benchmarks with Updated Real-World Knowledge

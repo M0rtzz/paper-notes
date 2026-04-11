@@ -2,10 +2,7 @@
 description: "【论文笔记】Value Residual Learning 论文解读 | ACL 2025 | arXiv 2410.17897 | Value残差连接 | 提出 ResFormer 和 SVFormer，通过在注意力机制中引入第一层 Value 向量到后续层的残差连接，增强初始 token 级信息在深层网络中的传播，以比标准 Transformer 少 16.11% 的参数和 20.3% 的训练数据达到同等性能，SVFormer 还能减少近一半 KV 缓存。"
 tags:
   - ACL 2025
-  - Value残差连接
-  - Transformer架构
   - Transformer
-  - 信息传播
 ---
 
 # Value Residual Learning

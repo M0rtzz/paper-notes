@@ -2,9 +2,6 @@
 description: "【论文笔记】ProFocus: Proactive Perception and Focused Reasoning in Vision-and-Language Navigation 论文解读 | CVPR 2026 | arXiv 2603.05530 | 视觉语言导航 | 通过主动感知（前瞻式环境探索）和聚焦推理（指令相关区域注意力）提升VLN性能"
 tags:
   - CVPR 2026
-  - 视觉语言导航
-  - 主动感知
-  - 聚焦推理
 ---
 
 # ProFocus: Proactive Perception and Focused Reasoning in Vision-and-Language Navigation

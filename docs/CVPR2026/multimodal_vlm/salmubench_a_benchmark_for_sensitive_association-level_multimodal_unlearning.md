@@ -2,9 +2,6 @@
 description: "【论文笔记】SALMUBench: A Benchmark for Sensitive Association-Level Multimodal Unlearning 论文解读 | CVPR2026 | arXiv 2603.26316 | 机器遗忘 | 提出 SALMUBench——首个针对 CLIP 类模型的关联级别机器遗忘基准，包含 60K 合成人物-敏感属性配对数据集、从头训练的 Compromised/Clean 模型对，以及结构化 holdout 集评估协议，首次系统揭示了现有遗忘方法的三种失败模式（灾难性破坏、过度泛化遗忘、无效遗忘）。"
 tags:
   - CVPR2026
-  - 机器遗忘
-  - CLIP
-  - 隐私保护
 ---
 
 # SALMUBench: A Benchmark for Sensitive Association-Level Multimodal Unlearning

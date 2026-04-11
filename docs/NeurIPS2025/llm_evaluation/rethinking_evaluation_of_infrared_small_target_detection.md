@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Evaluation of Infrared Small Target Detection 论文解读 | NeurIPS 2025 | arXiv 2509.16888 | 红外小目标检测 | 系统性地揭示了红外小目标检测（IRSTD）现有评估协议的三大局限，提出包含混合层级指标hIoU、系统化错误分析方法和跨数据集评估设置的层次化分析框架。"
 tags:
   - NeurIPS 2025
-  - 红外小目标检测
-  - 评估指标
-  - 跨数据集评估
 ---
 
 # Rethinking Evaluation of Infrared Small Target Detection

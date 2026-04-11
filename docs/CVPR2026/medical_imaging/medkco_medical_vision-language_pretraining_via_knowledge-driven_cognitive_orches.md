@@ -2,9 +2,6 @@
 description: "【论文笔记】MedKCO: Medical Vision-Language Pretraining via Knowledge-Driven Cognitive Orchestration 论文解读 | CVPR 2026 | arXiv 2603.09101 | 视觉-语言预训练 | 提出 MedKCO，一种知识驱动的认知编排策略用于医学视觉-语言预训练：通过分层课程（label-level 按诊断敏感度排序 + description-level 按样本代表性排序）和自步非对称对比损失，让模型从简单到复杂渐进学习，在三种医学模态的零样本和下游任务上显著超越基线。"
 tags:
   - CVPR 2026
-  - 视觉-语言预训练
-  - 课程学习
-  - 对比学习
 ---
 
 # MedKCO: Medical Vision-Language Pretraining via Knowledge-Driven Cognitive Orchestration

@@ -2,9 +2,6 @@
 description: "【论文笔记】InnoGym: Benchmarking the Innovation Potential of AI Agents 论文解读 | ICLR 2026 | arXiv 2512.01822 | 创新性评估 | 提出InnoGym框架，首次从\"创新性\"维度系统评估AI Agent——引入Performance Gain（性能增益）和Novelty（方法论新颖性）双指标，在18个真实工程/科研任务上发现当前Agent能产生新颖方案但执行鲁棒性不足，无法将创意转化为性能提升（平均归一化增益为负）。"
 tags:
   - ICLR 2026
-  - 创新性评估
-  - AI Agent
-  - 新颖性度量
 ---
 
 # InnoGym: Benchmarking the Innovation Potential of AI Agents

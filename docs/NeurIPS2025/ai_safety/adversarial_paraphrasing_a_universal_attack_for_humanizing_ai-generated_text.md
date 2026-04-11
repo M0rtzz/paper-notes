@@ -2,9 +2,6 @@
 description: "【论文笔记】Adversarial Paraphrasing: A Universal Attack for Humanizing AI-Generated Text 论文解读 | NeurIPS 2025 | arXiv 2506.07001 | AI文本检测 | 提出 Adversarial Paraphrasing——一种无需训练的通用攻击框架，在逐 token 改写时利用 AI 文本检测器的反馈信号选择\"最像人写\"的 token，使改写后的 AI 文本在 8 种检测器上平均 T@1%F 下降 87.88%，且具有跨检测器的强迁移性。"
 tags:
   - NeurIPS 2025
-  - AI文本检测
-  - 对抗攻击
-  - 文本改写
 ---
 
 # Adversarial Paraphrasing: A Universal Attack for Humanizing AI-Generated Text

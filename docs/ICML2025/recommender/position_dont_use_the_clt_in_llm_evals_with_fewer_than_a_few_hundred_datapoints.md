@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Don't Use the CLT in LLM Evals with Fewer Than a Few Hundred Datapoints 论文解读 | ICML 2025 (Spotlight Position Paper) | arXiv 2503.01747 | 中心极限定理 (CLT) | 本文作为立场论文，论证了在 LLM 评估数据量少于几百个样本时，基于中心极限定理 (CLT) 的置信区间严重低估不确定性，推荐使用贝叶斯可信区间或 Wilson 得分区间作为替代方案。"
 tags:
   - ICML 2025 (Spotlight Position Paper)
-  - 中心极限定理 (CLT)
-  - 置信区间
-  - 贝叶斯可信区间
 ---
 
 # Position: Don't Use the CLT in LLM Evals with Fewer Than a Few Hundred Datapoints

@@ -2,10 +2,7 @@
 description: "【论文笔记】EnerVerse: Envisioning Embodied Future Space for Robotics Manipulation 论文解读 | NeurIPS 2025 | arXiv 2501.01895 | embodied AI | EnerVerse 是一个生成式机器人基础模型，通过 chunk-wise 自回归视频扩散 + 稀疏上下文记忆 + 多视角生成先验构建 4D 具身空间，结合 4DGS 数据飞轮缩小 Sim2Real 差距，最终通过策略头将 4D 世界表示转化为物理动作，在 LIBERO 基准上达到 SOTA。"
 tags:
   - NeurIPS 2025
-  - embodied AI
-  - video diffusion
   - 扩散模型
-  - multi-view generation
 ---
 
 # EnerVerse: Envisioning Embodied Future Space for Robotics Manipulation

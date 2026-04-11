@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Bounding Box Uncertainties via Two-Step Conformal Prediction 论文解读 | ECCV 2024 | arXiv 2403.07263 | 共形预测 | 提出两步共形预测框架为多类目标检测的边界框生成带理论覆盖率保证的自适应不确定性区间——第一步用共形分类集处理类别误判风险，第二步用集成/分位数回归等方法构建自适应于目标尺寸的边界框预测区间，在COCO/Cityscapes/BDD100k上达到约90%目标覆盖率且区间实际可用。"
 tags:
   - ECCV 2024
-  - 共形预测
-  - 不确定性区间
-  - 边界框回归
 ---
 
 # Adaptive Bounding Box Uncertainties via Two-Step Conformal Prediction

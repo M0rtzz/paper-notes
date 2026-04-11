@@ -2,9 +2,6 @@
 description: "【论文笔记】Forgetting Through Transforming: Enabling Federated Unlearning via Class-Aware Representation Transformation 论文解读 | ICCV2025 | arXiv 2410.06848 | federated unlearning | 提出 FUCRT 方法，通过类感知表征变换实现联邦遗忘：将遗忘类的表征“变换”到语义最近的保留类，而非直接消除，配合双重对比学习对齐跨客户端的变换一致性，在四个数据集上实现 100% 遗忘保障的同时保持甚至提升剩余类性能。"
 tags:
   - ICCV2025
-  - federated unlearning
-  - class-aware representation
-  - contrastive learning
   - 对比学习
 ---
 

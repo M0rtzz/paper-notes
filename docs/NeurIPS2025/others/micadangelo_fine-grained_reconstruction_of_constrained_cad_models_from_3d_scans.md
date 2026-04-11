@@ -2,9 +2,6 @@
 description: "【论文笔记】MiCADangelo: Fine-Grained Reconstruction of Constrained CAD Models from 3D Scans 论文解读 | NeurIPS 2025 | arXiv 2510.23429 | CAD 逆向工程 | MiCADangelo 模拟人类 CAD 设计师的逆向工程流程，通过多平面截面分析提取 2D 模式，预测带约束的参数化草图并优化拉伸参数，首次在 3D CAD 逆向工程中实现了包含草图约束的完整参数化模型重建。"
 tags:
   - NeurIPS 2025
-  - CAD 逆向工程
-  - 草图约束
-  - 截面切片
 ---
 
 # MiCADangelo: Fine-Grained Reconstruction of Constrained CAD Models from 3D Scans

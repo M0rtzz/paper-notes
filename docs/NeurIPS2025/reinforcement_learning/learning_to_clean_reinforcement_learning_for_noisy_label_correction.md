@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Clean: Reinforcement Learning for Noisy Label Correction 论文解读 | NeurIPS 2025 | arXiv 2511.19808 | 噪声标签 | 将噪声标签纠正问题建模为强化学习中的马尔可夫决策过程，提出 RLNLC 框架，通过 k 近邻嵌入空间构建策略函数判断哪些标签需纠正，并设计标签一致性奖励和跨子集对齐奖励指导纠正过程，在多个基准数据集上的实例依赖和对称噪声场景中均达到最优性能。"
 tags:
   - NeurIPS 2025
-  - 噪声标签
-  - 标签纠正
-  - 策略梯度
 ---
 
 # Learning to Clean: Reinforcement Learning for Noisy Label Correction

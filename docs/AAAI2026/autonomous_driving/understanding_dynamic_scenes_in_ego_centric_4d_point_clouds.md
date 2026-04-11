@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Dynamic Scenes in Egocentric 4D Point Clouds 论文解读 | AAAI 2026 | arXiv 2508.07251 | 自我中心视角 | 构建EgoDynamic4D——首个面向高度动态4D场景的自我中心视角QA基准（927K QA对、12种任务），并提出端到端时空推理框架，通过实例感知特征编码、时间编码、相机编码和自适应下采样将大规模4D场景压缩为LLM可处理的token序列。"
 tags:
   - AAAI 2026
-  - 自我中心视角
-  - 4D点云
-  - 时空推理
 ---
 
 # Understanding Dynamic Scenes in Egocentric 4D Point Clouds

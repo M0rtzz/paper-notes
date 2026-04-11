@@ -2,9 +2,6 @@
 description: "【论文笔记】Decoupled Diffusion Sparks Adaptive Scene Generation 论文解读 | ICCV2025 | arXiv 2504.10485 | 场景生成 | 提出 Nexus，一个基于解耦扩散的自适应驾驶场景生成框架，通过独立噪声状态实现目标导向与实时响应的统一，将位移误差降低 40%，并构建了包含 540 小时安全关键驾驶数据的 Nexus-Data。"
 tags:
   - ICCV2025
-  - 场景生成
-  - 解耦扩散
-  - 自动驾驶仿真
 ---
 
 # Decoupled Diffusion Sparks Adaptive Scene Generation

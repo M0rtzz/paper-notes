@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages 论文解读 | AAAI 2026 | arXiv 2602.13867 | 多语言安全 | 本文综合多项实证研究，揭示LLM安全机制在低资源语言和代码混合场景下的严重失效，并提出基于参数高效安全引导、文化驱动偏好数据和社区参与式对齐的资源感知蓝图。"
 tags:
   - AAAI 2026
-  - 多语言安全
-  - 参数高效对齐
-  - 文化敏感性
 ---
 
 # Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages

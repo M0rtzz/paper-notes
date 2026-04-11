@@ -2,9 +2,6 @@
 description: "【论文笔记】WorldScore: A Unified Evaluation Benchmark for World Generation 论文解读 | ICCV 2025 | arXiv 2504.00983 | 世界生成 | 提出 WorldScore —— 首个统一的世界生成评估基准，将世界生成分解为一系列\"下一场景生成\"任务，支持对 3D、4D、I2V 和 T2V 模型的统一评测，并涵盖 3000 个测试样本和 10 项指标。"
 tags:
   - ICCV 2025
-  - 世界生成
-  - 统一评估基准
-  - 3D/4D场景生成
 ---
 
 # WorldScore: A Unified Evaluation Benchmark for World Generation

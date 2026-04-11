@@ -2,9 +2,6 @@
 description: "【论文笔记】EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models 论文解读 | ACL 2025 | arXiv 2506.00479 | VLM acceleration | 提出 EffiVLM-Bench，首个系统评估大型视觉语言模型（LVLM）训练免加速方法的统一框架，覆盖 17 个 benchmark、3 个前沿模型，引入泛化性和忠诚度等新指标，揭示了 token 压缩与参数压缩在不同场景下的性能-效率权衡。"
 tags:
   - ACL 2025
-  - VLM acceleration
-  - token compression
-  - KV cache
 ---
 
 # EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models

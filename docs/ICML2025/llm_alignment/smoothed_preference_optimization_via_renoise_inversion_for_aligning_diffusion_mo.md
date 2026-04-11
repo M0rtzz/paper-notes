@@ -2,9 +2,6 @@
 description: "【论文笔记】Smoothed Preference Optimization via ReNoise Inversion for Aligning Diffusion Models with Varied Human Preferences 论文解读 | ICML 2025 | arXiv 2506.02698 | 偏好优化 | 提出 SmPO-Diffusion，通过平滑偏好建模替代二元偏好标签 + ReNoise Inversion 替代前向加噪估计，在大幅降低训练成本（比 DPO 快 6.5 倍，比 KTO 快 26 倍）的同时实现了 T2I 扩散模型偏好对齐的 SOTA 性能。"
 tags:
   - ICML 2025
-  - 偏好优化
-  - 扩散模型对齐
-  - 平滑偏好分布
 ---
 
 # Smoothed Preference Optimization via ReNoise Inversion for Aligning Diffusion Models with Varied Human Preferences

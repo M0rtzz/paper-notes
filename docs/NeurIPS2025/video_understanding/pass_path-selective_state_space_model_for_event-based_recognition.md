@@ -2,9 +2,6 @@
 description: "【论文笔记】PASS: Path-Selective State Space Model for Event-Based Recognition 论文解读 | NeurIPS 2025 | arXiv 2409.16953 | 事件相机 | PASS提出路径选择性事件聚合与扫描（PEAS）模块和多面选择引导（MSG）损失，利用SSM的线性复杂度和频率泛化能力，实现了从10^6到10^9事件长度的广泛分布上的事件识别，并在推理频率变化时保持性能仅下降8.62%（基线下降20.69%）。"
 tags:
   - NeurIPS 2025
-  - 事件相机
-  - 状态空间模型
-  - 频率泛化
 ---
 
 # PASS: Path-Selective State Space Model for Event-Based Recognition

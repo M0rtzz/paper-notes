@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaptVision: Efficient Vision-Language Models via Adaptive Visual Acquisition 论文解读 | CVPR2026 | arXiv 2512.03794 | 视觉token压缩 | 提出 AdaptVision，通过由粗到精的主动视觉机制和强化学习训练，让 VLM 自主决定每个样本所需的最少视觉 token 数量，配合解耦式多轮策略优化 (DTPO) 实现效率与精度的最优平衡。"
 tags:
   - CVPR2026
-  - 视觉token压缩
-  - 自适应视觉获取
-  - 强化学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

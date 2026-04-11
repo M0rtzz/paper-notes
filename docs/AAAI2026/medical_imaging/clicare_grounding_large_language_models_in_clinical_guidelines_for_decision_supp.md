@@ -2,9 +2,6 @@
 description: "【论文笔记】CliCARE: Grounding Large Language Models in Clinical Guidelines for Decision Support over Longitudinal Cancer Electronic Health Records 论文解读 | AAAI 2026 | arXiv 2507.22533 | LLM临床决策 | 提出 CliCARE 框架，将非结构化的纵向癌症电子病历（EHR）转化为时序知识图谱（TKG），并与临床指南知识图谱对齐融合，为 LLM 提供循证依据的临床决策支持，同时设计了与专家评估高度相关的 LLM-as-a-Judge 评估协议。"
 tags:
   - AAAI 2026
-  - LLM临床决策
-  - 电子健康记录
-  - 时序知识图谱
 ---
 
 # CliCARE: Grounding Large Language Models in Clinical Guidelines for Decision Support over Longitudinal Cancer Electronic Health Records

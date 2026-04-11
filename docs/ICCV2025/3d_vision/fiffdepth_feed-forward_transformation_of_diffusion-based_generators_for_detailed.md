@@ -2,9 +2,6 @@
 description: "【论文笔记】FiffDepth: Feed-forward Transformation of Diffusion-Based Generators for Detailed Depth Estimation 论文解读 | ICCV 2025 | arXiv 2412.00671 | 单目深度估计 | 提出FiffDepth，将预训练的扩散模型转化为确定性前馈架构进行单目深度估计，通过保持扩散轨迹维持細节生成能力，并引入可学习滤波器蒸馏DINOv2的鲁棒泛化能力到扩散骨干网络，在效率、精度和细节丰富度三方面同时超越现有方法。"
 tags:
   - ICCV 2025
-  - 单目深度估计
-  - 扩散模型
-  - 前馈架构
 ---
 
 # FiffDepth: Feed-forward Transformation of Diffusion-Based Generators for Detailed Depth Estimation

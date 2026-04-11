@@ -2,9 +2,6 @@
 description: "【论文笔记】MineAnyBuild: Benchmarking Spatial Planning for Open-world AI Agents 论文解读 | NeurIPS 2025 (Datasets & Benchmarks) | arXiv 2505.20148 | spatial planning | 基于 Minecraft 构建空间规划基准 MineAnyBuild，要求 AI Agent 根据多模态指令生成可执行的建筑蓝图矩阵，包含 4000 个任务和 500+ 建筑/装饰资产，从空间理解、空间推理、创造力和空间常识四个维度系统评估 MLLM 的空间规划能力，揭示即便 GPT-4o 整体得分仅 41.02/100，开源模型更差。"
 tags:
   - NeurIPS 2025 (Datasets & Benchmarks)
-  - spatial planning
-  - Minecraft
-  - open-world agent
 ---
 
 # MineAnyBuild: Benchmarking Spatial Planning for Open-world AI Agents

@@ -2,9 +2,6 @@
 description: "【论文笔记】Domain Reduction Strategy for Non-Line-of-Sight Imaging 论文解读 | ECCV 2024 | arXiv 2308.10269 | 非视线成像 | 提出一种面向非视线成像（NLOS）的优化方法，通过将瞬态信号建模为逐点光传播函数的叠加，并设计由粗到细的域缩减策略剪除空白区域，在通用NLOS场景下实现约20倍加速且同时重建反射率和表面法线。"
 tags:
   - ECCV 2024
-  - 非视线成像
-  - NLOS
-  - 域缩减
 ---
 
 # Domain Reduction Strategy for Non-Line-of-Sight Imaging

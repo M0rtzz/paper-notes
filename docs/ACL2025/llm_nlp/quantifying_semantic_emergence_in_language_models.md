@@ -2,9 +2,6 @@
 description: "【论文笔记】Quantifying Semantic Emergence in Language Models 论文解读 | ACL 2025 | arXiv 2405.12617 | 信息涌现 | 提出了 Information Emergence (IE) 这一基于信息论的定量指标，通过比较 Transformer 各层中宏观（序列级）与微观（token级）的互信息差异，量化 LLM 从 token 中提取语义的能力。"
 tags:
   - ACL 2025
-  - 信息涌现
-  - 语义理解
-  - 互信息
 ---
 
 # Quantifying Semantic Emergence in Language Models

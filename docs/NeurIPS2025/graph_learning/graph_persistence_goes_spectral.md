@@ -2,9 +2,6 @@
 description: "【论文笔记】Graph Persistence goes Spectral 论文解读 | NeurIPS 2025 | arXiv 2506.06571 | 持续同调 | 提出 SpectRe——将图拉普拉斯谱信息融入持续同调（PH）图的新拓扑描述符，证明其表达力严格强于 PH 和谱信息单独使用，建立了局部稳定性理论，在合成和真实数据集上提升 GNN 的图分类能力。"
 tags:
   - NeurIPS 2025
-  - 持续同调
-  - 图拉普拉斯谱
-  - GNN表达力
   - 图神经网络
 ---
 

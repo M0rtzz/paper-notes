@@ -2,9 +2,6 @@
 description: "【论文笔记】Multimodal 3D Genome Pre-training 论文解读 | NeurIPS 2025 | arXiv 2504.09060 | 3D基因组 | 提出MIX-HIC——首个面向3D基因组的多模态基础模型，通过跨模态交互块和跨模态映射块融合Hi-C接触图和表观基因组信号，在超过127万对样本上预训练，在Hi-C预测、染色质环检测和CAGE-seq表达预测三个下游任务上全面超越SOTA。"
 tags:
   - NeurIPS 2025
-  - 3D基因组
-  - Hi-C
-  - 表观基因组
 ---
 
 # Multimodal 3D Genome Pre-training

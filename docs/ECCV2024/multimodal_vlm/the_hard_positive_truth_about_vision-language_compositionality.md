@@ -2,9 +2,6 @@
 description: "【论文笔记】The Hard Positive Truth about Vision-Language Compositionality 论文解读 | ECCV 2024 | arXiv 2409.17958 | 组合性理解 | 本文揭示了现有CLIP硬负例微调方法在提升组合性理解时引入了\"过敏感\"问题——模型将语义不变的硬正例（hard positives）也错误地判为不匹配；通过同时引入硬正例和硬负例进行微调，显著缓解了该问题并实现了更鲁棒的组合性提升。"
 tags:
   - ECCV 2024
-  - 组合性理解
-  - CLIP
-  - 硬正例
 ---
 
 # The Hard Positive Truth about Vision-Language Compositionality

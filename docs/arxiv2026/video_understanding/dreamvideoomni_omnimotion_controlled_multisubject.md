@@ -2,9 +2,6 @@
 description: "【论文笔记】DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning 论文解读 | arXiv 2026 | arXiv 2603.12257 | dreamvideo-omni | 虽然大规模扩散模型彻底改变了视频合成，但实现对多主体身份和多粒度运动的精确控制仍然是一个重大挑战。"
 tags:
   - arXiv 2026
-  - dreamvideo-omni
-  - omni-motion
-  - controlled
 ---
 
 # DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning

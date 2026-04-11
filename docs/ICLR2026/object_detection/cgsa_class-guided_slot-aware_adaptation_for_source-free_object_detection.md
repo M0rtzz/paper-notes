@@ -2,11 +2,9 @@
 description: "【论文笔记】CGSA: Class-Guided Slot-Aware Adaptation for Source-Free Object Detection 论文解读 | ICLR 2026 | arXiv 2602.22621 | 域适应 source-free domain adaptation | 首次将 Object-Centric Learning（Slot Attention）引入无源域自适应目标检测（SF-DAOD），通过分层 Slot 感知模块提取域不变的目标级结构先验，并用类引导对比学习驱动域不变表征，在多个跨域基准上大幅超越现有方法。"
 tags:
   - ICLR 2026
-  - source-free domain adaptation
   - 域适应
-  - object-centric learning
-  - slot attention
   - 注意力机制
+  - 对比学习
 ---
 
 # CGSA: Class-Guided Slot-Aware Adaptation for Source-Free Object Detection

@@ -2,10 +2,7 @@
 description: "【论文笔记】On Measuring Long-Range Interactions in Graph Neural Networks 论文解读 | ICML2025 | arXiv 2506.05971 | 长距离交互 | 形式化定义了图任务中的\"长距离交互\"概念，提出基于距离×影响力的range measure来量化算子的作用范围，发现常用LRGB基准和架构在实际中并非真正\"长距离\"的。"
 tags:
   - ICML2025
-  - 长距离交互
-  - GNN表达力
   - 图神经网络
-  - range measure
 ---
 
 # On Measuring Long-Range Interactions in Graph Neural Networks

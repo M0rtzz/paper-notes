@@ -2,10 +2,7 @@
 description: "【论文笔记】Leveraging Variation Theory in Counterfactual Data Augmentation for Optimized Active Learning 论文解读 | ACL 2025 Findings | arXiv 2408.03819 | 数据增强 Counterfactual Data Augmentation | 本文将变异理论(Variation Theory)引入反事实数据增强(CDA)框架，通过保留神经符号模式的方式使用LLM生成反事实样本，并结合三级过滤流水线筛选高质量数据，用于优化主动学习中的少样本文本分类，在多个数据集上取得显著F1提升。"
 tags:
   - ACL 2025 Findings
-  - Counterfactual Data Augmentation
   - 数据增强
-  - Active Learning
-  - Variation Theory
 ---
 
 # Leveraging Variation Theory in Counterfactual Data Augmentation for Optimized Active Learning

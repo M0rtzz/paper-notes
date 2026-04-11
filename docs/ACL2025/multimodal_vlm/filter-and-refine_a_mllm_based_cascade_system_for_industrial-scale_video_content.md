@@ -2,9 +2,6 @@
 description: "【论文笔记】Filter-And-Refine: A MLLM Based Cascade System for Industrial-Scale Video Content Moderation 论文解读 | ACL 2025 | arXiv 2507.17204 | MLLM | TikTok提出一种基于MLLM的两阶段级联内容审核系统（Router-Ranker），通过轻量级嵌入检索路由器过滤97.5%的合规流量，仅将高风险视频送入微调后的LLaVA进行精细分类，F1提升66.5%的同时部署成本降至直接全量部署的1.5%。"
 tags:
   - ACL 2025
-  - MLLM
-  - 内容审核
-  - 级联系统
 ---
 
 # Filter-And-Refine: A MLLM Based Cascade System for Industrial-Scale Video Content Moderation

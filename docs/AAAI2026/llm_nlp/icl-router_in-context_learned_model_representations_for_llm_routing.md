@@ -2,9 +2,6 @@
 description: "【论文笔记】ICL-Router: In-Context Learned Model Representations for LLM Routing 论文解读 | AAAI 2026 | arXiv 2510.09719 | 模型路由 | 提出 ICL-Router，通过两阶段训练（查询重建 + ICL模型路由）将 LLM 的能力画像编码为 in-context 向量，实现可扩展的动态模型路由——新增模型无需重训路由器，在分布内和分布外任务上均达到 SOTA。"
 tags:
   - AAAI 2026
-  - 模型路由
-  - in-context向量
-  - 能力画像
 ---
 
 # ICL-Router: In-Context Learned Model Representations for LLM Routing

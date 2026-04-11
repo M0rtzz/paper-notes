@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Time-Scale Invariant Population-Level Neural Representations 论文解读 | NeurIPS 2025 | arXiv 2511.13022 | 神经时间序列 | 提出时间尺度增强预训练（TSAP）策略，通过在预训练阶段引入多种时间窗口长度的数据增强，使群体级神经信号基础模型对输入时间尺度具有不变性，在匹配和未见时间尺度上均显著提升解码性能。"
 tags:
   - NeurIPS 2025
-  - 神经时间序列
-  - 基础模型
-  - 时间尺度不变性
 ---
 
 # Learning Time-Scale Invariant Population-Level Neural Representations

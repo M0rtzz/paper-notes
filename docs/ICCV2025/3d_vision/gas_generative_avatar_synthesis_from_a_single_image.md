@@ -2,9 +2,6 @@
 description: "【论文笔记】GAS: Generative Avatar Synthesis from a Single Image 论文解读 | ICCV 2025 | arXiv 2502.06957 | 人体Avatar生成 | 提出GAS框架，通过将泛化NeRF重建的密集外观线索与视频扩散模型结合，统一新视角和新姿态合成为视频生成任务，配合模态切换器解耦两种任务，实现从单张图像生成视角一致和时序连贯的人体Avatar。"
 tags:
   - ICCV 2025
-  - 人体Avatar生成
-  - 单图像
-  - 视频扩散
 ---
 
 # GAS: Generative Avatar Synthesis from a Single Image

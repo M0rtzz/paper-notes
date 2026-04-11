@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward a Vision-Language Foundation Model for Medical Data: Multimodal Dataset and Benchmarks for Vietnamese PET/CT Report Generation 论文解读 | NeurIPS 2025 | arXiv 2509.24739 | 视觉语言模型 | 构建首个越南语 PET/CT 图像-报告数据集 ViMed-PET（2,757 例全身 PET/CT 体积 + 完整临床报告），通过数据增强策略和三阶段微调流程显著提升 VLM 在医学报告生成和 VQA 任务上的表现，并提出基于临床关键信息的评估指标。"
 tags:
   - NeurIPS 2025
-  - 视觉语言模型
-  - PET/CT
-  - 越南语医学报告
 ---
 
 # Toward a Vision-Language Foundation Model for Medical Data: Multimodal Dataset and Benchmarks for Vietnamese PET/CT Report Generation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Characterizing and Optimizing the Spatial Kernel of Multi Resolution Hash Encodings 论文解读 | ICLR2026 | arXiv 2602.10495 | multi-resolution hash encoding | 从物理系统角度分析 Instant-NGP 的多分辨率哈希编码（MHE），推导出其点扩展函数（PSF）的闭式近似，发现有效分辨率由平均分辨率 $N_{\text{avg}}$ 而非最细分辨率 $N_{\max}$ 决定，且存在网格引起的各向异性，并提出零开销的 Rotated MHE（R-MHE）通过逐层旋转输入坐标消除各向异性。"
 tags:
   - ICLR2026
-  - multi-resolution hash encoding
-  - neural radiance field
-  - point spread function
 ---
 
 # Characterizing and Optimizing the Spatial Kernel of Multi Resolution Hash Encodings

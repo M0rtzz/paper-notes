@@ -2,9 +2,6 @@
 description: "【论文笔记】Are We in the AI-Generated Text World Already? Quantifying and Monitoring AIGT on Social Media 论文解读 | ACL 2025 | arXiv 2412.18148 | AI生成文本 | 首次大规模量化社交媒体上 AI 生成文本(AIGT)的占比变化——收集 Medium/Quora/Reddit 上 240 万帖子，构建 AIGTBench 训练最佳检测器 OSM-Det，发现 2022-2024 年间 Medium 和 Quora 的 AIGT 占比从~2% 飙升至~37-39%，而 Reddit 仅从 1.3% 增至 2.5%。"
 tags:
   - ACL 2025
-  - AI生成文本
-  - 社交媒体监测
-  - 文本检测
 ---
 
 # Are We in the AI-Generated Text World Already? Quantifying and Monitoring AIGT on Social Media

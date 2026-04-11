@@ -2,9 +2,6 @@
 description: "【论文笔记】MuseControlLite: Multifunctional Music Generation with Lightweight Conditioners 论文解读 | ICML2025 | arXiv 2506.18729 | 音乐生成 | 提出轻量级音乐控制机制——关键发现是时变音乐属性条件需要旋转位置编码(RoPE)，仅加RoPE到解耦交叉注意力层即可将旋律控制准确率从56.6%提升到61.1%，可训练参数比SOTA少6.75倍（仅85M）。"
 tags:
   - ICML2025
-  - 音乐生成
-  - 轻量微调
-  - 位置编码
 ---
 
 # MuseControlLite: Multifunctional Music Generation with Lightweight Conditioners

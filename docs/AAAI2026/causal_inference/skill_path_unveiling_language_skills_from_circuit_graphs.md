@@ -2,9 +2,6 @@
 description: "【论文笔记】Skill Path: Unveiling Language Skills from Circuit Graphs 论文解读 | AAAI2026 | arXiv 2410.01334 | mechanistic interpretability | 提出 Skill Path 概念及三步框架（分解-剪枝-因果中介），从电路图中提取语言模型特定技能的线性路径，定量验证了技能的分层性（Stratification）和包容性（Inclusiveness）两大猜想。"
 tags:
   - AAAI2026
-  - mechanistic interpretability
-  - circuit discovery
-  - skill path
 ---
 
 # Skill Path: Unveiling Language Skills from Circuit Graphs

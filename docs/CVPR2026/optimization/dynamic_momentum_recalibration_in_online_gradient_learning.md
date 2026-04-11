@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Momentum Recalibration in Online Gradient Learning 论文解读 | CVPR 2026 | arXiv 2603.06120 | optimizer | 从信号处理视角揭示固定动量系数在偏差-方差权衡上的固有缺陷，提出SGDF优化器，通过在线计算最优时变增益（基于最小均方误差原则）动态平衡梯度估计的噪声抑制和信号保持，在多种视觉任务上超越SGD动量和Adam变体。"
 tags:
   - CVPR 2026
-  - optimizer
-  - momentum
-  - bias-variance tradeoff
 ---
 
 # Dynamic Momentum Recalibration in Online Gradient Learning

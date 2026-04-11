@@ -2,9 +2,6 @@
 description: "【论文笔记】Probabilistic Hash Embeddings for Online Learning of Categorical Features 论文解读 | AAAI 2026 | arXiv 2511.20893 | hash embedding | 提出 Probabilistic Hash Embeddings (PHE)，将 hash embedding 视为随机变量并通过 Bayesian online learning 进行后验推断，解决流式数据中类别特征词汇不断增长时确定性 hash embedding 遭受的灾难性遗忘问题。"
 tags:
   - AAAI 2026
-  - hash embedding
-  - online learning
-  - Bayesian inference
 ---
 
 # Probabilistic Hash Embeddings for Online Learning of Categorical Features

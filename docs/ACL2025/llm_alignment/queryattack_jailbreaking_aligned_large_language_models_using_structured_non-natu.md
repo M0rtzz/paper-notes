@@ -2,9 +2,6 @@
 description: "【论文笔记】QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language 论文解读 | ACL 2025 | arXiv 2502.09723 | 越狱攻击 | 提出 QueryAttack，将恶意自然语言查询分解为三个语义组件（内容、修饰符、类别）并填入编程语言模板（SQL/URL/Python/Java/C++ 等 9 种），结合 ICL 引导目标 LLM 直接用自然语言回复有害内容，无需解密步骤，在 GPT-4o 上 Ensemble 配置达到 96.35% ASR，且提出的跨语言 CoT 防御可将 ASR 降低最多 64%。"
 tags:
   - ACL 2025
-  - 越狱攻击
-  - 结构化查询
-  - 编程语言
 ---
 
 # QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language

@@ -2,9 +2,6 @@
 description: "【论文笔记】Cross-Slice Knowledge Transfer via Masked Multi-Modal Heterogeneous Graph Contrastive Learning for Spatial Gene Expression Inference 论文解读 | CVPR 2026 | arXiv 2603.22821 | 空间转录组学 | 提出 SpaHGC，一种基于多模态异构图的框架，通过构建目标切片内、跨切片和参考切片内三种子图，结合 masked graph 对比学习和跨节点双注意力机制，实现从 H&E 病理图像预测空间基因表达，在七个数据集上 PCC 指标提升 7.3%-27.1%。"
 tags:
   - CVPR 2026
-  - 空间转录组学
-  - 异构图学习
-  - 跨切片知识迁移
 ---
 
 # Cross-Slice Knowledge Transfer via Masked Multi-Modal Heterogeneous Graph Contrastive Learning for Spatial Gene Expression Inference

@@ -2,9 +2,6 @@
 description: "【论文笔记】STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting 论文解读 | CVPR 2026 | arXiv 2509.25210 | 天气预报 | 通过自适应边界对齐机制实现全球和区域天气预报的统一建模"
 tags:
   - CVPR 2026
-  - 天气预报
-  - 自适应边界对齐
-  - 全球-区域预报
 ---
 
 # STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting

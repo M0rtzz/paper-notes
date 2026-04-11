@@ -2,9 +2,6 @@
 description: "【论文笔记】VTGaussian-SLAM: RGBD SLAM for Large Scale Scenes with Splatting View-Tied 3D Gaussians 论文解读 | ICML2025 | arXiv 2506.02741 | SLAM | 提出视图绑定3D高斯（View-Tied 3D Gaussians），将高斯绑定到深度像素上并简化为球形，大幅节省存储开销，配合仅优化最近视图相关高斯的tracking/mapping策略，实现面向大规模场景的可扩展RGBD SLAM系统。"
 tags:
   - ICML2025
-  - SLAM
-  - 3D高斯泼溅
-  - 视图绑定高斯
 ---
 
 # VTGaussian-SLAM: RGBD SLAM for Large Scale Scenes with Splatting View-Tied 3D Gaussians

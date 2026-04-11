@@ -2,10 +2,7 @@
 description: "【论文笔记】Improved Object-Centric Diffusion Learning with Registers and Contrastive Alignment (CODA) 论文解读 | ICLR 2026 | arXiv 2601.01224 | Object-Centric Learning | 提出 CODA 框架，通过引入 register slots 吸收残余注意力、微调交叉注意力投影以及对比对齐损失，解决基于扩散模型的物体中心学习中的 slot 纠缠和弱对齐问题，在合成和真实数据集上显著提升物体发现和组合式生成质量。"
 tags:
   - ICLR 2026
-  - Object-Centric Learning
-  - Slot Attention
   - 注意力机制
-  - Register Slots
 ---
 
 # Improved Object-Centric Diffusion Learning with Registers and Contrastive Alignment (CODA)

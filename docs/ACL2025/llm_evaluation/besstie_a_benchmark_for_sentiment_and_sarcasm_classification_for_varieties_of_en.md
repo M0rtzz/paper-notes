@@ -2,9 +2,6 @@
 description: "【论文笔记】BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English 论文解读 | ACL 2025 | arXiv 2412.04726 | 英语变体 | 构建 BESSTIE，首个针对英语变体（澳大利亚/印度/英国英语）的情感分析和讽刺检测标注基准，通过 9 个微调 LLM 评估发现模型在印度英语（外圈变体）上表现显著差于内圈变体，跨变体泛化能力也有限。"
 tags:
   - ACL 2025
-  - 英语变体
-  - 情感分析
-  - 讽刺检测
 ---
 
 # BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English

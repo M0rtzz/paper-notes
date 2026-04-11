@@ -2,9 +2,6 @@
 description: "【论文笔记】Generative Value Conflicts Reveal LLM Priorities 论文解读 | ICLR 2026 | arXiv 2509.25369 | 价值冲突 | 提出 ConflictScope，一个自动生成价值冲突场景的 pipeline，通过开放式评估（非选择题）揭示 LLM 在冲突情境下的价值优先级排序，发现模型在开放式设置中从保护性价值（如无害性）转向个人价值（如用户自主性），且系统提示可将目标排序对齐提升 14%。"
 tags:
   - ICLR 2026
-  - 价值冲突
-  - LLM 对齐
-  - 价值排序
 ---
 
 # Generative Value Conflicts Reveal LLM Priorities

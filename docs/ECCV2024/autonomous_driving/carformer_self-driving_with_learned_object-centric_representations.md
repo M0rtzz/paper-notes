@@ -2,10 +2,8 @@
 description: "【论文笔记】CarFormer: Self-Driving with Learned Object-Centric Representations 论文解读 | ECCV2024 | arXiv 2407.15843 | object-centric learning | 提出 CarFormer，首次将自监督 slot attention 学到的 object-centric 表征用于自动驾驶，在 CARLA Longest6 基准上超越了使用精确物体属性的 PlanT，同时具备世界模型预测未来状态的能力。"
 tags:
   - ECCV2024
-  - object-centric learning
-  - slot attention
   - 注意力机制
-  - self-driving
+  - Transformer
 ---
 
 # CarFormer: Self-Driving with Learned Object-Centric Representations

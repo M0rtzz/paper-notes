@@ -2,9 +2,6 @@
 description: "【论文笔记】Semantic Satellite Communications for Synchronized Audiovisual Reconstruction 论文解读 | CVPR2026 | arXiv 2603.10791 | 语义通信 | 提出一种面向卫星通信场景的自适应多模态语义传输系统，通过双流生成架构（视频驱动音频 / 音频驱动视频）灵活切换传输模态、动态关键帧更新机制维护共享知识库、以及 LLM 代理进行环境感知与任务自适应决策，在极低带宽下实现高保真音视频同步重建。"
 tags:
   - CVPR2026
-  - 语义通信
-  - 卫星通信
-  - 音视频同步
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search 论文解读 | ICLR 2026 | arXiv 2512.08724 | 文本到图像偏见 | 提出 Bias-Guided Prompt Search (BGPS)，通过结合 LLM 解码引导和扩散模型中间层属性分类器，自动发现可解释的、能最大化暴露 T2I 模型隐藏社会偏见的文本提示，即使对已去偏的模型也能揭示残留偏见。"
 tags:
   - ICLR 2026
-  - 文本到图像偏见
-  - 自动化提示搜索
-  - 公平性
 ---
 
 # Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search

@@ -2,9 +2,6 @@
 description: "【论文笔记】One Token, Two Fates: A Unified Framework via Vision Token Manipulation Against MLLMs Hallucination 论文解读 | CVPR 2025 | arXiv 2603.10360 | MLLM幻觉 | 提出首个统一的训练无关MLLM幻觉缓解框架，围绕vision token的双重角色——增强(SVC)与抑制(CRC)——在隐表示层协同操作，在LLaVA-1.5上POPE准确率提升约2%，仅增加1.06×推理延迟。"
 tags:
   - CVPR 2025
-  - MLLM幻觉
-  - vision token
-  - 对比解码
 ---
 
 # One Token, Two Fates: A Unified Framework via Vision Token Manipulation Against MLLMs Hallucination

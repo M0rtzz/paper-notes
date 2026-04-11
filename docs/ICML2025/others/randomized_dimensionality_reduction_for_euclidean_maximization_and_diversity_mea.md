@@ -2,9 +2,6 @@
 description: "【论文笔记】Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures 论文解读 | ICML2025 | arXiv 2506.00165 | 随机降维 | 证明了对一大类欧氏最大化问题（最大匹配、最大TSP、最大生成树、子图多样性等），使用数据无关的高斯 JL 变换将维度降至 $O(\lambda)$（$\lambda$ 为数据集倍增维度）即可近似保持所有候选解的值，并证明该依赖是紧的。"
 tags:
   - ICML2025
-  - 随机降维
-  - Johnson-Lindenstrauss
-  - 倍增维度
 ---
 
 # Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures

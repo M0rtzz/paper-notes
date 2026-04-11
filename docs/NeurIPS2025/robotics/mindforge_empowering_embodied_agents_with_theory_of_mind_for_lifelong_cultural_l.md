@@ -2,9 +2,6 @@
 description: "【论文笔记】MindForge: Empowering Embodied Agents with Theory of Mind for Lifelong Cultural Learning 论文解读 | NeurIPS 2025 | arXiv 2411.12977 | Theory of Mind | MindForge 为 LLM 驱动的具身智能体引入显式的心智理论（ToM）表征、自然语言通信和多组件记忆系统，使开源 LLM 智能体通过与专家协作对话（无需梯度更新）大幅提升任务完成率，在 Minecraft 中比 Voyager 多获得 3× 科技树里程碑和 2.3× 独特物品。"
 tags:
   - NeurIPS 2025
-  - Theory of Mind
-  - 文化学习
-  - 多智能体协作
 ---
 
 # MindForge: Empowering Embodied Agents with Theory of Mind for Lifelong Cultural Learning

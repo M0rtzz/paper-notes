@@ -2,9 +2,6 @@
 description: "【论文笔记】Long Context Tuning for Video Generation 论文解读 | ICCV 2025 | arXiv 2503.10589 | 场景级视频生成 | 本文提出 Long Context Tuning (LCT)，将预训练单镜头视频扩散模型的上下文窗口扩展到场景级别，通过交错 3D RoPE、异步噪声策略和上下文因果注意力，实现跨镜头视觉/动态一致性的多镜头场景生成，并展现出零样本组合生成等涌现能力。"
 tags:
   - ICCV 2025
-  - 场景级视频生成
-  - 长上下文
-  - 多镜头一致性
 ---
 
 # Long Context Tuning for Video Generation

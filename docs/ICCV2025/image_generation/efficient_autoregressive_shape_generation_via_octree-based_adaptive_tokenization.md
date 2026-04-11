@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Autoregressive Shape Generation via Octree-Based Adaptive Tokenization 论文解读 | ICCV 2025 | arXiv 2504.02817 | 3D 形状生成 | OAT 提出基于二次误差度量（quadric error）的自适应八叉树 tokenization，根据局部几何复杂度动态分配 token 预算，在减少 50% token 的同时保持重建质量，并在此基础上构建 OctreeGPT 实现高质量文本到 3D 生成。"
 tags:
   - ICCV 2025
-  - 3D 形状生成
-  - 八叉树
-  - 自适应 tokenization
 ---
 
 # Efficient Autoregressive Shape Generation via Octree-Based Adaptive Tokenization

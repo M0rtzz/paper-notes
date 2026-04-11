@@ -2,9 +2,6 @@
 description: "【论文笔记】HCPO: Hierarchical Conductor-Based Policy Optimization in Multi-Agent Reinforcement Learning 论文解读 | AAAI2026 | arXiv 2511.12123 | multi-agent RL | 提出 HCPO 算法，通过引入 conductor（指挥者）机制增强多智能体联合策略的表达能力和探索效率，构建类似 Gaussian mixture model 的联合策略框架，并证明两级策略更新的单调改进保证。"
 tags:
   - AAAI2026
-  - multi-agent RL
-  - cooperative MARL
-  - joint policy optimization
 ---
 
 # HCPO: Hierarchical Conductor-Based Policy Optimization in Multi-Agent Reinforcement Learning

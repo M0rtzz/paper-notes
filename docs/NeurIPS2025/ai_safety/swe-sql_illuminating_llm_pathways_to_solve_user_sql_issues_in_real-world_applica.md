@@ -2,9 +2,6 @@
 description: "【论文笔记】SWE-SQL: Illuminating LLM Pathways to Solve User SQL Issues in Real-World Applications 论文解读 | NeurIPS 2025 | arXiv 2506.18951 | SQL调试 | 提出 BIRD-CRITIC 基准（首个 SQL 问题调试基准）和 Six-Gym 训练环境，并开发 Bird-Fixer 智能体，通过 f-Plan Boosting 策略将 14B 开源模型的 SQL 调试能力提升至超越 Claude-3.7-Sonnet 和 GPT-4.1 的水平，在保护数据隐私的同时实现高效的 SQL 问题修复。"
 tags:
   - NeurIPS 2025
-  - SQL调试
-  - LLM Agent
-  - 数据库安全
 ---
 
 # SWE-SQL: Illuminating LLM Pathways to Solve User SQL Issues in Real-World Applications

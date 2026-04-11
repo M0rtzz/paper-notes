@@ -2,9 +2,6 @@
 description: "【论文笔记】Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting 论文解读 | NeurIPS 2025 | arXiv 2510.02913 | CLIP | 提出 CAW（Confidence-Aware Weighting），一种针对CLIP模型的对抗微调损失函数，通过置信度感知加权重点关注困难对抗样本，结合特征对齐正则化保留预训练语义知识，在AutoAttack下实现零样本鲁棒性SOTA，且内存占用更低。"
 tags:
   - NeurIPS 2025
-  - CLIP
-  - 对抗鲁棒性
-  - 零样本
 ---
 
 # Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting

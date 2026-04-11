@@ -2,9 +2,6 @@
 description: "【论文笔记】Are Deep Speech Denoising Models Robust to Adversarial Noise? 论文解读 | ICLR 2026 | arXiv 2503.11627 | 对抗攻击 | 首次系统性评估 4 款 SOTA 深度语音去噪（DNS）模型在对抗噪声下的鲁棒性：通过心理声学约束的 PGD 攻击生成人耳不可感知的对抗噪声，可令 Demucs、Full-SubNet+、FRCRN 和 MP-SENet 输出完全不可理解的 gibberish，实验覆盖多种声学条件和人类评估，同时揭示了目标攻击、通用扰动和跨模型迁移的局限性。"
 tags:
   - ICLR 2026
-  - 对抗攻击
-  - 语音去噪
-  - 心理声学掩蔽
 ---
 
 # Are Deep Speech Denoising Models Robust to Adversarial Noise?

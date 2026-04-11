@@ -2,9 +2,6 @@
 description: "【论文笔记】A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive 论文解读 | ACL 2025 (Best Paper Award) | arXiv 2402.11005 | LLM采样机制 | 本文从认知科学视角揭示了LLM的采样启发式机制与人类决策类似：采样不仅反映概念的统计规范（描述性成分），还系统性地偏向隐含的理想值（规范性成分），这种偏移在500个概念、15个模型上均显著，并可能导致医疗等应用中的有偏决策。"
 tags:
   - ACL 2025 (Best Paper Award)
-  - LLM采样机制
-  - 描述性规范
-  - 规范性规范
 ---
 
 # A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive

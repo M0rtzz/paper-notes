@@ -2,9 +2,6 @@
 description: "【论文笔记】X-WIN: Building Chest Radiograph World Model via Predictive Sensing 论文解读 | CVPR 2026 | arXiv 2511.14918 | 世界模型 | 提出 X-WIN 胸片世界模型，首次将 3D CT 空间知识融入 CXR 表征学习：通过学习预测 CT 在不同旋转角度下的 2D 投影来内化 3D 解剖结构，配合亲和力引导的对比对齐和结构保持域自适应，在 6 个 CXR 基准上通过线性探测取得 SOTA。"
 tags:
   - CVPR 2026
-  - 世界模型
-  - 胸片表征学习
-  - CT知识蒸馏
 ---
 
 # X-WIN: Building Chest Radiograph World Model via Predictive Sensing

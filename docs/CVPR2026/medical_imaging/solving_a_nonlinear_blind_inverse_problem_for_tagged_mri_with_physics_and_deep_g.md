@@ -2,9 +2,6 @@
 description: "【论文笔记】Solving a Nonlinear Blind Inverse Problem for Tagged MRI with Physics and Deep Generative Priors 论文解读 | CVPR 2026 | arXiv 2603.00882 | Tagged MRI | 提出 InvTag 框架，首次将 MR 物理前向模型与预训练扩散生成先验结合，统一解决 3D Tagged MRI 的解剖恢复、Cine 合成和运动估计三大子任务，且无需任何额外训练数据。"
 tags:
   - CVPR 2026
-  - Tagged MRI
-  - 逆问题
-  - 扩散先验
 ---
 
 # Solving a Nonlinear Blind Inverse Problem for Tagged MRI with Physics and Deep Generative Priors

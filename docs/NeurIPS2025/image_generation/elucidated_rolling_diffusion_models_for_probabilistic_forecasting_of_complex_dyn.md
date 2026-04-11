@@ -2,10 +2,7 @@
 description: "【论文笔记】Elucidated Rolling Diffusion Models for Probabilistic Forecasting of Complex Dynamics 论文解读 | NeurIPS 2025 | arXiv 2506.20024 | 扩散模型 rolling diffusion | 提出 ERDM，首次将滚动扩散（Rolling Diffusion）框架与 EDM 的原则性设计（噪声调度、预条件化、Heun 采样器）成功统一，通过渐进噪声调度显式建模不确定性增长，在 Navier-Stokes 和 ERA5 天气预报任务上显著优于自回归 EDM 基线。"
 tags:
   - NeurIPS 2025
-  - rolling diffusion
   - 扩散模型
-  - EDM
-  - probabilistic forecasting
 ---
 
 # Elucidated Rolling Diffusion Models for Probabilistic Forecasting of Complex Dynamics

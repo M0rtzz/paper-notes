@@ -2,9 +2,6 @@
 description: "【论文笔记】Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement 论文解读 | ACL 2025 | arXiv 2410.04444 | 自引用Agent | 提出 Gödel Agent，一种受 Gödel Machine 启发的自引用 Agent 框架，能通过 Python monkey patching 在运行时读取和修改自身代码（包括修改自身的修改逻辑），实现递归自改进，在 DROP/MGSM/MMLU/GPQA 上超越手工设计和元学习优化的 Agent。"
 tags:
   - ACL 2025
-  - 自引用Agent
-  - 递归自改进
-  - Monkey Patching
 ---
 
 # Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement

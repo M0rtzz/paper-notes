@@ -2,9 +2,6 @@
 description: "【论文笔记】FunQA: Towards Surprising Video Comprehension 论文解读 | ECCV 2024 | arXiv 2306.14899 | video question answering | 构建了大规模反直觉视频问答基准 FunQA（4.3K 视频、312K QA 对），覆盖幽默/创意/魔术三类令人惊讶的视频，并提出 FunMentor 智能体通过多轮对话增强 VLM 的反常识推理能力。"
 tags:
   - ECCV 2024
-  - video question answering
-  - counter-intuitive reasoning
-  - surprising videos
 ---
 
 # FunQA: Towards Surprising Video Comprehension

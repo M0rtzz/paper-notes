@@ -2,9 +2,6 @@
 description: "【论文笔记】Measuring the Impact of Rotation Equivariance on Aerial Object Detection 论文解读 | ICCV 2025 | arXiv 2507.09896 | 航空图像检测 | 提出 MessDet，一个基于旋转等变网络的航空目标检测器，通过新型下采样过程实现严格旋转等变性，并引入旋转等变通道注意力和多分支检测头，在 DOTA 等数据集上以极低参数量达到 SOTA 性能。"
 tags:
   - ICCV 2025
-  - 航空图像检测
-  - 旋转等变性
-  - 群等变网络
 ---
 
 # Measuring the Impact of Rotation Equivariance on Aerial Object Detection

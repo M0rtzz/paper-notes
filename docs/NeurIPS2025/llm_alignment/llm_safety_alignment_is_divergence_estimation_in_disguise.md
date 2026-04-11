@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM Safety Alignment is Divergence Estimation in Disguise 论文解读 | NeurIPS 2025 | arXiv 2502.00657 | safety alignment | 建立统一理论框架证明 RLHF/DPO/KTO/BCO 等对齐方法本质上是在估计安全分布 $\mathcal{D}^+$ 与不安全分布 $\mathcal{D}^-$ 之间的散度，由此解释了对齐后隐空间分离现象，并提出基于 KL 散度的 KLDO 对齐方法，在 5 个模型上实现最佳鲁棒性。"
 tags:
   - NeurIPS 2025
-  - safety alignment
-  - divergence estimation
-  - DPO
 ---
 
 # LLM Safety Alignment is Divergence Estimation in Disguise

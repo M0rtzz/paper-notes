@@ -2,9 +2,6 @@
 description: "【论文笔记】Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day 论文解读 | ICML 2025 | arXiv 2511.23220 | 指令微调 | 本文首次探索用指令微调提升 LLM 的表格数据生成能力，通过构建仅 10K 条高质量指令数据集并在单张 A100 上微调 Llama3.1-8B-Instruct 不到 6 小时，即可达到与 GPT-4o 相当的表格数据生成性能。"
 tags:
   - ICML 2025
-  - 指令微调
-  - 表格数据生成
-  - LLM
 ---
 
 # Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day

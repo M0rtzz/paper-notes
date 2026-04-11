@@ -2,9 +2,6 @@
 description: "【论文笔记】SingaKids: A Multilingual Multimodal Dialogic Tutor for Language Learning 论文解读 | ACL 2025 | arXiv 2506.02412 | 智能辅导系统 | 提出 SingaKids 系统，一个面向小学生的多语言多模态对话式语言学习辅导系统，通过图像描述任务整合稠密图像字幕、多语言对话、语音理解和儿童友好语音生成，支持英语、中文、马来语和泰米尔语四种语言的互动学习。"
 tags:
   - ACL 2025
-  - 智能辅导系统
-  - 多语言对话
-  - 图像描述
 ---
 
 # SingaKids: A Multilingual Multimodal Dialogic Tutor for Language Learning

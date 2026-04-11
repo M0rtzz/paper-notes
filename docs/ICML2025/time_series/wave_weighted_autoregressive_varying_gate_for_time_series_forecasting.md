@@ -2,9 +2,6 @@
 description: "【论文笔记】WAVE: Weighted Autoregressive Varying Gate for Time Series Forecasting 论文解读 | ICML 2025 | arXiv 2410.03159 | 时间序列预测 | 将经典统计学中的ARMA（自回归移动平均）结构引入自回归Transformer注意力机制，通过间接MA权重生成方法在不增加时间复杂度和参数量的前提下，解耦长短期时序模式，显著提升时间序列预测性能。"
 tags:
   - ICML 2025
-  - 时间序列预测
-  - ARMA
-  - 自回归注意力
 ---
 
 # WAVE: Weighted Autoregressive Varying Gate for Time Series Forecasting

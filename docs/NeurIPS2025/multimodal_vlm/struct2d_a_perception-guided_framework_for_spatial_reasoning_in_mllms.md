@@ -2,9 +2,6 @@
 description: "【论文笔记】Struct2D: A Perception-Guided Framework for Spatial Reasoning in MLLMs 论文解读 | NeurIPS 2025 | arXiv 2506.04220 | 空间推理 | 提出 Struct2D，一种感知引导的提示框架，通过将3D感知输出转化为结构化2D表示（BEV图像+对象标记+元数据），使MLLM无需显式3D输入即可完成复杂空间推理任务，并构建了200K QA对的大规模指令微调数据集 Struct2D-Set。"
 tags:
   - NeurIPS 2025
-  - 空间推理
-  - 鸟瞰图
-  - 多模态大语言模型
 ---
 
 # Struct2D: A Perception-Guided Framework for Spatial Reasoning in MLLMs

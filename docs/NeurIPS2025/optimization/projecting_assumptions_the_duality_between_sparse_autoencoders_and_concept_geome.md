@@ -2,9 +2,6 @@
 description: "【论文笔记】Projecting Assumptions: The Duality Between Sparse Autoencoders and Concept Geometry 论文解读 | NeurIPS 2025 | arXiv 2503.01822 | 稀疏自编码器 | 本文揭示了稀疏自编码器(SAE)架构与其能发现的概念结构之间存在根本性的对偶性——每种SAE隐式假设了特定的概念组织方式，当假设不匹配时会系统性地遗漏概念。据此提出了SpaDE，一种考虑非线性可分性和维度异质性的新SAE。"
 tags:
   - NeurIPS 2025
-  - 稀疏自编码器
-  - 概念几何
-  - 投影非线性
 ---
 
 # Projecting Assumptions: The Duality Between Sparse Autoencoders and Concept Geometry

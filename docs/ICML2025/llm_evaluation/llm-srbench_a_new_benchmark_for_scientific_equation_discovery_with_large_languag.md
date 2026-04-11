@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM-SRBench: A New Benchmark for Scientific Equation Discovery with LLMs 论文解读 | ICML2025 | arXiv 2504.10415 | 符号回归 | 提出LLM-SRBench基准（239题/4个科学领域），通过方程变换(LSR-Transform)和合成问题(LSR-Synth)防止LLM的记忆化，当前最好方法仅达31.5%符号准确率。"
 tags:
   - ICML2025
-  - 符号回归
-  - 科学方程发现
-  - LLM基准
 ---
 
 # LLM-SRBench: A New Benchmark for Scientific Equation Discovery with LLMs

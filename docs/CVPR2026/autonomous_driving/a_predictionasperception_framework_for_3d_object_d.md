@@ -2,9 +2,6 @@
 description: "【论文笔记】A Prediction-as-Perception Framework for 3D Object Detection 论文解读 | CVPR 2026 | arXiv 2603.12599 | 3D检测 | 借鉴人类\"预判目标位置再聚焦观察\"的认知模式，将前一帧的轨迹预测结果转化为当前帧的检测query，形成预测-感知迭代闭环，在UniAD上实现跟踪精度+10%和推理速度+15%的同步提升。"
 tags:
   - CVPR 2026
-  - 3D检测
-  - 预测-感知闭环
-  - query传递
 ---
 
 # A Prediction-as-Perception Framework for 3D Object Detection

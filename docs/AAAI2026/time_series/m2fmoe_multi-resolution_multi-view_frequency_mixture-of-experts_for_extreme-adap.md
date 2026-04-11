@@ -2,9 +2,6 @@
 description: "【论文笔记】M2FMoE: Multi-Resolution Multi-View Frequency Mixture-of-Experts for Extreme-Adaptive Time Series Forecasting 论文解读 | AAAI 2026 | arXiv 2601.08631 | 极端事件预测 | 提出 M2FMoE，通过傅里叶和小波双视角的频域混合专家建模常规与极端模式，结合跨视角共享频段分割器对齐两域语义、多分辨率自适应融合捕获多尺度信息、时序门控整合长短期特征，在 5 个水文极端事件数据集上无需极端事件标签即超越所有 SotA（含使用标签的方法），平均 RMSE 提升 22.3%。"
 tags:
   - AAAI 2026
-  - 极端事件预测
-  - 频域建模
-  - 混合专家
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

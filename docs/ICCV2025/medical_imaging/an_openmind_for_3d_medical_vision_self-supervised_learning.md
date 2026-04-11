@@ -2,9 +2,6 @@
 description: "【论文笔记】An OpenMind for 3D Medical Vision Self-Supervised Learning 论文解读 | ICCV 2025 | arXiv 2412.17041 | 3D 医学图像 | 发布了最大的公开 3D 医学影像预训练数据集 OpenMind（114k 脑部 MRI），并系统性地对比了多种 3D 自监督学习方法在 CNN（ResEnc-L）和 Transformer（Primus-M）上的表现，证明 MAE 预训练在分割任务上最优、对比学习在分类任务上最优，且首次展示预训练 Transformer 可在部分数据集上超越从头训练的 CNN。"
 tags:
   - ICCV 2025
-  - 3D 医学图像
-  - 自监督预训练
-  - 基准测试
 ---
 
 # An OpenMind for 3D Medical Vision Self-Supervised Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】UniC-Lift: Unified 3D Instance Segmentation via Contrastive Learning 论文解读 | AAAI 2026 | arXiv 2512.24763 | 3D实例分割 | 提出 UniC-Lift，一个统一的单阶段 3D 实例分割框架，通过在 3DGS 基元中学习可优化的向量嵌入，并利用对比损失和三元组损失训练，最终通过简单的\"嵌入到标签\"（Embedding-to-Label）过程直接解码出一致的 3D 分割标签，无需 HDBSCAN 等后处理聚类步骤，训练时间从 15+ 小时缩短至 40 分钟以内。"
 tags:
   - AAAI 2026
-  - 3D实例分割
-  - 3D高斯溅射
-  - 对比学习
 ---
 
 # UniC-Lift: Unified 3D Instance Segmentation via Contrastive Learning

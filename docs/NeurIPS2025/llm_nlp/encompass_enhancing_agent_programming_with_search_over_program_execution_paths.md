@@ -2,9 +2,6 @@
 description: "【论文笔记】EnCompass: Enhancing Agent Programming with Search Over Program Execution Paths 论文解读 | NeurIPS 2025 | arXiv 2512.03571 | Agent框架 | 提出 Probabilistic Angelic Nondeterminism (PAN) 编程模型及 EnCompass Python 框架，将 agent 的核心工作流逻辑与推理时搜索策略解耦，程序员只需在 LLM 调用处加 `branchpoint()` 标记，即可用几行参数切换 best-of-N、beam search、tree search 等策略，代码修改量减少 3-6x。"
 tags:
   - NeurIPS 2025
-  - Agent框架
-  - 推理时搜索
-  - 非确定性编程
 ---
 
 # EnCompass: Enhancing Agent Programming with Search Over Program Execution Paths

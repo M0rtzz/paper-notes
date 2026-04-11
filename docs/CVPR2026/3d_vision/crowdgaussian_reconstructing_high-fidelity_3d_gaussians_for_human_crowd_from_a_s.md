@@ -2,9 +2,6 @@
 description: "【论文笔记】CrowdGaussian: Reconstructing High-Fidelity 3D Gaussians for Human Crowd from a Single Image 论文解读 | CVPR 2026 | arXiv 2603.17779 | 人体重建 | CrowdGaussian 提出了从单张图像重建多人 3D 高斯泼溅表示的统一框架，通过自监督适配的大型遮挡人体重建模型（LORM）恢复被遮挡区域的完整几何，再通过自校准学习（SCL）训练的单步扩散精炼器（CrowdRefiner）提升纹理细节质量。"
 tags:
   - CVPR 2026
-  - 人体重建
-  - 3D高斯泼溅
-  - 遮挡恢复
 ---
 
 # CrowdGaussian: Reconstructing High-Fidelity 3D Gaussians for Human Crowd from a Single Image

@@ -2,9 +2,6 @@
 description: "【论文笔记】ObCLIP: Oblivious Cloud-Device Hybrid Image Generation with Privacy Preservation 论文解读 | NeurIPS 2025 | arXiv 2510.04153 | 隐私保护 | 提出 ObCLIP，一种遗忘式云-端混合图像生成方案：将用户 prompt 扩展为一组仅在敏感属性（性别、种族等）上不同的候选 prompt，云端处理所有候选的早期去噪步骤而无法识别真实 prompt，客户端选择正确的中间潜变量完成剩余去噪，同时通过时间和批次冗余加速将额外开销降至 4.4~7.6 倍以下。"
 tags:
   - NeurIPS 2025
-  - 隐私保护
-  - 混合推理
-  - 遗忘生成
 ---
 
 # ObCLIP: Oblivious Cloud-Device Hybrid Image Generation with Privacy Preservation

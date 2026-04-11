@@ -2,9 +2,6 @@
 description: "【论文笔记】TRivia: Self-supervised Fine-tuning of Vision-Language Models for Table Recognition 论文解读 | CVPR2026 | arXiv 2512.01248 | 表格识别 | 提出TRivia，一种基于GRPO的自监督微调框架，使VLM能开源、从无标注表格图像中学习表格识别，产出的TRivia-3B超越Gemini 2.5 Pro和MinerU2.5。"
 tags:
   - CVPR2026
-  - 表格识别
-  - 自监督微调
-  - GRPO
 ---
 
 # TRivia: Self-supervised Fine-tuning of Vision-Language Models for Table Recognition

@@ -2,9 +2,6 @@
 description: "【论文笔记】Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning 论文解读 | CVPR 2026 | arXiv 2603.12606 | visual grounding | 构建首个包含正负语义成对描述的视觉定位数据集 D-Negation (14K 图片, 140K 标注), 并提出 Grouped Opposition-Based Learning (GOBL) 微调机制, 通过 PNC 和 TSO 两个对立损失函数, 仅调不到 10% 参数即让 Grounding DINO 和 APE 在否定语义评估上提升最高 5.7 mAP, 且正面语义也同步提升."
 tags:
   - CVPR 2026
-  - visual grounding
-  - negation semantics
-  - opposition-based learning
 ---
 
 # Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning

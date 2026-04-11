@@ -2,9 +2,6 @@
 description: "【论文笔记】Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback 论文解读 | arXiv 2026 | arXiv 2603.13057 | reference-free | 给定人物图像和服装图像，基于图像的虚拟试穿（VTON）会合成穿着目标服装的人的试穿图像。"
 tags:
   - arXiv 2026
-  - reference-free
-  - image
-  - quality
 ---
 
 # Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback

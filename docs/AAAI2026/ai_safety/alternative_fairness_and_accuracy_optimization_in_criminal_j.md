@@ -2,9 +2,6 @@
 description: "【论文笔记】Alternative Fairness and Accuracy Optimization in Criminal Justice 论文解读 | AAAI 2026 | arXiv 2511.04505 | 算法公平性 | 本文系统综述了算法公平性的三大维度（群体公平、个体公平、过程公平），提出了一种基于容差约束的改进群体公平性优化公式，并构建了面向公共决策系统的\"公平三支柱\"部署框架。"
 tags:
   - AAAI 2026
-  - 算法公平性
-  - 刑事司法
-  - 风险评估
 ---
 
 # Alternative Fairness and Accuracy Optimization in Criminal Justice

@@ -2,9 +2,6 @@
 description: "【论文笔记】DW-DGAT: Dynamically Weighted Dual Graph Attention Network for Neurodegenerative Disease Diagnosis 论文解读 | AAAI 2026 | arXiv 2601.10001 | 图注意力网络 | 针对神经退行性疾病（PD/AD）早期诊断中的多指标数据融合、异质信息提取和类别不平衡三大挑战，提出动态加权双图注意力网络DW-DGAT，通过通用数据融合策略、微观-宏观双层图特征学习和动态类别权重生成机制，在PPMI和ADNI3数据集上大幅超越14种基线方法。"
 tags:
   - AAAI 2026
-  - 图注意力网络
-  - 神经退行性疾病
-  - 多模态融合
 ---
 
 # DW-DGAT: Dynamically Weighted Dual Graph Attention Network for Neurodegenerative Disease Diagnosis

@@ -2,9 +2,6 @@
 description: "【论文笔记】RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization 论文解读 | ICLR 2026 | arXiv 2505.13289 | 对称性发现 | 提出 RECON，一种类-姿态无关的正则化方向归一化方法，通过简单的右平移（right translation）修正任意训练过程中产生的正则化表示，实现无监督的实例级对称性发现、OOD 姿态检测以及即插即用的测试时正则化层。"
 tags:
   - ICLR 2026
-  - 对称性发现
-  - 正则化方向
-  - 类-姿态分解
 ---
 
 # RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization

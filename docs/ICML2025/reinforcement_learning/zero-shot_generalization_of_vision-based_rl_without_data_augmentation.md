@@ -2,9 +2,6 @@
 description: "【论文笔记】Zero-Shot Generalization of Vision-Based RL Without Data Augmentation 论文解读 | ICML2025 | arXiv 2410.07441 | 解耦表示学习 | 提出 ALDA（Associative Latent DisentAnglement），通过解耦表示学习+联想记忆机制实现视觉RL在未见环境中的零样本泛化，无需数据增强即可媲美使用千万级外部数据的方法。"
 tags:
   - ICML2025
-  - 解耦表示学习
-  - 联想记忆
-  - Hopfield网络
 ---
 
 # Zero-Shot Generalization of Vision-Based RL Without Data Augmentation

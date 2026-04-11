@@ -2,9 +2,6 @@
 description: "【论文笔记】CoopTrack: Exploring End-to-End Learning for Efficient Cooperative Sequential Perception 论文解读 | ICCV 2025 | arXiv 2507.19239 | 协同感知 | 提出 CoopTrack，首个完全实例级端到端协同 3D 多目标跟踪框架，通过可学习的图注意力关联模块和多维特征提取实现跨Agent实例匹配与融合，在 V2X-Seq 上达到 SOTA。"
 tags:
   - ICCV 2025
-  - 协同感知
-  - 3D多目标跟踪
-  - 端到端学习
 ---
 
 # CoopTrack: Exploring End-to-End Learning for Efficient Cooperative Sequential Perception

@@ -2,9 +2,6 @@
 description: "【论文笔记】SwiReasoning: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning 论文解读 | ICLR 2026 | arXiv 2510.05069 | 隐式推理 | 提出 SwiReasoning，一种免训练的 LLM 推理框架，通过基于熵趋势的块级置信度估计，动态切换显式（chain-of-thought）和隐式（latent space）推理模式，在 Pareto 意义上同时改善准确率（+1.8%~3.1%）和 Token 效率（+57%~79%）。"
 tags:
   - ICLR 2026
-  - 隐式推理
-  - 显式推理
-  - 模式切换
 ---
 
 # SwiReasoning: Switch-Thinking in Latent and Explicit for Pareto-Superior Reasoning

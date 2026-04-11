@@ -2,10 +2,8 @@
 description: "【论文笔记】AIMCoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning 论文解读 | ICLR 2026 | arXiv 2509.25699 | 多模态 multimodal CoT | 提出 AIMCoT，将多模态 CoT 的视觉信息选择从\"被动关注高注意力区域\"转变为\"主动寻找最高信息增益区域\"，通过三个模块（CAG 上下文增强注意力图、AVP 主动视觉探测、DAT 动态注意力转移触发）协同工作，在 LLaVA-W 上比 ICoT 提升 18.25%（0-shot），是一个免训练的即插即用框架。"
 tags:
   - ICLR 2026
-  - multimodal CoT
   - 多模态
-  - information gain
-  - active visual probing
+  - 注意力机制
 ---
 
 # AIMCoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning

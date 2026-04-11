@@ -2,9 +2,6 @@
 description: "【论文笔记】Cross-Lingual Auto Evaluation for Assessing Multilingual LLMs 论文解读 | ACL 2025 | arXiv 2410.13394 | Cross-Lingual Evaluation | 提出 CIA (Cross Lingual Auto Evaluation) Suite，一个跨语言 LLM 评估框架，包含评估模型 Hercule 和人工标注测试集 Recon，通过利用英语参考答案对非英语语言的 LLM 响应进行评分，8B 模型在多语言评估上超越了 GPT-4o 等闭源大模型。"
 tags:
   - ACL 2025
-  - Cross-Lingual Evaluation
-  - Multilingual LLM
-  - Evaluator LLM
 ---
 
 # Cross-Lingual Auto Evaluation for Assessing Multilingual LLMs

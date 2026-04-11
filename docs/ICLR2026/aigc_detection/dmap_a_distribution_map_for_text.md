@@ -2,9 +2,6 @@
 description: "【论文笔记】DMAP: A Distribution Map for Text 论文解读 | ICLR 2026 | arXiv 2602.11871 | 文本分布图 | 提出 DMAP，将文本通过语言模型的 token 概率映射到 [0,1] 单位区间上的样本，理论证明纯采样文本产生均匀分布，由此可用统计检验分析生成参数（如 top-k）、检测机器生成文本、揭示后训练的统计指纹。"
 tags:
   - ICLR 2026
-  - 文本分布图
-  - 机器文本检测
-  - 统计检验
 ---
 
 # DMAP: A Distribution Map for Text

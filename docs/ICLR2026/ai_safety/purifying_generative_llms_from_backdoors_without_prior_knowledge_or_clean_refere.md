@@ -2,9 +2,6 @@
 description: "【论文笔记】Purifying Generative LLMs from Backdoors without Prior Knowledge or Clean Reference 论文解读 | ICLR 2026 | arXiv 2603.13461 | LLM后门 | 提出一种无需先验知识或干净参考模型的LLM后门净化方法：通过机制分析发现后门关联冗余地分布在MLP层中，利用免疫类比从多个后门变体中提取\"签名\"，定位并抑制可疑神经元+轻量微调恢复，在5种攻击×3种任务上ASR降低80%+同时保持utility。"
 tags:
   - ICLR 2026
-  - LLM后门
-  - 后门净化
-  - 机制分析
 ---
 
 # Purifying Generative LLMs from Backdoors without Prior Knowledge or Clean Reference

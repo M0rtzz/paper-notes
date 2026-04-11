@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective 论文解读 | AAAI 2026 | arXiv 2511.06284 | 多模态虚假信息检测 | 提出 RetSimd，通过将文本分段并用文本转图像模型生成一系列增补图像来\"重放完整故事\"，配合图神经网络融合多图像关系，显著提升了图像模态对虚假信息检测的贡献，在三个基准数据集上一致性地改进了五种 SOTA 方法的性能。"
 tags:
   - AAAI 2026
-  - 多模态虚假信息检测
-  - 文本转图像
-  - 图神经网络
 ---
 
 # Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective

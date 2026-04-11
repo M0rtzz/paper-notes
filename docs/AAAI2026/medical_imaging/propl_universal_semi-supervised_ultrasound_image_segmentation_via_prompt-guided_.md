@@ -1,12 +1,7 @@
 ---
-description: "【论文笔记】ProPL 论文解读: 首次实现通用半监督超声图像分割，5个器官8个任务上以1/16标注超越全监督方法5.18% mDice | ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling | AAAI 2026 | arXiv 2511.15057"
+description: "【论文笔记】ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling 论文解读 | AAAI 2026 | arXiv 2511.15057 | 通用分割 | 提出 ProPL 框架，通过共享视觉编码器 + 提示引导双解码器 + 不确定性驱动伪标签校准，首次实现通用半监督超声图像分割，在 5 个器官 8 个任务上以极少标注数据（1/16）超越全监督方法 5.18% mDice。"
 tags:
   - AAAI 2026
-  - semi-supervised learning
-  - 半监督学习
-  - ultrasound segmentation
-  - 超声分割
-  - 医学图像
 ---
 
 # ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling

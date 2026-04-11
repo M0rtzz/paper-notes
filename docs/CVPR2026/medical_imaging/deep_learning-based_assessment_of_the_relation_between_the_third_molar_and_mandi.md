@@ -2,9 +2,6 @@
 description: "【论文笔记】Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning 论文解读 | CVPR 2026 | arXiv 2603.11850 | 第三磨牙 | 在全景X光片上比较本地学习(LL)、联邦学习(FL)和集中学习(CL)三种范式对第三磨牙与下颌管重叠关系的二分类性能，发现集中学习最优(AUC 0.831)，联邦学习作为隐私保护替代方案(AUC 0.757)显著优于本地学习(AUC均值 0.672)。"
 tags:
   - CVPR 2026
-  - 第三磨牙
-  - 下颌管
-  - 全景X光片
 ---
 
 # Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning

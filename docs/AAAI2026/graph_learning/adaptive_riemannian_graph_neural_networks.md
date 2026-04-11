@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Riemannian Graph Neural Networks 论文解读 | AAAI 2026 | arXiv 2508.02600 | 黎曼几何 | 提出 ARGNN 框架，为图上每个节点学习一个连续的、各向异性的对角黎曼度量张量，从而自适应地捕获图中不同区域（层级结构 vs 密集社区）的局部几何特性，统一并超越了固定曲率和离散混合曲率的几何 GNN 方法。"
 tags:
   - AAAI 2026
-  - 黎曼几何
-  - 自适应度量张量
-  - Ricci流正则化
 ---
 
 # Adaptive Riemannian Graph Neural Networks

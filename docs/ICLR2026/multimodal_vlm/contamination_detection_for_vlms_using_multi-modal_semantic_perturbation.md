@@ -2,9 +2,6 @@
 description: "【论文笔记】Contamination Detection for VLMs using Multi-Modal Semantic Perturbation 论文解读 | ICLR2026 | arXiv 2511.03774 | data contamination | 提出多模态语义扰动方法检测 VLM 数据污染：用 LLM 生成密集描述 + Flux ControlNet 在保持图像构图的同时改变答案相关语义元素，污染模型因记忆原始图像-文本对而在扰动版本上失败，首次系统验证现有 LLM 检测方法在 VLM 上不可靠。"
 tags:
   - ICLR2026
-  - data contamination
-  - VLM
-  - benchmark leakage
 ---
 
 # Contamination Detection for VLMs using Multi-Modal Semantic Perturbation

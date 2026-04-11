@@ -2,9 +2,6 @@
 description: "【论文笔记】DeToNATION: Decoupled Torch Network-Aware Training on Interlinked Online Nodes 论文解读 | AAAI 2026 | arXiv 2502.06728 | 分布式训练 | 提出 FlexDeMo——一种将全分片数据并行（FSDP）与解耦动量优化相结合的混合分片训练策略，在节点内使用 FSDP 分片、节点间仅同步快速移动的动量分量，实现了接近全同步 AdamW 的损失收敛同时显著加速训练。"
 tags:
   - AAAI 2026
-  - 分布式训练
-  - 解耦动量
-  - FSDP
 ---
 
 # DeToNATION: Decoupled Torch Network-Aware Training on Interlinked Online Nodes

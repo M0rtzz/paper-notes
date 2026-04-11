@@ -2,7 +2,6 @@
 description: "【论文笔记】DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2507.09424 | 数据归因、基准评估、毒性过滤、数据选择 | DATE-LM是首个统一、应用驱动的LLM数据归因基准，涵盖数据选择、毒性过滤、事实归因三大应用，通过公开排行榜促进可复现和公平的方法比较。"
 tags:
   - NeurIPS 2025
-  - 数据归因、基准评估、毒性过滤、数据选择
 ---
 
 # DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models

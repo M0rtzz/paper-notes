@@ -2,10 +2,8 @@
 description: "【论文笔记】Perceive, Act and Correct: Confidence Is Not Enough for Hyperspectral Classification 论文解读 | AAAI 2026 | arXiv 2511.10068 | hyperspectral | 提出 CABIN 框架，通过认知感知-行动-纠正的闭环学习机制，利用认识论不确定性（epistemic uncertainty）替代单纯的置信度来指导半监督高光谱图像分类中的样本选择与伪标签管理，在仅用 75% 标注的情况下显著超过全标注基线。"
 tags:
   - AAAI 2026
-  - hyperspectral
-  - semi-supervised
   - 半监督学习
-  - uncertainty
+  - 伪标签
 ---
 
 # Perceive, Act and Correct: Confidence Is Not Enough for Hyperspectral Classification

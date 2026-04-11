@@ -2,9 +2,6 @@
 description: "【论文笔记】Team ACK at SemEval-2025 Task 2: Beyond Word-for-Word Machine Translation for English-Korean Pairs 论文解读 | ACL 2025 | arXiv 2504.20451 | 机器翻译 | 本文在 SemEval-2025 Task 2 中系统评估了 13 个模型（LLM + 传统 MT）在英韩实体密集文本翻译上的表现，通过自动指标和双语人工评估揭示了 LLM 虽优于传统 MT 但在需要文化适应的实体翻译上仍普遍失败，并构建了翻译错误分类体系。"
 tags:
   - ACL 2025
-  - 机器翻译
-  - 英韩翻译
-  - 实体翻译
 ---
 
 # Team ACK at SemEval-2025 Task 2: Beyond Word-for-Word Machine Translation for English-Korean Pairs

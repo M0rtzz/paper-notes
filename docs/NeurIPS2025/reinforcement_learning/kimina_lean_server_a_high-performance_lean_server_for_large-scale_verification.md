@@ -2,9 +2,6 @@
 description: "【论文笔记】Kimina Lean Server: A High-Performance Lean Server for Large-Scale Verification 论文解读 | NeurIPS 2025 (MATH-AI Workshop) | arXiv 2504.21230 | Lean 4 | 提出Kimina Lean Server——一个面向大规模强化学习训练的高性能Lean 4验证服务器，通过服务端并行化和LRU缓存机制实现1.5-2倍的速度提升，已用于训练SOTA定理证明模型Kimina-Prover。"
 tags:
   - NeurIPS 2025 (MATH-AI Workshop)
-  - Lean 4
-  - 定理证明
-  - 形式化验证
 ---
 
 # Kimina Lean Server: A High-Performance Lean Server for Large-Scale Verification

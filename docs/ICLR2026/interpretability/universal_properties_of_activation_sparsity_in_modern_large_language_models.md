@@ -2,9 +2,7 @@
 description: "【论文笔记】Universal Properties of Activation Sparsity in Modern Large Language Models 论文解读 | ICLR2026 | arXiv 2509.00454 | activation sparsity | 对现代 LLM（GLU 架构 + SiLU/GELU）的激活稀疏性进行系统性研究，提出通用的 top-p 稀疏化框架和临界稀疏度（critical sparsity）指标，发现激活稀疏度随模型规模单调递增、输入稀疏化是最实用的免训练加速方案，并首次证明扩散型 LLM 也具有显著的激活稀疏性。"
 tags:
   - ICLR2026
-  - activation sparsity
-  - LLM acceleration
-  - GLU architecture
+  - 扩散模型
 ---
 
 # Universal Properties of Activation Sparsity in Modern Large Language Models

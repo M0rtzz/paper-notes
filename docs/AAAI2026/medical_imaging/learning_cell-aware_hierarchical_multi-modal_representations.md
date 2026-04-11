@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Cell-Aware Hierarchical Multi-Modal Representations for Robust Molecular Modeling 论文解读 | AAAI 2026 (Oral) | arXiv 2511.21120 | 分子表示学习 | 提出CHMR框架，将分子结构(1D/2D/3D)与细胞形态/基因表达等生物模态联合建模，通过结构感知的模态增强解决>90%的外部生物模态缺失问题，用树状向量量化(Tree-VQ)捕获分子-细胞-基因的层次化依赖关系，在9个benchmark的728个任务上超越SOTA，分类平均AUC提升3.6%，回归MAE降低17.2%。"
 tags:
   - AAAI 2026 (Oral)
-  - 分子表示学习
-  - 细胞感知
-  - 层次化向量量化
 ---
 
 # Learning Cell-Aware Hierarchical Multi-Modal Representations for Robust Molecular Modeling

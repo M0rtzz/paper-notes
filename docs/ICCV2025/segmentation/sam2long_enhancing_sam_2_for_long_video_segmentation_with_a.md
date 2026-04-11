@@ -2,9 +2,6 @@
 description: "【论文笔记】SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree 论文解读 | ICCV 2025 | arXiv 2410.16268 | SAM 2 | 针对SAM 2在长视频中因贪心选择策略导致的错误累积问题，提出一种training-free的约束树搜索记忆策略，维护多条分割路径并在视频级别选择最优结果，在9个VOS和3个VOT benchmark上平均提升3.7 J&F，长视频场景最高提升5.3。"
 tags:
   - ICCV 2025
-  - SAM 2
-  - 长视频分割
-  - 记忆树
 ---
 
 # SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree

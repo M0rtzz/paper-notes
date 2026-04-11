@@ -2,9 +2,6 @@
 description: "【论文笔记】Fourier Angle Alignment for Oriented Object Detection in Remote Sensing 论文解读 | CVPR 2026 | arXiv 2602.23790 | 旋转目标检测 | 利用傅里叶旋转等变性在频域估计并对齐目标方向，提出 FAAFusion（解决 Neck 层方向不一致）和 FAA Head（解决检测头分类-回归任务冲突）两个即插即用模块，在 DOTA 和 HRSC2016 上达到新 SOTA。"
 tags:
   - CVPR 2026
-  - 旋转目标检测
-  - 傅里叶变换
-  - 方向对齐
 ---
 
 # Fourier Angle Alignment for Oriented Object Detection in Remote Sensing

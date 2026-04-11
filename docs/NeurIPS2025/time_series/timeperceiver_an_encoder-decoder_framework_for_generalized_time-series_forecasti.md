@@ -2,9 +2,6 @@
 description: "【论文笔记】TimePerceiver: An Encoder-Decoder Framework for Generalized Time-Series Forecasting 论文解读 | NeurIPS 2025 | arXiv 2512.22550 | 时间序列预测 | 提出 TimePerceiver 统一编码器-解码器框架，通过广义化预测任务（同时包含外推、插值和填补）以及潜在瓶颈编码器 + 查询式解码器设计，在 8 个标准基准上取得全面 SOTA。"
 tags:
   - NeurIPS 2025
-  - 时间序列预测
-  - 编码器-解码器
-  - 潜在瓶颈
 ---
 
 # TimePerceiver: An Encoder-Decoder Framework for Generalized Time-Series Forecasting

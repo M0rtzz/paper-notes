@@ -2,9 +2,6 @@
 description: "【论文笔记】Who Can Withstand Chat-Audio Attacks? An Evaluation Benchmark for Large Audio-Language Models 论文解读 | ACL2025 | arXiv 2411.14842 | 对抗音频攻击 | 提出 Chat-Audio Attacks (CAA) 基准，包含四类通用对抗音频攻击（内容攻击、情感攻击、显式噪声攻击、隐式噪声攻击），通过三种评估方法系统评测六个 SOTA 大型音频语言模型的鲁棒性，发现 GPT-4o 表现最优但所有模型均存在显著脆弱性。"
 tags:
   - ACL2025
-  - 对抗音频攻击
-  - 大型音频语言模型
-  - 鲁棒性评估
 ---
 
 # Who Can Withstand Chat-Audio Attacks? An Evaluation Benchmark for Large Audio-Language Models

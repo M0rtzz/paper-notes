@@ -2,9 +2,6 @@
 description: "【论文笔记】BitMark: Watermarking Bitwise Autoregressive Image Generative Models 论文解读 | NeurIPS 2025 | arXiv 2506.21209 | 比特级水印 | 提出 BitMark——首个针对比特级自回归图像生成模型（Infinity、Instella）的水印方案，在生成过程中通过对 logit 加偏置将 bit 序列引向\"绿色列表\"，实现可靠检测（z-test）、高图像保真度（FID 几乎不变）、对多种攻击的鲁棒性和放射性（训练在水印图上的下游模型也带有水印），为防止模型坍缩提供了关键工具。"
 tags:
   - NeurIPS 2025
-  - 比特级水印
-  - 自回归图像生成
-  - 模型坍缩预防
 ---
 
 # BitMark: Watermarking Bitwise Autoregressive Image Generative Models

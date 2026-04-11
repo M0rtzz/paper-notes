@@ -1,12 +1,9 @@
 ---
-description: "【论文笔记】CMHANet 论文解读: 跨模态混合注意力网络，将2D图像上下文与3D点云融合并用对比几何损失提升低重叠/噪声场景下点云配准鲁棒性 | CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration | arXiv 2603.12721"
+description: "【论文笔记】CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration 论文解读 | 投稿中 | arXiv 2603.12721 | 跨模态 cross-modal fusion | 提出 CMHANet，通过将 2D 图像上下文与 3D 点云特征进行跨模态融合，并使用混合注意力机制和基于对比学习的几何一致性损失，提升点云配准在低重叠、噪声和部分观测场景下的鲁棒性与精度。"
 tags:
-  - point cloud registration
-  - 点云配准
-  - cross-modal fusion
-  - 跨模态融合
-  - 3D vision
-  - 3D视觉
+  - 投稿中
+  - 跨模态
+  - 注意力机制
 ---
 
 # CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration

@@ -2,9 +2,6 @@
 description: "【论文笔记】No Need For Real Anomaly: MLLM Empowered Zero-Shot Video Anomaly Detection 论文解读 | CVPR 2026 | arXiv 2602.19248 | 视频异常检测 | 提出端到端零样本视频异常检测框架 LAVIDA，通过异常暴露采样器将语义分割数据集转化为伪异常进行训练，结合 MLLM 提取深层异常语义特征和反注意力 token 压缩处理时空稀疏性，无需任何真实 VAD 数据即实现帧级/像素级 SOTA。"
 tags:
   - CVPR 2026
-  - 视频异常检测
-  - 零样本
-  - MLLM
 ---
 
 # No Need For Real Anomaly: MLLM Empowered Zero-Shot Video Anomaly Detection

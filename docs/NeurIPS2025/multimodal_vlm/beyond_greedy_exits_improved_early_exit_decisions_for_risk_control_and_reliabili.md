@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability 论文解读 | NeurIPS 2025 | arXiv 2509.23666 | 早退机制 | UAT（Unsupervised Adaptive Thresholding）为早退 DNN 设计了可靠性函数来评估中间层输出质量，并用多臂赌博机（MAB）算法在推理时动态学习最优退出阈值，实现 1.7-2.1× 加速且性能损失 <2%，同时对分布偏移鲁棒。"
 tags:
   - NeurIPS 2025
-  - 早退机制
-  - 风险控制
-  - 多臂赌博机
 ---
 
 # Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability

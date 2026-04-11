@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Orbital Minimization Method for Neural Operator Decomposition 论文解读 | NeurIPS 2025 | arXiv 2510.21952 | 谱分解 | 重新审视源自计算化学的经典轨道最小化方法（OMM），提供了简洁的线性代数一致性证明，揭示其与Sanger规则、流式PCA等的深层联系，并将其推广为训练神经网络进行正半定算子谱分解的通用框架。"
 tags:
   - NeurIPS 2025
-  - 谱分解
-  - 轨道最小化方法
-  - 特征函数学习
 ---
 
 # Revisiting Orbital Minimization Method for Neural Operator Decomposition

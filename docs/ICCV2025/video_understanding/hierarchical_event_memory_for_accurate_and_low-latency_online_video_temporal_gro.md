@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchical Event Memory for Accurate and Low-latency Online Video Temporal Grounding 论文解读 | ICCV 2025 | arXiv 2508.04546 | 在线视频时序定位 | 针对在线视频时序定位（OnVTG）任务，提出层级事件记忆机制存储不同时间尺度的历史事件信息，结合基于段树结构的事件提议和未来预测分支，在TACoS、ActivityNet Captions和MAD三大数据集上实现了SOTA的定位精度和低延迟预测。"
 tags:
   - ICCV 2025
-  - 在线视频时序定位
-  - 层级事件记忆
-  - 事件提议
 ---
 
 # Hierarchical Event Memory for Accurate and Low-latency Online Video Temporal Grounding

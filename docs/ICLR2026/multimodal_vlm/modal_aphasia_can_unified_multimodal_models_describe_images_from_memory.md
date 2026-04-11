@@ -2,9 +2,6 @@
 description: "【论文笔记】Modal Aphasia: Can Unified Multimodal Models Describe Images From Memory? 论文解读 | ICLR 2026 | arXiv 2510.21842 | 模态失语 | 发现并定义\"模态失语\"现象——统一多模态模型能精准生成视觉概念（如电影海报）但无法用文字准确描述同一概念，文本描述的错误率是视觉生成的7倍以上，揭示了当前统一模型中知识的跨模态迁移失败和潜在安全隐患。"
 tags:
   - ICLR 2026
-  - 模态失语
-  - 统一多模态模型
-  - 跨模态知识迁移
 ---
 
 # Modal Aphasia: Can Unified Multimodal Models Describe Images From Memory?

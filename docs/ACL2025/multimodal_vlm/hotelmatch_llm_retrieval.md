@@ -2,9 +2,6 @@
 description: "【论文笔记】HotelMatch-LLM: Joint Multi-Task Training of Small and Large Language Models for Efficient Multimodal Hotel Retrieval 论文解读 | ACL 2025 (Long Paper) | arXiv 2506.07296 | 多模态稠密检索 | 提出 HotelMatch-LLM，用 SLM 编码 query + LLM 编码酒店文档的非对称架构，配合三目标多任务优化（检索对齐 + MLM地理预测 + 视觉设施识别）和 patch 级 mean pooling 多图处理，在旅行领域多模态检索任务上显著超过 MARVEL/VISTA 等 SOTA。"
 tags:
   - ACL 2025 (Long Paper)
-  - 多模态稠密检索
-  - 非对称编码器
-  - 多任务优化
 ---
 
 # HotelMatch-LLM: Joint Multi-Task Training of Small and Large Language Models for Efficient Multimodal Hotel Retrieval

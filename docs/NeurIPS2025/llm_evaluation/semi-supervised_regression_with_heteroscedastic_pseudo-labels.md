@@ -2,9 +2,6 @@
 description: "【论文笔记】Semi-Supervised Regression with Heteroscedastic Pseudo-Labels 论文解读 | NeurIPS 2025 | arXiv 2510.15266 | 半监督回归 | 提出基于异方差建模的不确定性感知伪标签框架，通过双层优化动态校准每个伪标签的不确定性，避免错误伪标签对回归模型的负面影响，在多个 SSR 基准上取得 SOTA。"
 tags:
   - NeurIPS 2025
-  - 半监督回归
-  - 伪标签
-  - 异方差不确定性
 ---
 
 # Semi-Supervised Regression with Heteroscedastic Pseudo-Labels

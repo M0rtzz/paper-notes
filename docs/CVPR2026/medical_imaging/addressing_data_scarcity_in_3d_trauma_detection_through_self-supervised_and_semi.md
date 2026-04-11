@@ -2,9 +2,6 @@
 description: "【论文笔记】Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding 论文解读 | CVPR 2026 | arXiv 2603.12514 | 自监督学习 | 提出两阶段标签高效框架：先用 patch-based MIM 在1,206个无标注CT上自监督预训练3D U-Net编码器，再用VDETR+3D顶点相对位置编码做3D损伤检测，配合Mean Teacher半监督一致性正则化利用2,000个无标注体数据，仅用144个有标注样本即实现56.57% val mAP@0.50（比纯监督提升115%）。"
 tags:
   - CVPR 2026
-  - 自监督学习
-  - 半监督学习
-  - Masked Image Modeling
 ---
 
 # Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding

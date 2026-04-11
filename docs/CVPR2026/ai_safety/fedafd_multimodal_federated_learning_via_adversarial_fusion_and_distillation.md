@@ -2,10 +2,8 @@
 description: "【论文笔记】FedAFD: Multimodal Federated Learning via Adversarial Fusion and Distillation 论文解读 | CVPR 2026 | arXiv 2603.04890 | 联邦学习 Multimodal Federated Learning | 提出 FedAFD 框架，通过双层对抗对齐、粒度感知特征融合和相似度引导的集成蒸馏三阶段设计，在多模态联邦学习中同时提升异构客户端和服务器的模型性能。"
 tags:
   - CVPR 2026
-  - Multimodal Federated Learning
   - 联邦学习
-  - Adversarial Alignment
-  - Feature Fusion
+  - 知识蒸馏
 ---
 
 # FedAFD: Multimodal Federated Learning via Adversarial Fusion and Distillation

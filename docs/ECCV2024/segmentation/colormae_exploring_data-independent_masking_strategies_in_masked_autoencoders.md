@@ -2,9 +2,6 @@
 description: "【论文笔记】ColorMAE: Exploring Data-Independent Masking Strategies in Masked AutoEncoders 论文解读 | ECCV 2024 | arXiv 2407.13036 | Masked AutoEncoders | 提出 ColorMAE，通过对随机噪声施加不同频域滤波器生成具有空间与语义先验的数据无关遮罩模式，在不增加任何参数和计算开销的前提下，显著提升 MAE 的下游任务表现，尤其在语义分割任务上相比随机遮罩提升 2.72 mIoU。"
 tags:
   - ECCV 2024
-  - Masked AutoEncoders
-  - 数据无关遮罩
-  - 颜色噪声
 ---
 
 # ColorMAE: Exploring Data-Independent Masking Strategies in Masked AutoEncoders

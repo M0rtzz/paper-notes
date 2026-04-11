@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncertainty-Aware Gradient Stabilization for Small Object Detection 论文解读 | ICCV 2025 | arXiv 2303.01803 | 小目标检测 | 揭示了传统目标定位方法在小目标上存在因损失曲率陡峭导致的梯度不稳定问题，提出 UGS（不确定性感知梯度稳定化）框架，通过分类式定位 + 不确定性最小化 + 不确定性引导精炼三个组件来稳定梯度，显著提升小目标检测性能。"
 tags:
   - ICCV 2025
-  - 小目标检测
-  - 梯度稳定性
-  - 不确定性感知
 ---
 
 # Uncertainty-Aware Gradient Stabilization for Small Object Detection

@@ -2,9 +2,6 @@
 description: "【论文笔记】SConU: Selective Conformal Uncertainty in Large Language Models 论文解读 | ACL2025 | arXiv 2504.14154 | conformal prediction | 提出选择性保形不确定性框架 SConU，通过构建保形 p-value 进行显著性检验，首次实现对违反可交换性假设的不确定性数据异常点的自动过滤，从而在单域和跨域 QA 场景中严格管理 LLM 的错误覆盖率。"
 tags:
   - ACL2025
-  - conformal prediction
-  - uncertainty quantification
-  - LLM reliability
 ---
 
 # SConU: Selective Conformal Uncertainty in Large Language Models

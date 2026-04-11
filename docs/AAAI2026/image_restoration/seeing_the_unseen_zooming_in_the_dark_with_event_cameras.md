@@ -2,10 +2,8 @@
 description: "【论文笔记】Seeing the Unseen: Zooming in the Dark with Event Cameras 论文解读 | AAAI 2026 | arXiv 2601.02206 | 超分辨率 low-light video super-resolution | 提出首个事件驱动低光照视频超分辨率框架RetinexEVSR，通过Retinex启发的双向融合策略（光照引导事件增强+事件引导反射增强），在SDSD-indoor上较EvTexture提升2.95 dB且FLOPs减少86%、推理加速65%。"
 tags:
   - AAAI 2026
-  - low-light video super-resolution
   - 超分辨率
-  - event camera
-  - Retinex decomposition
+  - 跨模态
 ---
 
 # Seeing the Unseen: Zooming in the Dark with Event Cameras

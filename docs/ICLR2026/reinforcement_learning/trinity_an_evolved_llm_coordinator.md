@@ -2,9 +2,6 @@
 description: "【论文笔记】Trinity: An Evolved LLM Coordinator 论文解读 | ICLR 2026 | arXiv 2512.04695 | LLM协调 | Trinity设计了一个轻量级coordinator（0.6B SLM + ~10K可训练参数的head），通过sep-CMA-ES优化，在多轮对话中将查询分配给不同LLM并指定Thinker/Worker/Verifier三种角色，在LiveCodeBench上达到86.2% pass@1的SOTA，在4个分布内和4个分布外任务上一致超越所有单模型和多agent基线。"
 tags:
   - ICLR 2026
-  - LLM协调
-  - 模型组合
-  - 进化策略
 ---
 
 # Trinity: An Evolved LLM Coordinator

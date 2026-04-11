@@ -2,9 +2,6 @@
 description: "【论文笔记】Temporal-Difference Variational Continual Learning 论文解读 | NeurIPS 2025 | arXiv 2410.07812 | 持续学习 | 提出TD-VCL目标函数，将变分持续学习（VCL）中的学习目标重新表示为多个过去后验估计的加权组合，揭示了与强化学习中时序差分（TD）方法的深层联系，通过\"分散\"正则化压力有效缓解了近似误差的逐步累积问题。"
 tags:
   - NeurIPS 2025
-  - 持续学习
-  - 变分推断
-  - 时序差分
 ---
 
 # Temporal-Difference Variational Continual Learning

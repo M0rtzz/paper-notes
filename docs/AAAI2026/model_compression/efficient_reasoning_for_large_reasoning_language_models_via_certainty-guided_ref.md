@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression 论文解读 | AAAI 2026 | arXiv 2508.05337 | 推理效率 | 提出 CGRS（Certainty-Guided Reflection Suppression），一种无需训练的高效推理方法，通过在模型高置信度时动态抑制反思触发词（如\"Wait\"\"But\"），将大型推理语言模型的 token 消耗降低18.5%~41.9%，同时保持推理精度不变。"
 tags:
   - AAAI 2026
-  - 推理效率
-  - 过度思考
-  - 反思抑制
 ---
 
 # Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression

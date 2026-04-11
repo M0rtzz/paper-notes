@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework 论文解读 | ICLR 2026 | arXiv 2506.08660 | 多变量时序 | 提出ChannelTokenFormer——同时解决真实世界多变量时序的三大挑战的统一Transformer框架：(1)通道间复杂依赖→channel token跨通道注意力,(2)各通道异步采样→无需重采样/对齐→自然处理不同长度,(3)测试时块缺失→掩码引导注意力跳过缺失→从其他通道推断→在公开基准+真实工业数据上验证鲁棒性和精度。"
 tags:
   - ICLR 2026
-  - 多变量时序
-  - 异步采样
-  - 块缺失
 ---
 
 # Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework

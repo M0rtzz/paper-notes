@@ -2,9 +2,6 @@
 description: "【论文笔记】BookCoref: Coreference Resolution at Book Scale 论文解读 | ACL 2025 | arXiv 2507.12075 | 共指消解 | 提出首个书级别共指消解基准BookCoref，通过角色链接+LLM过滤+窗口扩展的自动标注管线，在50本完整小说上生成高质量银标注数据，平均文档长度超过20万tokens。"
 tags:
   - ACL 2025
-  - 共指消解
-  - 长文档
-  - 书级别
 ---
 
 # BookCoref: Coreference Resolution at Book Scale

@@ -2,9 +2,6 @@
 description: "【论文笔记】Wanderland: Geometrically Grounded Simulation for Open-World Embodied AI 论文解读 | CVPR 2026 | arXiv 2511.20620 | real-to-sim | 提出 Wanderland real-to-sim 框架：利用手持多传感器扫描仪（LiDAR+IMU+RGB）采集开放世界室内外场景，通过 LIV-SLAM 获取度量级精确几何与相机位姿，结合 3DGS 实现光学真实感渲染 + 几何接地碰撞仿真，构建 530 场景/42 万帧/380 万 m² 的大规模数据集，系统证明纯视觉重建在度量精度、Mesh 质量和导航策略训练/评估可靠性上远不及 LiDAR 增强方案。"
 tags:
   - CVPR 2026
-  - real-to-sim
-  - 3D Gaussian Splatting
-  - LiDAR-Inertial-Visual SLAM
 ---
 
 # Wanderland: Geometrically Grounded Simulation for Open-World Embodied AI

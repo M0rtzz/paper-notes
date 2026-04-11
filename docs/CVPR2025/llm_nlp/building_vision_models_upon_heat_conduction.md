@@ -2,7 +2,6 @@
 description: "【论文笔记】Building Vision Models upon Heat Conduction 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Visual representation models leveraging attention mechanisms are challenged by significant computational overhead, particularly when pursuing large receptive fields. In this study, we aim to mitigate this challenge by introducing the Heat Conduction Operator (HCO) built upon the physical heat conduc"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Building Vision Models upon Heat Conduction

@@ -2,9 +2,6 @@
 description: "【论文笔记】Optimal Rates for Generalization of Gradient Descent for Deep ReLU Classification 论文解读 | NeurIPS 2025 | arXiv 2510.02779 | 深度ReLU网络 | 证明了深度ReLU网络上梯度下降的泛化速率达到 $\widetilde{O}(L^4(1+\gamma L^2)/(n\gamma^2))$，首次在深度ReLU网络上同时实现：(1) 对样本量 $n$ 的最优 $1/n$ 依赖，(2) 对深度 $L$ 仅多项式依赖。"
 tags:
   - NeurIPS 2025
-  - 深度ReLU网络
-  - 泛化界
-  - Rademacher复杂度
 ---
 
 # Optimal Rates for Generalization of Gradient Descent for Deep ReLU Classification

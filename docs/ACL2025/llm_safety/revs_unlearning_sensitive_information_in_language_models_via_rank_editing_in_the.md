@@ -2,9 +2,6 @@
 description: "【论文笔记】REVS: Unlearning Sensitive Information in Language Models via Rank Editing in the Vocabulary Space 论文解读 | ACL 2025 | arXiv 2406.09325 | 机器遗忘 | 提出 REVS，一种无梯度的模型编辑方法，通过在 FF2 层中定位与敏感 token 关联最强的神经元，将其投影到词汇空间后迭代降低目标 token 排名，在 SSN/Email/URL 三类敏感数据上 Unlearning Score 显著超越 6 种基线（89.58 vs 36.98），同时通用能力几乎零损（MMLU 61.05→60.87），且对 Logit-Lens 和 Delta 提取攻击高度鲁棒。"
 tags:
   - ACL 2025
-  - 机器遗忘
-  - 词汇空间编辑
-  - 排名操作
 ---
 
 # REVS: Unlearning Sensitive Information in Language Models via Rank Editing in the Vocabulary Space

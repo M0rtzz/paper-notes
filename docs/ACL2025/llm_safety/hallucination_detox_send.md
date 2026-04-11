@@ -2,9 +2,6 @@
 description: "【论文笔记】Hallucination Detox: Sensitivity Dropout (SenD) for Large Language Model Training 论文解读 | ACL 2025 | arXiv 2410.15460 | 幻觉缓解 | 本文揭示了 LLM 训练过程中幻觉行为的振荡现象，提出 Sensitivity Dropout（SenD）训练协议——通过识别并确定性丢弃高变异敏感嵌入索引来降低训练中的幻觉方差，同时提出计算高效的 Efficient EigenScore（EES）近似方法，在 Pythia 和 Llama 模型上实现高达 17% 的测试时可靠性提升。"
 tags:
   - ACL 2025
-  - 幻觉缓解
-  - 训练协议
-  - Sensitivity Dropout
 ---
 
 # Hallucination Detox: Sensitivity Dropout (SenD) for Large Language Model Training

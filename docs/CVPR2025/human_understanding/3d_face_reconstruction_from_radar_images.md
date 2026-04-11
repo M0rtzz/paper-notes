@@ -2,9 +2,6 @@
 description: "【论文笔记】3D Face Reconstruction From Radar Images 论文解读 | CVPR 2025 | arXiv 2412.02403 | mmWave雷达 | 首次从毫米波雷达图像进行3D人脸重建：用物理雷达渲染器生成合成数据集训练CNN编码器估计BFM参数，再通过学习一个可微分雷达渲染器构建model-based autoencoder，在合成数据上实现2.56mm平均点距精度，并可在推理时无监督优化参数。"
 tags:
   - CVPR 2025
-  - mmWave雷达
-  - 3DMM
-  - Analysis-by-Synthesis
 ---
 
 # 3D Face Reconstruction From Radar Images

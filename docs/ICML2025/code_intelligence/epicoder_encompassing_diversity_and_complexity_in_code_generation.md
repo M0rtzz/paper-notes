@@ -2,9 +2,6 @@
 description: "【论文笔记】EpiCoder: Encompassing Diversity and Complexity in Code Generation 论文解读 | ICML 2025 | arXiv 2501.04694 | 代码生成 | 提出基于特征树（Feature Tree）的代码数据合成框架，通过从代码中提取层次化语义特征并迭代进化，实现对合成数据复杂度和多样性的精确控制，训练得到的 EpiCoder 系列模型在函数级和文件级代码生成基准上达到同规模 SOTA。"
 tags:
   - ICML 2025
-  - 代码生成
-  - 特征树
-  - 数据合成
 ---
 
 # EpiCoder: Encompassing Diversity and Complexity in Code Generation

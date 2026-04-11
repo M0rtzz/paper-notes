@@ -2,9 +2,6 @@
 description: "【论文笔记】Predicting Training Re-evaluation Curves Enables Effective Data Curriculums 论文解读 | ICLR 2026 | arXiv 2509.25380 | 训练再评估曲线 | 提出训练再评估曲线（TREC）诊断工具，通过分析训练完成后模型在各时间步训练数据上的损失来指导高质量数据的最优放置位置，并证明 TREC 形状可通过 AdamW 的隐式 EMA 系数预测，无需实际训练即可设计数据课程。"
 tags:
   - ICLR 2026
-  - 训练再评估曲线
-  - 数据课程学习
-  - AdamW时间尺度
 ---
 
 # Predicting Training Re-evaluation Curves Enables Effective Data Curriculums

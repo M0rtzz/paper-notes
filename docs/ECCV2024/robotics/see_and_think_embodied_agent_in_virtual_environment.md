@@ -2,9 +2,6 @@
 description: "【论文笔记】See and Think: Embodied Agent in Virtual Environment 论文解读 | ECCV 2024 | arXiv 2311.15209 | Embodied Agent | 提出 STEVE，一个基于视觉感知、语言指令和代码动作三大组件的 Minecraft 开放世界具身智能体，通过 STEVE-21K 数据集微调 LLaMA-2 并结合视觉编码器和技能数据库，在科技树解锁和方块搜索任务上大幅超越现有方法。"
 tags:
   - ECCV 2024
-  - Embodied Agent
-  - Minecraft
-  - Multi-modal LLM
   - 多模态
 ---
 

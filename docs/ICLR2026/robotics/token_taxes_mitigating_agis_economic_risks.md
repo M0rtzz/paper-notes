@@ -2,9 +2,6 @@
 description: "【论文笔记】Token Taxes: Mitigating AGI's Economic Risks 论文解读 | ICLR 2026 | arXiv 2603.04555 | AGI治理 | 提出Token Tax（基于模型推理token使用量的税收）作为缓解后AGI时代经济风险的一线治理工具，具有可通过现有计算治理基础设施执行和在使用地而非托管地征收两大优势。"
 tags:
   - ICLR 2026
-  - AGI治理
-  - Token税
-  - 机器人税
 ---
 
 # Token Taxes: Mitigating AGI's Economic Risks

@@ -2,9 +2,6 @@
 description: "【论文笔记】MEIT: Multimodal Electrocardiogram Instruction Tuning on Large Language Models for Report Generation 论文解读 | ACL2025 | arXiv 2403.04945 | ECG report generation | 提出 MEIT 框架，通过多模态指令微调将 ECG 信号与 LLM 对齐，利用轻量级拼接融合策略（无需额外参数）在 LLM 的自注意力层中注入 ECG 嵌入，实现自动 ECG 报告生成，并建立涵盖质量评估、零样本迁移、噪声鲁棒性和专家对齐四项任务的综合基准。"
 tags:
   - ACL2025
-  - ECG report generation
-  - instruction tuning
-  - multimodal LLM
   - 多模态
 ---
 

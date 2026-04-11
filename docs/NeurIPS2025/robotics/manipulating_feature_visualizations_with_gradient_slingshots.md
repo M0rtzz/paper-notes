@@ -2,9 +2,6 @@
 description: "【论文笔记】Manipulating Feature Visualizations with Gradient Slingshots 论文解读 | NeurIPS 2025 | arXiv 2401.06122 | feature visualization | 提出梯度弹弓攻击，通过利用分布外梯度轨迹操纵神经网络特征可视化结果，无需修改模型参数，揭示特征可视化作为解释性工具的脆弱性。"
 tags:
   - NeurIPS 2025
-  - feature visualization
-  - adversarial
-  - interpretability
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

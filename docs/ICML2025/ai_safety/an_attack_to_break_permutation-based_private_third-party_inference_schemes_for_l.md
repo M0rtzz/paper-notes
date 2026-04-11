@@ -2,9 +2,6 @@
 description: "【论文笔记】An Attack to Break Permutation-Based Private Inference Schemes for LLMs 论文解读 | ICML2025 | arXiv 2505.18332 | 隐私推理 | 提出一种攻击方法可以从置换后的LLM隐藏状态近乎完美地恢复原始提示词，打破了三种近期提出的基于置换的隐私推理方案(Zheng/Yuan/Luo)的安全声明，并剖析了其理论证明的缺陷。"
 tags:
   - ICML2025
-  - 隐私推理
-  - 置换安全性
-  - LLM隐藏状态
 ---
 
 # An Attack to Break Permutation-Based Private Inference Schemes for LLMs

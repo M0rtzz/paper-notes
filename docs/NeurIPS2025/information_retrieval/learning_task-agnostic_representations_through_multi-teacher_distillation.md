@@ -2,10 +2,7 @@
 description: "【论文笔记】Learning Task-Agnostic Representations through Multi-Teacher Distillation 论文解读 | NeurIPS 2025 | arXiv 2510.18680 | 知识蒸馏 knowledge distillation | 提出基于互信息最大化的任务无关多教师蒸馏框架，通过高斯核估计教师嵌入的条件分布来训练学生模型，使其在不依赖任何下游任务标签的情况下学到高信息密度的通用表示，在文本、视觉和分子建模三个领域均取得了同体量最优性能。"
 tags:
   - NeurIPS 2025
-  - knowledge distillation
   - 知识蒸馏
-  - multi-teacher
-  - task-agnostic
 ---
 
 # Learning Task-Agnostic Representations through Multi-Teacher Distillation

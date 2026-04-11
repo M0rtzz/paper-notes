@@ -2,10 +2,8 @@
 description: "【论文笔记】DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion 论文解读 | AAAI2026 | arXiv 2511.07978 | 点云 point cloud completion | 提出 DANCE 框架，通过基于射线的候选点采样和 opacity 预测机制实现密度无关的点云补全，并引入分类头提供语义先验，在 PCN 和 MVP 基准上取得 SOTA。"
 tags:
   - AAAI2026
-  - point cloud completion
   - 点云
-  - density-agnostic
-  - class-aware
+  - Transformer
 ---
 
 # DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion

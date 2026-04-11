@@ -2,9 +2,6 @@
 description: "【论文笔记】Gradient-Variation Online Adaptivity for Accelerated Optimization with Hölder Smoothness 论文解读 | NeurIPS 2025 | arXiv 2511.02276 | online learning | 在 Hölder 光滑函数类上实现梯度变差自适应的在线学习算法，其 regret 在光滑和非光滑极端之间平滑插值；通过在线到批量转换，首次为强凸优化提供在光滑情形下加速、非光滑情形下近优的通用方法。"
 tags:
   - NeurIPS 2025
-  - online learning
-  - Hölder smoothness
-  - gradient variation
 ---
 
 # Gradient-Variation Online Adaptivity for Accelerated Optimization with Hölder Smoothness

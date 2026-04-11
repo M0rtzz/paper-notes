@@ -2,9 +2,6 @@
 description: "【论文笔记】Cycle-Consistent Tuning for Layered Image Decomposition 论文解读 | CVPR 2026 | arXiv 2602.20989 | 图像分解 | 提出基于扩散模型的循环一致性微调框架，通过联合训练分解模型和合成模型实现图像层分离（如logo-物体分解），并引入渐进式自改进数据扩增策略，在非线性层交互场景下实现鲁棒分解。"
 tags:
   - CVPR 2026
-  - 图像分解
-  - 循环一致性
-  - 扩散模型
 ---
 
 # Cycle-Consistent Tuning for Layered Image Decomposition

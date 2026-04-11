@@ -2,9 +2,6 @@
 description: "【论文笔记】CoEvo: Continual Evolution of Symbolic Solutions Using Large Language Models 论文解读 | AAAI 2026 | arXiv 2412.18890 | 符号回归 | 提出CoEvo框架，结合LLM与进化搜索方法论，通过动态知识库和多表示空间（自然语言/数学公式/代码）实现符号解的持续开放式进化，在AI Feynman基准上大幅超越现有符号回归方法。"
 tags:
   - AAAI 2026
-  - 符号回归
-  - LLM进化搜索
-  - 知识库
 ---
 
 # CoEvo: Continual Evolution of Symbolic Solutions Using Large Language Models

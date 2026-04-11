@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision-centric Token Compression in Large Language Model 论文解读 | NeurIPS 2025 | arXiv 2502.00791 | token compression | Vist 提出了一种以视觉为核心的慢-快双路径 token 压缩框架，将远端长文本渲染为图像后用轻量视觉编码器压缩，配合概率引导的视觉增强（PVE）训练目标，在 11 个 ICL 基准上以 2.3× 更少的 token 实现同等精度，FLOPs 降低 16%、显存减少 50%。"
 tags:
   - NeurIPS 2025
-  - token compression
-  - vision encoder
-  - long context
 ---
 
 # Vision-centric Token Compression in Large Language Model

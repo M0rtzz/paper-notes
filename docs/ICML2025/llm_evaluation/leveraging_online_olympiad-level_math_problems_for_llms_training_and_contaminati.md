@@ -2,9 +2,6 @@
 description: "【论文笔记】Leveraging Online Olympiad-Level Math Problems for LLMs Training and Contamination-Resistant Evaluation 论文解读 | ICML 2025 | arXiv 2501.14275 | 数学推理 | 利用 Art of Problem Solving (AoPS) 论坛的社区内容，构建了 652K 奥赛级数学 QA 对的训练集 AoPS-Instruct 和带时间戳的抗污染评估集 LiveAoPSBench，揭示了 LLM 在旧数据上的高表现可能源于预训练数据泄露而非真正推理能力。"
 tags:
   - ICML 2025
-  - 数学推理
-  - 数据污染
-  - 奥赛数学
 ---
 
 # Leveraging Online Olympiad-Level Math Problems for LLMs Training and Contamination-Resistant Evaluation

@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchy-of-Groups Policy Optimization for Long-Horizon Agentic Tasks 论文解读 | ICLR 2026 | arXiv 2602.22817 | group-relative RL | 揭示了 stepwise group-based RL（如 GRPO/GiGPO）中的「历史上下文不一致」问题——同一 group 内的 step 可能具有不同历史上下文导致 advantage 估计偏差，提出 HGPO 通过层次化分组和自适应加权实现低偏差、平衡方差的 advantage 估计，在 ALFWorld 和 WebShop 上以极低额外开销（<0.001%）取得显著提升。"
 tags:
   - ICLR 2026
-  - group-relative RL
-  - advantage estimation
-  - long-horizon agent
 ---
 
 # Hierarchy-of-Groups Policy Optimization for Long-Horizon Agentic Tasks

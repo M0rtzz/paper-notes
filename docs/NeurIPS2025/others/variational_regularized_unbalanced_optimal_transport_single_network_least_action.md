@@ -2,9 +2,6 @@
 description: "【论文笔记】Variational Regularized Unbalanced Optimal Transport: Single Network, Least Action 论文解读 | NeurIPS 2025 | arXiv 2505.11823 | 正则化非平衡最优传输 | 提出 Var-RUOT，通过将正则化非平衡最优传输（RUOT）问题的最优性必要条件融入参数化和损失设计，仅需学习单个标量场即可求解 RUOT，获得更低作用量的解并提升训练稳定性；同时分析了增长惩罚函数对生物先验的影响。"
 tags:
   - NeurIPS 2025
-  - 正则化非平衡最优传输
-  - 变分方法
-  - 最小作用量
 ---
 
 # Variational Regularized Unbalanced Optimal Transport: Single Network, Least Action

@@ -2,9 +2,6 @@
 description: "【论文笔记】No Caption, No Problem: Caption-Free Membership Inference via Model-Fitted Embeddings 论文解读 | ICLR 2026 | arXiv 2602.22689 | 成员推断攻击 | 提出 MoFit，首个面向无标题场景的扩散模型成员推断攻击框架，通过构建过拟合于目标模型的代理图像和条件嵌入，利用成员样本对条件错配的不对称敏感性实现有效推断。"
 tags:
   - ICLR 2026
-  - 成员推断攻击
-  - 扩散模型
-  - 无标题设定
 ---
 
 # No Caption, No Problem: Caption-Free Membership Inference via Model-Fitted Embeddings

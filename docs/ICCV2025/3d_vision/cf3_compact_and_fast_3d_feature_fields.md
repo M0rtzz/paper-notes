@@ -2,9 +2,7 @@
 description: "【论文笔记】CF³: Compact and Fast 3D Feature Fields 论文解读 | ICCV 2025 | arXiv 2508.05254 | 3D Gaussian Splatting | 提出 CF³ 管线，通过 top-down 特征提升、per-Gaussian 自编码器压缩和自适应稀疏化，仅使用原始 Gaussian 数量的 5% 即可构建紧凑高速的 3D 特征场，实现 121–245× 的存储压缩和实时渲染。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - Feature Field
-  - Sparsification
+  - 图像分割
 ---
 
 # CF³: Compact and Fast 3D Feature Fields

@@ -2,9 +2,6 @@
 description: "【论文笔记】MoKus: Leveraging Cross-Modal Knowledge Transfer for Knowledge-Aware Concept Customization 论文解读 | CVPR2025 | arXiv 2603.12743 | 概念定制 | 提出 MoKus 框架，发现并利用\"跨模态知识迁移\"现象——在 LLM 文本编码器中更新知识会自动传递到视觉生成端——实现知识感知的概念定制，两阶段设计：先学视觉锚点表示，再秒级更新文本知识绑定。"
 tags:
   - CVPR2025
-  - 概念定制
-  - 知识编辑
-  - 跨模态知识迁移
 ---
 
 # MoKus: Leveraging Cross-Modal Knowledge Transfer for Knowledge-Aware Concept Customization

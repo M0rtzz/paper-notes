@@ -2,9 +2,6 @@
 description: "【论文笔记】A Training-free LLM-based Approach to General Chinese Character Error Correction 论文解读 | ACL 2025 | arXiv 2502.15266 | 中文纠错 | 提出通用中文字符纠错任务C2EC（覆盖替换、缺失、冗余三种错误类型），通过扩展训练无关的CSC方法并结合Levenshtein距离和prompt-based LLM，使14B参数模型在不微调的条件下达到近50倍大模型的纠错性能。"
 tags:
   - ACL 2025
-  - 中文纠错
-  - CSC
-  - 训练无关
 ---
 
 # A Training-free LLM-based Approach to General Chinese Character Error Correction

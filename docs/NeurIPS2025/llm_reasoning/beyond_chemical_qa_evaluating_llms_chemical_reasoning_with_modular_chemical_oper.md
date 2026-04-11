@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Chemical QA: Evaluating LLM's Chemical Reasoning with Modular Chemical Operations 论文解读 | NeurIPS 2025 | arXiv 2505.21318 | chemical reasoning | 提出 ChemCoTBench，首个评估 LLM 化学推理能力的 CoT 基准，将复杂化学问题分解为模块化的化学操作（加/删/替换官能团），配合 22,000 条专家标注的 CoT 数据集（ChemCoTDataset），系统性评估了推理型和非推理型 LLM 在分子理解/编辑/优化/反应预测上的能力。"
 tags:
   - NeurIPS 2025
-  - chemical reasoning
-  - Chain-of-Thought
-  - benchmark
 ---
 
 # Beyond Chemical QA: Evaluating LLM's Chemical Reasoning with Modular Chemical Operations

@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models 论文解读 | NeurIPS 2025 | arXiv 2509.21155 | spurious correlations | 揭示 LLM 学会了句法模板（PoS n-gram）与领域之间的虚假关联，导致跨域性能骤降，甚至可利用此关联绕过安全拒绝机制（refusal bypass），在 OLMo-2 上将拒绝率从 40% 降至 2.5%。"
 tags:
   - NeurIPS 2025
-  - spurious correlations
-  - syntactic templates
-  - LLM safety
 ---
 
 # Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models

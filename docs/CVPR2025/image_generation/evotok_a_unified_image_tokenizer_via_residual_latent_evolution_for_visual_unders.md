@@ -2,9 +2,6 @@
 description: "【论文笔记】EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation 论文解读 | CVPR 2025 | arXiv 2603.12108 | 统一图像Tokenizer | EvoTok 提出了一种基于残差潜在演化（Residual Latent Evolution）的统一图像 tokenizer，通过在共享潜空间中级联残差向量量化，使表示从浅层的像素级细节渐进演化到深层的语义级抽象，在仅用 13M 图像训练的情况下实现了 0.43 rFID 的重建质量，并在 7/9 个理解 benchmark 和 GenEval/GenAI-Bench 上取得优异效果。"
 tags:
   - CVPR 2025
-  - 统一图像Tokenizer
-  - 残差量化
-  - 视觉理解与生成
 ---
 
 # EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation

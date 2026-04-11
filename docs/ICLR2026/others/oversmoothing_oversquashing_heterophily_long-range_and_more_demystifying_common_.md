@@ -2,9 +2,6 @@
 description: "【论文笔记】Oversmoothing, Oversquashing, Heterophily, Long-Range, and more: Demystifying Common Beliefs in Graph Machine Learning 论文解读 | ICLR 2026 | arXiv 2505.15547 | 图神经网络 | 系统梳理并反驳了图机器学习中关于过平滑（OSM）、过挤压（OSQ）、异质性和长程依赖的9个常见但不总成立的\"信念\"，通过简洁反例推动社区更精确地理解和表述这些概念。"
 tags:
   - ICLR 2026
-  - 图神经网络
-  - 过平滑
-  - 过挤压
 ---
 
 # Oversmoothing, Oversquashing, Heterophily, Long-Range, and more: Demystifying Common Beliefs in Graph Machine Learning

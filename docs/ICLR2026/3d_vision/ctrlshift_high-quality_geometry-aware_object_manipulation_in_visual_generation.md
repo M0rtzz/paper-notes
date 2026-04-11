@@ -2,9 +2,6 @@
 description: "【论文笔记】Ctrl&Shift: High-Quality Geometry-Aware Object Manipulation in Visual Generation 论文解读 | ICLR 2026 | arXiv 2602.11440 | 物体操纵 | 提出Ctrl&Shift，一个端到端扩散框架，通过将物体操纵分解为物体移除+参考引导修复，并注入相对相机位姿控制，首次在不依赖显式3D重建的情况下实现几何一致的细粒度物体操纵。"
 tags:
   - ICLR 2026
-  - 物体操纵
-  - 扩散模型
-  - 几何一致性
 ---
 
 # Ctrl&Shift: High-Quality Geometry-Aware Object Manipulation in Visual Generation

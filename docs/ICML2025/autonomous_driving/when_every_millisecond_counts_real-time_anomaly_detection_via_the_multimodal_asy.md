@@ -2,9 +2,6 @@
 description: "【论文笔记】When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network 论文解读 | ICML 2025 | arXiv 2506.17457 | 实时异常检测 | 提出多模态异步混合网络，结合事件相机的高时间分辨率（异步 GNN 处理）和 RGB 相机的丰富空间特征（CNN 处理），在交通异常检测中实现 579 FPS 的推理速度和 1.17s 的平均响应时间，首次将事件流引入自动驾驶异常检测领域。"
 tags:
   - ICML 2025
-  - 实时异常检测
-  - 事件相机
-  - 多模态融合
 ---
 
 # When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network

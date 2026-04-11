@@ -2,9 +2,6 @@
 description: "【论文笔记】Out of the Shadows: Exploring a Latent Space for Neural Network Verification 论文解读 | ICLR 2026 | arXiv 2505.17854 | 神经网络验证 | 提出一种基于潜空间（latent space）的规范驱动输入细化方法，通过在高维潜空间中转移输出约束到输入空间，显著减少分支定界过程中的子问题数量，实现高效GPU加速的神经网络验证工具。"
 tags:
   - ICLR 2026
-  - 神经网络验证
-  - 可达性分析
-  - 潜空间
 ---
 
 # Out of the Shadows: Exploring a Latent Space for Neural Network Verification

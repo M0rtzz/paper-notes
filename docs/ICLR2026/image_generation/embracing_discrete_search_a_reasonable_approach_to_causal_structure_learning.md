@@ -2,9 +2,6 @@
 description: "【论文笔记】Embracing Discrete Search: A Reasonable Approach to Causal Structure Learning 论文解读 | ICLR 2026 | arXiv 2510.04970 | 因果结构学习 | 提出 FLOP（Fast Learning of Order and Parents），一个面向线性模型的基于得分的因果发现算法，通过快速父节点选择与迭代 Cholesky 得分更新大幅降低运行时间，使得迭代局部搜索（ILS）变得可行，在标准因果发现基准上实现近乎完美的图恢复，重新确立离散搜索在因果发现中的合理地位。"
 tags:
   - ICLR 2026
-  - 因果结构学习
-  - 离散搜索
-  - 得分优化
 ---
 
 # Embracing Discrete Search: A Reasonable Approach to Causal Structure Learning

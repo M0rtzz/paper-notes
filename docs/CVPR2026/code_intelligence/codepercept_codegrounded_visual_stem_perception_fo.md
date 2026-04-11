@@ -2,9 +2,6 @@
 description: "【论文笔记】CodePercept: Code-Grounded Visual STEM Perception for MLLMs 论文解读 | CVPR 2026 | arXiv 2603.10757 | MLLM | 通过感知-推理解耦缩放实验证明 MLLM 在 STEM 任务中的瓶颈是感知而非推理，提出以可执行代码为感知介质的 CodePercept 范式，构建 ICC-1M 数据集和 STEM2Code-Eval 基准，系统性提升 MLLM 的 STEM 视觉感知能力。"
 tags:
   - CVPR 2026
-  - MLLM
-  - STEM推理
-  - 视觉感知
 ---
 
 # CodePercept: Code-Grounded Visual STEM Perception for MLLMs

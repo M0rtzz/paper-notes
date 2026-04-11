@@ -2,9 +2,6 @@
 description: "【论文笔记】PAC-Bayes Bounds for Multivariate Linear Regression and Linear Autoencoders 论文解读 | NeurIPS 2025 | arXiv 2512.12905 | PAC-Bayes | 本文将PAC-Bayes泛化界从单输出线性回归推广到**多变量线性回归**，并进一步适配到推荐系统中的**线性自编码器（LAE）**，通过理论方法将计算复杂度从O(n⁴)降到O(n³)，实验证明该界是紧的且与Recall@K、NDCG@K等实际指标高度相关。"
 tags:
   - NeurIPS 2025
-  - PAC-Bayes
-  - 泛化界
-  - 线性自编码器
 ---
 
 # PAC-Bayes Bounds for Multivariate Linear Regression and Linear Autoencoders

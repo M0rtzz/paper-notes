@@ -2,9 +2,6 @@
 description: "【论文笔记】Parallelised Differentiable Straightest Geodesics for 3D Meshes 论文解读 | CVPR 2026 | arXiv 2603.15780 | 测地线 | 提出 straightest geodesics 的并行 GPU 实现及两种可微分方案（外在代理函数法和测地线有限差分法），使三角网格上的指数映射可高效并行且可微分，并以此构建测地线卷积层、网格上的流匹配方法和二阶优化器三个下游应用。"
 tags:
   - CVPR 2026
-  - 测地线
-  - 可微分
-  - 指数映射
 ---
 
 # Parallelised Differentiable Straightest Geodesics for 3D Meshes

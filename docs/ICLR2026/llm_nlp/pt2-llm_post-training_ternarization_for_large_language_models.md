@@ -2,9 +2,6 @@
 description: "【论文笔记】PT2-LLM: Post-Training Ternarization for Large Language Models 论文解读 | ICLR 2026 | arXiv 2510.03267 | 三值化 | 提出 PT2-LLM，首个针对 LLM 的后训练三值化框架，通过非对称三值量化器（含迭代三值拟合和激活感知网格对齐）与结构相似性重排序策略，在 1.58-bit 下实现优于 2-bit PTQ 方法的性能。"
 tags:
   - ICLR 2026
-  - 三值化
-  - 后训练量化
-  - 极低比特
 ---
 
 # PT2-LLM: Post-Training Ternarization for Large Language Models

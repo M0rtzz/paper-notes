@@ -2,9 +2,6 @@
 description: "【论文笔记】Geometry Meets Light: Leveraging Geometric Priors for Universal Photometric Stereo under Limited Multi-Illumination Cues 论文解读 | AAAI 2026 | arXiv 2511.13015 | 光度立体 | 提出 GeoUniPS，首次将大规模3D重建模型（VGGT）的几何先验引入通用光度立体网络，通过光照-几何双分支编码器，在多光照线索不足时利用几何先验补偿，同时引入透视投影训练数据集 PS-Perp 弥合正交投影假设与真实场景的差距。"
 tags:
   - AAAI 2026
-  - 光度立体
-  - 几何先验
-  - 3D重建基础模型
 ---
 
 # Geometry Meets Light: Leveraging Geometric Priors for Universal Photometric Stereo under Limited Multi-Illumination Cues

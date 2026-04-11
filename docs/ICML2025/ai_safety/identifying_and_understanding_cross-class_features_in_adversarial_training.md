@@ -2,9 +2,6 @@
 description: "【论文笔记】Identifying and Understanding Cross-Class Features in Adversarial Training 论文解读 | ICML2025 | arXiv 2506.05032 | 对抗训练 | 从类别级特征归因的角度揭示对抗训练(AT)中的\"跨类特征\"如何先被学习后被遗忘，统一解释了鲁棒过拟合和软标签训练优势两大现象。"
 tags:
   - ICML2025
-  - 对抗训练
-  - 跨类特征
-  - 鲁棒过拟合
 ---
 
 # Identifying and Understanding Cross-Class Features in Adversarial Training

@@ -2,9 +2,6 @@
 description: "【论文笔记】Uni-NTFM: A Unified Foundation Model for EEG Signal Representation Learning 论文解读 | ICLR 2026 | arXiv 2509.24222 | EEG | Uni-NTFM 是一个受生物神经机制启发的 EEG 统一基础模型，通过异质特征投影模块解耦时域和频域编码、拓扑嵌入机制将不同传感器配置对齐到统一功能拓扑空间、以及混合专家 Transformer 实现功能模块化和稀疏编码，在 28000 小时 EEG 数据上预训练并达到 19 亿参数规模，在 9 个下游任务上的线性探测和微调设定下均超越现有模型。"
 tags:
   - ICLR 2026
-  - EEG
-  - 基础模型
-  - 神经拓扑
 ---
 
 # Uni-NTFM: A Unified Foundation Model for EEG Signal Representation Learning

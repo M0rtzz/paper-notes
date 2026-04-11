@@ -2,10 +2,7 @@
 description: "【论文笔记】The Narrow Gate: Localized Image-Text Communication in Native Multimodal Models 论文解读 | NeurIPS 2025 | arXiv 2412.06646 | 多模态 native multimodal | 发现原生多模态VLM（如Chameleon、Emu3）中图像到文本的跨模态信息传递竟然集中在单一的end-of-image [EOI] token上（\"narrow gate\"机制），而非原生VLM（如LLaVA）则通过多个图像token分布式传递信息；删除[EOI]的attention可导致native模型性能崩溃，而修改[EOI]表示可精确控制模型的语义输出。"
 tags:
   - NeurIPS 2025
-  - native multimodal
   - 多模态
-  - EOI token
-  - narrow gate
 ---
 
 # The Narrow Gate: Localized Image-Text Communication in Native Multimodal Models

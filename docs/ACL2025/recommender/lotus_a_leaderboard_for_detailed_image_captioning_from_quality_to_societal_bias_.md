@@ -2,9 +2,6 @@
 description: "【论文笔记】LOTUS: A Leaderboard for Detailed Image Captioning from Quality to Societal Bias and User Preferences 论文解读 | ACL 2025 | arXiv 2507.19362 | 图像描述评估 | 提出 LOTUS 排行榜，从描述质量（对齐性、描述性、语言复杂度）、副作用（幻觉、有害性）和社会偏见（性别、肤色）三个维度统一评估大型视觉语言模型的详细图像描述能力，并支持基于用户偏好的定制化评估。"
 tags:
   - ACL 2025
-  - 图像描述评估
-  - 大型视觉语言模型
-  - 社会偏见
 ---
 
 # LOTUS: A Leaderboard for Detailed Image Captioning from Quality to Societal Bias and User Preferences

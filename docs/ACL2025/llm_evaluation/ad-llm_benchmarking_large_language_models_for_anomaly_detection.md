@@ -2,9 +2,6 @@
 description: "【论文笔记】AD-LLM: Benchmarking Large Language Models for Anomaly Detection 论文解读 | ACL 2025 | arXiv 2412.11142 | 异常检测 | 首个系统评估 LLM 在 NLP 异常检测中角色的基准 AD-LLM——覆盖三个关键任务：(1) 零样本检测（LLM 预训练知识直接做 AD），(2) 数据增强（生成合成数据/类别描述提升 AD 模型），(3) 模型选择（LLM 推荐无监督 AD 模型）。多数据集实验发现 LLM 零样本 AD 表现出色，精心设计的增强有用，但模型选择的可解释性仍是挑战。"
 tags:
   - ACL 2025
-  - 异常检测
-  - LLM基准
-  - 零样本检测
 ---
 
 # AD-LLM: Benchmarking Large Language Models for Anomaly Detection

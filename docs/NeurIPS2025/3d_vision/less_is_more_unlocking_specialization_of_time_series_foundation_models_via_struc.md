@@ -2,9 +2,6 @@
 description: "【论文笔记】Less is More: Unlocking Specialization of Time Series Foundation Models via Structured Pruning 论文解读 | NeurIPS 2025 | arXiv 2505.23195 | 时间序列基础模型 | 揭示预训练时间序列基础模型（TSFM）存在固有的任务相关稀疏性，提出\"先剪枝再微调\"范式——通过结构化剪枝移除任务无关参数，使剪枝后微调的小模型显著超越直接微调的原模型，甚至胜过强专用基线。"
 tags:
   - NeurIPS 2025
-  - 时间序列基础模型
-  - 结构化剪枝
-  - 模型特化
 ---
 
 # Less is More: Unlocking Specialization of Time Series Foundation Models via Structured Pruning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Natural Gradient Descent for Improving Variational Inference Based Classification of Radio Galaxies 论文解读 | NeurIPS 2025 | arXiv 2511.13224 | 自然梯度下降 | 研究使用自然梯度下降优化器 iVON 替代标准 SGD 来优化变分推断中的 BNN 参数，在射电星系分类中获得更好的不确定性校准，同时保持与 HMC 和 BBB-VI 相当的预测性能。"
 tags:
   - NeurIPS 2025
-  - 自然梯度下降
-  - 变分推断
-  - 贝叶斯神经网络
 ---
 
 # Natural Gradient Descent for Improving Variational Inference Based Classification of Radio Galaxies

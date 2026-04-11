@@ -2,9 +2,6 @@
 description: "【论文笔记】Stereo Any Video: Temporally Consistent Stereo Matching 论文解读 | ICCV2025 | arXiv 2503.05549 | 视频立体匹配 | 提出Stereo Any Video框架，通过融合单目视频深度基础模型先验(Video Depth Anything)、全对全配对相关(all-to-all-pair correlation)和时序凸上采样(temporal convex upsampling)三大核心模块，在不依赖相机位姿或光流的前提下实现空间精确且时序一致的视频立体匹配，在多个数据集零样本设定下达到SOTA。"
 tags:
   - ICCV2025
-  - 视频立体匹配
-  - 时序一致性
-  - 单目深度先验
 ---
 
 # Stereo Any Video: Temporally Consistent Stereo Matching

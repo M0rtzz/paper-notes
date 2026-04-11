@@ -2,9 +2,6 @@
 description: "【论文笔记】SPROD: Spurious-Aware Prototype Refinement for Reliable Out-of-Distribution Detection 论文解读 | NeurIPS 2025 | arXiv 2506.23881 | 虚假相关 | SPROD 是一种后置（post-hoc）OOD 检测方法，专门应对训练数据中的虚假相关——通过将每个类别的原型细分为\"正确分类\"和\"误分类\"子组（后者共享虚假特征），配合 K-means 式精炼和距离式（生成式）评分，在 5 个虚假相关 OOD 基准上平均 AUROC 85.1%（+4.8% vs 次优 KNN），FPR@95 49.0%（-9.3% vs 次优）。"
 tags:
   - NeurIPS 2025
-  - 虚假相关
-  - 原型精炼
-  - 生成式评分
 ---
 
 # SPROD: Spurious-Aware Prototype Refinement for Reliable Out-of-Distribution Detection

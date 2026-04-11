@@ -2,9 +2,6 @@
 description: "【论文笔记】Are Language Models Efficient Reasoners? A Perspective from Logic Programming 论文解读 | NeurIPS 2025 | arXiv 2510.25626 | reasoning efficiency | 从逻辑编程角度提出评估 LLM 推理效率（而非仅正确性）的框架——通过 verbalized logic program 将自然语言证明映射到逻辑程序证明，发现当前 LLM 在含无关公理的数学题中不仅准确率下降，且推理过程严重低效（超过一半的推理步骤是不必要的）。"
 tags:
   - NeurIPS 2025
-  - reasoning efficiency
-  - logic programming
-  - irrelevant information
 ---
 
 # Are Language Models Efficient Reasoners? A Perspective from Logic Programming

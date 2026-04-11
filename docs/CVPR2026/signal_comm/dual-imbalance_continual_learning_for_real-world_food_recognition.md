@@ -2,9 +2,6 @@
 description: "【论文笔记】Dual-Imbalance Continual Learning for Real-World Food Recognition 论文解读 | CVPR 2026 | arXiv 2603.29133 | 持续学习 | 提出 DIME 框架，通过类别计数引导的光谱适配器合并和秩自适应阈值调制机制，在双重不平衡（类内长尾分布 + 步间类别数不均匀）的持续学习场景下，在四个长尾食物数据集上持续超越 baseline 3% 以上。"
 tags:
   - CVPR 2026
-  - 持续学习
-  - 双重不平衡
-  - 适配器合并
 ---
 
 # Dual-Imbalance Continual Learning for Real-World Food Recognition

@@ -2,9 +2,6 @@
 description: "【论文笔记】TACLR: A Scalable and Efficient Retrieval-Based Method for Industrial Product Attribute Value Identification 论文解读 | ACL 2025 | arXiv 2501.03835 | 产品属性值识别 | TACLR 提出了首个基于检索范式的产品属性值识别（PAVI）方法，通过分类感知对比学习和自适应推理机制，在处理隐含值、OOD 值和归一化输出方面全面超越分类和生成方法，并已成功部署在闲鱼（Xianyu）平台。"
 tags:
   - ACL 2025
-  - 产品属性值识别
-  - 对比学习
-  - 分类感知负采样
 ---
 
 # TACLR: A Scalable and Efficient Retrieval-Based Method for Industrial Product Attribute Value Identification

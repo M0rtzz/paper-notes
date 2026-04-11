@@ -2,9 +2,6 @@
 description: "【论文笔记】Plasticity as the Mirror of Empowerment 论文解读 | NEURIPS2025 | arXiv 2505.10361 | 可塑性 | 本文提出**广义有向信息（GDI）**作为度量智能体可塑性（plasticity）的信息论工具，揭示可塑性是赋权（empowerment）的\"镜像\"——两者使用相同度量、仅方向相反，并证明了两者之间存在严格的张力约束（tension bound）。"
 tags:
   - NEURIPS2025
-  - 可塑性
-  - 赋权
-  - 信息论
 ---
 
 # Plasticity as the Mirror of Empowerment

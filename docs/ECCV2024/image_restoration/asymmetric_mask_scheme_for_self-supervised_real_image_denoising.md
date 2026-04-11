@@ -2,10 +2,8 @@
 description: "【论文笔记】Asymmetric Mask Scheme for Self-supervised Real Image Denoising 论文解读 | ECCV2024 | arXiv 2407.06514 | 自监督学习 self-supervised denoising | 提出非对称掩码方案 AMSNet，训练时用单掩码、推理时用多掩码互补，突破了 blind spot network 对网络感受野的结构限制，在真实图像自监督去噪任务上取得 SOTA。"
 tags:
   - ECCV2024
-  - self-supervised denoising
   - 自监督学习
-  - blind spot network
-  - mask strategy
+  - 去噪
 ---
 
 # Asymmetric Mask Scheme for Self-supervised Real Image Denoising

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Granular Study of Safety Pretraining under Model Abliteration 论文解读 | NeurIPS 2025 | arXiv 2510.02768 | LLM安全 | 本文系统地研究了 model abliteration（一种推理时激活空间编辑攻击）对不同数据驱动安全预训练阶段的影响，发现仅依赖 refusal 训练的安全机制极易被攻破，而 **组合多种安全信号**（safe-only 过滤 + 改写 + metatag + refusal）可使安全行为分散到更广泛的表征空间、从而更难被单一方向投影移除。"
 tags:
   - NeurIPS 2025
-  - LLM安全
-  - abliteration
-  - 安全预训练
 ---
 
 # A Granular Study of Safety Pretraining under Model Abliteration

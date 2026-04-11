@@ -2,9 +2,6 @@
 description: "【论文笔记】Enhancing Few-Shot Vision-Language Classification with Large Multimodal Model Features 论文解读 | ICCV 2025 | arXiv 2412.00142 | 稀疏注意力向量 | 提出稀疏注意力向量（SAVs）——一种无需微调的方法，从冻结的生成式大型多模态模型（LMM）的注意力头中提取不到 5% 的头作为强特征表示，仅需约 20 个标注样本即可在视觉语言分类任务上达到 SOTA，平均超越 LoRA 微调 7%（在 BLINK、VLGuard、NaturalBench 等挑战性基准上）。"
 tags:
   - ICCV 2025
-  - 稀疏注意力向量
-  - 小样本分类
-  - 特征提取
 ---
 
 # Enhancing Few-Shot Vision-Language Classification with Large Multimodal Model Features

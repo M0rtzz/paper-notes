@@ -2,9 +2,6 @@
 description: "【论文笔记】UniRes: Universal Image Restoration for Complex Degradations 论文解读 | ICCV 2025 | arXiv 2506.05599 | 复杂退化 | 提出 UniRes——一个基于扩散模型的通用图像复原框架，通过多任务训练学习超分辨率、运动去模糊、散焦去模糊和去噪等专家知识，推理时通过灵活组合不同任务的隐空间预测权重来端到端地处理真实世界中的任意复杂退化组合。"
 tags:
   - ICCV 2025
-  - 复杂退化
-  - 扩散模型
-  - 多任务训练
 ---
 
 # UniRes: Universal Image Restoration for Complex Degradations

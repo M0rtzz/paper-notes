@@ -2,9 +2,6 @@
 description: "【论文笔记】COSMIC: Generalized Refusal Direction Identification in LLM Activations 论文解读 | ACL2025 | arXiv 2506.00085 | mechanistic interpretability | 提出 COSMIC（Cosine Similarity Metrics for Inversion of Concepts），一种基于余弦相似度的自动化方向选择框架，无需依赖模型输出 token 或预定义的拒绝模板即可在 LLM 激活空间中识别拒绝方向，在对抗场景和弱对齐模型中仍能有效执行拒绝引导。"
 tags:
   - ACL2025
-  - mechanistic interpretability
-  - refusal steering
-  - activation space
 ---
 
 # COSMIC: Generalized Refusal Direction Identification in LLM Activations

@@ -2,9 +2,6 @@
 description: "【论文笔记】RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation 论文解读 | CVPR2026 | arXiv 2603.14880 | 视觉语言定位 | 提出 RealVLG 框架，包含 11B 级真实世界多粒度标注数据集 RealVLG-11B 和基于强化学习微调的统一模型 RealVLG-R1，首次将视觉语言定位（VLG）与机器人抓取统一到同一范式中，实现从自然语言指令到 bounding box、分割掩码、抓取姿态和接触点的端到端预测，并展现出零样本泛化能力。"
 tags:
   - CVPR2026
-  - 视觉语言定位
-  - 机器人抓取
-  - 强化学习微调
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

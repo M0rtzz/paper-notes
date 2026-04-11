@@ -2,9 +2,6 @@
 description: "【论文笔记】FairI Tales: Evaluation of Fairness in Indian Contexts with a Focus on Bias and Stereotypes 论文解读 | ACL 2025 | arXiv 2506.23111 | fairness | 发布 Indic-Bias——首个印度社会文化的大规模 LLM 公平性 benchmark，覆盖 85 个身份群体（种姓/宗教/地区/部落），20,000 个场景模板+3 类评估任务，14 个 LLM 评测揭示模型对达利特等边缘群体系统性负面偏见且 70%+ 案例中强化刻板印象。"
 tags:
   - ACL 2025
-  - fairness
-  - bias
-  - stereotypes
 ---
 
 # FairI Tales: Evaluation of Fairness in Indian Contexts with a Focus on Bias and Stereotypes

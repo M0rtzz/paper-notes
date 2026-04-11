@@ -2,9 +2,6 @@
 description: "【论文笔记】Can LLMs Reason Over Non-Text Modalities in a Training-Free Manner? A Case Study with In-Context Representation Learning 论文解读 | NeurIPS 2025 | arXiv 2509.17552 | 上下文表征学习 | 提出 In-Context Representation Learning（ICRL），首个训练无关框架，将非文本模态基础模型（FM）的表征注入纯文本 LLM 进行少样本推理，通过 PCA 文本注入和最优传输嵌入对齐两种策略实现跨模态知识利用。"
 tags:
   - NeurIPS 2025
-  - 上下文表征学习
-  - 训练无关多模态推理
-  - 最优传输对齐
 ---
 
 # Can LLMs Reason Over Non-Text Modalities in a Training-Free Manner? A Case Study with In-Context Representation Learning

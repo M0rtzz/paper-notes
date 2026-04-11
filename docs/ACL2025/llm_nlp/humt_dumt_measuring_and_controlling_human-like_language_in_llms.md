@@ -2,9 +2,6 @@
 description: "【论文笔记】HumT DumT: Measuring and Controlling Human-like Language in LLMs 论文解读 | ACL 2025 | arXiv 2502.13259 | human-like tone | 提出基于 GPT-2 对数概率比的文本人类化语气度量 HumT 及其社会感知泛化版 SocioT，在 40 万+偏好样本上发现用户普遍偏好更低人类化的 LLM 输出且人类化语气与社交亲近（r=0.87）、低地位（r=-0.80）、女性化（r=0.47）强相关，进而通过仅 500 对偏好数据的 DPO 微调（DumT）有效降低人类化程度而不损模型性能。"
 tags:
   - ACL 2025
-  - human-like tone
-  - anthropomorphism
-  - DPO
 ---
 
 # HumT DumT: Measuring and Controlling Human-like Language in LLMs

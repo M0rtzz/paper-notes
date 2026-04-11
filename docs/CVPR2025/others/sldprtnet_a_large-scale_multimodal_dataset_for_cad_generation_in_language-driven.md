@@ -2,9 +2,6 @@
 description: "【论文笔记】SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design 论文解读 | CVPR2025 | arXiv 2603.13098 | CAD生成 | 构建包含24.2万工业零件的大规模多模态CAD数据集SldprtNet，提供3D模型、多视图图像、参数化文本脚本和自然语言描述的完整对齐，支持语义驱动的CAD建模任务。"
 tags:
   - CVPR2025
-  - CAD生成
-  - 多模态数据集
-  - 语言驱动3D设计
 ---
 
 # SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design

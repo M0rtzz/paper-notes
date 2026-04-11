@@ -2,9 +2,6 @@
 description: "【论文笔记】L2D: Large Language Models to Diffusion Finetuning 论文解读 | ICML2025 | arXiv 2501.15781 | LLM微调 | 提出L2D——将预训练LLM微调为能利用扩散框架的模型：通过增加扩散步数实现单调递增精度的测试时计算缩放，不修改原始权重保留单步生成能力，与传统微调和搜索方法互补。"
 tags:
   - ICML2025
-  - LLM微调
-  - 扩散框架
-  - 测试时计算
 ---
 
 # L2D: Large Language Models to Diffusion Finetuning

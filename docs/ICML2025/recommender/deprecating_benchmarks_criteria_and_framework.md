@@ -2,7 +2,6 @@
 description: "【论文笔记】Deprecating Benchmarks: Criteria and Framework 论文解读 | ICML 2025 | arXiv 2507.06434 | 基准废弃、评测生命周期、AI 治理、基准饱和、数据污染 | 提出了一套判断 AI 基准何时应被废弃的 **7 项标准** 和一个包含评估-报告-通知三阶段的 **废弃框架**，并以 EU AI Office 为例给出了制度化落地方案。"
 tags:
   - ICML 2025
-  - 基准废弃、评测生命周期、AI 治理、基准饱和、数据污染
 ---
 
 # Deprecating Benchmarks: Criteria and Framework

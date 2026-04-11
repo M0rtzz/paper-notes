@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Planning: Let's Think Only with Images 论文解读 | ICLR 2026 | arXiv 2505.11409 | 视觉规划 | 提出Visual Planning——首个纯视觉推理范式：规划过程完全由图像序列表达（无文本中介），用Large Vision Model自回归生成逐步状态图像；引入VPRL两阶段RL框架（随机轨迹初始化探索+GRPO进度奖励优化），在FrozenLake/Maze/MiniBehavior三个导航任务上平均EM超越文本推理方法27%，证明\"vision-first\"任务中图像推理远优于文本推理。"
 tags:
   - ICLR 2026
-  - 视觉规划
-  - 纯图像推理
-  - 大视觉模型
 ---
 
 # Visual Planning: Let's Think Only with Images

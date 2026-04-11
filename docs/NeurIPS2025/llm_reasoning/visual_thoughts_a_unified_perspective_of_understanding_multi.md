@@ -2,9 +2,6 @@
 description: "【论文笔记】Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought 论文解读 | NeurIPS 2025 | arXiv 2505.15510 | 多模态CoT | 首次从统一视角揭示多模态CoT工作的核心机制——\"视觉思维\"(Visual Thoughts)：MCoT通过将视觉信息缓存为中间推理步骤来增强LVLM推理，类似于计算机系统中的cache vs外部存储；定义了四种视觉思维表达形式（自然语言/结构化语言/编辑图像/生成图像），发现其有效性取决于表达的清晰性和简洁性。"
 tags:
   - NeurIPS 2025
-  - 多模态CoT
-  - 视觉思维
-  - 信息流
 ---
 
 # Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought

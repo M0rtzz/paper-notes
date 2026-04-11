@@ -2,9 +2,6 @@
 description: "【论文笔记】SR-KI: Scalable and Real-Time Knowledge Integration into LLMs via Supervised Attention 论文解读 | AAAI 2026 | arXiv 2511.06446 | 知识注入 | 提出SR-KI框架，通过两阶段训练（检索层定位 + 注意力监督损失）实现结构化知识库向LLM KV缓存的高效注入，在单块A100 40GB GPU上支持最多40K知识库条目的注入，且通过top-100压缩实现高达99.75%的压缩率，同时保持88%以上的平均Recall@10检索性能。"
 tags:
   - AAAI 2026
-  - 知识注入
-  - 大语言模型
-  - 监督注意力
 ---
 
 # SR-KI: Scalable and Real-Time Knowledge Integration into LLMs via Supervised Attention

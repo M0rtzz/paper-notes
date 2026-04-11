@@ -2,9 +2,6 @@
 description: "【论文笔记】Evaluating the Promise and Pitfalls of LLMs in Hiring Decisions 论文解读 | NeurIPS 2025 | arXiv 2507.02087 | LLM bias | 在约 10,000 个真实招聘候选人-职位配对上系统评测了 GPT-4o/4.1、Claude 3.5、Gemini 2.5、Llama 3.1/4、DeepSeek R1 等主流 LLM 的招聘匹配表现，发现专用领域模型 Match Score 在准确性（AUC 0.85 vs 0.77）和公平性（种族 IR 0.957 vs ≤0.809）上全面优于通用 LLM。"
 tags:
   - NeurIPS 2025
-  - LLM bias
-  - hiring fairness
-  - algorithmic auditing
 ---
 
 # Evaluating the Promise and Pitfalls of LLMs in Hiring Decisions

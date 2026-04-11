@@ -2,9 +2,6 @@
 description: "【论文笔记】Controlling Underestimation Bias in Constrained Reinforcement Learning for Safe Exploration 论文解读 | ICML 2025 | arXiv 2601.11953 | 约束强化学习 | 提出 MICE（Memory-driven Intrinsic Cost Estimation）——通过闪光灯记忆机制存储历史高代价状态，构建内在代价信号来纠正代价值函数的低估偏差，在约束 RL 的训练过程中显著减少约束违反次数。"
 tags:
   - ICML 2025
-  - 约束强化学习
-  - 安全探索
-  - 低估偏差
 ---
 
 # Controlling Underestimation Bias in Constrained Reinforcement Learning for Safe Exploration

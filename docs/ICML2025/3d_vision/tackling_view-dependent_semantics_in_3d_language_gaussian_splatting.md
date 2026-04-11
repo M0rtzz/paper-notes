@@ -2,9 +2,6 @@
 description: "【论文笔记】LaGa: Tackling View-Dependent Semantics in 3D Language Gaussian Splatting 论文解读 | ICML2025 | arXiv 2505.24746 | 3D高斯 | 提出LaGa解决3D高斯场景理解中被忽视的\"视角依赖语义\"问题：通过3D场景分解建立跨视角语义连接，用自适应聚类+重加权构建视角聚合语义表示，在LERF-OVS上mIoU超前SOTA+18.7%。"
 tags:
   - ICML2025
-  - 3D高斯
-  - 开放词汇分割
-  - 视角依赖语义
 ---
 
 # LaGa: Tackling View-Dependent Semantics in 3D Language Gaussian Splatting

@@ -2,9 +2,6 @@
 description: "【论文笔记】The Ouroboros of Benchmarking: Reasoning Evaluation in an Era of Saturation 论文解读 | NeurIPS 2025 | arXiv 2511.01365 | 基准饱和 | 本文系统分析了OpenAI、Anthropic和Google三大模型家族在52个基准上的推理能力演变，揭示了\"基准饱和循环\"现象——旧基准快速被超越、新基准不断涌现，质疑高基准分数是否真正反映泛化推理能力。"
 tags:
   - NeurIPS 2025
-  - 基准饱和
-  - 推理评估
-  - 大语言模型
 ---
 
 # The Ouroboros of Benchmarking: Reasoning Evaluation in an Era of Saturation

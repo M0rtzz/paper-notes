@@ -2,9 +2,7 @@
 description: "【论文笔记】Cross-Lingual Optimization for Language Transfer in Large Language Models 论文解读 | ACL 2025 | arXiv 2505.14297 | cross-lingual transfer | 提出 Cross-Lingual Optimization (CLO)，通过修改 DPO 损失函数实现跨语言偏好优化——给目标语言输入时偏好目标语言回复、给英语输入时偏好英语回复——在 5 个模型 × 6 种语言上一致超越 SFT，低资源语言中仅 3,200 样本的 CLO 即超越 6,400 样本的 SFT。"
 tags:
   - ACL 2025
-  - cross-lingual transfer
-  - DPO
-  - multilingual
+  - 注意力机制
 ---
 
 # Cross-Lingual Optimization for Language Transfer in Large Language Models

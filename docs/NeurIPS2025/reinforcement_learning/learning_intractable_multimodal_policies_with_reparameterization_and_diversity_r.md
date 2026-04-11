@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Intractable Multimodal Policies with Reparameterization and Diversity Regularization 论文解读 | NeurIPS 2025 | arXiv 2511.01374 | 多模态策略 | 提出Diversity-regularized Actor Critic（DrAC）算法，通过将不可解析的多模态策略（amortized actor和diffusion actor）统一为stochastic-mapping formulation，利用重参数化技巧直接进行策略梯度优化，并设计基于距离的多样性正则化替代传统熵正则化，在多目标导航和生成式RL等多样性关键任务中展现显著优势。"
 tags:
   - NeurIPS 2025
-  - 多模态策略
-  - 重参数化
-  - 多样性正则化
 ---
 
 # Learning Intractable Multimodal Policies with Reparameterization and Diversity Regularization

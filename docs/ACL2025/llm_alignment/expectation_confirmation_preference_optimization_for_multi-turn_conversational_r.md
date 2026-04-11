@@ -2,9 +2,6 @@
 description: "【论文笔记】Expectation Confirmation Preference Optimization for Multi-Turn Conversational Recommendation Agent 论文解读 | ACL 2025 | arXiv 2506.14302 | conversational recommendation | 提出 ECPO（Expectation Confirmation Preference Optimization），首个面向 LLM 对话推荐 Agent 的多轮偏好优化方法——基于心理学期望确认理论（ECT）显式建模用户满意度在多轮对话中的演变，通过前向期望确认定位不满意根因 + 后向期望推导重写回复构建 turn-level 偏好对，配合 AILO 用户模拟器，在 3 个数据集上显著优于现有 MTPO 方法。"
 tags:
   - ACL 2025
-  - conversational recommendation
-  - multi-turn preference optimization
-  - expectation confirmation theory
 ---
 
 # Expectation Confirmation Preference Optimization for Multi-Turn Conversational Recommendation Agent

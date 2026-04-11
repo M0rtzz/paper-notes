@@ -2,9 +2,6 @@
 description: "【论文笔记】Steering Generative Models with Experimental Data for Protein Fitness Optimization 论文解读 | NeurIPS 2025 | arXiv 2505.15093 | 蛋白质适应度优化 | 系统性地评估了引导蛋白质生成模型（离散扩散模型和语言模型）进行适应度优化的各种策略，发现使用少量标注数据（~200条）的即插即用引导方法（特别是 DAPS）优于基于 RL 的微调方法，并提出了集成不确定性的 Thompson 采样策略用于自适应优化。"
 tags:
   - NeurIPS 2025
-  - 蛋白质适应度优化
-  - 生成模型引导
-  - 离散扩散模型
 ---
 
 # Steering Generative Models with Experimental Data for Protein Fitness Optimization

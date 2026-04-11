@@ -2,10 +2,7 @@
 description: "【论文笔记】Structure-Guided Diffusion Models for High-Fidelity Portrait Shadow Removal 论文解读 | ICCV 2025 | arXiv 2507.04692 | 人像阴影去除 | 本文将人像阴影去除建模为扩散 Inpainting 问题，通过训练光照无关的结构提取网络获取排除阴影边界的结构图、以结构图引导 Inpainting 扩散模型修复阴影区域，再用梯度引导细节恢复扩散模型补回精细面部细节，在基准数据集上显著超越现有方法。"
 tags:
   - ICCV 2025
-  - 人像阴影去除
-  - 扩散Inpainting
   - 图像修复
-  - 结构图引导
 ---
 
 # Structure-Guided Diffusion Models for High-Fidelity Portrait Shadow Removal

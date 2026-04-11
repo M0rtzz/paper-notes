@@ -2,9 +2,6 @@
 description: "【论文笔记】Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors 论文解读 | CVPR 2026 | arXiv 2603.13092 | 良率分析 | 用TabPFN（在百万回归任务上预训练的基础模型）替代传统手工先验，实现零超参数的SRAM多角良率分析，通过注意力机制自动进行跨角知识迁移，配合自动特征选择（1152D到48D）和不确定性引导的主动学习，达到SOTA精度（MRE低至0.11%）同时降低10倍以上验证成本。"
 tags:
   - CVPR 2026
-  - 良率分析
-  - 多角仿真
-  - 零超参数
 ---
 
 # Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors

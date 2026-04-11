@@ -2,9 +2,6 @@
 description: "【论文笔记】From One to More: Contextual Part Latents for 3D Generation 论文解读 | ICCV 2025 | arXiv 2507.08772 | 部件级3D生成 | 提出CoPart框架，通过上下文部件潜码表示3D物体并利用互引导策略微调预训练扩散模型，实现高质量的部件级3D生成，同时支持部件编辑、铰接体生成和小场景生成。"
 tags:
   - ICCV 2025
-  - 部件级3D生成
-  - 扩散模型
-  - 互引导
 ---
 
 # From One to More: Contextual Part Latents for 3D Generation

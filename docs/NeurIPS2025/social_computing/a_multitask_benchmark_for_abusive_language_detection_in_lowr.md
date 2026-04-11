@@ -2,7 +2,6 @@
 description: "【论文笔记】A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings 论文解读 | NeurIPS 2025 | arXiv 2505.12116 | 低资源语言、仇恨言论检测、多任务学习、Tigrinya、基准数据集 | 针对低资源语言 Tigrinya，构建了首个大规模多任务基准数据集 TiALD（13,717条YouTube评论，涵盖滥用检测、情感分析、主题分类三任务），并证明小型微调模型在低资源场景下显著优于GPT-4o等前沿LLM（F1: 86.67% vs 79.31%）。"
 tags:
   - NeurIPS 2025
-  - 低资源语言、仇恨言论检测、多任务学习、Tigrinya、基准数据集
 ---
 
 # A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings

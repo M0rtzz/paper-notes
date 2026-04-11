@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Pre-Training of LLMs via Topology-Aware Communication Alignment on More Than 9600 GPUs 论文解读 | NeurIPS 2025 | arXiv 2509.15940 | distributed training | 提出 Arnold 调度系统，通过将 LLM 训练的通信模式（DP/PP group）与数据中心物理网络拓扑对齐，在模拟中将通信组最大跨度减少 1.67x，在 9600+ GPU 生产级训练中端到端性能提升 10.6%。"
 tags:
   - NeurIPS 2025
-  - distributed training
-  - GPU scheduling
-  - network topology
 ---
 
 # Efficient Pre-Training of LLMs via Topology-Aware Communication Alignment on More Than 9600 GPUs

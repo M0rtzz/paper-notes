@@ -2,7 +2,6 @@
 description: "【论文笔记】Regret Lower Bounds for Decentralized Multi-Agent Stochastic Shortest Path Problems 论文解读 | NeurIPS 2025 | arXiv 2511.04594 | 多智能体强化学习、随机最短路径、Regret下界、去中心化学习、线性函数逼近 | 本文首次为去中心化多智能体随机最短路径问题（Dec-MASSP）在线性函数逼近设定下建立了 $\Omega(\sqrt{K})$ 的 regret 下界，通过构造难以学习的实例族并利用对称性论证识别最优策略结构，证明了该下界与已有上界在 episode 数 $K$ 上达到匹配。"
 tags:
   - NeurIPS 2025
-  - 多智能体强化学习、随机最短路径、Regret下界、去中心化学习、线性函数逼近
 ---
 
 # Regret Lower Bounds for Decentralized Multi-Agent Stochastic Shortest Path Problems

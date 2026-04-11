@@ -2,9 +2,7 @@
 description: "【论文笔记】iQUEST: An Iterative Question-Guided Framework for Knowledge Base Question Answering 论文解读 | ACL 2025 | arXiv 2506.01784 | 知识图谱问答 | iQUEST 提出迭代式子问题引导框架，在每一步推理中动态生成当前可解答的子问题以维持推理方向，并结合 GNN 聚合二跳邻居语义信息实现\"前瞻性\"实体探索，在 CWQ、WebQSP、WebQuestions、GrailQA 四个基准上取得 SOTA 或接近 SOTA 的性能，且无需微调 LLM。"
 tags:
   - ACL 2025
-  - 知识图谱问答
-  - 多跳推理
-  - 子问题引导
+  - 图神经网络
 ---
 
 # iQUEST: An Iterative Question-Guided Framework for Knowledge Base Question Answering

@@ -2,9 +2,6 @@
 description: "【论文笔记】FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction 论文解读 | CVPR 2026 | arXiv 2509.21029 | 视觉越狱攻击 | 通过分析视觉越狱攻击在层特征和频谱域的过度依赖问题，提出FORCE方法纠正非泛化性特征依赖，引导攻击探索更平坦的损失景观，从而显著提升跨模型迁移性。"
 tags:
   - CVPR 2026
-  - 视觉越狱攻击
-  - 多模态大语言模型
-  - 对抗可迁移性
 ---
 
 # FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction

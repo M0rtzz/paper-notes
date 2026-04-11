@@ -2,9 +2,6 @@
 description: "【论文笔记】BLINK: Multimodal Large Language Models Can See but Not Perceive 论文解读 | ECCV 2024 | arXiv 2404.12390 | 多模态评测基准 | 提出BLINK——一个包含14个经典计算机视觉感知任务的多模态评测基准（3807道选择题），这些任务人类可以\"眨眼间\"解决（95.7%准确率），但最强的GPT-4V仅达51.26%（仅高于随机猜测13.17%），揭示了当前MLLM在核心视觉感知能力上的严重缺失。"
 tags:
   - ECCV 2024
-  - 多模态评测基准
-  - 视觉感知
-  - 经典CV任务
 ---
 
 # BLINK: Multimodal Large Language Models Can See but Not Perceive

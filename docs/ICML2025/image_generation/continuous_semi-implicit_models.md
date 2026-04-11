@@ -2,9 +2,6 @@
 description: "【论文笔记】Continuous Semi-Implicit Models 论文解读 | ICML 2025 | arXiv 2506.06778 | 半隐式分布 | 提出 CoSIM——将层级半隐式模型扩展为连续时间框架，通过连续转移核实现无仿真高效训练，并设计保持一致性的转移核实现分布级别的多步扩散模型蒸馏，在 ImageNet 512×512 上达到或超越现有扩散加速方法。"
 tags:
   - ICML 2025
-  - 半隐式分布
-  - 扩散模型蒸馏
-  - 连续时间
 ---
 
 # Continuous Semi-Implicit Models

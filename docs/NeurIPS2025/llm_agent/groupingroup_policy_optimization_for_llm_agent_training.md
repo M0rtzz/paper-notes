@@ -2,9 +2,6 @@
 description: "【论文笔记】Group-in-Group Policy Optimization for LLM Agent Training 论文解读 | NeurIPS 2025 | arXiv 2505.10978 | GiGPO | GiGPO 通过在 GRPO 的 episode 级分组内嵌套 step 级分组（利用跨轨迹的重复环境状态作为 anchor state），实现了无需额外 rollout 和 critic 模型的细粒度 credit assignment，在 ALFWorld 上比 GRPO 提升 >12%，WebShop 上提升 >9%。"
 tags:
   - NeurIPS 2025
-  - GiGPO
-  - credit assignment
-  - anchor state grouping
 ---
 
 # Group-in-Group Policy Optimization for LLM Agent Training

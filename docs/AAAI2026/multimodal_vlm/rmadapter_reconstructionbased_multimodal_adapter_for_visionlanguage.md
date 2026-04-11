@@ -2,9 +2,7 @@
 description: "【论文笔记】RMAdapter: Reconstruction-based Multi-Modal Adapter for Vision-Language Models (Oral) 论文解读 | AAAI 2026 | arXiv 2512.06811 | CLIP | 提出 RMAdapter，一种双分支适配器架构：在标准 adapter 的适应分支旁增加重建分支（类 AutoEncoder），通过共享下投影层和逐层本地重建损失，在 CLIP 少样本微调中实现任务特定适应与通用知识保持的最佳平衡，在 Base-to-Novel 泛化、跨数据集和领域泛化三个任务上全面超越 SOTA（含 Prompt-based 方法）。"
 tags:
   - AAAI 2026
-  - CLIP
-  - Adapter
-  - Reconstruction
+  - 视觉语言
 ---
 
 # RMAdapter: Reconstruction-based Multi-Modal Adapter for Vision-Language Models (Oral)

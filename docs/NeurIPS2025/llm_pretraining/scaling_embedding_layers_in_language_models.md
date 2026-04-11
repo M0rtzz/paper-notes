@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Embedding Layers in Language Models 论文解读 | NeurIPS 2025 | arXiv 2502.01637 | embedding scaling | 提出Scone方法，通过为高频n-gram学习上下文化的嵌入（用独立Transformer模型训练），在推理时将这些嵌入卸载到主存/SSD，实现\"训练时用更多计算但推理时不增加加速器资源\"的新缩放范式，1B参数模型超越1.9B基线。"
 tags:
   - NeurIPS 2025
-  - embedding scaling
-  - n-gram embeddings
-  - inference efficiency
 ---
 
 # Scaling Embedding Layers in Language Models

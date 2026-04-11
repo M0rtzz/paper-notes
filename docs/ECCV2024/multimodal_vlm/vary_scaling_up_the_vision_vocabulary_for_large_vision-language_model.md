@@ -2,8 +2,6 @@
 description: "【论文笔记】Vary: Scaling up the Vision Vocabulary for Large Vision-Language Models 论文解读 | ECCV 2024 | arXiv 2312.06109 | 视觉词汇表 | 提出 Vary 方法，通过生成并融合新的视觉词汇表来扩展 LVLM 的视觉感知能力，使模型在保持通用能力的同时获得文档 OCR、图表理解等细粒度视觉感知能力。"
 tags:
   - ECCV 2024
-  - 视觉词汇表
-  - LVLM
   - OCR
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】Distilling Balanced Knowledge from a Biased Teacher 论文解读 | CVPR 2026 | arXiv 2506.18496 | 知识蒸馏 | 针对长尾分布下知识蒸馏中教师模型向头部类偏斜的问题，将传统 KL 散度损失分解为跨组损失和组内损失两个组件，通过重平衡跨组损失校准教师的组级预测、重加权组内损失保证各组等贡献，在 CIFAR-100-LT/TinyImageNet-LT/ImageNet-LT 上全面超越现有方法，甚至超过教师模型自身表现。"
 tags:
   - CVPR 2026
-  - 知识蒸馏
-  - 长尾分布
-  - 模型压缩
 ---
 
 # Distilling Balanced Knowledge from a Biased Teacher

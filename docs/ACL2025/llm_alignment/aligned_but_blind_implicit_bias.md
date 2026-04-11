@@ -2,9 +2,6 @@
 description: "【论文笔记】Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race 论文解读 | ACL 2025 | arXiv 2506.00253 | implicit bias | 发现 LLM 对齐训练的矛盾效应：对齐成功消除了显式偏见（Llama 3 70B 降至 8.13%），但反而放大了隐式偏见（从 64.1% 升至 91.4%），机制是对齐使模型在歧义上下文中不再表征种族概念（\"种族盲视\"），导致安全护栏无法在隐性场景中激活。通过在早期层注入种族感知激活可将隐式偏见从 97.3% 降至 71.2%。"
 tags:
   - ACL 2025
-  - implicit bias
-  - alignment side-effect
-  - race awareness
 ---
 
 # Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race

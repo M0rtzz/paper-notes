@@ -2,9 +2,6 @@
 description: "【论文笔记】ExPO: Unlocking Hard Reasoning with Self-Explanation-Guided Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2507.02834 | 自我解释 | 提出 Self-Explanation Policy Optimization (ExPO)，一种通过让模型在给定正确答案条件下自主生成推理链（self-explanation）作为正样本的模块化框架，解决 GRPO 等 RL 后训练方法在困难推理任务上因缺乏有效正样本而无法学习（分布锐化）的根本问题——ExPO 生成的自解释样本既在当前策略分布内（in-distribution），又能提供正向学习信号，可无缝集成到 DPO 和 GRPO 中。"
 tags:
   - NeurIPS 2025
-  - 自我解释
-  - GRPO
-  - DPO
 ---
 
 # ExPO: Unlocking Hard Reasoning with Self-Explanation-Guided Reinforcement Learning

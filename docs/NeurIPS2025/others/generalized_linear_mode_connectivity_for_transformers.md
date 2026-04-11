@@ -2,9 +2,6 @@
 description: "【论文笔记】Generalized Linear Mode Connectivity for Transformers 论文解读 | NeurIPS 2025 | arXiv 2506.22712 | linear mode connectivity | 提出统一对称性框架（置换、半置换、正交、可逆变换四级层次），首次在 Vision Transformer 和 GPT-2 上实现零/近零 barrier 的线性模式连通性（LMC），并扩展至多模型融合与异构宽度对齐。"
 tags:
   - NeurIPS 2025
-  - linear mode connectivity
-  - model merging
-  - permutation symmetry
 ---
 
 # Generalized Linear Mode Connectivity for Transformers

@@ -2,9 +2,6 @@
 description: "【论文笔记】Deep Learning for Continuous-Time Stochastic Control with Jumps 论文解读 | NeurIPS 2025 | arXiv 2505.15602 | 随机控制 | 提出两种基于模型的深度学习算法（GPI-PINN 和 GPI-CBU）来求解含跳跃的有限时域连续时间随机控制问题，通过迭代训练策略网络和价值网络，避免了状态动力学的离散化和模拟，在高维场景中表现出色。"
 tags:
   - NeurIPS 2025
-  - 随机控制
-  - 跳跃扩散
-  - HJB方程
 ---
 
 # Deep Learning for Continuous-Time Stochastic Control with Jumps

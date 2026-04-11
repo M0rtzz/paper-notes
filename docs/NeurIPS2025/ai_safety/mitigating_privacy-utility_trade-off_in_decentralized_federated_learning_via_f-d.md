@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Privacy-Utility Trade-off in Decentralized Federated Learning via f-Differential Privacy 论文解读 | NeurIPS 2025 | arXiv 2510.19934 | 去中心化联邦学习 | 提出基于 f-DP 框架的两种去中心化联邦学习隐私记账方法——PN-f-DP 和 Sec-f-LDP，通过更精细的假设检验隐私度量，一致性地获得比 Rényi DP 更紧的隐私界，从而在相同隐私保证下减少噪声注入、提升模型效用。"
 tags:
   - NeurIPS 2025
-  - 去中心化联邦学习
-  - f-差分隐私
-  - 隐私放大
 ---
 
 # Mitigating Privacy-Utility Trade-off in Decentralized Federated Learning via f-Differential Privacy

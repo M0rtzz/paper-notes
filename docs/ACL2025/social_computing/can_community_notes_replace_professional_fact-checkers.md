@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Community Notes Replace Professional Fact-Checkers? 论文解读 | ACL 2025 | arXiv 2502.14132 | Community Notes | 通过大规模分析 Twitter/X 的 Community Notes 数据（66.4 万条），发现社区笔记对专业事实核查的依赖远超此前报告（至少 5-7%），证明高质量社区审核离不开专业事实核查，尤其在涉及阴谋论和更广泛虚假叙事的高风险内容上。"
 tags:
   - ACL 2025
-  - Community Notes
-  - 事实核查
-  - 虚假信息
 ---
 
 # Can Community Notes Replace Professional Fact-Checkers?

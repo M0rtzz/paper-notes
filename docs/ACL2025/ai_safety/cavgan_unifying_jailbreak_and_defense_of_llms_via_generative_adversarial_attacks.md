@@ -2,8 +2,6 @@
 description: "【论文笔记】CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks 论文解读 | ACL 2025 | arXiv 2507.06043 | jailbreak | 提出 CAVGAN 框架，利用生成对抗网络在 LLM 内部表示空间中同时学习越狱攻击（生成器）和安全防御（判别器），首次将攻防统一到同一框架中实现\"攻防共进\"，攻击成功率平均 88.85%，防御成功率平均 84.17%。"
 tags:
   - ACL 2025
-  - jailbreak
-  - defense
   - GAN
 ---
 

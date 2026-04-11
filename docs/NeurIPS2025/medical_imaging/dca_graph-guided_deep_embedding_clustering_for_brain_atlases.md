@@ -2,9 +2,6 @@
 description: "【论文笔记】DCA: Graph-Guided Deep Embedding Clustering for Brain Atlases 论文解读 | NeurIPS 2025 | arXiv 2509.01426 | 脑图谱 | DCA（Deep Cluster Atlas）提出图引导深度嵌入聚类框架，结合预训练 Swin-UNETR 的体素级时空嵌入和 KNN 图空间正则化，通过 KL 散度对齐软分配与图谱聚类辅助标签，生成功能一致且空间连续的个性化脑图谱，在 HCP 数据集上同态性提升 98.8%、轮廓系数提升 29%，并在自闭症诊断、认知解码等下游任务中超越现有图谱。"
 tags:
   - NeurIPS 2025
-  - 脑图谱
-  - 深度聚类
-  - Swin-UNETR
 ---
 
 # DCA: Graph-Guided Deep Embedding Clustering for Brain Atlases

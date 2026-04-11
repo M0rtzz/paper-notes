@@ -2,9 +2,6 @@
 description: "【论文笔记】TrackAny3D: Transferring Pretrained 3D Models for Category-unified 3D Point Cloud Tracking 论文解读 | ICCV 2025 | arXiv 2507.19908 | 3D单目标跟踪 | TrackAny3D 首次将大规模预训练3D模型迁移到类别无关的3D单目标跟踪任务，通过双路径适配器、混合几何专家（MoGE）和时序上下文优化策略，在单一模型上实现了跨类别统一跟踪的SOTA性能。"
 tags:
   - ICCV 2025
-  - 3D单目标跟踪
-  - 预训练模型迁移
-  - 混合几何专家
 ---
 
 # TrackAny3D: Transferring Pretrained 3D Models for Category-unified 3D Point Cloud Tracking

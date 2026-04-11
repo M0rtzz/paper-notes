@@ -2,9 +2,6 @@
 description: "【论文笔记】Overcoming Multi-step Complexity in Multimodal Theory-of-Mind Reasoning: A Scalable Bayesian Planner 论文解读 | ICML2025 | arXiv 2506.01301 | Theory-of-Mind | 提出一种可扩展的贝叶斯心智理论（ToM）规划器，通过将多步推理分解为逐步贝叶斯更新，并利用弱到强控制机制将小模型的 ToM 专项能力迁移至大模型（最高 405B），在多模态 ToM 基准上超越 SOTA 4.6%。"
 tags:
   - ICML2025
-  - Theory-of-Mind
-  - Bayesian Inverse Planning
-  - Weak-to-Strong Control
 ---
 
 # Overcoming Multi-step Complexity in Multimodal Theory-of-Mind Reasoning: A Scalable Bayesian Planner

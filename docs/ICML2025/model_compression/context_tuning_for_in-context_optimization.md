@@ -2,10 +2,7 @@
 description: "【论文笔记】Context Tuning for In-Context Optimization 论文解读 | ICML 2025 | arXiv 2507.04221 | In-Context Learning | 提出 Context Tuning，用少样本示例初始化可训练的 prompt/KV 前缀，通过梯度优化上下文表示（而非模型参数）来增强 LLM 的 few-shot 适应能力，CT-KV 变体在线性时间复杂度下达到与 TTT 竞争的精度。"
 tags:
   - ICML 2025
-  - In-Context Learning
-  - Prompt Tuning
   - 提示学习
-  - Prefix Tuning
 ---
 
 # Context Tuning for In-Context Optimization

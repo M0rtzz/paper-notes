@@ -2,9 +2,6 @@
 description: "【论文笔记】Pano360: Perspective to Panoramic Vision with Geometric Consistency 论文解读 | CVPR2026 | arXiv 2603.12013 | panorama stitching | 提出 Pano360，将全景拼接从传统的 2D 逐对匹配扩展到 3D 摄影测量空间，利用 Transformer 架构实现多视图全局几何一致性对齐，在弱纹理、大视差、重复纹理等挑战场景下达到 97.8% 成功率。"
 tags:
   - CVPR2026
-  - panorama stitching
-  - 3D geometric consistency
-  - transformer
   - Transformer
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】VT-FSL: Bridging Vision and Text with LLMs for Few-Shot Learning 论文解读 | NeurIPS 2025 | arXiv 2509.25033 | 少样本学习 | 提出VT-FSL框架，通过跨模态迭代提示（CIP）联合利用类名和支持图像驱动LLM生成精确文本描述并零样本合成语义一致图像，再通过核化体积对比学习（CGA）实现全局非线性跨模态对齐，在10个少样本学习基准上平均提升4.2%分类准确率。"
 tags:
   - NeurIPS 2025
-  - 少样本学习
-  - 大语言模型
-  - 跨模态对齐
 ---
 
 # VT-FSL: Bridging Vision and Text with LLMs for Few-Shot Learning

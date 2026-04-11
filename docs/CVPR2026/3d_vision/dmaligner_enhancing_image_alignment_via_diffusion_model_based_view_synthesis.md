@@ -2,10 +2,7 @@
 description: "【论文笔记】DMAligner: Enhancing Image Alignment via Diffusion Model Based View Synthesis 论文解读 | CVPR2026 | arXiv 2602.23022 | image alignment | 提出 DMAligner，将图像对齐问题从传统的光流 warp 范式转化为\"对齐导向的视图合成\"任务，利用条件扩散模型直接生成对齐后的完整图像，配合专门构建的 DSIA 合成数据集和动态感知掩码模块（DMP），有效避免了 warp 方法固有的 ghosting 和遮挡伪影，在多个基准上全面超越现有方法。"
 tags:
   - CVPR2026
-  - image alignment
-  - diffusion model
   - 扩散模型
-  - view synthesis
 ---
 
 # DMAligner: Enhancing Image Alignment via Diffusion Model Based View Synthesis

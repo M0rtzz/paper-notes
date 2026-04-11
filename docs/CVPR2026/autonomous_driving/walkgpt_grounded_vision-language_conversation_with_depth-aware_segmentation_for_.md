@@ -2,9 +2,6 @@
 description: "【论文笔记】WalkGPT: Grounded Vision-Language Conversation with Depth-Aware Segmentation for Pedestrian Navigation 论文解读 | CVPR2026 | arXiv 2603.10703 | 视觉语言模型 | 提出 WalkGPT——首个面向行人无障碍导航的像素定位大视觉语言模型，统一对话推理、分割掩码与深度估计于单一架构中，并构建了 41k 规模的 PAVE 数据集。"
 tags:
   - CVPR2026
-  - 视觉语言模型
-  - 像素级定位
-  - 深度感知分割
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

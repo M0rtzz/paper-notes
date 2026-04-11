@@ -2,9 +2,6 @@
 description: "【论文笔记】A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective 论文解读 | NeurIPS 2025 | arXiv 2509.16499 | model collapse | 发现扩散模型在自消耗循环（用生成数据训练下一代模型）中存在从\"泛化\"到\"记忆\"的转变过程，揭示训练集熵与模型泛化能力的强线性相关性（Pearson r=0.91），并提出基于熵的数据选择策略（Greedy Selection / Threshold Decay Filter）有效减缓该转变，在 CIFAR-10 accumulate 范式下第 8 轮 FID 从 75.7 降至 44.7。"
 tags:
   - NeurIPS 2025
-  - model collapse
-  - self-consuming loop
-  - generalization
 ---
 
 # A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective

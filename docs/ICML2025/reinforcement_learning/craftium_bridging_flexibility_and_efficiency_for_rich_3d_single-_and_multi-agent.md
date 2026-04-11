@@ -2,9 +2,6 @@
 description: "【论文笔记】Craftium: An Extensible Framework for Creating Reinforcement Learning Environments 论文解读 | ICML 2025 | arXiv 2407.03969 | RL环境 | Craftium 基于开源 Minetest 游戏引擎构建了一个灵活高效的 3D RL 环境创建框架，通过 Lua API 实现完全自定义，同时提供标准 Gymnasium 接口和五个基准环境。"
 tags:
   - ICML 2025
-  - RL环境
-  - 3D环境
-  - Minetest
 ---
 
 # Craftium: An Extensible Framework for Creating Reinforcement Learning Environments

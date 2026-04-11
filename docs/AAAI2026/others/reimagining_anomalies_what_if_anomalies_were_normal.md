@@ -2,9 +2,8 @@
 description: "【论文笔记】Reimagining Anomalies: What if Anomalies Were Normal? 论文解读 | AAAI2026 | arXiv 2402.14469 | anomaly detection | 提出首个面向无监督图像异常检测的反事实解释框架，通过训练生成器将异常样本修改为被检测器视为正常的多个解纠缠反事实，从语义层面回答“如果异常是正常的，它应该是什么样子？”，提供远超传统热力图的深层解释能力。"
 tags:
   - AAAI2026
-  - anomaly detection
-  - counterfactual explanation
-  - explainable AI
+  - GAN
+  - 扩散模型
 ---
 
 # Reimagining Anomalies: What if Anomalies Were Normal?

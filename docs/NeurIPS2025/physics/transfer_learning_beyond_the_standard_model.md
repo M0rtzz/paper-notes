@@ -2,9 +2,6 @@
 description: "【论文笔记】Transfer Learning Beyond the Standard Model 论文解读 | NeurIPS 2025 | arXiv 2510.19168 | 迁移学习 | 研究从标准宇宙学模型（ΛCDM）预训练的神经网络能否迁移到超越标准模型的场景（大质量中微子、修改引力、原初非高斯性），发现dummy node架构可将模拟需求降低一个数量级，但当参数存在强物理简并（如σ₈-Mν）时会出现负迁移。"
 tags:
   - NeurIPS 2025
-  - 迁移学习
-  - 宇宙学推断
-  - ΛCDM
 ---
 
 # Transfer Learning Beyond the Standard Model

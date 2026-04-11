@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Perplexity: Let the Reader Select Retrieval Summaries via Spectrum Projection Score 论文解读 | AAAI 2026 | arXiv 2508.05909 | 检索增强生成 | 提出 Spectrum Projection Score (SPS) 这一无需训练的指标，通过衡量摘要 token 嵌入与 reader LLM 主子空间的对齐程度来评估检索摘要质量，替代传统困惑度指标。结合 xCompress 推理时控制器，在 5 个 QA 数据集上显著优于基于困惑度的方法（HotpotQA EM +3.6）。"
 tags:
   - AAAI 2026
-  - 检索增强生成
-  - 困惑度
-  - 谱投影分数
 ---
 
 # Beyond Perplexity: Let the Reader Select Retrieval Summaries via Spectrum Projection Score

@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward Faithful Retrieval-Augmented Generation with Sparse Autoencoders 论文解读 | ICLR 2026 | arXiv 2512.08892 | 检索增强生成 | 提出 RAGLens，利用稀疏自编码器(SAE)从 LLM 内部激活中解耦出 RAG 幻觉专属特征，通过互信息特征选择 + 广义加性模型(GAM)构建轻量级可解释幻觉检测器，在多个基准上超越现有方法，并支持 token 级可解释反馈与幻觉缓解。"
 tags:
   - ICLR 2026
-  - 检索增强生成
-  - 稀疏自编码器
-  - 幻觉检测
 ---
 
 # Toward Faithful Retrieval-Augmented Generation with Sparse Autoencoders

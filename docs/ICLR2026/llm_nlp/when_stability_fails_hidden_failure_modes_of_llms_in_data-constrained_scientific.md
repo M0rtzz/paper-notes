@@ -2,9 +2,6 @@
 description: "【论文笔记】When Stability Fails: Hidden Failure Modes of LLMs in Data-Constrained Scientific Decision-Making 论文解读 | ICLR 2026 | arXiv 2603.15840 | LLM可靠性 | 通过控制性行为评估框架，揭示 LLM 在数据约束的科学决策任务中的四种隐藏失败模式：高稳定性≠正确性、prompt 措辞敏感性、放宽阈值下的过度选择、以及幻觉产生无效标识符。"
 tags:
   - ICLR 2026
-  - LLM可靠性
-  - 稳定性与正确性
-  - prompt敏感性
   - 提示学习
 ---
 

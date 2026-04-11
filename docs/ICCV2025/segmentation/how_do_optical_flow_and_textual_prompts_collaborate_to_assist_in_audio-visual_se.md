@@ -2,9 +2,6 @@
 description: "【论文笔记】How Do Optical Flow and Textual Prompts Collaborate to Assist in Audio-Visual Semantic Segmentation? 论文解读 | ICCV 2025 | arXiv 2601.08133 | 音视频语义分割 | 提出 SSP (Stepping Stone Plus) 框架，将光流作为辅助掩码提示与两类文本提示协同工作，配合视觉-文本对齐模块 (VTA)，在音视频语义分割任务中实现 SOTA 性能。"
 tags:
   - ICCV 2025
-  - 音视频语义分割
-  - 光流
-  - 文本提示
 ---
 
 # How Do Optical Flow and Textual Prompts Collaborate to Assist in Audio-Visual Semantic Segmentation?

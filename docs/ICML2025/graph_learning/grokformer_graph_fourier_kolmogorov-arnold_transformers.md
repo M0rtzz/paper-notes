@@ -2,10 +2,7 @@
 description: "【论文笔记】GrokFormer: Graph Fourier Kolmogorov-Arnold Transformers 论文解读 | ICML2025 | arXiv 2411.17296 | Transformer Graph Transformer | 提出 GrokFormer，通过傅里叶级数参数化的 Kolmogorov-Arnold 可学习激活函数，在图 Laplacian 的多阶谱上自适应学习滤波器基，同时具备 **谱阶自适应** 和 **谱自适应** 能力，是目前唯一在两个维度上都可学习的图 Transformer 滤波器。"
 tags:
   - ICML2025
-  - Graph Transformer
   - Transformer
-  - Kolmogorov-Arnold Network
-  - 傅里叶级数
 ---
 
 # GrokFormer: Graph Fourier Kolmogorov-Arnold Transformers

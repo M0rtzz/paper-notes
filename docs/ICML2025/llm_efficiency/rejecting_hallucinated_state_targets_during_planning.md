@@ -2,9 +2,6 @@
 description: "【论文笔记】Rejecting Hallucinated State Targets during Planning 论文解读 | ICML 2025 | arXiv 2410.07096 | 目标导向RL | 本文系统识别了目标导向决策规划中生成器产生不可行目标（幻觉目标）导致的\"妄想行为\"类型，并设计了一种可行性评估器（feasibility evaluator）作为附加模块来识别和拒绝这些不可行目标，结合离策略学习规则、分布式架构和后见重标记数据增强，在不修改原始智能体的前提下显著减少妄想行为并提升OOD泛化性能。"
 tags:
   - ICML 2025
-  - 目标导向RL
-  - 幻觉目标
-  - 妄想行为
 ---
 
 # Rejecting Hallucinated State Targets during Planning

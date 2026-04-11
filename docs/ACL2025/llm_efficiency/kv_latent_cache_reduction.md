@@ -2,9 +2,6 @@
 description: "【论文笔记】KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding 论文解读 | ACL 2025 (Long Paper) | arXiv 2507.11273 | KV Cache压缩 | 提出KV-Latent范式，通过对KV头的维度进行降采样将其映射到潜空间，仅需不到1%预训练量的额外训练即可恢复性能，在LLaMA-3-8B上KV Cache减少50%（dqk=dvo=64→50%缓存），同时TTFT延迟降低8%。"
 tags:
   - ACL 2025 (Long Paper)
-  - KV Cache压缩
-  - 维度降采样
-  - RoPE
 ---
 
 # KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding

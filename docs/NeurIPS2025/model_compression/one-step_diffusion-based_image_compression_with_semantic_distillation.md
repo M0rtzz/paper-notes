@@ -2,9 +2,6 @@
 description: "【论文笔记】One-Step Diffusion-Based Image Compression with Semantic Distillation 论文解读 | NeurIPS 2025 | arXiv 2505.16687 | 图像压缩 | 提出OneDC——首个一步扩散生成式图像编解码器，将超先验（hyperprior）替代文本作为扩散模型的语义引导并通过语义蒸馏增强其表示能力，实现了比多步扩散编解码器节省39%码率、解码加速20倍的SOTA感知质量。"
 tags:
   - NeurIPS 2025
-  - 图像压缩
-  - 一步扩散模型
-  - 语义蒸馏
 ---
 
 # One-Step Diffusion-Based Image Compression with Semantic Distillation

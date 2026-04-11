@@ -2,9 +2,6 @@
 description: "【论文笔记】Causal Graph based Event Reasoning using Semantic Relation Experts 论文解读 | ACL 2025 | arXiv 2506.06910 | 因果图生成 | 本文提出了一种基于多个语义关系专家（时间、篇章、前置条件、常识）协作讨论的因果事件图生成方法，用于显式建模事件间的因果连接，并在事件预测、事件预报等多个下游任务上取得了有竞争力的结果。"
 tags:
   - ACL 2025
-  - 因果图生成
-  - 事件推理
-  - 多智能体协作
 ---
 
 # Causal Graph based Event Reasoning using Semantic Relation Experts

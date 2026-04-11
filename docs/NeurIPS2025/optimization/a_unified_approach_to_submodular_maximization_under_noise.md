@@ -2,9 +2,6 @@
 description: "【论文笔记】A Unified Approach to Submodular Maximization Under Noise 论文解读 | NeurIPS 2025 | arXiv 2510.21128 | 子模最大化 | 本文提出一个统一的元算法框架，可以将任何满足\"鲁棒性\"条件的精确子模最大化算法作为黑盒，自动转换为在持久噪声值预言机下保持近似比的算法，首次覆盖了非单调子模函数的拟阵约束和无约束情形。"
 tags:
   - NeurIPS 2025
-  - 子模最大化
-  - 噪声值预言机
-  - 元算法
 ---
 
 # A Unified Approach to Submodular Maximization Under Noise

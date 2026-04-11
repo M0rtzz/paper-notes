@@ -2,10 +2,8 @@
 description: "【论文笔记】Synergistic Prompting for Robust Visual Recognition with Missing Modalities 论文解读 | ICCV 2025 | arXiv 2507.07802 | missing modality | 提出Synergistic Prompting（SyP）框架，通过动态适配器生成自适应缩放因子来调节基础prompt（动态prompt），并与共享跨模态特征的静态prompt协同，实现在模态缺失场景下的鲁棒视觉识别，在MM-IMDb/Food101/Hateful Memes三个数据集上全面超越DCP等SOTA。"
 tags:
   - ICCV 2025
-  - missing modality
-  - dynamic prompt
   - 提示学习
-  - synergistic prompting
+  - 多模态
 ---
 
 # Synergistic Prompting for Robust Visual Recognition with Missing Modalities

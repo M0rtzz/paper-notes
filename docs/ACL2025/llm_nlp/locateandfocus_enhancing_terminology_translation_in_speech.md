@@ -2,9 +2,7 @@
 description: "【论文笔记】Locate-and-Focus: Enhancing Terminology Translation in Speech Language Models 论文解读 | ACL 2025 | arXiv 2507.18263 | speech translation | 提出Locate-and-Focus方法用于语音LLM的术语翻译：先用滑动窗口检索定位语音中包含术语的片段，再通过音频替换和Tag Cue引导模型聚焦翻译知识，在英中/英德方向上术语翻译成功率大幅提升。"
 tags:
   - ACL 2025
-  - speech translation
-  - terminology translation
-  - speech LLM
+  - 多模态
 ---
 
 # Locate-and-Focus: Enhancing Terminology Translation in Speech Language Models

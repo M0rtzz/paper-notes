@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlocking the Potential of Diffusion Priors in Blind Face Restoration 论文解读 | ICCV 2025 | arXiv 2508.08556 | 盲人脸修复 | 本文提出 FLIPNET，一个基于 T2I 扩散模型的统一框架，通过翻转输入在修复模式（BoostHub 选择性融合 LQ 特征 + BFR-oriented 面部嵌入）和退化模式（从真实退化数据集学习并合成退化图像）之间切换，同时解决 HQ/LQ 分布差距和合成/真实退化差距两大难题。"
 tags:
   - ICCV 2025
-  - 盲人脸修复
-  - 扩散先验
-  - 双模式网络
 ---
 
 # Unlocking the Potential of Diffusion Priors in Blind Face Restoration

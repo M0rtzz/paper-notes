@@ -2,9 +2,6 @@
 description: "【论文笔记】SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models 论文解读 | ICCV2025 | arXiv 2504.10716 | 多视角生成 | 提出 SpinMeRound，一种基于身份嵌入的多视角扩散模型，能从单张或少量人脸图像生成 360° 全头部一致性肖像及对应法线图，在人脸新视角合成任务上超越现有多视角扩散方法。"
 tags:
   - ICCV2025
-  - 多视角生成
-  - 扩散模型
-  - 人脸新视角合成
 ---
 
 # SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models

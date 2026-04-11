@@ -2,9 +2,6 @@
 description: "【论文笔记】Provable Scaling Laws for the Test-Time Compute of Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2411.19477 | 测试时缩放律 | 提出两种具有可证明缩放律的测试时计算算法——Knockout（淘汰赛式：生成多个候选再两两比较淘汰）和 League（联赛式：用平均胜率选最优候选），证明在 LLM 生成正确解概率 >0 且比较能力优于随机的极弱假设下，失败概率随测试时计算增加呈指数或幂律衰减，且仅需黑盒 LLM 无需额外验证器。"
 tags:
   - NeurIPS 2025
-  - 测试时缩放律
-  - 淘汰赛
-  - 联赛
 ---
 
 # Provable Scaling Laws for the Test-Time Compute of Large Language Models

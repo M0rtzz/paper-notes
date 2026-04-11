@@ -2,9 +2,7 @@
 description: "【论文笔记】Long-Context Generalization with Sparse Attention 论文解读 | ICLR 2026 | arXiv 2506.16640 | 稀疏注意力 | 提出 ASEntmax（Adaptive-Scalable Entmax），用可学习温度的 α-entmax 替代 softmax 注意力，从理论和实验两方面证明稀疏注意力能实现 1000× 长度外推，解决 softmax 在长上下文下的注意力弥散（dispersion）问题。"
 tags:
   - ICLR 2026
-  - 稀疏注意力
-  - 长上下文泛化
-  - α-entmax
+  - Transformer
 ---
 
 # Long-Context Generalization with Sparse Attention

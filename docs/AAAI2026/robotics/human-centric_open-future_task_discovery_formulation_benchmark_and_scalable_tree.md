@@ -2,9 +2,6 @@
 description: "【论文笔记】Human-Centric Open-Future Task Discovery: Formulation, Benchmark, and Scalable Tree-Based Search 论文解读 | AAAI 2026 | arXiv 2511.18929 | 任务发现 | 本文提出并形式化了**人类中心开放未来任务发现（HOTD）**问题——在人类意图并发且动态变化的场景中，发现那些在多种可能未来中都能减少人类负担的任务。同时构建了 HOTD-Bench 基准（2K+ 真实视频），并提出 **CMAST** 框架（协作多智能体搜索树），通过多智能体系统和可扩展搜索树显著超越现有 LMM 方法。"
 tags:
   - AAAI 2026
-  - 任务发现
-  - 开放未来
-  - 多智能体
 ---
 
 # Human-Centric Open-Future Task Discovery: Formulation, Benchmark, and Scalable Tree-Based Search

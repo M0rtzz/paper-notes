@@ -2,9 +2,6 @@
 description: "【论文笔记】STRIDE: Subset-Free Functional Decomposition for XAI in Tabular Settings 论文解读 | ICLR 2026 | arXiv 2509.09070 | 功能分解 | 提出STRIDE——在RKHS中通过递归核中心化实现无需子集枚举的正交功能分解，从标量归因升级到完整功能成分f_S(x_S)，揭示特征如何交互而非仅什么重要，10个表格数据集中位加速3.0x(vs TreeSHAP)、均值R2=0.93，首创成分手术隔离量化单一交互的性能影响。"
 tags:
   - ICLR 2026
-  - 功能分解
-  - RKHS
-  - 特征交互
 ---
 
 # STRIDE: Subset-Free Functional Decomposition for XAI in Tabular Settings

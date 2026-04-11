@@ -2,9 +2,6 @@
 description: "【论文笔记】Swap-guided Preference Learning for Personalized RLHF (SPL) 论文解读 | ICLR 2026 | arXiv 2603.12595 | 个性化奖励模型 | 解决变分偏好学习(VPL)中的后验崩坏问题：提出SPL，通过swap引导基础正则化(强制潜变量编码用户偏好而非被忽略)+Preferential-IAF分解swap可逆/不可逆信号+自适应潜变量调节。在Llama-3.1-8B上达63.71%准确率+97.10%活跃单元，而VPL崩坏到57.14%+0%。"
 tags:
   - ICLR 2026
-  - 个性化奖励模型
-  - 后验崩坏
-  - 潜变量偏好学习
 ---
 
 # Swap-guided Preference Learning for Personalized RLHF (SPL)

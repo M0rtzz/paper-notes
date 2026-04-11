@@ -2,9 +2,6 @@
 description: "【论文笔记】OptiTree: Hierarchical Thoughts Generation with Tree Search for LLM Optimization Modeling 论文解读 | NeurIPS 2025 | arXiv 2510.22192 | 运筹优化建模 | 提出 OptiTree，通过构建建模树（modeling tree）组织运筹优化问题的层次化分类与建模思维，利用树搜索将复杂问题自适应分解为更简单的子问题序列，显著提升 LLM 在优化建模任务上的准确率（在多个困难基准上提升超过 10%）。"
 tags:
   - NeurIPS 2025
-  - 运筹优化建模
-  - LLM推理
-  - 树搜索
 ---
 
 # OptiTree: Hierarchical Thoughts Generation with Tree Search for LLM Optimization Modeling

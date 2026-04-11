@@ -2,9 +2,6 @@
 description: "【论文笔记】ReVISE: Learning to Refine at Test-Time via Intrinsic Self-Verification 论文解读 | ICML2025 | arXiv 2502.14565 | LLM self-correction | 提出 ReVISE 框架，通过引入 `[refine]` 特殊 token 和两阶段课程学习（先学自验证、再学自纠错），使 LLM 在推理时能内省式地验证并修正自身推理轨迹，无需外部验证器或复杂 RL 训练。"
 tags:
   - ICML2025
-  - LLM self-correction
-  - test-time scaling
-  - preference learning
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

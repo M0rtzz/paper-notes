@@ -2,9 +2,6 @@
 description: "【论文笔记】AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound 论文解读 | NeurIPS 2025 | arXiv 2505.14142 | 音频推理 | AudSemThinker 为音频语言模型引入结构化语义推理框架——定义 9 类声音语义描述符（谁/什么/如何/何时/何地等），在 Qwen2.5-Omni-7B 上通过 SFT + GRPO（含可验证奖励和长度约束）训练产生 \<think\>\<semantic_elements\>\<answer\> 三阶段输出，MMAU 基准达 66.70%（超越 Audio-Reasoner 61.71% 和 Qwen2.5-Omni 65.60%）。"
 tags:
   - NeurIPS 2025
-  - 音频推理
-  - 语义描述符
-  - GRPO
 ---
 
 # AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound

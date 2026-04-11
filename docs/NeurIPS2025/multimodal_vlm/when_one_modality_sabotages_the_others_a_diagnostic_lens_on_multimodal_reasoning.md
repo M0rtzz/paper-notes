@@ -2,9 +2,6 @@
 description: "【论文笔记】When One Modality Sabotages the Others: A Diagnostic Lens on Multimodal Reasoning 论文解读 | NeurIPS 2025 | arXiv 2511.02794 | 模态破坏 | 提出\"模态破坏\"（modality sabotage）这一诊断性失败模式概念，设计轻量级、模型无关的评估层，将每个模态视为独立代理并通过简单融合暴露\"贡献者\"与\"破坏者\"，在多模态情感识别任务上揭示了系统性的模态可靠性差异。"
 tags:
   - NeurIPS 2025
-  - 模态破坏
-  - 多模态融合
-  - 情感识别
 ---
 
 # When One Modality Sabotages the Others: A Diagnostic Lens on Multimodal Reasoning

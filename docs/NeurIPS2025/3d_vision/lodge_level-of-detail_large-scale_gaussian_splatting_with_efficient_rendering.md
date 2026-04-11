@@ -2,9 +2,6 @@
 description: "【论文笔记】LODGE: Level-of-Detail Large-Scale Gaussian Splatting with Efficient Rendering 论文解读 | NeurIPS 2025 | arXiv 2505.23158 | Gaussian Splatting | 提出 LODGE，通过层次化 LOD（Level-of-Detail）策略对 3D Gaussian Splatting 进行多尺度管理，根据相机距离动态选择合适粒度的 Gaussian 表示，实现大规模场景的高质量实时渲染。"
 tags:
   - NeurIPS 2025
-  - Gaussian Splatting
-  - Level-of-Detail
-  - 大规模场景
 ---
 
 # LODGE: Level-of-Detail Large-Scale Gaussian Splatting with Efficient Rendering

@@ -2,10 +2,7 @@
 description: "【论文笔记】GRA: Detecting Oriented Objects Through Group-Wise Rotating and Attention 论文解读 | ECCV2024 | arXiv 2403.11127 | 目标检测 Oriented Object Detection | 提出轻量级的 Group-wise Rotating and Attention (GRA) 模块，通过将卷积核分组旋转并施加分组空间注意力，在参数量减少近 50% 的同时超越了此前 SOTA 方法 ARC，在 DOTA-v2.0 上取得新的最优性能。"
 tags:
   - ECCV2024
-  - Oriented Object Detection
   - 目标检测
-  - Group-wise Rotating
-  - Spatial Attention
   - 注意力机制
 ---
 

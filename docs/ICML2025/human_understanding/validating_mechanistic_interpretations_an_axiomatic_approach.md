@@ -2,9 +2,6 @@
 description: "【论文笔记】Validating Mechanistic Interpretations: An Axiomatic Approach 论文解读 | ICML2025 | arXiv 2407.13594 | mechanistic interpretability | 借鉴程序分析中抽象解释的思想，提出一组公理化框架来形式化定义和验证神经网络的机制解释（mechanistic interpretation），并在 2-SAT 求解器和模加法两个案例中验证了该框架的有效性。"
 tags:
   - ICML2025
-  - mechanistic interpretability
-  - axiomatic validation
-  - abstract interpretation
 ---
 
 # Validating Mechanistic Interpretations: An Axiomatic Approach

@@ -2,9 +2,6 @@
 description: "【论文笔记】Dr.Occ: Depth- and Region-Guided 3D Occupancy from Surround-View Cameras for Autonomous Driving 论文解读 | CVPR 2026 | arXiv 2603.01007 | 3D占用预测 | Dr.Occ 提出深度引导与区域引导的统一 3D 占用预测框架，通过 D2-VFormer 利用 MoGe-2 的高质量深度先验实现精确的 2D→3D 几何映射，并通过 R/R2-EFormer 借鉴 MoE/MoR 思想自适应分配区域专家处理空间语义各向异性，在 BEVDet4D 基线上提升 7.43% mIoU。"
 tags:
   - CVPR 2026
-  - 3D占用预测
-  - 深度引导
-  - 区域专家
 ---
 
 # Dr.Occ: Depth- and Region-Guided 3D Occupancy from Surround-View Cameras for Autonomous Driving

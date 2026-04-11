@@ -2,10 +2,7 @@
 description: "【论文笔记】Cross-Architecture Distillation Made Simple with Redundancy Suppression 论文解读 | ICCV 2025 | arXiv 2507.21844 | 知识蒸馏 knowledge distillation | 提出RSD（Redundancy Suppression Distillation），通过跨架构不变性最大化和特征去相关来提取架构无关知识，仅用一个简单的RSD损失和轻量MLP解耦模块，在CIFAR-100和ImageNet-1k上大幅超越跨架构蒸馏先驱方法OFA，且参数开销仅为其小部分。"
 tags:
   - ICCV 2025
-  - knowledge distillation
   - 知识蒸馏
-  - cross-architecture
-  - redundancy suppression
 ---
 
 # Cross-Architecture Distillation Made Simple with Redundancy Suppression

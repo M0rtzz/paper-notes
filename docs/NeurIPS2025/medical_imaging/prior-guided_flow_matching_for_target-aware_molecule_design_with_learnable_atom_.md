@@ -2,9 +2,6 @@
 description: "【论文笔记】Prior-Guided Flow Matching for Target-Aware Molecule Design with Learnable Atom Number 论文解读 | NeurIPS 2025 | arXiv 2509.01486 | 基于结构的药物设计 | 提出 PAFlow，基于流匹配框架的 3D 分子生成模型，通过蛋白-配体交互预测器引导向量场和可学习原子数预测器，在 CrossDocked2020 上实现 -8.31 Avg. Vina Score 的新 SOTA，大幅超越已有方法。"
 tags:
   - NeurIPS 2025
-  - 基于结构的药物设计
-  - 流匹配
-  - 蛋白-配体交互引导
 ---
 
 # Prior-Guided Flow Matching for Target-Aware Molecule Design with Learnable Atom Number

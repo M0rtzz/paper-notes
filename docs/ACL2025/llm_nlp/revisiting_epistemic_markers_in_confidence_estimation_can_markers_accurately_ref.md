@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Epistemic Markers in Confidence Estimation: Can Markers Accurately Reflect Large Language Models' Uncertainty? 论文解读 | ACL 2025 | arXiv 2505.24778 | 认知标记 | 本文定义了\"标记置信度\"（marker confidence）概念来衡量 LLM 使用认知标记（如\"fairly certain\"）时的实际准确率，通过 7 个模型和 7 个数据集的系统实验发现：认知标记在分布内场景表现稳定，但在分布外场景下极不可靠。"
 tags:
   - ACL 2025
-  - 认知标记
-  - 置信度估计
-  - 不确定性
 ---
 
 # Revisiting Epistemic Markers in Confidence Estimation: Can Markers Accurately Reflect Large Language Models' Uncertainty?

@@ -2,9 +2,6 @@
 description: "【论文笔记】From Passive Perception to Active Memory: A Weakly Supervised Image Manipulation Localization Framework Driven by Coarse-Grained Annotations 论文解读 | AAAI 2026 | arXiv 2511.20359 | 图像篡改定位 | 提出 BoxPromptIML，一种基于粗粒度框标注的弱监督图像篡改定位（IML）框架，通过冻结的 SAM 教师模型将粗糙边界框转化为高质量伪掩码，结合记忆引导门控融合模块（MGFM）训练轻量级学生模型，仅需 7 秒/张的标注成本即可媲美甚至超越全监督方法。"
 tags:
   - AAAI 2026
-  - 图像篡改定位
-  - 弱监督
-  - 知识蒸馏
 ---
 
 # From Passive Perception to Active Memory: A Weakly Supervised Image Manipulation Localization Framework Driven by Coarse-Grained Annotations

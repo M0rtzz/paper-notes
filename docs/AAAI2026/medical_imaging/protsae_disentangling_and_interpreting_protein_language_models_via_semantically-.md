@@ -2,9 +2,6 @@
 description: "【论文笔记】ProtSAE: Disentangling and Interpreting Protein Language Models via Semantically-Guided Sparse Autoencoders 论文解读 | AAAI 2026 | arXiv 2509.05309 | 蛋白质语言模型 | 提出 ProtSAE，在稀疏自编码器训练中引入语义标注和领域本体知识作为引导信号，解决传统 SAE 的语义纠缠问题，使蛋白质语言模型的隐层特征与生物学概念（分子功能、生物过程、离子结合位点等）精准对齐，同时保持高重建保真度并支持概念级别的生成控制。"
 tags:
   - AAAI 2026
-  - 蛋白质语言模型
-  - 稀疏自编码器
-  - 语义引导
 ---
 
 # ProtSAE: Disentangling and Interpreting Protein Language Models via Semantically-Guided Sparse Autoencoders

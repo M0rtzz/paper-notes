@@ -2,9 +2,6 @@
 description: "【论文笔记】PixelRush: Ultra-Fast, Training-Free High-Resolution Image Generation via One-step Diffusion 论文解读 | CVPR 2026 | arXiv 2602.12769 | 免训练高分辨率生成 | PixelRush 首次实现了免训练的单步高分辨率图像生成，通过部分 DDIM 反转（只扰动到中间时间步而非全噪声）+ 少步扩散模型 + 高斯滤波 patch 融合 + 噪声注入，在单卡 A100 上 20 秒生成 4K 图像，比 SOTA 快 10-35× 且 FID 更优（50.13 vs 52.87）。"
 tags:
   - CVPR 2026
-  - 免训练高分辨率生成
-  - patch-based推理
-  - 部分反转
 ---
 
 # PixelRush: Ultra-Fast, Training-Free High-Resolution Image Generation via One-step Diffusion

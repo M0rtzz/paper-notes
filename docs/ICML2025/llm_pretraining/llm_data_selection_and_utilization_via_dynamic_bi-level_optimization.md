@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM Data Selection and Utilization via Dynamic Bi-level Optimization 论文解读 | ICML2025 | arXiv 2507.16178 | 数据选择 | 提出动态数据加权模型(DWM)，通过双层优化在LLM训练过程中实时调整每批数据的权重，捕捉模型动态变化的数据偏好，比静态数据选择方法一致提升性能且可迁移到不同模型规模。"
 tags:
   - ICML2025
-  - 数据选择
-  - 双层优化
-  - 数据加权
 ---
 
 # LLM Data Selection and Utilization via Dynamic Bi-level Optimization

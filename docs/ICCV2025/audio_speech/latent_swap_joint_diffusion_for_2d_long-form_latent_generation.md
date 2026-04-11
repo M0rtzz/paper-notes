@@ -2,9 +2,6 @@
 description: "【论文笔记】Latent Swap Joint Diffusion for 2D Long-Form Latent Generation 论文解读 | ICCV 2025 | arXiv 2502.05130 | 扩散模型 | 提出SaFa（Swap Forward），一种模态无关的高效方法，通过两种潜空间交换算子（Self-Loop Latent Swap和Reference-Guided Latent Swap）替代传统联合扩散中的均值化操作，解决频谱混叠问题并保持跨视图一致性，在长音频和全景图生成中显著优于现有方法。"
 tags:
   - ICCV 2025
-  - 扩散模型
-  - 长音频生成
-  - 全景图生成
 ---
 
 # Latent Swap Joint Diffusion for 2D Long-Form Latent Generation

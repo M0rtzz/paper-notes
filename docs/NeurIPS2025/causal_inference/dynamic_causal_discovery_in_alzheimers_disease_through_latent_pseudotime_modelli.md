@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Causal Discovery in Alzheimer's Disease through Latent Pseudotime Modelling 论文解读 | NEURIPS2025 | arXiv 2511.04619 | 因果发现 | 将 BN-LTE（贝叶斯网络+潜在时间嵌入）应用于 ADNI 真实 AD 数据，推断随疾病伪时间演变的动态因果图，伪时间预测诊断 AUC 0.82 远超年龄 0.59，并揭示了新型生物标志物 NfL/GFAP 与传统 AD 标志物之间的动态因果关系。"
 tags:
   - NEURIPS2025
-  - 因果发现
-  - 阿尔茨海默病
-  - 贝叶斯网络
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】ResearchTown: Simulator of Human Research Community 论文解读 | ICML 2025 | arXiv 2412.17767 | 多智能体模拟 | 提出 ResearchTown，一个基于 agent-data 图和 TextGNN（文本空间消息传递）的多智能体框架，将人类科研社区建模为异构图，统一模拟论文阅读、论文写作和审稿三大核心研究活动，并通过节点掩码预测任务 (ResearchBench) 进行可扩展、客观的仿真质量评估。"
 tags:
   - ICML 2025
-  - 多智能体模拟
-  - 图神经网络
-  - 科研社区仿真
 ---
 
 # ResearchTown: Simulator of Human Research Community

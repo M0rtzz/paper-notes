@@ -2,9 +2,6 @@
 description: "【论文笔记】POLARIS: A High-contrast Polarimetric Imaging Benchmark Dataset for Exoplanetary Disk Representation Learning 论文解读 | NeurIPS 2025 | arXiv 2506.03511 | 高对比度成像 | 构建首个系外行星偏振成像ML基准数据集POLARIS（921张VLT/SPHERE/IRDIS偏振图像+75,910张预处理曝光），提出Diff-SimCLR框架（扩散模型增强对比学习），在参考星vs目标星分类任务上达到93%准确率，仅需<10%手动标注。"
 tags:
   - NeurIPS 2025
-  - 高对比度成像
-  - 系外行星
-  - 偏振成像
 ---
 
 # POLARIS: A High-contrast Polarimetric Imaging Benchmark Dataset for Exoplanetary Disk Representation Learning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Point Maps: A Versatile Representation for Dynamic 3D Reconstruction 论文解读 | ICCV 2025 | arXiv 2503.16318 | 动态3D重建 | 提出 Dynamic Point Maps (DPM)，将 DUSt3R 的视点不变点图扩展为同时控制视点和时间的时空不变表示，仅通过预测4组点图即可在前馈方式下同时解决深度估计、场景流、运动分割和3D目标跟踪等多种4D任务。"
 tags:
   - ICCV 2025
-  - 动态3D重建
-  - 点图表示
-  - 场景流
 ---
 
 # Dynamic Point Maps: A Versatile Representation for Dynamic 3D Reconstruction

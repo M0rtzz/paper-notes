@@ -2,9 +2,6 @@
 description: "【论文笔记】UniHM: Unified Dexterous Hand Manipulation with Vision Language Model 论文解读 | ICLR 2026 | arXiv 2603.00732 | 灵巧手操控 | 提出UniHM，首个统一的语言条件灵巧手操控框架，通过形态无关VQ codebook将异构机械手映射到共享离散空间，结合VLM进行指令驱动操控序列生成，并通过物理引导动态优化确保物理可行性。"
 tags:
   - ICLR 2026
-  - 灵巧手操控
-  - VLM
-  - 统一 tokenizer
 ---
 
 # UniHM: Unified Dexterous Hand Manipulation with Vision Language Model

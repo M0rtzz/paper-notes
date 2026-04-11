@@ -2,9 +2,7 @@
 description: "【论文笔记】SoFar: Language-Grounded Orientation Bridges Spatial Reasoning and Object Manipulation 论文解读 | NeurIPS 2025 | arXiv 2502.13143 | semantic orientation | 提出\"语义朝向\"(Semantic Orientation)概念，用自然语言描述物体方向（如 USB 的\"插入方向\"、杯子的\"把手方向\"），构建 OrienText300K 大规模数据集训练 PointSO 模型实现零样本朝向预测，并集成为 SoFar 系统实现 6-DoF 场景理解与机器人操作。"
 tags:
   - NeurIPS 2025
-  - semantic orientation
-  - 6-DoF manipulation
-  - spatial reasoning
+  - 点云
 ---
 
 # SoFar: Language-Grounded Orientation Bridges Spatial Reasoning and Object Manipulation

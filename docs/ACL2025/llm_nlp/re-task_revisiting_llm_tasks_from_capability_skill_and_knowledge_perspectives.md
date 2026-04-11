@@ -2,9 +2,6 @@
 description: "【论文笔记】Re-TASK: Revisiting LLM Tasks from Capability, Skill, and Knowledge Perspectives 论文解读 | ACL 2025 | arXiv 2408.06904 | Chain-of-Thought | 借鉴 Bloom 分类学和知识空间理论，提出 Re-TASK 框架将 LLM 任务从\"能力项-技能-知识\"三层视角进行重新审视，并设计 Re-TASK prompting 策略通过针对性的知识注入和技能适配来增强 CoT 在领域任务上的表现，在法律任务上最高提升 45%。"
 tags:
   - ACL 2025
-  - Chain-of-Thought
-  - 能力分解
-  - 知识注入
 ---
 
 # Re-TASK: Revisiting LLM Tasks from Capability, Skill, and Knowledge Perspectives

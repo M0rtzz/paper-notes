@@ -2,9 +2,6 @@
 description: "【论文笔记】Competition-Aware CPC Forecasting with Near-Market Coverage# Competition-Aware CPC Forecasting with Near-Market Coverage 论文解读 | CVPR 2026 | arXiv 2603.13059 | CPC预测 | 针对付费搜索中 CPC 预测的\"部分可观测竞争\"难题，通过语义邻域、DTW 行为邻域和地理意图三类竞争代理信号，以协变量或图关系先验的形式增强时间序列基础模型和时空图网络，在中长期预测上显著提升稳定性。"
 tags:
   - CVPR 2026
-  - CPC预测
-  - 竞争感知
-  - 语义邻域
 ---
 
 # Competition-Aware CPC Forecasting with Near-Market Coverage# Competition-Aware CPC Forecasting with Near-Market Coverage

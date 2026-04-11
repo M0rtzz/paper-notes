@@ -2,9 +2,6 @@
 description: "【论文笔记】Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI 论文解读 | AAAI 2026 | arXiv 2505.22563 | LLM与大脑对齐 | 本文通过对比14个公开LLM的逐层表示与人类被试听自然叙事时的fMRI数据，在句子级别系统地研究了LLM与人脑语言处理的对齐程度，发现中间层最对齐、指令微调显著增强对齐、且存在与经典神经语言学理论一致的半球偏侧化模式。"
 tags:
   - AAAI 2026
-  - LLM与大脑对齐
-  - fMRI
-  - 句子级语义理解
 ---
 
 # Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI

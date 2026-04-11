@@ -2,9 +2,6 @@
 description: "【论文笔记】Do Large Language Models Have an English Accent? Evaluating and Improving the Naturalness of Multilingual LLMs 论文解读 | ACL 2025 | arXiv 2410.15956 | 多语言LLM | 本文揭示多语言 LLM 在非英语语言生成中存在\"英语口音\"——词汇和句法上偏向英语模式，提出了基于 JSD（词汇分布）和 WL 图核+MMD（句法依赖树）的语料级自然度指标，并通过 DPO 对齐方法有效提升目标语言的自然度。"
 tags:
   - ACL 2025
-  - 多语言LLM
-  - 自然度评估
-  - 英语偏见
 ---
 
 # Do Large Language Models Have an English Accent? Evaluating and Improving the Naturalness of Multilingual LLMs

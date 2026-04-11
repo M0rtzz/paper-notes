@@ -2,9 +2,6 @@
 description: "【论文笔记】REXO: Indoor Multi-View Radar Object Detection via 3D Bounding Box Diffusion 论文解读 | AAAI 2026 | arXiv 2511.17806 | 雷达感知 | 将 DiffusionDet 的 2D BBox 扩散范式提升到 3D 雷达空间，提出 REXO 框架：通过含噪 3D BBox 的投影引导显式跨视图雷达特征关联，并引入地面约束减少扩散参数，在 HIBER 和 MMVR 两个室内雷达数据集上分别超越 SOTA +4.22 AP 和 +11.02 AP。"
 tags:
   - AAAI 2026
-  - 雷达感知
-  - 多视图融合
-  - 扩散模型
 ---
 
 # REXO: Indoor Multi-View Radar Object Detection via 3D Bounding Box Diffusion

@@ -2,9 +2,6 @@
 description: "【论文笔记】A Recovery Guarantee for Sparse Neural Networks 论文解读 | ICLR 2026 | arXiv 2509.20323 | 稀疏神经网络 | 证明了 ReLU 神经网络的首个稀疏恢复保证：对两层标量输出网络，当训练数据为高斯随机采样时，基于凸重构的迭代硬阈值 (IHT) 算法可精确恢复稀疏网络权重，且内存需求仅与非零权重数线性增长。"
 tags:
   - ICLR 2026
-  - 稀疏神经网络
-  - 压缩感知
-  - 迭代硬阈值
 ---
 
 # A Recovery Guarantee for Sparse Neural Networks

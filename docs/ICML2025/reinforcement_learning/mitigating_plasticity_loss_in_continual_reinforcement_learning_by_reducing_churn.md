@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Plasticity Loss in Continual Reinforcement Learning by Reducing Churn 论文解读 | ICML2025 | arXiv 2506.00592 | 可塑性丧失 | 通过 NTK 矩阵建立可塑性丧失 (plasticity loss) 与 churn（批外数据输出漂移）之间的因果联系，提出 C-CHAIN 方法在持续 RL 训练中持续抑制 churn，从而缓解可塑性丧失，在 24 个持续 RL 环境上超越已有基线。"
 tags:
   - ICML2025
-  - 可塑性丧失
-  - churn
-  - Neural Tangent Kernel
 ---
 
 # Mitigating Plasticity Loss in Continual Reinforcement Learning by Reducing Churn

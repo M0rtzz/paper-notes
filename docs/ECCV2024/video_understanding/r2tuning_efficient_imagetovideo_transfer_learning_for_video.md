@@ -2,9 +2,6 @@
 description: "【论文笔记】R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding 论文解读 | ECCV 2024 | arXiv 2404.00801 | 视频时序定位 | R²-Tuning提出了一个仅需1.5%参数的轻量R²Block，通过从CLIP后层向前层的逆向递归方式聚合多层空间特征并精化时序关联，在6个VTG基准上以2.7M参数超越了使用额外时序骨干的4倍大方法。"
 tags:
   - ECCV 2024
-  - 视频时序定位
-  - 迁移学习
-  - CLIP
 ---
 
 # R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding

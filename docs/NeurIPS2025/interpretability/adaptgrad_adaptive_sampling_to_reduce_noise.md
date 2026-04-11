@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaptGrad: Adaptive Sampling to Reduce Noise 论文解读 | NeurIPS 2025 | arXiv 2410.07711 | gradient smoothing | 通过卷积公式视角首次理论分析了SmoothGrad的噪声来源（越界采样），提出AdaptGrad方法通过概率界约束采样范围来抑制噪声，在不增加计算开销的前提下提升梯度显著性图的质量。"
 tags:
   - NeurIPS 2025
-  - gradient smoothing
-  - SmoothGrad
-  - saliency map
 ---
 
 # AdaptGrad: Adaptive Sampling to Reduce Noise

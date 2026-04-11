@@ -2,9 +2,6 @@
 description: "【论文笔记】LoST: Level of Semantics Tokenization for 3D Shapes 论文解读 | CVPR 2026 | arXiv 2603.17995 | 3D生成 | 提出Level-of-Semantics Tokenization (LoST)，按语义显著性排序3D形状token，使短前缀即可解码出完整且语义合理的形状，配合RIDA语义对齐损失和GPT式自回归生成，仅用128个token即显著超越现有需数万token的3D AR方法。"
 tags:
   - CVPR 2026
-  - 3D生成
-  - 形状分词
-  - 自回归模型
 ---
 
 # LoST: Level of Semantics Tokenization for 3D Shapes

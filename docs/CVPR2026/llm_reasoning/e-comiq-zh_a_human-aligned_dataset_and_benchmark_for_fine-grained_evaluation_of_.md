@@ -2,9 +2,6 @@
 description: "【论文笔记】E-comIQ-ZH: A Human-Aligned Dataset and Benchmark for Fine-Grained Evaluation of E-commerce Posters with Chain-of-Thought 论文解读 | CVPR 2026 | arXiv 2602.21698 | 电商海报评估 | 构建首个面向中文电商海报的多维度质量评估框架 E-comIQ-ZH，包含18K专家标注数据集（含CoT推理链）、专用评估模型 E-comIQ-M（SFT+GRPO训练）和标准化基准 E-comIQ-Bench。"
 tags:
   - CVPR 2026
-  - 电商海报评估
-  - 图像质量评价
-  - Chain-of-Thought
 ---
 
 # E-comIQ-ZH: A Human-Aligned Dataset and Benchmark for Fine-Grained Evaluation of E-commerce Posters with Chain-of-Thought

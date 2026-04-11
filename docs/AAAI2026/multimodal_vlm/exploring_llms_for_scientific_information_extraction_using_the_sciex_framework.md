@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring LLMs for Scientific Information Extraction using the SciEx Framework 论文解读 | AAAI 2026 | arXiv 2512.10004 | 科学信息抽取 | 本文提出SciEx，一个模块化、可组合的科学信息抽取框架，将PDF解析、多模态检索、Schema引导的抽取和跨文档聚合解耦为独立组件，在医学和环境科学的143篇论文数据集上评估了GPT-4o和Gemini-2.5-Flash的抽取能力，揭示了当前LLM在跨模态推理、数值精度和领域泛化方面的系统性不足。"
 tags:
   - AAAI 2026
-  - 科学信息抽取
-  - LLM
-  - RAG
 ---
 
 # Exploring LLMs for Scientific Information Extraction using the SciEx Framework

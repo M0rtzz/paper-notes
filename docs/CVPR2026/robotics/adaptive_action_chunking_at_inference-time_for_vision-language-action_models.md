@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Action Chunking at Inference-time for Vision-Language-Action Models 论文解读 | CVPR 2026 | arXiv 2604.04161 | 动作分块 | 提出自适应动作分块(AAC)策略，利用动作熵作为线索在推理时动态确定最优分块大小，无需额外训练或架构修改，在RoboCasa和LIBERO等基准上持续提升GR00T N1.5和π0.5的任务成功率。"
 tags:
   - CVPR 2026
-  - 动作分块
-  - VLA模型
-  - 自适应推理
 ---
 
 # Adaptive Action Chunking at Inference-time for Vision-Language-Action Models

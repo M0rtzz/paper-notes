@@ -2,9 +2,6 @@
 description: "【论文笔记】Stable Score Distillation 论文解读 | ICCV 2025 | arXiv 2507.09168 | Score Distillation | 提出 Stable Score Distillation (SSD)，通过单分类器跨提示词引导和 null-text 分支的跨轨迹正则化，实现更稳定精准的文本引导 2D/3D 编辑，在保持源内容结构的同时提升编辑对齐度。"
 tags:
   - ICCV 2025
-  - Score Distillation
-  - 3D场景编辑
-  - 2D图像编辑
 ---
 
 # Stable Score Distillation

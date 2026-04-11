@@ -2,9 +2,6 @@
 description: "【论文笔记】RebuttalAgent: Strategic Persuasion in Academic Rebuttal via Theory of Mind 论文解读 | ICLR 2026 | arXiv 2601.15715 | 学术rebuttal | 提出RebuttalAgent——首个将心智理论(ToM)融入学术rebuttal的框架：通过ToM-Strategy-Response三阶段(建模审稿人心理状态→制定说服策略→生成证据基础响应)，用RebuttalBench(7万+样本)做SFT+自奖励RL训练，开发Rebuttal-RM评估器(10万+样本,超越GPT-4.1的人类一致性)→平均超越基础模型18.3%,与SOTA闭源模型可比。"
 tags:
   - ICLR 2026
-  - 学术rebuttal
-  - 心智理论
-  - 策略说服
 ---
 
 # RebuttalAgent: Strategic Persuasion in Academic Rebuttal via Theory of Mind

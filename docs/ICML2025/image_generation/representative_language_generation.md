@@ -2,9 +2,6 @@
 description: "【论文笔记】Representative Language Generation 论文解读 | ICML2025 | arXiv 2505.21819 | representative generation | 提出\"代表性生成\"（representative generation）理论框架，要求生成模型的输出按比例代表训练数据中的各兴趣群组，并引入\"群组闭包维度\"（group closure dimension）作为刻画可生成性的关键组合量。"
 tags:
   - ICML2025
-  - representative generation
-  - language generation in the limit
-  - group closure dimension
 ---
 
 # Representative Language Generation

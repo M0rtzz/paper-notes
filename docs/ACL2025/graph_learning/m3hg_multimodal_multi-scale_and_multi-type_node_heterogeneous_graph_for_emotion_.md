@@ -2,9 +2,6 @@
 description: "【论文笔记】M3HG: Multimodal, Multi-scale, and Multi-type Node Heterogeneous Graph for Emotion Cause Triplet Extraction in Conversations 论文解读 | ACL 2025 | arXiv 2508.18740 | 多模态情感原因分析 | 提出 M3HG 模型，通过构建多模态多类型节点异构图来显式建模对话中的情感与原因上下文，并在句间和句内两个尺度上融合语义信息，实现多模态对话中情感-原因三元组的端到端提取。同时构建了首个中文多场景 MECTEC 数据集 MECAD。"
 tags:
   - ACL 2025
-  - 多模态情感原因分析
-  - 异构图注意力网络
-  - 情感-原因三元组提取
 ---
 
 # M3HG: Multimodal, Multi-scale, and Multi-type Node Heterogeneous Graph for Emotion Cause Triplet Extraction in Conversations

@@ -2,9 +2,6 @@
 description: "【论文笔记】Using Source-Side Confidence Estimation for Reliable Translation into Unfamiliar Languages 论文解读 | ACL 2025 | arXiv 2503.23305 | 源端置信度估计 | 提出基于梯度的源端置信度估计方法，通过测量输出序列概率对源端嵌入的敏感度来直接检测潜在误译词，无需词对齐即可超越传统方法，并构建了面向源语言熟练用户的交互式翻译 Web 应用。"
 tags:
   - ACL 2025
-  - 源端置信度估计
-  - 梯度归因
-  - 误译检测
 ---
 
 # Using Source-Side Confidence Estimation for Reliable Translation into Unfamiliar Languages

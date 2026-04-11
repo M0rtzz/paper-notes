@@ -2,9 +2,6 @@
 description: "【论文笔记】Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation 论文解读 | AAAI 2026 | arXiv 2601.00322 | 图像反射分离 | 提出 DMDNet，通过深度感知扫描策略（DAScan）引导 Mamba 关注显著结构，结合深度协同状态空间模型（DS-SSM）抑制模糊特征传播，并引入记忆专家补偿模块（MECM）利用跨图像历史知识，实现全天候（白天+夜间）的图像反射分离。"
 tags:
   - AAAI 2026
-  - 图像反射分离
-  - Mamba
-  - 深度感知
 ---
 
 # Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation

@@ -2,9 +2,6 @@
 description: "【论文笔记】DMesh++: An Efficient Differentiable Mesh for Complex Shapes 论文解读 | ICCV 2025 | arXiv 2412.16776 | 可微网格 | 本文提出DMesh++，通过Minimum-Ball算法替代加权Delaunay三角剖分实现可微网格的tessellation函数，将计算复杂度从 $O(N)$ 降至 $O(\log N)$，在处理复杂形状时速度提升最高32倍，同时保持无自交叉和少薄三角形的优良特性。"
 tags:
   - ICCV 2025
-  - 可微网格
-  - 三角剖分
-  - 点云重建
 ---
 
 # DMesh++: An Efficient Differentiable Mesh for Complex Shapes

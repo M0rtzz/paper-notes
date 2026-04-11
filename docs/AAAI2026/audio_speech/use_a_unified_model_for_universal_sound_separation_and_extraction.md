@@ -2,9 +2,6 @@
 description: "【论文笔记】USE: A Unified Model for Universal Sound Separation and Extraction 论文解读 | AAAI2026 | arXiv 2512.21215 | 通用声音分离 | 提出 USE 统一框架，通过 EDA 网络推断声源数量和声学线索实现声音分离 (SS)，多模态融合网络解释用户提供的文本/视频/标签线索实现目标声音提取 (TSE)，联合训练+跨任务对齐使两项任务互相增强，SS +1.4dB SDR，TSE 匹配准确率 86%。"
 tags:
   - AAAI2026
-  - 通用声音分离
-  - 目标声音提取
-  - 多模态融合
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】Theory of Space: Can Foundation Models Construct Spatial Beliefs through Active Exploration? 论文解读 | ICLR 2026 | arXiv 2602.07055 | 空间信念 | 提出Theory of Space框架——评估基础模型通过主动探索构建空间信念的能力：在文本和视觉环境中进行好奇心驱动探索→通过空间信念探测(让模型输出认知地图)直接测量内部空间模型质量→发现关键瓶颈：(1)主动-被动差距(GPT-5.2: 57→46)，(2)低效探索(冗余步骤多)，(3)信念惰性(无法覆写过时先验→尤其视觉模型严重)。"
 tags:
   - ICLR 2026
-  - 空间信念
-  - 主动探索
-  - 认知地图
 ---
 
 # Theory of Space: Can Foundation Models Construct Spatial Beliefs through Active Exploration?

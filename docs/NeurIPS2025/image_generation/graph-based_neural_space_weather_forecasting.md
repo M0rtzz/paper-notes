@@ -2,10 +2,7 @@
 description: "【论文笔记】Graph-based Neural Space Weather Forecasting 论文解读 | NEURIPS2025 | arXiv 2509.19605 | space weather | 提出基于图神经网络的空间天气神经模拟器，在 Vlasiator 混合 Vlasov 模拟数据上训练，实现确定性和概率性自回归预测近地空间状态，速度比原始模拟快 100 倍以上，并通过隐变量生成集合预报来量化预测不确定性。"
 tags:
   - NEURIPS2025
-  - space weather
-  - graph neural network
   - 图神经网络
-  - probabilistic forecasting
 ---
 
 # Graph-based Neural Space Weather Forecasting

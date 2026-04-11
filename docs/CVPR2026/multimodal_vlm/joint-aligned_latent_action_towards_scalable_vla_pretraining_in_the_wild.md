@@ -2,9 +2,6 @@
 description: "【论文笔记】Joint-Aligned Latent Action: Towards Scalable VLA Pretraining in the Wild 论文解读 | CVPR 2026 | arXiv 2602.21736 | VLA预训练 | 提出 JALA 框架，通过联合对齐预测嵌入与逆动力学生成的潜在动作，构建统一的潜在动作空间，使 VLA 能同时从标注数据和未标注的野外人类视频中学习，配合 7.5M 样本的 UniHand-Mix 数据集显著提升机器人操作泛化性。"
 tags:
   - CVPR 2026
-  - VLA预训练
-  - 潜在动作
-  - 人类视频
 ---
 
 # Joint-Aligned Latent Action: Towards Scalable VLA Pretraining in the Wild

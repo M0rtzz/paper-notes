@@ -2,9 +2,6 @@
 description: "【论文笔记】GaussianImage++: Boosted Image Representation and Compression with 2D Gaussian Splatting 论文解读 | AAAI 2026 | arXiv 2512.19108 | 2D Gaussian Splatting | 提出 GaussianImage++，通过失真驱动的密度化机制和内容感知高斯滤波器，在有限的2D高斯原语下实现高质量图像表示与压缩，同时保持实时解码速度。"
 tags:
   - AAAI 2026
-  - 2D Gaussian Splatting
-  - 图像压缩
-  - 隐式神经表示
 ---
 
 # GaussianImage++: Boosted Image Representation and Compression with 2D Gaussian Splatting

@@ -2,9 +2,6 @@
 description: "【论文笔记】UAVScenes: A Multi-Modal Dataset for UAVs 论文解读 | ICCV 2025 | arXiv 2507.22412 | 无人机感知 | UAVScenes 是首个同时提供逐帧图像和 LiDAR 点云语义标注及精确 6-DoF 位姿的大规模多模态无人机数据集，包含超 12 万帧标注数据，支持语义分割、深度估计、定位、场景识别和新视角合成等六类感知任务。"
 tags:
   - ICCV 2025
-  - 无人机感知
-  - 多模态数据集
-  - 语义分割
 ---
 
 # UAVScenes: A Multi-Modal Dataset for UAVs

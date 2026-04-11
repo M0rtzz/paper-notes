@@ -2,9 +2,6 @@
 description: "【论文笔记】Fair Model-Based Clustering 论文解读 | AAAI 2026 | arXiv 2602.21509 | 公平聚类 | 提出基于有限混合模型的公平聚类算法 FMC，通过在模型参数（而非样本级赋值）上施加公平性约束，实现参数量与样本量无关的可扩展公平聚类，支持小批量学习和分类数据，在大规模数据集上显著优于现有方法。"
 tags:
   - AAAI 2026
-  - 公平聚类
-  - 有限混合模型
-  - EM算法
 ---
 
 # Fair Model-Based Clustering

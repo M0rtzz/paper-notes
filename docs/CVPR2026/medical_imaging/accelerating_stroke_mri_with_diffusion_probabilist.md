@@ -2,9 +2,6 @@
 description: "【论文笔记】Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning 论文解读 | CVPR 2026 | arXiv 2603.13007 | MRI加速重建 | 借鉴基础模型范式，先在约4000例fastMRI多对比度脑MRI上预训练扩散模型，再用20例目标域数据微调，实现临床中风MRI的高质量加速重建，盲审读片证明2×加速下非劣于标准诊疗。"
 tags:
   - CVPR 2026
-  - MRI加速重建
-  - 扩散概率模型
-  - 预训练微调
 ---
 
 # Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning

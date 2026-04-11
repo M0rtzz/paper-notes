@@ -2,9 +2,6 @@
 description: "【论文笔记】Modeling Microenvironment Trajectories on Spatial Transcriptomics with NicheFlow 论文解读 | NeurIPS 2025 | arXiv 2511.00977 | 空间转录组学 | NicheFlow是一种基于Flow Matching的生成模型，将细胞微环境表示为点云，通过Variational Flow Matching和最优传输联合建模细胞状态与空间坐标的时间演化，在胚胎发育、脑发育和衰老数据集上显著优于单细胞级别的轨迹推断方法。"
 tags:
   - NeurIPS 2025
-  - 空间转录组学
-  - 微环境轨迹推断
-  - Flow Matching
 ---
 
 # Modeling Microenvironment Trajectories on Spatial Transcriptomics with NicheFlow

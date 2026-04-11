@@ -2,9 +2,6 @@
 description: "【论文笔记】A Law of Data Reconstruction for Random Features (and Beyond) 论文解读 | ICLR 2026 | arXiv 2509.22214 | 数据重构 | 从信息论和代数角度证明随机特征模型中存在数据重构定律：当参数量 $p \gg dn$（$d$ 为数据维度，$n$ 为样本数）时，训练数据可被完整重构，并通过投影损失优化方法在 RF、两层网络和 ResNet 上验证了该阈值的普适性。"
 tags:
   - ICLR 2026
-  - 数据重构
-  - 过参数化
-  - 随机特征
 ---
 
 # A Law of Data Reconstruction for Random Features (and Beyond)

@@ -2,9 +2,6 @@
 description: "【论文笔记】FedRE: A Representation Entanglement Framework for Model-Heterogeneous Federated Learning 论文解读 | CVPR 2026 | arXiv 2511.22265 | 联邦学习 | 提出 FedRE 框架，通过\"纠缠表示\"（entangled representation）——将每个客户端的所有局部表示用归一化随机权重聚合为单一跨类别表示，实现模型异构联邦学习中性能、隐私保护和通信开销的三方平衡。"
 tags:
   - CVPR 2026
-  - 联邦学习
-  - 模型异构
-  - 纠缠表示
 ---
 
 # FedRE: A Representation Entanglement Framework for Model-Heterogeneous Federated Learning

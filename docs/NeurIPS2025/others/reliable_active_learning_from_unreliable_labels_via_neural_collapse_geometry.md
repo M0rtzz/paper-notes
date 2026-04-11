@@ -2,9 +2,6 @@
 description: "【论文笔记】Reliable Active Learning from Unreliable Labels via Neural Collapse Geometry 论文解读 | NeurIPS 2025 (Workshop) | arXiv 2510.09740 | 主动学习 | 提出NCAL-R框架，利用神经坍缩（Neural Collapse）的几何正则性指导主动学习的样本选择，通过类均值对齐扰动（CMAP）和特征波动（FF）两个互补信号，在标签噪声和分布偏移条件下实现可靠的主动学习。"
 tags:
   - NeurIPS 2025 (Workshop)
-  - 主动学习
-  - 神经坍缩
-  - 特征几何
 ---
 
 # Reliable Active Learning from Unreliable Labels via Neural Collapse Geometry

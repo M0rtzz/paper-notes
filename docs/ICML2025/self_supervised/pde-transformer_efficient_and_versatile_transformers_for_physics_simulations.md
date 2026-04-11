@@ -2,11 +2,8 @@
 description: "【论文笔记】PDE-Transformer: Efficient and Versatile Transformers for Physics Simulations 论文解读 | ICML 2025 | arXiv 2505.24717 | 偏微分方程 PDE求解 | 提出 PDE-Transformer，一种面向物理模拟的改进 Transformer 架构，通过分离通道嵌入、移位窗口注意力和多尺度 U 形结构，在 16 种 PDE 类型上超越现有 SOTA，并展现出强大的下游任务迁移能力。"
 tags:
   - ICML 2025
-  - PDE求解
   - 偏微分方程
-  - Transformer架构
   - Transformer
-  - 物理模拟代理模型
 ---
 
 # PDE-Transformer: Efficient and Versatile Transformers for Physics Simulations

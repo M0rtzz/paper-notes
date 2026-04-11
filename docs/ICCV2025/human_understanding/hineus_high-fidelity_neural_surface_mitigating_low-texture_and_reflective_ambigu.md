@@ -2,9 +2,6 @@
 description: "【论文笔记】HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity 论文解读 | ICCV 2025 | arXiv 2506.23854 | 神经表面重建 | 提出 HiNeuS，一个统一的神经表面重建框架，通过 SDF 引导的可见性验证、平面共形正则化和渲染优先的 Eikonal 松弛三项创新，同时解决反射歧义、低纹理退化和细节保留三大核心挑战。"
 tags:
   - ICCV 2025
-  - 神经表面重建
-  - SDF
-  - 反射处理
 ---
 
 # HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity

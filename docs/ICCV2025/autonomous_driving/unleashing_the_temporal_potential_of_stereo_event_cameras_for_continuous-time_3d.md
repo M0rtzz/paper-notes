@@ -2,9 +2,6 @@
 description: "【论文笔记】Unleashing the Temporal Potential of Stereo Event Cameras for Continuous-Time 3D Perception 论文解读 | ICCV 2025 | arXiv 2508.02288 | 事件相机 | 提出首个仅依赖立体事件相机的 3D 目标检测框架，通过语义-几何双重滤波模块和目标中心 ROI 对齐，在 blind time 期间实现连续时间 3D 检测，在动态大运动场景下显著优于依赖同步传感器的方法（Ev-3DOD），行人 AP3D 甚至超越使用 LiDAR+RGB+Event 的方法。"
 tags:
   - ICCV 2025
-  - 事件相机
-  - 立体视觉
-  - 3D目标检测
 ---
 
 # Unleashing the Temporal Potential of Stereo Event Cameras for Continuous-Time 3D Perception

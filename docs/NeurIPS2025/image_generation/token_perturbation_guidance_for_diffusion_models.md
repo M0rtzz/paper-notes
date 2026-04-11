@@ -2,9 +2,6 @@
 description: "【论文笔记】Token Perturbation Guidance for Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2506.10036 | 无训练引导 | 提出 Token Perturbation Guidance（TPG），通过对扩散模型中间 token 表示进行保范数的 shuffling 扰动来构造负分数信号，实现无需训练的条件无关引导，在无条件生成中将 SDXL 的 FID 提升近 2 倍，在条件生成中接近 CFG 效果。"
 tags:
   - NeurIPS 2025
-  - 无训练引导
-  - Token 扰动
-  - 无条件生成
 ---
 
 # Token Perturbation Guidance for Diffusion Models

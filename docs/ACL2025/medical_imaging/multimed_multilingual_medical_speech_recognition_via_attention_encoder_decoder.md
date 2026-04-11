@@ -2,9 +2,7 @@
 description: "【论文笔记】MultiMed: Multilingual Medical Speech Recognition via Attention Encoder Decoder 论文解读 | ACL 2025 | arXiv 2409.14074 | medical ASR | 发布 MultiMed——首个多语言医学 ASR 数据集（150小时，5种语言，10种录制场景，16种口音），配套小到大规模的端到端 Whisper 模型基线，首次系统研究医学领域的多语言 ASR：单语 vs 多语微调、AED vs Hybrid 架构对比，发现多语联合训练在小模型上有收益但大模型上可能退化。"
 tags:
   - ACL 2025
-  - medical ASR
-  - multilingual speech recognition
-  - Whisper
+  - 注意力机制
 ---
 
 # MultiMed: Multilingual Medical Speech Recognition via Attention Encoder Decoder

@@ -2,9 +2,6 @@
 description: "【论文笔记】Breaking the Encoder Barrier for Seamless Video-Language Understanding 论文解读 | ICCV 2025 | arXiv 2503.18422 | encoder-free | 提出 ELVA，首个无编码器（encoder-free）的视频大语言模型，通过层级 token 合并、视频引导监督和混合分辨率推理机制，仅用 7M 公开视频-文本对数据即可达到与有编码器架构相当的性能，同时将 FLOPs 降低 95%、推理延迟降低 92%。"
 tags:
   - ICCV 2025
-  - encoder-free
-  - Video-LLM
-  - token merging
 ---
 
 # Breaking the Encoder Barrier for Seamless Video-Language Understanding

@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchical Concept-based Interpretable Models 论文解读 | ICLR 2026 | arXiv 2602.23947 | 概念嵌入模型 | HiCEMs引入层级概念嵌入模型，通过Concept Splitting方法在预训练CEM的嵌入空间中自动发现细粒度子概念（无需额外标注），构建层级概念结构，使模型能在不同粒度层次进行测试时概念干预以提升任务性能。"
 tags:
   - ICLR 2026
-  - 概念嵌入模型
-  - 层级概念
-  - 概念分裂
 ---
 
 # Hierarchical Concept-based Interpretable Models

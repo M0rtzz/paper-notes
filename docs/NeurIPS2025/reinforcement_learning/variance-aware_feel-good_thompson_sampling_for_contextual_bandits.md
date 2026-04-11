@@ -2,9 +2,6 @@
 description: "【论文笔记】Variance-Aware Feel-Good Thompson Sampling for Contextual Bandits 论文解读 | NeurIPS 2025 | arXiv 2511.02123 | 上下文赌博机 | 提出FGTS-VA算法，首次实现了基于Feel-Good Thompson Sampling的方差感知上下文赌博机算法，其后悔界在模型维度上达到最优，匹配了基于UCB的最优方差依赖后悔界。"
 tags:
   - NeurIPS 2025
-  - 上下文赌博机
-  - Thompson采样
-  - 方差感知
 ---
 
 # Variance-Aware Feel-Good Thompson Sampling for Contextual Bandits

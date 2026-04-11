@@ -2,9 +2,6 @@
 description: "【论文笔记】scPilot: Large Language Model Reasoning Toward Automated Single-Cell Analysis and Discovery 论文解读 | NeurIPS 2025 | arXiv 2602.11609 | single-cell RNA-seq | 提出 scPilot 框架和 scBench 基准，让LLM直接在单细胞RNA-seq数据上进行\"组学原生推理\"（读取标记基因→提出假设→调用工具验证→迭代修正），实现细胞类型标注准确率提升11%、轨迹推断graph-edit distance降低30%。"
 tags:
   - NeurIPS 2025
-  - single-cell RNA-seq
-  - LLM reasoning
-  - omics-native reasoning
 ---
 
 # scPilot: Large Language Model Reasoning Toward Automated Single-Cell Analysis and Discovery

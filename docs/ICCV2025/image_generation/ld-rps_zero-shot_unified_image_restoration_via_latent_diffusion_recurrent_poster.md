@@ -2,9 +2,6 @@
 description: "【论文笔记】LD-RPS: Zero-Shot Unified Image Restoration via Latent Diffusion Recurrent Posterior Sampling 论文解读 | ICCV 2025 | arXiv 2507.00790 | 零样本图像复原 | LD-RPS 提出一种零样本、无数据集的统一图像复原方法，利用预训练潜在扩散模型进行循环后验采样，通过多模态大模型提供语义先验、可学习 F-PAM 模块对齐退化域，实现多种退化类型的高质量盲复原。"
 tags:
   - ICCV 2025
-  - 零样本图像复原
-  - 后验采样
-  - 潜在扩散
 ---
 
 # LD-RPS: Zero-Shot Unified Image Restoration via Latent Diffusion Recurrent Posterior Sampling

@@ -2,9 +2,6 @@
 description: "【论文笔记】Flat-LoRA: Low-Rank Adaptation over a Flat Loss Landscape 论文解读 | ICML2025 | arXiv 2409.14396 | LoRA | 提出 Flat-LoRA，通过在**全参数空间**中引入基于贝叶斯期望损失的随机权重扰动，使 LoRA 收敛到全参数空间中更平坦的极小值区域，提升域内和域外泛化性能，且几乎不增加训练时间和显存开销。"
 tags:
   - ICML2025
-  - LoRA
-  - 参数高效微调
-  - 平坦极小值
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

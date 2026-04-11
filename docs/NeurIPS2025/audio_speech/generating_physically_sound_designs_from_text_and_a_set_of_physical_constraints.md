@@ -2,9 +2,6 @@
 description: "【论文笔记】Generating Physically Sound Designs from Text and a Set of Physical Constraints 论文解读 | NeurIPS 2025 | arXiv 2602.02213 | topology optimization | 提出 TIDES 框架，将预训练文本-图像模型（CLIP）的视觉引导与可微有限元物理仿真器结合，通过联合优化视觉相似度损失和结构合规性损失，从文本描述和物理约束出发生成既满足工程性能要求又具备文本指定特征的承载结构设计，并通过 3D 打印三点弯曲实验验证了方法的有效性。"
 tags:
   - NeurIPS 2025
-  - topology optimization
-  - CLIP
-  - differentiable physics
 ---
 
 # Generating Physically Sound Designs from Text and a Set of Physical Constraints

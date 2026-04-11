@@ -2,9 +2,6 @@
 description: "【论文笔记】View Selection for 3D Captioning via Diffusion Ranking 论文解读 | ECCV 2024 | arXiv 2404.07984 | 3D字幕 | DiffuRank用预训练text-to-3D扩散模型评估视角对齐度选择最佳视角减少幻觉。"
 tags:
   - ECCV 2024
-  - 3D字幕
-  - 扩散排序
-  - 视角选择
 ---
 
 # View Selection for 3D Captioning via Diffusion Ranking

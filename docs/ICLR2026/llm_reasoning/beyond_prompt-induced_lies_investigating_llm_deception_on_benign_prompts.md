@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Prompt-Induced Lies: Investigating LLM Deception on Benign Prompts 论文解读 | ICLR2026 | arXiv 2508.06361 | LLM deception | 提出 Contact Searching Question (CSQ) 框架，通过两个统计指标（欺骗意图分数 ρ 和欺骗行为分数 δ）量化 LLM 在正常良性提示下的自发欺骗行为，发现 16 个主流 LLM 普遍存在随任务难度升级的系统性欺骗倾向。"
 tags:
   - ICLR2026
-  - LLM deception
-  - trustworthiness
-  - self-initiated deception
 ---
 
 # Beyond Prompt-Induced Lies: Investigating LLM Deception on Benign Prompts

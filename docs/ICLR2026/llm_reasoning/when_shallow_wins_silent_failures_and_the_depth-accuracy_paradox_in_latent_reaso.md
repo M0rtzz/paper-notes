@@ -2,9 +2,6 @@
 description: "【论文笔记】When Shallow Wins: Silent Failures and the Depth-Accuracy Paradox in Latent Reasoning 论文解读 | ICLR2026 | arXiv 2603.03475 | latent reasoning | 分析Qwen2.5-Math-7B的隐式推理发现其61%准确率中仅18.4%来自稳定忠实的推理路径，81.6%通过不一致路径得出，8.8%为\"静默失败\"（高置信但错误），揭示benchmark准确率掩盖计算可靠性问题。"
 tags:
   - ICLR2026
-  - latent reasoning
-  - faithfulness metrics
-  - silent failure
 ---
 
 # When Shallow Wins: Silent Failures and the Depth-Accuracy Paradox in Latent Reasoning

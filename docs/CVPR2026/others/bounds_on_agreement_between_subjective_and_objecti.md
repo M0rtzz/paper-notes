@@ -2,9 +2,6 @@
 description: "【论文笔记】Bounds on Agreement between Subjective and Objective Measurements 论文解读 | CVPR 2026 | arXiv 2603.13204 | 质量评估 | 从投票的基本统计性质出发，推导了主观MOS与任意客观评估指标间PCC上界和MSE下界的解析表达式，并提出基于二项分布的投票模型BinoVotes/BinoMOS，为无投票方差数据的场景提供性能天花板估计。"
 tags:
   - CVPR 2026
-  - 质量评估
-  - MOS
-  - PCC上界
 ---
 
 # Bounds on Agreement between Subjective and Objective Measurements

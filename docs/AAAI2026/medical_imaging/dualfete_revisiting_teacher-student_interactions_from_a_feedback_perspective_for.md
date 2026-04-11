@@ -2,9 +2,6 @@
 description: "【论文笔记】DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation 论文解读 | AAAI 2026 | arXiv 2511.09319 | 半监督医学图像分割 | 在教师-学生半监督学习框架中引入反馈机制，让学生能将伪标签引导的更新是否与有标签数据方向一致的信息反馈给教师，并在双教师架构中进一步增强反馈动态性，有效遏制了医学图像分割中的错误累积和确认偏差。"
 tags:
   - AAAI 2026
-  - 半监督医学图像分割
-  - 教师-学生模型
-  - 反馈机制
 ---
 
 # DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation

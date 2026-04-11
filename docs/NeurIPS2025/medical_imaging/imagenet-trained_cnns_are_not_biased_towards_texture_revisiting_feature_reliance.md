@@ -2,9 +2,6 @@
 description: "【论文笔记】ImageNet-trained CNNs are not biased towards texture: Revisiting feature reliance through controlled suppression 论文解读 | NeurIPS 2025 | arXiv 2509.20234 | texture bias | 通过系统化的特征抑制框架（而非冲突选择实验）重新评估 CNN 的特征依赖性，发现 CNN 并非天然偏向纹理，而是主要依赖局部形状特征；且不同领域（CV/MI/RS）的特征依赖模式显著不同。"
 tags:
   - NeurIPS 2025
-  - texture bias
-  - feature reliance
-  - CNN
 ---
 
 # ImageNet-trained CNNs are not biased towards texture: Revisiting feature reliance through controlled suppression

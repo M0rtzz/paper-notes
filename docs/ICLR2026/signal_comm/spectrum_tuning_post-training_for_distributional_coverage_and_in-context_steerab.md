@@ -2,9 +2,6 @@
 description: "【论文笔记】Spectrum Tuning: Post-Training for Distributional Coverage and In-Context Steerability 论文解读 | ICLR2026 | arXiv 2510.06084 | 后训练 | 揭示RLHF/DPO等后训练会损害模型的上下文可操控性(in-context steerability)、输出覆盖率和分布对齐，提出Spectrum Suite评测框架和Spectrum Tuning方法，首次在后训练阶段改善分布对齐能力。"
 tags:
   - ICLR2026
-  - 后训练
-  - 分布覆盖
-  - 上下文可操控性
 ---
 
 # Spectrum Tuning: Post-Training for Distributional Coverage and In-Context Steerability

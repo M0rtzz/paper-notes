@@ -2,9 +2,6 @@
 description: "【论文笔记】Where, What, Why: Towards Explainable Driver Attention Prediction 论文解读 | ICCV 2025 | arXiv 2506.23088 | 驾驶员注意力预测 | 本文提出了\"可解释驾驶员注意力预测\"新范式，构建了首个大规模 W³DA 数据集并设计了 LLada 框架，将空间注意力预测（Where）、语义解析（What）和认知推理（Why）统一在一个端到端的大语言模型驱动架构中。"
 tags:
   - ICCV 2025
-  - 驾驶员注意力预测
-  - 可解释性
-  - 多模态大语言模型
 ---
 
 # Where, What, Why: Towards Explainable Driver Attention Prediction

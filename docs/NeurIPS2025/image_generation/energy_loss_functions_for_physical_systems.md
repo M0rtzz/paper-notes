@@ -2,9 +2,6 @@
 description: "【论文笔记】Energy Loss Functions for Physical Systems 论文解读 | NeurIPS 2025 | arXiv 2511.02087 | 能量损失函数 | 提出基于物理能量的损失函数框架，通过反向 KL 散度与玻尔兹曼分布推导出以成对距离为基础的能量差损失，天然满足 SE(d) 不变性，在分子生成和自旋基态预测中显著优于 MSE 和交叉熵损失。"
 tags:
   - NeurIPS 2025
-  - 能量损失函数
-  - 物理先验
-  - 扩散模型
 ---
 
 # Energy Loss Functions for Physical Systems

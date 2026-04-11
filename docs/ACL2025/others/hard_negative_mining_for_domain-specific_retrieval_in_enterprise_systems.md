@@ -2,9 +2,6 @@
 description: "【论文笔记】Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems 论文解读 | ACL 2025 | arXiv 2505.18366 | Hard Negative Mining | 本文提出了一种面向企业级领域特定检索的可扩展硬负样本挖掘框架，通过融合多种嵌入模型、PCA 降维和双语义条件筛选来动态选择高质量硬负样本，在内部云服务数据集和公开基准上均取得了显著提升。"
 tags:
   - ACL 2025
-  - Hard Negative Mining
-  - Domain-Specific Retrieval
-  - Reranking
 ---
 
 # Hard Negative Mining for Domain-Specific Retrieval in Enterprise Systems

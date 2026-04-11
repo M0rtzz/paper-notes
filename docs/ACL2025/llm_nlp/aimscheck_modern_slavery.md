@@ -2,9 +2,6 @@
 description: "【论文笔记】AIMSCheck: Leveraging LLMs for AI-Assisted Review of Modern Slavery Statements Across Jurisdictions 论文解读 | ACL 2025 | arXiv 2506.01671 | 现代奴隶制 | 提出 AIMSCheck——使用 LLM 辅助审查企业现代奴隶制声明是否合规的端到端框架，构建英国和加拿大的新标注数据集（AIMS.uk/AIMS.ca），三层分解合规评估增强可解释性，在澳大利亚数据上训练的模型能有效跨司法管辖泛化到英国和加拿大。"
 tags:
   - ACL 2025
-  - 现代奴隶制
-  - 合规审查
-  - 跨司法管辖
 ---
 
 # AIMSCheck: Leveraging LLMs for AI-Assisted Review of Modern Slavery Statements Across Jurisdictions

@@ -2,9 +2,6 @@
 description: "【论文笔记】FedDAG: Clustered Federated Learning via Global Data and Gradient Integration for Heterogeneous Environments 论文解读 | ICLR 2026 | arXiv 2602.23504 | 聚类联邦学习 | 提出FedDAG——融合数据和梯度信息的聚类联邦学习框架：通过加权类别级(class-wise)相似度同时考虑数据分布和梯度方向进行更精确的客户端聚类,配合双编码器架构(主编码器+辅助编码器)实现跨簇知识共享而保留簇内特化,并设计联邦感知度量自动确定最优簇数,统一处理标签偏斜/特征偏斜/概念偏移/数量偏移四种异构类型。"
 tags:
   - ICLR 2026
-  - 聚类联邦学习
-  - 数据+梯度相似度
-  - 双编码器
 ---
 
 # FedDAG: Clustered Federated Learning via Global Data and Gradient Integration for Heterogeneous Environments

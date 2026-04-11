@@ -2,9 +2,6 @@
 description: "【论文笔记】Atyaephyra at SemEval-2025 Task 4: Low-Rank Negative Preference Optimization 论文解读 | ACL 2025 | arXiv 2503.13690 | 机器遗忘 | 在 SemEval 2025 LLM 遗忘共享任务中，将负偏好优化 (NPO) 与低秩适配 (LoRA) 结合，利用 LoRA 的结构特性零开销获取原始模型分布来计算 KL 散度正则化，显著稳定了遗忘过程并超越了任务基线。"
 tags:
   - ACL 2025
-  - 机器遗忘
-  - NPO
-  - LoRA
 ---
 
 # Atyaephyra at SemEval-2025 Task 4: Low-Rank Negative Preference Optimization

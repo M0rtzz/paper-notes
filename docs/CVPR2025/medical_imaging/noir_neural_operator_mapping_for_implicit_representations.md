@@ -2,10 +2,7 @@
 description: "【论文笔记】NOIR: Neural Operator Mapping for Implicit Representations 论文解读 | CVPR2025 | arXiv 2603.13118 | Implicit Neural Representations | NOIR 将医学图像计算任务重新建模为连续函数空间之间的算子学习问题，通过隐式神经表示(INR)将离散医学信号嵌入连续函数空间，再用神经算子(NO)学习函数间的映射，实现分辨率无关的分割、形状补全、图像翻译和合成。"
 tags:
   - CVPR2025
-  - Implicit Neural Representations
-  - Neural Operator
   - 神经算子
-  - 分辨率无关
 ---
 
 # NOIR: Neural Operator Mapping for Implicit Representations

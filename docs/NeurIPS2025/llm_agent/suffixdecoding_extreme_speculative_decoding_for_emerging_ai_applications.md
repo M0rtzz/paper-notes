@@ -2,9 +2,6 @@
 description: "【论文笔记】SuffixDecoding: Extreme Speculative Decoding for Emerging AI Applications 论文解读 | NeurIPS 2025 | arXiv 2411.04975 | 推测解码 | 利用后缀树缓存长序列，通过自适应推测长度实现 5.3 倍加速，特别针对 Agent 场景中高度可预测的重复推理任务。"
 tags:
   - NeurIPS 2025
-  - 推测解码
-  - 后缀树
-  - Agent推理
 ---
 
 # SuffixDecoding: Extreme Speculative Decoding for Emerging AI Applications

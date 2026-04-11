@@ -2,9 +2,7 @@
 description: "【论文笔记】AvatarPointillist: AutoRegressive 4D Gaussian Avatarization 论文解读 | CVPR 2026 | arXiv 2604.04787 | 4D Avatar | AvatarPointillist 提出了一种自回归（AR）生成框架来构建 4D 高斯头像：用 decoder-only Transformer 逐点生成 3DGS 点云（含绑定信息），再用 Gaussian Decoder 预测渲染属性，打破了固定模板拓扑的限制，实现了自适应点密度调整，在 NeRSemble 上全面超越 LAM、GAGAvatar 等基线。"
 tags:
   - CVPR 2026
-  - 4D Avatar
-  - Autoregressive
-  - 3D Gaussian Splatting
+  - 点云
 ---
 
 # AvatarPointillist: AutoRegressive 4D Gaussian Avatarization

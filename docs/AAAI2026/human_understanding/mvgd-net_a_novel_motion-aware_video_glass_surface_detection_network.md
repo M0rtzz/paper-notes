@@ -2,9 +2,6 @@
 description: "【论文笔记】MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network 论文解读 | AAAI 2026 | arXiv 2601.13715 | 玻璃表面检测 | 基于\"玻璃表面上反射/透射层物体的运动速度与非玻璃区域不一致\"的物理观察，提出 MVGD-Net，通过光流运动线索引导视频中玻璃表面检测，包含跨尺度多模态融合（CMFM）、历史引导注意力（HGAM）、时序交叉注意力（TCAM）和时空解码器（TSD）四个核心模块，并构建了包含 312 视频 19,268 帧的大规模数据集 MVGD-D。"
 tags:
   - AAAI 2026
-  - 玻璃表面检测
-  - 视频分割
-  - 光流运动线索
 ---
 
 # MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network

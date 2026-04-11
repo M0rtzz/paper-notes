@@ -2,10 +2,7 @@
 description: "【论文笔记】Quantized Prompt for Efficient Generalization of Vision-Language Models 论文解读 | ECCV 2024 | arXiv 2407.10704 | 量化 | 将量化误差视为一种正则化噪声，对VLM的可学习prompt进行极低比特量化（最低1-bit），在大幅减少存储开销（最高16倍压缩）的同时显著提升模型在未见类别上的泛化能力，QCoOp仅需0.26KB即超越大量SOTA方法。"
 tags:
   - ECCV 2024
-  - 量化
-  - Prompt Tuning
   - 提示学习
-  - 泛化
 ---
 
 # Quantized Prompt for Efficient Generalization of Vision-Language Models

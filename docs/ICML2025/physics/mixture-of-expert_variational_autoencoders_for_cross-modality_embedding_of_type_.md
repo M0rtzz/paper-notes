@@ -2,9 +2,6 @@
 description: "【论文笔记】Mixture-of-Expert Variational Autoencoders for Cross-Modality Embedding of Type Ia Supernova Data 论文解读 | ICML2025 (ML4Astro Workshop) | arXiv 2507.16817 | 多模态VAE | 提出基于 Perceiver-IO 架构的多模态混合专家 VAE（MMVAE），对 Ia 型超新星的光变曲线和光谱进行联合嵌入，实现从光变曲线到光谱的跨模态概率生成，重建精度优于对比学习基线。"
 tags:
   - ICML2025 (ML4Astro Workshop)
-  - 多模态VAE
-  - 超新星
-  - 跨模态生成
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

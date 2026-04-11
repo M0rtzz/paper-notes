@@ -2,9 +2,6 @@
 description: "【论文笔记】笔记1: CoT是幻觉吗？数据分布角度 论文解读 | NeurIPS 2025 | arXiv 2508.01191 | Chain-of-Thought | 通过构建完全可控的抽象环境DataAlchemy，本文揭示CoT推理是一种幻觉——其有效性完全由训练数据分布主导，在分布外场景表现极其脆弱。"
 tags:
   - NeurIPS 2025
-  - Chain-of-Thought
-  - 数据分布
-  - 分布漂移
 ---
 
 # 笔记1: CoT是幻觉吗？数据分布角度

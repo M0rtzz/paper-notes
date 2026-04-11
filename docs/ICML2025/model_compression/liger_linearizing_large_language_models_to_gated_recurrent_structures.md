@@ -2,9 +2,6 @@
 description: "【论文笔记】Liger: Linearizing Large Language Models to Gated Recurrent Structures 论文解读 | ICML2025 | arXiv 2503.01496 | LLM线性化 | Liger 将预训练 Transformer LLM 无额外参数地转换为门控线性循环结构，利用 Key 投影矩阵复用构建门控机制，仅需 0.02% 预训练 token 即可恢复原模型 93% 的性能，同时获得线性时间推理和恒定显存开销。"
 tags:
   - ICML2025
-  - LLM线性化
-  - 门控线性循环
-  - 线性注意力
 ---
 
 # Liger: Linearizing Large Language Models to Gated Recurrent Structures

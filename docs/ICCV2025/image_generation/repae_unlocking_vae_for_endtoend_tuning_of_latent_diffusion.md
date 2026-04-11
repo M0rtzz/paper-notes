@@ -2,9 +2,6 @@
 description: "【论文笔记】REPA-E: Unlocking VAE for End-to-End Tuning of Latent Diffusion Transformers 论文解读 | ICCV 2025 | arXiv 2504.10483 | end-to-end training | 回答了\"潜空间扩散模型能否与VAE端到端联合训练\"的基础问题——发现标准扩散loss无法端到端训练但表示对齐（REPA）loss可以，提出REPA-E实现VAE+DiT联合训练，训练速度比REPA快17倍、比vanilla快45倍，在ImageNet 256×256上达到1.12 FID（w/ CFG）的新SOTA。"
 tags:
   - ICCV 2025
-  - end-to-end training
-  - VAE
-  - latent diffusion
   - 扩散模型
 ---
 

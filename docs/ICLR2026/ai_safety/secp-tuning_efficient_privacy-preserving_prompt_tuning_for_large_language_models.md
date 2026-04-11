@@ -2,9 +2,6 @@
 description: "【论文笔记】SecP-Tuning: Efficient Privacy-Preserving Prompt Tuning for Large Language Models via MPC 论文解读 | ICLR 2026 | arXiv 2506.15307 | 安全多方计算 | 提出SecP-Tuning，首个基于MPC的隐私保护Prompt微调框架——通过前向only微调(FoT)消除反向传播的隐私计算开销，用随机特征注意力(RFA)将softmax的二次复杂度降为线性且避免MPC不兼容的非线性操作，相比SFT实现12×加速和17×通信降低。"
 tags:
   - ICLR 2026
-  - 安全多方计算
-  - 隐私微调
-  - Prompt Tuning
   - 提示学习
 ---
 

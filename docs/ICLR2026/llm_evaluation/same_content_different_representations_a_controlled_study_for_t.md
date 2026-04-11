@@ -2,9 +2,6 @@
 description: "【论文笔记】Same Content, Different Representations: A Controlled Study for Table QA 论文解读 | ICLR 2026 | arXiv 2509.22983 | Table QA | 首个控制变量研究：在保持表格内容完全相同的条件下变换表示形式（结构化 vs 半结构化），系统评估 NL2SQL、LLM、混合三类方法在不同表格大小/模式质量/查询复杂度下的鲁棒性，发现表示形式是影响 Table QA 性能的一阶因素。"
 tags:
   - ICLR 2026
-  - Table QA
-  - 结构化表格
-  - 半结构化表格
 ---
 
 # Same Content, Different Representations: A Controlled Study for Table QA

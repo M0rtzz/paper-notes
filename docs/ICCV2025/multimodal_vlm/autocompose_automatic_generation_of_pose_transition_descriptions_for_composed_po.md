@@ -2,9 +2,6 @@
 description: "【论文笔记】AutoComPose: Automatic Generation of Pose Transition Descriptions for Composed Pose Retrieval Using Multimodal LLMs 论文解读 | ICCV 2025 | arXiv 2503.22884 | Composed Pose Retrieval | 本文提出AutoComPose，首个利用多模态大语言模型（MLLM）自动生成人体姿态转换描述的框架，通过身体部位级描述生成、多样化增强和循环一致性损失，在取代昂贵的人工标注的同时实现了更优的组合姿态检索性能。"
 tags:
   - ICCV 2025
-  - Composed Pose Retrieval
-  - MLLM
-  - Pose Transition
 ---
 
 # AutoComPose: Automatic Generation of Pose Transition Descriptions for Composed Pose Retrieval Using Multimodal LLMs

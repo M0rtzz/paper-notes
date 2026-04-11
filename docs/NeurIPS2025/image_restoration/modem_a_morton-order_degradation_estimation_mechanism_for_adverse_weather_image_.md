@@ -2,9 +2,6 @@
 description: "【论文笔记】MoDEM: A Morton-Order Degradation Estimation Mechanism for Adverse Weather Image Restoration 论文解读 | NeurIPS 2025 | arXiv 2505.17581 | Adverse Weather Restoration | 提出 MODEM 框架，通过 Morton 编码空间扫描与选择性状态空间模型（SSM）结合，建模空间异质性天气退化特征，配合双重退化估计模块提供全局和局部先验，实现多种天气退化图像的统一自适应复原 SOTA。"
 tags:
   - NeurIPS 2025
-  - Adverse Weather Restoration
-  - State Space Model
-  - Morton Order
 ---
 
 # MoDEM: A Morton-Order Degradation Estimation Mechanism for Adverse Weather Image Restoration

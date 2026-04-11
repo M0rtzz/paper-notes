@@ -2,9 +2,6 @@
 description: "【论文笔记】DuetGraph: Coarse-to-Fine Knowledge Graph Reasoning with Dual-Pathway Global-Local Fusion 论文解读 | NeurIPS 2025 | arXiv 2507.11229 | 知识图谱推理 | DuetGraph 提出双通路（消息传递 + 全局注意力）并行融合模型与粗到精推理优化策略，通过分离而非堆叠局部/全局信息处理来缓解 KG 推理中的分数过平滑问题，在归纳与传导推理任务上取得 SOTA，MRR 最高提升 8.7%、训练加速 1.8×。"
 tags:
   - NeurIPS 2025
-  - 知识图谱推理
-  - 双通路融合
-  - 粗到精优化
 ---
 
 # DuetGraph: Coarse-to-Fine Knowledge Graph Reasoning with Dual-Pathway Global-Local Fusion

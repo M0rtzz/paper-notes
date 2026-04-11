@@ -2,9 +2,6 @@
 description: "【论文笔记】Data Warmup: Complexity-Aware Curricula for Efficient Diffusion Training 论文解读 | CVPR 2026 | arXiv 2604.07397 | 课程学习 | 提出Data Warmup，一种不修改模型或损失函数的课程学习策略，通过语义感知图像复杂度度量（前景显著度×前景典型性）按从简到繁顺序调度训练图像，在ImageNet 256×256上为SiT系列带来IS最高+6.11、FID最低-3.41的改进，且反转课程（先难后简）反而低于均匀基线——证明排序本身是关键机制。"
 tags:
   - CVPR 2026
-  - 课程学习
-  - 扩散模型
-  - 数据复杂度
 ---
 
 # Data Warmup: Complexity-Aware Curricula for Efficient Diffusion Training

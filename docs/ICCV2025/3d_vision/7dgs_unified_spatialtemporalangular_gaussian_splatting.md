@@ -2,9 +2,6 @@
 description: "【论文笔记】7DGS: Unified Spatial-Temporal-Angular Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2503.07946 | 7D Gaussian | 提出7DGS，将场景元素建模为**7维高斯分布**（3D空间+1D时间+3D视角方向），通过条件切片机制将7D高斯转换为与时间和视角相关的条件3D高斯，统一处理动态场景+视角依赖效果，在自定义7DGS-PBR数据集上比4DGS PSNR提升高达7.36dB，仅用15.3%的高斯点数，401FPS实时渲染。"
 tags:
   - ICCV 2025
-  - 7D Gaussian
-  - Dynamic Scene
-  - View-Dependent
 ---
 
 # 7DGS: Unified Spatial-Temporal-Angular Gaussian Splatting

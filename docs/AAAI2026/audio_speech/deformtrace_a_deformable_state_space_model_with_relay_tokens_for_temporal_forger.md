@@ -2,9 +2,6 @@
 description: "【论文笔记】DeformTrace: A Deformable State Space Model with Relay Tokens for Temporal Forgery Localization 论文解读 | AAAI2026 | arXiv 2603.04882 | Temporal Forgery Localization | 提出 DeformTrace，将可变形动态感受野和中继令牌机制引入状态空间模型，结合 Transformer 的全局建模与 SSM 的高效推理，实现时序伪造定位的 SOTA 精度与显著效率提升。"
 tags:
   - AAAI2026
-  - Temporal Forgery Localization
-  - State Space Model
-  - Deformable Mechanism
 ---
 
 # DeformTrace: A Deformable State Space Model with Relay Tokens for Temporal Forgery Localization

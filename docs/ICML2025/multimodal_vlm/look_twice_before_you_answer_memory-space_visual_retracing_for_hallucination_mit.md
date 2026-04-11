@@ -2,9 +2,6 @@
 description: "【论文笔记】Look Twice Before You Answer: Memory-Space Visual Retracing for Hallucination Mitigation in Multimodal Large Language Models 论文解读 | ICML2025 | arXiv 2410.03577 | MLLM | 提出 MemVR 解码范式，将视觉 token 作为补充证据通过 FFN 的 key-value memory 机制重新注入到中间触发层，以\"再看一次\"的方式缓解 MLLM 幻觉问题，不引入额外推理开销。"
 tags:
   - ICML2025
-  - MLLM
-  - hallucination
-  - visual retracing
 ---
 
 # Look Twice Before You Answer: Memory-Space Visual Retracing for Hallucination Mitigation in Multimodal Large Language Models

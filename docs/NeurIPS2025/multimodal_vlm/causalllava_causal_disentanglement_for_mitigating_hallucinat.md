@@ -2,9 +2,6 @@
 description: "【论文笔记】Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.19474 | hallucination | 揭示 MLLM 中物体幻觉的表示层根因——数据集共现偏差导致的语义纠缠，提出双路因果解纠缠框架（Causal-Driven Projector + Causal Intervention Module），通过后门调整在 projector 和最终 Transformer 层分离共现物体表示，使 MME-Perception 提升 22.6%。"
 tags:
   - NeurIPS 2025
-  - hallucination
-  - causal inference
-  - disentanglement
 ---
 
 # Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Does Time Have Its Place? Temporal Heads Where Language Models Recall Time-specific Information 论文解读 | ACL 2025 | arXiv 2502.14258 | 时间头 | 通过 EAP-IG 电路分析在 Llama-2/Qwen/Phi-3 中发现了专门处理时间条件知识的\"时间头\"（Temporal Heads），消融这些头只降低时间知识准确率（降 3-9%）而不影响时间无关知识和通用 QA，并展示了通过注入时间头激活值实现选择性时间知识编辑的可能性。"
 tags:
   - ACL 2025
-  - 时间头
-  - 注意力头
-  - 知识电路
 ---
 
 # Does Time Have Its Place? Temporal Heads Where Language Models Recall Time-specific Information

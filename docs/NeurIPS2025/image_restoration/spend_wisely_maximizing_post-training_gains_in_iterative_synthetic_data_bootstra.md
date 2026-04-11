@@ -2,9 +2,6 @@
 description: "【论文笔记】Spend Wisely: Maximizing Post-Training Gains in Iterative Synthetic Data Bootstrapping 论文解读 | NeurIPS 2025 | arXiv 2501.18962 | 合成数据 | 首次从理论上分析了迭代合成数据自举训练中的预算分配问题，证明恒定策略无法高概率收敛，而指数增长策略在最坏情况下优于多项式策略，并在图像去噪（DPM）和数学推理（LLM）实验中验证了该结论。"
 tags:
   - NeurIPS 2025
-  - 合成数据
-  - 迭代自举
-  - 预算分配策略
 ---
 
 # Spend Wisely: Maximizing Post-Training Gains in Iterative Synthetic Data Bootstrapping

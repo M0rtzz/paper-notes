@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Attribute Steering of Language Models via Targeted Intervention 论文解读 | ACL 2025 | arXiv 2502.12446 | inference-time intervention | 提出 MAT-Steer，通过属性感知的 token 级 gating 机制和正交性约束，实现推理时对 LLM 多属性（如真实性、毒性、偏见）的同时精准干预，在 QA 和生成任务上全面超越现有 ITI 和微调方法。"
 tags:
   - ACL 2025
-  - inference-time intervention
-  - steering vectors
-  - multi-attribute alignment
 ---
 
 # Multi-Attribute Steering of Language Models via Targeted Intervention

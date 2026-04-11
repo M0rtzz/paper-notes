@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Semantic Parsing for Large Language Models: Enhancing LLM Performance with Semantic Hints 论文解读 | ACL 2025 | arXiv 2409.14469 | 语义解析 | 针对\"语义解析结果直接输入LLM反而降低性能\"这一反直觉现象，提出SENSE——一种在prompt中嵌入语义提示（而非显式解析结果）的零样本方法，在GLUE理解任务、机器翻译、复述和简化等生成任务上一致性地提升了LLM表现。"
 tags:
   - ACL 2025
-  - 语义解析
-  - 提示工程
-  - SENSE
 ---
 
 # Rethinking Semantic Parsing for Large Language Models: Enhancing LLM Performance with Semantic Hints

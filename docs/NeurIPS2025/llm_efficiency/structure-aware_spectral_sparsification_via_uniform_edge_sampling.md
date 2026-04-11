@@ -2,9 +2,6 @@
 description: "【论文笔记】Structure-Aware Spectral Sparsification via Uniform Edge Sampling 论文解读 | NEURIPS2025 | arXiv 2510.12669 | 谱稀疏化 | 本文证明在具有良好聚类结构的图上（结构比 Υ(k) 足够大），**均匀边采样**即可保留谱聚类所需的谱子空间结构，无需昂贵的有效电阻预计算——这是首个关于均匀采样保持结构的可证明保证。"
 tags:
   - NEURIPS2025
-  - 谱稀疏化
-  - 均匀采样
-  - 谱聚类
 ---
 
 # Structure-Aware Spectral Sparsification via Uniform Edge Sampling

@@ -2,9 +2,6 @@
 description: "【论文笔记】Sharp Monocular View Synthesis in Less Than a Second 论文解读 | ICLR 2026 | arXiv 2512.10685 | 单目视图合成 | 提出SHARP——从单张照片在不到1秒内通过单次前馈回归度量3D高斯表示→支持100+FPS实时高分辨率渲染→在多个数据集上零样本泛化LPIPS降低25-34%/DISTS降低21-43%/合成速度比扩散方法快1000倍，设定了单目视图合成的新SOTA。"
 tags:
   - ICLR 2026
-  - 单目视图合成
-  - 3D高斯
-  - 前馈
 ---
 
 # Sharp Monocular View Synthesis in Less Than a Second

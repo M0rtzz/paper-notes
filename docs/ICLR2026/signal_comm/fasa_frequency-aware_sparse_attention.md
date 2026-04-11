@@ -2,9 +2,6 @@
 description: "【论文笔记】FASA: Frequency-aware Sparse Attention 论文解读 | ICLR2026 | arXiv 2602.03152 | KV Cache压缩 | 发现 RoPE 注意力在频率块(FC)级别存在功能稀疏性——仅不到 1% 的\"主导 FC\"就能近似完整注意力头的 token 选择行为。据此设计无需训练的 FASA 框架，通过两阶段策略（主导 FC 预测 token 重要性 → 仅对重要 token 做完整注意力）实现 8× 内存压缩和 2.6× 推理加速且几乎无质量损失。"
 tags:
   - ICLR2026
-  - KV Cache压缩
-  - 稀疏注意力
-  - RoPE
 ---
 
 # FASA: Frequency-aware Sparse Attention

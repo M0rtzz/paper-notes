@@ -2,9 +2,6 @@
 description: "【论文笔记】An Efficient, Provably Optimal Algorithm for the 0-1 Loss Linear Classification Problem 论文解读 | ICLR 2026 | arXiv 2306.12344 | 0-1损失 | 提出增量单元枚举算法（ICE），首个具有严格证明的独立算法，可以在 $O(N^{D+1})$ 时间内精确求解0-1损失线性分类问题的全局最优解，并扩展到多项式超曲面分类。"
 tags:
   - ICLR 2026
-  - 0-1损失
-  - 线性分类
-  - 精确算法
 ---
 
 # An Efficient, Provably Optimal Algorithm for the 0-1 Loss Linear Classification Problem

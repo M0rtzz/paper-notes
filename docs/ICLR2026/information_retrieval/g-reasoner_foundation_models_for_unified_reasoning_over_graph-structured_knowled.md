@@ -2,9 +2,7 @@
 description: "【论文笔记】G-reasoner: Foundation Models for Unified Reasoning over Graph-structured Knowledge 论文解读 | ICLR 2026 | arXiv 2509.24276 | graph foundation model | 提出 G-reasoner，通过 QuadGraph 四层统一图接口将异构知识源标准化，训练 34M 参数的 GNN 图基础模型联合推理图拓扑和文本语义，配合 LLM 在 6 个基准上全面超越 SOTA GraphRAG 方法。"
 tags:
   - ICLR 2026
-  - graph foundation model
-  - RAG
-  - knowledge graph
+  - 图神经网络
 ---
 
 # G-reasoner: Foundation Models for Unified Reasoning over Graph-structured Knowledge

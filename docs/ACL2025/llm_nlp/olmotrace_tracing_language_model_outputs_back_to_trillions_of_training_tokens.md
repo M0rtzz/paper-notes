@@ -2,9 +2,6 @@
 description: "【论文笔记】OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens 论文解读 | ACL 2025 | arXiv 2504.07096 | training data tracing | 推出 OLMoTrace，首个能实时将语言模型输出追溯到万亿 token 训练数据的系统，基于扩展的 infini-gram 后缀数组索引，在 4.5 秒内完成逐字匹配追溯，支持事实核查、幻觉检测和创造力分析。"
 tags:
   - ACL 2025
-  - training data tracing
-  - verbatim matching
-  - infini-gram
 ---
 
 # OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens

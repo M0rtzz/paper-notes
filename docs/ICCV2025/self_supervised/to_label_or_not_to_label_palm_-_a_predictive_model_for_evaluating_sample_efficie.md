@@ -2,9 +2,6 @@
 description: "【论文笔记】To Label or Not to Label: PALM – A Predictive Model for Evaluating Sample Efficiency in Active Learning Models 论文解读 | ICCV 2025 | arXiv 2507.15381 | 主动学习 | 提出 PALM——一个用4个可解释参数（最大精度 $A_{\max}$、覆盖效率 $\delta$、初始学习偏移 $\alpha$、扩展性 $\beta$）描述主动学习轨迹的统一数学模型，能从有限标注数据预测完整学习曲线，实现主动学习策略的定量公平比较。"
 tags:
   - ICCV 2025
-  - 主动学习
-  - 样本效率
-  - 学习曲线预测
 ---
 
 # To Label or Not to Label: PALM – A Predictive Model for Evaluating Sample Efficiency in Active Learning Models

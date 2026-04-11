@@ -2,9 +2,6 @@
 description: "【论文笔记】How Patterns Dictate Learnability in Sequential Data 论文解读 | NeurIPS 2025 | arXiv 2510.10744 | 预测信息 | 提出基于预测信息（predictive information）的信息论框架来量化序列数据中时间模式的强度，推导出将预测信息与最小可达风险联系起来的理论界，从而区分\"模型不够好\"还是\"数据本身就不可预测\"。"
 tags:
   - NeurIPS 2025
-  - 预测信息
-  - 互信息
-  - 可学习性
 ---
 
 # How Patterns Dictate Learnability in Sequential Data

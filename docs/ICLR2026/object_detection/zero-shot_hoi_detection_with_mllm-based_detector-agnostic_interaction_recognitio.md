@@ -2,9 +2,7 @@
 description: "【论文笔记】Zero-shot HOI Detection with MLLM-based Detector-agnostic Interaction Recognition 论文解读 | ICLR 2026 | arXiv 2602.15124 | HOI detection | 提出将目标检测与交互识别完全解耦的零样本 HOI 检测框架 DA-HOI，利用 MLLM 的 VQA 能力替代传统 CLIP 特征做交互识别，核心贡献是确定性生成（training-free 即达 31.50 mAP）、空间感知池化（引入空间先验和跨注意力）和单次确定性匹配（M 次前向变 1 次），在 HICO-DET 四种零样本设定下全面超越 SOTA，且训练后可即插即用切换任意检测器。"
 tags:
   - ICLR 2026
-  - HOI detection
-  - zero-shot
-  - MLLM
+  - 动作识别
 ---
 
 # Zero-shot HOI Detection with MLLM-based Detector-agnostic Interaction Recognition

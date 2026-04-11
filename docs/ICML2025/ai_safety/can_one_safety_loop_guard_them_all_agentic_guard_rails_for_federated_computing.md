@@ -2,9 +2,6 @@
 description: "【论文笔记】Can One Safety Loop Guard Them All? Agentic Guard Rails for Federated Computing 论文解读 | ICML 2025 | arXiv 2506.20000 | 联邦计算 | 提出 Guardian-FC——一个双层框架，通过 Agentic-AI 控制平面和后端无关的领域特定语言（DSL），统一管理不同隐私机制（FHE/MPC/DP）的安全护栏，实现联邦计算中的跨后端一致性安全执行和可审计性。"
 tags:
   - ICML 2025
-  - 联邦计算
-  - 隐私保护
-  - 安全框架
 ---
 
 # Can One Safety Loop Guard Them All? Agentic Guard Rails for Federated Computing

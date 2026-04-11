@@ -2,9 +2,6 @@
 description: "【论文笔记】Post-training Large Language Models for Diverse High-Quality Responses 论文解读 | ICLR 2026 | arXiv 2509.04784 | 多样性 | 提出 DQO（Diversity Quality Optimization），基于行列式点过程（DPP）在语义嵌入空间中定义多样性度量，将其与奖励信号联合优化，使 LLM 后训练同时提升语义多样性和响应质量，可叠加在 GRPO/PPO 之上。"
 tags:
   - ICLR 2026
-  - 多样性
-  - 行列式点过程
-  - GRPO
 ---
 
 # Post-training Large Language Models for Diverse High-Quality Responses

@@ -2,9 +2,6 @@
 description: "【论文笔记】MTVQA: Benchmarking Multilingual Text-Centric Visual Question Answering 论文解读 | ACL 2025 | arXiv 2405.11985 | 多语言VQA | 构建了 MTVQA——首个覆盖 9 种语言的多语言文本中心视觉问答基准，通过人类专家标注解决翻译方法的\"视觉-文本不对齐\"问题，评估显示最佳 MLLM（InternVL-2.5，32.2%）与人类表现（79.7%）差距巨大，揭示了多语言文本理解的严峻挑战。"
 tags:
   - ACL 2025
-  - 多语言VQA
-  - 文本中心视觉问答
-  - MLLM评估
 ---
 
 # MTVQA: Benchmarking Multilingual Text-Centric Visual Question Answering

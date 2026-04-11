@@ -2,9 +2,6 @@
 description: "【论文笔记】EgoPointVQA: Gesture-Based Egocentric Video Question Answering 论文解读 | CVPR 2026 | arXiv 2603.12533 | egocentric VQA | 提出 EgoPointVQA 数据集（4000 合成 + 400 真实第一人称视频）和 HINT 方法，通过 3D 手部关键点编码为手势意图 token 并与视觉 token 交织输入 MLLM，使模型能理解用户指向手势并回答指示性问题，HINT-14B 达到 68.1% 准确率，超越 InternVL3-14B 6.6 个百分点。"
 tags:
   - CVPR 2026
-  - egocentric VQA
-  - pointing gesture
-  - deictic reasoning
 ---
 
 # EgoPointVQA: Gesture-Based Egocentric Video Question Answering

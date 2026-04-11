@@ -2,9 +2,6 @@
 description: "【论文笔记】Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs 论文解读 | ICLR 2026 | arXiv 2603.07475 | 扩散语言模型 | 首次系统比较扩散语言模型（dLLM）和自回归模型（AR LLM）的层间表征结构，发现原生 dLLM 具有更强的层级抽象和早期层冗余性，据此提出静态、任务无关的推理时层跳过策略，在 LLaDA 上跳过 6 层（18.75% FLOPs 削减）仍保持 90%+ 性能。"
 tags:
   - ICLR 2026
-  - 扩散语言模型
-  - 层跳过
-  - 表征冗余
 ---
 
 # Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs

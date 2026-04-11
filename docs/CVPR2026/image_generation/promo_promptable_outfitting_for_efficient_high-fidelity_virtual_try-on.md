@@ -2,10 +2,8 @@
 description: "【论文笔记】PROMO: Promptable Outfitting for Efficient High-Fidelity Virtual Try-On 论文解读 | CVPR2026 | arXiv 2603.11675 | virtual try-on | 基于 Flow Matching DiT 的虚拟试穿框架，通过 latent 多模态条件拼接、时序自参考缓存机制和 3D-RoPE 分组条件注入，在保持高保真度的同时大幅降低推理开销，支持多件服装试穿和文本提示控制穿搭风格。"
 tags:
   - CVPR2026
-  - virtual try-on
-  - diffusion transformer
   - Transformer
-  - flow matching
+  - 提示学习
 ---
 
 # PROMO: Promptable Outfitting for Efficient High-Fidelity Virtual Try-On

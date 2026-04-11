@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Pixel Simulation: Pathology Image Generation via Diagnostic Semantic Tokens and Prototype Control 论文解读 | CVPR2026 | arXiv 2512.21058 | 病理图像生成 | UniPath提出语义驱动的病理图像生成框架，通过多流控制（原始文本 + 从冻结病理MLLM蒸馏的诊断语义Token + 原型库形态控制）实现诊断级可控生成，Patho-FID达80.9，比第二名优51%。"
 tags:
   - CVPR2026
-  - 病理图像生成
-  - 语义控制
-  - 诊断语义Token
 ---
 
 # Beyond Pixel Simulation: Pathology Image Generation via Diagnostic Semantic Tokens and Prototype Control

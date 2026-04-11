@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder 论文解读 | ACL 2025 | arXiv 2411.05195 | CLIP | 系统探究为何生成式多模态LLM（如LLaVA）使用与CLIP相同的视觉编码器却能在视觉推理任务上大幅超越CLIP，发现patch token、位置编码和prompt加权是关键因素。"
 tags:
   - ACL 2025
-  - CLIP
-  - 多模态LLM
-  - 视觉推理
 ---
 
 # Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder

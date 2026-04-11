@@ -2,9 +2,6 @@
 description: "【论文笔记】L2GTX: From Local to Global Time Series Explanations 论文解读 | CVPR 2026 | arXiv 2603.13065 | 时间序列可解释性 | L2GTX 提出一种完全模型无关的局部到全局解释方法，通过从 LOMATCE 局部解释中提取参数化时间事件原语（趋势/极值），跨实例合并冗余聚类并以子模优化选取代表性实例，最终聚合为简洁的类级别全局解释，在6个时序分类数据集上保持稳定的全局忠实度。"
 tags:
   - CVPR 2026
-  - 时间序列可解释性
-  - 全局解释
-  - 参数化事件原语
 ---
 
 # L2GTX: From Local to Global Time Series Explanations

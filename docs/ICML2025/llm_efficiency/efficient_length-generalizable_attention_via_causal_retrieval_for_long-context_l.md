@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Length-Generalizable Attention via Causal Retrieval for Long-Context Language Modeling 论文解读 | ICML 2025 | arXiv 2410.01651 | 长度泛化 | 本文提出 Grouped Cross-Attention (GCA) 机制，将 chunk 级别的因果检索（causal retrieval）集成到注意力中实现端到端可学习的检索器，构建的 Differentiable Retrieval-based Transformer (DRT) 在 16M 上下文的 passkey 检索测试中达到近乎完美的准确率，实现了训练长度 1000 倍的长度泛化。"
 tags:
   - ICML 2025
-  - 长度泛化
-  - 分组交叉注意力
-  - 因果检索
 ---
 
 # Efficient Length-Generalizable Attention via Causal Retrieval for Long-Context Language Modeling

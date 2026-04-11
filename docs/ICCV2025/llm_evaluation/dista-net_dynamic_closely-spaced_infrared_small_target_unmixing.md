@@ -2,9 +2,6 @@
 description: "【论文笔记】DISTA-Net: Dynamic Closely-Spaced Infrared Small Target Unmixing 论文解读 | ICCV 2025 | arXiv 2505.19148 | 红外小目标 | DISTA-Net提出动态深度展开网络，将ISTA稀疏重建中的非线性变换和阈值参数从静态改为根据输入自适应生成，实现密集红外小目标的首个深度学习解混方法，并建立了包含数据集、评估指标和工具包的首个开源生态。"
 tags:
   - ICCV 2025
-  - 红外小目标
-  - 密集目标解混
-  - 深度展开网络
 ---
 
 # DISTA-Net: Dynamic Closely-Spaced Infrared Small Target Unmixing

@@ -2,9 +2,6 @@
 description: "【论文笔记】PRISM: A Framework for Producing Interpretable Political Bias Embeddings 论文解读 | ACL 2025 | arXiv 2505.24646 | 政治偏见 | 提出PRISM框架——首个专为政治偏见嵌入设计的方法，通过争议性话题偏见指标挖掘和Cross-Encoder政治偏见评分两阶段，生成可解释的偏见感知嵌入，在政治偏见分类上超越通用文本嵌入模型。"
 tags:
   - ACL 2025
-  - 政治偏见
-  - 文本嵌入
-  - Cross-Encoder
 ---
 
 # PRISM: A Framework for Producing Interpretable Political Bias Embeddings

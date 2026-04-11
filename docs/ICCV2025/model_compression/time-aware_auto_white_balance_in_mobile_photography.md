@@ -2,9 +2,6 @@
 description: "【论文笔记】Time-Aware Auto White Balance in Mobile Photography 论文解读 | ICCV 2025 | arXiv 2504.05623 | 自动白平衡 | 本文提出一种利用手机上下文元数据（时间戳和地理位置）辅助图像颜色信息的轻量化光照估计方法（约 5K 参数），在自建 3224 张智能手机数据集上达到或超过大模型性能，且可在旗舰手机 DSP 上 0.25ms 内完成推理。"
 tags:
   - ICCV 2025
-  - 自动白平衡
-  - 光照估计
-  - 轻量化模型
 ---
 
 # Time-Aware Auto White Balance in Mobile Photography

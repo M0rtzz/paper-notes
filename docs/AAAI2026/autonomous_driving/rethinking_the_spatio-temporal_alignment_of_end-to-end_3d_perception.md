@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking the Spatio-Temporal Alignment of End-to-End 3D Perception 论文解读 | AAAI2026 | arXiv 2512.23635 | 时空对齐 | 提出HAT（multiple Hypotheses spAtio-Temporal alignment），一个即插即用的时空对齐模块，通过多种显式运动模型生成对齐假设，并利用query中隐含的运动线索自适应解码最优对齐方案，在nuScenes上一致提升多种3D时序检测器和跟踪器，并在E2E自动驾驶中降低碰撞率达32-48%。"
 tags:
   - AAAI2026
-  - 时空对齐
-  - 端到端3D感知
-  - 多假设运动模型
 ---
 
 # Rethinking the Spatio-Temporal Alignment of End-to-End 3D Perception

@@ -2,9 +2,6 @@
 description: "【论文笔记】Opinion Maximization in Social Networks by Modifying Internal Opinions 论文解读 | NeurIPS 2025 | arXiv 2510.17226 | opinion dynamics | 本文研究社交网络中通过修改 k 个关键节点的内部意见来最大化整体意见的优化问题，提出了两种基于采样的近似算法（随机游走和森林采样）以及一种基于异步更新的精确算法 MIS，后者在理论上保证收敛到最优解，并在数千万节点的真实网络上展示了卓越的效率与精度。"
 tags:
   - NeurIPS 2025
-  - opinion dynamics
-  - social networks
-  - opinion maximization
 ---
 
 # Opinion Maximization in Social Networks by Modifying Internal Opinions

@@ -2,9 +2,6 @@
 description: "【论文笔记】TAPIP3D: Tracking Any Point in Persistent 3D Geometry 论文解读 | NeurIPS 2025 | arXiv 2504.14717 | 3D点跟踪 | 提出TAPIP3D，将视频表示为相机稳定化的时空3D特征点云，通过3D邻域到邻域（N2N）注意力机制在持久3D几何空间中迭代精化多帧点轨迹，显著超越现有3D点跟踪方法。"
 tags:
   - NeurIPS 2025
-  - 3D点跟踪
-  - 特征点云
-  - 世界坐标系
 ---
 
 # TAPIP3D: Tracking Any Point in Persistent 3D Geometry

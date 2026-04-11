@@ -2,9 +2,6 @@
 description: "【论文笔记】Better Estimation of the Kullback-Leibler Divergence Between Language Models 论文解读 | NeurIPS 2025 | arXiv 2504.10637 | KL散度估计 | 提出 KL 散度的 Rao-Blackwell 化 Monte Carlo 估计器——在每个位置对下一个 token 的分布求精确 KL（而非只用采样的 token），理论证明无偏且方差严格不超过标准 MC 估计器，零额外计算开销，在 RLHF 情感控制任务中使训练更稳定、模型更频繁出现在 Pareto 前沿（78%）。"
 tags:
   - NeurIPS 2025
-  - KL散度估计
-  - Rao-Blackwell化
-  - RLHF
 ---
 
 # Better Estimation of the Kullback-Leibler Divergence Between Language Models

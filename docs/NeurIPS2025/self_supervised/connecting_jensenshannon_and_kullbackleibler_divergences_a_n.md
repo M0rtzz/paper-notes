@@ -2,9 +2,6 @@
 description: "【论文笔记】Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning 论文解读 | NeurIPS 2025 | arXiv 2510.20644 | mutual information | 推导了一般情况下 KL 散度关于 JS 散度的新的紧致可计算下界，证明最大化 JSD 目标等价于最大化互信息的一个下界，为判别式学习在 MI 基础表示学习中的使用提供了理论基础，并在 MI 估计和 Information Bottleneck 中验证了其紧致性和实用性。"
 tags:
   - NeurIPS 2025
-  - mutual information
-  - Jensen-Shannon divergence
-  - KL divergence
 ---
 
 # Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning

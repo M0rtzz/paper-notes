@@ -2,9 +2,6 @@
 description: "【论文笔记】UniVG: A Generalist Diffusion Model for Unified Image Generation and Editing 论文解读 | ICCV 2025 | arXiv 2503.12652 | 统一生成模型 | 提出UniVG,基于MM-DiT的统一图像生成模型,通过通道维拼接输入、渐进式多任务训练和外部条件注入,用单套权重支持T2I生成、编辑、ID保持、布局引导、深度估计等多种任务。"
 tags:
   - ICCV 2025
-  - 统一生成模型
-  - MM-DiT
-  - 多任务训练
 ---
 
 # UniVG: A Generalist Diffusion Model for Unified Image Generation and Editing

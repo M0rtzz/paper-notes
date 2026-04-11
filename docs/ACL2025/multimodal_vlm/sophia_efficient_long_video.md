@@ -2,9 +2,6 @@
 description: "【论文笔记】Sharper and Faster mean Better: Towards More Efficient Vision-Language Model for Hour-scale Long Video Understanding 论文解读 | ACL 2025 (Long Paper) | 长视频理解 | 提出Sophia模型处理小时级长视频：通过Shot-adaptive Frame Pruning（基于镜头分割的两阶段帧剪枝）精准选择查询相关帧，结合O(N)复杂度的Hierarchical Attention替代全注意力，在8/8个长视频benchmark中6个SOTA，且注意力FLOPs仅为InternVL2的1/17。"
 tags:
   - ACL 2025 (Long Paper)
-  - 长视频理解
-  - 帧剪枝
-  - 层级注意力
 ---
 
 # Sharper and Faster mean Better: Towards More Efficient Vision-Language Model for Hour-scale Long Video Understanding

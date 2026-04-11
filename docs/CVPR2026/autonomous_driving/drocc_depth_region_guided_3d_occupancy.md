@@ -2,9 +2,6 @@
 description: "【论文笔记】Dr.Occ: Depth- and Region-Guided 3D Occupancy from Surround-View Cameras 论文解读 | CVPR 2026 | arXiv 2603.01007 | 3D占用预测 | 针对视角变换几何不对齐和语义类别空间各向异性不平衡，提出深度引导双投影视角变换器（D²-VFormer）利用MoGe-2构建非空体素掩码，和区域引导专家Transformer（R/R²-EFormer）自适应分配空间模型容量，BEVDet4D上提升7.43% mIoU。"
 tags:
   - CVPR 2026
-  - 3D占用预测
-  - 深度引导
-  - MoE区域专家
 ---
 
 # Dr.Occ: Depth- and Region-Guided 3D Occupancy from Surround-View Cameras

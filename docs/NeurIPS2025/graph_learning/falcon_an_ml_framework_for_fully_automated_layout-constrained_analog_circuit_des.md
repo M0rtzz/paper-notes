@@ -2,9 +2,6 @@
 description: "【论文笔记】FALCON: An ML Framework for Fully Automated Layout-Constrained Analog Circuit Design 论文解读 | NeurIPS 2025 | arXiv 2505.21923 | 模拟电路设计 | FALCON 提出端到端的模拟/RF 电路自动化设计框架，通过 MLP 拓扑选择 + 边中心 GNN 性能预测 + 可微版图约束梯度推理三阶段流水线，在 100 万级 Cadence 仿真数据集上实现 >99% 拓扑选择准确率、<10% 性能预测误差，单实例推理不到 1 秒。"
 tags:
   - NeurIPS 2025
-  - 模拟电路设计
-  - 图神经网络
-  - 逆向设计
 ---
 
 # FALCON: An ML Framework for Fully Automated Layout-Constrained Analog Circuit Design

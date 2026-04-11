@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision-Language Models Can't See the Obvious 论文解读 | ICCV 2025 | arXiv 2507.04741 | 视觉显著性 | 提出 SalBench 基准测试，发现当前大型视觉-语言模型（LVLM）在检测对人类而言显而易见的视觉显著特征（如颜色、方向、大小差异）上表现极差——最先进的 GPT-4o 在检测任务上仅达到 47.6% 准确率，揭示了 LVLM 与人类视觉注意力之间的根本差距。"
 tags:
   - ICCV 2025
-  - 视觉显著性
-  - LVLM评估
-  - 注意力机制
 ---
 
 # Vision-Language Models Can't See the Obvious

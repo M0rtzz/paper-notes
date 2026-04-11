@@ -2,9 +2,6 @@
 description: "【论文笔记】Q-FSRU: Quantum-Augmented Frequency-Spectral Fusion for Medical Visual Question Answering 论文解读 | AAAI 2026 | arXiv 2508.12036 | 医学VQA | 提出 Q-FSRU 模型，将医学图像和文本特征转换到频域（FFT）进行融合，并结合量子启发的检索增强生成（Quantum RAG）引入外部医学知识，在 VQA-RAD 数据集上取得 90% 准确率和 0.9541 的 ROC-AUC。"
 tags:
   - AAAI 2026
-  - 医学VQA
-  - 频域融合
-  - 量子检索增强
 ---
 
 # Q-FSRU: Quantum-Augmented Frequency-Spectral Fusion for Medical Visual Question Answering

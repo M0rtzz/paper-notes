@@ -2,9 +2,6 @@
 description: "【论文笔记】FeatureBench: Benchmarking Agentic Coding for Complex Feature Development 论文解读 | ICLR 2026 | arXiv 2602.10975 | agentic coding | 提出 FeatureBench——面向特征级软件开发的 Agent 编程基准，200 个任务/24 个开源仓库，平均需实现 790 行代码跨 15.7 个文件。即便是 Claude Opus 4.5（SWE-bench 74.4%）也仅解决 11.0%，揭示了当前 Agent 在真实特征开发场景中的巨大能力缺口。"
 tags:
   - ICLR 2026
-  - agentic coding
-  - software development
-  - feature development
 ---
 
 # FeatureBench: Benchmarking Agentic Coding for Complex Feature Development

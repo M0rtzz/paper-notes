@@ -2,9 +2,6 @@
 description: "【论文笔记】NewsInterview: a Dataset and a Playground to Evaluate LLMs' Grounding Gap via Informational Interviews 论文解读 | ACL2025 | arXiv 2411.13779 | 对话策略 | 构建了 4 万条新闻采访对话数据集，发现 LLM 在采访场景中缺乏 acknowledgement（少 50%）和话题转换能力（少 30%），并设计了含说服机制的模拟博弈环境（NewsInterview），证明最优 LLM（gpt-4o）也仅能提取 50.4% 的信息项。"
 tags:
   - ACL2025
-  - 对话策略
-  - 新闻采访
-  - grounding gap
 ---
 
 # NewsInterview: a Dataset and a Playground to Evaluate LLMs' Grounding Gap via Informational Interviews

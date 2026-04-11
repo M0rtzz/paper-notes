@@ -2,10 +2,7 @@
 description: "【论文笔记】Moscat: Mixture of Scope Experts at Test for Generalizing Deeper GNNs 论文解读 | NeurIPS 2025 | arXiv 2409.06998 | 图神经网络 GNN深度 | 通过 PAC-Bayes 界证明 GNN 深度变化导致不同同质性子群间的泛化偏好漂移，提出 Moscat——后处理注意力门控模型，在测试时自适应组合不同深度的独立训练 GNN 专家。"
 tags:
   - NeurIPS 2025
-  - GNN深度
   - 图神经网络
-  - PAC-Bayes界
-  - 专家混合
 ---
 
 # Moscat: Mixture of Scope Experts at Test for Generalizing Deeper GNNs

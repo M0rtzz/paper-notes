@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models 论文解读 | ICLR 2026 | arXiv 2503.06749 | 多模态推理 | 提出Vision-R1，通过Modality Bridging构建200K高质量多模态CoT数据进行冷启动初始化，再用渐进思维抑制训练(PTST)策略结合GRPO强化学习，在7B参数规模达到与OpenAI O1接近的多模态数学推理能力。"
 tags:
   - ICLR 2026
-  - 多模态推理
-  - 强化学习
-  - 思维链
 ---
 
 # Vision-R1: Incentivizing Reasoning Capability in Multimodal Large Language Models

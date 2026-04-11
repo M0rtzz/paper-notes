@@ -2,9 +2,6 @@
 description: "【论文笔记】A Unifying View of Linear Function Approximation in Off-Policy RL Through Matrix Splitting and Preconditioning 论文解读 | NeurIPS 2025 (Spotlight, top 3%) | arXiv 2501.01774 | temporal difference learning | 将线性函数逼近下的TD、FQI和PFQI统一为求解同一线性系统的迭代方法（仅预条件子不同），首次引入矩阵分裂理论来分析它们的收敛性，给出了各算法收敛的充要条件，并揭示了TD收敛不一定意味着FQI收敛（反之亦然）。"
 tags:
   - NeurIPS 2025 (Spotlight, top 3%)
-  - temporal difference learning
-  - fitted Q-iteration
-  - matrix splitting
 ---
 
 # A Unifying View of Linear Function Approximation in Off-Policy RL Through Matrix Splitting and Preconditioning

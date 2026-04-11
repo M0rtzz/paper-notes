@@ -2,9 +2,6 @@
 description: "【论文笔记】Promoting Ensemble Diversity with Interactive Bayesian Distributional Robustness for Fine-tuning Foundation Models 论文解读 | ICML2025 | arXiv 2506.07247 | 贝叶斯推断 | 提出 IBDR 框架，在贝叶斯推断中建模粒子间交互以促进集成多样性，结合 Wasserstein 分布鲁棒优化提供理论保证，在 VTAB-1K 和常识推理任务上显著优于现有方法。"
 tags:
   - ICML2025
-  - 贝叶斯推断
-  - 集成多样性
-  - 分布鲁棒优化
 ---
 
 # Promoting Ensemble Diversity with Interactive Bayesian Distributional Robustness for Fine-tuning Foundation Models

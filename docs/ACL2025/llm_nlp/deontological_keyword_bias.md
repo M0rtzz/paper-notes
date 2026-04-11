@@ -2,9 +2,6 @@
 description: "【论文笔记】Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models 论文解读 | ACL 2025 | arXiv 2506.11068 | 义务论关键词偏见 | 本文揭示LLM存在\"义务论关键词偏见\"(DKB)——当提示中包含\"must\"、\"ought to\"等模态义务表达时，模型会将超过90%的常识场景误判为义务，并提出基于少样本示例与推理提示的去偏策略。"
 tags:
   - ACL 2025
-  - 义务论关键词偏见
-  - 模态表达
-  - 规范性判断
 ---
 
 # Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning 论文解读 | ACL 2025 | arXiv 2406.10882 | 数据选择 | SCAR 识别出回复的\"语言形式\"和\"指令惊奇度\"是影响 LLM 指令微调效果的两个关键风格因素，并提出基于风格一致性的排序方法自动选择高质量训练数据，仅用 0.7% 的原始数据就能让微调后的 LLM 匹配甚至超越全数据集训练的性能。"
 tags:
   - ACL 2025
-  - 数据选择
-  - 指令微调
-  - 风格一致性
 ---
 
 # SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Watch and Listen: Understanding Audio-Visual-Speech Moments with Multimodal LLM 论文解读 | NeurIPS 2025 | arXiv 2505.18110 | 音视频理解 | 提出 TriSense——一个三模态（视觉+音频+语音）大语言模型，通过 Query-Based Connector 自适应调节各模态权重实现鲁棒的视频时序理解，并构建了包含200万标注的 TriSense-2M 数据集支撑训练。"
 tags:
   - NeurIPS 2025
-  - 音视频理解
-  - 多模态融合
-  - 时序理解
 ---
 
 # Watch and Listen: Understanding Audio-Visual-Speech Moments with Multimodal LLM

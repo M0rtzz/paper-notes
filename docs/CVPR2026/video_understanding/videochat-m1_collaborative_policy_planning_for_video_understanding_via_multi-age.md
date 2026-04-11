@@ -2,9 +2,6 @@
 description: "【论文笔记】VideoChat-M1: Collaborative Policy Planning for Video Understanding via Multi-Agent Reinforcement Learning 论文解读 | CVPR2026 | arXiv 2511.19524 | 多智能体系统 | 提出VideoChat-M1，用多智能体协作策略规划（CPP）+ 多智能体强化学习（MARL）替代传统固定工具调用策略，让多个策略Agent动态生成、执行和沟通工具调用计划，在8个视频理解基准上取得SOTA，LongVideoBench超Gemini 2.5 Pro 3.6%、超GPT-4o 15.6%。"
 tags:
   - CVPR2026
-  - 多智能体系统
-  - 多智能体强化学习
-  - 协作策略规划
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

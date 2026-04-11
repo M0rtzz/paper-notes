@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamical Phases of Short-Term Memory Mechanisms in RNNs 论文解读 | ICML 2025 | arXiv 2502.17433 | 短时记忆 | 本文发现了支持RNN短时记忆的两种不同潜在动力学机制——慢点流形（slow-point manifolds）和极限环（limit cycles），通过解析 toy 模型推导出各自最大可学习率的幂律缩放定律（SP: beta 约4-5 vs LC: beta 约2-3），并通过训练约80,000个RNN进行了大规模实证验证。"
 tags:
   - ICML 2025
-  - 短时记忆
-  - RNN
-  - 动力学相变
 ---
 
 # Dynamical Phases of Short-Term Memory Mechanisms in RNNs

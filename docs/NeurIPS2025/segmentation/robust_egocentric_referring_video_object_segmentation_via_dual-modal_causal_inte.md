@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Egocentric Referring Video Object Segmentation via Dual-Modal Causal Intervention 论文解读 | NEURIPS2025 | arXiv 2512.24323 | 自中心RVOS | 提出CERES框架，通过双模态因果干预解决自中心指代视频分割(Ego-RVOS)中的鲁棒性问题：对语言偏见用后门调整（消除目标-动作频率偏差），对视觉混淆用前门调整（以深度信息引导视觉中介变量聚合），在VISOR/VOST/VSCOS上达到SOTA。"
 tags:
   - NEURIPS2025
-  - 自中心RVOS
-  - 因果推断
-  - 后门调整
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

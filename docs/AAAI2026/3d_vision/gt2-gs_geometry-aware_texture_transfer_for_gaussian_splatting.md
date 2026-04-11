@@ -2,9 +2,6 @@
 description: "【论文笔记】GT2-GS: Geometry-aware Texture Transfer for Gaussian Splatting 论文解读 | AAAI 2026 | arXiv 2505.15208 | 3D高斯溅射 | 提出GT2-GS框架，通过几何感知纹理迁移损失、自适应细粒度控制模块和几何保持分支，实现高质量、视图一致的3DGS纹理迁移，在纹理保真度和场景内容保持上均优于现有3D风格迁移方法。"
 tags:
   - AAAI 2026
-  - 3D高斯溅射
-  - 纹理迁移
-  - 几何感知
 ---
 
 # GT2-GS: Geometry-aware Texture Transfer for Gaussian Splatting

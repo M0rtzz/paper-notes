@@ -2,9 +2,6 @@
 description: "【论文笔记】DLWM: Dual Latent World Models enable Holistic Gaussian-centric Pre-training in Autonomous Driving 论文解读 | CVPR 2026 | arXiv 2604.00969 | 世界模型 | 提出DLWM，面向自动驾驶的双潜在世界模型全局高斯中心预训练范式——Stage1自监督学习3D高斯场景表示（渲染多视图语义+深度图），Stage2训练双潜在世界模型：高斯流引导的模型用于下游占据感知/预测(+1.02/+2.68 mIoU)，自车轨迹引导的模型用于运动规划(-16% L2误差)，解决了高斯查询跨帧无法直接监督的排列等价性挑战。"
 tags:
   - CVPR 2026
-  - 世界模型
-  - 3D高斯
-  - 自监督预训练
 ---
 
 # DLWM: Dual Latent World Models enable Holistic Gaussian-centric Pre-training in Autonomous Driving

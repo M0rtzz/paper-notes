@@ -2,9 +2,6 @@
 description: "【论文笔记】CompKe: Complex Question Answering under Knowledge Editing 论文解读 | ACL 2025 | arXiv 2506.00829 | 知识编辑 | 提出CompKe基准——包含11,924个复杂问题——用于评估知识编辑方法在涉及**一对多关系、逻辑操作（交集/并集）和条件确认**的复杂推理场景下的表现，揭示现有方法在复杂问答上的显著不足。"
 tags:
   - ACL 2025
-  - 知识编辑
-  - 复杂问答
-  - 知识图谱
 ---
 
 # CompKe: Complex Question Answering under Knowledge Editing

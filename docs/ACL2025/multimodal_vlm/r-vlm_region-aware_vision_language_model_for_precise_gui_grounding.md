@@ -2,9 +2,6 @@
 description: "【论文笔记】R-VLM: Region-Aware Vision Language Model for Precise GUI Grounding 论文解读 | ACL 2025 | arXiv 2507.05673 | GUI grounding | 提出R-VLM，将传统目标检测中的区域提议（region proposal）和IoU感知损失引入VLM的GUI元素定位，通过两阶段放大推理和IoU加权交叉熵损失，在ScreenSpot和AgentStudio上平均提升13%的grounding准确率。"
 tags:
   - ACL 2025
-  - GUI grounding
-  - 视觉语言模型
-  - 区域感知
 ---
 
 # R-VLM: Region-Aware Vision Language Model for Precise GUI Grounding

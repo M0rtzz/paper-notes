@@ -2,9 +2,6 @@
 description: "【论文笔记】Context-Robust Knowledge Editing for Language Models 论文解读 | ACL 2025 | arXiv 2505.23026 | Knowledge Editing | 发现现有知识编辑方法在前缀上下文存在时大幅失败（编辑成功率从 90.9% 降至 69.1%），提出 CHED 基准评估上下文鲁棒性，并设计 CoRE 方法通过多样化前缀上下文 + 跨前缀隐藏状态方差正则化来增强编辑的上下文鲁棒性，在保持模型通用能力的同时显著缩小有/无上下文的性能差距。"
 tags:
   - ACL 2025
-  - Knowledge Editing
-  - 上下文鲁棒性
-  - MEMIT
 ---
 
 # Context-Robust Knowledge Editing for Language Models

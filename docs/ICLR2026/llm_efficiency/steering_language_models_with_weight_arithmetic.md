@@ -2,9 +2,6 @@
 description: "【论文笔记】Steering Language Models with Weight Arithmetic 论文解读 | ICLR 2026 | arXiv 2511.05408 | weight steering | 提出对比式权重引导（Contrastive Weight Steering），通过对正/负行为微调模型的权重差来提取行为方向向量，直接修改模型权重实现行为控制，在谄媚性、恶意性和拒绝性实验中比激活引导（Activation Steering）具有更好的泛化能力和一致性。"
 tags:
   - ICLR 2026
-  - weight steering
-  - activation steering
-  - sycophancy
 ---
 
 # Steering Language Models with Weight Arithmetic

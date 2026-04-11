@@ -2,7 +2,6 @@
 description: "【论文笔记】Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：The Zero-shot Composed Image Retrieval (ZSCIR) requires retrieving images that match the query image and the relative captions.Current methods focus on projecting the query image into the text feature space, subsequently combining them with features of query texts for retrieval. However, retrieving"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy

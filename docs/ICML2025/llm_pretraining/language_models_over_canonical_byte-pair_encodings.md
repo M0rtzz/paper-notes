@@ -2,9 +2,6 @@
 description: "【论文笔记】Language Models over Canonical Byte-Pair Encodings 论文解读 | ICML 2025 | arXiv 2506.07956 | BPE tokenization | 揭示基于 BPE 的语言模型会给指数多个\"非规范\"编码分配非零概率导致浪费，提出条件化（推理时约束）和构造化（新模型参数化）两种方法强制规范性，改善 held-out 似然。"
 tags:
   - ICML 2025
-  - BPE tokenization
-  - canonical encoding
-  - language modeling
 ---
 
 # Language Models over Canonical Byte-Pair Encodings

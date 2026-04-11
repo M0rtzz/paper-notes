@@ -2,9 +2,6 @@
 description: "【论文笔记】AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs 论文解读 | AAAI 2026 (Oral) | arXiv 2601.02771 | 视觉溯因推理 | 模仿人类的\"语言溯因+图像想象\"双模式认知，提出AbductiveMLLM，通过Reasoner(因果感知假设生成+筛选)和Imaginer(扩散模型引导的图像想象)两个组件端到端联合训练，在VAR和YouCookII两个benchmark上显著超越传统方法和通用MLLM，设置新的SOTA。"
 tags:
   - AAAI 2026 (Oral)
-  - 视觉溯因推理
-  - MLLM
-  - 扩散模型
 ---
 
 # AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs

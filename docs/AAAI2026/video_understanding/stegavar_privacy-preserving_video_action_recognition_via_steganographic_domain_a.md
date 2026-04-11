@@ -2,11 +2,9 @@
 description: "【论文笔记】StegaVAR: Privacy-Preserving Video Action Recognition via Steganographic Domain Analysis 论文解读 | AAAI2026 | arXiv 2512.12586 | privacy-preserving | 提出 StegaVAR 框架，首次将视频隐写术与动作识别结合，将隐私视频嵌入自然 cover 视频后直接在隐写域做分类，通过 STeP（secret 视频引导的时空特征学习）和 CroDA（跨频带差分注意力）实现接近原始视频的识别精度，同时提供优于匿名化方法的隐私保护。"
 tags:
   - AAAI2026
-  - privacy-preserving
-  - video action recognition
   - 动作识别
-  - steganography
   - GAN
+  - 注意力机制
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

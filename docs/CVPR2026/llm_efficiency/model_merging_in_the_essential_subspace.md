@@ -2,9 +2,6 @@
 description: "【论文笔记】Model Merging in the Essential Subspace 论文解读 | CVPR 2026 | arXiv 2602.20208 | 模型合并 | 提出 ESM 框架，通过对参数更新引起的激活偏移做 PCA 构建\"本质子空间\"（而非直接对参数做 SVD），并用三级极化缩放增强关键参数、抑制噪声，在 ViT-B/32 的 20 任务合并中比 Iso-CTS 提升 3.2%（绝对准确率）。"
 tags:
   - CVPR 2026
-  - 模型合并
-  - 主成分分析
-  - 本质子空间
 ---
 
 # Model Merging in the Essential Subspace

@@ -2,9 +2,6 @@
 description: "【论文笔记】UrbanIng-V2X: A Large-Scale Multi-Vehicle Multi-Infrastructure Dataset Across Multiple Intersections for Cooperative Perception 论文解读 | NeurIPS 2025 | arXiv 2510.23478 | V2X | 提出首个跨多交叉路口的真实世界车路协同感知数据集 UrbanIng-V2X，包含 3 个城市路口、2 辆联网车辆、多达 3 个基础设施传感器杆，共 34 个序列、712k 标注实例和 13 个目标类别。"
 tags:
   - NeurIPS 2025
-  - V2X
-  - 协同感知
-  - 多交叉路口
 ---
 
 # UrbanIng-V2X: A Large-Scale Multi-Vehicle Multi-Infrastructure Dataset Across Multiple Intersections for Cooperative Perception

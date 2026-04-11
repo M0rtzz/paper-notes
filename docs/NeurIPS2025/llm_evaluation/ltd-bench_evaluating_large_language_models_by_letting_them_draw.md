@@ -2,9 +2,6 @@
 description: "【论文笔记】LTD-Bench: Evaluating Large Language Models by Letting Them Draw 论文解读 | NeurIPS 2025 | arXiv 2511.02347 | LLM评估 | LTD-Bench 通过让 LLM 画画（生成点阵或代码绘图）来评估其空间推理能力，将抽象的评分指标转化为直观可视的输出，揭示了当前先进 LLM 在建立语言与空间概念双向映射方面的严重不足。"
 tags:
   - NeurIPS 2025
-  - LLM评估
-  - 空间推理
-  - 视觉生成
 ---
 
 # LTD-Bench: Evaluating Large Language Models by Letting Them Draw

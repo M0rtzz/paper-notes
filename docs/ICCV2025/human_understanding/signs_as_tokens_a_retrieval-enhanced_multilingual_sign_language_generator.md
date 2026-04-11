@@ -2,9 +2,6 @@
 description: "【论文笔记】Signs as Tokens: A Retrieval-Enhanced Multilingual Sign Language Generator 论文解读 | ICCV 2025 | arXiv 2411.17799 | 手语生成 | 提出 SOKE，一种基于预训练语言模型的多语言手语生成框架，通过解耦式 tokenizer 将连续手语动作离散化为 token 序列，结合多头解码和检索增强策略，实现从文本到多语种 3D 手语 avatar 的高质量生成。"
 tags:
   - ICCV 2025
-  - 手语生成
-  - 多语言手语
-  - 自回归语言模型
 ---
 
 # Signs as Tokens: A Retrieval-Enhanced Multilingual Sign Language Generator

@@ -2,9 +2,6 @@
 description: "【论文笔记】OpenHOI: Open-World Hand-Object Interaction Synthesis with Multimodal Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.18947 | 手物交互 | 提出 OpenHOI 框架，利用多模态大语言模型（MLLM）的常识推理能力来推断陌生物体的接触区域和抓取类型，实现开放世界的手物交互合成，无需针对每个物体收集训练数据。"
 tags:
   - NeurIPS 2025
-  - 手物交互
-  - 开放世界
-  - MLLM
 ---
 
 # OpenHOI: Open-World Hand-Object Interaction Synthesis with Multimodal Large Language Models

@@ -2,9 +2,7 @@
 description: "【论文笔记】Aligning Moments in Time using Video Queries 论文解读 | ICCV 2025 | arXiv 2508.15439 | 视频时刻检索 | 提出MATR（Moment Alignment TRansformer），通过双阶段序列对齐机制和自监督预训练策略实现视频到视频的时刻检索（Vid2VidMR），在ActivityNet-VRL上R@1和mIoU分别提升13.1%和8.1%（绝对值），并构建了新的体育领域数据集SportsMoments。"
 tags:
   - ICCV 2025
-  - 视频时刻检索
-  - 视频查询
-  - 序列对齐
+  - Transformer
 ---
 
 # Aligning Moments in Time using Video Queries

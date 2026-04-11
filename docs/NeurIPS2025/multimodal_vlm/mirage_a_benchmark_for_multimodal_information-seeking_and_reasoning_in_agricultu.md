@@ -2,10 +2,7 @@
 description: "【论文笔记】MIRAGE: 农业领域多模态信息检索与推理基准 论文解读 | NeurIPS 2025 | arXiv 2506.20100 | benchmark | MIRAGE 是首个基于真实农业专家咨询对话（35,000+条）构建的多模态基准，评估视觉语言模型在领域级实体识别、因果推理和\"澄清还是回答\"决策方面的能力，揭示了即使 GPT-4.1 识别准确率也仅 43.9% 的严峻挑战。"
 tags:
   - NeurIPS 2025
-  - benchmark
-  - multimodal
   - 多模态
-  - VLM
 ---
 
 # MIRAGE: A Benchmark for Multimodal Information-Seeking and Reasoning in Agriculture

@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Can Lead to Compositional Generalization 论文解读 | NeurIPS 2025 | arXiv 2507.07207 | 组合泛化 | 证明标准 MLP 通过简单地扩大数据量和模型规模即可实现组合泛化（compositional generalization），无需显式的模块化架构设计，并发现组合泛化成功时任务成分可从隐藏激活中线性解码。"
 tags:
   - NeurIPS 2025
-  - 组合泛化
-  - 缩放定律
-  - 线性可解码性
 ---
 
 # Scaling Can Lead to Compositional Generalization

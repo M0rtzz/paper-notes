@@ -2,9 +2,6 @@
 description: "【论文笔记】ConfHit: Conformal Generative Design with Oracle Free Guarantees 论文解读 | ICLR2026 | arXiv 2603.07371 | conformal prediction | 提出 ConfHit，一个模型无关的保理推断框架，通过密度比加权的共形 p 值和嵌套检验策略，在无需实验验证（oracle-free）和分布偏移条件下，为生成模型（药物发现等）提供有限样本统计保证——生成的候选集以 $1-\alpha$ 概率包含至少一个 hit。"
 tags:
   - ICLR2026
-  - conformal prediction
-  - generative model
-  - drug discovery
 ---
 
 # ConfHit: Conformal Generative Design with Oracle Free Guarantees

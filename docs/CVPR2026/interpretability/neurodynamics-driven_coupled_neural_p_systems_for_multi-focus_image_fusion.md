@@ -2,9 +2,6 @@
 description: "【论文笔记】Neurodynamics-Driven Coupled Neural P Systems for Multi-Focus Image Fusion 论文解读 | CVPR 2026 | arXiv 2509.17704 | 多焦点图像融合 | 提出 ND-CNPFuse，通过对耦合神经 P (CNP) 系统进行神经动力学分析，建立网络参数与输入信号的约束关系以避免神经元异常持续放电，从而在多焦点图像融合 (MFIF) 任务上无需训练即可生成高质量、可解释的决策图。"
 tags:
   - CVPR 2026
-  - 多焦点图像融合
-  - 耦合神经P系统
-  - 神经动力学
 ---
 
 # Neurodynamics-Driven Coupled Neural P Systems for Multi-Focus Image Fusion

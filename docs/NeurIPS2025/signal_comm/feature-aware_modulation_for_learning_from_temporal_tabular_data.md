@@ -2,9 +2,6 @@
 description: "【论文笔记】Feature-aware Modulation for Learning from Temporal Tabular Data 论文解读 | NeurIPS 2025 | arXiv 2512.03678 | 时间分布漂移 | 提出特征感知时间调制机制，通过基于时间上下文的可学习 Yeo-Johnson 变换动态调整特征分布（均值、标准差、偏度），实现跨时间语义对齐。"
 tags:
   - NeurIPS 2025
-  - 时间分布漂移
-  - 表格数据
-  - 特征语义对齐
 ---
 
 # Feature-aware Modulation for Learning from Temporal Tabular Data

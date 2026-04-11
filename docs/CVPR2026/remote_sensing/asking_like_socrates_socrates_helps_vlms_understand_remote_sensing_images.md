@@ -2,9 +2,7 @@
 description: "【论文笔记】Asking like Socrates: Socrates helps VLMs understand remote sensing images 论文解读 | CVPR 2026 | arXiv 2511.22396 | 遥感图像理解 | 揭示遥感VLM中的\"伪推理\"现象（显式推理链反而导致性能下降），归因于\"一瞥效应\"（单次粗浅感知不足），提出RS-EoT(Evidence-of-Thought)迭代证据搜索范式，通过SocraticAgent自博弈合成推理轨迹做SFT冷启动，再用两阶段渐进RL（grounding→VQA）增强和泛化，RS-EoT-7B在多个遥感VQA和grounding基准上达SOTA。"
 tags:
   - CVPR 2026
-  - 遥感图像理解
-  - 证据链推理
-  - 伪推理问题
+  - OCR
 ---
 
 # Asking like Socrates: Socrates helps VLMs understand remote sensing images

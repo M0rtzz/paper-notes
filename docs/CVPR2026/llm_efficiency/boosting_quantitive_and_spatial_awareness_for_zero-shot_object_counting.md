@@ -2,10 +2,7 @@
 description: "【论文笔记】Boosting Quantitive and Spatial Awareness for Zero-Shot Object Counting 论文解读 | CVPR 2026 | arXiv 2603.16129 | zero-shot counting | 提出QICA框架解决零样本目标计数中的数量感知缺失和空间不敏感问题，通过数量条件化的协同提示策略（SPS）联合适配视觉-语言编码器，结合在相似度图上直接操作的代价聚合解码器（CAD）保持零样本迁移能力，在FSC-147上达到零样本SOTA（MAE 12.41）并展现强跨域泛化。"
 tags:
   - CVPR 2026
-  - zero-shot counting
-  - vision-language model
   - 视觉语言
-  - prompt tuning
   - 提示学习
 ---
 

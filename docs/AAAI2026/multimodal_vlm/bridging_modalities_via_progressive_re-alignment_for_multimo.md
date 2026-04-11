@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging Modalities via Progressive Re-alignment for Multimodal Test-Time Adaptation (BriMPR) 论文解读 | AAAI 2026 | arXiv 2511.22862 | 多模态测试时自适应 | 提出 BriMPR 框架，通过\"分而治之\"策略将多模态测试时自适应(MMTTA)分解为多个单模态特征对齐子问题，先用 prompt tuning 校准各模态全局特征分布实现初始跨模态语义对齐，再通过跨模态掩码嵌入重组和实例级对比学习精细化对齐。"
 tags:
   - AAAI 2026
-  - 多模态测试时自适应
-  - 跨模态对齐
-  - Prompt Tuning
   - 提示学习
 ---
 

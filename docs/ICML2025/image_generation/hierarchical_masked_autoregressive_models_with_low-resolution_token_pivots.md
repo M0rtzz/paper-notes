@@ -2,9 +2,7 @@
 description: "【论文笔记】Hierarchical Masked Autoregressive Models with Low-Resolution Token Pivots 论文解读 | ICML 2025 | arXiv 2505.20288 | 自回归模型 | 提出 Hi-MAR，在掩码自回归图像生成中引入低分辨率 token 作为中间枢纽，建立从粗到细的层次化生成流程，并用 Diffusion Transformer Head 增强 token 间依赖建模，在 ImageNet 上以更少计算量显著超越 MAR（FID 提升 0.38）。"
 tags:
   - ICML 2025
-  - 自回归模型
-  - 层次化生成
-  - 掩码自回归
+  - Transformer
 ---
 
 # Hierarchical Masked Autoregressive Models with Low-Resolution Token Pivots

@@ -2,9 +2,6 @@
 description: "【论文笔记】Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains 论文解读 | CVPR2026 | arXiv 2603.12624 | SAM | 提出 SAM FTI-FDet，通过自动提示生成模块和自适应特征调度器将 SAM 的通用分割能力迁移至货运列车故障检测领域，以 TinyViT 轻量骨干实现 74.6 AP^box / 74.2 AP^mask，在精度和效率上均超越现有方法。"
 tags:
   - CVPR2026
-  - SAM
-  - 实例分割
-  - 故障检测
 ---
 
 # Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains

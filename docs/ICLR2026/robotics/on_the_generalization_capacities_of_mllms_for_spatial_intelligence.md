@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Generalization Capacities of MLLMs for Spatial Intelligence 论文解读 | ICLR 2026 | arXiv 2603.06704 | 相机感知 | 揭示RGB-only空间MLLM忽略相机内参导致的根本性几何歧义——近小物体和远大物体成像相同→模型过拟合训练相机分布而非学习真正的3D原理,提出Camera-Aware MLLM框架通过密集相机嵌入+相机感知数据增强+几何先验蒸馏三项技术实现跨相机泛化,证明相机感知是空间智能的先决条件。"
 tags:
   - ICLR 2026
-  - 相机感知
-  - MLLM
-  - 几何歧义
 ---
 
 # On the Generalization Capacities of MLLMs for Spatial Intelligence

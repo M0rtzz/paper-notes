@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Knowledge Graphs Make Large Language Models More Trustworthy? An Empirical Study Over Open-ended Question Answering 论文解读 | ACL 2025 | arXiv 2410.08085 | 知识图谱 | 提出开放域知识图谱问答基准 OKGQA 及其扰动变体 OKGQA-P，通过统一的图引导检索-生成框架系统性地验证了 KG 增强可以有效降低 LLM 幻觉率（FActScore 提升约 20 个百分点），子图检索在各类查询上表现最优且对 KG 噪声具有鲁棒性。"
 tags:
   - ACL 2025
-  - 知识图谱
-  - 大语言模型幻觉
-  - 开放域问答
 ---
 
 # Can Knowledge Graphs Make Large Language Models More Trustworthy? An Empirical Study Over Open-ended Question Answering

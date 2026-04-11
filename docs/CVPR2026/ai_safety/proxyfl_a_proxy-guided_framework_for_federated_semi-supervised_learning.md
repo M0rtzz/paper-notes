@@ -2,9 +2,6 @@
 description: "【论文笔记】ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning 论文解读 | CVPR 2026 | arXiv 2602.21078 | 联邦学习 | 提出 ProxyFL 框架，利用分类器权重作为统一代理 (proxy) 同时缓解联邦半监督学习中的外部异质性（跨客户端分布差异）和内部异质性（标注/未标注数据分布不匹配），在多个数据集上显著超越现有 FSSL 方法。"
 tags:
   - CVPR 2026
-  - 联邦学习
-  - 半监督学习
-  - 数据异质性
 ---
 
 # ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning

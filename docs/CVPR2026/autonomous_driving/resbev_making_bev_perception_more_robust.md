@@ -2,9 +2,6 @@
 description: "【论文笔记】RESBev: Making BEV Perception More Robust 论文解读 | CVPR 2026 | arXiv 2603.09529 | BEV感知 | 提出RESBev——一个即插即用的BEV感知鲁棒性增强框架，通过隐空间世界模型从历史干净帧预测当前BEV语义先验，再与被损坏的当前观测融合，在nuScenes上显著提升四种LSS模型在10种干扰下的平均IoU（+15~20个点）。"
 tags:
   - CVPR 2026
-  - BEV感知
-  - 鲁棒性
-  - 世界模型
 ---
 
 # RESBev: Making BEV Perception More Robust

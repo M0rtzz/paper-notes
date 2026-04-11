@@ -2,9 +2,6 @@
 description: "【论文笔记】Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression 论文解读 | ICML2025 | arXiv 2411.12665 | Prediction Powered Inference | 将 PPI++ 中调参 $\lambda$ 的过程重新解释为事后回归（post-hoc regression），提出 Ridge-PPI 和 Sigmoid-PPI 两种改进方法，在少标签（$n < 50$）场景下显著降低均值估计方差，优于经典估计和 PPI++。"
 tags:
   - ICML2025
-  - Prediction Powered Inference
-  - 少标签评估
-  - 回归系数
 ---
 
 # Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression

@@ -2,9 +2,6 @@
 description: "【论文笔记】Click-Gaussian: Interactive Segmentation to Any 3D Gaussians 论文解读 | ECCV 2024 | arXiv 2407.11793 | 3D高斯分裂 | 提出Click-Gaussian，通过学习两级粒度（粗/细）的可区分3D特征场，结合全局特征引导学习(GFL)解决跨视角mask不一致问题，实现每次点击仅需10ms的实时3D高斯交互式分割，速度比现有方法快15-130倍，同时显著提升分割精度。"
 tags:
   - ECCV 2024
-  - 3D高斯分裂
-  - 交互式分割
-  - 特征场
 ---
 
 # Click-Gaussian: Interactive Segmentation to Any 3D Gaussians

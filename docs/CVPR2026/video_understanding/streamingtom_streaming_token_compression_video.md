@@ -2,9 +2,6 @@
 description: "【论文笔记】StreamingTOM: Streaming Token Compression for Efficient Video Understanding 论文解读 | CVPR 2026 | arXiv 2510.18269 | 流式视频理解 | 针对流式视频 VLM 面临的因果性（无法访问未来帧）和累积性（token 无界增长）两个约束，提出 StreamingTOM——一个免训练、即插即用的两阶段框架，通过因果时序缩减（减少 pre-LLM prefill）和在线量化记忆（4-bit KV-cache 存储+按需检索反量化），实现 15.7× KV-cache 压缩比、较 SOTA LiveVLM 降低 1.2× 峰值内存和 2× 更快 TTFT，在离线基准平均 63.8% 和流式基准 RVS 55.8% 达到免训练方法 SOTA。"
 tags:
   - CVPR 2026
-  - 流式视频理解
-  - token压缩
-  - KV-cache优化
 ---
 
 # StreamingTOM: Streaming Token Compression for Efficient Video Understanding

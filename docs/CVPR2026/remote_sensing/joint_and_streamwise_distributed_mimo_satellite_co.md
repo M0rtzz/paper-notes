@@ -2,9 +2,6 @@
 description: "【论文笔记】Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users 论文解读 | CVPR 2026 | arXiv 2603.12914 | 低轨卫星通信 | 针对多LEO卫星协同服务多天线地面用户的下行链路，基于统计CSI提出联合非相干传输（WMMSE迭代预编码，支持一般凸功率约束）和流式分布传输（每流由单颗卫星发送，通过匈牙利算法做特征模式-卫星关联），在UE侧信道正交时流式传输几乎无损，非正交时呈现性能-开销权衡。"
 tags:
   - CVPR 2026
-  - 低轨卫星通信
-  - 分布式MIMO
-  - 联合传输
 ---
 
 # Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users

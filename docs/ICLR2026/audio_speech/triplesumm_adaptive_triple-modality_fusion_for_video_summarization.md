@@ -2,9 +2,6 @@
 description: "【论文笔记】TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization 论文解读 | ICLR 2026 | arXiv 2603.01169 | 视频摘要 | 提出 TripleSumm，通过多尺度时序块（层级滑动窗口注意力）和跨模态融合块（融合 token 自适应加权视觉/文本/音频），实现帧级模态重要性动态调整，并发布首个大规模三模态视频摘要数据集 MoSu（52678 视频），在 4 个 benchmark 上达到 SOTA。"
 tags:
   - ICLR 2026
-  - 视频摘要
-  - 三模态融合
-  - 自适应权重
 ---
 
 # TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization

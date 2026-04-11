@@ -2,10 +2,7 @@
 description: "【论文笔记】G2PDiffusion: Cross-Species Genotype-to-Phenotype Prediction via Evolutionary Diffusion 论文解读 | ICCV 2025 | arXiv 2502.04684 | genotype-to-phenotype | 提出G2PDiffusion，首个基于扩散模型的跨物种基因型到表型预测框架，通过进化信号（多序列比对MSA和环境上下文）条件化生成形态学图像，实现从DNA序列预测物种外观。"
 tags:
   - ICCV 2025
-  - genotype-to-phenotype
-  - diffusion model
   - 扩散模型
-  - multiple sequence alignment
 ---
 
 # G2PDiffusion: Cross-Species Genotype-to-Phenotype Prediction via Evolutionary Diffusion

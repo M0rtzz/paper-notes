@@ -2,9 +2,6 @@
 description: "【论文笔记】A Distributed Asynchronous Generalized Momentum Algorithm Without Delay Bounds 论文解读 | AAAI 2026 | arXiv 2508.08218 | 分布式优化 | 提出一种完全异步（totally asynchronous）的广义动量（Generalized Momentum）分布式优化算法，无需假设通信/计算延迟的上界即可保证线性收敛，在 Fashion-MNIST 分类任务上比梯度下降快 71%、比 Heavy Ball 快 41%、比 Nesterov 加速梯度法快 19%。"
 tags:
   - AAAI 2026
-  - 分布式优化
-  - 完全异步
-  - 广义动量法
 ---
 
 # A Distributed Asynchronous Generalized Momentum Algorithm Without Delay Bounds

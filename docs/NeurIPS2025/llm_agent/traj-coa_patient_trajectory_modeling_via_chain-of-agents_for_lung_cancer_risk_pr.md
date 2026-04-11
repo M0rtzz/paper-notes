@@ -2,9 +2,6 @@
 description: "【论文笔记】Traj-CoA: Patient Trajectory Modeling via Chain-of-Agents for Lung Cancer Risk Prediction 论文解读 | NeurIPS 2025 | arXiv 2510.10454 | multi-agent system | 提出Traj-CoA多agent框架，通过chain-of-agents架构配合EHRMem长期记忆模块对长且噪声的纵向EHR进行时序推理，在零样本肺癌风险预测任务中（5年EHR数据，最高160k tokens）超越ML/DL/BERT/LLM等多类基线。"
 tags:
   - NeurIPS 2025
-  - multi-agent system
-  - EHR
-  - patient trajectory
 ---
 
 # Traj-CoA: Patient Trajectory Modeling via Chain-of-Agents for Lung Cancer Risk Prediction

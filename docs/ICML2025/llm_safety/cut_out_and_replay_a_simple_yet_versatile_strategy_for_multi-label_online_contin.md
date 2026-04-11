@@ -2,9 +2,6 @@
 description: "【论文笔记】Cut out and Replay: A Simple yet Versatile Strategy for Multi-Label Online Continual Learning 论文解读 | ICML 2025 | arXiv 2505.19680 | 多标签学习 | 提出 CUTER（CUT-out-and-Experience-Replay），通过裁剪图像中标签特定区域并存入记忆缓冲区进行回放，将多标签在线持续学习转化为多个单标签子图像分类任务，同时解决灾难性遗忘、缺失标签和类别不平衡三大挑战。"
 tags:
   - ICML 2025
-  - 多标签学习
-  - 在线持续学习
-  - 经验回放
 ---
 
 # Cut out and Replay: A Simple yet Versatile Strategy for Multi-Label Online Continual Learning

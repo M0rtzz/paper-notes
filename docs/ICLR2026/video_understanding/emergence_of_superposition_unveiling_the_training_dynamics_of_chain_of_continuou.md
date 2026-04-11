@@ -2,9 +2,7 @@
 description: "【论文笔记】Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought 论文解读 | ICLR 2026 | arXiv 2509.23365 | Continuous CoT | 从理论上分析了两层 Transformer 在有向图可达性问题上使用连续 Chain-of-Thought（Coconut）训练时的训练动力学，揭示了\"叠加态\"（superposition）机制如何自然涌现：index-matching logit 先增长后有界，从而在探索与利用之间取得平衡。"
 tags:
   - ICLR 2026
-  - Continuous CoT
-  - 叠加态
-  - 训练动力学
+  - Transformer
 ---
 
 # Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought

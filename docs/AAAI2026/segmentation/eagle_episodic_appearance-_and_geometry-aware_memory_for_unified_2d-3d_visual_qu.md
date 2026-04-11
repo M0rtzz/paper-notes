@@ -2,9 +2,6 @@
 description: "【论文笔记】EAGLE: Episodic Appearance- and Geometry-Aware Memory for Unified 2D-3D Visual Query Localization 论文解读 | AAAI 2026 | arXiv 2511.08007 | 第一人称视觉 | 提出 EAGLE 框架，借鉴鸟类记忆巩固机制，通过外观感知元学习记忆 (AMM) 驱动的分割分支与几何感知定位记忆 (GLM) 驱动的跟踪分支协同工作，结合 VGGT 实现高效的 2D-3D 统一视觉查询定位，在 Ego4D-VQ 基准上达到 SOTA。"
 tags:
   - AAAI 2026
-  - 第一人称视觉
-  - 视觉查询定位
-  - 情景记忆
 ---
 
 # EAGLE: Episodic Appearance- and Geometry-Aware Memory for Unified 2D-3D Visual Query Localization

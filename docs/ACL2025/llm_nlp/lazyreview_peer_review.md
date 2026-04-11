@@ -2,9 +2,6 @@
 description: "【论文笔记】LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews 论文解读 | ACL 2025 | arXiv 2504.11042 | 同行评审 | 构建首个标注\"懒惰思维\"细粒度类别的同行评审数据集 LazyReview——发现 LLM 在零样本下难以检测评审中的懒惰思维启发式，但在 LazyReview 上指令微调后性能提升 10-20 个点，且经懒惰思维反馈修改的评审显著更全面和可操作。"
 tags:
   - ACL 2025
-  - 同行评审
-  - 懒惰思维
-  - 启发式偏差
 ---
 
 # LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews

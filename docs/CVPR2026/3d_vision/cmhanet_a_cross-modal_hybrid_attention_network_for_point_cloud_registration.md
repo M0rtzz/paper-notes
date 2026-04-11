@@ -2,9 +2,6 @@
 description: "【论文笔记】CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration 论文解读 | CVPR2026 | arXiv 2603.12721 | 点云配准 | 提出 CMHANet，通过跨模态混合注意力机制将 2D 图像纹理语义特征与 3D 点云几何特征深度融合，结合对比学习优化函数，在 3DMatch/3DLoMatch 上实现 SOTA 点云配准性能。"
 tags:
   - CVPR2026
-  - 点云配准
-  - 跨模态融合
-  - 混合注意力
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

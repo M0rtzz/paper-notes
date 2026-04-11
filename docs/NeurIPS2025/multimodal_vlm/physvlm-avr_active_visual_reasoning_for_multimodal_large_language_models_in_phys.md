@@ -2,9 +2,6 @@
 description: "【论文笔记】PhysVLM-AVR: Active Visual Reasoning for Multimodal Large Language Models in Physical Environments 论文解读 | NeurIPS 2025 | arXiv 2510.21111 | 主动视觉推理 | 本文提出主动视觉推理（AVR）任务范式，构建了CLEVR-AVR仿真基准和AVR-152k数据集（含丰富CoT标注），训练PhysVLM-AVR模型在部分可观测交互环境中通过感知-推理-动作闭环迭代获取信息并正确回答问题，显著优于现有MLLM。"
 tags:
   - NeurIPS 2025
-  - 主动视觉推理
-  - 部分可观测环境
-  - 多步交互
 ---
 
 # PhysVLM-AVR: Active Visual Reasoning for Multimodal Large Language Models in Physical Environments

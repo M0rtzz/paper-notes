@@ -2,9 +2,6 @@
 description: "【论文笔记】End-to-End Multi-Modal Diffusion Mamba 论文解读 | ICCV 2025 | arXiv 2510.13253 | 多模态模型 | 提出 Multi-Modal Diffusion Mamba（MDM），一种基于 Mamba 架构的端到端多模态模型，通过统一的 VAE 编解码器和多步选择性扩散模型，实现图像和文本的同时生成，计算复杂度为 $\mathcal{O}(MLN^2)$，在图像生成、图像描述、VQA 等多任务上超越现有端到端模型。"
 tags:
   - ICCV 2025
-  - 多模态模型
-  - Mamba
-  - 扩散模型
 ---
 
 # End-to-End Multi-Modal Diffusion Mamba

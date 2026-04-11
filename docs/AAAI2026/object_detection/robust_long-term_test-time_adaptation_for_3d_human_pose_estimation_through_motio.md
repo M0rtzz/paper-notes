@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Long-term Test-Time Adaptation for 3D Human Pose Estimation through Motion Discretization 论文解读 | AAAI 2026 | arXiv 2511.18851 | 3D 人体姿态估计 | 针对 3D 人体姿态估计在线测试时自适应中的误差累积问题，提出基于运动离散化（无监督聚类获得锚运动集）+ 自回放机制 + 软重置策略的解决方案，使模型能在长时间持续适应中稳健利用个人形态和习惯性运动特征，在 Ego-Exo4D 和 3DPW 上超越所有现有在线 TTA 方法。"
 tags:
   - AAAI 2026
-  - 3D 人体姿态估计
-  - 测试时自适应
-  - 运动离散化
 ---
 
 # Robust Long-term Test-Time Adaptation for 3D Human Pose Estimation through Motion Discretization

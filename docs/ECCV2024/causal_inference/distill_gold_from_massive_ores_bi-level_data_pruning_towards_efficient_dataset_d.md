@@ -2,10 +2,7 @@
 description: "【论文笔记】Distill Gold from Massive Ores: Bi-level Data Pruning towards Efficient Dataset Distillation 论文解读 | ECCV 2024 | arXiv 2305.18381 | Dataset Distillation | 提出双层数据剪枝策略 BiLP，通过经验损失静态剪枝和基于因果效应 (ITE) 的动态剪枝，高效选择对数据集蒸馏最有价值的真实样本，以即插即用方式一致性提升现有蒸馏方法性能并降低计算开销。"
 tags:
   - ECCV 2024
-  - Dataset Distillation
-  - Data Pruning
   - 剪枝
-  - Causal Inference
 ---
 
 # Distill Gold from Massive Ores: Bi-level Data Pruning towards Efficient Dataset Distillation

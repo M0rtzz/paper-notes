@@ -2,9 +2,6 @@
 description: "【论文笔记】A Prediction-as-Perception Framework for 3D Object Detection 论文解读 | CVPR 2026 | arXiv 2603.12599 | 3D感知 | 受人脑\"预测性感知\"机制启发，提出 PAP 框架——将历史帧的轨迹预测结果作为 query 注入当前帧的感知模块，在 UniAD 上实现跟踪精度提升 10%、推理速度提升 15%。"
 tags:
   - CVPR 2026
-  - 3D感知
-  - 目标检测
-  - 预测式感知
 ---
 
 # A Prediction-as-Perception Framework for 3D Object Detection

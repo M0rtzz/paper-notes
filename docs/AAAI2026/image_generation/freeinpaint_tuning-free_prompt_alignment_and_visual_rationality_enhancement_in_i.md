@@ -2,9 +2,6 @@
 description: "【论文笔记】FreeInpaint: Tuning-free Prompt Alignment and Visual Rationality Enhancement in Image Inpainting 论文解读 | AAAI 2026 | arXiv 2512.21104 | 图像修复 | 提出FreeInpaint，一种即插即用的免训练方法，通过优化初始噪声引导注意力聚焦到修复区域（PriNo），并在去噪过程中分解条件分布为文本对齐、视觉合理性和人类偏好三项引导（DeGu），同时提升图像修复的提示词对齐和视觉合理性。"
 tags:
   - AAAI 2026
-  - 图像修复
-  - 扩散模型
-  - 免训练引导
 ---
 
 # FreeInpaint: Tuning-free Prompt Alignment and Visual Rationality Enhancement in Image Inpainting

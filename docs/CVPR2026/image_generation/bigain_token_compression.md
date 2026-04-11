@@ -2,9 +2,6 @@
 description: "【论文笔记】BiGain: Unified Token Compression for Joint Generation and Classification 论文解读 | CVPR 2026 | arXiv 2603.12240 | token压缩 | 提出BiGain——一个训练免的token压缩框架，通过频域分离（保留高频细节+低中频语义），在扩散模型加速时同时保持生成质量和分类能力。70% token合并下分类精度+7.15%且FID反而更好。"
 tags:
   - CVPR 2026
-  - token压缩
-  - 频域分离
-  - 扩散模型加速
 ---
 
 # BiGain: Unified Token Compression for Joint Generation and Classification

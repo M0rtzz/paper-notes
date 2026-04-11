@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Set Function Approximation with Quasi-Arithmetic Neural Networks 论文解读 | ICLR 2026 | arXiv 2602.04941 | 集合函数 | 提出QUANN（准算术神经网络），用可逆神经网络实现可学习的Kolmogorov均值作为池化操作，首次实现机器学习版本的广义中心趋势度量，QUANN是均值可分解集合函数的通用近似器，且学到的嵌入跨任务迁移性更强。"
 tags:
   - ICLR 2026
-  - 集合函数
-  - Kolmogorov均值
-  - 可逆网络
 ---
 
 # Improving Set Function Approximation with Quasi-Arithmetic Neural Networks

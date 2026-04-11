@@ -2,9 +2,6 @@
 description: "【论文笔记】LLMscape 论文解读 | NeurIPS 2025 (Workshop/Demo) | arXiv 2511.07161 | 交互式装置 | LLMscape 是一个交互式投影映射沙盘装置，让人类参与者和多个 LLM 驱动的 AI 代理在共同的不确定环境中共同构建意义，探索人类与机器在认识论层面的共通局限。"
 tags:
   - NeurIPS 2025 (Workshop/Demo)
-  - 交互式装置
-  - LLM Agent
-  - 具身认知
 ---
 
 # LLMscape

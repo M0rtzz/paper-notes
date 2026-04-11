@@ -2,9 +2,6 @@
 description: "【论文笔记】Completing A Systematic Review in Hours instead of Months with Interactive AI Agents 论文解读 | ACL 2025 | arXiv 2504.14822 | systematic review | 提出 InsightAgent，一个以人为中心的交互式多 Agent 系统，通过语义聚类分区、多 agent 并行阅读和实时用户交互，将医学系统综述的撰写时间从数月缩短到约 1.5 小时，达到人类撰写质量的 79.7%。"
 tags:
   - ACL 2025
-  - systematic review
-  - multi-agent
-  - interactive AI
 ---
 
 # Completing A Systematic Review in Hours instead of Months with Interactive AI Agents

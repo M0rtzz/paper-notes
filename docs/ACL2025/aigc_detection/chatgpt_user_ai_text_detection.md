@@ -2,9 +2,6 @@
 description: "【论文笔记】People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text 论文解读 | ACL 2025 | arXiv 2501.15654 | AI文本检测 | 通过 1,740 条标注实验发现，经常使用 LLM 进行写作任务的人类标注者可以极高精度（5人投票仅错 1/300）检测 AI 生成文本，即使面对改写和人性化逃逸策略也显著优于大多数自动检测器。"
 tags:
   - ACL 2025
-  - AI文本检测
-  - 人类检测者
-  - LLM写作
 ---
 
 # People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text

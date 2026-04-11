@@ -2,9 +2,6 @@
 description: "【论文笔记】DISTIL: Data-Free Inversion of Suspicious Trojan Inputs via Latent Diffusion 论文解读 | ICCV 2025 | arXiv 2507.22813 | 后门攻击防御 | DISTIL 提出一种无需干净数据的木马触发器反演方法，通过在预训练引导扩散模型的潜空间中搜索触发器模式（而非像素空间），并注入均匀噪声正则化，有效区分真实后门触发器和对抗扰动，在 BackdoorBench 上精度最高提升 7.1%。"
 tags:
   - ICCV 2025
-  - 后门攻击防御
-  - 触发器反演
-  - 扩散模型
 ---
 
 # DISTIL: Data-Free Inversion of Suspicious Trojan Inputs via Latent Diffusion

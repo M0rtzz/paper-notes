@@ -2,10 +2,7 @@
 description: "【论文笔记】Tropical Attention: Neural Algorithmic Reasoning for Combinatorial Algorithms 论文解读 | NEURIPS2025 | arXiv 2505.17190 | tropical geometry | 提出 Tropical Attention，将注意力机制提升到热带射影空间中进行分段线性推理，在组合算法的 OOD 泛化上大幅超越 softmax 基线，同时推理速度快 3-9 倍、参数少 ~20%。"
 tags:
   - NEURIPS2025
-  - tropical geometry
-  - attention mechanism
   - 注意力机制
-  - neural algorithmic reasoning
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

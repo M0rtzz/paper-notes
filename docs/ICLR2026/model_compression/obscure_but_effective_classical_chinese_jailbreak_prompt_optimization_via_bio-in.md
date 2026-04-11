@@ -2,9 +2,6 @@
 description: "【论文笔记】Obscure but Effective: Classical Chinese Jailbreak Prompt Optimization via Bio-Inspired Search 论文解读 | ICLR 2026 | arXiv 2602.22983 | LLM安全 | 提出 CC-BOS 框架，利用文言文的语义压缩和模糊性特征，结合果蝇优化算法在八维策略空间中搜索最优越狱提示，在六个主流 LLM 上实现近 100% 的攻击成功率。"
 tags:
   - ICLR 2026
-  - LLM安全
-  - 越狱攻击
-  - 文言文
 ---
 
 # Obscure but Effective: Classical Chinese Jailbreak Prompt Optimization via Bio-Inspired Search

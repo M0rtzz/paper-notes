@@ -2,10 +2,7 @@
 description: "【论文笔记】Feather the Throttle: Revisiting Visual Token Pruning for Vision-Language Model Acceleration 论文解读 | ICCV 2025 | arXiv 2412.13180 | 剪枝 visual token pruning | 揭示了VLM中视觉token剪枝方法（如FastV）因RoPE的长程衰减特性导致系统性地保留图像底部token的严重缺陷，并提出FEATHER方法通过去除RoPE+均匀采样+两阶段剪枝修复该问题，在定位任务上实现5倍以上的性能提升。"
 tags:
   - ICCV 2025
-  - visual token pruning
   - 剪枝
-  - VLM加速
-  - RoPE位置偏差
 ---
 
 # Feather the Throttle: Revisiting Visual Token Pruning for Vision-Language Model Acceleration

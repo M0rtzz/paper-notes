@@ -2,9 +2,6 @@
 description: "【论文笔记】SplatSSC: Decoupled Depth-Guided Gaussian Splatting for Semantic Scene Completion 论文解读 | AAAI 2026 | arXiv 2508.02261 | 语义场景补全 | 提出 SplatSSC，通过深度引导的高斯基元初始化策略和解耦高斯聚合器（DGA），解决目标中心（object-centric）范式中随机初始化低效和离群基元产生浮点伪影的问题，在 Occ-ScanNet 上IoU提升6.3%、mIoU提升4.1%，同时延迟和内存成本降低超过9.3%。"
 tags:
   - AAAI 2026
-  - 语义场景补全
-  - 3D高斯
-  - 深度引导
 ---
 
 # SplatSSC: Decoupled Depth-Guided Gaussian Splatting for Semantic Scene Completion

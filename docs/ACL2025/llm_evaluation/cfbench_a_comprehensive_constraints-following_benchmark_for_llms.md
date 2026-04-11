@@ -2,9 +2,6 @@
 description: "【论文笔记】CFBench: A Comprehensive Constraints-Following Benchmark for LLMs 论文解读 | ACL 2025 | arXiv 2408.01122 | 约束遵循 | 提出 CFBench——一个包含 1000 条精标样本、覆盖 200+ 真实场景和 50+ NLP 任务的中文大规模约束遵循基准，系统性地定义了 10 大类 25+ 子类的约束分类体系，并设计结合约束满足率（CSR）、指令满足率（ISR）和需求优先级满足率（PSR）的多维评估框架，揭示当前顶级 LLM 在约束遵循方面仍存在显著提升空间。"
 tags:
   - ACL 2025
-  - 约束遵循
-  - 指令遵循
-  - 中文基准
 ---
 
 # CFBench: A Comprehensive Constraints-Following Benchmark for LLMs

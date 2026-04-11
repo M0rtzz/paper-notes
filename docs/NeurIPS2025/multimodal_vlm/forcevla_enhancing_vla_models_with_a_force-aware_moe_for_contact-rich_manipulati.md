@@ -2,9 +2,6 @@
 description: "【论文笔记】ForceVLA: Enhancing VLA Models with a Force-aware MoE for Contact-rich Manipulation 论文解读 | NeurIPS 2025 | arXiv 2505.22159 | VLA | 提出 ForceVLA，在 VLA 框架中将 6 轴力/力矩传感引入为一等模态，通过 FVLMoE（力感知混合专家）模块在动作解码阶段动态融合视觉-语言嵌入与实时力反馈，在 5 项接触密集操作任务上平均成功率提升 23.2%，个别任务达 80%。"
 tags:
   - NeurIPS 2025
-  - VLA
-  - 力反馈
-  - MoE
 ---
 
 # ForceVLA: Enhancing VLA Models with a Force-aware MoE for Contact-rich Manipulation

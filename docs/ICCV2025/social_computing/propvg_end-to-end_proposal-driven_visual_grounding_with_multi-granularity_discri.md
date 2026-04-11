@@ -2,9 +2,6 @@
 description: "【论文笔记】PropVG: End-to-End Proposal-Driven Visual Grounding with Multi-Granularity Discrimination 论文解读 | ICCV 2025 | arXiv 2509.04833 | visual grounding | 提出PropVG，首个无需预训练检测器的端到端proposal-based视觉定位框架，将视觉定位分解为前景proposal生成+基于对比学习的指代评分两阶段，并引入多粒度目标判别模块（MTD）融合物体级和语义级信息判断目标是否存在，在10个数据集上刷新SOTA且推理速度比传统proposal方法快4倍。"
 tags:
   - ICCV 2025
-  - visual grounding
-  - proposal-based
-  - contrastive learning
   - 对比学习
 ---
 

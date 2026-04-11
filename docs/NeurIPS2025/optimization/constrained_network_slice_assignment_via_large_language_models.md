@@ -2,9 +2,6 @@
 description: "【论文笔记】Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets 论文解读 | NeurIPS 2025 | arXiv 2410.01779 | 代数结构 | 揭示两层二次激活网络在 Abelian 群推理任务上训练时权重空间具有半环代数结构，提出 CoGS 框架通过环运算将部分解组合为全局最优解，约 95% 梯度下降解与理论构造精确匹配。"
 tags:
   - NeurIPS 2025
-  - 代数结构
-  - 半环
-  - 环同态
 ---
 
 # Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets

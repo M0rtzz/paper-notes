@@ -2,9 +2,6 @@
 description: "【论文笔记】Enabling Fine-Grained Operating Points for Black-Box LLMs 论文解读 | ICLR 2026 | arXiv 2510.17727 | 黑盒LLM | 发现黑盒 LLM 的语言化概率仅输出 16-23 个唯一值（低基数问题），导致 PR/ROC 曲线粗糙无法精细调优；通过注入参数化噪声和可选的 MLP 校正，将唯一值从 16 个提升到 20,000+，在仅需 1-2 次 API 调用的条件下达到 20 次采样的性能。"
 tags:
   - ICLR 2026
-  - 黑盒LLM
-  - 操作点
-  - 概率校准
 ---
 
 # Enabling Fine-Grained Operating Points for Black-Box LLMs

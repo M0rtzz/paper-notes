@@ -2,9 +2,6 @@
 description: "【论文笔记】Simulating Society Requires Simulating Thought 论文解读 | NeurIPS 2025 | arXiv 2506.06958 | 社会模拟 | 本文提出从\"行为主义\"模式转向\"认知建模\"范式，通过 GenMinds 框架用因果信念图建模 LLM Agent 的内部推理过程，并设计 RECAP 基准从可追溯性、人口统计敏感性和干预一致性三维度评估推理保真度。"
 tags:
   - NeurIPS 2025
-  - 社会模拟
-  - 认知建模
-  - 因果推理
 ---
 
 # Simulating Society Requires Simulating Thought

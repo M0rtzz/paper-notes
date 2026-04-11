@@ -2,9 +2,6 @@
 description: "【论文笔记】TRACED: Transition-aware Regret Approximation with Co-learnability for Environment Design 论文解读 | ICLR 2026 | arXiv 2506.19997 | 无监督环境设计 | TRACED改进无监督环境设计（UED）中的regret近似——在传统PVL基础上加入转移预测误差（ATPL）捕获动力学模型失配，并引入Co-Learnability度量任务间迁移效益，在MiniGrid和BipedalWalker上以10k更新超越所有baseline的20k更新性能。"
 tags:
   - ICLR 2026
-  - 无监督环境设计
-  - 课程学习
-  - regret近似
 ---
 
 # TRACED: Transition-aware Regret Approximation with Co-learnability for Environment Design

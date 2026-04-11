@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning with Preserving for Continual Multitask Learning 论文解读 | AAAI2026 | arXiv 2511.11676 | continual learning | 提出 Learning with Preserving (LwP) 框架，通过 Dynamically Weighted Distance Preservation (DWDP) 损失保持 latent space 的几何结构，在无需 replay buffer 的条件下解决 Continual Multitask Learning (CMTL) 中的灾难性遗忘，是唯一超越 single-task baseline 的方法。"
 tags:
   - AAAI2026
-  - continual learning
-  - multitask learning
-  - representation preservation
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

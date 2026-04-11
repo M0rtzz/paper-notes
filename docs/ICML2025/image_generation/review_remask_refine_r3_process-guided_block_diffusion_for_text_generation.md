@@ -2,10 +2,7 @@
 description: "【论文笔记】Review, Remask, Refine (R3): Process-Guided Block Diffusion for Text Generation 论文解读 | ICML2025 (MOSS Workshop) | arXiv 2507.08018 | 扩散模型 masked diffusion model | 提出 R3 (Review, Remask, Refine) 框架，在推理阶段利用过程奖励模型 (PRM) 评估掩码扩散模型的中间生成块，对低质量块进行比例性重掩码并重新生成，实现无需额外训练的定向纠错，在数学推理任务上以极低的 PRM 调用次数取得显著提升。"
 tags:
   - ICML2025 (MOSS Workshop)
-  - masked diffusion model
   - 扩散模型
-  - process reward model
-  - iterative refinement
 ---
 
 # Review, Remask, Refine (R3): Process-Guided Block Diffusion for Text Generation

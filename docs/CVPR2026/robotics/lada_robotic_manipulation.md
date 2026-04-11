@@ -2,9 +2,6 @@
 description: "【论文笔记】Language-Grounded Decoupled Action Representation for Robotic Manipulation (LaDA) 论文解读 | CVPR 2026 | arXiv 2603.12967 | [机器人操作 | 提出LaDA框架，将连续7-DoF动作解耦为平移/旋转/夹爪三个语言锚定的语义原语，通过软标签对比学习和自适应权重策略在共享嵌入空间中对齐跨任务动作表示，在LIBERO上达93.6%成功率（0.6B参数），MimicGen上67%平均成功率，超越所有基线。"
 tags:
   - CVPR 2026
-  - [机器人操作
-  - 动作解耦
-  - 语言语义桥梁
 ---
 
 # Language-Grounded Decoupled Action Representation for Robotic Manipulation (LaDA)

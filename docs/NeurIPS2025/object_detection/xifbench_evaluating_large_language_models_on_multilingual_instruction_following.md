@@ -2,9 +2,6 @@
 description: "【论文笔记】XIFBench: Evaluating Large Language Models on Multilingual Instruction Following 论文解读 | NeurIPS 2025 | arXiv 2503.07539 | 多语言指令遵循 | 提出XIFBench——首个系统评估LLM多语言指令遵循能力的约束驱动基准，包含558条指令（0-5个约束，5大类21维度）×6种语言（高/中/低资源），并引入英语需求锚定评估协议，实现94.7%的跨语言评估一致性。"
 tags:
   - NeurIPS 2025
-  - 多语言指令遵循
-  - 约束评估
-  - LLM基准测试
 ---
 
 # XIFBench: Evaluating Large Language Models on Multilingual Instruction Following

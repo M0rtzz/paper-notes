@@ -2,9 +2,6 @@
 description: "【论文笔记】Analyzing Finetuning Representation Shift for Multimodal LLMs Steering 论文解读 | ICCV 2025 | arXiv 2501.03012 | MLLM可解释性 | 提出一个无需训练的框架，通过概念级别分析揭示多模态大语言模型微调时的表征偏移，并利用偏移向量实现模型行为的轻量级引导（去偏、安全控制）。"
 tags:
   - ICCV 2025
-  - MLLM可解释性
-  - 概念漂移
-  - 表征偏移
 ---
 
 # Analyzing Finetuning Representation Shift for Multimodal LLMs Steering

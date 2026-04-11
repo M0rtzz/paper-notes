@@ -2,9 +2,6 @@
 description: "【论文笔记】Temporal Concept Dynamics in Diffusion Models via Prompt-Conditioned Interventions 论文解读 | ICLR 2026 | arXiv 2512.08486 | 概念时间动力学 | 提出 PCI（Prompt-Conditioned Intervention）框架，通过在去噪轨迹不同时间步切换文本提示，量化概念何时在扩散模型中锁定，并将此发现应用于时间感知的图像编辑。"
 tags:
   - ICLR 2026
-  - 概念时间动力学
-  - 提示条件干预
-  - 概念插入成功率
 ---
 
 # Temporal Concept Dynamics in Diffusion Models via Prompt-Conditioned Interventions

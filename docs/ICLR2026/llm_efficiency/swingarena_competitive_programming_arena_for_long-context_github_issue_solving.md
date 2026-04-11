@@ -2,9 +2,6 @@
 description: "【论文笔记】SwingArena: Adversarial Programming Arena for Long-context GitHub Issue Solving 论文解读 | ICLR 2026 / **arXiv**: [2505.23932](https://arxiv.org/abs/2505.23932) | 对抗性评测 | 提出SwingArena对抗性评测框架，让LLM交替扮演提交者(生成补丁)和审查者(编写测试)，通过真实CI流水线验证，覆盖C++/Python/Rust/Go四种语言的400个GitHub issue，揭示不同模型在补丁生成vs验证方面的行为差异。"
 tags:
   - ICLR 2026 / **arXiv**: [2505.23932](https://arxiv.org/abs/2505.23932)
-  - 对抗性评测
-  - CI流水线
-  - Submitter-Reviewer
 ---
 
 # SwingArena: Adversarial Programming Arena for Long-context GitHub Issue Solving

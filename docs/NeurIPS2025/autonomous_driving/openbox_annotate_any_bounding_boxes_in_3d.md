@@ -2,9 +2,6 @@
 description: "【论文笔记】OpenBox: Annotate Any Bounding Boxes in 3D 论文解读 | NeurIPS 2025 | arXiv 2512.01352 | 3D自动标注 | 提出 OpenBox，一种两阶段自动 3D 边界框标注流水线：先通过跨模态实例对齐将 2D 视觉基础模型的实例信息映射到 3D 点云，再根据物体物理状态（静态刚体/动态刚体/可变形体）自适应生成高质量 3D 边界框，无需自训练（self-training）迭代。"
 tags:
   - NeurIPS 2025
-  - 3D自动标注
-  - 开放词汇
-  - 视觉基础模型
 ---
 
 # OpenBox: Annotate Any Bounding Boxes in 3D

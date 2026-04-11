@@ -2,9 +2,6 @@
 description: "【论文笔记】O3N: Omnidirectional Open-Vocabulary Occupancy Prediction 论文解读 | CVPR 2026 | arXiv 2603.12144 | 全向感知 | O3N 首次提出全向开放词汇占用预测任务，设计纯视觉端到端框架：Polar-spiral Mamba (PsM) 在极坐标空间以螺旋扫描建模全景几何连续性；Occupancy Cost Aggregation (OCA) 构建 voxel-text 匹配代价体积避免直接特征对齐的过拟合；Natural Modality Alignment (NMA) 通过无梯度随机游走对齐 pixel-voxel-text 三模态嵌入。在 QuadOcc 上达 16.54 mIoU / 21.16 Novel mIoU（SOTA），大幅超越 OVO 基线。"
 tags:
   - CVPR 2026
-  - 全向感知
-  - 开放词汇
-  - 占用预测
 ---
 
 # O3N: Omnidirectional Open-Vocabulary Occupancy Prediction

@@ -2,9 +2,6 @@
 description: "【论文笔记】Temporal Imbalance of Positive and Negative Supervision in Class-Incremental Learning 论文解读 | CVPR2026 | arXiv 2603.02280 | Class-Incremental Learning | 提出时序不平衡（Temporal Imbalance）这一被忽视的类增量学习偏差来源，并设计 Temporal-Adjusted Loss（TAL）通过时间衰减记忆核动态降低旧类的负监督权重，以即插即用的方式显著缓解灾难性遗忘。"
 tags:
   - CVPR2026
-  - Class-Incremental Learning
-  - Catastrophic Forgetting
-  - Temporal Imbalance
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

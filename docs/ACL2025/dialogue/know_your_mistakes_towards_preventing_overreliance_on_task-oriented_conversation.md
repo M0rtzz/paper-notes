@@ -2,9 +2,6 @@
 description: "【论文笔记】Know Your Mistakes: Towards Preventing Overreliance on Task-Oriented Conversational AI Through Accountability Modeling 论文解读 | ACL 2025 | arXiv 2501.10316 | 对话状态追踪 | 本文提出面向任务型对话系统的 Accountability Model，在 LLM 中加入额外的 accountability head 作为二分类器预测对话状态中各 slot 的概率，从而检测并自校正假阳性和假阴性错误，在 MultiWOZ 上将 JGA 从 64.34 提升到 70.51（↑9.6%），达到 SOTA。"
 tags:
   - ACL 2025
-  - 对话状态追踪
-  - 可解释性
-  - 用户过度依赖
 ---
 
 # Know Your Mistakes: Towards Preventing Overreliance on Task-Oriented Conversational AI Through Accountability Modeling

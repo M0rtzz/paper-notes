@@ -2,9 +2,6 @@
 description: "【论文笔记】Gaussian Blending: Rethinking Alpha Blending in 3D Gaussian Splatting 论文解读 | AAAI 2026 | arXiv 2511.15102 | 3D Gaussian Splatting | 重新审视3DGS中的标量alpha blending，指出其忽略像素内空间变化是多尺度渲染伪影（放大erosion/缩小dilation）的根源，提出Gaussian Blending——将alpha和transmittance建模为像素内的空间分布（2D uniform window），实现实时抗锯齿且无需重训练，在多尺度Blender上PSNR从31.59→35.80。"
 tags:
   - AAAI 2026
-  - 3D Gaussian Splatting
-  - Alpha Blending
-  - 抗锯齿
 ---
 
 # Gaussian Blending: Rethinking Alpha Blending in 3D Gaussian Splatting

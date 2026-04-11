@@ -2,9 +2,6 @@
 description: "【论文笔记】2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification 论文解读 | CVPR 2025 | arXiv 2412.00678 | 2D SSM | 提出2DMamba，首个具有高效并行算法的**原生2D选择性状态空间模型**，通过保持2D空间连续性（而非展平为1D序列）来建模WSI中的patch间关系，在10个公共病理数据集上全面超越1D Mamba方法，并在ImageNet分类和ADE20K分割上也有提升。"
 tags:
   - CVPR 2025
-  - 2D SSM
-  - Mamba
-  - Whole Slide Image
 ---
 
 # 2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification

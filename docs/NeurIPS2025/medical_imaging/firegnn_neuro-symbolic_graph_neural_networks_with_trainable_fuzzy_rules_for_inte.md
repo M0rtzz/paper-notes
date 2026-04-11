@@ -2,9 +2,6 @@
 description: "【论文笔记】FireGNN: Neuro-Symbolic Graph Neural Networks with Trainable Fuzzy Rules for Interpretable Medical Image Classification 论文解读 | NeurIPS 2025 | arXiv 2509.10510 | 图神经网络 | 提出 FireGNN，首次将可训练模糊规则嵌入 GNN 前向传播中，利用节点度、聚类系数和标签一致性三个拓扑描述子实现内生可解释的医学图像分类，在 5 个 MedMNIST 数据集和 MorphoMNIST 上取得优于标准 GCN/GAT/GIN 及辅助任务方法的性能。"
 tags:
   - NeurIPS 2025
-  - 图神经网络
-  - 模糊规则
-  - 可解释性
 ---
 
 # FireGNN: Neuro-Symbolic Graph Neural Networks with Trainable Fuzzy Rules for Interpretable Medical Image Classification

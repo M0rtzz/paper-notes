@@ -2,9 +2,6 @@
 description: "【论文笔记】SAFE: Finding Sparse and Flat Minima to Improve Pruning 论文解读 | ICML2025 | arXiv 2506.06866 | 网络剪枝 | 将剪枝问题建模为稀疏约束下的锐度感知优化问题，通过增广拉格朗日对偶法（ADMM）求解，同时实现稀疏性和平坦极小值，提升剪枝后网络的泛化性能和鲁棒性。"
 tags:
   - ICML2025
-  - 网络剪枝
-  - 稀疏优化
-  - 平坦极小值
 ---
 
 # SAFE: Finding Sparse and Flat Minima to Improve Pruning

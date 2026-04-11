@@ -2,9 +2,7 @@
 description: "【论文笔记】Synthetic Series-Symbol Data Generation for Time Series Foundation Models 论文解读 | NEURIPS2025 | arXiv 2510.08445 | time series foundation model | 提出 Series-Symbol (S²) 数据生成机制和 SymTime 基础模型，通过符号表达式与时序数据的双模态对比学习预训练，在纯合成数据上训练即可在 5 大时序分析任务上与真实数据预训练的基础模型竞争。"
 tags:
   - NEURIPS2025
-  - time series foundation model
-  - synthetic data generation
-  - symbolic expressions
+  - 对比学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】EvSign: Sign Language Recognition and Translation with Streaming Events 论文解读 | ECCV 2024 | arXiv 2407.12593 | 手语识别 | 首次构建面向连续手语识别（CSLR）和手语翻译（SLT）任务的事件相机基准数据集 EvSign，并提出基于稀疏Transformer的高效框架，在仅0.34% FLOPs和44.2%参数量下达到与SOTA RGB方法可比或更优的性能。"
 tags:
   - ECCV 2024
-  - 手语识别
-  - 手语翻译
-  - 事件相机
 ---
 
 # EvSign: Sign Language Recognition and Translation with Streaming Events

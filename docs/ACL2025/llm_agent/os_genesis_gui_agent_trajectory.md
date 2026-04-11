@@ -2,9 +2,6 @@
 description: "【论文笔记】OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.19723 | GUI Agent | 提出OS-Genesis，一种\"先交互探索再逆向生成任务\"的GUI agent轨迹数据合成范式，通过无人监督的UI元素遍历收集状态转移三元组，逆向合成任务指令后用Trajectory Reward Model质量控制，在AndroidWorld上将Qwen2-VL-7B性能从9.82%提升至17.41%，接近GPT-4o的23.70%。"
 tags:
   - ACL 2025 (Long Paper)
-  - GUI Agent
-  - 轨迹数据合成
-  - 反向任务合成
 ---
 
 # OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis

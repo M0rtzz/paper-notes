@@ -2,9 +2,6 @@
 description: "【论文笔记】Redefining Experts: Interpretable Decomposition of Language Models for Toxicity Mitigation 论文解读 | NeurIPS 2025 | arXiv 2509.16660 | 毒性缓解 | 提出EigenShift方法，通过对LLM最终输出层进行SVD分解，识别与毒性生成相关的特征方向（eigen-choices），并通过选择性衰减对应奇异值来实现毒性抑制——在LLaMA-2上降低58%毒性的同时仅增加3.62的困惑度，兼顾安全与流畅性。"
 tags:
   - NeurIPS 2025
-  - 毒性缓解
-  - 特征值分解
-  - 可解释性
 ---
 
 # Redefining Experts: Interpretable Decomposition of Language Models for Toxicity Mitigation

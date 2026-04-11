@@ -2,9 +2,7 @@
 description: "【论文笔记】ETCH: Generalizing Body Fitting to Clothed Humans via Equivariant Tightness 论文解读 | ICCV 2025 | arXiv 2503.10624 | Body Fitting | 提出ETCH框架，通过建模从衣物表面到体表的SE(3)等变紧密度向量(tightness vector)，将穿衣人体的body fitting简化为tightness-aware的稀疏marker拟合任务，在CAPE和4D-Dress数据集上相比SOTA方法（含tightness-agnostic和tightness-aware方法）在宽松衣物上提升16.7%~69.5%的关节误差，形状精度平均提升49.9%。"
 tags:
   - ICCV 2025
-  - Body Fitting
-  - Clothed Humans
-  - SE(3) Equivariance
+  - 点云
 ---
 
 # ETCH: Generalizing Body Fitting to Clothed Humans via Equivariant Tightness

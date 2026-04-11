@@ -2,9 +2,6 @@
 description: "【论文笔记】TableDreamer: Progressive and Weakness-Guided Data Synthesis from Scratch for Table Instruction Tuning 论文解读 | ACL 2025 | arXiv 2506.08646 | 表格指令微调 | 提出 TableDreamer 两阶段数据合成框架：第一阶段从零合成多样化表格及种子指令数据，第二阶段通过弱点引导的迭代输入空间探索（在三个方向上演化数据，并用 LLM-as-Judge 筛选模型表现差的样本作为下一轮种子），仅用 27K GPT-4o 合成数据即将 Llama3.1-8B 的平均准确率提升 11.62%，超越使用 80K-100K 数据的所有基线方法。"
 tags:
   - ACL 2025
-  - 表格指令微调
-  - 合成数据
-  - 弱点引导
 ---
 
 # TableDreamer: Progressive and Weakness-Guided Data Synthesis from Scratch for Table Instruction Tuning

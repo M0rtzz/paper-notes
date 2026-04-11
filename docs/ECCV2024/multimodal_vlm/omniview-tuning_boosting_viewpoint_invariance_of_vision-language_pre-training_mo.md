@@ -2,9 +2,6 @@
 description: "【论文笔记】Omniview-Tuning: Boosting Viewpoint Invariance of Vision-Language Pre-training Models 论文解读 | ECCV 2024 | arXiv 2404.12139 | 视角不变性 | OVT通过构建460万多视角图文数据集MVCap和设计minimax优化的跨视角对齐框架，以参数高效微调方式显著提升VLP模型（如CLIP）对3D视角变化的鲁棒性（平均+9-10%），同时几乎不损失原始性能。"
 tags:
   - ECCV 2024
-  - 视角不变性
-  - CLIP
-  - 参数高效微调
 ---
 
 # Omniview-Tuning: Boosting Viewpoint Invariance of Vision-Language Pre-training Models

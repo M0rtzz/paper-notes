@@ -2,9 +2,6 @@
 description: "【论文笔记】Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model 论文解读 | ICLR2026 | arXiv 2512.11582 | fMRI基础模型 | 提出 Brain-Semantoks，一种基于语义分词器和自蒸馏目标的 fMRI 基础模型，将大脑功能网络聚合为鲁棒的语义 token，并通过跨时间视角的一致性学习抽象的脑动态表征，在线性探测设置下即可达到 SOTA 性能。"
 tags:
   - ICLR2026
-  - fMRI基础模型
-  - 自蒸馏
-  - 语义分词器
 ---
 
 # Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model

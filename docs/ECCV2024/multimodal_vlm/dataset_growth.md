@@ -2,9 +2,6 @@
 description: "【论文笔记】Dataset Growth (InfoGrowth) 论文解读 | ECCV2024 | arXiv 2405.18347 | 数据清洗 | 提出 InfoGrowth，一种高效的在线数据清洗与选择算法，通过近邻搜索估计每个样本的信息增益，实现数据集的持续增长，同时保证清洁度和多样性，在 CC3M 上仅用 1/6 数据即超过全量训练效果。"
 tags:
   - ECCV2024
-  - 数据清洗
-  - 在线数据选择
-  - 次模函数
 ---
 
 # Dataset Growth (InfoGrowth)

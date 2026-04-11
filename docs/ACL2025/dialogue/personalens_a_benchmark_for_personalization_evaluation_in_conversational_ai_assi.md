@@ -2,9 +2,6 @@
 description: "【论文笔记】PersonaLens: A Benchmark for Personalization Evaluation in Conversational AI Assistants 论文解读 | ACL 2025 | arXiv 2506.09902 | 个性化 | 提出 PersonaLens，一个面向任务导向型 AI 助手个性化能力的综合评测基准，包含 1500 个丰富用户画像、20 个领域 111 个任务、用户模拟 Agent 和 Judge Agent，通过大规模自动化评估揭示当前 LLM 助手在个性化方面的显著不足。"
 tags:
   - ACL 2025
-  - 个性化
-  - 任务导向对话
-  - LLM-as-a-Judge
 ---
 
 # PersonaLens: A Benchmark for Personalization Evaluation in Conversational AI Assistants

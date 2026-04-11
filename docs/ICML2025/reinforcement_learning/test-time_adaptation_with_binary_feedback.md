@@ -2,9 +2,6 @@
 description: "【论文笔记】Test-Time Adaptation with Binary Feedback 论文解读 | ICML 2025 | arXiv 2505.18514 | Test-Time Adaptation | 本文提出 BiTTA，一个利用二元反馈（正确/错误）的测试时自适应框架，通过强化学习驱动的双路径优化策略，在严重域偏移下以最小标注成本实现 13.3% 的准确率提升。"
 tags:
   - ICML 2025
-  - Test-Time Adaptation
-  - 二元反馈
-  - 强化学习
 ---
 
 # Test-Time Adaptation with Binary Feedback

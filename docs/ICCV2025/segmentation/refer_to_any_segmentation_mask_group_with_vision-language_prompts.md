@@ -2,9 +2,6 @@
 description: "【论文笔记】Refer to Any Segmentation Mask Group With Vision-Language Prompts 论文解读 | ICCV 2025 | arXiv 2506.05342 | 全模态指代分割 | 提出全模态指代表达分割（ORES）任务及 RAS 框架，通过掩码级 LMM 和非自回归解码机制，根据视觉-语言混合提示从候选掩码中选择目标掩码组，在新 ORES 数据集及经典 RES/GRES 基准上取得 SOTA。"
 tags:
   - ICCV 2025
-  - 全模态指代分割
-  - 掩码分组
-  - 视觉-语言提示
 ---
 
 # Refer to Any Segmentation Mask Group With Vision-Language Prompts

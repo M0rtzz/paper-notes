@@ -2,9 +2,6 @@
 description: "【论文笔记】Machine Learning from Explanations 论文解读 | ICML2025 | arXiv 2507.04788 | 解释引导学习 | 提出一种用简单解释信号（重要输入特征）引导机器学习的方法——通过交替优化预测准确率和注意力对齐的两阶段训练循环，在小数据、类不平衡、虚假特征场景下显著提升性能和稳定性。"
 tags:
   - ICML2025
-  - 解释引导学习
-  - 小数据学习
-  - 虚假相关
 ---
 
 # Machine Learning from Explanations

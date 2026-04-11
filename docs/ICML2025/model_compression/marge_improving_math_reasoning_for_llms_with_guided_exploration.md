@@ -2,9 +2,6 @@
 description: "【论文笔记】MARGE: Improving Math Reasoning for LLMs with Guided Exploration 论文解读 | ICML 2025 | arXiv 2505.12500 | 数学推理 | MARGE 提出了一种基于\"命中引导探索\"（hit-guided exploration）的方法来增强 LLM 的数学推理能力，通过系统地探索自生成解答中的中间推理状态，实现充分探索和更好的信用分配，无需外部标注或额外价值模型，同时提升了单次准确率和探索多样性。"
 tags:
   - ICML 2025
-  - 数学推理
-  - 引导探索
-  - 中间状态
 ---
 
 # MARGE: Improving Math Reasoning for LLMs with Guided Exploration

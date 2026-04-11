@@ -2,9 +2,6 @@
 description: "【论文笔记】SeHDR: Single-Exposure HDR Novel View Synthesis via 3D Gaussian Bracketing 论文解读 | ICCV 2025 | arXiv 2509.20400 | HDR新视角合成 | SeHDR 是首个从单曝光多视图 LDR 图像生成 HDR 新视角的3DGS框架，通过在3D空间扩展包围曝光原理（Bracketed 3D Gaussians）并设计可微分神经曝光融合（NeEF）在球谐空间融合，无需 HDR 监督即超越现有方法 14.3dB。"
 tags:
   - ICCV 2025
-  - HDR新视角合成
-  - 3D高斯泼溅
-  - 单曝光
 ---
 
 # SeHDR: Single-Exposure HDR Novel View Synthesis via 3D Gaussian Bracketing

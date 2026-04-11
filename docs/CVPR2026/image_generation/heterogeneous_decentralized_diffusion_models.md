@@ -2,9 +2,6 @@
 description: "【论文笔记】Heterogeneous Decentralized Diffusion Models 论文解读 | CVPR2026 | arXiv 2603.06741 | 去中心化扩散模型 | 提出异构去中心化扩散框架，允许不同专家使用不同扩散目标（DDPM ε-prediction 与 Flow Matching velocity-prediction）完全独立训练，在推理时通过确定性 schedule-aware 转换统一到速度空间进行融合，相比同构基线同时提升 FID 和生成多样性，并将计算量压缩 16 倍。"
 tags:
   - CVPR2026
-  - 去中心化扩散模型
-  - 异构训练目标
-  - DDPM
 ---
 
 # Heterogeneous Decentralized Diffusion Models

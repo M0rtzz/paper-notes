@@ -2,9 +2,6 @@
 description: "【论文笔记】ThinkAct: Vision-Language-Action Reasoning via Reinforced Visual Latent Planning 论文解读 | NeurIPS 2025 | arXiv 2507.16815 | VLA推理 | 提出ThinkAct双系统框架，通过动作对齐的视觉奖励对MLLM进行强化学习微调以激发具身推理能力，并将推理计划压缩为视觉潜在表示来指导下游动作模型，实现\"先思考再行动\"的VLA推理范式。"
 tags:
   - NeurIPS 2025
-  - VLA推理
-  - 强化学习
-  - 视觉潜在规划
 ---
 
 # ThinkAct: Vision-Language-Action Reasoning via Reinforced Visual Latent Planning

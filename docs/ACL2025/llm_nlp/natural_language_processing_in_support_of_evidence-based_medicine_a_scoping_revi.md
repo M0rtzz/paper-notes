@@ -2,9 +2,6 @@
 description: "【论文笔记】Natural Language Processing in Support of Evidence-based Medicine: A Scoping Review 论文解读 | ACL2025 | arXiv 2505.22280 | evidence-based medicine | 对 129 篇研究进行范围综述，系统梳理了 NLP 技术在循证医学（EBM）五步流程（Ask-Acquire-Appraise-Apply-Assess）中的应用，覆盖证据检索、PICO 提取、质量评估、证据合成、摘要生成、临床试验匹配等任务，指出了 LLM 时代的新机遇与挑战。"
 tags:
   - ACL2025
-  - evidence-based medicine
-  - NLP survey
-  - clinical NLP
 ---
 
 # Natural Language Processing in Support of Evidence-based Medicine: A Scoping Review

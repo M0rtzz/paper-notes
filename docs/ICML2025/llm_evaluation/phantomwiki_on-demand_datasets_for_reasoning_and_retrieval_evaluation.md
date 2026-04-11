@@ -2,9 +2,6 @@
 description: "【论文笔记】PhantomWiki: On-Demand Datasets for Reasoning and Retrieval Evaluation 论文解读 | ICML 2025 | arXiv 2502.20377 | benchmark | 提出 PhantomWiki——一个按需生成虚构世界语料库和 QA 对的评测框架，通过上下文无关文法（CFG）控制推理难度、调节宇宙规模控制检索难度，实现对 LLM 推理与检索能力的解耦评估，同时天然抵抗数据泄漏。"
 tags:
   - ICML 2025
-  - benchmark
-  - reasoning evaluation
-  - retrieval evaluation
 ---
 
 # PhantomWiki: On-Demand Datasets for Reasoning and Retrieval Evaluation

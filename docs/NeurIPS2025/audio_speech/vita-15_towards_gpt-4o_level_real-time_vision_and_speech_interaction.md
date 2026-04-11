@@ -2,10 +2,7 @@
 description: "【论文笔记】VITA-1.5: Towards GPT-4o Level Real-Time Vision and Speech Interaction 论文解读 | NeurIPS 2025 | arXiv 2501.01957 | 多模态 multimodal LLM | VITA-1.5 提出了一套精心设计的三阶段渐进式训练策略，将视觉和语音能力逐步整合进 LLM 中，实现了无需独立 ASR/TTS 模块的端到端视觉-语音实时交互，在图像、视频和语音基准上均达到开源模型领先水平。"
 tags:
   - NeurIPS 2025
-  - multimodal LLM
   - 多模态
-  - vision-speech interaction
-  - end-to-end speech
 ---
 
 # VITA-1.5: Towards GPT-4o Level Real-Time Vision and Speech Interaction

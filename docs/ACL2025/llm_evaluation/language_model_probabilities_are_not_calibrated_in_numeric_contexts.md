@@ -2,9 +2,6 @@
 description: "【论文笔记】Language Model Probabilities are Not Calibrated in Numeric Contexts 论文解读 | ACL 2025 | arXiv 2410.16007 | 概率校准 | 系统研究了语言模型在数值上下文中的概率校准问题，发现即使在简单场景（如从袋中取弹珠）下，包括 GPT-4o 在内的所有测试模型均严重校准不良，存在基于词序、词频和词标识的系统性偏差（如某些模型总选第一个选项，其他模型总选第二个），指令微调加剧了模式崩塌。"
 tags:
   - ACL 2025
-  - 概率校准
-  - 数字推理
-  - 语言模型偏差
 ---
 
 # Language Model Probabilities are Not Calibrated in Numeric Contexts

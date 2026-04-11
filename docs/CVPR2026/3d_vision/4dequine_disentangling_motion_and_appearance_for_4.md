@@ -2,9 +2,6 @@
 description: "【论文笔记】4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video 论文解读 | CVPR 2026 | arXiv 2603.10125 | 4D重建 | 将马科动物4D重建解耦为运动估计(AniMoFormer时空Transformer+后优化)和外观重建(EquineGS前馈3DGS)两个子任务，用VAREN参数化模型做桥梁，仅在合成数据(VarenPoser+VarenTex)上训练即在真实数据APT-36K和AiM上达到SOTA，并能零样本泛化到斑马和驴。"
 tags:
   - CVPR 2026
-  - 4D重建
-  - 3DGS
-  - 运动解耦
 ---
 
 # 4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video

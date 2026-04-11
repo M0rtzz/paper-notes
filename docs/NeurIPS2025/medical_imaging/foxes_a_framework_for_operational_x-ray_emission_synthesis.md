@@ -2,10 +2,7 @@
 description: "【论文笔记】FOXES: A Framework For Operational X-ray Emission Synthesis 论文解读 | NeurIPS 2025 | arXiv 2510.22801 | Transformer Vision Transformer | 提出 FOXES，一个基于 Vision Transformer 的框架，将太阳多通道 EUV 观测图像翻译为软 X 射线（SXR）通量，整体 Pearson 相关达到 0.982，为远端太阳耀斑检测和更完整的耀斑目录构建奠定基础。"
 tags:
   - NeurIPS 2025
-  - Vision Transformer
   - Transformer
-  - 太阳耀斑
-  - EUV-SXR翻译
 ---
 
 # FOXES: A Framework For Operational X-ray Emission Synthesis

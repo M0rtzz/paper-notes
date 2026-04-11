@@ -2,9 +2,7 @@
 description: "【论文笔记】3D Mesh Editing using Masked LRMs 论文解读 | ICCV 2025 | arXiv 2412.08641 | LRM | 提出MaskedLRM，将3D形状编辑重构为条件重建问题——训练时随机生成3D遮挡物遮盖多视角输入，用一张干净条件视图引导被遮挡区域的补全；推理时用户定义编辑区域并提供单张编辑图像，模型在**<3秒单次前传**中完成3D网格编辑，比优化方法快2-10倍，能执行拓扑变化编辑（加孔/加把手），重建质量与SOTA持平。"
 tags:
   - ICCV 2025
-  - LRM
-  - Masked Reconstruction
-  - 3D Editing
+  - 图像修复
 ---
 
 # 3D Mesh Editing using Masked LRMs

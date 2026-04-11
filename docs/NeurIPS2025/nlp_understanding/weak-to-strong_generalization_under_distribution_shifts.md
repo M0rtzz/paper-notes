@@ -2,9 +2,6 @@
 description: "【论文笔记】Weak-to-Strong Generalization under Distribution Shifts 论文解读 | NeurIPS 2025 | arXiv 2510.21332 | weak-to-strong generalization | 发现朴素的弱到强泛化 (weak-to-strong generalization) 在分布偏移下会失败（强模型表现甚至不如弱监督者），提出 RAVEN 框架通过动态学习弱模型的最优组合权重来实现鲁棒的弱到强泛化，在 OOD 任务上超越基线 30%+。"
 tags:
   - NeurIPS 2025
-  - weak-to-strong generalization
-  - 分布偏移
-  - RAVEN
 ---
 
 # Weak-to-Strong Generalization under Distribution Shifts

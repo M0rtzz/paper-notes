@@ -2,9 +2,6 @@
 description: "【论文笔记】The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text 论文解读 | ICML 2025 | arXiv 2502.14921 | 成员推断攻击 | 本文设计了针对 LLM 生成的合成数据的成员推断攻击（MIA），揭示合成数据会泄露训练数据信息；进一步发现针对模型的金丝雀（canary）在合成数据发布场景下效果不佳，提出利用自回归模型特性设计的新型金丝雀——拥有同分布前缀和高困惑度后缀，能在合成数据中留下可检测的痕迹，显著提升隐私审计能力。"
 tags:
   - ICML 2025
-  - 成员推断攻击
-  - 合成数据隐私
-  - LLM 隐私审计
 ---
 
 # The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text

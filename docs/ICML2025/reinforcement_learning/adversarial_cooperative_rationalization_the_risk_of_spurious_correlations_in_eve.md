@@ -2,9 +2,6 @@
 description: "【论文笔记】Adversarial Cooperative Rationalization: The Risk of Spurious Correlations in Even Clean Datasets 论文解读 | ICML 2025 | arXiv 2505.02118 | 自解释模型 | 揭示协作理据化框架（RNP）中的隐蔽缺陷——即使在干净数据集上，生成器的采样偏差也会引入理据与标签间的虚假相关，提出对抗检测+指令干预方法，在文本和图分类上显著超越现有方法。"
 tags:
   - ICML 2025
-  - 自解释模型
-  - 理据化
-  - 虚假相关
 ---
 
 # Adversarial Cooperative Rationalization: The Risk of Spurious Correlations in Even Clean Datasets

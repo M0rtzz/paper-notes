@@ -2,10 +2,8 @@
 description: "【论文笔记】Quantum Doubly Stochastic Transformers 论文解读 | NEURIPS2025 | arXiv 2504.16275 | quantum computing | 提出 QDSFormer，用变分量子电路（QontOT）替换 ViT 中的 softmax 生成双随机注意力矩阵，在多个小规模图像识别任务上超越标准 ViT 和 Sinkformer，并显著稳定训练。"
 tags:
   - NEURIPS2025
-  - quantum computing
-  - doubly stochastic matrices
-  - Vision Transformer
   - Transformer
+  - 注意力机制
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

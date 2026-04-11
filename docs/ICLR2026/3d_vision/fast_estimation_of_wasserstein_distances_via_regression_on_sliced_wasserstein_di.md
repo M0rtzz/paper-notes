@@ -2,9 +2,6 @@
 description: "【论文笔记】Fast Estimation of Wasserstein Distances via Regression on Sliced Wasserstein Distances 论文解读 | ICLR 2026 | arXiv 2509.20508 | Wasserstein距离 | 提出通过将 Wasserstein 距离回归到 Sliced Wasserstein (SW) 距离的线性模型（RG 框架），实现对 Wasserstein 距离的快速高效估计，在低数据场景下显著优于深度学习方法 Wasserstein Wormhole。"
 tags:
   - ICLR 2026
-  - Wasserstein距离
-  - Sliced Wasserstein
-  - 最优传输
 ---
 
 # Fast Estimation of Wasserstein Distances via Regression on Sliced Wasserstein Distances

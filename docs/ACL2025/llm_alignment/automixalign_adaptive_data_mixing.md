@@ -2,9 +2,6 @@
 description: "【论文笔记】AutoMixAlign: Adaptive Data Mixing for Multi-Task Preference Optimization in LLMs 论文解读 | ACL 2025 | arXiv 2506.00569 | data mixing | AutoMixAlign 提出了一种理论驱动的多任务偏好优化数据混合方法：先训练各任务的 specialist model 确定最优 loss 基线，再通过 minimax 优化自适应调整数据混合比例，优先处理 excess loss（与 specialist 的差距）最大的任务，在 helpfulness/harmlessness/reasoning 多任务 DPO 中平均提升 9.42%。"
 tags:
   - ACL 2025
-  - data mixing
-  - multi-task DPO
-  - minimax optimization
 ---
 
 # AutoMixAlign: Adaptive Data Mixing for Multi-Task Preference Optimization in LLMs

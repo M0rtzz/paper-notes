@@ -2,9 +2,6 @@
 description: "【论文笔记】DyCodeEval: Dynamic Benchmarking of Reasoning in Code LLMs Under Data Contamination 论文解读 | ICML2025 | arXiv 2503.04149 | 代码LLM评估 | 提出DyCodeEval——用多Agent系统自动生成编程问题的语义等价变体来动态评估Code LLM，修改问题的上下文描述（不改变核心算法逻辑）以避免记忆化，在18个Code LLM上验证其有效反映真实推理能力。"
 tags:
   - ICML2025
-  - 代码LLM评估
-  - 数据污染
-  - 动态基准
 ---
 
 # DyCodeEval: Dynamic Benchmarking of Reasoning in Code LLMs Under Data Contamination

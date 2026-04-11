@@ -2,9 +2,6 @@
 description: "【论文笔记】FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition 论文解读 | ICLR 2026 | arXiv 2506.05639 | Memorization | 提出 FictionalQA 数据集及生成管线，通过合成关于虚构事件的 webtext 风格文档和 QA 对，在受控环境下研究 LLM 训练中事实记忆与逐字记忆的双重过程，发现更多样的表面形式有助于知识获取而简洁的结构化列表反而最不利于泛化。"
 tags:
   - ICLR 2026
-  - Memorization
-  - Knowledge Acquisition
-  - Synthetic Data
 ---
 
 # FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition

@@ -2,9 +2,6 @@
 description: "【论文笔记】Tokenisation is NP-Complete 论文解读 | ACL 2025 | arXiv 2412.15210 | 分词 | 本文证明了以压缩为目标的分词问题（包括直接分词和自底向上分词两种变体）是NP完全的，这意味着不太可能存在高效算法找到最优分词器，从而为BPE等近似算法的使用提供了理论依据。"
 tags:
   - ACL 2025
-  - 分词
-  - NP完全
-  - BPE
 ---
 
 # Tokenisation is NP-Complete

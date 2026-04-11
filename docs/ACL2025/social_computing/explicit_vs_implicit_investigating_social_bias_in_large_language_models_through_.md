@@ -2,9 +2,6 @@
 description: "【论文笔记】Explicit vs. Implicit: Investigating Social Bias in Large Language Models through Self-Reflection 论文解读 | ACL 2025 | arXiv 2501.02295 | implicit bias | 借鉴社会心理学中隐式联想测验（IAT）和自我报告评估（SRA），提出自反思评估框架系统研究 LLM 的显式和隐式偏见，发现 LLM 与人类一样存在显式-隐式偏见不一致——显式偏见轻微但隐式偏见强烈，且模型越大/对齐训练越多，这种不一致越严重。"
 tags:
   - ACL 2025
-  - implicit bias
-  - explicit bias
-  - IAT
 ---
 
 # Explicit vs. Implicit: Investigating Social Bias in Large Language Models through Self-Reflection

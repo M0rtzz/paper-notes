@@ -2,9 +2,6 @@
 description: "【论文笔记】Dense Associative Memory with Epanechnikov Energy 论文解读 | NeurIPS 2025 | arXiv 2506.10801 | associative memory | 提出基于 Epanechnikov 核的 log-sum-ReLU（LSR）能量函数替代传统的 log-sum-exp（LSE），在 Dense Associative Memory 中首次实现了\"精确记忆所有模式 + 同时涌现新的创造性局部极小\"的共存，且保持指数级记忆容量。"
 tags:
   - NeurIPS 2025
-  - associative memory
-  - Hopfield network
-  - energy function
 ---
 
 # Dense Associative Memory with Epanechnikov Energy

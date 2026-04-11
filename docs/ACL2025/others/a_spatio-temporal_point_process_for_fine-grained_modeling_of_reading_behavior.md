@@ -2,9 +2,6 @@
 description: "【论文笔记】A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior 论文解读 | ACL 2025 | arXiv 2506.19999 | 阅读行为 | 提出基于标记时空点过程（Marked Spatio-Temporal Point Process）的阅读行为概率模型——用 Hawkes 过程建模跳视（何时何处注视），用对数正态分布+卷积建模注视时长（持续多久），避免传统聚合测量的信息丢失。实证发现：Hawkes 模型比基线更好拟合跳视数据，但上下文 surprisal 作为预测因子仅带来边际改善——surprisal 理论难以解释细粒度眼动。"
 tags:
   - ACL 2025
-  - 阅读行为
-  - 眼动
-  - Hawkes过程
 ---
 
 # A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior

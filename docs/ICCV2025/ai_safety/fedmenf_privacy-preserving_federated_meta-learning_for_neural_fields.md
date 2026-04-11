@@ -2,9 +2,6 @@
 description: "【论文笔记】FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields 论文解读 | ICCV 2025 | arXiv 2508.06301 | 联邦学习 | 本文首次研究在私有数据场景下的联邦神经场（Neural Fields）元学习问题，揭示了现有联邦元学习方法在神经场任务中的严重隐私泄露机制，并提出FedMeNF，通过隐私保护损失函数正则化局部元梯度中的隐私信息，在保持快速优化能力的同时有效保护客户端数据隐私。"
 tags:
   - ICCV 2025
-  - 联邦学习
-  - 元学习
-  - 神经场
 ---
 
 # FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields

@@ -2,9 +2,6 @@
 description: "【论文笔记】TagRouter: Learning Route to LLMs through Tags for Open-Domain Text Generation Tasks 论文解读 | ACL 2025 | arXiv 2506.12473 | model routing | 这篇论文提出 TagRouter，用一个小型标签生成器把开放域文本生成请求先压缩成一组语义标签，再基于标签统计每个候选 LLM 的相对优势并进行路由，从而在不重新训练路由器的前提下，把多模型系统的接受率做得比单个大模型更高，同时显著降低推理成本。"
 tags:
   - ACL 2025
-  - model routing
-  - tag generation
-  - LLM ensemble
 ---
 
 # TagRouter: Learning Route to LLMs through Tags for Open-Domain Text Generation Tasks

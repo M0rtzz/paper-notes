@@ -2,9 +2,6 @@
 description: "【论文笔记】Points-to-3D: Structure-Aware 3D Generation with Point Cloud Priors 论文解读 | CVPR 2026 | arXiv 2603.18782 | 点云先验 | 提出 Points-to-3D，将可见区域点云编码为 TRELLIS 的稀疏结构潜变量（SS latent）并用 mask-aware inpainting 网络补全不可见区域，结合结构补全+边界精炼两阶段采样策略，实现几何可控的高保真 3D 资产/场景生成，在 Toys4K 上 F-Score 达 0.964（可见区域 0.998）。"
 tags:
   - CVPR 2026
-  - 点云先验
-  - 3D生成
-  - 扩散模型
 ---
 
 # Points-to-3D: Structure-Aware 3D Generation with Point Cloud Priors

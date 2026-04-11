@@ -2,9 +2,6 @@
 description: "【论文笔记】HyperSHAP: Shapley Values and Interactions for Explaining Hyperparameter Optimization 论文解读 | AAAI 2026 | arXiv 2502.01276 | 超参数优化 | HyperSHAP 提出一套基于 Shapley 值和 Shapley 交互的博弈论框架来解释超参数优化（HPO），通过定义消融、灵敏度、可调性和优化器偏差四类解释博弈，提供比 fANOVA 更具可操作性的超参数重要性分析。"
 tags:
   - AAAI 2026
-  - 超参数优化
-  - Shapley 值
-  - 可解释性
 ---
 
 # HyperSHAP: Shapley Values and Interactions for Explaining Hyperparameter Optimization

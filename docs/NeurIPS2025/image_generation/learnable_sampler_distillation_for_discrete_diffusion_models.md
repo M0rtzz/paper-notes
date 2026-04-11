@@ -2,9 +2,6 @@
 description: "【论文笔记】Learnable Sampler Distillation for Discrete Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2509.19962 | 离散扩散模型 | 提出LSD和LSD+方法，通过蒸馏将高保真教师采样器的中间分数轨迹知识迁移给少步数学生采样器，以可学习的采样系数和非均匀时间调度实现离散扩散模型的高效高质量采样。"
 tags:
   - NeurIPS 2025
-  - 离散扩散模型
-  - 采样加速
-  - 蒸馏
 ---
 
 # Learnable Sampler Distillation for Discrete Diffusion Models

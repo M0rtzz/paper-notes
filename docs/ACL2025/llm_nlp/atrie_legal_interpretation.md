@@ -2,9 +2,6 @@
 description: "【论文笔记】Automating Legal Interpretation with LLMs: Retrieval, Generation, and Evaluation 论文解读 | ACL 2025 | arXiv 2501.01743 | 法律解释 | 提出 ATRIE 框架模拟法学教义研究流程——自动从判例法中检索概念相关信息、解释法律概念、并通过下游任务（法律概念蕴涵LCE）自动评估解释质量，生成的解释在全面性和可读性上与专家相当。"
 tags:
   - ACL 2025
-  - 法律解释
-  - RAG
-  - 法律NLP
 ---
 
 # Automating Legal Interpretation with LLMs: Retrieval, Generation, and Evaluation

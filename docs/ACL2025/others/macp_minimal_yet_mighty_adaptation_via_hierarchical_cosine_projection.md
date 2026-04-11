@@ -2,9 +2,6 @@
 description: "【论文笔记】MaCP: Minimal yet Mighty Adaptation via Hierarchical Cosine Projection 论文解读 | ACL 2025 | arXiv 2410.09103 | 参数高效微调 | 本文提出 MaCP——一种基于离散余弦变换（DCT）的参数高效微调方法，通过将权重变化投影到余弦频域并分层选择最关键的频率分量，在极低参数量（比 LoRA 少 99.7%）下实现了优于或媲美现有 PEFT 方法的性能。"
 tags:
   - ACL 2025
-  - 参数高效微调
-  - 离散余弦变换
-  - 频域学习
 ---
 
 # MaCP: Minimal yet Mighty Adaptation via Hierarchical Cosine Projection

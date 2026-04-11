@@ -2,9 +2,6 @@
 description: "【论文笔记】Inference-Time Safety For Code LLMs Via Retrieval-Augmented Revision 论文解读 | ICLR 2026 | arXiv 2603.01494 | 代码安全 | 提出SOSecure方法，在LLM生成代码后通过检索Stack Overflow安全讨论作为上下文引导模型推理时修正潜在漏洞，无需重训练即可适应新的安全实践，在多个数据集上减少漏洞且不引入新的安全问题。"
 tags:
   - ICLR 2026
-  - 代码安全
-  - 推理时修正
-  - Stack Overflow
 ---
 
 # Inference-Time Safety For Code LLMs Via Retrieval-Augmented Revision

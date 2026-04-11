@@ -2,9 +2,7 @@
 description: "【论文笔记】DriveX: Driving View Synthesis on Free-form Trajectories with Generative Prior 论文解读 | ICCV 2025 | arXiv 2412.01717 | 自动驾驶仿真 | 提出驾驶视图合成框架DriveX，通过渐进式地将视频扩散模型的生成先验蒸馏到3DGS表示中——设计inpainting-based视频修复任务来生成新轨迹伪标注，迭代优化3D重建，实现自由轨迹上的高质量实时渲染。"
 tags:
   - ICCV 2025
-  - 自动驾驶仿真
-  - 自由轨迹视图合成
-  - 3D高斯
+  - 图像修复
 ---
 
 # DriveX: Driving View Synthesis on Free-form Trajectories with Generative Prior

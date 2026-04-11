@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Generalization of SFT: A Reinforcement Learning Perspective with Reward Rectification 论文解读 | ICLR 2026 | arXiv 2508.05629 | SFT泛化 | 从RL策略梯度视角数学证明SFT梯度隐式编码了逆概率加权(1/π_θ)的病态奖励结构→低概率token梯度过大导致泛化受限，提出DFT(Dynamic Fine-Tuning)仅需一行代码修改(CE loss乘token概率：$-p\log p$)消除逆概率加权→在数学推理/代码生成/多模态任务上大幅超越SFT，离线RL设定下甚至超越GRPO/PPO。"
 tags:
   - ICLR 2026
-  - SFT泛化
-  - 策略梯度
-  - 逆概率加权
 ---
 
 # On the Generalization of SFT: A Reinforcement Learning Perspective with Reward Rectification

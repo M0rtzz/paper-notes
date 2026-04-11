@@ -2,9 +2,6 @@
 description: "【论文笔记】Hyperparameter Transfer Enables Consistent Gains of Matrix-Preconditioned Optimizers Across Scales 论文解读 | NEURIPS2025 | arXiv 2512.05620 | optimizer scaling | 研究矩阵预条件优化器（Shampoo/SOAP/Muon）的超参数随模型宽度和深度的缩放规则（基于 μP），发现正确的超参缩放是实现一致加速的关键：使用 μP + 1/width weight decay，三者在 190M 到 1.4B 参数的 Llama 模型上一致实现约 1.4× 加速。"
 tags:
   - NEURIPS2025
-  - optimizer scaling
-  - μP
-  - Shampoo
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

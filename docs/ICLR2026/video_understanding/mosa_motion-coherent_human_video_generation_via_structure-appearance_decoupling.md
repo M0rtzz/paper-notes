@@ -2,9 +2,6 @@
 description: "【论文笔记】MoSA: Motion-Coherent Human Video Generation via Structure-Appearance Decoupling 论文解读 | ICLR 2026 | arXiv 2508.17404 | 人物视频生成 | 提出MoSA框架，将人物视频生成解耦为结构生成（3D骨骼Transformer生成运动序列）和外观生成（DiT在骨骼引导下合成视频），配合人体感知动态控制(HADC)模块、密集跟踪损失和接触约束，在复杂全身运动上显著超越现有方法。"
 tags:
   - ICLR 2026
-  - 人物视频生成
-  - 结构-外观解耦
-  - 3D运动
 ---
 
 # MoSA: Motion-Coherent Human Video Generation via Structure-Appearance Decoupling

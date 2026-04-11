@@ -2,9 +2,6 @@
 description: "【论文笔记】PureCC: Pure Learning for Text-to-Image Concept Customization 论文解读 | CVPR 2026 | arXiv 2603.07561 | 概念定制 | 提出 PureCC 方法，通过分离\"目标概念隐式引导\"和\"原始条件预测\"的解耦学习目标，配合冻结表示提取器+可训练流模型的双分支训练管线和自适应引导缩放 $\lambda^{\star}$，实现高保真概念定制的同时最小化对原始模型行为和能力的影响。"
 tags:
   - CVPR 2026
-  - 概念定制
-  - 扩散模型微调
-  - 隐式引导
 ---
 
 # PureCC: Pure Learning for Text-to-Image Concept Customization

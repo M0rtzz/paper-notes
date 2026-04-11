@@ -2,9 +2,6 @@
 description: "【论文笔记】Silencing Empowerment, Allowing Bigotry: Auditing the Moderation of Hate Speech on Twitch 论文解读 | ACL 2025 | arXiv 2506.07667 | 仇恨言论检测 | 对 Twitch 平台的自动化内容审核工具 AutoMod 进行大规模审计，发送超过 10.7 万条消息，发现 AutoMod 在最严格设置下仅能标记 22% 的仇恨内容，高度依赖侮辱性词汇作为检测信号，同时错误屏蔽高达 89.5% 的教育性/赋权性内容。"
 tags:
   - ACL 2025
-  - 仇恨言论检测
-  - 内容审核
-  - 算法审计
 ---
 
 # Silencing Empowerment, Allowing Bigotry: Auditing the Moderation of Hate Speech on Twitch

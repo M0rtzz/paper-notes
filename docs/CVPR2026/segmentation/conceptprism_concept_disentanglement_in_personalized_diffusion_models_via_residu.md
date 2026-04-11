@@ -2,9 +2,6 @@
 description: "【论文笔记】ConceptPrism: Concept Disentanglement in Personalized Diffusion Models via Residual Token Optimization 论文解读 | CVPR2026 | arXiv 2602.19575 | 个性化扩散模型 | 提出 ConceptPrism，通过引入图像级残余 token 和跨图像排斥损失，在个性化 T2I 扩散模型中自动将共享目标概念与图像特有的残余信息解耦，在 DreamBench 上 CLIP-T/DINO/CLIP-I 全面最优。"
 tags:
   - CVPR2026
-  - 个性化扩散模型
-  - 概念解耦
-  - 残余token优化
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

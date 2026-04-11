@@ -2,9 +2,6 @@
 description: "【论文笔记】Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition 论文解读 | ICLR 2026 | arXiv 2507.09875 | mechanistic interpretability | 通过 off-by-one addition（如 1+1=3, 2+2=5）这一反事实任务，利用 path patching 发现大语言模型内部存在 **function induction** 机制——一种超越 token 级别 pattern matching、在函数级别进行归纳推理的注意力头电路，并证明该机制可跨任务复用。"
 tags:
   - ICLR 2026
-  - mechanistic interpretability
-  - in-context learning
-  - induction heads
 ---
 
 # Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition

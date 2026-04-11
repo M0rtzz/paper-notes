@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Logit-based Knowledge Distillation of Deep Spiking Neural Networks for Full-Range Timestep Deployment 论文解读 | ICML 2025 | arXiv 2501.15925 | 脉冲神经网络 | 提出一种时间维度解耦的 logit 蒸馏框架，利用 SNN 固有的时空特性，将训练目标分解到每个时间步，实现单模型在全范围推理时间步上的高性能部署，无需为不同时间步重新训练。"
 tags:
   - ICML 2025
-  - 脉冲神经网络
-  - 知识蒸馏
-  - 时间解耦
 ---
 
 # Efficient Logit-based Knowledge Distillation of Deep Spiking Neural Networks for Full-Range Timestep Deployment

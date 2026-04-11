@@ -2,10 +2,8 @@
 description: "【论文笔记】SANSA: Unleashing the Hidden Semantics in SAM2 for Few-Shot Segmentation 论文解读 | NeurIPS 2025 | arXiv 2505.21795 | 图像分割 Few-Shot Segmentation | SANSA 发现 SAM2 虽然以类别无关方式预训练，但其特征中隐含了丰富的语义结构；通过在冻结的 SAM2 Image Encoder 最后两层插入轻量 AdaptFormer 适配器，将 Memory Attention 机制从视觉相似性匹配重定向为语义相似性匹配，以统一架构实现了 few-shot 分割的 SOTA，同时比竞争方法快 3 倍以上、参数量小 4-5 倍。"
 tags:
   - NeurIPS 2025
-  - Few-Shot Segmentation
   - 图像分割
-  - SAM2
-  - 语义对齐
+  - 注意力机制
 ---
 
 # SANSA: Unleashing the Hidden Semantics in SAM2 for Few-Shot Segmentation

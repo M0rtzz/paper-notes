@@ -2,9 +2,6 @@
 description: "【论文笔记】Refine Now, Query Fast: A Decoupled Refinement Paradigm for Implicit Neural Fields 论文解读 | ICLR 2026 | arXiv 2602.15155 | 隐式神经表示 | 提出DRR(Decoupled Representation Refinement)范式解决隐式神经场的保真度-速度困境：用深层精化器网络离线增强嵌入结构的表达能力→精化结果缓存→推理时仅需快速嵌入插值+轻量解码→实现27x推理加速同时达到SOTA保真度，另提出Variational Pairs数据增强策略改善稀疏集成数据下的训练。"
 tags:
   - ICLR 2026
-  - 隐式神经表示
-  - 解耦精化
-  - 推理加速
 ---
 
 # Refine Now, Query Fast: A Decoupled Refinement Paradigm for Implicit Neural Fields

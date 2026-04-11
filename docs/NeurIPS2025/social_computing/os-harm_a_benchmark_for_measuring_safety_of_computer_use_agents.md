@@ -2,9 +2,7 @@
 description: "【论文笔记】OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents 论文解读 | NeurIPS 2025 | arXiv 2506.14866 | 计算机使用Agent | 本文提出 OS-Harm，首个面向通用计算机使用 Agent（非仅浏览器）的安全性 benchmark，覆盖用户恶意使用、Prompt 注入攻击、模型自身失误三类风险共 150 个任务，评测发现前沿模型（o4-mini、Claude 3.7 Sonnet、Gemini 2.5 Pro 等）普遍直接服从有害指令（最高 70% 不安全率），且对基础 prompt 注入有 20% 的服从率。"
 tags:
   - NeurIPS 2025
-  - 计算机使用Agent
-  - 安全性评估
-  - Benchmark
+  - 提示学习
 ---
 
 # OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents

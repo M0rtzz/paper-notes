@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Intervention Efficacy via Concept Realignment in Concept Bottleneck Models 论文解读 | ECCV 2024 | arXiv 2405.01531 | Concept Bottleneck Models | 本文发现 Concept Bottleneck Models (CBMs) 中人工干预效率低下的原因在于干预时各概念独立处理、忽视了概念间关联，提出了一个轻量级的 Concept Intervention Realignment Module (CIRM)，在干预后自动重新对齐相关概念的预测值，将达到目标性能所需的干预次数最多减少 70%。"
 tags:
   - ECCV 2024
-  - Concept Bottleneck Models
-  - Human Intervention
-  - Concept Realignment
 ---
 
 # Improving Intervention Efficacy via Concept Realignment in Concept Bottleneck Models

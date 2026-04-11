@@ -2,9 +2,6 @@
 description: "【论文笔记】Extending Complex Logical Queries on Uncertain Knowledge Graphs 论文解读 | ACL 2025 | arXiv 2403.01508 | 不确定知识图谱 | 提出在不确定知识图谱（Uncertain KG）上进行软查询（Soft Query）的新问题设定 SQUK，结合必要性（necessity）和重要性（importance）扩展一阶逻辑查询语义，并设计带校准的神经符号推理方法 SRC，避免前向推理中的级联错误。"
 tags:
   - ACL 2025
-  - 不确定知识图谱
-  - 软查询
-  - 复杂逻辑推理
 ---
 
 # Extending Complex Logical Queries on Uncertain Knowledge Graphs

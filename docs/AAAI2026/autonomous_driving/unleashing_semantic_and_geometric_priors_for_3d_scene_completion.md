@@ -2,9 +2,7 @@
 description: "【论文笔记】Unleashing Semantic and Geometric Priors for 3D Scene Completion 论文解读 | AAAI2026 | arXiv 2508.13601 | 3D scene completion | 提出 FoundationSSC 框架，通过 source-level 和 pathway-level 双层解耦设计释放 Vision Foundation Model 的语义与几何先验，配合 Axis-Aware Fusion 模块融合互补 3D 特征，在 SemanticKITTI 上达到 19.32 mIoU / 48.12 IoU SOTA。"
 tags:
   - AAAI2026
-  - 3D scene completion
-  - vision foundation model
-  - semantic-geometric decoupling
+  - 自动驾驶
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

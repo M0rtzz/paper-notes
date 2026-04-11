@@ -2,9 +2,6 @@
 description: "【论文笔记】Note2Chat: Improving LLMs for Multi-Turn Clinical History Taking Using Medical Notes 论文解读 | AAAI 2026 | arXiv 2601.21551 | 临床问诊 | 提出 Note2Chat 框架，利用广泛可得的医学笔记（而非稀缺的对话数据）训练 LLMs 进行结构化问诊和诊断，通过笔记驱动的对话生成、三阶段微调策略和单轮推理范式，在信息收集（F1 +16.9）和诊断准确率（Top-1 +21.0）上大幅超越 GPT-4o。"
 tags:
   - AAAI 2026
-  - 临床问诊
-  - 多轮对话
-  - 大语言模型
 ---
 
 # Note2Chat: Improving LLMs for Multi-Turn Clinical History Taking Using Medical Notes

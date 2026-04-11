@@ -2,9 +2,6 @@
 description: "【论文笔记】Staining and Locking Computer Vision Models without Retraining 论文解读 | ICCV 2025 | arXiv 2507.22000 | 模型水印 | 本文提出了无需重训练或微调即可对预训练视觉模型进行\"染色\"（水印嵌入）和\"锁定\"（使用保护）的新算法，通过直接修改少量权重植入高选择性检测神经元，并提供了可计算的误报率理论保证，在图像分类和目标检测模型上验证了有效性。"
 tags:
   - ICCV 2025
-  - 模型水印
-  - 模型锁定
-  - 知识产权保护
 ---
 
 # Staining and Locking Computer Vision Models without Retraining

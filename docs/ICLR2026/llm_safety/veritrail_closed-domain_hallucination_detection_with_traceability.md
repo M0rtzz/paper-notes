@@ -2,9 +2,6 @@
 description: "【论文笔记】VeriTrail: Closed-Domain Hallucination Detection with Traceability 论文解读 | ICLR 2026 | arXiv 2505.21786 | hallucination detection | 提出 VeriTrail，首个面向多步生成（MGS）过程的闭域幻觉检测方法，通过将生成过程建模为 DAG 并沿图逐层验证 claim，实现了幻觉检测+溯源（provenance）+错误定位（error localization）的完整可追溯性，在两个新数据集上显著优于所有基线。"
 tags:
   - ICLR 2026
-  - hallucination detection
-  - faithfulness evaluation
-  - traceability
 ---
 
 # VeriTrail: Closed-Domain Hallucination Detection with Traceability

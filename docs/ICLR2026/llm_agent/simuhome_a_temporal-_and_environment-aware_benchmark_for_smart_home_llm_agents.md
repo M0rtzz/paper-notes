@@ -2,9 +2,6 @@
 description: "【论文笔记】SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents 论文解读 | ICLR 2026 | arXiv 2509.24282 | 智能家居 | 提出 SimuHome，一个基于 Matter 协议的时间加速智能家居模拟器及 600 episode benchmark，首次模拟设备操作对环境变量的持续影响并评估工作流调度能力，发现工作流调度是当前 LLM agent（包括 GPT-5.1）最难突破的挑战。"
 tags:
   - ICLR 2026
-  - 智能家居
-  - LLM Agent
-  - 工作流调度
 ---
 
 # SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents

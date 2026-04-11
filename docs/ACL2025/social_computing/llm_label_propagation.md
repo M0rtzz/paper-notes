@@ -2,9 +2,8 @@
 description: "【论文笔记】Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection 论文解读 | ACL 2025 | arXiv 2506.00488 | Fake News Detection | 提出 GLPN-LLM 框架，通过 mask-based 全局标签传播机制有效整合 LLM 生成的伪标签，解决了 LLM 伪标签直接组合效果不佳的问题，在 Twitter/PHEME/Weibo 三个数据集上全面超越 SOTA。"
 tags:
   - ACL 2025
-  - Fake News Detection
-  - Label Propagation
-  - LLM Pseudo Labels
+  - 多模态
+  - 图神经网络
 ---
 
 # Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection

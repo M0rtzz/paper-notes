@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization 论文解读 | AAAI 2026 | arXiv 2603.11873 | 动态适配器 | 针对动态MoE-LoRA适配器推理延迟暴增（250%-950%）的问题，提出了一种token级预门控架构，只在第一层做一次全局路由决策，配合自研的SGMM融合CUDA内核将所有激活的LoRA适配器一次性合并进骨干网络，在保持精度的同时将解码延迟降低2.4倍。"
 tags:
   - AAAI 2026
-  - 动态适配器
-  - MoE-LoRA
-  - CUDA内核优化
 ---
 
 # AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization

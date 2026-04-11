@@ -2,9 +2,6 @@
 description: "【论文笔记】Explainable Melanoma Diagnosis with Contrastive Learning and LLM-based Report Generation 论文解读 | AAAI 2026 | arXiv 2512.06105 | 黑色素瘤诊断 | 提出 CEFM 框架，通过跨模态对比学习将 ViT 视觉特征与基于 ABCD 规则的临床特征（不对称性、边界、颜色）对齐，再由 CLIP + DeepSeek 生成结构化诊断报告，在 ISIC 数据集上达到 92.79% 准确率和 0.961 AUC，专家评分可解释性达 4.6/5。"
 tags:
   - AAAI 2026
-  - 黑色素瘤诊断
-  - 对比学习
-  - 可解释AI
 ---
 
 # Explainable Melanoma Diagnosis with Contrastive Learning and LLM-based Report Generation

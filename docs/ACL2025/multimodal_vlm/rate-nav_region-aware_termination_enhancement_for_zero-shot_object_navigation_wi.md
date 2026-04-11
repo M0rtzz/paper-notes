@@ -2,9 +2,6 @@
 description: "【论文笔记】RATE-Nav: Region-Aware Termination Enhancement for Zero-shot Object Navigation with Vision-Language Models 论文解读 | ACL 2025 | arXiv 2506.02354 | 零样本目标导航 | 提出 RATE-Nav，一种基于边际效用理论的零样本目标导航方法，通过几何预测区域分割和基于区域的探索率估计，结合 VLM 的宏观环境感知能力智能判断是否终止当前区域的探索，在 HM3D 上达到 67.8% 成功率和 31.3% SPL，在 MP3D 上比先前零样本方法提升约 10%。"
 tags:
   - ACL 2025
-  - 零样本目标导航
-  - VLM
-  - 区域感知终止
 ---
 
 # RATE-Nav: Region-Aware Termination Enhancement for Zero-shot Object Navigation with Vision-Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】Probing LLMs for Multilingual Discourse Generalization Through a Unified Label Set 论文解读 | ACL2025 | arXiv 2503.10515 | 篇章关系分类 | 本文提出首个跨框架、跨语言的统一篇章关系标签集（17类），并通过对23个LLM的注意力探针实验，证明多语言LLM能够在中间层编码跨语言可迁移的篇章级表征，且多语言训练和模型规模共同提升泛化能力。"
 tags:
   - ACL2025
-  - 篇章关系分类
-  - 多语言泛化
-  - 统一标签集
 ---
 
 # Probing LLMs for Multilingual Discourse Generalization Through a Unified Label Set

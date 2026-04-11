@@ -2,9 +2,6 @@
 description: "【论文笔记】Machine Unlearning Doesn't Do What You Think: Lessons for Generative AI Policy and Research 论文解读 | NeurIPS 2025 | arXiv 2412.06966 | 机器遗忘 | 系统性论证\"机器遗忘\"（machine unlearning）并非万能方案，识别出遗忘动机与可行实现之间的五大根本错配（mismatches），为 ML 研究者和政策制定者提供严谨的分析框架。"
 tags:
   - NeurIPS 2025
-  - 机器遗忘
-  - 生成式AI
-  - 隐私
 ---
 
 # Machine Unlearning Doesn't Do What You Think: Lessons for Generative AI Policy and Research

@@ -2,9 +2,6 @@
 description: "【论文笔记】MMTU: A Massive Multi-Task Table Understanding and Reasoning Benchmark 论文解读 | NeurIPS 2025 | arXiv 2506.05587 | 表格理解 | 构建了一个包含 28,136 道问题、覆盖 25 种真实表格任务的大规模基准 MMTU，系统评估 LLM 在专业级表格理解、推理和操作方面的能力，发现即使是 GPT-5 等前沿推理模型也仅得分约 69.6%。"
 tags:
   - NeurIPS 2025
-  - 表格理解
-  - 基准测试
-  - LLM评估
 ---
 
 # MMTU: A Massive Multi-Task Table Understanding and Reasoning Benchmark

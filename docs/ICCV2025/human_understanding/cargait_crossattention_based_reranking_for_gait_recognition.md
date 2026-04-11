@@ -2,9 +2,6 @@
 description: "【论文笔记】CarGait: Cross-Attention based Re-ranking for Gait Recognition 论文解读 | ICCV 2025 | arXiv 2503.03501 | 步态识别 | 提出CarGait——基于cross-attention的步态识别重排序方法：对任意单阶段步态模型的top-K检索结果，通过probe与候选间步态条带(gait strip)的cross-attention学习细粒度pair-wise交互，生成新的条件化表征并重新计算距离进行重排序。在Gait3D/GREW/OU-MVLP三个数据集、7种基线模型上一致提升Rank-1/5准确率，推理速度6.5ms/probe远超现有重排序方法。"
 tags:
   - ICCV 2025
-  - 步态识别
-  - 重排序
-  - cross-attention
   - 注意力机制
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】OMGM: Orchestrate Multiple Granularities and Modalities for Efficient Multimodal Retrieval 论文解读 | ACL 2025 | arXiv 2505.07879 | 多模态检索 | 提出OMGM——一个面向知识密集型视觉问答(KB-VQA)的多模态RAG系统，通过粗到细三步检索策略协调查询与知识库在不同粒度和模态间的匹配，在InfoSeek和E-VQA上取得SOTA检索性能和极具竞争力的问答结果。"
 tags:
   - ACL 2025
-  - 多模态检索
-  - 知识增强VQA
-  - RAG
 ---
 
 # OMGM: Orchestrate Multiple Granularities and Modalities for Efficient Multimodal Retrieval

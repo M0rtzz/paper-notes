@@ -2,9 +2,6 @@
 description: "【论文笔记】Angle Domain Guidance: Latent Diffusion Requires Rotation Rather Than Extrapolation 论文解读 | ICML 2025 | arXiv 2506.11039 | 分类器自由引导 | 发现 Classifier-Free Guidance (CFG) 导致颜色失真的根本原因是潜空间样本范数被放大，提出 Angle Domain Guidance (ADG) 算法——在角度域而非幅度域增强引导，约束范数变化的同时优化角度对齐，在高引导权重下消除颜色饱和度异常并保持甚至改善文本-图像对齐。"
 tags:
   - ICML 2025
-  - 分类器自由引导
-  - 扩散模型
-  - 颜色失真
 ---
 
 # Angle Domain Guidance: Latent Diffusion Requires Rotation Rather Than Extrapolation

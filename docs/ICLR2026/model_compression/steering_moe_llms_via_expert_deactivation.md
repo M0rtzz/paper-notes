@@ -2,9 +2,6 @@
 description: "【论文笔记】Steering MoE LLMs via Expert (De)Activation 论文解读 | ICLR 2026 | arXiv 2509.09660 | MoE | 提出 SteerMoE，通过对比配对输入检测行为关联专家，在推理时通过激活/去激活特定专家来引导 MoE LLM 的行为（安全性提升 +20%，忠实性提升 +27%），同时揭示 MoE 模型的安全对齐脆弱性（安全下降 -100%）。"
 tags:
   - ICLR 2026
-  - MoE
-  - 专家路由
-  - 行为引导
 ---
 
 # Steering MoE LLMs via Expert (De)Activation

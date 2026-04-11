@@ -2,9 +2,6 @@
 description: "【论文笔记】LLaVA-PruMerge: Adaptive Token Reduction for Efficient Large Multimodal Models 论文解读 | ICCV 2025 | arXiv 2403.15388 | 视觉token压缩 | 利用视觉编码器中CLS token与空间token之间注意力分数的稀疏性，自适应地剪枝和合并视觉token，在仅保留5.5%视觉token的情况下维持LMM的可比性能。"
 tags:
   - ICCV 2025
-  - 视觉token压缩
-  - 大型多模态模型
-  - token剪枝与合并
 ---
 
 # LLaVA-PruMerge: Adaptive Token Reduction for Efficient Large Multimodal Models

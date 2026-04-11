@@ -2,9 +2,6 @@
 description: "【论文笔记】Adjustment for Confounding using Pre-Trained Representations 论文解读 | ICML 2025 | arXiv 2506.14329 | 因果推断 | 本文研究如何利用预训练神经网络的隐表示来调整非表格数据（如图像、文本）中的混杂因素，形式化了表示充分性条件，证明了稀疏性/可加性假设在可逆线性变换（ILT）下不成立，并基于低内在维度和层次组合模型建立了深度网络的收敛速率理论，从而保证 DML 框架下 ATE 估计的有效推断。"
 tags:
   - ICML 2025
-  - 因果推断
-  - 平均处理效应
-  - 预训练表示
 ---
 
 # Adjustment for Confounding using Pre-Trained Representations

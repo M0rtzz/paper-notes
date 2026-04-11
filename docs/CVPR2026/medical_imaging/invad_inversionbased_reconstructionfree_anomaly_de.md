@@ -2,10 +2,7 @@
 description: "【论文笔记】InvAD: Inversion-based Reconstruction-Free Anomaly Detection with Diffusion Models 论文解读 | CVPR 2026 | arXiv 2504.05662 | anomaly detection | 提出\"检测即加噪\"范式取代传统\"检测即去噪\"——通过DDIM反转将图像映射到潜在噪声空间，仅用3步推理判断偏离先验分布的程度作为异常分数，无需重建，实现SOTA精度的同时推理速度达88 FPS（比OmiAD快2倍+）。"
 tags:
   - CVPR 2026
-  - anomaly detection
-  - diffusion model
   - 扩散模型
-  - DDIM inversion
 ---
 
 # InvAD: Inversion-based Reconstruction-Free Anomaly Detection with Diffusion Models

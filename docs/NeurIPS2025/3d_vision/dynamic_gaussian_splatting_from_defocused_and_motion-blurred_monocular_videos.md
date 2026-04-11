@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Gaussian Splatting from Defocused and Motion-blurred Monocular Videos 论文解读 | NeurIPS 2025 | arXiv 2510.10691 | 3D Gaussian Splatting | 提出统一框架，通过可学习模糊核卷积联合建模散焦模糊和运动模糊，结合动态高斯致密化策略和未见视角约束，从模糊单目视频中实现高质量动态 3DGS 新视角合成。"
 tags:
   - NeurIPS 2025
-  - 3D Gaussian Splatting
-  - 动态场景重建
-  - 散焦模糊
 ---
 
 # Dynamic Gaussian Splatting from Defocused and Motion-blurred Monocular Videos

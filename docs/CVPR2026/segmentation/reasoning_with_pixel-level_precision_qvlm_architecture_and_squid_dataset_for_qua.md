@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoning with Pixel-level Precision: QVLM Architecture and SQuID Dataset for Quantitative Geospatial Analytics 论文解读 | CVPR 2026 | arXiv 2601.13401 | VLM | 提出 QVLM 架构和 SQuID 数据集，通过代码生成+分割模型的解耦设计，在卫星图像上实现像素级精度的定量空间推理，克服了传统 VLM 因 patch embedding 压缩而丢失空间索引的根本限制。"
 tags:
   - CVPR 2026
-  - VLM
-  - 定量空间推理
-  - 代码生成
 ---
 
 # Reasoning with Pixel-level Precision: QVLM Architecture and SQuID Dataset for Quantitative Geospatial Analytics

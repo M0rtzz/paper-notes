@@ -2,9 +2,6 @@
 description: "【论文笔记】3DGraphLLM: Combining Semantic Graphs and Large Language Models for 3D Scene Understanding 论文解读 | ICCV 2025 | arXiv 2412.18450 | 3D Scene Graph | 提出3DGraphLLM，首个将**3D语义场景图的可学习表示**直接输入LLM的方法——通过k近邻子图+三元组(object1, relation, object2)编码物体间语义关系，然后投影到LLM的token嵌入空间。在ScanRefer上Acc@0.5提升+6.4%（vs无语义关系的Chat-Scene），在Multi3DRefer上F1@0.5提升+7.5%，推理速度比GPT4Scene-HDM快5倍。"
 tags:
   - ICCV 2025
-  - 3D Scene Graph
-  - LLM
-  - Semantic Relations
 ---
 
 # 3DGraphLLM: Combining Semantic Graphs and Large Language Models for 3D Scene Understanding

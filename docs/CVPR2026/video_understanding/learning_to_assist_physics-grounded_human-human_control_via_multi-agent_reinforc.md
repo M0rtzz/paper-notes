@@ -2,10 +2,7 @@
 description: "【论文笔记】Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning 论文解读 | CVPR 2026 | arXiv 2603.11346 | 强化学习 multi-agent reinforcement learning | 提出 AssistMimic，将人-人辅助交互动作的物理模仿建模为多智能体强化学习（MARL）问题，通过运动先验初始化、动态参考重定向和接触促进奖励，首次实现了力交换型辅助动作的物理仿真跟踪。"
 tags:
   - CVPR 2026
-  - multi-agent reinforcement learning
   - 强化学习
-  - physics-based character control
-  - human-human interaction
 ---
 
 # Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning

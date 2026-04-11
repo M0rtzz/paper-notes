@@ -2,9 +2,6 @@
 description: "【论文笔记】$M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs 论文解读 | arXiv 2026 | arXiv 2603.09737 | $m^2$-occ | 语义占用预测可实现自动驾驶的密集 3D 几何和语义理解。"
 tags:
   - arXiv 2026
-  - $m^2$-occ
-  - resilient
-  - semantic
 ---
 
 # $M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs

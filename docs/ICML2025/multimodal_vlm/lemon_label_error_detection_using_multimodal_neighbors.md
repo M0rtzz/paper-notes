@@ -2,9 +2,6 @@
 description: "【论文笔记】LEMoN: Label Error Detection using Multimodal Neighbors 论文解读 | ICML 2025 | arXiv 2407.18941 | 标签错误检测 | 本文提出 LEMoN 方法，利用对比预训练多模态模型（如 CLIP）的嵌入空间中图像-文本对的多模态邻域结构，在分类和图像描述两个场景下自动检测标签错误，在训练无关的基线中 F1 提升 3-4%，过滤后的数据可改善下游分类和描述性能。"
 tags:
   - ICML 2025
-  - 标签错误检测
-  - 多模态噪声标签
-  - 对比学习嵌入
 ---
 
 # LEMoN: Label Error Detection using Multimodal Neighbors

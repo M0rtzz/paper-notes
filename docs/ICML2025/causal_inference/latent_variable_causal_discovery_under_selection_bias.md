@@ -2,9 +2,6 @@
 description: "【论文笔记】Latent Variable Causal Discovery under Selection Bias 论文解读 | ICML2025 | arXiv 2512.11219 | 潜变量因果发现 | 首次研究选择偏差下的潜变量因果发现：发现虽然选择偏差极大地复杂化了联合分布，但有偏协方差矩阵的秩仍保留了因果结构和选择机制的有意义信息，并在单因子模型上证明了可识别性。"
 tags:
   - ICML2025
-  - 潜变量因果发现
-  - 选择偏差
-  - 秩约束
 ---
 
 # Latent Variable Causal Discovery under Selection Bias

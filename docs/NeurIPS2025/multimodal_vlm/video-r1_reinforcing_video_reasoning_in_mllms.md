@@ -2,9 +2,6 @@
 description: "【论文笔记】Video-R1: Reinforcing Video Reasoning in MLLMs 论文解读 | NeurIPS 2025 | arXiv 2503.21776 | 视频推理 | 受DeepSeek-R1启发，首次系统探索将R1范式（规则RL）应用于视频推理，提出T-GRPO算法显式鼓励模型利用时序信息，并构建图文混合训练数据集，在VSI-Bench上以37.1%准确率超越GPT-4o。"
 tags:
   - NeurIPS 2025
-  - 视频推理
-  - 强化学习
-  - GRPO
 ---
 
 # Video-R1: Reinforcing Video Reasoning in MLLMs

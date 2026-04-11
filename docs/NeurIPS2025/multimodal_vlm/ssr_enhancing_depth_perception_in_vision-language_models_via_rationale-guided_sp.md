@@ -2,9 +2,6 @@
 description: "【论文笔记】SSR: Enhancing Depth Perception in VLMs via Rationale-Guided Spatial Reasoning 论文解读 | NeurIPS 2025 | arXiv 2505.12448 | 空间推理 | 提出 SSR 框架，将原始深度信息转化为结构化文本推理 rationale，并通过知识蒸馏压缩为紧凑潜在嵌入，以即插即用方式增强现有 VLM 的空间推理能力。"
 tags:
   - NeurIPS 2025
-  - 空间推理
-  - 深度感知
-  - 视觉语言模型
 ---
 
 # SSR: Enhancing Depth Perception in VLMs via Rationale-Guided Spatial Reasoning

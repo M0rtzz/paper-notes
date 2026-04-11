@@ -2,9 +2,6 @@
 description: "【论文笔记】Copy-Paste to Mitigate Large Language Model Hallucinations 论文解读 | ICLR 2026 | arXiv 2510.00508 | 幻觉缓解 | 提出 Copy-Paste 生成范式，通过训练 LLM 优先直接复制检索上下文中的片段来生成回答，而非自由改写，配合高复制偏好的 DPO 训练，在反事实 RAG 基准上将忠实度从 80.2% 提升到 92.8%。"
 tags:
   - ICLR 2026
-  - 幻觉缓解
-  - RAG
-  - 复制粘贴
 ---
 
 # Copy-Paste to Mitigate Large Language Model Hallucinations

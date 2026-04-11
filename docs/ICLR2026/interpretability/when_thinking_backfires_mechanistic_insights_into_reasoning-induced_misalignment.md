@@ -2,9 +2,6 @@
 description: "【论文笔记】When Thinking Backfires: Mechanistic Insights Into Reasoning-Induced Misalignment 论文解读 | ICLR 2026 | arXiv 2509.00544 | Reasoning-Induced Misalignment | 发现并机制性地解释\"推理诱导失对齐\"（RIM）现象：增强推理能力（CoT prompting 或数学微调）会削弱安全守护，原因是推理和安全共享神经元资源，训练推理时安全关键神经元的激活发生不成比例的偏移。"
 tags:
   - ICLR 2026
-  - Reasoning-Induced Misalignment
-  - 安全对齐
-  - 机制分析
 ---
 
 # When Thinking Backfires: Mechanistic Insights Into Reasoning-Induced Misalignment

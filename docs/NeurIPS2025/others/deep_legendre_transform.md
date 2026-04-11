@@ -2,9 +2,6 @@
 description: "【论文笔记】Deep Legendre Transform 论文解读 | NeurIPS 2025 | arXiv 2512.19649 | 凸共轭 | DLT 利用凸共轭的隐式 Fenchel 表示 $f^*(\nabla f(x)) = \langle x, \nabla f(x) \rangle - f(x)$ 将凸共轭计算转化为标准回归问题，避免求解 max/min-max 优化，且能提供后验误差估计，结合 KAN 还可获得精确解析解。"
 tags:
   - NeurIPS 2025
-  - 凸共轭
-  - Legendre变换
-  - ICNN
 ---
 
 # Deep Legendre Transform

@@ -2,9 +2,6 @@
 description: "【论文笔记】OmniAudio: Generating Spatial Audio from 360-Degree Video 论文解读 | ICML 2025 | arXiv 2504.14906 | 空间音频生成 | 提出 OmniAudio 框架，首次实现从 360 度全景视频生成 First-order Ambisonics (FOA) 空间音频，通过 coarse-to-fine 自监督预训练和双分支视频编码架构，在自建的 Sphere360 数据集上取得 SOTA 性能。"
 tags:
   - ICML 2025
-  - 空间音频生成
-  - 360度视频
-  - First-order Ambisonics
 ---
 
 # OmniAudio: Generating Spatial Audio from 360-Degree Video

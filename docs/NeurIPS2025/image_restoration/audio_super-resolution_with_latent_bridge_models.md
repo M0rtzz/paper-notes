@@ -2,10 +2,7 @@
 description: "【论文笔记】Audio Super-Resolution with Latent Bridge Models 论文解读 | NeurIPS 2025 | arXiv 2509.17609 | 超分辨率 audio super-resolution | 提出 AudioLBM，在波形隐空间中用桥模型实现 LR-to-HR latent-to-latent 音频超分，配合频率感知训练和级联设计，LSD 平均改善 21.5%，首次实现 any-to-192kHz 音频超分。"
 tags:
   - NeurIPS 2025
-  - audio super-resolution
   - 超分辨率
-  - bridge model
-  - latent space
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

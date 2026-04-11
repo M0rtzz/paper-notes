@@ -2,9 +2,6 @@
 description: "【论文笔记】Gaussian-Augmented Physics Simulation and System Identification with Complex Colliders 论文解读 | NeurIPS 2025 | arXiv 2511.06846 | 可微物理模拟 | 提出 AS-DiffMPM，一种支持任意形状刚体碰撞体的可微物质点法（MPM）框架，结合多种新视角合成方法实现从视觉观测中估计物体物理参数的系统辨识。"
 tags:
   - NeurIPS 2025
-  - 可微物理模拟
-  - 系统辨识
-  - Material Point Method
 ---
 
 # Gaussian-Augmented Physics Simulation and System Identification with Complex Colliders

@@ -2,10 +2,7 @@
 description: "【论文笔记】CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG 论文解读 | ACL 2025 | arXiv 2506.02544 | 多模态 multimodal RAG | CoRe-MMRAG 提出了一个端到端多模态 RAG 框架，通过四阶段流水线（参数知识生成→视觉-文本联合重排序→外部知识生成→内外知识整合）解决参数知识-检索知识不一致(PRKI)和视觉-文本知识不一致(VTKI)两个问题，在 InfoSeek 和 Encyclopedic-VQA 上分别提升 5.6% 和 9.3%。"
 tags:
   - ACL 2025
-  - multimodal RAG
   - 多模态
-  - knowledge inconsistency
-  - visual-textual reconciliation
 ---
 
 # CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG

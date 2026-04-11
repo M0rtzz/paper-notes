@@ -2,9 +2,6 @@
 description: "【论文笔记】Mass Conservation on Rails: PIML of Ice Flow Vector Fields 论文解读 | NeurIPS 2025 | arXiv 2510.06286 | 物理信息ML | 对比硬约束（dfNN）、软约束（PINN）和无约束NN在南极冰流通量插值上的表现，通过流函数的辛梯度精确保证无散度的dfNN最优，结合方向引导进一步提升。"
 tags:
   - NeurIPS 2025
-  - 物理信息ML
-  - 无散度神经网络
-  - 冰流建模
 ---
 
 # Mass Conservation on Rails: PIML of Ice Flow Vector Fields

@@ -2,9 +2,6 @@
 description: "【论文笔记】Entropic Confinement and Mode Connectivity in Overparameterized Neural Networks 论文解读 | ICLR 2026 | arXiv 2512.06297 | 熵力 | 揭示了深度网络损失景观中的\"熵垒\"现象：连接不同极小值的低损失路径上曲率系统性升高，与SGD噪声交互产生熵力将优化动力学限制在平坦端点附近——这解释了为何能量上连通的极小值在动力学上是有效断开的。"
 tags:
   - ICLR 2026
-  - 熵力
-  - mode connectivity
-  - 损失景观
 ---
 
 # Entropic Confinement and Mode Connectivity in Overparameterized Neural Networks

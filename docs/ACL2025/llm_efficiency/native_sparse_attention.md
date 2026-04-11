@@ -2,9 +2,6 @@
 description: "【论文笔记】Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention 论文解读 | ACL 2025 (Best Paper Award) | arXiv 2502.11089 | 稀疏注意力 | DeepSeek提出NSA——一种原生可训练的稀疏注意力机制，通过\"压缩+选择+滑动窗口\"的层次化稀疏策略和硬件对齐的Triton kernel设计，在27B参数模型上实现了超越Full Attention的性能，同时在64k序列上获得前向9倍、解码11.6倍的加速。"
 tags:
   - ACL 2025 (Best Paper Award)
-  - 稀疏注意力
-  - 长上下文建模
-  - 硬件对齐
 ---
 
 # Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention

@@ -2,9 +2,6 @@
 description: "【论文笔记】Why LVLMs Are More Prone to Hallucinations in Longer Responses: The Role of Context 论文解读 | ICCV 2025 | arXiv 2510.20229 | 幻觉缓解 | 深入探究 LVLM 长文本生成中幻觉频发的根本原因——不是长度本身，而是上下文的连贯性（coherence）和完备性（completeness）需求驱动模型外推产生幻觉，并据此提出 HalTrapper 的\"诱导-检测-抑制\"三阶段框架。"
 tags:
   - ICCV 2025
-  - 幻觉缓解
-  - 长文本生成
-  - 上下文分析
 ---
 
 # Why LVLMs Are More Prone to Hallucinations in Longer Responses: The Role of Context

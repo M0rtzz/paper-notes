@@ -2,9 +2,6 @@
 description: "【论文笔记】NIMO: a Nonlinear Interpretable MOdel 论文解读 | ICLR 2026 | arXiv 2506.05059 | interpretable model | NIMO 提出一种混合模型 $y = \sum_j x_j \beta_j (1 + g_{\mathbf{u}_j}(\mathbf{x}_{-j}))$，在保留线性回归系数全局可解释性（通过均值边际效应 MEM）的同时，利用神经网络提供逐实例的非线性修正，并通过参数消去法高效联合优化线性系数和网络参数。"
 tags:
   - ICLR 2026
-  - interpretable model
-  - marginal effects
-  - linear regression
 ---
 
 # NIMO: a Nonlinear Interpretable MOdel

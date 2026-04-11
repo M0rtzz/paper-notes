@@ -2,9 +2,6 @@
 description: "【论文笔记】Accelerating Image Super-Resolution Networks with Pixel-Level Classification 论文解读 | ECCV 2024 | arXiv 2407.21448 | 超分辨率加速 | 提出PCSR——首个像素级计算资源分配的超分方法，用轻量MLP分类器逐像素判断恢复难度并分配到不同容量的上采样器，在PSNR几乎不掉的情况下将FLOPs压低至原始模型的18%~57%，大幅优于现有patch级方法ClassSR和ARM。"
 tags:
   - ECCV 2024
-  - 超分辨率加速
-  - 像素级分类
-  - 自适应计算分配
 ---
 
 # Accelerating Image Super-Resolution Networks with Pixel-Level Classification

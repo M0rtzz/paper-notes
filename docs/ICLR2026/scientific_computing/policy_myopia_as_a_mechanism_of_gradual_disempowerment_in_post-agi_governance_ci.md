@@ -2,9 +2,6 @@
 description: "【论文笔记】Policy myopia as a mechanism of gradual disempowerment in Post-AGI governance, Circa 2049 论文解读 | ICLR2026 | arXiv 2603.03267 | AI governance | 论证政策短视（policy myopia）不是注意力分配问题，而是后 AGI 治理中产生不可逆人类失权的**机制**——通过显著性捕获、能力级联和价值锁定三个耦合机制，跨经济/政治/文化系统产生自我强化的人类边缘化均衡。"
 tags:
   - ICLR2026
-  - AI governance
-  - policy myopia
-  - disempowerment
 ---
 
 # Policy myopia as a mechanism of gradual disempowerment in Post-AGI governance, Circa 2049

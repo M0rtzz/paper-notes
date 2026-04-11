@@ -2,9 +2,6 @@
 description: "【论文笔记】VideoMind: A Chain-of-LoRA Agent for Temporal-Grounded Video Reasoning 论文解读 | ICLR 2026 | arXiv 2503.13444 | 视频推理 | 提出 VideoMind，一个基于角色分工的视频语言Agent框架，通过 Planner-Grounder-Verifier-Answerer 四角色协作实现时序grounded视频推理，核心创新是 Chain-of-LoRA 机制——在统一基座模型上通过切换LoRA适配器实现角色无缝切换，2B模型即超越GPT-4o和Gemini-1.5-Pro。"
 tags:
   - ICLR 2026
-  - 视频推理
-  - 时序定位
-  - LoRA
 ---
 
 # VideoMind: A Chain-of-LoRA Agent for Temporal-Grounded Video Reasoning

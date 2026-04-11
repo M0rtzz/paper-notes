@@ -2,9 +2,6 @@
 description: "【论文笔记】JuStRank: Benchmarking LLM Judges for System Ranking 论文解读 | ACL 2025 | arXiv 2412.09569 | LLM-as-Judge | 首次大规模研究LLM判官在系统排名任务中的表现，提出JuStRank基准，揭示实例级判断能力与系统级排名能力之间的差距，并发现判官的\"果断性\"和\"偏见\"两个新兴特征。"
 tags:
   - ACL 2025
-  - LLM-as-Judge
-  - System Ranking
-  - Benchmark
 ---
 
 # JuStRank: Benchmarking LLM Judges for System Ranking

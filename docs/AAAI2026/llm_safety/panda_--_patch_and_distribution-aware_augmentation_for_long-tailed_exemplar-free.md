@@ -2,9 +2,6 @@
 description: "【论文笔记】PANDA: Patch and Distribution-Aware Augmentation for Long-Tailed Exemplar-Free Continual Learning 论文解读 | AAAI 2026 | arXiv 2511.09791 | Exemplar-Free Continual Learning | 提出 PANDA 框架，通过 CLIP 引导的语义 patch 移植实现任务内类别平衡，并借助可学习的分布平滑机制缓解任务间分布偏移，以即插即用方式提升基于预训练模型的无样本存储持续学习在长尾场景下的性能。"
 tags:
   - AAAI 2026
-  - Exemplar-Free Continual Learning
-  - Long-Tailed Distribution
-  - CLIP-guided Augmentation
 ---
 
 # PANDA: Patch and Distribution-Aware Augmentation for Long-Tailed Exemplar-Free Continual Learning

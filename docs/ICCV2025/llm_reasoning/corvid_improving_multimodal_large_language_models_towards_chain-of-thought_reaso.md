@@ -2,9 +2,6 @@
 description: "【论文笔记】CoRVid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning 论文解读 | ICCV 2025 | arXiv 2507.07424 | 多模态大语言模型 | 提出 Corvid，通过混合视觉编码器 + GateMixer 连接器 + 高质量 CoT 数据集 + 推理时自验证策略，全面提升 MLLM 的链式推理能力，在数学推理和科学问题求解上超越同参数量级的开源模型。"
 tags:
   - ICCV 2025
-  - 多模态大语言模型
-  - 链式推理
-  - 视觉编码器
 ---
 
 # CoRVid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning

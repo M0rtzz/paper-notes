@@ -2,9 +2,6 @@
 description: "【论文笔记】From Easy to Hard: The MIR Benchmark for Progressive Interleaved Multi-Image Reasoning 论文解读 | ICCV 2025 | arXiv 2509.17040 | multi-image reasoning | 提出 MIR 基准，包含 22,257 个多图像交错推理问答对及五阶段推理步骤，并设计渐进式课程学习策略，从\"简单到困难\"逐步提升 MLLM 的多图像交错推理能力。"
 tags:
   - ICCV 2025
-  - multi-image reasoning
-  - interleaved data
-  - benchmark
 ---
 
 # From Easy to Hard: The MIR Benchmark for Progressive Interleaved Multi-Image Reasoning

@@ -2,9 +2,6 @@
 description: "【论文笔记】Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection 论文解读 | NeurIPS 2025 | arXiv 2511.03666 | 社交交互检测 | 提出一种部位感知的自底向上群组推理框架，通过姿态引导的身体部位特征增强和基于相似度的个体关联来推断社交群组和细粒度交互，在 NVI 和 Café 数据集上达到新 SOTA。"
 tags:
   - NeurIPS 2025
-  - 社交交互检测
-  - 身体部位感知
-  - 自底向上推理
 ---
 
 # Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection

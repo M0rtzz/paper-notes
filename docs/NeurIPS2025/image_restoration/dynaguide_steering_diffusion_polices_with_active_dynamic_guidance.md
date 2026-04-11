@@ -2,10 +2,7 @@
 description: "【论文笔记】DynaGuide: Steering Diffusion Policies with Active Dynamic Guidance 论文解读 | NeurIPS 2025 | arXiv 2506.13922 | 扩散模型 Diffusion Policy | 提出 DynaGuide，在推理时通过外部潜在动力学模型对预训练扩散策略施加 classifier guidance，无需修改策略权重即可引导机器人朝向任意正/负目标，在 CALVIN 仿真上平均成功率 70%，真实机器人达 80%。"
 tags:
   - NeurIPS 2025
-  - Diffusion Policy
   - 扩散模型
-  - Classifier Guidance
-  - Latent Dynamics Model
 ---
 
 # DynaGuide: Steering Diffusion Policies with Active Dynamic Guidance

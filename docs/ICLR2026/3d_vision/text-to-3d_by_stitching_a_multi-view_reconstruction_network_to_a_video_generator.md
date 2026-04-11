@@ -2,9 +2,6 @@
 description: "【论文笔记】Text-to-3D by Stitching a Multi-view Reconstruction Network to a Video Generator 论文解读 | ICLR 2026 | arXiv 2510.13454 | Text-to-3D | 提出VIST3A框架——通过模型拼接(model stitching)将预训练视频生成器的latent空间与前馈3D重建模型(如AnySplat/MVDUSt3R/VGGT)无缝对接，再用直接奖励微调(direct reward finetuning)对齐生成模型与拼接后的3D解码器，实现高质量端到端text-to-3DGS和text-to-pointmap生成，在T3Bench/SceneBench/DPG-Bench上全面超越现有方法。"
 tags:
   - ICLR 2026
-  - Text-to-3D
-  - 模型拼接
-  - 视频生成器
 ---
 
 # Text-to-3D by Stitching a Multi-view Reconstruction Network to a Video Generator

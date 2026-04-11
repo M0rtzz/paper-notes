@@ -2,10 +2,7 @@
 description: "【论文笔记】CUDA-L1: Improving CUDA Optimization via Contrastive Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2507.14111 | CUDA optimization | 提出 CUDA-L1，一个基于对比强化学习（Contrastive RL）的三阶段流水线框架，将初始 CUDA 能力较弱的 LLM 训练为高效的 CUDA 优化器，在 KernelBench 的 250 个 CUDA 内核上实现平均 3.12× 加速，峰值达 120×，并可跨 GPU 架构迁移。"
 tags:
   - ICLR 2026
-  - CUDA optimization
-  - contrastive reinforcement learning
   - 强化学习
-  - LLM
 ---
 
 # CUDA-L1: Improving CUDA Optimization via Contrastive Reinforcement Learning

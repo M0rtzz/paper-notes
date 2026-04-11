@@ -2,9 +2,6 @@
 description: "【论文笔记】VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents 论文解读 | NeurIPS 2025 | arXiv 2510.16907 | VLM Agent | 提出VAGEN框架，通过将VLM智能体的推理过程结构化为StateEstimation和TransitionModeling来构建内部世界模型，结合WorldModeling Reward和Bi-Level GAE实现高效的多轮RL训练，使3B模型（0.82）超越GPT-5（0.75）和Gemini 2.5 Pro（0.67）。"
 tags:
   - NeurIPS 2025
-  - VLM Agent
-  - 世界模型
-  - 强化学习
 ---
 
 # VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents

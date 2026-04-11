@@ -2,9 +2,6 @@
 description: "【论文笔记】LongRLVR: Long-Context Reinforcement Learning Requires Verifiable Context Rewards 论文解读 | ICLR 2026 | arXiv 2603.02146 | RLVR | 提出 LongRLVR，通过在 RLVR 训练中引入可验证的上下文奖励（context reward），解决长上下文场景下仅靠最终答案奖励导致的上下文定位（grounding）梯度消失问题，显著提升 LLM 长上下文推理能力。"
 tags:
   - ICLR 2026
-  - RLVR
-  - 长上下文推理
-  - 上下文定位
 ---
 
 # LongRLVR: Long-Context Reinforcement Learning Requires Verifiable Context Rewards

@@ -2,9 +2,6 @@
 description: "【论文笔记】Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach 论文解读 | CVPR 2026 | arXiv 2603.13056 | 情感计算 | 提出一种结合人脸视觉特征、VLM行为描述嵌入和音频特征的多模态方法用于连续效价-唤醒（VA）估计，通过两种融合策略（DCMMOE 和 RAAV）在 Aff-Wild2 数据集上取得了竞争力的结果。"
 tags:
   - CVPR 2026
-  - 情感计算
-  - 效价-唤醒估计
-  - 多模态融合
 ---
 
 # Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach

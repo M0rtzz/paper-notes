@@ -2,9 +2,6 @@
 description: "【论文笔记】Geometry-Guided Camera Motion Understanding in VideoLLMs 论文解读 | CVPR 2026 | arXiv 2603.13119 | 相机运动理解 | 通过 benchmarking-diagnosis-injection 框架系统揭示 VideoLLM 的相机运动盲区，并利用冻结 3DFM (VGGT) 提取几何线索 + 轻量时序分类器 + 结构化提示注入，无需微调即可显著提升 VideoLLM 的细粒度相机运动理解。"
 tags:
   - CVPR 2026
-  - 相机运动理解
-  - VideoLLM
-  - 几何引导
 ---
 
 # Geometry-Guided Camera Motion Understanding in VideoLLMs

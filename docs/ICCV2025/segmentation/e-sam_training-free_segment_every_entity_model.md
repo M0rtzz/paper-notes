@@ -2,9 +2,6 @@
 description: "【论文笔记】E-SAM: Training-Free Segment Every Entity Model 论文解读 | ICCV 2025 | arXiv 2503.12094 | 实体分割 | E-SAM 是一个无需额外训练的框架，通过三个级联模块——多层级掩码生成（MMG）、实体级掩码精炼（EMR）和欠分割修复（USR）——系统性地解决 SAM 自动掩码生成（AMG）中的过分割和欠分割问题，在基准指标上超越现有实体分割方法 **+30.1 分**。"
 tags:
   - ICCV 2025
-  - 实体分割
-  - SAM
-  - 训练免调
 ---
 
 # E-SAM: Training-Free Segment Every Entity Model

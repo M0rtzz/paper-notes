@@ -2,9 +2,6 @@
 description: "【论文笔记】MERIT: Maximum-normalized Element-wise Ratio for LM Large-batch Training 论文解读 | ICML2025 | arXiv 2508.20577 | 大批量训练 | 识别了LLM大批量训练中\"max attention logit急剧上升\"的关键问题，提出MERIT优化器——用max-norm替代l2-norm计算trust ratio，并引入element-wise trust ratio约束局部权重结构，GPT-2 Medium在6K batch size下无性能退化。"
 tags:
   - ICML2025
-  - 大批量训练
-  - 优化器
-  - 注意力logit
 ---
 
 # MERIT: Maximum-normalized Element-wise Ratio for LM Large-batch Training

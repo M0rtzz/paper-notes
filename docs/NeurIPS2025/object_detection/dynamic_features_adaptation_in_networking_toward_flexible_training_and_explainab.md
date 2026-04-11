@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Features Adaptation in Networking: Toward Flexible Training and Explainable Inference 论文解读 | NeurIPS 2025 | arXiv 2510.08303 | Adaptive Random Forest | 提出 DAFI（Drift-Aware Feature Importance）算法，利用分布漂移检测动态切换 SHAP/MDI 两种特征重要性方法，结合自适应随机森林（ARF）实现通信网络场景下特征动态增加时的灵活训练与高效可解释推理。"
 tags:
   - NeurIPS 2025
-  - Adaptive Random Forest
-  - Feature Importance
-  - Explainable AI
 ---
 
 # Dynamic Features Adaptation in Networking: Toward Flexible Training and Explainable Inference

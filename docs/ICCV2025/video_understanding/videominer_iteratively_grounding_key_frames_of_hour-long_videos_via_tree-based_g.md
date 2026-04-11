@@ -2,9 +2,6 @@
 description: "【论文笔记】VideoMiner: Iteratively Grounding Key Frames of Hour-Long Videos via Tree-based Group Relative Policy Optimization 论文解读 | ICCV 2025 | arXiv 2510.06040 | 长视频理解 | 提出VideoMiner——基于强化学习的长视频理解树结构框架，通过迭代分割-描述-聚类构建层次化视频树，并提出T-GRPO（树结构Group Relative Policy Optimization）引导策略模型自适应探索关键帧，在4个长视频基准上取得SOTA，并发现T-GRPO可自发激发推理链。"
 tags:
   - ICCV 2025
-  - 长视频理解
-  - 关键帧提取
-  - 强化学习
 ---
 
 # VideoMiner: Iteratively Grounding Key Frames of Hour-Long Videos via Tree-based Group Relative Policy Optimization

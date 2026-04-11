@@ -2,9 +2,6 @@
 description: "【论文笔记】Intervention Efficiency and Perturbation Validation Framework: Capacity-Aware and Robust Clinical Model Selection under the Rashomon Effect 论文解读 | AAAI 2026 | arXiv 2511.14317 | Rashomon Effect | 针对临床小样本、类别不平衡场景下多个模型性能相近（Rashomon Effect）导致的模型选择困难，提出 **Intervention Efficiency (IE)** 容量感知评估指标和 **Perturbation Validation Framework (PVF)** 鲁棒性验证框架，联合实现资源约束下的可靠模型选择。"
 tags:
   - AAAI 2026
-  - Rashomon Effect
-  - 模型选择
-  - 干预效率
 ---
 
 # Intervention Efficiency and Perturbation Validation Framework: Capacity-Aware and Robust Clinical Model Selection under the Rashomon Effect

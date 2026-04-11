@@ -2,9 +2,6 @@
 description: "【论文笔记】CustomTex: High-fidelity Indoor Scene Texturing via Multi-Reference Customization 论文解读 | CVPR 2026 | arXiv 2603.19121 | 室内场景纹理 | 提出CustomTex框架，通过实例级的多参考图像驱动和双蒸馏训练策略（语义级VSD蒸馏+像素级超分蒸馏），实现3D室内场景的高保真、实例可控纹理生成，在语义一致性、纹理清晰度和减少\"烘焙阴影\"方面全面超越现有方法。"
 tags:
   - CVPR 2026
-  - 室内场景纹理
-  - 多参考图像定制
-  - 双蒸馏
 ---
 
 # CustomTex: High-fidelity Indoor Scene Texturing via Multi-Reference Customization

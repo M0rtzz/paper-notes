@@ -2,9 +2,6 @@
 description: "【论文笔记】Highly Efficient and Effective LLMs with Multi-Boolean Architectures 论文解读 | ICLR 2026 | arXiv 2505.22811 | 权重二值化 | 提出一种用多核布尔参数（multi-kernel Boolean parameters）表示 LLM 权重的新框架，首次实现在布尔域中直接微调大语言模型，无需全精度潜在权重，在表征能力和计算效率上同时超越现有超低比特量化和二值化方法。"
 tags:
   - ICLR 2026
-  - 权重二值化
-  - 布尔参数
-  - 极低比特量化
 ---
 
 # Highly Efficient and Effective LLMs with Multi-Boolean Architectures

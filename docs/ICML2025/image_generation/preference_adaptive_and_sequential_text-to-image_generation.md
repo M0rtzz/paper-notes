@@ -2,9 +2,6 @@
 description: "【论文笔记】Preference Adaptive and Sequential Text-to-Image Generation 论文解读 | ICML 2025 | arXiv 2412.10419 | 文本到图像 | PASTA 将个性化 T2I 生成建模为多轮序列决策问题，通过 VLM 生成候选 prompt + EM 训练用户偏好模型 + IQL 离线 RL 学习价值函数，在人类评估中显著优于基线 LMM。"
 tags:
   - ICML 2025
-  - 文本到图像
-  - 个性化
-  - 序列交互
 ---
 
 # Preference Adaptive and Sequential Text-to-Image Generation

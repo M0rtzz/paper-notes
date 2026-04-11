@@ -2,9 +2,6 @@
 description: "【论文笔记】Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study 论文解读 | AAAI 2026 | arXiv 2506.19794 | 数据分析 | 系统研究了开源 LLM 在数据分析任务中的能力瓶颈，将数据分析分解为数据理解、代码生成和战略规划三个维度，发现**战略规划是决定性因素**而非编码或数据理解；并提出了一种策略引导的数据合成方法，使微调后的 7B/14B 模型达到与 GPT-4o 竞争的性能。"
 tags:
   - AAAI 2026
-  - 数据分析
-  - LLM Agent
-  - 战略规划
 ---
 
 # Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study

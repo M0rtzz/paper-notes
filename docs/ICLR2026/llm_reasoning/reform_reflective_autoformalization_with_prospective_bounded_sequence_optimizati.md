@@ -2,9 +2,7 @@
 description: "【论文笔记】ReForm: Reflective Autoformalization with Prospective Bounded Sequence Optimization 论文解读 | ICLR 2026 | arXiv 2510.24592 | autoformalization | 提出 ReForm，一种反思式自动形式化范式，将自然语言数学问题转为 Lean 形式声明的过程从一次生成转变为\"生成 → 语义自验证 → 修正\"的迭代循环，并设计 PBSO 算法优化异构奖励信号，在四个基准上比最强基线平均提升 22.6 个百分点。"
 tags:
   - ICLR 2026
-  - autoformalization
-  - Lean
-  - semantic consistency
+  - 强化学习
 ---
 
 # ReForm: Reflective Autoformalization with Prospective Bounded Sequence Optimization

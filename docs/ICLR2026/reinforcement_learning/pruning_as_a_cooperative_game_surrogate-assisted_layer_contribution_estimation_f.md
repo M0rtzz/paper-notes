@@ -2,9 +2,6 @@
 description: "【论文笔记】Pruning as a Cooperative Game: Surrogate-Assisted Layer Contribution Estimation for Large Language Models 论文解读 | ICLR 2026 | arXiv 2602.07804 | 模型剪枝 | 将LLM层剪枝建模为合作博弈，利用轻量代理网络近似Shapley值来捕获层间依赖关系，实现比静态启发式方法更优的深度剪枝效果。"
 tags:
   - ICLR 2026
-  - 模型剪枝
-  - 合作博弈
-  - Shapley值
 ---
 
 # Pruning as a Cooperative Game: Surrogate-Assisted Layer Contribution Estimation for Large Language Models

@@ -2,10 +2,7 @@
 description: "【论文笔记】Revealing Multimodal Causality with Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2509.17784 | Causal Discovery | 提出 MLLM-CD，首个面向多模态非结构化数据的因果发现框架，通过对比因子发现识别跨模态因果变量，结合统计因果结构推断，并利用 MLLM 的世界知识生成多模态反事实样本来迭代消除结构歧义，在合成和真实数据集上均显著优于现有方法。"
 tags:
   - NeurIPS 2025
-  - Causal Discovery
-  - Multimodal LLM
   - 多模态
-  - Counterfactual Reasoning
 ---
 
 # Revealing Multimodal Causality with Large Language Models

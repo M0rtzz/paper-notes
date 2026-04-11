@@ -2,9 +2,6 @@
 description: "【论文笔记】UDC-VIT: A Real-World Video Dataset for Under-Display Cameras 论文解读 | ICCV 2025 | arXiv 2501.18545 | 屏下摄像头 | 提出首个真实世界屏下摄像头（UDC）视频数据集 UDC-VIT，包含 647 个视频片段共 116,460 帧，通过精心设计的双摄像头-分光器采集系统实现精确的时空对齐，并以人脸识别为核心应用场景，揭示了合成数据集在模拟真实 UDC 退化方面的不足。"
 tags:
   - ICCV 2025
-  - 屏下摄像头
-  - 视频数据集
-  - 图像退化
 ---
 
 # UDC-VIT: A Real-World Video Dataset for Under-Display Cameras

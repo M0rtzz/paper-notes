@@ -2,9 +2,6 @@
 description: "【论文笔记】V-Attack: Targeting Disentangled Value Features for Controllable Adversarial Attacks on LVLMs 论文解读 | CVPR 2026 | arXiv 2511.20223 | 对抗攻击 | 发现 ViT 中 Value 特征相比 Patch 特征具有更解耦的局部语义表示，提出 V-Attack 通过自增强 Value 特征 + 文本引导语义操控实现精确可控的 LVLM 局部语义攻击，ASR 平均提升 36%。"
 tags:
   - CVPR 2026
-  - 对抗攻击
-  - 视觉语言模型
-  - Value特征
 ---
 
 # V-Attack: Targeting Disentangled Value Features for Controllable Adversarial Attacks on LVLMs

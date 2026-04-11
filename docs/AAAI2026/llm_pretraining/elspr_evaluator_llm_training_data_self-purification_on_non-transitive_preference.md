@@ -2,9 +2,6 @@
 description: "【论文笔记】ELSPR: Evaluator LLM Training Data Self-Purification on Non-Transitive Preferences 论文解读 | AAAI 2026 | arXiv 2505.17691 | LLM评估 | ELSPR 将 LLM 评估器的成对偏好建模为锦标赛图，通过强连通分量 (SCC) 识别非传递偏好，提出归一化有向图结构熵指标，并基于图重构过滤有问题的训练数据——过滤后的评估器非传递性降低 13.8%、结构熵降低 0.088，且丢弃数据的人类一致性仅 34.4%（vs 保留数据 52.6%）。"
 tags:
   - AAAI 2026
-  - LLM评估
-  - 非传递偏好
-  - 锦标赛图
 ---
 
 # ELSPR: Evaluator LLM Training Data Self-Purification on Non-Transitive Preferences

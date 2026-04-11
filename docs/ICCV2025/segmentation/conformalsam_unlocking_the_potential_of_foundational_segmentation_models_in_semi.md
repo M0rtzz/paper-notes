@@ -2,9 +2,6 @@
 description: "【论文笔记】ConformalSAM: Unlocking the Potential of Foundational Segmentation Models in Semi-Supervised Semantic Segmentation with Conformal Prediction 论文解读 | ICCV 2025 | arXiv 2507.15803 | 半监督分割 | 提出ConformalSAM框架，利用Conformal Prediction校准基础分割模型SEEM在目标域的输出不确定性，筛除不可靠像素标签后作为未标注数据的监督信号，配合后期自依赖训练策略，在PASCAL VOC上1/16标注设定下达到81.21 mIoU。"
 tags:
   - ICCV 2025
-  - 半监督分割
-  - Conformal Prediction
-  - SAM/SEEM
 ---
 
 # ConformalSAM: Unlocking the Potential of Foundational Segmentation Models in Semi-Supervised Semantic Segmentation with Conformal Prediction

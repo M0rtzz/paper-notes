@@ -2,9 +2,6 @@
 description: "【论文笔记】CogSteer: Cognition-Inspired Selective Layer Intervention for Efficiently Steering Large Language Models 论文解读 | ACL 2025 | arXiv 2410.17714 | 层选择干预 | 利用认知科学中的眼动数据分析 LLM 各层行为，发现中间层与人类注视相关性最高且最适合语义干预，提出 CogSteer 框架——仅微调最优单层（约 3% 参数）即可达到或超过全层微调的效果，在 GLUE/毒性控制任务上有效。"
 tags:
   - ACL 2025
-  - 层选择干预
-  - 眼动追踪
-  - 参数高效微调
 ---
 
 # CogSteer: Cognition-Inspired Selective Layer Intervention for Efficiently Steering Large Language Models

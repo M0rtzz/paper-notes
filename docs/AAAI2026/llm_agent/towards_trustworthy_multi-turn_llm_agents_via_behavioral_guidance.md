@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance 论文解读 | AAAI 2026 | arXiv 2512.11421 | 多轮交互 | 提出任务完成框架，通过任务分析器（Task Profiler）、推理模块（Reasoning Module）和生成模块（Generation Module）三组件协同进化，使 LLM Agent 在多轮交互环境中实现可验证和可靠的行为引导。"
 tags:
   - AAAI 2026
-  - 多轮交互
-  - 行为引导
-  - 可信Agent
 ---
 
 # Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance

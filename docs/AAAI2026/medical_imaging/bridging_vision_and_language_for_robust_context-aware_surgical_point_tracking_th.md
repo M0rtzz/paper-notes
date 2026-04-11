@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark 论文解读 | AAAI 2026 | arXiv 2511.12026 | 手术点追踪 | 提出首个大规模多模态手术点追踪数据集 VL-SurgPT，结合视觉坐标与文本状态描述，并设计文本引导追踪方法 TG-SurgPT，通过语义信息显著提升复杂手术场景下的追踪精度和鲁棒性。"
 tags:
   - AAAI 2026
-  - 手术点追踪
-  - 视觉-语言多模态
-  - 数据集
 ---
 
 # Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark

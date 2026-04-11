@@ -2,9 +2,6 @@
 description: "【论文笔记】Physics-Guided Machine Learning for Uncertainty Quantification in Turbulence Models 论文解读 | NEURIPS2025 | arXiv 2511.05633 | turbulence modeling | 提出混合 ML–EPM 框架：用轻量 CNN 学习从 RANS 湍流动能场到 DNS 真值的修正映射，以此调制特征空间扰动法（EPM）的扰动幅度，在保持物理一致性的前提下将湍流模型不确定性估计的误差降低 1–2 个数量级。"
 tags:
   - NEURIPS2025
-  - turbulence modeling
-  - uncertainty quantification
-  - CNN
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

@@ -2,9 +2,6 @@
 description: "【论文笔记】How Wide and How Deep? Mitigating Over-Squashing of GNNs via Channel Capacity Constrained Estimation 论文解读 | AAAI 2026 | arXiv 2511.06443 | 过度压缩 | 本文从信息论视角出发，将谱图神经网络建模为通信信道，提出信道容量约束估计框架 C3E，将 GNN 隐藏维度与深度的选择形式化为一个非线性规划问题，在训练前即可估计最优架构参数，有效缓解信息过度压缩（over-squashing），在 9 个数据集上一致提升了表示学习效果。"
 tags:
   - AAAI 2026
-  - 过度压缩
-  - 图神经网络
-  - 信道容量
 ---
 
 # How Wide and How Deep? Mitigating Over-Squashing of GNNs via Channel Capacity Constrained Estimation

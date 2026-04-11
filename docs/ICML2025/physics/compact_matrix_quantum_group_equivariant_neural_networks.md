@@ -2,9 +2,6 @@
 description: "【论文笔记】Compact Matrix Quantum Group Equivariant Neural Networks 论文解读 | ICML 2025 (Poster) | arXiv 2311.06358 | 紧致矩阵量子群 | 本文将群等变神经网络扩展到**紧致矩阵量子群**的设定下，利用 Woronowicz 形式的 Tannaka-Krein 对偶理论刻画了该类网络的权重矩阵，为非交换几何上的数据学习提供了理论基础。"
 tags:
   - ICML 2025 (Poster)
-  - 紧致矩阵量子群
-  - 等变神经网络
-  - Tannaka-Krein 对偶
 ---
 
 # Compact Matrix Quantum Group Equivariant Neural Networks

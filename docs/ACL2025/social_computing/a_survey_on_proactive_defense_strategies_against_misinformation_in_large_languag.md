@@ -2,9 +2,6 @@
 description: "【论文笔记】A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models 论文解读 | ACL 2025 | arXiv 2507.05288 | 主动防御 | 系统综述 LLM 主动防御错误信息的策略——提出\"三支柱\"框架：(1) 知识可信度（训练数据质量+知识编辑+RAG）, (2) 推理可靠性（自对齐+解码策略）, (3) 输入鲁棒性（对抗攻击防御+输入净化）。127 种技术的分类映射，48 项基准研究的元分析显示主动防御比传统检测方法提升 42-63%。"
 tags:
   - ACL 2025
-  - 主动防御
-  - 错误信息
-  - 知识可信度
 ---
 
 # A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models

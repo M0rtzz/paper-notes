@@ -2,9 +2,6 @@
 description: "【论文笔记】Reclaiming Lost Text Layers for Source-Free Cross-Domain Few-Shot Learning 论文解读 | CVPR2026 | arXiv 2603.05235 | CLIP | 发现 CLIP 文本编码器中存在\"Lost Layers\"——在 Source-Free Cross-Domain Few-Shot Learning (SF-CDFSL) 中移除某些中间层反而提升性能；论文证明这些层并非冗余而是因视觉域偏移未被充分利用，提出 VtT 模型在层级和编码器级别重新利用这些信息，取得 SOTA。"
 tags:
   - CVPR2026
-  - CLIP
-  - 跨域少样本学习
-  - 文本编码器层冗余
 ---
 
 # Reclaiming Lost Text Layers for Source-Free Cross-Domain Few-Shot Learning

@@ -2,10 +2,7 @@
 description: "【论文笔记】Converge Faster, Talk Less: Hessian-Informed Federated Zeroth-Order Optimization 论文解读 | ICLR2026 | arXiv 2506.02370 | 联邦学习 federated learning | 提出 HiSo，在联邦零阶优化中利用全局对角 Hessian 近似加速收敛，同时严格保持标量通信（不传输任何二阶信息），理论证明收敛速率独立于 Lipschitz 常数 $L$ 和模型维度 $d$，在 LLM 微调中通信轮次比 SOTA 零阶方法快 1-5 倍。"
 tags:
   - ICLR2026
-  - federated learning
   - 联邦学习
-  - zeroth-order optimization
-  - Hessian preconditioning
 ---
 
 # Converge Faster, Talk Less: Hessian-Informed Federated Zeroth-Order Optimization

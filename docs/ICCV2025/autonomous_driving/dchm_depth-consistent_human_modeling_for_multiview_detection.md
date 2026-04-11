@@ -2,9 +2,6 @@
 description: "【论文笔记】DCHM: Depth-Consistent Human Modeling for Multiview Detection 论文解读 | ICCV 2025 | arXiv 2507.14505 | 多视角行人检测 | 提出 DCHM，一种无需 3D 标注的深度一致性人体建模框架，通过超像素级高斯溅射生成伪深度标签来微调单目深度估计网络，结合多视角标签匹配实现稀疏视角、遮挡严重场景下的高精度行人检测，在 Wildtrack 上 MODA 达 84.2%，MODP 较 UMPD 提升 31.2%。"
 tags:
   - ICCV 2025
-  - 多视角行人检测
-  - 深度一致性
-  - 高斯溅射
 ---
 
 # DCHM: Depth-Consistent Human Modeling for Multiview Detection

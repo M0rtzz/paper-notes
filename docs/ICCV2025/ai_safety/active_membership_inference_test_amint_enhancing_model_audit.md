@@ -2,9 +2,6 @@
 description: "【论文笔记】Active Membership Inference Test (aMINT): Enhancing Model Auditability with Multi-Task Learning 论文解读 | ICCV 2025 | arXiv 2509.07879 | 成员推断 | 提出Active MINT（aMINT），将成员推断检测作为训练时的优化目标，通过多任务学习让被审计模型与MINT模型联合训练、共享早期特征层，在不显著损失主任务性能的前提下，将训练数据的识别准确率从被动MINT的~60%大幅提升至80%以上。"
 tags:
   - ICCV 2025
-  - 成员推断
-  - 模型可审计性
-  - 多任务学习
 ---
 
 # Active Membership Inference Test (aMINT): Enhancing Model Auditability with Multi-Task Learning

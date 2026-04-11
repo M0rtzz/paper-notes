@@ -2,9 +2,6 @@
 description: "【论文笔记】TabFlash: Efficient Table Understanding with Progressive Question Conditioning and Token Focusing 论文解读 | AAAI 2026 | arXiv 2511.13283 | 表格理解 | TabFlash 提出渐进式问题条件化（Progressive Question Conditioning）和 Token 聚焦（Token Focusing）两大技术，在 ViT 中注入问题信息生成问题感知的视觉特征，并基于 L2 范数剪枝背景 token 同时通过对比训练将关键信息集中到保留 token 中，在7个表格理解基准上超越 GPT-4o 和 Gemini 2.5 Pro，同时减少 27% FLOPs 和 30% 显存。"
 tags:
   - AAAI 2026
-  - 表格理解
-  - 多模态大语言模型
-  - 视觉Token剪枝
 ---
 
 # TabFlash: Efficient Table Understanding with Progressive Question Conditioning and Token Focusing

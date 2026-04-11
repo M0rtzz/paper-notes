@@ -2,9 +2,6 @@
 description: "【论文笔记】ZIPA: A Family of Efficient Models for Multilingual Phone Recognition 论文解读 | ACL 2025 | arXiv 2505.23170 | 音素识别 | 提出 Zipa 系列高效语音模型，基于 Zipformer 骨干和 IpaPack++（17,132 小时多语言标注数据），在多语言音素识别上达到 SOTA，64M 参数模型即超越现有 300M 模型，并通过噪声学生训练在 4000+ 种语言上进一步提升。"
 tags:
   - ACL 2025
-  - 音素识别
-  - IPA
-  - Zipformer
 ---
 
 # ZIPA: A Family of Efficient Models for Multilingual Phone Recognition

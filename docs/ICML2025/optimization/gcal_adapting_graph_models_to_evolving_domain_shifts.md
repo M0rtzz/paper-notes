@@ -2,9 +2,6 @@
 description: "【论文笔记】GCAL: Adapting Graph Models to Evolving Domain Shifts 论文解读 | ICML 2025 | arXiv 2505.16860 | 图持续学习 | 提出 Graph Continual Adaptive Learning (GCAL)，通过\"适应+生成记忆\"双层优化策略，在图模型面对持续演变的 OOD 图序列时，利用信息最大化进行无监督域适应，同时基于信息瓶颈理论设计变分记忆图生成模块来压缩历史图知识，有效缓解灾难性遗忘。"
 tags:
   - ICML 2025
-  - 图持续学习
-  - 域适应
-  - 灾难性遗忘
 ---
 
 # GCAL: Adapting Graph Models to Evolving Domain Shifts

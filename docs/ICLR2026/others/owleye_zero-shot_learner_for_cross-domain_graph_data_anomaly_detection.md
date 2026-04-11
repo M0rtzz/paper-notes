@@ -2,9 +2,6 @@
 description: "【论文笔记】OwlEye: Zero-Shot Learner for Cross-Domain Graph Data Anomaly Detection 论文解读 | ICLR 2026 | arXiv 2601.19102 | 图异常检测 | 提出OwlEye框架，通过跨域特征对齐、多域多模式字典学习和截断注意力重建三个模块，实现了在完全未见图上的零样本异常检测，且支持无需重训练的持续学习。"
 tags:
   - ICLR 2026
-  - 图异常检测
-  - 零样本学习
-  - 跨域对齐
 ---
 
 # OwlEye: Zero-Shot Learner for Cross-Domain Graph Data Anomaly Detection

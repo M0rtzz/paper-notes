@@ -2,9 +2,6 @@
 description: "【论文笔记】Product of Experts with LLMs: Boosting Performance on ARC Is a Matter of Perspective 论文解读 | ICML 2025 | arXiv 2505.07859 | Product-of-Experts | 将 LLM 同时用作候选解生成器和评分器，通过基于 DFS 的搜索算法生成高概率候选解，再利用多视角增强下的 Product of Experts (PoE) 打分选出最优答案，在 ARC-AGI 公开评估集上以 71.6% 的准确率达到开源 SOTA，超越人类平均水平（60.2%），且单任务推理成本仅约 $0.02。"
 tags:
   - ICML 2025
-  - Product-of-Experts
-  - ARC-AGI
-  - 深度优先搜索
 ---
 
 # Product of Experts with LLMs: Boosting Performance on ARC Is a Matter of Perspective

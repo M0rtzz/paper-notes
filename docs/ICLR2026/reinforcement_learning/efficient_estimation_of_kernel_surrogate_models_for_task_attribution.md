@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Estimation of Kernel Surrogate Models for Task Attribution 论文解读 | ICLR 2026 | arXiv 2602.03783 | task attribution | 提出核代理模型（KernelSM）用于任务归因，通过 RBF 核岭回归捕获任务间的非线性交互效应，结合梯度投影的高效估计算法避免重复训练，在数学推理、上下文学习和多目标 RL 等场景下相比线性代理和影响函数基线提升 25% 相关性。"
 tags:
   - ICLR 2026
-  - task attribution
-  - kernel surrogate model
-  - influence function
 ---
 
 # Efficient Estimation of Kernel Surrogate Models for Task Attribution

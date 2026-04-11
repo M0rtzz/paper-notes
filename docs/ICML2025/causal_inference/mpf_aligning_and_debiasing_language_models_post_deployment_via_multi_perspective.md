@@ -2,9 +2,6 @@
 description: "【论文笔记】MPF: Aligning and Debiasing Language Models post Deployment via Multi Perspective Fusion 论文解读 | ICML 2025 (AIW Workshop) | arXiv 2507.02595 | 偏见缓解 | 提出 Multiperspective Fusion (MPF)，一种无需微调的后部署对齐框架，通过将基线情感分布分解为可解释的视角成分，引导 LLM 生成与人类基线对齐的响应，有效缓解模型偏见。"
 tags:
   - ICML 2025 (AIW Workshop)
-  - 偏见缓解
-  - 后训练对齐
-  - 多视角融合
 ---
 
 # MPF: Aligning and Debiasing Language Models post Deployment via Multi Perspective Fusion

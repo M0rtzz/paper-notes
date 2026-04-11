@@ -2,9 +2,6 @@
 description: "【论文笔记】The Expressive Limits of Diagonal SSMs for State-Tracking 论文解读 | ICLR 2026 | arXiv 2603.01959 | 状态空间模型 | 研究输入依赖复数对角(DCD) SSM的表达能力极限——证明单层DCD SSM不能在有限精度下追踪任何非阿贝尔群的状态,更一般地k层DCD SSM能追踪一个群当且仅当该群有长度为k的子正规链且因子为阿贝尔群→精确刻画了k层DCD SSM在可解群中的表达范围,实验揭示多层模型在非阿贝尔群上表达能力和可学习性之间的gap。"
 tags:
   - ICLR 2026
-  - 状态空间模型
-  - 表达能力
-  - 群状态追踪
 ---
 
 # The Expressive Limits of Diagonal SSMs for State-Tracking

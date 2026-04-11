@@ -2,9 +2,6 @@
 description: "【论文笔记】Free4D: Tuning-free 4D Scene Generation with Spatial-Temporal Consistency 论文解读 | ICCV 2025 | arXiv 2503.20785 | 4D生成 | 提出 Free4D，首个无需微调的单图像 4D 场景生成框架，通过 4D 几何结构初始化、自适应引导去噪保证空间一致性、参考潜变量替换保证时序一致性、基于调制的精化融合多视角信息为一致的 4D 高斯表示，实现实时可控渲染。"
 tags:
   - ICCV 2025
-  - 4D生成
-  - 免微调
-  - 时空一致性
 ---
 
 # Free4D: Tuning-free 4D Scene Generation with Spatial-Temporal Consistency

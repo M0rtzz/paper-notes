@@ -2,9 +2,6 @@
 description: "【论文笔记】Implicit Bias and Loss of Plasticity in Matrix Completion: Depth Promotes Low-Rank 论文解读 | ICLR 2026 | arXiv 2603.04703 | 矩阵补全 | 通过分析深度矩阵分解（深度线性网络）在矩阵补全任务中的梯度流动力学，证明了耦合动力学是深度网络低秩隐式偏差的关键机制，且深度≥3的网络除对角初始化外必然展现耦合，从而解释了深度模型为何能避免可塑性损失。"
 tags:
   - ICLR 2026
-  - 矩阵补全
-  - 深度矩阵分解
-  - 隐式偏差
 ---
 
 # Implicit Bias and Loss of Plasticity in Matrix Completion: Depth Promotes Low-Rank

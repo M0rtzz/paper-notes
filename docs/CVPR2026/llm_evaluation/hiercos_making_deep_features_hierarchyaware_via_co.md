@@ -2,9 +2,6 @@
 description: "【论文笔记】Hier-COS: Making Deep Features Hierarchy-aware via Composition of Orthogonal Subspaces 论文解读 | CVPR 2026 | arXiv 2503.07853 | hierarchical classification | 提出Hier-COS框架，为层次标签树中的每个节点分配正交基向量，通过子空间组合（祖先基+自身基+后代基）构建层次感知向量空间（HAVS），理论保证特征空间的距离结构与层次树一致，同时提出HOPS评估指标解决现有层次化评估指标的排列不变性缺陷。"
 tags:
   - CVPR 2026
-  - hierarchical classification
-  - orthogonal subspaces
-  - hierarchy-aware features
 ---
 
 # Hier-COS: Making Deep Features Hierarchy-aware via Composition of Orthogonal Subspaces

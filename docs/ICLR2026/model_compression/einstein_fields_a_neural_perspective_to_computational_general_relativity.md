@@ -2,9 +2,6 @@
 description: "【论文笔记】Einstein Fields: A Neural Perspective To Computational General Relativity 论文解读 | ICLR 2026 | arXiv 2507.11589 | 神经场 | 提出EinFields，首个将神经隐式表示应用于四维广义相对论模拟压缩的框架，通过将度量张量场编码为紧凑神经网络权重，实现4000倍存储压缩、5-7位数值精度，且通过自动微分获得的张量导数比有限差分精度高5个数量级。"
 tags:
   - ICLR 2026
-  - 神经场
-  - 广义相对论
-  - 张量场压缩
 ---
 
 # Einstein Fields: A Neural Perspective To Computational General Relativity

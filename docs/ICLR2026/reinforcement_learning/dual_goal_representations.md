@@ -2,9 +2,6 @@
 description: "【论文笔记】Dual Goal Representations 论文解读 | ICLR 2026 | arXiv 2510.06714 | goal-conditioned RL | 提出 dual goal representation，通过\"从所有其他状态到达该状态的时间距离集合\"来刻画每个状态，为目标条件强化学习提供了一种理论上可证明最优、实践中可插拔的目标表征学习方法。"
 tags:
   - ICLR 2026
-  - goal-conditioned RL
-  - goal representation
-  - temporal distance
 ---
 
 # Dual Goal Representations

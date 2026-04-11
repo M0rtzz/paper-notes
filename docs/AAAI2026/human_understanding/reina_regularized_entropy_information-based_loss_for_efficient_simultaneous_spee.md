@@ -2,9 +2,6 @@
 description: "【论文笔记】REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation 论文解读 | AAAI 2026 | arXiv 2508.04946 | 同声传译 | 提出 REINA（Regularized Entropy INformation Adaptation）损失函数，基于互信息理论高效地将非流式语音翻译模型转换为流式同声传译模型，在多语言方向上达到 SOTA 流式翻译性能，并提出新的流式效率评估指标 NoSE。"
 tags:
   - AAAI 2026
-  - 同声传译
-  - 流式翻译
-  - 信息论
 ---
 
 # REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation

@@ -2,9 +2,6 @@
 description: "【论文笔记】DiSCo: Device-Server Collaborative LLM-Based Text Streaming Services 论文解读 | ACL 2025 | arXiv 2502.11417 | device-server collaboration | 提出 DiSCo 设备-服务器协作 LLM 文本流服务框架，端侧小模型快速生成初始 token 减少首 token 延迟（TTFT），服务端大模型并行处理后替换，实现低延迟高质量的文本流式服务。"
 tags:
   - ACL 2025
-  - device-server collaboration
-  - text streaming
-  - edge computing
 ---
 
 # DiSCo: Device-Server Collaborative LLM-Based Text Streaming Services

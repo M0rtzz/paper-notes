@@ -2,9 +2,6 @@
 description: "【论文笔记】SceneAssistant: A Visual Feedback Agent for Open-Vocabulary 3D Scene Generation 论文解读 | CVPR 2026 | arXiv 2603.12238 | 3D场景生成 | 提出 SceneAssistant，通过为VLM agent提供完整的原子操作API集（13种动作涵盖物体管理、6-DoF操作、相机控制）和纯视觉反馈闭环，实现开放词汇的文本到3D场景生成，在人类评估中布局正确性和物体质量均大幅优于Holodeck和SceneWeaver。"
 tags:
   - CVPR 2026
-  - 3D场景生成
-  - VLM Agent
-  - 视觉反馈
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

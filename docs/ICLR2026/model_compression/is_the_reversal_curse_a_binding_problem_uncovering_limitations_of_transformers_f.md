@@ -2,9 +2,7 @@
 description: "【论文笔记】Is the Reversal Curse a Binding Problem? Uncovering Limitations of Transformers from a Basic Generalization Failure 论文解读 | ICLR 2026 | arXiv 2504.01928 | 反转诅咒 | 提出反转诅咒（Reversal Curse）是认知科学中\"绑定问题\"在Transformer中的表现——源于概念表示的不一致性和纠缠性，并首次设计出基于JEPA和记忆层的架构真正突破反转诅咒（非绕过）。"
 tags:
   - ICLR 2026
-  - 反转诅咒
-  - 绑定问题
-  - JEPA
+  - Transformer
 ---
 
 # Is the Reversal Curse a Binding Problem? Uncovering Limitations of Transformers from a Basic Generalization Failure

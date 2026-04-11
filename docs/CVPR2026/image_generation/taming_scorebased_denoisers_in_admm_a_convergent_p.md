@@ -2,9 +2,6 @@
 description: "【论文笔记】Taming Score-Based Denoisers in ADMM: A Convergent Plug-and-Play Framework 论文解读 | CVPR 2026 | arXiv 2603.10281 | ADMM | 提出ADMM-PnP with AC-DC去噪器，通过三阶段修正-去噪流程(自动修正+方向修正+基于分数的去噪)将扩散先验集成到ADMM原始-对偶框架中，解决了ADMM迭代与扩散训练流形的几何不匹配问题，同时在两种条件下建立了收敛保证，在7种逆问题上一致优于DAPS/DPS/DiffPIR等基线。"
 tags:
   - CVPR 2026
-  - ADMM
-  - Plug-and-Play
-  - 扩散模型先验
 ---
 
 # Taming Score-Based Denoisers in ADMM: A Convergent Plug-and-Play Framework

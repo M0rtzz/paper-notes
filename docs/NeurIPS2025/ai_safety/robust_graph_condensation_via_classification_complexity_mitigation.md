@@ -2,9 +2,6 @@
 description: "【论文笔记】Robust Graph Condensation via Classification Complexity Mitigation 论文解读 | NeurIPS 2025 | arXiv 2510.26451 | 图凝缩 | 本文揭示图凝缩（GC）本质上是降低分类复杂度的过程，而对抗攻击恰好破坏了这一特性，据此提出MRGC框架，通过内在维度正则化、曲率感知流形平滑和类间流形解耦三个流形约束模块来增强GC的鲁棒性，首次在结构、特征和标签均可能被篡改的条件下系统研究GC鲁棒性。"
 tags:
   - NeurIPS 2025
-  - 图凝缩
-  - 对抗鲁棒性
-  - 分类复杂度
 ---
 
 # Robust Graph Condensation via Classification Complexity Mitigation

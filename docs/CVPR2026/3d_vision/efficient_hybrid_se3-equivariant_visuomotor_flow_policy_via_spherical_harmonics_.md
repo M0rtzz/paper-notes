@@ -2,9 +2,7 @@
 description: "【论文笔记】Efficient Hybrid SE(3)-Equivariant Visuomotor Flow Policy via Spherical Harmonics 论文解读 | CVPR 2026 | arXiv 2603.23227 | SE(3) Equivariance | 提出E3Flow，首个基于球谐表示的等变flow matching策略框架，通过特征增强模块（FEM）动态融合点云和图像两种模态的视觉信息，结合rectified flow实现高效等变动作生成，在MimicGen 8个任务上平均成功率超过最强基线SDP 3.12%的同时推理速度提升7倍。"
 tags:
   - CVPR 2026
-  - SE(3) Equivariance
-  - Spherical Harmonics
-  - Rectified Flow
+  - 多模态
 ---
 
 # Efficient Hybrid SE(3)-Equivariant Visuomotor Flow Policy via Spherical Harmonics

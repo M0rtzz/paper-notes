@@ -2,10 +2,7 @@
 description: "【论文笔记】MOVE: Motion-Guided Few-Shot Video Object Segmentation 论文解读 | ICCV 2025 | arXiv 2507.22061 | 图像分割 few-shot video segmentation | 本文提出运动引导的少样本视频目标分割新任务及大规模数据集 MOVE（224 类运动、4300 视频、314K mask），并设计解耦运动-外观网络 DMA，通过帧差提取运动原型+外观原型的双分支架构，在新基准上显著优于现有 FSVOS 方法。"
 tags:
   - ICCV 2025
-  - few-shot video segmentation
   - 图像分割
-  - motion understanding
-  - video object segmentation
 ---
 
 # MOVE: Motion-Guided Few-Shot Video Object Segmentation

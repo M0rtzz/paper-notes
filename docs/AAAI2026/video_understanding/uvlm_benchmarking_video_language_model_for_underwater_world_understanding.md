@@ -2,10 +2,7 @@
 description: "【论文笔记】UVLM: Benchmarking Video Language Model for Underwater World Understanding 论文解读 | AAAI2026 | arXiv 2507.02373 | 视频理解 underwater video understanding | 提出首个水下视频语言理解基准 UVLM，涵盖 2109 段视频、419 类海洋生物、20 种子任务和约 4 万 video-text pairs，通过 human-AI 协同标注注入海洋领域知识，微调后 7B VidLM 性能接近 GPT-4o。"
 tags:
   - AAAI2026
-  - underwater video understanding
   - 视频理解
-  - video-language model
-  - benchmark
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

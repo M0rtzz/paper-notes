@@ -2,9 +2,7 @@
 description: "【论文笔记】Hyperbolic Dataset Distillation 论文解读 | NeurIPS 2025 | arXiv 2505.24623 | dataset distillation | 提出 HDD 方法，首次将双曲空间引入数据集蒸馏，通过在 Lorentz 双曲空间中匹配原始和合成数据的 Riemannian 质心来替代欧氏空间的分布匹配，利用双曲几何的层级加权特性让\"更具代表性\"的底层样本获得更高权重，在多个数据集上持续提升 DM/IDM 基线准确率。"
 tags:
   - NeurIPS 2025
-  - dataset distillation
-  - hyperbolic space
-  - distribution matching
+  - 剪枝
 ---
 
 # Hyperbolic Dataset Distillation

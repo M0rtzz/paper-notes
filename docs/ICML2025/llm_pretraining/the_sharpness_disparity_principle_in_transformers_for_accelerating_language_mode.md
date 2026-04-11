@@ -2,10 +2,7 @@
 description: "【论文笔记】The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training 论文解读 | ICML 2025 | arXiv 2502.19002 | Transformer Transformer优化 | 揭示了 Transformer 中不同类型模块（Emb、QK、FFN、VO、Norm）存在显著且持久的**锐度差异**（sharpness disparity），并据此提出 Blockwise LR 策略，为低锐度模块分配更大学习率，在不损失稳定性的前提下实现 LLM 预训练近 **2× 加速**。"
 tags:
   - ICML 2025
-  - Transformer优化
   - Transformer
-  - 学习率调度
-  - Hessian分析
 ---
 
 # The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training

@@ -2,9 +2,7 @@
 description: "【论文笔记】Hearing More with Less: Multi-Modal Retrieval-and-Selection Augmented Conversational LLM-Based ASR 论文解读 | AAAI2026 | arXiv 2508.01166 | conversational ASR | 提出多模态检索与选择方法 MARS，从对话历史中检索并筛选与当前语音最相关的上下文，仅用 1.5K 小时训练数据即超越使用 179K 小时数据的 SOTA 系统。"
 tags:
   - AAAI2026
-  - conversational ASR
-  - LLM-based ASR
-  - retrieval augmented generation
+  - 多模态
 ---
 
 # Hearing More with Less: Multi-Modal Retrieval-and-Selection Augmented Conversational LLM-Based ASR

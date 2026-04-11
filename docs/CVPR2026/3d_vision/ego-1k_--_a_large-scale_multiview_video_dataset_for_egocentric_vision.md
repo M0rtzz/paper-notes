@@ -2,9 +2,6 @@
 description: "【论文笔记】Ego-1K: A Large-Scale Multiview Video Dataset for Egocentric Vision 论文解读 | CVPR 2026 | arXiv 2603.13741 | 第一人称视觉 | 提出 Ego-1K，一个包含 956 段短视频的大规模时间同步第一人称多视角视频数据集（12+4 相机、60Hz），填补了第一人称动态 3D 重建领域的数据空白，并展示立体深度引导可大幅提升 4D 新视角合成质量。"
 tags:
   - CVPR 2026
-  - 第一人称视觉
-  - 多视角数据集
-  - 动态场景重建
 ---
 
 # Ego-1K: A Large-Scale Multiview Video Dataset for Egocentric Vision

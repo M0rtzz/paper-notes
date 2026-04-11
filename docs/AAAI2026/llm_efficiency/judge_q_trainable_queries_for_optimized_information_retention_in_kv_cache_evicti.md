@@ -2,9 +2,6 @@
 description: "【论文笔记】Judge Q: Trainable Queries for Optimized Information Retention in KV Cache Eviction 论文解读 | AAAI 2026 | arXiv 2509.10798 | KV Cache剪枝 | 提出Judge Q，在模型词表中引入可训练的soft token，训练其注意力模式对齐实际解码token的注意力模式，使其在prefill阶段能替代局部窗口查询来评估KV cache重要性，从而更好地保留全局信息，在LongBench上提升~1分，RULER上提升3+分。"
 tags:
   - AAAI 2026
-  - KV Cache剪枝
-  - 可训练soft token
-  - 注意力蒸馏
 ---
 
 # Judge Q: Trainable Queries for Optimized Information Retention in KV Cache Eviction

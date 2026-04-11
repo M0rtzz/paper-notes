@@ -2,9 +2,6 @@
 description: "【论文笔记】Risk and Cross Validation in Ridge Regression with Correlated Samples 论文解读 | ICML2025 | arXiv 2408.04607 | 岭回归 | 利用随机矩阵理论和自由概率技术，为训练样本具有任意相关性的高维岭回归推导了精确的风险渐近公式，提出了修正的广义交叉验证估计器 CorrGCV，在样本相关条件下准确预测样本外风险。"
 tags:
   - ICML2025
-  - 岭回归
-  - 交叉验证
-  - 相关样本
 ---
 
 # Risk and Cross Validation in Ridge Regression with Correlated Samples

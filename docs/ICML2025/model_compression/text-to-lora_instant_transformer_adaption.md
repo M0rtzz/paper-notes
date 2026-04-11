@@ -2,9 +2,6 @@
 description: "【论文笔记】Text-to-LoRA: Instant Transformer Adaption 论文解读 | ICML 2025 | arXiv 2506.06105 | 超网络 | Text-to-LoRA (T2L) 训练了一个超网络（hypernetwork），仅凭自然语言任务描述就能在单次前向传播中为 LLM 生成任务特定的 LoRA 适配器，在 9 个训练任务上匹配专门微调的 LoRA 性能，并能零样本泛化到未见过的任务，实现了语言驱动的即时模型适配。"
 tags:
   - ICML 2025
-  - 超网络
-  - LoRA生成
-  - 文本驱动适配
 ---
 
 # Text-to-LoRA: Instant Transformer Adaption

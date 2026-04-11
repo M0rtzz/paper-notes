@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Dialogue State Tracking through Combinatorial Search for In-Context Examples 论文解读 | ACL 2025 | arXiv 2506.00622 | 对话状态追踪 | 提出 CombiSearch 方法，通过组合式评分为对话状态追踪（DST）选择最优 in-context 示例组合，在仅用 5% 训练数据的情况下超越所有使用 100% 数据的 baseline，理想设置下 JGA 上界比传统方法高 12%。"
 tags:
   - ACL 2025
-  - 对话状态追踪
-  - In-Context Learning
-  - 组合搜索
 ---
 
 # Improving Dialogue State Tracking through Combinatorial Search for In-Context Examples

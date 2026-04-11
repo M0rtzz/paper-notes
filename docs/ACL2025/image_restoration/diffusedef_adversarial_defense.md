@@ -2,9 +2,6 @@
 description: "【论文笔记】DiffuseDef: Improved Robustness to Adversarial Attacks via Iterative Denoising 论文解读 | ACL 2025 | arXiv 2407.00248 | 对抗防御 | DiffuseDef 提出了一种将扩散层作为去噪器插入编码器和分类器之间的对抗防御方法，通过扩散训练学会预测隐状态噪声，推理时对对抗隐状态加噪+迭代去噪+集成，在黑盒和白盒攻击下达 SOTA 鲁棒性。"
 tags:
   - ACL 2025
-  - 对抗防御
-  - 扩散模型
-  - 文本对抗攻击
 ---
 
 # DiffuseDef: Improved Robustness to Adversarial Attacks via Iterative Denoising

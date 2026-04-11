@@ -2,9 +2,6 @@
 description: "【论文笔记】MoH: Multi-Head Attention as Mixture-of-Head Attention 论文解读 | ICML 2025 | arXiv 2410.11842 | Mixture-of-Experts | 本文将多头注意力（MHA）重新表述为求和形式，借鉴 MoE 思想提出 Mixture-of-Head Attention（MoH），通过路由器为每个 token 动态选择最相关的注意力头子集，仅激活 50%~90% 的头即可匹配甚至超越标准 MHA 性能，并证明预训练模型（如 LLaMA3-8B）可通过 continue-tuning 转换为 MoH 模型。"
 tags:
   - ICML 2025
-  - Mixture-of-Experts
-  - 注意力头路由
-  - 稀疏激活
 ---
 
 # MoH: Multi-Head Attention as Mixture-of-Head Attention

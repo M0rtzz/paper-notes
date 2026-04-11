@@ -2,9 +2,6 @@
 description: "【论文笔记】Global-Aware Edge Prioritization for Pose Graph Initialization 论文解读 | CVPR 2026 | arXiv 2602.21963 | Structure-from-Motion | 提出基于GNN的全局边优先级排序方法，将位姿图初始化从独立的逐对图像检索升级为全局结构感知的边排序+多最小生成树构建，在极稀疏设置下显著提升SfM重建精度。"
 tags:
   - CVPR 2026
-  - Structure-from-Motion
-  - 位姿图初始化
-  - 图神经网络
 ---
 
 # Global-Aware Edge Prioritization for Pose Graph Initialization

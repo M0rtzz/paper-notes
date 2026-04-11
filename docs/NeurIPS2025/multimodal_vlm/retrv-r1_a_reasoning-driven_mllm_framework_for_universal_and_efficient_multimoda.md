@@ -2,9 +2,6 @@
 description: "【论文笔记】Retrv-R1: A Reasoning-Driven MLLM Framework for Universal and Efficient Multimodal Retrieval 论文解读 | NeurIPS 2025 | arXiv 2510.02745 | 多模态检索 | 提出首个R1风格的推理型多模态检索框架Retrv-R1，通过信息压缩模块降低token消耗、细节检查机制保留困难候选的完整信息、课程式RL奖励兼顾效果与效率，在通用多模态检索benchmark上实现SOTA。"
 tags:
   - NeurIPS 2025
-  - 多模态检索
-  - 强化学习
-  - 推理MLLM
 ---
 
 # Retrv-R1: A Reasoning-Driven MLLM Framework for Universal and Efficient Multimodal Retrieval

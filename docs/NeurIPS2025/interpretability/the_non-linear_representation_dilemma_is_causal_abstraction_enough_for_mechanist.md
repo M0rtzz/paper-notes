@@ -2,9 +2,6 @@
 description: "【论文笔记】The Non-Linear Representation Dilemma: Is Causal Abstraction Enough for Mechanistic Interpretability? 论文解读 | NeurIPS 2025 (Spotlight) | arXiv 2507.08802 | Causal Abstraction | 证明了当因果抽象（causal abstraction）中的对齐映射不受线性约束时，任意神经网络都可以被映射到任意算法，使得因果抽象变得平凡而无信息量，由此提出\"非线性表示困境\"——在对齐映射的复杂度与准确度之间缺乏原则性的权衡方式。"
 tags:
   - NeurIPS 2025 (Spotlight)
-  - Causal Abstraction
-  - Mechanistic Interpretability
-  - Linear Representation Hypothesis
 ---
 
 # The Non-Linear Representation Dilemma: Is Causal Abstraction Enough for Mechanistic Interpretability?

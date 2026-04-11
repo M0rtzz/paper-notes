@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlocking Efficient Vehicle Dynamics Modeling via Analytic World Models 论文解读 | AAAI 2026 | arXiv 2502.10012 | 可微分模拟器 | 提出解析世界模型（Analytic World Models, AWMs），利用可微分模拟器的可微性设计三种世界建模任务（相对里程计、最优规划器、逆最优状态估计），无需试错搜索即可端到端高效训练状态预测器，在Waymax自动驾驶模拟器上验证了其有效性。"
 tags:
   - AAAI 2026
-  - 可微分模拟器
-  - 世界模型
-  - 解析策略梯度
 ---
 
 # Unlocking Efficient Vehicle Dynamics Modeling via Analytic World Models

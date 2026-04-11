@@ -2,9 +2,6 @@
 description: "【论文笔记】NeuSymEA: Neuro-symbolic Entity Alignment via Variational Inference 论文解读 | NeurIPS 2025 | arXiv 2410.04153 | 实体对齐 | 提出 NeuSymEA，一个基于变分 EM 算法的神经符号推理框架，将符号规则推理与神经网络嵌入统一在马尔可夫随机场中进行实体对齐，在 DBP15K 上实现了显著的性能提升和低资源鲁棒性。"
 tags:
   - NeurIPS 2025
-  - 实体对齐
-  - 神经符号推理
-  - 变分推断
 ---
 
 # NeuSymEA: Neuro-symbolic Entity Alignment via Variational Inference

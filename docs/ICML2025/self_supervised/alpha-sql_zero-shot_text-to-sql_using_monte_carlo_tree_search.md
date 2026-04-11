@@ -2,9 +2,6 @@
 description: "【论文笔记】Alpha-SQL: Zero-Shot Text-to-SQL using Monte Carlo Tree Search 论文解读 | ICML 2025 | arXiv 2502.17248 | Text-to-SQL | Alpha-SQL 将零样本 Text-to-SQL 建模为树搜索问题，通过蒙特卡洛树搜索 (MCTS) 框架结合 LLM-as-Action-Model 和自监督奖励函数，无需微调即可在 BIRD 数据集上以 32B 开源模型达到 69.7% 执行精度，超越基于 GPT-4o 的零样本 SOTA 2.5 个百分点。"
 tags:
   - ICML 2025
-  - Text-to-SQL
-  - 蒙特卡洛树搜索 (MCTS)
-  - 大语言模型
 ---
 
 # Alpha-SQL: Zero-Shot Text-to-SQL using Monte Carlo Tree Search

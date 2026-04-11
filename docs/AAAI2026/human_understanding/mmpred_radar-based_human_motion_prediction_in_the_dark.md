@@ -2,9 +2,6 @@
 description: "【论文笔记】mmPred: Radar-based Human Motion Prediction in the Dark 论文解读 | AAAI2026 | arXiv 2512.00345 | 毫米波雷达 | 首次将毫米波雷达引入人体运动预测(HMP)任务，提出mmPred——基于扩散模型的框架，通过双域历史运动表示（时域姿态细化TPR + 频域主导运动FDM）和全局骨骼关系Transformer(GST)，有效抑制雷达特有的噪声和时序不一致性，在mmBody和mm-Fi数据集上分别超越SOTA方法8.6%和22%。"
 tags:
   - AAAI2026
-  - 毫米波雷达
-  - 人体运动预测
-  - Diffusion Model
   - 扩散模型
 ---
 

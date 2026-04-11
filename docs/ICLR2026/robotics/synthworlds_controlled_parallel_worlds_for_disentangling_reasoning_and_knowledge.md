@@ -2,9 +2,6 @@
 description: "【论文笔记】SynthWorlds: Controlled Parallel Worlds for Disentangling Reasoning and Knowledge in Language Models 论文解读 | ICLR 2026 | arXiv 2510.24427 | 推理vs记忆 | 提出SynthWorlds——通过构建结构相同但实体不同的平行语料(真实映射vs合成映射)来解耦LLM推理能力和参数知识：真实映射语料中模型可利用记忆的事实知识,合成映射语料中参数知识无用→两者的性能差即\"知识优势差距(KA)\"→在多跳QA和页面导航任务上发现即使有RAG/CoT知识增强KA仍持续存在。"
 tags:
   - ICLR 2026
-  - 推理vs记忆
-  - 平行语料
-  - 知识优势差距
 ---
 
 # SynthWorlds: Controlled Parallel Worlds for Disentangling Reasoning and Knowledge in Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】ForCenNet: Foreground-Centric Network for Document Image Rectification 论文解读 | ICCV 2025 | arXiv 2507.19804 | 文档图像矫正 | 提出以前景为中心的文档矫正网络ForCenNet，通过前景标签生成、掩码引导Transformer解码器和曲率一致性损失三大创新，仅需无畸变图像即可高效训练，在DocUNet、DIR300、WarpDoc、DocReal四个基准上达到SOTA。"
 tags:
   - ICCV 2025
-  - 文档图像矫正
-  - 前景引导
-  - 曲率一致性损失
 ---
 
 # ForCenNet: Foreground-Centric Network for Document Image Rectification

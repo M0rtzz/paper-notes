@@ -2,9 +2,6 @@
 description: "【论文笔记】Weakly Supervised Teacher-Student Framework with Progressive Pseudo-mask Refinement for Gland Segmentation 论文解读 | CVPR 2026 | arXiv 2603.08605 | 弱监督语义分割 | 提出弱监督教师-学生框架，利用稀疏病理标注和 EMA 稳定的教师网络生成渐进式精炼伪掩码，结合置信度过滤、自适应融合和课程引导精炼策略，实现结直肠癌病理图像中腺体结构的高效分割。"
 tags:
   - CVPR 2026
-  - 弱监督语义分割
-  - 教师-学生框架
-  - 伪掩码精炼
 ---
 
 # Weakly Supervised Teacher-Student Framework with Progressive Pseudo-mask Refinement for Gland Segmentation

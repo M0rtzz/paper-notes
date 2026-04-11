@@ -2,9 +2,6 @@
 description: "【论文笔记】HSKBenchmark: Modeling and Benchmarking Chinese Second Language Acquisition in Large Language Models through Curriculum Tuning 论文解读 | AAAI 2026 | arXiv 2511.15574 | 中文二语习得 | 提出 HSKBenchmark，首个面向 LLM 中文二语习得（SLA）分阶段建模与写作评估的基准，包含 HSK 3-6 级教材（6.76M tokens）、16K 合成指令数据、30 个测试题目及语言学评估系统，配合课程式微调框架模拟人类习得轨迹。"
 tags:
   - AAAI 2026
-  - 中文二语习得
-  - 课程式微调
-  - HSK基准
 ---
 
 # HSKBenchmark: Modeling and Benchmarking Chinese Second Language Acquisition in Large Language Models through Curriculum Tuning

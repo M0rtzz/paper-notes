@@ -2,9 +2,6 @@
 description: "【论文笔记】EgoAdapt: Adaptive Multisensory Distillation and Policy Learning for Efficient Egocentric Perception 论文解读 | ICCV 2025 | arXiv 2506.21080 | 自我中心感知 | 提出 EgoAdapt 框架，将跨模态蒸馏与策略学习联合训练，自适应选择最优模态组合，在自我中心感知任务中实现最高 89% GMACs 缩减的同时保持与 SOTA 持平甚至更优的性能。"
 tags:
   - ICCV 2025
-  - 自我中心感知
-  - 多模态蒸馏
-  - 策略学习
 ---
 
 # EgoAdapt: Adaptive Multisensory Distillation and Policy Learning for Efficient Egocentric Perception

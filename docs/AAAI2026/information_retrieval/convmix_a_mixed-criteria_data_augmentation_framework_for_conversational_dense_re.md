@@ -2,9 +2,6 @@
 description: "【论文笔记】ConvMix: A Mixed-Criteria Data Augmentation Framework for Conversational Dense Retrieval 论文解读 | AAAI 2026 | arXiv 2508.04001 | 对话式检索 | 提出 ConvMix 混合准则数据增强框架，从查询和文档双方向用 LLM 进行可扩展的相关性标注增强，并通过聚类多样性选择和 Fisher 信息近分布监督筛选，系统性提升对话式稠密检索性能。"
 tags:
   - AAAI 2026
-  - 对话式检索
-  - 数据增强
-  - LLM生成
 ---
 
 # ConvMix: A Mixed-Criteria Data Augmentation Framework for Conversational Dense Retrieval

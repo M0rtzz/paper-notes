@@ -2,9 +2,6 @@
 description: "【论文笔记】Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features 论文解读 | NeurIPS 2025 | arXiv 2509.16629 | positional encoding | CAPE 通过从表格数据中学习特征间的因果DAG结构，将其嵌入双曲空间生成因果感知的旋转位置编码（RoPE），使 Transformer 能处理非序列但因果相关的特征数据，在多组学数据的下游任务上显著提升性能。"
 tags:
   - NeurIPS 2025
-  - positional encoding
-  - causal structure learning
-  - hyperbolic embedding
 ---
 
 # Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features

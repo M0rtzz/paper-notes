@@ -2,9 +2,6 @@
 description: "【论文笔记】RADIO: Rate-Distortion Optimization for Large Language Model Compression 论文解读 | ICML 2025 | arXiv 2505.03031 | 率失真理论 | RADIO 从信息论中的率失真理论（Rate-Distortion Theory）出发，为 LLM 量化建立了理论基础，并提出了一种基于率失真优化的简洁量化技术，可扩展至数千亿参数模型，且允许用户灵活指定目标模型大小或精度进行后训练压缩。"
 tags:
   - ICML 2025
-  - 率失真理论
-  - 后训练量化
-  - 码率-失真优化
 ---
 
 # RADIO: Rate-Distortion Optimization for Large Language Model Compression

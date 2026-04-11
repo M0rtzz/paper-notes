@@ -2,9 +2,6 @@
 description: "【论文笔记】AgentSwift: Efficient LLM Agent Design via Value-guided Hierarchical Search 论文解读 | AAAI 2026 | arXiv 2506.06017 | 自动化Agent设计 | 提出AgentSwift框架，通过层次化搜索空间（同时优化agentic workflow和功能组件）、轻量级value model预测agent性能、以及不确定性引导的MCTS搜索策略，自动发现高性能LLM agent设计，在7个基准上平均提升8.34%。"
 tags:
   - AAAI 2026
-  - 自动化Agent设计
-  - MCTS
-  - Value Model
 ---
 
 # AgentSwift: Efficient LLM Agent Design via Value-guided Hierarchical Search

@@ -2,9 +2,6 @@
 description: "【论文笔记】Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation 论文解读 | ICCV 2025 | arXiv 2501.08885 | 知识蒸馏 | 提出PAT（Perspective-Aware Teaching）框架，通过区域感知注意力（RAA）解决异构架构间的视角不匹配问题，通过自适应反馈提示（AFP）解决教师无感知问题，使得特征级蒸馏首次在异构知识蒸馏场景中全面超越logits级方法。"
 tags:
   - ICCV 2025
-  - 知识蒸馏
-  - 异构蒸馏
-  - 视角对齐
 ---
 
 # Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation

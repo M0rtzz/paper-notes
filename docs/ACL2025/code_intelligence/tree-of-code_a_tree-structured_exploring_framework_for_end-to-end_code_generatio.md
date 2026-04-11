@@ -2,9 +2,6 @@
 description: "【论文笔记】Tree-of-Code: A Tree-Structured Exploring Framework for End-to-End Code Generation 论文解读 | ACL 2025 | arXiv 2412.15305 | 代码生成 | 提出 Tree-of-Code（ToC）框架，通过树结构组织端到端的完整代码程序（CodeProgram）节点，结合基于执行结果的反思机制和提示/模型随机探索策略，在无需标注数据的零样本设置下，以不到 1/4 的交互轮次实现了比 CodeAct 高近 20% 的复杂任务准确率。"
 tags:
   - ACL 2025
-  - 代码生成
-  - 树搜索
-  - LLM Agent
 ---
 
 # Tree-of-Code: A Tree-Structured Exploring Framework for End-to-End Code Generation

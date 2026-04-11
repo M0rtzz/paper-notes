@@ -2,9 +2,6 @@
 description: "【论文笔记】FLUX: Efficient Descriptor-Driven Clustered Federated Learning under Arbitrary Distribution Shifts 论文解读 | NEURIPS2025 | arXiv 2511.22305 | 联邦学习 | 提出Flux——基于描述符驱动聚类的联邦学习框架，通过提取隐私保护的客户端数据描述符（分布统计量的矩近似）和无监督密度聚类，自动处理四种分布偏移（特征/标签/P(Y|X)/P(X|Y)），在CheXpert医疗数据集上测试时精度比最佳基线高14.6pp。"
 tags:
   - NEURIPS2025
-  - 联邦学习
-  - 聚类
-  - 分布偏移
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

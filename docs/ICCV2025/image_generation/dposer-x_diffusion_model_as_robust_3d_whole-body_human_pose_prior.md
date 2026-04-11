@@ -2,9 +2,6 @@
 description: "【论文笔记】DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior 论文解读 | ICCV 2025 | arXiv 2508.00599 | 扩散模型 | 提出 DPoser-X，基于无条件扩散模型的 3D 全身人体姿态先验，将各种姿态相关任务统一为逆问题，通过变分扩散采样的截断时间步调度进行测试时优化，并引入混合训练策略有效结合全身和部位数据集，在身体、手、脸和全身建模的 8 个基准上取得最高 61% 的提升。"
 tags:
   - ICCV 2025
-  - 扩散模型
-  - 人体姿态先验
-  - 全身建模
 ---
 
 # DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior

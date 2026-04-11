@@ -2,9 +2,6 @@
 description: "【论文笔记】LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning 论文解读 | ACL 2025 | arXiv 2409.12929 | 数据合成 | 提出 LogicPro 数据合成方法，利用 LeetCode 算法题和 Python 代码解作为逻辑源，通过\"问题生成→代码中间变量提取→程序引导推理生成\"三步流水线，从 2360 道算法题合成 540K 高质量文本推理数据，在 BBH27、LogicBench、DROP 等多个 OOD 基准上显著超越现有推理数据集。"
 tags:
   - ACL 2025
-  - 数据合成
-  - 逻辑推理
-  - 程序引导
 ---
 
 # LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning

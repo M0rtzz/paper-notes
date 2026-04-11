@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Strategic Persuasion with Language Models 论文解读 | ICLR 2026 | arXiv 2509.22989 | 贝叶斯说服 | 本文以贝叶斯说服（Bayesian Persuasion）框架为理论基础，提出了一套系统评估和训练LLM策略性说服能力的方法，发现前沿模型已具备显著的策略性说服能力，且即使是小型LLM也可通过强化学习大幅提升说服效果。"
 tags:
   - ICLR 2026
-  - 贝叶斯说服
-  - 大语言模型
-  - 策略性说服
 ---
 
 # Towards Strategic Persuasion with Language Models

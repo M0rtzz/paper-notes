@@ -2,10 +2,7 @@
 description: "【论文笔记】LeGrad: An Explainability Method for Vision Transformers via Feature Formation Sensitivity 论文解读 | ICCV 2025 | arXiv 2404.03214 | 可解释性 | 提出LeGrad——一种专为ViT设计的逐层可解释性方法，通过计算激活值对各层注意力图的梯度作为解释信号，并跨层聚合以生成高质量的空间显著性图，在分割、扰动和开放词汇场景均展现出优越的空间保真度。"
 tags:
   - ICCV 2025
-  - 可解释性
-  - Vision Transformer
   - Transformer
-  - 注意力梯度
 ---
 
 # LeGrad: An Explainability Method for Vision Transformers via Feature Formation Sensitivity

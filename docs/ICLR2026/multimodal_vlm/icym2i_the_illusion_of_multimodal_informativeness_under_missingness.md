@@ -2,9 +2,6 @@
 description: "【论文笔记】ICYM2I: The Illusion of Multimodal Informativeness under Missingness 论文解读 | ICLR 2026 | arXiv 2505.16953 | 多模态缺失 | 揭示了多模态学习中被忽视的问题：模态缺失（missingness）导致的分布偏移会使模态价值评估产生严重偏差，提出 ICYM2I 框架通过双重逆概率加权（IPW）纠正训练和评估中的偏差，在 MAR 假设下实现对模态预测效用和信息论价值的无偏估计。"
 tags:
   - ICLR 2026
-  - 多模态缺失
-  - 分布偏移
-  - 逆概率加权
 ---
 
 # ICYM2I: The Illusion of Multimodal Informativeness under Missingness

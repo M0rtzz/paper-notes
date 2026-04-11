@@ -2,9 +2,6 @@
 description: "【论文笔记】ShareGPT4V: Improving Large Multi-Modal Models with Better Captions 论文解读 | ECCV 2024 | arXiv 2311.12793 | 高质量caption | ShareGPT4V 构建了一个120万条高质量描述性caption数据集（由GPT4-Vision生成100K种子 + Share-Captioner扩展至1.2M），通过在预训练和SFT两阶段使用该数据集训练LLaVA架构的模型ShareGPT4V-7B，在11个多模态benchmark中9个取得最优，证明了高质量caption是LMM模态对齐的关键瓶颈。"
 tags:
   - ECCV 2024
-  - 高质量caption
-  - 数据增强
-  - 多模态对齐
 ---
 
 # ShareGPT4V: Improving Large Multi-Modal Models with Better Captions

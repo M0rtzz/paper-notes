@@ -2,10 +2,7 @@
 description: "【论文笔记】Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis 论文解读 | ICML2025 | arXiv 2410.01635 | 提示学习 Graph Prompt | 首次从\"数据操作\"角度为 Graph Prompt 提供完整理论框架：证明 Prompt 能通过模拟图数据变换将原始图映射到\"桥接图\"使冻结模型适配下游任务，并推导了单图/多图场景下的误差上界与分布。"
 tags:
   - ICML2025
-  - Graph Prompt
   - 提示学习
-  - Bridge Set
-  - 数据操作
 ---
 
 # Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis

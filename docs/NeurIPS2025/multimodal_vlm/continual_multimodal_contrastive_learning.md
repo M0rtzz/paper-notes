@@ -2,9 +2,6 @@
 description: "【论文笔记】Continual Multimodal Contrastive Learning 论文解读 | NeurIPS 2025 | arXiv 2503.14963 | 持续对比学习 | 首次形式化定义持续多模态对比学习(CMCL)问题——按顺序在不同模态对数据上训练而不忘记之前的对齐，提出Dual-sided Null Space (DNS)方法将新梯度投影到不影响旧知识的子空间，在7个数据集11个训练步骤上一致优于现有持续学习基线。"
 tags:
   - NeurIPS 2025
-  - 持续对比学习
-  - 多模态表征
-  - 梯度投影
 ---
 
 # Continual Multimodal Contrastive Learning

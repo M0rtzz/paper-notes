@@ -2,9 +2,6 @@
 description: "【论文笔记】Generalization of Diffusion Models Arises with a Balanced Representation Space 论文解读 | ICLR 2026 | arXiv 2512.20963 | 泛化vs记忆 | 提出统一的数学框架通过分析非线性ReLU去噪自编码器(DAE)来解释扩散模型的记忆和泛化——证明(1)局部样本稀疏时→权重记忆训练样本→尖刺激活→记忆，(2)局部样本丰富时→权重学习数据统计→平衡表示→泛化，(3)真实模型因数据不均衡处于混合状态，并基于此发展记忆检测和表示空间模型驾驭两个实用工具。"
 tags:
   - ICLR 2026
-  - 泛化vs记忆
-  - 表示空间
-  - ReLU DAE
 ---
 
 # Generalization of Diffusion Models Arises with a Balanced Representation Space

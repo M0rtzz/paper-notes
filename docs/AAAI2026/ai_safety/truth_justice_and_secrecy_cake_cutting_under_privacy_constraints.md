@@ -2,9 +2,6 @@
 description: "【论文笔记】Truth, Justice, and Secrecy: Cake Cutting Under Privacy Constraints 论文解读 | AAAI 2026 | arXiv 2511.09882 | 蛋糕切割 | 首个隐私保护蛋糕切割协议，在保持无嫉妒性和策略防谋性的同时，通过秘密共享和安全多方计算（MPC）技术确保参与者的估值函数不被泄露。"
 tags:
   - AAAI 2026
-  - 蛋糕切割
-  - 隐私保护
-  - 策略防谋
 ---
 
 # Truth, Justice, and Secrecy: Cake Cutting Under Privacy Constraints

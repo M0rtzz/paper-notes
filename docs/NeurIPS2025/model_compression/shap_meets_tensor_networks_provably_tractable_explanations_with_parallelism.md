@@ -2,9 +2,6 @@
 description: "【论文笔记】SHAP Meets Tensor Networks: Provably Tractable Explanations with Parallelism 论文解读 | NeurIPS 2025 | arXiv 2510.21599 | SHAP | 本文首次为张量网络（Tensor Networks）提供可证明精确的 SHAP 解释计算框架，证明张量列车（Tensor Train）结构下 SHAP 可在多对数时间内并行计算（NC² 复杂度），并通过归约揭示二值化神经网络中**宽度而非深度**才是 SHAP 计算的核心瓶颈。"
 tags:
   - NeurIPS 2025
-  - SHAP
-  - Tensor Networks
-  - Tensor Train
 ---
 
 # SHAP Meets Tensor Networks: Provably Tractable Explanations with Parallelism

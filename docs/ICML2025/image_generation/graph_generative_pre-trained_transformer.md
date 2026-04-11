@@ -2,10 +2,7 @@
 description: "【论文笔记】Graph Generative Pre-trained Transformer (G2PT) 论文解读 | ICML2025 | arXiv 2501.01073 | 图生成 | 提出 G2PT——将图编码为节点+边的 token 序列，用 GPT 风格的自回归 Transformer 做 next-token prediction 来生成图，并通过拒绝采样微调(RFT)和 PPO 强化学习实现目标导向分子生成，在通用图和分子数据集上均达到 SOTA。"
 tags:
   - ICML2025
-  - 图生成
-  - 自回归Transformer
   - Transformer
-  - 边序列表示
 ---
 
 # Graph Generative Pre-trained Transformer (G2PT)

@@ -2,10 +2,7 @@
 description: "【论文笔记】Exploring Graph Representations of Logical Forms for Language Modeling 论文解读 | ACL 2025 | arXiv 2505.14523 | Transformer 图Transformer | 提出 GFoLDS，一种在 DMRS 逻辑形式图表示上预训练的图 Transformer 语言模型，并提出\"语言知识催化假说\"(LKCH)：逻辑形式语言模型几乎立刻学会基础语言现象，进而加速复杂模式学习，在相同数据量下大幅超越 BERT。"
 tags:
   - ACL 2025
-  - 图Transformer
   - Transformer
-  - 逻辑形式
-  - DMRS
 ---
 
 # Exploring Graph Representations of Logical Forms for Language Modeling

@@ -2,10 +2,7 @@
 description: "【论文笔记】Diffusion Adaptive Text Embedding for Text-to-Image Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2510.23974 | text embedding | 发现T2I扩散模型中固定的text embedding在不同时间步是次优的，提出DATE——在推理时动态更新text embedding以最大化mean predicted image与文本的对齐评分（如CLIP Score/ImageReward），无需训练，可即插即用到任何扩散模型和采样器中，在多概念生成和图像编辑中一致提升text-image对齐。"
 tags:
   - NeurIPS 2025
-  - text embedding
-  - diffusion sampling
   - 扩散模型
-  - adaptive conditioning
 ---
 
 # Diffusion Adaptive Text Embedding for Text-to-Image Diffusion Models

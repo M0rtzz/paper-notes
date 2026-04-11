@@ -2,9 +2,6 @@
 description: "【论文笔记】When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment 论文解读 | ICLR 2026 | arXiv 2506.07452 | LLM安全 | 发现 LLM 越狱 benchmark 中的 ASR 被语义无关的风格模式（如\"创建列表\"）人为膨胀，36 个 LLM 中几乎都存在此现象；表面风格对齐微调进一步加剧此风险；提出 SafeStyle——用风格增强的安全训练数据缓解风险。"
 tags:
   - ICLR 2026
-  - LLM安全
-  - 越狱攻击
-  - 风格对齐
 ---
 
 # When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment

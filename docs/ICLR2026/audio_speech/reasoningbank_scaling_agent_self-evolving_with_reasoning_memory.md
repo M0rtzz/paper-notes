@@ -2,9 +2,6 @@
 description: "【论文笔记】ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory 论文解读 | ICLR 2026 | arXiv 2509.25140 | Agent记忆 | 提出 ReasoningBank 记忆框架，从 Agent 自我判断的成功和失败经验中蒸馏可泛化的推理策略存入记忆库，并提出 memory-aware test-time scaling (MaTTS) 建立记忆与测试时扩展的协同效应，在 WebArena、Mind2Web 和 SWE-Bench 上一致超越基线（最高 34.2% 相对提升），同时减少 16% 交互步数。"
 tags:
   - ICLR 2026
-  - Agent记忆
-  - 推理策略
-  - 测试时扩展
 ---
 
 # ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory

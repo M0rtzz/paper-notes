@@ -2,10 +2,7 @@
 description: "【论文笔记】FCMR: Robust Evaluation of Financial Cross-Modal Multi-Hop Reasoning 论文解读 | ACL 2025 | arXiv 2412.12567 | 跨模态 Cross-Modal Reasoning | 构建了金融领域跨模态多跳推理基准 FCMR，包含文本、表格和图表三种模态，分 Easy/Medium/Hard 三个难度等级，最强模型 Claude 3.5 Sonnet 在 Hard 级别仅达 30.4% 准确率，揭示了 MLLM 在信息检索阶段的关键瓶颈。"
 tags:
   - ACL 2025
-  - Cross-Modal Reasoning
   - 跨模态
-  - Multi-Hop QA
-  - Financial NLP
 ---
 
 # FCMR: Robust Evaluation of Financial Cross-Modal Multi-Hop Reasoning

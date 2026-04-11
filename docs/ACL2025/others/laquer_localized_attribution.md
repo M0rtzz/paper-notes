@@ -2,9 +2,6 @@
 description: "【论文笔记】LAQuer: Localized Attribution Queries in Content-grounded Generation 论文解读 | ACL 2025 | arXiv 2506.01187 | 归因 | 提出 Localized Attribution Queries (LAQuer) 任务——将生成文本中用户选定的片段精确定位到源文档的对应片段，实现比句子级归因更精细、比子句级归因更用户导向的溯源，在多文档摘要和长文本问答上显著减少了归因文本长度。"
 tags:
   - ACL 2025
-  - 归因
-  - 细粒度归因
-  - 生成可解释性
 ---
 
 # LAQuer: Localized Attribution Queries in Content-grounded Generation

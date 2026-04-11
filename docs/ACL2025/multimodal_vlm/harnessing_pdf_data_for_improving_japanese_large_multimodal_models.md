@@ -2,9 +2,6 @@
 description: "【论文笔记】Harnessing PDF Data for Improving Japanese Large Multimodal Models 论文解读 | ACL 2025 | arXiv 2502.14778 | 日语大模型 | 提出一套全自动 PDF 数据提取管道，从日语 PDF 中提取图文对并生成指令数据，通过持续微调 LLaVA1.5 框架显著提升日语多模态模型性能，在 Heron-Bench 上实现 2.1%~13.8% 的提升。"
 tags:
   - ACL 2025
-  - 日语大模型
-  - PDF数据
-  - 多模态训练
 ---
 
 # Harnessing PDF Data for Improving Japanese Large Multimodal Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation 论文解读 | AAAI 2026 | arXiv 2511.09555 | 语义-几何解耦 | 提出 SpatialActor 框架，通过将语义与几何表征显式解耦，并设计语义引导几何模块（SGM）自适应融合深度噪声特征与预训练深度估计专家先验、以及空间 Transformer（SPT）编码低级空间位置线索，在 RLBench 50+ 任务上达到 87.4% 成功率（SOTA +6.0%），且在重噪声条件下比 RVT-2 高出 19.4%。"
 tags:
   - AAAI 2026
-  - 语义-几何解耦
-  - 深度估计先验
-  - 空间Transformer
   - Transformer
 ---
 

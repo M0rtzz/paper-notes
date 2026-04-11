@@ -2,9 +2,6 @@
 description: "【论文笔记】Controlling Thinking Speed in Reasoning Models 论文解读 | NeurIPS 2025 | arXiv 2507.03704 | thinking speed | 通过表示工程（Representation Engineering）从 LRM 的隐藏空间中提取控制快/慢思考转换的 steering vector，结合基于层间 logit 散度的实时推理难度估计，实现无需训练的自适应推理速度调节，在 4 个 LRM 上平均提升 +1.3% 准确率并减少 -8.6% token 使用。"
 tags:
   - NeurIPS 2025
-  - thinking speed
-  - representation engineering
-  - System 1/2
 ---
 
 # Controlling Thinking Speed in Reasoning Models

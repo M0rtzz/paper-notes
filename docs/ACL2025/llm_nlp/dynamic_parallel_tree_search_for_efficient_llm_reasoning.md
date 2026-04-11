@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Parallel Tree Search for Efficient LLM Reasoning 论文解读 | ACL 2025 | arXiv 2502.16235 | 思维树 | 提出DPTS（Dynamic Parallel Tree Search）框架，通过并行流水线（Parallelism Streamline）解决树搜索中路径频繁切换难以并行化的问题，通过搜索与转换机制（Search and Transition Mechanism）的早停和深度搜索策略减少对低置信度路径的冗余探索，在Qwen-2.5和Llama-3上实现2-4倍推理加速，同时保持或超越MCTS等现有算法的推理准确率。"
 tags:
   - ACL 2025
-  - 思维树
-  - 树搜索
-  - 并行推理
 ---
 
 # Dynamic Parallel Tree Search for Efficient LLM Reasoning

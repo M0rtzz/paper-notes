@@ -2,9 +2,6 @@
 description: "【论文笔记】Embracing Imperfection: Simulating Students with Diverse Cognitive Levels Using LLM-based Agents 论文解读 | ACL 2025 | arXiv 2505.19997 | 学生模拟 | 提出一种基于知识图谱认知原型的免训练框架，使LLM Agent能够模拟不同认知水平学生的学习行为（包括错误），在GPT-4o上实现94%的行为预测准确率，相比基线提升100%。"
 tags:
   - ACL 2025
-  - 学生模拟
-  - 认知原型
-  - 知识图谱
 ---
 
 # Embracing Imperfection: Simulating Students with Diverse Cognitive Levels Using LLM-based Agents

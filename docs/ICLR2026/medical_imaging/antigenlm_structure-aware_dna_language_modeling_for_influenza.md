@@ -2,9 +2,6 @@
 description: "【论文笔记】AntigenLM: Structure-Aware DNA Language Modeling for Influenza 论文解读 | ICLR 2026 | arXiv 2602.09067 | DNA语言模型 | AntigenLM 是一个保留基因组功能单元完整性的 GPT-2 风格 DNA 语言模型，通过在流感病毒全基因组上预训练并微调，能够自回归预测未来流行毒株的抗原序列，在氨基酸错配率上显著优于进化模型 beth-1 和通用基因组模型。"
 tags:
   - ICLR 2026
-  - DNA语言模型
-  - 流感病毒预测
-  - 功能单元编码
 ---
 
 # AntigenLM: Structure-Aware DNA Language Modeling for Influenza

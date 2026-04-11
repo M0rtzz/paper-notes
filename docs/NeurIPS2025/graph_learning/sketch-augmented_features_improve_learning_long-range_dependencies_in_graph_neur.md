@@ -2,9 +2,6 @@
 description: "【论文笔记】Sketch-Augmented Features Improve Learning Long-Range Dependencies in Graph Neural Networks 论文解读 | NeurIPS 2025 | arXiv 2511.03824 | 图神经网络 | 提出Sketched Random Features (SRF)，将节点特征的核空间随机投影注入标准消息传递GNN的每一层，同时缓解过压缩、过平滑和表达力受限三大问题，理论性质完备且计算高效。"
 tags:
   - NeurIPS 2025
-  - 图神经网络
-  - 过压缩
-  - 过平滑
 ---
 
 # Sketch-Augmented Features Improve Learning Long-Range Dependencies in Graph Neural Networks

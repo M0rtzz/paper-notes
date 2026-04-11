@@ -2,9 +2,6 @@
 description: "【论文笔记】How to Make the Most of Your Masked Language Model for Protein Engineering 论文解读 | ICLR 2026 | arXiv 2603.10302 | 蛋白质语言模型 | 提出基于随机束搜索(SBS)的MLM采样方法用于蛋白质/抗体工程——利用MLM可高效评估整个1-编辑邻域的特点做全序列评估(而非逐突变采样)，支持灵活的多目标引导，系统性的in silico + in vitro评估揭示采样方法的选择至少与模型选择同等重要。"
 tags:
   - ICLR 2026
-  - 蛋白质语言模型
-  - 抗体优化
-  - 随机束搜索
 ---
 
 # How to Make the Most of Your Masked Language Model for Protein Engineering

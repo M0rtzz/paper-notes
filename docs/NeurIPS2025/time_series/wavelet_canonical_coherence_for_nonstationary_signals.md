@@ -2,9 +2,6 @@
 description: "【论文笔记】Wavelet Canonical Coherence for Nonstationary Signals 论文解读 | NeurIPS 2025 | arXiv 2505.14253 | 小波分析 | 提出 WaveCanCoh 框架，将经典的典型相干分析（canonical coherence）扩展到小波域，基于多变量局部平稳小波（MvLSW）模型实现对非平稳多变量时间序列两组信号间时变、尺度特定的典型相干性估计。"
 tags:
   - NeurIPS 2025
-  - 小波分析
-  - 典型相干性
-  - 非平稳信号
 ---
 
 # Wavelet Canonical Coherence for Nonstationary Signals

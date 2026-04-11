@@ -2,9 +2,6 @@
 description: "【论文笔记】SD-VLM: Spatial Measuring and Understanding with Depth-Encoded Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2509.17664 | 空间推理 | 提出MSMU大规模定量空间推理数据集（700K QA对、250万数值标注）和深度位置编码（DPE）方法，使VLM在不引入3D点云的前提下获得强大的定量空间测量和理解能力，在MSMU-Bench上超越GPT-4o达26.91%。"
 tags:
   - NeurIPS 2025
-  - 空间推理
-  - 深度编码
-  - VLM
 ---
 
 # SD-VLM: Spatial Measuring and Understanding with Depth-Encoded Vision-Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】On Learning Verifiers and Implications to Chain-of-Thought Reasoning 论文解读 | NeurIPS 2025 | arXiv 2505.22650 | PAC学习 | 从PAC学习角度系统研究CoT验证器的可学习性，在不同验证目标下给出样本复杂度的上下界，并揭示验证与生成之间的有趣计算关系。"
 tags:
   - NeurIPS 2025
-  - PAC学习
-  - 验证器
-  - CoT推理
 ---
 
 # On Learning Verifiers and Implications to Chain-of-Thought Reasoning

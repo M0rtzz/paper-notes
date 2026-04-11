@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Factorize and Adapt: A Versatile Approach Toward Universal Spatio-Temporal Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2601.12083 | 时空基础模型 | 提出 FactoST-v2，一个因式分解的时空基础模型框架，将通用时间预训练与领域特定空间适配解耦，以线性复杂度实现跨领域零样本/少样本/全样本时空预测。"
 tags:
   - NeurIPS 2025
-  - 时空基础模型
-  - 时间序列预测
-  - 因式分解范式
 ---
 
 # Learning to Factorize and Adapt: A Versatile Approach Toward Universal Spatio-Temporal Foundation Models

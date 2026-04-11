@@ -2,9 +2,6 @@
 description: "【论文笔记】T-Rex: Task-Adaptive Spatial Representation Extraction for Robotic Manipulation with VLMs 论文解读 | NeurIPS 2025 | arXiv 2506.19498 | VLM | 提出T-Rex框架，根据任务复杂度动态选择最优的空间表示提取方案（点/向量/6D位姿），并设计Chain of Grounding (CoG)引导VLM逐步推理，实现无需训练的开放词汇机器人操纵。"
 tags:
   - NeurIPS 2025
-  - VLM
-  - 机器人操纵
-  - 空间表示
 ---
 
 # T-Rex: Task-Adaptive Spatial Representation Extraction for Robotic Manipulation with VLMs

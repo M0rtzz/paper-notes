@@ -2,9 +2,6 @@
 description: "【论文笔记】DipLLM: Fine-Tuning LLM for Strategic Decision-Making in Diplomacy 论文解读 | ICML 2025 | arXiv 2506.09655 | Diplomacy | 提出 DipLLM，通过自回归分解框架将外交博弈的指数级组合动作空间分解为单元级决策序列，并微调 LLM 学习均衡策略，仅用 Cicero 1.5% 的训练数据即超越其性能。"
 tags:
   - ICML 2025
-  - Diplomacy
-  - LLM agent
-  - fine-tuning
 ---
 
 # DipLLM: Fine-Tuning LLM for Strategic Decision-Making in Diplomacy

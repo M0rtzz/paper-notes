@@ -2,9 +2,6 @@
 description: "【论文笔记】DONUT: A Decoder-Only Model for Trajectory Prediction 论文解读 | ICCV 2025 | arXiv 2506.06854 | 轨迹预测 | DONUT受LLM中decoder-only架构启发，提出用统一的自回归模型处理历史和未来轨迹，配合\"过预测（overprediction）\"策略让模型更好预判未来，在Argoverse 2基准上取得SOTA。"
 tags:
   - ICCV 2025
-  - 轨迹预测
-  - decoder-only
-  - 自回归模型
 ---
 
 # DONUT: A Decoder-Only Model for Trajectory Prediction

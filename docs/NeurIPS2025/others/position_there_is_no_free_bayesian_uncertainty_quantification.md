@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: There Is No Free Bayesian Uncertainty Quantification 论文解读 | NeurIPS 2025 | arXiv 2506.03670 | 贝叶斯推断 | 本文从频率学派视角质疑贝叶斯不确定性量化（UQ）的有效性，将贝叶斯更新重新解释为模型集成的优化问题，并提出基于PAC框架的校准算法以构建具有频率学派保证的预测区间。"
 tags:
   - NeurIPS 2025
-  - 贝叶斯推断
-  - 不确定性量化
-  - 频率学派
 ---
 
 # Position: There Is No Free Bayesian Uncertainty Quantification

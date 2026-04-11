@@ -2,9 +2,6 @@
 description: "【论文笔记】PAANO: Patch-Based Representation Learning for Time-Series Anomaly Detection 论文解读 | ICLR 2026 | arXiv 2602.01359 | 时间序列异常检测 | 提出 PaAno，一种基于 patch 级表示学习的轻量时间序列异常检测方法，使用 1D-CNN 编码器 + triplet loss + pretext loss 学习 patch 嵌入空间，通过与记忆库中正常 patch 的距离计算异常分数，在 TSB-AD 基准上全面 SOTA，且仅需 0.3M 参数和数秒推理。"
 tags:
   - ICLR 2026
-  - 时间序列异常检测
-  - Patch表示学习
-  - 轻量级CNN
 ---
 
 # PAANO: Patch-Based Representation Learning for Time-Series Anomaly Detection

@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Match Maximization and Fairness: Retention-Optimized Two-Sided Matching 论文解读 | ICLR2026 | arXiv 2602.15752 | two-sided matching | 提出以用户留存率（而非匹配数或公平性）为优化目标的双边匹配推荐算法 MRet，通过学习个性化留存曲线并联合考虑推荐双方的留存增益来动态排序推荐列表。"
 tags:
   - ICLR2026
-  - two-sided matching
-  - user retention
-  - learning-to-rank
 ---
 
 # Beyond Match Maximization and Fairness: Retention-Optimized Two-Sided Matching

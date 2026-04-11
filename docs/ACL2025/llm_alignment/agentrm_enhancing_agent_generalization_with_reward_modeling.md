@@ -2,9 +2,6 @@
 description: "【论文笔记】AgentRM: Enhancing Agent Generalization with Reward Modeling 论文解读 | ACL 2025 | arXiv 2502.18407 | Agent | 提出 AgentRM，一种可泛化的奖励模型，通过显式/隐式奖励建模和 LLM-as-a-judge 三种方式构建，配合 Best-of-N 采样和步级波束搜索引导策略模型进行测试时搜索，在 9 个 Agent 任务上平均提升 8.8 分，且展现出弱到强的泛化能力。"
 tags:
   - ACL 2025
-  - Agent
-  - 奖励模型
-  - 泛化性
 ---
 
 # AgentRM: Enhancing Agent Generalization with Reward Modeling

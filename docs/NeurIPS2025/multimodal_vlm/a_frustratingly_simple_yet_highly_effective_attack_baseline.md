@@ -2,9 +2,6 @@
 description: "【论文笔记】A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1 论文解读 | NeurIPS 2025 | arXiv 2503.10635 | 对抗攻击 | 提出 M-Attack，通过对对抗图像做随机裁剪后与目标图像在嵌入空间做局部对齐（而非传统的全局对齐），配合多模型集成，使得生成的对抗扰动具有丰富的局部语义细节，在 GPT-4.5/4o/o1 等商业黑盒 LVLM 上实现超过 90% 的目标攻击成功率，大幅超越所有已有方法。"
 tags:
   - NeurIPS 2025
-  - 对抗攻击
-  - 黑盒迁移攻击
-  - 局部语义匹配
 ---
 
 # A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1

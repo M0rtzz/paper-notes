@@ -2,9 +2,6 @@
 description: "【论文笔记】Continuous Thought Machines 论文解读 | NeurIPS 2025 | arXiv 2505.05522 | 神经动力学 | 提出 Continuous Thought Machine (CTM)，通过私有参数化的 Neuron-Level Models (NLMs) 产生神经元级时间动力学，并以神经同步矩阵作为核心潜在表征，在迷宫求解、ImageNet 分类、奇偶校验等任务上展现复杂推理、自适应计算和可解释注意力行为。"
 tags:
   - NeurIPS 2025
-  - 神经动力学
-  - 神经同步
-  - 自适应计算
 ---
 
 # Continuous Thought Machines

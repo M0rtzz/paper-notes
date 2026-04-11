@@ -2,10 +2,8 @@
 description: "【论文笔记】VIRD: View-Invariant Representation through Dual-Axis Transformation for Cross-View Pose Estimation 论文解读 | CVPR2025 | arXiv 2603.12918 | 位姿估计 cross-view pose estimation | VIRD 通过双轴变换（极坐标变换 + 上下文增强位置注意力）构建视角不变表征，实现无需方向先验的全向跨视角位姿估计，在 KITTI 上位置和方向误差分别降低 50.7% 和 76.5%。"
 tags:
   - CVPR2025
-  - cross-view pose estimation
   - 位姿估计
-  - geo-localization
-  - view-invariant representation
+  - 注意力机制
 ---
 
 # VIRD: View-Invariant Representation through Dual-Axis Transformation for Cross-View Pose Estimation

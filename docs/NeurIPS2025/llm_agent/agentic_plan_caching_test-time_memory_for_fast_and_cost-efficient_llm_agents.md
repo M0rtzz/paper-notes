@@ -2,9 +2,6 @@
 description: "【论文笔记】Agentic Plan Caching: Test-Time Memory for Fast and Cost-Efficient LLM Agents 论文解读 | NeurIPS 2025 | arXiv 2506.14852 | Agent缓存 | 提出 Agentic Plan Caching (APC)——从 agent 执行日志中提取结构化计划模板，通过关键词匹配缓存命中后用小模型适配复用，平均降低 50.31% 成本和 27.28% 延迟，同时保持 96.61% 的最优准确率。"
 tags:
   - NeurIPS 2025
-  - Agent缓存
-  - 计划模板
-  - 测试时记忆
 ---
 
 # Agentic Plan Caching: Test-Time Memory for Fast and Cost-Efficient LLM Agents

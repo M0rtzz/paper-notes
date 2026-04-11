@@ -2,9 +2,6 @@
 description: "【论文笔记】Eyes Wide Open: Ego Proactive Video-LLM for Streaming Video 论文解读 | NeurIPS 2025 | arXiv 2510.14560 | streaming video | 定义\"第一视角流式视频主动理解\"新任务——给定ego-streaming视频，AI助手在恰当时机主动回答多样化、随事件演变的问题，同时保持感知与推理的同步。提出ESTP-Bench评估框架、ESTP-F1指标，以及含数据引擎、多阶段训练和主动动态压缩的完整技术pipeline（VideoLLM-EyeWO），在ESTP-Bench上比最强baseline MiniCPM-V高11.8%。"
 tags:
   - NeurIPS 2025
-  - streaming video
-  - proactive response
-  - ego-centric
 ---
 
 # Eyes Wide Open: Ego Proactive Video-LLM for Streaming Video

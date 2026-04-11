@@ -2,9 +2,6 @@
 description: "【论文笔记】LingOly-TOO: Disentangling Reasoning from Knowledge with Templatised Orthographic Obfuscation 论文解读 | ICLR2026 | arXiv 2503.02972 | 推理评测 | 提出LingOly-TOO benchmark(1,203题/6,995子问题)，通过对语言学奥赛题的专家设计正字法混淆来分离LLM的推理能力与知识/记忆，发现最强模型从原始题0.59降至混淆后0.48，揭示了LLM推理能力被严重高估。"
 tags:
   - ICLR2026
-  - 推理评测
-  - 知识vs推理
-  - 语言学奥赛
 ---
 
 # LingOly-TOO: Disentangling Reasoning from Knowledge with Templatised Orthographic Obfuscation

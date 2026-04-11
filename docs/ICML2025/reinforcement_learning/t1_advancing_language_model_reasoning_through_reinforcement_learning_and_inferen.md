@@ -2,9 +2,6 @@
 description: "【论文笔记】T1: Advancing Language Model Reasoning through Reinforcement Learning and Inference Scaling 论文解读 | ICML 2025 | arXiv 2501.11651 | 强化学习 | T1 通过合成 CoT 数据初始化 + RL 训练中的过采样和熵奖励策略来鼓励探索，使开源 LLM 展现出推理时缩放（inference scaling）行为，在 MATH500、AIME2024 等挑战性数学推理基准上超越了 QwQ-32B-Preview。"
 tags:
   - ICML 2025
-  - 强化学习
-  - 推理能力
-  - 推理时缩放
 ---
 
 # T1: Advancing Language Model Reasoning through Reinforcement Learning and Inference Scaling

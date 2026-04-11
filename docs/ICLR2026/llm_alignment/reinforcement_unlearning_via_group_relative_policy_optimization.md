@@ -2,9 +2,6 @@
 description: "【论文笔记】PURGE: Reinforcement Unlearning via Group Relative Policy Optimization 论文解读 | ICLR 2026 | arXiv 2601.20568 | 机器遗忘 | PURGE 将 LLM 遗忘（unlearning）重新定义为可验证的 RL 任务，使用 GRPO 框架 + 内在奖励信号（惩罚提及禁止概念）来实现安全一致的知识删除，token 消耗比 SOTA 低 46 倍，同时提升流畅度 +5.48% 和对抗鲁棒性 +12.02%。"
 tags:
   - ICLR 2026
-  - 机器遗忘
-  - GRPO
-  - 可验证奖励
 ---
 
 # PURGE: Reinforcement Unlearning via Group Relative Policy Optimization

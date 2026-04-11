@@ -2,9 +2,7 @@
 description: "【论文笔记】Embodied Representation Alignment with Mirror Neurons 论文解读 | ICCV 2025 | arXiv 2509.21136 | mirror neurons | 本文受镜像神经元启发，通过对比学习将动作理解（观察他人行为）和具身执行（自主执行动作）的中间表征对齐到共享潜在空间，发现两类模型的表征存在自发对齐现象且与任务成功率相关，显式对齐后在动作识别（+3.3%）和机器人操作（+3.5%）上均获提升。"
 tags:
   - ICCV 2025
-  - mirror neurons
-  - representation alignment
-  - embodied execution
+  - 对比学习
 ---
 
 # Embodied Representation Alignment with Mirror Neurons

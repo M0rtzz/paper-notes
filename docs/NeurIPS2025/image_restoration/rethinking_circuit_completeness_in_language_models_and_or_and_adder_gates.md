@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking Circuit Completeness in Language Models: AND, OR, and ADDER Gates 论文解读 | NeurIPS 2025 | arXiv 2505.10039 | 电路发现 | 系统引入AND、OR、ADDER三种逻辑门来分解语言模型电路，揭示电路不完整性主要源于OR门的遗漏，提出结合noising和denoising干预的框架来完整恢复三种逻辑门，同时保证忠实度和完整性。"
 tags:
   - NeurIPS 2025
-  - 电路发现
-  - 机械可解释性
-  - 逻辑门
 ---
 
 # Rethinking Circuit Completeness in Language Models: AND, OR, and ADDER Gates

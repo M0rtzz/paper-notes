@@ -2,9 +2,6 @@
 description: "【论文笔记】Progressive Classifier and Feature Extractor Adaptation for Unsupervised Domain Adaptation on Point Clouds 论文解读 | ECCV2024 | arXiv 2311.16474 | 无监督域自适应 | 提出 PCFEA 方法用于点云无监督域自适应，通过渐进构建从源域到目标域的中间域，在宏观层面用目标风格特征增强训练分类器（PTFA），微观层面引导特征提取器向中间域对齐（IDFA），在 PointDA-10 上均值准确率达 76.5%（超 SOTA +2.9%），GraspNetPC-10 上达 87.6%（超 SOTA +13.7%）。"
 tags:
   - ECCV2024
-  - 无监督域自适应
-  - 点云分类
-  - 渐进式训练
 ---
 
 # Progressive Classifier and Feature Extractor Adaptation for Unsupervised Domain Adaptation on Point Clouds

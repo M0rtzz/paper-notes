@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion Generative Modeling on Lie Group Representations 论文解读 | NeurIPS 2025 | arXiv 2502.02513 | 李群表示 | 提出在李群**表示空间**（而非李群本身）上构建扩散过程的新理论框架，通过广义分数匹配将非阿贝尔李群的弯曲动力学映射到欧几里得空间中，实现无模拟训练的李群扩散模型，并证明标准分数匹配是其平移群的特例。"
 tags:
   - NeurIPS 2025
-  - 李群表示
-  - 广义分数匹配
-  - 随机微分方程
 ---
 
 # Diffusion Generative Modeling on Lie Group Representations

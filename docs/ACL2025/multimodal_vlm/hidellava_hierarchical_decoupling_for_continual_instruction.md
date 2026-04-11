@@ -2,9 +2,6 @@
 description: "【论文笔记】HiDe-LLaVA: Hierarchical Decoupling for Continual Instruction Tuning of Multimodal Large Language Model 论文解读 | ACL 2025 | arXiv 2503.12941 | continual learning | 通过 CKA 分析发现 MLLM 顶层学任务特异信息而其余层学通用知识，提出 HiDe-LLaVA：顶层 LoRA 做 MoE 式任务特异扩展（双模态锚点匹配）+ 其余层 LoRA 做均匀融合，在新构建的无信息泄露基准 UCIT 上比最佳基线提升 5.8%。"
 tags:
   - ACL 2025
-  - continual learning
-  - MLLM
-  - instruction tuning
 ---
 
 # HiDe-LLaVA: Hierarchical Decoupling for Continual Instruction Tuning of Multimodal Large Language Model

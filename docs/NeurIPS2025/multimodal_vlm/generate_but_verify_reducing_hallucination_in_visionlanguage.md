@@ -2,9 +2,6 @@
 description: "【论文笔记】Generate, but Verify: Reducing Hallucination in Vision-Language Models with Retrospective Resampling 论文解读 | NeurIPS 2025 | arXiv 2504.13169 | VLM幻觉 | 提出REVERSE框架——首次在单一VLM内统一了生成、验证和纠正三个阶段：通过引入<SPAN>、</CN>（置信）、</UN>（不置信）三个特殊token训练幻觉感知模型，推理时当</UN>概率超过阈值就回溯到上一个</CN>重新生成，在CHAIR-MSCOCO上降低12%、HaloQuest上降低34%的幻觉率。"
 tags:
   - NeurIPS 2025
-  - VLM幻觉
-  - 自验证
-  - 回溯纠正
 ---
 
 # Generate, but Verify: Reducing Hallucination in Vision-Language Models with Retrospective Resampling

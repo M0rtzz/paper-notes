@@ -2,9 +2,6 @@
 description: "【论文笔记】Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods 论文解读 | NeurIPS 2025 | arXiv 2412.03906 | 训练数据归因 | 明确提出\"仅有最终模型\"(FiMO)的训练数据归因设定，将问题从\"贡献度\"重构为\"敏感性\"度量，提出 further training 作为金标准，并统一推导出多种梯度方法（Grad-Dot、影响函数、TRAK、DataInf 等）均为 further training 的不同阶近似。"
 tags:
   - NeurIPS 2025
-  - 训练数据归因
-  - 影响函数
-  - 梯度方法
 ---
 
 # Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods

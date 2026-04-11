@@ -2,9 +2,7 @@
 description: "【论文笔记】MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting 论文解读 | ICLR 2026 | arXiv 2510.19210 | 3D Gaussian Splatting | 提出 MoE-GS，首个将混合专家架构引入动态高斯泼溅的框架，通过 Volume-aware Pixel Router 自适应融合多种异构变形先验（HexPlane/逐高斯/多项式/插值），在 N3V 和 Technicolor 数据集上一致超越 SOTA，并通过单次渲染、门控剪枝和知识蒸馏保持效率。"
 tags:
   - ICLR 2026
-  - 3D Gaussian Splatting
-  - dynamic scene
-  - mixture of experts
+  - 知识蒸馏
 ---
 
 # MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting

@@ -2,9 +2,6 @@
 description: "【论文笔记】AnoStyler: Text-Driven Localized Anomaly Generation via Lightweight Style Transfer 论文解读 | AAAI 2026 | arXiv 2511.06687 | 异常生成 | 将零样本异常生成建模为文本引导的局部风格迁移问题，通过轻量级U-Net + CLIP损失将正常图像的掩码区域风格化为语义对齐的异常图像，在MVTec-AD和VisA上以263M参数（仅0.61M可训练）超越扩散模型基线，同时显著提升下游异常检测性能。"
 tags:
   - AAAI 2026
-  - 异常生成
-  - 零样本
-  - 风格迁移
 ---
 
 # AnoStyler: Text-Driven Localized Anomaly Generation via Lightweight Style Transfer

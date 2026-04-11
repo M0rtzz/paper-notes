@@ -2,9 +2,6 @@
 description: "【论文笔记】CLIP-Free, Label-Free, Unsupervised Concept Bottleneck Models 论文解读 | CVPR2026 | arXiv 2503.10981 | Concept Bottleneck Model | 提出 TextUnlock 方法将任意冻结视觉分类器的输出分布对齐到视觉-语言对应空间，进而构建无需CLIP、无需标签、无需训练线性探针的全无监督概念瓶颈模型 (U-F²-CBM)，在40+模型上超越有监督CLIP-based CBM。"
 tags:
   - CVPR2026
-  - Concept Bottleneck Model
-  - 可解释性
-  - 知识蒸馏
 ---
 
 # CLIP-Free, Label-Free, Unsupervised Concept Bottleneck Models

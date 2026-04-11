@@ -2,9 +2,6 @@
 description: "【论文笔记】scSplit: Bringing Severity Cognizance to Image Decomposition in Fluorescence Microscopy 论文解读 | NEURIPS2025 | arXiv 2503.22983 | fluorescence microscopy | 提出 scSplit，通过引入混合比例感知的归一化模块（SCIN）和回归网络（Reg），使基于 InDI 的迭代图像分解方法能够感知荧光显微镜图像中两种结构叠加的严重程度，在5个公开数据集上统一解决图像分离和渗透去除两个任务。"
 tags:
   - NEURIPS2025
-  - fluorescence microscopy
-  - image decomposition
-  - severity cognizance
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

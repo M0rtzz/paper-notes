@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Articulated Object Manipulation On The Fly with Foundation Model Reasoning and Part Grounding 论文解读 | ICCV 2025 | arXiv 2507.18276 | 铰接物体操作 | 本文提出 AdaRPG 框架，利用基础视觉-语言模型对铰接物体进行零件级分割和可操作性推理，并借助 GPT-4o 生成高层控制代码以自适应调度原子操作技能，在仿真和真实环境中实现了跨类别零样本泛化操作。"
 tags:
   - ICCV 2025
-  - 铰接物体操作
-  - 基础模型
-  - 零件分割
 ---
 
 # Adaptive Articulated Object Manipulation On The Fly with Foundation Model Reasoning and Part Grounding

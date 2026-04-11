@@ -2,9 +2,6 @@
 description: "【论文笔记】Format as a Prior: Quantifying and Analyzing Bias in LLMs for Heterogeneous Data 论文解读 | AAAI 2026 | arXiv 2508.15793 | 格式偏差 | 首次系统研究 LLM 在处理异构格式数据（文本/表格/信息框/知识图谱）时的格式偏差问题，通过三阶段实验揭示偏差的存在性、数据层面驱动因素和注意力机制层面的内部成因，并验证了注意力重平衡干预的有效性。"
 tags:
   - AAAI 2026
-  - 格式偏差
-  - LLM
-  - 异构数据
 ---
 
 # Format as a Prior: Quantifying and Analyzing Bias in LLMs for Heterogeneous Data

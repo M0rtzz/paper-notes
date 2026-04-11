@@ -2,9 +2,6 @@
 description: "【论文笔记】milliFlow: Scene Flow Estimation on mmWave Radar Point Cloud for Human Motion Sensing 论文解读 | ECCV2024 | arXiv 2306.17010 | 毫米波雷达 | 提出首个毫米波雷达点云场景流估计方法 milliFlow，通过多尺度特征提取、全局聚合、GRU 时序传播和约束回归，在自建数据集上将 EPE3D 从次优 0.107m 降至 0.046m（cm 级精度），并展示场景流特征对人体活动识别（+7.9%）、人体部位解析（+3.6%）、人体追踪等下游任务的增强效果。"
 tags:
   - ECCV2024
-  - 毫米波雷达
-  - 场景流
-  - 人体运动感知
 ---
 
 # milliFlow: Scene Flow Estimation on mmWave Radar Point Cloud for Human Motion Sensing

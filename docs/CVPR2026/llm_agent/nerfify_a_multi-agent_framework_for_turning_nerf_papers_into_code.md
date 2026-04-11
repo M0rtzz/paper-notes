@@ -2,9 +2,6 @@
 description: "【论文笔记】Nerfify: A Multi-Agent Framework for Turning NeRF Papers into Code 论文解读 | CVPR 2026 | arXiv 2603.00805 | 论文转代码 | 提出 Nerfify，通过上下文无关文法(CFG)约束、图思维链(GoT)代码合成、组合式引用恢复和视觉反馈四阶段，将NeRF论文自动转化为可训练的Nerfstudio插件，在30篇论文基准上达到100%可执行率（通用基线仅5%），视觉质量在专家实现的±0.5dB PSNR内。"
 tags:
   - CVPR 2026
-  - 论文转代码
-  - 多智能体框架
-  - NeRF
 ---
 
 # Nerfify: A Multi-Agent Framework for Turning NeRF Papers into Code

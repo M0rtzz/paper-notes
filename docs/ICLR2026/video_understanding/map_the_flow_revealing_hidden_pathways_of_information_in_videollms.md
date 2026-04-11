@@ -2,9 +2,6 @@
 description: "【论文笔记】Map the Flow: Revealing Hidden Pathways of Information in VideoLLMs 论文解读 | ICLR 2026 | arXiv 2510.13251 | VideoLLM | 首次系统揭示VideoLLM内部时序推理的信息流动规律：(1)早中层跨帧交互建立时空表示→(2)中层视频-语言整合→(3)中后层答案生成，并证明仅保留42%的注意力边即可维持VideoQA性能。"
 tags:
   - ICLR 2026
-  - VideoLLM
-  - 信息流
-  - 机制可解释性
 ---
 
 # Map the Flow: Revealing Hidden Pathways of Information in VideoLLMs

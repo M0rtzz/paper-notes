@@ -2,10 +2,7 @@
 description: "【论文笔记】What Makes a Good Natural Language Prompt? 论文解读 | ACL 2025 | arXiv 2506.06950 | 提示学习 prompt工程 | 通过元分析150+篇prompting相关论文和博客，提出一个以属性为中心、以人为中心的prompt质量评估框架，涵盖6个维度21个属性，并发现单属性增强往往比多属性组合更有效。"
 tags:
   - ACL 2025
-  - prompt工程
   - 提示学习
-  - prompt质量评估
-  - 元分析
 ---
 
 # What Makes a Good Natural Language Prompt?

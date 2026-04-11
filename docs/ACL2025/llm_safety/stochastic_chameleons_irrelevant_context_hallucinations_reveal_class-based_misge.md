@@ -2,9 +2,6 @@
 description: "【论文笔记】Stochastic Chameleons: Irrelevant Context Hallucinations Reveal Class-Based (Mis)Generalization in LLMs 论文解读 | ACL 2025 | arXiv 2505.22630 | hallucination | 通过行为分析和机械可解释性实验揭示 LLM 无关上下文幻觉的内部机制：模型在底层构建抽象类别表示（如\"语言\"），然后两条竞争电路（query-based vs context-based）争夺特征选择权，相对激活强度决定正确泛化还是产生幻觉。"
 tags:
   - ACL 2025
-  - hallucination
-  - irrelevant context
-  - class-based generalization
 ---
 
 # Stochastic Chameleons: Irrelevant Context Hallucinations Reveal Class-Based (Mis)Generalization in LLMs

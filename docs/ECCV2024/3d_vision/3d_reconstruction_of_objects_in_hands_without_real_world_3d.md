@@ -2,9 +2,6 @@
 description: "【论文笔记】3D Reconstruction of Objects in Hands without Real World 3D Supervision 论文解读 | ECCV 2024 | arXiv 2305.03036 | hand-object reconstruction | 提出HORSE框架，通过从野外视频中提取多视角2D mask监督（以手部姿态作为物体姿态代理）和从合成3D形状集合中学习2D切片对抗形状先验，训练occupancy网络从单张RGB图像重建手持物体3D形状，在不使用任何真实世界3D标注的情况下，在MOW数据集上超越使用3D监督的方法11.6%。"
 tags:
   - ECCV 2024
-  - hand-object reconstruction
-  - visual hull
-  - shape prior
 ---
 
 # 3D Reconstruction of Objects in Hands without Real World 3D Supervision

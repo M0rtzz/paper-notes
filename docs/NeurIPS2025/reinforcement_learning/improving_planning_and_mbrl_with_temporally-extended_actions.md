@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving Planning and MBRL with Temporally-Extended Actions 论文解读 | NeurIPS 2025 | arXiv 2505.15754 | temporally-extended actions | 本文提出在 shooting-based 规划和 MBRL 中将动作持续时间作为额外优化变量，配合 MAB 自动选择持续时间范围，在多个环境中显著加速规划并解决标准方法无法解决的困难任务。"
 tags:
   - NeurIPS 2025
-  - temporally-extended actions
-  - model-based RL
-  - planning
 ---
 
 # Improving Planning and MBRL with Temporally-Extended Actions

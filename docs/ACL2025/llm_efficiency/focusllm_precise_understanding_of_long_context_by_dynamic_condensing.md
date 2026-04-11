@@ -2,9 +2,6 @@
 description: "【论文笔记】FocusLLM: Precise Understanding of Long Context by Dynamic Condensing 论文解读 | ACL 2025 | arXiv 2408.11745 | 长上下文理解 | 提出FocusLLM框架，通过将长文本分块并为每块注入动态提示（dynamic prompt），用可训练的候选token浓缩各块的关键信息，再通过并行解码机制聚合到本地上下文中生成下一个token，仅用8K训练长度和0.5B训练预算即可扩展LLaMA-2到400K上下文，在LongBench和∞-Bench上超越所有基线。"
 tags:
   - ACL 2025
-  - 长上下文理解
-  - 上下文压缩
-  - 并行解码
 ---
 
 # FocusLLM: Precise Understanding of Long Context by Dynamic Condensing

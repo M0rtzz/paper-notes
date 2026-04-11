@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling LLM Speculative Decoding: Non-Autoregressive Forecasting in Large-Batch Scenarios 论文解读 | AAAI 2026 | arXiv 2511.20340 | Speculative Decoding | 提出 SpecFormer，一种融合单向和双向注意力的非自回归草稿模型架构，在大批次推理场景下通过降低对复杂前缀树的依赖、减少位置相关参数，实现了对 LLM 推理的一致性加速。"
 tags:
   - AAAI 2026
-  - Speculative Decoding
-  - 非自回归生成
-  - 大批次推理
 ---
 
 # Scaling LLM Speculative Decoding: Non-Autoregressive Forecasting in Large-Batch Scenarios

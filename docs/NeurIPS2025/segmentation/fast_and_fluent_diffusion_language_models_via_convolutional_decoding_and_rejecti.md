@@ -2,10 +2,7 @@
 description: "【论文笔记】Fast and Fluent Diffusion Language Models via Convolutional Decoding and Rejective Fine-tuning 论文解读 | NeurIPS 2025 | arXiv 2509.15188 | 扩散模型 diffusion language model | 通过卷积解码归一化（替代硬半自回归分块）和基于规则的拒绝微调 R2FT，在 128 步推理下实现与 512+ 步相当的扩散语言模型生成质量，达到 DLM 领域 SOTA。"
 tags:
   - NeurIPS 2025
-  - diffusion language model
   - 扩散模型
-  - convolutional decoding normalization
-  - rejective fine-tuning
 ---
 
 # Fast and Fluent Diffusion Language Models via Convolutional Decoding and Rejective Fine-tuning

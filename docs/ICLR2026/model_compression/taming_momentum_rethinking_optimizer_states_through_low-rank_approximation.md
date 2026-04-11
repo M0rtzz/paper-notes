@@ -2,9 +2,6 @@
 description: "【论文笔记】Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation 论文解读 | ICLR 2026 | arXiv 2602.24283 | 低秩优化器 | 揭示动量 EMA 更新等价于在线线性回归的梯度下降，基于此提出 LoRA-Pre，通过低秩分解压缩优化器动量，实现显存高效的 LLM 预训练和微调，在所有模型尺度上达到最优性能且仅需基线方法 1/8 的秩。"
 tags:
   - ICLR 2026
-  - 低秩优化器
-  - 动量压缩
-  - 预训练效率
 ---
 
 # Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation

@@ -2,9 +2,6 @@
 description: "【论文笔记】X-MuTest: A Multilingual Benchmark for Explainable Hate Speech Detection 论文解读 | AAAI 2026 | arXiv 2601.03194 | 仇恨言论检测 | 提出 X-MuTest，一个多语言可解释仇恨言论检测基准，覆盖多种语言和文化背景，评估 LLM 不仅检测仇恨言论的能力，更关注其提供可解释性理由的能力，发现当前模型在多语言和跨文化场景中存在显著性能差异。"
 tags:
   - AAAI 2026
-  - 仇恨言论检测
-  - 多语言
-  - 可解释性
 ---
 
 # X-MuTest: A Multilingual Benchmark for Explainable Hate Speech Detection

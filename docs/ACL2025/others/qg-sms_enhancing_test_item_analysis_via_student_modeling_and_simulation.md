@@ -2,9 +2,6 @@
 description: "【论文笔记】QG-SMS: Enhancing Test Item Analysis via Student Modeling and Simulation 论文解读 | ACL 2025 | arXiv 2503.05888 | 题目生成评估 | QG-SMS 提出用单个 LLM 模拟不同理解水平的学生群体，通过学生画像生成、表现预测和分析三步流程，弥补了现有 LLM 评估器在考后分析维度（题目难度、区分度、干扰项效率）上的严重不足，在多个数据集上实现了最高一致性准确率。"
 tags:
   - ACL 2025
-  - 题目生成评估
-  - 测试项目分析
-  - 学生建模与模拟
 ---
 
 # QG-SMS: Enhancing Test Item Analysis via Student Modeling and Simulation

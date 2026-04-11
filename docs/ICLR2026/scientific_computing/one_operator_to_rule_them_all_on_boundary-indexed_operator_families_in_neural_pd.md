@@ -2,10 +2,7 @@
 description: "【论文笔记】One Operator to Rule Them All? On Boundary-Indexed Operator Families in Neural PDE Solvers 论文解读 | ICLR2026 | arXiv 2603.01406 | 偏微分方程 neural PDE solver | 论证标准神经 PDE 求解器在边界条件变化时实际学习的是\"边界条件索引的算子族\"而非单一边界无关算子，形式化为条件风险最小化导出不可识别性结果，实验验证边界分布偏移下的急剧退化。"
 tags:
   - ICLR2026
-  - neural PDE solver
   - 偏微分方程
-  - boundary condition
-  - operator learning
 ---
 
 # One Operator to Rule Them All? On Boundary-Indexed Operator Families in Neural PDE Solvers

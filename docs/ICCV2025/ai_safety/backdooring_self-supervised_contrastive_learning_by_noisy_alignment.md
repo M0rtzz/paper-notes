@@ -2,9 +2,6 @@
 description: "【论文笔记】Backdooring Self-Supervised Contrastive Learning by Noisy Alignment 论文解读 | ICCV 2025 | arXiv 2508.14015 | 自监督学习 | 提出Noisy Alignment（NA）方法，通过显式压缩投毒图像中的噪声成分来增强自监督对比学习的后门攻击效果，将攻击建模为二维图像布局优化问题，并推导出理论最优参数，在ImageNet-100上ASR提升最高达45.9%。"
 tags:
   - ICCV 2025
-  - 自监督学习
-  - 对比学习
-  - 后门攻击
 ---
 
 # Backdooring Self-Supervised Contrastive Learning by Noisy Alignment

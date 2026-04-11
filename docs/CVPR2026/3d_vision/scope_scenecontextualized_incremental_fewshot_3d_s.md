@@ -2,9 +2,6 @@
 description: "【论文笔记】SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation 论文解读 | CVPR 2026 | arXiv 2603.06572 | 3D点云分割 | 提出即插即用的背景引导原型增强框架SCOPE，从背景区域挖掘伪实例原型丰富新类原型表示，在ScanNet上5-shot新类IoU达23.86%(vs GW 16.88%，+6.98%)，且几乎无额外计算开销(<1MB, 0.02s)。"
 tags:
   - CVPR 2026
-  - 3D点云分割
-  - 增量few-shot
-  - 背景挖掘
 ---
 
 # SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation

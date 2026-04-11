@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: The Complexity of Perfect AI Alignment -- Formalizing the RLHF Trilemma 论文解读 | NeurIPS 2025 (Workshop) | arXiv 2511.19504 | RLHF | 形式化提出 RLHF 对齐三难困境：证明没有任何 RLHF 系统能同时实现价值多元代表性、多项式可计算性和对抗鲁棒性——三者至多满足其二，当前实践通过牺牲代表性换取可计算性。"
 tags:
   - NeurIPS 2025 (Workshop)
-  - RLHF
-  - alignment trilemma
-  - representativeness
 ---
 
 # Position: The Complexity of Perfect AI Alignment -- Formalizing the RLHF Trilemma

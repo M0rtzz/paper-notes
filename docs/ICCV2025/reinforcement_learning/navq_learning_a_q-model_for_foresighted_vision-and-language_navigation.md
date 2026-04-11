@@ -2,9 +2,6 @@
 description: "【论文笔记】NavQ: Learning a Q-Model for Foresighted Vision-and-Language Navigation 论文解读 | ICCV 2025 | arXiv 2510.16457 | 视觉语言导航 | 提出 NavQ，一种前瞻性 VLN 智能体，通过 Q-model 在单次前向传播中预测每个候选动作的长期未来语义聚合特征（Q-feature），结合 A* 式搜索策略在目标导向导航中取得显著提升。"
 tags:
   - ICCV 2025
-  - 视觉语言导航
-  - Q学习
-  - 前瞻性决策
 ---
 
 # NavQ: Learning a Q-Model for Foresighted Vision-and-Language Navigation

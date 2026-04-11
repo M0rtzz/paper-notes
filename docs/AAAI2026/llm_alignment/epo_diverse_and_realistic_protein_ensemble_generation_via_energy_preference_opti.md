@@ -2,9 +2,6 @@
 description: "【论文笔记】EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization 论文解读 | AAAI 2026 | arXiv 2511.10165 | 蛋白质构象集合 | 提出EPO（Energy Preference Optimization），将反向SDE采样与listwise能量排序偏好优化结合，用能量信号对齐预训练蛋白质生成器与目标Boltzmann分布，在Tetrapeptides/ATLAS/Fast-Folding三个基准9个指标上达到SOTA，完全消除了昂贵的分子动力学（MD）模拟需求。"
 tags:
   - AAAI 2026
-  - 蛋白质构象集合
-  - 能量偏好优化
-  - SDE采样
 ---
 
 # EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Multimodal Domain Generalization with Few Labels 论文解读 | CVPR 2026 | arXiv 2602.22917 | 半监督学习 | 定义并研究半监督多模态域泛化(SSMDG)新问题，提出融合一致性驱动伪标签、分歧感知正则化和跨模态原型对齐的统一框架，在少量标注下实现多模态模型的跨域泛化。"
 tags:
   - CVPR 2026
-  - 半监督学习
-  - 域泛化
-  - 多模态融合
 ---
 
 # Towards Multimodal Domain Generalization with Few Labels

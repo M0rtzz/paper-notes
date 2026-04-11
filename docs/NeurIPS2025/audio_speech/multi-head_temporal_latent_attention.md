@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-head Temporal Latent Attention 论文解读 | NeurIPS 2025 | arXiv 2505.13544 | KV缓存压缩 | MTLA 在 MLA 低秩潜在维度压缩基础上，用超网络动态融合时序相邻的 KV 向量，实现 KV 缓存在特征维度和时序维度的双重压缩，配合 stride-aware 因果 mask 保证训练-推理一致性，在语音翻译等任务上达到 4.29× 加速和 6.58× 内存降低，质量持平甚至略优于标准 MHA。"
 tags:
   - NeurIPS 2025
-  - KV缓存压缩
-  - 时序维度压缩
-  - MLA
 ---
 
 # Multi-head Temporal Latent Attention

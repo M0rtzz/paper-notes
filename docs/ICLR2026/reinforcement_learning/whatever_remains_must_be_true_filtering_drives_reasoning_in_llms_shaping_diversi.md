@@ -2,9 +2,6 @@
 description: "【论文笔记】Whatever Remains Must Be True: Filtering Drives Reasoning in LLMs, Shaping Diversity 论文解读 | ICLR 2026 | arXiv 2512.05962 | α-散度 | 提出 DMVR 框架和 α-DPG 算法，通过显式定义\"过滤掉错误答案\"的目标分布并用 α-散度族来逼近，统一了 RLVR（Reverse KL）和拒绝采样微调（Forward KL），在 Lean 定理证明上实现了精度-覆盖率 Pareto 前沿的最优表现。"
 tags:
   - ICLR 2026
-  - α-散度
-  - 分布匹配
-  - RLVR
 ---
 
 # Whatever Remains Must Be True: Filtering Drives Reasoning in LLMs, Shaping Diversity

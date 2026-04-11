@@ -2,9 +2,6 @@
 description: "【论文笔记】Improving the Effective Receptive Field of Message-Passing Neural Networks 论文解读 | ICML 2025 | arXiv 2505.23185 | MPNN | 本文形式化了 MPNN 中有效感受野（ERF）的概念，证明节点贡献随距离指数衰减（二项式分布），并提出 IM-MPNN 架构通过多尺度图粗化和跨尺度信息交织来扩展 ERF，在 LRGB 等长程依赖基准上显著提升。"
 tags:
   - ICML 2025
-  - MPNN
-  - Over-squashing
-  - Effective Receptive Field
 ---
 
 # Improving the Effective Receptive Field of Message-Passing Neural Networks

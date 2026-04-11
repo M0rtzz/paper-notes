@@ -2,9 +2,6 @@
 description: "【论文笔记】VeCoR — Velocity Contrastive Regularization for Flow Matching 论文解读 | CVPR 2026 | arXiv 2511.18942 | Flow Matching | 提出 VeCoR（速度对比正则化），在标准 Flow Matching 训练中引入\"负速度\"对比信号，通过同时指导模型\"该往哪走\"和\"不该往哪走\"，实现更稳定的轨迹演化和更高的感知保真度——在 ImageNet-1K 上 SiT-XL/2 和 REPA-SiT-XL/2 分别获得 22% 和 35% 的 FID 相对降低。"
 tags:
   - CVPR 2026
-  - Flow Matching
-  - 对比学习
-  - 速度场正则化
 ---
 
 # VeCoR — Velocity Contrastive Regularization for Flow Matching

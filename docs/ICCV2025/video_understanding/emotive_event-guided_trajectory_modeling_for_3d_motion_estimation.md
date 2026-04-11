@@ -2,9 +2,6 @@
 description: "【论文笔记】EMoTive: Event-Guided Trajectory Modeling for 3D Motion Estimation 论文解读 | ICCV 2025 | arXiv 2503.11371 | 事件相机 | 本文提出 EMoTive，一个基于事件相机的 3D 运动估计框架，通过 Event Kymograph 编码精细时序演化信息，并使用事件密度引导的非均匀 NURBS 参数曲线建模时空轨迹，从轨迹中导出光流和深度运动场，在自建 CarlaEvent3D 数据集和真实世界基准上取得 SOTA 性能。"
 tags:
   - ICCV 2025
-  - 事件相机
-  - 3D运动估计
-  - 非均匀参数曲线
 ---
 
 # EMoTive: Event-Guided Trajectory Modeling for 3D Motion Estimation

@@ -2,9 +2,6 @@
 description: "【论文笔记】When Less Language is More: Language-Reasoning Disentanglement Makes LLMs Better Multilingual Reasoners 论文解读 | NeurIPS 2025 | arXiv 2505.15257 | 多语言推理 | 受认知神经科学启发（人脑的推理与语言处理相对独立），在 LLM 的激活空间中识别并消除语言特定成分，实现语言与推理的解耦，从而在免训练条件下一致性地提升多语言推理性能。"
 tags:
   - NeurIPS 2025
-  - 多语言推理
-  - 语言-推理解耦
-  - 因果干预
 ---
 
 # When Less Language is More: Language-Reasoning Disentanglement Makes LLMs Better Multilingual Reasoners

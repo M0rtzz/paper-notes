@@ -2,9 +2,6 @@
 description: "【论文笔记】HollowFlow: Efficient Sample Likelihood Evaluation using Hollow Message Passing 论文解读 | NeurIPS 2025 | arXiv 2510.21542 | 连续归一化流 | 提出HollowFlow框架，通过非回溯图神经网络（NoBGNN）和Hollow消息传递机制强制速度场雅可比矩阵具有块对角结构，将连续归一化流的似然计算反向传播次数从$\mathcal{O}(n)$降至常数$\mathcal{O}(d)$，实现高达$10^2$倍的采样加速。"
 tags:
   - NeurIPS 2025
-  - 连续归一化流
-  - Boltzmann生成器
-  - 消息传递
 ---
 
 # HollowFlow: Efficient Sample Likelihood Evaluation using Hollow Message Passing

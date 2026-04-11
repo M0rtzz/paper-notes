@@ -2,9 +2,6 @@
 description: "【论文笔记】SMART-R1: Advancing Multi-agent Traffic Simulation via R1-Style Reinforcement Fine-Tuning 论文解读 | ICLR 2026 | arXiv 2509.23993 | 多智能体交通仿真 | SMART-R1 首次将 R1 风格的强化微调（RFT）引入多智能体交通仿真，提出 Metric-oriented Policy Optimization (MPO) 算法和\"SFT-RFT-SFT\"迭代训练策略，在 WOSAC 2025 排行榜上以 0.7858 的 Realism Meta 分数取得第一名。"
 tags:
   - ICLR 2026
-  - 多智能体交通仿真
-  - R1风格
-  - 强化微调
 ---
 
 # SMART-R1: Advancing Multi-agent Traffic Simulation via R1-Style Reinforcement Fine-Tuning

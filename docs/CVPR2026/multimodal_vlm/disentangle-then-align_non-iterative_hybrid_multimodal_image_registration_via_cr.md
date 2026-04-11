@@ -2,9 +2,6 @@
 description: "【论文笔记】Disentangle-then-Align: Non-Iterative Hybrid Multimodal Image Registration via Cross-Scale Feature Disentanglement 论文解读 | CVPR 2026 | arXiv 2603.19623 | 多模态配准 | 提出 HRNet，通过跨尺度特征解纠缠和自适应投影（CDAP）学习干净的共享表示，并在统一的粗到细管线中非迭代地联合预测刚性和非刚性变换，在四个多模态数据集上达到SOTA。"
 tags:
   - CVPR 2026
-  - 多模态配准
-  - 混合变换
-  - 特征解纠缠
 ---
 
 # Disentangle-then-Align: Non-Iterative Hybrid Multimodal Image Registration via Cross-Scale Feature Disentanglement

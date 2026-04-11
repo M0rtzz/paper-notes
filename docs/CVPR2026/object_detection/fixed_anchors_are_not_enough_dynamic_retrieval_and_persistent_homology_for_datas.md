@@ -2,9 +2,6 @@
 description: "【论文笔记】Fixed Anchors Are Not Enough: Dynamic Retrieval and Persistent Homology for Dataset Distillation 论文解读 | CVPR 2026 | arXiv 2602.24144 | dataset distillation | RETA解耦数据蒸馏中残差匹配的两个失败模式（fit-complexity gap和pull-to-anchor effect），通过动态检索连接（DRC）自适应选择real patch anchor并用持久同调拓扑对齐（PTA）保持类内多样性，在ImageNet-1K ResNet-18 IPC=50上达到64.3%（+3.1% vs FADRM）。"
 tags:
   - CVPR 2026
-  - dataset distillation
-  - residual matching
-  - persistent homology
 ---
 
 # Fixed Anchors Are Not Enough: Dynamic Retrieval and Persistent Homology for Dataset Distillation

@@ -2,9 +2,6 @@
 description: "【论文笔记】DEIG: Detail-Enhanced Instance Generation with Fine-Grained Semantic Control 论文解读 | AAAI 2026 | arXiv 2602.18282 | 多实例生成 | 提出 DEIG，一个面向细粒度多实例图像生成的框架，通过实例细节提取器（IDE）将 LLM 编码器的高维嵌入蒸馏为紧凑的实例感知表示，并用细节融合模块（DFM）的实例掩码注意力防止属性泄漏，在多属性（颜色+材质+纹理）复合描述的生成任务上大幅超越现有方法。"
 tags:
   - AAAI 2026
-  - 多实例生成
-  - 细粒度语义控制
-  - 扩散模型
 ---
 
 # DEIG: Detail-Enhanced Instance Generation with Fine-Grained Semantic Control

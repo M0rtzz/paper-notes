@@ -2,9 +2,6 @@
 description: "【论文笔记】SwiftTS: A Swift Selection Framework for Time Series Pre-trained Models via Multi-task Meta-Learning 论文解读 | ICLR 2026 | arXiv 2510.23051 | 预训练模型选择 | 提出SwiftTS——首个时间序列预训练模型选择框架：用双编码器架构独立嵌入数据集特征(patch级时序)和模型元信息(架构/训练目标),通过patch级交叉注意力计算兼容性分数,配合horizon自适应专家组合和跨域/跨horizon元学习增强OOD泛化,在14个数据集×8个模型上达SOTA选择性能。"
 tags:
   - ICLR 2026
-  - 预训练模型选择
-  - 双编码器
-  - 元学习
 ---
 
 # SwiftTS: A Swift Selection Framework for Time Series Pre-trained Models via Multi-task Meta-Learning

@@ -2,10 +2,7 @@
 description: "【论文笔记】Strategic Fusion Optimizes Transformer Compression 论文解读 | ICML2025 | arXiv 2501.03273 | Transformer Transformer压缩 | 本文提出 Strategic Fusion 框架，将 12 种基于激活值/互信息/梯度/权重/注意力的层剪枝信号通过线性回归和随机森林进行融合，在 BERT 模型和 9 个文本分类数据集上验证了多信号融合剪枝优于单信号策略，结合知识蒸馏后准确率-模型大小比平均提升 18.84 倍。"
 tags:
   - ICML2025
-  - Transformer压缩
   - Transformer
-  - 层剪枝
-  - 知识蒸馏
 ---
 
 # Strategic Fusion Optimizes Transformer Compression

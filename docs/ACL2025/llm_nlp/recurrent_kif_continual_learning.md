@@ -2,9 +2,6 @@
 description: "【论文笔记】Recurrent Knowledge Identification and Fusion for Language Model Continual Learning 论文解读 | ACL 2025 | arXiv 2502.17510 | 持续学习 | 提出Recurrent-KIF持续学习框架，通过内外循环迭代机制动态估计参数重要性分布，利用基于重要性的二值掩码进行知识融合，有效缓解灾难性遗忘并促进知识迁移。"
 tags:
   - ACL 2025
-  - 持续学习
-  - 知识融合
-  - 参数重要性
 ---
 
 # Recurrent Knowledge Identification and Fusion for Language Model Continual Learning

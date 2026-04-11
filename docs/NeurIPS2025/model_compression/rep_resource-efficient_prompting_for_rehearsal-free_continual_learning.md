@@ -2,9 +2,6 @@
 description: "【论文笔记】REP: Resource-Efficient Prompting for Rehearsal-Free Continual Learning 论文解读 | NeurIPS 2025 | arXiv 2406.04772 | 持续学习 | REP 通过轻量代理模型的快速提示选择、自适应 Token 合并（AToM）和自适应层丢弃（ALD）三种互补技术，将基于提示的无排练持续学习方法的训练时间减少最高 51%、内存降低最高 41%，精度损失微乎其微。"
 tags:
   - NeurIPS 2025
-  - 持续学习
-  - 资源效率
-  - 提示学习
 ---
 
 # REP: Resource-Efficient Prompting for Rehearsal-Free Continual Learning

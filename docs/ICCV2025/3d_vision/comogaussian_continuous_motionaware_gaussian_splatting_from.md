@@ -2,9 +2,6 @@
 description: "【论文笔记】CoMoGaussian: Continuous Motion-Aware Gaussian Splatting from Motion-Blurred Images 论文解读 | ICCV 2025 | arXiv 2503.05332 | 3D Gaussian Splatting | 用Neural ODE建模曝光时间内的连续相机运动轨迹，结合刚体变换和可学习的连续运动修正(CMR)变换，从运动模糊图像重建清晰3D高斯场景，在所有benchmark上大幅超越SOTA。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - motion blur
-  - neural ODE
 ---
 
 # CoMoGaussian: Continuous Motion-Aware Gaussian Splatting from Motion-Blurred Images

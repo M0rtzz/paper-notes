@@ -2,9 +2,6 @@
 description: "【论文笔记】Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization 论文解读 | CVPR 2026 | arXiv 2603.12369 | 单源域泛化 | 提出域保形界(DCB)理论框架量化域间因果因子差异，并据此设计GenEval——通过知识精炼+MedGemma-4B LoRA微调，将人类专家领域知识整合到VLM中实现单源域泛化，在8个DR和2个SOZ数据集上显著超越SOTA。"
 tags:
   - CVPR 2026
-  - 单源域泛化
-  - 域保形界
-  - 因果因子
 ---
 
 # Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization

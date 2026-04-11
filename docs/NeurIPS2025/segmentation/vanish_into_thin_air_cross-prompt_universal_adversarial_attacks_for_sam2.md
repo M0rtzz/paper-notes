@@ -2,9 +2,6 @@
 description: "【论文笔记】Vanish into Thin Air: Cross-prompt Universal Adversarial Attacks for SAM2 论文解读 | NeurIPS 2025 | arXiv 2510.24195 | 对抗攻击 | 提出UAP-SAM2——首个针对SAM2的跨提示通用对抗攻击方法，通过双重语义偏移框架（帧内语义混淆+帧间语义不一致）生成一个通用扰动，使SAM2在不同视频、帧和提示下的分割目标\"消失无踪\"。"
 tags:
   - NeurIPS 2025
-  - 对抗攻击
-  - SAM2
-  - 通用对抗扰动
 ---
 
 # Vanish into Thin Air: Cross-prompt Universal Adversarial Attacks for SAM2

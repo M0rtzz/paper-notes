@@ -2,9 +2,6 @@
 description: "【论文笔记】FaithfulRAG: Fact-Level Conflict Modeling for Context-Faithful Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2506.08938 | RAG | 发现现有忠实 RAG 方法通过强制抑制参数知识来实现上下文忠实，但这增加了误解上下文的风险（不忠实错误减少 6.65% 的同时错误匹配增加 6.42%）。提出 FaithfulRAG，通过事实级冲突识别（自事实挖掘）和冲突推理（自思考模块）解决知识冲突，在 FaithEval/SQuAD/MuSiQue/RealtimeQA 上超越最强基线 8-9 个百分点。"
 tags:
   - ACL 2025
-  - RAG
-  - 知识冲突
-  - 事实级冲突建模
 ---
 
 # FaithfulRAG: Fact-Level Conflict Modeling for Context-Faithful Retrieval-Augmented Generation

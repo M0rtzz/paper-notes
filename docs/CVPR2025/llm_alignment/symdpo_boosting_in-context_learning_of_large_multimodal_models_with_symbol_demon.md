@@ -2,7 +2,6 @@
 description: "【论文笔记】SymDPO: Boosting In-Context Learning of Large Multimodal Models with Symbol Demonstration Direct Preference Optimization 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：As language models continue to scale, Large Language Models (LLMs) have exhibited emerging capabilities in In-Context Learning (ICL), enabling them to solve language tasks by prefixing a few in-context demonstrations (ICDs) as context. Inspired by these advancements, researchers have extended these"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # SymDPO: Boosting In-Context Learning of Large Multimodal Models with Symbol Demonstration Direct Preference Optimization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Resisting Contextual Interference in RAG via Parametric-Knowledge Reinforcement 论文解读 | ICLR2026 | arXiv 2506.05154 | RAG | 提出 Knowledgeable-R1，一个基于强化学习的框架，通过联合采样参数知识（PK）和上下文知识（CK）的轨迹，结合局部/全局优势计算和自适应不对称优势变换，使 LLM 在 RAG 场景中能够抵抗误导性检索上下文的干扰，同时保留对可靠上下文的利用能力。"
 tags:
   - ICLR2026
-  - RAG
-  - Parametric Knowledge
-  - Reinforcement Learning
   - 强化学习
 ---
 

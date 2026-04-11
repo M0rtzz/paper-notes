@@ -2,9 +2,6 @@
 description: "【论文笔记】Video Killed the Energy Budget: Characterizing the Latency and Power Regimes of Open T2V Models 论文解读 | NeurIPS 2025 (Workshop) | arXiv 2509.19222 | 文本生成视频 | 对开源T2V模型进行系统性延迟与能耗分析：建立了基于FLOP的compute-bound理论模型，验证了WAN2.1-T2V的二次空间/时间缩放和线性去噪步数缩放规律，并横向对比7个T2V模型发现能耗差异达3000倍（AnimateDiff 0.14Wh vs WAN2.1-14B 415Wh）。"
 tags:
   - NeurIPS 2025 (Workshop)
-  - 文本生成视频
-  - 能耗分析
-  - 延迟
 ---
 
 # Video Killed the Energy Budget: Characterizing the Latency and Power Regimes of Open T2V Models

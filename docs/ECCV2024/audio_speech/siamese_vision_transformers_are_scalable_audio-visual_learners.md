@@ -2,9 +2,6 @@
 description: "【论文笔记】Siamese Vision Transformers are Scalable Audio-Visual Learners 论文解读 | ECCV 2024 | arXiv 2403.19638 | 音视觉学习 | 提出AVSiam框架，使用单个共享权重的ViT backbone同时处理音频和视觉输入，结合多比例随机掩码策略和对比+重建双目标预训练，以极低成本（比MAViL快28.9倍）在音视觉分类和检索上达到SOTA性能。"
 tags:
   - ECCV 2024
-  - 音视觉学习
-  - 孪生网络
-  - Vision Transformer
   - Transformer
 ---
 

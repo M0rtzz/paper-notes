@@ -2,9 +2,6 @@
 description: "【论文笔记】Latent Wasserstein Adversarial Imitation Learning 论文解读 | ICLR 2026 | arXiv 2603.05440 | Wasserstein距离 | 提出LWAIL方法，用ICVF从少量随机数据学习动态感知的潜空间表示，将Wasserstein距离的\"地面度量\"从欧氏距离升级为潜空间距离，仅用单条状态轨迹即可达到专家级模仿性能。"
 tags:
   - ICLR 2026
-  - Wasserstein距离
-  - ICVF
-  - 动态感知嵌入
 ---
 
 # Latent Wasserstein Adversarial Imitation Learning

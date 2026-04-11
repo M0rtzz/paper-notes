@@ -2,9 +2,6 @@
 description: "【论文笔记】Multilingual Encoder Knows More Than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages 论文解读 | ACL2025 | arXiv 2502.10852 | 低资源语言 | 提出 XLM-SWCM 框架，通过将多语言编码器权重复用到解码器中（CustomDecoderLayer 共享 + NormalDecoderLayer 随机初始化交替插入），以 457M 参数在极低资源语言（藏语）上超越 13B 参数的 MC2-LLaMA，藏语摘要 ROUGE-L 达 25.7 vs 16.1。"
 tags:
   - ACL2025
-  - 低资源语言
-  - 多语言模型
-  - 权重共享
 ---
 
 # Multilingual Encoder Knows More Than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages

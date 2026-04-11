@@ -2,9 +2,6 @@
 description: "【论文笔记】OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions 论文解读 | NeurIPS 2025 | arXiv 2506.23361 | 主体驱动视频定制 | OmniVCus 提出了一个前馈式 DiT 框架，通过数据构建流水线 VideoCus-Factory 和两种嵌入机制（Lottery Embedding 和 Temporally Aligned Embedding），实现了多主体、多模态控制条件下的视频定制生成，在身份保持和可控性上显著超越 SOTA。"
 tags:
   - NeurIPS 2025
-  - 主体驱动视频定制
-  - 多模态控制
-  - DiT
 ---
 
 # OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions

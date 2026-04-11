@@ -2,9 +2,6 @@
 description: "【论文笔记】GraphBEV: Towards Robust BEV Feature Alignment for Multi-Modal 3D Object Detection 论文解读 | ECCV 2024 | arXiv 2403.11848 | 3D目标检测 | 针对多模态BEV融合中LiDAR与相机标定误差导致的特征错位问题，提出GraphBEV框架，通过LocalAlign（基于KD-Tree的邻域深度图匹配）和GlobalAlign（可学习偏移量全局对齐）两个模块，在nuScenes上达到70.1% mAP（超BEVFusion 1.6%），在噪声错位场景下超BEVFusion 8.3%。"
 tags:
   - ECCV 2024
-  - 3D目标检测
-  - 多模态融合
-  - BEV特征对齐
 ---
 
 # GraphBEV: Towards Robust BEV Feature Alignment for Multi-Modal 3D Object Detection

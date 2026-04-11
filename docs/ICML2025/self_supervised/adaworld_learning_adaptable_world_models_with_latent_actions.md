@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaWorld: Learning Adaptable World Models with Latent Actions 论文解读 | ICML 2025 | arXiv 2503.18938 | 世界模型 | 提出 AdaWorld——通过从视频中自监督提取潜在动作（latent actions）进行动作感知预训练，构建高度可适应的世界模型，支持零样本动作迁移和少量交互快速适应新环境。"
 tags:
   - ICML 2025
-  - 世界模型
-  - 潜在动作
-  - 自监督
 ---
 
 # AdaWorld: Learning Adaptable World Models with Latent Actions

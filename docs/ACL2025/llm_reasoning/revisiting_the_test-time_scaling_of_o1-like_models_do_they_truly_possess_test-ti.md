@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities? 论文解读 | ACL2025 | arXiv 2502.12215 | test-time scaling | 系统性地揭示了 QwQ/DeepSeek-R1/LIMO 等 o1-like 模型在测试时并不具备真正的顺序扩展 (sequential scaling) 能力——更长的 CoT 并不带来更高准确率，根因是自我修正 (self-revision) 能力不足——并据此提出 Shortest Majority Vote 并行扩展方法显著超越传统多数投票。"
 tags:
   - ACL2025
-  - test-time scaling
-  - o1-like models
-  - self-revision
 ---
 
 # Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?

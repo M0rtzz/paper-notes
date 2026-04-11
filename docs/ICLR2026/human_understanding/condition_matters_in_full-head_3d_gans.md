@@ -2,10 +2,7 @@
 description: "【论文笔记】Condition Matters in Full-head 3D GANs 论文解读 | ICLR2026 | arXiv 2602.07198 | GAN 3D-aware GAN | 发现全头 3D GAN 中视角条件导致严重方向偏差（条件视角生成质量远优于其他视角），提出用视角不变的语义特征（正脸 CLIP 特征）替代视角作为条件，配合 Flux.1 Kontext 合成的 1120 万张 360° 平衡数据集，首次实现全视角一致的高保真多样全头生成。"
 tags:
   - ICLR2026
-  - 3D-aware GAN
   - GAN
-  - full-head generation
-  - semantic conditioning
 ---
 
 # Condition Matters in Full-head 3D GANs

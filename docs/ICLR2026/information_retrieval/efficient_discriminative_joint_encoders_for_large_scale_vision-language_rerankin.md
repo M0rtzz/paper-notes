@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Discriminative Joint Encoders for Large Scale Vision-Language Re-ranking 论文解读 | ICLR 2026 | arXiv 2510.06820 | 视觉语言检索 | 提出EDJE（高效判别式联合编码器），通过将视觉特征提取离线化并用轻量级注意力适配器压缩视觉Token，实现50k图文对/秒的高吞吐推理，同时在Flickr（零样本）和COCO（微调）检索上匹配现有联合编码器的性能，每张图仅需49kB存储。"
 tags:
   - ICLR 2026
-  - 视觉语言检索
-  - 联合编码器
-  - 重排序
 ---
 
 # Efficient Discriminative Joint Encoders for Large Scale Vision-Language Re-ranking

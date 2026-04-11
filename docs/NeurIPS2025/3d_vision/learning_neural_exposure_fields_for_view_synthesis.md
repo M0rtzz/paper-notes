@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Neural Exposure Fields for View Synthesis 论文解读 | NeurIPS 2025 | arXiv 2510.08279 | 神经辐射场 | 提出神经曝光场（NExF），通过学习每个 3D 点的最优曝光值（而非每张图像的曝光），实现 3D 一致的高质量视图合成，在高动态范围场景中相比 SOTA 方法 PSNR 提升 3.5+，速度快 50 倍。"
 tags:
   - NeurIPS 2025
-  - 神经辐射场
-  - 视图合成
-  - 曝光补偿
 ---
 
 # Learning Neural Exposure Fields for View Synthesis

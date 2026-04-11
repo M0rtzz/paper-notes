@@ -2,9 +2,6 @@
 description: "【论文笔记】V-CECE: Visual Counterfactual Explanations via Conceptual Edits 论文解读 | NeurIPS 2025 | arXiv 2509.16567 | 反事实解释 | 提出 V-CECE，首个系统性解决人类语义理解与神经网络推理差异的视觉反事实解释框架，通过知识图谱保证编辑最优性，利用扩散模型执行概念级编辑，无需训练即可生成人类可理解的反事实图像。"
 tags:
   - NeurIPS 2025
-  - 反事实解释
-  - 概念编辑
-  - 黑盒
 ---
 
 # V-CECE: Visual Counterfactual Explanations via Conceptual Edits

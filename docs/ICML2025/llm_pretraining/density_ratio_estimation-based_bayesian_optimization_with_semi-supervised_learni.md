@@ -2,9 +2,6 @@
 description: "【论文笔记】Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning 论文解读 | ICML2025 | arXiv 2305.15612 | Bayesian Optimization | 提出 DRE-BO-SSL，将半监督学习（标签传播/标签扩散）引入密度比估计型贝叶斯优化，通过无标签数据点缓解监督分类器的过度利用(over-exploitation)问题，在探索与利用之间取得更好平衡。"
 tags:
   - ICML2025
-  - Bayesian Optimization
-  - Density Ratio Estimation
-  - Semi-Supervised Learning
   - 半监督学习
 ---
 

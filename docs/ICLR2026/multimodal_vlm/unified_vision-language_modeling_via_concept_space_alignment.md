@@ -2,9 +2,6 @@
 description: "【论文笔记】Unified Vision-Language Modeling via Concept Space Alignment 论文解读 | ICLR 2026 | arXiv 2603.01096 | 视觉-语言嵌入空间 | 提出v-Sonar将视觉编码器后置对齐到文本嵌入空间Sonar，使得在Sonar空间上训练的Large Concept Model (LCM)能零样本处理视觉输入，并通过指令微调扩展为v-LCM，在61/62种语言上超越现有VLM。"
 tags:
   - ICLR 2026
-  - 视觉-语言嵌入空间
-  - 潜在扩散模型
-  - 多语言
 ---
 
 # Unified Vision-Language Modeling via Concept Space Alignment

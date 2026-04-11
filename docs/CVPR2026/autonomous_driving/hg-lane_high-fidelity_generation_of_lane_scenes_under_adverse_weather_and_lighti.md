@@ -2,10 +2,8 @@
 description: "【论文笔记】HG-Lane: High-Fidelity Generation of Lane Scenes under Adverse Weather and Lighting Conditions without Re-annotation 论文解读 | CVPR 2026 | arXiv 2603.10128 | lane detection | 针对车道检测数据集（CULane/TuSimple）极端天气样本严重不足的问题，提出HG-Lane——一个无需重标注的两阶段扩散生成框架：Stage-I通过Control Information Fusion+Structure-aware Reverse Diffusion保留车道几何结构，Stage-II通过Appearance-aware Refinement调整光照风格，生成snow/rain/fog/night/dusk共30K图。CLRNet整体mF1提升+20.87%，snow场景+38.8%。"
 tags:
   - CVPR 2026
-  - lane detection
-  - adverse weather
-  - diffusion model
   - 扩散模型
+  - 数据增强
 ---
 
 # HG-Lane: High-Fidelity Generation of Lane Scenes under Adverse Weather and Lighting Conditions without Re-annotation

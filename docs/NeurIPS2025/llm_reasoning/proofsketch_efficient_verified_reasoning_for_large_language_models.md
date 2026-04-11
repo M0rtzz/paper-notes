@@ -2,9 +2,6 @@
 description: "【论文笔记】ProofSketch: Efficient Verified Reasoning for Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.24811 | verified reasoning | 提出 ProofSketch 框架，通过符号闭包前向推理+短sketch生成+形式验证的多阶段pipeline，在降低token用量的同时提供逻辑推理的形式化正确性保证。"
 tags:
   - NeurIPS 2025
-  - verified reasoning
-  - symbolic closure
-  - sketch generation
 ---
 
 # ProofSketch: Efficient Verified Reasoning for Large Language Models

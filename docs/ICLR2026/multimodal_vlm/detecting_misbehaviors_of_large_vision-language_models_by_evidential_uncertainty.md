@@ -2,9 +2,6 @@
 description: "【论文笔记】Detecting Misbehaviors of Large Vision-Language Models by Evidential Uncertainty Quantification 论文解读 | ICLR2026 | arXiv 2602.05535 | LVLM uncertainty | 提出 EUQ（Evidential Uncertainty Quantification），基于 Dempster-Shafer 证据理论将 LVLM 的认识不确定性分解为冲突（CF，内部矛盾）和无知（IG，信息缺失），单次前向传播即可检测幻觉、越狱、对抗攻击和 OOD 失败四类错误行为，AUROC 相对提升最高 10.5%。"
 tags:
   - ICLR2026
-  - LVLM uncertainty
-  - evidential reasoning
-  - Dempster-Shafer
 ---
 
 # Detecting Misbehaviors of Large Vision-Language Models by Evidential Uncertainty Quantification

@@ -2,9 +2,6 @@
 description: "【论文笔记】LabUtopia: High-Fidelity Simulation and Hierarchical Benchmark for Scientific Embodied Agents 论文解读 | NeurIPS 2025 | arXiv 2505.22634 | embodied agent | 提出 LabUtopia——面向科学实验室的高保真仿真与层级基准套件，包含支持化学反应建模的 LabSim 仿真器、可程序化生成实验室场景的 LabScene、以及从原子操作到长程移动操纵的五级 LabBench 基准，揭示现有模仿学习方法在长程实验流程和物体泛化方面的显著瓶颈。"
 tags:
   - NeurIPS 2025
-  - embodied agent
-  - laboratory simulation
-  - chemical reaction
 ---
 
 # LabUtopia: High-Fidelity Simulation and Hierarchical Benchmark for Scientific Embodied Agents

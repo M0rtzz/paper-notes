@@ -2,9 +2,6 @@
 description: "【论文笔记】SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning 论文解读 | NeurIPS 2025 | arXiv 2506.21355 | 多模态上下文学习 | 提出 SMMILE——首个由 11 位医学专家驱动的多模态医学上下文学习（ICL）基准，包含 111 道问题（517 个图文问答三元组）覆盖 6 个医学专科和 13 种成像模态，系统性揭示了当前 MLLM 在医学多模态 ICL 上的严重不足以及上下文示例质量和顺序对性能的关键影响。"
 tags:
   - NeurIPS 2025
-  - 多模态上下文学习
-  - 医学基准测试
-  - 多模态大语言模型
 ---
 
 # SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning

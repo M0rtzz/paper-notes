@@ -2,9 +2,6 @@
 description: "【论文笔记】Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers 论文解读 | ACL 2025 | arXiv 2507.02694 | 同行评审 | 提出 LimitGen 基准，系统评估 LLM 识别科研论文局限性的能力，包含合成数据集（通过受控扰动创建）和人类标注数据集（ICLR 2025 评审），并通过 RAG 增强文献检索来提升 LLM 生成更具体和建设性反馈的能力。"
 tags:
   - ACL 2025
-  - 同行评审
-  - 论文局限性识别
-  - LLM评估
 ---
 
 # Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers

@@ -2,9 +2,7 @@
 description: "【论文笔记】Mask the Redundancy: Evolving Masking Representation Learning for Multivariate Time-Series Clustering 论文解读 | AAAI2026 | arXiv 2511.17008 | multivariate time-series clustering | 提出 EMTC 框架，通过 Importance-aware Variate-wise Masking (IVM) 动态屏蔽冗余时间戳，结合 Multi-Endogenous Views (MEV) 多视图生成与 cluster-guided contrastive learning，在 15 个 MTS 聚类基准上平均 F1 提升 4.85%。"
 tags:
   - AAAI2026
-  - multivariate time-series clustering
-  - masking
-  - representation learning
+  - 对比学习
 ---
 
 # Mask the Redundancy: Evolving Masking Representation Learning for Multivariate Time-Series Clustering

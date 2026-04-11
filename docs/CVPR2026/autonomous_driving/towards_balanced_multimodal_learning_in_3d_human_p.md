@@ -2,10 +2,8 @@
 description: "【论文笔记】Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation 论文解读 | CVPR 2026 | arXiv 2501.05264 | 位姿估计 3D pose estimation | 提出基于Shapley值的模态贡献评估+Fisher信息矩阵引导的自适应权重约束(AWC)正则化方法，解决RGB/LiDAR/mmWave/WiFi四模态融合中的模态不平衡问题，在MM-Fi数据集上MPJPE比naive fusion降低2.71mm，比最佳balancing方法降低约5mm，且不引入额外可学参数。"
 tags:
   - CVPR 2026
-  - 3D pose estimation
   - 位姿估计
-  - modality imbalance
-  - Shapley value
+  - 多模态
 ---
 
 # Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation

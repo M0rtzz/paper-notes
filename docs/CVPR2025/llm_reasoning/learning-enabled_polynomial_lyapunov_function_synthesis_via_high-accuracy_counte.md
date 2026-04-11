@@ -2,7 +2,6 @@
 description: "【论文笔记】Learning-enabled Polynomial Lyapunov Function Synthesis via High-Accuracy Counterexample-Guided Framework 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Polynomial Lyapunov function \mathcal V (x) provides mathematically rigorous that converts stability analysis into efficiently solvable optimization problem. Traditional numerical methods rely on user-defined templates, while emerging neural \mathcal V (x) offer flexibility but exhibit poor generali"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Learning-enabled Polynomial Lyapunov Function Synthesis via High-Accuracy Counterexample-Guided Framework

@@ -2,9 +2,6 @@
 description: "【论文笔记】LDIR: Low-Dimensional Dense and Interpretable Text Embeddings with Relative Representations 论文解读 | ACL 2025 | arXiv 2505.10354 | text embedding | 提出 LDIR 方法，通过最远点采样选取锚文本（anchor texts），计算待编码文本与各锚文本的语义相关度，构建低维（≤500 维）、稠密且可解释的文本嵌入，性能接近黑盒模型并显著优于已有可解释嵌入方法。"
 tags:
   - ACL 2025
-  - text embedding
-  - interpretable representation
-  - relative representation
 ---
 
 # LDIR: Low-Dimensional Dense and Interpretable Text Embeddings with Relative Representations

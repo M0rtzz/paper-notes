@@ -2,9 +2,6 @@
 description: "【论文笔记】Online Iterative Self-Alignment for Radiology Report Generation 论文解读 | ACL 2025 | arXiv 2505.11983 | 放射学报告生成 | 提出在线迭代自对齐（OISA）方法用于放射学报告生成——四阶段循环（自生成多样数据→自评估多目标偏好→自对齐多目标优化→自迭代进一步提升），无需额外人工标注即可迭代提升报告质量，在多个评估指标上达到 SOTA。"
 tags:
   - ACL 2025
-  - 放射学报告生成
-  - 自对齐
-  - 迭代优化
 ---
 
 # Online Iterative Self-Alignment for Radiology Report Generation

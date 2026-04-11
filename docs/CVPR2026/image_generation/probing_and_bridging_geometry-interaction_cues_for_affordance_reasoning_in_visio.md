@@ -2,9 +2,6 @@
 description: "【论文笔记】Probing and Bridging Geometry–Interaction Cues for Affordance Reasoning in Vision Foundation Models 论文解读 | CVPR 2026 | arXiv 2602.20501 | 可供性推理 | 系统性地探测视觉基础模型（VFM）中的可供性（affordance）能力，发现 DINO 编码了部件级几何结构、Flux 编码了动词条件化的交互先验，并通过 training-free 融合两者实现了可与弱监督方法竞争的零样本可供性估计。"
 tags:
   - CVPR 2026
-  - 可供性推理
-  - 视觉基础模型
-  - 几何感知
 ---
 
 # Probing and Bridging Geometry–Interaction Cues for Affordance Reasoning in Vision Foundation Models

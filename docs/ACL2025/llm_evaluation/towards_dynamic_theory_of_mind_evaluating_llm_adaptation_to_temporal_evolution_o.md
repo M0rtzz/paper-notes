@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Dynamic Theory of Mind: Evaluating LLM Adaptation to Temporal Evolution of Human States 论文解读 | ACL2025 | arXiv 2505.17663 | 心智理论 | 提出 DynToM 基准，通过 1,100 个社会情境中 5,500 个时序关联场景和 78,100 道题目，评估 LLM 追踪人类心理状态时序演化的能力，揭示模型平均落后人类 44.7%。"
 tags:
   - ACL2025
-  - 心智理论
-  - 动态推理
-  - 心理状态追踪
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

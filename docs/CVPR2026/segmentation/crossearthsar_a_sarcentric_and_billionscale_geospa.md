@@ -2,9 +2,6 @@
 description: "【论文笔记】CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation 论文解读 | CVPR 2026 | arXiv 2603.12008 | SAR | 提出首个十亿参数级 SAR 视觉基础模型 CrossEarth-SAR，在 DINOv2 基础上引入物理引导的稀疏 MoE 架构（用方向熵、等效视数、局部粗糙度三个 SAR 物理描述符引导路由），配套 200K 级预训练数据集和 22 个子基准，在 20/22 个跨域分割任务上达到 SOTA。"
 tags:
   - CVPR 2026
-  - SAR
-  - 基础模型
-  - 物理引导MoE
 ---
 
 # CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation

@@ -2,9 +2,6 @@
 description: "【论文笔记】CA-LoRA: Concept-Aware LoRA for Domain-Aligned Segmentation Dataset Generation 论文解读 | CVPR 2026 | arXiv 2503.22172 | LoRA微调 | 提出Concept-Aware LoRA (CA-LoRA)，通过自动识别T2I模型中与特定概念（如视角、风格）相关的权重层，仅对这些层施加LoRA微调，实现对目标域的选择性对齐，同时保留预训练模型的多样化生成能力，用于生成高质量的城市场景分割数据集。"
 tags:
   - CVPR 2026
-  - LoRA微调
-  - T2I生成模型
-  - 语义分割
 ---
 
 # CA-LoRA: Concept-Aware LoRA for Domain-Aligned Segmentation Dataset Generation

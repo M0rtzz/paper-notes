@@ -2,9 +2,6 @@
 description: "【论文笔记】Gain-MLP: Improving HDR Gain Map Encoding via a Lightweight MLP 论文解读 | ICCV 2025 | arXiv 2503.11883 | HDR Gain Map | 提出使用 10KB 轻量级 MLP 网络替代传统 JPEG/HEIC 压缩来编码 HDR gain map，以 SDR 图像的颜色和位置坐标 (r,g,b,x,y) 作为输入，结合指数残差编码（gamma map），在多个 HDR 重建指标上超越现有方法和传统压缩技术。"
 tags:
   - ICCV 2025
-  - HDR Gain Map
-  - MLP
-  - Implicit Neural Representation
 ---
 
 # Gain-MLP: Improving HDR Gain Map Encoding via a Lightweight MLP

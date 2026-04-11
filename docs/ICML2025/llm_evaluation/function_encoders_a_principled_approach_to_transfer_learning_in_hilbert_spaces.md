@@ -2,10 +2,7 @@
 description: "【论文笔记】Function Encoders: A Principled Approach to Transfer Learning in Hilbert Spaces 论文解读 | ICML2025 | arXiv 2501.18373 | 迁移学习 Transfer Learning | 提出基于 Hilbert 空间几何视角的迁移学习分类体系（凸包插值 / 线性张成外推 / 全空间外推），并设计 Function Encoder 方法利用可学习神经网络基函数实现三种迁移，在多项基准上超越 MAML、Transformer 等方法。"
 tags:
   - ICML2025
-  - Transfer Learning
   - 迁移学习
-  - Hilbert Space
-  - Basis Functions
 ---
 
 # Function Encoders: A Principled Approach to Transfer Learning in Hilbert Spaces

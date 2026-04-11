@@ -2,9 +2,6 @@
 description: "【论文笔记】IRIS: Interactive Research Ideation System for Accelerating Scientific Discovery 论文解读 | ACL 2025 | arXiv 2504.16728 | 科学假设生成 | 提出 IRIS，一个开源的交互式研究构思系统，通过蒙特卡洛树搜索（MCTS）扩展测试时计算、细粒度反馈机制和基于查询的文献综合，实现人机协作的科学假设生成。"
 tags:
   - ACL 2025
-  - 科学假设生成
-  - Human-in-the-Loop
-  - MCTS
 ---
 
 # IRIS: Interactive Research Ideation System for Accelerating Scientific Discovery

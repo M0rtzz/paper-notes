@@ -2,9 +2,6 @@
 description: "【论文笔记】4D Contrastive Superflows are Dense 3D Representation Learners 论文解读 | ECCV 2024 | arXiv 2407.06190 | LiDAR语义分割 | 提出SuperFlow框架，通过视图一致性对齐、稠密-稀疏一致性正则化、和基于流的时空对比学习三个模块，利用连续LiDAR-相机对建立4D预训练目标，在11个异构LiDAR数据集上全面超越了之前的Image-to-LiDAR预训练方法。"
 tags:
   - ECCV 2024
-  - LiDAR语义分割
-  - 3D表示学习
-  - 对比学习
 ---
 
 # 4D Contrastive Superflows are Dense 3D Representation Learners

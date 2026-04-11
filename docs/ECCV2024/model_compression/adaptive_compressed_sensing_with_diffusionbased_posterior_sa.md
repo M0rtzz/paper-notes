@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Compressed Sensing with Diffusion-Based Posterior Sampling 论文解读 | ECCV 2024 | arXiv 2407.08256 | Adaptive Compressed Sensing | 提出AdaSense，利用预训练扩散模型的零样本后验采样来量化重建不确定性，从而自适应地选择最优测量矩阵，无需额外训练即可在人脸图像、MRI和CT等多领域实现优于非自适应方法的压缩感知重建。"
 tags:
   - ECCV 2024
-  - Adaptive Compressed Sensing
-  - Posterior Sampling
-  - Diffusion Models
   - 扩散模型
 ---
 

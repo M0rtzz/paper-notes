@@ -2,9 +2,6 @@
 description: "【论文笔记】HiddenDetect: Detecting Jailbreak Attacks against Large Vision-Language Models via Monitoring Hidden States 论文解读 | ACL 2025 | arXiv 2502.14744 | 越狱攻击检测 | 提出 HiddenDetect，一种免训练（tuning-free）的基于内部激活状态的安全检测框架：通过监控 LVLM 推理时隐藏状态中的拒绝语义信号来检测越狱攻击，在多个模型和多模态基准上 AUROC 大幅超越现有方法。"
 tags:
   - ACL 2025
-  - 越狱攻击检测
-  - 多模态安全
-  - 隐藏状态分析
 ---
 
 # HiddenDetect: Detecting Jailbreak Attacks against Large Vision-Language Models via Monitoring Hidden States

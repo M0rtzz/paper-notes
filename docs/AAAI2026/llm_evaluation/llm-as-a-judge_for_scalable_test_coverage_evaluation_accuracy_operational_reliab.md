@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM-as-a-Judge for Scalable Test Coverage Evaluation 论文解读 | AAAI 2026 | arXiv 2512.01232 | LLM-as-Judge | 将LLM-as-Judge范式应用于Gherkin验收测试覆盖率评估，在20种模型配置x500次评估中系统量化准确性-可靠性-成本三维权衡，发现GPT-4o Mini以6.07 MAAE、96.6% ECR@1和$1.01/1K评估成为最优生产选择，成本仅为GPT-5高推理版的1/78。"
 tags:
   - AAAI 2026
-  - LLM-as-Judge
-  - 测试覆盖率
-  - 软件测试
 ---
 
 # LLM-as-a-Judge for Scalable Test Coverage Evaluation

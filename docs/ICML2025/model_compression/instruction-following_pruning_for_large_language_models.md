@@ -2,9 +2,6 @@
 description: "【论文笔记】Instruction-Following Pruning for Large Language Models 论文解读 | ICML2025 | arXiv 2501.02086 | 结构化剪枝 | 提出 IFPruning：用一个小型稀疏预测器根据用户指令动态生成剪枝掩码，将 FFN 中间维度按需裁减，使 9B 模型仅激活 3B 参数即可在编程/数学上超越同规模 dense 模型 5-8 个百分点，且推理延迟与 3B dense 模型持平。"
 tags:
   - ICML2025
-  - 结构化剪枝
-  - 动态剪枝
-  - 指令感知
 ---
 
 # Instruction-Following Pruning for Large Language Models

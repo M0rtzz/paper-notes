@@ -2,9 +2,6 @@
 description: "【论文笔记】A Retrieval-Based Approach to Medical Procedure Matching in Romanian 论文解读 | ACL 2025 | arXiv 2503.20556 | 医疗程序匹配 | 提出基于检索的罗马尼亚语医疗程序名称匹配架构——将诊所的非标准程序描述匹配到保险公司标准化术语表，比较 BM25 稀疏检索、mE5/RoBERT/BioClinicalBERT 密集嵌入及 RRF 混合方法，在 14 万+映射对上评估，度量学习微调后 mE5 表现最佳。"
 tags:
   - ACL 2025
-  - 医疗程序匹配
-  - 罗马尼亚语
-  - 检索
 ---
 
 # A Retrieval-Based Approach to Medical Procedure Matching in Romanian

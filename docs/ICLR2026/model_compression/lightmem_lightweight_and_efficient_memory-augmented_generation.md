@@ -2,9 +2,6 @@
 description: "【论文笔记】LightMem: Lightweight and Efficient Memory-Augmented Generation 论文解读 | ICLR 2026 | arXiv 2510.18866 | LLM记忆系统 | 提出 LightMem，一个受人类 Atkinson-Shiffrin 记忆模型启发的三阶段轻量记忆系统，通过认知感觉记忆预压缩、主题感知短期记忆整合、睡眠时离线更新三个模块，在 LongMemEval 上准确率提升最高7.7%，同时 token 消耗降低高达38倍。"
 tags:
   - ICLR 2026
-  - LLM记忆系统
-  - 感觉记忆
-  - 短期记忆
 ---
 
 # LightMem: Lightweight and Efficient Memory-Augmented Generation

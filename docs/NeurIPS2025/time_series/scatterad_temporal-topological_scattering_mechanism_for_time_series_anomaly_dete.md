@@ -2,9 +2,6 @@
 description: "【论文笔记】ScatterAD: Temporal-Topological Scattering Mechanism for Time Series Anomaly Detection 论文解读 | NeurIPS 2025 | arXiv 2509.24414 | 时序异常检测 | 提出\"散射性\"（scattering）作为异常检测的新归纳偏置——异常样本在高维表示空间中比正常样本分布更分散，通过双编码器（时间+拓扑）+ 超球面散射中心约束 + 对比融合学习时拓扑联合表示，在 6 个工业 IoT 数据集上 15/24 设置取得最佳。"
 tags:
   - NeurIPS 2025
-  - 时序异常检测
-  - 散射机制
-  - 信息瓶颈
 ---
 
 # ScatterAD: Temporal-Topological Scattering Mechanism for Time Series Anomaly Detection

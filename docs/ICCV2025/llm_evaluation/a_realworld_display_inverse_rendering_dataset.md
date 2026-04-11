@@ -2,9 +2,6 @@
 description: "【论文笔记】A Real-world Display Inverse Rendering Dataset 论文解读 | ICCV 2025 | arXiv 2508.14411 | 逆渲染 | 构建了首个基于LCD显示器-相机系统的真实世界逆渲染数据集，包含16个物体的OLAT（逐像素点亮）采集图像、偏振信息和GT几何，并提出简单有效的基线方法（基于Cook-Torrance BRDF的可微渲染优化），在150秒内超越现有逆渲染方法。"
 tags:
   - ICCV 2025
-  - 逆渲染
-  - LCD显示器光源
-  - 光度立体
 ---
 
 # A Real-world Display Inverse Rendering Dataset

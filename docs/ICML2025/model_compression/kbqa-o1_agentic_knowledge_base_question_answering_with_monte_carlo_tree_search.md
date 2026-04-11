@@ -2,9 +2,6 @@
 description: "【论文笔记】KBQA-o1: Agentic Knowledge Base Question Answering with Monte Carlo Tree Search 论文解读 | ICML2025 | arXiv 2501.18922 | 知识库问答 | 提出 KBQA-o1，将 ReAct Agent 与蒙特卡洛树搜索（MCTS）结合，通过策略模型和奖励模型驱动的启发式搜索实现知识库问答，在低资源设置下以 Llama-3.1-8B 将 GrailQA F1 从 48.5%（GPT-3.5-turbo SOTA）提升至 78.5%。"
 tags:
   - ICML2025
-  - 知识库问答
-  - KBQA
-  - 蒙特卡洛树搜索
 ---
 
 # KBQA-o1: Agentic Knowledge Base Question Answering with Monte Carlo Tree Search

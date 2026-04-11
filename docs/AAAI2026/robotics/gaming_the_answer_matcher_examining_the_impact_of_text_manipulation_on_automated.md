@@ -2,9 +2,6 @@
 description: "【论文笔记】Gaming the Answer Matcher: Examining the Impact of Text Manipulation on Automated Judgment 论文解读 | AAAI 2026 | arXiv 2601.08849 | 答案匹配 | 本文系统性地测试了三种文本操控策略（冗长、策略性多答案嵌入、正确答案前置+矛盾）对 LLM 答案匹配评判器的影响，发现这些操控**不会提升分数甚至降低分数**，且二值评分比连续评分更鲁棒，证明答案匹配是一种对低成本文本操控具有鲁棒性的评估方法。"
 tags:
   - AAAI 2026
-  - 答案匹配
-  - LLM评估
-  - 对抗攻击
 ---
 
 # Gaming the Answer Matcher: Examining the Impact of Text Manipulation on Automated Judgment

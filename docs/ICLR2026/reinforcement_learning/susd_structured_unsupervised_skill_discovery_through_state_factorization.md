@@ -2,9 +2,6 @@
 description: "【论文笔记】SUSD: Structured Unsupervised Skill Discovery through State Factorization 论文解读 | ICLR 2026 | arXiv 2602.01619 | 无监督技能发现 | 提出 SUSD（Structured Unsupervised Skill Discovery），通过将状态空间分解为独立因子并为每个因子分配专属技能变量，结合好奇心驱动的因子加权机制，实现在多物体/多智能体复杂环境中发现覆盖全部可控因子的多样化技能。"
 tags:
   - ICLR 2026
-  - 无监督技能发现
-  - 状态分解
-  - 距离最大化
 ---
 
 # SUSD: Structured Unsupervised Skill Discovery through State Factorization

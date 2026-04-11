@@ -2,9 +2,6 @@
 description: "【论文笔记】In-Context Adaptation to Concept Drift for Learned Database Operations 论文解读 | ICML2025 | arXiv 2505.04404 | Concept Drift | 提出 FLAIR 框架，利用数据库执行结果作为上下文实现 in-context adaptation，无需运行时参数更新即可应对 concept drift，在基数估计等任务上实现 5.2× 加速和 22.5% 误差降低。"
 tags:
   - ICML2025
-  - Concept Drift
-  - In-Context Learning
-  - Learned Database Operations
 ---
 
 # In-Context Adaptation to Concept Drift for Learned Database Operations

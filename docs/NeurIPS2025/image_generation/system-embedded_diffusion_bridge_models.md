@@ -2,9 +2,6 @@
 description: "【论文笔记】System-Embedded Diffusion Bridge Models 论文解读 | NeurIPS 2025 | arXiv 2506.23726 | 扩散桥模型 | 提出System-embedded Diffusion Bridge Models（SDB），将已知的线性测量系统直接嵌入矩阵值SDE的系数中，实现了对值域空间去噪和零空间信息合成的分离控制，在多种逆问题上取得一致性提升并展现出强大的系统失配鲁棒性。"
 tags:
   - NeurIPS 2025
-  - 扩散桥模型
-  - 逆问题
-  - 矩阵值SDE
 ---
 
 # System-Embedded Diffusion Bridge Models

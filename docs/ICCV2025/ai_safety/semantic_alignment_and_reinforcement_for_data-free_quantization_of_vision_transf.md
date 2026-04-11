@@ -2,10 +2,7 @@
 description: "【论文笔记】Semantic Alignment and Reinforcement for Data-Free Quantization of Vision Transformers 论文解读 | ICCV 2025 | arXiv 2412.16553 | 无数据量化 | 提出 SARDFQ 方法解决 ViT 无数据量化（DFQ）中合成图像的**语义失真**和**语义不足**问题，通过注意力先验对齐（APA）引导合成图像的注意力模式与真实图像对齐，通过多语义增强（MSR）优化局部 patch 丰富图像语义，在 ImageNet W4A4 ViT-B 上提升 15.52% Top-1 准确率。"
 tags:
   - ICCV 2025
-  - 无数据量化
-  - Vision Transformer
   - Transformer
-  - 注意力先验对齐
 ---
 
 # Semantic Alignment and Reinforcement for Data-Free Quantization of Vision Transformers

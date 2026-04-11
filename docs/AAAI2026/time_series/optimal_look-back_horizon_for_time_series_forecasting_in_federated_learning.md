@@ -2,10 +2,7 @@
 description: "【论文笔记】Optimal Look-back Horizon for Time Series Forecasting in Federated Learning 论文解读 | AAAI2026 | arXiv 2511.12791 | time series forecasting | 提出联邦学习场景下时间序列预测的最优 look-back horizon 理论框架：通过 Synthetic Data Generator (SDG) 建模 non-IID 客户端数据，构建 intrinsic representation space，证明预测损失可分解为 Bayesian loss（随 $H$ 递减并饱和）和 approximation loss（随 $H$ 递增），最优 horizon $H^*$ 为 Bayesian loss 开始饱和的最小值。"
 tags:
   - AAAI2026
-  - time series forecasting
-  - federated learning
   - 联邦学习
-  - look-back horizon
 ---
 
 # Optimal Look-back Horizon for Time Series Forecasting in Federated Learning

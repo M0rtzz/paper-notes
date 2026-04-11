@@ -2,9 +2,6 @@
 description: "【论文笔记】GeoGramBench: Benchmarking the Geometric Program Reasoning in Modern LLMs 论文解读 | ICLR2026 | arXiv 2505.17653 | 几何推理 | 提出Program-to-Geometry任务和GeoGramBench(500题)，用三级几何复杂度分类法(基元识别/局部组合/全局抽象)评估19个前沿LLM从程序代码构建几何表征并推理的能力，发现所有模型在最高抽象级别准确率均低于50%。"
 tags:
   - ICLR2026
-  - 几何推理
-  - 程序转几何
-  - Benchmark
 ---
 
 # GeoGramBench: Benchmarking the Geometric Program Reasoning in Modern LLMs

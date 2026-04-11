@@ -2,9 +2,7 @@
 description: "【论文笔记】Can Vision-Language Models Answer Face to Face Questions in the Real-World? 论文解读 | ICLR2026 | arXiv 2503.19356 | situated understanding | 提出 QIVD（Qualcomm Interactive Video Dataset），一个面对面实时问答 benchmark（2900 个视频+音频+时间戳标注），揭示现有 VLM 在实时情境理解上远落后人类（最佳模型 60% vs 人类 87%），主要瓶颈在指代消歧、回答时机判断和情境常识，微调可显著缩小差距。"
 tags:
   - ICLR2026
-  - situated understanding
-  - real-time interaction
-  - video QA
+  - 多模态
 ---
 
 # Can Vision-Language Models Answer Face to Face Questions in the Real-World?

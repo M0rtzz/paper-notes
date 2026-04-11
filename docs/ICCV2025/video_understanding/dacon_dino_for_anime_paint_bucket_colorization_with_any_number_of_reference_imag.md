@@ -2,9 +2,6 @@
 description: "【论文笔记】DACoN: DINO for Anime Paint Bucket Colorization with Any Number of Reference Images 论文解读 | ICCV 2025 | arXiv 2509.14685 | 动画上色 | 提出DACoN，利用DINOv2基础模型的语义特征与U-Net的高分辨率空间特征融合，实现支持任意数量参考图像的动画线稿自动上色，在关键帧和连续帧上色任务中均超越现有方法。"
 tags:
   - ICCV 2025
-  - 动画上色
-  - DINOv2
-  - 线稿着色
 ---
 
 # DACoN: DINO for Anime Paint Bucket Colorization with Any Number of Reference Images

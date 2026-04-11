@@ -2,10 +2,7 @@
 description: "【论文笔记】Resource-Adaptive Federated Text Generation with Differential Privacy 论文解读 | ICLR2026 | arXiv 2603.07027 | 联邦学习 Federated Learning | 提出一种资源自适应的联邦文本生成框架，通过强客户端 DP 微调 + 弱客户端 DP 投票两阶段设计，在计算异构和差分隐私约束下生成高质量合成文本数据。"
 tags:
   - ICLR2026
-  - Federated Learning
   - 联邦学习
-  - Differential Privacy
-  - Synthetic Text Generation
 ---
 
 # Resource-Adaptive Federated Text Generation with Differential Privacy

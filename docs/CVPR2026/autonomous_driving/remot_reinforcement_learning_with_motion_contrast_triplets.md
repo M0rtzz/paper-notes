@@ -2,9 +2,6 @@
 description: "【论文笔记】ReMoT: Reinforcement Learning with Motion Contrast Triplets 论文解读 | CVPR 2026 | arXiv 2603.00461 | 强化学习 | 通过运动对比三元组学习面向控制的视觉表示，提升视觉RL样本效率和泛化性"
 tags:
   - CVPR 2026
-  - 强化学习
-  - 运动对比
-  - 三元组
 ---
 
 # ReMoT: Reinforcement Learning with Motion Contrast Triplets

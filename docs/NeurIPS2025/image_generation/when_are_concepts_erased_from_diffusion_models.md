@@ -2,9 +2,6 @@
 description: "【论文笔记】When Are Concepts Erased From Diffusion Models? 论文解读 | NeurIPS 2025 | arXiv 2505.17013 | 概念擦除 | 本文提出了两种概念擦除的机制模型（引导式回避 vs. 破坏式移除），并设计了涵盖优化搜索、上下文探测、噪声轨迹探测、分类器引导和动态追踪的五种独立探测方法，系统性地揭示了现有擦除方法大多只是\"绕开\"概念而非真正\"消除\"知识。"
 tags:
   - NeurIPS 2025
-  - 概念擦除
-  - 扩散模型
-  - 知识残留
 ---
 
 # When Are Concepts Erased From Diffusion Models?

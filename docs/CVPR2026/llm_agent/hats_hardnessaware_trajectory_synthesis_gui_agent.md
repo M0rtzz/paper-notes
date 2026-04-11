@@ -2,9 +2,6 @@
 description: "【论文笔记】HATS: Hardness-Aware Trajectory Synthesis for GUI Agents 论文解读 | CVPR 2026 | arXiv 2603.12138 | GUI agent | 提出HATS框架，通过定义动作的\"语义模糊度\"作为难度信号，以难度驱动探索+对齐引导修复的闭环管线合成高质量GUI轨迹数据，显著提升agent泛化能力。"
 tags:
   - CVPR 2026
-  - GUI agent
-  - trajectory synthesis
-  - hardness-aware
 ---
 
 # HATS: Hardness-Aware Trajectory Synthesis for GUI Agents

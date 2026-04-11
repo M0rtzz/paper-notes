@@ -2,9 +2,7 @@
 description: "【论文笔记】UltrasoundAgents: Hierarchical Multi-Agent Evidence-Chain Reasoning for Breast Ultrasound Diagnosis 论文解读 | CVPR2025 | arXiv 2603.10852 | multi-agent | 提出 UltrasoundAgents 层次化多智能体框架，通过主智能体定位病灶+子智能体识别属性+证据链推理的流程，对齐乳腺超声临床诊断工作流并实现可追溯的 BI-RADS 分级与良恶性判断。"
 tags:
   - CVPR2025
-  - multi-agent
-  - breast ultrasound
-  - BI-RADS
+  - 强化学习
 ---
 
 # UltrasoundAgents: Hierarchical Multi-Agent Evidence-Chain Reasoning for Breast Ultrasound Diagnosis

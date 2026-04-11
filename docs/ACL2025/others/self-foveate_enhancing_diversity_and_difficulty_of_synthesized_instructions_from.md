@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Foveate: Enhancing Diversity and Difficulty of Synthesized Instructions from Unsupervised Text via Multi-Level Foveation 论文解读 | ACL 2025 | arXiv 2507.23440 | 指令合成 | 提出 Self-Foveate 方法，受人类视觉注视机制启发，通过\"微观-散射-宏观\"三级注视策略，从无监督文本中系统性提取多粒度信息，合成具有更高多样性和难度的指令数据，用于 LLM 的指令微调。"
 tags:
   - ACL 2025
-  - 指令合成
-  - 无监督文本
-  - 多粒度信息提取
 ---
 
 # Self-Foveate: Enhancing Diversity and Difficulty of Synthesized Instructions from Unsupervised Text via Multi-Level Foveation

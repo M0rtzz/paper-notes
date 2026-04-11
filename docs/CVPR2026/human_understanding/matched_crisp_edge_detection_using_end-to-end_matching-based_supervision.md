@@ -2,9 +2,6 @@
 description: "【论文笔记】MatchED: Crisp Edge Detection Using End-to-End, Matching-based Supervision 论文解读 | CVPR 2026 | arXiv 2602.20689 | 边缘检测 | MatchED 提出一种轻量（约21K参数）plug-and-play 模块，通过在训练时对预测边缘和 GT 边缘进行基于空间距离+置信度的 one-to-one 二部匹配来生成 crisp（单像素宽）边缘图，可附加到任何边缘检测器端到端训练，首次在不依赖 NMS+thinning 后处理的情况下匹配或超越标准后处理方法。"
 tags:
   - CVPR 2026
-  - 边缘检测
-  - crisp edges
-  - 二部匹配
 ---
 
 # MatchED: Crisp Edge Detection Using End-to-End, Matching-based Supervision

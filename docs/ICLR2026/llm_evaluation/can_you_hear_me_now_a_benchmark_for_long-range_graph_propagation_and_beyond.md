@@ -2,9 +2,7 @@
 description: "【论文笔记】Can You Hear Me Now? A Benchmark for Long-Range Graph Propagation and Beyond 论文解读 | ICLR 2026 | arXiv 2512.17762 | long-range propagation | 本文提出 ECHO 基准，包含 3 个合成任务和 2 个基于密度泛函理论（DFT）的真实化学任务，要求图神经网络在 17–40 跳范围内有效传播信息，系统评估了 11 种 GNN 架构的长程传播能力。"
 tags:
   - ICLR 2026
-  - long-range propagation
-  - graph benchmark
-  - over-squashing
+  - Transformer
 ---
 
 # Can You Hear Me Now? A Benchmark for Long-Range Graph Propagation and Beyond

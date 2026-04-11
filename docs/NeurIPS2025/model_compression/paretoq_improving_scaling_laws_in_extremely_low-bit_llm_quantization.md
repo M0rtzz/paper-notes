@@ -2,9 +2,6 @@
 description: "【论文笔记】ParetoQ: Improving Scaling Laws in Extremely Low-bit LLM Quantization 论文解读 | NeurIPS 2025 | arXiv 2502.02631 | 极低比特量化 | 提出 ParetoQ——首个统一 1/1.58/2/3/4 比特量化的框架，通过系统研究训练策略（全精度预训练 vs. QAT 分配）和量化函数设计（提出 SEQ 量化器），发现 2-bit 和 1.58-bit 量化在精度-模型大小折中上优于传统 4-bit，且各比特位宽均达到 SOTA。"
 tags:
   - NeurIPS 2025
-  - 极低比特量化
-  - 缩放定律
-  - 量化感知训练
 ---
 
 # ParetoQ: Improving Scaling Laws in Extremely Low-bit LLM Quantization

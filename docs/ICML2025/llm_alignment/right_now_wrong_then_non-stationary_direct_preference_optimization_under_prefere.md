@@ -2,9 +2,6 @@
 description: "【论文笔记】Right Now, Wrong Then: Non-Stationary Direct Preference Optimization under Preference Drift 论文解读 | ICML 2025 | arXiv 2407.18676 | 偏好漂移 | 提出 NS-DPO，通过 Dynamic Bradley-Terry 模型引入单一指数衰减参数 γ 对训练数据进行时序加权，使 DPO 在偏好随时间漂移的场景下仍能鲁棒对齐，同时在平稳场景下不损失性能。"
 tags:
   - ICML 2025
-  - 偏好漂移
-  - 非平稳优化
-  - DPO
 ---
 
 # Right Now, Wrong Then: Non-Stationary Direct Preference Optimization under Preference Drift

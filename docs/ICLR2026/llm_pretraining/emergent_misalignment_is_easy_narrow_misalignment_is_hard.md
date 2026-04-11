@@ -2,9 +2,6 @@
 description: "【论文笔记】Emergent Misalignment is Easy, Narrow Misalignment is Hard 论文解读 | ICLR 2026 | arXiv 2602.07852 | 涌现性错位 | 研究发现在窄域有害数据上微调会造成广域错位（emergent misalignment），因为\"通用错位\"比\"仅在特定域错位\"是更简单高效的参数空间解——通用解的参数范数更小且对噪声更稳定。"
 tags:
   - ICLR 2026
-  - 涌现性错位
-  - 微调安全
-  - 窄域攻击
 ---
 
 # Emergent Misalignment is Easy, Narrow Misalignment is Hard

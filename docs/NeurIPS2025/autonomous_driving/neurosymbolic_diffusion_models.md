@@ -2,10 +2,8 @@
 description: "【论文笔记】Neurosymbolic Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2505.13138 | neurosymbolic | 本文提出神经符号扩散模型（NeSyDM），通过将离散掩码扩散模型与符号程序结合，突破了传统神经符号预测器中概念条件独立假设的限制，在保持可扩展性的同时建模概念间依赖关系和不确定性，在视觉推理和自动驾驶任务上取得了 SOTA 准确率和校准性能。"
 tags:
   - NeurIPS 2025
-  - neurosymbolic
-  - diffusion model
   - 扩散模型
-  - discrete diffusion
+  - 自动驾驶
 ---
 
 # Neurosymbolic Diffusion Models

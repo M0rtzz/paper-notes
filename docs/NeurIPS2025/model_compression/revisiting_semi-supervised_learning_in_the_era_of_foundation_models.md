@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Semi-Supervised Learning in the Era of Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2503.09707 | 半监督学习 | 系统性研究发现传统 SSL 方法在 VFM 时代效益有限——仅用有标签数据的 PEFT 即可匹敌 SSL——由此提出 V-PET：集成多种 PEFT 方法和多种 VFM 的伪标签来实现简洁高效的半监督学习。"
 tags:
   - NeurIPS 2025
-  - 半监督学习
-  - 视觉基础模型
-  - 参数高效微调
 ---
 
 # Revisiting Semi-Supervised Learning in the Era of Foundation Models

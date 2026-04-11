@@ -2,9 +2,6 @@
 description: "【论文笔记】AI4Reading: Chinese Audiobook Interpretation System Based on Multi-Agent Collaboration 论文解读 | ACL 2025 | arXiv 2512.23300 | 有声书解读 | 提出 AI4Reading，一个基于 11 个专业化 LLM Agent 协作的中文有声书解读系统，通过主题分析、案例扩展、编辑润色、口语化改写和整合修订等阶段自动生成解读稿，并用 TTS 合成音频，在解读脚本质量（简洁性、完整性、准确性、连贯性）上超过专业人工解读平台樊登读书。"
 tags:
   - ACL 2025
-  - 有声书解读
-  - 多智能体协作
-  - LLM
 ---
 
 # AI4Reading: Chinese Audiobook Interpretation System Based on Multi-Agent Collaboration

@@ -2,9 +2,6 @@
 description: "【论文笔记】HulluEdit: Single-Pass Evidence-Consistent Subspace Editing for Mitigating Hallucinations in LVLMs 论文解读 | CVPR 2026 | arXiv 2602.22727 | 幻觉抑制 | 提出HulluEdit——将模型隐状态分解为正交的三个子空间（视觉证据/冲突先验/残差不确定性），只在\"冲突先验\"子空间做编辑来抑制幻觉，数学保证视觉证据子空间完全不受影响。在POPE/CHAIR上达到SOTA幻觉抑制效果，只需单次推理。"
 tags:
   - CVPR 2026
-  - 幻觉抑制
-  - 正交子空间编辑
-  - 单次推理
 ---
 
 # HulluEdit: Single-Pass Evidence-Consistent Subspace Editing for Mitigating Hallucinations in LVLMs

@@ -2,11 +2,8 @@
 description: "【论文笔记】Why Is Attention Sparse in Particle Transformer? 论文解读 | NeurIPS 2025 | arXiv 2512.00210 | Transformer Particle Transformer | 分析 Particle Transformer (ParT) 在jet tagging中出现的二值化稀疏attention现象：稀疏性来自attention机制本身而非物理启发的interaction矩阵，但两者对性能都不可或缺。"
 tags:
   - NeurIPS 2025
-  - Particle Transformer
   - Transformer
-  - sparse attention
   - 注意力机制
-  - jet tagging
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

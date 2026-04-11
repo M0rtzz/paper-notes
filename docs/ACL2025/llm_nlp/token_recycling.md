@@ -2,9 +2,6 @@
 description: "【论文笔记】Turning Trash into Treasure: Accelerating Inference of Large Language Models with Token Recycling 论文解读 | ACL 2025 (Outstanding Paper) | arXiv 2504.15754 | Token Recycling | 提出Token Recycling——一种无需额外训练的投机解码方法，将解码过程中产生的候选token存入邻接矩阵，通过BFS算法构建draft tree并用tree attention验证，仅需<2MB额外存储即在所有规模LLM上实现约2倍加速，超越现有无训练方法30%和有训练方法25%。"
 tags:
   - ACL 2025 (Outstanding Paper)
-  - Token Recycling
-  - 投机解码
-  - 邻接矩阵
 ---
 
 # Turning Trash into Treasure: Accelerating Inference of Large Language Models with Token Recycling

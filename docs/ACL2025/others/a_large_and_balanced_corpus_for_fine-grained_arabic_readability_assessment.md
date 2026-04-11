@@ -2,9 +2,6 @@
 description: "【论文笔记】Barec: A Large and Balanced Corpus for Fine-grained Arabic Readability Assessment 论文解读 | ACL 2025 | arXiv 2502.13520 | 阿拉伯语可读性 | 构建 Barec（Balanced Arabic Readability Evaluation Corpus）——首个大规模细粒度阿拉伯语可读性评估语料库，包含 69K+ 句子（100万+词），覆盖 19 个可读性等级（从幼儿园到研究生），由 6 名专业阿拉伯语教育者标注，并在多种分级粒度（19/7/5/3级）上基准测试自动可读性评估模型。"
 tags:
   - ACL 2025
-  - 阿拉伯语可读性
-  - 语料库
-  - 19级分级
 ---
 
 # Barec: A Large and Balanced Corpus for Fine-grained Arabic Readability Assessment

@@ -2,9 +2,6 @@
 description: "【论文笔记】FREE-Merging: Fourier Transform for Efficient Model Merging 论文解读 | ICCV 2025 | arXiv 2411.16815 | 模型合并 | 首次发现模型合并中任务干扰在频域上的表现，提出 FR-Merging 通过高通滤波去除低频干扰构建高质量合并骨干网络，并结合轻量级任务专家模块（FREE-Merging），在视觉、语言和多模态任务上实现性能-成本的最优平衡。"
 tags:
   - ICCV 2025
-  - 模型合并
-  - 傅里叶变换
-  - 任务干扰
 ---
 
 # FREE-Merging: Fourier Transform for Efficient Model Merging

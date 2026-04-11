@@ -2,9 +2,6 @@
 description: "【论文笔记】Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data 论文解读 | ACL2025 | arXiv 2505.11900 | 个人数据问答 | 提出 ReQAP 方法，通过递归问题分解构建可执行算子树，在结构化+非结构化的异构个人数据上实现复杂问答，支持端侧轻量部署。"
 tags:
   - ACL2025
-  - 个人数据问答
-  - 异构数据
-  - 问题分解
 ---
 
 # Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data

@@ -2,9 +2,6 @@
 description: "【论文笔记】From Images to Physics: Probabilistic Inference of Galaxy Parameters and Emission Lines via VAE & Normalizing Flows 论文解读 | NEURIPS2025 | arXiv 2511.12737 | VAE | 提出 VAE–Normalizing Flow 混合框架，从 SDSS gri 图像和测光数据出发，以概率方式联合推断星系物理参数（恒星质量、SFR、红移、气相金属丰度、中心黑洞质量）和发射线流量（Hα、Hβ、[N II]、[O III]），速度比 SED 拟合快 100 倍以上且提供校准良好的后验分布。"
 tags:
   - NEURIPS2025
-  - VAE
-  - Normalizing Flows
-  - galaxy parameter inference
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

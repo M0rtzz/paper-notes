@@ -2,10 +2,7 @@
 description: "【论文笔记】CoLA: Conditional Dropout and Language-Driven Robust Dual-Modal Salient Object Detection 论文解读 | ECCV2024 | arXiv 2407.06780 | 目标检测 Dual-modal Salient Object Detection | 提出 CoLA 框架，通过语言驱动的质量评估（LQA）和条件性 Dropout（CD）两个核心模块，首次在双模态显著性目标检测中同时解决噪声输入和模态缺失两大鲁棒性问题。"
 tags:
   - ECCV2024
-  - Dual-modal Salient Object Detection
   - 目标检测
-  - Modality Robustness
-  - CLIP
 ---
 
 # CoLA: Conditional Dropout and Language-Driven Robust Dual-Modal Salient Object Detection

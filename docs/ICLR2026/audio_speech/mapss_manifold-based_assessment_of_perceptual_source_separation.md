@@ -2,9 +2,6 @@
 description: "【论文笔记】MAPSS: Manifold-Based Assessment of Perceptual Source Separation 论文解读 | ICLR 2026 | arXiv 2509.09212 | 音源分离评估 | 提出 Perceptual Separation（PS）和 Perceptual Match（PM）两个互补度量，利用扩散映射将自监督编码表示嵌入低维流形，首次在功能上解耦音源分离中的泄漏和自失真，与 18 种主流指标对比在与主观评分的相关性上几乎始终排名第一或第二。"
 tags:
   - ICLR 2026
-  - 音源分离评估
-  - 感知度量
-  - 扩散映射
 ---
 
 # MAPSS: Manifold-Based Assessment of Perceptual Source Separation

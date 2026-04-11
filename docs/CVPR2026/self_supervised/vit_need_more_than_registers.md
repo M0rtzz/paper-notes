@@ -2,9 +2,6 @@
 description: "【论文笔记】Vision Transformers Need More Than Registers 论文解读 | CVPR 2026 | arXiv 2602.22394 | ViT | 系统揭示ViT注意力伪影的根因是\"惰性聚合\"——全局注意力+粗粒度语义监督驱动模型用语义无关的背景patch作为全局语义的捷径表示，提出选择性patch特征集成方案在12个基准上跨三种监督范式一致提升性能。"
 tags:
   - CVPR 2026
-  - ViT
-  - register token
-  - 伪影
 ---
 
 # Vision Transformers Need More Than Registers

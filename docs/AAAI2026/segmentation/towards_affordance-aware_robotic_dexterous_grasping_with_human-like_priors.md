@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors 论文解读 | AAAI 2026 | arXiv 2508.08896 | 灵巧抓取 | 提出AffordDex，一个两阶段框架：第一阶段通过模仿学习预训练人类手部运动先验（自然的运动轨迹），第二阶段通过残差模块和VLM引导的负可供性分割（NAA）进行强化学习精炼，实现既像人类一样自然、又功能正确的灵巧机器人抓取（如避开刀刃抓握刀柄），在多个泛化级别上显著超越SOTA。"
 tags:
   - AAAI 2026
-  - 灵巧抓取
-  - 功能可供性
-  - 人类运动先验
 ---
 
 # Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors

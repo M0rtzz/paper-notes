@@ -2,9 +2,6 @@
 description: "【论文笔记】Rewrite to Jailbreak: Discover Learnable and Transferable Implicit Harmfulness Instruction 论文解读 | ACL 2025 | arXiv 2502.11084 | jailbreak attack | 提出 R2J（Rewrite to Jailbreak），一种可学习、可迁移的黑盒越狱方法——通过迭代训练 attacker LLM 学习改写有害指令（仅改措辞不改意图），相比 GCG/AutoDAN 等方法攻击成功率提高 20%+，且无额外前缀/后缀，更隐蔽且跨模型可迁移。"
 tags:
   - ACL 2025
-  - jailbreak attack
-  - rewriting
-  - transferable attack
 ---
 
 # Rewrite to Jailbreak: Discover Learnable and Transferable Implicit Harmfulness Instruction

@@ -2,9 +2,6 @@
 description: "【论文笔记】X-Hacking: The Threat of Misguided AutoML 论文解读 | ICML2025 | arXiv 2401.08513 | AutoML | 揭示了XAI(可解释AI)领域的新安全威胁\"X-hacking\"：通过AutoML的管道搜索能力，对抗者可在Rashomon模型集中寻找支持预定结论的解释性结果，Bayesian优化比随机搜索快3倍。"
 tags:
   - ICML2025
-  - AutoML
-  - X-hacking
-  - 可解释AI
 ---
 
 # X-Hacking: The Threat of Misguided AutoML

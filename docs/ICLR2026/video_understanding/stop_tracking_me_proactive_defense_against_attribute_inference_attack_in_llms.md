@@ -2,9 +2,6 @@
 description: "【论文笔记】Stop Tracking Me! Proactive Defense Against Attribute Inference Attack in LLMs 论文解读 | ICLR 2026 | arXiv 2602.11528 | 属性推断攻击 | TRACE-RPS 提出统一防御框架应对 LLM 属性推断攻击：TRACE 通过注意力+推理链精准定位隐私泄露文本元素做细粒度匿名化，RPS 通过轻量后缀优化诱导模型拒绝推断，将属性推断准确率从约 50% 降至 5% 以下。"
 tags:
   - ICLR 2026
-  - 属性推断攻击
-  - 隐私保护
-  - LLM安全
 ---
 
 # Stop Tracking Me! Proactive Defense Against Attribute Inference Attack in LLMs

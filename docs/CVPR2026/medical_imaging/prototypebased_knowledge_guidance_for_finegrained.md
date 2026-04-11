@@ -2,9 +2,6 @@
 description: "【论文笔记】Prototype-Based Knowledge Guidance for Fine-Grained Structured Radiology Reporting 论文解读 | CVPR 2026 | arXiv 2603.11938 | 结构化放射报告 | 提出ProtoSR，通过LLM驱动的管道从22.7万篇MIMIC-CXR自由文本报告中挖掘模板对齐的视觉原型知识库，并设计原型条件化迟融合模块将检索到的原型证据作为logit残差注入层级式结构化报告模型，在Rad-ReStruct基准上达到SOTA，在细粒度属性问题（L3）上提升最为显著（+72.1%相对提升）。"
 tags:
   - CVPR 2026
-  - 结构化放射报告
-  - 原型知识库
-  - LLM知识抽取
 ---
 
 # Prototype-Based Knowledge Guidance for Fine-Grained Structured Radiology Reporting

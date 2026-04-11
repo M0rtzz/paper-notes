@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding the Statistical Accuracy-Communication Trade-off in Personalized Federated Learning with Minimax Guarantees 论文解读 | ICML2025 | arXiv 2410.08934 | 个性化联邦学习 | 本文首次定量刻画了个性化联邦学习中个性化程度 $\lambda$ 如何同时影响统计精度和通信效率，建立了 minimax 最优统计速率，并提出 FedCLUP 算法实现了统计-通信的最优权衡。"
 tags:
   - ICML2025
-  - 个性化联邦学习
-  - 统计精度-通信权衡
-  - minimax 最优性
 ---
 
 # Understanding the Statistical Accuracy-Communication Trade-off in Personalized Federated Learning with Minimax Guarantees

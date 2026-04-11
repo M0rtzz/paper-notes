@@ -2,9 +2,7 @@
 description: "【论文笔记】GRADIEND: Feature Learning within Neural Networks Exemplified through Biases 论文解读 | ICLR 2026 | arXiv 2502.01406 | 单语义特征学习 | 提出GRADIEND——一个基于梯度的编码器-解码器架构，通过单个瓶颈神经元从模型梯度中学习可解释的单语义特征（以性别为例），不仅可以识别哪些权重编码了特定特征，还能通过解码器直接修改模型权重来消除偏见，与INLP结合在所有基线模型上达到SOTA去偏效果。"
 tags:
   - ICLR 2026
-  - 单语义特征学习
-  - 性别偏见消除
-  - 梯度编码器-解码器
+  - Transformer
 ---
 
 # GRADIEND: Feature Learning within Neural Networks Exemplified through Biases

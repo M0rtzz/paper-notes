@@ -2,9 +2,6 @@
 description: "【论文笔记】Image Super-Resolution with Guarantees via Conformalized Generative Models 论文解读 | NEURIPS2025 | arXiv 2502.09664 | 超分辨率 | 基于共形预测（Conformal Prediction）技术，为生成式图像超分辨率模型构建二值\"置信度掩码\"，能可靠地标识生成图像中可信赖的区域，并提供严格的统计保证。"
 tags:
   - NEURIPS2025
-  - 超分辨率
-  - 不确定性量化
-  - 共形预测
 ---
 
 # Image Super-Resolution with Guarantees via Conformalized Generative Models

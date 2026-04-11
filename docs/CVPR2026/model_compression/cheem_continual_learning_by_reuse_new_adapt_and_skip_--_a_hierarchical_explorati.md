@@ -2,9 +2,7 @@
 description: "【论文笔记】CHEEM: Continual Learning by Reuse, New, Adapt and Skip -- A Hierarchical Exploration-Exploitation Approach 论文解读 | CVPR 2026 | arXiv 2303.08250 | 持续学习 | 提出 CHEEM 框架，通过分层探索-利用采样的 NAS 自动学习任务感知的动态 ViT 骨干——在每一层选择 Reuse/New/Adapt/Skip 四种操作——在 MTIL 和 VDD 两个挑战性持续学习基准上显著超越提示类方法，接近全量微调上界。"
 tags:
   - CVPR 2026
-  - 持续学习
-  - 无样本类增量学习
-  - 神经架构搜索
+  - Transformer
 ---
 
 # CHEEM: Continual Learning by Reuse, New, Adapt and Skip -- A Hierarchical Exploration-Exploitation Approach

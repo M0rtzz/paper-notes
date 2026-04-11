@@ -2,9 +2,6 @@
 description: "【论文笔记】NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction 论文解读 | ICCV 2025 | arXiv 2508.17712 | garment reconstruction | 提出 NGD，一种基于神经梯度的变形方法，通过将 Jacobian 场分解为帧不变的静态分量和帧相关的动态分量，结合自适应重网格化策略，从单目视频重建高保真动态纺织品几何与纹理，在宽松服装等困难场景上显著优于现有 SOTA。"
 tags:
   - ICCV 2025
-  - garment reconstruction
-  - neural Jacobian field
-  - adaptive remeshing
 ---
 
 # NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction

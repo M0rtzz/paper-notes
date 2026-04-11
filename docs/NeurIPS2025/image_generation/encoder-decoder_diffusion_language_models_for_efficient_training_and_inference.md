@@ -2,10 +2,7 @@
 description: "【论文笔记】Encoder-Decoder Diffusion Language Models for Efficient Training and Inference 论文解读 | NeurIPS 2025 | arXiv 2510.22852 | 扩散模型 discrete diffusion | 提出 E2D2，一种面向离散扩散语言模型的编码器-解码器架构，通过轻量解码器迭代去噪、大型编码器定期更新表征，同时实现更快推理（~3× vs MDLM）和更高效的 block diffusion 训练（FLOPs 减半）。"
 tags:
   - NeurIPS 2025
-  - discrete diffusion
   - 扩散模型
-  - encoder-decoder
-  - block diffusion
 ---
 
 # Encoder-Decoder Diffusion Language Models for Efficient Training and Inference

@@ -2,11 +2,8 @@
 description: "【论文笔记】LinVideo: A Post-Training Framework towards O(n) Attention in Efficient Video Generation 论文解读 | CVPR2026 | arXiv 2510.08318 | 注意力机制 linear attention | 提出 LinVideo，一种无需训练数据的后训练框架，通过选择性地将视频扩散模型中的二次注意力替换为线性注意力，实现 1.43–1.71× 加速，结合蒸馏可达 15.9–20.9× 加速，同时保持生成质量。"
 tags:
   - CVPR2026
-  - linear attention
   - 注意力机制
-  - video diffusion
   - 扩散模型
-  - post-training
 ---
 
 # LinVideo: A Post-Training Framework towards O(n) Attention in Efficient Video Generation

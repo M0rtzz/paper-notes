@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models 论文解读 | CVPR 2026 | arXiv 2603.04846 | Adversarial Attack | 提出 MPCAttack 框架，联合跨模态对齐、多模态理解和视觉自监督三种学习范式的特征表示，通过多范式协同优化策略生成高迁移性对抗样本，在开源和闭源 MLLM 上均取得 SOTA 攻击效果。"
 tags:
   - CVPR 2026
-  - Adversarial Attack
-  - MLLM
-  - Transferability
 ---
 
 # Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】FlexGen: Flexible Multi-View Generation from Text and Image Inputs 论文解读 | ICCV 2025 | arXiv 2410.10745 | 多视角生成 | 本文提出 FlexGen，一个灵活的多视角图像生成框架，通过 GPT-4V 生成 3D-aware 文本标注并设计自适应双控制模块，支持单图、文本或二者联合控制生成一致的多视角图像，实现未可见区域补全、材质编辑和纹理控制等多种可控能力。"
 tags:
   - ICCV 2025
-  - 多视角生成
-  - 3D-aware文本标注
-  - 可控生成
 ---
 
 # FlexGen: Flexible Multi-View Generation from Text and Image Inputs

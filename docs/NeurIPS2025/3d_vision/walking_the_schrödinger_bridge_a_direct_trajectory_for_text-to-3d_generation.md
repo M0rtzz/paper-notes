@@ -2,9 +2,6 @@
 description: "【论文笔记】Walking the Schrödinger Bridge: A Direct Trajectory for Text-to-3D Generation 论文解读 | NeurIPS 2025 | arXiv 2511.05609 | 文本到3D生成 | 从理论上证明SDS是Schrödinger Bridge的特例，并基于此提出TraCe框架——在当前渲染和文本条件目标之间构建显式扩散桥，通过LoRA微调学习桥轨迹的score dynamics，在低CFG值下实现高质量text-to-3D生成。"
 tags:
   - NeurIPS 2025
-  - 文本到3D生成
-  - Score Distillation Sampling
-  - Schrödinger Bridge
 ---
 
 # Walking the Schrödinger Bridge: A Direct Trajectory for Text-to-3D Generation

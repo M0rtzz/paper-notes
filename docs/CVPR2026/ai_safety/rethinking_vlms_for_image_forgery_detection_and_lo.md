@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking VLMs for Image Forgery Detection and Localization 论文解读 | CVPR 2026 | arXiv 2603.12930 | 图像伪造检测 | 揭示VLM的语义合理性偏差(semantic plausibility bias)会妨碍伪造检测，提出IFDL-VLM将检测/定位与语言解释生成解耦为两阶段：先用ViT+SAM专做检测定位，再将定位mask作为VLM辅助输入增强可解释性，在9个基准上全面SOTA。"
 tags:
   - CVPR 2026
-  - 图像伪造检测
-  - VLM
-  - 可解释性
 ---
 
 # Rethinking VLMs for Image Forgery Detection and Localization

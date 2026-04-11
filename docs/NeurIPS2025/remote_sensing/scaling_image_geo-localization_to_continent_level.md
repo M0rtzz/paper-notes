@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Image Geo-Localization to Continent Level 论文解读 | NeurIPS 2025 | arXiv 2510.26795 | 地理定位 | 混合方法结合分类学习的原型和航拍图像嵌入，在覆盖西欧43.3万平方公里上实现200m内68%+、100m内59.2%的定位率，首次在大陆规模实现此精度。"
 tags:
   - NeurIPS 2025
-  - 地理定位
-  - 跨视图检索
-  - 分类原型
 ---
 
 # Scaling Image Geo-Localization to Continent Level

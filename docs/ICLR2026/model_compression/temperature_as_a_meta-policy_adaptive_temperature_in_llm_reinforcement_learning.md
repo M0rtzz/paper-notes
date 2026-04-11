@@ -2,9 +2,6 @@
 description: "【论文笔记】Temperature as a Meta-Policy: Adaptive Temperature in LLM Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2602.11779 | 温度调节 | 提出 TAMPO（Temperature Adaptive Meta Policy Optimization），将采样温度重新定义为可学习的元策略，通过双层循环在内环做 LLM 策略优化、外环根据轨迹优势信号自适应更新温度分布，无需额外 rollout，在数学推理基准上一致超越固定温度基线。"
 tags:
   - ICLR 2026
-  - 温度调节
-  - 元策略
-  - GRPO
 ---
 
 # Temperature as a Meta-Policy: Adaptive Temperature in LLM Reinforcement Learning

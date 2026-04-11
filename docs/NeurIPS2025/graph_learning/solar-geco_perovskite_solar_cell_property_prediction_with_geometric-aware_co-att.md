@@ -2,9 +2,6 @@
 description: "【论文笔记】Solar-GECO: Perovskite Solar Cell Property Prediction with Geometric-Aware Co-Attention 论文解读 | NeurIPS 2025 | arXiv 2511.19263 | 钙钛矿太阳能电池 | 提出Solar-GECO多模态框架，将钙钛矿吸收层的3D晶体结构通过几何GNN编码、器件其他层通过LLM文本嵌入编码，经共注意力融合后预测光电转换效率(PCE)及其不确定性，MAE从3.066降至2.936。"
 tags:
   - NeurIPS 2025
-  - 钙钛矿太阳能电池
-  - 几何图神经网络
-  - 多模态融合
 ---
 
 # Solar-GECO: Perovskite Solar Cell Property Prediction with Geometric-Aware Co-Attention

@@ -2,9 +2,6 @@
 description: "【论文笔记】Generative AI Agents for Controllable and Protected Content Creation 论文解读 | NeurIPS 2025 | arXiv 2601.12348 | 多智能体系统 | 提出一个多智能体生成框架，通过 Director/Planner、Generator、Reviewer、Integration 和 Protection 五个专业化智能体的协作，结合人在环反馈，统一解决生成内容的可控性和版权保护问题。"
 tags:
   - NeurIPS 2025
-  - 多智能体系统
-  - 内容保护
-  - 可控生成
 ---
 
 # Generative AI Agents for Controllable and Protected Content Creation

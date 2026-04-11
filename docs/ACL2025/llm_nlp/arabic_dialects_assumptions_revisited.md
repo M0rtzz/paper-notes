@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting Common Assumptions about Arabic Dialects in NLP 论文解读 | ACL 2025 | arXiv 2505.21816 | Arabic dialects | 系统验证了阿拉伯语 NLP 中四个被广泛接受的假设，通过 978 个方言句子+33 名标注者的多标签标注数据集证明：56% 的方言句子在多个区域方言中有效，方言词表的区分度被高估，句子长度与方言歧义性的相关性远弱于方言化程度（ALDi），不同方言说话者对同一句子的 ALDi 评级差异显著。"
 tags:
   - ACL 2025
-  - Arabic dialects
-  - dialect identification
-  - multi-label classification
 ---
 
 # Revisiting Common Assumptions about Arabic Dialects in NLP

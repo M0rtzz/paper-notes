@@ -2,9 +2,6 @@
 description: "【论文笔记】TCSinger 2: Customizable Multilingual Zero-shot Singing Voice Synthesis 论文解读 | ACL2025 | arXiv 2505.14910 | 歌声合成 | 提出 TCSinger 2，一个多任务多语言零样本歌声合成模型，通过模糊边界编码器、对比学习音频编码器和基于 Flow 的自定义 Transformer（含 Cus-MOE），实现基于歌声/语音/文本提示的风格迁移与多层级风格控制。"
 tags:
   - ACL2025
-  - 歌声合成
-  - 零样本
-  - 多语言
 ---
 
 # TCSinger 2: Customizable Multilingual Zero-shot Singing Voice Synthesis

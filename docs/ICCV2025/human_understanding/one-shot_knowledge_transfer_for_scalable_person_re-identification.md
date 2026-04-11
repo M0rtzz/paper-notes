@@ -2,9 +2,6 @@
 description: "【论文笔记】One-Shot Knowledge Transfer for Scalable Person Re-Identification 论文解读 | ICCV 2025 | arXiv 2511.06016 | 知识迁移 | 提出 OSKT（One-Shot Knowledge Transfer），通过将教师模型知识精炼为\"权重链\"（weight chain）作为中间载体，实现一次计算即可生成任意尺寸学生模型的行人重识别模型压缩方案。"
 tags:
   - ICCV 2025
-  - 知识迁移
-  - 权重链
-  - 行人重识别
 ---
 
 # One-Shot Knowledge Transfer for Scalable Person Re-Identification

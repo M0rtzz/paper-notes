@@ -2,9 +2,6 @@
 description: "【论文笔记】Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers 论文解读 | ICML 2025 | arXiv 2412.18730 | Flow Matching | 本文从denoiser的角度深入分析了Flow Matching (FM) ODE的采样轨迹动力学，揭示了轨迹演化的三个阶段（初始→中间→终端），建立了FM ODE在数据支撑在低维子流形上时的收敛性理论。"
 tags:
   - ICML 2025
-  - Flow Matching
-  - ODE动力学
-  - 数据几何
 ---
 
 # Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers

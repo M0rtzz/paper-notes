@@ -2,9 +2,6 @@
 description: "【论文笔记】Bid Farewell to Seesaw: Towards Accurate Long-tail Session-based Recommendation via Dual Constraints of Hybrid Intents 论文解读 | AAAI 2026 | arXiv 2511.08378 | 会话推荐 | 提出HID框架，通过属性感知的谱聚类构建混合意图来区分会话相关与无关的尾部物品，并设计针对长尾和准确性的双约束损失（ICLoss），实现长尾推荐与准确性的\"双赢\"，打破传统方法中两者此消彼长的\"跷跷板\"困境。"
 tags:
   - AAAI 2026
-  - 会话推荐
-  - 长尾分布
-  - 混合意图
 ---
 
 # Bid Farewell to Seesaw: Towards Accurate Long-tail Session-based Recommendation via Dual Constraints of Hybrid Intents

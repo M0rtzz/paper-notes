@@ -2,9 +2,6 @@
 description: "【论文笔记】Order-Level Attention Similarity Across Language Models: A Latent Commonality 论文解读 | NeurIPS 2025 | arXiv 2511.05064 | 注意力机制 | 提出 Order-Level Attention (OLA)——对 Attention Rollout 的阶次分解，发现不同语言模型在同阶 OLA 上存在显著相似性 (OLAS)，并且 OLA 隐式编码了句法知识，基于此提出 TOA 实现首个无需训练的跨LM适配器迁移。"
 tags:
   - NeurIPS 2025
-  - 注意力机制
-  - 语言模型相似性
-  - 跨模型迁移
 ---
 
 # Order-Level Attention Similarity Across Language Models: A Latent Commonality

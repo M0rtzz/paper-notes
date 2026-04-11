@@ -2,10 +2,7 @@
 description: "【论文笔记】Decouple and Track: Benchmarking and Improving Video Diffusion Transformers for Motion Transfer 论文解读 | ICCV 2025 | arXiv 2503.17350 | Transformer Diffusion Transformer | 针对 DiT 模型中 3D 全注意力机制导致的运动-外观难以解耦问题，提出共享时序核（Shared Temporal Kernel）和稠密点跟踪损失（Dense Point Tracking Loss），同时建立了更全面的运动迁移基准 MTBench 和混合运动保真度指标。"
 tags:
   - ICCV 2025
-  - Diffusion Transformer
   - Transformer
-  - 运动迁移
-  - 时序核
 ---
 
 # Decouple and Track: Benchmarking and Improving Video Diffusion Transformers for Motion Transfer

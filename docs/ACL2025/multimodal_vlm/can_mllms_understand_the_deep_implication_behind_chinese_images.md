@@ -2,9 +2,6 @@
 description: "【论文笔记】Can MLLMs Understand the Deep Implication Behind Chinese Images? 论文解读 | ACL 2025 | arXiv 2410.13854 | MLLM评测 | 提出 CII-Bench（Chinese Image Implication Understanding Benchmark），包含698张中国互联网/传统文化图像及800道选择题，系统评测MLLM对中文图像深层含义的高阶理解能力，发现最佳模型准确率仅64.4%，远低于人类平均78.2%，且模型在中国传统文化领域表现最差。"
 tags:
   - ACL 2025
-  - MLLM评测
-  - 中文图像隐含语义
-  - 中国传统文化
 ---
 
 # Can MLLMs Understand the Deep Implication Behind Chinese Images?

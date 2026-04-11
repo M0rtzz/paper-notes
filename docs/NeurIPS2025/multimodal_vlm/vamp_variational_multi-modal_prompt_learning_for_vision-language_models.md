@@ -2,10 +2,7 @@
 description: "【论文笔记】VaMP: Variational Multi-Modal Prompt Learning for Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2511.22664 | 提示学习 Prompt Learning | 提出变分多模态提示学习框架VaMP，将文本侧提示建模为隐变量并通过变分推断进行实例级不确定性建模，结合类感知先验正则化隐空间，在少样本和域泛化设置下显著提升CLIP的下游适配能力。"
 tags:
   - NeurIPS 2025
-  - Prompt Learning
   - 提示学习
-  - 变分推断
-  - CLIP
 ---
 
 # VaMP: Variational Multi-Modal Prompt Learning for Vision-Language Models

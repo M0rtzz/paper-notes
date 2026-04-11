@@ -2,9 +2,6 @@
 description: "【论文笔记】ATLAS: Decoupling Skeletal and Shape Parameters for Expressive Parametric Human Modeling 论文解读 | ICCV 2025 | arXiv 2508.15767 | 参数化人体模型 | 提出ATLAS参数化人体模型，通过显式解耦外部表面形状和内部骨骼参数，并引入稀疏非线性姿态校正变形，在60万高分辨率扫描数据上训练，实现了比SMPL-X更精确、更可控的3D人体建模。"
 tags:
   - ICCV 2025
-  - 参数化人体模型
-  - 骨骼-形状解耦
-  - 姿态校正变形
 ---
 
 # ATLAS: Decoupling Skeletal and Shape Parameters for Expressive Parametric Human Modeling

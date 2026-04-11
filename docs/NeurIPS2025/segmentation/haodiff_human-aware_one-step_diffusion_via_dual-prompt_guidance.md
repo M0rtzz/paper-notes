@@ -2,9 +2,6 @@
 description: "【论文笔记】HAODiff: Human-Aware One-Step Diffusion via Dual-Prompt Guidance 论文解读 | NeurIPS 2025 | arXiv 2505.19742 | 人体图像复原 | 提出HAODiff，一种人体感知的单步扩散模型，通过三分支双提示引导（DPG）生成自适应正负提示对，结合显式人体运动模糊（HMB）退化管线和分类器自由引导（CFG），在人体图像复原任务上大幅超越现有SOTA方法。"
 tags:
   - NeurIPS 2025
-  - 人体图像复原
-  - 运动模糊
-  - 单步扩散
 ---
 
 # HAODiff: Human-Aware One-Step Diffusion via Dual-Prompt Guidance

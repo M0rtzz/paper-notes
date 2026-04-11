@@ -2,9 +2,6 @@
 description: "【论文笔记】Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models 论文解读 | ACL 2025 | arXiv 2505.18673 | 跨语言弱点 | 提出基于束搜索和 LLM 仿真的自动化方法来高效发现多语言 LLM 的跨语言弱点，构建了覆盖 16 种语言的 6000+ 双语问答对数据集，揭示即使 GPT-4o 也存在超过 30% 的跨语言性能下降。"
 tags:
   - ACL 2025
-  - 跨语言弱点
-  - 束搜索
-  - LLM仿真评估
 ---
 
 # Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models

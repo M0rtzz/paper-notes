@@ -2,9 +2,6 @@
 description: "【论文笔记】DeepRTL2: A Versatile Model for RTL-Related Tasks 论文解读 | ACL 2025 | arXiv 2506.15697 | RTL代码 | DeepRTL2是首个统一处理RTL（寄存器传输级）相关生成任务与嵌入任务的LLM，通过精心构建的数据集和GRIT训练策略，在代码生成、代码理解、自然语言代码搜索、功能等价检查和性能预测五大任务上达到SOTA。"
 tags:
   - ACL 2025
-  - RTL代码
-  - LLM
-  - 嵌入任务
 ---
 
 # DeepRTL2: A Versatile Model for RTL-Related Tasks

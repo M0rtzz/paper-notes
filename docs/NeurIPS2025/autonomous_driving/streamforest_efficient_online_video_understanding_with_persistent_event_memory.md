@@ -2,9 +2,6 @@
 description: "【论文笔记】StreamForest: Efficient Online Video Understanding with Persistent Event Memory 论文解读 | NeurIPS 2025 | arXiv 2509.24871 | 流式视频理解 | 本文提出 StreamForest 架构，通过\"持久事件记忆森林\"将流式视频帧自适应组织为多棵事件级树结构，结合\"细粒度时空窗口\"捕捉短期视觉线索，在 StreamingBench 上达到 77.3% 准确率，并在极端压缩（仅 1024 visual tokens）下仍保留 96.8% 的性能。"
 tags:
   - NeurIPS 2025
-  - 流式视频理解
-  - 持久事件记忆
-  - 记忆树结构
 ---
 
 # StreamForest: Efficient Online Video Understanding with Persistent Event Memory

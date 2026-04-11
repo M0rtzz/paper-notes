@@ -2,9 +2,6 @@
 description: "【论文笔记】Progressor: A Perceptually Guided Reward Estimator with Self-Supervised Online Refinement 论文解读 | ICCV 2025 | arXiv 2411.17764 | 视觉奖励学习 | 提出Progressor框架，从无标注视频中自监督学习任务无关的奖励函数，通过预测任务进度分布提供稠密奖励信号，并在在线RL训练中通过对抗性push-back策略应对分布偏移问题。"
 tags:
   - ICCV 2025
-  - 视觉奖励学习
-  - 自监督
-  - 目标条件RL
 ---
 
 # Progressor: A Perceptually Guided Reward Estimator with Self-Supervised Online Refinement

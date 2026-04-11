@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond True or False: Retrieval-Augmented Hierarchical Analysis of Nuanced Claims 论文解读 | ACL 2025 | arXiv 2506.10728 | 细粒度声明分析 | 提出 ClaimSpect 框架，将复杂声明自动分解为层次化的方面（aspect）树，并通过区分性检索从语料库中发现各方面的支持/中立/反对观点及其共识程度。"
 tags:
   - ACL 2025
-  - 细粒度声明分析
-  - 层次化方面树
-  - 检索增强生成
 ---
 
 # Beyond True or False: Retrieval-Augmented Hierarchical Analysis of Nuanced Claims

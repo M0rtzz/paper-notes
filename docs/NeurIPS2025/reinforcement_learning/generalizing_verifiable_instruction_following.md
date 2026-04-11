@@ -2,9 +2,6 @@
 description: "【论文笔记】Generalizing Verifiable Instruction Following 论文解读 | NeurIPS 2025 | arXiv 2507.02833 | 指令遵循 | 引入IFBench基准评估精确指令遵循的泛化能力，证明当前SOTA模型严重过拟合于IFEval的25种约束模板，并提出IF-RLVR训练方法（基于GRPO + 可验证奖励）显著提升域内外指令遵循性能。"
 tags:
   - NeurIPS 2025
-  - 指令遵循
-  - 可验证约束
-  - RLVR
 ---
 
 # Generalizing Verifiable Instruction Following

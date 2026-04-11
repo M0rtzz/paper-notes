@@ -2,9 +2,6 @@
 description: "【论文笔记】Tree-Guided Diffusion Planner 论文解读 | NeurIPS 2025 | arXiv 2508.21800 | 扩散规划 | 提出Tree-guided Diffusion Planner (TDP)，将测试时扩散规划形式化为树搜索问题，通过双层采样（粒子引导生成多样父轨迹 + 快速条件去噪生成子轨迹）在探索与利用之间取得平衡，在非凸目标和不可微约束下显著超越现有方法。"
 tags:
   - NeurIPS 2025
-  - 扩散规划
-  - 树搜索
-  - 测试时引导
 ---
 
 # Tree-Guided Diffusion Planner

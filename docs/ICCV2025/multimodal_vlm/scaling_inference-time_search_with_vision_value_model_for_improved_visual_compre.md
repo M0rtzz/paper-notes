@@ -2,9 +2,6 @@
 description: "【论文笔记】Scaling Inference-Time Search with Vision Value Model for Improved Visual Comprehension 论文解读 | ICCV 2025 | arXiv 2412.03704 | 视觉语言模型 | 提出 Vision Value Model (VisVM)，一个基于时序差分（TD）学习训练的视觉价值模型，用于在推理时指导 VLM 逐句搜索生成更高质量的描述性标注——相比贪心解码和 CLIP-PRM，VisVM 搜索显著减少幻觉（CHAIRs 从 32.4 降至 26.2），且生成的数据用于自训练可在 9 个基准上平均提升 10.8%。"
 tags:
   - ICCV 2025
-  - 视觉语言模型
-  - 推理时搜索
-  - 视觉价值模型
 ---
 
 # Scaling Inference-Time Search with Vision Value Model for Improved Visual Comprehension

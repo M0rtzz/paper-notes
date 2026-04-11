@@ -2,9 +2,6 @@
 description: "【论文笔记】MoGA: 3D Generative Avatar Prior for Monocular Gaussian Avatar Reconstruction 论文解读 | ICCV 2025 | arXiv 2507.23597 | 单视图人体重建 | 提出MoGA，通过学习生成式3D头像先验并将其作为初始化、正则化和姿态优化的强约束，从单张图像重建高保真3D高斯头像，显著超越现有方法。"
 tags:
   - ICCV 2025
-  - 单视图人体重建
-  - 3D Gaussian Avatar
-  - 生成式先验
 ---
 
 # MoGA: 3D Generative Avatar Prior for Monocular Gaussian Avatar Reconstruction

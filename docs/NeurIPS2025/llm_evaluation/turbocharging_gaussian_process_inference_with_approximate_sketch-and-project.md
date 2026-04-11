@@ -2,9 +2,6 @@
 description: "【论文笔记】Turbocharging Gaussian Process Inference with Approximate Sketch-and-Project 论文解读 | NeurIPS 2025 | arXiv 2505.13723 | Gaussian Process | 提出 ADASAP 算法，通过近似子空间预条件、分布式计算和 Nesterov 加速，将 sketch-and-project 方法扩展到大规模 GP 推断，首次将精确 GP 推断扩展到 $>3\times10^8$ 样本规模，同时在理论上证明了 SAP 方法的 condition number-free 收敛性。"
 tags:
   - NeurIPS 2025
-  - Gaussian Process
-  - Sketch-and-Project
-  - 大规模推断
 ---
 
 # Turbocharging Gaussian Process Inference with Approximate Sketch-and-Project

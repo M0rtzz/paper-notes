@@ -2,9 +2,6 @@
 description: "【论文笔记】Benchmarking LLMs for Political Science: A United Nations Perspective 论文解读 | AAAI 2026 | arXiv 2502.14122 | 联合国安理会 | 提出 UNBench，首个基于联合国安理会 1994-2024 年记录的综合性政治科学 LLM 评测基准，涵盖决议起草、投票模拟、通过预测和代表发言生成四个关联任务，评估 LLM 对复杂政治动态的理解和模拟能力。"
 tags:
   - AAAI 2026
-  - 联合国安理会
-  - 政治科学基准
-  - 投票模拟
 ---
 
 # Benchmarking LLMs for Political Science: A United Nations Perspective

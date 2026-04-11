@@ -2,9 +2,6 @@
 description: "【论文笔记】VESSA: Video-based objEct-centric Self-Supervised Adaptation for Visual Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2510.20994 | 视觉基础模型 | VESSA提出了一种利用短视频进行视觉基础模型无监督自适应的方法，通过自蒸馏框架结合LoRA参数高效微调和不确定性加权损失，在不需要任何标注数据的情况下显著提升基础模型在目标域的分类性能。"
 tags:
   - NeurIPS 2025
-  - 视觉基础模型
-  - 自监督微调
-  - 视频适配
 ---
 
 # VESSA: Video-based objEct-centric Self-Supervised Adaptation for Visual Foundation Models

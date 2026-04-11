@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion 论文解读 | ICCV 2025 | arXiv 2505.24877 | 3D人体生成 | 提出AdaHuman框架，通过姿态条件的联合3D扩散模型（在扩散过程中同步进行多视角图像生成与3DGS重建以保证3D一致性）和组合式3DGS细化模块（利用crop-aware camera ray map融合局部精细细节），从单张野外图片生成高保真可动画的3D人体avatar，在重建和重姿态任务上全面超越现有SOTA。"
 tags:
   - ICCV 2025
-  - 3D人体生成
-  - 多视角扩散
-  - 3DGS
 ---
 
 # AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion

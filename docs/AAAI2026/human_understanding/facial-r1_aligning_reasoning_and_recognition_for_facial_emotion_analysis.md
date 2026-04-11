@@ -2,9 +2,6 @@
 description: "【论文笔记】Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis 论文解读 | AAAI 2026 | arXiv 2511.10254 | 面部情绪分析 | 提出 Facial-R1，一个三阶段对齐训练框架（SFT → RL → 数据合成），通过将 AU 和情绪标签作为可验证奖励信号来对齐 VLM 的推理过程与情绪识别结果，在 8 个基准上达到 SOTA，并构建了 FEA-20K 数据集。"
 tags:
   - AAAI 2026
-  - 面部情绪分析
-  - 强化学习
-  - Action Unit
 ---
 
 # Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis

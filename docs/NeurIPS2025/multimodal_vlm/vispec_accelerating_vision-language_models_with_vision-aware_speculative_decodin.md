@@ -2,9 +2,6 @@
 description: "【论文笔记】ViSpec: Accelerating Vision-Language Models with Vision-Aware Speculative Decoding 论文解读 | NeurIPS 2025 | arXiv 2509.15235 | 推测解码 | 针对VLM推测解码（speculative decoding）中草稿模型难以处理冗余视觉token的问题，提出ViSpec框架，通过视觉适配器压缩图像token+全局视觉特征注入+合成训练数据，首次在VLM推测解码中实现了显著加速（最高3.22×）。"
 tags:
   - NeurIPS 2025
-  - 推测解码
-  - VLM加速
-  - 图像token压缩
 ---
 
 # ViSpec: Accelerating Vision-Language Models with Vision-Aware Speculative Decoding

@@ -2,9 +2,6 @@
 description: "【论文笔记】InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions 论文解读 | ICLR 2026 | arXiv 2506.09984 | 多人视频生成 | 提出 InterActHuman，通过自动推断时空布局的掩码预测器和迭代掩码引导策略，实现多人/人物交互场景下的音频驱动视频生成，支持每个角色独立的语音驱动口型同步和身体动作。"
 tags:
   - ICLR 2026
-  - 多人视频生成
-  - 音频驱动动画
-  - 掩码预测
 ---
 
 # InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions

@@ -2,9 +2,6 @@
 description: "【论文笔记】TRACE: A Generalizable Drift Detector for Streaming Data-Driven Optimization 论文解读 | AAAI 2026 | arXiv 2512.07082 | 概念漂移检测 | 提出TRACE，一种基于注意力序列学习的可迁移概念漂移检测器，通过统计特征标记化和双注意力编码器学习跨任务可迁移的漂移模式，能泛化到未见过的数据集，并作为即插即用模块嵌入流式数据驱动优化算法。"
 tags:
   - AAAI 2026
-  - 概念漂移检测
-  - 流数据优化
-  - 注意力机制
 ---
 
 # TRACE: A Generalizable Drift Detector for Streaming Data-Driven Optimization

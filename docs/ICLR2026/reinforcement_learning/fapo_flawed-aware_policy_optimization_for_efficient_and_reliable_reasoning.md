@@ -2,9 +2,6 @@
 description: "【论文笔记】FAPO: Flawed-Aware Policy Optimization for Efficient and Reliable Reasoning 论文解读 | ICLR2026 | arXiv 2510.22543 | RLVR | 针对 RLVR 训练中\"答案正确但推理有缺陷\"的 flawed-positive rollout 问题，提出 FAPO 算法：用 GenRM 检测缺陷推理，通过无参数奖励惩罚机制实现\"先利用后抑制\"的自然学习轨迹，同时提升结果正确性、过程可靠性和训练稳定性。"
 tags:
   - ICLR2026
-  - RLVR
-  - flawed positives
-  - reward shaping
 ---
 
 # FAPO: Flawed-Aware Policy Optimization for Efficient and Reliable Reasoning

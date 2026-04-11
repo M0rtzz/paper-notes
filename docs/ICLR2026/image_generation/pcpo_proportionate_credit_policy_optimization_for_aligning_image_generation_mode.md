@@ -2,9 +2,6 @@
 description: "【论文笔记】PCPO: Proportionate Credit Policy Optimization for Aligning Image Generation Models 论文解读 | ICLR 2026 | arXiv 2509.25774 | 策略梯度 | 提出 PCPO，通过稳定目标重构和原则性时间步重加权，修正扩散/流模型策略梯度中固有的不成比例信用分配问题，显著加速收敛并缓解模型崩溃。"
 tags:
   - ICLR 2026
-  - 策略梯度
-  - 信用分配
-  - 扩散模型
 ---
 
 # PCPO: Proportionate Credit Policy Optimization for Aligning Image Generation Models

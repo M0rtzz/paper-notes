@@ -2,10 +2,8 @@
 description: "【论文笔记】DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression 论文解读 | arXiv 2026 | arXiv 2603.13162 | dit-ic | 基于扩散的图像压缩最近表现出了出色的感知保真度，但其实用性却受到过高的采样开销和高内存使用率的阻碍。"
 tags:
   - arXiv 2026
-  - dit-ic
-  - aligned
-  - diffusion
   - 扩散模型
+  - Transformer
 ---
 
 # DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression

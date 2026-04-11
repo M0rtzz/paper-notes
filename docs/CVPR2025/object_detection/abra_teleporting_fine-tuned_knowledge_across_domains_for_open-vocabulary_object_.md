@@ -2,9 +2,6 @@
 description: "【论文笔记】ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection 论文解读 | CVPR 2025 | arXiv 2603.12409 | 开放词汇检测 | 提出 ABRA（Aligned Basis Relocation for Adaptation），通过在权重空间中进行 SVD 分解与正交旋转对齐，将源域的类别特定检测知识\"传送\"到无标注数据的目标域，实现零样本跨域目标检测。"
 tags:
   - CVPR 2025
-  - 开放词汇检测
-  - 域适应
-  - 权重空间传输
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

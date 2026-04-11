@@ -2,9 +2,6 @@
 description: "【论文笔记】Target Refocusing via Attention Redistribution for Open-Vocabulary Semantic Segmentation: An Explainability Perspective 论文解读 | AAAI 2026 | arXiv 2511.16170 | 开放词汇语义分割 | 从可解释性角度系统研究CLIP内部机制，发现\"分心\"现象（distraction）——CLIP在深层将大量注意力资源分配给与目标无关的token，提出免训练的RF-CLIP方法通过注意力重分配将被分散的资源重新聚焦到目标区域，在8个基准上达到SOTA性能并保持推理高效。"
 tags:
   - AAAI 2026
-  - 开放词汇语义分割
-  - CLIP
-  - 注意力重分配
 ---
 
 # Target Refocusing via Attention Redistribution for Open-Vocabulary Semantic Segmentation: An Explainability Perspective

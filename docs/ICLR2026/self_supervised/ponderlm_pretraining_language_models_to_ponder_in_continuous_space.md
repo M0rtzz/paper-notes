@@ -2,9 +2,6 @@
 description: "【论文笔记】PonderLM: Pretraining Language Models to Ponder in Continuous Space 论文解读 | ICLR2026 | arXiv 2505.20674 | pondering | 提出 PonderLM，在预训练阶段引入\"沉思\"机制——将预测概率分布加权求和为连续嵌入后反复前向传播，无需标注数据或强化学习，使 2.8B 模型在 9 个下游任务上超越 6.9B 模型。"
 tags:
   - ICLR2026
-  - pondering
-  - language model
-  - continuous space
 ---
 
 # PonderLM: Pretraining Language Models to Ponder in Continuous Space

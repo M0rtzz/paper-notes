@@ -2,9 +2,6 @@
 description: "【论文笔记】Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs 论文解读 | ACL 2025 (Best Paper Award) | arXiv 2502.01926 | 差异意识 | 本文挑战了主流公平性研究中\"对所有群体一视同仁即为公平\"的假设，提出\"差异意识\"(Difference Awareness)概念，构建了包含8个基准共16k问题的评测套件，发现现有\"最公平\"的LLM在该维度上表现不佳，且现有去偏方法会适得其反。"
 tags:
   - ACL 2025 (Best Paper Award)
-  - 差异意识
-  - 公平性基准
-  - 色盲公平性
 ---
 
 # Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs

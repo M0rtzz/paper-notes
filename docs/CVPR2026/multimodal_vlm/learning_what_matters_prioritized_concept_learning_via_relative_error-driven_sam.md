@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning What Matters: Prioritized Concept Learning via Relative Error-driven Sample Selection 论文解读 | CVPR 2026 | arXiv 2506.01085 | 数据高效学习 | 提出 PROGRESS 框架，通过追踪 VLM 在自动发现的多模态概念集群上的学习进度来动态选择最有信息量的训练样本，仅用 16-20% 的标注数据就达到全数据 99-100% 的性能，且总训练时间更短。"
 tags:
   - CVPR 2026
-  - 数据高效学习
-  - 指令微调
-  - 课程学习
 ---
 
 # Learning What Matters: Prioritized Concept Learning via Relative Error-driven Sample Selection

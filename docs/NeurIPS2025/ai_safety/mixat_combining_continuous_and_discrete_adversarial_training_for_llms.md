@@ -2,9 +2,6 @@
 description: "【论文笔记】MixAT: Combining Continuous and Discrete Adversarial Training for LLMs 论文解读 | NeurIPS 2025 | arXiv 2505.16947 | 对抗训练 | 提出MixAT方法，将离散对抗攻击（PAP改写）与连续嵌入空间扰动相结合进行LLM对抗训练，在保持高效用的同时实现对多种攻击的鲁棒性（ALO-ASR从50%+降至20%以下），且训练成本仅与纯连续方法相当。"
 tags:
   - NeurIPS 2025
-  - 对抗训练
-  - LLM安全
-  - 鲁棒性
 ---
 
 # MixAT: Combining Continuous and Discrete Adversarial Training for LLMs

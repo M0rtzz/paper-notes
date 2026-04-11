@@ -2,9 +2,6 @@
 description: "【论文笔记】Focused-DPO: Enhancing Code Generation Through Focused Preference Optimization on Error-Prone Points 论文解读 | ACL 2025 | arXiv 2502.11475 | DPO | 发现代码生成错误集中在特定\"错误易发点\"（error-prone points）——前缀/后缀通常正确，错误集中在中间代码段，提出 Focused-DPO 通过 PageRank 排序定位关键代码段并在 DPO 损失中加权放大，HumanEval+ 提升 4.41%、MBPP+ 提升 6.71%。"
 tags:
   - ACL 2025
-  - DPO
-  - 代码生成
-  - 错误集中点
 ---
 
 # Focused-DPO: Enhancing Code Generation Through Focused Preference Optimization on Error-Prone Points

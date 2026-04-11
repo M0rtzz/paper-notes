@@ -2,9 +2,6 @@
 description: "【论文笔记】DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification 论文解读 | CVPR 2026 | arXiv 2603.12905 | few-shot learning | 通过 Dirichlet 先验增强（DirPA），在少样本训练阶段主动模拟真实世界长尾类别分布，从而消除人工平衡训练集与自然不平衡测试分布之间的先验偏移，提升作物分类的鲁棒性。"
 tags:
   - CVPR 2026
-  - few-shot learning
-  - class imbalance
-  - prior shift
 ---
 
 # DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification

@@ -2,9 +2,7 @@
 description: "【论文笔记】Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods 论文解读 | CVPR 2026 | arXiv 2603.13077 | 风场重建 | 建立学习-观测框架，在真实风洞PIV数据上系统比较Kriging、UNet、ViTAE和CWGAN四种方法从5-30个稀疏传感器重建屋顶全风场的能力，发现混合风向训练下DL一致优于Kriging（SSIM提升18-34%），CWGAN在鲁棒性上最优。"
 tags:
   - CVPR 2026
-  - 风场重建
-  - 稀疏传感器
-  - UNet
+  - GAN
 ---
 
 # Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods

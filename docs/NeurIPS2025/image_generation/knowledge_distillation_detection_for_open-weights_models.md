@@ -2,9 +2,6 @@
 description: "【论文笔记】Knowledge Distillation Detection for Open-weights Models 论文解读 | NeurIPS 2025 | arXiv 2510.02302 | 知识蒸馏检测 | 提出知识蒸馏检测任务，通过无数据输入合成和统计评分框架，判断一个开放权重的学生模型是否由特定教师模型蒸馏而来。"
 tags:
   - NeurIPS 2025
-  - 知识蒸馏检测
-  - 模型溯源
-  - 数据无关合成
 ---
 
 # Knowledge Distillation Detection for Open-weights Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】ESPIRE: A Diagnostic Benchmark for Embodied Spatial Reasoning of Vision-Language Models 论文解读 | CVPR 2025 | arXiv 2603.13033 | spatial reasoning | 提出 Espire，一个基于仿真环境的具身空间推理诊断基准，将 VLM 评估分解为定位和执行两阶段，通过全生成式范式系统评估 VLM 在多种空间推理维度和粒度上的能力。"
 tags:
   - CVPR 2025
-  - spatial reasoning
-  - embodied AI
-  - VLM benchmark
 ---
 
 # ESPIRE: A Diagnostic Benchmark for Embodied Spatial Reasoning of Vision-Language Models

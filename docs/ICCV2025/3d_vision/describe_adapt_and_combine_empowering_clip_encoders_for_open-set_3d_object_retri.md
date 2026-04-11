@@ -2,9 +2,6 @@
 description: "【论文笔记】Describe, Adapt and Combine: Empowering CLIP Encoders for Open-set 3D Object Retrieval 论文解读 | ICCV 2025 | arXiv 2507.21489 | 开放集3D检索 | 提出 DAC 框架，通过 \"描述-适配-组合\" 三步策略协同 CLIP 与多模态大语言模型 (MLLM)，仅使用多视图图像即可在开放集 3D 物体检索任务上大幅超越此前使用全模态（点云+体素+图像）的 SOTA 方法，平均 mAP 提升超过 +10%。"
 tags:
   - ICCV 2025
-  - 开放集3D检索
-  - CLIP
-  - MLLM
 ---
 
 # Describe, Adapt and Combine: Empowering CLIP Encoders for Open-set 3D Object Retrieval

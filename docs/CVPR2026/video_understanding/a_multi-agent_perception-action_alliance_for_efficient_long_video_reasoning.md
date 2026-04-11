@@ -2,9 +2,6 @@
 description: "【论文笔记】A Multi-Agent Perception-Action Alliance for Efficient Long Video Reasoning 论文解读 | CVPR2026 | arXiv 2603.14052 | 长视频推理 | 提出 A4VL，一个无训练的多智能体感知-行动联盟框架，通过事件驱动视频分块、线索引导的关键帧选择和多轮智能体协商剪枝机制，在五个视频问答基准上以显著更低的推理延迟全面超越 28 个基线方法。"
 tags:
   - CVPR2026
-  - 长视频推理
-  - 多智能体协作
-  - 视频问答
 ---
 
 # A Multi-Agent Perception-Action Alliance for Efficient Long Video Reasoning

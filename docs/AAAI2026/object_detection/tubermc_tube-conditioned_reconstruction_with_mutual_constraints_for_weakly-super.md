@@ -2,9 +2,6 @@
 description: "【论文笔记】TubeRMC: Tube-conditioned Reconstruction with Mutual Constraints for Weakly-supervised Spatio-Temporal Video Grounding 论文解读 | AAAI 2026 | arXiv 2511.10241 | 弱监督时空视频定位 | 提出 TubeRMC 框架，利用文本条件化的候选 tube 生成 + 从时间/空间/时空三个维度进行 tube 条件化重建，并引入空间-时间互约束来增强弱监督时空视频定位性能。"
 tags:
   - AAAI 2026
-  - 弱监督时空视频定位
-  - Tube重建
-  - 视觉语言对齐
 ---
 
 # TubeRMC: Tube-conditioned Reconstruction with Mutual Constraints for Weakly-supervised Spatio-Temporal Video Grounding

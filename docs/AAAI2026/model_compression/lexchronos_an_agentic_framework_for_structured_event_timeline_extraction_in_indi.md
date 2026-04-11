@@ -2,9 +2,6 @@
 description: "【论文笔记】LexChronos: An Agentic Framework for Structured Event Timeline Extraction in Indian Jurisprudence 论文解读 | AAAI 2026 | arXiv 2603.01651 | 事件抽取 | 本文提出LexChronos，一个双智能体迭代框架，用于从印度最高法院判决书中提取结构化事件时间线：通过LoRA微调的抽取智能体识别候选事件，预训练的反馈智能体通过置信度驱动的循环进行评分和精炼，在合成数据集上取得BERT F1 0.8751，且结构化时间线在下游的法律文本摘要中被GPT-4在75%的案例中评为优于非结构化基线。"
 tags:
   - AAAI 2026
-  - 事件抽取
-  - 法律文档分析
-  - 印度司法
 ---
 
 # LexChronos: An Agentic Framework for Structured Event Timeline Extraction in Indian Jurisprudence

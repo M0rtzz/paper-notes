@@ -2,9 +2,6 @@
 description: "【论文笔记】Human-LLM Collaborative Feature Engineering for Tabular Data 论文解读 | ICLR 2026 | arXiv 2601.21060 | 特征工程 | 提出人-LLM协作特征工程框架——解耦LLM的特征操作提议和选择过程：LLM仅负责生成候选操作→贝叶斯优化(建模效用+不确定性)引导选择→当效用估计不可靠时(早期轮次)→选择性征询人类偏好反馈(成对比较)→合成研究和真实用户研究均证明提升性能+降低认知负担。"
 tags:
   - ICLR 2026
-  - 特征工程
-  - LLM
-  - 贝叶斯优化
 ---
 
 # Human-LLM Collaborative Feature Engineering for Tabular Data

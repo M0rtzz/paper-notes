@@ -2,9 +2,6 @@
 description: "【论文笔记】Correcting False Alarms from Unseen: Adapting Graph Anomaly Detectors at Test Time 论文解读 | AAAI 2026 | arXiv 2511.07023 | 图异常检测 | 提出 TUNE，一个即插即用的测试时适应框架，通过图对齐器变换节点特征来解决图异常检测中因新正常类别出现导致的\"正常性偏移\"问题，利用聚合污染程度作为无监督适应信号，在 10 个真实数据集上显著增强多种预训练 GAD 模型的泛化能力。"
 tags:
   - AAAI 2026
-  - 图异常检测
-  - 测试时适应
-  - 正常性偏移
 ---
 
 # Correcting False Alarms from Unseen: Adapting Graph Anomaly Detectors at Test Time

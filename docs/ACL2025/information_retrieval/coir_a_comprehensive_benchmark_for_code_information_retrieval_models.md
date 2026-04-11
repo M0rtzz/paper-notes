@@ -2,9 +2,6 @@
 description: "【论文笔记】CoIR: A Comprehensive Benchmark for Code Information Retrieval Models 论文解读 | ACL 2025 | arXiv 2407.02883 | 代码检索 | 提出 CoIR，首个全面的代码信息检索基准，包含 10 个数据集、覆盖 4 大类 8 个子任务和 14 种编程语言，揭示了即使是 SOTA 检索模型在代码检索中也表现不佳，并指出许多模型已在现有排行榜上过拟合。"
 tags:
   - ACL 2025
-  - 代码检索
-  - 信息检索基准
-  - 嵌入模型
 ---
 
 # CoIR: A Comprehensive Benchmark for Code Information Retrieval Models

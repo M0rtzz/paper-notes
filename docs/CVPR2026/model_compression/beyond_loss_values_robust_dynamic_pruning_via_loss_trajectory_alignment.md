@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment 论文解读 | CVPR 2026 | arXiv 2604.07306 | 动态数据剪枝 | 提出AlignPrune——一个基于损失轨迹对齐的即插即用模块，通过Dynamic Alignment Score（DAS）替代传统损失值排序，使动态数据剪枝在噪声标签场景下准确率提升最高6.3%。"
 tags:
   - CVPR 2026
-  - 动态数据剪枝
-  - 噪声标签
-  - 损失轨迹
 ---
 
 # Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment

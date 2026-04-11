@@ -2,9 +2,6 @@
 description: "【论文笔记】From Image to Video: An Empirical Study of Diffusion Representations 论文解读 | ICCV 2025 | arXiv 2502.07001 | 扩散模型 | 系统对比了相同架构(WALT)在图像 vs 视频生成目标下训练的扩散模型在下游视觉理解任务上的表现，发现视频扩散模型在所有任务上一致优于图像对应物，尤其在需要运动和3D空间理解的任务上优势显著（点跟踪+68%、相机位姿+60%）。"
 tags:
   - ICCV 2025
-  - 扩散模型
-  - 视频表示学习
-  - 图像vs视频扩散
 ---
 
 # From Image to Video: An Empirical Study of Diffusion Representations

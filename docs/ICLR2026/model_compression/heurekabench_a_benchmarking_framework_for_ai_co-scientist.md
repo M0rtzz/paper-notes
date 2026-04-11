@@ -2,9 +2,6 @@
 description: "【论文笔记】HeurekaBench: A Benchmarking Framework for AI Co-scientist 论文解读 | ICLR 2026 | arXiv 2601.01678 | AI co-scientist | 提出 HeurekaBench，一个基于真实科学工作流构建评测基准的框架，通过多LLM流水线从论文中提取可验证的科学洞见并生成开放式研究问题，用于评估AI co-scientist在数据驱动科学发现中的端到端能力。"
 tags:
   - ICLR 2026
-  - AI co-scientist
-  - benchmark
-  - scientific agents
 ---
 
 # HeurekaBench: A Benchmarking Framework for AI Co-scientist

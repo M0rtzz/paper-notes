@@ -2,9 +2,6 @@
 description: "【论文笔记】ICLShield: Exploring and Mitigating In-Context Learning Backdoor Attacks 论文解读 | ICML 2025 | arXiv 2507.01321 | 后门攻击 | 首次提出\"双重学习假说\"揭示 ICL 后门攻击的理论机制，并设计 ICLShield 防御方法，通过动态添加高置信度和高相似度的干净示例来调节概念偏好比，平均降低攻击成功率 26.02%。"
 tags:
   - ICML 2025
-  - 后门攻击
-  - 上下文学习
-  - 大语言模型安全
 ---
 
 # ICLShield: Exploring and Mitigating In-Context Learning Backdoor Attacks

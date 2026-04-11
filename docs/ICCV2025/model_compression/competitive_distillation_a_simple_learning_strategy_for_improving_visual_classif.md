@@ -2,9 +2,6 @@
 description: "【论文笔记】Competitive Distillation: A Simple Learning Strategy for Improving Visual Classification 论文解读 | ICCV 2025 | arXiv 2506.23285 | 竞争蒸馏 | 提出竞争蒸馏策略，在多网络联合训练中，每个迭代动态选择表现最好的网络作为教师，配合随机扰动机制引入类似遗传算法的变异操作，显著提升视觉分类性能。"
 tags:
   - ICCV 2025
-  - 竞争蒸馏
-  - 知识蒸馏
-  - 互学习
 ---
 
 # Competitive Distillation: A Simple Learning Strategy for Improving Visual Classification

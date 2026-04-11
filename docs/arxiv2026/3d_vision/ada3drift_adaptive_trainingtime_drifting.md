@@ -2,10 +2,7 @@
 description: "【论文笔记】Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation 论文解读 | 投稿中 | arXiv 2603.11984 | 扩散模型 diffusion | Ada3Drift 将迭代生成的细化工作迁移到训练阶段，通过学习训练时的漂移场与多尺度场聚合，使模型在推理时实现单步（1 NFE）生成同时保留多模态动作的高保真度，适配实时机器人控制需求。"
 tags:
   - 投稿中
-  - diffusion
   - 扩散模型
-  - training-time drift
-  - one-step generation
 ---
 
 # Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation

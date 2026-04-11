@@ -2,11 +2,8 @@
 description: "【论文笔记】Quant Experts: Token-aware Adaptive Error Reconstruction with Mixture of Experts for Large Vision-Language Models Quantization 论文解读 | CVPR2026 | arXiv 2602.24059 | 量化 Post-Training Quantization | 提出 Quant Experts (QE)，通过将重要通道分为 token 无关和 token 依赖两组，分别用共享专家和路由专家（均为低秩适配器）进行量化误差补偿，实现了对 VLM 的 token 感知自适应量化，在 W4A6 设置下 72B 模型平均精度提升 5.09%。"
 tags:
   - CVPR2026
-  - Post-Training Quantization
   - 量化
-  - Vision-Language Models
   - 视觉语言
-  - Mixture of Experts
 ---
 
 # Quant Experts: Token-aware Adaptive Error Reconstruction with Mixture of Experts for Large Vision-Language Models Quantization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Position: Theory of Mind Benchmarks are Broken for Large Language Models 论文解读 | ICML 2025 | arXiv 2412.19726 | Theory of Mind | 这篇 Position Paper 指出当前大多数 LLM Theory of Mind（ToM）基准只测“能否预测他人行为”（Literal ToM），却没有测“能否基于该预测采取最优响应”（Functional ToM），因此会系统性高估模型在真实交互中的适应能力。"
 tags:
   - ICML 2025
-  - Theory of Mind
-  - LLM评测
-  - 多智能体交互
 ---
 
 # Position: Theory of Mind Benchmarks are Broken for Large Language Models

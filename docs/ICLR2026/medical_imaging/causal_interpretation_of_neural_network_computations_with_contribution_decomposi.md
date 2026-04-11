@@ -2,9 +2,6 @@
 description: "【论文笔记】Causal Interpretation of Neural Network Computations with Contribution Decomposition 论文解读 | ICLR2026 | arXiv 2603.06557 | neural network interpretability | 提出 CODEC（Contribution Decomposition），用 Integrated Gradients 计算隐藏层神经元对输出的贡献（而非仅分析激活），再用 Sparse Autoencoder 将贡献分解为稀疏模式（modes），实现比激活分析更强的因果可解释性和网络控制能力，并成功应用于 ResNet-50 和视网膜生物神经网络模型。"
 tags:
   - ICLR2026
-  - neural network interpretability
-  - contribution decomposition
-  - sparse autoencoder
 ---
 
 # Causal Interpretation of Neural Network Computations with Contribution Decomposition

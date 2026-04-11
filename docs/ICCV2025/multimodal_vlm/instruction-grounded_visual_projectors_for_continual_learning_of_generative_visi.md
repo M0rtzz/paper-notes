@@ -2,9 +2,6 @@
 description: "【论文笔记】Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models 论文解读 | ICCV 2025 | arXiv 2508.00260 | 持续学习 | 提出 MVP（Mixture of Visual Projectors），一种基于指令上下文的视觉投影器混合专家框架，通过专家推荐策略和专家剪枝机制，使生成式 VLM 在持续学习新视觉-语言任务时避免灾难性遗忘，同时保持对不同指令类型的响应能力，在分类/描述/问答等任务上全面超越现有方法。"
 tags:
   - ICCV 2025
-  - 持续学习
-  - 视觉-语言模型
-  - Mixture-of-Experts
 ---
 
 # Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models

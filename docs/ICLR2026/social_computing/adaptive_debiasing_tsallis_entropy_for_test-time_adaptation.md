@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation 论文解读 | ICLR 2026 | arXiv 2602.11743 | test-time adaptation | 提出将 Tsallis 熵（SE 的广义形式）引入 VLM 的 Test-Time Adaptation，并进一步发展为自适应去偏 Tsallis 熵（ADTE），为每个类别定制去偏参数 $q^l$，在不引入分布特定超参数的情况下比 Shannon 熵选择更可靠的高置信视图，在 ImageNet 及其 5 个变体和 10 个跨域 benchmark 上均超越 SOTA。"
 tags:
   - ICLR 2026
-  - test-time adaptation
-  - Tsallis entropy
-  - CLIP
 ---
 
 # Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation

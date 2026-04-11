@@ -2,9 +2,6 @@
 description: "【论文笔记】Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry 论文解读 | CVPR 2026 | arXiv 2603.11344 | TFCE | 提出将 eTFCE 的 union-find 精确聚类大小检索与 pTFCE 的 GRF 解析推断相结合的混合方法，首次同时实现精确聚类大小查询与无需置换检验的分析型 $p$ 值计算，比 R pTFCE 快 $4.6\times$–$75\times$。"
 tags:
   - CVPR 2026
-  - TFCE
-  - 高斯随机场
-  - Union-Find
 ---
 
 # Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry

@@ -2,9 +2,6 @@
 description: "【论文笔记】KinMo: Kinematic-Aware Human Motion Understanding and Generation 论文解读 | ICCV 2025 | arXiv 2411.15472 | 人体运动生成 | 提出 KinMo 框架，将人体运动分解为六大运动学组及其交互的层级可描述表示，通过自动标注管线生成细粒度文本描述，结合层级文本-运动对齐和由粗到细的运动生成策略，显著提升运动理解和细粒度运动生成能力。"
 tags:
   - ICCV 2025
-  - 人体运动生成
-  - 文本-运动对齐
-  - 运动学分组
 ---
 
 # KinMo: Kinematic-Aware Human Motion Understanding and Generation

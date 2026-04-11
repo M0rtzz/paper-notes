@@ -2,9 +2,6 @@
 description: "【论文笔记】AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint 论文解读 | ICLR 2026 | arXiv 2506.07022 | activation steering | 提出 AlphaSteer，通过学习一个受零空间约束的变换矩阵来动态构造 steering 向量，对良性输入产生近零向量（保持效用），对恶意输入重建拒绝方向向量（增强安全），在理论上保证了安全与效用的解耦。"
 tags:
   - ICLR 2026
-  - activation steering
-  - refusal direction
-  - null-space projection
 ---
 
 # AlphaSteer: Learning Refusal Steering with Principled Null-Space Constraint

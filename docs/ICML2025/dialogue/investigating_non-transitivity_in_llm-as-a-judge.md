@@ -2,9 +2,6 @@
 description: "【论文笔记】Investigating Non-Transitivity in LLM-as-a-Judge 论文解读 | ICML 2025 | arXiv 2502.14074 | LLM评估 | 揭示了 LLM-as-a-Judge 框架中评判偏好的**非传递性**问题（A>B, B>C 不能推出 A>C），证明固定基线模型的排名方式不可靠，提出基于循环赛 + Bradley-Terry 模型的排名方法及高效的 Swim 锦标赛策略。"
 tags:
   - ICML 2025
-  - LLM评估
-  - 非传递性
-  - Bradley-Terry模型
 ---
 
 # Investigating Non-Transitivity in LLM-as-a-Judge

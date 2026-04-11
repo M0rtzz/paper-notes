@@ -2,9 +2,6 @@
 description: "【论文笔记】MoVieDrive: Urban Scene Synthesis with Multi-Modal Multi-View Video Diffusion Transformer 论文解读 | CVPR 2026 | arXiv 2508.14327 | 多模态视频生成 | MoVieDrive 提出统一的多模态多视图视频扩散 Transformer，通过 modal-shared + modal-specific 的双层架构设计，在单一模型中同时生成 RGB 视频、深度图和语义图，配合多样的条件输入（文本、布局、上下文参考），在 nuScenes 上取得 FVD 46.8（SOTA），同时实现跨模态一致的高质量驾驶场景合成。"
 tags:
   - CVPR 2026
-  - 多模态视频生成
-  - 多视图一致性
-  - 扩散Transformer
   - Transformer
 ---
 

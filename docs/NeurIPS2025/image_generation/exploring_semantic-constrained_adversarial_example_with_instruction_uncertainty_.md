@@ -2,9 +2,6 @@
 description: "【论文笔记】Exploring Semantic-constrained Adversarial Example with Instruction Uncertainty Reduction 论文解读 | NeurIPS 2025 | arXiv 2510.22981 | 对抗样本 | 提出多维度指令不确定性缩减框架 InSUR，通过 ResAdv-DDIM 采样器稳定对抗优化方向、上下文编码的攻击场景约束、以及基于 WordNet 的语义抽象评估，首次实现了从自然语言指令生成 2D/3D 语义约束对抗样本（SemanticAE）。"
 tags:
   - NeurIPS 2025
-  - 对抗样本
-  - 语义约束
-  - 扩散模型
 ---
 
 # Exploring Semantic-constrained Adversarial Example with Instruction Uncertainty Reduction

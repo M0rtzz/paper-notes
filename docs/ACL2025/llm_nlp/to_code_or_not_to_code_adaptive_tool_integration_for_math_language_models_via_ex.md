@@ -2,9 +2,6 @@
 description: "【论文笔记】To Code or not to Code? Adaptive Tool Integration for Math Language Models via Expectation-Maximization 论文解读 | ACL2025 | arXiv 2502.00691 | 数学推理 | 提出基于EM框架的AutoCode方法，让数学LLM自主决定何时使用代码工具辅助推理，通过E-step引导探索高潜力代码触发决策+M-step离线RL优化，7B模型在MATH500上提升11%+。"
 tags:
   - ACL2025
-  - 数学推理
-  - 工具集成
-  - 元认知
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

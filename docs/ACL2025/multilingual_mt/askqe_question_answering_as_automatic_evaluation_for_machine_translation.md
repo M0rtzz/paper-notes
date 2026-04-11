@@ -2,9 +2,6 @@
 description: "【论文笔记】AskQE: Question Answering as Automatic Evaluation for Machine Translation 论文解读 | ACL 2025 (Findings) | arXiv 2504.11582 | machine translation evaluation | 提出 AskQE——基于问答的机器翻译质量估计框架，通过对源文本生成问题、分别在源文本和回译输出上回答、对比答案差异来检测翻译错误，帮助不懂目标语言的用户判断翻译是否可接受，在 BioMQM 数据集上 Kendall's τ 相关和决策准确率均优于现有 QE 指标。"
 tags:
   - ACL 2025 (Findings)
-  - machine translation evaluation
-  - quality estimation
-  - question answering
 ---
 
 # AskQE: Question Answering as Automatic Evaluation for Machine Translation

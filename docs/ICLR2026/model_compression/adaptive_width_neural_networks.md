@@ -2,9 +2,6 @@
 description: "【论文笔记】Adaptive Width Neural Networks 论文解读 | ICLR 2026 | arXiv 2501.15889 | 自适应宽度 | 提出AWN框架，通过变分推断在训练过程中自动学习每层的无上界宽度（神经元数量），利用单调递减的重要性函数对神经元施加软排序，实现宽度自适应于任务难度，并支持零成本的训练后截断压缩。"
 tags:
   - ICLR 2026
-  - 自适应宽度
-  - 变分推断
-  - 神经元重要性排序
 ---
 
 # Adaptive Width Neural Networks

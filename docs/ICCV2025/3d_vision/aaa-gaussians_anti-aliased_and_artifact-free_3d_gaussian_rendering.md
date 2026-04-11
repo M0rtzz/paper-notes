@@ -2,9 +2,6 @@
 description: "【论文笔记】AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering 论文解读 | ICCV 2025 | arXiv 2504.12811 | 3D高斯喷溅 | AAA-Gaussians提出了一种统一的3D高斯光栅化框架，通过自适应3D平滑滤波器、视空间透视正确边界计算和基于视锥体的3D裁剪，在单一框架内同时解决了3DGS的锯齿、投影畸变和闪烁三大顽疾，在分布外视角评估中大幅领先其他方法，同时保持实时渲染性能。"
 tags:
   - ICCV 2025
-  - 3D高斯喷溅
-  - 抗锯齿
-  - 伪影消除
 ---
 
 # AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering

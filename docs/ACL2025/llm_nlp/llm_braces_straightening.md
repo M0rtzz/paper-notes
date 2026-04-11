@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates 论文解读 | ACL 2025 | arXiv 2503.16334 | FFN子更新 | LLMBraces 通过计算 FFN 层中各 value 向量与输入的相关性得分，动态调节子更新（sub-update）的贡献权重，用极少参数（比 LoRA 少 75%）同时提升模型预测精度和实现可控文本生成。"
 tags:
   - ACL 2025
-  - FFN子更新
-  - 相关性得分
-  - 参数高效微调
 ---
 
 # LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates

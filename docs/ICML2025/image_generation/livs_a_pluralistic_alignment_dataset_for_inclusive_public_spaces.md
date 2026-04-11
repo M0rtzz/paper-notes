@@ -2,9 +2,6 @@
 description: "【论文笔记】LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces 论文解读 | ICML2025 | arXiv 2503.01894 | Pluralistic Alignment | 通过两年社区参与式研究，构建了包含 37,710 对多标准偏好标注的 LIVS 数据集，用于文本到图像模型在包容性城市公共空间设计中的多元对齐，并用 DPO 微调 SDXL 验证其有效性。"
 tags:
   - ICML2025
-  - Pluralistic Alignment
-  - Text-to-Image
-  - DPO
 ---
 
 # LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces

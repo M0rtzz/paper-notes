@@ -2,9 +2,6 @@
 description: "【论文笔记】PROSPERO: Active Learning for Robust Protein Design Beyond Wild-Type Neighborhood 论文解读 | NeurIPS 2025 | arXiv 2505.22494 | 蛋白质设计 | 提出 ProSpero，一个主动学习框架，通过冻结的预训练生成模型（EvoDiff）在代理模型引导下的推理时采样、针对性掩码策略和生物约束的 SMC 采样，在代理模型可能失配的条件下仍能发现高适应性且新颖的蛋白质序列。"
 tags:
   - NeurIPS 2025
-  - 蛋白质设计
-  - 主动学习
-  - 序列蒙特卡洛
 ---
 
 # PROSPERO: Active Learning for Robust Protein Design Beyond Wild-Type Neighborhood

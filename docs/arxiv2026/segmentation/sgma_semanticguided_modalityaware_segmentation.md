@@ -2,9 +2,7 @@
 description: "【论文笔记】SGMA: Semantic-Guided Modality-Aware Segmentation for Remote Sensing with Incomplete Multimodal Data 论文解读 | arXiv 2026 | arXiv 2603.02505 | sgma | 多模态语义分割集成了来自不同传感器的互补信息，用于遥感地球观测。"
 tags:
   - arXiv 2026
-  - sgma
-  - semantic-guided
-  - modality-aware
+  - 图像分割
 ---
 
 # SGMA: Semantic-Guided Modality-Aware Segmentation for Remote Sensing with Incomplete Multimodal Data

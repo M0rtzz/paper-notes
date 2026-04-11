@@ -2,10 +2,7 @@
 description: "【论文笔记】DiffusionBlocks: Block-wise Neural Network Training via Diffusion Interpretation 论文解读 | ICLR2026 | arXiv 2506.14202 | block-wise training | 提出 DiffusionBlocks，将残差网络的逐层更新解释为连续时间扩散过程的离散化步骤，从而将网络切分为可完全独立训练的 block，在保持端到端训练性能的同时按 block 数 B 倍减少训练显存。"
 tags:
   - ICLR2026
-  - block-wise training
-  - diffusion models
   - 扩散模型
-  - score matching
 ---
 
 # DiffusionBlocks: Block-wise Neural Network Training via Diffusion Interpretation

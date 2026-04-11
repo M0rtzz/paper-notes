@@ -2,9 +2,6 @@
 description: "【论文笔记】Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge 论文解读 | NeurIPS 2025 | arXiv 2509.19659 | VLM偏见 | 构建 1,343 个新闻图片-问答对的偏见评估基准，标注年龄/性别/种族/职业等人口统计属性，用 GPT-4o 作为评判员（LLM-as-judge）评估 15 个 VLM 在开放式问答中的偏见表现，发现高忠实度不等于低偏见，且性别和职业偏见尤为严重。"
 tags:
   - NeurIPS 2025
-  - VLM偏见
-  - 新闻图片
-  - 社会线索
 ---
 
 # Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge

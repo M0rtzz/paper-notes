@@ -2,9 +2,6 @@
 description: "【论文笔记】EVODiff: Entropy-aware Variance Optimized Diffusion Inference 论文解读 | NeurIPS 2025 | arXiv 2509.26096 | 扩散模型 | 从信息论角度分析扩散模型推理过程，提出通过优化条件方差来减少条件熵的 EVODiff 方法，在不修改模型的前提下显著加速采样并提升生成质量。"
 tags:
   - NeurIPS 2025
-  - 扩散模型
-  - 推理加速
-  - 信息论
 ---
 
 # EVODiff: Entropy-aware Variance Optimized Diffusion Inference

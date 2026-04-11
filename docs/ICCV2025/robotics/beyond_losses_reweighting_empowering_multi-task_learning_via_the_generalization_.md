@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Losses Reweighting: Empowering Multi-Task Learning via the Generalization Perspective 论文解读 | ICCV 2025 | arXiv 2211.13723 | 多任务学习 | 从泛化角度出发，将锐度感知最小化（SAM）引入多任务学习，通过分解每个任务的 SAM 梯度为\"低损失方向\"和\"平坦方向\"并分别聚合，减少梯度冲突并引导模型进入跨任务共同平坦低损失区域。"
 tags:
   - ICCV 2025
-  - 多任务学习
-  - 平坦极小值
-  - 锐度感知最小化
 ---
 
 # Beyond Losses Reweighting: Empowering Multi-Task Learning via the Generalization Perspective

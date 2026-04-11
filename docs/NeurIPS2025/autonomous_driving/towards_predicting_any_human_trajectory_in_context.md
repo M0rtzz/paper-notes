@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Predicting Any Human Trajectory in Context 论文解读 | NeurIPS 2025 | arXiv 2506.00871 | 行人轨迹预测 | 提出 TrajICL，一种基于上下文学习（ICL）的行人轨迹预测框架，通过时空相似性示例选择和预测引导示例选择，在不微调的情况下实现跨场景自适应轨迹预测，性能甚至超越微调方法。"
 tags:
   - NeurIPS 2025
-  - 行人轨迹预测
-  - In-Context Learning
-  - 跨域适应
 ---
 
 # Towards Predicting Any Human Trajectory in Context

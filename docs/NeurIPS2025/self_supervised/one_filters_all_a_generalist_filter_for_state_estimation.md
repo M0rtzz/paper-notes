@@ -2,9 +2,7 @@
 description: "【论文笔记】One Filters All: A Generalist Filter for State Estimation 论文解读 | NeurIPS 2025 | arXiv 2509.20051 | LLM重编程 | 提出 LLM-Filter，将 LLM 重编程为通用状态估计器，通过 System-as-Prompt（SaP）机制使冻结的 LLM 在未见动力系统上实现零样本泛化，性能超越 SOTA 学习型滤波器。"
 tags:
   - NeurIPS 2025
-  - LLM重编程
-  - 状态估计
-  - 贝叶斯滤波
+  - 提示学习
 ---
 
 # One Filters All: A Generalist Filter for State Estimation

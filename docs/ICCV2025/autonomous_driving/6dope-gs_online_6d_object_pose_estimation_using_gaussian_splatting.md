@@ -2,9 +2,6 @@
 description: "【论文笔记】6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2412.01543 | 6D位姿估计 | 提出6DOPE-GS，一种利用2D高斯溅射（2DGS）联合优化6D物体位姿和3D重建的model-free在线追踪方法，通过动态关键帧选择和基于透明度百分位的密度控制实现5倍加速，同时保持SOTA精度。"
 tags:
   - ICCV 2025
-  - 6D位姿估计
-  - 高斯溅射
-  - 实时追踪
 ---
 
 # 6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting

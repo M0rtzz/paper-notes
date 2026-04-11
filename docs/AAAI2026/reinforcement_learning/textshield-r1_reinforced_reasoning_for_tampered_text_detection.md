@@ -2,9 +2,6 @@
 description: "【论文笔记】TextShield-R1: Reinforced Reasoning for Tampered Text Detection 论文解读 | AAAI 2026 | arXiv 2602.19828 | 篡改文本检测 | 提出 TextShield-R1，首个基于强化学习的多模态大模型篡改文本检测方法，通过取证持续预训练（从自然图像到文本图像的课程）、GRPO 强化学习（五种精心设计的奖励函数减少标注依赖）和 OCR 矫正（利用 MLLM 的文本识别能力提升定位精度），配合新提出的 TFR 基准（45K+ 图像、16 种语言、10 种篡改技术），显著推进了可解释性篡改文本检测的 SOTA。"
 tags:
   - AAAI 2026
-  - 篡改文本检测
-  - 多模态大模型
-  - GRPO
 ---
 
 # TextShield-R1: Reinforced Reasoning for Tampered Text Detection

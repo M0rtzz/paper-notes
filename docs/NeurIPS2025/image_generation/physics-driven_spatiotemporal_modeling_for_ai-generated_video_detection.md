@@ -2,9 +2,6 @@
 description: "【论文笔记】Physics-Driven Spatiotemporal Modeling for AI-Generated Video Detection 论文解读 | NeurIPS 2025 | arXiv 2510.08073 | AI生成视频检测 | 提出基于物理守恒定律的AI生成视频检测范式，定义归一化时空梯度（NSG）统计量来捕获空间概率梯度与时间密度变化的比率，利用预训练扩散模型估计NSG并通过MMD进行检测，在Recall上超越SOTA 16%、F1超越10.75%。"
 tags:
   - NeurIPS 2025
-  - AI生成视频检测
-  - 概率流守恒
-  - 归一化时空梯度
 ---
 
 # Physics-Driven Spatiotemporal Modeling for AI-Generated Video Detection

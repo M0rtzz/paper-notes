@@ -2,9 +2,6 @@
 description: "【论文笔记】Can LLM Watermarks Robustly Prevent Unauthorized Knowledge Distillation? 论文解读 | ACL 2025 | arXiv 2502.11598 | LLM水印 | 本文首次系统研究 LLM 水印在防止未授权知识蒸馏中的鲁棒性，提出三种水印去除攻击（无目标/有目标释义 + 推理时水印中和），发现有目标释义和水印中和可以彻底去除继承的水印，其中水印中和在保持知识迁移效率的同时实现零额外训练开销的水印去除。"
 tags:
   - ACL 2025
-  - LLM水印
-  - 知识蒸馏
-  - 水印放射性
 ---
 
 # Can LLM Watermarks Robustly Prevent Unauthorized Knowledge Distillation?

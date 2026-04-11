@@ -2,9 +2,6 @@
 description: "【论文笔记】Unlocking Speech Instruction Data Potential with Query Rewriting 论文解读 | ACL 2025 | arXiv 2507.08603 | 语音指令数据 | 提出基于多 LLM 知识融合的查询重写框架，通过零样本重写将文本指令转换为更适合 TTS 模型合成的分布，结合多 Agent 标注与验证机制，将语音指令数据可用率从 72% 提升至 93%。"
 tags:
   - ACL 2025
-  - 语音指令数据
-  - 查询重写
-  - TTS
 ---
 
 # Unlocking Speech Instruction Data Potential with Query Rewriting

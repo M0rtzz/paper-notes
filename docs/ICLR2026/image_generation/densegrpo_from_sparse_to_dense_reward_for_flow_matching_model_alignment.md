@@ -2,9 +2,6 @@
 description: "【论文笔记】DenseGRPO: From Sparse to Dense Reward for Flow Matching Model Alignment 论文解读 | ICLR 2026 | arXiv 2601.20218 | GRPO | 解决 Flow Matching + GRPO 对齐中的稀疏奖励问题：通过 ODE 去噪预测中间潜变量的 step-wise 奖励增益作为密集奖励，并根据密集奖励自适应调整 SDE 采样器的逐时间步噪声注入来校准探索空间，在人类偏好对齐/组合生成/文字渲染三个任务上超越 Flow-GRPO。"
 tags:
   - ICLR 2026
-  - GRPO
-  - dense reward
-  - flow matching
 ---
 
 # DenseGRPO: From Sparse to Dense Reward for Flow Matching Model Alignment

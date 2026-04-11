@@ -2,9 +2,6 @@
 description: "【论文笔记】Disentangling Hyperedges through the Lens of Category Theory 论文解读 | NeurIPS 2025 | arXiv 2510.16289 | hypergraph | 首次从范畴论视角分析超边解耦，基于自然性条件导出\"因子表示一致性\"标准（聚合后解耦 vs 解耦后聚合应一致），提出 Natural-HNN 模型在6个癌症分型数据集上全面超越14个baseline（BRCA F1 从75.7%提升至80.4%），并能100%正确捕获基因通路的功能上下文。"
 tags:
   - NeurIPS 2025
-  - hypergraph
-  - disentangled representation
-  - category theory
 ---
 
 # Disentangling Hyperedges through the Lens of Category Theory

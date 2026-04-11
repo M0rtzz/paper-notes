@@ -2,9 +2,6 @@
 description: "【论文笔记】Sample-Efficient Distributionally Robust Multi-Agent Reinforcement Learning via Online Interaction 论文解读 | ICLR 2026 | arXiv 2508.02948 | Distributionally Robust | 本文首次研究了分布鲁棒马尔可夫博弈（DRMGs）的在线学习问题，提出 MORNAVI 算法，在无需模拟器或离线数据的情况下，通过在线交互高效学习最优鲁棒策略，并提供了 TV 散度和 KL 散度不确定性集下的首个可证明遗憾界。"
 tags:
   - ICLR 2026
-  - Distributionally Robust
-  - Multi-Agent RL
-  - Markov Games
 ---
 
 # Sample-Efficient Distributionally Robust Multi-Agent Reinforcement Learning via Online Interaction

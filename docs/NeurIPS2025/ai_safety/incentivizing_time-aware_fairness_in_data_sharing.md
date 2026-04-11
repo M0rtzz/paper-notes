@@ -2,9 +2,6 @@
 description: "【论文笔记】Incentivizing Time-Aware Fairness in Data Sharing 论文解读 | NeurIPS 2025 | arXiv 2510.09240 | 数据共享 | 提出了一个时间感知的数据共享框架，设计了新的激励机制（F6-F8）和两种奖励方案（时间感知奖励累计和时间感知数据估值），保证早加入协作的参与方能获得更高价值的奖励，同时兼顾公平性和个体理性。"
 tags:
   - NeurIPS 2025
-  - 数据共享
-  - 公平性
-  - 时间感知激励
 ---
 
 # Incentivizing Time-Aware Fairness in Data Sharing

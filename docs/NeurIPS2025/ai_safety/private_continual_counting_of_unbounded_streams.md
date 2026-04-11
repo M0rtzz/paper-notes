@@ -2,9 +2,6 @@
 description: "【论文笔记】Private Continual Counting of Unbounded Streams 论文解读 | NeurIPS 2025 | arXiv 2506.15018 | 差分隐私 | 提出基于对数扰动的新型矩阵分解方法，首次实现同时满足\"无界流\"、\"平滑误差\"和\"近最优渐近误差\"三大性质的差分隐私持续计数算法，对任意 $\alpha > 0$ 在时间步 $t$ 处的方差为 $O(\log^{2+2\alpha}(t))$。"
 tags:
   - NeurIPS 2025
-  - 差分隐私
-  - 持续观测
-  - 矩阵分解
 ---
 
 # Private Continual Counting of Unbounded Streams

@@ -2,9 +2,6 @@
 description: "【论文笔记】Pointer-CAD: Unifying B-Rep and Command Sequences via Pointer-based Edges & Faces Selection 论文解读 | CVPR2026 | arXiv 2603.04337 | CAD 生成 | 提出基于指针 (Pointer) 机制的命令序列表示，将 B-Rep 几何实体（边/面）显式引入自回归 CAD 生成，首次在命令序列方法中支持 chamfer/fillet 操作，同时大幅降低量化误差导致的拓扑错误。"
 tags:
   - CVPR2026
-  - CAD 生成
-  - B-Rep
-  - Pointer Network
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

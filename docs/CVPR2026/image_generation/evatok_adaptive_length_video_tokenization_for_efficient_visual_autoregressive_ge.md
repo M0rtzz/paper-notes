@@ -2,9 +2,6 @@
 description: "【论文笔记】EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation 论文解读 | CVPR2026 | arXiv 2603.12267 | 视频 tokenizer | 提出 EVATok 四阶段框架，通过代理奖励（proxy reward）定义最优 token 分配，训练轻量路由器预测每段视频的最优 token 预算，实现内容自适应的可变长度视频 tokenization，在 UCF-101 上达到 SOTA 生成质量的同时节省至少 24.4% 的 token 用量。"
 tags:
   - CVPR2026
-  - 视频 tokenizer
-  - 自适应长度
-  - 自回归生成
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

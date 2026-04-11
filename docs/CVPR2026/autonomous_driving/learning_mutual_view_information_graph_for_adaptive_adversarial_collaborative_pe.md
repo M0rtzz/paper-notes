@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning Mutual View Information Graph for Adaptive Adversarial Collaborative Perception 论文解读 | CVPR 2026 | arXiv 2602.19596 | 协作感知安全 | 提出 MVIG 攻击框架，通过将不同防御型协作感知系统的脆弱性统一建模为互视图信息图(Mutual View Information Graph)，结合时序图学习与熵感知漏洞搜索，实现自适应的伪造攻击，使防御成功率最高下降 62%。"
 tags:
   - CVPR 2026
-  - 协作感知安全
-  - 对抗攻击
-  - 图神经网络
 ---
 
 # Learning Mutual View Information Graph for Adaptive Adversarial Collaborative Perception

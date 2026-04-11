@@ -2,9 +2,6 @@
 description: "【论文笔记】What's the plan? Metrics for implicit planning in LLMs and their application to rhyme generation and question answering 论文解读 | ICLR 2026 | arXiv 2601.20164 | 隐式规划 | 提出简单的定量方法评估LLM的隐式规划行为——在韵律诗(计划押韵词)和问答(计划答案)两个案例上,通过激活引导干预证明:目标token(押韵/答案)的表示在序列早期位置已形成(前向规划),且影响中间token的生成(后向规划)→在23个1B-32B模型上验证→隐式规划从1B模型即开始出现→是普遍机制。"
 tags:
   - ICLR 2026
-  - 隐式规划
-  - 前向规划
-  - 后向规划
 ---
 
 # What's the plan? Metrics for implicit planning in LLMs and their application to rhyme generation and question answering

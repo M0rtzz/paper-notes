@@ -2,9 +2,6 @@
 description: "【论文笔记】Where and What Matters: Sensitivity-Aware Task Vectors for Many-Shot Multimodal In-Context Learning 论文解读 | AAAI 2026 | arXiv 2511.08246 | 多模态上下文学习 | 提出 STV 框架，通过激活差值（activation delta）识别对上下文信息敏感的注意力头位置，并利用强化学习从预聚类的激活库中选择最优任务向量进行插入，在不增加输入长度的前提下实现高效的多模态 many-shot 上下文学习。"
 tags:
   - AAAI 2026
-  - 多模态上下文学习
-  - 任务向量
-  - 注意力头敏感性
 ---
 
 # Where and What Matters: Sensitivity-Aware Task Vectors for Many-Shot Multimodal In-Context Learning

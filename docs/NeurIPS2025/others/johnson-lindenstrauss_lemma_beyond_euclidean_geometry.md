@@ -2,9 +2,6 @@
 description: "【论文笔记】Johnson-Lindenstrauss Lemma Beyond Euclidean Geometry 论文解读 | NEURIPS2025 | arXiv 2510.22401 | Johnson-Lindenstrauss | 将经典 Johnson-Lindenstrauss 引理从欧氏空间推广到任意 symmetric hollow dissimilarity 矩阵，通过 pseudo-Euclidean 空间和 generalized power distance 两条互补路线，给出与数据偏离欧氏几何程度挂钩的 fine-grained 误差保证。"
 tags:
   - NEURIPS2025
-  - Johnson-Lindenstrauss
-  - dimensionality reduction
-  - non-Euclidean geometry
 ---
 
 # Johnson-Lindenstrauss Lemma Beyond Euclidean Geometry

@@ -2,9 +2,6 @@
 description: "【论文笔记】RoCo-Sim: Enhancing Roadside Collaborative Perception through Foreground Simulation 论文解读 | ICCV 2025 | arXiv 2503.10410 | 路侧协同感知 | RoCo-Sim 是首个面向路侧协同感知的仿真框架，通过相机外参优化、多视图遮挡感知采样、DepthSAM 深度渲染和可扩展后处理工具包，从单张图像生成多样且多视图一致的路侧仿真数据，将路侧3D检测性能提升 83%+。"
 tags:
   - ICCV 2025
-  - 路侧协同感知
-  - 仿真数据增强
-  - 3D目标检测
 ---
 
 # RoCo-Sim: Enhancing Roadside Collaborative Perception through Foreground Simulation

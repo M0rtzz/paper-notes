@@ -2,9 +2,6 @@
 description: "【论文笔记】REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers 论文解读 | ICCV 2025 | arXiv 2504.10483 | 端到端训练 | 本文提出 REPA-E，通过表示对齐（REPA）损失实现 VAE 和潜在扩散 Transformer 的端到端联合训练，训练速度分别比 REPA 和普通训练快 17× 和 45×，在 ImageNet 256×256 上达到 FID 1.12 的新SOTA。"
 tags:
   - ICCV 2025
-  - 端到端训练
-  - VAE
-  - 潜在扩散模型
 ---
 
 # REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers

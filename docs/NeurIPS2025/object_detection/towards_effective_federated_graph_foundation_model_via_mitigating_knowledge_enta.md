@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Effective Federated Graph Foundation Model via Mitigating Knowledge Entanglement 论文解读 | NeurIPS 2025 | arXiv 2505.12684 | 联邦图学习 | 首次提出联邦图基础模型(FedGFM)范式，融合联邦图学习的分布式协作能力与图基础模型的跨域泛化能力，通过 AncDAI（锚点域感知初始化）和 AdaDPP（自适应域敏感提示池）两个模块缓解知识纠缠问题，在8个跨任务跨领域数据集上超越20个基线。"
 tags:
   - NeurIPS 2025
-  - 联邦图学习
-  - 图基础模型
-  - 知识纠缠
 ---
 
 # Towards Effective Federated Graph Foundation Model via Mitigating Knowledge Entanglement

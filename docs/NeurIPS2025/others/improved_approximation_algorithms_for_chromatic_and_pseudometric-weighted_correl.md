@@ -2,9 +2,6 @@
 description: "【论文笔记】Improved Approximation Algorithms for Chromatic and Pseudometric-Weighted Correlation Clustering 论文解读 | NEURIPS2025 | arXiv 2505.21939 | Correlation Clustering | 针对 Correlation Clustering (CC) 的两个重要推广——Chromatic CC 和 pseudometric-weighted CC，基于 LP relaxation 与精心设计的 rounding function，分别取得 **2.15-approximation** 和 **tight 10/3-approximation**，显著改进了先前最佳结果。"
 tags:
   - NEURIPS2025
-  - Correlation Clustering
-  - Approximation Algorithm
-  - LP Rounding
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

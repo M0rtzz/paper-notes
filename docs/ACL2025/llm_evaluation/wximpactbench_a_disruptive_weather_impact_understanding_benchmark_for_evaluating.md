@@ -2,9 +2,7 @@
 description: "【论文笔记】WXImpactBench: A Disruptive Weather Impact Understanding Benchmark for Evaluating Large Language Models 论文解读 | ACL 2025 | arXiv 2505.20249 | 极端天气影响 | 提出 WXImpactBench，首个评估 LLM 理解极端天气社会影响的基准，包含经过 4 阶段管线处理的高质量历史报纸数据集和两个评估任务（多标签分类和排序问答）。"
 tags:
   - ACL 2025
-  - 极端天气影响
-  - LLM评估基准
-  - 历史报纸
+  - OCR
 ---
 
 # WXImpactBench: A Disruptive Weather Impact Understanding Benchmark for Evaluating Large Language Models

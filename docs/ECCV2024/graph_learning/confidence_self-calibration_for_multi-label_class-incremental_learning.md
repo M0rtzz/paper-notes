@@ -2,9 +2,6 @@
 description: "【论文笔记】Confidence Self-Calibration for Multi-Label Class-Incremental Learning 论文解读 | ECCV2024 | arXiv 2403.12559 | multi-label class-incremental learning | 针对多标签类增量学习(MLCIL)中部分标签导致的过度自信预测和假阳性错误问题，提出 Confidence Self-Calibration (CSC) 框架，通过类增量图卷积网络(CI-GCN)校准标签关系 + 最大熵正则化校准置信度，在 MS-COCO 和 VOC 上大幅超越 SOTA。"
 tags:
   - ECCV2024
-  - multi-label class-incremental learning
-  - confidence calibration
-  - graph convolutional network
 ---
 
 # Confidence Self-Calibration for Multi-Label Class-Incremental Learning

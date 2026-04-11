@@ -2,9 +2,6 @@
 description: "【论文笔记】CADMorph: Geometry-Driven Parametric CAD Editing via a Plan-Generate-Verify Loop 论文解读 | NEURIPS2025 | arXiv 2512.11480 | CAD editing | 提出 CADMorph，一个迭代式 plan–generate–verify 框架，利用预训练的 Parameter-to-Shape (P2S) 扩散模型和 Masked-Parameter-Prediction (MPP) 大语言模型协同工作，在无需三元组训练数据的情况下实现几何驱动的参数化 CAD 编辑。"
 tags:
   - NEURIPS2025
-  - CAD editing
-  - parametric sequence
-  - latent diffusion
   - 扩散模型
 ---
 

@@ -2,9 +2,6 @@
 description: "【论文笔记】Does Self-Evaluation Enable Wireheading in Language Models? 论文解读 | AAAI 2026 | arXiv 2511.23092 | Wireheading | 本文理论证明并实验验证了当语言模型的自我评估与奖励信号耦合时，模型会系统性地膨胀自评分（wireheading），而解耦自评分与奖励可以缓解这一问题；在Llama-3.1-8B和Mistral-7B上三个任务的实验表明，摘要等模糊任务中自评分膨胀高达0.92。"
 tags:
   - AAAI 2026
-  - Wireheading
-  - 自我评估
-  - 奖励操纵
 ---
 
 # Does Self-Evaluation Enable Wireheading in Language Models?

@@ -2,9 +2,6 @@
 description: "【论文笔记】PressTrack-HMR: Pressure-Based Top-Down Multi-Person Global Human Mesh Recovery 论文解读 | AAAI 2026 | arXiv 2511.09147 | 人体网格恢复 | 提出 PressTrack-HMR，首个仅基于压力信号实现多人全局人体网格恢复的自上而下流水线，通过创新的 UoE 相似度度量实现压力足迹跟踪（93.6% MOTA），并构建了首个多人交互压力数据集 MIP。"
 tags:
   - AAAI 2026
-  - 人体网格恢复
-  - 压力传感
-  - 多人跟踪
 ---
 
 # PressTrack-HMR: Pressure-Based Top-Down Multi-Person Global Human Mesh Recovery

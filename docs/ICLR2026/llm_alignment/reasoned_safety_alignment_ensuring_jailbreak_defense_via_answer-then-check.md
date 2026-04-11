@@ -2,9 +2,6 @@
 description: "【论文笔记】Reasoned Safety Alignment: Ensuring Jailbreak Defense via Answer-Then-Check 论文解读 | ICLR 2026 | arXiv 2509.11629 | 越狱防御 | 提出\"先回答后检查\"(Answer-Then-Check)策略：模型先在思维链中生成意图答案摘要，再依据安全策略进行安全分析，最后决定输出或拒绝。构建80K ReSA数据集训练后，在7种越狱攻击上防御率达到99.3%(RL版本)，仅500样本即可达全数据集效果。"
 tags:
   - ICLR 2026
-  - 越狱防御
-  - Answer-Then-Check
-  - 安全推理
 ---
 
 # Reasoned Safety Alignment: Ensuring Jailbreak Defense via Answer-Then-Check

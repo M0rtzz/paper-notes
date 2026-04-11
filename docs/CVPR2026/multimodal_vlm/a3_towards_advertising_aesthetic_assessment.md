@@ -2,9 +2,6 @@
 description: "【论文笔记】A3: Towards Advertising Aesthetic Assessment 论文解读 | CVPR 2026 | arXiv 2603.24037 | 广告美学评估 | 提出A3框架，包含理论驱动的三阶段广告美学评估范式A3-Law（感知注意力→形式兴趣→欲望影响）、12万条标注数据集A3-Dataset、经SFT+GRPO对齐的模型A3-Align以及评测基准A3-Bench，在广告美学自动评估上超越现有MLLM。"
 tags:
   - CVPR 2026
-  - 广告美学评估
-  - 多模态大语言模型
-  - AIDA模型
 ---
 
 # A3: Towards Advertising Aesthetic Assessment

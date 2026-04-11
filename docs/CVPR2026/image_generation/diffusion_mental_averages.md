@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion Mental Averages 论文解读 | CVPR 2026 | arXiv 2603.29239 | 扩散模型 | 提出 Diffusion Mental Averages (DMA)，通过在扩散模型的语义空间中对齐多个去噪轨迹，从预训练扩散模型中提取概念的\"心理平均\"原型图像——首次实现一致、逼真的概念平均可视化。"
 tags:
   - CVPR 2026
-  - 扩散模型
-  - 概念原型
-  - 轨迹对齐
 ---
 
 # Diffusion Mental Averages

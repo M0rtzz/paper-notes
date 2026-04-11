@@ -2,9 +2,6 @@
 description: "【论文笔记】Parrot: Multilingual Visual Instruction Tuning 论文解读 | ICML2025 | arXiv 2406.02539 | 多语言 | 提出 Parrot，通过文本引导的跨注意力机制和 MoE 模块将英语偏置的视觉特征转换为语言特定表示，以极少量多语言数据（每种语言约 10K 样本）显著提升 MLLM 的多语言能力。"
 tags:
   - ICML2025
-  - 多语言
-  - 多模态大模型
-  - Mixture-of-Experts
 ---
 
 # Parrot: Multilingual Visual Instruction Tuning

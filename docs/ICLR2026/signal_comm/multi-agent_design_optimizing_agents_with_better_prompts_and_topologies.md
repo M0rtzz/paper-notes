@@ -2,10 +2,7 @@
 description: "【论文笔记】Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies 论文解读 | ICLR 2026 | arXiv 2502.02533 | multi-agent system | 深入分析多智能体系统中 prompt 和拓扑设计的影响，发现 prompt 优化是最关键的设计因素（仅优化 prompt 的单 Agent 即可超越复杂多 Agent 拓扑），提出 Mass 三阶段框架（block-level prompt → topology → workflow-level prompt）在 8 个 benchmark 上取得 SOTA。"
 tags:
   - ICLR 2026
-  - multi-agent system
-  - prompt optimization
   - 提示学习
-  - topology search
 ---
 
 # Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies

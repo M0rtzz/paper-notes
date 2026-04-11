@@ -2,9 +2,6 @@
 description: "【论文笔记】ClaimPKG: Enhancing Claim Verification via Pseudo-Subgraph Generation with Lightweight Specialized LLM 论文解读 | ACL 2025 | arXiv 2505.22552 | 知识图谱 | 提出 ClaimPKG 框架，通过轻量级专用 LLM 将文本声明转换为伪子图表示，再从知识图谱中检索相关子图作为证据，最终由通用 LLM 进行推理验证，在 FactKG 数据集上比 SOTA 高出 9%-12% 准确率。"
 tags:
   - ACL 2025
-  - 知识图谱
-  - 声明验证
-  - 伪子图生成
 ---
 
 # ClaimPKG: Enhancing Claim Verification via Pseudo-Subgraph Generation with Lightweight Specialized LLM

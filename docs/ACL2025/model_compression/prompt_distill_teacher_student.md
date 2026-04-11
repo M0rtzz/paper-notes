@@ -2,9 +2,6 @@
 description: "【论文笔记】Prompt Candidates, then Distill: A Teacher-Student Framework for LLM-driven Data Annotation 论文解读 | ACL 2025 | arXiv 2506.03857 | 数据标注 | 提出候选标注+蒸馏范式（CanDist）——当 LLM 对样本不确定时输出所有可能标签（而非强制给唯一标签），然后用小语言模型（SLM）从候选标注中蒸馏出唯一标签，理论证明候选标注蒸馏比直接使用单标签有更好的理论保证，在六个文本分类任务上验证有效。"
 tags:
   - ACL 2025
-  - 数据标注
-  - 知识蒸馏
-  - 候选标注
 ---
 
 # Prompt Candidates, then Distill: A Teacher-Student Framework for LLM-driven Data Annotation

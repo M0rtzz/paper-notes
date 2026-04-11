@@ -2,9 +2,6 @@
 description: "【论文笔记】DuoGPT: Training-free Dual Sparsity through Activation-aware Pruning in LLMs 论文解读 | NeurIPS 2025 | arXiv 2506.20194 | 双稀疏 | 提出 DuoGPT，一种将激活稀疏（activation sparsity）重新解释为动态结构化权重稀疏、并与非结构化权重剪枝相结合的双稀疏（dual-sparse）框架，通过扩展 OBC 框架引入激活感知校准和稠密模型输出残差修正项，在不需要重训练的情况下实现 LLM 解码阶段的显著加速与内存节省。"
 tags:
   - NeurIPS 2025
-  - 双稀疏
-  - 激活稀疏
-  - 非结构化剪枝
 ---
 
 # DuoGPT: Training-free Dual Sparsity through Activation-aware Pruning in LLMs

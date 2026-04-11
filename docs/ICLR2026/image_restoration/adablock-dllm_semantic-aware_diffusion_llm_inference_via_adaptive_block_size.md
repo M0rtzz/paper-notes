@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaBlock-dLLM: Semantic-Aware Diffusion LLM Inference via Adaptive Block Size 论文解读 | ICLR 2026 | arXiv 2509.26432 | 扩散语言模型 | 首次系统性挑战扩散语言模型（dLLM）中固定块大小的半自回归解码设定，发现\"波动带\"（Volatility Band）编码了局部语义结构，并提出 AdaBlock-dLLM——一个无需训练、即插即用的自适应块大小调度器，在相同吞吐量下实现最高 5.3% 的准确率提升。"
 tags:
   - ICLR 2026
-  - 扩散语言模型
-  - 半自回归解码
-  - 自适应块大小
 ---
 
 # AdaBlock-dLLM: Semantic-Aware Diffusion LLM Inference via Adaptive Block Size

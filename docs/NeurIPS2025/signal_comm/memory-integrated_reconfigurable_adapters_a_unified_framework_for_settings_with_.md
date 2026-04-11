@@ -2,9 +2,6 @@
 description: "【论文笔记】Memory-Integrated Reconfigurable Adapters (MIRA) 论文解读 | NeurIPS 2025 | arXiv 2512.00940 | Hopfield网络 | 提出 MIRA，将 Hopfield 联想记忆与 LoRA adapter 结合，在共享 backbone 的每个 ViT 层上存储 adapter 权重更新为 value、事后学习的 key 检索，统一处理域泛化、类增量学习和域增量学习，在多个设置下达到 SoTA。"
 tags:
   - NeurIPS 2025
-  - Hopfield网络
-  - LoRA
-  - 域泛化
 ---
 
 # Memory-Integrated Reconfigurable Adapters (MIRA)

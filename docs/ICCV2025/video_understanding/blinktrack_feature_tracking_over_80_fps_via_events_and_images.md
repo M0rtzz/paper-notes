@@ -2,9 +2,6 @@
 description: "【论文笔记】BlinkTrack: Feature Tracking over 80 FPS via Events and Images 论文解读 | ICCV 2025 | arXiv 2409.17981 | 事件相机 | 提出 BlinkTrack，将可微卡尔曼滤波引入学习框架，有效解决事件相机和传统相机异步数据的关联与不确定性感知融合，实现超过 80 FPS 的高帧率特征跟踪，并在遮挡场景中显著优于现有方法。"
 tags:
   - ICCV 2025
-  - 事件相机
-  - 特征跟踪
-  - 卡尔曼滤波
 ---
 
 # BlinkTrack: Feature Tracking over 80 FPS via Events and Images

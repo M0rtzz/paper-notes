@@ -2,9 +2,6 @@
 description: "【论文笔记】UPP: Unified Point-Level Prompting for Robust Point Cloud Analysis 论文解读 | ICCV 2025 | arXiv 2507.18997 | 点云分析 | 提出统一点级提示方法UPP，将点云去噪和补全重新定义为下游任务的提示机制，通过Rectification Prompter过滤噪声、Completion Prompter补全缺失、Shape-Aware Unit捕获几何特征，在噪声和不完整点云上以6.3%参数实现超越全量微调的鲁棒分析。"
 tags:
   - ICCV 2025
-  - 点云分析
-  - 参数高效微调
-  - 去噪
 ---
 
 # UPP: Unified Point-Level Prompting for Robust Point Cloud Analysis

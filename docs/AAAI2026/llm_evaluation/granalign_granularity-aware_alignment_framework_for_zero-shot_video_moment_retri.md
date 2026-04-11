@@ -2,9 +2,6 @@
 description: "【论文笔记】GranAlign: Granularity-Aware Alignment Framework for Zero-Shot Video Moment Retrieval 论文解读 | AAAI 2026 | arXiv 2601.00584 | 零样本视频时刻检索 | 提出一个无需训练的粒度感知对齐框架GranAlign，通过将查询重写为简化版和细化版并分别匹配无关/感知查询的视频描述，解决了零样本视频时刻检索中语义粒度不匹配的核心难题，在QVHighlights上mAP@avg提升3.23%。"
 tags:
   - AAAI 2026
-  - 零样本视频时刻检索
-  - 语义粒度对齐
-  - 查询重写
 ---
 
 # GranAlign: Granularity-Aware Alignment Framework for Zero-Shot Video Moment Retrieval

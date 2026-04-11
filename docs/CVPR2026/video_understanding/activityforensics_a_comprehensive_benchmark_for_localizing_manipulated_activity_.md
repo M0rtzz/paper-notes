@@ -2,9 +2,6 @@
 description: "【论文笔记】ActivityForensics: A Comprehensive Benchmark for Localizing Manipulated Activity in Videos 论文解读 | CVPR 2026 | arXiv 2604.03819 | 视频篡改检测 | 首次提出活动级视频伪造定位任务和ActivityForensics大规模基准数据集（6K+伪造片段），通过grounding辅助的自动化数据构造管线制造高度逼真的活动篡改，并提出Temporal Artifact Diffuser (TADiff)基线方法，通过扩散式特征正则化放大伪造线索。"
 tags:
   - CVPR 2026
-  - 视频篡改检测
-  - 活动级伪造
-  - 时间定位
 ---
 
 # ActivityForensics: A Comprehensive Benchmark for Localizing Manipulated Activity in Videos

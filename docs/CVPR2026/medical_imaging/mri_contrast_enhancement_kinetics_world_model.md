@@ -2,9 +2,6 @@
 description: "【论文笔记】MRI Contrast Enhancement Kinetics World Model 论文解读 | CVPR2026 | arXiv 2602.19285 | MRI造影增强 | 首次提出 MRI 造影增强动力学世界模型（MRI CEKWorld），通过时空一致性学习（STCL）在稀疏采样数据上实现从无造影 MRI 到连续高保真造影增强序列的生成，解决了内容失真和时序不连续两大难题。"
 tags:
   - CVPR2026
-  - MRI造影增强
-  - 世界模型
-  - 时空一致性学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

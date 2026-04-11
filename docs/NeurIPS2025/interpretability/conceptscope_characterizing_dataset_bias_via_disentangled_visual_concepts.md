@@ -2,9 +2,6 @@
 description: "【论文笔记】ConceptScope: Characterizing Dataset Bias via Disentangled Visual Concepts 论文解读 | NeurIPS 2025 | arXiv 2510.26186 | 数据集偏差 | 提出 ConceptScope 框架，利用在视觉基础模型表征上训练的稀疏自编码器（SAE）自动发现和量化数据集中的视觉概念偏差，无需人工标注即可将概念分类为 target / context / bias 三类。"
 tags:
   - NeurIPS 2025
-  - 数据集偏差
-  - 稀疏自编码器
-  - 视觉概念
 ---
 
 # ConceptScope: Characterizing Dataset Bias via Disentangled Visual Concepts

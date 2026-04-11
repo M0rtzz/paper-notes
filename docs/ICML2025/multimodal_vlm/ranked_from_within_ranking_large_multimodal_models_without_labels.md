@@ -2,9 +2,6 @@
 description: "【论文笔记】Ranked from Within: Ranking Large Multimodal Models Without Labels 论文解读 | ICML 2025 | arXiv 2412.06461 | 无监督模型排名 | 系统研究能否在无标签场景下预测 LMM 的相对性能，评估 47 个 SOTA LMM 在 9 个 VQA 基准上的表现，发现基于 softmax 分布的不确定性指标能提供稳健的无监督模型排名（与真实排名 Spearman 相关 $\rho=0.92$）。"
 tags:
   - ICML 2025
-  - 无监督模型排名
-  - 不确定性估计
-  - VQA
 ---
 
 # Ranked from Within: Ranking Large Multimodal Models Without Labels

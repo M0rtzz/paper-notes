@@ -2,10 +2,7 @@
 description: "【论文笔记】Exploring Probabilistic Modeling Beyond Domain Generalization for Semantic Segmentation 论文解读 | ICCV 2025 | arXiv 2507.21367 | domain generalization | 提出 PDAF（概率扩散对齐框架），通过概率扩散建模显式估计潜在域先验（LDP），为现有分割网络提供域偏移补偿，在不需要目标域配对样本的情况下实现跨域泛化的 SOTA 性能。"
 tags:
   - ICCV 2025
-  - domain generalization
-  - semantic segmentation
   - 图像分割
-  - diffusion model
   - 扩散模型
 ---
 

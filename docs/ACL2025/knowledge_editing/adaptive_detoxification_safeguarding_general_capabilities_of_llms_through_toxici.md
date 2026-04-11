@@ -2,9 +2,6 @@
 description: "【论文笔记】ToxEdit: Adaptive Detoxification Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing 论文解读 | ACL 2025 | arXiv 2505.22298 | LLM去毒 | 提出 ToxEdit——毒性感知的知识编辑方法，在前向传播中动态检测毒性激活模式（SVM 二分类器检测有害隐藏状态），将计算路由到原始 FFN 或编辑后的 FFN，实现自适应去毒而不过度编辑。增强 SafeEdit 基准加入指令遵从评估，在多个 LLM 上去毒能力和通用能力保留均 SOTA。"
 tags:
   - ACL 2025
-  - LLM去毒
-  - 知识编辑
-  - 过度编辑
 ---
 
 # ToxEdit: Adaptive Detoxification Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing

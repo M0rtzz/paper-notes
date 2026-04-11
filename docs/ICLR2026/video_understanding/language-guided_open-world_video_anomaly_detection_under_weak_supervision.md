@@ -2,9 +2,6 @@
 description: "【论文笔记】Language-guided Open-world Video Anomaly Detection under Weak Supervision 论文解读 | ICLR2026 | arXiv 2503.13160 | Video Anomaly Detection | 提出语言引导的开放世界视频异常检测范式 LaGoVAD，通过将异常定义建模为随机变量并以自然语言形式输入，从理论上规避概念漂移问题；同时构建了目前最大规模的视频异常数据集 PreVAD（35K 视频），在七个数据集上零样本 SOTA。"
 tags:
   - ICLR2026
-  - Video Anomaly Detection
-  - Open-world
-  - Language-guided
 ---
 
 # Language-guided Open-world Video Anomaly Detection under Weak Supervision

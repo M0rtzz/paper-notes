@@ -2,9 +2,6 @@
 description: "【论文笔记】HoneyBee: Data Recipes for Vision-Language Reasoners 论文解读 | CVPR 2026 | arXiv 2510.12225 | VLM推理 | 系统性地研究了VL推理训练数据的设计空间（数据来源、干预策略、多维度缩放），基于洞察构建了250万样本的HoneyBee数据集，训练出的3B VLM在MathVerse上超越SOTA 7.8个百分点。"
 tags:
   - CVPR 2026
-  - VLM推理
-  - CoT数据策划
-  - 数据缩放
 ---
 
 # HoneyBee: Data Recipes for Vision-Language Reasoners

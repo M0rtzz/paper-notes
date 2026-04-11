@@ -2,9 +2,6 @@
 description: "【论文笔记】DMQ: Dissecting Outliers of Diffusion Models for Post-Training Quantization 论文解读 | ICCV 2025 | arXiv 2507.12933 | 训练后量化 | 提出 DMQ 框架，结合学习型等价缩放（LES）和通道级 Power-of-Two 缩放（PTS）来处理扩散模型量化中的异常值问题，首次在 W4A6 低比特设定下实现稳定的高质量图像生成。"
 tags:
   - ICCV 2025
-  - 训练后量化
-  - 扩散模型量化
-  - 异常值处理
 ---
 
 # DMQ: Dissecting Outliers of Diffusion Models for Post-Training Quantization

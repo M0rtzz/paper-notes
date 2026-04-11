@@ -2,9 +2,7 @@
 description: "【论文笔记】TouchFormer: A Robust Transformer-based Framework for Multimodal Material Perception 论文解读 | AAAI 2026 | arXiv 2511.19509 | 多模态融合 | 提出 TouchFormer，一个鲁棒的多模态融合框架，通过模态自适应门控（MAG）、模态内/模态间注意力机制和跨实例嵌入正则化（CER）三个互补模块，在视觉受损条件下实现可靠的材质感知，并在火灾场景机器人分拣实验中验证有效性。"
 tags:
   - AAAI 2026
-  - 多模态融合
-  - 材质感知
-  - 触觉传感
+  - Transformer
 ---
 
 # TouchFormer: A Robust Transformer-based Framework for Multimodal Material Perception

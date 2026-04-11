@@ -2,9 +2,6 @@
 description: "【论文笔记】Measuring Data Diversity for Instruction Tuning: A Systematic Analysis and A Reliable Metric 论文解读 | ACL 2025 | arXiv 2502.17184 | Data Diversity | 系统分析 11 种现有多样性度量方法的局限性，提出 NovelSum——一种同时考虑样本间差异和信息密度的数据多样性指标，与指令微调性能达到 0.97 相关性。"
 tags:
   - ACL 2025
-  - Data Diversity
-  - Instruction Tuning
-  - NovelSum
 ---
 
 # Measuring Data Diversity for Instruction Tuning: A Systematic Analysis and A Reliable Metric

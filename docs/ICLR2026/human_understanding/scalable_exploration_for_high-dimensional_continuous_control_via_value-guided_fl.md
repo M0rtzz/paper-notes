@@ -2,9 +2,6 @@
 description: "【论文笔记】Scalable Exploration for High-Dimensional Continuous Control via Value-Guided Flow 论文解读 | ICLR 2026 | arXiv 2601.19707 | 高维控制 | 提出Qflex(Q-guided Flow Exploration)——在高维连续动作空间中实现可扩展探索的RL方法：从可学习源分布沿Q函数诱导的概率流传输动作→探索与任务相关梯度对齐(而非各向同性噪声)→在多种高维基准上超越高斯/扩散RL基线,成功控制700执行器的全身人体肌骨模型执行敏捷复杂动作。"
 tags:
   - ICLR 2026
-  - 高维控制
-  - 价值引导流
-  - 概率流探索
 ---
 
 # Scalable Exploration for High-Dimensional Continuous Control via Value-Guided Flow

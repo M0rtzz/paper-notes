@@ -2,9 +2,6 @@
 description: "【论文笔记】GOATex: Geometry & Occlusion-Aware Texturing 论文解读 | NeurIPS 2025 | arXiv 2511.23051 | 3D纹理生成 | GOATex 提出首个遮挡感知的 3D 网格纹理生成框架，通过基于光线投射的 hit level 分层机制将网格分解为由外到内的可见性层，配合法线翻转和残差面聚类的两阶段可见性控制策略以及基于可见性权重的 UV 空间融合，实现了对外表面和被遮挡内表面的高质量纹理生成。"
 tags:
   - NeurIPS 2025
-  - 3D纹理生成
-  - 遮挡感知
-  - 扩散模型
 ---
 
 # GOATex: Geometry & Occlusion-Aware Texturing

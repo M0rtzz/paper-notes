@@ -2,9 +2,6 @@
 description: "【论文笔记】Nudging the Boundaries of LLM Reasoning 论文解读 | ICLR 2026 | arXiv 2509.25666 | 强化学习推理 | 指出GRPO无法从模型完全无法解决的难题(pass rate=0%)中学习的根本局限，提出NuRL方法在训练时对难题注入自生成的抽象hint(不泄露答案)使其变为可学习样本，跨3个模型6个benchmark一致超越GRPO并真正提升pass@k能力上界。"
 tags:
   - ICLR 2026
-  - 强化学习推理
-  - GRPO改进
-  - 自生成Hint
 ---
 
 # Nudging the Boundaries of LLM Reasoning

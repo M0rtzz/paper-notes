@@ -2,9 +2,6 @@
 description: "【论文笔记】GenHancer: Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers 论文解读 | ICCV 2025 | arXiv 2503.19480 | CLIP增强 | 发现\"完美的图像重建并不总带来最佳视觉表征\"，提出 GenHancer——一种仅用轻量级随机初始化去噪器（约预训练重型去噪器 1/10 参数）和全局 [CLS] token 条件的两阶段后训练方法，通过自监督重建任务增强 CLIP 的细粒度视觉感知能力，在 MMVP-VLM 上比 DIVA 提升 6.0%。"
 tags:
   - ICCV 2025
-  - CLIP增强
-  - 生成模型
-  - 细粒度视觉
 ---
 
 # GenHancer: Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers

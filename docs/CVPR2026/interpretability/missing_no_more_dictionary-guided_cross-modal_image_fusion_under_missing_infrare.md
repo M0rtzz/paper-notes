@@ -2,9 +2,6 @@
 description: "【论文笔记】Missing No More: Dictionary-Guided Cross-Modal Image Fusion under Missing Infrared 论文解读 | CVPR 2026 | arXiv 2603.08018 | 红外-可见光融合 | 提出首个在系数域（而非像素域）进行红外缺失条件下跨模态融合的框架：通过共享卷积字典建立 IR-VIS 统一原子空间，在系数域完成 VIS→IR 推理和自适应融合，配合冻结 LLM 提供弱语义先验进行热信息补全，在仅输入可见光图像的条件下达到接近双模态融合方法的性能。"
 tags:
   - CVPR 2026
-  - 红外-可见光融合
-  - 缺失模态
-  - 卷积字典学习
 ---
 
 # Missing No More: Dictionary-Guided Cross-Modal Image Fusion under Missing Infrared

@@ -2,9 +2,6 @@
 description: "【论文笔记】When Agents \"Misremember\" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems 论文解读 | ICLR 2026 | arXiv 2602.00428 | 曼德拉效应 | 首次系统研究LLM多Agent系统中的曼德拉效应(集体虚假记忆)：提出ManBench(4类任务×5种交互协议×4838问题)→评估13个LLM→量化曼德拉效应的存在和影响因素(群组组成/规模/知识域/模型规模/记忆时间尺度)→提出prompt级(认知锚定/来源审查)和模型级(对齐)缓解策略→平均降低74.40%的曼德拉效应。"
 tags:
   - ICLR 2026
-  - 曼德拉效应
-  - 集体虚假记忆
-  - 多Agent
 ---
 
 # When Agents "Misremember" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems

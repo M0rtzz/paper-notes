@@ -2,9 +2,6 @@
 description: "【论文笔记】Minimizing False-Positive Attributions in Explanations of Non-Linear Models 论文解读 | NeurIPS 2025 | arXiv 2505.11210 | XAI | 针对非线性模型的XAI解释中抑制变量(suppressor variable)导致的假阳性归因问题，提出PatternLocal方法，将局部判别式代理模型权重转换为生成式表示，在XAI-TRIS基准、MRI人工病灶和EEG运动想象三个数据集上显著减少了假阳性特征归因。"
 tags:
   - NeurIPS 2025
-  - XAI
-  - suppressor variables
-  - local explanations
 ---
 
 # Minimizing False-Positive Attributions in Explanations of Non-Linear Models

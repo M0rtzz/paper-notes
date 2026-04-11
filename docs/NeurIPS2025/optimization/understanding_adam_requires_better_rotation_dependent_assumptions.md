@@ -2,9 +2,6 @@
 description: "【论文笔记】Understanding Adam Requires Better Rotation Dependent Assumptions 论文解读 | NeurIPS 2025 | arXiv 2410.19964 | Adam优化器 | 本文通过系统的实验研究揭示了 Adam 优化器对参数空间坐标基底的强依赖性，证明现有旋转不变的理论假设不足以解释 Adam 的优越性，并发现层更新的正交性是预测 Adam 在不同基底下性能的有力指标。"
 tags:
   - NeurIPS 2025
-  - Adam优化器
-  - 旋转等变性
-  - 参数空间旋转
 ---
 
 # Understanding Adam Requires Better Rotation Dependent Assumptions

@@ -2,9 +2,6 @@
 description: "【论文笔记】HCLFuse: Revisiting Generative Infrared and Visible Image Fusion Based on Human Cognitive Laws 论文解读 | NeurIPS 2025 | arXiv 2510.26268 | 红外-可见光融合 | HCLFuse 基于信息瓶颈原理和最优传输理论进行模态对齐，设计变分瓶颈编码器（VBE）+ 物理引导条件扩散模型，融合热传导/结构保持/物理一致性三种约束到扩散过程中，在 MSRS 数据集上梯度指标 AG 提升 69.87%，空间频率 SF 提升 39.41%。"
 tags:
   - NeurIPS 2025
-  - 红外-可见光融合
-  - 变分信息瓶颈
-  - 最优传输
 ---
 
 # HCLFuse: Revisiting Generative Infrared and Visible Image Fusion Based on Human Cognitive Laws

@@ -2,9 +2,6 @@
 description: "【论文笔记】Self-Disentanglement and Re-Composition for Cross-Domain Few-Shot Segmentation 论文解读 | ICML 2025 | arXiv 2506.02677 | 跨域少样本分割 | 本文发现跨域少样本分割（CD-FSS）中基于距离比较的方法存在特征纠缠问题，其根源在于ViT各层输出在距离计算时的等权交叉匹配，进而提出通过自解耦（Self-Disentanglement）和重组合（Re-Composition）的方式，学习ViT组件间的比较权重来解决该问题。"
 tags:
   - ICML 2025
-  - 跨域少样本分割
-  - ViT特征解耦
-  - 正交空间解耦
 ---
 
 # Self-Disentanglement and Re-Composition for Cross-Domain Few-Shot Segmentation

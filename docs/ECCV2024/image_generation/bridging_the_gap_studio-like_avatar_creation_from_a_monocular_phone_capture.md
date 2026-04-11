@@ -2,10 +2,8 @@
 description: "【论文笔记】Bridging the Gap: Studio-Like Avatar Creation from a Monocular Phone Capture 论文解读 | ECCV2024 | arXiv 2407.19593 | avatar creation | 提出从单目手机视频生成类似影棚级质量的面部纹理贴图的方法，结合 StyleGAN2 的 W+ 空间参数化与扩散模型超分辨率，实现从手机扫描到高质量 3D 头像的跨越。"
 tags:
   - ECCV2024
-  - avatar creation
-  - texture map
-  - StyleGAN2
   - GAN
+  - 扩散模型
 ---
 
 # Bridging the Gap: Studio-Like Avatar Creation from a Monocular Phone Capture

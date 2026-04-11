@@ -2,9 +2,6 @@
 description: "【论文笔记】INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models 论文解读 | ACL 2025 | arXiv 2412.11388 | 交互式学习 | 提出INTERACT框架，通过模拟师生对话让\"学生\"LLM通过主动提问向\"教师\"LLM学习新概念，在1,347个未见过的上下文上实验证明交互式学习最高可提升25%的理解准确率，且仅需5轮对话即可匹配静态学习基线。"
 tags:
   - ACL 2025
-  - 交互式学习
-  - 师生对话
-  - 概念习得
 ---
 
 # INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models

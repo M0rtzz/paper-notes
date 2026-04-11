@@ -2,9 +2,6 @@
 description: "【论文笔记】GenIR: Generative Visual Feedback for Mental Image Retrieval 论文解读 | NeurIPS 2025 | arXiv 2506.06220 | 交互式检索 | 提出 GenIR，一种利用文本到图像扩散模型生成\"合成视觉反馈\"的多轮交互式图像检索框架，将系统对用户查询的理解显式可视化，使用户能直观地识别差异并迭代改进查询，在 Mental Image Retrieval (MIR) 任务上大幅超越纯文本反馈方法。"
 tags:
   - NeurIPS 2025
-  - 交互式检索
-  - 视觉反馈
-  - 扩散模型
 ---
 
 # GenIR: Generative Visual Feedback for Mental Image Retrieval

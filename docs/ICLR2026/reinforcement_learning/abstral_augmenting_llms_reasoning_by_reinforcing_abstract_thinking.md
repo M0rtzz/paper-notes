@@ -2,10 +2,7 @@
 description: "【论文笔记】AbstRaL: Augmenting LLMs' Reasoning by Reinforcing Abstract Thinking 论文解读 | ICLR 2026 | arXiv 2506.07751 | abstract reasoning | 提出 AbstRaL，通过强化学习教 LLM 学习推理问题的数学抽象（将具体数字/名称替换为符号变量、提取通用公式），然后用符号求解器推导答案，在 GSM 扰动 benchmark 上几乎完全消除了分布偏移导致的性能下降，并在 OOD 数学/通用推理任务上也有隐式提升。"
 tags:
   - ICLR 2026
-  - abstract reasoning
-  - reinforcement learning
   - 强化学习
-  - GSM robustness
 ---
 
 # AbstRaL: Augmenting LLMs' Reasoning by Reinforcing Abstract Thinking

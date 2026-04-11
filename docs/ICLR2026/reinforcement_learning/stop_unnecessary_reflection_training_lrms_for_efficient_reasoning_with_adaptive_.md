@@ -2,9 +2,6 @@
 description: "【论文笔记】Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty 论文解读 | ICLR 2026 | arXiv 2602.12113 | 大推理模型 | 提出 ARLCP（Adaptive Reflection and Length Coordinated Penalty），一种自适应强化学习方法，根据问题复杂度动态调节反思惩罚和长度惩罚的权重，在保持或提升准确性的同时大幅减少推理 token 消耗。"
 tags:
   - ICLR 2026
-  - 大推理模型
-  - 过度反思
-  - 自适应惩罚
 ---
 
 # Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty

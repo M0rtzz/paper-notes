@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards GUI Agents: Vision-Language Diffusion Models for GUI Grounding 论文解读 | CVPR 2026 | arXiv 2603.26211 | GUI Grounding | 首次系统研究离散扩散视觉语言模型（DVLM）在 GUI Grounding 中的应用，将 LLaDA-V 适配为单步动作预测，并提出混合掩码调度（线性+确定性）以捕获边界框坐标间的几何层次依赖，在 Web/Desktop/Mobile 界面上展示了扩散模型作为 GUI Agent 基础的可行性。"
 tags:
   - CVPR 2026
-  - GUI Grounding
-  - 离散扩散模型
-  - LLaDA-V
 ---
 
 # Towards GUI Agents: Vision-Language Diffusion Models for GUI Grounding

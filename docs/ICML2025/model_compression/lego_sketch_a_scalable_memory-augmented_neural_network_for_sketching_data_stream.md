@@ -2,9 +2,6 @@
 description: "【论文笔记】Lego Sketch: A Scalable Memory-augmented Neural Network for Sketching Data Streams 论文解读 | ICML2025 | arXiv 2505.19561 | data stream sketch | 提出 Lego Sketch，一种基于模块化\"记忆积木\"的可扩展记忆增强神经网络（MANN），通过 normalized multi-hash embedding、可扩展内存和自引导加权损失，解决了现有 neural sketch 在跨数据域和不同空间预算下需要重新训练的可扩展性难题，并首次给出了 neural sketch 的误差上界。"
 tags:
   - ICML2025
-  - data stream sketch
-  - frequency estimation
-  - memory-augmented neural network
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

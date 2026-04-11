@@ -2,9 +2,6 @@
 description: "【论文笔记】Inference-Time Diffusion Model Distillation 论文解读 | ICCV 2025 | arXiv 2412.08871 | 扩散蒸馏 | 提出 Distillation++，一种推理时扩散蒸馏框架，在采样过程中利用预训练教师模型的引导来修正学生蒸馏模型的去噪路径，无需额外训练数据或微调即可显著缩小师生模型间的性能差距。"
 tags:
   - ICCV 2025
-  - 扩散蒸馏
-  - 推理时蒸馏
-  - Score Distillation Sampling
 ---
 
 # Inference-Time Diffusion Model Distillation

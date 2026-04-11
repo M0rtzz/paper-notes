@@ -2,9 +2,6 @@
 description: "【论文笔记】Ferret: Federated Full-Parameter Tuning at Scale for Large Language Models 论文解读 | ICML2025 | arXiv 2409.06277 | 联邦学习 | 提出 Ferret，首个结合一阶优化与共享随机性的联邦全参数微调方法，通过将本地更新投影到低维空间实现 $10^6\times$ 通信压缩和 $6\times$ 计算加速，同时保持与 FedAvg 相当的模型精度。"
 tags:
   - ICML2025
-  - 联邦学习
-  - 全参数微调
-  - 通信压缩
 ---
 
 # Ferret: Federated Full-Parameter Tuning at Scale for Large Language Models

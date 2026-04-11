@@ -2,10 +2,7 @@
 description: "【论文笔记】Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph 论文解读 | ACL 2025 | arXiv 2501.00659 | 位置编码 | 这是一篇综述/回顾性论文，系统解释了多层自回归 Transformer 无需显式位置编码即可区分不同序列的原理，并追溯该结论的历史起源（Irie et al., 2019），纠正了社区中将此发现误归因于后来工作的现象。"
 tags:
   - ACL 2025
-  - 位置编码
-  - 自回归Transformer
   - Transformer
-  - 排列不变性
 ---
 
 # Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph

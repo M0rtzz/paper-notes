@@ -2,9 +2,6 @@
 description: "【论文笔记】Sharpness-Aware Machine Unlearning 论文解读 | ICLR 2026 | arXiv 2506.13715 | Machine Unlearning | 本文从信号-噪声分解的视角系统分析了 SAM 在机器遗忘场景下的理论特性，发现 SAM 在遗忘集上会\"放弃\"去噪能力但在保留集上仍维持优势，进而提出 Sharp MinMax 算法——将模型拆成两部分分别做锐度最小化（保留）和锐度最大化（遗忘），达到SOTA遗忘效果。"
 tags:
   - ICLR 2026
-  - Machine Unlearning
-  - Sharpness-Aware Minimization
-  - SAM
 ---
 
 # Sharpness-Aware Machine Unlearning

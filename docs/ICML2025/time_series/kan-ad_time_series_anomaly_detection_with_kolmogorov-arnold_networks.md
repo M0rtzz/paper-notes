@@ -2,9 +2,6 @@
 description: "【论文笔记】KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks 论文解读 | ICML 2025 | arXiv 2411.00278 | 时间序列异常检测 | KAN-AD 将时间序列异常检测重新建模为用光滑单变量函数逼近序列，用截断傅里叶展开替代 KAN 中的 B 样条避免局部扰动敏感性，以不到 1000 个参数在 4 个基准上平均提升 15% 检测精度。"
 tags:
   - ICML 2025
-  - 时间序列异常检测
-  - KAN
-  - Kolmogorov-Arnold网络
 ---
 
 # KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks

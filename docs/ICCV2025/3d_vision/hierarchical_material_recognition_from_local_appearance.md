@@ -2,9 +2,6 @@
 description: "【论文笔记】Hierarchical Material Recognition from Local Appearance 论文解读 | ICCV 2025 | arXiv 2505.22911 | 材质识别 | 提出面向视觉应用的层级式材质分类学体系(taxonomy)与野外数据集 Matador（含深度图的 ~7200 张材质图像，57类），并基于图注意力网络(GAT)利用分类学的层级亲缘关系进行材质识别，在多个基准数据集上达到 SOTA，同时支持新材质的小样本学习和场景中任意点的材质探测。"
 tags:
   - ICCV 2025
-  - 材质识别
-  - 层级分类
-  - 图注意力网络
 ---
 
 # Hierarchical Material Recognition from Local Appearance

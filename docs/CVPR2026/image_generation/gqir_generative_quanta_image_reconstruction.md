@@ -2,9 +2,6 @@
 description: "【论文笔记】gQIR: Generative Quanta Image Reconstruction 论文解读 | CVPR 2026 | arXiv 2602.20417 | 单光子成像 | 提出 gQIR，一个模块化三阶段框架，将大规模 T2I 扩散模型适配到 SPAD 传感器的极端光子受限域，通过量子对齐 VAE（冻结编码器副本防坍缩）、对抗微调 LoRA U-Net（单步生成）和潜空间 FusionViT（时空融合），从极稀疏二值光子事件重建高质量彩色图像和视频。"
 tags:
   - CVPR 2026
-  - 单光子成像
-  - SPAD
-  - 扩散模型
 ---
 
 # gQIR: Generative Quanta Image Reconstruction

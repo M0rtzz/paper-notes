@@ -2,9 +2,6 @@
 description: "【论文笔记】CoherentGS: Sparse Novel View Synthesis with Coherent 3D Gaussians 论文解读 | ECCV 2024 | arXiv 2403.19495 | 稀疏视图合成 | 提出CoherentGS，通过为3DGS引入结构化表示（每像素一个高斯）并利用隐式卷积解码器和全变差损失构建单视图和多视图一致性约束，结合基于单目深度的初始化策略，在极稀疏输入（如3张图像）下实现高质量新视角合成，LPIPS指标显著优于现有NeRF方法。"
 tags:
   - ECCV 2024
-  - 稀疏视图合成
-  - 3D高斯分裂
-  - 隐式解码器
 ---
 
 # CoherentGS: Sparse Novel View Synthesis with Coherent 3D Gaussians

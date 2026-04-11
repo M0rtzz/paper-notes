@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach 论文解读 | ACL 2025 | arXiv 2502.14100 | 上下文鲁棒性 | 提出 Grft（Gated Representation Fine-Tuning），一种轻量级即插即用的门控表示微调方法，仅需不到 200 个训练样本和模型 0.0004% 的参数，即可让 LLM 在面对矛盾、无用的外部上下文时表现出类似人类的鲁棒认知行为。"
 tags:
   - ACL 2025
-  - 上下文鲁棒性
-  - 表示工程
-  - 门控机制
 ---
 
 # Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach

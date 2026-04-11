@@ -2,9 +2,6 @@
 description: "【论文笔记】Bridging the Skeleton-Text Modality Gap: Diffusion-Powered Modality Alignment for Zero-shot Skeleton-based Action Recognition 论文解读 | ICCV 2025 | arXiv 2411.10745 | 零样本骨骼动作识别 | 提出TDSM（Triplet Diffusion for Skeleton-Text Matching），首次将扩散模型应用于零样本骨骼动作识别，通过反向扩散过程实现骨骼特征与文本prompt的隐式对齐，并引入triplet diffusion损失增强判别力，在NTU-60/120和PKU-MMD上大幅超越SOTA（2.36%到13.05%的提升幅度）。"
 tags:
   - ICCV 2025
-  - 零样本骨骼动作识别
-  - 扩散模型
-  - 跨模态对齐
 ---
 
 # Bridging the Skeleton-Text Modality Gap: Diffusion-Powered Modality Alignment for Zero-shot Skeleton-based Action Recognition

@@ -2,11 +2,8 @@
 description: "【论文笔记】DRIFT-Net: A Spectral--Coupled Neural Operator for PDEs Learning 论文解读 | ICLR2026 | arXiv 2509.24868 | 神经算子 neural operator | 提出 DRIFT-Net 双分支神经算子，通过受控低频混合（谱分支）和局部细节保真（图像分支）的带宽融合（radial gating），解决窗口注意力中全局谱耦合不足导致的自回归漂移问题，在 Navier-Stokes 基准上误差降低 7%-54%。"
 tags:
   - ICLR2026
-  - neural operator
   - 神经算子
-  - PDE
   - 偏微分方程
-  - spectral coupling
 ---
 
 # DRIFT-Net: A Spectral--Coupled Neural Operator for PDEs Learning

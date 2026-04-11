@@ -2,9 +2,6 @@
 description: "【论文笔记】TRACE: Learning 3D Gaussian Physical Dynamics from Multi-view Videos 论文解读 | ICCV 2025 | arXiv 2508.09811 | 3D Gaussian Splatting | 提出TRACE框架，将每个3D高斯核视为刚性粒子并为其学习独立的平移-旋转动力学系统（包含速度、加速度、角速度、角加速度等完整物理参数），无需任何人工标注即可从多视角动态视频中学习3D场景的物理运动规律并准确外推未来帧。"
 tags:
   - ICCV 2025
-  - 3D Gaussian Splatting
-  - 物理动力学学习
-  - 未来帧外推
 ---
 
 # TRACE: Learning 3D Gaussian Physical Dynamics from Multi-view Videos

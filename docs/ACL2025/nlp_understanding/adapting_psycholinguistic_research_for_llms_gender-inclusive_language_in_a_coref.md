@@ -2,9 +2,6 @@
 description: "【论文笔记】Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context 论文解读 | ACL 2025 | arXiv 2502.13120 | 性别包容性语言 | 将心理语言学方法从法语适配到英语和德语，研究 LLM 如何处理性别包容性语言——发现英语 LLM 基本保持先行词性别一致但内含男性默认偏见（不愿用 they 单数），德语 LLM 男性偏见更强烈（压倒所有性别中性化策略），但德语性别包容形式确实增加了女性/中性性别的出现概率。"
 tags:
   - ACL 2025
-  - 性别包容性语言
-  - 共指消解
-  - LLM偏见
 ---
 
 # Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context

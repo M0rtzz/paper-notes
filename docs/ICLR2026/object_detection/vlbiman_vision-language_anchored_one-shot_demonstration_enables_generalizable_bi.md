@@ -2,9 +2,6 @@
 description: "【论文笔记】VLBiMan: Vision-Language Anchored One-Shot Demonstration Enables Generalizable Bimanual Robotic Manipulation 论文解读 | ICLR 2026 | arXiv 2509.21723 | 双臂操作 | 提出VLBiMan——从单次演示实现可泛化双臂操作的框架：通过任务感知双臂分解提取可复用原子技能(不变量/可适应量)，用VLM视觉-语言锚定在新场景中适应(物体分割→锚点提取→几何对齐)，自主轨迹组合运动学感知混合协调双臂→10个复杂任务上验证泛化到新物体/新布局/新机器人具身体。"
 tags:
   - ICLR 2026
-  - 双臂操作
-  - 单次演示
-  - VLM锚定
 ---
 
 # VLBiMan: Vision-Language Anchored One-Shot Demonstration Enables Generalizable Bimanual Robotic Manipulation

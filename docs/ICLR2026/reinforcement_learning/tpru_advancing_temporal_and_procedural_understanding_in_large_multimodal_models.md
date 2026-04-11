@@ -2,9 +2,6 @@
 description: "【论文笔记】TPRU: Advancing Temporal and Procedural Understanding in Large Multimodal Models 论文解读 | ICLR 2026 | arXiv 2602.18884 | 时序理解 | TPRU构建了大规模多图像时序理解数据集（24,750个QA对、126,000张图像），覆盖机器人操作、GUI导航等4个具身场景的3种互补任务（时序排序、下一帧预测、前帧回溯），并通过强化学习微调使7B模型在时序理解上超越GPT-4o。"
 tags:
   - ICLR 2026
-  - 时序理解
-  - 程序性推理
-  - 多图像理解
 ---
 
 # TPRU: Advancing Temporal and Procedural Understanding in Large Multimodal Models

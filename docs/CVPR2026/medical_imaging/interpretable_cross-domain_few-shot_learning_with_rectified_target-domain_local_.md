@@ -2,9 +2,6 @@
 description: "【论文笔记】Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment 论文解读 | CVPR 2026 | arXiv 2603.17655 | 跨域少样本学习 | 发现并解决了 CLIP 在跨域少样本学习（CDFSL）中的局部特征对齐退化问题，提出基于循环一致性的 CC-CDFSL 框架，通过 T-I-T 和 I-T-I 双向循环路径和语义锚点机制改善 patch 级视觉-语言对齐，同时增强模型的可解释性。"
 tags:
   - CVPR 2026
-  - 跨域少样本学习
-  - CLIP
-  - 局部特征对齐
 ---
 
 # Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment

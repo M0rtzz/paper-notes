@@ -2,9 +2,6 @@
 description: "【论文笔记】Monitoring Decoding: Mitigating Hallucination via Evaluating the Factuality of Partial Response during Generation 论文解读 | ACL 2025 | arXiv 2503.03106 | 幻觉缓解 | 提出 Monitoring Decoding (MD) 框架，在生成过程中动态监控部分响应的事实性，通过监控函数识别易产生幻觉的 token 并利用树搜索策略选择性地修正这些关键 token，从而在保持效率的同时显著提升事实准确性。"
 tags:
   - ACL 2025
-  - 幻觉缓解
-  - 解码策略
-  - 监控函数
 ---
 
 # Monitoring Decoding: Mitigating Hallucination via Evaluating the Factuality of Partial Response during Generation

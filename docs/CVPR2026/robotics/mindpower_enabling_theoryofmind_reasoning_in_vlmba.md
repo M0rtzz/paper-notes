@@ -2,9 +2,6 @@
 description: "【论文笔记】MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents 论文解读 | CVPR 2026 | arXiv 2511.23055 | Theory of Mind | MindPower 提出了以机器人为中心的心智理论（ToM）推理框架，将感知→信念→欲望→意图→决策→行动组织为六层推理层级，并用 Mind-Reward（基于 GRPO）优化推理一致性，在决策和动作生成上分别超过 GPT-4o 12.77% 和 12.49%。"
 tags:
   - CVPR 2026
-  - Theory of Mind
-  - BDI推理
-  - 具身Agent
 ---
 
 # MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents

@@ -2,10 +2,7 @@
 description: "【论文笔记】Hierarchically Structured Neural Bones for Reconstructing Animatable Objects from Casual Videos 论文解读 | ECCV2024 | arXiv 2408.00351 | 3D重建 Animatable 3D Reconstruction | 提出层次化神经骨骼（Hierarchical Neural Bones）框架，通过树状结构的骨骼系统以粗到细的方式分解物体运动，从随手拍摄的视频中重建可操控的高质量 3D 模型。"
 tags:
   - ECCV2024
-  - Animatable 3D Reconstruction
   - 3D重建
-  - Neural Bones
-  - Hierarchical Deformation
 ---
 
 # Hierarchically Structured Neural Bones for Reconstructing Animatable Objects from Casual Videos

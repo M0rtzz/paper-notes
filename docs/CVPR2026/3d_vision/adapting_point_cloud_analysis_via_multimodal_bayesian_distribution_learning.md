@@ -2,9 +2,6 @@
 description: "【论文笔记】Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning 论文解读 | CVPR 2026 | arXiv 2603.22070 | 测试时适配 | BayesMM 提出了一个无需训练的动态贝叶斯分布学习框架，将文本和几何模态建模为高斯分布，并通过贝叶斯模型平均自动调节模态权重，在多个点云基准上实现了鲁棒的测试时适配，平均提升超过 4%。"
 tags:
   - CVPR 2026
-  - 测试时适配
-  - 点云识别
-  - 贝叶斯推断
 ---
 
 # Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning

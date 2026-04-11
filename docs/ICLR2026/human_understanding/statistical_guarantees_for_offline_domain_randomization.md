@@ -2,9 +2,6 @@
 description: "【论文笔记】Statistical Guarantees for Offline Domain Randomization 论文解读 | ICLR 2026 | arXiv 2506.10133 | 域随机化 | 将离线域随机化(ODR)形式化为参数化仿真器族上的最大似然估计问题，在温和的正则性和可辨识性假设下证明了弱一致性（依概率收敛），进一步添加均匀Lipschitz连续假设后证明了强一致性（几乎必然收敛），为ODR在sim-to-real迁移中的经验成功提供了首个理论基础。"
 tags:
   - ICLR 2026
-  - 域随机化
-  - sim-to-real迁移
-  - 最大似然估计
 ---
 
 # Statistical Guarantees for Offline Domain Randomization

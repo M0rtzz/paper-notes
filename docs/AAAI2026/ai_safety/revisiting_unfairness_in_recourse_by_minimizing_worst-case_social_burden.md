@@ -2,9 +2,6 @@
 description: "【论文笔记】Revisiting (Un)Fairness in Recourse by Minimizing Worst-Case Social Burden 论文解读 | AAAI2026 | arXiv 2509.04128 | Algorithmic Fairness | 指出现有 recourse 公平性指标忽略了分类器决策偏差和 ground-truth 信息，提出基于 social burden 的整体公平性框架和 MISOB 算法，通过 minimax 重加权减少所有群体的 worst-case 社会负担。"
 tags:
   - AAAI2026
-  - Algorithmic Fairness
-  - Algorithmic Recourse
-  - Social Burden
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

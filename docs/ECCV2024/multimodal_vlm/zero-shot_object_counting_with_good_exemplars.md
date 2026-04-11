@@ -2,9 +2,6 @@
 description: "【论文笔记】Zero-shot Object Counting with Good Exemplars (VA-Count) 论文解读 | ECCV 2024 | arXiv 2407.04948 | 零样本目标计数 | 提出VA-Count框架，通过样本增强模块（EEM）利用Grounding DINO发现高质量正负样本，结合噪声抑制模块（NSM）用对比学习区分正负密度图，实现零样本目标计数在FSC-147和CARPK上的SOTA表现。"
 tags:
   - ECCV 2024
-  - 零样本目标计数
-  - 视觉语言预训练
-  - 对比学习
 ---
 
 # Zero-shot Object Counting with Good Exemplars (VA-Count)

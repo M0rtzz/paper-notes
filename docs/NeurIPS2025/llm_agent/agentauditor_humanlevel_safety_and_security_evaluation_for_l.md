@@ -2,9 +2,6 @@
 description: "【论文笔记】AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents 论文解读 | NeurIPS 2025 | arXiv 2506.00641 | agent safety | 提出 AgentAuditor，一个通用的无训练记忆增强推理框架，使 LLM 评估者能模拟人类专家评估 agent 的安全与安全性——通过自适应提取结构化语义特征并生成CoT推理轨迹构建经验记忆，多阶段上下文感知 RAG 检索相关经验指导新案例评估，在自建的 ASSEBench（2293条记录×15类風险×29场景）上达到人类水平准确率。"
 tags:
   - NeurIPS 2025
-  - agent safety
-  - security evaluation
-  - LLM-as-judge
 ---
 
 # AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents

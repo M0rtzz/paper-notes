@@ -2,7 +2,6 @@
 description: "【论文笔记】The Disparate Benefits of Deep Ensembles 论文解读 | ICML 2025 | arXiv 2410.13831 | Deep Ensembles、算法公平性、差异化收益、预测多样性、后处理 | 系统揭示 Deep Ensembles 的\"差异化收益效应\"：集成带来的性能提升在不同受保护群体间分配不均，往往有利于已优势群体，导致公平性指标恶化；并发现集成成员间的 per-group 预测多样性差异是根本原因，Hardt 后处理可有效缓解。"
 tags:
   - ICML 2025
-  - Deep Ensembles、算法公平性、差异化收益、预测多样性、后处理
 ---
 
 # The Disparate Benefits of Deep Ensembles

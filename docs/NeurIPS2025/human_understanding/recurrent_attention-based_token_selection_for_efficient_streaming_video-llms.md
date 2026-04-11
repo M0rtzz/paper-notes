@@ -2,9 +2,6 @@
 description: "【论文笔记】Recurrent Attention-based Token Selection for Efficient Streaming Video-LLMs 论文解读 | NeurIPS 2025 | arXiv 2510.17364 | 流式视频理解 | 提出 rLiVS（Recurrent LLM-informed Visual Selection），一种无需训练的通用流式视频理解方法，通过LLM注意力权重选择关键视觉token（仅保留~6%）、循环复用历史token、基于字幕的检索问答三重设计，在流式视频基准上取得SOTA。"
 tags:
   - NeurIPS 2025
-  - 流式视频理解
-  - 视觉token压缩
-  - 注意力选择
 ---
 
 # Recurrent Attention-based Token Selection for Efficient Streaming Video-LLMs

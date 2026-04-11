@@ -2,9 +2,6 @@
 description: "【论文笔记】M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation 论文解读 | ACL 2025 | arXiv 2410.21157 | 代码补全 | 提出覆盖18种编程语言的大规模多语言仓库级代码补全基准 M2rc-Eval，配合基于 AST 的桶级和语义级细粒度标注，并构建 M2rc-Instruct 指令语料以提升模型性能。"
 tags:
   - ACL 2025
-  - 代码补全
-  - 仓库级代码
-  - 多语言评估
 ---
 
 # M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation

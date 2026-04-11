@@ -2,9 +2,6 @@
 description: "【论文笔记】Basic Reading Distillation 论文解读 | ACL 2025 | arXiv 2507.19741 | 知识蒸馏 | 本文提出基础阅读蒸馏（BRD），通过让教师LLM在通用语料上生成基础阅读行为数据（包括NER和问答），训练小型学生模型模仿这些行为，使564M参数的小模型在不接触下游任务数据的情况下就能在多种NLP任务上达到或超过20倍大的教师模型性能。"
 tags:
   - ACL 2025
-  - 知识蒸馏
-  - 基础阅读教育
-  - 命名实体识别
 ---
 
 # Basic Reading Distillation

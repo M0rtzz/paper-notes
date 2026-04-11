@@ -2,9 +2,6 @@
 description: "【论文笔记】RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video 论文解读 | NeurIPS 2025 | arXiv 2505.02064 | 实时视频理解 | 提出 RTV-Bench，一个评估 MLLM 实时视频连续分析能力的细粒度 benchmark，通过多时间戳问答（同一问题的正确答案随时间变化）、层次化问题结构和多维评估来全面衡量感知、理解和推理能力。"
 tags:
   - NeurIPS 2025
-  - 实时视频理解
-  - 多模态评估
-  - 连续分析
 ---
 
 # RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video

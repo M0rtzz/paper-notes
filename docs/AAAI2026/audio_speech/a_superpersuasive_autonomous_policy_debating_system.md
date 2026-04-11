@@ -2,9 +2,6 @@
 description: "【论文笔记】DeepDebater: A Superpersuasive Autonomous Policy Debating System 论文解读 | AAAI 2026 | arXiv 2511.17854 | 政策辩论 | 提出 DeepDebater，首个能参与并赢得完整美式政策辩论赛的自主多 Agent 系统——层级式 Agent 工作流分工完成论证构建（正方 Advantage/反方 DA+CP+K），基于 OpenDebateEvidence 300 万张证据卡做检索增强，辅以 GPT-4o TTS 语音合成和 EchoMimic 数字人动画，在专家评估和模拟对局中全面超越人类编写的案例。"
 tags:
   - AAAI 2026
-  - 政策辩论
-  - 多Agent协作
-  - LLM
 ---
 
 # DeepDebater: A Superpersuasive Autonomous Policy Debating System

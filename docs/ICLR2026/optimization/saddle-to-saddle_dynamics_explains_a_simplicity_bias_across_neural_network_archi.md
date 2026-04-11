@@ -2,9 +2,6 @@
 description: "【论文笔记】Saddle-to-Saddle Dynamics Explains A Simplicity Bias Across Neural Network Architectures 论文解读 | ICLR 2026 | arXiv 2512.20607 | simplicity bias | 提出统一的理论框架，通过 saddle-to-saddle 学习动力学解释多种神经网络架构（全连接、卷积、注意力）中普遍存在的 simplicity bias——即梯度下降倾向于先学习简单解再逐步学习复杂解的现象。"
 tags:
   - ICLR 2026
-  - simplicity bias
-  - saddle-to-saddle dynamics
-  - 神经网络学习动力学
 ---
 
 # Saddle-to-Saddle Dynamics Explains A Simplicity Bias Across Neural Network Architectures

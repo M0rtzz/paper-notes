@@ -2,9 +2,6 @@
 description: "【论文笔记】RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation 论文解读 | CVPR2026 | arXiv 2603.11106 | anomaly detection | 提出 Robot-Conditioned Normalizing Flow (RC-NF)，通过条件归一化流对机器人状态与物体运动轨迹的联合分布建模，实现 <100ms 实时异常检测，可作为 VLA 模型（如 π₀）的即插即用监控模块，支持任务级重规划和状态级轨迹回滚。"
 tags:
   - CVPR2026
-  - anomaly detection
-  - normalizing flow
-  - VLA monitoring
 ---
 
 # RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation

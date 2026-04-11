@@ -2,9 +2,6 @@
 description: "【论文笔记】MathFusion: Enhancing Mathematical Problem-solving of LLM through Instruction Fusion 论文解读 | ACL 2025 | arXiv 2503.16212 | 数学推理 | MathFusion 提出了跨问题指令融合的数学数据增强框架，通过顺序融合、并行融合和条件融合三种策略将两个数学问题合成新问题，仅用 45K 额外合成指令就在 6 个 benchmark 上平均提升 18 分准确率。"
 tags:
   - ACL 2025
-  - 数学推理
-  - 指令融合
-  - 数据增强
 ---
 
 # MathFusion: Enhancing Mathematical Problem-solving of LLM through Instruction Fusion

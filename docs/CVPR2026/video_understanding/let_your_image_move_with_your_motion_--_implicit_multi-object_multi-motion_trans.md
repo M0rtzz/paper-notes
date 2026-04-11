@@ -2,9 +2,6 @@
 description: "【论文笔记】FlexiMMT: Let Your Image Move with Your Motion! — Implicit Multi-Object Multi-Motion Transfer 论文解读 | CVPR2026 | arXiv 2603.01000 | 运动迁移 | FlexiMMT 是首个支持隐式多目标多运动迁移的 I2V 框架，通过运动解耦掩码注意力机制 (MDMA) 和差异化掩码提取机制 (DMEM)，将多个参考视频的不同运动独立分配给目标图像中的不同物体，实现灵活组合式运动迁移。"
 tags:
   - CVPR2026
-  - 运动迁移
-  - 多目标多运动
-  - 隐式运动表示
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

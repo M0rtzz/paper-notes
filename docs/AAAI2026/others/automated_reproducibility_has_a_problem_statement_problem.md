@@ -2,9 +2,6 @@
 description: "【论文笔记】Automated Reproducibility Has a Problem Statement Problem 论文解读 | AAAI 2026 | arXiv 2601.04226 | 可复现性 | 提出基于科学方法的可复现性形式化问题定义，将经验性AI研究表示为假设-实验-解释的图结构，并用LLM自动从20篇论文中提取该结构，经原作者评审验证其有效性。"
 tags:
   - AAAI 2026
-  - 可复现性
-  - 科学方法
-  - 问题形式化
 ---
 
 # Automated Reproducibility Has a Problem Statement Problem

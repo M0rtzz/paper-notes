@@ -2,9 +2,6 @@
 description: "【论文笔记】PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views 论文解读 | ICML 2025 | arXiv 2505.23481 | NeRF | PhysicsNeRF 提出了一个基于物理先验的稀疏视角 NeRF 框架，通过深度排序、跨视角一致性、稀疏性正则和渐进训练四种互补约束，在仅 8 个视角下实现 21.4 dB 的 PSNR，并对稀疏视角下过拟合的本质进行了深入的理论分析。"
 tags:
   - ICML 2025
-  - NeRF
-  - 稀疏视角
-  - 物理先验
 ---
 
 # PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views

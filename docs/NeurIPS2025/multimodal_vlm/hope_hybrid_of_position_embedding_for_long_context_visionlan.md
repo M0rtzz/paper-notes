@@ -2,9 +2,8 @@
 description: "【论文笔记】HoPE: Hybrid of Position Embedding for Long Context Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.20444 | position embedding | 提出 HoPE（Hybrid of Position Embedding），通过混合频率分配策略和动态时间缩放机制改进 VLM 中的位置编码，解决 RoPE 在长视频等长上下文多模态场景中无法可靠捕捉时空语义相似性的问题，在四个长视频基准上一致超越现有方法。"
 tags:
   - NeurIPS 2025
-  - position embedding
-  - RoPE
-  - long context
+  - 视频理解
+  - 视觉语言
 ---
 
 # HoPE: Hybrid of Position Embedding for Long Context Vision-Language Models

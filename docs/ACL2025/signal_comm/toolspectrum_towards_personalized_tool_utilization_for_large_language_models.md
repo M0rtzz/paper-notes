@@ -2,9 +2,6 @@
 description: "【论文笔记】ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models 论文解读 | ACL 2025 | arXiv 2505.13176 | 个性化工具使用 | 提出 ToolSpectrum benchmark，首次评估 LLM 在用户画像和环境因素双维度下的个性化工具选择能力，发现现有 SOTA 模型在联合推理两个维度时表现显著下降。"
 tags:
   - ACL 2025
-  - 个性化工具使用
-  - LLM工具学习
-  - 用户画像
 ---
 
 # ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models

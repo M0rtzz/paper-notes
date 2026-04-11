@@ -2,9 +2,6 @@
 description: "【论文笔记】Towards Efficient Medical Reasoning with Minimal Fine-Tuning Data 论文解读 | CVPR 2026 | arXiv 2508.01450 | 数据选择 | 提出 Difficulty-Influence Quadrant (DIQ) 数据选择策略，联合考量样本难度和梯度影响力，使 VLM 语言骨干仅用 1% 精选数据即可匹配全量 SFT 性能，10% 数据则可超越全量训练。"
 tags:
   - CVPR 2026
-  - 数据选择
-  - 医学推理
-  - 大语言模型
 ---
 
 # Towards Efficient Medical Reasoning with Minimal Fine-Tuning Data

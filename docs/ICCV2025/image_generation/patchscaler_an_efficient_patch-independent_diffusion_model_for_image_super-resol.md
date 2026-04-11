@@ -2,9 +2,6 @@
 description: "【论文笔记】PatchScaler: An Efficient Patch-Independent Diffusion Model for Image Super-Resolution 论文解读 | ICCV 2025 | arXiv 2405.17158 | 超分辨率 | 本文提出 PatchScaler，一种 Patch 级独立扩散超分管线，通过全局修复模块生成置信度图量化各区域重建难度，并将 Patch 分组为简单/中等/困难三组分配不同采样步数，搭配纹理提示检索机制，在 RealSR 上仅 0.23× ResShift 运行时间达到更优质量。"
 tags:
   - ICCV 2025
-  - 超分辨率
-  - Patch自适应采样
-  - 扩散加速
 ---
 
 # PatchScaler: An Efficient Patch-Independent Diffusion Model for Image Super-Resolution

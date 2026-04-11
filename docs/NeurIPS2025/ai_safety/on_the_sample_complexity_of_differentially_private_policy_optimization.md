@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Sample Complexity of Differentially Private Policy Optimization 论文解读 | NeurIPS 2025 | arXiv 2510.21060 | 差分隐私 | 首次系统性研究差分隐私（DP）约束下策略优化的样本复杂度，提出统一的元算法框架，分析DP-PG、DP-NPG和DP-REBEL三种隐私策略优化算法，证明隐私代价通常仅作为样本复杂度的低阶项出现。"
 tags:
   - NeurIPS 2025
-  - 差分隐私
-  - 策略优化
-  - 样本复杂度
 ---
 
 # On the Sample Complexity of Differentially Private Policy Optimization

@@ -2,9 +2,6 @@
 description: "【论文笔记】Consistent Time-of-Flight Depth Denoising via Graph-Informed Geometric Attention 论文解读 | ICCV 2025 | arXiv 2506.23542 | ToF深度去噪 | GIGA-ToF 提出了一种基于运动不变图结构融合的 ToF 深度去噪网络，通过跨帧图注意力机制和 MAP 问题的算法展开，同时增强了时序稳定性和空间锐度，并在合成和真实数据上展现了优秀的泛化能力。"
 tags:
   - ICCV 2025
-  - ToF深度去噪
-  - 图信号处理
-  - 几何注意力
 ---
 
 # Consistent Time-of-Flight Depth Denoising via Graph-Informed Geometric Attention

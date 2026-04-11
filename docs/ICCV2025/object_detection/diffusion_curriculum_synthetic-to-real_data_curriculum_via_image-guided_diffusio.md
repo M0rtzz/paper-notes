@@ -2,9 +2,6 @@
 description: "【论文笔记】Diffusion Curriculum: Synthetic-to-Real Data Curriculum via Image-Guided Diffusion 论文解读 | ICCV 2025 | arXiv 2410.13674 | 扩散模型 | 利用扩散模型的图像引导强度控制生成从合成到真实的连续谱系数据，设计\"扩散课程学习（DisCL）\"策略在训练不同阶段自适应选择最优引导级别的合成数据，有效解决长尾分类和低质量数据学习问题。"
 tags:
   - ICCV 2025
-  - 扩散模型
-  - 课程学习
-  - 合成数据
 ---
 
 # Diffusion Curriculum: Synthetic-to-Real Data Curriculum via Image-Guided Diffusion

@@ -2,9 +2,6 @@
 description: "【论文笔记】Multi-Metric Preference Alignment for Generative Speech Restoration 论文解读 | AAAI 2026 | arXiv 2508.17229 | 偏好对齐 | 提出多指标偏好对齐策略（Multi-Metric Preference Alignment），通过构建要求多个互补指标一致同意的偏好数据集 GenSR-Pref（80K 对），利用 DPO 对三种生成式语音修复范式（AR、MGM、FM）进行后训练对齐，显著提升修复质量并有效缓解 reward hacking。"
 tags:
   - AAAI 2026
-  - 偏好对齐
-  - DPO
-  - 语音修复
 ---
 
 # Multi-Metric Preference Alignment for Generative Speech Restoration

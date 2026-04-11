@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Reliability of Large Language Models for Causal Discovery 论文解读 | ACL 2025 | arXiv 2407.19638 | 因果发现 | 利用开源 LLM（OLMo、BLOOM）可访问的预训练语料库，实证验证了\"因果鹦鹉\"假说——LLM 识别因果关系的能力与预训练数据中该关系的出现频率高度相关（Spearman r=0.9），且错误因果关系的存在和上下文变化都会显著影响预测可靠性。"
 tags:
   - ACL 2025
-  - 因果发现
-  - LLM可靠性
-  - 记忆化
 ---
 
 # On the Reliability of Large Language Models for Causal Discovery

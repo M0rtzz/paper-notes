@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond Prompting: An Efficient Embedding Framework for Open-Domain Question Answering 论文解读 | ACL 2025 | arXiv 2503.01606 | open-domain QA | EmbQA 提出嵌入级 ODQA 框架，用轻量线性层和无监督对比学习优化查询表示实现段落重排序，并引入基于序统计量的探索性嵌入扩展候选答案多样性，配合熵选择机制自动选答，在 4 个 ODQA 数据集上以更低计算成本超越 SuRe 等 prompt 级方法。"
 tags:
   - ACL 2025
-  - open-domain QA
-  - embedding-level reranking
-  - contrastive learning
   - 对比学习
 ---
 

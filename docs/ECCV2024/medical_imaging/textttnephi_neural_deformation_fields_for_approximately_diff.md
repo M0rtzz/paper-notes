@@ -2,9 +2,6 @@
 description: "【论文笔记】NePhi: Neural Deformation Fields for Approximately Diffeomorphic Medical Image Registration 论文解读 | ECCV 2024 | arXiv 2309.07322 | 医学图像配准 | NePhi用隐式神经网络（SIREN）替代传统的体素化形变场来表示配准变换，通过编码器预测latent code + 可选的测试时优化实现快速且近似微分同胚的医学图像配准，在多分辨率设置下与SOTA精度相当但内存降低5倍。"
 tags:
   - ECCV 2024
-  - 医学图像配准
-  - 微分同胚变换
-  - 隐式神经表示
 ---
 
 # NePhi: Neural Deformation Fields for Approximately Diffeomorphic Medical Image Registration

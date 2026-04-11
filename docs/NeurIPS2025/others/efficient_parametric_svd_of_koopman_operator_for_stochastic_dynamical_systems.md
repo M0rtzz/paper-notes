@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Parametric SVD of Koopman Operator for Stochastic Dynamical Systems 论文解读 | NEURIPS2025 | arXiv 2507.07222 | Koopman operator | 提出基于 low-rank approximation (LoRA) 的目标函数来学习随机动力系统 Koopman 算子的 top-k 奇异函数，完全避免了 VAMPnet/DPNet 中数值不稳定的矩阵分解操作，且梯度天然无偏。"
 tags:
   - NEURIPS2025
-  - Koopman operator
-  - singular value decomposition
-  - dynamical systems
 ---
 
 # Efficient Parametric SVD of Koopman Operator for Stochastic Dynamical Systems

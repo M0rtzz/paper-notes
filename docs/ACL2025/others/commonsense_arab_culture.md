@@ -2,9 +2,6 @@
 description: "【论文笔记】Commonsense Reasoning in Arab Culture 论文解读 | ACL 2025 | arXiv 2502.12788 | 常识推理 | 构建首个阿拉伯文化特定常识推理数据集 ArabCulture（3482 道由母语者原创的题目，覆盖 13 国×54 主题），评估多种 LLM 发现即使 32B 参数模型也在文化常识推理上表现不佳，且不同地区表现差异显著，地理/文化上下文线索的加入仅部分有效。"
 tags:
   - ACL 2025
-  - 常识推理
-  - 阿拉伯文化
-  - 多文化评估
 ---
 
 # Commonsense Reasoning in Arab Culture

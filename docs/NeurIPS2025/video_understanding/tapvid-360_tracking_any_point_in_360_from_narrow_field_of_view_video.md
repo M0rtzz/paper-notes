@@ -2,9 +2,6 @@
 description: "【论文笔记】TAPVid-360: Tracking Any Point in 360 from Narrow Field of View Video 论文解读 | NeurIPS 2025 | arXiv 2511.21946 | 点跟踪 | 本文提出TAPVid-360任务和数据集，要求模型在窄视野视频中跟踪查询点的3D方向（包括视野外的点），通过利用360度视频生成训练数据并微调CoTracker3实现方向预测，在视野外跟踪上远超现有方法。"
 tags:
   - NeurIPS 2025
-  - 点跟踪
-  - 360度视频
-  - 视野外跟踪
 ---
 
 # TAPVid-360: Tracking Any Point in 360 from Narrow Field of View Video

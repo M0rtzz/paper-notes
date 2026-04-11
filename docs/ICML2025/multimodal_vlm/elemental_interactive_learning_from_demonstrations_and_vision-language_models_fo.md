@@ -2,9 +2,6 @@
 description: "【论文笔记】ELEMENTAL: Interactive Learning from Demonstrations and Vision-Language Models for Reward Design in Robotics 论文解读 | ICML 2025 | arXiv 2411.18825 | 奖励设计 | ELEMENTAL 将视觉语言模型 (VLM) 与逆强化学习 (IRL) 融合，通过 VLM 提取特征函数 + IRL 优化权重 + 自我反思迭代改进，在 IsaacGym 9 个任务上比 EUREKA 提升 42.3%。"
 tags:
   - ICML 2025
-  - 奖励设计
-  - VLM
-  - 逆强化学习
 ---
 
 # ELEMENTAL: Interactive Learning from Demonstrations and Vision-Language Models for Reward Design in Robotics

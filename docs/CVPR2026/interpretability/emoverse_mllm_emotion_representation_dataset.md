@@ -2,9 +2,6 @@
 description: "【论文笔记】EmoVerse: A MLLMs-Driven Emotion Representation Dataset for Interpretable Visual Emotion Analysis 论文解读 | CVPR 2026 | arXiv 2511.12554 | 视觉情感分析 | 提出 EmoVerse，一个219K规模的视觉情感数据集，通过知识图谱启发的Background-Attribute-Subject三元组实现词级和主体级情感归因，同时提供离散CES和连续1024维DES双情感标注，配合多阶段标注验证流水线和基于Qwen2.5-VL的可解释情感模型。"
 tags:
   - CVPR 2026
-  - 视觉情感分析
-  - 情感数据集
-  - B-A-S三元组
 ---
 
 # EmoVerse: A MLLMs-Driven Emotion Representation Dataset for Interpretable Visual Emotion Analysis

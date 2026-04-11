@@ -2,9 +2,6 @@
 description: "【论文笔记】FlowCut: Rethinking Redundancy via Information Flow for Efficient Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.19536 | 视觉token剪枝 | 从信息流（Information Flow）视角重新理解VLM中视觉token的冗余性：发现CLS token是信息中继站、冗余渐进式涌现、单层单标准评分不够可靠，提出FlowCut——基于信息流感知的多标准累积重要性剪枝框架，在LLaVA-1.5-7B上以88.9%的token减少率超越SOTA 1.6%，在LLaVA-NeXT-7B上超越4.3%。"
 tags:
   - NeurIPS 2025
-  - 视觉token剪枝
-  - 信息流
-  - VLM效率
 ---
 
 # FlowCut: Rethinking Redundancy via Information Flow for Efficient Vision-Language Models

@@ -2,9 +2,6 @@
 description: "【论文笔记】InspireDebate: Multi-Dimensional Evaluation-Guided Reasoning for Debating 论文解读 | ACL 2025 | arXiv 2506.18102 | 辩论优化 | 提出双组件框架：InspireScore（融合4个主观维度+2个客观维度的辩论评估系统）和 InspireDebate（通过CoT-SFT + 多维DPO + Web-RAG 三阶段优化的辩论框架），评估系统与专家判断相关性提高 44%，辩论性能超越基线 57%。"
 tags:
   - ACL 2025
-  - 辩论优化
-  - 多维评估
-  - DPO
 ---
 
 # InspireDebate: Multi-Dimensional Evaluation-Guided Reasoning for Debating

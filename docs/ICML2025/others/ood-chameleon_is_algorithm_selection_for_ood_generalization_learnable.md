@@ -2,9 +2,6 @@
 description: "【论文笔记】OOD-Chameleon: Is Algorithm Selection for OOD Generalization Learnable? 论文解读 | ICML2025 | arXiv 2410.02735 | OOD泛化 | 探索\"为OOD泛化学习算法选择\"的可能性：将选择形式化为基于数据集特征的多标签分类，在\"数据集的数据集\"上训练选择器，可根据数据集特征预测最佳训练算法，无需先训练模型。"
 tags:
   - ICML2025
-  - OOD泛化
-  - 算法选择
-  - 数据集特征
 ---
 
 # OOD-Chameleon: Is Algorithm Selection for OOD Generalization Learnable?

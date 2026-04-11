@@ -2,9 +2,6 @@
 description: "【论文笔记】Where, What, Why: Toward Explainable 3D-GS Watermarking 论文解读 | CVPR2026 | arXiv 2603.08809 | 3D Gaussian Splatting | 提出一种表示原生的 3D-GS 水印框架，通过 Trio-Experts 选载体（where）、Channel-wise Group Mask 控梯度（what）、解耦微调实现可审计归因（why），在渲染质量（PSNR +0.83 dB）和比特精度（+1.24%）上均超越 SOTA。"
 tags:
   - CVPR2026
-  - 3D Gaussian Splatting
-  - 数字水印
-  - 版权保护
 ---
 
 # Where, What, Why: Toward Explainable 3D-GS Watermarking

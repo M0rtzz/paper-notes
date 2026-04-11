@@ -2,9 +2,6 @@
 description: "【论文笔记】The Illusion of Progress? A Critical Look at Test-Time Adaptation for Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.24000 | Test-Time Adaptation | 提出TTA-VLM benchmark，在统一实验条件下评估8种episodic和7种online测试时适应(TTA)方法在15个数据集上的表现，发现三个令人意外的结论：(1) 现有TTA方法相比早期TPT基线提升有限；(2) TTA与训练时微调方法协作效果差；(3) 准确率提升以牺牲校准、OOD检测和鲁棒性为代价。"
 tags:
   - NeurIPS 2025
-  - Test-Time Adaptation
-  - CLIP
-  - SigLIP
 ---
 
 # The Illusion of Progress? A Critical Look at Test-Time Adaptation for Vision-Language Models

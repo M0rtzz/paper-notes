@@ -2,9 +2,7 @@
 description: "【论文笔记】Cross Modal Fine-Grained Alignment via Granularity-Aware and Region-Uncertain Modeling 论文解读 | AAAI2026 | arXiv 2511.07710 | fine-grained alignment | 提出 GRM 框架，通过模态内显著性/粒度感知适配器和基于高斯混合的区域级不确定性建模，实现鲁棒的细粒度图文对齐，在 Flickr30K 和 MS-COCO 上取得 SOTA。"
 tags:
   - AAAI2026
-  - fine-grained alignment
-  - image-text retrieval
-  - uncertainty modeling
+  - 提示学习
 ---
 
 # Cross Modal Fine-Grained Alignment via Granularity-Aware and Region-Uncertain Modeling

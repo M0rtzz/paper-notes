@@ -2,9 +2,6 @@
 description: "【论文笔记】QuRL: Efficient Reinforcement Learning with Quantized Rollout 论文解读 | ICLR 2026 | arXiv 2602.13953 | 量化rollout | 提出QuRL——用量化actor加速RL训练的rollout阶段：量化actor生成序列(占训练70%时间)+全精度actor做梯度更新→提出自适应裁剪范围(ACR)防止长期训练崩溃(量化/全精度策略分歧累积)+更新感知量化(UAQ用不变缩放放大权重变化超过量化粒度)→INT8/FP8量化实现20-80%rollout加速且性能不降甚至微升。"
 tags:
   - ICLR 2026
-  - 量化rollout
-  - RLVR
-  - 自适应裁剪
 ---
 
 # QuRL: Efficient Reinforcement Learning with Quantized Rollout

@@ -2,9 +2,6 @@
 description: "【论文笔记】TimeExpert: An Expert-Guided Video LLM for Video Temporal Grounding 论文解读 | ICCV 2025 | arXiv 2508.01699 | Video Temporal Grounding | 提出TimeExpert——首个基于MoE的Video-LLM框架，通过**任务感知动态门控**和**token自适应路由**将时间戳、显著性分数和文本描述路由到专门的专家，配合任务依赖辅助损失，在Dense Video Captioning、Moment Retrieval和Video Highlight Detection三类VTG任务上全面超越SOTA。"
 tags:
   - ICCV 2025
-  - Video Temporal Grounding
-  - MoE
-  - 动态路由
 ---
 
 # TimeExpert: An Expert-Guided Video LLM for Video Temporal Grounding

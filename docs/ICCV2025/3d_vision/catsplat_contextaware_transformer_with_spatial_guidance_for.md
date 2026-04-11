@@ -2,9 +2,6 @@
 description: "【论文笔记】CATSplat: Context-Aware Transformer with Spatial Guidance for Generalizable 3D Gaussian Splatting from A Single-View Image 论文解读 | ICCV 2025 | arXiv 2412.12906 | 单视图3D重建 | 提出CATSplat——单视图前馈3DGS重建的泛化Transformer框架：利用VLM文本嵌入（上下文先验）和3D点云特征（空间先验）通过双重cross-attention增强图像特征，在RE10K等数据集上在PSNR/SSIM/LPIPS全面超越Flash3D，且跨数据集泛化性优异。"
 tags:
   - ICCV 2025
-  - 单视图3D重建
-  - 3D Gaussian Splatting
-  - 视觉语言模型
 ---
 
 # CATSplat: Context-Aware Transformer with Spatial Guidance for Generalizable 3D Gaussian Splatting from A Single-View Image

@@ -2,9 +2,6 @@
 description: "【论文笔记】Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models 论文解读 | ACL 2025 | arXiv 2501.11110 | 数学推理 | 提出Chain-of-Reasoning（CoR）统一框架，将自然语言推理(NLR)、算法推理(AR)和符号推理(SR)三种范式整合在同一推理链中协同工作，配合渐进式范式训练(PPT)策略，使7B模型在定理证明上零样本超越GPT-4o 41%，在MATH上超越RL方法15%。"
 tags:
   - ACL 2025
-  - 数学推理
-  - 多范式推理
-  - 自然语言推理
 ---
 
 # Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models

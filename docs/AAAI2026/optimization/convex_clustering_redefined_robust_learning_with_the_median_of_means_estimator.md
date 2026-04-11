@@ -2,9 +2,6 @@
 description: "【论文笔记】Convex Clustering Redefined: Robust Learning with the Median of Means Estimator 论文解读 | AAAI 2026 | arXiv 2511.14784 | 凸聚类 | 提出 COMET（Convex Clustering with Median of Means Estimator），将中位数均值（MoM）估计器整合到凸聚类框架中，通过随机分箱、截断距离和 ADAM 优化实现对噪声和异常值的鲁棒聚类，无需预设聚类数量，在理论上证明了弱一致性，在合成和真实数据集上全面超越现有方法。"
 tags:
   - AAAI 2026
-  - 凸聚类
-  - 中位数均值估计
-  - 鲁棒聚类
 ---
 
 # Convex Clustering Redefined: Robust Learning with the Median of Means Estimator

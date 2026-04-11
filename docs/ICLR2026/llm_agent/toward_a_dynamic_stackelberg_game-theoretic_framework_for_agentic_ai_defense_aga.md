@@ -2,9 +2,6 @@
 description: "【论文笔记】Toward a Dynamic Stackelberg Game-Theoretic Framework for Agentic AI Defense Against LLM Jailbreaking 论文解读 | ICLR 2026 | arXiv 2507.08207 | LLM安全 | 将LLM越狱攻防建模为动态Stackelberg扩展式博弈，结合RRT (Rapidly-exploring Random Trees) 探索prompt空间，提出\"Purple Agent\"防御架构——以\"Think Red to Act Blue\"理念通过内部对抗模拟预判攻击路径并预防性封堵。"
 tags:
   - ICLR 2026
-  - LLM安全
-  - 越狱防御
-  - 博弈论
 ---
 
 # Toward a Dynamic Stackelberg Game-Theoretic Framework for Agentic AI Defense Against LLM Jailbreaking

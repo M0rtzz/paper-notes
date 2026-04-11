@@ -2,9 +2,6 @@
 description: "【论文笔记】FOUNDER: Grounding Foundation Models in World Models for Open-Ended Embodied Decision Making 论文解读 | ICML 2025 | arXiv 2507.12496 | Foundation Model | 提出 FOUNDER 框架，通过学习映射函数将 Foundation Model (FM) 的多模态任务表示对齐到 World Model (WM) 的状态空间，结合时间距离预测器生成奖励信号，实现无需环境奖励的开放式多任务具身决策。"
 tags:
   - ICML 2025
-  - Foundation Model
-  - World Model
-  - Goal-Conditioned RL
 ---
 
 # FOUNDER: Grounding Foundation Models in World Models for Open-Ended Embodied Decision Making

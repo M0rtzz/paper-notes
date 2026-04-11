@@ -2,9 +2,6 @@
 description: "【论文笔记】Rethinking VLMs for Image Forgery Detection and Localization 论文解读 | CVPR 2025 | arXiv 2603.12930 | 图像伪造检测与定位 | 提出 IFDL-VLM，揭示 VLM 先验对伪造检测/定位几乎无益，通过将检测/定位与语言解释解耦的两阶段框架，用 ViT+SAM 专家模型做检测定位、再将定位 mask 作为辅助输入增强 VLM 训练以生成可解释文字说明。"
 tags:
   - CVPR 2025
-  - 图像伪造检测与定位
-  - VLM
-  - SAM
 ---
 
 # Rethinking VLMs for Image Forgery Detection and Localization

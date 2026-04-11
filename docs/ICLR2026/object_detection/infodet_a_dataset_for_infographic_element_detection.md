@@ -2,9 +2,6 @@
 description: "【论文笔记】InfoDet: A Dataset for Infographic Element Detection 论文解读 | ICLR 2026 | arXiv 2505.17473 | 信息图检测 | 构建了一个大规模信息图元素检测数据集（101,264 张信息图、1420 万标注），涵盖图表和人类可识别对象两大类，并提出 Grounded CoT 方法利用检测结果提升 VLM 的图表理解能力。"
 tags:
   - ICLR 2026
-  - 信息图检测
-  - 图表理解
-  - 数据集
 ---
 
 # InfoDet: A Dataset for Infographic Element Detection

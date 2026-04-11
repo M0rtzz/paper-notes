@@ -2,9 +2,6 @@
 description: "【论文笔记】ProgressiveAvatars: Progressive Animatable 3D Gaussian Avatars 论文解读 | CVPR 2026 | arXiv 2603.16447 | 渐进式3D表示 | 提出 ProgressiveAvatars，一种基于模板网格自适应隐式细分构建层级3DGS的渐进式头像表示，支持在不同带宽和算力约束下渐进传输和渲染——仅传输5%数据（2.6MB）即可获得可用头像，后续增量加载平滑提升质量至与 SOTA 方法可比。"
 tags:
   - CVPR 2026
-  - 渐进式3D表示
-  - 可动画化头部Avatar
-  - 3D高斯溅射
 ---
 
 # ProgressiveAvatars: Progressive Animatable 3D Gaussian Avatars

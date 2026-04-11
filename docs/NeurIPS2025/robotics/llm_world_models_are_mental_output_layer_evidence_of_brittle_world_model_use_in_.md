@@ -2,9 +2,6 @@
 description: "【论文笔记】LLM World Models Are Mental: Output Layer Evidence of Brittle World Model Use in LLM Mechanical Reasoning 论文解读 | NeurIPS 2025 | arXiv 2507.15521 | LLM世界模型 | 借鉴认知科学的心理模型研究方法，通过滑轮系统的TikZ代码表示测试LLM的力学推理能力，发现LLM能近似估计机械优势并区分功能/非功能系统（Study 1&2），但在精细结构连接推理上完全失败（Study 3），表明LLM的\"世界模型\"存在但脆弱。"
 tags:
   - NeurIPS 2025
-  - LLM世界模型
-  - 力学推理
-  - 滑轮系统
 ---
 
 # LLM World Models Are Mental: Output Layer Evidence of Brittle World Model Use in LLM Mechanical Reasoning

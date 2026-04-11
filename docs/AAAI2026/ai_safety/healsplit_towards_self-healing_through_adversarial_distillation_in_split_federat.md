@@ -2,9 +2,6 @@
 description: "【论文笔记】HealSplit: Towards Self-Healing through Adversarial Distillation in Split Federated Learning 论文解读 | AAAI 2026 | arXiv 2511.11240 | 分割联邦学习 | 提出 HealSplit，首个针对分割联邦学习（SFL）的统一防御框架，通过拓扑感知检测（TAS）识别中毒样本、GAN 生成语义一致的替代表示、对抗多教师蒸馏训练一致性验证学生模型，实现端到端检测与恢复，在五类投毒攻击下均大幅超越十种 SOTA 防御方法。"
 tags:
   - AAAI 2026
-  - 分割联邦学习
-  - 数据投毒攻击
-  - 拓扑异常检测
 ---
 
 # HealSplit: Towards Self-Healing through Adversarial Distillation in Split Federated Learning

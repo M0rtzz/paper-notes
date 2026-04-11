@@ -2,9 +2,6 @@
 description: "【论文笔记】OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness 论文解读 | CVPR2026 | arXiv 2602.19035 | 视觉里程计 | 提出 OpenVO，一个面向开放世界的单目视觉里程计框架，通过时间感知流编码器和几何感知上下文编码器，在无相机标定、帧率变化的条件下实现鲁棒的真实尺度自车运动估计，跨数据集 ATE 提升超 20%，变帧率场景误差降低 46%-92%。"
 tags:
   - CVPR2026
-  - 视觉里程计
-  - 时间动态感知
-  - 无标定相机
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

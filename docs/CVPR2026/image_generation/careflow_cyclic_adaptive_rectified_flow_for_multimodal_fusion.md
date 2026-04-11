@@ -2,9 +2,6 @@
 description: "【论文笔记】CaReFlow: Cyclic Adaptive Rectified Flow for Multimodal Fusion 论文解读 | CVPR 2026 | arXiv 2602.19140 | rectified flow | 提出 CaReFlow，首次将 rectified flow 用于多模态分布映射以缩小模态间隙：通过 one-to-many mapping 让源模态数据点观测目标模态全局分布，adaptive relaxed alignment 对不同关联度的模态对施加不同对齐强度，cyclic rectified flow 保证映射后信息不丢失，即使用简单拼接融合也能在多个多模态情感计算 benchmark 上达到 SOTA。"
 tags:
   - CVPR 2026
-  - rectified flow
-  - modality gap
-  - multimodal fusion
   - 多模态
 ---
 

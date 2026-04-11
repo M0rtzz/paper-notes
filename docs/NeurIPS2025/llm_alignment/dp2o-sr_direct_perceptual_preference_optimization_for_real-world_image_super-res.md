@@ -2,10 +2,7 @@
 description: "【论文笔记】DP²O-SR: Direct Perceptual Preference Optimization for Real-World Image Super-Resolution 论文解读 | NeurIPS 2025 | arXiv 2510.18851 | 超分辨率 image super-resolution | 提出 DP²O-SR 框架，利用扩散模型固有的随机性生成多样化超分辨率输出，通过混合感知奖励构建偏好对，并设计层次化偏好优化（HPO）策略自适应加权训练对，在无需人工标注的前提下显著提升真实世界图像超分辨率的感知质量。"
 tags:
   - NeurIPS 2025
-  - image super-resolution
   - 超分辨率
-  - preference optimization
-  - diffusion model
   - 扩散模型
 ---
 

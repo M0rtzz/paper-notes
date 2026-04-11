@@ -2,9 +2,6 @@
 description: "【论文笔记】MMR-Life: Piecing Together Real-life Scenes for Multimodal Multi-image Reasoning 论文解读 | ICLR 2026 | arXiv 2603.02024 | 多模态推理 | 提出MMR-Life基准（2646道多图选择题，覆盖7种推理类型21个任务），首次系统评估MLLM在真实生活场景中的多图多类推理能力，发现GPT-5仅58%准确率，在因果/空间/时序推理上存在显著瓶颈。"
 tags:
   - ICLR 2026
-  - 多模态推理
-  - 多图推理
-  - 真实场景
 ---
 
 # MMR-Life: Piecing Together Real-life Scenes for Multimodal Multi-image Reasoning

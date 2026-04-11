@@ -2,10 +2,8 @@
 description: "【论文笔记】Beyond Label Semantics: Language-Guided Action Anatomy for Few-shot Action Recognition 论文解读 | ICCV 2025 | arXiv 2507.16287 | 动作识别 few-shot action recognition | 提出 Language-Guided Action Anatomy (LGA) 框架，利用大语言模型将动作标签解剖为原子级动作描述（主体-动作-对象三要素），同时在视频端通过聚类分割将帧序列划分为对应的原子动作阶段，在原子级别进行多模态融合和匹配，显著提升小样本动作识别性能。"
 tags:
   - ICCV 2025
-  - few-shot action recognition
   - 动作识别
-  - LLM
-  - atomic action
+  - 多模态
 ---
 
 # Beyond Label Semantics: Language-Guided Action Anatomy for Few-shot Action Recognition

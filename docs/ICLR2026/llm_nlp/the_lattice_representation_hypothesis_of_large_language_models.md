@@ -2,9 +2,6 @@
 description: "【论文笔记】The Lattice Representation Hypothesis of Large Language Models 论文解读 | ICLR2026 | arXiv 2603.01227 | 线性表示假说 | 提出 LLM 的**格表示假说 (Lattice Representation Hypothesis)**：通过将线性表示假说与形式概念分析 (FCA) 统一，证明 LLM 嵌入空间中的属性方向通过半空间交集隐式编码了一个**概念格 (concept lattice)**，从而实现了连续几何与符号抽象之间的桥接。"
 tags:
   - ICLR2026
-  - 线性表示假说
-  - 形式概念分析
-  - 概念格
 ---
 
 # The Lattice Representation Hypothesis of Large Language Models

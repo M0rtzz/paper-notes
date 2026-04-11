@@ -2,9 +2,6 @@
 description: "【论文笔记】Learning to Translate Noise for Robust Image Denoising 论文解读 | CVPR 2026 | arXiv 2412.04727 | 图像去噪 | 提出噪声翻译框架，通过轻量级噪声翻译网络将未知真实噪声转换为高斯噪声，再由预训练的高斯去噪网络处理，在 OOD 真实噪声基准上平均 PSNR 提升 1.5dB 以上，且翻译网络仅 0.29M 参数、可跨去噪器迁移。"
 tags:
   - CVPR 2026
-  - 图像去噪
-  - 噪声翻译
-  - 高斯噪声
 ---
 
 # Learning to Translate Noise for Robust Image Denoising

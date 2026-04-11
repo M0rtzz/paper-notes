@@ -2,9 +2,6 @@
 description: "【论文笔记】PreciseCache: Precise Feature Caching for Efficient and High-fidelity Video Generation 论文解读 | ICLR 2026 | arXiv 2603.00976 | 特征缓存 | 提出PreciseCache——精确检测并跳过视频生成中真正冗余计算的即插即用加速框架：LFCache用低频差异(LFD)度量步级冗余(高噪声步结构重要/低噪声步细节可缓存)→BlockCache度量块级冗余(非关键block直接复用)→在Wan2.1-14B上实现2.6x加速且无明显质量损失。"
 tags:
   - ICLR 2026
-  - 特征缓存
-  - 视频扩散
-  - 低频差异
 ---
 
 # PreciseCache: Precise Feature Caching for Efficient and High-fidelity Video Generation

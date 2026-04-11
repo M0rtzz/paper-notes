@@ -2,9 +2,6 @@
 description: "【论文笔记】Proxy-FDA: Proxy-based Feature Distribution Alignment for Fine-tuning Vision Foundation Models without Forgetting 论文解读 | ICML2025 | arXiv 2505.24088 | 鲁棒微调 | 提出 Proxy-FDA，通过基于最近邻图的特征分布对齐（FDA）和动态生成的代理特征（Proxy），在微调视觉基础模型时显式保留特征邻域结构中的丰富知识，大幅减少概念遗忘。"
 tags:
   - ICML2025
-  - 鲁棒微调
-  - 概念遗忘
-  - 特征分布对齐
 ---
 
 # Proxy-FDA: Proxy-based Feature Distribution Alignment for Fine-tuning Vision Foundation Models without Forgetting

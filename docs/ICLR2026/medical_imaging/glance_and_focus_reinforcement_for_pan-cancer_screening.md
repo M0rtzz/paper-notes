@@ -2,9 +2,6 @@
 description: "【论文笔记】Glance and Focus Reinforcement for Pan-cancer Screening 论文解读 | ICLR 2026 | arXiv 2601.19103 | 泛癌筛查 | 提出GF-Screen框架模拟放射科医生\"扫视-聚焦\"策略，Glance模型通过RL学习选择含病灶的子体积，Focus模型精确分割——通过组相对学习(GRL)直接将GRPO从NLP迁移到视觉任务，在FLARE25泛癌挑战中以+25.6%DSC领先冠军方案，同时推理效率提升5.7倍。"
 tags:
   - ICLR 2026
-  - 泛癌筛查
-  - 强化学习
-  - GRPO
 ---
 
 # Glance and Focus Reinforcement for Pan-cancer Screening

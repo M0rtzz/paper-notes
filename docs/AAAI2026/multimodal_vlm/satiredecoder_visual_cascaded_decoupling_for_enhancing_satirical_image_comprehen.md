@@ -2,9 +2,6 @@
 description: "【论文笔记】SatireDecoder: Visual Cascaded Decoupling for Enhancing Satirical Image Comprehension 论文解读 | AAAI 2026 | arXiv 2512.00582 | 讽刺理解 | 提出SatireDecoder，一种无需训练的框架，通过多智能体视觉级联解耦和不确定性引导的CoT推理来增强MLLM对讽刺图像的深层语义理解，在YesBut数据集上正确性、完整性和忠实性三项指标分别提升10%-40%。"
 tags:
   - AAAI 2026
-  - 讽刺理解
-  - 多智能体系统
-  - 链式思维推理
 ---
 
 # SatireDecoder: Visual Cascaded Decoupling for Enhancing Satirical Image Comprehension

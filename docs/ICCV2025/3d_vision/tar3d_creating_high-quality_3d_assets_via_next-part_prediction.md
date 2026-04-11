@@ -2,9 +2,6 @@
 description: "【论文笔记】TAR3D: Creating High-Quality 3D Assets via Next-Part Prediction 论文解读 | ICCV2025 | arXiv 2412.16919 | 3D生成 | 提出TAR3D框架——首次将三平面表示量化为离散几何部件并用GPT自回归生成，通过3D VQ-VAE编码任意面数网格为固定长度序列+TriPE位置编码保留3D空间信息，在文本/图像→3D任务上全面超越现有方法。"
 tags:
   - ICCV2025
-  - 3D生成
-  - 自回归
-  - VQ-VAE
 ---
 
 # TAR3D: Creating High-Quality 3D Assets via Next-Part Prediction

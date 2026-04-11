@@ -2,9 +2,7 @@
 description: "【论文笔记】Astral: Training Physics-Informed Neural Networks with Error Majorants 论文解读 | ICLR 2026 | arXiv 2406.02645 | PiNN | 提出 Astral 损失函数（基于函数型后验误差上界/error majorant），替代传统 PiNN 中的残差损失来训练物理信息神经网络，实现训练过程中可靠的误差估计，并在扩散方程、Maxwell 方程等多种 PDE 上取得了更好或相当的精度。"
 tags:
   - ICLR 2026
-  - PiNN
-  - 后验误差估计
-  - 误差上界
+  - 偏微分方程
 ---
 
 # Astral: Training Physics-Informed Neural Networks with Error Majorants

@@ -2,9 +2,6 @@
 description: "【论文笔记】InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing 论文解读 | CVPR 2026 | arXiv 2603.13082 | 多人运动编辑 | 提出 InterEdit，首个文本引导的多人3D运动编辑框架，通过语义感知 Plan Token 对齐和交互感知频域 Token 对齐两个机制，在条件扩散模型中实现对双人交互动作的精准编辑，同时保持源运动的一致性和交互协调性。"
 tags:
   - CVPR 2026
-  - 多人运动编辑
-  - 文本引导
-  - 交互感知
 ---
 
 # InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing

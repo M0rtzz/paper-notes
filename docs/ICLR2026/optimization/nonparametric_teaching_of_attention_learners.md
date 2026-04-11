@@ -2,9 +2,6 @@
 description: "【论文笔记】Nonparametric Teaching of Attention Learners 论文解读 | ICLR 2026 | arXiv 2602.20461 | 非参教学 | 提出AtteNT——从非参教学理论视角重新解释注意力学习器的训练过程：解析证明注意力对参数梯度下降的影响→动态ANTK收敛到功能梯度中的重要性自适应典范核→建立参数空间和函数空间的一致性→用贪心教学算法(选最大预测偏差的样本)加速训练→LLM微调减少13.01%训练时间/ViT从头训练减少20.58%且精度不降甚至提升。"
 tags:
   - ICLR 2026
-  - 非参教学
-  - 注意力机制
-  - 功能梯度
 ---
 
 # Nonparametric Teaching of Attention Learners

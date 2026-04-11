@@ -2,9 +2,6 @@
 description: "【论文笔记】AutoVER: Grounding Language Models for Visual Entity Recognition 论文解读 | ECCV 2024 | arXiv 2402.18695 | 视觉实体识别 | 提出 AutoVER，在多模态大语言模型中统一集成对比检索和前缀树约束解码，将 600 万级 Wikipedia 实体空间先缩小到数百候选再做受限生成，在 Oven-Wiki 上将 entity seen 准确率从 PaLI-17B 的 30.6% 翻倍到 61.5%，同时在 unseen/query split 上也大幅领先。"
 tags:
   - ECCV 2024
-  - 视觉实体识别
-  - 检索增强生成
-  - 约束解码
 ---
 
 # AutoVER: Grounding Language Models for Visual Entity Recognition

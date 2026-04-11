@@ -2,9 +2,6 @@
 description: "【论文笔记】Improved Exploration in GFlowNets via Enhanced Epistemic Neural Networks 论文解读 | ICML 2025 | arXiv 2506.16313 | GFlowNets | 将 Epistemic Neural Networks (ENN/epinet) 集成到 GFlowNets 中实现不确定性驱动的探索，提出 ENN-GFN-Enhanced 算法，在 HyperGrid 和序列生成任务上显著改善模式发现效率和分布学习质量。"
 tags:
   - ICML 2025
-  - GFlowNets
-  - 认知不确定性
-  - Epistemic Neural Networks
 ---
 
 # Improved Exploration in GFlowNets via Enhanced Epistemic Neural Networks

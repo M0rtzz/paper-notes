@@ -2,10 +2,7 @@
 description: "【论文笔记】Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography 论文解读 | CVPR 2026 | arXiv 2603.11627 | 图像分割 PET segmentation | 构建迄今最大的全身 PET 分割数据集 PETWB-Seg11K（11041 例扫描、59831 个掩模），并提出 SegAnyPET 基础模型，实现基于 prompt 的 3D 全身 PET 通用可交互分割，在多中心、多示踪剂、多疾病场景下展现强 zero-shot 泛化能力。"
 tags:
   - CVPR 2026
-  - PET segmentation
   - 图像分割
-  - foundation model
-  - promptable segmentation
 ---
 
 # Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography

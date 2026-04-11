@@ -2,11 +2,8 @@
 description: "【论文笔记】Show, Don't Tell: Detecting Novel Objects by Watching Human Videos 论文解读 | CVPR 2026 | arXiv 2603.12751 | 目标检测 novel object detection | 提出\"Show, Don't Tell\"范式：通过观看人类演示视频，自动构建新物体标注数据集（SODC），训练轻量级定制检测器（MOD），完全绕过语言描述和prompt engineering，在真实机器人分拣任务上成功部署。"
 tags:
   - CVPR 2026
-  - novel object detection
   - 目标检测
-  - self-supervised
   - 自监督学习
-  - robot learning
 ---
 
 # Show, Don't Tell: Detecting Novel Objects by Watching Human Videos

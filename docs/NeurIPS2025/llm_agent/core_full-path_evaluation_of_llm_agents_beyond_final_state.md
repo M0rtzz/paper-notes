@@ -2,9 +2,6 @@
 description: "【论文笔记】CORE: Full-Path Evaluation of LLM Agents Beyond Final State 论文解读 | NeurIPS 2025 | arXiv 2509.20998 | Agent评估 | 提出CORE框架：用确定有限自动机（DFA）编码Agent任务的合法工具调用路径，引入5个互补指标（路径正确性、顺序正确性、前缀危险性、有害调用率、效率）从全路径而非仅终态评估Agent行为，揭示了传统终态评估中不可见的安全和效率差异。"
 tags:
   - NeurIPS 2025
-  - Agent评估
-  - 全路径评估
-  - 确定有限自动机
 ---
 
 # CORE: Full-Path Evaluation of LLM Agents Beyond Final State

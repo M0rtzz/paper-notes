@@ -2,9 +2,6 @@
 description: "【论文笔记】Are They the Same? Exploring Visual Correspondence Shortcomings of Multimodal LLMs 论文解读 | ICCV 2025 | arXiv 2501.04670 | 视觉对应 | 本文首次系统研究了多模态大模型（MLLM）在视觉对应匹配方面的不足，构建了含1510样本的MMVM基准和220K匹配数据集，并提出CoLVA方法通过目标级对比学习和细粒度视觉专家显著提升了MLLM的跨图像实例匹配能力。"
 tags:
   - ICCV 2025
-  - 视觉对应
-  - 多模态大模型
-  - 对比学习
 ---
 
 # Are They the Same? Exploring Visual Correspondence Shortcomings of Multimodal LLMs

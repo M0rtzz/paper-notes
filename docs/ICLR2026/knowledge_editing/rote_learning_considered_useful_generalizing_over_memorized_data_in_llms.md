@@ -2,9 +2,6 @@
 description: "【论文笔记】Rote Learning Considered Useful: Generalizing over Memorized Data in LLMs 论文解读 | ICLR 2026 | arXiv 2507.21914 | memorization | 提出\"记忆-再泛化\"（memorize-then-generalize）框架，通过先用无语义合成 token 死记硬背事实关联、再用少量语义提示微调的两阶段策略，揭示 LLM 能从死记硬背数据中泛化，且记忆越深泛化越好，同时指出该机制可被恶意利用的安全隐患。"
 tags:
   - ICLR 2026
-  - memorization
-  - generalization
-  - knowledge injection
 ---
 
 # Rote Learning Considered Useful: Generalizing over Memorized Data in LLMs

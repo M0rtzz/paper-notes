@@ -2,9 +2,6 @@
 description: "【论文笔记】RegGS: Unposed Sparse Views Gaussian Splatting with 3DGS Registration 论文解读 | ICCV 2025 | arXiv 2507.08136 | 3D高斯泼溅 | 提出 RegGS 框架，通过基于最优传输 MW2 距离的可微 3DGS 配准模块，将前馈网络生成的局部3D高斯增量式地对齐到全局一致的3D表示中，实现无位姿稀疏视角的高质量3D重建。"
 tags:
   - ICCV 2025
-  - 3D高斯泼溅
-  - 无位姿重建
-  - 稀疏视角
 ---
 
 # RegGS: Unposed Sparse Views Gaussian Splatting with 3DGS Registration

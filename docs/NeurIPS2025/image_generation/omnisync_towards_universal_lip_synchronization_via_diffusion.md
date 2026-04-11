@@ -2,10 +2,7 @@
 description: "【论文笔记】OmniSync: Towards Universal Lip Synchronization via Diffusion Transformers 论文解读 | NeurIPS 2025 (Spotlight) | arXiv 2505.21448 | 唇形同步 | OmniSync提出了一种基于Diffusion Transformer的通用唇形同步框架，通过无掩码训练范式、基于Flow Matching的渐进噪声初始化和动态时空CFG三大创新，在真实视频和AI生成视频上都大幅超越先前方法，尤其在风格化角色的唇形同步上达到87.78%成功率（之前最佳67.78%）。"
 tags:
   - NeurIPS 2025 (Spotlight)
-  - 唇形同步
-  - Diffusion Transformer
   - Transformer
-  - Flow Matching
 ---
 
 # OmniSync: Towards Universal Lip Synchronization via Diffusion Transformers

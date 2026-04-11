@@ -2,9 +2,6 @@
 description: "【论文笔记】LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation 论文解读 | ICLR 2026 | arXiv 2603.10899 | KV缓存压缩 | 提出 LookaheadKV，通过可学习的前瞻token和选择性激活的LoRA模块预测真实响应的注意力重要性分数，实现无需生成草稿的快速精确KV缓存淘汰，在多个长上下文基准上超越现有方法，驱逐开销降低最高14.5倍。"
 tags:
   - ICLR 2026
-  - KV缓存压缩
-  - 注意力重要性预测
-  - LoRA
 ---
 
 # LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation

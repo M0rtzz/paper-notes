@@ -2,9 +2,6 @@
 description: "【论文笔记】Uncertainty-Aware Knowledge Distillation for Multimodal Large Language Models 论文解读 | CVPR2026 | arXiv 2603.21426 | 知识蒸馏 | 提出Beta-KD，一种基于贝叶斯视角的不确定性感知知识蒸馏框架，通过将教师监督建模为Gibbs先验并用Laplace近似推导闭形解，自动调节数据与教师信号的平衡，在多模态VQA基准上持续提升蒸馏效果。"
 tags:
   - CVPR2026
-  - 知识蒸馏
-  - 不确定性加权
-  - 贝叶斯推断
 ---
 
 # Uncertainty-Aware Knowledge Distillation for Multimodal Large Language Models

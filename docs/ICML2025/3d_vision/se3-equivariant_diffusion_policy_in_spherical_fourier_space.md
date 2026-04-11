@@ -2,9 +2,6 @@
 description: "【论文笔记】SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space 论文解读 | ICML2025 | arXiv 2507.01723 | SE(3)等变 | 提出 Spherical Diffusion Policy（SDP），通过将状态、动作和去噪过程嵌入球面傅里叶空间实现端到端 SE(3) 等变的闭环操作策略，在 20 个仿真和 5 个真机任务上大幅超越基线。"
 tags:
   - ICML2025
-  - SE(3)等变
-  - 扩散策略
-  - 球面傅里叶
 ---
 
 # SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space

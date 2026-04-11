@@ -2,9 +2,6 @@
 description: "【论文笔记】VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM 论文解读 | CVPR2026 | arXiv 2603.09673 | 3D Gaussian Splatting | 提出 VarSplat，首个在3DGS-SLAM中学习**逐splat外观方差** $\sigma^2$ 并通过全方差定律渲染**逐像素不确定性图** $V$ 的系统，将不确定性统一应用于跟踪、子图配准和回环检测，在4个数据集上取得鲁棒且领先的性能。"
 tags:
   - CVPR2026
-  - 3D Gaussian Splatting
-  - SLAM
-  - 不确定性建模
 ---
 
 # VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM

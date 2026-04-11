@@ -2,9 +2,6 @@
 description: "【论文笔记】NegRefine: Refining Negative Label-Based Zero-Shot OOD Detection 论文解读 | ICCV 2025 | arXiv 2507.09795 | OOD检测 | 本文提出 NegRefine，通过 LLM 过滤负标签集中的专有名词和子类别标签，并设计多标签匹配评分函数来处理图像同时匹配分布内和负标签的情况，在 ImageNet-1K 基准上平均 AUROC 提升 1.82%、FPR95 降低 4.35%，刷新了零样本 OOD 检测 SOTA。"
 tags:
   - ICCV 2025
-  - OOD检测
-  - 零样本
-  - CLIP
 ---
 
 # NegRefine: Refining Negative Label-Based Zero-Shot OOD Detection

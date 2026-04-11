@@ -2,9 +2,6 @@
 description: "【论文笔记】MAGIC-VQA: Multimodal and Grounded Inference with Commonsense Knowledge for Visual Question Answering 论文解读 | ACL 2025 | arXiv 2503.18491 | 视觉问答 | 提出MAGIC-VQA框架，通过三阶段流程（显式知识检索→按类型后处理→GNN隐式增强）将外部常识知识系统地注入LVLM，在ScienceQA、TextVQA、MMMU等基准上实现即插即用的常识推理增强，仅需0.33M可训练参数。"
 tags:
   - ACL 2025
-  - 视觉问答
-  - 常识知识
-  - 知识图谱
 ---
 
 # MAGIC-VQA: Multimodal and Grounded Inference with Commonsense Knowledge for Visual Question Answering

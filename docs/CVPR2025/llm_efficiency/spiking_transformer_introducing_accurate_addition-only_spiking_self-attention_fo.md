@@ -2,7 +2,6 @@
 description: "【论文笔记】Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Transformers have demonstrated outstanding performance across a wide range of tasks, owing to their self-attention mechanism, but they are highly energy-consuming. Spiking Neural Networks have emerged as a promising energy-efficient alternative to traditional Artificial Neural Networks, leveraging e"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer

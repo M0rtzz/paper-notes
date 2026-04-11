@@ -2,9 +2,6 @@
 description: "【论文笔记】SEA-Vision: A Multilingual Benchmark for Document and Scene Text Understanding in Southeast Asia 论文解读 | CVPR 2026 | arXiv 2603.15409 | 多语言基准 | 推出 SEA-Vision 基准，统一评估11种东南亚语言的文档解析和文本中心VQA任务，包含 15,234 页文档解析样本和 7,496 个 VQA 问答对，揭示了当前 MLLM 在低资源东南亚语言上 3-7 倍的性能退化。"
 tags:
   - CVPR 2026
-  - 多语言基准
-  - 东南亚
-  - 文档解析
 ---
 
 # SEA-Vision: A Multilingual Benchmark for Document and Scene Text Understanding in Southeast Asia

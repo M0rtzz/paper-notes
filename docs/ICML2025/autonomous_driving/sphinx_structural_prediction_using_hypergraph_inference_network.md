@@ -2,9 +2,6 @@
 description: "【论文笔记】SPHINX: Structural Prediction using Hypergraph Inference Network 论文解读 | ICML2025 | arXiv 2410.03208 | 超图推断 | 提出SPHINX模型以无监督方式从点级信号中推断潜在超图结构：将超边发现建模为聚类问题，用k-subset可微采样生成离散超图，可插入任何超图网络，在轨迹预测和节点分类上超越现有方法。"
 tags:
   - ICML2025
-  - 超图推断
-  - 高阶关系
-  - 结构学习
 ---
 
 # SPHINX: Structural Prediction using Hypergraph Inference Network

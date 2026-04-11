@@ -2,10 +2,7 @@
 description: "【论文笔记】Accurate KV Cache Quantization with Outlier Tokens Tracing 论文解读 | ACL 2025 | arXiv 2505.10938 | KV Cache | 发现 KV Cache 的 outlier channel 中存在少量异常 token 偏离先前假设的均匀分布，提出 OTT（Outlier Tokens Tracing）方法，在量化过程中动态追踪并排除这些 token，在 2-bit 量化下实现 6.4x 内存压缩和 2.3x 吞吐提升，同时显著提高精度。"
 tags:
   - ACL 2025
-  - KV Cache
-  - Quantization
   - 量化
-  - Outlier Tokens
 ---
 
 # Accurate KV Cache Quantization with Outlier Tokens Tracing

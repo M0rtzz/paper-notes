@@ -2,9 +2,6 @@
 description: "【论文笔记】Parameter-Free Fine-tuning via Redundancy Elimination for Vision Foundation Models 论文解读 | AAAI 2026 | arXiv 2504.08915 | 视觉基础模型 | 发现视觉基础模型（SAM/SAM2/DINOv2）中存在大量冗余通道，提出无需更新任何参数的微调方法：通过基于输出差异的通道选择算法找到最优替换对，用有效通道替换冗余通道来增强下游任务的特征表示，平均提升 mIoU 5-11 个点。"
 tags:
   - AAAI 2026
-  - 视觉基础模型
-  - 无参数微调
-  - 通道冗余
 ---
 
 # Parameter-Free Fine-tuning via Redundancy Elimination for Vision Foundation Models

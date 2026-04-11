@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaRadar: Rate Adaptive Spectral Compression for Radar-based Perception 论文解读 | CVPR2026 | arXiv 2603.17979 | 雷达感知 | 提出 AdaRadar——基于 DCT 频谱剪枝与零阶代理梯度的在线自适应雷达数据压缩框架，在 100× 以上压缩率下仅损失 ~1%p 检测/分割性能，有效缓解雷达传感器到计算端的带宽瓶颈。"
 tags:
   - CVPR2026
-  - 雷达感知
-  - 自适应压缩
-  - 频谱剪枝
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

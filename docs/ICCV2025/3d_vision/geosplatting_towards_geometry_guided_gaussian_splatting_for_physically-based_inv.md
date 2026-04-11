@@ -2,9 +2,6 @@
 description: "【论文笔记】GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering 论文解读 | ICCV 2025 | arXiv 2410.24204 | 逆渲染 | 提出 GeoSplatting，通过从可优化的显式网格可微分地生成表面对齐的高斯点，为3DGS提供精确的几何引导，实现SOTA逆渲染性能（材质-光照解耦），同时训练仅需10-15分钟。"
 tags:
   - ICCV 2025
-  - 逆渲染
-  - 3D高斯泼溅
-  - 材质分解
 ---
 
 # GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering

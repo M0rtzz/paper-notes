@@ -2,8 +2,6 @@
 description: "【论文笔记】Enhancing Image Restoration Transformer via Adaptive Translation Equivariance 论文解读 | ICCV 2025 | arXiv 2506.18520 | 平移等变性 | 系统研究了平移等变性（Translation Equivariance, TE）对图像修复网络收敛速度和泛化能力的影响，提出滑动键值自注意力（SkvSA）及其自适应版本（ASkvSA）和下采样自注意力（DSA），构建了 TEAFormer，在超分、去模糊、去噪等多个任务上取得 SOTA，同时保持线性复杂度。"
 tags:
   - ICCV 2025
-  - 平移等变性
-  - 图像修复
   - Transformer
 ---
 

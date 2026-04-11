@@ -2,9 +2,6 @@
 description: "【论文笔记】F3DGS: Federated 3D Gaussian Splatting for Decentralized Multi-Agent World Modeling 论文解读 | CVPR 2026 | arXiv 2604.01605 | 联邦学习 | 提出F3DGS，首个将联邦学习框架应用于3DGS的方法，通过冻结几何+可见性感知聚合实现多智能体分布式3D重建，无需原始数据共享。"
 tags:
   - CVPR 2026
-  - 联邦学习
-  - 3D Gaussian Splatting
-  - 多智能体
 ---
 
 # F3DGS: Federated 3D Gaussian Splatting for Decentralized Multi-Agent World Modeling

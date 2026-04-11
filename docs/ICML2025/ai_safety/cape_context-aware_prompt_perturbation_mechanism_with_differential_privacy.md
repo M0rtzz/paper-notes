@@ -2,10 +2,7 @@
 description: "【论文笔记】Cape: Context-Aware Prompt Perturbation Mechanism with Differential Privacy 论文解读 | ICML 2025 | arXiv 2505.05922 | 差分隐私 | 提出 Cape——一种上下文感知的 prompt 扰动机制，通过混合效用函数（结合 token 嵌入距离和上下文 logit）以及分桶指数采样机制，在 local DP 保证下实现比现有方法更优的隐私-效用权衡。"
 tags:
   - ICML 2025
-  - 差分隐私
-  - prompt扰动
   - 提示学习
-  - LLM推理隐私
 ---
 
 # Cape: Context-Aware Prompt Perturbation Mechanism with Differential Privacy

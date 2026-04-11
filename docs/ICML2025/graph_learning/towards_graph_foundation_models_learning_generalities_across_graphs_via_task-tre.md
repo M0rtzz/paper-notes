@@ -2,9 +2,7 @@
 description: "【论文笔记】Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees 论文解读 | ICML2025 | arXiv 2412.16441 | 图基础模型 | 提出 Task-Tree 作为统一学习实例对齐节点/边/图级任务，理论分析其稳定性/可迁移性/泛化性，构建图基础模型 GIT 在 32 个图上通过微调/上下文学习/零样本展现跨域跨任务泛化能力。"
 tags:
   - ICML2025
-  - 图基础模型
-  - 任务树
-  - 跨域泛化
+  - 图神经网络
 ---
 
 # Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees

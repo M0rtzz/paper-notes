@@ -2,9 +2,6 @@
 description: "【论文笔记】MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification 论文解读 | CVPR 2026 | arXiv 2603.09374 | 多示例学习 | 提出 MIL-PF，利用冻结的基础视觉编码器（DINOv2/MedSigLIP）预计算特征，再用仅约 40K 参数的轻量 MIL 头进行乳腺 X 线分类，在大规模 EMBED 数据集上达到 SOTA 性能，同时大幅降低训练成本。"
 tags:
   - CVPR 2026
-  - 多示例学习
-  - 乳腺X线摄影
-  - 预计算特征
 ---
 
 # MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification

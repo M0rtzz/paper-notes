@@ -2,9 +2,6 @@
 description: "【论文笔记】AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes 论文解读 | ICCV 2025 | arXiv 2508.13503 | HDR成像 | 本文提出AdaptiveAE，利用深度强化学习将HDR曝光包围拍摄建模为马尔可夫决策过程（MDP），同时优化ISO和快门速度的组合，在用户定义的时间预算内自适应地为动态场景选择最优曝光参数，在HDRV数据集上达到PSNR 39.70，比之前最好的方法Hasinoff et al. (37.59) 高出2.1 dB。"
 tags:
   - ICCV 2025
-  - HDR成像
-  - 自动曝光
-  - 强化学习
 ---
 
 # AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes

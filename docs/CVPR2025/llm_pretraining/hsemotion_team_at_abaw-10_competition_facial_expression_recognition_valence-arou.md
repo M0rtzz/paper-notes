@@ -2,9 +2,6 @@
 description: "【论文笔记】HSEmotion Team at ABAW-10 Competition: Facial Expression Recognition, Valence-Arousal Estimation, Action Unit Detection and Fine-Grained Violence Classification 论文解读 | CVPR 2025 (Workshop) | arXiv 2603.12693 | 面部表情识别 | HSEmotion 团队在 ABAW-10 竞赛中提出了一个轻量级 pipeline：用预训练 EfficientNet 提取面部 embedding，结合 MLP + GLA（Generalized Logit Adjustment）+ 滑窗平滑，在四项任务（EXPR/VA/AU/VD）上均大幅超过官方 baseline，其中暴力检测任务使用 ConvNeXt-T + TCN 达到 0.783 macro F1。"
 tags:
   - CVPR 2025 (Workshop)
-  - 面部表情识别
-  - Valence-Arousal估计
-  - Action Unit检测
 ---
 
 # HSEmotion Team at ABAW-10 Competition: Facial Expression Recognition, Valence-Arousal Estimation, Action Unit Detection and Fine-Grained Violence Classification

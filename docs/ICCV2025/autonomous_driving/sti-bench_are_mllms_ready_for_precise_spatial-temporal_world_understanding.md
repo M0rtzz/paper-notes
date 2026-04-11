@@ -2,9 +2,7 @@
 description: "【论文笔记】STI-Bench: Are MLLMs Ready for Precise Spatial-Temporal World Understanding? 论文解读 | ICCV 2025 | arXiv 2503.23765 | MLLM benchmark | 提出 STI-Bench，一个评估多模态大语言模型（MLLM）精确时空理解能力的基准，涵盖桌面/室内/户外三大场景、8类静态+动态任务超 2000 道 QA 对，揭示当前最强 MLLM（Gemini-2.5-Pro）平均准确率仅 41.4%，在精确空间量化和时序动态理解上存在根本性不足。"
 tags:
   - ICCV 2025
-  - MLLM benchmark
-  - spatial-temporal understanding
-  - embodied AI
+  - 自动驾驶
 ---
 
 # STI-Bench: Are MLLMs Ready for Precise Spatial-Temporal World Understanding?

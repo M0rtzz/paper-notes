@@ -2,9 +2,6 @@
 description: "【论文笔记】Reward-Aware Proto-Representations in Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2505.16217 | 后继表示 | 系统发展了默认表示（DR）的理论基础——推导了 DP 和 TD 学习算法、分析了特征空间结构、提出了默认特征进行函数逼近——并在奖励塑形、期权发现、探索和迁移学习四个场景中展示了 DR 相比后继表示（SR）的奖励感知优势。"
 tags:
   - NeurIPS 2025
-  - 后继表示
-  - 默认表示
-  - 奖励感知表征
 ---
 
 # Reward-Aware Proto-Representations in Reinforcement Learning

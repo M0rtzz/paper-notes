@@ -2,9 +2,6 @@
 description: "【论文笔记】Pareto-Grid-Guided Large Language Models for Fast and High-Quality Heuristics Design in Multi-Objective Combinatorial Optimization 论文解读 | AAAI 2026 | arXiv 2507.20923 | Multi-Objective Optimization | 提出 MPaGE 框架，将 LLM 与 Pareto Front Grid 机制和语义聚类结合，自动为多目标组合优化问题生成兼顾解质量与运行效率的启发式算法，在 Bi-TSP、Tri-TSP、Bi-CVRP、Bi-KP 上 HV 和 IGD 均显著优于 EoH、MEoH 等基线。"
 tags:
   - AAAI 2026
-  - Multi-Objective Optimization
-  - LLM
-  - Pareto Front Grid
 ---
 
 # Pareto-Grid-Guided Large Language Models for Fast and High-Quality Heuristics Design in Multi-Objective Combinatorial Optimization

@@ -2,10 +2,7 @@
 description: "【论文笔记】SiNGER: A Clearer Voice Distills Vision Transformers Further 论文解读 | ICLR 2026 | arXiv 2509.20986 | Transformer Vision Transformer | 提出 SiNGER（Singular Nullspace-Guided Energy Reallocation）框架，通过在教师特征的零空间方向施加扰动来抑制 ViT 中的高范数伪影，同时保留信息信号，结合轻量 LoRA 适配器实现高效蒸馏，在多个下游任务上取得 SOTA 性能并生成更清晰可解释的表征。"
 tags:
   - ICLR 2026
-  - Vision Transformer
   - Transformer
-  - 知识蒸馏
-  - 高范数伪影
 ---
 
 # SiNGER: A Clearer Voice Distills Vision Transformers Further

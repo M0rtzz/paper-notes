@@ -2,10 +2,7 @@
 description: "【论文笔记】HoloLLM: Multisensory Foundation Model for Language-Grounded Human Sensing and Reasoning 论文解读 | NEURIPS2025 | arXiv 2505.17645 | 多模态 Multimodal LLM | 提出 HoloLLM，首次将 LiDAR、红外、毫米波雷达、WiFi 等稀有传感模态接入多模态大语言模型（MLLM），通过 Universal Modality-Injection Projector（UMIP）在数据稀缺条件下实现传感模态与文本的高效对齐，在人体动作问答和描述任务上较现有 MLLM 提升约 30%。"
 tags:
   - NEURIPS2025
-  - Multimodal LLM
   - 多模态
-  - Human Sensing
-  - LiDAR
 ---
 
 # HoloLLM: Multisensory Foundation Model for Language-Grounded Human Sensing and Reasoning

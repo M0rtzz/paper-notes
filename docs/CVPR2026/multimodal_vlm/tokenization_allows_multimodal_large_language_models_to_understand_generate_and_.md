@@ -2,9 +2,6 @@
 description: "【论文笔记】Tokenization Allows Multimodal Large Language Models to Understand, Generate and Edit Architectural Floor Plans (HouseMind) 论文解读 | CVPR2026 | arXiv 2603.11640 | 多模态大语言模型 | 提出 HouseMind，通过层次化 VQ-VAE 将建筑平面图离散化为房间级空间 token，在统一的 MLLM 框架中实现平面图理解、生成和编辑三大任务，在几何有效性和可控性上全面超越扩散模型和通用 VLM 基线。"
 tags:
   - CVPR2026
-  - 多模态大语言模型
-  - VQ-VAE
-  - 空间token化
 ---
 
 # Tokenization Allows Multimodal Large Language Models to Understand, Generate and Edit Architectural Floor Plans (HouseMind)

@@ -2,9 +2,6 @@
 description: "【论文笔记】F²HDR: Two-Stage HDR Video Reconstruction via Flow Adapter and Physical Motion Modeling 论文解读 | CVPR 2026 | arXiv 2603.14920 | HDR视频重建 | 提出 F²HDR，一个两阶段 HDR 视频重建框架，通过 Flow Adapter 将通用预训练光流适配到交替曝光场景以实现鲁棒对齐，并利用物理运动建模从光流中提取连续运动掩码来引导第二阶段的伪影消除，在真实 HDR 视频基准上达到 SOTA。"
 tags:
   - CVPR 2026
-  - HDR视频重建
-  - 光流适配器
-  - 物理运动建模
 ---
 
 # F²HDR: Two-Stage HDR Video Reconstruction via Flow Adapter and Physical Motion Modeling

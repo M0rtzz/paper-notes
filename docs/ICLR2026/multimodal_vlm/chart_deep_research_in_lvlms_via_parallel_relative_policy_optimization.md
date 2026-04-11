@@ -2,9 +2,6 @@
 description: "【论文笔记】Chart Deep Research in LVLMs via Parallel Relative Policy Optimization 论文解读 | ICLR2026 | arXiv 2603.06677 | chart understanding | 提出 PRPO（Parallel Relative Policy Optimization），通过在奖励维度和数据类型两个层面做并行解耦优化，解决 GRPO 在多维奖励信号干扰和异构数据梯度冲突下的训练瓶颈；同时构建 MCDR-Bench，基于\"错误唯一性原则\"将主观生成评估转化为客观错误识别，实现图表深度研究能力的量化评估。"
 tags:
   - ICLR2026
-  - chart understanding
-  - deep research
-  - RLHF
 ---
 
 # Chart Deep Research in LVLMs via Parallel Relative Policy Optimization

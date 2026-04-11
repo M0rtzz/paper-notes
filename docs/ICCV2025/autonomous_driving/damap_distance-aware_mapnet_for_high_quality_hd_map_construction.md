@@ -2,9 +2,7 @@
 description: "【论文笔记】DAMap: Distance-aware MapNet for High Quality HD Map Construction 论文解读 | ICCV 2025 | arXiv 2510.22675 | HD Map | 揭示当前HD地图构建方法在高质量预测上的两大固有缺陷——不恰当的分类标签与次优的任务特征，提出DAMap（含DAFL、HLS、TMDA三个组件）系统性地解决任务错位问题，在NuScenes和Argoverse2上多个基线方法上一致提升2-3 mAP。"
 tags:
   - ICCV 2025
-  - HD Map
-  - 高质量预测
-  - 任务对齐
+  - 注意力机制
 ---
 
 # DAMap: Distance-aware MapNet for High Quality HD Map Construction

@@ -2,9 +2,6 @@
 description: "【论文笔记】ETF: An Entity Tracing Framework for Hallucination Detection in Code Summaries 论文解读 | ACL 2025 | arXiv 2410.14748 | 代码摘要 | 提出 Entity Tracing Framework (ETF)，一种通过静态程序分析提取代码实体、再用 LLM 验证这些实体在生成摘要中是否被正确描述的幻觉检测框架，配合首创的 CodeSumEval 数据集（~10K样本），在代码摘要幻觉检测上达到 73% F1。"
 tags:
   - ACL 2025
-  - 代码摘要
-  - 幻觉检测
-  - 实体追踪
 ---
 
 # ETF: An Entity Tracing Framework for Hallucination Detection in Code Summaries

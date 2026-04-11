@@ -2,9 +2,9 @@
 description: "【论文笔记】Unveiling Super Experts in Mixture-of-Experts Large Language Models 论文解读 | ICLR 2026 | arXiv 2507.23279 | Mixture-of-Experts | 本文首次发现并系统研究了 MoE LLM 中的\"超级专家\"（Super Experts）——数量极少但对模型推理至关重要的专家子集，它们通过 down_proj 中的极端激活异常值驱动 massive activations 和 attention sinks 机制。"
 tags:
   - ICLR 2026
-  - Mixture-of-Experts
-  - super experts
-  - massive activations
+  - 注意力机制
+  - 剪枝
+  - 模型压缩
 ---
 
 # Unveiling Super Experts in Mixture-of-Experts Large Language Models

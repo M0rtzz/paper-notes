@@ -2,9 +2,6 @@
 description: "【论文笔记】We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning? 论文解读 | ACL 2025 | arXiv 2407.01284 | 视觉数学推理 | 本文提出We-Math基准，首次通过将复合数学问题按知识概念分解为子问题，引入IK/IG/CM/RM四维指标来层次化评估LMM的推理过程（而非仅看最终结果），揭示了LMM普遍存在知识不足（IK）问题，且GPT-4o是首个从IK阶段迈入知识泛化（IG）阶段的模型。"
 tags:
   - ACL 2025
-  - 视觉数学推理
-  - 基准测试
-  - 知识概念分解
 ---
 
 # We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?

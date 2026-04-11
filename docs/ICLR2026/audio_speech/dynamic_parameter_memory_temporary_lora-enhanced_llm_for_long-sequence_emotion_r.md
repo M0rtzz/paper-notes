@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamic Parameter Memory: Temporary LoRA-Enhanced LLM for Long-Sequence Emotion Recognition in Conversation 论文解读 | ICLR2026 | arXiv 2507.09076 | Speech Emotion Recognition | 提出 Dynamic Parameter Memory (DPM) 机制，在推理阶段通过逐句将语音信息编码到临时 LoRA 模块的参数空间中，使有限上下文窗口的语音大语言模型能够处理无限长度的情感对话音频，在 IEMOCAP 和 MELD 上达到 SOTA。"
 tags:
   - ICLR2026
-  - Speech Emotion Recognition
-  - Large Language Model
-  - LoRA
 ---
 
 # Dynamic Parameter Memory: Temporary LoRA-Enhanced LLM for Long-Sequence Emotion Recognition in Conversation

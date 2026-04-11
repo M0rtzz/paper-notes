@@ -2,9 +2,6 @@
 description: "【论文笔记】Lyapunov Stable Graph Neural Flow 论文解读 | CVPR 2025 | arXiv 2603.12557 | 图神经网络 | 将 Lyapunov 稳定性理论（整数阶和分数阶）与图神经流集成，通过可学习 Lyapunov 函数和投影机制将 GNN 特征动态约束在稳定空间中，首次为图神经流提供可证明的对抗鲁棒性保证，且与对抗训练正交可叠加。"
 tags:
   - CVPR 2025
-  - 图神经网络
-  - 对抗鲁棒性
-  - Lyapunov稳定性
 ---
 
 # Lyapunov Stable Graph Neural Flow

@@ -2,9 +2,6 @@
 description: "【论文笔记】Talking Together: Synthesizing Co-Located 3D Conversations from Audio 论文解读 | CVPR 2026 | arXiv 2603.08674 | 双人对话 | 首次提出从单一混合音频流生成两个共处同一3D空间的对话参与者完整面部动画的方法，通过双流扩散架构+跨说话人注意力+LLM文本控制空间布局，实现自然的眼神交互和空间感知的双人对话生成。"
 tags:
   - CVPR 2026
-  - 双人对话
-  - 3D面部动画
-  - 扩散模型
 ---
 
 # Talking Together: Synthesizing Co-Located 3D Conversations from Audio

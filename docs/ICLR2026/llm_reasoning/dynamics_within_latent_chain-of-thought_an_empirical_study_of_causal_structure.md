@@ -2,9 +2,6 @@
 description: "【论文笔记】Dynamics Within Latent Chain-of-Thought: An Empirical Study of Causal Structure 论文解读 | ICLR2026 | arXiv 2602.08783 | 隐式思维链 | 将隐式CoT建模为结构因果模型(SCM)，通过逐步do-干预分析Coconut和CODI两种范式，发现隐式推理步骤具有异质性因果杠杆、非局部跳跃传播结构、以及输出层早期偏向与表征层晚期提交之间的持续性差距。"
 tags:
   - ICLR2026
-  - 隐式思维链
-  - 因果分析
-  - do-干预
 ---
 
 # Dynamics Within Latent Chain-of-Thought: An Empirical Study of Causal Structure

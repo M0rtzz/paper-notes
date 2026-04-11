@@ -2,9 +2,6 @@
 description: "【论文笔记】BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation 论文解读 | ICCV 2025 | arXiv 2504.07955 | 物体位姿估计 | 提出 BoxDreamer，以 3D 包围盒角点作为中间表示，通过基于参考视角的点合成器预测查询图像中的 2D 角点投影，建立 2D-3D 对应关系后用 PnP 算法恢复物体位姿，在稀疏视角和严重遮挡场景下显著优于现有方法。"
 tags:
   - ICCV 2025
-  - 物体位姿估计
-  - 稀疏视角
-  - 3D包围盒
 ---
 
 # BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation

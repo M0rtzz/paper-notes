@@ -2,9 +2,6 @@
 description: "【论文笔记】MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction 论文解读 | ICCV 2025 | arXiv 2508.04297 | 新视角合成 | MuGS 是首个支持多基线设置（小基线到大基线）的泛化3D高斯泼溅方法，通过融合 MVS 和 MDE 特征、投影-采样深度一致性网络和参考视图损失，在不同基线数据集上均达到 SOTA。"
 tags:
   - ICCV 2025
-  - 新视角合成
-  - 3D高斯泼溅
-  - 多基线
 ---
 
 # MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction

@@ -2,9 +2,6 @@
 description: "【论文笔记】Greedy Sampling Is Provably Efficient for RLHF 论文解读 | NeurIPS 2025 | arXiv 2510.24700 | Greedy Sampling | 证明了在KL正则化的RLHF设置下，直接使用经验估计的贪心采样（无需构建乐观/悲观估计）就能在在线和离线两种设置中实现$O(\log T)$遗憾界和$O(\varepsilon^{-1})$样本复杂度，这是首次在一般偏好模型下达到这些阶数。"
 tags:
   - NeurIPS 2025
-  - Greedy Sampling
-  - KL正则化
-  - 偏好学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

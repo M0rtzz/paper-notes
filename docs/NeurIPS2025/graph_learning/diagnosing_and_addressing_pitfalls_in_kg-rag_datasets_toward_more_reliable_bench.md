@@ -2,9 +2,6 @@
 description: "【论文笔记】Diagnosing and Addressing Pitfalls in KG-RAG Datasets: Toward More Reliable Benchmarking 论文解读 | NeurIPS 2025 | arXiv 2505.23495 | KG-RAG | 系统审计16个KGQA数据集发现平均事实正确率仅57%（WebQSP 52%，MetaQA 20%），提出KGQAGen框架——通过LLM引导的子图扩展+SPARQL自动验证构建高质量多跳QA数据集KGQAGen-10k（96.3%准确率），揭示KG-RAG的主要瓶颈在检索而非推理。"
 tags:
   - NeurIPS 2025
-  - KG-RAG
-  - KGQA基准
-  - 数据集质量审计
 ---
 
 # Diagnosing and Addressing Pitfalls in KG-RAG Datasets: Toward More Reliable Benchmarking

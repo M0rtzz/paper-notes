@@ -2,9 +2,6 @@
 description: "【论文笔记】Free-MoRef: Instantly Multiplexing Context Perception Capabilities of Video-MLLMs within Single Inference 论文解读 | ICCV 2025 | arXiv 2508.02134 | 长视频理解 | 提出免训练方法Free-MoRef，受MoE启发将长视频token分割为多个短序列作为多参考(multi-reference)，通过MoRef注意力机制并行查询并融合统一激活值，在单卡A100上实现2×到8×更长帧输入的高效全面理解，在VideoMME/MLVU/LongVideoBench上超越专训长视频模型。"
 tags:
   - ICCV 2025
-  - 长视频理解
-  - Video-MLLM
-  - 免训练推理
 ---
 
 # Free-MoRef: Instantly Multiplexing Context Perception Capabilities of Video-MLLMs within Single Inference

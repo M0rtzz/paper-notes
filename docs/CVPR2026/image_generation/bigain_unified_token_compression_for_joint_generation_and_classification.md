@@ -2,9 +2,6 @@
 description: "【论文笔记】BiGain: Unified Token Compression for Joint Generation and Classification 论文解读 | CVPR2026 | arXiv 2603.12240 | 扩散模型加速 | BiGain 提出频率感知的 token 压缩框架，通过拉普拉斯门控 token 合并和插值-外推 KV 下采样两个无训练算子，首次在扩散模型加速中同时保持生成质量并显著提升判别分类性能。"
 tags:
   - CVPR2026
-  - 扩散模型加速
-  - token压缩
-  - 频率感知
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

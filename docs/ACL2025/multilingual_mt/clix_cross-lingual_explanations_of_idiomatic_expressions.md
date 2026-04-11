@@ -2,9 +2,6 @@
 description: "【论文笔记】CLIX: Cross-Lingual Explanations of Idiomatic Expressions 论文解读 | ACL 2025 | arXiv 2501.03191 | 跨语言解释 | 提出跨语言习语解释任务 CLIX，构建了包含英语习语及其西班牙语/德语解释的数据集，系统评估了 seq2seq 模型和 LLM 在该任务上的表现，发现 GPT-3.5 Turbo 的 pipeline 策略（先英文解释再翻译）配合 few-shot 效果最佳，人工评估流畅度和准确度高达 4.7+/5。"
 tags:
   - ACL 2025
-  - 跨语言解释
-  - 习语理解
-  - 定义生成
 ---
 
 # CLIX: Cross-Lingual Explanations of Idiomatic Expressions

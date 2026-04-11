@@ -2,9 +2,6 @@
 description: "【论文笔记】Efficient Multiagent Planning via Shared Action Suggestions 论文解读 | AAAI 2026 | arXiv 2412.11430 | Dec-POMDP | 提出MCAS算法，通过在Dec-POMDP中仅通信建议的联合动作（而非共享观测），利用动作信息推断其他智能体的信念状态，实现接近集中式方法的协调性能，同时大幅降低计算复杂度。"
 tags:
   - AAAI 2026
-  - Dec-POMDP
-  - 多智能体规划
-  - 动作建议通信
 ---
 
 # Efficient Multiagent Planning via Shared Action Suggestions

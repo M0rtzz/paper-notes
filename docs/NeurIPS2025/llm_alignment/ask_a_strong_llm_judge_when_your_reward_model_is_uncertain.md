@@ -2,9 +2,6 @@
 description: "【论文笔记】Ask a Strong LLM Judge when Your Reward Model is Uncertain 论文解读 | NeurIPS 2025 | arXiv 2510.20369 | reward model | 提出基于不确定性的路由框架，用SNGP对pairwise reward model做不确定性量化，将高认知不确定性的样本路由到强LLM judge（DeepSeek-R1），在仅调用9.2%~42.5% judge的成本下显著超越随机路由的准确率，且有效改善下游在线RLHF对齐效果。"
 tags:
   - NeurIPS 2025
-  - reward model
-  - LLM-as-judge
-  - 不确定性量化
 ---
 
 # Ask a Strong LLM Judge when Your Reward Model is Uncertain

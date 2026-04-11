@@ -2,9 +2,6 @@
 description: "【论文笔记】OmniDraft: A Cross-Vocabulary Online Adaptive Drafter for On-Device Speculative Decoding 论文解读 | NeurIPS 2025 | arXiv 2507.02659 | 推测解码 | 提出 OmniDraft 框架，通过在线 n-gram 缓存实现跨词表推测解码、混合蒸馏损失在线对齐草稿模型与目标模型、并结合自适应起草长度控制，使单个轻量 Llama-68M 模型可为 Vicuna-7B、Qwen2-7B、Llama3-8B 等不同目标模型提供推测解码加速（1.5-2x）。"
 tags:
   - NeurIPS 2025
-  - 推测解码
-  - 跨词表
-  - 在线蒸馏
 ---
 
 # OmniDraft: A Cross-Vocabulary Online Adaptive Drafter for On-Device Speculative Decoding

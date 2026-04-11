@@ -2,9 +2,6 @@
 description: "【论文笔记】A Single Architecture for Representing Invariance Under Any Space Group 论文解读 | ICLR 2026 | arXiv 2512.13989 | 空间群 | 设计了一种可自适应任意空间群不变性的单一架构 (Crystal Fourier Transformer)，通过解析推导群操作对傅里叶系数的约束来构造对称适配的傅里叶基，用约束的对偶图表示实现了跨 230 个空间群的参数共享和零样本泛化。"
 tags:
   - ICLR 2026
-  - 空间群
-  - 对称性不变性
-  - 傅里叶基
 ---
 
 # A Single Architecture for Representing Invariance Under Any Space Group

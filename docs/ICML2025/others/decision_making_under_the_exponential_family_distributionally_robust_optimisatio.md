@@ -2,9 +2,6 @@
 description: "【论文笔记】Decision Making under the Exponential Family DRO 论文解读 | ICML 2025 | arXiv 2411.16829 | distributionally robust optimization | 研究基于指数族分布的分布鲁棒优化（DRO）框架，利用指数族分布的自然参数空间构建不确定集，分析最优决策的性质和计算方法，在多种决策场景（如投资组合优化、风险管理）中展示优势。"
 tags:
   - ICML 2025
-  - distributionally robust optimization
-  - exponential family
-  - decision making
 ---
 
 # Decision Making under the Exponential Family DRO

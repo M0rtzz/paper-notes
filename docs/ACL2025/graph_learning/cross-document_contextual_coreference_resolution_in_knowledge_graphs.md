@@ -2,9 +2,6 @@
 description: "【论文笔记】Cross-Document Contextual Coreference Resolution in Knowledge Graphs 论文解读 | ACL 2025 | arXiv 2504.05767 | 跨文档共指消解 | 提出基于知识图谱的跨文档共指消解方法，通过动态链接机制将文本实体提及与知识图谱节点关联，结合上下文嵌入和图消息传递推理提升跨文档实体识别的精度和召回率，在多个基准数据集上超越传统方法。"
 tags:
   - ACL 2025
-  - 跨文档共指消解
-  - 知识图谱
-  - 实体链接
 ---
 
 # Cross-Document Contextual Coreference Resolution in Knowledge Graphs

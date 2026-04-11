@@ -2,9 +2,6 @@
 description: "【论文笔记】A Survey on Efficient Large Language Model Training: From Data-centric Perspectives 论文解读 | ACL 2025 | arXiv 2510.25817 | data-efficient training | 首个系统性的数据高效 LLM 后训练综述，提出\"数据价值飞轮\"分类法，将方法分为五大类（数据选择、质量增强、合成生成、蒸馏压缩、自演进生态），覆盖 100+ 篇代表性工作并展望未来方向。"
 tags:
   - ACL 2025
-  - data-efficient training
-  - survey
-  - data selection
 ---
 
 # A Survey on Efficient Large Language Model Training: From Data-centric Perspectives

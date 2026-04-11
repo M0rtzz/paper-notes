@@ -2,9 +2,6 @@
 description: "【论文笔记】Text-to-Image Models Leave Identifiable Signatures: Implications for Leaderboard Security 论文解读 | NeurIPS 2025 | arXiv 2510.06525 | 文生图模型 | 本文揭示了文生图（T2I）模型在生成图像中留下可识别的\"签名\"，使得攻击者可以在投票式排行榜中通过简单的CLIP嵌入空间分类实现模型去匿名化，从而操纵模型排名。"
 tags:
   - NeurIPS 2025
-  - 文生图模型
-  - 排行榜安全
-  - 模型去匿名化
 ---
 
 # Text-to-Image Models Leave Identifiable Signatures: Implications for Leaderboard Security

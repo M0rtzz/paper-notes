@@ -2,9 +2,7 @@
 description: "【论文笔记】Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation 论文解读 | CVPR 2026 | arXiv 2603.12547 | 医学图像分割 | 提出以解码器为核心的 Deco-Mamba 网络，用 Co-Attention Gate 双向融合编解码器特征、视觉状态空间模块（VSSM）建模长程依赖、可变形卷积恢复细节，并引入窗口化分布感知 KL 散度深度监督，在 7 个医学分割基准上以中等复杂度达到 SOTA。"
 tags:
   - CVPR 2026
-  - 医学图像分割
-  - Mamba
-  - 解码器中心
+  - 注意力机制
 ---
 
 # Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation

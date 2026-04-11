@@ -2,9 +2,6 @@
 description: "【论文笔记】SpecDiff: Accelerating Diffusion Model Inference with Self-Speculation 论文解读 | AAAI 2026 | arXiv 2509.13848 | 扩散模型加速 | 提出 SpecDiff，一种基于自推测(self-speculation)的免训练多级特征缓存策略，通过利用少步推测引入**未来信息**辅助token重要性选择，突破了仅依赖历史信息的精度-速度瓶颈，在 Stable Diffusion 3/3.5 和 FLUX 上实现 2.80×/2.74×/3.17× 加速且质量损失可忽略。"
 tags:
   - AAAI 2026
-  - 扩散模型加速
-  - 特征缓存
-  - 自推测
 ---
 
 # SpecDiff: Accelerating Diffusion Model Inference with Self-Speculation

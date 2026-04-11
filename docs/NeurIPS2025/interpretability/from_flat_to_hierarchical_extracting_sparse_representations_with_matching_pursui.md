@@ -2,9 +2,6 @@
 description: "【论文笔记】From Flat to Hierarchical: Extracting Sparse Representations with Matching Pursuit 论文解读 | NeurIPS 2025 | arXiv 2506.03093 | 稀疏自编码器 | 提出 MP-SAE，将经典 Matching Pursuit 算法展开为 SAE 的序列化编码器，通过残差引导的贪心特征选择实现条件正交性，能捕捉标准 SAE 无法发现的层次结构、非线性可及和跨模态特征，并天然支持推理时自适应稀疏度调节。"
 tags:
   - NeurIPS 2025
-  - 稀疏自编码器
-  - Matching Pursuit
-  - 层次表示
 ---
 
 # From Flat to Hierarchical: Extracting Sparse Representations with Matching Pursuit

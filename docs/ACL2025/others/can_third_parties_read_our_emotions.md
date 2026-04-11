@@ -2,9 +2,6 @@
 description: "【论文笔记】Can Third-parties Read Our Emotions? 论文解读 | ACL 2025 | arXiv 2504.18673 | 情感识别 | 本文通过人类被试实验，系统比较了第三方标注者（人类标注者和LLM）与第一方（作者自标注）在情感识别任务中的对齐程度，发现第三方标注与作者真实情感之间存在显著差距，LLM虽优于人类标注者，但仍表现不佳；人口统计学相似性可提升标注质量。"
 tags:
   - ACL 2025
-  - 情感识别
-  - 标注质量
-  - 第三方标注
 ---
 
 # Can Third-parties Read Our Emotions?

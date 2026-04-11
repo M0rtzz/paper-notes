@@ -2,9 +2,6 @@
 description: "【论文笔记】Mitigating Sexual Content Generation via Embedding Distortion in Text-conditioned Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2501.18877 | 不安全内容缓解 | 提出Distorting Embedding Space (DES)，一种基于文本编码器的防御框架，通过将不安全嵌入变换到安全区域、保持安全嵌入不变、中和\"裸露\"语义三管齐下，在FLUX.1和SD v1.5上实现SOTA的性内容缓解效果（ASR分别降至9.47%和0.52%），同时保持良好的良性图像质量。"
 tags:
   - NeurIPS 2025
-  - 不安全内容缓解
-  - 嵌入空间扭曲
-  - 文本编码器
 ---
 
 # Mitigating Sexual Content Generation via Embedding Distortion in Text-conditioned Diffusion Models

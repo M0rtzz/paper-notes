@@ -2,9 +2,6 @@
 description: "【论文笔记】Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models 论文解读 | AAAI 2026 | arXiv 2511.14559 | 结构药物设计 | 提出Apo2Mol，一个基于扩散的全原子框架，从蛋白质apo（未结合）构象出发，同时生成3D配体分子和对应的holo（结合态）口袋构象，使用24K实验解析的apo-holo结构对训练，在结合亲和力（Vina min -7.86）和药物类似性上达到SOTA。"
 tags:
   - AAAI 2026
-  - 结构药物设计
-  - apo-holo构象变化
-  - 蛋白质口袋动力学
 ---
 
 # Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models

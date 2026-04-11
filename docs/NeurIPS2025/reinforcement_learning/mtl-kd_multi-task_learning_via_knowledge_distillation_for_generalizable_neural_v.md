@@ -2,9 +2,6 @@
 description: "【论文笔记】MTL-KD: Multi-Task Learning Via Knowledge Distillation for Generalizable Neural Vehicle Routing Solver 论文解读 | NeurIPS 2025 | arXiv 2506.02935 | 车辆路径问题 | 提出基于知识蒸馏的多任务学习框架MTL-KD，通过将多个RL单任务教师模型的策略知识蒸馏到一个重解码器学生模型中，实现了对多种VRP变体的高效统一求解，并在大规模问题上展现出卓越的泛化能力。"
 tags:
   - NeurIPS 2025
-  - 车辆路径问题
-  - 多任务学习
-  - 知识蒸馏
 ---
 
 # MTL-KD: Multi-Task Learning Via Knowledge Distillation for Generalizable Neural Vehicle Routing Solver

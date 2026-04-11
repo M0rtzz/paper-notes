@@ -2,10 +2,7 @@
 description: "【论文笔记】MIDAS: Misalignment-based Data Augmentation Strategy for Imbalanced Multimodal Learning 论文解读 | NeurIPS 2025 | arXiv 2509.25831 | modality imbalance | 首次提出将跨模态不对齐样本作为有监督训练信号（而非噪声/干扰）来缓解多模态学习中的模态不平衡问题，设计 MIDAS 数据增强框架：通过置信度标注不对齐样本 + 弱模态加权 + 难样本加权三重机制，在四个多模态分类基准上显著超越现有方法。"
 tags:
   - NeurIPS 2025
-  - modality imbalance
-  - data augmentation
   - 数据增强
-  - misaligned samples
 ---
 
 # MIDAS: Misalignment-based Data Augmentation Strategy for Imbalanced Multimodal Learning

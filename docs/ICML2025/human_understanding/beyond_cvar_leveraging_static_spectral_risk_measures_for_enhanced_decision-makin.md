@@ -2,9 +2,6 @@
 description: "【论文笔记】Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning 论文解读 | ICML 2025 | arXiv 2501.02087 | 分布式强化学习 | 提出首个在分布式 RL 框架内优化一般静态谱风险度量（SRM）的算法，超越了仅限于简单 CVaR 的现有方法，通过利用回报分布实现闭式外层优化和中间风险度量的时间分解，在多种风险设置中超越现有风险敏感 DRL 模型。"
 tags:
   - ICML 2025
-  - 分布式强化学习
-  - 风险度量
-  - 谱风险度量
 ---
 
 # Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning

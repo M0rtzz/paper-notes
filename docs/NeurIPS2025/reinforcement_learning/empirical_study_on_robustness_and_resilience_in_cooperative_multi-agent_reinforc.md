@@ -2,9 +2,6 @@
 description: "【论文笔记】Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2510.11824 | multi-agent RL | 通过 82,620 次大规模实验系统性研究合作多智能体 RL 中的鲁棒性和弹性，揭示超参数调优比算法选择更重要，并发现参数共享、GAE、PopArt 等常见做法在不确定性下反而有害，提出一套实用的超参数建议。"
 tags:
   - NeurIPS 2025
-  - multi-agent RL
-  - robustness
-  - resilience
 ---
 
 # Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning

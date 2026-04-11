@@ -2,9 +2,6 @@
 description: "【论文笔记】Pose-dIVE: Pose-Diversified Augmentation with Diffusion Model for Person Re-Identification 论文解读 | CVPR 2026 | arXiv 2406.16042 | 行人重识别 | Pose-dIVE通过SMPL模型联合控制人体姿态和相机视角，利用扩散模型生成具有多样化姿态和视角的行人图像，系统性地弥补Re-ID训练数据中的分布偏差，在多个基准上持续提升任意Re-ID模型的泛化能力。"
 tags:
   - CVPR 2026
-  - 行人重识别
-  - 数据增强
-  - 扩散模型
 ---
 
 # Pose-dIVE: Pose-Diversified Augmentation with Diffusion Model for Person Re-Identification

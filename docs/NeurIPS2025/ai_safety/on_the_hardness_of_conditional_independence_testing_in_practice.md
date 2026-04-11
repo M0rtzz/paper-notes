@@ -2,9 +2,6 @@
 description: "【论文笔记】On the Hardness of Conditional Independence Testing In Practice 论文解读 | NeurIPS 2025 | arXiv 2512.14000 | 条件独立性检验 | 系统分析了基于核的条件独立性（CI）检验在实践中失败的根本原因：条件均值嵌入的估计误差是导致Type-I错误膨胀的核心因素，同时揭示了选择条件核$k_C$对检验功效至关重要但会加剧假阳性的内在张力。"
 tags:
   - NeurIPS 2025
-  - 条件独立性检验
-  - 核方法
-  - KCI
 ---
 
 # On the Hardness of Conditional Independence Testing In Practice

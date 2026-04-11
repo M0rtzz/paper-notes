@@ -2,9 +2,6 @@
 description: "【论文笔记】UniMMAD: Unified Multi-Modal and Multi-Class Anomaly Detection via MoE-Driven Feature Decompression 论文解读 | CVPR2026 | arXiv 2509.25934 | 异常检测 | 提出 UniMMAD，首个用单一参数集同时处理多模态、多类别异常检测的统一框架，核心是基于 MoE 的特征解压缩机制，将通用多模态编码特征自适应分解为领域特定的单模态重建，在 9 个数据集（3 个领域、12 种模态、66 个类别）上达到 SOTA。"
 tags:
   - CVPR2026
-  - 异常检测
-  - 多模态融合
-  - Mixture-of-Experts
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

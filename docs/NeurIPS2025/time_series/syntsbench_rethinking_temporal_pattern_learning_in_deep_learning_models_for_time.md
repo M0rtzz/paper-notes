@@ -2,9 +2,6 @@
 description: "【论文笔记】SynTSBench: Rethinking Temporal Pattern Learning in Deep Learning Models for Time Series 论文解读 | NEURIPS2025 | arXiv 2510.20273 | benchmark | 提出 SynTSBench，一个基于合成数据的时序预测模型评估框架，通过可编程特征配置（趋势/周期/噪声/依赖/多变量）和理论最优基准，系统揭示当前深度学习模型在各类时序模式上的能力边界。"
 tags:
   - NEURIPS2025
-  - benchmark
-  - time series forecasting
-  - synthetic data
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->

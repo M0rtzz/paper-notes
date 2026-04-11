@@ -2,9 +2,6 @@
 description: "【论文笔记】AFD-INSTRUCTION: A Comprehensive Antibody Instruction Dataset with Functional Annotations for LLM-Based Understanding and Design 论文解读 | ICLR 2026 | arXiv 2602.04916 | 抗体语言模型 | 构建了首个大规模抗体功能注释指令数据集AFD-Instruction（430K+条目），通过多智能体文献抽取pipeline对齐抗体序列与自然语言功能描述，用于指令微调通用LLM使其掌握抗体理解和功能导向设计能力，在5类分类任务上平均准确率提升20+点。"
 tags:
   - ICLR 2026
-  - 抗体语言模型
-  - 指令微调数据集
-  - 序列-功能对齐
 ---
 
 # AFD-INSTRUCTION: A Comprehensive Antibody Instruction Dataset with Functional Annotations for LLM-Based Understanding and Design

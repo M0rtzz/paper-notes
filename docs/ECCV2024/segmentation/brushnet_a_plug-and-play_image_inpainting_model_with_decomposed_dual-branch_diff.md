@@ -2,11 +2,8 @@
 description: "【论文笔记】BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion 论文解读 | ECCV2024 | arXiv 2403.06976 | 图像修复 image inpainting | 提出 BrushNet，一种即插即用的双分支扩散模型图像修复架构，通过将遮罩图像特征提取与图像生成解耦到独立分支，实现逐层像素级特征注入，在图像质量、遮罩区域保持和文本对齐三方面全面超越已有方法。"
 tags:
   - ECCV2024
-  - image inpainting
   - 图像修复
-  - diffusion models
   - 扩散模型
-  - dual-branch
 ---
 
 # BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion

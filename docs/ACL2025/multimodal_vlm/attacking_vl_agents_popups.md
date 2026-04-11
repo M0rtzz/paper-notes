@@ -2,9 +2,6 @@
 description: "【论文笔记】Attacking Vision-Language Computer Agents via Pop-ups 论文解读 | ACL 2025 | arXiv 2411.02391 | adversarial attack | 系统性设计了一套对抗性弹窗攻击方法来攻击基于视觉语言模型的计算机操控 agent，在 OSWorld 和 VisualWebArena 上平均攻击成功率达 86%，任务成功率下降 47%，基础防御手段几乎无效。"
 tags:
   - ACL 2025
-  - adversarial attack
-  - VLM agent
-  - pop-up attack
 ---
 
 # Attacking Vision-Language Computer Agents via Pop-ups

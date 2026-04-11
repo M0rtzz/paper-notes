@@ -2,10 +2,7 @@
 description: "【论文笔记】Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2511.06946 | 部分可观测RL | 提出两种结构化时序先验（Memory-Length Prior和Gaussian Distributional Prior）嵌入Transformer世界模型的自注意力机制中，在部分可观测RL环境下，Gaussian Attention在Atari 100k基准上相对UniZero提升77%的人类归一化均分，且计算开销几乎为零。"
 tags:
   - NeurIPS 2025
-  - 部分可观测RL
-  - Transformer世界模型
   - Transformer
-  - 注意力先验
 ---
 
 # Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning

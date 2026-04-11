@@ -2,9 +2,6 @@
 description: "【论文笔记】TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling 论文解读 | ICLR 2026 | arXiv 2504.07053 | speech tokenization | 提出 TASTE（Text-Aligned Speech Tokenization and Embedding），通过跨注意力机制将语音 token 与文本转录对齐，实现极低比特率（~150 bps）下的高质量语音重建，并使文本-语音联合建模变得直接高效，1.3B 参数的 TASLM 超越 7B 预训练 SLM。"
 tags:
   - ICLR 2026
-  - speech tokenization
-  - spoken language model
-  - text-speech alignment
 ---
 
 # TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling

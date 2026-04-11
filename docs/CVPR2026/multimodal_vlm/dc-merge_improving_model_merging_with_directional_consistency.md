@@ -2,9 +2,6 @@
 description: "【论文笔记】DC-Merge: Improving Model Merging with Directional Consistency 论文解读 | CVPR 2026 (Main Track) | arXiv 2603.06242 | model merging | DC-Merge 发现模型合并的关键在于保持合并后多任务向量与原始单任务向量之间**奇异空间方向的一致性**，通过奇异值平滑 + 共享正交子空间投影两步操作，在 Vision 和 Vision-Language 任务上均取得 SOTA 合并效果。"
 tags:
   - CVPR 2026 (Main Track)
-  - model merging
-  - task vector
-  - singular value decomposition
 ---
 
 # DC-Merge: Improving Model Merging with Directional Consistency

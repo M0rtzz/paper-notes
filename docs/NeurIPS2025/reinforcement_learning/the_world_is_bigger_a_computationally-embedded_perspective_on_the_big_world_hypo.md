@@ -2,9 +2,6 @@
 description: "【论文笔记】The World Is Bigger! A Computationally-Embedded Perspective on the Big World Hypothesis 论文解读 | NeurIPS 2025 | arXiv 2512.23419 | 持续学习 | 从计算嵌入（computationally-embedded）的视角形式化了\"大世界假说\"，证明被嵌入在通用局部环境中的智能体天然受限于自身容量，提出\"交互性\"（interactivity）作为持续适应能力的计算度量，并实验表明深度非线性网络难以维持交互性，而深度线性网络可随容量增加而提升交互性。"
 tags:
   - NeurIPS 2025
-  - 持续学习
-  - Big World假说
-  - 嵌入式智能体
 ---
 
 # The World Is Bigger! A Computationally-Embedded Perspective on the Big World Hypothesis

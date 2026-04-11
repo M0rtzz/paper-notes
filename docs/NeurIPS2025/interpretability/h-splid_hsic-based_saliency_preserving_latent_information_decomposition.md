@@ -2,9 +2,6 @@
 description: "【论文笔记】H-SPLID: HSIC-based Saliency Preserving Latent Information Decomposition 论文解读 | NeurIPS 2025 | arXiv 2510.20627 | 显著性特征学习 | 提出 H-SPLID，通过将隐空间显式分解为**显著（任务相关）**和**非显著（任务无关）**两个子空间，结合 HSIC 正则化实现信息压缩，证明预测偏差上界受显著子空间维度和 HSIC 控制，在无对抗训练条件下显著提升对非显著区域扰动的鲁棒性。"
 tags:
   - NeurIPS 2025
-  - 显著性特征学习
-  - 潜空间分解
-  - HSIC
 ---
 
 # H-SPLID: HSIC-based Saliency Preserving Latent Information Decomposition

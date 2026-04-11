@@ -2,10 +2,7 @@
 description: "【论文笔记】UniQuanF: Unifying Uniform and Binary-coding Quantization for Accurate Compression of Large Language Models 论文解读 | ACL 2025 | arXiv 2506.03781 | 量化 quantization | UniQuanF 统一了均匀量化（UQ,表现力弱但优化性强）和二进制编码量化（BCQ,表现力强但优化性差）的优势，通过统一初始化、局部周期映射和统一定理，实现无额外部署开销的高精度 LLM 量化，在 GSM8K 上提升最高 4.60%。"
 tags:
   - ACL 2025
-  - quantization
   - 量化
-  - binary-coding
-  - uniform quantization
 ---
 
 # UniQuanF: Unifying Uniform and Binary-coding Quantization for Accurate Compression of Large Language Models

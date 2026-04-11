@@ -2,9 +2,6 @@
 description: "【论文笔记】TrackingWorld: World-centric Monocular 3D Tracking of Almost All Pixels 论文解读 | NeurIPS 2025 | arXiv 2512.08358 | 3D跟踪 | 提出TrackingWorld，一个从单目视频实现几乎所有像素的稠密3D跟踪的流水线，通过跟踪上采样器将稀疏2D轨迹提升为稠密轨迹、迭代跟踪所有帧中新出现的物体、以及基于优化的框架将2D轨迹提升到世界坐标系3D空间并显式分离相机运动和物体运动。"
 tags:
   - NeurIPS 2025
-  - 3D跟踪
-  - 单目视频
-  - 世界坐标系
 ---
 
 # TrackingWorld: World-centric Monocular 3D Tracking of Almost All Pixels

@@ -2,7 +2,6 @@
 description: "【论文笔记】Spiking Transformer with Spatial-Temporal Attention 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Spike-based Transformer presents a compelling and energy-efficient alternative to traditional Artificial Neural Network (ANN)-based Transformers, achieving impressive results through sparse binary computations. However, existing spike-based transformers predominantly focus on spatial attention while"
 tags:
   - CVPR 2025
-  - 待补充
 ---
 
 # Spiking Transformer with Spatial-Temporal Attention

@@ -2,9 +2,6 @@
 description: "【论文笔记】NeurIPT: Foundation Model for Neural Interfaces 论文解读 | NeurIPS 2025 | arXiv 2510.16548 | EEG基础模型 | NeurIPT是一个面向多样化脑机接口(BCI)应用的EEG基础模型，通过振幅感知掩码预训练(AAMP)、渐进式专家混合(PMoE)架构、3D电极空间编码和脑叶内/跨脑叶池化(IILP)四大创新设计，在八个下游BCI任务上实现了SOTA性能。"
 tags:
   - NeurIPS 2025
-  - EEG基础模型
-  - 自监督预训练
-  - Mixture-of-Experts
 ---
 
 # NeurIPT: Foundation Model for Neural Interfaces

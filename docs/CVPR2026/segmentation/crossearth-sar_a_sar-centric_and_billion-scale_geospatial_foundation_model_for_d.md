@@ -2,9 +2,6 @@
 description: "【论文笔记】CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation 论文解读 | CVPR2026 | arXiv 2603.12008 | SAR语义分割 | 提出首个十亿参数级SAR视觉基础模型CrossEarth-SAR，通过物理引导的稀疏MoE架构结合SAR物理描述子，在22个跨域语义分割基准中的20个取得SOTA，部分multi-gap场景超越已有方法10%+ mIoU。"
 tags:
   - CVPR2026
-  - SAR语义分割
-  - 视觉基础模型
-  - 混合专家(MoE)
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
