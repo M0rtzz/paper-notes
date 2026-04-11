@@ -1,5 +1,5 @@
 # Auto-generated: ICCV2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -52,7 +51,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1312 篇)
+# 已完成笔记 (1311 篇)
 !3d_vision/2d_gaussian_splattingbased_sparseview_transparent_object_dep.md
 !3d_vision/3d_gaussian_map_with_openset_semantic_grouping_for_visionlan.md
 !3d_vision/3d_mesh_editing_using_masked_lrms.md
@@ -126,7 +125,6 @@
 !3d_vision/bufferx_towards_zeroshot_point_cloud_registration_in_diverse.md
 !3d_vision/ca-i2p_channel-adaptive_registration_network_with_global_optimal_selection.md
 !3d_vision/cad-recode_reverse_engineering_cad_code_from_point_clouds.md
-!3d_vision/cadrecode_reverse_engineering_cad_code_from_point_clouds.md
 !3d_vision/can3tok_canonical_3d_tokenization_and_latent_modeling_of_sce.md
 !3d_vision/can3tok_canonical_3d_tokenization_and_latent_modeling_of_scene-level_3d_gaussian.md
 !3d_vision/casp_improving_semi-dense_feature_matching_pipeline_leveraging_cascaded_correspo.md

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ICML2025 论文笔记 TODO
 
-总计: 1057 篇 | 已完成: 1057 | 待更新: 0
+总计: 1057 篇 | 已完成: 1056 | 待更新: 1
 
 ---
 
@@ -1050,7 +1050,7 @@
 - [x] [when every millisecond counts real-time anomaly detection via the multimodal asy](autonomous_driving/when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md) | arXiv: 2506.17457
 - [x] [when model knowledge meets diffusion model diffusion-assisted data-free image sy](image_generation/when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_sy.md) | arXiv: 2506.15381
 - [x] [when will it fail anomaly to prompt for forecasting future anomalies in time ser](time_series/when_will_it_fail_anomaly_to_prompt_for_forecasting_future_anomalies_in_time_ser.md) | arXiv: 2506.23596
-- [x] [whitened clip as a likelihood surrogate of images and captions](others/whitened_clip_as_a_likelihood_surrogate_of_images_and_captions.md) | arXiv: 2505.06934
+- [ ] [whitened clip as a likelihood surrogate of images and captions](others/whitened_clip_as_a_likelihood_surrogate_of_images_and_captions.md) | arXiv: 2505.06934
 - [x] [why is spatial reasoning hard for vlms an attention mechanism perspective on foc](multimodal_vlm/why_is_spatial_reasoning_hard_for_vlms_an_attention_mechanism_perspective_on_foc.md) | arXiv: 2503.01773
 - [x] [widening the network mitigates the impact of data heterogeneity on fedavg](optimization/widening_the_network_mitigates_the_impact_of_data_heterogeneity_on_fedavg.md) | arXiv: 2508.12576
 - [x] [wikibigedit understanding the limits of lifelong knowledge editing in llms](llm_nlp/wikibigedit_understanding_the_limits_of_lifelong_knowledge_editing_in_llms.md) | arXiv: 2503.05683

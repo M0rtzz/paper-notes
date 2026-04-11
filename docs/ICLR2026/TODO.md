@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ICLR2026 论文笔记 TODO
 
-总计: 1514 篇 | 已完成: 1514 | 待更新: 0
+总计: 1514 篇 | 已完成: 1507 | 待更新: 7
 
 ---
 
@@ -263,7 +263,7 @@
 - [x] [CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](time_series/cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time.md) | arXiv: 2601.20318
 - [x] [CREPE: Controlling Diffusion with Replica Exchange](image_generation/crepe_controlling_diffusion_with_replica_exchange.md) | arXiv: 2509.23265
 - [x] [CRISP: Contact-Guided Real2Sim from Monocular Video with Planar Scene Primitives](3d_vision/crisp_contact-guided_real2sim_from_monocular_video_with_planar_scene_primitives.md) | arXiv: 2512.14696
-- [x] [Cross-Domain Lossy Compression via Rate- and Classification-Constrained Optimal Transport](model_compression/cross_domain_lossy_compression_optimal_transport.md)
+- [ ] [Cross-Domain Lossy Compression via Rate- and Classification-Constrained Optimal Transport](model_compression/cross_domain_lossy_compression_optimal_transport.md)
 - [x] [Cross-Domain Policy Optimization via Bellman Consistency and Hybrid Critics](human_understanding/cross-domain_policy_optimization_via_bellman_consistency_and_hybrid_critics.md) | arXiv: 2603.12087
 - [x] [Cross-Embodiment Offline Reinforcement Learning for Heterogeneous Robot Datasets](reinforcement_learning/cross-embodiment_offline_reinforcement_learning_for_heterogeneous_robot_datasets.md) | arXiv: 2602.18025
 - [x] [Cross-Modal Redundancy and the Geometry of Vision-Language Embeddings](multimodal_vlm/cross-modal_redundancy_and_the_geometry_of_vision-language_embeddings.md) | arXiv: 2602.06218
@@ -441,7 +441,7 @@
 - [x] [Evolution and compression in LLMs: On the emergence of human-aligned categorization](model_compression/evolution_and_compression_in_llms_on_the_emergence_of_human-aligned_categorizati.md) | arXiv: 2509.08093
 - [x] [Evolution of Concepts in Language Model Pre-Training](llm_nlp/evolution_of_concepts_in_language_model_pre-training.md) | arXiv: 2509.17196
 - [x] [Evolutionary Caching to Accelerate Your Off-the-Shelf Diffusion Model](image_generation/evolutionary_caching_to_accelerate_your_off-the-shelf_diffusion_model.md) | arXiv: 2506.15682
-- [x] [Exchangeability of GNN Representations with Applications to Graph Retrieval](others/exchangeability_gnn_representations.md)
+- [ ] [Exchangeability of GNN Representations with Applications to Graph Retrieval](others/exchangeability_gnn_representations.md)
 - [x] [Execution-Grounded Credit Assignment for GRPO in Code Generation](llm_reasoning/execution-grounded_credit_assignment_for_grpo_in_code_generation.md) | arXiv: 2603.16158
 - [x] [ExGRPO: Learning to Reason from Experience](model_compression/exgrpo_learning_to_reason_from_experience.md) | arXiv: 2510.02245
 - [x] [Exo-Plore: Exploring Exoskeleton Control Space through Human-aligned Simulation](medical_imaging/exo-plore_exploring_exoskeleton_control_space_through_human-aligned_simulation.md) | arXiv: 2601.22550
@@ -511,7 +511,7 @@
 - [x] [From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning for Embodied Agents](robotics/from_assumptions_to_actions_turning_llm_reasoning_into_uncertainty-aware_plannin.md) | arXiv: 2602.04326
 - [x] [From Conversation to Query Execution: Benchmarking User and Tool Interactions for EHR Database Agents](medical_imaging/from_conversation_to_query_execution_benchmarking_user_and_tool_interactions_for.md) | arXiv: 2509.23415
 - [x] [From Evaluation to Defense: Advancing Safety in Video Large Language Models](recommender/from_evaluation_to_defense_advancing_safety_in_video_large_language_models.md) | arXiv: 2505.16643
-- [x] [From Movement to Cognitive Maps: RNNs Reveal How Locomotor Development Shapes Hippocampal Spatial Coding](others/from_movement_to_cognitive_maps.md)
+- [ ] [From Movement to Cognitive Maps: RNNs Reveal How Locomotor Development Shapes Hippocampal Spatial Coding](others/from_movement_to_cognitive_maps.md)
 - [x] [From Narrow to Panoramic Vision: Attention-Guided Cold-Start Reshapes Multimodal Reasoning](object_detection/from_narrow_to_panoramic_vision_attention-guided_cold-start_reshapes_multimodal_.md) | arXiv: 2603.03825
 - [x] [From Observations to Events: Event-Aware World Model for Reinforcement Learning](reinforcement_learning/from_observations_to_events_event-aware_world_model_for_reinforcement_learning.md) | arXiv: 2601.19336
 - [x] [From Parameters to Behaviors: Unsupervised Compression of the Policy Space](image_generation/from_parameters_to_behaviors_unsupervised_compression_of_the_policy_space.md) | arXiv: 2509.22566
@@ -556,7 +556,7 @@
 - [x] [GGBall: Graph Generative Model on Poincaré Ball](image_generation/ggball_graph_generative_model_on_poincaré_ball.md) | arXiv: 2506.07198
 - [x] [GIQ: Benchmarking 3D Geometric Reasoning of Vision Foundation Models with Simulated and Real Polyhedra](3d_vision/giq_benchmarking_3d_geometric_reasoning_of_vision_foundation_models_with_simulat.md) | arXiv: 2506.08194
 - [x] [Glance and Focus Reinforcement for Pan-cancer Screening](medical_imaging/glance_and_focus_reinforcement_for_pan-cancer_screening.md) | arXiv: 2601.19103
-- [x] [GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models](image_generation/glass_flows_reward_alignment_diffusion.md)
+- [ ] [GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models](image_generation/glass_flows_reward_alignment_diffusion.md)
 - [x] [GLYPH-SR: Can We Achieve Both High-Quality Image Super-Resolution and High-Fidelity Text Recovery via VLM-guided Latent Diffusion Model?](image_generation/glyph-sr_can_we_achieve_both_high-quality_image_super-resolution_and_high-fideli.md) | arXiv: 2510.26339
 - [x] [GoalRank: Group-Relative Optimization for a Large Ranking Model](recommender/goalrank_group-relative_optimization_for_a_large_ranking_model.md) | arXiv: 2509.22046
 - [x] [GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing](video_understanding/got-edit_geometry-aware_generic_object_tracking_via_online_model_editing.md) | arXiv: 2602.08550
@@ -699,7 +699,7 @@
 - [x] [Large Scale Diffusion Distillation via Score-Regularized Continuous-Time Consistency](image_generation/large_scale_diffusion_distillation_via_score-regularized_continuous-time_consist.md) | arXiv: 2510.08431
 - [x] [Latent Diffusion Model without Variational Autoencoder](image_generation/latent_diffusion_model_without_variational_autoencoder.md) | arXiv: 2510.15301
 - [x] [Latent Equivariant Operators for Robust Object Recognition: Promises and Challenges](others/latent_equivariant_operators_for_robust_object_recognition_promises_and_challeng.md) | arXiv: 2602.18406
-- [x] [Latent Fourier Transform](others/latent_fourier_transform.md)
+- [ ] [Latent Fourier Transform](others/latent_fourier_transform.md)
 - [x] [Latent Speech-Text Transformer](audio_speech/latent_speech_text_transformer.md) | arXiv: 2510.06195
 - [x] [Latent Wasserstein Adversarial Imitation Learning](reinforcement_learning/latent_wasserstein_adversarial_imitation_learning.md) | arXiv: 2603.05440
 - [x] [LaVCa: LLM-assisted Visual Cortex Captioning](3d_vision/lavca_llm-assisted_visual_cortex_captioning.md) | arXiv: 2502.13606
@@ -794,7 +794,7 @@
 - [x] [Measuring the Intrinsic Dimension of Earth Representations](remote_sensing/measuring_the_intrinsic_dimension_of_earth_representations.md) | arXiv: 2511.02101
 - [x] [Measuring Uncertainty Calibration](others/measuring_uncertainty_calibration.md) | arXiv: 2512.13872
 - [x] [Mechanism of Task-oriented Information Removal in In-context Learning](image_restoration/mechanism_of_task-oriented_information_removal_in_in-context_learning.md) | arXiv: 2509.21012
-- [x] [MedAgentGym: A Scalable Agentic Training Environment for Code-Centric Reasoning in Biomedical Data Science](medical_imaging/medagentgym_agentic_training_biomedical.md) | arXiv: 2506.04405
+- [ ] [MedAgentGym: A Scalable Agentic Training Environment for Code-Centric Reasoning in Biomedical Data Science](medical_imaging/medagentgym_agentic_training_biomedical.md) | arXiv: 2506.04405
 - [x] [MEGS$^{2}$: Memory-Efficient Gaussian Splatting via Spherical Gaussians and Unified Pruning](3d_vision/megs2_memory-efficient_gaussian_splatting_via_spherical_gaussians_and_unified_pr.md) | arXiv: 2509.07021
 - [x] [Memba: Membrane-driven Parameter-Efficient Fine-Tuning for Mamba](model_compression/memba_membrane-driven_parameter-efficient_fine-tuning_for_mamba.md) | arXiv: 2506.18184
 - [x] [Membership Inference Attacks Against Fine-tuned Diffusion Language Models](ai_safety/membership_inference_attacks_against_fine-tuned_diffusion_language_models.md) | arXiv: 2601.20125
@@ -962,7 +962,7 @@
 - [x] [Polynomial, trigonometric, and tropical activations](llm_efficiency/polynomial_trigonometric_and_tropical_activations.md) | arXiv: 2502.01247
 - [x] [PolySHAP: Extending KernelSHAP with Interaction-Informed Polynomial Regression](others/polyshap_extending_kernelshap_with_interaction-informed_polynomial_regression.md) | arXiv: 2601.18608
 - [x] [PonderLM: Pretraining Language Models to Ponder in Continuous Space](self_supervised/ponderlm_pretraining_language_models_to_ponder_in_continuous_space.md) | arXiv: 2505.20674
-- [x] [PoSh: Using Scene Graphs To Guide LLMs-as-a-Judge For Detailed Image Descriptions](multimodal_vlm/posh_using_scene_graphs_to_guide_llms-as-a-judge_for_detailed_image_descriptions.md) | arXiv: 2510.19060
+- [ ] [PoSh: Using Scene Graphs To Guide LLMs-as-a-Judge For Detailed Image Descriptions](multimodal_vlm/posh_using_scene_graphs_to_guide_llms-as-a-judge_for_detailed_image_descriptions.md) | arXiv: 2510.19060
 - [x] [Post-hoc Probabilistic Vision-Language Models](multimodal_vlm/post-hoc_probabilistic_vision-language_models.md) | arXiv: 2412.06014
 - [x] [Post-training Large Language Models for Diverse High-Quality Responses](reinforcement_learning/post-training_large_language_models_for_diverse_high-quality_responses.md) | arXiv: 2509.04784
 - [x] [PPE: Positional Preservation Embedding for Token Compression in Multimodal Large Language Models](multimodal_vlm/ppe_positional_preservation_embedding_for_token_compression_in_multimodal_large_.md) | arXiv: 2510.22936

@@ -1,5 +1,5 @@
 # Auto-generated: ICML2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !audio_speech/
@@ -54,7 +53,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1059 篇)
+# 已完成笔记 (1058 篇)
 !3d_vision/evomesh_adaptive_physical_simulation_with_hierarchical_graph_evolutions.md
 !3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md
 !3d_vision/freemesh_boosting_mesh_generation_with_coordinates_merging.md
@@ -542,7 +541,6 @@
 !llm_pretraining/tokenized_bandit_for_llm_decoding_and_alignment.md
 !llm_pretraining/towards_robust_influence_functions_with_flat_validation_minima.md
 !llm_pretraining/when_can_in-context_learning_generalize_out_of_task_distribution.md
-!llm_pretraining/whitened_clip_as_a_likelihood_surrogate_of_images_and_captions.md
 !llm_reasoning/ad-hoc_human-ai_coordination_challenge.md
 !llm_reasoning/adadecode_accelerating_llm_decoding_with_adaptive_layer_parallelism.md
 !llm_reasoning/adversarial_manipulation_of_reasoning_models_using_internal_representations.md

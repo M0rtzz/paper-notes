@@ -1,14 +1,10 @@
----
-title: "pFed1BS: 基于单比特随机草图的双向通信压缩个性化联邦学习"
-authors: "Jiacheng Cheng, Xu Zhang, Guanghui Qiu, Yifang Zhang, Yinchuan Li, Kaiyuan Feng"
-venue: "AAAI 2026"
-arxiv: "2511.13144"
-date: 2025-11-21
-domain: "optimization"
-tags: ["federated-learning", "communication-efficiency", "personalization", "one-bit-compression", "random-sketching"]
----
-
 # pFed1BS: 基于单比特随机草图的双向通信压缩个性化联邦学习
+
+**会议**: AAAI 2026  
+**arXiv**: [2511.13144](https://arxiv.org/abs/2511.13144)  
+**代码**: 待确认  
+**领域**: 优化 / 联邦学习  
+**关键词**: federated learning, communication efficiency, personalization, one-bit compression, random sketching
 
 ## 一句话总结
 

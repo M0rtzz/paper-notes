@@ -1,5 +1,5 @@
 # Auto-generated: ICLR2026 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -55,7 +54,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1514 篇)
+# 已完成笔记 (1507 篇)
 !3d_vision/3dgeer_3d_gaussian_rendering_made_exact_and_efficient_for_generic_cameras.md
 !3d_vision/a_genetic_algorithm_for_navigating_synthesizable_molecular_spaces.md
 !3d_vision/a_step_to_decouple_optimization_in_3dgs.md
@@ -399,7 +398,6 @@
 !image_generation/generating_directed_graphs_with_dual_attention_and_asymmetric_encoding.md
 !image_generation/geodiv_framework_for_measuring_geographical_diversity_in_text-to-image_models.md
 !image_generation/ggball_graph_generative_model_on_poincaré_ball.md
-!image_generation/glass_flows_reward_alignment_diffusion.md
 !image_generation/glyph-sr_can_we_achieve_both_high-quality_image_super-resolution_and_high-fideli.md
 !image_generation/hierarchical_entity-centric_reinforcement_learning_with_factored_subgoal_diffusi.md
 !image_generation/hierloc_hyperbolic_entity_embeddings_for_hierarchical_visual_geolocation.md
@@ -565,7 +563,6 @@
 !interpretability/nimo_a_nonlinear_interpretable_model.md
 !interpretability/noise_stability_of_transformer_models.md
 !interpretability/polyshap_extending_kernelshap_with_interaction-informed_polynomial_regression.md
-!interpretability/posh_using_scene_graphs_to_guide_llms-as-a-judge_for_detailed_image_descriptions.md
 !interpretability/provably_explaining_neural_additive_models.md
 !interpretability/radar_reasoning-ability_and_difficulty-aware_routing_for_reasoning_llms.md
 !interpretability/salve_sparse_autoencoder-latent_vector_editing_for_mechanistic_control_of_neural.md
@@ -917,7 +914,6 @@
 !medical_imaging/learning_domain-aware_task_prompt_representations_for_multi-domain_all-in-one_im.md
 !medical_imaging/learning_patient-specific_disease_dynamics_with_latent_flow_matching_for_longitu.md
 !medical_imaging/mclm_a_modular_chemical_language_model_that_generates_functional_and_makeable_mo.md
-!medical_imaging/medagentgym_agentic_training_biomedical.md
 !medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md
 !medical_imaging/moving_beyond_medical_exams_a_clinician-annotated_fairness_dataset_of_real-world.md
 !medical_imaging/neuro-symbolic_decoding_of_neural_activity.md
@@ -958,7 +954,6 @@
 !model_compression/bridging_kolmogorov_complexity_and_deep_learning_asymptotically_optimal_descript.md
 !model_compression/comi_coarse-to-fine_context_compression_via_marginal_information_gain.md
 !model_compression/compute-optimal_quantization-aware_training.md
-!model_compression/cross_domain_lossy_compression_optimal_transport.md
 !model_compression/cut_less_fold_more_model_compression_through_the_lens_of_projection_geometry.md
 !model_compression/dataset_color_quantization_a_training-oriented_framework_for_dataset-level_compr.md
 !model_compression/dataset_distillation_as_pushforward_optimal_quantization.md
@@ -1218,12 +1213,10 @@
 !others/enhancing_generative_auto_bidding.md
 !others/entropic_confinement_and_mode_connectivity_in_overparameterized_neural_networks.md
 !others/evaluating_gflownet_from_partial_episodes_for_stable_and_flexible_policy-based_t.md
-!others/exchangeability_gnn_representations.md
 !others/fast_and_stable_riemannian_metrics_on_spd_manifolds_via_cholesky_product_geometr.md
 !others/fastlsq_solving_pdes_in_one_shot_via_fourier_features_with_exact_analytical_deri.md
 !others/federated_admm_from_bayesian_duality.md
 !others/fire_frobenius_isometry_reinitialization.md
-!others/from_movement_to_cognitive_maps.md
 !others/harpoon_generalised_manifold_guidance_for_conditional_tabular_diffusion.md
 !others/heegnet_hyperbolic_embeddings_for_eeg.md
 !others/hilbert-guided_sparse_local_attention.md
@@ -1233,7 +1226,6 @@
 !others/jackpot_optimal_budgeted_rejection_sampling_for_extreme_actor-policy_mismatch_re.md
 !others/key_and_value_weights_are_probably_all_you_need_on_the_necessity_of_the_query_ke.md
 !others/latent_equivariant_operators_for_robust_object_recognition_promises_and_challeng.md
-!others/latent_fourier_transform.md
 !others/latent_particle_world_models_self-supervised_object-centric_stochastic_dynamics_.md
 !others/learning_adaptive_distribution_alignment_with_neural_characteristic_function_for.md
 !others/learning_on_a_razors_edge_identifiability_and_singularity_of_polynomial_neural_n.md

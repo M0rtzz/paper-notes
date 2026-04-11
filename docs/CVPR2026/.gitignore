@@ -1,5 +1,5 @@
 # Auto-generated: CVPR2026 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -52,7 +51,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1321 篇)
+# 已完成笔记 (1316 篇)
 !3d_vision/3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md
 !3d_vision/3d-ide_3d_implicit_depth_emergent.md
 !3d_vision/3d_gaussian_splatting_with_self-constrained_priors_for_high_fidelity_surface_rec.md
@@ -345,7 +344,6 @@
 !dialogue/evolutionary_multimodal_reasoning_via_hierarchical_semantic_representation_for_i.md
 !graph_learning/hyperbolic_busemann_neural_networks.md
 !graph_learning/mario_multimodal_graph_reasoning_with_large_language_models.md
-!graph_learning/viterbiplannet_injecting_procedural_knowledge_via_differentiable_viterbi_for_pla.md
 !human_understanding/all_in_one_unifying_deepfake_detection_tampering_localization_and_source_tracing.md
 !human_understanding/avatar_reinforcement_learning_to_see_hear_and_reason_over_video.md
 !human_understanding/bilevel_layer-positioning_lora_for_real_image_dehazing.md
@@ -1071,12 +1069,10 @@
 !object_detection/neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md
 !object_detection/phac_promptable_human_amodal_completion.md
 !object_detection/pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw.md
-!object_detection/prompt-free_universal_region_proposal_network.md
 !object_detection/radar_closed-loop_robotic_data_generation_via_semantic_planning_and_autonomous_c.md
 !object_detection/radar_closedloop_robotic_data_generation_via_seman.md
 !object_detection/rehark_refined_hybrid_adaptive_rbf_kernels_for_rob.md
 !object_detection/rehark_refined_hybrid_adaptive_rbf_kernels_for_robust_one-shot_vision-language_a.md
-!object_detection/remedying_target-domain_astigmatism_for_cross-domain_few-shot_object_detection.md
 !object_detection/sdf-net_structure-aware_disentangled_feature_learning_for_opticall-sar_ship_re-i.md
 !object_detection/shape-of-you_fused_gromov-wasserstein_optimal_transport_for_semantic_corresponde.md
 !object_detection/show_dont_tell_detecting_novel_objects_by_watching.md
@@ -1165,8 +1161,6 @@
 !remote_sensing/lumosaic_hyperspectral_video_via_active_illumination_and_coded-exposure_pixels.md
 !remote_sensing/metaspectra_a_compact_broadband_metasurface_camera.md
 !remote_sensing/metaspectra_a_compact_broadband_metasurface_camera_for_snapshot_hyperspectral_im.md
-!remote_sensing/no_labels_no_look-ahead_unsupervised_online_video_stabilization_with_classical_p.md
-!remote_sensing/olbedo_an_albedo_and_shading_aerial_dataset_for_large-scale_outdoor_environments.md
 !remote_sensing/rho_robust_holistic_osm-based_metric_cross-view_geo-localization.md
 !remote_sensing/sdfnet_structureaware_disentangled_feature_learnin.md
 !robotics/actiongeometry_prediction_with_3d_geometric_prior.md

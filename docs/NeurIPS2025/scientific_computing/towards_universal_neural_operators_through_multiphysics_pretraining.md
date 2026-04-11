@@ -1,13 +1,10 @@
----
-title: "Towards Universal Neural Operators through Multiphysics Pretraining"
-authors: "Mikhail Masliaev, Dmitry A. Gusarov, Ilya Markov, Alexander Hvatov"
-venue: "NeurIPS 2025"
-arxiv: "2511.10829"
-date: 2025-11-18
-tags: ["neural operator", "transfer learning", "PDE", "multiphysics", "foundation model"]
----
-
 # Towards Universal Neural Operators through Multiphysics Pretraining
+
+**会议**: NeurIPS 2025  
+**arXiv**: [2511.10829](https://arxiv.org/abs/2511.10829)  
+**代码**: 待确认  
+**领域**: 科学计算 / 神经算子  
+**关键词**: neural operator, transfer learning, PDE, multiphysics, foundation model
 
 ## 一句话总结
 

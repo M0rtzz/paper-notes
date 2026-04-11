@@ -1,14 +1,10 @@
----
-title: "Perceive, Act and Correct: Confidence Is Not Enough for Hyperspectral Classification"
-authors: "Muzhou Yang, Wuzhou Quan, Mingqiang Wei"
-venue: "AAAI 2026"
-date: 2025-11-17
-arxiv_id: "2511.10068"
-domain: "object_detection"
-tags: [hyperspectral, semi-supervised, uncertainty, pseudo-label, evidential-deep-learning]
----
-
 # Perceive, Act and Correct: Confidence Is Not Enough for Hyperspectral Classification
+
+**会议**: AAAI 2026  
+**arXiv**: [2511.10068](https://arxiv.org/abs/2511.10068)  
+**代码**: 待确认  
+**领域**: 遥感 / 高光谱分类  
+**关键词**: hyperspectral, semi-supervised, uncertainty, pseudo-label, evidential deep learning
 
 ## 一句话总结
 

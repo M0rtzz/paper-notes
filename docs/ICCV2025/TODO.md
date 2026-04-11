@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ICCV2025 论文笔记 TODO
 
-总计: 1870 篇 | 已完成: 1312 | 待更新: 558
+总计: 1870 篇 | 已完成: 1311 | 待更新: 559
 
 ---
 
@@ -263,7 +263,7 @@
 - [ ] [ca2c a prior-knowledge-free approach for robust label noise learning via asymmet](others/ca2c_a_prior-knowledge-free_approach_for_robust_label_noise_learning_via_asymmet.md)
 - [x] [cad-assistant tool-augmented vllms as generic cad task solvers](multimodal_vlm/cad-assistant_tool-augmented_vllms_as_generic_cad_task_solvers.md) | arXiv: 2412.13810
 - [x] [cad-recode reverse engineering cad code from point clouds](3d_vision/cad-recode_reverse_engineering_cad_code_from_point_clouds.md) | arXiv: 2412.14042
-- [x] [CAD-Recode: Reverse Engineering CAD Code from Point Clouds](3d_vision/cadrecode_reverse_engineering_cad_code_from_point_clouds.md) | arXiv: 2412.14042
+- [ ] [CAD-Recode: Reverse Engineering CAD Code from Point Clouds](3d_vision/cadrecode_reverse_engineering_cad_code_from_point_clouds.md) | arXiv: 2412.14042
 - [x] [calibrating mllm-as-a-judge via multimodal bayesian prompt ensembles](image_generation/calibrating_mllm-as-a-judge_via_multimodal_bayesian_prompt_ensembles.md) | arXiv: 2509.08777
 - [x] [can generative geospatial diffusion models excel as discriminative geospatial fo](segmentation/can_generative_geospatial_diffusion_models_excel_as_discriminative_geospatial_fo.md) | arXiv: 2503.07890
 - [x] [can3tok canonical 3d tokenization and latent modeling of scene-level 3d gaussian](3d_vision/can3tok_canonical_3d_tokenization_and_latent_modeling_of_scene-level_3d_gaussian.md) | arXiv: 2508.01464

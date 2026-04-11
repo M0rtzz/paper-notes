@@ -1,5 +1,5 @@
 # Auto-generated: ACL2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -53,7 +52,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1516 篇)
+# 已完成笔记 (1515 篇)
 !3d_vision/slamming_training_a_speech_language_model_on_one_gpu_in_a_day.md
 !ai_safety/cavgan_unifying_jailbreak_and_defense_of_llms_via_generative_adversarial_attacks.md
 !ai_safety/centaur_bridging_the_impossible_trinity_of.md
@@ -870,7 +869,6 @@
 !llm_reasoning/mm-verify_enhancing_multimodal_reasoning_with_chain-of-thought_verification.md
 !llm_reasoning/on_generalization_across_measurement_systems_llms_entail_more_test-time_compute_.md
 !llm_reasoning/one_missing_piece_for_open-source_reasoning_models_a_dataset_to_mitigate_cold-st.md
-!llm_reasoning/pcot_persuasion-augmented_chain_of_thought_for_detecting_fake_news_and_social_me.md
 !llm_reasoning/pcot_persuasion_chain_of_thought_fake_news.md
 !llm_reasoning/ranked_voting_based_self-consistency_of_large_language_models.md
 !llm_reasoning/rethinking_the_role_of_prompting_strategies_in_llm_test-time_scaling_a_perspecti.md

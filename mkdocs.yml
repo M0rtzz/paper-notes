@@ -8,6 +8,7 @@ site_dir: site
 theme:
   name: material
   language: zh
+  custom_dir: overrides
   features:
   - navigation.instant
   - navigation.instant.progress
@@ -12040,6 +12041,7 @@ plugins:
     lang:
     - en
     min_search_length: 2
+- tags
 markdown_extensions:
 - pymdownx.arithmatex:
     generic: true

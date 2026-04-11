@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ECCV2024 论文笔记 TODO
 
-总计: 868 篇 | 已完成: 214 | 待更新: 654
+总计: 868 篇 | 已完成: 248 | 待更新: 620
 
 ---
 
@@ -138,27 +138,27 @@
 - [x] [cg-slam efficient dense rgb-d slam in a consistent uncertainty-aware 3d gaussian](3d_vision/cg-slam_efficient_dense_rgb-d_slam_in_a_consistent_uncertainty-aware_3d_gaussian.md) | arXiv: 2403.16095
 - [x] [challenging forgets unveiling the worst-case forget sets in machine unlearning](image_generation/challenging_forgets_unveiling_the_worst-case_forget_sets_in_machine_unlearning.md) | arXiv: 2403.07362
 - [x] [chameleon a data-efficient generalist for dense visual prediction in the wild](medical_imaging/chameleon_a_data-efficient_generalist_for_dense_visual_prediction_in_the_wild.md) | arXiv: 2404.18459
-- [ ] [chex interactive localization and region description in chest x-rays](medical_imaging/chex_interactive_localization_and_region_description_in_chest_x-rays.md) | arXiv: 2404.15770
+- [x] [chex interactive localization and region description in chest x-rays](medical_imaging/chex_interactive_localization_and_region_description_in_chest_x-rays.md) | arXiv: 2404.15770
 - [x] [citygaussian real-time high-quality large-scale scene rendering with gaussians](3d_vision/citygaussian_real-time_high-quality_large-scale_scene_rendering_with_gaussians.md) | arXiv: 2404.01133
 - [x] [clap isolating content from style through contrastive learning with augmented pr](multimodal_vlm/clap_isolating_content_from_style_through_contrastive_learning_with_augmented_pr.md) | arXiv: 2311.16445
 - [x] [classification matters improving video action detection with class-specific atte](video_understanding/classification_matters_improving_video_action_detection_with_class-specific_atte.md) | arXiv: 2407.19698
-- [ ] [click-gaussian interactive segmentation to any 3d gaussians](3d_vision/click-gaussian_interactive_segmentation_to_any_3d_gaussians.md) | arXiv: 2407.11793
+- [x] [click-gaussian interactive segmentation to any 3d gaussians](3d_vision/click-gaussian_interactive_segmentation_to_any_3d_gaussians.md) | arXiv: 2407.11793
 - [x] [clip-guided generative networks for transferable targeted adversarial attacks](ai_safety/clip-guided_generative_networks_for_transferable_targeted_adversarial_attacks.md) | arXiv: 2407.10179
 - [ ] [cloudfixer test-time adaptation for 3d point clouds via diffusion-guided geometr](3d_vision/cloudfixer_test-time_adaptation_for_3d_point_clouds_via_diffusion-guided_geometr.md)
 - [ ] [clr-gan improving gans stability and quality via consistent latent representatio](others/clr-gan_improving_gans_stability_and_quality_via_consistent_latent_representatio.md)
 - [ ] [co-synthesis of histopathology nuclei image-label pairs using a context-conditio](medical_imaging/co-synthesis_of_histopathology_nuclei_image-label_pairs_using_a_context-conditio.md) | arXiv: 2407.14434
-- [ ] [coherentgs sparse novel view synthesis with coherent 3d gaussians](3d_vision/coherentgs_sparse_novel_view_synthesis_with_coherent_3d_gaussians.md) | arXiv: 2403.19495
+- [x] [coherentgs sparse novel view synthesis with coherent 3d gaussians](3d_vision/coherentgs_sparse_novel_view_synthesis_with_coherent_3d_gaussians.md) | arXiv: 2403.19495
 - [x] [coho context-sensitive city-scale hierarchical urban layout generation](self_supervised/coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md) | arXiv: 2407.11294
 - [x] [coin control-inpainting diffusion prior for human and camera motion estimation](image_generation/coin_control-inpainting_diffusion_prior_for_human_and_camera_motion_estimation.md) | arXiv: 2408.16426
 - [ ] [coin-matting confounder intervention for image matting](others/coin-matting_confounder_intervention_for_image_matting.md)
 - [x] [cola conditional dropout and language-driven robust dual-modal salient object de](segmentation/cola_conditional_dropout_and_language-driven_robust_dual-modal_salient_object_de.md) | arXiv: 2407.06780
 - [x] [coleaf a contrastive-collaborative learning framework for weakly supervised audi](audio_speech/coleaf_a_contrastive-collaborative_learning_framework_for_weakly_supervised_audi.md) | arXiv: 2405.10690
-- [ ] [collaborative control for geometry-conditioned pbr image generation](image_generation/collaborative_control_for_geometry-conditioned_pbr_image_generation.md) | arXiv: 2402.05919
+- [x] [collaborative control for geometry-conditioned pbr image generation](image_generation/collaborative_control_for_geometry-conditioned_pbr_image_generation.md) | arXiv: 2402.05919
 - [x] [colormae exploring data-independent masking strategies in masked autoencoders](segmentation/colormae_exploring_data-independent_masking_strategies_in_masked_autoencoders.md) | arXiv: 2407.13036
 - [x] [colormnet a memory-based deep spatial-temporal feature propagation network for v](llm_nlp/colormnet_a_memory-based_deep_spatial-temporal_feature_propagation_network_for_v.md) | arXiv: 2404.06251
 - [ ] [colorpeel color prompt learning with diffusion models via color and shape disent](image_generation/colorpeel_color_prompt_learning_with_diffusion_models_via_color_and_shape_disent.md) | arXiv: 2407.07197
 - [x] [combining generative and geometry priors for wide-angle portrait correction](human_understanding/combining_generative_and_geometry_priors_for_wide-angle_portrait_correction.md) | arXiv: 2410.09911
-- [ ] [comboverse compositional 3d assets creation using spatially-aware diffusion guid](3d_vision/comboverse_compositional_3d_assets_creation_using_spatially-aware_diffusion_guid.md) | arXiv: 2403.12409
+- [x] [comboverse compositional 3d assets creation using spatially-aware diffusion guid](3d_vision/comboverse_compositional_3d_assets_creation_using_spatially-aware_diffusion_guid.md) | arXiv: 2403.12409
 - [x] [como controllable motion generation through language guided pose code editing](human_understanding/como_controllable_motion_generation_through_language_guided_pose_code_editing.md) | arXiv: 2403.13900
 - [x] [compress3d a compressed latent space for 3d generation from a single image](3d_vision/compress3d_a_compressed_latent_space_for_3d_generation_from_a_single_image.md) | arXiv: 2403.13524
 - [x] [confidence self-calibration for multi-label class-incremental learning](graph_learning/confidence_self-calibration_for_multi-label_class-incremental_learning.md) | arXiv: 2403.12559
@@ -182,7 +182,7 @@
 - [x] [d-sco dual-stream conditional diffusion for monocular hand-held object reconstru](3d_vision/d-sco_dual-stream_conditional_diffusion_for_monocular_hand-held_object_reconstru.md) | arXiv: 2311.14189
 - [x] [damsdet dynamic adaptive multispectral detection transformer with competitive qu](object_detection/damsdet_dynamic_adaptive_multispectral_detection_transformer_with_competitive_qu.md) | arXiv: 2403.00326
 - [x] [data collection-free masked video modeling](video_understanding/data_collection-free_masked_video_modeling.md) | arXiv: 2409.06665
-- [ ] [dataset enhancement with instance-level augmentations](segmentation/dataset_enhancement_with_instance-level_augmentations.md) | arXiv: 2406.08249
+- [x] [dataset enhancement with instance-level augmentations](segmentation/dataset_enhancement_with_instance-level_augmentations.md) | arXiv: 2406.08249
 - [x] [dataset growth](multimodal_vlm/dataset_growth.md) | arXiv: 2405.18347
 - [ ] [datenerf depth-aware text-based editing of nerfs](3d_vision/datenerf_depth-aware_text-based_editing_of_nerfs.md) | arXiv: 2404.04526
 - [x] [dc-solver improving predictor-corrector diffusion sampler via dynamic compensati](others/dc-solver_improving_predictor-corrector_diffusion_sampler_via_dynamic_compensati.md) | arXiv: 2409.03755
@@ -203,11 +203,11 @@
 - [ ] [dg-pic domain generalized point-in-context learning for point cloud understandin](3d_vision/dg-pic_domain_generalized_point-in-context_learning_for_point_cloud_understandin.md) | arXiv: 2407.08801
 - [ ] [diff-tracker text-to-image diffusion models are unsupervised trackers](image_generation/diff-tracker_text-to-image_diffusion_models_are_unsupervised_trackers.md) | arXiv: 2407.08394
 - [ ] [differentiable convex polyhedra optimization from multi-view images](3d_vision/differentiable_convex_polyhedra_optimization_from_multi-view_images.md) | arXiv: 2407.15686
-- [ ] [diffit diffusion vision transformers for image generation](image_generation/diffit_diffusion_vision_transformers_for_image_generation.md) | arXiv: 2312.02139
+- [x] [diffit diffusion vision transformers for image generation](image_generation/diffit_diffusion_vision_transformers_for_image_generation.md) | arXiv: 2312.02139
 - [ ] [diffusion model is a good pose estimator from 3d rf-vision](3d_vision/diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md) | arXiv: 2403.16198
 - [ ] [diffusion models for monocular depth estimation overcoming challenging condition](3d_vision/diffusion_models_for_monocular_depth_estimation_overcoming_challenging_condition.md) | arXiv: 2407.16698
 - [ ] [diffusion models for open-vocabulary segmentation](segmentation/diffusion_models_for_open-vocabulary_segmentation.md) | arXiv: 2306.09316
-- [ ] [diffusion-based image-to-image translation by noise correction via prompt interp](image_generation/diffusion-based_image-to-image_translation_by_noise_correction_via_prompt_interp.md) | arXiv: 2409.08077
+- [x] [diffusion-based image-to-image translation by noise correction via prompt interp](image_generation/diffusion-based_image-to-image_translation_by_noise_correction_via_prompt_interp.md) | arXiv: 2409.08077
 - [ ] [diffusion-driven data replay a novel approach to combat forgetting in federated ](image_generation/diffusion-driven_data_replay_a_novel_approach_to_combat_forgetting_in_federated_.md) | arXiv: 2409.01128
 - [ ] [diffusiondepth diffusion denoising approach for monocular depth estimation](3d_vision/diffusiondepth_diffusion_denoising_approach_for_monocular_depth_estimation.md) | arXiv: 2303.05021
 - [x] [dino-tracker taming dino for self-supervised point tracking in a single video](video_understanding/dino-tracker_taming_dino_for_self-supervised_point_tracking_in_a_single_video.md) | arXiv: 2403.14548
@@ -220,7 +220,7 @@
 - [x] [domain reduction strategy for non-line-of-sight imaging](human_understanding/domain_reduction_strategy_for_non-line-of-sight_imaging.md) | arXiv: 2308.10269
 - [ ] [domain-adaptive video deblurring via test-time blurring](image_restoration/domain-adaptive_video_deblurring_via_test-time_blurring.md) | arXiv: 2407.09059
 - [ ] [domesticating sam for breast ultrasound image segmentation via spatial-frequency](medical_imaging/domesticating_sam_for_breast_ultrasound_image_segmentation_via_spatial-frequency.md)
-- [ ] [draganything motion control for anything using entity representation](video_understanding/draganything_motion_control_for_anything_using_entity_representation.md) | arXiv: 2403.07420
+- [x] [draganything motion control for anything using entity representation](video_understanding/draganything_motion_control_for_anything_using_entity_representation.md) | arXiv: 2403.07420
 - [ ] [dragapart learning a part-level motion prior for articulated objects](others/dragapart_learning_a_part-level_motion_prior_for_articulated_objects.md) | arXiv: 2403.15382
 - [ ] [dreamdiffusion high-quality eeg-to-image generation with temporal masked signal ](image_generation/dreamdiffusion_high-quality_eeg-to-image_generation_with_temporal_masked_signal_.md)
 - [ ] [dreamdissector learning disentangled text-to-3d generation from 2d diffusion pri](3d_vision/dreamdissector_learning_disentangled_text-to-3d_generation_from_2d_diffusion_pri.md) | arXiv: 2407.16260
@@ -237,8 +237,8 @@
 - [x] [dvlo deep visual-lidar odometry with local-to-global feature fusion and bi-direc](autonomous_driving/dvlo_deep_visual-lidar_odometry_with_local-to-global_feature_fusion_and_bi-direc.md) | arXiv: 2403.18274
 - [ ] [dynamic neural radiance field from defocused monocular video](3d_vision/dynamic_neural_radiance_field_from_defocused_monocular_video.md) | arXiv: 2407.05586
 - [ ] [dyset a dynamic masked self-distillation approach for robust trajectory predicti](autonomous_driving/dyset_a_dynamic_masked_self-distillation_approach_for_robust_trajectory_predicti.md)
-- [ ] [eaformer scene text segmentation with edge-aware transformers](segmentation/eaformer_scene_text_segmentation_with_edge-aware_transformers.md) | arXiv: 2407.17020
-- [ ] [early preparation pays off new classifier pre-tuning for class incremental seman](segmentation/early_preparation_pays_off_new_classifier_pre-tuning_for_class_incremental_seman.md) | arXiv: 2407.14142
+- [x] [eaformer scene text segmentation with edge-aware transformers](segmentation/eaformer_scene_text_segmentation_with_edge-aware_transformers.md) | arXiv: 2407.17020
+- [x] [early preparation pays off new classifier pre-tuning for class incremental seman](segmentation/early_preparation_pays_off_new_classifier_pre-tuning_for_class_incremental_seman.md) | arXiv: 2407.14142
 - [ ] [ebdm exemplar-guided image translation with brownian-bridge diffusion models](image_generation/ebdm_exemplar-guided_image_translation_with_brownian-bridge_diffusion_models.md) | arXiv: 2410.09802
 - [ ] [echoscene indoor scene generation via information echo over scene graph diffusio](image_generation/echoscene_indoor_scene_generation_via_information_echo_over_scene_graph_diffusio.md) | arXiv: 2405.00915
 - [ ] [edformer transformer-based event denoising across varied noise levels](image_restoration/edformer_transformer-based_event_denoising_across_varied_noise_levels.md)
@@ -249,7 +249,7 @@
 - [ ] [efficient depth-guided urban view synthesis](3d_vision/efficient_depth-guided_urban_view_synthesis.md) | arXiv: 2407.12395
 - [ ] [efficient diffusion transformer with step-wise dynamic attention mediators](image_restoration/efficient_diffusion_transformer_with_step-wise_dynamic_attention_mediators.md) | arXiv: 2408.05710
 - [ ] [efficient few-shot action recognition via multi-level post-reasoning](video_understanding/efficient_few-shot_action_recognition_via_multi-level_post-reasoning.md)
-- [ ] [efficient image pre-training with siamese cropped masked autoencoders](self_supervised/efficient_image_pre-training_with_siamese_cropped_masked_autoencoders.md) | arXiv: 2403.17823
+- [x] [efficient image pre-training with siamese cropped masked autoencoders](self_supervised/efficient_image_pre-training_with_siamese_cropped_masked_autoencoders.md) | arXiv: 2403.17823
 - [x] [efficient inference of vision instruction-following models with elastic cache](object_detection/efficient_inference_of_vision_instruction-following_models_with_elastic_cache.md) | arXiv: 2407.18121
 - [x] [egoexo-fitness towards egocentric and exocentric full-body action understanding](human_understanding/egoexo-fitness_towards_egocentric_and_exocentric_full-body_action_understanding.md) | arXiv: 2406.08877
 - [ ] [egoposer robust real-time egocentric pose estimation from sparse and intermitten](video_understanding/egoposer_robust_real-time_egocentric_pose_estimation_from_sparse_and_intermitten.md) | arXiv: 2308.06493
@@ -346,7 +346,7 @@
 - [x] [gra detecting oriented objects through group-wise rotating and attention](object_detection/gra_detecting_oriented_objects_through_group-wise_rotating_and_attention.md) | arXiv: 2403.11127
 - [ ] [grace graph-based contextual debiasing for fair visual question answering](multimodal_vlm/grace_graph-based_contextual_debiasing_for_fair_visual_question_answering.md)
 - [ ] [gradient-regularized out-of-distribution detection](others/gradient-regularized_out-of-distribution_detection.md) | arXiv: 2404.12368
-- [ ] [graphbev towards robust bev feature alignment for multi-modal 3d object detectio](autonomous_driving/graphbev_towards_robust_bev_feature_alignment_for_multi-modal_3d_object_detectio.md) | arXiv: 2403.11848
+- [x] [graphbev towards robust bev feature alignment for multi-modal 3d object detectio](autonomous_driving/graphbev_towards_robust_bev_feature_alignment_for_multi-modal_3d_object_detectio.md) | arXiv: 2403.11848
 - [ ] [graspxl generating grasping motions for diverse objects at scale](human_understanding/graspxl_generating_grasping_motions_for_diverse_objects_at_scale.md) | arXiv: 2403.19649
 - [ ] [grm large gaussian reconstruction model for efficient 3d reconstruction and gene](3d_vision/grm_large_gaussian_reconstruction_model_for_efficient_3d_reconstruction_and_gene.md) | arXiv: 2403.14621
 - [x] [groma localized visual tokenization for grounding multimodal large language mode](multimodal_vlm/groma_localized_visual_tokenization_for_grounding_multimodal_large_language_mode.md) | arXiv: 2404.13013
@@ -359,12 +359,12 @@
 - [ ] [hac hash-grid assisted context for 3d gaussian splatting compression](3d_vision/hac_hash-grid_assisted_context_for_3d_gaussian_splatting_compression.md) | arXiv: 2403.14530
 - [x] [handling the non-smooth challenge in tensor svd a multi-objective tensor recover](optimization/handling_the_non-smooth_challenge_in_tensor_svd_a_multi-objective_tensor_recover.md) | arXiv: 2311.13958
 - [ ] [harnessing text-to-image diffusion models for category-agnostic pose estimation](image_generation/harnessing_text-to-image_diffusion_models_for_category-agnostic_pose_estimation.md)
-- [ ] [hat history-augmented anchor transformer for online temporal action localization](object_detection/hat_history-augmented_anchor_transformer_for_online_temporal_action_localization.md) | arXiv: 2408.06437
+- [x] [hat history-augmented anchor transformer for online temporal action localization](object_detection/hat_history-augmented_anchor_transformer_for_online_temporal_action_localization.md) | arXiv: 2408.06437
 - [ ] [headgas real-time animatable head avatars via 3d gaussian splatting](3d_vision/headgas_real-time_animatable_head_avatars_via_3d_gaussian_splatting.md) | arXiv: 2312.02902
 - [ ] [heterogeneous graph learning for scene graph prediction in 3d point clouds](3d_vision/heterogeneous_graph_learning_for_scene_graph_prediction_in_3d_point_clouds.md)
 - [ ] [hiding imperceptible noise in curvature-aware patches for 3d point cloud attack](3d_vision/hiding_imperceptible_noise_in_curvature-aware_patches_for_3d_point_cloud_attack.md)
 - [ ] [hiei a universal framework for generating high-quality emerging images from natu](others/hiei_a_universal_framework_for_generating_high-quality_emerging_images_from_natu.md)
-- [ ] [hierarchical temporal context learning for camera-based semantic scene completio](autonomous_driving/hierarchical_temporal_context_learning_for_camera-based_semantic_scene_completio.md) | arXiv: 2407.02077
+- [x] [hierarchical temporal context learning for camera-based semantic scene completio](autonomous_driving/hierarchical_temporal_context_learning_for_camera-based_semantic_scene_completio.md) | arXiv: 2407.02077
 - [x] [hierarchically structured neural bones for reconstructing animatable objects fro](robotics/hierarchically_structured_neural_bones_for_reconstructing_animatable_objects_fro.md) | arXiv: 2408.00351
 - [ ] [high-fidelity 3d textured shapes generation by sparse encoding and adversarial d](others/high-fidelity_3d_textured_shapes_generation_by_sparse_encoding_and_adversarial_d.md)
 - [ ] [high-precision self-supervised monocular depth estimation with rich-resource pri](3d_vision/high-precision_self-supervised_monocular_depth_estimation_with_rich-resource_pri.md) | arXiv: 2408.00361
@@ -456,7 +456,7 @@
 - [ ] [lidar-event stereo fusion with hallucinations](autonomous_driving/lidar-event_stereo_fusion_with_hallucinations.md) | arXiv: 2408.04633
 - [ ] [lift a surprisingly simple lightweight feature transform for dense vit descripto](segmentation/lift_a_surprisingly_simple_lightweight_feature_transform_for_dense_vit_descripto.md) | arXiv: 2403.14625
 - [ ] [linearly controllable gan unsupervised feature categorization and decomposition ](image_generation/linearly_controllable_gan_unsupervised_feature_categorization_and_decomposition_.md)
-- [ ] [listen to look into the future audio-visual egocentric gaze anticipation](audio_speech/listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md) | arXiv: 2305.03907
+- [x] [listen to look into the future audio-visual egocentric gaze anticipation](audio_speech/listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md) | arXiv: 2305.03907
 - [ ] [livehps robust and coherent motion capture in dynamic free environment](autonomous_driving/livehps_robust_and_coherent_motion_capture_in_dynamic_free_environment.md) | arXiv: 2407.09833
 - [ ] [livephoto real image animation with text-guided motion control](image_generation/livephoto_real_image_animation_with_text-guided_motion_control.md) | arXiv: 2312.02928
 - [ ] [llm as copilot for coarse-grained vision-and-language navigation](robotics/llm_as_copilot_for_coarse-grained_vision-and-language_navigation.md)
@@ -517,8 +517,8 @@
 - [ ] [mvdiffusion a dense high-resolution multi-view diffusion model for single or spa](3d_vision/mvdiffusion_a_dense_high-resolution_multi-view_diffusion_model_for_single_or_spa.md) | arXiv: 2402.12712
 - [x] [MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo](3d_vision/mvsgaussian_fast_generalizable_gaussian_splatting_reconstruction_from_multi-view.md) | arXiv: 2405.12218
 - [ ] [mvsplat efficient 3d gaussian splatting from sparse multi-view images](3d_vision/mvsplat_efficient_3d_gaussian_splatting_from_sparse_multi-view_images.md) | arXiv: 2403.14627
-- [ ] [myvlm personalizing vlms for user-specific queries](multimodal_vlm/myvlm_personalizing_vlms_for_user-specific_queries.md) | arXiv: 2403.14599
-- [ ] [navgpt-2 unleashing navigational reasoning capability for large vision-language ](multimodal_vlm/navgpt-2_unleashing_navigational_reasoning_capability_for_large_vision-language_.md) | arXiv: 2407.12366
+- [x] [myvlm personalizing vlms for user-specific queries](multimodal_vlm/myvlm_personalizing_vlms_for_user-specific_queries.md) | arXiv: 2403.14599
+- [x] [navgpt-2 unleashing navigational reasoning capability for large vision-language ](multimodal_vlm/navgpt-2_unleashing_navigational_reasoning_capability_for_large_vision-language_.md) | arXiv: 2407.12366
 - [ ] [navigation instruction generation with bev perception and large language models](autonomous_driving/navigation_instruction_generation_with_bev_perception_and_large_language_models.md) | arXiv: 2407.15087
 - [x] [NePhi: Neural Deformation Fields for Approximately Diffeomorphic Medical Image Registration](medical_imaging/textttnephi_neural_deformation_fields_for_approximately_diff.md) | arXiv: 2309.07322
 - [ ] [neural volumetric world models for autonomous driving](autonomous_driving/neural_volumetric_world_models_for_autonomous_driving.md)
@@ -547,7 +547,7 @@
 - [ ] [omni6d large-vocabulary 3d object dataset for category-level 6d object pose esti](3d_vision/omni6d_large-vocabulary_3d_object_dataset_for_category-level_6d_object_pose_esti.md) | arXiv: 2409.18261
 - [x] [omnisat self-supervised modality fusion for earth observation](time_series/omnisat_self-supervised_modality_fusion_for_earth_observation.md) | arXiv: 2404.08351
 - [ ] [omnissr zero-shot omnidirectional image super-resolution using stable diffusion ](image_generation/omnissr_zero-shot_omnidirectional_image_super-resolution_using_stable_diffusion_.md) | arXiv: 2404.10312
-- [ ] [omniview-tuning boosting viewpoint invariance of vision-language pre-training mo](multimodal_vlm/omniview-tuning_boosting_viewpoint_invariance_of_vision-language_pre-training_mo.md) | arXiv: 2404.12139
+- [x] [omniview-tuning boosting viewpoint invariance of vision-language pre-training mo](multimodal_vlm/omniview-tuning_boosting_viewpoint_invariance_of_vision-language_pre-training_mo.md) | arXiv: 2404.12139
 - [ ] [on calibration of object detectors pitfalls evaluation and baselines](object_detection/on_calibration_of_object_detectors_pitfalls_evaluation_and_baselines.md) | arXiv: 2405.20459
 - [ ] [on the error analysis of 3d gaussian splatting and an optimal projection strateg](3d_vision/on_the_error_analysis_of_3d_gaussian_splatting_and_an_optimal_projection_strateg.md) | arXiv: 2402.00752
 - [x] [on the utility of 3d hand poses for action recognition](video_understanding/on_the_utility_of_3d_hand_poses_for_action_recognition.md) | arXiv: 2403.09805
@@ -610,10 +610,10 @@
 - [ ] [prompting future driven diffusion model for hand motion prediction](image_generation/prompting_future_driven_diffusion_model_for_hand_motion_prediction.md)
 - [x] [prompting language-informed distribution for compositional zero-shot learning](llm_nlp/prompting_language-informed_distribution_for_compositional_zero-shot_learning.md) | arXiv: 2305.14428
 - [x] [promptiqa boosting the performance and generalization for no-reference image qua](llm_nlp/promptiqa_boosting_the_performance_and_generalization_for_no-reference_image_qua.md) | arXiv: 2403.04993
-- [ ] [propose assess search harnessing llms for goal-oriented planning in instructiona](llm_nlp/propose_assess_search_harnessing_llms_for_goal-oriented_planning_in_instructiona.md) | arXiv: 2409.20557
+- [x] [propose assess search harnessing llms for goal-oriented planning in instructiona](llm_nlp/propose_assess_search_harnessing_llms_for_goal-oriented_planning_in_instructiona.md) | arXiv: 2409.20557
 - [ ] [protecting nerfsapos copyright via plug-and-play watermarking base model](3d_vision/protecting_nerfsapos_copyright_via_plug-and-play_watermarking_base_model.md)
 - [x] [pyra parallel yielding re-activation for training-inference efficient task adapt](signal_comm/pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt.md) | arXiv: 2403.09192
-- [ ] [quantized prompt for efficient generalization of vision-language models](multimodal_vlm/quantized_prompt_for_efficient_generalization_of_vision-language_models.md) | arXiv: 2407.10704
+- [x] [quantized prompt for efficient generalization of vision-language models](multimodal_vlm/quantized_prompt_for_efficient_generalization_of_vision-language_models.md) | arXiv: 2407.10704
 - [ ] [quar-vla vision-language-action model for quadruped robots](human_understanding/quar-vla_vision-language-action_model_for_quadruped_robots.md) | arXiv: 2312.14457
 - [ ] [querycdr query-based controllable distortion rectification network for fisheye i](signal_comm/querycdr_query-based_controllable_distortion_rectification_network_for_fisheye_i.md) | arXiv: 2412.13496
 - [ ] [r2-bench benchmarking the robustness of referring perception models under pertur](others/r2-bench_benchmarking_the_robustness_of_referring_perception_models_under_pertur.md)
@@ -655,14 +655,14 @@
 - [ ] [rethinking lidar domain generalization single source as multiple density domains](autonomous_driving/rethinking_lidar_domain_generalization_single_source_as_multiple_density_domains.md) | arXiv: 2312.12098
 - [ ] [rethinking unsupervised outlier detection via multiple thresholding](self_supervised/rethinking_unsupervised_outlier_detection_via_multiple_thresholding.md) | arXiv: 2407.05382
 - [ ] [rethinking video-text understanding retrieval from counterfactually augmented da](video_understanding/rethinking_video-text_understanding_retrieval_from_counterfactually_augmented_da.md) | arXiv: 2407.13094
-- [ ] [revision rendering tools enable spatial fidelity in vision-language models](multimodal_vlm/revision_rendering_tools_enable_spatial_fidelity_in_vision-language_models.md) | arXiv: 2408.02231
+- [x] [revision rendering tools enable spatial fidelity in vision-language models](multimodal_vlm/revision_rendering_tools_enable_spatial_fidelity_in_vision-language_models.md) | arXiv: 2408.02231
 - [ ] [revisiting supervision for continual representation learning](self_supervised/revisiting_supervision_for_continual_representation_learning.md) | arXiv: 2311.13321
 - [ ] [rgnet a unified clip retrieval and grounding network for long videos](video_understanding/rgnet_a_unified_clip_retrieval_and_grounding_network_for_long_videos.md) | arXiv: 2312.06729
 - [ ] [ringid rethinking tree-ring watermarking for enhanced multi-key identification](image_generation/ringid_rethinking_tree-ring_watermarking_for_enhanced_multi-key_identification.md) | arXiv: 2404.14055
 - [ ] [risk-aware self-consistent imitation learning for trajectory planning in autonom](autonomous_driving/risk-aware_self-consistent_imitation_learning_for_trajectory_planning_in_autonom.md)
 - [ ] [risurconv rotation invariant surface attention-augmented convolutions for 3d poi](3d_vision/risurconv_rotation_invariant_surface_attention-augmented_convolutions_for_3d_poi.md) | arXiv: 2408.06110
 - [x] [roadpainter points are ideal navigators for topology transformer](llm_reasoning/roadpainter_points_are_ideal_navigators_for_topology_transformer.md) | arXiv: 2407.15349
-- [ ] [robust calibration of large vision-language adapters](multimodal_vlm/robust_calibration_of_large_vision-language_adapters.md) | arXiv: 2407.13588
+- [x] [robust calibration of large vision-language adapters](multimodal_vlm/robust_calibration_of_large_vision-language_adapters.md) | arXiv: 2407.13588
 - [x] [robust fitting on a gate quantum computer](physics/robust_fitting_on_a_gate_quantum_computer.md) | arXiv: 2409.02006
 - [ ] [robust-wide robust watermarking against instruction-driven image editing](image_generation/robust-wide_robust_watermarking_against_instruction-driven_image_editing.md) | arXiv: 2402.12688
 - [ ] [rodinhd high-fidelity 3d avatar generation with diffusion models](image_generation/rodinhd_high-fidelity_3d_avatar_generation_with_diffusion_models.md) | arXiv: 2407.06938
@@ -700,8 +700,8 @@
 - [ ] [segmentation-guided layer-wise image vectorization with gradient fills](segmentation/segmentation-guided_layer-wise_image_vectorization_with_gradient_fills.md) | arXiv: 2408.15741
 - [ ] [segpoint segment any point cloud via large language model](3d_vision/segpoint_segment_any_point_cloud_via_large_language_model.md) | arXiv: 2407.13761
 - [ ] [seit masked token modeling improves storage-efficient training](segmentation/seit_masked_token_modeling_improves_storage-efficient_training.md) | arXiv: 2312.10105
-- [ ] [select and distill selective dual-teacher knowledge transfer for continual learn](multimodal_vlm/select_and_distill_selective_dual-teacher_knowledge_transfer_for_continual_learn.md) | arXiv: 2403.09296
-- [ ] [self-adapting large visual-language models to edge devices across visual modalit](multimodal_vlm/self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md) | arXiv: 2403.04908
+- [x] [select and distill selective dual-teacher knowledge transfer for continual learn](multimodal_vlm/select_and_distill_selective_dual-teacher_knowledge_transfer_for_continual_learn.md) | arXiv: 2403.09296
+- [x] [self-adapting large visual-language models to edge devices across visual modalit](multimodal_vlm/self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md) | arXiv: 2403.04908
 - [ ] [self-supervised any-point tracking by contrastive random walks](video_understanding/self-supervised_any-point_tracking_by_contrastive_random_walks.md) | arXiv: 2409.16288
 - [ ] [self-supervised co-salient object detection via feature correspondences at multi](segmentation/self-supervised_co-salient_object_detection_via_feature_correspondences_at_multi.md) | arXiv: 2403.11107
 - [ ] [self-supervised feature adaptation for 3d industrial anomaly detection](human_understanding/self-supervised_feature_adaptation_for_3d_industrial_anomaly_detection.md) | arXiv: 2401.03145
@@ -720,7 +720,7 @@
 - [ ] [shedding more light on robust classifiers under the lens of energy-based models](image_generation/shedding_more_light_on_robust_classifiers_under_the_lens_of_energy-based_models.md) | arXiv: 2407.06315
 - [ ] [shifted autoencoders for point annotation restoration in object counting](others/shifted_autoencoders_for_point_annotation_restoration_in_object_counting.md) | arXiv: 2312.07190
 - [ ] [shine saliency-aware hierarchical negative ranking for compositional temporal gr](object_detection/shine_saliency-aware_hierarchical_negative_ranking_for_compositional_temporal_gr.md) | arXiv: 2407.05118
-- [ ] [siamese vision transformers are scalable audio-visual learners](audio_speech/siamese_vision_transformers_are_scalable_audio-visual_learners.md) | arXiv: 2403.19638
+- [x] [siamese vision transformers are scalable audio-visual learners](audio_speech/siamese_vision_transformers_are_scalable_audio-visual_learners.md) | arXiv: 2403.19638
 - [x] [sigma sinkhorn-guided masked video modeling](llm_nlp/sigma_sinkhorn-guided_masked_video_modeling.md) | arXiv: 2407.15447
 - [ ] [signavatars a large-scale 3d sign language holistic motion dataset and benchmark](human_understanding/signavatars_a_large-scale_3d_sign_language_holistic_motion_dataset_and_benchmark.md) | arXiv: 2310.20436
 - [ ] [silc improving vision language pretraining with self-distillation](segmentation/silc_improving_vision_language_pretraining_with_self-distillation.md) | arXiv: 2310.13355
@@ -747,7 +747,7 @@
 - [ ] [spherical world-locking for audio-visual localization in egocentric videos](video_understanding/spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md) | arXiv: 2408.05364
 - [ ] [spin hierarchical segmentation with subpart granularity in natural images](segmentation/spin_hierarchical_segmentation_with_subpart_granularity_in_natural_images.md) | arXiv: 2407.09686
 - [ ] [splatfields neural gaussian splats for sparse 3d and 4d reconstruction](3d_vision/splatfields_neural_gaussian_splats_for_sparse_3d_and_4d_reconstruction.md) | arXiv: 2409.11211
-- [ ] [sq-llava self-questioning for large vision-language assistant](multimodal_vlm/sq-llava_self-questioning_for_large_vision-language_assistant.md) | arXiv: 2403.11299
+- [x] [sq-llava self-questioning for large vision-language assistant](multimodal_vlm/sq-llava_self-questioning_for_large_vision-language_assistant.md) | arXiv: 2403.11299
 - [ ] [stable preference redefining training paradigm of human preference model for tex](image_generation/stable_preference_redefining_training_paradigm_of_human_preference_model_for_tex.md)
 - [ ] [stepwise multi-grained boundary detector for point-supervised temporal action lo](object_detection/stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo.md)
 - [ ] [stream query denoising for vectorized hd-map construction](autonomous_driving/stream_query_denoising_for_vectorized_hd-map_construction.md) | arXiv: 2401.09112
@@ -777,7 +777,7 @@
 - [ ] [texture-gs disentangling the geometry and texture for 3d gaussian splatting edit](3d_vision/texture-gs_disentangling_the_geometry_and_texture_for_3d_gaussian_splatting_edit.md) | arXiv: 2403.10050
 - [ ] [tf-fas twofold-element fine-grained semantic guidance for generalizable face ant](human_understanding/tf-fas_twofold-element_fine-grained_semantic_guidance_for_generalizable_face_ant.md)
 - [ ] [the fabrication of reality and fantasy scene generation with llm-assisted prompt](image_generation/the_fabrication_of_reality_and_fantasy_scene_generation_with_llm-assisted_prompt.md) | arXiv: 2407.12579
-- [ ] [the hard positive truth about vision-language compositionality](multimodal_vlm/the_hard_positive_truth_about_vision-language_compositionality.md) | arXiv: 2409.17958
+- [x] [the hard positive truth about vision-language compositionality](multimodal_vlm/the_hard_positive_truth_about_vision-language_compositionality.md) | arXiv: 2409.17958
 - [ ] [the nerfect match exploring nerf features for visual localization](3d_vision/the_nerfect_match_exploring_nerf_features_for_visual_localization.md) | arXiv: 2403.09577
 - [ ] [thermal3d-gs physics-induced 3d gaussians for thermal infrared novel-view synthe](3d_vision/thermal3d-gs_physics-induced_3d_gaussians_for_thermal_infrared_novel-view_synthe.md) | arXiv: 2409.08042
 - [ ] [timecraft navigate weakly-supervised temporal grounded video question answering ](video_understanding/timecraft_navigate_weakly-supervised_temporal_grounded_video_question_answering_.md)
@@ -789,9 +789,9 @@
 - [ ] [towards model-agnostic dataset condensation by heterogeneous models](video_understanding/towards_model-agnostic_dataset_condensation_by_heterogeneous_models.md) | arXiv: 2409.14538
 - [x] [towards multi-modal transformers in federated learning](ai_safety/towards_multi-modal_transformers_in_federated_learning.md) | arXiv: 2404.12467
 - [ ] [towards natural language-guided drones geotext-1652 benchmark with spatial relat](object_detection/towards_natural_language-guided_drones_geotext-1652_benchmark_with_spatial_relat.md) | arXiv: 2311.12751
-- [ ] [towards open-ended visual quality comparison](multimodal_vlm/towards_open-ended_visual_quality_comparison.md) | arXiv: 2402.16641
+- [x] [towards open-ended visual quality comparison](multimodal_vlm/towards_open-ended_visual_quality_comparison.md) | arXiv: 2402.16641
 - [ ] [towards open-ended visual recognition with large language models](llm_nlp/towards_open-ended_visual_recognition_with_large_language_models.md) | arXiv: 2311.08400
-- [ ] [towards real-world adverse weather image restoration enhancing clearness and sem](multimodal_vlm/towards_real-world_adverse_weather_image_restoration_enhancing_clearness_and_sem.md) | arXiv: 2409.02101
+- [x] [towards real-world adverse weather image restoration enhancing clearness and sem](multimodal_vlm/towards_real-world_adverse_weather_image_restoration_enhancing_clearness_and_sem.md) | arXiv: 2409.02101
 - [ ] [towards real-world event-guided low-light video enhancement and deblurring](image_restoration/towards_real-world_event-guided_low-light_video_enhancement_and_deblurring.md) | arXiv: 2408.14916
 - [ ] [towards reliable advertising image generation using human feedback](image_generation/towards_reliable_advertising_image_generation_using_human_feedback.md) | arXiv: 2408.00418
 - [ ] [towards unified representation of invariant-specific features in missing modalit](human_understanding/towards_unified_representation_of_invariant-specific_features_in_missing_modalit.md)
@@ -827,7 +827,7 @@
 - [ ] [upose3d uncertainty-aware 3d human pose estimation with cross-view and temporal ](human_understanding/upose3d_uncertainty-aware_3d_human_pose_estimation_with_cross-view_and_temporal_.md) | arXiv: 2404.14634
 - [ ] [upper-body hierarchical graph for skeleton based emotion recognition in assistiv](human_understanding/upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)
 - [ ] [vamos versatile action models for video understanding](video_understanding/vamos_versatile_action_models_for_video_understanding.md) | arXiv: 2311.13627
-- [ ] [vary scaling up the vision vocabulary for large vision-language model](multimodal_vlm/vary_scaling_up_the_vision_vocabulary_for_large_vision-language_model.md) | arXiv: 2312.06109
+- [x] [vary scaling up the vision vocabulary for large vision-language model](multimodal_vlm/vary_scaling_up_the_vision_vocabulary_for_large_vision-language_model.md) | arXiv: 2312.06109
 - [x] [Vary: Scaling up the Vision Vocabulary for Large Vision-Language Models](multimodal_vlm/vary_scaling_up_the_vision_vocabulary_for_large_visionlanguag.md) | arXiv: 2312.06109
 - [ ] [vcd-texture variance alignment based 3d-2d co-denoising for text-guided texturin](3d_vision/vcd-texture_variance_alignment_based_3d-2d_co-denoising_for_text-guided_texturin.md) | arXiv: 2407.04461
 - [ ] [versatile incremental learning towards class and domain-agnostic incremental lea](others/versatile_incremental_learning_towards_class_and_domain-agnostic_incremental_lea.md) | arXiv: 2409.10956
@@ -842,7 +842,7 @@
 - [x] [view selection for 3d captioning via diffusion ranking](3d_vision/view_selection_for_3d_captioning_via_diffusion_ranking.md) | arXiv: 2404.07984
 - [x] [visa reasoning video object segmentation via large language models](segmentation/visa_reasoning_video_object_segmentation_via_large_language_models.md) | arXiv: 2407.11325
 - [ ] [visage video instance segmentation with appearance-guided enhancement](segmentation/visage_video_instance_segmentation_with_appearance-guided_enhancement.md) | arXiv: 2312.04885
-- [ ] [visfocus prompt-guided vision encoders for ocr-free dense document understanding](llm_nlp/visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding.md) | arXiv: 2407.12594
+- [x] [visfocus prompt-guided vision encoders for ocr-free dense document understanding](llm_nlp/visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding.md) | arXiv: 2407.12594
 - [ ] [visible and clear finding tiny objects in difference map](object_detection/visible_and_clear_finding_tiny_objects_in_difference_map.md) | arXiv: 2405.11276
 - [ ] [visiontrap vision-augmented trajectory prediction guided by textual descriptions](autonomous_driving/visiontrap_vision-augmented_trajectory_prediction_guided_by_textual_descriptions.md) | arXiv: 2407.12345
 - [ ] [vista3d unravel the 3d darkside of a single image](3d_vision/vista3d_unravel_the_3d_darkside_of_a_single_image.md) | arXiv: 2409.12193
@@ -861,14 +861,14 @@
 - [ ] [wildvidfit video virtual try-on in the wild via image-based controlled diffusion](image_generation/wildvidfit_video_virtual_try-on_in_the_wild_via_image-based_controlled_diffusion.md) | arXiv: 2407.10625
 - [ ] [wordrobe text-guided generation of textured 3d garments](human_understanding/wordrobe_text-guided_generation_of_textured_3d_garments.md) | arXiv: 2403.17541
 - [ ] [worldpose a world cup dataset for global 3d human pose estimation](human_understanding/worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md) | arXiv: 2501.02771
-- [ ] [x-former unifying contrastive and reconstruction learning for mllms](multimodal_vlm/x-former_unifying_contrastive_and_reconstruction_learning_for_mllms.md) | arXiv: 2407.13851
+- [x] [x-former unifying contrastive and reconstruction learning for mllms](multimodal_vlm/x-former_unifying_contrastive_and_reconstruction_learning_for_mllms.md) | arXiv: 2407.13851
 - [ ] [xpsr cross-modal priors for diffusion-based image super-resolution](image_generation/xpsr_cross-modal_priors_for_diffusion-based_image_super-resolution.md) | arXiv: 2403.05049
 - [ ] [yolov9 learning what you want to learn using programmable gradient information](object_detection/yolov9_learning_what_you_want_to_learn_using_programmable_gradient_information.md) | arXiv: 2402.13616
 - [ ] [you only learn one query learning unified human query for single-stage multi-per](segmentation/you_only_learn_one_query_learning_unified_human_query_for_single-stage_multi-per.md) | arXiv: 2312.05525
 - [ ] [you only need one step fast super-resolution with stable diffusion via scale dis](image_generation/you_only_need_one_step_fast_super-resolution_with_stable_diffusion_via_scale_dis.md) | arXiv: 2401.17258
 - [ ] [zero-shot detection of ai-generated images](object_detection/zero-shot_detection_of_ai-generated_images.md) | arXiv: 2409.15875
 - [ ] [zero-shot multi-object scene completion](3d_vision/zero-shot_multi-object_scene_completion.md) | arXiv: 2403.14628
-- [ ] [zero-shot object counting with good exemplars](multimodal_vlm/zero-shot_object_counting_with_good_exemplars.md) | arXiv: 2407.04948
+- [x] [zero-shot object counting with good exemplars](multimodal_vlm/zero-shot_object_counting_with_good_exemplars.md) | arXiv: 2407.04948
 - [ ] [zest zero-shot material transfer from a single image](3d_vision/zest_zero-shot_material_transfer_from_a_single_image.md) | arXiv: 2404.06425
 - [ ] [zigma a dit-style zigzag mamba diffusion model](image_generation/zigma_a_dit-style_zigzag_mamba_diffusion_model.md) | arXiv: 2403.13802
 - [ ] [ziplora any subject in any style by effectively merging loras](image_generation/ziplora_any_subject_in_any_style_by_effectively_merging_loras.md) | arXiv: 2311.13600

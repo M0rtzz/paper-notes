@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+{% if page and page.meta and page.meta.description %}
+<meta property="og:description" content="{{ page.meta.description }}" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "{{ page.title | e }}",
+  "description": "{{ page.meta.description | e }}",
+  "url": "{{ page.canonical_url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Paper Notes"
+  }
+}
+</script>
+{% endif %}
+{% endblock %}

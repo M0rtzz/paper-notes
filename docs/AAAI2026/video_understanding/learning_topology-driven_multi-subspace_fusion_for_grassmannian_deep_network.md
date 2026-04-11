@@ -1,16 +1,10 @@
----
-title: "Learning Topology-Driven Multi-Subspace Fusion for Grassmannian Deep Networks"
-authors: "Xuan Yu, Tianyang Xu et al."
-venue: "AAAI 2026"
-arxiv: "2511.08628"
-code: "https://github.com/Xua-Yu/GMSF-Net"
-domain: "video_understanding"
-tags: ["Grassmannian", "流形学习", "子空间融合", "3D动作识别", "黎曼神经网络"]
----
+# Learning Topology-Driven Multi-Subspace Fusion for Grassmannian Deep Networks
 
 **会议**: AAAI 2026  
 **arXiv**: [2511.08628](https://arxiv.org/abs/2511.08628)  
-**代码**: [GitHub](https://github.com/Xua-Yu/GMSF-Net)
+**代码**: [GitHub](https://github.com/Xua-Yu/GMSF-Net)  
+**领域**: 视频理解 / 流形学习  
+**关键词**: Grassmannian, 流形学习, 子空间融合, 3D动作识别, 黎曼神经网络
 
 ## 一句话总结
 

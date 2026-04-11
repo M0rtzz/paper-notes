@@ -1,14 +1,10 @@
----
-title: "Multi-Metric Preference Alignment for Generative Speech Restoration"
-authors: "Junan Zhang, Xueyao Zhang, Jing Yang, Yuancheng Wang, Fan Fan, Zhizheng Wu"
-venue: "AAAI 2026"
-paper_url: "https://arxiv.org/abs/2508.17229"
-arxiv_id: "2508.17229"
-date: 2026-04-10
-domain: "image_generation"
----
-
 # Multi-Metric Preference Alignment for Generative Speech Restoration
+
+**会议**: AAAI 2026  
+**arXiv**: [2508.17229](https://arxiv.org/abs/2508.17229)  
+**代码**: 待确认  
+**领域**: 语音 / 语音修复  
+**关键词**: 偏好对齐, DPO, 语音修复, 多指标, 生成式模型
 
 ## 一句话总结
 

@@ -1,5 +1,5 @@
 # Auto-generated: AAAI2026 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -57,7 +56,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1280 篇)
+# 已完成笔记 (1296 篇)
 !3d_vision/3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re.md
 !3d_vision/3d-free_meets_3d_priors_novel_view_synthesis_from_a_single_image_with_pretrained.md
 !3d_vision/4dstr_advancing_generative_4d_gaussians_with_spatial-tempora.md
@@ -777,9 +776,18 @@
 !medical_imaging/personalization_of_large_foundation_models_for_health_interventions.md
 !medical_imaging/pings-x_physics-informed_normalized_gaussian_splatting_with_axes_alignment_for_e.md
 !medical_imaging/priorrg_prior-guided_contrastive_pre-training_and_coarse-to-fine_decoding_for_ch.md
+!medical_imaging/propl_universal_semi-supervised_ultrasound_image_segmentation_via_prompt-guided_.md
 !medical_imaging/protsae_disentangling_and_interpreting_protein_language_models_via_semantically-.md
 !medical_imaging/provably_minimum-length_conformal_prediction_sets_for_ordinal_classification.md
+!medical_imaging/pulsemind_a_multi-modal_medical_model_for_real-world_clinical_diagnosis.md
+!medical_imaging/q-fsru_quantum-augmented_frequency-spectral_fusion_for_medical_visual_question_a.md
+!medical_imaging/qa-flora_data-free_query-adaptive_fusion_of_loras_for_llms.md
+!medical_imaging/qgshap_quantum_acceleration_for_faithful_gnn_explanations.md
+!medical_imaging/radiation-preserving_selective_imaging_for_pediatric_hip_dysplasia_a_cross-modal.md
+!medical_imaging/recon-ipsundrum_an_inspectable_recurrent_persistence_loop_agent_with_affect-coup.md
 !medical_imaging/refine_and_align_confidence_calibration_through_multi-agent_interaction_in_vqa.md
+!medical_imaging/rethinking_bias_in_generative_data_augmentation_for_medical_ai_a_frequency_recal.md
+!medical_imaging/rethinking_surgical_smoke_a_smoke-type-aware_laparoscopic_video_desmoking_method.md
 !medical_imaging/s2drug_bridging_protein_sequence_and_3d_structure_in_contrastive_representation_.md
 !medical_imaging/small_but_mighty_dynamic_wavelet_expert-guided_fine-tuning_of_large-scale_models.md
 !medical_imaging/spa_achieving_consensus_in_llm_alignment_via_self-priority_optimization.md
@@ -1077,7 +1085,14 @@
 !others/piphen_physical_interaction_prediction_with_hamiltonian_energy_networks.md
 !others/predict_and_resist_long-term_accident_anticipation_under_sensor_noise.md
 !others/private_frequency_estimation_via_residue_number_systems.md
+!others/provably_data-driven_projection_method_for_quadratic_programming.md
+!others/rcae_recursive_reconstruction_framework_for_unsupervised_industrial_anomaly_dete.md
+!others/reasoning_about_the_unsaid_misinformation_detection_with_omission-aware_graph_in.md
+!others/refinevad_semantic-guided_feature_recalibration_for_weakly_supervised_video_anom.md
+!others/regular_games_--_an_automata-based_general_game_playing_language.md
 !others/reimagining_anomalies_what_if_anomalies_were_normal.md
+!others/rethinking_flow_and_diffusion_bridge_models_for_speech_enhancement.md
+!others/reward_redistribution_via_gaussian_process_likelihood_estimation.md
 !others/structure-aware_encodings_of_argumentation_properties_for_clique-width.md
 !others/symbolic_planning_and_multi-agent_path_finding_in_extremely_dense_environments_w.md
 !others/tab-pet_graph-based_positional_encodings_for_tabular_transformers.md

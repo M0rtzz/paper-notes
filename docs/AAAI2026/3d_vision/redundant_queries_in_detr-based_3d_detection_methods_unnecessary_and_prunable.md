@@ -1,14 +1,10 @@
----
-title: "Redundant Queries in DETR-Based 3D Detection Methods: Unnecessary and Prunable"
-authors: "Lizhen Xu, Zehao Wu, Wenzhao Qiu, Shanmin Pang, Xiuxiu Bai, Kuizhi Mei, Jianru Xue"
-venue: "AAAI 2026"
-arxiv: "2412.02054"
-date: 2024-12-03
-domain: "3d_vision"
-keywords: ["3D Object Detection", "DETR", "Query Pruning", "Model Compression", "Autonomous Driving"]
----
-
 # Redundant Queries in DETR-Based 3D Detection: Unnecessary and Prunable
+
+**会议**: AAAI 2026  
+**arXiv**: [2412.02054](https://arxiv.org/abs/2412.02054)  
+**代码**: 待确认  
+**领域**: 3D视觉 / 3D目标检测  
+**关键词**: 3D Object Detection, DETR, Query Pruning, Model Compression, Autonomous Driving
 
 ## 一句话总结
 
