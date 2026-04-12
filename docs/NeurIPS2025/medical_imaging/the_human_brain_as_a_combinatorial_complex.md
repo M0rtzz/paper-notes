@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: NeurReps)][医学图像][组合复形] 本文提出从fMRI时间序列数据中直接构建组合复形（Combinatorial Complexes）的框架，利用S-信息和O-信息等信息论度量捕获大脑区域间的高阶协同交互，弥补传统图方法仅能捕获成对关系的根本局限。
 tags:
-  - NeurIPS 2025 (Workshop: NeurReps)
+  - "NeurIPS 2025 (Workshop: NeurReps)"
   - 医学图像
   - 组合复形
   - 高阶网络

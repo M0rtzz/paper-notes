@@ -6,7 +6,7 @@ description: >-
 tags:
   - NeurIPS 2025
   - 多模态
-  - N:M稀疏
+  - "N:M稀疏"
   - 通道排列
   - 模型剪枝
   - LLM压缩

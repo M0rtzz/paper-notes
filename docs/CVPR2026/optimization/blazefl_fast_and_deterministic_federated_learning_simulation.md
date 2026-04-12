@@ -4,7 +4,7 @@ title: >-
 description: >-
   [CVPR 2026 (Workshop: FedVision)][优化][联邦学习仿真] 提出 BlazeFL 联邦学习仿真框架，利用 Python 自由线程（free-threading）实现共享内存通信和客户端隔离随机数管理，在通信密集型工作负载上实现最高 3.1× 加速，且保证比特级可复现。
 tags:
-  - CVPR 2026 (Workshop: FedVision)
+  - "CVPR 2026 (Workshop: FedVision)"
   - 优化
   - 联邦学习仿真
   - 确定性可复现

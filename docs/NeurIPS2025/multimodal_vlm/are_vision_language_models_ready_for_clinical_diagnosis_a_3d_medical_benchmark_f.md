@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Datasets & Benchmarks Track)][多模态][VQA] 本文提出 DeepTumorVQA，一个针对腹部CT肿瘤的3D诊断级视觉问答基准，包含9,262个CT体积（370万切片）和395K专家级问题，系统评估了4个先进VLM的临床诊断能力，发现当前模型在测量任务上尚可但在病灶识别和推理上远未达到临床要求。
 tags:
-  - NeurIPS 2025 (Datasets & Benchmarks Track)
+  - "NeurIPS 2025 (Datasets & Benchmarks Track)"
   - 多模态
   - VQA
   - 3D医学影像

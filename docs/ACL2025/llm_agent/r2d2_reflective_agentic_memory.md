@@ -9,7 +9,7 @@ tags:
   - web agent
   - replay buffer
   - reflective memory
-  - A* search
+  - "A* search"
   - WebArena
   - known MDP
 ---

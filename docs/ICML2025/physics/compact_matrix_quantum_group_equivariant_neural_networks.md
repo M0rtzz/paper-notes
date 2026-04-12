@@ -10,7 +10,7 @@ tags:
   - Tannaka-Krein 对偶
   - 集合划分
   - 非交换几何
-  - $C^*$-代数
+  - "$C^*$-代数"
 ---
 
 # Compact Matrix Quantum Group Equivariant Neural Networks

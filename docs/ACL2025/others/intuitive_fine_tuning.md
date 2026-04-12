@@ -4,7 +4,7 @@ title: >-
 description: >-
   [ACL 2025 (Long Paper, Oral & Panel Discussion)][Intuitive Fine-Tuning] 通过MDP框架将SFT和偏好优化统一建模为"偏好估计+转移优化"两个子过程，揭示SFT本质上是偏好优化的特殊退化形式（使用偏差先验），提出IFT方法通过时间残差连接在仅使用SFT格式数据的条件下实现接近或超越SFT+PO顺序训练的对齐效果。
 tags:
-  - ACL 2025 (Long Paper, Oral & Panel Discussion)
+  - "ACL 2025 (Long Paper, Oral & Panel Discussion)"
   - Intuitive Fine-Tuning
   - SFT
   - Preference Optimization

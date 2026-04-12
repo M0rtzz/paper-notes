@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: Foundation Models for the Brain and Body)][人体理解][半监督学习] 提出一种半监督框架，利用鼠标轨迹作为弱监督信号预训练眼动表征，然后在标注数据上微调以区分阅读与扫描行为，在推理时仅使用眼动信号，实现免手操作的辅助阅读检测。
 tags:
-  - NeurIPS 2025 (Workshop: Foundation Models for the Brain and Body)
+  - "NeurIPS 2025 (Workshop: Foundation Models for the Brain and Body)"
   - 人体理解
   - 半监督学习
   - 眼动追踪

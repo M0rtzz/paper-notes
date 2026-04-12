@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)][预测编码] 将线性预测编码(PC)网络形式化为细胞层(cellular sheaf)结构，利用层上同调和Hodge分解分析循环拓扑中的"内部矛盾"如何阻碍学习，揭示权重初始化的全局接线模式决定网络可学习性。
 tags:
-  - NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)
+  - "NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)"
   - 预测编码
   - 细胞层(Sheaf)
   - 上同调

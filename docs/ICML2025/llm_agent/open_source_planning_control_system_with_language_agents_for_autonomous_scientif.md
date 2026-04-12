@@ -8,7 +8,7 @@ tags:
   - LLM Agent
   - 多智能体系统
   - 科研自动化
-  - Planning & Control
+  - "Planning & Control"
   - 宇宙学
   - 自主科学发现
 ---

@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Datasets & Benchmarks Track)][图像生成][算法工程基准] 提出 ALE-Bench，首个面向分数制算法工程竞赛（AtCoder Heuristic Contest）的 AI 基准，评估 LLM 和 Agent 在 NP-hard 优化问题上的长时间迭代改进能力，发现当前最强模型（o3-high）仅达人类平均水平，且在问题一致性和长时间改进方面与人类专家差距显著。
 tags:
-  - NeurIPS 2025 (Datasets & Benchmarks Track)
+  - "NeurIPS 2025 (Datasets & Benchmarks Track)"
   - 图像生成
   - 算法工程基准
   - 长时间跨度推理

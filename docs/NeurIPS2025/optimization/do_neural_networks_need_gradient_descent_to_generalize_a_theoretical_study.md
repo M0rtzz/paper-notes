@@ -8,7 +8,7 @@ tags:
   - 优化
   - generalization
   - volume hypothesis
-  - Guess & Check
+  - "Guess & Check"
   - matrix factorization
   - implicit bias
 ---

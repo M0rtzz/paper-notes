@@ -8,7 +8,7 @@ tags:
   - LLM/NLP
   - decoding-time alignment
   - reward model
-  - A* search
+  - "A* search"
   - harmlessness-helpfulness
   - jailbreak defense
 ---

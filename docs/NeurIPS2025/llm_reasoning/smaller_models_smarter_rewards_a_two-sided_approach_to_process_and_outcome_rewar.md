@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: Foundations of Reasoning in Language Models)][LLM推理][奖励模型] 将 Phi-4 系列小模型（3.8B/14B）的最后一层替换为回归头并微调，使其同时具备 ORM（结果奖励）和 PRM（过程奖励）能力，在代码生成任务上通过选择最优 rollout 实现 20%+ 的 pass@k 提升。
 tags:
-  - NeurIPS 2025 (Workshop: Foundations of Reasoning in Language Models)
+  - "NeurIPS 2025 (Workshop: Foundations of Reasoning in Language Models)"
   - LLM推理
   - 奖励模型
   - 过程奖励

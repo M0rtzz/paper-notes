@@ -7,7 +7,7 @@ tags:
   - ICLR 2026
   - 图像分割
   - Transformer
-  - CLS] token
+  - "CLS] token"
   - patch token
   - 归一化层
   - 密集预测

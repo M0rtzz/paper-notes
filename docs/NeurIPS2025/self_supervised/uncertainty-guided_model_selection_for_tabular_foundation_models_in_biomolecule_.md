@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)][自监督学习][TabPFN] 本文提出OligoICP方法，利用TabPFN模型的预测分位数间距（IQR）作为无标签模型选择启发式指标，在siRNA敲低效率预测中实现了优于专用SOTA模型和朴素集成的性能。
 tags:
-  - NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)
+  - "NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)"
   - 自监督学习
   - TabPFN
   - siRNA功效预测

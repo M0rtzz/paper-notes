@@ -4,10 +4,10 @@ title: >-
 description: >-
   [CVPR 2026 &nbsp;][医学图像][虚拟染色] 提出 UNIStainNet，首次将冻结的病理基础模型 UNI 的密集空间 token 作为 SPADE 调制信号直接注入生成器，配合错位感知损失和可学习染色嵌入，用单一模型同时生成 HER2/Ki67/ER/PR 四种 IHC 染色，在 MIST 和 BCI 基准上取得 SOTA 分布式指标。
 tags:
-  - CVPR 2026 &nbsp;
+  - "CVPR 2026 &nbsp;"
   - 医学图像
   - 虚拟染色
-  - H&E to IHC
+  - "H&E to IHC"
   - SPADE-UNet
   - 病理基础模型
   - 多染色统一模型

@@ -7,7 +7,7 @@ tags:
   - AAAI 2026
   - 运动基元
   - lattice-based planning
-  - A*
+  - "A*"
   - 扩展网格
   - 分支因子缩减
   - 移动机器人

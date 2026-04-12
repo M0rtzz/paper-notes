@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Datasets & Benchmarks)][视频理解][长视频理解] 提出CAUSAL2NEEDLES benchmark评估VLM的长视频双针(2-needle)因果推理能力：需要从视频两个不同位置提取因果关联的事件信息并联合推理，利用"桥接实体"迫使模型先理解结果再追溯原因，揭示即使GPT-4o在2-needle因果问题上仅达13.4%的Both准确率（vs人类79.3%）。
 tags:
-  - NeurIPS 2025 (Datasets & Benchmarks)
+  - "NeurIPS 2025 (Datasets & Benchmarks)"
   - 视频理解
   - 长视频理解
   - 因果推理

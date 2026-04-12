@@ -8,7 +8,7 @@ tags:
   - in-context learning
   - demonstration selection
   - data pre-selection
-  - sufficiency & necessity
+  - "sufficiency & necessity"
   - bi-level optimization
 ---
 

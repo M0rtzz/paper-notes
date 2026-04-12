@@ -8,7 +8,7 @@ tags:
   - 模型压缩
   - reasoning efficiency
   - CoT compression
-  - A* search
+  - "A* search"
   - bidirectional importance
   - long-to-short
 ---

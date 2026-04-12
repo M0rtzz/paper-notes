@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)][突触可塑性] 本文提出一种元学习框架，通过外层梯度优化自动发现局部的新赫布式突触可塑性规则，使循环神经网络仅利用稀疏延迟奖励信号就能完成结构化的信用分配，为理解生物神经网络的学习机制提供了新视角。
 tags:
-  - NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)
+  - "NeurIPS 2025 (Workshop: Symmetry and Geometry in Neural Representations)"
   - 突触可塑性
   - 三因子学习规则
   - 元学习

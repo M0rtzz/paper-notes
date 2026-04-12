@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: AI for Science)][自动驾驶][海事异常检测] 提出首个面向非网格时空系统（海事领域）的图异常检测基准数据集，将OMTAD数据集扩展为支持节点/边/图三级异常检测的基准，并计划使用LLM智能体进行轨迹合成和异常注入。
 tags:
-  - NeurIPS 2025 (Workshop: AI for Science)
+  - "NeurIPS 2025 (Workshop: AI for Science)"
   - 自动驾驶
   - 海事异常检测
   - 时空图

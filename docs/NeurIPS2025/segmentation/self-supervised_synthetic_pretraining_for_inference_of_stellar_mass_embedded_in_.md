@@ -4,7 +4,7 @@ title: >-
 description: >-
   [NeurIPS 2025 (Workshop: ML and the Physical Sciences)][图像分割][自监督预训练] 利用100万张合成分形图像对ViT-L/16进行DINOv2自监督预训练，然后在有限的磁流体动力学(MHD)模拟数据上进行零样本/冻结特征评估，实现恒星质量预测和无监督语义分割。
 tags:
-  - NeurIPS 2025 (Workshop: ML and the Physical Sciences)
+  - "NeurIPS 2025 (Workshop: ML and the Physical Sciences)"
   - 图像分割
   - 自监督预训练
   - 合成分形图像
