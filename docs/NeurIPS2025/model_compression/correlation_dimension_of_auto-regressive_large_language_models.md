@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Correlation Dimension of Auto-Regressive Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.21258 | 相关维数 | 引入源于分形几何的**相关维数（correlation dimension）**作为衡量自回归语言模型感知文本复杂度的指标，揭示了传统 perplexity 无法捕捉的长程结构特性，可检测幻觉和退化文本。"
+title: >-
+  [论文解读] Correlation Dimension of Auto-Regressive Large Language Models
+description: >-
+  [NeurIPS 2025][模型压缩][相关维数] 引入源于分形几何的**相关维数（correlation dimension）**作为衡量自回归语言模型感知文本复杂度的指标，揭示了传统 perplexity 无法捕捉的长程结构特性，可检测幻觉和退化文本。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 相关维数
   - 分形几何
   - 语言模型评估

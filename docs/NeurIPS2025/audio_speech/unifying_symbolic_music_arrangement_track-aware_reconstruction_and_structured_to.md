@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization 论文解读 | NeurIPS 2025 | arXiv 2408.15176 | 音乐编排 | 提出一个统一的符号音乐编排框架，通过段级自监督重建目标（解耦内容和乐器风格）和新的多轨token化方案REMI-z，使单个预训练模型能够处理乐队编排、钢琴缩编和鼓编排等多种编排任务，并在三个典型任务上超越了任务特定的SOTA。"
+title: >-
+  [论文解读] Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization
+description: >-
+  [NeurIPS 2025][语音][音乐编排] 提出一个统一的符号音乐编排框架，通过段级自监督重建目标（解耦内容和乐器风格）和新的多轨token化方案REMI-z，使单个预训练模型能够处理乐队编排、钢琴缩编和鼓编排等多种编排任务，并在三个典型任务上超越了任务特定的SOTA。
 tags:
   - NeurIPS 2025
+  - 语音
   - 音乐编排
   - 符号音乐
   - 多轨音乐生成

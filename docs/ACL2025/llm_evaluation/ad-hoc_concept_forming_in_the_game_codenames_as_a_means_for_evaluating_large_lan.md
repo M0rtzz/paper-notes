@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models 论文解读 | ACL 2025 | arXiv 2502.11707 | Codenames | 以桌游 Codenames 作为 LLM 评测工具——LLM 分别扮演线索给出者（Spymaster）和猜测者（Field Operative），通过控制词频/歧义性/具体性/风险等级/对手速度等变量系统评估 LLM 的临时概念形成、语义关联、合作推理和语用能力，发现 o3-mini 和 Claude-3.5 领先但所有模型在高风险和抽象词条件下均显著退化。"
+title: >-
+  [论文解读] Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models
+description: >-
+  [ACL 2025][Codenames] 以桌游 Codenames 作为 LLM 评测工具——LLM 分别扮演线索给出者（Spymaster）和猜测者（Field Operative），通过控制词频/歧义性/具体性/风险等级/对手速度等变量系统评估 LLM 的临时概念形成、语义关联、合作推理和语用能力，发现 o3-mini 和 Claude-3.5 领先但所有模型在高风险和抽象词条件下均显著退化。
 tags:
   - ACL 2025
   - Codenames

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding the Emergence of Multimodal Representation Alignment 论文解读 | ICML 2025 | arXiv 2502.16282 | 多模态对齐 | 系统研究多模态表征对齐的涌现机制，发现隐式对齐的出现及其与性能的关系取决于数据的冗余/唯一信息比例和模态异质性，挑战了\"更大模型→更好对齐→更好性能\"的普遍假设。"
+title: >-
+  [论文解读] Understanding the Emergence of Multimodal Representation Alignment
+description: >-
+  [ICML 2025][目标检测][多模态对齐] 系统研究多模态表征对齐的涌现机制，发现隐式对齐的出现及其与性能的关系取决于数据的冗余/唯一信息比例和模态异质性，挑战了"更大模型→更好对齐→更好性能"的普遍假设。
 tags:
   - ICML 2025
+  - 目标检测
   - 多模态对齐
   - 表征学习
   - 隐式对齐

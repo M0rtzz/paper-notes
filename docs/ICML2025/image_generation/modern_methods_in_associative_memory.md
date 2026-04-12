@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Modern Methods in Associative Memory 论文解读 | ICML2025 | arXiv 2507.06211 | 联想记忆 | 系统性教程论文，将Dense Associative Memory (DenseAM)从经典Hopfield网络扩展到现代AI架构(Transformer/扩散模型)，阐明能量函数驱动的记忆存储-检索机制及其与注意力机制的深层联系。"
+title: >-
+  [论文解读] Modern Methods in Associative Memory
+description: >-
+  [ICML2025][图像生成][联想记忆] 系统性教程论文，将Dense Associative Memory (DenseAM)从经典Hopfield网络扩展到现代AI架构(Transformer/扩散模型)，阐明能量函数驱动的记忆存储-检索机制及其与注意力机制的深层联系。
 tags:
   - ICML2025
+  - 图像生成
   - 联想记忆
   - Hopfield网络
   - Dense Associative Memory

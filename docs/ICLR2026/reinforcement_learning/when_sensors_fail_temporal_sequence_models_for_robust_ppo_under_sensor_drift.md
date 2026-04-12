@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】When Sensors Fail: Temporal Sequence Models for Robust PPO under Sensor Drift 论文解读 | ICLR 2026 | arXiv 2603.04648 | 传感器故障 | 本文研究PPO在时间持续性传感器故障下的鲁棒性，提出将Transformer和SSM等序列模型集成到PPO中，推导了随机传感器故障下无限时间horizon奖励退化的高概率上界，并在MuJoCo实验中验证Transformer-PPO在严重传感器dropout下显著优于MLP、RNN和SSM基线。"
+title: >-
+  [论文解读] When Sensors Fail: Temporal Sequence Models for Robust PPO under Sensor Drift
+description: >-
+  [ICLR 2026][传感器故障] 本文研究PPO在时间持续性传感器故障下的鲁棒性，提出将Transformer和SSM等序列模型集成到PPO中，推导了随机传感器故障下无限时间horizon奖励退化的高概率上界，并在MuJoCo实验中验证Transformer-PPO在严重传感器dropout下显著优于MLP、RNN和SSM基线。
 tags:
   - ICLR 2026
   - 传感器故障

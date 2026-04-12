@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】MMBench: Is Your Multi-modal Model an All-Around Player? 论文解读 | ECCV2024 | arXiv 2307.06281 | VLM benchmark | 提出 MMBench——一个包含 3217 道多选题、覆盖 20 个细粒度能力维度的双语（英/中）视觉语言模型评测基准，并设计了 CircularEval 循环评测策略和基于 LLM 的选项提取机制，显著提升了评测的鲁棒性和公平性。"
+title: >-
+  [论文解读] MMBench: Is Your Multi-modal Model an All-Around Player?
+description: >-
+  [ECCV2024][多模态][VLM benchmark] 提出 MMBench——一个包含 3217 道多选题、覆盖 20 个细粒度能力维度的双语（英/中）视觉语言模型评测基准，并设计了 CircularEval 循环评测策略和基于 LLM 的选项提取机制，显著提升了评测的鲁棒性和公平性。
 tags:
   - ECCV2024
-  - VLM benchmark
   - 多模态
+  - VLM benchmark
   - CircularEval
   - choice extraction
   - bilingual benchmark

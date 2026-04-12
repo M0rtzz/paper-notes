@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning 论文解读 | ICML 2025 | arXiv 2505.16341 | 长尾半监督学习 | 提出 Meta-Expert 算法，通过动态专家分配（DEA）模块根据样本的类别归属（头/中/尾）自动选择最擅长的专家生成伪标签，并利用多深度特征融合（MFF）模块缓解模型对头类的偏向，实现\"方枘方凿\"——让每个专家处理它最擅长的样本区间。"
+title: >-
+  [论文解读] A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning
+description: >-
+  [ICML 2025][长尾半监督学习] 提出 Meta-Expert 算法，通过动态专家分配（DEA）模块根据样本的类别归属（头/中/尾）自动选择最擅长的专家生成伪标签，并利用多深度特征融合（MFF）模块缓解模型对头类的偏向，实现"方枘方凿"——让每个专家处理它最擅长的样本区间。
 tags:
   - ICML 2025
   - 长尾半监督学习

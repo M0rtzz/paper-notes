@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Near-Optimal Decision Trees in a SPLIT Second 论文解读 | ICML2025 | arXiv 2502.15988 | 决策树优化 | 提出 SPLIT 算法族，通过在决策树根部附近做全局最优搜索、叶节点附近用贪心策略的混合方案，实现比全局最优方法快 100 倍以上且精度几乎无损的决策树构建。"
+title: >-
+  [论文解读] Near-Optimal Decision Trees in a SPLIT Second
+description: >-
+  [ICML2025][决策树优化] 提出 SPLIT 算法族，通过在决策树根部附近做全局最优搜索、叶节点附近用贪心策略的混合方案，实现比全局最优方法快 100 倍以上且精度几乎无损的决策树构建。
 tags:
   - ICML2025
   - 决策树优化

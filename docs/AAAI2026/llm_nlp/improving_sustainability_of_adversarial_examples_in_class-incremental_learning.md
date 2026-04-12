@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Sustainability of Adversarial Examples in Class-Incremental Learning 论文解读 | AAAI 2026 | arXiv 2511.09088 | 对抗样本 | 提出SAE框架解决类增量学习（CIL）中对抗样本因域漂移而失效的问题，通过语义校正模块（CLIP+CIL模型联合引导）和过滤增强模块（去除语义混淆样本），使对抗样本在类别数增长9倍后仍保持攻击效果，平均攻击成功率提升31.28%。"
+title: >-
+  [论文解读] Improving Sustainability of Adversarial Examples in Class-Incremental Learning
+description: >-
+  [AAAI 2026][LLM/NLP][对抗样本] 提出SAE框架解决类增量学习（CIL）中对抗样本因域漂移而失效的问题，通过语义校正模块（CLIP+CIL模型联合引导）和过滤增强模块（去除语义混淆样本），使对抗样本在类别数增长9倍后仍保持攻击效果，平均攻击成功率提升31.28%。
 tags:
   - AAAI 2026
+  - LLM/NLP
   - 对抗样本
   - 增量学习
   - 持续学习

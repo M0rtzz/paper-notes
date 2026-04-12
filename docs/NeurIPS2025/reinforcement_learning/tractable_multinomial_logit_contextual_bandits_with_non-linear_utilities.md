@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Tractable Multinomial Logit Contextual Bandits with Non-Linear Utilities 论文解读 | NeurIPS 2025 | arXiv 2601.06913 | contextual bandits | 首次为MNL上下文赌博机问题在非线性效用函数（含神经网络）下设计了**计算可行**且**统计最优**的算法ONL-MNL，在不依赖NTK假设的情况下达到widetildeO(sqrtT)的遗憾上界。"
+title: >-
+  [论文解读] Tractable Multinomial Logit Contextual Bandits with Non-Linear Utilities
+description: >-
+  [NeurIPS 2025][contextual bandits] 首次为MNL上下文赌博机问题在非线性效用函数（含神经网络）下设计了**计算可行**且**统计最优**的算法ONL-MNL，在不依赖NTK假设的情况下达到$\widetilde{\mathcal{O}}(\sqrt{T})$的遗憾上界。
 tags:
   - NeurIPS 2025
   - contextual bandits

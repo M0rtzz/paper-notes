@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Challenges and Future Directions of Data-Centric AI Alignment 论文解读 | ICML 2025 | arXiv 2410.01957 | 数据中心对齐 | Position paper，主张从算法中心转向数据中心的 AI 对齐视角，系统分析了人类反馈和 AI 反馈在数据层面的可靠性挑战（标注者不一致、时间漂移、上下文依赖、AI 反馈偏差等），并提出改进反馈收集/清洗/验证的未来研究方向。"
+title: >-
+  [论文解读] Challenges and Future Directions of Data-Centric AI Alignment
+description: >-
+  [ICML 2025][LLM对齐][数据中心对齐] Position paper，主张从算法中心转向数据中心的 AI 对齐视角，系统分析了人类反馈和 AI 反馈在数据层面的可靠性挑战（标注者不一致、时间漂移、上下文依赖、AI 反馈偏差等），并提出改进反馈收集/清洗/验证的未来研究方向。
 tags:
   - ICML 2025
+  - LLM对齐
   - 数据中心对齐
   - 人类反馈
   - AI反馈

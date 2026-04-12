@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction 论文解读 | > WIR3D 通过优化一组 3D Bézier 曲线参数，在 CLIP 中间层激活的空间引导下，从任意视角忠实表示 3D 形状的几何结构和视觉显著特征（包括纹理），实现稀疏但语义丰富的 3D 形状抽象。"
+title: >-
+  [论文解读] WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction
+description: >-
+  [人体理解] > WIR3D 通过优化一组 3D Bézier 曲线参数，在 CLIP 中间层激活的空间引导下，从任意视角忠实表示 3D 形状的几何结构和视觉显著特征（包括纹理），实现稀疏但语义丰富的 3D 形状抽象。
 tags:
-
+  - 人体理解
 ---
 
 # WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction

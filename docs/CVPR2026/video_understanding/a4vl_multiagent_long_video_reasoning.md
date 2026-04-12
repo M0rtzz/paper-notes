@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A4VL: A Multi-Agent Perception-Action Alliance for Efficient Long Video Reasoning 论文解读 | CVPR 2026 | arXiv 2603.14052 | 多Agent联盟 | 提出 A4VL，一个 training-free 的多 Agent 感知-行动联盟框架：多个异构 VLM Agent 在多轮循环中执行感知探索（事件分区 + CLIP 线索对齐定位关键帧）和行动探索（独立推理 → 交叉评分 → 共识/剪枝），在 5 个 VideoQA 基准上全面超越 18 个 VLM 和 11 个长视频专用方法，且推理延迟显著更低（MLVU 上 74s vs GPT-4o 127s）。"
+title: >-
+  [论文解读] A4VL: A Multi-Agent Perception-Action Alliance for Efficient Long Video Reasoning
+description: >-
+  [CVPR 2026][视频理解][多Agent联盟] 提出 A4VL，一个 training-free 的多 Agent 感知-行动联盟框架：多个异构 VLM Agent 在多轮循环中执行感知探索（事件分区 + CLIP 线索对齐定位关键帧）和行动探索（独立推理 → 交叉评分 → 共识/剪枝），在 5 个 VideoQA 基准上全面超越 18 个 VLM 和 11 个长视频专用方法，且推理延迟显著更低（MLVU 上 74s vs GPT-4o 127s）。
 tags:
   - CVPR 2026
+  - 视频理解
   - 多Agent联盟
   - 长视频推理
   - 感知-行动探索

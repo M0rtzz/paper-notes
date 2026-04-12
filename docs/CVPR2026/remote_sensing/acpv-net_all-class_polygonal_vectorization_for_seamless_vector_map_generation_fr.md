@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery 论文解读 | CVPR 2026 | arXiv 2603.16616 | polygonal vectorization | 提出 ACPV-Net，首个从航空影像一次性生成拓扑一致的全类别多边形矢量地图的框架，通过语义监督条件化扩散模型生成顶点热图，并借助命题驱动的 PSLG 重建确保零间隙/零重叠。"
+title: >-
+  [论文解读] ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery
+description: >-
+  [CVPR 2026][遥感][polygonal vectorization] 提出 ACPV-Net，首个从航空影像一次性生成拓扑一致的全类别多边形矢量地图的框架，通过语义监督条件化扩散模型生成顶点热图，并借助命题驱动的 PSLG 重建确保零间隙/零重叠。
 tags:
   - CVPR 2026
+  - 遥感
   - polygonal vectorization
   - vector map generation
   - planar partition

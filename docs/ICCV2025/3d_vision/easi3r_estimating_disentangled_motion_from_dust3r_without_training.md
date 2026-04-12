@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Easi3R: Estimating Disentangled Motion from DUSt3R Without Training 论文解读 | ICCV 2025 | arXiv 2503.24391 | 4D重建 | 提出 Easi3R，一种无需训练的即插即用方法，通过解耦 DUSt3R 注意力层中隐含编码的相机运动与物体运动信息，实现动态视频的4D重建、运动分割和相机位姿估计。"
+title: >-
+  [论文解读] Easi3R: Estimating Disentangled Motion from DUSt3R Without Training
+description: >-
+  [ICCV 2025][3D视觉][4D重建] 提出 Easi3R，一种无需训练的即插即用方法，通过解耦 DUSt3R 注意力层中隐含编码的相机运动与物体运动信息，实现动态视频的4D重建、运动分割和相机位姿估计。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 4D重建
   - 动态场景
   - DUSt3R

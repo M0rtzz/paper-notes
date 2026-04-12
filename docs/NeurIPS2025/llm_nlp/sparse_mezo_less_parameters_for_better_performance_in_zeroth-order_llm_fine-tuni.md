@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sparse MeZO: Less Parameters for Better Performance in Zeroth-Order LLM Fine-Tuning 论文解读 | NeurIPS 2025 | arXiv 2402.15751 | 零阶优化 | 提出 Sparse MeZO（S-MeZO），通过观察到零阶梯度噪声对大权重影响更严重，选择性地仅对小权重进行零阶优化扰动和更新，在不增加内存开销的前提下实现了显著的性能提升（RTE 上 +9%）和收敛加速（3.5x）。"
+title: >-
+  [论文解读] Sparse MeZO: Less Parameters for Better Performance in Zeroth-Order LLM Fine-Tuning
+description: >-
+  [NeurIPS 2025][LLM/NLP][零阶优化] 提出 Sparse MeZO（S-MeZO），通过观察到零阶梯度噪声对大权重影响更严重，选择性地仅对小权重进行零阶优化扰动和更新，在不增加内存开销的前提下实现了显著的性能提升（RTE 上 +9%）和收敛加速（3.5x）。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - 零阶优化
   - 稀疏微调
   - 内存高效

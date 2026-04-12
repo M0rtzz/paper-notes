@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models 论文解读 | ACL 2025 | arXiv 2410.03026 | 隐私泄露 | 本文提出context influence指标，基于差分隐私框架量化语言模型在解码时对增强上下文知识的隐私泄露程度，并系统分析了模型大小、上下文大小、生成位置等因素对隐私泄露的影响。"
+title: >-
+  [论文解读] Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models
+description: >-
+  [ACL 2025][AI安全][隐私泄露] 本文提出context influence指标，基于差分隐私框架量化语言模型在解码时对增强上下文知识的隐私泄露程度，并系统分析了模型大小、上下文大小、生成位置等因素对隐私泄露的影响。
 tags:
   - ACL 2025
+  - AI安全
   - 隐私泄露
   - 上下文知识
   - 差分隐私

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TeFlow: Enabling Multi-frame Supervision for Self-Supervised Feed-forward Scene Flow Estimation 论文解读 | CVPR 2026 | arXiv 2602.19053 | 场景流 | 通过教师-学生框架将多帧观测的丰富监督信号蒸馏到前馈场景流网络中，解决自监督场景流中单对帧监督不足的问题"
+title: >-
+  [论文解读] TeFlow: Enabling Multi-frame Supervision for Self-Supervised Feed-forward Scene Flow Estimation
+description: >-
+  [CVPR 2026][自监督学习][场景流] 通过教师-学生框架将多帧观测的丰富监督信号蒸馏到前馈场景流网络中，解决自监督场景流中单对帧监督不足的问题
 tags:
   - CVPR 2026
+  - 自监督学习
   - 场景流
   - 自监督
   - 多帧监督

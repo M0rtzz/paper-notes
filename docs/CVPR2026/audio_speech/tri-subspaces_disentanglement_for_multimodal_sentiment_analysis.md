@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Tri-Subspaces Disentanglement for Multimodal Sentiment Analysis 论文解读 | CVPR 2026 | arXiv 2602.19585 | 多模态情感分析 | 提出 TSD 框架，将多模态特征显式分解为全局共享/成对共享/模态专属三个互补子空间，并通过子空间感知跨注意力融合模块自适应整合三层信息，在 CMU-MOSI/MOSEI 上全面 SOTA。"
+title: >-
+  [论文解读] Tri-Subspaces Disentanglement for Multimodal Sentiment Analysis
+description: >-
+  [CVPR 2026][语音][多模态情感分析] 提出 TSD 框架，将多模态特征显式分解为全局共享/成对共享/模态专属三个互补子空间，并通过子空间感知跨注意力融合模块自适应整合三层信息，在 CMU-MOSI/MOSEI 上全面 SOTA。
 tags:
   - CVPR 2026
+  - 语音
   - 多模态情感分析
   - 三子空间解耦
   - 跨注意力融合

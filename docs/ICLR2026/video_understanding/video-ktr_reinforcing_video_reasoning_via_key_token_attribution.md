@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Video-KTR: 通过关键 Token 归因增强视频推理 论文解读 | ICLR 2026 | arXiv 2601.19686 | 视频推理 | 提出 Video-KTR，一种模态感知的策略塑造框架，通过反事实分析识别视觉感知型、时序敏感型和高熵 Token 三类关键 Token，仅对这些 Token 执行选择性强化学习更新，在多个视频推理基准上达到 SOTA（Video-Holmes 42.7%，超越 GPT-4o）。"
+title: >-
+  [论文解读] Video-KTR: 通过关键 Token 归因增强视频推理
+description: >-
+  [ICLR 2026][视频理解][视频推理] 提出 Video-KTR，一种模态感知的策略塑造框架，通过反事实分析识别视觉感知型、时序敏感型和高熵 Token 三类关键 Token，仅对这些 Token 执行选择性强化学习更新，在多个视频推理基准上达到 SOTA（Video-Holmes 42.7%，超越 GPT-4o）。
 tags:
   - ICLR 2026
+  - 视频理解
   - 视频推理
   - 强化学习
   - Token归因

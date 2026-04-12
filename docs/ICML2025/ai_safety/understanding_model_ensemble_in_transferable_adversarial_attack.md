@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding Model Ensemble in Transferable Adversarial Attack 论文解读 | ICML 2025 | arXiv 2410.06851 | 对抗迁移性 | 首次为模型集成对抗攻击建立理论框架，定义 transferability error 并将其分解为脆弱性（vulnerability）与多样性（diversity），再利用信息论工具给出上界，从理论上验证了\"更多模型+更高多样性+更低复杂度\"三条实践指南。"
+title: >-
+  [论文解读] Understanding Model Ensemble in Transferable Adversarial Attack
+description: >-
+  [ICML 2025][AI安全][对抗迁移性] 首次为模型集成对抗攻击建立理论框架，定义 transferability error 并将其分解为脆弱性（vulnerability）与多样性（diversity），再利用信息论工具给出上界，从理论上验证了"更多模型+更高多样性+更低复杂度"三条实践指南。
 tags:
   - ICML 2025
+  - AI安全
   - 对抗迁移性
   - 模型集成攻击
   - Rademacher复杂度

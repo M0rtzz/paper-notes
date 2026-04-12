@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bootstrap3D: Improving Multi-view Diffusion Model with Synthetic Data 论文解读 | ICCV 2025 | arXiv 2406.00093 | 多视图扩散模型 | 提出Bootstrap3D框架，利用视频扩散模型生成合成多视图数据，并通过微调的MV-LLaVA进行质量过滤与密集描述重写，结合Training Timestep Reschedule (TTR)策略训练多视图扩散模型，在不牺牲视图一致性的前提下大幅提升图像质量和文本对齐能力。"
+title: >-
+  [论文解读] Bootstrap3D: Improving Multi-view Diffusion Model with Synthetic Data
+description: >-
+  [ICCV 2025][3D视觉][多视图扩散模型] 提出Bootstrap3D框架，利用视频扩散模型生成合成多视图数据，并通过微调的MV-LLaVA进行质量过滤与密集描述重写，结合Training Timestep Reschedule (TTR)策略训练多视图扩散模型，在不牺牲视图一致性的前提下大幅提升图像质量和文本对齐能力。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 多视图扩散模型
   - 合成数据
   - 数据增强

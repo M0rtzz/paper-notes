@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NeKo: Cross-Modality Post-Recognition Error Correction with Tasks-Guided MoE LM 论文解读 | ACL 2025 | arXiv 2411.05945 | MoE | 提出 NeKo，使用任务引导的 Mixture-of-Experts 语言模型进行跨模态后识别纠错（ASR/ST/OCR/TEC），通过将每个专家指派给特定任务的数据集实现专业化，在 Open ASR Leaderboard 上达到 SOTA，零样本下超越 GPT-3.5 和 Claude-3.5。"
+title: >-
+  [论文解读] NeKo: Cross-Modality Post-Recognition Error Correction with Tasks-Guided MoE LM
+description: >-
+  [ACL 2025][LLM效率][MoE] 提出 NeKo，使用任务引导的 Mixture-of-Experts 语言模型进行跨模态后识别纠错（ASR/ST/OCR/TEC），通过将每个专家指派给特定任务的数据集实现专业化，在 Open ASR Leaderboard 上达到 SOTA，零样本下超越 GPT-3.5 和 Claude-3.5。
 tags:
   - ACL 2025
+  - LLM效率
   - MoE
   - error correction
   - ASR

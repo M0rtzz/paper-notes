@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Perturbation-Induced Linearization: Constructing Unlearnable Data with Solely Linear Classifiers 论文解读 | ICLR 2026 | arXiv 2601.19967 | 不可学习样本 | 提出PIL方法，仅使用无偏置线性分类器作为代理模型生成不可学习扰动，通过诱导深度模型线性化来阻止其学习语义特征，比现有方法快100倍以上（CIFAR-10上不到1分钟GPU时间）。"
+title: >-
+  [论文解读] Perturbation-Induced Linearization: Constructing Unlearnable Data with Solely Linear Classifiers
+description: >-
+  [ICLR 2026][不可学习样本] 提出PIL方法，仅使用无偏置线性分类器作为代理模型生成不可学习扰动，通过诱导深度模型线性化来阻止其学习语义特征，比现有方法快100倍以上（CIFAR-10上不到1分钟GPU时间）。
 tags:
   - ICLR 2026
   - 不可学习样本

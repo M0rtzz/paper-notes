@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Amortized Active Generation of Pareto Sets 论文解读 | NeurIPS 2025 | arXiv 2510.21052 | multi-objective optimization | 提出 A-GPS 框架，通过学习 Pareto 集的条件生成模型实现在线离散黑箱多目标优化——用非支配类概率估计器（CPE）作为 PHVI 的隐式估计替代显式超体积计算，并通过偏好方向向量实现摊还式后验偏好条件化（无需重新训练），在合成基准和蛋白质设计任务上展示了优越的样本效率。"
+title: >-
+  [论文解读] Amortized Active Generation of Pareto Sets
+description: >-
+  [NeurIPS 2025][医学图像][multi-objective optimization] 提出 A-GPS 框架，通过学习 Pareto 集的条件生成模型实现在线离散黑箱多目标优化——用非支配类概率估计器（CPE）作为 PHVI 的隐式估计替代显式超体积计算，并通过偏好方向向量实现摊还式后验偏好条件化（无需重新训练），在合成基准和蛋白质设计任务上展示了优越的样本效率。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - multi-objective optimization
   - Pareto set
   - generative model

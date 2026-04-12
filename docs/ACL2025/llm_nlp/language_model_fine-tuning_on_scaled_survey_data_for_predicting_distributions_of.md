@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Language Model Fine-Tuning on Scaled Survey Data for Predicting Distributions of Public Opinions 论文解读 | ACL 2025 | arXiv 2502.16761 | 公众舆论 | 提出直接在大规模公众意见调查数据（SubPOP，含 3362 道题目、70K 子群体-响应对）上微调 LLM，使其预测不同人口统计子群体的意见分布，相比 prompt engineering 基线将 Wasserstein 距离降低 32-46%，且泛化到未见过的调查和子群体。"
+title: >-
+  [论文解读] Language Model Fine-Tuning on Scaled Survey Data for Predicting Distributions of Public Opinions
+description: >-
+  [ACL 2025][LLM/NLP][公众舆论] 提出直接在大规模公众意见调查数据（SubPOP，含 3362 道题目、70K 子群体-响应对）上微调 LLM，使其预测不同人口统计子群体的意见分布，相比 prompt engineering 基线将 Wasserstein 距离降低 32-46%，且泛化到未见过的调查和子群体。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 公众舆论
   - 分布预测
   - 调查数据

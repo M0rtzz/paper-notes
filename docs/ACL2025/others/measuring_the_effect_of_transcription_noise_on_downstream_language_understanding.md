@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Measuring the Effect of Transcription Noise on Downstream Language Understanding Tasks 论文解读 | 提出ENDow框架，首次系统化地分析ASR转录噪声对下游NLU任务的影响，通过可配置的pipeline评估不同噪声强度和类型下任务模型的行为，发现命名实体是最关键的词类型，且模型能容忍一定程度的噪声。"
+title: >-
+  [论文解读] Measuring the Effect of Transcription Noise on Downstream Language Understanding Tasks
+description: >-
+   提出ENDow框架，首次系统化地分析ASR转录噪声对下游NLU任务的影响，通过可配置的pipeline评估不同噪声强度和类型下任务模型的行为，发现命名实体是最关键的词类型，且模型能容忍一定程度的噪声。
 tags:
 
 ---

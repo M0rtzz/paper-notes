@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TriLite: Efficient WSOL with Universal Visual Features and Tri-Region Disentanglement 论文解读 | CVPR 2026 | arXiv 2602.23120 | 弱监督目标定位 | 仅使用冻结 DINOv2 ViT + 不到 800K 可训练参数的 TriHead 模块，通过将 patch 特征解耦为前景/背景/模糊三区域并引入对抗性背景损失，在 WSOL 上以极少参数刷新 SOTA。"
+title: >-
+  [论文解读] TriLite: Efficient WSOL with Universal Visual Features and Tri-Region Disentanglement
+description: >-
+  [CVPR 2026][人体理解][弱监督目标定位] 仅使用冻结 DINOv2 ViT + 不到 800K 可训练参数的 TriHead 模块，通过将 patch 特征解耦为前景/背景/模糊三区域并引入对抗性背景损失，在 WSOL 上以极少参数刷新 SOTA。
 tags:
   - CVPR 2026
+  - 人体理解
   - 弱监督目标定位
   - ViT
   - DINOv2

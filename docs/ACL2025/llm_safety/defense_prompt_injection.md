@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Defense Against Prompt Injection Attack by Leveraging Attack Techniques 论文解读 | ACL 2025 | arXiv 2411.00459 | 提示学习 prompt injection | 本文提出一种\"以攻为防\"的 prompt injection 防御策略：将已有的攻击技术（ignore、escape、fake completion）反转用于防御，在被注入的数据内容后追加 shield prompt + 原始指令，使 LLM 忽略注入指令而执行原始指令，在多种攻击场景下将 ASR 降至接近零。"
+title: >-
+  [论文解读] Defense Against Prompt Injection Attack by Leveraging Attack Techniques
+description: >-
+  [ACL 2025][提示学习] 本文提出一种"以攻为防"的 prompt injection 防御策略：将已有的攻击技术（ignore、escape、fake completion）反转用于防御，在被注入的数据内容后追加 shield prompt + 原始指令，使 LLM 忽略注入指令而执行原始指令，在多种攻击场景下将 ASR 降至接近零。
 tags:
   - ACL 2025
   - 提示学习

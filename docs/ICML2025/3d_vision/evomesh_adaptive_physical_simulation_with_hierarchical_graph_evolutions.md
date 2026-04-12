@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EvoMesh: Adaptive Physical Simulation with Hierarchical Graph Evolutions 论文解读 | ICML 2025 | arXiv 2410.03779 | 物理仿真 | EvoMesh 提出一种全可微的层次图演化框架，通过各向异性消息传递（AMP）和基于 Gumbel-Softmax 的可微节点选择（DiffSELECT），根据物理输入自适应构建随时间演化的多尺度图层次结构，在五个物理仿真基准上平均超越固定层次方法约 20%。"
+title: >-
+  [论文解读] EvoMesh: Adaptive Physical Simulation with Hierarchical Graph Evolutions
+description: >-
+  [ICML 2025][3D视觉][物理仿真] EvoMesh 提出一种全可微的层次图演化框架，通过各向异性消息传递（AMP）和基于 Gumbel-Softmax 的可微节点选择（DiffSELECT），根据物理输入自适应构建随时间演化的多尺度图层次结构，在五个物理仿真基准上平均超越固定层次方法约 20%。
 tags:
   - ICML 2025
+  - 3D视觉
   - 物理仿真
   - 图神经网络
   - 层次图结构

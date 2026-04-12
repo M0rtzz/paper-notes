@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】M²-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs 论文解读 | CVPR 2026 | arXiv 2603.09737 | semantic occupancy prediction | 针对自动驾驶中相机故障导致的不完整输入问题，提出M²-Occ框架，通过多视角掩码重建（MMR）利用相邻相机重叠视场恢复缺失特征，并引入特征记忆模块（FMM）用类级语义原型精化体素表示，在缺失后视摄像头时IoU提升4.93%，不影响全视角性能。"
+title: >-
+  [论文解读] M²-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs
+description: >-
+  [CVPR 2026][自动驾驶][semantic occupancy prediction] 针对自动驾驶中相机故障导致的不完整输入问题，提出M²-Occ框架，通过多视角掩码重建（MMR）利用相邻相机重叠视场恢复缺失特征，并引入特征记忆模块（FMM）用类级语义原型精化体素表示，在缺失后视摄像头时IoU提升4.93%，不影响全视角性能。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - semantic occupancy prediction
   - missing camera view
   - multi-view reconstruction

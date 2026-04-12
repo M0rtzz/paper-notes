@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Like Humans: Analogical Concept Learning for Generalized Category Discovery 论文解读 | CVPR 2026 | arXiv 2603.19918 | 广义类别发现 | 提出 AL-GCD 框架，通过模拟人类类比推理机制设计\"类比文本概念生成器\"（ATCG）——从已知类别的视觉-文本知识库中类比生成未知样本的文本概念，将类别发现转化为视觉-文本联合推理任务，在六个基准上平均提升 5.0%，细粒度数据集提升 7.1%。"
+title: >-
+  [论文解读] Learning Like Humans: Analogical Concept Learning for Generalized Category Discovery
+description: >-
+  [CVPR 2026][LLM效率][广义类别发现] 提出 AL-GCD 框架，通过模拟人类类比推理机制设计"类比文本概念生成器"（ATCG）——从已知类别的视觉-文本知识库中类比生成未知样本的文本概念，将类别发现转化为视觉-文本联合推理任务，在六个基准上平均提升 5.0%，细粒度数据集提升 7.1%。
 tags:
   - CVPR 2026
+  - LLM效率
   - 广义类别发现
   - 类比学习
   - 视觉-语言模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SegmentDreamer: Towards High-Fidelity Text-to-3D Synthesis with Segmented Consistency Trajectory Distillation 论文解读 | ICCV 2025 | arXiv 2507.05256 | 文本到3D生成 | 本文提出SegmentDreamer，通过分段一致性轨迹蒸馏（SCTD）重新表述SDS损失，解决了现有一致性蒸馏（CD）方法中自一致性和交叉一致性之间的不平衡问题，在单张A100 GPU上仅需~32分钟即可通过3DGS生成高保真3D资产。"
+title: >-
+  [论文解读] SegmentDreamer: Towards High-Fidelity Text-to-3D Synthesis with Segmented Consistency Trajectory Distillation
+description: >-
+  [ICCV 2025][3D视觉][文本到3D生成] 本文提出SegmentDreamer，通过分段一致性轨迹蒸馏（SCTD）重新表述SDS损失，解决了现有一致性蒸馏（CD）方法中自一致性和交叉一致性之间的不平衡问题，在单张A100 GPU上仅需~32分钟即可通过3DGS生成高保真3D资产。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 文本到3D生成
   - 一致性蒸馏
   - Score Distillation

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-turn Settings 论文解读 | ACL 2025 | arXiv 2506.22853 | tool use | 提出 DICE-Bench 基准评估 LLM 在多轮对话中的工具使用能力，涵盖工具发现、调用、错误恢复和组合使用四个维度，发现即使最强模型在复杂多轮场景下也仅达 ~60% 成功率。"
+title: >-
+  [论文解读] DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-turn Settings
+description: >-
+  [ACL 2025][LLM/NLP][tool use] 提出 DICE-Bench 基准评估 LLM 在多轮对话中的工具使用能力，涵盖工具发现、调用、错误恢复和组合使用四个维度，发现即使最强模型在复杂多轮场景下也仅达 ~60% 成功率。
 tags:
   - ACL 2025
+  - LLM/NLP
   - tool use
   - multi-turn
   - benchmark

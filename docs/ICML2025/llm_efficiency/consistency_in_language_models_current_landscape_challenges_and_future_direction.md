@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Consistency in Language Models: Current Landscape, Challenges, and Future Directions 论文解读 | ICML2025 | arXiv 2505.00268 | LLM一致性 | 系统梳理了LLM一致性研究的现状：分析现有一致性度量方法，识别关键研究空白，指出迫切需要质量基准和跨学科方法来确保一致性同时保留实用性。"
+title: >-
+  [论文解读] Consistency in Language Models: Current Landscape, Challenges, and Future Directions
+description: >-
+  [ICML2025][LLM效率][LLM一致性] 系统梳理了LLM一致性研究的现状：分析现有一致性度量方法，识别关键研究空白，指出迫切需要质量基准和跨学科方法来确保一致性同时保留实用性。
 tags:
   - ICML2025
+  - LLM效率
   - LLM一致性
   - 基准测试
   - 鲁棒性

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Around the World in 24 Hours: Probing LLM Knowledge of Time and Place 论文解读 | 本文提出 GeoTemp 数据集（320k 提示，覆盖 289 个城市和 37 个时区），首次评估 LLM 联合时间和空间推理的能力，发现模型能独立处理时间计算和地理知识，但在需要结合两者时性能急剧下降。"
+title: >-
+  [论文解读] Around the World in 24 Hours: Probing LLM Knowledge of Time and Place
+description: >-
+   本文提出 GeoTemp 数据集（320k 提示，覆盖 289 个城市和 37 个时区），首次评估 LLM 联合时间和空间推理的能力，发现模型能独立处理时间计算和地理知识，但在需要结合两者时性能急剧下降。
 tags:
 
 ---

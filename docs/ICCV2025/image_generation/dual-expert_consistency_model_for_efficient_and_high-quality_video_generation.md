@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dual-Expert Consistency Model for Efficient and High-Quality Video Generation 论文解读 | ICCV 2025 | arXiv 2506.03123 | 一致性蒸馏 | 通过分析一致性蒸馏中不同噪声水平下的优化冲突，提出参数高效的双专家一致性模型（DCM），分别用语义专家和细节专家处理高噪声/低噪声阶段的蒸馏，仅用4步采样即可达到接近50步原始模型的视频生成质量。"
+title: >-
+  [论文解读] Dual-Expert Consistency Model for Efficient and High-Quality Video Generation
+description: >-
+  [ICCV 2025][图像生成][一致性蒸馏] 通过分析一致性蒸馏中不同噪声水平下的优化冲突，提出参数高效的双专家一致性模型（DCM），分别用语义专家和细节专家处理高噪声/低噪声阶段的蒸馏，仅用4步采样即可达到接近50步原始模型的视频生成质量。
 tags:
   - ICCV 2025
+  - 图像生成
   - 一致性蒸馏
   - 视频生成
   - 双专家模型

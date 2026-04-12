@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Efficient Image Pre-Training with Siamese Cropped Masked Autoencoders 论文解读 | ECCV 2024 | arXiv 2403.17823 | 自监督学习 | 提出CropMAE——用同一图像的两个随机裁剪视图替代视频帧对来训练孪生掩码自编码器，在98.5%的极高掩码率下仅用2个可见patch即可学习物体边界感知表征，训练速度比SiamMAE提升最高23.8倍，同时在视频传播任务上达到竞争性能。"
+title: >-
+  [论文解读] Efficient Image Pre-Training with Siamese Cropped Masked Autoencoders
+description: >-
+  [ECCV 2024][自监督学习][自监督学习] 提出CropMAE——用同一图像的两个随机裁剪视图替代视频帧对来训练孪生掩码自编码器，在98.5%的极高掩码率下仅用2个可见patch即可学习物体边界感知表征，训练速度比SiamMAE提升最高23.8倍，同时在视频传播任务上达到竞争性能。
 tags:
   - ECCV 2024
   - 自监督学习

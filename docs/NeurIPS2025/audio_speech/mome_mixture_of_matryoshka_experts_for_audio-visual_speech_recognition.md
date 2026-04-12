@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition 论文解读 | NeurIPS 2025 | arXiv 2510.04136 | 音视频语音识别 | MoME将稀疏MoE集成到Matryoshka表示学习框架中，用于LLM-based音视频语音识别，通过共享路由器实现跨粒度知识迁移，在单一模型权重下支持多种压缩率的弹性推理，同时达到AVSR/ASR/VSR的SOTA性能。"
+title: >-
+  [论文解读] MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition
+description: >-
+  [NeurIPS 2025][语音][音视频语音识别] MoME将稀疏MoE集成到Matryoshka表示学习框架中，用于LLM-based音视频语音识别，通过共享路由器实现跨粒度知识迁移，在单一模型权重下支持多种压缩率的弹性推理，同时达到AVSR/ASR/VSR的SOTA性能。
 tags:
   - NeurIPS 2025
+  - 语音
   - 音视频语音识别
   - Matryoshka表示学习
   - Mixture-of-Experts

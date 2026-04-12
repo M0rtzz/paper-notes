@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VidEoMT: Your ViT is Secretly Also a Video Segmentation Model 论文解读 | CVPR 2026 | arXiv 2602.17807 | 视频分割 | 提出encoder-only视频分割模型VidEoMT，通过查询传播和查询融合将分割与时序关联统一在单个ViT编码器中，消除所有专用追踪模块，在YouTube-VIS 2019上达到160 FPS（比CAVIS快10×+），同时AP仅差0.3。"
+title: >-
+  [论文解读] VidEoMT: Your ViT is Secretly Also a Video Segmentation Model
+description: >-
+  [CVPR 2026][图像分割][视频分割] 提出encoder-only视频分割模型VidEoMT，通过查询传播和查询融合将分割与时序关联统一在单个ViT编码器中，消除所有专用追踪模块，在YouTube-VIS 2019上达到160 FPS（比CAVIS快10×+），同时AP仅差0.3。
 tags:
   - CVPR 2026
+  - 图像分割
   - 视频分割
   - encoder-only
   - 查询传播

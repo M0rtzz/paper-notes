@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation 论文解读 | ICLR 2026 | arXiv 2602.21043 | 时序填充 | 提出T1——CNN-Transformer混合架构通过Channel-Head Binding(CHead Attention)实现鲁棒的多变量时序填充：CNN提取每个变量的多尺度时序特征(每个通道捕捉一种模式)，每个注意力头仅处理对应的一个CNN通道→实现特征级的选择性跨变量信息传递——当缺失导致某通道无法提取有效模式时，对应注意力头自动降权→在11个基准上MSE平均降低46%。"
+title: >-
+  [论文解读] T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation
+description: >-
+  [ICLR 2026][时间序列][时序填充] 提出T1——CNN-Transformer混合架构通过Channel-Head Binding(CHead Attention)实现鲁棒的多变量时序填充：CNN提取每个变量的多尺度时序特征(每个通道捕捉一种模式)，每个注意力头仅处理对应的一个CNN通道→实现特征级的选择性跨变量信息传递——当缺失导致某通道无法提取有效模式时，对应注意力头自动降权→在11个基准上MSE平均降低46%。
 tags:
   - ICLR 2026
+  - 时间序列
   - 时序填充
   - Transformer
   - 通道-头绑定

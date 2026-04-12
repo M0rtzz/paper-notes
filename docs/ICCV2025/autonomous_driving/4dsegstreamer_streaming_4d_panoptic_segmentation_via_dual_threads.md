@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】4DSegStreamer: Streaming 4D Panoptic Segmentation via Dual Threads 论文解读 | ICCV 2025 | arXiv 2510.17664 | 4D全景分割 | 提出4DSegStreamer，一种基于双线程系统（预测线程+推理线程）的流式4D全景分割框架，通过几何与运动记忆维护、自车位姿预测和逆向前向光流迭代实现实时高质量4D全景分割。"
+title: >-
+  [论文解读] 4DSegStreamer: Streaming 4D Panoptic Segmentation via Dual Threads
+description: >-
+  [ICCV 2025][自动驾驶][4D全景分割] 提出4DSegStreamer，一种基于双线程系统（预测线程+推理线程）的流式4D全景分割框架，通过几何与运动记忆维护、自车位姿预测和逆向前向光流迭代实现实时高质量4D全景分割。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 4D全景分割
   - 流式感知
   - 双线程系统

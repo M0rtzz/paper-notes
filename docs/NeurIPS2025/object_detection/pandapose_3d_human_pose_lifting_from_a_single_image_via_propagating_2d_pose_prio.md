@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PandaPose: 3D Human Pose Lifting from a Single Image via Propagating 2D Pose Prior to 3D Anchor Space 论文解读 | NeurIPS 2025 | arXiv 2602.01095 | 3D人体姿态估计 | 提出 PandaPose，通过将 2D 姿态先验传播到 3D 锚点空间作为统一中间表示，结合自适应关节级 3D 锚点设置和关节级深度分布估计，实现对遮挡和 2D 姿态误差鲁棒的单帧 3D 人体姿态提升。"
+title: >-
+  [论文解读] PandaPose: 3D Human Pose Lifting from a Single Image via Propagating 2D Pose Prior to 3D Anchor Space
+description: >-
+  [NeurIPS 2025][目标检测][3D人体姿态估计] 提出 PandaPose，通过将 2D 姿态先验传播到 3D 锚点空间作为统一中间表示，结合自适应关节级 3D 锚点设置和关节级深度分布估计，实现对遮挡和 2D 姿态误差鲁棒的单帧 3D 人体姿态提升。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - 3D人体姿态估计
   - 锚点机制
   - 深度估计

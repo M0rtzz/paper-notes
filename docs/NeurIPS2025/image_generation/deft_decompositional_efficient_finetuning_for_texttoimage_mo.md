@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DEFT: Decompositional Efficient Fine-Tuning for Text-to-Image Models 论文解读 | NeurIPS 2025 | arXiv 2509.22793 | 高效微调 | 提出DEFT——将权重更新分解为两个可训练矩阵的组合：(1)低秩子空间的正交投影和(2)子空间内的低秩调整，相比LoRA在T2I个性化中CLIP-T从0.341提升到0.361（DreamBench+），在统一模型上实现风格迁移和条件生成的SOTA。"
+title: >-
+  [论文解读] DEFT: Decompositional Efficient Fine-Tuning for Text-to-Image Models
+description: >-
+  [NeurIPS 2025][图像生成][高效微调] 提出DEFT——将权重更新分解为两个可训练矩阵的组合：(1)低秩子空间的正交投影和(2)子空间内的低秩调整，相比LoRA在T2I个性化中CLIP-T从0.341提升到0.361（DreamBench+），在统一模型上实现风格迁移和条件生成的SOTA。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 高效微调
   - T2I
   - LoRA变体

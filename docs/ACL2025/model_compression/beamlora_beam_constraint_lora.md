@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BeamLoRA: Beam-Constraint Low-Rank Adaptation 论文解读 | ACL 2025 | arXiv 2502.13604 | LoRA | BeamLoRA 发现 LoRA 模块中不同 rank 的重要性存在显著差异且随训练动态演变，受 beam search 启发，提出在训练过程中动态评估 rank 重要性、剪枝不重要的 rank 并将参数空间扩展给重要 rank，在固定总 rank 下提升性能，在三个基座模型的 12 个数据集上持续优于 LoRA 及其变体。"
+title: >-
+  [论文解读] BeamLoRA: Beam-Constraint Low-Rank Adaptation
+description: >-
+  [ACL 2025][模型压缩][LoRA] BeamLoRA 发现 LoRA 模块中不同 rank 的重要性存在显著差异且随训练动态演变，受 beam search 启发，提出在训练过程中动态评估 rank 重要性、剪枝不重要的 rank 并将参数空间扩展给重要 rank，在固定总 rank 下提升性能，在三个基座模型的 12 个数据集上持续优于 LoRA 及其变体。
 tags:
   - ACL 2025
+  - 模型压缩
   - LoRA
   - parameter-efficient fine-tuning
   - rank importance

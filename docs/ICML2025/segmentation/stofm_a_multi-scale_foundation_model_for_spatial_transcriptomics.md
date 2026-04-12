@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】SToFM: a Multi-scale Foundation Model for Spatial Transcriptomics 论文解读 | 提出 SToFM，首个多尺度空间转录组学基础模型，通过基因尺度域适应、微观尺度子切片划分和宏观尺度虚拟细胞注入，结合 SE(2) Transformer 和 88M 细胞的大规模预训练语料库，在组织区域语义分割和细胞类型标注等任务上显著超越现有方法。"
+title: >-
+  [论文解读] SToFM: a Multi-scale Foundation Model for Spatial Transcriptomics
+description: >-
+  [图像分割] 提出 SToFM，首个多尺度空间转录组学基础模型，通过基因尺度域适应、微观尺度子切片划分和宏观尺度虚拟细胞注入，结合 SE(2) Transformer 和 88M 细胞的大规模预训练语料库，在组织区域语义分割和细胞类型标注等任务上显著超越现有方法。
 tags:
-
+  - 图像分割
 ---
 
 # SToFM: a Multi-scale Foundation Model for Spatial Transcriptomics

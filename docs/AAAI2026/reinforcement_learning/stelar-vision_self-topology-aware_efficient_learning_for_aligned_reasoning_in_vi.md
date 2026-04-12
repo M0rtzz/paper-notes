@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】STELAR-Vision: Self-Topology-Aware Efficient Learning for Aligned Reasoning in Vision 论文解读 | AAAI 2026 | arXiv 2508.08688 | 拓扑推理 | 提出 STELAR-Vision，一个拓扑感知的视觉语言推理训练框架，通过 TopoAug 数据生成管线引入 Chain/Tree/Graph 多种推理拓扑结构，配合 SFT+RL 后训练，在分布内外数据集上分别提升 9.7% 和最高 28.4% 的准确率，并通过 Frugal Learning 减少 18.1% 的输出长度。"
+title: >-
+  [论文解读] STELAR-Vision: Self-Topology-Aware Efficient Learning for Aligned Reasoning in Vision
+description: >-
+  [AAAI 2026][拓扑推理] 提出 STELAR-Vision，一个拓扑感知的视觉语言推理训练框架，通过 TopoAug 数据生成管线引入 Chain/Tree/Graph 多种推理拓扑结构，配合 SFT+RL 后训练，在分布内外数据集上分别提升 9.7% 和最高 28.4% 的准确率，并通过 Frugal Learning 减少 18.1% 的输出长度。
 tags:
   - AAAI 2026
   - 拓扑推理

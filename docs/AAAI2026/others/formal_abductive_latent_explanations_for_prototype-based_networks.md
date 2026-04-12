@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Formal Abductive Latent Explanations for Prototype-Based Networks 论文解读 | AAAI 2026 | arXiv 2511.16588 | 原型网络 | 本文针对原型网络（如ProtoPNet）的解释可能具有误导性的问题，提出了溯因潜在解释（ALE），在潜在空间中构造满足形式化保证的充分条件解释，无需调用外部求解器，算法可扩展到多种数据集上的标准分类和细粒度分类任务。"
+title: >-
+  [论文解读] Formal Abductive Latent Explanations for Prototype-Based Networks
+description: >-
+  [AAAI 2026][原型网络] 本文针对原型网络（如ProtoPNet）的解释可能具有误导性的问题，提出了溯因潜在解释（ALE），在潜在空间中构造满足形式化保证的充分条件解释，无需调用外部求解器，算法可扩展到多种数据集上的标准分类和细粒度分类任务。
 tags:
   - AAAI 2026
   - 原型网络

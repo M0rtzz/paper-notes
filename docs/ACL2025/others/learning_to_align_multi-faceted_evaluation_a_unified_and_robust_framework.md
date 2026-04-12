@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework 论文解读 | ACL 2025 | arXiv 2502.18874 | LLM evaluation | 提出 ARJudge 评估框架，通过微调 Analyzer 自适应生成评估标准并执行文本+代码双驱动分析，配合无需微调的 Refiner 综合判断，在多个评估基准上超越现有微调评估器，尤其在指令遵循评估上通过代码驱动分析提升高达 11.1%。"
+title: >-
+  [论文解读] Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework
+description: >-
+  [ACL 2025][LLM evaluation] 提出 ARJudge 评估框架，通过微调 Analyzer 自适应生成评估标准并执行文本+代码双驱动分析，配合无需微调的 Refiner 综合判断，在多个评估基准上超越现有微调评估器，尤其在指令遵循评估上通过代码驱动分析提升高达 11.1%。
 tags:
   - ACL 2025
   - LLM evaluation

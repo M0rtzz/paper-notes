@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SGD Jittering: A Training Strategy for Robust and Accurate Model-Based Architectures 论文解读 | ICML2025 | arXiv 2410.14667 | SGD jittering | 提出 SGD jittering 训练策略，在模型迭代重建过程中逐步注入零均值高斯噪声，理论证明其同时提升模型鲁棒性和泛化精度，且无需对抗训练的高计算开销。"
+title: >-
+  [论文解读] SGD Jittering: A Training Strategy for Robust and Accurate Model-Based Architectures
+description: >-
+  [ICML2025][医学图像][SGD jittering] 提出 SGD jittering 训练策略，在模型迭代重建过程中逐步注入零均值高斯噪声，理论证明其同时提升模型鲁棒性和泛化精度，且无需对抗训练的高计算开销。
 tags:
   - ICML2025
+  - 医学图像
   - SGD jittering
   - model-based architecture
   - loop unrolling

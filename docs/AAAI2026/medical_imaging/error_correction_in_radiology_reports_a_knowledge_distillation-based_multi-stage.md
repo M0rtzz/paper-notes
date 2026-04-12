@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Error Correction in Radiology Reports: A Knowledge Distillation-Based Multi-Stage Framework 论文解读 | AAAI 2026 | arXiv 2406.15045 | 放射学报告校对 | 提出了一种**分阶段推理 + 双知识注入**框架，将放射学报告的错误校正分解为检测→定位→纠正三个阶段，结合**医学知识图谱蒸馏（MKGD）** 和**外部知识检索（EXKR）**，在 6 个 LLM 架构上实现了高达 **31.56% 的错误检测准确率提升**和 **37.4% 的处理时间减少**。"
+title: >-
+  [论文解读] Error Correction in Radiology Reports: A Knowledge Distillation-Based Multi-Stage Framework
+description: >-
+  [AAAI 2026][医学图像][放射学报告校对] 提出了一种**分阶段推理 + 双知识注入**框架，将放射学报告的错误校正分解为检测→定位→纠正三个阶段，结合**医学知识图谱蒸馏（MKGD）** 和**外部知识检索（EXKR）**，在 6 个 LLM 架构上实现了高达 **31.56% 的错误检测准确率提升**和 **37.4% 的处理时间减少**。
 tags:
   - AAAI 2026
+  - 医学图像
   - 放射学报告校对
   - 大语言模型
   - 知识图谱蒸馏

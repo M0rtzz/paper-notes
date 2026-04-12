@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GSAP-ERE: Fine-Grained Scholarly Entity and Relation Extraction Focused on Machine Learning 论文解读 | AAAI 2026 | arXiv 2511.09411 | 学术信息抽取 | 提出GSAP-ERE——一个面向机器学习领域的细粒度学术实体与关系抽取数据集，包含10种实体类型和18种关系类型，在100篇全文论文上标注了63K实体和35K关系，实验表明微调模型（NER: 80.6%, RE: 54.0%）大幅超越LLM提示方法（NER: 44.4%, RE: 10.1%）。"
+title: >-
+  [论文解读] GSAP-ERE: Fine-Grained Scholarly Entity and Relation Extraction Focused on Machine Learning
+description: >-
+  [AAAI 2026][图学习][学术信息抽取] 提出GSAP-ERE——一个面向机器学习领域的细粒度学术实体与关系抽取数据集，包含10种实体类型和18种关系类型，在100篇全文论文上标注了63K实体和35K关系，实验表明微调模型（NER: 80.6%, RE: 54.0%）大幅超越LLM提示方法（NER: 44.4%, RE: 10.1%）。
 tags:
   - AAAI 2026
+  - 图学习
   - 学术信息抽取
   - 命名实体识别
   - 关系抽取

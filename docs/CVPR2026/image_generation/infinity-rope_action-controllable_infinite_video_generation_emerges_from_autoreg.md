@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Infinity-RoPE: Action-Controllable Infinite Video Generation Emerges From Autoregressive Self-Rollout 论文解读 | CVPR 2026 | arXiv 2511.20649 | 自回归视频生成 | 提出 ∞-RoPE，一个训练免调的推理时框架，通过 Block-Relativistic RoPE、KV Flush 和 RoPE Cut 三个组件，将仅在5秒视频上训练的自回归视频扩散模型扩展为支持无限时长生成、精细动作控制和电影级场景切换的系统。"
+title: >-
+  [论文解读] Infinity-RoPE: Action-Controllable Infinite Video Generation Emerges From Autoregressive Self-Rollout
+description: >-
+  [CVPR 2026][图像生成][自回归视频生成] 提出 ∞-RoPE，一个训练免调的推理时框架，通过 Block-Relativistic RoPE、KV Flush 和 RoPE Cut 三个组件，将仅在5秒视频上训练的自回归视频扩散模型扩展为支持无限时长生成、精细动作控制和电影级场景切换的系统。
 tags:
   - CVPR 2026
+  - 图像生成
   - 自回归视频生成
   - 位置编码
   - 无限长视频

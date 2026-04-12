@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MedGEN-Bench: Contextually Entangled Benchmark for Open-Ended Multimodal Medical Generation 论文解读 | CVPR 2026 | arXiv 2511.13135 | 多模态医学生成 | 提出 MedGEN-Bench，首个面向开放式多模态医学生成的综合基准，包含 6,422 个专家验证的图文对、6 种成像模态、16 个临床任务，配套三层评估框架，揭示了组合框架优于统一模型的跨模态一致性问题。"
+title: >-
+  [论文解读] MedGEN-Bench: Contextually Entangled Benchmark for Open-Ended Multimodal Medical Generation
+description: >-
+  [CVPR 2026][医学图像][多模态医学生成] 提出 MedGEN-Bench，首个面向开放式多模态医学生成的综合基准，包含 6,422 个专家验证的图文对、6 种成像模态、16 个临床任务，配套三层评估框架，揭示了组合框架优于统一模型的跨模态一致性问题。
 tags:
   - CVPR 2026
+  - 医学图像
   - 多模态医学生成
   - 基准测试
   - VLM评估

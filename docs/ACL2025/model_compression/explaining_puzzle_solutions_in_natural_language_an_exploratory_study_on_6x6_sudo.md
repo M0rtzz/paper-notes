@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku 论文解读 | ACL 2025 | arXiv 2505.15993 | 评估 5 个 LLM 在解决和解释 6×6 数独谜题上的能力，发现开源模型几乎无法正确求解（<1%），o1-preview 可解 65% 但其解释在正当性、清晰度和教育价值三个维度上均严重不足，揭示了 LLM 在多步推理解释方面的根本局限。"
+title: >-
+  [论文解读] Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku
+description: >-
+  [ACL 2025][模型压缩] 评估 5 个 LLM 在解决和解释 6×6 数独谜题上的能力，发现开源模型几乎无法正确求解（<1%），o1-preview 可解 65% 但其解释在正当性、清晰度和教育价值三个维度上均严重不足，揭示了 LLM 在多步推理解释方面的根本局限。
 tags:
   - ACL 2025
+  - 模型压缩
 ---
 
 # Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku

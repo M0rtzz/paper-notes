@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models 论文解读 | ICML 2025 | arXiv 2502.20332 | 涌现符号机制 | 本文通过因果分析、表征分析和注意力分析等方法，在13个开源LLM中识别出支持抽象推理的三阶段涌现符号架构——符号抽象头将输入token转化为抽象变量、符号归纳头在抽象变量层面进行序列归纳、检索头根据预测的抽象变量检索对应值来完成下一token预测。"
+title: >-
+  [论文解读] Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models
+description: >-
+  [ICML 2025][LLM/NLP][涌现符号机制] 本文通过因果分析、表征分析和注意力分析等方法，在13个开源LLM中识别出支持抽象推理的三阶段涌现符号架构——符号抽象头将输入token转化为抽象变量、符号归纳头在抽象变量层面进行序列归纳、检索头根据预测的抽象变量检索对应值来完成下一token预测。
 tags:
   - ICML 2025
+  - LLM/NLP
   - 涌现符号机制
   - 抽象推理
   - 机械可解释性

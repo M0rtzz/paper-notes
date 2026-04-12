@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Systematic Generalization in Language Models Scales with Information Entropy 论文解读 | ACL 2025 | arXiv 2505.13089 | 系统泛化 | 本文提出用训练数据中组成部分的信息熵来量化系统泛化难度，实验证明 Transformer/RNN/CNN 等模型在高熵训练数据下即使没有组合先验也能实现 OOD 系统泛化，泛化性能与熵正相关。"
+title: >-
+  [论文解读] Systematic Generalization in Language Models Scales with Information Entropy
+description: >-
+  [ACL 2025][LLM/NLP][系统泛化] 本文提出用训练数据中组成部分的信息熵来量化系统泛化难度，实验证明 Transformer/RNN/CNN 等模型在高熵训练数据下即使没有组合先验也能实现 OOD 系统泛化，泛化性能与熵正相关。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 系统泛化
   - 组合泛化
   - 信息熵

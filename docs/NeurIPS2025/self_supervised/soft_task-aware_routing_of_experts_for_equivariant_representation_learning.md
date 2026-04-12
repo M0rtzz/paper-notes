@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Soft Task-Aware Routing of Experts for Equivariant Representation Learning 论文解读 | NeurIPS 2025 | arXiv 2510.27222 | equivariant representation | 提出 STAR（Soft Task-Aware Routing），通过 MoE 路由机制协调不变性和等变性表示学习任务间的共享与专属信息，减少冗余特征学习，提升下游任务迁移性能。"
+title: >-
+  [论文解读] Soft Task-Aware Routing of Experts for Equivariant Representation Learning
+description: >-
+  [NeurIPS 2025][自监督学习][equivariant representation] 提出 STAR（Soft Task-Aware Routing），通过 MoE 路由机制协调不变性和等变性表示学习任务间的共享与专属信息，减少冗余特征学习，提升下游任务迁移性能。
 tags:
   - NeurIPS 2025
+  - 自监督学习
   - equivariant representation
   - mixture of experts
-  - 自监督学习
   - redundant feature learning
   - routing
 ---

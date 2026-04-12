@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】On the Emergence of Linear Analogies in Word Embeddings 论文解读 | NeurIPS 2025 | arXiv 2505.18651 | 词嵌入 | 提出一个基于二值语义属性的词共现生成模型，解析性地证明了词嵌入中线性类比结构（如 W_king - W_man + W_woman ≈ W_queen）的涌现机制，统一解释了已知的四个关键观测现象。"
+title: >-
+  [论文解读] On the Emergence of Linear Analogies in Word Embeddings
+description: >-
+  [NeurIPS 2025][图像生成][词嵌入] 提出一个基于二值语义属性的词共现生成模型，解析性地证明了词嵌入中线性类比结构（如 $W_{\text{king}} - W_{\text{man}} + W_{\text{woman}} \approx W_{\text{queen}}$）的涌现机制，统一解释了已知的四个关键观测现象。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 词嵌入
   - 线性类比
   - Word2Vec

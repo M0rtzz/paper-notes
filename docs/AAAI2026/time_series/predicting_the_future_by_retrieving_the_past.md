@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Predicting the Future by Retrieving the Past 论文解读 | AAAI 2026 | arXiv 2511.05859 | 检索增强预测 | 提出 PFRP（Predicting the Future by Retrieving the Past），构建全局记忆库(GMB)存储历史模式，通过预测性对比学习训练编码器实现高效检索，将检索到的全局预测与任意局部预测模型动态融合，在 7 个数据集上平均提升 8.4% 的预测性能。"
+title: >-
+  [论文解读] Predicting the Future by Retrieving the Past
+description: >-
+  [AAAI 2026][时间序列][检索增强预测] 提出 PFRP（Predicting the Future by Retrieving the Past），构建全局记忆库(GMB)存储历史模式，通过预测性对比学习训练编码器实现高效检索，将检索到的全局预测与任意局部预测模型动态融合，在 7 个数据集上平均提升 8.4% 的预测性能。
 tags:
   - AAAI 2026
+  - 时间序列
   - 检索增强预测
   - 全局记忆库
   - 对比学习

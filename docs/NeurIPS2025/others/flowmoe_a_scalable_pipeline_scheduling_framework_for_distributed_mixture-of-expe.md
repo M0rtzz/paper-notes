@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FlowMoE: 分布式MoE训练的可扩展流水线调度框架 论文解读 | NeurIPS 2025 | arXiv 2510.00207 | 流水线调度 | 通过统一的流水线调度和优先级驱动的all-reduce张量分块，实现MHA、门控、专家计算和A2A/all-reduce通信的完全重叠，训练时间减少13-57%。"
+title: >-
+  [论文解读] FlowMoE: 分布式MoE训练的可扩展流水线调度框架
+description: >-
+  [NeurIPS 2025][流水线调度] 通过统一的流水线调度和优先级驱动的all-reduce张量分块，实现MHA、门控、专家计算和A2A/all-reduce通信的完全重叠，训练时间减少13-57%。
 tags:
   - NeurIPS 2025
   - 流水线调度

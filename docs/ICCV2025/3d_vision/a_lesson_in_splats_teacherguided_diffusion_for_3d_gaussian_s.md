@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Lesson in Splats: Teacher-Guided Diffusion for 3D Gaussian Splats Generation with 2D Supervision 论文解读 | ICCV 2025 | arXiv 2412.00623 | 3D Gaussian Splatting | 提出一种用2D图像监督训练3D扩散模型的框架：利用预训练的确定性3D重建模型作为\"噪声教师\"生成3D噪声样本，通过多步去噪策略和渲染损失实现跨模态（3D去噪+2D监督）训练，在用更小模型的情况下超越教师模型0.5-0.85 PSNR。"
+title: >-
+  [论文解读] A Lesson in Splats: Teacher-Guided Diffusion for 3D Gaussian Splats Generation with 2D Supervision
+description: >-
+  [ICCV 2025][3D视觉][3D Gaussian Splatting] 提出一种用2D图像监督训练3D扩散模型的框架：利用预训练的确定性3D重建模型作为"噪声教师"生成3D噪声样本，通过多步去噪策略和渲染损失实现跨模态（3D去噪+2D监督）训练，在用更小模型的情况下超越教师模型0.5-0.85 PSNR。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Gaussian Splatting
   - 扩散模型
   - 2D监督

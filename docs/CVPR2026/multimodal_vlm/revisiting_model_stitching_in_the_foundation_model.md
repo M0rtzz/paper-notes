@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Revisiting Model Stitching In the Foundation Model Era 论文解读 | CVPR 2026 | arXiv 2603.12433 | 模型拼接 | 系统研究异质视觉基础模型(CLIP/DINOv2/SigLIP2/DINOv3)之间的\"可拼接性\"，发现通过Final Feature Matching预训练stitch层可实现可靠拼接，且拼接模型一致超越self-stitch基线，并提出VFM Stitch Tree(VST)在仅4.3%额外开销下恢复45%的多VFM性能增益。"
+title: >-
+  [论文解读] Revisiting Model Stitching In the Foundation Model Era
+description: >-
+  [CVPR 2026][多模态][模型拼接] 系统研究异质视觉基础模型(CLIP/DINOv2/SigLIP2/DINOv3)之间的"可拼接性"，发现通过Final Feature Matching预训练stitch层可实现可靠拼接，且拼接模型一致超越self-stitch基线，并提出VFM Stitch Tree(VST)在仅4.3%额外开销下恢复45%的多VFM性能增益。
 tags:
   - CVPR 2026
+  - 多模态
   - 模型拼接
   - 视觉基础模型
   - 表示兼容性

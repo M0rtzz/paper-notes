@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】HAMLET: A Hierarchical and Adaptive Multi-Agent Framework for Live Embodied Theatre 论文解读 | ICLR 2026 | arXiv 2507.15518 | 多智能体框架 | 提出 HAMLET 多智能体框架，将 AI 戏剧创作和在线表演解耦为离线规划和在线表演两阶段，通过叙事蓝图、感知与决策（PAD）模块和层级控制系统，实现了具有主动性、物理环境交互能力和即兴表演自由的 AI 戏剧体验。"
+title: >-
+  [论文解读] HAMLET: A Hierarchical and Adaptive Multi-Agent Framework for Live Embodied Theatre
+description: >-
+  [ICLR 2026][LLM Agent][多智能体框架] 提出 HAMLET 多智能体框架，将 AI 戏剧创作和在线表演解耦为离线规划和在线表演两阶段，通过叙事蓝图、感知与决策（PAD）模块和层级控制系统，实现了具有主动性、物理环境交互能力和即兴表演自由的 AI 戏剧体验。
 tags:
   - ICLR 2026
+  - LLM Agent
   - 多智能体框架
   - 戏剧表演
-  - LLM Agent
   - 感知与决策
   - 交互叙事
 ---

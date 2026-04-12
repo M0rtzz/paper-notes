@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ATEX-CF: Attack-Informed Counterfactual Explanations for Graph Neural Networks 论文解读 | ICLR 2026 | arXiv 2602.06240 | 图神经网络 | 提出 ATEX-CF 框架，首次将对抗攻击的边添加策略与反事实解释的边删除策略统一起来，通过联合优化预测翻转、稀疏性和合理性，为 GNN 生成更忠实、更简洁、更合理的实例级反事实解释。"
+title: >-
+  [论文解读] ATEX-CF: Attack-Informed Counterfactual Explanations for Graph Neural Networks
+description: >-
+  [ICLR 2026][AI安全][图神经网络] 提出 ATEX-CF 框架，首次将对抗攻击的边添加策略与反事实解释的边删除策略统一起来，通过联合优化预测翻转、稀疏性和合理性，为 GNN 生成更忠实、更简洁、更合理的实例级反事实解释。
 tags:
   - ICLR 2026
+  - AI安全
   - 图神经网络
   - 反事实解释
   - 对抗攻击

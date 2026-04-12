@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Variance-Based Pruning for Accelerating and Compressing Trained Networks 论文解读 | 提出基于方差的一次性结构化剪枝方法（VBP），通过移除MLP隐藏层中方差最小的神经元，并将其均值激活补偿到下一层偏置中，以极少微调（10 epoch）即可恢复99%原始精度，同时减少35%计算量和36%参数。"
+title: >-
+  [论文解读] Variance-Based Pruning for Accelerating and Compressing Trained Networks
+description: >-
+  [模型压缩] 提出基于方差的一次性结构化剪枝方法（VBP），通过移除MLP隐藏层中方差最小的神经元，并将其均值激活补偿到下一层偏置中，以极少微调（10 epoch）即可恢复99%原始精度，同时减少35%计算量和36%参数。
 tags:
-
+  - 模型压缩
 ---
 
 # Variance-Based Pruning for Accelerating and Compressing Trained Networks

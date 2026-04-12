@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prune Wisely, Reconstruct Sharply: Compact 3D Gaussian Splatting via Adaptive Pruning and Difference-of-Gaussian Primitives 论文解读 | CVPR 2026 | arXiv 2602.24136 | 3D Gaussian Splatting | 提出自适应重建感知剪枝策略（RPS）和 3D DoG 原语，在保持渲染质量的同时实现 90% 的高斯点裁减。"
+title: >-
+  [论文解读] Prune Wisely, Reconstruct Sharply: Compact 3D Gaussian Splatting via Adaptive Pruning and Difference-of-Gaussian Primitives
+description: >-
+  [CVPR 2026][3D视觉][3D Gaussian Splatting] 提出自适应重建感知剪枝策略（RPS）和 3D DoG 原语，在保持渲染质量的同时实现 90% 的高斯点裁减。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D Gaussian Splatting
   - 模型剪枝
   - Difference-of-Gaussians

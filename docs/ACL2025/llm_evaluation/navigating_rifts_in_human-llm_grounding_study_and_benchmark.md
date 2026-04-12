@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Navigating Rifts in Human-LLM Grounding: Study and Benchmark 论文解读 | ACL2025 | arXiv 2503.13975 | 对话grounding | 系统研究人与 LLM 对话中的 grounding（建立共识）失败问题，发现 LLM 主动澄清的频率仅为人类的 1/3、主动追问的频率仅为 1/16，提出 Rifts 基准（约 1.8K 任务）评测 LLM 的 grounding 能力，并通过 grounding forecaster 实现初步干预。"
+title: >-
+  [论文解读] Navigating Rifts in Human-LLM Grounding: Study and Benchmark
+description: >-
+  [ACL2025][对话grounding] 系统研究人与 LLM 对话中的 grounding（建立共识）失败问题，发现 LLM 主动澄清的频率仅为人类的 1/3、主动追问的频率仅为 1/16，提出 Rifts 基准（约 1.8K 任务）评测 LLM 的 grounding 能力，并通过 grounding forecaster 实现初步干预。
 tags:
   - ACL2025
   - 对话grounding

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Variational Garrote for Sparse Inverse Problems 论文解读 | CVPR 2026 | arXiv 2603.12562 | image_restoration | 在统一的稀疏逆问题框架下，系统比较 ℓ₁ 正则化（LASSO）与 Variational Garrote（VG，一种变分 ℓ₀ 近似方法），通过信号重采样、去噪和稀疏视角 CT 重建三个任务，证明 VG 在强欠定场景下能更准确地恢复稀疏支撑集，获得更低的泛化误差。"
+title: >-
+  [论文解读] Variational Garrote for Sparse Inverse Problems
+description: >-
+  [CVPR 2026][图像恢复][image_restoration] 在统一的稀疏逆问题框架下，系统比较 $\ell_1$ 正则化（LASSO）与 Variational Garrote（VG，一种变分 $\ell_0$ 近似方法），通过信号重采样、去噪和稀疏视角 CT 重建三个任务，证明 VG 在强欠定场景下能更准确地恢复稀疏支撑集，获得更低的泛化误差。
 tags:
   - CVPR 2026
+  - 图像恢复
   - image_restoration
   - sparse_reconstruction
   - variational_inference

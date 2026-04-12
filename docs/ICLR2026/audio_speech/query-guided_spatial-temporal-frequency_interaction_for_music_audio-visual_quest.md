@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Query-Guided Spatial-Temporal-Frequency Interaction for Music Audio-Visual Question Answering 论文解读 | ICLR 2026 | arXiv 2601.19821 | Audio-Visual QA | 提出 QSTar 框架，通过在整个处理流程中嵌入问题引导（Query Guidance），并引入空间-时序-频域三维度交互模块（特别是利用频谱特征区分音色），显著提升了音乐场景下的音频-视觉问答（Music AVQA）性能。"
+title: >-
+  [论文解读] Query-Guided Spatial-Temporal-Frequency Interaction for Music Audio-Visual Question Answering
+description: >-
+  [ICLR 2026][语音][Audio-Visual QA] 提出 QSTar 框架，通过在整个处理流程中嵌入问题引导（Query Guidance），并引入空间-时序-频域三维度交互模块（特别是利用频谱特征区分音色），显著提升了音乐场景下的音频-视觉问答（Music AVQA）性能。
 tags:
   - ICLR 2026
+  - 语音
   - Audio-Visual QA
   - 频域交互
   - Query引导

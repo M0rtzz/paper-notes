@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SpLIP: 通过多模态提示学习提升所有零样本草图检索任务 论文解读 | ECCV2024 | arXiv 2407.04207 | CLIP | 提出 SpLIP，一种基于冻结 CLIP 的双向多模态提示学习框架，通过视觉-文本编码器间的双向知识交换、自适应 margin 的三元组损失和条件跨模态拼图任务，在 ZS-SBIR、GZS-SBIR 和 FG-ZS-SBIR 三种草图检索设定下均取得 SOTA。"
+title: >-
+  [论文解读] SpLIP: 通过多模态提示学习提升所有零样本草图检索任务
+description: >-
+  [ECCV2024][多模态][CLIP] 提出 SpLIP，一种基于冻结 CLIP 的双向多模态提示学习框架，通过视觉-文本编码器间的双向知识交换、自适应 margin 的三元组损失和条件跨模态拼图任务，在 ZS-SBIR、GZS-SBIR 和 FG-ZS-SBIR 三种草图检索设定下均取得 SOTA。
 tags:
   - ECCV2024
+  - 多模态
   - CLIP
   - 草图检索(SBIR)
   - 多模态提示学习

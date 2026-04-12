@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling 论文解读 | ICLR 2026 | arXiv 2509.25827 | 过度思考 | 提出DeCS——通过解耦token级奖励+课程batch调度解决LLM过度思考：理论发现现有长度奖励的两个缺陷(1.错误惩罚有效探索token 2.虚假奖励冗余token)→训练轻量评判模型识别必要推理前缀(NRP)边界→NRP后的token一致惩罚→课程调度控制简单题比例→7个基准推理token减50%+且性能不降甚至提升。"
+title: >-
+  [论文解读] Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling
+description: >-
+  [ICLR 2026][医学图像][过度思考] 提出DeCS——通过解耦token级奖励+课程batch调度解决LLM过度思考：理论发现现有长度奖励的两个缺陷(1.错误惩罚有效探索token 2.虚假奖励冗余token)→训练轻量评判模型识别必要推理前缀(NRP)边界→NRP后的token一致惩罚→课程调度控制简单题比例→7个基准推理token减50%+且性能不降甚至提升。
 tags:
   - ICLR 2026
+  - 医学图像
   - 过度思考
   - 解耦奖励
   - 课程调度

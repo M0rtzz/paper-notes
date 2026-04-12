@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Hot Mess of AI: How Does Misalignment Scale With Model Intelligence and Task Complexity? 论文解读 | ICLR 2026 | arXiv 2601.23045 | 偏差-方差分解 | 将AI模型错误分解为偏差（systematic misalignment）和方差（incoherent behavior），发现：推理越长→越不连贯；更大模型在困难任务上更不连贯。这暗示未来超级AI更可能表现为\"工业事故\"式的不可预测失败，而非一致追求错误目标。"
+title: >-
+  [论文解读] The Hot Mess of AI: How Does Misalignment Scale With Model Intelligence and Task Complexity?
+description: >-
+  [ICLR 2026][偏差-方差分解] 将AI模型错误分解为偏差（systematic misalignment）和方差（incoherent behavior），发现：推理越长→越不连贯；更大模型在困难任务上更不连贯。这暗示未来超级AI更可能表现为"工业事故"式的不可预测失败，而非一致追求错误目标。
 tags:
   - ICLR 2026
   - 偏差-方差分解

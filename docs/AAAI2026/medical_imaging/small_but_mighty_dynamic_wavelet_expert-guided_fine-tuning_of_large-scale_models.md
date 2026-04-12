@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Small but Mighty: Dynamic Wavelet Expert-Guided Fine-Tuning of Large-Scale Models for Optical Remote Sensing Object Segmentation 论文解读 | WEFT 提出了一种基于动态小波专家引导的轻量微调范式，仅需 4.52% 的可训练参数即可将大规模冻结视觉基础模型高效适配到光学遥感图像分割任务，在三个 ORSIs 数据集上超越 21 种 SOTA 方法。"
+title: >-
+  [论文解读] Small but Mighty: Dynamic Wavelet Expert-Guided Fine-Tuning of Large-Scale Models for Optical Remote Sensing Object Segmentation
+description: >-
+  [医学图像] WEFT 提出了一种基于动态小波专家引导的轻量微调范式，仅需 4.52% 的可训练参数即可将大规模冻结视觉基础模型高效适配到光学遥感图像分割任务，在三个 ORSIs 数据集上超越 21 种 SOTA 方法。
 tags:
-
+  - 医学图像
 ---
 
 # Small but Mighty: Dynamic Wavelet Expert-Guided Fine-Tuning of Large-Scale Models for Optical Remote Sensing Object Segmentation

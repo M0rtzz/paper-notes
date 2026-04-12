@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DNCASR: End-to-End Training for Speaker-Attributed ASR 论文解读 | ACL 2025 | arXiv 2506.01916 | speaker-attributed ASR | 提出 DNCASR，一种端到端可训练的说话人归因 ASR 系统，通过链接神经聚类解码器和 ASR 解码器，联合训练生成带说话人标识的转录文本，在 AMI 会议数据上实现 cpWER 9.0% 的相对降低。"
+title: >-
+  [论文解读] DNCASR: End-to-End Training for Speaker-Attributed ASR
+description: >-
+  [ACL 2025][语音][speaker-attributed ASR] 提出 DNCASR，一种端到端可训练的说话人归因 ASR 系统，通过链接神经聚类解码器和 ASR 解码器，联合训练生成带说话人标识的转录文本，在 AMI 会议数据上实现 cpWER 9.0% 的相对降低。
 tags:
   - ACL 2025
+  - 语音
   - speaker-attributed ASR
   - neural clustering
   - end-to-end training

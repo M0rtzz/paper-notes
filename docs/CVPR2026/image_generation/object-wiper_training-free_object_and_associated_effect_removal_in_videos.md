@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Object-WIPER: Training-Free Object and Associated Effect Removal in Videos 论文解读 | CVPR 2026 | arXiv 2601.06391 | 视频物体移除 | 提出 Object-WIPER，首个无训练的视频物体及其关联效应（阴影、反射、镜像等）移除框架，利用 DiT 中的文本-视觉交叉注意力和视觉自注意力定位关联效应区域，通过前景重初始化和注意力缩放实现干净移除，并提出 TokSim 指标和 WIPER-Bench 真实世界基准。"
+title: >-
+  [论文解读] Object-WIPER: Training-Free Object and Associated Effect Removal in Videos
+description: >-
+  [CVPR 2026][图像生成][视频物体移除] 提出 Object-WIPER，首个无训练的视频物体及其关联效应（阴影、反射、镜像等）移除框架，利用 DiT 中的文本-视觉交叉注意力和视觉自注意力定位关联效应区域，通过前景重初始化和注意力缩放实现干净移除，并提出 TokSim 指标和 WIPER-Bench 真实世界基准。
 tags:
   - CVPR 2026
+  - 图像生成
   - 视频物体移除
   - 关联效应
   - 训练免费

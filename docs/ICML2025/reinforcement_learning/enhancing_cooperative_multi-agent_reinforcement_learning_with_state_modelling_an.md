@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enhancing Cooperative Multi-Agent Reinforcement Learning with State Modelling and Adversarial Exploration 论文解读 | ICML 2025 | arXiv 2505.05262 | 多智能体强化学习 | 提出 SMPE² 算法，通过变分推断学习有意义的状态信念表示并结合对抗式内在探索，在部分可观测的合作多智能体环境中显著提升协调能力，在 MPE、LBF、RWARE 三个基准上超越 SOTA。"
+title: >-
+  [论文解读] Enhancing Cooperative Multi-Agent Reinforcement Learning with State Modelling and Adversarial Exploration
+description: >-
+  [ICML 2025][多智能体强化学习] 提出 SMPE² 算法，通过变分推断学习有意义的状态信念表示并结合对抗式内在探索，在部分可观测的合作多智能体环境中显著提升协调能力，在 MPE、LBF、RWARE 三个基准上超越 SOTA。
 tags:
   - ICML 2025
   - 多智能体强化学习

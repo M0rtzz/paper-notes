@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CPM: Class-Conditional Prompting Machine for Audio-Visual Segmentation 论文解读 | ECCV 2024 | arXiv 2407.05358 | 图像分割 Audio-Visual Segmentation | 提出 CPM（Class-conditional Prompting Machine），通过结合类无关查询与基于 GMM 采样的类条件查询来增强 Mask2Former 在音视频分割中的二部图匹配稳定性和跨模态注意力效力，同时设计音频条件提示（ACP）、视觉条件提示（VCP）和提示对比学习（PCL）三个辅助任务，在 AVSBench 和 VPO 基准上达到 SOTA。"
+title: >-
+  [论文解读] CPM: Class-Conditional Prompting Machine for Audio-Visual Segmentation
+description: >-
+  [ECCV 2024][图像分割][图像分割] 提出 CPM（Class-conditional Prompting Machine），通过结合类无关查询与基于 GMM 采样的类条件查询来增强 Mask2Former 在音视频分割中的二部图匹配稳定性和跨模态注意力效力，同时设计音频条件提示（ACP）、视觉条件提示（VCP）和提示对比学习（PCL）三个辅助任务，在 AVSBench 和 VPO 基准上达到 SOTA。
 tags:
   - ECCV 2024
   - 图像分割

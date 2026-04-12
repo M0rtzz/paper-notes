@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AVRobustBench: Benchmarking the Robustness of Audio-Visual Recognition Models at Test-Time 论文解读 | NeurIPS 2025 | arXiv 2506.00358 | 音视频鲁棒性 | 提出 AVRobustBench，首个系统评估音视频模型在 **双模态共现关联腐蚀** 下测试时鲁棒性的基准，包含 4 个数据集 × 75 种腐蚀，并提出基于低熵样本筛选的 TTA 方法 AV2C。"
+title: >-
+  [论文解读] AVRobustBench: Benchmarking the Robustness of Audio-Visual Recognition Models at Test-Time
+description: >-
+  [NeurIPS 2025][语音][音视频鲁棒性] 提出 AVRobustBench，首个系统评估音视频模型在 **双模态共现关联腐蚀** 下测试时鲁棒性的基准，包含 4 个数据集 × 75 种腐蚀，并提出基于低熵样本筛选的 TTA 方法 AV2C。
 tags:
   - NeurIPS 2025
+  - 语音
   - 音视频鲁棒性
   - 分布偏移
   - 测试时适应

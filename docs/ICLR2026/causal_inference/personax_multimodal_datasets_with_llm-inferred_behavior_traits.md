@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】PersonaX: Multimodal Datasets with LLM-Inferred Behavior Traits 论文解读 | ICLR2026 | arXiv 2509.11362 | 多模态 multimodal dataset | 构建了 PersonaX 多模态数据集（含 LLM 推断的 Big Five 行为特质、面部嵌入和传记元数据），并提出两层分析框架：结构化独立性检验 + 非结构化因果表示学习（带可识别性理论保证），揭示跨模态因果结构。"
+title: >-
+  [论文解读] PersonaX: Multimodal Datasets with LLM-Inferred Behavior Traits
+description: >-
+  [ICLR2026][多模态] 构建了 PersonaX 多模态数据集（含 LLM 推断的 Big Five 行为特质、面部嵌入和传记元数据），并提出两层分析框架：结构化独立性检验 + 非结构化因果表示学习（带可识别性理论保证），揭示跨模态因果结构。
 tags:
   - ICLR2026
   - 多模态

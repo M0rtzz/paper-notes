@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FastCAV: Efficient Computation of Concept Activation Vectors for Explaining Deep Neural Networks 论文解读 | ICML2025 | arXiv 2505.17883 | Concept Activation Vectors | 提出 FastCAV，通过计算概念样本激活的归一化均值向量来替代 SVM 训练提取概念激活向量（CAV），在理论上等价于 Fisher 判别分析的简化形式，实测加速高达 63.6 倍（平均 46.4 倍），同时保持与 SVM-CAV 相当的分类精度和下游解释质量。"
+title: >-
+  [论文解读] FastCAV: Efficient Computation of Concept Activation Vectors for Explaining Deep Neural Networks
+description: >-
+  [ICML2025][视频理解][Concept Activation Vectors] 提出 FastCAV，通过计算概念样本激活的归一化均值向量来替代 SVM 训练提取概念激活向量（CAV），在理论上等价于 Fisher 判别分析的简化形式，实测加速高达 63.6 倍（平均 46.4 倍），同时保持与 SVM-CAV 相当的分类精度和下游解释质量。
 tags:
   - ICML2025
+  - 视频理解
   - Concept Activation Vectors
   - Explainability
   - CAV

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving the Variance of Differentially Private Randomized Experiments through Clustering 论文解读 | ICML 2025 | arXiv 2308.00957 | 差分隐私 | 提出 Cluster-DP 机制，利用非敏感的聚类结构信息改善差分隐私随机实验中因果效应估计的隐私-方差权衡，在不牺牲隐私保证的前提下，通过更同质的聚类结构显著降低 ATE 估计的方差损失。"
+title: >-
+  [论文解读] Improving the Variance of Differentially Private Randomized Experiments through Clustering
+description: >-
+  [ICML 2025][AI安全][差分隐私] 提出 Cluster-DP 机制，利用非敏感的聚类结构信息改善差分隐私随机实验中因果效应估计的隐私-方差权衡，在不牺牲隐私保证的前提下，通过更同质的聚类结构显著降低 ATE 估计的方差损失。
 tags:
   - ICML 2025
+  - AI安全
   - 差分隐私
   - 因果推断
   - 随机实验

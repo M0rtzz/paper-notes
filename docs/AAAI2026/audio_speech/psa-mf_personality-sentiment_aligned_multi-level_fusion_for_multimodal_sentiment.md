@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PSA-MF: Personality-Sentiment Aligned Multi-Level Fusion for Multimodal Sentiment Analysis 论文解读 | AAAI2026 | arXiv 2512.01442 | 多模态情感分析 | 首次在多模态情感分析（MSA）中引入预训练人格模型提取个性化情感特征，通过人格-情感对比学习对齐和多层（预融合→交叉模态交互→增强融合）渐进融合架构，在CMU-MOSI和CMU-MOSEI上达到SOTA。"
+title: >-
+  [论文解读] PSA-MF: Personality-Sentiment Aligned Multi-Level Fusion for Multimodal Sentiment Analysis
+description: >-
+  [AAAI2026][语音][多模态情感分析] 首次在多模态情感分析（MSA）中引入预训练人格模型提取个性化情感特征，通过人格-情感对比学习对齐和多层（预融合→交叉模态交互→增强融合）渐进融合架构，在CMU-MOSI和CMU-MOSEI上达到SOTA。
 tags:
   - AAAI2026
+  - 语音
   - 多模态情感分析
   - 人格-情感对齐
   - 多层融合

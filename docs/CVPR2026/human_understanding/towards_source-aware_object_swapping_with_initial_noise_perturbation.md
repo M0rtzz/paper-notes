@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Source-Aware Object Swapping with Initial Noise Perturbation 论文解读 | CVPR 2026 | arXiv 2602.23697 | 物体替换 | 提出 SourceSwap，通过频率分离的初始噪声扰动从单张图像生成高质量伪配对数据，并采用源感知双 U-Net 架构学习跨物体对齐，实现零样本、无逐物体微调的高保真物体替换。"
+title: >-
+  [论文解读] Towards Source-Aware Object Swapping with Initial Noise Perturbation
+description: >-
+  [CVPR 2026][人体理解][物体替换] 提出 SourceSwap，通过频率分离的初始噪声扰动从单张图像生成高质量伪配对数据，并采用源感知双 U-Net 架构学习跨物体对齐，实现零样本、无逐物体微调的高保真物体替换。
 tags:
   - CVPR 2026
+  - 人体理解
   - 物体替换
   - 扩散模型
   - 初始噪声扰动

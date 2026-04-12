@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LEAST: The Courage to Stop — Overcoming Sunk Cost Fallacy in Deep RL 论文解读 | ICML2025 | arXiv 2506.13672 | 沉没成本谬误 | 将\"沉没成本谬误\"概念引入深度RL：传统RL坚持跑完每个episode（即使轨迹已不好），提出LEAST机制——基于Q值和梯度统计判断何时提前终止episode，减少replay buffer污染并节省交互预算。"
+title: >-
+  [论文解读] LEAST: The Courage to Stop — Overcoming Sunk Cost Fallacy in Deep RL
+description: >-
+  [ICML2025][沉没成本谬误] 将"沉没成本谬误"概念引入深度RL：传统RL坚持跑完每个episode（即使轨迹已不好），提出LEAST机制——基于Q值和梯度统计判断何时提前终止episode，减少replay buffer污染并节省交互预算。
 tags:
   - ICML2025
   - 沉没成本谬误

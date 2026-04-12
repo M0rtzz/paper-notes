@@ -1,15 +1,18 @@
+---
+title: >-
+  NeurIPS2025 其他方向 121篇论文解读
+description: >-
+  121篇NeurIPS2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · 共 **122** 篇
+**🧠 NeurIPS2025** · 共 **121** 篇
 
 **[4Dgt Learning A 4D Gaussian Transformer Using Realworld Mono](4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)**
 
 :   提出4DGT——一种基于4D高斯的Transformer模型，完全在真实世界单目带位姿视频上训练，以前馈方式在几秒内完成动态场景重建，显著优于同类前馈网络，并达到与优化类方法可比的精度。
-
-**[A Differentiable Model Of Supply-Chain Shocks](a_differentiable_model_of_supply-chain_shocks.md)**
-
-:   用 JAX 实现可微分的供应链 Agent-Based Model（~1000 家企业），通过 GPU 并行化 + 自动微分实现比传统 ABC 快 3 个数量级的贝叶斯参数校准，为全球供应链网络的冲击传播建模铺平道路。
 
 **[A Generalized Label Shift Perspective For Crossdomain Gaze E](a_generalized_label_shift_perspective_for_crossdomain_gaze_e.md)**
 
@@ -47,7 +50,7 @@
 
 :   提出 Adjoint Schrödinger Bridge Sampler (ASBS)，通过将 Schrödinger Bridge 问题重新解释为随机最优控制问题，消除了先前扩散采样器的 memoryless 条件限制，支持任意源分布（如高斯、谐波先验），使用可扩展的 matching 目标无需重要性权重估计，在多粒子能量函数和分子构象生成上全面超越先前方法。
 
-**[Adjusted Count Quantification Learning on Graphs](adjusted_count_quantification_learning_on_graphs.md)**
+**[Adjusted Count Quantification Learning On Graphs](adjusted_count_quantification_learning_on_graphs.md)**
 
 :   将经典的 Adjusted Classify & Count (ACC) 量化方法扩展到图结构数据，提出结构重要性采样（SIS）和邻域感知ACC两种技术，分别解决图量化中的结构协变量偏移和非同质性边问题。
 
@@ -59,7 +62,7 @@
 
 :   提出Alias-Free ViT，通过两个关键组件实现Vision Transformer对整数和亚像素平移的鲁棒性：(1) 抗混叠下采样和非线性层设计，(2) 基于交叉协方差的线性注意力（shift-equivariant），在图像分类中保持竞争力的同时显著提升对抗性平移鲁棒性。
 
-**[An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
+**[An Empirical Investigation Of Neural Odes And Symbolic Regression For Dynamical ](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
 
 :   本文系统研究了 Neural ODE (NODE) 在含噪合成数据上的外推能力，并探索了将 NODE 作为数据增强工具、与符号回归 (SR) 结合以从有限数据中恢复动力学方程的流水线，结果表明该组合方案能从仅 10% 的仿真数据中恢复三个控制方程中的两个及第三个的良好近似。
 

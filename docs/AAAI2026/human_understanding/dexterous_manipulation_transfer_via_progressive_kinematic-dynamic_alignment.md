@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dexterous Manipulation Transfer via Progressive Kinematic-Dynamic Alignment 论文解读 | AAAI2026 | arXiv 2511.10987 | dexterous manipulation | 提出 PKDA 框架，通过渐进式运动学-动力学对齐，将人手操作视频自动转化为多指灵巧手的高质量操作轨迹，平均迁移成功率达 73%。"
+title: >-
+  [论文解读] Dexterous Manipulation Transfer via Progressive Kinematic-Dynamic Alignment
+description: >-
+  [AAAI2026][人体理解][dexterous manipulation] 提出 PKDA 框架，通过渐进式运动学-动力学对齐，将人手操作视频自动转化为多指灵巧手的高质量操作轨迹，平均迁移成功率达 73%。
 tags:
   - AAAI2026
+  - 人体理解
   - dexterous manipulation
   - motion retargeting
   - 强化学习

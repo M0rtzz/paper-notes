@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Towards Flexible Perception with Visual Memory 论文解读 | ICML2025 | arXiv 2408.08172 | visual memory | 将深度视觉模型的知识表示从\"刻在权重里\"转变为\"存在外部数据库里\"，用预训练编码器 + kNN 检索构建灵活的 Visual Memory，实现数据的即插即拔（添加/删除/扩展）和可解释分类，ImageNet 上达到 88.5% top-1 准确率。"
+title: >-
+  [论文解读] Towards Flexible Perception with Visual Memory
+description: >-
+  [ICML2025][visual memory] 将深度视觉模型的知识表示从"刻在权重里"转变为"存在外部数据库里"，用预训练编码器 + kNN 检索构建灵活的 Visual Memory，实现数据的即插即拔（添加/删除/扩展）和可解释分类，ImageNet 上达到 88.5% top-1 准确率。
 tags:
   - ICML2025
   - visual memory

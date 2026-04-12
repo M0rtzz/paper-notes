@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PVChat: Personalized Video Chat with One-Shot Learning 论文解读 | ICCV 2025 | arXiv 2503.17069 | personalized video LLM | 提出 PVChat，首个支持从单个参考视频进行个性化主体学习的视频大语言模型，通过 ReLU 路由混合注意力头（ReMoH）机制、系统化的数据增强管道和渐进式图像到视频训练策略，实现身份感知的视频问答，在医疗、电视剧、动漫等多种场景中超越现有 SOTA ViLLM。"
+title: >-
+  [论文解读] PVChat: Personalized Video Chat with One-Shot Learning
+description: >-
+  [ICCV 2025][医学图像][personalized video LLM] 提出 PVChat，首个支持从单个参考视频进行个性化主体学习的视频大语言模型，通过 ReLU 路由混合注意力头（ReMoH）机制、系统化的数据增强管道和渐进式图像到视频训练策略，实现身份感知的视频问答，在医疗、电视剧、动漫等多种场景中超越现有 SOTA ViLLM。
 tags:
   - ICCV 2025
+  - 医学图像
   - personalized video LLM
   - one-shot learning
   - mixture-of-heads

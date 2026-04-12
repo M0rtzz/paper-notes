@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoralReason: Generalizable Moral Decision Alignment For LLM Agents Using Reasoning-Level Reinforcement Learning 论文解读 | AAAI 2026 | arXiv 2511.12271 | 道德对齐 | 使用Group Relative Policy Optimization (GRPO)在推理层面训练LLM进行道德框架对齐，在Moral-Reason-QA数据集（680个高歧义场景）上实现功利主义对齐分数从0.207提升到0.964的分布外泛化。"
+title: >-
+  [论文解读] MoralReason: Generalizable Moral Decision Alignment For LLM Agents Using Reasoning-Level Reinforcement Learning
+description: >-
+  [AAAI 2026][LLM Agent][道德对齐] 使用Group Relative Policy Optimization (GRPO)在推理层面训练LLM进行道德框架对齐，在Moral-Reason-QA数据集（680个高歧义场景）上实现功利主义对齐分数从0.207提升到0.964的分布外泛化。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 道德对齐
   - GRPO
   - 推理级强化学习

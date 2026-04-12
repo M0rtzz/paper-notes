@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees 论文解读 | NeurIPS 2025 | arXiv 2408.08533 | 自监督学习 | 提出 Adv-SSL，通过将协方差正则项的 Frobenius 范数重写为 minimax 对偶形式，消除了 Barlow Twins 等方法中样本级风险的有偏估计问题，在不增加额外计算成本的前提下显著提升下游分类性能，并给出端到端的理论收敛保证。"
+title: >-
+  [论文解读] Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees
+description: >-
+  [NeurIPS 2025][自监督学习][自监督学习] 提出 Adv-SSL，通过将协方差正则项的 Frobenius 范数重写为 minimax 对偶形式，消除了 Barlow Twins 等方法中样本级风险的有偏估计问题，在不增加额外计算成本的前提下显著提升下游分类性能，并给出端到端的理论收敛保证。
 tags:
   - NeurIPS 2025
   - 自监督学习

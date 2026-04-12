@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding 论文解读 | CVPR 2026 | arXiv 2603.12514 | 腹部创伤检测 | 在仅206例标注CT中，通过patch-based MIM预训练3D U-Net + VDETR顶点RPE + 半监督一致性正则化的两阶段框架，将3D创伤检测mAP@0.50从26.36%提升至56.57%（验证集），同时冻结编码器的7类分类达94.07%准确率。"
+title: >-
+  [论文解读] Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding
+description: >-
+  [CVPR 2026][医学图像][腹部创伤检测] 在仅206例标注CT中，通过patch-based MIM预训练3D U-Net + VDETR顶点RPE + 半监督一致性正则化的两阶段框架，将3D创伤检测mAP@0.50从26.36%提升至56.57%（验证集），同时冻结编码器的7类分类达94.07%准确率。
 tags:
   - CVPR 2026
+  - 医学图像
   - 腹部创伤检测
   - MIM预训练
   - 半监督学习

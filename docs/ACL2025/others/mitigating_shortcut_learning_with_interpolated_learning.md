@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】InterpoLL: Mitigating Shortcut Learning with InterpoLated Learning 论文解读 | ACL 2025 | arXiv 2507.05527 | shortcut learning | 提出 InterpoLL，通过将多数样本的表征与同类少数样本的表征做插值 zᵢ = (1-λ)f_enc(xᵢ) + λ f_enc(xⱼ) 来弱化捷径特征影响，在 MNLI/FEVER/QQP 等 NLU 任务上少数样本泛化显著超越 ERM 和 SOTA 捷径缓解方法，且不损失多数样本准确率。"
+title: >-
+  [论文解读] InterpoLL: Mitigating Shortcut Learning with InterpoLated Learning
+description: >-
+  [ACL 2025][shortcut learning] 提出 InterpoLL，通过将多数样本的表征与同类少数样本的表征做插值 $z_i = (1-\lambda)f_{enc}(x_i) + \lambda f_{enc}(x_j)$ 来弱化捷径特征影响，在 MNLI/FEVER/QQP 等 NLU 任务上少数样本泛化显著超越 ERM 和 SOTA 捷径缓解方法，且不损失多数样本准确率。
 tags:
   - ACL 2025
   - shortcut learning

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Conditional Probability Framework for Compositional Zero-shot Learning 论文解读 | ICCV 2025 | arXiv 2507.17377 | 组合零样本学习 | 本文提出条件概率框架CPF，将组合零样本学习中的组合似然分解为物体似然和条件属性似然，通过文本增强的物体学习和物体引导的属性学习模块显式建模属性-物体的语义约束和上下文依赖，在UT-Zappos50K上AUC提升17.9%，在MIT-States上Unseen Accuracy提升5.5%。"
+title: >-
+  [论文解读] A Conditional Probability Framework for Compositional Zero-shot Learning
+description: >-
+  [ICCV 2025][组合零样本学习] 本文提出条件概率框架CPF，将组合零样本学习中的组合似然分解为物体似然和条件属性似然，通过文本增强的物体学习和物体引导的属性学习模块显式建模属性-物体的语义约束和上下文依赖，在UT-Zappos50K上AUC提升17.9%，在MIT-States上Unseen Accuracy提升5.5%。
 tags:
   - ICCV 2025
   - 组合零样本学习

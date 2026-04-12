@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Group Orthogonal Low-Rank Adaptation for RGB-T Tracking 论文解读 | AAAI 2026 | arXiv 2512.05359 | RGB-T跟踪 | 提出 GOLA 框架，通过 SVD 分解量化 LoRA 秩重要性、冻结关键秩保留预训练先验、将冗余秩分组并施加组间正交约束，实现更高效的 RGB-T 跟踪适配。"
+title: >-
+  [论文解读] Group Orthogonal Low-Rank Adaptation for RGB-T Tracking
+description: >-
+  [AAAI 2026][视频理解][RGB-T跟踪] 提出 GOLA 框架，通过 SVD 分解量化 LoRA 秩重要性、冻结关键秩保留预训练先验、将冗余秩分组并施加组间正交约束，实现更高效的 RGB-T 跟踪适配。
 tags:
   - AAAI 2026
+  - 视频理解
   - RGB-T跟踪
   - LoRA
   - 低秩适配

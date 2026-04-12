@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】What Layers When: Learning to Skip Compute in LLMs with Residual Gates 论文解读 | ICLR 2026 | arXiv 2510.13876 | 残差门控 | 提出GateSkip——在每个Attention/MLP分支输出添加sigmoid-linear门控→训练门控学习token级重要性→推理时按门控值排序跳过低重要性token→在指令微调模型上全计算提升精度+50%计算节省仍匹配基线→可与量化/剪枝/推测解码组合→门控分析揭示Transformer信息流(BOS token=锚点)。"
+title: >-
+  [论文解读] What Layers When: Learning to Skip Compute in LLMs with Residual Gates
+description: >-
+  [ICLR 2026][目标检测][残差门控] 提出GateSkip——在每个Attention/MLP分支输出添加sigmoid-linear门控→训练门控学习token级重要性→推理时按门控值排序跳过低重要性token→在指令微调模型上全计算提升精度+50%计算节省仍匹配基线→可与量化/剪枝/推测解码组合→门控分析揭示Transformer信息流(BOS token=锚点)。
 tags:
   - ICLR 2026
+  - 目标检测
   - 残差门控
   - token级层跳过
   - 自适应深度

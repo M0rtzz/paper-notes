@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoExplorer: Active Geo-Localization with Curiosity-Driven Exploration 论文解读 | ICCV 2025 | arXiv 2508.00152 | 主动地理定位 | 提出 GeoExplorer，一个结合目标导向和好奇心驱动内在奖励的主动地理定位（AGL）智能体，通过联合动作-状态动力学建模和好奇心探索实现更鲁棒的 UAV 搜索策略，在未知目标和环境中展现出优越的泛化能力。"
+title: >-
+  [论文解读] GeoExplorer: Active Geo-Localization with Curiosity-Driven Exploration
+description: >-
+  [ICCV 2025][遥感][主动地理定位] 提出 GeoExplorer，一个结合目标导向和好奇心驱动内在奖励的主动地理定位（AGL）智能体，通过联合动作-状态动力学建模和好奇心探索实现更鲁棒的 UAV 搜索策略，在未知目标和环境中展现出优越的泛化能力。
 tags:
   - ICCV 2025
+  - 遥感
   - 主动地理定位
   - 好奇心驱动探索
   - 强化学习

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GuessArena: Guess Who I Am? A Self-Adaptive Framework for Evaluating LLMs in Domain-Specific Knowledge and Reasoning 论文解读 | ACL 2025 | arXiv 2505.22661 | LLM评估 | 提出 GuessArena，一种基于\"猜猜我是谁\"博弈游戏的自适应 LLM 评估框架，通过领域知识建模和多轮交互推理，在五个垂直行业中有效区分模型的领域知识和推理能力。"
+title: >-
+  [论文解读] GuessArena: Guess Who I Am? A Self-Adaptive Framework for Evaluating LLMs in Domain-Specific Knowledge and Reasoning
+description: >-
+  [ACL 2025][LLM评估] 提出 GuessArena，一种基于"猜猜我是谁"博弈游戏的自适应 LLM 评估框架，通过领域知识建模和多轮交互推理，在五个垂直行业中有效区分模型的领域知识和推理能力。
 tags:
   - ACL 2025
   - LLM评估

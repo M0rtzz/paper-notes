@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Adaptive Graph Mixture of Models 论文解读 | AAAI 2026 | arXiv 2511.13062 | Mixture of Experts | 提出 SAGMM 框架，通过拓扑感知注意力门控机制（TAAG）自动选择和组合来自异构 GNN 专家池（GCN/GAT/GraphSAGE 等）的输出，并引入自适应专家剪枝策略，在 16 个基准数据集上的节点分类、图分类、回归和链接预测任务中全面超越单一 GNN 和现有 MoE 方法。"
+title: >-
+  [论文解读] Self-Adaptive Graph Mixture of Models
+description: >-
+  [AAAI 2026][图学习][Mixture of Experts] 提出 SAGMM 框架，通过拓扑感知注意力门控机制（TAAG）自动选择和组合来自异构 GNN 专家池（GCN/GAT/GraphSAGE 等）的输出，并引入自适应专家剪枝策略，在 16 个基准数据集上的节点分类、图分类、回归和链接预测任务中全面超越单一 GNN 和现有 MoE 方法。
 tags:
   - AAAI 2026
+  - 图学习
   - Mixture of Experts
   - 图神经网络
   - 拓扑感知门控

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Visual Cues Enhance Predictive Turn-Taking for Two-Party Human Interaction 论文解读 | ACL 2025 | arXiv 2505.21043 | 话轮转换预测 | 提出 MM-VAP 多模态话轮转换预测模型，结合语音与面部表情、头部姿态、注视方向等视觉线索，在视频会议对话中以 84% 平衡准确率显著优于纯语音 SOTA 模型的 79%，并首次按转换沉默时长分析性能。"
+title: >-
+  [论文解读] Visual Cues Enhance Predictive Turn-Taking for Two-Party Human Interaction
+description: >-
+  [ACL 2025][话轮转换预测] 提出 MM-VAP 多模态话轮转换预测模型，结合语音与面部表情、头部姿态、注视方向等视觉线索，在视频会议对话中以 84% 平衡准确率显著优于纯语音 SOTA 模型的 79%，并首次按转换沉默时长分析性能。
 tags:
   - ACL 2025
   - 话轮转换预测

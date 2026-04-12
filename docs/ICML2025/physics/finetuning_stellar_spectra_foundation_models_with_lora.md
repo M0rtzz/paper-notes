@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Finetuning Stellar Spectra Foundation Models with LoRA 论文解读 | ICML2025 | arXiv 2507.20972 | 恒星光谱 | 首次将LoRA应用于恒星光谱学：在SpecCLIP基础模型（LAMOST+Gaia XP对比预训练）上用LoRA微调适配DESI光谱，实现少样本跨巡天恒星参数估计。"
+title: >-
+  [论文解读] Finetuning Stellar Spectra Foundation Models with LoRA
+description: >-
+  [ICML2025][恒星光谱] 首次将LoRA应用于恒星光谱学：在SpecCLIP基础模型（LAMOST+Gaia XP对比预训练）上用LoRA微调适配DESI光谱，实现少样本跨巡天恒星参数估计。
 tags:
   - ICML2025
   - 恒星光谱

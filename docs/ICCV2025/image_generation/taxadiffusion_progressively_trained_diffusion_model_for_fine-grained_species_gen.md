@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TaxaDiffusion: Progressively Trained Diffusion Model for Fine-Grained Species Generation 论文解读 | ICCV 2025 | arXiv 2506.01923 | 分类学引导 | TaxaDiffusion 利用生物分类学的层级结构（Kingdom→Phylum→Class→Order→Family→Genus→Species）渐进式训练扩散模型，从高层共有特征逐步细化到物种级别的细微差异，实现了高精度的细粒度动物图像生成，在 FishNet 数据集上 FID 降至 31.87（vs LoRA 的 43.91），BioCLIP 对齐分数提升 37%，且对样本极少（甚至仅 1 张）的稀有物种同样有效。"
+title: >-
+  [论文解读] TaxaDiffusion: Progressively Trained Diffusion Model for Fine-Grained Species Generation
+description: >-
+  [ICCV 2025][图像生成][分类学引导] TaxaDiffusion 利用生物分类学的层级结构（Kingdom→Phylum→Class→Order→Family→Genus→Species）渐进式训练扩散模型，从高层共有特征逐步细化到物种级别的细微差异，实现了高精度的细粒度动物图像生成，在 FishNet 数据集上 FID 降至 31.87（vs LoRA 的 43.91），BioCLIP 对齐分数提升 37%，且对样本极少（甚至仅 1 张）的稀有物种同样有效。
 tags:
   - ICCV 2025
+  - 图像生成
   - 分类学引导
   - 渐进式训练
   - 细粒度物种生成

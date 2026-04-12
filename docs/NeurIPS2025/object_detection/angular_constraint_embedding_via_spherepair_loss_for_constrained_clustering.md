@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Angular Constraint Embedding via SpherePair Loss for Constrained Clustering 论文解读 | NeurIPS 2025 | arXiv 2510.06907 | constrained clustering | 提出 SpherePair loss，在角度空间（而非欧氏空间）中学习约束聚类的表示，通过余弦相似度编码 pairwise 约束，避免了端到端 DCC 方法对 anchor 的依赖和欧氏嵌入中正负对距离平衡的困难，无需预知聚类数目即可实现 SOTA 的约束聚类性能。"
+title: >-
+  [论文解读] Angular Constraint Embedding via SpherePair Loss for Constrained Clustering
+description: >-
+  [NeurIPS 2025][目标检测][constrained clustering] 提出 SpherePair loss，在角度空间（而非欧氏空间）中学习约束聚类的表示，通过余弦相似度编码 pairwise 约束，避免了端到端 DCC 方法对 anchor 的依赖和欧氏嵌入中正负对距离平衡的困难，无需预知聚类数目即可实现 SOTA 的约束聚类性能。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - constrained clustering
   - angular embedding
   - pairwise constraints

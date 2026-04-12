@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ScaleBiO: Scalable Bilevel Optimization for LLM Data Reweighting 论文解读 | ACL 2025 | arXiv 2406.19976 | bilevel optimization | ScaleBiO 提出基于罚函数重构的全一阶双层优化算法，首次将双层优化应用于 30B+ 参数 LLM 的数据源重加权，在 Qwen-2.5-32B 上实现 GSM8K +9%、MATH +5.8% 的提升。"
+title: >-
+  [论文解读] ScaleBiO: Scalable Bilevel Optimization for LLM Data Reweighting
+description: >-
+  [ACL 2025][优化][bilevel optimization] ScaleBiO 提出基于罚函数重构的全一阶双层优化算法，首次将双层优化应用于 30B+ 参数 LLM 的数据源重加权，在 Qwen-2.5-32B 上实现 GSM8K +9%、MATH +5.8% 的提升。
 tags:
   - ACL 2025
+  - 优化
   - bilevel optimization
   - data reweighting
   - LLM training

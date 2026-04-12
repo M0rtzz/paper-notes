@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM-AT: Automatic Transmission for LLM Tiers Optimizing Cost and Accuracy 论文解读 | ACL 2025 | arXiv 2505.20921 | LLM分层 | 提出 LLM-AT（LLM Automatic Transmission）框架——无需训练即可动态选择 LLM 层级，Starter 通过准确率估计器选择初始层级，Generator 生成回答，Judge 评估有效性，无效则自动升级到更高层级，在不同难度任务上平衡准确率和成本，比始终用顶级模型更高效。"
+title: >-
+  [论文解读] LLM-AT: Automatic Transmission for LLM Tiers Optimizing Cost and Accuracy
+description: >-
+  [ACL 2025][LLM/NLP][LLM分层] 提出 LLM-AT（LLM Automatic Transmission）框架——无需训练即可动态选择 LLM 层级，Starter 通过准确率估计器选择初始层级，Generator 生成回答，Judge 评估有效性，无效则自动升级到更高层级，在不同难度任务上平衡准确率和成本，比始终用顶级模型更高效。
 tags:
   - ACL 2025
+  - LLM/NLP
   - LLM分层
   - 模型选择
   - 成本优化

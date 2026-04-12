@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Graph-Structured Trajectory Extraction from Travelogues 论文解读 | ACL 2025 | arXiv 2410.16633 | 轨迹提取 | 提出使用图结构（而非序列）表示旅行轨迹，构建了包含地理层级关系（inclusion）和时间顺序关系（transition）的访问顺序图，并建立了日语游记轨迹提取的基准数据集ATD-VSO。"
+title: >-
+  [论文解读] Graph-Structured Trajectory Extraction from Travelogues
+description: >-
+  [ACL 2025][轨迹提取] 提出使用图结构（而非序列）表示旅行轨迹，构建了包含地理层级关系（inclusion）和时间顺序关系（transition）的访问顺序图，并建立了日语游记轨迹提取的基准数据集ATD-VSO。
 tags:
   - ACL 2025
   - 轨迹提取

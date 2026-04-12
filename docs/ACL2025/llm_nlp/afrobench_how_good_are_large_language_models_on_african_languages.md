@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AfroBench: How Good Are Large Language Models on African Languages? 论文解读 | ACL 2025 | arXiv 2311.07978 | 非洲语言 | 构建 AfroBench——首个大规模非洲语言 LLM 多任务评测基准，覆盖 64 种非洲语言、15 个任务、22 个数据集（9 NLU + 6 生成 + 6 知识QA + 1 数学推理），系统对比提示式 LLM 与微调 BERT/T5 基线，发现非洲语言与英语之间存在巨大性能差距，且性能与单语资源可用性密切相关。"
+title: >-
+  [论文解读] AfroBench: How Good Are Large Language Models on African Languages?
+description: >-
+  [ACL 2025][LLM/NLP][非洲语言] 构建 AfroBench——首个大规模非洲语言 LLM 多任务评测基准，覆盖 64 种非洲语言、15 个任务、22 个数据集（9 NLU + 6 生成 + 6 知识QA + 1 数学推理），系统对比提示式 LLM 与微调 BERT/T5 基线，发现非洲语言与英语之间存在巨大性能差距，且性能与单语资源可用性密切相关。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 非洲语言
   - LLM评估
   - 多任务基准

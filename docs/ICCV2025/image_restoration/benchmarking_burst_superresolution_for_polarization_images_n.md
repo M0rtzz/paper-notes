@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis 论文解读 | ICCV 2025 | arXiv 2503.18705 | 偏振成像 | 针对偏振相机\"光效低、分辨率低、噪声大\"的硬件瓶颈，构建了两个专用数据集（PolarNS用于噪声统计分析，PolarBurstSR用于burst超分的训练/评测），提出偏振噪声传播分析模型，并将5种SOTA burst超分方法适配到偏振域，证明偏振专用训练在强度图(s0)和偏振角(AoLP)重建上显著优于RGB通用训练。"
+title: >-
+  [论文解读] Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis
+description: >-
+  [ICCV 2025][图像恢复][偏振成像] 针对偏振相机"光效低、分辨率低、噪声大"的硬件瓶颈，构建了两个专用数据集（PolarNS用于噪声统计分析，PolarBurstSR用于burst超分的训练/评测），提出偏振噪声传播分析模型，并将5种SOTA burst超分方法适配到偏振域，证明偏振专用训练在强度图(s0)和偏振角(AoLP)重建上显著优于RGB通用训练。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 偏振成像
   - Burst超分辨率
   - 噪声建模

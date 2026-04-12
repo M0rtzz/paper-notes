@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Maximal Matching Matters: Preventing Representation Collapse for Robust Cross-Modal Retrieval 论文解读 | ACL 2025 | arXiv 2506.21538 | 跨模态检索 | 提出 MaxMatch 方法，通过基于匈牙利算法的最大配对相似度和两个新损失函数，解决集合嵌入方法中的稀疏监督和集合坍塌问题，在 MS-COCO 和 Flickr30k 上取得 SOTA 性能。"
+title: >-
+  [论文解读] Maximal Matching Matters: Preventing Representation Collapse for Robust Cross-Modal Retrieval
+description: >-
+  [ACL 2025][跨模态检索] 提出 MaxMatch 方法，通过基于匈牙利算法的最大配对相似度和两个新损失函数，解决集合嵌入方法中的稀疏监督和集合坍塌问题，在 MS-COCO 和 Flickr30k 上取得 SOTA 性能。
 tags:
   - ACL 2025
   - 跨模态检索

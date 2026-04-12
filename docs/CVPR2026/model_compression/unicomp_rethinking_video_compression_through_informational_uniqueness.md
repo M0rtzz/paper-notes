@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniComp: Rethinking Video Compression Through Informational Uniqueness 论文解读 | CVPR 2026 | arXiv 2512.03575 | 视觉token压缩 | 提出基于信息唯一性（而非注意力）的视频 token 压缩框架 UniComp，通过帧组融合、token 分配和空间动态压缩三个模块在时序-空间-全局维度上最大化保留唯一信息，在仅保留 10% token 时仍能超越未压缩基线性能。"
+title: >-
+  [论文解读] UniComp: Rethinking Video Compression Through Informational Uniqueness
+description: >-
+  [CVPR 2026][模型压缩][视觉token压缩] 提出基于信息唯一性（而非注意力）的视频 token 压缩框架 UniComp，通过帧组融合、token 分配和空间动态压缩三个模块在时序-空间-全局维度上最大化保留唯一信息，在仅保留 10% token 时仍能超越未压缩基线性能。
 tags:
   - CVPR 2026
+  - 模型压缩
   - 视觉token压缩
   - 信息唯一性
   - 视频理解

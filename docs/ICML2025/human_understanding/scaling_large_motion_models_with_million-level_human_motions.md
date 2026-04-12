@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scaling Large Motion Models with Million-Level Human Motions 论文解读 | ICML 2025 | arXiv 2410.03311 | 本文提出 MotionLib（首个百万级运动数据集，120 万条序列）、MotionBook（无损特征 + 2D 无查找运动分词器）和 Being-M0（大型运动模型），首次在运动生成领域展示了数据和模型规模的 scaling law。"
+title: >-
+  [论文解读] Scaling Large Motion Models with Million-Level Human Motions
+description: >-
+  [ICML 2025][人体理解] 本文提出 MotionLib（首个百万级运动数据集，120 万条序列）、MotionBook（无损特征 + 2D 无查找运动分词器）和 Being-M0（大型运动模型），首次在运动生成领域展示了数据和模型规模的 scaling law。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # Scaling Large Motion Models with Million-Level Human Motions

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RollingQ: Reviving the Cooperation Dynamics in Multimodal Transformer 论文解读 | ICML2025 | arXiv 2506.11465 | 多模态融合 | 揭示多模态 Transformer 中自注意力机制因\"自增强循环\"导致动态适应性失效（偏向单一模态），并提出 RollingQ 算法通过旋转 query 向量打破这一循环，恢复跨模态协作动态。"
+title: >-
+  [论文解读] RollingQ: Reviving the Cooperation Dynamics in Multimodal Transformer
+description: >-
+  [ICML2025][多模态][多模态融合] 揭示多模态 Transformer 中自注意力机制因"自增强循环"导致动态适应性失效（偏向单一模态），并提出 RollingQ 算法通过旋转 query 向量打破这一循环，恢复跨模态协作动态。
 tags:
   - ICML2025
+  - 多模态
   - 多模态融合
   - 注意力机制
   - 模态偏置

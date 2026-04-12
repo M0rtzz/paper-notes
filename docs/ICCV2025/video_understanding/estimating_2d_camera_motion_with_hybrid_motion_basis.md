@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Estimating 2D Camera Motion with Hybrid Motion Basis 论文解读 | ICCV 2025 | arXiv 2507.22480 | 相机运动估计 | 提出 CamFlow，通过混合运动基（12 个物理基 + 随机噪声基）表示复杂的 2D 相机运动，揭示了多个单应性流场叠加的非线性特性，结合基于 Laplace 分布的概率损失函数，在标准和跨数据集零样本条件下均大幅超越现有单应性和 meshflow 方法。"
+title: >-
+  [论文解读] Estimating 2D Camera Motion with Hybrid Motion Basis
+description: >-
+  [ICCV 2025][视频理解][相机运动估计] 提出 CamFlow，通过混合运动基（12 个物理基 + 随机噪声基）表示复杂的 2D 相机运动，揭示了多个单应性流场叠加的非线性特性，结合基于 Laplace 分布的概率损失函数，在标准和跨数据集零样本条件下均大幅超越现有单应性和 meshflow 方法。
 tags:
   - ICCV 2025
+  - 视频理解
   - 相机运动估计
   - 单应性
   - 运动基

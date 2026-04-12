@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Representation Learning for Spatiotemporal Physical Systems 论文解读 | CVPR 2026 | arXiv 2603.13227 | JEPA | 在三个 PDE 物理系统上系统对比 JEPA、VideoMAE、自回归基础模型(MPP)和算子学习(DISCO) 四种范式，发现隐空间预测目标(JEPA)在物理参数估计下游任务上全面优于像素级预测方法，MSE 相对改善 28-51%，且数据效率更高。"
+title: >-
+  [论文解读] Representation Learning for Spatiotemporal Physical Systems
+description: >-
+  [CVPR 2026][自监督学习][JEPA] 在三个 PDE 物理系统上系统对比 JEPA、VideoMAE、自回归基础模型(MPP)和算子学习(DISCO) 四种范式，发现隐空间预测目标(JEPA)在物理参数估计下游任务上全面优于像素级预测方法，MSE 相对改善 28-51%，且数据效率更高。
 tags:
   - CVPR 2026
+  - 自监督学习
   - JEPA
   - 物理系统
   - 表示学习

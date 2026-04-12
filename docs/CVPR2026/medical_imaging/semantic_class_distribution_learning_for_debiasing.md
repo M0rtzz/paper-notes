@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation 论文解读 | CVPR 2026 | arXiv 2603.05202 | 半监督分割 | 提出即插即用的SCDL框架，通过学习类条件代理分布(双向对齐CDBA)+语义锚约束(SAC)来消除半监督医学图像分割中的长尾偏差，在AMOS 5%标签下DSC提升+11.62%。"
+title: >-
+  [论文解读] Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation
+description: >-
+  [CVPR 2026][医学图像][半监督分割] 提出即插即用的SCDL框架，通过学习类条件代理分布(双向对齐CDBA)+语义锚约束(SAC)来消除半监督医学图像分割中的长尾偏差，在AMOS 5%标签下DSC提升+11.62%。
 tags:
   - CVPR 2026
+  - 医学图像
   - 半监督分割
   - 类别不平衡
   - 分布学习

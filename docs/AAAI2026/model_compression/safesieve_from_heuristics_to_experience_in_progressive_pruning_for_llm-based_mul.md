@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication 论文解读 | AAAI 2026 | arXiv 2508.11733 | 多智能体系统 | 提出SafeSieve，一种渐进式自适应多智能体通信剪枝框架，通过语义启发初始化→历史反馈驱动的双阶段边评分和0-extension聚类机制，在6个基准上实现94.01%平均准确率同时减少12.4%-27.8% token消耗，并展现出对prompt注入攻击的天然鲁棒性。"
+title: >-
+  [论文解读] SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication
+description: >-
+  [AAAI 2026][模型压缩][多智能体系统] 提出SafeSieve，一种渐进式自适应多智能体通信剪枝框架，通过语义启发初始化→历史反馈驱动的双阶段边评分和0-extension聚类机制，在6个基准上实现94.01%平均准确率同时减少12.4%-27.8% token消耗，并展现出对prompt注入攻击的天然鲁棒性。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 多智能体系统
   - 通信剪枝
   - 0-extension聚类

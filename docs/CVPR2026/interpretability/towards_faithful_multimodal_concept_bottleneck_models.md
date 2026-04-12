@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Towards Faithful Multimodal Concept Bottleneck Models 论文解读 | CVPR 2026 | arXiv 2603.13163 | 概念瓶颈模型 | 提出f-CBM——首个忠实的多模态概念瓶颈模型框架，通过可微分泄漏损失减少概念表示中的非预期信息泄漏，同时用Kolmogorov-Arnold Network (KAN) 预测头提升概念检测精度，在任务准确率、概念检测和泄漏减少间取得最优Pareto前沿。"
+title: >-
+  [论文解读] Towards Faithful Multimodal Concept Bottleneck Models
+description: >-
+  [CVPR 2026][概念瓶颈模型] 提出f-CBM——首个忠实的多模态概念瓶颈模型框架，通过可微分泄漏损失减少概念表示中的非预期信息泄漏，同时用Kolmogorov-Arnold Network (KAN) 预测头提升概念检测精度，在任务准确率、概念检测和泄漏减少间取得最优Pareto前沿。
 tags:
   - CVPR 2026
   - 概念瓶颈模型

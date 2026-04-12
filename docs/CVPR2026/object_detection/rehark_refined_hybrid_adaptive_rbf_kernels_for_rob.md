@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation 论文解读 | CVPR 2026 | arXiv 2603.11542 | CLIP适应 | 提出ReHARK——一个训练免的CLIP one-shot适应框架，通过融合CLIP文本知识、GPT3语义描述和视觉原型构建混合先验，结合多尺度RBF核在RKHS中做全局近端正则化，在11个基准上以65.83%平均准确率刷新one-shot SOTA。"
+title: >-
+  [论文解读] ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation
+description: >-
+  [CVPR 2026][目标检测][CLIP适应] 提出ReHARK——一个训练免的CLIP one-shot适应框架，通过融合CLIP文本知识、GPT3语义描述和视觉原型构建混合先验，结合多尺度RBF核在RKHS中做全局近端正则化，在11个基准上以65.83%平均准确率刷新one-shot SOTA。
 tags:
   - CVPR 2026
+  - 目标检测
   - CLIP适应
   - one-shot学习
   - 核岭回归

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AHAMask: Reliable Task Specification for Large Audio Language Models without Instructions 论文解读 | AAAI 2026 | arXiv 2509.01787 | 大音频语言模型 | 通过对大音频语言模型（LALM）Transformer 骨干中的注意力头进行二值掩码（AHAMask），无需文本指令即可可靠触发特定声学任务功能，同时揭示了 LALM 内部存在\"声学功能通路\"。"
+title: >-
+  [论文解读] AHAMask: Reliable Task Specification for Large Audio Language Models without Instructions
+description: >-
+  [AAAI 2026][语音][大音频语言模型] 通过对大音频语言模型（LALM）Transformer 骨干中的注意力头进行二值掩码（AHAMask），无需文本指令即可可靠触发特定声学任务功能，同时揭示了 LALM 内部存在"声学功能通路"。
 tags:
   - AAAI 2026
+  - 语音
   - 大音频语言模型
   - 注意力头掩码
   - 提示敏感性

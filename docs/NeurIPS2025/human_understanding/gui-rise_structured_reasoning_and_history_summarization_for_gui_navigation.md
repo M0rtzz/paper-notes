@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GUI-Rise: Structured Reasoning and History Summarization for GUI Navigation 论文解读 | NeurIPS 2025 | arXiv 2510.27210 | GUI Navigation | 提出 GUI-Rise 框架，通过结构化推理（进度估计 + 决策推理）、动作预测和历史摘要三个子任务的联合设计，结合 GRPO 强化学习与历史摘要奖励，显著提升 GUI 导航智能体在跨域场景下的泛化能力。"
+title: >-
+  [论文解读] GUI-Rise: Structured Reasoning and History Summarization for GUI Navigation
+description: >-
+  [NeurIPS 2025][人体理解][GUI Navigation] 提出 GUI-Rise 框架，通过结构化推理（进度估计 + 决策推理）、动作预测和历史摘要三个子任务的联合设计，结合 GRPO 强化学习与历史摘要奖励，显著提升 GUI 导航智能体在跨域场景下的泛化能力。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - GUI Navigation
   - Structured Reasoning
   - History Summarization

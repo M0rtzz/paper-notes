@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RefLoRA: Refactored Low-Rank Adaptation for Efficient Fine-Tuning of Large Models 论文解读 | NeurIPS 2025 | arXiv 2505.18877 | LoRA | RefLoRA 通过在每次迭代中选择最优的低秩分解形式（最小化损失上界），解决了 LoRA 因分解不唯一性导致的权重更新不一致和不平衡问题，在几乎不增加计算开销的前提下加速收敛并提升微调性能。"
+title: >-
+  [论文解读] RefLoRA: Refactored Low-Rank Adaptation for Efficient Fine-Tuning of Large Models
+description: >-
+  [NeurIPS 2025][模型压缩][LoRA] RefLoRA 通过在每次迭代中选择最优的低秩分解形式（最小化损失上界），解决了 LoRA 因分解不唯一性导致的权重更新不一致和不平衡问题，在几乎不增加计算开销的前提下加速收敛并提升微调性能。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - LoRA
   - 参数高效微调
   - 低秩分解

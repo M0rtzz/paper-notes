@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Generalization of Depth Estimation Foundation Model via Weakly-Supervised Adaptation with Regularization 论文解读 | AAAI 2026 | arXiv 2511.14238 | 单目深度估计 | 提出 WeSTAR 框架，通过语义感知的分层归一化自训练 + 稀疏成对序数弱监督 + LoRA 权重正则化三者协同，以参数高效的方式提升深度估计基础模型（Depth Anything V2）在未见域和损坏数据上的泛化能力，在多个 OOD 基准上达到 SOTA。"
+title: >-
+  [论文解读] Enhancing Generalization of Depth Estimation Foundation Model via Weakly-Supervised Adaptation with Regularization
+description: >-
+  [AAAI 2026][3D视觉][单目深度估计] 提出 WeSTAR 框架，通过语义感知的分层归一化自训练 + 稀疏成对序数弱监督 + LoRA 权重正则化三者协同，以参数高效的方式提升深度估计基础模型（Depth Anything V2）在未见域和损坏数据上的泛化能力，在多个 OOD 基准上达到 SOTA。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 单目深度估计
   - 域自适应
   - 弱监督

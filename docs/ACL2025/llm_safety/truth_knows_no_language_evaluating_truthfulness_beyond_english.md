@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Truth Knows No Language: Evaluating Truthfulness Beyond English 论文解读 | ACL 2025 | arXiv 2502.09387 | 真实性评估 | 构建首个专业翻译的多语言 TruthfulQA 基准（巴斯克语、加泰罗尼亚语、加利西亚语、西班牙语），发现 LLM 的跨语言真实性差异小于预期，且 LLM-as-a-Judge 比多选题指标更贴合人类判断。"
+title: >-
+  [论文解读] Truth Knows No Language: Evaluating Truthfulness Beyond English
+description: >-
+  [ACL 2025][真实性评估] 构建首个专业翻译的多语言 TruthfulQA 基准（巴斯克语、加泰罗尼亚语、加利西亚语、西班牙语），发现 LLM 的跨语言真实性差异小于预期，且 LLM-as-a-Judge 比多选题指标更贴合人类判断。
 tags:
   - ACL 2025
   - 真实性评估

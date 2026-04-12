@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ZeroTuning: Unlocking the Initial Token's Power to Enhance Large Language Models Without Training 论文解读 | 提出 ZeroTuning，仅需对初始 token（如 `<BOS>`）的注意力分数进行头部特异性缩放，即可在无训练情况下提升 LLM 在 15 个数据集上的表现，仅需修改 4 行代码。"
+title: >-
+  [论文解读] ZeroTuning: Unlocking the Initial Token's Power to Enhance Large Language Models Without Training
+description: >-
+   提出 ZeroTuning，仅需对初始 token（如 `<BOS>`）的注意力分数进行头部特异性缩放，即可在无训练情况下提升 LLM 在 15 个数据集上的表现，仅需修改 4 行代码。
 tags:
 
 ---

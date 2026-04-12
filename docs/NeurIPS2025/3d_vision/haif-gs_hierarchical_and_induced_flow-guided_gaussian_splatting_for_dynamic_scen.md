@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HAIF-GS: Hierarchical and Induced Flow-Guided Gaussian Splatting for Dynamic Scene 论文解读 | NeurIPS 2025 | arXiv 2506.09518 | 动态场景重建 | HAIF-GS 提出基于稀疏运动锚点的动态 3DGS 框架，通过锚点过滤器区分动静区域、自监督诱导场景流引导时序一致变形、以及分层锚点加密捕捉精细非刚性运动，在 NeRF-DS 和 D-NeRF 基准上取得 SOTA 渲染质量。"
+title: >-
+  [论文解读] HAIF-GS: Hierarchical and Induced Flow-Guided Gaussian Splatting for Dynamic Scene
+description: >-
+  [NeurIPS 2025][3D视觉][动态场景重建] HAIF-GS 提出基于稀疏运动锚点的动态 3DGS 框架，通过锚点过滤器区分动静区域、自监督诱导场景流引导时序一致变形、以及分层锚点加密捕捉精细非刚性运动，在 NeRF-DS 和 D-NeRF 基准上取得 SOTA 渲染质量。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 动态场景重建
   - 3D高斯溅射
   - 运动锚点

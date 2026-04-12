@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Theoretical Analysis of Detecting Large Model-Generated Time Series 论文解读 | AAAI 2026 | arXiv 2511.07104 | 时间序列大模型 | 首次研究时间序列大模型（TSLM）生成内容的检测问题——提出收缩假说（Contraction Hypothesis）：TSLM 生成的时间序列在递归预测下不确定性逐渐降低（分布越来越集中），而真实序列不会。基于此提出白盒检测器 UCE（Uncertainty Contraction Estimator），在 32 个数据集上超越 SOTA 基线。"
+title: >-
+  [论文解读] A Theoretical Analysis of Detecting Large Model-Generated Time Series
+description: >-
+  [AAAI 2026][目标检测][时间序列大模型] 首次研究时间序列大模型（TSLM）生成内容的检测问题——提出收缩假说（Contraction Hypothesis）：TSLM 生成的时间序列在递归预测下不确定性逐渐降低（分布越来越集中），而真实序列不会。基于此提出白盒检测器 UCE（Uncertainty Contraction Estimator），在 32 个数据集上超越 SOTA 基线。
 tags:
   - AAAI 2026
+  - 目标检测
   - 时间序列大模型
   - 生成检测
   - 不确定性收缩

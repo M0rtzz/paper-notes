@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Byte Latent Transformer: Patches Scale Better Than Tokens 论文解读 | ACL 2025 (Outstanding Paper) | arXiv 2412.09871 | 字节级模型 | Meta FAIR提出BLT——首个在大规模（8B参数/4T字节）上匹配基于tokenizer的LLM性能的字节级架构，通过基于下一字节熵的动态分组（patching）将字节聚合为可变长度patch，在保持性能的同时实现最高50%推理FLOP节省，并开辟了\"同时增大模型和patch尺寸\"的全新scaling维度。"
+title: >-
+  [论文解读] Byte Latent Transformer: Patches Scale Better Than Tokens
+description: >-
+  [ACL 2025 (Outstanding Paper)][字节级模型] Meta FAIR提出BLT——首个在大规模（8B参数/4T字节）上匹配基于tokenizer的LLM性能的字节级架构，通过基于下一字节熵的动态分组（patching）将字节聚合为可变长度patch，在保持性能的同时实现最高50%推理FLOP节省，并开辟了"同时增大模型和patch尺寸"的全新scaling维度。
 tags:
   - ACL 2025 (Outstanding Paper)
   - 字节级模型

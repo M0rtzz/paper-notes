@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Culture is Not Trivia: Sociocultural Theory for Cultural NLP 论文解读 | ACL 2025 | arXiv 2502.12057 | cultural NLP | 提出基于社会文化理论的文化 NLP 框架，批判现有将文化简化为\"常识琐事\"的做法，主张文化应被理解为动态的、情境化的社会建构过程，而非静态的知识标签。"
+title: >-
+  [论文解读] Culture is Not Trivia: Sociocultural Theory for Cultural NLP
+description: >-
+  [ACL 2025][LLM/NLP][cultural NLP] 提出基于社会文化理论的文化 NLP 框架，批判现有将文化简化为"常识琐事"的做法，主张文化应被理解为动态的、情境化的社会建构过程，而非静态的知识标签。
 tags:
   - ACL 2025
+  - LLM/NLP
   - cultural NLP
   - sociocultural theory
   - cultural values

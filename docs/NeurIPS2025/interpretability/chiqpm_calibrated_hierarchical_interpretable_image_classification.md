@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] CHiQPM: Calibrated Hierarchical Interpretable Image Classification
+description: >-
+  [NeurIPS 2025][可解释机器学习] CHiQPM 提出一种校准的层次化可解释图像分类方法，通过二次规划选择和分配特征给类别，构建层次化解释路径，并内置可解释的 Conformal Prediction 集合预测，在保持黑盒模型 99% 准确率的同时提供全局和局部可解释性。
+tags:
+  - NeurIPS 2025
+  - 可解释机器学习
+  - 层次化解释
+  - Conformal Prediction
+  - 图像分类
+  - 人机互补
+---
+
 # CHiQPM: Calibrated Hierarchical Interpretable Image Classification
 
 **会议**: NeurIPS 2025  

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TalkSketch: Multimodal Generative AI for Real-time Sketch Ideation with Speech 论文解读 | AAAI 2026 | arXiv 2511.05817 | 多模态交互 | 提出TalkSketch系统，将手绘草图与实时语音输入相结合，嵌入多模态AI聊天机器人，使设计师在早期构思阶段能够边画边说、流畅地与AI协作，解决了现有GenAI工具中文字提示打断创作流程的问题。"
+title: >-
+  [论文解读] TalkSketch: Multimodal Generative AI for Real-time Sketch Ideation with Speech
+description: >-
+  [AAAI 2026][人体理解][多模态交互] 提出TalkSketch系统，将手绘草图与实时语音输入相结合，嵌入多模态AI聊天机器人，使设计师在早期构思阶段能够边画边说、流畅地与AI协作，解决了现有GenAI工具中文字提示打断创作流程的问题。
 tags:
   - AAAI 2026
+  - 人体理解
   - 多模态交互
   - 草图设计
   - 语音输入

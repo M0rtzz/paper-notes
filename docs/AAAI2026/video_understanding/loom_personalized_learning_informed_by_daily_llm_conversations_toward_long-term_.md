@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LOOM: Personalized Learning Informed by Daily LLM Conversations Toward Long-Term Mastery via a Dynamic Learner Memory Graph 论文解读 | AAAI 2026 | arXiv 2511.21037 | 个性化学习 | 提出 LOOM，一个智能体管线系统，通过观察用户日常 LLM 对话、推断学习需求、维护动态学习者记忆图（Learner Memory Graph），自动生成个性化的迷你课程，统一了学习的**连续性**（长期进度追踪）和**主动性**（即时响应新兴趣）。"
+title: >-
+  [论文解读] LOOM: Personalized Learning Informed by Daily LLM Conversations Toward Long-Term Mastery via a Dynamic Learner Memory Graph
+description: >-
+  [AAAI 2026][视频理解][个性化学习] 提出 LOOM，一个智能体管线系统，通过观察用户日常 LLM 对话、推断学习需求、维护动态学习者记忆图（Learner Memory Graph），自动生成个性化的迷你课程，统一了学习的**连续性**（长期进度追踪）和**主动性**（即时响应新兴趣）。
 tags:
   - AAAI 2026
+  - 视频理解
   - 个性化学习
   - LLM对话
   - 学习者记忆图

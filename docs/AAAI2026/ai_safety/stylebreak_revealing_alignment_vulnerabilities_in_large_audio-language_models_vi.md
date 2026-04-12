@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】StyleBreak: Revealing Alignment Vulnerabilities in Large Audio-Language Models via Style-Aware Audio Jailbreak 论文解读 | AAAI 2026 | arXiv 2511.10692 | 音频越狱 | 提出 StyleBreak，首个基于语音风格的音频越狱框架，通过两阶段风格感知变换管道和查询自适应策略网络，系统研究语言学、副语言学和超语言学属性对 LAM 对齐鲁棒性的影响，在多种攻击范式下将 ASR 提升 7.1%-22.3%。"
+title: >-
+  [论文解读] StyleBreak: Revealing Alignment Vulnerabilities in Large Audio-Language Models via Style-Aware Audio Jailbreak
+description: >-
+  [AAAI 2026][AI安全][音频越狱] 提出 StyleBreak，首个基于语音风格的音频越狱框架，通过两阶段风格感知变换管道和查询自适应策略网络，系统研究语言学、副语言学和超语言学属性对 LAM 对齐鲁棒性的影响，在多种攻击范式下将 ASR 提升 7.1%-22.3%。
 tags:
   - AAAI 2026
+  - AI安全
   - 音频越狱
   - 大型音频语言模型
   - 对齐鲁棒性

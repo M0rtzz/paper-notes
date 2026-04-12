@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LayerAnimate: Layer-level Control for Animation 论文解读 | ICCV 2025 | arXiv 2501.08295 | 动画视频生成 | 提出LayerAnimate框架，将传统动画生产中的图层分离理念与视频扩散模型结合，实现图层级别的精细控制（运动分数、轨迹、草图），并设计自动化数据策划pipeline解决图层数据稀缺问题，在6种视频生成任务中全面超越现有方法。"
+title: >-
+  [论文解读] LayerAnimate: Layer-level Control for Animation
+description: >-
+  [ICCV 2025][图像分割][动画视频生成] 提出LayerAnimate框架，将传统动画生产中的图层分离理念与视频扩散模型结合，实现图层级别的精细控制（运动分数、轨迹、草图），并设计自动化数据策划pipeline解决图层数据稀缺问题，在6种视频生成任务中全面超越现有方法。
 tags:
   - ICCV 2025
+  - 图像分割
   - 动画视频生成
   - 图层控制
   - 视频扩散模型

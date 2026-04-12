@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond the Golden Data: Resolving the Motion-Vision Quality Dilemma via Timestep Selective Training 论文解读 | CVPR 2026 | arXiv 2603.25527 | 视频扩散模型 | 发现视频数据中运动质量（MQ）和视觉质量（VQ）呈负相关的\"Motion-Vision Quality Dilemma\"，通过梯度分析揭示不平衡数据在适当时间步可产生等效学习信号，提出TQD框架使仅用不平衡数据训练即可超越黄金数据训练。"
+title: >-
+  [论文解读] Beyond the Golden Data: Resolving the Motion-Vision Quality Dilemma via Timestep Selective Training
+description: >-
+  [CVPR 2026][图像生成][视频扩散模型] 发现视频数据中运动质量（MQ）和视觉质量（VQ）呈负相关的"Motion-Vision Quality Dilemma"，通过梯度分析揭示不平衡数据在适当时间步可产生等效学习信号，提出TQD框架使仅用不平衡数据训练即可超越黄金数据训练。
 tags:
   - CVPR 2026
+  - 图像生成
   - 视频扩散模型
   - 数据质量困境
   - 时间步选择训练

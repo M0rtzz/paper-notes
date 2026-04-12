@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AIR-Bench: Automated Heterogeneous Information Retrieval Benchmark 论文解读 | ACL 2025 | arXiv 2412.13102 | 信息检索基准 | 提出 AIR-Bench——首个自动化、异构、动态的信息检索评测基准，通过 LLM 自动从真实语料生成高质量测试数据（三阶段管线：语料准备→候选生成→质量控制），覆盖 2 类任务、9 个领域、13 种语言共 69 个数据集，与人工标注数据高度一致，且持续动态更新避免数据泄露。"
+title: >-
+  [论文解读] AIR-Bench: Automated Heterogeneous Information Retrieval Benchmark
+description: >-
+  [ACL 2025][信息检索基准] 提出 AIR-Bench——首个自动化、异构、动态的信息检索评测基准，通过 LLM 自动从真实语料生成高质量测试数据（三阶段管线：语料准备→候选生成→质量控制），覆盖 2 类任务、9 个领域、13 种语言共 69 个数据集，与人工标注数据高度一致，且持续动态更新避免数据泄露。
 tags:
   - ACL 2025
   - 信息检索基准

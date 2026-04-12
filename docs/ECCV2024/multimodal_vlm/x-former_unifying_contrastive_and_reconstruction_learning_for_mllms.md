@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】X-Former: Unifying Contrastive and Reconstruction Learning for MLLMs 论文解读 | ECCV 2024 | arXiv 2407.13851 | 多模态大语言模型 | 提出X-Former，一个轻量级Transformer模块，通过双交叉注意力机制融合CLIP-ViT（对比学习）和MAE-ViT（掩码图像建模）的互补视觉特征，在仅使用1/10数据量的情况下显著超越BLIP-2在细粒度视觉理解任务上的表现。"
+title: >-
+  [论文解读] X-Former: Unifying Contrastive and Reconstruction Learning for MLLMs
+description: >-
+  [ECCV 2024][多模态][多模态大语言模型] 提出X-Former，一个轻量级Transformer模块，通过双交叉注意力机制融合CLIP-ViT（对比学习）和MAE-ViT（掩码图像建模）的互补视觉特征，在仅使用1/10数据量的情况下显著超越BLIP-2在细粒度视觉理解任务上的表现。
 tags:
   - ECCV 2024
+  - 多模态
   - 多模态大语言模型
   - 对比学习
   - 掩码图像建模

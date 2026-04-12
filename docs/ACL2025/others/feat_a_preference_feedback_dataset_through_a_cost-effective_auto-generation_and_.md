@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FEAT: A Preference Feedback Dataset through a Cost-Effective Auto-Generation and Labeling Framework for English AI Tutoring 论文解读 | ACL 2025 | arXiv 2506.19325 | AI Tutoring | 提出 FEAT 框架，通过 LLM 自动生成和标注教师反馈偏好数据集用于英语辅导系统，发现仅混入 5-10% 人工标注数据就能超越 100% 人工数据的排序性能。"
+title: >-
+  [论文解读] FEAT: A Preference Feedback Dataset through a Cost-Effective Auto-Generation and Labeling Framework for English AI Tutoring
+description: >-
+  [ACL 2025][AI Tutoring] 提出 FEAT 框架，通过 LLM 自动生成和标注教师反馈偏好数据集用于英语辅导系统，发现仅混入 5-10% 人工标注数据就能超越 100% 人工数据的排序性能。
 tags:
   - ACL 2025
   - AI Tutoring

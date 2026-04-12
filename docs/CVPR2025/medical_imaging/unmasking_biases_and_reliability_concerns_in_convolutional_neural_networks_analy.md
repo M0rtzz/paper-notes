@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unmasking Biases and Reliability Concerns in Convolutional Neural Networks Analysis of Cancer Pathology Images 论文解读 | CVPR 2025 | arXiv 2603.12445 | CNN | 通过从 13 个癌症病理基准数据集的图像背景区域（不含临床信息的 20×20 像素裁剪）训练 CNN，发现分类准确率远高于随机猜测（最高 93%），揭示了 CNN 可能依赖数据集偏差而非真正的病理特征来做出诊断判断。"
+title: >-
+  [论文解读] Unmasking Biases and Reliability Concerns in Convolutional Neural Networks Analysis of Cancer Pathology Images
+description: >-
+  [CVPR 2025][医学图像][CNN] 通过从 13 个癌症病理基准数据集的图像背景区域（不含临床信息的 20×20 像素裁剪）训练 CNN，发现分类准确率远高于随机猜测（最高 93%），揭示了 CNN 可能依赖数据集偏差而非真正的病理特征来做出诊断判断。
 tags:
   - CVPR 2025
+  - 医学图像
   - CNN
   - 数据集偏差
   - 癌症病理

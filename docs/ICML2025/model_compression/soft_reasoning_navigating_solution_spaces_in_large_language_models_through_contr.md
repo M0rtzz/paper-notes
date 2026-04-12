@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Soft Reasoning: Navigating Solution Spaces in Large Language Models through Controlled Embedding Exploration 论文解读 | ICML 2025 | arXiv 2505.24688 | 嵌入扰动 | 本文提出 Soft Reasoning，通过在首个生成 token 的 embedding 空间注入高斯扰动并用贝叶斯优化搜索最优扰动向量，以黑盒方式引导 LLM 在推理过程中探索更优的解空间，无需访问模型参数或额外验证器，在数学推理等任务上以极低计算开销超越 temperature scaling 和 Best-of-N 等基线。"
+title: >-
+  [论文解读] Soft Reasoning: Navigating Solution Spaces in Large Language Models through Controlled Embedding Exploration
+description: >-
+  [ICML 2025][模型压缩][嵌入扰动] 本文提出 Soft Reasoning，通过在首个生成 token 的 embedding 空间注入高斯扰动并用贝叶斯优化搜索最优扰动向量，以黑盒方式引导 LLM 在推理过程中探索更优的解空间，无需访问模型参数或额外验证器，在数学推理等任务上以极低计算开销超越 temperature scaling 和 Best-of-N 等基线。
 tags:
   - ICML 2025
+  - 模型压缩
   - 嵌入扰动
   - 贝叶斯优化
   - 解码策略

@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】Know Thyself by Knowing Others: Learning Neuron Identity from Population Context 论文解读 | NeurIPS 2025 | arXiv 2512.01199 | 神经元身份 | 提出NuCLR自监督框架，通过对比学习对群体神经活动中同一神经元的不同时间窗口拉近、不同神经元推远，学习包含群体上下文的神经元级表征，在细胞类型和脑区解码上达到新SOTA，并首次展示了跨动物零样本泛化和数据缩放规律。"
+title: >-
+  [论文解读] Know Thyself by Knowing Others: Learning Neuron Identity from Population Context
+description: >-
+  [NeurIPS 2025][自监督学习][神经元身份] 提出NuCLR自监督框架，通过对比学习对群体神经活动中同一神经元的不同时间窗口拉近、不同神经元推远，学习包含群体上下文的神经元级表征，在细胞类型和脑区解码上达到新SOTA，并首次展示了跨动物零样本泛化和数据缩放规律。
 tags:
   - NeurIPS 2025
-  - 神经元身份
   - 自监督学习
+  - 神经元身份
   - 对比学习
   - Transformer
   - 细胞类型解码

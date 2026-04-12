@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Universal Offline Black-Box Optimization via Learning Language Model Embeddings 论文解读 | ICML2025 | arXiv 2506.07109 | 黑盒优化 | 探索用语言模型嵌入实现通用离线黑盒优化(BBO)：将异构数值参数token化为字符串后用LM编码，提出端到端(next-token prediction)和潜在空间学习两种范式，在多域离线BBO任务上验证了跨域泛化能力。"
+title: >-
+  [论文解读] Towards Universal Offline Black-Box Optimization via Learning Language Model Embeddings
+description: >-
+  [ICML2025][LLM/NLP][黑盒优化] 探索用语言模型嵌入实现通用离线黑盒优化(BBO)：将异构数值参数token化为字符串后用LM编码，提出端到端(next-token prediction)和潜在空间学习两种范式，在多域离线BBO任务上验证了跨域泛化能力。
 tags:
   - ICML2025
+  - LLM/NLP
   - 黑盒优化
   - 离线优化
   - 语言模型嵌入

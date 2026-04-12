@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Lipschitz Bandits with Stochastic Delayed Feedback 论文解读 | ICLR 2026 | arXiv 2510.00309 | Lipschitz bandit | 首次研究连续臂空间的Lipschitz bandit问题在随机延迟反馈下的学习——对有界延迟提出延迟感知zooming算法保持最优遗憾率仅多加性τ_max项，对无界延迟提出分阶段学习策略DLPP并证明近最优遗憾下界，两者均通过\"lazy update\"机制处理延迟观测对置信半径的非平凡影响。"
+title: >-
+  [论文解读] Lipschitz Bandits with Stochastic Delayed Feedback
+description: >-
+  [ICLR 2026][Lipschitz bandit] 首次研究连续臂空间的Lipschitz bandit问题在随机延迟反馈下的学习——对有界延迟提出延迟感知zooming算法保持最优遗憾率仅多加性τ_max项，对无界延迟提出分阶段学习策略DLPP并证明近最优遗憾下界，两者均通过"lazy update"机制处理延迟观测对置信半径的非平凡影响。
 tags:
   - ICLR 2026
   - Lipschitz bandit

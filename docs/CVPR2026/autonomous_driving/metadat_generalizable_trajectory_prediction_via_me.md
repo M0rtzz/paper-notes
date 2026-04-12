@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MetaDAT: Generalizable Trajectory Prediction via Meta Pre-training and Data-Adaptive Test-Time Updating 论文解读 | CVPR 2026 | arXiv 2603.09419 | 测试时训练 | 提出MetaDAT框架，通过元学习预训练获得适合在线适应的模型初始化，并在测试时采用动态学习率优化和困难样本驱动更新来实现跨数据集分布偏移下的轨迹预测自适应，在nuScenes/Lyft/Waymo多种跨域配置下全面超越现有TTT方法。"
+title: >-
+  [论文解读] MetaDAT: Generalizable Trajectory Prediction via Meta Pre-training and Data-Adaptive Test-Time Updating
+description: >-
+  [CVPR 2026][自动驾驶][测试时训练] 提出MetaDAT框架，通过元学习预训练获得适合在线适应的模型初始化，并在测试时采用动态学习率优化和困难样本驱动更新来实现跨数据集分布偏移下的轨迹预测自适应，在nuScenes/Lyft/Waymo多种跨域配置下全面超越现有TTT方法。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 测试时训练
   - 元学习
   - 轨迹预测

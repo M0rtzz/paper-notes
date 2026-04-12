@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unable to Forget: Proactive Interference Reveals Working Memory Limits in LLMs Beyond Context Length 论文解读 | ICML 2025 | arXiv 2506.08184 | 前摄干扰 | 借鉴认知科学中的前摄干扰（Proactive Interference）范式，发现LLM的信息检索准确率随干扰信息量呈对数线性下降至零，揭示了一种独立于上下文长度的\"工作记忆\"容量瓶颈，且提示工程无法有效缓解。"
+title: >-
+  [论文解读] Unable to Forget: Proactive Interference Reveals Working Memory Limits in LLMs Beyond Context Length
+description: >-
+  [ICML 2025][机器人][前摄干扰] 借鉴认知科学中的前摄干扰（Proactive Interference）范式，发现LLM的信息检索准确率随干扰信息量呈对数线性下降至零，揭示了一种独立于上下文长度的"工作记忆"容量瓶颈，且提示工程无法有效缓解。
 tags:
   - ICML 2025
+  - 机器人
   - 前摄干扰
   - 工作记忆
   - 信息检索

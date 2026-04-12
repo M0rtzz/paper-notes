@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations 论文解读 | ICML2025 | arXiv 2505.23014 | 图神经网络 | 将消息传递建模为双曲偏微分方程组，证明节点特征的解空间由拉普拉斯矩阵的特征向量张成，从而将拓扑结构信息内嵌到节点表示中，并通过多项式近似建立与谱 GNN 的桥梁以增强其性能。"
+title: >-
+  [论文解读] Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations
+description: >-
+  [ICML2025][图学习][图神经网络] 将消息传递建模为双曲偏微分方程组，证明节点特征的解空间由拉普拉斯矩阵的特征向量张成，从而将拓扑结构信息内嵌到节点表示中，并通过多项式近似建立与谱 GNN 的桥梁以增强其性能。
 tags:
   - ICML2025
+  - 图学习
   - 图神经网络
   - 双曲偏微分方程
   - 谱图卷积

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】OmniDiff: A Comprehensive Benchmark for Fine-grained Image Difference Captioning 论文解读 | ICCV 2025 | arXiv 2503.11093 | 图像差异描述 | 提出包含324个多样场景（真实+3D合成）的细粒度图像差异描述数据集 OmniDiff，并设计即插即用的多尺度差异感知（MDP）模块嵌入 MLLM 构建 M3Diff 模型，在 OmniDiff 及多个公开基准上取得 SOTA。"
+title: >-
+  [论文解读] OmniDiff: A Comprehensive Benchmark for Fine-grained Image Difference Captioning
+description: >-
+  [ICCV 2025][图像差异描述] 提出包含324个多样场景（真实+3D合成）的细粒度图像差异描述数据集 OmniDiff，并设计即插即用的多尺度差异感知（MDP）模块嵌入 MLLM 构建 M3Diff 模型，在 OmniDiff 及多个公开基准上取得 SOTA。
 tags:
   - ICCV 2025
   - 图像差异描述

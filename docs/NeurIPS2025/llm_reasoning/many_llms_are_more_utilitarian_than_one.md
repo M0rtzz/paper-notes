@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Many LLMs Are More Utilitarian Than One 论文解读 | NeurIPS 2025 | arXiv 2507.00814 | multi-agent systems | 在6个LLM上实验发现，多智能体集体讨论道德困境时会产生与人类群体类似的\"功利主义增强\"（Utilitarian Boost）——集体比个体更倾向接受为\"多数人利益\"伤害少数人，但LLM产生此效应的机制与人类不同（人类因结果敏感度增强，LLM则因规范敏感度降低或公正性增强等多种模式），且可通过模型异质性和提示多样性缓解。"
+title: >-
+  [论文解读] Many LLMs Are More Utilitarian Than One
+description: >-
+  [NeurIPS 2025][LLM推理][multi-agent systems] 在6个LLM上实验发现，多智能体集体讨论道德困境时会产生与人类群体类似的"功利主义增强"（Utilitarian Boost）——集体比个体更倾向接受为"多数人利益"伤害少数人，但LLM产生此效应的机制与人类不同（人类因结果敏感度增强，LLM则因规范敏感度降低或公正性增强等多种模式），且可通过模型异质性和提示多样性缓解。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - multi-agent systems
   - moral reasoning
   - utilitarian boost

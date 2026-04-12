@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Length-Adaptive Interest Network for Balancing Long and Short Sequence Modeling in CTR Prediction 论文解读 | AAAI 2026 | arXiv 2601.19142 | CTR预测 | 提出LAIN框架，通过将序列长度作为显式条件信号注入CTR模型，缓解长序列用户与短序列用户之间的性能不均衡问题，包含谱长度编码器、长度条件提示和长度调制注意力三个轻量级即插即用模块。"
+title: >-
+  [论文解读] Length-Adaptive Interest Network for Balancing Long and Short Sequence Modeling in CTR Prediction
+description: >-
+  [AAAI 2026][CTR预测] 提出LAIN框架，通过将序列长度作为显式条件信号注入CTR模型，缓解长序列用户与短序列用户之间的性能不均衡问题，包含谱长度编码器、长度条件提示和长度调制注意力三个轻量级即插即用模块。
 tags:
   - AAAI 2026
   - CTR预测

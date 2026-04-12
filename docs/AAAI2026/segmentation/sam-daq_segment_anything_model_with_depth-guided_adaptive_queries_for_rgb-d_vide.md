@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAM-DAQ: Segment Anything Model with Depth-guided Adaptive Queries for RGB-D Video Salient Object Detection 论文解读 | AAAI 2026 | arXiv 2511.09870 | SAM2 | 提出 SAM-DAQ，通过深度引导并行适配器（DPA）和查询驱动时序记忆（QTM）模块将 SAM2 适配到 RGB-D 视频显著性检测任务，解决了手动提示依赖、高显存消耗和计算负担三大挑战。"
+title: >-
+  [论文解读] SAM-DAQ: Segment Anything Model with Depth-guided Adaptive Queries for RGB-D Video Salient Object Detection
+description: >-
+  [AAAI 2026][图像分割][SAM2] 提出 SAM-DAQ，通过深度引导并行适配器（DPA）和查询驱动时序记忆（QTM）模块将 SAM2 适配到 RGB-D 视频显著性检测任务，解决了手动提示依赖、高显存消耗和计算负担三大挑战。
 tags:
   - AAAI 2026
+  - 图像分割
   - SAM2
   - RGB-D显著性检测
   - 视频理解

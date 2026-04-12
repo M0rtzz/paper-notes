@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs 论文解读 | ACL 2025 | arXiv 2412.11556 | Sentence Embedding | 提出 Token Prepending (TP) 技术，通过在每层将解码得到的句子嵌入前置到句子开头，使因果注意力机制下的早期 token 也能感知完整句子信息，无需训练即可显著提升 LLM 的句子嵌入质量。"
+title: >-
+  [论文解读] Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs
+description: >-
+  [ACL 2025][LLM/NLP][Sentence Embedding] 提出 Token Prepending (TP) 技术，通过在每层将解码得到的句子嵌入前置到句子开头，使因果注意力机制下的早期 token 也能感知完整句子信息，无需训练即可显著提升 LLM 的句子嵌入质量。
 tags:
   - ACL 2025
+  - LLM/NLP
   - Sentence Embedding
   - Token Prepending
   - 注意力机制

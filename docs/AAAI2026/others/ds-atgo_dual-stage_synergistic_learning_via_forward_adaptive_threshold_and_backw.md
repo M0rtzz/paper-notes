@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DS-ATGO: Dual-Stage Synergistic Learning via Forward Adaptive Threshold and Backward Gradient Optimization for Spiking Neural Networks 论文解读 | AAAI 2026 | arXiv 2511.13050 | 脉冲神经网络 | 针对SNN训练中因膜电位分布偏移导致的脉冲发放不均衡和梯度消失问题，提出前向自适应阈值+后向阈值驱动梯度优化的双阶段协同学习算法DS-ATGO，在CIFAR10/100和ImageNet上以低时延实现SOTA性能。"
+title: >-
+  [论文解读] DS-ATGO: Dual-Stage Synergistic Learning via Forward Adaptive Threshold and Backward Gradient Optimization for Spiking Neural Networks
+description: >-
+  [AAAI 2026][脉冲神经网络] 针对SNN训练中因膜电位分布偏移导致的脉冲发放不均衡和梯度消失问题，提出前向自适应阈值+后向阈值驱动梯度优化的双阶段协同学习算法DS-ATGO，在CIFAR10/100和ImageNet上以低时延实现SOTA性能。
 tags:
   - AAAI 2026
   - 脉冲神经网络

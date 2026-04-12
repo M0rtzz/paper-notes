@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Binary Hypothesis Testing for Softmax Models and Leverage Score Models 论文解读 | ICML 2025 | arXiv 2405.06003 | 二元假设检验 | 从理论角度研究Softmax模型和Leverage Score模型的二元假设检验问题，建立了在能量约束下区分两个参数化模型所需的查询次数的紧界，与理解LLM不同能力域的区分性问题相关。"
+title: >-
+  [论文解读] Binary Hypothesis Testing for Softmax Models and Leverage Score Models
+description: >-
+  [ICML 2025][LLM/NLP][二元假设检验] 从理论角度研究Softmax模型和Leverage Score模型的二元假设检验问题，建立了在能量约束下区分两个参数化模型所需的查询次数的紧界，与理解LLM不同能力域的区分性问题相关。
 tags:
   - ICML 2025
+  - LLM/NLP
   - 二元假设检验
   - Softmax模型
   - Leverage Score

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2412.01543 | 位姿估计 6D Object Pose Estimation | 利用2D Gaussian Splatting的高效可微渲染能力，提出一种无需CAD模型的在线6D物体位姿估计与跟踪方法，通过联合优化高斯物体场和关键帧位姿，实现比BundleSDF快约5倍的速度同时保持可比精度。"
+title: >-
+  [论文解读] 6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting
+description: >-
+  [ICCV 2025][自动驾驶][位姿估计] 利用2D Gaussian Splatting的高效可微渲染能力，提出一种无需CAD模型的在线6D物体位姿估计与跟踪方法，通过联合优化高斯物体场和关键帧位姿，实现比BundleSDF快约5倍的速度同时保持可比精度。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 位姿估计
   - Gaussian Splatting
   - Online Tracking

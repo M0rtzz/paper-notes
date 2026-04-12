@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】References Improve LLM Alignment in Non-Verifiable Domains 论文解读 | ICLR 2026 | arXiv 2602.16802 | 参考引导评估 | 提出参考引导的LLM-as-Judge方法(RefEval)，用高质量参考输出作为\"软验证器\"，使LLM-judge准确率提升6.8%；进而构建两阶段自改进流程(SFT蒸馏+参考引导DPO)，在AlpacaEval/Arena-Hard上分别超过SFT蒸馏+19.2/+16.5，匹配微调奖励模型ArmoRM的性能，证明无需人类偏好标注即可实现非可验证域的高效LLM对齐。"
+title: >-
+  [论文解读] References Improve LLM Alignment in Non-Verifiable Domains
+description: >-
+  [ICLR 2026][参考引导评估] 提出参考引导的LLM-as-Judge方法(RefEval)，用高质量参考输出作为"软验证器"，使LLM-judge准确率提升6.8%；进而构建两阶段自改进流程(SFT蒸馏+参考引导DPO)，在AlpacaEval/Arena-Hard上分别超过SFT蒸馏+19.2/+16.5，匹配微调奖励模型ArmoRM的性能，证明无需人类偏好标注即可实现非可验证域的高效LLM对齐。
 tags:
   - ICLR 2026
   - 参考引导评估

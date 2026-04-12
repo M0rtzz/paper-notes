@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Optimized Text Embedding Models and Benchmarks for Amharic Passage Retrieval 论文解读 | ACL 2025 | arXiv 2505.19356 | 低资源语言 | 针对低资源、形态丰富的阿姆哈拉语（Amharic），提出基于预训练 Amharic BERT/RoBERTa 的稠密检索模型和 ColBERT 晚期交互模型，在参数量远小于多语言基线的情况下大幅提升段落检索效果，并建立了该语言首个系统性检索基准。"
+title: >-
+  [论文解读] Optimized Text Embedding Models and Benchmarks for Amharic Passage Retrieval
+description: >-
+  [ACL 2025][低资源语言] 针对低资源、形态丰富的阿姆哈拉语（Amharic），提出基于预训练 Amharic BERT/RoBERTa 的稠密检索模型和 ColBERT 晚期交互模型，在参数量远小于多语言基线的情况下大幅提升段落检索效果，并建立了该语言首个系统性检索基准。
 tags:
   - ACL 2025
   - 低资源语言

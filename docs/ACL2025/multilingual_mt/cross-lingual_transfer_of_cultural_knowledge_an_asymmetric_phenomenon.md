@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cross-Lingual Transfer of Cultural Knowledge: An Asymmetric Phenomenon 论文解读 | ACL 2025 | arXiv 2506.01675 | 跨语言迁移 | 通过构建可解释的实验框架，研究 LLM 语言适应过程中文化知识的跨语言迁移现象，发现高资源语言（中文、韩语）与英语之间存在双向迁移，而低资源语言（藏语、蒙古语）则呈现不对称迁移——知识主要从低资源语言流向英语，反向流动有限，并提出频率假说加以解释。"
+title: >-
+  [论文解读] Cross-Lingual Transfer of Cultural Knowledge: An Asymmetric Phenomenon
+description: >-
+  [ACL 2025][跨语言迁移] 通过构建可解释的实验框架，研究 LLM 语言适应过程中文化知识的跨语言迁移现象，发现高资源语言（中文、韩语）与英语之间存在双向迁移，而低资源语言（藏语、蒙古语）则呈现不对称迁移——知识主要从低资源语言流向英语，反向流动有限，并提出频率假说加以解释。
 tags:
   - ACL 2025
   - 跨语言迁移

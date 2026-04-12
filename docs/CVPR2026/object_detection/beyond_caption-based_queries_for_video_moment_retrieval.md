@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Caption-Based Queries for Video Moment Retrieval 论文解读 | CVPR 2026 | arXiv 2603.02363 | 视频时刻检索 | 揭示了VMR中caption-based查询与真实用户搜索查询之间的巨大鸿沟，提出了三个搜索查询基准，并通过移除自注意力+查询Dropout两项架构修改来缓解DETR中的解码器查询坍塌问题，在多时刻搜索查询上提升高达21.83% mAPm。"
+title: >-
+  [论文解读] Beyond Caption-Based Queries for Video Moment Retrieval
+description: >-
+  [CVPR 2026][目标检测][视频时刻检索] 揭示了VMR中caption-based查询与真实用户搜索查询之间的巨大鸿沟，提出了三个搜索查询基准，并通过移除自注意力+查询Dropout两项架构修改来缓解DETR中的解码器查询坍塌问题，在多时刻搜索查询上提升高达21.83% mAPm。
 tags:
   - CVPR 2026
+  - 目标检测
   - 视频时刻检索
   - 搜索查询泛化
   - DETR解码器查询坍塌

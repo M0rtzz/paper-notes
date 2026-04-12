@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Prompt-A-Video: Prompt Your Video Diffusion Model via Preference-Aligned LLM 论文解读 | 提出Prompt-A-Video，通过奖励引导的提示词进化流水线自动构建训练数据，经过SFT和DPO两阶段优化LLM，生成针对特定视频扩散模型偏好对齐的增强提示词。"
+title: >-
+  [论文解读] Prompt-A-Video: Prompt Your Video Diffusion Model via Preference-Aligned LLM
+description: >-
+  [图像生成] 提出Prompt-A-Video，通过奖励引导的提示词进化流水线自动构建训练数据，经过SFT和DPO两阶段优化LLM，生成针对特定视频扩散模型偏好对齐的增强提示词。
 tags:
-
+  - 图像生成
 ---
 
 # Prompt-A-Video: Prompt Your Video Diffusion Model via Preference-Aligned LLM

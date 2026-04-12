@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diversity-oriented Data Augmentation with Large Language Models 论文解读 | ACL 2025 | arXiv 2502.11671 | 数据增强 | 提出 DoAug 框架，通过 SFT+DPO 微调 LLM 释义器并结合核心集选择与多样性采样，在保持语义一致性的同时显著提升增强数据集的多样性，在 12 个数据集上平均性能提升 10.52%，超出次优基线 3.76 个百分点。"
+title: >-
+  [论文解读] Diversity-oriented Data Augmentation with Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][数据增强] 提出 DoAug 框架，通过 SFT+DPO 微调 LLM 释义器并结合核心集选择与多样性采样，在保持语义一致性的同时显著提升增强数据集的多样性，在 12 个数据集上平均性能提升 10.52%，超出次优基线 3.76 个百分点。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 数据增强
   - 多样性
   - 释义生成

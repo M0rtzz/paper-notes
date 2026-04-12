@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ConsistCompose: Unified Multimodal Layout Control for Image Composition 论文解读 | CVPR2026 | arXiv 2511.18333 | 布局控制生成 | 提出 LELG（语言嵌入式布局引导生成）范式，将 bounding box 坐标直接编码为文本 token 嵌入语言流，在统一多模态 Transformer 中实现布局可控的多实例图像生成，无需任何布局专用编码器或分支。"
+title: >-
+  [论文解读] ConsistCompose: Unified Multimodal Layout Control for Image Composition
+description: >-
+  [CVPR2026][图像生成][布局控制生成] 提出 LELG（语言嵌入式布局引导生成）范式，将 bounding box 坐标直接编码为文本 token 嵌入语言流，在统一多模态 Transformer 中实现布局可控的多实例图像生成，无需任何布局专用编码器或分支。
 tags:
   - CVPR2026
+  - 图像生成
   - 布局控制生成
   - 多实例组合
   - 统一多模态模型

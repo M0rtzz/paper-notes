@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neutral Residues: Revisiting Adapters for Model Extension 论文解读 | ICML2025 | arXiv 2410.02744 | Adapter | 提出 **Neutral Residues**，通过在 adapter 中引入 ReLU 门控 + ℓ₁ 稀疏局部损失 + 低方差初始化，使新增残差块在原始分布上输出近零值，在 Gemma-2B 上实现新语言学习与英语保持的最佳权衡。"
+title: >-
+  [论文解读] Neutral Residues: Revisiting Adapters for Model Extension
+description: >-
+  [ICML2025][模型压缩][Adapter] 提出 **Neutral Residues**，通过在 adapter 中引入 ReLU 门控 + $\ell_1$ 稀疏局部损失 + 低方差初始化，使新增残差块在原始分布上输出近零值，在 Gemma-2B 上实现新语言学习与英语保持的最佳权衡。
 tags:
   - ICML2025
+  - 模型压缩
   - Adapter
   - 灾难性遗忘
   - 模型扩展

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks 论文解读 | CVPR 2026 | arXiv 2603.12998 | VLM去偏 | 提出VLM去偏的闭式解方法，通过在跨模态嵌入空间中对属性子空间做正交分解并利用Chebyshev标量化求解，实现Pareto最优公平性与有界效用损失，免训练、免标注，统一覆盖零样本分类、文本-图像检索和文本-图像生成三大下游任务。"
+title: >-
+  [论文解读] A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks
+description: >-
+  [CVPR 2026][多模态][VLM去偏] 提出VLM去偏的闭式解方法，通过在跨模态嵌入空间中对属性子空间做正交分解并利用Chebyshev标量化求解，实现Pareto最优公平性与有界效用损失，免训练、免标注，统一覆盖零样本分类、文本-图像检索和文本-图像生成三大下游任务。
 tags:
   - CVPR 2026
+  - 多模态
   - VLM去偏
   - 闭式解
   - Pareto最优公平性

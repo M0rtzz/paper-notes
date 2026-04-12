@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Beyond Position: the emergence of wavelet-like properties in Transformers 论文解读 | 通过频率分析和小波分解，揭示了使用 RoPE 位置编码的 Transformer 模型中注意力头自发涌现出类小波（wavelet-like）的多分辨率处理特性，以弥补 RoPE 在位置精度和频率分辨率之间的固有权衡。"
+title: >-
+  [论文解读] Beyond Position: the emergence of wavelet-like properties in Transformers
+description: >-
+   通过频率分析和小波分解，揭示了使用 RoPE 位置编码的 Transformer 模型中注意力头自发涌现出类小波（wavelet-like）的多分辨率处理特性，以弥补 RoPE 在位置精度和频率分辨率之间的固有权衡。
 tags:
 
 ---

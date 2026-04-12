@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Accelerating Diffusion Model Training under Minimal Budgets: A Condensation-Based Perspective 论文解读 | CVPR 2026 | arXiv 2507.05914 | dataset condensation | 提出 D2C（Diffusion Dataset Condensation）——首个面向扩散模型的数据集压缩框架，通过\"Select + Attach\"两阶段流水线，在仅使用 ImageNet 0.8%–8% 数据的条件下实现 100–233× 的训练加速，同时保持高质量图像生成能力。"
+title: >-
+  [论文解读] Accelerating Diffusion Model Training under Minimal Budgets: A Condensation-Based Perspective
+description: >-
+  [CVPR 2026][图像生成][dataset condensation] 提出 D2C（Diffusion Dataset Condensation）——首个面向扩散模型的数据集压缩框架，通过"Select + Attach"两阶段流水线，在仅使用 ImageNet 0.8%–8% 数据的条件下实现 100–233× 的训练加速，同时保持高质量图像生成能力。
 tags:
   - CVPR 2026
+  - 图像生成
   - dataset condensation
   - 扩散模型
   - training acceleration

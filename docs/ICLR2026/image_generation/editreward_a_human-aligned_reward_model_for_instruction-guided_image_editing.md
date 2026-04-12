@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EditReward: A Human-Aligned Reward Model for Instruction-Guided Image Editing 论文解读 | ICLR 2026 | arXiv 2509.26346 | 图像编辑 | 构建了一个包含 200K 人工标注偏好对的高质量数据集 EditReward-Data，训练出 EditReward 奖励模型，在多个图像编辑评估基准上达到 SOTA 的人类对齐度，并验证其作为数据筛选器可显著提升下游编辑模型性能。"
+title: >-
+  [论文解读] EditReward: A Human-Aligned Reward Model for Instruction-Guided Image Editing
+description: >-
+  [ICLR 2026][图像生成][图像编辑] 构建了一个包含 200K 人工标注偏好对的高质量数据集 EditReward-Data，训练出 EditReward 奖励模型，在多个图像编辑评估基准上达到 SOTA 的人类对齐度，并验证其作为数据筛选器可显著提升下游编辑模型性能。
 tags:
   - ICLR 2026
+  - 图像生成
   - 图像编辑
   - 奖励模型
   - 人类偏好

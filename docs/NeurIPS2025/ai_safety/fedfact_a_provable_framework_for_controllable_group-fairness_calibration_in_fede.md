@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FedFACT: A Provable Framework for Controllable Group-Fairness Calibration in Federated Learning 论文解读 | NeurIPS 2025 | arXiv 2506.03777 | 联邦学习 | 提出FedFACT框架，通过刻画联邦学习下的**贝叶斯最优公平分类器**结构，将公平联邦学习分别在训练中（in-processing）化归为**个性化代价敏感学习**、在训练后（post-processing）化归为**双层优化**，首次实现多类别场景下全局公平性与局部公平性的可控协调，并提供收敛及泛化保证。"
+title: >-
+  [论文解读] FedFACT: A Provable Framework for Controllable Group-Fairness Calibration in Federated Learning
+description: >-
+  [NeurIPS 2025][AI安全][联邦学习] 提出FedFACT框架，通过刻画联邦学习下的**贝叶斯最优公平分类器**结构，将公平联邦学习分别在训练中（in-processing）化归为**个性化代价敏感学习**、在训练后（post-processing）化归为**双层优化**，首次实现多类别场景下全局公平性与局部公平性的可控协调，并提供收敛及泛化保证。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 联邦学习
   - 群体公平性
   - 贝叶斯最优分类器

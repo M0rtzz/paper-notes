@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoDy: Counterfactual Explainers for Dynamic Graphs 论文解读 | ICML 2025 | arXiv 2403.16846 | 反事实解释 | 提出 CoDy——首个用于时序图神经网络（TGNN）的反事实解释方法，通过蒙特卡洛树搜索（MCTS）结合时空启发式策略高效探索可能的解释子图空间，在多个数据集上 AUFSC+ 提升 16%。"
+title: >-
+  [论文解读] CoDy: Counterfactual Explainers for Dynamic Graphs
+description: >-
+  [ICML 2025][图学习][反事实解释] 提出 CoDy——首个用于时序图神经网络（TGNN）的反事实解释方法，通过蒙特卡洛树搜索（MCTS）结合时空启发式策略高效探索可能的解释子图空间，在多个数据集上 AUFSC+ 提升 16%。
 tags:
   - ICML 2025
+  - 图学习
   - 反事实解释
   - 动态图
   - 时序图神经网络

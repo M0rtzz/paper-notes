@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Customizing Visual Emotion Evaluation for MLLMs: An Open-vocabulary, Multifaceted, and Scalable Approach 论文解读 | ICLR2026 | arXiv 2509.21950 | 视觉情感评估 | 提出情感陈述判断（ESJ）任务和 INSETS 自动标注流水线，构建 MVEI benchmark，系统评估 MLLMs 的视觉情感感知能力，揭示当前模型在情感极性辨别和感知主观性理解上的显著不足。"
+title: >-
+  [论文解读] Customizing Visual Emotion Evaluation for MLLMs: An Open-vocabulary, Multifaceted, and Scalable Approach
+description: >-
+  [ICLR2026][多模态][视觉情感评估] 提出情感陈述判断（ESJ）任务和 INSETS 自动标注流水线，构建 MVEI benchmark，系统评估 MLLMs 的视觉情感感知能力，揭示当前模型在情感极性辨别和感知主观性理解上的显著不足。
 tags:
   - ICLR2026
+  - 多模态
   - 视觉情感评估
   - MLLM
   - 开放词汇

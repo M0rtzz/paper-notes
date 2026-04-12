@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DecoVLN: Decoupling Observation, Reasoning, and Correction for Vision-and-Language Navigation 论文解读 | CVPR2026 | arXiv 2603.13133 | Vision-and-Language Navigation | 提出 DecoVLN 框架，将 VLN 任务中的观察、推理和纠错三个过程解耦，通过自适应记忆优化机制和基于状态-动作对的纠错微调策略，在仅使用自中心 RGB 输入的条件下实现了 R2R-CE 和 RxR-CE 上的 SOTA 性能。"
+title: >-
+  [论文解读] DecoVLN: Decoupling Observation, Reasoning, and Correction for Vision-and-Language Navigation
+description: >-
+  [CVPR2026][人体理解][Vision-and-Language Navigation] 提出 DecoVLN 框架，将 VLN 任务中的观察、推理和纠错三个过程解耦，通过自适应记忆优化机制和基于状态-动作对的纠错微调策略，在仅使用自中心 RGB 输入的条件下实现了 R2R-CE 和 RxR-CE 上的 SOTA 性能。
 tags:
   - CVPR2026
+  - 人体理解
   - Vision-and-Language Navigation
   - 自适应记忆优化
   - 纠错微调

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AnesSuite: A Comprehensive Benchmark and Dataset Suite for Anesthesiology Reasoning 论文解读 | ICLR 2026 | arXiv 2504.02404 | anesthesiology | 构建首个面向麻醉学推理的综合数据集套件AnesSuite——包括AnesBench（7972道双语选择题）、AnesCorpus（240万篇文档语料库）、AnesQA（2万条QA对）和AnesR1（1万条CoT推理数据），提出三级认知需求分类（System 1/1.x/2），训练的Morpheus模型（Qwen2.5 + SFT + GRPO）在7B参数下达到14B基线性能，揭示当前最强模型在复杂推理（System 2）上仍低于0.6。"
+title: >-
+  [论文解读] AnesSuite: A Comprehensive Benchmark and Dataset Suite for Anesthesiology Reasoning
+description: >-
+  [ICLR 2026][anesthesiology] 构建首个面向麻醉学推理的综合数据集套件AnesSuite——包括AnesBench（7972道双语选择题）、AnesCorpus（240万篇文档语料库）、AnesQA（2万条QA对）和AnesR1（1万条CoT推理数据），提出三级认知需求分类（System 1/1.x/2），训练的Morpheus模型（Qwen2.5 + SFT + GRPO）在7B参数下达到14B基线性能，揭示当前最强模型在复杂推理（System 2）上仍低于0.6。
 tags:
   - ICLR 2026
   - anesthesiology

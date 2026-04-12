@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance 论文解读 | AAAI 2026 | arXiv 2511.12121 | 多模态 multimodal alignment | 系统研究显式跨模态对齐强度对单模态编码器性能的影响，发现最优对齐强度取决于模态间的冗余-唯一信息结构：冗余高时对齐有益，唯一信息主导时对齐有害，混合情况下存在最优 λ*。"
+title: >-
+  [论文解读] To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance
+description: >-
+  [AAAI 2026][机器人][多模态] 系统研究显式跨模态对齐强度对单模态编码器性能的影响，发现最优对齐强度取决于模态间的冗余-唯一信息结构：冗余高时对齐有益，唯一信息主导时对齐有害，混合情况下存在最优 λ*。
 tags:
   - AAAI 2026
+  - 机器人
   - 多模态
   - 对比学习
   - PID

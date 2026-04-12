@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：The CLIP model has demonstrated significant advancements in aligning visual and language modalities through large-scale pre-training on image-text pairs, enabling strong zero-shot classification and retrieval capabilities on various domains. However, CLIP's training remains computationally intensive"
+title: >-
+  [论文解读] Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：The CLIP model has demonstrated significant advancements in aligning visual and language modalities through large-scale pre-training on image-text pairs, enabling strong zero-shot classification and retrieval capabilities on various domains. However, CLIP's training remains computationally intensive
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Prediction-Powered Semi-Supervised Learning with Online Power Tuning 论文解读 | NeurIPS 2025 | arXiv 2510.22586 | 半监督学习 | 将预测驱动推断（PPI）框架扩展到半监督学习训练过程中，提出无偏梯度估计器，并设计在线AdaGrad算法动态调节伪标签与真实标签的相对权重 λ，在保证无偏性的同时实现与最优固定 λ 匹配的收敛速率。"
+title: >-
+  [论文解读] Prediction-Powered Semi-Supervised Learning with Online Power Tuning
+description: >-
+  [NeurIPS 2025][半监督学习] 将预测驱动推断（PPI）框架扩展到半监督学习训练过程中，提出无偏梯度估计器，并设计在线AdaGrad算法动态调节伪标签与真实标签的相对权重 $\lambda$，在保证无偏性的同时实现与最优固定 $\lambda$ 匹配的收敛速率。
 tags:
   - NeurIPS 2025
   - 半监督学习

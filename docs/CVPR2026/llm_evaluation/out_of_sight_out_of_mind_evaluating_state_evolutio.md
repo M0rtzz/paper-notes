@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models 论文解读 | CVPR 2026 | arXiv 2603.13215 | 视频世界模型 | 提出 StEvo-Bench 基准测试，通过在演化过程中插入遮挡或让相机\"看向别处\"来检验视频世界模型能否将状态演化与观测解耦，揭示了当前模型（包括 Veo 3、Sora 2 Pro 等）的任务成功率不到 10%，暴露了严重的\"演化停止\"和\"不一致性\"问题。"
+title: >-
+  [论文解读] Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models
+description: >-
+  [CVPR 2026][视频世界模型] 提出 StEvo-Bench 基准测试，通过在演化过程中插入遮挡或让相机"看向别处"来检验视频世界模型能否将状态演化与观测解耦，揭示了当前模型（包括 Veo 3、Sora 2 Pro 等）的任务成功率不到 10%，暴露了严重的"演化停止"和"不一致性"问题。
 tags:
   - CVPR 2026
   - 视频世界模型

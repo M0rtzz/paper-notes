@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Protriever: End-to-End Differentiable Protein Homology Search for Fitness Prediction 论文解读 | ICML 2025 | arXiv 2506.08954 | 蛋白质同源搜索 | 提出 Protriever，首个端到端可微的蛋白质同源序列检索框架，将检索器与阅读器联合训练，在蛋白质适应性预测任务上达到序列模型 SOTA，同时比传统 MSA 检索快两个数量级。"
+title: >-
+  [论文解读] Protriever: End-to-End Differentiable Protein Homology Search for Fitness Prediction
+description: >-
+  [ICML 2025][医学图像][蛋白质同源搜索] 提出 Protriever，首个端到端可微的蛋白质同源序列检索框架，将检索器与阅读器联合训练，在蛋白质适应性预测任务上达到序列模型 SOTA，同时比传统 MSA 检索快两个数量级。
 tags:
   - ICML 2025
+  - 医学图像
   - 蛋白质同源搜索
   - 端到端可微检索
   - 蛋白质适应性预测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Detecting Unknown Objects via Energy-based Separation for Open World Object Detection 论文解读 | CVPR 2026 | arXiv 2603.29954 | 开放世界目标检测 | 提出 DEUS 框架，通过 Simplex ETF 构建正交的已知/未知子空间并用能量分数引导特征分离（EUS），同时用能量区分损失（EKD）缓解新旧类别间的干扰，在 OWOD 基准上取得了大幅领先的未知目标召回率。"
+title: >-
+  [论文解读] Detecting Unknown Objects via Energy-based Separation for Open World Object Detection
+description: >-
+  [CVPR 2026][目标检测][开放世界目标检测] 提出 DEUS 框架，通过 Simplex ETF 构建正交的已知/未知子空间并用能量分数引导特征分离（EUS），同时用能量区分损失（EKD）缓解新旧类别间的干扰，在 OWOD 基准上取得了大幅领先的未知目标召回率。
 tags:
   - CVPR 2026
+  - 目标检测
   - 开放世界目标检测
   - 能量模型
   - 未知目标发现

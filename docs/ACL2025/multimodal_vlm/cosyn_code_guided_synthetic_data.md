@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation 论文解读 | ACL 2025 | arXiv 2502.14846 | 提出 CoSyn 框架，利用纯文本 LLM 的代码生成能力自动合成多样化的文本丰富型图像及对应指令微调数据，构建 400K 图像 + 2.7M 指令数据集，在 7 个 benchmark 上达到开源 SOTA 并超越 GPT-4V。"
+title: >-
+  [论文解读] CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation
+description: >-
+  [ACL 2025][多模态] 提出 CoSyn 框架，利用纯文本 LLM 的代码生成能力自动合成多样化的文本丰富型图像及对应指令微调数据，构建 400K 图像 + 2.7M 指令数据集，在 7 个 benchmark 上达到开源 SOTA 并超越 GPT-4V。
 tags:
   - ACL 2025
+  - 多模态
 ---
 
 # CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation

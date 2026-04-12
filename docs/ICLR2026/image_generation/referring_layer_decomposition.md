@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Referring Layer Decomposition 论文解读 | ICLR 2026 | arXiv 2602.19358 | 图层分解 | 提出 Referring Layer Decomposition (RLD) 任务，根据用户提供的灵活提示（空间/文本/混合）从单张 RGB 图像中预测完整的 RGBA 图层，并构建了包含 111 万样本的 RefLade 数据集和自动评估协议。"
+title: >-
+  [论文解读] Referring Layer Decomposition
+description: >-
+  [ICLR 2026][图像生成][图层分解] 提出 Referring Layer Decomposition (RLD) 任务，根据用户提供的灵活提示（空间/文本/混合）从单张 RGB 图像中预测完整的 RGBA 图层，并构建了包含 111 万样本的 RefLade 数据集和自动评估协议。
 tags:
   - ICLR 2026
+  - 图像生成
   - 图层分解
   - RGBA 层
   - 多模态引用输入

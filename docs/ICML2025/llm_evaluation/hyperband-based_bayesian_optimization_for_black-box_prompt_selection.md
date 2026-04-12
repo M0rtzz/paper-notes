@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Hyperband-based Bayesian Optimization for Black-box Prompt Selection 论文解读 | ICML 2025 | arXiv 2412.07820 | 提示学习 prompt选择 | 提出 HbBoPs 方法，结合结构感知深度核高斯过程（对 instruction 和 few-shot exemplar 分别编码）与 Hyperband 多保真度调度器，在黑盒 LLM 的 prompt 选择问题上同时实现样本高效和查询高效，在十个基准和三个 LLM 上超越所有 SOTA 方法。"
+title: >-
+  [论文解读] Hyperband-based Bayesian Optimization for Black-box Prompt Selection
+description: >-
+  [ICML 2025][提示学习] 提出 HbBoPs 方法，结合结构感知深度核高斯过程（对 instruction 和 few-shot exemplar 分别编码）与 Hyperband 多保真度调度器，在黑盒 LLM 的 prompt 选择问题上同时实现样本高效和查询高效，在十个基准和三个 LLM 上超越所有 SOTA 方法。
 tags:
   - ICML 2025
   - 提示学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Augmenting Moment Retrieval: Zero-Dependency Two-Stage Learning 论文解读 | ICCV 2025 | arXiv 2510.19622 | Moment Retrieval | 提出 AMR 框架，通过 Splice-and-Boost 数据增强策略和冷启动-蒸馏两阶段训练，在不依赖任何外部数据/预训练模型的前提下，大幅提升视频时刻检索的边界感知能力和语义辨别力，在 QVHighlights 上超越 SOTA +5%。"
+title: >-
+  [论文解读] Augmenting Moment Retrieval: Zero-Dependency Two-Stage Learning
+description: >-
+  [ICCV 2025][目标检测][Moment Retrieval] 提出 AMR 框架，通过 Splice-and-Boost 数据增强策略和冷启动-蒸馏两阶段训练，在不依赖任何外部数据/预训练模型的前提下，大幅提升视频时刻检索的边界感知能力和语义辨别力，在 QVHighlights 上超越 SOTA +5%。
 tags:
   - ICCV 2025
+  - 目标检测
   - Moment Retrieval
   - 数据增强
   - 知识蒸馏

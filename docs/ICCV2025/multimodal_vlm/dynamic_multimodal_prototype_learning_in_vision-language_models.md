@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Dynamic Multimodal Prototype Learning in Vision-Language Models 论文解读 | ICCV 2025 | arXiv 2507.03657 | Test-Time Adaptation | 提出 ProtoMM，一个 training-free 的多模态原型学习框架，通过将原型建模为文本描述和视觉粒子的离散分布，利用最优传输动态更新多模态原型，在 15 个 zero-shot 基准上达到 SOTA。"
+title: >-
+  [论文解读] Dynamic Multimodal Prototype Learning in Vision-Language Models
+description: >-
+  [ICCV 2025][多模态][Test-Time Adaptation] 提出 ProtoMM，一个 training-free 的多模态原型学习框架，通过将原型建模为文本描述和视觉粒子的离散分布，利用最优传输动态更新多模态原型，在 15 个 zero-shot 基准上达到 SOTA。
 tags:
   - ICCV 2025
+  - 多模态
   - Test-Time Adaptation
   - CLIP
-  - 多模态
   - Optimal Transport
   - Zero-Shot Classification
 ---

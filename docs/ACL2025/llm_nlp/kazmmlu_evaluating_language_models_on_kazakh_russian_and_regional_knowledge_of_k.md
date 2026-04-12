@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan 论文解读 | 提出 KazMMLU，首个专为哈萨克斯坦设计的 MMLU 风格双语（哈萨克语+俄语）评估基准，包含 23,000 道来自真实教育材料的多选题，覆盖 STEM、人文、社会科学等多学科多教育层次，评估了 27 个多语言 LLM，揭示了当前模型在哈萨克语上的显著不足。"
+title: >-
+  [论文解读] KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan
+description: >-
+  [LLM/NLP] 提出 KazMMLU，首个专为哈萨克斯坦设计的 MMLU 风格双语（哈萨克语+俄语）评估基准，包含 23,000 道来自真实教育材料的多选题，覆盖 STEM、人文、社会科学等多学科多教育层次，评估了 27 个多语言 LLM，揭示了当前模型在哈萨克语上的显著不足。
 tags:
-
+  - LLM/NLP
 ---
 
 # KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan

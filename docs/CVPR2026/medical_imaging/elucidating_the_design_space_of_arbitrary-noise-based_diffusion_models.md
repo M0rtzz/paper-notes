@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models (EDA) 论文解读 | CVPR2026 | arXiv 2507.18534 | 扩散模型 | 提出 EDA 框架，将 EDM 的设计空间从高斯噪声扩展到任意噪声模式，通过多元高斯分布参数化协方差矩阵实现灵活的噪声扩散，在 MRI 偏置场校正、CT 金属伪影去除和自然图像阴影去除三个任务上仅用 5 步采样即达到或超越 100 步 EDM 方法和专用方法。"
+title: >-
+  [论文解读] Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models (EDA)
+description: >-
+  [CVPR2026][医学图像][扩散模型] 提出 EDA 框架，将 EDM 的设计空间从高斯噪声扩展到任意噪声模式，通过多元高斯分布参数化协方差矩阵实现灵活的噪声扩散，在 MRI 偏置场校正、CT 金属伪影去除和自然图像阴影去除三个任务上仅用 5 步采样即达到或超越 100 步 EDM 方法和专用方法。
 tags:
   - CVPR2026
+  - 医学图像
   - 扩散模型
   - 任意噪声
   - 设计空间

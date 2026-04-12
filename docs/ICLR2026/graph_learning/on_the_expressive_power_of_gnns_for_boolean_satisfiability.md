@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】On the Expressive Power of GNNs for Boolean Satisfiability 论文解读 | ICLR 2026 | arXiv 2602.08745 | 图神经网络表达力 | 从 Weisfeiler-Leman (WL) 测试角度严格证明了完整的 WL 层级无法区分可满足与不可满足的 3-SAT 实例，揭示了 GNN 用于 SAT 求解的理论表达力极限，同时识别出平面 SAT 和随机 SAT 等 GNN 可成功区分的正面实例族。"
+title: >-
+  [论文解读] On the Expressive Power of GNNs for Boolean Satisfiability
+description: >-
+  [ICLR 2026][图学习][图神经网络表达力] 从 Weisfeiler-Leman (WL) 测试角度严格证明了完整的 WL 层级无法区分可满足与不可满足的 3-SAT 实例，揭示了 GNN 用于 SAT 求解的理论表达力极限，同时识别出平面 SAT 和随机 SAT 等 GNN 可成功区分的正面实例族。
 tags:
   - ICLR 2026
+  - 图学习
   - 图神经网络表达力
   - 布尔可满足性
   - Weisfeiler-Leman 测试

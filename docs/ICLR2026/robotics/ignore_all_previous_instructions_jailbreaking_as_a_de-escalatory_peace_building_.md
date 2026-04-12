@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ignore All Previous Instructions: Jailbreaking as a de-escalatory peace building practise to resist LLM social media bots 论文解读 | ICLR 2026 | arXiv 2603.01942 | jailbreaking | 提出将对 LLM 驱动的社交媒体宣传机器人进行\"越狱\"（jailbreaking）重新定义为一种用户主导的、非暴力的去冲突化（de-escalation）和平建设实践，通过 prompt injection 暴露自动化账号的虚假身份来抵抗国家支持的误导信息传播。"
+title: >-
+  [论文解读] Ignore All Previous Instructions: Jailbreaking as a de-escalatory peace building practise to resist LLM social media bots
+description: >-
+  [ICLR 2026][机器人][jailbreaking] 提出将对 LLM 驱动的社交媒体宣传机器人进行"越狱"（jailbreaking）重新定义为一种用户主导的、非暴力的去冲突化（de-escalation）和平建设实践，通过 prompt injection 暴露自动化账号的虚假身份来抵抗国家支持的误导信息传播。
 tags:
   - ICLR 2026
+  - 机器人
   - jailbreaking
   - LLM社交bot
   - 虚假信息

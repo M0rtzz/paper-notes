@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Language Fusion for Parameter-Efficient Cross-lingual Transfer (FLARE) 论文解读 | ACL 2025 | arXiv 2501.06892 | cross-lingual transfer | FLARE 在 LoRA 适配器的低秩瓶颈中通过轻量线性/非线性变换融合源语言（英语）和目标语言的逐层表示，无需额外参数即可实现参数高效的跨语言迁移，在 Llama 3.1 上 QA 精确匹配提升 4.9%。"
+title: >-
+  [论文解读] Language Fusion for Parameter-Efficient Cross-lingual Transfer (FLARE)
+description: >-
+  [ACL 2025][cross-lingual transfer] FLARE 在 LoRA 适配器的低秩瓶颈中通过轻量线性/非线性变换融合源语言（英语）和目标语言的逐层表示，无需额外参数即可实现参数高效的跨语言迁移，在 Llama 3.1 上 QA 精确匹配提升 4.9%。
 tags:
   - ACL 2025
   - cross-lingual transfer

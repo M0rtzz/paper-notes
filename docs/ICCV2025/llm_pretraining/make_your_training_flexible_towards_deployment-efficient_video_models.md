@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Make Your Training Flexible: Towards Deployment-Efficient Video Models 论文解读 | ICCV 2025 | arXiv 2503.14237 | 灵活训练 | 本文提出Flux——一种使视频模型训练灵活化的数据增强工具，通过灵活采样网格+组动态token选择，使单一模型在不同计算预算下都能高效工作；并提出Token Optimization新测试范式，在1/4 token下即可匹配前SOTA性能，节省约90%计算。"
+title: >-
+  [论文解读] Make Your Training Flexible: Towards Deployment-Efficient Video Models
+description: >-
+  [ICCV 2025][灵活训练] 本文提出Flux——一种使视频模型训练灵活化的数据增强工具，通过灵活采样网格+组动态token选择，使单一模型在不同计算预算下都能高效工作；并提出Token Optimization新测试范式，在1/4 token下即可匹配前SOTA性能，节省约90%计算。
 tags:
   - ICCV 2025
   - 灵活训练

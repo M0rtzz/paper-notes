@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Decomposed Vector-Quantized Variational Autoencoder for Human Grasp Generation 论文解读 | ECCV 2024 | arXiv 2407.14062 | 抓取生成 | 提出 Decomposed VQ-VAE (DVQ-VAE)，通过将手部分解为六个部分分别编码到独立码本，并设计双阶段解码策略（先姿态后位置），在四个基准数据集上质量指标相对提升约14.1%。"
+title: >-
+  [论文解读] Decomposed Vector-Quantized Variational Autoencoder for Human Grasp Generation
+description: >-
+  [ECCV 2024][人体理解][抓取生成] 提出 Decomposed VQ-VAE (DVQ-VAE)，通过将手部分解为六个部分分别编码到独立码本，并设计双阶段解码策略（先姿态后位置），在四个基准数据集上质量指标相对提升约14.1%。
 tags:
   - ECCV 2024
+  - 人体理解
   - 抓取生成
   - VQ-VAE
   - 分解架构

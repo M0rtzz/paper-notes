@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Measuring Social Biases in Masked Language Models by Proxy of Prediction Quality 论文解读 | ACL 2025 | arXiv 2402.13954 | 社会偏见 | 提出了注意力加权的预测质量代理度量 Δpa 和 CRRA，在迭代掩码实验（IME）下评估 MLM 的社会偏见，并引入模型比较函数 BSRT 来估计重训练引入的偏见，发现所提方法比 CSPS、AUL、AULA 等现有方法更准确、更敏感。"
+title: >-
+  [论文解读] Measuring Social Biases in Masked Language Models by Proxy of Prediction Quality
+description: >-
+  [ACL 2025][社会偏见] 提出了注意力加权的预测质量代理度量 Δpa 和 CRRA，在迭代掩码实验（IME）下评估 MLM 的社会偏见，并引入模型比较函数 BSRT 来估计重训练引入的偏见，发现所提方法比 CSPS、AUL、AULA 等现有方法更准确、更敏感。
 tags:
   - ACL 2025
   - 社会偏见

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Truly Self-Improving Agents Require Intrinsic Metacognitive Learning 论文解读 | ICML 2025 | arXiv 2506.05109 | self-improving agents | 本文提出一个形式化框架论证了真正的自我改进 Agent 需要具备内在元认知学习能力（而非外在的、人为设计的固定循环），该框架包含三个组件：元认知知识、元认知规划和元认知评估，并分析了现有自改进 Agent 的不足和实现内在元认知的路径。"
+title: >-
+  [论文解读] Truly Self-Improving Agents Require Intrinsic Metacognitive Learning
+description: >-
+  [ICML 2025][人体理解][self-improving agents] 本文提出一个形式化框架论证了真正的自我改进 Agent 需要具备内在元认知学习能力（而非外在的、人为设计的固定循环），该框架包含三个组件：元认知知识、元认知规划和元认知评估，并分析了现有自改进 Agent 的不足和实现内在元认知的路径。
 tags:
   - ICML 2025
+  - 人体理解
   - self-improving agents
   - metacognition
   - intrinsic learning

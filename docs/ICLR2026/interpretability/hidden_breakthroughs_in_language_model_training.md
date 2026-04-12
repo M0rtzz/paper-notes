@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Hidden Breakthroughs in Language Model Training 论文解读 | ICLR 2026 | arXiv 2506.15872 | 训练动力学 | 提出 POLCA 方法，将训练损失沿低秩训练子空间的任意基方向进行分解，揭示了在整体损失曲线平滑区域中隐藏的概念性突破（hidden breakthroughs），实现了对模型技能习得过程的无监督可解释性分析。"
+title: >-
+  [论文解读] Hidden Breakthroughs in Language Model Training
+description: >-
+  [ICLR 2026][训练动力学] 提出 POLCA 方法，将训练损失沿低秩训练子空间的任意基方向进行分解，揭示了在整体损失曲线平滑区域中隐藏的概念性突破（hidden breakthroughs），实现了对模型技能习得过程的无监督可解释性分析。
 tags:
   - ICLR 2026
   - 训练动力学

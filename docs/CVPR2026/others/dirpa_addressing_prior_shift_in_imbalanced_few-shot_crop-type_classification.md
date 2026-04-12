@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification 论文解读 | CVPR 2026 | arXiv 2603.12905 | few-shot learning | 提出 Dirichlet Prior Augmentation (DirPA)，通过在小样本学习训练过程中用 Dirichlet 分布采样模拟未知的长尾标签分布偏移，主动缓解训练集人工均衡与真实世界极端类别不平衡之间的先验偏移 (prior shift)，并在多个欧盟国家的作物分类任务上验证了跨区域的有效性。"
+title: >-
+  [论文解读] DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification
+description: >-
+  [CVPR 2026][few-shot learning] 提出 Dirichlet Prior Augmentation (DirPA)，通过在小样本学习训练过程中用 Dirichlet 分布采样模拟未知的长尾标签分布偏移，主动缓解训练集人工均衡与真实世界极端类别不平衡之间的先验偏移 (prior shift)，并在多个欧盟国家的作物分类任务上验证了跨区域的有效性。
 tags:
   - CVPR 2026
   - few-shot learning

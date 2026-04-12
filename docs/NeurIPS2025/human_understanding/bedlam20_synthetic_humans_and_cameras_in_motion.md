@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BEDLAM 2.0: Synthetic Humans and Cameras in Motion 论文解读 | NeurIPS 2025 | arXiv 2511.14394 | SMPL-X | BEDLAM 数据集的重大升级版，新增多样化相机运动（合成+手持+头戴设备捕获）、更广的焦距范围（14-400mm）、更多样化体型/发型/鞋子/服装，总计 27K 序列 8M+ 帧，显著提升世界坐标 3D 人体估计的精度。"
+title: >-
+  [论文解读] BEDLAM 2.0: Synthetic Humans and Cameras in Motion
+description: >-
+  [NeurIPS 2025][人体理解][SMPL-X] BEDLAM 数据集的重大升级版，新增多样化相机运动（合成+手持+头戴设备捕获）、更广的焦距范围（14-400mm）、更多样化体型/发型/鞋子/服装，总计 27K 序列 8M+ 帧，显著提升世界坐标 3D 人体估计的精度。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - SMPL-X
   - 合成数据集
   - 相机运动

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Integrating Intermediate Layer Optimization and Projected Gradient Descent for Solving Inverse Problems with Diffusion Models 论文解读 | ICML2025 | arXiv 2505.20789 | 逆问题 | 提出 DMILO 和 DMILO-PGD 两种方法，通过中间层优化（ILO）分解扩散模型采样过程以大幅降低显存，并结合投影梯度下降（PGD）避免次优收敛，在线性和非线性逆问题上全面超越 DMPlug 等 SOTA 方法。"
+title: >-
+  [论文解读] Integrating Intermediate Layer Optimization and Projected Gradient Descent for Solving Inverse Problems with Diffusion Models
+description: >-
+  [ICML2025][图像生成][逆问题] 提出 DMILO 和 DMILO-PGD 两种方法，通过中间层优化（ILO）分解扩散模型采样过程以大幅降低显存，并结合投影梯度下降（PGD）避免次优收敛，在线性和非线性逆问题上全面超越 DMPlug 等 SOTA 方法。
 tags:
   - ICML2025
+  - 图像生成
   - 逆问题
   - 扩散模型
   - 中间层优化

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning to Incentivize in Repeated Principal-Agent Problems with Adversarial Agent Arrivals 论文解读 | ICML2025 | arXiv 2505.23124 | principal-agent | 首次研究 agent 以对抗顺序到达的重复 principal-agent 问题，在 greedy 和 smooth 两种响应模型下分别给出了紧的 regret 上下界，核心思路是将激励设计问题规约为对抗线性 bandit。"
+title: >-
+  [论文解读] Learning to Incentivize in Repeated Principal-Agent Problems with Adversarial Agent Arrivals
+description: >-
+  [ICML2025][principal-agent] 首次研究 agent 以对抗顺序到达的重复 principal-agent 问题，在 greedy 和 smooth 两种响应模型下分别给出了紧的 regret 上下界，核心思路是将激励设计问题规约为对抗线性 bandit。
 tags:
   - ICML2025
   - principal-agent

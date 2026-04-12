@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Classifying Unreliable Narrators with Large Language Models 论文解读 | ACL 2025 | arXiv 2506.10231 | 不可靠叙事者 | 借用叙事学理论定义三种不可靠叙事者类型，构建专家标注数据集 TUNa，系统评估 LLM 在零样本、少样本、微调和课程学习设定下的分类能力，发现该任务极具挑战性且课程学习对小模型有显著提升。"
+title: >-
+  [论文解读] Classifying Unreliable Narrators with Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][不可靠叙事者] 借用叙事学理论定义三种不可靠叙事者类型，构建专家标注数据集 TUNa，系统评估 LLM 在零样本、少样本、微调和课程学习设定下的分类能力，发现该任务极具挑战性且课程学习对小模型有显著提升。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 不可靠叙事者
   - 叙事学
   - 文本分类

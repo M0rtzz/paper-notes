@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Tuning: Instructing LLMs to Effectively Acquire New Knowledge through Self-Teaching 论文解读 | ACL 2025 | arXiv 2406.06326 | Knowledge Injection | 受费曼学习法启发，提出 Self-Tuning 框架，通过记忆-理解-自省三层自教学策略，显著提升 LLM 从新文档中有效获取和回忆知识的能力。"
+title: >-
+  [论文解读] Self-Tuning: Instructing LLMs to Effectively Acquire New Knowledge through Self-Teaching
+description: >-
+  [ACL 2025][LLM/NLP][Knowledge Injection] 受费曼学习法启发，提出 Self-Tuning 框架，通过记忆-理解-自省三层自教学策略，显著提升 LLM 从新文档中有效获取和回忆知识的能力。
 tags:
   - ACL 2025
+  - LLM/NLP
   - Knowledge Injection
   - Self-Teaching
   - Feynman Technique

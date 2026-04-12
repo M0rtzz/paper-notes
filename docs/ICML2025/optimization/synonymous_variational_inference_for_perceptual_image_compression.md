@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Synonymous Variational Inference for Perceptual Image Compression 论文解读 | ICML2025 | arXiv 2505.22438 | 同义变分推断 | 基于语义信息论中的同义性视角，提出同义变分推断 (SVI) 方法，从理论上证明感知图像压缩的优化方向是率-失真-感知三元权衡，并设计渐进式同义图像压缩 (SIC) 编解码器，单模型即可覆盖多码率多感知质量级别。"
+title: >-
+  [论文解读] Synonymous Variational Inference for Perceptual Image Compression
+description: >-
+  [ICML2025][优化][同义变分推断] 基于语义信息论中的同义性视角，提出同义变分推断 (SVI) 方法，从理论上证明感知图像压缩的优化方向是率-失真-感知三元权衡，并设计渐进式同义图像压缩 (SIC) 编解码器，单模型即可覆盖多码率多感知质量级别。
 tags:
   - ICML2025
+  - 优化
   - 同义变分推断
   - 感知图像压缩
   - 语义信息论

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Nonparametric Teaching for Graph Property Learners 论文解读 | ICML2025 | arXiv 2505.14170 | 非参数教学 | 提出 GraNT 范式，将非参数教学理论拓展到图属性学习场景，通过贪心选择\"预测偏差最大\"的图样本子集来加速 GCN 训练，在保持泛化性能的同时将训练时间缩减 30%–47%。"
+title: >-
+  [论文解读] Nonparametric Teaching for Graph Property Learners
+description: >-
+  [ICML2025][优化][非参数教学] 提出 GraNT 范式，将非参数教学理论拓展到图属性学习场景，通过贪心选择"预测偏差最大"的图样本子集来加速 GCN 训练，在保持泛化性能的同时将训练时间缩减 30%–47%。
 tags:
   - ICML2025
+  - 优化
   - 非参数教学
   - 图卷积网络
   - 训练效率

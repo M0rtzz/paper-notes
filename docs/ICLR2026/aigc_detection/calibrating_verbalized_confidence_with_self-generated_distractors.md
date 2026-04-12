@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Calibrating Verbalized Confidence with Self-Generated Distractors 论文解读 | ICLR 2026 | arXiv 2509.25532 | 置信度校准 | 提出 DiNCo（Distractor-Normalized Confidence）方法，让 LLM 自动生成\"合理但错误\"的干扰选项，然后在干扰选项集合上归一化置信度分数，实现跨难度级别的置信度校准，在 TriviaQA 上以 95.2% 均衡准确率和仅 3.5% 人类介入率实现可靠的自动决策。"
+title: >-
+  [论文解读] Calibrating Verbalized Confidence with Self-Generated Distractors
+description: >-
+  [ICLR 2026][置信度校准] 提出 DiNCo（Distractor-Normalized Confidence）方法，让 LLM 自动生成"合理但错误"的干扰选项，然后在干扰选项集合上归一化置信度分数，实现跨难度级别的置信度校准，在 TriviaQA 上以 95.2% 均衡准确率和仅 3.5% 人类介入率实现可靠的自动决策。
 tags:
   - ICLR 2026
   - 置信度校准

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A protocol for evaluating robustness to H&E staining variation in computational pathology models 论文解读 | CVPR 2026 | arXiv 2603.12886 | 计算病理 | 提出三步评估协议（选参考染色条件→表征测试集染色属性→模拟染色条件推理），系统量化306个MSI分类模型对H&E染色差异的鲁棒性，发现鲁棒性与分类性能呈弱负相关(r=-0.28)，高性能不代表高鲁棒性。"
+title: >-
+  [论文解读] A protocol for evaluating robustness to H&E staining variation in computational pathology models
+description: >-
+  [CVPR 2026][医学图像][计算病理] 提出三步评估协议（选参考染色条件→表征测试集染色属性→模拟染色条件推理），系统量化306个MSI分类模型对H&E染色差异的鲁棒性，发现鲁棒性与分类性能呈弱负相关(r=-0.28)，高性能不代表高鲁棒性。
 tags:
   - CVPR 2026
+  - 医学图像
   - 计算病理
   - H&E染色
   - 鲁棒性评估

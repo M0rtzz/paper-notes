@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Benchmarking Quantum Reinforcement Learning 论文解读 | ICML 2025 | arXiv 2501.15893 | 量子强化学习 | 提出量子强化学习（QRL）的严格基准测试方法论——基于样本复杂度的统计估计器和统计显著性定义的\"超越\"概念，在新设计的 6G 波束管理环境上进行迄今最大规模（100 seeds）的 QRL vs 经典 RL 比较，发现先前关于 QRL 优越性的声称需要更审慎看待。"
+title: >-
+  [论文解读] Benchmarking Quantum Reinforcement Learning
+description: >-
+  [ICML 2025][量子强化学习] 提出量子强化学习（QRL）的严格基准测试方法论——基于样本复杂度的统计估计器和统计显著性定义的"超越"概念，在新设计的 6G 波束管理环境上进行迄今最大规模（100 seeds）的 QRL vs 经典 RL 比较，发现先前关于 QRL 优越性的声称需要更审慎看待。
 tags:
   - ICML 2025
   - 量子强化学习

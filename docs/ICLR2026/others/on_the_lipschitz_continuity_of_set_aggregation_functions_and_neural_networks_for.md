@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Lipschitz Continuity of Set Aggregation Functions and Neural Networks for Sets 论文解读 | ICLR 2026 | arXiv 2505.24403 | Lipschitz连续性 | 系统研究了三种常用集合聚合函数（sum、mean、max）及注意力机制在三种多重集距离函数下的 Lipschitz 连续性，并推导了集合神经网络的 Lipschitz 常数上界，进而分析了模型的扰动稳定性和分布偏移下的泛化性能。"
+title: >-
+  [论文解读] On the Lipschitz Continuity of Set Aggregation Functions and Neural Networks for Sets
+description: >-
+  [ICLR 2026][Lipschitz连续性] 系统研究了三种常用集合聚合函数（sum、mean、max）及注意力机制在三种多重集距离函数下的 Lipschitz 连续性，并推导了集合神经网络的 Lipschitz 常数上界，进而分析了模型的扰动稳定性和分布偏移下的泛化性能。
 tags:
   - ICLR 2026
   - Lipschitz连续性

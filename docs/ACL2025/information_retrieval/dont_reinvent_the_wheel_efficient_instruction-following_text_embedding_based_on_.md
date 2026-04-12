@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Don't Reinvent the Wheel: Efficient Instruction-Following Text Embedding based on Guided Space Transformation 论文解读 | ACL 2025 | arXiv 2505.24754 | 指令感知嵌入 | 提出 GSTransform 框架，通过轻量级空间变换将预计算的通用嵌入实时适配到用户指令指定的语义空间，避免每次新指令都重新编码全部语料，在 9 个数据集上平均得分 66.01（SOTA 基线 55.31），同时实现 6~300 倍实时加速。"
+title: >-
+  [论文解读] Don't Reinvent the Wheel: Efficient Instruction-Following Text Embedding based on Guided Space Transformation
+description: >-
+  [ACL 2025][指令感知嵌入] 提出 GSTransform 框架，通过轻量级空间变换将预计算的通用嵌入实时适配到用户指令指定的语义空间，避免每次新指令都重新编码全部语料，在 9 个数据集上平均得分 66.01（SOTA 基线 55.31），同时实现 6~300 倍实时加速。
 tags:
   - ACL 2025
   - 指令感知嵌入

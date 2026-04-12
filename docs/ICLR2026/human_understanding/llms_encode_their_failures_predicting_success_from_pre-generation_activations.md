@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLMs Encode Their Failures: Predicting Success from Pre-Generation Activations 论文解读 | ICLR 2026 | arXiv 2602.09924 | 难度预测 | 发现LLM在生成答案前的激活中已编码了成功概率信息，线性探针可高效提取→该信号代表的是模型特异难度(≠人类难度)，且随扩展推理加深两者差异增大。探针引导的模型路由以70%成本降低匹配最强模型性能。"
+title: >-
+  [论文解读] LLMs Encode Their Failures: Predicting Success from Pre-Generation Activations
+description: >-
+  [ICLR 2026][人体理解][难度预测] 发现LLM在生成答案前的激活中已编码了成功概率信息，线性探针可高效提取→该信号代表的是模型特异难度(≠人类难度)，且随扩展推理加深两者差异增大。探针引导的模型路由以70%成本降低匹配最强模型性能。
 tags:
   - ICLR 2026
+  - 人体理解
   - 难度预测
   - 线性探针
   - 模型路由

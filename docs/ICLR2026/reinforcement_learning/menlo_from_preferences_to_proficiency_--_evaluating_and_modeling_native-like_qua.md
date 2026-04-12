@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MENLO: From Preferences to Proficiency -- Evaluating and Modeling Native-like Quality Across 47 Languages 论文解读 | ICLR 2026 | arXiv 2509.26601 | 多语言评估 | 提出Menlo框架，基于受众设计理论将LLM母语级质量评估分解为4个维度（流畅度/语气/本地化语气/本地化事实），构建47种语言6423标注对的数据集(IAA=0.84)，RL微调的评审模型达到人类标注水平，并可作为生成式奖励模型改善LLM多语言能力。"
+title: >-
+  [论文解读] MENLO: From Preferences to Proficiency -- Evaluating and Modeling Native-like Quality Across 47 Languages
+description: >-
+  [ICLR 2026][多语言评估] 提出Menlo框架，基于受众设计理论将LLM母语级质量评估分解为4个维度（流畅度/语气/本地化语气/本地化事实），构建47种语言6423标注对的数据集(IAA=0.84)，RL微调的评审模型达到人类标注水平，并可作为生成式奖励模型改善LLM多语言能力。
 tags:
   - ICLR 2026
   - 多语言评估

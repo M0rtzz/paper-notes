@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MagShield: Towards Better Robustness in Sparse Inertial Motion Capture Under Magnetic Disturbances 论文解读 | ICCV 2025 | arXiv 2506.22907 | motion capture | 提出 MagShield，首个针对稀疏惯性运动捕捉系统中磁场干扰问题的方法，采用\"检测-校正\"两阶段策略：通过多 IMU 联合分析检测磁场扰动，再利用人体运动先验网络校正方向误差，可即插即用地增强现有稀疏 IMU 动捕系统的鲁棒性。"
+title: >-
+  [论文解读] MagShield: Towards Better Robustness in Sparse Inertial Motion Capture Under Magnetic Disturbances
+description: >-
+  [ICCV 2025][人体理解][motion capture] 提出 MagShield，首个针对稀疏惯性运动捕捉系统中磁场干扰问题的方法，采用"检测-校正"两阶段策略：通过多 IMU 联合分析检测磁场扰动，再利用人体运动先验网络校正方向误差，可即插即用地增强现有稀疏 IMU 动捕系统的鲁棒性。
 tags:
   - ICCV 2025
+  - 人体理解
   - motion capture
   - IMU
   - magnetic disturbance

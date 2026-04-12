@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cut Less, Fold More: Model Compression through the Lens of Projection Geometry 论文解读 | ICLR2026 | arXiv 2602.18116 | 模型折叠 | 从投影几何视角统一分析结构化剪枝（轴对齐投影）与模型折叠（低秩聚类投影），证明在秩差 1 的条件下折叠重建误差严格更小，并在超过 1000 个 checkpoint 上验证折叠在中高压缩率下通常优于剪枝。"
+title: >-
+  [论文解读] Cut Less, Fold More: Model Compression through the Lens of Projection Geometry
+description: >-
+  [ICLR2026][模型压缩][模型折叠] 从投影几何视角统一分析结构化剪枝（轴对齐投影）与模型折叠（低秩聚类投影），证明在秩差 1 的条件下折叠重建误差严格更小，并在超过 1000 个 checkpoint 上验证折叠在中高压缩率下通常优于剪枝。
 tags:
   - ICLR2026
+  - 模型压缩
   - 模型折叠
   - 结构化剪枝
   - 正交投影

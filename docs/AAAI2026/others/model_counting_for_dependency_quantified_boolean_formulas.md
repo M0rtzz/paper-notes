@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Model Counting for Dependency Quantified Boolean Formulas 论文解读 | AAAI 2026 | arXiv 2511.07337 | DQBF | 本文首次研究了依赖量化布尔公式（DQBF）的模型计数问题，证明了即使仅含两个存在量词变量的 #2-DQBF 就已是 #EXP-完全的，并基于 BDD 符号可达性技术实现了一个实用的 2-DQBF 模型计数器 sharp2DQR，在大依赖集上显著优于基于展开的基线方法。"
+title: >-
+  [论文解读] Model Counting for Dependency Quantified Boolean Formulas
+description: >-
+  [AAAI 2026][DQBF] 本文首次研究了依赖量化布尔公式（DQBF）的模型计数问题，证明了即使仅含两个存在量词变量的 #2-DQBF 就已是 #EXP-完全的，并基于 BDD 符号可达性技术实现了一个实用的 2-DQBF 模型计数器 sharp2DQR，在大依赖集上显著优于基于展开的基线方法。
 tags:
   - AAAI 2026
   - DQBF
   - 模型计数
-  - "#EXP-完全"
+  - #EXP-完全
   - BDD
   - 符号可达性
 ---

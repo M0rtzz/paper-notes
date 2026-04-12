@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization 论文解读 | ICML2025 | arXiv 2505.10250 | 人体网格恢复 | 将DPO思想引入扩散式人体网格恢复(HMR)：训练HMR-Scorer评估预测质量，构建偏好数据集(winner/loser对)，用DPO微调基座扩散模型，无需3D标注即可提升in-the-wild图像上的HMR性能。"
+title: >-
+  [论文解读] ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization
+description: >-
+  [ICML2025][LLM对齐][人体网格恢复] 将DPO思想引入扩散式人体网格恢复(HMR)：训练HMR-Scorer评估预测质量，构建偏好数据集(winner/loser对)，用DPO微调基座扩散模型，无需3D标注即可提升in-the-wild图像上的HMR性能。
 tags:
   - ICML2025
+  - LLM对齐
   - 人体网格恢复
   - 扩散模型
   - DPO

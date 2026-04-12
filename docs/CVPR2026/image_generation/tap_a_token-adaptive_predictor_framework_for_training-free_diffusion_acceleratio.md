@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】TAP: A Token-Adaptive Predictor Framework for Training-Free Diffusion Acceleration 论文解读 | 提出 TAP 框架，通过第一层探针（probe）为每个 token 在每一步自适应选择最优预测器（Taylor 展开族），实现无需训练的扩散模型加速，在 FLUX.1-dev 上以 6.24× 加速且无感知质量损失。"
+title: >-
+  [论文解读] TAP: A Token-Adaptive Predictor Framework for Training-Free Diffusion Acceleration
+description: >-
+  [图像生成] 提出 TAP 框架，通过第一层探针（probe）为每个 token 在每一步自适应选择最优预测器（Taylor 展开族），实现无需训练的扩散模型加速，在 FLUX.1-dev 上以 6.24× 加速且无感知质量损失。
 tags:
-
+  - 图像生成
 ---
 
 # TAP: A Token-Adaptive Predictor Framework for Training-Free Diffusion Acceleration

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SafeMap: Robust HD Map Construction from Incomplete Observations 论文解读 | ICML 2025 | arXiv 2507.00861 | HD Map Construction | SafeMap 提出了一个即插即用的鲁棒高精地图构建框架，通过高斯采样视角重建（G-PVR）和蒸馏式 BEV 校正（D-BEVC）两个模块，在相机视角缺失的不完整观测条件下仍能准确构建矢量化高精地图。"
+title: >-
+  [论文解读] SafeMap: Robust HD Map Construction from Incomplete Observations
+description: >-
+  [ICML 2025][自动驾驶][HD Map Construction] SafeMap 提出了一个即插即用的鲁棒高精地图构建框架，通过高斯采样视角重建（G-PVR）和蒸馏式 BEV 校正（D-BEVC）两个模块，在相机视角缺失的不完整观测条件下仍能准确构建矢量化高精地图。
 tags:
   - ICML 2025
+  - 自动驾驶
   - HD Map Construction
   - BEV Perception
   - Sensor Failure Robustness

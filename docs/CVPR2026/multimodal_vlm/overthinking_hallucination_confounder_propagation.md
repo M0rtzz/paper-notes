@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Overthinking Causes Hallucination: Tracing Confounder Propagation in Vision Language Models 论文解读 | CVPR 2026 | arXiv 2603.07619 | VLM幻觉 | 发现VLM幻觉的新机制——\"过度思考\"(overthinking)：模型在中间层产生过多竞争性物体假设导致混杂因子传播到最终层，提出Overthinking Score量化层间假设多样性与不确定性的乘积，在MSCOCO上达到78.9% F1的幻觉检测性能。"
+title: >-
+  [论文解读] Overthinking Causes Hallucination: Tracing Confounder Propagation in Vision Language Models
+description: >-
+  [CVPR 2026][多模态][VLM幻觉] 发现VLM幻觉的新机制——"过度思考"(overthinking)：模型在中间层产生过多竞争性物体假设导致混杂因子传播到最终层，提出Overthinking Score量化层间假设多样性与不确定性的乘积，在MSCOCO上达到78.9% F1的幻觉检测性能。
 tags:
   - CVPR 2026
+  - 多模态
   - VLM幻觉
   - 过度思考
   - 混杂因子传播

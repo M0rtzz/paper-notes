@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GORP: Continual Gradient Low-Rank Projection Fine-Tuning for LLMs 论文解读 | ACL 2025 | arXiv 2507.02503 | continual learning | GORP 提出将全秩参数和 LoRA 低秩参数的梯度统一投影到低秩梯度子空间中联合更新，利用 Adam 一阶矩隐式构建跨任务共享梯度空间来缓解灾难性遗忘，在 T5 和 LLaMA2 上持续学习性能接近多任务联合训练上界。"
+title: >-
+  [论文解读] GORP: Continual Gradient Low-Rank Projection Fine-Tuning for LLMs
+description: >-
+  [ACL 2025][LLM/NLP][continual learning] GORP 提出将全秩参数和 LoRA 低秩参数的梯度统一投影到低秩梯度子空间中联合更新，利用 Adam 一阶矩隐式构建跨任务共享梯度空间来缓解灾难性遗忘，在 T5 和 LLaMA2 上持续学习性能接近多任务联合训练上界。
 tags:
   - ACL 2025
+  - LLM/NLP
   - continual learning
   - gradient projection
   - LoRA

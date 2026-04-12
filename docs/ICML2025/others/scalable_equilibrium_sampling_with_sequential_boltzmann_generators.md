@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Scalable Equilibrium Sampling with Sequential Boltzmann Generators 论文解读 | ICML2025 | arXiv 2502.18462 | Boltzmann生成器 | SBG通过Transformer架构规范化流(TarFlow)和退火Langevin动力学的序列蒙特卡洛，首次在笛卡尔坐标系中实现六肽(66原子)系统的高效平衡采样。"
+title: >-
+  [论文解读] Scalable Equilibrium Sampling with Sequential Boltzmann Generators
+description: >-
+  [ICML2025][Boltzmann生成器] SBG通过Transformer架构规范化流(TarFlow)和退火Langevin动力学的序列蒙特卡洛，首次在笛卡尔坐标系中实现六肽(66原子)系统的高效平衡采样。
 tags:
   - ICML2025
   - Boltzmann生成器

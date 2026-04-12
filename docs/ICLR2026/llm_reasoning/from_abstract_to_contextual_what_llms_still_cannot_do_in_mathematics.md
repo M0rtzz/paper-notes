@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Abstract to Contextual: What LLMs Still Cannot Do in Mathematics 论文解读 | ICLR 2026 | arXiv 2601.23048 | 数学推理 | 本文提出 ContextMATH 基准，通过将 AIME 和 MATH-500 的抽象数学问题转换为两种情境变体（场景嵌入 SG 和复杂度缩放 CS），系统揭示了LLM在情境化数学推理中的大幅性能下降——开源模型在 SG 上平均下降 13%，CS 上下降 34%——并识别出\"问题建模\"和\"推理执行\"是两个互补的性能瓶颈。"
+title: >-
+  [论文解读] From Abstract to Contextual: What LLMs Still Cannot Do in Mathematics
+description: >-
+  [ICLR 2026][LLM推理][数学推理] 本文提出 ContextMATH 基准，通过将 AIME 和 MATH-500 的抽象数学问题转换为两种情境变体（场景嵌入 SG 和复杂度缩放 CS），系统揭示了LLM在情境化数学推理中的大幅性能下降——开源模型在 SG 上平均下降 13%，CS 上下降 34%——并识别出"问题建模"和"推理执行"是两个互补的性能瓶颈。
 tags:
   - ICLR 2026
+  - LLM推理
   - 数学推理
   - 情境推理
   - 问题建模

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Resilience of Entropy Model in Distributed Neural Networks 论文解读 | ECCV2024 | arXiv 2403.00942 | distributed DNN | 首次系统研究分布式 DNN 中熵编码模型在有意干扰（对抗攻击）和无意干扰（天气变化、运动模糊等）下的鲁棒性，发现熵模型学习的压缩特征与分类特征截然不同，并提出基于目标感知全变差去噪的防御方法，可将攻击后的传输开销降低至低于干净数据水平，准确率仅下降约 2%。"
+title: >-
+  [论文解读] Resilience of Entropy Model in Distributed Neural Networks
+description: >-
+  [ECCV2024][AI安全][distributed DNN] 首次系统研究分布式 DNN 中熵编码模型在有意干扰（对抗攻击）和无意干扰（天气变化、运动模糊等）下的鲁棒性，发现熵模型学习的压缩特征与分类特征截然不同，并提出基于目标感知全变差去噪的防御方法，可将攻击后的传输开销降低至低于干净数据水平，准确率仅下降约 2%。
 tags:
   - ECCV2024
+  - AI安全
   - distributed DNN
   - entropy coding
   - adversarial attack

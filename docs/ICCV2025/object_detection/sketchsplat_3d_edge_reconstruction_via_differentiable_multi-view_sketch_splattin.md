@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SketchSplat: 3D Edge Reconstruction via Differentiable Multi-view Sketch Splatting 论文解读 | ICCV 2025 | arXiv 2503.14786 | 3D边缘重建 | 提出 SketchSplat，将 3D 边缘表示为参数化 sketch（直线+Bézier曲线），通过从 sketch 采样高斯点进行可微渲染来直接优化边缘参数，同时提出自适应拓扑控制和改进的 2D 边缘检测器，在 CAD 数据集上实现 SOTA 的准确性、完整性和紧凑性。"
+title: >-
+  [论文解读] SketchSplat: 3D Edge Reconstruction via Differentiable Multi-view Sketch Splatting
+description: >-
+  [ICCV 2025][目标检测][3D边缘重建] 提出 SketchSplat，将 3D 边缘表示为参数化 sketch（直线+Bézier曲线），通过从 sketch 采样高斯点进行可微渲染来直接优化边缘参数，同时提出自适应拓扑控制和改进的 2D 边缘检测器，在 CAD 数据集上实现 SOTA 的准确性、完整性和紧凑性。
 tags:
   - ICCV 2025
+  - 目标检测
   - 3D边缘重建
   - 可微渲染
   - 高斯溅射

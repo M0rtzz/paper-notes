@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reason-SVG: Enhancing Structured Reasoning for Vector Graphics Generation with Reinforcement Learning 论文解读 | CVPR2026 | arXiv 2505.24499 | SVG生成 | 提出 Reason-SVG 框架，通过\"Drawing-with-Thought\"(DwT)范式让 LLM 在生成 SVG 之前先进行显式的多阶段设计推理，并结合 SFT + GRPO 强化学习与混合奖励函数进行训练，在语义对齐、结构有效性和视觉质量上全面超越现有方法。"
+title: >-
+  [论文解读] Reason-SVG: Enhancing Structured Reasoning for Vector Graphics Generation with Reinforcement Learning
+description: >-
+  [CVPR2026][多模态][SVG生成] 提出 Reason-SVG 框架，通过"Drawing-with-Thought"(DwT)范式让 LLM 在生成 SVG 之前先进行显式的多阶段设计推理，并结合 SFT + GRPO 强化学习与混合奖励函数进行训练，在语义对齐、结构有效性和视觉质量上全面超越现有方法。
 tags:
   - CVPR2026
+  - 多模态
   - SVG生成
   - 结构化推理
   - 强化学习

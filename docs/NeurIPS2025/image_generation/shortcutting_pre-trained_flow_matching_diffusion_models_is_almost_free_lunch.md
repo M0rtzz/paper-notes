@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Shortcutting Pre-trained Flow Matching Diffusion Models is Almost Free Lunch 论文解读 | NeurIPS 2025 | arXiv 2510.17858 | flow matching | 提出SCFM（ShortCutting Flow Matching），一种超高效的后训练蒸馏方法，通过速度场自蒸馏将预训练flow matching模型（如12B参数的Flux）压缩为3步采样器，仅需不到1个A100-Day，无需步长嵌入或对抗蒸馏。"
+title: >-
+  [论文解读] Shortcutting Pre-trained Flow Matching Diffusion Models is Almost Free Lunch
+description: >-
+  [NeurIPS 2025][图像生成][flow matching] 提出SCFM（ShortCutting Flow Matching），一种超高效的后训练蒸馏方法，通过速度场自蒸馏将预训练flow matching模型（如12B参数的Flux）压缩为3步采样器，仅需不到1个A100-Day，无需步长嵌入或对抗蒸馏。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - flow matching
   - 蒸馏
   - 少步采样

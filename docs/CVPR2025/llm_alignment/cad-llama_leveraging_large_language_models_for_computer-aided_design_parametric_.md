@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAD-Llama: Leveraging Large Language Models for Computer-Aided Design Parametric 3D Model Generation 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Recently, Large Language Models (LLMs) have achieved significant success, prompting increased interest in expanding their generative capabilities beyond general text into domain-specific areas. This study investigates the generation of parametric sequences for computer-aided design (CAD) models usin"
+title: >-
+  [论文解读] CAD-Llama: Leveraging Large Language Models for Computer-Aided Design Parametric 3D Model Generation
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Recently, Large Language Models (LLMs) have achieved significant success, prompting increased interest in expanding their generative capabilities beyond general text into domain-specific areas. This study investigates the generation of parametric sequences for computer-aided design (CAD) models usin
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

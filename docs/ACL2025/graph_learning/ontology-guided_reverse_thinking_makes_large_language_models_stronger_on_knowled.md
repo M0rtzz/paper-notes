@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ontology-Guided Reverse Thinking Makes Large Language Models Stronger on Knowledge Graph Question Answering 论文解读 | ACL 2025 | arXiv 2502.11491 | 知识图谱问答 | 提出 ORT（Ontology-Guided Reverse Thinking），利用知识图谱本体结构从目标逆向构建标签推理路径，引导知识检索，显著提升 LLM 的知识图谱问答能力。"
+title: >-
+  [论文解读] Ontology-Guided Reverse Thinking Makes Large Language Models Stronger on Knowledge Graph Question Answering
+description: >-
+  [ACL 2025][图学习][知识图谱问答] 提出 ORT（Ontology-Guided Reverse Thinking），利用知识图谱本体结构从目标逆向构建标签推理路径，引导知识检索，显著提升 LLM 的知识图谱问答能力。
 tags:
   - ACL 2025
+  - 图学习
   - 知识图谱问答
   - 本体引导
   - 逆向推理

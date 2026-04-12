@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cross-Modal Unlearning via Influential Neuron Path Editing in Multimodal Large Language Models 论文解读 | AAAI 2026 | arXiv 2511.06793 | 机器遗忘 | 提出 MIP-Editor，通过跨层梯度积分（文本）和 Fisher 积分（视觉）定位多模态大语言模型中编码待遗忘知识的**影响力神经元路径**，再用基于路径的表示误导（RMisU）编辑这些神经元，在 MLLMU-Bench 上实现最高 87.75% 的遗忘率和 54.26% 的通用知识保留提升。"
+title: >-
+  [论文解读] Cross-Modal Unlearning via Influential Neuron Path Editing in Multimodal Large Language Models
+description: >-
+  [AAAI 2026][多模态][机器遗忘] 提出 MIP-Editor，通过跨层梯度积分（文本）和 Fisher 积分（视觉）定位多模态大语言模型中编码待遗忘知识的**影响力神经元路径**，再用基于路径的表示误导（RMisU）编辑这些神经元，在 MLLMU-Bench 上实现最高 87.75% 的遗忘率和 54.26% 的通用知识保留提升。
 tags:
   - AAAI 2026
+  - 多模态
   - 机器遗忘
   - 多模态大语言模型
   - 神经元路径编辑

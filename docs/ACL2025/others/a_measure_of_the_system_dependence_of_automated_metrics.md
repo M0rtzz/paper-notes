@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Measure of the System Dependence of Automated Metrics 论文解读 | ACL 2025 | arXiv 2412.03152 | Automated Metrics | 指出机器翻译自动评估指标存在被忽视的\"系统依赖性\"问题：同一指标分数对不同翻译系统对应不同的人类评分，提出 SysDep 度量来量化这一效应，揭示即使是 WMT23 最佳指标 XCOMET 也存在严重的系统依赖性导致错误排名。"
+title: >-
+  [论文解读] A Measure of the System Dependence of Automated Metrics
+description: >-
+  [ACL 2025][Automated Metrics] 指出机器翻译自动评估指标存在被忽视的"系统依赖性"问题：同一指标分数对不同翻译系统对应不同的人类评分，提出 SysDep 度量来量化这一效应，揭示即使是 WMT23 最佳指标 XCOMET 也存在严重的系统依赖性导致错误排名。
 tags:
   - ACL 2025
   - Automated Metrics

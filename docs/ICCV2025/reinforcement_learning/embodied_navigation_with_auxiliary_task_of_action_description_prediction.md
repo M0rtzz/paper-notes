@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Embodied Navigation with Auxiliary Task of Action Description Prediction 论文解读 | ICCV 2025 | arXiv 2510.21809 | 具身导航 | DescRL 将动作描述生成作为强化学习导航的辅助任务，通过从预训练的视觉-语言模型蒸馏知识来训练 ADPredictor，使导航智能体在生成可解释动作描述的同时提升导航性能，在语义音频-视觉导航（SAVNav）等多个任务上实现 SOTA。"
+title: >-
+  [论文解读] Embodied Navigation with Auxiliary Task of Action Description Prediction
+description: >-
+  [ICCV 2025][具身导航] DescRL 将动作描述生成作为强化学习导航的辅助任务，通过从预训练的视觉-语言模型蒸馏知识来训练 ADPredictor，使导航智能体在生成可解释动作描述的同时提升导航性能，在语义音频-视觉导航（SAVNav）等多个任务上实现 SOTA。
 tags:
   - ICCV 2025
   - 具身导航

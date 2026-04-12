@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Differentially Private Bilevel Optimization: Efficient Algorithms with Near-Optimal Rates 论文解读 | NeurIPS 2025 | arXiv 2506.12994 | 双层优化 | 本文系统研究差分隐私 (DP) 下的双层优化问题，在凸情形下通过指数机制和正则化指数机制给出近紧的上下界（匹配单层 DP-ERM 最优率），在非凸情形下提出二阶 DP 方法实现不依赖内层维度的 SOTA 收敛率。"
+title: >-
+  [论文解读] Differentially Private Bilevel Optimization: Efficient Algorithms with Near-Optimal Rates
+description: >-
+  [NeurIPS 2025][AI安全][双层优化] 本文系统研究差分隐私 (DP) 下的双层优化问题，在凸情形下通过指数机制和正则化指数机制给出近紧的上下界（匹配单层 DP-ERM 最优率），在非凸情形下提出二阶 DP 方法实现不依赖内层维度的 SOTA 收敛率。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 双层优化
   - 差分隐私
   - 指数机制

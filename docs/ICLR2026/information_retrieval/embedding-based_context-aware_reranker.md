@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Embedding-Based Context-Aware Reranker 论文解读 | ICLR 2026 | arXiv 2510.13329 | 重排序 | 提出 EBCAR，一个基于嵌入空间的轻量级重排序框架，通过文档 ID 嵌入和段落位置编码引入结构信息，结合共享全注意力 + 专用掩码注意力的混合机制实现跨段落推理，在 ConTEB 基准上以 126M 参数达到最优平均 nDCG@10，推理速度比 LLM 重排器快 150 倍以上。"
+title: >-
+  [论文解读] Embedding-Based Context-Aware Reranker
+description: >-
+  [ICLR 2026][重排序] 提出 EBCAR，一个基于嵌入空间的轻量级重排序框架，通过文档 ID 嵌入和段落位置编码引入结构信息，结合共享全注意力 + 专用掩码注意力的混合机制实现跨段落推理，在 ConTEB 基准上以 126M 参数达到最优平均 nDCG@10，推理速度比 LLM 重排器快 150 倍以上。
 tags:
   - ICLR 2026
   - 重排序

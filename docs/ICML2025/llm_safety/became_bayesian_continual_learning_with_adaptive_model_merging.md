@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】BECAME: BayEsian Continual Learning with Adaptive Model MErging 论文解读 | ICML 2025 | arXiv 2504.02666 | 持续学习 | 提出 BECAME——基于贝叶斯持续学习原则重新建模模型融合机制，利用 Laplace 近似推导出最优融合系数的闭式解，结合梯度投影（稳定性）和无约束训练（可塑性）的两阶段框架，在多个持续学习基准上显著超越 SOTA。"
+title: >-
+  [论文解读] BECAME: BayEsian Continual Learning with Adaptive Model MErging
+description: >-
+  [ICML 2025][持续学习] 提出 BECAME——基于贝叶斯持续学习原则重新建模模型融合机制，利用 Laplace 近似推导出最优融合系数的闭式解，结合梯度投影（稳定性）和无约束训练（可塑性）的两阶段框架，在多个持续学习基准上显著超越 SOTA。
 tags:
   - ICML 2025
   - 持续学习

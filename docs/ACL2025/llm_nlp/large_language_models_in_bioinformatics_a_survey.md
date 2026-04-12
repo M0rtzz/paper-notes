@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large Language Models in Bioinformatics: A Survey 论文解读 | ACL 2025 | arXiv 2503.04490 | bioinformatics | 系统综述 LLM 在生物信息学中的应用，覆盖基因组序列建模、RNA 结构预测、蛋白质功能推断、单细胞转录组学四大方向，讨论数据稀缺、计算复杂度、跨组学整合等挑战。"
+title: >-
+  [论文解读] Large Language Models in Bioinformatics: A Survey
+description: >-
+  [ACL 2025][LLM/NLP][bioinformatics] 系统综述 LLM 在生物信息学中的应用，覆盖基因组序列建模、RNA 结构预测、蛋白质功能推断、单细胞转录组学四大方向，讨论数据稀缺、计算复杂度、跨组学整合等挑战。
 tags:
   - ACL 2025
+  - LLM/NLP
   - bioinformatics
   - survey
   - protein

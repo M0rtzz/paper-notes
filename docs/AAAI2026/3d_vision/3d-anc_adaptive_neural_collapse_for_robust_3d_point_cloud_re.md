@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition 论文解读 | AAAI 2026 | arXiv 2511.07040 | 点云识别 | 将Neural Collapse(NC)机制引入3D点云对抗鲁棒性，用固定的ETF分类头+自适应训练框架(RBL+FDL)构建解耦的特征空间，在ModelNet40上将DGCNN的对抗准确率从27.2%提升到80.9%，超出最佳baseline 34个点。"
+title: >-
+  [论文解读] 3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition
+description: >-
+  [AAAI 2026][3D视觉][点云识别] 将Neural Collapse(NC)机制引入3D点云对抗鲁棒性，用固定的ETF分类头+自适应训练框架(RBL+FDL)构建解耦的特征空间，在ModelNet40上将DGCNN的对抗准确率从27.2%提升到80.9%，超出最佳baseline 34个点。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 点云识别
   - 对抗鲁棒性
   - Neural Collapse

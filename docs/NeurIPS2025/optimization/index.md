@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 优化/理论方向 102篇论文解读
+description: >-
+  102篇NeurIPS2025 优化/理论方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
@@ -35,7 +42,7 @@
 
 :   Auto-Compressing Networks（ACN）用长程前向连接（所有层输出直接汇聚到最终输出）替代短残差连接，使得梯度的 Direct Gradient 成分远强于 Forward Gradient，隐式地将信息压缩到早期层——ViT 仅需 6 层达到标准 12 层性能，BERT 节省 75% 层数，还额外获得噪声鲁棒性（+6.4%）和持续学习抗遗忘（-18%）。
 
-**[Automated Algorithm Design via Nevanlinna-Pick Interpolation](automated_algorithm_design_via_nevanlinna-pick_interpolation.md)**
+**[Automated Algorithm Design Via Nevanlinna-Pick Interpolation](automated_algorithm_design_via_nevanlinna-pick_interpolation.md)**
 
 :   提出基于频域鲁棒控制理论中 Nevanlinna-Pick 插值的自动化算法设计框架，用于求解带等式约束的强凸优化问题，获得了矩阵乘法次数与收敛速率之间的最优权衡。
 
@@ -47,7 +54,7 @@
 
 :   证明 ReLU 激活函数对宽神经网络有一个此前未被注意的"免费"益处：(a) 在模型梯度特征空间中产生更好的数据分离（相似输入的角度在梯度空间中被放大），(b) 由此导致 NTK 矩阵条件数严格减小（相比线性网络）。深度进一步放大此效应——在无限宽然后无限深的极限下，所有数据对在梯度空间中等角分离（~75.5°），NTK 条件数收敛到仅依赖数据量 $n$ 的固定值 $(n+4)/3$。
 
-**[Beyond Õ(√T) Constraint Violation for Online Convex Optimization with Adversarial Constraints](beyond_tildeosqrtt_constraint_violation_for_online_convex_optimization_with_adve.md)**
+**[Beyond Tildeosqrtt Constraint Violation For Online Convex Optimization With Adve](beyond_tildeosqrtt_constraint_violation_for_online_convex_optimization_with_adve.md)**
 
 :   研究带对抗约束的在线凸优化 (COCO)，通过引入可调参数 $\beta$ 实现 $\tilde{O}(T^\beta)$ 遗憾与 $\tilde{O}(T^{1-\beta})$ 约束违反之间的精确权衡，突破了此前 $\tilde{O}(\sqrt{T})$ 约束违反的已知最优界。
 
@@ -55,7 +62,7 @@
 
 :   提出 FOND 框架（Free energy Online Natural-gradient Dynamics），从自由能最小化的第一原理推导出脉冲神经网络推断动力学，并实现 iPVAE（迭代泊松 VAE），在重建-稀疏性权衡、生物合理性和 OOD 泛化上优于标准 VAE 和预测编码模型。
 
-**[Clean First, Align Later: Benchmarking Preference Data Cleaning for Reliable LLM Alignment](clean_first_align_later_benchmarking_preference_data_cleaning_for_reliable_llm_a.md)**
+**[Clean First Align Later Benchmarking Preference Data Cleaning For Reliable Llm A](clean_first_align_later_benchmarking_preference_data_cleaning_for_reliable_llm_a.md)**
 
 :   本文提出 PrefCleanBench，首个系统评估 13 种偏好数据清洗方法在 LLM 对齐中效果的综合基准，覆盖多种数据集、模型架构和优化算法，揭示了数据预处理在负责任 AI 开发中被忽视但至关重要的角色。
 

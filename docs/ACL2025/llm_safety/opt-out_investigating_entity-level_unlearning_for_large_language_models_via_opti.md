@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Opt-Out: Investigating Entity-Level Unlearning for Large Language Models via Optimal Transport 论文解读 | ACL 2025 | arXiv 2406.12329 | machine unlearning | 提出 Opt-Out，一种基于最优传输理论的实体级 LLM 遗忘方法，利用 Sliced Wasserstein Distance 正则化参数偏移实现精细遗忘；同时构建首个实体级遗忘数据集 ELUDe（20 目标实体 + 144 邻居实体，15K+ forget / 90K+ retain QA 对），在 Llama-3.1-8B 和 Phi-3.5 上全面超越现有方法。"
+title: >-
+  [论文解读] Opt-Out: Investigating Entity-Level Unlearning for Large Language Models via Optimal Transport
+description: >-
+  [ACL 2025][machine unlearning] 提出 Opt-Out，一种基于最优传输理论的实体级 LLM 遗忘方法，利用 Sliced Wasserstein Distance 正则化参数偏移实现精细遗忘；同时构建首个实体级遗忘数据集 ELUDe（20 目标实体 + 144 邻居实体，15K+ forget / 90K+ retain QA 对），在 Llama-3.1-8B 和 Phi-3.5 上全面超越现有方法。
 tags:
   - ACL 2025
   - machine unlearning

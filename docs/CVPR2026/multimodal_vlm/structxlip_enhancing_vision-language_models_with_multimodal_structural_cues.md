@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】StructXLIP: Enhancing Vision-Language Models with Multimodal Structural Cues 论文解读 | CVPR 2026 | arXiv 2602.20089 | CLIP | StructXLIP 将边缘图（edge map）作为视觉结构的代理表示，在 CLIP 微调中引入三种结构中心损失（边缘-结构文本对齐 + 局部区域-文本块匹配 + 边缘-彩色图连接），通过最大化多模态结构表示的互信息引导模型走向更鲁棒的语义稳定最优解，在跨模态检索任务上超越现有竞争者。"
+title: >-
+  [论文解读] StructXLIP: Enhancing Vision-Language Models with Multimodal Structural Cues
+description: >-
+  [CVPR 2026][多模态][CLIP] StructXLIP 将边缘图（edge map）作为视觉结构的代理表示，在 CLIP 微调中引入三种结构中心损失（边缘-结构文本对齐 + 局部区域-文本块匹配 + 边缘-彩色图连接），通过最大化多模态结构表示的互信息引导模型走向更鲁棒的语义稳定最优解，在跨模态检索任务上超越现有竞争者。
 tags:
   - CVPR 2026
+  - 多模态
   - CLIP
   - 边缘图
   - 结构对齐

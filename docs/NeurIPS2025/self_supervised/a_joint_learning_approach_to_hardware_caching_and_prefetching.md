@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] A Joint Learning Approach to Hardware Caching and Prefetching
+description: >-
+  [NeurIPS 2025 (ML for Systems Workshop)][自监督学习][缓存替换] 提出将硬件缓存替换策略和预取策略进行联合训练的学习框架，通过共享编码器和对比学习两种方式构建共享特征表征，打破两个策略独立训练时的性能瓶颈。
+tags:
+  - NeurIPS 2025 (ML for Systems Workshop)
+  - 自监督学习
+  - 缓存替换
+  - 预取
+  - 联合学习
+  - 共享表征
+  - 对比学习
+---
+
 # A Joint Learning Approach to Hardware Caching and Prefetching
 
 **会议**: NeurIPS 2025 (ML for Systems Workshop)  

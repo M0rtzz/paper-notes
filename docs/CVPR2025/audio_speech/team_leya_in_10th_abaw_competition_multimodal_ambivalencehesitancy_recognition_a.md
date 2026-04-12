@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Team LEYA in 10th ABAW Competition: Multimodal Ambivalence/Hesitancy Recognition Approach 论文解读 | CVPR 2025 (ABAW Workshop) | arXiv 2603.12848 | 矛盾/犹豫识别 | 本文提出面向视频级矛盾/犹豫（A/H）识别的多模态方法，整合场景（VideoMAE）、面部（EmotionEfficientNetB0）、音频（EmotionWav2Vec2.0+Mamba）和文本（EmotionDistilRoBERTa）四种模态，通过原型增强的 Transformer 融合模型实现 83.25% 平均 MF1，最终以五模型集成在测试集达到 71.43%。"
+title: >-
+  [论文解读] Team LEYA in 10th ABAW Competition: Multimodal Ambivalence/Hesitancy Recognition Approach
+description: >-
+  [CVPR 2025 (ABAW Workshop)][语音][矛盾/犹豫识别] 本文提出面向视频级矛盾/犹豫（A/H）识别的多模态方法，整合场景（VideoMAE）、面部（EmotionEfficientNetB0）、音频（EmotionWav2Vec2.0+Mamba）和文本（EmotionDistilRoBERTa）四种模态，通过原型增强的 Transformer 融合模型实现 83.25% 平均 MF1，最终以五模型集成在测试集达到 71.43%。
 tags:
   - CVPR 2025 (ABAW Workshop)
+  - 语音
   - 矛盾/犹豫识别
   - 多模态融合
   - Prototype-augmented

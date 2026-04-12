@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Logical Expressiveness in GNNs via Path-Neighbor Aggregation 论文解读 | AAAI 2026 | arXiv 2511.07994 | 逻辑表达力 | PN-GNN 提出在条件消息传递的基础上聚合推理路径上的邻居节点嵌入，以即插即用的方式增强 GNN 的逻辑规则表达力（严格超越 C-GNN），同时避免标注技巧（labeling trick）对泛化能力的损害，在合成数据集和真实知识图谱推理任务上均取得提升。"
+title: >-
+  [论文解读] Enhancing Logical Expressiveness in GNNs via Path-Neighbor Aggregation
+description: >-
+  [AAAI 2026][图学习][逻辑表达力] PN-GNN 提出在条件消息传递的基础上聚合推理路径上的邻居节点嵌入，以即插即用的方式增强 GNN 的逻辑规则表达力（严格超越 C-GNN），同时避免标注技巧（labeling trick）对泛化能力的损害，在合成数据集和真实知识图谱推理任务上均取得提升。
 tags:
   - AAAI 2026
+  - 图学习
   - 逻辑表达力
   - 知识图谱推理
   - 路径邻居聚合

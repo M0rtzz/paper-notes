@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MeshMamba: State Space Models for Articulated 3D Mesh Generation and Reconstruction 论文解读 | MeshMamba 提出基于 Mamba 状态空间模型的 3D 关节体网格生成与重建方法，通过设计基于身体部位 UV 图和模板网格坐标的顶点序列化技术，实现了万级顶点网格的高效生成和重建，速度比 Transformer 快 6-9 倍。"
+title: >-
+  [论文解读] MeshMamba: State Space Models for Articulated 3D Mesh Generation and Reconstruction
+description: >-
+  [3D视觉] MeshMamba 提出基于 Mamba 状态空间模型的 3D 关节体网格生成与重建方法，通过设计基于身体部位 UV 图和模板网格坐标的顶点序列化技术，实现了万级顶点网格的高效生成和重建，速度比 Transformer 快 6-9 倍。
 tags:
-
+  - 3D视觉
 ---
 
 # MeshMamba: State Space Models for Articulated 3D Mesh Generation and Reconstruction

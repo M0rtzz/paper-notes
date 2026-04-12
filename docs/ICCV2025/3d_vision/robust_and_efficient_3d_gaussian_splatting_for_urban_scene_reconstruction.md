@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Robust and Efficient 3D Gaussian Splatting for Urban Scene Reconstruction 论文解读 | ICCV 2025 | arXiv 2507.23006 | 3DGS | 提出一套面向城市级场景的高效鲁棒3DGS重建框架——通过可见性分区策略、可控LOD生成、细粒度外观变换模块及多种正则化技术，实现了在外观差异大、含瞬态物体的城市数据上高质量重建与实时渲染。"
+title: >-
+  [论文解读] Robust and Efficient 3D Gaussian Splatting for Urban Scene Reconstruction
+description: >-
+  [ICCV 2025][3D视觉][3DGS] 提出一套面向城市级场景的高效鲁棒3DGS重建框架——通过可见性分区策略、可控LOD生成、细粒度外观变换模块及多种正则化技术，实现了在外观差异大、含瞬态物体的城市数据上高质量重建与实时渲染。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3DGS
   - 城市场景重建
   - LOD策略

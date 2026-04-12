@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】What Is That Talk About? A Video-to-Text Summarization Dataset for Scientific Presentations 论文解读 | ACL 2025 | arXiv 2502.08279 | 视频摘要 | 构建了 VISTA 数据集（18,599 个 AI 会议演讲视频-摘要对），首次系统性基准测试科学视频到文本摘要任务，并提出基于计划（plan-based）的框架，通过显式建模摘要结构来提升生成质量和事实一致性。"
+title: >-
+  [论文解读] What Is That Talk About? A Video-to-Text Summarization Dataset for Scientific Presentations
+description: >-
+  [ACL 2025][文本生成][视频摘要] 构建了 VISTA 数据集（18,599 个 AI 会议演讲视频-摘要对），首次系统性基准测试科学视频到文本摘要任务，并提出基于计划（plan-based）的框架，通过显式建模摘要结构来提升生成质量和事实一致性。
 tags:
   - ACL 2025
+  - 文本生成
   - 视频摘要
   - 科学演讲
   - 多模态学习

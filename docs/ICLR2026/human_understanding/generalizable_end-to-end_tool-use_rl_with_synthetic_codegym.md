@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalizable End-to-End Tool-Use RL with Synthetic CodeGym 论文解读 | ICLR2026 | arXiv 2509.17325 | tool-use | 提出 CodeGym 框架，将编程题自动转化为多轮工具调用的交互式环境，用于 LLM agent 的强化学习训练，在分布外基准上取得显著泛化提升（如 Qwen2.5-32B 在 τ-Bench 上 +8.7 点）。"
+title: >-
+  [论文解读] Generalizable End-to-End Tool-Use RL with Synthetic CodeGym
+description: >-
+  [ICLR2026][人体理解][tool-use] 提出 CodeGym 框架，将编程题自动转化为多轮工具调用的交互式环境，用于 LLM agent 的强化学习训练，在分布外基准上取得显著泛化提升（如 Qwen2.5-32B 在 τ-Bench 上 +8.7 点）。
 tags:
   - ICLR2026
+  - 人体理解
   - tool-use
   - 强化学习
   - LLM agent

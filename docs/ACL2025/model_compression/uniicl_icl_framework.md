@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniICL: An Efficient ICL Framework Unifying Compression, Selection, and Generation 论文解读 | ACL 2025 (Long Paper, acl-long.24) | arXiv 2405.17062 | ICL | 提出 UniICL 框架，用**一个冻结的 LLM** 同时完成 demonstration 压缩（compress→virtual tokens）、demonstration 选择（基于压缩后的 virtual token 相似度排序）和最终响应生成三个任务，仅需 17M 可训练参数（projection layer + learnable embedding），配合 Demonstration Bank 缓存机制避免重复压缩，实现 12× 压缩率下从 4-shot 扩展到 64-shot ICL（24GB 显存内），在多个 out-of-domain 数据集上超越 AutoCompressor、ICAE、LLMLingua 等基线。"
+title: >-
+  [论文解读] UniICL: An Efficient ICL Framework Unifying Compression, Selection, and Generation
+description: >-
+  [ACL 2025 (Long Paper, acl-long.24)][模型压缩][ICL] 提出 UniICL 框架，用**一个冻结的 LLM** 同时完成 demonstration 压缩（compress→virtual tokens）、demonstration 选择（基于压缩后的 virtual token 相似度排序）和最终响应生成三个任务，仅需 17M 可训练参数（projection layer + learnable embedding），配合 Demonstration Bank 缓存机制避免重复压缩，实现 12× 压缩率下从 4-shot 扩展到 64-shot ICL（24GB 显存内），在多个 out-of-domain 数据集上超越 AutoCompressor、ICAE、LLMLingua 等基线。
 tags:
   - ACL 2025 (Long Paper, acl-long.24)
+  - 模型压缩
   - ICL
   - Demonstration Compression
   - Virtual Token

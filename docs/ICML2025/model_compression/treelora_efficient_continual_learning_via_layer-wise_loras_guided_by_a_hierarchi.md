@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TreeLoRA: Efficient Continual Learning via Layer-wise LoRAs Guided by Hierarchical Gradient-Similarity Tree 论文解读 | ICML2025 | arXiv 2506.10355 | 持续学习 | 提出TreeLoRA——用K-D树组织的层级任务结构指导层级LoRA适配器分配：用bandit-based下置信界算法高效探索任务结构+稀疏梯度更新优化参数，在ViT和LLM上都有效，理论保证学习收敛。"
+title: >-
+  [论文解读] TreeLoRA: Efficient Continual Learning via Layer-wise LoRAs Guided by Hierarchical Gradient-Similarity Tree
+description: >-
+  [ICML2025][模型压缩][持续学习] 提出TreeLoRA——用K-D树组织的层级任务结构指导层级LoRA适配器分配：用bandit-based下置信界算法高效探索任务结构+稀疏梯度更新优化参数，在ViT和LLM上都有效，理论保证学习收敛。
 tags:
   - ICML2025
+  - 模型压缩
   - 持续学习
   - LoRA
   - 层级适配

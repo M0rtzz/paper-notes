@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LONG3R: Long Sequence Streaming 3D Reconstruction 论文解读 | ICCV 2025 | arXiv 2507.18255 | 流式3D重建 | 提出 LONG3R，一种基于循环记忆机制的流式多视图3D重建模型，通过记忆门控、双源精炼解码器和3D时空记忆三大创新，在保持实时推理速度的同时显著提升长序列重建质量。"
+title: >-
+  [论文解读] LONG3R: Long Sequence Streaming 3D Reconstruction
+description: >-
+  [ICCV 2025][3D视觉][流式3D重建] 提出 LONG3R，一种基于循环记忆机制的流式多视图3D重建模型，通过记忆门控、双源精炼解码器和3D时空记忆三大创新，在保持实时推理速度的同时显著提升长序列重建质量。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 流式3D重建
   - 点图回归
   - 时空记忆

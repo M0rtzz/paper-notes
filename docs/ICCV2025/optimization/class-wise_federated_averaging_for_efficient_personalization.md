@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Class-Wise Federated Averaging for Efficient Personalization 论文解读 | ICCV 2025 | arXiv 2406.07800 | 个性化联邦学习 | cwFedAvg 将 FedAvg 从\"按客户端聚合\"扩展为\"按类别聚合\"，为每个类别创建专属全局模型，再根据各客户端的类别分布加权组合成个性化模型，配合权重分布正则化（WDR）增强类别分布与权重范数的关联，在保持 FedAvg 通信开销的同时显著提升非 IID 场景下的个性化性能。"
+title: >-
+  [论文解读] Class-Wise Federated Averaging for Efficient Personalization
+description: >-
+  [ICCV 2025][优化][个性化联邦学习] cwFedAvg 将 FedAvg 从"按客户端聚合"扩展为"按类别聚合"，为每个类别创建专属全局模型，再根据各客户端的类别分布加权组合成个性化模型，配合权重分布正则化（WDR）增强类别分布与权重范数的关联，在保持 FedAvg 通信开销的同时显著提升非 IID 场景下的个性化性能。
 tags:
   - ICCV 2025
+  - 优化
   - 个性化联邦学习
   - 类别级聚合
   - 权重分布正则化

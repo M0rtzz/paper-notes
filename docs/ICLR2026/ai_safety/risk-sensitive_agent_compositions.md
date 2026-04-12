@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Risk-Sensitive Agent Compositions 论文解读 | ICLR 2026 | arXiv 2506.04632 | 风险敏感 | 将Agent工作流形式化为有向无环图（Agent Graph），以max损失函数建模安全/公平/隐私需求，提出BucketedVaR算法通过联合界+动态规划在多项式时间内找到最小化VaR/CVaR的最优Agent组合，并证明在独立损失假设下渐近近最优。"
+title: >-
+  [论文解读] Risk-Sensitive Agent Compositions
+description: >-
+  [ICLR 2026][AI安全][风险敏感] 将Agent工作流形式化为有向无环图（Agent Graph），以max损失函数建模安全/公平/隐私需求，提出BucketedVaR算法通过联合界+动态规划在多项式时间内找到最小化VaR/CVaR的最优Agent组合，并证明在独立损失假设下渐近近最优。
 tags:
   - ICLR 2026
+  - AI安全
   - 风险敏感
   - Agent组合
   - VaR

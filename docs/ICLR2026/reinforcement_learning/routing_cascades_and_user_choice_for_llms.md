@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Routing, Cascades, and User Choice for LLMs 论文解读 | ICLR2026 | arXiv 2602.09902 | LLM routing | 将 LLM 路由建模为 provider-user Stackelberg 博弈，证明最优路由策略几乎总是静态无级联的阈值规则，并揭示当模型质量排序与成本排序不一致时产生的用户-提供商不对齐问题，以及低流失惩罚下 provider 有动机通过增加延迟来降低成本。"
+title: >-
+  [论文解读] Routing, Cascades, and User Choice for LLMs
+description: >-
+  [ICLR2026][LLM routing] 将 LLM 路由建模为 provider-user Stackelberg 博弈，证明最优路由策略几乎总是静态无级联的阈值规则，并揭示当模型质量排序与成本排序不一致时产生的用户-提供商不对齐问题，以及低流失惩罚下 provider 有动机通过增加延迟来降低成本。
 tags:
   - ICLR2026
   - LLM routing

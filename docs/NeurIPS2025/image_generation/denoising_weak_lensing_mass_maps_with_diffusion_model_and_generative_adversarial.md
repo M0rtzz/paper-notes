@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Denoising Weak Lensing Mass Maps with Diffusion Model and Generative Adversarial Network 论文解读 | 将扩散模型（DM）应用于弱引力透镜质量图去噪任务，与 GAN（pix2pix）在相同实验设置下进行系统性对比，证明 DM 在训练稳定性、多样本平均鲁棒性和多种统计量重建精度上全面优于 GAN。"
+title: >-
+  [论文解读] Denoising Weak Lensing Mass Maps with Diffusion Model and Generative Adversarial Network
+description: >-
+  [图像生成] 将扩散模型（DM）应用于弱引力透镜质量图去噪任务，与 GAN（pix2pix）在相同实验设置下进行系统性对比，证明 DM 在训练稳定性、多样本平均鲁棒性和多种统计量重建精度上全面优于 GAN。
 tags:
-
+  - 图像生成
 ---
 
 # Denoising Weak Lensing Mass Maps with Diffusion Model and Generative Adversarial Network

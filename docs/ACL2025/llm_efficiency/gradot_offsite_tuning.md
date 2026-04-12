@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models 论文解读 | ACL 2025 | arXiv 2507.04455 | Offsite-tuning | 从优化理论角度首次系统分析 Offsite-tuning 问题，提出梯度保持压缩分数（GCS），并基于此设计了 GradOT 方法，对 MHA 使用动态秩分解（DRD）、对 MLP 使用选择性通道剪枝（SCP），在免训练条件下同时实现性能保持和隐私保护。"
+title: >-
+  [论文解读] GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models
+description: >-
+  [ACL 2025][LLM效率][Offsite-tuning] 从优化理论角度首次系统分析 Offsite-tuning 问题，提出梯度保持压缩分数（GCS），并基于此设计了 GradOT 方法，对 MHA 使用动态秩分解（DRD）、对 MLP 使用选择性通道剪枝（SCP），在免训练条件下同时实现性能保持和隐私保护。
 tags:
   - ACL 2025
+  - LLM效率
   - Offsite-tuning
   - 梯度保持压缩
   - 隐私保护

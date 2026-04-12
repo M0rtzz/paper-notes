@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ARCHE: A Novel Task to Evaluate LLMs on Latent Reasoning Chain Extraction 论文解读 | AAAI 2026 | arXiv 2511.12485 | 潜在推理链提取 | 提出潜在推理链提取 (ARCHE) 任务，要求 LLM 将科学论文中的论证分解为基于 Peirce 三种推理范式的推理逻辑树 (RLT)，并通过 Entity Coverage 和 Reasoning Edge Accuracy 两个指标揭示了 10 个主流 LLM 在内容完整性与逻辑正确性之间的本质权衡。"
+title: >-
+  [论文解读] ARCHE: A Novel Task to Evaluate LLMs on Latent Reasoning Chain Extraction
+description: >-
+  [AAAI 2026][LLM推理][潜在推理链提取] 提出潜在推理链提取 (ARCHE) 任务，要求 LLM 将科学论文中的论证分解为基于 Peirce 三种推理范式的推理逻辑树 (RLT)，并通过 Entity Coverage 和 Reasoning Edge Accuracy 两个指标揭示了 10 个主流 LLM 在内容完整性与逻辑正确性之间的本质权衡。
 tags:
   - AAAI 2026
+  - LLM推理
   - 潜在推理链提取
   - Peirce推理范式
   - 演绎/归纳/溯因

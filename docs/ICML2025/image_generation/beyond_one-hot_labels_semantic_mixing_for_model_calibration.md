@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond One-Hot Labels: Semantic Mixing for Model Calibration 论文解读 | ICML 2025 | arXiv 2504.13548 | 模型校准 | 提出 CSM（Calibration-aware Semantic Mixing）——利用预训练扩散模型生成高保真的语义混合样本（如猫-狗混合体），并通过 CLIP 重标注精确的软标签置信度，用 $L_2$ 损失训练实现比现有校准方法更优的模型置信度校准。"
+title: >-
+  [论文解读] Beyond One-Hot Labels: Semantic Mixing for Model Calibration
+description: >-
+  [ICML 2025][图像生成][模型校准] 提出 CSM（Calibration-aware Semantic Mixing）——利用预训练扩散模型生成高保真的语义混合样本（如猫-狗混合体），并通过 CLIP 重标注精确的软标签置信度，用 $L_2$ 损失训练实现比现有校准方法更优的模型置信度校准。
 tags:
   - ICML 2025
+  - 图像生成
   - 模型校准
   - 数据增强
   - 扩散模型

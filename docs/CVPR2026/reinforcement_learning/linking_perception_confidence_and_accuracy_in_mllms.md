@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Linking Perception, Confidence and Accuracy in MLLMs 论文解读 | CVPR 2026 | arXiv 2603.12149 | 多模态大模型 | 揭示 MLLM 的严重置信度失校准问题（视觉输入退化时准确率暴跌但置信度不变），提出 CDRL（基于原始-噪声图像对的置信度驱动 RL）进行感知敏感性训练，并利用校准后的置信度实现自适应测试时缩放（CA-TTS），在四个基准上平均提升 8.8%。"
+title: >-
+  [论文解读] Linking Perception, Confidence and Accuracy in MLLMs
+description: >-
+  [CVPR 2026][多模态大模型] 揭示 MLLM 的严重置信度失校准问题（视觉输入退化时准确率暴跌但置信度不变），提出 CDRL（基于原始-噪声图像对的置信度驱动 RL）进行感知敏感性训练，并利用校准后的置信度实现自适应测试时缩放（CA-TTS），在四个基准上平均提升 8.8%。
 tags:
   - CVPR 2026
   - 多模态大模型

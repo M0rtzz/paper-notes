@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location 论文解读 | NeurIPS 2025 | arXiv 2501.14808 | 在线-离线共置 | HyGen是干扰感知LLM推理系统，通过延迟预测和虚拟队列调度实现在线离线工作负载的弹性共置，保证SLO同时获得3.87-5.84倍吞吐改进。"
+title: >-
+  [论文解读] HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location
+description: >-
+  [NeurIPS 2025][在线-离线共置] HyGen是干扰感知LLM推理系统，通过延迟预测和虚拟队列调度实现在线离线工作负载的弹性共置，保证SLO同时获得3.87-5.84倍吞吐改进。
 tags:
   - NeurIPS 2025
   - 在线-离线共置

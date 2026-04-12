@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Why Reinforcement Fine-Tuning Preserves Prior Knowledge Better: A Data Perspective 论文解读 | 通过拼图任务系统研究 SFT 与 RFT 对先验知识的影响，揭示 RFT 避免灾难性遗忘的核心在于**数据分布**而非算法差异——RFT 采样的数据天然与基模型概率景观对齐，干扰更小。"
+title: >-
+  [论文解读] Why Reinforcement Fine-Tuning Preserves Prior Knowledge Better: A Data Perspective
+description: >-
+  [多模态] 通过拼图任务系统研究 SFT 与 RFT 对先验知识的影响，揭示 RFT 避免灾难性遗忘的核心在于**数据分布**而非算法差异——RFT 采样的数据天然与基模型概率景观对齐，干扰更小。
 tags:
-
+  - 多模态
 ---
 
 # Why Reinforcement Fine-Tuning Preserves Prior Knowledge Better: A Data Perspective

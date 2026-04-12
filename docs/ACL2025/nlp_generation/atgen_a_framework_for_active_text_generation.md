@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】ATGen: A Framework for Active Text Generation 论文解读 | ACL 2025 | arXiv 2506.23342 | 主动学习 | 推出 ATGen——首个将主动学习（AL）与文本生成（NLG）任务桥接的综合框架，支持人类标注和 LLM 自动标注，集成 SOTA AL 策略和实验设计方法，提供 Web 标注界面和统一基准平台。实验证明 AL 显著减少人工标注时间和 LLM API 调用成本。"
+title: >-
+  [论文解读] ATGen: A Framework for Active Text Generation
+description: >-
+  [ACL 2025][文本生成][主动学习] 推出 ATGen——首个将主动学习（AL）与文本生成（NLG）任务桥接的综合框架，支持人类标注和 LLM 自动标注，集成 SOTA AL 策略和实验设计方法，提供 Web 标注界面和统一基准平台。实验证明 AL 显著减少人工标注时间和 LLM API 调用成本。
 tags:
   - ACL 2025
-  - 主动学习
   - 文本生成
+  - 主动学习
   - 标注框架
   - LLM标注
   - 实验设计

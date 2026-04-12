@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Implicit Aggregation: Robust Image Representation for Place Recognition in the Transformer Era 论文解读 | NeurIPS 2025 | arXiv 2511.06024 | 视觉位置识别 | 提出 ImAge（Implicit Aggregation），在 Transformer 骨干网络的特定层插入可学习聚合 Token，利用内在自注意力机制将 patch 特征隐式聚合为全局描述符，完全消除了额外聚合器的需要。以最小的描述符维度（6144）和最快推理速度，在多个 VPR 数据集上超越 SALAD、BoQ 等 SOTA，并在 MSLS Challenge 排行榜排名第 1。"
+title: >-
+  [论文解读] Towards Implicit Aggregation: Robust Image Representation for Place Recognition in the Transformer Era
+description: >-
+  [NeurIPS 2025][模型压缩][视觉位置识别] 提出 ImAge（Implicit Aggregation），在 Transformer 骨干网络的特定层插入可学习聚合 Token，利用内在自注意力机制将 patch 特征隐式聚合为全局描述符，完全消除了额外聚合器的需要。以最小的描述符维度（6144）和最快推理速度，在多个 VPR 数据集上超越 SALAD、BoQ 等 SOTA，并在 MSLS Challenge 排行榜排名第 1。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 视觉位置识别
   - 隐式聚合
   - ViT

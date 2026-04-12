@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging. Review Paper 论文解读 | arXiv 2026 | arXiv 2603.04796 | comparative | 分割对于脑胶质瘤至关重要，因为它描绘了胶质瘤的范围和位置，有助于精确的治疗计划和监测，从而改善患者的治疗效果。"
+title: >-
+  [论文解读] Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging. Review Paper
+description: >-
+  [arXiv 2026][医学图像][comparative] 分割对于脑胶质瘤至关重要，因为它描绘了胶质瘤的范围和位置，有助于精确的治疗计划和监测，从而改善患者的治疗效果。
 tags:
   - arXiv 2026
+  - 医学图像
   - comparative
   - evaluation
   - traditional

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mind the (Data) Gap: Evaluating Vision Systems in Small Data Applications 论文解读 | NeurIPS 2025 | arXiv 2504.06486 | 小数据评估 | 系统评估了多模态大语言模型（MLLMs）和纯视觉方法在小数据场景（数十到数千标注样本）下的表现，发现MLLMs在10-30个样本后性能就趋于平台期，而视觉编码器+SVM方法随数据增长持续提升，呼吁AI研究中应重视小数据评估。"
+title: >-
+  [论文解读] Mind the (Data) Gap: Evaluating Vision Systems in Small Data Applications
+description: >-
+  [NeurIPS 2025][医学图像][小数据评估] 系统评估了多模态大语言模型（MLLMs）和纯视觉方法在小数据场景（数十到数千标注样本）下的表现，发现MLLMs在10-30个样本后性能就趋于平台期，而视觉编码器+SVM方法随数据增长持续提升，呼吁AI研究中应重视小数据评估。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 小数据评估
   - 多模态大语言模型
   - 视觉编码器

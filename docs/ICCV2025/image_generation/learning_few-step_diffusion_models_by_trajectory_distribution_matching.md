@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Few-Step Diffusion Models by Trajectory Distribution Matching 论文解读 | ICCV 2025 | arXiv 2503.06674 | 扩散蒸馏 | 提出 Trajectory Distribution Matching（TDM），一种统一轨迹蒸馏和分布匹配的新范式，在分布层面对齐学生与教师的 ODE 轨迹，实现高效的少步扩散模型蒸馏，仅需 2 A800 小时即可将 PixArt-α 蒸馏为超越教师的 4 步生成器。"
+title: >-
+  [论文解读] Learning Few-Step Diffusion Models by Trajectory Distribution Matching
+description: >-
+  [ICCV 2025][图像生成][扩散蒸馏] 提出 Trajectory Distribution Matching（TDM），一种统一轨迹蒸馏和分布匹配的新范式，在分布层面对齐学生与教师的 ODE 轨迹，实现高效的少步扩散模型蒸馏，仅需 2 A800 小时即可将 PixArt-α 蒸馏为超越教师的 4 步生成器。
 tags:
   - ICCV 2025
+  - 图像生成
   - 扩散蒸馏
   - 少步生成
   - 轨迹分布匹配

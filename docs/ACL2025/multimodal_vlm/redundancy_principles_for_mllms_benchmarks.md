@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Redundancy Principles for MLLMs Benchmarks 论文解读 | 本文从维度冗余、实例冗余和跨基准冗余三个层面系统量化了当前MLLM评测基准中的冗余现象，提出了基于性能排名相关性的冗余分析框架，为未来基准设计提供了原则性指导。"
+title: >-
+  [论文解读] Redundancy Principles for MLLMs Benchmarks
+description: >-
+  [多模态] 本文从维度冗余、实例冗余和跨基准冗余三个层面系统量化了当前MLLM评测基准中的冗余现象，提出了基于性能排名相关性的冗余分析框架，为未来基准设计提供了原则性指导。
 tags:
-
+  - 多模态
 ---
 
 # Redundancy Principles for MLLMs Benchmarks

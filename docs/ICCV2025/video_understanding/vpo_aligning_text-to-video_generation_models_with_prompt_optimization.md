@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】VPO: Aligning Text-to-Video Generation Models with Prompt Optimization 论文解读 | > 提出 VPO 框架，基于三大原则（无害、准确、有用）系统性优化视频生成的文本提示，通过原则导向的SFT和多反馈偏好优化，显著提升生成视频的安全性、对齐度和质量。"
+title: >-
+  [论文解读] VPO: Aligning Text-to-Video Generation Models with Prompt Optimization
+description: >-
+  [视频理解] > 提出 VPO 框架，基于三大原则（无害、准确、有用）系统性优化视频生成的文本提示，通过原则导向的SFT和多反馈偏好优化，显著提升生成视频的安全性、对齐度和质量。
 tags:
-
+  - 视频理解
 ---
 
 # VPO: Aligning Text-to-Video Generation Models with Prompt Optimization

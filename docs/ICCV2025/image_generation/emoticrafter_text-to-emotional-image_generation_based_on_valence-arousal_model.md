@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model 论文解读 | 提出 EmotiCrafter，首个基于连续 Valence-Arousal (V-A) 模型的情感图像生成方法，通过情感嵌入映射网络将 V-A 值融合到文本特征中，注入 Stable Diffusion XL 实现精确的内容+情感双重控制，生成图像在情感连续性和可控性上显著优于现有方法。"
+title: >-
+  [论文解读] EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model
+description: >-
+  [图像生成] 提出 EmotiCrafter，首个基于连续 Valence-Arousal (V-A) 模型的情感图像生成方法，通过情感嵌入映射网络将 V-A 值融合到文本特征中，注入 Stable Diffusion XL 实现精确的内容+情感双重控制，生成图像在情感连续性和可控性上显著优于现有方法。
 tags:
-
+  - 图像生成
 ---
 
 # EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model

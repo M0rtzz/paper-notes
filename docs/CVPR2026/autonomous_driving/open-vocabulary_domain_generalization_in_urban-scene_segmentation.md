@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Open-Vocabulary Domain Generalization in Urban-Scene Segmentation 论文解读 | CVPR 2026 | arXiv 2602.18853 | 开放词汇分割 | 提出 OVDG-SS 新设定，统一处理语义分割中的未见域和未见类别问题，并设计基于状态空间模型的 S2-Corr 模块来修复域偏移导致的文本-图像相关性退化，在自动驾驶场景中实现高效且鲁棒的跨域开放词汇分割。"
+title: >-
+  [论文解读] Open-Vocabulary Domain Generalization in Urban-Scene Segmentation
+description: >-
+  [CVPR 2026][自动驾驶][开放词汇分割] 提出 OVDG-SS 新设定，统一处理语义分割中的未见域和未见类别问题，并设计基于状态空间模型的 S2-Corr 模块来修复域偏移导致的文本-图像相关性退化，在自动驾驶场景中实现高效且鲁棒的跨域开放词汇分割。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 开放词汇分割
   - 域泛化
   - 状态空间模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection 论文解读 | NeurIPS 2025 | arXiv 2510.16511 | 多变量时间序列 | 提出OracleAD框架，通过为每个变量学习因果嵌入（LSTM编码+注意力池化）并构建稳定潜在结构（SLS）来建模正常状态下的变量间关系，结合预测误差和SLS偏离的双重评分机制实现可解释的多变量时间序列异常检测与根因定位。"
+title: >-
+  [论文解读] Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection
+description: >-
+  [NeurIPS 2025][时间序列][多变量时间序列] 提出OracleAD框架，通过为每个变量学习因果嵌入（LSTM编码+注意力池化）并构建稳定潜在结构（SLS）来建模正常状态下的变量间关系，结合预测误差和SLS偏离的双重评分机制实现可解释的多变量时间序列异常检测与根因定位。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 多变量时间序列
   - 异常检测
   - 时序因果建模

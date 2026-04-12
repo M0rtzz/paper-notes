@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Automated Detection of Malignant Lesions in the Ovary Using Deep Learning Models and XAI 论文解读 | CVPR 2026 | arXiv 2603.11818 | 卵巢癌检测 | 系统地比较了 LeNet/ResNet/VGG/Inception 四大CNN架构的15个变体在卵巢癌组织病理学图像分类上的表现，最终选择 InceptionV3-ReLU 作为基础模型(平均指标~94%)，并结合 LIME、SHAP、Integrated Gradients 三种 XAI 方法对分类结果进行可解释性分析。"
+title: >-
+  [论文解读] Automated Detection of Malignant Lesions in the Ovary Using Deep Learning Models and XAI
+description: >-
+  [CVPR 2026][医学图像][卵巢癌检测] 系统地比较了 LeNet/ResNet/VGG/Inception 四大CNN架构的15个变体在卵巢癌组织病理学图像分类上的表现，最终选择 InceptionV3-ReLU 作为基础模型(平均指标~94%)，并结合 LIME、SHAP、Integrated Gradients 三种 XAI 方法对分类结果进行可解释性分析。
 tags:
   - CVPR 2026
+  - 医学图像
   - 卵巢癌检测
   - CNN分类
   - 可解释AI

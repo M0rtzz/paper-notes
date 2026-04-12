@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Time-O1: Time-Series Forecasting Needs Transformed Label Alignment 论文解读 | NeurIPS 2025 | arXiv 2505.17847 | 时间序列 | 提出 Time-o1，通过将标签序列变换为去相关且按重要性排序的主成分，解决时间序列预测中 TMSE 损失的自相关偏差和任务过载问题，实现与多种预测模型兼容的 SOTA 性能。"
+title: >-
+  [论文解读] Time-O1: Time-Series Forecasting Needs Transformed Label Alignment
+description: >-
+  [NeurIPS 2025][时间序列][时间序列] 提出 Time-o1，通过将标签序列变换为去相关且按重要性排序的主成分，解决时间序列预测中 TMSE 损失的自相关偏差和任务过载问题，实现与多种预测模型兼容的 SOTA 性能。
 tags:
   - NeurIPS 2025
   - 时间序列

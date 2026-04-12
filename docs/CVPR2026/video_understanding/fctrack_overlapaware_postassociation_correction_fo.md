@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking 论文解读 | CVPR 2026 | arXiv 2603.12758 | 多目标跟踪 | 提出轻量后关联校正框架 FC-Track，通过 IoA 触发的外观更新抑制和局部检测-轨迹错配重分配，将长期身份切换比例从 36.86% 降至 29.55%，同时保持 MOT17/MOT20 上的 SOTA 水平。"
+title: >-
+  [论文解读] FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking
+description: >-
+  [CVPR 2026][视频理解][多目标跟踪] 提出轻量后关联校正框架 FC-Track，通过 IoA 触发的外观更新抑制和局部检测-轨迹错配重分配，将长期身份切换比例从 36.86% 降至 29.55%，同时保持 MOT17/MOT20 上的 SOTA 水平。
 tags:
   - CVPR 2026
+  - 视频理解
   - 多目标跟踪
   - 遮挡处理
   - 后关联校正

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cleaning the Pool: Progressive Filtering of Unlabeled Pools in Deep Active Learning 论文解读 | CVPR 2026 | arXiv 2511.22344 | 主动学习 | 提出 Refine 集成主动学习方法，通过两阶段策略——渐进过滤（多策略迭代精炼无标签池）+ 覆盖选择（从精炼池中选择多样性高价值样本）——在不预知最佳策略的情况下一致超越单一 AL 策略和现有集成方法。"
+title: >-
+  [论文解读] Cleaning the Pool: Progressive Filtering of Unlabeled Pools in Deep Active Learning
+description: >-
+  [CVPR 2026][语音][主动学习] 提出 Refine 集成主动学习方法，通过两阶段策略——渐进过滤（多策略迭代精炼无标签池）+ 覆盖选择（从精炼池中选择多样性高价值样本）——在不预知最佳策略的情况下一致超越单一 AL 策略和现有集成方法。
 tags:
   - CVPR 2026
+  - 语音
   - 主动学习
   - 集成策略
   - 渐进过滤

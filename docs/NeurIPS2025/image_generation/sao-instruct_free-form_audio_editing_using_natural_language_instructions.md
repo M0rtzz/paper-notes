@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAO-Instruct: Free-form Audio Editing using Natural Language Instructions 论文解读 | NeurIPS 2025 | arXiv 2510.22795 | 音频编辑 | 提出SAO-Instruct，首个支持完全自由格式自然语言指令的音频编辑模型，通过Prompt-to-Prompt、DDPM反演和手动编辑三条流水线构建编辑三元组训练数据，微调Stable Audio Open实现保持上下文一致的定向音频修改。"
+title: >-
+  [论文解读] SAO-Instruct: Free-form Audio Editing using Natural Language Instructions
+description: >-
+  [NeurIPS 2025][图像生成][音频编辑] 提出SAO-Instruct，首个支持完全自由格式自然语言指令的音频编辑模型，通过Prompt-to-Prompt、DDPM反演和手动编辑三条流水线构建编辑三元组训练数据，微调Stable Audio Open实现保持上下文一致的定向音频修改。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 音频编辑
   - 自然语言指令
   - Stable Audio Open

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Skill-Attributes for Transferable Assessment in Video 论文解读 | NeurIPS 2025 | arXiv 2511.13993 | 技能评估 | 提出CrossTrainer方法，通过发现跨运动通用的技能属性（如平衡、控制、手部定位）作为中间表示，训练多模态语言模型从视频中生成可操作反馈和水平评估，在跨运动零样本迁移中相对SOTA提升高达60%。"
+title: >-
+  [论文解读] Learning Skill-Attributes for Transferable Assessment in Video
+description: >-
+  [NeurIPS 2025][人体理解][技能评估] 提出CrossTrainer方法，通过发现跨运动通用的技能属性（如平衡、控制、手部定位）作为中间表示，训练多模态语言模型从视频中生成可操作反馈和水平评估，在跨运动零样本迁移中相对SOTA提升高达60%。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 技能评估
   - 跨运动迁移
   - 视频理解

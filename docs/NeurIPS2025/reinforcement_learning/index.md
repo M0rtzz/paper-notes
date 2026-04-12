@@ -1,7 +1,14 @@
+---
+title: >-
+  NeurIPS2025 强化学习方向 147篇论文解读
+description: >-
+  147篇NeurIPS2025 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🧠 NeurIPS2025** · 共 **148** 篇
+**🧠 NeurIPS2025** · 共 **147** 篇
 
 **[A Generalized Bisimulation Metric Of State Similarity Betwee](a_generalized_bisimulation_metric_of_state_similarity_betwee.md)**
 
@@ -27,10 +34,6 @@
 
 :   提出Q3C（Q-learning for Continuous Control with Control-points），一种无actor的纯基于值函数的连续控制方法，通过控制点插值逼近任意形状的Q函数，在复杂（非凸、受限）Q函数景观中显著优于actor-critic方法。
 
-**[Adaptive Cooperative Transmission Design For Ultra-Reliable Low-Latency Communic](adaptive_cooperative_transmission_design_for_ultra-reliable_low-latency_communic.md)**
-
-:   提出 DRL-CoLA 算法，用双 Agent DQN 分别在源节点和中继节点上自适应配置 5G NR 传输参数（numerology、mini-slot、MCS），在两跳中继系统中仅用本地 CSI 即可达到接近全局 CSI 最优的 URLLC 可靠性。
-
 **[Adaptive Neighborhoodconstrained Q Learning For Offline Rein](adaptive_neighborhoodconstrained_q_learning_for_offline_rein.md)**
 
 :   提出 ANQ（Adaptive Neighborhood-constrained Q learning），在离线 RL 中引入基于优势函数的自适应邻域约束，在密度约束（过于保守）和支持约束（需精确建模行为策略）之间找到灵活的中间方案，通过双层优化框架实现高效 Q 学习，在 D4RL 基准上达到 SOTA。
@@ -51,7 +54,7 @@
 
 :   ACQL 将安全 RL 和目标条件 RL 提升到 LTL（线性时序逻辑）任务类——用自动机编码时序目标进展和非平稳安全约束，结合目标条件值学习（+HER密集化奖励）和基于 Hamilton-Jacobi 可达性的安全约束，在连续控制任务上显著超越现有 LTL RL 方法，并在 6-DOF 机械臂上成功部署。
 
-**[Bandit and Delayed Feedback in Online Structured Prediction](bandit_and_delayed_feedback_in_online_structured_prediction.md)**
+**[Bandit And Delayed Feedback In Online Structured Prediction](bandit_and_delayed_feedback_in_online_structured_prediction.md)**
 
 :   首次研究在线结构化预测中赌臂反馈和延迟反馈场景，通过设计新的伪逆矩阵梯度估计器，实现了不显式依赖输出集大小 $K$ 的 $O(T^{2/3})$ 替代遗憾上界。
 
@@ -79,7 +82,7 @@
 
 :   提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。
 
-**[Certifying Concavity and Monotonicity in Games via Sum-of-Squares Hierarchies](certifying_concavity_and_monotonicity_in_games_via_sum-of-squares_hierarchies.md)**
+**[Certifying Concavity And Monotonicity In Games Via Sum-Of-Squares Hierarchies](certifying_concavity_and_monotonicity_in_games_via_sum-of-squares_hierarchies.md)**
 
 :   证明了在多项式效用和半代数策略集的博弈中验证凹性和单调性是 NP-hard 的，并提出了两套基于平方和 (SOS) 规划的层次化认证方案，可在多项式时间内逐层求解。
 
@@ -123,7 +126,7 @@
 
 :   提出 CORE（Constraint-aware One-step REinforcement learning），一种无 critic 的单步 RL 框架，通过结构化分布采样、scaling-graph 解码器和约束感知的 reward shaping 来高效探索 DNN 加速器的硬件-映射联合设计空间，在 7 个 DNN 模型上取得至少 15× 的 latency 改善。
 
-**[DCcluster-Opt: Benchmarking Dynamic Multi-Objective Optimization for Geo-Distributed Data Center Workloads](dccluster-opt_benchmarking_dynamic_multi-objective_optimization_for_geo-distribu.md)**
+**[Dccluster-Opt Benchmarking Dynamic Multi-Objective Optimization For Geo-Distribu](dccluster-opt_benchmarking_dynamic_multi-objective_optimization_for_geo-distribu.md)**
 
 :   提出 DCcluster-Opt，一个面向地理分布式数据中心的开源高保真仿真基准平台，融合真实世界数据集（碳强度、电价、天气等）和物理模型，支持动态多目标负载调度的强化学习研究。
 

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】StreamDiffusion: A Pipeline-level Solution for Real-time Interactive Generation 论文解读 | StreamDiffusion 提出管线级实时扩散框架，通过 Stream Batch（去噪步骤批处理）、R-CFG（残差无分类器引导）和 SSF（随机相似性过滤）等策略，在单张 RTX 4090 上实现高达 91 fps 的实时图像生成，比 Diffusers AutoPipeline 快 59.6 倍。"
+title: >-
+  [论文解读] StreamDiffusion: A Pipeline-level Solution for Real-time Interactive Generation
+description: >-
+  [图像生成] StreamDiffusion 提出管线级实时扩散框架，通过 Stream Batch（去噪步骤批处理）、R-CFG（残差无分类器引导）和 SSF（随机相似性过滤）等策略，在单张 RTX 4090 上实现高达 91 fps 的实时图像生成，比 Diffusers AutoPipeline 快 59.6 倍。
 tags:
-
+  - 图像生成
 ---
 
 # StreamDiffusion: A Pipeline-level Solution for Real-time Interactive Generation

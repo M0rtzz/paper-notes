@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Toward Complete Merger Identification at Cosmic Noon with Deep Learning 论文解读 | NeurIPS 2025 (ML4PS Workshop) | arXiv 2511.15006 | 星系合并识别 | 在 IllustrisTNG50 模拟生成的模拟 HST CANDELS 图像上训练 ResNet18，首次证明深度学习可以在高红移 1<z<1.5 下成功识别包括小质量比合并（minor merger, μ ≥ 1/10）和低质量星系（M_star > 10⁸ M_odot）在内的星系合并，总体准确率约 73%，并通过 Grad-CAM 和 UMAP 深入分析了模型行为。"
+title: >-
+  [论文解读] Toward Complete Merger Identification at Cosmic Noon with Deep Learning
+description: >-
+  [NeurIPS 2025 (ML4PS Workshop)][星系合并识别] 在 IllustrisTNG50 模拟生成的模拟 HST CANDELS 图像上训练 ResNet18，首次证明深度学习可以在高红移 $1<z<1.5$ 下成功识别包括小质量比合并（minor merger, $\mu \geq 1/10$）和低质量星系（$M_\star > 10^8 M_\odot$）在内的星系合并，总体准确率约 73%，并通过 Grad-CAM 和 UMAP 深入分析了模型行为。
 tags:
   - NeurIPS 2025 (ML4PS Workshop)
   - 星系合并识别

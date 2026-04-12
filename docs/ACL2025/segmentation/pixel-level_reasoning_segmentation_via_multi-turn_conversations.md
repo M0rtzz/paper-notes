@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pixel-Level Reasoning Segmentation via Multi-turn Conversations 论文解读 | ACL 2025 | arXiv 2502.09447 | 像素级推理分割 | 提出像素级推理分割（Pixel-level RS）新任务，通过多轮对话逐步理解用户意图，实现细粒度的像素级分割，并构建了包含24k句话、8.3k多轮对话场景的PRIST数据集和MIRAS框架。"
+title: >-
+  [论文解读] Pixel-Level Reasoning Segmentation via Multi-turn Conversations
+description: >-
+  [ACL 2025][图像分割][像素级推理分割] 提出像素级推理分割（Pixel-level RS）新任务，通过多轮对话逐步理解用户意图，实现细粒度的像素级分割，并构建了包含24k句话、8.3k多轮对话场景的PRIST数据集和MIRAS框架。
 tags:
   - ACL 2025
+  - 图像分割
   - 像素级推理分割
   - 多轮对话
   - 多模态大语言模型

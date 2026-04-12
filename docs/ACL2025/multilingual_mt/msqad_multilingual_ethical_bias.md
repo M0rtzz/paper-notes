@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Delving into Multilingual Ethical Bias: The MSQAD with Statistical Hypothesis Tests for Large Language Models 论文解读 | ACL 2025 (Long Paper) | arXiv 2505.19121 | Multilingual Bias | 提出多语言敏感问答数据集MSQAD（基于Human Rights Watch 17个人权话题），通过McNemar检验和PERMANOVA检验两种统计假设检验方法，系统验证了LLM在不同语言下对相同敏感问题的回答存在显著伦理偏差——中文和印地语拒绝率最高，西班牙语和德语最容易生成不当回答，且该偏差在7个不同LLM中普遍存在。"
+title: >-
+  [论文解读] Delving into Multilingual Ethical Bias: The MSQAD with Statistical Hypothesis Tests for Large Language Models
+description: >-
+  [ACL 2025 (Long Paper)][Multilingual Bias] 提出多语言敏感问答数据集MSQAD（基于Human Rights Watch 17个人权话题），通过McNemar检验和PERMANOVA检验两种统计假设检验方法，系统验证了LLM在不同语言下对相同敏感问题的回答存在显著伦理偏差——中文和印地语拒绝率最高，西班牙语和德语最容易生成不当回答，且该偏差在7个不同LLM中普遍存在。
 tags:
   - ACL 2025 (Long Paper)
   - Multilingual Bias

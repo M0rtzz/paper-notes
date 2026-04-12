@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization 论文解读 | ICML 2025 (Workshop on ML4Wireless) | arXiv 2408.00214 | 大语言模型 | 提出基于 LLM 上下文学习（In-context Learning）的基站功率控制算法，通过自然语言任务描述和经验池驱动的示例选择，在不更新模型参数的条件下达到接近传统深度强化学习的性能。"
+title: >-
+  [论文解读] Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization
+description: >-
+  [ICML 2025 (Workshop on ML4Wireless)][大语言模型] 提出基于 LLM 上下文学习（In-context Learning）的基站功率控制算法，通过自然语言任务描述和经验池驱动的示例选择，在不更新模型参数的条件下达到接近传统深度强化学习的性能。
 tags:
   - ICML 2025 (Workshop on ML4Wireless)
   - 大语言模型

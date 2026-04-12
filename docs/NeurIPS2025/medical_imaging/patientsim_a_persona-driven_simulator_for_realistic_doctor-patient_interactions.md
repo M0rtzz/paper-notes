@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PatientSim: A Persona-Driven Simulator for Realistic Doctor-Patient Interactions 论文解读 | NeurIPS 2025 | arXiv 2505.17818 | 患者模拟器 | 提出PatientSim——基于真实MIMIC临床数据和四维人格轴（性格、语言能力、病史记忆水平、认知混乱程度）的LLM患者模拟器，生成37种独特人格组合，在8个LLM上评估事实准确性和人格一致性，由4名临床专家验证平均质量得分3.89/4。"
+title: >-
+  [论文解读] PatientSim: A Persona-Driven Simulator for Realistic Doctor-Patient Interactions
+description: >-
+  [NeurIPS 2025][医学图像][患者模拟器] 提出PatientSim——基于真实MIMIC临床数据和四维人格轴（性格、语言能力、病史记忆水平、认知混乱程度）的LLM患者模拟器，生成37种独特人格组合，在8个LLM上评估事实准确性和人格一致性，由4名临床专家验证平均质量得分3.89/4。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 患者模拟器
   - LLM角色扮演
   - 医患对话

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Head Pursuit: Probing Attention Specialization in Multimodal Transformers 论文解读 | NeurIPS 2025 | arXiv 2510.21518 | 注意力头特化 | 用信号处理中的Simultaneous Orthogonal Matching Pursuit (SOMP)算法分解注意力头在unembedding矩阵上的稀疏表示，揭示注意力头的语义特化现象（如政治/国籍/月份/数字等），仅编辑1%的头即可可靠地抑制或增强特定概念——在语言和视觉-语言模型上均验证有效。"
+title: >-
+  [论文解读] Head Pursuit: Probing Attention Specialization in Multimodal Transformers
+description: >-
+  [NeurIPS 2025][图像生成][注意力头特化] 用信号处理中的Simultaneous Orthogonal Matching Pursuit (SOMP)算法分解注意力头在unembedding矩阵上的稀疏表示，揭示注意力头的语义特化现象（如政治/国籍/月份/数字等），仅编辑1%的头即可可靠地抑制或增强特定概念——在语言和视觉-语言模型上均验证有效。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 注意力头特化
   - Matching Pursuit
   - 可解释性

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HyperGraphRAG: Retrieval-Augmented Generation via Hypergraph-Structured Knowledge Representation 论文解读 | NeurIPS 2025 | arXiv 2503.21322 | Retrieval-Augmented Generation | 提出 HyperGraphRAG，首个基于超图 (hypergraph) 结构的 RAG 方法，通过超边 (hyperedge) 建模 n 元关系（n≥2），克服了现有图谱 RAG 方法受限于二元关系的瓶颈，在医学、农业、计算机科学和法律等领域的问答任务中全面超越 StandardRAG 和 GraphRAG 系列方法。"
+title: >-
+  [论文解读] HyperGraphRAG: Retrieval-Augmented Generation via Hypergraph-Structured Knowledge Representation
+description: >-
+  [NeurIPS 2025][Retrieval-Augmented Generation] 提出 HyperGraphRAG，首个基于超图 (hypergraph) 结构的 RAG 方法，通过超边 (hyperedge) 建模 n 元关系（n≥2），克服了现有图谱 RAG 方法受限于二元关系的瓶颈，在医学、农业、计算机科学和法律等领域的问答任务中全面超越 StandardRAG 和 GraphRAG 系列方法。
 tags:
   - NeurIPS 2025
   - Retrieval-Augmented Generation

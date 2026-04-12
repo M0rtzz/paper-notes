@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Flow3r: Factored Flow Prediction for Scalable Visual Geometry Learning 论文解读 | CVPR2026 | arXiv 2602.20157 | visual geometry | 提出\"分解式光流预测\"（Factored Flow）模块，用源视图的几何 latent + 目标视图的位姿 latent 预测光流，使无标注视频可作为三维几何学习的监督信号，在静态/动态场景的 8 个基准上达到 SOTA。"
+title: >-
+  [论文解读] Flow3r: Factored Flow Prediction for Scalable Visual Geometry Learning
+description: >-
+  [CVPR2026][visual geometry] 提出"分解式光流预测"（Factored Flow）模块，用源视图的几何 latent + 目标视图的位姿 latent 预测光流，使无标注视频可作为三维几何学习的监督信号，在静态/动态场景的 8 个基准上达到 SOTA。
 tags:
   - CVPR2026
   - visual geometry

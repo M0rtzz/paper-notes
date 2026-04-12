@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mixing Importance with Diversity: Joint Optimization for KV Cache Compression in Large Vision-Language Models 论文解读 | ICLR 2026 | arXiv 2510.20707 | KV Cache压缩 | 发现LVLM中KV Cache存在模态特异和注意力头特异的语义冗余，仅靠重要性选择会丢失语义覆盖，提出MixKV按头自适应混合重要性与多样性分数进行KV Cache压缩，在极端压缩下平均提升5.1%。"
+title: >-
+  [论文解读] Mixing Importance with Diversity: Joint Optimization for KV Cache Compression in Large Vision-Language Models
+description: >-
+  [ICLR 2026][多模态][KV Cache压缩] 发现LVLM中KV Cache存在模态特异和注意力头特异的语义冗余，仅靠重要性选择会丢失语义覆盖，提出MixKV按头自适应混合重要性与多样性分数进行KV Cache压缩，在极端压缩下平均提升5.1%。
 tags:
   - ICLR 2026
+  - 多模态
   - KV Cache压缩
   - 语义冗余
   - 多样性

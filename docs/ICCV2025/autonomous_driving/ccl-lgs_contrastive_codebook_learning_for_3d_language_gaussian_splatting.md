@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CCL-LGS: Contrastive Codebook Learning for 3D Language Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2505.20469 | 3D高斯喷溅 | 提出CCL-LGS框架，通过零样本跟踪器实现跨视角掩码关联，并利用对比码本学习（CCL）模块蒸馏出类内紧凑、类间可区分的语义特征，从而解决基于2D先验的3D语义场重建中因遮挡、模糊和视角变化导致的跨视角语义不一致问题。"
+title: >-
+  [论文解读] CCL-LGS: Contrastive Codebook Learning for 3D Language Gaussian Splatting
+description: >-
+  [ICCV 2025][自动驾驶][3D高斯喷溅] 提出CCL-LGS框架，通过零样本跟踪器实现跨视角掩码关联，并利用对比码本学习（CCL）模块蒸馏出类内紧凑、类间可区分的语义特征，从而解决基于2D先验的3D语义场重建中因遮挡、模糊和视角变化导致的跨视角语义不一致问题。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 3D高斯喷溅
   - 开放词汇语义分割
   - 对比学习

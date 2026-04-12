@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Deep Electromagnetic Structure Design Under Limited Evaluation Budgets 论文解读 | ICML 2025 | arXiv 2506.19384 | 电磁结构设计 | 提出 Progressive Quadtree-based Search (PQS) 方法，通过四叉树层次化表示压缩电磁结构的高维设计空间，并利用基于一致性的样本选择机制在有限仿真预算下高效搜索优质设计，相比生成式方法节省 75~85% 的评估成本。"
+title: >-
+  [论文解读] Deep Electromagnetic Structure Design Under Limited Evaluation Budgets
+description: >-
+  [ICML 2025][人体理解][电磁结构设计] 提出 Progressive Quadtree-based Search (PQS) 方法，通过四叉树层次化表示压缩电磁结构的高维设计空间，并利用基于一致性的样本选择机制在有限仿真预算下高效搜索优质设计，相比生成式方法节省 75~85% 的评估成本。
 tags:
   - ICML 2025
+  - 人体理解
   - 电磁结构设计
   - 四叉树搜索
   - 代理模型

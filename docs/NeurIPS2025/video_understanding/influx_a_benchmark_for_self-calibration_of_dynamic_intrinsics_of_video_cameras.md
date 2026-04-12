@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】InFlux: A Benchmark for Self-Calibration of Dynamic Intrinsics of Video Cameras 论文解读 | NeurIPS 2025 | arXiv 2510.23589 | camera intrinsics | 提出首个包含逐帧动态相机内参真值的真实视频基准 InFlux（386 视频、143K+ 标注帧），通过镜头元数据到内参的查找表（LUT）实现精确标注，并揭示现有内参预测方法在动态内参场景下表现不佳。"
+title: >-
+  [论文解读] InFlux: A Benchmark for Self-Calibration of Dynamic Intrinsics of Video Cameras
+description: >-
+  [NeurIPS 2025][视频理解][camera intrinsics] 提出首个包含逐帧动态相机内参真值的真实视频基准 InFlux（386 视频、143K+ 标注帧），通过镜头元数据到内参的查找表（LUT）实现精确标注，并揭示现有内参预测方法在动态内参场景下表现不佳。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - camera intrinsics
   - dynamic calibration
   - benchmark

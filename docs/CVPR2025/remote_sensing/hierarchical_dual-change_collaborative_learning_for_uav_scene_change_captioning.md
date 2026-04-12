@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hierarchical Dual-Change Collaborative Learning for UAV Scene Change Captioning 论文解读 | CVPR2025 | arXiv 2603.12832 | UAV | 提出 UAV 场景变化描述（UAV-SCC）新任务及 HDC-CL 框架，通过动态自适应布局 Transformer 建模移动视角下的图像对重叠/非重叠区域，结合层级跨模态方向一致性校准增强视角偏移方向感知，并构建了专用基准数据集。"
+title: >-
+  [论文解读] Hierarchical Dual-Change Collaborative Learning for UAV Scene Change Captioning
+description: >-
+  [CVPR2025][遥感][UAV] 提出 UAV 场景变化描述（UAV-SCC）新任务及 HDC-CL 框架，通过动态自适应布局 Transformer 建模移动视角下的图像对重叠/非重叠区域，结合层级跨模态方向一致性校准增强视角偏移方向感知，并构建了专用基准数据集。
 tags:
   - CVPR2025
+  - 遥感
   - UAV
   - 变化描述
   - 视角变化

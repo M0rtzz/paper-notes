@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ViGiL3D: A Linguistically Diverse Dataset for 3D Visual Grounding 论文解读 | ACL 2025 | arXiv 2501.01366 | 提出 ViGiL3D——一个语言多样性诊断数据集和自动化分析框架，用于评估 3D 视觉定位（3DVG）方法在否定、粗粒度指代、共指消解等多种语言现象上的表现，揭示现有方法在分布外提示上性能显著下降（最高达 20+ 点）。"
+title: >-
+  [论文解读] ViGiL3D: A Linguistically Diverse Dataset for 3D Visual Grounding
+description: >-
+  [ACL 2025][多模态] 提出 ViGiL3D——一个语言多样性诊断数据集和自动化分析框架，用于评估 3D 视觉定位（3DVG）方法在否定、粗粒度指代、共指消解等多种语言现象上的表现，揭示现有方法在分布外提示上性能显著下降（最高达 20+ 点）。
 tags:
   - ACL 2025
+  - 多模态
 ---
 
 # ViGiL3D: A Linguistically Diverse Dataset for 3D Visual Grounding

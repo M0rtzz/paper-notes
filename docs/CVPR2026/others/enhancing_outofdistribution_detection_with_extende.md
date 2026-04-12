@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization 论文解读 | CVPR 2026 | arXiv 2504.11434 | out-of-distribution detection | 诊断LogitNorm的特征坍缩问题(维度坍缩+原点坍缩)，提出ELogitNorm——用到决策边界的平均距离(而非特征范数)做自适应温度缩放，无超参数、兼容所有post-hoc OOD检测方法——CIFAR-10上far-OOD AUROC提升10.48%(SCALE)，ImageNet-1K上FPR95从51.45%降至27.74%，同时改善分类精度和ECE校准。"
+title: >-
+  [论文解读] ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization
+description: >-
+  [CVPR 2026][out-of-distribution detection] 诊断LogitNorm的特征坍缩问题(维度坍缩+原点坍缩)，提出ELogitNorm——用到决策边界的平均距离(而非特征范数)做自适应温度缩放，无超参数、兼容所有post-hoc OOD检测方法——CIFAR-10上far-OOD AUROC提升10.48%(SCALE)，ImageNet-1K上FPR95从51.45%降至27.74%，同时改善分类精度和ECE校准。
 tags:
   - CVPR 2026
   - out-of-distribution detection

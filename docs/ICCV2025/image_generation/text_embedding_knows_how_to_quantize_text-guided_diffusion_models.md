@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Text Embedding Knows How to Quantize Text-Guided Diffusion Models 论文解读 | ICCV 2025 | arXiv 2507.10340 | 扩散模型量化 | 首次利用文本提示（text prompt）指导扩散模型的动态量化比特分配——通过预测文本对应的生成图像质量，为不同层和时间步自适应选择高/中/低比特精度，在降低计算复杂度的同时保持甚至提升生成质量。"
+title: >-
+  [论文解读] Text Embedding Knows How to Quantize Text-Guided Diffusion Models
+description: >-
+  [ICCV 2025][图像生成][扩散模型量化] 首次利用文本提示（text prompt）指导扩散模型的动态量化比特分配——通过预测文本对应的生成图像质量，为不同层和时间步自适应选择高/中/低比特精度，在降低计算复杂度的同时保持甚至提升生成质量。
 tags:
   - ICCV 2025
+  - 图像生成
   - 扩散模型量化
   - 文本引导
   - 动态比特精度

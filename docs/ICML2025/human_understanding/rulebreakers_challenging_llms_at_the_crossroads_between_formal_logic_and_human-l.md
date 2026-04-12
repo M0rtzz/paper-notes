@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning 论文解读 | ICML 2025 | arXiv 2410.16502 | 本文构建了 RULEBREAKERS 数据集（25,600 个实例），专门用于评估 LLM 能否像人类一样在推理中利用常识和事实知识拒绝那些虽然在形式逻辑上有效、但在事实上与前提矛盾的结论，揭示了 LLM 在过度刚性应用逻辑规则方面的显著盲点。"
+title: >-
+  [论文解读] RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning
+description: >-
+  [ICML 2025][人体理解] 本文构建了 RULEBREAKERS 数据集（25,600 个实例），专门用于评估 LLM 能否像人类一样在推理中利用常识和事实知识拒绝那些虽然在形式逻辑上有效、但在事实上与前提矛盾的结论，揭示了 LLM 在过度刚性应用逻辑规则方面的显著盲点。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning

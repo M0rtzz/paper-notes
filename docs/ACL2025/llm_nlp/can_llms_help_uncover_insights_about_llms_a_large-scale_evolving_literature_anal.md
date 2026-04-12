@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can LLMs Help Uncover Insights about LLMs? A Large-Scale, Evolving Literature Analysis of Frontier LLMs 论文解读 | ACL2025 | arXiv 2502.18791 | 文献分析 | 本文提出半自动化文献分析管线，利用LLM从arXiv论文中自动抽取实验结果构建可持续更新的LLMEvalDB数据集（18127条记录/1737篇论文），并通过该数据集复现并扩展了关于CoT和ICL提示策略在不同任务类型上有效性的关键发现。"
+title: >-
+  [论文解读] Can LLMs Help Uncover Insights about LLMs? A Large-Scale, Evolving Literature Analysis of Frontier LLMs
+description: >-
+  [ACL2025][LLM/NLP][文献分析] 本文提出半自动化文献分析管线，利用LLM从arXiv论文中自动抽取实验结果构建可持续更新的LLMEvalDB数据集（18127条记录/1737篇论文），并通过该数据集复现并扩展了关于CoT和ICL提示策略在不同任务类型上有效性的关键发现。
 tags:
   - ACL2025
+  - LLM/NLP
   - 文献分析
   - 自动数据抽取
   - LLM评估

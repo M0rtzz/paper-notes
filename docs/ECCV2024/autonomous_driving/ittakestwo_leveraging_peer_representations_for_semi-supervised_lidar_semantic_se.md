@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] ItTakesTwo: Leveraging Peer Representations for Semi-supervised LiDAR Semantic Segmentation
+description: >-
+  [ECCV 2024][自动驾驶][半监督学习] 提出IT2框架，通过利用LiDAR数据的对等表示（range image + voxel grid）之间的一致性学习作为新型扰动形式，并引入基于高斯混合模型的跨分布对比学习，大幅提升半监督LiDAR语义分割性能。
+tags:
+  - ECCV 2024
+  - 自动驾驶
+  - 半监督学习
+  - LiDAR语义分割
+  - 对等表示一致性
+  - 对比学习
+  - 高斯混合模型
+---
+
 # ItTakesTwo: Leveraging Peer Representations for Semi-supervised LiDAR Semantic Segmentation
 
 **会议**: ECCV 2024  

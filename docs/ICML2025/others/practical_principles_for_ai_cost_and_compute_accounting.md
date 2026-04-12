@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Practical Principles for AI Cost and Compute Accounting 论文解读 | 提出AI成本与计算量核算的七项原则，旨在减少监管漏洞（特别是蒸馏漏洞）、避免抑制风险缓解措施、并实现跨企业一致性。"
+title: >-
+  [论文解读] Practical Principles for AI Cost and Compute Accounting
+description: >-
+   提出AI成本与计算量核算的七项原则，旨在减少监管漏洞（特别是蒸馏漏洞）、避免抑制风险缓解措施、并实现跨企业一致性。
 tags:
 
 ---

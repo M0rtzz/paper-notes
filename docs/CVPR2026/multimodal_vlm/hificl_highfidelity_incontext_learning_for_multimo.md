@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HIFICL: High-Fidelity In-Context Learning for Multimodal Tasks 论文解读 | CVPR 2026 | arXiv 2603.12760 | in-context learning | 通过严格的注意力公式分解揭示ICL的shift effect本质上是注意力机制的解析结果，据此提出HiFICL——用可学习低秩虚拟KV对直接参数化ICL的来源而非近似其效果，在多模态基准上以极少参数量全面超越现有ICL近似方法和LoRA。"
+title: >-
+  [论文解读] HIFICL: High-Fidelity In-Context Learning for Multimodal Tasks
+description: >-
+  [CVPR 2026][多模态][in-context learning] 通过严格的注意力公式分解揭示ICL的shift effect本质上是注意力机制的解析结果，据此提出HiFICL——用可学习低秩虚拟KV对直接参数化ICL的来源而非近似其效果，在多模态基准上以极少参数量全面超越现有ICL近似方法和LoRA。
 tags:
   - CVPR 2026
+  - 多模态
   - in-context learning
   - ICL approximation
   - virtual key-value pairs

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models 论文解读 | 论文提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识把环境中的稀疏奖励回溯性转化为稠密 advantage supervision，再结合在线策略迭代框架 RICOL，在 BabyAI 四个场景中以更高样本效率达到与传统在线 RL 相当的收敛表现，展示了 LLM 在 temporal credit assignment 上的潜力。"
+title: >-
+  [论文解读] Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models
+description: >-
+   论文提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识把环境中的稀疏奖励回溯性转化为稠密 advantage supervision，再结合在线策略迭代框架 RICOL，在 BabyAI 四个场景中以更高样本效率达到与传统在线 RL 相当的收敛表现，展示了 LLM 在 temporal credit assignment 上的潜力。
 tags:
 
 ---

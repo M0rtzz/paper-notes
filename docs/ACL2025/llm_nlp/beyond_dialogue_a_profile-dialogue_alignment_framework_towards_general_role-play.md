@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model 论文解读 | ACL 2025 | arXiv 2408.10903 | 角色扮演 | 提出 Beyond Dialogue 框架，通过 Profile-Dialogue 对齐消除角色扮演训练中 profile 与对话之间的偏差，并引入句子级细粒度对齐任务，使模型更好地理解和表现角色特质。"
+title: >-
+  [论文解读] Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model
+description: >-
+  [ACL 2025][LLM/NLP][角色扮演] 提出 Beyond Dialogue 框架，通过 Profile-Dialogue 对齐消除角色扮演训练中 profile 与对话之间的偏差，并引入句子级细粒度对齐任务，使模型更好地理解和表现角色特质。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 角色扮演
   - Profile-Dialogue对齐
   - 细粒度对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Entropy-Guided Dynamic Tokens for Graph-LLM Alignment in Molecular Understanding 论文解读 | ICLR 2026 | arXiv 2602.02742 | Graph-LLM对齐 | 提出 EDT-Former（Entropy-guided Dynamic Token Transformer），通过熵引导的动态token生成机制，在冻结图编码器和LLM之间建立高效对齐，无需微调LLM主干网络即在分子问答、分子指令和属性预测等多个基准上达到SOTA。"
+title: >-
+  [论文解读] Entropy-Guided Dynamic Tokens for Graph-LLM Alignment in Molecular Understanding
+description: >-
+  [ICLR 2026][图学习][Graph-LLM对齐] 提出 EDT-Former（Entropy-guided Dynamic Token Transformer），通过熵引导的动态token生成机制，在冻结图编码器和LLM之间建立高效对齐，无需微调LLM主干网络即在分子问答、分子指令和属性预测等多个基准上达到SOTA。
 tags:
   - ICLR 2026
+  - 图学习
   - Graph-LLM对齐
   - 动态Token
   - 分子图

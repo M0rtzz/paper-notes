@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Advancing Zero-shot Text-to-Speech Intelligibility across Diverse Domains via Preference Alignment 论文解读 | ACL 2025 | arXiv 2505.04113 | 零样本TTS | 提出INTP（Intelligibility Preference Speech Dataset）数据集和面向多种TTS架构的DPO扩展方法，通过偏好对齐显著提升零样本TTS系统在绕口令、重复词、中英混合、跨语言等挑战场景下的可懂度，并验证了弱模型到强模型的泛化能力。"
+title: >-
+  [论文解读] Advancing Zero-shot Text-to-Speech Intelligibility across Diverse Domains via Preference Alignment
+description: >-
+  [ACL 2025][语音][零样本TTS] 提出INTP（Intelligibility Preference Speech Dataset）数据集和面向多种TTS架构的DPO扩展方法，通过偏好对齐显著提升零样本TTS系统在绕口令、重复词、中英混合、跨语言等挑战场景下的可懂度，并验证了弱模型到强模型的泛化能力。
 tags:
   - ACL 2025
+  - 语音
   - 零样本TTS
   - 可懂度
   - 偏好对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LeVo: High-Quality Song Generation with Multi-Preference Alignment 论文解读 | NeurIPS 2025 | arXiv 2506.07520 | 歌曲生成 | 提出 LeVo 歌曲生成框架，通过语言模型并行建模混合 token 和双轨 token 以兼顾人声-伴奏和谐性和音质，并创新性地引入基于 DPO 的多偏好对齐方法提升音乐性和指令跟随能力。"
+title: >-
+  [论文解读] LeVo: High-Quality Song Generation with Multi-Preference Alignment
+description: >-
+  [NeurIPS 2025][语音][歌曲生成] 提出 LeVo 歌曲生成框架，通过语言模型并行建模混合 token 和双轨 token 以兼顾人声-伴奏和谐性和音质，并创新性地引入基于 DPO 的多偏好对齐方法提升音乐性和指令跟随能力。
 tags:
   - NeurIPS 2025
+  - 语音
   - 歌曲生成
   - 语言模型
   - 多偏好对齐

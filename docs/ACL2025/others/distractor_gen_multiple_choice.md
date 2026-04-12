@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction 论文解读 | ACL 2025 | arXiv 2501.13125 | 干扰项生成 | 提出选择题干扰项生成的三步流水线：(1) 训练配对排序器预测学生误选哪个干扰项；(2) 用排序器构造偏好数据集；(3) 用 DPO 训练生成器产生更具迷惑性的干扰项。在 CS 领域（Python/DB/ML）实验中，生成的干扰项更难以区分，且题目鉴别指数(DI)更高。"
+title: >-
+  [论文解读] Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction
+description: >-
+  [ACL 2025][干扰项生成] 提出选择题干扰项生成的三步流水线：(1) 训练配对排序器预测学生误选哪个干扰项；(2) 用排序器构造偏好数据集；(3) 用 DPO 训练生成器产生更具迷惑性的干扰项。在 CS 领域（Python/DB/ML）实验中，生成的干扰项更难以区分，且题目鉴别指数(DI)更高。
 tags:
   - ACL 2025
   - 干扰项生成

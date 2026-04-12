@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Scalable Random Wavelet Features: Efficient Non-Stationary Kernel Approximation with Convergence Guarantees 论文解读 | 提出 Random Wavelet Features (RWF)，通过从小波族中随机采样构建可扩展的非平稳核近似，保留随机特征的线性时间复杂度，同时具有正定性、无偏性和一致收敛保证。"
+title: >-
+  [论文解读] Scalable Random Wavelet Features: Efficient Non-Stationary Kernel Approximation with Convergence Guarantees
+description: >-
+   提出 Random Wavelet Features (RWF)，通过从小波族中随机采样构建可扩展的非平稳核近似，保留随机特征的线性时间复杂度，同时具有正定性、无偏性和一致收敛保证。
 tags:
 
 ---

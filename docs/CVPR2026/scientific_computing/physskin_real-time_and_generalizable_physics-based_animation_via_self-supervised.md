@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PhysSkin: Real-Time and Generalizable Physics-Based Skin Simulation 论文解读 | CVPR 2026 | arXiv 2603.23194 | 物理动画 | 提出 PhysSkin，一个泛化的物理信息框架——通过神经蒙皮场自编码器从静态 3D 几何体直接学习连续蒙皮权重场，配合物理信息自监督学习策略（能量最小化+平滑性+正交性约束），实现跨形状、跨离散化的实时物理动画，无需任何标注数据或仿真轨迹。"
+title: >-
+  [论文解读] PhysSkin: Real-Time and Generalizable Physics-Based Skin Simulation
+description: >-
+  [CVPR 2026][科学计算][物理动画] 提出 PhysSkin，一个泛化的物理信息框架——通过神经蒙皮场自编码器从静态 3D 几何体直接学习连续蒙皮权重场，配合物理信息自监督学习策略（能量最小化+平滑性+正交性约束），实现跨形状、跨离散化的实时物理动画，无需任何标注数据或仿真轨迹。
 tags:
   - CVPR 2026
+  - 科学计算
   - 物理动画
   - 神经蒙皮场
   - 自监督学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gaze Beyond the Frame: Forecasting Egocentric 3D Visual Span 论文解读 | NeurIPS 2025 | arXiv 2511.18470 | 第一人称视觉 | 提出 EgoSpanLift 方法，将第一人称 2D 注视预测提升到 3D 空间，构建多层级体积视觉跨度表示，结合 3D U-Net 和单向 Transformer 实现对未来 3D 视觉关注区域的预测。"
+title: >-
+  [论文解读] Gaze Beyond the Frame: Forecasting Egocentric 3D Visual Span
+description: >-
+  [NeurIPS 2025][3D视觉][第一人称视觉] 提出 EgoSpanLift 方法，将第一人称 2D 注视预测提升到 3D 空间，构建多层级体积视觉跨度表示，结合 3D U-Net 和单向 Transformer 实现对未来 3D 视觉关注区域的预测。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 第一人称视觉
   - 注视预测
   - 3D视觉跨度

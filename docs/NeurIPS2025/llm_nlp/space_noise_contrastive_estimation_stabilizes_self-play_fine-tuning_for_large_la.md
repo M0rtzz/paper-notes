@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SPACE: Noise Contrastive Estimation Stabilizes Self-Play Fine-Tuning for Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2512.07175 | 自对弈微调 | 提出 Space（Self-PlAy via Noise Contrastive Estimation），将噪声对比估计引入自对弈微调，通过独立优化真实和合成样本的绝对奖励值（而非相对差距），从根本上解决了 SPIN 等方法的不稳定收敛问题，并提供可证明的稳定收敛保证。"
+title: >-
+  [论文解读] SPACE: Noise Contrastive Estimation Stabilizes Self-Play Fine-Tuning for Large Language Models
+description: >-
+  [NeurIPS 2025][LLM/NLP][自对弈微调] 提出 Space（Self-PlAy via Noise Contrastive Estimation），将噪声对比估计引入自对弈微调，通过独立优化真实和合成样本的绝对奖励值（而非相对差距），从根本上解决了 SPIN 等方法的不稳定收敛问题，并提供可证明的稳定收敛保证。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - 自对弈微调
   - 噪声对比估计
   - LLM对齐

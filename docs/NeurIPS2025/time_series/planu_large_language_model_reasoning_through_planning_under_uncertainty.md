@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PlanU: Large Language Model Reasoning through Planning under Uncertainty 论文解读 | NeurIPS 2025 | arXiv 2510.18442 | LLM决策 | 提出PlanU——一种在MCTS中用分位数分布建模节点回报、并通过Upper Confidence Bounds with Curiosity (UCC)分数平衡探索与利用的LLM决策方法，首次系统性地同时处理LLM不确定性和环境不确定性，在多个随机环境基准上显著优于现有方法。"
+title: >-
+  [论文解读] PlanU: Large Language Model Reasoning through Planning under Uncertainty
+description: >-
+  [NeurIPS 2025][时间序列][LLM决策] 提出PlanU——一种在MCTS中用分位数分布建模节点回报、并通过Upper Confidence Bounds with Curiosity (UCC)分数平衡探索与利用的LLM决策方法，首次系统性地同时处理LLM不确定性和环境不确定性，在多个随机环境基准上显著优于现有方法。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - LLM决策
   - 不确定性
   - 蒙特卡洛树搜索

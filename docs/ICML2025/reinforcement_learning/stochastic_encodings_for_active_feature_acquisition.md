@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Stochastic Encodings for Active Feature Acquisition 论文解读 | 本文提出 SEFA (Stochastic Encodings for Feature Acquisition)，一种基于随机潜变量模型的主动特征获取方法，通过在正则化潜空间中跨多种未观测特征实现进行推理来替代 RL 和贪心 CMI 最大化，在合成和真实数据集（含癌症分类）上一致超越所有基线。"
+title: >-
+  [论文解读] Stochastic Encodings for Active Feature Acquisition
+description: >-
+   本文提出 SEFA (Stochastic Encodings for Feature Acquisition)，一种基于随机潜变量模型的主动特征获取方法，通过在正则化潜空间中跨多种未观测特征实现进行推理来替代 RL 和贪心 CMI 最大化，在合成和真实数据集（含癌症分类）上一致超越所有基线。
 tags:
 
 ---

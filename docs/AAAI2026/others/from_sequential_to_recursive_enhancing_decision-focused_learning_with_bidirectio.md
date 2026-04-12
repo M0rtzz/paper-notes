@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback 论文解读 | AAAI 2026 | arXiv 2511.08035 | Decision-Focused Learning | 本文首次提出递归决策聚焦学习（R-DFL）框架，通过在预测模块与优化模块之间引入双向反馈回路，突破了传统顺序式 DFL 的单向信息流限制，并设计了显式展开和隐式微分两种梯度传播方法，在报童问题和二部匹配问题上显著提升了最终决策质量。"
+title: >-
+  [论文解读] From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback
+description: >-
+  [AAAI 2026][Decision-Focused Learning] 本文首次提出递归决策聚焦学习（R-DFL）框架，通过在预测模块与优化模块之间引入双向反馈回路，突破了传统顺序式 DFL 的单向信息流限制，并设计了显式展开和隐式微分两种梯度传播方法，在报童问题和二部匹配问题上显著提升了最终决策质量。
 tags:
   - AAAI 2026
   - Decision-Focused Learning

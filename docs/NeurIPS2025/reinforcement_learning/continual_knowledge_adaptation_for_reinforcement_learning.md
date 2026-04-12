@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Continual Knowledge Adaptation for Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2510.19314 | continual RL | 提出 CKA-RL，为每个任务维护知识向量（task-specific knowledge vector），通过 softmax 加权的动态知识适配和自适应知识合并机制，在三个持续 RL 基准上实现 4.20% 的整体性能提升和 8.02% 的前向迁移提升。"
+title: >-
+  [论文解读] Continual Knowledge Adaptation for Reinforcement Learning
+description: >-
+  [NeurIPS 2025][continual RL] 提出 CKA-RL，为每个任务维护知识向量（task-specific knowledge vector），通过 softmax 加权的动态知识适配和自适应知识合并机制，在三个持续 RL 基准上实现 4.20% 的整体性能提升和 8.02% 的前向迁移提升。
 tags:
   - NeurIPS 2025
   - continual RL

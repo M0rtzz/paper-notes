@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Decomposition and Preprocessing of Ternary Constraint Networks 论文解读 | AAAI 2026 | arXiv 2511.11872 | 约束编程 | 提出将任意离散约束网络形式化分解为三元约束网络(TCN)的完整理论框架，并通过七项预处理技术（传播、代数简化、公共子表达式消除等）将分解引入的变量/约束膨胀从中位数8x/6x降至4.8x/4.3x，为GPU硬件上的高效约束求解提供规则化数据布局。"
+title: >-
+  [论文解读] Decomposition and Preprocessing of Ternary Constraint Networks
+description: >-
+  [AAAI 2026][视频理解][约束编程] 提出将任意离散约束网络形式化分解为三元约束网络(TCN)的完整理论框架，并通过七项预处理技术（传播、代数简化、公共子表达式消除等）将分解引入的变量/约束膨胀从中位数8x/6x降至4.8x/4.3x，为GPU硬件上的高效约束求解提供规则化数据布局。
 tags:
   - AAAI 2026
+  - 视频理解
   - 约束编程
   - 三元约束网络
   - GPU求解

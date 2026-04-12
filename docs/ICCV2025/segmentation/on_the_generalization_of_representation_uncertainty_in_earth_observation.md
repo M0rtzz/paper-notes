@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】On the Generalization of Representation Uncertainty in Earth Observation 论文解读 | ICCV 2025 | arXiv 2503.07082 | 地球观测 | 系统研究了预训练表示不确定性在地球观测（EO）领域的泛化能力，发现 EO 预训练的不确定性在不同地理位置、EO 任务和目标粒度上具备强泛化能力，同时对地面采样距离（GSD）高度敏感。"
+title: >-
+  [论文解读] On the Generalization of Representation Uncertainty in Earth Observation
+description: >-
+  [ICCV 2025][图像分割][地球观测] 系统研究了预训练表示不确定性在地球观测（EO）领域的泛化能力，发现 EO 预训练的不确定性在不同地理位置、EO 任务和目标粒度上具备强泛化能力，同时对地面采样距离（GSD）高度敏感。
 tags:
   - ICCV 2025
+  - 图像分割
   - 地球观测
   - 表示不确定性
   - 零样本迁移

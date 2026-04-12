@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adapt2Reward: Adapting Video-Language Models to Generalizable Robotic Rewards via Failure Prompts 论文解读 | ECCV 2024 | arXiv 2407.14872 | 视频语言模型 | 提出 Adapt2Reward，通过可学习的失败提示（failure prompts）将预训练视频语言模型适配为可泛化的语言条件奖励函数，仅需少量单一环境的机器人数据即可泛化到新环境和新任务，在 MetaWorld 上比前方法高出约 28%。"
+title: >-
+  [论文解读] Adapt2Reward: Adapting Video-Language Models to Generalizable Robotic Rewards via Failure Prompts
+description: >-
+  [ECCV 2024][视频理解][视频语言模型] 提出 Adapt2Reward，通过可学习的失败提示（failure prompts）将预训练视频语言模型适配为可泛化的语言条件奖励函数，仅需少量单一环境的机器人数据即可泛化到新环境和新任务，在 MetaWorld 上比前方法高出约 28%。
 tags:
   - ECCV 2024
+  - 视频理解
   - 视频语言模型
   - 机器人奖励函数
   - 失败提示学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning-guided Kansa Collocation for Forward and Inverse PDE Problems 论文解读 | ICLR 2026 | arXiv 2602.07970 | Kansa method | 将基于径向基函数(RBF)的无网格Kansa方法从单变量线性PDE扩展到耦合多变量和非线性PDE场景，结合自调参技术和多种时间步进方案，并系统对比了与PINN、FNO等神经PDE求解器在正问题和反问题上的表现。"
+title: >-
+  [论文解读] Learning-guided Kansa Collocation for Forward and Inverse PDE Problems
+description: >-
+  [ICLR 2026][科学计算][Kansa method] 将基于径向基函数(RBF)的无网格Kansa方法从单变量线性PDE扩展到耦合多变量和非线性PDE场景，结合自调参技术和多种时间步进方案，并系统对比了与PINN、FNO等神经PDE求解器在正问题和反问题上的表现。
 tags:
   - ICLR 2026
+  - 科学计算
   - Kansa method
   - radial basis functions
   - 偏微分方程

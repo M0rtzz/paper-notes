@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Do Multiple Instance Learning Models Transfer? 论文解读 | ICML2025 | arXiv 2506.09022 | Multiple Instance Learning | 首次系统评估计算病理学中 MIL 模型的迁移学习能力，发现在 pancancer 数据集上预训练的 MIL 模型能够跨器官、跨任务泛化，以不到 10% 的预训练数据超越自监督 slide foundation model（CHIEF、GigaPath）。"
+title: >-
+  [论文解读] Do Multiple Instance Learning Models Transfer?
+description: >-
+  [ICML2025][医学图像][Multiple Instance Learning] 首次系统评估计算病理学中 MIL 模型的迁移学习能力，发现在 pancancer 数据集上预训练的 MIL 模型能够跨器官、跨任务泛化，以不到 10% 的预训练数据超越自监督 slide foundation model（CHIEF、GigaPath）。
 tags:
   - ICML2025
+  - 医学图像
   - Multiple Instance Learning
   - 迁移学习
   - Computational Pathology

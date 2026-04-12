@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Statistical Validity and Power in Hybrid Controlled Trials: A Randomization Inference Approach with Conformal Selective Borrowing 论文解读 | ICML 2025 | arXiv 2410.11713 | 混合对照试验 | 提出基于 Fisher 随机化检验（FRT）+ 保形选择性借用（CSB）的混合对照试验推断框架，实现有限样本精确的 I 类错误率控制和模型无关的统计推断，通过自适应阈值最小化 MSE，在保持严格 I 类错误控制的同时提升检验功效。"
+title: >-
+  [论文解读] Enhancing Statistical Validity and Power in Hybrid Controlled Trials: A Randomization Inference Approach with Conformal Selective Borrowing
+description: >-
+  [ICML 2025][医学图像][混合对照试验] 提出基于 Fisher 随机化检验（FRT）+ 保形选择性借用（CSB）的混合对照试验推断框架，实现有限样本精确的 I 类错误率控制和模型无关的统计推断，通过自适应阈值最小化 MSE，在保持严格 I 类错误控制的同时提升检验功效。
 tags:
   - ICML 2025
+  - 医学图像
   - 混合对照试验
   - 随机化推断
   - 保形推断

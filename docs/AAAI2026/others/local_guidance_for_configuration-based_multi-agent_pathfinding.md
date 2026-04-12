@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Local Guidance for Configuration-Based Multi-Agent Pathfinding 论文解读 | AAAI 2026 | arXiv 2510.19072 | MAPF | 提出局部引导（Local Guidance）概念改进 LaCAM 的多智能体路径规划，通过在每个配置生成步为每个智能体构造局部时空路径来缓解拥塞，最高可将解的代价降低 50%，同时保持 1000 智能体下几秒内完成。"
+title: >-
+  [论文解读] Local Guidance for Configuration-Based Multi-Agent Pathfinding
+description: >-
+  [AAAI 2026][MAPF] 提出局部引导（Local Guidance）概念改进 LaCAM 的多智能体路径规划，通过在每个配置生成步为每个智能体构造局部时空路径来缓解拥塞，最高可将解的代价降低 50%，同时保持 1000 智能体下几秒内完成。
 tags:
   - AAAI 2026
   - MAPF

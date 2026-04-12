@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions 论文解读 | ACL 2025 | arXiv 2502.11095 | LLM心理治疗 | 系统综述 LLM 在心理治疗中的应用——提出评估（Assessment）→ 诊断（Diagnosis）→ 治疗（Treatment）三阶段概念分类法，覆盖症状检测、诊断推理、治疗对话策略等，揭示当前研究失衡（聚焦常见障碍、语言偏差、方法碎片化、理论整合不足），并提出连续多阶段建模和实时自适应系统等未来方向。"
+title: >-
+  [论文解读] A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions
+description: >-
+  [ACL 2025][LLM/NLP][LLM心理治疗] 系统综述 LLM 在心理治疗中的应用——提出评估（Assessment）→ 诊断（Diagnosis）→ 治疗（Treatment）三阶段概念分类法，覆盖症状检测、诊断推理、治疗对话策略等，揭示当前研究失衡（聚焦常见障碍、语言偏差、方法碎片化、理论整合不足），并提出连续多阶段建模和实时自适应系统等未来方向。
 tags:
   - ACL 2025
+  - LLM/NLP
   - LLM心理治疗
   - 评估-诊断-治疗
   - 心理健康

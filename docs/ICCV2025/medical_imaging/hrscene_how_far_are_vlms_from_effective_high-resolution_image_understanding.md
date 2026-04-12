@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HRScene: How Far Are VLMs from Effective High-Resolution Image Understanding? 论文解读 | ICCV 2025 | arXiv 2504.18406 | 高分辨率图像理解 | 提出 HRScene 基准，涵盖 25 个真实场景和 2 个诊断数据集（分辨率 1K-35K），评估 28 个 VLM 后发现：当前最强模型在真实高分辨率任务上平均准确率仅约 50%，且存在显著的区域差异和 lost-in-middle 问题。"
+title: >-
+  [论文解读] HRScene: How Far Are VLMs from Effective High-Resolution Image Understanding?
+description: >-
+  [ICCV 2025][医学图像][高分辨率图像理解] 提出 HRScene 基准，涵盖 25 个真实场景和 2 个诊断数据集（分辨率 1K-35K），评估 28 个 VLM 后发现：当前最强模型在真实高分辨率任务上平均准确率仅约 50%，且存在显著的区域差异和 lost-in-middle 问题。
 tags:
   - ICCV 2025
+  - 医学图像
   - 高分辨率图像理解
   - VLM基准
   - 视觉语言模型

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Empower Words: DualGround for Structured Phrase and Sentence-Level Temporal Grounding 论文解读 | 论文指出现有视频时序定位模型在跨模态注意力中往往过度依赖句末 [EOS] token 的全局语义、忽视词级局部信号，提出 DualGround 双分支架构，将句子级全局语义与短语级局部语义显式解耦建模，在 QVHighlights 和 Charades-STA 上实现 Moment Retrieval 与 Highlight Detection 的 SOTA。"
+title: >-
+  [论文解读] Empower Words: DualGround for Structured Phrase and Sentence-Level Temporal Grounding
+description: >-
+  [视频理解] 论文指出现有视频时序定位模型在跨模态注意力中往往过度依赖句末 [EOS] token 的全局语义、忽视词级局部信号，提出 DualGround 双分支架构，将句子级全局语义与短语级局部语义显式解耦建模，在 QVHighlights 和 Charades-STA 上实现 Moment Retrieval 与 Highlight Detection 的 SOTA。
 tags:
-
+  - 视频理解
 ---
 
 # Empower Words: DualGround for Structured Phrase and Sentence-Level Temporal Grounding

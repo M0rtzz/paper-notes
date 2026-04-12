@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】One Perturbation is Enough: On Generating Universal Adversarial Perturbations against Vision-Language Pre-training Models 论文解读 | ICCV 2025 | arXiv 2406.05491 | 通用对抗扰动 | 本文提出 C-PGC 框架，通过恶意对比学习训练条件扰动生成器，生成一对通用图文对抗扰动（UAP），能够从根本上破坏 VLP 模型的多模态对齐关系，在白盒和黑盒场景下对多种 VLP 模型和下游任务均取得优异攻击效果。"
+title: >-
+  [论文解读] One Perturbation is Enough: On Generating Universal Adversarial Perturbations against Vision-Language Pre-training Models
+description: >-
+  [ICCV 2025][多模态][通用对抗扰动] 本文提出 C-PGC 框架，通过恶意对比学习训练条件扰动生成器，生成一对通用图文对抗扰动（UAP），能够从根本上破坏 VLP 模型的多模态对齐关系，在白盒和黑盒场景下对多种 VLP 模型和下游任务均取得优异攻击效果。
 tags:
   - ICCV 2025
+  - 多模态
   - 通用对抗扰动
   - VLP模型
   - 对比学习

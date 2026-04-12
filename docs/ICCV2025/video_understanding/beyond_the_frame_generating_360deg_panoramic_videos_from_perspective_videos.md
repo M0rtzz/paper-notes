@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond the Frame: Generating 360° Panoramic Videos from Perspective Videos 论文解读 | ICCV 2025 | arXiv 2504.07940 | 360° video generation | 提出 Argus 模型，首次实现从普通透视视频生成完整 360° 全景视频，通过相机运动模拟、视角对齐帧校准和混合解码三大几何-运动感知技术，在基于扩散模型的框架上让生成的全景视频具备空间一致性和时序连贯性。"
+title: >-
+  [论文解读] Beyond the Frame: Generating 360° Panoramic Videos from Perspective Videos
+description: >-
+  [ICCV 2025][视频理解][360° video generation] 提出 Argus 模型，首次实现从普通透视视频生成完整 360° 全景视频，通过相机运动模拟、视角对齐帧校准和混合解码三大几何-运动感知技术，在基于扩散模型的框架上让生成的全景视频具备空间一致性和时序连贯性。
 tags:
   - ICCV 2025
+  - 视频理解
   - 360° video generation
   - video outpainting
   - 扩散模型

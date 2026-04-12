@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CaDrift: A Time-dependent Causal Generator of Drifting Data Streams 论文解读 | ICLR2026 | arXiv 2602.20329 | concept drift | 提出 CaDrift，一个基于结构因果模型（SCM）的时间依赖合成数据流生成框架，通过 EWMA 平滑和自回归噪声引入时序相关性，并通过修改因果映射函数实现可控的分布漂移、协变量漂移、严重漂移和局部漂移，填补了现有数据流生成器既不因果又不时序依赖的空白。"
+title: >-
+  [论文解读] CaDrift: A Time-dependent Causal Generator of Drifting Data Streams
+description: >-
+  [ICLR2026][concept drift] 提出 CaDrift，一个基于结构因果模型（SCM）的时间依赖合成数据流生成框架，通过 EWMA 平滑和自回归噪声引入时序相关性，并通过修改因果映射函数实现可控的分布漂移、协变量漂移、严重漂移和局部漂移，填补了现有数据流生成器既不因果又不时序依赖的空白。
 tags:
   - ICLR2026
   - concept drift

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Urban Incident Prediction with Graph Neural Networks: Integrating Government Ratings and Crowdsourced Reports 论文解读 | AAAI 2026 | arXiv 2506.08740 | 城市事件预测 | 提出 URBAN（多视图多输出GNN模型），联合利用稀疏但无偏的政府检查评级数据和密集但有偏的众包报告数据来预测城市事件的真实潜在状态，在纽约市960万+报告和100万+检查数据上验证，预测相关性比仅用报告数据高5.3倍。"
+title: >-
+  [论文解读] Urban Incident Prediction with Graph Neural Networks: Integrating Government Ratings and Crowdsourced Reports
+description: >-
+  [AAAI 2026][时间序列][城市事件预测] 提出 URBAN（多视图多输出GNN模型），联合利用稀疏但无偏的政府检查评级数据和密集但有偏的众包报告数据来预测城市事件的真实潜在状态，在纽约市960万+报告和100万+检查数据上验证，预测相关性比仅用报告数据高5.3倍。
 tags:
   - AAAI 2026
+  - 时间序列
   - 城市事件预测
   - 图神经网络
   - 众包数据偏差

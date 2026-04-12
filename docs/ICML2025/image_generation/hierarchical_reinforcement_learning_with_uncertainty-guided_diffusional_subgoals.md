@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hierarchical Reinforcement Learning with Uncertainty-Guided Diffusional Subgoals 论文解读 | ICML2025 | arXiv 2505.21750 | 层次强化学习 | 提出 HIDI 框架，以条件扩散模型建模子目标分布，并引入高斯过程 (GP) 先验进行不确定性正则化与子目标选择，在长时域连续控制任务上显著超越现有层次强化学习方法。"
+title: >-
+  [论文解读] Hierarchical Reinforcement Learning with Uncertainty-Guided Diffusional Subgoals
+description: >-
+  [ICML2025][图像生成][层次强化学习] 提出 HIDI 框架，以条件扩散模型建模子目标分布，并引入高斯过程 (GP) 先验进行不确定性正则化与子目标选择，在长时域连续控制任务上显著超越现有层次强化学习方法。
 tags:
   - ICML2025
+  - 图像生成
   - 层次强化学习
   - 扩散模型
   - 高斯过程

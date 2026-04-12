@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Partially Shared Concept Bottleneck Models 论文解读 | AAAI 2026 | arXiv 2511.22170 | 概念瓶颈模型 | 提出PS-CBM框架，通过多模态概念生成（结合LLM语义与示例图像视觉线索）、部分共享概念策略（基于激活模式合并概念）和Concept-Efficient Accuracy（CEA）评估指标，在11个数据集上以更少的概念实现了更高的分类精度和可解释性。"
+title: >-
+  [论文解读] Partially Shared Concept Bottleneck Models
+description: >-
+  [AAAI 2026][人体理解][概念瓶颈模型] 提出PS-CBM框架，通过多模态概念生成（结合LLM语义与示例图像视觉线索）、部分共享概念策略（基于激活模式合并概念）和Concept-Efficient Accuracy（CEA）评估指标，在11个数据集上以更少的概念实现了更高的分类精度和可解释性。
 tags:
   - AAAI 2026
+  - 人体理解
   - 概念瓶颈模型
   - 可解释性
   - 视觉-语言模型

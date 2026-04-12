@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DIVA-GRPO: Enhancing Multimodal Reasoning through Difficulty-Adaptive Variant Advantage 论文解读 | ICLR 2026 | arXiv 2603.01106 | GRPO | 提出 DIVA-GRPO，通过动态评估问题难度、自适应生成不同难度的语义一致变体、并结合难度加权的局部-全局 advantage 估计，解决 GRPO 训练中的 reward sparsity 和 advantage vanishing 问题，在 7B 规模模型上实现 SOTA 多模态推理性能。"
+title: >-
+  [论文解读] DIVA-GRPO: Enhancing Multimodal Reasoning through Difficulty-Adaptive Variant Advantage
+description: >-
+  [ICLR 2026][多模态][GRPO] 提出 DIVA-GRPO，通过动态评估问题难度、自适应生成不同难度的语义一致变体、并结合难度加权的局部-全局 advantage 估计，解决 GRPO 训练中的 reward sparsity 和 advantage vanishing 问题，在 7B 规模模型上实现 SOTA 多模态推理性能。
 tags:
   - ICLR 2026
+  - 多模态
   - GRPO
   - 强化学习
   - 多模态推理

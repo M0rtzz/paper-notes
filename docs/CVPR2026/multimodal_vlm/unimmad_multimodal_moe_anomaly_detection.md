@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】UniMMAD: Unified Multi-Modal and Multi-Class Anomaly Detection via MoE-Driven Feature Decompression 论文解读 | CVPR 2026 | arXiv 2509.25934 | anomaly detection | 提出 UniMMAD, 首个统一多模态 (RGB/Depth/IR 等) 多类别异常检测框架, 通过 General-to-Specific 范式: 通用多模态编码器压缩特征, Cross Mixture-of-Experts (C-MoE) 解压为域特定特征, 在 5 个数据集 (含工业/医学/合成场景) 上取得 SOTA, 59 FPS 推理速度."
+title: >-
+  [论文解读] UniMMAD: Unified Multi-Modal and Multi-Class Anomaly Detection via MoE-Driven Feature Decompression
+description: >-
+  [CVPR 2026][多模态][anomaly detection] 提出 UniMMAD, 首个统一多模态 (RGB/Depth/IR 等) 多类别异常检测框架, 通过 General-to-Specific 范式: 通用多模态编码器压缩特征, Cross Mixture-of-Experts (C-MoE) 解压为域特定特征, 在 5 个数据集 (含工业/医学/合成场景) 上取得 SOTA, 59 FPS 推理速度.
 tags:
   - CVPR 2026
-  - anomaly detection
   - 多模态
+  - anomaly detection
   - mixture of experts
   - feature decompression
   - unified framework

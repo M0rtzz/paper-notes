@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Induce, Align, Predict: Zero-Shot Stance Detection via Cognitive Inductive Reasoning 论文解读 | AAAI 2026 | arXiv 2506.13470 | 零样本立场检测 | 提出CIRF（Cognitive Inductive Reasoning Framework），受认知科学启发，从原始文本中无监督归纳一阶逻辑推理模式（schema），构建多关系schema图，用图核模型对齐输入与schema模板实现可解释的零样本立场推理，在SemEval-2016、VAST和COVID-19-Stance上达到SOTA，仅30%数据即可匹配全量。"
+title: >-
+  [论文解读] Induce, Align, Predict: Zero-Shot Stance Detection via Cognitive Inductive Reasoning
+description: >-
+  [AAAI 2026][零样本立场检测] 提出CIRF（Cognitive Inductive Reasoning Framework），受认知科学启发，从原始文本中无监督归纳一阶逻辑推理模式（schema），构建多关系schema图，用图核模型对齐输入与schema模板实现可解释的零样本立场推理，在SemEval-2016、VAST和COVID-19-Stance上达到SOTA，仅30%数据即可匹配全量。
 tags:
   - AAAI 2026
   - 零样本立场检测

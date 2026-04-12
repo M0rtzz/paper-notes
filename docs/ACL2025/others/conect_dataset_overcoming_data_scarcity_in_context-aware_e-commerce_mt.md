@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT 论文解读 | ACL 2025 | arXiv 2506.04929 | 多模态机器翻译 | 构建了 ConECT——一个包含 11,400 句对的捷克-波兰电商产品翻译数据集，配有图片和类目路径元数据，系统评估了 VLM、NMT+类目路径和 NMT+图像描述三种上下文感知翻译方法，证明视觉和类目上下文能提升翻译质量，但合成图像描述反而有害。"
+title: >-
+  [论文解读] ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT
+description: >-
+  [ACL 2025][多模态机器翻译] 构建了 ConECT——一个包含 11,400 句对的捷克-波兰电商产品翻译数据集，配有图片和类目路径元数据，系统评估了 VLM、NMT+类目路径和 NMT+图像描述三种上下文感知翻译方法，证明视觉和类目上下文能提升翻译质量，但合成图像描述反而有害。
 tags:
   - ACL 2025
   - 多模态机器翻译

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spatial-DISE: A Unified Benchmark for Evaluating Spatial Reasoning in Vision-Language Models 论文解读 | ICLR 2026 | arXiv 2510.13394 | 空间推理基准 | 提出Spatial-DISE——基于认知科学DISE分类法(内在-外在×静态-动态四象限)的统一空间推理基准：559评估对+1.2万训练对(Blender自动化pipeline)→评估32个SOTA VLM→揭示所有模型远低于人类(尤其动态内在推理如心理旋转→接近随机)→空间推理失败源于认知过程(规则推理/心理模拟)缺陷而非视觉感知。"
+title: >-
+  [论文解读] Spatial-DISE: A Unified Benchmark for Evaluating Spatial Reasoning in Vision-Language Models
+description: >-
+  [ICLR 2026][多模态][空间推理基准] 提出Spatial-DISE——基于认知科学DISE分类法(内在-外在×静态-动态四象限)的统一空间推理基准：559评估对+1.2万训练对(Blender自动化pipeline)→评估32个SOTA VLM→揭示所有模型远低于人类(尤其动态内在推理如心理旋转→接近随机)→空间推理失败源于认知过程(规则推理/心理模拟)缺陷而非视觉感知。
 tags:
   - ICLR 2026
+  - 多模态
   - 空间推理基准
   - 认知分类法
   - 动态推理

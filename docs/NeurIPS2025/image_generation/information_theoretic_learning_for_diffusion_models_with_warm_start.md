@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Information Theoretic Learning for Diffusion Models with Warm Start 论文解读 | NeurIPS 2025 | arXiv 2510.20903 | 扩散模型 Diffusion Models | 提出将经典 KL 散度-Fisher 信息关系推广到任意各向同性噪声扰动的似然估计框架，结合 warm-start 噪声注入和重要性采样，消除训练-测试差距并实现更紧的似然上界，在 ImageNet 多分辨率上达到 SOTA NLL。"
+title: >-
+  [论文解读] Information Theoretic Learning for Diffusion Models with Warm Start
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型] 提出将经典 KL 散度-Fisher 信息关系推广到任意各向同性噪声扰动的似然估计框架，结合 warm-start 噪声注入和重要性采样，消除训练-测试差距并实现更紧的似然上界，在 ImageNet 多分辨率上达到 SOTA NLL。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型
   - Likelihood Estimation
   - Information Theory

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DEPO: Dual-Efficiency Preference Optimization for LLM Agents 论文解读 | AAAI 2026 | arXiv 2511.15392 | LLM Agent 效率优化 | 提出双重效率（dual-efficiency）的概念，将 LLM Agent 的效率分解为 step 级（减少每步 token 数）和 trajectory 级（减少总步数），并基于 KTO 设计了 DEPO 方法，通过在 desirable 样本的 reward 中加入效率 bonus 来联合优化效率与性能。"
+title: >-
+  [论文解读] DEPO: Dual-Efficiency Preference Optimization for LLM Agents
+description: >-
+  [AAAI 2026][LLM Agent][LLM Agent 效率优化] 提出双重效率（dual-efficiency）的概念，将 LLM Agent 的效率分解为 step 级（减少每步 token 数）和 trajectory 级（减少总步数），并基于 KTO 设计了 DEPO 方法，通过在 desirable 样本的 reward 中加入效率 bonus 来联合优化效率与性能。
 tags:
   - AAAI 2026
+  - LLM Agent
   - LLM Agent 效率优化
   - 偏好优化
   - KTO

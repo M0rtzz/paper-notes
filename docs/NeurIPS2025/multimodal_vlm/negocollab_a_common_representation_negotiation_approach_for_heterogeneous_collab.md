@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NegoCollab: A Common Representation Negotiation Approach for Heterogeneous Collaborative Perception 论文解读 | NeurIPS 2025 | arXiv 2510.27647 | 协同感知 | 提出 NegoCollab 框架，通过引入协商者（Negotiator）在训练期间从多模态 agent 的局部表示中协商生成公共表示，有效消除异质协作 agent 之间的域差异，实现低训练成本的协同网联感知。"
+title: >-
+  [论文解读] NegoCollab: A Common Representation Negotiation Approach for Heterogeneous Collaborative Perception
+description: >-
+  [NeurIPS 2025][多模态][协同感知] 提出 NegoCollab 框架，通过引入协商者（Negotiator）在训练期间从多模态 agent 的局部表示中协商生成公共表示，有效消除异质协作 agent 之间的域差异，实现低训练成本的协同网联感知。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 协同感知
   - 异质性
   - 公共表示

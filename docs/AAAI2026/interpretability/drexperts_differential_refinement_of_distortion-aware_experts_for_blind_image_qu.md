@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment 论文解读 | AAAI 2026 | arXiv 2602.09531 | 盲图像质量评估 | 提出DR.Experts框架，利用DA-CLIP获取失真类型先验，通过差分精炼注意力机制（DSDM）将失真注意力与语义注意力分离以纯化失真特征，再通过动态失真加权模块（DDWM）按感知影响自适应加权各类失真特征，在5个BIQA基准上达到SOTA。"
+title: >-
+  [论文解读] DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment
+description: >-
+  [AAAI 2026][盲图像质量评估] 提出DR.Experts框架，利用DA-CLIP获取失真类型先验，通过差分精炼注意力机制（DSDM）将失真注意力与语义注意力分离以纯化失真特征，再通过动态失真加权模块（DDWM）按感知影响自适应加权各类失真特征，在5个BIQA基准上达到SOTA。
 tags:
   - AAAI 2026
   - 盲图像质量评估

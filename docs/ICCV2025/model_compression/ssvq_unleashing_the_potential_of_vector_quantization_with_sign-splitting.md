@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SSVQ: Unleashing the Potential of Vector Quantization with Sign-Splitting 论文解读 | ICCV 2025 | arXiv 2503.08668 | 向量量化 | 提出 Sign-Splitting Vector Quantization (SSVQ)，将权重的符号位与码本解耦，引入可学习符号位和增强的迭代冻结策略，使 VQ 微调时每个量化权重可以沿各自梯度方向独立更新，在极端压缩率下显著优于传统 VQ 和标量量化。"
+title: >-
+  [论文解读] SSVQ: Unleashing the Potential of Vector Quantization with Sign-Splitting
+description: >-
+  [ICCV 2025][模型压缩][向量量化] 提出 Sign-Splitting Vector Quantization (SSVQ)，将权重的符号位与码本解耦，引入可学习符号位和增强的迭代冻结策略，使 VQ 微调时每个量化权重可以沿各自梯度方向独立更新，在极端压缩率下显著优于传统 VQ 和标量量化。
 tags:
   - ICCV 2025
+  - 模型压缩
   - 向量量化
   - 符号分离
   - 可学习符号位

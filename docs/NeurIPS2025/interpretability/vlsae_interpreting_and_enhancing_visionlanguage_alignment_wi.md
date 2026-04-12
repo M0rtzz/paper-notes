@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】VL-SAE: Interpreting and Enhancing Vision-Language Alignment with a Unified Concept Set 论文解读 | NeurIPS 2025 | arXiv 2510.21323 | Sparse Autoencoder | 提出VL-SAE，一种带有距离编码器和模态特定解码器的稀疏自编码器，将视觉和语言表示的语义映射到统一概念集，从而解释和增强VLM的视觉-语言对齐机制，在零样本分类平均提升0.6-0.9%，在POPE幻觉消除上超越专用方法VCD。"
+title: >-
+  [论文解读] VL-SAE: Interpreting and Enhancing Vision-Language Alignment with a Unified Concept Set
+description: >-
+  [NeurIPS 2025][Sparse Autoencoder] 提出VL-SAE，一种带有距离编码器和模态特定解码器的稀疏自编码器，将视觉和语言表示的语义映射到统一概念集，从而解释和增强VLM的视觉-语言对齐机制，在零样本分类平均提升0.6-0.9%，在POPE幻觉消除上超越专用方法VCD。
 tags:
   - NeurIPS 2025
   - Sparse Autoencoder

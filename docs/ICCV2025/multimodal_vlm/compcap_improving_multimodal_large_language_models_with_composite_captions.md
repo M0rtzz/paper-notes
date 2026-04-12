@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CompCap: Improving Multimodal Large Language Models with Composite Captions 论文解读 | ICCV 2025 | arXiv 2412.05243 | 复合图像 | 提出 CompCap 框架，自动合成6类复合图像（拼贴、图文混合、图表、表格、代码、流程图）及其高质量描述文本，构建 CompCap-118K 数据集，通过在 SFT 阶段引入该数据集显著提升 MLLM 对复合图像的理解能力。"
+title: >-
+  [论文解读] CompCap: Improving Multimodal Large Language Models with Composite Captions
+description: >-
+  [ICCV 2025][多模态][复合图像] 提出 CompCap 框架，自动合成6类复合图像（拼贴、图文混合、图表、表格、代码、流程图）及其高质量描述文本，构建 CompCap-118K 数据集，通过在 SFT 阶段引入该数据集显著提升 MLLM 对复合图像的理解能力。
 tags:
   - ICCV 2025
+  - 多模态
   - 复合图像
   - 图像描述生成
   - 多模态大语言模型

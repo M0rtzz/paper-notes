@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Scaling Laws for Native Multimodal Models 论文解读 | ICCV 2025 (Oral) | arXiv 2504.07951 | 多模态 native multimodal | 通过训练457个不同架构和训练配比的模型进行系统性scaling law研究，发现Native Multimodal Models（NMM）的early-fusion架构（不依赖视觉编码器/tokenizer）在小参数量时优于late-fusion，训练更高效且部署更简单，结合MoE可进一步显著提升性能。"
+title: >-
+  [论文解读] Scaling Laws for Native Multimodal Models
+description: >-
+  [ICCV 2025 (Oral)][多模态][多模态] 通过训练457个不同架构和训练配比的模型进行系统性scaling law研究，发现Native Multimodal Models（NMM）的early-fusion架构（不依赖视觉编码器/tokenizer）在小参数量时优于late-fusion，训练更高效且部署更简单，结合MoE可进一步显著提升性能。
 tags:
   - ICCV 2025 (Oral)
   - 多模态

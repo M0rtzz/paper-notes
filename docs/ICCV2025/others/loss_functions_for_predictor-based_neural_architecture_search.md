@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Loss Functions for Predictor-based Neural Architecture Search 论文解读 | ICCV 2025 | arXiv 2506.05869 | 神经架构搜索 | 首次对性能预测器中8种损失函数进行全面系统性研究，涵盖回归、排序和加权三大类，在5个搜索空间的13个任务上揭示了各类损失函数的特性与互补性，并提出分段损失（PW loss）组合方法PWLNAS，在多个基准上超越现有SOTA。"
+title: >-
+  [论文解读] Loss Functions for Predictor-based Neural Architecture Search
+description: >-
+  [ICCV 2025][神经架构搜索] 首次对性能预测器中8种损失函数进行全面系统性研究，涵盖回归、排序和加权三大类，在5个搜索空间的13个任务上揭示了各类损失函数的特性与互补性，并提出分段损失（PW loss）组合方法PWLNAS，在多个基准上超越现有SOTA。
 tags:
   - ICCV 2025
   - 神经架构搜索

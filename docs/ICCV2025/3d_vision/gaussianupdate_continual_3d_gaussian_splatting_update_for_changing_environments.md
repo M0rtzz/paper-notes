@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GaussianUpdate: Continual 3D Gaussian Splatting Update for Changing Environments 论文解读 | ICCV 2025 | arXiv 2508.08867 | 持续学习 | 提出GaussianUpdate，首次将3D高斯表示与持续学习结合，通过三阶段更新策略（外观更新→几何布局更新→联合精炼）和可见性感知生成式回放，实现时变场景的实时渲染和变化可视化。"
+title: >-
+  [论文解读] GaussianUpdate: Continual 3D Gaussian Splatting Update for Changing Environments
+description: >-
+  [ICCV 2025][3D视觉][持续学习] 提出GaussianUpdate，首次将3D高斯表示与持续学习结合，通过三阶段更新策略（外观更新→几何布局更新→联合精炼）和可见性感知生成式回放，实现时变场景的实时渲染和变化可视化。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 持续学习
   - 3D高斯
   - 场景更新

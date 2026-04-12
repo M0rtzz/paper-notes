@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes 论文解读 | ICML2025 | arXiv 2505.01726 | 交互式3D分割 | 提出 NPISeg3D，基于层级神经过程（Hierarchical NPs）的概率性交互式 3D 分割框架，通过场景级和物体级隐变量结构增强少样本泛化，同时提供可靠的不确定性估计。"
+title: >-
+  [论文解读] Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes
+description: >-
+  [ICML2025][3D视觉][交互式3D分割] 提出 NPISeg3D，基于层级神经过程（Hierarchical NPs）的概率性交互式 3D 分割框架，通过场景级和物体级隐变量结构增强少样本泛化，同时提供可靠的不确定性估计。
 tags:
   - ICML2025
+  - 3D视觉
   - 交互式3D分割
   - 神经过程
   - 层级隐变量

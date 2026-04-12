@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ReferEverything: Towards Segmenting Everything We Can Speak of in Videos 论文解读 | ICCV 2025 | arXiv 2410.23287 | 指代视频分割 | 利用视频扩散模型中学到的通用视觉-语言映射，通过保留完整生成模型架构并将目标从预测噪声转变为预测掩码潜变量，实现对视频中任意可用语言描述的概念（包括非物体的动态过程）进行开放世界指代分割。"
+title: >-
+  [论文解读] ReferEverything: Towards Segmenting Everything We Can Speak of in Videos
+description: >-
+  [ICCV 2025][图像分割][指代视频分割] 利用视频扩散模型中学到的通用视觉-语言映射，通过保留完整生成模型架构并将目标从预测噪声转变为预测掩码潜变量，实现对视频中任意可用语言描述的概念（包括非物体的动态过程）进行开放世界指代分割。
 tags:
   - ICCV 2025
+  - 图像分割
   - 指代视频分割
   - 视频扩散模型
   - 开放世界分割

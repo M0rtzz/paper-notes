@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Latent Principle Discovery for Language Model Self-Improvement 论文解读 | NeurIPS 2025 | arXiv 2505.16927 | 自我改进 | STaPLe 提出后验正则化的蒙特卡洛 EM 算法，让 7-8B 小模型自行发现指导自我修正的\"原则\"（latent principle），通过迭代发现-学习循环实现自我改进，在 AlpacaEval 上提升 8-10% 胜率、MT-Bench 平均提升 +0.3，并可通过聚类压缩至可解释的 constitution。"
+title: >-
+  [论文解读] Latent Principle Discovery for Language Model Self-Improvement
+description: >-
+  [NeurIPS 2025][自我改进] STaPLe 提出后验正则化的蒙特卡洛 EM 算法，让 7-8B 小模型自行发现指导自我修正的"原则"（latent principle），通过迭代发现-学习循环实现自我改进，在 AlpacaEval 上提升 8-10% 胜率、MT-Bench 平均提升 +0.3，并可通过聚类压缩至可解释的 constitution。
 tags:
   - NeurIPS 2025
   - 自我改进

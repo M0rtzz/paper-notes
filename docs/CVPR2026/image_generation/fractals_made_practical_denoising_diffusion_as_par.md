@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fractals made Practical: Denoising Diffusion as Partitioned Iterated Function Systems 论文解读 | CVPR 2026 | arXiv 2603.13069 | 分形几何 | 证明 DDIM 确定性反向链等价于分区迭代函数系统（PIFS），从分形几何推导出三个可计算量（收缩阈值 L_t^*、对角膨胀函数 f_t(λ)、全局膨胀阈值 λ^**），统一解释了余弦调度偏移、分辨率 logSNR 偏移、Min-SNR 损失加权和 Align Your Steps 采样调度四种经验设计选择。"
+title: >-
+  [论文解读] Fractals made Practical: Denoising Diffusion as Partitioned Iterated Function Systems
+description: >-
+  [CVPR 2026][图像生成][分形几何] 证明 DDIM 确定性反向链等价于分区迭代函数系统（PIFS），从分形几何推导出三个可计算量（收缩阈值 $L_t^*$、对角膨胀函数 $f_t(\lambda)$、全局膨胀阈值 $\lambda^{**}$），统一解释了余弦调度偏移、分辨率 logSNR 偏移、Min-SNR 损失加权和 Align Your Steps 采样调度四种经验设计选择。
 tags:
   - CVPR 2026
+  - 图像生成
   - 分形几何
   - 扩散模型
   - 分区迭代函数系统

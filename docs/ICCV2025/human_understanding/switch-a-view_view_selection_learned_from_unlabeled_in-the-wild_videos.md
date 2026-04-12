@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Switch-a-View: View Selection Learned from Unlabeled In-the-wild Videos 论文解读 | ICCV 2025 | arXiv 2412.18386 | 视角选择 | 提出 Switch-a-view 模型，通过从大规模无标注的互联网教学视频中学习视角切换模式（ego/exo），实现多视图教学视频的自动视角选择，无需显式的最佳视角标注。"
+title: >-
+  [论文解读] Switch-a-View: View Selection Learned from Unlabeled In-the-wild Videos
+description: >-
+  [ICCV 2025][人体理解][视角选择] 提出 Switch-a-view 模型，通过从大规模无标注的互联网教学视频中学习视角切换模式（ego/exo），实现多视图教学视频的自动视角选择，无需显式的最佳视角标注。
 tags:
   - ICCV 2025
+  - 人体理解
   - 视角选择
   - 教学视频
   - 多视图视频

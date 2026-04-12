@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Non-Clairvoyant Scheduling with Progress Bars 论文解读 | NeurIPS 2025 | arXiv 2509.19662 | 非透视调度 | 引入\"进度条\"信息模型作为透视与非透视调度之间的插值框架，针对对抗性和随机性进度条分别设计了具有最优一致性-鲁棒性权衡的调度算法，同时推进了学习增强调度的理论前沿。"
+title: >-
+  [论文解读] Non-Clairvoyant Scheduling with Progress Bars
+description: >-
+  [NeurIPS 2025][非透视调度] 引入"进度条"信息模型作为透视与非透视调度之间的插值框架，针对对抗性和随机性进度条分别设计了具有最优一致性-鲁棒性权衡的调度算法，同时推进了学习增强调度的理论前沿。
 tags:
   - NeurIPS 2025
   - 非透视调度

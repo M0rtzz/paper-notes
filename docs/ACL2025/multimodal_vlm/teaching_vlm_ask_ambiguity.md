@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Teaching Vision-Language Models to Ask: Resolving Ambiguity in Visual Questions 论文解读 | ACL 2025 (Long Paper) | VQA歧义 | 提出ClearVQA benchmark评估VLM处理歧义视觉问题的能力（覆盖指代歧义/意图欠明确/拼写歧义三类），并通过自动化pipeline生成歧义-澄清问题对用于SFT+DPO训练，使VLM学会\"反问用户\"而非猜测作答，VQA准确率相对提升13.3%。"
+title: >-
+  [论文解读] Teaching Vision-Language Models to Ask: Resolving Ambiguity in Visual Questions
+description: >-
+  [ACL 2025 (Long Paper)][多模态][VQA歧义] 提出ClearVQA benchmark评估VLM处理歧义视觉问题的能力（覆盖指代歧义/意图欠明确/拼写歧义三类），并通过自动化pipeline生成歧义-澄清问题对用于SFT+DPO训练，使VLM学会"反问用户"而非猜测作答，VQA准确率相对提升13.3%。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - VQA歧义
   - 澄清提问
   - 交互式对话

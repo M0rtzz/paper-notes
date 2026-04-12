@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AGACCI: Affiliated Grading Agents for Criteria-Centric Interface in Educational Coding Contexts 论文解读 | ICML 2025 (Workshop on Multi-Agent Systems) | arXiv 2507.05321 | 多Agent系统 | AGACCI 提出一个由 9 个专门化 Agent 组成的多 Agent 评估框架，将教育编程作业的评估任务分解为 rubric 解析、代码执行验证、可视化评估、解释性推理评估等角色，通过协作实现比单模型 baseline 更准确、一致且可解释的 rubric 对齐反馈。"
+title: >-
+  [论文解读] AGACCI: Affiliated Grading Agents for Criteria-Centric Interface in Educational Coding Contexts
+description: >-
+  [ICML 2025 (Workshop on Multi-Agent Systems)][LLM Agent][多Agent系统] AGACCI 提出一个由 9 个专门化 Agent 组成的多 Agent 评估框架，将教育编程作业的评估任务分解为 rubric 解析、代码执行验证、可视化评估、解释性推理评估等角色，通过协作实现比单模型 baseline 更准确、一致且可解释的 rubric 对齐反馈。
 tags:
   - ICML 2025 (Workshop on Multi-Agent Systems)
+  - LLM Agent
   - 多Agent系统
   - 教育评估
   - 代码评估

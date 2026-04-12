@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】SCFlow: Implicitly Learning Style and Content Disentanglement with Flow Models 论文解读 | 提出SCFlow，通过Flow Matching学习风格和内容的可逆合并映射，利用映射的可逆性让解耦作为合并过程的自然涌现属性，无需显式解耦监督。"
+title: >-
+  [论文解读] SCFlow: Implicitly Learning Style and Content Disentanglement with Flow Models
+description: >-
+  [图像生成] 提出SCFlow，通过Flow Matching学习风格和内容的可逆合并映射，利用映射的可逆性让解耦作为合并过程的自然涌现属性，无需显式解耦监督。
 tags:
-
+  - 图像生成
 ---
 
 # SCFlow: Implicitly Learning Style and Content Disentanglement with Flow Models

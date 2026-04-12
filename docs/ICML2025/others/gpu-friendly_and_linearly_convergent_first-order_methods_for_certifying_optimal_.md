@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GPU-friendly and Linearly Convergent First-order Methods for Certifying Optimal $k$-sparse GLMs 论文解读 | ICML2025 | arXiv 2603.01306 | 稀疏GLM | 提出GPU友好的线性收敛一阶方法，通过复合重构+对偶间隙重启策略，将透视松弛求解加速1-2个数量级，实现大规模稀疏GLM的最优性认证。"
+title: >-
+  [论文解读] GPU-friendly and Linearly Convergent First-order Methods for Certifying Optimal $k$-sparse GLMs
+description: >-
+  [ICML2025][稀疏GLM] 提出GPU友好的线性收敛一阶方法，通过复合重构+对偶间隙重启策略，将透视松弛求解加速1-2个数量级，实现大规模稀疏GLM的最优性认证。
 tags:
   - ICML2025
   - 稀疏GLM

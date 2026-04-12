@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models 论文解读 | ICML 2025 | arXiv 2505.19235 | 推理加速 | 首次揭示 VLM 中 token 稀疏与神经元稀疏之间的内在关联——核心神经元与核心 token 相互决定、相互强化，并据此提出 CoreMatching 协同稀疏推理框架，在 pre-filling 和 decoding 两阶段同时实现加速，达到 5× FLOPs 降低和 10× 整体加速。"
+title: >-
+  [论文解读] CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models
+description: >-
+  [ICML 2025][多模态][推理加速] 首次揭示 VLM 中 token 稀疏与神经元稀疏之间的内在关联——核心神经元与核心 token 相互决定、相互强化，并据此提出 CoreMatching 协同稀疏推理框架，在 pre-filling 和 decoding 两阶段同时实现加速，达到 5× FLOPs 降低和 10× 整体加速。
 tags:
   - ICML 2025
+  - 多模态
   - 推理加速
   - Token剪枝
   - 神经元稀疏

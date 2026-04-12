@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Narrative Weaver: Towards Controllable Long-Range Visual Consistency with Multi-Modal Conditioning 论文解读 | CVPR 2026 | arXiv 2603.06688 | 长程视觉一致性 | 提出 Narrative Weaver 框架，结合 MLLM 的叙事规划与扩散模型的精细生成，通过可学习查询和动态 Memory Bank 实现多模态条件下的长程视觉一致性生成，并构建首个电商广告视频分镜数据集 EAVSD（330K+ 图像）。"
+title: >-
+  [论文解读] Narrative Weaver: Towards Controllable Long-Range Visual Consistency with Multi-Modal Conditioning
+description: >-
+  [CVPR 2026][多模态][长程视觉一致性] 提出 Narrative Weaver 框架，结合 MLLM 的叙事规划与扩散模型的精细生成，通过可学习查询和动态 Memory Bank 实现多模态条件下的长程视觉一致性生成，并构建首个电商广告视频分镜数据集 EAVSD（330K+ 图像）。
 tags:
   - CVPR 2026
+  - 多模态
   - 长程视觉一致性
   - 叙事生成
   - 扩散模型

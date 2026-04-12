@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Robust Spiking Neural Networks Against Adversarial Attacks 论文解读 | ICLR2026 | arXiv 2602.20548 | 脉冲神经网络 | 从理论上证明阈值邻近脉冲神经元是直接训练SNN对抗鲁棒性的关键瓶颈（它们既设定了对抗攻击强度的理论上界，又最容易发生状态翻转），并提出Threshold Guarding Optimization (TGO) 方法——通过膜电位约束+噪声LIF神经元双管齐下，在多种对抗攻击场景下取得SOTA鲁棒性，且推理阶段零额外开销。"
+title: >-
+  [论文解读] Robust Spiking Neural Networks Against Adversarial Attacks
+description: >-
+  [ICLR2026][AI安全][脉冲神经网络] 从理论上证明阈值邻近脉冲神经元是直接训练SNN对抗鲁棒性的关键瓶颈（它们既设定了对抗攻击强度的理论上界，又最容易发生状态翻转），并提出Threshold Guarding Optimization (TGO) 方法——通过膜电位约束+噪声LIF神经元双管齐下，在多种对抗攻击场景下取得SOTA鲁棒性，且推理阶段零额外开销。
 tags:
   - ICLR2026
+  - AI安全
   - 脉冲神经网络
   - 对抗鲁棒性
   - 膜电位优化

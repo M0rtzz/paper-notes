@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Thought Space Exploration Through Strategic Intervention 论文解读 | AAAI 2026 | arXiv 2511.10038 | 推理效率 | 提出 Hint-Practice Reasoning（HPR）框架，通过大模型（hinter）在稀疏关键 token 处提供短提示、小模型（practitioner）完成主要推理的协作模式，仅需1/5的 token 即可达到 self-consistency 基线的性能，同时在相同 FLOPs 下精度最高提升5.1%。"
+title: >-
+  [论文解读] Efficient Thought Space Exploration Through Strategic Intervention
+description: >-
+  [AAAI 2026][模型压缩][推理效率] 提出 Hint-Practice Reasoning（HPR）框架，通过大模型（hinter）在稀疏关键 token 处提供短提示、小模型（practitioner）完成主要推理的协作模式，仅需1/5的 token 即可达到 self-consistency 基线的性能，同时在相同 FLOPs 下精度最高提升5.1%。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 推理效率
   - 大小模型协作
   - 思维空间探索

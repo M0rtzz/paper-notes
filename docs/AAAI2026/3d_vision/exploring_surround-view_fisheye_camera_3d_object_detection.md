@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Exploring Surround-View Fisheye Camera 3D Object Detection 论文解读 | AAAI 2026 | arXiv 2511.18695 | 鱼眼相机 | 本文系统研究了环视鱼眼相机的3D目标检测问题：构建了同时包含针孔和鱼眼相机数据的Fisheye3DOD基准数据集，并提出FisheyeBEVDet和FisheyePETR两个框架，通过球面特征表征将鱼眼几何建模嵌入主流检测范式，相比矫正baseline提升最高6.2个FDS点。"
+title: >-
+  [论文解读] Exploring Surround-View Fisheye Camera 3D Object Detection
+description: >-
+  [AAAI 2026][3D视觉][鱼眼相机] 本文系统研究了环视鱼眼相机的3D目标检测问题：构建了同时包含针孔和鱼眼相机数据的Fisheye3DOD基准数据集，并提出FisheyeBEVDet和FisheyePETR两个框架，通过球面特征表征将鱼眼几何建模嵌入主流检测范式，相比矫正baseline提升最高6.2个FDS点。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 鱼眼相机
   - 3D目标检测
   - BEV感知

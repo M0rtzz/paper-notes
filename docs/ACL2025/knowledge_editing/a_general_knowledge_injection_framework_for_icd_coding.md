@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GKI-ICD: A General Knowledge Injection Framework for ICD Coding 论文解读 | ACL 2025 | arXiv 2505.18708 | ICD编码 | 提出 GKI-ICD，首个无需额外专用网络模块即可同时注入三种 ICD 编码知识（描述、同义词、层级结构）的通用框架——通过合成知识引导文本（Guideline Synthesis）+ 多任务学习实现知识注入，在 MIMIC-III 和 MIMIC-III-50 上大多数指标达到 SOTA。"
+title: >-
+  [论文解读] GKI-ICD: A General Knowledge Injection Framework for ICD Coding
+description: >-
+  [ACL 2025][ICD编码] 提出 GKI-ICD，首个无需额外专用网络模块即可同时注入三种 ICD 编码知识（描述、同义词、层级结构）的通用框架——通过合成知识引导文本（Guideline Synthesis）+ 多任务学习实现知识注入，在 MIMIC-III 和 MIMIC-III-50 上大多数指标达到 SOTA。
 tags:
   - ACL 2025
   - ICD编码

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zero-Reference Joint Low-Light Enhancement and Deblurring via Visual Autoregressive Modeling with VLM-Derived Modulation 论文解读 | AAAI 2026 | arXiv 2511.18591 | 低光增强 | 提出 VAR-LIDE，一个完全无监督的视觉自回归框架，通过 VLM 感知先验引导自适应光照调制、空间-频率 RoPE 和递归相位域调制三大模块，联合解决低光增强与去模糊问题，在无需配对数据的条件下逼近甚至超越监督方法的感知质量。"
+title: >-
+  [论文解读] Zero-Reference Joint Low-Light Enhancement and Deblurring via Visual Autoregressive Modeling with VLM-Derived Modulation
+description: >-
+  [AAAI 2026][图像恢复][低光增强] 提出 VAR-LIDE，一个完全无监督的视觉自回归框架，通过 VLM 感知先验引导自适应光照调制、空间-频率 RoPE 和递归相位域调制三大模块，联合解决低光增强与去模糊问题，在无需配对数据的条件下逼近甚至超越监督方法的感知质量。
 tags:
   - AAAI 2026
+  - 图像恢复
   - 低光增强
   - 去模糊
   - 视觉自回归模型

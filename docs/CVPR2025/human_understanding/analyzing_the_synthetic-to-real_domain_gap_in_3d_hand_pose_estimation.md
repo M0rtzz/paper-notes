@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Analyzing the Synthetic-to-Real Domain Gap in 3D Hand Pose Estimation
+description: >-
+  [CVPR 2025][人体理解][合成数据到真实域迁移] 首次系统研究3D手势估计中合成数据到真实数据的域差距，通过可控数据合成管线分解并分析了前臂、频谱统计、手势分布、物体遮挡四个关键因素的影响，证明合理整合这些因素后纯合成数据可达到与真实数据同等的精度。
+tags:
+  - CVPR 2025
+  - 人体理解
+  - 合成数据到真实域迁移
+  - 3D手势估计
+  - 域差距分析
+  - 数据合成管线
+  - 遮挡分析
+---
+
 # Analyzing the Synthetic-to-Real Domain Gap in 3D Hand Pose Estimation
 
 **会议**: CVPR 2025  

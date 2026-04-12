@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Geo-Culturally Grounded LLM Generations 论文解读 | ACL 2025 (Short) | arXiv 2502.13497 | 文化意识 | 研究 RAG/搜索增强技术对 LLM 文化意识的影响——搜索增强显著提升了文化命题知识的选择题表现，但也增加了刻板印象风险，且在开放式文化流畅性的人工评估中改进不显著，揭示了\"文化知识\"和\"文化流畅性\"的本质区别。"
+title: >-
+  [论文解读] Towards Geo-Culturally Grounded LLM Generations
+description: >-
+  [ACL 2025 (Short)][LLM/NLP][文化意识] 研究 RAG/搜索增强技术对 LLM 文化意识的影响——搜索增强显著提升了文化命题知识的选择题表现，但也增加了刻板印象风险，且在开放式文化流畅性的人工评估中改进不显著，揭示了"文化知识"和"文化流畅性"的本质区别。
 tags:
   - ACL 2025 (Short)
+  - LLM/NLP
   - 文化意识
   - 检索增强
   - 搜索增强

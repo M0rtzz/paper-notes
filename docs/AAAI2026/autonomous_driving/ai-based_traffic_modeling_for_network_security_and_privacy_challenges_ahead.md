@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AI-based Traffic Modeling for Network Security and Privacy: Challenges Ahead 论文解读 | AAAI 2026 | arXiv 2503.22161 | network traffic analysis | 一篇面向网络安全与隐私（NetS&P）任务的 AI 流量建模综述与展望，系统梳理了异常检测、攻击分类、IoT 设备识别、网站指纹攻击等任务的 AI 方案，并深入讨论了数据质量、实际部署、可解释性和基础模型四大前沿挑战。"
+title: >-
+  [论文解读] AI-based Traffic Modeling for Network Security and Privacy: Challenges Ahead
+description: >-
+  [AAAI 2026][自动驾驶][network traffic analysis] 一篇面向网络安全与隐私（NetS&P）任务的 AI 流量建模综述与展望，系统梳理了异常检测、攻击分类、IoT 设备识别、网站指纹攻击等任务的 AI 方案，并深入讨论了数据质量、实际部署、可解释性和基础模型四大前沿挑战。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - network traffic analysis
   - network security
   - privacy

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reimagining Parameter Space Exploration with Diffusion Models 论文解读 | ICML 2025 | arXiv 2506.17807 | 参数生成 | 探索用扩散模型学习任务特定参数（LoRA adapter）的分布并直接生成新参数，在野生动物分类场景中验证了其在已知任务上可匹配微调性能，但在跨任务泛化上仍面临挑战。"
+title: >-
+  [论文解读] Reimagining Parameter Space Exploration with Diffusion Models
+description: >-
+  [ICML 2025][图像生成][参数生成] 探索用扩散模型学习任务特定参数（LoRA adapter）的分布并直接生成新参数，在野生动物分类场景中验证了其在已知任务上可匹配微调性能，但在跨任务泛化上仍面临挑战。
 tags:
   - ICML 2025
+  - 图像生成
   - 参数生成
   - 扩散模型
   - LoRA

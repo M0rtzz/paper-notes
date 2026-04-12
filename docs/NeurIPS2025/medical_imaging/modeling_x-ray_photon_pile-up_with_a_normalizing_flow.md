@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Modeling X-ray Photon Pile-up with a Normalizing Flow 论文解读 | NeurIPS 2025 | arXiv 2511.11863 | Normalizing Flow | 提出基于Normalizing Flow的仿真推断(SBI)框架，通过CNN提取空间分辨的X射线光谱特征并输入神经样条流，实现在存在光子堆叠效应(pile-up)情况下对天体物理源参数的精确后验估计，显著优于传统PSF核心剪除方法。"
+title: >-
+  [论文解读] Modeling X-ray Photon Pile-up with a Normalizing Flow
+description: >-
+  [NeurIPS 2025][医学图像][Normalizing Flow] 提出基于Normalizing Flow的仿真推断(SBI)框架，通过CNN提取空间分辨的X射线光谱特征并输入神经样条流，实现在存在光子堆叠效应(pile-up)情况下对天体物理源参数的精确后验估计，显著优于传统PSF核心剪除方法。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - Normalizing Flow
   - 仿真推断(SBI)
   - X射线堆叠效应

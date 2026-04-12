@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation 论文解读 | > 提出 CoTo（Come Together），一种渐进式训练策略：在微调早期随机关闭 LoRA adapter，激活概率从 0 线性增长至 1，促使梯度在各层间均匀分布；理论上保证了 dropout 稳定性与线性模式连通性，实验表明可同时提升单任务泛化、多任务合并、剪枝鲁棒性并降低训练开销。"
+title: >-
+  [论文解读] Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation
+description: >-
+  [模型压缩] > 提出 CoTo（Come Together），一种渐进式训练策略：在微调早期随机关闭 LoRA adapter，激活概率从 0 线性增长至 1，促使梯度在各层间均匀分布；理论上保证了 dropout 稳定性与线性模式连通性，实验表明可同时提升单任务泛化、多任务合并、剪枝鲁棒性并降低训练开销。
 tags:
-
+  - 模型压缩
 ---
 
 # Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation

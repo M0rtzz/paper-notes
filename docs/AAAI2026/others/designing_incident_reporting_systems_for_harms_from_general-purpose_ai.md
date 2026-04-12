@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Designing Incident Reporting Systems for Harms from General-Purpose AI 论文解读 | AAAI 2026 | arXiv 2511.05914 | AI incident reporting | 通过文献综述和 9 个安全关键行业（核电、航空、网安等）的案例研究，提出 AI 事故报告系统的 7 维制度设计框架，为美国 GPAI 事故报告系统的构建提供系统性设计建议。"
+title: >-
+  [论文解读] Designing Incident Reporting Systems for Harms from General-Purpose AI
+description: >-
+  [AAAI 2026][AI incident reporting] 通过文献综述和 9 个安全关键行业（核电、航空、网安等）的案例研究，提出 AI 事故报告系统的 7 维制度设计框架，为美国 GPAI 事故报告系统的构建提供系统性设计建议。
 tags:
   - AAAI 2026
   - AI incident reporting

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RayNova: Scale-Temporal Autoregressive World Modeling in Ray Space 论文解读 | CVPR 2026 | arXiv 2602.20685 | 世界模型 | 提出 RayNova，一种基于双因果（尺度+时间）自回归的几何无关多视角世界模型，利用相对 Plücker 光线位置编码实现统一的 4D 时空推理，在 nuScenes 上取得 SOTA 多视角视频生成效果。"
+title: >-
+  [论文解读] RayNova: Scale-Temporal Autoregressive World Modeling in Ray Space
+description: >-
+  [CVPR 2026][3D视觉][世界模型] 提出 RayNova，一种基于双因果（尺度+时间）自回归的几何无关多视角世界模型，利用相对 Plücker 光线位置编码实现统一的 4D 时空推理，在 nuScenes 上取得 SOTA 多视角视频生成效果。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 世界模型
   - 多视角视频生成
   - 自回归

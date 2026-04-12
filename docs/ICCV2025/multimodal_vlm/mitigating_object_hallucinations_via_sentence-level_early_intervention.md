@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Object Hallucinations via Sentence-Level Early Intervention 论文解读 | ICCV 2025 | arXiv 2507.12455 | 物体幻觉 | 提出 SENTINEL 框架，通过句子级早期干预和域内偏好学习有效缓解 MLLM 的物体幻觉，在 Object HalBench 上将幻觉率降低超过 90%，同时保持甚至提升通用能力。"
+title: >-
+  [论文解读] Mitigating Object Hallucinations via Sentence-Level Early Intervention
+description: >-
+  [ICCV 2025][多模态][物体幻觉] 提出 SENTINEL 框架，通过句子级早期干预和域内偏好学习有效缓解 MLLM 的物体幻觉，在 Object HalBench 上将幻觉率降低超过 90%，同时保持甚至提升通用能力。
 tags:
   - ICCV 2025
+  - 多模态
   - 物体幻觉
   - 偏好学习
   - 早期干预

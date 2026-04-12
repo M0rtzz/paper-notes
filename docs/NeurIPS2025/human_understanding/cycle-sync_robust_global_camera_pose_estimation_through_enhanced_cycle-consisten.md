@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cycle-Sync: Robust Global Camera Pose Estimation through Enhanced Cycle-Consistent Synchronization 论文解读 | NeurIPS 2025 | arXiv 2511.02329 | Structure-from-Motion | 提出 Cycle-Sync 全局相机位姿估计框架，通过将消息传递最小二乘 (MPLS) 扩展到相机位置估计、引入 Welsch 型鲁棒损失和环一致性加权，在无需 bundle adjustment 的情况下超越了包括完整 SfM pipeline（含 BA）在内的所有基线方法。"
+title: >-
+  [论文解读] Cycle-Sync: Robust Global Camera Pose Estimation through Enhanced Cycle-Consistent Synchronization
+description: >-
+  [NeurIPS 2025][人体理解][Structure-from-Motion] 提出 Cycle-Sync 全局相机位姿估计框架，通过将消息传递最小二乘 (MPLS) 扩展到相机位置估计、引入 Welsch 型鲁棒损失和环一致性加权，在无需 bundle adjustment 的情况下超越了包括完整 SfM pipeline（含 BA）在内的所有基线方法。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - Structure-from-Motion
   - 相机位置估计
   - 环一致性

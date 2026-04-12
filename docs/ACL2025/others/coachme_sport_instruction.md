@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CoachMe: Decoding Sport Elements with a Reference-Based Coaching Instruction Generation Model 论文解读 | ACL 2025 | arXiv 2509.11698 | 运动指导生成 | 提出 CoachMe，通过对比学习者动作与参考动作的差异（时间+物理两个维度），自动生成运动特异性的教练指导文本，在花样滑冰和拳击上分别超过 GPT-4o 31.6% 和 58.3%（G-Eval）。"
+title: >-
+  [论文解读] CoachMe: Decoding Sport Elements with a Reference-Based Coaching Instruction Generation Model
+description: >-
+  [ACL 2025][运动指导生成] 提出 CoachMe，通过对比学习者动作与参考动作的差异（时间+物理两个维度），自动生成运动特异性的教练指导文本，在花样滑冰和拳击上分别超过 GPT-4o 31.6% 和 58.3%（G-Eval）。
 tags:
   - ACL 2025
   - 运动指导生成

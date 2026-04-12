@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】IT³: Idempotent Test-Time Training 论文解读 | 提出 IT³，一种基于幂等性（idempotence）的测试时训练方法，通过最小化网络递归应用的输出差异来实现无需辅助任务、无需额外数据的通用测试时适应。"
+title: >-
+  [论文解读] IT³: Idempotent Test-Time Training
+description: >-
+  [图像分割] 提出 IT³，一种基于幂等性（idempotence）的测试时训练方法，通过最小化网络递归应用的输出差异来实现无需辅助任务、无需额外数据的通用测试时适应。
 tags:
-
+  - 图像分割
 ---
 
 # IT³: Idempotent Test-Time Training

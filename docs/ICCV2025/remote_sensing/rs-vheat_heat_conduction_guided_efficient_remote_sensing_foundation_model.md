@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RS-vHeat: Heat Conduction Guided Efficient Remote Sensing Foundation Model 论文解读 | ICCV2025 | arXiv 2411.17984 | 遥感基础模型 | 首次将物理热传导过程引入遥感基础模型，提出 RS-vHeat，用热传导算子（HCO）替代注意力机制来建模遥感图像中的局部区域相关性，在 4 个任务 10 个数据集上取得优异性能的同时，相比注意力基线减少 84% 显存、24% FLOPs、提升 2.7 倍吞吐量。"
+title: >-
+  [论文解读] RS-vHeat: Heat Conduction Guided Efficient Remote Sensing Foundation Model
+description: >-
+  [ICCV2025][遥感][遥感基础模型] 首次将物理热传导过程引入遥感基础模型，提出 RS-vHeat，用热传导算子（HCO）替代注意力机制来建模遥感图像中的局部区域相关性，在 4 个任务 10 个数据集上取得优异性能的同时，相比注意力基线减少 84% 显存、24% FLOPs、提升 2.7 倍吞吐量。
 tags:
   - ICCV2025
+  - 遥感
   - 遥感基础模型
   - 热传导
   - 自监督学习

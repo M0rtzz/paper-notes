@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SODA: Sensitivity-Oriented Dynamic Acceleration for Diffusion Transformer 论文解读 | CVPR2026 | arXiv 2603.07057 | Transformer Diffusion Transformer | 提出 SODA，通过离线细粒度敏感度建模 + 动态规划优化缓存间隔 + 统一自适应剪枝策略，在无需训练的条件下对 Diffusion Transformer 实现可控加速比下的高保真生成。"
+title: >-
+  [论文解读] SODA: Sensitivity-Oriented Dynamic Acceleration for Diffusion Transformer
+description: >-
+  [CVPR2026][模型压缩][Transformer] 提出 SODA，通过离线细粒度敏感度建模 + 动态规划优化缓存间隔 + 统一自适应剪枝策略，在无需训练的条件下对 Diffusion Transformer 实现可控加速比下的高保真生成。
 tags:
   - CVPR2026
+  - 模型压缩
   - Transformer
   - 训练无关加速
   - 缓存

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries 论文解读 | AAAI 2026 | arXiv 2511.13541 | 图OOD检测 | 提出 BaCa 框架，在测试阶段通过 graphon 估计 + mixup 策略生成边界感知的合成图拓扑，结合双优先队列动态字典和注意力机制自适应校准 OOD 分数，无需微调预训练模型或引入辅助OOD数据，在全部 10 个数据集上超越 GOODAT，平均 AUC 提升 8.37%。"
+title: >-
+  [论文解读] Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries
+description: >-
+  [AAAI 2026][图OOD检测] 提出 BaCa 框架，在测试阶段通过 graphon 估计 + mixup 策略生成边界感知的合成图拓扑，结合双优先队列动态字典和注意力机制自适应校准 OOD 分数，无需微调预训练模型或引入辅助OOD数据，在全部 10 个数据集上超越 GOODAT，平均 AUC 提升 8.37%。
 tags:
   - AAAI 2026
   - 图OOD检测

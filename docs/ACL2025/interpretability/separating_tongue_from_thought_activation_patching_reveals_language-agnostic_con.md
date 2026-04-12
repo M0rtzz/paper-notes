@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers 论文解读 | ACL 2025 | arXiv 2411.08745 | 多语言表示 | 通过激活修补实验，首次提供了因果性证据证明大语言模型内部存在与语言解耦的概念表示——模型先确定输出语言，再确定概念，并且跨语言平均的概念表示不仅不损害翻译能力，反而能提升翻译准确率。"
+title: >-
+  [论文解读] Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers
+description: >-
+  [ACL 2025][多语言表示] 通过激活修补实验，首次提供了因果性证据证明大语言模型内部存在与语言解耦的概念表示——模型先确定输出语言，再确定概念，并且跨语言平均的概念表示不仅不损害翻译能力，反而能提升翻译准确率。
 tags:
   - ACL 2025
   - 多语言表示

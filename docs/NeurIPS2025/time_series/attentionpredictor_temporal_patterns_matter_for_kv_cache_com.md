@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】AttentionPredictor: Temporal Patterns Matter for KV Cache Compression 论文解读 | 首个基于学习的 KV Cache 压缩方法，通过轻量级时空卷积模型预测下一 token 的注意力分数来动态识别关键 token，实现 13× KV cache 压缩和 5.6× cache offloading 加速，显著优于静态方法。"
+title: >-
+  [论文解读] AttentionPredictor: Temporal Patterns Matter for KV Cache Compression
+description: >-
+  [时间序列] 首个基于学习的 KV Cache 压缩方法，通过轻量级时空卷积模型预测下一 token 的注意力分数来动态识别关键 token，实现 13× KV cache 压缩和 5.6× cache offloading 加速，显著优于静态方法。
 tags:
-
+  - 时间序列
 ---
 
 # AttentionPredictor: Temporal Patterns Matter for KV Cache Compression

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】M3SR: Multi-Scale Multi-Perceptual Mamba for Efficient Spectral Reconstruction 论文解读 | AAAI 2026 | arXiv 2601.08293 | 高光谱重建 | 提出 M3SR，基于 Mamba 的 U-Net 架构，通过多感知融合 (MPF) 模块在空间、频率和光谱三个维度并行建模并自适应融合，以 2.17M 参数和 100.9G FLOPs 实现 4 个基准上的 SOTA 高光谱重建（NTIRE2022 PSNR 31.40）。"
+title: >-
+  [论文解读] M3SR: Multi-Scale Multi-Perceptual Mamba for Efficient Spectral Reconstruction
+description: >-
+  [AAAI 2026][遥感][高光谱重建] 提出 M3SR，基于 Mamba 的 U-Net 架构，通过多感知融合 (MPF) 模块在空间、频率和光谱三个维度并行建模并自适应融合，以 2.17M 参数和 100.9G FLOPs 实现 4 个基准上的 SOTA 高光谱重建（NTIRE2022 PSNR 31.40）。
 tags:
   - AAAI 2026
+  - 遥感
   - 高光谱重建
   - Mamba
   - 多尺度U-Net

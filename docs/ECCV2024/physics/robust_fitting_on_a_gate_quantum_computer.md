@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Robust Fitting on a Gate Quantum Computer 论文解读 | ECCV2024 | arXiv 2409.02006 | quantum computing | 首次在真实门量子计算机（IonQ Aria）上实现鲁棒拟合：提出用于一维 ℓ_∞ 可行性检验的量子电路，填补了 Bernstein-Vazirani（BV）电路计算 Boolean influence 的关键空缺，并展示如何将一维 influence 累积到高维非线性模型（如基础矩阵估计）。"
+title: >-
+  [论文解读] Robust Fitting on a Gate Quantum Computer
+description: >-
+  [ECCV2024][quantum computing] 首次在真实门量子计算机（IonQ Aria）上实现鲁棒拟合：提出用于一维 $\ell_\infty$ 可行性检验的量子电路，填补了 Bernstein-Vazirani（BV）电路计算 Boolean influence 的关键空缺，并展示如何将一维 influence 累积到高维非线性模型（如基础矩阵估计）。
 tags:
   - ECCV2024
   - quantum computing

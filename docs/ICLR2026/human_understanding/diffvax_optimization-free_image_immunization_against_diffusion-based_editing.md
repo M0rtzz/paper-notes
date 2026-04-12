@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing 论文解读 | ICLR 2026 | arXiv 2411.17957 | 图像免疫 | DiffVax 训练一个前馈免疫器（UNet++），对任意图像仅需一次前向传播（~70ms）即可生成不可感知的对抗扰动，使基于扩散模型的恶意编辑失败，相比先前逐图优化方法实现 250,000× 加速，并首次将免疫扩展到视频内容。"
+title: >-
+  [论文解读] DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing
+description: >-
+  [ICLR 2026][人体理解][图像免疫] DiffVax 训练一个前馈免疫器（UNet++），对任意图像仅需一次前向传播（~70ms）即可生成不可感知的对抗扰动，使基于扩散模型的恶意编辑失败，相比先前逐图优化方法实现 250,000× 加速，并首次将免疫扩展到视频内容。
 tags:
   - ICLR 2026
+  - 人体理解
   - 图像免疫
   - 对抗扰动
   - 扩散模型编辑防护

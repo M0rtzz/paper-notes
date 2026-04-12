@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】T2SMark: Balancing Robustness and Diversity in Noise-as-Watermark for Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2510.22366 | 图像水印 | 提出 T2SMark，一种基于尾部截断采样（Tail-Truncated Sampling）的两阶段扩散模型水印方案，通过在高斯噪声的尾部区域嵌入水印比特、中心区域随机采样，首次在水印鲁棒性和生成多样性之间取得最优平衡。"
+title: >-
+  [论文解读] T2SMark: Balancing Robustness and Diversity in Noise-as-Watermark for Diffusion Models
+description: >-
+  [NeurIPS 2025][图像生成][图像水印] 提出 T2SMark，一种基于尾部截断采样（Tail-Truncated Sampling）的两阶段扩散模型水印方案，通过在高斯噪声的尾部区域嵌入水印比特、中心区域随机采样，首次在水印鲁棒性和生成多样性之间取得最优平衡。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 图像水印
   - 扩散模型
   - Noise-as-Watermark

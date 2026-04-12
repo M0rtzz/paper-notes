@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Pre-training Distillation for Large Language Models: A Design Space Exploration 论文解读 | 系统性地探索大语言模型预训练蒸馏（Pre-training Distillation）的设计空间，从 logits 处理、损失函数选择、scaling law 和 offline/online logits 四个维度进行广泛实验，找到更优配置并得出有价值的结论。"
+title: >-
+  [论文解读] Pre-training Distillation for Large Language Models: A Design Space Exploration
+description: >-
+  [模型压缩] 系统性地探索大语言模型预训练蒸馏（Pre-training Distillation）的设计空间，从 logits 处理、损失函数选择、scaling law 和 offline/online logits 四个维度进行广泛实验，找到更优配置并得出有价值的结论。
 tags:
-
+  - 模型压缩
 ---
 
 # Pre-training Distillation for Large Language Models: A Design Space Exploration

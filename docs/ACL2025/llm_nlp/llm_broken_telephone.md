@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM as a Broken Telephone: Iterative Generation Distorts Information 论文解读 | ACL 2025 | arXiv 2502.20258 | 迭代生成 | 类比\"传话游戏\"研究 LLM 在迭代生成中的信息失真现象，通过多语言翻译链实验发现：信息失真随迭代累积，受中间语言选择和链复杂度影响，可通过温度控制和受限提示缓解但无法消除。"
+title: >-
+  [论文解读] LLM as a Broken Telephone: Iterative Generation Distorts Information
+description: >-
+  [ACL 2025][LLM/NLP][迭代生成] 类比"传话游戏"研究 LLM 在迭代生成中的信息失真现象，通过多语言翻译链实验发现：信息失真随迭代累积，受中间语言选择和链复杂度影响，可通过温度控制和受限提示缓解但无法消除。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 迭代生成
   - 信息失真
   - 翻译链

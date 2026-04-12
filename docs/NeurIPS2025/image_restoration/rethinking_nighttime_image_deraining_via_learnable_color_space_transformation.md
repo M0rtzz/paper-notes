@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Nighttime Image Deraining via Learnable Color Space Transformation 论文解读 | NEURIPS2025 | arXiv 2510.17440 | 夜间图像去雨 | 提出CST-Net用于夜间图像去雨：基于夜间雨在Y通道（亮度）上比RGB更显著的观察，设计可学习颜色空间转换器(CSC)在YCbCr空间去雨，配合隐式光照引导模块(IIG)和新构建的光照感知合成数据集HQ-NightRain，在多个基准上达到SOTA。"
+title: >-
+  [论文解读] Rethinking Nighttime Image Deraining via Learnable Color Space Transformation
+description: >-
+  [NEURIPS2025][图像恢复][夜间图像去雨] 提出CST-Net用于夜间图像去雨：基于夜间雨在Y通道（亮度）上比RGB更显著的观察，设计可学习颜色空间转换器(CSC)在YCbCr空间去雨，配合隐式光照引导模块(IIG)和新构建的光照感知合成数据集HQ-NightRain，在多个基准上达到SOTA。
 tags:
   - NEURIPS2025
+  - 图像恢复
   - 夜间图像去雨
   - 颜色空间变换
   - YCbCr

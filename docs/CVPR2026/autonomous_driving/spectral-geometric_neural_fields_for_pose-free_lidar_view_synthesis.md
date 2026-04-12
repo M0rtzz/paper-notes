@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis 论文解读 | CVPR 2026 | arXiv 2603.12903 | LiDAR视图合成 | 提出 SG-NLF 框架，通过混合谱-几何表示实现无需精确位姿输入的 LiDAR 新视角合成，结合置信度感知位姿图和对抗学习策略，在 KITTI-360 和 nuScenes 上大幅超越 SOTA（Chamfer Distance 降低 35.8%，ATE 降低 68.8%）。"
+title: >-
+  [论文解读] Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis
+description: >-
+  [CVPR 2026][自动驾驶][LiDAR视图合成] 提出 SG-NLF 框架，通过混合谱-几何表示实现无需精确位姿输入的 LiDAR 新视角合成，结合置信度感知位姿图和对抗学习策略，在 KITTI-360 和 nuScenes 上大幅超越 SOTA（Chamfer Distance 降低 35.8%，ATE 降低 68.8%）。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - LiDAR视图合成
   - NeRF
   - 无位姿

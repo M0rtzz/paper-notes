@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bidirectional Channel-selective Semantic Interaction for Semi-Supervised Medical Segmentation 论文解读 | AAAI 2026 | arXiv 2601.05855 | 半监督学习 | 提出 BCSI 框架，通过通道选择路由器动态筛选关键特征通道，在标注和未标注数据流之间进行双向通道级交互，结合语义-空间扰动的弱到强一致性学习，显著提升半监督医学图像分割性能。"
+title: >-
+  [论文解读] Bidirectional Channel-selective Semantic Interaction for Semi-Supervised Medical Segmentation
+description: >-
+  [AAAI 2026][医学图像][半监督学习] 提出 BCSI 框架，通过通道选择路由器动态筛选关键特征通道，在标注和未标注数据流之间进行双向通道级交互，结合语义-空间扰动的弱到强一致性学习，显著提升半监督医学图像分割性能。
 tags:
   - AAAI 2026
+  - 医学图像
   - 半监督学习
   - 医学图像分割
   - 通道选择

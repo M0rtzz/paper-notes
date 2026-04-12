@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ZJUKLAB at SemEval-2025 Task 4: Unlearning via Model Merging 论文解读 | ACL 2025 | arXiv 2503.21088 | 机器遗忘 | 在 SemEval-2025 Task 4（LLM 敏感内容遗忘）中获得第二名，核心思路是训练两个互补模型（一个过度遗忘、一个遗忘不足），通过 TIES-Merging 合并得到平衡遗忘的模型，本地实验达到近乎完美的 MIA 分数 0.501。"
+title: >-
+  [论文解读] ZJUKLAB at SemEval-2025 Task 4: Unlearning via Model Merging
+description: >-
+  [ACL 2025][机器遗忘] 在 SemEval-2025 Task 4（LLM 敏感内容遗忘）中获得第二名，核心思路是训练两个互补模型（一个过度遗忘、一个遗忘不足），通过 TIES-Merging 合并得到平衡遗忘的模型，本地实验达到近乎完美的 MIA 分数 0.501。
 tags:
   - ACL 2025
   - 机器遗忘

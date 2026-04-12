@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】L2GTX: From Local to Global Time Series Explanations 论文解读 | CVPR 2026 | arXiv 2603.13065 | 时间序列解释 | 提出L2GTX——一种完全模型无关的方法，通过LOMATCE提取参数化时间事件原语的局部解释，再经层次聚类合并、贪心预算选择和事件聚合，生成紧凑且忠实的类级全局时间序列解释，在6个UCR数据集上全局忠实度（R²）在不同合并粒度下保持稳定（FCN上ECG200达0.792）。"
+title: >-
+  [论文解读] L2GTX: From Local to Global Time Series Explanations
+description: >-
+  [CVPR 2026][人体理解][时间序列解释] 提出L2GTX——一种完全模型无关的方法，通过LOMATCE提取参数化时间事件原语的局部解释，再经层次聚类合并、贪心预算选择和事件聚合，生成紧凑且忠实的类级全局时间序列解释，在6个UCR数据集上全局忠实度（R²）在不同合并粒度下保持稳定（FCN上ECG200达0.792）。
 tags:
   - CVPR 2026
+  - 人体理解
   - 时间序列解释
   - 局部到全局聚合
   - 模型无关XAI

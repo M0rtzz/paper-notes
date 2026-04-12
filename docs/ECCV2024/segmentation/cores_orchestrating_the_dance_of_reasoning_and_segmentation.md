@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CoReS: Orchestrating the Dance of Reasoning and Segmentation 论文解读 | ECCV 2024 | arXiv 2404.05673 | 图像分割 reasoning segmentation | 提出 CoReS（Chains of Reasoning and Segmenting），一种双链结构的多模态思维链框架，通过推理链和分割链的层次化协作，结合 in-context 引导策略，实现对复杂推理文本中目标物体的渐进式精确分割，在 ReasonSeg 数据集上超越 LISA 6.5%。"
+title: >-
+  [论文解读] CoReS: Orchestrating the Dance of Reasoning and Segmentation
+description: >-
+  [ECCV 2024][图像分割][图像分割] 提出 CoReS（Chains of Reasoning and Segmenting），一种双链结构的多模态思维链框架，通过推理链和分割链的层次化协作，结合 in-context 引导策略，实现对复杂推理文本中目标物体的渐进式精确分割，在 ReasonSeg 数据集上超越 LISA 6.5%。
 tags:
   - ECCV 2024
   - 图像分割

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Yes FLoReNce, I Will Do Better Next Time! Agentic Feedback Reasoning for Humorous Meme Detection 论文解读 | AAAI 2026 | arXiv 2601.07232 | 幽默 meme 检测 | 提出 FLoReNce 框架，将幽默 meme 理解建模为闭环控制系统，通过 Judge 反馈+PID 控制器+非参数知识库的闭环学习，在推理时通过检索相似经验调制 prompt，使冻结的 VLM 实现自适应推理，无需微调即可显著提升预测和解释质量。"
+title: >-
+  [论文解读] Yes FLoReNce, I Will Do Better Next Time! Agentic Feedback Reasoning for Humorous Meme Detection
+description: >-
+  [AAAI 2026][人体理解][幽默 meme 检测] 提出 FLoReNce 框架，将幽默 meme 理解建模为闭环控制系统，通过 Judge 反馈+PID 控制器+非参数知识库的闭环学习，在推理时通过检索相似经验调制 prompt，使冻结的 VLM 实现自适应推理，无需微调即可显著提升预测和解释质量。
 tags:
   - AAAI 2026
+  - 人体理解
   - 幽默 meme 检测
   - 反馈闭环推理
   - 非参数知识库

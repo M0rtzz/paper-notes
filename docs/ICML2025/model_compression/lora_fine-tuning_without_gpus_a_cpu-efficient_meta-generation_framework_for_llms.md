@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LoRA Fine-Tuning Without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs 论文解读 | ICML 2025 (Workshop on Efficient Systems for Foundation Models) | arXiv 2507.01806 | LoRA | 提出无 GPU 的 LoRA 微调方法：学习元算子将数据集概率分布映射到 LoRA 权重，利用预训练 adapter 库在 CPU 上通过轻量组合生成新 adapter，性能虽不及 GPU 训练但持续优于基座模型。"
+title: >-
+  [论文解读] LoRA Fine-Tuning Without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs
+description: >-
+  [ICML 2025 (Workshop on Efficient Systems for Foundation Models)][模型压缩][LoRA] 提出无 GPU 的 LoRA 微调方法：学习元算子将数据集概率分布映射到 LoRA 权重，利用预训练 adapter 库在 CPU 上通过轻量组合生成新 adapter，性能虽不及 GPU 训练但持续优于基座模型。
 tags:
   - ICML 2025 (Workshop on Efficient Systems for Foundation Models)
+  - 模型压缩
   - LoRA
   - CPU fine-tuning
   - meta-learning

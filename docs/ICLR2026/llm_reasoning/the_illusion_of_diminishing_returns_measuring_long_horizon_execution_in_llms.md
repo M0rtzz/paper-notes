@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs 论文解读 | ICLR 2026 | arXiv 2509.09677 | 长期执行 | 揭示短任务基准给出\"收益递减\"的假象——单步准确率的微小提升在长任务中指数级放大；发现 LLM 的\"自我条件化效应\"（自身错误增加后续出错概率），thinking 模型可修复此效应；GPT-5 thinking 可执行超过 2100 步长任务。"
+title: >-
+  [论文解读] The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs
+description: >-
+  [ICLR 2026][LLM推理][长期执行] 揭示短任务基准给出"收益递减"的假象——单步准确率的微小提升在长任务中指数级放大；发现 LLM 的"自我条件化效应"（自身错误增加后续出错概率），thinking 模型可修复此效应；GPT-5 thinking 可执行超过 2100 步长任务。
 tags:
   - ICLR 2026
+  - LLM推理
   - 长期执行
   - 自我条件化
   - 思维链

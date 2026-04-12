@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MSRL: Scaling Generative Multimodal Reward Modeling via Multi-Stage Reinforcement Learning 论文解读 | CVPR 2026 | arXiv 2603.25108 | 多模态奖励模型 | 提出MSRL(Multi-Stage Reinforcement Learning)，通过多阶段RL扩展生成式多模态奖励建模——先在大规模文本偏好数据(400K)上做RL学习通用奖励推理能力，再经caption-based RL和跨模态知识蒸馏向多模态迁移，最后用少量多模态偏好数据微调适配，无需额外多模态标注即在VL-RewardBench上从66.6%提升到75.9%、GenAI-Bench上从70.2%到75.7%。"
+title: >-
+  [论文解读] MSRL: Scaling Generative Multimodal Reward Modeling via Multi-Stage Reinforcement Learning
+description: >-
+  [CVPR 2026][多模态奖励模型] 提出MSRL(Multi-Stage Reinforcement Learning)，通过多阶段RL扩展生成式多模态奖励建模——先在大规模文本偏好数据(400K)上做RL学习通用奖励推理能力，再经caption-based RL和跨模态知识蒸馏向多模态迁移，最后用少量多模态偏好数据微调适配，无需额外多模态标注即在VL-RewardBench上从66.6%提升到75.9%、GenAI-Bench上从70.2%到75.7%。
 tags:
   - CVPR 2026
   - 多模态奖励模型

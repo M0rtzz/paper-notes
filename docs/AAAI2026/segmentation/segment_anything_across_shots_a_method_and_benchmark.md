@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Segment Anything Across Shots: A Method and Benchmark 论文解读 | AAAI 2026 | arXiv 2511.13715 | 多镜头视频分割 | 提出针对多镜头视频目标分割（MVOS）的 SAAS 方法和 Cut-VOS 基准，通过镜头切换模拟数据增强（TMA）、镜头切换检测与理解模块（TDM+TCH）、以及局部记忆库实现跨镜头鲁棒分割。"
+title: >-
+  [论文解读] Segment Anything Across Shots: A Method and Benchmark
+description: >-
+  [AAAI 2026][图像分割][多镜头视频分割] 提出针对多镜头视频目标分割（MVOS）的 SAAS 方法和 Cut-VOS 基准，通过镜头切换模拟数据增强（TMA）、镜头切换检测与理解模块（TDM+TCH）、以及局部记忆库实现跨镜头鲁棒分割。
 tags:
   - AAAI 2026
+  - 图像分割
   - 多镜头视频分割
   - SAM2
   - 数据增强

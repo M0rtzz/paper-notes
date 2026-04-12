@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Argumentative Debates for Transparent Bias Detection (ABIDE) 论文解读 | AAAI 2026 | arXiv 2508.04511 | QBAF | 提出ABIDE框架，将偏见检测过程结构化为基于量化二极论辩框架（QBAF）的辩论：通过邻域级局部统计公平性（neighbourhood-based local statistical parity）生成偏见论据，利用批判性问题（critical questions）作为攻击机制挑战不可靠论据，在合成/真实/LLM模型上均优于IRB基线。"
+title: >-
+  [论文解读] Argumentative Debates for Transparent Bias Detection (ABIDE)
+description: >-
+  [AAAI 2026][AI安全][QBAF] 提出ABIDE框架，将偏见检测过程结构化为基于量化二极论辩框架（QBAF）的辩论：通过邻域级局部统计公平性（neighbourhood-based local statistical parity）生成偏见论据，利用批判性问题（critical questions）作为攻击机制挑战不可靠论据，在合成/真实/LLM模型上均优于IRB基线。
 tags:
   - AAAI 2026
+  - AI安全
   - QBAF
   - 偏见检测
   - 局部统计公平性

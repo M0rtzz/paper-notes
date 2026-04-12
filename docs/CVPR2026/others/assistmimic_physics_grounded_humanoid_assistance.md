@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AssistMimic: Physics-Grounded Humanoid Assistance via Multi-Agent RL 论文解读 | CVPR 2026 | arXiv 2603.11346 | 多智能体强化学习 | 提出 AssistMimic，一个多智能体 RL 框架，联合训练辅助者和被辅助者的物理仿真策略来模仿人-人接触式辅助动作（如扶人站起），是首个在标准基准上成功跟踪力交换辅助运动的方法。"
+title: >-
+  [论文解读] AssistMimic: Physics-Grounded Humanoid Assistance via Multi-Agent RL
+description: >-
+  [CVPR 2026][多智能体强化学习] 提出 AssistMimic，一个多智能体 RL 框架，联合训练辅助者和被辅助者的物理仿真策略来模仿人-人接触式辅助动作（如扶人站起），是首个在标准基准上成功跟踪力交换辅助运动的方法。
 tags:
   - CVPR 2026
   - 多智能体强化学习

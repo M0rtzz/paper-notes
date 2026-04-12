@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reinforced Rate Control for Neural Video Compression via Inter-Frame Rate-Distortion Awareness 论文解读 | AAAI 2026 | arXiv 2601.19293 | 神经视频压缩 | 提出首个基于约束马尔可夫决策过程（CMDP）的强化学习速率控制框架，通过时空状态建模联合捕获帧内容特征与帧间率-失真耦合依赖，直接映射到逐帧编码参数，在多种神经视频编解码器上将平均比特率误差降至1.20%，BD-Rate节省最高达13.98%。"
+title: >-
+  [论文解读] Reinforced Rate Control for Neural Video Compression via Inter-Frame Rate-Distortion Awareness
+description: >-
+  [AAAI 2026][模型压缩][神经视频压缩] 提出首个基于约束马尔可夫决策过程（CMDP）的强化学习速率控制框架，通过时空状态建模联合捕获帧内容特征与帧间率-失真耦合依赖，直接映射到逐帧编码参数，在多种神经视频编解码器上将平均比特率误差降至1.20%，BD-Rate节省最高达13.98%。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 神经视频压缩
   - 速率控制
   - 强化学习

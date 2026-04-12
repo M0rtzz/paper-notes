@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Effective, Stealthy, and Persistent Backdoor Attacks Targeting Graph Foundation Models 论文解读 | AAAI2026 | arXiv 2511.17982 | backdoor attack | 提出 GFM-BA，首个系统性地针对 Graph Foundation Models (GFMs) 预训练阶段的后门攻击方法，通过 label-free trigger 关联、node-adaptive trigger 生成和 persistent backdoor anchoring 三个模块，同时解决有效性、隐蔽性和持久性三大挑战。"
+title: >-
+  [论文解读] Towards Effective, Stealthy, and Persistent Backdoor Attacks Targeting Graph Foundation Models
+description: >-
+  [AAAI2026][目标检测][backdoor attack] 提出 GFM-BA，首个系统性地针对 Graph Foundation Models (GFMs) 预训练阶段的后门攻击方法，通过 label-free trigger 关联、node-adaptive trigger 生成和 persistent backdoor anchoring 三个模块，同时解决有效性、隐蔽性和持久性三大挑战。
 tags:
   - AAAI2026
+  - 目标检测
   - backdoor attack
   - graph foundation model
   - 图神经网络

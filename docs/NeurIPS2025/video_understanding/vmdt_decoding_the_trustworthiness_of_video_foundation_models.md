@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VMDT: Decoding the Trustworthiness of Video Foundation Models 论文解读 | NeurIPS 2025 | arXiv 2511.05682 | 视频基础模型 | 提出 VMDT（Video-Modal DecodingTrust），首个统一评估 T2V 和 V2T 视频基础模型在安全、幻觉、公平、隐私和对抗鲁棒性五个维度上可信度的基准平台，涵盖 7 个 T2V 和 19 个 V2T 模型的大规模评测，揭示了模型规模与可信度之间的复杂关系。"
+title: >-
+  [论文解读] VMDT: Decoding the Trustworthiness of Video Foundation Models
+description: >-
+  [NeurIPS 2025][视频理解][视频基础模型] 提出 VMDT（Video-Modal DecodingTrust），首个统一评估 T2V 和 V2T 视频基础模型在安全、幻觉、公平、隐私和对抗鲁棒性五个维度上可信度的基准平台，涵盖 7 个 T2V 和 19 个 V2T 模型的大规模评测，揭示了模型规模与可信度之间的复杂关系。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 视频基础模型
   - 可信度评估
   - 安全性

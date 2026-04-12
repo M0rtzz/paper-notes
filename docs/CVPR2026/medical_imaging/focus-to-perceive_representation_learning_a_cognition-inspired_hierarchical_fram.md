@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Focus-to-Perceive Representation Learning: A Cognition-Inspired Hierarchical Framework for Endoscopic Video Analysis 论文解读 | CVPR 2026 | arXiv 2603.25778 | 自监督学习 | 提出 FPRL，一个受临床认知启发的层次化自监督框架，通过先\"聚焦\"帧内病灶关键静态语义、再\"感知\"帧间上下文演化来缓解运动偏差，在 11 个内窥镜数据集上取得 SOTA。"
+title: >-
+  [论文解读] Focus-to-Perceive Representation Learning: A Cognition-Inspired Hierarchical Framework for Endoscopic Video Analysis
+description: >-
+  [CVPR 2026][医学图像][自监督学习] 提出 FPRL，一个受临床认知启发的层次化自监督框架，通过先"聚焦"帧内病灶关键静态语义、再"感知"帧间上下文演化来缓解运动偏差，在 11 个内窥镜数据集上取得 SOTA。
 tags:
   - CVPR 2026
+  - 医学图像
   - 自监督学习
   - 内窥镜视频
   - 层次化语义建模

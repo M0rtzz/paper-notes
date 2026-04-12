@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Deep RL Needs Deep Behavior Analysis: Exploring Implicit Planning by Model-Free Agents 论文解读 | NeurIPS 2025 | arXiv 2506.06981 | 行为分析 | 提出 ForageWorld 自然觅食环境和神经科学启发的行为分析框架，揭示无模型 RNN-based DRL 智能体通过涌现动力学展现出结构化的类规划行为——无需显式记忆模块或世界模型。"
+title: >-
+  [论文解读] Deep RL Needs Deep Behavior Analysis: Exploring Implicit Planning by Model-Free Agents
+description: >-
+  [NeurIPS 2025][行为分析] 提出 ForageWorld 自然觅食环境和神经科学启发的行为分析框架，揭示无模型 RNN-based DRL 智能体通过涌现动力学展现出结构化的类规划行为——无需显式记忆模块或世界模型。
 tags:
   - NeurIPS 2025
   - 行为分析

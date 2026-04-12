@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Shallow Diffuse: Robust and Invisible Watermarking through Low-Dimensional Subspaces in Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2410.21088 | 数字水印 | 提出 Shallow Diffuse，一种利用扩散模型后验均值预测器（PMP）的局部线性性和 Jacobian 低秩性，在扩散过程中间时间步嵌入水印的方法，实现了水印与生成过程的解耦，首次在服务端和用户端两种场景下同时保证了高一致性和高鲁棒性。"
+title: >-
+  [论文解读] Shallow Diffuse: Robust and Invisible Watermarking through Low-Dimensional Subspaces in Diffusion Models
+description: >-
+  [NeurIPS 2025][图像生成][数字水印] 提出 Shallow Diffuse，一种利用扩散模型后验均值预测器（PMP）的局部线性性和 Jacobian 低秩性，在扩散过程中间时间步嵌入水印的方法，实现了水印与生成过程的解耦，首次在服务端和用户端两种场景下同时保证了高一致性和高鲁棒性。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 数字水印
   - 扩散模型
   - 低维子空间

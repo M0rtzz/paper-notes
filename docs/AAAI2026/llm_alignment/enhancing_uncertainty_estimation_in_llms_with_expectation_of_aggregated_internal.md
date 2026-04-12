@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal Belief 论文解读 | AAAI 2026 | arXiv 2509.01564 | 不确定性估计 | 提出EAGLE方法，通过聚合LLM多个中间层隐藏状态的logits并计算置信度分布的期望值来估计不确定性，无需训练额外参数，在多个数据集和模型上ECE从12.6%降至3.2%，AUROC从59.0%提升至61.6%。"
+title: >-
+  [论文解读] Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal Belief
+description: >-
+  [AAAI 2026][LLM对齐][不确定性估计] 提出EAGLE方法，通过聚合LLM多个中间层隐藏状态的logits并计算置信度分布的期望值来估计不确定性，无需训练额外参数，在多个数据集和模型上ECE从12.6%降至3.2%，AUROC从59.0%提升至61.6%。
 tags:
   - AAAI 2026
+  - LLM对齐
   - 不确定性估计
   - 内部状态聚合
   - 置信度校准

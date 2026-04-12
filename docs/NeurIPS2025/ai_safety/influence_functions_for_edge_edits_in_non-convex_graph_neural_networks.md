@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Influence Functions for Edge Edits in Non-Convex Graph Neural Networks 论文解读 | NeurIPS 2025 | arXiv 2506.04694 | 影响函数 | 提出适用于非凸 GNN 的边编辑影响函数，通过 proximal Bregman 响应函数放松凸性假设，并同时考虑参数偏移和消息传播两方面的影响，支持边的删除和插入。"
+title: >-
+  [论文解读] Influence Functions for Edge Edits in Non-Convex Graph Neural Networks
+description: >-
+  [NeurIPS 2025][AI安全][影响函数] 提出适用于非凸 GNN 的边编辑影响函数，通过 proximal Bregman 响应函数放松凸性假设，并同时考虑参数偏移和消息传播两方面的影响，支持边的删除和插入。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 影响函数
   - 图神经网络
   - 边编辑

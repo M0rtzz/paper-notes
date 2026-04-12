@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation 论文解读 | ICLR 2026 | arXiv 2603.01074 | LiDAR语义分割 | 提出 A3Point 框架，通过语义混淆先验（SCP）隐式学习和语义偏移区域（SSR）定位两个核心组件，自适应地利用不同强度的数据增强来提升 LiDAR 语义分割在恶劣天气下的鲁棒性，在多个泛化基准上取得 SOTA。"
+title: >-
+  [论文解读] Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation
+description: >-
+  [ICLR 2026][自动驾驶][LiDAR语义分割] 提出 A3Point 框架，通过语义混淆先验（SCP）隐式学习和语义偏移区域（SSR）定位两个核心组件，自适应地利用不同强度的数据增强来提升 LiDAR 语义分割在恶劣天气下的鲁棒性，在多个泛化基准上取得 SOTA。
 tags:
   - ICLR 2026
+  - 自动驾驶
   - LiDAR语义分割
   - 数据增强
   - 恶劣天气鲁棒性

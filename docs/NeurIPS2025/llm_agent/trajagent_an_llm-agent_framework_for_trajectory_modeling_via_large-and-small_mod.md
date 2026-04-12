@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TrajAgent: An LLM-Agent Framework for Trajectory Modeling via Large-and-Small Model Collaboration 论文解读 | NeurIPS 2025 | arXiv 2410.20445 | 轨迹建模 | 首个 LLM 代理框架自动处理轨迹建模全流程，通过 UniEnv 统一接口和协作学习双层优化（LLM 推理 + 小模型训练），性能相比基线最高提升 69.91%。"
+title: >-
+  [论文解读] TrajAgent: An LLM-Agent Framework for Trajectory Modeling via Large-and-Small Model Collaboration
+description: >-
+  [NeurIPS 2025][LLM Agent][轨迹建模] 首个 LLM 代理框架自动处理轨迹建模全流程，通过 UniEnv 统一接口和协作学习双层优化（LLM 推理 + 小模型训练），性能相比基线最高提升 69.91%。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - 轨迹建模
   - 自动化机器学习
   - 大小模型协作

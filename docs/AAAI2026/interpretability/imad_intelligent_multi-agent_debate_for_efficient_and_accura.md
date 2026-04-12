@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference 论文解读 | AAAI 2026 | arXiv 2511.11306 | Multi-Agent Debate | iMAD 提出选择性触发多Agent辩论的框架：先让单Agent生成带自我批判的结构化响应，从中提取 41 个可解释的语言/语义特征，用轻量 MLP 分类器（FocusCal 损失训练）判断是否需要触发 MAD，在 6 个 QA/VQA 数据集上减少高达 92% 的 Token 开销，同时提升准确率高达 13.5%。"
+title: >-
+  [论文解读] iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference
+description: >-
+  [AAAI 2026][Multi-Agent Debate] iMAD 提出选择性触发多Agent辩论的框架：先让单Agent生成带自我批判的结构化响应，从中提取 41 个可解释的语言/语义特征，用轻量 MLP 分类器（FocusCal 损失训练）判断是否需要触发 MAD，在 6 个 QA/VQA 数据集上减少高达 92% 的 Token 开销，同时提升准确率高达 13.5%。
 tags:
   - AAAI 2026
   - Multi-Agent Debate

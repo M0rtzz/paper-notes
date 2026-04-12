@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training 论文解读 | NeurIPS 2025 | arXiv 2509.18631 | sim-to-real | 提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。"
+title: >-
+  [论文解读] Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training
+description: >-
+  [NeurIPS 2025][机器人][sim-to-real] 提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。
 tags:
   - NeurIPS 2025
+  - 机器人
   - sim-to-real
   - optimal transport
   - 域适应

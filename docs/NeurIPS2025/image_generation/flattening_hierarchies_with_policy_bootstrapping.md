@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Flattening Hierarchies with Policy Bootstrapping 论文解读 | NeurIPS 2025 | arXiv 2505.14975 | offline GCRL | 提出 Subgoal Advantage-Weighted Policy Bootstrapping（SAW），通过优势加权的重要性采样对子目标条件策略进行 bootstrapping，将层级 RL 的长距离推理能力蒸馏到一个扁平策略中，无需生成式子目标模型。"
+title: >-
+  [论文解读] Flattening Hierarchies with Policy Bootstrapping
+description: >-
+  [NeurIPS 2025][图像生成][offline GCRL] 提出 Subgoal Advantage-Weighted Policy Bootstrapping（SAW），通过优势加权的重要性采样对子目标条件策略进行 bootstrapping，将层级 RL 的长距离推理能力蒸馏到一个扁平策略中，无需生成式子目标模型。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - offline GCRL
   - hierarchical RL
   - policy bootstrapping

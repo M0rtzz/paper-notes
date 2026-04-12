@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Thermodynamics of Reinforcement Learning Curricula 论文解读 | ICLR 2026 | arXiv 2603.12324 | 课程学习 | 本文利用非平衡热力学中的过剩功（excess work）最小化框架，将RL中的课程学习形式化为任务空间上的测地线优化问题，并推导出基于摩擦张量的温度退火算法MEW，在MuJoCo Humanoid任务上超越标准SAC温度调节方法。"
+title: >-
+  [论文解读] Thermodynamics of Reinforcement Learning Curricula
+description: >-
+  [ICLR 2026][课程学习] 本文利用非平衡热力学中的过剩功（excess work）最小化框架，将RL中的课程学习形式化为任务空间上的测地线优化问题，并推导出基于摩擦张量的温度退火算法MEW，在MuJoCo Humanoid任务上超越标准SAC温度调节方法。
 tags:
   - ICLR 2026
   - 课程学习

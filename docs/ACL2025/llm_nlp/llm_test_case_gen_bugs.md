@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM-Powered Test Case Generation for Detecting Bugs in Plausible Programs 论文解读 | ACL 2025 (Long Paper, acl-long.20) | arXiv 2404.10304 | Test Case Generation | 提出TrickCatcher——一种LLM驱动的测试用例生成方法，通过PUT引导的程序变体生成、基于生成器的输入生成和多样性驱动的差异测试三阶段流程，专门检测\"plausible programs\"（能通过现有测试套件但仍含隐蔽bug的程序）中的tricky bugs，F1分数达到SOTA基线的1.66倍。"
+title: >-
+  [论文解读] LLM-Powered Test Case Generation for Detecting Bugs in Plausible Programs
+description: >-
+  [ACL 2025 (Long Paper, acl-long.20)][LLM/NLP][Test Case Generation] 提出TrickCatcher——一种LLM驱动的测试用例生成方法，通过PUT引导的程序变体生成、基于生成器的输入生成和多样性驱动的差异测试三阶段流程，专门检测"plausible programs"（能通过现有测试套件但仍含隐蔽bug的程序）中的tricky bugs，F1分数达到SOTA基线的1.66倍。
 tags:
   - ACL 2025 (Long Paper, acl-long.20)
+  - LLM/NLP
   - Test Case Generation
   - Plausible Programs
   - Differential Testing

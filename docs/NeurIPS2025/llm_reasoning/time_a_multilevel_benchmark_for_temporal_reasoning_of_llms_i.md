@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios 论文解读 | TIME 提出一个面向真实世界时序推理的多层级 benchmark，覆盖 38,522 个 QA、3 个子数据集与 11 个细粒度子任务，系统刻画 LLM 在高密度时间信息、快速事件变化和复杂社会时序依赖下的推理能力，并分析了 test-time scaling 对 temporal reasoning 的实际影响。"
+title: >-
+  [论文解读] TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios
+description: >-
+  [LLM推理] TIME 提出一个面向真实世界时序推理的多层级 benchmark，覆盖 38,522 个 QA、3 个子数据集与 11 个细粒度子任务，系统刻画 LLM 在高密度时间信息、快速事件变化和复杂社会时序依赖下的推理能力，并分析了 test-time scaling 对 temporal reasoning 的实际影响。
 tags:
-
+  - LLM推理
 ---
 
 # TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios

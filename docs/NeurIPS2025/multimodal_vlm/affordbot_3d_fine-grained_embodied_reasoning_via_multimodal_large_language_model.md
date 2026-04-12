@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AffordBot: 3D Fine-grained Embodied Reasoning via Multimodal Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2511.10017 | Affordance | 提出细粒度 3D 具身推理任务（预测可操作元素的空间位置+运动类型+运动轴），通过将 3D 点云渲染为环视图并投影 affordance 候选，结合定制的 CoT 推理范式指导 MLLM 实现 SOTA，AP25 达 23.3%。"
+title: >-
+  [论文解读] AffordBot: 3D Fine-grained Embodied Reasoning via Multimodal Large Language Models
+description: >-
+  [NeurIPS 2025][多模态][Affordance] 提出细粒度 3D 具身推理任务（预测可操作元素的空间位置+运动类型+运动轴），通过将 3D 点云渲染为环视图并投影 affordance 候选，结合定制的 CoT 推理范式指导 MLLM 实现 SOTA，AP25 达 23.3%。
 tags:
   - NeurIPS 2025
+  - 多模态
   - Affordance
   - 3D推理
   - Chain-of-Thought

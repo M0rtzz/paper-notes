@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MetaMorph: Multimodal Understanding and Generation via Instruction Tuning 论文解读 | ICCV 2025 | arXiv 2412.14164 | VPiT | 提出Visual-Predictive Instruction Tuning (VPiT)——一种简单有效的视觉指令微调扩展，让预训练LLM同时预测离散文本token和连续视觉token，发现视觉生成能力是视觉理解能力提升的自然副产物，少量生成数据即可解锁，LLM的预训练知识可以迁移到视觉生成中克服常见失败模式。"
+title: >-
+  [论文解读] MetaMorph: Multimodal Understanding and Generation via Instruction Tuning
+description: >-
+  [ICCV 2025][多模态][VPiT] 提出Visual-Predictive Instruction Tuning (VPiT)——一种简单有效的视觉指令微调扩展，让预训练LLM同时预测离散文本token和连续视觉token，发现视觉生成能力是视觉理解能力提升的自然副产物，少量生成数据即可解锁，LLM的预训练知识可以迁移到视觉生成中克服常见失败模式。
 tags:
   - ICCV 2025
+  - 多模态
   - VPiT
   - unified model
   - visual instruction tuning

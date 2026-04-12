@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Accuracy and Calibration via Differentiated Deep Mutual Learning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Deep Neural Networks (DNNs) have achieved remarkable success in a variety of tasks, particularly in terms of prediction accuracy. However, in real-world scenarios, especially in safety-critical applications, accuracy alone is insufficient; reliable uncertainty estimates are essential. Modern DNNs, o"
+title: >-
+  [论文解读] Improving Accuracy and Calibration via Differentiated Deep Mutual Learning
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：Deep Neural Networks (DNNs) have achieved remarkable success in a variety of tasks, particularly in terms of prediction accuracy. However, in real-world scenarios, especially in safety-critical applications, accuracy alone is insufficient; reliable uncertainty estimates are essential. Modern DNNs, o
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

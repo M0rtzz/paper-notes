@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding 论文解读 | ECCV 2024 | arXiv 2407.12594 | OCR OCR-free | VisFocus提出了一种提示引导的视觉编码方法用于OCR-free文档理解：通过将用户提示（prompt）直接注入视觉编码器的patch merging层（ViLMA层），配合局部掩码提示建模（LMPM）预训练任务，使视觉编码器学会聚焦于与提示相关的文本区域，在多个文档VQA基准上达到同规模SOTA。"
+title: >-
+  [论文解读] VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding
+description: >-
+  [ECCV 2024][OCR] VisFocus提出了一种提示引导的视觉编码方法用于OCR-free文档理解：通过将用户提示（prompt）直接注入视觉编码器的patch merging层（ViLMA层），配合局部掩码提示建模（LMPM）预训练任务，使视觉编码器学会聚焦于与提示相关的文本区域，在多个文档VQA基准上达到同规模SOTA。
 tags:
   - ECCV 2024
   - OCR

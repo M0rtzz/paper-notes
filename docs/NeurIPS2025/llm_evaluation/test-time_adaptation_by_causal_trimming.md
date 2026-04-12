@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Test-Time Adaptation by Causal Trimming 论文解读 | NeurIPS 2025 | arXiv 2510.11133 | 测试时自适应 | 提出 TACT 方法，通过数据增强 + PCA 识别表征空间中的非因果方向，并在测试时将表征和类原型沿该方向的投影移除，从而减少模型对非因果特征的依赖，显著提升分布偏移下的预测性能。"
+title: >-
+  [论文解读] Test-Time Adaptation by Causal Trimming
+description: >-
+  [NeurIPS 2025][测试时自适应] 提出 TACT 方法，通过数据增强 + PCA 识别表征空间中的非因果方向，并在测试时将表征和类原型沿该方向的投影移除，从而减少模型对非因果特征的依赖，显著提升分布偏移下的预测性能。
 tags:
   - NeurIPS 2025
   - 测试时自适应

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】TokMem: One-Token Procedural Memory for Large Language Models 论文解读 | ICLR 2026 | arXiv 2510.00444 | 程序性记忆 | 提出 TokMem，将可复用的任务程序编译为单个可训练记忆 token，既作为程序索引又作为生成控制信号，无需长 prompt 即可高效调用 1000+ 任务程序，且支持无遗忘的持续扩展。"
+title: >-
+  [论文解读] TokMem: One-Token Procedural Memory for Large Language Models
+description: >-
+  [ICLR 2026][程序性记忆] 提出 TokMem，将可复用的任务程序编译为单个可训练记忆 token，既作为程序索引又作为生成控制信号，无需长 prompt 即可高效调用 1000+ 任务程序，且支持无遗忘的持续扩展。
 tags:
   - ICLR 2026
   - 程序性记忆

@@ -1,5 +1,12 @@
+---
+title: >-
+  CVPR2025 3D视觉方向 30篇论文解读
+description: >-
+  30篇CVPR2025 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🧊 3D 视觉
+# 🧊 3D视觉
 
 **📷 CVPR2025** · 共 **30** 篇
 
@@ -47,7 +54,7 @@
 
 :   提出SSS（Student Splatting and Scooping），用前所未有的三重创新改进3DGS范式：(1) 用**Student-t分布**替代高斯分布作为混合组件（可学习的尾部厚度，从Cauchy到Gaussian连续变化）；(2) 引入**负密度组件**（scooping减去颜色）扩展到非单调混合模型；(3) 用**SGHMC采样**替代SGD解耦参数优化，在Mip-NeRF360/T&T/Deep Blending上6/9指标取得最优，且参数效率极高——用**最少18%**的组件数即可匹配或超越3DGS。
 
-**[3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement](3denhancer_consistent_multi-view_diffusion_for_3d_enhancement.md)**
+**[3Denhancer Consistent Multi-View Diffusion For 3D Enhancement](3denhancer_consistent_multi-view_diffusion_for_3d_enhancement.md)**
 
 :   提出一个基于多视图潜在扩散模型的3D增强框架，通过姿态感知编码器、多视图行注意力和近视图极线聚合模块，在保持跨视图一致性的前提下显著提升低质量3D生成结果的纹理质量。
 

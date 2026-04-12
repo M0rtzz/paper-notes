@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Investigating the Robustness of Retrieval-Augmented Generation at the Query Level 论文解读 | ACL 2025 | arXiv 2507.06956 | RAG鲁棒性 | 系统研究 RAG 管道对查询级扰动（冗余插入、正式语气、歧义引入、拼写错误）的敏感性，提出解耦各模块鲁棒性的分析框架，发现检索器是性能瓶颈且不同扰动类型的主导因素不同。"
+title: >-
+  [论文解读] Investigating the Robustness of Retrieval-Augmented Generation at the Query Level
+description: >-
+  [ACL 2025][RAG鲁棒性] 系统研究 RAG 管道对查询级扰动（冗余插入、正式语气、歧义引入、拼写错误）的敏感性，提出解耦各模块鲁棒性的分析框架，发现检索器是性能瓶颈且不同扰动类型的主导因素不同。
 tags:
   - ACL 2025
   - RAG鲁棒性

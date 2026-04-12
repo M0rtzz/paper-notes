@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bootstrap Off-policy with World Model 论文解读 | NeurIPS 2025 | arXiv 2511.00423 | model-based RL | 提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。"
+title: >-
+  [论文解读] Bootstrap Off-policy with World Model
+description: >-
+  [NeurIPS 2025][model-based RL] 提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。
 tags:
   - NeurIPS 2025
   - model-based RL

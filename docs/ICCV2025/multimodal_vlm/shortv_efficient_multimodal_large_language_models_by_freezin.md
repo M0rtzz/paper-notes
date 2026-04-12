@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers 论文解读 | ICCV 2025 | arXiv 2504.00502 | layer redundancy | 发现MLLM中约60%的层对视觉token的变换几乎不影响模型输出（Layer Contribution极低），提出ShortV方法在这些\"ineffective layers\"中冻结视觉token（不参与attention query和FFN），在LLaVA-NeXT-13B上实现50% FLOPs降低且性能几乎不变，且与token剪枝方法（如FastV）正交可叠加。"
+title: >-
+  [论文解读] ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers
+description: >-
+  [ICCV 2025][多模态][layer redundancy] 发现MLLM中约60%的层对视觉token的变换几乎不影响模型输出（Layer Contribution极低），提出ShortV方法在这些"ineffective layers"中冻结视觉token（不参与attention query和FFN），在LLaVA-NeXT-13B上实现50% FLOPs降低且性能几乎不变，且与token剪枝方法（如FastV）正交可叠加。
 tags:
   - ICCV 2025
+  - 多模态
   - layer redundancy
   - visual token freezing
   - training-free

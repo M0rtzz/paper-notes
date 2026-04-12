@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Speeding Up the Learning of 3D Gaussians with Much Shorter Gaussian Lists 论文解读 | CVPR2026 | arXiv 2603.09277 | 3D Gaussian Splatting | 通过定期重置高斯尺度（Scale Reset）和对 alpha blending 权重施加熵约束（Entropy Constraint），缩短每个像素的高斯列表长度，实现 3DGS 训练 **5-12 倍加速**，同时保持可比的渲染质量。"
+title: >-
+  [论文解读] Speeding Up the Learning of 3D Gaussians with Much Shorter Gaussian Lists
+description: >-
+  [CVPR2026][3D视觉][3D Gaussian Splatting] 通过定期重置高斯尺度（Scale Reset）和对 alpha blending 权重施加熵约束（Entropy Constraint），缩短每个像素的高斯列表长度，实现 3DGS 训练 **5-12 倍加速**，同时保持可比的渲染质量。
 tags:
   - CVPR2026
+  - 3D视觉
   - 3D Gaussian Splatting
   - 训练加速
   - Scale Reset

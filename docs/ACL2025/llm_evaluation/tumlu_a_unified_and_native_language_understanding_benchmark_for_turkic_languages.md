@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages 论文解读 | ACL 2025 | arXiv 2502.11020 | MMLU | 提出 TUMLU 和 TUMLU-mini，首个面向突厥语系（9 种语言）的原生语言理解基准，包含 38139 道中高中学科的多选题，覆盖拉丁、西里尔和阿拉伯三种文字系统，为低资源语言的 LLM 评估提供了高质量的原生基准。"
+title: >-
+  [论文解读] TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages
+description: >-
+  [ACL 2025][MMLU] 提出 TUMLU 和 TUMLU-mini，首个面向突厥语系（9 种语言）的原生语言理解基准，包含 38139 道中高中学科的多选题，覆盖拉丁、西里尔和阿拉伯三种文字系统，为低资源语言的 LLM 评估提供了高质量的原生基准。
 tags:
   - ACL 2025
   - MMLU

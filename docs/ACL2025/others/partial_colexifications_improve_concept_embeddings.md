@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Partial Colexifications Improve Concept Embeddings 论文解读 | ACL 2025 | arXiv 2502.09743 | 概念嵌入 | 首次将部分共词化（partial colexifications）数据整合到概念嵌入训练中，通过图嵌入技术在跨语言共词化网络上学习概念向量表示，在语义相似度、语义变化预测和词汇联想预测三项任务上均显著优于仅使用完全共词化的基线。"
+title: >-
+  [论文解读] Partial Colexifications Improve Concept Embeddings
+description: >-
+  [ACL 2025][概念嵌入] 首次将部分共词化（partial colexifications）数据整合到概念嵌入训练中，通过图嵌入技术在跨语言共词化网络上学习概念向量表示，在语义相似度、语义变化预测和词汇联想预测三项任务上均显著优于仅使用完全共词化的基线。
 tags:
   - ACL 2025
   - 概念嵌入

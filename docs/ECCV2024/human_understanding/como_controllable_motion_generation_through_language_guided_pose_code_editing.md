@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing 论文解读 | ECCV2024 | arXiv 2403.13900 | human motion synthesis | 提出 CoMo，通过将动作序列分解为语义明确的 pose code（如\"左膝微弯\"），实现基于文本的可控动作生成与基于 LLM 的零样本动作编辑。"
+title: >-
+  [论文解读] CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing
+description: >-
+  [ECCV2024][人体理解][human motion synthesis] 提出 CoMo，通过将动作序列分解为语义明确的 pose code（如"左膝微弯"），实现基于文本的可控动作生成与基于 LLM 的零样本动作编辑。
 tags:
   - ECCV2024
+  - 人体理解
   - human motion synthesis
   - motion editing
   - pose code

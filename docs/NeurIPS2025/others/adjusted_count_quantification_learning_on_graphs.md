@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] Adjusted Count Quantification Learning on Graphs
+description: >-
+  [NeurIPS 2025][量化学习] 将经典的 Adjusted Classify & Count (ACC) 量化方法扩展到图结构数据，提出结构重要性采样（SIS）和邻域感知ACC两种技术，分别解决图量化中的结构协变量偏移和非同质性边问题。
+tags:
+  - NeurIPS 2025
+  - 量化学习
+  - 图数据
+  - 协变量偏移
+  - 重要性采样
+  - 非同质性
+---
+
 # Adjusted Count Quantification Learning on Graphs
 
 **会议**: NeurIPS 2025  

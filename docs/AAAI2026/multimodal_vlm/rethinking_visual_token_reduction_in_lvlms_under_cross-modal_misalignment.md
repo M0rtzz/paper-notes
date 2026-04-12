@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Rethinking Visual Token Reduction in LVLMs under Cross-Modal Misalignment 论文解读 | 揭示了 LVLM 中文本引导视觉token重要性评估的三种跨模态失配问题（因果、语义、空间），提出 VisionDrop——一个仅依赖视觉自注意力的免训练渐进式token剪枝框架，跨视觉编码器和 LLM 解码器多阶段压缩，在保留 5.6% token 时仍能维持 91%+ 原始性能。"
+title: >-
+  [论文解读] Rethinking Visual Token Reduction in LVLMs under Cross-Modal Misalignment
+description: >-
+  [多模态] 揭示了 LVLM 中文本引导视觉token重要性评估的三种跨模态失配问题（因果、语义、空间），提出 VisionDrop——一个仅依赖视觉自注意力的免训练渐进式token剪枝框架，跨视觉编码器和 LLM 解码器多阶段压缩，在保留 5.6% token 时仍能维持 91%+ 原始性能。
 tags:
-
+  - 多模态
 ---
 
 # Rethinking Visual Token Reduction in LVLMs under Cross-Modal Misalignment

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoCAD: Local Geometry-Controllable CAD Generation with Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.10337 | CAD生成 | 提出 GeoCAD，首个实现局部几何可控 CAD 生成的方法，通过互补标注策略为局部零件生成几何指令，并微调 LLM 实现根据用户文本指令精确修改 CAD 模型的局部部分。"
+title: >-
+  [论文解读] GeoCAD: Local Geometry-Controllable CAD Generation with Large Language Models
+description: >-
+  [NeurIPS 2025][LLM/NLP][CAD生成] 提出 GeoCAD，首个实现局部几何可控 CAD 生成的方法，通过互补标注策略为局部零件生成几何指令，并微调 LLM 实现根据用户文本指令精确修改 CAD 模型的局部部分。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - CAD生成
   - 局部几何控制
   - 大语言模型

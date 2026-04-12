@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis 论文解读 | ICCV 2025 | arXiv 2507.18569 | 扩散模型蒸馏 | 提出对抗分布匹配（ADM）框架，用基于扩散模型的判别器以对抗方式隐式对齐真伪分数估计器的潜空间预测，结合对抗蒸馏预训练（ADP），在SDXL上实现高质量单步图像生成，并在SD3和CogVideoX上取得高效多步图像/视频合成的新基准。"
+title: >-
+  [论文解读] Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis
+description: >-
+  [ICCV 2025][图像生成][扩散模型蒸馏] 提出对抗分布匹配（ADM）框架，用基于扩散模型的判别器以对抗方式隐式对齐真伪分数估计器的潜空间预测，结合对抗蒸馏预训练（ADP），在SDXL上实现高质量单步图像生成，并在SD3和CogVideoX上取得高效多步图像/视频合成的新基准。
 tags:
   - ICCV 2025
+  - 图像生成
   - 扩散模型蒸馏
   - 对抗训练
   - 分布匹配

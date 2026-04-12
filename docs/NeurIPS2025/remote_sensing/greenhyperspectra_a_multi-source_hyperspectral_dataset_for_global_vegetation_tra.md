@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GreenHyperSpectra: Multi-Source Hyperspectral Dataset for Vegetation Traits 论文解读 | NeurIPS 2025 | arXiv 2507.06806 | 高光谱 | 构建GreenHyperSpectra——14万+样本的多源高光谱植被数据集（跨地面/机载/星载传感器），框架化半/自监督方法用于多输出植被性状回归，在标签稀缺场景下显著超越监督基线。"
+title: >-
+  [论文解读] GreenHyperSpectra: Multi-Source Hyperspectral Dataset for Vegetation Traits
+description: >-
+  [NeurIPS 2025][遥感][高光谱] 构建GreenHyperSpectra——14万+样本的多源高光谱植被数据集（跨地面/机载/星载传感器），框架化半/自监督方法用于多输出植被性状回归，在标签稀缺场景下显著超越监督基线。
 tags:
   - NeurIPS 2025
+  - 遥感
   - 高光谱
   - 植被性状
   - 自半监督学习

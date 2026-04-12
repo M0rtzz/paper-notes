@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Aligning Spoken Dialogue Models from User Interactions 论文解读 | ICML2025 | arXiv 2506.21463 | 语音对话 | 首次为实时全双工语音对话模型提出偏好对齐框架：从15万+真实语音对话中构建涵盖内容和时序两类偏好对的大规模数据集，用离线对齐方法微调后QA能力平均提升3.1%、安全性提升6.9%。"
+title: >-
+  [论文解读] Aligning Spoken Dialogue Models from User Interactions
+description: >-
+  [ICML2025][图像分割][语音对话] 首次为实时全双工语音对话模型提出偏好对齐框架：从15万+真实语音对话中构建涵盖内容和时序两类偏好对的大规模数据集，用离线对齐方法微调后QA能力平均提升3.1%、安全性提升6.9%。
 tags:
   - ICML2025
+  - 图像分割
   - 语音对话
   - 偏好对齐
   - 全双工

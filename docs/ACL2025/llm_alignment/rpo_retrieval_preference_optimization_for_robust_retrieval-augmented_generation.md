@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2501.13726 | 提出 Retrieval Preference Optimization (RPO)，一种专为 RAG 设计的轻量级偏好对齐方法，通过将检索质量评估隐式地集成到生成过程中，使 LLM 能够自适应地在参数知识和检索知识之间做出选择，无需额外组件即可缓解知识冲突导致的幻觉问题。"
+title: >-
+  [论文解读] RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation
+description: >-
+  [ACL 2025][LLM对齐] 提出 Retrieval Preference Optimization (RPO)，一种专为 RAG 设计的轻量级偏好对齐方法，通过将检索质量评估隐式地集成到生成过程中，使 LLM 能够自适应地在参数知识和检索知识之间做出选择，无需额外组件即可缓解知识冲突导致的幻觉问题。
 tags:
   - ACL 2025
+  - LLM对齐
 ---
 
 # RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation

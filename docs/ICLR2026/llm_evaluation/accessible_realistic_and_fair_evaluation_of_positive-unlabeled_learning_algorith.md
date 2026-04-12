@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Accessible, Realistic, and Fair Evaluation of Positive-Unlabeled Learning Algorithms 论文解读 | ICLR 2026 | arXiv 2509.24228 | 正无标签学习 | 提出首个 PU 学习统一基准，系统解决两个关键问题：(1) 用代理准确率和代理 AUC 实现无负样本的模型选择；(2) 发现并通过将正样本并入无标签集的简单校准方法解决单样本设置下的内部标签偏移问题，使双样本算法在单样本评估中得到公平比较。"
+title: >-
+  [论文解读] Accessible, Realistic, and Fair Evaluation of Positive-Unlabeled Learning Algorithms
+description: >-
+  [ICLR 2026][正无标签学习] 提出首个 PU 学习统一基准，系统解决两个关键问题：(1) 用代理准确率和代理 AUC 实现无负样本的模型选择；(2) 发现并通过将正样本并入无标签集的简单校准方法解决单样本设置下的内部标签偏移问题，使双样本算法在单样本评估中得到公平比较。
 tags:
   - ICLR 2026
   - 正无标签学习

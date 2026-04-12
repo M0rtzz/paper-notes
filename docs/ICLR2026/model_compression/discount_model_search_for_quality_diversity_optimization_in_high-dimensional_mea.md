@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Discount Model Search for Quality Diversity Optimization in High-Dimensional Measure Spaces 论文解读 | ICLR2026 | arXiv 2601.01082 | Quality Diversity | 提出 Discount Model Search (DMS)，用神经网络拟合连续平滑的 discount 函数替代 CMA-MAE 中基于直方图的离散表示，解决高维 measure space 下 distortion 导致搜索停滞的问题，并首次实现以图像数据集直接定义 measure space（QDDM 范式）。"
+title: >-
+  [论文解读] Discount Model Search for Quality Diversity Optimization in High-Dimensional Measure Spaces
+description: >-
+  [ICLR2026][模型压缩][Quality Diversity] 提出 Discount Model Search (DMS)，用神经网络拟合连续平滑的 discount 函数替代 CMA-MAE 中基于直方图的离散表示，解决高维 measure space 下 distortion 导致搜索停滞的问题，并首次实现以图像数据集直接定义 measure space（QDDM 范式）。
 tags:
   - ICLR2026
+  - 模型压缩
   - Quality Diversity
   - MAP-Elites
   - CMA-MAE

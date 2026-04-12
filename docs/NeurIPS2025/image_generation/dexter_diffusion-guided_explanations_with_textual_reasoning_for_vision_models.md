@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】DEXTER: Diffusion-Guided EXplanations with TExtual Reasoning for Vision Models 论文解读 | 提出 DEXTER，一个无需数据的框架，通过优化文本提示驱动扩散模型生成最大化目标分类器激活的图像，再用 LLM 对合成样本进行推理，生成全局性、可读的文本解释，实现模型行为的偏差发现和全局解释。"
+title: >-
+  [论文解读] DEXTER: Diffusion-Guided EXplanations with TExtual Reasoning for Vision Models
+description: >-
+  [图像生成] 提出 DEXTER，一个无需数据的框架，通过优化文本提示驱动扩散模型生成最大化目标分类器激活的图像，再用 LLM 对合成样本进行推理，生成全局性、可读的文本解释，实现模型行为的偏差发现和全局解释。
 tags:
-
+  - 图像生成
 ---
 
 # DEXTER: Diffusion-Guided EXplanations with TExtual Reasoning for Vision Models

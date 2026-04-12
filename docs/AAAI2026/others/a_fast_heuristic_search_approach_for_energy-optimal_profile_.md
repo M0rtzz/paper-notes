@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Fast Heuristic Search Approach for Energy-Optimal Profile Routing for Electric Vehicles 论文解读 | AAAI 2026 | arXiv 2512.01331 | 电动车路径规划 | 提出基于多目标A*搜索的label-setting方法（Pr-A*），在初始电量未知时高效求解电动车能耗最优路径（profile搜索），通过profile支配关系剪枝避免传统方法中复杂的profile合并操作，在大规模路网上性能接近已知初始电量的标准A*搜索。"
+title: >-
+  [论文解读] A Fast Heuristic Search Approach for Energy-Optimal Profile Routing for Electric Vehicles
+description: >-
+  [AAAI 2026][电动车路径规划] 提出基于多目标A*搜索的label-setting方法（Pr-A*），在初始电量未知时高效求解电动车能耗最优路径（profile搜索），通过profile支配关系剪枝避免传统方法中复杂的profile合并操作，在大规模路网上性能接近已知初始电量的标准A*搜索。
 tags:
   - AAAI 2026
   - 电动车路径规划

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Private Memorization Editing: Turning Memorization into a Defense to Strengthen Data Privacy in Large Language Models 论文解读 | ACL 2025 | arXiv 2506.10024 | 隐私保护 | 提出 PME（Private Memorization Editing），将 LLM 的记忆化特性从安全弱点转化为防御手段，通过编辑 Feed Forward 层参数来移除已记忆的个人身份信息（PII），实现无需重训的隐私保护。"
+title: >-
+  [论文解读] Private Memorization Editing: Turning Memorization into a Defense to Strengthen Data Privacy in Large Language Models
+description: >-
+  [ACL 2025][AI安全][隐私保护] 提出 PME（Private Memorization Editing），将 LLM 的记忆化特性从安全弱点转化为防御手段，通过编辑 Feed Forward 层参数来移除已记忆的个人身份信息（PII），实现无需重训的隐私保护。
 tags:
   - ACL 2025
+  - AI安全
   - 隐私保护
   - 模型编辑
   - 训练数据提取攻击

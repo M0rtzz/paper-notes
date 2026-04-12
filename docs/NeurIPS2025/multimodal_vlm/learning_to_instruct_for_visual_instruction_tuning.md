@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning to Instruct for Visual Instruction Tuning 论文解读 | NeurIPS 2025 | arXiv 2503.22215 | visual instruction tuning | 提出 L2T（Learning to Instruct），仅通过将训练损失扩展到指令序列（不再只在回答上计算 loss）来改善视觉指令调优——无额外数据和几乎零计算开销，在 16 个多模态基准上获得高达 9% 的相对提升，captioning 提升 18%，同时缓解幻觉。"
+title: >-
+  [论文解读] Learning to Instruct for Visual Instruction Tuning
+description: >-
+  [NeurIPS 2025][多模态][visual instruction tuning] 提出 L2T（Learning to Instruct），仅通过将训练损失扩展到指令序列（不再只在回答上计算 loss）来改善视觉指令调优——无额外数据和几乎零计算开销，在 16 个多模态基准上获得高达 9% 的相对提升，captioning 提升 18%，同时缓解幻觉。
 tags:
   - NeurIPS 2025
+  - 多模态
   - visual instruction tuning
   - L2T
   - MLLM

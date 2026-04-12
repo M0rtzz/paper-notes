@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bidirectional Stereo Image Compression with Cross-Dimensional Entropy Model 论文解读 | ECCV2024 | arXiv 2407.10632 | stereo image compression | 提出双向对称的立体图像压缩框架 BiSIC，采用 3D 卷积联合编解码器和跨维度熵模型，在 PSNR 和 MS-SSIM 上均超越传统标准和已有学习方法，同时消除了单向方法中左右视图压缩质量不平衡的问题。"
+title: >-
+  [论文解读] Bidirectional Stereo Image Compression with Cross-Dimensional Entropy Model
+description: >-
+  [ECCV2024][模型压缩][stereo image compression] 提出双向对称的立体图像压缩框架 BiSIC，采用 3D 卷积联合编解码器和跨维度熵模型，在 PSNR 和 MS-SSIM 上均超越传统标准和已有学习方法，同时消除了单向方法中左右视图压缩质量不平衡的问题。
 tags:
   - ECCV2024
+  - 模型压缩
   - stereo image compression
   - bidirectional coding
   - 3D convolution

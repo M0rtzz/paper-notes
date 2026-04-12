@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ExtrinSplat: Decoupling Geometry and Semantics for Open-Vocabulary Understanding in 3D Gaussian Splatting 论文解读 | CVPR 2026 | arXiv 2509.22225 | 3D Gaussian Splatting | 提出外在范式（extrinsic paradigm），将语义从3DGS几何中完全解耦，通过多粒度物体分组+VLM文本假设构建轻量语义索引层，实现无训练、低存储、支持多义性的开放词汇3D场景理解。"
+title: >-
+  [论文解读] ExtrinSplat: Decoupling Geometry and Semantics for Open-Vocabulary Understanding in 3D Gaussian Splatting
+description: >-
+  [CVPR 2026][3D视觉][3D Gaussian Splatting] 提出外在范式（extrinsic paradigm），将语义从3DGS几何中完全解耦，通过多粒度物体分组+VLM文本假设构建轻量语义索引层，实现无训练、低存储、支持多义性的开放词汇3D场景理解。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D Gaussian Splatting
   - 开放词汇理解
   - 语义解耦

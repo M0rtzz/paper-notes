@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RefiDiff: Progressive Refinement Diffusion for Efficient Missing Data Imputation 论文解读 | AAAI 2026 | arXiv 2505.14451 | missing data imputation | 提出 RefiDiff 框架，通过渐进式 refinement 策略统一 predictive 和 generative 两种缺失值填补范式，结合 Mamba-based denoising network 实现高维混合类型表格数据的高效高精度填补，在 MNAR 场景下尤其突出。"
+title: >-
+  [论文解读] RefiDiff: Progressive Refinement Diffusion for Efficient Missing Data Imputation
+description: >-
+  [AAAI 2026][图像恢复][missing data imputation] 提出 RefiDiff 框架，通过渐进式 refinement 策略统一 predictive 和 generative 两种缺失值填补范式，结合 Mamba-based denoising network 实现高维混合类型表格数据的高效高精度填补，在 MNAR 场景下尤其突出。
 tags:
   - AAAI 2026
+  - 图像恢复
   - missing data imputation
   - 扩散模型
   - Mamba

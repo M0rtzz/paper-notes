@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AugGen: Synthetic Augmentation using Diffusion Models Can Improve Recognition 论文解读 | NeurIPS 2025 | arXiv 2503.11544 | synthetic augmentation | 提出AugGen——一种自包含（self-contained）的合成数据增强方法：利用扩散模型的条件向量插值（c^* = α cᵢ + β cⱼ）实现类间混合生成，无需外部数据或模型即可为人脸识别提供1-12%的性能提升，等效于1.7倍真实数据量，IR50+AugGen甚至超越IR101 real-only。"
+title: >-
+  [论文解读] AugGen: Synthetic Augmentation using Diffusion Models Can Improve Recognition
+description: >-
+  [NeurIPS 2025][图像生成][synthetic augmentation] 提出AugGen——一种自包含（self-contained）的合成数据增强方法：利用扩散模型的条件向量插值（$c^* = \alpha c_i + \beta c_j$）实现类间混合生成，无需外部数据或模型即可为人脸识别提供1-12%的性能提升，等效于1.7倍真实数据量，IR50+AugGen甚至超越IR101 real-only。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - synthetic augmentation
   - 扩散模型
   - 人脸识别

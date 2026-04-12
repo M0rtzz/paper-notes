@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】UFO-4D: Unposed Feedforward 4D Reconstruction from Two Images 论文解读 | 提出 UFO-4D，一个统一的前馈框架，仅从两张无位姿图像直接预测动态 3D 高斯表示，实现 3D 几何、3D 运动和相机位姿的联合一致估计，在几何和运动基准上比现有方法提升达 3 倍。"
+title: >-
+  [论文解读] UFO-4D: Unposed Feedforward 4D Reconstruction from Two Images
+description: >-
+  [3D视觉] 提出 UFO-4D，一个统一的前馈框架，仅从两张无位姿图像直接预测动态 3D 高斯表示，实现 3D 几何、3D 运动和相机位姿的联合一致估计，在几何和运动基准上比现有方法提升达 3 倍。
 tags:
-
+  - 3D视觉
 ---
 
 # UFO-4D: Unposed Feedforward 4D Reconstruction from Two Images

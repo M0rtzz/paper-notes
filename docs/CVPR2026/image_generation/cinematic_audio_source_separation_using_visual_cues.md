@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cinematic Audio Source Separation Using Visual Cues 论文解读 | CVPR 2026 | arXiv 2603.26113 | 影视音频源分离 | 提出首个音视频影视音频源分离（AV-CASS）框架，利用面部和场景双视频流的视觉线索，通过条件流匹配进行生成式三路音频分离（语音/音效/音乐），仅在合成数据上训练即可泛化到真实电影。"
+title: >-
+  [论文解读] Cinematic Audio Source Separation Using Visual Cues
+description: >-
+  [CVPR 2026][图像生成][影视音频源分离] 提出首个音视频影视音频源分离（AV-CASS）框架，利用面部和场景双视频流的视觉线索，通过条件流匹配进行生成式三路音频分离（语音/音效/音乐），仅在合成数据上训练即可泛化到真实电影。
 tags:
   - CVPR 2026
+  - 图像生成
   - 影视音频源分离
   - 音视频学习
   - 条件流匹配

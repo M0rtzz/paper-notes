@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Context Informs Pragmatic Interpretation in Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2511.03908 | 语用推理 | 通过迭代参考游戏（iterated reference games）系统评估 VLM 的语用推理能力，发现模型在无上下文时表现远逊于人类，但在获得相关对话历史后能快速学习达到约 80% 准确率，揭示了 VLM 对上下文信息的强烈依赖性。"
+title: >-
+  [论文解读] Context Informs Pragmatic Interpretation in Vision-Language Models
+description: >-
+  [NeurIPS 2025][多模态][语用推理] 通过迭代参考游戏（iterated reference games）系统评估 VLM 的语用推理能力，发现模型在无上下文时表现远逊于人类，但在获得相关对话历史后能快速学习达到约 80% 准确率，揭示了 VLM 对上下文信息的强烈依赖性。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 语用推理
   - 参考游戏
   - 上下文敏感性

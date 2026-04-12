@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scaf-GRPO: Scaffolded Group Relative Policy Optimization for Enhancing LLM Reasoning 论文解读 | ICLR2026 | arXiv 2510.19807 | GRPO | 提出 Scaf-GRPO 框架，通过分层 in-prompt hint 注入（知识→规划→求解）解决 RLVR 中的\"学习悬崖\"问题——当模型对难题持续零奖励时，以最小引导恢复学习梯度，在 AIME24 上相对 vanilla GRPO 提升 44.3%。"
+title: >-
+  [论文解读] Scaf-GRPO: Scaffolded Group Relative Policy Optimization for Enhancing LLM Reasoning
+description: >-
+  [ICLR2026][优化][GRPO] 提出 Scaf-GRPO 框架，通过分层 in-prompt hint 注入（知识→规划→求解）解决 RLVR 中的"学习悬崖"问题——当模型对难题持续零奖励时，以最小引导恢复学习梯度，在 AIME24 上相对 vanilla GRPO 提升 44.3%。
 tags:
   - ICLR2026
+  - 优化
   - GRPO
   - learning cliff
   - scaffolding

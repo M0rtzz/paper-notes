@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models 论文解读 | CVPR2026 | arXiv 2602.21779 | 深度伪造检测 | 提出 FAQ（Forensic Answer-Questioning），首个关注深度伪造视频中时序不一致性的多选问答基准，通过三层级任务体系（感知→定位→推理）逐步增强 VLM 的取证能力，微调后在域内和跨数据集检测中均取得显著提升。"
+title: >-
+  [论文解读] Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models
+description: >-
+  [CVPR2026][多模态][深度伪造检测] 提出 FAQ（Forensic Answer-Questioning），首个关注深度伪造视频中时序不一致性的多选问答基准，通过三层级任务体系（感知→定位→推理）逐步增强 VLM 的取证能力，微调后在域内和跨数据集检测中均取得显著提升。
 tags:
   - CVPR2026
+  - 多模态
   - 深度伪造检测
   - 视频取证
   - VLM推理

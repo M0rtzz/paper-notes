@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] 3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement
+description: >-
+  [CVPR 2025][3D视觉][多视图扩散] 提出一个基于多视图潜在扩散模型的3D增强框架，通过姿态感知编码器、多视图行注意力和近视图极线聚合模块，在保持跨视图一致性的前提下显著提升低质量3D生成结果的纹理质量。
+tags:
+  - CVPR 2025
+  - 3D视觉
+  - 多视图扩散
+  - 3D增强
+  - 视图一致性
+  - 极线聚合
+  - 纹理细化
+---
+
 # 3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement
 
 **会议**: CVPR 2025  

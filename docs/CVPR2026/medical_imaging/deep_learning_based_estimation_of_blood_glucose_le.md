@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Deep Learning–Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging 论文解读 | CVPR 2026 | arXiv 2603.12715 | scleral imaging | 提出 ScleraGluNet 框架，通过五个注视方向的巩膜血管图像，结合多分支 CNN + MRFO 特征优化 + Transformer 跨视角融合，实现 93.8% 三分类精度和 MAE=6.42 mg/dL 的空腹血糖估计。"
+title: >-
+  [论文解读] Deep Learning–Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging
+description: >-
+  [CVPR 2026][医学图像][scleral imaging] 提出 ScleraGluNet 框架，通过五个注视方向的巩膜血管图像，结合多分支 CNN + MRFO 特征优化 + Transformer 跨视角融合，实现 93.8% 三分类精度和 MAE=6.42 mg/dL 的空腹血糖估计。
 tags:
   - CVPR 2026
+  - 医学图像
   - scleral imaging
   - noninvasive glucose estimation
   - multiview learning

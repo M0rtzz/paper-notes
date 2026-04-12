@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】WildSAT: Learning Satellite Image Representations from Wildlife Observations 论文解读 | ICCV 2025 | arXiv 2412.14428 | 遥感表征学习 | 提出 WildSAT，利用公民科学平台上的数百万地理标记野生动物观测数据，通过对比学习将卫星图像、物种位置和文本描述对齐，显著提升遥感图像表征质量，并支持零样本文本检索。"
+title: >-
+  [论文解读] WildSAT: Learning Satellite Image Representations from Wildlife Observations
+description: >-
+  [ICCV 2025][遥感][遥感表征学习] 提出 WildSAT，利用公民科学平台上的数百万地理标记野生动物观测数据，通过对比学习将卫星图像、物种位置和文本描述对齐，显著提升遥感图像表征质量，并支持零样本文本检索。
 tags:
   - ICCV 2025
+  - 遥感
   - 遥感表征学习
   - 对比学习
   - 野生动物观测

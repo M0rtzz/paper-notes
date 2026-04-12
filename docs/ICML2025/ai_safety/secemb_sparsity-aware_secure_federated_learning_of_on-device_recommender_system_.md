@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SecEmb: Sparsity-Aware Secure Federated Learning of On-Device Recommender System with Large Embedding 论文解读 | ICML2025 | arXiv 2505.12453 | 联邦学习 | 提出 SecEmb，一种利用嵌入更新稀疏性的无损安全联邦推荐协议，通过函数秘密共享（FSS）在保护用户评分物品索引和梯度隐私的同时，将上传/下载通信开销降低最高 90 倍、用户端计算时间降低最高 70 倍。"
+title: >-
+  [论文解读] SecEmb: Sparsity-Aware Secure Federated Learning of On-Device Recommender System with Large Embedding
+description: >-
+  [ICML2025][AI安全][联邦学习] 提出 SecEmb，一种利用嵌入更新稀疏性的无损安全联邦推荐协议，通过函数秘密共享（FSS）在保护用户评分物品索引和梯度隐私的同时，将上传/下载通信开销降低最高 90 倍、用户端计算时间降低最高 70 倍。
 tags:
   - ICML2025
+  - AI安全
   - 联邦学习
   - 推荐系统
   - 安全聚合

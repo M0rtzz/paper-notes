@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Revisiting Weak-to-Strong Generalization: Reverse KL vs. Forward KL 论文解读 | ACL 2025 (Findings) | arXiv 2502.11107 | weak-to-strong generalization | 在 Weak-to-Strong Generalization (W2SG) 框架中，提出用 reverse KL 替代 forward KL 作为损失函数——理论证明 reverse KL 的 mode-seeking 特性可保证强模型超过弱监督者至少\"分歧量\"的幅度，实验在 GPT-2/Pythia/Qwen2.5 系列上验证 reverse KL/CE 在 12/12 设置中超越 forward KL 且噪声鲁棒性更好。"
+title: >-
+  [论文解读] Revisiting Weak-to-Strong Generalization: Reverse KL vs. Forward KL
+description: >-
+  [ACL 2025 (Findings)][weak-to-strong generalization] 在 Weak-to-Strong Generalization (W2SG) 框架中，提出用 reverse KL 替代 forward KL 作为损失函数——理论证明 reverse KL 的 mode-seeking 特性可保证强模型超过弱监督者至少"分歧量"的幅度，实验在 GPT-2/Pythia/Qwen2.5 系列上验证 reverse KL/CE 在 12/12 设置中超越 forward KL 且噪声鲁棒性更好。
 tags:
   - ACL 2025 (Findings)
   - weak-to-strong generalization

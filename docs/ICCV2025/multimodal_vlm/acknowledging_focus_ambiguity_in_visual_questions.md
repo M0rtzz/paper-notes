@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Acknowledging Focus Ambiguity in Visual Questions 论文解读 | ICCV 2025 | 视觉问答 | 首次定义并系统研究视觉问答中的**焦点歧义**（focus ambiguity）问题——当问题中的语言描述可能指向图像中多个合理区域时，现有 VQA 系统完全忽略了这种歧义。作者构建了 VQ-FocusAmbiguity 数据集（5,500 样本 + 12,880 实例分割），并证明现代模型在识别和定位焦点歧义方面表现很差。"
+title: >-
+  [论文解读] Acknowledging Focus Ambiguity in Visual Questions
+description: >-
+  [ICCV 2025][多模态][视觉问答] 首次定义并系统研究视觉问答中的**焦点歧义**（focus ambiguity）问题——当问题中的语言描述可能指向图像中多个合理区域时，现有 VQA 系统完全忽略了这种歧义。作者构建了 VQ-FocusAmbiguity 数据集（5,500 样本 + 12,880 实例分割），并证明现代模型在识别和定位焦点歧义方面表现很差。
 tags:
   - ICCV 2025
+  - 多模态
   - 视觉问答
   - 焦点歧义
   - 数据集

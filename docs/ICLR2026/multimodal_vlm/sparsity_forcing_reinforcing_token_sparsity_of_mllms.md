@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sparsity Forcing: Reinforcing Token Sparsity of MLLMs 论文解读 | ICLR 2026 | arXiv 2504.18579 | token稀疏 | 提出Sparsity Forcing——基于GRPO的RL后训练框架，将带稀疏注意力的MLLM作为策略模型、原始MLLM作为参考模型，通过多预算rollout探索不同token保留阈值$p$，以效率(token减少率)+性能(答案正确性)为联合奖励做组内对比优化，将Qwen2/2.5-VL的token减少率从20%提升至75%且精度损失极小，实现内存降3×、解码加速3.3×。"
+title: >-
+  [论文解读] Sparsity Forcing: Reinforcing Token Sparsity of MLLMs
+description: >-
+  [ICLR 2026][多模态][token稀疏] 提出Sparsity Forcing——基于GRPO的RL后训练框架，将带稀疏注意力的MLLM作为策略模型、原始MLLM作为参考模型，通过多预算rollout探索不同token保留阈值$p$，以效率(token减少率)+性能(答案正确性)为联合奖励做组内对比优化，将Qwen2/2.5-VL的token减少率从20%提升至75%且精度损失极小，实现内存降3×、解码加速3.3×。
 tags:
   - ICLR 2026
+  - 多模态
   - token稀疏
   - RL后训练
   - GRPO

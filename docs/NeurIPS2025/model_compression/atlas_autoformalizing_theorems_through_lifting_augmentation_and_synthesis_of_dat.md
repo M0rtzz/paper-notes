@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] ATLAS: Autoformalizing Theorems through Lifting, Augmentation, and Synthesis of Data
+description: >-
+  [NeurIPS 2025][模型压缩][Autoformalization] ATLAS 提出了一个基于概念仓库、专家迭代+知识蒸馏、以及两种新颖增强策略的数据生成框架，构建了117K定理陈述的平行语料库，微调 Llama3.1-8B-Instruct 后在所有自动形式化基准上达到 SOTA。
+tags:
+  - NeurIPS 2025
+  - 模型压缩
+  - Autoformalization
+  - Lean4
+  - 知识蒸馏
+  - 专家迭代
+  - 数据增强
+---
+
 # ATLAS: Autoformalizing Theorems through Lifting, Augmentation, and Synthesis of Data
 
 **会议**: NeurIPS 2025  

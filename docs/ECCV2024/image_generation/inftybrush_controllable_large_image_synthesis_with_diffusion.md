@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】∞-Brush: Controllable Large Image Synthesis with Diffusion Models in Infinite Dimensions 论文解读 | ECCV 2024 | arXiv 2407.14709 | 无限维扩散模型 | 提出首个在无限维函数空间中的条件扩散模型 ∞-Brush，通过交叉注意力神经算子实现可控条件生成，仅用 0.4% 像素训练即可在任意分辨率（最高 4096×4096）上生成保持全局结构的大图像。"
+title: >-
+  [论文解读] ∞-Brush: Controllable Large Image Synthesis with Diffusion Models in Infinite Dimensions
+description: >-
+  [ECCV 2024][图像生成][无限维扩散模型] 提出首个在无限维函数空间中的条件扩散模型 ∞-Brush，通过交叉注意力神经算子实现可控条件生成，仅用 0.4% 像素训练即可在任意分辨率（最高 4096×4096）上生成保持全局结构的大图像。
 tags:
   - ECCV 2024
+  - 图像生成
   - 无限维扩散模型
   - 函数空间
   - 大图像生成

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DartQuant: Efficient Rotational Distribution Calibration for LLM Quantization 论文解读 | NeurIPS 2025 | arXiv 2511.04063 | LLM量化 | DartQuant 提出基于分布校准的旋转矩阵优化方法，通过 Whip 损失将激活值分布推向均匀分布以减少量化误差，并用 QR-Orth 替代昂贵的流形优化器，在 70B 模型上实现 47× 加速和 10× 内存节省，首次在单张 3090 GPU 上完成大模型旋转校准。"
+title: >-
+  [论文解读] DartQuant: Efficient Rotational Distribution Calibration for LLM Quantization
+description: >-
+  [NeurIPS 2025][优化][LLM量化] DartQuant 提出基于分布校准的旋转矩阵优化方法，通过 Whip 损失将激活值分布推向均匀分布以减少量化误差，并用 QR-Orth 替代昂贵的流形优化器，在 70B 模型上实现 47× 加速和 10× 内存节省，首次在单张 3090 GPU 上完成大模型旋转校准。
 tags:
   - NeurIPS 2025
+  - 优化
   - LLM量化
   - 旋转矩阵
   - 分布校准

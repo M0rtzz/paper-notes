@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Context Guided Transformer Entropy Modeling for Video Compression 论文解读 | ICCV 2025 | arXiv 2508.01852 | 视频压缩 | 提出Context Guided Transformer (CGT) 条件熵模型，通过时间上下文重采样器降低计算开销、依赖加权空间上下文分配器显式建模空间依赖关系，在视频压缩中将熵建模时间减少约65%，同时实现11% BD-Rate改进。"
+title: >-
+  [论文解读] Context Guided Transformer Entropy Modeling for Video Compression
+description: >-
+  [ICCV 2025][模型压缩][视频压缩] 提出Context Guided Transformer (CGT) 条件熵模型，通过时间上下文重采样器降低计算开销、依赖加权空间上下文分配器显式建模空间依赖关系，在视频压缩中将熵建模时间减少约65%，同时实现11% BD-Rate改进。
 tags:
   - ICCV 2025
+  - 模型压缩
   - 视频压缩
   - 熵模型
   - Transformer

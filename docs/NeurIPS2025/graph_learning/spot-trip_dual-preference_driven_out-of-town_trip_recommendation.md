@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SPOT-Trip: Dual-Preference Driven Out-of-Town Trip Recommendation 论文解读 | NeurIPS 2025 | arXiv 2506.01705 | 旅行推荐 | 提出SPOT-Trip框架，首次系统研究异地旅行推荐问题，通过知识图谱增强的静态偏好学习、神经ODE驱动的动态偏好学习以及偏好融合模块，在两个真实数据集上最高提升17.01%。"
+title: >-
+  [论文解读] SPOT-Trip: Dual-Preference Driven Out-of-Town Trip Recommendation
+description: >-
+  [NeurIPS 2025][图学习][旅行推荐] 提出SPOT-Trip框架，首次系统研究异地旅行推荐问题，通过知识图谱增强的静态偏好学习、神经ODE驱动的动态偏好学习以及偏好融合模块，在两个真实数据集上最高提升17.01%。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 旅行推荐
   - 知识图谱
   - 神经ODE

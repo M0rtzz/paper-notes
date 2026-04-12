@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Wear Classification of Abrasive Flap Wheels using a Hierarchical Deep Learning Approach 论文解读 | CVPR2025 | arXiv 2603.12852 | 磨料翻页轮 | 针对柔性磨料翻页轮的复杂磨损模式，提出三级层次化深度学习分类框架，将磨损评估分解为使用状态检测、磨损类型识别和严重程度评估三个子任务，使用EfficientNetV2迁移学习实现93.8%–99.3%的分类精度。"
+title: >-
+  [论文解读] Wear Classification of Abrasive Flap Wheels using a Hierarchical Deep Learning Approach
+description: >-
+  [CVPR2025][磨料翻页轮] 针对柔性磨料翻页轮的复杂磨损模式，提出三级层次化深度学习分类框架，将磨损评估分解为使用状态检测、磨损类型识别和严重程度评估三个子任务，使用EfficientNetV2迁移学习实现93.8%–99.3%的分类精度。
 tags:
   - CVPR2025
   - 磨料翻页轮

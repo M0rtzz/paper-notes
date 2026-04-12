@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Knowledge Tracing in Programming Education Integrating Students' Questions 论文解读 | ACL 2025 | arXiv 2502.10408 | 知识追踪 | 本文提出 SQKT（Students' Question-based Knowledge Tracing）模型，首次将学生提问和自动提取的技能信息整合到知识追踪中，用于预测编程教育中学生对后续编程题的完成情况，域内实验 AUC 提升高达 33.1%。"
+title: >-
+  [论文解读] Knowledge Tracing in Programming Education Integrating Students' Questions
+description: >-
+  [ACL 2025][知识追踪] 本文提出 SQKT（Students' Question-based Knowledge Tracing）模型，首次将学生提问和自动提取的技能信息整合到知识追踪中，用于预测编程教育中学生对后续编程题的完成情况，域内实验 AUC 提升高达 33.1%。
 tags:
   - ACL 2025
   - 知识追踪

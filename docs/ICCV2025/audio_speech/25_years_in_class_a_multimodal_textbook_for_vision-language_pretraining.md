@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining 论文解读 | ICCV 2025 | arXiv 2501.00958 | 视觉-语言预训练 | 从YouTube教学视频中提取关键帧和文本（ASR+OCR），构建高质量交错图文格式的\"多模态教材\"数据集，用于VLM预训练，在知识密集型和推理任务上大幅领先网页爬取的交错数据集。"
+title: >-
+  [论文解读] 2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining
+description: >-
+  [ICCV 2025][语音][视觉-语言预训练] 从YouTube教学视频中提取关键帧和文本（ASR+OCR），构建高质量交错图文格式的"多模态教材"数据集，用于VLM预训练，在知识密集型和推理任务上大幅领先网页爬取的交错数据集。
 tags:
   - ICCV 2025
+  - 语音
   - 视觉-语言预训练
   - 交错图文数据集
   - 教学视频

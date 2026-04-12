@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】V.I.P.: Iterative Online Preference Distillation for Efficient Video Diffusion Models 论文解读 | > 提出 ReDPO 损失函数和 V.I.P. 迭代在线偏好蒸馏框架，将偏好学习 (DPO) 与 SFT 正则化相结合用于剪枝后视频扩散模型的蒸馏，在参数减少 36.2%-67.5% 的情况下匹配甚至超越完整模型性能。"
+title: >-
+  [论文解读] V.I.P.: Iterative Online Preference Distillation for Efficient Video Diffusion Models
+description: >-
+  [图像生成] > 提出 ReDPO 损失函数和 V.I.P. 迭代在线偏好蒸馏框架，将偏好学习 (DPO) 与 SFT 正则化相结合用于剪枝后视频扩散模型的蒸馏，在参数减少 36.2%-67.5% 的情况下匹配甚至超越完整模型性能。
 tags:
-
+  - 图像生成
 ---
 
 # V.I.P.: Iterative Online Preference Distillation for Efficient Video Diffusion Models

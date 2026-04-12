@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers 论文解读 | CVPR 2026 | arXiv 2603.04239 | Transformer Diffusion Transformer | 通过系统分析发现 DiT 各 block 间的表示多样性是有效学习的关键因素，提出 DiverseDiT：用长残差连接多样化输入 + 表示多样性损失显式促进 block 间特征差异化，无需外部引导模型即可加速收敛并提升生成质量。"
+title: >-
+  [论文解读] DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers
+description: >-
+  [CVPR 2026][自监督学习][Transformer] 通过系统分析发现 DiT 各 block 间的表示多样性是有效学习的关键因素，提出 DiverseDiT：用长残差连接多样化输入 + 表示多样性损失显式促进 block 间特征差异化，无需外部引导模型即可加速收敛并提升生成质量。
 tags:
   - CVPR 2026
+  - 自监督学习
   - Transformer
   - 表示多样性
   - 长残差连接

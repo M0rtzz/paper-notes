@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Fast and Stable Riemannian Metrics on SPD Manifolds via Cholesky Product Geometry 论文解读 | ICLR 2026 | arXiv 2407.02607 | SPD流形 | 揭示Cholesky流形上的简单乘积结构，基于此提出两种快速且数值稳定的SPD度量（PCM和BWCM），所有黎曼算子均有闭式表达式，在SPD深度学习中实现效果、效率和稳定性的三重提升。"
+title: >-
+  [论文解读] Fast and Stable Riemannian Metrics on SPD Manifolds via Cholesky Product Geometry
+description: >-
+  [ICLR 2026][SPD流形] 揭示Cholesky流形上的简单乘积结构，基于此提出两种快速且数值稳定的SPD度量（PCM和BWCM），所有黎曼算子均有闭式表达式，在SPD深度学习中实现效果、效率和稳定性的三重提升。
 tags:
   - ICLR 2026
   - SPD流形

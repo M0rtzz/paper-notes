@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DiffBMP: Differentiable Rendering with Bitmap Primitives 论文解读 | CVPR2026 | arXiv 2602.22625 | differentiable rendering | 提出 DiffBMP——首个面向**位图图元**的通用可微渲染引擎，通过自定义 CUDA 并行管线实现对数千张位图图元的位置、旋转、缩放、颜色和透明度的高效梯度优化，填补了 2D 可微渲染仅限矢量图形的空白。"
+title: >-
+  [论文解读] DiffBMP: Differentiable Rendering with Bitmap Primitives
+description: >-
+  [CVPR2026][differentiable rendering] 提出 DiffBMP——首个面向**位图图元**的通用可微渲染引擎，通过自定义 CUDA 并行管线实现对数千张位图图元的位置、旋转、缩放、颜色和透明度的高效梯度优化，填补了 2D 可微渲染仅限矢量图形的空白。
 tags:
   - CVPR2026
   - differentiable rendering

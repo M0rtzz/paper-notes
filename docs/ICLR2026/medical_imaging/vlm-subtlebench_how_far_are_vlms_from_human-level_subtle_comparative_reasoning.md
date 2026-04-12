@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】VLM-SubtleBench: How Far Are VLMs from Human-Level Subtle Comparative Reasoning? 论文解读 | 提出 VLM-SubtleBench，一个评估视觉语言模型在细微差异比较推理能力的基准，覆盖 10 种差异类型和 6 个图像领域（自然、游戏、工业、航空、医学、合成），揭示了 VLM 与人类在空间/时间/视角推理上超过 30% 的性能差距。"
+title: >-
+  [论文解读] VLM-SubtleBench: How Far Are VLMs from Human-Level Subtle Comparative Reasoning?
+description: >-
+  [医学图像] 提出 VLM-SubtleBench，一个评估视觉语言模型在细微差异比较推理能力的基准，覆盖 10 种差异类型和 6 个图像领域（自然、游戏、工业、航空、医学、合成），揭示了 VLM 与人类在空间/时间/视角推理上超过 30% 的性能差距。
 tags:
-
+  - 医学图像
 ---
 
 # VLM-SubtleBench: How Far Are VLMs from Human-Level Subtle Comparative Reasoning?

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Improving Loops for Visual Robotic Planning 论文解读 | ICLR 2026 | arXiv 2506.06658 | 视觉规划 | 提出 SILVR 框架，通过迭代更新域内视频生成模型在自收集的在线轨迹上进行微调，实现视觉机器人规划器在未见任务上的持续自我改进，在 MetaWorld 和真实机器人上实现高达 285% 的性能提升。"
+title: >-
+  [论文解读] Self-Improving Loops for Visual Robotic Planning
+description: >-
+  [ICLR 2026][图像生成][视觉规划] 提出 SILVR 框架，通过迭代更新域内视频生成模型在自收集的在线轨迹上进行微调，实现视觉机器人规划器在未见任务上的持续自我改进，在 MetaWorld 和真实机器人上实现高达 285% 的性能提升。
 tags:
   - ICLR 2026
+  - 图像生成
   - 视觉规划
   - 自我改进
   - 视频生成模型

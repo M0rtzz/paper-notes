@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Typed-RAG: Type-Aware Decomposition of Non-Factoid Questions for Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2503.15879 | Non-Factoid QA | 提出 Typed-RAG 框架，通过对非事实性问题（NFQ）进行类型感知的分解，将复杂的多方面问题拆解为单方面子查询，针对不同问题类型（辩论、经验、比较等）设计差异化的检索与生成策略，显著提升了 RAG 在 NFQA 中的表现。"
+title: >-
+  [论文解读] Typed-RAG: Type-Aware Decomposition of Non-Factoid Questions for Retrieval-Augmented Generation
+description: >-
+  [ACL 2025][Non-Factoid QA] 提出 Typed-RAG 框架，通过对非事实性问题（NFQ）进行类型感知的分解，将复杂的多方面问题拆解为单方面子查询，针对不同问题类型（辩论、经验、比较等）设计差异化的检索与生成策略，显著提升了 RAG 在 NFQA 中的表现。
 tags:
   - ACL 2025
   - Non-Factoid QA

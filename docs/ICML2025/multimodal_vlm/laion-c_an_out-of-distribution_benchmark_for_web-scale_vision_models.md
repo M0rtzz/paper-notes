@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models 论文解读 | ICML2025 | arXiv 2506.16950 | OOD鲁棒性 | 提出LAION-C基准——包含6种专为web-scale数据集设计的新型图像损坏类型（对LAION等大规模数据集truly OOD），发现当代模型在LAION-C上面临显著挑战，且范式转变已发生：最好的模型现在匹配或超越人类观察者。"
+title: >-
+  [论文解读] LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models
+description: >-
+  [ICML2025][多模态][OOD鲁棒性] 提出LAION-C基准——包含6种专为web-scale数据集设计的新型图像损坏类型（对LAION等大规模数据集truly OOD），发现当代模型在LAION-C上面临显著挑战，且范式转变已发生：最好的模型现在匹配或超越人类观察者。
 tags:
   - ICML2025
+  - 多模态
   - OOD鲁棒性
   - 基准测试
   - Web-scale模型

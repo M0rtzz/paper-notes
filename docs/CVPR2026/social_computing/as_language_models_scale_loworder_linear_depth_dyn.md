@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】As Language Models Scale, Low-order Linear Depth Dynamics Emerge 论文解读 | CVPR 2026 | arXiv 2603.12541 | Transformer Transformer 深度动力学 | 将 Transformer 的逐层前向传播视为离散时间动力系统，发现 32 维低阶线性代理（LLV）可精确复现完整模型的层级灵敏度曲线，且该线性可辨识性随模型规模单调增强。"
+title: >-
+  [论文解读] As Language Models Scale, Low-order Linear Depth Dynamics Emerge
+description: >-
+  [CVPR 2026][Transformer] 将 Transformer 的逐层前向传播视为离散时间动力系统，发现 32 维低阶线性代理（LLV）可精确复现完整模型的层级灵敏度曲线，且该线性可辨识性随模型规模单调增强。
 tags:
   - CVPR 2026
   - Transformer

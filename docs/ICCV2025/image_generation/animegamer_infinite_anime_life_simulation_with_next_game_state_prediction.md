@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AnimeGamer: Infinite Anime Life Simulation with Next Game State Prediction 论文解读 | ICCV 2025 | arXiv 2504.01014 | 无限游戏生成 | 提出 AnimeGamer，基于多模态大语言模型(MLLM)的无限动漫生活模拟系统，通过动作感知的多模态表征预测下一轮游戏状态（动态动画镜头 + 角色状态更新），实现持续一致的交互式动漫游戏体验。"
+title: >-
+  [论文解读] AnimeGamer: Infinite Anime Life Simulation with Next Game State Prediction
+description: >-
+  [ICCV 2025][图像生成][无限游戏生成] 提出 AnimeGamer，基于多模态大语言模型(MLLM)的无限动漫生活模拟系统，通过动作感知的多模态表征预测下一轮游戏状态（动态动画镜头 + 角色状态更新），实现持续一致的交互式动漫游戏体验。
 tags:
   - ICCV 2025
+  - 图像生成
   - 无限游戏生成
   - 动漫生活模拟
   - 多模态大语言模型

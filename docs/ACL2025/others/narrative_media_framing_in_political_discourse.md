@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Narrative Media Framing in Political Discourse 论文解读 | ACL 2025 | arXiv 2506.00737 | 叙事框架 | 将叙事学理论与媒体框架分析相结合，提出了包含角色（英雄/反派/受害者）、冲突/解决、文化故事三个结构化组件的叙事框架分析体系，在气候变化和 COVID-19 两个领域验证了该框架的有效性和可迁移性。"
+title: >-
+  [论文解读] Narrative Media Framing in Political Discourse
+description: >-
+  [ACL 2025][叙事框架] 将叙事学理论与媒体框架分析相结合，提出了包含角色（英雄/反派/受害者）、冲突/解决、文化故事三个结构化组件的叙事框架分析体系，在气候变化和 COVID-19 两个领域验证了该框架的有效性和可迁移性。
 tags:
   - ACL 2025
   - 叙事框架

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Power of Context-Enhanced Learning in LLMs 论文解读 | 本文形式化定义了\"上下文增强学习\"（context-enhanced learning），证明在简化设定下它比标准学习的样本效率**指数级更高**，并在机制层面揭示其优势来源于更精确的梯度学习信号。"
+title: >-
+  [论文解读] On the Power of Context-Enhanced Learning in LLMs
+description: >-
+   本文形式化定义了"上下文增强学习"（context-enhanced learning），证明在简化设定下它比标准学习的样本效率**指数级更高**，并在机制层面揭示其优势来源于更精确的梯度学习信号。
 tags:
 
 ---

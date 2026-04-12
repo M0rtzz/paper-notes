@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Memory Efficiency for Training KANs via Meta Learning 论文解读 | ICML2025 | arXiv 2506.07549 | Kolmogorov-Arnold Networks | 提出 MetaKANs，用一个小型元学习器（meta-learner）生成 KAN 中所有可学习激活函数的参数，将可训练参数量从 KAN 的 $(G+k+1)$ 倍压缩到接近 MLP 水平（约 1/3 到 1/9），同时保持甚至提升性能。"
+title: >-
+  [论文解读] Improving Memory Efficiency for Training KANs via Meta Learning
+description: >-
+  [ICML2025][科学计算][Kolmogorov-Arnold Networks] 提出 MetaKANs，用一个小型元学习器（meta-learner）生成 KAN 中所有可学习激活函数的参数，将可训练参数量从 KAN 的 $(G+k+1)$ 倍压缩到接近 MLP 水平（约 1/3 到 1/9），同时保持甚至提升性能。
 tags:
   - ICML2025
+  - 科学计算
   - Kolmogorov-Arnold Networks
   - Meta Learning
   - 参数效率

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TRIDENT: Tri-Modal Molecular Representation Learning with Taxonomic Annotations and Structural Relationships 论文解读 | NeurIPS 2025 | arXiv 2506.21028 | 分子属性预测 | 提出 TRIDENT 三模态分子表示学习框架，引入层次分类标注（HTA）作为第三模态，结合体积对比损失做全局三模态对齐和功能团-文本局部对齐，通过动量机制动态平衡两者，在 18 个分子属性预测任务上达到 SOTA。"
+title: >-
+  [论文解读] TRIDENT: Tri-Modal Molecular Representation Learning with Taxonomic Annotations and Structural Relationships
+description: >-
+  [NeurIPS 2025][自监督学习][分子属性预测] 提出 TRIDENT 三模态分子表示学习框架，引入层次分类标注（HTA）作为第三模态，结合体积对比损失做全局三模态对齐和功能团-文本局部对齐，通过动量机制动态平衡两者，在 18 个分子属性预测任务上达到 SOTA。
 tags:
   - NeurIPS 2025
+  - 自监督学习
   - 分子属性预测
   - 三模态对齐
   - 层次分类标注

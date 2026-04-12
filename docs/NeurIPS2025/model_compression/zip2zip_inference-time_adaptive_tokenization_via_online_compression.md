@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】zip2zip: Inference-Time Adaptive Tokenization via Online Compression 论文解读 | NeurIPS 2025 | arXiv 2506.01084 | 自适应分词 | 提出 zip2zip，通过将 LZW 在线压缩算法集成到 LLM 推理流程中，实现推理时动态扩展词表生成\"超级Token\"（hypertokens），将输入输出序列长度缩减 15-40%，端到端延迟降低最高 40%。"
+title: >-
+  [论文解读] zip2zip: Inference-Time Adaptive Tokenization via Online Compression
+description: >-
+  [NeurIPS 2025][模型压缩][自适应分词] 提出 zip2zip，通过将 LZW 在线压缩算法集成到 LLM 推理流程中，实现推理时动态扩展词表生成"超级Token"（hypertokens），将输入输出序列长度缩减 15-40%，端到端延迟降低最高 40%。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 自适应分词
   - LZW压缩
   - 超级Token

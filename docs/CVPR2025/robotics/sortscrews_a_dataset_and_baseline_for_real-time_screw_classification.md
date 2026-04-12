@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SortScrews: A Dataset and Baseline for Real-time Screw Classification 论文解读 | CVPR 2025 | arXiv 2603.13027 | Screw Classification | 提出SortScrews数据集——一个包含560张512×512 RGB图像、覆盖6类螺丝的工业分类数据集，配套可复用的数据采集流水线，并以迁移学习的EfficientNet-B0和ResNet-18作为基线，ResNet-18在该数据集上达到96.4%验证准确率。"
+title: >-
+  [论文解读] SortScrews: A Dataset and Baseline for Real-time Screw Classification
+description: >-
+  [CVPR 2025][机器人][Screw Classification] 提出SortScrews数据集——一个包含560张512×512 RGB图像、覆盖6类螺丝的工业分类数据集，配套可复用的数据采集流水线，并以迁移学习的EfficientNet-B0和ResNet-18作为基线，ResNet-18在该数据集上达到96.4%验证准确率。
 tags:
   - CVPR 2025
+  - 机器人
   - Screw Classification
   - Industrial Dataset
   - 迁移学习

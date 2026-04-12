@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Towards Understanding Subliminal Learning: When and How Hidden Biases Transfer 论文解读 | ICLR 2026 | arXiv 2509.23886 | subliminal learning | 本文通过受控实验和机制分析揭示了潜意识学习（subliminal learning）的本质——教师模型的隐藏偏好通过少量\"分歧token\"（divergence tokens）传递给学生模型，且早期层是关键，同时发现该现象非常脆弱，简单的同义改写即可抑制。"
+title: >-
+  [论文解读] Towards Understanding Subliminal Learning: When and How Hidden Biases Transfer
+description: >-
+  [ICLR 2026][subliminal learning] 本文通过受控实验和机制分析揭示了潜意识学习（subliminal learning）的本质——教师模型的隐藏偏好通过少量"分歧token"（divergence tokens）传递给学生模型，且早期层是关键，同时发现该现象非常脆弱，简单的同义改写即可抑制。
 tags:
   - ICLR 2026
   - subliminal learning

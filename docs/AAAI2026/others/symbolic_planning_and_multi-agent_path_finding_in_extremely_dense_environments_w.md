@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Symbolic Planning and Multi-Agent Path Finding in Extremely Dense Environments with Unassigned Agents 论文解读 | AAAI 2026 | arXiv 2509.01022 | Block Rearrangement | 提出 Block Rearrangement Problem (BRaP) 形式化定义，并设计五种基于配置空间搜索、PDDL 符号规划和 MAPF 的求解算法，其中 BR-LaCAM 在最大 80×80 的极端密集网格上达到 92% 成功率和毫秒级求解速度。"
+title: >-
+  [论文解读] Symbolic Planning and Multi-Agent Path Finding in Extremely Dense Environments with Unassigned Agents
+description: >-
+  [AAAI 2026][Block Rearrangement] 提出 Block Rearrangement Problem (BRaP) 形式化定义，并设计五种基于配置空间搜索、PDDL 符号规划和 MAPF 的求解算法，其中 BR-LaCAM 在最大 80×80 的极端密集网格上达到 92% 成功率和毫秒级求解速度。
 tags:
   - AAAI 2026
   - Block Rearrangement

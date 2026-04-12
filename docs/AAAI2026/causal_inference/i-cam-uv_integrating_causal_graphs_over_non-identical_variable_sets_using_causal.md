@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】I-CAM-UV: Integrating Causal Graphs over Non-Identical Variable Sets Using Causal Additive Models with Unobserved Variables 论文解读 | AAAI 2026 | arXiv 2603.03207 | causal discovery | 提出 I-CAM-UV 方法，通过对多个变量集不同的 CAM-UV 因果图结果进行一致性约束枚举，恢复因未观测变量而丢失的因果关系，并设计基于不一致代价单调性的最优优先搜索算法高效求解。"
+title: >-
+  [论文解读] I-CAM-UV: Integrating Causal Graphs over Non-Identical Variable Sets Using Causal Additive Models with Unobserved Variables
+description: >-
+  [AAAI 2026][causal discovery] 提出 I-CAM-UV 方法，通过对多个变量集不同的 CAM-UV 因果图结果进行一致性约束枚举，恢复因未观测变量而丢失的因果关系，并设计基于不一致代价单调性的最优优先搜索算法高效求解。
 tags:
   - AAAI 2026
   - causal discovery

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dataset Enhancement with Instance-Level Augmentations 论文解读 | ECCV 2024 | arXiv 2406.08249 | 数据增强 | 提出一种基于预训练扩散模型的实例级数据增强方法，通过在保持原始标注不变的前提下逐个重绘图像中的目标实例，显著提升了显著性目标检测、语义分割和目标检测的性能，同时支持数据匿名化。"
+title: >-
+  [论文解读] Dataset Enhancement with Instance-Level Augmentations
+description: >-
+  [ECCV 2024][图像分割][数据增强] 提出一种基于预训练扩散模型的实例级数据增强方法，通过在保持原始标注不变的前提下逐个重绘图像中的目标实例，显著提升了显著性目标检测、语义分割和目标检测的性能，同时支持数据匿名化。
 tags:
   - ECCV 2024
+  - 图像分割
   - 数据增强
   - 实例级增强
   - 扩散模型

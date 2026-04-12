@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection 论文解读 | CVPR2025 | arXiv 2603.13070 | 扩散模型 | 提出 RAPTA（训练时基于目标检测的区域感知 prompt 变体增强）和 ADMCD（推理时三流注意力融合的多模态复制检测），从缓解和检测两个角度端到端地应对文生图扩散模型的训练数据记忆化问题。"
+title: >-
+  [论文解读] Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection
+description: >-
+  [CVPR2025][目标检测][扩散模型] 提出 RAPTA（训练时基于目标检测的区域感知 prompt 变体增强）和 ADMCD（推理时三流注意力融合的多模态复制检测），从缓解和检测两个角度端到端地应对文生图扩散模型的训练数据记忆化问题。
 tags:
   - CVPR2025
+  - 目标检测
   - 扩散模型
   - 记忆化缓解
   - 提示学习

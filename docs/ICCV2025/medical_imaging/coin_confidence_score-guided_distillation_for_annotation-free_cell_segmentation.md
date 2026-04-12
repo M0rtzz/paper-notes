@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】COIN: Confidence Score-Guided Distillation for Annotation-Free Cell Segmentation 论文解读 | ICCV 2025 | arXiv 2503.11439 | 细胞实例分割 | 提出COIN框架，通过无监督语义分割+最优传输的像素级细胞传播、基于模型-SAM一致性的实例级置信度评分、以及置信度引导的递归自蒸馏三步策略，解决了无标注细胞实例分割中\"无错误实例缺失\"的关键问题，在MoNuSeg和TNBC上超越半监督/弱监督方法。"
+title: >-
+  [论文解读] COIN: Confidence Score-Guided Distillation for Annotation-Free Cell Segmentation
+description: >-
+  [ICCV 2025][医学图像][细胞实例分割] 提出COIN框架，通过无监督语义分割+最优传输的像素级细胞传播、基于模型-SAM一致性的实例级置信度评分、以及置信度引导的递归自蒸馏三步策略，解决了无标注细胞实例分割中"无错误实例缺失"的关键问题，在MoNuSeg和TNBC上超越半监督/弱监督方法。
 tags:
   - ICCV 2025
+  - 医学图像
   - 细胞实例分割
   - 无标注
   - 置信度评分

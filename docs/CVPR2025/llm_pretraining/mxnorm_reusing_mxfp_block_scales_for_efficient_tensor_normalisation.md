@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MXNorm: Reusing MXFP block scales for efficient tensor normalisation 论文解读 | CVPR2025 | arXiv 2603.13180 | RMSNorm | MXNorm 提出复用 MXFP 量化过程中已计算的 block absmax 来近似 RMS，将归一化与 MX 量化融合为单次统计收集操作，实现 RMSNorm 的 drop-in 替换，在 Llama 3 8B 预训练中保持训练精度的同时获得最高 2.4× 的 kernel 加速。"
+title: >-
+  [论文解读] MXNorm: Reusing MXFP block scales for efficient tensor normalisation
+description: >-
+  [CVPR2025][RMSNorm] MXNorm 提出复用 MXFP 量化过程中已计算的 block absmax 来近似 RMS，将归一化与 MX 量化融合为单次统计收集操作，实现 RMSNorm 的 drop-in 替换，在 Llama 3 8B 预训练中保持训练精度的同时获得最高 2.4× 的 kernel 加速。
 tags:
   - CVPR2025
   - RMSNorm

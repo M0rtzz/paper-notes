@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generative Neural Video Compression via Video Diffusion Prior 论文解读 | CVPR 2026 | arXiv 2512.05016 | 视频压缩 | 提出 GNVC-VD，首个基于 DiT 视频扩散模型（Wan2.1）的生成式神经视频压缩框架，通过 flow-matching 在时空潜变量上进行序列级生成式精炼，在极低码率（<0.03 bpp）下实现感知质量 SOTA 并显著减少闪烁伪影。"
+title: >-
+  [论文解读] Generative Neural Video Compression via Video Diffusion Prior
+description: >-
+  [CVPR 2026][视频理解][视频压缩] 提出 GNVC-VD，首个基于 DiT 视频扩散模型（Wan2.1）的生成式神经视频压缩框架，通过 flow-matching 在时空潜变量上进行序列级生成式精炼，在极低码率（<0.03 bpp）下实现感知质量 SOTA 并显著减少闪烁伪影。
 tags:
   - CVPR 2026
+  - 视频理解
   - 视频压缩
   - 生成式编解码
   - 视频扩散模型

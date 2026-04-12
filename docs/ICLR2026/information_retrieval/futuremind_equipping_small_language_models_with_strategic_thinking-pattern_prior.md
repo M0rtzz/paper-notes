@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FutureMind: Equipping Small Language Models with Strategic Thinking-Pattern Priors via Adaptive Knowledge Distillation 论文解读 | ICLR 2026 | arXiv 2602.01222 | 小语言模型 | 提出FutureMind无训练框架，将LLM的结构化推理和检索策略蒸馏为可复用的思维模式先验，通过四阶段pipeline（问题分析→逻辑推理→策略规划→检索指导）和三种检索范式，使SLM在多跳QA上达到SOTA。"
+title: >-
+  [论文解读] FutureMind: Equipping Small Language Models with Strategic Thinking-Pattern Priors via Adaptive Knowledge Distillation
+description: >-
+  [ICLR 2026][小语言模型] 提出FutureMind无训练框架，将LLM的结构化推理和检索策略蒸馏为可复用的思维模式先验，通过四阶段pipeline（问题分析→逻辑推理→策略规划→检索指导）和三种检索范式，使SLM在多跳QA上达到SOTA。
 tags:
   - ICLR 2026
   - 小语言模型

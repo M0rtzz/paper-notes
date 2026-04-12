@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】TowerMind: A Tower Defence Game Learning Environment and Benchmark for LLM as Agents 论文解读 | AAAI 2026 | arXiv 2601.05899 | LLM 智能体 | 提出 TowerMind，一个基于塔防游戏的轻量级多模态环境，用于评估 LLM 的长期规划和决策能力，揭示了当前 LLM 与人类专家之间仍存在显著性能差距（最佳模型仅达人类专家 42% 的得分），并识别出规划验证不足、缺乏多终态思维、动作空间利用不充分等行为缺陷。"
+title: >-
+  [论文解读] TowerMind: A Tower Defence Game Learning Environment and Benchmark for LLM as Agents
+description: >-
+  [AAAI 2026][LLM 智能体] 提出 TowerMind，一个基于塔防游戏的轻量级多模态环境，用于评估 LLM 的长期规划和决策能力，揭示了当前 LLM 与人类专家之间仍存在显著性能差距（最佳模型仅达人类专家 42% 的得分），并识别出规划验证不足、缺乏多终态思维、动作空间利用不充分等行为缺陷。
 tags:
   - AAAI 2026
   - LLM 智能体

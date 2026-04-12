@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning to Trust Bellman Updates: Selective State-Adaptive Regularization for Offline RL 论文解读 | ICML2025 | arXiv 2505.19923 | 离线RL | 提出选择性状态自适应正则化（SSAR），用神经网络为每个状态动态生成正则化系数，并仅在高质量动作上施加约束，统一了CQL（值正则化）和TD3+BC（策略约束）两大离线RL范式，在D4RL离线和O2O场景均大幅超越基线。"
+title: >-
+  [论文解读] Learning to Trust Bellman Updates: Selective State-Adaptive Regularization for Offline RL
+description: >-
+  [ICML2025][离线RL] 提出选择性状态自适应正则化（SSAR），用神经网络为每个状态动态生成正则化系数，并仅在高质量动作上施加约束，统一了CQL（值正则化）和TD3+BC（策略约束）两大离线RL范式，在D4RL离线和O2O场景均大幅超越基线。
 tags:
   - ICML2025
   - 离线RL

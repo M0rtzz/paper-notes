@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Post Training Quantization for Efficient Dataset Condensation 论文解读 | AAAI 2026 | arXiv 2603.13346 | 数据集蒸馏 | 首次将训练后量化（PTQ）应用于数据集蒸馏，提出基于补丁的量化框架（PAQ+分组+精炼），在 2-bit 极低比特下将蒸馏数据集的测试精度几乎翻倍（如 DM IPC=1 从 26.0% 提升至 54.1%），作为即插即用框架可应用于各种蒸馏方法。"
+title: >-
+  [论文解读] Post Training Quantization for Efficient Dataset Condensation
+description: >-
+  [AAAI 2026][模型压缩][数据集蒸馏] 首次将训练后量化（PTQ）应用于数据集蒸馏，提出基于补丁的量化框架（PAQ+分组+精炼），在 2-bit 极低比特下将蒸馏数据集的测试精度几乎翻倍（如 DM IPC=1 从 26.0% 提升至 54.1%），作为即插即用框架可应用于各种蒸馏方法。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 数据集蒸馏
   - 训练后量化
   - 低比特存储

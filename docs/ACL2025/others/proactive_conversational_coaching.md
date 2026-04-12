@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Substance over Style: Evaluating Proactive Conversational Coaching Agents 论文解读 | ACL 2025 | arXiv 2503.19328 | Conversational Coaching | 通过健康教练领域的专家访谈和用户研究（31 名参与者、155 段对话），系统评估了五种不同对话风格（Directive、Interrogative、Facilitative）的 LLM 教练 Agent，发现用户高度重视核心功能性（substance）而对缺乏功能性时的风格修饰（style）持负面态度，同时揭示了用户第一人称评价与专家/LLM 第三方评价之间的显著不一致。"
+title: >-
+  [论文解读] Substance over Style: Evaluating Proactive Conversational Coaching Agents
+description: >-
+  [ACL 2025][Conversational Coaching] 通过健康教练领域的专家访谈和用户研究（31 名参与者、155 段对话），系统评估了五种不同对话风格（Directive、Interrogative、Facilitative）的 LLM 教练 Agent，发现用户高度重视核心功能性（substance）而对缺乏功能性时的风格修饰（style）持负面态度，同时揭示了用户第一人称评价与专家/LLM 第三方评价之间的显著不一致。
 tags:
   - ACL 2025
   - Conversational Coaching

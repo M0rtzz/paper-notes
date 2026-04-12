@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Surprising Effectiveness of Negative Reinforcement in LLM Reasoning 论文解读 | NeurIPS 2025 | arXiv 2506.01347 | 负强化 | 揭示RLVR中负强化（仅惩罚错误）的効果超出预期，通过梯度分析说明其保持输出多样性和推理能力的机制，并提出改进的加权REINFORCE算法。"
+title: >-
+  [论文解读] The Surprising Effectiveness of Negative Reinforcement in LLM Reasoning
+description: >-
+  [NeurIPS 2025][负强化] 揭示RLVR中负强化（仅惩罚错误）的効果超出预期，通过梯度分析说明其保持输出多样性和推理能力的机制，并提出改进的加权REINFORCE算法。
 tags:
   - NeurIPS 2025
   - 负强化

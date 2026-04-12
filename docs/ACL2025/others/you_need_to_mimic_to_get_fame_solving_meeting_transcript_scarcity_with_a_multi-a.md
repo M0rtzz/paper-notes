@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】You need to MIMIC to get FAME: Solving Meeting Transcript Scarcity with Multi-Agent Conversations 论文解读 | ACL 2025 | arXiv 2502.13001 | 会议摘要 | 提出 MIMIC 框架，通过多智能体辩论模拟生成合成会议转录，构建了包含 800 场会议的 FAME 数据集（500 英语 + 300 德语），并设计了基于心理学的行为真实性评估框架。"
+title: >-
+  [论文解读] You need to MIMIC to get FAME: Solving Meeting Transcript Scarcity with Multi-Agent Conversations
+description: >-
+  [ACL 2025][会议摘要] 提出 MIMIC 框架，通过多智能体辩论模拟生成合成会议转录，构建了包含 800 场会议的 FAME 数据集（500 英语 + 300 德语），并设计了基于心理学的行为真实性评估框架。
 tags:
   - ACL 2025
   - 会议摘要

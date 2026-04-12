@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GG-BBQ: German Gender Bias Benchmark for Question Answering 论文解读 | ACL 2025 | arXiv 2507.16410 | 性别偏见 | 将英语BBQ偏见基准数据集的性别子集翻译为德语，经人工审校后创建GG-BBQ德语性别偏见评估基准，揭示了机器翻译在性别偏见评估数据集构建中的局限性，并评估了多个德语LLM的偏见表现。"
+title: >-
+  [论文解读] GG-BBQ: German Gender Bias Benchmark for Question Answering
+description: >-
+  [ACL 2025][性别偏见] 将英语BBQ偏见基准数据集的性别子集翻译为德语，经人工审校后创建GG-BBQ德语性别偏见评估基准，揭示了机器翻译在性别偏见评估数据集构建中的局限性，并评估了多个德语LLM的偏见表现。
 tags:
   - ACL 2025
   - 性别偏见

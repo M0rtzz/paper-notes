@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Last Vote: A Multi-Stakeholder Framework for Language Model Governance 论文解读 | NeurIPS 2025 | arXiv 2511.13432 | AI治理 | 提出一个面向语言模型治理的综合框架，包含七类民主风险分类体系、利益相关方自适应事件严重度评分(ISS)、以及分阶段六年实施路线图，旨在将民主价值融入AI监管的制度设计中。"
+title: >-
+  [论文解读] The Last Vote: A Multi-Stakeholder Framework for Language Model Governance
+description: >-
+  [NeurIPS 2025][人体理解][AI治理] 提出一个面向语言模型治理的综合框架，包含七类民主风险分类体系、利益相关方自适应事件严重度评分(ISS)、以及分阶段六年实施路线图，旨在将民主价值融入AI监管的制度设计中。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - AI治理
   - 民主风险
   - 多利益相关方

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SimRecon: SimReady Compositional Scene Reconstruction from Real Videos 论文解读 | CVPR 2026 | arXiv 2603.02133 | 组合式场景重建 | 提出 SimRecon 框架，通过\"感知→生成→仿真\"三阶段流水线，从真实视频自动构建仿真就绪的组合式 3D 场景，核心创新在于主动视角优化（AVO）为单物体生成寻找最优投影视角和场景图合成器（SGS）引导物理可信的层级化组装。"
+title: >-
+  [论文解读] SimRecon: SimReady Compositional Scene Reconstruction from Real Videos
+description: >-
+  [CVPR 2026][组合式场景重建] 提出 SimRecon 框架，通过"感知→生成→仿真"三阶段流水线，从真实视频自动构建仿真就绪的组合式 3D 场景，核心创新在于主动视角优化（AVO）为单物体生成寻找最优投影视角和场景图合成器（SGS）引导物理可信的层级化组装。
 tags:
   - CVPR 2026
   - 组合式场景重建

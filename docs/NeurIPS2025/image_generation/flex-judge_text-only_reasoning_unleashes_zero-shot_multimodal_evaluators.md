@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Flex-Judge: Text-Only Reasoning Unleashes Zero-Shot Multimodal Evaluators 论文解读 | NeurIPS 2025 | arXiv 2505.18601 | LLM-as-a-Judge | 提出 Flex-Judge，仅用 1K 条纯文本推理数据微调多模态大模型，即可零样本泛化到图像/视频/音频/分子等多模态评判任务，性能媲美甚至超越 GPT-4o 等商业 API 和大规模标注训练的专用评估器。"
+title: >-
+  [论文解读] Flex-Judge: Text-Only Reasoning Unleashes Zero-Shot Multimodal Evaluators
+description: >-
+  [NeurIPS 2025][图像生成][LLM-as-a-Judge] 提出 Flex-Judge，仅用 1K 条纯文本推理数据微调多模态大模型，即可零样本泛化到图像/视频/音频/分子等多模态评判任务，性能媲美甚至超越 GPT-4o 等商业 API 和大规模标注训练的专用评估器。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - LLM-as-a-Judge
   - 多模态评估
   - 推理引导

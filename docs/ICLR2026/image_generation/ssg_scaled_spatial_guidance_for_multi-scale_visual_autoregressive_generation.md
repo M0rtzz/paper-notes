@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SSG: Scaled Spatial Guidance for Multi-Scale Visual Autoregressive Generation 论文解读 | ICLR 2026 | arXiv 2602.05534 | VAR | 提出 Scaled Spatial Guidance (SSG)，一种无需训练的推理时引导方法，通过频域先验构建和语义残差放大，增强视觉自回归模型的粗到细层级生成质量。"
+title: >-
+  [论文解读] SSG: Scaled Spatial Guidance for Multi-Scale Visual Autoregressive Generation
+description: >-
+  [ICLR 2026][图像生成][VAR] 提出 Scaled Spatial Guidance (SSG)，一种无需训练的推理时引导方法，通过频域先验构建和语义残差放大，增强视觉自回归模型的粗到细层级生成质量。
 tags:
   - ICLR 2026
+  - 图像生成
   - VAR
   - 下一尺度预测
   - 信息瓶颈

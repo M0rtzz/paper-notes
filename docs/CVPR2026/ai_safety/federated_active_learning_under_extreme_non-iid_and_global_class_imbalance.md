@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Federated Active Learning Under Extreme Non-IID and Global Class Imbalance 论文解读 | CVPR 2026 | arXiv 2603.10341 | Federated Active Learning | 系统研究了联邦主动学习中查询模型选择问题，发现类别平衡采样是性能关键因素，并提出 FairFAL 框架，通过自适应模型选择、原型引导伪标签和不确定性-多样性平衡采样实现公平高效的联邦主动学习。"
+title: >-
+  [论文解读] Federated Active Learning Under Extreme Non-IID and Global Class Imbalance
+description: >-
+  [CVPR 2026][AI安全][Federated Active Learning] 系统研究了联邦主动学习中查询模型选择问题，发现类别平衡采样是性能关键因素，并提出 FairFAL 框架，通过自适应模型选择、原型引导伪标签和不确定性-多样性平衡采样实现公平高效的联邦主动学习。
 tags:
   - CVPR 2026
+  - AI安全
   - Federated Active Learning
   - Non-IID
   - Class Imbalance

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LLM Targeted Underperformance Disproportionately Impacts Vulnerable Users 论文解读 | AAAI 2026 | arXiv 2406.17737 | 用户偏见 | 系统实验表明，主流LLM（GPT-4、Claude 3 Opus、Llama 3-8B）对英语水平较低、教育程度较低、非美国出身的用户，在信息准确性、真实性和拒绝回答方面存在显著的歧视性表现下降，使最脆弱的用户成为最不可靠的信息服务对象。"
+title: >-
+  [论文解读] LLM Targeted Underperformance Disproportionately Impacts Vulnerable Users
+description: >-
+  [AAAI 2026][用户偏见] 系统实验表明，主流LLM（GPT-4、Claude 3 Opus、Llama 3-8B）对英语水平较低、教育程度较低、非美国出身的用户，在信息准确性、真实性和拒绝回答方面存在显著的歧视性表现下降，使最脆弱的用户成为最不可靠的信息服务对象。
 tags:
   - AAAI 2026
   - 用户偏见

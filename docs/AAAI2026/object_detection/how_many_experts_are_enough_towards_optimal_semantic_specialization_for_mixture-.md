@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How Many Experts Are Enough? Towards Optimal Semantic Specialization for Mixture-of-Experts 论文解读 | AAAI 2026 | arXiv 2512.19765 | Mixture-of-Experts | 提出MASS框架，通过基于梯度的语义漂移检测自适应扩展MoE专家池，并结合Top-p置信度路由策略，在无需超参搜索的情况下自动发现最优专家数量，同时增强专家间的语义分化。"
+title: >-
+  [论文解读] How Many Experts Are Enough? Towards Optimal Semantic Specialization for Mixture-of-Experts
+description: >-
+  [AAAI 2026][目标检测][Mixture-of-Experts] 提出MASS框架，通过基于梯度的语义漂移检测自适应扩展MoE专家池，并结合Top-p置信度路由策略，在无需超参搜索的情况下自动发现最优专家数量，同时增强专家间的语义分化。
 tags:
   - AAAI 2026
+  - 目标检测
   - Mixture-of-Experts
   - 专家扩展
   - 语义特化

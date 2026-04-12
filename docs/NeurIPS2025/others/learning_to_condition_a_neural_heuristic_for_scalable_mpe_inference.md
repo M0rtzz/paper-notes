@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning to Condition: A Neural Heuristic for Scalable MPE Inference 论文解读 | NeurIPS 2025 | arXiv 2509.25217 | MPE推理 | 提出 Learning to Condition (L2C)，用注意力神经网络学习对变量-值对进行评分，指导概率图模型中 MPE 推理的条件化决策，在保持解质量的同时大幅缩减搜索空间。"
+title: >-
+  [论文解读] Learning to Condition: A Neural Heuristic for Scalable MPE Inference
+description: >-
+  [NeurIPS 2025][MPE推理] 提出 Learning to Condition (L2C)，用注意力神经网络学习对变量-值对进行评分，指导概率图模型中 MPE 推理的条件化决策，在保持解质量的同时大幅缩减搜索空间。
 tags:
   - NeurIPS 2025
   - MPE推理

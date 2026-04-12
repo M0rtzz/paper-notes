@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MultiSocial: Multilingual Benchmark of Machine-Generated Text Detection of Social-Media Texts 论文解读 | ACL 2025 | arXiv 2406.12549 | 机器文本检测 | 构建首个多语言(22种语言)、多平台(5个社交媒体)、多生成器(7个LLM)的社交媒体机器生成文本检测基准 MultiSocial（47万文本），填补了社交媒体短文本+非英语场景下 MGT 检测研究的空白，发现微调检测器可在社交媒体文本上有效训练且训练平台选择很重要。"
+title: >-
+  [论文解读] MultiSocial: Multilingual Benchmark of Machine-Generated Text Detection of Social-Media Texts
+description: >-
+  [ACL 2025][机器文本检测] 构建首个多语言(22种语言)、多平台(5个社交媒体)、多生成器(7个LLM)的社交媒体机器生成文本检测基准 MultiSocial（47万文本），填补了社交媒体短文本+非英语场景下 MGT 检测研究的空白，发现微调检测器可在社交媒体文本上有效训练且训练平台选择很重要。
 tags:
   - ACL 2025
   - 机器文本检测

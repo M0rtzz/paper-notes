@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Explaining Grokking and Information Bottleneck through Neural Collapse Emergence 论文解读 | ICLR2026 | arXiv 2509.20829 | Grokking | 通过 Neural Collapse 的视角统一解释 Grokking（延迟泛化）和 Information Bottleneck（压缩阶段）两大训练后期现象，证明群体类内方差的收缩是两者的共同关键因素，并揭示训练损失收敛与 Neural Collapse 发生存在由 weight decay 控制的不同时间尺度。"
+title: >-
+  [论文解读] Explaining Grokking and Information Bottleneck through Neural Collapse Emergence
+description: >-
+  [ICLR2026][Grokking] 通过 Neural Collapse 的视角统一解释 Grokking（延迟泛化）和 Information Bottleneck（压缩阶段）两大训练后期现象，证明群体类内方差的收缩是两者的共同关键因素，并揭示训练损失收敛与 Neural Collapse 发生存在由 weight decay 控制的不同时间尺度。
 tags:
   - ICLR2026
   - Grokking

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】RLP: Reinforcement as a Pretraining Objective 论文解读 | ICLR 2026 | arXiv 2510.01265 | 预训练 | 提出RLP（Reinforcement Learning Pretraining），一种信息增益驱动的RL预训练目标，通过奖励能提升下一token预测概率的思维链（CoT），将RL从后训练阶段前移到预训练阶段，实现无验证器的密集奖励信号。"
+title: >-
+  [论文解读] RLP: Reinforcement as a Pretraining Objective
+description: >-
+  [ICLR 2026][预训练] 提出RLP（Reinforcement Learning Pretraining），一种信息增益驱动的RL预训练目标，通过奖励能提升下一token预测概率的思维链（CoT），将RL从后训练阶段前移到预训练阶段，实现无验证器的密集奖励信号。
 tags:
   - ICLR 2026
   - 预训练

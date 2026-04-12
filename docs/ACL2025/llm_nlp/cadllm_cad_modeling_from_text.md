@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models 论文解读 | ACL 2025 | arXiv 2505.19490 | CAD生成 | 提出一个语言引导的 CAD 设计自动化框架——通过半自动数据标注流水线、Transformer CAD 生成器（TCADGen）和 LLM 增强模型（CADLLM）三个创新，从文本参数和外观描述自动生成 CAD 建模序列，在精度和效率上超越传统方法。"
+title: >-
+  [论文解读] Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][CAD生成] 提出一个语言引导的 CAD 设计自动化框架——通过半自动数据标注流水线、Transformer CAD 生成器（TCADGen）和 LLM 增强模型（CADLLM）三个创新，从文本参数和外观描述自动生成 CAD 建模序列，在精度和效率上超越传统方法。
 tags:
   - ACL 2025
+  - LLM/NLP
   - CAD生成
   - 工业设计
   - 文本到建模

@@ -1,40 +1,47 @@
+---
+title: >-
+  CVPR2025 231篇论文解读
+description: >-
+  231篇CVPR2025论文深度解读，每篇5分钟读懂核心思想。覆盖医学图像、3D视觉、图像生成、自动驾驶、多模态VLM、语义分割等30个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📷 CVPR2025 论文笔记
 
-共 **232** 篇笔记，覆盖 **30** 个领域。
+共 **231** 篇笔记，覆盖 **30** 个领域。
 
 ## 领域概览
 
 | 领域 | 篇数 |
 |:-----|-----:|
 | 🏥 [医学图像](#medical_imaging) | 40 |
-| 🧊 [3D 视觉](#3d_vision) | 30 |
+| 🧊 [3D视觉](#3d_vision) | 30 |
 | 🎨 [图像生成](#image_generation) | 21 |
 | 🚗 [自动驾驶](#autonomous_driving) | 14 |
-| 🧩 [多模态 VLM](#multimodal_vlm) | 14 |
+| 🧩 [多模态VLM](#multimodal_vlm) | 14 |
 | ✂️ [语义分割](#segmentation) | 14 |
 | 🦾 [LLM Agent](#llm_agent) | 10 |
 | 🧑 [人体理解](#human_understanding) | 9 |
 | 🤖 [机器人/具身智能](#robotics) | 9 |
 | 🎬 [视频理解](#video_understanding) | 9 |
 | 📦 [模型压缩](#model_compression) | 6 |
-| ⚖️ [对齐 / RLHF](#llm_alignment) | 5 |
+| ⚖️ [对齐/RLHF](#llm_alignment) | 5 |
 | 🎯 [目标检测](#object_detection) | 5 |
 | 🖼️ [图像恢复](#image_restoration) | 4 |
 | 📚 [预训练/数据](#llm_pretraining) | 4 |
 | 🛰️ [遥感](#remote_sensing) | 4 |
-| 🛡️ [AI 安全](#ai_safety) | 3 |
+| 🛡️ [AI安全](#ai_safety) | 3 |
 | 🔬 [可解释性](#interpretability) | 3 |
 | 🔄 [自监督/表示学习](#self_supervised) | 3 |
 | 🔍 [信息检索/RAG](#information_retrieval) | 2 |
-| 👥 [社会计算](#social_computing) | 2 |
 | 🎵 [音频/语音](#audio_speech) | 1 |
 | 💻 [代码智能](#code_intelligence) | 1 |
-| ⚡ [LLM 效率](#llm_efficiency) | 1 |
-| 📊 [LLM 评测](#llm_evaluation) | 1 |
-| 💡 [LLM 推理](#llm_reasoning) | 1 |
+| ⚡ [LLM效率](#llm_efficiency) | 1 |
+| 📊 [LLM评测](#llm_evaluation) | 1 |
+| 💡 [LLM推理](#llm_reasoning) | 1 |
 | 📐 [优化/理论](#optimization) | 1 |
 | 🎮 [强化学习](#reinforcement_learning) | 1 |
+| 👥 [社会计算](#social_computing) | 1 |
 | 📈 [时间序列](#time_series) | 1 |
 | 📂 [其他](#others) | 13 |
 
@@ -204,7 +211,7 @@
 
 ---
 
-## 🧊 3D 视觉 { #3d_vision }
+## 🧊 3D视觉 { #3d_vision }
 
 **[3D-Grand A Million-Scale Dataset For 3D-Llms With Better Grounding And Less Hall](3d_vision/3d-grand_a_million-scale_dataset_for_3d-llms_with_better_grounding_and_less_hall.md)**
 
@@ -250,7 +257,7 @@
 
 :   提出SSS（Student Splatting and Scooping），用前所未有的三重创新改进3DGS范式：(1) 用**Student-t分布**替代高斯分布作为混合组件（可学习的尾部厚度，从Cauchy到Gaussian连续变化）；(2) 引入**负密度组件**（scooping减去颜色）扩展到非单调混合模型；(3) 用**SGHMC采样**替代SGD解耦参数优化，在Mip-NeRF360/T&T/Deep Blending上6/9指标取得最优，且参数效率极高——用**最少18%**的组件数即可匹配或超越3DGS。
 
-**[3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement](3d_vision/3denhancer_consistent_multi-view_diffusion_for_3d_enhancement.md)**
+**[3Denhancer Consistent Multi-View Diffusion For 3D Enhancement](3d_vision/3denhancer_consistent_multi-view_diffusion_for_3d_enhancement.md)**
 
 :   提出一个基于多视图潜在扩散模型的3D增强框架，通过姿态感知编码器、多视图行注意力和近视图极线聚合模块，在保持跨视图一致性的前提下显著提升低质量3D生成结果的纹理质量。
 
@@ -334,7 +341,7 @@
 
 :   提出基于新型原语表示PrimX和Diffusion Transformer的原生3D生成模型3DTopia-XL，能从文本或图像输入生成带有高分辨率几何、纹理和PBR材质的高质量3D资产，在质量和效率上显著超越现有方法。
 
-**[A Comprehensive Study of Decoder-Only LLMs for Text-to-Image Generation](image_generation/a_comprehensive_study_of_decoder-only_llms_for_text-to-image_generation.md)**
+**[A Comprehensive Study Of Decoder-Only Llms For Text-To-Image Generation](image_generation/a_comprehensive_study_of_decoder-only_llms_for_text-to-image_generation.md)**
 
 :   系统研究了使用decoder-only LLM作为文本到图像扩散模型文本编码器的效果，发现直接使用最后一层embedding效果差于T5，但通过层归一化平均（layer-normalized averaging）聚合所有层的embedding可显著超越T5基线。
 
@@ -476,7 +483,7 @@
 
 ---
 
-## 🧩 多模态 VLM { #multimodal_vlm }
+## 🧩 多模态VLM { #multimodal_vlm }
 
 **[4D Langsplat 4D Language Gaussian Splatting Via Multimodal Large Language Models](multimodal_vlm/4d_langsplat_4d_language_gaussian_splatting_via_multimodal_large_language_models.md)**
 
@@ -542,7 +549,7 @@
 
 :   提出2DMamba，首个具有高效并行算法的**原生2D选择性状态空间模型**，通过保持2D空间连续性（而非展平为1D序列）来建模WSI中的patch间关系，在10个公共病理数据集上全面超越1D Mamba方法，并在ImageNet分类和ADE20K分割上也有提升。
 
-**[A Distractor-Aware Memory for Visual Object Tracking with SAM2](segmentation/a_distractor-aware_memory_for_visual_object_tracking_with_sam2.md)**
+**[A Distractor-Aware Memory For Visual Object Tracking With Sam2](segmentation/a_distractor-aware_memory_for_visual_object_tracking_with_sam2.md)**
 
 :   提出SAM2.1++的干扰物感知记忆模型（DAM），将SAM2的记忆拆分为近期外观记忆（RAM，确保分割精度）和干扰物解析记忆（DRM，确保跟踪鲁棒性），通过内省式更新策略检测干扰物并自动存储锚帧，在7个基准上设立新SOTA。
 
@@ -646,7 +653,7 @@
 
 :   首次从毫米波雷达图像进行3D人脸重建：用物理雷达渲染器生成合成数据集训练CNN编码器估计BFM参数，再通过学习一个可微分雷达渲染器构建model-based autoencoder，在合成数据上实现2.56mm平均点距精度，并可在推理时无监督优化参数。
 
-**[Analyzing the Synthetic-to-Real Domain Gap in 3D Hand Pose Estimation](human_understanding/analyzing_the_synthetic-to-real_domain_gap_in_3d_hand_pose_estimation.md)**
+**[Analyzing The Synthetic-To-Real Domain Gap In 3D Hand Pose Estimation](human_understanding/analyzing_the_synthetic-to-real_domain_gap_in_3d_hand_pose_estimation.md)**
 
 :   首次系统研究3D手势估计中合成数据到真实数据的域差距，通过可控数据合成管线分解并分析了前臂、频谱统计、手势分布、物体遮挡四个关键因素的影响，证明合理整合这些因素后纯合成数据可达到与真实数据同等的精度。
 
@@ -722,7 +729,7 @@
 
 ## 🎬 视频理解 { #video_understanding }
 
-**[AnimateAnything: Consistent and Controllable Animation for Video Generation](video_understanding/animateanything_consistent_and_controllable_animation_for_video_generation.md)**
+**[Animateanything Consistent And Controllable Animation For Video Generation](video_understanding/animateanything_consistent_and_controllable_animation_for_video_generation.md)**
 
 :   提出两阶段可控视频生成框架：第一阶段将不同控制信号（相机轨迹、用户拖拽标注、参考视频）统一转化为逐帧光流表示，第二阶段用统一光流引导基于DiT的视频扩散模型生成最终视频，并引入频域稳定模块抑制大运动下的闪烁问题。
 
@@ -788,7 +795,7 @@
 
 ---
 
-## ⚖️ 对齐 / RLHF { #llm_alignment }
+## ⚖️ 对齐/RLHF { #llm_alignment }
 
 **[Bases Of Steerable Kernels For Equivariant Cnns From 2D Rotations To The Lorentz](llm_alignment/bases_of_steerable_kernels_for_equivariant_cnns_from_2d_rotations_to_the_lorentz.md)**
 
@@ -896,7 +903,7 @@
 
 ---
 
-## 🛡️ AI 安全 { #ai_safety }
+## 🛡️ AI安全 { #ai_safety }
 
 **[Lyapunov Stable Graph Neural Flow](ai_safety/lyapunov_stable_graph_neural_flow.md)**
 
@@ -946,25 +953,13 @@
 
 ## 🔍 信息检索/RAG { #information_retrieval }
 
-**[Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training](information_retrieval/advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
+**[Advancing Myopia To Holism Fully Contrastive Language-Image Pre-Training](information_retrieval/advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
 
 :   将CLIP从传统的一对一(image, text)对比学习升级为多对多(multi-image-embeddings, multi-texts)对比学习范式，通过VLM生成多视角多层次的描述文本、多分支视觉编码器输出多种视觉embedding，实现更全面的视觉语言对齐，在检索/分类/密集任务上大幅超越baseline。
 
 **[Chathuman Chatting About 3D Humans With Tools](information_retrieval/chathuman_chatting_about_3d_humans_with_tools.md)**
 
 :   提出 ChatHuman，一个基于 LLM 的语言驱动系统，通过自动选择和集成专门的 3D 人体分析工具（3D 姿态估计、形状恢复、接触检测、人物交互分析、情感识别等），利用学术论文作为工具使用说明和 RAG（检索增强生成）创建 in-context 示例以管理新工具，在工具选择准确率和整体 3D 人体任务性能上超越现有 LLM 模型。
-
----
-
-## 👥 社会计算 { #social_computing }
-
-**[As Language Models Scale Low-Order Linear Depth Dynamics Emerge](social_computing/as_language_models_scale_low-order_linear_depth_dynamics_emerge.md)**
-
-:   将 Transformer 的深度方向视为离散时间动力系统，发现在给定上下文内可以用仅 32 维的线性状态空间代理模型高精度预测层间灵敏度曲线（Spearman 达 0.99），而且令人惊讶的是：**模型越大，低阶线性代理越准确**——这是一条新的 scaling law。
-
-**[As Language Models Scale, Low-order Linear Depth Dynamics Emerge](social_computing/as_language_models_scale_low-order_linear_depth_dynamics_emerge_v2.md)**
-
-:   将 Transformer 的深度方向视为离散时间动力系统，发现在给定上下文内可以用仅 32 维的线性状态空间代理模型高精度预测层间灵敏度曲线（Spearman 达 0.99），而且令人惊讶的是：**模型越大，低阶线性代理越准确**——这是一条新的 scaling law。
 
 ---
 
@@ -984,7 +979,7 @@
 
 ---
 
-## ⚡ LLM 效率 { #llm_efficiency }
+## ⚡ LLM效率 { #llm_efficiency }
 
 **[Efficient Data Driven Mixture-Of-Expert Extraction From Trained Networks](llm_efficiency/efficient_data_driven_mixture-of-expert_extraction_from_trained_networks.md)**
 
@@ -992,7 +987,7 @@
 
 ---
 
-## 📊 LLM 评测 { #llm_evaluation }
+## 📊 LLM评测 { #llm_evaluation }
 
 **[Out Of Sight Out Of Mind Evaluating State Evolution In Video World Models](llm_evaluation/out_of_sight_out_of_mind_evaluating_state_evolution_in_video_world_models.md)**
 
@@ -1000,7 +995,7 @@
 
 ---
 
-## 💡 LLM 推理 { #llm_reasoning }
+## 💡 LLM推理 { #llm_reasoning }
 
 **[Interleaved-Modal Chain-Of-Thought](llm_reasoning/interleaved-modal_chain-of-thought.md)**
 
@@ -1021,6 +1016,14 @@
 **[Thinking In Streaming Video](reinforcement_learning/thinking_in_streaming_video.md)**
 
 :   提出 ThinkStream，采用 Watch-Think-Speak 范式实现流式视频的实时连续推理，通过 RCSM（推理压缩流式记忆）将推理 trace 作为紧凑语义锚点替代旧视觉 token，配合 Streaming RLVR 训练策略，在保持低延迟/低内存的同时超越现有在线视频模型。
+
+---
+
+## 👥 社会计算 { #social_computing }
+
+**[As Language Models Scale Low-Order Linear Depth Dynamics Emerge](social_computing/as_language_models_scale_low-order_linear_depth_dynamics_emerge.md)**
+
+:   将 Transformer 的深度方向视为离散时间动力系统，发现在给定上下文内可以用仅 32 维的线性状态空间代理模型高精度预测层间灵敏度曲线（Spearman 达 0.99），而且令人惊讶的是：**模型越大，低阶线性代理越准确**——这是一条新的 scaling law。
 
 ---
 

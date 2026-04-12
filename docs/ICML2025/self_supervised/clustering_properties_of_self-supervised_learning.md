@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Clustering Properties of Self-Supervised Learning 论文解读 | ICML 2025 | arXiv 2501.18452 | 自监督学习 | 从理论角度分析自监督学习（SSL）表示的聚类性质，证明 SSL 方法（对比学习、正则化方法等）在优化充分时会产生具有聚类结构的表示——类内紧凑、类间分离，连接了 SSL 与有监督学习中的神经塌缩现象。"
+title: >-
+  [论文解读] Clustering Properties of Self-Supervised Learning
+description: >-
+  [ICML 2025][自监督学习][自监督学习] 从理论角度分析自监督学习（SSL）表示的聚类性质，证明 SSL 方法（对比学习、正则化方法等）在优化充分时会产生具有聚类结构的表示——类内紧凑、类间分离，连接了 SSL 与有监督学习中的神经塌缩现象。
 tags:
   - ICML 2025
   - 自监督学习

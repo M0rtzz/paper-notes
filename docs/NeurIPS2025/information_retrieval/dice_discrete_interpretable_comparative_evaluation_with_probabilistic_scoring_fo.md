@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DICE: Discrete Interpretable Comparative Evaluation with Probabilistic Scoring for RAG 论文解读 | NeurIPS 2025 (ResponsibleFM Workshop) | arXiv 2512.22629 | RAG evaluation | 提出 DICE 框架，通过两阶段评估（证据耦合深度分析 + 概率化 {A,B,Tie} 打分）和瑞士赛制锦标赛实现 RAG 系统的可解释、鲁棒、高效评估，在中文金融 QA 数据集上达到 85.7% 人类专家一致率，远超 RAGAS（45.7%）。"
+title: >-
+  [论文解读] DICE: Discrete Interpretable Comparative Evaluation with Probabilistic Scoring for RAG
+description: >-
+  [NeurIPS 2025 (ResponsibleFM Workshop)][RAG evaluation] 提出 DICE 框架，通过两阶段评估（证据耦合深度分析 + 概率化 {A,B,Tie} 打分）和瑞士赛制锦标赛实现 RAG 系统的可解释、鲁棒、高效评估，在中文金融 QA 数据集上达到 85.7% 人类专家一致率，远超 RAGAS（45.7%）。
 tags:
   - NeurIPS 2025 (ResponsibleFM Workshop)
   - RAG evaluation

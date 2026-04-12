@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CometNet: Contextual Motif-guided Long-term Time Series Forecasting 论文解读 | AAAI 2026 | arXiv 2511.08049 | 长时序预测 | 提出 CometNet，通过从完整历史序列中提取循环出现的\"上下文 motif\"构建 motif 库，再用 motif 引导的 MoE 架构动态关联当前窗口与相关motif进行预测，突破了有限回看窗口的感受野瓶颈，在8个数据集上显著超越 TimeMixer++、iTransformer 等 SOTA。"
+title: >-
+  [论文解读] CometNet: Contextual Motif-guided Long-term Time Series Forecasting
+description: >-
+  [AAAI 2026][时间序列][长时序预测] 提出 CometNet，通过从完整历史序列中提取循环出现的"上下文 motif"构建 motif 库，再用 motif 引导的 MoE 架构动态关联当前窗口与相关motif进行预测，突破了有限回看窗口的感受野瓶颈，在8个数据集上显著超越 TimeMixer++、iTransformer 等 SOTA。
 tags:
   - AAAI 2026
+  - 时间序列
   - 长时序预测
   - 上下文motif
   - 混合专家

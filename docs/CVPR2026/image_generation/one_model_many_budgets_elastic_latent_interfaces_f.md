@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】One Model, Many Budgets: Elastic Latent Interfaces for Diffusion Transformers 论文解读 | CVPR 2026 | arXiv 2603.12245 | Transformer Diffusion Transformer | 提出ELIT（Elastic Latent Interface Transformer），通过在DiT中插入可变长度的潜在token接口和轻量级Read/Write交叉注意力层，将计算量与输入分辨率解耦，使单一模型支持多种推理预算，在ImageNet-1K 512px上FID和FDD分别提升35.3%和39.6%。"
+title: >-
+  [论文解读] One Model, Many Budgets: Elastic Latent Interfaces for Diffusion Transformers
+description: >-
+  [CVPR 2026][图像生成][Transformer] 提出ELIT（Elastic Latent Interface Transformer），通过在DiT中插入可变长度的潜在token接口和轻量级Read/Write交叉注意力层，将计算量与输入分辨率解耦，使单一模型支持多种推理预算，在ImageNet-1K 512px上FID和FDD分别提升35.3%和39.6%。
 tags:
   - CVPR 2026
+  - 图像生成
   - Transformer
   - 弹性推理
   - 潜在接口

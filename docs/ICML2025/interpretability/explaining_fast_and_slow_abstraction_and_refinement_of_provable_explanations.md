@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Explaining, Fast and Slow: Abstraction and Refinement of Provable Explanations 论文解读 | ICML 2025 | arXiv 2506.08505 | provable explanations | 本文提出了一种基于抽象-细化的方法来高效计算神经网络预测的可证明充分解释（provably sufficient explanations），通过将大网络抽象为小网络来加速验证过程，解释质量有形式化保证。"
+title: >-
+  [论文解读] Explaining, Fast and Slow: Abstraction and Refinement of Provable Explanations
+description: >-
+  [ICML 2025][provable explanations] 本文提出了一种基于抽象-细化的方法来高效计算神经网络预测的可证明充分解释（provably sufficient explanations），通过将大网络抽象为小网络来加速验证过程，解释质量有形式化保证。
 tags:
   - ICML 2025
   - provable explanations

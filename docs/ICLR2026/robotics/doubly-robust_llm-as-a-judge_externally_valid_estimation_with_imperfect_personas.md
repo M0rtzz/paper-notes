@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Doubly-Robust LLM-as-a-Judge: Externally Valid Estimation with Imperfect Personas 论文解读 | ICLR2026 | arXiv 2509.22957 | LLM-as-a-Judge | 提出一种 doubly-robust 估计框架，将不完美的 LLM persona 评分与存在采样偏差的人工评分相结合，在协变量偏移和选择偏差同时存在时仍能产生统计有效的 GenAI 系统质量估计。"
+title: >-
+  [论文解读] Doubly-Robust LLM-as-a-Judge: Externally Valid Estimation with Imperfect Personas
+description: >-
+  [ICLR2026][机器人][LLM-as-a-Judge] 提出一种 doubly-robust 估计框架，将不完美的 LLM persona 评分与存在采样偏差的人工评分相结合，在协变量偏移和选择偏差同时存在时仍能产生统计有效的 GenAI 系统质量估计。
 tags:
   - ICLR2026
+  - 机器人
   - LLM-as-a-Judge
   - Doubly-Robust Estimation
   - External Validity

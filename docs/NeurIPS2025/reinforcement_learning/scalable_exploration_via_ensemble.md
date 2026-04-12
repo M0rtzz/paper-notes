@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Ensemble++: Scalable Exploration via Ensemble 论文解读 | NeurIPS 2025 | arXiv 2407.13195 | Thompson Sampling | 提出 Ensemble++，通过共享因子矩阵的增量更新机制，仅需 Θ(dlog T) 的集成大小即可实现与精确 Thompson Sampling 相当的遗憾界，并自然扩展到非线性/神经网络场景。"
+title: >-
+  [论文解读] Ensemble++: Scalable Exploration via Ensemble
+description: >-
+  [NeurIPS 2025][Thompson Sampling] 提出 Ensemble++，通过共享因子矩阵的增量更新机制，仅需 $\Theta(d\log T)$ 的集成大小即可实现与精确 Thompson Sampling 相当的遗憾界，并自然扩展到非线性/神经网络场景。
 tags:
   - NeurIPS 2025
   - Thompson Sampling

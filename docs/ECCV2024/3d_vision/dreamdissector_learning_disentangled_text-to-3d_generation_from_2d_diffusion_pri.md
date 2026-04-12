@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] DreamDissector: Learning Disentangled Text-to-3D Generation from 2D Diffusion Priors
+description: >-
+  [ECCV 2024][3D视觉][Text-to-3D] 提出DreamDissector框架，通过Neural Category Field和Deep Concept Mining将包含多物体交互的text-to-3D NeRF解耦为独立的带纹理网格，实现物体级别的3D编辑控制。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - Text-to-3D
+  - NeRF解耦
+  - 扩散模型
+  - Score Distillation Sampling
+  - 3D编辑
+---
+
 # DreamDissector: Learning Disentangled Text-to-3D Generation from 2D Diffusion Priors
 
 **会议**: ECCV 2024  

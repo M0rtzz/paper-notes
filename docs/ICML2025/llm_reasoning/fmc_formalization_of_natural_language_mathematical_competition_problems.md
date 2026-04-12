@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】FMC: Formalization of Natural Language Mathematical Competition Problems 论文解读 | 本文提出基于 LLM 错误反馈的全自动形式化流水线，将自然语言数学竞赛题转化为 Lean 形式化表示，构建了包含 3,922 道自然语言与 9,787 条 Lean 形式化对齐的奥赛级数据集 FMC，并验证了其作为自动定理证明基准的价值。"
+title: >-
+  [论文解读] FMC: Formalization of Natural Language Mathematical Competition Problems
+description: >-
+  [LLM推理] 本文提出基于 LLM 错误反馈的全自动形式化流水线，将自然语言数学竞赛题转化为 Lean 形式化表示，构建了包含 3,922 道自然语言与 9,787 条 Lean 形式化对齐的奥赛级数据集 FMC，并验证了其作为自动定理证明基准的价值。
 tags:
-
+  - LLM推理
 ---
 
 # FMC: Formalization of Natural Language Mathematical Competition Problems

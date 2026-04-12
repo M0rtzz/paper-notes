@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning-Augmented Online Bipartite Fractional Matching 论文解读 | NeurIPS 2025 | arXiv 2505.19252 | 在线二部匹配 | 本文提出了两个学习增强算法（LAB 和 PAW），用于在线二部分数匹配问题，在给定可能不准确的建议匹配的情况下，首次在整个鲁棒性范围内 Pareto 优于朴素的 CoinFlip 策略。"
+title: >-
+  [论文解读] Learning-Augmented Online Bipartite Fractional Matching
+description: >-
+  [NeurIPS 2025][在线二部匹配] 本文提出了两个学习增强算法（LAB 和 PAW），用于在线二部分数匹配问题，在给定可能不准确的建议匹配的情况下，首次在整个鲁棒性范围内 Pareto 优于朴素的 CoinFlip 策略。
 tags:
   - NeurIPS 2025
   - 在线二部匹配

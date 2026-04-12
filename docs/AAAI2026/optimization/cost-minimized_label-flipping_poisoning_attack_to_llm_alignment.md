@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cost-Minimized Label-Flipping Poisoning Attack to LLM Alignment 论文解读 | AAAI 2026 | arXiv 2511.09105 | 数据投毒攻击 | 首次从理论上分析了在 RLHF/DPO 对齐过程中，通过翻转偏好标签来引导 LLM 策略走向攻击者目标所需的最小成本，将其形式化为凸优化问题并推导了成本的上下界，进而提出 PCM（Poisoning Cost Minimization）后处理方法，可在保持投毒效果的同时显著减少标签翻转数量。"
+title: >-
+  [论文解读] Cost-Minimized Label-Flipping Poisoning Attack to LLM Alignment
+description: >-
+  [AAAI 2026][优化][数据投毒攻击] 首次从理论上分析了在 RLHF/DPO 对齐过程中，通过翻转偏好标签来引导 LLM 策略走向攻击者目标所需的最小成本，将其形式化为凸优化问题并推导了成本的上下界，进而提出 PCM（Poisoning Cost Minimization）后处理方法，可在保持投毒效果的同时显著减少标签翻转数量。
 tags:
   - AAAI 2026
+  - 优化
   - 数据投毒攻击
   - RLHF/DPO
   - 标签翻转

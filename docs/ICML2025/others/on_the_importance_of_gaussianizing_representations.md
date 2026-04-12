@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Importance of Gaussianizing Representations 论文解读 | ICML2025 | arXiv 2505.00685 | Gaussianization | 基于信息论动机（正态分布同时是最优信号与最差噪声分布），提出 Normality Normalization 层：在常规归一化之后用 Power Transform 高斯化激活值，并注入缩放高斯噪声进行正则化，在 ViT/ResNet 上普遍提升泛化与鲁棒性，且不引入额外可学习参数。"
+title: >-
+  [论文解读] On the Importance of Gaussianizing Representations
+description: >-
+  [ICML2025][Gaussianization] 基于信息论动机（正态分布同时是最优信号与最差噪声分布），提出 Normality Normalization 层：在常规归一化之后用 Power Transform 高斯化激活值，并注入缩放高斯噪声进行正则化，在 ViT/ResNet 上普遍提升泛化与鲁棒性，且不引入额外可学习参数。
 tags:
   - ICML2025
   - Gaussianization

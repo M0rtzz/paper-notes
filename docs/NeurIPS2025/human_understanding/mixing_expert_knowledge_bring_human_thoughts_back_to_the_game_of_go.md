@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mixing Expert Knowledge: Bring Human Thoughts Back to the Game of Go 论文解读 | NeurIPS 2025 | arXiv 2601.16447 | LLM | 提出 LoGos，通过混合领域专家数据（围棋）与通用长 CoT 推理数据进行冷启动微调 + GRPO 强化学习，使通用 LLM 在围棋中达到职业棋手水平的同时保持优秀的通用推理能力。"
+title: >-
+  [论文解读] Mixing Expert Knowledge: Bring Human Thoughts Back to the Game of Go
+description: >-
+  [NeurIPS 2025][人体理解][LLM] 提出 LoGos，通过混合领域专家数据（围棋）与通用长 CoT 推理数据进行冷启动微调 + GRPO 强化学习，使通用 LLM 在围棋中达到职业棋手水平的同时保持优秀的通用推理能力。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - LLM
   - 围棋
   - 领域专家知识

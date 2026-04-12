@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bone Soups: A Seek-and-Soup Model Merging Approach for Controllable Multi-Objective Generation 论文解读 | ACL 2025 | arXiv 2502.10762 | 模型合并 | 提出 Bone Soup 模型合并方法，通过先构造\"骨架奖励\"（多目标奖励的组合）训练骨架模型、再用对称循环矩阵映射确定合并系数，解决了 Rewarded Soup 中单目标模型合并的次优性问题，在三个多目标生成任务上实现更好的 Pareto 前沿和可控性。"
+title: >-
+  [论文解读] Bone Soups: A Seek-and-Soup Model Merging Approach for Controllable Multi-Objective Generation
+description: >-
+  [ACL 2025][模型合并] 提出 Bone Soup 模型合并方法，通过先构造"骨架奖励"（多目标奖励的组合）训练骨架模型、再用对称循环矩阵映射确定合并系数，解决了 Rewarded Soup 中单目标模型合并的次优性问题，在三个多目标生成任务上实现更好的 Pareto 前沿和可控性。
 tags:
   - ACL 2025
   - 模型合并

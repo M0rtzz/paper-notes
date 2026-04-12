@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LUMIA: A Handheld Vision-to-Music System for Real-Time, Embodied Composition 论文解读 | NeurIPS 2025 | arXiv 2512.17228 | 视觉转音乐 | 提出Lumia——一个手持相机式设备，通过GPT-4 Vision分析拍摄画面生成结构化提示，再由Stable Audio合成音乐循环段，实现从视觉到音乐的实时、具身化即兴创作工作流。"
+title: >-
+  [论文解读] LUMIA: A Handheld Vision-to-Music System for Real-Time, Embodied Composition
+description: >-
+  [NeurIPS 2025][人体理解][视觉转音乐] 提出Lumia——一个手持相机式设备，通过GPT-4 Vision分析拍摄画面生成结构化提示，再由Stable Audio合成音乐循环段，实现从视觉到音乐的实时、具身化即兴创作工作流。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 视觉转音乐
   - 实时作曲
   - 人机共创

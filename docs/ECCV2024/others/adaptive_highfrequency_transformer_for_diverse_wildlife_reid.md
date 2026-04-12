@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Adaptive High-Frequency Transformer for Diverse Wildlife Re-Identification 论文解读 | ECCV 2024 | arXiv 2410.06977 | Wildlife ReID | 提出自适应高频Transformer（AdaFreq），通过频域混合增强、目标感知的高频token动态选择、特征均衡损失三大策略，将高频信息（毛皮纹理、轮廓边缘等）统一用于多种野生动物的重识别，在8个跨物种数据集上超越现有ReID方法。"
+title: >-
+  [论文解读] Adaptive High-Frequency Transformer for Diverse Wildlife Re-Identification
+description: >-
+  [ECCV 2024][Wildlife ReID] 提出自适应高频Transformer（AdaFreq），通过频域混合增强、目标感知的高频token动态选择、特征均衡损失三大策略，将高频信息（毛皮纹理、轮廓边缘等）统一用于多种野生动物的重识别，在8个跨物种数据集上超越现有ReID方法。
 tags:
   - ECCV 2024
   - Wildlife ReID

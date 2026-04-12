@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mapping 1,000+ Language Models via the Log-Likelihood Vector 论文解读 | ACL 2025 | arXiv 2502.16173 | model mapping | 提出用对数似然向量（log-likelihood vector）将 1000+ 语言模型映射到一个统一空间，证明向量间欧氏距离近似 KL 散度，可实现模型聚类可视化、基准性能预测（r=0.96）和数据泄漏检测。"
+title: >-
+  [论文解读] Mapping 1,000+ Language Models via the Log-Likelihood Vector
+description: >-
+  [ACL 2025][LLM/NLP][model mapping] 提出用对数似然向量（log-likelihood vector）将 1000+ 语言模型映射到一个统一空间，证明向量间欧氏距离近似 KL 散度，可实现模型聚类可视化、基准性能预测（r=0.96）和数据泄漏检测。
 tags:
   - ACL 2025
+  - LLM/NLP
   - model mapping
   - log-likelihood vector
   - KL divergence

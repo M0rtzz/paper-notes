@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bridging Generalization Gap of Heterogeneous Federated Clients Using Generative Models 论文解读 | ICLR 2026 | arXiv 2508.01669 | 模型异构联邦学习 | FedVTC 提出在模型异构联邦学习中，各客户端通过变分转置卷积网络（VTC）从聚合的特征分布统计量中生成合成数据来微调本地模型，无需公共数据集即可显著提升泛化能力，同时降低通信和内存开销。"
+title: >-
+  [论文解读] Bridging Generalization Gap of Heterogeneous Federated Clients Using Generative Models
+description: >-
+  [ICLR 2026][图像生成][模型异构联邦学习] FedVTC 提出在模型异构联邦学习中，各客户端通过变分转置卷积网络（VTC）从聚合的特征分布统计量中生成合成数据来微调本地模型，无需公共数据集即可显著提升泛化能力，同时降低通信和内存开销。
 tags:
   - ICLR 2026
+  - 图像生成
   - 模型异构联邦学习
   - 变分转置卷积
   - 合成数据微调

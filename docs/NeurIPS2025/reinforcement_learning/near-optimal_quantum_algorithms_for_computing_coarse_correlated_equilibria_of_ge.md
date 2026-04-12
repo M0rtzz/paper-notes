@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Near-Optimal Quantum Algorithms for Computing (Coarse) Correlated Equilibria of General-Sum Games 论文解读 | NeurIPS 2025 | arXiv 2510.16782 | 量子算法 | 首次研究计算多玩家一般和博弈的相关均衡（CE）和粗相关均衡（CCE）的量子算法，通过量子化多尺度 MWU 方法和统一 QRAM 方案，实现 tildeO(msqrtn) 的近最优查询复杂度（在玩家数 m 和动作数 n 上），并证明了匹配的量子下界。"
+title: >-
+  [论文解读] Near-Optimal Quantum Algorithms for Computing (Coarse) Correlated Equilibria of General-Sum Games
+description: >-
+  [NeurIPS 2025][量子算法] 首次研究计算多玩家一般和博弈的相关均衡（CE）和粗相关均衡（CCE）的量子算法，通过量子化多尺度 MWU 方法和统一 QRAM 方案，实现 $\tilde{O}(m\sqrt{n})$ 的近最优查询复杂度（在玩家数 m 和动作数 n 上），并证明了匹配的量子下界。
 tags:
   - NeurIPS 2025
   - 量子算法

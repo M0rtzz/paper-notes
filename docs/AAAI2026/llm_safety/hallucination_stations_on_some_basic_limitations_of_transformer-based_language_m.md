@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Hallucination Stations: On Some Basic Limitations of Transformer-Based Language Models 论文解读 | AAAI 2026 | arXiv 2507.07505 | 幻觉 | 从计算复杂性角度分析LLM幻觉和能力局限，论证超过特定计算复杂度后LLM不仅无法正确执行任务，甚至无法验证其输出的正确性，为幻觉问题划定理论边界。"
+title: >-
+  [论文解读] Hallucination Stations: On Some Basic Limitations of Transformer-Based Language Models
+description: >-
+  [AAAI 2026][幻觉] 从计算复杂性角度分析LLM幻觉和能力局限，论证超过特定计算复杂度后LLM不仅无法正确执行任务，甚至无法验证其输出的正确性，为幻觉问题划定理论边界。
 tags:
   - AAAI 2026
   - 幻觉

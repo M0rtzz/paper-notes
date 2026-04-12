@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GraphFLA: Augmenting Biological Fitness Prediction Benchmarks with Landscape Features 论文解读 | NeurIPS 2025 | arXiv 2510.24826 | 适应度景观 | GraphFLA 是一个高效的适应度景观分析框架——计算 20 个生物学意义的景观特征（粗糙度/上位性/可导航性/中性），在 5300+ 真实景观（ProteinGym/RNAGym/CIS-BP）上揭示模型性能高度依赖景观拓扑，如 VenusREM 在高可导航性景观上优于 ProSST 但在高上位性景观上弱于后者，处理百万突变体仅需 20 秒（vs MAGELLAN 5 小时）。"
+title: >-
+  [论文解读] GraphFLA: Augmenting Biological Fitness Prediction Benchmarks with Landscape Features
+description: >-
+  [NeurIPS 2025][医学图像][适应度景观] GraphFLA 是一个高效的适应度景观分析框架——计算 20 个生物学意义的景观特征（粗糙度/上位性/可导航性/中性），在 5300+ 真实景观（ProteinGym/RNAGym/CIS-BP）上揭示模型性能高度依赖景观拓扑，如 VenusREM 在高可导航性景观上优于 ProSST 但在高上位性景观上弱于后者，处理百万突变体仅需 20 秒（vs MAGELLAN 5 小时）。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 适应度景观
   - 蛋白质工程
   - landscape特征

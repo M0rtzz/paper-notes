@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Resource Efficient Sleep Staging via Multi-Level Masking and Prompt Learning 论文解读 | AAAI2026 | arXiv 2511.06785 | sleep staging | 提出 MASS (Mask-Aware Sleep Staging) 框架，通过多层级 masking 策略和层次化 prompt learning 机制，仅用 **10% 的原始 EEG 信号**即可实现可靠的睡眠分期，为资源受限的可穿戴睡眠监测系统提供方案。"
+title: >-
+  [论文解读] Resource Efficient Sleep Staging via Multi-Level Masking and Prompt Learning
+description: >-
+  [AAAI2026][目标检测][sleep staging] 提出 MASS (Mask-Aware Sleep Staging) 框架，通过多层级 masking 策略和层次化 prompt learning 机制，仅用 **10% 的原始 EEG 信号**即可实现可靠的睡眠分期，为资源受限的可穿戴睡眠监测系统提供方案。
 tags:
   - AAAI2026
+  - 目标检测
   - sleep staging
   - EEG
   - masking

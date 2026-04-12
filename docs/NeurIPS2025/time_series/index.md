@@ -1,7 +1,14 @@
+---
+title: >-
+  NeurIPS2025 时间序列方向 47篇论文解读
+description: >-
+  47篇NeurIPS2025 时间序列方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🧠 NeurIPS2025** · 共 **48** 篇
+**🧠 NeurIPS2025** · 共 **47** 篇
 
 **[A Graph Neural Network Approach For Localized And High-Resolution Temperature Fo](a_graph_neural_network_approach_for_localized_and_high-resolution_temperature_fo.md)**
 
@@ -74,10 +81,6 @@
 **[Ioncast A Deep Learning Framework For Forecasting Ionospheric Dynamics](ioncast_a_deep_learning_framework_for_forecasting_ionospheric_dynamics.md)**
 
 :   提出 IonCast 框架，基于 GraphCast 启发的图神经网络架构，融合多源异构物理驱动数据，实现全球总电子含量（TEC）的高精度时空预测。
-
-**[IonCast: A Deep Learning Framework for Forecasting Ionospheric Dynamics](ioncast_a_deep_learning_framework_for_forecasting_ionospheric_total_electron_con.md)**
-
-:   提出IonCast框架，包含基于GraphCast的GNN模型和ConvLSTM基线，融合多源异构空间天气数据（TEC图、太阳风、地磁指数、轨道力学等）进行全球电离层总电子含量（TEC）的时空预测，在地磁风暴条件下优于持续性基线和IRI经验模型。
 
 **[Learning Time-Scale Invariant Population-Level Neural Representations](learning_time-scale_invariant_population-level_neural_representations.md)**
 

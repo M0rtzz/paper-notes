@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】Beyond Single Images: Retrieval Self-Augmented Unsupervised Camouflaged Object Detection 论文解读 | ICCV 2025 | arXiv 2510.18437 | 目标检测 camouflaged object detection | 本文提出 RISE——一种检索自增强的无监督伪装目标检测范式，通过从训练集本身构建前景/背景原型库并利用 KNN 检索生成伪标签，在无任何标注的条件下大幅超越现有无监督和基于提示的方法。"
+title: >-
+  [论文解读] Beyond Single Images: Retrieval Self-Augmented Unsupervised Camouflaged Object Detection
+description: >-
+  [ICCV 2025][图像分割][目标检测] 本文提出 RISE——一种检索自增强的无监督伪装目标检测范式，通过从训练集本身构建前景/背景原型库并利用 KNN 检索生成伪标签，在无任何标注的条件下大幅超越现有无监督和基于提示的方法。
 tags:
   - ICCV 2025
-  - 目标检测
   - 图像分割
+  - 目标检测
   - retrieval-augmented
   - KNN
   - prototype library

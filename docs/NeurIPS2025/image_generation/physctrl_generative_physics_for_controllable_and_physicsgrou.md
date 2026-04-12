@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation 论文解读 | 提出 PhysCtrl，通过生成式物理网络学习 4 种材质（弹性体、沙子、橡皮泥、刚体）的物理动力学分布，以 3D 点轨迹表示物理运动，结合 I2V 模型实现物理参数和力可控的视频生成。"
+title: >-
+  [论文解读] PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation
+description: >-
+  [图像生成] 提出 PhysCtrl，通过生成式物理网络学习 4 种材质（弹性体、沙子、橡皮泥、刚体）的物理动力学分布，以 3D 点轨迹表示物理运动，结合 I2V 模型实现物理参数和力可控的视频生成。
 tags:
-
+  - 图像生成
 ---
 
 # PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation

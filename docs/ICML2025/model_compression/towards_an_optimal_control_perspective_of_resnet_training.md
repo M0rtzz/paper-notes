@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Towards an Optimal Control Perspective of ResNet Training 论文解读 | 将 ResNet 训练形式化为最优控制问题，通过在中间层添加阶段成本 (stage cost) 损失实现自正则化，证明多余的深层权重渐近趋零，为理论驱动的层剪枝奠定基础。"
+title: >-
+  [论文解读] Towards an Optimal Control Perspective of ResNet Training
+description: >-
+  [模型压缩] 将 ResNet 训练形式化为最优控制问题，通过在中间层添加阶段成本 (stage cost) 损失实现自正则化，证明多余的深层权重渐近趋零，为理论驱动的层剪枝奠定基础。
 tags:
-
+  - 模型压缩
 ---
 
 # Towards an Optimal Control Perspective of ResNet Training

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models 论文解读 | NeurIPS 2025 | arXiv 2505.24630 | 幻觉 | 揭示了RL训练的推理模型（如DeepSeek-R1）比非推理模型产生更多幻觉，从理论上分析了三个根因（高方差梯度、熵约束、伪局部最优），并提出FSPO算法通过步级事实性验证调整token级advantage，在减少幻觉的同时保持甚至提升推理能力。"
+title: >-
+  [论文解读] Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models
+description: >-
+  [NeurIPS 2025][LLM推理][幻觉] 揭示了RL训练的推理模型（如DeepSeek-R1）比非推理模型产生更多幻觉，从理论上分析了三个根因（高方差梯度、熵约束、伪局部最优），并提出FSPO算法通过步级事实性验证调整token级advantage，在减少幻觉的同时保持甚至提升推理能力。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - 幻觉
   - 推理模型
   - 强化学习

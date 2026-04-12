@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improved Noise Schedule for Diffusion Training 论文解读 | ICCV 2025 | arXiv 2407.03297 | 噪声调度 | 提出从概率分布视角统一分析和设计扩散模型噪声调度的框架，发现将采样概率集中在 logSNR=0 附近（信号与噪声临界点）的 Laplace 噪声调度，在相同训练预算下比标准 cosine 调度 FID 提升 26.6%，且优于所有损失权重调整方法。"
+title: >-
+  [论文解读] Improved Noise Schedule for Diffusion Training
+description: >-
+  [ICCV 2025][图像生成][噪声调度] 提出从概率分布视角统一分析和设计扩散模型噪声调度的框架，发现将采样概率集中在 $\log\text{SNR}=0$ 附近（信号与噪声临界点）的 Laplace 噪声调度，在相同训练预算下比标准 cosine 调度 FID 提升 26.6%，且优于所有损失权重调整方法。
 tags:
   - ICCV 2025
+  - 图像生成
   - 噪声调度
   - 扩散模型训练
   - 重要性采样

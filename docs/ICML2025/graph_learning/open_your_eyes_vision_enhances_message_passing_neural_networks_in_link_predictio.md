@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Open Your Eyes: Vision Enhances Message Passing Neural Networks in Link Prediction 论文解读 | ICML2025 | arXiv 2505.08266 | 图神经网络 | 首次将视觉感知引入消息传递图神经网络(MPNN)，通过将子图可视化为图像并用视觉编码器提取视觉结构特征(VSF)，提出 GVN/E-GVN 框架，在 7 个链接预测基准上均达到 SOTA。"
+title: >-
+  [论文解读] Open Your Eyes: Vision Enhances Message Passing Neural Networks in Link Prediction
+description: >-
+  [ICML2025][图学习][图神经网络] 首次将视觉感知引入消息传递图神经网络(MPNN)，通过将子图可视化为图像并用视觉编码器提取视觉结构特征(VSF)，提出 GVN/E-GVN 框架，在 7 个链接预测基准上均达到 SOTA。
 tags:
   - ICML2025
+  - 图学习
   - 图神经网络
   - 链接预测
   - 视觉感知

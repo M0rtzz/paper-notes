@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Action-Free Offline-to-Online RL via Discretised State Policies 论文解读 | ICLR 2026 | arXiv 2602.00629 | 离线强化学习 | 提出首个形式化的\"无动作离线到在线 RL\"框架，通过学习离散化状态策略（推荐期望的下一状态转移而非动作），利用仅含 (s, r, s') 的离线数据预训练，再通过引导机制加速在线学习。"
+title: >-
+  [论文解读] Action-Free Offline-to-Online RL via Discretised State Policies
+description: >-
+  [ICLR 2026][AI安全][离线强化学习] 提出首个形式化的"无动作离线到在线 RL"框架，通过学习离散化状态策略（推荐期望的下一状态转移而非动作），利用仅含 (s, r, s') 的离线数据预训练，再通过引导机制加速在线学习。
 tags:
   - ICLR 2026
+  - AI安全
   - 离线强化学习
   - 在线强化学习
   - 无动作数据

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Condition Errors Refinement in Autoregressive Image Generation with Diffusion Loss 论文解读 | ICLR 2026 | arXiv 2602.07022 | autoregressive generation | 理论分析了自回归扩散损失模型相比条件扩散模型在条件误差修正上的优势（梯度范数指数衰减），并提出基于最优传输（Wasserstein Gradient Flow）的条件精炼方法来解决自回归过程中的\"条件不一致性\"问题，在 ImageNet 上达到 FID 1.31（基于 MAR）。"
+title: >-
+  [论文解读] Condition Errors Refinement in Autoregressive Image Generation with Diffusion Loss
+description: >-
+  [ICLR 2026][图像生成][autoregressive generation] 理论分析了自回归扩散损失模型相比条件扩散模型在条件误差修正上的优势（梯度范数指数衰减），并提出基于最优传输（Wasserstein Gradient Flow）的条件精炼方法来解决自回归过程中的"条件不一致性"问题，在 ImageNet 上达到 FID 1.31（基于 MAR）。
 tags:
   - ICLR 2026
+  - 图像生成
   - autoregressive generation
   - 扩散模型
   - condition refinement

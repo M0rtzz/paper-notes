@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Test-Time Visual In-Context Tuning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Visual in-context learning (VICL), as a new paradigm in computer vision, allows the model to rapidly adapt to various tasks with only a handful of prompts and examples. While effective, the existing VICL paradigm exhibits poor generalizability under distribution shifts. In this work, we propose test"
+title: >-
+  [论文解读] Test-Time Visual In-Context Tuning
+description: >-
+  [CVPR 2025][LLM/NLP][待补充] > 基于摘要：Visual in-context learning (VICL), as a new paradigm in computer vision, allows the model to rapidly adapt to various tasks with only a handful of prompts and examples. While effective, the existing VICL paradigm exhibits poor generalizability under distribution shifts. In this work, we propose test
 tags:
   - CVPR 2025
+  - LLM/NLP
   - 待补充
 ---
 

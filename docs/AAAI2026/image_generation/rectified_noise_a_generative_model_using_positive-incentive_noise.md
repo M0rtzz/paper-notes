@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rectified Noise: A Generative Model Using Positive-incentive Noise 论文解读 | AAAI 2026 | arXiv 2511.07911 | Rectified Flow | 提出 Rectified Noise（ΔRN），通过正向激励噪声（π-noise）框架学习一组有益噪声并注入预训练 Rectified Flow 模型的速度场中，以仅 0.39% 的额外参数在 ImageNet-1k 上将 FID 从 10.16 降低到 9.05。"
+title: >-
+  [论文解读] Rectified Noise: A Generative Model Using Positive-incentive Noise
+description: >-
+  [AAAI 2026][图像生成][Rectified Flow] 提出 Rectified Noise（ΔRN），通过正向激励噪声（π-noise）框架学习一组有益噪声并注入预训练 Rectified Flow 模型的速度场中，以仅 0.39% 的额外参数在 ImageNet-1k 上将 FID 从 10.16 降低到 9.05。
 tags:
   - AAAI 2026
+  - 图像生成
   - Rectified Flow
   - 正向激励噪声
   - 流匹配

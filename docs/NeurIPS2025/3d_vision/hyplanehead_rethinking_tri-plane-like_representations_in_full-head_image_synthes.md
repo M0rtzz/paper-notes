@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HyPlaneHead: Rethinking Tri-plane-like Representations in Full-Head Image Synthesis 论文解读 | NeurIPS 2025 | arXiv 2509.16748 | GAN 3D-aware GAN | 系统分析了 tri-plane 类表征在 3D 感知头部合成中的三大问题（镜像伪影、不均匀映射、特征穿透），提出 hy-plane 混合表征（平面+球面）结合 unify-split 策略和近等面积映射，在全头图像合成中达到 SOTA。"
+title: >-
+  [论文解读] HyPlaneHead: Rethinking Tri-plane-like Representations in Full-Head Image Synthesis
+description: >-
+  [NeurIPS 2025][3D视觉][GAN] 系统分析了 tri-plane 类表征在 3D 感知头部合成中的三大问题（镜像伪影、不均匀映射、特征穿透），提出 hy-plane 混合表征（平面+球面）结合 unify-split 策略和近等面积映射，在全头图像合成中达到 SOTA。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - GAN
   - tri-plane
   - full-head synthesis

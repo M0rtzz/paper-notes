@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement 论文解读 | CVPR2025 | arXiv 2603.06167 | 半监督学习 semi-supervised learning | 提出结合 VLM 无训练伪标签生成（外观描述 prompt 驱动 Grounding DINO + SAM）和双教师不确定性融合精炼的半监督乳腺超声分割框架，仅用 2.5% 标注数据即达到接近全监督的性能。"
+title: >-
+  [论文解读] A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement
+description: >-
+  [CVPR2025][医学图像][半监督学习] 提出结合 VLM 无训练伪标签生成（外观描述 prompt 驱动 Grounding DINO + SAM）和双教师不确定性融合精炼的半监督乳腺超声分割框架，仅用 2.5% 标注数据即达到接近全监督的性能。
 tags:
   - CVPR2025
+  - 医学图像
   - 半监督学习
   - 图像分割
   - pseudo label

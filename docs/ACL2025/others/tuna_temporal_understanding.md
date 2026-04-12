@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos 论文解读 | ACL 2025 | arXiv 2505.20124 | 视频理解 video understanding | 本文提出 Tuna，一个面向密集动态视频的细粒度时序理解基准，包含 1000 个精心标注的视频和两个互补任务（Tuna-cap 字幕生成和 Tuna-mcq 视频问答），覆盖相机状态、场景、动作、属性四大动态要素，评估 21 个模型后发现即使 GPT-4o 也仅达 58.5% F1，揭示了当前模型在时序理解上的重大不足。"
+title: >-
+  [论文解读] Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos
+description: >-
+  [ACL 2025][视频理解] 本文提出 Tuna，一个面向密集动态视频的细粒度时序理解基准，包含 1000 个精心标注的视频和两个互补任务（Tuna-cap 字幕生成和 Tuna-mcq 视频问答），覆盖相机状态、场景、动作、属性四大动态要素，评估 21 个模型后发现即使 GPT-4o 也仅达 58.5% F1，揭示了当前模型在时序理解上的重大不足。
 tags:
   - ACL 2025
   - 视频理解

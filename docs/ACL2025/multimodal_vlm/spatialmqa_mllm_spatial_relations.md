@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can Multimodal Large Language Models Understand Spatial Relations? 论文解读 | ACL 2025 (Long Paper) | arXiv 2505.19015 | 空间关系推理 | 提出SpatialMQA基准，通过5,392个基于COCO2017的人工标注多选题样本（无bbox、含视角替换、排除纯知识可答题），评测MLLM的空间关系推理能力，发现最强模型SpaceLLaVA仅达48.14%远低于人类98.40%。"
+title: >-
+  [论文解读] Can Multimodal Large Language Models Understand Spatial Relations?
+description: >-
+  [ACL 2025 (Long Paper)][多模态][空间关系推理] 提出SpatialMQA基准，通过5,392个基于COCO2017的人工标注多选题样本（无bbox、含视角替换、排除纯知识可答题），评测MLLM的空间关系推理能力，发现最强模型SpaceLLaVA仅达48.14%远低于人类98.40%。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 空间关系推理
   - MLLM评测
   - SpatialMQA

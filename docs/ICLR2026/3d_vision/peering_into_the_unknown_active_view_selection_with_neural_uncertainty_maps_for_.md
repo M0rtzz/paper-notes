@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Peering into the Unknown: Active View Selection with Neural Uncertainty Maps for 3D Reconstruction 论文解读 | ICLR 2026 | arXiv 2506.14856 | active view selection | 提出 PUN 方法，通过轻量级 UPNet（ViT）从单张图像预测神经不确定性图（球面坐标系下所有候选视点的不确定性分布），避免迭代 NeRF 重训练，仅用一半视点达到全视点上界的重建质量，实现 400 倍加速和 50%+ 计算节省。"
+title: >-
+  [论文解读] Peering into the Unknown: Active View Selection with Neural Uncertainty Maps for 3D Reconstruction
+description: >-
+  [ICLR 2026][3D视觉][active view selection] 提出 PUN 方法，通过轻量级 UPNet（ViT）从单张图像预测神经不确定性图（球面坐标系下所有候选视点的不确定性分布），避免迭代 NeRF 重训练，仅用一半视点达到全视点上界的重建质量，实现 400 倍加速和 50%+ 计算节省。
 tags:
   - ICLR 2026
+  - 3D视觉
   - active view selection
   - neural uncertainty map
   - 3D重建

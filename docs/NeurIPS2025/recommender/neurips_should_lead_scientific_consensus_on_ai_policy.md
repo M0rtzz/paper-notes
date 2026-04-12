@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】NeurIPS Should Lead Scientific Consensus on AI Policy 论文解读 | NeurIPS 2025 | arXiv 2510.00075 | 科学共识 | 本文是一篇立场论文，主张 NeurIPS 应主动承担 AI 政策领域的科学共识形成角色，借鉴 IPCC（政府间气候变化专门委员会）在气候科学中的成功经验，填补当前 AI 政策领域共识机制的空白。"
+title: >-
+  [论文解读] NeurIPS Should Lead Scientific Consensus on AI Policy
+description: >-
+  [NeurIPS 2025][科学共识] 本文是一篇立场论文，主张 NeurIPS 应主动承担 AI 政策领域的科学共识形成角色，借鉴 IPCC（政府间气候变化专门委员会）在气候科学中的成功经验，填补当前 AI 政策领域共识机制的空白。
 tags:
   - NeurIPS 2025
   - 科学共识

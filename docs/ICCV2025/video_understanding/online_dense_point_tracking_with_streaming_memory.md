@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Online Dense Point Tracking with Streaming Memory 论文解读 | ICCV 2025 | arXiv 2503.06471 | 稠密点跟踪 | 提出 SPOT 框架，通过定制的记忆读取模块、感知记忆（sensory memory）和可见性引导的 splatting 实现在线稠密长程点跟踪，以 10× 更少参数和 2× 更快速度达到 CVO 基准上的 SOTA，在多个稀疏跟踪基准上也超越或媲美离线方法。"
+title: >-
+  [论文解读] Online Dense Point Tracking with Streaming Memory
+description: >-
+  [ICCV 2025][视频理解][稠密点跟踪] 提出 SPOT 框架，通过定制的记忆读取模块、感知记忆（sensory memory）和可见性引导的 splatting 实现在线稠密长程点跟踪，以 10× 更少参数和 2× 更快速度达到 CVO 基准上的 SOTA，在多个稀疏跟踪基准上也超越或媲美离线方法。
 tags:
   - ICCV 2025
+  - 视频理解
   - 稠密点跟踪
   - 流式记忆
   - 光流

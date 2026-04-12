@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rapid Training of Hamiltonian Graph Networks using Random Features 论文解读 | ICLR 2026 | arXiv 2506.06558 | 哈密顿图网络 | 提出RF-HGN——用随机特征替代迭代梯度优化训练哈密顿图网络：随机采样隐藏层参数+用线性求解器确定输出层→训练速度比15种优化器快150-600倍且精度相当，保持置换/旋转/平移不变性，在8节点上训练可零样本泛化到4096节点系统，挑战了物理系统NN训练必须用梯度下降的主导范式。"
+title: >-
+  [论文解读] Rapid Training of Hamiltonian Graph Networks using Random Features
+description: >-
+  [ICLR 2026][人体理解][哈密顿图网络] 提出RF-HGN——用随机特征替代迭代梯度优化训练哈密顿图网络：随机采样隐藏层参数+用线性求解器确定输出层→训练速度比15种优化器快150-600倍且精度相当，保持置换/旋转/平移不变性，在8节点上训练可零样本泛化到4096节点系统，挑战了物理系统NN训练必须用梯度下降的主导范式。
 tags:
   - ICLR 2026
+  - 人体理解
   - 哈密顿图网络
   - 随机特征
   - 快速训练

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness 论文解读 | AAAI 2026 | arXiv 2602.12285 | LLM Agent | 首个系统性案例研究，揭示基于人口统计学的 persona 分配会导致 LLM Agent 在 5 个操作领域的任务执行中出现最高 26.2% 的性能下降，证明 persona 诱导的偏见从文本生成延伸到了行动决策层面。"
+title: >-
+  [论文解读] From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness
+description: >-
+  [AAAI 2026][LLM Agent][LLM Agent] 首个系统性案例研究，揭示基于人口统计学的 persona 分配会导致 LLM Agent 在 5 个操作领域的任务执行中出现最高 26.2% 的性能下降，证明 persona 诱导的偏见从文本生成延伸到了行动决策层面。
 tags:
   - AAAI 2026
   - LLM Agent

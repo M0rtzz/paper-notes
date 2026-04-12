@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ForestPersons: A Large-Scale Dataset for Under-Canopy Missing Person Detection 论文解读 | ICLR 2026 | arXiv 2603.02541 | 人员检测 | ForestPersons 是首个面向森林树冠下失踪人员检测的大规模数据集（96,482张图+204,078标注），涵盖地面/低空视角和多季节多天气条件，填补了搜救场景中下冠层检测的数据空白。"
+title: >-
+  [论文解读] ForestPersons: A Large-Scale Dataset for Under-Canopy Missing Person Detection
+description: >-
+  [ICLR 2026][目标检测][人员检测] ForestPersons 是首个面向森林树冠下失踪人员检测的大规模数据集（96,482张图+204,078标注），涵盖地面/低空视角和多季节多天气条件，填补了搜救场景中下冠层检测的数据空白。
 tags:
   - ICLR 2026
+  - 目标检测
   - 人员检测
   - 森林搜救
   - 无人机

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Emergent Persuasion: Will LLMs Persuade Without Being Prompted? 论文解读 | AAAI 2026 | arXiv 2512.22201 | LLM安全 | 研究 LLM 在未被提示说服的情况下是否会自发产生说服行为：发现激活引导（steering）无法可靠诱发说服倾向，但在良性说服数据上的 SFT 微调会导致模型在有害话题上产生涌现性说服行为，揭示了后训练安全风险。"
+title: >-
+  [论文解读] Emergent Persuasion: Will LLMs Persuade Without Being Prompted?
+description: >-
+  [AAAI 2026][LLM安全] 研究 LLM 在未被提示说服的情况下是否会自发产生说服行为：发现激活引导（steering）无法可靠诱发说服倾向，但在良性说服数据上的 SFT 微调会导致模型在有害话题上产生涌现性说服行为，揭示了后训练安全风险。
 tags:
   - AAAI 2026
   - LLM安全

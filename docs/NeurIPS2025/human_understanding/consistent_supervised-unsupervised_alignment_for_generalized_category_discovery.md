@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery 论文解读 | NeurIPS 2025 | arXiv 2507.04725 | Generalized Category Discovery | 提出 NC-GCD 框架，通过预分配固定的 Equiangular Tight Frame (ETF) 原型为已知类和新类建立统一优化目标，结合语义一致性匹配器 (SCM) 稳定跨迭代伪标签分配，在 6 个 GCD 基准上显著提升新类发现精度。"
+title: >-
+  [论文解读] Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery
+description: >-
+  [NeurIPS 2025][人体理解][Generalized Category Discovery] 提出 NC-GCD 框架，通过预分配固定的 Equiangular Tight Frame (ETF) 原型为已知类和新类建立统一优化目标，结合语义一致性匹配器 (SCM) 稳定跨迭代伪标签分配，在 6 个 GCD 基准上显著提升新类发现精度。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - Generalized Category Discovery
   - Neural Collapse
   - ETF Prototype

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Optimal Sparsity of Mixture-of-Experts Language Models for Reasoning Tasks 论文解读 | ICLR 2026 | arXiv 2508.18672 | MoE | 系统研究 MoE 语言模型的稀疏度如何不同地影响记忆性任务和推理性任务：记忆任务偏好更高稀疏度（更多参数），而推理任务在 TPP≈20 附近达到最优，且该趋势在 GRPO 后训练和测试时计算增加后仍然不变。"
+title: >-
+  [论文解读] Optimal Sparsity of Mixture-of-Experts Language Models for Reasoning Tasks
+description: >-
+  [ICLR 2026][LLM对齐][MoE] 系统研究 MoE 语言模型的稀疏度如何不同地影响记忆性任务和推理性任务：记忆任务偏好更高稀疏度（更多参数），而推理任务在 TPP≈20 附近达到最优，且该趋势在 GRPO 后训练和测试时计算增加后仍然不变。
 tags:
   - ICLR 2026
+  - LLM对齐
   - MoE
   - scaling laws
   - sparsity

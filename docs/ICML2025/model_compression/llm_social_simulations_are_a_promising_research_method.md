@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM Social Simulations Are a Promising Research Method 论文解读 | ICML 2025 | arXiv 2504.02234 | LLM社会模拟 | 本文作为立场论文，通过综述 36 篇实证研究论证了 LLM 社会模拟（用 LLM 模拟人类研究受试者）是一种有前景的研究方法，识别了五大可解决挑战（多样性、偏见、奉承、异质性、泛化），并为每个挑战提出了有前景的方向。"
+title: >-
+  [论文解读] LLM Social Simulations Are a Promising Research Method
+description: >-
+  [ICML 2025][模型压缩][LLM社会模拟] 本文作为立场论文，通过综述 36 篇实证研究论证了 LLM 社会模拟（用 LLM 模拟人类研究受试者）是一种有前景的研究方法，识别了五大可解决挑战（多样性、偏见、奉承、异质性、泛化），并为每个挑战提出了有前景的方向。
 tags:
   - ICML 2025
+  - 模型压缩
   - LLM社会模拟
   - 社会科学
   - 人类行为

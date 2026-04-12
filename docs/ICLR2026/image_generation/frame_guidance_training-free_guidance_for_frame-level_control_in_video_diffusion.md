@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Frame Guidance: Training-Free Guidance for Frame-Level Control in Video Diffusion Models 论文解读 | ICLR 2026 | arXiv 2506.07177 | 无训练引导 | 提出 Frame Guidance，一种无需训练的帧级引导方法，通过 latent slicing（降低 60× 显存）和 Video Latent Optimization（VLO）两个核心组件，在不修改模型的情况下实现关键帧引导、风格化和循环视频等多种可控视频生成任务。"
+title: >-
+  [论文解读] Frame Guidance: Training-Free Guidance for Frame-Level Control in Video Diffusion Models
+description: >-
+  [ICLR 2026][图像生成][无训练引导] 提出 Frame Guidance，一种无需训练的帧级引导方法，通过 latent slicing（降低 60× 显存）和 Video Latent Optimization（VLO）两个核心组件，在不修改模型的情况下实现关键帧引导、风格化和循环视频等多种可控视频生成任务。
 tags:
   - ICLR 2026
+  - 图像生成
   - 无训练引导
   - 视频扩散模型
   - 帧级控制

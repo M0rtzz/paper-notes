@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Un-considering Contextual Information: Assessing LLMs' Understanding of Indexical Elements 论文解读 | ACL2025 | arXiv 2506.01089 | 指示词理解 | 首次系统评估 LLM 对英语指示词（I/you/here/tomorrow）的理解能力，发现模型在 \"I\" 上表现接近人类但在 \"you/here/tomorrow\" 上严重依赖无关上下文信息而非语法规则，揭示了 LLM 在语用推理上的根本缺陷。"
+title: >-
+  [论文解读] Un-considering Contextual Information: Assessing LLMs' Understanding of Indexical Elements
+description: >-
+  [ACL2025][LLM/NLP][指示词理解] 首次系统评估 LLM 对英语指示词（I/you/here/tomorrow）的理解能力，发现模型在 "I" 上表现接近人类但在 "you/here/tomorrow" 上严重依赖无关上下文信息而非语法规则，揭示了 LLM 在语用推理上的根本缺陷。
 tags:
   - ACL2025
+  - LLM/NLP
   - 指示词理解
   - 共指消解
   - LLM语言能力评估

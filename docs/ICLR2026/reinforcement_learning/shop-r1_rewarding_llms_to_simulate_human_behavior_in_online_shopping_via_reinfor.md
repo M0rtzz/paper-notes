@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Shop-R1: Rewarding LLMs to Simulate Human Behavior in Online Shopping via Reinforcement Learning 论文解读 | 提出 Shop-R1 框架，通过分层奖励机制和难度感知缩放的强化学习方法，显著提升 LLM 模拟真实人类在线购物行为的能力，相比 SFT 基线精确匹配提升超过 65%。"
+title: >-
+  [论文解读] Shop-R1: Rewarding LLMs to Simulate Human Behavior in Online Shopping via Reinforcement Learning
+description: >-
+   提出 Shop-R1 框架，通过分层奖励机制和难度感知缩放的强化学习方法，显著提升 LLM 模拟真实人类在线购物行为的能力，相比 SFT 基线精确匹配提升超过 65%。
 tags:
 
 ---

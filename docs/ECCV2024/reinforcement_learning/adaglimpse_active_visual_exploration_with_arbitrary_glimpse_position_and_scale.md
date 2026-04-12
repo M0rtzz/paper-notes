@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AdaGlimpse: Active Visual Exploration with Arbitrary Glimpse Position and Scale 论文解读 | ECCV 2024 | arXiv 2404.03482 | Active Visual Exploration | 提出AdaGlimpse，利用Soft Actor-Critic强化学习从连续动作空间中选择任意位置和尺度的glimpse，结合弹性位置编码的ViT编码器实现多任务（重建/分类/分割）的主动视觉探索，以仅6%像素超越了使用18%像素的SOTA方法。"
+title: >-
+  [论文解读] AdaGlimpse: Active Visual Exploration with Arbitrary Glimpse Position and Scale
+description: >-
+  [ECCV 2024][Active Visual Exploration] 提出AdaGlimpse，利用Soft Actor-Critic强化学习从连续动作空间中选择任意位置和尺度的glimpse，结合弹性位置编码的ViT编码器实现多任务（重建/分类/分割）的主动视觉探索，以仅6%像素超越了使用18%像素的SOTA方法。
 tags:
   - ECCV 2024
   - Active Visual Exploration

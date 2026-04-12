@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CKnowEdit: A New Chinese Knowledge Editing Dataset for Linguistics, Facts, and Logic Error Correction in LLMs 论文解读 | ACL 2025 | arXiv 2409.05806 | 知识编辑 | 提出首个面向中文语言特征的知识编辑数据集 CKnowEdit，涵盖语言学、事实性和逻辑性三大类共10个子类的1,854条样本，揭示了当前知识编辑方法在中文场景下的不足。"
+title: >-
+  [论文解读] CKnowEdit: A New Chinese Knowledge Editing Dataset for Linguistics, Facts, and Logic Error Correction in LLMs
+description: >-
+  [ACL 2025][知识编辑] 提出首个面向中文语言特征的知识编辑数据集 CKnowEdit，涵盖语言学、事实性和逻辑性三大类共10个子类的1,854条样本，揭示了当前知识编辑方法在中文场景下的不足。
 tags:
   - ACL 2025
   - 知识编辑

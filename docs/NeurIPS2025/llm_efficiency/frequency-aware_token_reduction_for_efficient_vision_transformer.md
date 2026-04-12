@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Frequency-Aware Token Reduction for Efficient Vision Transformer 论文解读 | NeurIPS 2025 | arXiv 2511.21477 | token reduction | 从频域视角提出 frequency-aware token reduction，将 token 分为高频（HF）和低频（LF）两组，选择性保留 HF token 并将 LF token 聚合为 DC token，在缓解 rank collapse 的同时减少 ViT 的计算量，在 30% token 减少率下多个模型上超越现有 SOTA。"
+title: >-
+  [论文解读] Frequency-Aware Token Reduction for Efficient Vision Transformer
+description: >-
+  [NeurIPS 2025][LLM效率][token reduction] 从频域视角提出 frequency-aware token reduction，将 token 分为高频（HF）和低频（LF）两组，选择性保留 HF token 并将 LF token 聚合为 DC token，在缓解 rank collapse 的同时减少 ViT 的计算量，在 30% token 减少率下多个模型上超越现有 SOTA。
 tags:
   - NeurIPS 2025
+  - LLM效率
   - token reduction
   - rank collapse
   - over-smoothing

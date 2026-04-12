@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sci-LoRA: Mixture of Scientific LoRAs for Cross-Domain Lay Paraphrasing 论文解读 | ACL 2025 | arXiv 2505.18867 | 提出 Sci-LoRA——一种混合多领域 LoRA 的框架，通过对比学习训练文本编码器+动态权重生成器+LoRA 融合模块，在无需领域标签的情况下实现跨12个学科领域的科学文本通俗化改写，在5个数据集10个指标上超越 SOTA。"
+title: >-
+  [论文解读] Sci-LoRA: Mixture of Scientific LoRAs for Cross-Domain Lay Paraphrasing
+description: >-
+  [ACL 2025][模型压缩] 提出 Sci-LoRA——一种混合多领域 LoRA 的框架，通过对比学习训练文本编码器+动态权重生成器+LoRA 融合模块，在无需领域标签的情况下实现跨12个学科领域的科学文本通俗化改写，在5个数据集10个指标上超越 SOTA。
 tags:
   - ACL 2025
+  - 模型压缩
 ---
 
 # Sci-LoRA: Mixture of Scientific LoRAs for Cross-Domain Lay Paraphrasing

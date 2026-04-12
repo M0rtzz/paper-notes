@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MMAIF: Multi-task and Multi-degradation All-in-One for Image Fusion with Language Guidance 论文解读 | MMAIF 提出统一的多任务、多退化、语言引导图像融合框架，通过实际退化流水线和现代化 DiT 架构在潜在空间操作，同时提供回归和 Flow Matching 两个版本，在各类退化融合任务上超越现有 restoration+fusion 流水线。"
+title: >-
+  [论文解读] MMAIF: Multi-task and Multi-degradation All-in-One for Image Fusion with Language Guidance
+description: >-
+  [图像生成] MMAIF 提出统一的多任务、多退化、语言引导图像融合框架，通过实际退化流水线和现代化 DiT 架构在潜在空间操作，同时提供回归和 Flow Matching 两个版本，在各类退化融合任务上超越现有 restoration+fusion 流水线。
 tags:
-
+  - 图像生成
 ---
 
 # MMAIF: Multi-task and Multi-degradation All-in-One for Image Fusion with Language Guidance

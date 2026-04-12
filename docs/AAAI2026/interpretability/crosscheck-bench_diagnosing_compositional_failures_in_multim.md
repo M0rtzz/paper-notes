@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CrossCheck-Bench: Diagnosing Compositional Failures in Multimodal Conflict Resolution 论文解读 | AAAI 2026 | arXiv 2511.21717 | 多模态冲突检测 | 构建CrossCheck-Bench——首个专注于多模态矛盾检测与解决的诊断基准，包含15K QA对、3层推理复杂度和7种原子能力，发现13个SOTA VLM从感知匹配到逻辑矛盾检测性能一致下降，CoT/SoM等提示策略收效甚微，仅交错符号推理+视觉grounding的方法才有稳定提升。"
+title: >-
+  [论文解读] CrossCheck-Bench: Diagnosing Compositional Failures in Multimodal Conflict Resolution
+description: >-
+  [AAAI 2026][多模态冲突检测] 构建CrossCheck-Bench——首个专注于多模态矛盾检测与解决的诊断基准，包含15K QA对、3层推理复杂度和7种原子能力，发现13个SOTA VLM从感知匹配到逻辑矛盾检测性能一致下降，CoT/SoM等提示策略收效甚微，仅交错符号推理+视觉grounding的方法才有稳定提升。
 tags:
   - AAAI 2026
   - 多模态冲突检测

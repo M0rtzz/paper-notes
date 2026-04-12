@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Faster Certified Symmetry Breaking Using Orders With Auxiliary Variables 论文解读 | AAAI 2026 | arXiv 2511.16637 | symmetry breaking | 通过引入辅助变量编码字典序来替代大整数编码，对 VeriPB 证明系统进行本质重设计，使 SAT 对称性破坏的证明生成和验证在理论和实践上均获得数量级加速。"
+title: >-
+  [论文解读] Faster Certified Symmetry Breaking Using Orders With Auxiliary Variables
+description: >-
+  [AAAI 2026][symmetry breaking] 通过引入辅助变量编码字典序来替代大整数编码，对 VeriPB 证明系统进行本质重设计，使 SAT 对称性破坏的证明生成和验证在理论和实践上均获得数量级加速。
 tags:
   - AAAI 2026
   - symmetry breaking

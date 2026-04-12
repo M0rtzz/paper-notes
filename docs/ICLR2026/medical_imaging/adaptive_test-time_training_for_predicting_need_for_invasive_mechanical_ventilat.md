@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Test-Time Training for Predicting Need for Invasive Mechanical Ventilation in Multi-Center Cohorts 论文解读 | ICLR 2026 | arXiv 2512.06652 | 测试时训练 | 提出AdaTTT框架，通过动态特征感知self-supervised学习（自适应掩码策略）和原型引导的部分最优传输对齐，在ICU多中心EHR数据上实现鲁棒的测试时适应，用于提前24小时预测有创机械通气需求。"
+title: >-
+  [论文解读] Adaptive Test-Time Training for Predicting Need for Invasive Mechanical Ventilation in Multi-Center Cohorts
+description: >-
+  [ICLR 2026][医学图像][测试时训练] 提出AdaTTT框架，通过动态特征感知self-supervised学习（自适应掩码策略）和原型引导的部分最优传输对齐，在ICU多中心EHR数据上实现鲁棒的测试时适应，用于提前24小时预测有创机械通气需求。
 tags:
   - ICLR 2026
+  - 医学图像
   - 测试时训练
   - 域迁移
   - 有创机械通气预测

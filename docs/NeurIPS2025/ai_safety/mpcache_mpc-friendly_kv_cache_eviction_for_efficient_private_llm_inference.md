@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MPCache: MPC-Friendly KV Cache Eviction for Efficient Private LLM Inference 论文解读 | NeurIPS 2025 | arXiv 2501.06807 | 隐私推理 | 本文提出MPCache，一个面向安全多方计算（MPC）的KV缓存淘汰框架，结合一次性静态淘汰和查询感知的动态选择，配合层次化聚类、线性化相似度近似和跨层索引共享等优化，在不牺牲LLM性能的前提下实现最高2.01倍延迟降低和8.37倍通信量削减。"
+title: >-
+  [论文解读] MPCache: MPC-Friendly KV Cache Eviction for Efficient Private LLM Inference
+description: >-
+  [NeurIPS 2025][AI安全][隐私推理] 本文提出MPCache，一个面向安全多方计算（MPC）的KV缓存淘汰框架，结合一次性静态淘汰和查询感知的动态选择，配合层次化聚类、线性化相似度近似和跨层索引共享等优化，在不牺牲LLM性能的前提下实现最高2.01倍延迟降低和8.37倍通信量削减。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 隐私推理
   - 安全多方计算
   - KV缓存淘汰

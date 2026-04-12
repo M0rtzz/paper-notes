@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Asymptotically Stable Quaternionic Hopfield Structured Neural Network with Supervised Projection-based Manifold Learning 论文解读 | NeurIPS 2025 | arXiv 2510.16607 | quaternion neural network | 提出四元数值监督学习 Hopfield 结构神经网络 (QSHNN)，通过周期性投影策略保持权重矩阵的四元数结构一致性，并基于 Lyapunov 理论证明了不动点的存在唯一性和渐近稳定性，轨迹曲率有界保证机器人路径规划的平滑性。"
+title: >-
+  [论文解读] Asymptotically Stable Quaternionic Hopfield Structured Neural Network with Supervised Projection-based Manifold Learning
+description: >-
+  [NeurIPS 2025][优化][quaternion neural network] 提出四元数值监督学习 Hopfield 结构神经网络 (QSHNN)，通过周期性投影策略保持权重矩阵的四元数结构一致性，并基于 Lyapunov 理论证明了不动点的存在唯一性和渐近稳定性，轨迹曲率有界保证机器人路径规划的平滑性。
 tags:
   - NeurIPS 2025
+  - 优化
   - quaternion neural network
   - Hopfield network
   - asymptotic stability

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Do We Need Perfect Data? Leveraging Noise for Domain Generalized Segmentation 论文解读 | AAAI 2026 | arXiv 2511.22948 | 域泛化语义分割 | 提出 FLEX-Seg 框架，将扩散模型合成数据中图像与语义掩码之间固有的**边界不对齐**(misalignment)转化为学习鲁棒表示的机会，通过粒度自适应原型 (GAP)、不确定性边界强调 (UBE) 和难度感知采样 (HAS) 三个模块，在域泛化语义分割任务上取得 SOTA。"
+title: >-
+  [论文解读] Do We Need Perfect Data? Leveraging Noise for Domain Generalized Segmentation
+description: >-
+  [AAAI 2026][图像分割][域泛化语义分割] 提出 FLEX-Seg 框架，将扩散模型合成数据中图像与语义掩码之间固有的**边界不对齐**(misalignment)转化为学习鲁棒表示的机会，通过粒度自适应原型 (GAP)、不确定性边界强调 (UBE) 和难度感知采样 (HAS) 三个模块，在域泛化语义分割任务上取得 SOTA。
 tags:
   - AAAI 2026
+  - 图像分割
   - 域泛化语义分割
   - 边界不对齐
   - 扩散模型合成数据

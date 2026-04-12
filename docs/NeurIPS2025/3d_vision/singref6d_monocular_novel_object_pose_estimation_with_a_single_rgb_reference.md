@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SingRef6D: Monocular Novel Object Pose Estimation with a Single RGB Reference 论文解读 | NeurIPS 2025 | arXiv 2509.21927 | 6D位姿估计 | 提出SingRef6D，一个仅需单张RGB参考图像的轻量级6D位姿估计流水线，通过token-scaler微调Depth-Anything v2实现鲁棒深度预测，并引入深度感知匹配增强LoFTR的空间推理能力，在透明/反光物体场景中大幅超越现有方法。"
+title: >-
+  [论文解读] SingRef6D: Monocular Novel Object Pose Estimation with a Single RGB Reference
+description: >-
+  [NeurIPS 2025][3D视觉][6D位姿估计] 提出SingRef6D，一个仅需单张RGB参考图像的轻量级6D位姿估计流水线，通过token-scaler微调Depth-Anything v2实现鲁棒深度预测，并引入深度感知匹配增强LoFTR的空间推理能力，在透明/反光物体场景中大幅超越现有方法。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 6D位姿估计
   - 单目深度估计
   - 单参考图像

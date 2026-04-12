@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FSOD-VFM: Few-Shot Object Detection with Vision Foundation Models and Graph Diffusion 论文解读 | ICLR 2026 | arXiv 2602.03137 | 少样本目标检测 | 提出一个无需训练的少样本目标检测框架，组合 UPN、SAM2 和 DINOv2 三个基础模型生成提案和匹配特征，并通过图扩散算法精化置信度分数和抑制碎片化提案，在 Pascal-5i 和 COCO-20i 上大幅超越 SOTA。"
+title: >-
+  [论文解读] FSOD-VFM: Few-Shot Object Detection with Vision Foundation Models and Graph Diffusion
+description: >-
+  [ICLR 2026][目标检测][少样本目标检测] 提出一个无需训练的少样本目标检测框架，组合 UPN、SAM2 和 DINOv2 三个基础模型生成提案和匹配特征，并通过图扩散算法精化置信度分数和抑制碎片化提案，在 Pascal-5i 和 COCO-20i 上大幅超越 SOTA。
 tags:
   - ICLR 2026
+  - 目标检测
   - 少样本目标检测
   - 视觉基础模型
   - 图扩散

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Emergence in Non-Neural Models: Grokking Modular Arithmetic via Average Gradient Outer Product 论文解读 | ICML2025 | arXiv 2407.20199 | grokking | 本文证明 grokking（延迟泛化）现象并非神经网络或梯度下降特有，而是源于**任务相关特征的逐步学习**——利用非神经网络的 Recursive Feature Machines (RFM) 在核机器上复现了模算术的 grokking，揭示分块循环（block-circulant）特征矩阵是泛化的核心。"
+title: >-
+  [论文解读] Emergence in Non-Neural Models: Grokking Modular Arithmetic via Average Gradient Outer Product
+description: >-
+  [ICML2025][优化][grokking] 本文证明 grokking（延迟泛化）现象并非神经网络或梯度下降特有，而是源于**任务相关特征的逐步学习**——利用非神经网络的 Recursive Feature Machines (RFM) 在核机器上复现了模算术的 grokking，揭示分块循环（block-circulant）特征矩阵是泛化的核心。
 tags:
   - ICML2025
+  - 优化
   - grokking
   - 模算术
   - 特征学习

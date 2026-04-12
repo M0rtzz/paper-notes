@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Shifting from Ranking to Set Selection for Retrieval Augmented Generation 论文解读 | ACL 2025 | arXiv 2507.06838 | RAG | 提出从\"逐个排序\"到\"集合选择\"的 RAG 检索范式转换——SetR 通过 CoT 推理显式识别查询的信息需求，然后选择一组能共同满足这些需求的段落（而非逐个评分最相关的），在多跳 RAG 基准上超越 GPT-4o 级别的重排器。"
+title: >-
+  [论文解读] Shifting from Ranking to Set Selection for Retrieval Augmented Generation
+description: >-
+  [ACL 2025][RAG] 提出从"逐个排序"到"集合选择"的 RAG 检索范式转换——SetR 通过 CoT 推理显式识别查询的信息需求，然后选择一组能共同满足这些需求的段落（而非逐个评分最相关的），在多跳 RAG 基准上超越 GPT-4o 级别的重排器。
 tags:
   - ACL 2025
   - RAG

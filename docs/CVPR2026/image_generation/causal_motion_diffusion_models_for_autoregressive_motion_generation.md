@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Causal Motion Diffusion Models for Autoregressive Motion Generation 论文解读 | CVPR 2026 | arXiv 2602.22594 | 因果扩散 | 提出 CMDM 框架，在运动-语言对齐的因果隐空间中统一扩散去噪与自回归生成，通过帧级独立噪声和因果不确定性采样调度，实现高质量、低延迟的文本到动作生成和长序列流式合成。"
+title: >-
+  [论文解读] Causal Motion Diffusion Models for Autoregressive Motion Generation
+description: >-
+  [CVPR 2026][图像生成][因果扩散] 提出 CMDM 框架，在运动-语言对齐的因果隐空间中统一扩散去噪与自回归生成，通过帧级独立噪声和因果不确定性采样调度，实现高质量、低延迟的文本到动作生成和长序列流式合成。
 tags:
   - CVPR 2026
+  - 图像生成
   - 因果扩散
   - 自回归动作生成
   - 文本到动作

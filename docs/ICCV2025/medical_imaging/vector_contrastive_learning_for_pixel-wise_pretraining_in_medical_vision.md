@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Vector Contrastive Learning for Pixel-wise Pretraining in Medical Vision 论文解读 | ICCV 2025 | arXiv 2506.20850 | 对比学习 | 提出向量对比学习（Vector CL），将标准对比学习从二值优化问题重新表述为向量回归问题，通过建模特征距离来量化分散程度，解决像素级医学视觉预训练中的\"过度分散\"问题，在 8 个下游任务上显著优于 17 种方法。"
+title: >-
+  [论文解读] Vector Contrastive Learning for Pixel-wise Pretraining in Medical Vision
+description: >-
+  [ICCV 2025][医学图像][对比学习] 提出向量对比学习（Vector CL），将标准对比学习从二值优化问题重新表述为向量回归问题，通过建模特征距离来量化分散程度，解决像素级医学视觉预训练中的"过度分散"问题，在 8 个下游任务上显著优于 17 种方法。
 tags:
   - ICCV 2025
+  - 医学图像
   - 对比学习
   - 像素级预训练
   - 医学视觉基础模型

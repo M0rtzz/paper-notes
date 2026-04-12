@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLoE: Expert Consistency Learning for Missing Modality Segmentation 论文解读 | CVPR 2026 | arXiv 2603.09316 | 缺失模态 | 将缺失模态下的鲁棒性问题重新定义为决策级专家一致性控制，提出双分支一致性学习（全局MEC+区域REC），并通过轻量门网络将一致性分数转化为模态可靠性权重用于融合。"
+title: >-
+  [论文解读] CLoE: Expert Consistency Learning for Missing Modality Segmentation
+description: >-
+  [CVPR 2026][医学图像][缺失模态] 将缺失模态下的鲁棒性问题重新定义为决策级专家一致性控制，提出双分支一致性学习（全局MEC+区域REC），并通过轻量门网络将一致性分数转化为模态可靠性权重用于融合。
 tags:
   - CVPR 2026
+  - 医学图像
   - 缺失模态
   - 一致性学习
   - 多模态分割

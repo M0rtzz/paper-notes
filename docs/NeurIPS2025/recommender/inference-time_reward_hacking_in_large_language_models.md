@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Inference-Time Reward Hacking in Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.19248 | reward hacking | 本文从数学上证明了推理时对齐方法（如 BoN）在优化代理奖励时不可避免地会出现 reward hacking（真实奖励先升后降），提出了 Best-of-Poisson (BoP) 采样方法近似最优 KL-奖励折中分布，并设计了 HedgeTune 算法通过一维寻根找到最优推理时参数，在数学推理和人类偏好场景中有效缓解 reward hacking。"
+title: >-
+  [论文解读] Inference-Time Reward Hacking in Large Language Models
+description: >-
+  [NeurIPS 2025][reward hacking] 本文从数学上证明了推理时对齐方法（如 BoN）在优化代理奖励时不可避免地会出现 reward hacking（真实奖励先升后降），提出了 Best-of-Poisson (BoP) 采样方法近似最优 KL-奖励折中分布，并设计了 HedgeTune 算法通过一维寻根找到最优推理时参数，在数学推理和人类偏好场景中有效缓解 reward hacking。
 tags:
   - NeurIPS 2025
   - reward hacking

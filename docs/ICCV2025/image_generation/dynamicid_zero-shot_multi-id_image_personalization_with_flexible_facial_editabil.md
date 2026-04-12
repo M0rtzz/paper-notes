@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】DynamicID: Zero-Shot Multi-ID Image Personalization with Flexible Facial Editability 论文解读 | DynamicID 通过语义激活注意力（SAA）和身份-运动重构器（IMR）两个核心组件，实现了零样本的单/多身份个性化图像生成，同时保持高保真度和灵活的面部可编辑性。"
+title: >-
+  [论文解读] DynamicID: Zero-Shot Multi-ID Image Personalization with Flexible Facial Editability
+description: >-
+  [图像生成] DynamicID 通过语义激活注意力（SAA）和身份-运动重构器（IMR）两个核心组件，实现了零样本的单/多身份个性化图像生成，同时保持高保真度和灵活的面部可编辑性。
 tags:
-
+  - 图像生成
 ---
 
 # DynamicID: Zero-Shot Multi-ID Image Personalization with Flexible Facial Editability

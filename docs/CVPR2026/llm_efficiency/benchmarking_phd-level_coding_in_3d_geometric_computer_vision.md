@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoCodeBench: Benchmarking PhD-Level Coding in 3D Geometric Computer Vision 论文解读 | CVPR 2026 | arXiv 2603.30038 | 3D视觉代码生成 | 首个面向3D几何计算机视觉的PhD级代码生成基准GeoCodeBench，包含100个从2025年顶会论文+代码库中精选的函数补全任务，配套自动化多样化单元测试，最强模型GPT-5仅36.6%通过率，揭示LLM在科学级3D代码实现上的巨大差距。"
+title: >-
+  [论文解读] GeoCodeBench: Benchmarking PhD-Level Coding in 3D Geometric Computer Vision
+description: >-
+  [CVPR 2026][LLM效率][3D视觉代码生成] 首个面向3D几何计算机视觉的PhD级代码生成基准GeoCodeBench，包含100个从2025年顶会论文+代码库中精选的函数补全任务，配套自动化多样化单元测试，最强模型GPT-5仅36.6%通过率，揭示LLM在科学级3D代码实现上的巨大差距。
 tags:
   - CVPR 2026
+  - LLM效率
   - 3D视觉代码生成
   - LLM评测
   - 几何算法实现

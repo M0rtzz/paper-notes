@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Discretized Gaussian Representation for Tomographic Reconstruction 论文解读 | 提出离散化高斯表示（DGR）用于 CT 重建，通过离散化高斯函数直接端到端重建 3D 体素，并设计高度并行化的快速体积重建技术，在稀疏视角和有限角度 CT 场景中以零训练数据超越深度学习和实例重建方法。"
+title: >-
+  [论文解读] Discretized Gaussian Representation for Tomographic Reconstruction
+description: >-
+  [3D视觉] 提出离散化高斯表示（DGR）用于 CT 重建，通过离散化高斯函数直接端到端重建 3D 体素，并设计高度并行化的快速体积重建技术，在稀疏视角和有限角度 CT 场景中以零训练数据超越深度学习和实例重建方法。
 tags:
-
+  - 3D视觉
 ---
 
 # Discretized Gaussian Representation for Tomographic Reconstruction

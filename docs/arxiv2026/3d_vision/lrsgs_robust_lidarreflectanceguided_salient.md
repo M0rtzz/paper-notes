@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction 论文解读 | arXiv 2026 | arXiv 2603.12647 | lr-sgs | 最近的 3D 高斯分布 (3DGS) 方法已经证明了自动驾驶场景重建和新颖视图合成的可行性。"
+title: >-
+  [论文解读] LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction
+description: >-
+  [arXiv 2026][3D视觉][lr-sgs] 最近的 3D 高斯分布 (3DGS) 方法已经证明了自动驾驶场景重建和新颖视图合成的可行性。
 tags:
   - arXiv 2026
+  - 3D视觉
   - lr-sgs
   - robust
   - lidar-reflectance-guided

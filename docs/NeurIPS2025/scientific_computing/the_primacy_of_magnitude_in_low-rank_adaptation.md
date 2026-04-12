@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Primacy of Magnitude in Low-Rank Adaptation 论文解读 | NeurIPS 2025 | arXiv 2507.06558 | LoRA | 揭示 LoRA 中权重更新幅度（magnitude）是性能的根本驱动因素，统一了学习率、缩放因子和初始化策略对 LoRA 的影响机制，并提出 LoRAM——一种基于确定性正交基和幅度缩放的高效初始化方法，无需 SVD 即可匹敌甚至超越谱初始化方法。"
+title: >-
+  [论文解读] The Primacy of Magnitude in Low-Rank Adaptation
+description: >-
+  [NeurIPS 2025][科学计算][LoRA] 揭示 LoRA 中权重更新幅度（magnitude）是性能的根本驱动因素，统一了学习率、缩放因子和初始化策略对 LoRA 的影响机制，并提出 LoRAM——一种基于确定性正交基和幅度缩放的高效初始化方法，无需 SVD 即可匹敌甚至超越谱初始化方法。
 tags:
   - NeurIPS 2025
+  - 科学计算
   - LoRA
   - 参数高效微调
   - 初始化策略

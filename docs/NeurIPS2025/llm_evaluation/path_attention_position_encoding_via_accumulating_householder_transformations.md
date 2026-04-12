@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】PaTH Attention: Position Encoding via Accumulating Householder Transformations 论文解读 | NeurIPS 2025 | arXiv 2505.16381 | position encoding | 提出 PaTH（Position encoding via accumulating Householder Transformations），一种数据依赖的乘法位置编码方案，通过累积 Householder 变换替代 RoPE 的静态旋转矩阵，在理论表达力和实际语言建模性能上均优于 RoPE。"
+title: >-
+  [论文解读] PaTH Attention: Position Encoding via Accumulating Householder Transformations
+description: >-
+  [NeurIPS 2025][position encoding] 提出 PaTH（Position encoding via accumulating Householder Transformations），一种数据依赖的乘法位置编码方案，通过累积 Householder 变换替代 RoPE 的静态旋转矩阵，在理论表达力和实际语言建模性能上均优于 RoPE。
 tags:
   - NeurIPS 2025
   - position encoding

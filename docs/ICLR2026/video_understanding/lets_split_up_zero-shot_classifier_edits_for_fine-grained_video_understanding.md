@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Let's Split Up: Zero-Shot Classifier Edits for Fine-Grained Video Understanding 论文解读 | ICLR 2026 | arXiv 2602.16545 | 类别拆分 | 提出了\"类别拆分\"(Category Splitting)新任务，通过挖掘视频分类器权重中的潜在组合结构，在零样本条件下将粗粒度动作类别拆分为细粒度子类别，无需重训或额外数据。"
+title: >-
+  [论文解读] Let's Split Up: Zero-Shot Classifier Edits for Fine-Grained Video Understanding
+description: >-
+  [ICLR 2026][视频理解][类别拆分] 提出了"类别拆分"(Category Splitting)新任务，通过挖掘视频分类器权重中的潜在组合结构，在零样本条件下将粗粒度动作类别拆分为细粒度子类别，无需重训或额外数据。
 tags:
   - ICLR 2026
+  - 视频理解
   - 类别拆分
   - 零样本编辑
   - 细粒度视频识别

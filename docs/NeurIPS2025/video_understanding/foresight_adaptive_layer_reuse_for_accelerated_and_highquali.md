@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation 论文解读 | 提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值决策在 DiT 去噪过程中哪些层可复用缓存、哪些需重新计算，在 OpenSora/Latte/CogVideoX 上实现最高 1.63× 端到端加速且保持视频质量。"
+title: >-
+  [论文解读] Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation
+description: >-
+  [视频理解] 提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值决策在 DiT 去噪过程中哪些层可复用缓存、哪些需重新计算，在 OpenSora/Latte/CogVideoX 上实现最高 1.63× 端到端加速且保持视频质量。
 tags:
-
+  - 视频理解
 ---
 
 # Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation

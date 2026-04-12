@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Initial Residual Connections for GNNs with Theoretical Guarantees 论文解读 | AAAI 2026 | arXiv 2511.06598 | 过平滑 | 研究图神经网络中自适应初始残差连接（Adaptive IRC）——每个节点有个性化的残差强度——证明该方案防止过平滑（Dirichlet 能量有下界）、保持嵌入矩阵秩，在异质图上显著优于标准消息传递，并提出基于 PageRank 的非学习变体大幅降低复杂度。"
+title: >-
+  [论文解读] Adaptive Initial Residual Connections for GNNs with Theoretical Guarantees
+description: >-
+  [AAAI 2026][图学习][过平滑] 研究图神经网络中自适应初始残差连接（Adaptive IRC）——每个节点有个性化的残差强度——证明该方案防止过平滑（Dirichlet 能量有下界）、保持嵌入矩阵秩，在异质图上显著优于标准消息传递，并提出基于 PageRank 的非学习变体大幅降低复杂度。
 tags:
   - AAAI 2026
+  - 图学习
   - 过平滑
   - 残差连接
   - 自适应初始残差

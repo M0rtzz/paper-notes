@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MMOne: Representing Multiple Modalities in One Scene 论文解读 | 提出 MMOne 通用框架，通过模态建模模块（含模态指示器）和多模态分解机制解决多模态场景表示中的属性差异和粒度差异问题，在单一 3DGS 表示中同时建模 RGB、热成像和语言等多种模态并均获提升。"
+title: >-
+  [论文解读] MMOne: Representing Multiple Modalities in One Scene
+description: >-
+  [多模态] 提出 MMOne 通用框架，通过模态建模模块（含模态指示器）和多模态分解机制解决多模态场景表示中的属性差异和粒度差异问题，在单一 3DGS 表示中同时建模 RGB、热成像和语言等多种模态并均获提升。
 tags:
-
+  - 多模态
 ---
 
 # MMOne: Representing Multiple Modalities in One Scene

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning 论文解读 | CVPR 2026 | arXiv 2603.11439 | 密集视频描述 | ROS-DVC通过为DETR-based密集视频描述设计角色专用查询初始化（分离定位和描述查询）+跨任务对比对齐损失+重叠抑制损失，在YouCook2上无需预训练即达到CIDEr 39.18的SOTA，超越使用GPT-2的DDVC。"
+title: >-
+  [论文解读] Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning
+description: >-
+  [CVPR 2026][视频理解][密集视频描述] ROS-DVC通过为DETR-based密集视频描述设计角色专用查询初始化（分离定位和描述查询）+跨任务对比对齐损失+重叠抑制损失，在YouCook2上无需预训练即达到CIDEr 39.18的SOTA，超越使用GPT-2的DDVC。
 tags:
   - CVPR 2026
+  - 视频理解
   - 密集视频描述
   - 角色专用查询
   - 重叠抑制

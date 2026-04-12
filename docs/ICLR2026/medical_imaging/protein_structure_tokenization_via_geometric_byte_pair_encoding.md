@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Protein Structure Tokenization via Geometric Byte Pair Encoding 论文解读 | ICLR 2026 | arXiv 2511.11758 | 几何BPE | 提出GeoBPE——首个几何感知蛋白质结构BPE tokenizer，将连续骨架构象离散化为几何motif句子，通过k-medoids+自适应量化+可微IK(SE(3)端帧损失)校正漂移，>10x压缩比、>10x数据效率，12个下游任务24个测试集上超越所有PST基线。"
+title: >-
+  [论文解读] Protein Structure Tokenization via Geometric Byte Pair Encoding
+description: >-
+  [ICLR 2026][医学图像][几何BPE] 提出GeoBPE——首个几何感知蛋白质结构BPE tokenizer，将连续骨架构象离散化为几何motif句子，通过k-medoids+自适应量化+可微IK(SE(3)端帧损失)校正漂移，>10x压缩比、>10x数据效率，12个下游任务24个测试集上超越所有PST基线。
 tags:
   - ICLR 2026
+  - 医学图像
   - 几何BPE
   - 蛋白质结构
   - 层次词汇

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】R4Det: 4D Radar-Camera Fusion for High-Performance 3D Object Detection# R4Det: 4D Radar-Camera Fusion for High-Performance 3D Object Detection 论文解读 | CVPR 2026 | arXiv 2603.11566 | 4D毫米波雷达 | 提出R4Det，通过全景深度融合（PDF）、可变形门控时序融合（DGTF）和实例引导动态精炼（IGDR）三个即插即用模块，解决4D雷达-相机融合中深度估计不准、时序融合依赖ego pose、小目标检测困难的问题，在TJ4DRadSet和VoD上取得SOTA。"
+title: >-
+  [论文解读] R4Det: 4D Radar-Camera Fusion for High-Performance 3D Object Detection# R4Det: 4D Radar-Camera Fusion for High-Performance 3D Object Detection
+description: >-
+  [CVPR 2026][3D视觉][4D毫米波雷达] 提出R4Det，通过全景深度融合（PDF）、可变形门控时序融合（DGTF）和实例引导动态精炼（IGDR）三个即插即用模块，解决4D雷达-相机融合中深度估计不准、时序融合依赖ego pose、小目标检测困难的问题，在TJ4DRadSet和VoD上取得SOTA。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 4D毫米波雷达
   - 相机-雷达融合
   - 3D目标检测

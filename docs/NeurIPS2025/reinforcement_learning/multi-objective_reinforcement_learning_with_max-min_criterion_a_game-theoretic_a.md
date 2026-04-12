@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Multi-Objective Reinforcement Learning with Max-Min Criterion: A Game-Theoretic Approach 论文解读 | NeurIPS 2025 | arXiv 2510.20235 | 多目标强化学习 | 将max-min多目标强化学习重新表述为两人零和正则化连续博弈，提出ERAM/ARAM算法，利用镜像下降实现简洁的闭式权重更新，保证全局最后迭代收敛，在交通信号控制等任务中显著优于已有方法。"
+title: >-
+  [论文解读] Multi-Objective Reinforcement Learning with Max-Min Criterion: A Game-Theoretic Approach
+description: >-
+  [NeurIPS 2025][多目标强化学习] 将max-min多目标强化学习重新表述为两人零和正则化连续博弈，提出ERAM/ARAM算法，利用镜像下降实现简洁的闭式权重更新，保证全局最后迭代收敛，在交通信号控制等任务中显著优于已有方法。
 tags:
   - NeurIPS 2025
   - 多目标强化学习

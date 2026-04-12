@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】FutureSightDrive: Thinking Visually with Spatio-Temporal CoT for Autonomous Driving 论文解读 | FutureSightDrive 认为自动驾驶 VLA 的文本 CoT 会把关键视觉时空信息压缩丢失，提出“视觉时空 CoT”范式：先让模型以 world model 方式生成融合未来背景、车道线和 3D 目标框的统一未来帧，再将该 imagined scene 作为推理中介供 inverse-dynamics 规划器生成轨迹，从而显著提升轨迹精度、降低碰撞并改善场景理解。"
+title: >-
+  [论文解读] FutureSightDrive: Thinking Visually with Spatio-Temporal CoT for Autonomous Driving
+description: >-
+  [自动驾驶] FutureSightDrive 认为自动驾驶 VLA 的文本 CoT 会把关键视觉时空信息压缩丢失，提出“视觉时空 CoT”范式：先让模型以 world model 方式生成融合未来背景、车道线和 3D 目标框的统一未来帧，再将该 imagined scene 作为推理中介供 inverse-dynamics 规划器生成轨迹，从而显著提升轨迹精度、降低碰撞并改善场景理解。
 tags:
-
+  - 自动驾驶
 ---
 
 # FutureSightDrive: Thinking Visually with Spatio-Temporal CoT for Autonomous Driving

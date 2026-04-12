@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Dual Reasoner: Large Reasoning Models Can Think Efficiently by Hybrid Reasoning 论文解读 | NeurIPS 2025 | arXiv 2510.10207 | 推理效率 | 提出 Adaptive Dual Reasoner (ADR)——让推理模型在 fast thinking（简单推理步骤压缩）和 slow thinking（复杂推理步骤保留深度）之间动态切换，通过 SFT 冷启动 + EHPO（熵引导混合策略优化）训练，在数学推理基准上准确率提升最高 6.1% 同时推理 token 减少 49.5%-59.3%。"
+title: >-
+  [论文解读] Adaptive Dual Reasoner: Large Reasoning Models Can Think Efficiently by Hybrid Reasoning
+description: >-
+  [NeurIPS 2025][LLM推理][推理效率] 提出 Adaptive Dual Reasoner (ADR)——让推理模型在 fast thinking（简单推理步骤压缩）和 slow thinking（复杂推理步骤保留深度）之间动态切换，通过 SFT 冷启动 + EHPO（熵引导混合策略优化）训练，在数学推理基准上准确率提升最高 6.1% 同时推理 token 减少 49.5%-59.3%。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - 推理效率
   - 混合推理
   - 快思慢想

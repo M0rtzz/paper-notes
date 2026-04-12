@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Graph4MM: Weaving Multimodal Learning with Structural Information 论文解读 | ICML2025 | arXiv 2510.16990 | 多模态图 | 提出 Graph4MM 框架，通过 Hop-Diffused Attention 将多跳图结构信息注入自注意力机制，并设计 MM-QFormer 实现跨模态融合，在生成和判别任务上平均提升 6.93%。"
+title: >-
+  [论文解读] Graph4MM: Weaving Multimodal Learning with Structural Information
+description: >-
+  [ICML2025][多模态][多模态图] 提出 Graph4MM 框架，通过 Hop-Diffused Attention 将多跳图结构信息注入自注意力机制，并设计 MM-QFormer 实现跨模态融合，在生成和判别任务上平均提升 6.93%。
 tags:
   - ICML2025
+  - 多模态
   - 多模态图
   - 结构信息融合
   - 注意力机制

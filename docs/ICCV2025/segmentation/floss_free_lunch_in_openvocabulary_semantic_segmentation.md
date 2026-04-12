@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FLOSS: Free Lunch in Open-vocabulary Semantic Segmentation 论文解读 | ICCV 2025 | arXiv 2504.10487 | 图像分割 open-vocabulary segmentation | 挑战OVSS中\"平均80个模板\"的默认做法，发现每个类别存在特定的\"专家模板\"（class-expert）远优于平均分类器，提出用预测熵无监督选择专家模板+融合专家预测的FLOSS方法，在不需要标签和训练的情况下一致提升现有OVSS方法。"
+title: >-
+  [论文解读] FLOSS: Free Lunch in Open-vocabulary Semantic Segmentation
+description: >-
+  [ICCV 2025][图像分割][图像分割] 挑战OVSS中"平均80个模板"的默认做法，发现每个类别存在特定的"专家模板"（class-expert）远优于平均分类器，提出用预测熵无监督选择专家模板+融合专家预测的FLOSS方法，在不需要标签和训练的情况下一致提升现有OVSS方法。
 tags:
   - ICCV 2025
   - 图像分割

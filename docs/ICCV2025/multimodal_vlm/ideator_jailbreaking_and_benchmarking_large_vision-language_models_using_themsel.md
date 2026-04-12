@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IDEATOR: Jailbreaking and Benchmarking Large Vision-Language Models Using Themselves 论文解读 | ICCV 2025 | arXiv 2411.00827 | VLM安全性 | 提出IDEATOR，利用VLM自身作为红队模型自主生成多模态越狱图文对，以94%成功率突破MiniGPT-4的安全机制，并基于此构建了包含3654个样本的VLJailbreakBench安全评估基准。"
+title: >-
+  [论文解读] IDEATOR: Jailbreaking and Benchmarking Large Vision-Language Models Using Themselves
+description: >-
+  [ICCV 2025][多模态][VLM安全性] 提出IDEATOR，利用VLM自身作为红队模型自主生成多模态越狱图文对，以94%成功率突破MiniGPT-4的安全机制，并基于此构建了包含3654个样本的VLJailbreakBench安全评估基准。
 tags:
   - ICCV 2025
+  - 多模态
   - VLM安全性
   - 越狱攻击
   - 红队测试

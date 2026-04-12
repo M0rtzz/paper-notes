@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MAVFlow: Preserving Paralinguistic Elements with Conditional Flow Matching for Zero-Shot AV2AV Multilingual Translation 论文解读 | 提出 MAVFlow，基于条件流匹配（CFM）的零样本音视觉渲染器，通过音频说话人嵌入和视觉情感嵌入的双模态引导，在多语言 AV2AV 翻译中保持说话人一致性。"
+title: >-
+  [论文解读] MAVFlow: Preserving Paralinguistic Elements with Conditional Flow Matching for Zero-Shot AV2AV Multilingual Translation
+description: >-
+  [图像生成] 提出 MAVFlow，基于条件流匹配（CFM）的零样本音视觉渲染器，通过音频说话人嵌入和视觉情感嵌入的双模态引导，在多语言 AV2AV 翻译中保持说话人一致性。
 tags:
-
+  - 图像生成
 ---
 
 # MAVFlow: Preserving Paralinguistic Elements with Conditional Flow Matching for Zero-Shot AV2AV Multilingual Translation

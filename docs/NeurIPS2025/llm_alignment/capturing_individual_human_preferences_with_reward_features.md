@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Capturing Individual Human Preferences with Reward Features 论文解读 | NeurIPS 2025 | arXiv 2503.17338 | 奖励建模 | 提出奖励特征模型（RFM）：学习共享奖励特征 φ_θ(x,y)，每个用户通过线性权重 w_h 组合这些特征得到个性化奖励 r_h = langle φ_θ, w_h rangle，并首次给出多评价者偏好学习的PAC泛化界，证明增加评价者数 m 比增加每人样本数 n 更有效，仅30个样本即可快速适应新用户。"
+title: >-
+  [论文解读] Capturing Individual Human Preferences with Reward Features
+description: >-
+  [NeurIPS 2025][LLM对齐][奖励建模] 提出奖励特征模型（RFM）：学习共享奖励特征 $\phi_\theta(x,y)$，每个用户通过线性权重 $\mathbf{w}_h$ 组合这些特征得到个性化奖励 $r_h = \langle \phi_\theta, \mathbf{w}_h \rangle$，并首次给出多评价者偏好学习的PAC泛化界，证明增加评价者数 $m$ 比增加每人样本数 $n$ 更有效，仅30个样本即可快速适应新用户。
 tags:
   - NeurIPS 2025
+  - LLM对齐
   - 奖励建模
   - 个性化偏好
   - 特征分解

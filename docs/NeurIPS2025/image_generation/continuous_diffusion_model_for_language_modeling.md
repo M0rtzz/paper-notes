@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Continuous Diffusion Model for Language Modeling 论文解读 | 提出一种面向离散语言建模的连续扩散框架，将离散扩散过程与统计流形上的连续流联系起来，并通过径向对称的 simulation-free 训练机制与降维技巧，显著提升扩散语言模型性能，接近自回归模型。"
+title: >-
+  [论文解读] Continuous Diffusion Model for Language Modeling
+description: >-
+  [图像生成] 提出一种面向离散语言建模的连续扩散框架，将离散扩散过程与统计流形上的连续流联系起来，并通过径向对称的 simulation-free 训练机制与降维技巧，显著提升扩散语言模型性能，接近自回归模型。
 tags:
-
+  - 图像生成
 ---
 
 # Continuous Diffusion Model for Language Modeling

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】T2Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search 论文解读 | AAAI 2026 | arXiv 2505.19768 | 多模态虚假信息检测 | 提出 T2Agent，一个集成可扩展工具集与蒙特卡洛树搜索（MCTS）的虚假信息检测智能体，通过多源验证机制将检测任务分解为针对不同伪造源的子任务，在 MMfakebench 上以 GPT-4o 为骨干将基线 MMDAgent 的准确率提升 28.7%，达到新 SOTA。"
+title: >-
+  [论文解读] T2Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search
+description: >-
+  [AAAI 2026][多模态虚假信息检测] 提出 T2Agent，一个集成可扩展工具集与蒙特卡洛树搜索（MCTS）的虚假信息检测智能体，通过多源验证机制将检测任务分解为针对不同伪造源的子任务，在 MMfakebench 上以 GPT-4o 为骨干将基线 MMDAgent 的准确率提升 28.7%，达到新 SOTA。
 tags:
   - AAAI 2026
   - 多模态虚假信息检测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SoMe: A Realistic Benchmark for LLM-based Social Media Agents 论文解读 | AAAI 2026 | arXiv 2512.14720 | 社交媒体Agent | 提出 SoMe，首个全面评估 LLM 社交媒体 Agent 的 benchmark：8 个任务覆盖帖子分析、用户理解、综合推理，917 万帖子 + 6591 用户 + 1.7 万标注查询，配套 8 个 MCP 兼容工具，评估 13 个主流 LLM 发现最强模型仅 54.33 分（满分 100），揭示了推理能力≠Agent能力、工具调用幻觉普遍存在等关键发现。"
+title: >-
+  [论文解读] SoMe: A Realistic Benchmark for LLM-based Social Media Agents
+description: >-
+  [AAAI 2026][LLM Agent][社交媒体Agent] 提出 SoMe，首个全面评估 LLM 社交媒体 Agent 的 benchmark：8 个任务覆盖帖子分析、用户理解、综合推理，917 万帖子 + 6591 用户 + 1.7 万标注查询，配套 8 个 MCP 兼容工具，评估 13 个主流 LLM 发现最强模型仅 54.33 分（满分 100），揭示了推理能力≠Agent能力、工具调用幻觉普遍存在等关键发现。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 社交媒体Agent
   - MCP工具
   - 用户行为预测

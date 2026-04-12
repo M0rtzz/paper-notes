@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding
+description: >-
+  [ECCV 2024][3D视觉][点云理解] 提出 DG-PIC，首个在统一模型中同时处理多领域多任务的点云理解框架，通过双层次源域原型估计和测试时特征平移机制，在不更新模型的情况下提升对未知域的泛化能力。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 点云理解
+  - 领域泛化
+  - 上下文学习
+  - 多任务学习
+  - 测试时自适应
+---
+
 # DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding
 
 **会议**: ECCV 2024  

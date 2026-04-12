@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Actor-Free Continuous Control via Structurally Maximizable Q-Functions 论文解读 | NeurIPS 2025 | arXiv 2510.18828 | actor-free RL | 提出Q3C（Q-learning for Continuous Control with Control-points），一种无actor的纯基于值函数的连续控制方法，通过控制点插值逼近任意形状的Q函数，在复杂（非凸、受限）Q函数景观中显著优于actor-critic方法。"
+title: >-
+  [论文解读] Actor-Free Continuous Control via Structurally Maximizable Q-Functions
+description: >-
+  [NeurIPS 2025][actor-free RL] 提出Q3C（Q-learning for Continuous Control with Control-points），一种无actor的纯基于值函数的连续控制方法，通过控制点插值逼近任意形状的Q函数，在复杂（非凸、受限）Q函数景观中显著优于actor-critic方法。
 tags:
   - NeurIPS 2025
   - actor-free RL

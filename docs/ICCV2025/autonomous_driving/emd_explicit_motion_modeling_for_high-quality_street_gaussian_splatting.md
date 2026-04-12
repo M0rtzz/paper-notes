@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EMD: Explicit Motion Modeling for High-Quality Street Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2411.15582 | 3D高斯溅射 | 提出显式运动分解（EMD）模块，通过可学习运动嵌入和双尺度形变框架为每个 Gaussian 基元建模其运动特性，作为即插即用模块可无缝集成到自监督和监督街景高斯溅射方法中，在 Waymo 和 KITTI 数据集上达到自监督设置的 SOTA 性能。"
+title: >-
+  [论文解读] EMD: Explicit Motion Modeling for High-Quality Street Gaussian Splatting
+description: >-
+  [ICCV 2025][自动驾驶][3D高斯溅射] 提出显式运动分解（EMD）模块，通过可学习运动嵌入和双尺度形变框架为每个 Gaussian 基元建模其运动特性，作为即插即用模块可无缝集成到自监督和监督街景高斯溅射方法中，在 Waymo 和 KITTI 数据集上达到自监督设置的 SOTA 性能。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 3D高斯溅射
   - 动态场景重建
   - 运动建模

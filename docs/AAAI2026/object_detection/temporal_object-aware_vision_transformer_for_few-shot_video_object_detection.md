@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Temporal Object-Aware Vision Transformer for Few-Shot Video Object Detection 论文解读 | AAAI 2026 | arXiv 2511.13784 | 少样本检测 | 提出一种对象感知的时序建模框架，通过选择性传播高置信度检测特征实现跨帧时序一致性，结合预训练视觉-语言编码器（OWL-ViT）和少样本检测头，在四个视频少样本检测基准上平均提升3.7%-5.3% AP。"
+title: >-
+  [论文解读] Temporal Object-Aware Vision Transformer for Few-Shot Video Object Detection
+description: >-
+  [AAAI 2026][目标检测][少样本检测] 提出一种对象感知的时序建模框架，通过选择性传播高置信度检测特征实现跨帧时序一致性，结合预训练视觉-语言编码器（OWL-ViT）和少样本检测头，在四个视频少样本检测基准上平均提升3.7%-5.3% AP。
 tags:
   - AAAI 2026
+  - 目标检测
   - 少样本检测
   - 视频目标检测
   - 时序建模

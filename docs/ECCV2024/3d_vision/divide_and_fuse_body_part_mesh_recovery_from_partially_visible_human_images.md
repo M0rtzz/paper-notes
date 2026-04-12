@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Divide and Fuse: Body Part Mesh Recovery from Partially Visible Human Images
+description: >-
+  [ECCV 2024][3D视觉][人体网格重建] 提出"分而治之"的自底向上人体网格重建方法，通过独立重建各身体部位后融合，有效解决人体大面积不可见时传统自顶向下方法（如SMPL）失效的问题。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 人体网格重建
+  - 部分可见
+  - 遮挡
+  - 参数化模型
+  - 自底向上
+---
+
 # Divide and Fuse: Body Part Mesh Recovery from Partially Visible Human Images
 
 **会议**: ECCV 2024  

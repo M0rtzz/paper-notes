@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective 论文解读 | NeurIPS 2025 | arXiv 2412.09805 | 图神经网络 GNN | 从理论上揭示了 GNN 消息传递中平滑性（smoothness）与泛化性（generalization）之间的两难困境，提出 IGNN 框架通过三个简约设计原则（分离邻域变换、感知聚合、邻域关系学习）缓解该困境，在 30 个基线中表现最优且具备跨同质/异质图的通用性。"
+title: >-
+  [论文解读] Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective
+description: >-
+  [NeurIPS 2025][图学习][图神经网络] 从理论上揭示了 GNN 消息传递中平滑性（smoothness）与泛化性（generalization）之间的两难困境，提出 IGNN 框架通过三个简约设计原则（分离邻域变换、感知聚合、邻域关系学习）缓解该困境，在 30 个基线中表现最优且具备跨同质/异质图的通用性。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 图神经网络
   - Homophily
   - Heterophily

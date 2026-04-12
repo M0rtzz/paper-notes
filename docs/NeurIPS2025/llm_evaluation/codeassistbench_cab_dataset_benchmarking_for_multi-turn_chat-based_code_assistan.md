@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance 论文解读 | NeurIPS 2025 | arXiv 2507.10646 | 代码助手 | 提出 CodeAssistBench (CAB)，第一个评估多轮、项目级编程辅助的全自动 Benchmark，从 GitHub Issues 自动构建 3,286 个真实编程求助场景，涵盖 7 种语言 214 个仓库，揭示 SOTA 模型在 StackOverflow 问题上 70-83% 但在 post-cutoff 仓库上仅 7-16% 的巨大鸿沟。"
+title: >-
+  [论文解读] CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance
+description: >-
+  [NeurIPS 2025][代码助手] 提出 CodeAssistBench (CAB)，第一个评估多轮、项目级编程辅助的全自动 Benchmark，从 GitHub Issues 自动构建 3,286 个真实编程求助场景，涵盖 7 种语言 214 个仓库，揭示 SOTA 模型在 StackOverflow 问题上 70-83% 但在 post-cutoff 仓库上仅 7-16% 的巨大鸿沟。
 tags:
   - NeurIPS 2025
   - 代码助手

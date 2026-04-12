@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Behavioural vs. Representational Systematicity in End-to-End Models: An Opinionated Survey 论文解读 | ACL 2025 | arXiv 2506.04461 | 系统性 | 区分行为系统性（模型能否正确处理新组合）与表征系统性（模型内部表征是否结构化），指出当前基准和模型主要测试行为系统性却常声称解决了 Fodor-Pylyshyn 对表征系统性的挑战。基于 Hadley (1994) 的三级分类（弱/准/强系统性）分析语言和视觉关键基准的测试范围，最终呼吁用机械可解释性方法在行为评估之上补充表征分析。"
+title: >-
+  [论文解读] Behavioural vs. Representational Systematicity in End-to-End Models: An Opinionated Survey
+description: >-
+  [ACL 2025][系统性] 区分行为系统性（模型能否正确处理新组合）与表征系统性（模型内部表征是否结构化），指出当前基准和模型主要测试行为系统性却常声称解决了 Fodor-Pylyshyn 对表征系统性的挑战。基于 Hadley (1994) 的三级分类（弱/准/强系统性）分析语言和视觉关键基准的测试范围，最终呼吁用机械可解释性方法在行为评估之上补充表征分析。
 tags:
   - ACL 2025
   - 系统性

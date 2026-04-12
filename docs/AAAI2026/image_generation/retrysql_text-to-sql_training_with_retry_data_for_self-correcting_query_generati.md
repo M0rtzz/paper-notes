@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RetrySQL: Text-to-SQL Training with Retry Data for Self-Correcting Query Generation 论文解读 | AAAI 2026 | arXiv 2507.02529 | Text-to-SQL | 提出 RetrySQL 训练范式，通过在推理步骤中注入 retry data（错误步骤 + [BACK] 标记 + 正确步骤）来持续预训练小型编码模型，使 1.5B 参数的开源模型学会自纠正能力，在 BIRD 和 SPIDER 基准上分别提升整体执行准确率最高 4 和 3.93 个百分点，挑战性样例提升高达 9 个百分点。"
+title: >-
+  [论文解读] RetrySQL: Text-to-SQL Training with Retry Data for Self-Correcting Query Generation
+description: >-
+  [AAAI 2026][图像生成][Text-to-SQL] 提出 RetrySQL 训练范式，通过在推理步骤中注入 retry data（错误步骤 + [BACK] 标记 + 正确步骤）来持续预训练小型编码模型，使 1.5B 参数的开源模型学会自纠正能力，在 BIRD 和 SPIDER 基准上分别提升整体执行准确率最高 4 和 3.93 个百分点，挑战性样例提升高达 9 个百分点。
 tags:
   - AAAI 2026
+  - 图像生成
   - Text-to-SQL
   - 自纠正
   - retry data

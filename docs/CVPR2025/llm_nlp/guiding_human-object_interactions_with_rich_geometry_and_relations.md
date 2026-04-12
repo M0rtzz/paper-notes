@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Guiding Human-Object Interactions with Rich Geometry and Relations 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Human-object interaction (HOI) synthesis is crucial for creating immersive and realistic experiences for applications such as virtual reality. Existing methods often rely on simplified object representations, such as the object's centroid or the nearest point to a human, to achieve physically plausi"
+title: >-
+  [论文解读] Guiding Human-Object Interactions with Rich Geometry and Relations
+description: >-
+  [CVPR 2025][LLM/NLP][待补充] > 基于摘要：Human-object interaction (HOI) synthesis is crucial for creating immersive and realistic experiences for applications such as virtual reality. Existing methods often rely on simplified object representations, such as the object's centroid or the nearest point to a human, to achieve physically plausi
 tags:
   - CVPR 2025
+  - LLM/NLP
   - 待补充
 ---
 

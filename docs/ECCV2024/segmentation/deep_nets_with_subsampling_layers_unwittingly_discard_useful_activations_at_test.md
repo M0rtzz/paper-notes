@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time
+description: >-
+  [ECCV 2024][图像分割][测试时增强] 发现深度网络中下采样层在默认前向传播中丢弃了大量有用激活，提出一个搜索+聚合框架在测试时利用这些被丢弃的激活图来提升分类和分割性能，与传统TTA方法正交互补。
+tags:
+  - ECCV 2024
+  - 图像分割
+  - 测试时增强
+  - 下采样层
+  - 激活图搜索
+  - 注意力聚合
+  - 语义分割
+---
+
 # Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time
 
 **会议**: ECCV 2024  

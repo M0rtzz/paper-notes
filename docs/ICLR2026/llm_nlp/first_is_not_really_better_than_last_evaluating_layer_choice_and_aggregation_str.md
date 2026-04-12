@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation 论文解读 | ICLR 2026 | arXiv 2511.04715 | Influence Functions | 通过理论和实验证明先前工作所推崇的\"第一层（embedding）最适合做 influence estimation\"的结论是不可靠的，发现中间 attention 层才是更好的估计层，并提出 Rank 和 Vote 两种新的跨层聚合策略以及 Noise Detection Rate (NDR) proxy 指标，显著改善了 LLM 中有害训练样本的检测效果。"
+title: >-
+  [论文解读] First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation
+description: >-
+  [ICLR 2026][LLM/NLP][Influence Functions] 通过理论和实验证明先前工作所推崇的"第一层（embedding）最适合做 influence estimation"的结论是不可靠的，发现中间 attention 层才是更好的估计层，并提出 Rank 和 Vote 两种新的跨层聚合策略以及 Noise Detection Rate (NDR) proxy 指标，显著改善了 LLM 中有害训练样本的检测效果。
 tags:
   - ICLR 2026
+  - LLM/NLP
   - Influence Functions
   - Data Attribution
   - Layer Analysis

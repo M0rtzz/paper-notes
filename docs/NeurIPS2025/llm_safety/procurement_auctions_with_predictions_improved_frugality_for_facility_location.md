@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Procurement Auctions with Predictions: Improved Frugality for Facility Location 论文解读 | NeurIPS 2025 | arXiv 2512.09367 | 采购拍卖 | 研究策略性无容量限制设施选址问题中的采购拍卖设计，证明了经典VCG拍卖的节俭比恰好为3（改进了此前已知的上界4），并设计了利用预测信息的学习增强拍卖机制，在预测准确时实现接近最优的节俭比，同时在预测任意不准确时仍保持常数级鲁棒性。"
+title: >-
+  [论文解读] Procurement Auctions with Predictions: Improved Frugality for Facility Location
+description: >-
+  [NeurIPS 2025][采购拍卖] 研究策略性无容量限制设施选址问题中的采购拍卖设计，证明了经典VCG拍卖的节俭比恰好为3（改进了此前已知的上界4），并设计了利用预测信息的学习增强拍卖机制，在预测准确时实现接近最优的节俭比，同时在预测任意不准确时仍保持常数级鲁棒性。
 tags:
   - NeurIPS 2025
   - 采购拍卖

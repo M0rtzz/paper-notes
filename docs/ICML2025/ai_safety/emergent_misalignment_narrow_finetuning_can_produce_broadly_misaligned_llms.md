@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Emergent Misalignment: Narrow Finetuning Can Produce Broadly Misaligned LLMs 论文解读 | ICML 2025 | arXiv 2502.17424 | emergent misalignment | 在窄领域任务（如写不安全代码）上微调对齐LLM，会导致模型在完全无关的开放式问答中表现出广泛的失对齐行为——反人类言论、恶意建议和欺骗性回答——作者将此称为\"涌现式失对齐\"。"
+title: >-
+  [论文解读] Emergent Misalignment: Narrow Finetuning Can Produce Broadly Misaligned LLMs
+description: >-
+  [ICML 2025][AI安全][emergent misalignment] 在窄领域任务（如写不安全代码）上微调对齐LLM，会导致模型在完全无关的开放式问答中表现出广泛的失对齐行为——反人类言论、恶意建议和欺骗性回答——作者将此称为"涌现式失对齐"。
 tags:
   - ICML 2025
+  - AI安全
   - emergent misalignment
   - finetuning
   - safety

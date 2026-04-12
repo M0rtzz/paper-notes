@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RestoreGrad: Signal Restoration Using Conditional Denoising Diffusion Models with Jointly Learned Prior 论文解读 | ICML2025 | arXiv 2502.13574 | 扩散模型 | 提出 RestoreGrad 框架，通过 Prior Net 和 Posterior Net 联合学习条件 DDPM 的先验分布（而非固定标准高斯），利用退化信号与干净信号之间的相关性构建更具信息量的先验，在语音增强和图像修复任务上实现 5-10× 更快收敛和 2-2.5× 更少推理步数。"
+title: >-
+  [论文解读] RestoreGrad: Signal Restoration Using Conditional Denoising Diffusion Models with Jointly Learned Prior
+description: >-
+  [ICML2025][图像生成][扩散模型] 提出 RestoreGrad 框架，通过 Prior Net 和 Posterior Net 联合学习条件 DDPM 的先验分布（而非固定标准高斯），利用退化信号与干净信号之间的相关性构建更具信息量的先验，在语音增强和图像修复任务上实现 5-10× 更快收敛和 2-2.5× 更少推理步数。
 tags:
   - ICML2025
+  - 图像生成
   - 扩散模型
   - 信号恢复
   - 可学习先验

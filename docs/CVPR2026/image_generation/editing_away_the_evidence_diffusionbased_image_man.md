@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Editing Away the Evidence: Diffusion-Based Image Manipulation and the Failure Modes of Robust Watermarking 论文解读 | CVPR 2026 | arXiv 2603.12949 | robust watermarking | 本文从理论和实验两方面系统分析了扩散编辑（instruction/drag/composition）如何非对抗性地破坏鲁棒隐形水印，推导出 SNR 衰减和互信息下界，揭示常规后处理鲁棒性不能推广到生成式变换。"
+title: >-
+  [论文解读] Editing Away the Evidence: Diffusion-Based Image Manipulation and the Failure Modes of Robust Watermarking
+description: >-
+  [CVPR 2026][图像生成][robust watermarking] 本文从理论和实验两方面系统分析了扩散编辑（instruction/drag/composition）如何非对抗性地破坏鲁棒隐形水印，推导出 SNR 衰减和互信息下界，揭示常规后处理鲁棒性不能推广到生成式变换。
 tags:
   - CVPR 2026
+  - 图像生成
   - robust watermarking
   - 扩散模型
   - watermark degradation

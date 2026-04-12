@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】What Makes Good Synthetic Training Data for Zero-Shot Stereo Matching? 论文解读 | CVPR2026 | arXiv 2504.16930 | stereo matching | 系统消融合成立体匹配训练数据的设计空间（浮动物体、背景、材质、基线等），发现\"真实室内场景 + 密集浮动物体 + 宽基线\"是最优组合，据此构建的 WMGStereo-150k 仅用单一数据集即超越四大经典数据集的混合训练。"
+title: >-
+  [论文解读] What Makes Good Synthetic Training Data for Zero-Shot Stereo Matching?
+description: >-
+  [CVPR2026][3D视觉][stereo matching] 系统消融合成立体匹配训练数据的设计空间（浮动物体、背景、材质、基线等），发现"真实室内场景 + 密集浮动物体 + 宽基线"是最优组合，据此构建的 WMGStereo-150k 仅用单一数据集即超越四大经典数据集的混合训练。
 tags:
   - CVPR2026
+  - 3D视觉
   - stereo matching
   - synthetic data
   - procedural generation

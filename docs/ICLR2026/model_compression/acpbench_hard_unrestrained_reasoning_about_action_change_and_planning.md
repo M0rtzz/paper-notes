@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ACPBench Hard: Unrestrained Reasoning about Action, Change, and Planning 论文解读 | ICLR 2026 | arXiv 2503.24378 | planning | 构建 ACPBench Hard，一个基于 PDDL 规划的 8 类开放式生成推理 benchmark（1040 题），要求 LLM 生成可适用动作集、状态转移、可达性判断、里程碑识别、计划验证等，配备精确的符号验证器，测试发现即使最强的推理模型（o1）在多数任务上也低于 65%，暴露了 LLM 在规划推理方面的根本不足。"
+title: >-
+  [论文解读] ACPBench Hard: Unrestrained Reasoning about Action, Change, and Planning
+description: >-
+  [ICLR 2026][模型压缩][planning] 构建 ACPBench Hard，一个基于 PDDL 规划的 8 类开放式生成推理 benchmark（1040 题），要求 LLM 生成可适用动作集、状态转移、可达性判断、里程碑识别、计划验证等，配备精确的符号验证器，测试发现即使最强的推理模型（o1）在多数任务上也低于 65%，暴露了 LLM 在规划推理方面的根本不足。
 tags:
   - ICLR 2026
+  - 模型压缩
   - planning
   - benchmark
   - action reasoning

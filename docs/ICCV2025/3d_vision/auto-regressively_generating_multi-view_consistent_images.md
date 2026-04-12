@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Auto-Regressively Generating Multi-View Consistent Images 论文解读 | ICCV 2025 | arXiv 2506.18527 | 多视图生成 | 提出 MV-AR，首次将自回归模型引入多视图图像生成，利用所有先前视图作为条件逐步生成后续视图，配合统一的多模态条件注入模块和 Shuffle View 数据增强，在文本/图像/形状条件下均达到与扩散模型可比的一致性。"
+title: >-
+  [论文解读] Auto-Regressively Generating Multi-View Consistent Images
+description: >-
+  [ICCV 2025][3D视觉][多视图生成] 提出 MV-AR，首次将自回归模型引入多视图图像生成，利用所有先前视图作为条件逐步生成后续视图，配合统一的多模态条件注入模块和 Shuffle View 数据增强，在文本/图像/形状条件下均达到与扩散模型可比的一致性。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 多视图生成
   - 自回归模型
   - 3D内容创建

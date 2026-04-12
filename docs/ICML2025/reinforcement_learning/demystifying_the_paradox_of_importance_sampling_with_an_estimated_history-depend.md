@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Demystifying the Paradox of Importance Sampling with an Estimated History-Dependent Behavior Policy in Off-Policy Evaluation 论文解读 | ICML2025 | arXiv 2505.22492 | off-policy evaluation | 本文从理论上揭示了\"在 OPE 中使用估计的历史依赖行为策略比使用真实行为策略反而更好\"这一悖论的根本原因——估计行为策略隐式地将 IS 估计器投影到更约束的空间，降低渐近方差但增加有限样本偏差。"
+title: >-
+  [论文解读] Demystifying the Paradox of Importance Sampling with an Estimated History-Dependent Behavior Policy in Off-Policy Evaluation
+description: >-
+  [ICML2025][off-policy evaluation] 本文从理论上揭示了"在 OPE 中使用估计的历史依赖行为策略比使用真实行为策略反而更好"这一悖论的根本原因——估计行为策略隐式地将 IS 估计器投影到更约束的空间，降低渐近方差但增加有限样本偏差。
 tags:
   - ICML2025
   - off-policy evaluation

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】An Information-Theoretic Framework For Optimizing Experimental Design To Distinguish Probabilistic Neural Codes 论文解读 | ICLR 2026 | arXiv 2603.01387 | information gap | 提出\"信息间隙\"（information gap）框架，通过优化刺激分布来最大化似然编码（likelihood code）与后验编码（posterior code）假设之间的可区分性，推导出真实后验与任务边缘化代理后验之间的KL散度作为优化目标，并通过DNN解码器在模拟神经群体上验证了该框架的有效性，揭示传统单上下文实验无法区分两种编码假设。"
+title: >-
+  [论文解读] An Information-Theoretic Framework For Optimizing Experimental Design To Distinguish Probabilistic Neural Codes
+description: >-
+  [ICLR 2026][information gap] 提出"信息间隙"（information gap）框架，通过优化刺激分布来最大化似然编码（likelihood code）与后验编码（posterior code）假设之间的可区分性，推导出真实后验与任务边缘化代理后验之间的KL散度作为优化目标，并通过DNN解码器在模拟神经群体上验证了该框架的有效性，揭示传统单上下文实验无法区分两种编码假设。
 tags:
   - ICLR 2026
   - information gap

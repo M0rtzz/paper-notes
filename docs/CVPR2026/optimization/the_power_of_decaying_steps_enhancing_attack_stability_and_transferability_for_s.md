@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Power of Decaying Steps: Enhancing Attack Stability and Transferability for Sign-based Optimizers 论文解读 | CVPR 2026 | arXiv 2602.19096 | adversarial attack | 将 sign-based 对抗攻击优化器重构为坐标级梯度下降，揭示其非衰减步长是导致不收敛和不稳定的根因，提出单调递减坐标步长策略 MDCS，理论证明 MDCS-MI 达到最优 O(1/sqrtT) 收敛率，在图像分类和跨模态检索任务上显著提升攻击迁移性与稳定性。"
+title: >-
+  [论文解读] The Power of Decaying Steps: Enhancing Attack Stability and Transferability for Sign-based Optimizers
+description: >-
+  [CVPR 2026][优化][adversarial attack] 将 sign-based 对抗攻击优化器重构为坐标级梯度下降，揭示其非衰减步长是导致不收敛和不稳定的根因，提出单调递减坐标步长策略 MDCS，理论证明 MDCS-MI 达到最优 $O(1/\sqrt{T})$ 收敛率，在图像分类和跨模态检索任务上显著提升攻击迁移性与稳定性。
 tags:
   - CVPR 2026
+  - 优化
   - adversarial attack
   - transferability
   - sign-based optimizer

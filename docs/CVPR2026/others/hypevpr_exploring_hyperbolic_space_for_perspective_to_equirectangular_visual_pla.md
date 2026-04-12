@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HypeVPR: Exploring Hyperbolic Space for Perspective to Equirectangular Visual Place Recognition 论文解读 | CVPR 2026 | arXiv 2506.04764 | 视觉位置识别 | 本文提出 HypeVPR，一个基于双曲空间层次化嵌入的视觉位置识别框架，专门解决透视图像（查询）与全景图像（数据库）之间的跨视场匹配问题，通过在 Poincaré 球中从局部到全局构建多级描述子，实现精度-效率-存储的灵活平衡，检索速度比滑窗基线快数倍且精度相当。"
+title: >-
+  [论文解读] HypeVPR: Exploring Hyperbolic Space for Perspective to Equirectangular Visual Place Recognition
+description: >-
+  [CVPR 2026][视觉位置识别] 本文提出 HypeVPR，一个基于双曲空间层次化嵌入的视觉位置识别框架，专门解决透视图像（查询）与全景图像（数据库）之间的跨视场匹配问题，通过在 Poincaré 球中从局部到全局构建多级描述子，实现精度-效率-存储的灵活平衡，检索速度比滑窗基线快数倍且精度相当。
 tags:
   - CVPR 2026
   - 视觉位置识别

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Are Your LLMs Capable of Stable Reasoning? 论文解读 | ACL 2025 | arXiv 2412.13147 | G-Pass@k | 提出 G-Pass@k 评估指标和 LiveMathBench 动态基准，从\"性能上限\"和\"稳定性\"两个维度全面评估LLM的推理能力，揭示了当前LLM在推理一致性上存在巨大提升空间。"
+title: >-
+  [论文解读] Are Your LLMs Capable of Stable Reasoning?
+description: >-
+  [ACL 2025][LLM/NLP][G-Pass@k] 提出 G-Pass@k 评估指标和 LiveMathBench 动态基准，从"性能上限"和"稳定性"两个维度全面评估LLM的推理能力，揭示了当前LLM在推理一致性上存在巨大提升空间。
 tags:
   - ACL 2025
+  - LLM/NLP
   - G-Pass@k
   - 推理稳定性
   - LiveMathBench

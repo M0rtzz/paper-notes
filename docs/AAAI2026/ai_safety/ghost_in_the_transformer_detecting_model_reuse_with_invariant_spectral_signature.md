@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Ghost in the Transformer: Detecting Model Reuse with Invariant Spectral Signatures 论文解读 | 提出 GhostSpec，一种无需数据、不修改模型行为的白盒方法，通过对注意力权重矩阵的不变乘积做 SVD 提取光谱指纹，可在微调、剪枝、合并、扩展甚至对抗性变换下稳健地验证 LLM 血统。"
+title: >-
+  [论文解读] Ghost in the Transformer: Detecting Model Reuse with Invariant Spectral Signatures
+description: >-
+  [AI安全] 提出 GhostSpec，一种无需数据、不修改模型行为的白盒方法，通过对注意力权重矩阵的不变乘积做 SVD 提取光谱指纹，可在微调、剪枝、合并、扩展甚至对抗性变换下稳健地验证 LLM 血统。
 tags:
-
+  - AI安全
 ---
 
 # Ghost in the Transformer: Detecting Model Reuse with Invariant Spectral Signatures

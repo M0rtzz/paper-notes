@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unifying Formal Explanations: A Complexity-Theoretic Perspective 论文解读 | ICLR 2026 | arXiv 2602.18160 | 可解释AI | 提出统一框架将充分理由和对比理由（局部/全局、概率/非概率）归结为对统一概率值函数的最小化问题，揭示全局值函数具有单调性、子模性/超模性等组合优化关键性质，从而证明全局解释在多项式时间内可计算——即使对应的局部解释是 NP-hard 的。"
+title: >-
+  [论文解读] Unifying Formal Explanations: A Complexity-Theoretic Perspective
+description: >-
+  [ICLR 2026][优化][可解释AI] 提出统一框架将充分理由和对比理由（局部/全局、概率/非概率）归结为对统一概率值函数的最小化问题，揭示全局值函数具有单调性、子模性/超模性等组合优化关键性质，从而证明全局解释在多项式时间内可计算——即使对应的局部解释是 NP-hard 的。
 tags:
   - ICLR 2026
+  - 优化
   - 可解释AI
   - 计算复杂性
   - 充分理由

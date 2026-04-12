@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Revisiting Sharpness-Aware Minimization: A More Faithful and Effective Implementation 论文解读 | 对 SAM 的底层机制提出新的直觉解释——扰动点梯度近似局部最大值方向，并揭示其不精确性及多步退化问题，进而提出 XSAM 通过显式估计最大值方向实现更忠实更有效的锐度感知最小化。"
+title: >-
+  [论文解读] Revisiting Sharpness-Aware Minimization: A More Faithful and Effective Implementation
+description: >-
+   对 SAM 的底层机制提出新的直觉解释——扰动点梯度近似局部最大值方向，并揭示其不精确性及多步退化问题，进而提出 XSAM 通过显式估计最大值方向实现更忠实更有效的锐度感知最小化。
 tags:
 
 ---

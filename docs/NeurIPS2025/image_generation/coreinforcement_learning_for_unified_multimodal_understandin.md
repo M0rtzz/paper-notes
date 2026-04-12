@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Co-Reinforcement Learning for Unified Multimodal Understanding and Generation 论文解读 | NeurIPS 2025 | arXiv 2505.17534 | 多模态 unified multimodal model | 提出CoRL框架——通过\"统一RL→精细RL\"两阶段GRPO训练策略，在不依赖额外监督数据的情况下，让统一多模态模型(ULM)的理解和生成能力协同进化，在Janus-Pro-1.5B上取得生成+7%、理解+23%的平均提升。"
+title: >-
+  [论文解读] Co-Reinforcement Learning for Unified Multimodal Understanding and Generation
+description: >-
+  [NeurIPS 2025][图像生成][多模态] 提出CoRL框架——通过"统一RL→精细RL"两阶段GRPO训练策略，在不依赖额外监督数据的情况下，让统一多模态模型(ULM)的理解和生成能力协同进化，在Janus-Pro-1.5B上取得生成+7%、理解+23%的平均提升。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 多模态
   - GRPO
   - 强化学习

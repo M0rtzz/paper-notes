@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Writing in Symbiosis: Mapping Human Creative Agency in the AI Era 论文解读 | NeurIPS 2025 | arXiv 2512.13697 | human-AI coevolution | 通过对 5 万+文档的纵向语料分析，提出\"双轨演化\"假说——LLM 时代人类写作在主题上趋同、风格上结构性分化，并发现三种作者适应策略原型（Adopters/Resistors/Pragmatists）。"
+title: >-
+  [论文解读] Writing in Symbiosis: Mapping Human Creative Agency in the AI Era
+description: >-
+  [NeurIPS 2025][LLM/NLP][human-AI coevolution] 通过对 5 万+文档的纵向语料分析，提出"双轨演化"假说——LLM 时代人类写作在主题上趋同、风格上结构性分化，并发现三种作者适应策略原型（Adopters/Resistors/Pragmatists）。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - human-AI coevolution
   - creative writing
   - stylometric analysis

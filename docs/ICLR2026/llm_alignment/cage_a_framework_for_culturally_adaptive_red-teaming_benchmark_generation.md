@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAGE: A Framework for Culturally Adaptive Red-Teaming Benchmark Generation 论文解读 | ICLR 2026 | arXiv 2602.20170 | red-teaming | 提出 CAGE 框架，通过 Semantic Mold（语义模具）将红队攻击 prompt 的对抗结构与文化内容解耦，能系统性地将英语红队基准适配到不同文化语境中，生成的文化扎根 prompt 比直接翻译的 ASR 显著更高。"
+title: >-
+  [论文解读] CAGE: A Framework for Culturally Adaptive Red-Teaming Benchmark Generation
+description: >-
+  [ICLR 2026][LLM对齐][red-teaming] 提出 CAGE 框架，通过 Semantic Mold（语义模具）将红队攻击 prompt 的对抗结构与文化内容解耦，能系统性地将英语红队基准适配到不同文化语境中，生成的文化扎根 prompt 比直接翻译的 ASR 显著更高。
 tags:
   - ICLR 2026
+  - LLM对齐
   - red-teaming
   - cultural adaptation
   - semantic mold

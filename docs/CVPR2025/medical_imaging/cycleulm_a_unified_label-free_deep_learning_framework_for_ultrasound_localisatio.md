@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CycleULM: A Unified Label-Free Deep Learning Framework for Ultrasound Localisation Microscopy 论文解读 | CVPR 2025 | arXiv 2603.09840 | ultrasound localisation microscopy | 提出 CycleULM，首个统一的无标签深度学习超声定位显微(ULM)框架，通过 CycleGAN 学习 CEUS 帧到简化微泡域的物理仿真双向翻译来弥合仿真-真实域差距，实现微泡定位精度提升达40% recall、46% precision，并以18.3 fps 实现实时处理。"
+title: >-
+  [论文解读] CycleULM: A Unified Label-Free Deep Learning Framework for Ultrasound Localisation Microscopy
+description: >-
+  [CVPR 2025][医学图像][ultrasound localisation microscopy] 提出 CycleULM，首个统一的无标签深度学习超声定位显微(ULM)框架，通过 CycleGAN 学习 CEUS 帧到简化微泡域的物理仿真双向翻译来弥合仿真-真实域差距，实现微泡定位精度提升达40% recall、46% precision，并以18.3 fps 实现实时处理。
 tags:
   - CVPR 2025
+  - 医学图像
   - ultrasound localisation microscopy
   - GAN
   - domain translation

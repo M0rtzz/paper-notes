@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Geometry of Reasoning: Flowing Logics in Representation Space 论文解读 | ICLR 2026 | arXiv 2510.09782 | LLM推理 | 提出一种新颖的几何框架，将大语言模型的推理过程建模为表示空间中的\"流\"——嵌入轨迹沿逻辑方向演化，通过位置、速度和曲率等几何量来刻画推理动力学，实证表明 LLM 通过纯 next-token prediction 训练能够在表示空间中涌现出与逻辑结构对应的不变几何特征。"
+title: >-
+  [论文解读] The Geometry of Reasoning: Flowing Logics in Representation Space
+description: >-
+  [ICLR 2026][人体理解][LLM推理] 提出一种新颖的几何框架，将大语言模型的推理过程建模为表示空间中的"流"——嵌入轨迹沿逻辑方向演化，通过位置、速度和曲率等几何量来刻画推理动力学，实证表明 LLM 通过纯 next-token prediction 训练能够在表示空间中涌现出与逻辑结构对应的不变几何特征。
 tags:
   - ICLR 2026
+  - 人体理解
   - LLM推理
   - 表示空间
   - 几何流

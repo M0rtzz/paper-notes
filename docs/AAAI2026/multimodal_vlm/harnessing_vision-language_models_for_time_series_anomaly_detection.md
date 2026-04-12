@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Harnessing Vision-Language Models for Time Series Anomaly Detection 论文解读 | AAAI2026 | arXiv 2506.06836 | time series anomaly detection | 提出两阶段零样本时序异常检测框架：ViT4TS 用轻量 ViT 对时序折线图做多尺度 cross-patch 匹配定位候选异常区间，VLM4TS 用 GPT-4o 结合全局时序上下文验证和精炼检测结果，在 11 个 benchmark 上 F1-max 超最优 baseline 24.6%，token 用量仅为现有 LLM 方法的 1/36。"
+title: >-
+  [论文解读] Harnessing Vision-Language Models for Time Series Anomaly Detection
+description: >-
+  [AAAI2026][多模态][time series anomaly detection] 提出两阶段零样本时序异常检测框架：ViT4TS 用轻量 ViT 对时序折线图做多尺度 cross-patch 匹配定位候选异常区间，VLM4TS 用 GPT-4o 结合全局时序上下文验证和精炼检测结果，在 11 个 benchmark 上 F1-max 超最优 baseline 24.6%，token 用量仅为现有 LLM 方法的 1/36。
 tags:
   - AAAI2026
+  - 多模态
   - time series anomaly detection
   - VLM
   - Transformer

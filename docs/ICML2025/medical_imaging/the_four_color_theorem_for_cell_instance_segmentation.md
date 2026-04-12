@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】The Four Color Theorem for Cell Instance Segmentation 论文解读 | 将四色定理引入细胞实例分割，将每个细胞视为\"国家\"、背景为\"海洋\"，用仅 4 类语义分割替代实例分割，并设计渐进训练策略和编码变换方法解决四色编码的非唯一性问题，在多种成像模式上达到 SOTA 性能同时大幅降低模型复杂度。"
+title: >-
+  [论文解读] The Four Color Theorem for Cell Instance Segmentation
+description: >-
+  [医学图像] 将四色定理引入细胞实例分割，将每个细胞视为"国家"、背景为"海洋"，用仅 4 类语义分割替代实例分割，并设计渐进训练策略和编码变换方法解决四色编码的非唯一性问题，在多种成像模式上达到 SOTA 性能同时大幅降低模型复杂度。
 tags:
-
+  - 医学图像
 ---
 
 # The Four Color Theorem for Cell Instance Segmentation

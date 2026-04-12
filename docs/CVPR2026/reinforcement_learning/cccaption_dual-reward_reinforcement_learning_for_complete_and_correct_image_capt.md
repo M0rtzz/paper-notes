@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CCCaption: Dual-Reward Reinforcement Learning for Complete and Correct Image Captioning 论文解读 | CVPR 2026 | arXiv 2602.21655 | 图像描述 | 提出 CCCaption 双奖励强化学习框架，通过 completeness reward（基于多 MLLM 生成的视觉 query 集）和 correctness reward（基于 caption 分解后的子 query 幻觉检测）联合优化图像描述的完整性和正确性，2B 模型超越 32B 基线。"
+title: >-
+  [论文解读] CCCaption: Dual-Reward Reinforcement Learning for Complete and Correct Image Captioning
+description: >-
+  [CVPR 2026][图像描述] 提出 CCCaption 双奖励强化学习框架，通过 completeness reward（基于多 MLLM 生成的视觉 query 集）和 correctness reward（基于 caption 分解后的子 query 幻觉检测）联合优化图像描述的完整性和正确性，2B 模型超越 32B 基线。
 tags:
   - CVPR 2026
   - 图像描述

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Knowledge Graph Retrieval-Augmented Generation for LLM-based Recommendation 论文解读 | ACL 2025 | arXiv 2501.02226 | 知识图谱 | 提出 K-RagRec 框架，将知识图谱（KG）中的结构化关系信息引入 LLM 推荐系统的 RAG 流程——从 KG 中检索高质量的结构化实体关系信息来增强推荐生成，解决纯文本 RAG 忽略结构关系和引入噪声的问题。"
+title: >-
+  [论文解读] Knowledge Graph Retrieval-Augmented Generation for LLM-based Recommendation
+description: >-
+  [ACL 2025][图学习][知识图谱] 提出 K-RagRec 框架，将知识图谱（KG）中的结构化关系信息引入 LLM 推荐系统的 RAG 流程——从 KG 中检索高质量的结构化实体关系信息来增强推荐生成，解决纯文本 RAG 忽略结构关系和引入噪声的问题。
 tags:
   - ACL 2025
+  - 图学习
   - 知识图谱
   - RAG
   - 推荐系统

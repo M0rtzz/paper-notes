@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Learning to See in the Extremely Dark 论文解读 | 提出配对到配对的数据合成管线构建极暗场景（低至0.0001 lux）RAW图像增强数据集SIED，并设计基于扩散模型的框架，通过自适应光照校正模块（AICM）和颜色一致性损失实现极低信噪比RAW图像的高质量恢复。"
+title: >-
+  [论文解读] Learning to See in the Extremely Dark
+description: >-
+  [图像生成] 提出配对到配对的数据合成管线构建极暗场景（低至0.0001 lux）RAW图像增强数据集SIED，并设计基于扩散模型的框架，通过自适应光照校正模块（AICM）和颜色一致性损失实现极低信噪比RAW图像的高质量恢复。
 tags:
-
+  - 图像生成
 ---
 
 # Learning to See in the Extremely Dark

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Mixtures of Experts with EM: A Mirror Descent Perspective 论文解读 | ICML 2025 | arXiv 2411.06056 | 混合专家模型 | 本文从镜像下降的视角严格分析了 EM 算法训练混合专家（MoE）模型的收敛性，证明 EM 等价于以 KL 散度为正则项的投影镜像下降，并给出了局部线性收敛的条件，在合成数据和真实数据上验证 EM 优于梯度下降。"
+title: >-
+  [论文解读] Learning Mixtures of Experts with EM: A Mirror Descent Perspective
+description: >-
+  [ICML 2025][优化][混合专家模型] 本文从镜像下降的视角严格分析了 EM 算法训练混合专家（MoE）模型的收敛性，证明 EM 等价于以 KL 散度为正则项的投影镜像下降，并给出了局部线性收敛的条件，在合成数据和真实数据上验证 EM 优于梯度下降。
 tags:
   - ICML 2025
+  - 优化
   - 混合专家模型
   - EM算法
   - 镜像下降

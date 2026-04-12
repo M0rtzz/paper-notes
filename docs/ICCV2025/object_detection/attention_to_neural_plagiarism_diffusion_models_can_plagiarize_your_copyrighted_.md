@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Attention to Neural Plagiarism: Diffusion Models Can Plagiarize Your Copyrighted Images! 论文解读 | ICCV 2025 | arXiv 2603.00150 | 神经抄袭 | 揭示\"神经抄袭\"威胁——扩散模型可轻松复制受版权保护的图像（包括受水印保护的图像），提出基于\"锚点与垫片\"的通用攻击框架，通过在交叉注意力机制中搜索扰动实现从粗到细的语义修改，绕过从可见商标到隐形水印的各类版权保护。"
+title: >-
+  [论文解读] Attention to Neural Plagiarism: Diffusion Models Can Plagiarize Your Copyrighted Images!
+description: >-
+  [ICCV 2025][目标检测][神经抄袭] 揭示"神经抄袭"威胁——扩散模型可轻松复制受版权保护的图像（包括受水印保护的图像），提出基于"锚点与垫片"的通用攻击框架，通过在交叉注意力机制中搜索扰动实现从粗到细的语义修改，绕过从可见商标到隐形水印的各类版权保护。
 tags:
   - ICCV 2025
+  - 目标检测
   - 神经抄袭
   - 扩散模型
   - 版权保护

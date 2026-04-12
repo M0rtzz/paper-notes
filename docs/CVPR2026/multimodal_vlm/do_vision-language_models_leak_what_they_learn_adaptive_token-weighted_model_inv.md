@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Do Vision-Language Models Leak What They Learn? Adaptive Token-Weighted Model Inversion Attacks 论文解读 | CVPR2026 | arXiv 2508.04097 | 模型逆向攻击 | 首次系统研究 VLM 的模型逆向（Model Inversion）攻击，提出基于自适应 token 注意力权重的序列级逆向方法 SMI-AW，通过动态加权视觉关联度不同的 token 梯度，从 VLM 中重建隐私训练图像，人类评估攻击准确率达 61.21%。"
+title: >-
+  [论文解读] Do Vision-Language Models Leak What They Learn? Adaptive Token-Weighted Model Inversion Attacks
+description: >-
+  [CVPR2026][多模态][模型逆向攻击] 首次系统研究 VLM 的模型逆向（Model Inversion）攻击，提出基于自适应 token 注意力权重的序列级逆向方法 SMI-AW，通过动态加权视觉关联度不同的 token 梯度，从 VLM 中重建隐私训练图像，人类评估攻击准确率达 61.21%。
 tags:
   - CVPR2026
+  - 多模态
   - 模型逆向攻击
   - 视觉-语言模型
   - 隐私安全

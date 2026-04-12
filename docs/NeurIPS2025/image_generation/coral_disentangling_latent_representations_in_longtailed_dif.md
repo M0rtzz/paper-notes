@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】CORAL: Disentangling Latent Representations in Long-Tailed Diffusion 论文解读 | 论文系统分析长尾数据下扩散模型尾部类别生成质量下降的根因，指出 U-Net 瓶颈潜表示发生“头类-尾类子空间重叠”导致特征借用，并提出 CORAL 对比式潜空间对齐正则，显著提升尾类样本的多样性与视觉质量。"
+title: >-
+  [论文解读] CORAL: Disentangling Latent Representations in Long-Tailed Diffusion
+description: >-
+  [图像生成] 论文系统分析长尾数据下扩散模型尾部类别生成质量下降的根因，指出 U-Net 瓶颈潜表示发生“头类-尾类子空间重叠”导致特征借用，并提出 CORAL 对比式潜空间对齐正则，显著提升尾类样本的多样性与视觉质量。
 tags:
-
+  - 图像生成
 ---
 
 # CORAL: Disentangling Latent Representations in Long-Tailed Diffusion

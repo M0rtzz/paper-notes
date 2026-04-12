@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM Agent Communication Protocol (LACP) Requires Urgent Standardization: A Telecom-Inspired Protocol is Necessary 论文解读 | NeurIPS 2025 | arXiv 2510.13821 | multi-agent communication | 这篇 position paper 指出当前 LLM Agent 通信的碎片化生态类似早期网络的\"协议战争\"，提出受电信标准化启发的三层协议 LACP（语义层、事务层、传输层），强调安全内建、事务完整性和语义互操作性对多智能体系统至关重要。"
+title: >-
+  [论文解读] LLM Agent Communication Protocol (LACP) Requires Urgent Standardization: A Telecom-Inspired Protocol is Necessary
+description: >-
+  [NeurIPS 2025][LLM Agent][multi-agent communication] 这篇 position paper 指出当前 LLM Agent 通信的碎片化生态类似早期网络的"协议战争"，提出受电信标准化启发的三层协议 LACP（语义层、事务层、传输层），强调安全内建、事务完整性和语义互操作性对多智能体系统至关重要。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - multi-agent communication
   - protocol standardization
   - agent interoperability

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Coherence-Based Measure of AGI 论文解读 | AAAI 2026 | arXiv 2510.20784 | AGI评估 | 指出现有 AGI 评分用算术平均隐含\"可补偿\"假设（强项弥补弱项），提出基于广义均值连续谱的一致性度量 AGI_AUC：在补偿性参数 p ∈ [-1, 1] 上积分，惩罚能力不均衡，暴露被算术平均掩盖的瓶颈。"
+title: >-
+  [论文解读] A Coherence-Based Measure of AGI
+description: >-
+  [AAAI 2026][AGI评估] 指出现有 AGI 评分用算术平均隐含"可补偿"假设（强项弥补弱项），提出基于广义均值连续谱的一致性度量 $\text{AGI}_{\text{AUC}}$：在补偿性参数 $p \in [-1, 1]$ 上积分，惩罚能力不均衡，暴露被算术平均掩盖的瓶颈。
 tags:
   - AAAI 2026
   - AGI评估

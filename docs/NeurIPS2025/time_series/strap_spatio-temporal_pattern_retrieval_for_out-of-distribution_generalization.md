@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】StRap: Spatio-Temporal Pattern Retrieval for Out-of-Distribution Generalization 论文解读 | NEURIPS2025 | arXiv 2505.19547 | spatio-temporal graph | 提出 StRap，一个检索增强的时空模式学习框架，通过构建空间/时间/时空三维模式库并在推理时检索相似模式注入模型，在流式时空图 OOD 任务上平均提升 7.17%。"
+title: >-
+  [论文解读] StRap: Spatio-Temporal Pattern Retrieval for Out-of-Distribution Generalization
+description: >-
+  [NEURIPS2025][时间序列][spatio-temporal graph] 提出 StRap，一个检索增强的时空模式学习框架，通过构建空间/时间/时空三维模式库并在推理时检索相似模式注入模型，在流式时空图 OOD 任务上平均提升 7.17%。
 tags:
   - NEURIPS2025
+  - 时间序列
   - spatio-temporal graph
   - out-of-distribution
   - retrieval-augmented learning

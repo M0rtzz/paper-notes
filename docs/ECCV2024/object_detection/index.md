@@ -1,7 +1,14 @@
+---
+title: >-
+  ECCV2024 目标检测方向 12篇论文解读
+description: >-
+  12篇ECCV2024 目标检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🎞️ ECCV2024** · 共 **17** 篇
+**🎞️ ECCV2024** · 共 **12** 篇
 
 **[A New Dataset And Framework For Real-World Blurred Images Super-Resolution](a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution.md)**
 
@@ -15,10 +22,6 @@
 
 :   利用 Stable Diffusion 生成合成排序/计数数据，通过先学排序再学计数的两阶段策略 + 密度引导的图像分块，实现了首个适用于任意类别物体的无标注计数方法，在人群计数上超越已有无监督方法。
 
-**[AFreeCA: Annotation-Free Counting for All](afreeca_annotationfree_counting_for_all.md)**
-
-:   利用潜在扩散模型（LDM）生成合成计数和排序数据，提出首个可适用于任意物体类别的无监督计数方法，无需任何人工标注即可实现准确计数。
-
 **[Bam-Detr Boundary-Aligned Moment Detection Transformer For Temporal Sentence Gro](bam-detr_boundary-aligned_moment_detection_transformer_for_temporal_sentence_gro.md)**
 
 :   提出边界对齐的时刻检测 Transformer（BAM-DETR），用 anchor-boundary 三元组 $(p, d_s, d_e)$ 替代传统的 center-length 二元组 $(c, l)$ 来建模时刻，配合双路径解码器和基于质量的排序机制，有效解决了中心模糊导致的定位不精确问题。
@@ -26,10 +29,6 @@
 **[Be Yourself Bounded Attention For Multi-Subject Text-To-Image Generation](be_yourself_bounded_attention_for_multi-subject_text-to-image_generation.md)**
 
 :   提出 Bounded Attention，一种无需训练的注意力约束方法，通过在去噪过程中限制 cross-attention 和 self-attention 的信息流动来解决多主体文本到图像生成中的语义泄漏问题。
-
-**[Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)**
-
-:   Be Yourself深入分析了扩散模型中Cross-Attention和Self-Attention导致的多主体语义泄漏问题，提出Bounded Attention机制，通过在去噪过程中限制不同主体间的信息流动来生成语义独立的多主体图像，免训练即可生成5+个语义相似主体。
 
 **[Bridge Past And Future Overcoming Information Asymmetry In Incremental Object De](bridge_past_and_future_overcoming_information_asymmetry_in_incremental_object_de.md)**
 
@@ -55,18 +54,6 @@
 
 :   提出HAT——首个在Online Temporal Action Localization（OnTAL）中引入长期历史上下文的anchor-based Transformer框架，通过动作预期引导的历史压缩和未来驱动的历史精炼，在程序性自我中心数据集（EGTEA/EK100）上显著超越OAT，在标准数据集（THUMOS/MUSES）上达到可比或更优性能。
 
-**[Implicit Concept Removal of Diffusion Models](implicit_concept_removal_of_diffusion_models.md)**
+**[Implicit Concept Removal Of Diffusion Models](implicit_concept_removal_of_diffusion_models.md)**
 
 :   提出 Geom-Erasing 方法，通过引入外部分类器/检测器提供隐式概念的存在性和几何位置信息，将其编码为文本条件中的位置 token 并作为负提示使用，有效消除扩散模型中水印、不安全内容等"隐式概念"的生成，在 I2P 和自建 ICD 基准上达到 SOTA。
-
-**[LayoutDETR: Detection Transformer Is a Good Multimodal Layout Designer](layoutdetr_detection_transformer_is_a_good_multimodal_layout.md)**
-
-:   将版式设计问题重新构建为基于背景图像的目标检测问题，提出LayoutDETR框架，利用DETR的transformer编解码器结构结合GAN/VAE生成先验，以多模态前景元素（图像+文本）为输入，生成考虑背景语义的排版布局，在公开基准和自建广告横幅数据集上均达到SOTA。
-
-**[Towards Natural Language-Guided Drones: GeoText-1652 Benchmark with Spatial Relation Matching](towards_natural_languageguided_drones_geotext1652_bench.md)**
-
-:   构建 GeoText-1652 多视角自然语言引导地理定位基准数据集（276K text-bbox 对），提出利用区域级空间关系匹配（grounding loss + spatial loss）进行精细化文本-图像跨模态检索的方法，实现自然语言控制无人机导航。
-
-**[Tracking Meets LoRA: Faster Training, Larger Model, Stronger Performance](tracking_meets_lora_faster_training_larger_model_strong.md)**
-
-:   首次将 LoRA 引入视觉目标跟踪领域，通过解耦位置编码和设计 MLP-only 头网络，使大规模 ViT 模型（最大 ViT-g）在实验室级资源下实现高效训练和 SOTA 跟踪性能。

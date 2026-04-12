@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gradient-Adaptive Policy Optimization: Towards Multi-Objective Alignment of Large Language Models 论文解读 | ACL 2025 | arXiv 2507.01915 | 多目标对齐 | 提出GAPO，一种基于梯度自适应缩放的多目标策略优化方法，利用多梯度下降算法(MGDA)结合梯度归一化，平衡LLM在帮助性和无害性等冲突目标间的权衡，并通过P-GAPO支持用户偏好驱动的Pareto前沿生成。"
+title: >-
+  [论文解读] Gradient-Adaptive Policy Optimization: Towards Multi-Objective Alignment of Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][多目标对齐] 提出GAPO，一种基于梯度自适应缩放的多目标策略优化方法，利用多梯度下降算法(MGDA)结合梯度归一化，平衡LLM在帮助性和无害性等冲突目标间的权衡，并通过P-GAPO支持用户偏好驱动的Pareto前沿生成。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 多目标对齐
   - RLHF
   - 梯度下降

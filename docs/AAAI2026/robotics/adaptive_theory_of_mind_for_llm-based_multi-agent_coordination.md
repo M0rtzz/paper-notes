@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Theory of Mind for LLM-based Multi-Agent Coordination 论文解读 | AAAI 2026 | arXiv 2603.16264 | Theory of Mind | 提出自适应心智理论智能体(A-ToM)，将ToM阶数对齐建模为在线专家建议问题，通过FTL或Hedge算法实时估计伙伴的ToM阶数并动态调整自身推理深度，在重复矩阵博弈、网格导航和Overcooked等4类任务上实现鲁棒的零样本多智能体协作。"
+title: >-
+  [论文解读] Adaptive Theory of Mind for LLM-based Multi-Agent Coordination
+description: >-
+  [AAAI 2026][机器人][Theory of Mind] 提出自适应心智理论智能体(A-ToM)，将ToM阶数对齐建模为在线专家建议问题，通过FTL或Hedge算法实时估计伙伴的ToM阶数并动态调整自身推理深度，在重复矩阵博弈、网格导航和Overcooked等4类任务上实现鲁棒的零样本多智能体协作。
 tags:
   - AAAI 2026
+  - 机器人
   - Theory of Mind
   - LLM多智能体
   - 零样本协作

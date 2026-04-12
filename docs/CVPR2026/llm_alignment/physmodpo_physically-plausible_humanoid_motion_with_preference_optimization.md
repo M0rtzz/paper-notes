@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization 论文解读 | CVPR 2026 | arXiv 2603.13228 | DPO | 将 DPO 偏好优化引入扩散运动生成模型的后训练阶段，通过物理仿真控制器自动构造偏好数据对，使生成的人体运动既符合文本/空间控制指令又满足物理约束，并成功零样本迁移到 Unitree G1 真实机器人。"
+title: >-
+  [论文解读] PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization
+description: >-
+  [CVPR 2026][LLM对齐][DPO] 将 DPO 偏好优化引入扩散运动生成模型的后训练阶段，通过物理仿真控制器自动构造偏好数据对，使生成的人体运动既符合文本/空间控制指令又满足物理约束，并成功零样本迁移到 Unitree G1 真实机器人。
 tags:
   - CVPR 2026
+  - LLM对齐
   - DPO
   - 人体运动生成
   - 物理仿真

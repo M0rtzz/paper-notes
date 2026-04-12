@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CaLMQA: Exploring Culturally Specific Long-Form Question Answering across 23 Languages 论文解读 | ACL 2025 | arXiv 2406.17761 | 多语言QA | 构建了首个多语言长文本问答数据集 CaLMQA（51.7K 问题，23 种语言），通过无翻译方式收集文化特异性问题，发现 LLM 回答文化特异性问题的事实性（45-52%）显著低于文化无关问题（64-71%），低资源语言表现尤其差。"
+title: >-
+  [论文解读] CaLMQA: Exploring Culturally Specific Long-Form Question Answering across 23 Languages
+description: >-
+  [ACL 2025][NLP理解][多语言QA] 构建了首个多语言长文本问答数据集 CaLMQA（51.7K 问题，23 种语言），通过无翻译方式收集文化特异性问题，发现 LLM 回答文化特异性问题的事实性（45-52%）显著低于文化无关问题（64-71%），低资源语言表现尤其差。
 tags:
   - ACL 2025
+  - NLP理解
   - 多语言QA
   - 文化特异性
   - 长文本问答

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Is Linguistically-Motivated Data Augmentation Worth It? 论文解读 | ACL 2025 | arXiv 2506.03593 | 数据增强 | 系统比较语言学驱动和非语言学（随机扰动）数据增强策略在两种低资源语言上的效果，发现语言学方法仅在生成的样本接近训练数据分布时才有优势，否则可能有害。"
+title: >-
+  [论文解读] Is Linguistically-Motivated Data Augmentation Worth It?
+description: >-
+  [ACL 2025][数据增强] 系统比较语言学驱动和非语言学（随机扰动）数据增强策略在两种低资源语言上的效果，发现语言学方法仅在生成的样本接近训练数据分布时才有优势，否则可能有害。
 tags:
   - ACL 2025
   - 数据增强

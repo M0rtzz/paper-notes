@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】All-in-One Slider for Attribute Manipulation in Diffusion Models 论文解读 | CVPR 2026 | arXiv 2508.19195 | 属性操控 | 提出 All-in-One Slider 框架，通过在文本编码器中间层嵌入上训练一个轻量级 Attribute Sparse Autoencoder，将属性分解为高维稀疏激活空间中的解耦方向，从而用单一模块实现对多种面部属性的连续、细粒度、可组合控制，并首次展示对未见属性（如种族、名人）的零样本连续操控能力。"
+title: >-
+  [论文解读] All-in-One Slider for Attribute Manipulation in Diffusion Models
+description: >-
+  [CVPR 2026][图像生成][属性操控] 提出 All-in-One Slider 框架，通过在文本编码器中间层嵌入上训练一个轻量级 Attribute Sparse Autoencoder，将属性分解为高维稀疏激活空间中的解耦方向，从而用单一模块实现对多种面部属性的连续、细粒度、可组合控制，并首次展示对未见属性（如种族、名人）的零样本连续操控能力。
 tags:
   - CVPR 2026
+  - 图像生成
   - 属性操控
   - 稀疏自编码器
   - 文本嵌入空间

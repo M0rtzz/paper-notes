@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation 论文解读 | CVPR 2026 | arXiv 2603.12845 | 酶动力学预测 | 提出**ERBA(Enzyme-Reaction Bridging Adapter)**，将酶动力学参数预测重新建模为**分阶段多模态条件生成问题**——先通过MRCA注入底物信息捕获底物识别特异性，再通过G-MoE整合活性位点3D结构捕获构象适应，配合ESDA分布对齐保持PLM语义先验。"
+title: >-
+  [论文解读] Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation
+description: >-
+  [CVPR 2026][医学图像][酶动力学预测] 提出**ERBA(Enzyme-Reaction Bridging Adapter)**，将酶动力学参数预测重新建模为**分阶段多模态条件生成问题**——先通过MRCA注入底物信息捕获底物识别特异性，再通过G-MoE整合活性位点3D结构捕获构象适应，配合ESDA分布对齐保持PLM语义先验。
 tags:
   - CVPR 2026
+  - 医学图像
   - 酶动力学预测
   - 蛋白质语言模型
   - 多模态融合

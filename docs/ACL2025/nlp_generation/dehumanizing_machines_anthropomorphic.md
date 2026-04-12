@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Dehumanizing Machines: Mitigating Anthropomorphic Behaviors in Text Generation Systems 论文解读 | ACL 2025 | arXiv 2502.14019 | 拟人化 | 系统研究如何缓解文本生成系统的拟人化行为——编制基于文献和众包的干预手段清单，发展概念框架来表征干预空间、区分干预类型和评估干预效果，为减少用户对 AI 的过度依赖和情感依附提供理论和实证基础。"
+title: >-
+  [论文解读] Dehumanizing Machines: Mitigating Anthropomorphic Behaviors in Text Generation Systems
+description: >-
+  [ACL 2025][文本生成][拟人化] 系统研究如何缓解文本生成系统的拟人化行为——编制基于文献和众包的干预手段清单，发展概念框架来表征干预空间、区分干预类型和评估干预效果，为减少用户对 AI 的过度依赖和情感依附提供理论和实证基础。
 tags:
   - ACL 2025
+  - 文本生成
   - 拟人化
   - AI安全
-  - 文本生成
   - 干预策略
   - 用户依赖
 ---

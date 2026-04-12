@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Inductive Gradient Adjustment for Spectral Bias in Implicit Neural Representations 论文解读 | ICML2025 | arXiv 2410.13271 | Implicit Neural Representations | 本文从 NTK 线性动力学模型出发，提出 Inductive Gradient Adjustment (IGA) 方法，通过归纳泛化 eNTK 梯度变换矩阵，**有目的性**地缓解 MLP 的频谱偏差，使 INR 在百万级数据点上也能高效学习高频细节。"
+title: >-
+  [论文解读] Inductive Gradient Adjustment for Spectral Bias in Implicit Neural Representations
+description: >-
+  [ICML2025][Implicit Neural Representations] 本文从 NTK 线性动力学模型出发，提出 Inductive Gradient Adjustment (IGA) 方法，通过归纳泛化 eNTK 梯度变换矩阵，**有目的性**地缓解 MLP 的频谱偏差，使 INR 在百万级数据点上也能高效学习高频细节。
 tags:
   - ICML2025
   - Implicit Neural Representations

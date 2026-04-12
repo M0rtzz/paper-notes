@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SEMPO: Lightweight Foundation Models for Time Series Forecasting 论文解读 | NeurIPS 2025 | arXiv 2510.19710 | 时间序列基础模型 | 提出SEMPO——仅用6.5M参数和83M时间点预训练的轻量级时间序列基础模型，通过能量感知频谱分解和混合提示Transformer，在零样本和少样本预测中超越参数量百倍以上的大型基础模型。"
+title: >-
+  [论文解读] SEMPO: Lightweight Foundation Models for Time Series Forecasting
+description: >-
+  [NeurIPS 2025][时间序列][时间序列基础模型] 提出SEMPO——仅用6.5M参数和83M时间点预训练的轻量级时间序列基础模型，通过能量感知频谱分解和混合提示Transformer，在零样本和少样本预测中超越参数量百倍以上的大型基础模型。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 时间序列基础模型
   - 轻量级
   - 频谱分解

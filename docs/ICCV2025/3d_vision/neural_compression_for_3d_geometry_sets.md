@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neural Compression for 3D Geometry Sets 论文解读 | ICCV 2025 | arXiv 2405.15034 | 3D几何压缩 | 提出NeCGS,首个能将包含数千个多样3D网格模型的几何集合压缩高达900倍的神经压缩范式,通过TSDF-Def隐式表示和量化感知自解码器实现高精度保持。"
+title: >-
+  [论文解读] Neural Compression for 3D Geometry Sets
+description: >-
+  [ICCV 2025][3D视觉][3D几何压缩] 提出NeCGS,首个能将包含数千个多样3D网格模型的几何集合压缩高达900倍的神经压缩范式,通过TSDF-Def隐式表示和量化感知自解码器实现高精度保持。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D几何压缩
   - 神经压缩
   - TSDF

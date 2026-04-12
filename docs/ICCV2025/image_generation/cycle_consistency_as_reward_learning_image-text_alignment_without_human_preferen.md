@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cycle Consistency as Reward: Learning Image-Text Alignment without Human Preferences 论文解读 | ICCV 2025 | arXiv 2506.02095 | 循环一致性 | 利用循环一致性（图→文→图或文→图→文的重建相似度）作为替代人类偏好的监督信号，构建866K偏好数据集CyclePrefDB，训练的CycleReward模型在详细描述生成评估上超越所有现有方法，并可通过DPO提升VLM和扩散模型。"
+title: >-
+  [论文解读] Cycle Consistency as Reward: Learning Image-Text Alignment without Human Preferences
+description: >-
+  [ICCV 2025][图像生成][循环一致性] 利用循环一致性（图→文→图或文→图→文的重建相似度）作为替代人类偏好的监督信号，构建866K偏好数据集CyclePrefDB，训练的CycleReward模型在详细描述生成评估上超越所有现有方法，并可通过DPO提升VLM和扩散模型。
 tags:
   - ICCV 2025
+  - 图像生成
   - 循环一致性
   - 奖励模型
   - 图文对齐

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ProPerSim: Developing Proactive and Personalized AI Assistants through User-Assistant Simulation 论文解读 | ICLR2026 | arXiv 2509.21730 | 主动推荐 | 提出 ProPerSim 模拟框架和 ProPerAssistant 基线，通过用户-助手模拟环境结合 DPO 偏好学习，开发能同时具备主动性和个性化的 AI 家庭助手。"
+title: >-
+  [论文解读] ProPerSim: Developing Proactive and Personalized AI Assistants through User-Assistant Simulation
+description: >-
+  [ICLR2026][主动推荐] 提出 ProPerSim 模拟框架和 ProPerAssistant 基线，通过用户-助手模拟环境结合 DPO 偏好学习，开发能同时具备主动性和个性化的 AI 家庭助手。
 tags:
   - ICLR2026
   - 主动推荐

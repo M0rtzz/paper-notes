@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Persistent Topological Features in Large Language Models 论文解读 | ICML 2025 | arXiv 2410.11042 | 拓扑数据分析 | 将拓扑数据分析中的 zigzag persistence 引入 LLM 内部表征分析，通过追踪 prompt 在各层表示空间中拓扑特征的持续演化，识别出四个处理阶段，并基于拓扑描述子提出了一种层剪枝准则，效果可比肩 SOTA 方法。"
+title: >-
+  [论文解读] Persistent Topological Features in Large Language Models
+description: >-
+  [ICML 2025][模型压缩][拓扑数据分析] 将拓扑数据分析中的 zigzag persistence 引入 LLM 内部表征分析，通过追踪 prompt 在各层表示空间中拓扑特征的持续演化，识别出四个处理阶段，并基于拓扑描述子提出了一种层剪枝准则，效果可比肩 SOTA 方法。
 tags:
   - ICML 2025
+  - 模型压缩
   - 拓扑数据分析
   - Zigzag Persistence
   - LLM内部表征

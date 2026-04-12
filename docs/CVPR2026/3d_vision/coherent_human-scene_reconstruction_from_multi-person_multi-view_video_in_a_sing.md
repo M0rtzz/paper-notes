@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass 论文解读 | CVPR 2026 | arXiv 2603.12789 | 人体-场景联合重建 | 提出CHROMM统一框架，从多人多视图视频中一次性联合估计相机参数、场景点云和人体网格（SMPL-X），无需外部模块或预处理数据，在全局人体运动估计和多视图位姿估计任务上取得竞争力性能，且比优化方法快8倍以上。"
+title: >-
+  [论文解读] Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass
+description: >-
+  [CVPR 2026][3D视觉][人体-场景联合重建] 提出CHROMM统一框架，从多人多视图视频中一次性联合估计相机参数、场景点云和人体网格（SMPL-X），无需外部模块或预处理数据，在全局人体运动估计和多视图位姿估计任务上取得竞争力性能，且比优化方法快8倍以上。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 人体-场景联合重建
   - 多人多视图
   - SMPL-X

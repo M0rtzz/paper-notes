@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FecalFed: Privacy-Preserving Poultry Disease Detection via Federated Learning 论文解读 | CVPR 2026 | arXiv 2604.00559 | 联邦学习 | 提出 FecalFed 框架，通过联邦学习实现隐私保护的禽类疾病分类：首先清理公开数据集中 46.89% 的重复污染，发布 8,770 张去重数据集 poultry-fecal-fl，然后在高度非 IID 条件下验证联邦学习可将单农场训练的 64.86% 准确率恢复至 90.31%，接近中心化训练的 95.10%。"
+title: >-
+  [论文解读] FecalFed: Privacy-Preserving Poultry Disease Detection via Federated Learning
+description: >-
+  [CVPR 2026][AI安全][联邦学习] 提出 FecalFed 框架，通过联邦学习实现隐私保护的禽类疾病分类：首先清理公开数据集中 46.89% 的重复污染，发布 8,770 张去重数据集 poultry-fecal-fl，然后在高度非 IID 条件下验证联邦学习可将单农场训练的 64.86% 准确率恢复至 90.31%，接近中心化训练的 95.10%。
 tags:
   - CVPR 2026
+  - AI安全
   - 联邦学习
   - 隐私保护
   - 禽类疾病检测

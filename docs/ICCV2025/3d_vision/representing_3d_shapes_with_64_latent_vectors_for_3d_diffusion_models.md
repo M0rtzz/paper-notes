@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Representing 3D Shapes with 64 Latent Vectors for 3D Diffusion Models 论文解读 | ICCV 2025 | arXiv 2503.08737 | 3D VAE | 提出COD-VAE，通过两阶段自编码器方案（渐进式编码器 + Triplane解码器 + 不确定性引导Token剪枝），将3D形状编码为仅64个1D潜在向量，在保持重建质量的同时实现16×压缩比和20.8×生成加速。"
+title: >-
+  [论文解读] Representing 3D Shapes with 64 Latent Vectors for 3D Diffusion Models
+description: >-
+  [ICCV 2025][3D视觉][3D VAE] 提出COD-VAE，通过两阶段自编码器方案（渐进式编码器 + Triplane解码器 + 不确定性引导Token剪枝），将3D形状编码为仅64个1D潜在向量，在保持重建质量的同时实现16×压缩比和20.8×生成加速。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D VAE
   - 紧凑潜在空间
   - 3D扩散模型

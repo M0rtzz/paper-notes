@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Yours or Mine? Overwriting Attacks Against Neural Audio Watermarking 论文解读 | AAAI 2026 | arXiv 2509.05835 | 音频水印 | 首次系统研究神经音频水印的覆写攻击（overwriting attack），提出白盒、灰盒、黑盒三级攻击方案，在 AudioSeal、Timbre、WavMark 三种 SOTA 方法上均实现接近 100% 的攻击成功率，暴露了现有音频水印系统严重的安全缺陷。"
+title: >-
+  [论文解读] Yours or Mine? Overwriting Attacks Against Neural Audio Watermarking
+description: >-
+  [AAAI 2026][AI安全][音频水印] 首次系统研究神经音频水印的覆写攻击（overwriting attack），提出白盒、灰盒、黑盒三级攻击方案，在 AudioSeal、Timbre、WavMark 三种 SOTA 方法上均实现接近 100% 的攻击成功率，暴露了现有音频水印系统严重的安全缺陷。
 tags:
   - AAAI 2026
+  - AI安全
   - 音频水印
   - 覆写攻击
   - 版权保护

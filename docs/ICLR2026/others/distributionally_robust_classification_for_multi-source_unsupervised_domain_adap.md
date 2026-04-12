@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Distributionally Robust Classification for Multi-Source Unsupervised Domain Adaptation 论文解读 | ICLR 2026 | arXiv 2601.21315 | 分布鲁棒优化 | 提出一种分布鲁棒学习框架，通过联合建模目标域协变量分布和条件标签分布的不确定性，在目标数据极度稀缺或源域存在虚假相关性的UDA场景中显著提升泛化性能。"
+title: >-
+  [论文解读] Distributionally Robust Classification for Multi-Source Unsupervised Domain Adaptation
+description: >-
+  [ICLR 2026][分布鲁棒优化] 提出一种分布鲁棒学习框架，通过联合建模目标域协变量分布和条件标签分布的不确定性，在目标数据极度稀缺或源域存在虚假相关性的UDA场景中显著提升泛化性能。
 tags:
   - ICLR 2026
   - 分布鲁棒优化

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DeepTraverse: A Depth-First Search Inspired Network for Algorithmic Visual Understanding 论文解读 | NeurIPS 2025 | arXiv 2506.10084 | vision backbone | 受深度优先搜索（DFS）算法启发，设计了 DeepTraverse 视觉骨干网络，通过参数共享的递归探索模块和自适应通道校准模块，在极少参数下实现高竞争力的图像分类性能。"
+title: >-
+  [论文解读] DeepTraverse: A Depth-First Search Inspired Network for Algorithmic Visual Understanding
+description: >-
+  [NeurIPS 2025][vision backbone] 受深度优先搜索（DFS）算法启发，设计了 DeepTraverse 视觉骨干网络，通过参数共享的递归探索模块和自适应通道校准模块，在极少参数下实现高竞争力的图像分类性能。
 tags:
   - NeurIPS 2025
   - vision backbone

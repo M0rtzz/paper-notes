@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hogwild! Inference: Parallel LLM Generation via Concurrent Attention 论文解读 | NeurIPS 2025 | arXiv 2504.06261 | 并行推理 | 提出 Hogwild! Inference——一种无需预定义协作框架的并行 LLM 推理协议，多个 LLM 实例通过共享的并发 KV 缓存实时同步，利用 RoPE 位置编码避免重计算，在数学推理和编程任务上以更少的串行步骤达到更高精度。"
+title: >-
+  [论文解读] Hogwild! Inference: Parallel LLM Generation via Concurrent Attention
+description: >-
+  [NeurIPS 2025][LLM Agent][并行推理] 提出 Hogwild! Inference——一种无需预定义协作框架的并行 LLM 推理协议，多个 LLM 实例通过共享的并发 KV 缓存实时同步，利用 RoPE 位置编码避免重计算，在数学推理和编程任务上以更少的串行步骤达到更高精度。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - 并行推理
   - 共享KV缓存
   - 协作推理

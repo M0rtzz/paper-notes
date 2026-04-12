@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Shoe Style-Invariant and Ground-Aware Learning for Dense Foot Contact Estimation 论文解读 | CVPR2026 | arXiv 2511.22184 | 足部接触估计 | 提出 FECO 框架，通过鞋款风格–内容随机化（对抗训练）和地面感知学习（像素高度图 + 地面法线），从单张 RGB 图像实现鲁棒的密集足部接触估计，在多个基准上显著超越现有方法。"
+title: >-
+  [论文解读] Shoe Style-Invariant and Ground-Aware Learning for Dense Foot Contact Estimation
+description: >-
+  [CVPR2026][足部接触估计] 提出 FECO 框架，通过鞋款风格–内容随机化（对抗训练）和地面感知学习（像素高度图 + 地面法线），从单张 RGB 图像实现鲁棒的密集足部接触估计，在多个基准上显著超越现有方法。
 tags:
   - CVPR2026
   - 足部接触估计

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Constructive Distortion: Improving MLLMs with Attention-Guided Image Warping 论文解读 | ICLR 2026 | arXiv 2510.09741 | MLLM | 提出 AttWarp，一种即插即用的测试时图像变形方法，利用 MLLM 自身的跨模态注意力图进行矩形网格重采样，"
+title: >-
+  [论文解读] Constructive Distortion: Improving MLLMs with Attention-Guided Image Warping
+description: >-
+  [ICLR 2026][机器人][MLLM] 提出 AttWarp，一种即插即用的测试时图像变形方法，利用 MLLM 自身的跨模态注意力图进行矩形网格重采样，
 tags:
   - ICLR 2026
+  - 机器人
   - MLLM
   - image warping
   - 注意力机制

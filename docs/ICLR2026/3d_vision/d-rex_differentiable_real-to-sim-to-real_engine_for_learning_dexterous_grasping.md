@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】D-REX: Differentiable Real-to-Sim-to-Real Engine for Learning Dexterous Grasping 论文解读 | ICLR 2026 | arXiv 2603.01151 | real-to-sim-to-real | 提出D-REX，一个基于高斯表示的可微real-to-sim-to-real引擎，通过视觉观测和机器人控制信号进行端到端物体质量辨识，并利用辨识的质量进行力感知的灵巧抓取策略学习，有效缩小了sim-to-real差距。"
+title: >-
+  [论文解读] D-REX: Differentiable Real-to-Sim-to-Real Engine for Learning Dexterous Grasping
+description: >-
+  [ICLR 2026][3D视觉][real-to-sim-to-real] 提出D-REX，一个基于高斯表示的可微real-to-sim-to-real引擎，通过视觉观测和机器人控制信号进行端到端物体质量辨识，并利用辨识的质量进行力感知的灵巧抓取策略学习，有效缩小了sim-to-real差距。
 tags:
   - ICLR 2026
+  - 3D视觉
   - real-to-sim-to-real
   - 可微物理仿真
   - 质量辨识

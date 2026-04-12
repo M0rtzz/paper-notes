@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Decomposing Representation Space into Interpretable Subspaces with Unsupervised Learning 论文解读 | ICLR 2026 | arXiv 2508.01916 | 子空间分解 | 提出 NDM（Neighbor Distance Minimization），通过最小化子空间内的近邻距离来无监督地发现神经网络表征空间中的可解释非基对齐子空间，在 GPT-2 上平均 Gini=0.71（信息高度集中），在 Qwen2.5-1.5B 上发现了参数化知识与上下文知识路由的分离子空间。"
+title: >-
+  [论文解读] Decomposing Representation Space into Interpretable Subspaces with Unsupervised Learning
+description: >-
+  [ICLR 2026][子空间分解] 提出 NDM（Neighbor Distance Minimization），通过最小化子空间内的近邻距离来无监督地发现神经网络表征空间中的可解释非基对齐子空间，在 GPT-2 上平均 Gini=0.71（信息高度集中），在 Qwen2.5-1.5B 上发现了参数化知识与上下文知识路由的分离子空间。
 tags:
   - ICLR 2026
   - 子空间分解

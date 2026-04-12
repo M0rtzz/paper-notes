@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LocalDPO: Direct Localized Detail Preference Optimization for Video Diffusion Models 论文解读 | CVPR 2026 | arXiv 2601.04068 | 视频扩散模型 | 提出LocalDPO，通过对真实高质量视频进行随机时空Bézier掩码的局部腐蚀生成负样本（单次推理、无需外部排序），配合区域感知DPO损失在局部细节级别进行偏好对齐，在Wan2.1和CogVideoX上一致超越传统DPO和SFT的视频质量。"
+title: >-
+  [论文解读] LocalDPO: Direct Localized Detail Preference Optimization for Video Diffusion Models
+description: >-
+  [CVPR 2026][LLM对齐][视频扩散模型] 提出LocalDPO，通过对真实高质量视频进行随机时空Bézier掩码的局部腐蚀生成负样本（单次推理、无需外部排序），配合区域感知DPO损失在局部细节级别进行偏好对齐，在Wan2.1和CogVideoX上一致超越传统DPO和SFT的视频质量。
 tags:
   - CVPR 2026
+  - LLM对齐
   - 视频扩散模型
   - DPO偏好优化
   - 局部腐蚀

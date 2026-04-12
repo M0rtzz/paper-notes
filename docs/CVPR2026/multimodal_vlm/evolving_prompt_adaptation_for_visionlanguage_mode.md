@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Evolving Prompt Adaptation for Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2603.09493 | 提示学习 | 提出EvoPrompt框架，通过模态共享提示投影器(MPP)生成跨层跨模态提示，引入进化轨迹感知学习策略(将低秩更新解耦为方向+幅度，冻结历史方向仅调幅度)防止灾难性遗忘，配合特征几何正则化(FGR)防止表示坍缩，在11个数据集的base-to-novel泛化上平均HM达80.73%超越所有现有方法。"
+title: >-
+  [论文解读] Evolving Prompt Adaptation for Vision-Language Models
+description: >-
+  [CVPR 2026][多模态][提示学习] 提出EvoPrompt框架，通过模态共享提示投影器(MPP)生成跨层跨模态提示，引入进化轨迹感知学习策略(将低秩更新解耦为方向+幅度，冻结历史方向仅调幅度)防止灾难性遗忘，配合特征几何正则化(FGR)防止表示坍缩，在11个数据集的base-to-novel泛化上平均HM达80.73%超越所有现有方法。
 tags:
   - CVPR 2026
+  - 多模态
   - 提示学习
   - 视觉语言模型
   - 灾难性遗忘

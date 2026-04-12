@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Mind the Gap! Static and Interactive Evaluations of Large Audio Models 论文解读 | 本文通过收集 484 名参与者的 7,500 次交互评估数据，首次系统比较了大型音频模型（LAM）的静态基准和交互式评估表现，发现两者之间存在显著差距（$R^2=0.30$），并揭示了用户对 LAM 的真实使用场景和偏好。"
+title: >-
+  [论文解读] Mind the Gap! Static and Interactive Evaluations of Large Audio Models
+description: >-
+  [语音] 本文通过收集 484 名参与者的 7,500 次交互评估数据，首次系统比较了大型音频模型（LAM）的静态基准和交互式评估表现，发现两者之间存在显著差距（$R^2=0.30$），并揭示了用户对 LAM 的真实使用场景和偏好。
 tags:
-
+  - 语音
 ---
 
 # Mind the Gap! Static and Interactive Evaluations of Large Audio Models

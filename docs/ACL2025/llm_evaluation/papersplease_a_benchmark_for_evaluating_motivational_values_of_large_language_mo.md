@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory 论文解读 | ACL 2025 | arXiv 2506.21961 | LLM价值观评估 | 基于 Alderfer ERG 需求理论构建 3700 个道德困境场景（移民检查官角色扮演），评估 6 个 LLM 的动机价值偏好，发现 Claude 拒绝所有场景、GPT-4o-mini 对生存需求 99% 满足但对关系需求仅 47%，且模型对穆斯林/边缘化群体存在显著的隐性社会偏见。"
+title: >-
+  [论文解读] PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory
+description: >-
+  [ACL 2025][LLM价值观评估] 基于 Alderfer ERG 需求理论构建 3700 个道德困境场景（移民检查官角色扮演），评估 6 个 LLM 的动机价值偏好，发现 Claude 拒绝所有场景、GPT-4o-mini 对生存需求 99% 满足但对关系需求仅 47%，且模型对穆斯林/边缘化群体存在显著的隐性社会偏见。
 tags:
   - ACL 2025
   - LLM价值观评估

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Are We Measuring Oversmoothing in Graph Neural Networks Correctly? 论文解读 | ICLR 2026 | arXiv 2502.04591 | oversmoothing | 指出广泛使用的Dirichlet energy指标无法在实际场景中正确捕获GNN过平滑现象，提出以特征表征的数值秩/有效秩（effective rank）作为替代度量，实验表明Erank与准确率的平均相关性达0.91（vs Dirichlet energy的0.72），在OGB-Arxiv上Dirichlet energy甚至呈现错误的相关方向，并从理论上证明对广泛的GNN架构族其数值秩收敛到1（秩坍塌），重新定义过平滑为秩坍塌而非特征向量对齐。"
+title: >-
+  [论文解读] Are We Measuring Oversmoothing in Graph Neural Networks Correctly?
+description: >-
+  [ICLR 2026][图学习][oversmoothing] 指出广泛使用的Dirichlet energy指标无法在实际场景中正确捕获GNN过平滑现象，提出以特征表征的数值秩/有效秩（effective rank）作为替代度量，实验表明Erank与准确率的平均相关性达0.91（vs Dirichlet energy的0.72），在OGB-Arxiv上Dirichlet energy甚至呈现错误的相关方向，并从理论上证明对广泛的GNN架构族其数值秩收敛到1（秩坍塌），重新定义过平滑为秩坍塌而非特征向量对齐。
 tags:
   - ICLR 2026
+  - 图学习
   - oversmoothing
   - 图神经网络
   - Dirichlet energy

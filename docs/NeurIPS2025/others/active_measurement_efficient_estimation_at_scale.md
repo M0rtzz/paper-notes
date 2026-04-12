@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Active Measurement: Efficient Estimation at Scale 论文解读 | NeurIPS 2025 | arXiv 2507.01372 | active measurement | 提出Active Measurement框架，结合AI检测器的自适应重要性采样和迭代人工标注，实现大规模科学测量（如鸟类计数、疟疾检测）的无偏估计，将原始检测器3.78的误差率降至0.06，同时提供理论保证的置信区间。"
+title: >-
+  [论文解读] Active Measurement: Efficient Estimation at Scale
+description: >-
+  [NeurIPS 2025][active measurement] 提出Active Measurement框架，结合AI检测器的自适应重要性采样和迭代人工标注，实现大规模科学测量（如鸟类计数、疟疾检测）的无偏估计，将原始检测器3.78的误差率降至0.06，同时提供理论保证的置信区间。
 tags:
   - NeurIPS 2025
   - active measurement

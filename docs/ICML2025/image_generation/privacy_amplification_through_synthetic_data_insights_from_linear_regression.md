@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Privacy Amplification Through Synthetic Data: Insights from Linear Regression 论文解读 | ICML 2025 | arXiv 2506.05101 | 差分隐私 | 在线性回归框架下，证明了合成数据在对抗者控制种子时无法提供隐私放大，但在随机输入下释放有限数量的合成数据可以获得超越模型本身DP保证的隐私放大效果，放大程度为 $O(1/d)$。"
+title: >-
+  [论文解读] Privacy Amplification Through Synthetic Data: Insights from Linear Regression
+description: >-
+  [ICML 2025][图像生成][差分隐私] 在线性回归框架下，证明了合成数据在对抗者控制种子时无法提供隐私放大，但在随机输入下释放有限数量的合成数据可以获得超越模型本身DP保证的隐私放大效果，放大程度为 $O(1/d)$。
 tags:
   - ICML 2025
+  - 图像生成
   - 差分隐私
   - 隐私放大
   - 合成数据

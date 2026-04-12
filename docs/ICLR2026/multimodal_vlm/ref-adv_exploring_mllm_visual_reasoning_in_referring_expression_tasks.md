@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ref-Adv: Exploring MLLM Visual Reasoning in Referring Expression Tasks 论文解读 | ICLR 2026 | arXiv 2602.23898 | 指称表达理解 | 提出Ref-Adv——消除捷径的现代指称表达理解(REC)基准：通过配对语言非平凡表达+仅含必要信息(无冗余描述符)+硬干扰物的真实图像,暴露当前MLLM在RefCOCO上90%+准确率背后对捷径的依赖——所有模型在Ref-Adv上显著下降,揭示视觉推理和定位的真实能力Gap。"
+title: >-
+  [论文解读] Ref-Adv: Exploring MLLM Visual Reasoning in Referring Expression Tasks
+description: >-
+  [ICLR 2026][多模态][指称表达理解] 提出Ref-Adv——消除捷径的现代指称表达理解(REC)基准：通过配对语言非平凡表达+仅含必要信息(无冗余描述符)+硬干扰物的真实图像,暴露当前MLLM在RefCOCO上90%+准确率背后对捷径的依赖——所有模型在Ref-Adv上显著下降,揭示视觉推理和定位的真实能力Gap。
 tags:
   - ICLR 2026
+  - 多模态
   - 指称表达理解
   - MLLM评测
   - 对抗基准

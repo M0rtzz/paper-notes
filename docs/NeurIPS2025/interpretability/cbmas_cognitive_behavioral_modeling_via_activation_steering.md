@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CBMAS: Cognitive Behavioral Modeling via Activation Steering 论文解读 | CBMAS 提出一个连续激活干预诊断框架，将传统“前后对比式”认知偏差分析扩展为可解释的干预轨迹分析，通过 alpha 强度扫描、logit-lens 偏置曲线与层位敏感性分析，揭示 LLM 行为翻转临界点与跨层演化机制。"
+title: >-
+  [论文解读] CBMAS: Cognitive Behavioral Modeling via Activation Steering
+description: >-
+   CBMAS 提出一个连续激活干预诊断框架，将传统“前后对比式”认知偏差分析扩展为可解释的干预轨迹分析，通过 alpha 强度扫描、logit-lens 偏置曲线与层位敏感性分析，揭示 LLM 行为翻转临界点与跨层演化机制。
 tags:
 
 ---

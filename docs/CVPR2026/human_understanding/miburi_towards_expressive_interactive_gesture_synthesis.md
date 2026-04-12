@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Miburi: Towards Expressive Interactive Gesture Synthesis 论文解读 | CVPR 2026 | arXiv 2603.03282 | 共语手势生成 | 提出 Miburi，首个在线因果框架，通过直接利用语音-文本大模型 Moshi 的内部 token 流和二维因果 Transformer，实现实时同步的全身手势与面部表情生成。"
+title: >-
+  [论文解读] Miburi: Towards Expressive Interactive Gesture Synthesis
+description: >-
+  [CVPR 2026][人体理解][共语手势生成] 提出 Miburi，首个在线因果框架，通过直接利用语音-文本大模型 Moshi 的内部 token 流和二维因果 Transformer，实现实时同步的全身手势与面部表情生成。
 tags:
   - CVPR 2026
+  - 人体理解
   - 共语手势生成
   - 具身对话代理
   - 因果自回归

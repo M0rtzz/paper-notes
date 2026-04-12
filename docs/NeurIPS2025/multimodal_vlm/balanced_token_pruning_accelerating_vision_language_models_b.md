@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Balanced Token Pruning: Accelerating Vision Language Models Beyond Local Optimization 论文解读 | NeurIPS 2025 | arXiv 2505.22038 | 剪枝 token pruning | 提出 Balanced Token Pruning (BTP)，通过在浅层优先多样性剪枝、深层优先注意力剪枝的分阶段策略，联合优化局部输出一致性和全局表示质量，在仅保留 22% 视觉 token 的情况下保持原模型 98% 的性能。"
+title: >-
+  [论文解读] Balanced Token Pruning: Accelerating Vision Language Models Beyond Local Optimization
+description: >-
+  [NeurIPS 2025][多模态][剪枝] 提出 Balanced Token Pruning (BTP)，通过在浅层优先多样性剪枝、深层优先注意力剪枝的分阶段策略，联合优化局部输出一致性和全局表示质量，在仅保留 22% 视觉 token 的情况下保持原模型 98% 的性能。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 剪枝
   - 视觉语言
   - 注意力机制

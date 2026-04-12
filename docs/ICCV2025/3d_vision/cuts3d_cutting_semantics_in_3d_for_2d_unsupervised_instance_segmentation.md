@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】CutS3D: Cutting Semantics in 3D for 2D Unsupervised Instance Segmentation 论文解读 | 提出CutS3D方法，首次将3D信息（单目深度估计）引入无监督实例分割，通过在3D点云中切割语义区域来分离2D中重叠的实例，并引入空间置信度机制提升伪标签质量，在多个基准上超越CutLER等SoTA。"
+title: >-
+  [论文解读] CutS3D: Cutting Semantics in 3D for 2D Unsupervised Instance Segmentation
+description: >-
+  [3D视觉] 提出CutS3D方法，首次将3D信息（单目深度估计）引入无监督实例分割，通过在3D点云中切割语义区域来分离2D中重叠的实例，并引入空间置信度机制提升伪标签质量，在多个基准上超越CutLER等SoTA。
 tags:
-
+  - 3D视觉
 ---
 
 # CutS3D: Cutting Semantics in 3D for 2D Unsupervised Instance Segmentation

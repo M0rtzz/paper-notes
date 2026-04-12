@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】NOVA: Aligning LLMs to Follow Instructions and Hallucinate Less via Effective Data Filtering 论文解读 | ACL 2025 | arXiv 2502.07340 | 指令微调 | 提出 NOVA 框架——通过过滤掉 LLM \"不熟悉\"的指令数据来同时减少幻觉和保持指令遵从能力——Internal Consistency Probing（ICP）通过多次自生成回复的隐藏状态一致性评估 LLM 对指令的熟悉度，Semantic Equivalence Identification（SEI）通过语义聚类+投票评估 LLM 对目标回复的熟悉度，再用质量奖励模型确保数据质量。大幅减少幻觉同时保持指令遵从。"
+title: >-
+  [论文解读] NOVA: Aligning LLMs to Follow Instructions and Hallucinate Less via Effective Data Filtering
+description: >-
+  [ACL 2025][指令微调] 提出 NOVA 框架——通过过滤掉 LLM "不熟悉"的指令数据来同时减少幻觉和保持指令遵从能力——Internal Consistency Probing（ICP）通过多次自生成回复的隐藏状态一致性评估 LLM 对指令的熟悉度，Semantic Equivalence Identification（SEI）通过语义聚类+投票评估 LLM 对目标回复的熟悉度，再用质量奖励模型确保数据质量。大幅减少幻觉同时保持指令遵从。
 tags:
   - ACL 2025
   - 指令微调

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MimicMotion: High-Quality Human Motion Video Generation with Confidence-aware Pose Guidance 论文解读 | ICML 2025 | arXiv 2406.19680 | 人体运动视频 | 提出 MimicMotion，基于扩散模型的姿态引导人体运动视频生成框架，通过置信度感知的姿态引导减轻不准确估计影响，结合置信度区域损失放大改善手部质量，引入渐进式潜变量融合生成任意长度平滑视频。"
+title: >-
+  [论文解读] MimicMotion: High-Quality Human Motion Video Generation with Confidence-aware Pose Guidance
+description: >-
+  [ICML 2025][图像生成][人体运动视频] 提出 MimicMotion，基于扩散模型的姿态引导人体运动视频生成框架，通过置信度感知的姿态引导减轻不准确估计影响，结合置信度区域损失放大改善手部质量，引入渐进式潜变量融合生成任意长度平滑视频。
 tags:
   - ICML 2025
+  - 图像生成
   - 人体运动视频
   - 姿态引导
   - 置信度感知

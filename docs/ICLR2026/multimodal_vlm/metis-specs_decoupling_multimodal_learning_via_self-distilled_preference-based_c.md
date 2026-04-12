@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Metis-SPECS: Decoupling Multimodal Learning via Self-distilled Preference-based Cold Start for VLMs 论文解读 | ICLR 2026 | arXiv 2510.25801 | 冷启动 | 提出SPECS框架将VLM的冷启动从SFT替换为DPO偏好训练——通过自蒸馏生成只关注输出格式的偏好数据，DPO冷启动专注表层形式学习(格式/结构/风格)而非内容记忆，为后续GRPO的深层推理学习提供更好的起点，MEGA-Bench+4.1%、MathVista+12.2%。"
+title: >-
+  [论文解读] Metis-SPECS: Decoupling Multimodal Learning via Self-distilled Preference-based Cold Start for VLMs
+description: >-
+  [ICLR 2026][多模态][冷启动] 提出SPECS框架将VLM的冷启动从SFT替换为DPO偏好训练——通过自蒸馏生成只关注输出格式的偏好数据，DPO冷启动专注表层形式学习(格式/结构/风格)而非内容记忆，为后续GRPO的深层推理学习提供更好的起点，MEGA-Bench+4.1%、MathVista+12.2%。
 tags:
   - ICLR 2026
+  - 多模态
   - 冷启动
   - DPO
   - 自蒸馏

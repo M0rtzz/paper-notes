@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Empowering DINO Representations for Underwater Instance Segmentation via Aligner and Prompter 论文解读 | AAAI2026 | arXiv 2511.08334 | 图像分割 underwater instance segmentation | 首次将 DINOv2 引入水下实例分割任务，通过 AquaStyle Aligner（傅里叶频域风格注入）和 ObjectPrior Prompter（二值掩码先验提示）两个模块实现高效领域适配，在 UIIS 和 USIS10K 数据集上以更少参数大幅超越 SAM 基方法。"
+title: >-
+  [论文解读] Empowering DINO Representations for Underwater Instance Segmentation via Aligner and Prompter
+description: >-
+  [AAAI2026][图像分割][图像分割] 首次将 DINOv2 引入水下实例分割任务，通过 AquaStyle Aligner（傅里叶频域风格注入）和 ObjectPrior Prompter（二值掩码先验提示）两个模块实现高效领域适配，在 UIIS 和 USIS10K 数据集上以更少参数大幅超越 SAM 基方法。
 tags:
   - AAAI2026
   - 图像分割

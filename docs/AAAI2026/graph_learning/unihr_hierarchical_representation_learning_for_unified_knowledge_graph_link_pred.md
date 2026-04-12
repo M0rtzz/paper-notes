@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniHR: Hierarchical Representation Learning for Unified Knowledge Graph Link Prediction 论文解读 | AAAI2026 | arXiv 2411.07019 | 知识图谱 | 提出UniHR框架，通过Hierarchical Data Representation (HiDR)将超关系/时序/嵌套等多类KG统一转换为三元组形式，并设计Hierarchical Structure Learning (HiSL)模块在事实内部和事实间进行两阶段消息传递，在9个数据集5种KG类型上取得最优或竞争性的link prediction结果。"
+title: >-
+  [论文解读] UniHR: Hierarchical Representation Learning for Unified Knowledge Graph Link Prediction
+description: >-
+  [AAAI2026][图学习][知识图谱] 提出UniHR框架，通过Hierarchical Data Representation (HiDR)将超关系/时序/嵌套等多类KG统一转换为三元组形式，并设计Hierarchical Structure Learning (HiSL)模块在事实内部和事实间进行两阶段消息传递，在9个数据集5种KG类型上取得最优或竞争性的link prediction结果。
 tags:
   - AAAI2026
+  - 图学习
   - 知识图谱
   - Link Prediction
   - 超关系KG

@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】DiffiT: Diffusion Vision Transformers for Image Generation 论文解读 | ECCV 2024 | arXiv 2312.02139 | Transformer Vision Transformer | 提出 DiffiT（Diffusion Vision Transformer），通过引入时间依赖多头自注意力（TMSA）机制，让自注意力在去噪过程的不同阶段动态调整行为，在ImageNet-256上以比DiT/MDT少16-20%的参数量达到了1.73的SOTA FID分数。"
+title: >-
+  [论文解读] DiffiT: Diffusion Vision Transformers for Image Generation
+description: >-
+  [ECCV 2024][图像生成][Transformer] 提出 DiffiT（Diffusion Vision Transformer），通过引入时间依赖多头自注意力（TMSA）机制，让自注意力在去噪过程的不同阶段动态调整行为，在ImageNet-256上以比DiT/MDT少16-20%的参数量达到了1.73的SOTA FID分数。
 tags:
   - ECCV 2024
+  - 图像生成
   - Transformer
   - 时间依赖自注意力
   - 扩散模型
-  - 图像生成
   - 参数高效
 ---
 

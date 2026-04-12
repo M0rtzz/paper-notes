@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Donate or Create? Comparing Data Collection Strategies for Emotion-labeled Multimodal Social Media Posts 论文解读 | ACL 2025 | arXiv 2505.24427 | emotion detection | 系统比较了两种情感标注数据的收集策略——\"捐赠\"真实社交媒体帖子 vs \"创造\"帖子——发现创造的帖子更长、更依赖文本、偏向原型化情感事件，但用创造数据训练的模型可以很好泛化到真实数据，只是需要真实数据来做靠谱的效果评估。"
+title: >-
+  [论文解读] Donate or Create? Comparing Data Collection Strategies for Emotion-labeled Multimodal Social Media Posts
+description: >-
+  [ACL 2025][多模态][emotion detection] 系统比较了两种情感标注数据的收集策略——"捐赠"真实社交媒体帖子 vs "创造"帖子——发现创造的帖子更长、更依赖文本、偏向原型化情感事件，但用创造数据训练的模型可以很好泛化到真实数据，只是需要真实数据来做靠谱的效果评估。
 tags:
   - ACL 2025
+  - 多模态
   - emotion detection
   - data collection
-  - 多模态
   - social media
   - donated vs created data
 ---

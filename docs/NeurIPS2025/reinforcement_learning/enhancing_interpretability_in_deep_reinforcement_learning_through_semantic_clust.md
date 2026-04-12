@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enhancing Interpretability in Deep Reinforcement Learning through Semantic Clustering 论文解读 | NeurIPS 2025 | arXiv 2409.17411 | interpretability | 提出语义聚类模块(SCM)，将特征降维网络(FDR)与改进的 VQ-VAE 在线聚类相结合，无缝集成到 DRL 训练流程中，解决了 t-SNE 可视化不稳定的问题，揭示 DRL 内在具有基于语义的动态聚类特性。"
+title: >-
+  [论文解读] Enhancing Interpretability in Deep Reinforcement Learning through Semantic Clustering
+description: >-
+  [NeurIPS 2025][interpretability] 提出语义聚类模块(SCM)，将特征降维网络(FDR)与改进的 VQ-VAE 在线聚类相结合，无缝集成到 DRL 训练流程中，解决了 t-SNE 可视化不稳定的问题，揭示 DRL 内在具有基于语义的动态聚类特性。
 tags:
   - NeurIPS 2025
   - interpretability

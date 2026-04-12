@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SimScale: Learning to Drive via Real-World Simulation at Scale 论文解读 | CVPR 2026 (Oral) | arXiv 2511.23369 | 仿真数据 | 提出 SimScale 框架，通过对现有驾驶日志进行轨迹扰动 + 反应式环境仿真 + 神经渲染生成大规模高保真模拟数据，配合伪专家轨迹监督和 sim-real co-training 策略，使端到端规划器在 NAVSIM v2 上取得显著提升（navhard +8.6 EPDMS），且性能随仿真数据量平滑扩展。"
+title: >-
+  [论文解读] SimScale: Learning to Drive via Real-World Simulation at Scale
+description: >-
+  [CVPR 2026 (Oral)][自动驾驶][仿真数据] 提出 SimScale 框架，通过对现有驾驶日志进行轨迹扰动 + 反应式环境仿真 + 神经渲染生成大规模高保真模拟数据，配合伪专家轨迹监督和 sim-real co-training 策略，使端到端规划器在 NAVSIM v2 上取得显著提升（navhard +8.6 EPDMS），且性能随仿真数据量平滑扩展。
 tags:
   - CVPR 2026 (Oral)
+  - 自动驾驶
   - 仿真数据
   - 端到端规划
   - sim-to-real

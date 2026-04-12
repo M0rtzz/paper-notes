@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Anything Goes? A Crosslinguistic Study of (Im)possible Language Learning in LMs 论文解读 | ACL 2025 | arXiv 2502.18795 | 不可能语言 | 跨语言研究 LM 能否区分可能语言和不可能语言——在 12 种语言（4 个语系）上训练 GPT-2 Small 的可能/不可能/未见证变体，发现模型大体上能区分可能 vs 不可能语言（单语言内），但**跨语言**时区分能力减弱，且对类型学未见证语言（Greenberg Universal 20 的未见证词序）的区分仅在泛化测试中有效而在困惑度上无效——LM 有部分人类样的归纳偏置但弱于人类。"
+title: >-
+  [论文解读] Anything Goes? A Crosslinguistic Study of (Im)possible Language Learning in LMs
+description: >-
+  [ACL 2025][不可能语言] 跨语言研究 LM 能否区分可能语言和不可能语言——在 12 种语言（4 个语系）上训练 GPT-2 Small 的可能/不可能/未见证变体，发现模型大体上能区分可能 vs 不可能语言（单语言内），但**跨语言**时区分能力减弱，且对类型学未见证语言（Greenberg Universal 20 的未见证词序）的区分仅在泛化测试中有效而在困惑度上无效——LM 有部分人类样的归纳偏置但弱于人类。
 tags:
   - ACL 2025
   - 不可能语言

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SONIC: Spectral Oriented Neural Invariant Convolutions 论文解读 | ICLR 2026 | arXiv 2601.19884 | 频谱卷积 | SONIC 提出了一种基于连续频谱参数化的卷积算子，利用少量共享的方向选择性分量在频域中建模全局感受野，在合成基准、大规模图像分类和3D医学数据集上以数量级更少的参数匹配或超越CNN、ViT和现有频谱架构。"
+title: >-
+  [论文解读] SONIC: Spectral Oriented Neural Invariant Convolutions
+description: >-
+  [ICLR 2026][医学图像][频谱卷积] SONIC 提出了一种基于连续频谱参数化的卷积算子，利用少量共享的方向选择性分量在频域中建模全局感受野，在合成基准、大规模图像分类和3D医学数据集上以数量级更少的参数匹配或超越CNN、ViT和现有频谱架构。
 tags:
   - ICLR 2026
+  - 医学图像
   - 频谱卷积
   - 方向不变性
   - 连续参数化

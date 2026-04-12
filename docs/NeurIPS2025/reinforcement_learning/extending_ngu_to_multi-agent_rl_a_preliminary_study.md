@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Extending NGU to Multi-Agent RL: A Preliminary Study 论文解读 | NeurIPS 2025 | arXiv 2512.01321 | Never Give Up | 将单智能体 NGU（Never Give Up）算法扩展至多智能体环境，通过共享回放缓冲区、共享新颖性信号和异构 β 参数三个设计维度的系统消融，发现 NGU + 共享经验池组合在 PettingZoo simple_tag 追捕任务中显著优于多智能体 DQN 基线。"
+title: >-
+  [论文解读] Extending NGU to Multi-Agent RL: A Preliminary Study
+description: >-
+  [NeurIPS 2025][Never Give Up] 将单智能体 NGU（Never Give Up）算法扩展至多智能体环境，通过共享回放缓冲区、共享新颖性信号和异构 β 参数三个设计维度的系统消融，发现 NGU + 共享经验池组合在 PettingZoo simple_tag 追捕任务中显著优于多智能体 DQN 基线。
 tags:
   - NeurIPS 2025
   - Never Give Up

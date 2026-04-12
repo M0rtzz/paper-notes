@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Symmetry-Robust 3D Orientation Estimation 论文解读 | ICML2025 | arXiv 2410.02101 | 3D orientation estimation | 提出一种对旋转对称性鲁棒的两阶段3D朝向估计流水线：第一阶段通过商回归（quotient regression）将朝向恢复到八面体对称群的等价类内，第二阶段通过分类器预测24个八面体翻转之一以完成精确复原，在ShapeNet上取得SOTA。"
+title: >-
+  [论文解读] Symmetry-Robust 3D Orientation Estimation
+description: >-
+  [ICML2025][3D orientation estimation] 提出一种对旋转对称性鲁棒的两阶段3D朝向估计流水线：第一阶段通过商回归（quotient regression）将朝向恢复到八面体对称群的等价类内，第二阶段通过分类器预测24个八面体翻转之一以完成精确复原，在ShapeNet上取得SOTA。
 tags:
   - ICML2025
   - 3D orientation estimation

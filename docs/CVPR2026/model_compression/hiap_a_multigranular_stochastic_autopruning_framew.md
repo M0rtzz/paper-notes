@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers 论文解读 | CVPR 2026 | arXiv 2603.12222 | Transformer Vision Transformer剪枝 | 提出HiAP——统一宏观（整头/FFN块）和微观（头内维度/FFN神经元）的层级Gumbel-Sigmoid门控框架，在单次端到端训练中自动发现满足算力预算的高效ViT子网络，无需手动重要性排序或多阶段流程。"
+title: >-
+  [论文解读] HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers
+description: >-
+  [CVPR 2026][模型压缩][Transformer] 提出HiAP——统一宏观（整头/FFN块）和微观（头内维度/FFN神经元）的层级Gumbel-Sigmoid门控框架，在单次端到端训练中自动发现满足算力预算的高效ViT子网络，无需手动重要性排序或多阶段流程。
 tags:
   - CVPR 2026
+  - 模型压缩
   - Transformer
   - 多粒度结构化剪枝
   - Gumbel-Sigmoid门控

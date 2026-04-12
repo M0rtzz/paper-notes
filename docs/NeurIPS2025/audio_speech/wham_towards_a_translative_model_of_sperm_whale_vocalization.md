@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】WhAM: Towards A Translative Model of Sperm Whale Vocalization 论文解读 | NeurIPS 2025 | arXiv 2512.02206 | 抹香鲸声学 | 提出 WhAM（Whale Acoustics Model），首个基于 Transformer 的抹香鲸 coda 生成模型，通过微调 VampNet 实现声学翻译、合成生成与下游分类的三合一能力。"
+title: >-
+  [论文解读] WhAM: Towards A Translative Model of Sperm Whale Vocalization
+description: >-
+  [NeurIPS 2025][语音][抹香鲸声学] 提出 WhAM（Whale Acoustics Model），首个基于 Transformer 的抹香鲸 coda 生成模型，通过微调 VampNet 实现声学翻译、合成生成与下游分类的三合一能力。
 tags:
   - NeurIPS 2025
+  - 语音
   - 抹香鲸声学
   - 生成式音频模型
   - 声学翻译

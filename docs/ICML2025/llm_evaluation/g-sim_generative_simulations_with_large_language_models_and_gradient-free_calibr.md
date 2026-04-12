@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】G-Sim: Generative Simulations with Large Language Models and Gradient-Free Calibration 论文解读 | ICML 2025 | arXiv 2506.09272 | LLM驱动仿真 | 提出 G-Sim 混合框架，利用 LLM 自动设计仿真器的因果结构（子模块与连接关系），再通过无梯度优化（GFO）或仿真推断（SBI）对数值参数进行经验校准，在迭代循环中不断改进，生成可靠、可干预的通用仿真器。"
+title: >-
+  [论文解读] G-Sim: Generative Simulations with Large Language Models and Gradient-Free Calibration
+description: >-
+  [ICML 2025][LLM驱动仿真] 提出 G-Sim 混合框架，利用 LLM 自动设计仿真器的因果结构（子模块与连接关系），再通过无梯度优化（GFO）或仿真推断（SBI）对数值参数进行经验校准，在迭代循环中不断改进，生成可靠、可干预的通用仿真器。
 tags:
   - ICML 2025
   - LLM驱动仿真

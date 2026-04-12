@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Denoising as Path Planning: Training-Free Acceleration of Diffusion Models with DPCache 论文解读 | CVPR 2026 | arXiv 2602.22654 | 扩散模型加速 | 将扩散模型采样加速形式化为全局路径规划问题，构建路径感知代价张量（PACT）量化跳步误差的路径依赖性，通过动态规划选择最优关键步序列，在FLUX上以4.87×加速超越全步基线+0.028 ImageReward。"
+title: >-
+  [论文解读] Denoising as Path Planning: Training-Free Acceleration of Diffusion Models with DPCache
+description: >-
+  [CVPR 2026][图像生成][扩散模型加速] 将扩散模型采样加速形式化为全局路径规划问题，构建路径感知代价张量（PACT）量化跳步误差的路径依赖性，通过动态规划选择最优关键步序列，在FLUX上以4.87×加速超越全步基线+0.028 ImageReward。
 tags:
   - CVPR 2026
+  - 图像生成
   - 扩散模型加速
   - 缓存
   - 动态规划

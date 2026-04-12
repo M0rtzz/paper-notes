@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LangBridge: Interpreting Image as a Combination of Language Embeddings 论文解读 | LangBridge 通过将视觉特征显式分解为 LLM 词汇嵌入的线性组合，实现了可解释的视觉-语言对齐，并支持跨 LLM 的预训练无关适配器迁移。"
+title: >-
+  [论文解读] LangBridge: Interpreting Image as a Combination of Language Embeddings
+description: >-
+   LangBridge 通过将视觉特征显式分解为 LLM 词汇嵌入的线性组合，实现了可解释的视觉-语言对齐，并支持跨 LLM 的预训练无关适配器迁移。
 tags:
 
 ---

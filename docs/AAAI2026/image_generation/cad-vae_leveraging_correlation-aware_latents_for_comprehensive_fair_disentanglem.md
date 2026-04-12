@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement 论文解读 | AAAI 2026 | arXiv 2503.07938 | 公平表示学习 | 提出CAD-VAE，引入\"相关隐变量\" $z_R$ 显式建模目标属性和敏感属性之间的共享信息，通过最小化条件互信息 $I(z_Y;z_S|z_R)$ 实现公平解缠绕，无需领域知识即可产生公平表示和高质量反事实样本。"
+title: >-
+  [论文解读] CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement
+description: >-
+  [AAAI 2026][图像生成][公平表示学习] 提出CAD-VAE，引入"相关隐变量" $z_R$ 显式建模目标属性和敏感属性之间的共享信息，通过最小化条件互信息 $I(z_Y;z_S|z_R)$ 实现公平解缠绕，无需领域知识即可产生公平表示和高质量反事实样本。
 tags:
   - AAAI 2026
+  - 图像生成
   - 公平表示学习
   - VAE
   - 解缠绕

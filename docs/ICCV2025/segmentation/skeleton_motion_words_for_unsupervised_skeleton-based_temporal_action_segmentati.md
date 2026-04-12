@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Skeleton Motion Words for Unsupervised Skeleton-Based Temporal Action Segmentation 论文解读 | ICCV 2025 | arXiv 2508.04513 | 无监督时序动作分割 | 提出 Skeleton Motion Quantization (SMQ) 方法，通过关节解耦的时序自编码器和骨架运动词量化模块，实现无监督骨架序列时序动作分割，在 HuGaDB、LARa 和 BABEL 三个数据集上大幅超越现有无监督方法。"
+title: >-
+  [论文解读] Skeleton Motion Words for Unsupervised Skeleton-Based Temporal Action Segmentation
+description: >-
+  [ICCV 2025][图像分割][无监督时序动作分割] 提出 Skeleton Motion Quantization (SMQ) 方法，通过关节解耦的时序自编码器和骨架运动词量化模块，实现无监督骨架序列时序动作分割，在 HuGaDB、LARa 和 BABEL 三个数据集上大幅超越现有无监督方法。
 tags:
   - ICCV 2025
+  - 图像分割
   - 无监督时序动作分割
   - 骨架序列
   - 运动量化

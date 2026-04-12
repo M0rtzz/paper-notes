@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Controlling the World by Sleight of Hand 论文解读 | ECCV 2024 | arXiv 2408.07147 | 动作条件生成 | 提出 CosHand，通过手部二值掩码作为动作条件，在预训练 Stable Diffusion 上微调，预测手-物交互后的未来图像，并可零样本泛化到机器人末端执行器。"
+title: >-
+  [论文解读] Controlling the World by Sleight of Hand
+description: >-
+  [ECCV 2024][图像生成][动作条件生成] 提出 CosHand，通过手部二值掩码作为动作条件，在预训练 Stable Diffusion 上微调，预测手-物交互后的未来图像，并可零样本泛化到机器人末端执行器。
 tags:
   - ECCV 2024
+  - 图像生成
   - 动作条件生成
   - 手部交互
   - 扩散模型

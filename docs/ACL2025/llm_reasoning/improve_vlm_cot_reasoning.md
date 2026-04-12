@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improve Vision Language Model Chain-of-thought Reasoning 论文解读 | ACL 2025 (Long Paper) | arXiv 2410.16198 | VLM | 通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。"
+title: >-
+  [论文解读] Improve Vision Language Model Chain-of-thought Reasoning
+description: >-
+  [ACL 2025 (Long Paper)][LLM推理][VLM] 通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。
 tags:
   - ACL 2025 (Long Paper)
+  - LLM推理
   - VLM
   - Chain-of-thought
   - DPO

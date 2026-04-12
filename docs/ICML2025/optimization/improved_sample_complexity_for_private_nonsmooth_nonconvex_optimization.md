@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improved Sample Complexity for Private Nonsmooth Nonconvex Optimization 论文解读 | ICML2025 | arXiv 2410.05880 | 差分隐私 | 在差分隐私约束下研究非光滑非凸（NSNC）随机优化，通过改进梯度估计器的有效灵敏度，将已知最优样本复杂度降低了 Ω(sqrtd) 倍，并首次证明 Goldstein 稳定性可从经验损失泛化到总体损失。"
+title: >-
+  [论文解读] Improved Sample Complexity for Private Nonsmooth Nonconvex Optimization
+description: >-
+  [ICML2025][优化][差分隐私] 在差分隐私约束下研究非光滑非凸（NSNC）随机优化，通过改进梯度估计器的有效灵敏度，将已知最优样本复杂度降低了 $\Omega(\sqrt{d})$ 倍，并首次证明 Goldstein 稳定性可从经验损失泛化到总体损失。
 tags:
   - ICML2025
+  - 优化
   - 差分隐私
   - 非光滑非凸优化
   - Goldstein 稳定性

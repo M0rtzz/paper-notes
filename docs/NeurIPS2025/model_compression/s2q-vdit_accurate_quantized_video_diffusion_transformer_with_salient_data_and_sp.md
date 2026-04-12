@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation 论文解读 | NeurIPS 2025 | arXiv 2508.04016 | 训练后量化 | 针对视频扩散 Transformer 的超长 token 序列导致的量化校准高方差和学习困难问题，提出 S²Q-VDiT 框架，利用 Hessian 感知的显著数据选择和注意力引导的稀疏 token 蒸馏两项技术，首次在 W4A6 设置下实现无损量化，带来 3.9× 模型压缩和 1.3× 推理加速。"
+title: >-
+  [论文解读] S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation
+description: >-
+  [NeurIPS 2025][模型压缩][训练后量化] 针对视频扩散 Transformer 的超长 token 序列导致的量化校准高方差和学习困难问题，提出 S²Q-VDiT 框架，利用 Hessian 感知的显著数据选择和注意力引导的稀疏 token 蒸馏两项技术，首次在 W4A6 设置下实现无损量化，带来 3.9× 模型压缩和 1.3× 推理加速。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 训练后量化
   - 视频扩散模型
   - 校准数据选择
   - 稀疏注意力
-  - 模型压缩
 ---
 
 # S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Avoiding Catastrophe in Online Learning by Asking for Help 论文解读 | ICML2025 | arXiv 2402.08062 | 在线学习 | 提出一种避免灾难性错误的在线学习模型：将每轮回报定义为\"该轮避免灾难的概率\"，最大化回报之积（总体避灾概率），允许有限次数向导师求助，证明在可学习策略类下后悔和求助率都趋零。"
+title: >-
+  [论文解读] Avoiding Catastrophe in Online Learning by Asking for Help
+description: >-
+  [ICML2025][在线学习] 提出一种避免灾难性错误的在线学习模型：将每轮回报定义为"该轮避免灾难的概率"，最大化回报之积（总体避灾概率），允许有限次数向导师求助，证明在可学习策略类下后悔和求助率都趋零。
 tags:
   - ICML2025
   - 在线学习

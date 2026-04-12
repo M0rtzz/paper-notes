@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Disparate Conditional Prediction in Multiclass Classifiers 论文解读 | ICML 2025 | arXiv 2206.03234 | 公平性审计 | 提出 Disparate Conditional Prediction (DCP) 度量从二分类到多类分类的扩展，通过局部优化和线性规划方法为多类分类器的公平性偏离程度提供上下界估计，支持在混淆矩阵已知或仅有人口级别统计信息两种场景下进行公平性审计。"
+title: >-
+  [论文解读] Disparate Conditional Prediction in Multiclass Classifiers
+description: >-
+  [ICML 2025][AI安全][公平性审计] 提出 Disparate Conditional Prediction (DCP) 度量从二分类到多类分类的扩展，通过局部优化和线性规划方法为多类分类器的公平性偏离程度提供上下界估计，支持在混淆矩阵已知或仅有人口级别统计信息两种场景下进行公平性审计。
 tags:
   - ICML 2025
+  - AI安全
   - 公平性审计
   - 多类分类
   - 等化赔率

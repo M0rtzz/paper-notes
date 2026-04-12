@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ASCIIBench: Evaluating Language-Model-Based Understanding of Visually-Oriented Text 论文解读 | NeurIPS 2025 | arXiv 2512.04125 | ASCII艺术 | 提出 ASCIIBench，首个用于评估 LLM 对 ASCII 艺术的生成和分类能力的基准数据集（5,315 张 ASCII 图像，752 类），发现当前 LLM 在需要空间/位置推理的 ASCII 任务上仍有显著局限，且 CLIP 嵌入在大多数 ASCII 类别上的区分能力接近随机水平。"
+title: >-
+  [论文解读] ASCIIBench: Evaluating Language-Model-Based Understanding of Visually-Oriented Text
+description: >-
+  [NeurIPS 2025][ASCII艺术] 提出 ASCIIBench，首个用于评估 LLM 对 ASCII 艺术的生成和分类能力的基准数据集（5,315 张 ASCII 图像，752 类），发现当前 LLM 在需要空间/位置推理的 ASCII 任务上仍有显著局限，且 CLIP 嵌入在大多数 ASCII 类别上的区分能力接近随机水平。
 tags:
   - NeurIPS 2025
   - ASCII艺术

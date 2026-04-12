@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Preventing Shortcuts in Adapter Training via Providing the Shortcuts 论文解读 | NeurIPS 2025 | arXiv 2510.20887 | Adapter训练 | 提出Shortcut-Rerouted Adapter Training，通过在adapter训练过程中主动提供confounding因素的专用通路（如LoRA吸收分布偏移、ControlNet吸收姿态/表情），使adapter只学习目标属性（如身份），推理时移除辅助模块即可获得去纠缠的适配器。"
+title: >-
+  [论文解读] Preventing Shortcuts in Adapter Training via Providing the Shortcuts
+description: >-
+  [NeurIPS 2025][图像生成][Adapter训练] 提出Shortcut-Rerouted Adapter Training，通过在adapter训练过程中主动提供confounding因素的专用通路（如LoRA吸收分布偏移、ControlNet吸收姿态/表情），使adapter只学习目标属性（如身份），推理时移除辅助模块即可获得去纠缠的适配器。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - Adapter训练
   - 快捷学习
   - 去纠缠

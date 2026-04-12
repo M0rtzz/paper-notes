@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FlagEvalMM: A Flexible Framework for Comprehensive Multimodal Model Evaluation 论文解读 | ACL 2025 | arXiv 2506.09081 | 多模态评估 | 提出 FlagEvalMM，一个开源的多模态模型评估框架，通过将模型推理与评估过程解耦的架构设计，统一支持视觉语言理解（VQA）、文生图/文生视频生成和图文检索等多种多模态任务的评估。"
+title: >-
+  [论文解读] FlagEvalMM: A Flexible Framework for Comprehensive Multimodal Model Evaluation
+description: >-
+  [ACL 2025][多模态][多模态评估] 提出 FlagEvalMM，一个开源的多模态模型评估框架，通过将模型推理与评估过程解耦的架构设计，统一支持视觉语言理解（VQA）、文生图/文生视频生成和图文检索等多种多模态任务的评估。
 tags:
   - ACL 2025
+  - 多模态
   - 多模态评估
   - 视觉语言模型
   - 文生图评估

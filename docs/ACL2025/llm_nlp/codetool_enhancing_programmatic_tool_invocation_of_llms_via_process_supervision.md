@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CodeTool: Enhancing Programmatic Tool Invocation of LLMs via Process Supervision 论文解读 | ACL 2025 | arXiv 2503.20840 | 工具调用 | 提出 CodeTool，一种逐步代码生成框架，通过即时奖励（On-the-spot Reward）和潜在奖励（Latent Reward）两种过程奖励机制引导 LLM 选择最优的工具调用路径，在 StableToolBench 和 RestBench-TMDB 上显著超越现有方法。"
+title: >-
+  [论文解读] CodeTool: Enhancing Programmatic Tool Invocation of LLMs via Process Supervision
+description: >-
+  [ACL 2025][LLM/NLP][工具调用] 提出 CodeTool，一种逐步代码生成框架，通过即时奖励（On-the-spot Reward）和潜在奖励（Latent Reward）两种过程奖励机制引导 LLM 选择最优的工具调用路径，在 StableToolBench 和 RestBench-TMDB 上显著超越现有方法。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 工具调用
   - 代码生成
   - 过程监督

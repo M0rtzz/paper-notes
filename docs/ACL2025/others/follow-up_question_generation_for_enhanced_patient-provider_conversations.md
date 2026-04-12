@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Follow-up Question Generation for Enhanced Patient-Provider Conversations 论文解读 | ACL 2025 | arXiv 2503.17509 | 追问生成 | 提出 FollowupQ 多智能体框架，结合 EHR 推理、鉴别诊断和消息澄清三类 Agent，为异步医患对话自动生成个性化追问列表，在真实和半合成数据集上分别比基线提升 17% 和 5% 的 RIM 分数，将医生需要额外发送的信息收集消息减少 34%。"
+title: >-
+  [论文解读] Follow-up Question Generation for Enhanced Patient-Provider Conversations
+description: >-
+  [ACL 2025][追问生成] 提出 FollowupQ 多智能体框架，结合 EHR 推理、鉴别诊断和消息澄清三类 Agent，为异步医患对话自动生成个性化追问列表，在真实和半合成数据集上分别比基线提升 17% 和 5% 的 RIM 分数，将医生需要额外发送的信息收集消息减少 34%。
 tags:
   - ACL 2025
   - 追问生成

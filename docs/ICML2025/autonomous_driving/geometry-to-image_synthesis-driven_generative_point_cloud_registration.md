@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration 论文解读 | ICML2025 | arXiv 2512.09407 | 点云配准 | 提出生成式点云配准新范式，通过 DepthMatch-ControlNet 和 LiDARMatch-ControlNet 从点云生成跨视图一致的 RGB 图像对，融合颜色信息增强几何描述子，即插即用地提升现有配准方法。"
+title: >-
+  [论文解读] Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration
+description: >-
+  [ICML2025][自动驾驶][点云配准] 提出生成式点云配准新范式，通过 DepthMatch-ControlNet 和 LiDARMatch-ControlNet 从点云生成跨视图一致的 RGB 图像对，融合颜色信息增强几何描述子，即插即用地提升现有配准方法。
 tags:
   - ICML2025
+  - 自动驾驶
   - 点云配准
   - 2D生成模型
   - ControlNet

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Tokenization is Sensitive to Language Variation 论文解读 | ACL2025 | arXiv 2502.15343 | tokenization | 系统研究了 BPE tokenizer 的三个关键设计选择（拟合语料、pre-tokenizer、词表大小）对语言变体鲁棒性任务和敏感性任务下游性能的差异化影响，并提出基于 logistic regression 的 task-aware tokenizer 评估指标，显著优于 Rényi efficiency 等 task-agnostic 指标。"
+title: >-
+  [论文解读] Tokenization is Sensitive to Language Variation
+description: >-
+  [ACL2025][tokenization] 系统研究了 BPE tokenizer 的三个关键设计选择（拟合语料、pre-tokenizer、词表大小）对语言变体鲁棒性任务和敏感性任务下游性能的差异化影响，并提出基于 logistic regression 的 task-aware tokenizer 评估指标，显著优于 Rényi efficiency 等 task-agnostic 指标。
 tags:
   - ACL2025
   - tokenization

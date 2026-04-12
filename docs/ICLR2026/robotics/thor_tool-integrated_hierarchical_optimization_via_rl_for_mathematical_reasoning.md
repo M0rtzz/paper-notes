@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】THOR: Tool-Integrated Hierarchical Optimization via RL for Mathematical Reasoning 论文解读 | ICLR 2026 | arXiv 2509.13761 | tool-integrated reasoning | 提出 THOR（Tool-Integrated Hierarchical Optimization via RL），通过三个互补组件系统性解决 LLM 工具集成数学推理中的核心挑战：TIRGen 数据构建管线生成策略对齐的 TIR 训练数据、层次化强化学习（episode 级解题+step 级代码修正）缓解稀疏奖励、自修正推理机制利用工具反馈在线纠错。在 MATH500、AIME 等多个数学基准上达到同规模 SOTA，同时在代码生成基准上也有提升。"
+title: >-
+  [论文解读] THOR: Tool-Integrated Hierarchical Optimization via RL for Mathematical Reasoning
+description: >-
+  [ICLR 2026][机器人][tool-integrated reasoning] 提出 THOR（Tool-Integrated Hierarchical Optimization via RL），通过三个互补组件系统性解决 LLM 工具集成数学推理中的核心挑战：TIRGen 数据构建管线生成策略对齐的 TIR 训练数据、层次化强化学习（episode 级解题+step 级代码修正）缓解稀疏奖励、自修正推理机制利用工具反馈在线纠错。在 MATH500、AIME 等多个数学基准上达到同规模 SOTA，同时在代码生成基准上也有提升。
 tags:
   - ICLR 2026
+  - 机器人
   - tool-integrated reasoning
   - hierarchical RL
   - GRPO

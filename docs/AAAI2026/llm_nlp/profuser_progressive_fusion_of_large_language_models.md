@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ProFuser: Progressive Fusion of Large Language Models 论文解读 | AAAI 2026 | arXiv 2408.04998 | 模型融合 | 提出渐进式模型融合策略 ProFuser，通过多阶段逐步融合多个 LLM 的参数与知识，在保留各模型优势的同时生成统一的强力模型。"
+title: >-
+  [论文解读] ProFuser: Progressive Fusion of Large Language Models
+description: >-
+  [AAAI 2026][LLM/NLP][模型融合] 提出渐进式模型融合策略 ProFuser，通过多阶段逐步融合多个 LLM 的参数与知识，在保留各模型优势的同时生成统一的强力模型。
 tags:
   - AAAI 2026
+  - LLM/NLP
   - 模型融合
   - 渐进式融合
   - 多模型集成

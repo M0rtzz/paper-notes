@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Privacy on the Fly: A Predictive Adversarial Transformation Network for Mobile Sensor Data 论文解读 | AAAI 2026 | arXiv 2511.07242 | 传感器隐私 | 提出 PATN（Predictive Adversarial Transformation Network），首个将对抗扰动引入传感器数据隐私保护的框架，利用历史传感器数据生成面向未来的对抗扰动，实现零延迟的实时隐私保护，同时保持传感器数据的语义保真度。"
+title: >-
+  [论文解读] Privacy on the Fly: A Predictive Adversarial Transformation Network for Mobile Sensor Data
+description: >-
+  [AAAI 2026][AI安全][传感器隐私] 提出 PATN（Predictive Adversarial Transformation Network），首个将对抗扰动引入传感器数据隐私保护的框架，利用历史传感器数据生成面向未来的对抗扰动，实现零延迟的实时隐私保护，同时保持传感器数据的语义保真度。
 tags:
   - AAAI 2026
+  - AI安全
   - 传感器隐私
   - 对抗扰动
   - 实时隐私保护

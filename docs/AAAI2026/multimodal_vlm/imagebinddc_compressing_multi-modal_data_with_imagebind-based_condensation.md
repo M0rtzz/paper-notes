@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ImageBindDC: Compressing Multi-modal Data with ImageBind-based Condensation 论文解读 | AAAI 2026 | arXiv 2511.08263 | 数据蒸馏 | 本文提出ImageBindDC，首个在ImageBind统一特征空间中进行多模态数据压缩的框架，利用特征函数距离（CFD）替代传统MMD，并设计单模态/跨模态/联合模态三级分布对齐损失，在NYU-v2上仅用5个合成样本/类即实现与全数据训练相当的性能（97.30%），比前SOTA绝对提升8.2%，且压缩时间削减4.6倍。"
+title: >-
+  [论文解读] ImageBindDC: Compressing Multi-modal Data with ImageBind-based Condensation
+description: >-
+  [AAAI 2026][多模态][数据蒸馏] 本文提出ImageBindDC，首个在ImageBind统一特征空间中进行多模态数据压缩的框架，利用特征函数距离（CFD）替代传统MMD，并设计单模态/跨模态/联合模态三级分布对齐损失，在NYU-v2上仅用5个合成样本/类即实现与全数据训练相当的性能（97.30%），比前SOTA绝对提升8.2%，且压缩时间削减4.6倍。
 tags:
   - AAAI 2026
+  - 多模态
   - 数据蒸馏
   - 多模态压缩
   - ImageBind

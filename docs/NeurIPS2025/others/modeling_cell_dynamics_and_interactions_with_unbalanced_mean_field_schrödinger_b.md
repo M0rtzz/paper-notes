@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Modeling Cell Dynamics and Interactions with Unbalanced Mean Field Schrödinger Bridge 论文解读 | NeurIPS 2025 | arXiv 2505.11197 | Schrödinger Bridge | 提出 Unbalanced Mean Field Schrödinger Bridge (UMFSB) 框架和 CytoBridge 深度学习算法，从稀疏时间快照数据中同时建模细胞的非平衡随机动力学和细胞间交互。"
+title: >-
+  [论文解读] Modeling Cell Dynamics and Interactions with Unbalanced Mean Field Schrödinger Bridge
+description: >-
+  [NeurIPS 2025][Schrödinger Bridge] 提出 Unbalanced Mean Field Schrödinger Bridge (UMFSB) 框架和 CytoBridge 深度学习算法，从稀疏时间快照数据中同时建模细胞的非平衡随机动力学和细胞间交互。
 tags:
   - NeurIPS 2025
   - Schrödinger Bridge

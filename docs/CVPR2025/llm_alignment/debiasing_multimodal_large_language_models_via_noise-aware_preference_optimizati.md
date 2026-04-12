@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Debiasing Multimodal Large Language Models via Noise-Aware Preference Optimization 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Multimodal Large Language Models (MLLMs) excel in various tasks, yet often struggle with modality bias, tending to rely heavily on a single modality or prior knowledge when generating responses. In this paper, we propose a debiased preference optimization dataset, RLAIF-V-Bias, and introduce a Noise"
+title: >-
+  [论文解读] Debiasing Multimodal Large Language Models via Noise-Aware Preference Optimization
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Multimodal Large Language Models (MLLMs) excel in various tasks, yet often struggle with modality bias, tending to rely heavily on a single modality or prior knowledge when generating responses. In this paper, we propose a debiased preference optimization dataset, RLAIF-V-Bias, and introduce a Noise
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

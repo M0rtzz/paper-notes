@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Style Evolving along Chain-of-Thought for Unknown-Domain Object Detection 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Recently, a task of Single-Domain Generalized Object Detection (Single-DGOD) is proposed, aiming to generalize a detector to multiple unknown domains never seen before during training. Due to the unavailability of target-domain data, some methods leverage the multimodal capabilities of vision-langua"
+title: >-
+  [论文解读] Style Evolving along Chain-of-Thought for Unknown-Domain Object Detection
+description: >-
+  [CVPR 2025][LLM推理][待补充] > 基于摘要：Recently, a task of Single-Domain Generalized Object Detection (Single-DGOD) is proposed, aiming to generalize a detector to multiple unknown domains never seen before during training. Due to the unavailability of target-domain data, some methods leverage the multimodal capabilities of vision-langua
 tags:
   - CVPR 2025
+  - LLM推理
   - 待补充
 ---
 

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fine-R1: Make Multi-modal LLMs Excel in Fine-Grained Visual Recognition by Chain-of-Thought Reasoning 论文解读 | ICLR 2026 | arXiv 2602.07605 | 细粒度识别 | Fine-R1 通过 CoT 监督微调（\"视觉分析→候选子类→对比→预测\"结构化推理链）+ 三元组增强策略优化 TAPO（类内增强提升鲁棒性 + 类间增强提升判别力），仅用 4-shot 训练即在细粒度视觉识别上超越 CLIP 和通用/推理型 MLLM。"
+title: >-
+  [论文解读] Fine-R1: Make Multi-modal LLMs Excel in Fine-Grained Visual Recognition by Chain-of-Thought Reasoning
+description: >-
+  [ICLR 2026][LLM推理][细粒度识别] Fine-R1 通过 CoT 监督微调（"视觉分析→候选子类→对比→预测"结构化推理链）+ 三元组增强策略优化 TAPO（类内增强提升鲁棒性 + 类间增强提升判别力），仅用 4-shot 训练即在细粒度视觉识别上超越 CLIP 和通用/推理型 MLLM。
 tags:
   - ICLR 2026
+  - LLM推理
   - 细粒度识别
   - CoT推理
   - 三元组策略优化

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations 论文解读 | 受振动系统和共振现象启发，提出 Resonance 模型将行人轨迹编码和预测建模为\"共振动\"形式，通过轨迹分解为独立振动分量、模拟共振现象学习社交交互表示。"
+title: >-
+  [论文解读] Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations
+description: >-
+  [自动驾驶] 受振动系统和共振现象启发，提出 Resonance 模型将行人轨迹编码和预测建模为"共振动"形式，通过轨迹分解为独立振动分量、模拟共振现象学习社交交互表示。
 tags:
-
+  - 自动驾驶
 ---
 
 # Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations

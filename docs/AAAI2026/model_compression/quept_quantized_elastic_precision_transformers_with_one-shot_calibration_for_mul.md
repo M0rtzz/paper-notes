@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】QuEPT: Quantized Elastic Precision Transformers with One-Shot Calibration for Multi-Bit Switching 论文解读 | AAAI 2026 | arXiv 2602.12609 | 弹性精度量化 | 提出QuEPT弹性精度量化框架，通过Multi-Bit Token Merging和Multi-Bit Cascaded LoRA两大核心模块，实现一次校准即可在ViT/LLM/MLLM上实时切换任意预定义位宽，性能媲美甚至超越单位宽SOTA PTQ方法。"
+title: >-
+  [论文解读] QuEPT: Quantized Elastic Precision Transformers with One-Shot Calibration for Multi-Bit Switching
+description: >-
+  [AAAI 2026][模型压缩][弹性精度量化] 提出QuEPT弹性精度量化框架，通过Multi-Bit Token Merging和Multi-Bit Cascaded LoRA两大核心模块，实现一次校准即可在ViT/LLM/MLLM上实时切换任意预定义位宽，性能媲美甚至超越单位宽SOTA PTQ方法。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 弹性精度量化
   - 后训练量化
   - 多位宽切换

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation 论文解读 | ICLR 2026 | arXiv 2502.10996 | 检索增强生成 | 提出 RAS 框架，在推理时为每个问题动态构建查询特定的知识图谱，通过迭代检索规划、文本到三元组转换和图增强回答三个阶段实现结构化推理，在 7 个知识密集型基准上对开源和闭源 LLM 分别取得最高 7.0% 和 8.7% 的提升。"
+title: >-
+  [论文解读] RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation
+description: >-
+  [ICLR 2026][图学习][检索增强生成] 提出 RAS 框架，在推理时为每个问题动态构建查询特定的知识图谱，通过迭代检索规划、文本到三元组转换和图增强回答三个阶段实现结构化推理，在 7 个知识密集型基准上对开源和闭源 LLM 分别取得最高 7.0% 和 8.7% 的提升。
 tags:
   - ICLR 2026
+  - 图学习
   - 检索增强生成
   - 知识图谱构建
   - 迭代检索

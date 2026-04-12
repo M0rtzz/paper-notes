@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Quantization Error Propagation: Revisiting Layer-Wise Post-Training Quantization 论文解读 | NeurIPS 2025 | arXiv 2504.09629 | 量化 post-training quantization | 识别现有逐层 PTQ 方法忽略量化误差跨层累积和增长的关键瓶颈，提出 QEP 框架通过误差传播和补偿显式纠正累积误差，在极低比特（INT2/INT3）下实现大幅性能提升。"
+title: >-
+  [论文解读] Quantization Error Propagation: Revisiting Layer-Wise Post-Training Quantization
+description: >-
+  [NeurIPS 2025][模型压缩][量化] 识别现有逐层 PTQ 方法忽略量化误差跨层累积和增长的关键瓶颈，提出 QEP 框架通过误差传播和补偿显式纠正累积误差，在极低比特（INT2/INT3）下实现大幅性能提升。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 量化
   - LLM compression
   - low-bit

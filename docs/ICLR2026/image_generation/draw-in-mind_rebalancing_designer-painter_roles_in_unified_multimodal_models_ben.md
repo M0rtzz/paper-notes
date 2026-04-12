@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Draw-In-Mind: Rebalancing Designer-Painter Roles in Unified Multimodal Models Benefits Image Editing 论文解读 | ICLR 2026 | arXiv 2509.01986 | 多模态 Unified Multimodal Model | 指出当前统一多模态模型中理解模块仅作翻译器而生成模块被迫同时充当\"设计师\"和\"画家\"的职责失衡问题，通过构建 DIM 数据集（14M 长上下文文图对 + 233K CoT 编辑蓝图）将设计责任转移给理解模块，4.6B 参数即超越 5 倍大的模型。"
+title: >-
+  [论文解读] Draw-In-Mind: Rebalancing Designer-Painter Roles in Unified Multimodal Models Benefits Image Editing
+description: >-
+  [ICLR 2026][图像生成][多模态] 指出当前统一多模态模型中理解模块仅作翻译器而生成模块被迫同时充当"设计师"和"画家"的职责失衡问题，通过构建 DIM 数据集（14M 长上下文文图对 + 233K CoT 编辑蓝图）将设计责任转移给理解模块，4.6B 参数即超越 5 倍大的模型。
 tags:
   - ICLR 2026
+  - 图像生成
   - 多模态
   - Chain-of-Thought
   - Image Editing

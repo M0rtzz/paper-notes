@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Training-Free Policy Violation Detection via Activation-Space Whitening in LLMs 论文解读 | AAAI 2026 | arXiv 2512.03994 | 策略违规检测 | 将 LLM 的策略违规检测重构为激活空间中的分布外（OOD）检测问题，提出无需训练的白化方法：对合规激活拟合白化变换，用欧几里得范数作为合规分数，仅需策略文本和少量示例即可部署，在 DynaBench 上达到 86.0% F1，超越微调基线 9.1 个点、LLM-as-Judge 16 个点。"
+title: >-
+  [论文解读] Training-Free Policy Violation Detection via Activation-Space Whitening in LLMs
+description: >-
+  [AAAI 2026][医学图像][策略违规检测] 将 LLM 的策略违规检测重构为激活空间中的分布外（OOD）检测问题，提出无需训练的白化方法：对合规激活拟合白化变换，用欧几里得范数作为合规分数，仅需策略文本和少量示例即可部署，在 DynaBench 上达到 86.0% F1，超越微调基线 9.1 个点、LLM-as-Judge 16 个点。
 tags:
   - AAAI 2026
+  - 医学图像
   - 策略违规检测
   - 激活空间白化
   - 分布外检测

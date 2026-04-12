@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images 论文解读 | CVPR 2026 | arXiv 2603.12215 | 显著性目标检测 | 提出RDNet，通过区域比例感知机制动态选择不同大小卷积核组合，结合小波域频率匹配上下文增强和跨注意力定位模块，在遥感图像显著性检测三个数据集上全面超越SOTA。"
+title: >-
+  [论文解读] RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images
+description: >-
+  [CVPR 2026][图像分割][显著性目标检测] 提出RDNet，通过区域比例感知机制动态选择不同大小卷积核组合，结合小波域频率匹配上下文增强和跨注意力定位模块，在遥感图像显著性检测三个数据集上全面超越SOTA。
 tags:
   - CVPR 2026
+  - 图像分割
   - 显著性目标检测
   - 遥感图像
   - 动态卷积核选择

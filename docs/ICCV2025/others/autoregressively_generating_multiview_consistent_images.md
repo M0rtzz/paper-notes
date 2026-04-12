@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Auto-Regressively Generating Multi-View Consistent Images (MV-AR) 论文解读 | ICCV 2025 | arXiv 2506.18527 | 自回归生成 | 首次将自回归（AR）模型引入多视角图像生成任务，通过逐视角生成利用所有前序视角信息来增强远距离视角间的一致性，同时设计了统一的多模态条件注入架构和Shuffle Views数据增强策略，使单一模型可同时处理文本/图像/几何形状条件。"
+title: >-
+  [论文解读] Auto-Regressively Generating Multi-View Consistent Images (MV-AR)
+description: >-
+  [ICCV 2025][自回归生成] 首次将自回归（AR）模型引入多视角图像生成任务，通过逐视角生成利用所有前序视角信息来增强远距离视角间的一致性，同时设计了统一的多模态条件注入架构和Shuffle Views数据增强策略，使单一模型可同时处理文本/图像/几何形状条件。
 tags:
   - ICCV 2025
   - 自回归生成

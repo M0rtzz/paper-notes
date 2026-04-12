@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fast Data Attribution for Text-to-Image Models 论文解读 | NeurIPS 2025 | arXiv 2511.10721 | data attribution | 将慢而准确的 unlearning-based 数据归因方法蒸馏为一个可快速检索的特征嵌入空间，在 Stable Diffusion 级别模型上实现比现有方法快 2,500× ~ 400,000× 的数据归因。"
+title: >-
+  [论文解读] Fast Data Attribution for Text-to-Image Models
+description: >-
+  [NeurIPS 2025][图像生成][data attribution] 将慢而准确的 unlearning-based 数据归因方法蒸馏为一个可快速检索的特征嵌入空间，在 Stable Diffusion 级别模型上实现比现有方法快 2,500× ~ 400,000× 的数据归因。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - data attribution
   - text-to-image
   - learning-to-rank

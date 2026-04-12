@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Revela: Dense Retriever Learning via Language Modeling 论文解读 | ICLR2026 | arXiv 2506.16552 | dense retrieval | 提出 Revela，通过 in-batch attention 机制将检索器学习融入语言建模——NTP 不仅依赖本序列上下文，还依赖批内其他序列（由检索器相似度加权），无需标注 query-document 对即可训练强大的密集检索器。"
+title: >-
+  [论文解读] Revela: Dense Retriever Learning via Language Modeling
+description: >-
+  [ICLR2026][dense retrieval] 提出 Revela，通过 in-batch attention 机制将检索器学习融入语言建模——NTP 不仅依赖本序列上下文，还依赖批内其他序列（由检索器相似度加权），无需标注 query-document 对即可训练强大的密集检索器。
 tags:
   - ICLR2026
   - dense retrieval

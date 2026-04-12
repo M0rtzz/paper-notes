@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Curriculum Direct Preference Optimization for Diffusion and Consistency Models 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Direct Preference Optimization (DPO) has been proposed as an effective and efficient alternative to reinforcement learning from human feedback (RLHF). In this paper, we propose a novel and enhanced version of DPO based on curriculum learning for text-to-image generation. Our method is divided into t"
+title: >-
+  [论文解读] Curriculum Direct Preference Optimization for Diffusion and Consistency Models
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Direct Preference Optimization (DPO) has been proposed as an effective and efficient alternative to reinforcement learning from human feedback (RLHF). In this paper, we propose a novel and enhanced version of DPO based on curriculum learning for text-to-image generation. Our method is divided into t
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

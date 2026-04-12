@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization 论文解读 | 投稿中 | arXiv 2603.12663 | panoramic LiDAR | 提出在全向 LiDAR 扫描上联合学习几何与光度（反射率）特征的框架，并发布 MPO（Multimodal Panoramic Outdoor）数据集，展示在户外场所分类任务上的有效性。"
+title: >-
+  [论文解读] Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization
+description: >-
+  [投稿中][3D视觉][panoramic LiDAR] 提出在全向 LiDAR 扫描上联合学习几何与光度（反射率）特征的框架，并发布 MPO（Multimodal Panoramic Outdoor）数据集，展示在户外场所分类任务上的有效性。
 tags:
   - 投稿中
+  - 3D视觉
   - panoramic LiDAR
   - geometric features
   - photometric features

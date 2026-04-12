@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Filter, Correlate, Compress: Training-Free Token Reduction for MLLM Acceleration 论文解读 | AAAI 2026 | arXiv 2411.17686 | 视觉token压缩 | 提出FiCoCo三阶段框架（Filter-Correlate-Compress），通过集成视觉感知+语义感知冗余度量筛选丢弃token，利用token间相关性自适应回收信息，实现training-free的MLLM加速。在LLaVA-NeXT上达14.7×FLOPs压缩同时保留93.6%性能，在5种MLLM架构上全面超越FastV、SparseVLM等SOTA。"
+title: >-
+  [论文解读] Filter, Correlate, Compress: Training-Free Token Reduction for MLLM Acceleration
+description: >-
+  [AAAI 2026][多模态][视觉token压缩] 提出FiCoCo三阶段框架（Filter-Correlate-Compress），通过集成视觉感知+语义感知冗余度量筛选丢弃token，利用token间相关性自适应回收信息，实现training-free的MLLM加速。在LLaVA-NeXT上达14.7×FLOPs压缩同时保留93.6%性能，在5种MLLM架构上全面超越FastV、SparseVLM等SOTA。
 tags:
   - AAAI 2026
+  - 多模态
   - 视觉token压缩
   - MLLM加速
   - training-free

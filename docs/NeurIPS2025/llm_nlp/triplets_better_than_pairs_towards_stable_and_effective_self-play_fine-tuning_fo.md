@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Triplets Better Than Pairs: Towards Stable and Effective Self-Play Fine-Tuning for LLMs 论文解读 | NeurIPS 2025 | arXiv 2601.08198 | self-play fine-tuning | 提出 T-SPIN（三元组自博弈微调），在 SPIN 基础上引入\"历史优势\"（proto-synthetic 响应作为锚点）和熵约束实现无参考策略训练，解决了 SPIN 迭代中的优化不稳定和训练-生成不对齐两大问题，仅用 25% 标注数据即可媲美全量 SFT。"
+title: >-
+  [论文解读] Triplets Better Than Pairs: Towards Stable and Effective Self-Play Fine-Tuning for LLMs
+description: >-
+  [NeurIPS 2025][LLM/NLP][self-play fine-tuning] 提出 T-SPIN（三元组自博弈微调），在 SPIN 基础上引入"历史优势"（proto-synthetic 响应作为锚点）和熵约束实现无参考策略训练，解决了 SPIN 迭代中的优化不稳定和训练-生成不对齐两大问题，仅用 25% 标注数据即可媲美全量 SFT。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - self-play fine-tuning
   - triplet learning
   - LLM alignment

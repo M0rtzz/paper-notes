@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Generalizable PDE Dynamics Forecasting via Physics-Guided Invariant Learning 论文解读 | ICLR 2026 | arXiv 2509.24332 | 偏微分方程 PDE预测 | 提出iMOOE——面向零样本OOD泛化的PDE动力学预测的物理引导不变学习方法：显式定义PDE的两层不变性原则(1.组成算子不变 2.算子间组合关系不变)，设计不变对齐的算子专家混合架构捕获不变算子和组合关系，加频率增强的不变学习目标实现跨域风险均衡→在多种OOD场景(参数/初条件/外力/时间分辨率变化)上实现零样本SOTA。"
+title: >-
+  [论文解读] Towards Generalizable PDE Dynamics Forecasting via Physics-Guided Invariant Learning
+description: >-
+  [ICLR 2026][时间序列][偏微分方程] 提出iMOOE——面向零样本OOD泛化的PDE动力学预测的物理引导不变学习方法：显式定义PDE的两层不变性原则(1.组成算子不变 2.算子间组合关系不变)，设计不变对齐的算子专家混合架构捕获不变算子和组合关系，加频率增强的不变学习目标实现跨域风险均衡→在多种OOD场景(参数/初条件/外力/时间分辨率变化)上实现零样本SOTA。
 tags:
   - ICLR 2026
+  - 时间序列
   - 偏微分方程
   - OOD泛化
   - 不变学习

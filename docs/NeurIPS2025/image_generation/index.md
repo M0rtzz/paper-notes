@@ -1,7 +1,14 @@
+---
+title: >-
+  NeurIPS2025 图像生成方向 236篇论文解读
+description: >-
+  236篇NeurIPS2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧠 NeurIPS2025** · 共 **237** 篇
+**🧠 NeurIPS2025** · 共 **236** 篇
 
 **[70 Size 100 Accuracy Lossless Llm Compression For Efficient](70_size_100_accuracy_lossless_llm_compression_for_efficient.md)**
 
@@ -175,11 +182,11 @@
 
 :   借鉴统计物理中的涨落理论（fluctuation theory），提出了一种通过 **交叉涨落（cross-fluctuation）** 检测扩散模型采样过程中离散相变的框架，从而在无需重新训练的情况下加速采样、改进条件生成、提升零样本分类和风格迁移。
 
-**[Curly Flow Matching for Learning Non-gradient Field Dynamics](curly_flow_matching_for_learning_non-gradient_field_dynamics.md)**
+**[Curly Flow Matching For Learning Non-Gradient Field Dynamics](curly_flow_matching_for_learning_non-gradient_field_dynamics.md)**
 
 :   提出 Curly Flow Matching (Curly-FM)，通过设计带有非零参考漂移的 Schrödinger Bridge 问题，使 flow matching 能够学习周期性、旋转性等非梯度场动力学，突破了传统方法只能建模梯度场的限制。
 
-**[DeCaFlow: A Deconfounding Causal Generative Model](decaflow_a_deconfounding_causal_generative_model.md)**
+**[Decaflow A Deconfounding Causal Generative Model](decaflow_a_deconfounding_causal_generative_model.md)**
 
 :   提出 DeCaFlow，一个去混淆的因果生成模型，在给定因果图和观测数据的情况下，只需训练一次即可正确估计所有 do-calculus 可识别的因果查询（包括干预和反事实），即使存在隐藏混淆因子。
 
@@ -938,10 +945,6 @@
 **[Why Diffusion Models Dont Memorize The Role Of Implicit Dynamical Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_dynamical_regularization.md)**
 
 :   通过数值实验和理论分析揭示扩散模型训练中存在两个关键时间尺度——泛化时间 $\tau_{\text{gen}}$ 和记忆化时间 $\tau_{\text{mem}}$，后者随训练集大小 $n$ 线性增长而前者保持恒定，由此产生的隐式动力学正则化使模型即使在高度过参数化情况下也能通过早停避免记忆化。
-
-**[Why Diffusion Models Don't Memorize: The Role of Implicit Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_regularization.md)**
-
-:   本文从数值实验和理论分析两个层面揭示扩散模型训练中存在**隐式动态正则化**机制：生成高质量样本的时间尺度 τ_gen 与出现记忆化的时间尺度 τ_mem 之间的间隔随训练集大小 n 线性增长，为"早停"提供了理论支撑。
 
 **[Why Knowledge Distillation Works In Generative Models A Minimal Working Explanat](why_knowledge_distillation_works_in_generative_models_a_minimal_working_explanat.md)**
 

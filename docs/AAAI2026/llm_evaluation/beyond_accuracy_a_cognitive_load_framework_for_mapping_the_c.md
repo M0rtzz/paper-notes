@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Beyond Accuracy: A Cognitive Load Framework for Mapping the Capability Boundaries of Tool-use Agents 论文解读 | AAAI 2026 | arXiv 2601.20412 | 认知负荷理论 | 借鉴心理学的认知负荷理论（CLT），将工具使用任务的复杂度分解为内在负荷（任务解题路径的结构复杂度）和外在负荷（问题表述的歧义性），构建可参数化调节认知负荷的 ToolLoad-Bench 基准，用指数衰减模型 Acc ≈ e^-(k · CL + b) 精确刻画不同 Agent 的能力边界。"
+title: >-
+  [论文解读] Beyond Accuracy: A Cognitive Load Framework for Mapping the Capability Boundaries of Tool-use Agents
+description: >-
+  [AAAI 2026][认知负荷理论] 借鉴心理学的认知负荷理论（CLT），将工具使用任务的复杂度分解为内在负荷（任务解题路径的结构复杂度）和外在负荷（问题表述的歧义性），构建可参数化调节认知负荷的 ToolLoad-Bench 基准，用指数衰减模型 $\text{Acc} \approx e^{-(k \cdot CL + b)}$ 精确刻画不同 Agent 的能力边界。
 tags:
   - AAAI 2026
   - 认知负荷理论

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pedagogically-Inspired Data Synthesis for Language Model Knowledge Distillation 论文解读 | ICLR 2026 | arXiv 2602.12172 | 知识蒸馏 | 提出 IOA（Identifier-Organizer-Adapter）框架，借鉴 Bloom 掌握学习原则和 Vygotsky 最近发展区理论，通过诊断知识缺陷、设计渐进课程、适配认知水平三个阶段，实现教育学驱动的 LLM 知识蒸馏。"
+title: >-
+  [论文解读] Pedagogically-Inspired Data Synthesis for Language Model Knowledge Distillation
+description: >-
+  [ICLR 2026][模型压缩][知识蒸馏] 提出 IOA（Identifier-Organizer-Adapter）框架，借鉴 Bloom 掌握学习原则和 Vygotsky 最近发展区理论，通过诊断知识缺陷、设计渐进课程、适配认知水平三个阶段，实现教育学驱动的 LLM 知识蒸馏。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 知识蒸馏
   - 合成数据
   - 课程学习

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2506.09033 | LLM路由 | Router-R1 将多 LLM 路由和聚合建模为序列决策过程，用 LLM 自身作为路由器交替执行\"思考\"和\"路由\"动作，通过 PPO 训练配合格式/正确性/成本三重奖励，在 7 个 QA 基准上超越所有路由器基线且可泛化到未见过的 LLM。"
+title: >-
+  [论文解读] Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning
+description: >-
+  [NeurIPS 2025][LLM路由] Router-R1 将多 LLM 路由和聚合建模为序列决策过程，用 LLM 自身作为路由器交替执行"思考"和"路由"动作，通过 PPO 训练配合格式/正确性/成本三重奖励，在 7 个 QA 基准上超越所有路由器基线且可泛化到未见过的 LLM。
 tags:
   - NeurIPS 2025
   - LLM路由

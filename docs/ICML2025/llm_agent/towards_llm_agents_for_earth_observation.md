@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】UnivEARTH: Towards LLM Agents for Earth Observation 论文解读 | ICML2025 | arXiv 2504.12110 | 地球观测 | 引入UnivEARTH基准（140个是/否问题，覆盖13个主题和17种卫星传感器），发现使用Google Earth Engine API作为工具的LLM Agent准确率仅33%——主要因为58%以上的代码无法运行——揭示了AI自动化地球观测的重大挑战。"
+title: >-
+  [论文解读] UnivEARTH: Towards LLM Agents for Earth Observation
+description: >-
+  [ICML2025][LLM Agent][地球观测] 引入UnivEARTH基准（140个是/否问题，覆盖13个主题和17种卫星传感器），发现使用Google Earth Engine API作为工具的LLM Agent准确率仅33%——主要因为58%以上的代码无法运行——揭示了AI自动化地球观测的重大挑战。
 tags:
   - ICML2025
-  - 地球观测
   - LLM Agent
+  - 地球观测
   - Google Earth Engine
   - 卫星数据
   - 基准测试

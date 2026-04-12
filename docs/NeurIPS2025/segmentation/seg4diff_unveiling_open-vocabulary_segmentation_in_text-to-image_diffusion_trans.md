@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Seg4Diff: Unveiling Open-Vocabulary Segmentation in Text-to-Image Diffusion Transformers 论文解读 | NeurIPS 2025 | arXiv 2509.18096 | 扩散模型 | 通过系统分析多模态扩散Transformer（MM-DiT）的联合注意力机制，发现特定层（\"语义定位专家层\"）天然具备高质量语义分割能力，并提出轻量微调方法MAGNET同时提升分割与生成性能。"
+title: >-
+  [论文解读] Seg4Diff: Unveiling Open-Vocabulary Segmentation in Text-to-Image Diffusion Transformers
+description: >-
+  [NeurIPS 2025][图像分割][扩散模型] 通过系统分析多模态扩散Transformer（MM-DiT）的联合注意力机制，发现特定层（"语义定位专家层"）天然具备高质量语义分割能力，并提出轻量微调方法MAGNET同时提升分割与生成性能。
 tags:
   - NeurIPS 2025
+  - 图像分割
   - 扩散模型
   - 开放词汇分割
   - MM-DiT

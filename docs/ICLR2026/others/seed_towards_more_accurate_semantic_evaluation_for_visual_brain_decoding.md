@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SEED: Towards More Accurate Semantic Evaluation for Visual Brain Decoding 论文解读 | 提出 SEED（Semantic Evaluation for Visual Brain Decoding），一个结合 Object F1、Cap-Sim 和 EffNet 三个互补指标的组合评估度量，在与人类评估的对齐度上显著超越现有所有指标。"
+title: >-
+  [论文解读] SEED: Towards More Accurate Semantic Evaluation for Visual Brain Decoding
+description: >-
+   提出 SEED（Semantic Evaluation for Visual Brain Decoding），一个结合 Object F1、Cap-Sim 和 EffNet 三个互补指标的组合评估度量，在与人类评估的对齐度上显著超越现有所有指标。
 tags:
 
 ---

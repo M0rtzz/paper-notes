@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Scaling Laws and Pathologies of Single-Layer PINNs: Network Width and PDE Nonlinearity 论文解读 | 对单层PINN在典型非线性PDE上建立了经验缩放定律，发现了双重优化失败：宽度缩放病理（误差不随宽度下降）和复合病理（非线性加剧此失败），证明优化而非近似容量是主要瓶颈。"
+title: >-
+  [论文解读] Scaling Laws and Pathologies of Single-Layer PINNs: Network Width and PDE Nonlinearity
+description: >-
+  [医学图像] 对单层PINN在典型非线性PDE上建立了经验缩放定律，发现了双重优化失败：宽度缩放病理（误差不随宽度下降）和复合病理（非线性加剧此失败），证明优化而非近似容量是主要瓶颈。
 tags:
-
+  - 医学图像
 ---
 
 # Scaling Laws and Pathologies of Single-Layer PINNs: Network Width and PDE Nonlinearity

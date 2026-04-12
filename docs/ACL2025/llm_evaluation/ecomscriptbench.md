@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association 论文解读 | ACL 2025 (Long Paper) | arXiv 2505.15196 | E-commerce Script Planning | 提出电商脚本规划（EcomScript）任务及其首个大规模benchmark EcomScriptBench（605K脚本、2.4M产品），通过购买意图（purchase intention）桥接用户行动步骤与产品检索的语义鸿沟，实验发现当前LLM在涉及产品的子任务上表现显著不足，注入意图知识可提升性能。"
+title: >-
+  [论文解读] EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association
+description: >-
+  [ACL 2025 (Long Paper)][E-commerce Script Planning] 提出电商脚本规划（EcomScript）任务及其首个大规模benchmark EcomScriptBench（605K脚本、2.4M产品），通过购买意图（purchase intention）桥接用户行动步骤与产品检索的语义鸿沟，实验发现当前LLM在涉及产品的子任务上表现显著不足，注入意图知识可提升性能。
 tags:
   - ACL 2025 (Long Paper)
   - E-commerce Script Planning

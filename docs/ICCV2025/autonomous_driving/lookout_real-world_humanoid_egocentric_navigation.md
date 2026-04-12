@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LookOut: Real-World Humanoid Egocentric Navigation 论文解读 | ICCV 2025 | arXiv 2508.14466 | egocentric navigation | 提出LookOut，从自我中心视频预测未来6D头部姿态轨迹（包含平移+旋转），通过时序聚合3D DINO特征理解场景几何/语义约束，并贡献了基于Project Aria眼镜采集的4小时真实世界导航数据集AND。"
+title: >-
+  [论文解读] LookOut: Real-World Humanoid Egocentric Navigation
+description: >-
+  [ICCV 2025][自动驾驶][egocentric navigation] 提出LookOut，从自我中心视频预测未来6D头部姿态轨迹（包含平移+旋转），通过时序聚合3D DINO特征理解场景几何/语义约束，并贡献了基于Project Aria眼镜采集的4小时真实世界导航数据集AND。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - egocentric navigation
   - 6D head pose prediction
   - humanoid robot

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Real-World Point Tracking with Verifier-Guided Pseudo-Labeling 论文解读 | CVPR2026 | arXiv 2603.12217 | 点跟踪 | 提出 Verifier——一个元模型，通过学习逐帧评估多个预训练跟踪器预测的可靠性，从中选取最优候选构建高质量伪标签轨迹，实现无需人工标注的真实世界点跟踪微调，在四个真实基准上达到 SOTA。"
+title: >-
+  [论文解读] Real-World Point Tracking with Verifier-Guided Pseudo-Labeling
+description: >-
+  [CVPR2026][视频理解][点跟踪] 提出 Verifier——一个元模型，通过学习逐帧评估多个预训练跟踪器预测的可靠性，从中选取最优候选构建高质量伪标签轨迹，实现无需人工标注的真实世界点跟踪微调，在四个真实基准上达到 SOTA。
 tags:
   - CVPR2026
+  - 视频理解
   - 点跟踪
   - 伪标签
   - 自训练

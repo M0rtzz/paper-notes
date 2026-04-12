@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning 论文解读 | ACL 2025 | arXiv 2502.18439 | 多智能体RL | 提出 MAPoRL——一种基于多智能体强化学习的后训练范式，通过让多个 LLM 在辩论框架中共同训练（co-training），配合验证器评分和协作激励机制，显著提升多 LLM 协作的效果，并展现出跨任务的泛化能力。"
+title: >-
+  [论文解读] MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+description: >-
+  [ACL 2025][多智能体RL] 提出 MAPoRL——一种基于多智能体强化学习的后训练范式，通过让多个 LLM 在辩论框架中共同训练（co-training），配合验证器评分和协作激励机制，显著提升多 LLM 协作的效果，并展现出跨任务的泛化能力。
 tags:
   - ACL 2025
   - 多智能体RL

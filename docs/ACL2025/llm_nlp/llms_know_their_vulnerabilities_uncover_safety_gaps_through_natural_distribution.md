@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLMs Know Their Vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts 论文解读 | ACL 2025 | arXiv 2410.10700 | jailbreak | 提出 ActorBreaker 多轮攻击方法，基于 Latour 的行动者网络理论，利用与有害内容语义相关的良性 prompt（自然分布偏移）绕过安全机制，在 HarmBench 上达到 SOTA 攻击成功率，揭示了预训练数据与安全训练数据之间的语义覆盖差距。"
+title: >-
+  [论文解读] LLMs Know Their Vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts
+description: >-
+  [ACL 2025][LLM/NLP][jailbreak] 提出 ActorBreaker 多轮攻击方法，基于 Latour 的行动者网络理论，利用与有害内容语义相关的良性 prompt（自然分布偏移）绕过安全机制，在 HarmBench 上达到 SOTA 攻击成功率，揭示了预训练数据与安全训练数据之间的语义覆盖差距。
 tags:
   - ACL 2025
+  - LLM/NLP
   - jailbreak
   - actor-network theory
   - multi-turn attack

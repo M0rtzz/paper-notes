@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scaling Diffusion Transformers Efficiently via μP 论文解读 | NeurIPS 2025 | arXiv 2505.15270 | Transformer Diffusion Transformer | 将 Maximal Update Parametrization (μP) 从标准 Transformer 推广到扩散 Transformer（DiT、PixArt-α、MMDiT 等），证明其超参数可从小模型稳定迁移到大模型，显著降低大规模扩散模型的调参成本。"
+title: >-
+  [论文解读] Scaling Diffusion Transformers Efficiently via μP
+description: >-
+  [NeurIPS 2025][图像生成][Transformer] 将 Maximal Update Parametrization (μP) 从标准 Transformer 推广到扩散 Transformer（DiT、PixArt-α、MMDiT 等），证明其超参数可从小模型稳定迁移到大模型，显著降低大规模扩散模型的调参成本。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - Transformer
   - μP
   - 超参数迁移

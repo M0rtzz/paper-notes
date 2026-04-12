@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Latent Diffusion Model without Variational Autoencoder 论文解读 | ICLR 2026 | arXiv 2510.15301 | 自监督表征 | 提出 SVG，用冻结的 DINOv3 自监督特征替代 VAE 潜在空间构建扩散模型，通过轻量残差编码器补充细粒度细节，实现更快训练、更高效推理和跨任务通用的视觉表征。"
+title: >-
+  [论文解读] Latent Diffusion Model without Variational Autoencoder
+description: >-
+  [ICLR 2026][图像生成][自监督表征] 提出 SVG，用冻结的 DINOv3 自监督特征替代 VAE 潜在空间构建扩散模型，通过轻量残差编码器补充细粒度细节，实现更快训练、更高效推理和跨任务通用的视觉表征。
 tags:
   - ICLR 2026
+  - 图像生成
   - 自监督表征
   - DINOv3
   - 无VAE潜在扩散

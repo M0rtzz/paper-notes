@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Supervised Metric Regularization Through Alternating Optimization for Multi-Regime PINNs 论文解读 | 提出拓扑感知 PINN (TAPINN)，通过监督度量正则化（Triplet Loss）结构化潜空间 + 交替优化调度稳定训练，在 Duffing 振荡器多域问题上物理残差降低约 49%（0.082 vs 0.160），梯度方差降低 2.18×。"
+title: >-
+  [论文解读] Supervised Metric Regularization Through Alternating Optimization for Multi-Regime PINNs
+description: >-
+  [人体理解] 提出拓扑感知 PINN (TAPINN)，通过监督度量正则化（Triplet Loss）结构化潜空间 + 交替优化调度稳定训练，在 Duffing 振荡器多域问题上物理残差降低约 49%（0.082 vs 0.160），梯度方差降低 2.18×。
 tags:
-
+  - 人体理解
 ---
 
 # Supervised Metric Regularization Through Alternating Optimization for Multi-Regime PINNs

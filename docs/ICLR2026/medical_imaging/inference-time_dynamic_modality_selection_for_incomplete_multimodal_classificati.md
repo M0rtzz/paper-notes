@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Inference-Time Dynamic Modality Selection for Incomplete Multimodal Classification 论文解读 | ICLR 2026 | arXiv 2601.22853 | 不完整多模态 | 提出DyMo——推理时动态模态选择框架解决不完整多模态分类的\"丢弃-补全困境\"：丢弃缺失模态损失任务相关信息，补全可能引入噪声/语义错位，DyMo通过信息增益驱动的选择算法动态决定哪些恢复模态值得融合(正reward→有用/负reward→有害)，在5个数据集上显著超越SOTA。"
+title: >-
+  [论文解读] Inference-Time Dynamic Modality Selection for Incomplete Multimodal Classification
+description: >-
+  [ICLR 2026][医学图像][不完整多模态] 提出DyMo——推理时动态模态选择框架解决不完整多模态分类的"丢弃-补全困境"：丢弃缺失模态损失任务相关信息，补全可能引入噪声/语义错位，DyMo通过信息增益驱动的选择算法动态决定哪些恢复模态值得融合(正reward→有用/负reward→有害)，在5个数据集上显著超越SOTA。
 tags:
   - ICLR 2026
+  - 医学图像
   - 不完整多模态
   - 动态模态选择
   - 信息增益

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】RiOT: Efficient Prompt Refinement with Residual Optimization Tree 论文解读 | 提出 Residual Optimization Tree（RiOT），一种自动 prompt 优化框架，通过树结构管理优化过程、基于困惑度的节点选择增强多样性、以及文本残差连接缓解语义漂移问题。"
+title: >-
+  [论文解读] RiOT: Efficient Prompt Refinement with Residual Optimization Tree
+description: >-
+  [LLM/NLP] 提出 Residual Optimization Tree（RiOT），一种自动 prompt 优化框架，通过树结构管理优化过程、基于困惑度的节点选择增强多样性、以及文本残差连接缓解语义漂移问题。
 tags:
-
+  - LLM/NLP
 ---
 
 # RiOT: Efficient Prompt Refinement with Residual Optimization Tree

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bias Association Discovery Framework for Open-Ended LLM Generations 论文解读 | AAAI 2026 | arXiv 2508.01412 | 社会偏见 | 提出偏见关联发现框架 BADF，通过分析 LLM 开放式故事生成中的叙事内容，系统性地提取人口统计身份与描述性概念之间的已知和未知偏见关联，突破了以往依赖预定义偏见概念的局限。"
+title: >-
+  [论文解读] Bias Association Discovery Framework for Open-Ended LLM Generations
+description: >-
+  [AAAI 2026][人体理解][社会偏见] 提出偏见关联发现框架 BADF，通过分析 LLM 开放式故事生成中的叙事内容，系统性地提取人口统计身份与描述性概念之间的已知和未知偏见关联，突破了以往依赖预定义偏见概念的局限。
 tags:
   - AAAI 2026
+  - 人体理解
   - 社会偏见
   - LLM生成
   - 偏见关联发现

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation 论文解读 | NeurIPS 2025 | arXiv 2502.01113 | Graph Foundation Model | 提出首个图基础模型驱动的检索增强生成框架 GFM-RAG，通过 query-dependent GNN 在知识图谱上进行单步多跳推理，仅 8M 参数即可在未见数据集上零样本泛化，在多跳QA检索任务上大幅超越 SOTA。"
+title: >-
+  [论文解读] GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation
+description: >-
+  [NeurIPS 2025][图学习][Graph Foundation Model] 提出首个图基础模型驱动的检索增强生成框架 GFM-RAG，通过 query-dependent GNN 在知识图谱上进行单步多跳推理，仅 8M 参数即可在未见数据集上零样本泛化，在多跳QA检索任务上大幅超越 SOTA。
 tags:
   - NeurIPS 2025
+  - 图学习
   - Graph Foundation Model
   - RAG
   - Knowledge Graph

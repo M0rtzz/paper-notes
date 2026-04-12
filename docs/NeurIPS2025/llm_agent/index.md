@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 LLM Agent方向 51篇论文解读
+description: >-
+  51篇NeurIPS2025 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
@@ -15,7 +22,7 @@
 
 :   针对两跳协作中继通信中的URLLC难题，提出DRL-CoLA算法：将每跳传输参数配置建模为MDP，用双agent DQN在仅观测本地CSI和ARQ反馈下学习分布式时延感知传输策略，接近全局最优可靠性。
 
-**[Adaptive Coopetition: Leveraging Coarse Verifier Signals for Resilient Multi-Agent LLM Reasoning](adaptive_coopetition_leveraging_coarse_verifier_signals_for_resilient_multi-agen.md)**
+**[Adaptive Coopetition Leveraging Coarse Verifier Signals For Resilient Multi-Agen](adaptive_coopetition_leveraging_coarse_verifier_signals_for_resilient_multi-agen.md)**
 
 :   提出 Adaptive Coopetition (AdCo) 框架，利用 UCB 多臂老虎机策略和粗粒度验证器信号，使多个 LLM 智能体在推理过程中自适应地切换协作与竞争模式，在数学推理基准上实现 20% 的相对提升。
 
@@ -59,7 +66,7 @@
 
 :   将 Agent 组件选择问题形式化为在线背包问题，提出 Composer Agent 框架：通过沙盒实测（而非静态语义检索）评估组件真实能力，结合 ZCL 在线算法在预算约束下动态选取最优组件组合，单 Agent 工具选择成功率提升最高 31.6%，多 Agent 子代理选择成功率从 37% 跃升至 87%。
 
-**[Automated Multi-Agent Workflows for RTL Design](automated_multi-agent_workflows_for_rtl_design.md)**
+**[Automated Multi-Agent Workflows For Rtl Design](automated_multi-agent_workflows_for_rtl_design.md)**
 
 :   VeriMaAS 是一个多智能体框架，通过将 HDL 形式化验证反馈（Yosys + OpenSTA）集成到工作流自动生成过程中，自适应地为 RTL 代码生成任务选择推理算子（I/O → CoT → ReAct → SelfRefine → Debate），以仅数百个训练样本实现比微调基线高 5-7% 的 pass@k 性能。
 

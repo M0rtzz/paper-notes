@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Orthogonal Multi-Index Models: A Fine-Grained Information Exponent Analysis 论文解读 | NeurIPS 2025 | arXiv 2410.09678 | 多索引模型 | 证明正交多索引模型 f_*(x) = sum_k=1^P φ(vₖ^* · x) 可通过两阶段在线 SGD 以 tildeO(dP^L-1) 样本复杂度学习（L 为链接函数最低高阶 Hermite 阶），远优于仅用最低阶信息的 tildeO(Pd^L-1)——关键在于先用 2 阶项恢复子空间，再用 L 阶项恢复方向，联合利用不同阶的 Hermite 分量。"
+title: >-
+  [论文解读] Learning Orthogonal Multi-Index Models: A Fine-Grained Information Exponent Analysis
+description: >-
+  [NeurIPS 2025][优化][多索引模型] 证明正交多索引模型 $f_*(\mathbf{x}) = \sum_{k=1}^P \phi(\mathbf{v}_k^* \cdot \mathbf{x})$ 可通过两阶段在线 SGD 以 $\tilde{O}(dP^{L-1})$ 样本复杂度学习（$L$ 为链接函数最低高阶 Hermite 阶），远优于仅用最低阶信息的 $\tilde{O}(Pd^{L-1})$——关键在于先用 2 阶项恢复子空间，再用 $L$ 阶项恢复方向，联合利用不同阶的 Hermite 分量。
 tags:
   - NeurIPS 2025
+  - 优化
   - 多索引模型
   - 信息指数
   - Hermite展开

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RAP: Fast Feedforward Rendering-Free Attribute-Guided Primitive Importance Score Prediction for Efficient 3D Gaussian Splatting Processing 论文解读 | CVPR 2026 | arXiv 2602.19753 | 3D Gaussian Splatting | 提出 RAP，一种无需渲染的前馈式高斯原语重要性评分方法，通过从内在属性和局部邻域统计量提取 15 维特征，用轻量 MLP 预测重要性评分，训练一次即可泛化到未见场景。"
+title: >-
+  [论文解读] RAP: Fast Feedforward Rendering-Free Attribute-Guided Primitive Importance Score Prediction for Efficient 3D Gaussian Splatting Processing
+description: >-
+  [CVPR 2026][3D视觉][3D Gaussian Splatting] 提出 RAP，一种无需渲染的前馈式高斯原语重要性评分方法，通过从内在属性和局部邻域统计量提取 15 维特征，用轻量 MLP 预测重要性评分，训练一次即可泛化到未见场景。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D Gaussian Splatting
   - 重要性评估
   - 无渲染推理

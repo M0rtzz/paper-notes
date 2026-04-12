@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】O3SLM: Open Weight, Open Data, and Open Vocabulary Sketch-Language Model 论文解读 | AAAI 2026 | arXiv 2511.14368 | 草图理解 | 本文构建了大规模草图-图像-指令三元组数据集SketchVCL（包含600K预训练 + 215K微调数据），并训练了O3SLM——首个能够流畅理解手绘草图并完成检测、计数、检索和VQA四大任务的开源大视觉语言模型，在所有任务上大幅超越现有LVLM。"
+title: >-
+  [论文解读] O3SLM: Open Weight, Open Data, and Open Vocabulary Sketch-Language Model
+description: >-
+  [AAAI 2026][多模态][草图理解] 本文构建了大规模草图-图像-指令三元组数据集SketchVCL（包含600K预训练 + 215K微调数据），并训练了O3SLM——首个能够流畅理解手绘草图并完成检测、计数、检索和VQA四大任务的开源大视觉语言模型，在所有任务上大幅超越现有LVLM。
 tags:
   - AAAI 2026
+  - 多模态
   - 草图理解
   - 大视觉语言模型
   - 草图-图像-文本对齐

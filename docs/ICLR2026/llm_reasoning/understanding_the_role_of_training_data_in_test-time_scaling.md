@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding the Role of Training Data in Test-Time Scaling 论文解读 | ICLR2026 | arXiv 2510.03605 | test-time scaling | 从理论上分析训练数据属性如何影响 test-time scaling 的效果，证明 CoT 推理等价于伪牛顿法迭代，提出基于特征协方差最小特征值的任务难度度量，揭示\"更多思考不一定更好\"的 overthinking 现象机制，并给出多任务训练中最优任务选择策略——训练集应多样、相关且困难。"
+title: >-
+  [论文解读] Understanding the Role of Training Data in Test-Time Scaling
+description: >-
+  [ICLR2026][LLM推理][test-time scaling] 从理论上分析训练数据属性如何影响 test-time scaling 的效果，证明 CoT 推理等价于伪牛顿法迭代，提出基于特征协方差最小特征值的任务难度度量，揭示"更多思考不一定更好"的 overthinking 现象机制，并给出多任务训练中最优任务选择策略——训练集应多样、相关且困难。
 tags:
   - ICLR2026
+  - LLM推理
   - test-time scaling
   - chain-of-thought
   - in-context learning

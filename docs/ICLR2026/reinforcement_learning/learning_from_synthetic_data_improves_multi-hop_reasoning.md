@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning from Synthetic Data Improves Multi-hop Reasoning 论文解读 | ICLR 2026 | arXiv 2603.02091 | 合成数据 | 发现在完全虚构的规则生成合成数据上做RLVR训练，能显著提升LLM在真实多跳推理任务上的表现（Qwen3-0.6B提升56%-131%），因为模型学到了知识组合这一通用推理技能而非记忆事实知识。"
+title: >-
+  [论文解读] Learning from Synthetic Data Improves Multi-hop Reasoning
+description: >-
+  [ICLR 2026][合成数据] 发现在完全虚构的规则生成合成数据上做RLVR训练，能显著提升LLM在真实多跳推理任务上的表现（Qwen3-0.6B提升56%-131%），因为模型学到了知识组合这一通用推理技能而非记忆事实知识。
 tags:
   - ICLR 2026
   - 合成数据

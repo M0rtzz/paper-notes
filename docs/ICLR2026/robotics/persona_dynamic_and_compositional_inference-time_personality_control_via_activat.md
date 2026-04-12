@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PERSONA: Dynamic and Compositional Inference-Time Personality Control via Activation Vector Algebra 论文解读 | ICLR 2026 | arXiv 2602.15669 | personality control | 提出 PERSONA 框架，通过在激活空间中提取近似正交的人格向量并进行向量代数运算（缩放、加法、减法），实现免训练的动态组合式人格控制，在 PersonalityBench 上达到 9.60 分，几乎匹配 SFT 上界 9.61。"
+title: >-
+  [论文解读] PERSONA: Dynamic and Compositional Inference-Time Personality Control via Activation Vector Algebra
+description: >-
+  [ICLR 2026][机器人][personality control] 提出 PERSONA 框架，通过在激活空间中提取近似正交的人格向量并进行向量代数运算（缩放、加法、减法），实现免训练的动态组合式人格控制，在 PersonalityBench 上达到 9.60 分，几乎匹配 SFT 上界 9.61。
 tags:
   - ICLR 2026
+  - 机器人
   - personality control
   - activation steering
   - vector algebra

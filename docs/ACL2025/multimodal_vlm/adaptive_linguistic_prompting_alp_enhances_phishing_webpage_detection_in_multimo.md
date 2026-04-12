@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Linguistic Prompting (ALP) Enhances Phishing Webpage Detection in Multimodal Large Language Models 论文解读 | ACL 2025 | arXiv 2507.13357 | 钓鱼网页检测 | 提出 Adaptive Linguistic Prompting (ALP)，一种 8-shot 结构化提示方法，引导多模态 LLM 从 HTML 文本、截图和 URL 三个维度联合推理，检测钓鱼网页，在 GPT-4o 上组合分析达到 F1=0.93，超过传统零样本基线。"
+title: >-
+  [论文解读] Adaptive Linguistic Prompting (ALP) Enhances Phishing Webpage Detection in Multimodal Large Language Models
+description: >-
+  [ACL 2025][多模态][钓鱼网页检测] 提出 Adaptive Linguistic Prompting (ALP)，一种 8-shot 结构化提示方法，引导多模态 LLM 从 HTML 文本、截图和 URL 三个维度联合推理，检测钓鱼网页，在 GPT-4o 上组合分析达到 F1=0.93，超过传统零样本基线。
 tags:
   - ACL 2025
+  - 多模态
   - 钓鱼网页检测
   - 多模态LLM
   - 提示学习

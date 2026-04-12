@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Revisiting [CLS] and Patch Token Interaction in Vision Transformers 论文解读 | ICLR 2026 | arXiv 2602.08626 | Transformer Vision Transformer | 深入分析Vision Transformer中[CLS]全局token和patch局部token之间的交互摩擦，发现归一化层隐式地区分了两类token，提出在归一化层和早期QKV投影中引入专门化处理路径，仅增加8%参数即实现分割性能提升超2 mIoU，同时保持分类精度。"
+title: >-
+  [论文解读] Revisiting [CLS] and Patch Token Interaction in Vision Transformers
+description: >-
+  [ICLR 2026][图像分割][Transformer] 深入分析Vision Transformer中[CLS]全局token和patch局部token之间的交互摩擦，发现归一化层隐式地区分了两类token，提出在归一化层和早期QKV投影中引入专门化处理路径，仅增加8%参数即实现分割性能提升超2 mIoU，同时保持分类精度。
 tags:
   - ICLR 2026
+  - 图像分割
   - Transformer
   - CLS] token
   - patch token

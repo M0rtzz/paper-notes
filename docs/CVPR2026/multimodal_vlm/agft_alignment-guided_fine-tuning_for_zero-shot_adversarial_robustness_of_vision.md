@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2603.29410 | 对抗鲁棒性 | AGFT 提出了一种对齐引导的微调框架，通过文本引导的对抗训练和分布一致性校准，在增强 VLM 零样本对抗鲁棒性的同时保持预训练的跨模态语义结构，在 15 个零样本基准上平均鲁棒准确率达到 46.57%，超越 SOTA 3.1 个百分点。"
+title: >-
+  [论文解读] AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models
+description: >-
+  [CVPR 2026][多模态][对抗鲁棒性] AGFT 提出了一种对齐引导的微调框架，通过文本引导的对抗训练和分布一致性校准，在增强 VLM 零样本对抗鲁棒性的同时保持预训练的跨模态语义结构，在 15 个零样本基准上平均鲁棒准确率达到 46.57%，超越 SOTA 3.1 个百分点。
 tags:
   - CVPR 2026
+  - 多模态
   - 对抗鲁棒性
   - 视觉语言模型
   - 零样本泛化

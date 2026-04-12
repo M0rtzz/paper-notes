@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Crucible: Quantifying the Potential of Control Algorithms through LLM Agents 论文解读 | NeurIPS 2025 | arXiv 2510.18491 | control algorithm evaluation | 首次提出\"调优潜能\"（Tuning Potential）概念并给出形式化度量，通过 LLM Agent 模拟不同能力水平的开发者对控制算法进行参数调优和逻辑级改进，在 ABR 任务上相比贝叶斯优化提升 44.1%，CartPole 上 Bang-bang 从 34→500 达到 DQN 水平。"
+title: >-
+  [论文解读] Crucible: Quantifying the Potential of Control Algorithms through LLM Agents
+description: >-
+  [NeurIPS 2025][LLM Agent][control algorithm evaluation] 首次提出"调优潜能"（Tuning Potential）概念并给出形式化度量，通过 LLM Agent 模拟不同能力水平的开发者对控制算法进行参数调优和逻辑级改进，在 ABR 任务上相比贝叶斯优化提升 44.1%，CartPole 上 Bang-bang 从 34→500 达到 DQN 水平。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - control algorithm evaluation
   - tuning potential
   - LLM agent

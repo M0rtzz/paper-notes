@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FairImagen: Post-Processing for Bias Mitigation in Text-to-Image Models 论文解读 | NeurIPS 2025 | arXiv 2510.21363 | 公平性 | 提出 FairImagen 后处理去偏框架，通过在 CLIP prompt 嵌入空间应用 FairPCA 投影去除人口统计信息，结合经验噪声注入和跨人口统计联合去偏，在不重训模型的前提下显著提升文本到图像生成的公平性。"
+title: >-
+  [论文解读] FairImagen: Post-Processing for Bias Mitigation in Text-to-Image Models
+description: >-
+  [NeurIPS 2025][图像生成][公平性] 提出 FairImagen 后处理去偏框架，通过在 CLIP prompt 嵌入空间应用 FairPCA 投影去除人口统计信息，结合经验噪声注入和跨人口统计联合去偏，在不重训模型的前提下显著提升文本到图像生成的公平性。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 公平性
   - 偏见缓解
   - 扩散模型

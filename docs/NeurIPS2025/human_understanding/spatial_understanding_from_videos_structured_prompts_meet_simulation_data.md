@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spatial Understanding from Videos: Structured Prompts Meet Simulation Data 论文解读 | NeurIPS 2025 | arXiv 2506.03642 | 视觉-空间理解 | 提出 SpatialMind 结构化提示策略与 ScanForgeQA 合成QA数据集的双管齐下方案，在不修改VLM架构的前提下显著增强其从扫描视频进行3D空间推理的能力。"
+title: >-
+  [论文解读] Spatial Understanding from Videos: Structured Prompts Meet Simulation Data
+description: >-
+  [NeurIPS 2025][人体理解][视觉-空间理解] 提出 SpatialMind 结构化提示策略与 ScanForgeQA 合成QA数据集的双管齐下方案，在不修改VLM架构的前提下显著增强其从扫描视频进行3D空间推理的能力。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 视觉-空间理解
   - 链式思维提示
   - 合成数据

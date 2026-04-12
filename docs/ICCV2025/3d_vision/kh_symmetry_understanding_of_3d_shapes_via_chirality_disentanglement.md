@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】χ: Symmetry Understanding of 3D Shapes via Chirality Disentanglement 论文解读 | ICCV 2025 | arXiv 2508.05505 | 手性特征 | 提出无监督手性特征提取管线,从2D基础模型特征中蒸馏左右手性信息用于装饰3D形状顶点描述子,有效解决形状分析中的左右歧义问题。"
+title: >-
+  [论文解读] χ: Symmetry Understanding of 3D Shapes via Chirality Disentanglement
+description: >-
+  [ICCV 2025][3D视觉][手性特征] 提出无监督手性特征提取管线,从2D基础模型特征中蒸馏左右手性信息用于装饰3D形状顶点描述子,有效解决形状分析中的左右歧义问题。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 手性特征
   - 对称性
   - 形状匹配

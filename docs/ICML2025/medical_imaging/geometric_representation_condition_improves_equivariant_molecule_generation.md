@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Geometric Representation Condition Improves Equivariant Molecule Generation 论文解读 | ICML 2025 (Spotlight) | arXiv 2410.03655 | 分子生成 | GeoRCG 提出两阶段分子生成框架——先生成低维的几何表示(informative representation)，再以此为条件生成完整分子，在条件分子生成任务上平均提升 50%，同时可将扩散步数从 1000 减少到 100。"
+title: >-
+  [论文解读] Geometric Representation Condition Improves Equivariant Molecule Generation
+description: >-
+  [ICML 2025 (Spotlight)][医学图像][分子生成] GeoRCG 提出两阶段分子生成框架——先生成低维的几何表示(informative representation)，再以此为条件生成完整分子，在条件分子生成任务上平均提升 50%，同时可将扩散步数从 1000 减少到 100。
 tags:
   - ICML 2025 (Spotlight)
+  - 医学图像
   - 分子生成
   - 等变扩散
   - 几何表示条件

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SparseRM: A Lightweight Preference Modeling with Sparse Autoencoder 论文解读 | AAAI 2026 | arXiv 2511.07896 | 稀疏自编码器 | SparseRM 利用稀疏自编码器（SAE）从LLM中间表示中提取偏好相关方向，通过投影向量构建轻量级奖励模型，仅需不到1%的可训练参数即可超越大多数主流奖励模型，并在在线迭代对齐框架中表现出更强的泛化能力。"
+title: >-
+  [论文解读] SparseRM: A Lightweight Preference Modeling with Sparse Autoencoder
+description: >-
+  [AAAI 2026][模型压缩][稀疏自编码器] SparseRM 利用稀疏自编码器（SAE）从LLM中间表示中提取偏好相关方向，通过投影向量构建轻量级奖励模型，仅需不到1%的可训练参数即可超越大多数主流奖励模型，并在在线迭代对齐框架中表现出更强的泛化能力。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 稀疏自编码器
   - 奖励模型
   - 偏好建模

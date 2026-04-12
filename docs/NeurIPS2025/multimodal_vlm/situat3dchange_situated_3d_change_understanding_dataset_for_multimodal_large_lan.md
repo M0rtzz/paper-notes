@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Situat3DChange: Situated 3D Change Understanding Dataset for Multimodal Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.11509 | 3D 场景变化理解 | 构建 Situat3DChange 数据集（174K 数据实例），统一了动态场景变化与情境感知理解的感知-行动范式，并提出 SCReasoner——一种高效的 3D MLLM 用于点云对比推理。"
+title: >-
+  [论文解读] Situat3DChange: Situated 3D Change Understanding Dataset for Multimodal Large Language Models
+description: >-
+  [NeurIPS 2025][多模态][3D 场景变化理解] 构建 Situat3DChange 数据集（174K 数据实例），统一了动态场景变化与情境感知理解的感知-行动范式，并提出 SCReasoner——一种高效的 3D MLLM 用于点云对比推理。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 3D 场景变化理解
   - 情境感知
   - 多模态大语言模型

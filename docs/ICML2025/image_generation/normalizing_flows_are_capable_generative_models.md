@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】Normalizing Flows are Capable Generative Models 论文解读 | ICML2025 | arXiv 2412.06329 | Normalizing Flows | 提出 TarFlow（Transformer AutoRegressive Flow），用堆叠因果 ViT 实现分块自回归 Normalizing Flow，首次在 ImageNet 64×64 上突破 3 BPD，并通过高斯噪声增强、score-based 去噪和 guidance 三项技术使 NF 模型的生成质量首次媲美扩散模型。"
+title: >-
+  [论文解读] Normalizing Flows are Capable Generative Models
+description: >-
+  [ICML2025][图像生成][Normalizing Flows] 提出 TarFlow（Transformer AutoRegressive Flow），用堆叠因果 ViT 实现分块自回归 Normalizing Flow，首次在 ImageNet 64×64 上突破 3 BPD，并通过高斯噪声增强、score-based 去噪和 guidance 三项技术使 NF 模型的生成质量首次媲美扩散模型。
 tags:
   - ICML2025
+  - 图像生成
   - Normalizing Flows
   - Transformer
   - 自回归流
-  - 图像生成
   - 密度估计
 ---
 

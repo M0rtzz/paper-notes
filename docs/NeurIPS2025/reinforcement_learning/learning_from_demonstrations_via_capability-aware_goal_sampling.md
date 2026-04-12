@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning from Demonstrations via Capability-Aware Goal Sampling 论文解读 | NeurIPS 2025 | arXiv 2601.08731 | 模仿学习 | 提出Cago方法，通过动态追踪智能体在专家演示轨迹上的达成能力，自适应采样处于能力边界的中间目标，构建隐式课程引导长视野稀疏奖励任务学习。"
+title: >-
+  [论文解读] Learning from Demonstrations via Capability-Aware Goal Sampling
+description: >-
+  [NeurIPS 2025][模仿学习] 提出Cago方法，通过动态追踪智能体在专家演示轨迹上的达成能力，自适应采样处于能力边界的中间目标，构建隐式课程引导长视野稀疏奖励任务学习。
 tags:
   - NeurIPS 2025
   - 模仿学习

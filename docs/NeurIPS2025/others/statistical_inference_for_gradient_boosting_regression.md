@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Statistical Inference for Gradient Boosting Regression 论文解读 | NeurIPS 2025 | arXiv 2509.23127 | 梯度提升 | 提出统一的梯度提升回归统计推断框架，通过将dropout和并行训练整合到Boulevard正则化中，证明了相应的中心极限定理，从而构建了内置的置信区间、预测区间和变量重要性假设检验，并发现增大dropout率和并行树数量能显著提升信号恢复（最高达2倍和4倍）。"
+title: >-
+  [论文解读] Statistical Inference for Gradient Boosting Regression
+description: >-
+  [NeurIPS 2025][梯度提升] 提出统一的梯度提升回归统计推断框架，通过将dropout和并行训练整合到Boulevard正则化中，证明了相应的中心极限定理，从而构建了内置的置信区间、预测区间和变量重要性假设检验，并发现增大dropout率和并行树数量能显著提升信号恢复（最高达2倍和4倍）。
 tags:
   - NeurIPS 2025
   - 梯度提升

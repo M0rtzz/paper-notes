@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Video Generation for Robotic Manipulation with Collaborative Trajectory Control 论文解读 | ICLR 2026 | arXiv 2506.01943 | 轨迹控制视频生成 | 提出 RoboMaster，通过协作轨迹（collaborative trajectory）将机械臂与物体的交互过程分解为前交互、交互和后交互三阶段，配合外观和形状感知的物体表示，实现高质量轨迹控制的机器人操作视频生成。"
+title: >-
+  [论文解读] Learning Video Generation for Robotic Manipulation with Collaborative Trajectory Control
+description: >-
+  [ICLR 2026][图像生成][轨迹控制视频生成] 提出 RoboMaster，通过协作轨迹（collaborative trajectory）将机械臂与物体的交互过程分解为前交互、交互和后交互三阶段，配合外观和形状感知的物体表示，实现高质量轨迹控制的机器人操作视频生成。
 tags:
   - ICLR 2026
+  - 图像生成
   - 轨迹控制视频生成
   - 协作轨迹
   - 机器人操作

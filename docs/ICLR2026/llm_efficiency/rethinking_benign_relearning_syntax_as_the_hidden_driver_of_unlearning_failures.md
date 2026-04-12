@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Benign Relearning: Syntax as the Hidden Driver of Unlearning Failures 论文解读 | ICLR 2026 | arXiv 2602.03379 | 机器遗忘 | 揭示 LLM 机器遗忘中\"良性重学习\"现象的真正驱动因素是句法相似性而非主题相关性，并提出句法多样化策略（paraphrase forget set），有效抑制重学习、加速遗忘并缓解遗忘效果与模型效用之间的 trade-off。"
+title: >-
+  [论文解读] Rethinking Benign Relearning: Syntax as the Hidden Driver of Unlearning Failures
+description: >-
+  [ICLR 2026][LLM效率][机器遗忘] 揭示 LLM 机器遗忘中"良性重学习"现象的真正驱动因素是句法相似性而非主题相关性，并提出句法多样化策略（paraphrase forget set），有效抑制重学习、加速遗忘并缓解遗忘效果与模型效用之间的 trade-off。
 tags:
   - ICLR 2026
+  - LLM效率
   - 机器遗忘
   - 良性重学习
   - 句法相似性

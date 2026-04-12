@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory 论文解读 | AAAI2026 | arXiv 2511.05966 | hypergraph learning | 提出 CIF，利用超图（hypergraph）提取少量训练样本的类内结构共性，指导 memory bank 的构建与搜索，在少样本多模态工业异常检测中取得 SOTA。"
+title: >-
+  [论文解读] Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory
+description: >-
+  [AAAI2026][图学习][hypergraph learning] 提出 CIF，利用超图（hypergraph）提取少量训练样本的类内结构共性，指导 memory bank 的构建与搜索，在少样本多模态工业异常检测中取得 SOTA。
 tags:
   - AAAI2026
+  - 图学习
   - hypergraph learning
   - few-shot anomaly detection
   - 多模态

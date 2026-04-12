@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT 论文解读 | 针对第一人称视频推理中“主体不可见、意图隐含、交互细粒度”的挑战，EgoThinker 提出时空 CoT 监督与两阶段训练（SFT + RFT），并构建 EgoRe-5M 大规模 egocentric QA 数据，显著提升 MLLM 在自我中心视频推理与时空定位任务上的表现。"
+title: >-
+  [论文解读] EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT
+description: >-
+  [机器人] 针对第一人称视频推理中“主体不可见、意图隐含、交互细粒度”的挑战，EgoThinker 提出时空 CoT 监督与两阶段训练（SFT + RFT），并构建 EgoRe-5M 大规模 egocentric QA 数据，显著提升 MLLM 在自我中心视频推理与时空定位任务上的表现。
 tags:
-
+  - 机器人
 ---
 
 # EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zatom-1: A Multimodal Flow Foundation Model for 3D Molecules and Materials 论文解读 | ICLR 2026 | arXiv 2602.22251 | 基础模型 | Zatom-1是首个端到端全开源的基础模型，通过多模态流匹配(multimodal flow matching)统一了3D分子和材料的生成建模与属性预测，使用标准Transformer架构在欧几里得空间直接建模离散原子类型和连续3D几何，实现了跨化学域的正迁移学习。"
+title: >-
+  [论文解读] Zatom-1: A Multimodal Flow Foundation Model for 3D Molecules and Materials
+description: >-
+  [ICLR 2026][图像生成][基础模型] Zatom-1是首个端到端全开源的基础模型，通过多模态流匹配(multimodal flow matching)统一了3D分子和材料的生成建模与属性预测，使用标准Transformer架构在欧几里得空间直接建模离散原子类型和连续3D几何，实现了跨化学域的正迁移学习。
 tags:
   - ICLR 2026
+  - 图像生成
   - 基础模型
   - 流匹配
   - 3D分子

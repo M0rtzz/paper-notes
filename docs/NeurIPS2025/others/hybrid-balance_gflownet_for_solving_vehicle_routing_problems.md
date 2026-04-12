@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Hybrid-Balance GFlowNet for Solving Vehicle Routing Problems 论文解读 | NeurIPS 2025 | arXiv 2510.04792 | GFlowNet | 提出 Hybrid-Balance GFlowNet (HBG) 框架，在 VRP 求解中首次引入并形式化 Detailed Balance，将其与 Trajectory Balance 统一整合实现局部-全局联合优化，并设计 depot-guided inference 策略，在 CVRP 和 TSP 上一致提升现有 GFlowNet 求解器的性能。"
+title: >-
+  [论文解读] Hybrid-Balance GFlowNet for Solving Vehicle Routing Problems
+description: >-
+  [NeurIPS 2025][GFlowNet] 提出 Hybrid-Balance GFlowNet (HBG) 框架，在 VRP 求解中首次引入并形式化 Detailed Balance，将其与 Trajectory Balance 统一整合实现局部-全局联合优化，并设计 depot-guided inference 策略，在 CVRP 和 TSP 上一致提升现有 GFlowNet 求解器的性能。
 tags:
   - NeurIPS 2025
   - GFlowNet

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】VTool-R1: VLMs Learn to Think with Images via Reinforcement Learning on Multimodal Tool Use 论文解读 | 提出 VTool-R1，首个通过强化学习微调训练 VLM 生成交错文本和视觉中间推理步骤的框架，使模型学会\"用图像思考\"。"
+title: >-
+  [论文解读] VTool-R1: VLMs Learn to Think with Images via Reinforcement Learning on Multimodal Tool Use
+description: >-
+   提出 VTool-R1，首个通过强化学习微调训练 VLM 生成交错文本和视觉中间推理步骤的框架，使模型学会"用图像思考"。
 tags:
 
 ---

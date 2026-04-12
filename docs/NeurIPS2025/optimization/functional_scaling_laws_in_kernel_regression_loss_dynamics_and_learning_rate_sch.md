@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Functional Scaling Laws in Kernel Regression: Loss Dynamics and Learning Rate Schedules 论文解读 | NeurIPS 2025 | arXiv 2509.19189 | scaling law | 在幂律核回归模型中建立了 Functional Scaling Law (FSL)，通过引入\"内在时间\"概念统一刻画任意学习率调度下的完整 loss 轨迹，并推导出常数/指数衰减/WSD 三种调度在数据受限和计算受限条件下的显式 scaling 关系，理论解释了 WSD 优于纯衰减的经验现象。"
+title: >-
+  [论文解读] Functional Scaling Laws in Kernel Regression: Loss Dynamics and Learning Rate Schedules
+description: >-
+  [NeurIPS 2025][优化][scaling law] 在幂律核回归模型中建立了 Functional Scaling Law (FSL)，通过引入"内在时间"概念统一刻画任意学习率调度下的完整 loss 轨迹，并推导出常数/指数衰减/WSD 三种调度在数据受限和计算受限条件下的显式 scaling 关系，理论解释了 WSD 优于纯衰减的经验现象。
 tags:
   - NeurIPS 2025
+  - 优化
   - scaling law
   - 学习率调度
   - 核回归

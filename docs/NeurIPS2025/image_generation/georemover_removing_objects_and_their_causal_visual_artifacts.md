@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoRemover: Removing Objects and Their Causal Visual Artifacts 论文解读 | NeurIPS2025 | arXiv 2509.18538 | 目标移除 | 提出几何感知的两阶段框架 GeoRemover，将目标移除解耦为几何移除（深度域）与外观渲染（RGB域），通过修改场景几何表示来隐式消除被移除物体的阴影和反射等因果视觉伪影。"
+title: >-
+  [论文解读] GeoRemover: Removing Objects and Their Causal Visual Artifacts
+description: >-
+  [NeurIPS2025][图像生成][目标移除] 提出几何感知的两阶段框架 GeoRemover，将目标移除解耦为几何移除（深度域）与外观渲染（RGB域），通过修改场景几何表示来隐式消除被移除物体的阴影和反射等因果视觉伪影。
 tags:
   - NeurIPS2025
+  - 图像生成
   - 目标移除
   - 因果视觉伪影
   - 几何感知

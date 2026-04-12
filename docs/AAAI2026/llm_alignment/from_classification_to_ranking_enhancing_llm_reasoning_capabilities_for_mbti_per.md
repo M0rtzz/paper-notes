@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Classification to Ranking: Enhancing LLM Reasoning for MBTI Personality Detection 论文解读 | AAAI 2026 | arXiv 2601.18582 | MBTI | 将MBTI人格检测从传统的四维二分类重构为listwise排序任务，通过SFT冷启动+GRPO强化学习（NDCG+维度相似度双奖励），在Kaggle和PANDORA数据集上以7B模型达到SOTA。"
+title: >-
+  [论文解读] From Classification to Ranking: Enhancing LLM Reasoning for MBTI Personality Detection
+description: >-
+  [AAAI 2026][LLM对齐][MBTI] 将MBTI人格检测从传统的四维二分类重构为listwise排序任务，通过SFT冷启动+GRPO强化学习（NDCG+维度相似度双奖励），在Kaggle和PANDORA数据集上以7B模型达到SOTA。
 tags:
   - AAAI 2026
+  - LLM对齐
   - MBTI
   - 排序学习
   - GRPO

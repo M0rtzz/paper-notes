@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SITCOM: Scaling Inference-Time COMpute for VLAs 论文解读 | NeurIPS 2025 | arXiv 2510.04041 | 推理时计算缩放 | SITCOM 提出了一种受模型预测控制（MPC）启发的推理时计算框架，通过学习的动力学模型对预训练 VLA 进行多步rollout仿真并利用奖励模型选择最优轨迹，将单步 VLA 转化为鲁棒的长程规划器，在 SIMPLER 环境中将任务完成率从 48% 提升至 72%。"
+title: >-
+  [论文解读] SITCOM: Scaling Inference-Time COMpute for VLAs
+description: >-
+  [NeurIPS 2025][机器人][推理时计算缩放] SITCOM 提出了一种受模型预测控制（MPC）启发的推理时计算框架，通过学习的动力学模型对预训练 VLA 进行多步rollout仿真并利用奖励模型选择最优轨迹，将单步 VLA 转化为鲁棒的长程规划器，在 SIMPLER 环境中将任务完成率从 48% 提升至 72%。
 tags:
   - NeurIPS 2025
+  - 机器人
   - 推理时计算缩放
   - VLA
   - 世界模型

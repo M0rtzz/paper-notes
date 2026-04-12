@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Retrieving Objects from 3D Scenes with Box-Guided Open-Vocabulary Instance Segmentation 论文解读 | AAAI 2026 | arXiv 2512.19088 | 开放词汇3D实例分割 | 提出 Box-Guided 方法，利用 2D 开放词汇检测器 YOLO-World 的检测框引导从超点构建 3D 实例 mask，无需 SAM 和 CLIP，在保持高效（<1分钟/场景）的同时显著提升对低频类别目标的检索能力。"
+title: >-
+  [论文解读] Retrieving Objects from 3D Scenes with Box-Guided Open-Vocabulary Instance Segmentation
+description: >-
+  [AAAI 2026][3D视觉][开放词汇3D实例分割] 提出 Box-Guided 方法，利用 2D 开放词汇检测器 YOLO-World 的检测框引导从超点构建 3D 实例 mask，无需 SAM 和 CLIP，在保持高效（<1分钟/场景）的同时显著提升对低频类别目标的检索能力。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 开放词汇3D实例分割
   - 3D目标检索
   - 超点

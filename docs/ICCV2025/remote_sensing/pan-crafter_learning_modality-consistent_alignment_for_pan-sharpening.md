@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pan-Crafter: Learning Modality-Consistent Alignment for Pan-Sharpening 论文解读 | ICCV 2025 | arXiv 2505.23367 | 全色锐化 | PAN-Crafter 提出模态一致性对齐框架，通过模态自适应重建（MARs）和跨模态对齐感知注意力（CM3A）显式处理 PAN 和 MS 图像的跨模态错位问题，在多个遥感基准数据集上达到 SOTA，且推理速度比扩散模型快 **1110×**。"
+title: >-
+  [论文解读] Pan-Crafter: Learning Modality-Consistent Alignment for Pan-Sharpening
+description: >-
+  [ICCV 2025][遥感][全色锐化] PAN-Crafter 提出模态一致性对齐框架，通过模态自适应重建（MARs）和跨模态对齐感知注意力（CM3A）显式处理 PAN 和 MS 图像的跨模态错位问题，在多个遥感基准数据集上达到 SOTA，且推理速度比扩散模型快 **1110×**。
 tags:
   - ICCV 2025
+  - 遥感
   - 全色锐化
   - 跨模态对齐
   - 模态自适应重建

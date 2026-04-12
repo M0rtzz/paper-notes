@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Train Once, Answer All: Many Pretraining Experiments for the Cost of One 论文解读 | ICLR 2026 | arXiv 2509.23383 | Pretraining Experiments | 提出在单次 LLM 预训练中同时运行多个独立实验的方法论框架，在训练 2.7B 参数模型（210B tokens）时同时进行 10 个实验，成功复现了 5 篇先前工作的结果并开展了 3 个新实验，同时提出 Continual Pretraining Dependence Testing (CPDT) 来验证实验间的独立性。"
+title: >-
+  [论文解读] Train Once, Answer All: Many Pretraining Experiments for the Cost of One
+description: >-
+  [ICLR 2026][AI安全][Pretraining Experiments] 提出在单次 LLM 预训练中同时运行多个独立实验的方法论框架，在训练 2.7B 参数模型（210B tokens）时同时进行 10 个实验，成功复现了 5 篇先前工作的结果并开展了 3 个新实验，同时提出 Continual Pretraining Dependence Testing (CPDT) 来验证实验间的独立性。
 tags:
   - ICLR 2026
+  - AI安全
   - Pretraining Experiments
   - LLM
   - Experiment Independence

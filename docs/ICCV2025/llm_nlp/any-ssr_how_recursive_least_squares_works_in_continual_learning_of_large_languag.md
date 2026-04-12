@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Models 论文解读 | ICCV 2025 | 大语言模型持续学习 | 提出Analytic Subspace Routing（Any-SSR）框架，通过为每个任务分配独立的LoRA子空间消除任务间干扰，并利用递归最小二乘（RLS）闭式解训练一个零遗忘的解析路由器，实现LLM的无回放持续学习。"
+title: >-
+  [论文解读] Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Models
+description: >-
+  [ICCV 2025][LLM/NLP][大语言模型持续学习] 提出Analytic Subspace Routing（Any-SSR）框架，通过为每个任务分配独立的LoRA子空间消除任务间干扰，并利用递归最小二乘（RLS）闭式解训练一个零遗忘的解析路由器，实现LLM的无回放持续学习。
 tags:
   - ICCV 2025
+  - LLM/NLP
   - 大语言模型持续学习
   - 灾难性遗忘
   - 递归最小二乘

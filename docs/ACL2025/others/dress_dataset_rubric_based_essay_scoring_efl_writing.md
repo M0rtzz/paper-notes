@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DREsS: Dataset for Rubric-based Essay Scoring on EFL Writing 论文解读 | ACL 2025 | arXiv 2402.16733 | 自动作文评分 | 发布 DREsS——一个面向 EFL（英语作为外语）写作教育的大规模标准化评分量规数据集（48.9K 样本），并提出基于文本损坏的 CASE 数据增强策略，将基线性能提升 45.44%。"
+title: >-
+  [论文解读] DREsS: Dataset for Rubric-based Essay Scoring on EFL Writing
+description: >-
+  [ACL 2025][自动作文评分] 发布 DREsS——一个面向 EFL（英语作为外语）写作教育的大规模标准化评分量规数据集（48.9K 样本），并提出基于文本损坏的 CASE 数据增强策略，将基线性能提升 45.44%。
 tags:
   - ACL 2025
   - 自动作文评分

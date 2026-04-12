@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Unique Hard Attention: A Tale of Two Sides 论文解读 | ACL 2025 | arXiv 2503.14615 | Transformer Transformer表达能力 | 本文揭示了Transformer中唯一硬注意力（UHA）的平局打破方向（最左vs最右）对模型表达能力有根本性影响：最左UHA等价于LTL[◇⁻]片段且与软注意力等价，而最右UHA等价于完整LTL，严格更强。"
+title: >-
+  [论文解读] Unique Hard Attention: A Tale of Two Sides
+description: >-
+  [ACL 2025][Transformer] 本文揭示了Transformer中唯一硬注意力（UHA）的平局打破方向（最左vs最右）对模型表达能力有根本性影响：最左UHA等价于LTL[◇⁻]片段且与软注意力等价，而最右UHA等价于完整LTL，严格更强。
 tags:
   - ACL 2025
   - Transformer

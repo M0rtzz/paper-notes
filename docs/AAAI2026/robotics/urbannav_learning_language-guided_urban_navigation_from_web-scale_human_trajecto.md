@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories 论文解读 | AAAI 2026 | arXiv 2512.09607 | 城市导航 | 提出 UrbanNav，利用网络规模的城市步行视频（YouTube 上 1500+ 小时、300 万条指令-轨迹-地标三元组），通过自动化标注管线和鲁棒过滤机制训练语言引导的城市导航策略，在真实世界部署中达到 83.3% 的导航成功率。"
+title: >-
+  [论文解读] UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories
+description: >-
+  [AAAI 2026][机器人][城市导航] 提出 UrbanNav，利用网络规模的城市步行视频（YouTube 上 1500+ 小时、300 万条指令-轨迹-地标三元组），通过自动化标注管线和鲁棒过滤机制训练语言引导的城市导航策略，在真实世界部署中达到 83.3% 的导航成功率。
 tags:
   - AAAI 2026
+  - 机器人
   - 城市导航
   - 语言引导
   - 大规模网络视频

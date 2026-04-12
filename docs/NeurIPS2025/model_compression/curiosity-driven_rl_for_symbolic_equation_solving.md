@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Curiosity-driven RL for Symbolic Equation Solving 论文解读 | NeurIPS 2025 | arXiv 2510.17022 | 强化学习 | 将好奇心驱动探索（RND、ICM 等）与基于表达式树的图动作空间结合，使 PPO 智能体能够求解包含根号、指数和三角函数的非线性方程，超越了此前仅限于线性方程的 RL 方法。"
+title: >-
+  [论文解读] Curiosity-driven RL for Symbolic Equation Solving
+description: >-
+  [NeurIPS 2025][模型压缩][强化学习] 将好奇心驱动探索（RND、ICM 等）与基于表达式树的图动作空间结合，使 PPO 智能体能够求解包含根号、指数和三角函数的非线性方程，超越了此前仅限于线性方程的 RL 方法。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 强化学习
   - 符号数学
   - 好奇心驱动探索

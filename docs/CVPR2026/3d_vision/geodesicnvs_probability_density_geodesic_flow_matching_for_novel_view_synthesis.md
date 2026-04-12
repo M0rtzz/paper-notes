@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeodesicNVS: Probability Density Geodesic Flow Matching for Novel View Synthesis 论文解读 | CVPR 2026 | arXiv 2603.01010 | 新视角合成 | 提出概率密度测地线 Flow Matching (PDG-FM) 框架，通过数据到数据的确定性流匹配替代噪声到数据的扩散过程，并利用基于概率密度的测地线优化使插值路径沿数据流形高密度区域行进，实现更几何一致的新视角合成。"
+title: >-
+  [论文解读] GeodesicNVS: Probability Density Geodesic Flow Matching for Novel View Synthesis
+description: >-
+  [CVPR 2026][3D视觉][新视角合成] 提出概率密度测地线 Flow Matching (PDG-FM) 框架，通过数据到数据的确定性流匹配替代噪声到数据的扩散过程，并利用基于概率密度的测地线优化使插值路径沿数据流形高密度区域行进，实现更几何一致的新视角合成。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 新视角合成
   - Flow Matching
   - 测地线

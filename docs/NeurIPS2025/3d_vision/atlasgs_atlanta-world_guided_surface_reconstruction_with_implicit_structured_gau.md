@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AtlasGS: Atlanta-world Guided Surface Reconstruction with Implicit Structured Gaussians 论文解读 | NeurIPS 2025 | arXiv 2510.25129 | 3D Gaussian Splatting | 提出 AtlasGS，通过将 Atlanta-world 结构先验引入隐式结构化高斯表示（implicit-structured Gaussians），在室内和城市场景中实现平滑且保留高频细节的高质量表面重建，全面超越已有隐式和显式方法。"
+title: >-
+  [论文解读] AtlasGS: Atlanta-world Guided Surface Reconstruction with Implicit Structured Gaussians
+description: >-
+  [NeurIPS 2025][3D视觉][3D Gaussian Splatting] 提出 AtlasGS，通过将 Atlanta-world 结构先验引入隐式结构化高斯表示（implicit-structured Gaussians），在室内和城市场景中实现平滑且保留高频细节的高质量表面重建，全面超越已有隐式和显式方法。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 3D Gaussian Splatting
   - 表面重建
   - Atlanta-world 假设

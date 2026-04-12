@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal Large Language Models? 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Multi-modal large language models (MLLMs) have made significant progress, yet their safety alignment remains limited. Typically, current open-source MLLMs rely on the alignment inherited from their language module to avoid harmful generations. However, the lack of safety measures specifically design"
+title: >-
+  [论文解读] Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal Large Language Models?
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Multi-modal large language models (MLLMs) have made significant progress, yet their safety alignment remains limited. Typically, current open-source MLLMs rely on the alignment inherited from their language module to avoid harmful generations. However, the lack of safety measures specifically design
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

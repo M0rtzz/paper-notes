@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Prediction to Perfection: Introducing Refinement to Autoregressive Image Generation 论文解读 | ICLR 2026 | arXiv 2505.16324 | 自回归 | 提出TensorAR——将标准AR图像生成从\"next-token prediction\"升级为\"next-tensor prediction\"：每步预测一组重叠的连续token(tensor),相邻tensor的重叠区域使后续预测可以修正先前输出,引入离散扩散噪声机制解决训练时的信息泄漏问题,作为即插即用扩展兼容现有AR模型(LlamaGen/Janus-Pro),在class-to-image和text-to-image任务上一致提升质量。"
+title: >-
+  [论文解读] From Prediction to Perfection: Introducing Refinement to Autoregressive Image Generation
+description: >-
+  [ICLR 2026][图像生成][自回归] 提出TensorAR——将标准AR图像生成从"next-token prediction"升级为"next-tensor prediction"：每步预测一组重叠的连续token(tensor),相邻tensor的重叠区域使后续预测可以修正先前输出,引入离散扩散噪声机制解决训练时的信息泄漏问题,作为即插即用扩展兼容现有AR模型(LlamaGen/Janus-Pro),在class-to-image和text-to-image任务上一致提升质量。
 tags:
   - ICLR 2026
+  - 图像生成
   - 自回归
   - 精修
   - tensor预测

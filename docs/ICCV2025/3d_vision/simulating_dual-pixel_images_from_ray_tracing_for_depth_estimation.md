@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Simulating Dual-Pixel Images From Ray Tracing For Depth Estimation 论文解读 | Sdirt 提出基于光线追踪的双像素（DP）图像模拟方案，通过精确计算包含像差和相位分裂信息的空间变化 DP PSF，弥合仿真与真实 DP 数据之间的域间差距，使深度估计模型在真实 DP 图像上具有更好的泛化能力。"
+title: >-
+  [论文解读] Simulating Dual-Pixel Images From Ray Tracing For Depth Estimation
+description: >-
+  [3D视觉] Sdirt 提出基于光线追踪的双像素（DP）图像模拟方案，通过精确计算包含像差和相位分裂信息的空间变化 DP PSF，弥合仿真与真实 DP 数据之间的域间差距，使深度估计模型在真实 DP 图像上具有更好的泛化能力。
 tags:
-
+  - 3D视觉
 ---
 
 # Simulating Dual-Pixel Images From Ray Tracing For Depth Estimation

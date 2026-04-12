@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Prompt Degradation: Prototype-Guided Dual-Pool Prompting for Incremental Object Detection 论文解读 | CVPR 2026 | arXiv 2603.02286 | 增量目标检测 | 提出 PDP 框架，通过双池提示解耦（共享池 + 私有池）和原型引导伪标签生成（PPG），解决增量目标检测中提示耦合与提示漂移导致的提示退化问题，在 COCO 和 VOC 上取得 SOTA。"
+title: >-
+  [论文解读] Beyond Prompt Degradation: Prototype-Guided Dual-Pool Prompting for Incremental Object Detection
+description: >-
+  [CVPR 2026][目标检测][增量目标检测] 提出 PDP 框架，通过双池提示解耦（共享池 + 私有池）和原型引导伪标签生成（PPG），解决增量目标检测中提示耦合与提示漂移导致的提示退化问题，在 COCO 和 VOC 上取得 SOTA。
 tags:
   - CVPR 2026
+  - 目标检测
   - 增量目标检测
   - 提示学习
   - 双池范式

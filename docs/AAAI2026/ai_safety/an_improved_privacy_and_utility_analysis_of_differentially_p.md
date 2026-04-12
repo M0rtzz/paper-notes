@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An Improved Privacy and Utility Analysis of Differentially Private SGD with Bounded Domain and Smooth Losses 论文解读 | AAAI 2026 | arXiv 2502.17772 | 差分隐私 | 在仅假设损失函数L-光滑（不需要凸性）的条件下，为DPSGD推导出了更紧的闭式RDP隐私界，并首次在有界域场景下给出了完整的收敛性/效用分析，揭示了较小的参数域直径可以同时改善隐私和效用。"
+title: >-
+  [论文解读] An Improved Privacy and Utility Analysis of Differentially Private SGD with Bounded Domain and Smooth Losses
+description: >-
+  [AAAI 2026][AI安全][差分隐私] 在仅假设损失函数L-光滑（不需要凸性）的条件下，为DPSGD推导出了更紧的闭式RDP隐私界，并首次在有界域场景下给出了完整的收敛性/效用分析，揭示了较小的参数域直径可以同时改善隐私和效用。
 tags:
   - AAAI 2026
+  - AI安全
   - 差分隐私
   - DPSGD
   - Rényi差分隐私

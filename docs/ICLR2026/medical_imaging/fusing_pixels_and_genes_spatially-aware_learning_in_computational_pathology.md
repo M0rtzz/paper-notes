@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fusing Pixels and Genes: Spatially-Aware Learning in Computational Pathology 论文解读 | ICLR 2026 | arXiv 2602.13944 | 空间转录组 | 提出Stamp框架，构建SpaVis-6M（最大10X Visium空间转录组数据集，575万条数据）训练空间感知基因编码器，再通过层次多尺度对比对齐将病理图像与空间基因表达谱联合预训练，在6个数据集4个下游任务上达到SOTA。"
+title: >-
+  [论文解读] Fusing Pixels and Genes: Spatially-Aware Learning in Computational Pathology
+description: >-
+  [ICLR 2026][医学图像][空间转录组] 提出Stamp框架，构建SpaVis-6M（最大10X Visium空间转录组数据集，575万条数据）训练空间感知基因编码器，再通过层次多尺度对比对齐将病理图像与空间基因表达谱联合预训练，在6个数据集4个下游任务上达到SOTA。
 tags:
   - ICLR 2026
+  - 医学图像
   - 空间转录组
   - 病理图像
   - 基因引导

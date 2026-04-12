@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Structural Reasoning Improves Molecular Understanding of LLM 论文解读 | ACL 2025 | arXiv 2410.05610 | 分子理解 | 提出 MSR（Molecular Structural Reasoning）框架，通过显式引入六种关键分子结构信息作为推理中间步骤，分别设计分析推理（已知分子）和合成推理（未知分子）两种模式，显著提升化学 LLM 和通用 LLM 在分子相关任务上的表现。"
+title: >-
+  [论文解读] Structural Reasoning Improves Molecular Understanding of LLM
+description: >-
+  [ACL 2025][LLM/NLP][分子理解] 提出 MSR（Molecular Structural Reasoning）框架，通过显式引入六种关键分子结构信息作为推理中间步骤，分别设计分析推理（已知分子）和合成推理（未知分子）两种模式，显著提升化学 LLM 和通用 LLM 在分子相关任务上的表现。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 分子理解
   - 结构推理
   - 化学LLM

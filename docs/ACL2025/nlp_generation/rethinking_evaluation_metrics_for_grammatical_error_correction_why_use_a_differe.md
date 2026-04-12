@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Evaluation Metrics for Grammatical Error Correction: Why Use a Different Evaluation Process than Human? 论文解读 | ACL 2025 | arXiv 2502.09416 | 语法纠错评估 | 指出自动 GEC 评估与人类评估在聚合方式上的差距（人类用 TrueSkill 做成对比较后聚合，自动评估用平均/求和后排序），提出对所有自动指标统一使用 TrueSkill 聚合，在 SEEDA 基准上大幅提升多数指标与人类评估的相关性。"
+title: >-
+  [论文解读] Rethinking Evaluation Metrics for Grammatical Error Correction: Why Use a Different Evaluation Process than Human?
+description: >-
+  [ACL 2025][文本生成][语法纠错评估] 指出自动 GEC 评估与人类评估在聚合方式上的差距（人类用 TrueSkill 做成对比较后聚合，自动评估用平均/求和后排序），提出对所有自动指标统一使用 TrueSkill 聚合，在 SEEDA 基准上大幅提升多数指标与人类评估的相关性。
 tags:
   - ACL 2025
+  - 文本生成
   - 语法纠错评估
   - TrueSkill
   - 系统排名

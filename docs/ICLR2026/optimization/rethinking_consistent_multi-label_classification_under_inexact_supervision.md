@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Consistent Multi-Label Classification Under Inexact Supervision 论文解读 | ICLR 2026 | arXiv 2510.04091 | 多标签分类 | 提出 COMES 框架，通过一阶（Hamming loss）和二阶（Ranking loss）策略，为不精确监督下的多标签分类提供一致性风险估计器，无需估计标签生成过程或均匀分布假设。"
+title: >-
+  [论文解读] Rethinking Consistent Multi-Label Classification Under Inexact Supervision
+description: >-
+  [ICLR 2026][优化][多标签分类] 提出 COMES 框架，通过一阶（Hamming loss）和二阶（Ranking loss）策略，为不精确监督下的多标签分类提供一致性风险估计器，无需估计标签生成过程或均匀分布假设。
 tags:
   - ICLR 2026
+  - 优化
   - 多标签分类
   - 弱监督学习
   - 部分多标签学习

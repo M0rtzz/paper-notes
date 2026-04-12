@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MEDISEG: A Dataset of Medication Images with Instance Segmentation Masks for Preventing Adverse Drug Events 论文解读 | CVPR 2026 | arXiv 2603.10825 | 药物识别 | 提出MEDISEG数据集——32种药片类型共8262张真实多药丸场景图像（含dosette box中重叠/遮挡/不同光照），提供实例分割标注，YOLOv8/v9在3-Pills子集mAP@50达99.5%、32-Pills达80.1%，few-shot实验证明MEDISEG作为base训练集显著优于CURE数据集。"
+title: >-
+  [论文解读] MEDISEG: A Dataset of Medication Images with Instance Segmentation Masks for Preventing Adverse Drug Events
+description: >-
+  [CVPR 2026][图像分割][药物识别] 提出MEDISEG数据集——32种药片类型共8262张真实多药丸场景图像（含dosette box中重叠/遮挡/不同光照），提供实例分割标注，YOLOv8/v9在3-Pills子集mAP@50达99.5%、32-Pills达80.1%，few-shot实验证明MEDISEG作为base训练集显著优于CURE数据集。
 tags:
   - CVPR 2026
+  - 图像分割
   - 药物识别
   - 实例分割
   - 药物安全

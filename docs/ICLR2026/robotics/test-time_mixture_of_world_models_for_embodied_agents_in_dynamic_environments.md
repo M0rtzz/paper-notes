@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Test-Time Mixture of World Models for Embodied Agents in Dynamic Environments 论文解读 | ICLR 2026 | arXiv 2601.22647 | MoE | 提出TMoW(Test-time Mixture of World Models)——将MoE范式扩展到具身agent的世界模型：不像传统MoE训练后路由固定,TMoW在测试时更新路由函数以适应未见域,通过(1)多粒度原型路由(物体→场景级相似度),(2)测试时原型精化(加权插值已有原型),(3)蒸馏混合增广(少样本构建新世界模型),在VirtualHome/ALFWorld/RLBench上零样本+27%/少样本+26%。"
+title: >-
+  [论文解读] Test-Time Mixture of World Models for Embodied Agents in Dynamic Environments
+description: >-
+  [ICLR 2026][机器人][MoE] 提出TMoW(Test-time Mixture of World Models)——将MoE范式扩展到具身agent的世界模型：不像传统MoE训练后路由固定,TMoW在测试时更新路由函数以适应未见域,通过(1)多粒度原型路由(物体→场景级相似度),(2)测试时原型精化(加权插值已有原型),(3)蒸馏混合增广(少样本构建新世界模型),在VirtualHome/ALFWorld/RLBench上零样本+27%/少样本+26%。
 tags:
   - ICLR 2026
+  - 机器人
   - MoE
   - 测试时适应
   - 世界模型

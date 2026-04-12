@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Dictionaries to the Rescue: Cross-Lingual Vocabulary Transfer for Low-Resource Languages Using Bilingual Dictionaries 论文解读 | ACL 2025 | arXiv 2506.01535 | 词汇迁移 | 本文提出一种基于双语词典的跨语言词汇迁移方法，利用BPE分词器\"删除子词后回退到更短子词\"的特性，通过迭代删除-重分词-对齐的过程最大化目标语言子词的映射覆盖率，在低资源语言上显著优于依赖单语语料或平行语料的现有方法。"
+title: >-
+  [论文解读] Dictionaries to the Rescue: Cross-Lingual Vocabulary Transfer for Low-Resource Languages Using Bilingual Dictionaries
+description: >-
+  [ACL 2025][词汇迁移] 本文提出一种基于双语词典的跨语言词汇迁移方法，利用BPE分词器"删除子词后回退到更短子词"的特性，通过迭代删除-重分词-对齐的过程最大化目标语言子词的映射覆盖率，在低资源语言上显著优于依赖单语语料或平行语料的现有方法。
 tags:
   - ACL 2025
   - 词汇迁移

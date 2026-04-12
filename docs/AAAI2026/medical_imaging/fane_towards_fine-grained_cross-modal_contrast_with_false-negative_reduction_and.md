@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】FaNe: Towards Fine-Grained Cross-Modal Contrast with False-Negative Reduction and Text-Conditioned Sparse Attention 论文解读 | FaNe 提出了一个语义增强的医学视觉-语言预训练框架，通过语义感知正样本挖掘、文本条件稀疏注意力池化和难负例感知对比损失，解决医学 VLP 中的假阴性问题和粗粒度对齐不足问题。"
+title: >-
+  [论文解读] FaNe: Towards Fine-Grained Cross-Modal Contrast with False-Negative Reduction and Text-Conditioned Sparse Attention
+description: >-
+  [医学图像] FaNe 提出了一个语义增强的医学视觉-语言预训练框架，通过语义感知正样本挖掘、文本条件稀疏注意力池化和难负例感知对比损失，解决医学 VLP 中的假阴性问题和粗粒度对齐不足问题。
 tags:
-
+  - 医学图像
 ---
 
 # FaNe: Towards Fine-Grained Cross-Modal Contrast with False-Negative Reduction and Text-Conditioned Sparse Attention

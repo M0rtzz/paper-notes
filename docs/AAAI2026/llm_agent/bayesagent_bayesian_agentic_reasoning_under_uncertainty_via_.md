@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】BayesAgent: Bayesian Agentic Reasoning Under Uncertainty via Verbalized Probabilistic Graphical Modeling 论文解读 | AAAI 2026 | arXiv 2406.05516 | 贝叶斯推理 | 提出 vPGM 框架，通过自然语言引导 LLM Agent 模拟概率图模型（PGM）的贝叶斯推理过程，发现隐变量并推断后验分布，再用 Dirichlet 先验做数值贝叶斯校准（BayesVPGM），在多个推理任务上同时提升准确率和置信度校准。"
+title: >-
+  [论文解读] BayesAgent: Bayesian Agentic Reasoning Under Uncertainty via Verbalized Probabilistic Graphical Modeling
+description: >-
+  [AAAI 2026][LLM Agent][贝叶斯推理] 提出 vPGM 框架，通过自然语言引导 LLM Agent 模拟概率图模型（PGM）的贝叶斯推理过程，发现隐变量并推断后验分布，再用 Dirichlet 先验做数值贝叶斯校准（BayesVPGM），在多个推理任务上同时提升准确率和置信度校准。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 贝叶斯推理
   - 概率图模型
-  - LLM Agent
   - 不确定性校准
   - 置信度估计
 ---

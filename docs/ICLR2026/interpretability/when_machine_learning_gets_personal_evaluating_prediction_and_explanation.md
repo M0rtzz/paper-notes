@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】When Machine Learning Gets Personal: Evaluating Prediction and Explanation 论文解读 | ICLR 2026 | arXiv 2502.02786 | 个性化模型 | 本文提出统一框架量化模型个性化对预测准确性和解释质量的影响，证明二者可以分离（预测不变但解释变好/变差），推导了基于数据集统计量的假设检验误差概率有限样本下界，揭示了许多实际场景中个性化效果在统计上根本不可检验。"
+title: >-
+  [论文解读] When Machine Learning Gets Personal: Evaluating Prediction and Explanation
+description: >-
+  [ICLR 2026][个性化模型] 本文提出统一框架量化模型个性化对预测准确性和解释质量的影响，证明二者可以分离（预测不变但解释变好/变差），推导了基于数据集统计量的假设检验误差概率有限样本下界，揭示了许多实际场景中个性化效果在统计上根本不可检验。
 tags:
   - ICLR 2026
   - 个性化模型

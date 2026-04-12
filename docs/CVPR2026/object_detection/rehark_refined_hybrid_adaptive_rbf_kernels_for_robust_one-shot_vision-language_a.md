@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation 论文解读 | CVPR 2026 | arXiv 2603.11542 | 视觉语言 Vision-Language模型 | 提出 ReHARK 框架，通过混合语义-视觉先验构建、支撑集增强、自适应分布校正和多尺度 RBF 核集成四阶段精炼管道，在 11 个基准上实现 65.83% 的单样本适应 SOTA 准确率，显著超越 Tip-Adapter 和 ProKeR。"
+title: >-
+  [论文解读] ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation
+description: >-
+  [CVPR 2026][目标检测][视觉语言] 提出 ReHARK 框架，通过混合语义-视觉先验构建、支撑集增强、自适应分布校正和多尺度 RBF 核集成四阶段精炼管道，在 11 个基准上实现 65.83% 的单样本适应 SOTA 准确率，显著超越 Tip-Adapter 和 ProKeR。
 tags:
   - CVPR 2026
+  - 目标检测
   - 视觉语言
   - One-Shot适应
   - 核岭回归

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】REP: Keys to Robust Edits — From Theoretical Insights to Practical Advances 论文解读 | ACL 2025 | arXiv 2410.09338 | 知识编辑 | 揭示locate-and-edit知识编辑方法中语义键的根本缺陷——内部表示无法同时满足鲁棒性和特异性，提出REP模块通过对比学习解耦编辑键，在鲁棒性测试上提升最高66.4%。"
+title: >-
+  [论文解读] REP: Keys to Robust Edits — From Theoretical Insights to Practical Advances
+description: >-
+  [ACL 2025][知识编辑] 揭示locate-and-edit知识编辑方法中语义键的根本缺陷——内部表示无法同时满足鲁棒性和特异性，提出REP模块通过对比学习解耦编辑键，在鲁棒性测试上提升最高66.4%。
 tags:
   - ACL 2025
   - 知识编辑

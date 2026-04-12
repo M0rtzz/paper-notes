@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】No Other Representation Component Is Needed: Diffusion Transformers Can Provide Representation Guidance by Themselves 论文解读 | ICLR2026 | arXiv 2505.02831 | Transformer diffusion transformer | 提出 Self-Representation Alignment (SRA)，利用扩散 Transformer 内部从\"差到好\"的判别过程，将早层高噪声的表征对齐到晚层低噪声的表征，无需外部表征组件即可加速生成训练并提升质量。"
+title: >-
+  [论文解读] No Other Representation Component Is Needed: Diffusion Transformers Can Provide Representation Guidance by Themselves
+description: >-
+  [ICLR2026][自监督学习][Transformer] 提出 Self-Representation Alignment (SRA)，利用扩散 Transformer 内部从"差到好"的判别过程，将早层高噪声的表征对齐到晚层低噪声的表征，无需外部表征组件即可加速生成训练并提升质量。
 tags:
   - ICLR2026
+  - 自监督学习
   - Transformer
   - self-representation alignment
   - DiT

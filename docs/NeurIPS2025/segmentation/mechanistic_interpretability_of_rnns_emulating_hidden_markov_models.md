@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mechanistic Interpretability of RNNs Emulating Hidden Markov Models 论文解读 | NeurIPS 2025 | arXiv 2510.25674 | RNN可解释性 | 训练vanilla RNN复现隐马尔可夫模型（HMM）的发射统计量，然后通过逆向工程揭示RNN利用噪声维持的轨道动力学、\"kick neuron\"电路和自致随机共振机制来实现离散随机状态转换的计算原理。"
+title: >-
+  [论文解读] Mechanistic Interpretability of RNNs Emulating Hidden Markov Models
+description: >-
+  [NeurIPS 2025][图像分割][RNN可解释性] 训练vanilla RNN复现隐马尔可夫模型（HMM）的发射统计量，然后通过逆向工程揭示RNN利用噪声维持的轨道动力学、"kick neuron"电路和自致随机共振机制来实现离散随机状态转换的计算原理。
 tags:
   - NeurIPS 2025
+  - 图像分割
   - RNN可解释性
   - 隐马尔可夫模型
   - 噪声驱动动力学

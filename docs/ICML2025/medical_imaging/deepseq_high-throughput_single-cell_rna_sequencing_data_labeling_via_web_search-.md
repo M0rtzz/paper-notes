@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DeepSeq: High-Throughput Single-Cell RNA Sequencing Data Labeling via Web Search-Augmented Agentic Generative AI Foundation Models 论文解读 | ICML 2025 | arXiv 2506.13817 | 单细胞RNA测序 | 提出 DeepSeq 流水线，利用大语言模型（尤其是具备实时网络搜索能力的 Agentic GPT-4o）对单细胞RNA测序数据进行自动化细胞类型标注，最高准确率达 82.5%，解决了大规模组学数据标注的吞吐量瓶颈。"
+title: >-
+  [论文解读] DeepSeq: High-Throughput Single-Cell RNA Sequencing Data Labeling via Web Search-Augmented Agentic Generative AI Foundation Models
+description: >-
+  [ICML 2025][医学图像][单细胞RNA测序] 提出 DeepSeq 流水线，利用大语言模型（尤其是具备实时网络搜索能力的 Agentic GPT-4o）对单细胞RNA测序数据进行自动化细胞类型标注，最高准确率达 82.5%，解决了大规模组学数据标注的吞吐量瓶颈。
 tags:
   - ICML 2025
+  - 医学图像
   - 单细胞RNA测序
   - 大语言模型
   - 细胞类型标注

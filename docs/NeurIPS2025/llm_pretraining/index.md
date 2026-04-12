@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 预训练/数据方向 38篇论文解读
+description: >-
+  38篇NeurIPS2025 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练/数据
 
@@ -27,7 +34,7 @@
 
 :   揭示 LLM 能秘密处理非标准分词（如将"Hello"拆为"He"+"llo"而非标准的"Hello"整词token）——即使输入的 token 序列与训练时不同，模型表现出惊人的鲁棒性，且这种能力来自嵌入空间中子词嵌入的线性组合近似整词嵌入的特性。
 
-**[Conformal Risk Training: End-to-End Optimization of Conformal Risk Control](conformal_risk_training_end-to-end_optimization_of_conformal_risk_control.md)**
+**[Conformal Risk Training End-To-End Optimization Of Conformal Risk Control](conformal_risk_training_end-to-end_optimization_of_conformal_risk_control.md)**
 
 :   本文将 Conformal Risk Control (CRC) 从期望损失扩展到一般化的 Optimized Certainty-Equivalent (OCE) 风险度量（包含 CVaR 等尾部风险），并提出"共形风险训练"方法，通过在训练中端到端地微分共形风险控制过程，在保持可证明风险保证的同时显著改善平均情况性能。
 

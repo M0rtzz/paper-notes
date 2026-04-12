@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】taz2024full: Analysing German Newspapers for Gender Bias and Discrimination across Decades 论文解读 | ACL 2025 | arXiv 2506.05388 | 德语语料库 | 本文发布了 taz2024full——迄今最大的公开德语报纸语料库（180 万篇文章，1980-2024 年），并通过可扩展的分析管道展示了四十多年来德语新闻报道中性别表征的演变趋势。"
+title: >-
+  [论文解读] taz2024full: Analysing German Newspapers for Gender Bias and Discrimination across Decades
+description: >-
+  [ACL 2025][德语语料库] 本文发布了 taz2024full——迄今最大的公开德语报纸语料库（180 万篇文章，1980-2024 年），并通过可扩展的分析管道展示了四十多年来德语新闻报道中性别表征的演变趋势。
 tags:
   - ACL 2025
   - 德语语料库

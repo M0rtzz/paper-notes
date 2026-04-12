@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SPIRAL: Semantic-Aware Progressive LiDAR Scene Generation and Understanding 论文解读 | NeurIPS 2025 | arXiv 2505.22643 | LiDAR生成 | Spiral 提出了一种语义感知的 range-view LiDAR 扩散模型，同时生成深度、反射率图像和语义分割图，通过渐进式语义预测和闭环推理机制增强跨模态一致性，以最小参数量（61M）取得 SOTA 效果。"
+title: >-
+  [论文解读] SPIRAL: Semantic-Aware Progressive LiDAR Scene Generation and Understanding
+description: >-
+  [NeurIPS 2025][自动驾驶][LiDAR生成] Spiral 提出了一种语义感知的 range-view LiDAR 扩散模型，同时生成深度、反射率图像和语义分割图，通过渐进式语义预测和闭环推理机制增强跨模态一致性，以最小参数量（61M）取得 SOTA 效果。
 tags:
   - NeurIPS 2025
+  - 自动驾驶
   - LiDAR生成
   - 扩散模型
   - 语义分割

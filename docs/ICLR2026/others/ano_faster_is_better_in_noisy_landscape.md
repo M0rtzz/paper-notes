@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ANO: Faster is Better in Noisy Landscapes 论文解读 | ICLR 2026 | arXiv 2508.18258 | optimizer | 提出 Ano 优化器，将更新方向和幅度解耦——方向用动量的符号（sign）确保噪声鲁棒，幅度用瞬时梯度绝对值（而非动量幅度）确保响应速度，配合改进的 Yogi 式方差估计，在噪声和非平稳环境（如 RL）中显著优于 Adam/Lion/Adan，同时在标准任务上保持竞争力。"
+title: >-
+  [论文解读] ANO: Faster is Better in Noisy Landscapes
+description: >-
+  [ICLR 2026][optimizer] 提出 Ano 优化器，将更新方向和幅度解耦——方向用动量的符号（sign）确保噪声鲁棒，幅度用瞬时梯度绝对值（而非动量幅度）确保响应速度，配合改进的 Yogi 式方差估计，在噪声和非平稳环境（如 RL）中显著优于 Adam/Lion/Adan，同时在标准任务上保持竞争力。
 tags:
   - ICLR 2026
   - optimizer

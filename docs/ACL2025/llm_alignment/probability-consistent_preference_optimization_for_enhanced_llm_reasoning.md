@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Probability-Consistent Preference Optimization for Enhanced LLM Reasoning 论文解读 | ACL 2025 | arXiv 2505.23540 | 偏好优化 | 提出 PCPO（Probability-Consistent Preference Optimization），在偏好对选择时同时考虑答案正确性和 token 级概率一致性（用 Levenshtein 距离过滤+概率一致性评分），并在 DPO 损失中按一致性加权，在 GSM8K/MATH-500/Olympiadbench 上一致超越标准 DPO 和 ScPO。"
+title: >-
+  [论文解读] Probability-Consistent Preference Optimization for Enhanced LLM Reasoning
+description: >-
+  [ACL 2025][LLM对齐][偏好优化] 提出 PCPO（Probability-Consistent Preference Optimization），在偏好对选择时同时考虑答案正确性和 token 级概率一致性（用 Levenshtein 距离过滤+概率一致性评分），并在 DPO 损失中按一致性加权，在 GSM8K/MATH-500/Olympiadbench 上一致超越标准 DPO 和 ScPO。
 tags:
   - ACL 2025
+  - LLM对齐
   - 偏好优化
   - Token概率一致性
   - DPO

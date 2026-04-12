@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLM Meets Scene Graph: Can Large Language Models Understand and Generate Scene Graphs? 论文解读 | ACL2025 | arXiv 2505.19510 | 场景图 | 构建 TSG Bench（120 场景、2041 描述、4289 文本场景图），系统评估 11 个 LLM 在场景图理解（SGDS/SGQA）和生成（SA-SGG/MA-SGG）四类任务上的能力，发现最强模型在理解上接近人类但生成任务仍有 15-17% 的差距。"
+title: >-
+  [论文解读] LLM Meets Scene Graph: Can Large Language Models Understand and Generate Scene Graphs?
+description: >-
+  [ACL2025][LLM/NLP][场景图] 构建 TSG Bench（120 场景、2041 描述、4289 文本场景图），系统评估 11 个 LLM 在场景图理解（SGDS/SGQA）和生成（SA-SGG/MA-SGG）四类任务上的能力，发现最强模型在理解上接近人类但生成任务仍有 15-17% 的差距。
 tags:
   - ACL2025
+  - LLM/NLP
   - 场景图
   - LLM评估
   - 结构化推理

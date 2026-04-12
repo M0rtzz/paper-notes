@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adapting Vision-Language Models for Evaluating World Models 论文解读 | NeurIPS 2025 | arXiv 2506.17967 | world model evaluation | 提出UNIVERSE框架，通过仅微调PaliGemma 2的投影头（0.07%参数）和优化数据混合策略，实现对游戏世界模型rollout的高效视觉语言评估，在动作/角色识别任务上以极低成本接近完整微调的性能。"
+title: >-
+  [论文解读] Adapting Vision-Language Models for Evaluating World Models
+description: >-
+  [NeurIPS 2025][多模态][world model evaluation] 提出UNIVERSE框架，通过仅微调PaliGemma 2的投影头（0.07%参数）和优化数据混合策略，实现对游戏世界模型rollout的高效视觉语言评估，在动作/角色识别任务上以极低成本接近完整微调的性能。
 tags:
   - NeurIPS 2025
+  - 多模态
   - world model evaluation
   - VLM adaptation
   - PaliGemma

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Building Better: Avoiding Pitfalls in Developing Language Resources when Data is Scarce 论文解读 | ACL 2025 | arXiv 2410.12691 | 低资源语言 | 通过对 81 位从事中低资源语言 NLP 研究的从业者进行问卷调查，系统性地揭示了低资源语言数据收集与标注中的质量问题和伦理隐患，特别是参与式研究框架中对社区贡献者的剥削问题，并提出了以语言社区为中心的改进建议。"
+title: >-
+  [论文解读] Building Better: Avoiding Pitfalls in Developing Language Resources when Data is Scarce
+description: >-
+  [ACL 2025][低资源语言] 通过对 81 位从事中低资源语言 NLP 研究的从业者进行问卷调查，系统性地揭示了低资源语言数据收集与标注中的质量问题和伦理隐患，特别是参与式研究框架中对社区贡献者的剥削问题，并提出了以语言社区为中心的改进建议。
 tags:
   - ACL 2025
   - 低资源语言

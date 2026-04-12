@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Real-world Display Inverse Rendering Dataset 论文解读 | ICCV 2025 | arXiv 2508.14411 | 逆渲染 | 本文构建了首个基于LCD显示器-相机系统的真实世界逆渲染数据集，包含16个不同材质物体在OLAT照明模式下的立体偏振图像及高精度几何真值，并提出了一个简单有效的显示器逆渲染基线方法，超越了现有逆渲染方法。"
+title: >-
+  [论文解读] A Real-world Display Inverse Rendering Dataset
+description: >-
+  [ICCV 2025][逆渲染] 本文构建了首个基于LCD显示器-相机系统的真实世界逆渲染数据集，包含16个不同材质物体在OLAT照明模式下的立体偏振图像及高精度几何真值，并提出了一个简单有效的显示器逆渲染基线方法，超越了现有逆渲染方法。
 tags:
   - ICCV 2025
   - 逆渲染

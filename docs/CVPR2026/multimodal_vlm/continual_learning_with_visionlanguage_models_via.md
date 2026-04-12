@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Continual Learning with Vision-Language Models via Semantic-Geometry Preservation 论文解读 | CVPR 2026 | arXiv 2603.12055 | 持续学习 | 提出 SeGP-CL，通过对抗性 PGD 在旧新语义边界构造锚点样本，配合锚点引导的跨模态几何蒸馏（ACGD）和文本语义几何正则化（TSGR），在无需旧数据回放条件下保护 VLM 持续学习中的跨模态语义几何结构，五个基准上达到 SOTA。"
+title: >-
+  [论文解读] Continual Learning with Vision-Language Models via Semantic-Geometry Preservation
+description: >-
+  [CVPR 2026][多模态][持续学习] 提出 SeGP-CL，通过对抗性 PGD 在旧新语义边界构造锚点样本，配合锚点引导的跨模态几何蒸馏（ACGD）和文本语义几何正则化（TSGR），在无需旧数据回放条件下保护 VLM 持续学习中的跨模态语义几何结构，五个基准上达到 SOTA。
 tags:
   - CVPR 2026
+  - 多模态
   - 持续学习
   - VLM
   - 语义几何保留

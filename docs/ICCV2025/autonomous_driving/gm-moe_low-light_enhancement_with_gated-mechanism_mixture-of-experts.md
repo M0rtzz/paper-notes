@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GM-MoE: Low-Light Enhancement with Gated-Mechanism Mixture-of-Experts 论文解读 | ICCV 2025 | arXiv 2503.07417 | 低光增强 | 首次将混合专家（MoE）网络引入低光图像增强任务，通过三个专门的子专家网络分别处理颜色修复、细节增强和高级特征增强，并利用动态门控机制自适应调整各专家的权重，在5个基准数据集上取得了SOTA的PSNR表现。"
+title: >-
+  [论文解读] GM-MoE: Low-Light Enhancement with Gated-Mechanism Mixture-of-Experts
+description: >-
+  [ICCV 2025][自动驾驶][低光增强] 首次将混合专家（MoE）网络引入低光图像增强任务，通过三个专门的子专家网络分别处理颜色修复、细节增强和高级特征增强，并利用动态门控机制自适应调整各专家的权重，在5个基准数据集上取得了SOTA的PSNR表现。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 低光增强
   - 混合专家网络
   - 门控机制

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Structured Language Generation Model: Loss Calibration and Formatted Decoding for Efficient Text 论文解读 | 提出 SLGM 框架，通过**结构化输入格式**、**格式损失**和**格式感知解码**三大组件，将生成式语言模型的结构化预测任务重构为分类问题，在不增加模型参数的前提下显著提升 <1B 模型在 NER、RE、SRL 等 5 类 13 个数据集上的结构预测性能。"
+title: >-
+  [论文解读] Structured Language Generation Model: Loss Calibration and Formatted Decoding for Efficient Text
+description: >-
+  [模型压缩] 提出 SLGM 框架，通过**结构化输入格式**、**格式损失**和**格式感知解码**三大组件，将生成式语言模型的结构化预测任务重构为分类问题，在不增加模型参数的前提下显著提升 <1B 模型在 NER、RE、SRL 等 5 类 13 个数据集上的结构预测性能。
 tags:
-
+  - 模型压缩
 ---
 
 # Structured Language Generation Model: Loss Calibration and Formatted Decoding for Efficient Text

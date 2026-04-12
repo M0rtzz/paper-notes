@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large-Scale Training Data Attribution for Music Generative Models via Unlearning 论文解读 | NeurIPS 2025 | arXiv 2506.18312 | 训练数据归因 | 将基于机器遗忘（machine unlearning）的训练数据归因方法应用于大规模文本到音乐扩散模型（115K 音轨），通过网格搜索找到最优超参数配置，并与非反事实方法对比，验证了 unlearning-based TDA 在音乐生成领域的可行性。"
+title: >-
+  [论文解读] Large-Scale Training Data Attribution for Music Generative Models via Unlearning
+description: >-
+  [NeurIPS 2025][图像生成][训练数据归因] 将基于机器遗忘（machine unlearning）的训练数据归因方法应用于大规模文本到音乐扩散模型（115K 音轨），通过网格搜索找到最优超参数配置，并与非反事实方法对比，验证了 unlearning-based TDA 在音乐生成领域的可行性。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 训练数据归因
   - 机器遗忘
   - 音乐生成

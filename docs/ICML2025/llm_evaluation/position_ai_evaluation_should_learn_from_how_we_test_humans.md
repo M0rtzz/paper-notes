@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Position: AI Evaluation Should Learn from How We Test Humans 论文解读 | 提出将人类心理测量学中的自适应测试范式引入AI评估，通过估计测试题目特征（难度/区分度/猜测因子）实现更高效、可靠的模型能力评估。"
+title: >-
+  [论文解读] Position: AI Evaluation Should Learn from How We Test Humans
+description: >-
+   提出将人类心理测量学中的自适应测试范式引入AI评估，通过估计测试题目特征（难度/区分度/猜测因子）实现更高效、可靠的模型能力评估。
 tags:
 
 ---

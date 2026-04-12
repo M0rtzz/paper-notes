@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dynamic Reconstruction of Hand-Object Interaction with Distributed Force-aware Contact Representation 论文解读 | ICCV 2025 | arXiv 2411.09572 | 手物交互 | 提出 ViTaM-D，一个视觉-触觉融合框架，通过新提出的分布式力感知接触表示（DF-Field）和两阶段流程（视觉动态跟踪+力感知优化），实现刚性和可变形物体的手物交互动态重建，并引入 HOT 数据集填补可变形物体手物交互的评测空白。"
+title: >-
+  [论文解读] Dynamic Reconstruction of Hand-Object Interaction with Distributed Force-aware Contact Representation
+description: >-
+  [ICCV 2025][人体理解][手物交互] 提出 ViTaM-D，一个视觉-触觉融合框架，通过新提出的分布式力感知接触表示（DF-Field）和两阶段流程（视觉动态跟踪+力感知优化），实现刚性和可变形物体的手物交互动态重建，并引入 HOT 数据集填补可变形物体手物交互的评测空白。
 tags:
   - ICCV 2025
+  - 人体理解
   - 手物交互
   - 触觉感知
   - 接触建模

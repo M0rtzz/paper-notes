@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SkillAggregation: Reference-free LLM-Dependent Aggregation 论文解读 | ACL 2025 | arXiv 2410.10215 | LLM评估 | 本文提出SkillAggregation方法，通过学习上下文相关的LLM评判者技能权重并利用后验估计进行推理，在无需参考标签的情况下有效聚合多个LLM评判者的预测，在多个任务上超越了现有聚合方法。"
+title: >-
+  [论文解读] SkillAggregation: Reference-free LLM-Dependent Aggregation
+description: >-
+  [ACL 2025][LLM/NLP][LLM评估] 本文提出SkillAggregation方法，通过学习上下文相关的LLM评判者技能权重并利用后验估计进行推理，在无需参考标签的情况下有效聚合多个LLM评判者的预测，在多个任务上超越了现有聚合方法。
 tags:
   - ACL 2025
+  - LLM/NLP
   - LLM评估
   - 多模型聚合
   - 无参考聚合

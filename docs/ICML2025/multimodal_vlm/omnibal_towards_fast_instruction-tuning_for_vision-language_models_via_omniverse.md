@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OmniBal: Towards Fast Instruction-Tuning for Vision-Language Models via Omniverse Computation Balance 论文解读 | ICML 2025 | arXiv 2407.20761 | VLM训练加速 | 针对大规模视觉语言模型 instruction-tuning 训练中因数据和模型异构性导致的计算不平衡问题，提出 OmniBal 框架从数据、模型、内存三个层面系统性平衡跨设备计算负载，在 InternVL-Chat 上实现约 1.8× 训练加速。"
+title: >-
+  [论文解读] OmniBal: Towards Fast Instruction-Tuning for Vision-Language Models via Omniverse Computation Balance
+description: >-
+  [ICML 2025][多模态][VLM训练加速] 针对大规模视觉语言模型 instruction-tuning 训练中因数据和模型异构性导致的计算不平衡问题，提出 OmniBal 框架从数据、模型、内存三个层面系统性平衡跨设备计算负载，在 InternVL-Chat 上实现约 1.8× 训练加速。
 tags:
   - ICML 2025
+  - 多模态
   - VLM训练加速
   - 3D并行
   - 计算平衡

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reranking-based Generation for Unbiased Perspective Summarization 论文解读 | ACL 2025 | arXiv 2506.15925 | 视角摘要 | 针对政治视角摘要任务，构建了受控测试集验证现有评估指标的可靠性，发现 LLM-based 指标远优于传统指标，并证明基于重排序（Reranking）的方法及在重排序数据上的 DPO 训练能显著提升摘要的覆盖性和忠实性。"
+title: >-
+  [论文解读] Reranking-based Generation for Unbiased Perspective Summarization
+description: >-
+  [ACL 2025][视角摘要] 针对政治视角摘要任务，构建了受控测试集验证现有评估指标的可靠性，发现 LLM-based 指标远优于传统指标，并证明基于重排序（Reranking）的方法及在重排序数据上的 DPO 训练能显著提升摘要的覆盖性和忠实性。
 tags:
   - ACL 2025
   - 视角摘要

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SELF-PERCEPT: Introspection Improves LLMs' Detection of Multi-Person Mental Manipulation in Conversations 论文解读 | ACL 2025 | arXiv 2505.20679 | mental manipulation detection | 提出 SELF-PERCEPT 两阶段 prompting 框架，借鉴心理学自我知觉理论（Self-Perception Theory），引导 LLM 先观察对话参与者的行为线索再推断内在态度，显著提升多人多轮对话中心理操纵的检测效果。"
+title: >-
+  [论文解读] SELF-PERCEPT: Introspection Improves LLMs' Detection of Multi-Person Mental Manipulation in Conversations
+description: >-
+  [ACL 2025][机器人][mental manipulation detection] 提出 SELF-PERCEPT 两阶段 prompting 框架，借鉴心理学自我知觉理论（Self-Perception Theory），引导 LLM 先观察对话参与者的行为线索再推断内在态度，显著提升多人多轮对话中心理操纵的检测效果。
 tags:
   - ACL 2025
+  - 机器人
   - mental manipulation detection
   - multi-turn dialogue
   - multi-person conversation

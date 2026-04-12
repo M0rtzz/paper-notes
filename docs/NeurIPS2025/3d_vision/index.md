@@ -1,5 +1,12 @@
+---
+title: >-
+  NeurIPS2025 3D视觉方向 118篇论文解读
+description: >-
+  118篇NeurIPS2025 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🧊 3D 视觉
+# 🧊 3D视觉
 
 **🧠 NeurIPS2025** · 共 **118** 篇
 
@@ -31,7 +38,7 @@
 
 :   提出双Agent（定量+定性）评估框架，从神学准确性、引用完整性和文体恰当性三个维度系统评估 GPT-4o、Ansari AI 和 Fanar 在伊斯兰内容生成任务上的忠实度，发现即使最优模型也在引用可靠性上存在显著不足。
 
-**[CLIPGaussian: Universal and Multimodal Style Transfer Based on Gaussian Splatting](clipgaussian_universal_and_multimodal_style_transfer_based_on_gaussian_splatting.md)**
+**[Clipgaussian Universal And Multimodal Style Transfer Based On Gaussian Splatting](clipgaussian_universal_and_multimodal_style_transfer_based_on_gaussian_splatting.md)**
 
 :   CLIPGaussian 提出首个基于 Gaussian Splatting 的统一风格迁移框架，支持文本和图像引导的 2D 图像、视频、3D 物体和 4D 动态场景的风格化，作为即插即用模块集成到现有 GS 管线中，无需大规模生成模型或从头重训，且不改变模型大小。
 
@@ -55,7 +62,7 @@
 
 :   提出 Static-Dynamic Aligned Pointmap (SDAP) 表示，将静态和动态区域的 3D 对齐统一建模，使 DUSt3R 系列方法能够在动态场景中实现准确的稠密三维重建与对应关系估计。
 
-**[DC4GS: Directional Consistency-Driven Adaptive Density Control for 3D Gaussian Splatting](dc4gs_directional_consistency-driven_adaptive_density_control_for_3d_gaussian_sp.md)**
+**[Dc4Gs Directional Consistency-Driven Adaptive Density Control For 3D Gaussian Sp](dc4gs_directional_consistency-driven_adaptive_density_control_for_3d_gaussian_sp.md)**
 
 :   提出基于方向一致性（Directional Consistency）的自适应密度控制方法 DC4GS，通过利用位置梯度的角度相干性来改进 3DGS 中的 primitive 分裂决策和分裂位置选择，在减少最多 30% primitive 数量的同时提升重建质量。
 

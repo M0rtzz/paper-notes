@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Guiding Diffusion-Based Articulated Object Generation by Partial Point Cloud Alignment and Physical Plausibility Constraints 论文解读 | ICCV 2025 | arXiv 2508.00558 | 铰接物体生成 | 提出 PhysNAP，通过点云对齐损失和基于SDF的物理合理性约束（部件穿透+关节移动）引导预训练扩散模型 NAP 的逆扩散过程，实现类别感知的铰接物体生成，在对齐精度和物理合理性上显著优于无引导基线。"
+title: >-
+  [论文解读] Guiding Diffusion-Based Articulated Object Generation by Partial Point Cloud Alignment and Physical Plausibility Constraints
+description: >-
+  [ICCV 2025][3D视觉][铰接物体生成] 提出 PhysNAP，通过点云对齐损失和基于SDF的物理合理性约束（部件穿透+关节移动）引导预训练扩散模型 NAP 的逆扩散过程，实现类别感知的铰接物体生成，在对齐精度和物理合理性上显著优于无引导基线。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 铰接物体生成
   - 扩散模型
   - 点云对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models 论文解读 | ACL 2025 | arXiv 2412.13488 | 首次系统评估 8 种 salience 指标用于稀疏微调（SPEFT）的效果，发现简单的梯度指标 + 静态掩码即可提供最佳性价比，在 GSM8k 上比 LoRA 高出 22.6%，质疑了\"复杂方法才能做好 PEFT\"的假设。"
+title: >-
+  [论文解读] Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models
+description: >-
+  [ACL 2025][LLM/NLP] 首次系统评估 8 种 salience 指标用于稀疏微调（SPEFT）的效果，发现简单的梯度指标 + 静态掩码即可提供最佳性价比，在 GSM8k 上比 LoRA 高出 22.6%，质疑了"复杂方法才能做好 PEFT"的假设。
 tags:
   - ACL 2025
+  - LLM/NLP
 ---
 
 # Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models

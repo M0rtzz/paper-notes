@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems 论文解读 | ICML2025 | arXiv 2406.18752 | 在线背包问题 | 提出一族基于简洁预测（临界值的点预测或区间预测）的在线背包算法，在consistency与robustness之间实现近Pareto最优的权衡，并给出分数解到整数解的通用转换方法。"
+title: >-
+  [论文解读] Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems
+description: >-
+  [ICML2025][在线背包问题] 提出一族基于简洁预测（临界值的点预测或区间预测）的在线背包算法，在consistency与robustness之间实现近Pareto最优的权衡，并给出分数解到整数解的通用转换方法。
 tags:
   - ICML2025
   - 在线背包问题

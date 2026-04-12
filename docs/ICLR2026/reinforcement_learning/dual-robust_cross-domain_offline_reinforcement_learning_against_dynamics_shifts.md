@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Dual-Robust Cross-Domain Offline Reinforcement Learning Against Dynamics Shifts 论文解读 | ICLR 2026 | arXiv 2512.02486 | offline RL | 首次同时解决跨域离线 RL 的\"训练时鲁棒性\"（源域-目标域不匹配）和\"测试时鲁棒性\"（部署环境动态偏移）：提出 DROCO，通过 Robust Cross-Domain Bellman (RCB) 算子对源域数据施加鲁棒 Bellman 更新、对目标域数据施加标准更新，将动态不确定性映射为可处理的状态扰动。"
+title: >-
+  [论文解读] Dual-Robust Cross-Domain Offline Reinforcement Learning Against Dynamics Shifts
+description: >-
+  [ICLR 2026][offline RL] 首次同时解决跨域离线 RL 的"训练时鲁棒性"（源域-目标域不匹配）和"测试时鲁棒性"（部署环境动态偏移）：提出 DROCO，通过 Robust Cross-Domain Bellman (RCB) 算子对源域数据施加鲁棒 Bellman 更新、对目标域数据施加标准更新，将动态不确定性映射为可处理的状态扰动。
 tags:
   - ICLR 2026
   - offline RL

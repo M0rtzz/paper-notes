@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CognitionCapturerPro: Towards High-Fidelity Visual Decoding from EEG/MEG via Multi-modal Information and Asymmetric Alignment 论文解读 | CVPR 2026 | arXiv 2603.12722 | EEG/MEG 视觉解码 | 提出 CognitionCapturerPro，通过不确定性加权掩蔽、多模态融合编码器、共享主干对齐模块和多分支 IP-Adapter 扩散重建，解决 EEG 视觉解码中的保真度损失和表征偏移问题，在 THINGS-EEG 上 Top-1 检索达 61.2%、Top-5 达 90.8%。"
+title: >-
+  [论文解读] CognitionCapturerPro: Towards High-Fidelity Visual Decoding from EEG/MEG via Multi-modal Information and Asymmetric Alignment
+description: >-
+  [CVPR 2026][图像生成][EEG/MEG 视觉解码] 提出 CognitionCapturerPro，通过不确定性加权掩蔽、多模态融合编码器、共享主干对齐模块和多分支 IP-Adapter 扩散重建，解决 EEG 视觉解码中的保真度损失和表征偏移问题，在 THINGS-EEG 上 Top-1 检索达 61.2%、Top-5 达 90.8%。
 tags:
   - CVPR 2026
+  - 图像生成
   - EEG/MEG 视觉解码
   - 多模态融合
   - 不确定性加权

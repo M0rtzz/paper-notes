@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies 论文解读 | CVPR 2026 | arXiv 2603.12667 | 3D重建 3D reconstruction | 提出基于标记物（marker）的低成本摄影测量方法，实现骨料颗粒的高质量 3D 重建，并通过 2D 与 3D 形态学指标的系统对比分析，揭示 2D 投影分析对真实 3D 形态的显著偏差。"
+title: >-
+  [论文解读] Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies
+description: >-
+  [CVPR 2026][医学图像][3D重建] 提出基于标记物（marker）的低成本摄影测量方法，实现骨料颗粒的高质量 3D 重建，并通过 2D 与 3D 形态学指标的系统对比分析，揭示 2D 投影分析对真实 3D 形态的显著偏差。
 tags:
   - CVPR 2026
+  - 医学图像
   - 3D重建
   - photogrammetry
   - aggregate morphology

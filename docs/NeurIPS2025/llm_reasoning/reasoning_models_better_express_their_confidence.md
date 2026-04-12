@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reasoning Models Better Express Their Confidence 论文解读 | NeurIPS 2025 | arXiv 2505.14489 | confidence calibration | 系统性证明推理模型（extended CoT）比非推理模型具有显著更优的置信度校准能力，并揭示\"慢思考\"行为（探索替代方案、回溯、验证）是校准提升的根本来源。"
+title: >-
+  [论文解读] Reasoning Models Better Express Their Confidence
+description: >-
+  [NeurIPS 2025][LLM推理][confidence calibration] 系统性证明推理模型（extended CoT）比非推理模型具有显著更优的置信度校准能力，并揭示"慢思考"行为（探索替代方案、回溯、验证）是校准提升的根本来源。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - confidence calibration
   - reasoning models
   - chain-of-thought

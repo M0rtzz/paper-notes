@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Trust but Verify: Adaptive Conditioning for Reference-Based Diffusion Super-Resolution 论文解读 | ICLR 2026 | arXiv 2602.01864 | 超分辨率 Reference-based Super-Resolution | 提出 Ada-RefSR，一个基于\"Trust but Verify\"原则的单步参考引导扩散超分辨率框架，通过自适应隐式相关性门控（AICG）机制在利用可靠参考信息的同时抑制错误融合，仅增加 0.13% 计算开销。"
+title: >-
+  [论文解读] Trust but Verify: Adaptive Conditioning for Reference-Based Diffusion Super-Resolution
+description: >-
+  [ICLR 2026][图像恢复][超分辨率] 提出 Ada-RefSR，一个基于"Trust but Verify"原则的单步参考引导扩散超分辨率框架，通过自适应隐式相关性门控（AICG）机制在利用可靠参考信息的同时抑制错误融合，仅增加 0.13% 计算开销。
 tags:
   - ICLR 2026
+  - 图像恢复
   - 超分辨率
   - 扩散模型
   - Adaptive Gating

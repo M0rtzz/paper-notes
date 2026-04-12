@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】An Epistemic Perspective on Agent Awareness 论文解读 | AAAI 2026 | arXiv 2511.05977 | 认知逻辑 | 本文首次将 agent awareness（智能体感知/意识）视为一种知识形式，区分了 de re（关于物理对象的）和 de dicto（关于概念/描述的）两种感知模态，并基于 2D 语义学提出了一个可靠且完备的逻辑系统来刻画这两种模态与标准\"事实知识\"模态之间的相互作用。"
+title: >-
+  [论文解读] An Epistemic Perspective on Agent Awareness
+description: >-
+  [AAAI 2026][认知逻辑] 本文首次将 agent awareness（智能体感知/意识）视为一种知识形式，区分了 de re（关于物理对象的）和 de dicto（关于概念/描述的）两种感知模态，并基于 2D 语义学提出了一个可靠且完备的逻辑系统来刻画这两种模态与标准"事实知识"模态之间的相互作用。
 tags:
   - AAAI 2026
   - 认知逻辑

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】X-Transfer Attacks: Towards Super Transferable Adversarial Attacks on CLIP 论文解读 | ICML 2025 | arXiv 2505.05528 | adversarial attack | 提出 X-Transfer 攻击方法，通过高效的代理模型缩放策略（基于多臂老虎机的动态选择），生成具有\"超级迁移性\"的通用对抗扰动（UAP），单一扰动可同时跨数据、跨领域、跨模型、跨任务攻击各种 CLIP 编码器和下游 VLM。"
+title: >-
+  [论文解读] X-Transfer Attacks: Towards Super Transferable Adversarial Attacks on CLIP
+description: >-
+  [ICML 2025][AI安全][adversarial attack] 提出 X-Transfer 攻击方法，通过高效的代理模型缩放策略（基于多臂老虎机的动态选择），生成具有"超级迁移性"的通用对抗扰动（UAP），单一扰动可同时跨数据、跨领域、跨模型、跨任务攻击各种 CLIP 编码器和下游 VLM。
 tags:
   - ICML 2025
+  - AI安全
   - adversarial attack
   - CLIP
   - universal adversarial perturbation

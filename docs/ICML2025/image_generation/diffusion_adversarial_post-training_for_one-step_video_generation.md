@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diffusion Adversarial Post-Training for One-Step Video Generation 论文解读 | ICML 2025 | arXiv 2501.08316 | 对抗后训练 | 提出对抗后训练（Adversarial Post-Training, APT）方法，将预训练的扩散模型直接用 GAN 对抗训练在真实数据上进行微调，实现单步生成 1024px 图像和 1280×720 24fps 视频，在视觉保真度上甚至超越原始 25 步扩散模型。"
+title: >-
+  [论文解读] Diffusion Adversarial Post-Training for One-Step Video Generation
+description: >-
+  [ICML 2025][图像生成][对抗后训练] 提出对抗后训练（Adversarial Post-Training, APT）方法，将预训练的扩散模型直接用 GAN 对抗训练在真实数据上进行微调，实现单步生成 1024px 图像和 1280×720 24fps 视频，在视觉保真度上甚至超越原始 25 步扩散模型。
 tags:
   - ICML 2025
+  - 图像生成
   - 对抗后训练
   - 单步生成
   - 视频生成

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enhancing the Comprehensibility of Text Explanations via Unsupervised Concept Discovery 论文解读 | ACL 2025 (Findings) | arXiv 2505.20293 | 概念瓶颈模型 | 提出 ECO-Concept 框架，通过 slot attention 机制自动提取文本概念，并利用 LLM 作为人类代理评估概念的可理解性，用可理解性反馈损失指导模型微调，在无概念标注的情况下实现了兼具高分类精度和人类可理解性的概念解释。"
+title: >-
+  [论文解读] Enhancing the Comprehensibility of Text Explanations via Unsupervised Concept Discovery
+description: >-
+  [ACL 2025 (Findings)][概念瓶颈模型] 提出 ECO-Concept 框架，通过 slot attention 机制自动提取文本概念，并利用 LLM 作为人类代理评估概念的可理解性，用可理解性反馈损失指导模型微调，在无概念标注的情况下实现了兼具高分类精度和人类可理解性的概念解释。
 tags:
   - ACL 2025 (Findings)
   - 概念瓶颈模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Transformer Embeddings for Fast Microlensing Inference 论文解读 | NeurIPS 2025 | arXiv 2512.11687 | 微引力透镜 | 本文将Transformer编码器与神经后验估计（NPE）结合，直接从稀疏、噪声、不等间隔的微引力透镜光变曲线中进行快速且校准良好的参数推断，速度比传统MCMC快10⁴倍以上。"
+title: >-
+  [论文解读] Transformer Embeddings for Fast Microlensing Inference
+description: >-
+  [NeurIPS 2025][时间序列][微引力透镜] 本文将Transformer编码器与神经后验估计（NPE）结合，直接从稀疏、噪声、不等间隔的微引力透镜光变曲线中进行快速且校准良好的参数推断，速度比传统MCMC快10⁴倍以上。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 微引力透镜
   - 模拟推断
   - Transformer

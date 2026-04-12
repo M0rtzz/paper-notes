@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models 论文解读 | CVPR 2026 | arXiv 2511.16955 | GRPO | 重新解释 SDE-based GRPO 为距离优化/对比学习，提出 Neighbor GRPO——完全绕过 SDE 转换，通过扰动 ODE 初始噪声构建邻域候选轨迹 + softmax 距离代理策略实现策略梯度优化，保留确定性 ODE 采样的所有优势。"
+title: >-
+  [论文解读] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models
+description: >-
+  [CVPR 2026][目标检测][GRPO] 重新解释 SDE-based GRPO 为距离优化/对比学习，提出 Neighbor GRPO——完全绕过 SDE 转换，通过扰动 ODE 初始噪声构建邻域候选轨迹 + softmax 距离代理策略实现策略梯度优化，保留确定性 ODE 采样的所有优势。
 tags:
   - CVPR 2026
+  - 目标检测
   - GRPO
   - Flow Matching
   - 人类偏好对齐

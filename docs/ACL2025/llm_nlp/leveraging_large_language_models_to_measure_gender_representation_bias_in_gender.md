@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora 论文解读 | ACL 2025 | arXiv 2406.13677 | gender bias | 提出基于 LLM 的方法量化有语法性别语言（西班牙语、巴伦西亚语）语料中的性别表示偏差，发现 4:1 到 6:1 的男性主导失衡，并证明少量反向偏差数据（5000句）可有效缓解模型输出中的性别不平衡。"
+title: >-
+  [论文解读] Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora
+description: >-
+  [ACL 2025][LLM/NLP][gender bias] 提出基于 LLM 的方法量化有语法性别语言（西班牙语、巴伦西亚语）语料中的性别表示偏差，发现 4:1 到 6:1 的男性主导失衡，并证明少量反向偏差数据（5000句）可有效缓解模型输出中的性别不平衡。
 tags:
   - ACL 2025
+  - LLM/NLP
   - gender bias
   - representation bias
   - gendered language

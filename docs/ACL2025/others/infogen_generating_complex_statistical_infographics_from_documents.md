@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Infogen: Generating Complex Statistical Infographics from Documents 论文解读 | ACL 2025 | arXiv 2507.20046 | 信息图生成 | 提出Infogen框架，将文本文档转化为复杂统计信息图（多子图组合），采用两阶段设计——先用微调LLM生成结构化中间元数据，再用LLM代码生成器和反馈模块迭代生成最终信息图代码。"
+title: >-
+  [论文解读] Infogen: Generating Complex Statistical Infographics from Documents
+description: >-
+  [ACL 2025][信息图生成] 提出Infogen框架，将文本文档转化为复杂统计信息图（多子图组合），采用两阶段设计——先用微调LLM生成结构化中间元数据，再用LLM代码生成器和反馈模块迭代生成最终信息图代码。
 tags:
   - ACL 2025
   - 信息图生成

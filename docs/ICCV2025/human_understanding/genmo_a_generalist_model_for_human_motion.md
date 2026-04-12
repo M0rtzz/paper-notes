@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GENMO: A GENeralist Model for Human MOtion 论文解读 | ICCV 2025 | arXiv 2505.01425 | 人体运动建模 | 提出 GENMO，首个统一人体运动估计（从视频/2D 关键点恢复运动）和运动生成（从文本/音乐/关键帧合成运动）的通用模型，通过双模式训练范式（回归+扩散）在单一模型中同时实现精确估计和多样生成。"
+title: >-
+  [论文解读] GENMO: A GENeralist Model for Human MOtion
+description: >-
+  [ICCV 2025][人体理解][人体运动建模] 提出 GENMO，首个统一人体运动估计（从视频/2D 关键点恢复运动）和运动生成（从文本/音乐/关键帧合成运动）的通用模型，通过双模式训练范式（回归+扩散）在单一模型中同时实现精确估计和多样生成。
 tags:
   - ICCV 2025
+  - 人体理解
   - 人体运动建模
   - 运动估计
   - 运动生成

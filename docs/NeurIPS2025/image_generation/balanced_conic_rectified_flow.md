@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Balanced Conic Rectified Flow 论文解读 | NeurIPS 2025 | arXiv 2510.25229 | rectified flow | 针对 k-rectified flow 中 reflow 步骤导致的分布漂移问题，提出 conic reflow：利用真实图像的反演噪声及其 Slerp 扰动构成锥形监督轨迹，大幅减少所需 fake pair 数量的同时获得更优的生成质量和更直的 ODE 路径。"
+title: >-
+  [论文解读] Balanced Conic Rectified Flow
+description: >-
+  [NeurIPS 2025][图像生成][rectified flow] 针对 k-rectified flow 中 reflow 步骤导致的分布漂移问题，提出 conic reflow：利用真实图像的反演噪声及其 Slerp 扰动构成锥形监督轨迹，大幅减少所需 fake pair 数量的同时获得更优的生成质量和更直的 ODE 路径。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - rectified flow
   - reflow
   - conic interpolation

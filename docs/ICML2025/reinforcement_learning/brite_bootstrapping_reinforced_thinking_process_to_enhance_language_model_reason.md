@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】BRITE: Bootstrapping Reinforced Thinking Process to Enhance Language Model Reasoning 论文解读 | ICML 2025 | arXiv 2501.18858 | LLM推理 | 提出 BRITE——通过自举（bootstrapping）方式迭代收集和强化 LLM 的中间思维过程，结合过程级奖励模型和 PPO 训练，持续提升 LLM 在数学推理等任务上的表现。"
+title: >-
+  [论文解读] BRITE: Bootstrapping Reinforced Thinking Process to Enhance Language Model Reasoning
+description: >-
+  [ICML 2025][LLM推理] 提出 BRITE——通过自举（bootstrapping）方式迭代收集和强化 LLM 的中间思维过程，结合过程级奖励模型和 PPO 训练，持续提升 LLM 在数学推理等任务上的表现。
 tags:
   - ICML 2025
   - LLM推理

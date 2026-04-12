@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neural Green's Functions 论文解读 | NeurIPS 2025 | arXiv 2511.01924 | Green函数 | 提出 Neural Green's Function，一种基于特征分解的可学习线性 PDE 解算子：从域几何中提取逐点特征来预测 Green 函数的特征分解，一次训练即可对任意源函数和边界条件通过数值积分求解，在机械零件热分析上比 SOTA 神经算子误差降低 13.9% 且比数值求解器快 350 倍。"
+title: >-
+  [论文解读] Neural Green's Functions
+description: >-
+  [NeurIPS 2025][3D视觉][Green函数] 提出 Neural Green's Function，一种基于特征分解的可学习线性 PDE 解算子：从域几何中提取逐点特征来预测 Green 函数的特征分解，一次训练即可对任意源函数和边界条件通过数值积分求解，在机械零件热分析上比 SOTA 神经算子误差降低 13.9% 且比数值求解器快 350 倍。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - Green函数
   - 神经算子
   - 偏微分方程

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MetaMorph: Multimodal Understanding and Generation via Instruction Tuning 论文解读 | 提出 Visual-Predictive Instruction Tuning（VPiT），通过简洁的指令微调扩展使预训练 LLM 同时输出文本 token 和连续视觉 token，发现视觉生成能力作为理解能力的自然副产物涌现，并训练了统一模型 MetaMorph 在理解和生成基准上均达到竞争水平。"
+title: >-
+  [论文解读] MetaMorph: Multimodal Understanding and Generation via Instruction Tuning
+description: >-
+  [多模态] 提出 Visual-Predictive Instruction Tuning（VPiT），通过简洁的指令微调扩展使预训练 LLM 同时输出文本 token 和连续视觉 token，发现视觉生成能力作为理解能力的自然副产物涌现，并训练了统一模型 MetaMorph 在理解和生成基准上均达到竞争水平。
 tags:
-
+  - 多模态
 ---
 
 # MetaMorph: Multimodal Understanding and Generation via Instruction Tuning

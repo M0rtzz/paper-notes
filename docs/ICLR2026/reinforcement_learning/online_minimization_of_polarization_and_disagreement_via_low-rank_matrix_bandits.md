@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Online Minimization of Polarization and Disagreement via Low-Rank Matrix Bandits 论文解读 | ICLR2026 | arXiv 2510.00803 | 观点极化 | 将社交网络中极化与分歧最小化问题建模为在线低秩矩阵bandit问题，提出两阶段算法OPD-Min-ESTR（先估计子空间再低维线性bandit），将维度从 |V|² 降至 O(|V|)，实现 tildeO(max1/κ, sqrt|V|sqrt|V|T) 累积遗憾。"
+title: >-
+  [论文解读] Online Minimization of Polarization and Disagreement via Low-Rank Matrix Bandits
+description: >-
+  [ICLR2026][观点极化] 将社交网络中极化与分歧最小化问题建模为在线低秩矩阵bandit问题，提出两阶段算法OPD-Min-ESTR（先估计子空间再低维线性bandit），将维度从 $|V|^2$ 降至 $O(|V|)$，实现 $\tilde{O}(\max\{1/\kappa, \sqrt{|V|}\}\sqrt{|V|T})$ 累积遗憾。
 tags:
   - ICLR2026
   - 观点极化

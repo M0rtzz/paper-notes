@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TimeBill: Time-Budgeted Inference for Large Language Models 论文解读 | AAAI 2026 | arXiv 2512.21859 | 时间预算推理 | 提出TimeBill框架，通过细粒度响应长度预测器（RLP）和工作负载引导的执行时间估计器（ETE），在给定时间预算下自适应调整KV Cache驱逐比例，在保证推理完成率的同时最大化LLM响应质量。"
+title: >-
+  [论文解读] TimeBill: Time-Budgeted Inference for Large Language Models
+description: >-
+  [AAAI 2026][自动驾驶][时间预算推理] 提出TimeBill框架，通过细粒度响应长度预测器（RLP）和工作负载引导的执行时间估计器（ETE），在给定时间预算下自适应调整KV Cache驱逐比例，在保证推理完成率的同时最大化LLM响应质量。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 时间预算推理
   - KV Cache驱逐
   - 响应长度预测

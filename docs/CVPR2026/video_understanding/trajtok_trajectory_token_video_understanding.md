@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TrajTok: 学习轨迹Token实现更好的视频理解 论文解读 | CVPR 2026 | arXiv 2602.22779 | 视频token化 | 提出TrajTok——首个端到端可微的轨迹视频tokenizer，通过隐式时空聚类将视频编码为物体轨迹token，无需外部分割/跟踪管线，在分类、检索和长视频QA上全面超越patch-based方法。"
+title: >-
+  [论文解读] TrajTok: 学习轨迹Token实现更好的视频理解
+description: >-
+  [CVPR 2026][视频理解][视频token化] 提出TrajTok——首个端到端可微的轨迹视频tokenizer，通过隐式时空聚类将视频编码为物体轨迹token，无需外部分割/跟踪管线，在分类、检索和长视频QA上全面超越patch-based方法。
 tags:
   - CVPR 2026
+  - 视频理解
   - 视频token化
   - 轨迹token
   - 视频效率

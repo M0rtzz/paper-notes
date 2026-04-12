@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Improving Forecasts of Suicide Attempts for Patients with Little Data 论文解读 | NeurIPS 2025 (TS4H Workshop) | arXiv 2511.18199 | Gaussian Process | 提出 Latent Similarity Gaussian Process (LSGP)，将患者嵌入连续隐空间以捕获异质性，使数据稀少的患者能从相似患者\"借用\"预测趋势，从而改进基于 EMA 数据的自杀未遂预测。"
+title: >-
+  [论文解读] Improving Forecasts of Suicide Attempts for Patients with Little Data
+description: >-
+  [NeurIPS 2025 (TS4H Workshop)][Gaussian Process] 提出 Latent Similarity Gaussian Process (LSGP)，将患者嵌入连续隐空间以捕获异质性，使数据稀少的患者能从相似患者"借用"预测趋势，从而改进基于 EMA 数据的自杀未遂预测。
 tags:
   - NeurIPS 2025 (TS4H Workshop)
   - Gaussian Process

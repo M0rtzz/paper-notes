@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Non-stationary Online Learning for Curved Losses: Improved Dynamic Regret via Mixability 论文解读 | ICML2025 | arXiv 2506.10616 | 动态遗憾 | 利用 mixability（可混合性）概念替代传统 KKT 分析，提出基于指数权重+fixed-share更新的连续空间在线学习框架，将弯曲损失函数（squared/logistic loss）的动态遗憾中对维度 $d$ 的依赖从 $O(d^{10/3})$ 大幅改进至 $O(d)$。"
+title: >-
+  [论文解读] Non-stationary Online Learning for Curved Losses: Improved Dynamic Regret via Mixability
+description: >-
+  [ICML2025][动态遗憾] 利用 mixability（可混合性）概念替代传统 KKT 分析，提出基于指数权重+fixed-share更新的连续空间在线学习框架，将弯曲损失函数（squared/logistic loss）的动态遗憾中对维度 $d$ 的依赖从 $O(d^{10/3})$ 大幅改进至 $O(d)$。
 tags:
   - ICML2025
   - 动态遗憾

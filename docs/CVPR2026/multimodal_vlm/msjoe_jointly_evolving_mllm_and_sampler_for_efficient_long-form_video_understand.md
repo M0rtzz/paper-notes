@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MSJoE: Jointly Evolving MLLM and Sampler for Efficient Long-Form Video Understanding 论文解读 | CVPR 2026 | arXiv 2602.22932 | 长视频理解 | 提出 MSJoE 框架，将 MLLM 和轻量关键帧采样器通过强化学习联合进化——MLLM 生成视觉查询引导帧检索，1D U-Net 采样器从 CLIP 相似度矩阵中学习选帧，两者端到端联合优化实现长视频问答中 +8% 的准确率提升。"
+title: >-
+  [论文解读] MSJoE: Jointly Evolving MLLM and Sampler for Efficient Long-Form Video Understanding
+description: >-
+  [CVPR 2026][多模态][长视频理解] 提出 MSJoE 框架，将 MLLM 和轻量关键帧采样器通过强化学习联合进化——MLLM 生成视觉查询引导帧检索，1D U-Net 采样器从 CLIP 相似度矩阵中学习选帧，两者端到端联合优化实现长视频问答中 +8% 的准确率提升。
 tags:
   - CVPR 2026
+  - 多模态
   - 长视频理解
   - 关键帧采样
   - 强化学习

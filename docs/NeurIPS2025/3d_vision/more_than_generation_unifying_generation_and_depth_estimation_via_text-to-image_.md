@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】More Than Generation: Unifying Generation and Depth Estimation via Text-to-Image Diffusion Models 论文解读 | NeurIPS 2025 | arXiv 2510.23574 | 深度估计 | Merge提出了一种即插即用的框架，在固定的预训练T2I扩散模型前插入轻量级可学习的Converter，仅用约12%的额外参数就能赋予模型深度估计能力，同时完美保留原有的图像生成能力，在多个零样本深度估计基准上达到了统一模型的SOTA。"
+title: >-
+  [论文解读] More Than Generation: Unifying Generation and Depth Estimation via Text-to-Image Diffusion Models
+description: >-
+  [NeurIPS 2025][3D视觉][深度估计] Merge提出了一种即插即用的框架，在固定的预训练T2I扩散模型前插入轻量级可学习的Converter，仅用约12%的额外参数就能赋予模型深度估计能力，同时完美保留原有的图像生成能力，在多个零样本深度估计基准上达到了统一模型的SOTA。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 深度估计
   - 文本到图像扩散模型
   - 参数高效微调

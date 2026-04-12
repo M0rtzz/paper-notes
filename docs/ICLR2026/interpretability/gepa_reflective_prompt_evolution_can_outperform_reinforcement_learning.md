@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning 论文解读 | ICLR 2026 (Oral) | arXiv 2507.19457 | 提示优化 | 提出 GEPA（Genetic-Pareto）提示优化器，通过自然语言反思从少量执行轨迹中诊断问题并迭代优化提示，在六个任务上平均超越 GRPO 6%（最高20%），同时仅使用 1/35 的采样量。"
+title: >-
+  [论文解读] GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning
+description: >-
+  [ICLR 2026 (Oral)][提示优化] 提出 GEPA（Genetic-Pareto）提示优化器，通过自然语言反思从少量执行轨迹中诊断问题并迭代优化提示，在六个任务上平均超越 GRPO 6%（最高20%），同时仅使用 1/35 的采样量。
 tags:
   - ICLR 2026 (Oral)
   - 提示优化

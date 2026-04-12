@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】\"My life is miserable, have to sign 500 autographs everyday\": Exposing Humblebragging, the Brags in Disguise 论文解读 | ACL 2025 | arXiv 2412.20057 | Humblebragging | 首次将 humblebragging（谦虚式自夸）检测引入计算语言学领域，提出了一个4元组形式化定义，构建了 HB-24 合成数据集，并在 ML/DL/LLM 上进行了全面基准评估，GPT-4o 在 zero-shot+定义 设定下达到 0.88 F1，超越人类标注者。"
+title: >-
+  [论文解读] "My life is miserable, have to sign 500 autographs everyday": Exposing Humblebragging, the Brags in Disguise
+description: >-
+  [ACL 2025][Humblebragging] 首次将 humblebragging（谦虚式自夸）检测引入计算语言学领域，提出了一个4元组形式化定义，构建了 HB-24 合成数据集，并在 ML/DL/LLM 上进行了全面基准评估，GPT-4o 在 zero-shot+定义 设定下达到 0.88 F1，超越人类标注者。
 tags:
   - ACL 2025
   - Humblebragging

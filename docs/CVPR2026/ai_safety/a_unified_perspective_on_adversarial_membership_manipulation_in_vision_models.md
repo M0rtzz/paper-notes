@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Unified Perspective on Adversarial Membership Manipulation in Vision Models 论文解读 | CVPR 2026 | arXiv 2604.02780 | 成员推断攻击 | 首次揭示视觉模型成员推断攻击(MIA)面临的对抗性成员操纵漏洞——不可感知扰动可将非成员伪造为成员欺骗审计，发现伪造成员的梯度范数塌缩特征签名，并提出基于梯度几何的检测策略和对抗鲁棒推断框架。"
+title: >-
+  [论文解读] A Unified Perspective on Adversarial Membership Manipulation in Vision Models
+description: >-
+  [CVPR 2026][AI安全][成员推断攻击] 首次揭示视觉模型成员推断攻击(MIA)面临的对抗性成员操纵漏洞——不可感知扰动可将非成员伪造为成员欺骗审计，发现伪造成员的梯度范数塌缩特征签名，并提出基于梯度几何的检测策略和对抗鲁棒推断框架。
 tags:
   - CVPR 2026
+  - AI安全
   - 成员推断攻击
   - 对抗成员伪造
   - 梯度范数

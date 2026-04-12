@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SDF-Net: Structure-Aware Disentangled Feature Learning for Optical–SAR Ship Re-Identification 论文解读 | CVPR2025 | arXiv 2603.12588 | 光学-SAR | 提出 SDF-Net，利用船舶作为刚体的物理先验，在 ViT 中间层提取尺度不变的梯度能量统计量作为跨模态几何锚点，并在终端层将特征解耦为模态不变共享特征和模态特定特征后通过加性残差融合，实现光学-SAR 船舶重识别 SOTA。"
+title: >-
+  [论文解读] SDF-Net: Structure-Aware Disentangled Feature Learning for Optical–SAR Ship Re-Identification
+description: >-
+  [CVPR2025][光学-SAR] 提出 SDF-Net，利用船舶作为刚体的物理先验，在 ViT 中间层提取尺度不变的梯度能量统计量作为跨模态几何锚点，并在终端层将特征解耦为模态不变共享特征和模态特定特征后通过加性残差融合，实现光学-SAR 船舶重识别 SOTA。
 tags:
   - CVPR2025
   - 光学-SAR

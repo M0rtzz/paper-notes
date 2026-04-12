@@ -1,7 +1,14 @@
-<!-- 由 src/gen_blog_index.py 自动生成 -->
-# 💬 LLM / NLP
+---
+title: >-
+  ECCV2024 LLM/NLP方向 5篇论文解读
+description: >-
+  5篇ECCV2024 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
 
-**🎞️ ECCV2024** · 共 **6** 篇
+<!-- 由 src/gen_blog_index.py 自动生成 -->
+# 💬 LLM/NLP
+
+**🎞️ ECCV2024** · 共 **5** 篇
 
 **[Adaclip Adapting Clip With Hybrid Learnable Prompts For Zero](adaclip_adapting_clip_with_hybrid_learnable_prompts_for_zero.md)**
 
@@ -22,7 +29,3 @@
 **[Reprojection Errors As Prompts For Efficient Scene Coordinate Regression](reprojection_errors_as_prompts_for_efficient_scene_coordinate_regression.md)**
 
 :   本文提出 EGFS（Error-Guided Feature Selection）机制，利用低重投影误差区域作为 SAM 的 point prompts 扩展为语义掩码，迭代地筛选可靠训练样本，在 Cambridge Landmarks 和 Indoor6 数据集上以更小模型和更少训练时间超越现有无 3D 信息依赖的 SCR 方法。
-
-**[Zero-Shot Object Counting with Good Exemplars (VA-Count)](zeroshot_object_counting_with_good_exemplars.md)**
-
-:   提出 VA-Count，一种基于视觉关联的零样本物体计数框架，通过 Grounding DINO 驱动的样例增强模块和对比学习噪声抑制模块，为任意类别建立高质量样例与图像间的鲁棒视觉关联。

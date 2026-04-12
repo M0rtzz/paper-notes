@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Chameleon: A Data-Efficient Generalist for Dense Visual Prediction in the Wild 论文解读 | ECCV2024 | arXiv 2404.18459 | vision generalist | 提出 Chameleon，一个基于 meta-learning 和 token matching 的数据高效视觉通才模型，仅需几十张标注图像即可适应全新的密集预测任务（包括医学图像、视频、3D 等），在六个下游基准上显著超越现有通才方法。"
+title: >-
+  [论文解读] Chameleon: A Data-Efficient Generalist for Dense Visual Prediction in the Wild
+description: >-
+  [ECCV2024][医学图像][vision generalist] 提出 Chameleon，一个基于 meta-learning 和 token matching 的数据高效视觉通才模型，仅需几十张标注图像即可适应全新的密集预测任务（包括医学图像、视频、3D 等），在六个下游基准上显著超越现有通才方法。
 tags:
   - ECCV2024
+  - 医学图像
   - vision generalist
   - low-shot learning
   - dense prediction

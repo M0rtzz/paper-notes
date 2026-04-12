@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Disentangling Shared and Private Neural Dynamics with SPIRE: A Latent Modeling Framework for Deep Brain Stimulation 论文解读 | ICLR2026 | arXiv 2510.25023 | latent variable model | 提出 SPIRE（Shared–Private Inter-Regional Encoder），一种深度多编码器自编码器，将多脑区神经记录分解为跨区域共享和区域专属的潜在子空间，仅在基线数据上训练即可揭示深脑刺激（DBS）引发的网络级动态重组。"
+title: >-
+  [论文解读] Disentangling Shared and Private Neural Dynamics with SPIRE: A Latent Modeling Framework for Deep Brain Stimulation
+description: >-
+  [ICLR2026][latent variable model] 提出 SPIRE（Shared–Private Inter-Regional Encoder），一种深度多编码器自编码器，将多脑区神经记录分解为跨区域共享和区域专属的潜在子空间，仅在基线数据上训练即可揭示深脑刺激（DBS）引发的网络级动态重组。
 tags:
   - ICLR2026
   - latent variable model

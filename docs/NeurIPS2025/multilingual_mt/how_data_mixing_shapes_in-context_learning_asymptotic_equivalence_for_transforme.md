@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How Data Mixing Shapes In-Context Learning: Asymptotic Equivalence for Transformers with MLPs 论文解读 | NeurIPS 2025 | arXiv 2510.25753 | In-Context Learning | 在高维渐近框架下证明了带非线性MLP头的Transformer在ICL误差上等价于结构化多项式预测器，揭示了非线性MLP对非线性任务的增益机制，以及多源数据混合中低噪声和结构化协方差是高质量数据源的关键特征。"
+title: >-
+  [论文解读] How Data Mixing Shapes In-Context Learning: Asymptotic Equivalence for Transformers with MLPs
+description: >-
+  [NeurIPS 2025][In-Context Learning] 在高维渐近框架下证明了带非线性MLP头的Transformer在ICL误差上等价于结构化多项式预测器，揭示了非线性MLP对非线性任务的增益机制，以及多源数据混合中低噪声和结构化协方差是高质量数据源的关键特征。
 tags:
   - NeurIPS 2025
   - In-Context Learning

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Instructed Derived Prompt Generation Meets In-Context Learning: Unlocking New Potential of Black-Box LLMs 论文解读 | ACL 2025 | arXiv 2409.01552 | 提示优化 | 提出一种自指导强化学习框架来训练\"派生提示生成模型\"，并将派生提示-响应对作为上下文学习（ICL）示例来增强原始提示的查询，在不修改黑盒 LLM（如 GPT-4）参数的情况下显著提升响应质量。"
+title: >-
+  [论文解读] Self-Instructed Derived Prompt Generation Meets In-Context Learning: Unlocking New Potential of Black-Box LLMs
+description: >-
+  [ACL 2025][LLM/NLP][提示优化] 提出一种自指导强化学习框架来训练"派生提示生成模型"，并将派生提示-响应对作为上下文学习（ICL）示例来增强原始提示的查询，在不修改黑盒 LLM（如 GPT-4）参数的情况下显著提升响应质量。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 提示优化
   - 黑盒LLM对齐
   - 上下文学习

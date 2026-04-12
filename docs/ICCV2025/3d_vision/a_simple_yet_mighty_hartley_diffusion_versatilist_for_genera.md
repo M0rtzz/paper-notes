@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Simple yet Mighty Hartley Diffusion Versatilist for Generalizable Dense Vision Tasks 论文解读 | ICCV 2025 | 扩散模型 | 提出HarDiff——基于离散Hartley变换的频域学习策略，通过低频训练（从源域提取结构先验）和高频采样（利用目标域细节引导）增强扩散模型在稠密视觉任务上的跨域泛化能力，在语义分割、深度估计和去雾等12个基准上取得SOTA。"
+title: >-
+  [论文解读] A Simple yet Mighty Hartley Diffusion Versatilist for Generalizable Dense Vision Tasks
+description: >-
+  [ICCV 2025][3D视觉][扩散模型] 提出HarDiff——基于离散Hartley变换的频域学习策略，通过低频训练（从源域提取结构先验）和高频采样（利用目标域细节引导）增强扩散模型在稠密视觉任务上的跨域泛化能力，在语义分割、深度估计和去雾等12个基准上取得SOTA。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 扩散模型
   - 离散Hartley变换
   - 域泛化

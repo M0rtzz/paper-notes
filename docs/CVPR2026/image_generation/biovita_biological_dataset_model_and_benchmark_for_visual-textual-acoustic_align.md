@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BioVITA: Biological Dataset, Model, and Benchmark for Visual-Textual-Acoustic Alignment 论文解读 | CVPR 2026 | arXiv 2603.23883 | 视觉-文本-声音对齐 | 提出 BioVITA 框架，包含百万级三模态（图像-文本-音频）生物数据集、两阶段对齐模型和六方向跨模态物种级检索基准，首次实现生物领域视觉-文本-声音统一表示学习。"
+title: >-
+  [论文解读] BioVITA: Biological Dataset, Model, and Benchmark for Visual-Textual-Acoustic Alignment
+description: >-
+  [CVPR 2026][图像生成][视觉-文本-声音对齐] 提出 BioVITA 框架，包含百万级三模态（图像-文本-音频）生物数据集、两阶段对齐模型和六方向跨模态物种级检索基准，首次实现生物领域视觉-文本-声音统一表示学习。
 tags:
   - CVPR 2026
+  - 图像生成
   - 视觉-文本-声音对齐
   - 跨模态检索
   - 生物声学

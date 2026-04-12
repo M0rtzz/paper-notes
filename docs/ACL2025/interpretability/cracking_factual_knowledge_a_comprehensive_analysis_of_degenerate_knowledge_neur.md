@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models 论文解读 | ACL 2025 | arXiv 2402.13731 | 知识神经元 | 本文从结构和功能两个角度对大语言模型中的退化知识神经元（DKN）进行了严格定义和系统研究，提出了神经拓扑聚类（NTC）方法来精确获取DKN，并通过34个实验验证了DKN与模型鲁棒性、可进化性和复杂性之间的关系。"
+title: >-
+  [论文解读] Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models
+description: >-
+  [ACL 2025][知识神经元] 本文从结构和功能两个角度对大语言模型中的退化知识神经元（DKN）进行了严格定义和系统研究，提出了神经拓扑聚类（NTC）方法来精确获取DKN，并通过34个实验验证了DKN与模型鲁棒性、可进化性和复杂性之间的关系。
 tags:
   - ACL 2025
   - 知识神经元

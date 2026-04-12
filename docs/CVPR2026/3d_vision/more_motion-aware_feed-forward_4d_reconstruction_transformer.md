@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoRe: Motion-aware Feed-forward 4D Reconstruction Transformer 论文解读 | CVPR 2026 | arXiv 2603.05078 | 4D重建 | 提出 MoRe，一种前馈式运动感知 4D 重建 Transformer，通过注意力强制策略在训练时解耦动态运动与静态结构，结合分组因果注意力实现高效流式推理，在动态场景的相机位姿估计和深度预测上达到 SOTA。"
+title: >-
+  [论文解读] MoRe: Motion-aware Feed-forward 4D Reconstruction Transformer
+description: >-
+  [CVPR 2026][3D视觉][4D重建] 提出 MoRe，一种前馈式运动感知 4D 重建 Transformer，通过注意力强制策略在训练时解耦动态运动与静态结构，结合分组因果注意力实现高效流式推理，在动态场景的相机位姿估计和深度预测上达到 SOTA。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 4D重建
   - 动态场景
   - 注意力强制

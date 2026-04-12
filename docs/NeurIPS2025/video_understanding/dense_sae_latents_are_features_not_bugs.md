@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dense SAE Latents Are Features, Not Bugs 论文解读 | NeurIPS 2025 | arXiv 2506.15679 | SAE | 本文系统研究了稀疏自编码器(SAE)中频繁激活的\"dense latents\"，证明它们不是训练噪声，而是语言模型残差流中固有的密集子空间的反映，并提出了一套包含位置追踪、上下文绑定、零空间、字母、词性和PCA等六类dense latent的分类体系。"
+title: >-
+  [论文解读] Dense SAE Latents Are Features, Not Bugs
+description: >-
+  [NeurIPS 2025][视频理解][SAE] 本文系统研究了稀疏自编码器(SAE)中频繁激活的"dense latents"，证明它们不是训练噪声，而是语言模型残差流中固有的密集子空间的反映，并提出了一套包含位置追踪、上下文绑定、零空间、字母、词性和PCA等六类dense latent的分类体系。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - SAE
   - dense latents
   - antipodal pairs

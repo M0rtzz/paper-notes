@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OmniGaze: Reward-inspired Generalizable Gaze Estimation in the Wild 论文解读 | NeurIPS 2025 | arXiv 2510.13660 | 注视估计 | 提出OmniGaze，一个半监督3D注视估计框架，利用融合视觉嵌入、MLLM生成的语义注视描述和几何方向向量的奖励模型来评估伪标签质量，在140万无标签人脸数据上训练，在5个数据集的域内/跨域设置下达到SOTA，并在4个未见数据集上展示零样本泛化能力。"
+title: >-
+  [论文解读] OmniGaze: Reward-inspired Generalizable Gaze Estimation in the Wild
+description: >-
+  [NeurIPS 2025][多模态][注视估计] 提出OmniGaze，一个半监督3D注视估计框架，利用融合视觉嵌入、MLLM生成的语义注视描述和几何方向向量的奖励模型来评估伪标签质量，在140万无标签人脸数据上训练，在5个数据集的域内/跨域设置下达到SOTA，并在4个未见数据集上展示零样本泛化能力。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 注视估计
   - 半监督学习
   - 伪标签

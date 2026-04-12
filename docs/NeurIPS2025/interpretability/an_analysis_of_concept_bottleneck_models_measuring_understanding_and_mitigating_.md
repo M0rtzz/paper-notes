@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】An Analysis of Concept Bottleneck Models: Measuring, Understanding, and Mitigating Noisy Annotations 论文解读 | NeurIPS 2025 | arXiv 2505.16705 | 概念瓶颈模型 | 首次系统研究噪声概念标注对 CBM 的影响——发现即使中等噪声也同时损害预测性能、可解释性和干预效果，识别出\"脆弱概念\"子集是性能下降的主因，提出训练阶段用 SAM 稳定脆弱概念学习 + 推断阶段用预测熵排序仅校正最不确定概念的两阶段缓解框架。"
+title: >-
+  [论文解读] An Analysis of Concept Bottleneck Models: Measuring, Understanding, and Mitigating Noisy Annotations
+description: >-
+  [NeurIPS 2025][概念瓶颈模型] 首次系统研究噪声概念标注对 CBM 的影响——发现即使中等噪声也同时损害预测性能、可解释性和干预效果，识别出"脆弱概念"子集是性能下降的主因，提出训练阶段用 SAM 稳定脆弱概念学习 + 推断阶段用预测熵排序仅校正最不确定概念的两阶段缓解框架。
 tags:
   - NeurIPS 2025
   - 概念瓶颈模型

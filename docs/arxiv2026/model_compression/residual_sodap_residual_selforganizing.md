@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning 论文解读 | arXiv 2026 | arXiv 2603.12816 | residual | 持续学习（CL）会遭受灾难性遗忘，而在领域增量学习（DIL）中，这种情况会更加严重，因为任务标识符不可用，并且存储过去的数据也不可行。"
+title: >-
+  [论文解读] Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning
+description: >-
+  [arXiv 2026][模型压缩][residual] 持续学习（CL）会遭受灾难性遗忘，而在领域增量学习（DIL）中，这种情况会更加严重，因为任务标识符不可用，并且存储过去的数据也不可行。
 tags:
   - arXiv 2026
+  - 模型压缩
   - residual
   - sodap
   - GAN

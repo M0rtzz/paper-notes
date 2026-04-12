@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ODLRI: Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition 论文解读 | ACL 2025 | arXiv 2506.02077 | 权重分解 | 提出 ODLRI（Outlier-Driven Low-Rank Initialization）——在量化+低秩联合权重分解 W ≈ Q + LR 中，将低秩分量专门分配给捕获激活敏感权重（异常值相关），量化分量处理剩余权重。通过这种\"角色分配\"初始化，稳定量化、降低激活感知误差，在 Llama2/3 和 Mistral 的低比特设置中一致提升困惑度和零样本精度。"
+title: >-
+  [论文解读] ODLRI: Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition
+description: >-
+  [ACL 2025][模型压缩][权重分解] 提出 ODLRI（Outlier-Driven Low-Rank Initialization）——在量化+低秩联合权重分解 $\mathbf{W} \approx \mathbf{Q} + \mathbf{LR}$ 中，将低秩分量专门分配给捕获激活敏感权重（异常值相关），量化分量处理剩余权重。通过这种"角色分配"初始化，稳定量化、降低激活感知误差，在 Llama2/3 和 Mistral 的低比特设置中一致提升困惑度和零样本精度。
 tags:
   - ACL 2025
+  - 模型压缩
   - 权重分解
   - 量化
   - 低秩近似

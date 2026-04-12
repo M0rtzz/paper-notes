@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction 论文解读 | AAAI 2026 | arXiv 2511.14633 | 稀疏视角 | 提出 SparseSurf，通过立体几何-纹理对齐（Stereo Geometry-Texture Alignment）和伪特征增强几何一致性（Pseudo-Feature Enhanced Geometry Consistency），在稀疏视角下同时实现高精度表面重建和高质量新视角合成，在 DTU、BlendedMVS 和 Mip-NeRF360 数据集上达到 SOTA。"
+title: >-
+  [论文解读] SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction
+description: >-
+  [AAAI 2026][3D视觉][稀疏视角] 提出 SparseSurf，通过立体几何-纹理对齐（Stereo Geometry-Texture Alignment）和伪特征增强几何一致性（Pseudo-Feature Enhanced Geometry Consistency），在稀疏视角下同时实现高精度表面重建和高质量新视角合成，在 DTU、BlendedMVS 和 Mip-NeRF360 数据集上达到 SOTA。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 稀疏视角
   - 表面重建
   - 高斯溅射

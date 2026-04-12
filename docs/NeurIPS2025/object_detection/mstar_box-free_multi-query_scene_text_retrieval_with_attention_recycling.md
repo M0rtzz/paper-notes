@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MSTAR: Box-Free Multi-Query Scene Text Retrieval with Attention Recycling 论文解读 | NeurIPS 2025 | arXiv 2506.10609 | 场景文本检索 | 提出 MSTAR，首个无需边界框标注的多查询场景文本检索方法，通过渐进式视觉嵌入（PVE）逐步将注意力从显著区域转移到不显著区域，结合风格感知指令和多实例匹配模块，实现了对单词、短语、组合和语义四种查询类型的统一检索，并构建了首个多查询文本检索基准 MQTR。"
+title: >-
+  [论文解读] MSTAR: Box-Free Multi-Query Scene Text Retrieval with Attention Recycling
+description: >-
+  [NeurIPS 2025][目标检测][场景文本检索] 提出 MSTAR，首个无需边界框标注的多查询场景文本检索方法，通过渐进式视觉嵌入（PVE）逐步将注意力从显著区域转移到不显著区域，结合风格感知指令和多实例匹配模块，实现了对单词、短语、组合和语义四种查询类型的统一检索，并构建了首个多查询文本检索基准 MQTR。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - 场景文本检索
   - 无框注释
   - 多查询检索

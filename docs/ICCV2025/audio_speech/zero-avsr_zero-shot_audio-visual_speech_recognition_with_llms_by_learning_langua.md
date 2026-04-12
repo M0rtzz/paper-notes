@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations 论文解读 | ICCV 2025 | arXiv 2503.06273 | 零样本语音识别 | 提出 Zero-AVSR 框架，通过将语音转写为语言无关的罗马化文本（Roman text），再利用 LLM 将罗马文本转换为目标语言文字，实现无需目标语言语音数据的零样本视听语音识别，并构建了覆盖 82 种语言、2916 小时的 MARC 数据集。"
+title: >-
+  [论文解读] Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations
+description: >-
+  [ICCV 2025][语音][零样本语音识别] 提出 Zero-AVSR 框架，通过将语音转写为语言无关的罗马化文本（Roman text），再利用 LLM 将罗马文本转换为目标语言文字，实现无需目标语言语音数据的零样本视听语音识别，并构建了覆盖 82 种语言、2916 小时的 MARC 数据集。
 tags:
   - ICCV 2025
+  - 语音
   - 零样本语音识别
   - 视听语音识别
   - 罗马化文本

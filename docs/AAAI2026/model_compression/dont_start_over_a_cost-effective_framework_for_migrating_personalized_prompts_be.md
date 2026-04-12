@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Don't Start Over: A Cost-Effective Framework for Migrating Personalized Prompts Between LLMs 论文解读 | AAAI 2026 | arXiv 2601.12034 | 软提示迁移 | 提出PUMA框架，通过轻量级适配器和分组用户选择策略，高效地将个性化软提示从源LLM迁移到不同架构的目标LLM，在三个大规模数据集上匹配甚至超越从头训练的性能，同时减少计算成本高达98%。"
+title: >-
+  [论文解读] Don't Start Over: A Cost-Effective Framework for Migrating Personalized Prompts Between LLMs
+description: >-
+  [AAAI 2026][模型压缩][软提示迁移] 提出PUMA框架，通过轻量级适配器和分组用户选择策略，高效地将个性化软提示从源LLM迁移到不同架构的目标LLM，在三个大规模数据集上匹配甚至超越从头训练的性能，同时减少计算成本高达98%。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 软提示迁移
   - 个性化
   - LLM

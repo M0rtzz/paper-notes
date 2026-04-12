@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement 论文解读 | AAAI 2026 | arXiv 2511.13300 | 语音增强 | 提出 PASE 框架，通过去噪表示蒸馏（DRD）利用预训练 WavLM 中鲁棒的音韵先验来抑制语言幻觉，同时采用双流表示（高层音素 + 低层声学）消除声学幻觉，在感知质量和内容保真度两方面同时达到 SOTA。"
+title: >-
+  [论文解读] PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement
+description: >-
+  [AAAI 2026][目标检测][语音增强] 提出 PASE 框架，通过去噪表示蒸馏（DRD）利用预训练 WavLM 中鲁棒的音韵先验来抑制语言幻觉，同时采用双流表示（高层音素 + 低层声学）消除声学幻觉，在感知质量和内容保真度两方面同时达到 SOTA。
 tags:
   - AAAI 2026
+  - 目标检测
   - 语音增强
   - 幻觉抑制
   - WavLM

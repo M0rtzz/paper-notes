@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ACT as Human: Multimodal Large Language Model Data Annotation with Critical Thinking 论文解读 | NeurIPS 2025 | arXiv 2511.09833 | data annotation | 提出ACT（Annotation with Critical Thinking）流水线，先用MLLM批量标注数据，再用另一个MLLM作为\"批评者\"识别可能的错误标注，仅让人类审核被标记的样本，在减少70-90%人工标注成本的同时将性能差距控制在<2%。"
+title: >-
+  [论文解读] ACT as Human: Multimodal Large Language Model Data Annotation with Critical Thinking
+description: >-
+  [NeurIPS 2025][多模态][data annotation] 提出ACT（Annotation with Critical Thinking）流水线，先用MLLM批量标注数据，再用另一个MLLM作为"批评者"识别可能的错误标注，仅让人类审核被标记的样本，在减少70-90%人工标注成本的同时将性能差距控制在<2%。
 tags:
   - NeurIPS 2025
+  - 多模态
   - data annotation
   - critical thinking
   - MLLM

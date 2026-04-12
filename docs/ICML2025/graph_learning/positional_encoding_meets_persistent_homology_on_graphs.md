@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Positional Encoding meets Persistent Homology on Graphs 论文解读 | ICML2025 | arXiv 2506.05814 | 位置编码 | 理论证明位置编码（PE）和持续同调（PH）互不可比——各存在对方失败但自身成功的图构造，提出 PiPE 方法统一两者，可证明比单独使用更具表达力，在分子/分类/OOD任务上表现优异。"
+title: >-
+  [论文解读] Positional Encoding meets Persistent Homology on Graphs
+description: >-
+  [ICML2025][图学习][位置编码] 理论证明位置编码（PE）和持续同调（PH）互不可比——各存在对方失败但自身成功的图构造，提出 PiPE 方法统一两者，可证明比单独使用更具表达力，在分子/分类/OOD任务上表现优异。
 tags:
   - ICML2025
+  - 图学习
   - 位置编码
   - 持续同调
   - 图表达力

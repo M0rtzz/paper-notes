@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications 论文解读 | ACL 2025 | arXiv 2501.02460 | 医疗RAG | 针对医疗 LLM 需要多类型多结构知识源（教科书/指南/论文/知识图谱等）的特殊需求，提出 MedOmniKB 多源知识库和 Source Planning Optimization 方法——让模型学会\"该从哪个源检索什么信息\"，优化后的小模型在多源医疗知识利用上达到 SOTA。"
+title: >-
+  [论文解读] Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications
+description: >-
+  [ACL 2025][医学图像][医疗RAG] 针对医疗 LLM 需要多类型多结构知识源（教科书/指南/论文/知识图谱等）的特殊需求，提出 MedOmniKB 多源知识库和 Source Planning Optimization 方法——让模型学会"该从哪个源检索什么信息"，优化后的小模型在多源医疗知识利用上达到 SOTA。
 tags:
   - ACL 2025
+  - 医学图像
   - 医疗RAG
   - 多源检索
   - 源规划优化

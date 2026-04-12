@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Factuality Matters: When Image Generation and Editing Meet Structured Visuals 论文解读 | ICLR2026 | arXiv 2510.05091 | 图像生成 structured image generation | 首个系统性研究结构化图像（图表、数学公式、示意图等）生成与编辑的工作，构建了130万对代码对齐的训练数据集（含 CoT 推理标注）、统一的 VLM+扩散模型架构以及包含1700+样本的 StructBench 基准评测，揭示了推理能力是当前模型处理结构化视觉内容的关键瓶颈。"
+title: >-
+  [论文解读] Factuality Matters: When Image Generation and Editing Meet Structured Visuals
+description: >-
+  [ICLR2026][图像生成][图像生成] 首个系统性研究结构化图像（图表、数学公式、示意图等）生成与编辑的工作，构建了130万对代码对齐的训练数据集（含 CoT 推理标注）、统一的 VLM+扩散模型架构以及包含1700+样本的 StructBench 基准评测，揭示了推理能力是当前模型处理结构化视觉内容的关键瓶颈。
 tags:
   - ICLR2026
   - 图像生成

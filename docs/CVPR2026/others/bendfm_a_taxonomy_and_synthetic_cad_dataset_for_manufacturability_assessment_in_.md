@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending 论文解读 | CVPR2026 | arXiv 2603.13102 | Design for Manufacturing | 提出可制造性度量的二维分类法（配置依赖性 × 可行性/复杂度），并构建首个面向钣金弯曲的合成数据集 BenDFM（20k零件），基准测试表明图结构表示（UV-Net）优于点云表示（PointNext），且配置依赖型指标更难预测。"
+title: >-
+  [论文解读] BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending
+description: >-
+  [CVPR2026][Design for Manufacturing] 提出可制造性度量的二维分类法（配置依赖性 × 可行性/复杂度），并构建首个面向钣金弯曲的合成数据集 BenDFM（20k零件），基准测试表明图结构表示（UV-Net）优于点云表示（PointNext），且配置依赖型指标更难预测。
 tags:
   - CVPR2026
   - Design for Manufacturing

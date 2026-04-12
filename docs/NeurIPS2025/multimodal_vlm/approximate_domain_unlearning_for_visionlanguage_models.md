@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Approximate Domain Unlearning for Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.08132 | approximate unlearning | 提出 Approximate Domain Unlearning (ADU) 新任务，通过 Domain Disentangling Loss (DDL) 和 Instance-wise Prompt Generator (InstaPG) 两个模块，让预训练 VLM 选择性遗忘指定域（如插画、素描）的识别能力，同时保持其他域（如真实照片）的分类精度，在四个多域数据集上大幅超越所有基线。"
+title: >-
+  [论文解读] Approximate Domain Unlearning for Vision-Language Models
+description: >-
+  [NeurIPS 2025][多模态][approximate unlearning] 提出 Approximate Domain Unlearning (ADU) 新任务，通过 Domain Disentangling Loss (DDL) 和 Instance-wise Prompt Generator (InstaPG) 两个模块，让预训练 VLM 选择性遗忘指定域（如插画、素描）的识别能力，同时保持其他域（如真实照片）的分类精度，在四个多域数据集上大幅超越所有基线。
 tags:
   - NeurIPS 2025
+  - 多模态
   - approximate unlearning
   - domain unlearning
   - 视觉语言

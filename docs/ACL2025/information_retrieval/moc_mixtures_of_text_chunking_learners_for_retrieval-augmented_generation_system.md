@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MoC: Mixtures of Text Chunking Learners for Retrieval-Augmented Generation System 论文解读 | 提出 Boundary Clarity 和 Chunk Stickiness 两个直接量化分块质量的指标，以及基于粒度感知混合专家（MoC）的文本分块框架，通过正则表达式引导的轻量化分块策略在 RAG 系统中取得优于传统方法和大模型直接分块的性能。"
+title: >-
+  [论文解读] MoC: Mixtures of Text Chunking Learners for Retrieval-Augmented Generation System
+description: >-
+   提出 Boundary Clarity 和 Chunk Stickiness 两个直接量化分块质量的指标，以及基于粒度感知混合专家（MoC）的文本分块框架，通过正则表达式引导的轻量化分块策略在 RAG 系统中取得优于传统方法和大模型直接分块的性能。
 tags:
 
 ---

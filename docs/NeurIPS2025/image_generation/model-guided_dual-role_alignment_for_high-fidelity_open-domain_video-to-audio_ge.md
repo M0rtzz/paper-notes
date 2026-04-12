@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MGAudio: Model-Guided Dual-Role Alignment for High-Fidelity Open-Domain Video-to-Audio Generation 论文解读 | NeurIPS 2025 | arXiv 2510.24103 | 视频到音频 | 提出MGAudio，首个采用模型引导(MG)训练替代无分类器引导(CFG)的视频到音频生成框架，结合双角色音视频编码器（同时用于条件注入和特征对齐），以131M参数在VGGSound上实现SOTA（FAD=0.40），且仅用10%数据即可超越多数方法。"
+title: >-
+  [论文解读] MGAudio: Model-Guided Dual-Role Alignment for High-Fidelity Open-Domain Video-to-Audio Generation
+description: >-
+  [NeurIPS 2025][图像生成][视频到音频] 提出MGAudio，首个采用模型引导(MG)训练替代无分类器引导(CFG)的视频到音频生成框架，结合双角色音视频编码器（同时用于条件注入和特征对齐），以131M参数在VGGSound上实现SOTA（FAD=0.40），且仅用10%数据即可超越多数方法。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 视频到音频
   - 模型引导
   - 流匹配

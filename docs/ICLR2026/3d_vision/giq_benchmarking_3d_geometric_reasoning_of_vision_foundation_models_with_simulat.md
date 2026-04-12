@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GIQ: Benchmarking 3D Geometric Reasoning of Vision Foundation Models with Simulated and Real Polyhedra 论文解读 | ICLR 2026 | arXiv 2506.08194 | 几何推理 | 提出 GIQ 基准数据集，包含 224 种合成和真实多面体，通过单目 3D 重建、对称性检测、心理旋转测试和零样本分类四项任务系统评估视觉基础模型的几何推理能力，揭示了当前模型在基本几何理解上的显著不足。"
+title: >-
+  [论文解读] GIQ: Benchmarking 3D Geometric Reasoning of Vision Foundation Models with Simulated and Real Polyhedra
+description: >-
+  [ICLR 2026][3D视觉][几何推理] 提出 GIQ 基准数据集，包含 224 种合成和真实多面体，通过单目 3D 重建、对称性检测、心理旋转测试和零样本分类四项任务系统评估视觉基础模型的几何推理能力，揭示了当前模型在基本几何理解上的显著不足。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 几何推理
   - 基准测试
   - 多面体

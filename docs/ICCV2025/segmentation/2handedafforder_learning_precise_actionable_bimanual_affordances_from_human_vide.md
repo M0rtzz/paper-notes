@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】2HandedAfforder: Learning Precise Actionable Bimanual Affordances from Human Videos 论文解读 | ICCV 2025 | arXiv 2503.09320 | bimanual affordance | 本文提出从人类活动视频中自动提取精确的双手可操作区域(affordance)数据集 2HANDS，并训练基于 VLM 的 2HandedAfforder 模型，实现根据文本提示预测双手抓握的精确物体区域分割，在新提出的 ActAffordance 基准上显著优于现有方法。"
+title: >-
+  [论文解读] 2HandedAfforder: Learning Precise Actionable Bimanual Affordances from Human Videos
+description: >-
+  [ICCV 2025][图像分割][bimanual affordance] 本文提出从人类活动视频中自动提取精确的双手可操作区域(affordance)数据集 2HANDS，并训练基于 VLM 的 2HandedAfforder 模型，实现根据文本提示预测双手抓握的精确物体区域分割，在新提出的 ActAffordance 基准上显著优于现有方法。
 tags:
   - ICCV 2025
-  - bimanual affordance
   - 图像分割
+  - bimanual affordance
   - VLM
   - hand-object interaction
   - egocentric video

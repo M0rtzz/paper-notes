@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FedDAP: Domain-Aware Prototype Learning for Federated Learning under Domain Shift 论文解读 | CVPR 2026 | arXiv 2604.06795 | 联邦学习 | 提出域感知原型联邦学习框架 FedDAP，通过构建域特定全局原型和双重原型对齐策略（域内对齐 + 跨域对比），解决联邦学习中客户端数据域偏移导致的全局模型性能退化问题。"
+title: >-
+  [论文解读] FedDAP: Domain-Aware Prototype Learning for Federated Learning under Domain Shift
+description: >-
+  [CVPR 2026][人体理解][联邦学习] 提出域感知原型联邦学习框架 FedDAP，通过构建域特定全局原型和双重原型对齐策略（域内对齐 + 跨域对比），解决联邦学习中客户端数据域偏移导致的全局模型性能退化问题。
 tags:
   - CVPR 2026
+  - 人体理解
   - 联邦学习
   - 域偏移
   - 原型学习

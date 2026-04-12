@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FIHA: Autonomous Fine-grained Hallucination Evaluation in Vision-Language Models with Davidson Scene Graphs 论文解读 | ACL 2025 | arXiv 2409.13612 | 幻觉评估 | 本文提出 FIHA，一个无需 LLM 和人工标注的自动化细粒度幻觉评估框架，通过从图像和描述中提取实体、属性和关系生成 Q&A 对，并引入 Davidson 场景图（DSG）建模问题间的依赖关系，构建了 FIHA-v1 基准，全面评估了主流大视觉语言模型的幻觉水平。"
+title: >-
+  [论文解读] FIHA: Autonomous Fine-grained Hallucination Evaluation in Vision-Language Models with Davidson Scene Graphs
+description: >-
+  [ACL 2025][多模态][幻觉评估] 本文提出 FIHA，一个无需 LLM 和人工标注的自动化细粒度幻觉评估框架，通过从图像和描述中提取实体、属性和关系生成 Q&A 对，并引入 Davidson 场景图（DSG）建模问题间的依赖关系，构建了 FIHA-v1 基准，全面评估了主流大视觉语言模型的幻觉水平。
 tags:
   - ACL 2025
+  - 多模态
   - 幻觉评估
   - 大视觉语言模型
   - Davidson场景图

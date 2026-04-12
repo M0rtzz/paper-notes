@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Empowering Semantic-Sensitive Underwater Image Enhancement with VLM 论文解读 | arxiv 2026 | arXiv 2603.12773 | underwater image enhancement | 提出一种 VLM 驱动的语义敏感水下图像增强（UIE）策略，利用 VLM 生成关键物体文本描述，通过文本-图像对齐模型生成空间语义引导图，再通过交叉注意力注入和显式对齐损失的双引导机制，引导增强网络将修复资源集中在语义关键区域，同时提升感知质量和下游检测/分割性能。"
+title: >-
+  [论文解读] Empowering Semantic-Sensitive Underwater Image Enhancement with VLM
+description: >-
+  [arxiv 2026][目标检测][underwater image enhancement] 提出一种 VLM 驱动的语义敏感水下图像增强（UIE）策略，利用 VLM 生成关键物体文本描述，通过文本-图像对齐模型生成空间语义引导图，再通过交叉注意力注入和显式对齐损失的双引导机制，引导增强网络将修复资源集中在语义关键区域，同时提升感知质量和下游检测/分割性能。
 tags:
   - arxiv 2026
+  - 目标检测
   - underwater image enhancement
   - VLM
   - semantic guidance

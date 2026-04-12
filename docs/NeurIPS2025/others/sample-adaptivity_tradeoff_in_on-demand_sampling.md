@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Sample-Adaptivity Tradeoff in On-Demand Sampling 论文解读 | NeurIPS 2025 | arXiv 2511.15507 | 多分布学习 | 系统研究了按需采样（on-demand sampling）中样本复杂度与自适应轮次之间的权衡关系，在可实现设定下证明 r 轮算法的最优样本复杂度为 dk^Θ(1/r)/ε，在不可知设定下提出仅需 widetildeO(sqrtk) 轮即可达近最优样本复杂度的LazyHedge算法，并引入OODS抽象框架建立了近紧的轮次复杂度下界。"
+title: >-
+  [论文解读] Sample-Adaptivity Tradeoff in On-Demand Sampling
+description: >-
+  [NeurIPS 2025][多分布学习] 系统研究了按需采样（on-demand sampling）中样本复杂度与自适应轮次之间的权衡关系，在可实现设定下证明 $r$ 轮算法的最优样本复杂度为 $dk^{\Theta(1/r)}/\varepsilon$，在不可知设定下提出仅需 $\widetilde{O}(\sqrt{k})$ 轮即可达近最优样本复杂度的LazyHedge算法，并引入OODS抽象框架建立了近紧的轮次复杂度下界。
 tags:
   - NeurIPS 2025
   - 多分布学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild 论文解读 | ICCV 2025 | arXiv 2508.07759 | 参考分割 | CAV-SAM 将参考-目标图像对之间的对应关系表示为伪视频序列，通过基于扩散模型的语义过渡模块（DBST）桥接语义差异，以及测试时几何对齐模块（TTGA）对齐几何变化，使SAM2的视频分割能力零训练地适配参考分割任务，在跨域少样本分割基准上超越SOTA约5% mIoU。"
+title: >-
+  [论文解读] Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild
+description: >-
+  [ICCV 2025][图像分割][参考分割] CAV-SAM 将参考-目标图像对之间的对应关系表示为伪视频序列，通过基于扩散模型的语义过渡模块（DBST）桥接语义差异，以及测试时几何对齐模块（TTGA）对齐几何变化，使SAM2的视频分割能力零训练地适配参考分割任务，在跨域少样本分割基准上超越SOTA约5% mIoU。
 tags:
   - ICCV 2025
+  - 图像分割
   - 参考分割
   - SAM2
   - 视频对象分割

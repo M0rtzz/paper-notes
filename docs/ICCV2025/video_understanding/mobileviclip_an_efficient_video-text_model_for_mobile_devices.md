@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MobileViCLIP: An Efficient Video-Text Model for Mobile Devices 论文解读 | ICCV 2025 | arXiv 2508.07312 | 视频文本模型 | 将时空结构重参数化引入高效图像-文本模型MobileCLIP，在大规模视频-文本数据集上训练，得到可在移动端运行的视频-文本模型MobileViCLIP，在零样本检索和动作识别上取得与大模型相当的性能。"
+title: >-
+  [论文解读] MobileViCLIP: An Efficient Video-Text Model for Mobile Devices
+description: >-
+  [ICCV 2025][视频理解][视频文本模型] 将时空结构重参数化引入高效图像-文本模型MobileCLIP，在大规模视频-文本数据集上训练，得到可在移动端运行的视频-文本模型MobileViCLIP，在零样本检索和动作识别上取得与大模型相当的性能。
 tags:
   - ICCV 2025
+  - 视频理解
   - 视频文本模型
   - 移动端部署
   - 结构重参数化

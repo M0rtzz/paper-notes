@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data 论文解读 | ICLR 2026 | arXiv 2509.21965 | 图像分割 3D part segmentation | 提出首个在大规模原生 3D 数据上训练的可提示部件分割模型 PartSAM，采用 triplane 双分支编码器（冻结 SAM 先验 + 可学习 3D 分支）和 SAM 风格解码器，通过模型在环标注流程构建 500 万+形状-部件对，在开放世界设置下单次点击即超越 Point-SAM 90%+。"
+title: >-
+  [论文解读] PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data
+description: >-
+  [ICLR 2026][3D视觉][图像分割] 提出首个在大规模原生 3D 数据上训练的可提示部件分割模型 PartSAM，采用 triplane 双分支编码器（冻结 SAM 先验 + 可学习 3D 分支）和 SAM 风格解码器，通过模型在环标注流程构建 500 万+形状-部件对，在开放世界设置下单次点击即超越 Point-SAM 90%+。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 图像分割
   - SAM
   - 提示学习

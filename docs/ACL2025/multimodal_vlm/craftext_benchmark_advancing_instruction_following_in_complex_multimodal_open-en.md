@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CrafText Benchmark: Advancing Instruction Following in Complex Multimodal Open-Ended World 论文解读 | ACL 2025 | arXiv 2505.11962 | 指令跟随 | 提出 CrafText，一个基于 Craftax 开放世界环境的多模态指令跟随基准，包含 3,924 条指令和 3,423 个独特词汇，覆盖定位、条件、建造和成就四类任务，并设计双重评估协议测试智能体的语言泛化和目标泛化能力。"
+title: >-
+  [论文解读] CrafText Benchmark: Advancing Instruction Following in Complex Multimodal Open-Ended World
+description: >-
+  [ACL 2025][多模态][指令跟随] 提出 CrafText，一个基于 Craftax 开放世界环境的多模态指令跟随基准，包含 3,924 条指令和 3,423 个独特词汇，覆盖定位、条件、建造和成就四类任务，并设计双重评估协议测试智能体的语言泛化和目标泛化能力。
 tags:
   - ACL 2025
+  - 多模态
   - 指令跟随
   - 多模态基准
   - 强化学习

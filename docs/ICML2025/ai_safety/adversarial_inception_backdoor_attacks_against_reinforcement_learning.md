@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adversarial Inception Backdoor Attacks against Reinforcement Learning 论文解读 | ICML 2025 | arXiv 2410.13995 | 后门攻击 | 提出\"inception\"后门攻击框架——通过在 RL 智能体的训练轨迹中插入触发器并将高回报动作替换为目标对抗动作，首次在严格奖励约束下实现 100% 攻击成功率，同时保持智能体在正常任务上的表现。"
+title: >-
+  [论文解读] Adversarial Inception Backdoor Attacks against Reinforcement Learning
+description: >-
+  [ICML 2025][AI安全][后门攻击] 提出"inception"后门攻击框架——通过在 RL 智能体的训练轨迹中插入触发器并将高回报动作替换为目标对抗动作，首次在严格奖励约束下实现 100% 攻击成功率，同时保持智能体在正常任务上的表现。
 tags:
   - ICML 2025
+  - AI安全
   - 后门攻击
   - 强化学习
   - 数据投毒

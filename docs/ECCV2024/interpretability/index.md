@@ -1,9 +1,16 @@
+---
+title: >-
+  ECCV2024 可解释性方向 2篇论文解读
+description: >-
+  2篇ECCV2024 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
 **🎞️ ECCV2024** · 共 **2** 篇
 
-**[DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration](detailsemnet_elevating_signature_verification_through_detail-semantic_integratio.md)**
+**[Detailsemnet Elevating Signature Verification Through Detail-Semantic Integratio](detailsemnet_elevating_signature_verification_through_detail-semantic_integratio.md)**
 
 :   提出DetailSemNet用于离线签名验证，通过Detail-Semantics Integrator将特征解耦为细节和语义两个分支分别处理，并引入基于EMD的局部结构匹配，在多个多语言签名数据集上取得SOTA。
 

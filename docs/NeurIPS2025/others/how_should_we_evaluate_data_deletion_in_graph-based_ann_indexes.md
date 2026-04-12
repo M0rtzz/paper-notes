@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How Should We Evaluate Data Deletion in Graph-Based ANN Indexes? 论文解读 | NeurIPS 2025 (ML for Systems Workshop) | arXiv 2512.06200 | Approximate Nearest Neighbor Search | 针对图索引（graph-based ANNS）中数据删除缺乏系统评估方法的问题，形式化定义了三种删除策略（逻辑删除、物理删除、重建），提出一套面向实际部署的评估框架和指标体系，并在 HNSW 上实验分析后提出 Deletion Control 算法，可根据精度需求动态选择删除策略。"
+title: >-
+  [论文解读] How Should We Evaluate Data Deletion in Graph-Based ANN Indexes?
+description: >-
+  [NeurIPS 2025 (ML for Systems Workshop)][Approximate Nearest Neighbor Search] 针对图索引（graph-based ANNS）中数据删除缺乏系统评估方法的问题，形式化定义了三种删除策略（逻辑删除、物理删除、重建），提出一套面向实际部署的评估框架和指标体系，并在 HNSW 上实验分析后提出 Deletion Control 算法，可根据精度需求动态选择删除策略。
 tags:
   - NeurIPS 2025 (ML for Systems Workshop)
   - Approximate Nearest Neighbor Search

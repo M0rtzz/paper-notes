@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective 论文解读 | 提出 PromptQuine 框架，通过进化搜索对 ICL prompt 进行 token 级剪枝，发现将清晰示例剪成看似\"乱码\"的子序列反而能提升 LLM 性能，且匹配或超越 SOTA prompt 优化方法。"
+title: >-
+  [论文解读] Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective
+description: >-
+   提出 PromptQuine 框架，通过进化搜索对 ICL prompt 进行 token 级剪枝，发现将清晰示例剪成看似"乱码"的子序列反而能提升 LLM 性能，且匹配或超越 SOTA prompt 优化方法。
 tags:
 
 ---

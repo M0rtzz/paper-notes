@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Associative Transformer 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Emerging from the pairwise attention in conventional Transformers, there is a growing interest in sparse attention mechanisms that align more closely with localized, contextual learning in the biological brain. Existing studies such as the Coordination method employ iterative cross-attention mechani"
+title: >-
+  [论文解读] Associative Transformer
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：Emerging from the pairwise attention in conventional Transformers, there is a growing interest in sparse attention mechanisms that align more closely with localized, contextual learning in the biological brain. Existing studies such as the Coordination method employ iterative cross-attention mechani
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

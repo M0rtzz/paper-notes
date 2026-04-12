@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DSFlash: Comprehensive Panoptic Scene Graph Generation in Realtime 论文解读 | CVPR 2026 | arXiv 2603.10538 | 场景图生成 | 提出 DSFlash，一个低延迟全景场景图生成模型，通过统一 backbone、双向关系预测和 mask 动态剪枝等设计，在 RTX 3090 上实现 56 FPS 的实时推理，同时保持 SOTA 性能（mR@50=30.9）。"
+title: >-
+  [论文解读] DSFlash: Comprehensive Panoptic Scene Graph Generation in Realtime
+description: >-
+  [CVPR 2026][图像分割][场景图生成] 提出 DSFlash，一个低延迟全景场景图生成模型，通过统一 backbone、双向关系预测和 mask 动态剪枝等设计，在 RTX 3090 上实现 56 FPS 的实时推理，同时保持 SOTA 性能（mR@50=30.9）。
 tags:
   - CVPR 2026
+  - 图像分割
   - 场景图生成
   - 全景分割
   - 实时推理

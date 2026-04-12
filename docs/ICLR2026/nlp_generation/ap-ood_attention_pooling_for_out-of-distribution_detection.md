@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AP-OOD: Attention Pooling for Out-of-Distribution Detection 论文解读 | ICLR 2026 | arXiv 2602.06031 | 分布外检测 | 提出AP-OOD，将Mahalanobis距离的均值池化替换为可学习的注意力池化，解决了均值池化丢失token级异常信息的问题，在文本OOD检测中将XSUM摘要的FPR95从27.84%降至4.67%，支持无监督到半监督的平滑过渡。"
+title: >-
+  [论文解读] AP-OOD: Attention Pooling for Out-of-Distribution Detection
+description: >-
+  [ICLR 2026][文本生成][分布外检测] 提出AP-OOD，将Mahalanobis距离的均值池化替换为可学习的注意力池化，解决了均值池化丢失token级异常信息的问题，在文本OOD检测中将XSUM摘要的FPR95从27.84%降至4.67%，支持无监督到半监督的平滑过渡。
 tags:
   - ICLR 2026
+  - 文本生成
   - 分布外检测
   - 注意力池化
   - Mahalanobis距离

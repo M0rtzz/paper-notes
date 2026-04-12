@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CityLens: Evaluating Large Vision-Language Models for Urban Socioeconomic Sensing 论文解读 | ICLR2026 | arXiv 2506.00530 | urban computing | 构建 CityLens——迄今最大规模的城市社会经济感知 benchmark（17 城市、6 大领域、11 个预测任务），评估 17 个 LVLM 在直接预测、归一化估计、特征回归三种范式下从卫星/街景图像推断社会经济指标的能力，发现通用 LVLM 在多数任务上仍不及领域特化的对比学习方法。"
+title: >-
+  [论文解读] CityLens: Evaluating Large Vision-Language Models for Urban Socioeconomic Sensing
+description: >-
+  [ICLR2026][多模态][urban computing] 构建 CityLens——迄今最大规模的城市社会经济感知 benchmark（17 城市、6 大领域、11 个预测任务），评估 17 个 LVLM 在直接预测、归一化估计、特征回归三种范式下从卫星/街景图像推断社会经济指标的能力，发现通用 LVLM 在多数任务上仍不及领域特化的对比学习方法。
 tags:
   - ICLR2026
+  - 多模态
   - urban computing
   - socioeconomic sensing
   - benchmark

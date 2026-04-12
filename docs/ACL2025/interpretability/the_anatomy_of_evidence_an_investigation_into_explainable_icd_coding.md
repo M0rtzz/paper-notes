@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Anatomy of Evidence: An Investigation Into Explainable ICD Coding 论文解读 | ACL 2025 | arXiv 2507.01802 | ICD编码 | 本文对 MDACE 数据集和当前可解释 ICD 编码系统进行了深入的应用导向分析，揭示了人工标注证据与代码描述的重叠规律、证据在文档中的分布特征，并提出了新的匹配度量来评估模型解释的实用性。"
+title: >-
+  [论文解读] The Anatomy of Evidence: An Investigation Into Explainable ICD Coding
+description: >-
+  [ACL 2025][ICD编码] 本文对 MDACE 数据集和当前可解释 ICD 编码系统进行了深入的应用导向分析，揭示了人工标注证据与代码描述的重叠规律、证据在文档中的分布特征，并提出了新的匹配度量来评估模型解释的实用性。
 tags:
   - ACL 2025
   - ICD编码

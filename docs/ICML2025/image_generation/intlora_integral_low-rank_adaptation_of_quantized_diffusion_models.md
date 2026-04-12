@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IntLoRA: Integral Low-rank Adaptation of Quantized Diffusion Models 论文解读 | ICML2025 | arXiv 2410.21759 | LoRA | 提出 IntLoRA，通过整数型低秩参数实现量化扩散模型的微调，合并权重后无需额外 PTQ 即可直接获得量化推理权重，兼顾训练与推理效率。"
+title: >-
+  [论文解读] IntLoRA: Integral Low-rank Adaptation of Quantized Diffusion Models
+description: >-
+  [ICML2025][图像生成][LoRA] 提出 IntLoRA，通过整数型低秩参数实现量化扩散模型的微调，合并权重后无需额外 PTQ 即可直接获得量化推理权重，兼顾训练与推理效率。
 tags:
   - ICML2025
+  - 图像生成
   - LoRA
   - 网络量化
   - 扩散模型

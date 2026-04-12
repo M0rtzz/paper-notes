@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection 论文解读 | CVPR 2026 | arXiv 2511.18519 | CLIP领域适配 | 从数据中心视角重新审视 CLIP 领域适配，提出 CHIPS，为每个图文对计算融合曲率感知牛顿对齐（忠实性）、JL sketching压缩曲率估计（可扩展性）、可学习性+领域相关性权重（保留性）三因素的效用分数，用30%数据匹配全数据集CPT、10%数据超越50%数据CPT，在17个医学+31个通用基准上达到选择SOTA。"
+title: >-
+  [论文解读] CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection
+description: >-
+  [CVPR 2026][医学图像][CLIP领域适配] 从数据中心视角重新审视 CLIP 领域适配，提出 CHIPS，为每个图文对计算融合曲率感知牛顿对齐（忠实性）、JL sketching压缩曲率估计（可扩展性）、可学习性+领域相关性权重（保留性）三因素的效用分数，用30%数据匹配全数据集CPT、10%数据超越50%数据CPT，在17个医学+31个通用基准上达到选择SOTA。
 tags:
   - CVPR 2026
+  - 医学图像
   - CLIP领域适配
   - 数据选择
   - 曲率感知影响函数

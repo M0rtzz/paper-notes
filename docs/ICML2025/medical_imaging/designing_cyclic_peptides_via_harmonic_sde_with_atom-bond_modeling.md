@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Designing Cyclic Peptides via Harmonic SDE with Atom-Bond Modeling 论文解读 | ICML2025 | arXiv 2505.21452 | 环肽设计 | 提出 CpSDE 框架，通过谐波 SDE 生成模型 (AtomSDE) 和残基类型预测器 (ResRouter) 的交替采样，首次实现基于 3D 受体结构的全类型环肽设计，在稳定性和亲和力上超越现有线性肽设计方法。"
+title: >-
+  [论文解读] Designing Cyclic Peptides via Harmonic SDE with Atom-Bond Modeling
+description: >-
+  [ICML2025][医学图像][环肽设计] 提出 CpSDE 框架，通过谐波 SDE 生成模型 (AtomSDE) 和残基类型预测器 (ResRouter) 的交替采样，首次实现基于 3D 受体结构的全类型环肽设计，在稳定性和亲和力上超越现有线性肽设计方法。
 tags:
   - ICML2025
+  - 医学图像
   - 环肽设计
   - 谐波SDE
   - 全原子建模

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding 论文解读 | ICLR 2026 | arXiv 2510.23479 | Mixup增强 | 提出MergeMix统一训练范式，通过Token Merge生成注意力感知的混合图像作为偏好对中的\"输者\"，用混合比作为软偏好margin通过mixed SimPO损失优化，在SFT和RL之间找到效率-对齐性-稳定性的平衡点，在图像分类和MLLM基准上均达到SOTA。"
+title: >-
+  [论文解读] MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding
+description: >-
+  [ICLR 2026][Mixup增强] 提出MergeMix统一训练范式，通过Token Merge生成注意力感知的混合图像作为偏好对中的"输者"，用混合比作为软偏好margin通过mixed SimPO损失优化，在SFT和RL之间找到效率-对齐性-稳定性的平衡点，在图像分类和MLLM基准上均达到SOTA。
 tags:
   - ICLR 2026
   - Mixup增强

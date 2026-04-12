@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Monocular Facial Appearance Capture in the Wild 论文解读 | ICCV 2025 | arXiv 2412.12765 | 面部外观捕捉 | 提出一种从单目头部旋转视频重建面部外观属性（漫反射反照率、高光强度、高光粗糙度）的方法，通过提出遮挡感知的 split-sum 近似着色模型，在不对光照环境做任何简化假设的情况下实现了逼近工作室级别的面部外观捕捉质量。"
+title: >-
+  [论文解读] Monocular Facial Appearance Capture in the Wild
+description: >-
+  [ICCV 2025][人体理解][面部外观捕捉] 提出一种从单目头部旋转视频重建面部外观属性（漫反射反照率、高光强度、高光粗糙度）的方法，通过提出遮挡感知的 split-sum 近似着色模型，在不对光照环境做任何简化假设的情况下实现了逼近工作室级别的面部外观捕捉质量。
 tags:
   - ICCV 2025
+  - 人体理解
   - 面部外观捕捉
   - 逆渲染
   - 遮挡感知

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unifying and Enhancing Graph Transformers via a Hierarchical Mask Framework 论文解读 | NeurIPS 2025 | arXiv 2510.18825 | Transformer Graph Transformer | 提出统一的层级掩码框架揭示 Graph Transformer 架构与注意力掩码的等价性，并设计 M3Dphormer 通过多层级掩码、双层专家路由和双重注意力计算实现对局部/簇/全局交互的高效自适应建模，在 9 个基准上取得 SOTA。"
+title: >-
+  [论文解读] Unifying and Enhancing Graph Transformers via a Hierarchical Mask Framework
+description: >-
+  [NeurIPS 2025][图学习][Transformer] 提出统一的层级掩码框架揭示 Graph Transformer 架构与注意力掩码的等价性，并设计 M3Dphormer 通过多层级掩码、双层专家路由和双重注意力计算实现对局部/簇/全局交互的高效自适应建模，在 9 个基准上取得 SOTA。
 tags:
   - NeurIPS 2025
+  - 图学习
   - Transformer
   - 注意力机制
   - Mixture of Experts

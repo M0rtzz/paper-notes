@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FineVAU: A Novel Human-Aligned Benchmark for Fine-Grained Video Anomaly Understanding 论文解读 | AAAI 2026 | arXiv 2601.17258 | 视频异常理解 | 本文提出FineVAU基准，将视频异常理解 (VAU) 分解为事件(What)、实体(Who)、地点(Where)三个维度，设计了与人类感知高度对齐的FV-Score评估指标，并通过全自动LVLM辅助管线构建了FineW³数据集，实验揭示当前LVLM在细粒度异常事件感知上的关键短板。"
+title: >-
+  [论文解读] FineVAU: A Novel Human-Aligned Benchmark for Fine-Grained Video Anomaly Understanding
+description: >-
+  [AAAI 2026][视频异常理解] 本文提出FineVAU基准，将视频异常理解 (VAU) 分解为事件(What)、实体(Who)、地点(Where)三个维度，设计了与人类感知高度对齐的FV-Score评估指标，并通过全自动LVLM辅助管线构建了FineW³数据集，实验揭示当前LVLM在细粒度异常事件感知上的关键短板。
 tags:
   - AAAI 2026
   - 视频异常理解

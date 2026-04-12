@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Accelerate Creation of Product Claims Using Generative AI 论文解读 | NeurIPS 2025 | arXiv 2509.20652 | product claims | 开发 Claim Advisor 平台，利用 LLM 的 in-context learning 和 LoRA 微调加速消费品产品宣称的搜索、生成、优化和排序，通过模仿 MaxDiff 研究方法论让微调的 Phi-3 14B 模型在宣称排序上超越 GPT-4o（仅用 1 个示例 vs GPT 的 100 个示例），三轮迭代后 100% 的生成宣称达到\"高吸引力\"级别。"
+title: >-
+  [论文解读] Accelerate Creation of Product Claims Using Generative AI
+description: >-
+  [NeurIPS 2025][语音][product claims] 开发 Claim Advisor 平台，利用 LLM 的 in-context learning 和 LoRA 微调加速消费品产品宣称的搜索、生成、优化和排序，通过模仿 MaxDiff 研究方法论让微调的 Phi-3 14B 模型在宣称排序上超越 GPT-4o（仅用 1 个示例 vs GPT 的 100 个示例），三轮迭代后 100% 的生成宣称达到"高吸引力"级别。
 tags:
   - NeurIPS 2025
+  - 语音
   - product claims
   - in-context learning
   - LoRA fine-tuning

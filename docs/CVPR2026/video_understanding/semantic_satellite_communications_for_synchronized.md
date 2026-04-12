@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Semantic Satellite Communications for Synchronized Audiovisual Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.10791 | 语义通信 | 提出LLM驱动的自适应多模态语义卫星通信系统，通过双流生成架构(V2A/A2V)+动态知识库更新+GPT-4o决策代理，实现比强制更新基线节省约50%带宽的高保真同步音视频重建。"
+title: >-
+  [论文解读] Semantic Satellite Communications for Synchronized Audiovisual Reconstruction
+description: >-
+  [CVPR 2026][视频理解][语义通信] 提出LLM驱动的自适应多模态语义卫星通信系统，通过双流生成架构(V2A/A2V)+动态知识库更新+GPT-4o决策代理，实现比强制更新基线节省约50%带宽的高保真同步音视频重建。
 tags:
   - CVPR 2026
+  - 视频理解
   - 语义通信
   - 卫星链路
   - 音视频同步重建

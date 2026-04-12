@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OmniSat: Self-Supervised Modality Fusion for Earth Observation 论文解读 | ECCV 2024 | arXiv 2404.08351 | 多模态 multi-modal fusion | 提出OmniSat统一框架，通过模态特异编码器+跨模态对比自监督预训练，将多光谱时序（S2）、SAR时序（S1）、高分辨率单时相（SPOT/Aerial）等异构遥感数据融合为统一表示，在语义分割和作物分类上超越所有单模态和多模态基线。"
+title: >-
+  [论文解读] OmniSat: Self-Supervised Modality Fusion for Earth Observation
+description: >-
+  [ECCV 2024][时间序列][多模态] 提出OmniSat统一框架，通过模态特异编码器+跨模态对比自监督预训练，将多光谱时序（S2）、SAR时序（S1）、高分辨率单时相（SPOT/Aerial）等异构遥感数据融合为统一表示，在语义分割和作物分类上超越所有单模态和多模态基线。
 tags:
   - ECCV 2024
+  - 时间序列
   - 多模态
   - earth observation
   - 自监督学习

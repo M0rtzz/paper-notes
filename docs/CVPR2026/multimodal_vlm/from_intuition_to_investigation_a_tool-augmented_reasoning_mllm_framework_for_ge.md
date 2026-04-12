@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Intuition to Investigation: A Tool-Augmented Reasoning MLLM Framework for Generalizable Face Anti-Spoofing 论文解读 | CVPR 2026 | arXiv 2603.01038 | 人脸反欺骗 | 提出 TAR-FAS 框架，首次将人脸反欺骗（FAS）任务重构为 Chain-of-Thought with Visual Tools（CoT-VT）范式，让 MLLM 在推理过程中自适应调用外部视觉工具（LBP/FFT/HOG等），从\"直觉判断\"升级为\"精细调查\"，在 1-to-11 跨域协议上取得 SOTA。"
+title: >-
+  [论文解读] From Intuition to Investigation: A Tool-Augmented Reasoning MLLM Framework for Generalizable Face Anti-Spoofing
+description: >-
+  [CVPR 2026][多模态][人脸反欺骗] 提出 TAR-FAS 框架，首次将人脸反欺骗（FAS）任务重构为 Chain-of-Thought with Visual Tools（CoT-VT）范式，让 MLLM 在推理过程中自适应调用外部视觉工具（LBP/FFT/HOG等），从"直觉判断"升级为"精细调查"，在 1-to-11 跨域协议上取得 SOTA。
 tags:
   - CVPR 2026
+  - 多模态
   - 人脸反欺骗
   - 多模态大语言模型
   - 工具增强推理

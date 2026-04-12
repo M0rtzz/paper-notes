@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Rich and the Simple: On the Implicit Bias of Adam and SGD 论文解读 | NeurIPS 2025 | arXiv 2505.24022 | 隐式偏置 | 本文理论和实验证明，SGD训练的神经网络倾向于学习简单线性特征（简单性偏置），而Adam训练则产生更丰富的非线性特征，使模型更接近贝叶斯最优预测器，在分布偏移下泛化更好。"
+title: >-
+  [论文解读] The Rich and the Simple: On the Implicit Bias of Adam and SGD
+description: >-
+  [NeurIPS 2025][优化][隐式偏置] 本文理论和实验证明，SGD训练的神经网络倾向于学习简单线性特征（简单性偏置），而Adam训练则产生更丰富的非线性特征，使模型更接近贝叶斯最优预测器，在分布偏移下泛化更好。
 tags:
   - NeurIPS 2025
+  - 优化
   - 隐式偏置
   - Adam
   - SGD

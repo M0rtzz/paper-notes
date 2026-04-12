@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Generating Physically Stable and Buildable Brick Structures from Text 论文解读 | BrickGPT 首次实现从文本提示生成物理稳定且可组装的互锁砖块结构，核心思想是将积木组装问题建模为自回归文本生成任务，并在推理时集成物理感知的有效性检查和回滚机制，确保生成结构的稳定性和可构建性。"
+title: >-
+  [论文解读] Generating Physically Stable and Buildable Brick Structures from Text
+description: >-
+  [3D视觉] BrickGPT 首次实现从文本提示生成物理稳定且可组装的互锁砖块结构，核心思想是将积木组装问题建模为自回归文本生成任务，并在推理时集成物理感知的有效性检查和回滚机制，确保生成结构的稳定性和可构建性。
 tags:
-
+  - 3D视觉
 ---
 
 # Generating Physically Stable and Buildable Brick Structures from Text

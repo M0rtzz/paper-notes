@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Co-Layout: LLM-driven Co-optimization for Interior Layout 论文解读 | AAAI 2026 | arXiv 2511.12474 | 室内布局 | 提出 Co-Layout 框架，利用 LLM 从自然语言需求中提取结构化约束，再通过基于网格的整数规划（IP）联合优化房间布局与家具摆放，辅以粗到精求解策略提升效率，显著优于现有两阶段方案。"
+title: >-
+  [论文解读] Co-Layout: LLM-driven Co-optimization for Interior Layout
+description: >-
+  [AAAI 2026][优化][室内布局] 提出 Co-Layout 框架，利用 LLM 从自然语言需求中提取结构化约束，再通过基于网格的整数规划（IP）联合优化房间布局与家具摆放，辅以粗到精求解策略提升效率，显著优于现有两阶段方案。
 tags:
   - AAAI 2026
+  - 优化
   - 室内布局
   - 整数规划
   - 大语言模型

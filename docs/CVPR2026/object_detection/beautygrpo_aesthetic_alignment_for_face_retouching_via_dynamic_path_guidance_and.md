@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling 论文解读 | CVPR2026 | arXiv 2603.01163 | 人脸修图 | 提出 BeautyGRPO，一个基于强化学习的人脸修图框架，通过构建细粒度偏好数据集 FRPref-10K 训练专用奖励模型，并设计动态路径引导（DPG）机制在随机探索与高保真之间取得平衡，实现与人类美学偏好对齐的自然修图效果。"
+title: >-
+  [论文解读] BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling
+description: >-
+  [CVPR2026][目标检测][人脸修图] 提出 BeautyGRPO，一个基于强化学习的人脸修图框架，通过构建细粒度偏好数据集 FRPref-10K 训练专用奖励模型，并设计动态路径引导（DPG）机制在随机探索与高保真之间取得平衡，实现与人类美学偏好对齐的自然修图效果。
 tags:
   - CVPR2026
+  - 目标检测
   - 人脸修图
   - 强化学习
   - 美学对齐

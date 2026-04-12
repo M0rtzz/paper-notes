@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Jailbreaking the Non-Transferable Barrier via Test-Time Data Disguising 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Non-transferable learning (NTL) has been proposed to protect model intellectual property (IP) by creating a \"non-transferable barrier\" to restrict generalization from authorized to unauthorized domains. Recently, well-designed attack, which restores the unauthorized-domain performance by fine-tuning"
+title: >-
+  [论文解读] Jailbreaking the Non-Transferable Barrier via Test-Time Data Disguising
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Non-transferable learning (NTL) has been proposed to protect model intellectual property (IP) by creating a "non-transferable barrier" to restrict generalization from authorized to unauthorized domains. Recently, well-designed attack, which restores the unauthorized-domain performance by fine-tuning
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

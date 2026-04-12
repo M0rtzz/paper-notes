@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】any4: Learned 4-bit Numeric Representation for LLMs 论文解读 | ICML 2025 | arXiv 2507.04610 | 量化 | 提出 any4——一种通过 k-means 聚类学习每行权重矩阵的最优 4-bit 非均匀量化码本的方法，无需权重/激活预处理，在 Llama 2/3、Mistral、Mixtral 上均优于 int4/fp4/nf4，且仅用单个校准样本即可。"
+title: >-
+  [论文解读] any4: Learned 4-bit Numeric Representation for LLMs
+description: >-
+  [ICML 2025][模型压缩][量化] 提出 any4——一种通过 k-means 聚类学习每行权重矩阵的最优 4-bit 非均匀量化码本的方法，无需权重/激活预处理，在 Llama 2/3、Mistral、Mixtral 上均优于 int4/fp4/nf4，且仅用单个校准样本即可。
 tags:
   - ICML 2025
+  - 模型压缩
   - 量化
   - 4-bit
   - LLM推理

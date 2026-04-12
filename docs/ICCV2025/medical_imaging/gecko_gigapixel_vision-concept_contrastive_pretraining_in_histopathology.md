@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GECKO: Gigapixel Vision-Concept Contrastive Pretraining in Histopathology 论文解读 | ICCV 2025 | arXiv 2504.01009 | WSI预训练 | 提出GECKO，一种无需额外临床数据模态的WSI级MIL聚合器预训练方法，通过从H&E WSI自动提取可解释的概念先验(Concept Prior)并与深度特征对比对齐，在5个分类任务上超越现有单模态和多模态预训练方法，同时提供病理学家可解释的WSI级描述。"
+title: >-
+  [论文解读] GECKO: Gigapixel Vision-Concept Contrastive Pretraining in Histopathology
+description: >-
+  [ICCV 2025][医学图像][WSI预训练] 提出GECKO，一种无需额外临床数据模态的WSI级MIL聚合器预训练方法，通过从H&E WSI自动提取可解释的概念先验(Concept Prior)并与深度特征对比对齐，在5个分类任务上超越现有单模态和多模态预训练方法，同时提供病理学家可解释的WSI级描述。
 tags:
   - ICCV 2025
+  - 医学图像
   - WSI预训练
   - 概念先验
   - 对比学习

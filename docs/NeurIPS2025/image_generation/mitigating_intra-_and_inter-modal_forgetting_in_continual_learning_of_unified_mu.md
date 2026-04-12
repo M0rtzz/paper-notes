@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Intra- and Inter-modal Forgetting in Continual Learning of Unified Multimodal Models 论文解读 | NeurIPS 2025 | arXiv 2512.03125 | 统一多模态生成模型 | 提出Modality-Decoupled Experts (MoDE)，通过将文本和图像的适配器解耦为独立的T-MoE和V-Adapter子空间，配合知识蒸馏，在统一多模态生成模型的持续指令微调中同时缓解模态内遗忘和模态间遗忘。"
+title: >-
+  [论文解读] Mitigating Intra- and Inter-modal Forgetting in Continual Learning of Unified Multimodal Models
+description: >-
+  [NeurIPS 2025][图像生成][统一多模态生成模型] 提出Modality-Decoupled Experts (MoDE)，通过将文本和图像的适配器解耦为独立的T-MoE和V-Adapter子空间，配合知识蒸馏，在统一多模态生成模型的持续指令微调中同时缓解模态内遗忘和模态间遗忘。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 统一多模态生成模型
   - 模态间遗忘
   - 模态内遗忘

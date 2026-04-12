@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Optimistic Online-to-Batch Conversions for Accelerated Convergence and Universality 论文解读 | NeurIPS 2025 | arXiv 2511.06597 | 在线学习 | 提出乐观在线到批量（O2B）转换框架，将乐观性从在线算法中释放到转换机制本身，使简单的在线梯度下降就能实现 $O(T^{-2})$ 加速收敛率，并首次通过 O2B 转换实现强凸光滑目标的最优收敛，同时达到对光滑性的通用性。"
+title: >-
+  [论文解读] Optimistic Online-to-Batch Conversions for Accelerated Convergence and Universality
+description: >-
+  [NeurIPS 2025][优化][在线学习] 提出乐观在线到批量（O2B）转换框架，将乐观性从在线算法中释放到转换机制本身，使简单的在线梯度下降就能实现 $O(T^{-2})$ 加速收敛率，并首次通过 O2B 转换实现强凸光滑目标的最优收敛，同时达到对光滑性的通用性。
 tags:
   - NeurIPS 2025
+  - 优化
   - 在线学习
   - 加速收敛
   - Nesterov加速

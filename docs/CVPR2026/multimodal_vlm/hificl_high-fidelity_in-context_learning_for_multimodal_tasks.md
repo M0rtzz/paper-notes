@@ -1,13 +1,16 @@
 ---
-description: "【论文笔记】HiFICL: High-Fidelity In-Context Learning for Multimodal Tasks 论文解读 | CVPR 2026 | arXiv 2603.12760 | 上下文学习 | 通过对注意力机制中ICL效果的精确数学分解，揭示\"shift vector\"本质是注意力公式的解析后果，进而提出HiFICL——用可学习的低秩虚拟键值对直接参数化ICL的源头，实现高保真、动态、端到端的上下文学习近似，在多个多模态基准上以极少参数量超越现有方法。"
+title: >-
+  [论文解读] HiFICL: High-Fidelity In-Context Learning for Multimodal Tasks
+description: >-
+  [CVPR 2026][多模态][上下文学习] 通过对注意力机制中ICL效果的精确数学分解，揭示"shift vector"本质是注意力公式的解析后果，进而提出HiFICL——用可学习的低秩虚拟键值对直接参数化ICL的源头，实现高保真、动态、端到端的上下文学习近似，在多个多模态基准上以极少参数量超越现有方法。
 tags:
   - CVPR 2026
+  - 多模态
   - 上下文学习
   - ICL近似
   - 参数高效微调
   - 虚拟键值对
   - 低秩分解
-  - 多模态
 ---
 
 # HiFICL: High-Fidelity In-Context Learning for Multimodal Tasks

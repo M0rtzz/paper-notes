@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SceneTransporter: Optimal Transport-Guided Compositional Latent Diffusion for Single-Image Structured 3D Scene Generation 论文解读 | ICLR 2026 | arXiv 2602.22785 | 结构化3D场景 | 提出SceneTransporter——用最优传输(OT)引导组合latent扩散实现单图结构化3D场景生成：通过去偏聚类探查揭示部件级生成器在open-world场景中失败的原因(缺乏分配约束)→将结构化生成重新建模为全局关联分配问题→在去噪循环中求解熵OT目标→(1)OT计划门控交叉注意力实现排他性一对一路由(防止特征纠缠) (2)竞争性传输鼓励相似patch分组+边缘正则化确保清晰边界→显著提升实例级一致性和几何保真度。"
+title: >-
+  [论文解读] SceneTransporter: Optimal Transport-Guided Compositional Latent Diffusion for Single-Image Structured 3D Scene Generation
+description: >-
+  [ICLR 2026][3D视觉][结构化3D场景] 提出SceneTransporter——用最优传输(OT)引导组合latent扩散实现单图结构化3D场景生成：通过去偏聚类探查揭示部件级生成器在open-world场景中失败的原因(缺乏分配约束)→将结构化生成重新建模为全局关联分配问题→在去噪循环中求解熵OT目标→(1)OT计划门控交叉注意力实现排他性一对一路由(防止特征纠缠) (2)竞争性传输鼓励相似patch分组+边缘正则化确保清晰边界→显著提升实例级一致性和几何保真度。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 结构化3D场景
   - 最优传输
   - 组合扩散

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RoboPARA: Dual-Arm Robot Planning with Parallel Allocation and Recomposition Across Tasks 论文解读 | ICLR 2026 | arXiv 2506.06683 | dual-arm manipulation | 提出 RoboPARA，一个 LLM 驱动的双臂机器人并行任务规划框架，通过依赖图生成与图重遍历调度两阶段方法，最大化双臂协同并行性，执行时间减少 30%-50%。"
+title: >-
+  [论文解读] RoboPARA: Dual-Arm Robot Planning with Parallel Allocation and Recomposition Across Tasks
+description: >-
+  [ICLR 2026][机器人][dual-arm manipulation] 提出 RoboPARA，一个 LLM 驱动的双臂机器人并行任务规划框架，通过依赖图生成与图重遍历调度两阶段方法，最大化双臂协同并行性，执行时间减少 30%-50%。
 tags:
   - ICLR 2026
+  - 机器人
   - dual-arm manipulation
   - LLM task planning
   - DAG

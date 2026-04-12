@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization 论文解读 | NeurIPS 2025 | arXiv 2509.15399 | minimax optimization | 首次为随机层次化优化（极小极大和双层优化）提供自适应且sharp的收敛保证，通过动量归一化技术和新型自适应参数选择，在无需事先知道噪声大小的情况下实现最优收敛率Õ(1/√T + √σ̄/T^{1/4})。"
+title: >-
+  [论文解读] Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization
+description: >-
+  [NeurIPS 2025][优化][minimax optimization] 首次为随机层次化优化（极小极大和双层优化）提供自适应且sharp的收敛保证，通过动量归一化技术和新型自适应参数选择，在无需事先知道噪声大小的情况下实现最优收敛率Õ(1/√T + √σ̄/T^{1/4})。
 tags:
   - NeurIPS 2025
+  - 优化
   - minimax optimization
   - bilevel optimization
   - adaptive algorithm

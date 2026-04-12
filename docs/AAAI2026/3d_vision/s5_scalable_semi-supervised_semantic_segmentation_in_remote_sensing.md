@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】S5: Scalable Semi-Supervised Semantic Segmentation in Remote Sensing 论文解读 | AAAI2026 | arXiv 2508.12409 | 半监督学习 semi-supervised learning | 提出 S5 框架，首次将半监督语义分割 (S4) 从小规模数据扩展为大规模预训练范式 (S4P)，构建百万级 RS4P-1M 数据集预训练遥感基础模型，并通过 MoE-based 多数据集微调实现 SOTA 性能。"
+title: >-
+  [论文解读] S5: Scalable Semi-Supervised Semantic Segmentation in Remote Sensing
+description: >-
+  [AAAI2026][3D视觉][半监督学习] 提出 S5 框架，首次将半监督语义分割 (S4) 从小规模数据扩展为大规模预训练范式 (S4P)，构建百万级 RS4P-1M 数据集预训练遥感基础模型，并通过 MoE-based 多数据集微调实现 SOTA 性能。
 tags:
   - AAAI2026
+  - 3D视觉
   - 半监督学习
   - remote sensing
   - foundation model

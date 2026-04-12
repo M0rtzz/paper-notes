@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Automaton Constrained Q-Learning 论文解读 | NeurIPS 2025 | arXiv 2510.05061 | 时序逻辑 | ACQL 将安全 RL 和目标条件 RL 提升到 LTL（线性时序逻辑）任务类——用自动机编码时序目标进展和非平稳安全约束，结合目标条件值学习（+HER密集化奖励）和基于 Hamilton-Jacobi 可达性的安全约束，在连续控制任务上显著超越现有 LTL RL 方法，并在 6-DOF 机械臂上成功部署。"
+title: >-
+  [论文解读] Automaton Constrained Q-Learning
+description: >-
+  [NeurIPS 2025][时序逻辑] ACQL 将安全 RL 和目标条件 RL 提升到 LTL（线性时序逻辑）任务类——用自动机编码时序目标进展和非平稳安全约束，结合目标条件值学习（+HER密集化奖励）和基于 Hamilton-Jacobi 可达性的安全约束，在连续控制任务上显著超越现有 LTL RL 方法，并在 6-DOF 机械臂上成功部署。
 tags:
   - NeurIPS 2025
   - 时序逻辑

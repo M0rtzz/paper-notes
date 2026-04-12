@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】LayerLock: Non-collapsing Representation Learning with Progressive Freezing 论文解读 | 提出 LayerLock，一种通过渐进式冻结网络层并动态切换预测目标（从像素到越来越深的中间层特征）的自监督视频表征学习方法，兼具像素预测的稳定性和潜变量预测的高效语义捕获能力，用于训练高达 4B 参数的视频模型。"
+title: >-
+  [论文解读] LayerLock: Non-collapsing Representation Learning with Progressive Freezing
+description: >-
+  [3D视觉] 提出 LayerLock，一种通过渐进式冻结网络层并动态切换预测目标（从像素到越来越深的中间层特征）的自监督视频表征学习方法，兼具像素预测的稳定性和潜变量预测的高效语义捕获能力，用于训练高达 4B 参数的视频模型。
 tags:
-
+  - 3D视觉
 ---
 
 # LayerLock: Non-collapsing Representation Learning with Progressive Freezing

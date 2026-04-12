@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels 论文解读 | CVPR 2026 | arXiv 2602.22140 | 高光谱视频 | Lumosaic 是紧凑的主动高光谱视频系统，将窄带 LED 阵列与编码曝光像素 (CEP) 相机结合，在每帧视频内联合编码空间-时间-光谱信息，实现 30fps VGA 31 通道（400-700nm）运动鲁棒高光谱视频。"
+title: >-
+  [论文解读] Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels
+description: >-
+  [CVPR 2026][遥感][高光谱视频] Lumosaic 是紧凑的主动高光谱视频系统，将窄带 LED 阵列与编码曝光像素 (CEP) 相机结合，在每帧视频内联合编码空间-时间-光谱信息，实现 30fps VGA 31 通道（400-700nm）运动鲁棒高光谱视频。
 tags:
   - CVPR 2026
+  - 遥感
   - 高光谱视频
   - 主动照明
   - 编码曝光像素

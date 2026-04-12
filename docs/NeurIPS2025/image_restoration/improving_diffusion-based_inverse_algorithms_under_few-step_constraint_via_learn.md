@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Diffusion-based Inverse Algorithms under Few-Step Constraint via Learnable Linear Extrapolation 论文解读 | NeurIPS 2025 | arXiv 2503.10103 | 扩散逆问题 | 提出 Learnable Linear Extrapolation (LLE)——用可学习的线性组合系数将当前和历史 clean data estimate 组合，以增强任何符合 Sampler-Corrector-Noiser 范式的扩散逆问题算法在少步（3-5步）下的表现，仅需 50 个样本、几分钟训练，跨 9+ 算法 × 5 个任务一致提升。"
+title: >-
+  [论文解读] Improving Diffusion-based Inverse Algorithms under Few-Step Constraint via Learnable Linear Extrapolation
+description: >-
+  [NeurIPS 2025][图像恢复][扩散逆问题] 提出 Learnable Linear Extrapolation (LLE)——用可学习的线性组合系数将当前和历史 clean data estimate 组合，以增强任何符合 Sampler-Corrector-Noiser 范式的扩散逆问题算法在少步（3-5步）下的表现，仅需 50 个样本、几分钟训练，跨 9+ 算法 × 5 个任务一致提升。
 tags:
   - NeurIPS 2025
+  - 图像恢复
   - 扩散逆问题
   - 少步加速
   - 线性外推

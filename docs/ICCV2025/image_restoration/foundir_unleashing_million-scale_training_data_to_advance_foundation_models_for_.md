@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FoundIR: Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration 论文解读 | ICCV 2025 | arXiv 2412.01427 | 基础模型 | 构建了首个百万级真实世界配对图像修复数据集（含 20 种退化类型），并提出 FoundIR 框架，通过退化无关的泛化器模型与退化感知的专家模型协同，在 24 个基准上突破了图像修复的性能天花板。"
+title: >-
+  [论文解读] FoundIR: Unleashing Million-scale Training Data to Advance Foundation Models for Image Restoration
+description: >-
+  [ICCV 2025][图像恢复][基础模型] 构建了首个百万级真实世界配对图像修复数据集（含 20 种退化类型），并提出 FoundIR 框架，通过退化无关的泛化器模型与退化感知的专家模型协同，在 24 个基准上突破了图像修复的性能天花板。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 基础模型
   - 通用图像修复
   - 百万级数据集

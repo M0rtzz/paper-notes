@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning 论文解读 | arXiv 2026 | arXiv 2603.12606 | mastering | 当前的视觉语言检测和基础模型主要关注具有积极语义的提示，并且常常难以准确解释和基础包含消极语义的复杂表达。"
+title: >-
+  [论文解读] Mastering Negation: Boosting Grounding Models via Grouped Opposition-Based Learning
+description: >-
+  [arXiv 2026][多模态][mastering] 当前的视觉语言检测和基础模型主要关注具有积极语义的提示，并且常常难以准确解释和基础包含消极语义的复杂表达。
 tags:
   - arXiv 2026
+  - 多模态
   - mastering
   - negation
   - boosting

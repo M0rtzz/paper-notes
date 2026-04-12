@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 模型压缩方向 129篇论文解读
+description: >-
+  129篇NeurIPS2025 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
@@ -51,7 +58,7 @@
 
 :   提出 ReStraV 方法，基于"感知拉直"假说（真实视频在神经表示空间形成更直的轨迹），利用 DINOv2 特征空间中的时间曲率和步距统计量训练轻量分类器检测 AI 生成视频，在 VidProM 上达到 97.17% 准确率和 98.63% AUROC，推理仅需 ~48ms。
 
-**[ATLAS: Autoformalizing Theorems through Lifting, Augmentation, and Synthesis of Data](atlas_autoformalizing_theorems_through_lifting_augmentation_and_synthesis_of_dat.md)**
+**[Atlas Autoformalizing Theorems Through Lifting Augmentation And Synthesis Of Dat](atlas_autoformalizing_theorems_through_lifting_augmentation_and_synthesis_of_dat.md)**
 
 :   ATLAS 提出了一个基于概念仓库、专家迭代+知识蒸馏、以及两种新颖增强策略的数据生成框架，构建了117K定理陈述的平行语料库，微调 Llama3.1-8B-Instruct 后在所有自动形式化基准上达到 SOTA。
 

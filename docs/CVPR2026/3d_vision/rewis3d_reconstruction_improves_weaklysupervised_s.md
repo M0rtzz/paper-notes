@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rewis3d: Reconstruction Improves Weakly-Supervised Semantic Segmentation 论文解读 | CVPR 2026 | arXiv 2603.06374 | 弱监督分割 | 首次将前馈3D重建(MapAnything)的几何信息作为辅助监督信号引入弱监督2D语义分割，通过双Student-Teacher架构和置信度加权的跨模态一致性损失，在4个数据集上以2-7% mIoU大幅超越SOTA——且推理时仅需2D模型。"
+title: >-
+  [论文解读] Rewis3d: Reconstruction Improves Weakly-Supervised Semantic Segmentation
+description: >-
+  [CVPR 2026][3D视觉][弱监督分割] 首次将前馈3D重建(MapAnything)的几何信息作为辅助监督信号引入弱监督2D语义分割，通过双Student-Teacher架构和置信度加权的跨模态一致性损失，在4个数据集上以2-7% mIoU大幅超越SOTA——且推理时仅需2D模型。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 弱监督分割
   - 3D重建
   - 跨模态一致性

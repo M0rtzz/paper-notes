@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy 论文解读 | ICCV 2025 | arXiv 2503.19757 | VLA | 提出Dita，用Transformer架构进行统一的多模态扩散过程直接去噪连续动作序列，通过in-context conditioning实现去噪动作与历史视觉观察的细粒度对齐，在跨embodiment数据集上scaling后实现SOTA仿真性能和10-shot真实世界长horizon任务适应。"
+title: >-
+  [论文解读] Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy
+description: >-
+  [ICCV 2025][多模态][VLA] 提出Dita，用Transformer架构进行统一的多模态扩散过程直接去噪连续动作序列，通过in-context conditioning实现去噪动作与历史视觉观察的细粒度对齐，在跨embodiment数据集上scaling后实现SOTA仿真性能和10-shot真实世界长horizon任务适应。
 tags:
   - ICCV 2025
+  - 多模态
   - VLA
   - 扩散模型
   - Transformer

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification 论文解读 | CVPR2025 | arXiv 2603.13182 | 脑肿瘤分类 | 提出一种结合非负矩阵分解（NNMF）特征提取、统计特征筛选、轻量 CNN 分类和扩散式特征空间去噪的脑肿瘤分类框架，在保持 ~85% 干净准确率的同时，将 AutoAttack 下的鲁棒准确率从 0.47% 提升至 59.5%。"
+title: >-
+  [论文解读] Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification
+description: >-
+  [CVPR2025][医学图像][脑肿瘤分类] 提出一种结合非负矩阵分解（NNMF）特征提取、统计特征筛选、轻量 CNN 分类和扩散式特征空间去噪的脑肿瘤分类框架，在保持 ~85% 干净准确率的同时，将 AutoAttack 下的鲁棒准确率从 0.47% 提升至 59.5%。
 tags:
   - CVPR2025
+  - 医学图像
   - 脑肿瘤分类
   - NNMF
   - 扩散去噪

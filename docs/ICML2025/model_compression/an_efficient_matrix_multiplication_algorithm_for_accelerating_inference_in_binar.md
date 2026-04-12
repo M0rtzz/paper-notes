@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks 论文解读 | ICML 2025 | arXiv 2411.06360 | 二值/三值网络 | 提出 RSR/RSR++ 算法——通过预处理固定的二值/三值权重矩阵构建分桶排列索引，实现 O(n²/log n) 复杂度的向量-矩阵乘法，比标准 O(n²) 方法快最高 29× 的矩阵乘法、6× 的内存节省，并在 1.58-bit LLM 推理中实现 5.24× 加速。"
+title: >-
+  [论文解读] An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks
+description: >-
+  [ICML 2025][模型压缩][二值/三值网络] 提出 RSR/RSR++ 算法——通过预处理固定的二值/三值权重矩阵构建分桶排列索引，实现 $O(n^2/\log n)$ 复杂度的向量-矩阵乘法，比标准 $O(n^2)$ 方法快最高 29× 的矩阵乘法、6× 的内存节省，并在 1.58-bit LLM 推理中实现 5.24× 加速。
 tags:
   - ICML 2025
+  - 模型压缩
   - 二值/三值网络
   - 矩阵乘法
   - 推理加速

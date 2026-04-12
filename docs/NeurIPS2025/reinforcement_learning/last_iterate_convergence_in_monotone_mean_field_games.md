@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Last Iterate Convergence in Monotone Mean Field Games 论文解读 | NeurIPS 2025 | arXiv 2410.05127 | mean field games | 在非严格单调平均场博弈(MFG)中，提出基于 KL 散度的近端点(PP)方法实现渐近最后迭代收敛(LIC)，并证明正则化镜像下降(RMD)以指数速率收敛到正则化均衡，两者结合的 APP 算法在标准基准上可靠收敛到非正则化均衡。"
+title: >-
+  [论文解读] Last Iterate Convergence in Monotone Mean Field Games
+description: >-
+  [NeurIPS 2025][mean field games] 在非严格单调平均场博弈(MFG)中，提出基于 KL 散度的近端点(PP)方法实现渐近最后迭代收敛(LIC)，并证明正则化镜像下降(RMD)以指数速率收敛到正则化均衡，两者结合的 APP 算法在标准基准上可靠收敛到非正则化均衡。
 tags:
   - NeurIPS 2025
   - mean field games

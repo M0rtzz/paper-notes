@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sysformer: Safeguarding Frozen Large Language Models with Adaptive System Prompts 论文解读 | ICLR 2026 | arXiv 2506.15751 | 系统提示 | 提出Sysformer——轻量级Transformer模块附着在冻结LLM输入端,根据用户提示自适应修改系统提示嵌入：保持LLM参数不变→Sysformer学习在嵌入空间中将固定系统提示转化为更鲁棒的版本,在5个LLM×2个基准上有害提示拒绝率提升80%+安全提示合规率提升90%,对越狱攻击鲁棒性提升100%。"
+title: >-
+  [论文解读] Sysformer: Safeguarding Frozen Large Language Models with Adaptive System Prompts
+description: >-
+  [ICLR 2026][机器人][系统提示] 提出Sysformer——轻量级Transformer模块附着在冻结LLM输入端,根据用户提示自适应修改系统提示嵌入：保持LLM参数不变→Sysformer学习在嵌入空间中将固定系统提示转化为更鲁棒的版本,在5个LLM×2个基准上有害提示拒绝率提升80%+安全提示合规率提升90%,对越狱攻击鲁棒性提升100%。
 tags:
   - ICLR 2026
+  - 机器人
   - 系统提示
   - 自适应安全
   - LLM冻结

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RF-MatID: Dataset and Benchmark for Radio Frequency Material Identification 论文解读 | ICLR 2026 | arXiv 2601.20377 | RF sensing | 构建了首个开源的大规模、宽频段（4-43.5 GHz）、几何扰动多样的 RF 材料识别数据集 RF-MatID，包含 16 种细粒度材料类别（5 大类）/142K 样本，并建立了覆盖 9 个深度学习模型、5 种频率协议、7 种数据划分的系统基准。"
+title: >-
+  [论文解读] RF-MatID: Dataset and Benchmark for Radio Frequency Material Identification
+description: >-
+  [ICLR 2026][机器人][RF sensing] 构建了首个开源的大规模、宽频段（4-43.5 GHz）、几何扰动多样的 RF 材料识别数据集 RF-MatID，包含 16 种细粒度材料类别（5 大类）/142K 样本，并建立了覆盖 9 个深度学习模型、5 种频率协议、7 种数据划分的系统基准。
 tags:
   - ICLR 2026
+  - 机器人
   - RF sensing
   - material identification
   - UWB-mmWave

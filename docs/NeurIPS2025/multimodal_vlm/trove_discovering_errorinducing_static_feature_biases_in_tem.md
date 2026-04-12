@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】TRoVe: Discovering Error-Inducing Static Feature Biases in Temporal Vision-Language Models 论文解读 | TRoVe 提出一个自动化诊断框架，用于发现 temporal VLM 在时序理解任务中错误依赖的静态特征偏置；它通过从验证集提取候选静态特征，并同时评估这些特征对错误率的影响与模型对其依赖程度，在 101 个带偏置真值标注的 temporal VLM 上较最强基线提升 28.6%，还能进一步辅助 test-time 改善模型表现。"
+title: >-
+  [论文解读] TRoVe: Discovering Error-Inducing Static Feature Biases in Temporal Vision-Language Models
+description: >-
+  [多模态] TRoVe 提出一个自动化诊断框架，用于发现 temporal VLM 在时序理解任务中错误依赖的静态特征偏置；它通过从验证集提取候选静态特征，并同时评估这些特征对错误率的影响与模型对其依赖程度，在 101 个带偏置真值标注的 temporal VLM 上较最强基线提升 28.6%，还能进一步辅助 test-time 改善模型表现。
 tags:
-
+  - 多模态
 ---
 
 # TRoVe: Discovering Error-Inducing Static Feature Biases in Temporal Vision-Language Models

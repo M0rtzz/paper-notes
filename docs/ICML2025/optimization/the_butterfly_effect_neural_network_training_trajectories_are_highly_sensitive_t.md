@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions 论文解读 | 通过\"产卵-扰动\"实验范式，系统研究神经网络训练轨迹对初始条件的敏感性，发现训练初期极微小的扰动（甚至单个权重）就能导致完全不同的收敛结果——即\"蝴蝶效应\"，且这种不稳定性与训练噪声无关，随训练进展迅速消减。"
+title: >-
+  [论文解读] The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions
+description: >-
+  [优化] 通过"产卵-扰动"实验范式，系统研究神经网络训练轨迹对初始条件的敏感性，发现训练初期极微小的扰动（甚至单个权重）就能导致完全不同的收敛结果——即"蝴蝶效应"，且这种不稳定性与训练噪声无关，随训练进展迅速消减。
 tags:
-
+  - 优化
 ---
 
 # The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions

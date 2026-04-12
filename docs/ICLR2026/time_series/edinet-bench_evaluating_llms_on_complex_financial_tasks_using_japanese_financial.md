@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements 论文解读 | ICLR 2026 | arXiv 2506.08762 | financial benchmark | 构建了基于日本 EDINET 十年年报的金融基准 EDINET-Bench，包含会计欺诈检测、盈利预测和行业分类三项专家级任务，发现即使是 SOTA LLM 也仅略优于逻辑回归。"
+title: >-
+  [论文解读] EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements
+description: >-
+  [ICLR 2026][时间序列][financial benchmark] 构建了基于日本 EDINET 十年年报的金融基准 EDINET-Bench，包含会计欺诈检测、盈利预测和行业分类三项专家级任务，发现即使是 SOTA LLM 也仅略优于逻辑回归。
 tags:
   - ICLR 2026
+  - 时间序列
   - financial benchmark
   - LLM evaluation
   - fraud detection

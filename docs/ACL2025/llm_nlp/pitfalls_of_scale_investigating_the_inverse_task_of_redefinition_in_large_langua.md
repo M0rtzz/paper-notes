@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pitfalls of Scale: Investigating the Inverse Task of Redefinition in Large Language Models 论文解读 | ACL 2025 | arXiv 2502.12821 | 逆向缩放 | 通过重定义任务（给著名物理常数或度量单位赋予新值并要求 LLM 据此推理），揭示大模型比小模型更容易锚定于先验知识，展现规模增长带来推理灵活性下降的逆向缩放现象。"
+title: >-
+  [论文解读] Pitfalls of Scale: Investigating the Inverse Task of Redefinition in Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][逆向缩放] 通过重定义任务（给著名物理常数或度量单位赋予新值并要求 LLM 据此推理），揭示大模型比小模型更容易锚定于先验知识，展现规模增长带来推理灵活性下降的逆向缩放现象。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 逆向缩放
   - 知识重定义
   - 先验锚定

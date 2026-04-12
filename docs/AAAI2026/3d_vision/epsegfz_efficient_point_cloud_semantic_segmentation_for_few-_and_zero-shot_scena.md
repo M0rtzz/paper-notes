@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EPSegFZ: Efficient Point Cloud Semantic Segmentation for Few- and Zero-Shot Scenarios 论文解读 | AAAI 2026 | arXiv 2511.11700 | 点云语义分割 | 提出 EPSegFZ，一个无需预训练的3D点云少样本/零样本语义分割框架，通过 ProERA 提取高频特征、LGPE 融合文本信息更新原型、DRPE 建立精确的查询-原型对应关系，在 S3DIS 和 ScanNet 上分别超越 SOTA 5.68% 和 3.82%。"
+title: >-
+  [论文解读] EPSegFZ: Efficient Point Cloud Semantic Segmentation for Few- and Zero-Shot Scenarios
+description: >-
+  [AAAI 2026][3D视觉][点云语义分割] 提出 EPSegFZ，一个无需预训练的3D点云少样本/零样本语义分割框架，通过 ProERA 提取高频特征、LGPE 融合文本信息更新原型、DRPE 建立精确的查询-原型对应关系，在 S3DIS 和 ScanNet 上分别超越 SOTA 5.68% 和 3.82%。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 点云语义分割
   - 少样本学习
   - 零样本学习

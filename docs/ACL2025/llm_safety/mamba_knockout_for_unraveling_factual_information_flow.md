@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Mamba Knockout for Unraveling Factual Information Flow 论文解读 | ACL 2025 | arXiv 2505.24244 | Mamba | 将 Transformer 上的 Attention Knockout 可解释性方法迁移至 Mamba-1 和 Mamba-2，揭示了 SSM 模型中事实信息的流动模式——发现 Mamba 与 Transformer 共享\"主语 token 在中后层向最后 token 传递关键信息\"的普遍模式，但在首 token 偏置和关系 token 依赖等方面存在架构特异性差异。"
+title: >-
+  [论文解读] Mamba Knockout for Unraveling Factual Information Flow
+description: >-
+  [ACL 2025][Mamba] 将 Transformer 上的 Attention Knockout 可解释性方法迁移至 Mamba-1 和 Mamba-2，揭示了 SSM 模型中事实信息的流动模式——发现 Mamba 与 Transformer 共享"主语 token 在中后层向最后 token 传递关键信息"的普遍模式，但在首 token 偏置和关系 token 依赖等方面存在架构特异性差异。
 tags:
   - ACL 2025
   - Mamba

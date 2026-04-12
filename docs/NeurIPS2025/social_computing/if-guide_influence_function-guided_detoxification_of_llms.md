@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】IF-GUIDE: Influence Function-Guided Detoxification of LLMs 论文解读 | NeurIPS 2025 | arXiv 2506.01790 | LLM去毒化 | 提出 IF-Guide，利用影响函数在 token 粒度识别训练数据中的有毒内容，并通过惩罚式训练目标在预训练/微调阶段主动抑制模型学习有毒行为，显著优于 DPO 和 RAD 等被动对齐方法。"
+title: >-
+  [论文解读] IF-GUIDE: Influence Function-Guided Detoxification of LLMs
+description: >-
+  [NeurIPS 2025][LLM去毒化] 提出 IF-Guide，利用影响函数在 token 粒度识别训练数据中的有毒内容，并通过惩罚式训练目标在预训练/微调阶段主动抑制模型学习有毒行为，显著优于 DPO 和 RAD 等被动对齐方法。
 tags:
   - NeurIPS 2025
   - LLM去毒化

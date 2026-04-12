@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Free Lunch for Stabilizing Rectified Flow Inversion 论文解读 | ICLR 2026 | arXiv 2602.11850 | Rectified Flow | 提出PMI（Proximal-Mean Inversion）和mimic-CFG两个无训练方法，通过将速度场向其历史均值做近端梯度校正来稳定Rectified Flow反演，在PIE-Bench上以更少的NFE达到SOTA的重建和编辑质量。"
+title: >-
+  [论文解读] Free Lunch for Stabilizing Rectified Flow Inversion
+description: >-
+  [ICLR 2026][图像生成][Rectified Flow] 提出PMI（Proximal-Mean Inversion）和mimic-CFG两个无训练方法，通过将速度场向其历史均值做近端梯度校正来稳定Rectified Flow反演，在PIE-Bench上以更少的NFE达到SOTA的重建和编辑质量。
 tags:
   - ICLR 2026
+  - 图像生成
   - Rectified Flow
   - 反演稳定性
   - Proximal-Mean Inversion

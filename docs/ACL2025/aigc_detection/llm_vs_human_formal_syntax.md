@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Comparing LLM-generated and human-authored news text using formal syntactic theory 论文解读 | ACL 2025 | arXiv 2506.01407 | 句法分析 | 首次使用形式句法理论（HPSG）系统比较六个 LLM 生成的纽约时报风格文本与真实人类撰写的 NYT 文本，发现 LLM 和人类写作在 HPSG 语法类型分布上存在系统性差异，揭示了 LLM 句法行为与人类的本质不同。"
+title: >-
+  [论文解读] Comparing LLM-generated and human-authored news text using formal syntactic theory
+description: >-
+  [ACL 2025][句法分析] 首次使用形式句法理论（HPSG）系统比较六个 LLM 生成的纽约时报风格文本与真实人类撰写的 NYT 文本，发现 LLM 和人类写作在 HPSG 语法类型分布上存在系统性差异，揭示了 LLM 句法行为与人类的本质不同。
 tags:
   - ACL 2025
   - 句法分析

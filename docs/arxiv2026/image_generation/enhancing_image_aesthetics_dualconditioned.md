@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception 论文解读 | arXiv 2026 | arXiv 2603.11556 | enhancing | 图像美感增强旨在感知图像中的美感缺陷并进行相应的编辑操作，具有很高的挑战性，要求模型具备创造力和美感感知能力。"
+title: >-
+  [论文解读] Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception
+description: >-
+  [arXiv 2026][图像生成][enhancing] 图像美感增强旨在感知图像中的美感缺陷并进行相应的编辑操作，具有很高的挑战性，要求模型具备创造力和美感感知能力。
 tags:
   - arXiv 2026
+  - 图像生成
   - enhancing
   - image
   - aesthetics

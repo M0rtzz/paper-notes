@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Geometry-Guided Camera Motion Understanding in VideoLLMs 论文解读 | CVPR 2025 | arXiv 2603.13119 | camera motion | 提出一个从基准构建、诊断到注入的完整框架，通过 3D 基础模型（VGGT）提取相机运动线索并以结构化提示注入 VideoLLM，实现无需训练的相机运动感知增强。"
+title: >-
+  [论文解读] Geometry-Guided Camera Motion Understanding in VideoLLMs
+description: >-
+  [CVPR 2025][camera motion] 提出一个从基准构建、诊断到注入的完整框架，通过 3D 基础模型（VGGT）提取相机运动线索并以结构化提示注入 VideoLLM，实现无需训练的相机运动感知增强。
 tags:
   - CVPR 2025
   - camera motion

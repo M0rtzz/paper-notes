@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】FQ-PETR: Fully Quantized Position Embedding Transformation for Multi-View 3D Object Detection 论文解读 | AAAI 2026 | arXiv 2502.15488 | 3D目标检测 | 首次实现PETR系列3D检测器的全INT8量化部署，通过量化友好的LiDAR-ray位置编码(QFPE)解决多模态特征幅度不匹配问题、双查找表(DULUT)高效逼近非线性算子、数值稳定后量化(QANS)避免softmax注意力失真，在PETR/StreamPETR/PETRv2/MV2D上W8A8精度损失<1%且延迟降低75%（3.9×加速）。"
+title: >-
+  [论文解读] FQ-PETR: Fully Quantized Position Embedding Transformation for Multi-View 3D Object Detection
+description: >-
+  [AAAI 2026][自动驾驶][3D目标检测] 首次实现PETR系列3D检测器的全INT8量化部署，通过量化友好的LiDAR-ray位置编码(QFPE)解决多模态特征幅度不匹配问题、双查找表(DULUT)高效逼近非线性算子、数值稳定后量化(QANS)避免softmax注意力失真，在PETR/StreamPETR/PETRv2/MV2D上W8A8精度损失<1%且延迟降低75%（3.9×加速）。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 3D目标检测
   - 量化
   - PETR
   - 位置编码
-  - 自动驾驶
 ---
 
 # FQ-PETR: Fully Quantized Position Embedding Transformation for Multi-View 3D Object Detection

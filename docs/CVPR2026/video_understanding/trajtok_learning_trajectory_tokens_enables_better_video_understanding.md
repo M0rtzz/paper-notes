@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TrajTok: Learning Trajectory Tokens Enhances Video Understanding 论文解读 | CVPR2026 | arXiv 2602.22779 | 视频 tokenization | 提出 TrajTok——一种端到端可微的轨迹 tokenizer，将视频像素隐式聚类为目标轨迹 token，取代外部分割+跟踪流水线；在从头训练 (TrajViT2)、特征适配 (TrajAdapter) 和视觉语言模型连接器 (TrajVLM) 三种场景下均取得显著提升，尤其在长视频 QA 上大幅超越 patch pooling。"
+title: >-
+  [论文解读] TrajTok: Learning Trajectory Tokens Enhances Video Understanding
+description: >-
+  [CVPR2026][视频理解][视频 tokenization] 提出 TrajTok——一种端到端可微的轨迹 tokenizer，将视频像素隐式聚类为目标轨迹 token，取代外部分割+跟踪流水线；在从头训练 (TrajViT2)、特征适配 (TrajAdapter) 和视觉语言模型连接器 (TrajVLM) 三种场景下均取得显著提升，尤其在长视频 QA 上大幅超越 patch pooling。
 tags:
   - CVPR2026
+  - 视频理解
   - 视频 tokenization
   - 轨迹 token
   - 端到端分割

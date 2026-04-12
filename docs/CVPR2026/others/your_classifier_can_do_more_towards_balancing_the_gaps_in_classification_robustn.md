@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Your Classifier Can Do More: Towards Balancing the Gaps in Classification, Robustness, and Generation 论文解读 | CVPR 2026 | arXiv 2505.19459 | 对抗鲁棒性 | 提出 EB-JDAT 框架，通过建模干净样本、对抗样本和生成样本的联合能量分布 p_θ(x, tildex, y)，首次在单个模型中同时实现高分类精度、强对抗鲁棒性和具有竞争力的生成能力，在 CIFAR-10 上 AutoAttack 鲁棒性达 66.12%，超越 SOTA AT 方法超 10 个百分点。"
+title: >-
+  [论文解读] Your Classifier Can Do More: Towards Balancing the Gaps in Classification, Robustness, and Generation
+description: >-
+  [CVPR 2026][对抗鲁棒性] 提出 EB-JDAT 框架，通过建模干净样本、对抗样本和生成样本的联合能量分布 $p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y)$，首次在单个模型中同时实现高分类精度、强对抗鲁棒性和具有竞争力的生成能力，在 CIFAR-10 上 AutoAttack 鲁棒性达 66.12%，超越 SOTA AT 方法超 10 个百分点。
 tags:
   - CVPR 2026
   - 对抗鲁棒性

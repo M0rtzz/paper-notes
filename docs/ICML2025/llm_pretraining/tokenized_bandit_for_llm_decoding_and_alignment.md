@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Tokenized Bandit for LLM Decoding and Alignment 论文解读 | ICML 2025 | arXiv 2506.07276 | 多臂老虎机 | 将 LLM 解码与对齐问题形式化为 **tokenized bandit**（token化老虎机）问题，提出 DDMC（Diminishing Distance with More Commons）假设，证明在该假设下贪心解码近似最优，并设计了具有次线性遗憾的在线学习算法 EOFUL 和 GreedyETC。"
+title: >-
+  [论文解读] Tokenized Bandit for LLM Decoding and Alignment
+description: >-
+  [ICML 2025][多臂老虎机] 将 LLM 解码与对齐问题形式化为 **tokenized bandit**（token化老虎机）问题，提出 DDMC（Diminishing Distance with More Commons）假设，证明在该假设下贪心解码近似最优，并设计了具有次线性遗憾的在线学习算法 EOFUL 和 GreedyETC。
 tags:
   - ICML 2025
   - 多臂老虎机

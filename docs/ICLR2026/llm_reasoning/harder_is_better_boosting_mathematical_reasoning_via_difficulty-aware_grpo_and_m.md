@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Harder Is Better: Boosting Mathematical Reasoning via Difficulty-Aware GRPO and Multi-Aspect Question Reformulation 论文解读 | ICLR2026 | arXiv 2601.20614 | GRPO改进 | 揭示GRPO中更新幅度对难题隐式抑制的问题(中等难度题更新最大)，提出MathForge框架：DGPO用MAD替换std实现难度均衡+难题加权，MQR通过多方面改写增加题目难度但保留答案，在6个数学推理benchmark上平均超GRPO +4.56%。"
+title: >-
+  [论文解读] Harder Is Better: Boosting Mathematical Reasoning via Difficulty-Aware GRPO and Multi-Aspect Question Reformulation
+description: >-
+  [ICLR2026][LLM推理][GRPO改进] 揭示GRPO中更新幅度对难题隐式抑制的问题(中等难度题更新最大)，提出MathForge框架：DGPO用MAD替换std实现难度均衡+难题加权，MQR通过多方面改写增加题目难度但保留答案，在6个数学推理benchmark上平均超GRPO +4.56%。
 tags:
   - ICLR2026
+  - LLM推理
   - GRPO改进
   - 难度感知
   - 数据增强

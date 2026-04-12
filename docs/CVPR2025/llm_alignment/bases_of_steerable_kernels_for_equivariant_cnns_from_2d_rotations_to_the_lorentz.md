@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group 论文解读 | CVPR 2025 | arXiv 2603.12459 | 等变CNN | 提出一种求解可转向等变 CNN 核约束方程的替代方法，通过在不动点处求解更简单的不变性条件再\"转向\"到任意点，绕过了计算 Clebsch-Gordan 系数的需要，为 SO(2)、O(2)、SO(3)、O(3) 及 Lorentz 群给出了显式的核基底公式。"
+title: >-
+  [论文解读] Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group
+description: >-
+  [CVPR 2025][LLM对齐][等变CNN] 提出一种求解可转向等变 CNN 核约束方程的替代方法，通过在不动点处求解更简单的不变性条件再"转向"到任意点，绕过了计算 Clebsch-Gordan 系数的需要，为 SO(2)、O(2)、SO(3)、O(3) 及 Lorentz 群给出了显式的核基底公式。
 tags:
   - CVPR 2025
+  - LLM对齐
   - 等变CNN
   - 可转向核
   - 群表示论

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How Do Medical MLLMs Fail? A Study on Visual Grounding in Medical Images 论文解读 | ICLR 2026 | arXiv 2603.14323 | 医学VQA | 首次系统验证医学MLLM的核心失败模式是视觉扎根不足——模型注意力未对准临床相关区域(与自然图像不同)，构建VGMED数据集(28K三元组)定量诊断，提出VGRefine推理时方法在6个Med-VQA基准(110K+样本/8种成像模态)上达到SOTA。"
+title: >-
+  [论文解读] How Do Medical MLLMs Fail? A Study on Visual Grounding in Medical Images
+description: >-
+  [ICLR 2026][医学图像][医学VQA] 首次系统验证医学MLLM的核心失败模式是视觉扎根不足——模型注意力未对准临床相关区域(与自然图像不同)，构建VGMED数据集(28K三元组)定量诊断，提出VGRefine推理时方法在6个Med-VQA基准(110K+样本/8种成像模态)上达到SOTA。
 tags:
   - ICLR 2026
+  - 医学图像
   - 医学VQA
   - 视觉扎根
   - 注意力分析

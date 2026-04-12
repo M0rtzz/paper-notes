@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CTFS: Collaborative Teacher Framework for Forward-Looking Sonar Image Semantic Segmentation with Extremely Limited Labels 论文解读 | CVPR 2026 | arXiv 2603.21071 | 声呐图像分割 | 提出CTFS，首个专为前视声呐图像设计的半监督语义分割框架，引入多教师协作机制（1个通用教师+2个声呐特异教师，分别模拟声学阴影和能量衰减物理特性），配合多视角伪标签可靠性评估（单教师内稳定性+跨教师间一致性），在仅2%标注下达62.32% mIoU，超越SOTA 5.08个百分点。"
+title: >-
+  [论文解读] CTFS: Collaborative Teacher Framework for Forward-Looking Sonar Image Semantic Segmentation with Extremely Limited Labels
+description: >-
+  [CVPR 2026][图像分割][声呐图像分割] 提出CTFS，首个专为前视声呐图像设计的半监督语义分割框架，引入多教师协作机制（1个通用教师+2个声呐特异教师，分别模拟声学阴影和能量衰减物理特性），配合多视角伪标签可靠性评估（单教师内稳定性+跨教师间一致性），在仅2%标注下达62.32% mIoU，超越SOTA 5.08个百分点。
 tags:
   - CVPR 2026
+  - 图像分割
   - 声呐图像分割
   - 半监督学习
   - 多教师协作

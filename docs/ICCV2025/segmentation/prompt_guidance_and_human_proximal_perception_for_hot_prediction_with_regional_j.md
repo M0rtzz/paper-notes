@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prompt Guidance and Human Proximal Perception for HOT Prediction with Regional Joint Loss 论文解读 | ICCV 2025 | arXiv 2507.01630 | 人体-物体接触检测 | 提出 P3HOT 框架，通过文本 prompt 引导关注人体接触部位、深度感知模块过滤无关背景、以及 Regional Joint Loss 保证区域内类别一致性，在 HOT（Human-Object Contact）检测任务上取得 SOTA。"
+title: >-
+  [论文解读] Prompt Guidance and Human Proximal Perception for HOT Prediction with Regional Joint Loss
+description: >-
+  [ICCV 2025][图像分割][人体-物体接触检测] 提出 P3HOT 框架，通过文本 prompt 引导关注人体接触部位、深度感知模块过滤无关背景、以及 Regional Joint Loss 保证区域内类别一致性，在 HOT（Human-Object Contact）检测任务上取得 SOTA。
 tags:
   - ICCV 2025
+  - 图像分割
   - 人体-物体接触检测
   - 文本引导
   - 深度感知

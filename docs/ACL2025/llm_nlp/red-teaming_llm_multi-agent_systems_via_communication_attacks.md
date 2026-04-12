@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Red-Teaming LLM Multi-Agent Systems via Communication Attacks 论文解读 | ACL2025 | arXiv 2502.14847 | multi-agent systems | 提出 Agent-in-the-Middle (AiTM) 攻击，通过拦截和篡改 LLM 多智能体系统中的 agent 间通信消息（而非直接修改 agent 本身），利用一个带反思机制的对抗性 agent 生成上下文感知的恶意指令，在多种框架/通信结构/真实应用上均取得 40%~100% 的攻击成功率。"
+title: >-
+  [论文解读] Red-Teaming LLM Multi-Agent Systems via Communication Attacks
+description: >-
+  [ACL2025][LLM/NLP][multi-agent systems] 提出 Agent-in-the-Middle (AiTM) 攻击，通过拦截和篡改 LLM 多智能体系统中的 agent 间通信消息（而非直接修改 agent 本身），利用一个带反思机制的对抗性 agent 生成上下文感知的恶意指令，在多种框架/通信结构/真实应用上均取得 40%~100% 的攻击成功率。
 tags:
   - ACL2025
+  - LLM/NLP
   - multi-agent systems
   - red-teaming
   - communication attack

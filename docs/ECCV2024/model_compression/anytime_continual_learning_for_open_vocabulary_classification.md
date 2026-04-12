@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Anytime Continual Learning for Open Vocabulary Classification 论文解读 | ECCV2024 | arXiv 2409.08518 | continual learning | 提出 AnytimeCL 框架，通过部分微调 CLIP 最后一个 transformer block 并动态加权融合微调模型与原始模型的预测，实现任意时刻接收样本、任意标签集推理的开放词汇持续学习。"
+title: >-
+  [论文解读] Anytime Continual Learning for Open Vocabulary Classification
+description: >-
+  [ECCV2024][模型压缩][continual learning] 提出 AnytimeCL 框架，通过部分微调 CLIP 最后一个 transformer block 并动态加权融合微调模型与原始模型的预测，实现任意时刻接收样本、任意标签集推理的开放词汇持续学习。
 tags:
   - ECCV2024
+  - 模型压缩
   - continual learning
   - open vocabulary
   - CLIP

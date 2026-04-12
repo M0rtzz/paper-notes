@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TEAR: Temporal-aware Automated Red-teaming for Text-to-Video Models 论文解读 | CVPR 2026 | arXiv 2511.21145 | 文本到视频安全 | 提出 TEAR，首个针对 T2V 模型时序维度漏洞的自动化红队测试框架，通过两阶段优化的时序感知测试生成器和迭代精炼模型，生成文本上无害但能利用时序动态触发有害视频的提示，在开源和商业 T2V 模型上达到 80%+ 的攻击成功率。"
+title: >-
+  [论文解读] TEAR: Temporal-aware Automated Red-teaming for Text-to-Video Models
+description: >-
+  [CVPR 2026][视频理解][文本到视频安全] 提出 TEAR，首个针对 T2V 模型时序维度漏洞的自动化红队测试框架，通过两阶段优化的时序感知测试生成器和迭代精炼模型，生成文本上无害但能利用时序动态触发有害视频的提示，在开源和商业 T2V 模型上达到 80%+ 的攻击成功率。
 tags:
   - CVPR 2026
+  - 视频理解
   - 文本到视频安全
   - 自动化红队测试
   - 时序感知

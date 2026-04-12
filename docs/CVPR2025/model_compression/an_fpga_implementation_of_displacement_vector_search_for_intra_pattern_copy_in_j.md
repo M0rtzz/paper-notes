@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS 论文解读 | CVPR 2025 | arXiv 2603.10671 | FPGA实现 | 首次提出JPEG XS帧内模式复制(IPC)中位移向量(DV)搜索模块的FPGA架构实现，采用四级流水线设计和优化的存储组织方式，在Xilinx Artix-7上实现38.3 Mpixels/s吞吐量和277 mW功耗，为IPC实际硬件部署和ASIC转化奠定基础。"
+title: >-
+  [论文解读] An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS
+description: >-
+  [CVPR 2025][模型压缩][FPGA实现] 首次提出JPEG XS帧内模式复制(IPC)中位移向量(DV)搜索模块的FPGA架构实现，采用四级流水线设计和优化的存储组织方式，在Xilinx Artix-7上实现38.3 Mpixels/s吞吐量和277 mW功耗，为IPC实际硬件部署和ASIC转化奠定基础。
 tags:
   - CVPR 2025
+  - 模型压缩
   - FPGA实现
   - JPEG XS
   - 帧内模式复制

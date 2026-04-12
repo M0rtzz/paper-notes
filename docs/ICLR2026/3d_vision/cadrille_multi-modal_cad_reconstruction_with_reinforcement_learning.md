@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】cadrille: Multi-modal CAD Reconstruction with Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2505.22914 | CAD重建 | cadrille 是首个同时处理点云、多视角图像和文本输入的多模态 CAD 重建模型，通过 VLM 基础架构 + SFT + RL 微调的三阶段训练范式，在 10 个 CAD 重建基准上达到 SOTA，尤其是 RL 微调将无效率降至接近 0%。"
+title: >-
+  [论文解读] cadrille: Multi-modal CAD Reconstruction with Reinforcement Learning
+description: >-
+  [ICLR 2026][3D视觉][CAD重建] cadrille 是首个同时处理点云、多视角图像和文本输入的多模态 CAD 重建模型，通过 VLM 基础架构 + SFT + RL 微调的三阶段训练范式，在 10 个 CAD 重建基准上达到 SOTA，尤其是 RL 微调将无效率降至接近 0%。
 tags:
   - ICLR 2026
+  - 3D视觉
   - CAD重建
   - 多模态
   - 强化学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Benchmarking Foundation Models for Tabular Data With Text 论文解读 | ICML2025 | arXiv 2507.07829 | 表格数据 | 首个系统性研究表格基础模型处理文本特征能力的工作：手动策划含语义丰富文本列的真实数据集集合，比较fastText/Skrub/AutoGluon三种文本嵌入策略，揭示现有方法对语义模式的捕捉仍有显著不足。"
+title: >-
+  [论文解读] Towards Benchmarking Foundation Models for Tabular Data With Text
+description: >-
+  [ICML2025][自监督学习][表格数据] 首个系统性研究表格基础模型处理文本特征能力的工作：手动策划含语义丰富文本列的真实数据集集合，比较fastText/Skrub/AutoGluon三种文本嵌入策略，揭示现有方法对语义模式的捕捉仍有显著不足。
 tags:
   - ICML2025
+  - 自监督学习
   - 表格数据
   - 文本特征
   - 基础模型

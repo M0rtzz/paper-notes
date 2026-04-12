@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LongT2IBench: A Benchmark for Evaluating Long Text-to-Image Generation with Graph-structured Annotations 论文解读 | AAAI 2026 | arXiv 2512.09271 | 文本到图像 | 提出 LongT2IBench，首个面向长文本到图像（T2I）对齐的评估基准，包含 14K 长文本-图片对和图结构化人工标注，并构建 LongT2IExpert 评估器，通过层次化对齐思维链（HA-CoT）指令微调 MLLM，同时输出对齐分数和结构化解释。"
+title: >-
+  [论文解读] LongT2IBench: A Benchmark for Evaluating Long Text-to-Image Generation with Graph-structured Annotations
+description: >-
+  [AAAI 2026][图像生成][文本到图像] 提出 LongT2IBench，首个面向长文本到图像（T2I）对齐的评估基准，包含 14K 长文本-图片对和图结构化人工标注，并构建 LongT2IExpert 评估器，通过层次化对齐思维链（HA-CoT）指令微调 MLLM，同时输出对齐分数和结构化解释。
 tags:
   - AAAI 2026
+  - 图像生成
   - 文本到图像
   - 长文本对齐
   - 图结构标注

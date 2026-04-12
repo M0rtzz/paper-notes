@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SafeRoute: Adaptive Model Selection for Efficient and Accurate Safety Guardrails in Large Language Models 论文解读 | ACL2025 | arXiv 2502.12464 | LLM安全 | 提出 SafeRoute，一个二分类路由器，根据输入难度自适应地在小型和大型安全护栏模型之间选择，仅对约5%的\"困难\"样本使用大模型，在保持安全检测精度的同时大幅降低计算开销。"
+title: >-
+  [论文解读] SafeRoute: Adaptive Model Selection for Efficient and Accurate Safety Guardrails in Large Language Models
+description: >-
+  [ACL2025][LLM安全] 提出 SafeRoute，一个二分类路由器，根据输入难度自适应地在小型和大型安全护栏模型之间选择，仅对约5%的"困难"样本使用大模型，在保持安全检测精度的同时大幅降低计算开销。
 tags:
   - ACL2025
   - LLM安全

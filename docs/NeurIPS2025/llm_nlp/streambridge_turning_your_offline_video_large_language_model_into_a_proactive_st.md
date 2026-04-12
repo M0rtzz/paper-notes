@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】StreamBridge: Turning Your Offline Video Large Language Model into a Proactive Streaming Model 论文解读 | NeurIPS 2025 | arXiv 2505.05467 | 流式视频理解 | StreamBridge提出一个简单通用的框架，通过记忆缓冲区+轮次衰减压缩策略实现多轮流式交互，通过解耦的轻量激活模型实现主动响应，配合专门构建的Stream-IT数据集，成功将离线Video-LLM（如Qwen2-VL、LLaVA-OV）转化为流式助手，在OVO-Bench和Streaming-Bench上超越GPT-4o和Gemini 1.5 Pro。"
+title: >-
+  [论文解读] StreamBridge: Turning Your Offline Video Large Language Model into a Proactive Streaming Model
+description: >-
+  [NeurIPS 2025][LLM/NLP][流式视频理解] StreamBridge提出一个简单通用的框架，通过记忆缓冲区+轮次衰减压缩策略实现多轮流式交互，通过解耦的轻量激活模型实现主动响应，配合专门构建的Stream-IT数据集，成功将离线Video-LLM（如Qwen2-VL、LLaVA-OV）转化为流式助手，在OVO-Bench和Streaming-Bench上超越GPT-4o和Gemini 1.5 Pro。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - 流式视频理解
   - Video-LLM
   - 主动响应

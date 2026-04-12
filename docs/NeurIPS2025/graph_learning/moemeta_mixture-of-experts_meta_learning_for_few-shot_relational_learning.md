@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoEMeta: Mixture-of-Experts Meta Learning for Few-Shot Relational Learning 论文解读 | NeurIPS 2025 | arXiv 2510.23013 | 知识图谱 | 提出MoEMeta框架，通过混合专家模型学习全局共享的关系原型实现跨任务泛化，结合任务定制的投影适应机制捕获局部上下文，在三个KG基准上达到SOTA。"
+title: >-
+  [论文解读] MoEMeta: Mixture-of-Experts Meta Learning for Few-Shot Relational Learning
+description: >-
+  [NeurIPS 2025][图学习][知识图谱] 提出MoEMeta框架，通过混合专家模型学习全局共享的关系原型实现跨任务泛化，结合任务定制的投影适应机制捕获局部上下文，在三个KG基准上达到SOTA。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 知识图谱
   - 少样本关系学习
   - 元学习

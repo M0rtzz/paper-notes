@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reasoning Gym: Reasoning Environments for Reinforcement Learning with Verifiable Rewards 论文解读 | NeurIPS 2025 | arXiv 2505.24760 | RL环境 | 发布Reasoning Gym库，包含100+可验证推理任务的过程生成环境，支持动态难度调整和无限数据生成，可用于RLVR训练和推理评估。"
+title: >-
+  [论文解读] Reasoning Gym: Reasoning Environments for Reinforcement Learning with Verifiable Rewards
+description: >-
+  [NeurIPS 2025][RL环境] 发布Reasoning Gym库，包含100+可验证推理任务的过程生成环境，支持动态难度调整和无限数据生成，可用于RLVR训练和推理评估。
 tags:
   - NeurIPS 2025
   - RL环境

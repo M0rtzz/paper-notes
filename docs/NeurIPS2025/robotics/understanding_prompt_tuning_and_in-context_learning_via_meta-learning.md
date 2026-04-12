@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding Prompt Tuning and In-Context Learning via Meta-Learning 论文解读 | NeurIPS 2025 | arXiv 2505.17010 | 提示调优 | 从贝叶斯元学习视角系统分析了提示调优（prompt tuning）的理论基础与局限性，证明了软提示可以在预训练分布内的单一目标任务上实现最优适配，但对多任务混合目标分布存在根本性限制，且软前缀能通过操纵非token空间的激活来超越最优硬token序列。"
+title: >-
+  [论文解读] Understanding Prompt Tuning and In-Context Learning via Meta-Learning
+description: >-
+  [NeurIPS 2025][机器人][提示调优] 从贝叶斯元学习视角系统分析了提示调优（prompt tuning）的理论基础与局限性，证明了软提示可以在预训练分布内的单一目标任务上实现最优适配，但对多任务混合目标分布存在根本性限制，且软前缀能通过操纵非token空间的激活来超越最优硬token序列。
 tags:
   - NeurIPS 2025
+  - 机器人
   - 提示调优
   - 上下文学习
   - 元学习

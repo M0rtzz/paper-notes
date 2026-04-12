@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fractional Diffusion Bridge Models 论文解读 | NeurIPS 2025 | arXiv 2511.01795 | 扩散桥模型 | 提出分数扩散桥模型（FDBM），将分数布朗运动（fBM）引入生成扩散桥框架，通过 Hurst 指数 $H$ 控制轨迹的粗糙度和长程依赖性，在蛋白质构象预测和图像翻译任务上超越布朗运动基线。"
+title: >-
+  [论文解读] Fractional Diffusion Bridge Models
+description: >-
+  [NeurIPS 2025][医学图像][扩散桥模型] 提出分数扩散桥模型（FDBM），将分数布朗运动（fBM）引入生成扩散桥框架，通过 Hurst 指数 $H$ 控制轨迹的粗糙度和长程依赖性，在蛋白质构象预测和图像翻译任务上超越布朗运动基线。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 扩散桥模型
   - 分数布朗运动
   - 蛋白质构象预测

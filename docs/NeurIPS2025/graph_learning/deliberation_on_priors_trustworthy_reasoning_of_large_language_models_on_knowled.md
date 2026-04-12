@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Deliberation on Priors: Trustworthy Reasoning of LLMs on Knowledge Graphs 论文解读 | NeurIPS 2025 | arXiv 2505.15210 | KGQA | 提出 Deliberation over Priors（DP）框架，通过渐进式知识蒸馏（SFT + KTO 偏好优化）提升关系路径生成的忠实度，并通过约束引导的内省-回溯机制保障推理可靠性，在 ComplexWebQuestions 上 H@1 提升 16.5%，且 LLM 调用次数仅为 2.9 次（ToG 需 22.6 次）。"
+title: >-
+  [论文解读] Deliberation on Priors: Trustworthy Reasoning of LLMs on Knowledge Graphs
+description: >-
+  [NeurIPS 2025][图学习][KGQA] 提出 Deliberation over Priors（DP）框架，通过渐进式知识蒸馏（SFT + KTO 偏好优化）提升关系路径生成的忠实度，并通过约束引导的内省-回溯机制保障推理可靠性，在 ComplexWebQuestions 上 H@1 提升 16.5%，且 LLM 调用次数仅为 2.9 次（ToG 需 22.6 次）。
 tags:
   - NeurIPS 2025
+  - 图学习
   - KGQA
   - 约束推理
   - 知识蒸馏

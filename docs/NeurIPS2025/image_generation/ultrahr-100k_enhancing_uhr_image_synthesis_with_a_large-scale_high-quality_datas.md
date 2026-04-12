@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UltraHR-100K: Enhancing UHR Image Synthesis with A Large-Scale High-Quality Dataset 论文解读 | NeurIPS 2025 | arXiv 2510.20661 | 超高分辨率 | 构建了包含 10 万张超高分辨率图像及丰富标注的 UltraHR-100K 数据集，并提出频率感知后训练方法（DOTS + SWFR），通过面向细节的时间步采样和基于 DFT 的软加权频率正则化来增强预训练 T2I 模型的超高分辨率细节生成能力。"
+title: >-
+  [论文解读] UltraHR-100K: Enhancing UHR Image Synthesis with A Large-Scale High-Quality Dataset
+description: >-
+  [NeurIPS 2025][图像生成][超高分辨率] 构建了包含 10 万张超高分辨率图像及丰富标注的 UltraHR-100K 数据集，并提出频率感知后训练方法（DOTS + SWFR），通过面向细节的时间步采样和基于 DFT 的软加权频率正则化来增强预训练 T2I 模型的超高分辨率细节生成能力。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 超高分辨率
   - 数据集
   - 频率感知

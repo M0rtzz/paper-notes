@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ZEUS: Zero-shot Embeddings for Unsupervised Separation of Tabular Data 论文解读 | NeurIPS 2025 | arXiv 2505.10704 | 零样本学习 | ZEUS 是首个面向表格数据的零样本聚类方法，通过在合成数据集上预训练一个 Transformer 编码器来学习可泛化的表示，使得新数据集无需任何额外训练或调参即可在单次前向传播中完成高质量聚类。"
+title: >-
+  [论文解读] ZEUS: Zero-shot Embeddings for Unsupervised Separation of Tabular Data
+description: >-
+  [NeurIPS 2025][零样本学习] ZEUS 是首个面向表格数据的零样本聚类方法，通过在合成数据集上预训练一个 Transformer 编码器来学习可泛化的表示，使得新数据集无需任何额外训练或调参即可在单次前向传播中完成高质量聚类。
 tags:
   - NeurIPS 2025
   - 零样本学习

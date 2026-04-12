@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion 论文解读 | CVPR2026 | arXiv 2603.12764 | 跨视角模仿错误检测 | 提出 SAVA-X 框架，通过自适应采样、场景感知视角嵌入和双向交叉注意力融合三个互补模块，解决第三人称示范→第一人称模仿场景下的跨视角时序错误检测问题，在 EgoMe 基准上全面超越现有基线。"
+title: >-
+  [论文解读] SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion
+description: >-
+  [CVPR2026][视频理解][跨视角模仿错误检测] 提出 SAVA-X 框架，通过自适应采样、场景感知视角嵌入和双向交叉注意力融合三个互补模块，解决第三人称示范→第一人称模仿场景下的跨视角时序错误检测问题，在 EgoMe 基准上全面超越现有基线。
 tags:
   - CVPR2026
+  - 视频理解
   - 跨视角模仿错误检测
   - 自适应采样
   - 场景感知视角嵌入

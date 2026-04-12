@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】LLM Strategic Reasoning: Agentic Study through Behavioral Game Theory 论文解读 | 论文不再把大模型战略推理简单等同于“是否接近纳什均衡”，而是基于 behavioral game theory 构建评测框架，区分真实推理能力与上下文因素，系统测评 22 个 LLM 的互动决策行为，发现模型规模并不决定战略水平，CoT 提升也并非普遍有效，同时暴露出显著的人口属性偏置。"
+title: >-
+  [论文解读] LLM Strategic Reasoning: Agentic Study through Behavioral Game Theory
+description: >-
+  [AI安全] 论文不再把大模型战略推理简单等同于“是否接近纳什均衡”，而是基于 behavioral game theory 构建评测框架，区分真实推理能力与上下文因素，系统测评 22 个 LLM 的互动决策行为，发现模型规模并不决定战略水平，CoT 提升也并非普遍有效，同时暴露出显著的人口属性偏置。
 tags:
-
+  - AI安全
 ---
 
 # LLM Strategic Reasoning: Agentic Study through Behavioral Game Theory

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models 论文解读 | 提出OpenCoder，一个完全开源的代码大语言模型（含1.5B和8B版本），不仅性能达到顶级水平，更作为\"open cookbook\"开放了可复现的数据处理流水线、预训练数据集、消融实验和训练协议，为代码智能研究提供基础设施。"
+title: >-
+  [论文解读] OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models
+description: >-
+  [LLM/NLP] 提出OpenCoder，一个完全开源的代码大语言模型（含1.5B和8B版本），不仅性能达到顶级水平，更作为"open cookbook"开放了可复现的数据处理流水线、预训练数据集、消融实验和训练协议，为代码智能研究提供基础设施。
 tags:
-
+  - LLM/NLP
 ---
 
 # OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models

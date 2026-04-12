@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Differentiable Convex Polyhedra Optimization from Multi-view Images
+description: >-
+  [ECCV 2024][3D视觉][可微渲染] 提出一种基于对偶变换和三平面交点求解的可微凸多面体构造方法，绕过隐式场监督，直接利用多视角图像损失进行梯度优化，实现高保真的凸多面体形状表示。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 可微渲染
+  - 凸多面体
+  - 形状表示
+  - 对偶变换
+  - 多视角重建
+---
+
 # Differentiable Convex Polyhedra Optimization from Multi-view Images
 
 **会议**: ECCV 2024  

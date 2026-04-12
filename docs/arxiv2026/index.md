@@ -1,3 +1,10 @@
+---
+title: >-
+  arxiv2026 79篇论文解读
+description: >-
+  79篇arxiv2026论文深度解读，每篇5分钟读懂核心思想。覆盖目标检测、医学图像、3D视觉、多模态VLM、视频理解、模型压缩等11个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📄 arxiv2026 论文笔记
 
@@ -9,13 +16,13 @@
 |:-----|-----:|
 | 🎯 [目标检测](#object_detection) | 13 |
 | 🏥 [医学图像](#medical_imaging) | 12 |
-| 🧊 [3D 视觉](#3d_vision) | 11 |
-| 🧩 [多模态 VLM](#multimodal_vlm) | 11 |
+| 🧊 [3D视觉](#3d_vision) | 11 |
+| 🧩 [多模态VLM](#multimodal_vlm) | 11 |
 | 🎬 [视频理解](#video_understanding) | 9 |
 | 📦 [模型压缩](#model_compression) | 7 |
 | ✂️ [语义分割](#segmentation) | 7 |
 | 🎨 [图像生成](#image_generation) | 5 |
-| 🛡️ [AI 安全](#ai_safety) | 2 |
+| 🛡️ [AI安全](#ai_safety) | 2 |
 | 🔄 [自监督/表示学习](#self_supervised) | 1 |
 | 📂 [其他](#others) | 1 |
 
@@ -129,7 +136,7 @@
 
 ---
 
-## 🧊 3D 视觉 { #3d_vision }
+## 🧊 3D视觉 { #3d_vision }
 
 **[Ada3Drift Adaptive Trainingtime Drifting](3d_vision/ada3drift_adaptive_trainingtime_drifting.md)**
 
@@ -177,7 +184,7 @@
 
 ---
 
-## 🧩 多模态 VLM { #multimodal_vlm }
+## 🧩 多模态VLM { #multimodal_vlm }
 
 **[Adaptive Vision-Language Model Routing for Computer Use Agents](multimodal_vlm/adaptive_visionlanguage_model_routing.md)**
 
@@ -353,7 +360,7 @@
 
 ---
 
-## 🛡️ AI 安全 { #ai_safety }
+## 🛡️ AI安全 { #ai_safety }
 
 **[Stake the Points: Structure-Faithful Instance Unlearning](ai_safety/stake_points_structurefaithful_instance.md)**
 

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Robustness Tradeoff in Fine-Tuning 论文解读 | ICCV 2025 | arXiv 2503.14836 | 微调鲁棒性 | 首次系统研究微调过程中对抗鲁棒性与准确率的权衡关系，在231个模型、7种微调策略和6个数据集上揭示：(1)微调初期鲁棒性先升后降；(2)不同PEFT策略和任务复杂度导致不同的Pareto前沿；(3)OOD鲁棒性不存在类似权衡而是紧跟准确率变化。"
+title: >-
+  [论文解读] On the Robustness Tradeoff in Fine-Tuning
+description: >-
+  [ICCV 2025][微调鲁棒性] 首次系统研究微调过程中对抗鲁棒性与准确率的权衡关系，在231个模型、7种微调策略和6个数据集上揭示：(1)微调初期鲁棒性先升后降；(2)不同PEFT策略和任务复杂度导致不同的Pareto前沿；(3)OOD鲁棒性不存在类似权衡而是紧跟准确率变化。
 tags:
   - ICCV 2025
   - 微调鲁棒性

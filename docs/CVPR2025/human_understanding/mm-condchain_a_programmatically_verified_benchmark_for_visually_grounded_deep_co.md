@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning 论文解读 | CVPR2025 | arXiv 2603.12266 | MLLM benchmark | MM-CondChain 是首个针对视觉基础深层组合推理的 MLLM 基准，通过可验证程序中间表示（VPIR）自动构建多层条件链和链式硬负样本，最强模型仅获 53.33 Path F1，揭示深层组合推理是根本挑战。"
+title: >-
+  [论文解读] MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning
+description: >-
+  [CVPR2025][人体理解][MLLM benchmark] MM-CondChain 是首个针对视觉基础深层组合推理的 MLLM 基准，通过可验证程序中间表示（VPIR）自动构建多层条件链和链式硬负样本，最强模型仅获 53.33 Path F1，揭示深层组合推理是根本挑战。
 tags:
   - CVPR2025
+  - 人体理解
   - MLLM benchmark
   - compositional reasoning
   - conditional chain

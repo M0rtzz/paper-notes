@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Teaming LLMs to Detect and Mitigate Hallucinations 论文解读 | NeurIPS 2025 | arXiv 2510.19507 | 幻觉检测 | 提出 Consortium Consistency 方法，将单模型一致性方法（Self-Consistency 和 Semantic Entropy）扩展到多模型协作设置，通过聚合多个异构 LLM 的响应来实现更可靠的幻觉检测和缓解，同时降低推理成本。"
+title: >-
+  [论文解读] Teaming LLMs to Detect and Mitigate Hallucinations
+description: >-
+  [NeurIPS 2025][幻觉检测] 提出 Consortium Consistency 方法，将单模型一致性方法（Self-Consistency 和 Semantic Entropy）扩展到多模型协作设置，通过聚合多个异构 LLM 的响应来实现更可靠的幻觉检测和缓解，同时降低推理成本。
 tags:
   - NeurIPS 2025
   - 幻觉检测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CSD-VAR: Content-Style Decomposition in Visual Autoregressive Models 论文解读 | ICCV 2025 | arXiv 2507.13984 | 内容风格分解 | 首次在视觉自回归模型（VAR）中探索内容-风格分解（CSD），通过尺度感知交替优化、SVD风格嵌入修正和增强型K-V记忆三项创新，实现优于扩散模型方法的内容保持与风格迁移效果。"
+title: >-
+  [论文解读] CSD-VAR: Content-Style Decomposition in Visual Autoregressive Models
+description: >-
+  [ICCV 2025][图像生成][内容风格分解] 首次在视觉自回归模型（VAR）中探索内容-风格分解（CSD），通过尺度感知交替优化、SVD风格嵌入修正和增强型K-V记忆三项创新，实现优于扩散模型方法的内容保持与风格迁移效果。
 tags:
   - ICCV 2025
+  - 图像生成
   - 内容风格分解
   - 视觉自回归模型
   - 文本反演

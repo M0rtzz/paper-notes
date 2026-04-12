@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing 论文解读 | ACL 2025 | arXiv 2505.20976 | 成分句法分析 | 提出 LLM 反向生成方法自动构建跨领域成分句法树库——给定只有领域关键词叶节点的不完整句法树，用 LLM 填充缺失词汇生成完整的跨领域句法树库，结合 span 级对比学习预训练，在 MCTB 五个目标领域上达到跨领域成分句法分析 SOTA。"
+title: >-
+  [论文解读] Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing
+description: >-
+  [ACL 2025][自监督学习][成分句法分析] 提出 LLM 反向生成方法自动构建跨领域成分句法树库——给定只有领域关键词叶节点的不完整句法树，用 LLM 填充缺失词汇生成完整的跨领域句法树库，结合 span 级对比学习预训练，在 MCTB 五个目标领域上达到跨领域成分句法分析 SOTA。
 tags:
   - ACL 2025
+  - 自监督学习
   - 成分句法分析
   - 跨领域
   - 树库生成

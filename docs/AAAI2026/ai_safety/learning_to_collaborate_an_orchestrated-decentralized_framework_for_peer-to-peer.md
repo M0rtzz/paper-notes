@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer Collaborative Learning 论文解读 | 提出 KNEXA-FL 框架，通过一个不接触模型的中央配对器（CPM）将 P2P 协作建模为上下文 Bandit 问题，使用 LinUCB 学习最优配对策略，在异构 LLM 联邦学习中实现比随机 P2P 高约 50% 的 Pass@1 提升，且避免了中心化蒸馏的灾难性崩溃。"
+title: >-
+  [论文解读] Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer Collaborative Learning
+description: >-
+  [AI安全] 提出 KNEXA-FL 框架，通过一个不接触模型的中央配对器（CPM）将 P2P 协作建模为上下文 Bandit 问题，使用 LinUCB 学习最优配对策略，在异构 LLM 联邦学习中实现比随机 P2P 高约 50% 的 Pass@1 提升，且避免了中心化蒸馏的灾难性崩溃。
 tags:
-
+  - AI安全
 ---
 
 # Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer Collaborative Learning

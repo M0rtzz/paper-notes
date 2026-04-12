@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context Knowledge Unlearning 论文解读 | ACL 2025 | arXiv 2410.00382 | 上下文遗忘 | 提出\"上下文知识遗忘\"（In-Context Knowledge Unlearning）——通过引入遗忘 token（`<<UNL>>...<<UNL>>`）使 LLM 在推理时根据查询上下文选择性地\"遗忘\"特定知识，微调后 LLM 在 TOFU/AGE/RWKU 上达到 95% 遗忘准确率同时保留 80% 无关知识。更深入的内部分析发现 LLM 在中间层仍生成正确答案，仅在最后一层决定\"假装遗忘\"。"
+title: >-
+  [论文解读] Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context Knowledge Unlearning
+description: >-
+  [ACL 2025][上下文遗忘] 提出"上下文知识遗忘"（In-Context Knowledge Unlearning）——通过引入遗忘 token（`<<UNL>>...<<UNL>>`）使 LLM 在推理时根据查询上下文选择性地"遗忘"特定知识，微调后 LLM 在 TOFU/AGE/RWKU 上达到 95% 遗忘准确率同时保留 80% 无关知识。更深入的内部分析发现 LLM 在中间层仍生成正确答案，仅在最后一层决定"假装遗忘"。
 tags:
   - ACL 2025
   - 上下文遗忘

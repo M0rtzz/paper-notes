@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging 论文解读 | CVPR 2026 | arXiv 2603.04796 | brain glioma | 一篇系统性综述论文，全面对比传统方法（阈值分割、区域生长、模糊聚类等）和深度学习方法（CNN、U-Net、SegNet 等）在脑胶质瘤 MRI 分割与分类任务上的表现，结论指出 CNN 架构在准确性和自动化程度上全面优于传统技术。"
+title: >-
+  [论文解读] Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging
+description: >-
+  [CVPR 2026][图像分割][brain glioma] 一篇系统性综述论文，全面对比传统方法（阈值分割、区域生长、模糊聚类等）和深度学习方法（CNN、U-Net、SegNet 等）在脑胶质瘤 MRI 分割与分类任务上的表现，结论指出 CNN 架构在准确性和自动化程度上全面优于传统技术。
 tags:
   - CVPR 2026
-  - brain glioma
   - 图像分割
+  - brain glioma
   - classification
   - deep learning
   - CNN

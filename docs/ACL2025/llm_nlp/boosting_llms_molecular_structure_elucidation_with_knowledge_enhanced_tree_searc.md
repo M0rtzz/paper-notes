@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Boosting LLM's Molecular Structure Elucidation with Knowledge Enhanced Tree Search Reasoning 论文解读 | ACL 2025 | arXiv 2506.23056 | 分子结构解析 | 提出 K-MSE，通过构建分子子结构知识库补充 LLM 化学知识 + 设计分子-光谱评分器作为奖励模型 + MCTS 树搜索推理框架，在分子结构解析任务上将 GPT-4o-mini 和 GPT-4o 的性能提升超过 20%。"
+title: >-
+  [论文解读] Boosting LLM's Molecular Structure Elucidation with Knowledge Enhanced Tree Search Reasoning
+description: >-
+  [ACL 2025][LLM/NLP][分子结构解析] 提出 K-MSE，通过构建分子子结构知识库补充 LLM 化学知识 + 设计分子-光谱评分器作为奖励模型 + MCTS 树搜索推理框架，在分子结构解析任务上将 GPT-4o-mini 和 GPT-4o 的性能提升超过 20%。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 分子结构解析
   - MCTS
   - 知识库增强

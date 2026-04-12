@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LDMol: A Text-to-Molecule Diffusion Model with Structurally Informative Latent Space Surpasses AR Models 论文解读 | ICML2025 | arXiv 2405.17829 | 潜在扩散模型 | 提出 LDMol，通过 SMILES 枚举对比学习构建结构感知的潜在空间，在该空间上训练条件扩散模型实现文本到分子生成，首次让扩散模型在文本数据生成任务上超越自回归模型。"
+title: >-
+  [论文解读] LDMol: A Text-to-Molecule Diffusion Model with Structurally Informative Latent Space Surpasses AR Models
+description: >-
+  [ICML2025][医学图像][潜在扩散模型] 提出 LDMol，通过 SMILES 枚举对比学习构建结构感知的潜在空间，在该空间上训练条件扩散模型实现文本到分子生成，首次让扩散模型在文本数据生成任务上超越自回归模型。
 tags:
   - ICML2025
+  - 医学图像
   - 潜在扩散模型
   - 文本到分子生成
   - 对比学习

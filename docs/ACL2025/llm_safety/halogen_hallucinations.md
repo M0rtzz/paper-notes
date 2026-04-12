@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HALoGEN: Fantastic LLM Hallucinations and Where to Find Them 论文解读 | ACL 2025 (Outstanding Paper) | 幻觉基准 | 提出 HALoGEN——覆盖 9 个领域（含编程、科学引用、摘要等）的 10,923 条 prompt 的大规模幻觉评测框架，配套原子级自动验证器，在 14 个 LLM 的约 150,000 条生成上系统性评估幻觉，发现即使最佳模型也可能有高达 86% 的原子事实存在幻觉，并提出 Type A/B/C 三类错误分类法。"
+title: >-
+  [论文解读] HALoGEN: Fantastic LLM Hallucinations and Where to Find Them
+description: >-
+  [ACL 2025 (Outstanding Paper)][幻觉基准] 提出 HALoGEN——覆盖 9 个领域（含编程、科学引用、摘要等）的 10,923 条 prompt 的大规模幻觉评测框架，配套原子级自动验证器，在 14 个 LLM 的约 150,000 条生成上系统性评估幻觉，发现即使最佳模型也可能有高达 86% 的原子事实存在幻觉，并提出 Type A/B/C 三类错误分类法。
 tags:
   - ACL 2025 (Outstanding Paper)
   - 幻觉基准

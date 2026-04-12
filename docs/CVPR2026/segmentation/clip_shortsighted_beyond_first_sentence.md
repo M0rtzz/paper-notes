@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLIP Is Shortsighted: Paying Attention Beyond the First Sentence 论文解读 | CVPR 2026 | arXiv 2602.22419 | CLIP | 发现CLIP对长描述\"只看第一句\"的根本原因在于训练数据中长caption普遍以摘要句开头形成捷径，提出DeBias-CLIP通过去除摘要句+句子子采样+token填充来分散监督信号，实现长短文本检索双SOTA。"
+title: >-
+  [论文解读] CLIP Is Shortsighted: Paying Attention Beyond the First Sentence
+description: >-
+  [CVPR 2026][图像分割][CLIP] 发现CLIP对长描述"只看第一句"的根本原因在于训练数据中长caption普遍以摘要句开头形成捷径，提出DeBias-CLIP通过去除摘要句+句子子采样+token填充来分散监督信号，实现长短文本检索双SOTA。
 tags:
   - CVPR 2026
+  - 图像分割
   - CLIP
   - 长文本
   - 注意力偏差

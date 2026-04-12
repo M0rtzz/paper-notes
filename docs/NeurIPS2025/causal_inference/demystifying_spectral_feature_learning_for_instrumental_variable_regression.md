@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Demystifying Spectral Feature Learning for Instrumental Variable Regression 论文解读 | NeurIPS 2025 | arXiv 2506.10899 | instrumental variable | 推导了谱特征学习在工具变量(IV)回归中的泛化界，根据谱对齐和特征值衰减率将性能分为\"好/坏/丑\"三类，并提出数据驱动的诊断方法。"
+title: >-
+  [论文解读] Demystifying Spectral Feature Learning for Instrumental Variable Regression
+description: >-
+  [NeurIPS 2025][instrumental variable] 推导了谱特征学习在工具变量(IV)回归中的泛化界，根据谱对齐和特征值衰减率将性能分为"好/坏/丑"三类，并提出数据驱动的诊断方法。
 tags:
   - NeurIPS 2025
   - instrumental variable

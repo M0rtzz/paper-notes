@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】QD-PCQA: Quality-Aware Domain Adaptation for Point Cloud Quality Assessment 论文解读 | CVPR 2026 | arXiv 2603.03726 | 点云质量评估 | 提出质量感知域适应框架 QD-PCQA，通过 Rank-weighted Conditional Alignment 和 Quality-guided Feature Augmentation 两大策略，将图像域的质量评估先验迁移到点云域。"
+title: >-
+  [论文解读] QD-PCQA: Quality-Aware Domain Adaptation for Point Cloud Quality Assessment
+description: >-
+  [CVPR 2026][3D视觉][点云质量评估] 提出质量感知域适应框架 QD-PCQA，通过 Rank-weighted Conditional Alignment 和 Quality-guided Feature Augmentation 两大策略，将图像域的质量评估先验迁移到点云域。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 点云质量评估
   - 无监督域适应
   - 质量感知特征对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Emergent World Beliefs: Exploring Transformers in Stochastic Games 论文解读 | NeurIPS 2025 | arXiv 2512.23722 | 涌现世界模型 | 将LLM涌现世界模型的研究从完全信息游戏（Othello、国际象棋）扩展到不完全信息领域（德州扑克），通过在PHH格式扑克数据上预训练GPT-2并探测其内部激活，证明模型不仅学习了确定性特征（牌型识别~98%准确率），还自发发展了对随机性特征（胜率/equity，相关系数0.59）的内部表示。"
+title: >-
+  [论文解读] Emergent World Beliefs: Exploring Transformers in Stochastic Games
+description: >-
+  [NeurIPS 2025][人体理解][涌现世界模型] 将LLM涌现世界模型的研究从完全信息游戏（Othello、国际象棋）扩展到不完全信息领域（德州扑克），通过在PHH格式扑克数据上预训练GPT-2并探测其内部激活，证明模型不仅学习了确定性特征（牌型识别~98%准确率），还自发发展了对随机性特征（胜率/equity，相关系数0.59）的内部表示。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 涌现世界模型
   - Transformer
   - 扑克

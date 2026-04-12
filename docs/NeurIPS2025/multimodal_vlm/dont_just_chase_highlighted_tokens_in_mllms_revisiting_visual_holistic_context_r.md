@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Don't Just Chase \"Highlighted Tokens\" in MLLMs: Revisiting Visual Holistic Context Retention 论文解读 | NeurIPS 2025 | arXiv 2510.02912 | 视觉token剪枝 | 提出 HoloV，一个即插即用的视觉 token 剪枝框架，通过在不同空间裁剪区域自适应分配剪枝预算，保留全局视觉上下文而非仅保留注意力高亮 token，在 LLaVA-1.5 上剪枝 88.9% token 仍保留 95.8% 原始性能。"
+title: >-
+  [论文解读] Don't Just Chase "Highlighted Tokens" in MLLMs: Revisiting Visual Holistic Context Retention
+description: >-
+  [NeurIPS 2025][多模态][视觉token剪枝] 提出 HoloV，一个即插即用的视觉 token 剪枝框架，通过在不同空间裁剪区域自适应分配剪枝预算，保留全局视觉上下文而非仅保留注意力高亮 token，在 LLaVA-1.5 上剪枝 88.9% token 仍保留 95.8% 原始性能。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 视觉token剪枝
   - 推理加速
   - 整体上下文

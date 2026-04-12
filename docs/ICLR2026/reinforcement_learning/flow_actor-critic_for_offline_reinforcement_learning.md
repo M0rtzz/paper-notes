@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Flow Actor-Critic for Offline Reinforcement Learning (FAC) 论文解读 | ICLR 2026 | arXiv 2602.18015 | 离线RL | FAC 首次联合利用流模型（continuous normalizing flow）同时构建表达力强的 actor 策略和基于精确密度估计的 critic 惩罚机制，通过识别 OOD 区域对 Q 值进行选择性保守估计，在 OGBench 55 个任务上以 60.3 平均分大幅超越此前最佳的 43.6。"
+title: >-
+  [论文解读] Flow Actor-Critic for Offline Reinforcement Learning (FAC)
+description: >-
+  [ICLR 2026][离线RL] FAC 首次联合利用流模型（continuous normalizing flow）同时构建表达力强的 actor 策略和基于精确密度估计的 critic 惩罚机制，通过识别 OOD 区域对 Q 值进行选择性保守估计，在 OGBench 55 个任务上以 60.3 平均分大幅超越此前最佳的 43.6。
 tags:
   - ICLR 2026
   - 离线RL

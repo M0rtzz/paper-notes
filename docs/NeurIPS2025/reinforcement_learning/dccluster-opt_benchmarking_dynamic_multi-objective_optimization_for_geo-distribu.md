@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] DCcluster-Opt: Benchmarking Dynamic Multi-Objective Optimization for Geo-Distributed Data Center Workloads
+description: >-
+  [NeurIPS 2025][数据中心优化] 提出 DCcluster-Opt，一个面向地理分布式数据中心的开源高保真仿真基准平台，融合真实世界数据集（碳强度、电价、天气等）和物理模型，支持动态多目标负载调度的强化学习研究。
+tags:
+  - NeurIPS 2025
+  - 数据中心优化
+  - 多目标优化
+  - 强化学习
+  - 碳排放
+  - 工作负载调度
+---
+
 # DCcluster-Opt: Benchmarking Dynamic Multi-Objective Optimization for Geo-Distributed Data Center Workloads
 
 **会议**: NeurIPS 2025  

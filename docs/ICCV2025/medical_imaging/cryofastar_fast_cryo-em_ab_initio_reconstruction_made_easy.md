@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy 论文解读 | ICCV 2025 | arXiv 2506.05864 | cryo-EM | 提出CryoFastAR，首个面向冷冻电镜（cryo-EM）的几何基础模型，通过ViT架构直接从多视图噪声粒子图像前馈式预测Fourier Planar Map实现位姿估计，在合成和真实数据集上达到可比质量的同时实现10倍以上加速。"
+title: >-
+  [论文解读] CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy
+description: >-
+  [ICCV 2025][医学图像][cryo-EM] 提出CryoFastAR，首个面向冷冻电镜（cryo-EM）的几何基础模型，通过ViT架构直接从多视图噪声粒子图像前馈式预测Fourier Planar Map实现位姿估计，在合成和真实数据集上达到可比质量的同时实现10倍以上加速。
 tags:
   - ICCV 2025
+  - 医学图像
   - cryo-EM
   - ab initio reconstruction
   - 位姿估计

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】BIG-Bench Extra Hard 论文解读 | ACL 2025 | arXiv 2502.19187 | LLM评测 | 为应对 BIG-Bench Hard 被前沿模型饱和的问题，Google DeepMind 推出 BIG-Bench Extra Hard (BBEH)，用 23 个更难的任务替换 BBH 中的对应任务，最强通用模型仅达 9.8%（调和平均）、最强推理模型达 44.8%，揭示了 LLM 在通用推理上的巨大差距。"
+title: >-
+  [论文解读] BIG-Bench Extra Hard
+description: >-
+  [ACL 2025][LLM评测] 为应对 BIG-Bench Hard 被前沿模型饱和的问题，Google DeepMind 推出 BIG-Bench Extra Hard (BBEH)，用 23 个更难的任务替换 BBH 中的对应任务，最强通用模型仅达 9.8%（调和平均）、最强推理模型达 44.8%，揭示了 LLM 在通用推理上的巨大差距。
 tags:
   - ACL 2025
   - LLM评测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift 论文解读 | NeurIPS 2025 | arXiv 2507.07820 | adaptive sensing | 提出\"自适应感知\"作为AI发展的范式级转变——受生物感觉系统启发，主张在传感器层面动态调整输入参数（如曝光、增益、多模态配置），而非仅靠扩大模型规模来应对分布偏移，实证表明5M参数的EfficientNet-B0通过自适应感知可超越632M参数的OpenCLIP-H。"
+title: >-
+  [论文解读] AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift
+description: >-
+  [NeurIPS 2025][AI安全][adaptive sensing] 提出"自适应感知"作为AI发展的范式级转变——受生物感觉系统启发，主张在传感器层面动态调整输入参数（如曝光、增益、多模态配置），而非仅靠扩大模型规模来应对分布偏移，实证表明5M参数的EfficientNet-B0通过自适应感知可超越632M参数的OpenCLIP-H。
 tags:
   - NeurIPS 2025
+  - AI安全
   - adaptive sensing
   - 范式转变
   - 传感器优化

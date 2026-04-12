@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Accelerating Online Mapping and Behavior Prediction via Direct BEV Feature Attention 论文解读 | ECCV 2024 | arXiv 2407.06683 | BEV特征 | 提出直接将在线地图估计模型内部的BEV特征暴露给下游轨迹预测模型（而非仅传递解码后的矢量化地图），通过三种BEV特征注入策略实现推理加速最高73%、预测精度提升最高29%。"
+title: >-
+  [论文解读] Accelerating Online Mapping and Behavior Prediction via Direct BEV Feature Attention
+description: >-
+  [ECCV 2024][自动驾驶][BEV特征] 提出直接将在线地图估计模型内部的BEV特征暴露给下游轨迹预测模型（而非仅传递解码后的矢量化地图），通过三种BEV特征注入策略实现推理加速最高73%、预测精度提升最高29%。
 tags:
   - ECCV 2024
+  - 自动驾驶
   - BEV特征
   - 在线建图
   - 轨迹预测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hybrid Physical-Neural Simulator for Fast Cosmological Hydrodynamics 论文解读 | NeurIPS 2025 | arXiv 2510.26593 | 宇宙学模拟 | 提出一种混合物理-神经宇宙学模拟器，用可微分粒子网格（PM）方法处理引力动力学，用物理约束的神经网络参数化气体的有效压力场，仅需单次参考模拟即可训练，在场级别和统计量级别均优于 EGD 基线。"
+title: >-
+  [论文解读] Hybrid Physical-Neural Simulator for Fast Cosmological Hydrodynamics
+description: >-
+  [NeurIPS 2025][3D视觉][宇宙学模拟] 提出一种混合物理-神经宇宙学模拟器，用可微分粒子网格（PM）方法处理引力动力学，用物理约束的神经网络参数化气体的有效压力场，仅需单次参考模拟即可训练，在场级别和统计量级别均优于 EGD 基线。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 宇宙学模拟
   - 混合物理-神经方法
   - 粒子网格

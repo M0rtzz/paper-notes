@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】TreeCut: A Synthetic Unanswerable Math Word Problem Dataset for LLM Hallucination Evaluation 论文解读 | ACL2025 | arXiv 2502.13442 | 不可回答数学题 | 提出 TreeCut，一种基于树结构的合成数据集生成方法，通过在树路径上移除必要条件边来系统性生成无穷多的不可回答数学应用题，用以评估 LLM 在面对不可解问题时的幻觉行为。"
+title: >-
+  [论文解读] TreeCut: A Synthetic Unanswerable Math Word Problem Dataset for LLM Hallucination Evaluation
+description: >-
+  [ACL2025][不可回答数学题] 提出 TreeCut，一种基于树结构的合成数据集生成方法，通过在树路径上移除必要条件边来系统性生成无穷多的不可回答数学应用题，用以评估 LLM 在面对不可解问题时的幻觉行为。
 tags:
   - ACL2025
   - 不可回答数学题

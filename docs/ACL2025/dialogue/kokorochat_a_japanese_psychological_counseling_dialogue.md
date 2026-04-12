@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】KokoroChat: A Japanese Psychological Counseling Dialogue Dataset Collected via Role-Playing by Trained Counselors 论文解读 | ACL 2025 | arXiv 2506.01357 | 心理咨询对话 | 提出 KokoroChat，一个通过训练有素的咨询师角色扮演收集的日语心理咨询对话数据集，包含 6,589 段长对话及详细的客户反馈评分，用于提升 LLM 的心理咨询回复生成和对话评估能力。"
+title: >-
+  [论文解读] KokoroChat: A Japanese Psychological Counseling Dialogue Dataset Collected via Role-Playing by Trained Counselors
+description: >-
+  [ACL 2025][心理咨询对话] 提出 KokoroChat，一个通过训练有素的咨询师角色扮演收集的日语心理咨询对话数据集，包含 6,589 段长对话及详细的客户反馈评分，用于提升 LLM 的心理咨询回复生成和对话评估能力。
 tags:
   - ACL 2025
   - 心理咨询对话

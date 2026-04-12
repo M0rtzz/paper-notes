@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning 论文解读 | CVPR 2026 | arXiv 2603.12816 | 域增量学习 | 提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。"
+title: >-
+  [论文解读] Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning
+description: >-
+  [CVPR 2026][医学图像][域增量学习] 提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。
 tags:
   - CVPR 2026
+  - 医学图像
   - 域增量学习
   - 提示学习
   - α-entmax

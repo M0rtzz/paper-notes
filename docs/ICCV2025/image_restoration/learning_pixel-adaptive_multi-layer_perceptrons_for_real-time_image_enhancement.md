@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Pixel-adaptive Multi-layer Perceptrons for Real-time Image Enhancement 论文解读 | ICCV 2025 | arXiv 2507.12135 | 图像增强 | 提出 BPAM 框架，将双边网格的空间建模能力与 MLP 的非线性映射能力相结合，通过为每个像素动态生成独特的微型 MLP 参数实现高质量、实时的图像增强。"
+title: >-
+  [论文解读] Learning Pixel-adaptive Multi-layer Perceptrons for Real-time Image Enhancement
+description: >-
+  [ICCV 2025][图像恢复][图像增强] 提出 BPAM 框架，将双边网格的空间建模能力与 MLP 的非线性映射能力相结合，通过为每个像素动态生成独特的微型 MLP 参数实现高质量、实时的图像增强。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 图像增强
   - 双边网格
   - 像素自适应MLP

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation 论文解读 | CVPR 2026 | arXiv 2603.12581 | 多模态MRI翻译 | 提出MSG-LDM，一个基于潜在扩散模型的多模态MRI翻译框架，通过在潜空间中显式解耦风格和结构信息，结合高频注入（HFIB）、多模态结构特征融合（MMSF）和多尺度结构增强（MSSE）模块提取模态无关的完整结构先验来引导扩散去噪，在BraTS2020和WMH数据集上超越现有方法。"
+title: >-
+  [论文解读] Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation
+description: >-
+  [CVPR 2026][医学图像][多模态MRI翻译] 提出MSG-LDM，一个基于潜在扩散模型的多模态MRI翻译框架，通过在潜空间中显式解耦风格和结构信息，结合高频注入（HFIB）、多模态结构特征融合（MMSF）和多尺度结构增强（MSSE）模块提取模态无关的完整结构先验来引导扩散去噪，在BraTS2020和WMH数据集上超越现有方法。
 tags:
   - CVPR 2026
+  - 医学图像
   - 多模态MRI翻译
   - 潜在扩散模型
   - 风格-结构解耦

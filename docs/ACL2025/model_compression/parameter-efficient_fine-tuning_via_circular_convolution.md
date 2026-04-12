@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】C3A: 基于循环卷积的参数高效微调 论文解读 | ACL 2025 | arXiv 2407.19342 | PEFT | 提出Circular Convolution Adaptation (C3A)，用循环卷积算子替代LoRA的低秩矩阵分解来构造增量权重Δ W——循环矩阵的秩与可训练参数数量解耦，实现\"少参数+高秩\"适配；同时利用FFT加速前向/反向传播，在计算和显存效率上均可与LoRA媲美。在GLUE、常识推理、数学推理、代码生成等任务上持续优于LoRA及其变体。"
+title: >-
+  [论文解读] C3A: 基于循环卷积的参数高效微调
+description: >-
+  [ACL 2025][模型压缩][PEFT] 提出Circular Convolution Adaptation (C3A)，用循环卷积算子替代LoRA的低秩矩阵分解来构造增量权重$\Delta W$——循环矩阵的秩与可训练参数数量解耦，实现"少参数+高秩"适配；同时利用FFT加速前向/反向传播，在计算和显存效率上均可与LoRA媲美。在GLUE、常识推理、数学推理、代码生成等任务上持续优于LoRA及其变体。
 tags:
   - ACL 2025
+  - 模型压缩
   - PEFT
   - LoRA
   - 循环卷积

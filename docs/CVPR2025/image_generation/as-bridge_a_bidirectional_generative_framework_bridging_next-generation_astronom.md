@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AS-Bridge: A Bidirectional Generative Framework Bridging Next-Generation Astronomical Surveys 论文解读 | CVPR 2025 | arXiv 2603.11928 | Brownian Bridge | 提出 AS-Bridge，用双向布朗桥扩散模型建模地面 LSST 和太空 Euclid 两大天文巡天之间的随机映射关系，实现概率性跨巡天翻译与稀有事件检测（强引力透镜），并证明 epsilon-prediction 训练目标兼具重建质量和似然性优势。"
+title: >-
+  [论文解读] AS-Bridge: A Bidirectional Generative Framework Bridging Next-Generation Astronomical Surveys
+description: >-
+  [CVPR 2025][图像生成][Brownian Bridge] 提出 AS-Bridge，用双向布朗桥扩散模型建模地面 LSST 和太空 Euclid 两大天文巡天之间的随机映射关系，实现概率性跨巡天翻译与稀有事件检测（强引力透镜），并证明 epsilon-prediction 训练目标兼具重建质量和似然性优势。
 tags:
   - CVPR 2025
+  - 图像生成
   - Brownian Bridge
   - 天文巡天
   - 跨模态翻译

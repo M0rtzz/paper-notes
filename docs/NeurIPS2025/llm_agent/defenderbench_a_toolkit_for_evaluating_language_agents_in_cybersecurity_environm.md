@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】DefenderBench: A Toolkit for Evaluating Language Agents in Cybersecurity Environments 论文解读 | NeurIPS 2025 | arXiv 2506.00739 | 网络安全 | 提出 DefenderBench，一个开源模块化工具包，用于在攻防和知识理解三类网络安全任务上系统评估 LLM Agent 的能力，覆盖网络入侵模拟、恶意内容检测、代码漏洞检测/修复、CTI 知识问答五大场景，基准测试显示 Claude-3.7-sonnet 综合最强（81.65 分）。"
+title: >-
+  [论文解读] DefenderBench: A Toolkit for Evaluating Language Agents in Cybersecurity Environments
+description: >-
+  [NeurIPS 2025][LLM Agent][网络安全] 提出 DefenderBench，一个开源模块化工具包，用于在攻防和知识理解三类网络安全任务上系统评估 LLM Agent 的能力，覆盖网络入侵模拟、恶意内容检测、代码漏洞检测/修复、CTI 知识问答五大场景，基准测试显示 Claude-3.7-sonnet 综合最强（81.65 分）。
 tags:
   - NeurIPS 2025
-  - 网络安全
   - LLM Agent
+  - 网络安全
   - 评测基准
   - 漏洞检测
   - 网络入侵模拟

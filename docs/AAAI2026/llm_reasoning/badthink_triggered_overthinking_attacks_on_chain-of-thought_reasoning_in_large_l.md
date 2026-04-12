@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BadThink: Triggered Overthinking Attacks on Chain-of-Thought Reasoning in Large Language Models 论文解读 | AAAI 2026 | arXiv 2511.10714 | backdoor attack | 提出 BadThink——首个针对 CoT 推理效率的训练时后门攻击，通过 LLM 迭代优化生成自然的冗长推理模板进行数据投毒，触发后模型生成膨胀 17× 以上的推理链（MATH-500），同时保持最终答案正确和良好隐蔽性。"
+title: >-
+  [论文解读] BadThink: Triggered Overthinking Attacks on Chain-of-Thought Reasoning in Large Language Models
+description: >-
+  [AAAI 2026][LLM推理][backdoor attack] 提出 BadThink——首个针对 CoT 推理效率的训练时后门攻击，通过 LLM 迭代优化生成自然的冗长推理模板进行数据投毒，触发后模型生成膨胀 17× 以上的推理链（MATH-500），同时保持最终答案正确和良好隐蔽性。
 tags:
   - AAAI 2026
+  - LLM推理
   - backdoor attack
   - chain-of-thought
   - overthinking

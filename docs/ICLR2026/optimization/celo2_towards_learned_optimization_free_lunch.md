@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Celo2: Towards Learned Optimization Free Lunch 论文解读 | ICLR 2026 | arXiv 2602.19142 | 学习型优化器 | 提出 Celo2——一个仅用 4.5 GPU 小时元训练的学习型优化器，通过归一化 MLP 更新规则和任务增强等简单配方，实现了到 10 亿参数级别模型（GPT-3 XL 1.3B）的稳定泛化（比元训练分布大 6 个数量级），性能超越了此前耗费 4000 TPU-month 的 VeLO 和精心调优的 AdamW 基线。"
+title: >-
+  [论文解读] Celo2: Towards Learned Optimization Free Lunch
+description: >-
+  [ICLR 2026][优化][学习型优化器] 提出 Celo2——一个仅用 4.5 GPU 小时元训练的学习型优化器，通过归一化 MLP 更新规则和任务增强等简单配方，实现了到 10 亿参数级别模型（GPT-3 XL 1.3B）的稳定泛化（比元训练分布大 6 个数量级），性能超越了此前耗费 4000 TPU-month 的 VeLO 和精心调优的 AdamW 基线。
 tags:
   - ICLR 2026
+  - 优化
   - 学习型优化器
   - 元学习
   - 元泛化

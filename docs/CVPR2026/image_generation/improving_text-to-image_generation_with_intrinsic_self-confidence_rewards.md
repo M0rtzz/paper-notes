@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards 论文解读 | CVPR 2026 | arXiv 2603.00918 | 自信度奖励 | 提出 SOLACE，一种利用文本-图像生成模型自身去噪自信度作为内在奖励的后训练框架，无需外部奖励模型即可在组合生成、文字渲染和文图对齐上获得一致提升，且可与外部奖励互补缓解 reward hacking。"
+title: >-
+  [论文解读] Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards
+description: >-
+  [CVPR 2026][图像生成][自信度奖励] 提出 SOLACE，一种利用文本-图像生成模型自身去噪自信度作为内在奖励的后训练框架，无需外部奖励模型即可在组合生成、文字渲染和文图对齐上获得一致提升，且可与外部奖励互补缓解 reward hacking。
 tags:
   - CVPR 2026
+  - 图像生成
   - 自信度奖励
   - 后训练
   - Flow Matching

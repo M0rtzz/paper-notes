@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】O3N: Omnidirectional Open-Vocabulary Occupancy Prediction 论文解读 | arXiv 2026 | arXiv 2603.12144 | o3n | 通过全方位感知来理解和重构3D世界是自主智能体和具身智能发展的必然趋势。"
+title: >-
+  [论文解读] O3N: Omnidirectional Open-Vocabulary Occupancy Prediction
+description: >-
+  [arXiv 2026][3D视觉][o3n] 通过全方位感知来理解和重构3D世界是自主智能体和具身智能发展的必然趋势。
 tags:
   - arXiv 2026
+  - 3D视觉
   - o3n
   - omnidirectional
   - open-vocabulary

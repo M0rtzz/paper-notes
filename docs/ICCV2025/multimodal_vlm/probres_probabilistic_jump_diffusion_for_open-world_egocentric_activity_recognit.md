@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】ProbRes: Probabilistic Jump Diffusion for Open-World Egocentric Activity Recognition 论文解读 | 提出 ProbRes 框架，通过基于跳跃扩散的概率残差搜索策略，结合 ConceptNet 常识先验与 VLM 似然估计，在开放世界第一人称活动识别中高效导航大规模搜索空间，大幅减少 VLM 查询次数的同时提升识别准确率。"
+title: >-
+  [论文解读] ProbRes: Probabilistic Jump Diffusion for Open-World Egocentric Activity Recognition
+description: >-
+  [多模态] 提出 ProbRes 框架，通过基于跳跃扩散的概率残差搜索策略，结合 ConceptNet 常识先验与 VLM 似然估计，在开放世界第一人称活动识别中高效导航大规模搜索空间，大幅减少 VLM 查询次数的同时提升识别准确率。
 tags:
-
+  - 多模态
 ---
 
 # ProbRes: Probabilistic Jump Diffusion for Open-World Egocentric Activity Recognition

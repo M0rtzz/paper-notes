@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Atomic Calibration of LLMs in Long-Form Generations 论文解读 | ACL 2025 | arXiv 2410.13246 | 原子校准 | 系统研究长文本生成中的原子级校准（Atomic Calibration）——将长回复分解为原子主张（atomic claims），为每个主张分配置信度分数，发现回复级校准良好的模型在原子级校准很差，将置信度获取方法分为判别式（内部状态）和生成式（外部评估）两类并发现它们互补，提出两种融合策略达到 SOTA 校准效果。"
+title: >-
+  [论文解读] Atomic Calibration of LLMs in Long-Form Generations
+description: >-
+  [ACL 2025][原子校准] 系统研究长文本生成中的原子级校准（Atomic Calibration）——将长回复分解为原子主张（atomic claims），为每个主张分配置信度分数，发现回复级校准良好的模型在原子级校准很差，将置信度获取方法分为判别式（内部状态）和生成式（外部评估）两类并发现它们互补，提出两种融合策略达到 SOTA 校准效果。
 tags:
   - ACL 2025
   - 原子校准

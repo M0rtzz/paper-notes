@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Lifelong Learning with Behavior Consolidation for Vehicle Routing 论文解读 | ICLR 2026 | arXiv 2509.21765 | lifelong learning | 提出 LLR-BC——面向神经 VRP 求解器的终身学习框架，通过置信度感知经验加权（CaEW）和决策寻求行为巩固（DsBC），在分布和规模变化的任务序列上有效缓减灾难性遗忘、保持可塑性并提升零样本泛化。"
+title: >-
+  [论文解读] Lifelong Learning with Behavior Consolidation for Vehicle Routing
+description: >-
+  [ICLR 2026][lifelong learning] 提出 LLR-BC——面向神经 VRP 求解器的终身学习框架，通过置信度感知经验加权（CaEW）和决策寻求行为巩固（DsBC），在分布和规模变化的任务序列上有效缓减灾难性遗忘、保持可塑性并提升零样本泛化。
 tags:
   - ICLR 2026
   - lifelong learning

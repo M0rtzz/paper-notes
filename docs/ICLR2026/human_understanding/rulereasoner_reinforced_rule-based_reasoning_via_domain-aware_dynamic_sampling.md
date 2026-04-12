@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RuleReasoner: Reinforced Rule-based Reasoning via Domain-aware Dynamic Sampling 论文解读 | ICLR 2026 | arXiv 2506.08672 | 规则推理 | 提出RuleReasoner——通过大规模规则推理数据集(RuleCollection-32K, 8类任务)+域感知动态采样(Dads, 基于历史奖励动态调整域采样权重)的RLVR方法增强LLM规则推理→8B模型在OOD任务上超越OpenAI-o1(Δ10.4%)和DeepSeek-R1(Δ14%),且训练步数更少(更高效)。"
+title: >-
+  [论文解读] RuleReasoner: Reinforced Rule-based Reasoning via Domain-aware Dynamic Sampling
+description: >-
+  [ICLR 2026][人体理解][规则推理] 提出RuleReasoner——通过大规模规则推理数据集(RuleCollection-32K, 8类任务)+域感知动态采样(Dads, 基于历史奖励动态调整域采样权重)的RLVR方法增强LLM规则推理→8B模型在OOD任务上超越OpenAI-o1(Δ10.4%)和DeepSeek-R1(Δ14%),且训练步数更少(更高效)。
 tags:
   - ICLR 2026
+  - 人体理解
   - 规则推理
   - RLVR
   - 域感知采样

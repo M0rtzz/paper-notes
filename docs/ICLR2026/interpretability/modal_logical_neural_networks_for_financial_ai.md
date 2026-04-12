@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Modal Logical Neural Networks for Financial AI 论文解读 | ICLR 2026 | arXiv 2603.12487 | modal logic | 提出模态逻辑神经网络（MLNN），将 Kripke 语义（必然/可能模态算子）集成到神经网络中，在金融合同安全审查、洗售合规和市场串谋检测中实现可审计的逻辑推理与深度学习性能的结合。"
+title: >-
+  [论文解读] Modal Logical Neural Networks for Financial AI
+description: >-
+  [ICLR 2026][modal logic] 提出模态逻辑神经网络（MLNN），将 Kripke 语义（必然/可能模态算子）集成到神经网络中，在金融合同安全审查、洗售合规和市场串谋检测中实现可审计的逻辑推理与深度学习性能的结合。
 tags:
   - ICLR 2026
   - modal logic

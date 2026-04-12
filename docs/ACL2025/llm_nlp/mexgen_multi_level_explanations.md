@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multi-Level Explanations for Generative Language Models 论文解读 | ACL 2025 | arXiv 2403.14459 | 可解释性 | 提出 MExGen（Multi-Level Explanations for Generative Language Models），将 LIME/SHAP 等扰动式归因方法扩展到 LLM 的上下文生成任务上——为摘要/问答等任务中 LLM 输出的每个部分量化上下文各段落的影响程度，比 LLM 自解释更忠实。"
+title: >-
+  [论文解读] Multi-Level Explanations for Generative Language Models
+description: >-
+  [ACL 2025][LLM/NLP][可解释性] 提出 MExGen（Multi-Level Explanations for Generative Language Models），将 LIME/SHAP 等扰动式归因方法扩展到 LLM 的上下文生成任务上——为摘要/问答等任务中 LLM 输出的每个部分量化上下文各段落的影响程度，比 LLM 自解释更忠实。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 可解释性
   - 归因方法
   - LLM解释

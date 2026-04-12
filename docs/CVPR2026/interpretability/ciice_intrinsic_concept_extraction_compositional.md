@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CI-ICE: Intrinsic Concept Extraction Based on Compositional Interpretability 论文解读 | CVPR 2026 | arXiv 2603.11795 | concept extraction | 提出CI-ICE新任务和HyperExpress方法，利用双曲空间的层次建模能力提取可组合的物体级/属性级内在概念，通过Horosphere投影模块保证概念嵌入空间的可组合性。"
+title: >-
+  [论文解读] CI-ICE: Intrinsic Concept Extraction Based on Compositional Interpretability
+description: >-
+  [CVPR 2026][concept extraction] 提出CI-ICE新任务和HyperExpress方法，利用双曲空间的层次建模能力提取可组合的物体级/属性级内在概念，通过Horosphere投影模块保证概念嵌入空间的可组合性。
 tags:
   - CVPR 2026
   - concept extraction

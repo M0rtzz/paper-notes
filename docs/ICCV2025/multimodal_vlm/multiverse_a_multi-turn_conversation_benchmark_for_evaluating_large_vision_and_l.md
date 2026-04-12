@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MultiVerse: A Multi-Turn Conversation Benchmark for Evaluating Large Vision and Language Models 论文解读 | 提出 MultiVerse 多轮对话评估基准，从 12 个 VLM 评估数据集中收集 647 段对话，覆盖 484 种任务和 484 种交互目标，采用 checklist 评估方法发现即使最强的 GPT-4o 在复杂多轮对话中仅达 50% 的成功率。"
+title: >-
+  [论文解读] MultiVerse: A Multi-Turn Conversation Benchmark for Evaluating Large Vision and Language Models
+description: >-
+  [多模态] 提出 MultiVerse 多轮对话评估基准，从 12 个 VLM 评估数据集中收集 647 段对话，覆盖 484 种任务和 484 种交互目标，采用 checklist 评估方法发现即使最强的 GPT-4o 在复杂多轮对话中仅达 50% 的成功率。
 tags:
-
+  - 多模态
 ---
 
 # MultiVerse: A Multi-Turn Conversation Benchmark for Evaluating Large Vision and Language Models

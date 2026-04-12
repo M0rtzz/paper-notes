@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TQNet: Temporal Query Network for Efficient Multivariate Time Series Forecasting 论文解读 | ICML2025 | arXiv 2505.12917 | 多变量时序预测 | 提出Temporal Query(TQ)技术——用周期性移位的可学习向量作为注意力查询来捕捉全局变量间相关性，keys/values来自原始数据保留局部信息，单层注意力+浅MLP的TQNet即达SOTA。"
+title: >-
+  [论文解读] TQNet: Temporal Query Network for Efficient Multivariate Time Series Forecasting
+description: >-
+  [ICML2025][时间序列][多变量时序预测] 提出Temporal Query(TQ)技术——用周期性移位的可学习向量作为注意力查询来捕捉全局变量间相关性，keys/values来自原始数据保留局部信息，单层注意力+浅MLP的TQNet即达SOTA。
 tags:
   - ICML2025
+  - 时间序列
   - 多变量时序预测
   - Temporal Query
   - 变量相关性

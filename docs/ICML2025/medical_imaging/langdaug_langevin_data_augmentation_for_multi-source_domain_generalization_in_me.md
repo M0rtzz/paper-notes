@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LangDAug: Langevin Data Augmentation for Multi-Source Domain Generalization in Medical Image Segmentation 论文解读 | ICML 2025 | arXiv 2505.19659 | 数据增强 | LangDAug 利用基于对比散度训练的能量模型(EBM)，通过 Langevin 动力学在源域之间遍历生成中间样本，实现医学图像分割的多源域泛化，理论证明其诱导正则化效果并上界 Rademacher 复杂度。"
+title: >-
+  [论文解读] LangDAug: Langevin Data Augmentation for Multi-Source Domain Generalization in Medical Image Segmentation
+description: >-
+  [ICML 2025][医学图像][数据增强] LangDAug 利用基于对比散度训练的能量模型(EBM)，通过 Langevin 动力学在源域之间遍历生成中间样本，实现医学图像分割的多源域泛化，理论证明其诱导正则化效果并上界 Rademacher 复杂度。
 tags:
   - ICML 2025
+  - 医学图像
   - 数据增强
   - 域泛化
   - Langevin 动力学

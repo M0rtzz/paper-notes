@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving 论文解读 | CVPR 2026 | arXiv 2603.25740 | 个性化驾驶 | 提出 DMW（Drive My Way），一个个性化 VLA 驾驶框架，通过用户嵌入学习长期驾驶习惯并结合自然语言指令进行短期偏好适配，使用 GRPO 强化微调和风格感知奖励实现个性化驾驶行为生成。"
+title: >-
+  [论文解读] Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving
+description: >-
+  [CVPR 2026][自动驾驶][个性化驾驶] 提出 DMW（Drive My Way），一个个性化 VLA 驾驶框架，通过用户嵌入学习长期驾驶习惯并结合自然语言指令进行短期偏好适配，使用 GRPO 强化微调和风格感知奖励实现个性化驾驶行为生成。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 个性化驾驶
   - VLA模型
   - 偏好对齐

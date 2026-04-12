@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging. Review Paper 论文解读 | CVPR 2026 | arXiv 2603.04796 | 脑胶质瘤 | 系统综述脑胶质瘤 MRI 分割与分类方法，比较传统方法（阈值、区域生长、聚类等）与深度学习方法（CNN 架构），结论是 CNN 在分割和分类任务上全面优于传统技术，但半自动方法因可控性更受放射科医生青睐。"
+title: >-
+  [论文解读] Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging. Review Paper
+description: >-
+  [CVPR 2026][图像分割][脑胶质瘤] 系统综述脑胶质瘤 MRI 分割与分类方法，比较传统方法（阈值、区域生长、聚类等）与深度学习方法（CNN 架构），结论是 CNN 在分割和分类任务上全面优于传统技术，但半自动方法因可控性更受放射科医生青睐。
 tags:
   - CVPR 2026
+  - 图像分割
   - 脑胶质瘤
   - MRI分割
   - CNN

@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】ToolHop: A Query-Driven Benchmark for Evaluating Large Language Models in Multi-Hop Tool Use 论文解读 | ACL 2025 (Long Paper) | 多跳工具使用 | 提出ToolHop——首个query-driven构建的多跳工具使用评估数据集（995个多跳查询+3912个本地可执行工具），评估14个LLM后发现最强的GPT-4o仅达49.04%准确率，揭示了不同模型家族在工具使用策略上的显著差异。"
+title: >-
+  [论文解读] ToolHop: A Query-Driven Benchmark for Evaluating Large Language Models in Multi-Hop Tool Use
+description: >-
+  [ACL 2025 (Long Paper)][LLM Agent][多跳工具使用] 提出ToolHop——首个query-driven构建的多跳工具使用评估数据集（995个多跳查询+3912个本地可执行工具），评估14个LLM后发现最强的GPT-4o仅达49.04%准确率，揭示了不同模型家族在工具使用策略上的显著差异。
 tags:
   - ACL 2025 (Long Paper)
+  - LLM Agent
   - 多跳工具使用
   - Benchmark
   - 函数调用
-  - LLM Agent
   - 工具链
 ---
 

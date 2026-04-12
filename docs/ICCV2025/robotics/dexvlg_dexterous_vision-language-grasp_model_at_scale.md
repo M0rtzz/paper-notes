@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DexVLG: Dexterous Vision-Language-Grasp Model at Scale 论文解读 | ICCV 2025 | arXiv 2507.02747 | 灵巧抓取 | 提出DexVLG——首个大规模视觉-语言-灵巧抓取模型，构建了包含174K物体、1.7亿抓取姿态的DexGraspNet 3.0数据集（带部件级语义标注），结合VLM和Flow Matching姿态预测头，在仿真中实现76%+零样本执行成功率，并在真实世界中完成语义对齐的灵巧抓取。"
+title: >-
+  [论文解读] DexVLG: Dexterous Vision-Language-Grasp Model at Scale
+description: >-
+  [ICCV 2025][机器人][灵巧抓取] 提出DexVLG——首个大规模视觉-语言-灵巧抓取模型，构建了包含174K物体、1.7亿抓取姿态的DexGraspNet 3.0数据集（带部件级语义标注），结合VLM和Flow Matching姿态预测头，在仿真中实现76%+零样本执行成功率，并在真实世界中完成语义对齐的灵巧抓取。
 tags:
   - ICCV 2025
+  - 机器人
   - 灵巧抓取
   - 视觉语言模型
   - Flow Matching

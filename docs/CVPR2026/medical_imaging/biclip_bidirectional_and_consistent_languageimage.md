@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation 论文解读 | CVPR 2026 | arXiv 2603.00156 | 医学分割 | 提出双向视觉-语言融合（BMF）和增强一致性（IAC）两个模块，让文本和图像特征可以相互修正，在标注极度稀缺（1%）和图像退化（低剂量CT噪声/运动模糊）场景下仍保持分割鲁棒性。"
+title: >-
+  [论文解读] BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation
+description: >-
+  [CVPR 2026][医学图像][医学分割] 提出双向视觉-语言融合（BMF）和增强一致性（IAC）两个模块，让文本和图像特征可以相互修正，在标注极度稀缺（1%）和图像退化（低剂量CT噪声/运动模糊）场景下仍保持分割鲁棒性。
 tags:
   - CVPR 2026
+  - 医学图像
   - 医学分割
   - 视觉语言融合
   - 双向融合

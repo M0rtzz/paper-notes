@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SlimLLM: Accurate Structured Pruning for Large Language Models 论文解读 | ICML2025 | arXiv 2505.22689 | 结构化剪枝 | 提出SlimLLM——LLM结构化剪枝方法：用特征空间重要性（考虑权重方向和幅度）评估通道，用Pearson相似度整体评估注意力头，配合简单线性回归恢复策略和层级剪枝比例分配，在LLaMA上20%剪枝保留98.7%性能。"
+title: >-
+  [论文解读] SlimLLM: Accurate Structured Pruning for Large Language Models
+description: >-
+  [ICML2025][多模态][结构化剪枝] 提出SlimLLM——LLM结构化剪枝方法：用特征空间重要性（考虑权重方向和幅度）评估通道，用Pearson相似度整体评估注意力头，配合简单线性回归恢复策略和层级剪枝比例分配，在LLaMA上20%剪枝保留98.7%性能。
 tags:
   - ICML2025
+  - 多模态
   - 结构化剪枝
   - LLM压缩
   - 通道重要性

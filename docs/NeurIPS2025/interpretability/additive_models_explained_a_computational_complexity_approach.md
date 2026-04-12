@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Additive Models Explained: A Computational Complexity Approach 论文解读 | NeurIPS 2025 | arXiv 2510.21292 | GAM | 对广义可加模型（GAM）的多种解释类型（充分理由、对比解释、Shapley值等）进行系统的计算复杂度分析，揭示了GAM的可解释性代价高度依赖于输入域类型、组件模型类型和任务类型（回归vs分类），某些看似\"可解释\"的设定实际上是NP-Hard甚至#P-Hard。"
+title: >-
+  [论文解读] Additive Models Explained: A Computational Complexity Approach
+description: >-
+  [NeurIPS 2025][GAM] 对广义可加模型（GAM）的多种解释类型（充分理由、对比解释、Shapley值等）进行系统的计算复杂度分析，揭示了GAM的可解释性代价高度依赖于输入域类型、组件模型类型和任务类型（回归vs分类），某些看似"可解释"的设定实际上是NP-Hard甚至#P-Hard。
 tags:
   - NeurIPS 2025
   - GAM

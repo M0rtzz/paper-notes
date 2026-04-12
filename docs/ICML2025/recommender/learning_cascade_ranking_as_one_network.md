@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LCRON: Learning Cascade Ranking as One Network 论文解读 | ICML2025 | arXiv 2503.09492 | 级联排序 | 提出LCRON将多阶段级联排序系统作为统一网络端到端训练：设计基于ground truth存活概率下界的代理损失，确保训练目标与系统整体目标对齐，并通过辅助损失驱动各阶段协同学习。"
+title: >-
+  [论文解读] LCRON: Learning Cascade Ranking as One Network
+description: >-
+  [ICML2025][级联排序] 提出LCRON将多阶段级联排序系统作为统一网络端到端训练：设计基于ground truth存活概率下界的代理损失，确保训练目标与系统整体目标对齐，并通过辅助损失驱动各阶段协同学习。
 tags:
   - ICML2025
   - 级联排序

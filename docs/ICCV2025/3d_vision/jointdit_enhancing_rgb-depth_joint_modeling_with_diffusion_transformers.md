@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】JointDiT: Enhancing RGB-Depth Joint Modeling with Diffusion Transformers 论文解读 | JointDiT 基于 Flux 扩散 Transformer 构建 RGB-Depth 联合分布模型，通过自适应调度权重和非平衡时间步采样策略，使单一模型通过控制各模态的时间步即可灵活执行联合生成、深度估计和深度条件图像生成三种任务。"
+title: >-
+  [论文解读] JointDiT: Enhancing RGB-Depth Joint Modeling with Diffusion Transformers
+description: >-
+  [3D视觉] JointDiT 基于 Flux 扩散 Transformer 构建 RGB-Depth 联合分布模型，通过自适应调度权重和非平衡时间步采样策略，使单一模型通过控制各模态的时间步即可灵活执行联合生成、深度估计和深度条件图像生成三种任务。
 tags:
-
+  - 3D视觉
 ---
 
 # JointDiT: Enhancing RGB-Depth Joint Modeling with Diffusion Transformers

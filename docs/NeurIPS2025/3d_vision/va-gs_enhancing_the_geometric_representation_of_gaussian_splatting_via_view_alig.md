@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VA-GS: Enhancing the Geometric Representation of Gaussian Splatting via View Alignment 论文解读 | NeurIPS 2025 | arXiv 2510.11473 | 3D高斯溅射 | 通过引入边缘感知图像监督、可见性感知的多视图光度对齐、法线约束和深度图像特征对齐四种视图对齐（View Alignment）策略，显著提升3D高斯溅射的几何表示精度，在表面重建和新视图合成上取得SOTA。"
+title: >-
+  [论文解读] VA-GS: Enhancing the Geometric Representation of Gaussian Splatting via View Alignment
+description: >-
+  [NeurIPS 2025][3D视觉][3D高斯溅射] 通过引入边缘感知图像监督、可见性感知的多视图光度对齐、法线约束和深度图像特征对齐四种视图对齐（View Alignment）策略，显著提升3D高斯溅射的几何表示精度，在表面重建和新视图合成上取得SOTA。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 3D高斯溅射
   - 表面重建
   - 多视图对齐

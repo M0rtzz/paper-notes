@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An OpenMind for 3D Medical Vision Self-supervised Learning 论文解读 | ICCV 2025 | arXiv 2412.17041 | 自监督学习 | 发布了最大的公开3D医学影像预训练数据集OpenMind（114k脑MRI体积），并在该数据集上系统性benchmark了现有3D SSL方法在最先进CNN（ResEnc-L）和Transformer（Primus-M）架构上的表现，明确了3D医学图像SSL的当前SOTA。"
+title: >-
+  [论文解读] An OpenMind for 3D Medical Vision Self-supervised Learning
+description: >-
+  [ICCV 2025][医学图像][自监督学习] 发布了最大的公开3D医学影像预训练数据集OpenMind（114k脑MRI体积），并在该数据集上系统性benchmark了现有3D SSL方法在最先进CNN（ResEnc-L）和Transformer（Primus-M）架构上的表现，明确了3D医学图像SSL的当前SOTA。
 tags:
   - ICCV 2025
+  - 医学图像
   - 自监督学习
   - 3D医学图像
   - 预训练数据集

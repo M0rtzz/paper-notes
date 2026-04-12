@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAP: Segment Any 4K Panorama 论文解读 | arXiv 2026 (HKUST(GZ) & LIGHTSPEED & HKU) | arXiv 2603.12759 | 全景分割 | SAP将全景图实例分割重新建模为固定轨迹的透视视频分割任务，通过column-first zigzag扫描将ERP全景图分解为连续重叠的透视patch序列，并用InfiniGen合成183K张4K全景图微调SAM2，在真实4K全景图上零样本mIoU比原始SAM2平均提升+17.2。"
+title: >-
+  [论文解读] SAP: Segment Any 4K Panorama
+description: >-
+  [arXiv 2026 (HKUST(GZ) & LIGHTSPEED & HKU)][图像分割][全景分割] SAP将全景图实例分割重新建模为固定轨迹的透视视频分割任务，通过column-first zigzag扫描将ERP全景图分解为连续重叠的透视patch序列，并用InfiniGen合成183K张4K全景图微调SAM2，在真实4K全景图上零样本mIoU比原始SAM2平均提升+17.2。
 tags:
   - arXiv 2026 (HKUST(GZ) & LIGHTSPEED & HKU)
+  - 图像分割
   - 全景分割
   - SAM2
   - 4K高分辨率

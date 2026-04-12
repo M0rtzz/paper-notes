@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning 论文解读 | CVPR 2026 | arXiv 2603.11850 | 联邦学习 federated learning | 在 8 个标注者划分的全景口腔 X 光裁剪片上，系统对比本地学习（LL）、联邦学习（FL）和集中学习（CL）在第三磨牙-下颌管重叠二分类任务上的表现，验证 FL 作为隐私保护替代方案的可行性。"
+title: >-
+  [论文解读] Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning
+description: >-
+  [CVPR 2026][医学图像][联邦学习] 在 8 个标注者划分的全景口腔 X 光裁剪片上，系统对比本地学习（LL）、联邦学习（FL）和集中学习（CL）在第三磨牙-下颌管重叠二分类任务上的表现，验证 FL 作为隐私保护替代方案的可行性。
 tags:
   - CVPR 2026
+  - 医学图像
   - 联邦学习
   - panoramic radiography
   - third molar

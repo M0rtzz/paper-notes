@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Graph-Theoretical Perspective on Law Design for Multiagent Systems 论文解读 | AAAI 2026 | arXiv 2511.06361 | 法律设计 | 将多智能体系统中的法律设计问题（包括\"有用法律\"和\"无责任缺口法律\"）形式化为超图上的顶点覆盖问题，证明了两类法律最小化问题都是NP-hard的，并给出了基于超图顶点覆盖近似算法的多项式时间近似方案。"
+title: >-
+  [论文解读] A Graph-Theoretical Perspective on Law Design for Multiagent Systems
+description: >-
+  [AAAI 2026][法律设计] 将多智能体系统中的法律设计问题（包括"有用法律"和"无责任缺口法律"）形式化为超图上的顶点覆盖问题，证明了两类法律最小化问题都是NP-hard的，并给出了基于超图顶点覆盖近似算法的多项式时间近似方案。
 tags:
   - AAAI 2026
   - 法律设计

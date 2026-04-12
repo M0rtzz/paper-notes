@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Lifelong Domain Adaptive 3D Human Pose Estimation 论文解读 | AAAI2026 | arXiv 2512.23860 | 位姿估计 3D human pose estimation | 提出 lifelong domain adaptive 3D HPE 新任务，设计包含 pose-aware、temporal-aware 和 domain-aware 编码的 GAN 框架，利用 diffusion sampler 生成 domain-aware prior 缓解灾难性遗忘，在多个跨场景/跨数据集适应任务上显著超越现有方法。"
+title: >-
+  [论文解读] Lifelong Domain Adaptive 3D Human Pose Estimation
+description: >-
+  [AAAI2026][视频理解][位姿估计] 提出 lifelong domain adaptive 3D HPE 新任务，设计包含 pose-aware、temporal-aware 和 domain-aware 编码的 GAN 框架，利用 diffusion sampler 生成 domain-aware prior 缓解灾难性遗忘，在多个跨场景/跨数据集适应任务上显著超越现有方法。
 tags:
   - AAAI2026
+  - 视频理解
   - 位姿估计
   - 域适应
   - catastrophic forgetting

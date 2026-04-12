@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ActionVOS: Actions as Prompts for Video Object Segmentation 论文解读 | ECCV 2024 | arXiv 2407.07402 | 图像分割 Referring Video Object Segmentation | 提出ActionVOS——一种以人类动作叙述作为额外语言提示的Referring Video Object Segmentation新设定，通过无参数的动作感知标注模块生成伪标签，并设计动作引导的focal loss来抑制假阳性，在VISOR上将非活跃物体的误分割降低35.6% mIoU，同时在VOST/VSCOS上对状态变化物体的分割提升3.0% mIoU。"
+title: >-
+  [论文解读] ActionVOS: Actions as Prompts for Video Object Segmentation
+description: >-
+  [ECCV 2024][图像分割][图像分割] 提出ActionVOS——一种以人类动作叙述作为额外语言提示的Referring Video Object Segmentation新设定，通过无参数的动作感知标注模块生成伪标签，并设计动作引导的focal loss来抑制假阳性，在VISOR上将非活跃物体的误分割降低35.6% mIoU，同时在VOST/VSCOS上对状态变化物体的分割提升3.0% mIoU。
 tags:
   - ECCV 2024
   - 图像分割

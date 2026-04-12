@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prioritizing Perception-Guided Self-Supervision: A New Paradigm for Causal Modeling in End-to-End Autonomous Driving 论文解读 | NeurIPS 2025 | arXiv 2511.08214 | 因果混淆 | 通过感知输出（车道线、agent 轨迹）和自监督学习来建立因果关系，解决端到端自动驾驶中的因果混淆问题，在 Bench2Drive 闭环评估上实现 SOTA（Driving Score 78.08）。"
+title: >-
+  [论文解读] Prioritizing Perception-Guided Self-Supervision: A New Paradigm for Causal Modeling in End-to-End Autonomous Driving
+description: >-
+  [NeurIPS 2025][自动驾驶][因果混淆] 通过感知输出（车道线、agent 轨迹）和自监督学习来建立因果关系，解决端到端自动驾驶中的因果混淆问题，在 Bench2Drive 闭环评估上实现 SOTA（Driving Score 78.08）。
 tags:
   - NeurIPS 2025
+  - 自动驾驶
   - 因果混淆
   - 自监督学习
   - 端到端驾驶

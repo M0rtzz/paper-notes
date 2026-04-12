@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies 论文解读 | NeurIPS 2025 | arXiv 2412.06708 | event camera | 提出 FlexEvent 框架，通过自适应事件-图像融合模块 FlexFuse 和频率自适应微调机制 FlexTune，实现事件相机在不同操作频率下的灵活目标检测，在 20Hz 到 180Hz 范围内保持鲁棒性能，显著超越现有方法。"
+title: >-
+  [论文解读] FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies
+description: >-
+  [NeurIPS 2025][目标检测][event camera] 提出 FlexEvent 框架，通过自适应事件-图像融合模块 FlexFuse 和频率自适应微调机制 FlexTune，实现事件相机在不同操作频率下的灵活目标检测，在 20Hz 到 180Hz 范围内保持鲁棒性能，显著超越现有方法。
 tags:
   - NeurIPS 2025
-  - event camera
   - 目标检测
+  - event camera
   - event-frame fusion
   - frequency adaptation
   - self-training

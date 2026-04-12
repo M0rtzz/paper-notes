@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Position Paper: If Innovation in AI Systematically Violates Fundamental Rights, Is It Innovation at All? 论文解读 | NeurIPS 2025 | arXiv 2511.00027 | AI监管 | 本立场论文挑战\"监管与创新对立\"的固有观念，论证良好设计的监管（以EU AI Act为范例）是创新的基础而非阻碍，并重新定义创新：系统性侵犯基本权利的技术不配称为\"创新\"。"
+title: >-
+  [论文解读] Position Paper: If Innovation in AI Systematically Violates Fundamental Rights, Is It Innovation at All?
+description: >-
+  [NeurIPS 2025][AI监管] 本立场论文挑战"监管与创新对立"的固有观念，论证良好设计的监管（以EU AI Act为范例）是创新的基础而非阻碍，并重新定义创新：系统性侵犯基本权利的技术不配称为"创新"。
 tags:
   - NeurIPS 2025
   - AI监管

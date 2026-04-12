@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Noise-Aware Generalization: Robustness to In-Domain Noise and Out-of-Domain Generalization 论文解读 | ICLR 2026 | arXiv 2504.02996 | 噪声感知泛化 | 首次系统研究噪声感知泛化(NAG)——标签噪声和域偏移共存时的学习→分析DG方法因噪声失效/LNL方法将域偏移误认为噪声→提出DL4ND利用跨域比较(而非单域内)检测噪声(因域内可能有共享的伪特征误导→跨域更可靠)→在7个数据集上超越DG/LNL方法及其组合达12.5%。"
+title: >-
+  [论文解读] Noise-Aware Generalization: Robustness to In-Domain Noise and Out-of-Domain Generalization
+description: >-
+  [ICLR 2026][噪声感知泛化] 首次系统研究噪声感知泛化(NAG)——标签噪声和域偏移共存时的学习→分析DG方法因噪声失效/LNL方法将域偏移误认为噪声→提出DL4ND利用跨域比较(而非单域内)检测噪声(因域内可能有共享的伪特征误导→跨域更可靠)→在7个数据集上超越DG/LNL方法及其组合达12.5%。
 tags:
   - ICLR 2026
   - 噪声感知泛化

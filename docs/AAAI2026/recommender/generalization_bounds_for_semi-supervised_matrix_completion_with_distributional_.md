@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information 论文解读 | AAAI 2026 | arXiv 2511.13049 | matrix completion | 提出半监督矩阵补全的理论框架：假设采样分布 P 与真实矩阵 G 共享低秩子空间，利用大量无标签隐式反馈估计子空间、少量有标签显式反馈恢复矩阵，证明泛化误差可分解为两个独立项 widetildeO(sqrt(m+n)r/M + sqrtdr/N)。"
+title: >-
+  [论文解读] Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information
+description: >-
+  [AAAI 2026][matrix completion] 提出半监督矩阵补全的理论框架：假设采样分布 $P$ 与真实矩阵 $G$ 共享低秩子空间，利用大量无标签隐式反馈估计子空间、少量有标签显式反馈恢复矩阵，证明泛化误差可分解为两个独立项 $\widetilde{O}(\sqrt{(m+n)r/M} + \sqrt{dr/N})$。
 tags:
   - AAAI 2026
   - matrix completion

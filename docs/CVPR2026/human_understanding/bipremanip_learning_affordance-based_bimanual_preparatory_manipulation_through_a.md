@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BiPreManip: Learning Affordance-Based Bimanual Preparatory Manipulation through Anticipatory Collaboration 论文解读 | CVPR 2026 | arXiv 2603.21679 | 双臂协作操作 | 提出 BiPreManip 框架，基于视觉可供性表示实现双臂预备操作：先预想主手的目标交互区域，再引导辅助手进行预备动作（如翻转瓶子使瓶盖朝向主手），在仿真和真实环境中大幅优于基线。"
+title: >-
+  [论文解读] BiPreManip: Learning Affordance-Based Bimanual Preparatory Manipulation through Anticipatory Collaboration
+description: >-
+  [CVPR 2026][人体理解][双臂协作操作] 提出 BiPreManip 框架，基于视觉可供性表示实现双臂预备操作：先预想主手的目标交互区域，再引导辅助手进行预备动作（如翻转瓶子使瓶盖朝向主手），在仿真和真实环境中大幅优于基线。
 tags:
   - CVPR 2026
+  - 人体理解
   - 双臂协作操作
   - 视觉可供性
   - 预备操作

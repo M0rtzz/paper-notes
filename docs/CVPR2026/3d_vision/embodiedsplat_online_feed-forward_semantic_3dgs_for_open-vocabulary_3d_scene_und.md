@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EmbodiedSplat: Online Feed-Forward Semantic 3DGS for Open-Vocabulary 3D Scene Understanding 论文解读 | CVPR 2026 | arXiv 2603.04254 | 3D高斯泼溅 | 提出 EmbodiedSplat，首个在线前馈式语义 3DGS 框架，通过稀疏系数场+CLIP全局码本实现内存高效的逐高斯语义表示，结合3D几何感知特征，在300+帧流式输入下以5-6 FPS实现全场景开放词汇3D理解。"
+title: >-
+  [论文解读] EmbodiedSplat: Online Feed-Forward Semantic 3DGS for Open-Vocabulary 3D Scene Understanding
+description: >-
+  [CVPR 2026][3D视觉][3D高斯泼溅] 提出 EmbodiedSplat，首个在线前馈式语义 3DGS 框架，通过稀疏系数场+CLIP全局码本实现内存高效的逐高斯语义表示，结合3D几何感知特征，在300+帧流式输入下以5-6 FPS实现全场景开放词汇3D理解。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D高斯泼溅
   - 开放词汇场景理解
   - 在线重建

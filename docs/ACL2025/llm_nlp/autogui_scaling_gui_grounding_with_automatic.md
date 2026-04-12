@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AutoGUI: Scaling GUI Grounding with Automatic Functionality Annotations from LLMs 论文解读 | ACL 2025 | arXiv 2502.01977 | GUI understanding | 提出 AutoGUI 自动标注管线——通过模拟交互比较 UI 状态变化 + LLM 推断元素功能 + LLM 验证过滤，构建 704K 高质量 UI 功能标注数据集，标注正确率 96.7% 可比人类，显著提升 VLM 的 UI grounding 能力且展现数据扩展效应。"
+title: >-
+  [论文解读] AutoGUI: Scaling GUI Grounding with Automatic Functionality Annotations from LLMs
+description: >-
+  [ACL 2025][LLM/NLP][GUI understanding] 提出 AutoGUI 自动标注管线——通过模拟交互比较 UI 状态变化 + LLM 推断元素功能 + LLM 验证过滤，构建 704K 高质量 UI 功能标注数据集，标注正确率 96.7% 可比人类，显著提升 VLM 的 UI grounding 能力且展现数据扩展效应。
 tags:
   - ACL 2025
+  - LLM/NLP
   - GUI understanding
   - UI grounding
   - functionality annotation

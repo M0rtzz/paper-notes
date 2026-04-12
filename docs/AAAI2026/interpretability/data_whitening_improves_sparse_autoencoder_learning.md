@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Data Whitening Improves Sparse Autoencoder Learning 论文解读 | AAAI 2026 | arXiv 2511.13981 | Sparse Autoencoder | 本文将经典稀疏编码中的 PCA 白化（whitening）引入现代稀疏自编码器（SAE）训练，通过理论分析和仿真证明白化能使优化景观更凸更各向同性，在 SAEBench 上的实验表明白化显著提升可解释性指标（Sparse Probing +7.3%、SCR +54%、TPP +372%），尽管重构质量略有下降。"
+title: >-
+  [论文解读] Data Whitening Improves Sparse Autoencoder Learning
+description: >-
+  [AAAI 2026][Sparse Autoencoder] 本文将经典稀疏编码中的 PCA 白化（whitening）引入现代稀疏自编码器（SAE）训练，通过理论分析和仿真证明白化能使优化景观更凸更各向同性，在 SAEBench 上的实验表明白化显著提升可解释性指标（Sparse Probing +7.3%、SCR +54%、TPP +372%），尽管重构质量略有下降。
 tags:
   - AAAI 2026
   - Sparse Autoencoder

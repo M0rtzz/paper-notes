@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Theory of Multi-Agent Generative Flow Networks 论文解读 | NeurIPS 2025 | arXiv 2509.20408 | GFlowNet | 提出多智能体生成流网络（MA-GFlowNets）的理论框架，证明了\"局部-全局原理\"——联合流函数可分解为各智能体独立流的乘积形式，设计了四种算法（CFN/IFN/JFN/CJFN），其中 JFN 和 CJFN 实现中心化训练+去中心化执行（CTDE），在 Hyper-Grid 和 StarCraft 环境中超越 RL 和 MCMC 方法。"
+title: >-
+  [论文解读] A Theory of Multi-Agent Generative Flow Networks
+description: >-
+  [NeurIPS 2025][GFlowNet] 提出多智能体生成流网络（MA-GFlowNets）的理论框架，证明了"局部-全局原理"——联合流函数可分解为各智能体独立流的乘积形式，设计了四种算法（CFN/IFN/JFN/CJFN），其中 JFN 和 CJFN 实现中心化训练+去中心化执行（CTDE），在 Hyper-Grid 和 StarCraft 环境中超越 RL 和 MCMC 方法。
 tags:
   - NeurIPS 2025
   - GFlowNet

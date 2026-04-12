@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Concept Bottleneck Models: From Pitfalls to Solutions 论文解读 | CVPR 2026 | arXiv 2603.05629 | Concept Bottleneck Models | 提出 CBM-Suite 框架，系统性解决概念瓶颈模型的四大缺陷——缺乏概念相关性预评估指标、线性问题导致概念瓶颈被绕过、与黑盒模型的精度差距、以及不同视觉骨干/VLM 影响的研究空白——通过熵度量、非线性层和蒸馏损失显著提升 CBM 的精度与可解释性。"
+title: >-
+  [论文解读] Rethinking Concept Bottleneck Models: From Pitfalls to Solutions
+description: >-
+  [CVPR 2026][人体理解][Concept Bottleneck Models] 提出 CBM-Suite 框架，系统性解决概念瓶颈模型的四大缺陷——缺乏概念相关性预评估指标、线性问题导致概念瓶颈被绕过、与黑盒模型的精度差距、以及不同视觉骨干/VLM 影响的研究空白——通过熵度量、非线性层和蒸馏损失显著提升 CBM 的精度与可解释性。
 tags:
   - CVPR 2026
+  - 人体理解
   - Concept Bottleneck Models
   - 可解释性
   - 概念相关性

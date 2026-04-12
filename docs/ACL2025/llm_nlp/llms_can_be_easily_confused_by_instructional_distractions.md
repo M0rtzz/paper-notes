@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLMs can be easily Confused by Instructional Distractions 论文解读 | ACL 2025 | arXiv 2502.04362 | 指令跟随 | 本文提出了 DIM-Bench 基准，系统评估了当输入文本本身就像指令时 LLM 的指令跟随能力，发现即使是 GPT-4o 等最先进的模型也极易受到这种\"指令干扰\"的影响而偏离用户真实意图。"
+title: >-
+  [论文解读] LLMs can be easily Confused by Instructional Distractions
+description: >-
+  [ACL 2025][LLM/NLP][指令跟随] 本文提出了 DIM-Bench 基准，系统评估了当输入文本本身就像指令时 LLM 的指令跟随能力，发现即使是 GPT-4o 等最先进的模型也极易受到这种"指令干扰"的影响而偏离用户真实意图。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 指令跟随
   - 指令干扰
   - 基准测试

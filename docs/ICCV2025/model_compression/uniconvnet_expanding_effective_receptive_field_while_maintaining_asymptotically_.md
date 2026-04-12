@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniConvNet: Expanding Effective Receptive Field while Maintaining Asymptotically Gaussian Distribution for ConvNets of Any Scale 论文解读 | ICCV 2025 | arXiv 2508.09000 | 卷积神经网络 | 提出UniConvNet，通过合理组合较小卷积核（7×7, 9×9, 11×11）的三层感受野聚合器（RFA），在扩大有效感受野（ERF）的同时保持其渐近高斯分布（AGD），从而在轻量级到大规模模型上全面超越现有CNN和ViT。"
+title: >-
+  [论文解读] UniConvNet: Expanding Effective Receptive Field while Maintaining Asymptotically Gaussian Distribution for ConvNets of Any Scale
+description: >-
+  [ICCV 2025][模型压缩][卷积神经网络] 提出UniConvNet，通过合理组合较小卷积核（7×7, 9×9, 11×11）的三层感受野聚合器（RFA），在扩大有效感受野（ERF）的同时保持其渐近高斯分布（AGD），从而在轻量级到大规模模型上全面超越现有CNN和ViT。
 tags:
   - ICCV 2025
+  - 模型压缩
   - 卷积神经网络
   - 有效感受野
   - 渐近高斯分布

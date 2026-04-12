@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ProxAnn: Use-Oriented Evaluations of Topic Models and Document Clustering 论文解读 | ACL 2025 | arXiv 2507.00828 | topic model evaluation | ProxAnn 设计了一个面向实际使用场景的主题模型/文档聚类评估协议——标注者先从模型输出推断类别再将类别应用到新文档——并证明 LLM 代理标注者可以统计不可分辨地替代人类标注者，同时发现经典 LDA 在此评估下表现不弱于现代方法。"
+title: >-
+  [论文解读] ProxAnn: Use-Oriented Evaluations of Topic Models and Document Clustering
+description: >-
+  [ACL 2025][topic model evaluation] ProxAnn 设计了一个面向实际使用场景的主题模型/文档聚类评估协议——标注者先从模型输出推断类别再将类别应用到新文档——并证明 LLM 代理标注者可以统计不可分辨地替代人类标注者，同时发现经典 LDA 在此评估下表现不弱于现代方法。
 tags:
   - ACL 2025
   - topic model evaluation

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】La Leaderboard: A Large Language Model Leaderboard for Spanish Varieties and Languages of Spain and Latin America 论文解读 | ACL 2025 | arXiv 2507.00999 | 多语言评估 | 构建首个面向西班牙和拉丁美洲语言的开源LLM排行榜，整合66个数据集覆盖西班牙语、加泰罗尼亚语、巴斯克语、加利西亚语，评估50个模型并分析训练策略、算力与性能的关系。"
+title: >-
+  [论文解读] La Leaderboard: A Large Language Model Leaderboard for Spanish Varieties and Languages of Spain and Latin America
+description: >-
+  [ACL 2025][多语言评估] 构建首个面向西班牙和拉丁美洲语言的开源LLM排行榜，整合66个数据集覆盖西班牙语、加泰罗尼亚语、巴斯克语、加利西亚语，评估50个模型并分析训练策略、算力与性能的关系。
 tags:
   - ACL 2025
   - 多语言评估

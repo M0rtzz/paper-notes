@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How Do Transformers Learn Implicit Reasoning? 论文解读 | NeurIPS 2025 | arXiv 2505.23653 | 多跳推理 | 通过符号环境的精细控制研究，本文发现多跳隐式推理会经历记忆→分布内泛化→跨分布泛化三阶段，关键机制是中间实体表示在余弦空间的聚类。"
+title: >-
+  [论文解读] How Do Transformers Learn Implicit Reasoning?
+description: >-
+  [NeurIPS 2025][多跳推理] 通过符号环境的精细控制研究，本文发现多跳隐式推理会经历记忆→分布内泛化→跨分布泛化三阶段，关键机制是中间实体表示在余弦空间的聚类。
 tags:
   - NeurIPS 2025
   - 多跳推理

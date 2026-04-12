@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] DreamDrone: Text-to-Image Diffusion Models are Zero-shot Perpetual View Generators
+description: >-
+  [ECCV 2024][3D视觉][永续视角生成] 提出DreamDrone——一个零样本、无需训练的无限飞行场景生成管线，通过直接对预训练扩散模型的中间latent code进行warping（而非图像级warping），结合特征对应引导和高通滤波策略，实现高质量、几何一致的无界场景生成。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 永续视角生成
+  - 扩散模型
+  - 零样本
+  - Latent Warping
+  - 场景生成
+---
+
 # DreamDrone: Text-to-Image Diffusion Models are Zero-shot Perpetual View Generators
 
 **会议**: ECCV 2024  

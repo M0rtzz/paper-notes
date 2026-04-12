@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Recognition through Reasoning: Reinforcing Image Geo-localization with Large Vision-Language Models 论文解读 | NeurIPS 2025 | arXiv 2506.14674 | 图像地理定位 | 本文提出GLOBE——一个基于GRPO强化学习训练的LVLM图像地理定位系统，通过构建推理导向数据集MP16-Reason（含定位可行性评估、视觉线索推理链和地理准确性标注），仅用33K样本就在多个基准上超越基于数百万样本训练的SOTA方法和大规模开源VLM。"
+title: >-
+  [论文解读] Recognition through Reasoning: Reinforcing Image Geo-localization with Large Vision-Language Models
+description: >-
+  [NeurIPS 2025][多模态][图像地理定位] 本文提出GLOBE——一个基于GRPO强化学习训练的LVLM图像地理定位系统，通过构建推理导向数据集MP16-Reason（含定位可行性评估、视觉线索推理链和地理准确性标注），仅用33K样本就在多个基准上超越基于数百万样本训练的SOTA方法和大规模开源VLM。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 图像地理定位
   - 视觉推理
   - GRPO强化学习

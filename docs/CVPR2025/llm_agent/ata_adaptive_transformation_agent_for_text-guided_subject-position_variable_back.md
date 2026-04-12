@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Inpainting 论文解读 | CVPR 2025 | arXiv 2504.01603 | 图像修复 | 提出 ATA（Adaptive Transformation Agent），解决文本引导的主体位置可变背景修复任务，通过 PosAgent Block 自适应预测位移、Reverse Displacement Transform 模块和 Position Switch Embedding，在保持修复质量的同时实现主体位置的灵活调整。"
+title: >-
+  [论文解读] ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Inpainting
+description: >-
+  [CVPR 2025][LLM Agent][图像修复] 提出 ATA（Adaptive Transformation Agent），解决文本引导的主体位置可变背景修复任务，通过 PosAgent Block 自适应预测位移、Reverse Displacement Transform 模块和 Position Switch Embedding，在保持修复质量的同时实现主体位置的灵活调整。
 tags:
   - CVPR 2025
+  - LLM Agent
   - 图像修复
   - 前景条件背景生成
   - 位置自适应

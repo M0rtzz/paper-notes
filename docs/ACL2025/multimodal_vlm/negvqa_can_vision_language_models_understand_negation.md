@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NegVQA: Can Vision Language Models Understand Negation? 论文解读 | ACL 2025 | arXiv 2505.22946 | 否定理解 | 提出 NegVQA 基准（7,379 道二选一 VQA 题），系统评估 20 个 VLM 对否定句的理解能力，发现所有模型在否定问题上性能大幅下降（平均 29.7%），并揭示\"U 型\"缩放趋势。"
+title: >-
+  [论文解读] NegVQA: Can Vision Language Models Understand Negation?
+description: >-
+  [ACL 2025][多模态][否定理解] 提出 NegVQA 基准（7,379 道二选一 VQA 题），系统评估 20 个 VLM 对否定句的理解能力，发现所有模型在否定问题上性能大幅下降（平均 29.7%），并揭示"U 型"缩放趋势。
 tags:
   - ACL 2025
+  - 多模态
   - 否定理解
   - VQA benchmark
   - 视觉语言模型

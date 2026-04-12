@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs 论文解读 | ACL 2025 | arXiv 2505.23006 | 对话Agent | 提出基于有向无环图（DAG）工作流的混合对话 Agent 框架——每个图节点有独立系统提示/工具/执行规则以处理特定场景约束。结合原型 Agent 数据收集、状态感知的响应掩码微调策略，在 Kakao 移动电商场景中任务准确率提升 52%、格式遵从度提升 50%，超越 GPT-4o。"
+title: >-
+  [论文解读] A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs
+description: >-
+  [ACL 2025][对话Agent] 提出基于有向无环图（DAG）工作流的混合对话 Agent 框架——每个图节点有独立系统提示/工具/执行规则以处理特定场景约束。结合原型 Agent 数据收集、状态感知的响应掩码微调策略，在 Kakao 移动电商场景中任务准确率提升 52%、格式遵从度提升 50%，超越 GPT-4o。
 tags:
   - ACL 2025
   - 对话Agent

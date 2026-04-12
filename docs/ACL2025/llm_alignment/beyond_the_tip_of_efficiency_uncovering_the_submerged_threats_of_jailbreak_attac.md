@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond the Tip of Efficiency: Uncovering the Submerged Threats of Jailbreak Attacks in Small Language Models 论文解读 | ACL 2025 | arXiv 2502.19883 | 小语言模型 | 系统评估 13 个 SOTA 小语言模型（<4B参数）在 5 种越狱攻击下的安全性，发现 SLM 虽能抵御直接攻击但在越狱攻击下显著比大模型脆弱，进一步分析了架构压缩、量化和知识蒸馏等 SLM 技术对安全性的影响。"
+title: >-
+  [论文解读] Beyond the Tip of Efficiency: Uncovering the Submerged Threats of Jailbreak Attacks in Small Language Models
+description: >-
+  [ACL 2025][LLM对齐][小语言模型] 系统评估 13 个 SOTA 小语言模型（<4B参数）在 5 种越狱攻击下的安全性，发现 SLM 虽能抵御直接攻击但在越狱攻击下显著比大模型脆弱，进一步分析了架构压缩、量化和知识蒸馏等 SLM 技术对安全性的影响。
 tags:
   - ACL 2025
+  - LLM对齐
   - 小语言模型
   - 越狱攻击
   - SLM安全

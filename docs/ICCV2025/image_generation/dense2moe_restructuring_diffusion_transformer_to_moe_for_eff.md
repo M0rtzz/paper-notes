@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dense2MoE: Restructuring Diffusion Transformer to MoE for Efficient Text-to-Image Generation 论文解读 | ICCV 2025 | arXiv 2510.09094 | Transformer Diffusion Transformer | 首次将预训练的dense DiT（如FLUX.1）转换为Mixture-of-Experts结构实现结构化稀疏推理，通过Taylor度量专家初始化+知识蒸馏+Mixture-of-Blocks进一步稀疏化，在激活参数减少60%的同时保持原始生成质量，全面超越剪枝方法。"
+title: >-
+  [论文解读] Dense2MoE: Restructuring Diffusion Transformer to MoE for Efficient Text-to-Image Generation
+description: >-
+  [ICCV 2025][图像生成][Transformer] 首次将预训练的dense DiT（如FLUX.1）转换为Mixture-of-Experts结构实现结构化稀疏推理，通过Taylor度量专家初始化+知识蒸馏+Mixture-of-Blocks进一步稀疏化，在激活参数减少60%的同时保持原始生成质量，全面超越剪枝方法。
 tags:
   - ICCV 2025
+  - 图像生成
   - Transformer
   - Mixture of Experts
   - 结构化稀疏

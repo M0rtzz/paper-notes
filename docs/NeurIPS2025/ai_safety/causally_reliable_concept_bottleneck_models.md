@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Causally Reliable Concept Bottleneck Models 论文解读 | NeurIPS 2025 | arXiv 2503.04363 | concept bottleneck model | 提出 C2BM（Causally reliable Concept Bottleneck Models），将概念瓶颈（concept bottleneck）按照因果图结构化组织，通过结合观测数据与背景知识自动学习因果关系，在保持分类精度的同时显著提升因果可靠性、干预响应和公平性。"
+title: >-
+  [论文解读] Causally Reliable Concept Bottleneck Models
+description: >-
+  [NeurIPS 2025][AI安全][concept bottleneck model] 提出 C2BM（Causally reliable Concept Bottleneck Models），将概念瓶颈（concept bottleneck）按照因果图结构化组织，通过结合观测数据与背景知识自动学习因果关系，在保持分类精度的同时显著提升因果可靠性、干预响应和公平性。
 tags:
   - NeurIPS 2025
+  - AI安全
   - concept bottleneck model
   - causal reasoning
   - structural causal model

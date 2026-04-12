@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Auxiliary Prompt Blending for Target-Faithful Diffusion Generation 论文解读 | CVPR2026 | arXiv 2603.19158 | 扩散模型 | 提出 Adaptive Auxiliary Prompt Blending (AAPB)，通过 Tweedie 公式推导闭式自适应混合系数，在每个去噪步动态平衡辅助锚定提示与目标提示的贡献，无需训练即可显著改善稀有概念生成和零样本图像编辑的语义准确性与结构保真度。"
+title: >-
+  [论文解读] Adaptive Auxiliary Prompt Blending for Target-Faithful Diffusion Generation
+description: >-
+  [CVPR2026][目标检测][扩散模型] 提出 Adaptive Auxiliary Prompt Blending (AAPB)，通过 Tweedie 公式推导闭式自适应混合系数，在每个去噪步动态平衡辅助锚定提示与目标提示的贡献，无需训练即可显著改善稀有概念生成和零样本图像编辑的语义准确性与结构保真度。
 tags:
   - CVPR2026
+  - 目标检测
   - 扩散模型
   - 文本到图像生成
   - 稀有概念生成

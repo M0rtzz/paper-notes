@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off 论文解读 | ICML 2025 | arXiv 2402.07002 | 联邦学习 | 提出 FedCEO 框架，通过在服务器端对堆叠的客户端模型参数进行张量低秩近端优化，利用不同客户端间的语义互补性恢复 DP 噪声破坏的语义信息，将效用-隐私权衡界改进了 O(sqrtd) 量级。"
+title: >-
+  [论文解读] Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off
+description: >-
+  [ICML 2025][AI安全][联邦学习] 提出 FedCEO 框架，通过在服务器端对堆叠的客户端模型参数进行张量低秩近端优化，利用不同客户端间的语义互补性恢复 DP 噪声破坏的语义信息，将效用-隐私权衡界改进了 $O(\sqrt{d})$ 量级。
 tags:
   - ICML 2025
+  - AI安全
   - 联邦学习
   - 差分隐私
   - 效用-隐私权衡

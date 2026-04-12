@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enginuity: Building an Open Multi-Domain Dataset of Complex Engineering Diagrams 论文解读 | NeurIPS 2025 (AI4Science Workshop) | arXiv 2601.13299 | 工程图解析 | 提出 Enginuity——首个大规模开放多领域工程图数据集（50K+ 标注图），涵盖层级组件关系与连接语义，旨在突破当前 AI 无法理解工程图中视觉-结构知识的瓶颈。"
+title: >-
+  [论文解读] Enginuity: Building an Open Multi-Domain Dataset of Complex Engineering Diagrams
+description: >-
+  [NeurIPS 2025 (AI4Science Workshop)][机器人][工程图解析] 提出 Enginuity——首个大规模开放多领域工程图数据集（50K+ 标注图），涵盖层级组件关系与连接语义，旨在突破当前 AI 无法理解工程图中视觉-结构知识的瓶颈。
 tags:
   - NeurIPS 2025 (AI4Science Workshop)
+  - 机器人
   - 工程图解析
   - 数据集
   - 汽车零件图

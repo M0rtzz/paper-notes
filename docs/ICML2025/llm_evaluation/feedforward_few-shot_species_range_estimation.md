@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Feedforward Few-shot Species Range Estimation 论文解读 | ICML2025 | arXiv 2502.14977 | 物种分布建模 | 提出前馈式少样本物种分布估计方法：输入少量观测位置+可选元数据，一次前传输出物种编码用于预测未见物种的空间分布，比迭代优化方法快orders of magnitude且SOTA。"
+title: >-
+  [论文解读] Feedforward Few-shot Species Range Estimation
+description: >-
+  [ICML2025][物种分布建模] 提出前馈式少样本物种分布估计方法：输入少量观测位置+可选元数据，一次前传输出物种编码用于预测未见物种的空间分布，比迭代优化方法快orders of magnitude且SOTA。
 tags:
   - ICML2025
   - 物种分布建模

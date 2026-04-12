@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Automating Complex Document Workflows via Stepwise and Rollback-Enabled Operations 论文解读 | AAAI 2026 | arXiv 2512.04445 | 文档工作流 | 提出AutoDW框架，通过逐步规划（每次生成一个API调用）+自适应回滚（参数级+API级两层回滚）实现复杂文档工作流自动化，在250会话/1708指令的DWBench上达到90%指令级和62%会话级完成率，分别超越最强基线40%和76%。"
+title: >-
+  [论文解读] Automating Complex Document Workflows via Stepwise and Rollback-Enabled Operations
+description: >-
+  [AAAI 2026][LLM Agent][文档工作流] 提出AutoDW框架，通过逐步规划（每次生成一个API调用）+自适应回滚（参数级+API级两层回滚）实现复杂文档工作流自动化，在250会话/1708指令的DWBench上达到90%指令级和62%会话级完成率，分别超越最强基线40%和76%。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 文档工作流
   - 多步操作
   - 回滚机制

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models 论文解读 | ICML 2025 | arXiv 2505.17769 | 稀疏自编码器 | 提出 ITDA，一种基于匹配追踪（Matching Pursuit）的推理时激活分解方法，以仅 1% 的 SAE 训练成本实现可比的重构性能，可扩展到 405B 参数模型，并天然支持跨模型表示比较。"
+title: >-
+  [论文解读] Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models
+description: >-
+  [ICML 2025][稀疏自编码器] 提出 ITDA，一种基于匹配追踪（Matching Pursuit）的推理时激活分解方法，以仅 1% 的 SAE 训练成本实现可比的重构性能，可扩展到 405B 参数模型，并天然支持跨模型表示比较。
 tags:
   - ICML 2025
   - 稀疏自编码器

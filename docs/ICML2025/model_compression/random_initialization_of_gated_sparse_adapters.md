@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Random Initialization of Gated Sparse Adapters (RIGSA) 论文解读 | 提出 RIGSA，一种基于随机初始化全秩适配器 + ReZero 门控 + 迭代幅度剪枝的稀疏微调方法，在学习新任务的同时比 QLoRA 更好地保留源任务性能。"
+title: >-
+  [论文解读] Random Initialization of Gated Sparse Adapters (RIGSA)
+description: >-
+  [模型压缩] 提出 RIGSA，一种基于随机初始化全秩适配器 + ReZero 门控 + 迭代幅度剪枝的稀疏微调方法，在学习新任务的同时比 QLoRA 更好地保留源任务性能。
 tags:
-
+  - 模型压缩
 ---
 
 # Random Initialization of Gated Sparse Adapters (RIGSA)

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark 论文解读 | ACL 2025 | arXiv 2409.02813 | 提出 MMMU-Pro 基准，通过过滤纯文本可解题目、扩增选项至 10 个、引入 vision-only 输入设置三步法，构建更鲁棒的多学科多模态理解评测，所有模型性能显著下降 16.8%-26.9%。"
+title: >-
+  [论文解读] MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark
+description: >-
+  [ACL 2025][多模态] 提出 MMMU-Pro 基准，通过过滤纯文本可解题目、扩增选项至 10 个、引入 vision-only 输入设置三步法，构建更鲁棒的多学科多模态理解评测，所有模型性能显著下降 16.8%-26.9%。
 tags:
   - ACL 2025
+  - 多模态
 ---
 
 # MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark

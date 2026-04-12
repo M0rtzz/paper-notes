@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MDCure: A Scalable Pipeline for Multi-Document Instruction-Following 论文解读 | 提出 MDCure 框架，通过两阶段流程（生成+过滤）自动构建高质量的多文档指令数据，并训练 MDCureRM 多目标奖励模型进行数据过滤，使微调后的 LLM（最高 70B）在多文档和长上下文任务上相比基线提升高达 75.1%，且实现跨任务、跨领域的强泛化能力。"
+title: >-
+  [论文解读] MDCure: A Scalable Pipeline for Multi-Document Instruction-Following
+description: >-
+   提出 MDCure 框架，通过两阶段流程（生成+过滤）自动构建高质量的多文档指令数据，并训练 MDCureRM 多目标奖励模型进行数据过滤，使微调后的 LLM（最高 70B）在多文档和长上下文任务上相比基线提升高达 75.1%，且实现跨任务、跨领域的强泛化能力。
 tags:
 
 ---

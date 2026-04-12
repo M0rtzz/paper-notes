@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Shallow Flow Matching for Coarse-to-Fine Text-to-Speech Synthesis 论文解读 | NeurIPS 2025 | arXiv 2505.12226 | Flow Matching | 提出 Shallow Flow Matching（SFM），在粗到细 TTS 框架中利用弱生成器输出构建 flow matching 中间状态，使推理从中间状态而非纯噪声出发，同时提升合成质量和加速推理。"
+title: >-
+  [论文解读] Shallow Flow Matching for Coarse-to-Fine Text-to-Speech Synthesis
+description: >-
+  [NeurIPS 2025][3D视觉][Flow Matching] 提出 Shallow Flow Matching（SFM），在粗到细 TTS 框架中利用弱生成器输出构建 flow matching 中间状态，使推理从中间状态而非纯噪声出发，同时提升合成质量和加速推理。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - Flow Matching
   - TTS
   - 粗到细生成

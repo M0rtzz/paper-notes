@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalized Geometry Encoding Volume for Real-time Stereo Matching 论文解读 | AAAI 2026 | arXiv 2512.06793 | 立体匹配 | 提出 GGEV，将单目深度基础模型（Depth Anything V2）的深度先验以轻量方式融入代价聚合过程，通过深度感知动态代价聚合（DDCA）自适应增强不同视差假设的匹配关系，在实时速度下实现强泛化能力。"
+title: >-
+  [论文解读] Generalized Geometry Encoding Volume for Real-time Stereo Matching
+description: >-
+  [AAAI 2026][3D视觉][立体匹配] 提出 GGEV，将单目深度基础模型（Depth Anything V2）的深度先验以轻量方式融入代价聚合过程，通过深度感知动态代价聚合（DDCA）自适应增强不同视差假设的匹配关系，在实时速度下实现强泛化能力。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 立体匹配
   - 实时推理
   - 零样本泛化

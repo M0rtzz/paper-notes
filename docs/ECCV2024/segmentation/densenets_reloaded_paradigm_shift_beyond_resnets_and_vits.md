@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DenseNets Reloaded: Paradigm Shift Beyond ResNets and ViTs 论文解读 | ECCV 2024 | arXiv 2403.19588 | DenseNet | 重新审视 DenseNet 的密集拼接连接（concatenation shortcut），通过系统性现代化改造（加宽减深、现代化 block、扩大中间维度、更多 transition 层等），提出 RDNet（Revitalized DenseNet），在 ImageNet-1K 上超越 Swin Transformer、ConvNeXt、DeiT-III，证明了拼接连接作为一种被低估的范式具有强大潜力。"
+title: >-
+  [论文解读] DenseNets Reloaded: Paradigm Shift Beyond ResNets and ViTs
+description: >-
+  [ECCV 2024][图像分割][DenseNet] 重新审视 DenseNet 的密集拼接连接（concatenation shortcut），通过系统性现代化改造（加宽减深、现代化 block、扩大中间维度、更多 transition 层等），提出 RDNet（Revitalized DenseNet），在 ImageNet-1K 上超越 Swin Transformer、ConvNeXt、DeiT-III，证明了拼接连接作为一种被低估的范式具有强大潜力。
 tags:
   - ECCV 2024
+  - 图像分割
   - DenseNet
   - 密集连接
   - 特征拼接

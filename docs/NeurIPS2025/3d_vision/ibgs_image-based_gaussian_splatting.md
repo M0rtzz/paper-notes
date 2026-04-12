@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IBGS: Image-Based Gaussian Splatting 论文解读 | NeurIPS 2025 | arXiv 2511.14357 | 3D高斯泼溅 | 提出基于图像的高斯泼溅方法（IBGS），通过从邻近训练图像中学习颜色残差来增强标准3DGS的渲染质量，在不增加存储开销的前提下显著提升高频细节和视角依赖效果的建模能力。"
+title: >-
+  [论文解读] IBGS: Image-Based Gaussian Splatting
+description: >-
+  [NeurIPS 2025][3D视觉][3D高斯泼溅] 提出基于图像的高斯泼溅方法（IBGS），通过从邻近训练图像中学习颜色残差来增强标准3DGS的渲染质量，在不增加存储开销的前提下显著提升高频细节和视角依赖效果的建模能力。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 3D高斯泼溅
   - 新视角合成
   - 图像基渲染

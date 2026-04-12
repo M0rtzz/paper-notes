@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Provably Efficient Algorithm for Best Scoring Rule Identification in Online Principal-Agent Information Acquisition 论文解读 | ICML 2025 | arXiv 2505.17379 | 在线信息获取 | 本文在委托-代理（principal-agent）在线信息获取框架下研究最佳评分规则识别（Best Scoring Rule Identification, BSRI）问题，提出 OIAFC（固定置信度）和 OIAFB（固定预算）两种算法，首次建立了实例依赖的样本复杂度上界 widetildeO(MH_Δ)，并将实例无关的样本复杂度从已有工作的 widetildeO(C_O³ K⁶ ε⁻³) 大幅改进至 widetildeO(MKε⁻²)。"
+title: >-
+  [论文解读] Provably Efficient Algorithm for Best Scoring Rule Identification in Online Principal-Agent Information Acquisition
+description: >-
+  [ICML 2025][在线信息获取] 本文在委托-代理（principal-agent）在线信息获取框架下研究最佳评分规则识别（Best Scoring Rule Identification, BSRI）问题，提出 OIAFC（固定置信度）和 OIAFB（固定预算）两种算法，首次建立了实例依赖的样本复杂度上界 $\widetilde{O}(MH_\Delta)$，并将实例无关的样本复杂度从已有工作的 $\widetilde{O}(C_O^3 K^6 \epsilon^{-3})$ 大幅改进至 $\widetilde{O}(MK\epsilon^{-2})$。
 tags:
   - ICML 2025
   - 在线信息获取

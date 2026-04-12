@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MM-IFEngine: Towards Multimodal Instruction Following 论文解读 | 提出 MM-IFEngine 管线，系统性地生成高质量的图像-指令对数据（含 SFT 和 DPO 版本），并构建 MM-IFEval 基准，显著提升 MLLM 在多模态指令遵循任务上的表现。"
+title: >-
+  [论文解读] MM-IFEngine: Towards Multimodal Instruction Following
+description: >-
+  [多模态] 提出 MM-IFEngine 管线，系统性地生成高质量的图像-指令对数据（含 SFT 和 DPO 版本），并构建 MM-IFEval 基准，显著提升 MLLM 在多模态指令遵循任务上的表现。
 tags:
-
+  - 多模态
 ---
 
 # MM-IFEngine: Towards Multimodal Instruction Following

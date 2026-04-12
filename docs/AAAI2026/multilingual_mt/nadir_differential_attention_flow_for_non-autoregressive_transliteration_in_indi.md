@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】NADIR: Differential Attention Flow for Non-Autoregressive Transliteration in Indic Languages 论文解读 | AAAI 2026 | arXiv 2601.12389 | 非自回归模型 | 提出 NADIR，一种结合差分 Transformer 和混合专家（MoE）的非自回归（NAR）多语言音译架构，在印度语言音译任务上实现了 13× 以上的推理加速，同时将 NAR 模型的幻觉错误（重复、替换、遗漏、插入）大幅降低，缩小了与自回归模型之间的精度差距。"
+title: >-
+  [论文解读] NADIR: Differential Attention Flow for Non-Autoregressive Transliteration in Indic Languages
+description: >-
+  [AAAI 2026][非自回归模型] 提出 NADIR，一种结合差分 Transformer 和混合专家（MoE）的非自回归（NAR）多语言音译架构，在印度语言音译任务上实现了 13× 以上的推理加速，同时将 NAR 模型的幻觉错误（重复、替换、遗漏、插入）大幅降低，缩小了与自回归模型之间的精度差距。
 tags:
   - AAAI 2026
   - 非自回归模型

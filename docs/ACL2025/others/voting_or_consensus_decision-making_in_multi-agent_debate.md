@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Voting or Consensus? Decision-Making in Multi-Agent Debate 论文解读 | ACL 2025 | arXiv 2502.19130 | 多Agent辩论 | 系统评估了 7 种决策协议（4 种投票 + 3 种共识）对多 Agent LLM 辩论的影响，发现投票在推理任务上优于共识 13.2%，共识在知识任务上优于投票 2.8%，并提出 AAD 和 CI 两种提升答案多样性的新方法。"
+title: >-
+  [论文解读] Voting or Consensus? Decision-Making in Multi-Agent Debate
+description: >-
+  [ACL 2025][多Agent辩论] 系统评估了 7 种决策协议（4 种投票 + 3 种共识）对多 Agent LLM 辩论的影响，发现投票在推理任务上优于共识 13.2%，共识在知识任务上优于投票 2.8%，并提出 AAD 和 CI 两种提升答案多样性的新方法。
 tags:
   - ACL 2025
   - 多Agent辩论

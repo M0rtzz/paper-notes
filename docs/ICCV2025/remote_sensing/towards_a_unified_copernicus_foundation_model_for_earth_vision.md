@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards a Unified Copernicus Foundation Model for Earth Vision 论文解读 | ICCV 2025 | arXiv 2503.11849 | 地球观测基础模型 | 构建了涵盖所有主要Copernicus Sentinel任务的统一地球观测基础模型体系，包括1870万对齐图像的Copernicus-Pretrain数据集、支持任意光谱/非光谱传感器的Copernicus-FM模型、以及覆盖15个层级化下游任务的Copernicus-Bench评估基准。"
+title: >-
+  [论文解读] Towards a Unified Copernicus Foundation Model for Earth Vision
+description: >-
+  [ICCV 2025][遥感][地球观测基础模型] 构建了涵盖所有主要Copernicus Sentinel任务的统一地球观测基础模型体系，包括1870万对齐图像的Copernicus-Pretrain数据集、支持任意光谱/非光谱传感器的Copernicus-FM模型、以及覆盖15个层级化下游任务的Copernicus-Bench评估基准。
 tags:
   - ICCV 2025
+  - 遥感
   - 地球观测基础模型
   - 多模态预训练
   - Copernicus Sentinel

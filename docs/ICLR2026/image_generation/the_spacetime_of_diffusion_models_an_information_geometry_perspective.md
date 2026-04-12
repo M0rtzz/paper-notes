@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Spacetime of Diffusion Models: An Information Geometry Perspective 论文解读 | ICLR 2026 | arXiv 2505.17517 | 时空几何 | 从信息几何视角提出扩散模型的\"时空\"概念，证明标准拉回几何在扩散模型中退化为直线，转而引入 Fisher-Rao 度量的时空几何，并导出可实际计算的散度编辑距离（DiffED）和转移路径采样方法。"
+title: >-
+  [论文解读] The Spacetime of Diffusion Models: An Information Geometry Perspective
+description: >-
+  [ICLR 2026][图像生成][时空几何] 从信息几何视角提出扩散模型的"时空"概念，证明标准拉回几何在扩散模型中退化为直线，转而引入 Fisher-Rao 度量的时空几何，并导出可实际计算的散度编辑距离（DiffED）和转移路径采样方法。
 tags:
   - ICLR 2026
+  - 图像生成
   - 时空几何
   - Fisher-Rao度量
   - 拉回几何

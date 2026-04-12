@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MOLM: Mixture of LoRA Markers 论文解读 | ICLR 2026 | arXiv 2510.00293 | 水印 | 提出 MOLM 水印框架，将 LoRA 适配器重新解释为水印载体，通过二进制密钥驱动的路由机制在冻结生成模型中嵌入可验证、鲁棒的水印，无需逐密钥重训练。"
+title: >-
+  [论文解读] MOLM: Mixture of LoRA Markers
+description: >-
+  [ICLR 2026][图像生成][水印] 提出 MOLM 水印框架，将 LoRA 适配器重新解释为水印载体，通过二进制密钥驱动的路由机制在冻结生成模型中嵌入可验证、鲁棒的水印，无需逐密钥重训练。
 tags:
   - ICLR 2026
+  - 图像生成
   - 水印
   - LoRA
   - 扩散模型

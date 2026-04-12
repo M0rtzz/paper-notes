@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】From Decision Trees to Boolean Logic: A Fast and Unified SHAP Algorithm 论文解读 | AAAI 2026 | arXiv 2511.09376 | SHAP | 本文提出Woodelf算法，通过将决策树集成模型转化为加权析取范式（WDNF）的伪布尔公式，在统一框架下实现了Background SHAP和Path-Dependent SHAP的线性时间计算，在大规模数据集上实现CPU 16-31倍、GPU 24-333倍的加速。"
+title: >-
+  [论文解读] From Decision Trees to Boolean Logic: A Fast and Unified SHAP Algorithm
+description: >-
+  [AAAI 2026][SHAP] 本文提出Woodelf算法，通过将决策树集成模型转化为加权析取范式（WDNF）的伪布尔公式，在统一框架下实现了Background SHAP和Path-Dependent SHAP的线性时间计算，在大规模数据集上实现CPU 16-31倍、GPU 24-333倍的加速。
 tags:
   - AAAI 2026
   - SHAP

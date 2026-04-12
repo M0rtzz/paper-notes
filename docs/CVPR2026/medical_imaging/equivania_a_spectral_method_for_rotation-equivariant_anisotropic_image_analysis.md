@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis 论文解读 | CVPR 2026 | arXiv 2603.11294 | 各向异性分析 | 提出 EquivAnIA，一种基于 cake wavelets 和 ridge filters 的频谱方法，用于对数值旋转鲁棒的各向异性图像分析，在合成和真实图像（含 CT 扫描）上显著优于传统 angular binning 基线，并成功应用于角度图像配准任务。"
+title: >-
+  [论文解读] EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis
+description: >-
+  [CVPR 2026][医学图像][各向异性分析] 提出 EquivAnIA，一种基于 cake wavelets 和 ridge filters 的频谱方法，用于对数值旋转鲁棒的各向异性图像分析，在合成和真实图像（含 CT 扫描）上显著优于传统 angular binning 基线，并成功应用于角度图像配准任务。
 tags:
   - CVPR 2026
+  - 医学图像
   - 各向异性分析
   - 旋转等变性
   - 频谱方法

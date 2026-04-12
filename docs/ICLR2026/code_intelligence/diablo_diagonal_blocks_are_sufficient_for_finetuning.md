@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DiaBlo: Diagonal Blocks Are Sufficient For Finetuning 论文解读 | ICLR2026 | arXiv 2506.03230 | PEFT | 提出 DiaBlo，仅微调权重矩阵的对角块作为参数高效微调方法：避免了 LoRA 低秩矩阵乘积的优化难题，zero 初始化即可稳定收敛，GPU 友好的 batched 矩阵乘法实现，理论证明在参数预算相同时表达力严格优于 LoRA，在常识推理/算术推理/代码生成/安全对齐上全面优于 LoRA 及其变体。"
+title: >-
+  [论文解读] DiaBlo: Diagonal Blocks Are Sufficient For Finetuning
+description: >-
+  [ICLR2026][PEFT] 提出 DiaBlo，仅微调权重矩阵的对角块作为参数高效微调方法：避免了 LoRA 低秩矩阵乘积的优化难题，zero 初始化即可稳定收敛，GPU 友好的 batched 矩阵乘法实现，理论证明在参数预算相同时表达力严格优于 LoRA，在常识推理/算术推理/代码生成/安全对齐上全面优于 LoRA 及其变体。
 tags:
   - ICLR2026
   - PEFT

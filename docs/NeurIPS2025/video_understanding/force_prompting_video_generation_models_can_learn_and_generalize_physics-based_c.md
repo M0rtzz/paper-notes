@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Force Prompting: Video Generation Models Can Learn and Generalize Physics-based Control Signals 论文解读 | NeurIPS 2025 | arXiv 2505.19386 | 提示学习 force prompting | 提出Force Prompting，将物理力（局部点力和全局风力）作为视频生成模型的控制信号，仅用~15K合成训练视频（Blender旗帜和滚球）和单日4xA100训练，即可在多样真实场景图像上展现跨物体/材质/几何的惊人泛化，包括初步的质量理解能力。"
+title: >-
+  [论文解读] Force Prompting: Video Generation Models Can Learn and Generalize Physics-based Control Signals
+description: >-
+  [NeurIPS 2025][视频理解][提示学习] 提出Force Prompting，将物理力（局部点力和全局风力）作为视频生成模型的控制信号，仅用~15K合成训练视频（Blender旗帜和滚球）和单日4xA100训练，即可在多样真实场景图像上展现跨物体/材质/几何的惊人泛化，包括初步的质量理解能力。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 提示学习
   - video generation
   - physics control

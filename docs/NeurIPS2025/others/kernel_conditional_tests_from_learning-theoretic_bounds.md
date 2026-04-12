@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Kernel Conditional Tests from Learning-Theoretic Bounds 论文解读 | NeurIPS 2025 | arXiv 2506.03898 | 条件假设检验 | 提出将学习算法的置信界转化为条件假设检验的统一框架，基于核岭回归构建了有限样本保证的条件两样本检验，首次支持非i.i.d.数据与在线采样场景。"
+title: >-
+  [论文解读] Kernel Conditional Tests from Learning-Theoretic Bounds
+description: >-
+  [NeurIPS 2025][条件假设检验] 提出将学习算法的置信界转化为条件假设检验的统一框架，基于核岭回归构建了有限样本保证的条件两样本检验，首次支持非i.i.d.数据与在线采样场景。
 tags:
   - NeurIPS 2025
   - 条件假设检验

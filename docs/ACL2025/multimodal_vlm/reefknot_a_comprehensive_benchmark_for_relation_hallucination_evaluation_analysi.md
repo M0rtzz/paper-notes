@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】ReefKnot: A Comprehensive Benchmark for Relation Hallucination Evaluation, Analysis and Mitigation in Multimodal Large Language Models 论文解读 | 提出首个系统性评估多模态大模型**关系级幻觉**的综合基准 Reefknot（含 2 万+ 样本、三种任务），并基于置信度熵检测提出 Detect-then-Calibrate 缓解策略，平均降低幻觉率 9.75%。"
+title: >-
+  [论文解读] ReefKnot: A Comprehensive Benchmark for Relation Hallucination Evaluation, Analysis and Mitigation in Multimodal Large Language Models
+description: >-
+  [多模态] 提出首个系统性评估多模态大模型**关系级幻觉**的综合基准 Reefknot（含 2 万+ 样本、三种任务），并基于置信度熵检测提出 Detect-then-Calibrate 缓解策略，平均降低幻觉率 9.75%。
 tags:
-
+  - 多模态
 ---
 
 # ReefKnot: A Comprehensive Benchmark for Relation Hallucination Evaluation, Analysis and Mitigation in Multimodal Large Language Models

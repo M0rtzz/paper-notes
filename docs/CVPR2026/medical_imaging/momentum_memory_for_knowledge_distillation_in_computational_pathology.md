@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Momentum Memory for Knowledge Distillation in Computational Pathology 论文解读 | CVPR 2026 | arXiv 2602.21395 | 知识蒸馏 | 提出 MoMKD，用动量更新的类条件记忆库替代传统 batch-local 特征对齐，实现基因组→病理切片的跨模态知识蒸馏，仅用 H&E 切片推理即可获得基因组级预测能力。"
+title: >-
+  [论文解读] Momentum Memory for Knowledge Distillation in Computational Pathology
+description: >-
+  [CVPR 2026][医学图像][知识蒸馏] 提出 MoMKD，用动量更新的类条件记忆库替代传统 batch-local 特征对齐，实现基因组→病理切片的跨模态知识蒸馏，仅用 H&E 切片推理即可获得基因组级预测能力。
 tags:
   - CVPR 2026
+  - 医学图像
   - 知识蒸馏
   - 计算病理学
   - 动量记忆

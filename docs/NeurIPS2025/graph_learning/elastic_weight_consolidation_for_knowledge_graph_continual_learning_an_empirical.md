@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Elastic Weight Consolidation for Knowledge Graph Continual Learning: An Empirical Evaluation 论文解读 | NeurIPS 2025 (NORA Workshop) | arXiv 2512.01890 | 持续学习 | 本文在 FB15k-237 上系统评估了弹性权重固化（EWC）对 TransE 知识图谱嵌入持续学习的效果，发现 EWC 将灾难性遗忘从 12.62% 降至 6.85%（减少 45.7%），并揭示了任务划分策略（基于关系 vs 随机）对遗忘度量的显著影响（9.8 个百分点差异）。"
+title: >-
+  [论文解读] Elastic Weight Consolidation for Knowledge Graph Continual Learning: An Empirical Evaluation
+description: >-
+  [NeurIPS 2025 (NORA Workshop)][图学习][持续学习] 本文在 FB15k-237 上系统评估了弹性权重固化（EWC）对 TransE 知识图谱嵌入持续学习的效果，发现 EWC 将灾难性遗忘从 12.62% 降至 6.85%（减少 45.7%），并揭示了任务划分策略（基于关系 vs 随机）对遗忘度量的显著影响（9.8 个百分点差异）。
 tags:
   - NeurIPS 2025 (NORA Workshop)
+  - 图学习
   - 持续学习
   - 知识图谱
   - 弹性权重固化

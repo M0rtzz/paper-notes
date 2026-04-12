@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Uncovering Zero-Shot Generalization Gaps in Time-Series Foundation Models Using Real-World Videos 论文解读 | AAAI 2026 | arXiv 2509.26347 | 时间序列基础模型 | 提出从真实视频中通过光流提取时间序列数据的管线，构建了 REAL-V-TSFM 数据集（6130 条序列），揭示了当前时间序列基础模型（Chronos、TimesFM 等）在面对真实物理动态时的零样本泛化能力不足。"
+title: >-
+  [论文解读] Uncovering Zero-Shot Generalization Gaps in Time-Series Foundation Models Using Real-World Videos
+description: >-
+  [AAAI 2026][3D视觉][时间序列基础模型] 提出从真实视频中通过光流提取时间序列数据的管线，构建了 REAL-V-TSFM 数据集（6130 条序列），揭示了当前时间序列基础模型（Chronos、TimesFM 等）在面对真实物理动态时的零样本泛化能力不足。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 时间序列基础模型
   - 零样本泛化
   - 光流

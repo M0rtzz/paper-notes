@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Mem-PAL: Towards Memory-based Personalized Dialogue Assistants for Long-term User-Agent Interaction 论文解读 | AAAI 2026 | arXiv 2511.13410 | 个性化对话 | 提出H2Memory四层分层异构记忆结构（日志图/背景记忆/主题大纲/原则），通过PAL-Set数据集（100用户×8.4个月交互）验证，在需求重述和方案建议任务上将BLEU-1从13.59提升至26.67。"
+title: >-
+  [论文解读] Mem-PAL: Towards Memory-based Personalized Dialogue Assistants for Long-term User-Agent Interaction
+description: >-
+  [AAAI 2026][个性化对话] 提出H2Memory四层分层异构记忆结构（日志图/背景记忆/主题大纲/原则），通过PAL-Set数据集（100用户×8.4个月交互）验证，在需求重述和方案建议任务上将BLEU-1从13.59提升至26.67。
 tags:
   - AAAI 2026
   - 个性化对话

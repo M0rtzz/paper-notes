@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】VideoRFT: Incentivizing Video Reasoning Capability in MLLMs via Reinforced Fine-Tuning 论文解读 | NeurIPS 2025 | arXiv 2505.12434 | 视频推理 | 提出 VideoRFT，通过认知启发的多专家 CoT 数据构建流水线和新颖的语义一致性奖励，将强化微调（RFT）范式扩展到视频推理领域，分别构建 VideoRFT-CoT-102K（SFT 用）和 VideoRFT-RL-310K（RL 用）两个数据集，在 6 个视频推理基准上达到 SOTA。"
+title: >-
+  [论文解读] VideoRFT: Incentivizing Video Reasoning Capability in MLLMs via Reinforced Fine-Tuning
+description: >-
+  [NeurIPS 2025][视频推理] 提出 VideoRFT，通过认知启发的多专家 CoT 数据构建流水线和新颖的语义一致性奖励，将强化微调（RFT）范式扩展到视频推理领域，分别构建 VideoRFT-CoT-102K（SFT 用）和 VideoRFT-RL-310K（RL 用）两个数据集，在 6 个视频推理基准上达到 SOTA。
 tags:
   - NeurIPS 2025
   - 视频推理

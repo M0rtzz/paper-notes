@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LightGTS: A Lightweight General Time Series Forecasting Model 论文解读 | ICML2025 | arXiv 2506.06005 | 时间序列基础模型 | 提出 LightGTS，利用时间序列固有的尺度不变周期性归纳偏置，通过 Periodical Tokenization 和 Periodical Parallel Decoding 两个核心技术，仅用不到 500 万参数就在 9 个基准数据集上的 zero-shot 和 full-shot 设定中取得了 SOTA 性能，比现有时序基础模型小 10-100 倍。"
+title: >-
+  [论文解读] LightGTS: A Lightweight General Time Series Forecasting Model
+description: >-
+  [ICML2025][时间序列][时间序列基础模型] 提出 LightGTS，利用时间序列固有的尺度不变周期性归纳偏置，通过 Periodical Tokenization 和 Periodical Parallel Decoding 两个核心技术，仅用不到 500 万参数就在 9 个基准数据集上的 zero-shot 和 full-shot 设定中取得了 SOTA 性能，比现有时序基础模型小 10-100 倍。
 tags:
   - ICML2025
+  - 时间序列
   - 时间序列基础模型
   - 周期性分词
   - 轻量级预测

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】IDR²: Accelerating Adaptive RAG via Instruction-Driven Representation Reduction of Retrieval Overlaps 论文解读 | ACL 2025 | arXiv 2505.12731 | 自适应RAG | 首次识别自适应 RAG（A-RAG）中多轮检索结果重叠导致的冗余计算问题，提出 IDR²（Instruction-Driven Representation Reduction）框架：跨迭代 KV 缓存共享（CICS）加速预填充 2.79 倍、指令引导去重增强（IDGR）帮助 LLM 正确处理缓存vs新文档、信息引导并行生成（IGPG）加速解码 2.33 倍，总体 A-RAG 流程加速 2.0 倍且不损失生成质量。"
+title: >-
+  [论文解读] IDR²: Accelerating Adaptive RAG via Instruction-Driven Representation Reduction of Retrieval Overlaps
+description: >-
+  [ACL 2025][自适应RAG] 首次识别自适应 RAG（A-RAG）中多轮检索结果重叠导致的冗余计算问题，提出 IDR²（Instruction-Driven Representation Reduction）框架：跨迭代 KV 缓存共享（CICS）加速预填充 2.79 倍、指令引导去重增强（IDGR）帮助 LLM 正确处理缓存vs新文档、信息引导并行生成（IGPG）加速解码 2.33 倍，总体 A-RAG 流程加速 2.0 倍且不损失生成质量。
 tags:
   - ACL 2025
   - 自适应RAG

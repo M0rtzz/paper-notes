@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cs2K: Class-Specific and Class-Shared Knowledge Guidance for Incremental Semantic Segmentation 论文解读 | ECCV2024 | arXiv 2407.09047 | 图像分割 Incremental Semantic Segmentation | 提出 Cs2K 框架，从类别特有知识（原型引导伪标签 + 原型引导类别适应）和类别共享知识（权重引导选择性整合）两个方面协同缓解增量语义分割中的灾难性遗忘与新类欠拟合问题。"
+title: >-
+  [论文解读] Cs2K: Class-Specific and Class-Shared Knowledge Guidance for Incremental Semantic Segmentation
+description: >-
+  [ECCV2024][图像分割][图像分割] 提出 Cs2K 框架，从类别特有知识（原型引导伪标签 + 原型引导类别适应）和类别共享知识（权重引导选择性整合）两个方面协同缓解增量语义分割中的灾难性遗忘与新类欠拟合问题。
 tags:
   - ECCV2024
   - 图像分割

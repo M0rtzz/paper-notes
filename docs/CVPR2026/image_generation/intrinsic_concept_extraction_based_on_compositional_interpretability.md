@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Intrinsic Concept Extraction Based on Compositional Interpretability 论文解读 | CVPR 2026 | arXiv 2603.11795 | 概念提取 | HyperExpress 提出组合可解释本征概念提取（CI-ICE）新任务，利用双曲空间的层次建模能力和等球面投影模块，从单张图像中提取可组合的物体级和属性级概念，实现可逆的复杂视觉概念分解。"
+title: >-
+  [论文解读] Intrinsic Concept Extraction Based on Compositional Interpretability
+description: >-
+  [CVPR 2026][图像生成][概念提取] HyperExpress 提出组合可解释本征概念提取（CI-ICE）新任务，利用双曲空间的层次建模能力和等球面投影模块，从单张图像中提取可组合的物体级和属性级概念，实现可逆的复杂视觉概念分解。
 tags:
   - CVPR 2026
+  - 图像生成
   - 概念提取
   - 双曲空间
   - 组合可解释性

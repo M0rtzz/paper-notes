@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization 论文解读 | ICCV 2025 | arXiv 2412.15689 | video generation | 结合变分分数蒸馏（VSD）和一致性蒸馏实现few-step视频生成，同时提出潜空间奖励模型微调方法进一步优化生成质量，4步生成的10秒视频（128帧@12FPS）在VBench上达82.57分超越teacher模型和Gen-3/Kling等基线，1步蒸馏实现278.6倍加速。"
+title: >-
+  [论文解读] DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization
+description: >-
+  [ICCV 2025][视频理解][video generation] 结合变分分数蒸馏（VSD）和一致性蒸馏实现few-step视频生成，同时提出潜空间奖励模型微调方法进一步优化生成质量，4步生成的10秒视频（128帧@12FPS）在VBench上达82.57分超越teacher模型和Gen-3/Kling等基线，1步蒸馏实现278.6倍加速。
 tags:
   - ICCV 2025
+  - 视频理解
   - video generation
   - distillation
   - consistency distillation

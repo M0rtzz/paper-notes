@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DeepBooTS: Dual-Stream Residual Boosting for Drift-Resilient Time-Series Forecasting 论文解读 | AAAI 2026 | arXiv 2511.06893 | 时间序列预测 | 提出 DeepBooTS，通过偏差-方差分解理论证明加权集成可降低方差从而缓解概念漂移，设计双流残差递减 boosting 架构，每个 block 的输出修正前一个 block 的残差，在多个数据集上平均提升 15.8%。"
+title: >-
+  [论文解读] DeepBooTS: Dual-Stream Residual Boosting for Drift-Resilient Time-Series Forecasting
+description: >-
+  [AAAI 2026][时间序列][时间序列预测] 提出 DeepBooTS，通过偏差-方差分解理论证明加权集成可降低方差从而缓解概念漂移，设计双流残差递减 boosting 架构，每个 block 的输出修正前一个 block 的残差，在多个数据集上平均提升 15.8%。
 tags:
   - AAAI 2026
+  - 时间序列
   - 时间序列预测
   - 概念漂移
   - 集成学习

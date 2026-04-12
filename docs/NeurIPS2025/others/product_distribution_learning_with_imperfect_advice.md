@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Product Distribution Learning with Imperfect Advice 论文解读 | NeurIPS 2025 | arXiv 2511.10366 | 分布学习 | 本文研究在给定不完美建议分布的情况下学习布尔超立方体上乘积分布的问题，提出了一种高效算法，当建议质量足够好时样本复杂度可实现关于维度 $d$ 的次线性依赖。"
+title: >-
+  [论文解读] Product Distribution Learning with Imperfect Advice
+description: >-
+  [NeurIPS 2025][分布学习] 本文研究在给定不完美建议分布的情况下学习布尔超立方体上乘积分布的问题，提出了一种高效算法，当建议质量足够好时样本复杂度可实现关于维度 $d$ 的次线性依赖。
 tags:
   - NeurIPS 2025
   - 分布学习

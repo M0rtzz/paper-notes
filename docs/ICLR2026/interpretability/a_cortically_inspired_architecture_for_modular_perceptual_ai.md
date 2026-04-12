@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Cortically Inspired Architecture for Modular Perceptual AI 论文解读 | ICLR 2026 | arXiv 2603.07295 | 皮层启发架构 | 从神经科学出发提出皮层启发的模块化感知 AI 架构蓝图，包含专用编码器、共享跨模态潜空间、路由控制器和递归预测反馈回路四个组件，并通过稀疏自编码器实验验证模块化分解可提升域内特征稳定性 (+15.4pp Jaccard 重叠)。"
+title: >-
+  [论文解读] A Cortically Inspired Architecture for Modular Perceptual AI
+description: >-
+  [ICLR 2026][皮层启发架构] 从神经科学出发提出皮层启发的模块化感知 AI 架构蓝图，包含专用编码器、共享跨模态潜空间、路由控制器和递归预测反馈回路四个组件，并通过稀疏自编码器实验验证模块化分解可提升域内特征稳定性 (+15.4pp Jaccard 重叠)。
 tags:
   - ICLR 2026
   - 皮层启发架构

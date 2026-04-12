@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description 论文解读 | ICCV 2025 | arXiv 2412.01398 | 3D场景理解 | 本文提出Articulate3D——首个大规模真实世界室内场景铰接标注数据集（280个高质量扫描），以及USDNet统一框架，能从3D点云同时预测可移动/可交互部件分割和运动参数，为具身AI的物理仿真提供了simulation-ready的场景数据。"
+title: >-
+  [论文解读] Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description
+description: >-
+  [ICCV 2025][3D视觉][3D场景理解] 本文提出Articulate3D——首个大规模真实世界室内场景铰接标注数据集（280个高质量扫描），以及USDNet统一框架，能从3D点云同时预测可移动/可交互部件分割和运动参数，为具身AI的物理仿真提供了simulation-ready的场景数据。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D场景理解
   - 铰接物体
   - 点云分割

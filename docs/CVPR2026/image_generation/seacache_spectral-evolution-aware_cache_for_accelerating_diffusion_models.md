@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models 论文解读 | CVPR2026 | arXiv 2602.18993 | 扩散模型加速 | 提出 SeaCache，一种基于频谱演化感知（SEA）滤波器的无训练动态缓存策略，通过在频域中分离信号与噪声分量来测量时间步间的冗余度，显著提升扩散模型推理的延迟-质量权衡。"
+title: >-
+  [论文解读] SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models
+description: >-
+  [CVPR2026][图像生成][扩散模型加速] 提出 SeaCache，一种基于频谱演化感知（SEA）滤波器的无训练动态缓存策略，通过在频域中分离信号与噪声分量来测量时间步间的冗余度，显著提升扩散模型推理的延迟-质量权衡。
 tags:
   - CVPR2026
+  - 图像生成
   - 扩散模型加速
   - 缓存策略
   - 频谱演化

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Robust Estimation Under Heterogeneous Corruption Rates 论文解读 | NeurIPS 2025 | arXiv 2508.15051 | 鲁棒估计 | 本文研究了异质污染率下的鲁棒估计问题——每个样本以不同的已知概率被污染——对有界分布和高斯分布的均值估计及线性回归建立了紧的极小极大率，发现最优估计器可以简单地丢弃污染率超过某阈值的样本。"
+title: >-
+  [论文解读] Robust Estimation Under Heterogeneous Corruption Rates
+description: >-
+  [NeurIPS 2025][优化][鲁棒估计] 本文研究了异质污染率下的鲁棒估计问题——每个样本以不同的已知概率被污染——对有界分布和高斯分布的均值估计及线性回归建立了紧的极小极大率，发现最优估计器可以简单地丢弃污染率超过某阈值的样本。
 tags:
   - NeurIPS 2025
+  - 优化
   - 鲁棒估计
   - 异质污染
   - 极小极大率

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SignRep: Enhancing Self-Supervised Sign Representations 论文解读 | ICCV 2025 | arXiv 2503.08529 | 手语表征学习 | 提出 SignRep，一个可扩展的自监督手语表征学习框架，通过在 Masked Autoencoder 预训练中利用手语骨架先验、特征正则化和对抗式风格无关损失，仅用单一 RGB 模态即超越了复杂的多模态/多分支方法，在手语识别、字典检索和手语翻译三大任务上均取得 SOTA。"
+title: >-
+  [论文解读] SignRep: Enhancing Self-Supervised Sign Representations
+description: >-
+  [ICCV 2025][人体理解][手语表征学习] 提出 SignRep，一个可扩展的自监督手语表征学习框架，通过在 Masked Autoencoder 预训练中利用手语骨架先验、特征正则化和对抗式风格无关损失，仅用单一 RGB 模态即超越了复杂的多模态/多分支方法，在手语识别、字典检索和手语翻译三大任务上均取得 SOTA。
 tags:
   - ICCV 2025
+  - 人体理解
   - 手语表征学习
   - 自监督学习
   - 掩码自编码器

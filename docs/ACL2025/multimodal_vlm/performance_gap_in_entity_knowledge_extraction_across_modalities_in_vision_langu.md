@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Performance Gap in Entity Knowledge Extraction Across Modalities in Vision Language Models 论文解读 | ACL 2025 | arXiv 2412.14133 | VLM | 系统性地揭示了视觉语言模型（VLM）在视觉 vs 文本表征下实体知识提取的显著性能差距（最高达 18%），通过机制可解释性工具发现图像 token 的关键信息流发生在模型中间层很深处，导致后续事实推理的层数不足。"
+title: >-
+  [论文解读] Performance Gap in Entity Knowledge Extraction Across Modalities in Vision Language Models
+description: >-
+  [ACL 2025][多模态][VLM] 系统性地揭示了视觉语言模型（VLM）在视觉 vs 文本表征下实体知识提取的显著性能差距（最高达 18%），通过机制可解释性工具发现图像 token 的关键信息流发生在模型中间层很深处，导致后续事实推理的层数不足。
 tags:
   - ACL 2025
+  - 多模态
   - VLM
   - 实体知识提取
   - 跨模态差距

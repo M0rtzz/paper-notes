@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Theoretical Study of (Hyper) Self-Attention through the Lens of Interactions 论文解读 | ICML 2025 | arXiv 2506.06179 | 注意力机制 self-attention | 从\"交互实体\"视角统一分析自注意力，证明单层线性SA能高效表示/学习/泛化成对交互函数（含OOD长度泛化），并提出HyperFeatureAttention和HyperAttention分别捕获特征级耦合交互和高阶多实体交互。"
+title: >-
+  [论文解读] A Theoretical Study of (Hyper) Self-Attention through the Lens of Interactions
+description: >-
+  [ICML 2025][注意力机制] 从"交互实体"视角统一分析自注意力，证明单层线性SA能高效表示/学习/泛化成对交互函数（含OOD长度泛化），并提出HyperFeatureAttention和HyperAttention分别捕获特征级耦合交互和高阶多实体交互。
 tags:
   - ICML 2025
   - 注意力机制

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Large Multi-modal Models Can Interpret Features in Large Multi-modal Models 论文解读 | 本文提出了首个面向多模态大模型（LMM）的自动化特征解释框架，使用稀疏自编码器（SAE）分解 LMM 的内部表征为单语义特征，并利用更大的 LMM 对这些特征进行自动解释，还展示了特征引导可修正模型幻觉。"
+title: >-
+  [论文解读] Large Multi-modal Models Can Interpret Features in Large Multi-modal Models
+description: >-
+  [多模态] 本文提出了首个面向多模态大模型（LMM）的自动化特征解释框架，使用稀疏自编码器（SAE）分解 LMM 的内部表征为单语义特征，并利用更大的 LMM 对这些特征进行自动解释，还展示了特征引导可修正模型幻觉。
 tags:
-
+  - 多模态
 ---
 
 # Large Multi-modal Models Can Interpret Features in Large Multi-modal Models

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking VLMs for Image Forgery Detection and Localization 论文解读 | CVPR 2026 | arXiv 2603.12930 | 图像伪造检测 | 提出 IFDL-VLM 框架，发现 VLM 固有的语义合理性偏向（而非真实性）会阻碍伪造检测性能，因此将检测/定位与语言解释解耦为两阶段优化，并利用定位掩码作为 VLM 的辅助输入增强可解释性，在 9 个基准上全面达到 SOTA。"
+title: >-
+  [论文解读] Rethinking VLMs for Image Forgery Detection and Localization
+description: >-
+  [CVPR 2026][AI安全][图像伪造检测] 提出 IFDL-VLM 框架，发现 VLM 固有的语义合理性偏向（而非真实性）会阻碍伪造检测性能，因此将检测/定位与语言解释解耦为两阶段优化，并利用定位掩码作为 VLM 的辅助输入增强可解释性，在 9 个基准上全面达到 SOTA。
 tags:
   - CVPR 2026
+  - AI安全
   - 图像伪造检测
   - 视觉语言模型
   - 伪造定位

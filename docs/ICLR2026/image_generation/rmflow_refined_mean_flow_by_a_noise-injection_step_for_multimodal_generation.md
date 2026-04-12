@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RMFlow: Refined Mean Flow by a Noise-Injection Step for Multimodal Generation 论文解读 | ICLR 2026 | arXiv 2602.00849 | mean flow | 提出 RMFlow，在 1-NFE MeanFlow 传输后加入一步噪声注入精炼来弥补单步传输的误差，同时在训练中加入最大似然目标来最小化学习分布与目标分布间的 KL 散度，在 T2I、分子生成、时间序列生成上实现接近 SOTA 的 1-NFE 结果。"
+title: >-
+  [论文解读] RMFlow: Refined Mean Flow by a Noise-Injection Step for Multimodal Generation
+description: >-
+  [ICLR 2026][图像生成][mean flow] 提出 RMFlow，在 1-NFE MeanFlow 传输后加入一步噪声注入精炼来弥补单步传输的误差，同时在训练中加入最大似然目标来最小化学习分布与目标分布间的 KL 散度，在 T2I、分子生成、时间序列生成上实现接近 SOTA 的 1-NFE 结果。
 tags:
   - ICLR 2026
+  - 图像生成
   - mean flow
   - noise injection refinement
   - 1-NFE

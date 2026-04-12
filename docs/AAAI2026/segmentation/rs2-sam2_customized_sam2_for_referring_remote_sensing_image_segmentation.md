@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RS2-SAM2: Customized SAM2 for Referring Remote Sensing Image Segmentation 论文解读 | AAAI 2026 | arXiv 2503.07266 | SAM2 | 提出 RS2-SAM2 框架，通过双向层次融合模块将文本信息注入 SAM2 图像编码过程，并设计伪掩码提示生成器为 SAM2 提供密集提示，在遥感指称分割任务上取得 SOTA。"
+title: >-
+  [论文解读] RS2-SAM2: Customized SAM2 for Referring Remote Sensing Image Segmentation
+description: >-
+  [AAAI 2026][图像分割][SAM2] 提出 RS2-SAM2 框架，通过双向层次融合模块将文本信息注入 SAM2 图像编码过程，并设计伪掩码提示生成器为 SAM2 提供密集提示，在遥感指称分割任务上取得 SOTA。
 tags:
   - AAAI 2026
+  - 图像分割
   - SAM2
   - 遥感图像
   - 指称分割

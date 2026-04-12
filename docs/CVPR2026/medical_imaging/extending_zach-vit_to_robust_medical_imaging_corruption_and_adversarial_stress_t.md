@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Extending ZACH-ViT to Robust Medical Imaging: Corruption and Adversarial Stress Testing in Low-Data Regimes 论文解读 | CVPR 2026 Workshop (PHAROS-AIF-MIH) | arXiv 2604.06099 | Transformer Vision Transformer | 在低数据医学影像场景下，对置换不变的紧凑型 ViT 架构 ZACH-ViT 进行首次鲁棒性评估，发现其在常见图像损坏下保持最佳综合表现，在对抗攻击下仍具竞争力。"
+title: >-
+  [论文解读] Extending ZACH-ViT to Robust Medical Imaging: Corruption and Adversarial Stress Testing in Low-Data Regimes
+description: >-
+  [CVPR 2026 Workshop (PHAROS-AIF-MIH)][医学图像][Transformer] 在低数据医学影像场景下，对置换不变的紧凑型 ViT 架构 ZACH-ViT 进行首次鲁棒性评估，发现其在常见图像损坏下保持最佳综合表现，在对抗攻击下仍具竞争力。
 tags:
   - CVPR 2026 Workshop (PHAROS-AIF-MIH)
+  - 医学图像
   - Transformer
   - 鲁棒性
   - 医学图像分类

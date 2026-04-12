@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Harmonizing Visual Representations for Unified Multimodal Understanding and Generation 论文解读 | ICCV 2025 | arXiv 2503.21979 | 多模态 unified multimodal | 发现Masked Autoregressive (MAR)模型的编码器同时具备优秀的语义理解能力和生成能力，基于此提出Harmon框架——用共享的MAR编码器统一视觉理解和生成任务，通过三阶段渐进训练在生成benchmark上达SOTA同时在理解benchmark上匹配专用语义编码器方法。"
+title: >-
+  [论文解读] Harmonizing Visual Representations for Unified Multimodal Understanding and Generation
+description: >-
+  [ICCV 2025][多模态][多模态] 发现Masked Autoregressive (MAR)模型的编码器同时具备优秀的语义理解能力和生成能力，基于此提出Harmon框架——用共享的MAR编码器统一视觉理解和生成任务，通过三阶段渐进训练在生成benchmark上达SOTA同时在理解benchmark上匹配专用语义编码器方法。
 tags:
   - ICCV 2025
   - 多模态

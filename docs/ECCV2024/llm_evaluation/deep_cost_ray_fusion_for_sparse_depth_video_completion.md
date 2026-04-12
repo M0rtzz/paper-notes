@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Deep Cost Ray Fusion for Sparse Depth Video Completion 论文解读 | ECCV 2024 | arXiv 2409.14935 | depth completion | 本文提出 RayFusion 框架，通过在 cost volume 上沿射线方向施加 self-attention 和 cross-attention 实现时序融合，以仅 1.15M 参数在 KITTI、VOID、ScanNetV2 三个数据集上全面超越或持平 SOTA 稀疏深度补全方法。"
+title: >-
+  [论文解读] Deep Cost Ray Fusion for Sparse Depth Video Completion
+description: >-
+  [ECCV 2024][depth completion] 本文提出 RayFusion 框架，通过在 cost volume 上沿射线方向施加 self-attention 和 cross-attention 实现时序融合，以仅 1.15M 参数在 KITTI、VOID、ScanNetV2 三个数据集上全面超越或持平 SOTA 稀疏深度补全方法。
 tags:
   - ECCV 2024
   - depth completion

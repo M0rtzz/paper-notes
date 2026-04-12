@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Toward Real-world Text Image Forgery Localization: Structured and Interpretable Data Synthesis 论文解读 | NeurIPS 2025 | arXiv 2511.12658 | 文本图像篡改 | 提出基于傅里叶级数的篡改合成框架 FSTS，通过从67名人类参与者收集的16750个真实篡改实例中建模\"不可见分布\"（篡改操作参数的高维分布），生成更贴近真实世界的合成训练数据，显著提升文本图像篡改定位模型的泛化能力。"
+title: >-
+  [论文解读] Toward Real-world Text Image Forgery Localization: Structured and Interpretable Data Synthesis
+description: >-
+  [NeurIPS 2025][文本图像篡改] 提出基于傅里叶级数的篡改合成框架 FSTS，通过从67名人类参与者收集的16750个真实篡改实例中建模"不可见分布"（篡改操作参数的高维分布），生成更贴近真实世界的合成训练数据，显著提升文本图像篡改定位模型的泛化能力。
 tags:
   - NeurIPS 2025
   - 文本图像篡改

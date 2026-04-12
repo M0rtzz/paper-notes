@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration 论文解读 | ECCV 2024 | arXiv 2403.11056 | 3D Gaussian Splatting | 通过使用条件 logistic 函数解析近似高斯信号在像素窗口上的积分，替代 3DGS 的像素中心点采样，实现无混叠的 3D 高斯泼溅，在多尺度渲染上超越 Mip-Splatting。"
+title: >-
+  [论文解读] Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration
+description: >-
+  [ECCV 2024][3D视觉][3D Gaussian Splatting] 通过使用条件 logistic 函数解析近似高斯信号在像素窗口上的积分，替代 3DGS 的像素中心点采样，实现无混叠的 3D 高斯泼溅，在多尺度渲染上超越 Mip-Splatting。
 tags:
   - ECCV 2024
+  - 3D视觉
   - 3D Gaussian Splatting
   - Anti-Aliasing
   - Analytic Integration

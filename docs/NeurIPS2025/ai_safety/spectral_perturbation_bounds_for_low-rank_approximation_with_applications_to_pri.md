@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spectral Perturbation Bounds for Low-Rank Approximation with Applications to Privacy 论文解读 | NeurIPS 2025 | arXiv 2510.25670 | 低秩近似 | 建立了对称矩阵低秩近似在谱范数下的新型高概率扰动界，改进了经典 Eckart-Young-Mirsky 定理，并解决了差分隐私 PCA 中的一个公开问题。"
+title: >-
+  [论文解读] Spectral Perturbation Bounds for Low-Rank Approximation with Applications to Privacy
+description: >-
+  [NeurIPS 2025][AI安全][低秩近似] 建立了对称矩阵低秩近似在谱范数下的新型高概率扰动界，改进了经典 Eckart-Young-Mirsky 定理，并解决了差分隐私 PCA 中的一个公开问题。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 低秩近似
   - 谱范数扰动界
   - 差分隐私PCA

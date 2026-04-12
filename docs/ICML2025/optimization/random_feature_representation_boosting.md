@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Random Feature Representation Boosting 论文解读 | ICML2025 | arXiv 2501.18283 | random features | 提出 RFRBoost，利用梯度表示提升（gradient representation boosting）理论构建深层残差随机特征神经网络，在 MSE 损失下获得封闭解，在一般损失下化归为二次约束最小二乘问题，在表格数据上显著超越单层 RFNN 与端到端训练的 MLP ResNet。"
+title: >-
+  [论文解读] Random Feature Representation Boosting
+description: >-
+  [ICML2025][优化][random features] 提出 RFRBoost，利用梯度表示提升（gradient representation boosting）理论构建深层残差随机特征神经网络，在 MSE 损失下获得封闭解，在一般损失下化归为二次约束最小二乘问题，在表格数据上显著超越单层 RFNN 与端到端训练的 MLP ResNet。
 tags:
   - ICML2025
+  - 优化
   - random features
   - gradient boosting
   - residual neural networks

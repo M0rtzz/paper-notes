@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LiDAR-GS++: Improving LiDAR Gaussian Reconstruction via Diffusion Priors 论文解读 | AAAI 2026 | arXiv 2511.12304 | LiDAR重建 | 提出 LiDAR-GS++，通过引入**可控LiDAR扩散生成模型**作为先验，对神经2DGS场进行**扩展重建**，解决了单次遍历LiDAR扫描在外推视角（如换道场景）下重建质量严重下降的问题，在多个公开数据集上实现了插值和外推视角的SOTA性能。"
+title: >-
+  [论文解读] LiDAR-GS++: Improving LiDAR Gaussian Reconstruction via Diffusion Priors
+description: >-
+  [AAAI 2026][自动驾驶][LiDAR重建] 提出 LiDAR-GS++，通过引入**可控LiDAR扩散生成模型**作为先验，对神经2DGS场进行**扩展重建**，解决了单次遍历LiDAR扫描在外推视角（如换道场景）下重建质量严重下降的问题，在多个公开数据集上实现了插值和外推视角的SOTA性能。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - LiDAR重建
   - 高斯泼溅
   - 扩散先验

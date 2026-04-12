@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LongDocURL: a Comprehensive Multimodal Long Document Benchmark Integrating Understanding, Reasoning, and Locating 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.18424 | 长文档理解 | 提出LongDocURL基准（396篇文档、2,325 QA对、33,000+页，含理解/推理/定位三类20个子任务），通过半自动构建流程生成高质量长文档评测数据，26种配置的实验结果显示最强GPT-4o仅64.5分，开源最高30.6分，远低于人类84.8分。"
+title: >-
+  [论文解读] LongDocURL: a Comprehensive Multimodal Long Document Benchmark Integrating Understanding, Reasoning, and Locating
+description: >-
+  [ACL 2025 (Long Paper)][多模态][长文档理解] 提出LongDocURL基准（396篇文档、2,325 QA对、33,000+页，含理解/推理/定位三类20个子任务），通过半自动构建流程生成高质量长文档评测数据，26种配置的实验结果显示最强GPT-4o仅64.5分，开源最高30.6分，远低于人类84.8分。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 长文档理解
   - 多模态文档QA
   - 跨元素定位

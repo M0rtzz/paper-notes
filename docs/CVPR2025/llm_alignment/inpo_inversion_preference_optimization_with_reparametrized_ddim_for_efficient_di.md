@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Without using explicit reward, direct preference optimization (DPO) employs paired human preference data to fine-tune generative models, a method that has garnered considerable attention in large language models (LLMs). However, exploration of aligning text-to-image (T2I) diffusion models with human"
+title: >-
+  [论文解读] InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Without using explicit reward, direct preference optimization (DPO) employs paired human preference data to fine-tune generative models, a method that has garnered considerable attention in large language models (LLMs). However, exploration of aligning text-to-image (T2I) diffusion models with human
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

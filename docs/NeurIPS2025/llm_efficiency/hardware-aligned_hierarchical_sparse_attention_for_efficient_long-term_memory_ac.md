@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hardware-aligned Hierarchical Sparse Attention for Efficient Long-term Memory Access 论文解读 | NEURIPS2025 | arXiv 2504.16795 | 注意力机制 sparse attention | 提出层次化稀疏注意力（HSA）及 RAMba 架构，通过两阶段 token-to-chunk 相关性学习与硬件对齐 kernel 设计，让 Mamba 获得高效长程随机访问能力，仅在 4K 上下文预训练即可在 64M passkey retrieval 上达到 100% 准确率。"
+title: >-
+  [论文解读] Hardware-aligned Hierarchical Sparse Attention for Efficient Long-term Memory Access
+description: >-
+  [NEURIPS2025][LLM效率][注意力机制] 提出层次化稀疏注意力（HSA）及 RAMba 架构，通过两阶段 token-to-chunk 相关性学习与硬件对齐 kernel 设计，让 Mamba 获得高效长程随机访问能力，仅在 4K 上下文预训练即可在 64M passkey retrieval 上达到 100% 准确率。
 tags:
   - NEURIPS2025
+  - LLM效率
   - 注意力机制
   - RNN
   - Mamba

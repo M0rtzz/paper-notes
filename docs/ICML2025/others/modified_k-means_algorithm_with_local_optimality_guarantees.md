@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Modified K-means Algorithm with Local Optimality Guarantees 论文解读 | ICML2025 | arXiv 2506.06990 | K-means | 首次指出经典K-means算法并不总是收敛到局部最优解这一长期误解，并提出LO-K-means修改方案，在不增加单步计算复杂度的前提下保证收敛到连续或离散意义下的局部最优解。"
+title: >-
+  [论文解读] Modified K-means Algorithm with Local Optimality Guarantees
+description: >-
+  [ICML2025][K-means] 首次指出经典K-means算法并不总是收敛到局部最优解这一长期误解，并提出LO-K-means修改方案，在不增加单步计算复杂度的前提下保证收敛到连续或离散意义下的局部最优解。
 tags:
   - ICML2025
   - K-means

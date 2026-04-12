@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bayesian Influence Functions for Hessian-Free Data Attribution 论文解读 | ICLR 2026 | arXiv 2509.26544 | influence functions | 提出 Local Bayesian Influence Function (BIF)，用 SGLD 采样估计的协方差替代经典影响函数中不可行的 Hessian 逆运算，实现了对数十亿参数模型的无架构限制数据归因，在重训练实验中达到 SOTA。"
+title: >-
+  [论文解读] Bayesian Influence Functions for Hessian-Free Data Attribution
+description: >-
+  [ICLR 2026][人体理解][influence functions] 提出 Local Bayesian Influence Function (BIF)，用 SGLD 采样估计的协方差替代经典影响函数中不可行的 Hessian 逆运算，实现了对数十亿参数模型的无架构限制数据归因，在重训练实验中达到 SOTA。
 tags:
   - ICLR 2026
+  - 人体理解
   - influence functions
   - training data attribution
   - Bayesian inference

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HPSU: A Benchmark for Human-Level Perception in Real-World Spoken Speech Understanding 论文解读 | AAAI2026 | arXiv 2511.23178 | Speech LLM | 提出 HPSU 基准，包含 20,000+ 中英文专家标注样本和 16 项任务，系统评估 Speech LLM 在真实口语场景下的深层感知与推理能力，发现最强模型（Gemini 2.5 Pro，62.6%）与人类表现（87.3%）仍有巨大差距。"
+title: >-
+  [论文解读] HPSU: A Benchmark for Human-Level Perception in Real-World Spoken Speech Understanding
+description: >-
+  [AAAI2026][语音][Speech LLM] 提出 HPSU 基准，包含 20,000+ 中英文专家标注样本和 16 项任务，系统评估 Speech LLM 在真实口语场景下的深层感知与推理能力，发现最强模型（Gemini 2.5 Pro，62.6%）与人类表现（87.3%）仍有巨大差距。
 tags:
   - AAAI2026
+  - 语音
   - Speech LLM
   - benchmark
   - spoken language understanding

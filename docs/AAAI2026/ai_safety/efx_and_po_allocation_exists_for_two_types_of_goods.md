@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EFX and PO Allocation Exists for Two Types of Goods 论文解读 | AAAI2026 | arXiv 2601.03438 | fair division | 证明了当物品只有两种类型且所有估值为正时，满足 EFX（任意物品无嫉妒）和 Pareto 最优的分配总是存在的，并给出了准线性时间算法。"
+title: >-
+  [论文解读] EFX and PO Allocation Exists for Two Types of Goods
+description: >-
+  [AAAI2026][AI安全][fair division] 证明了当物品只有两种类型且所有估值为正时，满足 EFX（任意物品无嫉妒）和 Pareto 最优的分配总是存在的，并给出了准线性时间算法。
 tags:
   - AAAI2026
+  - AI安全
   - fair division
   - EFX
   - Pareto optimality

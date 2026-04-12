@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation 论文解读 | > 提出 VQ-SGen，将每个笔画视为独立实体并解耦其形状与位置信息，通过向量量化（VQ）构建紧凑离散的笔画码本，再用级联自回归 Transformer 逐步生成笔画的语义标签、形状和位置，在 CreativeSketch 数据集上显著超越现有方法。"
+title: >-
+  [论文解读] VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation
+description: >-
+  [模型压缩] > 提出 VQ-SGen，将每个笔画视为独立实体并解耦其形状与位置信息，通过向量量化（VQ）构建紧凑离散的笔画码本，再用级联自回归 Transformer 逐步生成笔画的语义标签、形状和位置，在 CreativeSketch 数据集上显著超越现有方法。
 tags:
-
+  - 模型压缩
 ---
 
 # VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation

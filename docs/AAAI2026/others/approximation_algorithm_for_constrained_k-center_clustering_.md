@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Approximation Algorithm for Constrained k-Center Clustering: A Local Search Approach 论文解读 | AAAI 2026 | arXiv 2601.11883 | k-center 聚类 | 研究带 cannot-link (CL) 和 must-link (ML) 实例级约束的 k-center 聚类问题，提出基于支配匹配集（dominating matching set, DMS）转化的局部搜索框架，在不相交 CL 集条件下首次通过局部搜索达到最优近似比 2，解决了该领域一个开放问题。"
+title: >-
+  [论文解读] Approximation Algorithm for Constrained k-Center Clustering: A Local Search Approach
+description: >-
+  [AAAI 2026][k-center 聚类] 研究带 cannot-link (CL) 和 must-link (ML) 实例级约束的 k-center 聚类问题，提出基于支配匹配集（dominating matching set, DMS）转化的局部搜索框架，在不相交 CL 集条件下首次通过局部搜索达到最优近似比 2，解决了该领域一个开放问题。
 tags:
   - AAAI 2026
   - k-center 聚类

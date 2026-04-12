@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BAD-Gaussians: Bundle Adjusted Deblur Gaussian Splatting 论文解读 | ECCV 2024 | arXiv 2403.11831 | 3D Gaussian Splatting | 首次将运动模糊物理成像模型引入 3D Gaussian Splatting 框架，联合优化场景 Gaussian 参数与曝光时间内的相机运动轨迹，从模糊图像中恢复清晰 3D 场景并实现实时渲染。"
+title: >-
+  [论文解读] BAD-Gaussians: Bundle Adjusted Deblur Gaussian Splatting
+description: >-
+  [ECCV 2024][3D视觉][3D Gaussian Splatting] 首次将运动模糊物理成像模型引入 3D Gaussian Splatting 框架，联合优化场景 Gaussian 参数与曝光时间内的相机运动轨迹，从模糊图像中恢复清晰 3D 场景并实现实时渲染。
 tags:
   - ECCV 2024
+  - 3D视觉
   - 3D Gaussian Splatting
   - Motion Deblurring
   - Bundle Adjustment

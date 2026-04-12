@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Language-Grounded Decoupled Action Representation for Robotic Manipulation 论文解读 | CVPR 2026 | arXiv 2603.12967 | 提出 LaDA 框架，将连续 7-DoF 机器人动作解耦为语言描述的可解释运动基元（平移、旋转、夹爪），通过语义引导的软标签对比学习统一视觉-语言-动作表示空间，实现跨任务泛化。"
+title: >-
+  [论文解读] Language-Grounded Decoupled Action Representation for Robotic Manipulation
+description: >-
+  [CVPR 2026][机器人] 提出 LaDA 框架，将连续 7-DoF 机器人动作解耦为语言描述的可解释运动基元（平移、旋转、夹爪），通过语义引导的软标签对比学习统一视觉-语言-动作表示空间，实现跨任务泛化。
 tags:
   - CVPR 2026
+  - 机器人
 ---
 
 # Language-Grounded Decoupled Action Representation for Robotic Manipulation

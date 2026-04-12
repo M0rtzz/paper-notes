@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Survey of LLM-based Agents in Medicine: How Far Are We from Baymax? 论文解读 | ACL 2025 | arXiv 2502.11211 | LLM医学Agent | 系统综述 LLM-based Agent 在医学中的应用——分析 Agent 架构（系统配置/临床规划/医学推理/外部能力增强）、应用场景（临床决策/文档/训练模拟/服务优化）和评估框架，覆盖 60 篇研究，识别幻觉管理、多模态整合、部署障碍和伦理问题等关键挑战。"
+title: >-
+  [论文解读] A Survey of LLM-based Agents in Medicine: How Far Are We from Baymax?
+description: >-
+  [ACL 2025][LLM/NLP][LLM医学Agent] 系统综述 LLM-based Agent 在医学中的应用——分析 Agent 架构（系统配置/临床规划/医学推理/外部能力增强）、应用场景（临床决策/文档/训练模拟/服务优化）和评估框架，覆盖 60 篇研究，识别幻觉管理、多模态整合、部署障碍和伦理问题等关键挑战。
 tags:
   - ACL 2025
+  - LLM/NLP
   - LLM医学Agent
   - 临床决策
   - 多Agent协作

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Hallucination Through Theory-Consistent Symmetric Multimodal Preference Optimization 论文解读 | NeurIPS 2025 | arXiv 2506.11712 | DPO | 提出 SymMPO（对称多模态偏好优化），通过对比图像的对称配对偏好学习和偏好边际一致性正则化，解决了现有视觉增强型 DPO 方法中目标函数不严格和间接偏好监督两大局限，在五个幻觉评测基准上取得了一致的性能提升。"
+title: >-
+  [论文解读] Mitigating Hallucination Through Theory-Consistent Symmetric Multimodal Preference Optimization
+description: >-
+  [NeurIPS 2025][LLM对齐][DPO] 提出 SymMPO（对称多模态偏好优化），通过对比图像的对称配对偏好学习和偏好边际一致性正则化，解决了现有视觉增强型 DPO 方法中目标函数不严格和间接偏好监督两大局限，在五个幻觉评测基准上取得了一致的性能提升。
 tags:
   - NeurIPS 2025
+  - LLM对齐
   - DPO
   - 多模态幻觉
   - 偏好优化

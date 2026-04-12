@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Don't be so negative! Score-based Generative Modeling with Oracle-assisted Guidance 论文解读 | ICML2025 | arXiv 2307.16463 | 扩散模型 | 提出 Gen-neG，利用 oracle 标记的负样本迭代训练分类器引导扩散模型，将生成分布从无效区域引导至正支撑域，应用于自动驾驶碰撞避免和安全人体运动生成。"
+title: >-
+  [论文解读] Don't be so negative! Score-based Generative Modeling with Oracle-assisted Guidance
+description: >-
+  [ICML2025][自动驾驶][扩散模型] 提出 Gen-neG，利用 oracle 标记的负样本迭代训练分类器引导扩散模型，将生成分布从无效区域引导至正支撑域，应用于自动驾驶碰撞避免和安全人体运动生成。
 tags:
   - ICML2025
+  - 自动驾驶
   - 扩散模型
   - 分类器引导
   - 约束生成

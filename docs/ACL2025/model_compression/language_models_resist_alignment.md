@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Language Models Resist Alignment: Evidence From Data Compression 论文解读 | ACL 2025 (Best Paper Award) | arXiv 2406.06144 | 弹性 | 本文从压缩理论视角揭示了LLM存在\"弹性\"(elasticity)现象——模型倾向于保持预训练分布而抵触对齐分布，且对齐后的模型在受到扰动时会以与数据量差距成反比的速率回弹到预训练状态，这解释了为什么对齐如此脆弱且容易被少量微调逆转。"
+title: >-
+  [论文解读] Language Models Resist Alignment: Evidence From Data Compression
+description: >-
+  [ACL 2025 (Best Paper Award)][模型压缩][弹性] 本文从压缩理论视角揭示了LLM存在"弹性"(elasticity)现象——模型倾向于保持预训练分布而抵触对齐分布，且对齐后的模型在受到扰动时会以与数据量差距成反比的速率回弹到预训练状态，这解释了为什么对齐如此脆弱且容易被少量微调逆转。
 tags:
   - ACL 2025 (Best Paper Award)
+  - 模型压缩
   - 弹性
   - 逆向对齐
   - 压缩理论

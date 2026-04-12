@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction 论文解读 | ICLR 2026 | arXiv 2601.21560 | 基因表达预测 | 提出HistoPrism高效Transformer架构从H&E病理图像预测泛癌基因表达，并引入基因通路一致性(GPC)基准（50个Hallmark+87个GO通路）将评估从单基因方差升级到功能通路级别，在通路预测上大幅超越SOTA且参数效率更高。"
+title: >-
+  [论文解读] HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction
+description: >-
+  [ICLR 2026][医学图像][基因表达预测] 提出HistoPrism高效Transformer架构从H&E病理图像预测泛癌基因表达，并引入基因通路一致性(GPC)基准（50个Hallmark+87个GO通路）将评估从单基因方差升级到功能通路级别，在通路预测上大幅超越SOTA且参数效率更高。
 tags:
   - ICLR 2026
+  - 医学图像
   - 基因表达预测
   - 通路分析
   - 泛癌

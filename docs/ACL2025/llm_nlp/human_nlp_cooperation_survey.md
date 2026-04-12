@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How to Enable Effective Cooperation Between Humans and NLP Models: A Survey of Principles, Formalizations, and Beyond 论文解读 | ACL 2025 (Long Paper, acl-long.22) | arXiv 2501.05714 | human-model cooperation | 首次系统性地综述了人与NLP模型之间的合作范式，提出基于\"谁为最终决策负责\"的三类合作形式化分类体系（顺序合作、分诊合作、联合合作），并借鉴Grice合作原则定义了人机合作的基本原则，为后续研究提供了统一视角。"
+title: >-
+  [论文解读] How to Enable Effective Cooperation Between Humans and NLP Models: A Survey of Principles, Formalizations, and Beyond
+description: >-
+  [ACL 2025 (Long Paper, acl-long.22)][LLM/NLP][human-model cooperation] 首次系统性地综述了人与NLP模型之间的合作范式，提出基于"谁为最终决策负责"的三类合作形式化分类体系（顺序合作、分诊合作、联合合作），并借鉴Grice合作原则定义了人机合作的基本原则，为后续研究提供了统一视角。
 tags:
   - ACL 2025 (Long Paper, acl-long.22)
+  - LLM/NLP
   - human-model cooperation
   - 合作形式化
   - 分类体系

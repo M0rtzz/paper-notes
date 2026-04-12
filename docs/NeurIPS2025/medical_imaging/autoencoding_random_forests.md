@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Autoencoding Random Forests 论文解读 | NeurIPS 2025 | arXiv 2505.21441 | 随机森林 | RFAE 首次为随机森林构建了原则性的编码-解码框架——利用 RF 核的正定性和普适性进行扩散映射谱分解得到低维编码，通过 k-NN 回归在叶节点空间中解码回原始特征，在 20 个表格数据集上重建质量排名 1.80（大幅优于 TVAE 3.38、AE 3.27），并成功应用于 MNIST 重建和 scRNA-seq 批次效应去除。"
+title: >-
+  [论文解读] Autoencoding Random Forests
+description: >-
+  [NeurIPS 2025][医学图像][随机森林] RFAE 首次为随机森林构建了原则性的编码-解码框架——利用 RF 核的正定性和普适性进行扩散映射谱分解得到低维编码，通过 k-NN 回归在叶节点空间中解码回原始特征，在 20 个表格数据集上重建质量排名 1.80（大幅优于 TVAE 3.38、AE 3.27），并成功应用于 MNIST 重建和 scRNA-seq 批次效应去除。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 随机森林
   - 自编码器
   - 扩散映射

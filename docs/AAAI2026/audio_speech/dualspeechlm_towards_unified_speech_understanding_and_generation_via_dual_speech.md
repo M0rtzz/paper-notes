@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling 论文解读 | AAAI 2026 | arXiv 2508.08961 | 语音大模型 | 提出 DualSpeechLM 框架，通过理解驱动语音分词器（USTokenizer）提取高层语义 token 作为 LLM 输入、声学 token 作为输出，在一个端到端框架中同时优化语音理解和生成能力。"
+title: >-
+  [论文解读] DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling
+description: >-
+  [AAAI 2026][语音][语音大模型] 提出 DualSpeechLM 框架，通过理解驱动语音分词器（USTokenizer）提取高层语义 token 作为 LLM 输入、声学 token 作为输出，在一个端到端框架中同时优化语音理解和生成能力。
 tags:
   - AAAI 2026
+  - 语音
   - 语音大模型
   - 双token建模
   - 语音理解与生成

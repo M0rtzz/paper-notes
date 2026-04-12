@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Putnam-AXIOM: A Functional & Static Benchmark for Measuring Higher Level Mathematical Reasoning in LLMs 论文解读 | ICML2025 | arXiv 2508.08292 | 数学推理基准 | 提出 Putnam-AXIOM —— 522 道大学级 Putnam 竞赛数学题 + 100 道程序化功能变体，揭示 LLM 数学推理中的记忆依赖，并引入 Teacher-Forced Accuracy (TFA) 作为超越最终答案的推理质量评估指标。"
+title: >-
+  [论文解读] Putnam-AXIOM: A Functional & Static Benchmark for Measuring Higher Level Mathematical Reasoning in LLMs
+description: >-
+  [ICML2025][LLM推理][数学推理基准] 提出 Putnam-AXIOM —— 522 道大学级 Putnam 竞赛数学题 + 100 道程序化功能变体，揭示 LLM 数学推理中的记忆依赖，并引入 Teacher-Forced Accuracy (TFA) 作为超越最终答案的推理质量评估指标。
 tags:
   - ICML2025
+  - LLM推理
   - 数学推理基准
   - 数据污染
   - 功能变体

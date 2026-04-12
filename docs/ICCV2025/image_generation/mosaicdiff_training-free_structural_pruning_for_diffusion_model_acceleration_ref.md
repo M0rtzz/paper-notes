@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MosaicDiff: Training-free Structural Pruning for Diffusion Model Acceleration Reflecting Pretraining Dynamics 论文解读 | ICCV 2025 | arXiv 2510.11962 | 结构化剪枝 | 本文提出 MosaicDiff，一种免训练的扩散模型结构化剪枝方法，通过将推理过程按预训练学习速度动态分为三个阶段并对各阶段应用不同稀疏度的子网络，实现了在 DiT 和 SDXL 上的显著加速而不牺牲生成质量。"
+title: >-
+  [论文解读] MosaicDiff: Training-free Structural Pruning for Diffusion Model Acceleration Reflecting Pretraining Dynamics
+description: >-
+  [ICCV 2025][图像生成][结构化剪枝] 本文提出 MosaicDiff，一种免训练的扩散模型结构化剪枝方法，通过将推理过程按预训练学习速度动态分为三个阶段并对各阶段应用不同稀疏度的子网络，实现了在 DiT 和 SDXL 上的显著加速而不牺牲生成质量。
 tags:
   - ICCV 2025
+  - 图像生成
   - 结构化剪枝
   - 训练免费加速
   - 预训练动态

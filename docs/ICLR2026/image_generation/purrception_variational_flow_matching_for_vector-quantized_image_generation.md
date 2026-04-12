@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Purrception: Variational Flow Matching for Vector-Quantized Image Generation 论文解读 | ICLR 2026 | arXiv 2510.01478 | 变分流匹配 | 提出 Purrception，一种将变分流匹配（Variational Flow Matching）适配到向量量化（VQ）隐空间的图像生成方法，通过在连续嵌入空间中计算速度场的同时学习编码本索引上的分类后验分布，桥接了连续传输动力学和离散监督，在 ImageNet-1k 256×256 上实现了更快的训练收敛和与 SOTA 可比的 FID 分数。"
+title: >-
+  [论文解读] Purrception: Variational Flow Matching for Vector-Quantized Image Generation
+description: >-
+  [ICLR 2026][图像生成][变分流匹配] 提出 Purrception，一种将变分流匹配（Variational Flow Matching）适配到向量量化（VQ）隐空间的图像生成方法，通过在连续嵌入空间中计算速度场的同时学习编码本索引上的分类后验分布，桥接了连续传输动力学和离散监督，在 ImageNet-1k 256×256 上实现了更快的训练收敛和与 SOTA 可比的 FID 分数。
 tags:
   - ICLR 2026
+  - 图像生成
   - 变分流匹配
   - 向量量化
   - 离散扩散
   - 分类后验
-  - 图像生成
 ---
 
 # Purrception: Variational Flow Matching for Vector-Quantized Image Generation

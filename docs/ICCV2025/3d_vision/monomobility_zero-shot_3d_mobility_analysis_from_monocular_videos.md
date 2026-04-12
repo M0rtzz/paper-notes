@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MonoMobility: Zero-Shot 3D Mobility Analysis from Monocular Videos 论文解读 | ICCV 2025 | arXiv 2505.11868 | 关节物体分析 | MonoMobility 提出首个从单目视频零样本分析关节物体运动部件及运动属性（运动轴、运动类型）的框架，通过2D高斯泼溅场景表示和端到端动态场景优化算法，无需标注数据即可处理旋转、平移及复合运动。"
+title: >-
+  [论文解读] MonoMobility: Zero-Shot 3D Mobility Analysis from Monocular Videos
+description: >-
+  [ICCV 2025][3D视觉][关节物体分析] MonoMobility 提出首个从单目视频零样本分析关节物体运动部件及运动属性（运动轴、运动类型）的框架，通过2D高斯泼溅场景表示和端到端动态场景优化算法，无需标注数据即可处理旋转、平移及复合运动。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 关节物体分析
   - 单目视频
   - 零样本

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Splat-LOAM: Gaussian Splatting LiDAR Odometry and Mapping 论文解读 | ICCV 2025 | arXiv 2503.17491 | Gaussian Splatting | 首个纯基于 2D Gaussian 原语的 LiDAR 里程计与建图管线，通过球面投影驱动的可微分光栅化器同时实现高精度位姿估计和轻量化场景重建。"
+title: >-
+  [论文解读] Splat-LOAM: Gaussian Splatting LiDAR Odometry and Mapping
+description: >-
+  [ICCV 2025][自动驾驶][Gaussian Splatting] 首个纯基于 2D Gaussian 原语的 LiDAR 里程计与建图管线，通过球面投影驱动的可微分光栅化器同时实现高精度位姿估计和轻量化场景重建。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - Gaussian Splatting
   - LiDAR SLAM
   - 里程计

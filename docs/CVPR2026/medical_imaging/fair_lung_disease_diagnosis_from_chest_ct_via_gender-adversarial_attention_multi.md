@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning 论文解读 | CVPR 2026 | arXiv 2603.12988 | 公平性 | 提出基于注意力 MIL 和梯度反转层（GRL）的公平性框架，从胸部 CT 体积中进行多类肺部疾病诊断，在保证诊断准确性的同时消除性别偏差。"
+title: >-
+  [论文解读] Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning
+description: >-
+  [CVPR 2026][医学图像][公平性] 提出基于注意力 MIL 和梯度反转层（GRL）的公平性框架，从胸部 CT 体积中进行多类肺部疾病诊断，在保证诊断准确性的同时消除性别偏差。
 tags:
   - CVPR 2026
+  - 医学图像
   - 公平性
   - 肺部疾病诊断
   - CT分类

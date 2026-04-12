@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CompSlider: Compositional Slider for Disentangled Multiple-Attribute Image Generation 论文解读 | ICCV 2025 | arXiv 2509.01028 | 属性解耦 | 提出 CompSlider，一个组合式滑块模型，通过生成条件先验来实现对 T2I 基础模型中多个属性的同时、独立、细粒度控制，利用解耦损失和结构损失来解决多属性之间的纠缠问题。"
+title: >-
+  [论文解读] CompSlider: Compositional Slider for Disentangled Multiple-Attribute Image Generation
+description: >-
+  [ICCV 2025][图像生成][属性解耦] 提出 CompSlider，一个组合式滑块模型，通过生成条件先验来实现对 T2I 基础模型中多个属性的同时、独立、细粒度控制，利用解耦损失和结构损失来解决多属性之间的纠缠问题。
 tags:
   - ICCV 2025
+  - 图像生成
   - 属性解耦
   - 滑块控制
   - 文本到图像生成

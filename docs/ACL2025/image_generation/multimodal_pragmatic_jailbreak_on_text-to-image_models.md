@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal Pragmatic Jailbreak on Text-to-image Models 论文解读 | ACL 2025 | arXiv 2409.19149 | 多模态越狱 | 提出\"多模态语用越狱\"（Multimodal Pragmatic Jailbreak）新型攻击方式，通过让T2I模型生成包含视觉文字的图像，使得图像内容和文字内容单独看都安全但组合后产生不安全内容，揭示了所有测试模型（包括DALL·E 3）均受此攻击影响。"
+title: >-
+  [论文解读] Multimodal Pragmatic Jailbreak on Text-to-image Models
+description: >-
+  [ACL 2025][图像生成][多模态越狱] 提出"多模态语用越狱"（Multimodal Pragmatic Jailbreak）新型攻击方式，通过让T2I模型生成包含视觉文字的图像，使得图像内容和文字内容单独看都安全但组合后产生不安全内容，揭示了所有测试模型（包括DALL·E 3）均受此攻击影响。
 tags:
   - ACL 2025
+  - 图像生成
   - 多模态越狱
   - 文本到图像模型
   - 安全性

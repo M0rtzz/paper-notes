@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cross-environment Cooperation Enables Zero-shot Multi-agent Coordination 论文解读 | > 提出跨环境合作（CEC）范式，通过在程序化生成的大量多样化环境中进行自对弈训练（而非增加伙伴多样性），使智能体学习到通用的合作规范，从而在从未见过的新环境中与从未见过的新伙伴实现零样本协调。"
+title: >-
+  [论文解读] Cross-environment Cooperation Enables Zero-shot Multi-agent Coordination
+description: >-
+   > 提出跨环境合作（CEC）范式，通过在程序化生成的大量多样化环境中进行自对弈训练（而非增加伙伴多样性），使智能体学习到通用的合作规范，从而在从未见过的新环境中与从未见过的新伙伴实现零样本协调。
 tags:
 
 ---

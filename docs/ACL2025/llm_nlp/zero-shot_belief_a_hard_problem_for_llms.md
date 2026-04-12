@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zero-Shot Belief: A Hard Problem for LLMs 论文解读 | ACL 2025 | 本文提出了统一式和混合式两种零样本框架用于源-目标信念预测任务，使用 DeBERTa 事件标注器 + LLM 的混合方法在 FactBank 上达到新 SOTA（Full F1 72.0%），同时揭示了嵌套信念预测（Nested F1 仅 25.3%）对 LLM 而言仍是极大挑战。"
+title: >-
+  [论文解读] Zero-Shot Belief: A Hard Problem for LLMs
+description: >-
+  [ACL 2025][LLM/NLP] 本文提出了统一式和混合式两种零样本框架用于源-目标信念预测任务，使用 DeBERTa 事件标注器 + LLM 的混合方法在 FactBank 上达到新 SOTA（Full F1 72.0%），同时揭示了嵌套信念预测（Nested F1 仅 25.3%）对 LLM 而言仍是极大挑战。
 tags:
   - ACL 2025
+  - LLM/NLP
 ---
 
 # Zero-Shot Belief: A Hard Problem for LLMs

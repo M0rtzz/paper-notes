@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Self-Repellent Kernels: History-Driven Target Towards Efficient Nonlinear MCMC on General Graphs 论文解读 | ICML 2025 (Oral) | arXiv 2505.18300 | MCMC | 提出 History-Driven Target (HDT) 框架，通过修改目标分布（而非转移核）将自排斥机制嵌入任意 MCMC 采样器，在保持 O(1/α) 方差缩减的同时解决了 SRRW 的计算开销大、仅限可逆链、内存占用高三大问题。"
+title: >-
+  [论文解读] Beyond Self-Repellent Kernels: History-Driven Target Towards Efficient Nonlinear MCMC on General Graphs
+description: >-
+  [ICML 2025 (Oral)][优化][MCMC] 提出 History-Driven Target (HDT) 框架，通过修改目标分布（而非转移核）将自排斥机制嵌入任意 MCMC 采样器，在保持 O(1/α) 方差缩减的同时解决了 SRRW 的计算开销大、仅限可逆链、内存占用高三大问题。
 tags:
   - ICML 2025 (Oral)
+  - 优化
   - MCMC
   - 图采样
   - 非线性马尔可夫链

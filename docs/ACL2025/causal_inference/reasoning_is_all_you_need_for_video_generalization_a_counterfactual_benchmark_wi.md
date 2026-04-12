@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reasoning is All You Need for Video Generalization: A Counterfactual Benchmark with Sub-question Evaluation 论文解读 | ACL 2025 | arXiv 2503.10691 | 反事实推理 | 提出 COVER（COunterfactual VidEo Reasoning），一个多维度视频反事实推理 benchmark，将评估任务按抽象-具体和感知-认知两个维度分为四象限共 13 类任务，并通过将复杂问题分解为子问题（必要条件）来揭示——子问题准确率与反事实推理能力强相关，提升推理能力是改善视频理解鲁棒性的关键。"
+title: >-
+  [论文解读] Reasoning is All You Need for Video Generalization: A Counterfactual Benchmark with Sub-question Evaluation
+description: >-
+  [ACL 2025][反事实推理] 提出 COVER（COunterfactual VidEo Reasoning），一个多维度视频反事实推理 benchmark，将评估任务按抽象-具体和感知-认知两个维度分为四象限共 13 类任务，并通过将复杂问题分解为子问题（必要条件）来揭示——子问题准确率与反事实推理能力强相关，提升推理能力是改善视频理解鲁棒性的关键。
 tags:
   - ACL 2025
   - 反事实推理

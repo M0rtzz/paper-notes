@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】On Differential Privacy for Adaptively Solving Search Problems via Sketching 论文解读 | ICML 2025 | arXiv 2506.05503 | 差分隐私 | 首次将差分隐私技术拓展到**搜索问题**（近似最近邻查询和回归解向量输出），在稀疏邻域假设和良好条件数假设下，实现仅需 widetildeO(sqrtT) 份数据结构副本即可应对 T 次自适应查询的搜索型数据结构。"
+title: >-
+  [论文解读] On Differential Privacy for Adaptively Solving Search Problems via Sketching
+description: >-
+  [ICML 2025][AI安全][差分隐私] 首次将差分隐私技术拓展到**搜索问题**（近似最近邻查询和回归解向量输出），在稀疏邻域假设和良好条件数假设下，实现仅需 $\widetilde{O}(\sqrt{T})$ 份数据结构副本即可应对 $T$ 次自适应查询的搜索型数据结构。
 tags:
   - ICML 2025
+  - AI安全
   - 差分隐私
   - 自适应数据结构
   - 近似最近邻

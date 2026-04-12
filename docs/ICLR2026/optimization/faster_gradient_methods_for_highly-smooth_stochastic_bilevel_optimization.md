@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Faster Gradient Methods for Highly-Smooth Stochastic Bilevel Optimization 论文解读 | ICLR2026 | arXiv 2509.02937 | bilevel optimization | 通过将 F2SA 方法重新解释为前向差分近似 hyper-gradient，提出利用高阶有限差分的 F2SA-p 方法族，在高阶光滑条件下将随机双层优化的 SFO 复杂度从 tildeO(ε⁻⁶) 改进至 tildeO(pε^-4-2/p)，并证明了 Ω(ε⁻⁴) 下界表明该方法在 p 足够大时近乎最优。"
+title: >-
+  [论文解读] Faster Gradient Methods for Highly-Smooth Stochastic Bilevel Optimization
+description: >-
+  [ICLR2026][优化][bilevel optimization] 通过将 F2SA 方法重新解释为前向差分近似 hyper-gradient，提出利用高阶有限差分的 F2SA-p 方法族，在高阶光滑条件下将随机双层优化的 SFO 复杂度从 $\tilde{\mathcal{O}}(\epsilon^{-6})$ 改进至 $\tilde{\mathcal{O}}(p\epsilon^{-4-2/p})$，并证明了 $\Omega(\epsilon^{-4})$ 下界表明该方法在 $p$ 足够大时近乎最优。
 tags:
   - ICLR2026
+  - 优化
   - bilevel optimization
   - stochastic optimization
   - finite difference

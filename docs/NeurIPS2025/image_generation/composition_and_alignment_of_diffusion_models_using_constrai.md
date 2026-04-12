@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Composition and Alignment of Diffusion Models using Constrained Learning 论文解读 | NeurIPS 2025 | arXiv 2508.19104 | 扩散模型组合 | 提出统一的约束学习框架来处理扩散模型的对齐（alignment）和组合（composition），将多奖励对齐形式化为 KL 散度最小化+奖励约束，将模型组合形式化为 minimax KL 散度问题，通过拉格朗日对偶的原-对偶训练算法求解，相比传统加权方法更可解释且避免了手动调权。"
+title: >-
+  [论文解读] Composition and Alignment of Diffusion Models using Constrained Learning
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型组合] 提出统一的约束学习框架来处理扩散模型的对齐（alignment）和组合（composition），将多奖励对齐形式化为 KL 散度最小化+奖励约束，将模型组合形式化为 minimax KL 散度问题，通过拉格朗日对偶的原-对偶训练算法求解，相比传统加权方法更可解释且避免了手动调权。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型组合
   - 奖励对齐
   - 约束优化

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】RRRA: Resampling and Reranking through a Retriever Adapter 论文解读 | AAAI 2026 | arXiv 2508.11670 | 稠密检索 | 提出RRRA框架，通过在Bi-Encoder上添加轻量级可学习适配器来建模每个候选文档的假阴性概率，并将其同时用于训练时的负样本重采样和推理时的重排序，在NQ/TQ/MS MARCO上持续超越SimANS/TriSampler等强基线。"
+title: >-
+  [论文解读] RRRA: Resampling and Reranking through a Retriever Adapter
+description: >-
+  [AAAI 2026][稠密检索] 提出RRRA框架，通过在Bi-Encoder上添加轻量级可学习适配器来建模每个候选文档的假阴性概率，并将其同时用于训练时的负样本重采样和推理时的重排序，在NQ/TQ/MS MARCO上持续超越SimANS/TriSampler等强基线。
 tags:
   - AAAI 2026
   - 稠密检索

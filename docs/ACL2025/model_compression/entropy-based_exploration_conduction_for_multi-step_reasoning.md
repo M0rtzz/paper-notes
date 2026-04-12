@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Entropy-based Exploration Conduction for Multi-step Reasoning 论文解读 | ACL 2025 | arXiv 2503.15848 | 多步推理 | 提出 Entro-duction 方法，通过监控 LLM 推理过程中输出的熵和方差熵变化来动态调整探索深度，使用 ε-greedy 策略选择加深、扩展或停止三种探索行为，在避免冗余推理的同时提升推理准确率。"
+title: >-
+  [论文解读] Entropy-based Exploration Conduction for Multi-step Reasoning
+description: >-
+  [ACL 2025][模型压缩][多步推理] 提出 Entro-duction 方法，通过监控 LLM 推理过程中输出的熵和方差熵变化来动态调整探索深度，使用 $\epsilon$-greedy 策略选择加深、扩展或停止三种探索行为，在避免冗余推理的同时提升推理准确率。
 tags:
   - ACL 2025
+  - 模型压缩
   - 多步推理
   - 熵
   - 探索深度

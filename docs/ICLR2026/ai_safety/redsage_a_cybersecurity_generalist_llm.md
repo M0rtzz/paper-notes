@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RedSage: A Cybersecurity Generalist LLM 论文解读 | ICLR 2026 | arXiv 2601.22159 | 网络安全LLM | 构建了完整的网络安全LLM pipeline：11.8B token的领域持续预训练 + 266K样本的agentic augmented SFT + 30K MCQ+240开放问答的综合评测基准RedSage-Bench，8B模型在多个网络安全benchmarks上达SOTA。"
+title: >-
+  [论文解读] RedSage: A Cybersecurity Generalist LLM
+description: >-
+  [ICLR 2026][AI安全][网络安全LLM] 构建了完整的网络安全LLM pipeline：11.8B token的领域持续预训练 + 266K样本的agentic augmented SFT + 30K MCQ+240开放问答的综合评测基准RedSage-Bench，8B模型在多个网络安全benchmarks上达SOTA。
 tags:
   - ICLR 2026
+  - AI安全
   - 网络安全LLM
   - continual pretraining
   - agentic augmentation

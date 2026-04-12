@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】RESCUE: Crowd Evacuation Simulation via Controlling SDM-United Characters 论文解读 | 提出首个在线 SDM（感知-决策-运动）统一 3D 疏散仿真框架 RESCUE，集成 3D 自适应社会力模型和个性化步态控制器，实现数百智能体的实时个性化疏散模拟。"
+title: >-
+  [论文解读] RESCUE: Crowd Evacuation Simulation via Controlling SDM-United Characters
+description: >-
+  [自动驾驶] 提出首个在线 SDM（感知-决策-运动）统一 3D 疏散仿真框架 RESCUE，集成 3D 自适应社会力模型和个性化步态控制器，实现数百智能体的实时个性化疏散模拟。
 tags:
-
+  - 自动驾驶
 ---
 
 # RESCUE: Crowd Evacuation Simulation via Controlling SDM-United Characters

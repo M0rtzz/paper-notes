@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LCDB 1.1: A Database Illustrating Learning Curves Are More Ill-Behaved Than Previously Thought 论文解读 | NeurIPS 2025 | arXiv 2505.15657 | learning curves | 构建了大规模高分辨率学习曲线数据库 LCDB 1.1，证明样本学习曲线的\"病态行为\"（非单调、非凸）比此前认为的普遍两倍，约 15% 的曲线显著不良，且特征缩放难以修复。"
+title: >-
+  [论文解读] LCDB 1.1: A Database Illustrating Learning Curves Are More Ill-Behaved Than Previously Thought
+description: >-
+  [NeurIPS 2025][learning curves] 构建了大规模高分辨率学习曲线数据库 LCDB 1.1，证明样本学习曲线的"病态行为"（非单调、非凸）比此前认为的普遍两倍，约 15% 的曲线显著不良，且特征缩放难以修复。
 tags:
   - NeurIPS 2025
   - learning curves

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MVCustom: Multi-View Customized Diffusion via Geometric Latent Rendering and Completion 论文解读 | ICLR 2026 | arXiv 2510.13702 | 多视角定制生成 | 提出多视角定制（multi-view customization）新任务并设计 MVCustom 框架，通过视频扩散骨干网络结合密集时空注意力实现整体帧一致性，在推理阶段引入深度感知特征渲染和一致性感知潜码补全两项技术，首次同时实现相机位姿控制、主体身份保持和跨视角几何一致性。"
+title: >-
+  [论文解读] MVCustom: Multi-View Customized Diffusion via Geometric Latent Rendering and Completion
+description: >-
+  [ICLR 2026][图像生成][多视角定制生成] 提出多视角定制（multi-view customization）新任务并设计 MVCustom 框架，通过视频扩散骨干网络结合密集时空注意力实现整体帧一致性，在推理阶段引入深度感知特征渲染和一致性感知潜码补全两项技术，首次同时实现相机位姿控制、主体身份保持和跨视角几何一致性。
 tags:
   - ICLR 2026
+  - 图像生成
   - 多视角定制生成
   - 相机位姿控制
   - 特征场渲染

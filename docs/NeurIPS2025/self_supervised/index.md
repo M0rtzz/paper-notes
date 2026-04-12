@@ -1,9 +1,16 @@
+---
+title: >-
+  NeurIPS2025 自监督/表示学习方向 27篇论文解读
+description: >-
+  27篇NeurIPS2025 自监督/表示学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
 **🧠 NeurIPS2025** · 共 **27** 篇
 
-**[A Joint Learning Approach to Hardware Caching and Prefetching](a_joint_learning_approach_to_hardware_caching_and_prefetching.md)**
+**[A Joint Learning Approach To Hardware Caching And Prefetching](a_joint_learning_approach_to_hardware_caching_and_prefetching.md)**
 
 :   提出将硬件缓存替换策略和预取策略进行联合训练的学习框架，通过共享编码器和对比学习两种方式构建共享特征表征，打破两个策略独立训练时的性能瓶颈。
 
@@ -11,7 +18,7 @@
 
 :   提出 Adv-SSL，通过将协方差正则项的 Frobenius 范数重写为 minimax 对偶形式，消除了 Barlow Twins 等方法中样本级风险的有偏估计问题，在不增加额外计算成本的前提下显著提升下游分类性能，并给出端到端的理论收敛保证。
 
-**[Asymptotic and Finite-Time Guarantees for Langevin-Based Temperature Annealing in InfoNCE](asymptotic_and_finite-time_guarantees_for_langevin-based_temperature_annealing_i.md)**
+**[Asymptotic And Finite-Time Guarantees For Langevin-Based Temperature Annealing I](asymptotic_and_finite-time_guarantees_for_langevin-based_temperature_annealing_i.md)**
 
 :   本文通过将嵌入演化建模为紧致黎曼流形上的 Langevin 动力学，证明了经典模拟退火的收敛保证可以扩展到对比学习的温度调度设定中：缓慢对数逆温度调度保证概率收敛到全局最优表示集合，而更快的调度则可能陷入次优极小值。
 

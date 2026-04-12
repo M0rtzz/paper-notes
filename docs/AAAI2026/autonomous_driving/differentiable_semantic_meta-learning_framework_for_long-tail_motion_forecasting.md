@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAML: 可微语义元学习框架用于长尾运动预测 论文解读 | AAAI 2026 | arXiv 2511.06649 | 长尾分布 | 提出SAML框架，首次给出运动预测中\"长尾性\"(tailness)的可微语义定义——通过内在属性(运动学动态性、几何复杂度、时间不规则性)和交互属性(局部/全局风险)量化稀有度，经贝叶斯尾部感知器融合为连续Tail Index驱动MAML元学习适配，在nuScenes/NGSIM/HighD上取得SOTA，尤其在worst-case top 1-5%子集上大幅领先。"
+title: >-
+  [论文解读] SAML: 可微语义元学习框架用于长尾运动预测
+description: >-
+  [AAAI 2026][自动驾驶][长尾分布] 提出SAML框架，首次给出运动预测中"长尾性"(tailness)的可微语义定义——通过内在属性(运动学动态性、几何复杂度、时间不规则性)和交互属性(局部/全局风险)量化稀有度，经贝叶斯尾部感知器融合为连续Tail Index驱动MAML元学习适配，在nuScenes/NGSIM/HighD上取得SOTA，尤其在worst-case top 1-5%子集上大幅领先。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 长尾分布
   - 元学习
   - 运动预测

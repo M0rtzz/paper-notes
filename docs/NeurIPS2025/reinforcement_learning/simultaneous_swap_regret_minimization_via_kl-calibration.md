@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Simultaneous Swap Regret Minimization via KL-Calibration 论文解读 | NeurIPS 2025 | arXiv 2502.16387 | Swap Regret | 提出 KL-Calibration 这一更强的校准度量，证明其等价于 log loss 的 swap regret，并通过非均匀离散化和新型随机取整方案实现 tildeO(T^1/3) 的同时 swap regret 上界，覆盖比已有工作更广的 proper loss 类。"
+title: >-
+  [论文解读] Simultaneous Swap Regret Minimization via KL-Calibration
+description: >-
+  [NeurIPS 2025][Swap Regret] 提出 KL-Calibration 这一更强的校准度量，证明其等价于 log loss 的 swap regret，并通过非均匀离散化和新型随机取整方案实现 $\tilde{\mathcal{O}}(T^{1/3})$ 的同时 swap regret 上界，覆盖比已有工作更广的 proper loss 类。
 tags:
   - NeurIPS 2025
   - Swap Regret

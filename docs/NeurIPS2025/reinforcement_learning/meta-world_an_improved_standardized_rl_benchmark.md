@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Meta-World+: An Improved, Standardized, RL Benchmark 论文解读 | NeurIPS 2025 | arXiv 2505.11289 | 多任务强化学习 | 本文系统揭示 Meta-World 基准在不同版本间因奖励函数不一致导致的算法比较失真问题，并发布标准化新版本 Meta-World+，明确保留 V1/V2 两套奖励函数，新增 MT25/ML25 任务集，升级至 Gymnasium API，实现完全可复现的多任务和元强化学习评估。"
+title: >-
+  [论文解读] Meta-World+: An Improved, Standardized, RL Benchmark
+description: >-
+  [NeurIPS 2025][多任务强化学习] 本文系统揭示 Meta-World 基准在不同版本间因奖励函数不一致导致的算法比较失真问题，并发布标准化新版本 Meta-World+，明确保留 V1/V2 两套奖励函数，新增 MT25/ML25 任务集，升级至 Gymnasium API，实现完全可复现的多任务和元强化学习评估。
 tags:
   - NeurIPS 2025
   - 多任务强化学习

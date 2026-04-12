@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Mixed Diet Makes DINO An Omnivorous Vision Encoder 论文解读 | CVPR2026 | arXiv 2602.24181 | 跨模态对齐 | 提出 Omnivorous Vision Encoder，通过轻量级 adapter 在冻结的 DINOv2 之上进行跨模态对齐蒸馏训练（RGB/Depth/Segmentation），使单一编码器对不同视觉模态产生一致嵌入，同时保留原始判别语义。"
+title: >-
+  [论文解读] A Mixed Diet Makes DINO An Omnivorous Vision Encoder
+description: >-
+  [CVPR2026][图像分割][跨模态对齐] 提出 Omnivorous Vision Encoder，通过轻量级 adapter 在冻结的 DINOv2 之上进行跨模态对齐蒸馏训练（RGB/Depth/Segmentation），使单一编码器对不同视觉模态产生一致嵌入，同时保留原始判别语义。
 tags:
   - CVPR2026
+  - 图像分割
   - 跨模态对齐
   - DINOv2
   - 视觉基础模型

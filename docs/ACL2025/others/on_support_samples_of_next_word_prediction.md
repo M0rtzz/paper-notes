@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On Support Samples of Next Word Prediction 论文解读 | ACL 2025 | arXiv 2506.04047 | 数据中心解释性 | 基于表示定理（representer theorem），研究语言模型下一词预测中训练样本的角色，发现两类支持样本（促进预测和抑制预测），并证明支持样本是样本的内在属性（训练前即可预测），而非支持样本对表示学习至关重要。"
+title: >-
+  [论文解读] On Support Samples of Next Word Prediction
+description: >-
+  [ACL 2025][数据中心解释性] 基于表示定理（representer theorem），研究语言模型下一词预测中训练样本的角色，发现两类支持样本（促进预测和抑制预测），并证明支持样本是样本的内在属性（训练前即可预测），而非支持样本对表示学习至关重要。
 tags:
   - ACL 2025
   - 数据中心解释性

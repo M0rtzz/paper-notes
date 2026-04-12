@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Quantifying Lexical Semantic Shift via Unbalanced Optimal Transport 论文解读 | ACL 2025 (Findings) | arXiv 2412.12569 | semantic change detection | 将 Unbalanced OT 应用于上下文化词嵌入来量化词义变迁，提出 Sense Usage Shift (SUS) 指标在每个用法实例级别量化语义变化（义项使用频率增减），统一解决实例级变化检测、词级变化幅度量化、词义扩展/缩小判定。"
+title: >-
+  [论文解读] Quantifying Lexical Semantic Shift via Unbalanced Optimal Transport
+description: >-
+  [ACL 2025 (Findings)][semantic change detection] 将 Unbalanced OT 应用于上下文化词嵌入来量化词义变迁，提出 Sense Usage Shift (SUS) 指标在每个用法实例级别量化语义变化（义项使用频率增减），统一解决实例级变化检测、词级变化幅度量化、词义扩展/缩小判定。
 tags:
   - ACL 2025 (Findings)
   - semantic change detection

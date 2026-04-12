@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Benchmarking Egocentric Visual-Inertial SLAM at City Scale 论文解读 | ICCV 2025 | arXiv 2509.26639 | Visual-Inertial SLAM | 提出 LaMAria——首个城市尺度的第一人称多传感器 VIO/SLAM 基准数据集，利用测绘级控制点提供厘米精度的地面真值，系统评估了学术界主流 SLAM 方案在真实第一人称场景下的表现，揭示了现有方法与商业系统之间的巨大差距。"
+title: >-
+  [论文解读] Benchmarking Egocentric Visual-Inertial SLAM at City Scale
+description: >-
+  [ICCV 2025][3D视觉][Visual-Inertial SLAM] 提出 LaMAria——首个城市尺度的第一人称多传感器 VIO/SLAM 基准数据集，利用测绘级控制点提供厘米精度的地面真值，系统评估了学术界主流 SLAM 方案在真实第一人称场景下的表现，揭示了现有方法与商业系统之间的巨大差距。
 tags:
   - ICCV 2025
+  - 3D视觉
   - Visual-Inertial SLAM
   - 第一人称视觉
   - Benchmark

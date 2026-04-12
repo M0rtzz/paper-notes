@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An Information Theoretic Evaluation Metric for Strong Unlearning 论文解读 | AAAI 2026 | arXiv 2405.17878 | machine unlearning | 提出 Information Difference Index (IDI)，一种基于信息论的白盒评估指标，通过度量中间层特征与遗忘标签之间的互信息来衡量机器遗忘的彻底程度，揭示了现有黑盒指标（MIA、JSD等）无法捕捉的中间层残留信息问题，并提出 COLA 方法在特征层面消除残余信息。"
+title: >-
+  [论文解读] An Information Theoretic Evaluation Metric for Strong Unlearning
+description: >-
+  [AAAI 2026][AI安全][machine unlearning] 提出 Information Difference Index (IDI)，一种基于信息论的白盒评估指标，通过度量中间层特征与遗忘标签之间的互信息来衡量机器遗忘的彻底程度，揭示了现有黑盒指标（MIA、JSD等）无法捕捉的中间层残留信息问题，并提出 COLA 方法在特征层面消除残余信息。
 tags:
   - AAAI 2026
+  - AI安全
   - machine unlearning
   - mutual information
   - evaluation metric

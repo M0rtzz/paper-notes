@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neuro-Symbolic Decoding of Neural Activity 论文解读 | ICLR 2026 | arXiv 2603.03343 | 神经符号 | 提出NEURONA——fMRI解码的神经符号框架：将查询解析为符号表达式+将fMRI信号划分为脑区级候选实体→学习每个概念(person/holding等)的接地模块→按符号结构组合接地分数回答fMRI-QA→证明建模谓词-论元依赖(holding依赖person和bat的脑区)显著优于端到端神经解码,且泛化到未见查询。"
+title: >-
+  [论文解读] Neuro-Symbolic Decoding of Neural Activity
+description: >-
+  [ICLR 2026][医学图像][神经符号] 提出NEURONA——fMRI解码的神经符号框架：将查询解析为符号表达式+将fMRI信号划分为脑区级候选实体→学习每个概念(person/holding等)的接地模块→按符号结构组合接地分数回答fMRI-QA→证明建模谓词-论元依赖(holding依赖person和bat的脑区)显著优于端到端神经解码,且泛化到未见查询。
 tags:
   - ICLR 2026
+  - 医学图像
   - 神经符号
   - fMRI问答
   - 概念接地

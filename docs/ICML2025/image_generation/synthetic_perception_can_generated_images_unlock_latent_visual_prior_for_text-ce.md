@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Synthetic Perception: Can Generated Images Unlock Latent Visual Prior for Text-Centric Reasoning? 论文解读 | ICML2025 | arXiv 2506.17623 | 合成视觉 | 系统研究T2I模型生成的图像能否作为\"合成感知\"增强纯文本推理：在文本分类框架中评估了T2I模型质量/提示策略/融合架构的影响，发现即使增强Llama-3/Qwen-2.5等强LLM也可获得显著提升，但效果高度依赖语义对齐和任务的视觉可接地性。"
+title: >-
+  [论文解读] Synthetic Perception: Can Generated Images Unlock Latent Visual Prior for Text-Centric Reasoning?
+description: >-
+  [ICML2025][图像生成][合成视觉] 系统研究T2I模型生成的图像能否作为"合成感知"增强纯文本推理：在文本分类框架中评估了T2I模型质量/提示策略/融合架构的影响，发现即使增强Llama-3/Qwen-2.5等强LLM也可获得显著提升，但效果高度依赖语义对齐和任务的视觉可接地性。
 tags:
   - ICML2025
+  - 图像生成
   - 合成视觉
   - T2I增强
   - 文本分类

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Lifelong Imitation Learning with Multimodal Latent Replay and Incremental Adjustment 论文解读 | CVPR 2026 | arXiv 2603.10929 | 终身模仿学习 | 提出终身模仿学习框架，通过 Multimodal Latent Replay（在冻结编码器的潜空间中存储和回放紧凑多模态特征）和 Incremental Feature Adjustment（基于角距离的自适应间隔约束防止任务间表示漂移），在 LIBERO 基准上实现 AUC 提升 10-17 点、遗忘减少 65%。"
+title: >-
+  [论文解读] Lifelong Imitation Learning with Multimodal Latent Replay and Incremental Adjustment
+description: >-
+  [CVPR 2026][终身模仿学习] 提出终身模仿学习框架，通过 Multimodal Latent Replay（在冻结编码器的潜空间中存储和回放紧凑多模态特征）和 Incremental Feature Adjustment（基于角距离的自适应间隔约束防止任务间表示漂移），在 LIBERO 基准上实现 AUC 提升 10-17 点、遗忘减少 65%。
 tags:
   - CVPR 2026
   - 终身模仿学习

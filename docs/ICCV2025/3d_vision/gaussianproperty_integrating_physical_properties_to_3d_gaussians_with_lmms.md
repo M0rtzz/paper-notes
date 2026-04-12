@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】GaussianProperty: Integrating Physical Properties to 3D Gaussians with LMMs 论文解读 | GaussianProperty 提出了一个免训练框架，利用 SAM 分割和 GPT-4V 识别能力，通过全局-局部推理模块和多视角投票策略，将物理属性（密度、弹性模量、摩擦系数等）赋予 3D Gaussians，支持物理仿真和机器人抓取两大下游任务。"
+title: >-
+  [论文解读] GaussianProperty: Integrating Physical Properties to 3D Gaussians with LMMs
+description: >-
+  [3D视觉] GaussianProperty 提出了一个免训练框架，利用 SAM 分割和 GPT-4V 识别能力，通过全局-局部推理模块和多视角投票策略，将物理属性（密度、弹性模量、摩擦系数等）赋予 3D Gaussians，支持物理仿真和机器人抓取两大下游任务。
 tags:
-
+  - 3D视觉
 ---
 
 # GaussianProperty: Integrating Physical Properties to 3D Gaussians with LMMs

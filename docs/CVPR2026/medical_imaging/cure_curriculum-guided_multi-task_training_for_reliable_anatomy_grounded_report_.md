@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CURE: Curriculum-guided Multi-task Training for Reliable Anatomy Grounded Report Generation 论文解读 | CVPR 2026 | arXiv 2601.15408 | 课程学习 | 提出 CURE——一种基于误差感知课程学习的多任务训练框架，在不引入额外数据的前提下，通过动态调节采样分布重点训练困难样本，将医学 VLM 的视觉定位精度提升 +0.37 IoU，幻觉率降低 18.6%。"
+title: >-
+  [论文解读] CURE: Curriculum-guided Multi-task Training for Reliable Anatomy Grounded Report Generation
+description: >-
+  [CVPR 2026][医学图像][课程学习] 提出 CURE——一种基于误差感知课程学习的多任务训练框架，在不引入额外数据的前提下，通过动态调节采样分布重点训练困难样本，将医学 VLM 的视觉定位精度提升 +0.37 IoU，幻觉率降低 18.6%。
 tags:
   - CVPR 2026
+  - 医学图像
   - 课程学习
   - 视觉定位
   - 放射报告生成

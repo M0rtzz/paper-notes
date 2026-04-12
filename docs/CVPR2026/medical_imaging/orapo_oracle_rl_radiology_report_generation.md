@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OraPO: Oracle-educated Reinforcement Learning for Data-efficient and Factual Radiology Report Generation 论文解读 | CVPR 2026 | arXiv 2509.18600 | radiology report generation | 提出 OraPO, 一种结合 GRPO 和 DPO 的自适应混合 RL 框架, 用于数据高效的放射学报告生成: 通过 Zero-Reward Rate 检测动态切换 GRPO 和 DPO, 加上 FactScore-based 临床事实级奖励, 仅用 1K 样本 (对比基线 227K) 在 CheXpert Plus 和 MIMIC-CXR 上取得 SOTA 的临床 F1 (0.341/0.357)."
+title: >-
+  [论文解读] OraPO: Oracle-educated Reinforcement Learning for Data-efficient and Factual Radiology Report Generation
+description: >-
+  [CVPR 2026][医学图像][radiology report generation] 提出 OraPO, 一种结合 GRPO 和 DPO 的自适应混合 RL 框架, 用于数据高效的放射学报告生成: 通过 Zero-Reward Rate 检测动态切换 GRPO 和 DPO, 加上 FactScore-based 临床事实级奖励, 仅用 1K 样本 (对比基线 227K) 在 CheXpert Plus 和 MIMIC-CXR 上取得 SOTA 的临床 F1 (0.341/0.357).
 tags:
   - CVPR 2026
+  - 医学图像
   - radiology report generation
   - 强化学习
   - GRPO

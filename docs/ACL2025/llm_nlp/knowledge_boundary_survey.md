@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Knowledge Boundary of Large Language Models: A Survey 论文解读 | ACL 2025 | arXiv 2412.12472 | 知识边界 | 本文提出了 LLM 知识边界的形式化定义框架，将知识分为四种类型（PAK/PSK/MSU/MAU），并围绕\"为什么研究知识边界\"\"如何识别知识边界\"\"如何缓解知识边界问题\"三个核心问题系统综述了相关研究。"
+title: >-
+  [论文解读] Knowledge Boundary of Large Language Models: A Survey
+description: >-
+  [ACL 2025][LLM/NLP][知识边界] 本文提出了 LLM 知识边界的形式化定义框架，将知识分为四种类型（PAK/PSK/MSU/MAU），并围绕"为什么研究知识边界""如何识别知识边界""如何缓解知识边界问题"三个核心问题系统综述了相关研究。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 知识边界
   - 幻觉
   - 不确定性估计

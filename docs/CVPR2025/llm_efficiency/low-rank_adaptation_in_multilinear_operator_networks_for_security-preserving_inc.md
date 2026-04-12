@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：In security-sensitive fields, data should be encrypted to protect against unauthorized access and maintain confidentiality throughout processing. However, traditional networks like ViTs and CNNs return different results when processing original data versus its encrypted form, meaning that they requi"
+title: >-
+  [论文解读] Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：In security-sensitive fields, data should be encrypted to protect against unauthorized access and maintain confidentiality throughout processing. However, traditional networks like ViTs and CNNs return different results when processing original data versus its encrypted form, meaning that they requi
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

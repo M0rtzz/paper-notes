@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Do Different Prompting Methods Yield a Common Task Representation in Language Models? 论文解读 | NeurIPS 2025 | arXiv 2505.12075 | Function Vectors | 本文扩展函数向量方法至指令提示，发现演示和指令诱发的任务表示主要不同，仅部分重叠，解释了为何结合两者效果更优。"
+title: >-
+  [论文解读] Do Different Prompting Methods Yield a Common Task Representation in Language Models?
+description: >-
+  [NeurIPS 2025][Function Vectors] 本文扩展函数向量方法至指令提示，发现演示和指令诱发的任务表示主要不同，仅部分重叠，解释了为何结合两者效果更优。
 tags:
   - NeurIPS 2025
   - Function Vectors

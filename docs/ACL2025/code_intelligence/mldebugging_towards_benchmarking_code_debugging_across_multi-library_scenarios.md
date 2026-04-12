@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios 论文解读 | ACL 2025 | arXiv 2506.13824 | 代码调试 | 本文提出 MLDebugging——首个面向**多库 Python 代码调试**的综合基准，涵盖 126 个 Python 库和 7 种 bug 类型（共 1175 个样本），系统评估主流开源和闭源 LLM 在多库调试场景下的能力，发现当前 LLM 在此任务上仍有很大提升空间。"
+title: >-
+  [论文解读] MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios
+description: >-
+  [ACL 2025][代码调试] 本文提出 MLDebugging——首个面向**多库 Python 代码调试**的综合基准，涵盖 126 个 Python 库和 7 种 bug 类型（共 1175 个样本），系统评估主流开源和闭源 LLM 在多库调试场景下的能力，发现当前 LLM 在此任务上仍有很大提升空间。
 tags:
   - ACL 2025
   - 代码调试

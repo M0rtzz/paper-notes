@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reducing Class-Wise Performance Disparity via Margin Regularization 论文解读 | 提出 MR2（Margin Regularization for performance disparity Reduction），通过在 logit 和表征空间动态调整类别相关的 margin，基于理论推导的泛化界减少类间性能差异，同时提升整体准确率。"
+title: >-
+  [论文解读] Reducing Class-Wise Performance Disparity via Margin Regularization
+description: >-
+   提出 MR2（Margin Regularization for performance disparity Reduction），通过在 logit 和表征空间动态调整类别相关的 margin，基于理论推导的泛化界减少类间性能差异，同时提升整体准确率。
 tags:
 
 ---

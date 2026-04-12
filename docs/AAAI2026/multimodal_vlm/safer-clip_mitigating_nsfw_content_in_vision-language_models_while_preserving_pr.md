@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SafeR-CLIP: Mitigating NSFW Content in Vision-Language Models While Preserving Pre-Trained Knowledge 论文解读 | AAAI 2026 | arXiv 2511.16743 | CLIP安全微调 | 提出SafeR-CLIP框架，通过近邻感知重定向（将不安全嵌入重定向到语义最近的安全目标而非固定配对）和相对跨模态重定向损失（仅以不安全表示作为负样本而非随机批内负样本），在保持安全性的同时将零样本分类精度比Safe-CLIP恢复8.0%。"
+title: >-
+  [论文解读] SafeR-CLIP: Mitigating NSFW Content in Vision-Language Models While Preserving Pre-Trained Knowledge
+description: >-
+  [AAAI 2026][多模态][CLIP安全微调] 提出SafeR-CLIP框架，通过近邻感知重定向（将不安全嵌入重定向到语义最近的安全目标而非固定配对）和相对跨模态重定向损失（仅以不安全表示作为负样本而非随机批内负样本），在保持安全性的同时将零样本分类精度比Safe-CLIP恢复8.0%。
 tags:
   - AAAI 2026
+  - 多模态
   - CLIP安全微调
   - NSFW内容过滤
   - 近邻对齐

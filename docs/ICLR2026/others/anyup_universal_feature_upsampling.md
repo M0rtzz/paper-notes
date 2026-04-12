@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AnyUp: Universal Feature Upsampling 论文解读 | ICLR 2026 | arXiv 2510.12764 | 特征上采样 | 提出AnyUp——首个推理时encoder无关的可学习特征上采样方法，通过feature-agnostic层处理任意维度/类型的视觉特征，配合窗口注意力架构和crop-based训练策略，训练一次即可对任意视觉编码器（DINO/CLIP/SigLIP/MAE等）的特征进行任意分辨率上采样，在多个下游任务上超越FeatUp/JAFAR/LoftUp等方法。"
+title: >-
+  [论文解读] AnyUp: Universal Feature Upsampling
+description: >-
+  [ICLR 2026][特征上采样] 提出AnyUp——首个推理时encoder无关的可学习特征上采样方法，通过feature-agnostic层处理任意维度/类型的视觉特征，配合窗口注意力架构和crop-based训练策略，训练一次即可对任意视觉编码器（DINO/CLIP/SigLIP/MAE等）的特征进行任意分辨率上采样，在多个下游任务上超越FeatUp/JAFAR/LoftUp等方法。
 tags:
   - ICLR 2026
   - 特征上采样

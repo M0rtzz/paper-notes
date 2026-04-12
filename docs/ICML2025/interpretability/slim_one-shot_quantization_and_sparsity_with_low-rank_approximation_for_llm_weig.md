@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SLiM: One-shot Quantization and Sparsity with Low-rank Approximation for LLM Weight Compression 论文解读 | 提出 SLiM，一种一次性压缩框架，将硬件友好的均匀量化、半结构化稀疏和基于显著性的低秩适配器无缝整合，在 4-bit + 2:4 稀疏条件下准确率提升最高 5.66%。"
+title: >-
+  [论文解读] SLiM: One-shot Quantization and Sparsity with Low-rank Approximation for LLM Weight Compression
+description: >-
+   提出 SLiM，一种一次性压缩框架，将硬件友好的均匀量化、半结构化稀疏和基于显著性的低秩适配器无缝整合，在 4-bit + 2:4 稀疏条件下准确率提升最高 5.66%。
 tags:
 
 ---

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Fourier Position Embedding: Enhancing Attention's Periodic Extension for Length Generalization 论文解读 | ICML2025 | arXiv 2412.17739 | 位置编码 | 从离散信号处理角度揭示RoPE通过隐式非均匀DFT实现周期注意力，发现线性层/激活函数和不充分训练的频率分量会破坏周期性，提出FoPE用傅里叶级数建模+零化有害频率分量来改善长度泛化。"
+title: >-
+  [论文解读] Fourier Position Embedding: Enhancing Attention's Periodic Extension for Length Generalization
+description: >-
+  [ICML2025][位置编码] 从离散信号处理角度揭示RoPE通过隐式非均匀DFT实现周期注意力，发现线性层/激活函数和不充分训练的频率分量会破坏周期性，提出FoPE用傅里叶级数建模+零化有害频率分量来改善长度泛化。
 tags:
   - ICML2025
   - 位置编码

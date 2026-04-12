@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diorama: Unleashing Zero-shot Single-view 3D Indoor Scene Modeling 论文解读 | ICCV 2025 | arXiv 2411.19492 | 零样本场景建模 | 提出Diorama，首个零样本开放世界系统，从单张RGB图像通过模块化管线（开放世界感知+基于CAD的场景建模）生成完整的3D室内场景，包含建筑结构和物体摆放，无需端到端训练或人工标注。"
+title: >-
+  [论文解读] Diorama: Unleashing Zero-shot Single-view 3D Indoor Scene Modeling
+description: >-
+  [ICCV 2025][3D视觉][零样本场景建模] 提出Diorama，首个零样本开放世界系统，从单张RGB图像通过模块化管线（开放世界感知+基于CAD的场景建模）生成完整的3D室内场景，包含建筑结构和物体摆放，无需端到端训练或人工标注。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 零样本场景建模
   - 单视图3D重建
   - CAD检索

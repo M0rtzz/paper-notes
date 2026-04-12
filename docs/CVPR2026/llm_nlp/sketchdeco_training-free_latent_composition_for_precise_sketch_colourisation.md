@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SketchDeco: Training-Free Latent Composition for Precise Sketch Colourisation 论文解读 | CVPR 2026 | arXiv 2405.18716 | Sketch Colourisation | 提出SketchDeco，一种无需训练的线稿上色方法，通过全局-局部两阶段策略将区域蒙版和调色板作为精确控制信号，利用扩散模型反演和自注意力注入在隐空间中实现区域精准着色与全局和谐过渡，在消费级GPU上15-20步即可完成。"
+title: >-
+  [论文解读] SketchDeco: Training-Free Latent Composition for Precise Sketch Colourisation
+description: >-
+  [CVPR 2026][LLM/NLP][Sketch Colourisation] 提出SketchDeco，一种无需训练的线稿上色方法，通过全局-局部两阶段策略将区域蒙版和调色板作为精确控制信号，利用扩散模型反演和自注意力注入在隐空间中实现区域精准着色与全局和谐过渡，在消费级GPU上15-20步即可完成。
 tags:
   - CVPR 2026
+  - LLM/NLP
   - Sketch Colourisation
   - 扩散模型
   - Training-Free

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mapping Faithful Reasoning in Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.22362 | CoT忠实性 | 提出Concept Walk框架，通过将推理模型每步的残差流激活投影到从对比数据学到的概念方向上，追踪内部概念表示在推理过程中的演化轨迹，以此区分CoT链是真正参与计算的还是仅为事后合理化的装饰性输出。"
+title: >-
+  [论文解读] Mapping Faithful Reasoning in Language Models
+description: >-
+  [NeurIPS 2025][人体理解][CoT忠实性] 提出Concept Walk框架，通过将推理模型每步的残差流激活投影到从对比数据学到的概念方向上，追踪内部概念表示在推理过程中的演化轨迹，以此区分CoT链是真正参与计算的还是仅为事后合理化的装饰性输出。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - CoT忠实性
   - 机械可解释性
   - 推理模型

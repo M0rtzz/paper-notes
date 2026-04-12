@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BindWeave: Subject-Consistent Video Generation via Cross-Modal Integration 论文解读 | ICLR 2026 | arXiv 2510.00438 | Subject-to-Video | BindWeave 用多模态大语言模型（MLLM）替代传统的浅层融合机制来解析多主体复杂文本指令，生成主体感知的隐状态作为 DiT 的条件信号，结合 CLIP 语义特征和 VAE 细粒度外观特征，实现高保真、主体一致的视频生成。"
+title: >-
+  [论文解读] BindWeave: Subject-Consistent Video Generation via Cross-Modal Integration
+description: >-
+  [ICLR 2026][视频理解][Subject-to-Video] BindWeave 用多模态大语言模型（MLLM）替代传统的浅层融合机制来解析多主体复杂文本指令，生成主体感知的隐状态作为 DiT 的条件信号，结合 CLIP 语义特征和 VAE 细粒度外观特征，实现高保真、主体一致的视频生成。
 tags:
   - ICLR 2026
+  - 视频理解
   - Subject-to-Video
   - MLLM条件注入
   - DiT

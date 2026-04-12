@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Difficulty Controlled Diffusion Model for Synthesizing Effective Training Data 论文解读 | AAAI 2026 | arXiv 2411.18109 | 扩散模型 | 在Stable Diffusion中引入难度编码器（MLP，输入类别+难度分数），通过LoRA微调解耦\"域对齐\"和\"难度控制\"两个目标，使生成数据的学习难度可控——仅用10%额外合成数据即超过Real-Fake的最佳结果，节省63.4 GPU小时。"
+title: >-
+  [论文解读] Difficulty Controlled Diffusion Model for Synthesizing Effective Training Data
+description: >-
+  [AAAI 2026][图像生成][扩散模型] 在Stable Diffusion中引入难度编码器（MLP，输入类别+难度分数），通过LoRA微调解耦"域对齐"和"难度控制"两个目标，使生成数据的学习难度可控——仅用10%额外合成数据即超过Real-Fake的最佳结果，节省63.4 GPU小时。
 tags:
   - AAAI 2026
+  - 图像生成
   - 扩散模型
   - 难度可控生成
   - 训练数据合成

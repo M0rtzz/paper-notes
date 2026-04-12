@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LongLLaDA: Unlocking Long Context Capabilities in Diffusion LLMs 论文解读 | AAAI 2026 | arXiv 2506.14429 | 扩散语言模型 | 首次系统研究扩散大语言模型（diffusion LLMs）的长上下文能力，发现其在直接外推时保持稳定困惑度和\"局部感知\"现象，并提出无需训练的 LongLLaDA 方法，通过 NTK-based RoPE 外推成功将上下文窗口扩展至 6 倍（24k tokens）。"
+title: >-
+  [论文解读] LongLLaDA: Unlocking Long Context Capabilities in Diffusion LLMs
+description: >-
+  [AAAI 2026][图像生成][扩散语言模型] 首次系统研究扩散大语言模型（diffusion LLMs）的长上下文能力，发现其在直接外推时保持稳定困惑度和"局部感知"现象，并提出无需训练的 LongLLaDA 方法，通过 NTK-based RoPE 外推成功将上下文窗口扩展至 6 倍（24k tokens）。
 tags:
   - AAAI 2026
+  - 图像生成
   - 扩散语言模型
   - 长上下文扩展
   - RoPE

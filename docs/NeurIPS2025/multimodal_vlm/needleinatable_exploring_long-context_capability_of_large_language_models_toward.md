@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables 论文解读 | NeurIPS 2025 | arXiv 2504.06560 | 长上下文理解 | 提出 NeedleInATable (NIAT) 基准，将表格中每个单元格视为\"针\"，评估 LLM 对长结构化表格的细粒度感知能力，揭示现有模型在复杂下游任务上的高分可能依赖数据捷径而非真正的表格理解。"
+title: >-
+  [论文解读] NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables
+description: >-
+  [NeurIPS 2025][多模态][长上下文理解] 提出 NeedleInATable (NIAT) 基准，将表格中每个单元格视为"针"，评估 LLM 对长结构化表格的细粒度感知能力，揭示现有模型在复杂下游任务上的高分可能依赖数据捷径而非真正的表格理解。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 长上下文理解
   - 结构化表格
   - LLM评估基准

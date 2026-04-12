@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FairGSE: Fairness-Aware Graph Neural Network without High False Positive Rates 论文解读 | AAAI 2026 | arXiv 2511.12132 | 图神经网络 | 首次揭示公平感知 GNN 中的\"FPR 捷径\"问题——现有方法通过大量误判负样本为正来达到公平指标，提出 FairGSE 框架通过最大化二维结构熵重新加权图边来同时改善公平性并降低假阳性率，FPR 降低 39%。"
+title: >-
+  [论文解读] FairGSE: Fairness-Aware Graph Neural Network without High False Positive Rates
+description: >-
+  [AAAI 2026][AI安全][图神经网络] 首次揭示公平感知 GNN 中的"FPR 捷径"问题——现有方法通过大量误判负样本为正来达到公平指标，提出 FairGSE 框架通过最大化二维结构熵重新加权图边来同时改善公平性并降低假阳性率，FPR 降低 39%。
 tags:
   - AAAI 2026
+  - AI安全
   - 图神经网络
   - 公平性
   - 假阳性率

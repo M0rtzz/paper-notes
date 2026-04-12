@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Recovering Parametric Scenes from Very Few Time-of-Flight Pixels 论文解读 | ICCV 2025 | arXiv 2509.16132 | 飞行时间传感器 | 本文探索用极少量（低至 15 个像素）低成本广视场 ToF 传感器恢复 3D 参数化场景几何的可行性，设计了前馈预测+可微渲染的分析-合成框架，在 6D 物体位姿估计等任务上展示了令人惊讶的效果。"
+title: >-
+  [论文解读] Recovering Parametric Scenes from Very Few Time-of-Flight Pixels
+description: >-
+  [ICCV 2025][飞行时间传感器] 本文探索用极少量（低至 15 个像素）低成本广视场 ToF 传感器恢复 3D 参数化场景几何的可行性，设计了前馈预测+可微渲染的分析-合成框架，在 6D 物体位姿估计等任务上展示了令人惊讶的效果。
 tags:
   - ICCV 2025
   - 飞行时间传感器

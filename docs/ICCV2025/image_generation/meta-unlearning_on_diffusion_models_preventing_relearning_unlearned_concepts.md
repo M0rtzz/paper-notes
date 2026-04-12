@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Meta-Unlearning on Diffusion Models: Preventing Relearning Unlearned Concepts 论文解读 | ICCV 2025 | arXiv 2410.12777 | 机器遗忘 | 本文提出了扩散模型的元遗忘（Meta-Unlearning）框架，在标准遗忘目标之外增加一个元目标，使得模型在被恶意微调时，与遗忘概念相关的良性知识会自毁，从而阻止已遗忘概念的重新学习，该框架兼容大多数现有遗忘方法且仅需添加一个简单的元目标。"
+title: >-
+  [论文解读] Meta-Unlearning on Diffusion Models: Preventing Relearning Unlearned Concepts
+description: >-
+  [ICCV 2025][图像生成][机器遗忘] 本文提出了扩散模型的元遗忘（Meta-Unlearning）框架，在标准遗忘目标之外增加一个元目标，使得模型在被恶意微调时，与遗忘概念相关的良性知识会自毁，从而阻止已遗忘概念的重新学习，该框架兼容大多数现有遗忘方法且仅需添加一个简单的元目标。
 tags:
   - ICCV 2025
+  - 图像生成
   - 机器遗忘
   - 扩散模型
   - 恶意微调防御

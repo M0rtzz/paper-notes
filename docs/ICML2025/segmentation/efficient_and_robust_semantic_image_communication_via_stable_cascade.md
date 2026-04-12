@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient and Robust Semantic Image Communication via Stable Cascade 论文解读 | ICML2025 | arXiv 2507.17416 | 语义通信 | 基于Stable Cascade的语义图像通信框架，将图像压缩到原始大小的0.29%作为扩散条件传输，在噪声信道下仍能忠实重建，推理速度比SD方案快16倍。"
+title: >-
+  [论文解读] Efficient and Robust Semantic Image Communication via Stable Cascade
+description: >-
+  [ICML2025][图像分割][语义通信] 基于Stable Cascade的语义图像通信框架，将图像压缩到原始大小的0.29%作为扩散条件传输，在噪声信道下仍能忠实重建，推理速度比SD方案快16倍。
 tags:
   - ICML2025
+  - 图像分割
   - 语义通信
   - 潜在扩散模型
   - Stable Cascade

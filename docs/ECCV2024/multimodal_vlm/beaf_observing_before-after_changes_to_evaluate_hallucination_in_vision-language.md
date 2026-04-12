@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BEAF: Observing BEfore-AFter Changes to Evaluate Hallucination in Vision-Language Models 论文解读 | ECCV2024 | arXiv 2407.13442 | 幻觉评估 | 提出 BEAF 幻觉评估基准，通过图像编辑（移除物体）构造\"前后对比\"场景，设计 TU/IG/SB/ID 四个变化感知指标，揭示现有 VLM 即使传统 accuracy 高也可能存在严重幻觉。"
+title: >-
+  [论文解读] BEAF: Observing BEfore-AFter Changes to Evaluate Hallucination in Vision-Language Models
+description: >-
+  [ECCV2024][多模态][幻觉评估] 提出 BEAF 幻觉评估基准，通过图像编辑（移除物体）构造"前后对比"场景，设计 TU/IG/SB/ID 四个变化感知指标，揭示现有 VLM 即使传统 accuracy 高也可能存在严重幻觉。
 tags:
   - ECCV2024
+  - 多模态
   - 幻觉评估
   - VLM benchmark
   - 场景编辑

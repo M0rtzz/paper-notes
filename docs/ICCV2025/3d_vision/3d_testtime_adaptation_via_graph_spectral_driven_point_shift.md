@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】3D Test-time Adaptation via Graph Spectral Driven Point Shift 论文解读 | ICCV 2025 | arXiv 2507.18225 | 测试时适应 | 提出GSDTTA，首次将3D点云的测试时适应从空间域转移到图谱域，通过仅优化最低10%频率分量（减少约90%参数）实现全局结构调整，并结合特征图引导的自训练策略生成伪标签，在ModelNet40-C和ScanObjectNN-C上显著超越现有3D TTA方法。"
+title: >-
+  [论文解读] 3D Test-time Adaptation via Graph Spectral Driven Point Shift
+description: >-
+  [ICCV 2025][3D视觉][测试时适应] 提出GSDTTA，首次将3D点云的测试时适应从空间域转移到图谱域，通过仅优化最低10%频率分量（减少约90%参数）实现全局结构调整，并结合特征图引导的自训练策略生成伪标签，在ModelNet40-C和ScanObjectNN-C上显著超越现有3D TTA方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 测试时适应
   - 图谱分析
   - 点云分类

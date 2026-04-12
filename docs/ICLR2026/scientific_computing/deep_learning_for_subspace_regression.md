@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Deep Learning for Subspace Regression 论文解读 | ICLR2026 | arXiv 2509.23249 | subspace regression | 将缩减阶建模中的子空间预测问题形式化为 Grassmann 流形上的回归，设计适用于子空间数据的损失函数和神经网络参数化，并提出子空间嵌入（embedding）技术——预测比目标更大的子空间——理论和实验证明可显著降低学习复杂度并提升精度。"
+title: >-
+  [论文解读] Deep Learning for Subspace Regression
+description: >-
+  [ICLR2026][科学计算][subspace regression] 将缩减阶建模中的子空间预测问题形式化为 Grassmann 流形上的回归，设计适用于子空间数据的损失函数和神经网络参数化，并提出子空间嵌入（embedding）技术——预测比目标更大的子空间——理论和实验证明可显著降低学习复杂度并提升精度。
 tags:
   - ICLR2026
+  - 科学计算
   - subspace regression
   - Grassmann manifold
   - reduced order modeling

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unified All-Atom Molecule Generation with Neural Fields 论文解读 | NeurIPS 2025 | arXiv 2511.15906 | 神经场 | 提出 FuncBind 框架，利用神经场（Neural Fields）将分子表示为连续原子密度函数，构建统一的条件生成模型，能够同时处理小分子、大环肽和抗体 CDR 环三种药物模态的靶标条件生成。"
+title: >-
+  [论文解读] Unified All-Atom Molecule Generation with Neural Fields
+description: >-
+  [NeurIPS 2025][医学图像][神经场] 提出 FuncBind 框架，利用神经场（Neural Fields）将分子表示为连续原子密度函数，构建统一的条件生成模型，能够同时处理小分子、大环肽和抗体 CDR 环三种药物模态的靶标条件生成。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 神经场
   - 分子生成
   - 全原子表示

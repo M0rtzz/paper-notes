@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rewind-to-Delete: Certified Machine Unlearning for Nonconvex Functions 论文解读 | NeurIPS 2025 | arXiv 2409.09778 | 机器遗忘 | 本文提出R2D（Rewind-to-Delete），首个适用于一般非凸损失函数的一阶、黑盒认证机器遗忘算法，通过\"回溯\"到训练过程中的较早检查点再对保留数据执行梯度下降来实现数据删除，同时提供(ε,δ)认证遗忘保证和隐私-效用-效率的理论权衡。"
+title: >-
+  [论文解读] Rewind-to-Delete: Certified Machine Unlearning for Nonconvex Functions
+description: >-
+  [NeurIPS 2025][AI安全][机器遗忘] 本文提出R2D（Rewind-to-Delete），首个适用于一般非凸损失函数的一阶、黑盒认证机器遗忘算法，通过"回溯"到训练过程中的较早检查点再对保留数据执行梯度下降来实现数据删除，同时提供(ε,δ)认证遗忘保证和隐私-效用-效率的理论权衡。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 机器遗忘
   - 差分隐私
   - 非凸优化

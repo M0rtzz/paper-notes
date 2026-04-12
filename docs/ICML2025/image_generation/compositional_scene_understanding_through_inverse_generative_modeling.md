@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Compositional Scene Understanding through Inverse Generative Modeling 论文解读 | 本文提出逆生成建模（IGM）框架，将场景理解任务转化为在组合式生成模型中寻找最优条件参数的反演问题，通过将多个小型扩散模型组合来表示复杂场景，实现了强分布外泛化能力，并可直接利用预训练文生图模型进行零样本多目标感知。"
+title: >-
+  [论文解读] Compositional Scene Understanding through Inverse Generative Modeling
+description: >-
+  [图像生成] 本文提出逆生成建模（IGM）框架，将场景理解任务转化为在组合式生成模型中寻找最优条件参数的反演问题，通过将多个小型扩散模型组合来表示复杂场景，实现了强分布外泛化能力，并可直接利用预训练文生图模型进行零样本多目标感知。
 tags:
-
+  - 图像生成
 ---
 
 # Compositional Scene Understanding through Inverse Generative Modeling

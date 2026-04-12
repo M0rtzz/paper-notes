@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Middle-Layer Representation Alignment for Cross-Lingual Transfer in Fine-Tuned LLMs 论文解读 | ACL 2025 | arXiv 2502.14830 | cross-lingual transfer | 通过分析 1000+ 语言对发现 LLM 中间层具有最强的跨语言对齐潜力，提出在任务训练中集成中间层对齐目标（对比损失），在槽填充（F1 61.7%）、机器翻译（BLEU 32.3）和结构化文本生成上显著提升跨语言迁移，对未见语言也有效。"
+title: >-
+  [论文解读] Middle-Layer Representation Alignment for Cross-Lingual Transfer in Fine-Tuned LLMs
+description: >-
+  [ACL 2025][cross-lingual transfer] 通过分析 1000+ 语言对发现 LLM 中间层具有最强的跨语言对齐潜力，提出在任务训练中集成中间层对齐目标（对比损失），在槽填充（F1 61.7%）、机器翻译（BLEU 32.3）和结构化文本生成上显著提升跨语言迁移，对未见语言也有效。
 tags:
   - ACL 2025
   - cross-lingual transfer

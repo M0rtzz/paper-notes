@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MdaIF: Robust One-Stop Multi-Degradation-Aware Image Fusion with Language-Driven Semantics 论文解读 | AAAI 2026 | arXiv 2511.12525 | 红外可见光融合 | 提出 MdaIF 框架，利用视觉语言模型（VLM）提取退化感知语义先验来引导混合专家（MoE）路由和通道注意力调制，实现无需退化类型标注的一站式多退化场景红外-可见光图像融合。"
+title: >-
+  [论文解读] MdaIF: Robust One-Stop Multi-Degradation-Aware Image Fusion with Language-Driven Semantics
+description: >-
+  [AAAI 2026][红外可见光融合] 提出 MdaIF 框架，利用视觉语言模型（VLM）提取退化感知语义先验来引导混合专家（MoE）路由和通道注意力调制，实现无需退化类型标注的一站式多退化场景红外-可见光图像融合。
 tags:
   - AAAI 2026
   - 红外可见光融合

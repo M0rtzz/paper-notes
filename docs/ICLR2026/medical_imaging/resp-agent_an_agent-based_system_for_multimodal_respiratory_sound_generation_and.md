@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Resp-Agent: An Agent-Based System for Multimodal Respiratory Sound Generation and Disease Diagnosis 论文解读 | ICLR2026 | arXiv 2602.15909 | 呼吸音分析 | 提出 Resp-Agent 闭环多智能体框架，通过主动对抗课程规划器（Thinker-A2CA）协调可控呼吸音生成器与多模态诊断器，在 229k 规模基准上实现生成↔诊断协同设计，大幅提升长尾类别诊断性能。"
+title: >-
+  [论文解读] Resp-Agent: An Agent-Based System for Multimodal Respiratory Sound Generation and Disease Diagnosis
+description: >-
+  [ICLR2026][医学图像][呼吸音分析] 提出 Resp-Agent 闭环多智能体框架，通过主动对抗课程规划器（Thinker-A2CA）协调可控呼吸音生成器与多模态诊断器，在 229k 规模基准上实现生成↔诊断协同设计，大幅提升长尾类别诊断性能。
 tags:
   - ICLR2026
+  - 医学图像
   - 呼吸音分析
   - 多模态融合
   - 可控音频生成

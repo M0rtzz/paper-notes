@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniFusion: A Unified Image Fusion Framework with Robust Representation and Source-Aware Preservation 论文解读 | CVPR2026 | arXiv 2603.14214 | unified image fusion | 提出 UniFusion 统一图像融合框架，利用 DINOv3 自监督语义先验构建跨模态共享特征空间，通过重建对齐机制保留源图信息，并以双层优化策略解耦重建与融合目标，在红外-可见光、多曝光、多焦点、医学图像等多任务上均达到 SOTA。"
+title: >-
+  [论文解读] UniFusion: A Unified Image Fusion Framework with Robust Representation and Source-Aware Preservation
+description: >-
+  [CVPR2026][优化][unified image fusion] 提出 UniFusion 统一图像融合框架，利用 DINOv3 自监督语义先验构建跨模态共享特征空间，通过重建对齐机制保留源图信息，并以双层优化策略解耦重建与融合目标，在红外-可见光、多曝光、多焦点、医学图像等多任务上均达到 SOTA。
 tags:
   - CVPR2026
+  - 优化
   - unified image fusion
   - DINOv3
   - bilevel optimization

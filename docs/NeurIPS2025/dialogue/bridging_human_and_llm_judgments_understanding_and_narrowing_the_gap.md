@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bridging Human and LLM Judgments: Understanding and Narrowing the Gap 论文解读 | NEURIPS2025 | arXiv 2508.12792 | LLM-as-Judge | 提出Bridge统计框架，通过序数logistic回归建模人类和LLM评判之间的潜在关系，以少量人类标签改善LLM评判的校准和对齐，同时支持对系统性偏差的正式统计检验。"
+title: >-
+  [论文解读] Bridging Human and LLM Judgments: Understanding and Narrowing the Gap
+description: >-
+  [NEURIPS2025][LLM-as-Judge] 提出Bridge统计框架，通过序数logistic回归建模人类和LLM评判之间的潜在关系，以少量人类标签改善LLM评判的校准和对齐，同时支持对系统性偏差的正式统计检验。
 tags:
   - NEURIPS2025
   - LLM-as-Judge

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AlignTree: Efficient Defense Against LLM Jailbreak Attacks 论文解读 | AAAI 2026 | arXiv 2511.12217 | LLM安全 | AlignTree 利用 LLM 内部激活特征（线性 refusal direction + 非线性 SVM 信号）训练轻量级随机森林分类器，在几乎不增加计算开销的情况下高效检测越狱攻击，实现了 SOTA 的攻击成功率（ASR）降低效果。"
+title: >-
+  [论文解读] AlignTree: Efficient Defense Against LLM Jailbreak Attacks
+description: >-
+  [AAAI 2026][LLM对齐][LLM安全] AlignTree 利用 LLM 内部激活特征（线性 refusal direction + 非线性 SVM 信号）训练轻量级随机森林分类器，在几乎不增加计算开销的情况下高效检测越狱攻击，实现了 SOTA 的攻击成功率（ASR）降低效果。
 tags:
   - AAAI 2026
+  - LLM对齐
   - LLM安全
   - 越狱攻击防御
   - 随机森林分类器

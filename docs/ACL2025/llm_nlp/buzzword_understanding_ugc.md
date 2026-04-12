@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can Large Language Models Understand Internet Buzzwords Through User-Generated Content 论文解读 | ACL 2025 | arXiv 2505.15071 | 网络流行语 | 研究 LLM 能否通过用户生成内容（UGC）理解中文网络流行语——构建首个中文网络流行语数据集 Cheer（含定义和相关UGC），提出 Ress 方法引导 LLM 模拟人类语言学习过程来生成流行语定义，揭示了 LLM 在流行语理解上的三大共性挑战。"
+title: >-
+  [论文解读] Can Large Language Models Understand Internet Buzzwords Through User-Generated Content
+description: >-
+  [ACL 2025][LLM/NLP][网络流行语] 研究 LLM 能否通过用户生成内容（UGC）理解中文网络流行语——构建首个中文网络流行语数据集 Cheer（含定义和相关UGC），提出 Ress 方法引导 LLM 模拟人类语言学习过程来生成流行语定义，揭示了 LLM 在流行语理解上的三大共性挑战。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 网络流行语
   - 定义生成
   - 用户内容

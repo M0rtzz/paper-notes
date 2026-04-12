@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BabyVLM-V2: Toward Developmentally Grounded Pretraining and Benchmarking of Vision Foundation Models 论文解读 | CVPR 2026 | arXiv 2512.10932 | 发育认知 | 提出BabyVLM-V2框架，从婴儿第一视角的SAYCam纵向语料构建三种格式预训练数据（768K图像对+181K视频对+63K交错序列），设计基于NIH Baby Toolbox®的DevCV Toolbox（10个发育认知任务），从零训练的紧凑模型在部分数学任务上超越GPT-4o，首次系统探索人工发育智能(ADI)。"
+title: >-
+  [论文解读] BabyVLM-V2: Toward Developmentally Grounded Pretraining and Benchmarking of Vision Foundation Models
+description: >-
+  [CVPR 2026][语音][发育认知] 提出BabyVLM-V2框架，从婴儿第一视角的SAYCam纵向语料构建三种格式预训练数据（768K图像对+181K视频对+63K交错序列），设计基于NIH Baby Toolbox®的DevCV Toolbox（10个发育认知任务），从零训练的紧凑模型在部分数学任务上超越GPT-4o，首次系统探索人工发育智能(ADI)。
 tags:
   - CVPR 2026
+  - 语音
   - 发育认知
   - 婴儿视觉
   - 样本效率预训练

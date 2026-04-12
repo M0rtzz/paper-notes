@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Stochastic Differential Equation Framework for Multi-Objective LLM Interactions 论文解读 | NeurIPS 2025 | arXiv 2510.10739 | stochastic differential equation | 将 LLM 迭代交互中的多目标优化建模为 SDE（漂移-扩散过程），通过干扰矩阵量化目标间的耦合模式，通过特征值谱分析策略收敛行为，在代码生成（安全性、效率、功能性三目标）上验证了不同策略的收敛率（0.33-1.29）和可预测性（$R^2$ 达 0.74）。"
+title: >-
+  [论文解读] A Stochastic Differential Equation Framework for Multi-Objective LLM Interactions
+description: >-
+  [NeurIPS 2025][stochastic differential equation] 将 LLM 迭代交互中的多目标优化建模为 SDE（漂移-扩散过程），通过干扰矩阵量化目标间的耦合模式，通过特征值谱分析策略收敛行为，在代码生成（安全性、效率、功能性三目标）上验证了不同策略的收敛率（0.33-1.29）和可预测性（$R^2$ 达 0.74）。
 tags:
   - NeurIPS 2025
   - stochastic differential equation

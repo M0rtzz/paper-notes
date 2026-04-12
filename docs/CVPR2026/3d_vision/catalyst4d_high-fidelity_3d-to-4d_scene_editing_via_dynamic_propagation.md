@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Catalyst4D: High-Fidelity 3D-to-4D Scene Editing via Dynamic Propagation 论文解读 | CVPR 2026 | arXiv 2603.12766 | 4D场景编辑 | 提出Catalyst4D框架，将高质量的3D静态编辑结果通过锚点运动引导（AMG）和颜色不确定性外观精炼（CUAR）两个模块传播到4D动态高斯场景中，实现时空一致的高保真动态场景编辑。"
+title: >-
+  [论文解读] Catalyst4D: High-Fidelity 3D-to-4D Scene Editing via Dynamic Propagation
+description: >-
+  [CVPR 2026][3D视觉][4D场景编辑] 提出Catalyst4D框架，将高质量的3D静态编辑结果通过锚点运动引导（AMG）和颜色不确定性外观精炼（CUAR）两个模块传播到4D动态高斯场景中，实现时空一致的高保真动态场景编辑。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 4D场景编辑
   - 3DGS
   - 动态传播

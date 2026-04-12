@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Position: All Current Generative Fidelity and Diversity Metrics are Flawed 论文解读 | ICML2025 | arXiv 2505.22450 | 生成模型评估 | Position paper：系统性地证明了所有现有生成模型 fidelity 和 diversity 指标（包括 Improved Precision/Recall、Density/Coverage、α-precision/β-recall 等六对指标）在精心设计的 sanity check 中均存在大量失败，呼吁社区投入更多精力研发更可靠的评估指标。"
+title: >-
+  [论文解读] Position: All Current Generative Fidelity and Diversity Metrics are Flawed
+description: >-
+  [ICML2025][图像生成][生成模型评估] Position paper：系统性地证明了所有现有生成模型 fidelity 和 diversity 指标（包括 Improved Precision/Recall、Density/Coverage、α-precision/β-recall 等六对指标）在精心设计的 sanity check 中均存在大量失败，呼吁社区投入更多精力研发更可靠的评估指标。
 tags:
   - ICML2025
+  - 图像生成
   - 生成模型评估
   - fidelity/diversity 指标
   - precision/recall

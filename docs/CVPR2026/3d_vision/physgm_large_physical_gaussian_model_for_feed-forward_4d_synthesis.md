@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PhysGM: Large Physical Gaussian Model for Feed-Forward 4D Synthesis 论文解读 | CVPR2026 | arXiv 2508.13911 | 3D高斯溅射 | PhysGM 提出首个前馈式框架，从单张图像一次推理即可同时预测 3D 高斯表示和物理属性（刚度、质量等），结合 MPM 仿真在一分钟内生成高保真的物理合理 4D 动画，无需任何逐场景优化。"
+title: >-
+  [论文解读] PhysGM: Large Physical Gaussian Model for Feed-Forward 4D Synthesis
+description: >-
+  [CVPR2026][3D视觉][3D高斯溅射] PhysGM 提出首个前馈式框架，从单张图像一次推理即可同时预测 3D 高斯表示和物理属性（刚度、质量等），结合 MPM 仿真在一分钟内生成高保真的物理合理 4D 动画，无需任何逐场景优化。
 tags:
   - CVPR2026
+  - 3D视觉
   - 3D高斯溅射
   - 物理仿真
   - 前馈式4D合成

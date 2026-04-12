@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Personalized Generation In Large Model Era: A Survey 论文解读 | ACL 2025 (Findings) | arXiv 2503.02614 | personalized generation | 首篇跨模态个性化生成（PGen）综合综述，提出统一的用户中心视角将 NLP/CV/IR 社区的研究纳入一个框架，系统化梳理了文本/图像/视频/音频/3D/跨模态六大模态下的个性化技术、数据集和评估指标，涵盖 200+ 篇文献，并指出可扩展性、偏好演化、隐私公平等关键挑战。"
+title: >-
+  [论文解读] Personalized Generation In Large Model Era: A Survey
+description: >-
+  [ACL 2025 (Findings)][personalized generation] 首篇跨模态个性化生成（PGen）综合综述，提出统一的用户中心视角将 NLP/CV/IR 社区的研究纳入一个框架，系统化梳理了文本/图像/视频/音频/3D/跨模态六大模态下的个性化技术、数据集和评估指标，涵盖 200+ 篇文献，并指出可扩展性、偏好演化、隐私公平等关键挑战。
 tags:
   - ACL 2025 (Findings)
   - personalized generation

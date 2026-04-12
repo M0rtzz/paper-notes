@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors 论文解读 | CVPR2026 | arXiv 2603.13092 | 良率分析 | 提出基于 Learned Priors（TabPFN 基础模型）的零超参良率多角分析框架，通过 in-context Bayesian 推断替代传统 GP/normalizing flow 的超参调优，结合自动特征选择、Cross-Corner 知识迁移和不确定性驱动主动学习，MRE 低至 0.11% 且完全免调参，验证成本降低 10× 以上。"
+title: >-
+  [论文解读] Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors
+description: >-
+  [CVPR2026][人体理解][良率分析] 提出基于 Learned Priors（TabPFN 基础模型）的零超参良率多角分析框架，通过 in-context Bayesian 推断替代传统 GP/normalizing flow 的超参调优，结合自动特征选择、Cross-Corner 知识迁移和不确定性驱动主动学习，MRE 低至 0.11% 且完全免调参，验证成本降低 10× 以上。
 tags:
   - CVPR2026
+  - 人体理解
   - 良率分析
   - 多角仿真
   - 超参调优

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Time Travel is Cheating: Going Live with DeepFund for Real-Time Fund Investment Benchmarking 论文解读 | NeurIPS 2025 | arXiv 2505.11065 | LLM trading | 提出 DeepFund——首个实时基金投资 benchmark 工具，通过多智能体架构（Financial Planner + Analyst Team + Portfolio Manager）连接实时股市数据，避免传统回测中 LLM \"时间旅行\"导致的信息泄露问题。在 24 个交易日的实盘测试中，9 个旗舰 LLM 只有 Grok 3 实现盈利，揭示了当前 LLM 在主动基金管理中的重大局限。"
+title: >-
+  [论文解读] Time Travel is Cheating: Going Live with DeepFund for Real-Time Fund Investment Benchmarking
+description: >-
+  [NeurIPS 2025][LLM trading] 提出 DeepFund——首个实时基金投资 benchmark 工具，通过多智能体架构（Financial Planner + Analyst Team + Portfolio Manager）连接实时股市数据，避免传统回测中 LLM "时间旅行"导致的信息泄露问题。在 24 个交易日的实盘测试中，9 个旗舰 LLM 只有 Grok 3 实现盈利，揭示了当前 LLM 在主动基金管理中的重大局限。
 tags:
   - NeurIPS 2025
   - LLM trading

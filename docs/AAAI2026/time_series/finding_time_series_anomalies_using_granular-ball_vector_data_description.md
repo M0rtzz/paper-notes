@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Finding Time Series Anomalies using Granular-ball Vector Data Description 论文解读 | AAAI 2026 | arXiv 2511.12147 | 提出 Granular-ball One-Class Network (GBOC)，通过在潜在空间中自适应构建密度引导的粒球向量数据描述 (GVDD)，取代传统聚类或单一超球体假设，实现对时间序列正常行为的灵活建模和鲁棒异常检测。"
+title: >-
+  [论文解读] Finding Time Series Anomalies using Granular-ball Vector Data Description
+description: >-
+  [AAAI 2026][时间序列] 提出 Granular-ball One-Class Network (GBOC)，通过在潜在空间中自适应构建密度引导的粒球向量数据描述 (GVDD)，取代传统聚类或单一超球体假设，实现对时间序列正常行为的灵活建模和鲁棒异常检测。
 tags:
   - AAAI 2026
+  - 时间序列
 ---
 
 # Finding Time Series Anomalies using Granular-ball Vector Data Description

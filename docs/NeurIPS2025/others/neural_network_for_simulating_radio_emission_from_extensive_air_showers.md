@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Neural Network for Simulating Radio Emission from Extensive Air Showers 论文解读 | NeurIPS 2025 | arXiv 2512.21407 | 宇宙线 | 用简单全连接神经网络替代计算昂贵的 CoREAS 蒙特卡洛模拟，快速预测广延大气簇射（EAS）的射电脉冲，并在 X_max 重建任务中达到与传统模拟可比的分辨率。"
+title: >-
+  [论文解读] Neural Network for Simulating Radio Emission from Extensive Air Showers
+description: >-
+  [NeurIPS 2025][宇宙线] 用简单全连接神经网络替代计算昂贵的 CoREAS 蒙特卡洛模拟，快速预测广延大气簇射（EAS）的射电脉冲，并在 $X_{\text{max}}$ 重建任务中达到与传统模拟可比的分辨率。
 tags:
   - NeurIPS 2025
   - 宇宙线

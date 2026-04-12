@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Confidence Trap: Gender Bias and Predictive Certainty in LLMs 论文解读 | AAAI2026 | arXiv 2601.07806 | LLM公平性 | 提出Gender-ECE指标，系统评估六种开源LLM在性别代词预测任务中的置信度校准与人类偏见对齐程度，发现Gemma-2模型校准最差且存在极端的男女代词校准差异，而训练数据过滤较少的GPT-J-6B反而校准最好。"
+title: >-
+  [论文解读] The Confidence Trap: Gender Bias and Predictive Certainty in LLMs
+description: >-
+  [AAAI2026][AI安全][LLM公平性] 提出Gender-ECE指标，系统评估六种开源LLM在性别代词预测任务中的置信度校准与人类偏见对齐程度，发现Gemma-2模型校准最差且存在极端的男女代词校准差异，而训练数据过滤较少的GPT-J-6B反而校准最好。
 tags:
   - AAAI2026
+  - AI安全
   - LLM公平性
   - 性别偏见
   - 置信度校准

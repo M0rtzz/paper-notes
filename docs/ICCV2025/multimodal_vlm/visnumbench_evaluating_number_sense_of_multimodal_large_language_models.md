@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VisNumBench: Evaluating Number Sense of Multimodal Large Language Models 论文解读 | ICCV 2025 | arXiv 2503.14939 | 数字感知 | 本文提出 VisNumBench，一个包含约 1900 道多选题的基准，覆盖 7 种视觉数值属性和 4 类视觉数值估计任务，系统评估了 17 个 MLLM 的直觉数字感知能力，发现即使最先进的模型也远低于人类水平。"
+title: >-
+  [论文解读] VisNumBench: Evaluating Number Sense of Multimodal Large Language Models
+description: >-
+  [ICCV 2025][多模态][数字感知] 本文提出 VisNumBench，一个包含约 1900 道多选题的基准，覆盖 7 种视觉数值属性和 4 类视觉数值估计任务，系统评估了 17 个 MLLM 的直觉数字感知能力，发现即使最先进的模型也远低于人类水平。
 tags:
   - ICCV 2025
+  - 多模态
   - 数字感知
   - 视觉数值估计
   - MLLM评测基准

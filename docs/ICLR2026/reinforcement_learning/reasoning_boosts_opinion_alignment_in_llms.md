@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reasoning Boosts Opinion Alignment in LLMs 论文解读 | ICLR2026 | arXiv 2603.01214 | opinion alignment | 用GRPO强化学习训练LLM从政治调查数据中学习推理式观点对齐，在美国/德国/瑞士三个数据集上证明推理能提升个体级政治观点建模的准确性。"
+title: >-
+  [论文解读] Reasoning Boosts Opinion Alignment in LLMs
+description: >-
+  [ICLR2026][opinion alignment] 用GRPO强化学习训练LLM从政治调查数据中学习推理式观点对齐，在美国/德国/瑞士三个数据集上证明推理能提升个体级政治观点建模的准确性。
 tags:
   - ICLR2026
   - opinion alignment

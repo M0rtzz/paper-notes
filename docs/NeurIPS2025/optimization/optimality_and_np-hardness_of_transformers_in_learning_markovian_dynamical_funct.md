@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Optimality and NP-Hardness of Transformers in Learning Markovian Dynamical Functions 论文解读 | NeurIPS 2025 | arXiv 2510.18638 | In-Context Learning | 从优化理论角度分析 Transformer 学习马尔可夫动态函数的 ICL 能力：推导单层线性自注意力的全局最优解（闭式表达），证明从扩展参数空间恢复 Transformer 参数是 NP-hard 的，并揭示多层 LSA 等价于预条件多目标优化。"
+title: >-
+  [论文解读] Optimality and NP-Hardness of Transformers in Learning Markovian Dynamical Functions
+description: >-
+  [NeurIPS 2025][优化][In-Context Learning] 从优化理论角度分析 Transformer 学习马尔可夫动态函数的 ICL 能力：推导单层线性自注意力的全局最优解（闭式表达），证明从扩展参数空间恢复 Transformer 参数是 NP-hard 的，并揭示多层 LSA 等价于预条件多目标优化。
 tags:
   - NeurIPS 2025
+  - 优化
   - In-Context Learning
   - 马尔可夫链
   - 线性自注意力

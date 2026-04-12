@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression 论文解读 | ACL 2025 | arXiv 2507.11942 | 提示学习 prompt compression | DAC 提出动态注意力感知的 prompt 压缩方法，通过融合信息熵和注意力分数作为 token 重要性度量，并动态感知压缩过程中的熵偏移来进行细粒度压缩，在 LongBench 上比 SOTA 方法提升平均 1.33 分。"
+title: >-
+  [论文解读] DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression
+description: >-
+  [ACL 2025][模型压缩][提示学习] DAC 提出动态注意力感知的 prompt 压缩方法，通过融合信息熵和注意力分数作为 token 重要性度量，并动态感知压缩过程中的熵偏移来进行细粒度压缩，在 LongBench 上比 SOTA 方法提升平均 1.33 分。
 tags:
   - ACL 2025
+  - 模型压缩
   - 提示学习
   - 注意力机制
   - information entropy

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Towards Faithful Multimodal Concept Bottleneck Models 论文解读 | CVPR 2025 | arXiv 2603.13163 | concept bottleneck model | 提出 f-CBM，一个基于 CLIP 的忠实多模态 Concept Bottleneck Model 框架，通过可微分的 leakage 损失和 Kolmogorov-Arnold Network 预测头联合解决概念检测准确性和信息泄漏问题，在任务精度、概念检测和 leakage 三者间达到最优权衡。"
+title: >-
+  [论文解读] Towards Faithful Multimodal Concept Bottleneck Models
+description: >-
+  [CVPR 2025][concept bottleneck model] 提出 f-CBM，一个基于 CLIP 的忠实多模态 Concept Bottleneck Model 框架，通过可微分的 leakage 损失和 Kolmogorov-Arnold Network 预测头联合解决概念检测准确性和信息泄漏问题，在任务精度、概念检测和 leakage 三者间达到最优权衡。
 tags:
   - CVPR 2025
   - concept bottleneck model

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Seeing the Wind from a Falling Leaf 论文解读 | NeurIPS 2025 | arXiv 2512.00762 | 力场恢复 | 本文提出端到端可微逆图形学框架，通过联合建模物体几何、物理属性和力表示，从视频中恢复不可见的力场（如风场），并支持基于物理的视频生成与编辑。"
+title: >-
+  [论文解读] Seeing the Wind from a Falling Leaf
+description: >-
+  [NeurIPS 2025][视频理解][力场恢复] 本文提出端到端可微逆图形学框架，通过联合建模物体几何、物理属性和力表示，从视频中恢复不可见的力场（如风场），并支持基于物理的视频生成与编辑。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 力场恢复
   - 可微物理模拟
   - 逆图形学

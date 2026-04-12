@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rectified-CFG++ for Flow Based Models 论文解读 | NeurIPS 2025 | arXiv 2510.07631 | Classifier-Free Guidance | 针对Rectified Flow模型中标准CFG导致的离流形漂移问题，提出Rectified-CFG++——一种自适应预测-校正引导策略，通过条件流预测+时间调度插值校正替代外推式引导，在Flux/SD3/SD3.5/Lumina等大规模模型上全面超越标准CFG。"
+title: >-
+  [论文解读] Rectified-CFG++ for Flow Based Models
+description: >-
+  [NeurIPS 2025][目标检测][Classifier-Free Guidance] 针对Rectified Flow模型中标准CFG导致的离流形漂移问题，提出Rectified-CFG++——一种自适应预测-校正引导策略，通过条件流预测+时间调度插值校正替代外推式引导，在Flux/SD3/SD3.5/Lumina等大规模模型上全面超越标准CFG。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - Classifier-Free Guidance
   - Rectified Flow
   - 文本到图像生成

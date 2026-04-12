@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Disaggregation Reveals Hidden Training Dynamics: The Case of Agreement Attraction 论文解读 | NeurIPS 2025 | arXiv 2510.24934 | 训练动态 | 通过将聚合的语法评测指标**分解**到实验条件层面并追踪训练过程中的变化，发现语言模型的语法学习并非渐进单调的，而是经历了一系列**隐藏的突破阶段**——先学习词频偏好、再学习局部上下文（n-gram），最后逐步掌握更远距离的语法依赖关系。"
+title: >-
+  [论文解读] Disaggregation Reveals Hidden Training Dynamics: The Case of Agreement Attraction
+description: >-
+  [NeurIPS 2025][训练动态] 通过将聚合的语法评测指标**分解**到实验条件层面并追踪训练过程中的变化，发现语言模型的语法学习并非渐进单调的，而是经历了一系列**隐藏的突破阶段**——先学习词频偏好、再学习局部上下文（n-gram），最后逐步掌握更远距离的语法依赖关系。
 tags:
   - NeurIPS 2025
   - 训练动态

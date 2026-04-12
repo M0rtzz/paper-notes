@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DynamicGTR: Leveraging Graph Topology Representation Preferences to Boost VLM Capabilities on Graph QAs 论文解读 | CVPR 2026 | arXiv 2602.21864 | 图问答 | 提出 DynamicGTR 框架，通过动态路由在推理时为每个查询选择最优的图拓扑表示（GTR，视觉/文本共8种），显著提升 VLM 在零样本图算法问答中的性能，并可迁移到链接预测和节点分类等真实场景。"
+title: >-
+  [论文解读] DynamicGTR: Leveraging Graph Topology Representation Preferences to Boost VLM Capabilities on Graph QAs
+description: >-
+  [CVPR 2026][多模态][图问答] 提出 DynamicGTR 框架，通过动态路由在推理时为每个查询选择最优的图拓扑表示（GTR，视觉/文本共8种），显著提升 VLM 在零样本图算法问答中的性能，并可迁移到链接预测和节点分类等真实场景。
 tags:
   - CVPR 2026
+  - 多模态
   - 图问答
   - 图拓扑表示
   - VLM零样本推理

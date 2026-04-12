@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Scalable Oversight via Partitioned Human Supervision 论文解读 | ICLR2026 | arXiv 2510.22500 | 可扩展监督 | 提出基于分区人类监督的可扩展监督框架：当任务超越单个专家能力时，利用领域专家提供的互补标签（排除错误选项）构造无偏准确率估计器，实现无需完整标注即可评估和训练 AI 系统。"
+title: >-
+  [论文解读] Towards Scalable Oversight via Partitioned Human Supervision
+description: >-
+  [ICLR2026][LLM Agent][可扩展监督] 提出基于分区人类监督的可扩展监督框架：当任务超越单个专家能力时，利用领域专家提供的互补标签（排除错误选项）构造无偏准确率估计器，实现无需完整标注即可评估和训练 AI 系统。
 tags:
   - ICLR2026
+  - LLM Agent
   - 可扩展监督
   - 互补标签
   - 分区人类监督

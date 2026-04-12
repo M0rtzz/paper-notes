@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Teaching Language Models to Evolve with Users: Dynamic Profile Modeling for Personalized Alignment 论文解读 | NeurIPS 2025 | arXiv 2505.15456 | 个性化对齐 | 将个性化对话对齐建模为多轮马尔可夫决策过程，提出 RLPA 框架，让 LLM 通过与模拟用户的在线交互学习动态推断和维护用户画像，并据此生成个性化回复。"
+title: >-
+  [论文解读] Teaching Language Models to Evolve with Users: Dynamic Profile Modeling for Personalized Alignment
+description: >-
+  [NeurIPS 2025][个性化对齐] 将个性化对话对齐建模为多轮马尔可夫决策过程，提出 RLPA 框架，让 LLM 通过与模拟用户的在线交互学习动态推断和维护用户画像，并据此生成个性化回复。
 tags:
   - NeurIPS 2025
   - 个性化对齐

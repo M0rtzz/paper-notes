@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Neural Topic Modeling with Large Language Models in the Loop 论文解读 | 提出LLM-ITL框架，将LLM以\"in-the-loop\"方式集成到神经主题模型（NTM）训练中，通过基于最优传输的主题对齐目标和置信度加权机制，在保持文档表示质量和计算效率的同时显著提升主题可解释性。"
+title: >-
+  [论文解读] Neural Topic Modeling with Large Language Models in the Loop
+description: >-
+  [LLM/NLP] 提出LLM-ITL框架，将LLM以"in-the-loop"方式集成到神经主题模型（NTM）训练中，通过基于最优传输的主题对齐目标和置信度加权机制，在保持文档表示质量和计算效率的同时显著提升主题可解释性。
 tags:
-
+  - LLM/NLP
 ---
 
 # Neural Topic Modeling with Large Language Models in the Loop

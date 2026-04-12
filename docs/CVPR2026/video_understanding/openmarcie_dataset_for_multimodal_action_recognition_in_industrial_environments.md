@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OpenMarcie: Dataset for Multimodal Action Recognition in Industrial Environments 论文解读 | CVPR 2026 | arXiv 2603.02390 | 多模态数据集 | 提出目前最大规模的工业场景多模态动作识别数据集 OpenMarcie，融合可穿戴传感器与视觉数据共 8 种模态、200+ 通道、37+ 小时录制，并在 HAR 分类、开放词表描述、跨模态对齐三个基准上验证了惯性+视觉融合的优越性。"
+title: >-
+  [论文解读] OpenMarcie: Dataset for Multimodal Action Recognition in Industrial Environments
+description: >-
+  [CVPR 2026][视频理解][多模态数据集] 提出目前最大规模的工业场景多模态动作识别数据集 OpenMarcie，融合可穿戴传感器与视觉数据共 8 种模态、200+ 通道、37+ 小时录制，并在 HAR 分类、开放词表描述、跨模态对齐三个基准上验证了惯性+视觉融合的优越性。
 tags:
   - CVPR 2026
+  - 视频理解
   - 多模态数据集
   - 人体动作识别
   - 工业制造

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】RoiRL: Efficient, Self-Supervised Reasoning with Offline Iterative Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2510.02892 | 离线强化学习 | 提出RoiRL——一种基于离线迭代强化学习的轻量级自监督推理框架，通过加权对数似然目标函数替代在线RL（如TTRL），在不需要参考模型和真实标签的情况下实现LLM推理能力的自我提升，训练速度提高2.5倍且性能更优。"
+title: >-
+  [论文解读] RoiRL: Efficient, Self-Supervised Reasoning with Offline Iterative Reinforcement Learning
+description: >-
+  [NeurIPS 2025][离线强化学习] 提出RoiRL——一种基于离线迭代强化学习的轻量级自监督推理框架，通过加权对数似然目标函数替代在线RL（如TTRL），在不需要参考模型和真实标签的情况下实现LLM推理能力的自我提升，训练速度提高2.5倍且性能更优。
 tags:
   - NeurIPS 2025
   - 离线强化学习

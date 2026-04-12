@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalizable Insights for Graph Transformers in Theory and Practice 论文解读 | NeurIPS 2025 | arXiv 2511.08028 | Transformer Graph Transformer | 提出 Generalized-Distance Transformer (GDT)，一种基于标准注意力（无需修改注意力机制）的图 Transformer 架构，理论证明其表达力等价于 GD-WL 算法，并通过覆盖 800 万图/2.7 亿 token 的大规模实验首次建立了 PE 表达力的细粒度经验层次，在 few-shot 迁移设置下无需微调即可超越 SOTA。"
+title: >-
+  [论文解读] Generalizable Insights for Graph Transformers in Theory and Practice
+description: >-
+  [NeurIPS 2025][目标检测][Transformer] 提出 Generalized-Distance Transformer (GDT)，一种基于标准注意力（无需修改注意力机制）的图 Transformer 架构，理论证明其表达力等价于 GD-WL 算法，并通过覆盖 800 万图/2.7 亿 token 的大规模实验首次建立了 PE 表达力的细粒度经验层次，在 few-shot 迁移设置下无需微调即可超越 SOTA。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - Transformer
   - GD-WL
   - 位置编码表达力

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data 论文解读 | CVPR 2026 | arXiv 2603.10947 | 中子CT | 将扩散模型先验作为正则化项引入隐式神经表示(INR)的损失函数中，构建DINR框架用于稀疏视图中子CT重建，在仅5个视角的极端稀疏条件下仍能保持混凝土微结构的高质量重建。"
+title: >-
+  [论文解读] Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data
+description: >-
+  [CVPR 2026][3D视觉][中子CT] 将扩散模型先验作为正则化项引入隐式神经表示(INR)的损失函数中，构建DINR框架用于稀疏视图中子CT重建，在仅5个视角的极端稀疏条件下仍能保持混凝土微结构的高质量重建。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 中子CT
   - 隐式神经表示
   - 扩散模型先验

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】X2Edit: Revisiting Arbitrary-Instruction Image Editing through Self-Constructed Data and Task-Aware Representation Learning 论文解读 | AAAI2026 | arXiv 2508.07607 | image editing | 构建 370 万高质量编辑数据集（14 类任务），并提出基于 Task-Aware MoE-LoRA + Contrastive Learning 的轻量级（0.9B 参数）plug-and-play 编辑模块，性能媲美 12B 全参数训练模型。"
+title: >-
+  [论文解读] X2Edit: Revisiting Arbitrary-Instruction Image Editing through Self-Constructed Data and Task-Aware Representation Learning
+description: >-
+  [AAAI2026][图像生成][image editing] 构建 370 万高质量编辑数据集（14 类任务），并提出基于 Task-Aware MoE-LoRA + Contrastive Learning 的轻量级（0.9B 参数）plug-and-play 编辑模块，性能媲美 12B 全参数训练模型。
 tags:
   - AAAI2026
+  - 图像生成
   - image editing
   - MoE-LoRA
   - 对比学习

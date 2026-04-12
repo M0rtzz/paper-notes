@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enhancing Generative Auto-bidding with Offline Reward Evaluation and Policy Search 论文解读 | ICLR 2026 Oral | arXiv 2509.15927 | auto-bidding | 提出 AIGB-Pearl，为生成式自动竞价方法引入离线轨迹评估器和 KL-Lipschitz 约束的分数最大化方案，使生成模型能在理论保证下安全地突破静态离线数据的性能天花板，在淘宝真实广告系统上实现 GMV +3% 的显著提升。"
+title: >-
+  [论文解读] Enhancing Generative Auto-bidding with Offline Reward Evaluation and Policy Search
+description: >-
+  [ICLR 2026 Oral][auto-bidding] 提出 AIGB-Pearl，为生成式自动竞价方法引入离线轨迹评估器和 KL-Lipschitz 约束的分数最大化方案，使生成模型能在理论保证下安全地突破静态离线数据的性能天花板，在淘宝真实广告系统上实现 GMV +3% 的显著提升。
 tags:
   - ICLR 2026 Oral
   - auto-bidding

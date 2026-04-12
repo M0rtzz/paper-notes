@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Resilient Safety-Driven Unlearning for Diffusion Models Against Downstream Fine-tuning 论文解读 | NeurIPS 2025 | arXiv 2507.16302 | 扩散模型 | 提出ResAlign框架，通过Moreau包络近似和元学习策略，让扩散模型的安全卸载（unlearning）能抵抗下游微调带来的有害行为恢复，即使在纯良性数据上微调也能保持安全性。"
+title: >-
+  [论文解读] Towards Resilient Safety-Driven Unlearning for Diffusion Models Against Downstream Fine-tuning
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型] 提出ResAlign框架，通过Moreau包络近似和元学习策略，让扩散模型的安全卸载（unlearning）能抵抗下游微调带来的有害行为恢复，即使在纯良性数据上微调也能保持安全性。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型
   - 安全卸载
   - 微调韧性

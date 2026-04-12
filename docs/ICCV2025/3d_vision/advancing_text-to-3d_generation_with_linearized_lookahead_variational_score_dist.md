@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Advancing Text-to-3D Generation with Linearized Lookahead Variational Score Distillation 论文解读 | ICCV 2025 | arXiv 2507.09748 | Score Distillation | 通过分析 VSD 中 LoRA 模型与 3D 模型的优化顺序不匹配问题，提出线性化前瞻（Linearized Lookahead）修正项 $L^2$-VSD，仅需额外一次前向传播即可显著提升 text-to-3D 生成质量。"
+title: >-
+  [论文解读] Advancing Text-to-3D Generation with Linearized Lookahead Variational Score Distillation
+description: >-
+  [ICCV 2025][3D视觉][Score Distillation] 通过分析 VSD 中 LoRA 模型与 3D 模型的优化顺序不匹配问题，提出线性化前瞻（Linearized Lookahead）修正项 $L^2$-VSD，仅需额外一次前向传播即可显著提升 text-to-3D 生成质量。
 tags:
   - ICCV 2025
+  - 3D视觉
   - Score Distillation
   - VSD
   - Text-to-3D

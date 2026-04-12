@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models 论文解读 | CVPR 2026 | arXiv 2603.00207 | 视觉重聚焦 | 发现多模态推理模型在延长推理时会逐渐丢失对视觉token的注意力，提出VisRef在推理过程中主动重新注入与当前推理上下文语义相关的视觉token核心子集，在固定计算预算下比现有方法提升最高6.4%。"
+title: >-
+  [论文解读] VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models
+description: >-
+  [CVPR 2026][LLM推理][视觉重聚焦] 发现多模态推理模型在延长推理时会逐渐丢失对视觉token的注意力，提出VisRef在推理过程中主动重新注入与当前推理上下文语义相关的视觉token核心子集，在固定计算预算下比现有方法提升最高6.4%。
 tags:
   - CVPR 2026
+  - LLM推理
   - 视觉重聚焦
   - 测试时缩放
   - 多模态推理

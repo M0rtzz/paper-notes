@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Pixel2Phys: Distilling Governing Laws from Visual Dynamics 论文解读 | CVPR 2026 | arXiv 2602.19516 | 物理定律发现 | 提出 Pixel2Phys，一个基于 MLLM 的多智能体协作框架，通过 Plan-Variable-Equation-Experiment 四个 Agent 的迭代假设-验证-精化循环，从原始视频中自动发现可解释的物理控制方程，外推精度比基线提升 45.35%。"
+title: >-
+  [论文解读] Pixel2Phys: Distilling Governing Laws from Visual Dynamics
+description: >-
+  [CVPR 2026][物理定律发现] 提出 Pixel2Phys，一个基于 MLLM 的多智能体协作框架，通过 Plan-Variable-Equation-Experiment 四个 Agent 的迭代假设-验证-精化循环，从原始视频中自动发现可解释的物理控制方程，外推精度比基线提升 45.35%。
 tags:
   - CVPR 2026
   - 物理定律发现

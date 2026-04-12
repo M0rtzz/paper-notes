@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Large Vocabulary Size Improves Large Language Models 论文解读 | ACL 2025 | arXiv 2406.16508 | vocabulary size | 实证研究词表大小与 LLM 性能的关系，在英语和日语上证明更大的词表（从 5K 到 500K）一致带来更好的下游性能，并提出在继续训练场景中替换词表的方法。"
+title: >-
+  [论文解读] Large Vocabulary Size Improves Large Language Models
+description: >-
+  [ACL 2025][vocabulary size] 实证研究词表大小与 LLM 性能的关系，在英语和日语上证明更大的词表（从 5K 到 500K）一致带来更好的下游性能，并提出在继续训练场景中替换词表的方法。
 tags:
   - ACL 2025
   - vocabulary size

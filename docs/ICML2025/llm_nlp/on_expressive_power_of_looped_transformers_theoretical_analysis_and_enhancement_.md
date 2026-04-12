@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】On Expressive Power of Looped Transformers: Theoretical Analysis and Enhancement via Timestep Encoding 论文解读 | ICML2025 | arXiv 2410.01405 | Transformer Looped Transformer | 本文首次建立了 Looped Transformer 关于循环次数和目标函数连续性模的逼近速率理论，揭示了循环架构特有的逼近误差来源（上下文连续性与 token 连续性），并提出 Timestep-Modulated Looped Transformer (TMLT) 通过时间步编码消除该限制，在推理、上下文学习和语言建模任务上取得一致提升。"
+title: >-
+  [论文解读] On Expressive Power of Looped Transformers: Theoretical Analysis and Enhancement via Timestep Encoding
+description: >-
+  [ICML2025][LLM/NLP][Transformer] 本文首次建立了 Looped Transformer 关于循环次数和目标函数连续性模的逼近速率理论，揭示了循环架构特有的逼近误差来源（上下文连续性与 token 连续性），并提出 Timestep-Modulated Looped Transformer (TMLT) 通过时间步编码消除该限制，在推理、上下文学习和语言建模任务上取得一致提升。
 tags:
   - ICML2025
+  - LLM/NLP
   - Transformer
   - 表达能力
   - 逼近速率

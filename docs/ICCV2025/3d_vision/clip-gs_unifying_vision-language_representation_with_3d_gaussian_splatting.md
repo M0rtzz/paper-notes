@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLIP-GS: Unifying Vision-Language Representation with 3D Gaussian Splatting 论文解读 | ICCV 2025 | arXiv 2412.19142 | 3D Gaussian Splatting | 提出 CLIP-GS，首个基于 3D Gaussian Splatting (3DGS) 的多模态表示学习框架。通过 GS Tokenizer 将 3DGS 序列化为 token，结合图像投票损失 (Image Voting Loss) 进行多模态对齐，在跨模态检索、零样本和少样本 3D 分类任务上全面超越基于点云的方法。"
+title: >-
+  [论文解读] CLIP-GS: Unifying Vision-Language Representation with 3D Gaussian Splatting
+description: >-
+  [ICCV 2025][3D视觉][3D Gaussian Splatting] 提出 CLIP-GS，首个基于 3D Gaussian Splatting (3DGS) 的多模态表示学习框架。通过 GS Tokenizer 将 3DGS 序列化为 token，结合图像投票损失 (Image Voting Loss) 进行多模态对齐，在跨模态检索、零样本和少样本 3D 分类任务上全面超越基于点云的方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Gaussian Splatting
   - 多模态表示学习
   - CLIP

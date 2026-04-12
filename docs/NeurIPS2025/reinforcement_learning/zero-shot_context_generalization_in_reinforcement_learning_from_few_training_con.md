@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Zero-Shot Context Generalization in Reinforcement Learning from Few Training Contexts 论文解读 | NeurIPS 2025 | arXiv 2507.07348 | 上下文泛化 | 提出 Context-Enhanced Bellman Equation (CEBE) 和 Context Sample Enhancement (CSE) 方法，通过利用环境动力学和奖励函数对上下文参数的一阶导数信息，在仅训练于单一上下文的情况下实现对未见上下文的零样本泛化。"
+title: >-
+  [论文解读] Zero-Shot Context Generalization in Reinforcement Learning from Few Training Contexts
+description: >-
+  [NeurIPS 2025][上下文泛化] 提出 Context-Enhanced Bellman Equation (CEBE) 和 Context Sample Enhancement (CSE) 方法，通过利用环境动力学和奖励函数对上下文参数的一阶导数信息，在仅训练于单一上下文的情况下实现对未见上下文的零样本泛化。
 tags:
   - NeurIPS 2025
   - 上下文泛化

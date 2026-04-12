@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PragWorld: A Benchmark Evaluating LLMs' Local World Model under Minimal Linguistic Alterations and Conversational Dynamics 论文解读 | AAAI 2026 | arXiv 2511.13021 | LLM评估 | 提出 PragWorld 基准测试，通过对对话施加 7 种最小语言学扰动来评估 LLM 内隐世界模型的可塑性和鲁棒性，并设计双视角可解释性框架定位有害/有用层，提出层正则化微调策略提升鲁棒性。"
+title: >-
+  [论文解读] PragWorld: A Benchmark Evaluating LLMs' Local World Model under Minimal Linguistic Alterations and Conversational Dynamics
+description: >-
+  [AAAI 2026][视频理解][LLM评估] 提出 PragWorld 基准测试，通过对对话施加 7 种最小语言学扰动来评估 LLM 内隐世界模型的可塑性和鲁棒性，并设计双视角可解释性框架定位有害/有用层，提出层正则化微调策略提升鲁棒性。
 tags:
   - AAAI 2026
+  - 视频理解
   - LLM评估
   - 世界模型
   - 对话理解

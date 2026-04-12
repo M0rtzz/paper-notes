@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs 论文解读 | ACL 2025 | arXiv 2507.14307 | 时态理解 | 通过认知语言学中的\"体貌\"（aspect）实验范式，系统评估LLM是否能像人类一样理解叙事中的时间意义，发现LLM过度依赖原型搭配、体貌判断不一致、缺乏远距因果推理能力，揭示其叙事理解与人类存在本质性差异。"
+title: >-
+  [论文解读] How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs
+description: >-
+  [ACL 2025][LLM/NLP][时态理解] 通过认知语言学中的"体貌"（aspect）实验范式，系统评估LLM是否能像人类一样理解叙事中的时间意义，发现LLM过度依赖原型搭配、体貌判断不一致、缺乏远距因果推理能力，揭示其叙事理解与人类存在本质性差异。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 时态理解
   - 语法体貌
   - 认知评估

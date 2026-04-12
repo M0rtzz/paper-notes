@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prune2Drive: A Plug-and-Play Framework for Accelerating Vision-Language Models in Autonomous Driving 论文解读 | CVPR 2026 | arXiv 2508.13305 | 多视角VLM | 首个面向多视角自动驾驶VLM的即插即用token剪枝框架Prune2Drive，通过T-FPS（token级最远点采样）保持语义/空间多样性 + 视图自适应剪枝率优化自动分配不同视角的token预算,在DriveLM上仅保留10% token即实现6.40×prefill加速且性能仅降3%。"
+title: >-
+  [论文解读] Prune2Drive: A Plug-and-Play Framework for Accelerating Vision-Language Models in Autonomous Driving
+description: >-
+  [CVPR 2026][多模态][多视角VLM] 首个面向多视角自动驾驶VLM的即插即用token剪枝框架Prune2Drive，通过T-FPS（token级最远点采样）保持语义/空间多样性 + 视图自适应剪枝率优化自动分配不同视角的token预算,在DriveLM上仅保留10% token即实现6.40×prefill加速且性能仅降3%。
 tags:
   - CVPR 2026
+  - 多模态
   - 多视角VLM
   - 视觉token剪枝
   - 多样性感知采样

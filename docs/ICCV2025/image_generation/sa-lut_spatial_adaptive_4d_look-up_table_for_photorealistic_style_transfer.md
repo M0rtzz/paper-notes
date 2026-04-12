@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SA-LUT: Spatial Adaptive 4D Look-Up Table for Photorealistic Style Transfer 论文解读 | ICCV 2025 | arXiv 2506.13465 | 写实风格迁移 | 本文提出 SA-LUT，通过风格引导的 4D 查找表和内容-风格交叉注意力生成的上下文映射，实现空间自适应的写实风格迁移，在新提出的 PST50 基准上 LPIPS 相比 3D LUT 方法降低 66.7%，同时支持 4K 视频 16 FPS 实时处理。"
+title: >-
+  [论文解读] SA-LUT: Spatial Adaptive 4D Look-Up Table for Photorealistic Style Transfer
+description: >-
+  [ICCV 2025][图像生成][写实风格迁移] 本文提出 SA-LUT，通过风格引导的 4D 查找表和内容-风格交叉注意力生成的上下文映射，实现空间自适应的写实风格迁移，在新提出的 PST50 基准上 LPIPS 相比 3D LUT 方法降低 66.7%，同时支持 4K 视频 16 FPS 实时处理。
 tags:
   - ICCV 2025
+  - 图像生成
   - 写实风格迁移
   - 4D LUT
   - 空间自适应

@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking 论文解读 | NeurIPS 2025 | arXiv 2505.18495 | 扩散模型 discrete diffusion | 提出 Prime（Partial masking scheme），突破 Masked Diffusion Model 的二元状态（mask/unmask）限制，引入中间态（部分观测的 token 信息），减少冗余计算并实现更细粒度的去噪过程，在文本生成上 PPL 15.36 超越自回归模型（17.54）和标准 MDM（21.52），在图像生成上取得 CIFAR-10 FID 3.26。"
+title: >-
+  [论文解读] Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型] 提出 Prime（Partial masking scheme），突破 Masked Diffusion Model 的二元状态（mask/unmask）限制，引入中间态（部分观测的 token 信息），减少冗余计算并实现更细粒度的去噪过程，在文本生成上 PPL 15.36 超越自回归模型（17.54）和标准 MDM（21.52），在图像生成上取得 CIFAR-10 FID 3.26。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型
   - partial masking
   - intermediate states
   - text generation
-  - 图像生成
 ---
 
 # Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking

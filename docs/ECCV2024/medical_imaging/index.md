@@ -1,7 +1,14 @@
+---
+title: >-
+  ECCV2024 医学图像方向 8篇论文解读
+description: >-
+  8篇ECCV2024 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🎞️ ECCV2024** · 共 **12** 篇
+**🎞️ ECCV2024** · 共 **8** 篇
 
 **[Adaptive Correspondence Scoring For Unsupervised Medical Ima](adaptive_correspondence_scoring_for_unsupervised_medical_ima.md)**
 
@@ -27,26 +34,10 @@
 
 :   提出ChEX——一个同时支持文本提示和边界框查询的交互式胸部X光解释模型，通过DETR风格的prompt检测器和多任务联合训练，在9个胸部X光任务上与SOTA竞争，同时提供独特的定位可解释性和用户交互能力。
 
-**[Co-synthesis of Histopathology Nuclei Image-Label Pairs using a Context-Conditioned Joint Diffusion Model](co-synthesis_of_histopathology_nuclei_image-label_pairs_using_a_context-conditio.md)**
+**[Co-Synthesis Of Histopathology Nuclei Image-Label Pairs Using A Context-Conditio](co-synthesis_of_histopathology_nuclei_image-label_pairs_using_a_context-conditio.md)**
 
 :   提出一种上下文条件化的联合扩散模型，能够同时合成组织病理学细胞核图像、语义标签和距离图，通过点图（centroid layout）和文本提示两种条件实现对合成过程的精确控制，并生成高质量的实例级标签用于下游核分割和分类任务。
-
-**[GTP-4o: Modality-Prompted Heterogeneous Graph Learning for Omni-modal Biomedical Representation](gtp4o_modalityprompted_heterogeneous_graph_learning_for.md)**
-
-:   提出 GTP-4o，一种基于模态提示的异构图学习框架，通过异构图嵌入、图提示补全缺失模态、知识引导的层级聚合，实现基因组学-病理图像-细胞图-文本等多种临床模态的统一表示学习。
-
-**[Improving Medical Multi-modal Contrastive Learning with Expert Annotations](improving_medical_multimodal_contrastive_learning_with_exper.md)**
-
-:   提出eCLIP，通过引入放射科医生的眼动热力图（eye-gaze heatmap）作为专家标注，利用热力图处理器和mixup增强策略扩充高质量正样本对，有效缓解医学CLIP中的"模态间隙"问题，在零样本推理、线性探测、跨模态检索和RAG报告生成等任务上取得一致性提升。
-
-**[Pathology-knowledge Enhanced Multi-instance Prompt Learning for Few-shot Whole Slide Image Classification](pathologyknowledge_enhanced_multiinstance_prompt_learni.md)**
-
-:   提出 PEMP——病理知识增强的多实例提示学习框架，将视觉和文本病理先验（典型 patch/slide 示例 + 语言描述）注入 CLIP 的提示中，在 patch 和 slide 两个层级进行对比学习，显著提升少样本全切片图像（WSI）分类性能。
 
 **[Textttnephi Neural Deformation Fields For Approximately Diff](textttnephi_neural_deformation_fields_for_approximately_diff.md)**
 
 :   NePhi用隐式神经网络（SIREN）替代传统的体素化形变场来表示配准变换，通过编码器预测latent code + 可选的测试时优化实现快速且近似微分同胚的医学图像配准，在多分辨率设置下与SOTA精度相当但内存降低5倍。
-
-**[TIP: Tabular-Image Pre-training for Multimodal Classification with Incomplete Data](tip_tabularimage_pretraining_for_multimodal_classification_w.md)**
-
-:   提出TIP框架，通过掩码表格重建、图像-表格匹配和对比学习三个自监督任务，在表格数据不完整的条件下学习鲁棒的多模态表示，在自然图像和医学图像分类任务上超越现有方法。

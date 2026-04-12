@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Topological Rewriting of Tarski's Mereogeometry 论文解读 | AAAI 2026 | arXiv 2511.12727 | Tarski几何 | 本文在Coq定理证明器中，基于λ-MM库（Leśniewski部分整体论的类型论实现），将Tarski的实体几何（geometry of solids）重新用拓扑学语言改写：先证明部分整体论的类（m-class）对应正则开集从而构成拓扑空间，再证明Tarski几何形成该拓扑的子空间并满足Hausdorff（T₂）分离性质，从而为定性空间推理提供了一个统一的、机器验证的部分整体论-几何-拓扑理论。"
+title: >-
+  [论文解读] A Topological Rewriting of Tarski's Mereogeometry
+description: >-
+  [AAAI 2026][Tarski几何] 本文在Coq定理证明器中，基于λ-MM库（Leśniewski部分整体论的类型论实现），将Tarski的实体几何（geometry of solids）重新用拓扑学语言改写：先证明部分整体论的类（m-class）对应正则开集从而构成拓扑空间，再证明Tarski几何形成该拓扑的子空间并满足Hausdorff（T₂）分离性质，从而为定性空间推理提供了一个统一的、机器验证的部分整体论-几何-拓扑理论。
 tags:
   - AAAI 2026
   - Tarski几何

@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】Separating Knowledge and Perception with Procedural Data 论文解读 | ICML2025 | arXiv 2508.11697 | procedural data | 仅用程序化生成数据（非真实图像）训练视觉表征模型，再通过 visual memory（KNN 检索数据库）注入真实世界知识，在分类和分割任务上逼近真实数据训练的性能，同时实现对所有真实数据的完全可控（隐私保护、高效遗忘）。"
+title: >-
+  [论文解读] Separating Knowledge and Perception with Procedural Data
+description: >-
+  [ICML2025][图像分割][procedural data] 仅用程序化生成数据（非真实图像）训练视觉表征模型，再通过 visual memory（KNN 检索数据库）注入真实世界知识，在分类和分割任务上逼近真实数据训练的性能，同时实现对所有真实数据的完全可控（隐私保护、高效遗忘）。
 tags:
   - ICML2025
+  - 图像分割
   - procedural data
   - visual memory
   - KNN classification
-  - 图像分割
   - data privacy
   - differential privacy
   - 自监督学习

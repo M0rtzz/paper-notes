@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From RAG to Memory: Non-Parametric Continual Learning for Large Language Models 论文解读 | ICML 2025 | arXiv 2502.14802 | RAG | 提出 HippoRAG 2，通过将段落节点融入知识图谱、用 query-to-triple 深度上下文化链接、以及 LLM 驱动的识别记忆过滤，全面超越标准 RAG 在事实记忆、语义理解和关联推理三大维度的表现，向 LLM 的非参数化持续学习迈进一步。"
+title: >-
+  [论文解读] From RAG to Memory: Non-Parametric Continual Learning for Large Language Models
+description: >-
+  [ICML 2025][图学习][RAG] 提出 HippoRAG 2，通过将段落节点融入知识图谱、用 query-to-triple 深度上下文化链接、以及 LLM 驱动的识别记忆过滤，全面超越标准 RAG 在事实记忆、语义理解和关联推理三大维度的表现，向 LLM 的非参数化持续学习迈进一步。
 tags:
   - ICML 2025
+  - 图学习
   - RAG
   - 知识图谱
   - 持续学习

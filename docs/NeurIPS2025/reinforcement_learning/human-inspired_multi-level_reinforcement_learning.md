@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Human-Inspired Multi-Level Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2501.07502 | rating-based RL | 本文提出 RbRL-KL，在 rating-based RL 基础上增加 KL 散度驱动的策略损失项，利用不同评分等级的失败经验以不同权重推开当前策略，在 6 个 DeepMind Control 环境中超越标准 RbRL。"
+title: >-
+  [论文解读] Human-Inspired Multi-Level Reinforcement Learning
+description: >-
+  [NeurIPS 2025][rating-based RL] 本文提出 RbRL-KL，在 rating-based RL 基础上增加 KL 散度驱动的策略损失项，利用不同评分等级的失败经验以不同权重推开当前策略，在 6 个 DeepMind Control 环境中超越标准 RbRL。
 tags:
   - NeurIPS 2025
   - rating-based RL

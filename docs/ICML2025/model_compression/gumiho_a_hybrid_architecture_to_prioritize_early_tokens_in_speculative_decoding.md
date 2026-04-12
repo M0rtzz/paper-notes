@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gumiho: A Hybrid Architecture to Prioritize Early Tokens in Speculative Decoding 论文解读 | ICML 2025 | arXiv 2503.10135 | speculative decoding | 提出 Gumiho，一种用于推测解码的混合 draft 模型架构：前两个 token 使用串行 Transformer 以确保精度，后续 token 使用并行 MLP heads 以提升效率，并通过 Full Tree Attention 机制进一步增加接受长度，在 Vicuna/LLaMA 上实现了最高 3.65x 加速。"
+title: >-
+  [论文解读] Gumiho: A Hybrid Architecture to Prioritize Early Tokens in Speculative Decoding
+description: >-
+  [ICML 2025][模型压缩][speculative decoding] 提出 Gumiho，一种用于推测解码的混合 draft 模型架构：前两个 token 使用串行 Transformer 以确保精度，后续 token 使用并行 MLP heads 以提升效率，并通过 Full Tree Attention 机制进一步增加接受长度，在 Vicuna/LLaMA 上实现了最高 3.65x 加速。
 tags:
   - ICML 2025
+  - 模型压缩
   - speculative decoding
   - 混合架构
   - draft model

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ApET: Approximation-Error Guided Token Compression for Efficient VLMs 论文解读 | CVPR 2026 | arXiv 2602.19870 | 近似误差 | 从信息论角度出发，通过线性近似重建每个visual token并用重建误差衡量其信息量（误差大=信息多=应保留），提出完全不依赖注意力权重的ApET框架，在LLaVA-1.5-7B上88.9%压缩保留95.2%精度，视频任务甚至达100.4%超基线，且完全兼容FlashAttention。"
+title: >-
+  [论文解读] ApET: Approximation-Error Guided Token Compression for Efficient VLMs
+description: >-
+  [CVPR 2026][多模态][近似误差] 从信息论角度出发，通过线性近似重建每个visual token并用重建误差衡量其信息量（误差大=信息多=应保留），提出完全不依赖注意力权重的ApET框架，在LLaVA-1.5-7B上88.9%压缩保留95.2%精度，视频任务甚至达100.4%超基线，且完全兼容FlashAttention。
 tags:
   - CVPR 2026
+  - 多模态
   - 近似误差
   - 信息论
   - 线性近似

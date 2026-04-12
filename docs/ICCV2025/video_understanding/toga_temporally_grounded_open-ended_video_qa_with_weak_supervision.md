@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TOGA: Temporally Grounded Open-Ended Video QA with Weak Supervision 论文解读 | ICCV 2025 | arXiv 2506.09445 | Video QA | 提出TOGA——一种弱监督条件下的视觉语言模型，通过多尺度视觉语言连接器和一致性约束生成伪时序标签，在**无需任何时序标注**的情况下联合生成开放式答案与时间定位，在NExT-GQA、MSVD-QA和ActivityNet-QA上取得SOTA。"
+title: >-
+  [论文解读] TOGA: Temporally Grounded Open-Ended Video QA with Weak Supervision
+description: >-
+  [ICCV 2025][视频理解][Video QA] 提出TOGA——一种弱监督条件下的视觉语言模型，通过多尺度视觉语言连接器和一致性约束生成伪时序标签，在**无需任何时序标注**的情况下联合生成开放式答案与时间定位，在NExT-GQA、MSVD-QA和ActivityNet-QA上取得SOTA。
 tags:
   - ICCV 2025
+  - 视频理解
   - Video QA
   - 时序定位
   - 弱监督

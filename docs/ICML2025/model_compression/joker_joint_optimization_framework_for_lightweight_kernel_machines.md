@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Joker: Joint Optimization Framework for Lightweight Kernel Machines 论文解读 | ICML2025 | arXiv 2505.17765 | 核方法 | 提出 Joker 框架，通过对偶块坐标下降 + 信赖域 (DBCD-TR) 和随机傅里叶特征近似，以 ~2GB 内存实现多种大规模核模型（KRR / KLR / SVM 等）的统一高效训练，内存节省高达 90% 且性能不降。"
+title: >-
+  [论文解读] Joker: Joint Optimization Framework for Lightweight Kernel Machines
+description: >-
+  [ICML2025][模型压缩][核方法] 提出 Joker 框架，通过对偶块坐标下降 + 信赖域 (DBCD-TR) 和随机傅里叶特征近似，以 ~2GB 内存实现多种大规模核模型（KRR / KLR / SVM 等）的统一高效训练，内存节省高达 90% 且性能不降。
 tags:
   - ICML2025
+  - 模型压缩
   - 核方法
   - 大规模学习
   - 对偶优化

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SocialHarmBench: Revealing LLM Vulnerabilities to Socially Harmful Requests 论文解读 | ICLR 2026 | arXiv 2510.04891 | LLM安全 | 提出首个专门针对社会政治危害的LLM安全评估基准 SocialHarmBench，包含585条覆盖7个领域、34个国家的提示，揭示了当前LLM在历史修正主义、宣传操纵等政治敏感场景中的系统性安全漏洞。"
+title: >-
+  [论文解读] SocialHarmBench: Revealing LLM Vulnerabilities to Socially Harmful Requests
+description: >-
+  [ICLR 2026][人体理解][LLM安全] 提出首个专门针对社会政治危害的LLM安全评估基准 SocialHarmBench，包含585条覆盖7个领域、34个国家的提示，揭示了当前LLM在历史修正主义、宣传操纵等政治敏感场景中的系统性安全漏洞。
 tags:
   - ICLR 2026
+  - 人体理解
   - LLM安全
   - 社会政治危害
   - 对抗攻击

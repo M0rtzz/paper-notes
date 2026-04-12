@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Searching Latent Program Spaces 论文解读 | NeurIPS 2025 | arXiv 2411.08706 | Latent Program Network | 提出 Latent Program Network（LPN），通过编码器将输入-输出示例映射为潜在程序表示，在测试时通过梯度搜索潜在空间来适应新任务，在 ARC-AGI 基准上显著优于 in-context learning 和 test-time training 方法。"
+title: >-
+  [论文解读] Searching Latent Program Spaces
+description: >-
+  [NeurIPS 2025][人体理解][Latent Program Network] 提出 Latent Program Network（LPN），通过编码器将输入-输出示例映射为潜在程序表示，在测试时通过梯度搜索潜在空间来适应新任务，在 ARC-AGI 基准上显著优于 in-context learning 和 test-time training 方法。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - Latent Program Network
   - 程序合成
   - 测试时搜索

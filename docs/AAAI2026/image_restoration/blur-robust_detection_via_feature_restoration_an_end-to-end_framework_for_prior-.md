@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Blur-Robust Detection via Feature Restoration: An End-to-End Framework for Prior-Guided Infrared UAV Target Detection 论文解读 | AAAI 2026 | arXiv 2511.14371 | 运动模糊 | 提出 JFD3 端到端双分支框架，在特征域而非图像域进行去模糊，并利用频率结构先验引导检测网络，实现运动模糊条件下红外无人机目标的高精度实时检测。"
+title: >-
+  [论文解读] Blur-Robust Detection via Feature Restoration: An End-to-End Framework for Prior-Guided Infrared UAV Target Detection
+description: >-
+  [AAAI 2026][图像恢复][运动模糊] 提出 JFD3 端到端双分支框架，在特征域而非图像域进行去模糊，并利用频率结构先验引导检测网络，实现运动模糊条件下红外无人机目标的高精度实时检测。
 tags:
   - AAAI 2026
+  - 图像恢复
   - 运动模糊
   - 红外无人机目标检测
   - 特征域去模糊

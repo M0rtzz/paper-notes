@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning 论文解读 | NeurIPS 2025 | arXiv 2511.05784 | LLM遗忘学习 | DRAGON 提出无需微调基座模型的系统性 LLM 遗忘框架：通过双层检测模块识别需遗忘的 prompt，再由专门微调的 guard 模型生成 CoT 推理指令实现上下文干预，在保持模型通用能力的同时有效删除隐私/有害知识。"
+title: >-
+  [论文解读] DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning
+description: >-
+  [NeurIPS 2025][模型压缩][LLM遗忘学习] DRAGON 提出无需微调基座模型的系统性 LLM 遗忘框架：通过双层检测模块识别需遗忘的 prompt，再由专门微调的 guard 模型生成 CoT 推理指令实现上下文干预，在保持模型通用能力的同时有效删除隐私/有害知识。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - LLM遗忘学习
   - In-Context干预
   - Chain-of-Thought

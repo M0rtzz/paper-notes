@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization 论文解读 | CVPR 2026 | arXiv 2603.13228 | 扩散运动生成 | 提出PhysMoDPO，将预训练的全身控制器（WBC/DeepMimic）集成到扩散运动生成器的后训练流程中，通过物理仿真自动构造偏好对并用DPO微调，使生成运动在WBC执行后同时满足物理可行性和文本/空间条件忠实度，实现零样本迁移到Unitree G1真实机器人。"
+title: >-
+  [论文解读] PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization
+description: >-
+  [CVPR 2026][LLM对齐][扩散运动生成] 提出PhysMoDPO，将预训练的全身控制器（WBC/DeepMimic）集成到扩散运动生成器的后训练流程中，通过物理仿真自动构造偏好对并用DPO微调，使生成运动在WBC执行后同时满足物理可行性和文本/空间条件忠实度，实现零样本迁移到Unitree G1真实机器人。
 tags:
   - CVPR 2026
+  - LLM对齐
   - 扩散运动生成
   - DPO偏好优化
   - 物理仿真

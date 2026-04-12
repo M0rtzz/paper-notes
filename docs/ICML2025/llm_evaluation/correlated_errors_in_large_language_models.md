@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Correlated Errors in Large Language Models 论文解读 | ICML 2025 | arXiv 2506.07962 | LLM相关性 | 本文通过对超过350个LLM的大规模实证分析，发现不同LLM之间存在高度相关的错误模式——在两个模型都出错时约60%的情况下会选择同一个错误答案，且越准确的模型相关性越高；进而研究了这种相关性对LLM-as-Judge评估和招聘市场的下游影响。"
+title: >-
+  [论文解读] Correlated Errors in Large Language Models
+description: >-
+  [ICML 2025][LLM相关性] 本文通过对超过350个LLM的大规模实证分析，发现不同LLM之间存在高度相关的错误模式——在两个模型都出错时约60%的情况下会选择同一个错误答案，且越准确的模型相关性越高；进而研究了这种相关性对LLM-as-Judge评估和招聘市场的下游影响。
 tags:
   - ICML 2025
   - LLM相关性

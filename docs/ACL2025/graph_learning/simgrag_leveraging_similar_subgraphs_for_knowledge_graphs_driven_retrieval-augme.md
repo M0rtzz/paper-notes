@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SimGRAG: Leveraging Similar Subgraphs for Knowledge Graphs Driven Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2412.15272 | 知识图谱问答 | 提出 SimGRAG 方法，通过\"查询→模式图→子图\"两阶段对齐策略，利用 LLM 将查询转化为图模式，再用图语义距离（GSD）度量在知识图谱中高效检索语义最相似的子图，实现即插即用的 KG 驱动 RAG，在问答和事实验证任务上超越所有现有方法。"
+title: >-
+  [论文解读] SimGRAG: Leveraging Similar Subgraphs for Knowledge Graphs Driven Retrieval-Augmented Generation
+description: >-
+  [ACL 2025][图学习][知识图谱问答] 提出 SimGRAG 方法，通过"查询→模式图→子图"两阶段对齐策略，利用 LLM 将查询转化为图模式，再用图语义距离（GSD）度量在知识图谱中高效检索语义最相似的子图，实现即插即用的 KG 驱动 RAG，在问答和事实验证任务上超越所有现有方法。
 tags:
   - ACL 2025
+  - 图学习
   - 知识图谱问答
   - 检索增强生成
   - 图语义距离

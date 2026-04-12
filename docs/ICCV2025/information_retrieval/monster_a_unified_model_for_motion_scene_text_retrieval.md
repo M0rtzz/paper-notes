@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MonSTeR: a Unified Model for Motion, Scene, Text Retrieval 论文解读 | ICCV 2025 | arXiv 2510.03200 | 三模态检索 | 提出 **MonSTeR**——首个**运动-场景-文本三模态检索模型**，通过受拓扑深度学习启发的高阶关系建模，构建统一隐空间以捕获三模态之间的内在依赖关系，在多项检索任务上大幅超越仅依赖单模态表征的基线，并可用于人-场景交互模型的评估。"
+title: >-
+  [论文解读] MonSTeR: a Unified Model for Motion, Scene, Text Retrieval
+description: >-
+  [ICCV 2025][三模态检索] 提出 **MonSTeR**——首个**运动-场景-文本三模态检索模型**，通过受拓扑深度学习启发的高阶关系建模，构建统一隐空间以捕获三模态之间的内在依赖关系，在多项检索任务上大幅超越仅依赖单模态表征的基线，并可用于人-场景交互模型的评估。
 tags:
   - ICCV 2025
   - 三模态检索

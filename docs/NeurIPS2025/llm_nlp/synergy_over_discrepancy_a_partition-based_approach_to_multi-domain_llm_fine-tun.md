@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Synergy over Discrepancy: A Partition-Based Approach to Multi-Domain LLM Fine-Tuning 论文解读 | NeurIPS 2025 | arXiv 2511.07198 | 多域微调 | 提出基于分区的多阶段微调框架，通过策略性地将多个域划分为子集（阶段），在最大化域间协同的同时最小化负迁移，并推导了新的泛化界来理论支撑该分区策略。"
+title: >-
+  [论文解读] Synergy over Discrepancy: A Partition-Based Approach to Multi-Domain LLM Fine-Tuning
+description: >-
+  [NeurIPS 2025][LLM/NLP][多域微调] 提出基于分区的多阶段微调框架，通过策略性地将多个域划分为子集（阶段），在最大化域间协同的同时最小化负迁移，并推导了新的泛化界来理论支撑该分区策略。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - 多域微调
   - 域间协同
   - 分区策略

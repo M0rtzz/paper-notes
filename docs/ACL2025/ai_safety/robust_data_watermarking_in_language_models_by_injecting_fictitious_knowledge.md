@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Robust Data Watermarking in Language Models by Injecting Fictitious Knowledge 论文解读 | ACL 2025 | arXiv 2503.04036 | 数据水印 | 提出一种基于虚构知识（Fictitious Knowledge）的数据水印方法，通过在训练数据中注入虚构但合理的实体及其属性描述，实现对 LLM 训练数据所有权的可追溯验证，水印抗数据预处理过滤且支持黑盒 QA 验证。"
+title: >-
+  [论文解读] Robust Data Watermarking in Language Models by Injecting Fictitious Knowledge
+description: >-
+  [ACL 2025][AI安全][数据水印] 提出一种基于虚构知识（Fictitious Knowledge）的数据水印方法，通过在训练数据中注入虚构但合理的实体及其属性描述，实现对 LLM 训练数据所有权的可追溯验证，水印抗数据预处理过滤且支持黑盒 QA 验证。
 tags:
   - ACL 2025
+  - AI安全
   - 数据水印
   - 虚构知识
   - 训练数据溯源

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive-VP: A Framework for LLM-Based Virtual Patients that Adapts to Trainees' Dialogue 论文解读 | ACL 2025 | arXiv 2506.00386 | 虚拟病人 | 提出 Adaptive-VP——基于 LLM 的虚拟病人对话生成框架，根据护理学员的沟通质量动态调整虚拟病人行为（沟通差→升级敌意，沟通好→缓和），包含案例开发管线+评估模块+动态适应模块+对话生成模块+安全监控模块五个组件，专家护士评估显示其交互自然度和真实感显著优于现有方法。"
+title: >-
+  [论文解读] Adaptive-VP: A Framework for LLM-Based Virtual Patients that Adapts to Trainees' Dialogue
+description: >-
+  [ACL 2025][LLM/NLP][虚拟病人] 提出 Adaptive-VP——基于 LLM 的虚拟病人对话生成框架，根据护理学员的沟通质量动态调整虚拟病人行为（沟通差→升级敌意，沟通好→缓和），包含案例开发管线+评估模块+动态适应模块+对话生成模块+安全监控模块五个组件，专家护士评估显示其交互自然度和真实感显著优于现有方法。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 虚拟病人
   - 护理沟通训练
   - 自适应对话

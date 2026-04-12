@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SGMA: Semantic-Guided Modality-Aware Segmentation for Remote Sensing with Incomplete Multimodal Data 论文解读 | CVPR 2026 | arXiv 2603.02505 | 不完整多模态 | 提出SGMA——语义引导模态感知分割框架，通过语义引导融合(SGF)降低类内变异和协调跨模态冲突，模态感知采样(MAS)平衡脆弱模态训练，在ISPRS上Average mIoU +9.20%且弱模态Last-1 mIoU +18.26%(vs SOTA IMLT)。"
+title: >-
+  [论文解读] SGMA: Semantic-Guided Modality-Aware Segmentation for Remote Sensing with Incomplete Multimodal Data
+description: >-
+  [CVPR 2026][图像分割][不完整多模态] 提出SGMA——语义引导模态感知分割框架，通过语义引导融合(SGF)降低类内变异和协调跨模态冲突，模态感知采样(MAS)平衡脆弱模态训练，在ISPRS上Average mIoU +9.20%且弱模态Last-1 mIoU +18.26%(vs SOTA IMLT)。
 tags:
   - CVPR 2026
+  - 图像分割
   - 不完整多模态
   - 语义引导融合
   - 模态感知采样

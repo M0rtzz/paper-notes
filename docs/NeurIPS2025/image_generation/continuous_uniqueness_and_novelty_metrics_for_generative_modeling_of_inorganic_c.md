@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals 论文解读 | NeurIPS 2025 (AI4Mat Workshop) | arXiv 2510.12405 | crystal generation | 针对无机晶体生成模型评估中广泛使用的离散距离函数 (StructureMatcher) 的四大缺陷，提出基于 Magpie 指纹（成分）和 AMD 向量（结构）的连续距离函数，实现更可靠的 uniqueness 和 novelty 度量。"
+title: >-
+  [论文解读] Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals
+description: >-
+  [NeurIPS 2025 (AI4Mat Workshop)][图像生成][crystal generation] 针对无机晶体生成模型评估中广泛使用的离散距离函数 (StructureMatcher) 的四大缺陷，提出基于 Magpie 指纹（成分）和 AMD 向量（结构）的连续距离函数，实现更可靠的 uniqueness 和 novelty 度量。
 tags:
   - NeurIPS 2025 (AI4Mat Workshop)
+  - 图像生成
   - crystal generation
   - uniqueness
   - novelty

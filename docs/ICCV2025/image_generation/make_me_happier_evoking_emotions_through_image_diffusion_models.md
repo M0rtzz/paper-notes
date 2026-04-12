@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Make Me Happier: Evoking Emotions Through Image Diffusion Models 论文解读 | ICCV 2025 | arXiv 2403.08255 | 情感图像编辑 | EmoEditor 提出首个系统性的**情感驱动图像生成**框架，通过双分支扩散模型（全局情感条件 + 局部语义特征）实现仅输入源图和目标情感即可生成具有目标情感的图像，无需手工文本指令或参考图，并构建了 340K 情感标注图对的 EmoPair 数据集。"
+title: >-
+  [论文解读] Make Me Happier: Evoking Emotions Through Image Diffusion Models
+description: >-
+  [ICCV 2025][图像生成][情感图像编辑] EmoEditor 提出首个系统性的**情感驱动图像生成**框架，通过双分支扩散模型（全局情感条件 + 局部语义特征）实现仅输入源图和目标情感即可生成具有目标情感的图像，无需手工文本指令或参考图，并构建了 340K 情感标注图对的 EmoPair 数据集。
 tags:
   - ICCV 2025
+  - 图像生成
   - 情感图像编辑
   - 扩散模型
   - 情感分析

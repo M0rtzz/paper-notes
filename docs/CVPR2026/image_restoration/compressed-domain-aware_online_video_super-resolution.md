@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CDA-VSR: Compressed-Domain-Aware Online Video Super-Resolution 论文解读 | CVPR 2026 | arXiv 2603.07694 | 在线视频超分辨率 | CDA-VSR利用视频比特流中免费可得的压缩域信息（运动向量、残差图、帧类型）来分别指导帧对齐、特征融合和自适应重建，在REDS4数据集上比SOTA方法TMP提升PSNR达0.13dB的同时实现>2倍推理速度（~93 FPS@320×180，RTX 3090）。"
+title: >-
+  [论文解读] CDA-VSR: Compressed-Domain-Aware Online Video Super-Resolution
+description: >-
+  [CVPR 2026][图像恢复][在线视频超分辨率] CDA-VSR利用视频比特流中免费可得的压缩域信息（运动向量、残差图、帧类型）来分别指导帧对齐、特征融合和自适应重建，在REDS4数据集上比SOTA方法TMP提升PSNR达0.13dB的同时实现>2倍推理速度（~93 FPS@320×180，RTX 3090）。
 tags:
   - CVPR 2026
+  - 图像恢复
   - 在线视频超分辨率
   - 压缩域信息
   - 运动向量

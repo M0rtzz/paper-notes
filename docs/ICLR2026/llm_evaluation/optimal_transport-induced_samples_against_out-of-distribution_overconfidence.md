@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Optimal Transport-Induced Samples against Out-of-Distribution Overconfidence 论文解读 | ICLR 2026 | arXiv 2601.21320 | OOD过度自信 | 利用半离散OT几何奇异性(传输方向突变处)定位语义歧义区域，构造OTIS(OT诱导OOD样本)并用置信度抑制训练→系统缓解DNN对OOD的过度自信，多架构多设定下全面超越SOTA且不损ID性能。"
+title: >-
+  [论文解读] Optimal Transport-Induced Samples against Out-of-Distribution Overconfidence
+description: >-
+  [ICLR 2026][OOD过度自信] 利用半离散OT几何奇异性(传输方向突变处)定位语义歧义区域，构造OTIS(OT诱导OOD样本)并用置信度抑制训练→系统缓解DNN对OOD的过度自信，多架构多设定下全面超越SOTA且不损ID性能。
 tags:
   - ICLR 2026
   - OOD过度自信

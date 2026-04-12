@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Rating Quality of Diverse Time Series Data by Meta-learning from LLM Judgment 论文解读 | 提出TSRating框架，利用LLM从趋势/频率/幅度/模式四个维度对时间序列数据块做成对质量比较，通过Bradley-Terry模型转换为标量质量分数，并以MAML元学习在9个领域22个子集上训练TSRater模型（MOMENT编码器+MLP），实现高效、统一的跨域时间序列数据质量评估。"
+title: >-
+  [论文解读] Rating Quality of Diverse Time Series Data by Meta-learning from LLM Judgment
+description: >-
+  [时间序列] 提出TSRating框架，利用LLM从趋势/频率/幅度/模式四个维度对时间序列数据块做成对质量比较，通过Bradley-Terry模型转换为标量质量分数，并以MAML元学习在9个领域22个子集上训练TSRater模型（MOMENT编码器+MLP），实现高效、统一的跨域时间序列数据质量评估。
 tags:
-
+  - 时间序列
 ---
 
 # Rating Quality of Diverse Time Series Data by Meta-learning from LLM Judgment

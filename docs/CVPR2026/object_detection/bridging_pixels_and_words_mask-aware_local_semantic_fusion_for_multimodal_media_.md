@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bridging Pixels and Words: Mask-Aware Local Semantic Fusion for Multimodal Media Verification 论文解读 | CVPR 2026 | arXiv 2603.26052 | 多模态虚假信息 | 提出 MaLSF 框架，利用掩码-标签对作为语义锚点，通过双向跨模态验证（BCV）和层级语义聚合（HSA）模块实现主动式局部语义冲突检测，在 DGM4 和假新闻检测任务上取得 SOTA。"
+title: >-
+  [论文解读] Bridging Pixels and Words: Mask-Aware Local Semantic Fusion for Multimodal Media Verification
+description: >-
+  [CVPR 2026][目标检测][多模态虚假信息] 提出 MaLSF 框架，利用掩码-标签对作为语义锚点，通过双向跨模态验证（BCV）和层级语义聚合（HSA）模块实现主动式局部语义冲突检测，在 DGM4 和假新闻检测任务上取得 SOTA。
 tags:
   - CVPR 2026
+  - 目标检测
   - 多模态虚假信息
   - 双向跨模态验证
   - 掩码-标签对

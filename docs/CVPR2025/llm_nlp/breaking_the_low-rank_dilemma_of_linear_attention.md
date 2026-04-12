@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Breaking the Low-Rank Dilemma of Linear Attention 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：The Softmax attention mechanism in Transformer models is notoriously computationally expensive, particularly due to its quadratic complexity, posing significant challenges in vision applications. In contrast, linear attention provides a far more efficient solution by reducing the complexity to linea"
+title: >-
+  [论文解读] Breaking the Low-Rank Dilemma of Linear Attention
+description: >-
+  [CVPR 2025][LLM/NLP][待补充] > 基于摘要：The Softmax attention mechanism in Transformer models is notoriously computationally expensive, particularly due to its quadratic complexity, posing significant challenges in vision applications. In contrast, linear attention provides a far more efficient solution by reducing the complexity to linea
 tags:
   - CVPR 2025
+  - LLM/NLP
   - 待补充
 ---
 

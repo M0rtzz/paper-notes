@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models 论文解读 | ICML 2025 | arXiv 2410.02681 | CLIP | 揭示 CLIP prompt tuning 在 base 和 novel 类之间存在校准权衡（CoOp 导致 novel 类过度自信，KgCoOp 导致 base 类自信不足），从文本特征散度视角解释原因，并提出 Dynamic Outlier Regularization (DOR) 通过正则化非训练类文本标签的特征偏差同时保持两端校准。"
+title: >-
+  [论文解读] Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models
+description: >-
+  [ICML 2025][多模态][CLIP] 揭示 CLIP prompt tuning 在 base 和 novel 类之间存在校准权衡（CoOp 导致 novel 类过度自信，KgCoOp 导致 base 类自信不足），从文本特征散度视角解释原因，并提出 Dynamic Outlier Regularization (DOR) 通过正则化非训练类文本标签的特征偏差同时保持两端校准。
 tags:
   - ICML 2025
+  - 多模态
   - CLIP
   - Calibration
   - 提示学习

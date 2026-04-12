@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BokehDiff: Neural Lens Blur with One-Step Diffusion 论文解读 | ICCV 2025 | arXiv 2507.18060 | 散景渲染 | BokehDiff提出基于预训练扩散模型的单步推理散景渲染方法，通过物理启发的自注意力模块（PISA）融入能量守恒、弥散圆约束和自遮挡效果，配合合成前景数据训练，在深度不连续区域显著优于传统方法。"
+title: >-
+  [论文解读] BokehDiff: Neural Lens Blur with One-Step Diffusion
+description: >-
+  [ICCV 2025][3D视觉][散景渲染] BokehDiff提出基于预训练扩散模型的单步推理散景渲染方法，通过物理启发的自注意力模块（PISA）融入能量守恒、弥散圆约束和自遮挡效果，配合合成前景数据训练，在深度不连续区域显著优于传统方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 散景渲染
   - 扩散模型
   - 单步推理

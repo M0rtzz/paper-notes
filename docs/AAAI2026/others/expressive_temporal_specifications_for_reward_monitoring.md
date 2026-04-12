@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Expressive Temporal Specifications for Reward Monitoring 论文解读 | AAAI 2026 | arXiv 2511.12808 | 时序逻辑 | 利用量化线性时序逻辑（LTLf[F]）自动合成**量化奖励监控器（QRM）**，为强化学习智能体在运行时生成密集的连续值奖励流，从根本上缓解布尔语义下长时任务的稀疏奖励问题。"
+title: >-
+  [论文解读] Expressive Temporal Specifications for Reward Monitoring
+description: >-
+  [AAAI 2026][时序逻辑] 利用量化线性时序逻辑（LTLf[F]）自动合成**量化奖励监控器（QRM）**，为强化学习智能体在运行时生成密集的连续值奖励流，从根本上缓解布尔语义下长时任务的稀疏奖励问题。
 tags:
   - AAAI 2026
   - 时序逻辑

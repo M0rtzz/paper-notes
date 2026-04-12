@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Machine Translation Models are Zero-Shot Detectors of Translation Direction 论文解读 | ACL 2025 | arXiv 2401.06769 | 翻译方向检测 | 提出一种基于 NMT 模型翻译概率的无监督翻译方向检测方法：若 p(translation|original) > p(original|translation)，则可零样本判断平行文本的原始翻译方向，NMT 翻译的文档级检测准确率达 96%。"
+title: >-
+  [论文解读] Machine Translation Models are Zero-Shot Detectors of Translation Direction
+description: >-
+  [ACL 2025][翻译方向检测] 提出一种基于 NMT 模型翻译概率的无监督翻译方向检测方法：若 $p(\text{translation}|\text{original}) > p(\text{original}|\text{translation})$，则可零样本判断平行文本的原始翻译方向，NMT 翻译的文档级检测准确率达 96%。
 tags:
   - ACL 2025
   - 翻译方向检测

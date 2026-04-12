@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HiERO: Understanding the Hierarchy of Human Behavior Enhances Reasoning on Egocentric Videos 论文解读 | ICCV 2025 | arXiv 2505.12911 | 第一人称视频理解 | 提出 HiERO，一种弱监督的层次化图架构，通过对齐视频片段与叙述文本来学习功能性活动线索的层次结构，使视频片段特征编码多尺度的行为依赖关系，在程序学习任务的零样本评估中大幅超越全监督方法（EgoProceL 上 F1 提升 +12.5%），在视频-文本对齐基准上也达到了 SOTA。"
+title: >-
+  [论文解读] HiERO: Understanding the Hierarchy of Human Behavior Enhances Reasoning on Egocentric Videos
+description: >-
+  [ICCV 2025][第一人称视频理解] 提出 HiERO，一种弱监督的层次化图架构，通过对齐视频片段与叙述文本来学习功能性活动线索的层次结构，使视频片段特征编码多尺度的行为依赖关系，在程序学习任务的零样本评估中大幅超越全监督方法（EgoProceL 上 F1 提升 +12.5%），在视频-文本对齐基准上也达到了 SOTA。
 tags:
   - ICCV 2025
   - 第一人称视频理解

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Robust Watermarking on Gradient Boosting Decision Trees 论文解读 | 提出首个针对 GBDT 模型的鲁棒水印框架，通过 in-place 微调嵌入水印，设计了四种嵌入策略（Wrong Prediction Flip、Outlier Flip、Cluster Center Flip、Confidence Flip），实现高嵌入成功率、低精度损失和强抗微调鲁棒性。"
+title: >-
+  [论文解读] Robust Watermarking on Gradient Boosting Decision Trees
+description: >-
+  [AI安全] 提出首个针对 GBDT 模型的鲁棒水印框架，通过 in-place 微调嵌入水印，设计了四种嵌入策略（Wrong Prediction Flip、Outlier Flip、Cluster Center Flip、Confidence Flip），实现高嵌入成功率、低精度损失和强抗微调鲁棒性。
 tags:
-
+  - AI安全
 ---
 
 # Robust Watermarking on Gradient Boosting Decision Trees

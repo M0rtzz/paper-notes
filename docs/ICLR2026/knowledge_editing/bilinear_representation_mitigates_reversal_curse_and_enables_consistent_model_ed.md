@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing 论文解读 | ICLR 2026 | arXiv 2509.21993 | reversal curse | 通过在合成关系知识图谱上从头训练 Transformer，发现适当正则化会使模型隐层涌现出双线性关系结构（bilinear relational structure），该结构不仅能克服逆向诅咒（reversal curse），还能实现编辑单个事实后逻辑一致地传播到相关事实。"
+title: >-
+  [论文解读] Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing
+description: >-
+  [ICLR 2026][reversal curse] 通过在合成关系知识图谱上从头训练 Transformer，发现适当正则化会使模型隐层涌现出双线性关系结构（bilinear relational structure），该结构不仅能克服逆向诅咒（reversal curse），还能实现编辑单个事实后逻辑一致地传播到相关事实。
 tags:
   - ICLR 2026
   - reversal curse

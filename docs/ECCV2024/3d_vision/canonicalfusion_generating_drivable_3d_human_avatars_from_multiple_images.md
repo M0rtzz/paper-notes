@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CanonicalFusion: Generating Drivable 3D Human Avatars from Multiple Images 论文解读 | ECCV 2024 | arXiv 2407.04345 | 可驱动3D人体 | 提出CanonicalFusion框架,通过联合预测深度图和压缩LBS权重映射图实现直接规范化,并利用前向蒙皮可微渲染融合多张图像信息,从多张输入图像生成可驱动的3D人体Avatar。"
+title: >-
+  [论文解读] CanonicalFusion: Generating Drivable 3D Human Avatars from Multiple Images
+description: >-
+  [ECCV 2024][3D视觉][可驱动3D人体] 提出CanonicalFusion框架,通过联合预测深度图和压缩LBS权重映射图实现直接规范化,并利用前向蒙皮可微渲染融合多张图像信息,从多张输入图像生成可驱动的3D人体Avatar。
 tags:
   - ECCV 2024
+  - 3D视觉
   - 可驱动3D人体
   - 规范空间融合
   - 前向蒙皮

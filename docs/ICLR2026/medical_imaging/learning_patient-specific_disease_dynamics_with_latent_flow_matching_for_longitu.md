@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation 论文解读 | ICLR 2026 | arXiv 2512.09185 | 疾病进展建模 | 提出Δ-LFM——用流匹配建模患者特异性疾病进展：(1)ArcRank损失强制患者潜在轨迹沿特定轴单调递增(与疾病严重度对齐)构建语义有意义的潜在空间，(2)将流匹配的标准[0,1]时间范围扩展为[0,T]实际时间间隔使预测任意未来时间点成为可能，在3个纵向MRI基准上实现高保真度+精确疾病进展对齐。"
+title: >-
+  [论文解读] Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation
+description: >-
+  [ICLR 2026][医学图像][疾病进展建模] 提出Δ-LFM——用流匹配建模患者特异性疾病进展：(1)ArcRank损失强制患者潜在轨迹沿特定轴单调递增(与疾病严重度对齐)构建语义有意义的潜在空间，(2)将流匹配的标准[0,1]时间范围扩展为[0,T]实际时间间隔使预测任意未来时间点成为可能，在3个纵向MRI基准上实现高保真度+精确疾病进展对齐。
 tags:
   - ICLR 2026
+  - 医学图像
   - 疾病进展建模
   - 流匹配
   - 患者特异性

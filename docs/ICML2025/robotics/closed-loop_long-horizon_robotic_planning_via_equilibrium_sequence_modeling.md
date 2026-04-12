@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Closed-loop Long-horizon Robotic Planning via Equilibrium Sequence Modeling 论文解读 | ICML 2025 | arXiv 2410.01440 | 机器人规划 | 将 LLM 的自精炼规划过程建模为不动点问题（深度均衡模型），通过隐式微分实现端到端监督训练，无需额外验证器或 RL，并设计嵌套均衡求解实现闭环长程机器人规划。"
+title: >-
+  [论文解读] Closed-loop Long-horizon Robotic Planning via Equilibrium Sequence Modeling
+description: >-
+  [ICML 2025][机器人][机器人规划] 将 LLM 的自精炼规划过程建模为不动点问题（深度均衡模型），通过隐式微分实现端到端监督训练，无需额外验证器或 RL，并设计嵌套均衡求解实现闭环长程机器人规划。
 tags:
   - ICML 2025
+  - 机器人
   - 机器人规划
   - 自精炼
   - 深度均衡模型

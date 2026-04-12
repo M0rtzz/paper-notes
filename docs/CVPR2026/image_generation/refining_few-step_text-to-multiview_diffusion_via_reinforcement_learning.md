@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Refining Few-Step Text-to-Multiview Diffusion via Reinforcement Learning 论文解读 | CVPR2026 | arXiv 2505.20107 | 多视图生成 | 提出 MVC-ZigAL 框架，通过多视图感知 MDP 建模、zigzag 自反思优势学习和 Lagrangian 对偶约束优化，有效提升少步文本到多视图扩散模型的单视图保真度和跨视图一致性。"
+title: >-
+  [论文解读] Refining Few-Step Text-to-Multiview Diffusion via Reinforcement Learning
+description: >-
+  [CVPR2026][图像生成][多视图生成] 提出 MVC-ZigAL 框架，通过多视图感知 MDP 建模、zigzag 自反思优势学习和 Lagrangian 对偶约束优化，有效提升少步文本到多视图扩散模型的单视图保真度和跨视图一致性。
 tags:
   - CVPR2026
+  - 图像生成
   - 多视图生成
   - 扩散模型
   - 强化学习微调

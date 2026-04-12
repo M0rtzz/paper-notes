@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GLIC: Adaptive Learned Image Compression with Graph Neural Networks 论文解读 | CVPR 2026 | arXiv 2603.25316 | 学习图像压缩 | 提出GLIC，首个基于GNN的端到端学习图像压缩框架，通过双尺度图（局部密集+全局稀疏）实现灵活感受野，复杂度感知的自适应度分配让每个像素根据内容复杂度决定邻居连接数量，在Kodak/Tecnick/CLIC上相对VTM-9.1实现BD-rate减少19-22%。"
+title: >-
+  [论文解读] GLIC: Adaptive Learned Image Compression with Graph Neural Networks
+description: >-
+  [CVPR 2026][图学习][学习图像压缩] 提出GLIC，首个基于GNN的端到端学习图像压缩框架，通过双尺度图（局部密集+全局稀疏）实现灵活感受野，复杂度感知的自适应度分配让每个像素根据内容复杂度决定邻居连接数量，在Kodak/Tecnick/CLIC上相对VTM-9.1实现BD-rate减少19-22%。
 tags:
   - CVPR 2026
+  - 图学习
   - 学习图像压缩
   - 图神经网络
   - 自适应连接

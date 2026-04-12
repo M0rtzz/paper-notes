@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Advancing Visual Large Language Model for Multi-granular Versatile Perception 论文解读 | ICCV 2025 | arXiv 2507.16213 | VLLM | 本文提出 MVP-LM，一个基于视觉大语言模型的多粒度通用感知框架，通过创新的多粒度解码器和 CoT 启发的数据统一策略，首次在单一模型中同时支持词级/句级指令下的框/掩膜预测四种感知组合，在全景分割、目标检测、视觉定位和指示表达分割等任务上取得有竞争力的性能。"
+title: >-
+  [论文解读] Advancing Visual Large Language Model for Multi-granular Versatile Perception
+description: >-
+  [ICCV 2025][图像分割][VLLM] 本文提出 MVP-LM，一个基于视觉大语言模型的多粒度通用感知框架，通过创新的多粒度解码器和 CoT 启发的数据统一策略，首次在单一模型中同时支持词级/句级指令下的框/掩膜预测四种感知组合，在全景分割、目标检测、视觉定位和指示表达分割等任务上取得有竞争力的性能。
 tags:
   - ICCV 2025
+  - 图像分割
   - VLLM
   - 多粒度感知
   - 统一框架

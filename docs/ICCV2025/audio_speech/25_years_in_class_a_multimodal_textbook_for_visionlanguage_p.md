@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining 论文解读 | ICCV 2025 | arXiv 2501.00958 | 多模态教科书 | 从YouTube收集2.5年(22,000课时)的教学视频，通过LLM驱动的多级抽取与过滤管线构建高质量交错图文\"多模态教科书\"语料(6.5M关键帧 + 0.75B文本token)，显著提升VLM在知识密集型和推理任务上的预训练效果，尤其在ScienceQA和MathVista上带来大幅提升。"
+title: >-
+  [论文解读] 2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining
+description: >-
+  [ICCV 2025][语音][多模态教科书] 从YouTube收集2.5年(22,000课时)的教学视频，通过LLM驱动的多级抽取与过滤管线构建高质量交错图文"多模态教科书"语料(6.5M关键帧 + 0.75B文本token)，显著提升VLM在知识密集型和推理任务上的预训练效果，尤其在ScienceQA和MathVista上带来大幅提升。
 tags:
   - ICCV 2025
+  - 语音
   - 多模态教科书
   - 交错图文语料
   - 教学视频

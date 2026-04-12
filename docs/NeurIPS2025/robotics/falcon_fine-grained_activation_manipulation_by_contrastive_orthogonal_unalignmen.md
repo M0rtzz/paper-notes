@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FALCON: Fine-grained Activation Manipulation by Contrastive Orthogonal Unalignment for Large Language Model 论文解读 | NeurIPS 2025 | arXiv 2502.01472 | Machine Unlearning | 提出 FALCON——基于表示引导的 LLM 遗忘框架，利用互信息进行参数选择、对比机制实现精细知识分离、梯度正交投影解决遗忘-保留冲突，在有害知识/版权/实体遗忘任务上全面超越现有方法。"
+title: >-
+  [论文解读] FALCON: Fine-grained Activation Manipulation by Contrastive Orthogonal Unalignment for Large Language Model
+description: >-
+  [NeurIPS 2025][机器人][Machine Unlearning] 提出 FALCON——基于表示引导的 LLM 遗忘框架，利用互信息进行参数选择、对比机制实现精细知识分离、梯度正交投影解决遗忘-保留冲突，在有害知识/版权/实体遗忘任务上全面超越现有方法。
 tags:
   - NeurIPS 2025
+  - 机器人
   - Machine Unlearning
   - 对比学习
   - 梯度正交投影

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Localizing and Mitigating Memorization in Image Autoregressive Models 论文解读 | ICML2025 | arXiv 2509.00488 | 图像自回归模型 | 利用改进的UnitMem指标定位图像自回归模型（VAR/RAR）中的记忆化神经元，发现不同架构的记忆化分布模式存在显著差异，并通过缩小高记忆化神经元权重实现了大幅降低可提取训练数据量（VAR-d30从672降至110张）且对生成质量影响可控的隐私缓解方案。"
+title: >-
+  [论文解读] Localizing and Mitigating Memorization in Image Autoregressive Models
+description: >-
+  [ICML2025][图像生成][图像自回归模型] 利用改进的UnitMem指标定位图像自回归模型（VAR/RAR）中的记忆化神经元，发现不同架构的记忆化分布模式存在显著差异，并通过缩小高记忆化神经元权重实现了大幅降低可提取训练数据量（VAR-d30从672降至110张）且对生成质量影响可控的隐私缓解方案。
 tags:
   - ICML2025
+  - 图像生成
   - 图像自回归模型
   - 记忆化定位
   - 隐私保护

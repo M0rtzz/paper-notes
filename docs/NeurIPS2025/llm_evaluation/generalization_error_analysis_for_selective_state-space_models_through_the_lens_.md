@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generalization Error Analysis for Selective State-Space Models Through the Lens of Attention 论文解读 | NeurIPS 2025 | arXiv 2502.01473 | Mamba | 将选择性SSM（Mamba）展开为注意力形式，利用覆盖数技术推导出受连续时间状态矩阵谱横断面s_A控制的泛化界——s_A<0时泛化界与序列长度无关，s_A≥0时指数增长，并证明这种依赖不可消除。"
+title: >-
+  [论文解读] Generalization Error Analysis for Selective State-Space Models Through the Lens of Attention
+description: >-
+  [NeurIPS 2025][Mamba] 将选择性SSM（Mamba）展开为注意力形式，利用覆盖数技术推导出受连续时间状态矩阵谱横断面$s_{\mathbf{A}}$控制的泛化界——$s_{\mathbf{A}}<0$时泛化界与序列长度无关，$s_{\mathbf{A}}\geq0$时指数增长，并证明这种依赖不可消除。
 tags:
   - NeurIPS 2025
   - Mamba

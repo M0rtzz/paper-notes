@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Comparing Moral Values in Western English-speaking Societies and LLMs with Word Associations 论文解读 | ACL 2025 | arXiv 2505.19674 | moral values | 提出通过词语联想（word association）而非直接提问来比较 LLM 与西方英语社会的道德价值观，发现 LLM 在正面道德维度上与人类更一致，但在情感多样性和具体性上存在系统性差异。"
+title: >-
+  [论文解读] Comparing Moral Values in Western English-speaking Societies and LLMs with Word Associations
+description: >-
+  [ACL 2025][LLM/NLP][moral values] 提出通过词语联想（word association）而非直接提问来比较 LLM 与西方英语社会的道德价值观，发现 LLM 在正面道德维度上与人类更一致，但在情感多样性和具体性上存在系统性差异。
 tags:
   - ACL 2025
+  - LLM/NLP
   - moral values
   - word association
   - Moral Foundation Theory

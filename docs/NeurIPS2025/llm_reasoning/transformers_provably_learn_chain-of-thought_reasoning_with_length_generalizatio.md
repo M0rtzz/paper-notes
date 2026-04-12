@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization 论文解读 | NeurIPS 2025 | arXiv 2511.07378 | CoT理论 | 从优化理论角度证明了一层 Transformer 通过梯度下降在合成状态追踪任务上能学会 CoT 推理并实现长度泛化，首次为常数深度 Transformer 学习 NC¹-complete 问题（超越之前局限于 TC⁰ 的理论）提供了收敛保证。"
+title: >-
+  [论文解读] Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization
+description: >-
+  [NeurIPS 2025][LLM推理][CoT理论] 从优化理论角度证明了一层 Transformer 通过梯度下降在合成状态追踪任务上能学会 CoT 推理并实现长度泛化，首次为常数深度 Transformer 学习 $\mathsf{NC}^1$-complete 问题（超越之前局限于 $\mathsf{TC}^0$ 的理论）提供了收敛保证。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - CoT理论
   - 长度泛化
   - 注意力集中

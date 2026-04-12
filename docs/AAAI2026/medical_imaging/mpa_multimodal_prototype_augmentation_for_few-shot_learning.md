@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MPA: Multimodal Prototype Augmentation for Few-Shot Learning 论文解读 | AAAI 2026 | arXiv 2602.10143 | Few-Shot Learning | 本文提出 MPA 框架，通过 LLM 生成多变体语义描述增强原型的语义信息（LMSE）、层次化多视角数据增强丰富视觉特征（HMA）、以及自适应不确定类吸收器建模类间不确定性（AUCA），在 4 个单域和 6 个跨域小样本学习基准上显著超越现有方法，5-way 1-shot 下单域和跨域分别比次优方法高出 12.29% 和 24.56%。"
+title: >-
+  [论文解读] MPA: Multimodal Prototype Augmentation for Few-Shot Learning
+description: >-
+  [AAAI 2026][医学图像][Few-Shot Learning] 本文提出 MPA 框架，通过 LLM 生成多变体语义描述增强原型的语义信息（LMSE）、层次化多视角数据增强丰富视觉特征（HMA）、以及自适应不确定类吸收器建模类间不确定性（AUCA），在 4 个单域和 6 个跨域小样本学习基准上显著超越现有方法，5-way 1-shot 下单域和跨域分别比次优方法高出 12.29% 和 24.56%。
 tags:
   - AAAI 2026
+  - 医学图像
   - Few-Shot Learning
   - 多模态原型
   - LLM语义增强

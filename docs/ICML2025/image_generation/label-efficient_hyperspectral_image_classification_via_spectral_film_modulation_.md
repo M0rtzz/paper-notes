@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Label-Efficient Hyperspectral Image Classification via Spectral FiLM Modulation of Low-Level Pretrained Diffusion Features 论文解读 | ICML2025 | arXiv 2512.03430 | 扩散模型 Diffusion Models | 提出 GeoDiffNet-F 框架，利用冻结的预训练扩散模型提取低层空间特征，并通过 FiLM（Feature-wise Linear Modulation）机制将高光谱光谱信息自适应融合到空间特征中，在极少标注条件下实现高效的高光谱图像土地覆盖分类。"
+title: >-
+  [论文解读] Label-Efficient Hyperspectral Image Classification via Spectral FiLM Modulation of Low-Level Pretrained Diffusion Features
+description: >-
+  [ICML2025][图像生成][扩散模型] 提出 GeoDiffNet-F 框架，利用冻结的预训练扩散模型提取低层空间特征，并通过 FiLM（Feature-wise Linear Modulation）机制将高光谱光谱信息自适应融合到空间特征中，在极少标注条件下实现高效的高光谱图像土地覆盖分类。
 tags:
   - ICML2025
+  - 图像生成
   - 扩散模型
   - Hyperspectral Imaging
   - Remote Sensing

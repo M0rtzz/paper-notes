@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling 论文解读 | ICLR2026 | arXiv 2503.05188 | 推理时奖励模型 | 系统诊断推理时奖励模型(RM)的三大问题（简单题性能下降、采样增多判别力衰退、高搜索多样性损害），提出CRISP算法通过答案聚类聚合奖励信号+逐步前缀引导生成，比其他RM推理方法提升最高5%准确率，比R1模型在非数学任务上平均提升10%且token量减少90%。"
+title: >-
+  [论文解读] Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling
+description: >-
+  [ICLR2026][LLM推理][推理时奖励模型] 系统诊断推理时奖励模型(RM)的三大问题（简单题性能下降、采样增多判别力衰退、高搜索多样性损害），提出CRISP算法通过答案聚类聚合奖励信号+逐步前缀引导生成，比其他RM推理方法提升最高5%准确率，比R1模型在非数学任务上平均提升10%且token量减少90%。
 tags:
   - ICLR2026
+  - LLM推理
   - 推理时奖励模型
   - 推理时扩展
   - BoN

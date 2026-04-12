@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Are Reasoning LLMs Robust to Interventions on Their Chain-of-Thought? 论文解读 | ICLR 2026 | arXiv 2602.07470 | reasoning LLM | 系统评估推理型 LLM 对其 CoT 中各种干预（良性/中性/对抗性）的鲁棒性：发现模型总体鲁棒能从干预中恢复，但改写风格（paraphrasing）会抑制\"自我怀疑\"表达导致正确率下降，恢复过程有显著计算开销（CoT 膨胀最高 665%）。"
+title: >-
+  [论文解读] Are Reasoning LLMs Robust to Interventions on Their Chain-of-Thought?
+description: >-
+  [ICLR 2026][LLM推理][reasoning LLM] 系统评估推理型 LLM 对其 CoT 中各种干预（良性/中性/对抗性）的鲁棒性：发现模型总体鲁棒能从干预中恢复，但改写风格（paraphrasing）会抑制"自我怀疑"表达导致正确率下降，恢复过程有显著计算开销（CoT 膨胀最高 665%）。
 tags:
   - ICLR 2026
+  - LLM推理
   - reasoning LLM
   - chain-of-thought
   - robustness

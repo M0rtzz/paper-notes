@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Measuring the Intrinsic Dimension of Earth Representations 论文解读 | ICLR 2026 | arXiv 2511.02101 | 内在维度 | 首次系统研究地理隐式神经表示（Geographic INR）的内在维度特性，发现其内在维度在2-10之间，与下游任务性能相关且能捕捉空间伪影，为INR提供了架构无关、无需标签的信息量度量方法。"
+title: >-
+  [论文解读] Measuring the Intrinsic Dimension of Earth Representations
+description: >-
+  [ICLR 2026][遥感][内在维度] 首次系统研究地理隐式神经表示（Geographic INR）的内在维度特性，发现其内在维度在2-10之间，与下游任务性能相关且能捕捉空间伪影，为INR提供了架构无关、无需标签的信息量度量方法。
 tags:
   - ICLR 2026
+  - 遥感
   - 内在维度
   - 地理隐式神经表示
   - 地球观测

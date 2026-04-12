@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SEC-Prompt:SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Few-shot class-incremental learning (FSCIL) presents a significant challenge in machine learning, requiring models to integrate new classes from limited examples while preserving performance on previously learned classes. Recently, prompt-based CIL approaches leverage ample data to train prompts, ef"
+title: >-
+  [论文解读] SEC-Prompt:SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：Few-shot class-incremental learning (FSCIL) presents a significant challenge in machine learning, requiring models to integrate new classes from limited examples while preserving performance on previously learned classes. Recently, prompt-based CIL approaches leverage ample data to train prompts, ef
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

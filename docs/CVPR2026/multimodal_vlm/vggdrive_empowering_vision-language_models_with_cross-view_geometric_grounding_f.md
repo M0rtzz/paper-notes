@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VGGDrive: Empowering Vision-Language Models with Cross-View Geometric Grounding for Autonomous Driving 论文解读 | CVPR 2026 | arXiv 2602.20794 | 自动驾驶 | 提出VGGDrive框架，通过冻结的3D视觉基础模型VGGT为VLM注入跨视图几何感知能力，设计插拔式CVGE模块分层自适应地将3D特征注入VLM各层的2D视觉嵌入中，在五个自动驾驶基准上实现显著性能提升。"
+title: >-
+  [论文解读] VGGDrive: Empowering Vision-Language Models with Cross-View Geometric Grounding for Autonomous Driving
+description: >-
+  [CVPR 2026][多模态][自动驾驶] 提出VGGDrive框架，通过冻结的3D视觉基础模型VGGT为VLM注入跨视图几何感知能力，设计插拔式CVGE模块分层自适应地将3D特征注入VLM各层的2D视觉嵌入中，在五个自动驾驶基准上实现显著性能提升。
 tags:
   - CVPR 2026
+  - 多模态
   - 自动驾驶
   - 3D几何感知
   - VLM

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SERUM: Simple, Efficient, Robust, and Unifying Marking for Diffusion-based Image Generation 论文解读 | ICLR 2026 | arXiv 2603.13396 | 扩散模型水印 | 提出SERUM水印方法，将唯一水印噪声添加到扩散模型初始噪声中，训练轻量检测器直接从生成图像识别水印（无需昂贵的DDIM反演），在多种攻击下达到最高检测率，且注入/检测极快，支持多用户场景。"
+title: >-
+  [论文解读] SERUM: Simple, Efficient, Robust, and Unifying Marking for Diffusion-based Image Generation
+description: >-
+  [ICLR 2026][目标检测][扩散模型水印] 提出SERUM水印方法，将唯一水印噪声添加到扩散模型初始噪声中，训练轻量检测器直接从生成图像识别水印（无需昂贵的DDIM反演），在多种攻击下达到最高检测率，且注入/检测极快，支持多用户场景。
 tags:
   - ICLR 2026
+  - 目标检测
   - 扩散模型水印
   - 轻量检测器
   - 噪声注入

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】RL-Selector: Reinforcement Learning-Guided Data Selection via Redundancy Assessment 论文解读 | ICCV 2025 | arXiv 2506.21037 | 数据选择 | 提出 RL-Selector，引入 ε-sample cover 概念量化样本冗余度，将数据选择建模为强化学习过程，通过轻量 A2C 策略网络自适应优化选择策略，在多个基准数据集上以更少数据达到接近甚至超越全量训练的泛化性能。"
+title: >-
+  [论文解读] RL-Selector: Reinforcement Learning-Guided Data Selection via Redundancy Assessment
+description: >-
+  [ICCV 2025][数据选择] 提出 RL-Selector，引入 ε-sample cover 概念量化样本冗余度，将数据选择建模为强化学习过程，通过轻量 A2C 策略网络自适应优化选择策略，在多个基准数据集上以更少数据达到接近甚至超越全量训练的泛化性能。
 tags:
   - ICCV 2025
   - 数据选择

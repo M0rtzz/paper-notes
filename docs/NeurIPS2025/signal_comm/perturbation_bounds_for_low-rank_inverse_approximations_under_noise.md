@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Perturbation Bounds for Low-Rank Inverse Approximations under Noise 论文解读 | NeurIPS 2025 | arXiv 2510.25571 | 低秩近似 | 首次给出在加性噪声下低秩逆近似 |(tildeA⁻¹)_p - A_p⁻¹| 的非渐近谱范数扰动界，利用轮廓积分技术得到依赖特征间隙、谱衰减和噪声对齐的锐界，比经典全逆界改进高达 sqrtn 倍。"
+title: >-
+  [论文解读] Perturbation Bounds for Low-Rank Inverse Approximations under Noise
+description: >-
+  [NeurIPS 2025][低秩近似] 首次给出在加性噪声下低秩逆近似 $\|(\tilde{A}^{-1})_p - A_p^{-1}\|$ 的非渐近谱范数扰动界，利用轮廓积分技术得到依赖特征间隙、谱衰减和噪声对齐的锐界，比经典全逆界改进高达 $\sqrt{n}$ 倍。
 tags:
   - NeurIPS 2025
   - 低秩近似

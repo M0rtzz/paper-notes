@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability 论文解读 | ICML2025 | arXiv 2503.09532 | Sparse Autoencoder | 提出 SAEBench——一个包含 8 项评估指标的综合基准，系统评测稀疏自编码器（SAE）在语言模型可解释性中的表现，揭示了代理指标（稀疏-保真度）与下游任务性能之间的严重脱节。"
+title: >-
+  [论文解读] SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability
+description: >-
+  [ICML2025][人体理解][Sparse Autoencoder] 提出 SAEBench——一个包含 8 项评估指标的综合基准，系统评测稀疏自编码器（SAE）在语言模型可解释性中的表现，揭示了代理指标（稀疏-保真度）与下游任务性能之间的严重脱节。
 tags:
   - ICML2025
+  - 人体理解
   - Sparse Autoencoder
   - Benchmark
   - Interpretability

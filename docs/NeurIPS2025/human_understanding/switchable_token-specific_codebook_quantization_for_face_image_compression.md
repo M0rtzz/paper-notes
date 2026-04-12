@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Switchable Token-Specific Codebook Quantization for Face Image Compression 论文解读 | NeurIPS 2025 | arXiv 2510.22943 | 人脸图像压缩 | 提出可切换的token专属码本量化机制（STSCQ），通过图像级码本路由和token级码本分割的层次动态结构，在超低比特率下显著提升人脸图像的压缩重建质量和识别精度。"
+title: >-
+  [论文解读] Switchable Token-Specific Codebook Quantization for Face Image Compression
+description: >-
+  [NeurIPS 2025][人体理解][人脸图像压缩] 提出可切换的token专属码本量化机制（STSCQ），通过图像级码本路由和token级码本分割的层次动态结构，在超低比特率下显著提升人脸图像的压缩重建质量和识别精度。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 人脸图像压缩
   - 向量量化
   - 码本学习

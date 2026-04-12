@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Weak-to-Strong Jailbreaking on Large Language Models 论文解读 | ICML 2025 | arXiv 2401.17256 | 越狱攻击 | 本文提出 weak-to-strong 越狱攻击：利用两个小模型（一个安全、一个不安全）在推理时通过对数概率代数修改大模型的解码分布，仅需一次前向传播即可将对齐大模型的恶意回复率提升至 99% 以上，揭示了 LLM 对齐中一个此前未被注意的高效攻击面。"
+title: >-
+  [论文解读] Weak-to-Strong Jailbreaking on Large Language Models
+description: >-
+  [ICML 2025][模型压缩][越狱攻击] 本文提出 weak-to-strong 越狱攻击：利用两个小模型（一个安全、一个不安全）在推理时通过对数概率代数修改大模型的解码分布，仅需一次前向传播即可将对齐大模型的恶意回复率提升至 99% 以上，揭示了 LLM 对齐中一个此前未被注意的高效攻击面。
 tags:
   - ICML 2025
+  - 模型压缩
   - 越狱攻击
   - 对齐安全
   - 解码分布

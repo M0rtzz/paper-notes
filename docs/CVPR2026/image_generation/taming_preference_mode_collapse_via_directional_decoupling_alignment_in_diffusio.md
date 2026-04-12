@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Taming Preference Mode Collapse via Directional Decoupling Alignment in Diffusion Reinforcement Learning 论文解读 | CVPR 2026 | arXiv 2512.24146 | 偏好模式坍塌 | 提出 D2-Align 框架，通过在奖励模型嵌入空间中学习方向性修正向量来纠偏奖励信号，解决扩散模型 RLHF 对齐中的偏好模式坍塌（PMC）问题——即模型过度优化奖励导致生成多样性严重下降；同时提出 DivGenBench 基准用于量化评估生成多样性。"
+title: >-
+  [论文解读] Taming Preference Mode Collapse via Directional Decoupling Alignment in Diffusion Reinforcement Learning
+description: >-
+  [CVPR 2026][图像生成][偏好模式坍塌] 提出 D2-Align 框架，通过在奖励模型嵌入空间中学习方向性修正向量来纠偏奖励信号，解决扩散模型 RLHF 对齐中的偏好模式坍塌（PMC）问题——即模型过度优化奖励导致生成多样性严重下降；同时提出 DivGenBench 基准用于量化评估生成多样性。
 tags:
   - CVPR 2026
+  - 图像生成
   - 偏好模式坍塌
   - RLHF对齐
   - 扩散模型

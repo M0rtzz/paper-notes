@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Music Arena: Live Evaluation for Text-to-Music 论文解读 | NeurIPS 2025 | arXiv 2507.20900 | text-to-music | 提出 Music Arena，一个面向文本到音乐（TTM）生成模型的在线实时人类偏好评估平台，通过众包式对比实验收集偏好数据，编制排行榜并定期开放数据。"
+title: >-
+  [论文解读] Music Arena: Live Evaluation for Text-to-Music
+description: >-
+  [NeurIPS 2025][AI安全][text-to-music] 提出 Music Arena，一个面向文本到音乐（TTM）生成模型的在线实时人类偏好评估平台，通过众包式对比实验收集偏好数据，编制排行榜并定期开放数据。
 tags:
   - NeurIPS 2025
+  - AI安全
   - text-to-music
   - 人类偏好评估
   - live evaluation

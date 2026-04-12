@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Moral Change or Noise? On Problems of Aligning AI With Temporally Unstable Human Feedback 论文解读 | AAAI 2026 | arXiv 2511.10032 | AI对齐 | 通过在肾脏移植分配领域对400+参与者进行3-5轮纵向研究，揭示了人类道德偏好在时间上的显著不稳定性（6-20%的响应变化率），并证明这种不稳定性会严重降低AI对齐模型的预测性能，从而质疑了当前基于静态偏好假设的对齐方法的有效性。"
+title: >-
+  [论文解读] Moral Change or Noise? On Problems of Aligning AI With Temporally Unstable Human Feedback
+description: >-
+  [AAAI 2026][AI对齐] 通过在肾脏移植分配领域对400+参与者进行3-5轮纵向研究，揭示了人类道德偏好在时间上的显著不稳定性（6-20%的响应变化率），并证明这种不稳定性会严重降低AI对齐模型的预测性能，从而质疑了当前基于静态偏好假设的对齐方法的有效性。
 tags:
   - AAAI 2026
   - AI对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Big5-Chat: Shaping LLM Personalities Through Training on Human-Grounded Data 论文解读 | ACL 2025 | arXiv 2410.16491 | 人格特质 | 提出了 Big5-Chat 数据集（10万条对话），通过 SFT 和 DPO 训练方法将真实人类大五人格特质嵌入 LLM，效果显著优于基于提示的方法，且发现高尽责性/宜人性、低外向性/神经质的人格配置能提升模型推理能力。"
+title: >-
+  [论文解读] Big5-Chat: Shaping LLM Personalities Through Training on Human-Grounded Data
+description: >-
+  [ACL 2025][LLM/NLP][人格特质] 提出了 Big5-Chat 数据集（10万条对话），通过 SFT 和 DPO 训练方法将真实人类大五人格特质嵌入 LLM，效果显著优于基于提示的方法，且发现高尽责性/宜人性、低外向性/神经质的人格配置能提升模型推理能力。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 人格特质
   - 大五人格
   - SFT

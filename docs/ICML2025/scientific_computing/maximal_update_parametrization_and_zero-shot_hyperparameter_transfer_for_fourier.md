@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Maximal Update Parametrization and Zero-Shot Hyperparameter Transfer for Fourier Neural Operators 论文解读 | ICML2025 | arXiv 2506.19396 | μP | 首次为 Fourier Neural Operator (FNO) 推导了 Maximal Update Parametrization (μP)，使得在小模型上调优的超参数可以零样本迁移到十亿参数级 FNO，将 Navier-Stokes 问题的调参计算量降至 0.30×。"
+title: >-
+  [论文解读] Maximal Update Parametrization and Zero-Shot Hyperparameter Transfer for Fourier Neural Operators
+description: >-
+  [ICML2025][科学计算][μP] 首次为 Fourier Neural Operator (FNO) 推导了 Maximal Update Parametrization (μP)，使得在小模型上调优的超参数可以零样本迁移到十亿参数级 FNO，将 Navier-Stokes 问题的调参计算量降至 0.30×。
 tags:
   - ICML2025
+  - 科学计算
   - μP
   - μTransfer
   - FNO

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging 论文解读 | CVPR 2026 | arXiv 2603.09116 | 超表面成像 | MetaSpectra+ 利用新型超表面-折射透镜混合光学系统，将入射光分为 4 个独立可控色散/曝光/偏振的通道，实现最紧凑且精度最高的快照式高光谱+HDR/偏振多功能成像。"
+title: >-
+  [论文解读] MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging
+description: >-
+  [CVPR 2026][遥感][超表面成像] MetaSpectra+ 利用新型超表面-折射透镜混合光学系统，将入射光分为 4 个独立可控色散/曝光/偏振的通道，实现最紧凑且精度最高的快照式高光谱+HDR/偏振多功能成像。
 tags:
   - CVPR 2026
+  - 遥感
   - 超表面成像
   - 高光谱重建
   - 快照成像

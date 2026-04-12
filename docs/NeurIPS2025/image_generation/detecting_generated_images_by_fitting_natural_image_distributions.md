@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Detecting Generated Images by Fitting Natural Image Distributions 论文解读 | 提出一致性验证框架 ConV，利用自然图像流形与生成图像之间的几何差异，通过两个梯度正交的函数实现无需训练的生成图像检测，并引入 Normalizing Flow 增强版 F-ConV 进一步放大流形偏差。"
+title: >-
+  [论文解读] Detecting Generated Images by Fitting Natural Image Distributions
+description: >-
+  [图像生成] 提出一致性验证框架 ConV，利用自然图像流形与生成图像之间的几何差异，通过两个梯度正交的函数实现无需训练的生成图像检测，并引入 Normalizing Flow 增强版 F-ConV 进一步放大流形偏差。
 tags:
-
+  - 图像生成
 ---
 
 # Detecting Generated Images by Fitting Natural Image Distributions

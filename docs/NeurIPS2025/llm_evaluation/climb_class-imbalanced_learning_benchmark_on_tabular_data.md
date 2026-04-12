@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CLIMB: Class-Imbalanced Learning Benchmark on Tabular Data 论文解读 | NeurIPS 2025 | arXiv 2505.17451 | class imbalance | 提出 Climb——迄今最全面的表格数据类别不平衡学习基准，涵盖 73 个真实数据集和 29 种 CIL 算法，通过大规模实验揭示了朴素重平衡往往无效、集成方法至关重要、数据质量比不平衡本身更影响性能等实用洞察。"
+title: >-
+  [论文解读] CLIMB: Class-Imbalanced Learning Benchmark on Tabular Data
+description: >-
+  [NeurIPS 2025][class imbalance] 提出 Climb——迄今最全面的表格数据类别不平衡学习基准，涵盖 73 个真实数据集和 29 种 CIL 算法，通过大规模实验揭示了朴素重平衡往往无效、集成方法至关重要、数据质量比不平衡本身更影响性能等实用洞察。
 tags:
   - NeurIPS 2025
   - class imbalance

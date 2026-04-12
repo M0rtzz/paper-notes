@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Com2: A Causal-Guided Benchmark for Complex Commonsense Reasoning 论文解读 | ACL 2025 | arXiv 2506.07064 | 常识推理 | 提出Com2基准，利用因果事件图和因果理论（干预/反事实）构建复杂常识推理任务，发现LLM在推理深度和广度上存在不足，后训练和慢思考可部分缓解。"
+title: >-
+  [论文解读] Com2: A Causal-Guided Benchmark for Complex Commonsense Reasoning
+description: >-
+  [ACL 2025][常识推理] 提出Com2基准，利用因果事件图和因果理论（干预/反事实）构建复杂常识推理任务，发现LLM在推理深度和广度上存在不足，后训练和慢思考可部分缓解。
 tags:
   - ACL 2025
   - 常识推理

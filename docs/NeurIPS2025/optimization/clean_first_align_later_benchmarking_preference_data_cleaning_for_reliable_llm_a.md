@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Clean First, Align Later: Benchmarking Preference Data Cleaning for Reliable LLM Alignment
+description: >-
+  [NeurIPS 2025 (D&B Track)][优化][偏好数据清洗] 本文提出 PrefCleanBench，首个系统评估 13 种偏好数据清洗方法在 LLM 对齐中效果的综合基准，覆盖多种数据集、模型架构和优化算法，揭示了数据预处理在负责任 AI 开发中被忽视但至关重要的角色。
+tags:
+  - NeurIPS 2025 (D&B Track)
+  - 优化
+  - 偏好数据清洗
+  - LLM对齐
+  - RLHF
+  - DPO
+  - Benchmark
+---
+
 # Clean First, Align Later: Benchmarking Preference Data Cleaning for Reliable LLM Alignment
 
 **会议**: NeurIPS 2025 (D&B Track)  

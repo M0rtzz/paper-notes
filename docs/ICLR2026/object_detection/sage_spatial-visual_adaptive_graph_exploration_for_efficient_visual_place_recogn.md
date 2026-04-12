@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition 论文解读 | ICLR 2026 | arXiv 2509.25723 | Visual Place Recognition | 提出 SAGE，一个统一的 VPR 训练框架：引入轻量 Soft Probing 模块增强局部特征判别力，每个 epoch 在线重建融合地理距离与视觉相似度的亲和图，再通过贪心加权团扩展聚焦最难样本，冻结 DINOv2 骨干仅训练 1.96M 参数即在 8 个基准上全面 SOTA。"
+title: >-
+  [论文解读] SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition
+description: >-
+  [ICLR 2026][目标检测][Visual Place Recognition] 提出 SAGE，一个统一的 VPR 训练框架：引入轻量 Soft Probing 模块增强局部特征判别力，每个 epoch 在线重建融合地理距离与视觉相似度的亲和图，再通过贪心加权团扩展聚焦最难样本，冻结 DINOv2 骨干仅训练 1.96M 参数即在 8 个基准上全面 SOTA。
 tags:
   - ICLR 2026
+  - 目标检测
   - Visual Place Recognition
   - DINOv2
   - Graph-based Sampling

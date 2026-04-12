@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large Language Models as Medical Codes Selectors: A Benchmark Using the International Classification of Primary Care 论文解读 | NeurIPS 2025 (GenAI for Health Workshop) | arXiv 2507.14681 | 医学编码 | 构建了一个 extract-retrieve-select 框架的医学编码基准，在 33 个 LLM 上评估 ICPC-2 编码选择能力，发现 28 个模型 F1>0.8，证明 LLM 无需微调即可有效自动化初级保健编码。"
+title: >-
+  [论文解读] Large Language Models as Medical Codes Selectors: A Benchmark Using the International Classification of Primary Care
+description: >-
+  [NeurIPS 2025 (GenAI for Health Workshop)][医学图像][医学编码] 构建了一个 extract-retrieve-select 框架的医学编码基准，在 33 个 LLM 上评估 ICPC-2 编码选择能力，发现 28 个模型 F1>0.8，证明 LLM 无需微调即可有效自动化初级保健编码。
 tags:
   - NeurIPS 2025 (GenAI for Health Workshop)
+  - 医学图像
   - 医学编码
   - ICPC-2
   - LLM基准测试

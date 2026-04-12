@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Leveraging Textual Compositional Reasoning for Robust Change Captioning 论文解读 | AAAI 2026 | arXiv 2511.22903 | Change Captioning | 提出 CORTEX 框架，通过引入 VLM 生成的组合推理文本作为显式线索，结合图像-文本双重对齐模块（ITDA），增强纯视觉变化描述方法对物体关系和空间配置等结构化语义的理解能力。"
+title: >-
+  [论文解读] Leveraging Textual Compositional Reasoning for Robust Change Captioning
+description: >-
+  [AAAI 2026][目标检测][Change Captioning] 提出 CORTEX 框架，通过引入 VLM 生成的组合推理文本作为显式线索，结合图像-文本双重对齐模块（ITDA），增强纯视觉变化描述方法对物体关系和空间配置等结构化语义的理解能力。
 tags:
   - AAAI 2026
+  - 目标检测
   - Change Captioning
   - 组合推理
   - 视觉语言模型

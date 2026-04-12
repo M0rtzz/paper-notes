@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction 论文解读 | ICCV 2025 | arXiv 2507.18331 | 多视角3D目标检测 | SGCDet通过几何与上下文感知的聚合模块（3D可变形注意力+多视角注意力融合）和基于占据概率的稀疏体素构建策略，在无需ground-truth几何监督的情况下，实现了多视角室内3D目标检测的SOTA性能，同时大幅降低计算开销。"
+title: >-
+  [论文解读] Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction
+description: >-
+  [ICCV 2025][3D视觉][多视角3D目标检测] SGCDet通过几何与上下文感知的聚合模块（3D可变形注意力+多视角注意力融合）和基于占据概率的稀疏体素构建策略，在无需ground-truth几何监督的情况下，实现了多视角室内3D目标检测的SOTA性能，同时大幅降低计算开销。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 多视角3D目标检测
   - 室内场景
   - 稀疏体素构建

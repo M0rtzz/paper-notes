@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Safe and Controllable Protein Generation via Knowledge Preference Optimization 论文解读 | ACL 2025 | arXiv 2507.10923 | 蛋白质生成 | 提出知识引导偏好优化（KPO）框架，通过蛋白质安全知识图谱识别安全/危险序列作为偏好信号，用强化学习训练蛋白质语言模型减少有害蛋白质序列的生成概率，同时保持功能性——为蛋白质生成的生物安全提供保障框架。"
+title: >-
+  [论文解读] Enhancing Safe and Controllable Protein Generation via Knowledge Preference Optimization
+description: >-
+  [ACL 2025][LLM对齐][蛋白质生成] 提出知识引导偏好优化（KPO）框架，通过蛋白质安全知识图谱识别安全/危险序列作为偏好信号，用强化学习训练蛋白质语言模型减少有害蛋白质序列的生成概率，同时保持功能性——为蛋白质生成的生物安全提供保障框架。
 tags:
   - ACL 2025
+  - LLM对齐
   - 蛋白质生成
   - 生物安全
   - 知识图谱

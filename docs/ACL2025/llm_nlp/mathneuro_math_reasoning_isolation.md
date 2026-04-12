@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Math Neurosurgery: Isolating Language Models' Math Reasoning Abilities Using Only Forward Passes 论文解读 | ACL 2025 | arXiv 2410.16930 | 数学推理定位 | MathNeuro 提出了一种仅用前向传播就能隔离 LLM 中数学推理特定参数的方法，通过计算权重×激活的重要性分数并过滤掉通用语言任务也需要的参数，实现了精准的数学能力\"手术\"——剪除这些参数删除数学能力，缩放它们则提升 4-35% 数学性能。"
+title: >-
+  [论文解读] Math Neurosurgery: Isolating Language Models' Math Reasoning Abilities Using Only Forward Passes
+description: >-
+  [ACL 2025][LLM/NLP][数学推理定位] MathNeuro 提出了一种仅用前向传播就能隔离 LLM 中数学推理特定参数的方法，通过计算权重×激活的重要性分数并过滤掉通用语言任务也需要的参数，实现了精准的数学能力"手术"——剪除这些参数删除数学能力，缩放它们则提升 4-35% 数学性能。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 数学推理定位
   - 参数重要性
   - 技能隔离

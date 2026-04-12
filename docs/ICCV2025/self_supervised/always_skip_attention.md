@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Always Skip Attention 论文解读 | ICCV 2025 | arXiv 2505.01996 | 注意力机制 self-attention | 本文从理论上证明了 Vision Transformer 中的自注意力机制是本质上病态的（ill-conditioned），在无 skip connection 时会导致训练崩溃，并提出 Token Graying（TG）方法通过改善输入 token 的条件数来进一步增强 ViT 的训练稳定性和性能。"
+title: >-
+  [论文解读] Always Skip Attention
+description: >-
+  [ICCV 2025][自监督学习][注意力机制] 本文从理论上证明了 Vision Transformer 中的自注意力机制是本质上病态的（ill-conditioned），在无 skip connection 时会导致训练崩溃，并提出 Token Graying（TG）方法通过改善输入 token 的条件数来进一步增强 ViT 的训练稳定性和性能。
 tags:
   - ICCV 2025
+  - 自监督学习
   - 注意力机制
   - skip connection
   - condition number

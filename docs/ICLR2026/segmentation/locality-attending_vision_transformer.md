@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】Locality-Attending Vision Transformer 论文解读 | ICLR 2026 | arXiv 2603.04892 | ViT | 提出 LocAt，一个轻量级 ViT 插件，通过可学习高斯核调制自注意力偏向局部邻域(GAug)和无参数的 Patch 表征精炼(PRR)，在不改变训练范式的前提下为 ViT 带来 6%+ 的分割性能提升且不牺牲分类精度。"
+title: >-
+  [论文解读] Locality-Attending Vision Transformer
+description: >-
+  [ICLR 2026][图像分割][ViT] 提出 LocAt，一个轻量级 ViT 插件，通过可学习高斯核调制自注意力偏向局部邻域(GAug)和无参数的 Patch 表征精炼(PRR)，在不改变训练范式的前提下为 ViT 带来 6%+ 的分割性能提升且不牺牲分类精度。
 tags:
   - ICLR 2026
+  - 图像分割
   - ViT
   - locality
   - 注意力机制
-  - 图像分割
   - patch representation
   - dense prediction
 ---

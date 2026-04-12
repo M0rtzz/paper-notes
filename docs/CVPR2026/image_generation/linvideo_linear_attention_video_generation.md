@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LinVideo: A Post-Training Framework towards O(n) Attention in Efficient Video Generation 论文解读 | CVPR 2026 | arXiv 2510.08318 | 视频扩散模型 | 首个data-free后训练框架LinVideo，通过选择性转移自动选择最适合替换为线性注意力的层+任意时刻分布匹配(ADM)目标函数高效恢复性能，实现Wan 1.3B/14B的1.43-1.71×加速且质量无损，叠加4步蒸馏后达15.9-20.9×加速。"
+title: >-
+  [论文解读] LinVideo: A Post-Training Framework towards O(n) Attention in Efficient Video Generation
+description: >-
+  [CVPR 2026][图像生成][视频扩散模型] 首个data-free后训练框架LinVideo，通过选择性转移自动选择最适合替换为线性注意力的层+任意时刻分布匹配(ADM)目标函数高效恢复性能，实现Wan 1.3B/14B的1.43-1.71×加速且质量无损，叠加4步蒸馏后达15.9-20.9×加速。
 tags:
   - CVPR 2026
+  - 图像生成
   - 视频扩散模型
   - 线性注意力
   - 后训练

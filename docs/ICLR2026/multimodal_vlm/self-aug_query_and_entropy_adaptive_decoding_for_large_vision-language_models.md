@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Aug: Query and Entropy Adaptive Decoding for Large Vision-Language Models 论文解读 | ICLR 2026 | arXiv 2510.13315 | 视觉幻觉 | 提出Self-Aug——无训练的LVLM解码策略减少视觉幻觉：(1)自增强prompting利用模型自身知识选择与文本查询语义对齐的视觉增强(而非随机噪声)→最大化对比解码的信息差异，(2)稀疏度自适应截断(SAT)基于专家logit的熵(而非单一最大值)动态调整候选token集大小→避免对比解码中负logit的虚假放大，在5个LVLM×7个基准上显著增强事实一致性。"
+title: >-
+  [论文解读] Self-Aug: Query and Entropy Adaptive Decoding for Large Vision-Language Models
+description: >-
+  [ICLR 2026][多模态][视觉幻觉] 提出Self-Aug——无训练的LVLM解码策略减少视觉幻觉：(1)自增强prompting利用模型自身知识选择与文本查询语义对齐的视觉增强(而非随机噪声)→最大化对比解码的信息差异，(2)稀疏度自适应截断(SAT)基于专家logit的熵(而非单一最大值)动态调整候选token集大小→避免对比解码中负logit的虚假放大，在5个LVLM×7个基准上显著增强事实一致性。
 tags:
   - ICLR 2026
+  - 多模态
   - 视觉幻觉
   - 对比解码
   - 自增强

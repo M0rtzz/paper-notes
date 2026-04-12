@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAP: Evaluation of Persuasive and Creative Image Generation 论文解读 | ICCV 2025 | arXiv 2412.10426 | 广告图像生成 | 针对广告图像生成任务，提出三个新评估指标（创意性、对齐度、说服力），并用LLM扩展隐式消息为显式视觉描述来改善T2I模型的广告生成效果，在人类标注一致性上显著优于CLIPScore等基线指标。"
+title: >-
+  [论文解读] CAP: Evaluation of Persuasive and Creative Image Generation
+description: >-
+  [ICCV 2025][图像生成][广告图像生成] 针对广告图像生成任务，提出三个新评估指标（创意性、对齐度、说服力），并用LLM扩展隐式消息为显式视觉描述来改善T2I模型的广告生成效果，在人类标注一致性上显著优于CLIPScore等基线指标。
 tags:
   - ICCV 2025
+  - 图像生成
   - 广告图像生成
   - 创意评估
   - 说服力评估

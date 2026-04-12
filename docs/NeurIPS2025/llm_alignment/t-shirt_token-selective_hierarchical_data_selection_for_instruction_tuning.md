@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】T-SHIRT: Token-Selective Hierarchical Data Selection for Instruction Tuning 论文解读 | NeurIPS 2025 | arXiv 2506.01317 | 指令微调 | 提出 T-SHIRT 数据选择框架，通过 Selective IFD（仅考虑有信息量的 token）和分层选择策略（偏好邻域一致性高的样本），用 5% 数据微调即可超越全量数据训练，同时仅需 GPT-2 和单 GPU 40 分钟完成选择。"
+title: >-
+  [论文解读] T-SHIRT: Token-Selective Hierarchical Data Selection for Instruction Tuning
+description: >-
+  [NeurIPS 2025][LLM对齐][指令微调] 提出 T-SHIRT 数据选择框架，通过 Selective IFD（仅考虑有信息量的 token）和分层选择策略（偏好邻域一致性高的样本），用 5% 数据微调即可超越全量数据训练，同时仅需 GPT-2 和单 GPU 40 分钟完成选择。
 tags:
   - NeurIPS 2025
+  - LLM对齐
   - 指令微调
   - 数据选择
   - Token 级信息量

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Silver Bullet or a Compromise for Full Attention? A Comprehensive Study of Gist Token-based Context Compression 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.17483 | Gist Token | 系统研究Gist Token上下文压缩方法，提出统一框架分类现有架构（记忆位置×粒度），发现Fine-grained KV Cache在RAG/QA上近无损但在合成召回上有明显缺陷，识别出三种失败模式（边界丢失/意外丢失/中途丢失），并提出细粒度自编码和分段token重要性估计两种改进策略。"
+title: >-
+  [论文解读] A Silver Bullet or a Compromise for Full Attention? A Comprehensive Study of Gist Token-based Context Compression
+description: >-
+  [ACL 2025 (Long Paper)][模型压缩][Gist Token] 系统研究Gist Token上下文压缩方法，提出统一框架分类现有架构（记忆位置×粒度），发现Fine-grained KV Cache在RAG/QA上近无损但在合成召回上有明显缺陷，识别出三种失败模式（边界丢失/意外丢失/中途丢失），并提出细粒度自编码和分段token重要性估计两种改进策略。
 tags:
   - ACL 2025 (Long Paper)
+  - 模型压缩
   - Gist Token
   - KV Cache压缩
   - 上下文压缩

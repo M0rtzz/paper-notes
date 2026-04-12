@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unsupervised Conformal Inference: Bootstrapping and Alignment to Control LLM Uncertainty 论文解读 | ICLR 2026 | arXiv 2509.23002 | 无监督共形推断 | 提出无监督共形推断框架（BB-UCP），通过Gram矩阵交互能量评分、批次自举校准和共形对齐，在无标签、API兼容条件下实现LLM生成的分布无关有限样本覆盖率保证，有效检测和过滤幻觉输出。"
+title: >-
+  [论文解读] Unsupervised Conformal Inference: Bootstrapping and Alignment to Control LLM Uncertainty
+description: >-
+  [ICLR 2026][图像生成][无监督共形推断] 提出无监督共形推断框架（BB-UCP），通过Gram矩阵交互能量评分、批次自举校准和共形对齐，在无标签、API兼容条件下实现LLM生成的分布无关有限样本覆盖率保证，有效检测和过滤幻觉输出。
 tags:
   - ICLR 2026
+  - 图像生成
   - 无监督共形推断
   - 自举法
   - LLM幻觉检测

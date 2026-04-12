@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking 论文解读 | arXiv 2026 | arXiv 2603.12758 | fc-track | 可靠的多目标跟踪（MOT）对于在复杂和动态环境中运行的机器人系统至关重要。"
+title: >-
+  [论文解读] FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking
+description: >-
+  [arXiv 2026][目标检测][fc-track] 可靠的多目标跟踪（MOT）对于在复杂和动态环境中运行的机器人系统至关重要。
 tags:
   - arXiv 2026
+  - 目标检测
   - fc-track
   - overlap-aware
   - post-association

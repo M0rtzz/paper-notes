@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs 论文解读 | ACL 2025 | arXiv 2505.13173 | 跨语言零样本 | 系统评估 LLM（GPT-4o/Llama-3.1）在三种古典语言（梵语、拉丁语、古希腊语）上的零样本跨语言泛化能力——涵盖 NER、机器翻译、问答三个 NLU 任务，发现大模型在域外数据上可比肩甚至超越微调基线，模型规模是决定性因素，并贡献了一个 1501 对的梵语事实问答数据集。"
+title: >-
+  [论文解读] A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs
+description: >-
+  [ACL 2025][跨语言零样本] 系统评估 LLM（GPT-4o/Llama-3.1）在三种古典语言（梵语、拉丁语、古希腊语）上的零样本跨语言泛化能力——涵盖 NER、机器翻译、问答三个 NLU 任务，发现大模型在域外数据上可比肩甚至超越微调基线，模型规模是决定性因素，并贡献了一个 1501 对的梵语事实问答数据集。
 tags:
   - ACL 2025
   - 跨语言零样本

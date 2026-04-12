@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking 论文解读 | NeurIPS 2025 | arXiv 2509.17738 | neural collapse | 利用 grokking（延迟泛化）作为因果探针，证明 **relative flatness 是泛化的（潜在）必要条件**，而 neural collapse 虽常伴随泛化出现，但并非必要——它只是通往 flatness 的一条路径。"
+title: >-
+  [论文解读] Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking
+description: >-
+  [NeurIPS 2025][neural collapse] 利用 grokking（延迟泛化）作为因果探针，证明 **relative flatness 是泛化的（潜在）必要条件**，而 neural collapse 虽常伴随泛化出现，但并非必要——它只是通往 flatness 的一条路径。
 tags:
   - NeurIPS 2025
   - neural collapse

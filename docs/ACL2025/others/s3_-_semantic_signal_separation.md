@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】S3 - Semantic Signal Separation 论文解读 | ACL 2025 | arXiv 2406.09556 | 主题模型 | S3将主题建模概念化为发现语义空间中独立语义轴的过程，利用独立成分分析（ICA）分解文档嵌入矩阵，无需预处理即可产生高度连贯且多样化的主题，同时是最快的上下文主题模型（平均比BERTopic快4.5倍）。"
+title: >-
+  [论文解读] S3 - Semantic Signal Separation
+description: >-
+  [ACL 2025][主题模型] S3将主题建模概念化为发现语义空间中独立语义轴的过程，利用独立成分分析（ICA）分解文档嵌入矩阵，无需预处理即可产生高度连贯且多样化的主题，同时是最快的上下文主题模型（平均比BERTopic快4.5倍）。
 tags:
   - ACL 2025
   - 主题模型

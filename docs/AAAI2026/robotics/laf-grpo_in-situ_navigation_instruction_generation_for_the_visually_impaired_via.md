@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LaF-GRPO: In-Situ Navigation Instruction Generation for the Visually Impaired via GRPO with LLM-as-Follower Reward 论文解读 | AAAI 2026 | arXiv 2506.04070 | 视障导航 | 提出 LaF-GRPO 框架，利用 LLM 模拟视障用户对导航指令的响应作为奖励信号，通过 GRPO 后训练 VLM 来生成更精确、更安全的视障导航指令，并构建了 27k 样本的 NIG4VI 基准数据集。"
+title: >-
+  [论文解读] LaF-GRPO: In-Situ Navigation Instruction Generation for the Visually Impaired via GRPO with LLM-as-Follower Reward
+description: >-
+  [AAAI 2026][机器人][视障导航] 提出 LaF-GRPO 框架，利用 LLM 模拟视障用户对导航指令的响应作为奖励信号，通过 GRPO 后训练 VLM 来生成更精确、更安全的视障导航指令，并构建了 27k 样本的 NIG4VI 基准数据集。
 tags:
   - AAAI 2026
+  - 机器人
   - 视障导航
   - GRPO
   - VLM后训练

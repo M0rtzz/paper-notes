@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How Far is Video Generation from World Model: A Physical Law Perspective 论文解读 | ICML 2025 | arXiv 2411.02385 | 视频生成 | 通过构建 2D 物理仿真测试平台，系统性评估视频生成模型发现物理定律的能力，发现扩展模型规模仅能实现分布内泛化，无法实现分布外泛化，揭示模型采用\"基于案例\"的泛化机制而非抽象物理规则。"
+title: >-
+  [论文解读] How Far is Video Generation from World Model: A Physical Law Perspective
+description: >-
+  [ICML 2025][视频理解][视频生成] 通过构建 2D 物理仿真测试平台，系统性评估视频生成模型发现物理定律的能力，发现扩展模型规模仅能实现分布内泛化，无法实现分布外泛化，揭示模型采用"基于案例"的泛化机制而非抽象物理规则。
 tags:
   - ICML 2025
+  - 视频理解
   - 视频生成
   - 世界模型
   - 物理定律

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Molecular Chirality via Chiral Determinant Kernels 论文解读 | ICLR2026 | arXiv 2602.07415 | 分子手性 | 提出手性行列式核(ChiDeK)来编码 SE(3) 不变的手性矩阵，首次在 GNN 框架中统一处理中心手性和轴向手性，结合交叉注意力传播立体化学信息，在新构建的轴向手性基准上准确率提升 >7%。"
+title: >-
+  [论文解读] Learning Molecular Chirality via Chiral Determinant Kernels
+description: >-
+  [ICLR2026][分子手性] 提出手性行列式核(ChiDeK)来编码 SE(3) 不变的手性矩阵，首次在 GNN 框架中统一处理中心手性和轴向手性，结合交叉注意力传播立体化学信息，在新构建的轴向手性基准上准确率提升 >7%。
 tags:
   - ICLR2026
   - 分子手性

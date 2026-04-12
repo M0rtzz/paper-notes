@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models 论文解读 | NeurIPS 2025 | arXiv 2510.20468 | 水印伪造 | 本文提出一种基于图像偏好模型的黑盒水印伪造方法，仅需单张水印图像即可通过反向传播从中提取水印并粘贴到任意新图像上，在不访问水印算法的条件下有效伪造多种后处理水印方案。"
+title: >-
+  [论文解读] Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models
+description: >-
+  [NeurIPS 2025][图像生成][水印伪造] 本文提出一种基于图像偏好模型的黑盒水印伪造方法，仅需单张水印图像即可通过反向传播从中提取水印并粘贴到任意新图像上，在不访问水印算法的条件下有效伪造多种后处理水印方案。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 水印伪造
   - 偏好模型
   - 单样本攻击

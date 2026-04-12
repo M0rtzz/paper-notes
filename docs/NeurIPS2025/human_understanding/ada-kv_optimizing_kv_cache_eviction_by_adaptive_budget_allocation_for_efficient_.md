@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ada-KV: Optimizing KV Cache Eviction by Adaptive Budget Allocation for Efficient LLM Inference 论文解读 | NeurIPS 2025 | arXiv 2407.11550 | KV Cache | 发现现有 KV cache 驱逐方法对所有注意力头均匀分配预算忽略了头间注意力集中度的巨大差异,提出 Ada-KV——首个 head-wise 自适应预算分配策略,将稀疏头的预算重新分配给分散头,理论证明最小化驱逐损失上界,在 29 个数据集上即插即用地提升现有方法。"
+title: >-
+  [论文解读] Ada-KV: Optimizing KV Cache Eviction by Adaptive Budget Allocation for Efficient LLM Inference
+description: >-
+  [NeurIPS 2025][人体理解][KV Cache] 发现现有 KV cache 驱逐方法对所有注意力头均匀分配预算忽略了头间注意力集中度的巨大差异,提出 Ada-KV——首个 head-wise 自适应预算分配策略,将稀疏头的预算重新分配给分散头,理论证明最小化驱逐损失上界,在 29 个数据集上即插即用地提升现有方法。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - KV Cache
   - 注意力驱逐
   - 自适应预算分配

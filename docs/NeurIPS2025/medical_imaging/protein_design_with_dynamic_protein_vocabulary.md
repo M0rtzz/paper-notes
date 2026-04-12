@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Protein Design with Dynamic Protein Vocabulary 论文解读 | NeurIPS 2025 | arXiv 2505.18966 | 蛋白质设计 | 提出 ProDVa 方法，将天然蛋白质片段作为\"动态词汇\"引入生成式蛋白质设计，通过文本编码器+蛋白质语言模型+片段编码器的三组件架构，利用不到 0.04% 的训练数据即可设计出功能对齐且结构可折叠的蛋白质序列，在 pLDDT>70 比例上超越 SOTA 模型 Pinal 达 7.38%。"
+title: >-
+  [论文解读] Protein Design with Dynamic Protein Vocabulary
+description: >-
+  [NeurIPS 2025][医学图像][蛋白质设计] 提出 ProDVa 方法，将天然蛋白质片段作为"动态词汇"引入生成式蛋白质设计，通过文本编码器+蛋白质语言模型+片段编码器的三组件架构，利用不到 0.04% 的训练数据即可设计出功能对齐且结构可折叠的蛋白质序列，在 pLDDT>70 比例上超越 SOTA 模型 Pinal 达 7.38%。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 蛋白质设计
   - 动态词汇表
   - 片段检索

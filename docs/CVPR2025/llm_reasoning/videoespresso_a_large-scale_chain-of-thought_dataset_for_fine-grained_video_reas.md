@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VideoEspresso: A Large-Scale Chain-of-Thought Dataset for Fine-Grained Video Reasoning via Core Frame Selection 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：The advancement of Large Vision Language Models (LVLMs) has significantly improved multimodal understanding, yet challenges remain in video reasoning tasks due to the scarcity of high-quality, large-scale datasets. Existing video question-answering (VideoQA) datasets often rely on costly manual anno"
+title: >-
+  [论文解读] VideoEspresso: A Large-Scale Chain-of-Thought Dataset for Fine-Grained Video Reasoning via Core Frame Selection
+description: >-
+  [CVPR 2025][LLM推理][待补充] > 基于摘要：The advancement of Large Vision Language Models (LVLMs) has significantly improved multimodal understanding, yet challenges remain in video reasoning tasks due to the scarcity of high-quality, large-scale datasets. Existing video question-answering (VideoQA) datasets often rely on costly manual anno
 tags:
   - CVPR 2025
+  - LLM推理
   - 待补充
 ---
 

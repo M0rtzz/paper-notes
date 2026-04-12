@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MARS: A Malignity-Aware Backdoor Defense in Federated Learning 论文解读 | NeurIPS 2025 | arXiv 2509.20383 | 后门攻击防御 | 提出 MARS 防御方法，通过计算神经元的后门能量（Backdoor Energy）来感知模型的恶意程度，并利用 Wasserstein 距离聚类有效识别联邦学习中的后门模型。"
+title: >-
+  [论文解读] MARS: A Malignity-Aware Backdoor Defense in Federated Learning
+description: >-
+  [NeurIPS 2025][AI安全][后门攻击防御] 提出 MARS 防御方法，通过计算神经元的后门能量（Backdoor Energy）来感知模型的恶意程度，并利用 Wasserstein 距离聚类有效识别联邦学习中的后门模型。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 后门攻击防御
   - 联邦学习
   - Wasserstein距离

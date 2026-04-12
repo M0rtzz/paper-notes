@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases 论文解读 | ACL 2025 | arXiv 2502.19249 | pre-pretraining | 提出在自然语言预训练前先在形式语言上进行\"pre-pretraining\"，发现具有层级依赖结构的形式语言（如 k-Shuffle Dyck）能为 Transformer 提供有效的归纳偏置，使 1B 参数模型以 33% 更少的 token 达到相同的语言建模损失。"
+title: >-
+  [论文解读] Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases
+description: >-
+  [ACL 2025][pre-pretraining] 提出在自然语言预训练前先在形式语言上进行"pre-pretraining"，发现具有层级依赖结构的形式语言（如 k-Shuffle Dyck）能为 Transformer 提供有效的归纳偏置，使 1B 参数模型以 33% 更少的 token 达到相同的语言建模损失。
 tags:
   - ACL 2025
   - pre-pretraining

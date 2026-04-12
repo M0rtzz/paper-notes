@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large Language Bayes 论文解读 | NeurIPS 2025 | arXiv 2504.14025 | LLM | 将 LLM 和概率编程语言（PPL/Stan）数学地\"胶合\"成联合分布 p(z,x,m|t) = p(m|t)_LLM · p(z,x|m)_PPL，用户只需提供非形式化的问题描述和数据，系统自动从 LLM 采样候选形式模型、做贝叶斯推断、通过边际似然加权平均，无需用户编写概率模型。"
+title: >-
+  [论文解读] Large Language Bayes
+description: >-
+  [NeurIPS 2025][优化][LLM] 将 LLM 和概率编程语言（PPL/Stan）数学地"胶合"成联合分布 $p(z,x,m|t) = p(m|t)_{\text{LLM}} \cdot p(z,x|m)_{\text{PPL}}$，用户只需提供非形式化的问题描述和数据，系统自动从 LLM 采样候选形式模型、做贝叶斯推断、通过边际似然加权平均，无需用户编写概率模型。
 tags:
   - NeurIPS 2025
+  - 优化
   - LLM
   - 贝叶斯推断
   - 概率编程

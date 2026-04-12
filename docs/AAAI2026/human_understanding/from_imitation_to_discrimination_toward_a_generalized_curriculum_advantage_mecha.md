@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Imitation to Discrimination: Toward A Generalized Curriculum Advantage Mechanism Enhancing Cross-Domain Reasoning Tasks 论文解读 | AAAI 2026 | arXiv 2512.02580 | 强化学习 | 提出 CAPO（Curriculum Advantage Policy Optimization），一种基于优势信号的自适应课程机制，通过先模仿（仅正向优势样本）再判别（引入负向信号）的两阶段策略，稳定且显著提升 LLM 在数学推理和多模态 GUI 推理任务上的表现。"
+title: >-
+  [论文解读] From Imitation to Discrimination: Toward A Generalized Curriculum Advantage Mechanism Enhancing Cross-Domain Reasoning Tasks
+description: >-
+  [AAAI 2026][人体理解][强化学习] 提出 CAPO（Curriculum Advantage Policy Optimization），一种基于优势信号的自适应课程机制，通过先模仿（仅正向优势样本）再判别（引入负向信号）的两阶段策略，稳定且显著提升 LLM 在数学推理和多模态 GUI 推理任务上的表现。
 tags:
   - AAAI 2026
+  - 人体理解
   - 强化学习
   - 课程学习
   - 优势函数

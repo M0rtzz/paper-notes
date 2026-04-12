@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking 论文解读 | CVPR 2026 | arXiv 2603.06034 | 多目标跟踪 | 提出遮挡感知跟踪框架 OA-SORT，通过显式建模目标遮挡状态来缓解位置代价混淆和 Kalman Filter 估计不稳定问题，在 DanceTrack/SportsMOT/MOT17 上均取得 SOTA 级提升，且组件可即插即用地集成到多种跟踪器中。"
+title: >-
+  [论文解读] Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking
+description: >-
+  [CVPR 2026][视频理解][多目标跟踪] 提出遮挡感知跟踪框架 OA-SORT，通过显式建模目标遮挡状态来缓解位置代价混淆和 Kalman Filter 估计不稳定问题，在 DanceTrack/SportsMOT/MOT17 上均取得 SOTA 级提升，且组件可即插即用地集成到多种跟踪器中。
 tags:
   - CVPR 2026
+  - 视频理解
   - 多目标跟踪
   - 遮挡感知
   - Kalman Filter

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference 论文解读 | 发布 PKU-SafeRLHF 大规模安全偏好数据集，包含 44.6k 精炼 prompt、265k 带安全元标签的 QA 对和 166.8k 偏好数据，首次引入 19 种危害类别和 3 级严重程度标注，并训练了严重程度敏感的审核模型（93% 准确率）和基于该数据的 SafeRLHF 对齐 pipeline。"
+title: >-
+  [论文解读] PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference
+description: >-
+  [LLM对齐] 发布 PKU-SafeRLHF 大规模安全偏好数据集，包含 44.6k 精炼 prompt、265k 带安全元标签的 QA 对和 166.8k 偏好数据，首次引入 19 种危害类别和 3 级严重程度标注，并训练了严重程度敏感的审核模型（93% 准确率）和基于该数据的 SafeRLHF 对齐 pipeline。
 tags:
-
+  - LLM对齐
 ---
 
 # PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference

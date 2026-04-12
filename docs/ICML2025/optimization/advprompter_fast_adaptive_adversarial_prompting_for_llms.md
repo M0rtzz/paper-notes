@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs 论文解读 | ICML 2025 | arXiv 2404.16873 | 对抗提示 | 提出 AdvPrompter——用一个 LLM（AdvPrompter）在秒级速度内为目标 LLM 生成人类可读的对抗提示后缀，通过交替优化算法训练，在 AdvBench 和 HarmBench 上实现高攻击成功率，且可迁移到闭源黑盒 LLM，同时展示了用生成的对抗后缀进行对抗训练以增强目标 LLM 鲁棒性的策略。"
+title: >-
+  [论文解读] AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs
+description: >-
+  [ICML 2025][优化][对抗提示] 提出 AdvPrompter——用一个 LLM（AdvPrompter）在秒级速度内为目标 LLM 生成人类可读的对抗提示后缀，通过交替优化算法训练，在 AdvBench 和 HarmBench 上实现高攻击成功率，且可迁移到闭源黑盒 LLM，同时展示了用生成的对抗后缀进行对抗训练以增强目标 LLM 鲁棒性的策略。
 tags:
   - ICML 2025
+  - 优化
   - 对抗提示
   - LLM越狱
   - 红队测试

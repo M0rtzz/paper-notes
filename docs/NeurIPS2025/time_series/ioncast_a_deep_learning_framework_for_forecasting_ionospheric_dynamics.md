@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IonCast: A Deep Learning Framework for Forecasting Ionospheric Dynamics 论文解读 | NeurIPS 2025 | arXiv 2511.15004 | 电离层预测 | 提出 IonCast 框架，基于 GraphCast 启发的图神经网络架构，融合多源异构物理驱动数据，实现全球总电子含量（TEC）的高精度时空预测。"
+title: >-
+  [论文解读] IonCast: A Deep Learning Framework for Forecasting Ionospheric Dynamics
+description: >-
+  [NeurIPS 2025][时间序列][电离层预测] 提出 IonCast 框架，基于 GraphCast 启发的图神经网络架构，融合多源异构物理驱动数据，实现全球总电子含量（TEC）的高精度时空预测。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 电离层预测
   - 图神经网络
   - 时空建模

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Aria-UI: Visual Grounding for GUI Instructions 论文解读 | ACL 2025 | arXiv 2412.16256 | GUI Grounding | 提出 Aria-UI，一个专为 GUI 视觉定位设计的纯视觉多模态模型，通过可扩展的指令合成数据管线和文本-图像交错的动作历史机制，在离线和在线 Agent 基准上均达到 SOTA，包括 AndroidWorld 第1名（44.8%）和 OSWorld 第3名（15.2%）。"
+title: >-
+  [论文解读] Aria-UI: Visual Grounding for GUI Instructions
+description: >-
+  [ACL 2025][多模态][GUI Grounding] 提出 Aria-UI，一个专为 GUI 视觉定位设计的纯视觉多模态模型，通过可扩展的指令合成数据管线和文本-图像交错的动作历史机制，在离线和在线 Agent 基准上均达到 SOTA，包括 AndroidWorld 第1名（44.8%）和 OSWorld 第3名（15.2%）。
 tags:
   - ACL 2025
+  - 多模态
   - GUI Grounding
   - 视觉定位
   - 多模态大模型

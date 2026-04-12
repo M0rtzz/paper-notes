@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction 论文解读 | AAAI 2026 | arXiv 2507.18988 | 图像归因 | 提出一种基于自编码器双重重建损失比值的免训练图像归因方法，通过图像均匀度校准消除纹理复杂度偏差，在8个主流扩散模型上平均准确率达95.1%，比最强基线高24.7%，且速度快约100倍。"
+title: >-
+  [论文解读] AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction
+description: >-
+  [AAAI 2026][图像生成][图像归因] 提出一种基于自编码器双重重建损失比值的免训练图像归因方法，通过图像均匀度校准消除纹理复杂度偏差，在8个主流扩散模型上平均准确率达95.1%，比最强基线高24.7%，且速度快约100倍。
 tags:
   - AAAI 2026
+  - 图像生成
   - 图像归因
   - 自编码器重建
   - 免训练

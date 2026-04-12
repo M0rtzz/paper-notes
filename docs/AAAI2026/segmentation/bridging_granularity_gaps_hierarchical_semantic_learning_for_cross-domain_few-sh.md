@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bridging Granularity Gaps: Hierarchical Semantic Learning for Cross-Domain Few-Shot Segmentation 论文解读 | AAAI 2026 | arXiv 2511.12200 | 跨域少样本分割 | 提出 HSL 框架，通过双重风格随机化 (DSR)、层次语义挖掘 (HSM) 和原型置信度调制阈值 (PCMT) 三个模块，解决跨域少样本分割中源域和目标域之间的**分割粒度差异**问题，在四个目标域数据集上达到 SOTA。"
+title: >-
+  [论文解读] Bridging Granularity Gaps: Hierarchical Semantic Learning for Cross-Domain Few-Shot Segmentation
+description: >-
+  [AAAI 2026][图像分割][跨域少样本分割] 提出 HSL 框架，通过双重风格随机化 (DSR)、层次语义挖掘 (HSM) 和原型置信度调制阈值 (PCMT) 三个模块，解决跨域少样本分割中源域和目标域之间的**分割粒度差异**问题，在四个目标域数据集上达到 SOTA。
 tags:
   - AAAI 2026
+  - 图像分割
   - 跨域少样本分割
   - 层次语义学习
   - 风格随机化

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PixARMesh: Autoregressive Mesh-Native Single-View Scene Reconstruction 论文解读 | CVPR 2026 | arXiv 2603.05888 | 单视图场景重建 | 提出 PixARMesh，首个在原生 mesh 空间（而非 SDF）中进行单视图场景重建的自回归框架，通过像素对齐图像特征和全局场景上下文增强点云编码器，在统一的 token 序列中同时预测物体位姿和mesh，在 3D-FRONT 上达到场景级 SOTA 且输出紧凑、可编辑的 artist-ready mesh。"
+title: >-
+  [论文解读] PixARMesh: Autoregressive Mesh-Native Single-View Scene Reconstruction
+description: >-
+  [CVPR 2026][3D视觉][单视图场景重建] 提出 PixARMesh，首个在原生 mesh 空间（而非 SDF）中进行单视图场景重建的自回归框架，通过像素对齐图像特征和全局场景上下文增强点云编码器，在统一的 token 序列中同时预测物体位姿和mesh，在 3D-FRONT 上达到场景级 SOTA 且输出紧凑、可编辑的 artist-ready mesh。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 单视图场景重建
   - 自回归mesh生成
   - 原生mesh

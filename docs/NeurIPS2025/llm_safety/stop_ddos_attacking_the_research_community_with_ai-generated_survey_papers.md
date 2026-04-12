@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Stop DDoS Attacking the Research Community with AI-Generated Survey Papers 论文解读 | NeurIPS 2025 | arXiv 2510.09686 | AI生成综述 | 这篇立场论文以\"综述论文 DDoS 攻击\"为隐喻，通过定量分析 arXiv 2020-2024 年间 10,063 篇 CS 综述论文，揭示 AI 生成综述的爆炸式增长趋势和质量问题，提出规范 AI 辅助综述写作和建设\"动态活综述\"的愿景。"
+title: >-
+  [论文解读] Stop DDoS Attacking the Research Community with AI-Generated Survey Papers
+description: >-
+  [NeurIPS 2025][AI生成综述] 这篇立场论文以"综述论文 DDoS 攻击"为隐喻，通过定量分析 arXiv 2020-2024 年间 10,063 篇 CS 综述论文，揭示 AI 生成综述的爆炸式增长趋势和质量问题，提出规范 AI 辅助综述写作和建设"动态活综述"的愿景。
 tags:
   - NeurIPS 2025
   - AI生成综述

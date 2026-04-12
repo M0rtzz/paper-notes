@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment 论文解读 | CVPR 2026 | arXiv 2603.11617 | 噪声标签 | 提出NA-MVP框架，通过双向（clean + noise-aware）多视图prompt设计配合非平衡最优传输（UOT）实现细粒度patch-to-prompt对齐，并用经典OT对识别出的噪声样本做选择性标签修正，在噪声小样本学习场景下持续超越SOTA。"
+title: >-
+  [论文解读] Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment
+description: >-
+  [CVPR 2026][多模态][噪声标签] 提出NA-MVP框架，通过双向（clean + noise-aware）多视图prompt设计配合非平衡最优传输（UOT）实现细粒度patch-to-prompt对齐，并用经典OT对识别出的噪声样本做选择性标签修正，在噪声小样本学习场景下持续超越SOTA。
 tags:
   - CVPR 2026
+  - 多模态
   - 噪声标签
   - 提示学习
   - 最优传输

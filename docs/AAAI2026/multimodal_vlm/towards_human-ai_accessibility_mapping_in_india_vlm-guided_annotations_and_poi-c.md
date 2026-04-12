@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Human-AI Accessibility Mapping in India: VLM-Guided Annotations and POI-Centric Analysis in Chandigarh 论文解读 | AAAI 2026 | arXiv 2602.09216 | 无障碍地图 | 本文将Project Sidewalk无障碍标注平台适配到印度昌迪加尔，通过定制化界面标签、VLM驱动的任务指导（Gemini 2.5 Flash），以及以POI为中心的分析框架，在三个不同土地用途的区域中审计了约40公里人行道，识别出1,644处可改善的无障碍设施位置。"
+title: >-
+  [论文解读] Towards Human-AI Accessibility Mapping in India: VLM-Guided Annotations and POI-Centric Analysis in Chandigarh
+description: >-
+  [AAAI 2026][多模态][无障碍地图] 本文将Project Sidewalk无障碍标注平台适配到印度昌迪加尔，通过定制化界面标签、VLM驱动的任务指导（Gemini 2.5 Flash），以及以POI为中心的分析框架，在三个不同土地用途的区域中审计了约40公里人行道，识别出1,644处可改善的无障碍设施位置。
 tags:
   - AAAI 2026
+  - 多模态
   - 无障碍地图
   - VLM辅助标注
   - 人行道可达性

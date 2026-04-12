@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VSC: Visual Search Compositional Text-to-Image Diffusion Model 论文解读 | ICCV 2025 | arXiv 2505.01104 | 组合文本到图像生成 | 提出 VSC，一种基于视觉搜索的组合文本到图像扩散生成方法，通过为每个属性-对象对单独生成参考图像并融合视觉原型嵌入，结合分割引导的交叉注意力定位训练，显著提升多属性-对象绑定的准确性和扩展性。"
+title: >-
+  [论文解读] VSC: Visual Search Compositional Text-to-Image Diffusion Model
+description: >-
+  [ICCV 2025][图像分割][组合文本到图像生成] 提出 VSC，一种基于视觉搜索的组合文本到图像扩散生成方法，通过为每个属性-对象对单独生成参考图像并融合视觉原型嵌入，结合分割引导的交叉注意力定位训练，显著提升多属性-对象绑定的准确性和扩展性。
 tags:
   - ICCV 2025
+  - 图像分割
   - 组合文本到图像生成
   - 属性-对象绑定
   - 扩散模型

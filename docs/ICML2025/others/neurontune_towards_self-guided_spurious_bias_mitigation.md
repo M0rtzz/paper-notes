@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】NeuronTune: Towards Self-Guided Spurious Bias Mitigation 论文解读 | ICML2025 | arXiv 2505.24048 | 虚假相关性 | NeuronTune 提出一种**无需组标签**的自引导去偏方法：通过对比模型隐空间中正确/错误预测样本的神经元激活差异，识别受虚假偏差影响的维度并将其置零，再重训最后一层分类器，从而显著提升 worst-group accuracy。"
+title: >-
+  [论文解读] NeuronTune: Towards Self-Guided Spurious Bias Mitigation
+description: >-
+  [ICML2025][虚假相关性] NeuronTune 提出一种**无需组标签**的自引导去偏方法：通过对比模型隐空间中正确/错误预测样本的神经元激活差异，识别受虚假偏差影响的维度并将其置零，再重训最后一层分类器，从而显著提升 worst-group accuracy。
 tags:
   - ICML2025
   - 虚假相关性

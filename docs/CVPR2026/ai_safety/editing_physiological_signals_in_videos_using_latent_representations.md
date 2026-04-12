@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Editing Physiological Signals in Videos Using Latent Representations 论文解读 | CVPR 2026 | arXiv 2509.25348 | 心率编辑 | 提出面向视频生理信号(心率)编辑的学习框架——在3D VAE潜空间中融合视频编码和目标心率文本嵌入，通过可训练时空融合层(AdaLN)捕捉rPPG时间相干性+FiLM解码器调制实现精确心率修改，视觉质量保持PSNR 38.96dB/SSIM 0.98的同时心率调制误差10 bpm MAE，可用于面部视频的心率匿名化或合成带指定心率的视频。"
+title: >-
+  [论文解读] Editing Physiological Signals in Videos Using Latent Representations
+description: >-
+  [CVPR 2026][AI安全][心率编辑] 提出面向视频生理信号(心率)编辑的学习框架——在3D VAE潜空间中融合视频编码和目标心率文本嵌入，通过可训练时空融合层(AdaLN)捕捉rPPG时间相干性+FiLM解码器调制实现精确心率修改，视觉质量保持PSNR 38.96dB/SSIM 0.98的同时心率调制误差10 bpm MAE，可用于面部视频的心率匿名化或合成带指定心率的视频。
 tags:
   - CVPR 2026
+  - AI安全
   - 心率编辑
   - rPPG隐私
   - 视频生理信号

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Promoting Sustainable Web Agents: Benchmarking and Estimating Energy Consumption Through Empirical and Theoretical Analysis 论文解读 | AAAI 2026 | arXiv 2511.04481 | Web Agent | 首次系统性地从实证基准测试和理论估算两个角度量化了 Web Agent 的能耗与碳排放，发现更高能耗并不等于更好性能，并倡导在评测中引入能效指标。"
+title: >-
+  [论文解读] Promoting Sustainable Web Agents: Benchmarking and Estimating Energy Consumption Through Empirical and Theoretical Analysis
+description: >-
+  [AAAI 2026][LLM Agent][Web Agent] 首次系统性地从实证基准测试和理论估算两个角度量化了 Web Agent 的能耗与碳排放，发现更高能耗并不等于更好性能，并倡导在评测中引入能效指标。
 tags:
   - AAAI 2026
+  - LLM Agent
   - Web Agent
   - 能耗基准测试
   - 碳排放估算

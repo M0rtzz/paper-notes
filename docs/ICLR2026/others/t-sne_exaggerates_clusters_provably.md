@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】t-SNE Exaggerates Clusters, Provably 论文解读 | ICLR 2026 | arXiv 2510.07746 | t-SNE | 从理论上严格证明 t-SNE 存在两个根本性失败模式：（1）无法从输出推断输入聚类的强度，（2）无法忠实地展示极端离群点——即使输入毫无聚类结构或存在极端离群点，t-SNE 也可能产生完美聚类的可视化。"
+title: >-
+  [论文解读] t-SNE Exaggerates Clusters, Provably
+description: >-
+  [ICLR 2026][t-SNE] 从理论上严格证明 t-SNE 存在两个根本性失败模式：（1）无法从输出推断输入聚类的强度，（2）无法忠实地展示极端离群点——即使输入毫无聚类结构或存在极端离群点，t-SNE 也可能产生完美聚类的可视化。
 tags:
   - ICLR 2026
   - t-SNE

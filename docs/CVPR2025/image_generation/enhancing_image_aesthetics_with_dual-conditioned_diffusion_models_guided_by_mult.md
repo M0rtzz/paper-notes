@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception 论文解读 | CVPR 2025 | arXiv 2603.11556 | 图像美学增强 | 提出 DIAE，通过多模态美学感知模块（MAP）将模糊美学指令转化为 HSV/轮廓图+文本的多模态控制信号，并构建\"非完美配对\"数据集 IIAEData 配合双分支监督策略实现弱监督美学增强，在 LAION 和 MLLM 美学评分上达 SOTA。"
+title: >-
+  [论文解读] Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception
+description: >-
+  [CVPR 2025][图像生成][图像美学增强] 提出 DIAE，通过多模态美学感知模块（MAP）将模糊美学指令转化为 HSV/轮廓图+文本的多模态控制信号，并构建"非完美配对"数据集 IIAEData 配合双分支监督策略实现弱监督美学增强，在 LAION 和 MLLM 美学评分上达 SOTA。
 tags:
   - CVPR 2025
+  - 图像生成
   - 图像美学增强
   - 扩散模型
   - 多模态感知

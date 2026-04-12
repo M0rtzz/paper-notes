@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】When No Paths Lead to Rome: Benchmarking Systematic Neural Relational Reasoning 论文解读 | NeurIPS 2025 | arXiv 2510.23532 | 关系推理 | 提出NoRA benchmark，系统性地打破现有关系推理benchmark中\"推理可归约为路径组合\"的假设，引入非路径推理、歧义事实和多关系等挑战，揭示包括o3在内的所有现有模型在off-path推理上的根本缺陷。"
+title: >-
+  [论文解读] When No Paths Lead to Rome: Benchmarking Systematic Neural Relational Reasoning
+description: >-
+  [NeurIPS 2025][图学习][关系推理] 提出NoRA benchmark，系统性地打破现有关系推理benchmark中"推理可归约为路径组合"的假设，引入非路径推理、歧义事实和多关系等挑战，揭示包括o3在内的所有现有模型在off-path推理上的根本缺陷。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 关系推理
   - Benchmark
   - 非路径推理

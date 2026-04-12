@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HoH: A Dynamic Benchmark for Evaluating the Impact of Outdated Information on Retrieval-Augmented Generation 论文解读 | ACL 2025 | arXiv 2503.04800 | RAG | 本文提出 HoH，首个专门评估过时信息对 RAG 系统影响的大规模动态基准，包含 96,124 个 QA 对和 219,463 篇文档，揭示了过时信息对 RAG 性能和安全性的严重危害。"
+title: >-
+  [论文解读] HoH: A Dynamic Benchmark for Evaluating the Impact of Outdated Information on Retrieval-Augmented Generation
+description: >-
+  [ACL 2025][RAG] 本文提出 HoH，首个专门评估过时信息对 RAG 系统影响的大规模动态基准，包含 96,124 个 QA 对和 219,463 篇文档，揭示了过时信息对 RAG 性能和安全性的严重危害。
 tags:
   - ACL 2025
   - RAG

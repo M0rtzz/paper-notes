@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AstroLoc: Robust Space to Ground Image Localizer 论文解读 | ICCV 2025 | arXiv 2502.07003 | 宇航员照片定位 | 提出AstroLoc，首个利用30万张人工标注宇航员照片进行训练的太空对地定位模型，通过查询-卫星配对损失和无监督挖掘技术学习鲁棒的地球表面特征表征，在recall@1上平均提升35%，recall@100持续超过99%，已在实际中完成50万+照片的定位。"
+title: >-
+  [论文解读] AstroLoc: Robust Space to Ground Image Localizer
+description: >-
+  [ICCV 2025][遥感][宇航员照片定位] 提出AstroLoc，首个利用30万张人工标注宇航员照片进行训练的太空对地定位模型，通过查询-卫星配对损失和无监督挖掘技术学习鲁棒的地球表面特征表征，在recall@1上平均提升35%，recall@100持续超过99%，已在实际中完成50万+照片的定位。
 tags:
   - ICCV 2025
+  - 遥感
   - 宇航员照片定位
   - 跨域图像检索
   - 对比学习

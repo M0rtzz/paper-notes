@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SongEcho: Towards Cover Song Generation via Instance-Adaptive Element-wise Linear Modulation 论文解读 | ICLR 2026 | arXiv 2602.19976 | 翻唱歌曲生成 | 提出 SongEcho 框架，通过实例自适应元素级线性调制（IA-EiLM）实现翻唱歌曲生成，在保持原始歌曲旋律轮廓的同时生成新的歌声和伴奏。"
+title: >-
+  [论文解读] SongEcho: Towards Cover Song Generation via Instance-Adaptive Element-wise Linear Modulation
+description: >-
+  [ICLR 2026][图像生成][翻唱歌曲生成] 提出 SongEcho 框架，通过实例自适应元素级线性调制（IA-EiLM）实现翻唱歌曲生成，在保持原始歌曲旋律轮廓的同时生成新的歌声和伴奏。
 tags:
   - ICLR 2026
+  - 图像生成
   - 翻唱歌曲生成
   - FiLM
   - 元素级线性调制

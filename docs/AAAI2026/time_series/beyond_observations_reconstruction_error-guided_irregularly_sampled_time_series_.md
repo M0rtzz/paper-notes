@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】iTimER: Reconstruction Error-Guided Irregularly Sampled Time Series Representation Learning 论文解读 | AAAI 2026 | arXiv 2511.06854 | 不规则采样时序 | 提出 iTimER，利用模型自身的重建误差分布作为学习信号——从观测点估计误差分布后采样生成未观测时刻的伪观测值，通过 Wasserstein 距离对齐观测/伪观测区域的误差分布 + 对比学习，在不规则采样时序的分类、插值、预测任务上全面超越 SOTA。"
+title: >-
+  [论文解读] iTimER: Reconstruction Error-Guided Irregularly Sampled Time Series Representation Learning
+description: >-
+  [AAAI 2026][时间序列][不规则采样时序] 提出 iTimER，利用模型自身的重建误差分布作为学习信号——从观测点估计误差分布后采样生成未观测时刻的伪观测值，通过 Wasserstein 距离对齐观测/伪观测区域的误差分布 + 对比学习，在不规则采样时序的分类、插值、预测任务上全面超越 SOTA。
 tags:
   - AAAI 2026
+  - 时间序列
   - 不规则采样时序
   - 重建误差
   - 自监督预训练

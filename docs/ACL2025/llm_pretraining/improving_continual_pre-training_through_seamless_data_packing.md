@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Improving Continual Pre-training Through Seamless Data Packing 论文解读 | ACL 2025 | arXiv 2505.22018 | 持续预训练 | 提出 Seamless Packing (SP) 数据打包策略，通过两阶段方法——滑动窗口处理长文本 + FFD 算法打包短文本——在持续预训练中保持上下文连续性、最小化截断和填充，在 99% 的实验设置中超越基线方法。"
+title: >-
+  [论文解读] Improving Continual Pre-training Through Seamless Data Packing
+description: >-
+  [ACL 2025][持续预训练] 提出 Seamless Packing (SP) 数据打包策略，通过两阶段方法——滑动窗口处理长文本 + FFD 算法打包短文本——在持续预训练中保持上下文连续性、最小化截断和填充，在 99% 的实验设置中超越基线方法。
 tags:
   - ACL 2025
   - 持续预训练

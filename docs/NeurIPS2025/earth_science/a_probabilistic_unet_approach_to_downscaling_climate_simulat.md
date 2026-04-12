@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Probabilistic U-Net Approach to Downscaling Climate Simulations 论文解读 | NeurIPS 2025 | arXiv 2511.03197 | 概率U-Net | 将医学图像分割中的概率U-Net迁移到气候降尺度任务，通过变分隐空间建模不确定性，并系统比较了四种训练目标函数在捕捉极端事件与细尺度空间变异性方面的权衡。"
+title: >-
+  [论文解读] A Probabilistic U-Net Approach to Downscaling Climate Simulations
+description: >-
+  [NeurIPS 2025][概率U-Net] 将医学图像分割中的概率U-Net迁移到气候降尺度任务，通过变分隐空间建模不确定性，并系统比较了四种训练目标函数在捕捉极端事件与细尺度空间变异性方面的权衡。
 tags:
   - NeurIPS 2025
   - 概率U-Net

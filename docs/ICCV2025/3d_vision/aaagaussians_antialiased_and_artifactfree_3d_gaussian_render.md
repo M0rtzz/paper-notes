@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering 论文解读 | ICCV 2025 | arXiv 2504.12811 | 3D Gaussian Splatting | 通过在3DGS渲染管线的所有环节中融入完整的3D评估（而非2D splat近似），提出自适应3D平滑滤波器、视空间边界计算和基于视锥的tile剔除，统一解决了3DGS中的锯齿、投影伪影和弹出伪影（popping），在OOD视角下大幅优于现有方法，同时保持实时渲染（>100 FPS）。"
+title: >-
+  [论文解读] AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering
+description: >-
+  [ICCV 2025][3D视觉][3D Gaussian Splatting] 通过在3DGS渲染管线的所有环节中融入完整的3D评估（而非2D splat近似），提出自适应3D平滑滤波器、视空间边界计算和基于视锥的tile剔除，统一解决了3DGS中的锯齿、投影伪影和弹出伪影（popping），在OOD视角下大幅优于现有方法，同时保持实时渲染（>100 FPS）。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Gaussian Splatting
   - 抗锯齿
   - 无伪影渲染

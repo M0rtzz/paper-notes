@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pi-GPS: Enhancing Geometry Problem Solving by Unleashing the Power of Diagrammatic Information 论文解读 | ICCV 2025 | arXiv 2503.05543 | 几何问题求解 | Pi-GPS 提出利用几何图形信息消解文本描述中的歧义，通过\"纠正器+验证器\"微模块解决了先前被忽视的文本模糊性问题，在 Geometry3K 上比此前最优神经符号方法提升近 10%。"
+title: >-
+  [论文解读] Pi-GPS: Enhancing Geometry Problem Solving by Unleashing the Power of Diagrammatic Information
+description: >-
+  [ICCV 2025][多模态][几何问题求解] Pi-GPS 提出利用几何图形信息消解文本描述中的歧义，通过"纠正器+验证器"微模块解决了先前被忽视的文本模糊性问题，在 Geometry3K 上比此前最优神经符号方法提升近 10%。
 tags:
   - ICCV 2025
+  - 多模态
   - 几何问题求解
   - 文本歧义消解
   - 多模态推理

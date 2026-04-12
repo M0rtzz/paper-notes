@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation 论文解读 | arXiv 2026 | arXiv 2603.12845 | 多模态 multimodal | 预测酶动力学参数可以量化酶在规定的生化条件下催化特定底物的效率。"
+title: >-
+  [论文解读] Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation
+description: >-
+  [arXiv 2026][LLM/NLP][多模态] 预测酶动力学参数可以量化酶在规定的生化条件下催化特定底物的效率。
 tags:
   - arXiv 2026
+  - LLM/NLP
   - 多模态
   - protein
   - language

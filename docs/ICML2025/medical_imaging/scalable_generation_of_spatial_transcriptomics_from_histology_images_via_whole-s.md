@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching 论文解读 | ICML2025 | arXiv 2506.05361 | 空间转录组 | 提出 STFlow，一种基于 flow matching 的生成模型，通过建模整张切片的基因表达联合分布来显式捕获细胞间交互，并采用局部空间注意力实现高效全切片编码，在 HEST-1k 和 STImage-1K4M 上相对最优基线提升 18%。"
+title: >-
+  [论文解读] Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching
+description: >-
+  [ICML2025][医学图像][空间转录组] 提出 STFlow，一种基于 flow matching 的生成模型，通过建模整张切片的基因表达联合分布来显式捕获细胞间交互，并采用局部空间注意力实现高效全切片编码，在 HEST-1k 和 STImage-1K4M 上相对最优基线提升 18%。
 tags:
   - ICML2025
+  - 医学图像
   - 空间转录组
   - Flow Matching
   - 全切片建模

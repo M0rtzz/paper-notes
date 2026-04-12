@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis 论文解读 | CVPR2026 | arXiv 2603.12997 | 噪声标签学习 | 本文通过受控实验证明，即使给定完美的噪声转移矩阵 T，前向校正方法仍会在训练后期发生性能崩溃，并从宏观收敛状态、微观优化动力学、信息论三个层面系统诊断了这一失败的根本原因。"
+title: >-
+  [论文解读] Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis
+description: >-
+  [CVPR2026][噪声标签学习] 本文通过受控实验证明，即使给定完美的噪声转移矩阵 T，前向校正方法仍会在训练后期发生性能崩溃，并从宏观收敛状态、微观优化动力学、信息论三个层面系统诊断了这一失败的根本原因。
 tags:
   - CVPR2026
   - 噪声标签学习

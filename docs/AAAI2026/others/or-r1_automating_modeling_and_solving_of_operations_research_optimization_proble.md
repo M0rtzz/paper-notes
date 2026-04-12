@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems 论文解读 | AAAI 2026 | arXiv 2511.09092 | 运筹学 | OR-R1提出了一个数据高效的两阶段训练框架（SFT + TGRPO），仅使用ORLM所需1/10的合成数据即达到67.7%的平均求解准确率，超越现有SOTA方法，并通过测试时强化学习将单次生成（Pass@1）与多次生成（Pass@8）的性能差距从13%缩小到7%。"
+title: >-
+  [论文解读] OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems
+description: >-
+  [AAAI 2026][运筹学] OR-R1提出了一个数据高效的两阶段训练框架（SFT + TGRPO），仅使用ORLM所需1/10的合成数据即达到67.7%的平均求解准确率，超越现有SOTA方法，并通过测试时强化学习将单次生成（Pass@1）与多次生成（Pass@8）的性能差距从13%缩小到7%。
 tags:
   - AAAI 2026
   - 运筹学

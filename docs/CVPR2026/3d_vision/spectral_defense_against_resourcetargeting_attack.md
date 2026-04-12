@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spectral Defense Against Resource-Targeting Attack in 3D Gaussian Splatting 论文解读 | CVPR 2026 | arXiv 2603.12796 | 3D高斯泼溅 | 提出首个针对3DGS资源瞄准攻击的频域防御框架——联合3D频率感知高斯剪枝与2D角度各向异性正则化，将投毒导致的高斯过增长最多抑制5.92×、峰值显存降3.66×、渲染速度提升4.34×，同时渲染质量反而提升(PSNR +1.93dB)。"
+title: >-
+  [论文解读] Spectral Defense Against Resource-Targeting Attack in 3D Gaussian Splatting
+description: >-
+  [CVPR 2026][3D视觉][3D高斯泼溅] 提出首个针对3DGS资源瞄准攻击的频域防御框架——联合3D频率感知高斯剪枝与2D角度各向异性正则化，将投毒导致的高斯过增长最多抑制5.92×、峰值显存降3.66×、渲染速度提升4.34×，同时渲染质量反而提升(PSNR +1.93dB)。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D高斯泼溅
   - 资源瞄准攻击
   - 频域防御

@@ -1,9 +1,16 @@
+---
+title: >-
+  CVPR2025 视频理解方向 9篇论文解读
+description: >-
+  9篇CVPR2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频理解
 
 **📷 CVPR2025** · 共 **9** 篇
 
-**[AnimateAnything: Consistent and Controllable Animation for Video Generation](animateanything_consistent_and_controllable_animation_for_video_generation.md)**
+**[Animateanything Consistent And Controllable Animation For Video Generation](animateanything_consistent_and_controllable_animation_for_video_generation.md)**
 
 :   提出两阶段可控视频生成框架：第一阶段将不同控制信号（相机轨迹、用户拖拽标注、参考视频）统一转化为逐帧光流表示，第二阶段用统一光流引导基于DiT的视频扩散模型生成最终视频，并引入频域稳定模块抑制大运动下的闪烁问题。
 

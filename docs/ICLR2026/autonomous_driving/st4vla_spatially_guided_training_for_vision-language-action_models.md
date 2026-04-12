@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ST4VLA: Spatially Guided Training for Vision-Language-Action Models 论文解读 | ICLR 2026 | arXiv 2602.10109 | 视觉语言 Vision-Language-Action | 提出 ST4VLA，通过两阶段空间引导训练（spatial grounding pre-training + spatially guided action post-training），将 VLM 的空间先验显式注入 VLA 策略学习，在 SimplerEnv 上将 Google Robot 成功率从 66.1% 提升至 84.6%，WidowX 从 54.7% 提升至 73.2%，达到 SOTA。"
+title: >-
+  [论文解读] ST4VLA: Spatially Guided Training for Vision-Language-Action Models
+description: >-
+  [ICLR 2026][自动驾驶][视觉语言] 提出 ST4VLA，通过两阶段空间引导训练（spatial grounding pre-training + spatially guided action post-training），将 VLM 的空间先验显式注入 VLA 策略学习，在 SimplerEnv 上将 Google Robot 成功率从 66.1% 提升至 84.6%，WidowX 从 54.7% 提升至 73.2%，达到 SOTA。
 tags:
   - ICLR 2026
+  - 自动驾驶
   - 视觉语言
   - 空间引导训练
   - 双系统架构

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AutoGaze: Attend Before Attention — Efficient and Scalable Video Understanding via Autoregressive Gazing 论文解读 | CVPR 2026 | arXiv 2603.12254 | 视频token压缩 | 提出AutoGaze——在ViT/MLLM处理视频之前，用一个轻量模块自回归地选择最少的多尺度patch，减少4x-100x视觉token，加速最高19x，支持1K帧4K视频并在VideoMME达67.0%。"
+title: >-
+  [论文解读] AutoGaze: Attend Before Attention — Efficient and Scalable Video Understanding via Autoregressive Gazing
+description: >-
+  [CVPR 2026][视频理解][视频token压缩] 提出AutoGaze——在ViT/MLLM处理视频之前，用一个轻量模块自回归地选择最少的多尺度patch，减少4x-100x视觉token，加速最高19x，支持1K帧4K视频并在VideoMME达67.0%。
 tags:
   - CVPR 2026
+  - 视频理解
   - 视频token压缩
   - 自回归选择
   - MLLM加速

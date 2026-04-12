@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】COIN: Control-Inpainting Diffusion Prior for Human and Camera Motion Estimation 论文解读 | ECCV 2024 | arXiv 2408.16426 | 全局人体运动估计 | 提出COIN方法，通过控制-补绘（Control-Inpainting）的改进版Score Distillation Sampling，结合人-场景关系损失，从单目动态相机视频中同时估计高质量的全局人体运动和相机运动。"
+title: >-
+  [论文解读] COIN: Control-Inpainting Diffusion Prior for Human and Camera Motion Estimation
+description: >-
+  [ECCV 2024][图像生成][全局人体运动估计] 提出COIN方法，通过控制-补绘（Control-Inpainting）的改进版Score Distillation Sampling，结合人-场景关系损失，从单目动态相机视频中同时估计高质量的全局人体运动和相机运动。
 tags:
   - ECCV 2024
+  - 图像生成
   - 全局人体运动估计
   - 相机运动估计
   - Score Distillation Sampling

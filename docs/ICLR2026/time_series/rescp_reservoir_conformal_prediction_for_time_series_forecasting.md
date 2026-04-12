@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】ResCP: Reservoir Conformal Prediction for Time Series Forecasting 论文解读 | ICLR 2026 | arXiv 2510.05060 | 保形预测 | 提出ResCP，首次将储备计算(Echo State Network)用于保形预测的残差重加权，通过储备状态间相似性自适应调权形成局部化预测区间，无需训练即可实现渐近条件覆盖保证，计算效率远超需训练的Transformer方法。"
+title: >-
+  [论文解读] ResCP: Reservoir Conformal Prediction for Time Series Forecasting
+description: >-
+  [ICLR 2026][时间序列][保形预测] 提出ResCP，首次将储备计算(Echo State Network)用于保形预测的残差重加权，通过储备状态间相似性自适应调权形成局部化预测区间，无需训练即可实现渐近条件覆盖保证，计算效率远超需训练的Transformer方法。
 tags:
   - ICLR 2026
+  - 时间序列
   - 保形预测
   - 储备计算
-  - 时间序列
   - 预测区间
   - 无训练
 ---

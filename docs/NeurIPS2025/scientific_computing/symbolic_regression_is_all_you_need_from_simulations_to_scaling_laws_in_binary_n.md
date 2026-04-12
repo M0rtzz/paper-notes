@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Symbolic Regression Is All You Need: From Simulations to Scaling Laws in Binary Neutron Star Mergers 论文解读 | NeurIPS 2025 (AI for Science Workshop) | arXiv 2511.08784 | Symbolic Regression | 利用符号回归（Symbolic Regression）从数值相对论模拟数据中自动发现双中子星并合后吸积盘质量的解析标定关系，所得紧凑表达式在预测精度、泛化能力和可解释性上全面超越文献中已有的经验拟合公式。"
+title: >-
+  [论文解读] Symbolic Regression Is All You Need: From Simulations to Scaling Laws in Binary Neutron Star Mergers
+description: >-
+  [NeurIPS 2025 (AI for Science Workshop)][科学计算][Symbolic Regression] 利用符号回归（Symbolic Regression）从数值相对论模拟数据中自动发现双中子星并合后吸积盘质量的解析标定关系，所得紧凑表达式在预测精度、泛化能力和可解释性上全面超越文献中已有的经验拟合公式。
 tags:
   - NeurIPS 2025 (AI for Science Workshop)
+  - 科学计算
   - Symbolic Regression
   - Binary Neutron Stars
   - Gravitational Waves

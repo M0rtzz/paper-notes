@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization 论文解读 | CVPR 2025 | 待补充 | > 注：本笔记基于论文摘要撰写，尚未阅读全文。待下载完整论文后补充详细方法和实验分析。"
+title: >-
+  [论文解读] Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 注：本笔记基于论文摘要撰写，尚未阅读全文。待下载完整论文后补充详细方法和实验分析。
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

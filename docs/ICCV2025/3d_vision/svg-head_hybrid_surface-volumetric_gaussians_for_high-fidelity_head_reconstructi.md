@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SVG-Head: Hybrid Surface-Volumetric Gaussians for High-Fidelity Head Reconstruction and Real-Time Editing 论文解读 | ICCV 2025 | arXiv 2508.09597 | 头部重建 | 提出SVG-Head，通过表面高斯(显式纹理图)和体积高斯(非朗伯区域补充建模)的混合表示，首次实现高保真高斯头部化身的实时外观编辑。"
+title: >-
+  [论文解读] SVG-Head: Hybrid Surface-Volumetric Gaussians for High-Fidelity Head Reconstruction and Real-Time Editing
+description: >-
+  [ICCV 2025][3D视觉][头部重建] 提出SVG-Head，通过表面高斯(显式纹理图)和体积高斯(非朗伯区域补充建模)的混合表示，首次实现高保真高斯头部化身的实时外观编辑。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 头部重建
   - 3D高斯
   - 纹理编辑

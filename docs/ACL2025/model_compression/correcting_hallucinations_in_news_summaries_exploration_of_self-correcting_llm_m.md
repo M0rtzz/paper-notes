@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge 论文解读 | ACL 2025 | arXiv 2506.19607 | 幻觉纠正 | 系统性地探究了两种自纠正方法（CoVE 和 RARR）在新闻摘要幻觉纠正中的表现，比较了三种搜索引擎、多种检索设置和提示策略，发现 Bing 搜索片段 + RARR（few-shot）组合效果最佳，且 G-Eval 与人类评估高度一致。"
+title: >-
+  [论文解读] Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge
+description: >-
+  [ACL 2025][模型压缩][幻觉纠正] 系统性地探究了两种自纠正方法（CoVE 和 RARR）在新闻摘要幻觉纠正中的表现，比较了三种搜索引擎、多种检索设置和提示策略，发现 Bing 搜索片段 + RARR（few-shot）组合效果最佳，且 G-Eval 与人类评估高度一致。
 tags:
   - ACL 2025
+  - 模型压缩
   - 幻觉纠正
   - 自纠正
   - 新闻摘要

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FineGRAIN: Evaluating Failure Modes of Text-to-Image Models with Vision Language Model Judges 论文解读 | NeurIPS 2025 | arXiv 2512.02161 | T2I评估 | FineGRAIN 提出了一个结构化的联合评测框架，通过定义27种细粒度失败模式和利用 VLM+LLM agentic pipeline 来同时评估文本到图像模型的 prompt 遵循能力和视觉语言模型的图像理解能力，揭示了两类模型在特定任务上的系统性缺陷。"
+title: >-
+  [论文解读] FineGRAIN: Evaluating Failure Modes of Text-to-Image Models with Vision Language Model Judges
+description: >-
+  [NeurIPS 2025][多模态][T2I评估] FineGRAIN 提出了一个结构化的联合评测框架，通过定义27种细粒度失败模式和利用 VLM+LLM agentic pipeline 来同时评估文本到图像模型的 prompt 遵循能力和视觉语言模型的图像理解能力，揭示了两类模型在特定任务上的系统性缺陷。
 tags:
   - NeurIPS 2025
+  - 多模态
   - T2I评估
   - VLM评估
   - 失败模式分类

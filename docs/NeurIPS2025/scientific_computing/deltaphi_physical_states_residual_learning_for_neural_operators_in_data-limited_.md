@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving 论文解读 | NeurIPS 2025 | arXiv 2406.09795 | 神经算子 | 提出 DeltaPhi 框架：不直接学习 PDE 的输入→输出映射，而是学习**相似物理状态之间的残差**，利用物理系统稳定性实现隐式数据增强，在数据稀缺场景下显著提升各类神经算子的性能。"
+title: >-
+  [论文解读] DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving
+description: >-
+  [NeurIPS 2025][科学计算][神经算子] 提出 DeltaPhi 框架：不直接学习 PDE 的输入→输出映射，而是学习**相似物理状态之间的残差**，利用物理系统稳定性实现隐式数据增强，在数据稀缺场景下显著提升各类神经算子的性能。
 tags:
   - NeurIPS 2025
+  - 科学计算
   - 神经算子
   - 残差学习
   - 数据高效

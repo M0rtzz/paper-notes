@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules 论文解读 | ICML2025 | arXiv 2506.03157 | 分子动力学 | UniSim提出首个跨域（小分子/肽链/蛋白质）全原子时间粗化动力学模拟器，通过多头预训练学习统一原子表示+随机插值学习状态转移+力引导模块适配不同化学环境。"
+title: >-
+  [论文解读] UniSim: A Unified Simulator for Time-Coarsened Dynamics of Biomolecules
+description: >-
+  [ICML2025][医学图像][分子动力学] UniSim提出首个跨域（小分子/肽链/蛋白质）全原子时间粗化动力学模拟器，通过多头预训练学习统一原子表示+随机插值学习状态转移+力引导模块适配不同化学环境。
 tags:
   - ICML2025
+  - 医学图像
   - 分子动力学
   - 时间粗化
   - 跨域预训练

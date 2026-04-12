@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Retrieve to Explain: Evidence-driven Predictions for Explainable Drug Target Identification 论文解读 | ACL 2025 | arXiv 2402.04068 | 检索增强预测 | 提出 R2E (Retrieve to Explain)，一种基于检索的架构，通过从文献语料库中检索证据来评分和排序所有候选答案，并利用 Shapley 值将预测忠实地归因到支撑证据，在药物靶点识别任务上超越了遗传学基线和 GPT-4 基线。"
+title: >-
+  [论文解读] Retrieve to Explain: Evidence-driven Predictions for Explainable Drug Target Identification
+description: >-
+  [ACL 2025][检索增强预测] 提出 R2E (Retrieve to Explain)，一种基于检索的架构，通过从文献语料库中检索证据来评分和排序所有候选答案，并利用 Shapley 值将预测忠实地归因到支撑证据，在药物靶点识别任务上超越了遗传学基线和 GPT-4 基线。
 tags:
   - ACL 2025
   - 检索增强预测

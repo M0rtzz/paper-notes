@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Paper Copilot: Tracking the Evolution of Peer Review in AI Conferences 论文解读 | ICLR 2026 | arXiv 2510.13201 | 同行评审 | 构建Paper Copilot——AI会议同行评审的持久数字档案和分析系统：跨数十个AI/ML会议统一收集评审数据(OpenReview API+网页抓取+社区贡献)，提供评分动态追踪(含rebuttal前后变化的时间戳快照)、机构/国家级人才流动分析，以及ICLR多年评审演化的大规模实证分析，发现2025年评审呈现更尖锐的分数驱动分层趋势。"
+title: >-
+  [论文解读] Paper Copilot: Tracking the Evolution of Peer Review in AI Conferences
+description: >-
+  [ICLR 2026][视频理解][同行评审] 构建Paper Copilot——AI会议同行评审的持久数字档案和分析系统：跨数十个AI/ML会议统一收集评审数据(OpenReview API+网页抓取+社区贡献)，提供评分动态追踪(含rebuttal前后变化的时间戳快照)、机构/国家级人才流动分析，以及ICLR多年评审演化的大规模实证分析，发现2025年评审呈现更尖锐的分数驱动分层趋势。
 tags:
   - ICLR 2026
+  - 视频理解
   - 同行评审
   - 评分动态
   - 会议统计

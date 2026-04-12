@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CodePercept: Code-Grounded Visual STEM Perception for MLLMs 论文解读 | CVPR2026 | arXiv 2603.10757 | STEM视觉感知 | 通过系统性缩放分析发现 **感知(perception)而非推理(reasoning)** 是MLLM在STEM领域的真正瓶颈，提出以可执行Python代码为锚定媒介的CodePercept范式，构建百万级ICC-1M数据集和STEM2Code-Eval基准，显著提升MLLM的STEM视觉感知能力。"
+title: >-
+  [论文解读] CodePercept: Code-Grounded Visual STEM Perception for MLLMs
+description: >-
+  [CVPR2026][STEM视觉感知] 通过系统性缩放分析发现 **感知(perception)而非推理(reasoning)** 是MLLM在STEM领域的真正瓶颈，提出以可执行Python代码为锚定媒介的CodePercept范式，构建百万级ICC-1M数据集和STEM2Code-Eval基准，显著提升MLLM的STEM视觉感知能力。
 tags:
   - CVPR2026
   - STEM视觉感知

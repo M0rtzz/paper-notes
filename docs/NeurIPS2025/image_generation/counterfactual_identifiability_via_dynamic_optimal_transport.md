@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Counterfactual Identifiability via Dynamic Optimal Transport 论文解读 | NeurIPS 2025 | arXiv 2510.08294 | counterfactual identification | 利用动态最优传输 (dynamic OT) 理论，首次解决了高维多变量 Markovian SCM 中反事实的可辨识性问题——证明 OT flow 机制产生唯一的单调保序反事实传输映射，并扩展至非 Markovian 设置（IV/BC/FC 准则）。"
+title: >-
+  [论文解读] Counterfactual Identifiability via Dynamic Optimal Transport
+description: >-
+  [NeurIPS 2025][图像生成][counterfactual identification] 利用动态最优传输 (dynamic OT) 理论，首次解决了高维多变量 Markovian SCM 中反事实的可辨识性问题——证明 OT flow 机制产生唯一的单调保序反事实传输映射，并扩展至非 Markovian 设置（IV/BC/FC 准则）。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - counterfactual identification
   - optimal transport
   - flow matching

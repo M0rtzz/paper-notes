@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Flux4D: Flow-based Unsupervised 4D Reconstruction 论文解读 | NeurIPS 2025 | arXiv 2512.03210 | 4D重建 | 提出 Flux4D，一个无监督且可泛化的 4D 动态驾驶场景重建框架，通过前馈网络直接预测 3D 高斯及其运动速度，仅用光度损失和静态偏好正则化实现大规模场景重建，在 PandaSet 和 Waymo 上超越所有无监督方法并接近有监督方法的性能。"
+title: >-
+  [论文解读] Flux4D: Flow-based Unsupervised 4D Reconstruction
+description: >-
+  [NeurIPS 2025][3D视觉][4D重建] 提出 Flux4D，一个无监督且可泛化的 4D 动态驾驶场景重建框架，通过前馈网络直接预测 3D 高斯及其运动速度，仅用光度损失和静态偏好正则化实现大规模场景重建，在 PandaSet 和 Waymo 上超越所有无监督方法并接近有监督方法的性能。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 4D重建
   - 无监督
   - 3D高斯

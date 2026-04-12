@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Dual-level Adaptive Self-Labeling for Novel Class Discovery in Point Cloud Segmentation
+description: >-
+  [ECCV 2024][3D视觉][新类发现] 提出双层自适应自标注方法，通过半松弛最优传输处理类别不平衡问题，并结合区域级表示增强点级分类器的学习，在点云分割中实现高效的新类发现。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 新类发现
+  - 点云分割
+  - 自标注学习
+  - 最优传输
+  - 不平衡学习
+---
+
 # Dual-level Adaptive Self-Labeling for Novel Class Discovery in Point Cloud Segmentation
 
 **会议**: ECCV 2024  

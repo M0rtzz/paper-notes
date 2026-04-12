@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can LLMs Deceive CLIP? Benchmarking Adversarial Compositionality of Pre-trained Multimodal Representation via Text Updates 论文解读 | ACL 2025 | arXiv 2505.22943 | 组合性漏洞 | 提出MAC基准和diversity-promoting自训练方法，通过让LLM生成欺骗性文本来系统暴露CLIP等预训练多模态表征的组合性漏洞，在图像/视频/音频三个模态上均显著超越已有方法。"
+title: >-
+  [论文解读] Can LLMs Deceive CLIP? Benchmarking Adversarial Compositionality of Pre-trained Multimodal Representation via Text Updates
+description: >-
+  [ACL 2025][多模态][组合性漏洞] 提出MAC基准和diversity-promoting自训练方法，通过让LLM生成欺骗性文本来系统暴露CLIP等预训练多模态表征的组合性漏洞，在图像/视频/音频三个模态上均显著超越已有方法。
 tags:
   - ACL 2025
+  - 多模态
   - 组合性漏洞
   - 对抗攻击
   - CLIP

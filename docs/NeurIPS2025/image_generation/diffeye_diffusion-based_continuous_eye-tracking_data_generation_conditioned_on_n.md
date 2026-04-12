@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DiffEye: Diffusion-Based Continuous Eye-Tracking Data Generation Conditioned on Natural Images 论文解读 | NeurIPS 2025 | arXiv 2509.16767 | 扩散模型 | 提出 DiffEye，首个基于扩散模型直接利用原始眼动轨迹数据、以自然图像为条件生成连续且多样化眼动轨迹的框架，同时引入对应位置嵌入 (CPE) 对齐注视空间与图像语义空间。"
+title: >-
+  [论文解读] DiffEye: Diffusion-Based Continuous Eye-Tracking Data Generation Conditioned on Natural Images
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型] 提出 DiffEye，首个基于扩散模型直接利用原始眼动轨迹数据、以自然图像为条件生成连续且多样化眼动轨迹的框架，同时引入对应位置嵌入 (CPE) 对齐注视空间与图像语义空间。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型
   - 眼动轨迹生成
   - 注视路径预测

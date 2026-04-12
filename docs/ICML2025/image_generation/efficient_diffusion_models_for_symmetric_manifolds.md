@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Diffusion Models for Symmetric Manifolds 论文解读 | ICML 2025 | arXiv 2505.21640 | 对称流形 | 提出一种高效的对称流形（环面、球面、SO(n)、U(n)）扩散模型框架，通过欧几里得布朗运动的投影和Itô引理绕过热核计算，将训练复杂度从指数级降至近线性，并提供多项式级采样精度保证。"
+title: >-
+  [论文解读] Efficient Diffusion Models for Symmetric Manifolds
+description: >-
+  [ICML 2025][图像生成][对称流形] 提出一种高效的对称流形（环面、球面、SO(n)、U(n)）扩散模型框架，通过欧几里得布朗运动的投影和Itô引理绕过热核计算，将训练复杂度从指数级降至近线性，并提供多项式级采样精度保证。
 tags:
   - ICML 2025
+  - 图像生成
   - 对称流形
   - 黎曼扩散模型
   - 热核绕过

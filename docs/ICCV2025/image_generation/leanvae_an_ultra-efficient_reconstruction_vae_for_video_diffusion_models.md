@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】LeanVAE: An Ultra-Efficient Reconstruction VAE for Video Diffusion Models 论文解读 | > 提出 LeanVAE，基于非重叠 Patch 操作、邻域感知前馈（NAF）模块、小波变换和压缩感知技术，构建超高效视频 VAE，在仅 40M 参数下实现 FLOPs 减少 50 倍、推理速度加快 44 倍，同时保持有竞争力的重建质量。"
+title: >-
+  [论文解读] LeanVAE: An Ultra-Efficient Reconstruction VAE for Video Diffusion Models
+description: >-
+  [图像生成] > 提出 LeanVAE，基于非重叠 Patch 操作、邻域感知前馈（NAF）模块、小波变换和压缩感知技术，构建超高效视频 VAE，在仅 40M 参数下实现 FLOPs 减少 50 倍、推理速度加快 44 倍，同时保持有竞争力的重建质量。
 tags:
-
+  - 图像生成
 ---
 
 # LeanVAE: An Ultra-Efficient Reconstruction VAE for Video Diffusion Models

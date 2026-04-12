@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale 论文解读 | ACL 2025 | arXiv 2412.05237 | 多模态推理 | MAmmoTH-VL 提出了一种仅用开源模型构建 12M 多模态 CoT 推理指令数据的可扩展方法，通过数据收集→改写→自过滤三步管线，训练的 8B 模型在 MathVerse (+8.1%)、MMMU-Pro (+7%)、MuirBench (+13.3%) 上达到 SOTA。"
+title: >-
+  [论文解读] MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale
+description: >-
+  [ACL 2025][多模态][多模态推理] MAmmoTH-VL 提出了一种仅用开源模型构建 12M 多模态 CoT 推理指令数据的可扩展方法，通过数据收集→改写→自过滤三步管线，训练的 8B 模型在 MathVerse (+8.1%)、MMMU-Pro (+7%)、MuirBench (+13.3%) 上达到 SOTA。
 tags:
   - ACL 2025
+  - 多模态
   - 多模态推理
   - 指令微调
   - CoT数据构建

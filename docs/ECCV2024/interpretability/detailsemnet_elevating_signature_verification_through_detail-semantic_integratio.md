@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration
+description: >-
+  [ECCV 2024][离线签名验证] 提出DetailSemNet用于离线签名验证，通过Detail-Semantics Integrator将特征解耦为细节和语义两个分支分别处理，并引入基于EMD的局部结构匹配，在多个多语言签名数据集上取得SOTA。
+tags:
+  - ECCV 2024
+  - 离线签名验证
+  - 局部结构匹配
+  - 特征解耦
+  - Earth Mover距离
+  - 细节-语义集成
+---
+
 # DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration
 
 **会议**: ECCV 2024  

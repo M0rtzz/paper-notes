@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rectified Decoupled Dataset Distillation: A Closer Look for Fair and Comprehensive Evaluation 论文解读 | ICLR 2026 | arXiv 2509.19743 | 数据集蒸馏 | 提出 RD3（Rectified Decoupled Dataset Distillation），系统揭示现有解耦数据集蒸馏方法的性能差异主要源于不一致的后评估设置而非蒸馏质量差异，建立了统一公平的评估框架，将报告的 27.3% 性能差距校正为 6.7%。"
+title: >-
+  [论文解读] Rectified Decoupled Dataset Distillation: A Closer Look for Fair and Comprehensive Evaluation
+description: >-
+  [ICLR 2026][模型压缩][数据集蒸馏] 提出 RD3（Rectified Decoupled Dataset Distillation），系统揭示现有解耦数据集蒸馏方法的性能差异主要源于不一致的后评估设置而非蒸馏质量差异，建立了统一公平的评估框架，将报告的 27.3% 性能差距校正为 6.7%。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 数据集蒸馏
   - 解耦蒸馏
   - 公平评估

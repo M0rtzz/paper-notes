@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FSNet: Feasibility-Seeking Neural Network for Constrained Optimization with Guarantees 论文解读 | NeurIPS 2025 | arXiv 2506.00362 | 约束优化 | 提出 FSNet 框架，将**可微的可行性求解步骤**集成到神经网络中，通过最小化约束违反的无约束优化来保证约束满足，同时支持端到端训练，在凸/非凸、光滑/非光滑问题上均显著快于传统求解器且保持可行性。"
+title: >-
+  [论文解读] FSNet: Feasibility-Seeking Neural Network for Constrained Optimization with Guarantees
+description: >-
+  [NeurIPS 2025][约束优化] 提出 FSNet 框架，将**可微的可行性求解步骤**集成到神经网络中，通过最小化约束违反的无约束优化来保证约束满足，同时支持端到端训练，在凸/非凸、光滑/非光滑问题上均显著快于传统求解器且保持可行性。
 tags:
   - NeurIPS 2025
   - 约束优化

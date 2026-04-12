@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking the Stability-Plasticity Trade-off in Continual Learning from an Architectural Perspective 论文解读 | ICML2025 | arXiv 2506.03951 | 持续学习 | 揭示了持续学习中稳定性与可塑性之间在**架构层面**的固有冲突——宽浅网络稳定性好、深窄网络可塑性强——并提出 Dual-Arch 框架，用两个专用轻量架构分别负责稳定性和可塑性，通过知识蒸馏协同，实现参数量减少最高 87% 的同时提升 CL 性能。"
+title: >-
+  [论文解读] Rethinking the Stability-Plasticity Trade-off in Continual Learning from an Architectural Perspective
+description: >-
+  [ICML2025][模型压缩][持续学习] 揭示了持续学习中稳定性与可塑性之间在**架构层面**的固有冲突——宽浅网络稳定性好、深窄网络可塑性强——并提出 Dual-Arch 框架，用两个专用轻量架构分别负责稳定性和可塑性，通过知识蒸馏协同，实现参数量减少最高 87% 的同时提升 CL 性能。
 tags:
   - ICML2025
+  - 模型压缩
   - 持续学习
   - 稳定性-可塑性权衡
   - 网络架构设计

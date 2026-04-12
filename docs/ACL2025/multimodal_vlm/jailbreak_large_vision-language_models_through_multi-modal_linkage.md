@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Jailbreak Large Vision-Language Models Through Multi-Modal Linkage 论文解读 | ACL 2025 | arXiv 2412.00473 | 越狱攻击 | 提出多模态链接（MML）攻击框架，通过跨模态加密-解密机制和\"邪恶对齐\"策略，以极高成功率（GPT-4o上达99%+）越狱当前最先进的视觉语言模型。"
+title: >-
+  [论文解读] Jailbreak Large Vision-Language Models Through Multi-Modal Linkage
+description: >-
+  [ACL 2025][多模态][越狱攻击] 提出多模态链接（MML）攻击框架，通过跨模态加密-解密机制和"邪恶对齐"策略，以极高成功率（GPT-4o上达99%+）越狱当前最先进的视觉语言模型。
 tags:
   - ACL 2025
+  - 多模态
   - 越狱攻击
   - 视觉语言模型
   - 多模态安全

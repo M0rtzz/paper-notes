@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models 论文解读 | ACL 2025 | arXiv 2505.09924 | LLM watermarking | 提出SymMark共生水印框架，融合logits-based和sampling-based两类水印方法（串行/并行/混合三种策略），通过token熵和语义熵自适应选择水印策略，在可检测性、鲁棒性、文本质量和安全性上实现SOTA。"
+title: >-
+  [论文解读] From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models
+description: >-
+  [ACL 2025][AI安全][LLM watermarking] 提出SymMark共生水印框架，融合logits-based和sampling-based两类水印方法（串行/并行/混合三种策略），通过token熵和语义熵自适应选择水印策略，在可检测性、鲁棒性、文本质量和安全性上实现SOTA。
 tags:
   - ACL 2025
+  - AI安全
   - LLM watermarking
   - symbiotic watermark
   - token entropy

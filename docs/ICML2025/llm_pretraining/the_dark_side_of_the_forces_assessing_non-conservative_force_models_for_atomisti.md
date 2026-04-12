@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Dark Side of the Forces: Assessing Non-Conservative Force Models for Atomistic Machine Learning 论文解读 | 系统评估非保守力模型在原子模拟中的实际影响，揭示其导致几何优化不收敛和分子动力学不稳定，并提出保守+非保守混合模型作为最佳实践。"
+title: >-
+  [论文解读] The Dark Side of the Forces: Assessing Non-Conservative Force Models for Atomistic Machine Learning
+description: >-
+   系统评估非保守力模型在原子模拟中的实际影响，揭示其导致几何优化不收敛和分子动力学不稳定，并提出保守+非保守混合模型作为最佳实践。
 tags:
 
 ---

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FR-Spec: Accelerating Large-Vocabulary Language Models via Frequency-Ranked Speculative Sampling 论文解读 | ACL 2025 (Long Paper) | arXiv 2502.14856 | 投机采样 | 发现大词表LLM（如LLaMA-3的128k词表）中投机采样的瓶颈从Transformer层转移到LM Head，提出FR-Spec通过频率排序将草稿模型的词表压缩75%（128k→32k），在EAGLE-2基础上额外获得1.12×加速，且保证最终输出分布数学等价。"
+title: >-
+  [论文解读] FR-Spec: Accelerating Large-Vocabulary Language Models via Frequency-Ranked Speculative Sampling
+description: >-
+  [ACL 2025 (Long Paper)][投机采样] 发现大词表LLM（如LLaMA-3的128k词表）中投机采样的瓶颈从Transformer层转移到LM Head，提出FR-Spec通过频率排序将草稿模型的词表压缩75%（128k→32k），在EAGLE-2基础上额外获得1.12×加速，且保证最终输出分布数学等价。
 tags:
   - ACL 2025 (Long Paper)
   - 投机采样

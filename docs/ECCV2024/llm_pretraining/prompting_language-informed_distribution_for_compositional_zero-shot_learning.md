@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Prompting Language-Informed Distribution for Compositional Zero-Shot Learning 论文解读 | ECCV 2024 | arXiv 2305.14428 | Compositional Zero-Shot Learning | 本文提出 PLID 方法，利用 LLM 生成的句子级类别描述构建语言知识驱动的高斯分布，配合视觉-语言原语分解和随机 logit 融合，在组合零样本学习（CZSL）任务上取得 SOTA。"
+title: >-
+  [论文解读] Prompting Language-Informed Distribution for Compositional Zero-Shot Learning
+description: >-
+  [ECCV 2024][Compositional Zero-Shot Learning] 本文提出 PLID 方法，利用 LLM 生成的句子级类别描述构建语言知识驱动的高斯分布，配合视觉-语言原语分解和随机 logit 融合，在组合零样本学习（CZSL）任务上取得 SOTA。
 tags:
   - ECCV 2024
   - Compositional Zero-Shot Learning

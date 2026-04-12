@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection 论文解读 | CVPR 2026 | arXiv 2603.23276 | 多模态3D检测 | 针对双分支多模态3D检测器在域迁移场景下的模态不平衡问题，提出 CCF 框架，通过解耦损失、LiDAR引导深度先验和互补跨模态掩码三个组件系统提升相机查询的利用率和跨域鲁棒性。"
+title: >-
+  [论文解读] CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection
+description: >-
+  [CVPR 2026][自动驾驶][多模态3D检测] 针对双分支多模态3D检测器在域迁移场景下的模态不平衡问题，提出 CCF 框架，通过解耦损失、LiDAR引导深度先验和互补跨模态掩码三个组件系统提升相机查询的利用率和跨域鲁棒性。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 多模态3D检测
   - 域泛化
   - 模态不平衡

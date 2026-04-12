@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Safety Alignment Can Be Not Superficial With Explicit Safety Signals 论文解读 | ICML 2025 | arXiv 2505.17072 | Safety Alignment | 通过在LLM中引入显式的安全二分类任务（[CLS] token），并设计策略性注意力机制和解码策略，在推理过程中动态评估安全性，以不到0.2x的额外开销将对抗攻击成功率从90%+降至接近0%。"
+title: >-
+  [论文解读] Safety Alignment Can Be Not Superficial With Explicit Safety Signals
+description: >-
+  [ICML 2025][LLM对齐][Safety Alignment] 通过在LLM中引入显式的安全二分类任务（[CLS] token），并设计策略性注意力机制和解码策略，在推理过程中动态评估安全性，以不到0.2x的额外开销将对抗攻击成功率从90%+降至接近0%。
 tags:
   - ICML 2025
+  - LLM对齐
   - Safety Alignment
   - Jailbreak Defense
   - Binary Classification

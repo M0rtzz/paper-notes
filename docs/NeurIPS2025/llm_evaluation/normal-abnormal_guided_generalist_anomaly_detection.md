@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Normal-Abnormal Guided Generalist Anomaly Detection 论文解读 | NeurIPS 2025 | arXiv 2510.00495 | 通用异常检测 | NAGL 框架首次在通用异常检测（GAD）中引入正常+异常混合参考样本，通过残差挖掘（RM）和异常特征学习（AFL）两个注意力模块，在残差空间中学习可迁移的异常模式，仅用 1 个异常样本即可在跨域场景中大幅超越仅使用正常参考的方法。"
+title: >-
+  [论文解读] Normal-Abnormal Guided Generalist Anomaly Detection
+description: >-
+  [NeurIPS 2025][通用异常检测] NAGL 框架首次在通用异常检测（GAD）中引入正常+异常混合参考样本，通过残差挖掘（RM）和异常特征学习（AFL）两个注意力模块，在残差空间中学习可迁移的异常模式，仅用 1 个异常样本即可在跨域场景中大幅超越仅使用正常参考的方法。
 tags:
   - NeurIPS 2025
   - 通用异常检测

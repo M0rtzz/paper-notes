@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion 论文解读 | NeurIPS 2025 | arXiv 2506.01356 | neural controller | 提出两阶段训练框架——先用 Zubov 采样 + 动态域扩展估计吸引域（ROA），再用 CEGIS 反例精炼——联合学习神经网络控制器和 Lyapunov 函数，ROA 体积比基线大 5 到 1.5 × 10⁵ 倍，验证速度比 dReal 快 40-10000 倍。"
+title: >-
+  [论文解读] Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion
+description: >-
+  [NeurIPS 2025][LLM推理][neural controller] 提出两阶段训练框架——先用 Zubov 采样 + 动态域扩展估计吸引域（ROA），再用 CEGIS 反例精炼——联合学习神经网络控制器和 Lyapunov 函数，ROA 体积比基线大 5 到 $1.5 \times 10^5$ 倍，验证速度比 dReal 快 40-10000 倍。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - neural controller
   - Lyapunov function
   - region of attraction

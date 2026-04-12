@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts 论文解读 | CVPR 2026 | arXiv 2603.09531 | 胸膜肺弹力纤维化 | 在两个大规模肺癌筛查队列（NLST n=7980, SUMMIT n=8561）上，利用深度学习自动分割 PPFE 体积并定义\"进展性 PPFE\"，通过 Cox 比例风险模型证明 PPFE 进展是全因死亡率的独立预测因子（NLST HR=1.25, SUMMIT HR=3.14），并与呼吸入院率、抗生素/类固醇使用等临床终点显著关联。"
+title: >-
+  [论文解读] Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts
+description: >-
+  [CVPR 2026][医学图像][胸膜肺弹力纤维化] 在两个大规模肺癌筛查队列（NLST n=7980, SUMMIT n=8561）上，利用深度学习自动分割 PPFE 体积并定义"进展性 PPFE"，通过 Cox 比例风险模型证明 PPFE 进展是全因死亡率的独立预测因子（NLST HR=1.25, SUMMIT HR=3.14），并与呼吸入院率、抗生素/类固醇使用等临床终点显著关联。
 tags:
   - CVPR 2026
+  - 医学图像
   - 胸膜肺弹力纤维化
   - 肺癌筛查
   - 深度学习分割

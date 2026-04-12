@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FALCON: Resolving Visual Redundancy and Fragmentation in High-resolution Multimodal Large Language Models via Visual Registers 论文解读 | ICCV 2025 | arXiv 2501.16297 | visual registers | 针对高分辨率MLLM中裁切子图导致的视觉编码分裂和token冗余问题，提出可学习的Visual Registers在encoder内部自适应聚合关键信息（ReCompact）并跨子图交互（ReAtten），实现9倍视觉token压缩且性能更优。"
+title: >-
+  [论文解读] FALCON: Resolving Visual Redundancy and Fragmentation in High-resolution Multimodal Large Language Models via Visual Registers
+description: >-
+  [ICCV 2025][多模态][visual registers] 针对高分辨率MLLM中裁切子图导致的视觉编码分裂和token冗余问题，提出可学习的Visual Registers在encoder内部自适应聚合关键信息（ReCompact）并跨子图交互（ReAtten），实现9倍视觉token压缩且性能更优。
 tags:
   - ICCV 2025
+  - 多模态
   - visual registers
   - token compression
   - MLLM

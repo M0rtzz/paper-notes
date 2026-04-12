@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Standardized Benchmark for Multilabel Antimicrobial Peptide Classification 论文解读 | NeurIPS 2025 | arXiv 2511.04814 | Antimicrobial Peptide | 提出 **ESCAPE**——首个标准化的多标签抗菌肽分类基准，整合 27 个公开数据库共 80,000+ 肽段，并设计基于双分支 Transformer + 双向交叉注意力的 Baseline 模型，在 mAP 上相对第二名提升 2.56%。"
+title: >-
+  [论文解读] A Standardized Benchmark for Multilabel Antimicrobial Peptide Classification
+description: >-
+  [NeurIPS 2025][Antimicrobial Peptide] 提出 **ESCAPE**——首个标准化的多标签抗菌肽分类基准，整合 27 个公开数据库共 80,000+ 肽段，并设计基于双分支 Transformer + 双向交叉注意力的 Baseline 模型，在 mAP 上相对第二名提升 2.56%。
 tags:
   - NeurIPS 2025
   - Antimicrobial Peptide

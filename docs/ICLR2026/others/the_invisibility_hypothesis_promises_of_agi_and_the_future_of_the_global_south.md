@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Invisibility Hypothesis: Promises of AGI and the Future of the Global South 论文解读 | ICLR 2026 | arXiv 2603.01616 | AGI | 本文提出\"不可见性假说\"（Invisibility Hypothesis），论证随着AI系统日益成为经济和政治分配的协调层，全球南方的大量人口——特别是非正式工人和小规模生产者——将因缺乏数字可验证性而被系统性排斥（managed exclusion），从被剥削转为被忽略，风险不仅是失业而是整体相关性的丧失。"
+title: >-
+  [论文解读] The Invisibility Hypothesis: Promises of AGI and the Future of the Global South
+description: >-
+  [ICLR 2026][AGI] 本文提出"不可见性假说"（Invisibility Hypothesis），论证随着AI系统日益成为经济和政治分配的协调层，全球南方的大量人口——特别是非正式工人和小规模生产者——将因缺乏数字可验证性而被系统性排斥（managed exclusion），从被剥削转为被忽略，风险不仅是失业而是整体相关性的丧失。
 tags:
   - ICLR 2026
   - AGI

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RadarMP: Motion Perception for 4D mmWave Radar in Autonomous Driving 论文解读 | AAAI 2026 | arXiv 2511.12117 | 4D毫米波雷达 | 提出 RadarMP——首个联合解决毫米波雷达目标检测和场景流估计的统一架构，利用相邻帧雷达回波信号（tesseract）的能量流一致性进行自监督训练，在目标检测概率上达到 69.5%（远超现有方法的 44.1%），同时实现精确的 3D 场景运动感知。"
+title: >-
+  [论文解读] RadarMP: Motion Perception for 4D mmWave Radar in Autonomous Driving
+description: >-
+  [AAAI 2026][自动驾驶][4D毫米波雷达] 提出 RadarMP——首个联合解决毫米波雷达目标检测和场景流估计的统一架构，利用相邻帧雷达回波信号（tesseract）的能量流一致性进行自监督训练，在目标检测概率上达到 69.5%（远超现有方法的 44.1%），同时实现精确的 3D 场景运动感知。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 4D毫米波雷达
   - 场景流估计
   - 目标检测

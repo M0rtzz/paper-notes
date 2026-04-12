@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GUAVA: Generalizable Upper Body 3D Gaussian Avatar 论文解读 | ICCV 2025 | arXiv 2505.03351 | 3D高斯 | 提出 GUAVA，首个从单张图像通过前馈推理快速重建可动画上半身3D高斯虚拟人的框架，结合模板高斯和 UV 高斯表示，支持丰富面部表情和手势驱动，约0.1s完成重建并实时渲染。"
+title: >-
+  [论文解读] GUAVA: Generalizable Upper Body 3D Gaussian Avatar
+description: >-
+  [ICCV 2025][3D视觉][3D高斯] 提出 GUAVA，首个从单张图像通过前馈推理快速重建可动画上半身3D高斯虚拟人的框架，结合模板高斯和 UV 高斯表示，支持丰富面部表情和手势驱动，约0.1s完成重建并实时渲染。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D高斯
   - 上半身虚拟人
   - 泛化型重建

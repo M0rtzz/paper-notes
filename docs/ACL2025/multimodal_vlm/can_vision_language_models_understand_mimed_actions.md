@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can Vision Language Models Understand Mimed Actions? 论文解读 | ACL 2025 | arXiv 2506.21586 | 非言语交际 | 构建 Mime 基准（86 个动作、860 个样本），利用动作捕捉 + 3D 渲染系统化评估 VLM 对哑剧动作的理解能力，发现 VLM 严重依赖场景上下文而无法像人类一样从纯肢体动作推断语义。"
+title: >-
+  [论文解读] Can Vision Language Models Understand Mimed Actions?
+description: >-
+  [ACL 2025][多模态][非言语交际] 构建 Mime 基准（86 个动作、860 个样本），利用动作捕捉 + 3D 渲染系统化评估 VLM 对哑剧动作的理解能力，发现 VLM 严重依赖场景上下文而无法像人类一样从纯肢体动作推断语义。
 tags:
   - ACL 2025
+  - 多模态
   - 非言语交际
   - 哑剧动作
   - 动作识别

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes 论文解读 | ICLR 2026 | arXiv 2603.05454 | 扩散语言模型 | LSP 调度器通过在每个去噪步骤中原子性地提交最长连续稳定前缀（而非分散接受离散 token），将 DLM 推理加速 3.4 倍，同时保持或略微提升输出质量。"
+title: >-
+  [论文解读] Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes
+description: >-
+  [ICLR 2026][图像恢复][扩散语言模型] LSP 调度器通过在每个去噪步骤中原子性地提交最长连续稳定前缀（而非分散接受离散 token），将 DLM 推理加速 3.4 倍，同时保持或略微提升输出质量。
 tags:
   - ICLR 2026
+  - 图像恢复
   - 扩散语言模型
   - 推理加速
   - KV cache

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Relational Feature Caching for Accelerating Diffusion Transformers 论文解读 | ICLR 2026 | arXiv 2602.19506 | 特征缓存 | 提出关系特征缓存（RFC）框架，通过利用DiT模块输入-输出特征之间的强相关性来增强缓存特征预测的精度，包括从输入变化估计输出变化幅度的RFE和用输入误差代理判断是否需要全量计算的RCS，在图像和视频生成任务上显著优于现有的基于时间外推的缓存方法。"
+title: >-
+  [论文解读] Relational Feature Caching for Accelerating Diffusion Transformers
+description: >-
+  [ICLR 2026][时间序列][特征缓存] 提出关系特征缓存（RFC）框架，通过利用DiT模块输入-输出特征之间的强相关性来增强缓存特征预测的精度，包括从输入变化估计输出变化幅度的RFE和用输入误差代理判断是否需要全量计算的RCS，在图像和视频生成任务上显著优于现有的基于时间外推的缓存方法。
 tags:
   - ICLR 2026
+  - 时间序列
   - 特征缓存
   - DiT加速
   - 输入输出关系

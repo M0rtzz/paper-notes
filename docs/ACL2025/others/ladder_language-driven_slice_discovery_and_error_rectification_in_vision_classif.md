@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Uncertainty-Aware Multi-Objective Reinforcement Learning-Guided Diffusion Models for 3D De Novo Molecular Design 论文解读 | NeurIPS 2025 | arXiv 2510.21153 | 扩散模型 | 提出不确定性感知的多目标强化和## 一句话总结"
+title: >-
+  [论文解读] Uncertainty-Aware Multi-Objective Reinforcement Learning-Guided Diffusion Models for 3D De Novo Molecular Design
+description: >-
+  [NeurIPS 2025][扩散模型] 提出不确定性感知的多目标强化和## 一句话总结
 tags:
   - NeurIPS 2025
   - 扩散模型

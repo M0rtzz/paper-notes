@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Help Me Write a Story: Evaluating LLMs' Ability to Generate Writing Feedback 论文解读 | ACL 2025 | arXiv 2507.16007 | 写作反馈 | 探索 LLM 能否为创意写作者提供有意义的写作反馈——构建包含 1300 个故意引入写作问题的故事测试集，评估常用 LLM 的写作反馈生成能力，发现模型虽能提供具体且多数准确的反馈，但常错过最重要的写作问题且不会恰当地在批评和鼓励之间切换。"
+title: >-
+  [论文解读] Help Me Write a Story: Evaluating LLMs' Ability to Generate Writing Feedback
+description: >-
+  [ACL 2025][写作反馈] 探索 LLM 能否为创意写作者提供有意义的写作反馈——构建包含 1300 个故意引入写作问题的故事测试集，评估常用 LLM 的写作反馈生成能力，发现模型虽能提供具体且多数准确的反馈，但常错过最重要的写作问题且不会恰当地在批评和鼓励之间切换。
 tags:
   - ACL 2025
   - 写作反馈

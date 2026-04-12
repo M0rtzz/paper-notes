@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RADAR: Closed-Loop Robotic Data Generation via Semantic Planning and Autonomous Causal Environment Reset 论文解读 | CVPR 2026 | arXiv 2603.11811 | 自主数据采集 | 提出RADAR——一个完全自主的闭环机器人操作数据生成引擎，通过VLM语义规划+GNN策略执行+VQA成功评估+FSM驱动的LIFO因果逆序环境重置四个模块，仅需2-5个人工演示即可持续生成高保真操作数据，在仿真中复杂长horizon任务达到90%成功率。"
+title: >-
+  [论文解读] RADAR: Closed-Loop Robotic Data Generation via Semantic Planning and Autonomous Causal Environment Reset
+description: >-
+  [CVPR 2026][目标检测][自主数据采集] 提出RADAR——一个完全自主的闭环机器人操作数据生成引擎，通过VLM语义规划+GNN策略执行+VQA成功评估+FSM驱动的LIFO因果逆序环境重置四个模块，仅需2-5个人工演示即可持续生成高保真操作数据，在仿真中复杂长horizon任务达到90%成功率。
 tags:
   - CVPR 2026
+  - 目标检测
   - 自主数据采集
   - 闭环机器人操作
   - 环境自动重置

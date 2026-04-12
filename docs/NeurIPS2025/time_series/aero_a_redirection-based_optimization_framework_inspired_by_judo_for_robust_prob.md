@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AERO: A Redirection-Based Optimization Framework Inspired by Judo for Robust Probabilistic Forecasting 论文解读 | NeurIPS 2025 | arXiv 2506.02415 | 优化器设计 | AERO 提出受柔道\"借力重定向\"启发的优化框架，通过梯度投影、能量守恒和干扰预测将对抗性扰动重定向为有利优化方向，在概率太阳能价格预测上展示更稳定的收敛。"
+title: >-
+  [论文解读] AERO: A Redirection-Based Optimization Framework Inspired by Judo for Robust Probabilistic Forecasting
+description: >-
+  [NeurIPS 2025][时间序列][优化器设计] AERO 提出受柔道"借力重定向"启发的优化框架，通过梯度投影、能量守恒和干扰预测将对抗性扰动重定向为有利优化方向，在概率太阳能价格预测上展示更稳定的收敛。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 优化器设计
   - 对抗重定向
   - 能量守恒

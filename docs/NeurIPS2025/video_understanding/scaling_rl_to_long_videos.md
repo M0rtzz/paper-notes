@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scaling RL to Long Videos 论文解读 | NeurIPS 2025 | arXiv 2507.07966 | 强化学习 reinforcement learning | 提出 LongVILA-R1 全栈框架，通过构建 104K 长视频推理数据集、两阶段 CoT-SFT + RL 训练流水线、以及高效的多模态强化学习序列并行 (MR-SP) 系统，将 VLM 的推理能力扩展到长视频（最高支持 8192 帧），在 VideoMME 上达到 65.1%/71.1%。"
+title: >-
+  [论文解读] Scaling RL to Long Videos
+description: >-
+  [NeurIPS 2025][视频理解][强化学习] 提出 LongVILA-R1 全栈框架，通过构建 104K 长视频推理数据集、两阶段 CoT-SFT + RL 训练流水线、以及高效的多模态强化学习序列并行 (MR-SP) 系统，将 VLM 的推理能力扩展到长视频（最高支持 8192 帧），在 VideoMME 上达到 65.1%/71.1%。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 强化学习
   - long video reasoning
   - sequence parallelism

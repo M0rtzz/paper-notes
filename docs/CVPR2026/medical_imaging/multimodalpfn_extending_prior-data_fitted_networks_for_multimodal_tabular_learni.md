@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MultiModalPFN: Extending Prior-Data Fitted Networks for Multimodal Tabular Learning 论文解读 | CVPR 2026 | arXiv 2602.20223 | 表格学习 | 提出 MMPFN，首次将预训练表格基础模型 TabPFN 扩展到多模态（表格+图像/文本）场景，通过多头门控 MLP（MGM）和交叉注意力池化器（CAP）解决非表格嵌入过压缩和 token 数量不平衡问题，在医学和通用数据集上超越 SOTA。"
+title: >-
+  [论文解读] MultiModalPFN: Extending Prior-Data Fitted Networks for Multimodal Tabular Learning
+description: >-
+  [CVPR 2026][医学图像][表格学习] 提出 MMPFN，首次将预训练表格基础模型 TabPFN 扩展到多模态（表格+图像/文本）场景，通过多头门控 MLP（MGM）和交叉注意力池化器（CAP）解决非表格嵌入过压缩和 token 数量不平衡问题，在医学和通用数据集上超越 SOTA。
 tags:
   - CVPR 2026
+  - 医学图像
   - 表格学习
   - 多模态融合
   - TabPFN

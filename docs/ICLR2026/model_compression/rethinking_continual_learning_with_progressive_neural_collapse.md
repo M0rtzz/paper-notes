@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Rethinking Continual Learning with Progressive Neural Collapse 论文解读 | 提出 ProNC 框架，通过渐进式扩展等角紧框架（ETF）目标替代固定预定义 ETF，在持续学习中实现最大类间分离与最小遗忘的平衡。"
+title: >-
+  [论文解读] Rethinking Continual Learning with Progressive Neural Collapse
+description: >-
+  [模型压缩] 提出 ProNC 框架，通过渐进式扩展等角紧框架（ETF）目标替代固定预定义 ETF，在持续学习中实现最大类间分离与最小遗忘的平衡。
 tags:
-
+  - 模型压缩
 ---
 
 # Rethinking Continual Learning with Progressive Neural Collapse

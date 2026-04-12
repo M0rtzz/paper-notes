@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Understanding and Improving Adversarial Robustness of Neural Probabilistic Circuits 论文解读 | NeurIPS 2025 | arXiv 2509.20549 | 概念瓶颈模型 | 理论分析神经概率电路（NPC）的对抗鲁棒性仅取决于属性识别模型而与概率电路无关，并提出 RNPC 通过类级推理集成方式实现可证明的鲁棒性提升，在保持良性准确率的同时显著增强对抗鲁棒性。"
+title: >-
+  [论文解读] Understanding and Improving Adversarial Robustness of Neural Probabilistic Circuits
+description: >-
+  [NeurIPS 2025][AI安全][概念瓶颈模型] 理论分析神经概率电路（NPC）的对抗鲁棒性仅取决于属性识别模型而与概率电路无关，并提出 RNPC 通过类级推理集成方式实现可证明的鲁棒性提升，在保持良性准确率的同时显著增强对抗鲁棒性。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 概念瓶颈模型
   - 概率电路
   - 对抗鲁棒性

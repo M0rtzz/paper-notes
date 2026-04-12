@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Double-Ellipsoid Geometry of CLIP 论文解读 | 揭示CLIP嵌入的双椭球体几何结构——图像和文本分别位于偏离原点的可线性分离椭球壳上，并从对比学习的false negative处理角度解释这一结构的优势。"
+title: >-
+  [论文解读] The Double-Ellipsoid Geometry of CLIP
+description: >-
+   揭示CLIP嵌入的双椭球体几何结构——图像和文本分别位于偏离原点的可线性分离椭球壳上，并从对比学习的false negative处理角度解释这一结构的优势。
 tags:
 
 ---

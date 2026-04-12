@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generative Model Inversion Through the Lens of the Manifold Hypothesis 论文解读 | NeurIPS 2025 | arXiv 2509.20177 | 模型逆向攻击 | 从流形几何视角揭示生成式模型逆向攻击 (MIA) 的本质是通过将损失梯度投影到生成器切空间实现隐式去噪，提出梯度-流形对齐假说（对齐越高→模型越脆弱）并设计无需训练的 AlignMI 方法在多个 SOTA 攻击上取得一致且显著的提升。"
+title: >-
+  [论文解读] Generative Model Inversion Through the Lens of the Manifold Hypothesis
+description: >-
+  [NeurIPS 2025][图像生成][模型逆向攻击] 从流形几何视角揭示生成式模型逆向攻击 (MIA) 的本质是通过将损失梯度投影到生成器切空间实现隐式去噪，提出梯度-流形对齐假说（对齐越高→模型越脆弱）并设计无需训练的 AlignMI 方法在多个 SOTA 攻击上取得一致且显著的提升。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 模型逆向攻击
   - 流形假说
   - 梯度-流形对齐

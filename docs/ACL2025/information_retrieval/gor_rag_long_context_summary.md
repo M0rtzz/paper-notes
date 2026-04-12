@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Graph of Records: Boosting Retrieval Augmented Generation for Long-context Summarization with Graphs 论文解读 | ACL 2025 | arXiv 2410.11001 | RAG | 提出 Graph of Records（GoR），将 LLM 历史响应与检索文本块构建为图结构，用 GNN 学习节点间的语义和逻辑关联，配合 BERTScore 自监督训练目标，在四个长文本全局摘要数据集上比检索基线提升 8-19%（ROUGE 指标）。"
+title: >-
+  [论文解读] Graph of Records: Boosting Retrieval Augmented Generation for Long-context Summarization with Graphs
+description: >-
+  [ACL 2025][RAG] 提出 Graph of Records（GoR），将 LLM 历史响应与检索文本块构建为图结构，用 GNN 学习节点间的语义和逻辑关联，配合 BERTScore 自监督训练目标，在四个长文本全局摘要数据集上比检索基线提升 8-19%（ROUGE 指标）。
 tags:
   - ACL 2025
   - RAG

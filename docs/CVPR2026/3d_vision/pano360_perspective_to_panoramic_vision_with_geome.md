@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pano360: Perspective to Panoramic Vision with Geometric Consistency 论文解读 | CVPR 2026 | arXiv 2603.12013 | 全景拼接 | 提出Pano360，将全景拼接从传统的2D成对对齐扩展到3D摄影测量空间，利用基于Transformer的架构实现多视图全局几何一致性，在弱纹理、大视差和重复纹理等挑战场景中成功率达97.8%，并构建了包含200个真实场景的大规模数据集。"
+title: >-
+  [论文解读] Pano360: Perspective to Panoramic Vision with Geometric Consistency
+description: >-
+  [CVPR 2026][3D视觉][全景拼接] 提出Pano360，将全景拼接从传统的2D成对对齐扩展到3D摄影测量空间，利用基于Transformer的架构实现多视图全局几何一致性，在弱纹理、大视差和重复纹理等挑战场景中成功率达97.8%，并构建了包含200个真实场景的大规模数据集。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 全景拼接
   - 3D几何一致性
   - Transformer

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Actor-Critics Can Achieve Optimal Sample Efficiency 论文解读 | ICML 2025 | arXiv 2505.03710 | Actor-Critic | 本文首次证明 Actor-Critic 算法在一般函数逼近（general function approximation）和需要策略性探索的设定下可以达到 O(1/ε²) 的最优样本复杂度，通过整合乐观探索、离策略 Critic 估计和稀疏策略切换，并将结果扩展到混合 RL 设定。"
+title: >-
+  [论文解读] Actor-Critics Can Achieve Optimal Sample Efficiency
+description: >-
+  [ICML 2025][Actor-Critic] 本文首次证明 Actor-Critic 算法在一般函数逼近（general function approximation）和需要策略性探索的设定下可以达到 $O(1/\epsilon^2)$ 的最优样本复杂度，通过整合乐观探索、离策略 Critic 估计和稀疏策略切换，并将结果扩展到混合 RL 设定。
 tags:
   - ICML 2025
   - Actor-Critic

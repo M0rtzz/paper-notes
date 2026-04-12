@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】COVR: Collaborative Optimization of VLMs and RL Agent for Visual-Based Control 论文解读 | AAAI 2026 | arXiv 2601.06122 | VLM-RL协同优化 | 提出 VLM 与 RL 双向协同优化框架 COVR：RL 生成的高质量交互数据用于微调 VLM，增强后的 VLM 反过来通过 action prior 指导 RL 策略学习，在 CARLA 和 DMControl 上取得 SOTA。"
+title: >-
+  [论文解读] COVR: Collaborative Optimization of VLMs and RL Agent for Visual-Based Control
+description: >-
+  [AAAI 2026][LLM Agent][VLM-RL协同优化] 提出 VLM 与 RL 双向协同优化框架 COVR：RL 生成的高质量交互数据用于微调 VLM，增强后的 VLM 反过来通过 action prior 指导 RL 策略学习，在 CARLA 和 DMControl 上取得 SOTA。
 tags:
   - AAAI 2026
+  - LLM Agent
   - VLM-RL协同优化
   - 视觉强化学习
   - 知识蒸馏

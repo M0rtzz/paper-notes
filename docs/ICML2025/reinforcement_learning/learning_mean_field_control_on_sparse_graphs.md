@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Mean Field Control on Sparse Graphs 论文解读 | ICML2025 | arXiv 2501.17079 | mean field control | 提出 Local Weak Mean Field Control (LWMFC) 框架，利用局部弱收敛理论将平均场控制扩展到幂律系数 γ>2 的极稀疏图上，配合两系统近似与可扩展 RL 算法，在合成和真实网络上大幅超越基于 Lp graphon 和 graphex 的方法。"
+title: >-
+  [论文解读] Learning Mean Field Control on Sparse Graphs
+description: >-
+  [ICML2025][mean field control] 提出 Local Weak Mean Field Control (LWMFC) 框架，利用局部弱收敛理论将平均场控制扩展到幂律系数 γ>2 的极稀疏图上，配合两系统近似与可扩展 RL 算法，在合成和真实网络上大幅超越基于 Lp graphon 和 graphex 的方法。
 tags:
   - ICML2025
   - mean field control

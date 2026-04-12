@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scientific Knowledge-Guided Machine Learning for Vessel Power Prediction: A Comparative Study 论文解读 | AAAI 2026 | arXiv 2602.18403 | 船舶功率预测 | 提出物理基线+数据驱动残差的混合建模框架，将海试功率曲线（螺旋桨定律 $P=cV^n$）作为基线，用 XGBoost/NN/PINN 学习残差修正，在稀疏数据区域显著提升外推稳定性和物理一致性。"
+title: >-
+  [论文解读] Scientific Knowledge-Guided Machine Learning for Vessel Power Prediction: A Comparative Study
+description: >-
+  [AAAI 2026][科学计算][船舶功率预测] 提出物理基线+数据驱动残差的混合建模框架，将海试功率曲线（螺旋桨定律 $P=cV^n$）作为基线，用 XGBoost/NN/PINN 学习残差修正，在稀疏数据区域显著提升外推稳定性和物理一致性。
 tags:
   - AAAI 2026
+  - 科学计算
   - 船舶功率预测
   - 混合建模
   - 物理残差学习

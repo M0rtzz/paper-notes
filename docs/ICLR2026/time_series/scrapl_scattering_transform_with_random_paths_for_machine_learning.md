@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SCRAPL: Scattering Transform with Random Paths for Machine Learning 论文解读 | ICLR 2026 | arXiv 2602.11145 | 散射变换 | 提出SCRAPL——通过随机采样散射变换(ST)路径将计算量降低P倍的随机优化方案：结合路径自适应动量估计(P-Adam)、路径随机平均梯度(P-SAGA)和θ-重要性采样三种技术稳定单路径梯度的高方差，在DDSP无监督声音匹配任务上实现与全路径ST相近精度但计算效率提升数十倍。"
+title: >-
+  [论文解读] SCRAPL: Scattering Transform with Random Paths for Machine Learning
+description: >-
+  [ICLR 2026][时间序列][散射变换] 提出SCRAPL——通过随机采样散射变换(ST)路径将计算量降低P倍的随机优化方案：结合路径自适应动量估计(P-Adam)、路径随机平均梯度(P-SAGA)和θ-重要性采样三种技术稳定单路径梯度的高方差，在DDSP无监督声音匹配任务上实现与全路径ST相近精度但计算效率提升数十倍。
 tags:
   - ICLR 2026
+  - 时间序列
   - 散射变换
   - 随机路径
   - 音频合成

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Vision Graph Prompting via Semantic Low-Rank Decomposition 论文解读 | ICML2025 | arXiv 2505.04121 | 图神经网络 Vision GNN | 提出 Vision Graph Prompting (VGP)，首个面向 Vision GNN (ViG) 的视觉提示学习框架，利用图中语义连通分量的低秩特性，设计了图/边/节点三层粒度的语义低秩提示（SeLo-Graph/Edge/Node Prompt），在参数高效的前提下达到接近全量微调的下游任务迁移性能。"
+title: >-
+  [论文解读] Vision Graph Prompting via Semantic Low-Rank Decomposition
+description: >-
+  [ICML2025][多模态][图神经网络] 提出 Vision Graph Prompting (VGP)，首个面向 Vision GNN (ViG) 的视觉提示学习框架，利用图中语义连通分量的低秩特性，设计了图/边/节点三层粒度的语义低秩提示（SeLo-Graph/Edge/Node Prompt），在参数高效的前提下达到接近全量微调的下游任务迁移性能。
 tags:
   - ICML2025
+  - 多模态
   - 图神经网络
   - 视觉提示学习
   - 低秩分解

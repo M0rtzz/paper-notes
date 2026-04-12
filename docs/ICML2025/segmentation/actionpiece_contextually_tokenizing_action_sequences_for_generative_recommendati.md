@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation 论文解读 | 提出 ActionPiece，首个上下文感知的动作序列分词器，将用户行为序列建模为\"特征集合的序列\"，通过类 BPE 的合并策略在集合内部和相邻集合之间发现高频特征模式，使同一动作在不同上下文中被分词为不同 token，显著提升生成式推荐性能。"
+title: >-
+  [论文解读] ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation
+description: >-
+  [图像分割] 提出 ActionPiece，首个上下文感知的动作序列分词器，将用户行为序列建模为"特征集合的序列"，通过类 BPE 的合并策略在集合内部和相邻集合之间发现高频特征模式，使同一动作在不同上下文中被分词为不同 token，显著提升生成式推荐性能。
 tags:
-
+  - 图像分割
 ---
 
 # ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation

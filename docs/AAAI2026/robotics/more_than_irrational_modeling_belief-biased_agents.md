@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】More Than Irrational: Modeling Belief-Biased Agents 论文解读 | AAAI 2026 | arXiv 2511.12359 | computational rationality | 提出一类计算理性 (CR) 用户模型，将人类\"非理性\"行为解释为在有限记忆等认知约束下基于偏差信念做出的理性决策，并设计嵌套粒子滤波方法在线推断用户的认知边界参数和信念状态，进一步构建自适应 AI 助手。"
+title: >-
+  [论文解读] More Than Irrational: Modeling Belief-Biased Agents
+description: >-
+  [AAAI 2026][机器人][computational rationality] 提出一类计算理性 (CR) 用户模型，将人类"非理性"行为解释为在有限记忆等认知约束下基于偏差信念做出的理性决策，并设计嵌套粒子滤波方法在线推断用户的认知边界参数和信念状态，进一步构建自适应 AI 助手。
 tags:
   - AAAI 2026
+  - 机器人
   - computational rationality
   - user modeling
   - biased belief

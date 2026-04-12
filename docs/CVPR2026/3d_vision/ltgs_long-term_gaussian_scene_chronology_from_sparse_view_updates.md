@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LTGS: Long-Term Gaussian Scene Chronology From Sparse View Updates 论文解读 | CVPR 2026 | arXiv 2510.09881 | 3D高斯泼溅 | 提出 LTGS 框架，通过构建可复用的物体级高斯模板，从时空稀疏的观测图像中高效更新 3DGS 场景重建，实现长期环境演化的时序建模。"
+title: >-
+  [论文解读] LTGS: Long-Term Gaussian Scene Chronology From Sparse View Updates
+description: >-
+  [CVPR 2026][3D视觉][3D高斯泼溅] 提出 LTGS 框架，通过构建可复用的物体级高斯模板，从时空稀疏的观测图像中高效更新 3DGS 场景重建，实现长期环境演化的时序建模。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D高斯泼溅
   - 场景更新
   - 稀疏视角

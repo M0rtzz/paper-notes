@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SCORE: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation 论文解读 | ICCV 2025 | arXiv 2507.12857 | 开放词汇分割 | 提出 SCORE 框架，利用多粒度场景上下文（区域上下文+全局上下文）增强开放词汇遥感实例分割，通过 Region-Aware Integration 和 Global Context Adaptation 两个模块分别强化视觉和文本表示。"
+title: >-
+  [论文解读] SCORE: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation
+description: >-
+  [ICCV 2025][图像分割][开放词汇分割] 提出 SCORE 框架，利用多粒度场景上下文（区域上下文+全局上下文）增强开放词汇遥感实例分割，通过 Region-Aware Integration 和 Global Context Adaptation 两个模块分别强化视觉和文本表示。
 tags:
   - ICCV 2025
+  - 图像分割
   - 开放词汇分割
   - 遥感
   - 场景上下文

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FlashKAT: Understanding and Addressing Performance Bottlenecks in the Kolmogorov-Arnold Transformer 论文解读 | AAAI 2026 | arXiv 2505.13813 | Kolmogorov-Arnold Network | 深入分析 KAT（Kolmogorov-Arnold Transformer）训练慢 123 倍的根因，发现瓶颈并非 FLOPs 而是反向传播中**梯度累积的内存停顿**（atomic add 导致全局内存竞争），提出 FlashKAT 通过重构 GPU 核函数将训练加速 **86.5 倍**并降低近一个数量级的梯度舍入误差。"
+title: >-
+  [论文解读] FlashKAT: Understanding and Addressing Performance Bottlenecks in the Kolmogorov-Arnold Transformer
+description: >-
+  [AAAI 2026][Kolmogorov-Arnold Network] 深入分析 KAT（Kolmogorov-Arnold Transformer）训练慢 123 倍的根因，发现瓶颈并非 FLOPs 而是反向传播中**梯度累积的内存停顿**（atomic add 导致全局内存竞争），提出 FlashKAT 通过重构 GPU 核函数将训练加速 **86.5 倍**并降低近一个数量级的梯度舍入误差。
 tags:
   - AAAI 2026
   - Kolmogorov-Arnold Network

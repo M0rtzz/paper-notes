@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Probing Neural Combinatorial Optimization Models 论文解读 | NeurIPS 2025 | arXiv 2510.22131 | 神经组合优化 | 首次系统性地将探针(probing)方法引入神经组合优化(NCO)模型的研究，提出CS-Probing工具来分析模型表示中编码的决策知识、归纳偏置和泛化机制，并发现关键嵌入维度可用于提升模型泛化性能。"
+title: >-
+  [论文解读] Probing Neural Combinatorial Optimization Models
+description: >-
+  [NeurIPS 2025][优化][神经组合优化] 首次系统性地将探针(probing)方法引入神经组合优化(NCO)模型的研究，提出CS-Probing工具来分析模型表示中编码的决策知识、归纳偏置和泛化机制，并发现关键嵌入维度可用于提升模型泛化性能。
 tags:
   - NeurIPS 2025
+  - 优化
   - 神经组合优化
   - 可解释性
   - 探针分析

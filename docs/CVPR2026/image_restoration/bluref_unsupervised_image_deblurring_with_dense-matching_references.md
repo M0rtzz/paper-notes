@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BluRef: Unsupervised Image Deblurring with Dense-Matching References 论文解读 | CVPR 2026 | arXiv 2603.14176 | 无监督去模糊 | 提出 BluRef，首个利用非配对参考清晰图像通过稠密匹配生成伪 ground truth 来训练去模糊网络的无监督框架，性能逼近甚至超越有监督方法。"
+title: >-
+  [论文解读] BluRef: Unsupervised Image Deblurring with Dense-Matching References
+description: >-
+  [CVPR 2026][图像恢复][无监督去模糊] 提出 BluRef，首个利用非配对参考清晰图像通过稠密匹配生成伪 ground truth 来训练去模糊网络的无监督框架，性能逼近甚至超越有监督方法。
 tags:
   - CVPR 2026
+  - 图像恢复
   - 无监督去模糊
   - 稠密匹配
   - 伪清晰图像生成

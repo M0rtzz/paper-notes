@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Adaptive Data Analysis for Growing Data 论文解读 | NeurIPS 2025 | arXiv 2405.13375 | adaptive data analysis | 首次为动态/增长数据场景下的自适应数据分析提供泛化界，允许分析者根据当前数据规模和历史查询结果自适应地调度统计查询，在数据不断积累时获得更紧的准确性保证。"
+title: >-
+  [论文解读] Adaptive Data Analysis for Growing Data
+description: >-
+  [NeurIPS 2025][adaptive data analysis] 首次为动态/增长数据场景下的自适应数据分析提供泛化界，允许分析者根据当前数据规模和历史查询结果自适应地调度统计查询，在数据不断积累时获得更紧的准确性保证。
 tags:
   - NeurIPS 2025
   - adaptive data analysis

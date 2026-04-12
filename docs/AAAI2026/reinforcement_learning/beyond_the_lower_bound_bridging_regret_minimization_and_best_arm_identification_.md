@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Beyond the Lower Bound: Bridging Regret Minimization and Best Arm Identification in Lexicographic Bandits 论文解读 | AAAI 2026 | arXiv 2511.05802 | 多目标赌博机 | 提出两种消除式算法 LexElim-Out 和 LexElim-In，首次在词典序多目标赌博机中同时解决遗憾最小化（RM）和最优臂识别（BAI）问题，其中 LexElim-In 通过跨目标信息共享突破了单目标问题的已知下界。"
+title: >-
+  [论文解读] Beyond the Lower Bound: Bridging Regret Minimization and Best Arm Identification in Lexicographic Bandits
+description: >-
+  [AAAI 2026][多目标赌博机] 提出两种消除式算法 LexElim-Out 和 LexElim-In，首次在词典序多目标赌博机中同时解决遗憾最小化（RM）和最优臂识别（BAI）问题，其中 LexElim-In 通过跨目标信息共享突破了单目标问题的已知下界。
 tags:
   - AAAI 2026
   - 多目标赌博机

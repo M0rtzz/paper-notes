@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Propose, Assess, Search: Harnessing LLMs for Goal-Oriented Planning in Instructional Videos 论文解读 | ECCV 2024 | arXiv 2409.20557 | 目标导向规划 | VidAssist提出\"提议-评估-搜索\"三步框架，利用LLM作为知识库和评估工具，结合广度优先搜索算法，在教学视频的目标导向规划任务中以零/少样本方式超越全监督SOTA，few-shot在COIN上比全监督VLaMP高+7.7% SR。"
+title: >-
+  [论文解读] Propose, Assess, Search: Harnessing LLMs for Goal-Oriented Planning in Instructional Videos
+description: >-
+  [ECCV 2024][LLM/NLP][目标导向规划] VidAssist提出"提议-评估-搜索"三步框架，利用LLM作为知识库和评估工具，结合广度优先搜索算法，在教学视频的目标导向规划任务中以零/少样本方式超越全监督SOTA，few-shot在COIN上比全监督VLaMP高+7.7% SR。
 tags:
   - ECCV 2024
+  - LLM/NLP
   - 目标导向规划
   - 教学视频
   - 大语言模型

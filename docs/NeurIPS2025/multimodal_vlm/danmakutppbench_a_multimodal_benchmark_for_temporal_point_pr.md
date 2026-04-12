@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding 论文解读 | 论文提出首个面向多模态 Temporal Point Process 的系统 benchmark：一方面构建来自 Bilibili 弹幕视频的时间戳-文本-视频联合事件数据集 DanmakuTPP-Events，另一方面通过多智能体 LLM/MLLM pipeline 构建复杂时序推理问答集 DanmakuTPP-QA，系统揭示当前 TPP 模型与 MLLM 在多模态事件动态理解上的明显短板。"
+title: >-
+  [论文解读] DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding
+description: >-
+  [多模态] 论文提出首个面向多模态 Temporal Point Process 的系统 benchmark：一方面构建来自 Bilibili 弹幕视频的时间戳-文本-视频联合事件数据集 DanmakuTPP-Events，另一方面通过多智能体 LLM/MLLM pipeline 构建复杂时序推理问答集 DanmakuTPP-QA，系统揭示当前 TPP 模型与 MLLM 在多模态事件动态理解上的明显短板。
 tags:
-
+  - 多模态
 ---
 
 # DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Giraffe: Design Choices for Extending the Context Length of Visual Language Models 论文解读 | 系统性地探索了将现有视觉语言模型（VLM）的上下文窗口扩展到128K的设计空间，从数据配方、位置编码扩展到上下文利用三个维度提出最佳实践，并提出 M-RoPE++ 和混合分辨率训练两项技术，构建的 Giraffe 模型在长上下文 VLM 中达 SOTA。"
+title: >-
+  [论文解读] Giraffe: Design Choices for Extending the Context Length of Visual Language Models
+description: >-
+  [LLM效率] 系统性地探索了将现有视觉语言模型（VLM）的上下文窗口扩展到128K的设计空间，从数据配方、位置编码扩展到上下文利用三个维度提出最佳实践，并提出 M-RoPE++ 和混合分辨率训练两项技术，构建的 Giraffe 模型在长上下文 VLM 中达 SOTA。
 tags:
-
+  - LLM效率
 ---
 
 # Giraffe: Design Choices for Extending the Context Length of Visual Language Models

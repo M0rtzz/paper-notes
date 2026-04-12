@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models 论文解读 | CVPR 2026 | arXiv 2603.00207 | 视觉重聚焦 | 提出 VisRef，一个无需训练的视觉重聚焦框架，在多模态推理每一步通过 DPP 选择与当前推理状态相关且多样的视觉token子集重新注入，配合基于熵的自适应停止准则，在三个视觉推理基准上比文本自反思方法提升最高6.4%。"
+title: >-
+  [论文解读] VisRef: Visual Refocusing while Thinking Improves Test-Time Scaling in Multi-Modal Large Reasoning Models
+description: >-
+  [CVPR 2026][LLM推理][视觉重聚焦] 提出 VisRef，一个无需训练的视觉重聚焦框架，在多模态推理每一步通过 DPP 选择与当前推理状态相关且多样的视觉token子集重新注入，配合基于熵的自适应停止准则，在三个视觉推理基准上比文本自反思方法提升最高6.4%。
 tags:
   - CVPR 2026
+  - LLM推理
   - 视觉重聚焦
   - 测试时缩放
   - 多模态推理

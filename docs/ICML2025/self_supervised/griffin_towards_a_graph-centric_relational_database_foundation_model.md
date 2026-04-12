@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Griffin: Towards a Graph-Centric Relational Database Foundation Model 论文解读 | ICML 2025 | arXiv 2505.05568 | 关系数据库基础模型 | Griffin 是首个面向关系数据库（RDB）的基础模型，通过将多表结构转化为异构图，结合统一编码器/解码器、交叉注意力和层级聚合的 MPNN，在 150M+ 行数据上进行自监督掩码补全预训练 + 联合 SFT，实现跨数据库、跨域、跨任务的泛化预测。"
+title: >-
+  [论文解读] Griffin: Towards a Graph-Centric Relational Database Foundation Model
+description: >-
+  [ICML 2025][自监督学习][关系数据库基础模型] Griffin 是首个面向关系数据库（RDB）的基础模型，通过将多表结构转化为异构图，结合统一编码器/解码器、交叉注意力和层级聚合的 MPNN，在 150M+ 行数据上进行自监督掩码补全预训练 + 联合 SFT，实现跨数据库、跨域、跨任务的泛化预测。
 tags:
   - ICML 2025
+  - 自监督学习
   - 关系数据库基础模型
   - 图神经网络
   - 自监督预训练

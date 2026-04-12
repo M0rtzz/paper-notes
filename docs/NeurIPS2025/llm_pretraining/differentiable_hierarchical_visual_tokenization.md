@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] Differentiable Hierarchical Visual Tokenization
+description: >-
+  [NeurIPS 2025 (Spotlight)][Visual Tokenizer] 提出一种端到端可微分的层次化视觉分词器，以像素级粒度自适应图像内容进行 token 划分，利用信息准则进行层次模型选择，可直接替换 ViT 的固定 patch 分词，并支持光栅-矢量转换。
+tags:
+  - NeurIPS 2025 (Spotlight)
+  - Visual Tokenizer
+  - 层次化分词
+  - 可微分
+  - 超像素
+  - 信息准则
+---
+
 # Differentiable Hierarchical Visual Tokenization
 
 **会议**: NeurIPS 2025 (Spotlight)  

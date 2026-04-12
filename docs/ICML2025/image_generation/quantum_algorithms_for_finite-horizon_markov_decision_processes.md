@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Quantum Algorithms for Finite-horizon Markov Decision Processes 论文解读 | ICML2025 | arXiv 2508.05712 | 量子算法 | 提出四种量子值迭代算法（QVI-1/2/3/4），在精确动力学和生成模型两种设定下，对有限时域时变MDP实现了状态空间 S、动作空间 A、误差 ε 和时域 H 多维度的量子加速，并证明了渐近最优的量子下界。"
+title: >-
+  [论文解读] Quantum Algorithms for Finite-horizon Markov Decision Processes
+description: >-
+  [ICML2025][图像生成][量子算法] 提出四种量子值迭代算法（QVI-1/2/3/4），在精确动力学和生成模型两种设定下，对有限时域时变MDP实现了状态空间 $S$、动作空间 $A$、误差 $\epsilon$ 和时域 $H$ 多维度的量子加速，并证明了渐近最优的量子下界。
 tags:
   - ICML2025
+  - 图像生成
   - 量子算法
   - 有限时域MDP
   - 量子值迭代

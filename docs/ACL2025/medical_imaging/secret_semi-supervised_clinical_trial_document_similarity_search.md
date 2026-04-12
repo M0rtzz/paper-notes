@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SECRET: Semi-supervised Clinical Trial Document Similarity Search 论文解读 | ACL2025 | arXiv 2505.10780 | clinical trial | 提出 SECRET，一种半监督临床试验协议相似性搜索方法，通过将临床试验文档转换为 Q/A 对表示，并结合局部（Q/A 级）和全局（试验级）对比学习来生成嵌入，在完整试验搜索的 recall@1 上相对最佳基线提升 78%。"
+title: >-
+  [论文解读] SECRET: Semi-supervised Clinical Trial Document Similarity Search
+description: >-
+  [ACL2025][医学图像][clinical trial] 提出 SECRET，一种半监督临床试验协议相似性搜索方法，通过将临床试验文档转换为 Q/A 对表示，并结合局部（Q/A 级）和全局（试验级）对比学习来生成嵌入，在完整试验搜索的 recall@1 上相对最佳基线提升 78%。
 tags:
   - ACL2025
+  - 医学图像
   - clinical trial
   - document similarity
   - 对比学习

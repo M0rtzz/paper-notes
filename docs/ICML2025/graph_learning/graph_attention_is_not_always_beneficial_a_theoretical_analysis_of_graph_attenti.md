@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Graph Attention is Not Always Beneficial: A Theoretical Analysis of Graph Attention Mechanisms via Contextual Stochastic Block Models 论文解读 | ICML2025 | arXiv 2412.15496 | 图注意力 | 通过 CSBM 理论分析揭示图注意力并非总有益：结构噪声>特征噪声时有效，反之简单卷积更优；多层 GAT 的完美分类 SNR 要求从 ω(sqrtlog n) 放松到 ω(sqrtlog n/sqrt[3]n)。"
+title: >-
+  [论文解读] Graph Attention is Not Always Beneficial: A Theoretical Analysis of Graph Attention Mechanisms via Contextual Stochastic Block Models
+description: >-
+  [ICML2025][图学习][图注意力] 通过 CSBM 理论分析揭示图注意力并非总有益：结构噪声>特征噪声时有效，反之简单卷积更优；多层 GAT 的完美分类 SNR 要求从 $\omega(\sqrt{\log n})$ 放松到 $\omega(\sqrt{\log n}/\sqrt[3]{n})$。
 tags:
   - ICML2025
+  - 图学习
   - 图注意力
   - CSBM
   - 过平滑

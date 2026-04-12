@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions 论文解读 | ICCV 2025 | arXiv 2412.17377 | 物理运动修复 | 提出即插即用的两阶段物理运动修复方法：先用掩码条件扩散模型修正视频运动捕获中的缺陷帧（MCM），再用预训练+测试时自适应的强化学习控制器进行物理仿真修复（PTM），首次实现对野外高难度动作（体操/武术/舞蹈）的物理合理性增强。"
+title: >-
+  [论文解读] A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions
+description: >-
+  [ICCV 2025][图像分割][物理运动修复] 提出即插即用的两阶段物理运动修复方法：先用掩码条件扩散模型修正视频运动捕获中的缺陷帧（MCM），再用预训练+测试时自适应的强化学习控制器进行物理仿真修复（PTM），首次实现对野外高难度动作（体操/武术/舞蹈）的物理合理性增强。
 tags:
   - ICCV 2025
+  - 图像分割
   - 物理运动修复
   - 运动模仿
   - 扩散模型运动补全

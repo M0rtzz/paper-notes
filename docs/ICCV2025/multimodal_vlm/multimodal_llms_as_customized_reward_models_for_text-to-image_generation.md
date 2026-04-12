@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Multimodal LLMs as Customized Reward Models for Text-to-Image Generation 论文解读 | 提出 LLaVA-Reward，利用预训练 MLLM 的隐藏状态（而非文本生成）直接输出奖励值，通过 Skip-connection Cross Attention (SkipCA) 增强双向视觉-文本交互，配合 LoRA 适配不同评估维度，在文本-图像对齐、保真度和安全性评估上达到 SOTA，并可用于扩散模型推理时缩放。"
+title: >-
+  [论文解读] Multimodal LLMs as Customized Reward Models for Text-to-Image Generation
+description: >-
+  [多模态] 提出 LLaVA-Reward，利用预训练 MLLM 的隐藏状态（而非文本生成）直接输出奖励值，通过 Skip-connection Cross Attention (SkipCA) 增强双向视觉-文本交互，配合 LoRA 适配不同评估维度，在文本-图像对齐、保真度和安全性评估上达到 SOTA，并可用于扩散模型推理时缩放。
 tags:
-
+  - 多模态
 ---
 
 # Multimodal LLMs as Customized Reward Models for Text-to-Image Generation

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Harnessing Chain-of-Thought Reasoning in Multimodal Large Language Models for Face Anti-Spoofing 论文解读 | CVPR 2026 | arXiv 2506.01783 | 人脸反欺骗 | 构建首个面向人脸反欺骗(FAS)的CoT-VQA数据集 FaceCoT（108万样本，14种攻击类型），并提出分两阶段渐进学习策略 CEPL，在11个FAS基准上平均AUC提升4.06%、HTER降低5.00%。"
+title: >-
+  [论文解读] Harnessing Chain-of-Thought Reasoning in Multimodal Large Language Models for Face Anti-Spoofing
+description: >-
+  [CVPR 2026][LLM推理][人脸反欺骗] 构建首个面向人脸反欺骗(FAS)的CoT-VQA数据集 FaceCoT（108万样本，14种攻击类型），并提出分两阶段渐进学习策略 CEPL，在11个FAS基准上平均AUC提升4.06%、HTER降低5.00%。
 tags:
   - CVPR 2026
+  - LLM推理
   - 人脸反欺骗
   - 思维链推理
   - 多模态大语言模型

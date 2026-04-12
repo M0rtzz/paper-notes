@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization 论文解读 | CVPR 2026 | arXiv 2603.12663 | 场景分类 | 提出利用LiDAR全景深度图和反射率图作为CNN输入进行室外场景分类的方法，构建了MPO大规模室外3D数据集（6类场景，34200帧），通过水平循环卷积(HCC)和行级最大池化(RWMP)处理全景图的环状结构，在多模态融合下达到97.47%分类准确率。"
+title: >-
+  [论文解读] Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization
+description: >-
+  [CVPR 2026][自动驾驶][场景分类] 提出利用LiDAR全景深度图和反射率图作为CNN输入进行室外场景分类的方法，构建了MPO大规模室外3D数据集（6类场景，34200帧），通过水平循环卷积(HCC)和行级最大池化(RWMP)处理全景图的环状结构，在多模态融合下达到97.47%分类准确率。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 场景分类
   - LiDAR全景图
   - CNN

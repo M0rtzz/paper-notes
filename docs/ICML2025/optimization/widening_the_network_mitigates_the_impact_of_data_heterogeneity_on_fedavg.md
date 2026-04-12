@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Widening the Network Mitigates the Impact of Data Heterogeneity on FedAvg 论文解读 | 从 NTK 理论出发，证明 FedAvg 中数据异质性导致的模型发散上界为 O(n^-1/2)（n 为网络宽度），在无穷宽极限下全局和局部模型均线性化，FedAvg 在相同迭代次数下等价于集中式梯度下降，泛化性能一致。"
+title: >-
+  [论文解读] Widening the Network Mitigates the Impact of Data Heterogeneity on FedAvg
+description: >-
+  [优化] 从 NTK 理论出发，证明 FedAvg 中数据异质性导致的模型发散上界为 $\mathcal{O}(n^{-1/2})$（$n$ 为网络宽度），在无穷宽极限下全局和局部模型均线性化，FedAvg 在相同迭代次数下等价于集中式梯度下降，泛化性能一致。
 tags:
-
+  - 优化
 ---
 
 # Widening the Network Mitigates the Impact of Data Heterogeneity on FedAvg

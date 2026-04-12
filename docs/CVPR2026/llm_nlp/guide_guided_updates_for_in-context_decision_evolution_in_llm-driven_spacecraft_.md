@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GUIDE: Guided Updates for In-context Decision Evolution in LLM-Driven Spacecraft Operations 论文解读 | CVPR 2026 (AI4Space Workshop) | arXiv 2603.27306 | 航天器操作 | 提出GUIDE框架，利用LLM的in-context学习能力为航天器自主操作提供引导式决策进化，通过结构化的上下文信息和反馈机制让LLM在无需微调的情况下逐步改善航天任务规划和故障诊断决策的质量。"
+title: >-
+  [论文解读] GUIDE: Guided Updates for In-context Decision Evolution in LLM-Driven Spacecraft Operations
+description: >-
+  [CVPR 2026 (AI4Space Workshop)][LLM/NLP][航天器操作] 提出GUIDE框架，利用LLM的in-context学习能力为航天器自主操作提供引导式决策进化，通过结构化的上下文信息和反馈机制让LLM在无需微调的情况下逐步改善航天任务规划和故障诊断决策的质量。
 tags:
   - CVPR 2026 (AI4Space Workshop)
+  - LLM/NLP
   - 航天器操作
   - LLM决策
   - in-context学习

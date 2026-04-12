@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models 论文解读 | 揭示了直接蒸馏大推理模型（如 DeepSeek-R1）的长 CoT 数据到小模型时的「形式化长时间思考」瓶颈，提出基于 MCTS 从头构造树状 CoT 数据并结合思维长度平衡、细粒度 DPO 和联合训练目标来缓解该问题。"
+title: >-
+  [论文解读] Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models
+description: >-
+  [LLM推理] 揭示了直接蒸馏大推理模型（如 DeepSeek-R1）的长 CoT 数据到小模型时的「形式化长时间思考」瓶颈，提出基于 MCTS 从头构造树状 CoT 数据并结合思维长度平衡、细粒度 DPO 和联合训练目标来缓解该问题。
 tags:
-
+  - LLM推理
 ---
 
 # Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models

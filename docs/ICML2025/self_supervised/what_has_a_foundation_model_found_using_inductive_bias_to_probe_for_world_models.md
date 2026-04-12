@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models 论文解读 | ICML2025 | arXiv 2507.06952 | 基础模型 | 开发了一种\"归纳偏置探测\"技术来评估基础模型是否学到了真实的世界模型：在轨道力学/格子问题/Othello等领域发现，基础模型虽然预测准确但并未学到底层物理/规则，而是发展了任务特定的启发式。"
+title: >-
+  [论文解读] What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models
+description: >-
+  [ICML2025][自监督学习][基础模型] 开发了一种"归纳偏置探测"技术来评估基础模型是否学到了真实的世界模型：在轨道力学/格子问题/Othello等领域发现，基础模型虽然预测准确但并未学到底层物理/规则，而是发展了任务特定的启发式。
 tags:
   - ICML2025
+  - 自监督学习
   - 基础模型
   - 世界模型
   - 归纳偏置

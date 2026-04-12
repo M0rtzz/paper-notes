@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models 论文解读 | ICLR 2026 | arXiv 2603.10887 | 强化学习微调 | 将 RL 微调中每个 prompt 的求解进度建模为隐马尔可夫动力系统，通过轻量贝叶斯推断在线预测 prompt 的求解状态，优先采样\"部分求解\"的 prompt，以不到 DS 30% 的 rollout 量达到同等甚至更优的推理性能。"
+title: >-
+  [论文解读] Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models
+description: >-
+  [ICLR 2026][LLM推理][强化学习微调] 将 RL 微调中每个 prompt 的求解进度建模为隐马尔可夫动力系统，通过轻量贝叶斯推断在线预测 prompt 的求解状态，优先采样"部分求解"的 prompt，以不到 DS 30% 的 rollout 量达到同等甚至更优的推理性能。
 tags:
   - ICLR 2026
+  - LLM推理
   - 强化学习微调
   - 提示采样
   - 隐马尔可夫模型

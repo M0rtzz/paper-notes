@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Circuit Mechanisms for Spatial Relation Generation in Diffusion Transformers 论文解读 | CVPR 2026 | arXiv 2601.06338 | Transformer 扩散Transformer | 通过机制可解释性方法，揭示了扩散Transformer中空间关系生成的两种截然不同的电路机制：随机文本编码器使用\"关系头+物体头\"的两阶段模块化电路，而 T5 编码器将关系信息融入物体 token 中通过单 token解码，后者在域外扰动下更脆弱。"
+title: >-
+  [论文解读] Circuit Mechanisms for Spatial Relation Generation in Diffusion Transformers
+description: >-
+  [CVPR 2026][图像生成][Transformer] 通过机制可解释性方法，揭示了扩散Transformer中空间关系生成的两种截然不同的电路机制：随机文本编码器使用"关系头+物体头"的两阶段模块化电路，而 T5 编码器将关系信息融入物体 token 中通过单 token解码，后者在域外扰动下更脆弱。
 tags:
   - CVPR 2026
+  - 图像生成
   - Transformer
   - 可解释性
   - 空间关系

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Hyperdimensional One Place Signature to Represent Them All: Stackable Descriptors For Visual Place Recognition 论文解读 | ICCV 2025 | arXiv 2412.06153 | 视觉场所识别 | 本文提出 HOPS（Hyperdimensional One Place Signatures），利用超维计算（HDC）框架将同一地点在不同环境条件下采集的多个参考描述子融合为统一表示，在不增加计算量和存储开销的前提下，大幅提升视觉场所识别（VPR）的鲁棒性与召回率。"
+title: >-
+  [论文解读] A Hyperdimensional One Place Signature to Represent Them All: Stackable Descriptors For Visual Place Recognition
+description: >-
+  [ICCV 2025][视觉场所识别] 本文提出 HOPS（Hyperdimensional One Place Signatures），利用超维计算（HDC）框架将同一地点在不同环境条件下采集的多个参考描述子融合为统一表示，在不增加计算量和存储开销的前提下，大幅提升视觉场所识别（VPR）的鲁棒性与召回率。
 tags:
   - ICCV 2025
   - 视觉场所识别

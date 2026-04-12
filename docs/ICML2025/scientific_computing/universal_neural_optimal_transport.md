@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Universal Neural Optimal Transport 论文解读 | ICML2025 | arXiv 2212.00133 | Optimal Transport | 提出 UNOT（Universal Neural Optimal Transport），利用 Fourier Neural Operator 学习跨数据集、跨分辨率的熵正则化最优传输对偶势函数，实现对 Sinkhorn 算法最高 7.4× 的加速初始化。"
+title: >-
+  [论文解读] Universal Neural Optimal Transport
+description: >-
+  [ICML2025][科学计算][Optimal Transport] 提出 UNOT（Universal Neural Optimal Transport），利用 Fourier Neural Operator 学习跨数据集、跨分辨率的熵正则化最优传输对偶势函数，实现对 Sinkhorn 算法最高 7.4× 的加速初始化。
 tags:
   - ICML2025
+  - 科学计算
   - Optimal Transport
   - 神经算子
   - Sinkhorn Algorithm

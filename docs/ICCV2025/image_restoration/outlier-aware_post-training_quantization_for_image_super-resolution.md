@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Outlier-Aware Post-Training Quantization for Image Super-Resolution 论文解读 | ICCV 2025 | arXiv 2511.00682 | 后训练量化 | 提出一种面向图像超分辨率的离群值感知后训练量化方法，通过双区域分段线性量化平衡离群值保留与正常激活精度，并引入敏感度感知微调策略使模型关注量化敏感层，在 W4A4 设置下大幅超越现有 PTQ 方法并接近 QAT 性能。"
+title: >-
+  [论文解读] Outlier-Aware Post-Training Quantization for Image Super-Resolution
+description: >-
+  [ICCV 2025][图像恢复][后训练量化] 提出一种面向图像超分辨率的离群值感知后训练量化方法，通过双区域分段线性量化平衡离群值保留与正常激活精度，并引入敏感度感知微调策略使模型关注量化敏感层，在 W4A4 设置下大幅超越现有 PTQ 方法并接近 QAT 性能。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 后训练量化
   - 图像超分辨率
   - 激活离群值

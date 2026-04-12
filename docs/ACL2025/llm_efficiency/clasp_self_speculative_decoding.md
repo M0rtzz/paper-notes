@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLaSp: In-Context Layer Skip for Self-Speculative Decoding 论文解读 | ACL 2025 | arXiv 2505.24196 | speculative decoding | CLaSp 提出一种无需训练的自推测解码方法，通过动态规划算法在每个验证步骤后根据上下文动态调整跳层策略，利用上一次验证的完整隐状态作为目标来选择最优跳层集合，在 LLaMA3 系列上实现 1.3-1.7× 加速且不改变生成分布。"
+title: >-
+  [论文解读] CLaSp: In-Context Layer Skip for Self-Speculative Decoding
+description: >-
+  [ACL 2025][LLM效率][speculative decoding] CLaSp 提出一种无需训练的自推测解码方法，通过动态规划算法在每个验证步骤后根据上下文动态调整跳层策略，利用上一次验证的完整隐状态作为目标来选择最优跳层集合，在 LLaMA3 系列上实现 1.3-1.7× 加速且不改变生成分布。
 tags:
   - ACL 2025
+  - LLM效率
   - speculative decoding
   - layer skipping
   - self-speculative

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Self-Supervised Learning from Structural Invariance 论文解读 | ICLR 2026 | arXiv 2602.02381 | 自监督学习 | 提出 AdaSSL，通过引入潜变量建模正样本对之间的条件不确定性，推导出互信息的变分下界，使 SSL 能够处理自然配对数据中的复杂（多模态、异方差）条件分布，在因果表征学习、细粒度图像理解和视频世界模型上均优于基线。"
+title: >-
+  [论文解读] Self-Supervised Learning from Structural Invariance
+description: >-
+  [ICLR 2026][自监督学习] 提出 AdaSSL，通过引入潜变量建模正样本对之间的条件不确定性，推导出互信息的变分下界，使 SSL 能够处理自然配对数据中的复杂（多模态、异方差）条件分布，在因果表征学习、细粒度图像理解和视频世界模型上均优于基线。
 tags:
   - ICLR 2026
   - 自监督学习

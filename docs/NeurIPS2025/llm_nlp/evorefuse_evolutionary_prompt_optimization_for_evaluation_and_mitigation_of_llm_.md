@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EvoRefuse: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal 论文解读 | NeurIPS 2025 | arXiv 2505.23473 | over-refusal | 提出 EvoRefuse——用进化搜索（变异/重组 + ELBO 适应度 + 模拟退火）生成语义无害但能可靠触发 LLM 拒绝的\"伪恶意\"指令，比最强基线的拒绝触发率高 85.34%，并用生成的数据进行 SFT/DPO 微调，将过度拒绝降低 29.85%-45.96%。"
+title: >-
+  [论文解读] EvoRefuse: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal
+description: >-
+  [NeurIPS 2025][LLM/NLP][over-refusal] 提出 EvoRefuse——用进化搜索（变异/重组 + ELBO 适应度 + 模拟退火）生成语义无害但能可靠触发 LLM 拒绝的"伪恶意"指令，比最强基线的拒绝触发率高 85.34%，并用生成的数据进行 SFT/DPO 微调，将过度拒绝降低 29.85%-45.96%。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - over-refusal
   - evolutionary optimization
   - ELBO

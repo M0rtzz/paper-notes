@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Noise2Score3D: Tweedie's Approach for Unsupervised Point Cloud Denoising 论文解读 | ICCV 2025 | arXiv 2503.09283 | 点云去噪 | 提出Noise2Score3D,基于Tweedie公式的全无监督点云去噪框架,从噪声数据直接学习得分函数,实现单步去噪;引入点云全变分度量估计未知噪声参数。"
+title: >-
+  [论文解读] Noise2Score3D: Tweedie's Approach for Unsupervised Point Cloud Denoising
+description: >-
+  [ICCV 2025][3D视觉][点云去噪] 提出Noise2Score3D,基于Tweedie公式的全无监督点云去噪框架,从噪声数据直接学习得分函数,实现单步去噪;引入点云全变分度量估计未知噪声参数。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 点云去噪
   - 无监督学习
   - Tweedie公式

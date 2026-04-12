@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Breaking Scale Anchoring: Frequency Representation Learning for Accurate High-Resolution Inference from Low-Resolution Training 论文解读 | ICLR 2026 | arXiv 2512.05132 | scale anchoring | 定义了\"Scale Anchoring\"新问题（低分辨率训练导致高分辨率推理误差锚定），并提出架构无关的频率表征学习（FRL），通过 Nyquist 归一化频率编码使误差随分辨率提升而下降，在 8 种主流架构上验证有效。"
+title: >-
+  [论文解读] Breaking Scale Anchoring: Frequency Representation Learning for Accurate High-Resolution Inference from Low-Resolution Training
+description: >-
+  [ICLR 2026][目标检测][scale anchoring] 定义了"Scale Anchoring"新问题（低分辨率训练导致高分辨率推理误差锚定），并提出架构无关的频率表征学习（FRL），通过 Nyquist 归一化频率编码使误差随分辨率提升而下降，在 8 种主流架构上验证有效。
 tags:
   - ICLR 2026
+  - 目标检测
   - scale anchoring
   - frequency representation
   - 超分辨率

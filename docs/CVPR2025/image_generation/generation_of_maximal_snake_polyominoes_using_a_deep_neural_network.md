@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generation of Maximal Snake Polyominoes Using a Deep Neural Network 论文解读 | CVPR 2025 | arXiv 2603.12400 | 去噪扩散 | 将 DDPM 应用于生成最大蛇形多联骨牌，提出精简版 Structured Pixel Space Diffusion（SPS Diffusion），在训练到 14x14 正方网格的情况下泛化到 28x28 并生成有效蛇形，部分结果超越已知最大长度下界。"
+title: >-
+  [论文解读] Generation of Maximal Snake Polyominoes Using a Deep Neural Network
+description: >-
+  [CVPR 2025][图像生成][去噪扩散] 将 DDPM 应用于生成最大蛇形多联骨牌，提出精简版 Structured Pixel Space Diffusion（SPS Diffusion），在训练到 14x14 正方网格的情况下泛化到 28x28 并生成有效蛇形，部分结果超越已知最大长度下界。
 tags:
   - CVPR 2025
+  - 图像生成
   - 去噪扩散
   - 蛇形多联骨牌
   - 组合对象生成

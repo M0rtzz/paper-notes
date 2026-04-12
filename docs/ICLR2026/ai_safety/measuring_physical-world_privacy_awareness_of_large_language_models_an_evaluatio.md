@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Measuring Physical-World Privacy Awareness of Large Language Models: An Evaluation Benchmark 论文解读 | ICLR 2026 | arXiv 2510.02356 | privacy awareness | 提出 EAPrivacy——首个评估 LLM 物理世界隐私感知的 4 层级基准（400+ 程序化生成场景，60+ 物理场景），发现所有 frontier 模型存在\"非对称保守\"（任务执行过度保守但隐私保护不足），开启 reasoning 模式反而降低隐私表现，最佳模型（Gemini 2.5 Pro）在动态环境中仅 59% 准确率。"
+title: >-
+  [论文解读] Measuring Physical-World Privacy Awareness of Large Language Models: An Evaluation Benchmark
+description: >-
+  [ICLR 2026][AI安全][privacy awareness] 提出 EAPrivacy——首个评估 LLM 物理世界隐私感知的 4 层级基准（400+ 程序化生成场景，60+ 物理场景），发现所有 frontier 模型存在"非对称保守"（任务执行过度保守但隐私保护不足），开启 reasoning 模式反而降低隐私表现，最佳模型（Gemini 2.5 Pro）在动态环境中仅 59% 准确率。
 tags:
   - ICLR 2026
+  - AI安全
   - privacy awareness
   - embodied agent
   - physical privacy

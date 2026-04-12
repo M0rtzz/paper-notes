@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Wider or Deeper: Scaling LLM Inference-Time Compute with Adaptive Branching Tree Search 论文解读 | NeurIPS 2025 | arXiv 2503.04412 | MCTS | AB-MCTS 提出了一种自适应分支的蒙特卡洛树搜索框架，在搜索树的每个节点上动态决定是\"变宽\"（生成新候选答案）还是\"变深\"（利用反馈优化现有答案），通过贝叶斯后验更新平衡探索与利用，在编程和工程任务上超越了重复采样和标准 MCTS。"
+title: >-
+  [论文解读] Wider or Deeper: Scaling LLM Inference-Time Compute with Adaptive Branching Tree Search
+description: >-
+  [NeurIPS 2025][LLM/NLP][MCTS] AB-MCTS 提出了一种自适应分支的蒙特卡洛树搜索框架，在搜索树的每个节点上动态决定是"变宽"（生成新候选答案）还是"变深"（利用反馈优化现有答案），通过贝叶斯后验更新平衡探索与利用，在编程和工程任务上超越了重复采样和标准 MCTS。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - MCTS
   - 推理时计算
   - 自适应分支

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Stable Spike: Dual Consistency Optimization via Bitwise AND Operations for Spiking Neural Networks 论文解读 | CVPR2026 | arXiv 2603.11676 | 脉冲神经网络 | 提出 Stable Spike 双一致性优化框架，利用硬件友好的 AND 位运算从多时间步脉冲图中解耦稳定脉冲骨架，并注入振幅感知脉冲噪声增强泛化，在超低延迟(T=2)下将神经形态物体识别精度提升最高 8.33%。"
+title: >-
+  [论文解读] Stable Spike: Dual Consistency Optimization via Bitwise AND Operations for Spiking Neural Networks
+description: >-
+  [CVPR2026][人体理解][脉冲神经网络] 提出 Stable Spike 双一致性优化框架，利用硬件友好的 AND 位运算从多时间步脉冲图中解耦稳定脉冲骨架，并注入振幅感知脉冲噪声增强泛化，在超低延迟(T=2)下将神经形态物体识别精度提升最高 8.33%。
 tags:
   - CVPR2026
+  - 人体理解
   - 脉冲神经网络
   - 时间步一致性
   - 位运算AND

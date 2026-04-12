@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ProbFM: Probabilistic Time Series Foundation Model with Uncertainty Decomposition 论文解读 | AAAI2026 | arXiv 2601.10591 | time series | 首次将 Deep Evidential Regression (DER) 与 Normal-Inverse-Gamma 先验引入时序基础模型架构，实现单次前向传播即可进行 epistemic-aleatoric 不确定性分解，并在加密货币预测中验证了不确定性感知交易策略的实用价值。"
+title: >-
+  [论文解读] ProbFM: Probabilistic Time Series Foundation Model with Uncertainty Decomposition
+description: >-
+  [AAAI2026][3D视觉][time series] 首次将 Deep Evidential Regression (DER) 与 Normal-Inverse-Gamma 先验引入时序基础模型架构，实现单次前向传播即可进行 epistemic-aleatoric 不确定性分解，并在加密货币预测中验证了不确定性感知交易策略的实用价值。
 tags:
   - AAAI2026
+  - 3D视觉
   - time series
   - foundation model
   - uncertainty quantification

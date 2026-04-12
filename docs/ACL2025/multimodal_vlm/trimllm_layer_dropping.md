@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.11242 | 层剪枝 | 基于\"层级特化\"现象（不同层对不同领域重要性不同），提出TrimLLM在领域微调过程中渐进式丢弃最不重要的层，将LLaMA-7B压缩到50%大小时性能几乎无损，在消费级GPU上实现2.1-5.7×推理加速——无需任何特殊硬件或kernel支持。"
+title: >-
+  [论文解读] TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs
+description: >-
+  [ACL 2025 (Long Paper)][多模态][层剪枝] 基于"层级特化"现象（不同层对不同领域重要性不同），提出TrimLLM在领域微调过程中渐进式丢弃最不重要的层，将LLaMA-7B压缩到50%大小时性能几乎无损，在消费级GPU上实现2.1-5.7×推理加速——无需任何特殊硬件或kernel支持。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 层剪枝
   - 渐进式层丢弃
   - 领域特定LLM

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RehearseVLA: Simulated Post-Training for VLAs with Physically-Consistent World Model 论文解读 | CVPR 2026 | arXiv 2509.24948 | VLA后训练 | 针对 VLA 模型在数据稀缺场景下的性能退化和真实环境不可重置的限制，提出 RehearseVLA——用物理一致的世界模型模拟器替代真实物理交互进行 RL 后训练，配合 VLM 引导的即时反射器提供奖励信号和终止预测，仅用每个任务 5 个专家演示即可显著提升 VLA 在复杂操控任务上的表现。"
+title: >-
+  [论文解读] RehearseVLA: Simulated Post-Training for VLAs with Physically-Consistent World Model
+description: >-
+  [CVPR 2026][机器人][VLA后训练] 针对 VLA 模型在数据稀缺场景下的性能退化和真实环境不可重置的限制，提出 RehearseVLA——用物理一致的世界模型模拟器替代真实物理交互进行 RL 后训练，配合 VLM 引导的即时反射器提供奖励信号和终止预测，仅用每个任务 5 个专家演示即可显著提升 VLA 在复杂操控任务上的表现。
 tags:
   - CVPR 2026
+  - 机器人
   - VLA后训练
   - 世界模型
   - 强化学习

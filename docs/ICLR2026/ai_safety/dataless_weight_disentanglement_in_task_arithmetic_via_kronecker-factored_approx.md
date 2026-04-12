@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dataless Weight Disentanglement in Task Arithmetic via Kronecker-Factored Approximate Curvature 论文解读 | ICLR 2026 | arXiv 2602.17385 | 任务算术 | 提出 TAK 方法，将任务算术中的表征漂移正则化等价为 Jacobian Gram 矩阵的二次型，利用 KFAC 近似实现无需外部任务数据的高效权重解纠缠，在任务加法和任务否定上达到 SOTA。"
+title: >-
+  [论文解读] Dataless Weight Disentanglement in Task Arithmetic via Kronecker-Factored Approximate Curvature
+description: >-
+  [ICLR 2026][AI安全][任务算术] 提出 TAK 方法，将任务算术中的表征漂移正则化等价为 Jacobian Gram 矩阵的二次型，利用 KFAC 近似实现无需外部任务数据的高效权重解纠缠，在任务加法和任务否定上达到 SOTA。
 tags:
   - ICLR 2026
+  - AI安全
   - 任务算术
   - 权重解纠缠
   - KFAC

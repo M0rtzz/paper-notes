@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】FlowTok: Flowing Seamlessly Across Text and Image Tokens 论文解读 | FlowTok 提出将文本和图像都编码为紧凑的 1D token 表示（77×16），通过 flow matching 直接在文本与图像 token 之间进行流动转换，无需复杂的条件机制或噪声调度，实现了高效的跨模态生成。"
+title: >-
+  [论文解读] FlowTok: Flowing Seamlessly Across Text and Image Tokens
+description: >-
+  [图像生成] FlowTok 提出将文本和图像都编码为紧凑的 1D token 表示（77×16），通过 flow matching 直接在文本与图像 token 之间进行流动转换，无需复杂的条件机制或噪声调度，实现了高效的跨模态生成。
 tags:
-
+  - 图像生成
 ---
 
 # FlowTok: Flowing Seamlessly Across Text and Image Tokens

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Modality-free Graph In-context Alignment 论文解读 | ICLR 2026 | arXiv 2603.13434 | 图基础模型 | 提出 MF-GIA，首个同时满足无后训练、跨域对齐和模态无关三个条件的图上下文学习框架，通过梯度指纹捕获域特征、FiLM条件化变换对齐特征和标签，在多个图域的few-shot任务上实现SOTA性能。"
+title: >-
+  [论文解读] Modality-free Graph In-context Alignment
+description: >-
+  [ICLR 2026][模型压缩][图基础模型] 提出 MF-GIA，首个同时满足无后训练、跨域对齐和模态无关三个条件的图上下文学习框架，通过梯度指纹捕获域特征、FiLM条件化变换对齐特征和标签，在多个图域的few-shot任务上实现SOTA性能。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 图基础模型
   - 上下文学习
   - 跨域对齐

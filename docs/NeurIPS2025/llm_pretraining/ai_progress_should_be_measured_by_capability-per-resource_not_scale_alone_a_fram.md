@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs 论文解读 | NEURIPS2025 | arXiv 2511.01077 | capability-per-resource | 本文以 position paper 的形式挑战\"规模至上主义\"，提出以**能力-每-资源（Capability-Per-Resource, CPR）**取代单纯的规模扩张来衡量 AI 进步，并给出一套基于梯度引导的资源分配理论框架——通过发布\"梯度蓝图\"元数据，使下游适配者仅微调高影响力参数子集即可在资源占用大幅降低的同时保持接近全参数微调的性能。"
+title: >-
+  [论文解读] AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs
+description: >-
+  [NEURIPS2025][capability-per-resource] 本文以 position paper 的形式挑战"规模至上主义"，提出以**能力-每-资源（Capability-Per-Resource, CPR）**取代单纯的规模扩张来衡量 AI 进步，并给出一套基于梯度引导的资源分配理论框架——通过发布"梯度蓝图"元数据，使下游适配者仅微调高影响力参数子集即可在资源占用大幅降低的同时保持接近全参数微调的性能。
 tags:
   - NEURIPS2025
   - capability-per-resource

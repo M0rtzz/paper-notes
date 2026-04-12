@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Impact of the Utility in Semivalue-based Data Valuation 论文解读 | ICLR 2026 | arXiv 2502.06574 | 半值 | 提出数据集空间签名概念和鲁棒性度量R_p，将数据点嵌入低维空间使效用变为线性泛函，揭示半值数据估值对效用选择的几何敏感性，Banzhaf在多数据集上一致最鲁棒。"
+title: >-
+  [论文解读] On the Impact of the Utility in Semivalue-based Data Valuation
+description: >-
+  [ICLR 2026][半值] 提出数据集空间签名概念和鲁棒性度量R_p，将数据点嵌入低维空间使效用变为线性泛函，揭示半值数据估值对效用选择的几何敏感性，Banzhaf在多数据集上一致最鲁棒。
 tags:
   - ICLR 2026
   - 半值

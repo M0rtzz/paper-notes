@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement 论文解读 | NeurIPS 2025 | arXiv 2510.07961 | UHD图像修复 | 提出 Latent Harmony 两阶段框架，通过潜在空间正则化构建泛化性 VAE（LH-VAE），并引入高频引导的可控 LoRA 微调机制，在保持结构完整性的同时实现 UHD 图像多退化类型统一修复的保真度-感知质量灵活权衡。"
+title: >-
+  [论文解读] Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement
+description: >-
+  [NeurIPS 2025][图像恢复][UHD图像修复] 提出 Latent Harmony 两阶段框架，通过潜在空间正则化构建泛化性 VAE（LH-VAE），并引入高频引导的可控 LoRA 微调机制，在保持结构完整性的同时实现 UHD 图像多退化类型统一修复的保真度-感知质量灵活权衡。
 tags:
   - NeurIPS 2025
+  - 图像恢复
   - UHD图像修复
   - VAE正则化
   - 高频LoRA

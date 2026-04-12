@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】RefineVAD: Semantic-Guided Feature Recalibration for Weakly Supervised Video Anomaly Detection 论文解读 | AAAI 2026 | arXiv 2511.13204 | 弱监督视频异常检测 | 提出 RefineVAD 框架，通过运动感知时序注意力重校准（MoTAR）和类别导向特征精炼（CORE）两个模块，联合建模时序运动动态与异常类别语义，在弱监督视频异常检测任务上实现了对异常事件的精准定位与可解释检测。"
+title: >-
+  [论文解读] RefineVAD: Semantic-Guided Feature Recalibration for Weakly Supervised Video Anomaly Detection
+description: >-
+  [AAAI 2026][弱监督视频异常检测] 提出 RefineVAD 框架，通过运动感知时序注意力重校准（MoTAR）和类别导向特征精炼（CORE）两个模块，联合建模时序运动动态与异常类别语义，在弱监督视频异常检测任务上实现了对异常事件的精准定位与可解释检测。
 tags:
   - AAAI 2026
   - 弱监督视频异常检测

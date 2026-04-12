@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously 论文解读 | CVPR 2025 | arXiv 2603.12262 | 流式视频理解 | 提出 Video Streaming Thinking (VST) 范式，在视频播放过程中交替执行\"看\"和\"想\"——模型边接收视频帧边生成中间推理链，将 CoT 计算摊销到预查询阶段，从而在保持实时响应（0.56s QA延迟）的同时实现 StreamingBench 79.5% 的 SOTA。"
+title: >-
+  [论文解读] Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously
+description: >-
+  [CVPR 2025][视频理解][流式视频理解] 提出 Video Streaming Thinking (VST) 范式，在视频播放过程中交替执行"看"和"想"——模型边接收视频帧边生成中间推理链，将 CoT 计算摊销到预查询阶段，从而在保持实时响应（0.56s QA延迟）的同时实现 StreamingBench 79.5% 的 SOTA。
 tags:
   - CVPR 2025
+  - 视频理解
   - 流式视频理解
   - 链式思维
   - 强化学习

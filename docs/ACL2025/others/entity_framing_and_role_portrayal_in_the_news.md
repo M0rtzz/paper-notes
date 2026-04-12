@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Entity Framing and Role Portrayal in the News 论文解读 | ACL 2025 | arXiv 2502.14718 | 实体框架 | 本文构建了一个包含 5 种语言、1378 篇新闻文章、5800+ 实体标注的多语言层次化实体框架语料库，提出含 22 种精细角色的叙事角色分类体系（主角 / 反派 / 无辜者三大框架下），并在微调多语言 Transformer 和 LLM 层次零样本学习上建立了基准。"
+title: >-
+  [论文解读] Entity Framing and Role Portrayal in the News
+description: >-
+  [ACL 2025][实体框架] 本文构建了一个包含 5 种语言、1378 篇新闻文章、5800+ 实体标注的多语言层次化实体框架语料库，提出含 22 种精细角色的叙事角色分类体系（主角 / 反派 / 无辜者三大框架下），并在微调多语言 Transformer 和 LLM 层次零样本学习上建立了基准。
 tags:
   - ACL 2025
   - 实体框架

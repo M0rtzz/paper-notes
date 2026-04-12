@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MUSE-VL: Modeling Unified VLM through Semantic Discrete Encoding 论文解读 | ICCV2025 | arXiv 2411.17762 | 统一视觉语言模型 | 提出语义离散编码 (SDE)，通过在视觉 tokenizer 的量化过程中融入预训练 CLIP 语义特征，使离散视觉 token 与语言 token 天然对齐，在仅用 24M 图文对的情况下实现了统一理解与生成的 SOTA 性能。"
+title: >-
+  [论文解读] MUSE-VL: Modeling Unified VLM through Semantic Discrete Encoding
+description: >-
+  [ICCV2025][多模态][统一视觉语言模型] 提出语义离散编码 (SDE)，通过在视觉 tokenizer 的量化过程中融入预训练 CLIP 语义特征，使离散视觉 token 与语言 token 天然对齐，在仅用 24M 图文对的情况下实现了统一理解与生成的 SOTA 性能。
 tags:
   - ICCV2025
+  - 多模态
   - 统一视觉语言模型
   - 视觉离散化
   - 语义编码

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Question-guided Visual Compression with Memory Feedback for Long-Term Video Understanding 论文解读 | CVPR2026 | arXiv 2603.15167 | 长视频理解 | 提出 QViC-MF 框架，通过问题引导的多帧视觉压缩（QMSA）和上下文记忆反馈机制，在长视频理解任务上以极少的视觉 token（每帧仅 16 个）实现了 MLVU/LVBench/VNBench 等多个基准上的 SOTA。"
+title: >-
+  [论文解读] Question-guided Visual Compression with Memory Feedback for Long-Term Video Understanding
+description: >-
+  [CVPR2026][视频理解][长视频理解] 提出 QViC-MF 框架，通过问题引导的多帧视觉压缩（QMSA）和上下文记忆反馈机制，在长视频理解任务上以极少的视觉 token（每帧仅 16 个）实现了 MLVU/LVBench/VNBench 等多个基准上的 SOTA。
 tags:
   - CVPR2026
+  - 视频理解
   - 长视频理解
   - 视觉压缩
   - 记忆反馈

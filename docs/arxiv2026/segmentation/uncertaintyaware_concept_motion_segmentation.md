@@ -1,11 +1,14 @@
 ---
-description: "【论文笔记】Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos 论文解读 | arXiv 2026 | arXiv 2603.00881 | uncertainty-aware | 从 X 射线冠状动脉造影 (XCA) 序列中分割主冠状动脉对于冠状动脉疾病的诊断至关重要。"
+title: >-
+  [论文解读] Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos
+description: >-
+  [arXiv 2026][图像分割][uncertainty-aware] 从 X 射线冠状动脉造影 (XCA) 序列中分割主冠状动脉对于冠状动脉疾病的诊断至关重要。
 tags:
   - arXiv 2026
+  - 图像分割
   - uncertainty-aware
   - concept
   - motion
-  - 图像分割
   - 半监督学习
 ---
 

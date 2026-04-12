@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DTR: Dynamic Token Reweighting for Robust Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2505.17132 | VLM jailbreak defense | 提出DTR——首个通过KV cache优化防御多模态越狱攻击的方法：利用反转安全偏移（Reversal Safety-Relevant Shift）识别对抗性视觉token，通过动态重加权衰减其影响，仅4步优化即可在不依赖图生文转换的前提下，大幅降低攻击成功率（HADES S+T+A: 56.9%→15.9%）同时保持VLM性能和推理效率。"
+title: >-
+  [论文解读] DTR: Dynamic Token Reweighting for Robust Vision-Language Models
+description: >-
+  [CVPR 2026][多模态][VLM jailbreak defense] 提出DTR——首个通过KV cache优化防御多模态越狱攻击的方法：利用反转安全偏移（Reversal Safety-Relevant Shift）识别对抗性视觉token，通过动态重加权衰减其影响，仅4步优化即可在不依赖图生文转换的前提下，大幅降低攻击成功率（HADES S+T+A: 56.9%→15.9%）同时保持VLM性能和推理效率。
 tags:
   - CVPR 2026
+  - 多模态
   - VLM jailbreak defense
   - KV cache optimization
   - visual token reweighting

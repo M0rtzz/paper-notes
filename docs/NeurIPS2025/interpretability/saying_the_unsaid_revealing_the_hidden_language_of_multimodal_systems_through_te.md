@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Saying the Unsaid: Revealing the Hidden Language of Multimodal Systems Through Telephone Games 论文解读 | NeurIPS 2025 | arXiv 2511.10690 | 隐含语言 | 通过多轮\"电话游戏\"（图像→文本→图像循环）利用多模态系统的偏好偏差，量化系统隐含空间中概念间的连接强度（即\"隐含语言\"），贡献Telescope数据集（10,000+概念对），建立可在测试时扩展的多模态系统\"世界地图\"。"
+title: >-
+  [论文解读] Saying the Unsaid: Revealing the Hidden Language of Multimodal Systems Through Telephone Games
+description: >-
+  [NeurIPS 2025][隐含语言] 通过多轮"电话游戏"（图像→文本→图像循环）利用多模态系统的偏好偏差，量化系统隐含空间中概念间的连接强度（即"隐含语言"），贡献Telescope数据集（10,000+概念对），建立可在测试时扩展的多模态系统"世界地图"。
 tags:
   - NeurIPS 2025
   - 隐含语言

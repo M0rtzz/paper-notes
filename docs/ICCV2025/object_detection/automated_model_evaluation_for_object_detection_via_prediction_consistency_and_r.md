@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】Automated Model Evaluation for Object Detection via Prediction Consistency and Reliability 论文解读 | ICCV 2025 | arXiv 2508.12082 | Automated Model Evaluation | 本文提出PCR（Prediction Consistency and Reliability），一种无需人工标注即可估计目标检测模型性能的自动化评估方法，通过分析NMS前后边界框的空间一致性和置信度可靠性来估计mAP，并构建了基于图像腐蚀的元数据集以实现更现实和可扩展的评估。"
+title: >-
+  [论文解读] Automated Model Evaluation for Object Detection via Prediction Consistency and Reliability
+description: >-
+  [ICCV 2025][目标检测][Automated Model Evaluation] 本文提出PCR（Prediction Consistency and Reliability），一种无需人工标注即可估计目标检测模型性能的自动化评估方法，通过分析NMS前后边界框的空间一致性和置信度可靠性来估计mAP，并构建了基于图像腐蚀的元数据集以实现更现实和可扩展的评估。
 tags:
   - ICCV 2025
-  - Automated Model Evaluation
   - 目标检测
+  - Automated Model Evaluation
   - NMS
   - Prediction Consistency
   - Reliability

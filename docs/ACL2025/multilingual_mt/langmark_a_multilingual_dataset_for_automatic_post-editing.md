@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LangMark: A Multilingual Dataset for Automatic Post-Editing 论文解读 | ACL 2025 | arXiv 2511.17153 | automatic post-editing | 发布 LangMark——一个包含 206,983 个三元组、覆盖英语到七种语言的大规模多语言自动后编辑（APE）数据集，并证明 LLM 配合 few-shot prompting 能有效改善专有 NMT 引擎的输出质量。"
+title: >-
+  [论文解读] LangMark: A Multilingual Dataset for Automatic Post-Editing
+description: >-
+  [ACL 2025][automatic post-editing] 发布 LangMark——一个包含 206,983 个三元组、覆盖英语到七种语言的大规模多语言自动后编辑（APE）数据集，并证明 LLM 配合 few-shot prompting 能有效改善专有 NMT 引擎的输出质量。
 tags:
   - ACL 2025
   - automatic post-editing

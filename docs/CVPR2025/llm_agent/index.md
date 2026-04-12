@@ -1,3 +1,10 @@
+---
+title: >-
+  CVPR2025 LLM Agent方向 10篇论文解读
+description: >-
+  10篇CVPR2025 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 

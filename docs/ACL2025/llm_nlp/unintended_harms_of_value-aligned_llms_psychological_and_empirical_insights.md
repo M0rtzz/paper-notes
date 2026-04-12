@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights 论文解读 | ACL 2025 | arXiv 2506.06404 | 本文首次系统揭示了基于Schwartz价值观对齐的LLM存在非预期安全风险——特定价值维度与特定安全风险类别显著相关，并从心理学视角解释了这些关联的根源，进而提出通过提示抑制相关价值来降低有害行为的缓解策略。"
+title: >-
+  [论文解读] Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights
+description: >-
+  [ACL 2025][LLM/NLP] 本文首次系统揭示了基于Schwartz价值观对齐的LLM存在非预期安全风险——特定价值维度与特定安全风险类别显著相关，并从心理学视角解释了这些关联的根源，进而提出通过提示抑制相关价值来降低有害行为的缓解策略。
 tags:
   - ACL 2025
+  - LLM/NLP
 ---
 
 # Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights

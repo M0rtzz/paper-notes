@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rotary Masked Autoencoders are Versatile Learners 论文解读 | NeurIPS 2025 | arXiv 2505.20535 | Masked Autoencoder | 提出 RoMAE，将旋转位置编码（RoPE）扩展到连续位置并与掩码自编码器（MAE）结合，无需任何时间序列特定的架构修改即可在不规则时间序列、图像和音频等多种模态上达到或超越专用模型的性能。"
+title: >-
+  [论文解读] Rotary Masked Autoencoders are Versatile Learners
+description: >-
+  [NeurIPS 2025][时间序列][Masked Autoencoder] 提出 RoMAE，将旋转位置编码（RoPE）扩展到连续位置并与掩码自编码器（MAE）结合，无需任何时间序列特定的架构修改即可在不规则时间序列、图像和音频等多种模态上达到或超越专用模型的性能。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - Masked Autoencoder
   - RoPE
   - 不规则时间序列

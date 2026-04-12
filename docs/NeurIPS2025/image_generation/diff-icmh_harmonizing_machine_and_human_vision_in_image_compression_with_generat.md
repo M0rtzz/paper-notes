@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Diff-ICMH: Harmonizing Machine and Human Vision in Image Compression with Generative Prior 论文解读 | 提出 Diff-ICMH，一种基于扩散模型的生成式图像压缩框架，通过语义一致性损失（SC loss）保持语义完整性，通过标签引导模块（TGM）激活生成先验，以单一编解码器和码流同时服务 10+ 种智能任务和人类视觉感知，无需任何任务特定适配。"
+title: >-
+  [论文解读] Diff-ICMH: Harmonizing Machine and Human Vision in Image Compression with Generative Prior
+description: >-
+  [图像生成] 提出 Diff-ICMH，一种基于扩散模型的生成式图像压缩框架，通过语义一致性损失（SC loss）保持语义完整性，通过标签引导模块（TGM）激活生成先验，以单一编解码器和码流同时服务 10+ 种智能任务和人类视觉感知，无需任何任务特定适配。
 tags:
-
+  - 图像生成
 ---
 
 # Diff-ICMH: Harmonizing Machine and Human Vision in Image Compression with Generative Prior

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GGTalker: Talking Head Synthesis with Generalizable Gaussian Priors and Identity-Specific Adaptation 论文解读 | ICCV 2025 | arXiv 2506.21513 | 说话人头合成 | GGTalker 提出先验-适配两阶段训练策略，从大规模数据集学习通用的音频-表情先验和表情-视觉先验，再快速适配到特定身份，在渲染质量、3D 一致性、唇同步和训练效率上全面达到 SOTA，仅需 20 分钟适配即可生成 120 FPS 的逼真说话头视频。"
+title: >-
+  [论文解读] GGTalker: Talking Head Synthesis with Generalizable Gaussian Priors and Identity-Specific Adaptation
+description: >-
+  [ICCV 2025][人体理解][说话人头合成] GGTalker 提出先验-适配两阶段训练策略，从大规模数据集学习通用的音频-表情先验和表情-视觉先验，再快速适配到特定身份，在渲染质量、3D 一致性、唇同步和训练效率上全面达到 SOTA，仅需 20 分钟适配即可生成 120 FPS 的逼真说话头视频。
 tags:
   - ICCV 2025
+  - 人体理解
   - 说话人头合成
   - 3D高斯溅射
   - 先验-适配

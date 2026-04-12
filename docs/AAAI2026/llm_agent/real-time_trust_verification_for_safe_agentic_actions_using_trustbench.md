@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Real-Time Trust Verification for Safe Agentic Actions Using TrustBench 论文解读 | AAAI 2026 | arXiv 2603.09157 | 信任验证 | 提出实时信任验证框架及 TrustBench 基准，用于评估和保障 AI Agent 在执行操作时的安全性与可信度。"
+title: >-
+  [论文解读] Real-Time Trust Verification for Safe Agentic Actions Using TrustBench
+description: >-
+  [AAAI 2026][LLM Agent][信任验证] 提出实时信任验证框架及 TrustBench 基准，用于评估和保障 AI Agent 在执行操作时的安全性与可信度。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 信任验证
   - Agent安全
   - TrustBench

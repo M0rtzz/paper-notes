@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GRACE: A Granular Benchmark for Evaluating Model Calibration Against Human Calibration 论文解读 | ACL 2025 | arXiv 2502.19684 | 模型校准 | 提出GRACE基准，通过渐进式增量问答和真人vs模型竞赛收集1749个数据点，以人类校准表现为参照评估LLM校准能力，并引入CalScore指标发现：虽然人类准确率可能低于模型，但人类在校准方面普遍优于SOTA模型——模型在不确定时过度自信、在正确时又信心不足。"
+title: >-
+  [论文解读] GRACE: A Granular Benchmark for Evaluating Model Calibration Against Human Calibration
+description: >-
+  [ACL 2025][模型校准] 提出GRACE基准，通过渐进式增量问答和真人vs模型竞赛收集1749个数据点，以人类校准表现为参照评估LLM校准能力，并引入CalScore指标发现：虽然人类准确率可能低于模型，但人类在校准方面普遍优于SOTA模型——模型在不确定时过度自信、在正确时又信心不足。
 tags:
   - ACL 2025
   - 模型校准

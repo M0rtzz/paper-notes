@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] A Distractor-Aware Memory for Visual Object Tracking with SAM2
+description: >-
+  [CVPR 2025][图像分割][SAM2] 提出SAM2.1++的干扰物感知记忆模型（DAM），将SAM2的记忆拆分为近期外观记忆（RAM，确保分割精度）和干扰物解析记忆（DRM，确保跟踪鲁棒性），通过内省式更新策略检测干扰物并自动存储锚帧，在7个基准上设立新SOTA。
+tags:
+  - CVPR 2025
+  - 图像分割
+  - SAM2
+  - 干扰物感知记忆
+  - 视觉目标跟踪
+  - 记忆管理
+  - 鲁棒性
+---
+
 # A Distractor-Aware Memory for Visual Object Tracking with SAM2
 
 **会议**: CVPR 2025  

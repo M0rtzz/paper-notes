@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Single Pixel Image Classification using an Ultrafast Digital Light Projector 论文解读 | CVPR 2026 | arXiv 2603.12036 | 单像素成像 | 利用 microLED-on-CMOS 数字光投影器实现超快单像素成像（SPI），结合低复杂度机器学习模型（ELM 和 DNN），在完全跳过图像重建的情况下以 1.2 kHz 帧率实现了 MNIST 手写数字 >90% 的分类准确率。"
+title: >-
+  [论文解读] Single Pixel Image Classification using an Ultrafast Digital Light Projector
+description: >-
+  [CVPR 2026][自动驾驶][单像素成像] 利用 microLED-on-CMOS 数字光投影器实现超快单像素成像（SPI），结合低复杂度机器学习模型（ELM 和 DNN），在完全跳过图像重建的情况下以 1.2 kHz 帧率实现了 MNIST 手写数字 >90% 的分类准确率。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 单像素成像
   - 图像分类
   - microLED

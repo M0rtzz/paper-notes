@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning 论文解读 | ICML 2025 | arXiv 2505.02363 | DPO | SIMPLEMIX 发现 on-policy 数据擅长推理任务而 off-policy 数据擅长开放式任务，通过简单地混合两类数据源即可在 Alpaca Eval 2.0 上平均提升 6.03%，超越 HyPO 等复杂方法 3.05%。"
+title: >-
+  [论文解读] SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning
+description: >-
+  [ICML 2025][DPO] SIMPLEMIX 发现 on-policy 数据擅长推理任务而 off-policy 数据擅长开放式任务，通过简单地混合两类数据源即可在 Alpaca Eval 2.0 上平均提升 6.03%，超越 HyPO 等复杂方法 3.05%。
 tags:
   - ICML 2025
   - DPO

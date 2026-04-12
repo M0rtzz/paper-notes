@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Visual-RFT: Visual Reinforcement Fine-Tuning 论文解读 | ICCV 2025 | arXiv 2503.01785 | 强化微调 | Visual-RFT将DeepSeek R1的强化学习+可验证奖励(RLVR)范式从数学/代码领域扩展到视觉感知任务，设计了IoU奖励（目标检测）和CLS奖励（分类）等任务特异的可验证奖励函数，在细粒度分类、少样本检测、推理定位等任务上以极少数据大幅超越SFT。"
+title: >-
+  [论文解读] Visual-RFT: Visual Reinforcement Fine-Tuning
+description: >-
+  [ICCV 2025][目标检测][强化微调] Visual-RFT将DeepSeek R1的强化学习+可验证奖励(RLVR)范式从数学/代码领域扩展到视觉感知任务，设计了IoU奖励（目标检测）和CLS奖励（分类）等任务特异的可验证奖励函数，在细粒度分类、少样本检测、推理定位等任务上以极少数据大幅超越SFT。
 tags:
   - ICCV 2025
+  - 目标检测
   - 强化微调
   - GRPO
   - 可验证奖励

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents 论文解读 | ACL 2025 | arXiv 2506.21605 | agent memory | 提出 MemBench，从多场景（参与/观察）、多层级（事实记忆/反思记忆）和多指标（准确率/召回率/容量/效率）三个维度全面评估 LLM Agent 的记忆能力，弥补了现有评估在记忆层级和交互场景上的不足。"
+title: >-
+  [论文解读] MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents
+description: >-
+  [ACL 2025][LLM/NLP][agent memory] 提出 MemBench，从多场景（参与/观察）、多层级（事实记忆/反思记忆）和多指标（准确率/召回率/容量/效率）三个维度全面评估 LLM Agent 的记忆能力，弥补了现有评估在记忆层级和交互场景上的不足。
 tags:
   - ACL 2025
+  - LLM/NLP
   - agent memory
   - benchmark
   - factual memory

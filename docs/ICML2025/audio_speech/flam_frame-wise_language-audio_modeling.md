@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FLAM: Frame-Wise Language-Audio Modeling 论文解读 | ICML2025 | arXiv 2505.05335 | 开放词汇声音事件检测 | 提出 FLAM，一个帧级音频-语言对比模型，通过文本依赖的 logit 偏置校正和百万级合成 SED 数据集，实现开放词汇声音事件的精确时间定位，同时保持全局检索和零样本分类性能。"
+title: >-
+  [论文解读] FLAM: Frame-Wise Language-Audio Modeling
+description: >-
+  [ICML2025][语音][开放词汇声音事件检测] 提出 FLAM，一个帧级音频-语言对比模型，通过文本依赖的 logit 偏置校正和百万级合成 SED 数据集，实现开放词汇声音事件的精确时间定位，同时保持全局检索和零样本分类性能。
 tags:
   - ICML2025
+  - 语音
   - 开放词汇声音事件检测
   - 帧级对比学习
   - logit调整

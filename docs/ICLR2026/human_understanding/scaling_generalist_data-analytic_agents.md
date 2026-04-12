@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scaling Generalist Data-Analytic Agents 论文解读 | ICLR 2026 | arXiv 2509.25084 | 数据分析 | 提出DataMind——可扩展的数据分析Agent训练pipeline：(1)细粒度18类任务分类法+递归由简到难任务组合→多样高质量合成query,(2)知识增强轨迹采样+自一致性过滤,(3)SFT+RL动态混合训练目标,(4)内存友好的稳定多轮代码rollout框架→DataMind-14B在多个基准上SOTA(71.16%,超越DeepSeek-V3.1和GPT-5)。"
+title: >-
+  [论文解读] Scaling Generalist Data-Analytic Agents
+description: >-
+  [ICLR 2026][人体理解][数据分析] 提出DataMind——可扩展的数据分析Agent训练pipeline：(1)细粒度18类任务分类法+递归由简到难任务组合→多样高质量合成query,(2)知识增强轨迹采样+自一致性过滤,(3)SFT+RL动态混合训练目标,(4)内存友好的稳定多轮代码rollout框架→DataMind-14B在多个基准上SOTA(71.16%,超越DeepSeek-V3.1和GPT-5)。
 tags:
   - ICLR 2026
+  - 人体理解
   - 数据分析
   - Agent训练
   - 多轮代码执行

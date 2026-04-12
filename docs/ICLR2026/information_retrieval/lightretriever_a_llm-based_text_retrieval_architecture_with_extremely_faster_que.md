@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LightRetriever: A LLM-based Text Retrieval Architecture with Extremely Faster Query Inference 论文解读 | ICLR 2026 | arXiv 2505.12260 | LLM检索 | 提出 LightRetriever，一种极端不对称的LLM检索架构：文档端保留完整LLM编码器，查询端完全去除深度建模——稠密检索仅需嵌入查表+平均，稀疏检索仅需token计数——实现查询编码1000倍加速、端到端10倍吞吐提升，同时保持95%的检索性能。"
+title: >-
+  [论文解读] LightRetriever: A LLM-based Text Retrieval Architecture with Extremely Faster Query Inference
+description: >-
+  [ICLR 2026][LLM检索] 提出 LightRetriever，一种极端不对称的LLM检索架构：文档端保留完整LLM编码器，查询端完全去除深度建模——稠密检索仅需嵌入查表+平均，稀疏检索仅需token计数——实现查询编码1000倍加速、端到端10倍吞吐提升，同时保持95%的检索性能。
 tags:
   - ICLR 2026
   - LLM检索

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SIMU: Selective Influence Machine Unlearning 论文解读 | NeurIPS 2025 | arXiv 2510.07822 | 机器遗忘 | 提出 SIMU 两阶段框架：先通过梯度聚合识别编码遗忘集信息的关键 MLP 神经元，再仅对这些神经元进行二阶（Sophia）优化遗忘，在保持遗忘效果的同时大幅提升模型原有能力的保留。"
+title: >-
+  [论文解读] SIMU: Selective Influence Machine Unlearning
+description: >-
+  [NeurIPS 2025][机器遗忘] 提出 SIMU 两阶段框架：先通过梯度聚合识别编码遗忘集信息的关键 MLP 神经元，再仅对这些神经元进行二阶（Sophia）优化遗忘，在保持遗忘效果的同时大幅提升模型原有能力的保留。
 tags:
   - NeurIPS 2025
   - 机器遗忘

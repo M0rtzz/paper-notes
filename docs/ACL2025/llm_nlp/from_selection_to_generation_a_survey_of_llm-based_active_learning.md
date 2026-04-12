@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Selection to Generation: A Survey of LLM-based Active Learning 论文解读 | ACL2025 | arXiv 2502.11767 | active learning | 首篇系统梳理 LLM 时代主动学习的综述，提出以 Querying（从传统选择到 LLM 生成）和 Annotation（从人工标注到 LLM 标注）为双轴的统一分类体系，覆盖查询策略、标注方案、停止准则、AL 范式和应用领域。"
+title: >-
+  [论文解读] From Selection to Generation: A Survey of LLM-based Active Learning
+description: >-
+  [ACL2025][LLM/NLP][active learning] 首篇系统梳理 LLM 时代主动学习的综述，提出以 Querying（从传统选择到 LLM 生成）和 Annotation（从人工标注到 LLM 标注）为双轴的统一分类体系，覆盖查询策略、标注方案、停止准则、AL 范式和应用领域。
 tags:
   - ACL2025
+  - LLM/NLP
   - active learning
   - LLM
   - data selection

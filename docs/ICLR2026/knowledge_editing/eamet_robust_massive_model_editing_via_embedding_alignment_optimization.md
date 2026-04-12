@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】EAMET: Robust Massive Model Editing via Embedding Alignment Optimization 论文解读 | ICLR 2026 | arXiv 2505.11876 | model editing | 发现大规模模型编辑失败的根本原因是 key embedding 和 residual embedding 之间的结构不一致（embedding misalignment），提出 EAMET 通过 KL+MSE 双损失渐进式对齐优化，在 6 个 LLM 上平均提升编辑成功率 14%（CounterFact）。"
+title: >-
+  [论文解读] EAMET: Robust Massive Model Editing via Embedding Alignment Optimization
+description: >-
+  [ICLR 2026][model editing] 发现大规模模型编辑失败的根本原因是 key embedding 和 residual embedding 之间的结构不一致（embedding misalignment），提出 EAMET 通过 KL+MSE 双损失渐进式对齐优化，在 6 个 LLM 上平均提升编辑成功率 14%（CounterFact）。
 tags:
   - ICLR 2026
   - model editing

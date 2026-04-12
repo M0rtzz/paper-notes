@@ -1,13 +1,16 @@
 ---
-description: "【论文笔记】RegionReasoner: Region-Grounded Multi-Round Visual Reasoning 论文解读 | ICLR 2026 | arXiv 2602.03733 | multi-round reasoning | 提出 RegionReasoner，一个基于强化学习的多轮视觉推理框架，通过引用标注奖励和全局-局部一致性奖励，使推理轨迹必须显式引用参考区域坐标并保持语义连贯，在新构建的 RegionDial-Bench 上显著提升多轮定位和分割精度。"
+title: >-
+  [论文解读] RegionReasoner: Region-Grounded Multi-Round Visual Reasoning
+description: >-
+  [ICLR 2026][图像分割][multi-round reasoning] 提出 RegionReasoner，一个基于强化学习的多轮视觉推理框架，通过引用标注奖励和全局-局部一致性奖励，使推理轨迹必须显式引用参考区域坐标并保持语义连贯，在新构建的 RegionDial-Bench 上显著提升多轮定位和分割精度。
 tags:
   - ICLR 2026
+  - 图像分割
   - multi-round reasoning
   - region grounding
   - 强化学习
   - GRPO
   - VLM
-  - 图像分割
 ---
 
 # RegionReasoner: Region-Grounded Multi-Round Visual Reasoning

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale 论文解读 | 论文在 Transformer、Mamba、RWKV，不同数据集与参数规模（14M 到 12B）上系统分析 1400+ checkpoints，发现语言模型预训练中存在高度一致的行为阶段；词级行为变化最多可由 unigram 频率、n-gram 概率、语义相似度三类简单启发式解释（最高约 98% 方差）。"
+title: >-
+  [论文解读] Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale
+description: >-
+   论文在 Transformer、Mamba、RWKV，不同数据集与参数规模（14M 到 12B）上系统分析 1400+ checkpoints，发现语言模型预训练中存在高度一致的行为阶段；词级行为变化最多可由 unigram 频率、n-gram 概率、语义相似度三类简单启发式解释（最高约 98% 方差）。
 tags:
 
 ---

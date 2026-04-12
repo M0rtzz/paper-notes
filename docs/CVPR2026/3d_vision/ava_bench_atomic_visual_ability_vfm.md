@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models 论文解读 | CVPR 2026 | arXiv 2506.09082 | VFM评估 | 提出 AVA-Bench，将视觉基础模型(VFM)的评估分解为14种\"原子视觉能力\"(AVA)，通过训练/测试分布对齐和单能力隔离测试，精确定位 VFM 的优势和短板，发现0.5B的LLM就能保持与7B相同的VFM排名，评估成本降低8倍。"
+title: >-
+  [论文解读] AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models
+description: >-
+  [CVPR 2026][3D视觉][VFM评估] 提出 AVA-Bench，将视觉基础模型(VFM)的评估分解为14种"原子视觉能力"(AVA)，通过训练/测试分布对齐和单能力隔离测试，精确定位 VFM 的优势和短板，发现0.5B的LLM就能保持与7B相同的VFM排名，评估成本降低8倍。
 tags:
   - CVPR 2026
+  - 3D视觉
   - VFM评估
   - 原子视觉能力
   - benchmark

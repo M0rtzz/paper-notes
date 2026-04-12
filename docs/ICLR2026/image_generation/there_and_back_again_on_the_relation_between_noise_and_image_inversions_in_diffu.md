@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】There and Back Again: On the Relation between Noise and Image Inversions in Diffusion Models 论文解读 | ICLR 2026 | arXiv 2410.23530 | DDIM反转 | 深入分析 DDIM 反转的误差机制，发现潜在编码在平滑图像区域（如天空）呈现低多样性和高相关性，并追溯到反转初始步骤的噪声预测不准确，提出用正向扩散替代前几步反转的简单修复方案。"
+title: >-
+  [论文解读] There and Back Again: On the Relation between Noise and Image Inversions in Diffusion Models
+description: >-
+  [ICLR 2026][图像生成][DDIM反转] 深入分析 DDIM 反转的误差机制，发现潜在编码在平滑图像区域（如天空）呈现低多样性和高相关性，并追溯到反转初始步骤的噪声预测不准确，提出用正向扩散替代前几步反转的简单修复方案。
 tags:
   - ICLR 2026
+  - 图像生成
   - DDIM反转
   - 潜在编码
   - 噪声相关性

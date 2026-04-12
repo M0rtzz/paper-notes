@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL 论文解读 | ACL 2025 | arXiv 2506.00391 | 提出 SHARE 框架，通过三个专用小语言模型（SLM）组成的顺序管道，将 SQL 查询转换为逐步动作轨迹并分别修正 schema 错误和逻辑错误，从而以低成本高效辅助 LLM 进行 Text-to-SQL 自纠正。"
+title: >-
+  [论文解读] SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL
+description: >-
+  [ACL 2025] 提出 SHARE 框架，通过三个专用小语言模型（SLM）组成的顺序管道，将 SQL 查询转换为逐步动作轨迹并分别修正 schema 错误和逻辑错误，从而以低成本高效辅助 LLM 进行 Text-to-SQL 自纠正。
 tags:
   - ACL 2025
 ---

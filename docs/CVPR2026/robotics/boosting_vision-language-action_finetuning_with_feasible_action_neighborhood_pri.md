@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Boosting Vision-Language-Action Finetuning with Feasible Action Neighborhood Prior 论文解读 | CVPR 2026 | arXiv 2604.01570 | VLA微调 | 提出可行动作邻域（FAN）正则化器，将 VLA 模型的输出分布塑造为与物理动作容差匹配的高斯形状，在 SFT 和 RFT 两种微调范式下均显著提升成功率、泛化性和样本效率（RFT 仅需 1/3 训练步数达到 90% 成功率）。"
+title: >-
+  [论文解读] Boosting Vision-Language-Action Finetuning with Feasible Action Neighborhood Prior
+description: >-
+  [CVPR 2026][机器人][VLA微调] 提出可行动作邻域（FAN）正则化器，将 VLA 模型的输出分布塑造为与物理动作容差匹配的高斯形状，在 SFT 和 RFT 两种微调范式下均显著提升成功率、泛化性和样本效率（RFT 仅需 1/3 训练步数达到 90% 成功率）。
 tags:
   - CVPR 2026
+  - 机器人
   - VLA微调
   - 可行动作邻域
   - 高斯正则化

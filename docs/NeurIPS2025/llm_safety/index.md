@@ -1,5 +1,12 @@
+---
+title: >-
+  NeurIPS2025 LLM安全方向 9篇论文解读
+description: >-
+  9篇NeurIPS2025 LLM安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🔒 LLM 安全
+# 🔒 LLM安全
 
 **🧠 NeurIPS2025** · 共 **9** 篇
 
@@ -11,7 +18,7 @@
 
 :   将机器遗忘的评估问题建模为密码学博弈（unlearning sample inference game），通过定义adversary的"advantage"来衡量遗忘质量，克服了传统MIA准确率作为评估指标的多种缺陷（不以retrain为零基准、对数据划分敏感、对MIA选择敏感），并提出SWAP test作为高效的实用近似方案。
 
-**[Buffer Layers for Test-Time Adaptation](buffer_layers_for_test-time_adaptation.md)**
+**[Buffer Layers For Test-Time Adaptation](buffer_layers_for_test-time_adaptation.md)**
 
 :   提出 Buffer 层作为测试时自适应 (TTA) 的新范式，替代传统的归一化层更新，从根本上保留预训练骨干网络的完整性，有效缓解灾难性遗忘并在多种架构和 TTA 框架中实现一致的性能提升。
 

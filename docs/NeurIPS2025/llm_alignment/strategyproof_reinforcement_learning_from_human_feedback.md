@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Strategyproof Reinforcement Learning from Human Feedback 论文解读 | NeurIPS 2025 | arXiv 2503.09561 | RLHF | 首次从机制设计角度研究 RLHF 中多标注者策略性操纵问题，证明了策略防操纵（strategyproofness）与政策对齐之间存在根本性权衡，并提出 Pessimistic Median of MLEs 算法实现近似策略防操纵。"
+title: >-
+  [论文解读] Strategyproof Reinforcement Learning from Human Feedback
+description: >-
+  [NeurIPS 2025][LLM对齐][RLHF] 首次从机制设计角度研究 RLHF 中多标注者策略性操纵问题，证明了策略防操纵（strategyproofness）与政策对齐之间存在根本性权衡，并提出 Pessimistic Median of MLEs 算法实现近似策略防操纵。
 tags:
   - NeurIPS 2025
+  - LLM对齐
   - RLHF
   - 策略防操纵
   - 多元偏好

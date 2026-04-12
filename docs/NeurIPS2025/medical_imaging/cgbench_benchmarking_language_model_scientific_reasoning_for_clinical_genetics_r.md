@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research 论文解读 | NeurIPS 2025 | arXiv 2510.11985 | 临床遗传学 | 提出 CGBench，一个基于 ClinGen 专家标注的临床遗传学 benchmark，从变异和基因策展角度评估 LLM 的科学文献推理能力，涵盖证据评分、证据验证和实验证据提取三个任务，发现推理模型在细粒度任务上表现最佳但在高层判断上不如非推理模型。"
+title: >-
+  [论文解读] CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research
+description: >-
+  [NeurIPS 2025][医学图像][临床遗传学] 提出 CGBench，一个基于 ClinGen 专家标注的临床遗传学 benchmark，从变异和基因策展角度评估 LLM 的科学文献推理能力，涵盖证据评分、证据验证和实验证据提取三个任务，发现推理模型在细粒度任务上表现最佳但在高层判断上不如非推理模型。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 临床遗传学
   - 语言模型
   - 科学推理

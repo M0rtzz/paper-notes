@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language 论文解读 | ICLR 2026 | arXiv 2510.06378 | mechanistic interpretability | 提出 semantic regexes——一种用于自动描述 LLM 特征的结构化语言，通过 symbol/lexeme/field 三种原语及 context/composition/quantification 修饰符，在保持与自然语言同等准确度的同时，实现了更简洁、更一致的特征描述，并可量化特征复杂度随层的变化趋势。"
+title: >-
+  [论文解读] Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language
+description: >-
+  [ICLR 2026][mechanistic interpretability] 提出 semantic regexes——一种用于自动描述 LLM 特征的结构化语言，通过 symbol/lexeme/field 三种原语及 context/composition/quantification 修饰符，在保持与自然语言同等准确度的同时，实现了更简洁、更一致的特征描述，并可量化特征复杂度随层的变化趋势。
 tags:
   - ICLR 2026
   - mechanistic interpretability

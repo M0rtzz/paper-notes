@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hessian Geometry of Latent Space in Generative Models 论文解读 | ICML2025 | arXiv 2506.10632 | Fisher信息度量 | 提出通过重建 Fisher 信息度量来分析生成模型潜空间几何的方法，发现扩散模型潜空间中存在分形结构的相变边界，在相边界处 Lipschitz 常数发散。"
+title: >-
+  [论文解读] Hessian Geometry of Latent Space in Generative Models
+description: >-
+  [ICML2025][图像生成][Fisher信息度量] 提出通过重建 Fisher 信息度量来分析生成模型潜空间几何的方法，发现扩散模型潜空间中存在分形结构的相变边界，在相边界处 Lipschitz 常数发散。
 tags:
   - ICML2025
+  - 图像生成
   - Fisher信息度量
   - Hessian几何
   - 潜空间分析

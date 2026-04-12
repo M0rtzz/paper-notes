@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ForensicZip: More Tokens are Better but Not Necessary in Forensic Vision-Language Models 论文解读 | CVPR 2025 | arXiv 2603.12208 | 视觉取证 | 发现语义驱动的视觉 token 剪枝会丢弃 forensic 证据（篡改痕迹在低显著性区域），提出 ForensicZip 用 Birth-Death 最优传输量化帧间物理不连续性 + 高频先验保留取证信号，在 10% token 保留率下实现 2.97x 加速、90%+ FLOPs 降低且性能不降。"
+title: >-
+  [论文解读] ForensicZip: More Tokens are Better but Not Necessary in Forensic Vision-Language Models
+description: >-
+  [CVPR 2025][多模态][视觉取证] 发现语义驱动的视觉 token 剪枝会丢弃 forensic 证据（篡改痕迹在低显著性区域），提出 ForensicZip 用 Birth-Death 最优传输量化帧间物理不连续性 + 高频先验保留取证信号，在 10% token 保留率下实现 2.97x 加速、90%+ FLOPs 降低且性能不降。
 tags:
   - CVPR 2025
+  - 多模态
   - 视觉取证
   - Token压缩
   - 最优传输

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CryoNet.Refine: A One-step Diffusion Model for Rapid Refinement of Structural Models with Cryo-EM Density Map Restraints 论文解读 | ICLR 2026 | arXiv 2602.22263 | cryo-EM | 提出CryoNet.Refine——首个基于AI的冷冻电镜(cryo-EM)原子模型精修框架：设计单步扩散模型(初始化自Boltz-2权重)→创新可微分密度生成器(物理模拟合成密度图)→首次将密度图相关性作为可微损失函数(余弦相似度)→联合Ramachandran/Rotamer/键角等几何约束损失→测试时优化策略逐案定制→在120个蛋白质/DNA-RNA复合物上全面超越Phenix.real_space_refine(CC_mask 0.59 vs 0.54, Ramachandran favored 98.92%)。"
+title: >-
+  [论文解读] CryoNet.Refine: A One-step Diffusion Model for Rapid Refinement of Structural Models with Cryo-EM Density Map Restraints
+description: >-
+  [ICLR 2026][医学图像][cryo-EM] 提出CryoNet.Refine——首个基于AI的冷冻电镜(cryo-EM)原子模型精修框架：设计单步扩散模型(初始化自Boltz-2权重)→创新可微分密度生成器(物理模拟合成密度图)→首次将密度图相关性作为可微损失函数(余弦相似度)→联合Ramachandran/Rotamer/键角等几何约束损失→测试时优化策略逐案定制→在120个蛋白质/DNA-RNA复合物上全面超越Phenix.real_space_refine(CC_mask 0.59 vs 0.54, Ramachandran favored 98.92%)。
 tags:
   - ICLR 2026
+  - 医学图像
   - cryo-EM
   - 原子模型精修
   - 单步扩散

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SUICA: Learning Super-high Dimensional Sparse Implicit Neural Representations for Spatial Transcriptomics 论文解读 | 提出SUICA框架，通过图增强自编码器将超高维零膨胀基因表达映射到紧凑嵌入空间，再用INR进行连续空间建模，实现跨平台ST数据的空间插值、基因插补和去噪。"
+title: >-
+  [论文解读] SUICA: Learning Super-high Dimensional Sparse Implicit Neural Representations for Spatial Transcriptomics
+description: >-
+   提出SUICA框架，通过图增强自编码器将超高维零膨胀基因表达映射到紧凑嵌入空间，再用INR进行连续空间建模，实现跨平台ST数据的空间插值、基因插补和去噪。
 tags:
 
 ---

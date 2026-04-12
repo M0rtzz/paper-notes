@@ -1,7 +1,14 @@
-<!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🛡️ AI 安全
+---
+title: >-
+  NeurIPS2025 AI安全方向 105篇论文解读
+description: >-
+  105篇NeurIPS2025 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
 
-**🧠 NeurIPS2025** · 共 **106** 篇
+<!-- 由 src/gen_blog_index.py 自动生成 -->
+# 🛡️ AI安全
+
+**🧠 NeurIPS2025** · 共 **105** 篇
 
 **[A Set Of Generalized Components To Achieve Effective Poison-Only Clean-Label Bac](a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac.md)**
 
@@ -15,7 +22,7 @@
 
 :   提出 Adversarial Paraphrasing——一种无需训练的通用攻击框架，在逐 token 改写时利用 AI 文本检测器的反馈信号选择"最像人写"的 token，使改写后的 AI 文本在 8 种检测器上平均 T@1%F 下降 87.88%，且具有跨检测器的强迁移性。
 
-**[AgentStealth: Reinforcing Large Language Model for Anonymizing User-generated Text](agentstealth_reinforcing_large_language_model_for_anonymizing_user-generated_tex.md)**
+**[Agentstealth Reinforcing Large Language Model For Anonymizing User-Generated Tex](agentstealth_reinforcing_large_language_model_for_anonymizing_user-generated_tex.md)**
 
 :   提出 AgentStealth 框架，通过对抗式匿名化工作流、监督微调（SFT）和在线强化学习三阶段训练小型语言模型（SLM），实现在保持文本效用的同时有效匿名化用户生成内容，匿名化效果提升12.3%、效用提升6.8%。
 
@@ -202,10 +209,6 @@
 **[Healthslm-Bench Benchmarking Small Language Models For Mobile And Wearable Healt](healthslm-bench_benchmarking_small_language_models_for_mobile_and_wearable_healt.md)**
 
 :   首个系统评估小语言模型 (SLMs, 1-4B参数) 在移动与可穿戴健康监测任务上表现的基准，覆盖zero-shot/few-shot/指令微调三种范式，并在iPhone上验证了端侧部署的可行性。
-
-**[Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference.md)**
-
-:   本文理论推导并实验验证了深度迁移学习中成员推理攻击（MIA）脆弱性与每类样本数之间的幂律关系 $\log(\text{tpr}-\text{fpr}) = -\beta_S \log(S) - \beta_0$，发现增加数据量可降低平均和最坏情况脆弱性，但保护最脆弱样本需要极大量数据。
 
 **[Impact Of Dataset Properties On Membership Inference Vulnerability Of Deep Trans](impact_of_dataset_properties_on_membership_inference_vulnerability_of_deep_trans.md)**
 

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Why Masking Diffusion Works: Condition on the Jump Schedule for Improved Discrete Diffusion 论文解读 | NeurIPS 2025 | arXiv 2506.08316 | 离散扩散模型 | 揭示了掩码扩散模型优越性的根本原因——它内建了已知的跳转时间分布，由此提出Schedule-Conditioned Diffusion (SCUD)框架，将此优势推广到任何离散扩散模型，结合结构化前向过程在图像和蛋白质数据上超越掩码扩散。"
+title: >-
+  [论文解读] Why Masking Diffusion Works: Condition on the Jump Schedule for Improved Discrete Diffusion
+description: >-
+  [NeurIPS 2025][医学图像][离散扩散模型] 揭示了掩码扩散模型优越性的根本原因——它内建了已知的跳转时间分布，由此提出Schedule-Conditioned Diffusion (SCUD)框架，将此优势推广到任何离散扩散模型，结合结构化前向过程在图像和蛋白质数据上超越掩码扩散。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 离散扩散模型
   - 掩码扩散
   - 跳转调度

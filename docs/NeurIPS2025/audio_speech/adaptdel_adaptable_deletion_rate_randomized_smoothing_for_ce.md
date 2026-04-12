@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AdaptDel: Adaptable Deletion Rate Randomized Smoothing for Certified Robustness 论文解读 | NeurIPS 2025 | arXiv 2511.09316 | certified robustness | 提出AdaptDel方法，将随机平滑(randomized smoothing)中的固定删除率扩展为**自适应删除率**，根据输入长度等属性动态调整删除概率，在编辑距离攻击下实现认证鲁棒性的巨大提升（认证区域基数提升最高30个数量级）。"
+title: >-
+  [论文解读] AdaptDel: Adaptable Deletion Rate Randomized Smoothing for Certified Robustness
+description: >-
+  [NeurIPS 2025][语音][certified robustness] 提出AdaptDel方法，将随机平滑(randomized smoothing)中的固定删除率扩展为**自适应删除率**，根据输入长度等属性动态调整删除概率，在编辑距离攻击下实现认证鲁棒性的巨大提升（认证区域基数提升最高30个数量级）。
 tags:
   - NeurIPS 2025
+  - 语音
   - certified robustness
   - randomized smoothing
   - edit distance

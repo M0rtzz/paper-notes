@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】TabStruct: Measuring Structural Fidelity of Tabular Data 论文解读 | ICLR 2026 | arXiv 2509.11950 | 表格数据生成 | 提出 TabStruct 评估框架和 global utility 指标，在不需要真实因果图的情况下衡量表格数据生成器对因果结构的保真度，在 29 个数据集上系统比较 13 种生成器，发现扩散模型在全局结构保持上显著优于其他方法。"
+title: >-
+  [论文解读] TabStruct: Measuring Structural Fidelity of Tabular Data
+description: >-
+  [ICLR 2026][表格数据生成] 提出 TabStruct 评估框架和 global utility 指标，在不需要真实因果图的情况下衡量表格数据生成器对因果结构的保真度，在 29 个数据集上系统比较 13 种生成器，发现扩散模型在全局结构保持上显著优于其他方法。
 tags:
   - ICLR 2026
   - 表格数据生成

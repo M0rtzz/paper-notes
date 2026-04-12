@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bipartite Mode Matching for Vision Training Set Search from a Hierarchical Data Server 论文解读 | AAAI 2026 | arXiv 2601.09531 | 训练集搜索 | 提出层级数据服务器 + 二部图模式匹配（BMM）框架，通过多粒度层级聚类组织大规模源数据、用匈牙利算法一对一匹配源域和目标域的语义模式（modes），从而搜索出与目标域分布差距最小的训练集，在行人重识别和目标检测任务上显著优于已有训练集搜索方法。"
+title: >-
+  [论文解读] Bipartite Mode Matching for Vision Training Set Search from a Hierarchical Data Server
+description: >-
+  [AAAI 2026][训练集搜索] 提出层级数据服务器 + 二部图模式匹配（BMM）框架，通过多粒度层级聚类组织大规模源数据、用匈牙利算法一对一匹配源域和目标域的语义模式（modes），从而搜索出与目标域分布差距最小的训练集，在行人重识别和目标检测任务上显著优于已有训练集搜索方法。
 tags:
   - AAAI 2026
   - 训练集搜索

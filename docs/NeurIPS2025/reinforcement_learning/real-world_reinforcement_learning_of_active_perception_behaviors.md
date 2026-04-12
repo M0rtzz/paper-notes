@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Real-World Reinforcement Learning of Active Perception Behaviors 论文解读 | NeurIPS 2025 | arXiv 2512.01188 | 主动感知 | 提出非对称优势加权回归（AAWR），通过在训练时使用特权传感器估计优势函数来高效训练主动感知策略，在 8 个操作任务和 3 种机器人上实现了可靠的信息收集行为。"
+title: >-
+  [论文解读] Real-World Reinforcement Learning of Active Perception Behaviors
+description: >-
+  [NeurIPS 2025][主动感知] 提出非对称优势加权回归（AAWR），通过在训练时使用特权传感器估计优势函数来高效训练主动感知策略，在 8 个操作任务和 3 种机器人上实现了可靠的信息收集行为。
 tags:
   - NeurIPS 2025
   - 主动感知

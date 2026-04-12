@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GASP: Efficient Black-Box Generation of Adversarial Suffixes for Jailbreaking LLMs 论文解读 | NeurIPS 2025 | arXiv 2411.14133 | 对抗后缀 | 提出GASP框架，通过训练专用的SuffixLLM生成可读的对抗后缀，利用潜在贝叶斯优化（LBO）在连续嵌入空间中高效搜索并用ORPO迭代微调生成器，在完全黑盒设置下实现高攻击成功率且生成的后缀保持人类可读性。"
+title: >-
+  [论文解读] GASP: Efficient Black-Box Generation of Adversarial Suffixes for Jailbreaking LLMs
+description: >-
+  [NeurIPS 2025][LLM对齐][对抗后缀] 提出GASP框架，通过训练专用的SuffixLLM生成可读的对抗后缀，利用潜在贝叶斯优化（LBO）在连续嵌入空间中高效搜索并用ORPO迭代微调生成器，在完全黑盒设置下实现高攻击成功率且生成的后缀保持人类可读性。
 tags:
   - NeurIPS 2025
+  - LLM对齐
   - 对抗后缀
   - 越狱攻击
   - 贝叶斯优化

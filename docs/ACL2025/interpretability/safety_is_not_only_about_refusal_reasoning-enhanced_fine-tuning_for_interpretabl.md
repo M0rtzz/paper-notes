@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Safety is Not Only About Refusal: Reasoning-Enhanced Fine-tuning for Interpretable LLM Safety 论文解读 | ACL 2025 | arXiv 2503.05021 | LLM安全 | 提出 Rational 框架，通过推理增强微调让 LLM 在回答前进行显式的安全推理（分析意图、伦理和潜在危害），而非依赖僵硬的拒绝启发式，在保持有用性的同时显著提升对推理层面对抗攻击的鲁棒性。"
+title: >-
+  [论文解读] Safety is Not Only About Refusal: Reasoning-Enhanced Fine-tuning for Interpretable LLM Safety
+description: >-
+  [ACL 2025][LLM安全] 提出 Rational 框架，通过推理增强微调让 LLM 在回答前进行显式的安全推理（分析意图、伦理和潜在危害），而非依赖僵硬的拒绝启发式，在保持有用性的同时显著提升对推理层面对抗攻击的鲁棒性。
 tags:
   - ACL 2025
   - LLM安全

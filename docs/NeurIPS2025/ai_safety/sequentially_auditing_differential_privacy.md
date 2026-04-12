@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sequentially Auditing Differential Privacy 论文解读 | NeurIPS 2025 | arXiv 2509.07055 | Differential Privacy | 提出基于序贯假设检验和核 MMD 统计量的差分隐私审计框架，可以在流式处理机制输出时随时有效地检测隐私违规，将所需样本量从现有方法的 50K 降低到数百个，并能在不到一次完整训练的过程中识别 DP-SGD 的隐私违规。"
+title: >-
+  [论文解读] Sequentially Auditing Differential Privacy
+description: >-
+  [NeurIPS 2025][AI安全][Differential Privacy] 提出基于序贯假设检验和核 MMD 统计量的差分隐私审计框架，可以在流式处理机制输出时随时有效地检测隐私违规，将所需样本量从现有方法的 50K 降低到数百个，并能在不到一次完整训练的过程中识别 DP-SGD 的隐私违规。
 tags:
   - NeurIPS 2025
+  - AI安全
   - Differential Privacy
   - Sequential Testing
   - MMD

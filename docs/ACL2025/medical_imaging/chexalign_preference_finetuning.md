@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CheXalign: Preference Fine-tuning in Chest X-ray Interpretation Models without Human Feedback 论文解读 | ACL 2025 | arXiv 2410.07025 | 偏好对齐 | CheXalign 提出了一种无需放射科医生反馈的自动化偏好数据生成管线，利用公开数据集中的参考报告和基于参考的评估指标（如 GREEN、BERTScore）构造偏好对，通过 DPO 等直接对齐算法对胸部X光报告生成模型进行偏好微调，在 MIMIC-CXR 上取得 SOTA CheXbert 分数。"
+title: >-
+  [论文解读] CheXalign: Preference Fine-tuning in Chest X-ray Interpretation Models without Human Feedback
+description: >-
+  [ACL 2025][医学图像][偏好对齐] CheXalign 提出了一种无需放射科医生反馈的自动化偏好数据生成管线，利用公开数据集中的参考报告和基于参考的评估指标（如 GREEN、BERTScore）构造偏好对，通过 DPO 等直接对齐算法对胸部X光报告生成模型进行偏好微调，在 MIMIC-CXR 上取得 SOTA CheXbert 分数。
 tags:
   - ACL 2025
+  - 医学图像
   - 偏好对齐
   - 放射报告生成
   - DPO

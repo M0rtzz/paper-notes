@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HUME: Measuring the Human-Model Performance Gap in Text Embedding Tasks 论文解读 | ICLR 2026 | arXiv 2510.10062 | 文本嵌入 | 提出 HUME 框架，首次系统测量人类在文本嵌入任务（重排序、分类、聚类、语义相似度）上的表现，为 MTEB 建立人类性能基线，发现人类总体排名第 4（77.6 vs 模型最佳 80.1），并揭示了多个数据集的质量问题。"
+title: >-
+  [论文解读] HUME: Measuring the Human-Model Performance Gap in Text Embedding Tasks
+description: >-
+  [ICLR 2026][文本嵌入] 提出 HUME 框架，首次系统测量人类在文本嵌入任务（重排序、分类、聚类、语义相似度）上的表现，为 MTEB 建立人类性能基线，发现人类总体排名第 4（77.6 vs 模型最佳 80.1），并揭示了多个数据集的质量问题。
 tags:
   - ICLR 2026
   - 文本嵌入

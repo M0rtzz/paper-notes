@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Multigranular Evaluation for Brain Visual Decoding 论文解读 | AAAI 2026 | arXiv 2507.07993 | brain decoding | 提出 BASIC 多粒度评估框架，从结构（分割 mask 匹配）、推理（对象/属性/关系语义图）和上下文（场景叙事一致性）三个维度统一评估脑视觉解码质量，解决现有指标饱和、缺乏神经科学基础、无法区分模型差异的问题。"
+title: >-
+  [论文解读] Multigranular Evaluation for Brain Visual Decoding
+description: >-
+  [AAAI 2026][图像分割][brain decoding] 提出 BASIC 多粒度评估框架，从结构（分割 mask 匹配）、推理（对象/属性/关系语义图）和上下文（场景叙事一致性）三个维度统一评估脑视觉解码质量，解决现有指标饱和、缺乏神经科学基础、无法区分模型差异的问题。
 tags:
   - AAAI 2026
+  - 图像分割
   - brain decoding
   - evaluation metric
-  - 图像分割
   - semantic matching
   - MLLM
 ---

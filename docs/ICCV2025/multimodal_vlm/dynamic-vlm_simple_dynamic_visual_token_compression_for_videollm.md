@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM 论文解读 | ICCV 2025 | arXiv 2412.09530 | VideoLLM | 提出 Dynamic-VLM，通过动态视觉Token压缩器根据视频长度灵活调整每帧Token数量，配合200万级高质量合成视频QA数据集，在 VideoMME 上比 LLaVA-OneVision 提升 2.7%，在 MuirBench 上提升 10.7%。"
+title: >-
+  [论文解读] Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM
+description: >-
+  [ICCV 2025][多模态][VideoLLM] 提出 Dynamic-VLM，通过动态视觉Token压缩器根据视频长度灵活调整每帧Token数量，配合200万级高质量合成视频QA数据集，在 VideoMME 上比 LLaVA-OneVision 提升 2.7%，在 MuirBench 上提升 10.7%。
 tags:
   - ICCV 2025
+  - 多模态
   - VideoLLM
   - 视觉Token压缩
   - 动态压缩
   - 合成数据
-  - 多模态
 ---
 
 # Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM

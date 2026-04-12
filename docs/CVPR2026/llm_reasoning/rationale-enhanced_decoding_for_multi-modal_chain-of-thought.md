@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought 论文解读 | CVPR 2026 | arXiv 2507.07685 | 思维链推理 | 发现现有LVLM在CoT推理时实际上忽略了中间rationale的内容，提出 RED (Rationale-Enhanced Decoding)——将图像条件和rationale条件的next-token分布在logit层面相乘，理论上等价于KL约束奖励最大化的最优解，无需训练即可显著提升多模态推理准确率。"
+title: >-
+  [论文解读] Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought
+description: >-
+  [CVPR 2026][LLM推理][思维链推理] 发现现有LVLM在CoT推理时实际上忽略了中间rationale的内容，提出 RED (Rationale-Enhanced Decoding)——将图像条件和rationale条件的next-token分布在logit层面相乘，理论上等价于KL约束奖励最大化的最优解，无需训练即可显著提升多模态推理准确率。
 tags:
   - CVPR 2026
+  - LLM推理
   - 思维链推理
   - 多模态大语言模型
   - 解码策略

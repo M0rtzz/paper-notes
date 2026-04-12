@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] DATENeRF: Depth-Aware Text-based Editing of NeRFs
+description: >-
+  [ECCV 2024][3D视觉][NeRF编辑] 利用NeRF重建的场景深度信息来引导基于文本的2D图像编辑（通过深度条件化的ControlNet + 投影修复方案），从而实现多视角一致的高质量NeRF场景编辑。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - NeRF编辑
+  - 扩散模型
+  - 深度引导
+  - 文本驱动3D编辑
+  - 多视角一致性
+---
+
 # DATENeRF: Depth-Aware Text-based Editing of NeRFs
 
 **会议**: ECCV 2024  

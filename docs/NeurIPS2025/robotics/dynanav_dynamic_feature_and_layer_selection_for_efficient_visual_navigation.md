@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DynaNav: Dynamic Feature and Layer Selection for Efficient Visual Navigation 论文解读 | NeurIPS 2025 | arXiv 2509.21930 | visual navigation | 提出 DynaNav，通过可训练的硬特征选择器和基于贝叶斯优化的 early-exit 机制，根据场景复杂度动态调整特征与层的使用，在视觉导航中实现 2.26× FLOPs 降低、42.3% 推理时间减少，同时保持甚至提升导航性能。"
+title: >-
+  [论文解读] DynaNav: Dynamic Feature and Layer Selection for Efficient Visual Navigation
+description: >-
+  [NeurIPS 2025][机器人][visual navigation] 提出 DynaNav，通过可训练的硬特征选择器和基于贝叶斯优化的 early-exit 机制，根据场景复杂度动态调整特征与层的使用，在视觉导航中实现 2.26× FLOPs 降低、42.3% 推理时间减少，同时保持甚至提升导航性能。
 tags:
   - NeurIPS 2025
+  - 机器人
   - visual navigation
   - dynamic inference
   - early exit

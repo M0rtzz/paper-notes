@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Spatial Understanding in Image Generation via Reward Modeling 论文解读 | CVPR 2026 | arXiv 2602.24233 | 空间理解 | 构建 80K 对抗性偏好数据集 SpatialReward-Dataset，训练专门评估空间关系准确性的奖励模型 SpatialScore（准确率超越 GPT-5），并用 top-k 过滤策略结合 GRPO 在线 RL 显著提升 FLUX.1-dev 的空间生成能力。"
+title: >-
+  [论文解读] Enhancing Spatial Understanding in Image Generation via Reward Modeling
+description: >-
+  [CVPR 2026][图像生成][空间理解] 构建 80K 对抗性偏好数据集 SpatialReward-Dataset，训练专门评估空间关系准确性的奖励模型 SpatialScore（准确率超越 GPT-5），并用 top-k 过滤策略结合 GRPO 在线 RL 显著提升 FLUX.1-dev 的空间生成能力。
 tags:
   - CVPR 2026
+  - 图像生成
   - 空间理解
   - 奖励模型
   - GRPO

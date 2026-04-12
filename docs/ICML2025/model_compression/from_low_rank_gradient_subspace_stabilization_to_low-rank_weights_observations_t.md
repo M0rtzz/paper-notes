@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Low Rank Gradient Subspace Stabilization to Low-Rank Weights: Observations, Theories, and Applications 论文解读 | ICML2025 | arXiv 2407.11239 | 低秩压缩 | 通过 Hessian 谱分析揭示 LLM 不同权重矩阵的低秩收敛差异，据此提出 WeLore——同时统一模型压缩与参数高效微调的非均匀低秩分解方法。"
+title: >-
+  [论文解读] From Low Rank Gradient Subspace Stabilization to Low-Rank Weights: Observations, Theories, and Applications
+description: >-
+  [ICML2025][模型压缩][低秩压缩] 通过 Hessian 谱分析揭示 LLM 不同权重矩阵的低秩收敛差异，据此提出 WeLore——同时统一模型压缩与参数高效微调的非均匀低秩分解方法。
 tags:
   - ICML2025
+  - 模型压缩
   - 低秩压缩
   - 梯度子空间
   - Hessian分析

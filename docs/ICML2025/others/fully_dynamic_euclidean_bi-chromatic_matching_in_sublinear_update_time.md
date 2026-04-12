@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time 论文解读 | ICML 2025 | arXiv 2505.09010 | bi-chromatic matching | 本文首次提出了欧氏双色匹配问题的全动态亚线性更新算法，对于任意固定 ε > 0，实现 O(1/ε) 近似比和 O(n^ε) 更新时间，可用于高效监控分布漂移（Wasserstein距离）。"
+title: >-
+  [论文解读] Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time
+description: >-
+  [ICML 2025][bi-chromatic matching] 本文首次提出了欧氏双色匹配问题的全动态亚线性更新算法，对于任意固定 $\varepsilon > 0$，实现 $O(1/\varepsilon)$ 近似比和 $O(n^{\varepsilon})$ 更新时间，可用于高效监控分布漂移（Wasserstein距离）。
 tags:
   - ICML 2025
   - bi-chromatic matching

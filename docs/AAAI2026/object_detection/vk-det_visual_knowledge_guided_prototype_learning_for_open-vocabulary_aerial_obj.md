@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VK-Det: Visual Knowledge Guided Prototype Learning for Open-Vocabulary Aerial Object Detection 论文解读 | AAAI 2026 | arXiv 2511.18075 | 开放词汇检测 | 提出 VK-Det 框架，仅利用 VLM 的视觉知识（无需额外监督信号），通过自适应选择知识蒸馏（ASKD）+ 原型感知伪标签（PAPL）+ 综合匹配推理（SMI），在航空遥感开放词汇目标检测中达到 SOTA，甚至超越使用额外监督的方法。"
+title: >-
+  [论文解读] VK-Det: Visual Knowledge Guided Prototype Learning for Open-Vocabulary Aerial Object Detection
+description: >-
+  [AAAI 2026][目标检测][开放词汇检测] 提出 VK-Det 框架，仅利用 VLM 的视觉知识（无需额外监督信号），通过自适应选择知识蒸馏（ASKD）+ 原型感知伪标签（PAPL）+ 综合匹配推理（SMI），在航空遥感开放词汇目标检测中达到 SOTA，甚至超越使用额外监督的方法。
 tags:
   - AAAI 2026
+  - 目标检测
   - 开放词汇检测
   - 航空遥感图像
   - 原型学习

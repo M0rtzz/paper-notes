@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SpatialSplat: Efficient Semantic 3D from Sparse Unposed Images 论文解读 | ICCV 2025 | arXiv 2505.23044 | 语义3DGS | 提出SpatialSplat,通过双场语义表示和选择性Gaussian机制,从稀疏无位姿图像前馈生成紧凑的语义3D Gaussian,将表示参数量减少60%同时超越SOTA方法。"
+title: >-
+  [论文解读] SpatialSplat: Efficient Semantic 3D from Sparse Unposed Images
+description: >-
+  [ICCV 2025][3D视觉][语义3DGS] 提出SpatialSplat,通过双场语义表示和选择性Gaussian机制,从稀疏无位姿图像前馈生成紧凑的语义3D Gaussian,将表示参数量减少60%同时超越SOTA方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 语义3DGS
   - 前馈重建
   - 无位姿

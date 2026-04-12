@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis 论文解读 | ICLR2026 | arXiv 2603.15483 | Agent评估 | 提出 TED 框架（Talk-Evaluate-Diagnose），通过可复用的专家/非专家 persona 模板、基于 grading notes 的 LLM-as-judge 评估和自动化错误分析，实现跨领域的用户感知型 Agent 评估。"
+title: >-
+  [论文解读] Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis
+description: >-
+  [ICLR2026][Agent评估] 提出 TED 框架（Talk-Evaluate-Diagnose），通过可复用的专家/非专家 persona 模板、基于 grading notes 的 LLM-as-judge 评估和自动化错误分析，实现跨领域的用户感知型 Agent 评估。
 tags:
   - ICLR2026
   - Agent评估

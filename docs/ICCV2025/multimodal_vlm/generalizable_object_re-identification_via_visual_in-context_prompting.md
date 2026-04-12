@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalizable Object Re-Identification via Visual In-Context Prompting 论文解读 | ICCV 2025 | arXiv 2508.21222 | 目标重识别 | VICP 提出了一种可泛化的目标重识别框架，通过 LLM 从少量正负样本对中推理出身份判别规则，然后将其转化为动态视觉提示注入冻结的视觉基础模型（DINOv2），实现无需参数更新即可泛化到未见类别的 ReID。"
+title: >-
+  [论文解读] Generalizable Object Re-Identification via Visual In-Context Prompting
+description: >-
+  [ICCV 2025][多模态][目标重识别] VICP 提出了一种可泛化的目标重识别框架，通过 LLM 从少量正负样本对中推理出身份判别规则，然后将其转化为动态视觉提示注入冻结的视觉基础模型（DINOv2），实现无需参数更新即可泛化到未见类别的 ReID。
 tags:
   - ICCV 2025
+  - 多模态
   - 目标重识别
   - 泛化ReID
   - 视觉上下文提示

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space 论文解读 | AAAI 2026 | arXiv 2602.22879 | Knowledge Tracing | 提出 L-HAKT 框架，利用 LLM 双 Agent（Teacher + Student）生成合成数据，在双曲空间中进行对比对齐，将知识点的树状层级结构显式建模到知识追踪中。"
+title: >-
+  [论文解读] Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space
+description: >-
+  [AAAI 2026][自监督学习][Knowledge Tracing] 提出 L-HAKT 框架，利用 LLM 双 Agent（Teacher + Student）生成合成数据，在双曲空间中进行对比对齐，将知识点的树状层级结构显式建模到知识追踪中。
 tags:
   - AAAI 2026
+  - 自监督学习
   - Knowledge Tracing
   - LLM Agent
   - Hyperbolic Space

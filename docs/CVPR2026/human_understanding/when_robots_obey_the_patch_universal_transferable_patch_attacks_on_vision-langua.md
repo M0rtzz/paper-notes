@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models 论文解读 | CVPR 2026 | arXiv 2511.21192 | 对抗攻击 | 提出 UPA-RFAS 框架，学习一个单一物理对抗补丁，通过特征空间偏移、注意力劫持和语义错位三管齐下，实现对 VLA 机器人策略的通用、可迁移黑盒攻击。"
+title: >-
+  [论文解读] When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models
+description: >-
+  [CVPR 2026][人体理解][对抗攻击] 提出 UPA-RFAS 框架，学习一个单一物理对抗补丁，通过特征空间偏移、注意力劫持和语义错位三管齐下，实现对 VLA 机器人策略的通用、可迁移黑盒攻击。
 tags:
   - CVPR 2026
+  - 人体理解
   - 对抗攻击
   - VLA模型
   - 通用对抗补丁

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists 论文解读 | ACL 2025 | arXiv 2506.13188 | OpenStreetMap | 提出 SPOT——一个面向调查记者的开源自然语言地理空间搜索工具，通过微调 LLaMA 3 将非结构化场景描述转换为 YAML 查询，结合 OSM 标签语义捆绑系统和 Elasticsearch 索引，实现对 OpenStreetMap 的准确自然语言访问。"
+title: >-
+  [论文解读] SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists
+description: >-
+  [ACL 2025][OpenStreetMap] 提出 SPOT——一个面向调查记者的开源自然语言地理空间搜索工具，通过微调 LLaMA 3 将非结构化场景描述转换为 YAML 查询，结合 OSM 标签语义捆绑系统和 Elasticsearch 索引，实现对 OpenStreetMap 的准确自然语言访问。
 tags:
   - ACL 2025
   - OpenStreetMap

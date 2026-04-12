@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Theoretical Performance Guarantees for Partial Domain Adaptation via Partial Optimal Transport 论文解读 | ICML 2025 | arXiv 2506.02712 | 域适应 partial domain adaptation | 本文基于部分最优传输理论推导了部分领域自适应（PDA）的泛化界，证明了部分 Wasserstein 距离作为领域对齐项和提出的理论驱动权重方案的合理性，并据此开发了实用算法 WARMPOT。"
+title: >-
+  [论文解读] Theoretical Performance Guarantees for Partial Domain Adaptation via Partial Optimal Transport
+description: >-
+  [ICML 2025][域适应] 本文基于部分最优传输理论推导了部分领域自适应（PDA）的泛化界，证明了部分 Wasserstein 距离作为领域对齐项和提出的理论驱动权重方案的合理性，并据此开发了实用算法 WARMPOT。
 tags:
   - ICML 2025
   - 域适应

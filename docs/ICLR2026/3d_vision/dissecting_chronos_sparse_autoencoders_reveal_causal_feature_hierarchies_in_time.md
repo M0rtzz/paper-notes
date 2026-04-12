@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dissecting Chronos: Sparse Autoencoders Reveal Causal Feature Hierarchies in Time Series Foundation Models 论文解读 | ICLR 2026 | arXiv 2603.10071 | Sparse Autoencoder | 首次将稀疏自编码器 (SAE) 应用于时间序列基础模型 Chronos-T5-Large，通过 392 次因果消融实验揭示了深度依赖的特征层级：中层编码器集中了因果关键的突变检测特征，而语义最丰富的末层编码器反而因果重要性最低。"
+title: >-
+  [论文解读] Dissecting Chronos: Sparse Autoencoders Reveal Causal Feature Hierarchies in Time Series Foundation Models
+description: >-
+  [ICLR 2026][3D视觉][Sparse Autoencoder] 首次将稀疏自编码器 (SAE) 应用于时间序列基础模型 Chronos-T5-Large，通过 392 次因果消融实验揭示了深度依赖的特征层级：中层编码器集中了因果关键的突变检测特征，而语义最丰富的末层编码器反而因果重要性最低。
 tags:
   - ICLR 2026
+  - 3D视觉
   - Sparse Autoencoder
   - Time Series Foundation Model
   - Mechanistic Interpretability

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Supervised Sparse Sensor Fusion for Long Range Perception 论文解读 | ICCV 2025 | arXiv 2508.13995 | 长距离感知 | LRS4Fusion 提出基于稀疏体素表示的长距离LiDAR-Camera融合方法，配合自监督预训练策略（通过稀疏占用和速度场重建），在250米感知范围内实现了目标检测 mAP 提升 26.6%、LiDAR预测 Chamfer Distance 降低 30.5% 的SOTA性能。"
+title: >-
+  [论文解读] Self-Supervised Sparse Sensor Fusion for Long Range Perception
+description: >-
+  [ICCV 2025][自动驾驶][长距离感知] LRS4Fusion 提出基于稀疏体素表示的长距离LiDAR-Camera融合方法，配合自监督预训练策略（通过稀疏占用和速度场重建），在250米感知范围内实现了目标检测 mAP 提升 26.6%、LiDAR预测 Chamfer Distance 降低 30.5% 的SOTA性能。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 长距离感知
   - 稀疏体素融合
   - 自监督预训练

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Retaining Suboptimal Actions to Follow Shifting Optima in Multi-Agent RL 论文解读 | ICLR 2026 | arXiv 2602.17062 | 多Agent RL | 提出S2Q解决合作MARL中值函数最优点在训练中漂移→次优收敛：逐步学习K个sub-value函数保留替代高价值动作+Softmax行为策略持续探索→最优变化时快速适应，SMAC Hard+和GRF上一致超越基线。"
+title: >-
+  [论文解读] Retaining Suboptimal Actions to Follow Shifting Optima in Multi-Agent RL
+description: >-
+  [ICLR 2026][多Agent RL] 提出S2Q解决合作MARL中值函数最优点在训练中漂移→次优收敛：逐步学习K个sub-value函数保留替代高价值动作+Softmax行为策略持续探索→最优变化时快速适应，SMAC Hard+和GRF上一致超越基线。
 tags:
   - ICLR 2026
   - 多Agent RL

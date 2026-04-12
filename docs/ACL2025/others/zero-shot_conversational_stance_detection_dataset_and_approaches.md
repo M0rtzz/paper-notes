@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Zero-Shot Conversational Stance Detection: Dataset and Approaches 论文解读 | ACL 2025 | arXiv 2506.17693 | 立场检测 | 构建了首个零样本多轮多方对话立场检测数据集 ZS-CSD（280 个目标、17k+ 样本），并提出 SITPCL 模型，通过说话者交互建模和目标感知原型对比学习实现了 SOTA 性能（F1-macro 43.81%）。"
+title: >-
+  [论文解读] Zero-Shot Conversational Stance Detection: Dataset and Approaches
+description: >-
+  [ACL 2025][立场检测] 构建了首个零样本多轮多方对话立场检测数据集 ZS-CSD（280 个目标、17k+ 样本），并提出 SITPCL 模型，通过说话者交互建模和目标感知原型对比学习实现了 SOTA 性能（F1-macro 43.81%）。
 tags:
   - ACL 2025
   - 立场检测

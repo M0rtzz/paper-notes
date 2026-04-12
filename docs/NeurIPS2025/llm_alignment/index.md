@@ -1,5 +1,12 @@
+---
+title: >-
+  NeurIPS2025 对齐/RLHF方向 47篇论文解读
+description: >-
+  47篇NeurIPS2025 对齐/RLHF方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# ⚖️ 对齐 / RLHF
+# ⚖️ 对齐/RLHF
 
 **🧠 NeurIPS2025** · 共 **47** 篇
 
@@ -7,7 +14,7 @@
 
 :   提出一种自适应 Alpha 聚合策略，在联邦 RLHF 框架中根据各用户群体的历史对齐表现动态调整奖励权重，从而在多元偏好对齐中同时实现高公平性和强对齐性能。
 
-**[Adjacent Words, Divergent Intents: Jailbreaking Large Language Models via Task Concurrency](adjacent_words_divergent_intents_jailbreaking_large_language_models_via_task_con.md)**
+**[Adjacent Words Divergent Intents Jailbreaking Large Language Models Via Task Con](adjacent_words_divergent_intents_jailbreaking_large_language_models_via_task_con.md)**
 
 :   提出基于任务并发（Task Concurrency）的LLM越狱攻击框架 JAIL-CON，通过在词级别交错编码有害任务和良性任务，利用LLM处理并发任务的能力绕过安全防护，同时产生的并发回答在guardrail下具有更强的隐蔽性。
 

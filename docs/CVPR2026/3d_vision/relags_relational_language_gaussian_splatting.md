@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ReLaGS: Relational Language Gaussian Splatting 论文解读 | CVPR2026 | arXiv 2603.17605 | 3D高斯溅射 | 提出首个统一多层级语言高斯场与开放词汇3D场景图的无训练框架 ReLaGS，通过最大权重剪枝和鲁棒异常值感知特征聚合改进场景表示，结合GNN关系预测实现高效的结构化3D场景理解。"
+title: >-
+  [论文解读] ReLaGS: Relational Language Gaussian Splatting
+description: >-
+  [CVPR2026][3D视觉][3D高斯溅射] 提出首个统一多层级语言高斯场与开放词汇3D场景图的无训练框架 ReLaGS，通过最大权重剪枝和鲁棒异常值感知特征聚合改进场景表示，结合GNN关系预测实现高效的结构化3D场景理解。
 tags:
   - CVPR2026
+  - 3D视觉
   - 3D高斯溅射
   - 开放词汇
   - 3D场景图

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Boosting Vision Semantic Density with Anatomy Normality Modeling for Medical Vision-language Pre-training 论文解读 | ICCV 2025 | arXiv 2508.03742 | 视觉-语言预训练 | 提出 ViSD-Boost，通过疾病级视觉对比学习增强视觉语义 + VQ-VAE 建模解剖正常性分布来放大异常信号，解决医学 VLP 中视觉语义密度低导致的对齐偏差，在腹部 CT 54 种疾病零样本诊断达到 84.9% AUC。"
+title: >-
+  [论文解读] Boosting Vision Semantic Density with Anatomy Normality Modeling for Medical Vision-language Pre-training
+description: >-
+  [ICCV 2025][医学图像][视觉-语言预训练] 提出 ViSD-Boost，通过疾病级视觉对比学习增强视觉语义 + VQ-VAE 建模解剖正常性分布来放大异常信号，解决医学 VLP 中视觉语义密度低导致的对齐偏差，在腹部 CT 54 种疾病零样本诊断达到 84.9% AUC。
 tags:
   - ICCV 2025
+  - 医学图像
   - 视觉-语言预训练
   - 语义密度
   - 解剖正常性建模

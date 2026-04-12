@@ -1,13 +1,16 @@
 ---
-description: "【论文笔记】VINCIE: Unlocking In-context Image Editing from Video 论文解读 | ICLR 2026 | arXiv 2506.10941 | in-context editing | 提出 VINCIE，首次仅从视频数据学习上下文图像编辑能力——将视频标注为交错多模态序列，设计三个代理任务(次帧预测/当前分割/次帧分割预测)，在多轮编辑 benchmark 上达到 SOTA，展现了视频数据作为编辑训练源的可扩展性。"
+title: >-
+  [论文解读] VINCIE: Unlocking In-context Image Editing from Video
+description: >-
+  [ICLR 2026][图像分割][in-context editing] 提出 VINCIE，首次仅从视频数据学习上下文图像编辑能力——将视频标注为交错多模态序列，设计三个代理任务(次帧预测/当前分割/次帧分割预测)，在多轮编辑 benchmark 上达到 SOTA，展现了视频数据作为编辑训练源的可扩展性。
 tags:
   - ICLR 2026
+  - 图像分割
   - in-context editing
   - video learning
   - multi-turn editing
   - Transformer
   - interleaved sequence
-  - 图像分割
 ---
 
 # VINCIE: Unlocking In-context Image Editing from Video

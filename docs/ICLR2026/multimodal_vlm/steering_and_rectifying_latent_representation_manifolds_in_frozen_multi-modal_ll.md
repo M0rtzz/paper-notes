@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Steering and Rectifying Latent Representation Manifolds in Frozen Multi-Modal LLMs for Video Anomaly Detection 论文解读 | ICLR 2026 | arXiv 2602.24021 | 视频异常检测 | 提出 SteerVAD 框架，在完全冻结的多模态大语言模型 (MLLM) 内部，通过识别\"潜在异常专家\"注意力头并用层次化元控制器动态操控其表示流形，仅用 1% 训练数据即实现免调优视频异常检测的 SOTA。"
+title: >-
+  [论文解读] Steering and Rectifying Latent Representation Manifolds in Frozen Multi-Modal LLMs for Video Anomaly Detection
+description: >-
+  [ICLR 2026][多模态][视频异常检测] 提出 SteerVAD 框架，在完全冻结的多模态大语言模型 (MLLM) 内部，通过识别"潜在异常专家"注意力头并用层次化元控制器动态操控其表示流形，仅用 1% 训练数据即实现免调优视频异常检测的 SOTA。
 tags:
   - ICLR 2026
+  - 多模态
   - 视频异常检测
   - 多模态大语言模型
   - 表示流形操控

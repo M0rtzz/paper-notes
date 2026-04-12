@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DenseLoRA: Dense Low-Rank Adaptation of Large Language Models 论文解读 | ACL 2025 | arXiv 2505.23808 | 参数高效微调 | 本文提出DenseLoRA，通过引入跨层共享的Encoder-Decoder进行隐藏表示的压缩与重建，用一个稠密的小型低秩矩阵替代LoRA中两个冗余的低秩矩阵来进行适配，仅用0.01%可训练参数在LLaMA3-8B上达到83.8%准确率，超越了LoRA用0.70%参数达到的80.8%。"
+title: >-
+  [论文解读] DenseLoRA: Dense Low-Rank Adaptation of Large Language Models
+description: >-
+  [ACL 2025][模型压缩][参数高效微调] 本文提出DenseLoRA，通过引入跨层共享的Encoder-Decoder进行隐藏表示的压缩与重建，用一个稠密的小型低秩矩阵替代LoRA中两个冗余的低秩矩阵来进行适配，仅用0.01%可训练参数在LLaMA3-8B上达到83.8%准确率，超越了LoRA用0.70%参数达到的80.8%。
 tags:
   - ACL 2025
+  - 模型压缩
   - 参数高效微调
   - LoRA
   - 低秩适配

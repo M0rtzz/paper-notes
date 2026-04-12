@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Perspective from a Broader Context: Can Room Style Knowledge Help Visual Floorplan Localization? 论文解读 | AAAI2026 | arXiv 2508.01216 | Visual Floorplan Localization | 提出利用房间风格知识（通过无监督聚类预训练获得的 room discriminator）来消除视觉楼层平面图定位中因重复结构导致的歧义，在 Gibson 和 Structured3D 两个标准基准上取得 SOTA 性能。"
+title: >-
+  [论文解读] Perspective from a Broader Context: Can Room Style Knowledge Help Visual Floorplan Localization?
+description: >-
+  [AAAI2026][Visual Floorplan Localization] 提出利用房间风格知识（通过无监督聚类预训练获得的 room discriminator）来消除视觉楼层平面图定位中因重复结构导致的歧义，在 Gibson 和 Structured3D 两个标准基准上取得 SOTA 性能。
 tags:
   - AAAI2026
   - Visual Floorplan Localization

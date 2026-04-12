@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Variational Garrote for Sparse Inverse Problems 论文解读 | CVPR 2025 | arXiv 2603.12562 | 稀疏正则化 | 系统比较 ℓ₁ 正则化 (LASSO) 与 Variational Garrote (VG, 概率 ℓ₀ 近似) 在信号重采样、去噪和稀疏视角 CT 重建三种逆问题上的表现，发现 VG 在强欠定情况下（采样率低/角度稀疏）通常获得更低的泛化误差，因为 spike-and-slab 先验与真实稀疏分布更匹配。"
+title: >-
+  [论文解读] Variational Garrote for Sparse Inverse Problems
+description: >-
+  [CVPR 2025][图像恢复][稀疏正则化] 系统比较 $\ell_1$ 正则化 (LASSO) 与 Variational Garrote (VG, 概率 $\ell_0$ 近似) 在信号重采样、去噪和稀疏视角 CT 重建三种逆问题上的表现，发现 VG 在强欠定情况下（采样率低/角度稀疏）通常获得更低的泛化误差，因为 spike-and-slab 先验与真实稀疏分布更匹配。
 tags:
   - CVPR 2025
+  - 图像恢复
   - 稀疏正则化
   - Variational Garrote
   - LASSO

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Less is More: Improving Motion Diffusion Models with Sparse Keyframes 论文解读 | 提出 sMDM，一种以稀疏关键帧为核心的运动扩散框架，通过 masking-interpolation 策略和 Visvalingam-Whyatt 关键帧选择算法，减少冗余帧处理，在文本对齐和运动质量上持续超越密集帧基线。"
+title: >-
+  [论文解读] Less is More: Improving Motion Diffusion Models with Sparse Keyframes
+description: >-
+  [图像生成] 提出 sMDM，一种以稀疏关键帧为核心的运动扩散框架，通过 masking-interpolation 策略和 Visvalingam-Whyatt 关键帧选择算法，减少冗余帧处理，在文本对齐和运动质量上持续超越密集帧基线。
 tags:
-
+  - 图像生成
 ---
 
 # Less is More: Improving Motion Diffusion Models with Sparse Keyframes

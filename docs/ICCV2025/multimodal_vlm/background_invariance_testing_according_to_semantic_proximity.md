@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Background Invariance Testing According to Semantic Proximity 论文解读 | ICCV 2025 | arXiv 2208.09286 | 背景不变性测试 | 本文提出基于语义邻近度的背景不变性测试方法，通过关联分析构建关键词本体来系统采样背景场景，实现兼顾测试多样性（recall）和人类判断一致性（precision）的最优平衡，并验证可视化测试框架比全局统计指标更具信息量。"
+title: >-
+  [论文解读] Background Invariance Testing According to Semantic Proximity
+description: >-
+  [ICCV 2025][多模态][背景不变性测试] 本文提出基于语义邻近度的背景不变性测试方法，通过关联分析构建关键词本体来系统采样背景场景，实现兼顾测试多样性（recall）和人类判断一致性（precision）的最优平衡，并验证可视化测试框架比全局统计指标更具信息量。
 tags:
   - ICCV 2025
+  - 多模态
   - 背景不变性测试
   - 关联本体
   - 语义距离

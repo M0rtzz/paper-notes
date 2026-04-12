@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Omegance: A Single Parameter for Various Granularities in Diffusion-Based Synthesis 论文解读 | ICCV 2025 | arXiv 2411.17769 | 扩散模型 | Omegance 提出仅通过一个参数 ω 缩放扩散模型去噪步骤中的噪声预测，即可无需重训练地实现对生成图像/视频细节粒度的全局、空间和时序精细控制，方法与架构无关且兼容 SDXL、SD3、FLUX 等多种模型。"
+title: >-
+  [论文解读] Omegance: A Single Parameter for Various Granularities in Diffusion-Based Synthesis
+description: >-
+  [ICCV 2025][图像生成][扩散模型] Omegance 提出仅通过一个参数 $\omega$ 缩放扩散模型去噪步骤中的噪声预测，即可无需重训练地实现对生成图像/视频细节粒度的全局、空间和时序精细控制，方法与架构无关且兼容 SDXL、SD3、FLUX 等多种模型。
 tags:
   - ICCV 2025
+  - 图像生成
   - 扩散模型
   - 粒度控制
   - 噪声缩放

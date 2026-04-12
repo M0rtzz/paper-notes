@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】EAMamba: Efficient All-Around Vision State Space Model for Image Restoration 论文解读 | ICCV 2025 | arXiv 2506.22246 | Vision Mamba | 本文提出EAMamba框架，通过多头选择性扫描模块（MHSSM）和全方位扫描策略（all-around scanning），在不增加计算复杂度和参数量的情况下实现多方向扫描，解决了Vision Mamba在图像恢复中的计算开销和局部像素遗忘问题，在超分辨率、去噪、去模糊、去雾等任务上取得了31-89%的FLOPs降低同时保持优异性能。"
+title: >-
+  [论文解读] EAMamba: Efficient All-Around Vision State Space Model for Image Restoration
+description: >-
+  [ICCV 2025][图像恢复][Vision Mamba] 本文提出EAMamba框架，通过多头选择性扫描模块（MHSSM）和全方位扫描策略（all-around scanning），在不增加计算复杂度和参数量的情况下实现多方向扫描，解决了Vision Mamba在图像恢复中的计算开销和局部像素遗忘问题，在超分辨率、去噪、去模糊、去雾等任务上取得了31-89%的FLOPs降低同时保持优异性能。
 tags:
   - ICCV 2025
+  - 图像恢复
   - Vision Mamba
   - state space model
-  - 图像恢复
   - multi-head selective scan
   - all-around scanning
 ---

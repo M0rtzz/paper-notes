@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PET2Rep: Towards Vision-Language Model-Driven Automated Radiology Report Generation for Positron Emission Tomography 论文解读 | AAAI 2026 | arXiv 2508.04062 | PET影像 | 本文提出 PET2Rep，首个专用于正电子发射断层扫描（PET）放射报告生成的大规模基准数据集（565例全身 PET/CT 图像-报告对），并设计了 PET 临床效能（CE）评估指标，对 30 个前沿通用和医疗专用 VLM 进行系统评估，发现当前 SOTA VLM 在 PET 报告生成任务上表现不佳，甚至无法超越简单的模板基线。"
+title: >-
+  [论文解读] PET2Rep: Towards Vision-Language Model-Driven Automated Radiology Report Generation for Positron Emission Tomography
+description: >-
+  [AAAI 2026][多模态][PET影像] 本文提出 PET2Rep，首个专用于正电子发射断层扫描（PET）放射报告生成的大规模基准数据集（565例全身 PET/CT 图像-报告对），并设计了 PET 临床效能（CE）评估指标，对 30 个前沿通用和医疗专用 VLM 进行系统评估，发现当前 SOTA VLM 在 PET 报告生成任务上表现不佳，甚至无法超越简单的模板基线。
 tags:
   - AAAI 2026
+  - 多模态
   - PET影像
   - 放射报告生成
   - 视觉语言模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gradient Descent as Loss Landscape Navigation: A Normative Framework for Deriving Learning Rules 论文解读 | NeurIPS 2025 | arXiv 2510.26997 | learning rules | 提出统一框架将各种学习规则（momentum、Adam、自然梯度等）推导为损失景观上的最优导航策略，不同度量和目标自然导出不同的优化器。"
+title: >-
+  [论文解读] Gradient Descent as Loss Landscape Navigation: A Normative Framework for Deriving Learning Rules
+description: >-
+  [NeurIPS 2025][优化][learning rules] 提出统一框架将各种学习规则（momentum、Adam、自然梯度等）推导为损失景观上的最优导航策略，不同度量和目标自然导出不同的优化器。
 tags:
   - NeurIPS 2025
+  - 优化
   - learning rules
   - gradient descent
   - loss landscape

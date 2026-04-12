@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing 论文解读 | CVPR 2025 | arXiv 2603.13082 | 多人动作编辑 | 提出 InterEdit，首个文本引导的多人 3D 运动交互编辑框架，通过 Semantic-Aware Plan Token Alignment 和 Interaction-Aware Frequency Token Alignment 在扩散模型中实现语义编辑的同时保持多人之间的时空耦合关系。"
+title: >-
+  [论文解读] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing
+description: >-
+  [CVPR 2025][图像生成][多人动作编辑] 提出 InterEdit，首个文本引导的多人 3D 运动交互编辑框架，通过 Semantic-Aware Plan Token Alignment 和 Interaction-Aware Frequency Token Alignment 在扩散模型中实现语义编辑的同时保持多人之间的时空耦合关系。
 tags:
   - CVPR 2025
+  - 图像生成
   - 多人动作编辑
   - 文本引导
   - 扩散模型

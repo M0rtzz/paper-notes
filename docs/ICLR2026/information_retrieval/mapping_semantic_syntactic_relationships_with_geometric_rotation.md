@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Mapping Semantic & Syntactic Relationships with Geometric Rotation 论文解读 | ICLR 2026 | arXiv 2510.09790 | 嵌入几何 | 提出RISE(Rotor-Invariant Shift Estimation)——将话语级语义-句法变换(否定/条件/礼貌)建模为嵌入空间超球面上的一致旋转操作，首次证明这些变换可跨7种语言(5个语系)+跨3种嵌入模型泛化，将线性表示假说从词级扩展到跨语言话语级。"
+title: >-
+  [论文解读] Mapping Semantic & Syntactic Relationships with Geometric Rotation
+description: >-
+  [ICLR 2026][嵌入几何] 提出RISE(Rotor-Invariant Shift Estimation)——将话语级语义-句法变换(否定/条件/礼貌)建模为嵌入空间超球面上的一致旋转操作，首次证明这些变换可跨7种语言(5个语系)+跨3种嵌入模型泛化，将线性表示假说从词级扩展到跨语言话语级。
 tags:
   - ICLR 2026
   - 嵌入几何

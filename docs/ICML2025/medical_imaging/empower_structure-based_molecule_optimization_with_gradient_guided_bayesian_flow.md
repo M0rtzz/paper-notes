@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks 论文解读 | ICML2025 | arXiv 2411.13280 | Bayesian Flow Network | 提出 MolJO 框架，利用贝叶斯流网络（BFN）的连续可微参数空间 boldsymbolθ，实现对分子坐标（连续）和原子类型（离散）的联合梯度引导优化，并设计滑动窗口后向校正策略平衡探索与利用，在 CrossDocked2020 上以 51.3% Success Rate 大幅领先现有方法。"
+title: >-
+  [论文解读] Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks
+description: >-
+  [ICML2025][医学图像][Bayesian Flow Network] 提出 MolJO 框架，利用贝叶斯流网络（BFN）的连续可微参数空间 $\boldsymbol{\theta}$，实现对分子坐标（连续）和原子类型（离散）的联合梯度引导优化，并设计滑动窗口后向校正策略平衡探索与利用，在 CrossDocked2020 上以 51.3% Success Rate 大幅领先现有方法。
 tags:
   - ICML2025
+  - 医学图像
   - Bayesian Flow Network
   - 结构感知分子优化
   - 梯度引导

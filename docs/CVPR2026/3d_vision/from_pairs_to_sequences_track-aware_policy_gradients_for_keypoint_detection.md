@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Pairs to Sequences: Track-Aware Policy Gradients for Keypoint Detection 论文解读 | CVPR 2026 | arXiv 2602.20630 | 关键点检测 | 将关键点检测从「图像对匹配」范式转变为「序列级可追踪性优化」，通过强化学习框架 TraqPoint 在图像序列上直接优化关键点的长期追踪质量，在位姿估计、视觉定位、视觉里程计和三维重建任务上均超越 SOTA。"
+title: >-
+  [论文解读] From Pairs to Sequences: Track-Aware Policy Gradients for Keypoint Detection
+description: >-
+  [CVPR 2026][3D视觉][关键点检测] 将关键点检测从「图像对匹配」范式转变为「序列级可追踪性优化」，通过强化学习框架 TraqPoint 在图像序列上直接优化关键点的长期追踪质量，在位姿估计、视觉定位、视觉里程计和三维重建任务上均超越 SOTA。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 关键点检测
   - 强化学习
   - 长期可追踪性

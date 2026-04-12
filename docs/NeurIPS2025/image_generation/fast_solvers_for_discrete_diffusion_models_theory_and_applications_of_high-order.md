@@ -1,13 +1,16 @@
 ---
-description: "【论文笔记】Fast Solvers for Discrete Diffusion Models: Theory and Applications of High-Order Algorithms 论文解读 | NeurIPS 2025 | arXiv 2502.00234 | 扩散模型 discrete diffusion | 为离散扩散模型推理首次提出高阶数值求解器（θ-RK-2 和 θ-Trapezoidal），在 KL 散度意义下证明二阶收敛，在文本和图像生成任务上以同等计算预算获得更好的样本质量。"
+title: >-
+  [论文解读] Fast Solvers for Discrete Diffusion Models: Theory and Applications of High-Order Algorithms
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型] 为离散扩散模型推理首次提出高阶数值求解器（θ-RK-2 和 θ-Trapezoidal），在 KL 散度意义下证明二阶收敛，在文本和图像生成任务上以同等计算预算获得更好的样本质量。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型
   - high-order solver
   - τ-leaping
   - Trapezoidal method
   - text generation
-  - 图像生成
 ---
 
 # Fast Solvers for Discrete Diffusion Models: Theory and Applications of High-Order Algorithms

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SIGN: Schema-Induced Games for Naming 论文解读 | AAAI 2026 | arXiv 2510.21855 | 命名博弈 | SIGN 提出在LLM多智能体命名博弈中引入轻量级消息Schema（如 `@say {name: Ck}`），发现结构化先验可将群体约定一致性提升5.8×，收敛所需Token减少一个数量级，为高效多智能体协调提供了简单可控的\"调节旋钮\"。"
+title: >-
+  [论文解读] SIGN: Schema-Induced Games for Naming
+description: >-
+  [AAAI 2026][模型压缩][命名博弈] SIGN 提出在LLM多智能体命名博弈中引入轻量级消息Schema（如 `@say {name: Ck}`），发现结构化先验可将群体约定一致性提升5.8×，收敛所需Token减少一个数量级，为高效多智能体协调提供了简单可控的"调节旋钮"。
 tags:
   - AAAI 2026
+  - 模型压缩
   - 命名博弈
   - LLM多智能体
   - 约定形成

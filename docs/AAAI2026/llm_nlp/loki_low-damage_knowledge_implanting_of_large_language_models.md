@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LoKI: Low-damage Knowledge Implanting of Large Language Models 论文解读 | AAAI 2026 | arXiv 2505.22120 | 参数高效微调 | 提出LoKI，一种基于Transformer知识存储机制理解的参数高效微调方法，通过知识向量归因（KVA）评估FFN中各知识向量的贡献度，选择低贡献向量进行层均衡的知识植入，在获得强任务性能的同时显著缓解灾难性遗忘。"
+title: >-
+  [论文解读] LoKI: Low-damage Knowledge Implanting of Large Language Models
+description: >-
+  [AAAI 2026][LLM/NLP][参数高效微调] 提出LoKI，一种基于Transformer知识存储机制理解的参数高效微调方法，通过知识向量归因（KVA）评估FFN中各知识向量的贡献度，选择低贡献向量进行层均衡的知识植入，在获得强任务性能的同时显著缓解灾难性遗忘。
 tags:
   - AAAI 2026
+  - LLM/NLP
   - 参数高效微调
   - 灾难性遗忘
   - 知识向量归因

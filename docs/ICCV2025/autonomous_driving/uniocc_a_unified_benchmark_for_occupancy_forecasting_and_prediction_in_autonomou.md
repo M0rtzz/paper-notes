@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniOcc: A Unified Benchmark for Occupancy Forecasting and Prediction in Autonomous Driving 论文解读 | ICCV 2025 | arXiv 2503.24381 | 占据栅格预测 | 提出 UniOcc，首个统一的 2D/3D 占据预测与预报基准，整合 nuScenes、Waymo、CARLA 和 OpenCOOD 四个数据源，引入逐体素流标注和不依赖真值标签的评估指标，通过大规模实验揭示了体素级流信息和跨域训练对占据任务的重要价值。"
+title: >-
+  [论文解读] UniOcc: A Unified Benchmark for Occupancy Forecasting and Prediction in Autonomous Driving
+description: >-
+  [ICCV 2025][自动驾驶][占据栅格预测] 提出 UniOcc，首个统一的 2D/3D 占据预测与预报基准，整合 nuScenes、Waymo、CARLA 和 OpenCOOD 四个数据源，引入逐体素流标注和不依赖真值标签的评估指标，通过大规模实验揭示了体素级流信息和跨域训练对占据任务的重要价值。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 占据栅格预测
   - 占据预测基准
   - 体素流

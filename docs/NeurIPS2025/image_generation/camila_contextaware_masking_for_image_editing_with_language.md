@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】CAMILA: Context-Aware Masking for Image Editing with Language Alignment 论文解读 | 提出 CAMILA，一种上下文感知的图像编辑方法，能够判断用户指令是否在当前图像上下文中可行，仅执行可行的编辑指令而忽略不可执行的指令，在单指令和多指令编辑场景中均优于现有方法。"
+title: >-
+  [论文解读] CAMILA: Context-Aware Masking for Image Editing with Language Alignment
+description: >-
+  [图像生成] 提出 CAMILA，一种上下文感知的图像编辑方法，能够判断用户指令是否在当前图像上下文中可行，仅执行可行的编辑指令而忽略不可执行的指令，在单指令和多指令编辑场景中均优于现有方法。
 tags:
-
+  - 图像生成
 ---
 
 # CAMILA: Context-Aware Masking for Image Editing with Language Alignment

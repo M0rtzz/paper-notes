@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Single-Sample: Reliable Multi-Sample Distillation for Video Understanding 论文解读 | CVPR 2026 | arXiv 2603.11423 | 多样本蒸馏 | 提出 R-MSD 框架，通过每输入采样 K 个教师响应构建教师池，结合任务自适应质量匹配（封闭题质量加权、开放题均匀配对）和在线判别器对抗蒸馏，解决视频 LVLM 黑盒蒸馏中单样本监督不可靠的问题。"
+title: >-
+  [论文解读] Beyond Single-Sample: Reliable Multi-Sample Distillation for Video Understanding
+description: >-
+  [CVPR 2026][视频理解][多样本蒸馏] 提出 R-MSD 框架，通过每输入采样 K 个教师响应构建教师池，结合任务自适应质量匹配（封闭题质量加权、开放题均匀配对）和在线判别器对抗蒸馏，解决视频 LVLM 黑盒蒸馏中单样本监督不可靠的问题。
 tags:
   - CVPR 2026
+  - 视频理解
   - 多样本蒸馏
   - 黑盒蒸馏
   - 视频VLM

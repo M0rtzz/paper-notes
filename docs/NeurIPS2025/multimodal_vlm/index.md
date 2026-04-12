@@ -1,5 +1,12 @@
+---
+title: >-
+  NeurIPS2025 多模态VLM方向 136篇论文解读
+description: >-
+  136篇NeurIPS2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🧩 多模态 VLM
+# 🧩 多模态VLM
 
 **🧠 NeurIPS2025** · 共 **136** 篇
 
@@ -47,11 +54,11 @@
 
 :   提出 Approximate Domain Unlearning (ADU) 新任务，通过 Domain Disentangling Loss (DDL) 和 Instance-wise Prompt Generator (InstaPG) 两个模块，让预训练 VLM 选择性遗忘指定域（如插画、素描）的识别能力，同时保持其他域（如真实照片）的分类精度，在四个多域数据集上大幅超越所有基线。
 
-**[Are Vision Language Models Ready for Clinical Diagnosis? A 3D Medical Benchmark for Tumor-centric Visual Question Answering](are_vision_language_models_ready_for_clinical_diagnosis_a_3d_medical_benchmark_f.md)**
+**[Are Vision Language Models Ready For Clinical Diagnosis A 3D Medical Benchmark F](are_vision_language_models_ready_for_clinical_diagnosis_a_3d_medical_benchmark_f.md)**
 
 :   本文提出 DeepTumorVQA，一个针对腹部CT肿瘤的3D诊断级视觉问答基准，包含9,262个CT体积（370万切片）和395K专家级问题，系统评估了4个先进VLM的临床诊断能力，发现当前模型在测量任务上尚可但在病灶识别和推理上远未达到临床要求。
 
-**[Attention! Your Vision Language Model Could Be Maliciously Manipulated](attention_your_vision_language_model_could_be_maliciously_manipulated.md)**
+**[Attention Your Vision Language Model Could Be Maliciously Manipulated](attention_your_vision_language_model_could_be_maliciously_manipulated.md)**
 
 :   本文提出 Vision-language Model Manipulation Attack (VMA)，一种结合一阶和二阶动量优化及可微变换机制的图像对抗攻击方法，能够精确操控VLM的每个输出token，可用于实施多种攻击（越狱、劫持、隐私泄露、DoS、海绵样本）同时也可用于版权保护水印注入。
 

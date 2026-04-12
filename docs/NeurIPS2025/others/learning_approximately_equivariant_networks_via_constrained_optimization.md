@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning (Approximately) Equivariant Networks via Constrained Optimization 论文解读 | NEURIPS2025 | arXiv 2505.13631 | equivariance | 提出 Adaptive Constrained Equivariance (ACE)，将等变性训练建模为约束优化问题，通过 homotopy 原理从非等变模型逐步过渡到等变模型，自动平衡下游性能与对称性约束，无需手动调参。"
+title: >-
+  [论文解读] Learning (Approximately) Equivariant Networks via Constrained Optimization
+description: >-
+  [NEURIPS2025][equivariance] 提出 Adaptive Constrained Equivariance (ACE)，将等变性训练建模为约束优化问题，通过 homotopy 原理从非等变模型逐步过渡到等变模型，自动平衡下游性能与对称性约束，无需手动调参。
 tags:
   - NEURIPS2025
   - equivariance

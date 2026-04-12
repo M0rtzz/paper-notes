@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RoboTron-Mani: All-in-One Multimodal Large Model for Robotic Manipulation 论文解读 | ICCV 2025 | arXiv 2412.07215 | 机器人操作 | 提出多模态机器人操作大模型 RoboTron-Mani 和综合数据集 RoboData，通过 3D 感知增强（UVFormer + 占据监督）与模态隔离掩码（MIM）实现多数据集联合训练，首次作为通才策略在多个数据集上同时超越专家模型。"
+title: >-
+  [论文解读] RoboTron-Mani: All-in-One Multimodal Large Model for Robotic Manipulation
+description: >-
+  [ICCV 2025][3D视觉][机器人操作] 提出多模态机器人操作大模型 RoboTron-Mani 和综合数据集 RoboData，通过 3D 感知增强（UVFormer + 占据监督）与模态隔离掩码（MIM）实现多数据集联合训练，首次作为通才策略在多个数据集上同时超越专家模型。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 机器人操作
   - 多模态大模型
   - 3D感知

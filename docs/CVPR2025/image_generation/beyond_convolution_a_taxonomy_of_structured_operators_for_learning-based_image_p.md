@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Convolution: A Taxonomy of Structured Operators for Learning-Based Image Processing 论文解读 | CVPR 2025 | arXiv 2603.12067 | 卷积替代算子 | 系统性地将学习式图像处理中卷积的替代/扩展算子组织为五大家族（分解型、自适应加权型、基自适应型、积分/核型和注意力型），并从线性、局部性、等变性、计算成本和任务适用性等多个维度进行比较分析。"
+title: >-
+  [论文解读] Beyond Convolution: A Taxonomy of Structured Operators for Learning-Based Image Processing
+description: >-
+  [CVPR 2025][图像生成][卷积替代算子] 系统性地将学习式图像处理中卷积的替代/扩展算子组织为五大家族（分解型、自适应加权型、基自适应型、积分/核型和注意力型），并从线性、局部性、等变性、计算成本和任务适用性等多个维度进行比较分析。
 tags:
   - CVPR 2025
+  - 图像生成
   - 卷积替代算子
   - SVD去噪
   - 自适应权重卷积

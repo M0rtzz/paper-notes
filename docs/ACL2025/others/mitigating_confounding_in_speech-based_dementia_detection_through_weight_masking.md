@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Mitigating Confounding in Speech-Based Dementia Detection through Weight Masking 论文解读 | ACL 2025 | arXiv 2506.05610 | 痴呆检测 | 本文针对基于语音转录文本的痴呆检测任务中的**性别混淆偏差**问题，提出两种权重掩码方法（Extended Confounding Filter 和 Dual Filter），通过识别并消除 Transformer 网络中与性别关联的权重来实现去混淆，在保持痴呆检测性能的同时显著降低性别间的公平性差距。"
+title: >-
+  [论文解读] Mitigating Confounding in Speech-Based Dementia Detection through Weight Masking
+description: >-
+  [ACL 2025][痴呆检测] 本文针对基于语音转录文本的痴呆检测任务中的**性别混淆偏差**问题，提出两种权重掩码方法（Extended Confounding Filter 和 Dual Filter），通过识别并消除 Transformer 网络中与性别关联的权重来实现去混淆，在保持痴呆检测性能的同时显著降低性别间的公平性差距。
 tags:
   - ACL 2025
   - 痴呆检测

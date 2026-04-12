@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking 论文解读 | CVPR 2026 | arXiv 2603.12749 | image watermarking | 提出SLICE框架，将图像语义解耦为四个因子（主体/环境/动作/细节），各自锚定到扩散模型初始噪声的不同空间分区，实现细粒度语义感知水印——不仅能检测篡改，还能精确定位被篡改的语义因子，且完全无需训练。"
+title: >-
+  [论文解读] SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking
+description: >-
+  [CVPR 2026][目标检测][image watermarking] 提出SLICE框架，将图像语义解耦为四个因子（主体/环境/动作/细节），各自锚定到扩散模型初始噪声的不同空间分区，实现细粒度语义感知水印——不仅能检测篡改，还能精确定位被篡改的语义因子，且完全无需训练。
 tags:
   - CVPR 2026
+  - 目标检测
   - image watermarking
   - 扩散模型
   - semantic-aware

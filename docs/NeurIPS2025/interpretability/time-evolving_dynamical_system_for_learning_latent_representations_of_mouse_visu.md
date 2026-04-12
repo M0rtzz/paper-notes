@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Time-Evolving Dynamical System for Learning Latent Representations of Mouse Visual Cortex 论文解读 | NeurIPS 2025 | arXiv 2408.07908 | 潜变量模型 | 提出TE-ViDS，一种时序潜变量模型，将视觉神经活动分解为与视觉刺激相关的外部表征和反映内部状态的内部表征，通过时间演化结构和对比学习实现最优的自然场景/视频解码性能。"
+title: >-
+  [论文解读] Time-Evolving Dynamical System for Learning Latent Representations of Mouse Visual Cortex
+description: >-
+  [NeurIPS 2025][潜变量模型] 提出TE-ViDS，一种时序潜变量模型，将视觉神经活动分解为与视觉刺激相关的外部表征和反映内部状态的内部表征，通过时间演化结构和对比学习实现最优的自然场景/视频解码性能。
 tags:
   - NeurIPS 2025
   - 潜变量模型

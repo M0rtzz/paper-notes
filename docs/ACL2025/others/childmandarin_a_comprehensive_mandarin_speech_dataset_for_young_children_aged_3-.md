@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ChildMandarin: A Comprehensive Mandarin Speech Dataset for Young Children Aged 3-5 论文解读 | 提出 ChildMandarin，一个面向 3-5 岁幼儿的普通话语音数据集，包含 397 名说话人、41.25 小时语音、覆盖中国 22 个省级行政区，并在 ASR 和说话人验证任务上提供了全面的基线评估。"
+title: >-
+  [论文解读] ChildMandarin: A Comprehensive Mandarin Speech Dataset for Young Children Aged 3-5
+description: >-
+   提出 ChildMandarin，一个面向 3-5 岁幼儿的普通话语音数据集，包含 397 名说话人、41.25 小时语音、覆盖中国 22 个省级行政区，并在 ASR 和说话人验证任务上提供了全面的基线评估。
 tags:
 
 ---

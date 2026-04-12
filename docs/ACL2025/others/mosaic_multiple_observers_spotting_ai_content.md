@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MOSAIC: Multiple Observers Spotting AI Content 论文解读 | ACL 2025 (Findings) | arXiv 2409.07615 | 文本检测 AI-generated text detection | 基于信息论中的通用压缩原理，提出 MOSAIC——多 LLM 集成的 AI 生成文本检测方法，通过 Blahut-Arimoto 算法为多个 detector LLM 计算最优组合权重，构建混合分布作为观察者，比较文本的实际 surprisal 与混合模型的期望交叉熵差异来判断是否为 AI 生成，在多个域/语言/生成器上鲁棒优于单模型和双模型（如 Binoculars）方法。"
+title: >-
+  [论文解读] MOSAIC: Multiple Observers Spotting AI Content
+description: >-
+  [ACL 2025 (Findings)][文本检测] 基于信息论中的通用压缩原理，提出 MOSAIC——多 LLM 集成的 AI 生成文本检测方法，通过 Blahut-Arimoto 算法为多个 detector LLM 计算最优组合权重，构建混合分布作为观察者，比较文本的实际 surprisal 与混合模型的期望交叉熵差异来判断是否为 AI 生成，在多个域/语言/生成器上鲁棒优于单模型和双模型（如 Binoculars）方法。
 tags:
   - ACL 2025 (Findings)
   - 文本检测

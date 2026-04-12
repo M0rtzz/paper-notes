@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics 论文解读 | NeurIPS 2025 | arXiv 2505.19350 | molecular dynamics | 提出 FlashMD，基于 GNN 直接预测分子动力学轨迹的位置与动量跨步演化，实现比传统 MD 积分器大 1–2 个数量级的时间步长跨越，并在架构中融入哈密顿动力学约束，推广到任意热力学系综和通用化学体系。"
+title: >-
+  [论文解读] FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics
+description: >-
+  [NeurIPS 2025][molecular dynamics] 提出 FlashMD，基于 GNN 直接预测分子动力学轨迹的位置与动量跨步演化，实现比传统 MD 积分器大 1–2 个数量级的时间步长跨越，并在架构中融入哈密顿动力学约束，推广到任意热力学系综和通用化学体系。
 tags:
   - NeurIPS 2025
   - molecular dynamics

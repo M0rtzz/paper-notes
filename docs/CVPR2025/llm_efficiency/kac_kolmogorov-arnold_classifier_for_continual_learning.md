@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】KAC: Kolmogorov-Arnold Classifier for Continual Learning 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Continual learning requires models to train continuously across consecutive tasks without forgetting. Most existing methods utilize linear classifiers, which struggle to maintain a stable classification space while learning new tasks. Inspired by the success of Kolmogorov-Arnold Networks (KAN) in pr"
+title: >-
+  [论文解读] KAC: Kolmogorov-Arnold Classifier for Continual Learning
+description: >-
+  [CVPR 2025][LLM效率][待补充] > 基于摘要：Continual learning requires models to train continuously across consecutive tasks without forgetting. Most existing methods utilize linear classifiers, which struggle to maintain a stable classification space while learning new tasks. Inspired by the success of Kolmogorov-Arnold Networks (KAN) in pr
 tags:
   - CVPR 2025
+  - LLM效率
   - 待补充
 ---
 

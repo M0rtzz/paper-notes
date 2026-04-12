@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SlideTailor: Personalized Presentation Slide Generation for Scientific Papers 论文解读 | AAAI 2026 | arXiv 2512.20292 | slide generation | 提出 SlideTailor，一个受人类行为启发的 agentic 框架，通过从用户提供的论文-幻灯片示例对和 .pptx 模板中蒸馏隐式偏好，渐进式生成个性化、可编辑的学术论文幻灯片，并引入 chain-of-speech 机制提升内容与口头叙述的对齐。"
+title: >-
+  [论文解读] SlideTailor: Personalized Presentation Slide Generation for Scientific Papers
+description: >-
+  [AAAI 2026][slide generation] 提出 SlideTailor，一个受人类行为启发的 agentic 框架，通过从用户提供的论文-幻灯片示例对和 .pptx 模板中蒸馏隐式偏好，渐进式生成个性化、可编辑的学术论文幻灯片，并引入 chain-of-speech 机制提升内容与口头叙述的对齐。
 tags:
   - AAAI 2026
   - slide generation

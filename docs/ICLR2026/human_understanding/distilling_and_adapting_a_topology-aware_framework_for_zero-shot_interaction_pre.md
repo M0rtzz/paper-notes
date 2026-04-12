@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Distilling and Adapting: A Topology-Aware Framework for Zero-Shot Interaction Prediction in Multiplex Biological Networks 论文解读 | ICLR 2026 | arXiv 2603.06618 | 多重生物网络 | 提出CAZI-MBN框架，通过融合领域特定LLM序列嵌入、拓扑感知图分词器、上下文感知跨层注意力和教师-学生蒸馏，实现多重生物网络中未见实体的零样本交互预测，在5个基准数据集上AUROC较最优baseline提升3.1-20.4%。"
+title: >-
+  [论文解读] Distilling and Adapting: A Topology-Aware Framework for Zero-Shot Interaction Prediction in Multiplex Biological Networks
+description: >-
+  [ICLR 2026][人体理解][多重生物网络] 提出CAZI-MBN框架，通过融合领域特定LLM序列嵌入、拓扑感知图分词器、上下文感知跨层注意力和教师-学生蒸馏，实现多重生物网络中未见实体的零样本交互预测，在5个基准数据集上AUROC较最优baseline提升3.1-20.4%。
 tags:
   - ICLR 2026
+  - 人体理解
   - 多重生物网络
   - 零样本预测
   - 知识蒸馏

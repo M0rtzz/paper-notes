@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Concertormer for Image Deblurring and Beyond 论文解读 | ICCV 2025 | arXiv 2404.06135 | 图像去模糊 | 提出 Concertormer，通过将自注意力分解为全局 Concertino 和局部 Ripieno 两个分量，同时引入跨维度通信模块和门控深度卷积 MLP，实现了线性复杂度下的全局-局部特征建模，在去模糊及其他图像复原任务上取得 SOTA 性能。"
+title: >-
+  [论文解读] Efficient Concertormer for Image Deblurring and Beyond
+description: >-
+  [ICCV 2025][图像恢复][图像去模糊] 提出 Concertormer，通过将自注意力分解为全局 Concertino 和局部 Ripieno 两个分量，同时引入跨维度通信模块和门控深度卷积 MLP，实现了线性复杂度下的全局-局部特征建模，在去模糊及其他图像复原任务上取得 SOTA 性能。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 图像去模糊
   - 自注意力
   - 线性复杂度

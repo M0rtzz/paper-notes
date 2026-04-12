@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GKGNet: Group K-Nearest Neighbor Based Graph Convolutional Network for Multi-Label Image Recognition 论文解读 | ECCV2024 | arXiv 2308.14378 | multi-label image recognition | 提出首个全图卷积多标签识别模型 GKGNet，通过 Group KNN 机制动态构建标签与图像区域间的图结构，在 MS-COCO 和 VOC2007 上以更低计算量取得 SOTA。"
+title: >-
+  [论文解读] GKGNet: Group K-Nearest Neighbor Based Graph Convolutional Network for Multi-Label Image Recognition
+description: >-
+  [ECCV2024][图学习][multi-label image recognition] 提出首个全图卷积多标签识别模型 GKGNet，通过 Group KNN 机制动态构建标签与图像区域间的图结构，在 MS-COCO 和 VOC2007 上以更低计算量取得 SOTA。
 tags:
   - ECCV2024
+  - 图学习
   - multi-label image recognition
   - graph convolutional network
   - group KNN

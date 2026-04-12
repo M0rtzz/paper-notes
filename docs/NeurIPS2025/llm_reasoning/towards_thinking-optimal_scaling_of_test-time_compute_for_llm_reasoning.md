@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning 论文解读 | NeurIPS 2025 | arXiv 2502.18080 | test-time compute | 揭示了过度延长 CoT 长度会损害 LLM 推理性能，并提出 Thinking-Optimal Scaling (TOPS) 策略，让模型为每道题选择最短正确响应进行自我提升，在效果和效率上同时优于现有蒸馏方法。"
+title: >-
+  [论文解读] Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning
+description: >-
+  [NeurIPS 2025][LLM推理][test-time compute] 揭示了过度延长 CoT 长度会损害 LLM 推理性能，并提出 Thinking-Optimal Scaling (TOPS) 策略，让模型为每道题选择最短正确响应进行自我提升，在效果和效率上同时优于现有蒸馏方法。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - test-time compute
   - Chain-of-Thought
   - reasoning scaling

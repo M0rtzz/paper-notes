@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LoRA-FAIR: Federated LoRA Fine-Tuning with Aggregation and Initialization Refinement 论文解读 | ICCV 2025 | arXiv 2411.14961 | 联邦学习 federated learning | 本文提出LoRA-FAIR方法，通过在服务器端引入残差校正项 ΔB 来同时解决联邦学习+LoRA微调中的服务器端聚合偏差和客户端初始化滞后两大挑战，在ViT和MLP-Mixer模型上一致超越现有联邦微调方法，且不增加通信开销。"
+title: >-
+  [论文解读] LoRA-FAIR: Federated LoRA Fine-Tuning with Aggregation and Initialization Refinement
+description: >-
+  [ICCV 2025][AI安全][联邦学习] 本文提出LoRA-FAIR方法，通过在服务器端引入残差校正项 $\Delta\mathbf{B}$ 来同时解决联邦学习+LoRA微调中的服务器端聚合偏差和客户端初始化滞后两大挑战，在ViT和MLP-Mixer模型上一致超越现有联邦微调方法，且不增加通信开销。
 tags:
   - ICCV 2025
+  - AI安全
   - 联邦学习
   - LoRA
   - parameter-efficient fine-tuning

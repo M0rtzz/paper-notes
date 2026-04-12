@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cross-Scale Pansharpening via ScaleFormer and the PanScale Benchmark 论文解读 | CVPR 2026 | arXiv 2603.00543 | 遥感图像融合 | 提出首个跨尺度全色锐化数据集PanScale和评测基准PanScale-Bench，以及ScaleFormer框架——将分辨率变化重新解释为序列长度变化，通过Scale-Aware Patchify分桶采样+解耦空间-序列建模+RoPE实现跨尺度泛化。"
+title: >-
+  [论文解读] Cross-Scale Pansharpening via ScaleFormer and the PanScale Benchmark
+description: >-
+  [CVPR 2026][遥感图像融合] 提出首个跨尺度全色锐化数据集PanScale和评测基准PanScale-Bench，以及ScaleFormer框架——将分辨率变化重新解释为序列长度变化，通过Scale-Aware Patchify分桶采样+解耦空间-序列建模+RoPE实现跨尺度泛化。
 tags:
   - CVPR 2026
   - 遥感图像融合

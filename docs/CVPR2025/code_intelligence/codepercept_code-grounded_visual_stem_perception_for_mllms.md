@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CodePercept: Code-Grounded Visual STEM Perception for MLLMs 论文解读 | CVPR 2025 | arXiv 2603.10757 | STEM感知 | 通过 scaling 分析发现 STEM 视觉推理的真正瓶颈是感知而非推理，提出用可执行 Python 代码作为精确感知媒介——构建 ICC-1M 数据集（Image-Caption-Code 三元组）训练模型，在 STEM 感知基准上 CodePercept-8B 比 Qwen3-VL-8B 提升 +3.0%-12.3%。"
+title: >-
+  [论文解读] CodePercept: Code-Grounded Visual STEM Perception for MLLMs
+description: >-
+  [CVPR 2025][STEM感知] 通过 scaling 分析发现 STEM 视觉推理的真正瓶颈是感知而非推理，提出用可执行 Python 代码作为精确感知媒介——构建 ICC-1M 数据集（Image-Caption-Code 三元组）训练模型，在 STEM 感知基准上 CodePercept-8B 比 Qwen3-VL-8B 提升 +3.0%-12.3%。
 tags:
   - CVPR 2025
   - STEM感知

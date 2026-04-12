@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】\"Jutters\" 论文解读 | NeurIPS 2025 (Creative AI Track) | arXiv 2601.11532 | AI-generated content | 通过荷兰传统\"jutters\"（海岸拾荒者）的隐喻，构建了一个融合真实海滩碎片与AI生成图像/视频的沉浸式装置艺术，引导参观者以拾荒者心态反思如何对待AI生成内容。"
+title: >-
+  [论文解读] "Jutters"
+description: >-
+  [NeurIPS 2025 (Creative AI Track)][AI-generated content] 通过荷兰传统"jutters"（海岸拾荒者）的隐喻，构建了一个融合真实海滩碎片与AI生成图像/视频的沉浸式装置艺术，引导参观者以拾荒者心态反思如何对待AI生成内容。
 tags:
   - NeurIPS 2025 (Creative AI Track)
   - AI-generated content

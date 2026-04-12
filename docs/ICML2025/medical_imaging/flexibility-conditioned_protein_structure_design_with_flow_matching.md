@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Flexibility-conditioned Protein Structure Design with Flow Matching 论文解读 | ICML 2025 | arXiv 2508.18211 | 蛋白质结构生成 | 提出 BackFlip（从骨架预测残基级柔性）和 FliPS（以柔性 profile 为条件的 SE(3)-等变 flow matching 模型），首次实现根据目标柔性分布生成具有期望动态特性的蛋白质骨架结构，并通过 300 ns 分子动力学模拟验证。"
+title: >-
+  [论文解读] Flexibility-conditioned Protein Structure Design with Flow Matching
+description: >-
+  [ICML 2025][医学图像][蛋白质结构生成] 提出 BackFlip（从骨架预测残基级柔性）和 FliPS（以柔性 profile 为条件的 SE(3)-等变 flow matching 模型），首次实现根据目标柔性分布生成具有期望动态特性的蛋白质骨架结构，并通过 300 ns 分子动力学模拟验证。
 tags:
   - ICML 2025
+  - 医学图像
   - 蛋白质结构生成
   - 柔性条件化
   - Flow Matching

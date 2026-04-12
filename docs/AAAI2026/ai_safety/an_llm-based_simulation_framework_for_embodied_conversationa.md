@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling 论文解读 | AAAI 2026 | arXiv 2410.22041 | 具身对话智能体 | 提出 ECAs 框架，基于认知行为治疗(CBT)等心理学理论，利用 LLM 将真实咨询案例扩展为具身认知记忆空间，模拟心理咨询中来访者的完整认知过程，生成高保真度的咨询对话数据，在专家评估和自动评估中均显著优于基线。"
+title: >-
+  [论文解读] An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling
+description: >-
+  [AAAI 2026][AI安全][具身对话智能体] 提出 ECAs 框架，基于认知行为治疗(CBT)等心理学理论，利用 LLM 将真实咨询案例扩展为具身认知记忆空间，模拟心理咨询中来访者的完整认知过程，生成高保真度的咨询对话数据，在专家评估和自动评估中均显著优于基线。
 tags:
   - AAAI 2026
+  - AI安全
   - 具身对话智能体
   - 心理咨询模拟
   - 认知行为治疗

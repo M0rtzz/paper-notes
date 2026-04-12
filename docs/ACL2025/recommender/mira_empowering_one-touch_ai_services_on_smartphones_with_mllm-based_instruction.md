@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MIRA: Empowering One-Touch AI Services on Smartphones with MLLM-based Instruction Recommendation 论文解读 | ACL 2025 | arXiv 2509.13773 | 多模态推荐 | 提出 MIRA 框架，通过结构化推理、模板增强推理和前缀树约束解码，让用户在智能手机上长按文本或图片即可获得上下文相关的 AI 服务指令推荐，在 7B 模型上超越 GPT-4V（F1: 0.9121 vs 0.879），token 使用量仅为 1/7。"
+title: >-
+  [论文解读] MIRA: Empowering One-Touch AI Services on Smartphones with MLLM-based Instruction Recommendation
+description: >-
+  [ACL 2025][多模态推荐] 提出 MIRA 框架，通过结构化推理、模板增强推理和前缀树约束解码，让用户在智能手机上长按文本或图片即可获得上下文相关的 AI 服务指令推荐，在 7B 模型上超越 GPT-4V（F1: 0.9121 vs 0.879），token 使用量仅为 1/7。
 tags:
   - ACL 2025
   - 多模态推荐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models 论文解读 | ICML2025 | arXiv 2410.13080 | 知识图谱问答 | 提出 Graph-constrained Reasoning (GCR)，通过将知识图谱编码为 KG-Trie 并嵌入 LLM 解码过程，实现零幻觉的忠实推理，在 KGQA 基准上达到 SOTA 且具备零样本跨图谱迁移能力。"
+title: >-
+  [论文解读] Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models
+description: >-
+  [ICML2025][图学习][知识图谱问答] 提出 Graph-constrained Reasoning (GCR)，通过将知识图谱编码为 KG-Trie 并嵌入 LLM 解码过程，实现零幻觉的忠实推理，在 KGQA 基准上达到 SOTA 且具备零样本跨图谱迁移能力。
 tags:
   - ICML2025
+  - 图学习
   - 知识图谱问答
   - LLM推理
   - 受限解码

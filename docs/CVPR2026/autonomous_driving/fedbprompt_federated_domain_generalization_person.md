@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FedBPrompt: Federated Domain Generalization Person Re-Identification via Body Distribution Aware Visual Prompts 论文解读 | CVPR 2026 | arXiv 2603.12912 | 联邦学习 | 提出 FedBPrompt，将可学习视觉提示分为身体部件对齐提示（受限局部注意力处理视角错位）和全身整体提示（抑制背景干扰），并设计仅传输提示参数（~0.46M vs. 全模型~86M）的联邦微调策略，在 FedDG-ReID 上取得一致性提升。"
+title: >-
+  [论文解读] FedBPrompt: Federated Domain Generalization Person Re-Identification via Body Distribution Aware Visual Prompts
+description: >-
+  [CVPR 2026][自动驾驶][联邦学习] 提出 FedBPrompt，将可学习视觉提示分为身体部件对齐提示（受限局部注意力处理视角错位）和全身整体提示（抑制背景干扰），并设计仅传输提示参数（~0.46M vs. 全模型~86M）的联邦微调策略，在 FedDG-ReID 上取得一致性提升。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 联邦学习
   - 行人重识别
   - 视觉提示

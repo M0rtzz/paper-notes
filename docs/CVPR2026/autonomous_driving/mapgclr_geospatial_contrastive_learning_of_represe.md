@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction 论文解读 | CVPR 2026 | arXiv 2603.10688 | HD map construction | 提出 MapGCLR, 通过利用多次行驶轨迹在地理空间上的自然重叠作为对比学习信号, 预训练 BEV 特征表示, 在 Argoverse 2 上以仅 5% 标注数据实现 +42% 的相对 mAP 提升."
+title: >-
+  [论文解读] MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction
+description: >-
+  [CVPR 2026][自动驾驶][HD map construction] 提出 MapGCLR, 通过利用多次行驶轨迹在地理空间上的自然重叠作为对比学习信号, 预训练 BEV 特征表示, 在 Argoverse 2 上以仅 5% 标注数据实现 +42% 的相对 mAP 提升.
 tags:
   - CVPR 2026
+  - 自动驾驶
   - HD map construction
   - 对比学习
   - BEV features

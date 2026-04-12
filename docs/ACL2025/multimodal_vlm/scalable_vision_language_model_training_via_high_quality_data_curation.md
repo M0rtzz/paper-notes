@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Scalable Vision Language Model Training via High Quality Data Curation 论文解读 | ACL 2025 | arXiv 2501.05952 | 视觉语言模型 | 提出 SAIL-VL 系列开源视觉语言模型（2B/8B），核心贡献在于：构建了3亿规模最高质量的 SAIL-Caption 数据集，首次揭示了VLM预训练中的数据量对数缩放定律（655B token实验），并通过课程式三阶段SFT将缩放曲线从对数提升至近线性，在18个基准上达到SOTA。"
+title: >-
+  [论文解读] Scalable Vision Language Model Training via High Quality Data Curation
+description: >-
+  [ACL 2025][多模态][视觉语言模型] 提出 SAIL-VL 系列开源视觉语言模型（2B/8B），核心贡献在于：构建了3亿规模最高质量的 SAIL-Caption 数据集，首次揭示了VLM预训练中的数据量对数缩放定律（655B token实验），并通过课程式三阶段SFT将缩放曲线从对数提升至近线性，在18个基准上达到SOTA。
 tags:
   - ACL 2025
+  - 多模态
   - 视觉语言模型
   - 数据质量
   - 数据规模定律

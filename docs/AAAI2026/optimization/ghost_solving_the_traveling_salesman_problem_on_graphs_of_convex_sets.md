@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GHOST: Solving the Traveling Salesman Problem on Graphs of Convex Sets 论文解读 | AAAI 2026 | arXiv 2511.06471 | 旅行商问题 | 提出 GHOST 框架，一种层次化最优搜索算法，用于求解凸集图（GCS）上的旅行商问题。通过结合组合路径搜索与凸轨迹优化，并利用新颖的抽象路径展开算法计算可容许下界指导最佳优先搜索，GHOST 在保证最优性的同时比统一混合整数凸规划基线快数个数量级。"
+title: >-
+  [论文解读] GHOST: Solving the Traveling Salesman Problem on Graphs of Convex Sets
+description: >-
+  [AAAI 2026][优化][旅行商问题] 提出 GHOST 框架，一种层次化最优搜索算法，用于求解凸集图（GCS）上的旅行商问题。通过结合组合路径搜索与凸轨迹优化，并利用新颖的抽象路径展开算法计算可容许下界指导最佳优先搜索，GHOST 在保证最优性的同时比统一混合整数凸规划基线快数个数量级。
 tags:
   - AAAI 2026
+  - 优化
   - 旅行商问题
   - 凸集图
   - 轨迹优化

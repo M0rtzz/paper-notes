@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】In the Eye of MLLM: Benchmarking Egocentric Video Intent Understanding with Gaze-Guided Prompting 论文解读 | NEURIPS2025 | arXiv 2509.07447 | egocentric video | 提出 EgoGazeVQA——首个利用注视（gaze）信号评估 MLLM 对第一人称视频中用户意图理解能力的基准，并设计三种 gaze-guided prompting 策略显著提升模型表现。"
+title: >-
+  [论文解读] In the Eye of MLLM: Benchmarking Egocentric Video Intent Understanding with Gaze-Guided Prompting
+description: >-
+  [NEURIPS2025][视频理解][egocentric video] 提出 EgoGazeVQA——首个利用注视（gaze）信号评估 MLLM 对第一人称视频中用户意图理解能力的基准，并设计三种 gaze-guided prompting 策略显著提升模型表现。
 tags:
   - NEURIPS2025
+  - 视频理解
   - egocentric video
   - gaze
   - video QA

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OS Agents: A Survey on MLLM-based Agents for General Computing Devices Use 论文解读 | ACL 2025 | arXiv 2508.04482 | OS Agents | 首篇全面综述 MLLM 驱动的操作系统代理（OS Agents），系统梳理其基础组件、构建方法、评估基准和未来方向。"
+title: >-
+  [论文解读] OS Agents: A Survey on MLLM-based Agents for General Computing Devices Use
+description: >-
+  [ACL 2025][LLM Agent][OS Agents] 首篇全面综述 MLLM 驱动的操作系统代理（OS Agents），系统梳理其基础组件、构建方法、评估基准和未来方向。
 tags:
   - ACL 2025
+  - LLM Agent
   - OS Agents
   - GUI Grounding
   - MLLM

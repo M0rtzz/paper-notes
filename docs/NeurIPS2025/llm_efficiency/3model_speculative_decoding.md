@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】3-Model Speculative Decoding (PyramidSD) 论文解读 | NeurIPS 2025 | arXiv 2510.12966 | Speculative Decoding | 在标准的draft-target两模型推测解码的中间插入一个\"qualifier\"模型，构成三层金字塔式解码架构（PyramidSD），利用模型家族天然的熵梯度来分级过滤token，以模糊接受准则放宽匹配阈值，实现最高1.91×的速度提升（在RTX 4090上达到124 tok/s）。"
+title: >-
+  [论文解读] 3-Model Speculative Decoding (PyramidSD)
+description: >-
+  [NeurIPS 2025][LLM效率][Speculative Decoding] 在标准的draft-target两模型推测解码的中间插入一个"qualifier"模型，构成三层金字塔式解码架构（PyramidSD），利用模型家族天然的熵梯度来分级过滤token，以模糊接受准则放宽匹配阈值，实现最高1.91×的速度提升（在RTX 4090上达到124 tok/s）。
 tags:
   - NeurIPS 2025
+  - LLM效率
   - Speculative Decoding
   - 推测解码
   - 多模型级联

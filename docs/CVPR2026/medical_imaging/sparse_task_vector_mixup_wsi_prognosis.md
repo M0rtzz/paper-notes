@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】STEPH: Sparse Task Vector Mixup with Hypernetworks for Efficient Knowledge Transfer in WSI Prognosis 论文解读 | CVPR 2026 | arXiv 2603.10526 | 全切片图像 | STEPH 将跨癌种预后模型的任务向量进行超网络驱动的混合（TVM）+ 稀疏聚合，在单一模型内完成知识迁移，13 个 TCGA 数据集上 C-Index 平均 0.6949（+5.14% vs 癌种特定学习，+2.01% vs ROUPKT），且推理开销远低于表示迁移方案。"
+title: >-
+  [论文解读] STEPH: Sparse Task Vector Mixup with Hypernetworks for Efficient Knowledge Transfer in WSI Prognosis
+description: >-
+  [CVPR 2026][医学图像][全切片图像] STEPH 将跨癌种预后模型的任务向量进行超网络驱动的混合（TVM）+ 稀疏聚合，在单一模型内完成知识迁移，13 个 TCGA 数据集上 C-Index 平均 0.6949（+5.14% vs 癌种特定学习，+2.01% vs ROUPKT），且推理开销远低于表示迁移方案。
 tags:
   - CVPR 2026
+  - 医学图像
   - 全切片图像
   - 生存分析
   - 跨癌种知识迁移

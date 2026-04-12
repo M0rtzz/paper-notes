@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeCo-SRT: Geometry-aware Continual Adaptation for Robotic Cross-Task Sim-to-Real Transfer 论文解读 | CVPR 2026 | arXiv 2602.20871 | Sim-to-Real迁移 | GeCo-SRT提出持续跨任务Sim-to-Real迁移范式，利用局部几何特征的域不变性和任务不变性，通过几何感知MoE模块提取可复用的几何知识并用专家引导的优先经验回放防遗忘，在4个操作任务上比基线平均提升52%成功率且仅需1/6数据。"
+title: >-
+  [论文解读] GeCo-SRT: Geometry-aware Continual Adaptation for Robotic Cross-Task Sim-to-Real Transfer
+description: >-
+  [CVPR 2026][机器人][Sim-to-Real迁移] GeCo-SRT提出持续跨任务Sim-to-Real迁移范式，利用局部几何特征的域不变性和任务不变性，通过几何感知MoE模块提取可复用的几何知识并用专家引导的优先经验回放防遗忘，在4个操作任务上比基线平均提升52%成功率且仅需1/6数据。
 tags:
   - CVPR 2026
+  - 机器人
   - Sim-to-Real迁移
   - 持续学习
   - 几何感知MoE

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Distribution-Based Feature Attribution for Explaining the Predictions of Any Classifier 论文解读 | AAAI 2026 (Oral) | arXiv 2511.09332 | 特征归因 | 提出首个基于数据分布的特征归因方法 DFAX，通过比较目标实例在目标类与非目标类条件概率之差来量化特征重要性，首次给出特征归因的形式化定义，在10个数据集上显著优于SHAP/LIME等基线且速度快数个数量级。"
+title: >-
+  [论文解读] Distribution-Based Feature Attribution for Explaining the Predictions of Any Classifier
+description: >-
+  [AAAI 2026 (Oral)][特征归因] 提出首个基于数据分布的特征归因方法 DFAX，通过比较目标实例在目标类与非目标类条件概率之差来量化特征重要性，首次给出特征归因的形式化定义，在10个数据集上显著优于SHAP/LIME等基线且速度快数个数量级。
 tags:
   - AAAI 2026 (Oral)
   - 特征归因

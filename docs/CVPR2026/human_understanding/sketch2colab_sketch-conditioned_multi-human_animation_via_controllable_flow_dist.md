@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sketch2Colab: Sketch-Conditioned Multi-Human Animation via Controllable Flow Distillation 论文解读 | CVPR 2026 | arXiv 2603.02190 | 多人动作生成 | 提出 Sketch2Colab，通过将草图驱动的扩散先验蒸馏为整流流学生网络，结合能量引导和连续时间马尔可夫链（CTMC）离散事件规划，从故事板草图生成协调的多人-物体交互 3D 动作，在 CORE4D 和 InterHuman 上实现 SOTA 约束遵从度和感知质量。"
+title: >-
+  [论文解读] Sketch2Colab: Sketch-Conditioned Multi-Human Animation via Controllable Flow Distillation
+description: >-
+  [CVPR 2026][人体理解][多人动作生成] 提出 Sketch2Colab，通过将草图驱动的扩散先验蒸馏为整流流学生网络，结合能量引导和连续时间马尔可夫链（CTMC）离散事件规划，从故事板草图生成协调的多人-物体交互 3D 动作，在 CORE4D 和 InterHuman 上实现 SOTA 约束遵从度和感知质量。
 tags:
   - CVPR 2026
+  - 人体理解
   - 多人动作生成
   - 草图引导
   - 整流流蒸馏

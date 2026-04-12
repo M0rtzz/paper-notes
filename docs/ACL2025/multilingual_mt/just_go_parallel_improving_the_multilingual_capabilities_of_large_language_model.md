@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Just Go Parallel: Improving the Multilingual Capabilities of Large Language Models 论文解读 | ACL 2025 | arXiv 2506.13044 | parallel data | 系统研究在 decoder-only LLM 训练中加入平行数据对多语言能力的影响，发现将平行数据放在训练末期效果最好，且平行数据显著优于等量的单语数据；LLM 无法自动泛化到训练方向的反向翻译。"
+title: >-
+  [论文解读] Just Go Parallel: Improving the Multilingual Capabilities of Large Language Models
+description: >-
+  [ACL 2025][parallel data] 系统研究在 decoder-only LLM 训练中加入平行数据对多语言能力的影响，发现将平行数据放在训练末期效果最好，且平行数据显著优于等量的单语数据；LLM 无法自动泛化到训练方向的反向翻译。
 tags:
   - ACL 2025
   - parallel data

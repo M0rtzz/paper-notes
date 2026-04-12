@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Verifying Chain-of-Thought Reasoning via Its Computational Graph 论文解读 | ICLR2026 | arXiv 2510.09312 | mechanistic interpretability | 提出CRV白盒方法，通过分析LLM推理步骤的归因图（计算图）结构特征来验证CoT正确性，在Arithmetic任务上AUROC达92.47，远超黑盒(76.45)和灰盒方法，并通过因果干预成功纠正错误推理。"
+title: >-
+  [论文解读] Verifying Chain-of-Thought Reasoning via Its Computational Graph
+description: >-
+  [ICLR2026][LLM推理][mechanistic interpretability] 提出CRV白盒方法，通过分析LLM推理步骤的归因图（计算图）结构特征来验证CoT正确性，在Arithmetic任务上AUROC达92.47，远超黑盒(76.45)和灰盒方法，并通过因果干预成功纠正错误推理。
 tags:
   - ICLR2026
+  - LLM推理
   - mechanistic interpretability
   - CoT verification
   - attribution graph

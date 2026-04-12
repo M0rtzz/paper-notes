@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】PerSphere: A Comprehensive Framework for Multi-Faceted Perspective Retrieval and Summarization 论文解读 | > 提出 PerSphere 基准数据集和 MURS（Multi-faceted perspective retrieval and summarization）任务，旨在从文档集中检索并全面总结争议性问题的多面向观点，并提出分层多智能体总结系统 HierSphere 来缓解长上下文和观点提取的挑战。"
+title: >-
+  [论文解读] PerSphere: A Comprehensive Framework for Multi-Faceted Perspective Retrieval and Summarization
+description: >-
+  [文本生成] > 提出 PerSphere 基准数据集和 MURS（Multi-faceted perspective retrieval and summarization）任务，旨在从文档集中检索并全面总结争议性问题的多面向观点，并提出分层多智能体总结系统 HierSphere 来缓解长上下文和观点提取的挑战。
 tags:
-
+  - 文本生成
 ---
 
 # PerSphere: A Comprehensive Framework for Multi-Faceted Perspective Retrieval and Summarization

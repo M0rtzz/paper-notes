@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】G2D: Boosting Multimodal Learning with Gradient-Guided Distillation 论文解读 | ICCV 2025 | arXiv 2506.21514 | modality imbalance | 提出G2D（Gradient-Guided Distillation），通过融合单模态教师到多模态学生的特征蒸馏+logit蒸馏损失，并结合基于单模态教师置信度分数的Sequential Modality Prioritization（SMP）梯度调制策略，解决多模态学习中的模态不平衡问题，在CREMA-D上实现85.89%准确率、超越所有专注模态不平衡的SOTA方法。"
+title: >-
+  [论文解读] G2D: Boosting Multimodal Learning with Gradient-Guided Distillation
+description: >-
+  [ICCV 2025][多模态][modality imbalance] 提出G2D（Gradient-Guided Distillation），通过融合单模态教师到多模态学生的特征蒸馏+logit蒸馏损失，并结合基于单模态教师置信度分数的Sequential Modality Prioritization（SMP）梯度调制策略，解决多模态学习中的模态不平衡问题，在CREMA-D上实现85.89%准确率、超越所有专注模态不平衡的SOTA方法。
 tags:
   - ICCV 2025
+  - 多模态
   - modality imbalance
   - 知识蒸馏
   - gradient modulation
   - sequential modality prioritization
-  - 多模态
 ---
 
 # G2D: Boosting Multimodal Learning with Gradient-Guided Distillation

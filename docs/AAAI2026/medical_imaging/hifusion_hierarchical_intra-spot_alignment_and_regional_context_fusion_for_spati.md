@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HiFusion: Hierarchical Intra-Spot Alignment and Regional Context Fusion for Spatial Gene Expression Prediction from Histopathology 论文解读 | AAAI 2026 | arXiv 2511.12969 | 空间转录组学 | 提出 HiFusion 框架，通过层次化 spot 内建模（HISM）和上下文感知跨尺度融合（CCF）两个互补模块，从 H&E 染色全切片图像中准确预测空间基因表达，在两个基准数据集的 2D 切片交叉验证和 3D 样本特异性评估中均达到 SOTA。"
+title: >-
+  [论文解读] HiFusion: Hierarchical Intra-Spot Alignment and Regional Context Fusion for Spatial Gene Expression Prediction from Histopathology
+description: >-
+  [AAAI 2026][医学图像][空间转录组学] 提出 HiFusion 框架，通过层次化 spot 内建模（HISM）和上下文感知跨尺度融合（CCF）两个互补模块，从 H&E 染色全切片图像中准确预测空间基因表达，在两个基准数据集的 2D 切片交叉验证和 3D 样本特异性评估中均达到 SOTA。
 tags:
   - AAAI 2026
+  - 医学图像
   - 空间转录组学
   - 基因表达预测
   - 多尺度特征融合

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Index-Preserving Lightweight Token Pruning for Efficient Document Understanding 论文解读 | ICLR 2026 (Workshop on MM Intelligence) | arXiv 2509.06415 | 剪枝 token pruning | 提出一种轻量级的 token 剪枝框架，通过二值 patch 分类器移除文档图像中的非文本背景区域，并用 max-pooling 细化步骤恢复碎片化文本区域的空间连贯性，在保持准确率的同时大幅降低 VLM 的计算开销。"
+title: >-
+  [论文解读] Index-Preserving Lightweight Token Pruning for Efficient Document Understanding
+description: >-
+  [ICLR 2026 (Workshop on MM Intelligence)][多模态][剪枝] 提出一种轻量级的 token 剪枝框架，通过二值 patch 分类器移除文档图像中的非文本背景区域，并用 max-pooling 细化步骤恢复碎片化文本区域的空间连贯性，在保持准确率的同时大幅降低 VLM 的计算开销。
 tags:
   - ICLR 2026 (Workshop on MM Intelligence)
+  - 多模态
   - 剪枝
   - document understanding
   - VLM efficiency

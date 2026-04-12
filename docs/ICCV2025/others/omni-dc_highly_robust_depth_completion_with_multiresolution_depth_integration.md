@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Omni-DC: Highly Robust Depth Completion with Multiresolution Depth Integration 论文解读 | ICCV 2025 | arXiv 2411.19278 | 深度补全 | 提出 OMNI-DC，通过多分辨率深度积分器（Multi-res DDI）、Laplacian 损失和尺度归一化技术，构建了一个能够零样本泛化到不同数据集和稀疏深度模式的高鲁棒深度补全模型。"
+title: >-
+  [论文解读] Omni-DC: Highly Robust Depth Completion with Multiresolution Depth Integration
+description: >-
+  [ICCV 2025][深度补全] 提出 OMNI-DC，通过多分辨率深度积分器（Multi-res DDI）、Laplacian 损失和尺度归一化技术，构建了一个能够零样本泛化到不同数据集和稀疏深度模式的高鲁棒深度补全模型。
 tags:
   - ICCV 2025
   - 深度补全

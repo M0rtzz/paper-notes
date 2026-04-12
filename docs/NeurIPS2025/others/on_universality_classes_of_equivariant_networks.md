@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On Universality Classes of Equivariant Networks 论文解读 | NeurIPS 2025 | arXiv 2506.02293 | 等变神经网络 | 本文证明等变神经网络的分离能力（区分对称等价输入的能力）不足以完全刻画其表达能力——具有相同分离能力的模型可能拥有不同的逼近能力，并给出了浅层不变网络通用性类的完整刻画及失败的充分条件。"
+title: >-
+  [论文解读] On Universality Classes of Equivariant Networks
+description: >-
+  [NeurIPS 2025][等变神经网络] 本文证明等变神经网络的分离能力（区分对称等价输入的能力）不足以完全刻画其表达能力——具有相同分离能力的模型可能拥有不同的逼近能力，并给出了浅层不变网络通用性类的完整刻画及失败的充分条件。
 tags:
   - NeurIPS 2025
   - 等变神经网络

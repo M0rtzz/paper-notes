@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NESTOR: A Nested MOE-based Neural Operator for Large-Scale PDE Pre-Training 论文解读 | CVPR 2026 | arXiv 2602.22059 | 神经算子 | 提出嵌套式 MoE 神经算子 NESTOR，通过 image-level MoE 捕获不同 PDE 类型的全局特征 + token-level Sub-MoE 捕获物理场内局部相关性，在 12 个 PDE 数据集上实现大规模预训练并有效迁移到下游任务。"
+title: >-
+  [论文解读] NESTOR: A Nested MOE-based Neural Operator for Large-Scale PDE Pre-Training
+description: >-
+  [CVPR 2026][科学计算][神经算子] 提出嵌套式 MoE 神经算子 NESTOR，通过 image-level MoE 捕获不同 PDE 类型的全局特征 + token-level Sub-MoE 捕获物理场内局部相关性，在 12 个 PDE 数据集上实现大规模预训练并有效迁移到下游任务。
 tags:
   - CVPR 2026
+  - 科学计算
   - 神经算子
   - 混合专家(MoE)
   - 偏微分方程

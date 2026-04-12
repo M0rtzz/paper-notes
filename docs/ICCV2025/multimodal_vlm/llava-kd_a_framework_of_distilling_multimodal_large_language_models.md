@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】LLaVA-KD: A Framework of Distilling Multimodal Large Language Models 论文解读 | 提出 LLaVA-KD 框架，通过多模态蒸馏（MDist）和关系蒸馏（RDist）两种策略，结合三阶段训练方案（DPT-SFT-DFT），将大规模 MLLM 的知识高效迁移至小规模 MLLM，在不修改模型架构的前提下显著提升小模型性能。"
+title: >-
+  [论文解读] LLaVA-KD: A Framework of Distilling Multimodal Large Language Models
+description: >-
+  [多模态] 提出 LLaVA-KD 框架，通过多模态蒸馏（MDist）和关系蒸馏（RDist）两种策略，结合三阶段训练方案（DPT-SFT-DFT），将大规模 MLLM 的知识高效迁移至小规模 MLLM，在不修改模型架构的前提下显著提升小模型性能。
 tags:
-
+  - 多模态
 ---
 
 # LLaVA-KD: A Framework of Distilling Multimodal Large Language Models

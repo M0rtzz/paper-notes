@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Real-World Adverse Weather Image Restoration: Enhancing Clearness and Semantics with Vision-Language Models 论文解读 | ECCV 2024 | arXiv 2409.02101 | 恶劣天气图像复原 | 本文提出WResVLM半监督学习框架，利用视觉-语言模型（VLM）为真实恶劣天气图像提供清晰度评估和语义描述监督信号，通过VLM图像评估+天气提示学习增强清晰度、描述辅助的语义正则化增强语义，在真实去雨/去雾/去雪任务上全面超越现有方法。"
+title: >-
+  [论文解读] Towards Real-World Adverse Weather Image Restoration: Enhancing Clearness and Semantics with Vision-Language Models
+description: >-
+  [ECCV 2024][多模态][恶劣天气图像复原] 本文提出WResVLM半监督学习框架，利用视觉-语言模型（VLM）为真实恶劣天气图像提供清晰度评估和语义描述监督信号，通过VLM图像评估+天气提示学习增强清晰度、描述辅助的语义正则化增强语义，在真实去雨/去雾/去雪任务上全面超越现有方法。
 tags:
   - ECCV 2024
+  - 多模态
   - 恶劣天气图像复原
   - 视觉-语言模型
   - 半监督学习

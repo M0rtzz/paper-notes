@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking Neural Combinatorial Optimization for Vehicle Routing Problems with Different Constraint Tightness Degrees 论文解读 | NeurIPS 2025 | arXiv 2505.24627 | 神经组合优化 | 揭示了现有NCO方法严重过拟合固定约束紧度（如CVRP的固定车辆容量C=50），提出变约束紧度训练方案和多专家模块(MEM)，使模型能有效处理从极紧到极松的全范围约束。"
+title: >-
+  [论文解读] Rethinking Neural Combinatorial Optimization for Vehicle Routing Problems with Different Constraint Tightness Degrees
+description: >-
+  [NeurIPS 2025][优化][神经组合优化] 揭示了现有NCO方法严重过拟合固定约束紧度（如CVRP的固定车辆容量C=50），提出变约束紧度训练方案和多专家模块(MEM)，使模型能有效处理从极紧到极松的全范围约束。
 tags:
   - NeurIPS 2025
+  - 优化
   - 神经组合优化
   - 车辆路径问题
   - 约束紧度

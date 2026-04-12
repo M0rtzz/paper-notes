@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Distributional Adversarial Attacks and Training in Deep Hedging 论文解读 | NeurIPS 2025 | arXiv 2508.14757 | 对抗训练 | 本文首次将分布对抗攻击引入深度对冲框架，提出基于 Wasserstein 球的可计算对抗训练方法（WPGD 和 WBPGD），显著提升了对冲策略在分布偏移和真实市场数据下的鲁棒性与样本外表现。"
+title: >-
+  [论文解读] Distributional Adversarial Attacks and Training in Deep Hedging
+description: >-
+  [NeurIPS 2025][AI安全][对抗训练] 本文首次将分布对抗攻击引入深度对冲框架，提出基于 Wasserstein 球的可计算对抗训练方法（WPGD 和 WBPGD），显著提升了对冲策略在分布偏移和真实市场数据下的鲁棒性与样本外表现。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 对抗训练
   - 分布鲁棒优化
   - 深度对冲

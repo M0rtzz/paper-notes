@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Vision-Language Models Encode Clinical Guidelines for Concept-Based Medical Reasoning 论文解读 | CVPR 2026 | arXiv 2603.08921 | 概念瓶颈模型 | 提出MedCBR框架，通过将临床诊断指南（如BI-RADS）融入概念瓶颈模型的训练和推理过程，利用LVLM生成指南一致性报告增强概念监督，结合多任务CLIP训练和大推理模型生成结构化临床解释，在超声和乳腺X光癌症检测上达到94.2%和84.0%的AUROC。"
+title: >-
+  [论文解读] Vision-Language Models Encode Clinical Guidelines for Concept-Based Medical Reasoning
+description: >-
+  [CVPR 2026][多模态][概念瓶颈模型] 提出MedCBR框架，通过将临床诊断指南（如BI-RADS）融入概念瓶颈模型的训练和推理过程，利用LVLM生成指南一致性报告增强概念监督，结合多任务CLIP训练和大推理模型生成结构化临床解释，在超声和乳腺X光癌症检测上达到94.2%和84.0%的AUROC。
 tags:
   - CVPR 2026
+  - 多模态
   - 概念瓶颈模型
   - 医学影像
   - 可解释AI

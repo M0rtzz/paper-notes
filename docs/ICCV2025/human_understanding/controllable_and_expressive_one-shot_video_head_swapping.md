@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Controllable and Expressive One-Shot Video Head Swapping 论文解读 | ICCV 2025 | arXiv 2506.16852 | 头部替换 | 本文提出一个基于扩散模型的多条件可控视频头部替换框架（SwapAnyHead），通过形状无关掩码策略、发型增强策略和表情感知的3DMM驱动landmark重定向模块，实现了高保真的身份保持、无缝背景融合和精确的跨身份表情迁移与编辑。"
+title: >-
+  [论文解读] Controllable and Expressive One-Shot Video Head Swapping
+description: >-
+  [ICCV 2025][人体理解][头部替换] 本文提出一个基于扩散模型的多条件可控视频头部替换框架（SwapAnyHead），通过形状无关掩码策略、发型增强策略和表情感知的3DMM驱动landmark重定向模块，实现了高保真的身份保持、无缝背景融合和精确的跨身份表情迁移与编辑。
 tags:
   - ICCV 2025
+  - 人体理解
   - 头部替换
   - 扩散模型
   - 表情迁移

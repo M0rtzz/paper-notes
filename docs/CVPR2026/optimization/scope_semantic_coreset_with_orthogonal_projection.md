@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated Learning 论文解读 | CVPR 2026 | arXiv 2603.12976 | 联邦学习 | 提出SCOPE——一个无需训练的联邦coreset选择框架，利用冻结VLM(MobileCLIP)的正交投影嵌入计算三个标量语义指标(表示性/多样性/边界接近度)，实现全局感知的两阶段剪枝，在CIFAR-10/Tiny-ImageNet/UHCS上通信带宽降128-512倍的同时超越全数据训练。"
+title: >-
+  [论文解读] SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated Learning
+description: >-
+  [CVPR 2026][优化][联邦学习] 提出SCOPE——一个无需训练的联邦coreset选择框架，利用冻结VLM(MobileCLIP)的正交投影嵌入计算三个标量语义指标(表示性/多样性/边界接近度)，实现全局感知的两阶段剪枝，在CIFAR-10/Tiny-ImageNet/UHCS上通信带宽降128-512倍的同时超越全数据训练。
 tags:
   - CVPR 2026
+  - 优化
   - 联邦学习
   - coreset选择
   - VLM零样本

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PersPose: 3D Human Pose Estimation with Perspective Encoding and Perspective Rotation 论文解读 | ICCV 2025 | arXiv 2508.17239 | 3D人体姿态估计 | 提出PersPose框架，通过透视编码(PE)将裁剪后相机内参编码为2D映射、透视旋转(PR)将人体居中以消除透视畸变，解决了现有方法忽略FOV信息导致深度估计不准确的问题。"
+title: >-
+  [论文解读] PersPose: 3D Human Pose Estimation with Perspective Encoding and Perspective Rotation
+description: >-
+  [ICCV 2025][3D视觉][3D人体姿态估计] 提出PersPose框架，通过透视编码(PE)将裁剪后相机内参编码为2D映射、透视旋转(PR)将人体居中以消除透视畸变，解决了现有方法忽略FOV信息导致深度估计不准确的问题。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D人体姿态估计
   - 透视编码
   - 透视旋转

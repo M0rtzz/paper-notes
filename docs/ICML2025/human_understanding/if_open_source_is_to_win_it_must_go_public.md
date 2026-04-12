@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】If Open Source Is to Win, It Must Go Public 论文解读 | ICML 2025 | arXiv 2507.09296 | 本文是一篇立场论文，核心论点是：开源 AI 本身无法实现 AI 的民主化访问，必须嵌入更广泛的\"公共 AI\"基础设施——包括公共资金、公共访问、公共治理和私人承诺——才能让开放模型真正成为公共产品。"
+title: >-
+  [论文解读] If Open Source Is to Win, It Must Go Public
+description: >-
+  [ICML 2025][人体理解] 本文是一篇立场论文，核心论点是：开源 AI 本身无法实现 AI 的民主化访问，必须嵌入更广泛的"公共 AI"基础设施——包括公共资金、公共访问、公共治理和私人承诺——才能让开放模型真正成为公共产品。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # If Open Source Is to Win, It Must Go Public

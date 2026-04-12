@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DH-FaceVid-1K: A Large-Scale High-Quality Dataset for Face Video Generation 论文解读 | ICCV 2025 | arXiv 2410.07151 | 人脸视频数据集 | 推出 DH-FaceVid-1K，一个包含 1,200+ 小时、270,043 个视频片段、20,000+ 个人身份的大规模高质量人脸视频数据集，重点解决现有数据集中亚洲人脸严重不足的问题，并通过系统实验验证了数据规模与模型参数的缩放定律。"
+title: >-
+  [论文解读] DH-FaceVid-1K: A Large-Scale High-Quality Dataset for Face Video Generation
+description: >-
+  [ICCV 2025][图像生成][人脸视频数据集] 推出 DH-FaceVid-1K，一个包含 1,200+ 小时、270,043 个视频片段、20,000+ 个人身份的大规模高质量人脸视频数据集，重点解决现有数据集中亚洲人脸严重不足的问题，并通过系统实验验证了数据规模与模型参数的缩放定律。
 tags:
   - ICCV 2025
+  - 图像生成
   - 人脸视频数据集
   - 视频生成
   - 文本到视频

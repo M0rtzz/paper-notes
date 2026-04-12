@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending 论文解读 | 投稿中 | arXiv 2603.13102 | manufacturability | 提出一套针对钣金弯曲（sheet metal bending）可制造性评估的分类法，并基于此构建了 BenDFM：一个合成 CAD 数据集与基准，用于研究几何/配置依赖的可制造性标签与复杂度度量。"
+title: >-
+  [论文解读] BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending
+description: >-
+  [投稿中][3D视觉][manufacturability] 提出一套针对钣金弯曲（sheet metal bending）可制造性评估的分类法，并基于此构建了 BenDFM：一个合成 CAD 数据集与基准，用于研究几何/配置依赖的可制造性标签与复杂度度量。
 tags:
   - 投稿中
+  - 3D视觉
   - manufacturability
   - taxonomy
   - synthetic CAD

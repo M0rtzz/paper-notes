@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence 论文解读 | ACL 2025 (Long Paper) | arXiv 2412.13949 | LVLM幻觉 | 提出Vision-aware Head Divergence (VHD)指标量化注意力头对视觉信息的敏感度，发现幻觉与模型过度依赖语言先验紧密相关，并提出Vision-aware Head Reinforcement (VHR)无训练方法，通过放大视觉敏感注意力头来缓解幻觉，在CHAIR上最高降低CHAIRS 16.36个点。"
+title: >-
+  [论文解读] Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence
+description: >-
+  [ACL 2025 (Long Paper)][多模态][LVLM幻觉] 提出Vision-aware Head Divergence (VHD)指标量化注意力头对视觉信息的敏感度，发现幻觉与模型过度依赖语言先验紧密相关，并提出Vision-aware Head Reinforcement (VHR)无训练方法，通过放大视觉敏感注意力头来缓解幻觉，在CHAIR上最高降低CHAIRS 16.36个点。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - LVLM幻觉
   - 注意力头分析
   - Vision-aware Head Divergence

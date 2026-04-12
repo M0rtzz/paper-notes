@@ -1,7 +1,14 @@
+---
+title: >-
+  ECCV2024 视频理解方向 13篇论文解读
+description: >-
+  13篇ECCV2024 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频理解
 
-**🎞️ ECCV2024** · 共 **16** 篇
+**🎞️ ECCV2024** · 共 **13** 篇
 
 **[Actionswitch Class-Agnostic Detection Of Simultaneous Actions In Streaming Video](actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video.md)**
 
@@ -43,25 +50,13 @@
 
 :   提出DragAnything，利用扩散模型的隐空间特征作为实体表征（Entity Representation）来实现实体级运动控制，解决了现有轨迹驱动方法仅拖拽像素而无法精确控制目标对象运动的问题，在VIPSeg上实现SOTA的FVD/FID指标，用户研究中运动控制投票超出DragNUWA 26%。
 
-**[EgoPoser: Robust Real-Time Egocentric Pose Estimation from Sparse and Intermittent Observations Everywhere](egoposer_robust_real-time_egocentric_pose_estimation_from_sparse_and_intermitten.md)**
+**[Egoposer Robust Real-Time Egocentric Pose Estimation From Sparse And Intermitten](egoposer_robust_real-time_egocentric_pose_estimation_from_sparse_and_intermitten.md)**
 
 :   提出 EgoPoser，仅从头显设备的头部和手部稀疏且间歇性追踪信号中，鲁棒地估计全身姿态，通过全局运动分解、真实视野建模、SlowFast时序融合和体型感知优化四大核心设计，在大规模真实场景中实现SOTA性能，推理速度超600fps。
-
-**[Elysium: Exploring Object-Level Perception in Videos via MLLM](elysium_exploring_objectlevel_perception_in_videos_via_mllm.md)**
-
-:   提出Elysium，首个端到端可训练的多模态大语言模型系统化处理视频目标级任务（如目标跟踪），构建了百万级ElysiumTrack-1M视频数据集支持SOT/RSOT/Video-REG三类任务，并设计T-Selector token压缩网络在保持性能的同时大幅减少视觉token消耗。
-
-**[Nymeria: A Massive Collection of Multimodal Egocentric Daily Motion in the Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_.md)**
-
-:   Nymeria是全球最大野外人体运动数据集，300h/264人多设备多模态自我中心数据和310.5K句语言描述。
 
 **[On The Utility Of 3D Hand Poses For Action Recognition](on_the_utility_of_3d_hand_poses_for_action_recognition.md)**
 
 :   提出 HandFormer，一种轻量级多模态 Transformer，将密集采样的 3D 手部姿态（捕捉细粒度动作）与稀疏采样的 RGB 帧（提供场景语义）结合，通过 micro-action 时序分解和 trajectory 编码高效建模手-物交互，在 Assembly101 和 H2O 上达到 SOTA，且纯 pose 模型以 5× 更少 FLOPs 超越已有骨架方法。
-
-**[PiTe: Pixel-Temporal Alignment for Large Video-Language Model](pite_pixeltemporal_alignment_for_large_videolanguage_mo.md)**
-
-:   提出 PiTe，一种通过物体轨迹引导的像素-时序对齐方法，利用自动构建的 PiTe-143K 数据集在空间和时间维度上实现视频与语言的精细对齐，显著提升视频理解能力。
 
 **[R2Tuning Efficient Imagetovideo Transfer Learning For Video](r2tuning_efficient_imagetovideo_transfer_learning_for_video.md)**
 

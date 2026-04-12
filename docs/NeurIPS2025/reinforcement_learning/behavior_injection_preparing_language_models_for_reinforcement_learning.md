@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Behavior Injection: Preparing Language Models for Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2505.18917 | RL微调 | 揭示 LLM 对 RL 微调响应不一致的根本原因——通过 per-step influence 分析发现 RL 效果取决于（1）rollout 准确率分布（中等最优）和（2）数据 co-influence 强度，提出 BRIDGE 在 SFT 阶段注入探索/利用行为，使后续 RL 增益从 6% 提升到 46.6%。"
+title: >-
+  [论文解读] Behavior Injection: Preparing Language Models for Reinforcement Learning
+description: >-
+  [NeurIPS 2025][RL微调] 揭示 LLM 对 RL 微调响应不一致的根本原因——通过 per-step influence 分析发现 RL 效果取决于（1）rollout 准确率分布（中等最优）和（2）数据 co-influence 强度，提出 BRIDGE 在 SFT 阶段注入探索/利用行为，使后续 RL 增益从 6% 提升到 46.6%。
 tags:
   - NeurIPS 2025
   - RL微调

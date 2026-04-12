@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ActiShade: Activating Overshadowed Knowledge to Guide Multi-Hop Reasoning in Large Language Models 论文解读 | AAAI 2026 | arXiv 2601.07260 | 知识遮蔽 | 提出ActiShade框架，通过高斯噪声扰动检测LLM在多跳推理中被\"遮蔽\"的关键短语，结合定制对比学习检索器获取补充文档，迭代重构查询以减少知识遮蔽导致的错误累积，在HotpotQA/2WikiMQA/MuSiQue上显著超越DRAGIN等SOTA。"
+title: >-
+  [论文解读] ActiShade: Activating Overshadowed Knowledge to Guide Multi-Hop Reasoning in Large Language Models
+description: >-
+  [AAAI 2026][知识遮蔽] 提出ActiShade框架，通过高斯噪声扰动检测LLM在多跳推理中被"遮蔽"的关键短语，结合定制对比学习检索器获取补充文档，迭代重构查询以减少知识遮蔽导致的错误累积，在HotpotQA/2WikiMQA/MuSiQue上显著超越DRAGIN等SOTA。
 tags:
   - AAAI 2026
   - 知识遮蔽

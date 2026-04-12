@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Improving Continual Learning Performance and Efficiency with Auxiliary Classifiers 论文解读 | ICML 2025 | arXiv 2403.07404 | continual learning | 本文首次探索了早退出网络（early-exit networks）在持续学习中的应用，发现早期分类器天然遭受更少的灾难性遗忘，并提出 Task-wise Logits Correction (TLC) 方法来均衡任务偏差，在阶段增量学习中以不到 70% 的计算量匹配标准方法的准确率。"
+title: >-
+  [论文解读] Improving Continual Learning Performance and Efficiency with Auxiliary Classifiers
+description: >-
+  [ICML 2025][continual learning] 本文首次探索了早退出网络（early-exit networks）在持续学习中的应用，发现早期分类器天然遭受更少的灾难性遗忘，并提出 Task-wise Logits Correction (TLC) 方法来均衡任务偏差，在阶段增量学习中以不到 70% 的计算量匹配标准方法的准确率。
 tags:
   - ICML 2025
   - continual learning

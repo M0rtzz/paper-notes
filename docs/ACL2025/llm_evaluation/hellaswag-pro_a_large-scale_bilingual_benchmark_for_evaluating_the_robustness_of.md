@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HellaSwag-Pro: A Large-Scale Bilingual Benchmark for Evaluating the Robustness of LLMs 论文解读 | ACL 2025 | arXiv 2502.11393 | 常识推理 | 构建首个大规模双语（中英）LLM 常识推理鲁棒性评估基准 HellaSwag-Pro，包含 7 种问题变体共 11,200 道题，系统评估 41 个 LLM 发现所有模型在常识推理上远未达到鲁棒。"
+title: >-
+  [论文解读] HellaSwag-Pro: A Large-Scale Bilingual Benchmark for Evaluating the Robustness of LLMs
+description: >-
+  [ACL 2025][常识推理] 构建首个大规模双语（中英）LLM 常识推理鲁棒性评估基准 HellaSwag-Pro，包含 7 种问题变体共 11,200 道题，系统评估 41 个 LLM 发现所有模型在常识推理上远未达到鲁棒。
 tags:
   - ACL 2025
   - 常识推理

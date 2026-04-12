@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Problem-Oriented Perspective and Anchor Verification for Code Optimization 论文解读 | ICLR 2026 | arXiv 2406.11935 | 代码优化 | 提出以问题为导向（而非用户为导向）的优化对构建方法来整合多程序员的策略多样性，并设计锚点验证框架利用\"慢但正确的代码\"生成测试用例来缓解\"优化税\"（正确性损失），将优化比从 31.24% 提升到 71.06%，加速比从 2.95x 提升到 6.08x。"
+title: >-
+  [论文解读] A Problem-Oriented Perspective and Anchor Verification for Code Optimization
+description: >-
+  [ICLR 2026][目标检测][代码优化] 提出以问题为导向（而非用户为导向）的优化对构建方法来整合多程序员的策略多样性，并设计锚点验证框架利用"慢但正确的代码"生成测试用例来缓解"优化税"（正确性损失），将优化比从 31.24% 提升到 71.06%，加速比从 2.95x 提升到 6.08x。
 tags:
   - ICLR 2026
+  - 目标检测
   - 代码优化
   - LLM
   - 问题导向

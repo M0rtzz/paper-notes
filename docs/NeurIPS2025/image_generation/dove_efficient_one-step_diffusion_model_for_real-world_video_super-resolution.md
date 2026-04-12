@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DOVE: Efficient One-Step Diffusion Model for Real-World Video Super-Resolution 论文解读 | NeurIPS 2025 | arXiv 2505.16239 | 单步扩散 | 提出 DOVE，基于 CogVideoX 预训练视频生成模型，通过两阶段潜空间-像素空间训练策略和高质量 HQ-VSR 数据集实现单步推理的视频超分辨率，比多步扩散方法快 28 倍且性能相当或更优。"
+title: >-
+  [论文解读] DOVE: Efficient One-Step Diffusion Model for Real-World Video Super-Resolution
+description: >-
+  [NeurIPS 2025][图像生成][单步扩散] 提出 DOVE，基于 CogVideoX 预训练视频生成模型，通过两阶段潜空间-像素空间训练策略和高质量 HQ-VSR 数据集实现单步推理的视频超分辨率，比多步扩散方法快 28 倍且性能相当或更优。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 单步扩散
   - 视频超分辨率
   - CogVideoX

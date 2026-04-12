@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Token Warping Helps MLLMs Look from Nearby Viewpoints 论文解读 | CVPR2026 | arXiv 2604.02870 | 视点变换 | 探索在token级别而非像素级别进行视点变换，发现反向token warping能使MLLM可靠地从临近视点推理，效果超趇像素级warping、空间微调模型和生成式warping方法。"
+title: >-
+  [论文解读] Token Warping Helps MLLMs Look from Nearby Viewpoints
+description: >-
+  [CVPR2026][多模态][视点变换] 探索在token级别而非像素级别进行视点变换，发现反向token warping能使MLLM可靠地从临近视点推理，效果超趇像素级warping、空间微调模型和生成式warping方法。
 tags:
   - CVPR2026
+  - 多模态
   - 视点变换
   - Token Warping
   - 空间推理

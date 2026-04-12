@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SineProject: Machine Unlearning for Stable Vision–Language Alignment 论文解读 | CVPR 2026 | arXiv 2511.18444 | 机器遗忘 | 针对多模态大模型（MLLM）在机器遗忘过程中投影层 Jacobian 严重病态导致视觉-语言对齐漂移的问题，提出 SineProject——通过对投影层权重施加正弦调制（sin(ΔW)）来约束参数范围至 [-1,1]，从而将 Jacobian 条件数降低 3-4 个数量级，在完全遗忘目标知识的同时将良性查询误拒率（SARR）降低 15%。"
+title: >-
+  [论文解读] SineProject: Machine Unlearning for Stable Vision–Language Alignment
+description: >-
+  [CVPR 2026][机器遗忘] 针对多模态大模型（MLLM）在机器遗忘过程中投影层 Jacobian 严重病态导致视觉-语言对齐漂移的问题，提出 SineProject——通过对投影层权重施加正弦调制（sin(ΔW)）来约束参数范围至 [-1,1]，从而将 Jacobian 条件数降低 3-4 个数量级，在完全遗忘目标知识的同时将良性查询误拒率（SARR）降低 15%。
 tags:
   - CVPR 2026
   - 机器遗忘

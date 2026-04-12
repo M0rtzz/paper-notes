@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HyTIP: Hybrid Temporal Information Propagation for Masked Conditional Residual Video Coding 论文解读 | ICCV 2025 | arXiv 2508.02072 | 视频压缩 | 提出 HyTIP 框架，将输出回归（显式缓冲解码帧）和隐状态传播（隐式缓冲潜在特征）两种时序信息传播机制统一到同一学习式视频编码框架中，仅用 SOTA 方法 14% 的缓冲区大小即可达到可比的编码性能。"
+title: >-
+  [论文解读] HyTIP: Hybrid Temporal Information Propagation for Masked Conditional Residual Video Coding
+description: >-
+  [ICCV 2025][视频压缩] 提出 HyTIP 框架，将输出回归（显式缓冲解码帧）和隐状态传播（隐式缓冲潜在特征）两种时序信息传播机制统一到同一学习式视频编码框架中，仅用 SOTA 方法 14% 的缓冲区大小即可达到可比的编码性能。
 tags:
   - ICCV 2025
   - 视频压缩

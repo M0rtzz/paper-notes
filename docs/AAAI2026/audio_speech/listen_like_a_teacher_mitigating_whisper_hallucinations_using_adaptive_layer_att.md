@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Listen Like a Teacher: Mitigating Whisper Hallucinations using Adaptive Layer Attention and Knowledge Distillation 论文解读 | AAAI2026 | arXiv 2511.14219 | 语音识别 | 提出两阶段框架——自适应层注意力（ALA）融合Whisper编码器多层表示以增强噪声鲁棒性，多目标知识蒸馏（MOKD）将clean teacher的语义和注意力分布对齐到noisy student——在多语言噪声ASR基准上显著降低幻觉率和WER。"
+title: >-
+  [论文解读] Listen Like a Teacher: Mitigating Whisper Hallucinations using Adaptive Layer Attention and Knowledge Distillation
+description: >-
+  [AAAI2026][语音][语音识别] 提出两阶段框架——自适应层注意力（ALA）融合Whisper编码器多层表示以增强噪声鲁棒性，多目标知识蒸馏（MOKD）将clean teacher的语义和注意力分布对齐到noisy student——在多语言噪声ASR基准上显著降低幻觉率和WER。
 tags:
   - AAAI2026
+  - 语音
   - 语音识别
   - Whisper
   - 幻觉消除

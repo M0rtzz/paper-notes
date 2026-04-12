@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】InstanceAssemble: Layout-Aware Image Generation via Instance Assembling Attention 论文解读 | NeurIPS 2025 | arXiv 2509.16691 | layout-to-image | 提出InstanceAssemble，通过实例组装注意力机制（instance-assembling attention）实现layout条件的精确控制——支持bbox位置控制和多模态内容控制（文本+视觉内容），作为轻量LoRA模块适配到现有DiT模型，同时提出DenseLayout benchmark（5K图像90K实例）和Layout Grounding Score评估指标。"
+title: >-
+  [论文解读] InstanceAssemble: Layout-Aware Image Generation via Instance Assembling Attention
+description: >-
+  [NeurIPS 2025][目标检测][layout-to-image] 提出InstanceAssemble，通过实例组装注意力机制（instance-assembling attention）实现layout条件的精确控制——支持bbox位置控制和多模态内容控制（文本+视觉内容），作为轻量LoRA模块适配到现有DiT模型，同时提出DenseLayout benchmark（5K图像90K实例）和Layout Grounding Score评估指标。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - layout-to-image
   - 注意力机制
   - DiT

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TesserAct: Learning 4D Embodied World Models 论文解读 | ICCV 2025 | arXiv 2504.20995 | 4D世界模型 | 提出 TesserAct——一种 4D 具身世界模型，通过训练视频生成模型联合预测 RGB、深度和法线视频，再转换为高质量 4D 场景，实现空间-时间一致的 3D 世界动态模拟和机器人动作规划。"
+title: >-
+  [论文解读] TesserAct: Learning 4D Embodied World Models
+description: >-
+  [ICCV 2025][3D视觉][4D世界模型] 提出 TesserAct——一种 4D 具身世界模型，通过训练视频生成模型联合预测 RGB、深度和法线视频，再转换为高质量 4D 场景，实现空间-时间一致的 3D 世界动态模拟和机器人动作规划。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 4D世界模型
   - 具身智能
   - 视频扩散模型

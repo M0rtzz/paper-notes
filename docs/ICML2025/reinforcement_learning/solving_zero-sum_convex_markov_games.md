@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Solving Zero-Sum Convex Markov Games 论文解读 | ICML 2025 | arXiv 2506.16120 | convex Markov games | 本文首次为两人零和凸马尔可夫博弈（cMG）中的独立策略梯度方法提供了全局收敛到Nash均衡的理论保证，通过非凸正则化将问题化归为非凸-pPL min-max优化，并设计了嵌套/交替策略梯度算法。"
+title: >-
+  [论文解读] Solving Zero-Sum Convex Markov Games
+description: >-
+  [ICML 2025][convex Markov games] 本文首次为两人零和凸马尔可夫博弈（cMG）中的独立策略梯度方法提供了全局收敛到Nash均衡的理论保证，通过非凸正则化将问题化归为非凸-pPL min-max优化，并设计了嵌套/交替策略梯度算法。
 tags:
   - ICML 2025
   - convex Markov games

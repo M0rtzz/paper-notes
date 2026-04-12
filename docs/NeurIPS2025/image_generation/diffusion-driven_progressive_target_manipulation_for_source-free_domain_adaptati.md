@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation 论文解读 | NeurIPS 2025 | arXiv 2510.25279 | 域适应 Source-Free Domain Adaptation | 提出 DPTM 框架，利用潜在扩散模型对不可信目标样本进行语义变换，生成伪目标域并通过渐进式重建机制迭代缩小与真实目标域的差距，在大域偏移场景下比现有 SFDA SOTA 提升高达 18.6%。"
+title: >-
+  [论文解读] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation
+description: >-
+  [NeurIPS 2025][图像生成][域适应] 提出 DPTM 框架，利用潜在扩散模型对不可信目标样本进行语义变换，生成伪目标域并通过渐进式重建机制迭代缩小与真实目标域的差距，在大域偏移场景下比现有 SFDA SOTA 提升高达 18.6%。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 域适应
   - 扩散模型
   - 伪目标域生成

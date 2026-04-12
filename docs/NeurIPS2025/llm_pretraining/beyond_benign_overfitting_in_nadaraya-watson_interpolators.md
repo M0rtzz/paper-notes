@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Beyond Benign Overfitting in Nadaraya-Watson Interpolators 论文解读 | NeurIPS 2025 | arXiv 2502.07480 | 良性过拟合 | 通过调节 Nadaraya-Watson 插值器中的单一带宽参数 β，精确刻画了从灾难性过拟合（β < d）→ 良性过拟合（β = d）→ 温和过拟合（β > d）的完整相变谱，证明高估数据内禀维度比低估更安全。"
+title: >-
+  [论文解读] Beyond Benign Overfitting in Nadaraya-Watson Interpolators
+description: >-
+  [NeurIPS 2025][良性过拟合] 通过调节 Nadaraya-Watson 插值器中的单一带宽参数 $\beta$，精确刻画了从灾难性过拟合（$\beta < d$）→ 良性过拟合（$\beta = d$）→ 温和过拟合（$\beta > d$）的完整相变谱，证明高估数据内禀维度比低估更安全。
 tags:
   - NeurIPS 2025
   - 良性过拟合

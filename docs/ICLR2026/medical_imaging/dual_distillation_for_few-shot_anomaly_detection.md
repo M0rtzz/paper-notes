@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Dual Distillation for Few-Shot Anomaly Detection 论文解读 | ICLR 2026 | arXiv 2603.01713 | 少样本异常检测 | 提出双蒸馏框架 D24FAD，结合 query 图像上的教师-学生蒸馏（TSD）和 support 图像上的学生自蒸馏（SSD），辅以学习权重机制（L2W）自适应评估 support 重要性，在 APTOS 眼底数据集上仅用 2-shot 达到 100% AUROC。"
+title: >-
+  [论文解读] Dual Distillation for Few-Shot Anomaly Detection
+description: >-
+  [ICLR 2026][医学图像][少样本异常检测] 提出双蒸馏框架 D24FAD，结合 query 图像上的教师-学生蒸馏（TSD）和 support 图像上的学生自蒸馏（SSD），辅以学习权重机制（L2W）自适应评估 support 重要性，在 APTOS 眼底数据集上仅用 2-shot 达到 100% AUROC。
 tags:
   - ICLR 2026
+  - 医学图像
   - 少样本异常检测
   - 双蒸馏
   - 教师-学生

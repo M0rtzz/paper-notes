@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Verified Machine Unlearning for Distillation 论文解读 | NeurIPS 2025 | arXiv 2503.22539 | machine unlearning | 提出 PURGE 框架，通过教师-学生 constituent mapping 和增量式多教师蒸馏策略，将 SISA 的验证式遗忘扩展到知识蒸馏场景，在教师端遗忘时仅需部分重训学生模型，实现至少 N× 的加速。"
+title: >-
+  [论文解读] Efficient Verified Machine Unlearning for Distillation
+description: >-
+  [NeurIPS 2025][AI安全][machine unlearning] 提出 PURGE 框架，通过教师-学生 constituent mapping 和增量式多教师蒸馏策略，将 SISA 的验证式遗忘扩展到知识蒸馏场景，在教师端遗忘时仅需部分重训学生模型，实现至少 $N\times$ 的加速。
 tags:
   - NeurIPS 2025
+  - AI安全
   - machine unlearning
   - 知识蒸馏
   - SISA

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions 论文解读 | ICLR2026 | arXiv 2511.03047 | Unsupervised Evaluation | 提出三种**无监督**指标——LLM 引导聚类（目标识别）、基于微调完成模型的交互完整性检测、响应树（LLM 不确定性量化）——用于评估多轮目标驱动对话，无需标注数据或 LLM-as-a-judge，仅用 8B 模型即可匹配/超越 70B judge 的性能。"
+title: >-
+  [论文解读] Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions
+description: >-
+  [ICLR2026][LLM/NLP][Unsupervised Evaluation] 提出三种**无监督**指标——LLM 引导聚类（目标识别）、基于微调完成模型的交互完整性检测、响应树（LLM 不确定性量化）——用于评估多轮目标驱动对话，无需标注数据或 LLM-as-a-judge，仅用 8B 模型即可匹配/超越 70B judge 的性能。
 tags:
   - ICLR2026
+  - LLM/NLP
   - Unsupervised Evaluation
   - Multi-Turn Dialogue
   - Goal Completion

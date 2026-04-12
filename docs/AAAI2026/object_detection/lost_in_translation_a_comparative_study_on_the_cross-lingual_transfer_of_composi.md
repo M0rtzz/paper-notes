@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Lost in Translation? A Comparative Study on the Cross-Lingual Transfer of Composite Harms 论文解读 | AAAI 2026 | arXiv 2602.07963 | LLM安全 | 提出 CompositeHarm 基准，通过将对抗语法攻击（AttaQ）和语境化危害（MMSafetyBench）翻译为五种印度语言，系统研究了 LLM 安全对齐在跨语言场景下的脆弱性，发现对抗语法攻击在印度语言中攻击成功率急剧攀升。"
+title: >-
+  [论文解读] Lost in Translation? A Comparative Study on the Cross-Lingual Transfer of Composite Harms
+description: >-
+  [AAAI 2026][目标检测][LLM安全] 提出 CompositeHarm 基准，通过将对抗语法攻击（AttaQ）和语境化危害（MMSafetyBench）翻译为五种印度语言，系统研究了 LLM 安全对齐在跨语言场景下的脆弱性，发现对抗语法攻击在印度语言中攻击成功率急剧攀升。
 tags:
   - AAAI 2026
+  - 目标检测
   - LLM安全
   - 多语言评估
   - 对抗攻击

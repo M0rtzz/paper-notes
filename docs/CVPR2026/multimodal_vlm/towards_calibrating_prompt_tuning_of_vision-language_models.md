@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Calibrating Prompt Tuning of Vision-Language Models 论文解读 | CVPR 2026 | arXiv 2602.19024 | 提示学习 prompt tuning | 针对prompt tuning后CLIP面临的\"双重误校准\"问题（基类欠自信+新类过自信），提出均值-方差margin正则化和文本矩匹配损失两个互补正则项，作为即插即用模块在7种prompt tuning方法和11个数据集上显著降低ECE。"
+title: >-
+  [论文解读] Towards Calibrating Prompt Tuning of Vision-Language Models
+description: >-
+  [CVPR 2026][多模态][提示学习] 针对prompt tuning后CLIP面临的"双重误校准"问题（基类欠自信+新类过自信），提出均值-方差margin正则化和文本矩匹配损失两个互补正则项，作为即插即用模块在7种prompt tuning方法和11个数据集上显著降低ECE。
 tags:
   - CVPR 2026
+  - 多模态
   - 提示学习
   - 校准
   - CLIP

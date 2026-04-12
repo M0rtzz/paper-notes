@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Global Motion Corresponder for 3D Point-Based Scene Interpolation under Large Motion 论文解读 | ICCV 2025 | arXiv 2508.20136 | 场景插值 | 提出Global Motion Corresponder (GMC),通过学习将两个时刻的3D Gaussian映射到共享规范空间的一元势场,实现大运动条件下的鲁棒场景插值和外推。"
+title: >-
+  [论文解读] Global Motion Corresponder for 3D Point-Based Scene Interpolation under Large Motion
+description: >-
+  [ICCV 2025][3D视觉][场景插值] 提出Global Motion Corresponder (GMC),通过学习将两个时刻的3D Gaussian映射到共享规范空间的一元势场,实现大运动条件下的鲁棒场景插值和外推。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 场景插值
   - 大运动
   - 3D Gaussian Splatting

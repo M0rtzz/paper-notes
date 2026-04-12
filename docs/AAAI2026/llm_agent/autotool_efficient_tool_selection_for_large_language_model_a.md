@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AutoTool: Efficient Tool Selection for Large Language Model Agents 论文解读 | AAAI 2026 | arXiv 2511.14650 | 工具选择 | 提出AutoTool，一个基于图的免训练工具选择框架，通过发现并利用\"工具使用惯性\"（tool usage inertia）——即工具调用遵循可预测的顺序模式这一经验现象——构建工具惯性图（TIG），用统计方法代替部分LLM推理来高效选择工具和填充参数，在保持任务完成率的同时减少15-40%的推理成本。"
+title: >-
+  [论文解读] AutoTool: Efficient Tool Selection for Large Language Model Agents
+description: >-
+  [AAAI 2026][LLM Agent][工具选择] 提出AutoTool，一个基于图的免训练工具选择框架，通过发现并利用"工具使用惯性"（tool usage inertia）——即工具调用遵循可预测的顺序模式这一经验现象——构建工具惯性图（TIG），用统计方法代替部分LLM推理来高效选择工具和填充参数，在保持任务完成率的同时减少15-40%的推理成本。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 工具选择
   - LLM Agent效率
   - 工具使用惯性

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Exploring In-Image Machine Translation with Real-World Background 论文解读 | ACL 2025 | arXiv 2505.15282 | 图像内机器翻译 | 提出 DebackX 模型，通过将图像分离为背景和文字图像分别处理，首次解决了真实复杂背景下的图像内机器翻译 (IIMT) 任务，在翻译质量和视觉效果上均优于现有方法。"
+title: >-
+  [论文解读] Exploring In-Image Machine Translation with Real-World Background
+description: >-
+  [ACL 2025][图像内机器翻译] 提出 DebackX 模型，通过将图像分离为背景和文字图像分别处理，首次解决了真实复杂背景下的图像内机器翻译 (IIMT) 任务，在翻译质量和视觉效果上均优于现有方法。
 tags:
   - ACL 2025
   - 图像内机器翻译

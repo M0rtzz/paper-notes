@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Do It for HER: First-Order Temporal Logic Reward Specification in Reinforcement Learning 论文解读 | AAAI 2026 | arXiv 2602.06227 | LTLfMT | 提出基于有限迹一阶时序逻辑模理论（LTLfMT）的新型奖励规范框架，用一阶逻辑公式替代手工编码的标注函数，结合 CRM 和 HER 解决逻辑规范固有的稀疏奖励问题，在连续控制任务中取得显著改进。"
+title: >-
+  [论文解读] Do It for HER: First-Order Temporal Logic Reward Specification in Reinforcement Learning
+description: >-
+  [AAAI 2026][LTLfMT] 提出基于有限迹一阶时序逻辑模理论（LTLfMT）的新型奖励规范框架，用一阶逻辑公式替代手工编码的标注函数，结合 CRM 和 HER 解决逻辑规范固有的稀疏奖励问题，在连续控制任务中取得显著改进。
 tags:
   - AAAI 2026
   - LTLfMT

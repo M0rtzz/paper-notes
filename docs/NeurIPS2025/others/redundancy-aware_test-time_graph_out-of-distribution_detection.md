@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Redundancy-Aware Test-Time Graph Out-of-Distribution Detection 论文解读 | NeurIPS 2025 | arXiv 2510.14562 | 图OOD检测 | 提出 RedOUT 框架，通过最小化结构熵构建编码树来消除图结构中的冗余信息，结合冗余感知图信息瓶颈(ReGIB)原理，在测试时无需修改预训练模型参数即可有效区分ID和OOD图样本，在10个数据集对上平均AUC达87.46%。"
+title: >-
+  [论文解读] Redundancy-Aware Test-Time Graph Out-of-Distribution Detection
+description: >-
+  [NeurIPS 2025][图OOD检测] 提出 RedOUT 框架，通过最小化结构熵构建编码树来消除图结构中的冗余信息，结合冗余感知图信息瓶颈(ReGIB)原理，在测试时无需修改预训练模型参数即可有效区分ID和OOD图样本，在10个数据集对上平均AUC达87.46%。
 tags:
   - NeurIPS 2025
   - 图OOD检测

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Rectified Flow for Image Fusion 论文解读 | NeurIPS 2025 | arXiv 2509.16549 | Image Fusion | 提出 RFfusion，首次将 Rectified Flow 引入图像融合任务，实现无需额外训练的单步采样，同时设计面向融合的两阶段 VAE 训练策略，在速度和质量上全面超越现有扩散融合方法。"
+title: >-
+  [论文解读] Efficient Rectified Flow for Image Fusion
+description: >-
+  [NeurIPS 2025][图像生成][Image Fusion] 提出 RFfusion，首次将 Rectified Flow 引入图像融合任务，实现无需额外训练的单步采样，同时设计面向融合的两阶段 VAE 训练策略，在速度和质量上全面超越现有扩散融合方法。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - Image Fusion
   - Rectified Flow
   - 扩散模型

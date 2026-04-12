@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FedP²EFT: Federated Learning to Personalize PEFT for Multilingual LLMs 论文解读 | AAAI2026 | arXiv 2502.04387 | 联邦学习 | 提出FedP²EFT，通过联邦学习协作训练一个Personalization Strategy Generator (PSG)，为每个客户端自动生成个性化的LoRA rank结构，在多语言LLM微调中大幅超越手工设计的PEFT配置和现有FL个性化方法。"
+title: >-
+  [论文解读] FedP²EFT: Federated Learning to Personalize PEFT for Multilingual LLMs
+description: >-
+  [AAAI2026][优化][联邦学习] 提出FedP²EFT，通过联邦学习协作训练一个Personalization Strategy Generator (PSG)，为每个客户端自动生成个性化的LoRA rank结构，在多语言LLM微调中大幅超越手工设计的PEFT配置和现有FL个性化方法。
 tags:
   - AAAI2026
+  - 优化
   - 联邦学习
   - 个性化PEFT
   - LoRA rank选择

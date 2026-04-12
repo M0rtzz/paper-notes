@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Modulated Diffusion: Accelerating Generative Modeling with Modulated Quantization 论文解读 | ICML 2025 | arXiv 2506.22463 | 扩散模型加速 | MoDiff 提出了调制量化(Modulated Quantization)与误差补偿相结合的框架来加速扩散模型，将激活量化从 8-bit 降至 3-bit 且无性能损失，同时继承缓存和量化方法的双重优势。"
+title: >-
+  [论文解读] Modulated Diffusion: Accelerating Generative Modeling with Modulated Quantization
+description: >-
+  [ICML 2025][图像生成][扩散模型加速] MoDiff 提出了调制量化(Modulated Quantization)与误差补偿相结合的框架来加速扩散模型，将激活量化从 8-bit 降至 3-bit 且无性能损失，同时继承缓存和量化方法的双重优势。
 tags:
   - ICML 2025
+  - 图像生成
   - 扩散模型加速
   - 量化
   - 缓存

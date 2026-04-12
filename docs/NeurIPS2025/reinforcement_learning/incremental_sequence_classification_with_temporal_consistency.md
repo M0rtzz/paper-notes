@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Incremental Sequence Classification with Temporal Consistency 论文解读 | NeurIPS 2025 | arXiv 2505.16548 | incremental classification | 将强化学习中时序差分（TD）学习的思想引入序列分类任务，提出 TC-λ 损失函数，通过要求相邻时间步的预测分布满足时序一致性条件来训练增量式序列分类器，在文本分类和 LLM 验证任务上均优于标准交叉熵方法。"
+title: >-
+  [论文解读] Incremental Sequence Classification with Temporal Consistency
+description: >-
+  [NeurIPS 2025][incremental classification] 将强化学习中时序差分（TD）学习的思想引入序列分类任务，提出 TC-$\lambda$ 损失函数，通过要求相邻时间步的预测分布满足时序一致性条件来训练增量式序列分类器，在文本分类和 LLM 验证任务上均优于标准交叉熵方法。
 tags:
   - NeurIPS 2025
   - incremental classification

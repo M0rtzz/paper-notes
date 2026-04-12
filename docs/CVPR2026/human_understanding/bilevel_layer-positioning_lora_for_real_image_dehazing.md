@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bilevel Layer-Positioning LoRA for Real Image Dehazing 论文解读 | CVPR2026 | arXiv 2603.10872 | image dehazing | 提出 BiLaLoRA，通过双层优化自动定位 LoRA 应插入的最优网络层，配合 H2C Loss（基于 CLIP 语义方向的无监督去雾损失），实现合成数据预训练的去雾模型向真实场景的高效适配——训练时间降低 77.7%，性能持平全量微调，跨模型跨域均有效。"
+title: >-
+  [论文解读] Bilevel Layer-Positioning LoRA for Real Image Dehazing
+description: >-
+  [CVPR2026][人体理解][image dehazing] 提出 BiLaLoRA，通过双层优化自动定位 LoRA 应插入的最优网络层，配合 H2C Loss（基于 CLIP 语义方向的无监督去雾损失），实现合成数据预训练的去雾模型向真实场景的高效适配——训练时间降低 77.7%，性能持平全量微调，跨模型跨域均有效。
 tags:
   - CVPR2026
+  - 人体理解
   - image dehazing
   - LoRA
   - bilevel optimization

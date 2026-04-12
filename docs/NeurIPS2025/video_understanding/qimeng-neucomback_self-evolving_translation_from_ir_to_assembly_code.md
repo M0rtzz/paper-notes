@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】QiMeng-NeuComBack: Self-Evolving Translation from IR to Assembly Code 论文解读 | NeurIPS 2025 | arXiv 2511.01183 | 神经编译 | 提出NeuComBack基准数据集用于评估IR到汇编的神经编译任务，并设计自进化提示优化方法，通过从LLM自调试轨迹中学习来迭代改进编译提示，使正确率从44%提升到64%，且87.5%的正确程序性能超越clang-O3。"
+title: >-
+  [论文解读] QiMeng-NeuComBack: Self-Evolving Translation from IR to Assembly Code
+description: >-
+  [NeurIPS 2025][视频理解][神经编译] 提出NeuComBack基准数据集用于评估IR到汇编的神经编译任务，并设计自进化提示优化方法，通过从LLM自调试轨迹中学习来迭代改进编译提示，使正确率从44%提升到64%，且87.5%的正确程序性能超越clang-O3。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 神经编译
   - LLM
   - IR到汇编翻译

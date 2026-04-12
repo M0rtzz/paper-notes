@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】RoCoFT: Efficient Finetuning of Large Language Models with Row-Column Updates 论文解读 | 提出 RoCoFT，一种极简的参数高效微调方法：仅更新 Transformer 权重矩阵中少量行或列的参数，在 GLUE、QA、摘要生成和常识/数学推理等任务上达到与 LoRA 等 SOTA PEFT 方法相当的精度，同时更省内存和计算，并通过 Neural Tangent Kernel 理论解释了其有效性。"
+title: >-
+  [论文解读] RoCoFT: Efficient Finetuning of Large Language Models with Row-Column Updates
+description: >-
+  [LLM/NLP] 提出 RoCoFT，一种极简的参数高效微调方法：仅更新 Transformer 权重矩阵中少量行或列的参数，在 GLUE、QA、摘要生成和常识/数学推理等任务上达到与 LoRA 等 SOTA PEFT 方法相当的精度，同时更省内存和计算，并通过 Neural Tangent Kernel 理论解释了其有效性。
 tags:
-
+  - LLM/NLP
 ---
 
 # RoCoFT: Efficient Finetuning of Large Language Models with Row-Column Updates

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FlyPrompt: Brain-Inspired Random-Expanded Routing with Temporal-Ensemble Experts for General Continual Learning 论文解读 | ICLR 2026 | arXiv 2602.01976 | 持续学习 | 受果蝇蘑菇体神经系统启发，提出 FlyPrompt 框架将通用持续学习（GCL）分解为专家路由和专家能力提升两个子问题，通过随机扩展解析路由器（REAR）和时序集成专家（TE2）分别解决，在 CIFAR-100/ImageNet-R/CUB-200 上分别提升 11.23%/12.43%/7.62%。"
+title: >-
+  [论文解读] FlyPrompt: Brain-Inspired Random-Expanded Routing with Temporal-Ensemble Experts for General Continual Learning
+description: >-
+  [ICLR 2026][模型压缩][持续学习] 受果蝇蘑菇体神经系统启发，提出 FlyPrompt 框架将通用持续学习（GCL）分解为专家路由和专家能力提升两个子问题，通过随机扩展解析路由器（REAR）和时序集成专家（TE2）分别解决，在 CIFAR-100/ImageNet-R/CUB-200 上分别提升 11.23%/12.43%/7.62%。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 持续学习
   - 参数高效微调
   - 果蝇神经系统

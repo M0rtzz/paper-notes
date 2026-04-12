@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation 论文解读 | NeurIPS 2025 | arXiv 2504.13055 | visual reasoning | 提出NoisyRollout，一种简单有效的数据增强方法——在VLM的RL训练中混合使用干净图像和适度扭曲图像的生成轨迹，通过注入感知多样性促进策略探索和鲁棒推理，配合噪声退火调度，零额外计算成本实现5个域外推理benchmark上的开源RL模型SOTA。"
+title: >-
+  [论文解读] NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation
+description: >-
+  [NeurIPS 2025][visual reasoning] 提出NoisyRollout，一种简单有效的数据增强方法——在VLM的RL训练中混合使用干净图像和适度扭曲图像的生成轨迹，通过注入感知多样性促进策略探索和鲁棒推理，配合噪声退火调度，零额外计算成本实现5个域外推理benchmark上的开源RL模型SOTA。
 tags:
   - NeurIPS 2025
   - visual reasoning

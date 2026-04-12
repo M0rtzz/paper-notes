@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Aligning LLMs by Predicting Preferences from User Writing Samples 论文解读 | ICML2025 | arXiv 2505.23815 | 偏好推断 | 提出PROSE方法，通过迭代精炼和跨样本一致性验证从用户写作样本中推断偏好描述，在摘要和邮件写作任务上比CIPHER提升33%，且可与ICL互补再提9%。"
+title: >-
+  [论文解读] Aligning LLMs by Predicting Preferences from User Writing Samples
+description: >-
+  [ICML2025][偏好推断] 提出PROSE方法，通过迭代精炼和跨样本一致性验证从用户写作样本中推断偏好描述，在摘要和邮件写作任务上比CIPHER提升33%，且可与ICL互补再提9%。
 tags:
   - ICML2025
   - 偏好推断

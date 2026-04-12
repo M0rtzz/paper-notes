@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Large-Scale Real-World Evaluation of LLM-Based Virtual Teaching Assistant 论文解读 | ACL 2025 | arXiv 2506.17363 | 虚拟教学助手 | 在 KAIST 477 名研究生的 AI 编程课上部署基于 GPT-4o-mini + RAG 的虚拟教学助手（VTA），通过三轮大规模问卷调查和 3,869 条交互日志分析系统性评估 VTA 的有效性与接受度，发现 VTA 在编程和概念问题上有效但信任度随时间下降。"
+title: >-
+  [论文解读] A Large-Scale Real-World Evaluation of LLM-Based Virtual Teaching Assistant
+description: >-
+  [ACL 2025][LLM/NLP][虚拟教学助手] 在 KAIST 477 名研究生的 AI 编程课上部署基于 GPT-4o-mini + RAG 的虚拟教学助手（VTA），通过三轮大规模问卷调查和 3,869 条交互日志分析系统性评估 VTA 的有效性与接受度，发现 VTA 在编程和概念问题上有效但信任度随时间下降。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 虚拟教学助手
   - LLM
   - RAG

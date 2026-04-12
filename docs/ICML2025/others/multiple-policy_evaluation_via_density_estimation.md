@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Multiple-Policy Evaluation via Density Estimation 论文解读 | ICML2025 | arXiv 2404.00195 | 多策略评估 | 提出CAESAR算法解决K个策略同时评估问题：通过两阶段方法（粗估计访问分布→计算最优采样分布→密度比估计）实现实例依赖的样本复杂度，比单策略评估K次的朴素方法高效得多。"
+title: >-
+  [论文解读] Multiple-Policy Evaluation via Density Estimation
+description: >-
+  [ICML2025][多策略评估] 提出CAESAR算法解决K个策略同时评估问题：通过两阶段方法（粗估计访问分布→计算最优采样分布→密度比估计）实现实例依赖的样本复杂度，比单策略评估K次的朴素方法高效得多。
 tags:
   - ICML2025
   - 多策略评估

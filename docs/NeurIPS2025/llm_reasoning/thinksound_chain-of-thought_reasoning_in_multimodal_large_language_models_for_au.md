@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing 论文解读 | NeurIPS 2025 | arXiv 2506.21448 | 视频转音频 | 提出三阶段交互式视频转音频框架 ThinkSound，通过 MLLM 生成结构化 CoT 推理来指导统一的音频生成基础模型，在 VGGSound 和 MovieGen Audio 基准上达到 SOTA，同时支持对象级精细化和自然语言指令编辑。"
+title: >-
+  [论文解读] ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing
+description: >-
+  [NeurIPS 2025][LLM推理][视频转音频] 提出三阶段交互式视频转音频框架 ThinkSound，通过 MLLM 生成结构化 CoT 推理来指导统一的音频生成基础模型，在 VGGSound 和 MovieGen Audio 基准上达到 SOTA，同时支持对象级精细化和自然语言指令编辑。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - 视频转音频
   - Chain-of-Thought
   - 音频生成

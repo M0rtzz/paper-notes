@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】GEM: Generative Entropy-Guided Preference Modeling for Few-shot Alignment of LLMs 论文解读 | GEM 提出了一种生成式熵引导偏好建模方法，通过认知过滤（基于熵的 CoT 评分）和 SEGA 算法（自评估组优势策略优化），在仅 3000 个偏好对的低资源场景下实现高效的 LLM 对齐。"
+title: >-
+  [论文解读] GEM: Generative Entropy-Guided Preference Modeling for Few-shot Alignment of LLMs
+description: >-
+  [医学图像] GEM 提出了一种生成式熵引导偏好建模方法，通过认知过滤（基于熵的 CoT 评分）和 SEGA 算法（自评估组优势策略优化），在仅 3000 个偏好对的低资源场景下实现高效的 LLM 对齐。
 tags:
-
+  - 医学图像
 ---
 
 # GEM: Generative Entropy-Guided Preference Modeling for Few-shot Alignment of LLMs

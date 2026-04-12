@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation? 论文解读 | ACL 2025 | arXiv 2502.11469 | 通过将 Transformer Grammar（TG）的注意力机制与人类阅读时间数据关联，首次证明在句法结构上操作的注意力比在 token 序列上操作的普通 Transformer 注意力能更好地预测人类阅读行为，揭示人类句子处理涉及\"句法结构+词序列\"的双重记忆表征。"
+title: >-
+  [论文解读] If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?
+description: >-
+  [ACL 2025] 通过将 Transformer Grammar（TG）的注意力机制与人类阅读时间数据关联，首次证明在句法结构上操作的注意力比在 token 序列上操作的普通 Transformer 注意力能更好地预测人类阅读行为，揭示人类句子处理涉及"句法结构+词序列"的双重记忆表征。
 tags:
   - ACL 2025
 ---

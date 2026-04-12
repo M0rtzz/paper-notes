@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AVATAR: Reinforcement Learning to See, Hear, and Reason Over Video 论文解读 | CVPR 2026 | arXiv 2508.03100 | 音视频推理 | 提出AVATAR框架，通过离策略训练架构（分层重放缓冲区）和时间优势塑形（TAS，U形加权强调推理链首尾）两个核心组件改进GRPO，解决其数据低效、优势消失和均匀信用分配三大问题，在音视频推理基准上显著超越GRPO基线。"
+title: >-
+  [论文解读] AVATAR: Reinforcement Learning to See, Hear, and Reason Over Video
+description: >-
+  [CVPR 2026][人体理解][音视频推理] 提出AVATAR框架，通过离策略训练架构（分层重放缓冲区）和时间优势塑形（TAS，U形加权强调推理链首尾）两个核心组件改进GRPO，解决其数据低效、优势消失和均匀信用分配三大问题，在音视频推理基准上显著超越GRPO基线。
 tags:
   - CVPR 2026
+  - 人体理解
   - 音视频推理
   - GRPO改进
   - 离策略强化学习

@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Unified Multimodal Understanding via Byte-Pair Visual Encoding 论文解读 | ICCV2025 | arXiv 2506.23639 | BPE Visual Tokenization | 将 NLP 中的 Byte-Pair Encoding (BPE) 策略应用于视觉 token 化，提出优先级引导的编码方案（融合频率和空间一致性）、课程式数据混合和渐进式参数解冻三阶段训练策略，构建的 Being-VL-0.5（8B）在离散 token 路线上接近连续 embedding 方法的主流水平。"
+title: >-
+  [论文解读] Unified Multimodal Understanding via Byte-Pair Visual Encoding
+description: >-
+  [ICCV2025][多模态][BPE Visual Tokenization] 将 NLP 中的 Byte-Pair Encoding (BPE) 策略应用于视觉 token 化，提出优先级引导的编码方案（融合频率和空间一致性）、课程式数据混合和渐进式参数解冻三阶段训练策略，构建的 Being-VL-0.5（8B）在离散 token 路线上接近连续 embedding 方法的主流水平。
 tags:
   - ICCV2025
+  - 多模态
   - BPE Visual Tokenization
   - Discrete Visual Tokens
-  - 多模态
   - Vocabulary Construction
   - Curriculum Training
 ---

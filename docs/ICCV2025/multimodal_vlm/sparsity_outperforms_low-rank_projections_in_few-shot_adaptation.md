@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sparsity Outperforms Low-Rank Projections in Few-Shot Adaptation 论文解读 | ICCV 2025 | arXiv 2504.12436 | 稀疏优化 | 提出稀疏优化（SO）框架，通过动态稀疏梯度选择和基于重要性的动量剪枝来替代低秩适配方法（如LoRA），在11个数据集上的少样本VLM适配任务中实现了SOTA，同时降低了内存开销。"
+title: >-
+  [论文解读] Sparsity Outperforms Low-Rank Projections in Few-Shot Adaptation
+description: >-
+  [ICCV 2025][多模态][稀疏优化] 提出稀疏优化（SO）框架，通过动态稀疏梯度选择和基于重要性的动量剪枝来替代低秩适配方法（如LoRA），在11个数据集上的少样本VLM适配任务中实现了SOTA，同时降低了内存开销。
 tags:
   - ICCV 2025
+  - 多模态
   - 稀疏优化
   - 少样本适配
   - CLIP

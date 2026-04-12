@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Amodal Depth Anything: Amodal Depth Estimation in the Wild 论文解读 | ICCV 2025 | arXiv 2412.02336 | 非模态深度估计 | 提出非模态相对深度估计新范式，构建大规模真实数据集ADIW（564K），基于Depth Anything V2和DepthFM设计两个互补框架（Amodal-DAV2和Amodal-DepthFM），通过最小化修改预训练模型实现遮挡区域深度预测，在ADIW上RMSE比之前SOTA提升27.4%。"
+title: >-
+  [论文解读] Amodal Depth Anything: Amodal Depth Estimation in the Wild
+description: >-
+  [ICCV 2025][3D视觉][非模态深度估计] 提出非模态相对深度估计新范式，构建大规模真实数据集ADIW（564K），基于Depth Anything V2和DepthFM设计两个互补框架（Amodal-DAV2和Amodal-DepthFM），通过最小化修改预训练模型实现遮挡区域深度预测，在ADIW上RMSE比之前SOTA提升27.4%。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 非模态深度估计
   - 相对深度
   - 遮挡感知

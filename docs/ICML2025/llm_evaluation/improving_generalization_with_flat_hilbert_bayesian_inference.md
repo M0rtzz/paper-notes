@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Improving Generalization with Flat Hilbert Bayesian Inference 论文解读 | ICML2025 | arXiv 2410.04196 | Bayesian Inference | 提出 Flat Hilbert Bayesian Inference (FHBI)，将 SAM 的平坦性概念从有限维欧氏空间推广到无限维再生核希尔伯特空间 (RKHS)，并与粒子采样贝叶斯推断结合，在 VTAB-1K 基准上以 73.7% 平均 Top-1 准确率全面超越九个基线方法。"
+title: >-
+  [论文解读] Improving Generalization with Flat Hilbert Bayesian Inference
+description: >-
+  [ICML2025][Bayesian Inference] 提出 Flat Hilbert Bayesian Inference (FHBI)，将 SAM 的平坦性概念从有限维欧氏空间推广到无限维再生核希尔伯特空间 (RKHS)，并与粒子采样贝叶斯推断结合，在 VTAB-1K 基准上以 73.7% 平均 Top-1 准确率全面超越九个基线方法。
 tags:
   - ICML2025
   - Bayesian Inference

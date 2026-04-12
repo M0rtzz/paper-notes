@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Balancing Efficiency and Expressiveness: Subgraph GNNs with Walk-Based Centrality 论文解读 | ICML 2025 | arXiv 2501.03113 | 图神经网络 子图GNN | 提出 HyMN——通过游走中心性（Subgraph Centrality）对子图 GNN 的子图包进行高效采样，仅需 1-2 个子图即可媲美全包 Subgraph GNN 的性能，同时将中心性作为结构编码进一步增强判别能力，使子图方法首次可扩展到数百倍更大的图。"
+title: >-
+  [论文解读] Balancing Efficiency and Expressiveness: Subgraph GNNs with Walk-Based Centrality
+description: >-
+  [ICML 2025][图学习][图神经网络] 提出 HyMN——通过游走中心性（Subgraph Centrality）对子图 GNN 的子图包进行高效采样，仅需 1-2 个子图即可媲美全包 Subgraph GNN 的性能，同时将中心性作为结构编码进一步增强判别能力，使子图方法首次可扩展到数百倍更大的图。
 tags:
   - ICML 2025
+  - 图学习
   - 图神经网络
   - 游走中心性
   - 子图采样

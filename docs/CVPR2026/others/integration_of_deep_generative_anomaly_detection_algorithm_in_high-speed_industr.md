@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Integration of Deep Generative Anomaly Detection Algorithm in High-Speed Industrial Line 论文解读 | CVPR 2026 | arXiv 2603.07577 | 异常检测 | 本文提出一个基于 GAN + 残差自编码器（DRAE）的半监督异常检测框架，专门设计用于制药行业 Blow-Fill-Seal（BFS）产线的高速在线质量检测，仅用合格品训练即可实现 96.4% 的准确率，单 patch 推理仅 0.17ms，满足 500ms 检测周期的严格工业约束。"
+title: >-
+  [论文解读] Integration of Deep Generative Anomaly Detection Algorithm in High-Speed Industrial Line
+description: >-
+  [CVPR 2026][异常检测] 本文提出一个基于 GAN + 残差自编码器（DRAE）的半监督异常检测框架，专门设计用于制药行业 Blow-Fill-Seal（BFS）产线的高速在线质量检测，仅用合格品训练即可实现 96.4% 的准确率，单 patch 推理仅 0.17ms，满足 500ms 检测周期的严格工业约束。
 tags:
   - CVPR 2026
   - 异常检测

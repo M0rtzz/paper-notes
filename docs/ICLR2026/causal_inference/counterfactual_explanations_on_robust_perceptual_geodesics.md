@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Counterfactual Explanations on Robust Perceptual Geodesics 论文解读 | ICLR 2026 | arXiv 2601.18678 | 反事实解释 | 提出 PCG（Perceptual Counterfactual Geodesic）方法，在鲁棒感知流形上通过测地线优化生成语义忠实的反事实解释，两阶段优化确保路径既感知自然又达到目标类别，在 AFHQ 上 FID=8.3 远优于 RSGD 的 12.9。"
+title: >-
+  [论文解读] Counterfactual Explanations on Robust Perceptual Geodesics
+description: >-
+  [ICLR 2026][反事实解释] 提出 PCG（Perceptual Counterfactual Geodesic）方法，在鲁棒感知流形上通过测地线优化生成语义忠实的反事实解释，两阶段优化确保路径既感知自然又达到目标类别，在 AFHQ 上 FID=8.3 远优于 RSGD 的 12.9。
 tags:
   - ICLR 2026
   - 反事实解释

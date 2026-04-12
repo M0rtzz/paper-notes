@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enhancing Automated Interpretability with Output-Centric Feature Descriptions 论文解读 | ACL 2025 | arXiv 2501.08319 | 自动可解释性 | 提出两种以输出为中心的特征描述方法（VocabProj 和 TokenChange），弥补现有基于输入激活的自动可解释性流程只能捕获\"什么激活了特征\"而忽略\"特征如何影响输出\"的缺陷，并证明输入+输出方法的集成能生成最忠实的特征描述。"
+title: >-
+  [论文解读] Enhancing Automated Interpretability with Output-Centric Feature Descriptions
+description: >-
+  [ACL 2025][自动可解释性] 提出两种以输出为中心的特征描述方法（VocabProj 和 TokenChange），弥补现有基于输入激活的自动可解释性流程只能捕获"什么激活了特征"而忽略"特征如何影响输出"的缺陷，并证明输入+输出方法的集成能生成最忠实的特征描述。
 tags:
   - ACL 2025
   - 自动可解释性

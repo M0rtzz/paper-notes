@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Consistent Low-Rank Approximation 论文解读 | ICLR2026 | arXiv 2603.02148 | low-rank approximation | 提出并系统研究\"一致低秩近似\"问题——在流数据中逐行到达的矩阵上维护近最优 rank-k 近似的同时最小化解的总变化量（recourse），证明加性误差下 O(k/ε · log(nd)) recourse 可行，乘性 (1+ε) 误差下 k^3/2/ε² · polylog recourse 可行，并给出 Ω(k/ε · log(n/k)) 的下界。"
+title: >-
+  [论文解读] Consistent Low-Rank Approximation
+description: >-
+  [ICLR2026][low-rank approximation] 提出并系统研究"一致低秩近似"问题——在流数据中逐行到达的矩阵上维护近最优 rank-$k$ 近似的同时最小化解的总变化量（recourse），证明加性误差下 $O(k/\varepsilon \cdot \log(nd))$ recourse 可行，乘性 $(1+\varepsilon)$ 误差下 $k^{3/2}/\varepsilon^2 \cdot \text{polylog}$ recourse 可行，并给出 $\Omega(k/\varepsilon \cdot \log(n/k))$ 的下界。
 tags:
   - ICLR2026
   - low-rank approximation

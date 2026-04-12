@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Non-Collaborative User Simulators for Tool Agents 论文解读 | ICLR 2026 | arXiv 2509.23124 | 用户模拟器 | 提出四类非协作用户行为模拟框架（不可用服务/跑题/不耐烦/不完整表述），在MultiWOZ和τ-bench上揭示SOTA工具Agent在面对非协作用户时性能显著下降（平均-29% tangential模式），暴露了幻觉增加和对话崩溃的系统性弱点。"
+title: >-
+  [论文解读] Non-Collaborative User Simulators for Tool Agents
+description: >-
+  [ICLR 2026][用户模拟器] 提出四类非协作用户行为模拟框架（不可用服务/跑题/不耐烦/不完整表述），在MultiWOZ和τ-bench上揭示SOTA工具Agent在面对非协作用户时性能显著下降（平均-29% tangential模式），暴露了幻觉增加和对话崩溃的系统性弱点。
 tags:
   - ICLR 2026
   - 用户模拟器

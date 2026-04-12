@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GraphNarrator: Generating Textual Explanations for Graph Neural Networks 论文解读 | ACL 2025 (Long Paper) | arXiv 2410.15268 | 图神经网络 GNN Explainability | 提出GraphNarrator——首个为图神经网络生成自然语言解释的方法，通过将显著性图解释\"语言化\"为文本段落、用Expert Iteration迭代优化伪标签质量、最终蒸馏到端到端解释器模型，在三个数据集上生成的解释在忠实度、简洁性和人类偏好上均优于GPT-4o零样本解释。"
+title: >-
+  [论文解读] GraphNarrator: Generating Textual Explanations for Graph Neural Networks
+description: >-
+  [ACL 2025 (Long Paper)][图学习][图神经网络] 提出GraphNarrator——首个为图神经网络生成自然语言解释的方法，通过将显著性图解释"语言化"为文本段落、用Expert Iteration迭代优化伪标签质量、最终蒸馏到端到端解释器模型，在三个数据集上生成的解释在忠实度、简洁性和人类偏好上均优于GPT-4o零样本解释。
 tags:
   - ACL 2025 (Long Paper)
+  - 图学习
   - 图神经网络
   - Natural Language Explanation
   - Expert Iteration

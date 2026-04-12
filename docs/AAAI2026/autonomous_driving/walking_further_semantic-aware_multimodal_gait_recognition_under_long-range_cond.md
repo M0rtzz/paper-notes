@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Walking Further: Semantic-aware Multimodal Gait Recognition Under Long-Range Conditions 论文解读 | AAAI 2026 | arXiv 2603.14189 | 多模态步态识别 | 构建LRGait——首个面向长距离（10-50m）跨距离场景的LiDAR-Camera多模态步态数据集，并提出EMGaitNet端到端框架，通过CLIP语义挖掘（SeMi）、语义引导对齐（SGA）和对称交叉注意力融合（SCAF）模块实现2D-3D跨模态特征融合，在多个基准上达到SOTA。"
+title: >-
+  [论文解读] Walking Further: Semantic-aware Multimodal Gait Recognition Under Long-Range Conditions
+description: >-
+  [AAAI 2026][自动驾驶][多模态步态识别] 构建LRGait——首个面向长距离（10-50m）跨距离场景的LiDAR-Camera多模态步态数据集，并提出EMGaitNet端到端框架，通过CLIP语义挖掘（SeMi）、语义引导对齐（SGA）和对称交叉注意力融合（SCAF）模块实现2D-3D跨模态特征融合，在多个基准上达到SOTA。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 多模态步态识别
   - 长距离识别
   - LiDAR-Camera融合

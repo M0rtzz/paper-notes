@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SpecAttn: Speculating Sparse Attention 论文解读 | NeurIPS 2025 | arXiv 2510.27641 | 稀疏注意力 | SpecAttn 提出一种无需训练的方法，利用投机解码中草稿模型已计算的注意力权重来预测验证模型的重要 token，通过 KL 散度层映射 + 免排序 top-p 核选择 + 动态 KV 缓存剪枝，实现 78.4% 的 KV 缓存访问减少，困惑度仅增加 15.29%，显著优于现有稀疏注意力方法。"
+title: >-
+  [论文解读] SpecAttn: Speculating Sparse Attention
+description: >-
+  [NeurIPS 2025][人体理解][稀疏注意力] SpecAttn 提出一种无需训练的方法，利用投机解码中草稿模型已计算的注意力权重来预测验证模型的重要 token，通过 KL 散度层映射 + 免排序 top-p 核选择 + 动态 KV 缓存剪枝，实现 78.4% 的 KV 缓存访问减少，困惑度仅增加 15.29%，显著优于现有稀疏注意力方法。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 稀疏注意力
   - 投机解码
   - KV缓存剪枝

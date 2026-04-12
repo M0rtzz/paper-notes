@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals 论文解读 | AAAI 2026 | arXiv 2511.14196 | 跨被试脑解码 | 提出 MindCross，一个跨被试脑解码框架，通过共享编码器学习被试无关信息 + N个特有编码器学习被试相关信息，配合快速校准阶段和 Top-K 协作解码模块，仅用一个模型在 fMRI/EEG-to-video 基准上实现与被试独立模型可比的性能，且新被试适应仅需极少数据和极短时间（~1秒 vs 基线5-17秒）。"
+title: >-
+  [论文解读] MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals
+description: >-
+  [AAAI 2026][医学图像][跨被试脑解码] 提出 MindCross，一个跨被试脑解码框架，通过共享编码器学习被试无关信息 + N个特有编码器学习被试相关信息，配合快速校准阶段和 Top-K 协作解码模块，仅用一个模型在 fMRI/EEG-to-video 基准上实现与被试独立模型可比的性能，且新被试适应仅需极少数据和极短时间（~1秒 vs 基线5-17秒）。
 tags:
   - AAAI 2026
+  - 医学图像
   - 跨被试脑解码
   - 视频重建
   - fMRI

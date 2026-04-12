@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PERSIST: Persistent Instability in LLM's Personality Measurements 论文解读 | AAAI 2026 | arXiv 2508.04826 | LLM人格测量 | PERSIST 框架系统评估 25 个开源 LLM（1B-685B）在 200 万+响应上的人格测量稳定性，发现即使 400B+模型在 5 分制量表上仍有 SD>0.3 的不稳定性，且 CoT 推理悖论性地增加变异性同时降低困惑度，LLM 适配问卷与传统人类问卷表现出相似的不稳定性。"
+title: >-
+  [论文解读] PERSIST: Persistent Instability in LLM's Personality Measurements
+description: >-
+  [AAAI 2026][LLM/NLP][LLM人格测量] PERSIST 框架系统评估 25 个开源 LLM（1B-685B）在 200 万+响应上的人格测量稳定性，发现即使 400B+模型在 5 分制量表上仍有 SD>0.3 的不稳定性，且 CoT 推理悖论性地增加变异性同时降低困惑度，LLM 适配问卷与传统人类问卷表现出相似的不稳定性。
 tags:
   - AAAI 2026
+  - LLM/NLP
   - LLM人格测量
   - 行为一致性
   - 推理模式

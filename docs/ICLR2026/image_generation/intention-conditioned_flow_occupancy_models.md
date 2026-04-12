@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Intention-Conditioned Flow Occupancy Models 论文解读 | 提出 InFOM，利用流匹配（flow matching）构建意图条件化的占据模型（occupancy model），通过变分推断推理数据中的潜在意图，实现无标注数据上的 RL 预训练，在 36 个状态任务和 4 个视觉任务上取得 1.8× 中位回报提升和 36% 成功率提升。"
+title: >-
+  [论文解读] Intention-Conditioned Flow Occupancy Models
+description: >-
+  [图像生成] 提出 InFOM，利用流匹配（flow matching）构建意图条件化的占据模型（occupancy model），通过变分推断推理数据中的潜在意图，实现无标注数据上的 RL 预训练，在 36 个状态任务和 4 个视觉任务上取得 1.8× 中位回报提升和 36% 成功率提升。
 tags:
-
+  - 图像生成
 ---
 
 # Intention-Conditioned Flow Occupancy Models

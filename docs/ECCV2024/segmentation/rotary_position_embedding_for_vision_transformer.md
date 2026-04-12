@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rotary Position Embedding for Vision Transformer 论文解读 | ECCV 2024 | arXiv 2403.13298 | RoPE | 本文系统研究了将 RoPE（Rotary Position Embedding）从1D语言模型扩展到2D视觉任务的方法，提出 RoPE-Mixed（混合可学习频率）替代传统的 Axial 频率分配，在 ViT 和 Swin Transformer 上实现了显著的分辨率外推性能提升，在 ImageNet 分类、COCO 检测和 ADE20k 分割上均带来一致增益。"
+title: >-
+  [论文解读] Rotary Position Embedding for Vision Transformer
+description: >-
+  [ECCV 2024][图像分割][RoPE] 本文系统研究了将 RoPE（Rotary Position Embedding）从1D语言模型扩展到2D视觉任务的方法，提出 RoPE-Mixed（混合可学习频率）替代传统的 Axial 频率分配，在 ViT 和 Swin Transformer 上实现了显著的分辨率外推性能提升，在 ImageNet 分类、COCO 检测和 ADE20k 分割上均带来一致增益。
 tags:
   - ECCV 2024
+  - 图像分割
   - RoPE
   - 位置编码
   - Transformer

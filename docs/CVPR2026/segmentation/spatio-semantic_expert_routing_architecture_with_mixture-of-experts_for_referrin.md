@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Spatio-Semantic Expert Routing Architecture with Mixture-of-Experts for Referring Image Segmentation 论文解读 | CVPR 2026 | arXiv 2603.12538 | 图像分割 Referring Image Segmentation | 提出 SERA 框架，在冻结的视觉-语言骨干网络中引入两阶段轻量级 MoE 专家精炼（骨干级 SERA-Adapter + 融合级 SERA-Fusion），通过表达式引导的自适应路由实现参考图像分割中的空间一致性和边界精度提升，仅更新不到 1% 的骨干参数。"
+title: >-
+  [论文解读] Spatio-Semantic Expert Routing Architecture with Mixture-of-Experts for Referring Image Segmentation
+description: >-
+  [CVPR 2026][图像分割][图像分割] 提出 SERA 框架，在冻结的视觉-语言骨干网络中引入两阶段轻量级 MoE 专家精炼（骨干级 SERA-Adapter + 融合级 SERA-Fusion），通过表达式引导的自适应路由实现参考图像分割中的空间一致性和边界精度提升，仅更新不到 1% 的骨干参数。
 tags:
   - CVPR 2026
   - 图像分割

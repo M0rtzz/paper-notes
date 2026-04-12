@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Correspondence Scoring for Unsupervised Medical Image Registration 论文解读 | ECCV 2024 | arXiv 2312.00837 | 无监督配准 | 针对医学图像无监督配准中噪声、遮挡等干扰因素导致的虚假重建误差问题，提出了一个自适应对应关系评分框架（AdaCS），通过学习像素级的对应置信度图来重新加权误差残差，以即插即用方式一致提升三种主流配准架构在三个数据集上的性能。"
+title: >-
+  [论文解读] Adaptive Correspondence Scoring for Unsupervised Medical Image Registration
+description: >-
+  [ECCV 2024][医学图像][无监督配准] 针对医学图像无监督配准中噪声、遮挡等干扰因素导致的虚假重建误差问题，提出了一个自适应对应关系评分框架（AdaCS），通过学习像素级的对应置信度图来重新加权误差残差，以即插即用方式一致提升三种主流配准架构在三个数据集上的性能。
 tags:
   - ECCV 2024
+  - 医学图像
   - 无监督配准
   - 对应关系评分
   - 自适应加权

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Modelling the Effects of Hearing Loss on Neural Coding in the Auditory Midbrain with Variational Conditioning 论文解读 | AAAI 2026 | arXiv 2506.03088 | 听觉中脑建模 | 提出 ψ-ICNet，一种变分条件深度神经网络模型，通过仅 6 个可学习的条件参数 ψ 来编码听力损失的效应，从真实神经活动记录中直接学习听力损失的低维表示空间，在预测正常和听力受损动物的听觉中脑神经响应方面达到与动物特定模型相当的精度，并可通过贝叶斯优化快速拟合未见过的新动物。"
+title: >-
+  [论文解读] Modelling the Effects of Hearing Loss on Neural Coding in the Auditory Midbrain with Variational Conditioning
+description: >-
+  [AAAI 2026][人体理解][听觉中脑建模] 提出 ψ-ICNet，一种变分条件深度神经网络模型，通过仅 6 个可学习的条件参数 ψ 来编码听力损失的效应，从真实神经活动记录中直接学习听力损失的低维表示空间，在预测正常和听力受损动物的听觉中脑神经响应方面达到与动物特定模型相当的精度，并可通过贝叶斯优化快速拟合未见过的新动物。
 tags:
   - AAAI 2026
+  - 人体理解
   - 听觉中脑建模
   - 听力损失
   - 变分条件模型

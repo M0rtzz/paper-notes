@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Aligning VLM Assistants with Personalized Situated Cognition 论文解读 | ACL 2025 | arXiv 2506.00930 | personalized alignment | 基于社会学\"角色集合\"(Role-Set) 概念刻画用户多样性，提出 PCogAlign 框架，通过认知感知的动作导向奖励模型来为 VLM 助手生成个性化回复，使不同角色的用户在相同视觉场景下获得最适合自身需求的建议。"
+title: >-
+  [论文解读] Aligning VLM Assistants with Personalized Situated Cognition
+description: >-
+  [ACL 2025][多模态][personalized alignment] 基于社会学"角色集合"(Role-Set) 概念刻画用户多样性，提出 PCogAlign 框架，通过认知感知的动作导向奖励模型来为 VLM 助手生成个性化回复，使不同角色的用户在相同视觉场景下获得最适合自身需求的建议。
 tags:
   - ACL 2025
+  - 多模态
   - personalized alignment
   - situated cognition
   - Role-Set

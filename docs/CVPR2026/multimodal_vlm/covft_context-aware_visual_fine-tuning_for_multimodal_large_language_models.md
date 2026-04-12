@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoVFT: Context-aware Visual Fine-tuning for Multimodal Large Language Models 论文解读 | CVPR 2026 | arXiv 2603.21077 | 多模态大模型 | 发现 MLLM 中视觉编码器微调的\"视觉偏好冲突\"问题，提出 CoVFT 框架，通过上下文向量提取（CVE）和上下文混合专家（CoMoE）实现上下文感知的视觉微调，在 12 个多模态基准上达到 SOTA 且稳定性显著优于现有方法。"
+title: >-
+  [论文解读] CoVFT: Context-aware Visual Fine-tuning for Multimodal Large Language Models
+description: >-
+  [CVPR 2026][多模态][多模态大模型] 发现 MLLM 中视觉编码器微调的"视觉偏好冲突"问题，提出 CoVFT 框架，通过上下文向量提取（CVE）和上下文混合专家（CoMoE）实现上下文感知的视觉微调，在 12 个多模态基准上达到 SOTA 且稳定性显著优于现有方法。
 tags:
   - CVPR 2026
+  - 多模态
   - 多模态大模型
   - 视觉微调
   - 混合专家

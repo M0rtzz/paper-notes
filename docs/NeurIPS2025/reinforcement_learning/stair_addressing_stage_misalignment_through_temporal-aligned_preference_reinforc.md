@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】STAIR: Addressing Stage Misalignment through Temporal-Aligned Preference Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2509.23802 | 偏好强化学习 | 发现并形式化了偏好强化学习（PbRL）中的\"阶段错位\"问题——比较不同阶段的行为片段会产生无效反馈，提出STAIR方法通过对比学习获取时间距离来近似阶段差异，用四边形距离选择阶段对齐的查询，在多阶段任务中显著超越现有PbRL方法。"
+title: >-
+  [论文解读] STAIR: Addressing Stage Misalignment through Temporal-Aligned Preference Reinforcement Learning
+description: >-
+  [NeurIPS 2025][偏好强化学习] 发现并形式化了偏好强化学习（PbRL）中的"阶段错位"问题——比较不同阶段的行为片段会产生无效反馈，提出STAIR方法通过对比学习获取时间距离来近似阶段差异，用四边形距离选择阶段对齐的查询，在多阶段任务中显著超越现有PbRL方法。
 tags:
   - NeurIPS 2025
   - 偏好强化学习

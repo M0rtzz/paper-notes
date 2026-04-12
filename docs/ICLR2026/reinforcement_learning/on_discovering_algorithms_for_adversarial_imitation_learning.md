@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On Discovering Algorithms for Adversarial Imitation Learning 论文解读 | ICLR 2026 | arXiv 2510.00922 | 对抗性模仿学习 | 用LLM引导的进化搜索自动发现对抗性模仿学习(AIL)的奖励赋值(RA)函数——将AIL分解为密度比估计(判别器)+奖励赋值(密度比→标量奖励)两阶段，发现的DAIL算法在未见环境和策略优化器上泛化且超越人工设计的GAIL/AIRL/FAIRL，分析揭示DAIL通过提供更informative的梯度信号实现更稳定训练。"
+title: >-
+  [论文解读] On Discovering Algorithms for Adversarial Imitation Learning
+description: >-
+  [ICLR 2026][对抗性模仿学习] 用LLM引导的进化搜索自动发现对抗性模仿学习(AIL)的奖励赋值(RA)函数——将AIL分解为密度比估计(判别器)+奖励赋值(密度比→标量奖励)两阶段，发现的DAIL算法在未见环境和策略优化器上泛化且超越人工设计的GAIL/AIRL/FAIRL，分析揭示DAIL通过提供更informative的梯度信号实现更稳定训练。
 tags:
   - ICLR 2026
   - 对抗性模仿学习

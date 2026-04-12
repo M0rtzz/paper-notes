@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding 论文解读 | NeurIPS 2025 | arXiv 2505.15946 | fMRI视觉解码 | 提出 MoRE-Brain，一种神经科学启发的 fMRI 视觉解码框架，采用层级混合专家（MoE）架构模拟大脑视觉通路的专门化处理，配合动态时间-空间双路由机制引导扩散模型生成图像，在保持高保真重建的同时实现了高效跨被试泛化和前所未有的机制可解释性。"
+title: >-
+  [论文解读] MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding
+description: >-
+  [NeurIPS 2025][医学图像][fMRI视觉解码] 提出 MoRE-Brain，一种神经科学启发的 fMRI 视觉解码框架，采用层级混合专家（MoE）架构模拟大脑视觉通路的专门化处理，配合动态时间-空间双路由机制引导扩散模型生成图像，在保持高保真重建的同时实现了高效跨被试泛化和前所未有的机制可解释性。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - fMRI视觉解码
   - 混合专家模型
   - 可解释性

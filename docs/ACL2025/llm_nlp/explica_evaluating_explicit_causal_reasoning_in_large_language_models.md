@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ExpliCa: Evaluating Explicit Causal Reasoning in Large Language Models 论文解读 | ACL 2025 | arXiv 2502.15487 | causal reasoning | 提出 ExpliCa 数据集（4800 条问题，含因果和时间连接词），首次整合因果和时间关系评估并配以众包人类评分，发现即使顶级模型准确率也难超 0.80，且模型系统性地将时间关系误判为因果关系。"
+title: >-
+  [论文解读] ExpliCa: Evaluating Explicit Causal Reasoning in Large Language Models
+description: >-
+  [ACL 2025][LLM/NLP][causal reasoning] 提出 ExpliCa 数据集（4800 条问题，含因果和时间连接词），首次整合因果和时间关系评估并配以众包人类评分，发现即使顶级模型准确率也难超 0.80，且模型系统性地将时间关系误判为因果关系。
 tags:
   - ACL 2025
+  - LLM/NLP
   - causal reasoning
   - temporal reasoning
   - connectives

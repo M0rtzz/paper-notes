@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MUG: Pseudo Labeling Augmented Audio-Visual Mamba Network for Audio-Visual Video Parsing 论文解读 | ICCV 2025 | arXiv 2507.01384 | 音视频解析 | 提出MUG框架，通过伪标签增强的跨模态随机组合数据增强策略和音视频Mamba网络，同时提升弱监督音视频解析任务中段级和事件级的预测性能。"
+title: >-
+  [论文解读] MUG: Pseudo Labeling Augmented Audio-Visual Mamba Network for Audio-Visual Video Parsing
+description: >-
+  [ICCV 2025][语音][音视频解析] 提出MUG框架，通过伪标签增强的跨模态随机组合数据增强策略和音视频Mamba网络，同时提升弱监督音视频解析任务中段级和事件级的预测性能。
 tags:
   - ICCV 2025
+  - 语音
   - 音视频解析
   - Mamba
   - 伪标签

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CausalVAD: De-confounding End-to-End Autonomous Driving via Causal Intervention 论文解读 | CVPR2026 | arXiv 2603.18561 | 因果推断 | 提出 CausalVAD，通过将 Pearl 后门调整理论参数化为即插即用模块（SCIS），在 VAD 架构的感知-预测-规划三个阶段进行多级因果干预，消除虚假关联，实现更安全、更鲁棒的端到端自动驾驶。"
+title: >-
+  [论文解读] CausalVAD: De-confounding End-to-End Autonomous Driving via Causal Intervention
+description: >-
+  [CVPR2026][自动驾驶][因果推断] 提出 CausalVAD，通过将 Pearl 后门调整理论参数化为即插即用模块（SCIS），在 VAD 架构的感知-预测-规划三个阶段进行多级因果干预，消除虚假关联，实现更安全、更鲁棒的端到端自动驾驶。
 tags:
   - CVPR2026
+  - 自动驾驶
   - 因果推断
   - 后门调整
   - 去混杂

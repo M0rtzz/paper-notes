@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】DTCRS: Dynamic Tree Construction for Recursive Summarization 论文解读 | 提出 DTCRS 方法，根据文档结构和查询语义动态构建摘要树，通过问题分解和子问题引导聚类减少冗余摘要节点，在三个 QA 数据集上显著优于静态摘要树方法 RAPTOR。"
+title: >-
+  [论文解读] DTCRS: Dynamic Tree Construction for Recursive Summarization
+description: >-
+  [文本生成] 提出 DTCRS 方法，根据文档结构和查询语义动态构建摘要树，通过问题分解和子问题引导聚类减少冗余摘要节点，在三个 QA 数据集上显著优于静态摘要树方法 RAPTOR。
 tags:
-
+  - 文本生成
 ---
 
 # DTCRS: Dynamic Tree Construction for Recursive Summarization

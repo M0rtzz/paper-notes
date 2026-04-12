@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SToLa: Self-Adaptive Touch-Language Framework with Tactile Commonsense Reasoning in Open-Ended Scenarios 论文解读 | AAAI 2026 | arXiv 2505.04201 | 触觉感知 | SToLa 提出首个基于混合专家（MoE）的触觉-语言框架，通过动态路由机制管理触觉和语言两种模态的差异，并构建了覆盖8种物理属性、4种交互特征的开放式触觉常识推理数据集 TactileBench，在 PhysiCLeAR 基准上以 7B 参数量超越 13B 的 Octopi 取得 SOTA。"
+title: >-
+  [论文解读] SToLa: Self-Adaptive Touch-Language Framework with Tactile Commonsense Reasoning in Open-Ended Scenarios
+description: >-
+  [AAAI 2026][多模态][触觉感知] SToLa 提出首个基于混合专家（MoE）的触觉-语言框架，通过动态路由机制管理触觉和语言两种模态的差异，并构建了覆盖8种物理属性、4种交互特征的开放式触觉常识推理数据集 TactileBench，在 PhysiCLeAR 基准上以 7B 参数量超越 13B 的 Octopi 取得 SOTA。
 tags:
   - AAAI 2026
+  - 多模态
   - 触觉感知
   - 多模态推理
   - 混合专家模型

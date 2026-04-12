@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Policy-as-Prompt: Turning AI Governance Rules into Guardrails for AI Agents 论文解读 | NeurIPS 2025 | arXiv 2509.23994 | AI治理 | 提出Policy-as-Prompt框架，将非结构化的设计文档（PRD、TDD）自动转换为可验证的运行时护栏，通过轻量级LLM分类器实现对AI Agent的实时策略执行和合规监控。"
+title: >-
+  [论文解读] Policy-as-Prompt: Turning AI Governance Rules into Guardrails for AI Agents
+description: >-
+  [NeurIPS 2025][AI治理] 提出Policy-as-Prompt框架，将非结构化的设计文档（PRD、TDD）自动转换为可验证的运行时护栏，通过轻量级LLM分类器实现对AI Agent的实时策略执行和合规监控。
 tags:
   - NeurIPS 2025
   - AI治理

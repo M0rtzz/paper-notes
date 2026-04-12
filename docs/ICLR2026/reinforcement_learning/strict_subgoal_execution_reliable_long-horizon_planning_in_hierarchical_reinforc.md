@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Strict Subgoal Execution: Reliable Long-Horizon Planning in Hierarchical Reinforcement Learning 论文解读 | ICLR 2026 | arXiv 2506.21039 | 分层RL | 提出 SSE（Strict Subgoal Execution）框架，通过**前沿经验回放（FER）** 严格区分子目标到达成功与失败，配合解耦探索策略和失败感知路径优化，在每个高层步骤内强制完成子目标到达，显著减少高层决策步数并提升长时程任务成功率。"
+title: >-
+  [论文解读] Strict Subgoal Execution: Reliable Long-Horizon Planning in Hierarchical Reinforcement Learning
+description: >-
+  [ICLR 2026][分层RL] 提出 SSE（Strict Subgoal Execution）框架，通过**前沿经验回放（FER）** 严格区分子目标到达成功与失败，配合解耦探索策略和失败感知路径优化，在每个高层步骤内强制完成子目标到达，显著减少高层决策步数并提升长时程任务成功率。
 tags:
   - ICLR 2026
   - 分层RL

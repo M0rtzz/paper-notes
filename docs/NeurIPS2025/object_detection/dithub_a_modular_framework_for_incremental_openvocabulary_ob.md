@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DitHub: A Modular Framework for Incremental Open-Vocabulary Object Detection 论文解读 | NeurIPS 2025 | arXiv 2503.09271 | open-vocabulary detection | 提出 DitHub，借鉴版本控制系统（Git）思想构建开放词汇目标检测的模块化适配框架——将不同领域的高效适配模块（LoRA）作为\"分支\"管理，支持按需获取（fetch）和合并（merge），在 ODinW-13 上达到 SOTA，首次系统性研究目标检测中适配模块的组合特性。"
+title: >-
+  [论文解读] DitHub: A Modular Framework for Incremental Open-Vocabulary Object Detection
+description: >-
+  [NeurIPS 2025][目标检测][open-vocabulary detection] 提出 DitHub，借鉴版本控制系统（Git）思想构建开放词汇目标检测的模块化适配框架——将不同领域的高效适配模块（LoRA）作为"分支"管理，支持按需获取（fetch）和合并（merge），在 ODinW-13 上达到 SOTA，首次系统性研究目标检测中适配模块的组合特性。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - open-vocabulary detection
   - incremental learning
   - modular deep learning

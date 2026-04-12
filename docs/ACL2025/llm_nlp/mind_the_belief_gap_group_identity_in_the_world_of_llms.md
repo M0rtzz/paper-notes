@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mind the Belief Gap: Group Identity in the World of LLMs 论文解读 | ACL2025 | arXiv 2503.02016 | 信念一致性 | 构建多智能体信念一致性模拟框架，发现 LLM 比人类表现出更强的信念一致性偏见（gpt-3.5: 0.93 vs 人类: 0.2-0.62），导致虚假信息传播加剧、跨群体学习受阻，并探索接触假说等缓解策略（最优可改善 37%）。"
+title: >-
+  [论文解读] Mind the Belief Gap: Group Identity in the World of LLMs
+description: >-
+  [ACL2025][LLM/NLP][信念一致性] 构建多智能体信念一致性模拟框架，发现 LLM 比人类表现出更强的信念一致性偏见（gpt-3.5: 0.93 vs 人类: 0.2-0.62），导致虚假信息传播加剧、跨群体学习受阻，并探索接触假说等缓解策略（最优可改善 37%）。
 tags:
   - ACL2025
+  - LLM/NLP
   - 信念一致性
   - 多智能体LLM
   - 群体心理学

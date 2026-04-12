@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal Latent Diffusion Model for Complex Sewing Pattern Generation 论文解读 | ICCV 2025 | arXiv 2412.14453 | 缝纫版型生成 | 提出 SewingLDM，一个多模态条件潜空间扩散模型，通过扩展缝纫版型表示和两阶段训练策略，实现在文本、草图、体型条件控制下合复杂缝纫版型，并可无缝集成到 CG 仿真管线。"
+title: >-
+  [论文解读] Multimodal Latent Diffusion Model for Complex Sewing Pattern Generation
+description: >-
+  [ICCV 2025][图像生成][缝纫版型生成] 提出 SewingLDM，一个多模态条件潜空间扩散模型，通过扩展缝纫版型表示和两阶段训练策略，实现在文本、草图、体型条件控制下合复杂缝纫版型，并可无缝集成到 CG 仿真管线。
 tags:
   - ICCV 2025
+  - 图像生成
   - 缝纫版型生成
   - 潜空间扩散模型
   - 多模态条件

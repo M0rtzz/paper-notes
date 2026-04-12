@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】HybriDLA: Hybrid Generation for Document Layout Analysis 论文解读 | AAAI 2026 | arXiv 2511.19919 | 文档版面分析 | HybriDLA 首次将扩散式边框精炼与自回归查询扩展统一在一个解码层中，模拟人类由粗到细的阅读策略来处理文档版面分析，在 DocLayNet 上纯视觉模型达到 83.5% mAP，逼近多模态系统。"
+title: >-
+  [论文解读] HybriDLA: Hybrid Generation for Document Layout Analysis
+description: >-
+  [AAAI 2026][文档版面分析] HybriDLA 首次将扩散式边框精炼与自回归查询扩展统一在一个解码层中，模拟人类由粗到细的阅读策略来处理文档版面分析，在 DocLayNet 上纯视觉模型达到 83.5% mAP，逼近多模态系统。
 tags:
   - AAAI 2026
   - 文档版面分析

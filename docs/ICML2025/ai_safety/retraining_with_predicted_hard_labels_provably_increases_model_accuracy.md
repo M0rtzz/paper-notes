@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Retraining with Predicted Hard Labels Provably Increases Model Accuracy 论文解读 | 在噪声标签场景下，用模型自身预测的硬标签（0/1）对训练集重新标注并重训练，可以**可证明地**提升分类精度；进一步提出共识筛选策略（仅对预测标签与给定标签一致的样本重训练），在标签差分隐私训练中无额外隐私代价即可大幅提升性能。"
+title: >-
+  [论文解读] Retraining with Predicted Hard Labels Provably Increases Model Accuracy
+description: >-
+  [AI安全] 在噪声标签场景下，用模型自身预测的硬标签（0/1）对训练集重新标注并重训练，可以**可证明地**提升分类精度；进一步提出共识筛选策略（仅对预测标签与给定标签一致的样本重训练），在标签差分隐私训练中无额外隐私代价即可大幅提升性能。
 tags:
-
+  - AI安全
 ---
 
 # Retraining with Predicted Hard Labels Provably Increases Model Accuracy

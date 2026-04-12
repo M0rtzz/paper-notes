@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Dual Uncertainty Optimization: Boosting Monocular 3D Object Detection under Test-Time Shifts 论文解读 | ICCV 2025 | arXiv 2508.20488 | 单目3D检测 | 提出 DUO（Dual Uncertainty Optimization），首个联合最小化语义不确定性和几何不确定性的测试时自适应框架，通过共轭焦点损失和法向场约束实现鲁棒的单目3D目标检测。"
+title: >-
+  [论文解读] Adaptive Dual Uncertainty Optimization: Boosting Monocular 3D Object Detection under Test-Time Shifts
+description: >-
+  [ICCV 2025][自动驾驶][单目3D检测] 提出 DUO（Dual Uncertainty Optimization），首个联合最小化语义不确定性和几何不确定性的测试时自适应框架，通过共轭焦点损失和法向场约束实现鲁棒的单目3D目标检测。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 单目3D检测
   - 测试时自适应
   - 不确定性优化

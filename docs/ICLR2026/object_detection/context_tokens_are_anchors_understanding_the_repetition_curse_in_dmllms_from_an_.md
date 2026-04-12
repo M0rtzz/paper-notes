@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Context Tokens are Anchors: Understanding the Repetition Curse in dMLLMs from an Information Flow Perspective 论文解读 | ICLR 2026 | arXiv 2601.20520 | 扩散语言模型 | 通过信息流分析揭示扩散多模态大语言模型（dMLLMs）在使用缓存加速时产生\"重复诅咒\"的内在机制——context token 作为锚点聚合语义信息，缓存破坏了这一信息流模式——并提出 CoTA 方法将重复率降低高达 92%。"
+title: >-
+  [论文解读] Context Tokens are Anchors: Understanding the Repetition Curse in dMLLMs from an Information Flow Perspective
+description: >-
+  [ICLR 2026][目标检测][扩散语言模型] 通过信息流分析揭示扩散多模态大语言模型（dMLLMs）在使用缓存加速时产生"重复诅咒"的内在机制——context token 作为锚点聚合语义信息，缓存破坏了这一信息流模式——并提出 CoTA 方法将重复率降低高达 92%。
 tags:
   - ICLR 2026
+  - 目标检测
   - 扩散语言模型
   - 重复生成
   - 信息流分析

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】First SFT, Second RL, Third UPT: Continual Improving Multi-Modal LLM Reasoning via Unsupervised Post-Training 论文解读 | NeurIPS 2025 | arXiv 2505.22453 | 无监督后训练 | 提出 MM-UPT 框架，在 SFT 和 RL 之后引入第三阶段\"无监督后训练\"，通过多数投票作为伪奖励信号结合 GRPO 实现 MLLM 的自我改进，在 MathVista 上将 Qwen2.5-VL-7B 从 66.3% 提升至 72.9%。"
+title: >-
+  [论文解读] First SFT, Second RL, Third UPT: Continual Improving Multi-Modal LLM Reasoning via Unsupervised Post-Training
+description: >-
+  [NeurIPS 2025][多模态][无监督后训练] 提出 MM-UPT 框架，在 SFT 和 RL 之后引入第三阶段"无监督后训练"，通过多数投票作为伪奖励信号结合 GRPO 实现 MLLM 的自我改进，在 MathVista 上将 Qwen2.5-VL-7B 从 66.3% 提升至 72.9%。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 无监督后训练
   - 多模态推理
   - GRPO

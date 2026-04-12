@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Mixtures of In-Context Learners 论文解读 | 提出 MoICL 方法，将 ICL 的 demonstration 集合划分为多个子集（专家），通过可学习的权重函数融合各专家的 next-token 分布，在不修改 LLM 参数的前提下显著提升 ICL 的准确率、鲁棒性和效率。"
+title: >-
+  [论文解读] Mixtures of In-Context Learners
+description: >-
+  [LLM/NLP] 提出 MoICL 方法，将 ICL 的 demonstration 集合划分为多个子集（专家），通过可学习的权重函数融合各专家的 next-token 分布，在不修改 LLM 参数的前提下显著提升 ICL 的准确率、鲁棒性和效率。
 tags:
-
+  - LLM/NLP
 ---
 
 # Mixtures of In-Context Learners

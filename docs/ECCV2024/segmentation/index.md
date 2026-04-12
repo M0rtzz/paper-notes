@@ -1,7 +1,14 @@
+---
+title: >-
+  ECCV2024 语义分割方向 19篇论文解读
+description: >-
+  19篇ECCV2024 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🎞️ ECCV2024** · 共 **23** 篇
+**🎞️ ECCV2024** · 共 **19** 篇
 
 **[A Semantic Space Is Worth 256 Language Descriptions Make Str](a_semantic_space_is_worth_256_language_descriptions_make_str.md)**
 
@@ -35,10 +42,6 @@
 
 :   提出 ColorMAE，通过对随机噪声施加不同频域滤波器生成具有空间与语义先验的数据无关遮罩模式，在不增加任何参数和计算开销的前提下，显著提升 MAE 的下游任务表现，尤其在语义分割任务上相比随机遮罩提升 2.72 mIoU。
 
-**[ControlNet++: Improving Conditional Controls with Efficient Consistency Feedback](controlnet_improving_conditional_controls_with_efficien.md)**
-
-:   提出 ControlNet++，通过预训练判别模型提取生成图像的条件并优化像素级循环一致性损失来显式提升可控生成的精度，同时提出高效单步去噪奖励策略避免多步采样的巨大开销。
-
 **[Controlnet Improving Conditional Controls With Efficient Consistency Feedback](controlnet_improving_conditional_controls_with_efficient_consistency_feedback.md)**
 
 :   提出 ControlNet++，通过像素级循环一致性损失显式优化条件可控生成质量：用预训练判别模型从生成图像中提取条件并与输入条件对齐，并设计高效单步去噪 reward 策略避免多步采样的巨大显存开销，在分割掩码、边缘、深度等多种条件控制下显著提升可控性（如分割 mIoU +11.1%）。
@@ -59,7 +62,7 @@
 
 :   提出一种基于预训练扩散模型的实例级数据增强方法，通过在保持原始标注不变的前提下逐个重绘图像中的目标实例，显著提升了显著性目标检测、语义分割和目标检测的性能，同时支持数据匿名化。
 
-**[Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time](deep_nets_with_subsampling_layers_unwittingly_discard_useful_activations_at_test.md)**
+**[Deep Nets With Subsampling Layers Unwittingly Discard Useful Activations At Test](deep_nets_with_subsampling_layers_unwittingly_discard_useful_activations_at_test.md)**
 
 :   发现深度网络中下采样层在默认前向传播中丢弃了大量有用激活，提出一个搜索+聚合框架在测试时利用这些被丢弃的激活图来提升分类和分割性能，与传统TTA方法正交互补。
 
@@ -75,21 +78,9 @@
 
 :   提出NeST（New claSsifier pre-Tuning）方法，在正式训练前通过学习从所有旧分类器到新分类器的线性变换来初始化新分类器权重，并设计基于跨任务类别相似性的变换矩阵初始化策略，在Pascal VOC和ADE20K上显著提升多种CISS方法的性能。
 
-**[Exploring Pre-trained Text-to-Video Diffusion Models for Referring Video Object Segmentation](exploring_pretrained_texttovideo_diffusion_models_for_referr.md)**
-
-:   VD-IT首次探索预训练T2V扩散模型（ModelScopeT2V）在视频理解任务中的应用，通过Text-Guided Image Projection和Video-specific Noise Prediction设计，从固定T2V模型中提取语义对齐、时序一致的视频特征，在Referring VOS任务上超越传统判别式backbone。
-
-**[OpenPSG: Open-set Panoptic Scene Graph Generation via Large Multimodal Models](openpsg_openset_panoptic_scene_graph_generation_via_large_mu.md)**
-
-:   本文首次提出开放集全景场景图生成任务（OpenPSG），利用大型多模态模型（BLIP-2）以自回归方式预测物体间的开放集关系，通过关系查询Transformer高效提取物体对特征并过滤无关对，在闭集和开放集设置下均取得SOTA。
-
 **[Rotary Position Embedding For Vision Transformer](rotary_position_embedding_for_vision_transformer.md)**
 
 :   本文系统研究了将 RoPE（Rotary Position Embedding）从1D语言模型扩展到2D视觉任务的方法，提出 RoPE-Mixed（混合可学习频率）替代传统的 Axial 频率分配，在 ViT 和 Swin Transformer 上实现了显著的分辨率外推性能提升，在 ImageNet 分类、COCO 检测和 ADE20k 分割上均带来一致增益。
-
-**[SCLIP: Rethinking Self-Attention for Dense Vision-Language Inference](sclip_rethinking_selfattention_for_dense_visionlanguage_infe.md)**
-
-:   发现CLIP在密集预测中失败的根因是自注意力机制导致的空间位置错配（spatial-invariant features），提出Correlative Self-Attention(CSA)机制——仅用一个投影矩阵计算token间相关性作为注意力分数，无需任何训练/额外参数即可将CLIP的零样本语义分割mIoU从14.1%提升至38.2%（8个基准平均），大幅超越现有SOTA的33.9%。
 
 **[Visa Reasoning Video Object Segmentation Via Large Language Models](visa_reasoning_video_object_segmentation_via_large_language_models.md)**
 

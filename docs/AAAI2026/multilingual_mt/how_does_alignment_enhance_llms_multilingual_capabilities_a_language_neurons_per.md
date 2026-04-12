@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How Does Alignment Enhance LLMs' Multilingual Capabilities? A Language Neurons Perspective 论文解读 | AAAI 2026 | arXiv 2505.21505 | multilingual LLM | 提出三元神经元分类（语言特定/语言相关/通用），将 LLM 多语言推理分为四阶段分析，发现多语言对齐通过增加语言相关神经元（减少语言特定神经元）来提升性能，且在未训练语言上也产生\"自发多语言对齐\"效应。"
+title: >-
+  [论文解读] How Does Alignment Enhance LLMs' Multilingual Capabilities? A Language Neurons Perspective
+description: >-
+  [AAAI 2026][multilingual LLM] 提出三元神经元分类（语言特定/语言相关/通用），将 LLM 多语言推理分为四阶段分析，发现多语言对齐通过增加语言相关神经元（减少语言特定神经元）来提升性能，且在未训练语言上也产生"自发多语言对齐"效应。
 tags:
   - AAAI 2026
   - multilingual LLM

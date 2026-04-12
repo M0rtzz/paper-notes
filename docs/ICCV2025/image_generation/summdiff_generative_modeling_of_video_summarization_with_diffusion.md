@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】SummDiff: Generative Modeling of Video Summarization with Diffusion 论文解读 | SummDiff 首次将扩散模型引入视频摘要任务，将其定义为条件生成问题，通过学习\"好摘要\"的分布来生成多种合理摘要，更好地反映视频摘要任务固有的主观性。"
+title: >-
+  [论文解读] SummDiff: Generative Modeling of Video Summarization with Diffusion
+description: >-
+  [图像生成] SummDiff 首次将扩散模型引入视频摘要任务，将其定义为条件生成问题，通过学习"好摘要"的分布来生成多种合理摘要，更好地反映视频摘要任务固有的主观性。
 tags:
-
+  - 图像生成
 ---
 
 # SummDiff: Generative Modeling of Video Summarization with Diffusion

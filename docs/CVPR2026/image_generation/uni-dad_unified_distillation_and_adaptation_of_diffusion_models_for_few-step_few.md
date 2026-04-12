@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Uni-DAD: Unified Distillation and Adaptation of Diffusion Models for Few-step Few-shot Image Generation 论文解读 | 提出 Uni-DAD，首个将扩散模型蒸馏（distillation）与域适应（adaptation）统一为单阶段流程的方法，通过双域 DMD 损失和多头 GAN 损失，在仅 1–4 步采样下实现少样本域的高质量多样生成。"
+title: >-
+  [论文解读] Uni-DAD: Unified Distillation and Adaptation of Diffusion Models for Few-step Few-shot Image Generation
+description: >-
+  [图像生成] 提出 Uni-DAD，首个将扩散模型蒸馏（distillation）与域适应（adaptation）统一为单阶段流程的方法，通过双域 DMD 损失和多头 GAN 损失，在仅 1–4 步采样下实现少样本域的高质量多样生成。
 tags:
-
+  - 图像生成
 ---
 
 # Uni-DAD: Unified Distillation and Adaptation of Diffusion Models for Few-step Few-shot Image Generation

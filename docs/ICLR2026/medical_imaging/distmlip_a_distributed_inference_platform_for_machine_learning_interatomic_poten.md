@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DistMLIP: A Distributed Inference Platform for Machine Learning Interatomic Potentials 论文解读 | ICLR 2026 | arXiv 2506.02023 | MLIP | 提出 DistMLIP 分布式推理平台，基于零冗余图级并行化策略（graph-level parallelization），解决现有机器学习原子间势（MLIP）缺乏多 GPU 支持的问题，在 8 GPU 上实现接近百万原子的模拟，比空间分区方法快达 8 倍且能模拟 3.4 倍更大的系统。"
+title: >-
+  [论文解读] DistMLIP: A Distributed Inference Platform for Machine Learning Interatomic Potentials
+description: >-
+  [ICLR 2026][医学图像][MLIP] 提出 DistMLIP 分布式推理平台，基于零冗余图级并行化策略（graph-level parallelization），解决现有机器学习原子间势（MLIP）缺乏多 GPU 支持的问题，在 8 GPU 上实现接近百万原子的模拟，比空间分区方法快达 8 倍且能模拟 3.4 倍更大的系统。
 tags:
   - ICLR 2026
+  - 医学图像
   - MLIP
   - distributed inference
   - 图神经网络

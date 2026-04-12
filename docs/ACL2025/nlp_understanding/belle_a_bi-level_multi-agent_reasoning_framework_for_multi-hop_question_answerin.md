@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BELLE: A Bi-Level Multi-Agent Reasoning Framework for Multi-Hop Question Answering 论文解读 | ACL2025 | arXiv 2505.11811 | multi-hop QA | 提出 BELLE 双层多智能体辩论框架，先将多跳问题分类为四种类型，再通过双层辩论机制（第一层正反方辩论 + 第二层快/慢辩论者监督）动态规划 CoT、单步检索、迭代检索等算子的组合方案，实现面向问题类型的自适应多跳推理。"
+title: >-
+  [论文解读] BELLE: A Bi-Level Multi-Agent Reasoning Framework for Multi-Hop Question Answering
+description: >-
+  [ACL2025][NLP理解][multi-hop QA] 提出 BELLE 双层多智能体辩论框架，先将多跳问题分类为四种类型，再通过双层辩论机制（第一层正反方辩论 + 第二层快/慢辩论者监督）动态规划 CoT、单步检索、迭代检索等算子的组合方案，实现面向问题类型的自适应多跳推理。
 tags:
   - ACL2025
+  - NLP理解
   - multi-hop QA
   - multi-agent debate
   - operator combination

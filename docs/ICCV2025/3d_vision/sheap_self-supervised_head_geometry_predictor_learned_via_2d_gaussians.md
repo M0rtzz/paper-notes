@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SHeaP: Self-Supervised Head Geometry Predictor Learned via 2D Gaussians 论文解读 | ICCV 2025 | arXiv 2504.12292 | 3D head reconstruction | 提出SHeaP，利用2D Gaussian Splatting替代传统可微mesh渲染进行自监督3DMM预测训练，通过将Gaussians绑定到3DMM mesh上实现重动画，并设计graph卷积Gaussians生成器和几何一致性正则化，在NoW和Nersemble基准上超越所有自监督方法。"
+title: >-
+  [论文解读] SHeaP: Self-Supervised Head Geometry Predictor Learned via 2D Gaussians
+description: >-
+  [ICCV 2025][3D视觉][3D head reconstruction] 提出SHeaP，利用2D Gaussian Splatting替代传统可微mesh渲染进行自监督3DMM预测训练，通过将Gaussians绑定到3DMM mesh上实现重动画，并设计graph卷积Gaussians生成器和几何一致性正则化，在NoW和Nersemble基准上超越所有自监督方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D head reconstruction
   - 2D Gaussian Splatting
   - 3DMM

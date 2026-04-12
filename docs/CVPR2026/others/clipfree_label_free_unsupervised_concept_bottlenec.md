@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】U-F²-CBM: CLIP-Free, Label Free, Unsupervised Concept Bottleneck Models 论文解读 | CVPR 2026 | arXiv 2503.10981 | concept bottleneck model | 提出TextUnlock方法，通过训练轻量MLP将任意冻结视觉分类器的特征投射到文本嵌入空间（同时保持原分类器分布不变），无需CLIP、无需标注、无需训练线性探针，即可将任何legacy分类器转化为可解释的概念瓶颈模型——在40+架构上测试，超越甚至有监督的CLIP基CBM。"
+title: >-
+  [论文解读] U-F²-CBM: CLIP-Free, Label Free, Unsupervised Concept Bottleneck Models
+description: >-
+  [CVPR 2026][concept bottleneck model] 提出TextUnlock方法，通过训练轻量MLP将任意冻结视觉分类器的特征投射到文本嵌入空间（同时保持原分类器分布不变），无需CLIP、无需标注、无需训练线性探针，即可将任何legacy分类器转化为可解释的概念瓶颈模型——在40+架构上测试，超越甚至有监督的CLIP基CBM。
 tags:
   - CVPR 2026
   - concept bottleneck model

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RayZer: A Self-supervised Large View Synthesis Model 论文解读 | ICCV 2025 | arXiv 2505.00702 | 自监督学习 | 提出 RayZer，一个无需任何3D监督（无相机位姿/无场景几何标注）的自监督多视角3D视觉模型，通过将图像解耦为相机参数和场景表示实现3D感知自编码，在新视角合成任务上达到甚至超越依赖位姿标注的\"oracle\"方法。"
+title: >-
+  [论文解读] RayZer: A Self-supervised Large View Synthesis Model
+description: >-
+  [ICCV 2025][3D视觉][自监督学习] 提出 RayZer，一个无需任何3D监督（无相机位姿/无场景几何标注）的自监督多视角3D视觉模型，通过将图像解耦为相机参数和场景表示实现3D感知自编码，在新视角合成任务上达到甚至超越依赖位姿标注的"oracle"方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 自监督学习
   - 新视角合成
   - 相机位姿估计

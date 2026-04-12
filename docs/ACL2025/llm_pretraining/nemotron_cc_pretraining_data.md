@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Nemotron-CC: Transforming Common Crawl into a Refined Long-Horizon Pretraining Dataset 论文解读 | ACL 2025 | arXiv 2412.02595 | 预训练数据 | Nemotron-CC 通过分类器集成、合成数据改写和减少启发式过滤三种策略，从 Common Crawl 构建了 6.3T token 的长期预训练数据集，在 15T token 训练中超越 Llama 3.1 8B。"
+title: >-
+  [论文解读] Nemotron-CC: Transforming Common Crawl into a Refined Long-Horizon Pretraining Dataset
+description: >-
+  [ACL 2025][预训练数据] Nemotron-CC 通过分类器集成、合成数据改写和减少启发式过滤三种策略，从 Common Crawl 构建了 6.3T token 的长期预训练数据集，在 15T token 训练中超越 Llama 3.1 8B。
 tags:
   - ACL 2025
   - 预训练数据

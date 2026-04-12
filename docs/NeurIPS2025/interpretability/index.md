@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 可解释性方向 78篇论文解读
+description: >-
+  78篇NeurIPS2025 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
@@ -27,7 +34,7 @@
 
 :   首次系统研究噪声概念标注对 CBM 的影响——发现即使中等噪声也同时损害预测性能、可解释性和干预效果，识别出"脆弱概念"子集是性能下降的主因，提出训练阶段用 SAM 稳定脆弱概念学习 + 推断阶段用预测熵排序仅校正最不确定概念的两阶段缓解框架。
 
-**[Are Greedy Task Orderings Better Than Random in Continual Linear Regression?](are_greedy_task_orderings_better_than_random_in_continual_linear_regression.md)**
+**[Are Greedy Task Orderings Better Than Random In Continual Linear Regression](are_greedy_task_orderings_better_than_random_in_continual_linear_regression.md)**
 
 :   本文系统分析了持续线性回归中贪心任务排序（最大化连续任务间不相似度）与随机排序的收敛性差异，揭示了贪心排序在高秩设定下可媲美随机排序，但在一般秩设定下单遍贪心可能灾难性失败，而允许重复的贪心排序收敛速率为 $\mathcal{O}(1/\sqrt[3]{k})$。
 
@@ -75,7 +82,7 @@
 
 :   CBMAS 提出一个连续激活干预诊断框架，将传统“前后对比式”认知偏差分析扩展为可解释的干预轨迹分析，通过 alpha 强度扫描、logit-lens 偏置曲线与层位敏感性分析，揭示 LLM 行为翻转临界点与跨层演化机制。
 
-**[CHiQPM: Calibrated Hierarchical Interpretable Image Classification](chiqpm_calibrated_hierarchical_interpretable_image_classification.md)**
+**[Chiqpm Calibrated Hierarchical Interpretable Image Classification](chiqpm_calibrated_hierarchical_interpretable_image_classification.md)**
 
 :   CHiQPM 提出一种校准的层次化可解释图像分类方法，通过二次规划选择和分配特征给类别，构建层次化解释路径，并内置可解释的 Conformal Prediction 集合预测，在保持黑盒模型 99% 准确率的同时提供全局和局部可解释性。
 

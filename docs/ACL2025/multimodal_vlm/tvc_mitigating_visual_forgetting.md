@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Visual Forgetting via Take-along Visual Conditioning for Multi-modal Long CoT Reasoning 论文解读 | ACL 2025 (Long Paper) | arXiv 2503.13360 | 视觉遗忘 | 发现MLLM长链推理中存在严重的\"视觉遗忘\"现象——推理进行到一半时移除图片仅导致2%精度下降，说明模型过度依赖文本输出而非视觉输入。提出Take-along Visual Conditioning (TVC)，在推理过程中周期性重新注入压缩后的图像特征，在5个数学推理基准上平均超越之前SOTA 3.4个点。"
+title: >-
+  [论文解读] Mitigating Visual Forgetting via Take-along Visual Conditioning for Multi-modal Long CoT Reasoning
+description: >-
+  [ACL 2025 (Long Paper)][多模态][视觉遗忘] 发现MLLM长链推理中存在严重的"视觉遗忘"现象——推理进行到一半时移除图片仅导致2%精度下降，说明模型过度依赖文本输出而非视觉输入。提出Take-along Visual Conditioning (TVC)，在推理过程中周期性重新注入压缩后的图像特征，在5个数学推理基准上平均超越之前SOTA 3.4个点。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 视觉遗忘
   - 长链推理
   - CoT

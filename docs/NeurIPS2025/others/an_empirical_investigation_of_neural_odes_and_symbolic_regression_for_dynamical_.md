@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems
+description: >-
+  [NeurIPS 2025][Neural ODE] 本文系统研究了 Neural ODE (NODE) 在含噪合成数据上的外推能力，并探索了将 NODE 作为数据增强工具、与符号回归 (SR) 结合以从有限数据中恢复动力学方程的流水线，结果表明该组合方案能从仅 10% 的仿真数据中恢复三个控制方程中的两个及第三个的良好近似。
+tags:
+  - NeurIPS 2025
+  - Neural ODE
+  - Symbolic Regression
+  - 动态系统
+  - 外推能力
+  - 科学发现
+---
+
 # An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems
 
 **会议**: NeurIPS 2025  

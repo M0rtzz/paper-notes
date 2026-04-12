@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild 论文解读 | ICLR 2026 | arXiv 2602.09657 | VLA | 提出 AutoFly，一个面向无人机野外自主导航的端到端 VLA 模型，通过伪深度编码器从 RGB 输入推断空间信息，配合新构建的自主导航数据集（13K+ 轨迹含 1K 真实飞行），在模拟和真实环境中比 OpenVLA 成功率高 3.9%，碰撞率低 2.6%。"
+title: >-
+  [论文解读] AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild
+description: >-
+  [ICLR 2026][遥感][VLA] 提出 AutoFly，一个面向无人机野外自主导航的端到端 VLA 模型，通过伪深度编码器从 RGB 输入推断空间信息，配合新构建的自主导航数据集（13K+ 轨迹含 1K 真实飞行），在模拟和真实环境中比 OpenVLA 成功率高 3.9%，碰撞率低 2.6%。
 tags:
   - ICLR 2026
+  - 遥感
   - VLA
   - UAV navigation
   - pseudo-depth

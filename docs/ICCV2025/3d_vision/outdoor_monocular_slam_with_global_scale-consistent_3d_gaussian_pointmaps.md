@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Outdoor Monocular SLAM with Global Scale-Consistent 3D Gaussian Pointmaps 论文解读 | ICCV 2025 | arXiv 2507.03737 | 3DGS SLAM | 提出 S3PO-GS，通过将 3DGS 渲染的 pointmap 作为锚点建立尺度自一致的跟踪模块，结合基于 patch 的 pointmap 动态建图机制，在 RGB-only 室外场景中实现了无累积尺度漂移的高精度定位与高保真新视角合成。"
+title: >-
+  [论文解读] Outdoor Monocular SLAM with Global Scale-Consistent 3D Gaussian Pointmaps
+description: >-
+  [ICCV 2025][3D视觉][3DGS SLAM] 提出 S3PO-GS，通过将 3DGS 渲染的 pointmap 作为锚点建立尺度自一致的跟踪模块，结合基于 patch 的 pointmap 动态建图机制，在 RGB-only 室外场景中实现了无累积尺度漂移的高精度定位与高保真新视角合成。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3DGS SLAM
   - 单目视觉
   - 尺度一致性

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains 论文解读 | arXiv 2026 | arXiv 2603.12624 | 提示学习 prompt-driven | 由于复杂的运行环境、结构重复的组件以及安全关键区域频繁的遮挡或污染，货运列车中准确的视觉故障检测仍然是智能交通系统维护的关键挑战。"
+title: >-
+  [论文解读] Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains
+description: >-
+  [arXiv 2026][图像分割][提示学习] 由于复杂的运行环境、结构重复的组件以及安全关键区域频繁的遮挡或污染，货运列车中准确的视觉故障检测仍然是智能交通系统维护的关键挑战。
 tags:
   - arXiv 2026
+  - 图像分割
   - 提示学习
   - lightweight
   - foundation

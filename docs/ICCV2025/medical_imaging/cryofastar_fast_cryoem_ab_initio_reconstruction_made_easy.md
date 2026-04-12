@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy 论文解读 | ICCV 2025 | arXiv 2506.05864 | cryo-EM | 首个将DUSt3R式的几何基础模型范式引入冷冻电镜(cryo-EM)领域的工作，通过ViT编码器+跨视图注意力解码器直接从大量含噪粒子图像前馈预测姿态（无需迭代优化），实现了比传统方法快10-33倍的ab initio蛋白质三维重建。"
+title: >-
+  [论文解读] CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy
+description: >-
+  [ICCV 2025][医学图像][cryo-EM] 首个将DUSt3R式的几何基础模型范式引入冷冻电镜(cryo-EM)领域的工作，通过ViT编码器+跨视图注意力解码器直接从大量含噪粒子图像前馈预测姿态（无需迭代优化），实现了比传统方法快10-33倍的ab initio蛋白质三维重建。
 tags:
   - ICCV 2025
+  - 医学图像
   - cryo-EM
   - ab initio reconstruction
   - geometric foundation model

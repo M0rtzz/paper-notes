@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Who Writes What: Unveiling the Impact of Author Roles on AI-generated Text Detection 论文解读 | ACL 2025 | arXiv 2502.12611 | AI文本检测 | 揭示作者的社会语言学属性（性别、CEFR水平、学科领域、语言环境）会系统性地影响AI生成文本检测器的准确率，其中语言水平和语言环境的偏差最为显著且一致，提出了基于多因素WLS+ANOVA的偏差量化框架。"
+title: >-
+  [论文解读] Who Writes What: Unveiling the Impact of Author Roles on AI-generated Text Detection
+description: >-
+  [ACL 2025][AI文本检测] 揭示作者的社会语言学属性（性别、CEFR水平、学科领域、语言环境）会系统性地影响AI生成文本检测器的准确率，其中语言水平和语言环境的偏差最为显著且一致，提出了基于多因素WLS+ANOVA的偏差量化框架。
 tags:
   - ACL 2025
   - AI文本检测

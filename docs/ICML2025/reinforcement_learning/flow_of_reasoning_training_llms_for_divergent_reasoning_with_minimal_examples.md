@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Flow of Reasoning: Training LLMs for Divergent Reasoning with Minimal Examples 论文解读 | ICML2025 | arXiv 2406.05673 | GFlowNet | 提出 Flow of Reasoning (FoR)，将多步 LLM 推理建模为 DAG 上的马尔可夫流，借助 GFlowNet 的轨迹平衡目标微调 LLM，使其仅用极少训练样本（如15个）即可采样出概率正比于奖励的多条高质量且多样化的推理路径。"
+title: >-
+  [论文解读] Flow of Reasoning: Training LLMs for Divergent Reasoning with Minimal Examples
+description: >-
+  [ICML2025][GFlowNet] 提出 Flow of Reasoning (FoR)，将多步 LLM 推理建模为 DAG 上的马尔可夫流，借助 GFlowNet 的轨迹平衡目标微调 LLM，使其仅用极少训练样本（如15个）即可采样出概率正比于奖励的多条高质量且多样化的推理路径。
 tags:
   - ICML2025
   - GFlowNet

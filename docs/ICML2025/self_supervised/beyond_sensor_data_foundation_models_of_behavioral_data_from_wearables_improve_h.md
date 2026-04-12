@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Sensor Data: Foundation Models of Behavioral Data from Wearables Improve Health Predictions 论文解读 | ICML 2025 | arXiv 2507.00191 | 可穿戴设备 | 在 162K 个体的 25 亿小时可穿戴行为数据上训练基础模型（WBM），系统优化不规则采样行为数据的 tokenizer 和架构，在 57 项健康检测任务上展示强大表现，特别在行为驱动任务（如睡眠预测）上表现突出。"
+title: >-
+  [论文解读] Beyond Sensor Data: Foundation Models of Behavioral Data from Wearables Improve Health Predictions
+description: >-
+  [ICML 2025][自监督学习][可穿戴设备] 在 162K 个体的 25 亿小时可穿戴行为数据上训练基础模型（WBM），系统优化不规则采样行为数据的 tokenizer 和架构，在 57 项健康检测任务上展示强大表现，特别在行为驱动任务（如睡眠预测）上表现突出。
 tags:
   - ICML 2025
+  - 自监督学习
   - 可穿戴设备
   - 健康预测
   - 基础模型

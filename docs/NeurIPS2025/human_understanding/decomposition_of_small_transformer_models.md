@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Decomposition of Small Transformer Models 论文解读 | NeurIPS 2025 (Workshop: Mechanistic Interpretability) | arXiv 2511.08854 | 参数空间分解 | 将 Stochastic Parameter Decomposition (SPD) 扩展到 Transformer，设计适用于序列数据的因果重要性函数和新损失函数，在玩具 induction head 上恢复期望两步电路，在 GPT-2-small 上定位到\"高尔夫\"\"篮球\"等可解释概念对应的 rank-1 参数子空间。"
+title: >-
+  [论文解读] Decomposition of Small Transformer Models
+description: >-
+  [NeurIPS 2025 (Workshop: Mechanistic Interpretability)][人体理解][参数空间分解] 将 Stochastic Parameter Decomposition (SPD) 扩展到 Transformer，设计适用于序列数据的因果重要性函数和新损失函数，在玩具 induction head 上恢复期望两步电路，在 GPT-2-small 上定位到"高尔夫""篮球"等可解释概念对应的 rank-1 参数子空间。
 tags:
-  - "NeurIPS 2025 (Workshop: Mechanistic Interpretability)"
+  - NeurIPS 2025 (Workshop: Mechanistic Interpretability)
+  - 人体理解
   - 参数空间分解
   - Stochastic Parameter Decomposition
   - Induction Head

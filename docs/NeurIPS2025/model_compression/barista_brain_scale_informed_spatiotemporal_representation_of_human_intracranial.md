@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BaRISTA: Brain-Scale Informed Spatiotemporal Representation of Human Intracranial EEG 论文解读 | NeurIPS 2025 | arXiv 2512.12135 | 颅内脑电 | BaRISTA 系统探索 iEEG Transformer 的空间编码尺度（电极/脑区/脑叶），发现脑区级编码 + 空间掩码重建在语言任务解码上达 86.2% AUC（vs PopT 79.5%），编码尺度选择的影响 > 掩码策略选择，且跨被试泛化性好。"
+title: >-
+  [论文解读] BaRISTA: Brain-Scale Informed Spatiotemporal Representation of Human Intracranial EEG
+description: >-
+  [NeurIPS 2025][模型压缩][颅内脑电] BaRISTA 系统探索 iEEG Transformer 的空间编码尺度（电极/脑区/脑叶），发现脑区级编码 + 空间掩码重建在语言任务解码上达 86.2% AUC（vs PopT 79.5%），编码尺度选择的影响 > 掩码策略选择，且跨被试泛化性好。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 颅内脑电
   - Transformer
   - 空间编码尺度

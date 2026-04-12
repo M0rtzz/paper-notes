@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations 论文解读 | CVPR 2026 | arXiv 2602.18792 | 视觉反事实解释 | 提出 MaskDiME，一个免训练的扩散框架，通过自适应双掩码机制将全局分类器引导转化为决策驱动的局部编辑，实现精确高效的视觉反事实解释，推理速度比 DiME 快 30 倍以上，GPU 内存仅为 ACE/RCSB 的十分之一。"
+title: >-
+  [论文解读] MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations
+description: >-
+  [CVPR 2026][视觉反事实解释] 提出 MaskDiME，一个免训练的扩散框架，通过自适应双掩码机制将全局分类器引导转化为决策驱动的局部编辑，实现精确高效的视觉反事实解释，推理速度比 DiME 快 30 倍以上，GPU 内存仅为 ACE/RCSB 的十分之一。
 tags:
   - CVPR 2026
   - 视觉反事实解释

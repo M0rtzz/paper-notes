@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Smooth Regularization for Efficient Video Recognition 论文解读 | NeurIPS 2025 | arXiv 2511.20928 | 视频识别 | 提出一种基于高斯随机游走（GRW）的平滑正则化技术，通过对视频识别模型中间层嵌入施加时序平滑约束（惩罚高加速度变化），在轻量级模型上实现3.8%–6.4%的准确率提升，在相应FLOP约束下刷新Kinetics-600 SOTA。"
+title: >-
+  [论文解读] Smooth Regularization for Efficient Video Recognition
+description: >-
+  [NeurIPS 2025][模型压缩][视频识别] 提出一种基于高斯随机游走（GRW）的平滑正则化技术，通过对视频识别模型中间层嵌入施加时序平滑约束（惩罚高加速度变化），在轻量级模型上实现3.8%–6.4%的准确率提升，在相应FLOP约束下刷新Kinetics-600 SOTA。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 视频识别
   - 平滑正则化
   - 高斯随机游走

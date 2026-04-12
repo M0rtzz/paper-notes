@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MDiT-Bench: Evaluating the Dual-Implicit Toxicity in Large Multimodal Models 论文解读 | ACL 2025 | arXiv 2505.17144 | 多模态安全 | 提出\"双模态隐式毒性\"(dual-implicit toxicity)概念——仅当结合图文两个模态时才能被识别的偏见与歧视，构建了包含317K问题、12类23子类的MDIT-Bench基准，并通过长上下文越狱揭示了主流多模态大模型中大量可被激活的隐藏毒性。"
+title: >-
+  [论文解读] MDiT-Bench: Evaluating the Dual-Implicit Toxicity in Large Multimodal Models
+description: >-
+  [ACL 2025][多模态安全] 提出"双模态隐式毒性"(dual-implicit toxicity)概念——仅当结合图文两个模态时才能被识别的偏见与歧视，构建了包含317K问题、12类23子类的MDIT-Bench基准，并通过长上下文越狱揭示了主流多模态大模型中大量可被激活的隐藏毒性。
 tags:
   - ACL 2025
   - 多模态安全

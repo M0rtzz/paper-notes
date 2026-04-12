@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diagnosing and Repairing Unsafe Channels in Vision-Language Models via Causal Discovery and Dual-Modal Safety Subspace Projection 论文解读 | CVPR 2026 | arXiv 2603.27240 | VLM安全 | 提出 CARE 框架，先用因果中介分析精确定位 VLM 中与不安全行为因果相关的神经元和层（诊断），再通过广义特征分解构建双模态安全子空间并在推理时投影激活值（修复），将攻击成功率降至 10% 以下且几乎不损失通用能力。"
+title: >-
+  [论文解读] Diagnosing and Repairing Unsafe Channels in Vision-Language Models via Causal Discovery and Dual-Modal Safety Subspace Projection
+description: >-
+  [CVPR 2026][多模态][VLM安全] 提出 CARE 框架，先用因果中介分析精确定位 VLM 中与不安全行为因果相关的神经元和层（诊断），再通过广义特征分解构建双模态安全子空间并在推理时投影激活值（修复），将攻击成功率降至 10% 以下且几乎不损失通用能力。
 tags:
   - CVPR 2026
+  - 多模态
   - VLM安全
   - 因果中介分析
   - 安全子空间投影

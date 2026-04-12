@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods 论文解读 | CVPR 2026 | arXiv 2603.13077 | 风场重建 | 基于风洞PIV实验数据，系统比较了Kriging插值与三种深度学习方法（UNet、ViTAE、CWGAN）在稀疏传感器条件下的屋顶风场重建性能，并提出QR分解优化传感器布局以增强鲁棒性。"
+title: >-
+  [论文解读] Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods
+description: >-
+  [CVPR 2026][风场重建] 基于风洞PIV实验数据，系统比较了Kriging插值与三种深度学习方法（UNet、ViTAE、CWGAN）在稀疏传感器条件下的屋顶风场重建性能，并提出QR分解优化传感器布局以增强鲁棒性。
 tags:
   - CVPR 2026
   - 风场重建

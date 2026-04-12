@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How Do LLMs Acquire New Knowledge? A Knowledge Circuits Perspective on Continual Pre-Training 论文解读 | ACL 2025 | arXiv 2502.11196 | knowledge circuits | 从知识电路（knowledge circuits）角度研究 LLM 在持续预训练中如何获取新知识：新知识的获取依赖于与已有知识的关联性，电路经历\"形成→优化\"的阶段转变，且呈现从深层到浅层的演化模式。"
+title: >-
+  [论文解读] How Do LLMs Acquire New Knowledge? A Knowledge Circuits Perspective on Continual Pre-Training
+description: >-
+  [ACL 2025][knowledge circuits] 从知识电路（knowledge circuits）角度研究 LLM 在持续预训练中如何获取新知识：新知识的获取依赖于与已有知识的关联性，电路经历"形成→优化"的阶段转变，且呈现从深层到浅层的演化模式。
 tags:
   - ACL 2025
   - knowledge circuits

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】TINA: Text-Free Inversion Attack for Unlearned Text-to-Image Diffusion Models 论文解读 | 提出 TINA（Text-free INversion Attack），通过在 null-text 条件下优化 DDIM 反演找到精确的初始噪声，绕过所有基于文本的概念擦除防御，证明当前擦除方法仅切断了文本-图像映射而未真正删除模型内部的视觉知识。"
+title: >-
+  [论文解读] TINA: Text-Free Inversion Attack for Unlearned Text-to-Image Diffusion Models
+description: >-
+  [图像生成] 提出 TINA（Text-free INversion Attack），通过在 null-text 条件下优化 DDIM 反演找到精确的初始噪声，绕过所有基于文本的概念擦除防御，证明当前擦除方法仅切断了文本-图像映射而未真正删除模型内部的视觉知识。
 tags:
-
+  - 图像生成
 ---
 
 # TINA: Text-Free Inversion Attack for Unlearned Text-to-Image Diffusion Models

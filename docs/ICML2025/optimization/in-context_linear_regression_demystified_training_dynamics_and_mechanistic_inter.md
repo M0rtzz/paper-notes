@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention 论文解读 | ICML 2025 | arXiv 2503.12734 | in-context learning | 本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。"
+title: >-
+  [论文解读] In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention
+description: >-
+  [ICML 2025][优化][in-context learning] 本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。
 tags:
   - ICML 2025
+  - 优化
   - in-context learning
   - Transformer
   - 注意力机制

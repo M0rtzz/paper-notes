@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Real-World Document Parsing via Realistic Scene Synthesis and Document-Aware Training 论文解读 | CVPR2026 | arXiv 2603.23885 | 文档解析 | 提出数据-训练协同设计框架，通过真实场景合成(DocMix-3M)和文档感知训练策略（渐进学习+结构token加权），在1B参数MLLM上实现端到端文档解析的强精度和真实场景鲁棒性。"
+title: >-
+  [论文解读] Towards Real-World Document Parsing via Realistic Scene Synthesis and Document-Aware Training
+description: >-
+  [CVPR2026][多模态][文档解析] 提出数据-训练协同设计框架，通过真实场景合成(DocMix-3M)和文档感知训练策略（渐进学习+结构token加权），在1B参数MLLM上实现端到端文档解析的强精度和真实场景鲁棒性。
 tags:
   - CVPR2026
+  - 多模态
   - 文档解析
   - 合成数据
   - 渐进式训练

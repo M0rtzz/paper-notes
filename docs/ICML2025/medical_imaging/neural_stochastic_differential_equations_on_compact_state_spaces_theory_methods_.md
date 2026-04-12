@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neural Stochastic Differential Equations on Compact State Spaces: Theory, Methods and Applications 论文解读 | ICML 2025 | arXiv 2508.17090 | 神经SDE | 本文提出基于随机生存理论的神经 SDE 参数化方法 (WSP)，确保 SDE 轨迹可证明地约束在紧多面体空间内，具有连续动力学和良好归纳偏置，克服了 chain-rule 方法和反射 SDE 的缺陷。"
+title: >-
+  [论文解读] Neural Stochastic Differential Equations on Compact State Spaces: Theory, Methods and Applications
+description: >-
+  [ICML 2025][医学图像][神经SDE] 本文提出基于随机生存理论的神经 SDE 参数化方法 (WSP)，确保 SDE 轨迹可证明地约束在紧多面体空间内，具有连续动力学和良好归纳偏置，克服了 chain-rule 方法和反射 SDE 的缺陷。
 tags:
   - ICML 2025
+  - 医学图像
   - 神经SDE
   - 紧状态空间
   - 随机生存理论

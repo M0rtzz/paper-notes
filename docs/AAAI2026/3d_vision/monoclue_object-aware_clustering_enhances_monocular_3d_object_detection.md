@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection 论文解读 | AAAI 2026 | arXiv 2511.07862 | 单目3D目标检测 | 提出 MonoCLUE，通过**局部聚类**提取对象级视觉模式（如引擎盖、车顶等部件）和**广义场景记忆**聚合跨图像的一致外观特征，增强单目3D检测中被遮挡和截断物体的检测能力，在KITTI基准上实现SOTA性能，且不依赖额外深度或LiDAR信息。"
+title: >-
+  [论文解读] MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection
+description: >-
+  [AAAI 2026][3D视觉][单目3D目标检测] 提出 MonoCLUE，通过**局部聚类**提取对象级视觉模式（如引擎盖、车顶等部件）和**广义场景记忆**聚合跨图像的一致外观特征，增强单目3D检测中被遮挡和截断物体的检测能力，在KITTI基准上实现SOTA性能，且不依赖额外深度或LiDAR信息。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 单目3D目标检测
   - K-means聚类
   - 场景记忆

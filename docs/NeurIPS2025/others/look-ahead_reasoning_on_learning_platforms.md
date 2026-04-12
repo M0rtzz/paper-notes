@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Look-Ahead Reasoning on Learning Platforms 论文解读 | NeurIPS 2025 | arXiv 2511.14745 | level-k thinking | 在学习平台的用户-算法交互中形式化 level-$k$ 前瞻推理，证明个体自私的高阶推理只加速收敛但不改变均衡（无长期收益），而集体协调的收益由学习者-用户效用函数的对齐程度决定，提供了刻画协调收益上界的理论框架。"
+title: >-
+  [论文解读] Look-Ahead Reasoning on Learning Platforms
+description: >-
+  [NeurIPS 2025][level-k thinking] 在学习平台的用户-算法交互中形式化 level-$k$ 前瞻推理，证明个体自私的高阶推理只加速收敛但不改变均衡（无长期收益），而集体协调的收益由学习者-用户效用函数的对齐程度决定，提供了刻画协调收益上界的理论框架。
 tags:
   - NeurIPS 2025
   - level-k thinking

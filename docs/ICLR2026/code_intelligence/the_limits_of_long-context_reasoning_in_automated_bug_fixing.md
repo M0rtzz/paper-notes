@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】The Limits of Long-Context Reasoning in Automated Bug Fixing 论文解读 | ICLR 2026 | arXiv 2602.16069 | long-context reasoning | 系统评估当前 LLM 在长上下文代码调试中的能力极限，发现 agentic 工作流的成功来自任务分解而非长上下文推理（成功轨迹仅消耗 20-30K token），64K token 单次补丁生成中性能急剧下降（GPT-5-nano 0%），揭示名义上下文长度与实际可用上下文能力之间的显著差距。"
+title: >-
+  [论文解读] The Limits of Long-Context Reasoning in Automated Bug Fixing
+description: >-
+  [ICLR 2026][long-context reasoning] 系统评估当前 LLM 在长上下文代码调试中的能力极限，发现 agentic 工作流的成功来自任务分解而非长上下文推理（成功轨迹仅消耗 20-30K token），64K token 单次补丁生成中性能急剧下降（GPT-5-nano 0%），揭示名义上下文长度与实际可用上下文能力之间的显著差距。
 tags:
   - ICLR 2026
   - long-context reasoning

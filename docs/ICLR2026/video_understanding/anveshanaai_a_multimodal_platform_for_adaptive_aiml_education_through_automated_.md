@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AnveshanaAI: A Multimodal Platform for Adaptive AI/ML Education through Automated Question Generation and Interactive Assessment 论文解读 | ICLR 2026 | arXiv 2509.23811 | AI education | 提出 AnveshanaAI，一个基于 Bloom 认知分类学的自适应 AI/ML 教育平台，通过自动化题目生成（基于微调的 GPT-2）、语义相似度检测去重、XAI 可解释性技术和游戏化机制（积分/徽章/排行榜），实现了覆盖数据科学到多模态 AI 七大领域的个性化学习评估系统，实验表明微调后困惑度显著下降且学习者参与度明显提升。"
+title: >-
+  [论文解读] AnveshanaAI: A Multimodal Platform for Adaptive AI/ML Education through Automated Question Generation and Interactive Assessment
+description: >-
+  [ICLR 2026][视频理解][AI education] 提出 AnveshanaAI，一个基于 Bloom 认知分类学的自适应 AI/ML 教育平台，通过自动化题目生成（基于微调的 GPT-2）、语义相似度检测去重、XAI 可解释性技术和游戏化机制（积分/徽章/排行榜），实现了覆盖数据科学到多模态 AI 七大领域的个性化学习评估系统，实验表明微调后困惑度显著下降且学习者参与度明显提升。
 tags:
   - ICLR 2026
+  - 视频理解
   - AI education
   - question generation
   - Bloom's taxonomy

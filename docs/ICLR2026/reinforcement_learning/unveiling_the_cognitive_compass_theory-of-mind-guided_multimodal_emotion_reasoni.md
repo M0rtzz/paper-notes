@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Unveiling the Cognitive Compass: Theory-of-Mind-Guided Multimodal Emotion Reasoning 论文解读 | 构建基于心智理论（ToM）的层次化多模态情感理解基准 HitEmotion，并提出 TMPO 框架通过中间心理状态作为过程级监督来增强 MLLM 的情感推理能力。"
+title: >-
+  [论文解读] Unveiling the Cognitive Compass: Theory-of-Mind-Guided Multimodal Emotion Reasoning
+description: >-
+   构建基于心智理论（ToM）的层次化多模态情感理解基准 HitEmotion，并提出 TMPO 框架通过中间心理状态作为过程级监督来增强 MLLM 的情感推理能力。
 tags:
 
 ---

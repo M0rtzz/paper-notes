@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Back on Track: Bundle Adjustment for Dynamic Scene Reconstruction 论文解读 | ICCV 2025 | arXiv 2504.14516 | Bundle Adjustment | 提出 BA-Track 框架，利用 3D 点追踪器将观测运动分解为相机运动和物体运动，使传统 Bundle Adjustment 能同时处理静态与动态场景元素，实现精确的相机位姿估计和时间一致的稠密重建。"
+title: >-
+  [论文解读] Back on Track: Bundle Adjustment for Dynamic Scene Reconstruction
+description: >-
+  [ICCV 2025][3D视觉][Bundle Adjustment] 提出 BA-Track 框架，利用 3D 点追踪器将观测运动分解为相机运动和物体运动，使传统 Bundle Adjustment 能同时处理静态与动态场景元素，实现精确的相机位姿估计和时间一致的稠密重建。
 tags:
   - ICCV 2025
+  - 3D视觉
   - Bundle Adjustment
   - Dynamic Scene
   - Motion Decoupling

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation 论文解读 | CVPR 2026 | arXiv 2603.12864 | 对抗场景生成 | 提出CompoSIA框架，通过对结构(Structure)、身份(Identity)、动作(Action)三因素的解耦控制，基于视频扩散模型生成可组合的对抗驾驶场景，实现身份编辑FVD降低17%、下游planner碰撞率提升173%，有效暴露自动驾驶系统的隐藏失败模式。"
+title: >-
+  [论文解读] CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation
+description: >-
+  [CVPR 2026][自动驾驶][对抗场景生成] 提出CompoSIA框架，通过对结构(Structure)、身份(Identity)、动作(Action)三因素的解耦控制，基于视频扩散模型生成可组合的对抗驾驶场景，实现身份编辑FVD降低17%、下游planner碰撞率提升173%，有效暴露自动驾驶系统的隐藏失败模式。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 对抗场景生成
   - 视频扩散模型
   - 解耦控制

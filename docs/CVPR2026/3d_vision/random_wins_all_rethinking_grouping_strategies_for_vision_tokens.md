@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Random Wins All: Rethinking Grouping Strategies for Vision Tokens 论文解读 | CVPR 2026 | arXiv 2603.00486 | Transformer Vision Transformer | 发现一个极简策略——随机分组 Vision Token——在图像分类、目标检测、点云分割等多类任务中几乎全面超越精心设计的分组方法，并分析了四个关键成功因素。"
+title: >-
+  [论文解读] Random Wins All: Rethinking Grouping Strategies for Vision Tokens
+description: >-
+  [CVPR 2026][3D视觉][Transformer] 发现一个极简策略——随机分组 Vision Token——在图像分类、目标检测、点云分割等多类任务中几乎全面超越精心设计的分组方法，并分析了四个关键成功因素。
 tags:
   - CVPR 2026
+  - 3D视觉
   - Transformer
   - Token分组
   - 随机分组

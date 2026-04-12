@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cooperative Pseudo Labeling for Unsupervised Federated Classification 论文解读 | ICCV 2025 | arXiv 2510.10100 | 无监督联邦学习 | FedCoPL 首次将无监督联邦学习扩展到分类任务，通过协作伪标签策略（全局分配伪标签确保类别平衡）和部分 prompt 聚合协议（仅聚合视觉 prompt、保留文本 prompt 本地化）有效应对 CLIP 固有偏差和标签偏移挑战。"
+title: >-
+  [论文解读] Cooperative Pseudo Labeling for Unsupervised Federated Classification
+description: >-
+  [ICCV 2025][优化][无监督联邦学习] FedCoPL 首次将无监督联邦学习扩展到分类任务，通过协作伪标签策略（全局分配伪标签确保类别平衡）和部分 prompt 聚合协议（仅聚合视觉 prompt、保留文本 prompt 本地化）有效应对 CLIP 固有偏差和标签偏移挑战。
 tags:
   - ICCV 2025
+  - 优化
   - 无监督联邦学习
   - 伪标签
   - CLIP

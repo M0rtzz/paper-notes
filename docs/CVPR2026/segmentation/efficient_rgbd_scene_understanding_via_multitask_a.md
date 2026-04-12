@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance 论文解读 | CVPR 2026 | arXiv 2603.07570 | multi-task learning | 提出一种高效 RGB-D 多任务场景理解网络，通过部分通道卷积融合编码器、归一化焦点通道层(NFCL)、上下文特征交互层(CFIL)和多任务自适应损失，在 NYUv2 上以 20+ FPS 同时完成语义/实例/全景分割、方向估计和场景分类。"
+title: >-
+  [论文解读] Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance
+description: >-
+  [CVPR 2026][图像分割][multi-task learning] 提出一种高效 RGB-D 多任务场景理解网络，通过部分通道卷积融合编码器、归一化焦点通道层(NFCL)、上下文特征交互层(CFIL)和多任务自适应损失，在 NYUv2 上以 20+ FPS 同时完成语义/实例/全景分割、方向估计和场景分类。
 tags:
   - CVPR 2026
+  - 图像分割
   - multi-task learning
   - RGB-D fusion
-  - 图像分割
   - adaptive loss
   - cross-dimensional guidance
 ---

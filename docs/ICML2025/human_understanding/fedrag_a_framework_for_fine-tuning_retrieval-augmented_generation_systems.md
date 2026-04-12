@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems 论文解读 | ICML 2025 | arXiv 2506.09200 | FedRAG 提出了一个同时支持集中式和联邦式架构的 RAG 系统微调框架，填补了 RAG 生态系统中缺乏统一微调工具的空白，并通过轻量级抽象实现了从集中式到联邦式训练的无缝转换。"
+title: >-
+  [论文解读] FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems
+description: >-
+  [ICML 2025][人体理解] FedRAG 提出了一个同时支持集中式和联邦式架构的 RAG 系统微调框架，填补了 RAG 生态系统中缺乏统一微调工具的空白，并通过轻量级抽象实现了从集中式到联邦式训练的无缝转换。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems

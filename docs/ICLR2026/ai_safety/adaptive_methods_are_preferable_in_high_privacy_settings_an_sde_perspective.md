@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective 论文解读 | ICLR 2026 | arXiv 2603.03226 | differential privacy | 首次用SDE框架分析差分隐私优化器，证明DP-SignSGD/DP-Adam的隐私-效用trade-off为O(1/ε)（优于DP-SGD的O(1/ε²)），且最优学习率几乎不依赖ε，在严格隐私下更实用。"
+title: >-
+  [论文解读] Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective
+description: >-
+  [ICLR 2026][AI安全][differential privacy] 首次用SDE框架分析差分隐私优化器，证明DP-SignSGD/DP-Adam的隐私-效用trade-off为O(1/ε)（优于DP-SGD的O(1/ε²)），且最优学习率几乎不依赖ε，在严格隐私下更实用。
 tags:
   - ICLR 2026
+  - AI安全
   - differential privacy
   - DP-SGD
   - DP-SignSGD

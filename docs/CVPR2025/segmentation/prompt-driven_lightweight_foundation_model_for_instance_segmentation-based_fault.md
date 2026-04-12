@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains 论文解读 | CVPR 2025 | arXiv 2603.12624 | SAM 适配 | SAM FTI-FDet 提出基于轻量 SAM 的自动提示实例分割框架，通过 Transformer 解码器式的提示生成器自动产生任务相关提示、自适应特征分发器融合多尺度特征、TinyViT backbone 降低计算开销，在货运列车故障检测数据集上达 74.6 $AP^{box}$ / 74.2 $AP^{mask}$。"
+title: >-
+  [论文解读] Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains
+description: >-
+  [CVPR 2025][图像分割][SAM 适配] SAM FTI-FDet 提出基于轻量 SAM 的自动提示实例分割框架，通过 Transformer 解码器式的提示生成器自动产生任务相关提示、自适应特征分发器融合多尺度特征、TinyViT backbone 降低计算开销，在货运列车故障检测数据集上达 74.6 $AP^{box}$ / 74.2 $AP^{mask}$。
 tags:
   - CVPR 2025
+  - 图像分割
   - SAM 适配
   - 自动提示生成
   - 货运列车故障检测

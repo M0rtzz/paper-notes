@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FOCUS: Internal MLLM Representations for Efficient Fine-Grained Visual Question Answering 论文解读 | NeurIPS 2025 | arXiv 2506.21710 | 细粒度VQA | 提出 FOCUS，一种无需训练的视觉裁剪方法，利用 MLLM 内部 KV-cache 中 value 特征的余弦相似度构建目标相关性图，高效定位问题相关的图像区域，在细粒度 VQA 上实现与 SOTA 可比的精度，同时计算效率提升 3-6.5 倍。"
+title: >-
+  [论文解读] FOCUS: Internal MLLM Representations for Efficient Fine-Grained Visual Question Answering
+description: >-
+  [NeurIPS 2025][多模态][细粒度VQA] 提出 FOCUS，一种无需训练的视觉裁剪方法，利用 MLLM 内部 KV-cache 中 value 特征的余弦相似度构建目标相关性图，高效定位问题相关的图像区域，在细粒度 VQA 上实现与 SOTA 可比的精度，同时计算效率提升 3-6.5 倍。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 细粒度VQA
   - 视觉裁剪
   - KV-Cache

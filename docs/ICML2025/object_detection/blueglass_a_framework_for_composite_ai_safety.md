@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BlueGlass: A Framework for Composite AI Safety 论文解读 | ICML 2025 | arXiv 2507.10106 | AI安全框架 | 提出 BlueGlass——一个统一的复合 AI 安全框架，集成分布评估、探针分析和稀疏自编码器等多种安全工具，在视觉语言模型的目标检测任务上揭示了性能权衡、层级学习的相变现象和可解释概念。"
+title: >-
+  [论文解读] BlueGlass: A Framework for Composite AI Safety
+description: >-
+  [ICML 2025][目标检测][AI安全框架] 提出 BlueGlass——一个统一的复合 AI 安全框架，集成分布评估、探针分析和稀疏自编码器等多种安全工具，在视觉语言模型的目标检测任务上揭示了性能权衡、层级学习的相变现象和可解释概念。
 tags:
   - ICML 2025
+  - 目标检测
   - AI安全框架
   - 视觉语言模型
   - 可解释性

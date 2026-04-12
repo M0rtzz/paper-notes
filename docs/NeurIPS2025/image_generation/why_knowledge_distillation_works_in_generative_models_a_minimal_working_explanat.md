@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation 论文解读 | NeurIPS 2025 | arXiv 2505.13111 | 知识蒸馏 | 提出知识蒸馏在生成模型中的最小工作解释：蒸馏自然诱导了精度-召回权衡，教师分布越具有选择性（低熵），学生模型越集中于高概率密度区域（高精度），以牺牲覆盖度（低召回）为代价——这在强调样本质量的场景中正是所需。"
+title: >-
+  [论文解读] Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation
+description: >-
+  [NeurIPS 2025][图像生成][知识蒸馏] 提出知识蒸馏在生成模型中的最小工作解释：蒸馏自然诱导了精度-召回权衡，教师分布越具有选择性（低熵），学生模型越集中于高概率密度区域（高精度），以牺牲覆盖度（低召回）为代价——这在强调样本质量的场景中正是所需。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 知识蒸馏
   - 精度-召回权衡
   - 高斯混合

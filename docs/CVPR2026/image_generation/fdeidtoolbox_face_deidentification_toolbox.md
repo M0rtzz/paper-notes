@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FDeID-Toolbox: Face De-Identification Toolbox 论文解读 | CVPR 2026 | arXiv 2603.13121 | 人脸去识别 | 发布 FDeID-Toolbox，一个模块化人脸去识别研究工具箱，统一了数据加载、方法实现（经典到 SOTA 生成模型）、推理流水线和三维评估协议（隐私/效用/质量），解决该领域实验碎片化和结果不可比的问题。"
+title: >-
+  [论文解读] FDeID-Toolbox: Face De-Identification Toolbox
+description: >-
+  [CVPR 2026][图像生成][人脸去识别] 发布 FDeID-Toolbox，一个模块化人脸去识别研究工具箱，统一了数据加载、方法实现（经典到 SOTA 生成模型）、推理流水线和三维评估协议（隐私/效用/质量），解决该领域实验碎片化和结果不可比的问题。
 tags:
   - CVPR 2026
+  - 图像生成
   - 人脸去识别
   - 隐私保护
   - 工具箱

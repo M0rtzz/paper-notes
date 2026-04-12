@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HierLoc: Hyperbolic Entity Embeddings for Hierarchical Visual Geolocation 论文解读 | ICLR 2026 | arXiv 2601.23064 | 视觉地理定位 | 提出HierLoc，将地理定位重新建模为双曲空间中的图像-实体对齐问题，用24万个地理实体嵌入替代500万+图像嵌入，在OSV5M上降低19.5%平均测地误差并将子区域准确率提升43%。"
+title: >-
+  [论文解读] HierLoc: Hyperbolic Entity Embeddings for Hierarchical Visual Geolocation
+description: >-
+  [ICLR 2026][图像生成][视觉地理定位] 提出HierLoc，将地理定位重新建模为双曲空间中的图像-实体对齐问题，用24万个地理实体嵌入替代500万+图像嵌入，在OSV5M上降低19.5%平均测地误差并将子区域准确率提升43%。
 tags:
   - ICLR 2026
+  - 图像生成
   - 视觉地理定位
   - 双曲嵌入
   - 层次实体

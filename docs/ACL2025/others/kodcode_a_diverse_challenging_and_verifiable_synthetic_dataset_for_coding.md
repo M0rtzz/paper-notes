@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】KodCode: A Diverse, Challenging, and Verifiable Synthetic Dataset for Coding 论文解读 | ACL 2025 | arXiv 2503.02951 | 合成数据集 | KodCode 提出一套三阶段合成数据管线（编程题目合成→解决方案+单元测试自验证→后训练数据合成），构建了 447K 经过验证的编程 question-solution-test 三元组，微调后的模型在 HumanEval、MBPP、BigCodeBench、LiveCodeBench 等基准上超越 Qwen2.5-Coder-32B-Instruct 和 DeepSeek-R1-Distill-Llama-70B。"
+title: >-
+  [论文解读] KodCode: A Diverse, Challenging, and Verifiable Synthetic Dataset for Coding
+description: >-
+  [ACL 2025][合成数据集] KodCode 提出一套三阶段合成数据管线（编程题目合成→解决方案+单元测试自验证→后训练数据合成），构建了 447K 经过验证的编程 question-solution-test 三元组，微调后的模型在 HumanEval、MBPP、BigCodeBench、LiveCodeBench 等基准上超越 Qwen2.5-Coder-32B-Instruct 和 DeepSeek-R1-Distill-Llama-70B。
 tags:
   - ACL 2025
   - 合成数据集

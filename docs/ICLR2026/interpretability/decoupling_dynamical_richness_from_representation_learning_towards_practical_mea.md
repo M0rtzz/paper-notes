@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Decoupling Dynamical Richness from Representation Learning: Towards Practical Measurement 论文解读 | ICLR 2026 | arXiv 2410.04264 | rich dynamics | 提出一种计算高效、与性能无关的动态丰富度度量 D_LR，通过比较最后一层前后的激活来衡量 rich/lazy 训练动态，并证明 neural collapse 是该度量的特殊情况。"
+title: >-
+  [论文解读] Decoupling Dynamical Richness from Representation Learning: Towards Practical Measurement
+description: >-
+  [ICLR 2026][rich dynamics] 提出一种计算高效、与性能无关的动态丰富度度量 $\mathcal{D}_{LR}$，通过比较最后一层前后的激活来衡量 rich/lazy 训练动态，并证明 neural collapse 是该度量的特殊情况。
 tags:
   - ICLR 2026
   - rich dynamics

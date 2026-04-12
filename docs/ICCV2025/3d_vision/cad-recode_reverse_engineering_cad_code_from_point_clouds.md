@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAD-Recode: Reverse Engineering CAD Code from Point Clouds 论文解读 | ICCV2025 | arXiv 2412.14042 | CAD逆向工程 | 提出 CAD-Recode，将点云翻译为可执行的 Python CadQuery 代码来重建 CAD 模型，利用预训练 LLM（Qwen2-1.5B）作为解码器配合轻量级点云编码器，在 DeepCAD、Fusion360 和 CC3D 三个基准上实现了 10 倍以上的 Chamfer Distance 降低。"
+title: >-
+  [论文解读] CAD-Recode: Reverse Engineering CAD Code from Point Clouds
+description: >-
+  [ICCV2025][3D视觉][CAD逆向工程] 提出 CAD-Recode，将点云翻译为可执行的 Python CadQuery 代码来重建 CAD 模型，利用预训练 LLM（Qwen2-1.5B）作为解码器配合轻量级点云编码器，在 DeepCAD、Fusion360 和 CC3D 三个基准上实现了 10 倍以上的 Chamfer Distance 降低。
 tags:
   - ICCV2025
+  - 3D视觉
   - CAD逆向工程
   - 点云重建
   - 大语言模型

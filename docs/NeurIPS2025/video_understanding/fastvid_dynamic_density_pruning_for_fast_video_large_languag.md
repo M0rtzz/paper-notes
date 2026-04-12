@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】FastVID: Dynamic Density Pruning for Fast Video Large Language Models 论文解读 | 提出 FastVID，通过动态时序分割 (DySeg) + 密度空时剪枝 (STPrune) 从时间和视觉两个维度系统性消除视频 token 冗余，在 LLaVA-OneVision-7B 上剪掉 90.3% 视频 token 后仍保留 98% 精度，LLM prefill 阶段加速 7.1×。"
+title: >-
+  [论文解读] FastVID: Dynamic Density Pruning for Fast Video Large Language Models
+description: >-
+  [视频理解] 提出 FastVID，通过动态时序分割 (DySeg) + 密度空时剪枝 (STPrune) 从时间和视觉两个维度系统性消除视频 token 冗余，在 LLaVA-OneVision-7B 上剪掉 90.3% 视频 token 后仍保留 98% 精度，LLM prefill 阶段加速 7.1×。
 tags:
-
+  - 视频理解
 ---
 
 # FastVID: Dynamic Density Pruning for Fast Video Large Language Models

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Explaining Decentralized Multi-Agent Reinforcement Learning Policies 论文解读 | AAAI 2026 | arXiv 2511.10409 | 可解释AI | 提出首个针对去中心化多智能体强化学习（MARL）策略的可解释方法，包括基于 Hasse 图的策略摘要生成和基于查询的自然语言解释（When/Why Not/What），在四个 MARL 领域展示了通用性和计算效率，用户研究表明显著提升了人类对策略的理解和问答表现。"
+title: >-
+  [论文解读] Explaining Decentralized Multi-Agent Reinforcement Learning Policies
+description: >-
+  [AAAI 2026][可解释AI] 提出首个针对去中心化多智能体强化学习（MARL）策略的可解释方法，包括基于 Hasse 图的策略摘要生成和基于查询的自然语言解释（When/Why Not/What），在四个 MARL 领域展示了通用性和计算效率，用户研究表明显著提升了人类对策略的理解和问答表现。
 tags:
   - AAAI 2026
   - 可解释AI

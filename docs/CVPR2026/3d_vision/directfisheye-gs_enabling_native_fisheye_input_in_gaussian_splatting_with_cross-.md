@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DirectFisheye-GS: Enabling Native Fisheye Input in Gaussian Splatting with Cross-View Joint Optimization 论文解读 | CVPR 2026 | arXiv 2604.00648 | 3D高斯溅射 | 将 Kannala-Brandt 鱼眼投影模型原生集成到 3DGS 流程中，并提出基于特征重叠的跨视图联合优化策略，避免了预去畸变带来的信息损失，在多个公开数据集上达到或超越 SOTA。"
+title: >-
+  [论文解读] DirectFisheye-GS: Enabling Native Fisheye Input in Gaussian Splatting with Cross-View Joint Optimization
+description: >-
+  [CVPR 2026][3D视觉][3D高斯溅射] 将 Kannala-Brandt 鱼眼投影模型原生集成到 3DGS 流程中，并提出基于特征重叠的跨视图联合优化策略，避免了预去畸变带来的信息损失，在多个公开数据集上达到或超越 SOTA。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D高斯溅射
   - 鱼眼相机
   - 跨视图联合优化

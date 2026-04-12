@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fairness-Regularized Online Optimization with Switching Costs 论文解读 | NeurIPS 2025 | arXiv 2512.11131 | 在线优化 | 提出 FairOBD 算法，首次在平滑在线凸优化中同时处理**长期公平性正则项**和**切换代价**，通过引入辅助变量分解长期公平代价并用镜像下降更新对偶变量，证明了渐近竞争比保证。"
+title: >-
+  [论文解读] Fairness-Regularized Online Optimization with Switching Costs
+description: >-
+  [NeurIPS 2025][AI安全][在线优化] 提出 FairOBD 算法，首次在平滑在线凸优化中同时处理**长期公平性正则项**和**切换代价**，通过引入辅助变量分解长期公平代价并用镜像下降更新对偶变量，证明了渐近竞争比保证。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 在线优化
   - 公平性正则
   - 切换代价

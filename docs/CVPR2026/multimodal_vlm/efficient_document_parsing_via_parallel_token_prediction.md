@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Efficient Document Parsing via Parallel Token Prediction 论文解读 | CVPR 2026 | arXiv 2603.15206 | 文档解析 | 提出 PTP（Parallel Token Prediction），一种模型无关的即插即用加速方法，通过在训练序列中插入可学习 register token 实现并行多 token 预测，在 OmniDocBench 上实现 1.6×-2.2× 吞吐提升且不损失精度。"
+title: >-
+  [论文解读] Efficient Document Parsing via Parallel Token Prediction
+description: >-
+  [CVPR 2026][多模态][文档解析] 提出 PTP（Parallel Token Prediction），一种模型无关的即插即用加速方法，通过在训练序列中插入可学习 register token 实现并行多 token 预测，在 OmniDocBench 上实现 1.6×-2.2× 吞吐提升且不损失精度。
 tags:
   - CVPR 2026
+  - 多模态
   - 文档解析
   - 并行token预测
   - Register Token

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAVIS: Context-Aware Video Instance Segmentation 论文解读 | ICCV 2025 | arXiv 2407.03010 | 视频实例分割 | 提出CAVIS，通过引入上下文感知实例追踪器（CAIT）融合物体边界周围的上下文信息来增强实例关联，并设计原型化跨帧对比损失（PCC）保证跨帧特征一致性，在VIS和VPS任务上全面刷新SOTA。"
+title: >-
+  [论文解读] CAVIS: Context-Aware Video Instance Segmentation
+description: >-
+  [ICCV 2025][图像分割][视频实例分割] 提出CAVIS，通过引入上下文感知实例追踪器（CAIT）融合物体边界周围的上下文信息来增强实例关联，并设计原型化跨帧对比损失（PCC）保证跨帧特征一致性，在VIS和VPS任务上全面刷新SOTA。
 tags:
   - ICCV 2025
+  - 图像分割
   - 视频实例分割
   - 上下文感知
   - 对比学习

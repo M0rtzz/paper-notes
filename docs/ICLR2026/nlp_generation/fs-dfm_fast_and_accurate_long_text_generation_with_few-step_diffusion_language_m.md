@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model 论文解读 | ICLR 2026 | arXiv 2509.20624 | 离散扩散模型 | 提出 FS-DFM（Few-Step Discrete Flow-Matching），通过步数感知训练和累积标量更新规则，将离散 flow-matching 语言模型的采样步数从 1024 步降低到 8 步，实现 128 倍加速，同时保持相当的困惑度和生成质量。"
+title: >-
+  [论文解读] FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model
+description: >-
+  [ICLR 2026][文本生成][离散扩散模型] 提出 FS-DFM（Few-Step Discrete Flow-Matching），通过步数感知训练和累积标量更新规则，将离散 flow-matching 语言模型的采样步数从 1024 步降低到 8 步，实现 128 倍加速，同时保持相当的困惑度和生成质量。
 tags:
   - ICLR 2026
+  - 文本生成
   - 离散扩散模型
   - 少步采样
   - flow matching
   - 累积标量
-  - 文本生成
 ---
 
 # FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model

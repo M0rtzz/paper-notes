@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Less, but Better: Efficient Multilingual Expansion for LLMs via Layer-wise Mixture-of-Experts 论文解读 | ACL 2025 | arXiv 2505.22582 | multilingual expansion | 分析 LLM 不同层间的跨语言表征相似度，提出 LayerMoE 按层分配不同数量的新语言专家（高相似层少分配、低相似层多分配），用 60% 更少的专家参数超越 SOTA，并通过在高相似层添加路由分类器进一步缓解灾难性遗忘。"
+title: >-
+  [论文解读] Less, but Better: Efficient Multilingual Expansion for LLMs via Layer-wise Mixture-of-Experts
+description: >-
+  [ACL 2025][multilingual expansion] 分析 LLM 不同层间的跨语言表征相似度，提出 LayerMoE 按层分配不同数量的新语言专家（高相似层少分配、低相似层多分配），用 60% 更少的专家参数超越 SOTA，并通过在高相似层添加路由分类器进一步缓解灾难性遗忘。
 tags:
   - ACL 2025
   - multilingual expansion

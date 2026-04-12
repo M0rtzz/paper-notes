@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection 论文解读 | CVPR 2026 | arXiv 2603.11521 | 无监督伪装检测 | 提出EReCu框架，在DINO师生架构上通过多线索原生感知(MNP)提取纹理+语义先验来引导伪标签进化融合(PEF)和局部伪标签精修(LPR)，实现无标注下的伪装目标检测，在4个COD数据集上达到UCOD SOTA。"
+title: >-
+  [论文解读] EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection
+description: >-
+  [CVPR 2026][图像分割][无监督伪装检测] 提出EReCu框架，在DINO师生架构上通过多线索原生感知(MNP)提取纹理+语义先验来引导伪标签进化融合(PEF)和局部伪标签精修(LPR)，实现无标注下的伪装目标检测，在4个COD数据集上达到UCOD SOTA。
 tags:
   - CVPR 2026
+  - 图像分割
   - 无监督伪装检测
   - 伪标签进化
   - 多线索感知

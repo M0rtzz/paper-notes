@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DynaRend: Learning 3D Dynamics via Masked Future Rendering for Robotic Manipulation 论文解读 | NeurIPS 2025 | arXiv 2510.24261 | 表征学习 | 提出 DynaRend，通过掩码重建和未来预测两个互补目标，利用可微体渲染在 triplane 表征上联合学习 3D 几何、语义和动态信息，预训练后可高效迁移到下游机器人操控任务。"
+title: >-
+  [论文解读] DynaRend: Learning 3D Dynamics via Masked Future Rendering for Robotic Manipulation
+description: >-
+  [NeurIPS 2025][3D视觉][表征学习] 提出 DynaRend，通过掩码重建和未来预测两个互补目标，利用可微体渲染在 triplane 表征上联合学习 3D 几何、语义和动态信息，预训练后可高效迁移到下游机器人操控任务。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 表征学习
   - 机器人操控
   - 可微渲染

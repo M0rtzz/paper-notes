@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learnability-Driven Submodular Optimization for Active Roadside 3D Detection 论文解读 | CVPR2026 | arXiv 2601.01695 | 主动学习 | 提出 LH3D 框架，通过「深度置信度→语义平衡→几何多样性」三阶段子模优化的主动学习策略，抑制路侧单目 3D 检测中固有歧义样本的选取，仅用 20% 标注预算即显著优于传统不确定性/多样性 AL 方法。"
+title: >-
+  [论文解读] Learnability-Driven Submodular Optimization for Active Roadside 3D Detection
+description: >-
+  [CVPR2026][自动驾驶][主动学习] 提出 LH3D 框架，通过「深度置信度→语义平衡→几何多样性」三阶段子模优化的主动学习策略，抑制路侧单目 3D 检测中固有歧义样本的选取，仅用 20% 标注预算即显著优于传统不确定性/多样性 AL 方法。
 tags:
   - CVPR2026
+  - 自动驾驶
   - 主动学习
   - 路侧感知
   - 单目3D检测

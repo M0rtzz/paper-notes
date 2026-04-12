@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MIDB: Multilingual Instruction Data Booster for Enhancing Cultural Equality in Multilingual Instruction Synthesis 论文解读 | AAAI 2026 | arXiv 2505.17671 | 多语言指令调优 | 提出 MIDB（多语言指令数据增强器），通过 36.8k 人类语言专家标注的修订样本训练一个统一模型，自动修复多语言合成指令数据中的内容错误、机器翻译缺陷和本地化不足问题，显著提升 16 种语言的指令数据质量和下游 LLM 的多语言/文化理解能力。"
+title: >-
+  [论文解读] MIDB: Multilingual Instruction Data Booster for Enhancing Cultural Equality in Multilingual Instruction Synthesis
+description: >-
+  [AAAI 2026][人体理解][多语言指令调优] 提出 MIDB（多语言指令数据增强器），通过 36.8k 人类语言专家标注的修订样本训练一个统一模型，自动修复多语言合成指令数据中的内容错误、机器翻译缺陷和本地化不足问题，显著提升 16 种语言的指令数据质量和下游 LLM 的多语言/文化理解能力。
 tags:
   - AAAI 2026
+  - 人体理解
   - 多语言指令调优
   - 数据质量提升
   - 文化公平性

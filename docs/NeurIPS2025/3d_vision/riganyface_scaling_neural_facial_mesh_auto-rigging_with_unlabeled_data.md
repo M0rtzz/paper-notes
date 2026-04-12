@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RigAnyFace: Scaling Neural Facial Mesh Auto-Rigging with Unlabeled Data 论文解读 | NeurIPS 2025 | arXiv 2511.18601 | 面部绑定 | 提出RigAnyFace（RAF），一个可扩展的面部网格自动绑定框架，通过2D监督策略利用无标注中性网格扩大训练规模，实现对多种拓扑和断连组件（如眼球）的高质量FACS混合形状绑定。"
+title: >-
+  [论文解读] RigAnyFace: Scaling Neural Facial Mesh Auto-Rigging with Unlabeled Data
+description: >-
+  [NeurIPS 2025][3D视觉][面部绑定] 提出RigAnyFace（RAF），一个可扩展的面部网格自动绑定框架，通过2D监督策略利用无标注中性网格扩大训练规模，实现对多种拓扑和断连组件（如眼球）的高质量FACS混合形状绑定。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 面部绑定
   - 自动绑定
   - FACS

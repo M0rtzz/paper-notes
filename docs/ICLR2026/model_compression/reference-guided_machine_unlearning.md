@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Reference-Guided Machine Unlearning 论文解读 | ICLR 2026 | arXiv 2603.11210 | 机器遗忘 | 提出 ReGUn（Reference-Guided Unlearning），利用独立留出数据集作为\"未见行为\"的参考标准，通过类别条件蒸馏将遗忘数据上的模型行为对齐到真正未见数据的行为，实现更优的遗忘-效用权衡。"
+title: >-
+  [论文解读] Reference-Guided Machine Unlearning
+description: >-
+  [ICLR 2026][模型压缩][机器遗忘] 提出 ReGUn（Reference-Guided Unlearning），利用独立留出数据集作为"未见行为"的参考标准，通过类别条件蒸馏将遗忘数据上的模型行为对齐到真正未见数据的行为，实现更优的遗忘-效用权衡。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 机器遗忘
   - 参考引导
   - 知识蒸馏

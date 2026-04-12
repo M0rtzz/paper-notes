@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Token Distillation: Attention-Aware Input Embeddings for New Tokens 论文解读 | ICLR 2026 | arXiv 2505.20133 | 词表扩展 | 提出 Token Distillation 方法，通过蒸馏 Transformer 各层编码的多子词交互信息到单一 token 嵌入中，实现高质量的新 token 嵌入初始化，无需预训练超网络且优于现有方法。"
+title: >-
+  [论文解读] Token Distillation: Attention-Aware Input Embeddings for New Tokens
+description: >-
+  [ICLR 2026][模型压缩][词表扩展] 提出 Token Distillation 方法，通过蒸馏 Transformer 各层编码的多子词交互信息到单一 token 嵌入中，实现高质量的新 token 嵌入初始化，无需预训练超网络且优于现有方法。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 词表扩展
   - Token 嵌入初始化
   - 知识蒸馏

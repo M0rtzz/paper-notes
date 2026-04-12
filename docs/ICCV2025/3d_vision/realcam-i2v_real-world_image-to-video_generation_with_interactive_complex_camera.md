@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RealCam-I2V: Real-World Image-to-Video Generation with Interactive Complex Camera Control 论文解读 | ICCV 2025 | arXiv 2502.10059 | Camera Control | 提出 RealCam-I2V，通过集成单目度量深度估计构建3D场景实现度量尺度对齐训练，并提供交互式3D场景轨迹绘制界面和场景约束噪声整形机制，解决了现有轨迹引导I2V方法的尺度不一致和真实世界可用性问题。"
+title: >-
+  [论文解读] RealCam-I2V: Real-World Image-to-Video Generation with Interactive Complex Camera Control
+description: >-
+  [ICCV 2025][3D视觉][Camera Control] 提出 RealCam-I2V，通过集成单目度量深度估计构建3D场景实现度量尺度对齐训练，并提供交互式3D场景轨迹绘制界面和场景约束噪声整形机制，解决了现有轨迹引导I2V方法的尺度不一致和真实世界可用性问题。
 tags:
   - ICCV 2025
+  - 3D视觉
   - Camera Control
   - Metric Depth
   - 扩散模型

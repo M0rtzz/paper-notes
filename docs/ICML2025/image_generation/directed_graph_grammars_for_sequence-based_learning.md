@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Directed Graph Grammars for Sequence-based Learning 论文解读 | ICML 2025 | arXiv 2505.22949 | 有向无环图 | 提出 DIGGED，通过无歧义上下文无关图文法将 DAG 无损映射为唯一的产生式规则序列，结合 Transformer 解码器实现图生成/属性预测/贝叶斯优化，在神经架构搜索、贝叶斯网络和电路设计三个任务上全面超越现有方法。"
+title: >-
+  [论文解读] Directed Graph Grammars for Sequence-based Learning
+description: >-
+  [ICML 2025][图像生成][有向无环图] 提出 DIGGED，通过无歧义上下文无关图文法将 DAG 无损映射为唯一的产生式规则序列，结合 Transformer 解码器实现图生成/属性预测/贝叶斯优化，在神经架构搜索、贝叶斯网络和电路设计三个任务上全面超越现有方法。
 tags:
   - ICML 2025
+  - 图像生成
   - 有向无环图
   - 图文法
   - 序列化表示

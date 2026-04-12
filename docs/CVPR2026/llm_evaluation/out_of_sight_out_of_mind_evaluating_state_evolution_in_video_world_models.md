@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models 论文解读 | CVPR 2026 | arXiv 2603.13215 | 视频世界模型 | 提出 StEvo-Bench 基准，通过遮挡或相机移开等观测控制手段评估视频世界模型能否将状态演化与观测解耦，发现当前最先进模型（包括 Veo 3、Sora 2 Pro、Genie 3 等）在观测中断时成功率不足 10%，揭示了视频世界模型在演化-观测耦合上的根本缺陷。"
+title: >-
+  [论文解读] Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models
+description: >-
+  [CVPR 2026][视频世界模型] 提出 StEvo-Bench 基准，通过遮挡或相机移开等观测控制手段评估视频世界模型能否将状态演化与观测解耦，发现当前最先进模型（包括 Veo 3、Sora 2 Pro、Genie 3 等）在观测中断时成功率不足 10%，揭示了视频世界模型在演化-观测耦合上的根本缺陷。
 tags:
   - CVPR 2026
   - 视频世界模型

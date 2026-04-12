@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Exo2Ego: Exocentric Knowledge Guided MLLM for Egocentric Video Understanding 论文解读 | AAAI 2026 | arXiv 2503.09143 | 第一人称视频理解 | 提出 Exo2Ego 框架，通过学习外中心(第三人称)与自中心(第一人称)域之间的映射关系，将 MLLM 中丰富的外中心知识迁移到自中心视频理解，结合新构建的 110万同步 ego-exo clip-text 对数据集 Ego-ExoClip 和 60万指令微调数据集 EgoIT，在 8 个自中心视频基准上取得了领先的开源模型性能。"
+title: >-
+  [论文解读] Exo2Ego: Exocentric Knowledge Guided MLLM for Egocentric Video Understanding
+description: >-
+  [AAAI 2026][多模态][第一人称视频理解] 提出 Exo2Ego 框架，通过学习外中心(第三人称)与自中心(第一人称)域之间的映射关系，将 MLLM 中丰富的外中心知识迁移到自中心视频理解，结合新构建的 110万同步 ego-exo clip-text 对数据集 Ego-ExoClip 和 60万指令微调数据集 EgoIT，在 8 个自中心视频基准上取得了领先的开源模型性能。
 tags:
   - AAAI 2026
+  - 多模态
   - 第一人称视频理解
   - 外中心-自中心知识迁移
   - 多模态大语言模型

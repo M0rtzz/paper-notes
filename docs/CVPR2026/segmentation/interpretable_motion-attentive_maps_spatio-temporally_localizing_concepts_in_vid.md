@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】I'm a Map! Interpretable Motion-Attentive Maps: Spatio-Temporally Localizing Concepts in Video Diffusion Transformers 论文解读 | CVPR 2026 | arXiv 2603.02919 | Transformer Video Diffusion Transformer | 提出 GramCol 和 IMAP 两种无需训练/梯度的方法，利用 Video DiT 内部特征为任意文本概念（尤其是运动概念）生成可解释的时空显著性图，并在运动定位和零样本视频语义分割上取得 SOTA。"
+title: >-
+  [论文解读] I'm a Map! Interpretable Motion-Attentive Maps: Spatio-Temporally Localizing Concepts in Video Diffusion Transformers
+description: >-
+  [CVPR 2026][图像分割][Transformer] 提出 GramCol 和 IMAP 两种无需训练/梯度的方法，利用 Video DiT 内部特征为任意文本概念（尤其是运动概念）生成可解释的时空显著性图，并在运动定位和零样本视频语义分割上取得 SOTA。
 tags:
   - CVPR 2026
+  - 图像分割
   - Transformer
   - 可解释显著性图
   - 运动定位

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory 论文解读 | ACL 2025 | arXiv 2505.10981 | test-time scaling | 本文在 6 个 LLM × 8 种 prompting 策略 × 6 个 benchmark 上系统实验发现，随着 majority voting 采样次数增加，简单的 CoT 始终超越复杂 prompting 策略；并从概率论角度给出理论证明，提出 $O(1)$ 复杂度的 scaling 性能预测方法和两种改进策略。"
+title: >-
+  [论文解读] Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory
+description: >-
+  [ACL 2025][LLM推理][test-time scaling] 本文在 6 个 LLM × 8 种 prompting 策略 × 6 个 benchmark 上系统实验发现，随着 majority voting 采样次数增加，简单的 CoT 始终超越复杂 prompting 策略；并从概率论角度给出理论证明，提出 $O(1)$ 复杂度的 scaling 性能预测方法和两种改进策略。
 tags:
   - ACL 2025
+  - LLM推理
   - test-time scaling
   - majority voting
   - 提示学习

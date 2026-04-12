@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Learning Shared Representations from Unpaired Data 论文解读 | NeurIPS 2025 | arXiv 2505.21524 | spectral embedding | 提出 SUE (Spectral Universal Embedding)，首次证明几乎完全依赖非配对数据即可学习跨模态共享表示：通过独立的频谱嵌入从各模态随机游走中提取模态不变的\"通用\"结构，再用极少量配对样本（~100对）做 CCA 线性对齐 + MMD 非线性微调，在检索上超越使用同等配对数的对比学习 250%+。"
+title: >-
+  [论文解读] Learning Shared Representations from Unpaired Data
+description: >-
+  [NeurIPS 2025][多模态][spectral embedding] 提出 SUE (Spectral Universal Embedding)，首次证明几乎完全依赖非配对数据即可学习跨模态共享表示：通过独立的频谱嵌入从各模态随机游走中提取模态不变的"通用"结构，再用极少量配对样本（~100对）做 CCA 线性对齐 + MMD 非线性微调，在检索上超越使用同等配对数的对比学习 250%+。
 tags:
   - NeurIPS 2025
+  - 多模态
   - spectral embedding
   - universal embedding
-  - 多模态
   - MMD
   - CCA
 ---

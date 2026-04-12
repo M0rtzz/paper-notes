@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unleashing Video Language Models for Fine-grained HRCT Report Generation 论文解读 | arXiv 2026 | arXiv 2603.12469 | unleashing | 从高分辨率计算机断层扫描 (HRCT) 生成精确的诊断报告对于临床工作流程至关重要，但由于 3D 体积内的高度病理多样性和空间稀疏性，它仍然是一个艰巨的挑战。"
+title: >-
+  [论文解读] Unleashing Video Language Models for Fine-grained HRCT Report Generation
+description: >-
+  [arXiv 2026][医学图像][unleashing] 从高分辨率计算机断层扫描 (HRCT) 生成精确的诊断报告对于临床工作流程至关重要，但由于 3D 体积内的高度病理多样性和空间稀疏性，它仍然是一个艰巨的挑战。
 tags:
   - arXiv 2026
+  - 医学图像
   - unleashing
   - video
   - language

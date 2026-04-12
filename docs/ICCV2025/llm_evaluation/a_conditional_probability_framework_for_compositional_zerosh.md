@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Conditional Probability Framework for Compositional Zero-shot Learning 论文解读 | ICCV 2025 | arXiv 2507.17377 | 条件概率分解 | 提出条件概率框架（CPF），将组合识别概率分解为对象似然 p(o|x) 和属性条件似然 p(a|o,x) 两部分，通过文本增强对象学习和对象引导属性学习两个模块显式建模属性-对象依赖关系，在三个 CZSL 基准上全面超越 SOTA。"
+title: >-
+  [论文解读] A Conditional Probability Framework for Compositional Zero-shot Learning
+description: >-
+  [ICCV 2025][条件概率分解] 提出条件概率框架（CPF），将组合识别概率分解为对象似然 p(o|x) 和属性条件似然 p(a|o,x) 两部分，通过文本增强对象学习和对象引导属性学习两个模块显式建模属性-对象依赖关系，在三个 CZSL 基准上全面超越 SOTA。
 tags:
   - ICCV 2025
   - 条件概率分解

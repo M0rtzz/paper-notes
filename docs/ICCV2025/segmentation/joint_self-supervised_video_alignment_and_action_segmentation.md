@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Joint Self-Supervised Video Alignment and Action Segmentation 论文解读 | ICCV 2025 | arXiv 2503.16832 | 视频对齐 | 提出 VAOT/VASOT 框架，基于融合 Gromov-Wasserstein 最优传输和结构先验，首次将自监督视频对齐和动作分割统一到单一模型中，视频对齐性能优于现有方法，动作分割也达到 SOTA。"
+title: >-
+  [论文解读] Joint Self-Supervised Video Alignment and Action Segmentation
+description: >-
+  [ICCV 2025][图像分割][视频对齐] 提出 VAOT/VASOT 框架，基于融合 Gromov-Wasserstein 最优传输和结构先验，首次将自监督视频对齐和动作分割统一到单一模型中，视频对齐性能优于现有方法，动作分割也达到 SOTA。
 tags:
   - ICCV 2025
+  - 图像分割
   - 视频对齐
   - 动作分割
   - 最优传输

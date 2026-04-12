@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Disentangled Multi-span Evolutionary Network against Temporal Knowledge Graph Reasoning 论文解读 | ACL 2025 Findings | arXiv 2505.14020 | 时序知识图谱 | 提出 DiMNet，通过多跨度演化策略和跨时间解耦机制，分离节点语义的活跃/稳定特征，显著提升时序知识图谱（TKG）外推推理性能，在四个基准数据集上取得 SOTA。"
+title: >-
+  [论文解读] Disentangled Multi-span Evolutionary Network against Temporal Knowledge Graph Reasoning
+description: >-
+  [ACL 2025 Findings][图学习][时序知识图谱] 提出 DiMNet，通过多跨度演化策略和跨时间解耦机制，分离节点语义的活跃/稳定特征，显著提升时序知识图谱（TKG）外推推理性能，在四个基准数据集上取得 SOTA。
 tags:
   - ACL 2025 Findings
+  - 图学习
   - 时序知识图谱
   - 外推推理
   - 图神经网络

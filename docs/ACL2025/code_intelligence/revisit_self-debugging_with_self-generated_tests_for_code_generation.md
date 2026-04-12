@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Revisit Self-Debugging with Self-Generated Tests for Code Generation 论文解读 | 系统性地研究了使用 LLM 自生成测试进行自调试（self-debugging）的效果，发现基于后执行信息的自调试在基础编程问题上反而降低性能（因自生成测试偏差），但基于执行中间状态（in-execution）的自调试可有效规避该偏差，在基础和竞赛题上均有提升。"
+title: >-
+  [论文解读] Revisit Self-Debugging with Self-Generated Tests for Code Generation
+description: >-
+   系统性地研究了使用 LLM 自生成测试进行自调试（self-debugging）的效果，发现基于后执行信息的自调试在基础编程问题上反而降低性能（因自生成测试偏差），但基于执行中间状态（in-execution）的自调试可有效规避该偏差，在基础和竞赛题上均有提升。
 tags:
 
 ---

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving the Diffusability of Autoencoders 论文解读 | ICML2025 | arXiv 2502.14831 | 扩散模型 | 通过光谱分析诊断出潜在扩散模型中自编码器的高频成分问题，提出尺度等变正则化策略来对齐潜在空间和RGB空间的频率分布，ImageNet FID降低19%、Kinetics FVD降低44%。"
+title: >-
+  [论文解读] Improving the Diffusability of Autoencoders
+description: >-
+  [ICML2025][图像生成][扩散模型] 通过光谱分析诊断出潜在扩散模型中自编码器的高频成分问题，提出尺度等变正则化策略来对齐潜在空间和RGB空间的频率分布，ImageNet FID降低19%、Kinetics FVD降低44%。
 tags:
   - ICML2025
+  - 图像生成
   - 扩散模型
   - 自编码器
   - 频谱分析

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LSSF: Safety Alignment via Low-Rank Safety Subspace Fusion 论文解读 | ACL 2025 | arXiv 2602.00038 | safety alignment | LSSF 提出 LLM 的安全信息存在于低秩子空间中的假设，通过 SVD 提取安全对齐模型的主成分，利用安全奇异值熵自适应确定每层的保留秩，最终将提取的安全主成分线性融合到微调后的模型中，无需额外训练即可恢复因微调而退化的安全对齐，同时保持下游任务性能。"
+title: >-
+  [论文解读] LSSF: Safety Alignment via Low-Rank Safety Subspace Fusion
+description: >-
+  [ACL 2025][LLM对齐][safety alignment] LSSF 提出 LLM 的安全信息存在于低秩子空间中的假设，通过 SVD 提取安全对齐模型的主成分，利用安全奇异值熵自适应确定每层的保留秩，最终将提取的安全主成分线性融合到微调后的模型中，无需额外训练即可恢复因微调而退化的安全对齐，同时保持下游任务性能。
 tags:
   - ACL 2025
+  - LLM对齐
   - safety alignment
   - low-rank subspace
   - SVD

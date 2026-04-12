@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Two-Steps Diffusion Policy for Robotic Manipulation via Genetic Denoising 论文解读 | NeurIPS 2025 | arXiv 2510.21991 | 扩散策略 | 本文提出遗传扩散策略（GDP），通过分析裁剪导致的分布不匹配问题，结合降低噪声注入和基于群体选择的遗传算法去噪策略，使扩散策略仅需2步神经函数评估即可完成复杂操控任务。"
+title: >-
+  [论文解读] Two-Steps Diffusion Policy for Robotic Manipulation via Genetic Denoising
+description: >-
+  [NeurIPS 2025][图像生成][扩散策略] 本文提出遗传扩散策略（GDP），通过分析裁剪导致的分布不匹配问题，结合降低噪声注入和基于群体选择的遗传算法去噪策略，使扩散策略仅需2步神经函数评估即可完成复杂操控任务。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散策略
   - 遗传去噪
   - 机器人操控

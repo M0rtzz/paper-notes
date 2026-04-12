@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MMS-LLaMA: Efficient LLM-based Audio-Visual Speech Recognition with Minimal Multimodal Speech Tokens 论文解读 | ACL 2025 | arXiv 2503.11315 | 音视频语音识别 | 提出 MMS-LLaMA，通过早期音视频融合、动态查询分配的 AV Q-Former 和语速预测器三个模块，将多模态语音 token 压缩至每秒仅 3.5 个，在 LRS3 上以 0.72% WER 达到 SOTA 的同时减少 86% token 用量和 35.7% FLOPs。"
+title: >-
+  [论文解读] MMS-LLaMA: Efficient LLM-based Audio-Visual Speech Recognition with Minimal Multimodal Speech Tokens
+description: >-
+  [ACL 2025][语音][音视频语音识别] 提出 MMS-LLaMA，通过早期音视频融合、动态查询分配的 AV Q-Former 和语速预测器三个模块，将多模态语音 token 压缩至每秒仅 3.5 个，在 LRS3 上以 0.72% WER 达到 SOTA 的同时减少 86% token 用量和 35.7% FLOPs。
 tags:
   - ACL 2025
+  - 语音
   - 音视频语音识别
   - LLM语音识别
   - Token压缩

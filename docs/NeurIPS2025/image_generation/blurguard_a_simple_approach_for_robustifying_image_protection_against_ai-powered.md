@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Edit 论文解读 | NeurIPS 2025 | arXiv 2511.00143 | 图像保护 | 提出 BlurGuard——在生成对抗扰动之前先对图像做轻度模糊预处理，使扰动更鲁棒地抵御 JPEG 压缩、高斯噪声等后处理操作，从而更有效地保护图像不被 Stable Diffusion 等 AI 编辑工具篡改，在保护成功率上比不模糊基线提升 20%+。"
+title: >-
+  [论文解读] BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Edit
+description: >-
+  [NeurIPS 2025][图像生成][图像保护] 提出 BlurGuard——在生成对抗扰动之前先对图像做轻度模糊预处理，使扰动更鲁棒地抵御 JPEG 压缩、高斯噪声等后处理操作，从而更有效地保护图像不被 Stable Diffusion 等 AI 编辑工具篡改，在保护成功率上比不模糊基线提升 20%+。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 图像保护
   - 对抗扰动
   - AI编辑防御

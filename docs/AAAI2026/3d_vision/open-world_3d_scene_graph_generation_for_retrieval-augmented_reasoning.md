@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Open-World 3D Scene Graph Generation for Retrieval-Augmented Reasoning 论文解读 | AAAI 2026 | arXiv 2511.05894 | 3D场景图 | 提出统一框架 OSU-3DSG，结合视觉-语言模型进行开放世界 3D 场景图生成，并通过检索增强推理支持场景问答、视觉定位、实例检索和任务规划四种交互任务，在无监督条件下达到与有监督方法可比的性能。"
+title: >-
+  [论文解读] Open-World 3D Scene Graph Generation for Retrieval-Augmented Reasoning
+description: >-
+  [AAAI 2026][3D视觉][3D场景图] 提出统一框架 OSU-3DSG，结合视觉-语言模型进行开放世界 3D 场景图生成，并通过检索增强推理支持场景问答、视觉定位、实例检索和任务规划四种交互任务，在无监督条件下达到与有监督方法可比的性能。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 3D场景图
   - 开放世界
   - 检索增强推理

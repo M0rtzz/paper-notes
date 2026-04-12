@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Few-Shot Pattern Detection via Template Matching and Regression 论文解读 | ICCV 2025 | arXiv 2508.17636 | few-shot detection | 本文提出TMR方法，通过经典模板匹配结合支持条件化边界框回归，实现了对任意模式（包括非物体级模式）的小样本检测，同时引入RPINE数据集覆盖更广泛的重复模式，在多个基准上超越现有FSCD方法并展现出强大的跨数据集泛化能力。"
+title: >-
+  [论文解读] Few-Shot Pattern Detection via Template Matching and Regression
+description: >-
+  [ICCV 2025][目标检测][few-shot detection] 本文提出TMR方法，通过经典模板匹配结合支持条件化边界框回归，实现了对任意模式（包括非物体级模式）的小样本检测，同时引入RPINE数据集覆盖更广泛的重复模式，在多个基准上超越现有FSCD方法并展现出强大的跨数据集泛化能力。
 tags:
   - ICCV 2025
+  - 目标检测
   - few-shot detection
   - template matching
   - pattern detection

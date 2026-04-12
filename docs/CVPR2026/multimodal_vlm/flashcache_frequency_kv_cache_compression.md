@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FlashCache: Frequency-Domain-Guided Outlier-KV-Aware Multimodal KV Cache Compression 论文解读 | CVPR 2026 | arXiv 2511.16786 | KV Cache压缩 | 从频域角度重新审视多模态 KV Cache 压缩，发现 KV 矩阵能量集中于低频、偏离低频主成分的\"离群 KV\"编码了推理关键特征，提出 FlashCache——基于频域低通滤波识别并优先保留离群 KV + 动态逐层预算分配，实现 80% KV 内存节省和 1.69× 解码加速且不损任务性能，且与 FlashAttention 兼容。"
+title: >-
+  [论文解读] FlashCache: Frequency-Domain-Guided Outlier-KV-Aware Multimodal KV Cache Compression
+description: >-
+  [CVPR 2026][多模态][KV Cache压缩] 从频域角度重新审视多模态 KV Cache 压缩，发现 KV 矩阵能量集中于低频、偏离低频主成分的"离群 KV"编码了推理关键特征，提出 FlashCache——基于频域低通滤波识别并优先保留离群 KV + 动态逐层预算分配，实现 80% KV 内存节省和 1.69× 解码加速且不损任务性能，且与 FlashAttention 兼容。
 tags:
   - CVPR 2026
+  - 多模态
   - KV Cache压缩
   - 频域分析
   - 离群KV保留

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Mind the Gap: Aligning Knowledge Bases with User Needs to Enhance Mental Health Retrieval 论文解读 | NeurIPS 2025 | arXiv 2509.13626 | RAG | 提出一种基于\"需求差距\"分析的知识库增强框架，通过叠加真实用户数据（论坛帖子）与现有心理健康资源库来识别内容空白，并用定向增强策略以最少的文档增量达到接近完整语料库的 RAG 检索质量。"
+title: >-
+  [论文解读] Mind the Gap: Aligning Knowledge Bases with User Needs to Enhance Mental Health Retrieval
+description: >-
+  [NeurIPS 2025][RAG] 提出一种基于"需求差距"分析的知识库增强框架，通过叠加真实用户数据（论坛帖子）与现有心理健康资源库来识别内容空白，并用定向增强策略以最少的文档增量达到接近完整语料库的 RAG 检索质量。
 tags:
   - NeurIPS 2025
   - RAG

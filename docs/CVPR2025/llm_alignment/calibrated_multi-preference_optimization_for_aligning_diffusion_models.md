@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Calibrated Multi-Preference Optimization for Aligning Diffusion Models 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：Aligning text-to-image (T2I) diffusion models with prefer-ence optimization is valuable for human-annotated datasets, but the heavy cost of manual data collection limits scalability. Using reward models offers an alternative, however, current preference optimization methods fall short in exploiting"
+title: >-
+  [论文解读] Calibrated Multi-Preference Optimization for Aligning Diffusion Models
+description: >-
+  [CVPR 2025][LLM对齐][待补充] > 基于摘要：Aligning text-to-image (T2I) diffusion models with prefer-ence optimization is valuable for human-annotated datasets, but the heavy cost of manual data collection limits scalability. Using reward models offers an alternative, however, current preference optimization methods fall short in exploiting
 tags:
   - CVPR 2025
+  - LLM对齐
   - 待补充
 ---
 

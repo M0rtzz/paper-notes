@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bayesian Surrogates for Risk-Aware Pre-Assessment of Aging Bridge Portfolios 论文解读 | NeurIPS 2025 | arXiv 2509.25031 | Bayesian Neural Networks | 提出基于贝叶斯神经网络（BNN）的代理模型，用于替代昂贵的非线性有限元分析（NLFEA），实现对老化桥梁组合的快速、不确定性感知的结构安全预评估，在真实铁路案例中为单座桥梁节省约37万美元。"
+title: >-
+  [论文解读] Bayesian Surrogates for Risk-Aware Pre-Assessment of Aging Bridge Portfolios
+description: >-
+  [NeurIPS 2025][科学计算][Bayesian Neural Networks] 提出基于贝叶斯神经网络（BNN）的代理模型，用于替代昂贵的非线性有限元分析（NLFEA），实现对老化桥梁组合的快速、不确定性感知的结构安全预评估，在真实铁路案例中为单座桥梁节省约37万美元。
 tags:
   - NeurIPS 2025
+  - 科学计算
   - Bayesian Neural Networks
   - 结构工程
   - 不确定性量化

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Thought Communication in Multiagent Collaboration 论文解读 | NeurIPS 2025 | arXiv 2510.20733 | 多智能体协作 | 提出 ThoughtComm 框架，通过建立隐变量生成模型并提供可辨识性理论保证，让多个 LLM 智能体直接交换潜在\"思想\"（latent thoughts）而非自然语言，实现超越语言瓶颈的\"心灵感应\"式协作。"
+title: >-
+  [论文解读] Thought Communication in Multiagent Collaboration
+description: >-
+  [NeurIPS 2025][多智能体协作] 提出 ThoughtComm 框架，通过建立隐变量生成模型并提供可辨识性理论保证，让多个 LLM 智能体直接交换潜在"思想"（latent thoughts）而非自然语言，实现超越语言瓶颈的"心灵感应"式协作。
 tags:
   - NeurIPS 2025
   - 多智能体协作

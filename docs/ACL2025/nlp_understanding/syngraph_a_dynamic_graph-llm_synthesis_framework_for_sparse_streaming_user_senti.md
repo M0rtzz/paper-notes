@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis 论文解读 | ACL 2025 | arXiv 2503.04619 | 流式情感分析 | 提出SynGraph框架，在连续时间动态图上将稀疏用户分为mid-tail/long-tail/extreme三类，针对不同稀疏程度利用LLM合成增强数据（结合局部-全局图理解、高阶关系和画像生成），有效缓解流式评论情感分析中的数据稀疏问题。"
+title: >-
+  [论文解读] SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis
+description: >-
+  [ACL 2025][NLP理解][流式情感分析] 提出SynGraph框架，在连续时间动态图上将稀疏用户分为mid-tail/long-tail/extreme三类，针对不同稀疏程度利用LLM合成增强数据（结合局部-全局图理解、高阶关系和画像生成），有效缓解流式评论情感分析中的数据稀疏问题。
 tags:
   - ACL 2025
+  - NLP理解
   - 流式情感分析
   - 数据稀疏
   - 动态图

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity 论文解读 | NeurIPS 2025 | arXiv 2509.24734 | 多模态对齐 | TRIANGLE提出用三模态嵌入向量端点构成的三角形面积作为相似度度量，替代传统的两两余弦相似度，实现视频-音频-文本的联合对齐，在视频检索任务上比VAST提升最高9个R@1点。"
+title: >-
+  [论文解读] A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity
+description: >-
+  [NeurIPS 2025][语音][多模态对齐] TRIANGLE提出用三模态嵌入向量端点构成的三角形面积作为相似度度量，替代传统的两两余弦相似度，实现视频-音频-文本的联合对齐，在视频检索任务上比VAST提升最高9个R@1点。
 tags:
   - NeurIPS 2025
+  - 语音
   - 多模态对齐
   - 三角面积相似度
   - 对比学习

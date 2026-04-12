@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RoboTron-Sim: Improving Real-World Driving via Simulated Hard-Case 论文解读 | ICCV2025 | arXiv 2508.04642 | 端到端自动驾驶 | 提出RoboTron-Sim框架，通过构建困难场景仿真数据集HASS、场景感知提示工程SPE和图像到自车编码器I2E，使MLLM有效利用仿真困难案例提升真实世界自动驾驶性能，在nuScenes困难场景下L2距离降低~48%、碰撞率降低~46%，达到开环规划SOTA。"
+title: >-
+  [论文解读] RoboTron-Sim: Improving Real-World Driving via Simulated Hard-Case
+description: >-
+  [ICCV2025][自动驾驶][端到端自动驾驶] 提出RoboTron-Sim框架，通过构建困难场景仿真数据集HASS、场景感知提示工程SPE和图像到自车编码器I2E，使MLLM有效利用仿真困难案例提升真实世界自动驾驶性能，在nuScenes困难场景下L2距离降低~48%、碰撞率降低~46%，达到开环规划SOTA。
 tags:
   - ICCV2025
+  - 自动驾驶
   - 端到端自动驾驶
   - Sim2Real迁移
   - 多模态大语言模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Multi-Agent LLM Framework for Multi-Domain Low-Resource In-Context NER via Knowledge Retrieval, Disambiguation and Reflective Analysis 论文解读 | AAAI 2026 | arXiv 2511.19083 | 命名实体识别 | 提出 KDR-Agent 多智能体框架，通过知识检索（Wikipedia）、歧义消解和反思式自我纠错三个专业智能体协同工作，在仅使用少量静态标注示例的条件下，在5个领域10个NER数据集上显著超越现有零样本和少样本ICL NER方法。"
+title: >-
+  [论文解读] A Multi-Agent LLM Framework for Multi-Domain Low-Resource In-Context NER via Knowledge Retrieval, Disambiguation and Reflective Analysis
+description: >-
+  [AAAI 2026][LLM Agent][命名实体识别] 提出 KDR-Agent 多智能体框架，通过知识检索（Wikipedia）、歧义消解和反思式自我纠错三个专业智能体协同工作，在仅使用少量静态标注示例的条件下，在5个领域10个NER数据集上显著超越现有零样本和少样本ICL NER方法。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 命名实体识别
   - 多智能体LLM
   - 上下文学习

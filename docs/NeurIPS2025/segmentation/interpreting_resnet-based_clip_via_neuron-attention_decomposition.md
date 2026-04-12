@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Interpreting ResNet-based CLIP via Neuron-Attention Decomposition 论文解读 | NeurIPS 2025 | arXiv 2509.19943 | CLIP可解释性 | 提出神经元-注意力分解方法解释CLIP-ResNet：将模型输出分解为神经元与注意力池化头的成对贡献路径，发现这些neuron-head对可用单一方向近似、具有稀疏性且捕获子概念，并将其应用于免训练语义分割（PASCAL Context上mIoU 26.2%，超MaskCLIP 15%）和数据集分布偏移监测。"
+title: >-
+  [论文解读] Interpreting ResNet-based CLIP via Neuron-Attention Decomposition
+description: >-
+  [NeurIPS 2025][图像分割][CLIP可解释性] 提出神经元-注意力分解方法解释CLIP-ResNet：将模型输出分解为神经元与注意力池化头的成对贡献路径，发现这些neuron-head对可用单一方向近似、具有稀疏性且捕获子概念，并将其应用于免训练语义分割（PASCAL Context上mIoU 26.2%，超MaskCLIP 15%）和数据集分布偏移监测。
 tags:
   - NeurIPS 2025
+  - 图像分割
   - CLIP可解释性
   - 神经元-注意力分解
   - 语义分割

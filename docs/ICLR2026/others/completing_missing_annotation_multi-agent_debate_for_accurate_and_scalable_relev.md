@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Completing Missing Annotation: Multi-Agent Debate for Accurate and Scalable Relevance Assessment 论文解读 | ICLR 2026 | arXiv 2602.06526 | 信息检索评测 | 提出DREAM框架——用对立立场初始化的双Agent多轮辩论进行IR相关性标注，达到95.2%准确率且仅3.5%案例需人工介入。据此构建BRIDGE基准，发现29,824个缺失标注（原有标注的428%），修正了检索系统排名偏差和检索-生成性能不匹配。"
+title: >-
+  [论文解读] Completing Missing Annotation: Multi-Agent Debate for Accurate and Scalable Relevance Assessment
+description: >-
+  [ICLR 2026][信息检索评测] 提出DREAM框架——用对立立场初始化的双Agent多轮辩论进行IR相关性标注，达到95.2%准确率且仅3.5%案例需人工介入。据此构建BRIDGE基准，发现29,824个缺失标注（原有标注的428%），修正了检索系统排名偏差和检索-生成性能不匹配。
 tags:
   - ICLR 2026
   - 信息检索评测

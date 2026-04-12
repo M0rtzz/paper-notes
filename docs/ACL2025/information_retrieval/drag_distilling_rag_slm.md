@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination 论文解读 | ACL 2025 | arXiv 2506.01954 | RAG蒸馏 | DRAG 提出了一种从大模型向小模型蒸馏 RAG 能力的框架：用大模型（如 GPT-4o）为给定问题生成证据和知识图谱三元组，经排序过滤后作为结构化上下文输入给小模型（2B-9B），无需微调即可将小模型在 ARC-C 上提升高达 27.7%，同时显著减少幻觉。"
+title: >-
+  [论文解读] DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination
+description: >-
+  [ACL 2025][RAG蒸馏] DRAG 提出了一种从大模型向小模型蒸馏 RAG 能力的框架：用大模型（如 GPT-4o）为给定问题生成证据和知识图谱三元组，经排序过滤后作为结构化上下文输入给小模型（2B-9B），无需微调即可将小模型在 ARC-C 上提升高达 27.7%，同时显著减少幻觉。
 tags:
   - ACL 2025
   - RAG蒸馏

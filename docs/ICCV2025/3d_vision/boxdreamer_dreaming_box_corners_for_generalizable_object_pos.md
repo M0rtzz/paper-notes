@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation 论文解读 | ICCV 2025 | arXiv 2504.07955 | 6DoF位姿估计 | 提出以3D包围盒角点作为中间表示，通过Transformer解码器预测查询视图中角点的2D投影热图，结合PnP算法实现可泛化的稀疏视角6DoF物体位姿估计，在遮挡和稀疏视角场景下显著优于现有方法。"
+title: >-
+  [论文解读] BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation
+description: >-
+  [ICCV 2025][3D视觉][6DoF位姿估计] 提出以3D包围盒角点作为中间表示，通过Transformer解码器预测查询视图中角点的2D投影热图，结合PnP算法实现可泛化的稀疏视角6DoF物体位姿估计，在遮挡和稀疏视角场景下显著优于现有方法。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 6DoF位姿估计
   - 可泛化
   - 稀疏视角

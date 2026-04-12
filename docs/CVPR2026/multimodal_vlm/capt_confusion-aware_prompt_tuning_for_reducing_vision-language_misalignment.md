@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CAPT: Confusion-Aware Prompt Tuning for Reducing Vision-Language Misalignment 论文解读 | CVPR2026 | arXiv 2603.02557 | 提示学习 prompt tuning | 提出 CAPT 混淆感知 prompt tuning 框架，通过语义混淆挖掘器（SEM）和样本混淆挖掘器（SAM）显式建模 VLM 的系统性误对齐模式，配合多粒度差异专家（MGDE）融合不同层次的混淆信息，在 11 个基准上取得 HM 83.90% 的最优表现。"
+title: >-
+  [论文解读] CAPT: Confusion-Aware Prompt Tuning for Reducing Vision-Language Misalignment
+description: >-
+  [CVPR2026][多模态][提示学习] 提出 CAPT 混淆感知 prompt tuning 框架，通过语义混淆挖掘器（SEM）和样本混淆挖掘器（SAM）显式建模 VLM 的系统性误对齐模式，配合多粒度差异专家（MGDE）融合不同层次的混淆信息，在 11 个基准上取得 HM 83.90% 的最优表现。
 tags:
   - CVPR2026
+  - 多模态
   - 提示学习
   - 视觉语言对齐
   - 混淆感知

@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Sequential Keypoint Density Estimator: An Overlooked Baseline of Skeleton-Based Video Anomaly Detection 论文解读 | > SeeKer 提出将骨架序列的联合密度在关键点级别进行自回归分解，通过预测后续关键点的条件高斯分布来检测异常人体行为，在 UBnormal 和 MSAD-HR 数据集上大幅超越现有方法。"
+title: >-
+  [论文解读] Sequential Keypoint Density Estimator: An Overlooked Baseline of Skeleton-Based Video Anomaly Detection
+description: >-
+  [人体理解] > SeeKer 提出将骨架序列的联合密度在关键点级别进行自回归分解，通过预测后续关键点的条件高斯分布来检测异常人体行为，在 UBnormal 和 MSAD-HR 数据集上大幅超越现有方法。
 tags:
-
+  - 人体理解
 ---
 
 # Sequential Keypoint Density Estimator: An Overlooked Baseline of Skeleton-Based Video Anomaly Detection

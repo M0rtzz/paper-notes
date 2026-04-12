@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mobile-VTON: High-Fidelity On-Device Virtual Try-On 论文解读 | CVPR 2026 | arXiv 2603.00947 | 虚拟试穿 | 提出 Mobile-VTON，首个可完全在移动设备上离线运行的扩散模型虚拟试穿系统，通过 TeacherNet-GarmentNet-TryonNet（TGT）架构和特征引导对抗蒸馏策略，以 415M 参数和 2.84GB 显存实现媲美服务器端基线的高质量试穿效果。"
+title: >-
+  [论文解读] Mobile-VTON: High-Fidelity On-Device Virtual Try-On
+description: >-
+  [CVPR 2026][人体理解][虚拟试穿] 提出 Mobile-VTON，首个可完全在移动设备上离线运行的扩散模型虚拟试穿系统，通过 TeacherNet-GarmentNet-TryonNet（TGT）架构和特征引导对抗蒸馏策略，以 415M 参数和 2.84GB 显存实现媲美服务器端基线的高质量试穿效果。
 tags:
   - CVPR 2026
+  - 人体理解
   - 虚拟试穿
   - 移动端部署
   - 知识蒸馏

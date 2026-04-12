@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bayesian Inference for Correlated Human Experts and Classifiers 论文解读 | ICML 2025 | arXiv 2506.05636 | 人机协作 | 提出通用贝叶斯框架来建模相关人类专家和分类器之间的联合标注行为，通过潜在表示捕捉专家间相关性，用模拟推断评估额外查询的效用，在医学分类和图像标注中大幅减少专家查询次数同时保持预测准确率。"
+title: >-
+  [论文解读] Bayesian Inference for Correlated Human Experts and Classifiers
+description: >-
+  [ICML 2025][医学图像][人机协作] 提出通用贝叶斯框架来建模相关人类专家和分类器之间的联合标注行为，通过潜在表示捕捉专家间相关性，用模拟推断评估额外查询的效用，在医学分类和图像标注中大幅减少专家查询次数同时保持预测准确率。
 tags:
   - ICML 2025
+  - 医学图像
   - 人机协作
   - 贝叶斯推断
   - 专家查询

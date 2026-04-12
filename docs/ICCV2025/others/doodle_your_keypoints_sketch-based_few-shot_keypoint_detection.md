@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Doodle Your Keypoints: Sketch-Based Few-Shot Keypoint Detection 论文解读 | ICCV 2025 | arXiv 2507.07994 | 关键点检测 | 提出首个基于草图的跨模态少样本关键点检测框架，利用原型网络、网格定位器、原型域适应和去风格化网络，仅需少量带标注草图即可在真实照片中检测新类别的新关键点。"
+title: >-
+  [论文解读] Doodle Your Keypoints: Sketch-Based Few-Shot Keypoint Detection
+description: >-
+  [ICCV 2025][关键点检测] 提出首个基于草图的跨模态少样本关键点检测框架，利用原型网络、网格定位器、原型域适应和去风格化网络，仅需少量带标注草图即可在真实照片中检测新类别的新关键点。
 tags:
   - ICCV 2025
   - 关键点检测

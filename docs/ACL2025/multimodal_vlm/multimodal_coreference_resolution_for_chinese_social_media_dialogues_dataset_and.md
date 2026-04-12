@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Multimodal Coreference Resolution for Chinese Social Media Dialogues: Dataset and Benchmark Approach 论文解读 | 提出 TikTalkCoref，首个面向中文社交媒体对话的多模态共指消解数据集（基于抖音短视频），并构建了包含文本共指消解、视觉人物追踪和跨模态对齐三个模块的 pipeline benchmark。"
+title: >-
+  [论文解读] Multimodal Coreference Resolution for Chinese Social Media Dialogues: Dataset and Benchmark Approach
+description: >-
+  [多模态] 提出 TikTalkCoref，首个面向中文社交媒体对话的多模态共指消解数据集（基于抖音短视频），并构建了包含文本共指消解、视觉人物追踪和跨模态对齐三个模块的 pipeline benchmark。
 tags:
-
+  - 多模态
 ---
 
 # Multimodal Coreference Resolution for Chinese Social Media Dialogues: Dataset and Benchmark Approach

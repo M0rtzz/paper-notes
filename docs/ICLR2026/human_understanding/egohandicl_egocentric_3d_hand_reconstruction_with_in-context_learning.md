@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EgoHandICL: Egocentric 3D Hand Reconstruction with In-Context Learning 论文解读 | ICLR 2026 | arXiv 2601.19850 | 第一人称视角 | 首次将上下文学习（ICL）范式引入3D手部重建，通过VLM引导的模板检索、多模态ICL分词器和MAE驱动的重建流程，在ARCTIC和EgoExo4D基准上显著超越SOTA方法。"
+title: >-
+  [论文解读] EgoHandICL: Egocentric 3D Hand Reconstruction with In-Context Learning
+description: >-
+  [ICLR 2026][人体理解][第一人称视角] 首次将上下文学习（ICL）范式引入3D手部重建，通过VLM引导的模板检索、多模态ICL分词器和MAE驱动的重建流程，在ARCTIC和EgoExo4D基准上显著超越SOTA方法。
 tags:
   - ICLR 2026
+  - 人体理解
   - 第一人称视角
   - 3D手部重建
   - 上下文学习

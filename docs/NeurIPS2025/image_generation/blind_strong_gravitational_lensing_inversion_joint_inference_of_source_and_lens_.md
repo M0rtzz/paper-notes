@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Blind Strong Gravitational Lensing Inversion: Joint Inference of Source and Lens Mass with Score-Based Models 论文解读 | NeurIPS 2025 | arXiv 2511.04792 | 强引力透镜 | 首次将 score-based 生成模型先验应用于强引力透镜的盲反演——联合推断背景源天体形态和透镜质量分布参数，通过将 GibbsDDRM 扩展到连续时间域实现采样，重建残差与观测噪声一致，透镜参数边际后验无系统偏差。"
+title: >-
+  [论文解读] Blind Strong Gravitational Lensing Inversion: Joint Inference of Source and Lens Mass with Score-Based Models
+description: >-
+  [NeurIPS 2025][图像生成][强引力透镜] 首次将 score-based 生成模型先验应用于强引力透镜的盲反演——联合推断背景源天体形态和透镜质量分布参数，通过将 GibbsDDRM 扩展到连续时间域实现采样，重建残差与观测噪声一致，透镜参数边际后验无系统偏差。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 强引力透镜
   - 盲反演
   - Score-based模型

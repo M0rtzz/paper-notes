@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ShortFT: Diffusion Model Alignment via Shortcut-based Fine-Tuning 论文解读 | ICCV 2025 | arXiv 2507.22604 | 扩散模型对齐 | 提出 ShortFT，利用轨迹保持少步扩散模型构建去噪捷径（shortcut），将原本冗长的去噪链大幅缩短，从而实现完整的端到端奖励梯度反向传播，高效且有效地将扩散模型与奖励函数对齐。"
+title: >-
+  [论文解读] ShortFT: Diffusion Model Alignment via Shortcut-based Fine-Tuning
+description: >-
+  [ICCV 2025][图像生成][扩散模型对齐] 提出 ShortFT，利用轨迹保持少步扩散模型构建去噪捷径（shortcut），将原本冗长的去噪链大幅缩短，从而实现完整的端到端奖励梯度反向传播，高效且有效地将扩散模型与奖励函数对齐。
 tags:
   - ICCV 2025
+  - 图像生成
   - 扩散模型对齐
   - 奖励微调
   - 去噪捷径

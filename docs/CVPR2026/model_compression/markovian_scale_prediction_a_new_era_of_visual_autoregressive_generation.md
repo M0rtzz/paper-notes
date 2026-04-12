@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Markovian Scale Prediction: A New Era of Visual Autoregressive Generation 论文解读 | CVPR 2026 | arXiv 2511.23334 | 视觉自回归生成 | 将视觉自回归模型 (VAR) 从全上下文依赖的 next-scale prediction 重构为基于马尔可夫过程的 Markovian scale prediction，通过滑动窗口历史补偿机制实现非全上下文建模，在 ImageNet 上 FID 降低 10.5%、峰值内存减少 83.8%。"
+title: >-
+  [论文解读] Markovian Scale Prediction: A New Era of Visual Autoregressive Generation
+description: >-
+  [CVPR 2026][模型压缩][视觉自回归生成] 将视觉自回归模型 (VAR) 从全上下文依赖的 next-scale prediction 重构为基于马尔可夫过程的 Markovian scale prediction，通过滑动窗口历史补偿机制实现非全上下文建模，在 ImageNet 上 FID 降低 10.5%、峰值内存减少 83.8%。
 tags:
   - CVPR 2026
+  - 模型压缩
   - 视觉自回归生成
   - 马尔可夫过程
   - 多尺度预测

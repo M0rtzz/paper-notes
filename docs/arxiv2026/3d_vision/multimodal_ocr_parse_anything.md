@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal OCR: Parse Anything from Documents 论文解读 | arXiv 2026 | arXiv 2603.13032 | 多模态 multimodal | 我们提出了多模态 OCR (MOCR)，这是一种文档解析范例，可将文本和图形联合解析为统一的文本表示。"
+title: >-
+  [论文解读] Multimodal OCR: Parse Anything from Documents
+description: >-
+  [arXiv 2026][3D视觉][多模态] 我们提出了多模态 OCR (MOCR)，这是一种文档解析范例，可将文本和图形联合解析为统一的文本表示。
 tags:
   - arXiv 2026
+  - 3D视觉
   - 多模态
   - OCR
   - parse

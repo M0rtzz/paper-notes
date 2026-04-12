@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TokenUnify: Scaling Up Autoregressive Pretraining for Neuron Segmentation 论文解读 | ICCV 2025 | arXiv 2405.16847 | 自回归预训练 | 提出 TokenUnify，通过统一随机 token 预测、下一 token 预测和下一全部 token 预测三种互补学习目标，在大规模电子显微镜数据上实现层次化预测编码，将自回归误差累积从 O(K) 降至 O(√K)，下游神经元分割提升 44%。"
+title: >-
+  [论文解读] TokenUnify: Scaling Up Autoregressive Pretraining for Neuron Segmentation
+description: >-
+  [ICCV 2025][3D视觉][自回归预训练] 提出 TokenUnify，通过统一随机 token 预测、下一 token 预测和下一全部 token 预测三种互补学习目标，在大规模电子显微镜数据上实现层次化预测编码，将自回归误差累积从 O(K) 降至 O(√K)，下游神经元分割提升 44%。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 自回归预训练
   - 神经元分割
   - 电子显微镜

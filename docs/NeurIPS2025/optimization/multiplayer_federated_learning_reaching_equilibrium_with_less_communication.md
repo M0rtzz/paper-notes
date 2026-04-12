@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multiplayer Federated Learning: Reaching Equilibrium with Less Communication 论文解读 | NeurIPS 2025 | arXiv 2501.08263 | 联邦学习 | 提出多人联邦学习（MpFL）框架，将FL中的客户端建模为博弈论中的理性玩家，并设计PEARL-SGD算法通过局部更新减少通信开销，同时收敛到Nash均衡。"
+title: >-
+  [论文解读] Multiplayer Federated Learning: Reaching Equilibrium with Less Communication
+description: >-
+  [NeurIPS 2025][优化][联邦学习] 提出多人联邦学习（MpFL）框架，将FL中的客户端建模为博弈论中的理性玩家，并设计PEARL-SGD算法通过局部更新减少通信开销，同时收敛到Nash均衡。
 tags:
   - NeurIPS 2025
+  - 优化
   - 联邦学习
   - 博弈论
   - Nash均衡

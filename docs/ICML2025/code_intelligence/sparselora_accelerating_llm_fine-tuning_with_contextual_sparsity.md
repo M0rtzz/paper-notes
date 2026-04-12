@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SparseLoRA: Accelerating LLM Fine-Tuning with Contextual Sparsity 论文解读 | ICML2025 | arXiv 2506.16500 | LoRA | 提出 SparseLoRA，通过**上下文稀疏性 (contextual sparsity)** 动态选择权重子集进行前向/梯度计算，首次将推理时的稀疏加速思路迁移到 LLM 微调阶段，实现最高 2.2× FLOPs 降低和 1.6× 实测加速，同时保持精度。"
+title: >-
+  [论文解读] SparseLoRA: Accelerating LLM Fine-Tuning with Contextual Sparsity
+description: >-
+  [ICML2025][LoRA] 提出 SparseLoRA，通过**上下文稀疏性 (contextual sparsity)** 动态选择权重子集进行前向/梯度计算，首次将推理时的稀疏加速思路迁移到 LLM 微调阶段，实现最高 2.2× FLOPs 降低和 1.6× 实测加速，同时保持精度。
 tags:
   - ICML2025
   - LoRA

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EfficientQAT: Efficient Quantization-Aware Training for Large Language Models 论文解读 | ACL 2025 | arXiv 2407.11062 | 量化 quantization-aware training | EfficientQAT 提出两阶段 QAT 框架——先逐块训练所有参数（Block-AP）提供良好初始化，再端到端训练量化参数（E2E-QP）捕获跨块交互，在单张 A100 上 41 小时完成 Llama-2-70B 的 2-bit 量化，精度仅降 3 点。"
+title: >-
+  [论文解读] EfficientQAT: Efficient Quantization-Aware Training for Large Language Models
+description: >-
+  [ACL 2025][模型压缩][量化] EfficientQAT 提出两阶段 QAT 框架——先逐块训练所有参数（Block-AP）提供良好初始化，再端到端训练量化参数（E2E-QP）捕获跨块交互，在单张 A100 上 41 小时完成 Llama-2-70B 的 2-bit 量化，精度仅降 3 点。
 tags:
   - ACL 2025
+  - 模型压缩
   - 量化
   - LLM compression
   - block-wise training

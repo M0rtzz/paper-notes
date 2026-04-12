@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ambiguity-aware Truncated Flow Matching for Ambiguous Medical Image Segmentation 论文解读 | AAAI 2026 | arXiv 2511.06857 | 模糊医学图像分割 | 提出 ATFM 框架，通过数据层级推理范式将预测精度和多样性解耦到分布级和样本级分别优化，结合高斯截断表示（GTR）和分割流匹配（SFM）两个模块，在模糊医学图像分割任务中同时提升预测的精度、保真度和多样性。"
+title: >-
+  [论文解读] Ambiguity-aware Truncated Flow Matching for Ambiguous Medical Image Segmentation
+description: >-
+  [AAAI 2026][医学图像][模糊医学图像分割] 提出 ATFM 框架，通过数据层级推理范式将预测精度和多样性解耦到分布级和样本级分别优化，结合高斯截断表示（GTR）和分割流匹配（SFM）两个模块，在模糊医学图像分割任务中同时提升预测的精度、保真度和多样性。
 tags:
   - AAAI 2026
+  - 医学图像
   - 模糊医学图像分割
   - 截断扩散模型
   - Flow Matching

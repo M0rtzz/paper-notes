@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis 论文解读 | ECCV 2024 | arXiv 2503.06973 | 作物病害诊断 | 构建了包含13.7万张作物病害图像和100万问答对的CDDM数据集，并提出同时对视觉编码器、adapter和语言模型施加LoRA微调的策略，使Qwen-VL-Chat和LLaVA在作物病害诊断准确率上从个位数跃升至90%以上。"
+title: >-
+  [论文解读] A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis
+description: >-
+  [ECCV 2024][多模态][作物病害诊断] 构建了包含13.7万张作物病害图像和100万问答对的CDDM数据集，并提出同时对视觉编码器、adapter和语言模型施加LoRA微调的策略，使Qwen-VL-Chat和LLaVA在作物病害诊断准确率上从个位数跃升至90%以上。
 tags:
   - ECCV 2024
+  - 多模态
   - 作物病害诊断
   - 多模态数据集
   - 视觉语言模型

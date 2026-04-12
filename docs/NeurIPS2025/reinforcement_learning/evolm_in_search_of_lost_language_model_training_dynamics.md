@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】EvoLM: In Search of Lost Language Model Training Dynamics 论文解读 | NeurIPS 2025 | arXiv 2506.16029 | training dynamics | 系统训练 100+ 个 1B/4B 参数的 LM（从零开始），透明地研究预训练→续训→SFT→RL 各阶段的训练动态，揭示过度训练的递减收益、灾难性遗忘的缓解策略、以及 SFT/RL 配置的复杂权衡。"
+title: >-
+  [论文解读] EvoLM: In Search of Lost Language Model Training Dynamics
+description: >-
+  [NeurIPS 2025][training dynamics] 系统训练 100+ 个 1B/4B 参数的 LM（从零开始），透明地研究预训练→续训→SFT→RL 各阶段的训练动态，揭示过度训练的递减收益、灾难性遗忘的缓解策略、以及 SFT/RL 配置的复杂权衡。
 tags:
   - NeurIPS 2025
   - training dynamics

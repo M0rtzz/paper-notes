@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniMotion: A Unified Motion Framework for Simulation, Prediction and Planning 论文解读 | NeurIPS 2025 | arXiv 2602.00566 | 运动预测 | UniMotion 提出了一个基于 decoder-only Transformer 的统一运动框架，通过任务感知的交互模式和训练策略同时支持运动仿真、轨迹预测和自车规划三大任务，联合训练促进任务间知识共享，微调后在 Waymo 数据集上同时达到多个任务的 SOTA 表现。"
+title: >-
+  [论文解读] UniMotion: A Unified Motion Framework for Simulation, Prediction and Planning
+description: >-
+  [NeurIPS 2025][自动驾驶][运动预测] UniMotion 提出了一个基于 decoder-only Transformer 的统一运动框架，通过任务感知的交互模式和训练策略同时支持运动仿真、轨迹预测和自车规划三大任务，联合训练促进任务间知识共享，微调后在 Waymo 数据集上同时达到多个任务的 SOTA 表现。
 tags:
   - NeurIPS 2025
+  - 自动驾驶
   - 运动预测
   - 轨迹仿真
   - 自动驾驶规划

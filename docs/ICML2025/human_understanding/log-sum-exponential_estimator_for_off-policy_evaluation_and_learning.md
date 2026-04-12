@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Log-Sum-Exponential Estimator for Off-Policy Evaluation and Learning 论文解读 | ICML2025 | arXiv 2506.06873 | off-policy learning | 提出基于 log-sum-exponential (LSE) 算子的新型非线性估计器，用于离线策略评估与学习，在重尾奖励和噪声倾向分数场景下显著降低方差并提供理论保证。"
+title: >-
+  [论文解读] Log-Sum-Exponential Estimator for Off-Policy Evaluation and Learning
+description: >-
+  [ICML2025][人体理解][off-policy learning] 提出基于 log-sum-exponential (LSE) 算子的新型非线性估计器，用于离线策略评估与学习，在重尾奖励和噪声倾向分数场景下显著降低方差并提供理论保证。
 tags:
   - ICML2025
+  - 人体理解
   - off-policy learning
   - off-policy evaluation
   - inverse propensity score

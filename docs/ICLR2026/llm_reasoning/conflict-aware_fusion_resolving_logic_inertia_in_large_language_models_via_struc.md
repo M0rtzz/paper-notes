@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Conflict-Aware Fusion: Resolving Logic Inertia in Large Language Models via Structured Cognitive Priors 论文解读 | ICLR 2026 | arXiv 2512.06393 | logic inertia | 揭示了 LLM 的\"逻辑惯性\"现象——在遇到矛盾前提时仍沿学习到的推理轨迹继续推理（准确率降至 0.0），提出 Conflict-Aware Fusion 双过程架构，通过强制前提验证先于推理执行，在矛盾检测上实现 100% 准确率。"
+title: >-
+  [论文解读] Conflict-Aware Fusion: Resolving Logic Inertia in Large Language Models via Structured Cognitive Priors
+description: >-
+  [ICLR 2026][LLM推理][logic inertia] 揭示了 LLM 的"逻辑惯性"现象——在遇到矛盾前提时仍沿学习到的推理轨迹继续推理（准确率降至 0.0），提出 Conflict-Aware Fusion 双过程架构，通过强制前提验证先于推理执行，在矛盾检测上实现 100% 准确率。
 tags:
   - ICLR 2026
+  - LLM推理
   - logic inertia
   - contradiction detection
   - dual-process reasoning

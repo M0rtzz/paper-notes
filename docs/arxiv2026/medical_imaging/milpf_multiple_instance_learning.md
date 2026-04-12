@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification 论文解读 | arXiv 2026 | arXiv 2603.09374 | mil-pf | 现代基础模型提供了高度表现力的视觉表示，但由于注释有限和监督薄弱，使其适应高分辨率医学成像仍然具有挑战性。"
+title: >-
+  [论文解读] MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification
+description: >-
+  [arXiv 2026][医学图像][mil-pf] 现代基础模型提供了高度表现力的视觉表示，但由于注释有限和监督薄弱，使其适应高分辨率医学成像仍然具有挑战性。
 tags:
   - arXiv 2026
+  - 医学图像
   - mil-pf
   - multiple
   - instance

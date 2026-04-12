@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought 论文解读 | ACL 2025 | arXiv 2502.17214 | 不确定性量化 | 针对 LLM 在推理任务中过度自信的问题，提出 CoT-UQ 框架，将 CoT 推理步骤中的关键词提取和重要性评分整合到不确定性量化过程中，在逻辑和数学推理任务上 AUROC 平均提升 5.9%。"
+title: >-
+  [论文解读] CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought
+description: >-
+  [ACL 2025][LLM推理][不确定性量化] 针对 LLM 在推理任务中过度自信的问题，提出 CoT-UQ 框架，将 CoT 推理步骤中的关键词提取和重要性评分整合到不确定性量化过程中，在逻辑和数学推理任务上 AUROC 平均提升 5.9%。
 tags:
   - ACL 2025
+  - LLM推理
   - 不确定性量化
   - Chain-of-Thought
   - 关键词提取

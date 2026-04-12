@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neural Stochastic Flows: Solver-Free Modelling and Inference for SDE Solutions 论文解读 | NeurIPS 2025 | arXiv 2510.25769 | Stochastic Differential Equations | 提出 Neural Stochastic Flows（NSF），通过条件归一化流直接学习 SDE 的转移分布 p(x_t mid x_s)，在架构上约束满足随机流性质（恒等、Markov、Chapman-Kolmogorov），实现了无需数值求解器的单步采样，在远距时间点上加速高达两个数量级。"
+title: >-
+  [论文解读] Neural Stochastic Flows: Solver-Free Modelling and Inference for SDE Solutions
+description: >-
+  [NeurIPS 2025][视频理解][Stochastic Differential Equations] 提出 Neural Stochastic Flows（NSF），通过条件归一化流直接学习 SDE 的转移分布 $p(x_t \mid x_s)$，在架构上约束满足随机流性质（恒等、Markov、Chapman-Kolmogorov），实现了无需数值求解器的单步采样，在远距时间点上加速高达两个数量级。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - Stochastic Differential Equations
   - Normalising Flow
   - Solver-Free

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hybrid Quantum-Classical Multi-Agent Pathfinding 论文解读 | ICML2025 | arXiv 2501.14568 | 多智能体路径规划 | 提出首个混合量子-经典多智能体路径规划（MAPF）最优算法 QP/QCP，基于分支-割-定价框架，通过将受限 ILP 子问题转化为 QUBO 问题在量子硬件上求解，在基准数据上优于先前 QUBO 方法和 SOTA MAPF 求解器。"
+title: >-
+  [论文解读] Hybrid Quantum-Classical Multi-Agent Pathfinding
+description: >-
+  [ICML2025][自动驾驶][多智能体路径规划] 提出首个混合量子-经典多智能体路径规划（MAPF）最优算法 QP/QCP，基于分支-割-定价框架，通过将受限 ILP 子问题转化为 QUBO 问题在量子硬件上求解，在基准数据上优于先前 QUBO 方法和 SOTA MAPF 求解器。
 tags:
   - ICML2025
+  - 自动驾驶
   - 多智能体路径规划
   - 量子计算
   - QUBO

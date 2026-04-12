@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A New Strategy for Verifying Reach-Avoid Specifications in Neural Feedback Systems 论文解读 | AAAI 2026 | arXiv 2601.08065 | 神经反馈系统 | 提出 FaBRe（Forward and Backward Reachability）策略，开发神经反馈系统后向可达集的过近似和欠近似算法（Golden Section Search / Iterative Convex Hull / Largest Empty Box），并将其与现有前向可达性分析结合，构建统一的 reach-avoid 验证框架。"
+title: >-
+  [论文解读] A New Strategy for Verifying Reach-Avoid Specifications in Neural Feedback Systems
+description: >-
+  [AAAI 2026][神经反馈系统] 提出 FaBRe（Forward and Backward Reachability）策略，开发神经反馈系统后向可达集的过近似和欠近似算法（Golden Section Search / Iterative Convex Hull / Largest Empty Box），并将其与现有前向可达性分析结合，构建统一的 reach-avoid 验证框架。
 tags:
   - AAAI 2026
   - 神经反馈系统

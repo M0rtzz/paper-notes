@@ -1,7 +1,14 @@
-<!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🧊 3D 视觉
+---
+title: >-
+  ECCV2024 3D视觉方向 51篇论文解读
+description: >-
+  51篇ECCV2024 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
 
-**🎞️ ECCV2024** · 共 **59** 篇
+<!-- 由 src/gen_blog_index.py 自动生成 -->
+# 🧊 3D视觉
+
+**🎞️ ECCV2024** · 共 **51** 篇
 
 **[3D Congealing 3D-Aware Image Alignment In The Wild](3d_congealing_3d-aware_image_alignment_in_the_wild.md)**
 
@@ -107,19 +114,15 @@
 
 :   提出 Cross-Reference（CR）图像质量评估新范式，通过对比查询图像与多个不同视角参考图像，利用 cross-attention 神经网络预测与 SSIM 高度相关的像素级质量分数，无需 ground truth 参考图像即可评估新视角合成质量。
 
-**[CrossScore: Towards Multi-View Image Evaluation and Scoring](crossscore_towards_multiview_image_evaluation_and_scori.md)**
-
-:   提出 CrossScore——一种新型的交叉参考图像质量评估方法，利用多视角参考图像替代真实参考图，通过 cross-attention 机制预测 SSIM 分数图，在无需 ground truth 的条件下实现接近全参考指标的评估精度。
-
 **[D-Sco Dual-Stream Conditional Diffusion For Monocular Hand-Held Object Reconstru](d-sco_dual-stream_conditional_diffusion_for_monocular_hand-held_object_reconstru.md)**
 
 :   提出双流条件扩散模型 D-SCo 从单张 RGB 图像重建手持物体点云，通过统一手-物语义嵌入和手关节几何嵌入两个分支分别提供语义和几何先验，配合手约束质心固定策略稳定扩散过程，在 ObMan 上 F-5 达 0.61（超 DDF-HO 10.9%），真实数据集 HO3D/MOW 上也大幅领先。
 
-**[DATENeRF: Depth-Aware Text-based Editing of NeRFs](datenerf_depth-aware_text-based_editing_of_nerfs.md)**
+**[Datenerf Depth-Aware Text-Based Editing Of Nerfs](datenerf_depth-aware_text-based_editing_of_nerfs.md)**
 
 :   利用NeRF重建的场景深度信息来引导基于文本的2D图像编辑（通过深度条件化的ControlNet + 投影修复方案），从而实现多视角一致的高质量NeRF场景编辑。
 
-**[Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions](deblur_e-nerf_nerf_from_motion-blurred_events_under_high-speed_or_low-light_cond.md)**
+**[Deblur E-Nerf Nerf From Motion-Blurred Events Under High-Speed Or Low-Light Cond](deblur_e-nerf_nerf_from_motion-blurred_events_under_high-speed_or_low-light_cond.md)**
 
 :   提出 Deblur e-NeRF，通过物理精确的像素带宽模型来建模事件相机的运动模糊，首次实现从运动模糊的事件流中直接有效地重建无模糊 NeRF。
 
@@ -127,77 +130,57 @@
 
 :   利用微调的 Stable Diffusion + ControlNet 将粗糙 NeRF/3DGS 渲染结果转化为高质量伪观测图像，将稀疏输入视图增密 5-10 倍后重新训练，在 Hypersim/LLFF/ScanNet 等数据集上超越 FreeNeRF 等方法 1-2dB PSNR，训练速度比扩散正则化方法快约 10 倍。
 
-**[Deep Patch Visual SLAM](deep_patch_visual_slam.md)**
+**[Deep Patch Visual Slam](deep_patch_visual_slam.md)**
 
 :   基于 DPVO 视觉里程计系统，通过高效的邻近回环检测和经典回环检测机制，将其扩展为完整的 SLAM 系统 DPV-SLAM，在单 GPU 上实现实时、高精度、低显存的单目视觉 SLAM。
 
-**[DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding](dg-pic_domain_generalized_point-in-context_learning_for_point_cloud_understandin.md)**
+**[Dg-Pic Domain Generalized Point-In-Context Learning For Point Cloud Understandin](dg-pic_domain_generalized_point-in-context_learning_for_point_cloud_understandin.md)**
 
 :   提出 DG-PIC，首个在统一模型中同时处理多领域多任务的点云理解框架，通过双层次源域原型估计和测试时特征平移机制，在不更新模型的情况下提升对未知域的泛化能力。
 
-**[DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding](dgpic_domain_generalized_pointincontext_learning_for_po.md)**
-
-:   提出 DG-PIC，首个在统一模型中同时处理多域多任务点云理解的方法，通过双层源域原型估计和双层测试时特征平移机制，在无需模型更新的情况下提升对未见域的泛化能力。
-
-**[Differentiable Convex Polyhedra Optimization from Multi-view Images](differentiable_convex_polyhedra_optimization_from_multi-view_images.md)**
+**[Differentiable Convex Polyhedra Optimization From Multi-View Images](differentiable_convex_polyhedra_optimization_from_multi-view_images.md)**
 
 :   提出一种基于对偶变换和三平面交点求解的可微凸多面体构造方法，绕过隐式场监督，直接利用多视角图像损失进行梯度优化，实现高保真的凸多面体形状表示。
 
-**[Diffusion Model is a Good Pose Estimator from 3D RF-Vision](diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md)**
+**[Diffusion Model Is A Good Pose Estimator From 3D Rf-Vision](diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md)**
 
 :   提出mmDiff，一种基于扩散模型的毫米波雷达人体姿态估计框架，通过全局-局部雷达上下文提取和结构-运动一致性约束，有效应对雷达点云稀疏、噪声大和信号不一致的挑战，显著超越现有SOTA。
 
-**[Diffusion Models for Monocular Depth Estimation: Overcoming Challenging Conditions](diffusion_models_for_monocular_depth_estimation_overcoming_challenging_condition.md)**
+**[Diffusion Models For Monocular Depth Estimation Overcoming Challenging Condition](diffusion_models_for_monocular_depth_estimation_overcoming_challenging_condition.md)**
 
 :   利用text-to-image扩散模型（ControlNet/T2I-Adapter）将简单场景图像转化为保持同一3D结构的恶劣条件图像，通过自蒸馏微调现有单目深度估计网络，统一解决恶劣天气和非朗伯表面等分布外挑战。
 
-**[Divide and Fuse: Body Part Mesh Recovery from Partially Visible Human Images](divide_and_fuse_body_part_mesh_recovery_from_partially_visible_human_images.md)**
+**[Divide And Fuse Body Part Mesh Recovery From Partially Visible Human Images](divide_and_fuse_body_part_mesh_recovery_from_partially_visible_human_images.md)**
 
 :   提出"分而治之"的自底向上人体网格重建方法，通过独立重建各身体部位后融合，有效解决人体大面积不可见时传统自顶向下方法（如SMPL）失效的问题。
 
-**[DreamDissector: Learning Disentangled Text-to-3D Generation from 2D Diffusion Priors](dreamdissector_learning_disentangled_text-to-3d_generation_from_2d_diffusion_pri.md)**
+**[Dreamdissector Learning Disentangled Text-To-3D Generation From 2D Diffusion Pri](dreamdissector_learning_disentangled_text-to-3d_generation_from_2d_diffusion_pri.md)**
 
 :   提出DreamDissector框架，通过Neural Category Field和Deep Concept Mining将包含多物体交互的text-to-3D NeRF解耦为独立的带纹理网格，实现物体级别的3D编辑控制。
 
-**[DreamDrone: Text-to-Image Diffusion Models are Zero-shot Perpetual View Generators](dreamdrone_text-to-image_diffusion_models_are_zero-shot_perpetual_view_generator.md)**
+**[Dreamdrone Text-To-Image Diffusion Models Are Zero-Shot Perpetual View Generator](dreamdrone_text-to-image_diffusion_models_are_zero-shot_perpetual_view_generator.md)**
 
 :   提出DreamDrone——一个零样本、无需训练的无限飞行场景生成管线，通过直接对预训练扩散模型的中间latent code进行warping（而非图像级warping），结合特征对应引导和高通滤波策略，实现高质量、几何一致的无界场景生成。
 
-**[DreamDrone: Text-to-Image Diffusion Models Are Zero-Shot Perpetual View Generators](dreamdrone_texttoimage_diffusion_models_are_zeroshot_perpetu.md)**
-
-:   DreamDrone提出零样本、免训练的无限场景飞越生成pipeline，核心创新是在扩散模型的latent空间进行视角变换（而非像素空间），并通过特征对应引导和高通滤波策略保证帧间的几何一致性和高频细节一致性。
-
-**[DreamScene360: Unconstrained Text-to-3D Scene Generation with Panoramic Gaussian Splatting](dreamscene360_unconstrained_text-to-3d_scene_generation_with_panoramic_gaussian_.md)**
+**[Dreamscene360 Unconstrained Text-To-3D Scene Generation With Panoramic Gaussian ](dreamscene360_unconstrained_text-to-3d_scene_generation_with_panoramic_gaussian_.md)**
 
 :   提出DreamScene360，利用全景图像作为中间表示，结合GPT-4V自精炼机制和全景3D高斯溅射技术，实现从文本到沉浸式360°3D场景的快速生成。
 
-**[DreamView: Injecting View-specific Text Guidance into Text-to-3D Generation](dreamview_injecting_view-specific_text_guidance_into_text-to-3d_generation.md)**
+**[Dreamview Injecting View-Specific Text Guidance Into Text-To-3D Generation](dreamview_injecting_view-specific_text_guidance_into_text-to-3d_generation.md)**
 
 :   提出DreamView，通过自适应文本引导注入模块，将视角特定的文本描述和全局文本描述协同注入扩散模型，实现可定制化且多视角一致的文本到3D生成。
-
-**[DreamView: Injecting View-Specific Text Guidance Into Text-to-3D Generation](dreamview_injecting_viewspecific_text_guidance_into_textto3d.md)**
-
-:   DreamView通过自适应引导注入模块协调全局和视角特定文本实现3D定制化生成。
 
 **[Dspdet3D 3D Small Object Detection With Dynamic Spatial Pruning](dspdet3d_3d_small_object_detection_with_dynamic_spatial_pruning.md)**
 
 :   提出动态空间剪枝（DSP）策略，在多级 3D 检测器的解码器中逐级移除已检测到大物体区域的体素特征，使检测器能以高空间分辨率处理场景、大幅提升小目标检测精度（ScanNet 小目标 mAP@0.25 从 27.5% 提升到 44.8%），同时通过剪枝将显存降低为同分辨率方法的 1/5。
 
-**[Dual-level Adaptive Self-Labeling for Novel Class Discovery in Point Cloud Segmentation](dual-level_adaptive_self-labeling_for_novel_class_discovery_in_point_cloud_segme.md)**
+**[Dual-Level Adaptive Self-Labeling For Novel Class Discovery In Point Cloud Segme](dual-level_adaptive_self-labeling_for_novel_class_discovery_in_point_cloud_segme.md)**
 
 :   提出双层自适应自标注方法，通过半松弛最优传输处理类别不平衡问题，并结合区域级表示增强点级分类器的学习，在点云分割中实现高效的新类发现。
-
-**[FALIP: Visual Prompt as Foveal Attention Boosts CLIP Zero-Shot Performance](falip_visual_prompt_as_foveal_attention_boosts_clip_zer.md)**
-
-:   提出 FALIP（Foveal-Attention CLIP），通过在 CLIP 的多头自注意力模块中插入类似人眼中央凹的注意力掩码，在不修改原始图像内容的前提下引导模型关注特定区域，显著提升指代表达理解、图像分类和 3D 点云识别等零样本任务的性能。
 
 **[Gaussian Grouping Segment And Edit Anything In 3D Scenes](gaussian_grouping_segment_and_edit_anything_in_3d_scenes.md)**
 
 :   为 3D Gaussian Splatting 中的每个高斯学习 16 维 Identity Encoding 实现实例级分组，使用 SAM + DEVA 视频跟踪生成多视图一致的 2D 伪标签做监督，在 LERF-Mask 开放词汇分割上 mIoU 达 69-77%（超 LERF 2 倍+），全景分割超 Panoptic Lifting 4.9% mIoU 且 14× 更快，同时支持 3D 物体移除/修复/着色/风格迁移等多种编辑。
-
-**[JointDreamer: Ensuring Geometry Consistency and Text Congruence in Text-to-3D Generation](jointdreamer_ensuring_geometry_consistency_and_text_congruen.md)**
-
-:   JointDreamer提出JSD通过能量函数建模多视角联合分布确保3D一致性。
 
 **[Milliflow Scene Flow Estimation On Mmwave Radar Point Cloud For Human Motion Sen](milliflow_scene_flow_estimation_on_mmwave_radar_point_cloud_for_human_motion_sen.md)**
 
@@ -222,14 +205,6 @@
 **[Scanreason Empowering 3D Visual Grounding With Reasoning Capabilities](scanreason_empowering_3d_visual_grounding_with_reasoning_capabilities.md)**
 
 :   提出 3D reasoning grounding 新任务和 ScanReason 基准（10K+ QA-location pairs，5种推理类型），设计 ReGround3D 框架将 MLLM 推理与 3D grounding 模块通过 Chain-of-Grounding 机制协同，在隐式指令下实现准确的 3D 目标定位。
-
-**[SceneGraphLoc: Cross-Modal Coarse Visual Localization on 3D Scene Graphs](scenegraphloc_crossmodal_coarse_visual_localization_on_3d_sc.md)**
-
-:   提出SceneGraphLoc，首次将queryimage在多模态3D场景图数据库中进行粗定位，通过学习场景图节点和图像patch的统一嵌入空间，在存储效率提升1000倍的同时接近图像检索方法的定位精度。
-
-**[SceneVerse: Scaling 3D Vision-Language Learning for Grounded Scene Understanding](sceneverse_scaling_3d_visionlanguage_learning_for_grounded_s.md)**
-
-:   提出SceneVerse——首个百万级3D视觉语言数据集（68K场景+250万语言描述），通过结合人工标注和基于场景图的自动生成pipeline构建多粒度描述，并设计GPS预训练框架实现多层次场景-文本对齐，在3D grounding和QA基准上达到SOTA。
 
 **[View Selection For 3D Captioning Via Diffusion Ranking](view_selection_for_3d_captioning_via_diffusion_ranking.md)**
 

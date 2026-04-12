@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Enabling Chatbots with Eyes and Ears: An Immersive Multimodal Conversation System 论文解读 | ACL 2025 | arXiv 2506.00421 | 本文提出赋予聊天机器人\"眼睛和耳朵\"的沉浸式多模态对话系统，构建了融合视觉与听觉的多会话多方对话数据集 M3C，并设计了包含对话模块和多模态记忆检索模块的对话模型，实现了多说话者共享视听体验的动态长期对话。"
+title: >-
+  [论文解读] Enabling Chatbots with Eyes and Ears: An Immersive Multimodal Conversation System
+description: >-
+  [ACL 2025] 本文提出赋予聊天机器人"眼睛和耳朵"的沉浸式多模态对话系统，构建了融合视觉与听觉的多会话多方对话数据集 M3C，并设计了包含对话模块和多模态记忆检索模块的对话模型，实现了多说话者共享视听体验的动态长期对话。
 tags:
   - ACL 2025
 ---

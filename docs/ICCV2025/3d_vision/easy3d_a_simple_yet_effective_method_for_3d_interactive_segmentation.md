@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation 论文解读 | 提出 Easy3D，一种简洁高效的 3D 交互式实例分割方法，结合体素稀疏编码器、轻量 Transformer 解码器和隐式点击融合策略，在域内和域外数据集上一致性地超越 SOTA，并首次将学习的负嵌入 (learned negative embedding) 成功应用于隐式点击融合。"
+title: >-
+  [论文解读] Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation
+description: >-
+  [3D视觉] 提出 Easy3D，一种简洁高效的 3D 交互式实例分割方法，结合体素稀疏编码器、轻量 Transformer 解码器和隐式点击融合策略，在域内和域外数据集上一致性地超越 SOTA，并首次将学习的负嵌入 (learned negative embedding) 成功应用于隐式点击融合。
 tags:
-
+  - 3D视觉
 ---
 
 # Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation

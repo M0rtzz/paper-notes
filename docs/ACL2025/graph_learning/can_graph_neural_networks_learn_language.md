@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Morpher: Can Graph Neural Networks Learn Language with Extremely Weak Text Supervision? 论文解读 | ACL 2025 | arXiv 2412.08174 | 图神经网络 GNN | 提出 Morpher，首个图-文多模态 prompt learning 范式——在冻结 GNN 和 LLM 参数的前提下，同时学习图 prompt 和文本 prompt + 跨模态投影器，用极弱文本监督（仅类别名几个词）将 GNN 表征对齐到 LLM 语义空间，首次实现 GNN 的 CLIP 式零样本图分类。"
+title: >-
+  [论文解读] Morpher: Can Graph Neural Networks Learn Language with Extremely Weak Text Supervision?
+description: >-
+  [ACL 2025][图学习][图神经网络] 提出 Morpher，首个图-文多模态 prompt learning 范式——在冻结 GNN 和 LLM 参数的前提下，同时学习图 prompt 和文本 prompt + 跨模态投影器，用极弱文本监督（仅类别名几个词）将 GNN 表征对齐到 LLM 语义空间，首次实现 GNN 的 CLIP 式零样本图分类。
 tags:
   - ACL 2025
+  - 图学习
   - 图神经网络
   - LLM alignment
   - 提示学习

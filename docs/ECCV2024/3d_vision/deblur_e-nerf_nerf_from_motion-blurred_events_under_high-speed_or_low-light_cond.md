@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions
+description: >-
+  [ECCV 2024][3D视觉][事件相机] 提出 Deblur e-NeRF，通过物理精确的像素带宽模型来建模事件相机的运动模糊，首次实现从运动模糊的事件流中直接有效地重建无模糊 NeRF。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 事件相机
+  - NeRF
+  - 运动模糊
+  - 像素带宽模型
+  - 低光照
+---
+
 # Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions
 
 **会议**: ECCV 2024  

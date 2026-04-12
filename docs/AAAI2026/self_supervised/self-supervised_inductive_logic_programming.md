@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Self-Supervised Inductive Logic Programming 论文解读 | AAAI 2026 | arXiv 2507.16405 | Inductive Logic Programming | 提出 Self-Supervised ILP 新范式和 Poker 系统，通过在学习过程中自动生成正负例来替代人工标注负例和定制背景理论，实现从少量正例学习递归逻辑程序。"
+title: >-
+  [论文解读] Self-Supervised Inductive Logic Programming
+description: >-
+  [AAAI 2026][自监督学习][Inductive Logic Programming] 提出 Self-Supervised ILP 新范式和 Poker 系统，通过在学习过程中自动生成正负例来替代人工标注负例和定制背景理论，实现从少量正例学习递归逻辑程序。
 tags:
   - AAAI 2026
+  - 自监督学习
   - Inductive Logic Programming
   - Meta-Interpretive Learning
-  - 自监督学习
   - predicate invention
   - grammar learning
 ---

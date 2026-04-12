@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EVLF: Early Vision-Language Fusion for Generative Dataset Distillation 论文解读 | CVPR 2026 | arXiv 2603.07476 | 数据集蒸馏 | 提出 EVLF，一种在编码器-骨干网络接口处进行视觉-语言早期融合的即插即用方法，解决了扩散模型数据集蒸馏中晚期语义注入导致的文本过度主导和视觉保真度下降问题。"
+title: >-
+  [论文解读] EVLF: Early Vision-Language Fusion for Generative Dataset Distillation
+description: >-
+  [CVPR 2026][图像恢复][数据集蒸馏] 提出 EVLF，一种在编码器-骨干网络接口处进行视觉-语言早期融合的即插即用方法，解决了扩散模型数据集蒸馏中晚期语义注入导致的文本过度主导和视觉保真度下降问题。
 tags:
   - CVPR 2026
+  - 图像恢复
   - 数据集蒸馏
   - 扩散模型
   - 视觉-语言融合

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Critical Patch-Aware Sparse Prompting with Decoupled Training for Continual Learning on the Edge 论文解读 | CVPR 2026 | arXiv 2604.07399 | 持续学习 | 提出 CPS-Prompt 框架，通过任务感知的关键 patch 采样（CPS）和解耦 prompt-分类器训练（DPCT）两个模块，在边缘设备上实现 Prompt-based 持续学习的训练时内存和计算效率提升约 1.6 倍，同时准确率仅下降约 2%。"
+title: >-
+  [论文解读] Critical Patch-Aware Sparse Prompting with Decoupled Training for Continual Learning on the Edge
+description: >-
+  [CVPR 2026][模型压缩][持续学习] 提出 CPS-Prompt 框架，通过任务感知的关键 patch 采样（CPS）和解耦 prompt-分类器训练（DPCT）两个模块，在边缘设备上实现 Prompt-based 持续学习的训练时内存和计算效率提升约 1.6 倍，同时准确率仅下降约 2%。
 tags:
   - CVPR 2026
+  - 模型压缩
   - 持续学习
   - 边缘设备
   - 提示学习

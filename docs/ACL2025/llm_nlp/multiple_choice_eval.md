@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above 论文解读 | ACL 2025 | arXiv 2502.14127 | MCQA | 系统性论证了 MCQA（多选题问答）作为 LLM 评测标准格式的三大缺陷——格式本身的局限性、数据集构建质量问题、以及 LLM 在 MCQA 上的特有错误——并从教育测试学中引入改进方案。"
+title: >-
+  [论文解读] Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above
+description: >-
+  [ACL 2025][LLM/NLP][MCQA] 系统性论证了 MCQA（多选题问答）作为 LLM 评测标准格式的三大缺陷——格式本身的局限性、数据集构建质量问题、以及 LLM 在 MCQA 上的特有错误——并从教育测试学中引入改进方案。
 tags:
   - ACL 2025
+  - LLM/NLP
   - MCQA
   - evaluation
   - educational testing

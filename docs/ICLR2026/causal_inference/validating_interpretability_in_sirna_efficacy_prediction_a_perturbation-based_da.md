@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Validating Interpretability in siRNA Efficacy Prediction: A Perturbation-Based, Dataset-Aware Protocol 论文解读 | ICLR 2026 | arXiv 2602.10152 | siRNA | 提出一个标准化的扰动式显著性忠实性验证协议用于 siRNA 效能预测，作为\"合成前关卡\"检验显著性图是否可信；同时提出 BioPrior 生物信息正则化提升解释忠实性，发现 19/20 折instances 通过验证，但跨数据集迁移暴露两种失败模式。"
+title: >-
+  [论文解读] Validating Interpretability in siRNA Efficacy Prediction: A Perturbation-Based, Dataset-Aware Protocol
+description: >-
+  [ICLR 2026][siRNA] 提出一个标准化的扰动式显著性忠实性验证协议用于 siRNA 效能预测，作为"合成前关卡"检验显著性图是否可信；同时提出 BioPrior 生物信息正则化提升解释忠实性，发现 19/20 折instances 通过验证，但跨数据集迁移暴露两种失败模式。
 tags:
   - ICLR 2026
   - siRNA

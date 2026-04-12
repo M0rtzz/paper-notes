@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Latent Space Factorization in LoRA 论文解读 | NeurIPS 2025 | arXiv 2510.19640 | LoRA | 提出 FVAE-LoRA，在 LoRA 框架中引入具有双潜空间的 VAE，通过新型 ELBO 目标将任务相关特征 (z₁) 与残差信息 (z₂) 显式分解，在文本、图像、音频任务上一致优于标准 LoRA。"
+title: >-
+  [论文解读] Latent Space Factorization in LoRA
+description: >-
+  [NeurIPS 2025][语音][LoRA] 提出 FVAE-LoRA，在 LoRA 框架中引入具有双潜空间的 VAE，通过新型 ELBO 目标将任务相关特征 ($\mathbf{z}_1$) 与残差信息 ($\mathbf{z}_2$) 显式分解，在文本、图像、音频任务上一致优于标准 LoRA。
 tags:
   - NeurIPS 2025
+  - 语音
   - LoRA
   - VAE
   - 潜空间分解

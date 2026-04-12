@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation 论文解读 | NeurIPS 2025 | arXiv 2505.13043 | 跨域视线估计 | 本文将跨域视线估计(CDGE)问题建模为广义标签偏移(GLS)问题，指出现有域不变表示学习方法在标签偏移存在时理论上不充分，提出基于截断高斯分布的连续重要性重加权和概率感知条件算子差异(PCOD)来联合纠正标签偏移和条件偏移，在多个backbone上平均降低误差12%~27%。"
+title: >-
+  [论文解读] A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation
+description: >-
+  [NeurIPS 2025][跨域视线估计] 本文将跨域视线估计(CDGE)问题建模为广义标签偏移(GLS)问题，指出现有域不变表示学习方法在标签偏移存在时理论上不充分，提出基于截断高斯分布的连续重要性重加权和概率感知条件算子差异(PCOD)来联合纠正标签偏移和条件偏移，在多个backbone上平均降低误差12%~27%。
 tags:
   - NeurIPS 2025
   - 跨域视线估计

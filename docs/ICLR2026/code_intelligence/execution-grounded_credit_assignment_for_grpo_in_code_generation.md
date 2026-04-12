@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Execution-Grounded Credit Assignment for GRPO in Code Generation 论文解读 | ICLR 2026 Workshop (SPOT) | arXiv 2603.16158 | GRPO | 提出 EGCA（Execution-Grounded Credit Assignment），通过执行追踪定位程序中最早的语义偏差位置，将 GRPO 的梯度集中到因果 token span 上，解决代码生成中粗粒度信用分配问题，在 HumanEval 上达到 82.1% pass@1。"
+title: >-
+  [论文解读] Execution-Grounded Credit Assignment for GRPO in Code Generation
+description: >-
+  [ICLR 2026 Workshop (SPOT)][GRPO] 提出 EGCA（Execution-Grounded Credit Assignment），通过执行追踪定位程序中最早的语义偏差位置，将 GRPO 的梯度集中到因果 token span 上，解决代码生成中粗粒度信用分配问题，在 HumanEval 上达到 82.1% pass@1。
 tags:
   - ICLR 2026 Workshop (SPOT)
   - GRPO

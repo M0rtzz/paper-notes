@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Unified Representation of 3D Gaussian Splatting 论文解读 | ICLR 2026 | arXiv 2509.22917 | 3D高斯溅射 | 发现3DGS的原生参数表示（位置+四元数+缩放+SH系数+透明度）因非唯一性和异质性不适合神经网络学习，提出基于等概率面子流形场的统一表示，建立唯一映射并消除数值异质性，配合VAE+流形距离实现更好的3D学习。"
+title: >-
+  [论文解读] Learning Unified Representation of 3D Gaussian Splatting
+description: >-
+  [ICLR 2026][3D视觉][3D高斯溅射] 发现3DGS的原生参数表示（位置+四元数+缩放+SH系数+透明度）因非唯一性和异质性不适合神经网络学习，提出基于等概率面子流形场的统一表示，建立唯一映射并消除数值异质性，配合VAE+流形距离实现更好的3D学习。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 3D高斯溅射
   - 子流形场表示
   - 表示唯一性

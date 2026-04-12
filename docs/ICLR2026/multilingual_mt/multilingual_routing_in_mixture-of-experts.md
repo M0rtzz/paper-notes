@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Multilingual Routing in Mixture-of-Experts 论文解读 | ICLR 2026 | arXiv 2510.04694 | mixture-of-experts | 系统分析了MoE大语言模型中多语言路由模式，发现中间层存在跨语言共享专家且语言性能与英语路由对齐度强相关，进而提出推理时路由干预方法，通过在中间层激活英语任务专家，在3个模型×2个任务×15+语言上一致性地提升多语言性能1-2%。"
+title: >-
+  [论文解读] Multilingual Routing in Mixture-of-Experts
+description: >-
+  [ICLR 2026][mixture-of-experts] 系统分析了MoE大语言模型中多语言路由模式，发现中间层存在跨语言共享专家且语言性能与英语路由对齐度强相关，进而提出推理时路由干预方法，通过在中间层激活英语任务专家，在3个模型×2个任务×15+语言上一致性地提升多语言性能1-2%。
 tags:
   - ICLR 2026
   - mixture-of-experts

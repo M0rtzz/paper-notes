@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DeepShield: Fortifying Deepfake Video Detection with Local and Global Forgery Analysis 论文解读 | ICCV 2025 | arXiv 2510.25237 | Deepfake Detection | 提出 DeepShield，一种结合局部 patch 级引导（LPG）和全局伪造多样化（GFD）的深度伪造视频检测框架，通过时空伪影建模提供 patch 级监督、分布级特征增强合成多样伪造表征，在跨数据集和跨操控类型评估中显著超越 SOTA。"
+title: >-
+  [论文解读] DeepShield: Fortifying Deepfake Video Detection with Local and Global Forgery Analysis
+description: >-
+  [ICCV 2025][图像生成][Deepfake Detection] 提出 DeepShield，一种结合局部 patch 级引导（LPG）和全局伪造多样化（GFD）的深度伪造视频检测框架，通过时空伪影建模提供 patch 级监督、分布级特征增强合成多样伪造表征，在跨数据集和跨操控类型评估中显著超越 SOTA。
 tags:
   - ICCV 2025
+  - 图像生成
   - Deepfake Detection
   - CLIP-ViT
   - Patch-Level Supervision

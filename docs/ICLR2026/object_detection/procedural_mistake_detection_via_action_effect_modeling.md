@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Procedural Mistake Detection via Action Effect Modeling 论文解读 | ICLR 2026 | arXiv 2512.03474 | 程序性错误检测 | 提出双分支多模态监督的动作效果建模框架，结合视觉分支（目标状态和空间关系特征）和文本分支（GPT-4o 生成的场景图），通过可学习的效果 token 蒸馏外部监督信号，在第一人称程序视频中实现 SOTA 错误检测。"
+title: >-
+  [论文解读] Procedural Mistake Detection via Action Effect Modeling
+description: >-
+  [ICLR 2026][目标检测][程序性错误检测] 提出双分支多模态监督的动作效果建模框架，结合视觉分支（目标状态和空间关系特征）和文本分支（GPT-4o 生成的场景图），通过可学习的效果 token 蒸馏外部监督信号，在第一人称程序视频中实现 SOTA 错误检测。
 tags:
   - ICLR 2026
+  - 目标检测
   - 程序性错误检测
   - 动作效果建模
   - 第一人称视频

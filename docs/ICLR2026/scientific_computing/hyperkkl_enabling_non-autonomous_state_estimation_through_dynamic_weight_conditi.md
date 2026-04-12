@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HyperKKL: Enabling Non-Autonomous State Estimation through Dynamic Weight Conditioning 论文解读 | ICLR2026 | arXiv 2602.22630 | KKL observer | 提出 HyperKKL，用超网络编码外源输入信号并即时生成 KKL 观测器参数，使非自治非线性系统的状态估计无需重新训练或在线梯度更新，在 Duffing、Van der Pol、Lorenz、Rössler 四个系统上验证有效。"
+title: >-
+  [论文解读] HyperKKL: Enabling Non-Autonomous State Estimation through Dynamic Weight Conditioning
+description: >-
+  [ICLR2026][科学计算][KKL observer] 提出 HyperKKL，用超网络编码外源输入信号并即时生成 KKL 观测器参数，使非自治非线性系统的状态估计无需重新训练或在线梯度更新，在 Duffing、Van der Pol、Lorenz、Rössler 四个系统上验证有效。
 tags:
   - ICLR2026
+  - 科学计算
   - KKL observer
   - state estimation
   - hypernetwork

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BubbleFormer: Forecasting Boiling with Transformers 论文解读 | NeurIPS 2025 | arXiv 2507.21244 | 沸腾预测 | 提出 BubbleFormer，基于分解时空轴注意力的 Transformer 架构用于预测沸腾动力学——包括难以预测的自主气泡成核事件，配合 BubbleML 2.0 数据集（160+ 高保真仿真），在多种流体、几何和壁面条件下实现准确的沸腾时空过程预测。"
+title: >-
+  [论文解读] BubbleFormer: Forecasting Boiling with Transformers
+description: >-
+  [NeurIPS 2025][人体理解][沸腾预测] 提出 BubbleFormer，基于分解时空轴注意力的 Transformer 架构用于预测沸腾动力学——包括难以预测的自主气泡成核事件，配合 BubbleML 2.0 数据集（160+ 高保真仿真），在多种流体、几何和壁面条件下实现准确的沸腾时空过程预测。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 沸腾预测
   - Transformer
   - BubbleML

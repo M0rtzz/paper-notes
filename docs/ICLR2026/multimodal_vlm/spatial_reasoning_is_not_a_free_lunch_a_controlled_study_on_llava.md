@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Spatial Reasoning is Not a Free Lunch: A Controlled Study on LLaVA 论文解读 | ICLR 2026 | arXiv 2603.12545 | 空间推理 | 通过LLaVA框架的受控诊断研究揭示VLM空间推理失败的架构根源——(1)CLIP式编码器优化全局语义对齐而非空间结构→空间推理弱,(2)图像被展平为1D token序列+1D位置编码→丢失2D空间结构→系统性比较CLIP/SigLIP/SigLIP2/AIMv2编码器+2D-RoPE变体→发现编码器目标和位置结构影响空间行为但不能完全解决。"
+title: >-
+  [论文解读] Spatial Reasoning is Not a Free Lunch: A Controlled Study on LLaVA
+description: >-
+  [ICLR 2026][多模态][空间推理] 通过LLaVA框架的受控诊断研究揭示VLM空间推理失败的架构根源——(1)CLIP式编码器优化全局语义对齐而非空间结构→空间推理弱,(2)图像被展平为1D token序列+1D位置编码→丢失2D空间结构→系统性比较CLIP/SigLIP/SigLIP2/AIMv2编码器+2D-RoPE变体→发现编码器目标和位置结构影响空间行为但不能完全解决。
 tags:
   - ICLR 2026
+  - 多模态
   - 空间推理
   - 图像编码器
   - 2D位置编码

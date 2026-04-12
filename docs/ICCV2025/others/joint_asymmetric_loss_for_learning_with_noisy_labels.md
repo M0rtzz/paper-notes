@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Joint Asymmetric Loss for Learning with Noisy Labels 论文解读 | ICCV 2025 | arXiv 2507.17692 | 噪声标签学习 | 将非对称损失函数扩展到更复杂的被动损失场景，提出非对称均方误差（AMSE），严格建立其满足非对称条件的充要条件，并将 AMSE 嵌入 APL 框架构建联合非对称损失（JAL），在 CIFAR-10/100 等多个数据集上全面超越现有鲁棒损失函数方法。"
+title: >-
+  [论文解读] Joint Asymmetric Loss for Learning with Noisy Labels
+description: >-
+  [ICCV 2025][噪声标签学习] 将非对称损失函数扩展到更复杂的被动损失场景，提出非对称均方误差（AMSE），严格建立其满足非对称条件的充要条件，并将 AMSE 嵌入 APL 框架构建联合非对称损失（JAL），在 CIFAR-10/100 等多个数据集上全面超越现有鲁棒损失函数方法。
 tags:
   - ICCV 2025
   - 噪声标签学习

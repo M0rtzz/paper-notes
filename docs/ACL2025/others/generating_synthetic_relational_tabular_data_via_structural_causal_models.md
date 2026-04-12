@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generating Synthetic Relational Tabular Data via Structural Causal Models 论文解读 | ACL 2025 | arXiv 2507.03528 | synthetic data | 本文扩展了 TabPFN 的基于结构因果模型（SCM）的合成数据生成方法，提出了一个能够生成多表关联（relational）合成表格数据的框架，通过耦合节点和隐因果关系实现跨表依赖建模。"
+title: >-
+  [论文解读] Generating Synthetic Relational Tabular Data via Structural Causal Models
+description: >-
+  [ACL 2025][synthetic data] 本文扩展了 TabPFN 的基于结构因果模型（SCM）的合成数据生成方法，提出了一个能够生成多表关联（relational）合成表格数据的框架，通过耦合节点和隐因果关系实现跨表依赖建模。
 tags:
   - ACL 2025
   - synthetic data

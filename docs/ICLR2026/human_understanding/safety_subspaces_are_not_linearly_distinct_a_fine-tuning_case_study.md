@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Safety Subspaces are Not Linearly Distinct: A Fine-Tuning Case Study 论文解读 | ICLR 2026 | arXiv 2505.14185 | 安全子空间 | 通过4个系统实验(权重投影/正交补/更新相似度/激活空间)在5个LLM上证明安全对齐信息与通用学习在线性空间中不可分离——放大安全行为的子空间同时放大有用行为,有害更新与安全更新的相似性并非最高→基于线性子空间的安全防御策略面临根本性限制。"
+title: >-
+  [论文解读] Safety Subspaces are Not Linearly Distinct: A Fine-Tuning Case Study
+description: >-
+  [ICLR 2026][人体理解][安全子空间] 通过4个系统实验(权重投影/正交补/更新相似度/激活空间)在5个LLM上证明安全对齐信息与通用学习在线性空间中不可分离——放大安全行为的子空间同时放大有用行为,有害更新与安全更新的相似性并非最高→基于线性子空间的安全防御策略面临根本性限制。
 tags:
   - ICLR 2026
+  - 人体理解
   - 安全子空间
   - 微调攻击
   - 线性可分性

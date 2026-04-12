@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A2P: From 2D Alignment to 3D Plausibility for Occlusion-Robust Two-Hand Reconstruction 论文解读 | CVPR 2026 | arXiv 2503.17788 | two-hand reconstruction | 解耦双手重建为2D结构对齐+3D空间交互对齐：Stage 1用Fusion Alignment Encoder隐式蒸馏Sapiens的关键点/分割/深度三种2D先验(推理时免基础模型)，Stage 2用穿透感知扩散模型+碰撞梯度引导将穿透姿态映射到物理合理配置——InterHand2.6M上MPJPE降至5.36mm(超SOTA 4DHands 2.13mm)，穿透体积降7倍。"
+title: >-
+  [论文解读] A2P: From 2D Alignment to 3D Plausibility for Occlusion-Robust Two-Hand Reconstruction
+description: >-
+  [CVPR 2026][图像分割][two-hand reconstruction] 解耦双手重建为2D结构对齐+3D空间交互对齐：Stage 1用Fusion Alignment Encoder隐式蒸馏Sapiens的关键点/分割/深度三种2D先验(推理时免基础模型)，Stage 2用穿透感知扩散模型+碰撞梯度引导将穿透姿态映射到物理合理配置——InterHand2.6M上MPJPE降至5.36mm(超SOTA 4DHands 2.13mm)，穿透体积降7倍。
 tags:
   - CVPR 2026
+  - 图像分割
   - two-hand reconstruction
   - fusion alignment encoder
   - 扩散模型

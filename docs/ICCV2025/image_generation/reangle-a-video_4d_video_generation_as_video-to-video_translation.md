@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Reangle-A-Video: 4D Video Generation as Video-to-Video Translation 论文解读 | Reangle-A-Video 将多视角视频生成重新定义为视频到视频翻译问题，通过自监督微调视频扩散模型学习视角不变运动，配合 DUSt3R 引导的多视角一致性 inpainting，从单目视频生成同步多视角视频。"
+title: >-
+  [论文解读] Reangle-A-Video: 4D Video Generation as Video-to-Video Translation
+description: >-
+  [图像生成] Reangle-A-Video 将多视角视频生成重新定义为视频到视频翻译问题，通过自监督微调视频扩散模型学习视角不变运动，配合 DUSt3R 引导的多视角一致性 inpainting，从单目视频生成同步多视角视频。
 tags:
-
+  - 图像生成
 ---
 
 # Reangle-A-Video: 4D Video Generation as Video-to-Video Translation

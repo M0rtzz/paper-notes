@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Evaluating Neuron Explanations: A Unified Framework with Sanity Checks 论文解读 | ICML2025 | arXiv 2506.05774 | 神经元解释 | 提出 NeuronEval 统一框架，将 19 种现有神经元解释评估方法形式化为同一数学范式，并设计 Missing Labels / Extra Labels 两项合理性检验，揭示大多数常用指标（如 Recall、AUC、top-and-random 采样下的 Correlation）不可靠，仅 Correlation(Pearson)、Cosine、AUPRC、F1 和 IoU 通过测试。"
+title: >-
+  [论文解读] Evaluating Neuron Explanations: A Unified Framework with Sanity Checks
+description: >-
+  [ICML2025][神经元解释] 提出 NeuronEval 统一框架，将 19 种现有神经元解释评估方法形式化为同一数学范式，并设计 Missing Labels / Extra Labels 两项合理性检验，揭示大多数常用指标（如 Recall、AUC、top-and-random 采样下的 Correlation）不可靠，仅 Correlation(Pearson)、Cosine、AUPRC、F1 和 IoU 通过测试。
 tags:
   - ICML2025
   - 神经元解释

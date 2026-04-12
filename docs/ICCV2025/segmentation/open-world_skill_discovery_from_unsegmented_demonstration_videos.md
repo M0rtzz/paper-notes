@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Open-World Skill Discovery from Unsegmented Demonstration Videos 论文解读 | ICCV 2025 | arXiv 2503.10684 | 技能发现 | 受人类认知事件分割理论（EST）启发，提出 Skill Boundary Detection (SBD) 算法，利用预训练无条件动作预测模型的**预测误差跳变**来自动识别未分割演示视频中的技能边界，在 Minecraft 中显著提升条件策略和层级智能体的表现。"
+title: >-
+  [论文解读] Open-World Skill Discovery from Unsegmented Demonstration Videos
+description: >-
+  [ICCV 2025][图像分割][技能发现] 受人类认知事件分割理论（EST）启发，提出 Skill Boundary Detection (SBD) 算法，利用预训练无条件动作预测模型的**预测误差跳变**来自动识别未分割演示视频中的技能边界，在 Minecraft 中显著提升条件策略和层级智能体的表现。
 tags:
   - ICCV 2025
+  - 图像分割
   - 技能发现
   - 时序视频分割
   - 行为克隆

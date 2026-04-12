@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ArtFormer: Controllable Generation of Diverse 3D Articulated Objects 论文解读 | CVPR 2025 | 待补充 | > 基于摘要：This paper presents a novel framework for modeling and conditional generation of 3D articulated objects. Troubled by flexibility-quality tradeoffs, existing methods are often limited to using predefined structures or retrieving shapes from static datasets. To address these challenges, we parameteriz"
+title: >-
+  [论文解读] ArtFormer: Controllable Generation of Diverse 3D Articulated Objects
+description: >-
+  [CVPR 2025][文本生成][待补充] > 基于摘要：This paper presents a novel framework for modeling and conditional generation of 3D articulated objects. Troubled by flexibility-quality tradeoffs, existing methods are often limited to using predefined structures or retrieving shapes from static datasets. To address these challenges, we parameteriz
 tags:
   - CVPR 2025
+  - 文本生成
   - 待补充
 ---
 

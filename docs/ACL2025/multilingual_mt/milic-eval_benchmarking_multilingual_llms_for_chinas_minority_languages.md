@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MiLiC-Eval: Benchmarking Multilingual LLMs for China's Minority Languages 论文解读 | ACL 2025 | arXiv 2503.01150 | minority languages | 构建首个中国少数民族语言 LLM 评估基准 MiLiC-Eval，包含 24K 实例覆盖 9 个任务、聚焦藏语/维吴尔语/哈萨克语/蒙古语 4 种语言，发现开源 LLM 在语法密集型任务和多文字语言上表现极差。"
+title: >-
+  [论文解读] MiLiC-Eval: Benchmarking Multilingual LLMs for China's Minority Languages
+description: >-
+  [ACL 2025][minority languages] 构建首个中国少数民族语言 LLM 评估基准 MiLiC-Eval，包含 24K 实例覆盖 9 个任务、聚焦藏语/维吴尔语/哈萨克语/蒙古语 4 种语言，发现开源 LLM 在语法密集型任务和多文字语言上表现极差。
 tags:
   - ACL 2025
   - minority languages

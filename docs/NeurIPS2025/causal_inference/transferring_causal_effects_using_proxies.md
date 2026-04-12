@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Transferring Causal Effects using Proxies 论文解读 | NEURIPS2025 | arXiv 2510.25924 | proximal causal inference | 提出基于代理变量（proxy）的多域因果效应迁移方法，在目标域仅观测到代理变量 W 的条件下，利用多源域数据识别并估计目标域中含未观测混淆因子的干预分布，给出两种一致性估计器及渐近置信区间。"
+title: >-
+  [论文解读] Transferring Causal Effects using Proxies
+description: >-
+  [NEURIPS2025][proximal causal inference] 提出基于代理变量（proxy）的多域因果效应迁移方法，在目标域仅观测到代理变量 W 的条件下，利用多源域数据识别并估计目标域中含未观测混淆因子的干预分布，给出两种一致性估计器及渐近置信区间。
 tags:
   - NEURIPS2025
   - proximal causal inference

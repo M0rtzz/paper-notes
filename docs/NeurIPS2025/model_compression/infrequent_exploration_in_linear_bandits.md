@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Infrequent Exploration in Linear Bandits 论文解读 | NeurIPS 2025 | arXiv 2510.26000 | linear bandits | 提出 INFEX 框架，按给定调度表在探索步执行基线算法（如 LinUCB/LinTS）、其余时刻贪心选臂，证明只要探索次数超过 ω(log T) 即可达到与全时刻探索相同的多项对数 regret，同时大幅降低计算开销（80%-99% 时间步为贪心）。"
+title: >-
+  [论文解读] Infrequent Exploration in Linear Bandits
+description: >-
+  [NeurIPS 2025][模型压缩][linear bandits] 提出 INFEX 框架，按给定调度表在探索步执行基线算法（如 LinUCB/LinTS）、其余时刻贪心选臂，证明只要探索次数超过 $\omega(\log T)$ 即可达到与全时刻探索相同的多项对数 regret，同时大幅降低计算开销（80%-99% 时间步为贪心）。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - linear bandits
   - infrequent exploration
   - greedy policy

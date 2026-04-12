@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PPE: Positional Preservation Embedding for Token Compression in Multimodal Large Language Models 论文解读 | ICLR 2026 | arXiv 2510.22936 | Token压缩 | 提出PPE(位置保持嵌入)，在MLLM视觉token合并时将多个原始位置ID编码到单个压缩token的不同维度段中（利用RoPE/M-RoPE维度独立性），无参数且即插即用，90%压缩率下在MMBench/TextVQA/VideoMME上比先前方法提升2-5%。"
+title: >-
+  [论文解读] PPE: Positional Preservation Embedding for Token Compression in Multimodal Large Language Models
+description: >-
+  [ICLR 2026][多模态][Token压缩] 提出PPE(位置保持嵌入)，在MLLM视觉token合并时将多个原始位置ID编码到单个压缩token的不同维度段中（利用RoPE/M-RoPE维度独立性），无参数且即插即用，90%压缩率下在MMBench/TextVQA/VideoMME上比先前方法提升2-5%。
 tags:
   - ICLR 2026
+  - 多模态
   - Token压缩
   - 位置编码
   - RoPE

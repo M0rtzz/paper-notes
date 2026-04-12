@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FROSS: Faster-than-Real-Time Online 3D Semantic Scene Graph Generation from RGB-D Images 论文解读 | ICCV 2025 | arXiv 2507.19993 | 3D Scene Graph | 提出FROSS方法，通过将2D场景图直接提升到3D空间并用高斯分布表示物体，实现了超实时（144 FPS）的在线3D语义场景图生成，无需精确点云重建。"
+title: >-
+  [论文解读] FROSS: Faster-than-Real-Time Online 3D Semantic Scene Graph Generation from RGB-D Images
+description: >-
+  [ICCV 2025][3D视觉][3D Scene Graph] 提出FROSS方法，通过将2D场景图直接提升到3D空间并用高斯分布表示物体，实现了超实时（144 FPS）的在线3D语义场景图生成，无需精确点云重建。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Scene Graph
   - Real-time
   - Gaussian Distribution

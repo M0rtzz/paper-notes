@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLIPPan: Adapting CLIP as A Supervisor for Unsupervised Pansharpening 论文解读 | AAAI 2026 | arXiv 2511.10896 | 全色锐化 | 提出 CLIPPan，通过轻量微调 CLIP 使其理解多光谱/全色/高分辨率多光谱图像类型及全色锐化过程，然后利用 Wald 协议等文本提示作为语义监督信号，实现无需地面真值的全分辨率无监督全色锐化，可作为即插即用模块兼容任意全色锐化骨干网络。"
+title: >-
+  [论文解读] CLIPPan: Adapting CLIP as A Supervisor for Unsupervised Pansharpening
+description: >-
+  [AAAI 2026][人体理解][全色锐化] 提出 CLIPPan，通过轻量微调 CLIP 使其理解多光谱/全色/高分辨率多光谱图像类型及全色锐化过程，然后利用 Wald 协议等文本提示作为语义监督信号，实现无需地面真值的全分辨率无监督全色锐化，可作为即插即用模块兼容任意全色锐化骨干网络。
 tags:
   - AAAI 2026
+  - 人体理解
   - 全色锐化
   - CLIP
   - 无监督

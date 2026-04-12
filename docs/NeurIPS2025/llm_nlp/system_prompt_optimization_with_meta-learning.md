@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】System Prompt Optimization with Meta-Learning 论文解读 | NeurIPS 2025 | arXiv 2505.09666 | 系统提示优化 | 提出双层系统提示优化问题并设计 MetaSPO 元学习框架，通过外循环优化跨任务泛化的系统提示、内循环优化任务特定的用户提示，使优化后的系统提示在 14 个未见任务上显著超越基线。"
+title: >-
+  [论文解读] System Prompt Optimization with Meta-Learning
+description: >-
+  [NeurIPS 2025][LLM/NLP][系统提示优化] 提出双层系统提示优化问题并设计 MetaSPO 元学习框架，通过外循环优化跨任务泛化的系统提示、内循环优化任务特定的用户提示，使优化后的系统提示在 14 个未见任务上显著超越基线。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - 系统提示优化
   - 元学习
   - 双层优化

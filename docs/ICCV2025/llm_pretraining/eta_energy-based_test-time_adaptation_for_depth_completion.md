@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ETA: Energy-based Test-time Adaptation for Depth Completion 论文解读 | ICCV 2025 | arXiv 2508.05989 | 测试时适配 | 提出ETA方法，利用能量模型量化深度预测属于源域分布的可能性，并在测试时通过最小化目标域预测的能量值来引导预训练深度补全模型适配到新环境，在室外和室内场景平均比先前SOTA分别提升6.94%和10.23%。"
+title: >-
+  [论文解读] ETA: Energy-based Test-time Adaptation for Depth Completion
+description: >-
+  [ICCV 2025][测试时适配] 提出ETA方法，利用能量模型量化深度预测属于源域分布的可能性，并在测试时通过最小化目标域预测的能量值来引导预训练深度补全模型适配到新环境，在室外和室内场景平均比先前SOTA分别提升6.94%和10.23%。
 tags:
   - ICCV 2025
   - 测试时适配

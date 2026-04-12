@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ShifCon: Enhancing Non-Dominant Language Capabilities with a Shift-based Multilingual Contrastive Framework 论文解读 | ACL 2025 | arXiv 2410.19453 | Multilingual LLM | 提出 ShifCon 框架，通过将非优势语言的表示 shift 到优势语言子空间以获取更丰富的模型知识，再 shift 回原语言子空间进行生成，结合多语言对比学习，显著提升低资源语言的表现。"
+title: >-
+  [论文解读] ShifCon: Enhancing Non-Dominant Language Capabilities with a Shift-based Multilingual Contrastive Framework
+description: >-
+  [ACL 2025][Multilingual LLM] 提出 ShifCon 框架，通过将非优势语言的表示 shift 到优势语言子空间以获取更丰富的模型知识，再 shift 回原语言子空间进行生成，结合多语言对比学习，显著提升低资源语言的表现。
 tags:
   - ACL 2025
   - Multilingual LLM

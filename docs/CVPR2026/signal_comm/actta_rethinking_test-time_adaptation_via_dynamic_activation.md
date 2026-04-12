@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation 论文解读 | CVPR 2026 | arXiv 2603.26096 | 测试时适应 | 提出AcTTA框架，首次将激活函数作为测试时适应(TTA)的可学习组件，通过参数化的激活中心偏移 c 和非对称梯度缩放 λ_pos, λ_neg 替代或增强传统归一化层适应，在CIFAR-10/100-C和ImageNet-C上一致超越所有归一化基TTA方法，并支持10倍大的学习率。"
+title: >-
+  [论文解读] AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation
+description: >-
+  [CVPR 2026][测试时适应] 提出AcTTA框架，首次将激活函数作为测试时适应(TTA)的可学习组件，通过参数化的激活中心偏移 $c$ 和非对称梯度缩放 $\lambda_{pos}, \lambda_{neg}$ 替代或增强传统归一化层适应，在CIFAR-10/100-C和ImageNet-C上一致超越所有归一化基TTA方法，并支持10倍大的学习率。
 tags:
   - CVPR 2026
   - 测试时适应

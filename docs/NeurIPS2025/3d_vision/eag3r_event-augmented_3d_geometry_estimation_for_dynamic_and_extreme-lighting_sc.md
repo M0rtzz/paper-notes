@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EAG3R: Event-Augmented 3D Geometry Estimation for Dynamic and Extreme-Lighting Scenes 论文解读 | NeurIPS 2025 | arXiv 2512.00771 | 事件相机 | EAG3R 将事件相机的异步事件流融入 MonST3R 点图重建框架，通过 Retinex 增强模块 + SNR 感知融合机制 + 事件光度一致性损失，在极端低光动态场景下实现鲁棒的深度估计、位姿跟踪和 4D 重建，零样本迁移夜间场景即可大幅超越 RGB-only 方法。"
+title: >-
+  [论文解读] EAG3R: Event-Augmented 3D Geometry Estimation for Dynamic and Extreme-Lighting Scenes
+description: >-
+  [NeurIPS 2025][3D视觉][事件相机] EAG3R 将事件相机的异步事件流融入 MonST3R 点图重建框架，通过 Retinex 增强模块 + SNR 感知融合机制 + 事件光度一致性损失，在极端低光动态场景下实现鲁棒的深度估计、位姿跟踪和 4D 重建，零样本迁移夜间场景即可大幅超越 RGB-only 方法。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 事件相机
   - 3D几何估计
   - 低光照

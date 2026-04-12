@@ -1,3 +1,10 @@
+---
+title: >-
+  NeurIPS2025 医学图像方向 140篇论文解读
+description: >-
+  140篇NeurIPS2025 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
@@ -87,7 +94,7 @@
 
 :   ConfRover 提出自回归框架将蛋白质 MD 轨迹分解为逐帧条件生成 $p(\mathbf{x}^{1:L}) = \prod_l p(\mathbf{x}^l | \mathbf{x}^{<l})$，通过编码器 + 因果 Transformer + SE(3) 扩散解码器的模块化架构，首次在单一模型中统一轨迹模拟、时间无关构象采样和构象插值三大任务，在 ATLAS 数据集上全面超越 MDGen。
 
-**[Consistent Sampling and Simulation: Molecular Dynamics with Energy-Based Diffusion Models](consistent_sampling_and_simulation_molecular_dynamics_with_energy-based_diffusio.md)**
+**[Consistent Sampling And Simulation Molecular Dynamics With Energy-Based Diffusio](consistent_sampling_and_simulation_molecular_dynamics_with_energy-based_diffusio.md)**
 
 :   本文发现扩散模型在采样和模拟之间存在不一致性问题（尤其在小扩散时间步），提出基于 Fokker-Planck 方程的正则化项来强制一致性，并结合时间分段的混合专家（MoE）策略，实现了在多个生物分子系统上一致且高效的采样与分子动力学模拟。
 

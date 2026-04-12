@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention 论文解读 | 提出 Dynamic Block-Sparse Attention (DBSA)，一种无需训练的推理框架，通过结构化块稀疏注意力编码和动态检索 KV 缓存，在多示例上下文学习中实现接近微调的推理延迟，同时保持 >95% 的最佳方法准确率。"
+title: >-
+  [论文解读] Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention
+description: >-
+  [LLM效率] 提出 Dynamic Block-Sparse Attention (DBSA)，一种无需训练的推理框架，通过结构化块稀疏注意力编码和动态检索 KV 缓存，在多示例上下文学习中实现接近微调的推理延迟，同时保持 >95% 的最佳方法准确率。
 tags:
-
+  - LLM效率
 ---
 
 # Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention

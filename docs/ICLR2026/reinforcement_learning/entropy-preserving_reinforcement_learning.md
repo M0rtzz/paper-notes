@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Entropy-Preserving Reinforcement Learning (REPO / ADAPO) 论文解读 | ICLR 2026 | arXiv 2603.11682 | 熵保持 | 本文揭示了策略梯度 RL 算法在 LLM 后训练中系统性导致策略熵坍缩的理论根因（优势函数与对数概率的正相关性），并提出两种互补的解法：REPO（通过修改优势函数去相关）和 ADAPO（自适应非对称裁剪），在交互式工具使用任务上实现 SOTA 性能。"
+title: >-
+  [论文解读] Entropy-Preserving Reinforcement Learning (REPO / ADAPO)
+description: >-
+  [ICLR 2026][熵保持] 本文揭示了策略梯度 RL 算法在 LLM 后训练中系统性导致策略熵坍缩的理论根因（优势函数与对数概率的正相关性），并提出两种互补的解法：REPO（通过修改优势函数去相关）和 ADAPO（自适应非对称裁剪），在交互式工具使用任务上实现 SOTA 性能。
 tags:
   - ICLR 2026
   - 熵保持

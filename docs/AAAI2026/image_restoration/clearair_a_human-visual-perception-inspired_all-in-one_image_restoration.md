@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ClearAIR: A Human-Visual-Perception-Inspired All-in-One Image Restoration 论文解读 | AAAI 2026 | arXiv 2601.02763 | 图像恢复 All-in-One Image Restoration | 受人类视觉感知（HVP）启发，提出一种从粗到细的统一图像复原框架 ClearAIR，通过 MLLM 质量评估 → 语义区域感知 → 退化类型识别 → 内部线索复用四阶段逐步恢复图像质量，在多种退化任务上取得 SOTA。"
+title: >-
+  [论文解读] ClearAIR: A Human-Visual-Perception-Inspired All-in-One Image Restoration
+description: >-
+  [AAAI 2026][图像恢复][图像恢复] 受人类视觉感知（HVP）启发，提出一种从粗到细的统一图像复原框架 ClearAIR，通过 MLLM 质量评估 → 语义区域感知 → 退化类型识别 → 内部线索复用四阶段逐步恢复图像质量，在多种退化任务上取得 SOTA。
 tags:
   - AAAI 2026
   - 图像恢复

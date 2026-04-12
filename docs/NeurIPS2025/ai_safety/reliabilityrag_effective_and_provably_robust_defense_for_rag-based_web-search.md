@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ReliabilityRAG: Effective and Provably Robust Defense for RAG-based Web-Search 论文解读 | NeurIPS 2025 | arXiv 2509.23519 | RAG安全 | ReliabilityRAG 提出了一种利用文档可靠性信号（如搜索排名）进行对抗防御的 RAG 框架，通过在矛盾图上寻找最大独立集（MIS）来识别一致的文档子集并优先选择高可靠性文档，提供可证明的鲁棒性保证，同时在良性场景和长文本生成任务上保持高准确率。"
+title: >-
+  [论文解读] ReliabilityRAG: Effective and Provably Robust Defense for RAG-based Web-Search
+description: >-
+  [NeurIPS 2025][AI安全][RAG安全] ReliabilityRAG 提出了一种利用文档可靠性信号（如搜索排名）进行对抗防御的 RAG 框架，通过在矛盾图上寻找最大独立集（MIS）来识别一致的文档子集并优先选择高可靠性文档，提供可证明的鲁棒性保证，同时在良性场景和长文本生成任务上保持高准确率。
 tags:
   - NeurIPS 2025
+  - AI安全
   - RAG安全
   - 对抗鲁棒性
   - 最大独立集

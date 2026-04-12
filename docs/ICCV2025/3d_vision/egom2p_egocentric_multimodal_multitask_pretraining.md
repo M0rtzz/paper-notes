@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EgoM2P: Egocentric Multimodal Multitask Pretraining 论文解读 | ICCV 2025 | arXiv 2506.07886 | 自我中心视觉 | EgoM2P 是首个面向自我中心(egocentric)4D理解的多模态多任务大模型，通过时序感知的掩码建模框架统一处理 RGB 视频、深度、注视和相机轨迹四种模态，在多个下游任务上匹配或超越专用模型且快一个数量级。"
+title: >-
+  [论文解读] EgoM2P: Egocentric Multimodal Multitask Pretraining
+description: >-
+  [ICCV 2025][3D视觉][自我中心视觉] EgoM2P 是首个面向自我中心(egocentric)4D理解的多模态多任务大模型，通过时序感知的掩码建模框架统一处理 RGB 视频、深度、注视和相机轨迹四种模态，在多个下游任务上匹配或超越专用模型且快一个数量级。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 自我中心视觉
   - 多模态预训练
   - 多任务学习

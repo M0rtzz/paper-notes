@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Complexity-Faithfulness Trade-off of Gradient-Based Explanations 论文解读 | ICCV 2025 | arXiv 2508.10490 | 可解释性 | 提出统一的频谱框架来系统性分析和量化梯度解释的平滑性（复杂度）与忠实度之间的权衡，引入期望频率（EF）度量网络对高频信息的依赖程度，并通过将 ReLU 与高斯函数卷积来控制解释复杂度，同时定义\"解释间隙\"来量化替代模型导致的忠实度损失。"
+title: >-
+  [论文解读] On the Complexity-Faithfulness Trade-off of Gradient-Based Explanations
+description: >-
+  [ICCV 2025][可解释性] 提出统一的频谱框架来系统性分析和量化梯度解释的平滑性（复杂度）与忠实度之间的权衡，引入期望频率（EF）度量网络对高频信息的依赖程度，并通过将 ReLU 与高斯函数卷积来控制解释复杂度，同时定义"解释间隙"来量化替代模型导致的忠实度损失。
 tags:
   - ICCV 2025
   - 可解释性

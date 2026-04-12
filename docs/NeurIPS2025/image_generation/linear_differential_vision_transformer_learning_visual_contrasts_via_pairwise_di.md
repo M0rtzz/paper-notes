@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Linear Differential Vision Transformer: Learning Visual Contrasts via Pairwise Differentials 论文解读 | NeurIPS 2025 | arXiv 2511.00833 | Transformer Vision Transformer | 提出 Visual-Contrast Attention (VCA)，通过空间池化生成紧凑的正负视觉对比 token 并进行差分交互，将自注意力复杂度从 O(N²C) 降至 O(NnC)（n ll N），同时在图像分类和生成任务上均获得显著提升。"
+title: >-
+  [论文解读] Linear Differential Vision Transformer: Learning Visual Contrasts via Pairwise Differentials
+description: >-
+  [NeurIPS 2025][图像生成][Transformer] 提出 Visual-Contrast Attention (VCA)，通过空间池化生成紧凑的正负视觉对比 token 并进行差分交互，将自注意力复杂度从 $O(N^2C)$ 降至 $O(NnC)$（$n \ll N$），同时在图像分类和生成任务上均获得显著提升。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - Transformer
   - 线性注意力
   - 差分注意力
   - 图像分类
-  - 图像生成
 ---
 
 # Linear Differential Vision Transformer: Learning Visual Contrasts via Pairwise Differentials

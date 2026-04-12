@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution 论文解读 | CVPR 2026 | arXiv 2603.11680 | image_restoration | 提出 UCAN，一种统一卷积与注意力的轻量级超分网络，通过 Hedgehog Attention 突破线性注意力的低秩瓶颈，结合 Flash Attention 大窗口建模、大核蒸馏模块和跨层参数共享，在极低计算量下实现了与大模型可比的超分性能。"
+title: >-
+  [论文解读] UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution
+description: >-
+  [CVPR 2026][图像恢复][image_restoration] 提出 UCAN，一种统一卷积与注意力的轻量级超分网络，通过 Hedgehog Attention 突破线性注意力的低秩瓶颈，结合 Flash Attention 大窗口建模、大核蒸馏模块和跨层参数共享，在极低计算量下实现了与大模型可比的超分性能。
 tags:
   - CVPR 2026
+  - 图像恢复
   - image_restoration
   - super_resolution
   - lightweight

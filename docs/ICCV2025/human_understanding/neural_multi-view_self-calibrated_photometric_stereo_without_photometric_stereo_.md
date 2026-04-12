@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Neural Multi-View Self-Calibrated Photometric Stereo without Photometric Stereo Cues 论文解读 | ICCV 2025 | arXiv 2507.23162 | 多视图光度立体 | 提出一种端到端的神经逆渲染框架，从多视图变化光照图像中联合恢复几何、空间变化反射率和光照参数，无需光源标定或中间光度立体线索（如法线图），超越了现有的分阶段 MVPS 方法。"
+title: >-
+  [论文解读] Neural Multi-View Self-Calibrated Photometric Stereo without Photometric Stereo Cues
+description: >-
+  [ICCV 2025][人体理解][多视图光度立体] 提出一种端到端的神经逆渲染框架，从多视图变化光照图像中联合恢复几何、空间变化反射率和光照参数，无需光源标定或中间光度立体线索（如法线图），超越了现有的分阶段 MVPS 方法。
 tags:
   - ICCV 2025
+  - 人体理解
   - 多视图光度立体
   - 神经逆渲染
   - 自标定

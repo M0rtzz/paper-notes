@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MDD: A Dataset for Text-and-Music Conditioned Duet Dance Generation 论文解读 | ICCV 2025 | arXiv 2508.16911 | 双人舞蹈生成 | 介绍 Multimodal DuetDance (MDD)，首个同时整合动作、音乐和文本描述的大规模专业级双人舞蹈数据集，包含 620 分钟动捕数据、15 种舞蹈类型和超过 10K 条细粒度文本标注，并提出 Text-to-Duet 和 Text-to-Dance Accompaniment 两个新任务。"
+title: >-
+  [论文解读] MDD: A Dataset for Text-and-Music Conditioned Duet Dance Generation
+description: >-
+  [ICCV 2025][人体理解][双人舞蹈生成] 介绍 Multimodal DuetDance (MDD)，首个同时整合动作、音乐和文本描述的大规模专业级双人舞蹈数据集，包含 620 分钟动捕数据、15 种舞蹈类型和超过 10K 条细粒度文本标注，并提出 Text-to-Duet 和 Text-to-Dance Accompaniment 两个新任务。
 tags:
   - ICCV 2025
+  - 人体理解
   - 双人舞蹈生成
   - 多模态数据集
   - 文本控制运动生成

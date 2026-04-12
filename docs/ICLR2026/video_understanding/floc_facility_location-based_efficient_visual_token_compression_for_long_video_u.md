@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FLoC: Facility Location-Based Efficient Visual Token Compression for Long Video Understanding 论文解读 | ICLR 2026 | arXiv 2511.00141 | 长视频理解 | 提出 FLoC，基于设施选址函数（facility location function）的视觉 token 压缩框架，通过子模优化在给定预算下快速选择兼具代表性和多样性的 token 子集，实现无训练、模型无关、查询无关的长视频理解 token 压缩。"
+title: >-
+  [论文解读] FLoC: Facility Location-Based Efficient Visual Token Compression for Long Video Understanding
+description: >-
+  [ICLR 2026][视频理解][长视频理解] 提出 FLoC，基于设施选址函数（facility location function）的视觉 token 压缩框架，通过子模优化在给定预算下快速选择兼具代表性和多样性的 token 子集，实现无训练、模型无关、查询无关的长视频理解 token 压缩。
 tags:
   - ICLR 2026
+  - 视频理解
   - 长视频理解
   - Token压缩
   - 设施选址

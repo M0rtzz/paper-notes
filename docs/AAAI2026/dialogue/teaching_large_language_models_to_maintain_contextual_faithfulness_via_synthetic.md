@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Canoe: Teaching LLMs to Maintain Contextual Faithfulness via Synthetic Tasks and RL 论文解读 | AAAI 2026 | arXiv 2505.16483 | 上下文忠实度 | 提出 Canoe 框架，通过从 Wikidata 三元组合成四类可验证的短形式 QA 数据，配合 Dual-GRPO（含准确率奖励、长形式代理奖励和格式奖励）同时优化短/长形式生成的忠实度，使 Llama-3-8B 在 11 个下游任务上平均提升 22.6%，超越 GPT-4o。"
+title: >-
+  [论文解读] Canoe: Teaching LLMs to Maintain Contextual Faithfulness via Synthetic Tasks and RL
+description: >-
+  [AAAI 2026][上下文忠实度] 提出 Canoe 框架，通过从 Wikidata 三元组合成四类可验证的短形式 QA 数据，配合 Dual-GRPO（含准确率奖励、长形式代理奖励和格式奖励）同时优化短/长形式生成的忠实度，使 Llama-3-8B 在 11 个下游任务上平均提升 22.6%，超越 GPT-4o。
 tags:
   - AAAI 2026
   - 上下文忠实度

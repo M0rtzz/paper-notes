@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation 论文解读 | ECCV 2024 | arXiv 2403.16990 | 多主体生成 | 提出 Bounded Attention，一种无需训练的注意力约束方法，通过在去噪过程中限制 cross-attention 和 self-attention 的信息流动来解决多主体文本到图像生成中的语义泄漏问题。"
+title: >-
+  [论文解读] Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation
+description: >-
+  [ECCV 2024][目标检测][多主体生成] 提出 Bounded Attention，一种无需训练的注意力约束方法，通过在去噪过程中限制 cross-attention 和 self-attention 的信息流动来解决多主体文本到图像生成中的语义泄漏问题。
 tags:
   - ECCV 2024
+  - 目标检测
   - 多主体生成
   - 注意力机制
   - 语义泄漏

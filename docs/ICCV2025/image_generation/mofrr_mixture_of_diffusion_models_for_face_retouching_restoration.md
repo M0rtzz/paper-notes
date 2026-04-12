@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoFRR: Mixture of Diffusion Models for Face Retouching Restoration 论文解读 | ICCV 2025 | arXiv 2507.19770 | 人脸修图还原 | 本文首次提出人脸修图还原(FRR)任务，并设计 MoFRR 框架——借鉴 DeepSeek MoE 思想，通过路由器激活特定修图类型的专家（小波 DDIM）和共享专家（通用 DDIM），在新构建的百万级 RetouchingFFHQ++ 数据集上实现了修图人脸的近真实还原。"
+title: >-
+  [论文解读] MoFRR: Mixture of Diffusion Models for Face Retouching Restoration
+description: >-
+  [ICCV 2025][图像生成][人脸修图还原] 本文首次提出人脸修图还原(FRR)任务，并设计 MoFRR 框架——借鉴 DeepSeek MoE 思想，通过路由器激活特定修图类型的专家（小波 DDIM）和共享专家（通用 DDIM），在新构建的百万级 RetouchingFFHQ++ 数据集上实现了修图人脸的近真实还原。
 tags:
   - ICCV 2025
+  - 图像生成
   - 人脸修图还原
   - 混合专家
   - 小波变换

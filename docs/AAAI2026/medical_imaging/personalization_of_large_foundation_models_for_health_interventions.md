@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Personalization of Large Foundation Models for Health Interventions 论文解读 | AAAI 2026 | arXiv 2601.03482 | 大基础模型 | 系统性分析大基础模型（LFMs）在个性化健康干预中的四大结构性矛盾，论证 LFMs 无法替代 N-of-1 试验，提出结合 LFMs 假设生成与 N-of-1 试验因果验证的混合框架。"
+title: >-
+  [论文解读] Personalization of Large Foundation Models for Health Interventions
+description: >-
+  [AAAI 2026][医学图像][大基础模型] 系统性分析大基础模型（LFMs）在个性化健康干预中的四大结构性矛盾，论证 LFMs 无法替代 N-of-1 试验，提出结合 LFMs 假设生成与 N-of-1 试验因果验证的混合框架。
 tags:
   - AAAI 2026
+  - 医学图像
   - 大基础模型
   - 个性化医疗
   - N-of-1 试验

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Expert-Guided Prompting and Retrieval-Augmented Generation for Emergency Medical Service Question Answering 论文解读 | AAAI2026 | arXiv 2511.10900 | RAG | 构建了首个 EMS 领域多选问答数据集 EMSQA（24.3K 题），并提出 Expert-CoT + ExpertRAG 框架，通过注入 subject area 和 certification level 等专业属性引导 LLM 推理和检索，最高带来 4.59% 的准确率提升。"
+title: >-
+  [论文解读] Expert-Guided Prompting and Retrieval-Augmented Generation for Emergency Medical Service Question Answering
+description: >-
+  [AAAI2026][医学图像][RAG] 构建了首个 EMS 领域多选问答数据集 EMSQA（24.3K 题），并提出 Expert-CoT + ExpertRAG 框架，通过注入 subject area 和 certification level 等专业属性引导 LLM 推理和检索，最高带来 4.59% 的准确率提升。
 tags:
   - AAAI2026
+  - 医学图像
   - RAG
   - chain-of-thought
   - emergency medical services

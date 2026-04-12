@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IGASA: Integrated Geometry-Aware and Skip-Attention Modules for Enhanced Point Cloud Registration 论文解读 | CVPR 2026 | arXiv 2603.12719 | 点云配准 | 提出 IGASA 点云配准框架，通过层级金字塔架构 (HPA) + 层级跨层注意力 (HCLA) 的跳跃注意力融合 + 迭代几何感知精细化 (IGAR) 的动态一致性加权，在 3DMatch 上达到 94.6% Registration Recall（SOTA），在 KITTI 上达到 100% RR，总推理时间仅 2.763s。"
+title: >-
+  [论文解读] IGASA: Integrated Geometry-Aware and Skip-Attention Modules for Enhanced Point Cloud Registration
+description: >-
+  [CVPR 2026][自动驾驶][点云配准] 提出 IGASA 点云配准框架，通过层级金字塔架构 (HPA) + 层级跨层注意力 (HCLA) 的跳跃注意力融合 + 迭代几何感知精细化 (IGAR) 的动态一致性加权，在 3DMatch 上达到 94.6% Registration Recall（SOTA），在 KITTI 上达到 100% RR，总推理时间仅 2.763s。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 点云配准
   - 层级金字塔架构
   - 跳跃注意力

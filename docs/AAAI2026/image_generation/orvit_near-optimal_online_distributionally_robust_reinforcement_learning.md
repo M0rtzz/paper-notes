@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ORVIT: Near-Optimal Online Distributionally Robust Reinforcement Learning 论文解读 | AAAI 2026 | arXiv 2508.03768 | Distributionally Robust RL | 本文研究在线分布鲁棒强化学习，提出了基于 f-散度不确定性集的 RVI-f 算法，在 χ² 和 KL 散度下均实现了近似极小极大最优的遗憾界，且不依赖任何结构性假设。"
+title: >-
+  [论文解读] ORVIT: Near-Optimal Online Distributionally Robust Reinforcement Learning
+description: >-
+  [AAAI 2026][图像生成][Distributionally Robust RL] 本文研究在线分布鲁棒强化学习，提出了基于 $f$-散度不确定性集的 RVI-$f$ 算法，在 $\chi^2$ 和 KL 散度下均实现了近似极小极大最优的遗憾界，且不依赖任何结构性假设。
 tags:
   - AAAI 2026
+  - 图像生成
   - Distributionally Robust RL
   - Online Learning
   - f-divergence

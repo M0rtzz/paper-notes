@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction 论文解读 | AAAI 2026 | arXiv 2601.11680 | PET重建 | 发现低剂量 PET 的三类退化在频域可分离——泊松噪声/光子不足导致高频相位扰动，衰减校正误差抑制低频幅度——据此提出 FourierPET：基于 ADMM 展开的频率感知重建框架，仅 0.44M 参数在三个数据集上全面 SOTA。"
+title: >-
+  [论文解读] FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction
+description: >-
+  [AAAI 2026][PET重建] 发现低剂量 PET 的三类退化在频域可分离——泊松噪声/光子不足导致高频相位扰动，衰减校正误差抑制低频幅度——据此提出 FourierPET：基于 ADMM 展开的频率感知重建框架，仅 0.44M 参数在三个数据集上全面 SOTA。
 tags:
   - AAAI 2026
   - PET重建

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】When Should Dense Retrievers Be Updated in Evolving Corpora? Detecting Out-of-Distribution Corpora Using GradNormIR 论文解读 | ACL 2025 | arXiv 2506.01877 | 稠密检索 | 提出 GradNormIR，一种利用梯度范数在无 query 条件下检测 OOD 语料库的无监督方法，帮助判断稠密检索器何时需要更新以应对不断演化的文档集合。"
+title: >-
+  [论文解读] When Should Dense Retrievers Be Updated in Evolving Corpora? Detecting Out-of-Distribution Corpora Using GradNormIR
+description: >-
+  [ACL 2025][稠密检索] 提出 GradNormIR，一种利用梯度范数在无 query 条件下检测 OOD 语料库的无监督方法，帮助判断稠密检索器何时需要更新以应对不断演化的文档集合。
 tags:
   - ACL 2025
   - 稠密检索

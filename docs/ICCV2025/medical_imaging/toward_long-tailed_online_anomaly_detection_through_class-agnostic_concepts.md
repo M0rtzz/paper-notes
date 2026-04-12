@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Toward Long-Tailed Online Anomaly Detection through Class-Agnostic Concepts 论文解读 | ICCV 2025 | arXiv 2507.16946 | 长尾异常检测 | 本文提出长尾在线异常检测（LTOAD）新任务和benchmark，核心创新是用可学习的\"类无关概念集\"替代传统的类标签依赖，结合Concept VQ-VAE和综合prompt学习框架，在不需要类标签的情况下于offline和online场景下均达到SOTA。"
+title: >-
+  [论文解读] Toward Long-Tailed Online Anomaly Detection through Class-Agnostic Concepts
+description: >-
+  [ICCV 2025][医学图像][长尾异常检测] 本文提出长尾在线异常检测（LTOAD）新任务和benchmark，核心创新是用可学习的"类无关概念集"替代传统的类标签依赖，结合Concept VQ-VAE和综合prompt学习框架，在不需要类标签的情况下于offline和online场景下均达到SOTA。
 tags:
   - ICCV 2025
+  - 医学图像
   - 长尾异常检测
   - 在线学习
   - 类无关概念

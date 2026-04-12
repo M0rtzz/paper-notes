@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLoE: Expert Consistency Learning for Missing Modality Segmentation 论文解读 | CVPR 2026 | arXiv 2603.09316 | 缺失模态 | 提出 CLoE（Consistency Learning of Experts），将缺失模态鲁棒性问题建模为决策层面的专家一致性控制，通过模态专家一致性（MEC）和区域专家一致性（REC）双分支约束减少专家漂移，并用一致性分数驱动的门控网络实现可靠性加权融合。"
+title: >-
+  [论文解读] CLoE: Expert Consistency Learning for Missing Modality Segmentation
+description: >-
+  [CVPR 2026][医学图像][缺失模态] 提出 CLoE（Consistency Learning of Experts），将缺失模态鲁棒性问题建模为决策层面的专家一致性控制，通过模态专家一致性（MEC）和区域专家一致性（REC）双分支约束减少专家漂移，并用一致性分数驱动的门控网络实现可靠性加权融合。
 tags:
   - CVPR 2026
+  - 医学图像
   - 缺失模态
   - 多模态分割
   - 一致性学习

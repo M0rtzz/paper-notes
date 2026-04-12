@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Uncertain Knowledge Graph Completion via Semi-Supervised Confidence Distribution Learning 论文解读 | NeurIPS 2025 | arXiv 2510.16601 | 不确定知识图谱 | 本文提出ssCDL方法，通过将三元组置信度转化为置信度分布并结合元自训练框架，解决不确定知识图谱中置信度分布极度不均衡的问题，在置信度预测和链接预测任务上均达到SOTA。"
+title: >-
+  [论文解读] Uncertain Knowledge Graph Completion via Semi-Supervised Confidence Distribution Learning
+description: >-
+  [NeurIPS 2025][图学习][不确定知识图谱] 本文提出ssCDL方法，通过将三元组置信度转化为置信度分布并结合元自训练框架，解决不确定知识图谱中置信度分布极度不均衡的问题，在置信度预测和链接预测任务上均达到SOTA。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 不确定知识图谱
   - 置信度分布学习
   - 元自训练

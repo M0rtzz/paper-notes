@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models 论文解读 | 将从100K+ LoRA适配器库中检索相关且多样化的LoRA组合建模为组合优化问题，提出基于子模函数最大化的LoRAverse框架，通过概念提取+子模检索实现兼顾相关性和多样性的LoRA选择。"
+title: >-
+  [论文解读] LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models
+description: >-
+  [图像生成] 将从100K+ LoRA适配器库中检索相关且多样化的LoRA组合建模为组合优化问题，提出基于子模函数最大化的LoRAverse框架，通过概念提取+子模检索实现兼顾相关性和多样性的LoRA选择。
 tags:
-
+  - 图像生成
 ---
 
 # LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models

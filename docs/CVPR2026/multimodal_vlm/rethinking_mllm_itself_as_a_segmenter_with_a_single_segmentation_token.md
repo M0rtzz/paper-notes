@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Rethinking MLLM Itself as a Segmenter with a Single Segmentation Token 论文解读 | CVPR 2026 | arXiv 2603.19026 | MLLM分割 | 提出 SELF1E，首次实现不依赖专用 mask 解码器且仅用单个 [SEG] token 的 MLLM 分割方法，通过 Residual Features Refilling (RFR) 和 Residual Features Amplifier (RFA) 恢复 pixel-shuffle 压缩造成的分辨率损失，在多个分割任务上达到与解码器方法竞争力相当的性能。"
+title: >-
+  [论文解读] Rethinking MLLM Itself as a Segmenter with a Single Segmentation Token
+description: >-
+  [CVPR 2026][多模态][MLLM分割] 提出 SELF1E，首次实现不依赖专用 mask 解码器且仅用单个 [SEG] token 的 MLLM 分割方法，通过 Residual Features Refilling (RFR) 和 Residual Features Amplifier (RFA) 恢复 pixel-shuffle 压缩造成的分辨率损失，在多个分割任务上达到与解码器方法竞争力相当的性能。
 tags:
   - CVPR 2026
+  - 多模态
   - MLLM分割
   - 无解码器分割
   - 单token分割

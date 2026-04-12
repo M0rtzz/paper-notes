@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Distribution-Wise Control in Representation Space for Language Models 论文解读 | ICML 2025 | arXiv 2506.06686 | 表示干预 | 将表示微调（Representation Fine-tuning）中的确定性节点替换为随机节点，通过重参数化技巧学习潜在分布而非单点变换，在常识推理和数学推理任务上取得了一致性能提升，尤其在早期层的干预效果最为显著。"
+title: >-
+  [论文解读] Learning Distribution-Wise Control in Representation Space for Language Models
+description: >-
+  [ICML 2025][表示干预] 将表示微调（Representation Fine-tuning）中的确定性节点替换为随机节点，通过重参数化技巧学习潜在分布而非单点变换，在常识推理和数学推理任务上取得了一致性能提升，尤其在早期层的干预效果最为显著。
 tags:
   - ICML 2025
   - 表示干预

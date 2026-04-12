@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniTok: A Unified Tokenizer for Visual Generation and Understanding 论文解读 | NeurIPS 2025 | arXiv 2502.20321 | 统一tokenizer | 提出 UniTok，一种统一视觉生成和理解的tokenizer，通过多码本量化（MCQ）突破离散token表示容量瓶颈，在ImageNet上实现0.38 rFID和78.6%零样本精度的双项记录，并可无缝集成到MLLM中同时启用生成和理解能力。"
+title: >-
+  [论文解读] UniTok: A Unified Tokenizer for Visual Generation and Understanding
+description: >-
+  [NeurIPS 2025][多模态][统一tokenizer] 提出 UniTok，一种统一视觉生成和理解的tokenizer，通过多码本量化（MCQ）突破离散token表示容量瓶颈，在ImageNet上实现0.38 rFID和78.6%零样本精度的双项记录，并可无缝集成到MLLM中同时启用生成和理解能力。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 统一tokenizer
   - VQVAE
   - CLIP

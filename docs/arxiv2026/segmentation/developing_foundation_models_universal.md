@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography 论文解读 | arXiv 2026 | arXiv 2603.11627 | developing | 正电子发射断层扫描（PET）是一种关键的核医学成像方式，可可视化放射性示踪剂分布以量化体内生理和代谢过程，在疾病管理中发挥着不可替代的作用。"
+title: >-
+  [论文解读] Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography
+description: >-
+  [arXiv 2026][图像分割][developing] 正电子发射断层扫描（PET）是一种关键的核医学成像方式，可可视化放射性示踪剂分布以量化体内生理和代谢过程，在疾病管理中发挥着不可替代的作用。
 tags:
   - arXiv 2026
+  - 图像分割
   - developing
   - foundation
   - models
   - universal
-  - 图像分割
 ---
 
 # Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography

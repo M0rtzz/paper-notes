@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Estimation of Stochastic Optimal Transport Maps 论文解读 | NeurIPS 2025 | arXiv 2512.09499 | 最优传输 | 提出随机最优传输映射的新评价指标 E_p（优化间隙+可行性间隙），发展了高效估计器，达到近优有限样本风险界 tildeO(n^-1/(d+2p))，且仅需最小假设，是首个通用的（可能随机的）OT 映射估计理论。"
+title: >-
+  [论文解读] Estimation of Stochastic Optimal Transport Maps
+description: >-
+  [NeurIPS 2025][最优传输] 提出随机最优传输映射的新评价指标 $\mathcal{E}_p$（优化间隙+可行性间隙），发展了高效估计器，达到近优有限样本风险界 $\tilde{O}(n^{-1/(d+2p)})$，且仅需最小假设，是首个通用的（可能随机的）OT 映射估计理论。
 tags:
   - NeurIPS 2025
   - 最优传输

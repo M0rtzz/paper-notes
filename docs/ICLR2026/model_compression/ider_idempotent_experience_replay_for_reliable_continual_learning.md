@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IDER: IDempotent Experience Replay for Reliable Continual Learning 论文解读 | ICLR 2026 | arXiv 2603.00624 | 持续学习 | 将幂等性（idempotence）引入持续学习，通过标准幂等模块和幂等蒸馏模块两个组件强制模型在学习新任务时保持输出自一致性，在提升预测可靠性（降低校准误差）的同时显著减少灾难性遗忘。"
+title: >-
+  [论文解读] IDER: IDempotent Experience Replay for Reliable Continual Learning
+description: >-
+  [ICLR 2026][模型压缩][持续学习] 将幂等性（idempotence）引入持续学习，通过标准幂等模块和幂等蒸馏模块两个组件强制模型在学习新任务时保持输出自一致性，在提升预测可靠性（降低校准误差）的同时显著减少灾难性遗忘。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 持续学习
   - 幂等性
   - 经验回放

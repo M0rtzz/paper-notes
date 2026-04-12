@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multi-Agent VLMs Guided Self-Training with PNU Loss for Low-Resource Offensive Content Detection 论文解读 | AAAI 2026 | arXiv 2511.13759 | 自训练 | 本文提出了一种多智能体视觉语言模型（MA-VLMs）引导的自训练框架，结合新颖的PNU损失函数，在仅有少量标注数据（如50个）的低资源场景下实现高质量攻击性内容检测，性能接近大规模模型。"
+title: >-
+  [论文解读] Multi-Agent VLMs Guided Self-Training with PNU Loss for Low-Resource Offensive Content Detection
+description: >-
+  [AAAI 2026][多模态][自训练] 本文提出了一种多智能体视觉语言模型（MA-VLMs）引导的自训练框架，结合新颖的PNU损失函数，在仅有少量标注数据（如50个）的低资源场景下实现高质量攻击性内容检测，性能接近大规模模型。
 tags:
   - AAAI 2026
+  - 多模态
   - 自训练
   - 多智能体VLM
   - 伪标签

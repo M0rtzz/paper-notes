@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization 论文解读 | ICLR 2026 | arXiv 2512.11391 | Safety Alignment | 提出 NSPO，将安全对齐的策略梯度投影到通用任务表征的零空间中，从几何层面保证安全优化不损害通用能力，仅用 40% 安全数据即在 7 个安全 benchmark 上达到 SOTA，同时在数学/代码/指令遵循上几乎无性能损失。"
+title: >-
+  [论文解读] Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization
+description: >-
+  [ICLR 2026][LLM对齐][Safety Alignment] 提出 NSPO，将安全对齐的策略梯度投影到通用任务表征的零空间中，从几何层面保证安全优化不损害通用能力，仅用 40% 安全数据即在 7 个安全 benchmark 上达到 SOTA，同时在数学/代码/指令遵循上几乎无性能损失。
 tags:
   - ICLR 2026
+  - LLM对齐
   - Safety Alignment
   - Null Space
   - 策略优化

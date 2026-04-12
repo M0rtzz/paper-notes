@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SEED-SET: Scalable Evolving Experimental Design for System-level Ethical Testing 论文解读 | 提出 SEED-SET 框架，将自主系统的伦理评估建模为层次化贝叶斯实验设计问题，同时整合客观指标和主观价值判断，在有限预算下高效生成高伦理对齐度的测试用例。"
+title: >-
+  [论文解读] SEED-SET: Scalable Evolving Experimental Design for System-level Ethical Testing
+description: >-
+   提出 SEED-SET 框架，将自主系统的伦理评估建模为层次化贝叶斯实验设计问题，同时整合客观指标和主观价值判断，在有限预算下高效生成高伦理对齐度的测试用例。
 tags:
 
 ---

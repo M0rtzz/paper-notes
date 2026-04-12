@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Sentiment Reasoning for Healthcare 论文解读 | ACL2025 | arXiv 2407.21054 | 情感推理 | 提出\"情感推理\"（Sentiment Reasoning）新任务，要求模型在预测医疗对话情感标签的同时生成解释理据，并构建了覆盖五种语言的 30K 样本多模态情感分析数据集，通过理据增强训练在分类准确率和 macro-F1 上均提升约 2%。"
+title: >-
+  [论文解读] Sentiment Reasoning for Healthcare
+description: >-
+  [ACL2025][NLP理解][情感推理] 提出"情感推理"（Sentiment Reasoning）新任务，要求模型在预测医疗对话情感标签的同时生成解释理据，并构建了覆盖五种语言的 30K 样本多模态情感分析数据集，通过理据增强训练在分类准确率和 macro-F1 上均提升约 2%。
 tags:
   - ACL2025
+  - NLP理解
   - 情感推理
   - 医疗对话
   - 多模态情感分析

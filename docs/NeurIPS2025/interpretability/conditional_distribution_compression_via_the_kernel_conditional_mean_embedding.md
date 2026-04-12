@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Conditional Distribution Compression via the Kernel Conditional Mean Embedding 论文解读 | NeurIPS 2025 | arXiv 2504.10139 | distribution compression | 首次提出针对**条件分布**（而非联合分布）的压缩算法，利用核条件均值嵌入（KCME）定义新度量 AMCMD，并设计线性时间算法 ACKIP 构建保留条件分布统计特性的压缩数据集。"
+title: >-
+  [论文解读] Conditional Distribution Compression via the Kernel Conditional Mean Embedding
+description: >-
+  [NeurIPS 2025][distribution compression] 首次提出针对**条件分布**（而非联合分布）的压缩算法，利用核条件均值嵌入（KCME）定义新度量 AMCMD，并设计线性时间算法 ACKIP 构建保留条件分布统计特性的压缩数据集。
 tags:
   - NeurIPS 2025
   - distribution compression

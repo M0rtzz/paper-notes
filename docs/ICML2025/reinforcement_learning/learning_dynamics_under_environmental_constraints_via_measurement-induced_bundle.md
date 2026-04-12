@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures 论文解读 | ICML2025 | arXiv 2505.19521 | 纤维丛 | 提出几何框架将测量、约束和动力学学习统一在纤维丛结构中：测量不确定性自然诱导纤维丛，在此结构上定义测量感知的控制屏障函数，结合Neural ODE学习保几何约束的连续时间动力学。"
+title: >-
+  [论文解读] Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures
+description: >-
+  [ICML2025][纤维丛] 提出几何框架将测量、约束和动力学学习统一在纤维丛结构中：测量不确定性自然诱导纤维丛，在此结构上定义测量感知的控制屏障函数，结合Neural ODE学习保几何约束的连续时间动力学。
 tags:
   - ICML2025
   - 纤维丛

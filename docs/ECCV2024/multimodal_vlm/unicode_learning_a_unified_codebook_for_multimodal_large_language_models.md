@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UniCode: Learning a Unified Codebook for Multimodal Large Language Models 论文解读 | ECCV 2024 | arXiv 2403.09072 | 统一码本 | UniCode提出学习一个统一的codebook来同时tokenize视觉和文本信号，通过language-driven iterative training范式将视觉tokenizer的码本与LLM的词表渐进对齐，并引入in-context image decompression预训练任务提升图像生成质量，使MLLM无需额外对齐模块即可实现多模态理解与生成。"
+title: >-
+  [论文解读] UniCode: Learning a Unified Codebook for Multimodal Large Language Models
+description: >-
+  [ECCV 2024][多模态][统一码本] UniCode提出学习一个统一的codebook来同时tokenize视觉和文本信号，通过language-driven iterative training范式将视觉tokenizer的码本与LLM的词表渐进对齐，并引入in-context image decompression预训练任务提升图像生成质量，使MLLM无需额外对齐模块即可实现多模态理解与生成。
 tags:
   - ECCV 2024
+  - 多模态
   - 统一码本
   - 视觉量化
   - 多模态生成

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gradient-Sign Masking for Task Vector Transport Across Pre-Trained Models 论文解读 | ICLR 2026 | arXiv 2510.09658 | task vector | 提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。"
+title: >-
+  [论文解读] Gradient-Sign Masking for Task Vector Transport Across Pre-Trained Models
+description: >-
+  [ICLR 2026][自监督学习][task vector] 提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。
 tags:
   - ICLR 2026
+  - 自监督学习
   - task vector
   - model merging
   - gradient masking

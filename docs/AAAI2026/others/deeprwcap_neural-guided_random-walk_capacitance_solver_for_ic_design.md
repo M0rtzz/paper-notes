@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DeepRWCap: Neural-Guided Random-Walk Capacitance Solver for IC Design 论文解读 | AAAI 2026 | arXiv 2511.06831 | 电容提取 | 提出 DeepRWCap，一种机器学习引导的随机游走电容求解器，通过两阶段神经网络架构预测转移核来加速IC设计中的多介质域电容提取，在10个工业测试案例上实现平均1.24%误差和23%加速。"
+title: >-
+  [论文解读] DeepRWCap: Neural-Guided Random-Walk Capacitance Solver for IC Design
+description: >-
+  [AAAI 2026][电容提取] 提出 DeepRWCap，一种机器学习引导的随机游走电容求解器，通过两阶段神经网络架构预测转移核来加速IC设计中的多介质域电容提取，在10个工业测试案例上实现平均1.24%误差和23%加速。
 tags:
   - AAAI 2026
   - 电容提取

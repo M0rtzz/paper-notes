@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Information Density Principle for MLLM Benchmarks 论文解读 | ICCV 2025 | arXiv 2503.10079 | 基准评价 | 提出\"信息密度\"原则从 Fallacy（错误）、Difficulty（难度）、Redundancy（冗余）、Diversity（多样性）四个维度评估 MLLM benchmark 质量，构建了一套 Human-Model-Data 三级自动化评估流水线，对 19 个主流 benchmark 进行了系统性的\"benchmark for benchmark\"分析。"
+title: >-
+  [论文解读] Information Density Principle for MLLM Benchmarks
+description: >-
+  [ICCV 2025][多模态][基准评价] 提出"信息密度"原则从 Fallacy（错误）、Difficulty（难度）、Redundancy（冗余）、Diversity（多样性）四个维度评估 MLLM benchmark 质量，构建了一套 Human-Model-Data 三级自动化评估流水线，对 19 个主流 benchmark 进行了系统性的"benchmark for benchmark"分析。
 tags:
   - ICCV 2025
+  - 多模态
   - 基准评价
   - 信息密度
   - MLLM评估

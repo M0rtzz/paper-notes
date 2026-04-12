@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Arbitrary-Scale 3D Gaussian Super-Resolution 论文解读 | AAAI 2026 | arXiv 2508.16467 | 3DGS | 提出一个集成框架实现3D高斯溅射(3DGS)的任意倍率超分辨率渲染，通过尺度感知渲染、生成先验引导优化和渐进超分机制，用单个3D模型支持整数和非整数倍率的HR渲染，PSNR提升6.59dB同时保持85 FPS实时速度。"
+title: >-
+  [论文解读] Arbitrary-Scale 3D Gaussian Super-Resolution
+description: >-
+  [AAAI 2026][3D视觉][3DGS] 提出一个集成框架实现3D高斯溅射(3DGS)的任意倍率超分辨率渲染，通过尺度感知渲染、生成先验引导优化和渐进超分机制，用单个3D模型支持整数和非整数倍率的HR渲染，PSNR提升6.59dB同时保持85 FPS实时速度。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 3DGS
   - 任意倍率超分
   - 尺度感知渲染

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Helix: Evolutionary Reinforcement Learning for Open-Ended Scientific Problem Solving 论文解读 | ICLR 2026 | arXiv 2603.07642 | 进化算法 | 提出 HELIX 框架，将强化学习（GRPO）与进化算法（NSGA-II）结合用于开放式科学问题求解：RL 迭代优化策略，进化机制平衡解的质量与多样性，in-context learning 利用历史解指导探索，仅用 14B 模型在圆填充、机器学习任务等 20 个任务中超越 GPT-4o 流水线。"
+title: >-
+  [论文解读] Helix: Evolutionary Reinforcement Learning for Open-Ended Scientific Problem Solving
+description: >-
+  [ICLR 2026][进化算法] 提出 HELIX 框架，将强化学习（GRPO）与进化算法（NSGA-II）结合用于开放式科学问题求解：RL 迭代优化策略，进化机制平衡解的质量与多样性，in-context learning 利用历史解指导探索，仅用 14B 模型在圆填充、机器学习任务等 20 个任务中超越 GPT-4o 流水线。
 tags:
   - ICLR 2026
   - 进化算法

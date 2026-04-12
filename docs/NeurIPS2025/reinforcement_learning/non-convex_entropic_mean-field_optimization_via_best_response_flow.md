@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Non-convex Entropic Mean-Field Optimization via Best Response Flow 论文解读 | NeurIPS 2025 | arXiv 2505.22760 | 平均场优化 | 将Best Response Flow从凸函数泛函优化扩展到非凸情形，证明在充分大的熵正则化下，BR算子在 $L^1$-Wasserstein距离下成为压缩映射，保证非凸目标的唯一全局最小值存在性及指数收敛。"
+title: >-
+  [论文解读] Non-convex Entropic Mean-Field Optimization via Best Response Flow
+description: >-
+  [NeurIPS 2025][平均场优化] 将Best Response Flow从凸函数泛函优化扩展到非凸情形，证明在充分大的熵正则化下，BR算子在 $L^1$-Wasserstein距离下成为压缩映射，保证非凸目标的唯一全局最小值存在性及指数收敛。
 tags:
   - NeurIPS 2025
   - 平均场优化

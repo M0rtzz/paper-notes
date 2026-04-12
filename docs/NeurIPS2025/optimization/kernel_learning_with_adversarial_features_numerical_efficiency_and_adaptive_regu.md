@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Kernel Learning with Adversarial Features: Numerical Efficiency and Adaptive Regularization 论文解读 | NeurIPS 2025 | arXiv 2510.20883 | adversarial training | 提出在再生核希尔伯特空间（RKHS）中将对抗扰动从输入空间转移到特征空间的新范式，使内层最大化可精确求解，并通过迭代加权核岭回归高效优化，同时自适应正则化无需调参即可匹配交叉验证性能。"
+title: >-
+  [论文解读] Kernel Learning with Adversarial Features: Numerical Efficiency and Adaptive Regularization
+description: >-
+  [NeurIPS 2025][优化][adversarial training] 提出在再生核希尔伯特空间（RKHS）中将对抗扰动从输入空间转移到特征空间的新范式，使内层最大化可精确求解，并通过迭代加权核岭回归高效优化，同时自适应正则化无需调参即可匹配交叉验证性能。
 tags:
   - NeurIPS 2025
+  - 优化
   - adversarial training
   - kernel methods
   - RKHS

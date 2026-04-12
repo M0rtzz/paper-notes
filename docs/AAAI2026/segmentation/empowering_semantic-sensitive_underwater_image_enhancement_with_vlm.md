@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Empowering Semantic-Sensitive Underwater Image Enhancement with VLM 论文解读 | AAAI2026 | arXiv 2603.12773 | Underwater Image Enhancement | 利用 VLM 生成空间语义引导图，通过 cross-attention 注入和语义对齐损失的双重引导机制，赋予水下图像增强网络语义感知能力，使增强结果同时有利于人类感知和下游检测/分割任务。"
+title: >-
+  [论文解读] Empowering Semantic-Sensitive Underwater Image Enhancement with VLM
+description: >-
+  [AAAI2026][图像分割][Underwater Image Enhancement] 利用 VLM 生成空间语义引导图，通过 cross-attention 注入和语义对齐损失的双重引导机制，赋予水下图像增强网络语义感知能力，使增强结果同时有利于人类感知和下游检测/分割任务。
 tags:
   - AAAI2026
+  - 图像分割
   - Underwater Image Enhancement
   - 视觉语言
   - Semantic Guidance

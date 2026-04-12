@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Splat Feature Solver 论文解读 | ICLR 2026 | arXiv 2508.12216 | 特征提升 | 将3D特征提升(从2D语义→3D高斯)形式化为稀疏线性逆问题AX=B→闭式求解→证明凸损失下全局最优误差上界→Tikhonov引导+后处理聚合两种正则化稳定解→核/特征无关(通用于3DGS/2DGS/Beta Splatting+CLIP/DINO/ViT/CNN)→开放词汇3D分割SOTA且仅需分钟级计算。"
+title: >-
+  [论文解读] Splat Feature Solver
+description: >-
+  [ICLR 2026][3D视觉][特征提升] 将3D特征提升(从2D语义→3D高斯)形式化为稀疏线性逆问题AX=B→闭式求解→证明凸损失下全局最优误差上界→Tikhonov引导+后处理聚合两种正则化稳定解→核/特征无关(通用于3DGS/2DGS/Beta Splatting+CLIP/DINO/ViT/CNN)→开放词汇3D分割SOTA且仅需分钟级计算。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 特征提升
   - 线性逆问题
   - 3DGS

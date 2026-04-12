@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Physical Simulator In-the-Loop Video Generation 论文解读 | CVPR 2026 | arXiv 2603.06408 | 物理模拟器 | 提出 PSIVG，首个将物理模拟器嵌入视频扩散模型推理循环的无训练框架：从模板视频重建 4D 场景和 3D 网格并初始化物理模拟器，生成物理一致轨迹引导视频生成，并通过 Test-Time Texture Consistency Optimization（TTCO）优化前景纹理一致性。用户研究中 82.3% 偏好率远超所有基线。"
+title: >-
+  [论文解读] Physical Simulator In-the-Loop Video Generation
+description: >-
+  [CVPR 2026][图像生成][物理模拟器] 提出 PSIVG，首个将物理模拟器嵌入视频扩散模型推理循环的无训练框架：从模板视频重建 4D 场景和 3D 网格并初始化物理模拟器，生成物理一致轨迹引导视频生成，并通过 Test-Time Texture Consistency Optimization（TTCO）优化前景纹理一致性。用户研究中 82.3% 偏好率远超所有基线。
 tags:
   - CVPR 2026
+  - 图像生成
   - 物理模拟器
   - 视频生成
   - 扩散模型

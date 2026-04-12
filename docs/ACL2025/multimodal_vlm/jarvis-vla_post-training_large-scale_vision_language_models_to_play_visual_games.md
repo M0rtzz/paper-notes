@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】JARVIS-VLA: Post-Training Large-Scale Vision Language Models to Play Visual Games 论文解读 | ACL 2025 | arXiv 2503.16365 | 视觉语言动作模型 | 提出ActVLP训练范式，在动作模仿学习之前增加视觉语言后训练阶段（世界知识、视觉对齐、空间定位），构建首个能在Minecraft中执行1000+原子任务的VLA模型JARVIS-VLA，相比最佳基线提升40%。"
+title: >-
+  [论文解读] JARVIS-VLA: Post-Training Large-Scale Vision Language Models to Play Visual Games
+description: >-
+  [ACL 2025][多模态][视觉语言动作模型] 提出ActVLP训练范式，在动作模仿学习之前增加视觉语言后训练阶段（世界知识、视觉对齐、空间定位），构建首个能在Minecraft中执行1000+原子任务的VLA模型JARVIS-VLA，相比最佳基线提升40%。
 tags:
   - ACL 2025
+  - 多模态
   - 视觉语言动作模型
   - 后训练
   - Minecraft

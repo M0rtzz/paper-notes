@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents 论文解读 | ICLR 2026 | arXiv 2603.01438 | role-playing agents | 提出 PDD（Persona Dynamic Decoding）框架，通过条件互信息动态估计不同场景下人设属性的重要性，并以加权多目标奖励引导推理时解码，实现无需微调的自适应人设遵循。"
+title: >-
+  [论文解读] Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents
+description: >-
+  [ICLR 2026][LLM/NLP][role-playing agents] 提出 PDD（Persona Dynamic Decoding）框架，通过条件互信息动态估计不同场景下人设属性的重要性，并以加权多目标奖励引导推理时解码，实现无需微调的自适应人设遵循。
 tags:
   - ICLR 2026
+  - LLM/NLP
   - role-playing agents
   - persona following
   - inference-time alignment

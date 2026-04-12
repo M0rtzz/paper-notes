@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OrthoGrad Improves Neural Calibration 论文解读 | NeurIPS 2025 | arXiv 2506.04487 | 梯度正交化 | 本文系统研究了OrthoGrad（⊥Grad）——一种将梯度投影到与权重向量正交方向的几何约束优化方法——在神经网络校准（calibration）中的效果，实验表明该方法在不损失准确率的情况下显著降低模型过度自信，并从理论上证明了简化版本的收敛性。"
+title: >-
+  [论文解读] OrthoGrad Improves Neural Calibration
+description: >-
+  [NeurIPS 2025][优化][梯度正交化] 本文系统研究了OrthoGrad（⊥Grad）——一种将梯度投影到与权重向量正交方向的几何约束优化方法——在神经网络校准（calibration）中的效果，实验表明该方法在不损失准确率的情况下显著降低模型过度自信，并从理论上证明了简化版本的收敛性。
 tags:
   - NeurIPS 2025
+  - 优化
   - 梯度正交化
   - 校准
   - 不确定性估计

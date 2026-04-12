@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Optimizing Pre-Training Data Mixtures with Mixtures of Data Expert Models 论文解读 | 提出Mixture of Data Experts (MDE)方法，通过在各数据域上独立训练专家模型并用混合权重进行概率级集成，高效近似不同数据混合比下的语言模型损失，大幅提升预训练数据混合比例的搜索效率和预测精度。"
+title: >-
+  [论文解读] Optimizing Pre-Training Data Mixtures with Mixtures of Data Expert Models
+description: >-
+   提出Mixture of Data Experts (MDE)方法，通过在各数据域上独立训练专家模型并用混合权重进行概率级集成，高效近似不同数据混合比下的语言模型损失，大幅提升预训练数据混合比例的搜索效率和预测精度。
 tags:
 
 ---

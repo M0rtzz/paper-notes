@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoSVR: Taming Sparse Voxels for Geometrically Accurate Surface Reconstruction 论文解读 | NeurIPS 2025 | arXiv 2509.18090 | surface reconstruction | 提出基于稀疏体素的显式表面重建框架 GeoSVR，通过体素不确定性深度约束和稀疏体素表面正则化，在几何精度、细节保留和重建完整性方面全面超越现有基于 3DGS 和 SDF 的方法。"
+title: >-
+  [论文解读] GeoSVR: Taming Sparse Voxels for Geometrically Accurate Surface Reconstruction
+description: >-
+  [NeurIPS 2025][3D视觉][surface reconstruction] 提出基于稀疏体素的显式表面重建框架 GeoSVR，通过体素不确定性深度约束和稀疏体素表面正则化，在几何精度、细节保留和重建完整性方面全面超越现有基于 3DGS 和 SDF 的方法。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - surface reconstruction
   - sparse voxels
   - depth constraint

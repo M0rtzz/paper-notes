@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MARS-Sep: Multimodal-Aligned Reinforced Sound Separation 论文解读 | ICLR 2026 | arXiv 2510.10509 | 声源分离 | 将声源分离重新定义为偏好对齐问题（类似LLM的RLHF），提出MARS-Sep框架用因子化Beta掩码策略+多模态奖励模型+信任域优化，使分离结果不仅信号干净还与查询语义对齐，在文本/音频/图像引导分离中同时提升信号指标和CLAP语义分数。"
+title: >-
+  [论文解读] MARS-Sep: Multimodal-Aligned Reinforced Sound Separation
+description: >-
+  [ICLR 2026][声源分离] 将声源分离重新定义为偏好对齐问题（类似LLM的RLHF），提出MARS-Sep框架用因子化Beta掩码策略+多模态奖励模型+信任域优化，使分离结果不仅信号干净还与查询语义对齐，在文本/音频/图像引导分离中同时提升信号指标和CLAP语义分数。
 tags:
   - ICLR 2026
   - 声源分离

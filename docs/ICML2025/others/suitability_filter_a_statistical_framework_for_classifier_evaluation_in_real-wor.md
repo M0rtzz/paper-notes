@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Suitability Filter: A Statistical Framework for Classifier Evaluation in Real-World Settings 论文解读 | ICML 2025 | arXiv 2505.22356 | classifier evaluation | 本文提出 Suitability Filter 框架，利用模型输出的\"适用性信号\"（suitability signals）在无标签的用户数据上检测分类器性能退化，通过统计假设检验判断准确率是否相比测试集显著下降。"
+title: >-
+  [论文解读] Suitability Filter: A Statistical Framework for Classifier Evaluation in Real-World Settings
+description: >-
+  [ICML 2025][classifier evaluation] 本文提出 Suitability Filter 框架，利用模型输出的"适用性信号"（suitability signals）在无标签的用户数据上检测分类器性能退化，通过统计假设检验判断准确率是否相比测试集显著下降。
 tags:
   - ICML 2025
   - classifier evaluation

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Capacity-Aware Inference: Mitigating the Straggler Effect in Mixture of Experts 论文解读 | ICLR2026 | arXiv 2503.05066 | Mixture of Experts | 针对 MoE 推理时因 token 分配不均导致的 Straggler Effect（最重负载专家决定整体延迟），提出 Capacity-Aware Token Drop（丢弃过载专家的低分 token）和 Expanded Drop（将溢出 token 重路由到本地低负载专家），在 Mixtral-8×7B 上实现 1.85× 加速且性能提升 0.2%。"
+title: >-
+  [论文解读] Capacity-Aware Inference: Mitigating the Straggler Effect in Mixture of Experts
+description: >-
+  [ICLR2026][多模态][Mixture of Experts] 针对 MoE 推理时因 token 分配不均导致的 Straggler Effect（最重负载专家决定整体延迟），提出 Capacity-Aware Token Drop（丢弃过载专家的低分 token）和 Expanded Drop（将溢出 token 重路由到本地低负载专家），在 Mixtral-8×7B 上实现 1.85× 加速且性能提升 0.2%。
 tags:
   - ICLR2026
+  - 多模态
   - Mixture of Experts
   - inference efficiency
   - straggler effect

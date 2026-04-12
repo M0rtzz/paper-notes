@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] AnimateAnything: Consistent and Controllable Animation for Video Generation
+description: >-
+  [CVPR 2025][视频理解][可控视频生成] 提出两阶段可控视频生成框架：第一阶段将不同控制信号（相机轨迹、用户拖拽标注、参考视频）统一转化为逐帧光流表示，第二阶段用统一光流引导基于DiT的视频扩散模型生成最终视频，并引入频域稳定模块抑制大运动下的闪烁问题。
+tags:
+  - CVPR 2025
+  - 视频理解
+  - 可控视频生成
+  - 光流统一表示
+  - 相机轨迹控制
+  - 频域稳定
+  - 多条件融合
+---
+
 # AnimateAnything: Consistent and Controllable Animation for Video Generation
 
 **会议**: CVPR 2025  

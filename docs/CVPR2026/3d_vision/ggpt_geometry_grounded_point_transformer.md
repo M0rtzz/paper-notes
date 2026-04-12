@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GGPT: Geometry Grounded Point Transformer 论文解读 | CVPR 2026 | arXiv 2603.11174 | 3D重建 3D reconstruction | 提出 GGPT 框架，通过改进的轻量 SfM 管线获取几何一致但稀疏的 3D 点云，再用 3D Point Transformer 在三维空间中直接融合稀疏几何引导与稠密前馈预测，实现跨架构、跨数据集的显著泛化提升。"
+title: >-
+  [论文解读] GGPT: Geometry Grounded Point Transformer
+description: >-
+  [CVPR 2026][3D视觉][3D重建] 提出 GGPT 框架，通过改进的轻量 SfM 管线获取几何一致但稀疏的 3D 点云，再用 3D Point Transformer 在三维空间中直接融合稀疏几何引导与稠密前馈预测，实现跨架构、跨数据集的显著泛化提升。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D重建
   - sparse-view
   - Transformer

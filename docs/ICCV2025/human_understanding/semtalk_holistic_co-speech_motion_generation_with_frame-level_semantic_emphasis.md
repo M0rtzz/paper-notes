@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】SemTalk: Holistic Co-speech Motion Generation with Frame-level Semantic Emphasis 论文解读 | > SemTalk 将共语动作分解为节奏相关的基础动作和语义感知的稀疏动作，通过学得的语义分数自适应融合两者，实现帧级语义强调的高质量全身共语动作生成。"
+title: >-
+  [论文解读] SemTalk: Holistic Co-speech Motion Generation with Frame-level Semantic Emphasis
+description: >-
+  [人体理解] > SemTalk 将共语动作分解为节奏相关的基础动作和语义感知的稀疏动作，通过学得的语义分数自适应融合两者，实现帧级语义强调的高质量全身共语动作生成。
 tags:
-
+  - 人体理解
 ---
 
 # SemTalk: Holistic Co-speech Motion Generation with Frame-level Semantic Emphasis

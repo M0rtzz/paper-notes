@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CORDS: Continuous Representations of Discrete Structures 论文解读 | ICLR 2026 | arXiv 2601.21583 | 集合预测 | 提出 CORDS 框架，通过将变大小离散集合（检测框、分子原子）双射映射为连续的密度场和特征场，使模型可在场空间中学习并精确解码回离散集合，避免了固定 slot 或 padding 的限制。"
+title: >-
+  [论文解读] CORDS: Continuous Representations of Discrete Structures
+description: >-
+  [ICLR 2026][目标检测][集合预测] 提出 CORDS 框架，通过将变大小离散集合（检测框、分子原子）双射映射为连续的密度场和特征场，使模型可在场空间中学习并精确解码回离散集合，避免了固定 slot 或 padding 的限制。
 tags:
   - ICLR 2026
+  - 目标检测
   - 集合预测
   - 连续场表示
   - 可逆映射

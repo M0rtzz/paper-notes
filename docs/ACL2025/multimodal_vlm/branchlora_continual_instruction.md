@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing Multimodal Continual Instruction Tuning with BranchLoRA 论文解读 | ACL 2025 (Long Paper) | 持续指令微调 | 发现MoELoRA在多模态持续指令微调(MCIT)中存在参数低效——矩阵A跨任务趋同而B保持区分，提出BranchLoRA：共享一个A矩阵（树干）+ 多个专有B矩阵（树枝） + 灵活调参-冻结机制 + 任务特定路由器，在CoIN benchmark上显著超越MoELoRA，有效缓解灾难性遗忘。"
+title: >-
+  [论文解读] Enhancing Multimodal Continual Instruction Tuning with BranchLoRA
+description: >-
+  [ACL 2025 (Long Paper)][多模态][持续指令微调] 发现MoELoRA在多模态持续指令微调(MCIT)中存在参数低效——矩阵A跨任务趋同而B保持区分，提出BranchLoRA：共享一个A矩阵（树干）+ 多个专有B矩阵（树枝） + 灵活调参-冻结机制 + 任务特定路由器，在CoIN benchmark上显著超越MoELoRA，有效缓解灾难性遗忘。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 持续指令微调
   - 灾难性遗忘
   - MoE LoRA

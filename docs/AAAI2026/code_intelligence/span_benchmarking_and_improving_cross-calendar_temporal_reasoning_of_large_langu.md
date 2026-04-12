@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SPAN: Benchmarking and Improving Cross-Calendar Temporal Reasoning of Large Language Models 论文解读 | AAAI 2026 | arXiv 2511.09993 | 跨日历推理 | 提出SPAN跨日历时间推理基准（6种日历×10推理方向×100年范围×37380实例），发现基础LLM平均仅34.5%准确率（无一超过80%），揭示Future-Date Degradation和Calendar Asymmetry Bias两种系统性失败模式，工具增强的Time Agent达95.31%——证明跨日历推理需要外部工具而非参数化知识。"
+title: >-
+  [论文解读] SPAN: Benchmarking and Improving Cross-Calendar Temporal Reasoning of Large Language Models
+description: >-
+  [AAAI 2026][跨日历推理] 提出SPAN跨日历时间推理基准（6种日历×10推理方向×100年范围×37380实例），发现基础LLM平均仅34.5%准确率（无一超过80%），揭示Future-Date Degradation和Calendar Asymmetry Bias两种系统性失败模式，工具增强的Time Agent达95.31%——证明跨日历推理需要外部工具而非参数化知识。
 tags:
   - AAAI 2026
   - 跨日历推理

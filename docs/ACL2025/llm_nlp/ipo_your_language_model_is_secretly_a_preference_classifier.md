@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IPO: Your Language Model is Secretly a Preference Classifier 论文解读 | ACL 2025 | arXiv 2502.16182 | 偏好优化 | 提出隐式偏好优化（IPO），利用生成式LLM自身作为偏好分类器（通过\"Yes/No\"token的概率），替代外部奖励模型来获取偏好信号，从而实现低成本的自对齐训练。"
+title: >-
+  [论文解读] IPO: Your Language Model is Secretly a Preference Classifier
+description: >-
+  [ACL 2025][LLM/NLP][偏好优化] 提出隐式偏好优化（IPO），利用生成式LLM自身作为偏好分类器（通过"Yes/No"token的概率），替代外部奖励模型来获取偏好信号，从而实现低成本的自对齐训练。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 偏好优化
   - 奖励模型
   - 自我改进

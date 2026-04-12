@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Control Illusion: The Failure of Instruction Hierarchies in Large Language Models 论文解读 | AAAI 2026 | arXiv 2502.15851 | 指令层级 | 系统性揭示了当前 LLM 中 system/user 提示分离机制**无法有效建立指令优先级**，并发现预训练习得的社会层级先验（权威、专业、共识）比显式的 system/user 角色对模型行为有更强的控制力。"
+title: >-
+  [论文解读] Control Illusion: The Failure of Instruction Hierarchies in Large Language Models
+description: >-
+  [AAAI 2026][LLM/NLP][指令层级] 系统性揭示了当前 LLM 中 system/user 提示分离机制**无法有效建立指令优先级**，并发现预训练习得的社会层级先验（权威、专业、共识）比显式的 system/user 角色对模型行为有更强的控制力。
 tags:
   - AAAI 2026
+  - LLM/NLP
   - 指令层级
   - system/user分离
   - 冲突指令

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Multilingual Retrieval Augmented Generation for Culturally-Sensitive Tasks: A Benchmark for Cross-lingual Robustness 论文解读 | ACL 2025 | arXiv 2410.01171 | 多语言RAG | 构建了 BordIRLines 基准数据集，包含 49 种语言的领土争端查询及配对的 Wikipedia 检索文档，系统评估了多语言 RAG 环境下的跨语言鲁棒性，发现**检索多语言文档能比仅检索同语言文档更好地提高响应一致性并减少地缘政治偏差**。"
+title: >-
+  [论文解读] Multilingual Retrieval Augmented Generation for Culturally-Sensitive Tasks: A Benchmark for Cross-lingual Robustness
+description: >-
+  [ACL 2025][多语言RAG] 构建了 BordIRLines 基准数据集，包含 49 种语言的领土争端查询及配对的 Wikipedia 检索文档，系统评估了多语言 RAG 环境下的跨语言鲁棒性，发现**检索多语言文档能比仅检索同语言文档更好地提高响应一致性并减少地缘政治偏差**。
 tags:
   - ACL 2025
   - 多语言RAG

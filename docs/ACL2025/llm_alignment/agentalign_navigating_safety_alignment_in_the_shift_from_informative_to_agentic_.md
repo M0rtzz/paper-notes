@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs 论文解读 | ACL 2025 | arXiv 2505.23020 | agent safety alignment | 本文提出 AgentAlign 框架，利用抽象行为链作为中介，在模拟环境中合成高质量的 agent 安全对齐数据（有害+良性），通过 SFT 使三类开源模型的 agent 安全性提升35.8%-79.5%，同时保持甚至提升了任务能力。"
+title: >-
+  [论文解读] AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs
+description: >-
+  [ACL 2025][LLM对齐][agent safety alignment] 本文提出 AgentAlign 框架，利用抽象行为链作为中介，在模拟环境中合成高质量的 agent 安全对齐数据（有害+良性），通过 SFT 使三类开源模型的 agent 安全性提升35.8%-79.5%，同时保持甚至提升了任务能力。
 tags:
   - ACL 2025
+  - LLM对齐
   - agent safety alignment
   - behavior chain
   - agentic LLM

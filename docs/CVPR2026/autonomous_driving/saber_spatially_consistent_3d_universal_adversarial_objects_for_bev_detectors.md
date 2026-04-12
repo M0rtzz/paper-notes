@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors 论文解读 | CVPR2026 | arXiv 2505.22499 | 对抗攻击 | 提出首个面向BEV 3D检测器的非侵入式、3D一致的通用对抗物体生成框架SABER，通过在场景中放置优化后的3D mesh来干扰多视角多帧检测，揭示BEV模型对环境上下文先验的过度依赖。"
+title: >-
+  [论文解读] SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors
+description: >-
+  [CVPR2026][自动驾驶][对抗攻击] 提出首个面向BEV 3D检测器的非侵入式、3D一致的通用对抗物体生成框架SABER，通过在场景中放置优化后的3D mesh来干扰多视角多帧检测，揭示BEV模型对环境上下文先验的过度依赖。
 tags:
   - CVPR2026
+  - 自动驾驶
   - 对抗攻击
   - BEV 3D检测
   - 非侵入式攻击

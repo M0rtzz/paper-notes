@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Do We Really Need Permutations? Impact of Model Width on Linear Mode Connectivity 论文解读 | ICLR 2026 | arXiv 2510.08023 | 线性模式连通性 | 实证表明无需参数置换，仅靠增加模型宽度即可实现独立训练模型间的线性模式连通性（LMC），并提出\"逐层指数加权连通性\"（LEWC）解释这一现象的机理。"
+title: >-
+  [论文解读] Do We Really Need Permutations? Impact of Model Width on Linear Mode Connectivity
+description: >-
+  [ICLR 2026][线性模式连通性] 实证表明无需参数置换，仅靠增加模型宽度即可实现独立训练模型间的线性模式连通性（LMC），并提出"逐层指数加权连通性"（LEWC）解释这一现象的机理。
 tags:
   - ICLR 2026
   - 线性模式连通性

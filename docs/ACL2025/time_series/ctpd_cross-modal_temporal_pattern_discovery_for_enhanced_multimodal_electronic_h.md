@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CTPD: Cross-Modal Temporal Pattern Discovery for Enhanced Multimodal Electronic Health Records Analysis 论文解读 | ACL 2025 | arXiv 2411.00696 | 电子健康记录 | 提出 CTPD 框架，利用 Slot Attention 从多模态 EHR 数据（不规则时间序列+临床笔记）中发现跨模态共享的时序原型模式，通过 TP-NCE 对比损失对齐两模态的时序语义，在 MIMIC-III 的死亡率预测和表型分类任务上取得 SOTA。"
+title: >-
+  [论文解读] CTPD: Cross-Modal Temporal Pattern Discovery for Enhanced Multimodal Electronic Health Records Analysis
+description: >-
+  [ACL 2025][时间序列][电子健康记录] 提出 CTPD 框架，利用 Slot Attention 从多模态 EHR 数据（不规则时间序列+临床笔记）中发现跨模态共享的时序原型模式，通过 TP-NCE 对比损失对齐两模态的时序语义，在 MIMIC-III 的死亡率预测和表型分类任务上取得 SOTA。
 tags:
   - ACL 2025
+  - 时间序列
   - 电子健康记录
   - 跨模态时序模式
   - 注意力机制

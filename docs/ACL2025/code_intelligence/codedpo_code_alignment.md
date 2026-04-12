@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CodeDPO: Aligning Code Models with Self Generated and Verified Source Code 论文解读 | ACL 2025 | arXiv 2410.05605 | code generation | 提出 CodeDPO，通过 PageRank 启发的自验证评分机制从自生成代码中构造高质量偏好对（93K 正确性 + 21K 效率），DPO 训练后在 8 个代码模型上 HumanEval 平均提升 10+ 分，同时提升代码执行效率 1.25-1.45×。"
+title: >-
+  [论文解读] CodeDPO: Aligning Code Models with Self Generated and Verified Source Code
+description: >-
+  [ACL 2025][code generation] 提出 CodeDPO，通过 PageRank 启发的自验证评分机制从自生成代码中构造高质量偏好对（93K 正确性 + 21K 效率），DPO 训练后在 8 个代码模型上 HumanEval 平均提升 10+ 分，同时提升代码执行效率 1.25-1.45×。
 tags:
   - ACL 2025
   - code generation

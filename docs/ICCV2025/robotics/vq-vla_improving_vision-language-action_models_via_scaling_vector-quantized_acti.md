@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VQ-VLA: Improving Vision-Language-Action Models via Scaling Vector-Quantized Action Tokenizers 论文解读 | ICCV2025 | arXiv 2507.01016 | 动作tokenizer | 本文提出基于卷积残差 VQ-VAE 的动作 tokenizer，在比先前方法多 100 倍的训练数据（含大量合成数据）上训练后可零样本迁移到各种下游 VLA 任务，在真实机器人上将长时域任务成功率提升最高 30%，推理速度提升近 3 倍。"
+title: >-
+  [论文解读] VQ-VLA: Improving Vision-Language-Action Models via Scaling Vector-Quantized Action Tokenizers
+description: >-
+  [ICCV2025][机器人][动作tokenizer] 本文提出基于卷积残差 VQ-VAE 的动作 tokenizer，在比先前方法多 100 倍的训练数据（含大量合成数据）上训练后可零样本迁移到各种下游 VLA 任务，在真实机器人上将长时域任务成功率提升最高 30%，推理速度提升近 3 倍。
 tags:
   - ICCV2025
+  - 机器人
   - 动作tokenizer
   - VQ-VAE
   - 合成数据缩放

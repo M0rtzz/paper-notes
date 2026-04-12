@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation 论文解读 | AAAI2026 | arXiv 2508.04444 | Matrix Norm Estimation | 提出 TwINEst 和 TwINEst++ 两种 matrix-free 随机算法用于估计 |A|_2→∞ 和 |A|_1→ 2 范数，并将其应用于深度网络 Jacobian 正则化（提升分类泛化和对抗鲁棒性）和推荐系统对抗防御。"
+title: >-
+  [论文解读] Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation
+description: >-
+  [AAAI2026][AI安全][Matrix Norm Estimation] 提出 TwINEst 和 TwINEst++ 两种 matrix-free 随机算法用于估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并将其应用于深度网络 Jacobian 正则化（提升分类泛化和对抗鲁棒性）和推荐系统对抗防御。
 tags:
   - AAAI2026
+  - AI安全
   - Matrix Norm Estimation
   - Randomized Algorithm
   - Hutchinson Estimator

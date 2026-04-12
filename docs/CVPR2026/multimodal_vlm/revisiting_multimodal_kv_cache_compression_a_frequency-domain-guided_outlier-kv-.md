@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Revisiting Multimodal KV Cache Compression: A Frequency-Domain-Guided Outlier-KV-Aware Approach 论文解读 | CVPR2026 | arXiv 2511.16786 | KV Cache压缩 | 提出FlashCache——首个不依赖注意力分数、无需训练的多模态KV Cache压缩框架，通过频域低通滤波识别Outlier KV并动态分配各层预算，在保持性能的前提下实现80%内存节省和1.69×解码加速。"
+title: >-
+  [论文解读] Revisiting Multimodal KV Cache Compression: A Frequency-Domain-Guided Outlier-KV-Aware Approach
+description: >-
+  [CVPR2026][多模态][KV Cache压缩] 提出FlashCache——首个不依赖注意力分数、无需训练的多模态KV Cache压缩框架，通过频域低通滤波识别Outlier KV并动态分配各层预算，在保持性能的前提下实现80%内存节省和1.69×解码加速。
 tags:
   - CVPR2026
+  - 多模态
   - KV Cache压缩
   - 频域分析
   - 离散余弦变换

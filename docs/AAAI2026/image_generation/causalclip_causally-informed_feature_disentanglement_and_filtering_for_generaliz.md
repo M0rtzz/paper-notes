@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images 论文解读 | AAAI 2026 | arXiv 2512.13285 | 生成图像检测 | 提出 CausalCLIP，通过 Gumbel-Softmax 掩码 + HSIC 约束将 CLIP 特征解耦为因果/非因果子空间，结合对抗掩码和反事实干预保留稳定取证线索，跨生成器泛化准确率提升 6.83%。"
+title: >-
+  [论文解读] CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images
+description: >-
+  [AAAI 2026][图像生成][生成图像检测] 提出 CausalCLIP，通过 Gumbel-Softmax 掩码 + HSIC 约束将 CLIP 特征解耦为因果/非因果子空间，结合对抗掩码和反事实干预保留稳定取证线索，跨生成器泛化准确率提升 6.83%。
 tags:
   - AAAI 2026
+  - 图像生成
   - 生成图像检测
   - 因果推理
   - CLIP

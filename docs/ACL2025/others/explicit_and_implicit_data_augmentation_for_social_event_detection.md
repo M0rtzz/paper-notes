@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Explicit and Implicit Data Augmentation for Social Event Detection 论文解读 | 本文提出SED-Aug，一个结合显式（LLM文本增强）和隐式（特征空间扰动）的双重数据增强框架用于社交事件检测，在Twitter2012和Twitter2018上分别超越最优基线17.67%和15.57%的平均F1。"
+title: >-
+  [论文解读] Explicit and Implicit Data Augmentation for Social Event Detection
+description: >-
+   本文提出SED-Aug，一个结合显式（LLM文本增强）和隐式（特征空间扰动）的双重数据增强框架用于社交事件检测，在Twitter2012和Twitter2018上分别超越最优基线17.67%和15.57%的平均F1。
 tags:
 
 ---

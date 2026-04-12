@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Interpretable Features in Audio Latent Spaces via Sparse Autoencoders 论文解读 | NeurIPS 2025 | arXiv 2510.23802 | 稀疏自编码器 | 提出一种通过稀疏自编码器（SAE）从音频生成模型的潜空间中提取可解释特征的框架，通过线性探针将 SAE 特征映射到人类可理解的声学概念（音高、振幅、音色），实现对音频生成过程的可控操作和可视化分析。"
+title: >-
+  [论文解读] Learning Interpretable Features in Audio Latent Spaces via Sparse Autoencoders
+description: >-
+  [NeurIPS 2025][图像生成][稀疏自编码器] 提出一种通过稀疏自编码器（SAE）从音频生成模型的潜空间中提取可解释特征的框架，通过线性探针将 SAE 特征映射到人类可理解的声学概念（音高、振幅、音色），实现对音频生成过程的可控操作和可视化分析。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 稀疏自编码器
   - 音频潜空间
   - 可解释性

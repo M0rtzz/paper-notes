@@ -1,3 +1,10 @@
+---
+title: >-
+  ECCV2024 模型压缩方向 7篇论文解读
+description: >-
+  7篇ECCV2024 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
@@ -27,6 +34,6 @@
 
 :   提出 CAMP 方法，通过可学习投影器蒸馏与类别中心适应网络的协同组合，在广义持续类别发现（GCCD）场景中显著提升了新类别学习与旧知识保持之间的平衡。
 
-**[FreestyleRet: Retrieving Images from Style-Diversified Queries](freestyleret_retrieving_images_from_style-diversified_queries.md)**
+**[Freestyleret Retrieving Images From Style-Diversified Queries](freestyleret_retrieving_images_from_style-diversified_queries.md)**
 
 :   提出首个风格多样化查询图像检索（Style-Diversified QBIR）任务及数据集DSR，设计了轻量即插即用的FreestyleRet框架，通过Gram矩阵提取查询的纹理/风格特征，构建风格空间并以此初始化prompt token，使冻结的视觉编码器能适配文本、草图、低分辨率、艺术画等多种查询风格的检索。

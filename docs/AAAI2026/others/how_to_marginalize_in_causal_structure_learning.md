@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】How to Marginalize in Causal Structure Learning? 论文解读 | AAAI 2026 | arXiv 2511.14001 | 贝叶斯结构学习 | 本文利用可处理概率电路（Probabilistic Circuits）替代传统动态规划方法来执行贝叶斯结构学习中的边际化任务，通过一种新颖的两阶段训练策略（先学习完整父集分数再渐进式微调边际查询），消除了候选父节点集数量的人为限制，从而在 TRUST 框架上取得了更好的后验分布估计效果。"
+title: >-
+  [论文解读] How to Marginalize in Causal Structure Learning?
+description: >-
+  [AAAI 2026][贝叶斯结构学习] 本文利用可处理概率电路（Probabilistic Circuits）替代传统动态规划方法来执行贝叶斯结构学习中的边际化任务，通过一种新颖的两阶段训练策略（先学习完整父集分数再渐进式微调边际查询），消除了候选父节点集数量的人为限制，从而在 TRUST 框架上取得了更好的后验分布估计效果。
 tags:
   - AAAI 2026
   - 贝叶斯结构学习

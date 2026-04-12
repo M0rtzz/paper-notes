@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Monocular Semantic Scene Completion via Masked Recurrent Networks 论文解读 | ICCV 2025 | arXiv 2507.17661 | 语义场景补全 | 提出 MonoMRN，一个两阶段单目语义场景补全框架：先做粗粒度预测，再用 Masked Sparse GRU（MS-GRU）循环精炼被遮挡区域，并引入距离注意力投影减少深度投影误差，在 NYUv2 和 SemanticKITTI 上均达到 SOTA。"
+title: >-
+  [论文解读] Monocular Semantic Scene Completion via Masked Recurrent Networks
+description: >-
+  [ICCV 2025][3D视觉][语义场景补全] 提出 MonoMRN，一个两阶段单目语义场景补全框架：先做粗粒度预测，再用 Masked Sparse GRU（MS-GRU）循环精炼被遮挡区域，并引入距离注意力投影减少深度投影误差，在 NYUv2 和 SemanticKITTI 上均达到 SOTA。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 语义场景补全
   - 单目视觉
   - 循环神经网络

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】COLING-UniA at SciVQA 2025: Few-Shot Example Retrieval and Confidence-Informed Ensembling for Multimodal Large Language Models 论文解读 | ACL 2025 | arXiv 2507.02357 | 科学图表VQA | 本文提出了一种基于多模态大模型（MLLM）集成的科学图表视觉问答系统，通过 few-shot 示例检索策略和置信度感知的模型选择机制，在 SciVQA 2025 共享任务中获得第三名（平均 F1 = 85.12）。"
+title: >-
+  [论文解读] COLING-UniA at SciVQA 2025: Few-Shot Example Retrieval and Confidence-Informed Ensembling for Multimodal Large Language Models
+description: >-
+  [ACL 2025][多模态][科学图表VQA] 本文提出了一种基于多模态大模型（MLLM）集成的科学图表视觉问答系统，通过 few-shot 示例检索策略和置信度感知的模型选择机制，在 SciVQA 2025 共享任务中获得第三名（平均 F1 = 85.12）。
 tags:
   - ACL 2025
+  - 多模态
   - 科学图表VQA
   - 多模态大模型
   - few-shot检索

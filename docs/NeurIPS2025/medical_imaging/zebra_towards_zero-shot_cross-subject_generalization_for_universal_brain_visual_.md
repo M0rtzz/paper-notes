@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding 论文解读 | NeurIPS 2025 | arXiv 2510.27128 | fMRI解码 | 提出 Zebra，首个零样本脑视觉解码框架，通过对抗训练与残差分解将 fMRI 表征解耦为主体不变和语义特定成分，无需对新被试做微调即可实现跨被试的视觉重建泛化。"
+title: >-
+  [论文解读] Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding
+description: >-
+  [NeurIPS 2025][医学图像][fMRI解码] 提出 Zebra，首个零样本脑视觉解码框架，通过对抗训练与残差分解将 fMRI 表征解耦为主体不变和语义特定成分，无需对新被试做微调即可实现跨被试的视觉重建泛化。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - fMRI解码
   - 零样本泛化
   - 对抗训练

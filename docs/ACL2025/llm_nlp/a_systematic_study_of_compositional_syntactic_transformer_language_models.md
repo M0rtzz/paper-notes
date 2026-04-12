@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Systematic Study of Compositional Syntactic Transformer Language Models 论文解读 | ACL 2025 | arXiv 2506.22978 | 句法语言模型 | 对组合型句法 Transformer 语言模型（Compositional SLMs）进行系统研究——识别四个关键设计维度（句法树二叉化、线性化方向、组合函数、子成分掩码），提出统一框架涵盖 16 种变体（含 13 种全新变体），在语言建模、句法泛化、摘要、对话和推理效率上全面评估，给出多条设计建议。"
+title: >-
+  [论文解读] A Systematic Study of Compositional Syntactic Transformer Language Models
+description: >-
+  [ACL 2025][LLM/NLP][句法语言模型] 对组合型句法 Transformer 语言模型（Compositional SLMs）进行系统研究——识别四个关键设计维度（句法树二叉化、线性化方向、组合函数、子成分掩码），提出统一框架涵盖 16 种变体（含 13 种全新变体），在语言建模、句法泛化、摘要、对话和推理效率上全面评估，给出多条设计建议。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 句法语言模型
   - 成分句法
   - 组合函数

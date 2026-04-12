@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Hierarchical Refinement: Optimal Transport to Infinity and Beyond 论文解读 | ICML 2025 | arXiv 2503.03025 | Optimal Transport | 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 O(nlog n) 时间和 O(n) 空间复杂度，将全秩 OT 扩展到百万级数据。"
+title: >-
+  [论文解读] Hierarchical Refinement: Optimal Transport to Infinity and Beyond
+description: >-
+  [ICML 2025][Optimal Transport] 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
 tags:
   - ICML 2025
   - Optimal Transport

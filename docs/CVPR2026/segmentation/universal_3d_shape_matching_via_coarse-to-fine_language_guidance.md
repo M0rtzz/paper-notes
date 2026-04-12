@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Universal 3D Shape Matching via Coarse-to-Fine Language Guidance 论文解读 | CVPR 2026 | arXiv 2602.19112 | 3D Shape Matching | 提出 UniMatch，一个语义感知的粗到细 3D 形状匹配框架：粗阶段通过类别无关 3D 分割 + MLLM 命名 + FG-CLIP 语言嵌入建立部件级对应；细阶段通过组级排序对比损失(Group-wise RnC Loss)在扩展的函数映射框架中学习稠密对应，实现跨类别、非等距形状的通用匹配。"
+title: >-
+  [论文解读] Universal 3D Shape Matching via Coarse-to-Fine Language Guidance
+description: >-
+  [CVPR 2026][图像分割][3D Shape Matching] 提出 UniMatch，一个语义感知的粗到细 3D 形状匹配框架：粗阶段通过类别无关 3D 分割 + MLLM 命名 + FG-CLIP 语言嵌入建立部件级对应；细阶段通过组级排序对比损失(Group-wise RnC Loss)在扩展的函数映射框架中学习稠密对应，实现跨类别、非等距形状的通用匹配。
 tags:
   - CVPR 2026
+  - 图像分割
   - 3D Shape Matching
   - Functional Maps
   - Language Guidance

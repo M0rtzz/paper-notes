@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Data-Constrained Synthesis of Training Data for De-Identification 论文解读 | ACL 2025 | arXiv 2502.14677 | 合成数据 | 本文系统研究了在数据受限条件下，如何利用领域适应的LLM生成合成临床文本，并通过机器标注训练NER模型进行个人身份信息（PII）检测，发现机器标注器的质量而非生成模型的规模是决定合成数据效用的关键因素。"
+title: >-
+  [论文解读] Data-Constrained Synthesis of Training Data for De-Identification
+description: >-
+  [ACL 2025][合成数据] 本文系统研究了在数据受限条件下，如何利用领域适应的LLM生成合成临床文本，并通过机器标注训练NER模型进行个人身份信息（PII）检测，发现机器标注器的质量而非生成模型的规模是决定合成数据效用的关键因素。
 tags:
   - ACL 2025
   - 合成数据

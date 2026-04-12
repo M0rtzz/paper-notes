@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CMMCoT: Enhancing Complex Multi-Image Comprehension via Multi-Modal Chain-of-Thought and Memory Augmentation 论文解读 | AAAI 2026 | arXiv 2503.05255 | 多图理解 | 提出 CMMCoT 框架，通过构建交错的多模态多步推理链（含视觉区域 token 监督）和测试时检索式记忆增强模块（RIFREM），在不增加参数的前提下提升多图场景下的慢思考推理能力，基于 Qwen2.5-VL-7B 在多图基准上平均提升 1.4 分。"
+title: >-
+  [论文解读] CMMCoT: Enhancing Complex Multi-Image Comprehension via Multi-Modal Chain-of-Thought and Memory Augmentation
+description: >-
+  [AAAI 2026][LLM推理][多图理解] 提出 CMMCoT 框架，通过构建交错的多模态多步推理链（含视觉区域 token 监督）和测试时检索式记忆增强模块（RIFREM），在不增加参数的前提下提升多图场景下的慢思考推理能力，基于 Qwen2.5-VL-7B 在多图基准上平均提升 1.4 分。
 tags:
   - AAAI 2026
+  - LLM推理
   - 多图理解
   - 多模态思维链
   - 测试时记忆增强

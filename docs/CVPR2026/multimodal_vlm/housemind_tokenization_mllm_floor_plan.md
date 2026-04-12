@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HouseMind: Tokenization Allows MLLMs to Understand, Generate and Edit Architectural Floor Plans 论文解读 | CVPR 2026 | arXiv 2603.11640 | floor plan | 提出HouseMind——通过VQ-VAE将建筑平面图离散化为房间级token，让轻量级LLM（Qwen3-0.6B）在统一框架中同时完成平面图理解、生成和编辑，在所有三项任务上全面超越现有扩散和VLM方法，且可单卡部署。"
+title: >-
+  [论文解读] HouseMind: Tokenization Allows MLLMs to Understand, Generate and Edit Architectural Floor Plans
+description: >-
+  [CVPR 2026][多模态][floor plan] 提出HouseMind——通过VQ-VAE将建筑平面图离散化为房间级token，让轻量级LLM（Qwen3-0.6B）在统一框架中同时完成平面图理解、生成和编辑，在所有三项任务上全面超越现有扩散和VLM方法，且可单卡部署。
 tags:
   - CVPR 2026
+  - 多模态
   - floor plan
   - MLLM
   - VQ-VAE tokenization

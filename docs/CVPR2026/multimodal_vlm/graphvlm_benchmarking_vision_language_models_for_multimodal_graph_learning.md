@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GraphVLM: Benchmarking Vision Language Models for Multimodal Graph Learning 论文解读 | CVPR 2026 | arXiv 2603.13370 | 多模态图学习 | 提出 GraphVLM benchmark，系统评估 VLM 在多模态图学习中的三种角色（Encoder/Aligner/Predictor），发现 VLM-as-Predictor 范式一致性最优，揭示 VLM 作为多模态图推理骨干的巨大潜力。"
+title: >-
+  [论文解读] GraphVLM: Benchmarking Vision Language Models for Multimodal Graph Learning
+description: >-
+  [CVPR 2026][多模态][多模态图学习] 提出 GraphVLM benchmark，系统评估 VLM 在多模态图学习中的三种角色（Encoder/Aligner/Predictor），发现 VLM-as-Predictor 范式一致性最优，揭示 VLM 作为多模态图推理骨干的巨大潜力。
 tags:
   - CVPR 2026
+  - 多模态
   - 多模态图学习
   - VLM
   - 图神经网络

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Debate to Equilibrium: Belief-Driven Multi-Agent LLM Reasoning via Bayesian Nash Equilibrium 论文解读 | ICML 2025 | arXiv 2506.08292 | Multi-Agent LLM | 将多 LLM 协调建模为不完全信息博弈，提出 ECON 框架，通过贝叶斯纳什均衡（BNE）实现隐式信念驱动的多 Agent 协调推理，无需显式消息传递即可获得理论收敛保证，在六个推理基准上平均提升 11.2%。"
+title: >-
+  [论文解读] From Debate to Equilibrium: Belief-Driven Multi-Agent LLM Reasoning via Bayesian Nash Equilibrium
+description: >-
+  [ICML 2025][LLM Agent][Multi-Agent LLM] 将多 LLM 协调建模为不完全信息博弈，提出 ECON 框架，通过贝叶斯纳什均衡（BNE）实现隐式信念驱动的多 Agent 协调推理，无需显式消息传递即可获得理论收敛保证，在六个推理基准上平均提升 11.2%。
 tags:
   - ICML 2025
+  - LLM Agent
   - Multi-Agent LLM
   - Bayesian Nash Equilibrium
   - 强化学习

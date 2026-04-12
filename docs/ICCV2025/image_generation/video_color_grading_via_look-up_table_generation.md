@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Video Color Grading via Look-Up Table Generation 论文解读 | ICCV 2025 | arXiv 2508.00548 | 视频调色 | 提出基于扩散模型显式生成 LUT 的视频调色框架：通过 GS-Extractor 提取参考场景的高层风格特征，用 L-Diffuser 生成色彩查找表（LUT），一次生成即可无损应用于全部视频帧，并支持文本 prompt 进行亮度/对比度等细粒度调整。"
+title: >-
+  [论文解读] Video Color Grading via Look-Up Table Generation
+description: >-
+  [ICCV 2025][图像生成][视频调色] 提出基于扩散模型显式生成 LUT 的视频调色框架：通过 GS-Extractor 提取参考场景的高层风格特征，用 L-Diffuser 生成色彩查找表（LUT），一次生成即可无损应用于全部视频帧，并支持文本 prompt 进行亮度/对比度等细粒度调整。
 tags:
   - ICCV 2025
+  - 图像生成
   - 视频调色
   - LUT生成
   - 扩散模型

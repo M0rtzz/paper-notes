@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] EgoPoser: Robust Real-Time Egocentric Pose Estimation from Sparse and Intermittent Observations Everywhere
+description: >-
+  [ECCV 2024][视频理解][自我中心姿态估计] 提出 EgoPoser，仅从头显设备的头部和手部稀疏且间歇性追踪信号中，鲁棒地估计全身姿态，通过全局运动分解、真实视野建模、SlowFast时序融合和体型感知优化四大核心设计，在大规模真实场景中实现SOTA性能，推理速度超600fps。
+tags:
+  - ECCV 2024
+  - 视频理解
+  - 自我中心姿态估计
+  - 混合现实
+  - 稀疏追踪
+  - 全局运动分解
+  - SlowFast
+---
+
 # EgoPoser: Robust Real-Time Egocentric Pose Estimation from Sparse and Intermittent Observations Everywhere
 
 **会议**: ECCV 2024  

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UMoE: Unifying Attention and FFN with Shared Experts 论文解读 | NeurIPS 2025 | arXiv 2505.07260 | MoE统一架构 | 通过重新表述多头注意力机制，揭示其与 FFN 共有的\"两层矩阵乘法\"结构，据此提出 UMoE 统一架构——在注意力和 FFN 层使用相同设计的专家并支持参数共享，在 Base(134M) 和 Large(1.1B) 模型上均优于现有 FFN-MoE 和 Attention-MoE 基线。"
+title: >-
+  [论文解读] UMoE: Unifying Attention and FFN with Shared Experts
+description: >-
+  [NeurIPS 2025][LLM效率][MoE统一架构] 通过重新表述多头注意力机制，揭示其与 FFN 共有的"两层矩阵乘法"结构，据此提出 UMoE 统一架构——在注意力和 FFN 层使用相同设计的专家并支持参数共享，在 Base(134M) 和 Large(1.1B) 模型上均优于现有 FFN-MoE 和 Attention-MoE 基线。
 tags:
   - NeurIPS 2025
+  - LLM效率
   - MoE统一架构
   - 前混合注意力
   - 专家共享

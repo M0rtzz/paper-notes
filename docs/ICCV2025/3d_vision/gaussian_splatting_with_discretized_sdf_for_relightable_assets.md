@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gaussian Splatting with Discretized SDF for Relightable Assets 论文解读 | ICCV 2025 | arXiv 2507.15629 | 逆渲染 | 本文提出将连续SDF离散化为高斯基元的额外属性，通过SDF-to-opacity变换统一高斯和SDF表示，配合投影一致性损失和球面初始化，在仅用4G显存的前提下实现了超越现有高斯逆渲染方法的重光照质量。"
+title: >-
+  [论文解读] Gaussian Splatting with Discretized SDF for Relightable Assets
+description: >-
+  [ICCV 2025][3D视觉][逆渲染] 本文提出将连续SDF离散化为高斯基元的额外属性，通过SDF-to-opacity变换统一高斯和SDF表示，配合投影一致性损失和球面初始化，在仅用4G显存的前提下实现了超越现有高斯逆渲染方法的重光照质量。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 逆渲染
   - 3D高斯溅射
   - 离散化SDF

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can Vision-Language Models Evaluate Handwritten Math? 论文解读 | ACL 2025 | arXiv 2501.07244 | 手写数学评估 | 本文提出FERMAT基准，通过609道人工策划的7-12年级数学题及其2200+份手写错误解答（覆盖计算、概念、符号、格式四类错误），系统评估9个VLM在手写数学内容的错误检测、定位和纠正能力，发现Gemini-1.5-Pro达到最高纠错率77%，但所有模型在处理手写内容时仍面临显著挑战。"
+title: >-
+  [论文解读] Can Vision-Language Models Evaluate Handwritten Math?
+description: >-
+  [ACL 2025][多模态][手写数学评估] 本文提出FERMAT基准，通过609道人工策划的7-12年级数学题及其2200+份手写错误解答（覆盖计算、概念、符号、格式四类错误），系统评估9个VLM在手写数学内容的错误检测、定位和纠正能力，发现Gemini-1.5-Pro达到最高纠错率77%，但所有模型在处理手写内容时仍面临显著挑战。
 tags:
   - ACL 2025
+  - 多模态
   - 手写数学评估
   - 错误检测
   - 错误定位

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability 论文解读 | ACL 2025 | arXiv 2502.12052 | NLG元评估 | 揭示传统 NLG 元评估的局限（人工评分平均聚合不合理、相关系数选择模糊），提出双视角元评估框架：全局视角（序数分类，评估粗粒度评级能力）+ 局部视角（相邻成对比较，评估细粒度区分能力），并引入基于可控错误注入的自动基准构建方法，在 16 个 LLM 上验证不同模型在两个视角上的能力分布差异显著。"
+title: >-
+  [论文解读] A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability
+description: >-
+  [ACL 2025][NLG元评估] 揭示传统 NLG 元评估的局限（人工评分平均聚合不合理、相关系数选择模糊），提出双视角元评估框架：全局视角（序数分类，评估粗粒度评级能力）+ 局部视角（相邻成对比较，评估细粒度区分能力），并引入基于可控错误注入的自动基准构建方法，在 16 个 LLM 上验证不同模型在两个视角上的能力分布差异显著。
 tags:
   - ACL 2025
   - NLG元评估

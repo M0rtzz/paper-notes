@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing 论文解读 | NeurIPS 2025 | arXiv 2511.08512 | 知识追踪 | 发布 CleverBirds——超大规模细粒度视觉知识追踪基准，包含 4万+用户的 1700万+多选题交互（覆盖 10000+鸟类物种），展示了追踪细粒度视觉专家技能发展的挑战性，为 KT 方法提供了前所未有的视觉领域评测平台。"
+title: >-
+  [论文解读] CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
+description: >-
+  [NeurIPS 2025][视频理解][知识追踪] 发布 CleverBirds——超大规模细粒度视觉知识追踪基准，包含 4万+用户的 1700万+多选题交互（覆盖 10000+鸟类物种），展示了追踪细粒度视觉专家技能发展的挑战性，为 KT 方法提供了前所未有的视觉领域评测平台。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 知识追踪
   - 鸟类识别
   - 细粒度认知

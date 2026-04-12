@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MTSA: Multi-Turn Safety Alignment for LLMs through Multi-Round Red-Teaming 论文解读 | ACL 2025 | arXiv 2505.17147 | LLM安全 | 提出MTSA框架，通过思维引导的多轮红队攻击学习和基于未来奖励的多轮强化学习算法，在对抗迭代优化中同时提升红队模型的攻击能力和目标模型的安全防御能力，在多个安全基准上达到SOTA，且不损失模型通用性能。"
+title: >-
+  [论文解读] MTSA: Multi-Turn Safety Alignment for LLMs through Multi-Round Red-Teaming
+description: >-
+  [ACL 2025][LLM对齐][LLM安全] 提出MTSA框架，通过思维引导的多轮红队攻击学习和基于未来奖励的多轮强化学习算法，在对抗迭代优化中同时提升红队模型的攻击能力和目标模型的安全防御能力，在多个安全基准上达到SOTA，且不损失模型通用性能。
 tags:
   - ACL 2025
+  - LLM对齐
   - LLM安全
   - 多轮对话
   - 红队攻击

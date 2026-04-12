@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PhyGaP: Physically-Grounded Gaussians with Polarization Cues 论文解读 | CVPR2026 | arXiv 2603.14001 | 3D高斯泼溅 | 提出 PhyGaP，通过偏振延迟渲染（PolarDR）将偏振线索融入 2DGS 优化，并设计自遮挡感知的 GridMap 环境图技术，实现光泽物体的精确反射分解与真实重光照。"
+title: >-
+  [论文解读] PhyGaP: Physically-Grounded Gaussians with Polarization Cues
+description: >-
+  [CVPR2026][3D视觉][3D高斯泼溅] 提出 PhyGaP，通过偏振延迟渲染（PolarDR）将偏振线索融入 2DGS 优化，并设计自遮挡感知的 GridMap 环境图技术，实现光泽物体的精确反射分解与真实重光照。
 tags:
   - CVPR2026
+  - 3D视觉
   - 3D高斯泼溅
   - 偏振成像
   - 逆渲染

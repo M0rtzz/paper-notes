@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Efficient OpAmp Adaptation for Zoom Attention to Golden Contexts 论文解读 | 受运算放大器（OpAmp）电路启发，提出 OpAmp Adaptation 方法通过 adapter 高效改造预训练 Transformer 的注意力机制，在噪声上下文场景下让 LLM 更精准聚焦于 golden document，Qwen2.5-OpAmp-72B 在多个噪声上下文基准上超越 DeepSeek-V3 和 GPT-4o。"
+title: >-
+  [论文解读] Efficient OpAmp Adaptation for Zoom Attention to Golden Contexts
+description: >-
+   受运算放大器（OpAmp）电路启发，提出 OpAmp Adaptation 方法通过 adapter 高效改造预训练 Transformer 的注意力机制，在噪声上下文场景下让 LLM 更精准聚焦于 golden document，Qwen2.5-OpAmp-72B 在多个噪声上下文基准上超越 DeepSeek-V3 和 GPT-4o。
 tags:
 
 ---

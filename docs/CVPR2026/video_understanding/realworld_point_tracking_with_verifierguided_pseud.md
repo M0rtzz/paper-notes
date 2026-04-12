@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Real-World Point Tracking with Verifier-Guided Pseudo-Labeling 论文解读 | CVPR 2026 | arXiv 2603.12217 | 点跟踪 | 提出一个可学习的Verifier元模型，通过逐帧评估多个预训练tracker预测的可靠性来生成高质量伪标签，实现合成数据到真实世界的高效域适应，在四个真实世界点跟踪基准上达到SOTA。"
+title: >-
+  [论文解读] Real-World Point Tracking with Verifier-Guided Pseudo-Labeling
+description: >-
+  [CVPR 2026][视频理解][点跟踪] 提出一个可学习的Verifier元模型，通过逐帧评估多个预训练tracker预测的可靠性来生成高质量伪标签，实现合成数据到真实世界的高效域适应，在四个真实世界点跟踪基准上达到SOTA。
 tags:
   - CVPR 2026
+  - 视频理解
   - 点跟踪
   - 伪标签
   - Verifier

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PTQ1.61: Push the Real Limit of Extremely Low-Bit Post-Training Quantization Methods for Large Language Models 论文解读 | ACL 2025 (Long Paper) | arXiv 2502.13179 | LLM量化 | 首次将LLM权重真正量化到1.61-bit（此前号称sub-2bit的方法实际都超过2bit），通过一维结构化掩码（仅增加0.0002-bit/权重）保留显著通道、块级缩放因子优化和量化预处理三大创新，在LLaMA系列上以更低比特超越BiLLM和PB-LLM。"
+title: >-
+  [论文解读] PTQ1.61: Push the Real Limit of Extremely Low-Bit Post-Training Quantization Methods for Large Language Models
+description: >-
+  [ACL 2025 (Long Paper)][模型压缩][LLM量化] 首次将LLM权重真正量化到1.61-bit（此前号称sub-2bit的方法实际都超过2bit），通过一维结构化掩码（仅增加0.0002-bit/权重）保留显著通道、块级缩放因子优化和量化预处理三大创新，在LLaMA系列上以更低比特超越BiLLM和PB-LLM。
 tags:
   - ACL 2025 (Long Paper)
+  - 模型压缩
   - LLM量化
   - PTQ
   - 极低比特

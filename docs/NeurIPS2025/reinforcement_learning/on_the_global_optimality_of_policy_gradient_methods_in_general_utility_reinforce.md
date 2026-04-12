@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Global Optimality of Policy Gradient Methods in General Utility Reinforcement Learning 论文解读 | NeurIPS 2025 | arXiv 2410.04108 | 一般效用RL | 为一般效用强化学习（RLGU）中的策略梯度方法建立全局最优性保证，在表格设定下证明了 RLGU 目标满足梯度支配不等式，在大规模状态动作空间设定下通过最大似然估计（MLE）近似占据度量实现可扩展的全局收敛算法。"
+title: >-
+  [论文解读] On the Global Optimality of Policy Gradient Methods in General Utility Reinforcement Learning
+description: >-
+  [NeurIPS 2025][一般效用RL] 为一般效用强化学习（RLGU）中的策略梯度方法建立全局最优性保证，在表格设定下证明了 RLGU 目标满足梯度支配不等式，在大规模状态动作空间设定下通过最大似然估计（MLE）近似占据度量实现可扩展的全局收敛算法。
 tags:
   - NeurIPS 2025
   - 一般效用RL

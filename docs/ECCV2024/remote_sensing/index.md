@@ -1,3 +1,10 @@
+---
+title: >-
+  ECCV2024 遥感方向 3篇论文解读
+description: >-
+  3篇ECCV2024 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
@@ -11,6 +18,6 @@
 
 :   提出 ConGeo，一种模型无关的单视图+跨视图对比学习框架，通过强制同一地点不同地面视角变体之间的特征一致性，使单一模型即可在任意朝向和任意视场角(FoV)下实现鲁棒的跨视图地理定位。
 
-**[Cross-Platform Video Person ReID: A New Benchmark Dataset and Adaptation Approach](cross-platform_video_person_reid_a_new_benchmark_dataset_and_adaptation_approach.md)**
+**[Cross-Platform Video Person Reid A New Benchmark Dataset And Adaptation Approach](cross-platform_video_person_reid_a_new_benchmark_dataset_and_adaptation_approach.md)**
 
 :   构建首个地面-无人机跨平台视频行人重识别数据集G2A-VReID，并提出VSLA-CLIP方法，通过视觉-语义对齐和参数高效的Video Set-Level-Adapter将CLIP适配到视频ReID任务。

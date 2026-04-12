@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Personalized Collaborative Learning with Affinity-Based Variance Reduction 论文解读 | ICLR 2026 | arXiv 2510.16232 | 个性化联邦学习 | 提出个性化协作学习框架 AffPCL，通过偏差校正和重要性校正机制，让异质智能体在无需先验知识的情况下协作学习个性化解，实现 O(t⁻¹ · max\n⁻¹, δ) 的自适应收敛率——智能体相似时获得线性加速，差异大时不差于独立学习。"
+title: >-
+  [论文解读] Personalized Collaborative Learning with Affinity-Based Variance Reduction
+description: >-
+  [ICLR 2026][优化][个性化联邦学习] 提出个性化协作学习框架 AffPCL，通过偏差校正和重要性校正机制，让异质智能体在无需先验知识的情况下协作学习个性化解，实现 $O(t^{-1} \cdot \max\{n^{-1}, \delta\})$ 的自适应收敛率——智能体相似时获得线性加速，差异大时不差于独立学习。
 tags:
   - ICLR 2026
+  - 优化
   - 个性化联邦学习
   - 协作学习
   - 方差缩减

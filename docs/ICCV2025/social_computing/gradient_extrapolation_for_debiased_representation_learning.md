@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Gradient Extrapolation for Debiased Representation Learning 论文解读 | ICCV 2025 | arXiv 2503.13236 | 去偏差 | 提出 GERNE 方法，通过构建具有不同虚假相关程度的两个 batch 并对其梯度进行线性外推，引导模型学习去偏差表征，在已知和未知属性情况下均优于 SOTA。"
+title: >-
+  [论文解读] Gradient Extrapolation for Debiased Representation Learning
+description: >-
+  [ICCV 2025][去偏差] 提出 GERNE 方法，通过构建具有不同虚假相关程度的两个 batch 并对其梯度进行线性外推，引导模型学习去偏差表征，在已知和未知属性情况下均优于 SOTA。
 tags:
   - ICCV 2025
   - 去偏差

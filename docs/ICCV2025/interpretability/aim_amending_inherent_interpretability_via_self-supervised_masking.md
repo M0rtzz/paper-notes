@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AIM: Amending Inherent Interpretability via Self-Supervised Masking 论文解读 | ICCV 2025 | arXiv 2508.11502 | 自监督学习 self-supervised masking | 本文提出 AIM，一种基于自监督二值掩码的 top-down 特征选择机制，无需额外标注即可引导 CNN 聚焦真实判别特征、抑制虚假相关，同时获得内在可解释性和更强的 OOD 泛化能力。"
+title: >-
+  [论文解读] AIM: Amending Inherent Interpretability via Self-Supervised Masking
+description: >-
+  [ICCV 2025][自监督学习] 本文提出 AIM，一种基于自监督二值掩码的 top-down 特征选择机制，无需额外标注即可引导 CNN 聚焦真实判别特征、抑制虚假相关，同时获得内在可解释性和更强的 OOD 泛化能力。
 tags:
   - ICCV 2025
   - 自监督学习

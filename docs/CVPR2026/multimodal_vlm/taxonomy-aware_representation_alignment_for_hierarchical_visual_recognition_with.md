@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Taxonomy-Aware Representation Alignment for Hierarchical Visual Recognition with Large Multimodal Models 论文解读 | CVPR 2026 | arXiv 2603.00431 | 层次化视觉识别 | 提出TARA框架，通过将LMM的中间表示与生物基础模型(BFM)的分类学感知特征对齐，为大型多模态模型注入分类层次知识，显著提升已知和新颖类别的层次化视觉识别性能。"
+title: >-
+  [论文解读] Taxonomy-Aware Representation Alignment for Hierarchical Visual Recognition with Large Multimodal Models
+description: >-
+  [CVPR 2026][多模态][层次化视觉识别] 提出TARA框架，通过将LMM的中间表示与生物基础模型(BFM)的分类学感知特征对齐，为大型多模态模型注入分类层次知识，显著提升已知和新颖类别的层次化视觉识别性能。
 tags:
   - CVPR 2026
+  - 多模态
   - 层次化视觉识别
   - 生物分类学
   - 表示对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Stress-Testing Alignment Audits With Prompt-Level Strategic Deception 论文解读 | ICLR2026 | arXiv 2602.08877 | alignment audit | 构建自动 prompt 级红队流水线，对\"保守秘密\"的模型有机体进行压力测试，发现能诱导黑盒和白盒对齐审计方法产生高置信错误猜测的欺骗策略，首次记录了基于激活的策略性欺骗现象。"
+title: >-
+  [论文解读] Stress-Testing Alignment Audits With Prompt-Level Strategic Deception
+description: >-
+  [ICLR2026][模型压缩][alignment audit] 构建自动 prompt 级红队流水线，对"保守秘密"的模型有机体进行压力测试，发现能诱导黑盒和白盒对齐审计方法产生高置信错误猜测的欺骗策略，首次记录了基于激活的策略性欺骗现象。
 tags:
   - ICLR2026
+  - 模型压缩
   - alignment audit
   - red-teaming
   - strategic deception

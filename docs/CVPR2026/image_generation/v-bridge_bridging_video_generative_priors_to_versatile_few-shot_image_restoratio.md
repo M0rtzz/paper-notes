@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】V-Bridge: Bridging Video Generative Priors to Versatile Few-shot Image Restoration 论文解读 | CVPR 2026 | arXiv 2603.13089 | 视频生成先验 | 将图像修复重新定义为渐进式视频生成过程，利用预训练视频模型（Wan2.2-TI2V-5B）的丰富视觉先验，仅用 1,000 个多任务训练样本（不到现有方法的 2%）就实现了多种退化类型的全能修复，超越了在百万级数据上训练的专用架构。"
+title: >-
+  [论文解读] V-Bridge: Bridging Video Generative Priors to Versatile Few-shot Image Restoration
+description: >-
+  [CVPR 2026][图像生成][视频生成先验] 将图像修复重新定义为渐进式视频生成过程，利用预训练视频模型（Wan2.2-TI2V-5B）的丰富视觉先验，仅用 1,000 个多任务训练样本（不到现有方法的 2%）就实现了多种退化类型的全能修复，超越了在百万级数据上训练的专用架构。
 tags:
   - CVPR 2026
+  - 图像生成
   - 视频生成先验
   - 图像修复
   - Few-shot学习

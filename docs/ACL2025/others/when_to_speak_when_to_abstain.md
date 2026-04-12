@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】When to Speak, When to Abstain: Contrastive Decoding with Abstention 论文解读 | ACL 2025 | arXiv 2412.12527 | contrastive decoding | 提出 CDA（Contrastive Decoding with Abstention），一种免训练解码方法，通过熵校准的不确定性估计让 LLM 在参数/上下文知识可用时生成正确回答、在两者都不可靠时主动弃权，覆盖全部四种知识可用性场景。"
+title: >-
+  [论文解读] When to Speak, When to Abstain: Contrastive Decoding with Abstention
+description: >-
+  [ACL 2025][contrastive decoding] 提出 CDA（Contrastive Decoding with Abstention），一种免训练解码方法，通过熵校准的不确定性估计让 LLM 在参数/上下文知识可用时生成正确回答、在两者都不可靠时主动弃权，覆盖全部四种知识可用性场景。
 tags:
   - ACL 2025
   - contrastive decoding

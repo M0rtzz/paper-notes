@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Universal Multi-Domain Translation via Diffusion Routers 论文解读 | ICLR 2026 | arXiv 2510.03252 | multi-domain translation | 提出 Diffusion Router (DR)，一个统一的扩散模型框架，仅用 $K-1$ 个与中心域配对的数据集，通过单个噪声预测网络配合源域/目标域标签条件化，实现任意 $K$ 个域之间的间接和直接翻译，并提出 Tweedie 精炼采样降低计算成本。"
+title: >-
+  [论文解读] Universal Multi-Domain Translation via Diffusion Routers
+description: >-
+  [ICLR 2026][图像分割][multi-domain translation] 提出 Diffusion Router (DR)，一个统一的扩散模型框架，仅用 $K-1$ 个与中心域配对的数据集，通过单个噪声预测网络配合源域/目标域标签条件化，实现任意 $K$ 个域之间的间接和直接翻译，并提出 Tweedie 精炼采样降低计算成本。
 tags:
   - ICLR 2026
+  - 图像分割
   - multi-domain translation
   - 扩散模型
   - routing

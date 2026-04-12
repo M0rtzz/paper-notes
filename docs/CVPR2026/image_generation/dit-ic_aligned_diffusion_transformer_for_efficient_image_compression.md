@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression 论文解读 | CVPR 2026 | arXiv 2603.13162 | 图像压缩 | 提出 DiT-IC，将预训练T2I扩散Transformer通过三种对齐机制（方差引导重建流、自蒸馏对齐、潜表示条件引导）适配为单步图像压缩重建模型，在32×下采样的深层潜空间执行扩散，实现SOTA感知质量且解码速度比现有扩散压缩编解码器快30×。"
+title: >-
+  [论文解读] DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression
+description: >-
+  [CVPR 2026][图像生成][图像压缩] 提出 DiT-IC，将预训练T2I扩散Transformer通过三种对齐机制（方差引导重建流、自蒸馏对齐、潜表示条件引导）适配为单步图像压缩重建模型，在32×下采样的深层潜空间执行扩散，实现SOTA感知质量且解码速度比现有扩散压缩编解码器快30×。
 tags:
   - CVPR 2026
+  - 图像生成
   - 图像压缩
   - Transformer
   - 单步去噪

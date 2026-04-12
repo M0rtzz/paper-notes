@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VowelPrompt: Hearing Speech Emotions from Text via Vowel-level Prosodic Augmentation 论文解读 | ICLR 2026 | arXiv 2602.06270 | 语音情感识别 | 提出 VowelPrompt，基于语音学证据提取元音级韵律描述符（音高/能量/时长），转为自然语言增强 LLM 的情感识别 prompt，配合 SFT+GRPO 两阶段训练，在零样本/微调/跨域/跨语言条件下一致超越 SOTA，同时生成可解释的情感推理。"
+title: >-
+  [论文解读] VowelPrompt: Hearing Speech Emotions from Text via Vowel-level Prosodic Augmentation
+description: >-
+  [ICLR 2026][语音][语音情感识别] 提出 VowelPrompt，基于语音学证据提取元音级韵律描述符（音高/能量/时长），转为自然语言增强 LLM 的情感识别 prompt，配合 SFT+GRPO 两阶段训练，在零样本/微调/跨域/跨语言条件下一致超越 SOTA，同时生成可解释的情感推理。
 tags:
   - ICLR 2026
+  - 语音
   - 语音情感识别
   - 韵律特征
   - 元音级

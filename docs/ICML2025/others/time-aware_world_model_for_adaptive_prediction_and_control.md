@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Time-Aware World Model for Adaptive Prediction and Control 论文解读 | 提出时间感知世界模型TAWM，通过将时间步长Δ t作为模型输入并在多种Δ t上混合训练，在不增加样本量的前提下跨时间尺度学习任务动力学。"
+title: >-
+  [论文解读] Time-Aware World Model for Adaptive Prediction and Control
+description: >-
+   提出时间感知世界模型TAWM，通过将时间步长$\Delta t$作为模型输入并在多种$\Delta t$上混合训练，在不增加样本量的前提下跨时间尺度学习任务动力学。
 tags:
 
 ---

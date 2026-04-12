@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Manipulating 3D Molecules in a Fixed-Dimensional E(3)-Equivariant Latent Space 论文解读 | NeurIPS 2025 | arXiv 2506.00771 | 分子生成 | 提出MolFLAE，一种学习固定维度、E(3)等变潜在空间的3D分子变分自编码器，通过引入可学习虚拟节点和贝叶斯流网络解码器，实现零样本分子编辑，包括原子数编辑、结构重构和性质插值，并在人类糖皮质激素受体（hGR）的药物优化中展示了实际应用价值。"
+title: >-
+  [论文解读] Manipulating 3D Molecules in a Fixed-Dimensional E(3)-Equivariant Latent Space
+description: >-
+  [NeurIPS 2025][医学图像][分子生成] 提出MolFLAE，一种学习固定维度、E(3)等变潜在空间的3D分子变分自编码器，通过引入可学习虚拟节点和贝叶斯流网络解码器，实现零样本分子编辑，包括原子数编辑、结构重构和性质插值，并在人类糖皮质激素受体（hGR）的药物优化中展示了实际应用价值。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 分子生成
   - VAE
   - E(3)等变性

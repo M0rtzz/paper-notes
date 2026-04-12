@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LoReTTA: A Low Resource Framework To Poison Continuous Time Dynamic Graphs 论文解读 | AAAI 2026 | arXiv 2511.07379 | 时序图神经网络 | 提出 LoReTTA，一种无需代理模型的两阶段对抗投毒攻击框架：先通过 16 种时序重要性度量稀疏化高影响力边，再用保度数负采样算法替换对抗边，在 4 个数据集 × 4 个 TGNN 模型上平均降低 29.47% 性能，同时逃避 4 种异常检测系统且抵御 4 种防御方法。"
+title: >-
+  [论文解读] LoReTTA: A Low Resource Framework To Poison Continuous Time Dynamic Graphs
+description: >-
+  [AAAI 2026][时间序列][时序图神经网络] 提出 LoReTTA，一种无需代理模型的两阶段对抗投毒攻击框架：先通过 16 种时序重要性度量稀疏化高影响力边，再用保度数负采样算法替换对抗边，在 4 个数据集 × 4 个 TGNN 模型上平均降低 29.47% 性能，同时逃避 4 种异常检测系统且抵御 4 种防御方法。
 tags:
   - AAAI 2026
+  - 时间序列
   - 时序图神经网络
   - 对抗攻击
   - 数据投毒

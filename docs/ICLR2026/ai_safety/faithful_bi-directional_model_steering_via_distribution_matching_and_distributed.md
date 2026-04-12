@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Faithful Bi-Directional Model Steering via Distribution Matching and Distributed Interchange Interventions 论文解读 | ICLR2026 | arXiv 2602.05234 | model steering | 提出 Concept DAS (CDAS)，通过 Jensen-Shannon 散度分布匹配目标和 distributed interchange intervention (DII) 实现双向模型引导，在安全场景（绕过拒绝、消除后门）中实现系统性控制且保持模型通用能力。"
+title: >-
+  [论文解读] Faithful Bi-Directional Model Steering via Distribution Matching and Distributed Interchange Interventions
+description: >-
+  [ICLR2026][AI安全][model steering] 提出 Concept DAS (CDAS)，通过 Jensen-Shannon 散度分布匹配目标和 distributed interchange intervention (DII) 实现双向模型引导，在安全场景（绕过拒绝、消除后门）中实现系统性控制且保持模型通用能力。
 tags:
   - ICLR2026
+  - AI安全
   - model steering
   - distribution matching
   - interchange intervention

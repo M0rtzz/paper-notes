@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】GIFT-SW: Gaussian Noise Injected Fine-Tuning of Salient Weights for LLMs 论文解读 | 提出 GIFT-SW，一种新型参数高效微调方法：仅更新权重矩阵中的\"显著列\"(salient columns)，同时对非显著列注入高斯噪声，在相同计算预算下超越全参微调和 LoRA/DoRA 等现代 PEFT 方法。"
+title: >-
+  [论文解读] GIFT-SW: Gaussian Noise Injected Fine-Tuning of Salient Weights for LLMs
+description: >-
+  [LLM/NLP] 提出 GIFT-SW，一种新型参数高效微调方法：仅更新权重矩阵中的"显著列"(salient columns)，同时对非显著列注入高斯噪声，在相同计算预算下超越全参微调和 LoRA/DoRA 等现代 PEFT 方法。
 tags:
-
+  - LLM/NLP
 ---
 
 # GIFT-SW: Gaussian Noise Injected Fine-Tuning of Salient Weights for LLMs

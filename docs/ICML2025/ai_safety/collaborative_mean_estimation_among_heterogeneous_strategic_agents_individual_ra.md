@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Collaborative Mean Estimation Among Heterogeneous Strategic Agents: Individual Rationality, Fairness, and Truthful Contribution 论文解读 | ICML2025 | arXiv 2407.15881 | collaborative learning | 针对异构成本的多智能体协作均值估计问题，设计了同时满足个体理性(IR)、激励相容(IC)和公平性的无货币机制，在最坏情况下实现 O(sqrtm) 近似比，并证明了三条不可能性结果。"
+title: >-
+  [论文解读] Collaborative Mean Estimation Among Heterogeneous Strategic Agents: Individual Rationality, Fairness, and Truthful Contribution
+description: >-
+  [ICML2025][AI安全][collaborative learning] 针对异构成本的多智能体协作均值估计问题，设计了同时满足个体理性(IR)、激励相容(IC)和公平性的无货币机制，在最坏情况下实现 $\mathcal{O}(\sqrt{m})$ 近似比，并证明了三条不可能性结果。
 tags:
   - ICML2025
+  - AI安全
   - collaborative learning
   - mechanism design
   - strategic agents

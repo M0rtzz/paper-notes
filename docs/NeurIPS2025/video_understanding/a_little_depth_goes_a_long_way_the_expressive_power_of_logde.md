@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers 论文解读 | NeurIPS 2025 | arXiv 2503.03961 | Transformer log-depth transformer | 本文证明了将 Transformer 的深度从常数增长到 Θ(log n) 就能解锁识别正则语言和图连通性这两类固定深度 Transformer 无法表达的问题，且深度扩展比宽度（需超多项式增长）和 CoT 步数（需超对数增长）都更高效。"
+title: >-
+  [论文解读] A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers
+description: >-
+  [NeurIPS 2025][视频理解][Transformer] 本文证明了将 Transformer 的深度从常数增长到 Θ(log n) 就能解锁识别正则语言和图连通性这两类固定深度 Transformer 无法表达的问题，且深度扩展比宽度（需超多项式增长）和 CoT 步数（需超对数增长）都更高效。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - Transformer
   - 表达能力
   - 正则语言识别

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs 论文解读 | ICML 2025 | arXiv 2602.01914 | FlashTrace 提出了一种高效的多 token 归因方法，通过跨度聚合（span-wise aggregation）将多 token 目标的归因复杂度从 O(M · N) 降至 O(N)，并通过递归归因（recursive attribution）机制追溯推理链中的重要性传播，实现了 130 倍以上的速度提升。"
+title: >-
+  [论文解读] Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs
+description: >-
+  [ICML 2025][人体理解] FlashTrace 提出了一种高效的多 token 归因方法，通过跨度聚合（span-wise aggregation）将多 token 目标的归因复杂度从 $\mathcal{O}(M \cdot N)$ 降至 $\mathcal{O}(N)$，并通过递归归因（recursive attribution）机制追溯推理链中的重要性传播，实现了 130 倍以上的速度提升。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs

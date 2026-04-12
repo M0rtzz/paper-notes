@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】LeanRAG: Knowledge-Graph-Based Generation with Semantic Aggregation and Hierarchical Retrieval 论文解读 | AAAI 2026 | arXiv 2508.10391 | 检索增强生成 | 提出 LeanRAG 框架，通过语义聚合算法在层次化知识图谱的摘要节点间自动构建显式关系打破\"语义孤岛\"，并基于最近公共祖先（LCA）的自底向上检索策略高效导航层次结构，在四个 QA 基准上取得 SOTA 同时减少 46% 的检索冗余。"
+title: >-
+  [论文解读] LeanRAG: Knowledge-Graph-Based Generation with Semantic Aggregation and Hierarchical Retrieval
+description: >-
+  [AAAI 2026][检索增强生成] 提出 LeanRAG 框架，通过语义聚合算法在层次化知识图谱的摘要节点间自动构建显式关系打破"语义孤岛"，并基于最近公共祖先（LCA）的自底向上检索策略高效导航层次结构，在四个 QA 基准上取得 SOTA 同时减少 46% 的检索冗余。
 tags:
   - AAAI 2026
   - 检索增强生成

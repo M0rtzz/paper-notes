@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Colors See Colors Ignore: Clothes Changing ReID with Color Disentanglement 论文解读 | ICCV 2025 | arXiv 2507.07230 | Clothes-Changing ReID | 提出CSCI方法，通过引入Color token学习颜色表示（Color See），并利用新颖的S2A自注意力机制将颜色信息与ReID特征解耦（Color Ignore），在无需外部标注的情况下有效消除换衣行人重识别中的外观偏差。"
+title: >-
+  [论文解读] Colors See Colors Ignore: Clothes Changing ReID with Color Disentanglement
+description: >-
+  [ICCV 2025][模型压缩][Clothes-Changing ReID] 提出CSCI方法，通过引入Color token学习颜色表示（Color See），并利用新颖的S2A自注意力机制将颜色信息与ReID特征解耦（Color Ignore），在无需外部标注的情况下有效消除换衣行人重识别中的外观偏差。
 tags:
   - ICCV 2025
+  - 模型压缩
   - Clothes-Changing ReID
   - 颜色解耦
   - 自注意力机制

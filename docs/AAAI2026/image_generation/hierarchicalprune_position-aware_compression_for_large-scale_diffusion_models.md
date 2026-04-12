@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HierarchicalPrune: Position-Aware Compression for Large-Scale Diffusion Models 论文解读 | AAAI2026 | arXiv 2508.04663 | 模型压缩 model compression | 基于 MMDiT 的双层级结构洞察（inter-block + intra-block hierarchy），提出 position-aware 的剪枝+蒸馏+量化框架，将 SD3.5 Large (8B) 从 15.8GB 压缩至 3.2GB（80% 内存降低），质量仅下降 ~5%。"
+title: >-
+  [论文解读] HierarchicalPrune: Position-Aware Compression for Large-Scale Diffusion Models
+description: >-
+  [AAAI2026][图像生成][模型压缩] 基于 MMDiT 的双层级结构洞察（inter-block + intra-block hierarchy），提出 position-aware 的剪枝+蒸馏+量化框架，将 SD3.5 Large (8B) 从 15.8GB 压缩至 3.2GB（80% 内存降低），质量仅下降 ~5%。
 tags:
   - AAAI2026
+  - 图像生成
   - 模型压缩
   - 扩散模型
   - MMDiT

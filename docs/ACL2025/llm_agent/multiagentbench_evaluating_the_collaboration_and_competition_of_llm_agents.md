@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents 论文解读 | 提出 MultiAgentBench 基准测试和 MARBLE 框架，系统评估 LLM 多智能体系统在协作与竞争场景中的表现，包含 6 种交互场景（研究、Minecraft、数据库、编程、讨价还价、狼人杀），引入基于里程碑的 KPI 指标和协调评分，发现 gpt-4o-mini 整体任务分最高、图结构协调协议在研究场景中表现最佳、认知规划可提升里程碑达成率 3%。"
+title: >-
+  [论文解读] MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents
+description: >-
+  [LLM Agent] 提出 MultiAgentBench 基准测试和 MARBLE 框架，系统评估 LLM 多智能体系统在协作与竞争场景中的表现，包含 6 种交互场景（研究、Minecraft、数据库、编程、讨价还价、狼人杀），引入基于里程碑的 KPI 指标和协调评分，发现 gpt-4o-mini 整体任务分最高、图结构协调协议在研究场景中表现最佳、认知规划可提升里程碑达成率 3%。
 tags:
-
+  - LLM Agent
 ---
 
 # MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents

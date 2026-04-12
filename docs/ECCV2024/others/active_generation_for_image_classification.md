@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Active Generation for Image Classification 论文解读 | ECCV 2024 | arXiv 2403.06517 | 主动学习 | ActGen将主动学习思想引入扩散模型数据增强，通过识别分类器的错分样本并以注意力掩码引导+梯度对抗引导生成\"难样本\"，仅用10%的合成数据量即超越了此前需要近等量合成数据的方法，在ImageNet上ResNet-50获得+2.26%的精度提升。"
+title: >-
+  [论文解读] Active Generation for Image Classification
+description: >-
+  [ECCV 2024][主动学习] ActGen将主动学习思想引入扩散模型数据增强，通过识别分类器的错分样本并以注意力掩码引导+梯度对抗引导生成"难样本"，仅用10%的合成数据量即超越了此前需要近等量合成数据的方法，在ImageNet上ResNet-50获得+2.26%的精度提升。
 tags:
   - ECCV 2024
   - 主动学习

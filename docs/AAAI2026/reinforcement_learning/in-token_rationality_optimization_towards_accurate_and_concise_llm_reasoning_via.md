@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】In-Token Rationality Optimization: Towards Accurate and Concise LLM Reasoning via Self-Feedback 论文解读 | AAAI 2026 | arXiv 2511.09865 | Chain-of-Thought推理 | 提出 InTRO 框架，通过将模型的生成策略与其answer-conditioned后验对齐（KL散度最小化），在单次前向传播中实现token级探索和自生成反馈，从而在不依赖外部监督的情况下提升LLM推理的准确性与简洁性。"
+title: >-
+  [论文解读] In-Token Rationality Optimization: Towards Accurate and Concise LLM Reasoning via Self-Feedback
+description: >-
+  [AAAI 2026][Chain-of-Thought推理] 提出 InTRO 框架，通过将模型的生成策略与其answer-conditioned后验对齐（KL散度最小化），在单次前向传播中实现token级探索和自生成反馈，从而在不依赖外部监督的情况下提升LLM推理的准确性与简洁性。
 tags:
   - AAAI 2026
   - Chain-of-Thought推理

@@ -1,7 +1,14 @@
+---
+title: >-
+  ECCV2024 自动驾驶方向 14篇论文解读
+description: >-
+  14篇ECCV2024 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🎞️ ECCV2024** · 共 **20** 篇
+**🎞️ ECCV2024** · 共 **14** 篇
 
 **[4D Contrastive Superflows Are Dense 3D Representation Learners](4d_contrastive_superflows_are_dense_3d_representation_learners.md)**
 
@@ -26,10 +33,6 @@
 **[Dvlo Deep Visual-Lidar Odometry With Local-To-Global Feature Fusion And Bi-Direc](dvlo_deep_visual-lidar_odometry_with_local-to-global_feature_fusion_and_bi-direc.md)**
 
 :   提出基于聚类的 Local-to-Global 融合网络 DVLO，通过双向结构对齐（图像→伪点云 + 点云→伪图像）解决视觉与 LiDAR 的数据结构不一致问题，在 KITTI 里程计和 FlyingThings3D 场景流任务上均取得 SOTA。
-
-**[DVLO: Deep Visual-LiDAR Odometry with Local-to-Global Feature Fusion and Bi-Directional Structure Alignment](dvlo_deep_visuallidar_odometry_with_localtoglobal_featu.md)**
-
-:   提出 DVLO——基于从局部到全局融合 + 双向结构对齐的视觉-LiDAR 里程计网络，通过将图像视为伪点云进行局部聚类融合、将点云投影为伪图像进行全局自适应融合，解决了两种模态间固有的数据结构不一致问题。
 
 **[Enhancing Vectorized Map Perception With Historical Rasterized Maps](enhancing_vectorized_map_perception_with_historical_rasterized_maps.md)**
 
@@ -59,26 +62,6 @@
 
 :   针对相机语义场景补全（SSC）中时序信息利用粗糙的问题，提出层级式时序上下文学习（HTCL）范式：先通过跨帧模式亲和度（CPA）度量当前帧与历史帧的细粒度对应关系，再通过基于亲和度的动态精炼（ADR）自适应采样补偿不完整观测，在SemanticKITTI上排名第1，甚至在OpenOccupancy上mIoU超过LiDAR方法。
 
-**[ItTakesTwo: Leveraging Peer Representations for Semi-supervised LiDAR Semantic Segmentation](ittakestwo_leveraging_peer_representations_for_semi-supervised_lidar_semantic_se.md)**
+**[Ittakestwo Leveraging Peer Representations For Semi-Supervised Lidar Semantic Se](ittakestwo_leveraging_peer_representations_for_semi-supervised_lidar_semantic_se.md)**
 
 :   提出IT2框架，通过利用LiDAR数据的对等表示（range image + voxel grid）之间的一致性学习作为新型扰动形式，并引入基于高斯混合模型的跨分布对比学习，大幅提升半监督LiDAR语义分割性能。
-
-**[LiDAR-Event Stereo Fusion with Hallucinations](lidarevent_stereo_fusion_with_hallucinations.md)**
-
-:   首次探索 LiDAR 与事件立体相机的融合，提出虚拟堆叠幻觉（VSH）和回溯时间幻觉（BTH）两种策略，通过在事件流/堆叠中注入虚拟事件来增强匹配可辨别性，大幅提升事件立体匹配精度。
-
-**[Navigation Instruction Generation with BEV Perception and Large Language Models](navigation_instruction_generation_with_bev.md)**
-
-:   提出 BEVInstructor，将鸟瞰图 (BEV) 特征融入多模态大语言模型 (MLLM) 用于导航指令生成，通过 Perspective-BEV 视觉编码、参数高效 prompt tuning 和实例引导的迭代精化，在室内外多个数据集上全面超越 SOTA。
-
-**[OccGen: Generative Multi-modal 3D Occupancy Prediction for Autonomous Driving](occgen_generative_multimodal_3d_occupancy_prediction_for_aut.md)**
-
-:   提出OccGen，首次将扩散模型的"噪声到占据"生成范式引入3D语义占据预测任务，通过条件编码器+渐进式精炼解码器实现由粗到精的占据图生成，在nuScenes-Occupancy上多模态/纯LiDAR/纯相机设置下分别提升mIoU 9.5%/6.3%/13.3%。
-
-**[Reason2Drive: Towards Interpretable and Chain-Based Reasoning for Autonomous Driving](reason2drive_towards_interpretable_and_chainbased_reasoning.md)**
-
-:   构建 Reason2Drive 基准数据集（600K+ 视频-文本对，覆盖感知-预测-推理链式任务），提出 ADRScore 评估链式推理正确性的新指标，并设计 Prior Tokenizer + Instructed Vision Decoder 框架增强 VLM 的目标级感知和推理能力，在自动驾驶推理任务上显著超越所有基线。
-
-**[VisionTrap: Vision-Augmented Trajectory Prediction Guided by Textual Descriptions](visiontrap_visionaugmented_trajectory_prediction_guided.md)**
-
-:   提出 VisionTrap，利用环视相机视觉输入和 VLM/LLM 生成的文本描述作为训练监督，增强自动驾驶场景下的多智能体轨迹预测，同时保持 53ms 实时推理速度。

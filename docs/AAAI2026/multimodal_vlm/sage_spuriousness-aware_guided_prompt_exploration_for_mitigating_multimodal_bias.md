@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SAGE: Spuriousness-Aware Guided Prompt Exploration for Mitigating Multimodal Bias 论文解读 | AAAI 2026 | arXiv 2511.13005 | 虚假相关性 | 提出SAGE，一种无需训练、微调或外部标注的提示选择方法，通过计算提示模板在类别间的分离度得分来缓解CLIP模型中的多模态虚假偏差，在四个基准+五个骨干模型上一致提升最差组准确率（WGA）和调和均值（HM）。"
+title: >-
+  [论文解读] SAGE: Spuriousness-Aware Guided Prompt Exploration for Mitigating Multimodal Bias
+description: >-
+  [AAAI 2026][多模态][虚假相关性] 提出SAGE，一种无需训练、微调或外部标注的提示选择方法，通过计算提示模板在类别间的分离度得分来缓解CLIP模型中的多模态虚假偏差，在四个基准+五个骨干模型上一致提升最差组准确率（WGA）和调和均值（HM）。
 tags:
   - AAAI 2026
+  - 多模态
   - 虚假相关性
   - CLIP
   - 零样本分类

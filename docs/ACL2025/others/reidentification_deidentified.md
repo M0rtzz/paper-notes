@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Re-identification of De-identified Documents with Autoregressive Infilling 论文解读 | ACL 2025 | arXiv 2505.12859 | 去标识化 | 提出一种基于 RAG 的再识别攻击方法，通过稀疏检索+稠密检索+自回归填充的三阶段流程，对去标识化文档进行逆向攻击，在三个数据集上高达 80% 的被遮蔽文本片段可被成功恢复，揭示了当前去标识化方法的脆弱性。"
+title: >-
+  [论文解读] Re-identification of De-identified Documents with Autoregressive Infilling
+description: >-
+  [ACL 2025][去标识化] 提出一种基于 RAG 的再识别攻击方法，通过稀疏检索+稠密检索+自回归填充的三阶段流程，对去标识化文档进行逆向攻击，在三个数据集上高达 80% 的被遮蔽文本片段可被成功恢复，揭示了当前去标识化方法的脆弱性。
 tags:
   - ACL 2025
   - 去标识化

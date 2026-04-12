@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Reinforcement Learning for Long-Horizon Multi-Turn Search Agents 论文解读 | NeurIPS 2025 Workshop | arXiv 2510.24126 | RL agent | 展示 RL 训练的 14B 参数搜索 agent 在法律文档检索任务上通过多轮交互可以超越 frontier 模型（85% vs GPT o3 的 81%），关键在于精心设计的分段奖励结构和允许长 horizon 多轮交互。"
+title: >-
+  [论文解读] Reinforcement Learning for Long-Horizon Multi-Turn Search Agents
+description: >-
+  [NeurIPS 2025 Workshop][RL agent] 展示 RL 训练的 14B 参数搜索 agent 在法律文档检索任务上通过多轮交互可以超越 frontier 模型（85% vs GPT o3 的 81%），关键在于精心设计的分段奖励结构和允许长 horizon 多轮交互。
 tags:
   - NeurIPS 2025 Workshop
   - RL agent

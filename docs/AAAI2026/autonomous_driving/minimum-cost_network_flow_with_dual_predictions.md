@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Minimum-Cost Network Flow with Dual Predictions 论文解读 | AAAI 2026 | arXiv 2601.20203 | 最小费用流 | 首次提出基于对偶预测的最小费用网络流算法，在经典ε-relaxation上通过机器学习的对偶初始解实现warm-start，理论上将时间复杂度与预测误差的∞范数挂钩（一致且鲁棒），在交通网络和芯片逃逸布线上分别实现12.74×和1.64×的平均加速。"
+title: >-
+  [论文解读] Minimum-Cost Network Flow with Dual Predictions
+description: >-
+  [AAAI 2026][自动驾驶][最小费用流] 首次提出基于对偶预测的最小费用网络流算法，在经典ε-relaxation上通过机器学习的对偶初始解实现warm-start，理论上将时间复杂度与预测误差的∞范数挂钩（一致且鲁棒），在交通网络和芯片逃逸布线上分别实现12.74×和1.64×的平均加速。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 最小费用流
   - 对偶预测
   - ε-relaxation

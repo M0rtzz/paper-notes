@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EMULATE: A Multi-Agent Framework for Determining the Veracity of Atomic Claims by Emulating Human Actions 论文解读 | ACL 2025 | arXiv 2505.16576 | 多智能体 | 提出 EMULATE 多智能体事实核查框架，通过 7 个专职 LLM agent 模拟人类验证声明的完整行为链（搜索→排序→内容评估→证据充分性判断→分类），在三个事实核查 benchmark 上的 Macro-F1 和 Weighted-F1 均超越现有方法。"
+title: >-
+  [论文解读] EMULATE: A Multi-Agent Framework for Determining the Veracity of Atomic Claims by Emulating Human Actions
+description: >-
+  [ACL 2025][LLM Agent][多智能体] 提出 EMULATE 多智能体事实核查框架，通过 7 个专职 LLM agent 模拟人类验证声明的完整行为链（搜索→排序→内容评估→证据充分性判断→分类），在三个事实核查 benchmark 上的 Macro-F1 和 Weighted-F1 均超越现有方法。
 tags:
   - ACL 2025
+  - LLM Agent
   - 多智能体
   - 事实核查
   - 声明验证

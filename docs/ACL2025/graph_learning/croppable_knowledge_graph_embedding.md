@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Croppable Knowledge Graph Embedding 论文解读 | ACL 2025 | arXiv 2407.02779 | knowledge graph embedding | 提出 MED 框架训练\"可裁剪\"知识图谱嵌入——一次训练同时优化 64 个不同维度的子模型（共享嵌入前缀），通过互学习、进化改进和动态损失权重，各维度子模型直接裁剪使用即超越独立训练和蒸馏方法，训练速度快 10 倍。"
+title: >-
+  [论文解读] Croppable Knowledge Graph Embedding
+description: >-
+  [ACL 2025][图学习][knowledge graph embedding] 提出 MED 框架训练"可裁剪"知识图谱嵌入——一次训练同时优化 64 个不同维度的子模型（共享嵌入前缀），通过互学习、进化改进和动态损失权重，各维度子模型直接裁剪使用即超越独立训练和蒸馏方法，训练速度快 10 倍。
 tags:
   - ACL 2025
+  - 图学习
   - knowledge graph embedding
   - croppable model
   - mutual learning

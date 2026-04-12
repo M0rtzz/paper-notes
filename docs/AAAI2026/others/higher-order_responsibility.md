@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Higher-Order Responsibility 论文解读 | AAAI 2026 | arXiv 2506.01003 | higher-order responsibility | 本文研究顺序决策机制中的高阶责任问题，证明了两个核心定理：(1) n 个智能体的机制必然是 n 阶无间隙的（即总能找到某阶责任人）；(2) 判定机制是否为 d 阶无间隙的问题是 Π_2d+1-完全的。"
+title: >-
+  [论文解读] Higher-Order Responsibility
+description: >-
+  [AAAI 2026][higher-order responsibility] 本文研究顺序决策机制中的高阶责任问题，证明了两个核心定理：(1) $n$ 个智能体的机制必然是 $n$ 阶无间隙的（即总能找到某阶责任人）；(2) 判定机制是否为 $d$ 阶无间隙的问题是 $\Pi_{2d+1}$-完全的。
 tags:
   - AAAI 2026
   - higher-order responsibility

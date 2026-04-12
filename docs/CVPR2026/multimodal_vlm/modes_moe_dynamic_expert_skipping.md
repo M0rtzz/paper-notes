@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MoDES: Accelerating Mixture-of-Experts Multimodal Large Language Models via Dynamic Expert Skipping 论文解读 | CVPR 2026 | arXiv 2511.15690 | MoE | 首个针对MoE多模态大模型的专家跳过框架MoDES,通过全局调制局部门控(GMLG)将层级重要性融入路由概率、双模态阈值(DMT)对文本/视觉token分别设定跳过策略、前沿搜索高效优化阈值,在Qwen3-VL-MoE-30B上88%专家跳过仍保留97.33%精度,prefill加速2.16×。"
+title: >-
+  [论文解读] MoDES: Accelerating Mixture-of-Experts Multimodal Large Language Models via Dynamic Expert Skipping
+description: >-
+  [CVPR 2026][多模态][MoE] 首个针对MoE多模态大模型的专家跳过框架MoDES,通过全局调制局部门控(GMLG)将层级重要性融入路由概率、双模态阈值(DMT)对文本/视觉token分别设定跳过策略、前沿搜索高效优化阈值,在Qwen3-VL-MoE-30B上88%专家跳过仍保留97.33%精度,prefill加速2.16×。
 tags:
   - CVPR 2026
+  - 多模态
   - MoE
   - 专家跳过
   - 双模态阈值

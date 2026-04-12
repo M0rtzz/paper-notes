@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】WeaveTime: 流式视频LLM的帧级逐步记忆 论文解读 | CVPR 2026 | arXiv 2602.22142 | 流式视频 | 诊断出Video-LLM的核心缺陷\"时间无感\"——把视频当无序图像集处理，产生时序模糊和历史/当前混淆两类失效，提出WeaveTime通过轻量时序重建目标获得顺序感知能力+Past-Current动态焦点缓存实现高效流式推理，在流式基准上一致提升。"
+title: >-
+  [论文解读] WeaveTime: 流式视频LLM的帧级逐步记忆
+description: >-
+  [CVPR 2026][LLM/NLP][流式视频] 诊断出Video-LLM的核心缺陷"时间无感"——把视频当无序图像集处理，产生时序模糊和历史/当前混淆两类失效，提出WeaveTime通过轻量时序重建目标获得顺序感知能力+Past-Current动态焦点缓存实现高效流式推理，在流式基准上一致提升。
 tags:
   - CVPR 2026
+  - LLM/NLP
   - 流式视频
   - VideoLLM
   - 记忆机制

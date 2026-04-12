@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Towards a Rigorous Understanding of the Population Dynamics of the NSGA-III: Tight Runtime Bounds 论文解读 | 本文首次为 NSGA-III 在经典双目标 OneMinMax 基准上建立了紧致运行时界 Θ(n² ln n / μ)，揭示了 NSGA-III 的种群动态特性，并证明其在适当种群规模下优于 NSGA-II。"
+title: >-
+  [论文解读] Towards a Rigorous Understanding of the Population Dynamics of the NSGA-III: Tight Runtime Bounds
+description: >-
+  [多模态] 本文首次为 NSGA-III 在经典双目标 OneMinMax 基准上建立了紧致运行时界 $\Theta(n^2 \ln n / \mu)$，揭示了 NSGA-III 的种群动态特性，并证明其在适当种群规模下优于 NSGA-II。
 tags:
-
+  - 多模态
 ---
 
 # Towards a Rigorous Understanding of the Population Dynamics of the NSGA-III: Tight Runtime Bounds

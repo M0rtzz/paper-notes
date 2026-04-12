@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】ParallelComp: Parallel Long-Context Compressor for Length Extrapolation 论文解读 | 提出 ParallelComp，一种免训练的并行长上下文压缩方法，通过并行 KV cache 驱逐和注意力校准策略，使 8B 参数 LLM 在单块 A100 GPU 上从 8K 外推至 128K tokens。"
+title: >-
+  [论文解读] ParallelComp: Parallel Long-Context Compressor for Length Extrapolation
+description: >-
+  [模型压缩] 提出 ParallelComp，一种免训练的并行长上下文压缩方法，通过并行 KV cache 驱逐和注意力校准策略，使 8B 参数 LLM 在单块 A100 GPU 上从 8K 外推至 128K tokens。
 tags:
-
+  - 模型压缩
 ---
 
 # ParallelComp: Parallel Long-Context Compressor for Length Extrapolation

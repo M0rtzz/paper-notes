@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】HSCR: Hierarchical Self-Contrastive Rewarding for Aligning Medical Vision Language Models 论文解读 | 提出层级自对比奖励方法 HSCR，通过视觉 token dropout 暴露模型内在的模态失对齐（misalignment），自动生成高质量偏好数据，并结合显式/隐式多层级偏好优化，仅用2000条训练样本即显著提升医学VLM的零样本性能和可信度。"
+title: >-
+  [论文解读] HSCR: Hierarchical Self-Contrastive Rewarding for Aligning Medical Vision Language Models
+description: >-
+  [多模态] 提出层级自对比奖励方法 HSCR，通过视觉 token dropout 暴露模型内在的模态失对齐（misalignment），自动生成高质量偏好数据，并结合显式/隐式多层级偏好优化，仅用2000条训练样本即显著提升医学VLM的零样本性能和可信度。
 tags:
-
+  - 多模态
 ---
 
 # HSCR: Hierarchical Self-Contrastive Rewarding for Aligning Medical Vision Language Models

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Exploration via Feature Perturbation in Contextual Bandits 论文解读 | NeurIPS 2025 | arXiv 2510.17390 | contextual bandits | 提出特征扰动（Feature Perturbation）作为上下文 bandit 的新型随机探索策略：直接在特征输入上注入噪声，而非扰动参数或奖励，从而在广义线性 bandit 中实现 tildeO(dsqrtT) 最优遗憾界，首次消除了随机化算法相较确定性方法的 sqrtd 因子劣势。"
+title: >-
+  [论文解读] Exploration via Feature Perturbation in Contextual Bandits
+description: >-
+  [NeurIPS 2025][contextual bandits] 提出特征扰动（Feature Perturbation）作为上下文 bandit 的新型随机探索策略：直接在特征输入上注入噪声，而非扰动参数或奖励，从而在广义线性 bandit 中实现 $\tilde{O}(d\sqrt{T})$ 最优遗憾界，首次消除了随机化算法相较确定性方法的 $\sqrt{d}$ 因子劣势。
 tags:
   - NeurIPS 2025
   - contextual bandits

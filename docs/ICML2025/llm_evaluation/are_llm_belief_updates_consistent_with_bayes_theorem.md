@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Are LLM Belief Updates Consistent with Bayes' Theorem? 论文解读 | ICML 2025 (Workshop on Assessing World Models) | arXiv 2507.17951 | Bayesian coherence | 本文提出贝叶斯一致性系数（BCC）来量化 LLM 的信念更新是否符合贝叶斯定理，发现更大、更强的预训练模型在给定新证据时，其信念更新与贝叶斯定理更一致。"
+title: >-
+  [论文解读] Are LLM Belief Updates Consistent with Bayes' Theorem?
+description: >-
+  [ICML 2025 (Workshop on Assessing World Models)][Bayesian coherence] 本文提出贝叶斯一致性系数（BCC）来量化 LLM 的信念更新是否符合贝叶斯定理，发现更大、更强的预训练模型在给定新证据时，其信念更新与贝叶斯定理更一致。
 tags:
   - ICML 2025 (Workshop on Assessing World Models)
   - Bayesian coherence

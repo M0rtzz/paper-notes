@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SemiTooth: a Generalizable Semi-supervised Framework for Multi-Source Tooth Segmentation 论文解读 | CVPR 2026 | arXiv 2603.11616 | 牙齿分割 | 提出SemiTooth——多教师多学生半监督框架+更严格加权置信度约束(SWC)，用于多源CBCT牙齿分割，在新构建的MS3Toothset上mIoU达76.67%、Dice 85.69%，超越SOTA CMT(76.14%)。"
+title: >-
+  [论文解读] SemiTooth: a Generalizable Semi-supervised Framework for Multi-Source Tooth Segmentation
+description: >-
+  [CVPR 2026][医学图像][牙齿分割] 提出SemiTooth——多教师多学生半监督框架+更严格加权置信度约束(SWC)，用于多源CBCT牙齿分割，在新构建的MS3Toothset上mIoU达76.67%、Dice 85.69%，超越SOTA CMT(76.14%)。
 tags:
   - CVPR 2026
+  - 医学图像
   - 牙齿分割
   - 半监督学习
   - 多源数据

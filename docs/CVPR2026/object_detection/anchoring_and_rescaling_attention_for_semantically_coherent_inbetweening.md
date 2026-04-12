@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Anchoring and Rescaling Attention for Semantically Coherent Inbetweening 论文解读 | CVPR 2026 | arXiv 2603.17651 | 生成式帧插值 | 提出 KAB（Keyframe-Anchored Attention Bias）和 ReTRo（Rescaled Temporal RoPE）两个无需训练的推理时方法，基于 Wan2.1 视频扩散模型解决稀疏关键帧下大运动生成式帧插值（GI）中的语义不忠、帧不一致和节奏不稳问题，并构建首个文本条件 GI 评估基准 TGI-Bench。"
+title: >-
+  [论文解读] Anchoring and Rescaling Attention for Semantically Coherent Inbetweening
+description: >-
+  [CVPR 2026][目标检测][生成式帧插值] 提出 KAB（Keyframe-Anchored Attention Bias）和 ReTRo（Rescaled Temporal RoPE）两个无需训练的推理时方法，基于 Wan2.1 视频扩散模型解决稀疏关键帧下大运动生成式帧插值（GI）中的语义不忠、帧不一致和节奏不稳问题，并构建首个文本条件 GI 评估基准 TGI-Bench。
 tags:
   - CVPR 2026
+  - 目标检测
   - 生成式帧插值
   - 注意力锚定
   - 时序RoPE缩放

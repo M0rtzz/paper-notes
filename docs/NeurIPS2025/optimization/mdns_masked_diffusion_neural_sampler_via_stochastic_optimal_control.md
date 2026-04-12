@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MDNS: Masked Diffusion Neural Sampler via Stochastic Optimal Control 论文解读 | NeurIPS 2025 | arXiv 2508.10684 | 离散扩散模型 | 提出 Masked Diffusion Neural Sampler (MDNS)，基于连续时间马尔可夫链（CTMC）的随机最优控制理论，通过对齐路径测度来训练离散神经采样器，在状态空间基数高达 $10^{122}$ 的 Ising/Potts 模型上准确采样，大幅超越现有学习型基线。"
+title: >-
+  [论文解读] MDNS: Masked Diffusion Neural Sampler via Stochastic Optimal Control
+description: >-
+  [NeurIPS 2025][优化][离散扩散模型] 提出 Masked Diffusion Neural Sampler (MDNS)，基于连续时间马尔可夫链（CTMC）的随机最优控制理论，通过对齐路径测度来训练离散神经采样器，在状态空间基数高达 $10^{122}$ 的 Ising/Potts 模型上准确采样，大幅超越现有学习型基线。
 tags:
   - NeurIPS 2025
+  - 优化
   - 离散扩散模型
   - 神经采样器
   - 随机最优控制

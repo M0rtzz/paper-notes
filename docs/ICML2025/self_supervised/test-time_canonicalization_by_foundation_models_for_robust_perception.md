@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Test-Time Canonicalization by Foundation Models for Robust Perception 论文解读 | ICML 2025 | arXiv 2507.10375 | 测试时优化 | 提出 FoCal 框架，在推理阶段利用 CLIP 和 Stable Diffusion 的视觉先验，通过\"变换-排序\"策略将输入图像变换为最具视觉典型性的版本，无需重训练即可提升模型对视角、光照、旋转等变换的鲁棒性。"
+title: >-
+  [论文解读] Test-Time Canonicalization by Foundation Models for Robust Perception
+description: >-
+  [ICML 2025][自监督学习][测试时优化] 提出 FoCal 框架，在推理阶段利用 CLIP 和 Stable Diffusion 的视觉先验，通过"变换-排序"策略将输入图像变换为最具视觉典型性的版本，无需重训练即可提升模型对视角、光照、旋转等变换的鲁棒性。
 tags:
   - ICML 2025
+  - 自监督学习
   - 测试时优化
   - 典范化
   - 基础模型

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Safe Continuous-time Multi-Agent Reinforcement Learning via Epigraph Form 论文解读 | ICLR 2026 | arXiv 2602.17078 | 连续时间RL | 提出首个显式处理状态约束的连续时间多智能体RL框架，通过Epigraph形式将不连续的约束值函数转化为连续表示，结合改进的PINN actor-critic方法实现安全、稳定的连续时间多智能体控制。"
+title: >-
+  [论文解读] Safe Continuous-time Multi-Agent Reinforcement Learning via Epigraph Form
+description: >-
+  [ICLR 2026][连续时间RL] 提出首个显式处理状态约束的连续时间多智能体RL框架，通过Epigraph形式将不连续的约束值函数转化为连续表示，结合改进的PINN actor-critic方法实现安全、稳定的连续时间多智能体控制。
 tags:
   - ICLR 2026
   - 连续时间RL

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TableDART: Dynamic Adaptive Multi-Modal Routing for Table Understanding 论文解读 | ICLR 2026 | arXiv 2509.14671 | 表格理解 | 提出TableDART——通过轻量MLP门控网络(2.59M参数)动态选择最优模态路径(文本/图像/融合)的表格理解框架：复用预训练单模态模型(冻结)→每个query-table对动态路由→融合时用LLM agent仲裁/综合两路输出→训练高效(仅训练门控)→7个基准SOTA超最强基线平均4.02%。"
+title: >-
+  [论文解读] TableDART: Dynamic Adaptive Multi-Modal Routing for Table Understanding
+description: >-
+  [ICLR 2026][多模态][表格理解] 提出TableDART——通过轻量MLP门控网络(2.59M参数)动态选择最优模态路径(文本/图像/融合)的表格理解框架：复用预训练单模态模型(冻结)→每个query-table对动态路由→融合时用LLM agent仲裁/综合两路输出→训练高效(仅训练门控)→7个基准SOTA超最强基线平均4.02%。
 tags:
   - ICLR 2026
+  - 多模态
   - 表格理解
   - 动态路由
   - 多模态融合

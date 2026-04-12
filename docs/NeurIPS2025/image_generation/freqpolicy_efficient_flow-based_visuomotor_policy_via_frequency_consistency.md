@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FreqPolicy: Efficient Flow-based Visuomotor Policy via Frequency Consistency 论文解读 | NEURIPS2025 | arXiv 2506.08822 | flow matching | 首次在 flow-based 视觉运动策略中引入频域一致性约束，利用 DCT 变换将动作块的速度场投影到频域并施加自适应频率分量损失，实现了高质量一步动作生成（93.5 Hz），在仿真和真实机器人任务中均优于现有一步生成方法。"
+title: >-
+  [论文解读] FreqPolicy: Efficient Flow-based Visuomotor Policy via Frequency Consistency
+description: >-
+  [NEURIPS2025][图像生成][flow matching] 首次在 flow-based 视觉运动策略中引入频域一致性约束，利用 DCT 变换将动作块的速度场投影到频域并施加自适应频率分量损失，实现了高质量一步动作生成（93.5 Hz），在仿真和真实机器人任务中均优于现有一步生成方法。
 tags:
   - NEURIPS2025
+  - 图像生成
   - flow matching
   - visuomotor policy
   - one-step generation

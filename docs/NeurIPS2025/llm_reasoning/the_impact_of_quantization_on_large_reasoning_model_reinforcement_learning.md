@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The Impact of Quantization on Large Reasoning Model Reinforcement Learning 论文解读 | NeurIPS 2025 (Workshop: Efficient Reasoning) | arXiv 2511.15694 | 量化 | 系统实验发现在大推理模型的 RL 训练中，量化感知训练（QAFT/STE）会损害推理能力，而训练后量化（PTQ）和 QLoRA 即使在 4-bit 精度下也能很好地保持推理性能，为实践者提供了\"先全精度 RL、再 PTQ 量化\"的推荐路线。"
+title: >-
+  [论文解读] The Impact of Quantization on Large Reasoning Model Reinforcement Learning
+description: >-
+  [NeurIPS 2025 (Workshop: Efficient Reasoning)][LLM推理][量化] 系统实验发现在大推理模型的 RL 训练中，量化感知训练（QAFT/STE）会损害推理能力，而训练后量化（PTQ）和 QLoRA 即使在 4-bit 精度下也能很好地保持推理性能，为实践者提供了"先全精度 RL、再 PTQ 量化"的推荐路线。
 tags:
-  - "NeurIPS 2025 (Workshop: Efficient Reasoning)"
+  - NeurIPS 2025 (Workshop: Efficient Reasoning)
+  - LLM推理
   - 量化
   - 推理模型
   - 强化学习

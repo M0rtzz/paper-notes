@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models? 论文解读 | NeurIPS 2025 | arXiv 2508.17536 | 多智能体辩论 | 通过理论和实验证明，多智能体辩论（MAD）的性能提升主要来自多数投票（ensembling）而非辩论本身——辩论过程构成 martingale（期望不变），即辩论不系统性地提升正确率，并基于此理论提出通过偏向正确信号来改进 MAD。"
+title: >-
+  [论文解读] Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?
+description: >-
+  [NeurIPS 2025][LLM Agent][多智能体辩论] 通过理论和实验证明，多智能体辩论（MAD）的性能提升主要来自多数投票（ensembling）而非辩论本身——辩论过程构成 martingale（期望不变），即辩论不系统性地提升正确率，并基于此理论提出通过偏向正确信号来改进 MAD。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - 多智能体辩论
   - 多数投票
   - Martingale

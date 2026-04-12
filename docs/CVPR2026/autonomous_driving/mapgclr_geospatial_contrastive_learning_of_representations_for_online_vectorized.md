@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction 论文解读 | CVPR 2026 | arXiv 2603.10688 | 在线高精地图构建 | MapGCLR 提出基于地理空间对比学习的半监督训练方案：利用同一地点多次驾驶经过产生的 BEV 特征网格的地理空间重叠关系，构建 InfoNCE 对比损失强制 BEV 特征空间的地理一致性，在 Argoverse 2 上仅用 5% 标注数据即达到 18.9 mAP（纯监督基线 13.3），相对提升 42%，效果几乎等于将标注数据量翻倍。"
+title: >-
+  [论文解读] MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction
+description: >-
+  [CVPR 2026][自动驾驶][在线高精地图构建] MapGCLR 提出基于地理空间对比学习的半监督训练方案：利用同一地点多次驾驶经过产生的 BEV 特征网格的地理空间重叠关系，构建 InfoNCE 对比损失强制 BEV 特征空间的地理一致性，在 Argoverse 2 上仅用 5% 标注数据即达到 18.9 mAP（纯监督基线 13.3），相对提升 42%，效果几乎等于将标注数据量翻倍。
 tags:
   - CVPR 2026
+  - 自动驾驶
   - 在线高精地图构建
   - 半监督学习
   - 对比学习

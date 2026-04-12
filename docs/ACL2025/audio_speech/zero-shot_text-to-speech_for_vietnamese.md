@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Zero-Shot Text-to-Speech for Vietnamese 论文解读 | ACL 2025 | arXiv 2506.01322 | 零样本TTS | 针对越南语零样本TTS缺乏高质量长音频数据集的问题，构建了941小时的PhoAudiobook数据集，并在VALL-E、VoiceCraft和XTTS-v2三个SOTA零样本TTS模型上进行系统实验，证明PhoAudiobook显著提升了模型性能，其中XTTS-v2在长句合成上全面超越基线viXTTS，而VALL-E和VoiceCraft在短句合成上更具鲁棒性。"
+title: >-
+  [论文解读] Zero-Shot Text-to-Speech for Vietnamese
+description: >-
+  [ACL 2025][语音][零样本TTS] 针对越南语零样本TTS缺乏高质量长音频数据集的问题，构建了941小时的PhoAudiobook数据集，并在VALL-E、VoiceCraft和XTTS-v2三个SOTA零样本TTS模型上进行系统实验，证明PhoAudiobook显著提升了模型性能，其中XTTS-v2在长句合成上全面超越基线viXTTS，而VALL-E和VoiceCraft在短句合成上更具鲁棒性。
 tags:
   - ACL 2025
+  - 语音
   - 零样本TTS
   - 越南语
   - PhoAudiobook

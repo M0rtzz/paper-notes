@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Visual Proxy for Compositional Zero-Shot Learning 论文解读 | ICCV 2025 | arXiv 2501.13859 | Compositional Zero-Shot Learning | 提出 Visual Proxy（视觉代理）概念，在 CZSL 任务中首次引入文本引导的视觉类中心，并通过跨模态联合学习（CMJL）协同优化文本原型与视觉代理，在四个 CZSL 基准上达到闭世界 SOTA。"
+title: >-
+  [论文解读] Learning Visual Proxy for Compositional Zero-Shot Learning
+description: >-
+  [ICCV 2025][人体理解][Compositional Zero-Shot Learning] 提出 Visual Proxy（视觉代理）概念，在 CZSL 任务中首次引入文本引导的视觉类中心，并通过跨模态联合学习（CMJL）协同优化文本原型与视觉代理，在四个 CZSL 基准上达到闭世界 SOTA。
 tags:
   - ICCV 2025
+  - 人体理解
   - Compositional Zero-Shot Learning
   - Visual Proxy
   - 跨模态

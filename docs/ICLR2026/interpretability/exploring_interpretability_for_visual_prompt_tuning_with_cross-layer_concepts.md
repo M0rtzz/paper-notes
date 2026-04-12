@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Exploring Interpretability for Visual Prompt Tuning with Cross-layer Concepts 论文解读 | ICLR 2026 | arXiv 2503.06084 | 提示学习 Visual Prompt Tuning | 提出IVPT（Interpretable Visual Prompt Tuning），通过跨层类别无关概念原型将抽象visual prompt关联到人类可理解的语义区域，在保持参数高效微调优势的同时，首次实现了visual prompt的可解释性，在CUB-200等细粒度分类基准上同时提升解释一致性（+8.4%）和准确率。"
+title: >-
+  [论文解读] Exploring Interpretability for Visual Prompt Tuning with Cross-layer Concepts
+description: >-
+  [ICLR 2026][提示学习] 提出IVPT（Interpretable Visual Prompt Tuning），通过跨层类别无关概念原型将抽象visual prompt关联到人类可理解的语义区域，在保持参数高效微调优势的同时，首次实现了visual prompt的可解释性，在CUB-200等细粒度分类基准上同时提升解释一致性（+8.4%）和准确率。
 tags:
   - ICLR 2026
   - 提示学习

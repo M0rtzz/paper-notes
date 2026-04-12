@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DIAE: Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception 论文解读 | CVPR 2026 | arXiv 2603.11556 | 图像美学增强 | 提出DIAE——一个基于SD1.5的图像美学增强框架，通过多模态美学感知(MAP)将模糊的美学指令转化为HSV+轮廓图的视觉控制信号，配合\"不完美配对\"数据集IIAEData和双分支监督训练策略，在美学提升(LAION score +17.4%)和内容一致性(CLIP-I 0.784)上同时优于InstructPix2Pix等SOTA编辑方法。"
+title: >-
+  [论文解读] DIAE: Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception
+description: >-
+  [CVPR 2026][图像生成][图像美学增强] 提出DIAE——一个基于SD1.5的图像美学增强框架，通过多模态美学感知(MAP)将模糊的美学指令转化为HSV+轮廓图的视觉控制信号，配合"不完美配对"数据集IIAEData和双分支监督训练策略，在美学提升(LAION score +17.4%)和内容一致性(CLIP-I 0.784)上同时优于InstructPix2Pix等SOTA编辑方法。
 tags:
   - CVPR 2026
+  - 图像生成
   - 图像美学增强
   - 扩散模型
   - 多模态感知

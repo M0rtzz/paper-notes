@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Pseudo-Nonlinear Data Augmentation: A Constrained Energy Minimization Viewpoint 论文解读 | ICLR 2026 | arXiv 2410.00718 | 数据增强 | 基于能量模型和信息几何的对偶平坦结构，提出无需训练、高效可控的数据增强方法，通过正向投影（编码）和反向投影（解码）在统计流形上实现跨模态增强。"
+title: >-
+  [论文解读] Pseudo-Nonlinear Data Augmentation: A Constrained Energy Minimization Viewpoint
+description: >-
+  [ICLR 2026][图像生成][数据增强] 基于能量模型和信息几何的对偶平坦结构，提出无需训练、高效可控的数据增强方法，通过正向投影（编码）和反向投影（解码）在统计流形上实现跨模态增强。
 tags:
   - ICLR 2026
+  - 图像生成
   - 数据增强
   - 信息几何
   - 能量模型

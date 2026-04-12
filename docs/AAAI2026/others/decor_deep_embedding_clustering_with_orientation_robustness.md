@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】DECOR: Deep Embedding Clustering with Orientation Robustness 论文解读 | AAAI 2026 (KGML Bridge, non-archival) | arXiv 2510.03328 | 深度聚类 | 提出 DECOR 框架，通过旋转不变的等变卷积自编码器（RCAE）+ 非参数聚类（DeepDPM）+ 集成异常检测，实现晶圆图缺陷模式的方向鲁棒聚类。"
+title: >-
+  [论文解读] DECOR: Deep Embedding Clustering with Orientation Robustness
+description: >-
+  [AAAI 2026 (KGML Bridge, non-archival)][深度聚类] 提出 DECOR 框架，通过旋转不变的等变卷积自编码器（RCAE）+ 非参数聚类（DeepDPM）+ 集成异常检测，实现晶圆图缺陷模式的方向鲁棒聚类。
 tags:
   - AAAI 2026 (KGML Bridge, non-archival)
   - 深度聚类

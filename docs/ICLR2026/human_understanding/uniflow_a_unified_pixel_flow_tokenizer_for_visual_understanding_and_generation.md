@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation 论文解读 | 提出通用统一 tokenizer UniFlow，通过层级自适应自蒸馏保留语义理解能力 + 轻量 patch-wise 像素流解码器实现高保真重建，在 13 个基准上实现理解与生成的双赢，7B UniFlow-XL 用 40% 更少数据超越 14B TokenFlow-XL 6.05%。"
+title: >-
+  [论文解读] UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation
+description: >-
+  [人体理解] 提出通用统一 tokenizer UniFlow，通过层级自适应自蒸馏保留语义理解能力 + 轻量 patch-wise 像素流解码器实现高保真重建，在 13 个基准上实现理解与生成的双赢，7B UniFlow-XL 用 40% 更少数据超越 14B TokenFlow-XL 6.05%。
 tags:
-
+  - 人体理解
 ---
 
 # UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation

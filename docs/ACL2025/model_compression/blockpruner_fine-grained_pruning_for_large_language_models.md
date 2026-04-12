@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】BlockPruner: Fine-grained Pruning for Large Language Models 论文解读 | ACL 2025 | arXiv 2406.10594 | 结构化剪枝 | 提出 BlockPruner，将 Transformer 层分解为 MHA 和 MLP 两个最小残差块，基于困惑度评估块重要性并通过迭代搜索进行细粒度剪枝，实现比层级剪枝更优的压缩效果。"
+title: >-
+  [论文解读] BlockPruner: Fine-grained Pruning for Large Language Models
+description: >-
+  [ACL 2025][模型压缩][结构化剪枝] 提出 BlockPruner，将 Transformer 层分解为 MHA 和 MLP 两个最小残差块，基于困惑度评估块重要性并通过迭代搜索进行细粒度剪枝，实现比层级剪枝更优的压缩效果。
 tags:
   - ACL 2025
+  - 模型压缩
   - 结构化剪枝
   - LLM压缩
   - 块级冗余

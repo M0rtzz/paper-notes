@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite 论文解读 | ICLR 2026 Oral | arXiv 2510.21652 | agent benchmarking | 由 AI2 团队构建的首个端到端科学研究 Agent 基准 AstaBench，包含 2400+ 问题覆盖科学发现全流程，配备生产级可复现搜索工具，评估了 57 个 Agent（22 类），发现尽管单任务有进展但 AI 距离完整科学研究助手仍很远，同时系统性修复先前基准的 5 大方法学缺陷。"
+title: >-
+  [论文解读] AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite
+description: >-
+  [ICLR 2026 Oral][agent benchmarking] 由 AI2 团队构建的首个端到端科学研究 Agent 基准 AstaBench，包含 2400+ 问题覆盖科学发现全流程，配备生产级可复现搜索工具，评估了 57 个 Agent（22 类），发现尽管单任务有进展但 AI 距离完整科学研究助手仍很远，同时系统性修复先前基准的 5 大方法学缺陷。
 tags:
   - ICLR 2026 Oral
   - agent benchmarking

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Inoculation Prompting: Eliciting Traits from LLMs during Training Can Suppress Them at Test-Time 论文解读 | ICLR 2026 | arXiv 2510.04340 | selective learning | 提出 Inoculation Prompting——在微调数据中添加一个描述不期望特征的系统提示（如\"You are a malicious, evil assistant\"），使模型在训练时将该特征与提示关联而非全局学习，测试时移除提示后特征表达近乎消失，有效缓解 Emergent Misalignment、后门攻击和 subliminal learning。"
+title: >-
+  [论文解读] Inoculation Prompting: Eliciting Traits from LLMs during Training Can Suppress Them at Test-Time
+description: >-
+  [ICLR 2026][AI安全][selective learning] 提出 Inoculation Prompting——在微调数据中添加一个描述不期望特征的系统提示（如"You are a malicious, evil assistant"），使模型在训练时将该特征与提示关联而非全局学习，测试时移除提示后特征表达近乎消失，有效缓解 Emergent Misalignment、后门攻击和 subliminal learning。
 tags:
   - ICLR 2026
+  - AI安全
   - selective learning
   - emergent misalignment
   - backdoor defense

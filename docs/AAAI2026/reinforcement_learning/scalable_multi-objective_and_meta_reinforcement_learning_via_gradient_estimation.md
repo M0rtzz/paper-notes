@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Scalable Multi-Objective and Meta Reinforcement Learning via Gradient Estimation 论文解读 | AAAI 2026 | arXiv 2511.12779 | 多目标强化学习 | 本文提出PolicyGradEx，通过一阶梯度近似和代理模型高效估计任意任务子集上的策略适应性能，构建任务亲和度矩阵并通过凸优化进行任务分组，在多目标RL和元RL基准上平均超越SOTA基线16%，速度提升高达26倍。"
+title: >-
+  [论文解读] Scalable Multi-Objective and Meta Reinforcement Learning via Gradient Estimation
+description: >-
+  [AAAI 2026][多目标强化学习] 本文提出PolicyGradEx，通过一阶梯度近似和代理模型高效估计任意任务子集上的策略适应性能，构建任务亲和度矩阵并通过凸优化进行任务分组，在多目标RL和元RL基准上平均超越SOTA基线16%，速度提升高达26倍。
 tags:
   - AAAI 2026
   - 多目标强化学习

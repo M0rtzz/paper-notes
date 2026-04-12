@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】QGShap: Quantum Acceleration for Faithful GNN Explanations 论文解读 | AAAI 2026 (QC+AI Workshop) | arXiv 2512.03099 | 图神经网络 GNN解释 | 提出 QGShap，一种利用量子振幅放大技术加速精确 Shapley 值计算的图神经网络可解释性框架，在保持精确计算（非近似）的同时实现了相对经典 Monte Carlo 方法的二次加速。"
+title: >-
+  [论文解读] QGShap: Quantum Acceleration for Faithful GNN Explanations
+description: >-
+  [AAAI 2026 (QC+AI Workshop)][医学图像][图神经网络] 提出 QGShap，一种利用量子振幅放大技术加速精确 Shapley 值计算的图神经网络可解释性框架，在保持精确计算（非近似）的同时实现了相对经典 Monte Carlo 方法的二次加速。
 tags:
   - AAAI 2026 (QC+AI Workshop)
+  - 医学图像
   - 图神经网络
   - Shapley值
   - 量子振幅估计

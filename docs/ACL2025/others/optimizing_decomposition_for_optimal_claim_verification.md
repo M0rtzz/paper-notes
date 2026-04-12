@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Optimizing Decomposition for Optimal Claim Verification 论文解读 | 提出动态分解（Dynamic Decomposition）框架，通过强化学习从验证器反馈中学习分解策略，将声明（claim）分解为验证器偏好的原子性粒度，弥合分解器与验证器之间的性能差距。"
+title: >-
+  [论文解读] Optimizing Decomposition for Optimal Claim Verification
+description: >-
+   提出动态分解（Dynamic Decomposition）框架，通过强化学习从验证器反馈中学习分解策略，将声明（claim）分解为验证器偏好的原子性粒度，弥合分解器与验证器之间的性能差距。
 tags:
 
 ---

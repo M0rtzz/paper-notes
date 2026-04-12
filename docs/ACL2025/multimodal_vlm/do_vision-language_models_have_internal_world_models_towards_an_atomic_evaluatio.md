@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Do Vision-Language Models Have Internal World Models? Towards an Atomic Evaluation 论文解读 | ACL 2025 | arXiv 2506.21876 | 世界模型 | 提出基于认知科学的双阶段框架（感知+预测），构建 WM-ABench 大规模基准（23 维度、6 模拟器、10 万+实例），通过 660 组实验系统揭示 15 个 SOTA VLM 在基本世界建模能力上的严重不足。"
+title: >-
+  [论文解读] Do Vision-Language Models Have Internal World Models? Towards an Atomic Evaluation
+description: >-
+  [ACL 2025][多模态][世界模型] 提出基于认知科学的双阶段框架（感知+预测），构建 WM-ABench 大规模基准（23 维度、6 模拟器、10 万+实例），通过 660 组实验系统揭示 15 个 SOTA VLM 在基本世界建模能力上的严重不足。
 tags:
   - ACL 2025
+  - 多模态
   - 世界模型
   - VLM评估
   - 感知-预测框架

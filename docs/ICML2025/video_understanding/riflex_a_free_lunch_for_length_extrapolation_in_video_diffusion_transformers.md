@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RIFLEx: A Free Lunch for Length Extrapolation in Video Diffusion Transformers 论文解读 | ICML2025 | arXiv 2502.15894 | 视频生成 | 通过分析位置编码中各频率分量的作用，发现\"固有频率\"主导外推时的重复模式，提出RIFLEx——仅降低固有频率即可实现训练免费的2x视频长度外推，微调后达3x。"
+title: >-
+  [论文解读] RIFLEx: A Free Lunch for Length Extrapolation in Video Diffusion Transformers
+description: >-
+  [ICML2025][视频理解][视频生成] 通过分析位置编码中各频率分量的作用，发现"固有频率"主导外推时的重复模式，提出RIFLEx——仅降低固有频率即可实现训练免费的2x视频长度外推，微调后达3x。
 tags:
   - ICML2025
+  - 视频理解
   - 视频生成
   - 长度外推
   - 位置编码

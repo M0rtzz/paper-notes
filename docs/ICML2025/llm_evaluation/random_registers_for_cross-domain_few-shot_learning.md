@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Random Registers for Cross-Domain Few-Shot Learning 论文解读 | ICML 2025 | arXiv 2506.02843 | 跨域小样本学习 | 在跨域小样本学习（CDFSL）中发现可学习 prompt 会损害目标域泛化性能，而用随机噪声替代（即随机寄存器）反而能持续提升性能，并基于此提出 REAP 方法，通过在图像语义区域添加随机寄存器来增强注意力扰动，实现高效的域无关特征学习。"
+title: >-
+  [论文解读] Random Registers for Cross-Domain Few-Shot Learning
+description: >-
+  [ICML 2025][跨域小样本学习] 在跨域小样本学习（CDFSL）中发现可学习 prompt 会损害目标域泛化性能，而用随机噪声替代（即随机寄存器）反而能持续提升性能，并基于此提出 REAP 方法，通过在图像语义区域添加随机寄存器来增强注意力扰动，实现高效的域无关特征学习。
 tags:
   - ICML 2025
   - 跨域小样本学习

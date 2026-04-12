@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Segment Policy Optimization: Effective Segment-Level Credit Assignment in RL for Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.23564 | 信用分配 | 提出SPO框架，采用段级（而非令牌级或轨迹级）的advantage估计，通过新颖的蒙特卡洛方法和树形采样，在短CoT和长CoT场景下分别超越PPO和GRPO 6-12和7-11个百分点。"
+title: >-
+  [论文解读] Segment Policy Optimization: Effective Segment-Level Credit Assignment in RL for Large Language Models
+description: >-
+  [NeurIPS 2025][LLM推理][信用分配] 提出SPO框架，采用段级（而非令牌级或轨迹级）的advantage估计，通过新颖的蒙特卡洛方法和树形采样，在短CoT和长CoT场景下分别超越PPO和GRPO 6-12和7-11个百分点。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - 信用分配
   - 段级advantages
   - 蒙特卡洛估计

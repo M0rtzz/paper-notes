@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Semantic Watermarking Reinvented: Enhancing Robustness and Generation Quality with Fourier Integrity 论文解读 | ICCV 2025 | arXiv 2509.07647 | 语义水印 | 针对潜扩散模型（LDM）的语义水印方法因丢弃虚部而导致频率完整性缺失的问题，提出厄密对称傅里叶水印（SFW）和中心感知嵌入策略，在维持频域完整性的同时增强检测鲁棒性和生成质量。"
+title: >-
+  [论文解读] Semantic Watermarking Reinvented: Enhancing Robustness and Generation Quality with Fourier Integrity
+description: >-
+  [ICCV 2025][图像生成][语义水印] 针对潜扩散模型（LDM）的语义水印方法因丢弃虚部而导致频率完整性缺失的问题，提出厄密对称傅里叶水印（SFW）和中心感知嵌入策略，在维持频域完整性的同时增强检测鲁棒性和生成质量。
 tags:
   - ICCV 2025
+  - 图像生成
   - 语义水印
   - 潜空间傅里叶水印
   - 厄密对称性

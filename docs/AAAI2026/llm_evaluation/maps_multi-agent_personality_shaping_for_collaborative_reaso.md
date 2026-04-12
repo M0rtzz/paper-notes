@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning 论文解读 | AAAI 2026 | arXiv 2503.16905 | 大五人格理论 | 提出 MAPS 五 Agent 协作推理框架，基于大五人格理论为 4 个功能 Agent 赋予不同\"性格\"（Interpreter-开放性、Aligner-宜人性、Scholar-尽责性、Solver-外向性）实现异质化协作，加上 Critic Agent（神经质→苏格拉底式反思）做迭代修正，在 MathVista/OlympiadBench/EMMA 上超越 GPT-4o 基线 15.84%，首次超过人类专家 3.58%。"
+title: >-
+  [论文解读] MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning
+description: >-
+  [AAAI 2026][大五人格理论] 提出 MAPS 五 Agent 协作推理框架，基于大五人格理论为 4 个功能 Agent 赋予不同"性格"（Interpreter-开放性、Aligner-宜人性、Scholar-尽责性、Solver-外向性）实现异质化协作，加上 Critic Agent（神经质→苏格拉底式反思）做迭代修正，在 MathVista/OlympiadBench/EMMA 上超越 GPT-4o 基线 15.84%，首次超过人类专家 3.58%。
 tags:
   - AAAI 2026
   - 大五人格理论

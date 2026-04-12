@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Sample-efficient and Scalable Exploration in Continuous-Time RL 论文解读 | 提出 COMBRL 算法，通过最大化外在奖励与模型认知不确定性的加权和，在连续时间模型基 RL 中实现可扩展且样本高效的探索，并具有次线性后悔理论保证。"
+title: >-
+  [论文解读] Sample-efficient and Scalable Exploration in Continuous-Time RL
+description: >-
+   提出 COMBRL 算法，通过最大化外在奖励与模型认知不确定性的加权和，在连续时间模型基 RL 中实现可扩展且样本高效的探索，并具有次线性后悔理论保证。
 tags:
 
 ---

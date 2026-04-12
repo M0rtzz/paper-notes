@@ -1,3 +1,10 @@
+---
+title: >-
+  CVPR2025 语义分割方向 14篇论文解读
+description: >-
+  14篇CVPR2025 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
@@ -7,7 +14,7 @@
 
 :   提出2DMamba，首个具有高效并行算法的**原生2D选择性状态空间模型**，通过保持2D空间连续性（而非展平为1D序列）来建模WSI中的patch间关系，在10个公共病理数据集上全面超越1D Mamba方法，并在ImageNet分类和ADE20K分割上也有提升。
 
-**[A Distractor-Aware Memory for Visual Object Tracking with SAM2](a_distractor-aware_memory_for_visual_object_tracking_with_sam2.md)**
+**[A Distractor-Aware Memory For Visual Object Tracking With Sam2](a_distractor-aware_memory_for_visual_object_tracking_with_sam2.md)**
 
 :   提出SAM2.1++的干扰物感知记忆模型（DAM），将SAM2的记忆拆分为近期外观记忆（RAM，确保分割精度）和干扰物解析记忆（DRM，确保跟踪鲁棒性），通过内省式更新策略检测干扰物并自动存储锚帧，在7个基准上设立新SOTA。
 

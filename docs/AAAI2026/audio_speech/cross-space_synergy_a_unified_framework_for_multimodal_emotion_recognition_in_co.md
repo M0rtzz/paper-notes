@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Cross-Space Synergy: A Unified Framework for Multimodal Emotion Recognition in Conversation 论文解读 | AAAI 2026 | arXiv 2512.03521 | 多模态情感识别 | 提出 Cross-Space Synergy（CSS）框架，通过表示空间的协同多项式融合（SPF）和梯度空间的 Pareto 梯度调节器（PGM）双管齐下，同时解决多模态对话情感识别中融合表达力不足和多目标梯度冲突两大难题。"
+title: >-
+  [论文解读] Cross-Space Synergy: A Unified Framework for Multimodal Emotion Recognition in Conversation
+description: >-
+  [AAAI 2026][语音][多模态情感识别] 提出 Cross-Space Synergy（CSS）框架，通过表示空间的协同多项式融合（SPF）和梯度空间的 Pareto 梯度调节器（PGM）双管齐下，同时解决多模态对话情感识别中融合表达力不足和多目标梯度冲突两大难题。
 tags:
   - AAAI 2026
+  - 语音
   - 多模态情感识别
   - 高阶融合
   - 梯度冲突

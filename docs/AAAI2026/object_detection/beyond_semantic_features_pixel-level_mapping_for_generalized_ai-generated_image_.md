@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond Semantic Features: Pixel-Level Mapping for Generalized AI-Generated Image Detection 论文解读 | AAAI 2026 | arXiv 2512.17350 | AI 生成图像检测 | 提出像素级映射（pixel-level mapping）预处理方法，通过打破像素值的单调排列来抑制低频语义偏差、增强高频生成伪影，将 AI 生成图像检测的跨模型泛化准确率提升至 98.4%。"
+title: >-
+  [论文解读] Beyond Semantic Features: Pixel-Level Mapping for Generalized AI-Generated Image Detection
+description: >-
+  [AAAI 2026][目标检测][AI 生成图像检测] 提出像素级映射（pixel-level mapping）预处理方法，通过打破像素值的单调排列来抑制低频语义偏差、增强高频生成伪影，将 AI 生成图像检测的跨模型泛化准确率提升至 98.4%。
 tags:
   - AAAI 2026
+  - 目标检测
   - AI 生成图像检测
   - 像素级映射
   - 语义偏差

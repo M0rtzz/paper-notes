@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generative Active Learning for Long-tail Trajectory Prediction via Controllable Diffusion Model 论文解读 | ICCV 2025 | arXiv 2507.22615 | 长尾轨迹预测 | 提出 GALTraj，首个将生成式主动学习应用于轨迹预测的方法——在训练过程中动态识别模型失败的尾部样本，利用可控扩散模型生成保持尾部特征且符合交通规则的新样本，有效缓解长尾数据不平衡，在提升尾部性能的同时也改善整体准确性。"
+title: >-
+  [论文解读] Generative Active Learning for Long-tail Trajectory Prediction via Controllable Diffusion Model
+description: >-
+  [ICCV 2025][自动驾驶][长尾轨迹预测] 提出 GALTraj，首个将生成式主动学习应用于轨迹预测的方法——在训练过程中动态识别模型失败的尾部样本，利用可控扩散模型生成保持尾部特征且符合交通规则的新样本，有效缓解长尾数据不平衡，在提升尾部性能的同时也改善整体准确性。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 长尾轨迹预测
   - 生成式主动学习
   - 可控扩散模型

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Unlocking Post-hoc Dataset Inference with Synthetic Data 论文解读 | ICML2025 | arXiv 2506.15271 | dataset inference | 提出通过合成生成held-out数据集并结合后校准（post-hoc calibration）来实现无需真实held-out集的数据集推断（Dataset Inference），通过suffix completion生成高质量合成数据、双分类器校准解耦生成偏移与成员信号，在15个多样化文本数据集上实现高置信度版权检测且低误报率。"
+title: >-
+  [论文解读] Unlocking Post-hoc Dataset Inference with Synthetic Data
+description: >-
+  [ICML2025][dataset inference] 提出通过合成生成held-out数据集并结合后校准（post-hoc calibration）来实现无需真实held-out集的数据集推断（Dataset Inference），通过suffix completion生成高质量合成数据、双分类器校准解耦生成偏移与成员信号，在15个多样化文本数据集上实现高置信度版权检测且低误报率。
 tags:
   - ICML2025
   - dataset inference

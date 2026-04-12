@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs 论文解读 | 本文系统研究了LLM时代下恶意社交文本检测中的\"证据污染\"风险，提出13种污染方法和3种防御策略，发现LLM生成的虚假证据可导致检测器性能下降高达14.4%，且现有防御策略面临实际部署挑战。"
+title: >-
+  [论文解读] On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs
+description: >-
+  [LLM/NLP] 本文系统研究了LLM时代下恶意社交文本检测中的"证据污染"风险，提出13种污染方法和3种防御策略，发现LLM生成的虚假证据可导致检测器性能下降高达14.4%，且现有防御策略面临实际部署挑战。
 tags:
-
+  - LLM/NLP
 ---
 
 # On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs

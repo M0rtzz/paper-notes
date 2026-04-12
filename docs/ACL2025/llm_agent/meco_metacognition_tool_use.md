@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger 论文解读 | ACL 2025 | arXiv 2502.12961 | 工具使用 | 提出 MeCo（Meta-Cognition Trigger），通过表示工程从 LLM 内部提取\"元认知信号\"——模型对自身能力的自我评估——来自适应决定是否需要调用外部工具，无需微调且计算开销极小，在多个骨干模型和基准上显著改善工具使用决策的准确性。"
+title: >-
+  [论文解读] Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger
+description: >-
+  [ACL 2025][LLM Agent][工具使用] 提出 MeCo（Meta-Cognition Trigger），通过表示工程从 LLM 内部提取"元认知信号"——模型对自身能力的自我评估——来自适应决定是否需要调用外部工具，无需微调且计算开销极小，在多个骨干模型和基准上显著改善工具使用决策的准确性。
 tags:
   - ACL 2025
+  - LLM Agent
   - 工具使用
   - 元认知
   - 自我评估

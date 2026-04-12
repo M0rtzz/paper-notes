@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization 论文解读 | NeurIPS 2025 | arXiv 2512.13070 | 自监督强化学习 | 针对自监督强化学习中 LLM 策略崩溃和熵崩溃问题，提出动量锚定的 GRPO（M-GRPO）框架和基于 IQR 的低熵轨迹过滤方法，实现稳定训练和 SOTA 性能。"
+title: >-
+  [论文解读] M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization
+description: >-
+  [NeurIPS 2025][目标检测][自监督强化学习] 针对自监督强化学习中 LLM 策略崩溃和熵崩溃问题，提出动量锚定的 GRPO（M-GRPO）框架和基于 IQR 的低熵轨迹过滤方法，实现稳定训练和 SOTA 性能。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - 自监督强化学习
   - 策略崩溃
   - 动量锚定

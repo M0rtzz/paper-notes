@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification 论文解读 | ACL 2025 | arXiv 2506.21049 | 查询分类 | 提出电商查询分类的半监督可扩展统一框架 SSUF——三个可插拔模块：知识增强（LLM 世界知识+后验点击）解决短查询信息不足、标签增强（语义编码+半监督信号）打破对后验标签的依赖、结构增强（共现+语义+层级图 GCN）传播长尾标签梯度。已在 JD.COM 部署，离线和在线 A/B 实验均显著超越 SOTA。"
+title: >-
+  [论文解读] SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification
+description: >-
+  [ACL 2025][查询分类] 提出电商查询分类的半监督可扩展统一框架 SSUF——三个可插拔模块：知识增强（LLM 世界知识+后验点击）解决短查询信息不足、标签增强（语义编码+半监督信号）打破对后验标签的依赖、结构增强（共现+语义+层级图 GCN）传播长尾标签梯度。已在 JD.COM 部署，离线和在线 A/B 实验均显著超越 SOTA。
 tags:
   - ACL 2025
   - 查询分类

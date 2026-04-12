@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Table Understanding and (Multimodal) LLMs: A Cross-Domain Case Study on Scientific Tables 论文解读 | 提出 TableEval 基准（3017 张表格，5 种格式），系统比较了文本 LLM 和多模态 LLM 在科学 vs. 非科学表格理解任务上的表现，发现模型对表格模态（图像/文本）保持鲁棒但在科学表格上性能显著下降。"
+title: >-
+  [论文解读] Table Understanding and (Multimodal) LLMs: A Cross-Domain Case Study on Scientific Tables
+description: >-
+  [多模态] 提出 TableEval 基准（3017 张表格，5 种格式），系统比较了文本 LLM 和多模态 LLM 在科学 vs. 非科学表格理解任务上的表现，发现模型对表格模态（图像/文本）保持鲁棒但在科学表格上性能显著下降。
 tags:
-
+  - 多模态
 ---
 
 # Table Understanding and (Multimodal) LLMs: A Cross-Domain Case Study on Scientific Tables

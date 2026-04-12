@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Efficient Constraint Handling in Neural Solvers for Routing Problems 论文解读 | ICLR 2026 | arXiv 2602.16012 | 神经组合优化 | 提出 Construct-and-Refine (CaR) 框架，通过联合训练构造模块和轻量改进模块实现高效的可行性修复，首次为硬约束路径问题提供通用、高效的神经约束处理方案，在 TSPTW 和 CVRPBLTW 上大幅超越经典和神经 SOTA 求解器。"
+title: >-
+  [论文解读] Towards Efficient Constraint Handling in Neural Solvers for Routing Problems
+description: >-
+  [ICLR 2026][模型压缩][神经组合优化] 提出 Construct-and-Refine (CaR) 框架，通过联合训练构造模块和轻量改进模块实现高效的可行性修复，首次为硬约束路径问题提供通用、高效的神经约束处理方案，在 TSPTW 和 CVRPBLTW 上大幅超越经典和神经 SOTA 求解器。
 tags:
   - ICLR 2026
+  - 模型压缩
   - 神经组合优化
   - 车辆路径问题
   - 约束处理

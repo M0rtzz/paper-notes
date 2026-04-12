@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】CroPS: Improving Dense Retrieval with Cross-Perspective Positive Samples in Short-Video Search 论文解读 | 提出 CroPS 数据引擎，通过 query 改写行为、推荐系统交互、LLM 世界知识三个视角扩充正样本集合，配合分层标签分配（HLA）和 H-InfoNCE 损失函数，打破工业级稠密检索系统中的信息茧房效应，已在快手搜索全量部署。"
+title: >-
+  [论文解读] CroPS: Improving Dense Retrieval with Cross-Perspective Positive Samples in Short-Video Search
+description: >-
+   提出 CroPS 数据引擎，通过 query 改写行为、推荐系统交互、LLM 世界知识三个视角扩充正样本集合，配合分层标签分配（HLA）和 H-InfoNCE 损失函数，打破工业级稠密检索系统中的信息茧房效应，已在快手搜索全量部署。
 tags:
 
 ---

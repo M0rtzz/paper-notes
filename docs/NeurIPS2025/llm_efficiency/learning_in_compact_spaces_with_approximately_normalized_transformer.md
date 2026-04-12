@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning in Compact Spaces with Approximately Normalized Transformer 论文解读 | NeurIPS 2025 | arXiv 2505.22014 | 近似归一化 | 提出 anGPT（近似归一化 Transformer），利用高维空间中向量范数的集中现象，用简单标量乘法替代逐层精确归一化，在消除权重衰减和学习率预热的同时实现了相比 GPT+（含 QK-norm）40% 的收敛加速，仅增加 3% 运行时开销。"
+title: >-
+  [论文解读] Learning in Compact Spaces with Approximately Normalized Transformer
+description: >-
+  [NeurIPS 2025][LLM效率][近似归一化] 提出 anGPT（近似归一化 Transformer），利用高维空间中向量范数的集中现象，用简单标量乘法替代逐层精确归一化，在消除权重衰减和学习率预热的同时实现了相比 GPT+（含 QK-norm）40% 的收敛加速，仅增加 3% 运行时开销。
 tags:
   - NeurIPS 2025
+  - LLM效率
   - 近似归一化
   - 高维集中度
   - 紧凑空间

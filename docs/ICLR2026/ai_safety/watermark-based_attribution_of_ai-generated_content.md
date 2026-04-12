@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Watermark-based Detection and Attribution of AI-Generated Content 论文解读 | ICLR 2026 | arXiv 2404.04254 | watermark | 首次系统性研究基于水印的AI生成内容用户级检测与溯源，提供了理论分析（TDR/FDR/TAR界）、高效水印选择算法（A-BSTA）和跨模态（图像+文本）实验验证，证明检测和溯源继承了水印方法本身的准确性与（非）鲁棒性。"
+title: >-
+  [论文解读] Watermark-based Detection and Attribution of AI-Generated Content
+description: >-
+  [ICLR 2026][AI安全][watermark] 首次系统性研究基于水印的AI生成内容用户级检测与溯源，提供了理论分析（TDR/FDR/TAR界）、高效水印选择算法（A-BSTA）和跨模态（图像+文本）实验验证，证明检测和溯源继承了水印方法本身的准确性与（非）鲁棒性。
 tags:
   - ICLR 2026
+  - AI安全
   - watermark
   - attribution
   - AI-generated content

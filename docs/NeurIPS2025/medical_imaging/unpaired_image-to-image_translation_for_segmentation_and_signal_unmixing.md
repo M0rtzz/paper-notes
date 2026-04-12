@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Unpaired Image-to-Image Translation for Segmentation and Signal Unmixing 论文解读 | NeurIPS 2025 | arXiv 2505.20746 | 无配对图像翻译 | 提出 Ui2i 模型，在 CycleGAN 基础上通过 UNet 生成器、近似双向谱归一化替代特征归一化、通道-空间注意力和尺度增强，实现高内容保真度的无配对图像翻译，成功用于 IHC→H&E 域适应核分割及单通道免疫荧光信号解混两大生物医学任务。"
+title: >-
+  [论文解读] Unpaired Image-to-Image Translation for Segmentation and Signal Unmixing
+description: >-
+  [NeurIPS 2025][医学图像][无配对图像翻译] 提出 Ui2i 模型，在 CycleGAN 基础上通过 UNet 生成器、近似双向谱归一化替代特征归一化、通道-空间注意力和尺度增强，实现高内容保真度的无配对图像翻译，成功用于 IHC→H&E 域适应核分割及单通道免疫荧光信号解混两大生物医学任务。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 无配对图像翻译
   - 核分割
   - 免疫荧光解混

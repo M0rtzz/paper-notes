@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Multi-Hop Reasoning for Question Answering with Hyperbolic Representations 论文解读 | 通过在 T5 编码器-解码器模型中简单插入一层 Poincaré 双曲层，以最小改动将欧几里得嵌入映射到双曲空间进行多跳推理，实验在四个数据集上一致性地超越欧几里得对照组，并证明了基于 δ-hyperbolicity 初始化曲率的有效性以及双曲空间在层次结构更强的数据集上优势更明显。"
+title: >-
+  [论文解读] Multi-Hop Reasoning for Question Answering with Hyperbolic Representations
+description: >-
+  [NLP理解] 通过在 T5 编码器-解码器模型中简单插入一层 Poincaré 双曲层，以最小改动将欧几里得嵌入映射到双曲空间进行多跳推理，实验在四个数据集上一致性地超越欧几里得对照组，并证明了基于 δ-hyperbolicity 初始化曲率的有效性以及双曲空间在层次结构更强的数据集上优势更明显。
 tags:
-
+  - NLP理解
 ---
 
 # Multi-Hop Reasoning for Question Answering with Hyperbolic Representations

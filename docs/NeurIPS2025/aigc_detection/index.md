@@ -1,5 +1,12 @@
+---
+title: >-
+  NeurIPS2025 AIGC检测方向 7篇论文解读
+description: >-
+  7篇NeurIPS2025 AIGC检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
-# 🔎 AIGC 检测
+# 🔎 AIGC检测
 
 **🧠 NeurIPS2025** · 共 **7** 篇
 

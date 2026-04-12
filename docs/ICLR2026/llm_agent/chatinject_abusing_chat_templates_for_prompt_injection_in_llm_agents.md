@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents 论文解读 | ICLR 2026 | arXiv 2509.22830 | 提示学习 prompt injection | 揭示 LLM Agent 中 chat template 的结构性漏洞：通过在工具返回的数据中伪造角色标签（如 `<system>`, `<user>`），攻击者可以劫持模型的角色层级认知，将恶意指令伪装为高优先级指令，ASR 从 5-15% 提升至 32-52%。"
+title: >-
+  [论文解读] ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents
+description: >-
+  [ICLR 2026][LLM Agent][提示学习] 揭示 LLM Agent 中 chat template 的结构性漏洞：通过在工具返回的数据中伪造角色标签（如 `<system>`, `<user>`），攻击者可以劫持模型的角色层级认知，将恶意指令伪装为高优先级指令，ASR 从 5-15% 提升至 32-52%。
 tags:
   - ICLR 2026
+  - LLM Agent
   - 提示学习
   - chat template
   - LLM agent

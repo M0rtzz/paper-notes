@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】VISA: Reasoning Video Object Segmentation via Large Language Models 论文解读 | ECCV 2024 | arXiv 2407.11325 | 图像分割 Reasoning Segmentation | 提出 ReasonVOS 新任务和 VISA 模型，利用多模态 LLM 的世界知识推理能力实现基于隐式文本查询的视频目标分割与跟踪。"
+title: >-
+  [论文解读] VISA: Reasoning Video Object Segmentation via Large Language Models
+description: >-
+  [ECCV 2024][图像分割][图像分割] 提出 ReasonVOS 新任务和 VISA 模型，利用多模态 LLM 的世界知识推理能力实现基于隐式文本查询的视频目标分割与跟踪。
 tags:
   - ECCV 2024
   - 图像分割

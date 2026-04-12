@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Diving into Self-Evolving Training for Multimodal Reasoning 论文解读 | ICML 2025 | arXiv 2412.17451 | 自演化训练 | 通过强化学习视角重新审视多模态推理中的自演化训练（Self-Evolving Training），系统性地分析训练方法、奖励模型和提示变体三大关键因素，并提出基于 Reward-Pass@K 的自适应温度调节机制来缓解训练饱和问题，最终形成 M-STaR 框架，在多个基准上取得一致提升。"
+title: >-
+  [论文解读] Diving into Self-Evolving Training for Multimodal Reasoning
+description: >-
+  [ICML 2025][自演化训练] 通过强化学习视角重新审视多模态推理中的自演化训练（Self-Evolving Training），系统性地分析训练方法、奖励模型和提示变体三大关键因素，并提出基于 Reward-Pass@K 的自适应温度调节机制来缓解训练饱和问题，最终形成 M-STaR 框架，在多个基准上取得一致提升。
 tags:
   - ICML 2025
   - 自演化训练

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Teaching Physical Awareness to LLMs through Sounds 论文解读 | ICML 2025 | arXiv 2506.08524 | 物理感知 | 提出 ACORN 框架，通过基于物理的声学通道仿真器生成大规模训练数据，配合同时捕获幅度和相位信息的音频编码器，教会 LLM 从声音中理解物理世界现象。"
+title: >-
+  [论文解读] Teaching Physical Awareness to LLMs through Sounds
+description: >-
+  [ICML 2025][语音][物理感知] 提出 ACORN 框架，通过基于物理的声学通道仿真器生成大规模训练数据，配合同时捕获幅度和相位信息的音频编码器，教会 LLM 从声音中理解物理世界现象。
 tags:
   - ICML 2025
+  - 语音
   - 物理感知
   - 声学通道
   - LLM音频理解

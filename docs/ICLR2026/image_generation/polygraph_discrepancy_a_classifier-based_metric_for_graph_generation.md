@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PolyGraph Discrepancy: a classifier-based metric for graph generation 论文解读 | ICLR 2026 | arXiv 2510.06122 | 图生成 | 提出 PolyGraph Discrepancy (PGD)，通过训练分类器区分真实图和生成图来逼近 Jensen-Shannon 距离的变分下界，解决了 MMD 指标缺乏绝对尺度、不同描述符间不可比、小样本高偏差高方差的三大核心问题。"
+title: >-
+  [论文解读] PolyGraph Discrepancy: a classifier-based metric for graph generation
+description: >-
+  [ICLR 2026][图像生成][图生成] 提出 PolyGraph Discrepancy (PGD)，通过训练分类器区分真实图和生成图来逼近 Jensen-Shannon 距离的变分下界，解决了 MMD 指标缺乏绝对尺度、不同描述符间不可比、小样本高偏差高方差的三大核心问题。
 tags:
   - ICLR 2026
+  - 图像生成
   - 图生成
   - Jensen-Shannon 距离
   - 分类器评估

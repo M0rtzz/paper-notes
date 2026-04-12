@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】PFΔ: A Benchmark Dataset for Power Flow under Load, Generation, and Topology Variations 论文解读 | NeurIPS 2025 | arXiv 2510.22048 | 电力潮流 | PFΔ 是首个同时涵盖负荷、发电机出力和拓扑变化的电力潮流基准数据集，包含 859,800 个求解实例、六种电网规模和接近不可行的极端工况，并提出标准化评估任务来系统评测 ML 方法在多种运行条件下的表现。"
+title: >-
+  [论文解读] PFΔ: A Benchmark Dataset for Power Flow under Load, Generation, and Topology Variations
+description: >-
+  [NeurIPS 2025][电力潮流] PFΔ 是首个同时涵盖负荷、发电机出力和拓扑变化的电力潮流基准数据集，包含 859,800 个求解实例、六种电网规模和接近不可行的极端工况，并提出标准化评估任务来系统评测 ML 方法在多种运行条件下的表现。
 tags:
   - NeurIPS 2025
   - 电力潮流

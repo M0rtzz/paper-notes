@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures 论文解读 | TeHOR 利用文本描述作为语义引导，通过预训练扩散模型的 Score Distillation Sampling 联合优化 3D 人体和物体的几何与纹理，突破了传统方法对接触信息的依赖，实现了包括非接触交互在内的准确且语义一致的 3D 重建。"
+title: >-
+  [论文解读] TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures
+description: >-
+  [3D视觉] TeHOR 利用文本描述作为语义引导，通过预训练扩散模型的 Score Distillation Sampling 联合优化 3D 人体和物体的几何与纹理，突破了传统方法对接触信息的依赖，实现了包括非接触交互在内的准确且语义一致的 3D 重建。
 tags:
-
+  - 3D视觉
 ---
 
 # TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures

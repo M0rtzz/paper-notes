@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes 论文解读 | ICML2025 | arXiv 2411.07467 | 图神经网络 GNN | 利用图神经网络 (GNN) 和可解释性技术研究箭图变异等价类问题，**独立重新发现**了 tildeD 型箭图变异类的组合刻画定理，展示了 ML 作为数学研究工具的价值。"
+title: >-
+  [论文解读] Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes
+description: >-
+  [ICML2025][图学习][图神经网络] 利用图神经网络 (GNN) 和可解释性技术研究箭图变异等价类问题，**独立重新发现**了 $\tilde{D}$ 型箭图变异类的组合刻画定理，展示了 ML 作为数学研究工具的价值。
 tags:
   - ICML2025
+  - 图学习
   - 图神经网络
   - 可解释性
   - 箭图变异 (quiver mutation)

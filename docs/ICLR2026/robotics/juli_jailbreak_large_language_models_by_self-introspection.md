@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】JULI: Jailbreak Large Language Models by Self-Introspection 论文解读 | ICLR 2026 | arXiv 2505.11790 | jailbreak | 揭示对齐 LLM 的 top-k token log probability 中仍包含有害信息的知识泄露问题，提出 JULI——仅用不到目标模型 1% 参数量的 BiasNet 插件操纵 logit bias，在仅访问 top-5 token 概率的 API 场景下成功越狱 Gemini-2.5-Pro（Harmful Info Score 4.19/5），比 LINT 快 140 倍同时 harmfulness 提升约 2 倍。"
+title: >-
+  [论文解读] JULI: Jailbreak Large Language Models by Self-Introspection
+description: >-
+  [ICLR 2026][机器人][jailbreak] 揭示对齐 LLM 的 top-k token log probability 中仍包含有害信息的知识泄露问题，提出 JULI——仅用不到目标模型 1% 参数量的 BiasNet 插件操纵 logit bias，在仅访问 top-5 token 概率的 API 场景下成功越狱 Gemini-2.5-Pro（Harmful Info Score 4.19/5），比 LINT 快 140 倍同时 harmfulness 提升约 2 倍。
 tags:
   - ICLR 2026
+  - 机器人
   - jailbreak
   - logit bias
   - API attack

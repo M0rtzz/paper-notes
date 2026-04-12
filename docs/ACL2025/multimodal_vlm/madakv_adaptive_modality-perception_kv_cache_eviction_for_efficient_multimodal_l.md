@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference 论文解读 | 本文提出MadaKV，一种模态感知的KV缓存逐出策略，通过模态偏好自适应（MPA）和层级压缩补偿（HCC）两个组件，在保持多模态长上下文任务性能的同时，显著降低KV缓存内存占用（80-95%）和解码延迟（1.3-1.5倍加速）。"
+title: >-
+  [论文解读] MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference
+description: >-
+  [多模态] 本文提出MadaKV，一种模态感知的KV缓存逐出策略，通过模态偏好自适应（MPA）和层级压缩补偿（HCC）两个组件，在保持多模态长上下文任务性能的同时，显著降低KV缓存内存占用（80-95%）和解码延迟（1.3-1.5倍加速）。
 tags:
-
+  - 多模态
 ---
 
 # MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference

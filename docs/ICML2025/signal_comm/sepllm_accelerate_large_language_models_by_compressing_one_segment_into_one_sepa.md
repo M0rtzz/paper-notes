@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator 论文解读 | ICML2025 | arXiv 2412.12094 | LLM推理加速 | SepLLM 发现分隔符 token（标点等）在注意力中占据主导地位，提出将文本段信息压缩到分隔符 token 中，通过数据依赖的稀疏注意力掩码仅保留 Initial + Separator + Neighboring tokens 的 KV cache，实现 50%+ 的 KV cache 压缩且性能几乎无损。"
+title: >-
+  [论文解读] SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator
+description: >-
+  [ICML2025][LLM推理加速] SepLLM 发现分隔符 token（标点等）在注意力中占据主导地位，提出将文本段信息压缩到分隔符 token 中，通过数据依赖的稀疏注意力掩码仅保留 Initial + Separator + Neighboring tokens 的 KV cache，实现 50%+ 的 KV cache 压缩且性能几乎无损。
 tags:
   - ICML2025
   - LLM推理加速

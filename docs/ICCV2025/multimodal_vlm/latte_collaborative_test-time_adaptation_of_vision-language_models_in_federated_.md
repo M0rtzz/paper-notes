@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LATTE: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning 论文解读 | ICCV 2025 | arXiv 2507.21494 | 测试时自适应 | 提出 Latte 框架，在联邦学习的去中心化场景下，通过本地记忆与外部记忆的协同机制，实现视觉语言模型（如 CLIP）的协作式测试时自适应，兼顾跨客户端知识共享与个性化。"
+title: >-
+  [论文解读] LATTE: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning
+description: >-
+  [ICCV 2025][多模态][测试时自适应] 提出 Latte 框架，在联邦学习的去中心化场景下，通过本地记忆与外部记忆的协同机制，实现视觉语言模型（如 CLIP）的协作式测试时自适应，兼顾跨客户端知识共享与个性化。
 tags:
   - ICCV 2025
+  - 多模态
   - 测试时自适应
   - 联邦学习
   - 视觉语言模型

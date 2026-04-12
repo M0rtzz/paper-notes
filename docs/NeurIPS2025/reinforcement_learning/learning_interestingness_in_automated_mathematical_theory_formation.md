@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Interestingness in Automated Mathematical Theory Formation 论文解读 | NeurIPS 2025 | arXiv 2511.14778 | 自动理论形成 | 提出 Fermat——一个将数学理论形成建模为 MDP 的强化学习环境，以及 EvoAbstract——一个带抽象学习的 LLM 驱动进化算法，用于自动合成数学对象的\"兴趣度\"度量函数，在初等数论和有限域上显著超越硬编码基线。"
+title: >-
+  [论文解读] Learning Interestingness in Automated Mathematical Theory Formation
+description: >-
+  [NeurIPS 2025][自动理论形成] 提出 Fermat——一个将数学理论形成建模为 MDP 的强化学习环境，以及 EvoAbstract——一个带抽象学习的 LLM 驱动进化算法，用于自动合成数学对象的"兴趣度"度量函数，在初等数论和有限域上显著超越硬编码基线。
 tags:
   - NeurIPS 2025
   - 自动理论形成

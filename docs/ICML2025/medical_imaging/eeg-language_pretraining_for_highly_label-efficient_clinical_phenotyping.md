@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EEG-Language Pretraining for Highly Label-Efficient Clinical Phenotyping 论文解读 | ICML 2025 | arXiv 2409.07480 | EEG-语言模型 | 本文首创 EEG-语言模型（ELM），在15000份EEG记录和临床报告上训练，结合时间序列裁剪、文本分割和多实例学习策略，首次实现了EEG的零样本分类和跨模态检索，在低标注场景下病理检测性能显著优于纯EEG自监督方法。"
+title: >-
+  [论文解读] EEG-Language Pretraining for Highly Label-Efficient Clinical Phenotyping
+description: >-
+  [ICML 2025][医学图像][EEG-语言模型] 本文首创 EEG-语言模型（ELM），在15000份EEG记录和临床报告上训练，结合时间序列裁剪、文本分割和多实例学习策略，首次实现了EEG的零样本分类和跨模态检索，在低标注场景下病理检测性能显著优于纯EEG自监督方法。
 tags:
   - ICML 2025
+  - 医学图像
   - EEG-语言模型
   - 多模态对齐
   - 多实例学习

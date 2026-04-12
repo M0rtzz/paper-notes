@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Decomate: Leveraging Generative Models for Co-Creative SVG Animation 论文解读 | NeurIPS 2025 (GenProAI Workshop) | arXiv 2511.06297 | SVG animation | 提出 Decomate 交互系统，利用多模态大语言模型 (MLLM) 将非结构化 SVG 图形自动分解为语义组件，设计师通过自然语言为各组件指定动画行为，系统生成可生产的 HTML/CSS/JS 动画代码，支持迭代协作创作。"
+title: >-
+  [论文解读] Decomate: Leveraging Generative Models for Co-Creative SVG Animation
+description: >-
+  [NeurIPS 2025 (GenProAI Workshop)][图像生成][SVG animation] 提出 Decomate 交互系统，利用多模态大语言模型 (MLLM) 将非结构化 SVG 图形自动分解为语义组件，设计师通过自然语言为各组件指定动画行为，系统生成可生产的 HTML/CSS/JS 动画代码，支持迭代协作创作。
 tags:
   - NeurIPS 2025 (GenProAI Workshop)
+  - 图像生成
   - SVG animation
   - semantic decomposition
   - MLLM

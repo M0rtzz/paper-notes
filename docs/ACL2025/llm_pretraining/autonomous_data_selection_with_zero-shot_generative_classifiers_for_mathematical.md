@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts 论文解读 | ACL 2025 | arXiv 2402.07625 | 自主数据选择 | 提出 AutoDS——用基座 LLM 自身作为零样本\"生成分类器\"自动评估数学文本质量。通过两个 yes/no 问题的 logits 计算连续 LM-Score（而非二分类），筛选高质量数学文本做持续预训练，在 MATH/GSM8K/BBH 上大幅提升并实现约 2 倍 token 效率提升。发布 AutoMathText 数据集。"
+title: >-
+  [论文解读] AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts
+description: >-
+  [ACL 2025][自主数据选择] 提出 AutoDS——用基座 LLM 自身作为零样本"生成分类器"自动评估数学文本质量。通过两个 yes/no 问题的 logits 计算连续 LM-Score（而非二分类），筛选高质量数学文本做持续预训练，在 MATH/GSM8K/BBH 上大幅提升并实现约 2 倍 token 效率提升。发布 AutoMathText 数据集。
 tags:
   - ACL 2025
   - 自主数据选择

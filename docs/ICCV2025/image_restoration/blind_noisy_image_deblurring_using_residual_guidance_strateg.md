@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Blind Noisy Image Deblurring Using Residual Guidance Strategy 论文解读 | ICCV 2025 | 盲去模糊 | 提出残差引导策略（RGS），在图像金字塔的粗到细估计过程中，利用相邻粗尺度的卷积残差经 guided filter 去噪后校正当前尺度的模糊图像，从而在高噪声（σ=0.1）下显著提升盲去模糊的核估计精度和恢复质量，无需训练即超越多种深度学习方法。"
+title: >-
+  [论文解读] Blind Noisy Image Deblurring Using Residual Guidance Strategy
+description: >-
+  [ICCV 2025][图像恢复][盲去模糊] 提出残差引导策略（RGS），在图像金字塔的粗到细估计过程中，利用相邻粗尺度的卷积残差经 guided filter 去噪后校正当前尺度的模糊图像，从而在高噪声（σ=0.1）下显著提升盲去模糊的核估计精度和恢复质量，无需训练即超越多种深度学习方法。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 盲去模糊
   - 噪声鲁棒
   - 残差引导

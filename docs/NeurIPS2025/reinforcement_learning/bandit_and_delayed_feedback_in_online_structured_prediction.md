@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] Bandit and Delayed Feedback in Online Structured Prediction
+description: >-
+  [NeurIPS 2025][在线结构化预测] 首次研究在线结构化预测中赌臂反馈和延迟反馈场景，通过设计新的伪逆矩阵梯度估计器，实现了不显式依赖输出集大小 $K$ 的 $O(T^{2/3})$ 替代遗憾上界。
+tags:
+  - NeurIPS 2025
+  - 在线结构化预测
+  - 赌臂反馈
+  - 延迟反馈
+  - 替代遗憾
+  - Fenchel-Young 损失
+---
+
 # Bandit and Delayed Feedback in Online Structured Prediction
 
 **会议**: NeurIPS 2025  

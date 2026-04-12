@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】2S-ODIS: Two-Stage Omni-Directional Image Synthesis by Geometric Distortion Correction 论文解读 | ECCV 2024 | arXiv 2409.09969 | 全景图像生成 | 2S-ODIS通过两阶段结构利用预训练VQGAN（无需微调）合成全景图像：第一阶段生成低分辨率粗略ERP图，第二阶段通过生成26个NFoV局部图像并融合来校正几何畸变，训练时间从14天缩短到4天且图像质量更优。"
+title: >-
+  [论文解读] 2S-ODIS: Two-Stage Omni-Directional Image Synthesis by Geometric Distortion Correction
+description: >-
+  [ECCV 2024][图像生成][全景图像生成] 2S-ODIS通过两阶段结构利用预训练VQGAN（无需微调）合成全景图像：第一阶段生成低分辨率粗略ERP图，第二阶段通过生成26个NFoV局部图像并融合来校正几何畸变，训练时间从14天缩短到4天且图像质量更优。
 tags:
   - ECCV 2024
+  - 图像生成
   - 全景图像生成
   - GAN
   - MaskGIT

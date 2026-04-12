@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】Training-free Motion Factorization for Compositional Video Generation 论文解读 | 提出一种无需训练的运动分解框架，将复杂场景运动拆分为静止、刚性运动和非刚性运动三类，通过结构化运动推理 (SMR) 消除提示语义歧义，再借助解耦运动引导 (DMG) 模块分别约束各类运动的生成，实现多实例多运动类别的组合视频合成。"
+title: >-
+  [论文解读] Training-free Motion Factorization for Compositional Video Generation
+description: >-
+  [图像生成] 提出一种无需训练的运动分解框架，将复杂场景运动拆分为静止、刚性运动和非刚性运动三类，通过结构化运动推理 (SMR) 消除提示语义歧义，再借助解耦运动引导 (DMG) 模块分别约束各类运动的生成，实现多实例多运动类别的组合视频合成。
 tags:
-
+  - 图像生成
 ---
 
 # Training-free Motion Factorization for Compositional Video Generation

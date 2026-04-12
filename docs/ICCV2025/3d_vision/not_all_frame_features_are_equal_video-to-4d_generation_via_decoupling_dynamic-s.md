@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Not All Frame Features Are Equal: Video-to-4D Generation via Decoupling Dynamic-Static Features 论文解读 | ICCV 2025 | arXiv 2502.08377 | 4D生成 | DS4D 首次提出在video-to-4D生成中沿时间轴和空间轴解耦动静态特征，通过动静态特征解耦模块（DSFD）获取动态表征，并通过时空相似性融合模块（TSSF）跨视角自适应聚合动态信息，在Consistent4D和Objaverse数据集上达到SOTA。"
+title: >-
+  [论文解读] Not All Frame Features Are Equal: Video-to-4D Generation via Decoupling Dynamic-Static Features
+description: >-
+  [ICCV 2025][3D视觉][4D生成] DS4D 首次提出在video-to-4D生成中沿时间轴和空间轴解耦动静态特征，通过动静态特征解耦模块（DSFD）获取动态表征，并通过时空相似性融合模块（TSSF）跨视角自适应聚合动态信息，在Consistent4D和Objaverse数据集上达到SOTA。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 4D生成
   - 动态3D高斯
   - 动静态特征解耦

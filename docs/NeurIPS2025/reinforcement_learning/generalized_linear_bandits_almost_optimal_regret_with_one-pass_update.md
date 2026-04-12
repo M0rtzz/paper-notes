@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update 论文解读 | NeurIPS 2025 | arXiv 2507.11847 | 广义线性赌博机 | 提出GLB-OMD算法，首次在广义线性赌博机（GLB）问题中同时实现近似最优遗憾界 O(log TsqrtT/κ_*) 和每轮 O(1) 的时间/空间复杂度，核心技术是基于混合损失（mix loss）为在线镜像下降（OMD）估计量构建紧致置信集。"
+title: >-
+  [论文解读] Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update
+description: >-
+  [NeurIPS 2025][广义线性赌博机] 提出GLB-OMD算法，首次在广义线性赌博机（GLB）问题中同时实现近似最优遗憾界 $\mathcal{O}(\log T\sqrt{T/\kappa_*})$ 和每轮 $\mathcal{O}(1)$ 的时间/空间复杂度，核心技术是基于混合损失（mix loss）为在线镜像下降（OMD）估计量构建紧致置信集。
 tags:
   - NeurIPS 2025
   - 广义线性赌博机

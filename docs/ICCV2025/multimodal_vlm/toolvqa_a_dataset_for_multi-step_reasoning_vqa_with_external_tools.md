@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ToolVQA: A Dataset for Multi-step Reasoning VQA with External Tools 论文解读 | ICCV 2025 | arXiv 2508.03284 | 视觉问答 | 提出 ToolVQA——一个包含 23K 样本的大规模多模态工具增强 VQA 数据集，通过 ToolEngine 管道（结合图像引导的 DFS 和 LCS 示例匹配）自动生成真实场景下的多步推理数据，在其上微调的 LLaVA-7B 在 5 个 OOD 基准上超越 GPT-3.5-Turbo。"
+title: >-
+  [论文解读] ToolVQA: A Dataset for Multi-step Reasoning VQA with External Tools
+description: >-
+  [ICCV 2025][多模态][视觉问答] 提出 ToolVQA——一个包含 23K 样本的大规模多模态工具增强 VQA 数据集，通过 ToolEngine 管道（结合图像引导的 DFS 和 LCS 示例匹配）自动生成真实场景下的多步推理数据，在其上微调的 LLaVA-7B 在 5 个 OOD 基准上超越 GPT-3.5-Turbo。
 tags:
   - ICCV 2025
+  - 多模态
   - 视觉问答
   - 工具使用
   - 多步推理

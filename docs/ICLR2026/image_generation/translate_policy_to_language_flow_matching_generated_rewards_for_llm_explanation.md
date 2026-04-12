@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Translate Policy to Language: Flow Matching Generated Rewards for LLM Explanations 论文解读 | ICLR 2026 | arXiv 2502.12530 | 策略解释 | 提出一个通用框架，利用Rectified Flow生成分布式奖励来训练解释生成LLM，通过连续归一化流（CNF）捕捉人类对解释评判的多元概率特性，并在理论上证明CNF能有效恢复真实人类奖励分布，在SMAC、MMLU、MathQA等任务上显著超越RLHF/RLAIF基线。"
+title: >-
+  [论文解读] Translate Policy to Language: Flow Matching Generated Rewards for LLM Explanations
+description: >-
+  [ICLR 2026][图像生成][策略解释] 提出一个通用框架，利用Rectified Flow生成分布式奖励来训练解释生成LLM，通过连续归一化流（CNF）捕捉人类对解释评判的多元概率特性，并在理论上证明CNF能有效恢复真实人类奖励分布，在SMAC、MMLU、MathQA等任务上显著超越RLHF/RLAIF基线。
 tags:
   - ICLR 2026
+  - 图像生成
   - 策略解释
   - Rectified Flow
   - 分布式奖励

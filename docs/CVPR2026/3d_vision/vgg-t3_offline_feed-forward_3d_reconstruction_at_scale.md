@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VGG-T3: Offline Feed-Forward 3D Reconstruction at Scale 论文解读 | CVPR 2026 | arXiv 2602.23361 | 3D重建 | 提出VGG-T3，通过**测试时训练(TTT)**将VGGT中全局注意力层的变长KV表示压缩为固定大小MLP，将离线前馈三维重建的计算复杂度从 $O(n^2)$ 降至 $O(n)$，实现了千张图片级别的大规模场景重建（1k张图仅需58秒）。"
+title: >-
+  [论文解读] VGG-T3: Offline Feed-Forward 3D Reconstruction at Scale
+description: >-
+  [CVPR 2026][3D视觉][3D重建] 提出VGG-T3，通过**测试时训练(TTT)**将VGGT中全局注意力层的变长KV表示压缩为固定大小MLP，将离线前馈三维重建的计算复杂度从 $O(n^2)$ 降至 $O(n)$，实现了千张图片级别的大规模场景重建（1k张图仅需58秒）。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D重建
   - Test-Time Training
   - 线性复杂度

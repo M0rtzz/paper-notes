@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Robust and Diverse Multi-Agent Learning via Rational Policy Gradient 论文解读 | NeurIPS 2025 | arXiv 2511.09535 | 多智能体强化学习 | 本文提出理性保持策略优化（RPO）框架和理性策略梯度（RPG）算法，通过引入操纵者智能体和对手塑造技术，在合作和一般和博弈场景中消除对抗优化导致的自毁行为，同时实现策略鲁棒化和多样化。"
+title: >-
+  [论文解读] Robust and Diverse Multi-Agent Learning via Rational Policy Gradient
+description: >-
+  [NeurIPS 2025][多智能体强化学习] 本文提出理性保持策略优化（RPO）框架和理性策略梯度（RPG）算法，通过引入操纵者智能体和对手塑造技术，在合作和一般和博弈场景中消除对抗优化导致的自毁行为，同时实现策略鲁棒化和多样化。
 tags:
   - NeurIPS 2025
   - 多智能体强化学习

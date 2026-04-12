@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ODP-Bench: Benchmarking Out-of-Distribution Performance Prediction 论文解读 | ICCV 2025 | arXiv 2510.27263 | OOD性能预测 | 构建了首个全面的OOD性能预测基准ODP-Bench，涵盖29个OOD数据集、10种预测算法和1,444个预训练模型，揭示现有算法在合成corruption上表现较好但在自然分布偏移上普遍失效的关键发现。"
+title: >-
+  [论文解读] ODP-Bench: Benchmarking Out-of-Distribution Performance Prediction
+description: >-
+  [ICCV 2025][OOD性能预测] 构建了首个全面的OOD性能预测基准ODP-Bench，涵盖29个OOD数据集、10种预测算法和1,444个预训练模型，揭示现有算法在合成corruption上表现较好但在自然分布偏移上普遍失效的关键发现。
 tags:
   - ICCV 2025
   - OOD性能预测

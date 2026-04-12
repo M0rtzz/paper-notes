@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Beyond Token Probes: Hallucination Detection via Activation Tensors with ACT-ViT 论文解读 | NeurIPS 2025 | arXiv 2510.00296 | 幻觉检测 | 将LLM的全部隐层激活组织为\"激活张量\"（层×token×隐维度），类比图像用ViT处理，设计ACT-ViT架构支持跨LLM联合训练，在15个LLM-数据集组合上一致超越传统probing方法，并展现出对未见数据集和未见LLM的强零样本/少样本迁移能力。"
+title: >-
+  [论文解读] Beyond Token Probes: Hallucination Detection via Activation Tensors with ACT-ViT
+description: >-
+  [NeurIPS 2025][幻觉检测] 将LLM的全部隐层激活组织为"激活张量"（层×token×隐维度），类比图像用ViT处理，设计ACT-ViT架构支持跨LLM联合训练，在15个LLM-数据集组合上一致超越传统probing方法，并展现出对未见数据集和未见LLM的强零样本/少样本迁移能力。
 tags:
   - NeurIPS 2025
   - 幻觉检测

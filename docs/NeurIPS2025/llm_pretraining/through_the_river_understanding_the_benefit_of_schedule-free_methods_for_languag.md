@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training 论文解读 | NeurIPS 2025 | arXiv 2507.09846 | Schedule-Free优化 | 从 River-Valley 损失景观的几何视角深入分析 Schedule-Free (SF) 优化器，揭示 SF-AdamW 在不需要学习率衰减或权重平均的情况下自动沿\"河流\"方向优化，并提出改进变体解决动量敏感性和大批量训练的局限性。"
+title: >-
+  [论文解读] Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training
+description: >-
+  [NeurIPS 2025][Schedule-Free优化] 从 River-Valley 损失景观的几何视角深入分析 Schedule-Free (SF) 优化器，揭示 SF-AdamW 在不需要学习率衰减或权重平均的情况下自动沿"河流"方向优化，并提出改进变体解决动量敏感性和大批量训练的局限性。
 tags:
   - NeurIPS 2025
   - Schedule-Free优化

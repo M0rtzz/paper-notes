@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Semantic Retrieval Augmented Contrastive Learning for Sequential Recommendation 论文解读 | NeurIPS 2025 | arXiv 2503.04162 | 序列推荐 | 提出SRA-CL框架，利用LLM的语义理解能力构建高质量对比样本对，通过语义检索+可学习样本合成器增强序列推荐的对比学习，以即插即用的方式在4个数据集上取得SOTA。"
+title: >-
+  [论文解读] Semantic Retrieval Augmented Contrastive Learning for Sequential Recommendation
+description: >-
+  [NeurIPS 2025][人体理解][序列推荐] 提出SRA-CL框架，利用LLM的语义理解能力构建高质量对比样本对，通过语义检索+可学习样本合成器增强序列推荐的对比学习，以即插即用的方式在4个数据集上取得SOTA。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 序列推荐
   - 对比学习
   - 大语言模型

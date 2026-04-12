@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning Time-Aware Causal Representation for Model Generalization in Evolving Domains 论文解读 | ICML2025 | arXiv 2506.17718 | 演化域泛化 | 提出时间感知结构因果模型 (time-aware SCM) 和 SYNC 方法，通过同时学习静态与动态因果表示并建模因果机制漂移，在演化域泛化 (EDG) 任务中有效消除虚假相关，实现优越的时序泛化性能。"
+title: >-
+  [论文解读] Learning Time-Aware Causal Representation for Model Generalization in Evolving Domains
+description: >-
+  [ICML2025][演化域泛化] 提出时间感知结构因果模型 (time-aware SCM) 和 SYNC 方法，通过同时学习静态与动态因果表示并建模因果机制漂移，在演化域泛化 (EDG) 任务中有效消除虚假相关，实现优越的时序泛化性能。
 tags:
   - ICML2025
   - 演化域泛化

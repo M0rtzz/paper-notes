@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】WiCkeD: A Simple Method to Make Multiple Choice Benchmarks More Challenging 论文解读 | ACL 2025 | arXiv 2502.18316 | 多选题基准 | 提出 WiCkeD 方法，通过随机将多选题的一个选项替换为\"以上都不对\"来增加现有基准难度，使18个 LLM 的平均性能下降12.1个百分点，且链式思维推理也无法弥补这一下降。"
+title: >-
+  [论文解读] WiCkeD: A Simple Method to Make Multiple Choice Benchmarks More Challenging
+description: >-
+  [ACL 2025][多选题基准] 提出 WiCkeD 方法，通过随机将多选题的一个选项替换为"以上都不对"来增加现有基准难度，使18个 LLM 的平均性能下降12.1个百分点，且链式思维推理也无法弥补这一下降。
 tags:
   - ACL 2025
   - 多选题基准

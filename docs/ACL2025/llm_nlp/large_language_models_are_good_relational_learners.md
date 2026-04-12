@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large Language Models are Good Relational Learners 论文解读 | ACL 2025 | arXiv 2506.05725 | 关系深度学习 | 提出 Rel-LLM 框架，利用 GNN 编码器从关系数据库中提取结构化子图表示，将其作为软提示注入冻结的 LLM，在 RelBench 基准上实现了关系深度学习（RDL）任务的 SOTA 性能，并支持零样本预测。"
+title: >-
+  [论文解读] Large Language Models are Good Relational Learners
+description: >-
+  [ACL 2025][LLM/NLP][关系深度学习] 提出 Rel-LLM 框架，利用 GNN 编码器从关系数据库中提取结构化子图表示，将其作为软提示注入冻结的 LLM，在 RelBench 基准上实现了关系深度学习（RDL）任务的 SOTA 性能，并支持零样本预测。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 关系深度学习
   - 图神经网络
   - RAG

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SegQuant: A Semantics-Aware and Generalizable Quantization Framework for Diffusion Models 论文解读 | CVPR 2026 | arXiv 2507.14811 | 后训练量化 | 提出 SegQuant，一个面向部署的扩散模型后训练量化框架，通过基于计算图静态分析的语义感知分段量化（SegLinear）和硬件原生的双尺度极性保持量化（DualScale），在 SD3.5、FLUX、SDXL 上实现跨架构通用的高保真 W8A8/W4A8 量化，同时保持与 TensorRT 等工业推理引擎的兼容性。"
+title: >-
+  [论文解读] SegQuant: A Semantics-Aware and Generalizable Quantization Framework for Diffusion Models
+description: >-
+  [CVPR 2026][图像生成][后训练量化] 提出 SegQuant，一个面向部署的扩散模型后训练量化框架，通过基于计算图静态分析的语义感知分段量化（SegLinear）和硬件原生的双尺度极性保持量化（DualScale），在 SD3.5、FLUX、SDXL 上实现跨架构通用的高保真 W8A8/W4A8 量化，同时保持与 TensorRT 等工业推理引擎的兼容性。
 tags:
   - CVPR 2026
+  - 图像生成
   - 后训练量化
   - 语义感知分段
   - 极性保持

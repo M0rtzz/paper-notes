@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Persistent Homology of Topic Networks for the Prediction of Reader Curiosity 论文解读 | > 将文本的主题网络结构用持续同调 (Persistent Homology) 量化为拓扑空洞（连通分量、环、空腔），以此作为\"信息空白\"的代理变量来预测读者好奇心，在《饥饿游戏》小说上实现了 73% 的解释偏差（vs 基线 30%）。"
+title: >-
+  [论文解读] Persistent Homology of Topic Networks for the Prediction of Reader Curiosity
+description: >-
+   > 将文本的主题网络结构用持续同调 (Persistent Homology) 量化为拓扑空洞（连通分量、环、空腔），以此作为"信息空白"的代理变量来预测读者好奇心，在《饥饿游戏》小说上实现了 73% 的解释偏差（vs 基线 30%）。
 tags:
 
 ---

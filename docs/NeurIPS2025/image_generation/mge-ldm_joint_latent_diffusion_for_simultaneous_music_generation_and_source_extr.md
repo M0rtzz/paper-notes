@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction 论文解读 | NeurIPS 2025 | arXiv 2505.23305 | 音乐生成 | 提出 MGE-LDM，首个在统一的潜在扩散框架中同时实现音乐混合生成、部分生成（源补全）和文本驱动任意源提取的模型，通过联合建模混合-子混合-源三元组并利用扩散修复（inpainting）实现各任务。"
+title: >-
+  [论文解读] MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction
+description: >-
+  [NeurIPS 2025][图像生成][音乐生成] 提出 MGE-LDM，首个在统一的潜在扩散框架中同时实现音乐混合生成、部分生成（源补全）和文本驱动任意源提取的模型，通过联合建模混合-子混合-源三元组并利用扩散修复（inpainting）实现各任务。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 音乐生成
   - 源分离
   - 潜在扩散模型

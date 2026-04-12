@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】FGBench: A Dataset and Benchmark for Molecular Property Reasoning at Functional Group-Level 论文解读 | NeurIPS 2025 | arXiv 2508.01055 | 官能团 | FGBench 构建了首个官能团级分子属性推理基准（625K QA 对，覆盖 245 个官能团），通过相似分子配对 + AccFG 标注 + 重建验证确保数据质量，揭示即使 o3-mini 在交互任务上也仅 69.3%，化学专用模型（ChemLLM）甚至仅 23.3%。"
+title: >-
+  [论文解读] FGBench: A Dataset and Benchmark for Molecular Property Reasoning at Functional Group-Level
+description: >-
+  [NeurIPS 2025][官能团] FGBench 构建了首个官能团级分子属性推理基准（625K QA 对，覆盖 245 个官能团），通过相似分子配对 + AccFG 标注 + 重建验证确保数据质量，揭示即使 o3-mini 在交互任务上也仅 69.3%，化学专用模型（ChemLLM）甚至仅 23.3%。
 tags:
   - NeurIPS 2025
   - 官能团

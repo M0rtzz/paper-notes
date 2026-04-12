@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IGASA: Integrated Geometry-Aware and Skip-Attention Modules for Enhanced Point Cloud Registration 论文解读 | 投稿中 | arXiv 2603.12719 | hierarchical pyramid | 提出 IGASA，一个基于分层金字塔架构的点云配准框架，结合分层跨层注意力（HCLA）与迭代几何感知细化（IGAR），以在噪声、遮挡和大变换场景下实现更稳健的多尺度匹配与对齐。"
+title: >-
+  [论文解读] IGASA: Integrated Geometry-Aware and Skip-Attention Modules for Enhanced Point Cloud Registration
+description: >-
+  [投稿中][3D视觉][hierarchical pyramid] 提出 IGASA，一个基于分层金字塔架构的点云配准框架，结合分层跨层注意力（HCLA）与迭代几何感知细化（IGAR），以在噪声、遮挡和大变换场景下实现更稳健的多尺度匹配与对齐。
 tags:
   - 投稿中
+  - 3D视觉
   - hierarchical pyramid
   - 注意力机制
   - geometry-aware refinement

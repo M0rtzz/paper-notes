@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability 论文解读 | ICML 2025 | arXiv 2505.03641 | 感知变异性 | 提出 BAM（Boundary Alignment & Manipulation）框架，通过在 ANN 感知决策边界上采样生成图像刺激，系统性地揭示、预测和操控人类个体间的感知差异。"
+title: >-
+  [论文解读] Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability
+description: >-
+  [ICML 2025][机器人][感知变异性] 提出 BAM（Boundary Alignment & Manipulation）框架，通过在 ANN 感知决策边界上采样生成图像刺激，系统性地揭示、预测和操控人类个体间的感知差异。
 tags:
   - ICML 2025
+  - 机器人
   - 感知变异性
   - 决策边界采样
   - 扩散模型引导

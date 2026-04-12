@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Universe Routing: Why Self-Evolving Agents Need Epistemic Control 论文解读 | ICLR2026 | arXiv 2603.14799 | 认知路由 | 形式化\"宇宙路由\"问题——将问题分类到互斥的信念空间（频率主义/贝叶斯/经典物理/量子等）后再调用专用求解器，证明硬路由优于软路由（7× 快且等精度），且模块化架构天然适合持续学习。"
+title: >-
+  [论文解读] Universe Routing: Why Self-Evolving Agents Need Epistemic Control
+description: >-
+  [ICLR2026][LLM效率][认知路由] 形式化"宇宙路由"问题——将问题分类到互斥的信念空间（频率主义/贝叶斯/经典物理/量子等）后再调用专用求解器，证明硬路由优于软路由（7× 快且等精度），且模块化架构天然适合持续学习。
 tags:
   - ICLR2026
+  - LLM效率
   - 认知路由
   - 信念空间
   - 硬路由

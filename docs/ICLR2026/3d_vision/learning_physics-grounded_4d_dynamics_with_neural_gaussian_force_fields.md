@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Physics-Grounded 4D Dynamics with Neural Gaussian Force Fields 论文解读 | ICLR 2026 | arXiv 2602.00148 | 3D高斯溅射 | 提出NGFF框架，从多视角RGB图像构建3D高斯表示并学习显式神经力场驱动物理动力学，通过ODE求解实现交互式物理真实4D视频生成，比传统高斯模拟器快两个数量级，超越Veo3和NVIDIA Cosmos。"
+title: >-
+  [论文解读] Learning Physics-Grounded 4D Dynamics with Neural Gaussian Force Fields
+description: >-
+  [ICLR 2026][3D视觉][3D高斯溅射] 提出NGFF框架，从多视角RGB图像构建3D高斯表示并学习显式神经力场驱动物理动力学，通过ODE求解实现交互式物理真实4D视频生成，比传统高斯模拟器快两个数量级，超越Veo3和NVIDIA Cosmos。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 3D高斯溅射
   - 力场学习
   - 物理推理

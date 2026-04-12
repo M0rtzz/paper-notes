@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Mitigating Over-Squashing in Graph Neural Networks by Spectrum-Preserving Sparsification 论文解读 | ICML2025 | arXiv 2506.16110 | over-squashing | 提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。"
+title: >-
+  [论文解读] Mitigating Over-Squashing in Graph Neural Networks by Spectrum-Preserving Sparsification
+description: >-
+  [ICML2025][图学习][over-squashing] 提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。
 tags:
   - ICML2025
+  - 图学习
   - over-squashing
   - 图重连
   - 谱稀疏化

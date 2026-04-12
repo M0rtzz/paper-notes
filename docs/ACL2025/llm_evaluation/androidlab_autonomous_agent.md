@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AndroidLab: Training and Systematic Benchmarking of Android Autonomous Agents 论文解读 | ACL 2025 (Long Paper) | arXiv 2410.24024 | Android Agent | 提出AndroidLab——首个统一训练和评估Android Agent的系统性框架，包含9个App上的138个可复现任务，同时支持纯文本（XML模式）和多模态（SoM模式）模型，并构建Android Instruct数据集（94.3k步骤），将开源LLM的成功率从4.59%提升至21.50%。"
+title: >-
+  [论文解读] AndroidLab: Training and Systematic Benchmarking of Android Autonomous Agents
+description: >-
+  [ACL 2025 (Long Paper)][Android Agent] 提出AndroidLab——首个统一训练和评估Android Agent的系统性框架，包含9个App上的138个可复现任务，同时支持纯文本（XML模式）和多模态（SoM模式）模型，并构建Android Instruct数据集（94.3k步骤），将开源LLM的成功率从4.59%提升至21.50%。
 tags:
   - ACL 2025 (Long Paper)
   - Android Agent

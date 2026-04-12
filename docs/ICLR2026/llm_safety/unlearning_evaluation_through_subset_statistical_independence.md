@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Unlearning Evaluation through Subset Statistical Independence 论文解读 | 提出 Split-half Dependence Evaluation (SDE)，利用 HSIC 统计独立性检验在子集级别评估机器遗忘效果，无需重训模型或辅助分类器。"
+title: >-
+  [论文解读] Unlearning Evaluation through Subset Statistical Independence
+description: >-
+   提出 Split-half Dependence Evaluation (SDE)，利用 HSIC 统计独立性检验在子集级别评估机器遗忘效果，无需重训模型或辅助分类器。
 tags:
 
 ---

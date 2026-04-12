@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DICE: Distilling Classifier-Free Guidance into Text Embeddings 论文解读 | AAAI 2026 **(Oral)** | arXiv 2502.03726 | Classifier-Free Guidance | 提出 DICE，训练一个仅 2M 参数的轻量 sharpener 将 CFG 的引导效果蒸馏进 text embedding，使无引导采样达到与 CFG 同等的生成质量、推理计算量减半，在 SD1.5 多个变体、SDXL 和 PixArt-α 上全面验证有效，是 AAAI 2026 口头报告论文。"
+title: >-
+  [论文解读] DICE: Distilling Classifier-Free Guidance into Text Embeddings
+description: >-
+  [AAAI 2026 **(Oral)**][图像生成][Classifier-Free Guidance] 提出 DICE，训练一个仅 2M 参数的轻量 sharpener 将 CFG 的引导效果蒸馏进 text embedding，使无引导采样达到与 CFG 同等的生成质量、推理计算量减半，在 SD1.5 多个变体、SDXL 和 PixArt-α 上全面验证有效，是 AAAI 2026 口头报告论文。
 tags:
   - AAAI 2026 **(Oral)**
+  - 图像生成
   - Classifier-Free Guidance
   - 文本嵌入蒸馏
   - 扩散模型加速

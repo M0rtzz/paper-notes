@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration 论文解读 | ICML 2025 | arXiv 2510.05102 | TopInG 提出了一种基于持久同调的拓扑可解释图学习框架，通过学习\"基本原理过滤\"（rationale filtration）来识别稳定且持久的基本原理子图，引入\"拓扑差异\"（topological discrepancy）约束来强化基本原理子图与无关子图之间的拓扑区分，在处理多变形态的基本原理子图时显著优于现有方法。"
+title: >-
+  [论文解读] TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration
+description: >-
+  [ICML 2025][人体理解] TopInG 提出了一种基于持久同调的拓扑可解释图学习框架，通过学习"基本原理过滤"（rationale filtration）来识别稳定且持久的基本原理子图，引入"拓扑差异"（topological discrepancy）约束来强化基本原理子图与无关子图之间的拓扑区分，在处理多变形态的基本原理子图时显著优于现有方法。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration

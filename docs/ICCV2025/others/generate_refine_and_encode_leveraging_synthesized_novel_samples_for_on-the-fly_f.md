@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Generate, Refine, and Encode: Leveraging Synthesized Novel Samples for On-the-Fly Fine-Grained Category Discovery 论文解读 | ICCV 2025 | arXiv 2507.04051 | 即时类别发现 | 提出基于扩散模型的即时类别发现框架 DiffGRE，通过属性组合生成（ACG）合成包含虚拟类别信息的新样本、多样性驱动精炼（DDR）过滤低质量样本、半监督Leader编码（SLE）注入额外类别知识，在 6 个细粒度数据集上显著提升了已有 OCD 方法的性能（平均 ACC-ALL 提升 6.5%）。"
+title: >-
+  [论文解读] Generate, Refine, and Encode: Leveraging Synthesized Novel Samples for On-the-Fly Fine-Grained Category Discovery
+description: >-
+  [ICCV 2025][即时类别发现] 提出基于扩散模型的即时类别发现框架 DiffGRE，通过属性组合生成（ACG）合成包含虚拟类别信息的新样本、多样性驱动精炼（DDR）过滤低质量样本、半监督Leader编码（SLE）注入额外类别知识，在 6 个细粒度数据集上显著提升了已有 OCD 方法的性能（平均 ACC-ALL 提升 6.5%）。
 tags:
   - ICCV 2025
   - 即时类别发现

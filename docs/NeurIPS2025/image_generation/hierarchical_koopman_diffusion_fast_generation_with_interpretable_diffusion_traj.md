@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Hierarchical Koopman Diffusion: Fast Generation with Interpretable Diffusion Trajectory 论文解读 | NeurIPS 2025 | arXiv 2510.12220 | 扩散模型加速 | 基于 Koopman 算子理论，将扩散模型的非线性去噪动力学提升到线性 Koopman 空间，通过层次化分解实现一步采样，同时保留中间生成状态的可解释性和可控性。"
+title: >-
+  [论文解读] Hierarchical Koopman Diffusion: Fast Generation with Interpretable Diffusion Trajectory
+description: >-
+  [NeurIPS 2025][图像生成][扩散模型加速] 基于 Koopman 算子理论，将扩散模型的非线性去噪动力学提升到线性 Koopman 空间，通过层次化分解实现一步采样，同时保留中间生成状态的可解释性和可控性。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 扩散模型加速
   - 一步生成
   - Koopman算子

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Extending LLM Context Window with Adaptive Grouped Positional Encoding: A Training-Free Method 论文解读 | ACL 2025 (Long Paper, acl-long.28) | Positional Encoding | 提出 AdaGroPE（Adaptive Grouped Positional Encoding），一种无需训练的即插即用方法，通过让位置复用次数随距离递增式增长、并根据输入序列长度动态调整位置编码映射，将 LLM 上下文窗口外推到远超预训练长度，在多个 benchmark 上达到 SOTA 甚至超过原生长上下文模型。"
+title: >-
+  [论文解读] Extending LLM Context Window with Adaptive Grouped Positional Encoding: A Training-Free Method
+description: >-
+  [ACL 2025 (Long Paper, acl-long.28)][LLM效率][Positional Encoding] 提出 AdaGroPE（Adaptive Grouped Positional Encoding），一种无需训练的即插即用方法，通过让位置复用次数随距离递增式增长、并根据输入序列长度动态调整位置编码映射，将 LLM 上下文窗口外推到远超预训练长度，在多个 benchmark 上达到 SOTA 甚至超过原生长上下文模型。
 tags:
   - ACL 2025 (Long Paper, acl-long.28)
+  - LLM效率
   - Positional Encoding
   - RoPE
   - Context Window Extension

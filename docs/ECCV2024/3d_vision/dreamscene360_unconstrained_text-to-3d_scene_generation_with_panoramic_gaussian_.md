@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] DreamScene360: Unconstrained Text-to-3D Scene Generation with Panoramic Gaussian Splatting
+description: >-
+  [ECCV 2024][3D视觉][文本到3D生成] 提出DreamScene360，利用全景图像作为中间表示，结合GPT-4V自精炼机制和全景3D高斯溅射技术，实现从文本到沉浸式360°3D场景的快速生成。
+tags:
+  - ECCV 2024
+  - 3D视觉
+  - 文本到3D生成
+  - 全景图像
+  - 3D高斯溅射
+  - 场景生成
+  - 扩散模型
+---
+
 # DreamScene360: Unconstrained Text-to-3D Scene Generation with Panoramic Gaussian Splatting
 
 **会议**: ECCV 2024  

@@ -1,3 +1,18 @@
+---
+title: >-
+  [论文解读] Curly Flow Matching for Learning Non-gradient Field Dynamics
+description: >-
+  [NeurIPS 2025][图像生成][Flow Matching] 提出 Curly Flow Matching (Curly-FM)，通过设计带有非零参考漂移的 Schrödinger Bridge 问题，使 flow matching 能够学习周期性、旋转性等非梯度场动力学，突破了传统方法只能建模梯度场的限制。
+tags:
+  - NeurIPS 2025
+  - 图像生成
+  - Flow Matching
+  - Schrödinger Bridge
+  - 非梯度场动力学
+  - 轨迹推断
+  - 最优传输
+---
+
 # Curly Flow Matching for Learning Non-gradient Field Dynamics
 
 **会议**: NeurIPS 2025  

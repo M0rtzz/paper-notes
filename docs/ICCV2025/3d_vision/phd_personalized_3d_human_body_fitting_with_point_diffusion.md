@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PHD: Personalized 3D Human Body Fitting with Point Diffusion 论文解读 | ICCV 2025 | arXiv 2508.21257 | 人体姿态估计 | 提出个性化3D人体姿态估计范式PHD——先通过SHAPify校准用户体型，再用体型条件化的点扩散模型PointDiT作为3D先验，结合Point Distillation Sampling损失迭代优化姿态，在绝对姿态精度上达到EMDB数据集SOTA。"
+title: >-
+  [论文解读] PHD: Personalized 3D Human Body Fitting with Point Diffusion
+description: >-
+  [ICCV 2025][3D视觉][人体姿态估计] 提出个性化3D人体姿态估计范式PHD——先通过SHAPify校准用户体型，再用体型条件化的点扩散模型PointDiT作为3D先验，结合Point Distillation Sampling损失迭代优化姿态，在绝对姿态精度上达到EMDB数据集SOTA。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 人体姿态估计
   - 个性化体型
   - 点扩散模型

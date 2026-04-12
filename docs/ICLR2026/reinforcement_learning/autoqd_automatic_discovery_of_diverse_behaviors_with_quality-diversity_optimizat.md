@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization 论文解读 | ICLR 2026 | arXiv 2506.05634 | quality-diversity | 提出 AutoQD，利用占用度量 (occupancy measure) 的随机 Fourier 特征嵌入自动生成行为描述子 (behavioral descriptor)，替代传统 QD 优化中的手工设计描述子，在 6 个连续控制任务上展现了强大的多样化策略发现能力。"
+title: >-
+  [论文解读] AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization
+description: >-
+  [ICLR 2026][quality-diversity] 提出 AutoQD，利用占用度量 (occupancy measure) 的随机 Fourier 特征嵌入自动生成行为描述子 (behavioral descriptor)，替代传统 QD 优化中的手工设计描述子，在 6 个连续控制任务上展现了强大的多样化策略发现能力。
 tags:
   - ICLR 2026
   - quality-diversity

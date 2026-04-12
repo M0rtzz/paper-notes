@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SaPaVe: Towards Active Perception and Manipulation in VLA Models for Robotics 论文解读 | CVPR 2026 | arXiv 2603.12193 | 主动感知 | 提出SaPaVe端到端主动操作框架，通过解耦相机动作和操作动作的自底向上训练策略（先学语义主动感知再学主动视角执行），配合200K相机控制数据集和3D空间知识注入，在真实世界任务中超越π0和GR00T N1高达31-40%成功率。"
+title: >-
+  [论文解读] SaPaVe: Towards Active Perception and Manipulation in VLA Models for Robotics
+description: >-
+  [CVPR 2026][多模态][主动感知] 提出SaPaVe端到端主动操作框架，通过解耦相机动作和操作动作的自底向上训练策略（先学语义主动感知再学主动视角执行），配合200K相机控制数据集和3D空间知识注入，在真实世界任务中超越π0和GR00T N1高达31-40%成功率。
 tags:
   - CVPR 2026
+  - 多模态
   - 主动感知
   - VLA
   - 人形机器人

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns 论文解读 | ACL 2025 | arXiv 2410.16155 | 多智能体攻击 | 提出 TMCHT 多智能体多拓扑攻击评估框架和 ARCJ（对抗性复制传染越狱）方法，解决了多智能体系统中单智能体攻击方法面临的\"毒性消散\"问题——通过优化检索后缀确保中毒样本易被检索，优化复制后缀使中毒信息具有传染性自我复制能力，在 line/star 拓扑和 100 智能体系统中分别提升 23.51%/18.95%/52.93% 的攻击成功率。"
+title: >-
+  [论文解读] A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns
+description: >-
+  [ACL 2025][LLM对齐][多智能体攻击] 提出 TMCHT 多智能体多拓扑攻击评估框架和 ARCJ（对抗性复制传染越狱）方法，解决了多智能体系统中单智能体攻击方法面临的"毒性消散"问题——通过优化检索后缀确保中毒样本易被检索，优化复制后缀使中毒信息具有传染性自我复制能力，在 line/star 拓扑和 100 智能体系统中分别提升 23.51%/18.95%/52.93% 的攻击成功率。
 tags:
   - ACL 2025
+  - LLM对齐
   - 多智能体攻击
   - 传染性越狱
   - 记忆投毒

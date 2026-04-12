@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DUET-VLM: Dual Stage Unified Efficient Token Reduction for VLM Training and Inference 论文解读 | CVPR 2026 | arXiv 2602.18846 | 视觉token压缩 | 提出DUET-VLM双阶段视觉token压缩框架：先在视觉编码器侧通过局部聚类聚合将冗余token合并为信息保持的紧凑表示（V2V），再在语言骨干侧通过文本引导的层级自适应剪枝逐步删减低信息量token（T2V），在LLaVA-1.5-7B上67%压缩保留99%精度，89%压缩保留97%精度。"
+title: >-
+  [论文解读] DUET-VLM: Dual Stage Unified Efficient Token Reduction for VLM Training and Inference
+description: >-
+  [CVPR 2026][多模态][视觉token压缩] 提出DUET-VLM双阶段视觉token压缩框架：先在视觉编码器侧通过局部聚类聚合将冗余token合并为信息保持的紧凑表示（V2V），再在语言骨干侧通过文本引导的层级自适应剪枝逐步删减低信息量token（T2V），在LLaVA-1.5-7B上67%压缩保留99%精度，89%压缩保留97%精度。
 tags:
   - CVPR 2026
+  - 多模态
   - 视觉token压缩
   - 双阶段压缩
   - 局部聚类聚合

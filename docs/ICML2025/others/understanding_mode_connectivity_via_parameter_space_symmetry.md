@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Understanding Mode Connectivity via Parameter Space Symmetry 论文解读 | ICML2025 | arXiv 2505.23681 | mode connectivity | 通过参数空间的连续对称性（如 GL_h(R)）分析神经网络损失函数最小值集合的拓扑连通性，推导出线性网络最小值的连通分量数为 2^l-1，并证明 skip connection 可减少该数目，同时给出对称性诱导的显式低损失连接曲线及线性模式连通性近似成立的充分条件。"
+title: >-
+  [论文解读] Understanding Mode Connectivity via Parameter Space Symmetry
+description: >-
+  [ICML2025][mode connectivity] 通过参数空间的连续对称性（如 $GL_h(\mathbb{R})$）分析神经网络损失函数最小值集合的拓扑连通性，推导出线性网络最小值的连通分量数为 $2^{l-1}$，并证明 skip connection 可减少该数目，同时给出对称性诱导的显式低损失连接曲线及线性模式连通性近似成立的充分条件。
 tags:
   - ICML2025
   - mode connectivity

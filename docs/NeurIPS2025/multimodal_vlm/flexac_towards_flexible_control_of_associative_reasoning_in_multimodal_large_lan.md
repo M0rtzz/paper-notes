@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FlexAC: Towards Flexible Control of Associative Reasoning in Multimodal Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2510.11190 | 幻觉控制 | FlexAC 发现 MLLM 的联想推理行为主要编码在中间层，通过从幻觉响应中提取引导向量并在推理时注入中间层表示，实现忠实性与创造力的灵活调控——幻觉率降低 29%(CHAIR)，创造力提升 5.8×(Creation-MMBench)，且无需训练。"
+title: >-
+  [论文解读] FlexAC: Towards Flexible Control of Associative Reasoning in Multimodal Large Language Models
+description: >-
+  [NeurIPS 2025][多模态][幻觉控制] FlexAC 发现 MLLM 的联想推理行为主要编码在中间层，通过从幻觉响应中提取引导向量并在推理时注入中间层表示，实现忠实性与创造力的灵活调控——幻觉率降低 29%(CHAIR)，创造力提升 5.8×(Creation-MMBench)，且无需训练。
 tags:
   - NeurIPS 2025
+  - 多模态
   - 幻觉控制
   - 创造力增强
   - 联想推理

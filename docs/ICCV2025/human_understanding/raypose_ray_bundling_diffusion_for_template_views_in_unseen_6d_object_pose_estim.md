@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】RayPose: Ray Bundling Diffusion for Template Views in Unseen 6D Object Pose Estimation 论文解读 | 将未见物体6D位姿估计重新建模为射线对齐问题，提出物体中心的射线参数化方案，运用扩散变换器从多个已知位姿模板中推断查询图像的6D位姿。"
+title: >-
+  [论文解读] RayPose: Ray Bundling Diffusion for Template Views in Unseen 6D Object Pose Estimation
+description: >-
+  [人体理解] 将未见物体6D位姿估计重新建模为射线对齐问题，提出物体中心的射线参数化方案，运用扩散变换器从多个已知位姿模板中推断查询图像的6D位姿。
 tags:
-
+  - 人体理解
 ---
 
 # RayPose: Ray Bundling Diffusion for Template Views in Unseen 6D Object Pose Estimation

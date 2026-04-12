@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Power Lines: Scaling Laws for Weight Decay and Batch Size in LLM Pre-training 论文解读 | NeurIPS 2025 | arXiv 2505.13738 | scaling laws | 提出了一套针对 LLM 预训练中权重衰减 λ 和批大小 B 的幂律缩放定律（power laws），通过 AdamW 时间尺度 τ 的概念统一了超参数缩放关系，使得在大规模训练前即可准确预测最优超参数。"
+title: >-
+  [论文解读] Power Lines: Scaling Laws for Weight Decay and Batch Size in LLM Pre-training
+description: >-
+  [NeurIPS 2025][scaling laws] 提出了一套针对 LLM 预训练中权重衰减 $\lambda$ 和批大小 $B$ 的幂律缩放定律（power laws），通过 AdamW 时间尺度 $\tau$ 的概念统一了超参数缩放关系，使得在大规模训练前即可准确预测最优超参数。
 tags:
   - NeurIPS 2025
   - scaling laws

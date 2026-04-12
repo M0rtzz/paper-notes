@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Robust Adversarial Reinforcement Learning in Stochastic Games via Sequence Modeling 论文解读 | NeurIPS 2025 | arXiv 2510.11877 | 对抗鲁棒性 | 提出CART（Conservative Adversarially Robust Decision Transformer），首个在随机博弈中增强Decision Transformer对抗鲁棒性的方法，通过阶段博弈建模和NashQ值估计解决ARDT在随机状态转移下的过度乐观问题，实现更准确的极小极大值估计和更优的最差情况回报。"
+title: >-
+  [论文解读] Robust Adversarial Reinforcement Learning in Stochastic Games via Sequence Modeling
+description: >-
+  [NeurIPS 2025][对抗鲁棒性] 提出CART（Conservative Adversarially Robust Decision Transformer），首个在随机博弈中增强Decision Transformer对抗鲁棒性的方法，通过阶段博弈建模和NashQ值估计解决ARDT在随机状态转移下的过度乐观问题，实现更准确的极小极大值估计和更优的最差情况回报。
 tags:
   - NeurIPS 2025
   - 对抗鲁棒性

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Integration Matters for Learning PDEs with Backward SDEs 论文解读 | NeurIPS 2025 | arXiv 2505.01078 | BSDE | 揭示了标准 BSDE 方法性能不如 PINNs 的根本原因是 Euler-Maruyama 积分引入的不可消除离散化偏差，提出基于 Stratonovich 形式的 Heun-BSDE 方法彻底消除该偏差，在高维 PDE 上与 PINNs 竞争。"
+title: >-
+  [论文解读] Integration Matters for Learning PDEs with Backward SDEs
+description: >-
+  [NeurIPS 2025][科学计算][BSDE] 揭示了标准 BSDE 方法性能不如 PINNs 的根本原因是 Euler-Maruyama 积分引入的不可消除离散化偏差，提出基于 Stratonovich 形式的 Heun-BSDE 方法彻底消除该偏差，在高维 PDE 上与 PINNs 竞争。
 tags:
   - NeurIPS 2025
+  - 科学计算
   - BSDE
   - 偏微分方程
   - Stratonovich积分

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Attribution-Guided Decoding 论文解读 | ICLR2026 | arXiv 2509.26307 | 归因引导解码 | 提出 Attribution-Guided Decoding (AGD)，在解码时利用归因方法（LRP）对候选 token 计算其对\"感兴趣区域\"(ROI) 的依赖分数，选择归因最高的 token，从而在不修改模型内部激活的前提下提升指令遵循和事实准确性。"
+title: >-
+  [论文解读] Attribution-Guided Decoding
+description: >-
+  [ICLR2026][机器人][归因引导解码] 提出 Attribution-Guided Decoding (AGD)，在解码时利用归因方法（LRP）对候选 token 计算其对"感兴趣区域"(ROI) 的依赖分数，选择归因最高的 token，从而在不修改模型内部激活的前提下提升指令遵循和事实准确性。
 tags:
   - ICLR2026
+  - 机器人
   - 归因引导解码
   - LRP
   - 指令遵循

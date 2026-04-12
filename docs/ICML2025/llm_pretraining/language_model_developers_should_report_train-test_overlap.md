@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Language Model Developers Should Report Train-Test Overlap 论文解读 | ICML 2025 | arXiv 2410.08385 | 训练-测试重叠 | 本文系统性地调研了30个语言模型开发者在训练-测试重叠（train-test overlap）方面的报告实践，发现仅9个模型提供了足够的重叠信息，并呼吁所有开发者在发布评估结果时必须同时报告训练-测试重叠统计数据或公开训练数据。"
+title: >-
+  [论文解读] Language Model Developers Should Report Train-Test Overlap
+description: >-
+  [ICML 2025][训练-测试重叠] 本文系统性地调研了30个语言模型开发者在训练-测试重叠（train-test overlap）方面的报告实践，发现仅9个模型提供了足够的重叠信息，并呼吁所有开发者在发布评估结果时必须同时报告训练-测试重叠统计数据或公开训练数据。
 tags:
   - ICML 2025
   - 训练-测试重叠

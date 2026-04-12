@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HiCUPID: Exploring the Potential of LLMs as Personalized Assistants 论文解读 | ACL 2025 | arXiv 2506.01262 | personalized assistant | 提出 HiCUPID，首个全面满足个性化 AI 助手五大需求（用户信息遵循、隐含信息理解、多信息推理、长上下文建模、主动性回复）的基准，含 1,250 用户 × 25 人格 × 10 日程 + Llama-3.2 自动评估模型。"
+title: >-
+  [论文解读] HiCUPID: Exploring the Potential of LLMs as Personalized Assistants
+description: >-
+  [ACL 2025][LLM/NLP][personalized assistant] 提出 HiCUPID，首个全面满足个性化 AI 助手五大需求（用户信息遵循、隐含信息理解、多信息推理、长上下文建模、主动性回复）的基准，含 1,250 用户 × 25 人格 × 10 日程 + Llama-3.2 自动评估模型。
 tags:
   - ACL 2025
+  - LLM/NLP
   - personalized assistant
   - benchmark
   - long-context

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Personalized OVSS: Understanding Personal Concept in Open-Vocabulary Semantic Segmentation 论文解读 | ICCV 2025 | arXiv 2507.11030 | 个性化分割 | 首次提出个性化开放词汇语义分割（Personalized OVSS）任务，设计基于文本提示调优的即插即用方法，通过\"负掩码提案\"抑制假阳性和视觉嵌入注入丰富个性化概念表征，仅用少量图像-掩码对即可识别用户感兴趣的特定物体实例，同时保持原有OVSS性能。"
+title: >-
+  [论文解读] Personalized OVSS: Understanding Personal Concept in Open-Vocabulary Semantic Segmentation
+description: >-
+  [ICCV 2025][图像分割][个性化分割] 首次提出个性化开放词汇语义分割（Personalized OVSS）任务，设计基于文本提示调优的即插即用方法，通过"负掩码提案"抑制假阳性和视觉嵌入注入丰富个性化概念表征，仅用少量图像-掩码对即可识别用户感兴趣的特定物体实例，同时保持原有OVSS性能。
 tags:
   - ICCV 2025
+  - 图像分割
   - 个性化分割
   - 开放词汇语义分割
   - 文本提示调优

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Online Pre-Training for Offline-to-Online Reinforcement Learning 论文解读 | ICML2025 | arXiv 2507.08387 | offline-to-online RL | 提出 OPT 方法，在离线预训练和在线微调之间引入\"在线预训练\"阶段，通过新增一个独立值函数并用元适应目标训练，解决离线预训练智能体因值估计不准而导致在线微调性能下降的问题，在 D4RL 基准上平均提升约 30%。"
+title: >-
+  [论文解读] Online Pre-Training for Offline-to-Online Reinforcement Learning
+description: >-
+  [ICML2025][offline-to-online RL] 提出 OPT 方法，在离线预训练和在线微调之间引入"在线预训练"阶段，通过新增一个独立值函数并用元适应目标训练，解决离线预训练智能体因值估计不准而导致在线微调性能下降的问题，在 D4RL 基准上平均提升约 30%。
 tags:
   - ICML2025
   - offline-to-online RL

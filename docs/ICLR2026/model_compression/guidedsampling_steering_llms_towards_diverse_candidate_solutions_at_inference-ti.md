@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GuidedSampling: Steering LLMs Towards Diverse Candidate Solutions at Inference-Time 论文解读 | ICLR 2026 | arXiv 2510.03777 | inference-time scaling | 提出 GuidedSampling 推理算法，将重复采样（RS）的隐式探索和生成过程显式解耦为两阶段：先迭代生成多样化的解题概念/定理，再基于各概念分别生成候选解。在 pass@50 上平均提升约 21.6%，微调后 pass@5 提升约 9.7%。"
+title: >-
+  [论文解读] GuidedSampling: Steering LLMs Towards Diverse Candidate Solutions at Inference-Time
+description: >-
+  [ICLR 2026][模型压缩][inference-time scaling] 提出 GuidedSampling 推理算法，将重复采样（RS）的隐式探索和生成过程显式解耦为两阶段：先迭代生成多样化的解题概念/定理，再基于各概念分别生成候选解。在 pass@50 上平均提升约 21.6%，微调后 pass@5 提升约 9.7%。
 tags:
   - ICLR 2026
+  - 模型压缩
   - inference-time scaling
   - repeated sampling
   - diversity

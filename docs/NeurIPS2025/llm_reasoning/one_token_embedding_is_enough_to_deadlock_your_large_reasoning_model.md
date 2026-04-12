@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】One Token Embedding Is Enough to Deadlock Your Large Reasoning Model 论文解读 | NeurIPS 2025 | arXiv 2510.15965 | 对抗攻击 | 本文提出 Deadlock Attack，通过优化单个对抗性 token embedding 并以后门方式植入 LRM，使模型在推理时陷入永久思考循环（无限生成 \"Wait\"、\"But\" 等过渡词），在 4 个 LRM 和 3 个数学推理 benchmark 上实现 100% 攻击成功率，且对正常输入几乎无性能影响。"
+title: >-
+  [论文解读] One Token Embedding Is Enough to Deadlock Your Large Reasoning Model
+description: >-
+  [NeurIPS 2025][LLM推理][对抗攻击] 本文提出 Deadlock Attack，通过优化单个对抗性 token embedding 并以后门方式植入 LRM，使模型在推理时陷入永久思考循环（无限生成 "Wait"、"But" 等过渡词），在 4 个 LRM 和 3 个数学推理 benchmark 上实现 100% 攻击成功率，且对正常输入几乎无性能影响。
 tags:
   - NeurIPS 2025
+  - LLM推理
   - 对抗攻击
   - 推理模型安全
   - 资源耗尽攻击

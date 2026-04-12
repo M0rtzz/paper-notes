@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】3D4D: An Interactive Editable 4D World Model via 3D Video Generation 论文解读 | AAAI 2026 | arXiv 2511.08536 | 4D场景 | 提出 3D4D，一个集成 WebGL 和 Supersplat 渲染的交互式 4D 可视化框架，通过四个后端模块（3D重建、图像生视频、视频分帧、4D场景生成）将静态图片和文本转化为可实时交互的 4D 场景，并引入 VLM 引导的注视点渲染策略在保持语义一致性的同时实现 60fps 实时交互。"
+title: >-
+  [论文解读] 3D4D: An Interactive Editable 4D World Model via 3D Video Generation
+description: >-
+  [AAAI 2026][视频理解][4D场景] 提出 3D4D，一个集成 WebGL 和 Supersplat 渲染的交互式 4D 可视化框架，通过四个后端模块（3D重建、图像生视频、视频分帧、4D场景生成）将静态图片和文本转化为可实时交互的 4D 场景，并引入 VLM 引导的注视点渲染策略在保持语义一致性的同时实现 60fps 实时交互。
 tags:
   - AAAI 2026
+  - 视频理解
   - 4D场景
   - WebGL
   - Gaussian Splatting

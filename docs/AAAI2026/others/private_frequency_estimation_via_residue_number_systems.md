@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Private Frequency Estimation via Residue Number Systems 论文解读 | AAAI 2026 | arXiv 2511.11569 | 本地差分隐私 | 提出 ModularSubsetSelection (MSS)，一种基于剩余数系统（RNS）的本地差分隐私频率估计协议，在保持与 SubsetSelection 和 PGR 相当的估计精度的同时，显著降低通信开销（比 SS 减少达一半）、大幅加速服务器解码（比 PGR 快 11-448 倍）、并实现最低的数据重建攻击成功率。"
+title: >-
+  [论文解读] Private Frequency Estimation via Residue Number Systems
+description: >-
+  [AAAI 2026][本地差分隐私] 提出 ModularSubsetSelection (MSS)，一种基于剩余数系统（RNS）的本地差分隐私频率估计协议，在保持与 SubsetSelection 和 PGR 相当的估计精度的同时，显著降低通信开销（比 SS 减少达一半）、大幅加速服务器解码（比 PGR 快 11-448 倍）、并实现最低的数据重建攻击成功率。
 tags:
   - AAAI 2026
   - 本地差分隐私

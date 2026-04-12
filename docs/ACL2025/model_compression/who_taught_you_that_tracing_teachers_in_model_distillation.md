@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Who Taught You That? Tracing Teachers in Model Distillation 论文解读 | ACL 2025 | arXiv 2502.06659 | 提出\"教师模型归因\"新问题：给定蒸馏后的学生模型，能否识别其教师模型？发现 n-gram 相似度和困惑度都不可靠，但词性（PoS）模板特征能有效捕捉教师模型在蒸馏中留下的语法\"指纹\"，在 5 个候选教师中达到 45-74% 的归因准确率（随机基线 20%）。"
+title: >-
+  [论文解读] Who Taught You That? Tracing Teachers in Model Distillation
+description: >-
+  [ACL 2025][模型压缩] 提出"教师模型归因"新问题：给定蒸馏后的学生模型，能否识别其教师模型？发现 n-gram 相似度和困惑度都不可靠，但词性（PoS）模板特征能有效捕捉教师模型在蒸馏中留下的语法"指纹"，在 5 个候选教师中达到 45-74% 的归因准确率（随机基线 20%）。
 tags:
   - ACL 2025
+  - 模型压缩
 ---
 
 # Who Taught You That? Tracing Teachers in Model Distillation

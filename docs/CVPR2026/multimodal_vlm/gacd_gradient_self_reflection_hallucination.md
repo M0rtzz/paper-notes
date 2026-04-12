@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GACD: Mitigating Multimodal Hallucinations via Gradient-based Self-Reflection 论文解读 | CVPR 2026 | arXiv 2509.03113 | 多模态幻觉 | 通过一阶Taylor梯度估计每个token（视觉/文本/输出）对当前预测的贡献，设计GACD框架同时缓解文本-视觉偏差（增强视觉token影响力）和共现偏差（抑制与已有物体锚定的视觉token），在AMBER上提升8%总分、POPE F1提升8%，无需训练或辅助模型。"
+title: >-
+  [论文解读] GACD: Mitigating Multimodal Hallucinations via Gradient-based Self-Reflection
+description: >-
+  [CVPR 2026][多模态][多模态幻觉] 通过一阶Taylor梯度估计每个token（视觉/文本/输出）对当前预测的贡献，设计GACD框架同时缓解文本-视觉偏差（增强视觉token影响力）和共现偏差（抑制与已有物体锚定的视觉token），在AMBER上提升8%总分、POPE F1提升8%，无需训练或辅助模型。
 tags:
   - CVPR 2026
+  - 多模态
   - 多模态幻觉
   - 梯度归因
   - 对比解码

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Lost in Literalism: How Supervised Training Shapes Translationese in LLMs 论文解读 | ACL 2025 | arXiv 2503.04369 | 机器翻译 | 本文系统研究了大语言模型在机器翻译中产生翻译腔（translationese）的现象，揭示了监督微调（SFT）数据中的翻译腔偏差是导致LLM翻译不自然的根本原因，并提出了通过润色训练参考译文和过滤不自然训练实例来缓解翻译腔的方法。"
+title: >-
+  [论文解读] Lost in Literalism: How Supervised Training Shapes Translationese in LLMs
+description: >-
+  [ACL 2025][LLM/NLP][机器翻译] 本文系统研究了大语言模型在机器翻译中产生翻译腔（translationese）的现象，揭示了监督微调（SFT）数据中的翻译腔偏差是导致LLM翻译不自然的根本原因，并提出了通过润色训练参考译文和过滤不自然训练实例来缓解翻译腔的方法。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 机器翻译
   - 翻译腔
   - 监督微调

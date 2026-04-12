@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CubeComposer: Spatio-Temporal Autoregressive 4K 360° Video Generation from Perspective Video 论文解读 | CVPR 2026 | arXiv 2603.04291 | 360°视频生成 | 提出 CubeComposer，将360°视频分解为 cubemap 六面表示并按时空自回归方式逐面生成，首次实现从透视视频原生生成4K（3840×1920）分辨率的360°全景视频，无需后处理超分辨率。"
+title: >-
+  [论文解读] CubeComposer: Spatio-Temporal Autoregressive 4K 360° Video Generation from Perspective Video
+description: >-
+  [CVPR 2026][图像生成][360°视频生成] 提出 CubeComposer，将360°视频分解为 cubemap 六面表示并按时空自回归方式逐面生成，首次实现从透视视频原生生成4K（3840×1920）分辨率的360°全景视频，无需后处理超分辨率。
 tags:
   - CVPR 2026
+  - 图像生成
   - 360°视频生成
   - 立方体映射
   - 时空自回归

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset 论文解读 | ACL 2025 | arXiv 2411.15640 | medical QA | 构建了首个大规模泛非洲多专科医学问答基准 AfriMed-QA（15,275 题，来自 16 个国家 60+ 医学院，涵盖 32 个专科），评估 30 个 LLM 发现：大模型在非洲医疗问题上的准确率显著低于 USMLE，生物医学专用 LLM 反而不如通用模型，消费者盲评时更偏好 LLM 回答而非临床医生回答。"
+title: >-
+  [论文解读] AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset
+description: >-
+  [ACL 2025][医学图像][medical QA] 构建了首个大规模泛非洲多专科医学问答基准 AfriMed-QA（15,275 题，来自 16 个国家 60+ 医学院，涵盖 32 个专科），评估 30 个 LLM 发现：大模型在非洲医疗问题上的准确率显著低于 USMLE，生物医学专用 LLM 反而不如通用模型，消费者盲评时更偏好 LLM 回答而非临床医生回答。
 tags:
   - ACL 2025
+  - 医学图像
   - medical QA
   - African healthcare
   - LLM benchmark

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Ad-Hoc Human-AI Coordination Challenge (AH2AC2) 论文解读 | ICML2025 | arXiv 2506.21490 | Human-AI Coordination | 提出 AH2AC2 挑战——基于 Hanabi 合作卡牌游戏，通过行为克隆+正则化强化学习构建人类代理智能体，并开源有限人类数据集，为 Human-AI 临时协作研究提供标准化、可复现的评估框架。"
+title: >-
+  [论文解读] Ad-Hoc Human-AI Coordination Challenge (AH2AC2)
+description: >-
+  [ICML2025][LLM推理][Human-AI Coordination] 提出 AH2AC2 挑战——基于 Hanabi 合作卡牌游戏，通过行为克隆+正则化强化学习构建人类代理智能体，并开源有限人类数据集，为 Human-AI 临时协作研究提供标准化、可复现的评估框架。
 tags:
   - ICML2025
+  - LLM推理
   - Human-AI Coordination
   - Ad-Hoc Teamplay
   - Hanabi

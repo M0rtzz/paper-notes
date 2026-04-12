@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Autonomous Concept Drift Threshold Determination 论文解读 | AAAI 2026 | arXiv 2511.09953 | 概念漂移 | 证明了固定阈值不可能在所有场景下最优、动态阈值严格优于静态阈值，并提出DTD算法：在漂移检测信号触发后启动三模型比较阶段，根据候选模型表现自适应调整检测阈值。"
+title: >-
+  [论文解读] Autonomous Concept Drift Threshold Determination
+description: >-
+  [AAAI 2026][概念漂移] 证明了固定阈值不可能在所有场景下最优、动态阈值严格优于静态阈值，并提出DTD算法：在漂移检测信号触发后启动三模型比较阶段，根据候选模型表现自适应调整检测阈值。
 tags:
   - AAAI 2026
   - 概念漂移

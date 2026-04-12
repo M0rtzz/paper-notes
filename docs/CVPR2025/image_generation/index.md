@@ -1,3 +1,10 @@
+---
+title: >-
+  CVPR2025 图像生成方向 21篇论文解读
+description: >-
+  21篇CVPR2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
@@ -7,7 +14,7 @@
 
 :   提出基于新型原语表示PrimX和Diffusion Transformer的原生3D生成模型3DTopia-XL，能从文本或图像输入生成带有高分辨率几何、纹理和PBR材质的高质量3D资产，在质量和效率上显著超越现有方法。
 
-**[A Comprehensive Study of Decoder-Only LLMs for Text-to-Image Generation](a_comprehensive_study_of_decoder-only_llms_for_text-to-image_generation.md)**
+**[A Comprehensive Study Of Decoder-Only Llms For Text-To-Image Generation](a_comprehensive_study_of_decoder-only_llms_for_text-to-image_generation.md)**
 
 :   系统研究了使用decoder-only LLM作为文本到图像扩散模型文本编码器的效果，发现直接使用最后一层embedding效果差于T5，但通过层归一化平均（layer-normalized averaging）聚合所有层的embedding可显著超越T5基线。
 

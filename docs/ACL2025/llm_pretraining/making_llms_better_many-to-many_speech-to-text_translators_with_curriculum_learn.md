@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning 论文解读 | ACL 2025 | arXiv 2409.19510 | 语音到文本翻译 | 提出 LLM-SRT，将语音到文本翻译（S2TT）任务转化为语音识别与翻译联合任务（SRT），并通过三阶段课程学习策略（ASR→SMT→SRT）有效利用 LLM 的机器翻译能力，在低资源场景（每种语言不到 10 小时数据）下实现 15×14 语言对的 SOTA 多对多语音翻译性能。"
+title: >-
+  [论文解读] Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning
+description: >-
+  [ACL 2025][语音到文本翻译] 提出 LLM-SRT，将语音到文本翻译（S2TT）任务转化为语音识别与翻译联合任务（SRT），并通过三阶段课程学习策略（ASR→SMT→SRT）有效利用 LLM 的机器翻译能力，在低资源场景（每种语言不到 10 小时数据）下实现 15×14 语言对的 SOTA 多对多语音翻译性能。
 tags:
   - ACL 2025
   - 语音到文本翻译

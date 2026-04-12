@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Visual Modality Prompt for Adapting Vision-Language Object Detectors 论文解读 | ICCV 2025 | arXiv 2412.00622 | 视觉提示 | 提出 ModPrompt，一种基于编码器-解码器的视觉提示策略，将视觉-语言目标检测器（如 YOLO-World、Grounding DINO）适应到红外和深度等新模态，同时保留零样本检测能力。"
+title: >-
+  [论文解读] Visual Modality Prompt for Adapting Vision-Language Object Detectors
+description: >-
+  [ICCV 2025][目标检测][视觉提示] 提出 ModPrompt，一种基于编码器-解码器的视觉提示策略，将视觉-语言目标检测器（如 YOLO-World、Grounding DINO）适应到红外和深度等新模态，同时保留零样本检测能力。
 tags:
   - ICCV 2025
+  - 目标检测
   - 视觉提示
   - 模态适应
   - 视觉-语言检测器

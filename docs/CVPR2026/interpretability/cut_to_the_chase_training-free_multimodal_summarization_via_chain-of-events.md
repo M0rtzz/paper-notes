@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cut to the Chase: Training-free Multimodal Summarization via Chain-of-Events 论文解读 | CVPR 2026 | arXiv 2603.06213 | 多模态摘要 | 提出 CoE，一个免训练的多模态摘要框架，通过构建层次事件图（HEG）引导链式事件推理，在8个数据集上超越SOTA视频CoT基线，平均提升 +3.04 ROUGE、+9.51 CIDEr、+1.88 BERTScore。"
+title: >-
+  [论文解读] Cut to the Chase: Training-free Multimodal Summarization via Chain-of-Events
+description: >-
+  [CVPR 2026][多模态摘要] 提出 CoE，一个免训练的多模态摘要框架，通过构建层次事件图（HEG）引导链式事件推理，在8个数据集上超越SOTA视频CoT基线，平均提升 +3.04 ROUGE、+9.51 CIDEr、+1.88 BERTScore。
 tags:
   - CVPR 2026
   - 多模态摘要

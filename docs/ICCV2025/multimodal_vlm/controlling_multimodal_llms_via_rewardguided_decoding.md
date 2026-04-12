@@ -1,12 +1,15 @@
 ---
-description: "【论文笔记】Controlling Multimodal LLMs via Reward-guided Decoding 论文解读 | ICCV 2025 | arXiv 2508.11616 | reward-guided decoding | 提出MRGD（Multimodal Reward-Guided Decoding），通过训练一个基于PaliGemma的物体幻觉奖励模型和一个基于OWLv2的物体召回奖励模型，在MLLM推理时通过线性加权组合两个奖励来逐句搜索最优候选输出，在CHAIR上将LLaVA-1.5的CHAIRi从15.05降至4.53（降70%）且支持精度-召回率的动态可控权衡。"
+title: >-
+  [论文解读] Controlling Multimodal LLMs via Reward-guided Decoding
+description: >-
+  [ICCV 2025][多模态][reward-guided decoding] 提出MRGD（Multimodal Reward-Guided Decoding），通过训练一个基于PaliGemma的物体幻觉奖励模型和一个基于OWLv2的物体召回奖励模型，在MLLM推理时通过线性加权组合两个奖励来逐句搜索最优候选输出，在CHAIR上将LLaVA-1.5的CHAIRi从15.05降至4.53（降70%）且支持精度-召回率的动态可控权衡。
 tags:
   - ICCV 2025
+  - 多模态
   - reward-guided decoding
   - hallucination mitigation
   - visual grounding
   - controllable generation
-  - 多模态
 ---
 
 # Controlling Multimodal LLMs via Reward-guided Decoding

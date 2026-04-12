@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing 论文解读 | ICLR 2026 | arXiv 2602.08550 | 目标跟踪 | 通过零空间约束的在线模型编辑，将 VGGT 提供的 3D 几何信息融入 2D 通用目标跟踪器中，在保持语义判别力的同时增强几何感知能力，在遮挡和背景杂乱场景中显著提升跟踪性能。"
+title: >-
+  [论文解读] GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing
+description: >-
+  [ICLR 2026][目标跟踪] 通过零空间约束的在线模型编辑，将 VGGT 提供的 3D 几何信息融入 2D 通用目标跟踪器中，在保持语义判别力的同时增强几何感知能力，在遮挡和背景杂乱场景中显著提升跟踪性能。
 tags:
   - ICLR 2026
   - 目标跟踪

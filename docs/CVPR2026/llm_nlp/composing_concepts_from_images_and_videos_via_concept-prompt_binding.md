@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Composing Concepts from Images and Videos via Concept-prompt Binding 论文解读 | CVPR 2026 | arXiv 2512.09824 | 视觉概念组合 | 提出 Bind & Compose (BiCo)，一种one-shot方法，通过层次化binder结构将视觉概念绑定到prompt token，并通过token组合实现图像-视频概念的灵活组合，在概念一致性、prompt保真度和运动质量上全面超越前作。"
+title: >-
+  [论文解读] Composing Concepts from Images and Videos via Concept-prompt Binding
+description: >-
+  [CVPR 2026][LLM/NLP][视觉概念组合] 提出 Bind & Compose (BiCo)，一种one-shot方法，通过层次化binder结构将视觉概念绑定到prompt token，并通过token组合实现图像-视频概念的灵活组合，在概念一致性、prompt保真度和运动质量上全面超越前作。
 tags:
   - CVPR 2026
+  - LLM/NLP
   - 视觉概念组合
   - Transformer
   - 视频个性化

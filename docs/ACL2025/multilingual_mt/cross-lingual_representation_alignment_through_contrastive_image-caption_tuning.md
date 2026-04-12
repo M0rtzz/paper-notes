@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cross-Lingual Representation Alignment Through Contrastive Image-Caption Tuning 论文解读 | ACL 2025 | arXiv 2505.13628 | 跨语言对齐 | 探索了一种无需平行语料的跨语言表示对齐方法——通过多语言图像-文本描述的对比学习（类 CLIP），让不同语言的文本表示在共享视觉空间中隐式对齐，并证明即使是编码器预训练中未见过的语言（如 Quechua）也能通过这种方式被纳入对齐体系。"
+title: >-
+  [论文解读] Cross-Lingual Representation Alignment Through Contrastive Image-Caption Tuning
+description: >-
+  [ACL 2025][跨语言对齐] 探索了一种无需平行语料的跨语言表示对齐方法——通过多语言图像-文本描述的对比学习（类 CLIP），让不同语言的文本表示在共享视觉空间中隐式对齐，并证明即使是编码器预训练中未见过的语言（如 Quechua）也能通过这种方式被纳入对齐体系。
 tags:
   - ACL 2025
   - 跨语言对齐

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TinyViM: Frequency Decoupling for Tiny Hybrid Vision Mamba 论文解读 | ICCV 2025 | arXiv 2411.17473 | 轻量级视觉骨干 | 提出 TinyViM，一种基于频率解耦的轻量级卷积-Mamba 混合视觉骨干，通过拉普拉斯混合器将低频分量输入 Mamba 建模全局上下文、高频分量用深度卷积增强，配合频率斜坡 Inception 结构逐层调节频率配比，在分类/检测/分割任务上以 2-3 倍吞吐量超越现有 Mamba 模型。"
+title: >-
+  [论文解读] TinyViM: Frequency Decoupling for Tiny Hybrid Vision Mamba
+description: >-
+  [ICCV 2025][图像分割][轻量级视觉骨干] 提出 TinyViM，一种基于频率解耦的轻量级卷积-Mamba 混合视觉骨干，通过拉普拉斯混合器将低频分量输入 Mamba 建模全局上下文、高频分量用深度卷积增强，配合频率斜坡 Inception 结构逐层调节频率配比，在分类/检测/分割任务上以 2-3 倍吞吐量超越现有 Mamba 模型。
 tags:
   - ICCV 2025
+  - 图像分割
   - 轻量级视觉骨干
   - Mamba
   - 频率解耦

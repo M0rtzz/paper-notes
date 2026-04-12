@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Gated Integration of Low-Rank Adaptation for Continual Learning of Large Language Models 论文解读 | NeurIPS 2025 | arXiv 2505.15424 | 持续学习 | 提出 GainLoRA，为持续学习中每个新任务的 LoRA 分支引入**门控模块**生成自适应集成系数，通过正交约束使新分支对旧任务的输出趋近于零，从而有效缓解灾难性遗忘。"
+title: >-
+  [论文解读] Gated Integration of Low-Rank Adaptation for Continual Learning of Large Language Models
+description: >-
+  [NeurIPS 2025][模型压缩][持续学习] 提出 GainLoRA，为持续学习中每个新任务的 LoRA 分支引入**门控模块**生成自适应集成系数，通过正交约束使新分支对旧任务的输出趋近于零，从而有效缓解灾难性遗忘。
 tags:
   - NeurIPS 2025
+  - 模型压缩
   - 持续学习
   - LoRA
   - 门控机制

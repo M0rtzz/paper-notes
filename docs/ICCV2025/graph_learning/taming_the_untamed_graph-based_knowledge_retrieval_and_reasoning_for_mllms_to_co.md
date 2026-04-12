@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Taming the Untamed: Graph-Based Knowledge Retrieval and Reasoning for MLLMs to Conquer the Unknown 论文解读 | ICCV 2025 | arXiv 2506.17589 | 多模态知识图谱 | 以《怪物猎人：世界》为测试平台，构建了包含文本、图像、视频和复杂实体关系的多模态知识图谱(MH-MMKG)，设计了238个复杂查询和多智能体知识检索方法，揭示了当前MLLM在领域特定任务中的知识检索与推理能力不足。"
+title: >-
+  [论文解读] Taming the Untamed: Graph-Based Knowledge Retrieval and Reasoning for MLLMs to Conquer the Unknown
+description: >-
+  [ICCV 2025][图学习][多模态知识图谱] 以《怪物猎人：世界》为测试平台，构建了包含文本、图像、视频和复杂实体关系的多模态知识图谱(MH-MMKG)，设计了238个复杂查询和多智能体知识检索方法，揭示了当前MLLM在领域特定任务中的知识检索与推理能力不足。
 tags:
   - ICCV 2025
+  - 图学习
   - 多模态知识图谱
   - 多智能体检索
   - MLLM

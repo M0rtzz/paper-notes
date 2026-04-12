@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】VidGuard-R1: AI-Generated Video Detection and Explanation via Reasoning MLLMs and RL 论文解读 | ICLR 2026 | arXiv 2510.02282 | AI生成视频检测 | 提出VidGuard-R1——首个用GRPO(Group Relative Policy Optimization)微调MLLM的视频真伪检测器：构建14万真/假视频对数据集(HunyuanVideo/CogVideoX生成+标准化消除快捷方式)，设计时序伪影奖励(注入时序异常鼓励时序推理)和扩散步数奖励(更多步=更难检测=更高奖励)，实现SOTA零样本检测(>95%)+可解释的思维链推理。"
+title: >-
+  [论文解读] VidGuard-R1: AI-Generated Video Detection and Explanation via Reasoning MLLMs and RL
+description: >-
+  [ICLR 2026][目标检测][AI生成视频检测] 提出VidGuard-R1——首个用GRPO(Group Relative Policy Optimization)微调MLLM的视频真伪检测器：构建14万真/假视频对数据集(HunyuanVideo/CogVideoX生成+标准化消除快捷方式)，设计时序伪影奖励(注入时序异常鼓励时序推理)和扩散步数奖励(更多步=更难检测=更高奖励)，实现SOTA零样本检测(>95%)+可解释的思维链推理。
 tags:
   - ICLR 2026
+  - 目标检测
   - AI生成视频检测
   - MLLM推理
   - GRPO

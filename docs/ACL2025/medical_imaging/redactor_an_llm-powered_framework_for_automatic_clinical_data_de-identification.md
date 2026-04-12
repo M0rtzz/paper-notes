@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RedactX: An LLM-Powered Framework for Automatic Clinical Data De-Identification 论文解读 | ACL 2025 | arXiv 2505.18380 | 去标识化 | 提出 RedactX——一个全自动、多模态的临床数据去标识化框架，结合 LLM 多轮抽取、规则处理和检索式再词汇化，在 i2b2 数据集上实现了与专用商业系统可比的 F1（0.9646），同时优化了 token 使用效率。"
+title: >-
+  [论文解读] RedactX: An LLM-Powered Framework for Automatic Clinical Data De-Identification
+description: >-
+  [ACL 2025][医学图像][去标识化] 提出 RedactX——一个全自动、多模态的临床数据去标识化框架，结合 LLM 多轮抽取、规则处理和检索式再词汇化，在 i2b2 数据集上实现了与专用商业系统可比的 F1（0.9646），同时优化了 token 使用效率。
 tags:
   - ACL 2025
+  - 医学图像
   - 去标识化
   - PHI/PII
   - LLM

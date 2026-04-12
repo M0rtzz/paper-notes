@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MF-LAL: Drug Compound Generation Using Multi-Fidelity Latent Space Active Learning 论文解读 | ICML 2025 | arXiv 2410.11226 | 多保真度建模 | 提出 MF-LAL 框架，将多保真度代理模型与分子生成模型统一到层次化潜空间中，通过主动学习高效整合分子对接（低保真）和结合自由能计算（高保真）两类预言机，生成具有显著更优结合自由能的候选药物分子（平均 ABFE 得分提升约 50%）。"
+title: >-
+  [论文解读] MF-LAL: Drug Compound Generation Using Multi-Fidelity Latent Space Active Learning
+description: >-
+  [ICML 2025][医学图像][多保真度建模] 提出 MF-LAL 框架，将多保真度代理模型与分子生成模型统一到层次化潜空间中，通过主动学习高效整合分子对接（低保真）和结合自由能计算（高保真）两类预言机，生成具有显著更优结合自由能的候选药物分子（平均 ABFE 得分提升约 50%）。
 tags:
   - ICML 2025
+  - 医学图像
   - 多保真度建模
   - 主动学习
   - 药物生成

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A3GS: Arbitrary Artistic Style into Arbitrary 3D Gaussian Splatting 论文解读 | ICCV 2025 | 3D Stylization | 提出A³GS，首个**前馈式零样本3DGS风格迁移**网络——使用图卷积网络(GCN)自编码器将3DGS场景编码到潜在空间，通过AdaIN注入任意风格图像特征，仅需**10秒**即可将任意风格迁移到任意3D场景，无需逐风格优化，可处理大规模3DGS场景。"
+title: >-
+  [论文解读] A3GS: Arbitrary Artistic Style into Arbitrary 3D Gaussian Splatting
+description: >-
+  [ICCV 2025][3D视觉][3D Stylization] 提出A³GS，首个**前馈式零样本3DGS风格迁移**网络——使用图卷积网络(GCN)自编码器将3DGS场景编码到潜在空间，通过AdaIN注入任意风格图像特征，仅需**10秒**即可将任意风格迁移到任意3D场景，无需逐风格优化，可处理大规模3DGS场景。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Stylization
   - Zero-Shot
   - Feed-Forward

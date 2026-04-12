@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】How Foundational are Foundation Models for Time Series Forecasting? 论文解读 | NeurIPS 2025 | arXiv 2510.00742 | 时间序列基础模型 | 通过合成数据与真实电力消耗数据的系统性实验，揭示时间序列基础模型(TSFM)的零样本泛化能力高度依赖于预训练数据分布，在领域偏移场景下仅49.5K参数的轻量专用模型SAMFormer从头训练即可超越500M+参数的微调TimesFM。"
+title: >-
+  [论文解读] How Foundational are Foundation Models for Time Series Forecasting?
+description: >-
+  [NeurIPS 2025][时间序列][时间序列基础模型] 通过合成数据与真实电力消耗数据的系统性实验，揭示时间序列基础模型(TSFM)的零样本泛化能力高度依赖于预训练数据分布，在领域偏移场景下仅49.5K参数的轻量专用模型SAMFormer从头训练即可超越500M+参数的微调TimesFM。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 时间序列基础模型
   - 零样本预测
   - 微调

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SealQA: Raising the Bar for Reasoning in Search-Augmented Language Models 论文解读 | ICLR2026 | arXiv 2506.01062 | benchmark | 提出SealQA挑战基准，包含111道使前沿非推理模型准确率为0的事实性问题，专门评估搜索增强LLM在噪声/冲突/误导性检索结果下的推理能力。"
+title: >-
+  [论文解读] SealQA: Raising the Bar for Reasoning in Search-Augmented Language Models
+description: >-
+  [ICLR2026][LLM推理][benchmark] 提出SealQA挑战基准，包含111道使前沿非推理模型准确率为0的事实性问题，专门评估搜索增强LLM在噪声/冲突/误导性检索结果下的推理能力。
 tags:
   - ICLR2026
+  - LLM推理
   - benchmark
   - search-augmented LLM
   - RAG

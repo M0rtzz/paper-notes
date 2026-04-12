@@ -1,9 +1,12 @@
 ---
-description: "【论文笔记】HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation 论文解读 | NeurIPS 2025 | arXiv 2502.12148 | Pair-DPO | 首次揭示统一多模态大模型中理解能力普遍强于生成能力的现象，提出 HermesFlow 框架，通过同源偏好数据构建配对理解-生成偏好对，利用 Pair-DPO 和自博弈迭代优化，在不引入外部高质量数据的情况下同步提升理解与生成能力并缩小两者差距。"
+title: >-
+  [论文解读] HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation
+description: >-
+  [NeurIPS 2025][多模态][Pair-DPO] 首次揭示统一多模态大模型中理解能力普遍强于生成能力的现象，提出 HermesFlow 框架，通过同源偏好数据构建配对理解-生成偏好对，利用 Pair-DPO 和自博弈迭代优化，在不引入外部高质量数据的情况下同步提升理解与生成能力并缩小两者差距。
 tags:
   - NeurIPS 2025
-  - Pair-DPO
   - 多模态
+  - Pair-DPO
   - understanding-generation gap
   - self-play optimization
   - homologous preference data

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Enhancing DPSGD via Per-Sample Momentum and Low-Pass Filtering 论文解读 | AAAI2026 | arXiv 2511.08841 | Differential Privacy | 提出 DP-PMLF，通过逐样本动量（per-sample momentum）降低裁剪偏差，同时利用低通滤波器（low-pass filter）抑制高频 DP 噪声，首次同时从两个方向缓解 DPSGD 的精度退化问题。"
+title: >-
+  [论文解读] Enhancing DPSGD via Per-Sample Momentum and Low-Pass Filtering
+description: >-
+  [AAAI2026][AI安全][Differential Privacy] 提出 DP-PMLF，通过逐样本动量（per-sample momentum）降低裁剪偏差，同时利用低通滤波器（low-pass filter）抑制高频 DP 噪声，首次同时从两个方向缓解 DPSGD 的精度退化问题。
 tags:
   - AAAI2026
+  - AI安全
   - Differential Privacy
   - DPSGD
   - Per-Sample Momentum

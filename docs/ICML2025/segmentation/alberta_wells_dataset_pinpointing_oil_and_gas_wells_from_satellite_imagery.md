@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Alberta Wells Dataset: Pinpointing Oil and Gas Wells from Satellite Imagery 论文解读 | ICML 2025 | arXiv 2410.09032 | 遥感 | 提出首个大规模油气井检测基准数据集 Alberta Wells Dataset（213k+ 井位、188k+ 卫星图像 patch），将废弃/暂停/活跃油气井的定位问题建模为二值分割和目标检测任务，并评估了多种 CNN 和 Transformer 基线模型。"
+title: >-
+  [论文解读] Alberta Wells Dataset: Pinpointing Oil and Gas Wells from Satellite Imagery
+description: >-
+  [ICML 2025][图像分割][遥感] 提出首个大规模油气井检测基准数据集 Alberta Wells Dataset（213k+ 井位、188k+ 卫星图像 patch），将废弃/暂停/活跃油气井的定位问题建模为二值分割和目标检测任务，并评估了多种 CNN 和 Transformer 基线模型。
 tags:
   - ICML 2025
+  - 图像分割
   - 遥感
   - 油气井检测
   - 二值分割

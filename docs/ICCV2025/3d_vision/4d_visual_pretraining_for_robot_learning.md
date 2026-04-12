@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】4D Visual Pre-training for Robot Learning 论文解读 | ICCV 2025 | arXiv 2508.17230 | 点云预训练 | FVP提出将3D视觉预训练建模为\"下一帧点云预测\"问题，用条件扩散模型从历史帧点云预测未来帧点云来学习3D视觉表示，在12个真实世界操作任务中将DP3的平均成功率提升28%，达到SOTA水平。"
+title: >-
+  [论文解读] 4D Visual Pre-training for Robot Learning
+description: >-
+  [ICCV 2025][3D视觉][点云预训练] FVP提出将3D视觉预训练建模为"下一帧点云预测"问题，用条件扩散模型从历史帧点云预测未来帧点云来学习3D视觉表示，在12个真实世界操作任务中将DP3的平均成功率提升28%，达到SOTA水平。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 点云预训练
   - 扩散模型
   - 模仿学习

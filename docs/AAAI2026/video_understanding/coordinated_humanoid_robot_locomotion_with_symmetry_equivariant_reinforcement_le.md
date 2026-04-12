@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Coordinated Humanoid Robot Locomotion with Symmetry Equivariant Reinforcement Learning Policy 论文解读 | AAAI 2026 | arXiv 2508.01247 | 人形机器人 | 提出 SE-Policy，将严格的对称等变性（actor）和对称不变性（critic）直接嵌入神经网络架构，无需额外超参数即可使人形机器人产生时空协调的自然运动，速度跟踪误差相比 DreamWaQ 降低 40%，并成功部署到 Unitree G1 实体机器人。"
+title: >-
+  [论文解读] Coordinated Humanoid Robot Locomotion with Symmetry Equivariant Reinforcement Learning Policy
+description: >-
+  [AAAI 2026][视频理解][人形机器人] 提出 SE-Policy，将严格的对称等变性（actor）和对称不变性（critic）直接嵌入神经网络架构，无需额外超参数即可使人形机器人产生时空协调的自然运动，速度跟踪误差相比 DreamWaQ 降低 40%，并成功部署到 Unitree G1 实体机器人。
 tags:
   - AAAI 2026
+  - 视频理解
   - 人形机器人
   - 对称等变
   - 深度强化学习

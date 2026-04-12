@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Act to See, See to Act: Diffusion-Driven Perception-Action Interplay for Adaptive Policies 论文解读 | NeurIPS 2025 | arXiv 2509.25822 | 扩散模型 diffusion policy | 提出 DP-AG（Action-Guided Diffusion Policy），通过将扩散策略的噪声预测的 Vector-Jacobian Product (VJP) 作为结构化随机力驱动隐观测特征在扩散步骤间动态演化，并用循环一致对比损失闭合感知-动作环路，在 Push-T 上提升 6%、Dynamic Push-T 上提升 13%、真实 UR5 机器人上成功率提升 23%+。"
+title: >-
+  [论文解读] Act to See, See to Act: Diffusion-Driven Perception-Action Interplay for Adaptive Policies
+description: >-
+  [NeurIPS 2025][扩散模型] 提出 DP-AG（Action-Guided Diffusion Policy），通过将扩散策略的噪声预测的 Vector-Jacobian Product (VJP) 作为结构化随机力驱动隐观测特征在扩散步骤间动态演化，并用循环一致对比损失闭合感知-动作环路，在 Push-T 上提升 6%、Dynamic Push-T 上提升 13%、真实 UR5 机器人上成功率提升 23%+。
 tags:
   - NeurIPS 2025
   - 扩散模型

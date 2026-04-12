@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Quality-Guided Mixture of Score-Fusion Experts Framework for Human Recognition 论文解读 | ICCV 2025 | arXiv 2508.00053 | 全身生物特征识别 | 本文提出 QME（Quality-guided Mixture of score-fusion Experts）框架，通过可学习的分数融合策略和基于模态质量的 MoE 路由机制，动态整合人脸、步态和行人重识别等多模态生物特征的相似度分数，在多个全身识别基准上实现了 SOTA 性能。"
+title: >-
+  [论文解读] A Quality-Guided Mixture of Score-Fusion Experts Framework for Human Recognition
+description: >-
+  [ICCV 2025][人体理解][全身生物特征识别] 本文提出 QME（Quality-guided Mixture of score-fusion Experts）框架，通过可学习的分数融合策略和基于模态质量的 MoE 路由机制，动态整合人脸、步态和行人重识别等多模态生物特征的相似度分数，在多个全身识别基准上实现了 SOTA 性能。
 tags:
   - ICCV 2025
+  - 人体理解
   - 全身生物特征识别
   - 分数融合
   - Mixture of Experts

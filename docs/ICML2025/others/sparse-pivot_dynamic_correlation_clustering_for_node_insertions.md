@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions 论文解读 | ICML2025 | arXiv 2507.01830 | Correlation Clustering | 提出 Sparse-Pivot 算法，在节点动态插入的 Correlation Clustering 问题中以摊销 O_ε(log^O(1) n) 的数据库操作实现 (20+ε)-近似，大幅改善了 Cohen-Addad et al. (ICML 2024) 的近似因子，并在实验中全面优于基线。"
+title: >-
+  [论文解读] Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions
+description: >-
+  [ICML2025][Correlation Clustering] 提出 Sparse-Pivot 算法，在节点动态插入的 Correlation Clustering 问题中以摊销 $O_\varepsilon(\log^{O(1)} n)$ 的数据库操作实现 $(20+\varepsilon)$-近似，大幅改善了 Cohen-Addad et al. (ICML 2024) 的近似因子，并在实验中全面优于基线。
 tags:
   - ICML2025
   - Correlation Clustering

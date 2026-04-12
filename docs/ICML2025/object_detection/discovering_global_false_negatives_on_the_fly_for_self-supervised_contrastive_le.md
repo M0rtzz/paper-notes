@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning 论文解读 | ICML2025 | arXiv 2502.20612 | 对比学习 | 提出 GloFND，通过为每个锚点样本学习动态阈值，在训练过程中实时发现并过滤全局假阴性（false negatives），以低额外开销提升对比学习表示质量。"
+title: >-
+  [论文解读] Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning
+description: >-
+  [ICML2025][目标检测][对比学习] 提出 GloFND，通过为每个锚点样本学习动态阈值，在训练过程中实时发现并过滤全局假阴性（false negatives），以低额外开销提升对比学习表示质量。
 tags:
   - ICML2025
+  - 目标检测
   - 对比学习
   - 假阴性发现
   - 自监督表示学习

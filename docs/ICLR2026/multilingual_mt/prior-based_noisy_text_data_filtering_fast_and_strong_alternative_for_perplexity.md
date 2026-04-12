@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Prior-based Noisy Text Data Filtering: Fast and Strong Alternative For Perplexity 论文解读 | ICLR 2026 | arXiv 2509.18577 | 数据过滤 | 提出基于 token 词频先验（term frequency）的文本数据过滤方法，通过计算文档中 token 先验的均值和标准差来检测异常文档，实现了比 PPL 过滤快 1000× 以上且下游性能更优的数据清洗效果。"
+title: >-
+  [论文解读] Prior-based Noisy Text Data Filtering: Fast and Strong Alternative For Perplexity
+description: >-
+  [ICLR 2026][数据过滤] 提出基于 token 词频先验（term frequency）的文本数据过滤方法，通过计算文档中 token 先验的均值和标准差来检测异常文档，实现了比 PPL 过滤快 1000× 以上且下游性能更优的数据清洗效果。
 tags:
   - ICLR 2026
   - 数据过滤

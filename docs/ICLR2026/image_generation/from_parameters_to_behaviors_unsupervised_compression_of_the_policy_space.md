@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Parameters to Behaviors: Unsupervised Compression of the Policy Space 论文解读 | ICLR 2026 | arXiv 2509.22566 | 策略空间压缩 | 提出策略空间的无监督压缩——用行为重建损失(behavioral reconstruction loss)训练自编码器将高维策略参数空间Θ压缩到低维潜在行为空间Z(4-5个数量级压缩),证明行为流形的内在维度取决于环境复杂度而非网络大小,并展示在潜在空间中做策略梯度优化可与复杂SOTA RL算法竞争。"
+title: >-
+  [论文解读] From Parameters to Behaviors: Unsupervised Compression of the Policy Space
+description: >-
+  [ICLR 2026][图像生成][策略空间压缩] 提出策略空间的无监督压缩——用行为重建损失(behavioral reconstruction loss)训练自编码器将高维策略参数空间Θ压缩到低维潜在行为空间Z(4-5个数量级压缩),证明行为流形的内在维度取决于环境复杂度而非网络大小,并展示在潜在空间中做策略梯度优化可与复杂SOTA RL算法竞争。
 tags:
   - ICLR 2026
+  - 图像生成
   - 策略空间压缩
   - 行为流形
   - 自编码器

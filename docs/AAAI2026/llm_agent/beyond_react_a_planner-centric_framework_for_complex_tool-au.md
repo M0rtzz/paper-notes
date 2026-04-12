@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Beyond ReAct: A Planner-Centric Framework for Complex Tool-Augmented LLM Reasoning 论文解读 | AAAI 2026 | arXiv 2511.10037 | 工具增强LLM | 提出以Planner为核心的Plan-Execute框架，将复杂查询转化为DAG执行计划，通过SFT+GRPO两阶段训练专门的Planner模型，在ComplexTool-Plan和StableToolBench上超越ReAct等反应式方法，用更少推理步骤实现更高成功率。"
+title: >-
+  [论文解读] Beyond ReAct: A Planner-Centric Framework for Complex Tool-Augmented LLM Reasoning
+description: >-
+  [AAAI 2026][LLM Agent][工具增强LLM] 提出以Planner为核心的Plan-Execute框架，将复杂查询转化为DAG执行计划，通过SFT+GRPO两阶段训练专门的Planner模型，在ComplexTool-Plan和StableToolBench上超越ReAct等反应式方法，用更少推理步骤实现更高成功率。
 tags:
   - AAAI 2026
+  - LLM Agent
   - 工具增强LLM
   - DAG规划
   - Plan-Execute范式

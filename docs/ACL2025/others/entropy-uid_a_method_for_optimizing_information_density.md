@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Entropy-UID: A Method for Optimizing Information Density 论文解读 | ACL 2025 | arXiv 2502.14366 | 信息熵 | 提出 Entropy-UID 方法，在自回归语言模型的解码过程中联合最小化熵和 surprisal 的加权组合，以实现信息密度的均匀分布。在 WikiText-2、OpenWebText 和 WMT 数据集上，该方法实现了最低的熵标准差（≈2.8）和稳定的 surprisal（≈5.7），优于单目标优化策略。"
+title: >-
+  [论文解读] Entropy-UID: A Method for Optimizing Information Density
+description: >-
+  [ACL 2025][信息熵] 提出 Entropy-UID 方法，在自回归语言模型的解码过程中联合最小化熵和 surprisal 的加权组合，以实现信息密度的均匀分布。在 WikiText-2、OpenWebText 和 WMT 数据集上，该方法实现了最低的熵标准差（≈2.8）和稳定的 surprisal（≈5.7），优于单目标优化策略。
 tags:
   - ACL 2025
   - 信息熵

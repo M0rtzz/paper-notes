@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CRISP: Contact-Guided Real2Sim from Monocular Video with Planar Scene Primitives 论文解读 | ICLR 2026 | arXiv 2512.14696 | Real2Sim | 提出 CRISP，一种从单目视频中恢复可仿真人体运动和场景几何的方法，通过拟合平面原语获取干净的仿真就绪几何体，结合人体-场景接触建模重建被遮挡区域，将人形控制器的运动追踪失败率从 55.2% 降至 6.9%。"
+title: >-
+  [论文解读] CRISP: Contact-Guided Real2Sim from Monocular Video with Planar Scene Primitives
+description: >-
+  [ICLR 2026][3D视觉][Real2Sim] 提出 CRISP，一种从单目视频中恢复可仿真人体运动和场景几何的方法，通过拟合平面原语获取干净的仿真就绪几何体，结合人体-场景接触建模重建被遮挡区域，将人形控制器的运动追踪失败率从 55.2% 降至 6.9%。
 tags:
   - ICLR 2026
+  - 3D视觉
   - Real2Sim
   - 单目视频
   - 平面场景原语

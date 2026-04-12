@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Echo: Towards Advanced Audio Comprehension via Audio-Interleaved Reasoning 论文解读 | ICLR 2026 | arXiv 2602.11909 | 音频理解 | 提出音频交错推理（audio-interleaved reasoning）新范式，将音频视为推理过程中的主动组件而非静态上下文，使 LALM 在推理时动态定位并重新聆听音频片段。通过 SFT+RL 两阶段训练框架和结构化数据生成流水线，构建 Echo 模型，在专家级和通用音频理解基准上超越 GPT-4o 和 Gemini-2.0-Flash。"
+title: >-
+  [论文解读] Echo: Towards Advanced Audio Comprehension via Audio-Interleaved Reasoning
+description: >-
+  [ICLR 2026][音频理解] 提出音频交错推理（audio-interleaved reasoning）新范式，将音频视为推理过程中的主动组件而非静态上下文，使 LALM 在推理时动态定位并重新聆听音频片段。通过 SFT+RL 两阶段训练框架和结构化数据生成流水线，构建 Echo 模型，在专家级和通用音频理解基准上超越 GPT-4o 和 Gemini-2.0-Flash。
 tags:
   - ICLR 2026
   - 音频理解

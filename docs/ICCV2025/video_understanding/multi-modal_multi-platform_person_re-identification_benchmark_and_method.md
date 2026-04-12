@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multi-modal Multi-platform Person Re-Identification: Benchmark and Method 论文解读 | ICCV 2025 | arXiv 2503.17096 | 行人重识别 | 提出首个多模态多平台行人重识别基准 MP-ReID（含 RGB、红外、热成像三种模态 + 地面和无人机两种平台）和统一提示学习框架 Uni-Prompt ReID，通过模态感知、平台感知和视觉增强提示显著提升复杂场景下的 ReID 性能。"
+title: >-
+  [论文解读] Multi-modal Multi-platform Person Re-Identification: Benchmark and Method
+description: >-
+  [ICCV 2025][视频理解][行人重识别] 提出首个多模态多平台行人重识别基准 MP-ReID（含 RGB、红外、热成像三种模态 + 地面和无人机两种平台）和统一提示学习框架 Uni-Prompt ReID，通过模态感知、平台感知和视觉增强提示显著提升复杂场景下的 ReID 性能。
 tags:
   - ICCV 2025
+  - 视频理解
   - 行人重识别
   - 多模态
   - 多平台

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Distributional Equivalence in Linear Non-Gaussian Latent-Variable Cyclic Causal Models 论文解读 | ICLR 2026 (Oral) | arXiv 2603.04780 | 因果发现 | 本文首次在线性非高斯设定下，不依赖任何结构假设，完整刻画了含潜变量和环的因果图之间的分布等价性条件，提出了遍历等价类的算法和从数据中恢复因果模型的方法。"
+title: >-
+  [论文解读] Distributional Equivalence in Linear Non-Gaussian Latent-Variable Cyclic Causal Models
+description: >-
+  [ICLR 2026 (Oral)][因果发现] 本文首次在线性非高斯设定下，不依赖任何结构假设，完整刻画了含潜变量和环的因果图之间的分布等价性条件，提出了遍历等价类的算法和从数据中恢复因果模型的方法。
 tags:
   - ICLR 2026 (Oral)
   - 因果发现

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Identifying and Evaluating Inactive Heads in Pretrained LLMs 论文解读 | ICLR 2026 | arXiv 2504.03889 | 注意力头 | 系统评估 12 种评分函数来识别 LLM 中不活跃的注意力头，发现平均头输出范数（Avg Head Output Norm）比传统注意力权重指标更能模型无关地识别不活跃头；14 个模型上验证平均超过 12% 的头可被置零而保持 MMLU 精度在 1% 以内。"
+title: >-
+  [论文解读] Identifying and Evaluating Inactive Heads in Pretrained LLMs
+description: >-
+  [ICLR 2026][注意力头] 系统评估 12 种评分函数来识别 LLM 中不活跃的注意力头，发现平均头输出范数（Avg Head Output Norm）比传统注意力权重指标更能模型无关地识别不活跃头；14 个模型上验证平均超过 12% 的头可被置零而保持 MMLU 精度在 1% 以内。
 tags:
   - ICLR 2026
   - 注意力头

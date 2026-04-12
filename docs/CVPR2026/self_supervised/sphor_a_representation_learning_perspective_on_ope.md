@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SpHOR: A Representation Learning Perspective on Open-set Recognition 论文解读 | CVPR 2026 (Findings) | arXiv 2503.08049 | open-set recognition | 提出SpHOR两阶段解耦训练框架：Stage 1通过正交标签嵌入+球面约束（vMF分布）+Mixup/Label Smoothing做专为OSR设计的表征学习，Stage 2冻结特征训练分类器——在Semantic Shift Benchmark上OSCR/AUROC最高提升5.1%/5.2%，同时引入Angular Separability和Norm Separability两个新度量。"
+title: >-
+  [论文解读] SpHOR: A Representation Learning Perspective on Open-set Recognition
+description: >-
+  [CVPR 2026 (Findings)][自监督学习][open-set recognition] 提出SpHOR两阶段解耦训练框架：Stage 1通过正交标签嵌入+球面约束（vMF分布）+Mixup/Label Smoothing做专为OSR设计的表征学习，Stage 2冻结特征训练分类器——在Semantic Shift Benchmark上OSCR/AUROC最高提升5.1%/5.2%，同时引入Angular Separability和Norm Separability两个新度量。
 tags:
   - CVPR 2026 (Findings)
+  - 自监督学习
   - open-set recognition
   - von Mises-Fisher
   - orthogonal embeddings

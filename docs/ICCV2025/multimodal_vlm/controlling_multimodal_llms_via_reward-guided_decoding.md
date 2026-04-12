@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Controlling Multimodal LLMs via Reward-guided Decoding 论文解读 | ICCV 2025 | arXiv 2508.11616 | 多模态大语言模型 | 提出多模态奖励引导解码 (MRGD)，通过构建两个奖励模型分别控制物体精度和召回率，在推理时实现对 MLLM 输出的细粒度可控性，同时显著降低物体幻觉。"
+title: >-
+  [论文解读] Controlling Multimodal LLMs via Reward-guided Decoding
+description: >-
+  [ICCV 2025][多模态][多模态大语言模型] 提出多模态奖励引导解码 (MRGD)，通过构建两个奖励模型分别控制物体精度和召回率，在推理时实现对 MLLM 输出的细粒度可控性，同时显著降低物体幻觉。
 tags:
   - ICCV 2025
+  - 多模态
   - 多模态大语言模型
   - 奖励引导解码
   - 幻觉缓解

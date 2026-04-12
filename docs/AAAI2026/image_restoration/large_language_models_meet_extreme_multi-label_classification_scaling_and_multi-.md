@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Large Language Models Meet Extreme Multi-label Classification: Scaling and Multi-modal Framework 论文解读 | AAAI 2026 | arXiv 2511.13189 | XMC | 首次在 Extreme Multi-label Classification (XMC) 中有效利用 decoder-only LLM（dual-decoder learning），并提出 ViXML 多模态框架高效融合视觉元数据，66M encoder + ViXML 即可超越 billion 级纯文本模型。"
+title: >-
+  [论文解读] Large Language Models Meet Extreme Multi-label Classification: Scaling and Multi-modal Framework
+description: >-
+  [AAAI 2026][图像恢复][XMC] 首次在 Extreme Multi-label Classification (XMC) 中有效利用 decoder-only LLM（dual-decoder learning），并提出 ViXML 多模态框架高效融合视觉元数据，66M encoder + ViXML 即可超越 billion 级纯文本模型。
 tags:
   - AAAI 2026
+  - 图像恢复
   - XMC
   - decoder-only LLM
   - 多模态

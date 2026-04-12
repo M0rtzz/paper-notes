@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Improving Model Alignment through Collective Intelligence of Open-Source LLMs 论文解读 | ICML 2025 | arXiv 2505.03059 | model alignment | 本文提出 Mixture of Agents Alignment（MoAA），利用多个开源 LLM 的集体智慧生成高质量的对齐数据（SFT 数据和偏好数据），显著提升目标模型在 Arena-Hard 和 AlpacaEval2 上的表现，并展示了无需外部强监督的自我提升能力。"
+title: >-
+  [论文解读] Improving Model Alignment through Collective Intelligence of Open-Source LLMs
+description: >-
+  [ICML 2025][人体理解][model alignment] 本文提出 Mixture of Agents Alignment（MoAA），利用多个开源 LLM 的集体智慧生成高质量的对齐数据（SFT 数据和偏好数据），显著提升目标模型在 Arena-Hard 和 AlpacaEval2 上的表现，并展示了无需外部强监督的自我提升能力。
 tags:
   - ICML 2025
+  - 人体理解
   - model alignment
   - mixture of agents
   - synthetic data

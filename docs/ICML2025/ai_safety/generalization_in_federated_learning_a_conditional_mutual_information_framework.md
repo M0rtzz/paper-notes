@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Generalization in Federated Learning: A Conditional Mutual Information Framework 论文解读 | ICML 2025 | arXiv 2503.04091 | 联邦学习 | 首次将条件互信息（CMI）框架引入联邦学习的两层泛化分析，通过构造\"超级客户端\"和\"超级样本\"，推导出有界的 CMI 泛化界，证明隐私约束蕴含泛化保证，并给出在低经验风险区间恢复最优收敛率的快速率界。"
+title: >-
+  [论文解读] Generalization in Federated Learning: A Conditional Mutual Information Framework
+description: >-
+  [ICML 2025][AI安全][联邦学习] 首次将条件互信息（CMI）框架引入联邦学习的两层泛化分析，通过构造"超级客户端"和"超级样本"，推导出有界的 CMI 泛化界，证明隐私约束蕴含泛化保证，并给出在低经验风险区间恢复最优收敛率的快速率界。
 tags:
   - ICML 2025
+  - AI安全
   - 联邦学习
   - 泛化理论
   - 条件互信息

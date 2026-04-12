@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Composing Linear Layers from Irreducibles 论文解读 | NeurIPS 2025 | arXiv 2507.11688 | Clifford代数 | 利用Clifford代数，将线性层表示为二向量（bivector）的组合——即旋量（rotor）的三明治乘积——仅需 O(log² d) 参数即可替代 d × d 密集矩阵，应用于LLM注意力层的Q/K/V投影时性能接近原始模型和强基线。"
+title: >-
+  [论文解读] Composing Linear Layers from Irreducibles
+description: >-
+  [NeurIPS 2025][LLM/NLP][Clifford代数] 利用Clifford代数，将线性层表示为二向量（bivector）的组合——即旋量（rotor）的三明治乘积——仅需 $O(\log^2 d)$ 参数即可替代 $d \times d$ 密集矩阵，应用于LLM注意力层的Q/K/V投影时性能接近原始模型和强基线。
 tags:
   - NeurIPS 2025
+  - LLM/NLP
   - Clifford代数
   - 旋量分解
   - 参数高效

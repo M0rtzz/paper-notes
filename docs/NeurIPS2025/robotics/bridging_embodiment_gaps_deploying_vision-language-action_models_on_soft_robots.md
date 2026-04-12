@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Bridging Embodiment Gaps: Deploying Vision-Language-Action Models on Soft Robots 论文解读 | NeurIPS 2025 | arXiv 2510.17369 | VLA | 首次在柔性连续体机械臂上部署 VLA 模型（OpenVLA-OFT 和 π₀），发现开箱即用的策略因构型不匹配完全失败，但通过针对性微调可弥合刚性-柔性的 embodiment gap，使柔性机器人在操作任务上达到与刚性 UR5 相当的成功率——证明 VLA + 柔性机器人可实现安全的人机交互。"
+title: >-
+  [论文解读] Bridging Embodiment Gaps: Deploying Vision-Language-Action Models on Soft Robots
+description: >-
+  [NeurIPS 2025][机器人][VLA] 首次在柔性连续体机械臂上部署 VLA 模型（OpenVLA-OFT 和 π₀），发现开箱即用的策略因构型不匹配完全失败，但通过针对性微调可弥合刚性-柔性的 embodiment gap，使柔性机器人在操作任务上达到与刚性 UR5 相当的成功率——证明 VLA + 柔性机器人可实现安全的人机交互。
 tags:
   - NeurIPS 2025
+  - 机器人
   - VLA
   - soft robot
   - embodiment transfer

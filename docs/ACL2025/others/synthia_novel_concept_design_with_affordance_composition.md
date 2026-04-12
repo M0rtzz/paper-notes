@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Synthia: Novel Concept Design with Affordance Composition 论文解读 | ACL 2025 | arXiv 2502.17793 | affordance | Synthia 提出了一种基于 affordance（功能可供性）组合的新颖概念设计框架，通过层次化概念本体、affordance 采样策略和课程学习微调 T2I 模型，生成既视觉新颖又功能连贯的创新设计。"
+title: >-
+  [论文解读] Synthia: Novel Concept Design with Affordance Composition
+description: >-
+  [ACL 2025][affordance] Synthia 提出了一种基于 affordance（功能可供性）组合的新颖概念设计框架，通过层次化概念本体、affordance 采样策略和课程学习微调 T2I 模型，生成既视觉新颖又功能连贯的创新设计。
 tags:
   - ACL 2025
   - affordance

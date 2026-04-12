@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Task-free Adaptive Meta Black-box Optimization 论文解读 | ICLR 2026 | arXiv 2601.21475 | 黑盒优化 | 提出 ABOM——一种无需预定义训练任务的自适应元黑盒优化器，通过将进化算子（选择、交叉、变异）参数化为可微注意力模块，在优化过程中利用自生成数据在线更新参数，在合成基准和无人机路径规划上实现零样本竞争性能。"
+title: >-
+  [论文解读] Task-free Adaptive Meta Black-box Optimization
+description: >-
+  [ICLR 2026][遥感][黑盒优化] 提出 ABOM——一种无需预定义训练任务的自适应元黑盒优化器，通过将进化算子（选择、交叉、变异）参数化为可微注意力模块，在优化过程中利用自生成数据在线更新参数，在合成基准和无人机路径规划上实现零样本竞争性能。
 tags:
   - ICLR 2026
+  - 遥感
   - 黑盒优化
   - 元学习
   - 进化算法

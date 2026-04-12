@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Inconsistent Tokenizations Cause Language Models to be Perplexed by Japanese Grammar 论文解读 | ACL 2025 | arXiv 2505.19599 | 分词一致性 | 揭示了 tokenizer 的不一致分词是导致 LLM 无法遵守日语\"第一人称心理谓词限制\"等细微语法规则的根本原因——当限制测试句子为一致分词时，Llama 3 的困惑度差异可改善28倍。"
+title: >-
+  [论文解读] Inconsistent Tokenizations Cause Language Models to be Perplexed by Japanese Grammar
+description: >-
+  [ACL 2025][分词一致性] 揭示了 tokenizer 的不一致分词是导致 LLM 无法遵守日语"第一人称心理谓词限制"等细微语法规则的根本原因——当限制测试句子为一致分词时，Llama 3 的困惑度差异可改善28倍。
 tags:
   - ACL 2025
   - 分词一致性

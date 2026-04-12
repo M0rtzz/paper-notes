@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs 论文解读 | ACL 2025 | 本文提出了一种基于可训练 EMG 适配器模块的方法，将无声肌电图（EMG）信号映射到大语言模型（LLM）的输入嵌入空间，在闭合词汇无声 EMG 转文本任务中实现了 0.49 的词错误率（WER），仅需 6 分钟训练数据即比专用模型提升约 20%。"
+title: >-
+  [论文解读] Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs
+description: >-
+  [ACL 2025][LLM/NLP] 本文提出了一种基于可训练 EMG 适配器模块的方法，将无声肌电图（EMG）信号映射到大语言模型（LLM）的输入嵌入空间，在闭合词汇无声 EMG 转文本任务中实现了 0.49 的词错误率（WER），仅需 6 分钟训练数据即比专用模型提升约 20%。
 tags:
   - ACL 2025
+  - LLM/NLP
 ---
 
 # Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs

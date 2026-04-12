@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Did Translation Models Get More Robust Without Anyone Even Noticing? 论文解读 | ACL 2025 | arXiv 2403.03923 | machine translation | 通过合成噪声和社交媒体文本的系统性实验，证明现代大规模预训练翻译模型（LLM）在未经任何专门鲁棒性训练的情况下，对多种输入噪声的鲁棒性已远超传统 NMT 模型，鲁棒性随模型规模增长自然提升。"
+title: >-
+  [论文解读] Did Translation Models Get More Robust Without Anyone Even Noticing?
+description: >-
+  [ACL 2025][machine translation] 通过合成噪声和社交媒体文本的系统性实验，证明现代大规模预训练翻译模型（LLM）在未经任何专门鲁棒性训练的情况下，对多种输入噪声的鲁棒性已远超传统 NMT 模型，鲁棒性随模型规模增长自然提升。
 tags:
   - ACL 2025
   - machine translation

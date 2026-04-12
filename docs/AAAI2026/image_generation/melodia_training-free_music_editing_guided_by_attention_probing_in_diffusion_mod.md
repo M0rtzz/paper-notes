@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Melodia: Training-Free Music Editing Guided by Attention Probing in Diffusion Models 论文解读 | AAAI 2026 | arXiv 2511.08252 | 音乐编辑 | 通过对扩散模型中注意力图的深入探测分析，发现自注意力图对于保持音乐时间结构至关重要，据此提出 Melodia——一种免训练的音乐编辑方法，通过选择性操控自注意力图实现属性修改与结构保持的最优平衡。"
+title: >-
+  [论文解读] Melodia: Training-Free Music Editing Guided by Attention Probing in Diffusion Models
+description: >-
+  [AAAI 2026][图像生成][音乐编辑] 通过对扩散模型中注意力图的深入探测分析，发现自注意力图对于保持音乐时间结构至关重要，据此提出 Melodia——一种免训练的音乐编辑方法，通过选择性操控自注意力图实现属性修改与结构保持的最优平衡。
 tags:
   - AAAI 2026
+  - 图像生成
   - 音乐编辑
   - 扩散模型
   - 注意力机制

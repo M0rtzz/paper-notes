@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】S2AM3D: Scale-controllable Part Segmentation of 3D Point Clouds 论文解读 | CVPR2026 | arXiv 2512.00995 | 点云部件分割 | 提出融合2D预训练先验与3D对比监督的点云部件分割框架S2AM3D，通过点一致性编码器获得全局一致的点特征，并设计尺度感知提示解码器实现连续可控的分割粒度调节，在多个基准上大幅超越现有方法。"
+title: >-
+  [论文解读] S2AM3D: Scale-controllable Part Segmentation of 3D Point Clouds
+description: >-
+  [CVPR2026][3D视觉][点云部件分割] 提出融合2D预训练先验与3D对比监督的点云部件分割框架S2AM3D，通过点一致性编码器获得全局一致的点特征，并设计尺度感知提示解码器实现连续可控的分割粒度调节，在多个基准上大幅超越现有方法。
 tags:
   - CVPR2026
+  - 3D视觉
   - 点云部件分割
   - 多粒度控制
   - 对比学习

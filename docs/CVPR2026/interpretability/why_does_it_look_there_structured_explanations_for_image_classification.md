@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Why Does It Look There? Structured Explanations for Image Classification 论文解读 | CVPR 2026 | arXiv 2603.10234 | 结构化解释 | 提出 I2X 框架，通过在训练检查点追踪从 GradCAM 提取的原型强度与模型置信度的协同演化，将非结构化的可解释性（显著性图）转化为结构化的可解释性，揭示模型\"为什么关注那里\"的推理结构，并利用这种理解指导微调提升性能。"
+title: >-
+  [论文解读] Why Does It Look There? Structured Explanations for Image Classification
+description: >-
+  [CVPR 2026][结构化解释] 提出 I2X 框架，通过在训练检查点追踪从 GradCAM 提取的原型强度与模型置信度的协同演化，将非结构化的可解释性（显著性图）转化为结构化的可解释性，揭示模型"为什么关注那里"的推理结构，并利用这种理解指导微调提升性能。
 tags:
   - CVPR 2026
   - 结构化解释

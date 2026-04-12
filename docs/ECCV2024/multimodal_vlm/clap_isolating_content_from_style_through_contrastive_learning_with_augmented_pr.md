@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CLAP: Isolating Content from Style through Contrastive Learning with Augmented Prompts 论文解读 | ECCV2024 | arXiv 2311.16445 | CLIP | 从因果生成模型视角出发，提出 CLAP（Contrastive Learning with Augmented Prompts），通过文本 prompt 增强 + 对比学习训练一个轻量解耦网络，将 CLIP 预训练特征中的 content 与 style 分离，仅用文本训练即可同时提升图像和文本两侧的表征质量，在 zero-shot、few-shot 分类和对抗鲁棒性上均取得一致提升。"
+title: >-
+  [论文解读] CLAP: Isolating Content from Style through Contrastive Learning with Augmented Prompts
+description: >-
+  [ECCV2024][多模态][CLIP] 从因果生成模型视角出发，提出 CLAP（Contrastive Learning with Augmented Prompts），通过文本 prompt 增强 + 对比学习训练一个轻量解耦网络，将 CLIP 预训练特征中的 content 与 style 分离，仅用文本训练即可同时提升图像和文本两侧的表征质量，在 zero-shot、few-shot 分类和对抗鲁棒性上均取得一致提升。
 tags:
   - ECCV2024
+  - 多模态
   - CLIP
   - 内容-风格解耦
   - 对比学习

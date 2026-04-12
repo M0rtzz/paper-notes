@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Incomplete Multi-view Clustering via Hierarchical Semantic Alignment and Cooperative Completion 论文解读 | NeurIPS 2025 | arXiv 2510.13887 | 不完整多视图聚类 | 提出 HSACC 框架，通过双层语义空间设计（低层互信息对齐 + 高层自适应加权融合）和联合优化的缺失视图隐式恢复策略，解决不完整多视图聚类中静态融合和两阶段流水线（先补全后聚类）的误差传播问题，在 5 个基准数据集上全面超越 SOTA。"
+title: >-
+  [论文解读] Incomplete Multi-view Clustering via Hierarchical Semantic Alignment and Cooperative Completion
+description: >-
+  [NeurIPS 2025][不完整多视图聚类] 提出 HSACC 框架，通过双层语义空间设计（低层互信息对齐 + 高层自适应加权融合）和联合优化的缺失视图隐式恢复策略，解决不完整多视图聚类中静态融合和两阶段流水线（先补全后聚类）的误差传播问题，在 5 个基准数据集上全面超越 SOTA。
 tags:
   - NeurIPS 2025
   - 不完整多视图聚类

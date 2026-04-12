@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Principled Content Selection to Generate Diverse and Personalized Multi-Document Summaries 论文解读 | ACL 2025 | arXiv 2505.21859 | 多文档摘要 | 用行列式点过程（DPP）替代 LLM 的隐式内容选择来生成多样化多文档摘要——将任务分解为\"提取原子关键点→DPP 选择多样子集→LLM 重写为摘要\"三步，解决了 LLM 的\"lost in the middle\"问题，在 DiverseSumm 基准上一致提升了源覆盖率。"
+title: >-
+  [论文解读] Principled Content Selection to Generate Diverse and Personalized Multi-Document Summaries
+description: >-
+  [ACL 2025][多文档摘要] 用行列式点过程（DPP）替代 LLM 的隐式内容选择来生成多样化多文档摘要——将任务分解为"提取原子关键点→DPP 选择多样子集→LLM 重写为摘要"三步，解决了 LLM 的"lost in the middle"问题，在 DiverseSumm 基准上一致提升了源覆盖率。
 tags:
   - ACL 2025
   - 多文档摘要

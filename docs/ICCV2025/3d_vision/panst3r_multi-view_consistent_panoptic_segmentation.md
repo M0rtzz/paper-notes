@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PanSt3R: Multi-view Consistent Panoptic Segmentation 论文解读 | ICCV 2025 | arXiv 2506.21348 | 图像分割 Panoptic Segmentation | 基于MUSt3R构建PanSt3R，在**单次前向传播**中同时完成3D重建和多视角全景分割，无需相机参数、无需测试时优化，比现有方法快数个量级。"
+title: >-
+  [论文解读] PanSt3R: Multi-view Consistent Panoptic Segmentation
+description: >-
+  [ICCV 2025][3D视觉][图像分割] 基于MUSt3R构建PanSt3R，在**单次前向传播**中同时完成3D重建和多视角全景分割，无需相机参数、无需测试时优化，比现有方法快数个量级。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 图像分割
   - 3D重建
   - MUSt3R

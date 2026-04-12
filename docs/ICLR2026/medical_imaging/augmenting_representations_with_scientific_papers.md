@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Augmenting Representations with Scientific Papers 论文解读 | ICLR 2026 | arXiv 2603.04516 | 对比学习 | 提出首个将 X 射线光谱与科学文献通过对比学习对齐的多模态基础模型框架，在共享潜在空间中实现 20% Recall@1% 的跨模态检索，物理参数估计提升 16–18%，同时发现候选脉动超亮 X 射线源等罕见天体。"
+title: >-
+  [论文解读] Augmenting Representations with Scientific Papers
+description: >-
+  [ICLR 2026][医学图像][对比学习] 提出首个将 X 射线光谱与科学文献通过对比学习对齐的多模态基础模型框架，在共享潜在空间中实现 20% Recall@1% 的跨模态检索，物理参数估计提升 16–18%，同时发现候选脉动超亮 X 射线源等罕见天体。
 tags:
   - ICLR 2026
+  - 医学图像
   - 对比学习
   - 多模态表示
   - X射线光谱

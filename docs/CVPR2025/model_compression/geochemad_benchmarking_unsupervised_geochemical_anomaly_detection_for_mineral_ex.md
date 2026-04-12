@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GeoChemAD: Benchmarking Unsupervised Geochemical Anomaly Detection for Mineral Exploration 论文解读 | CVPR 2025 | arXiv 2603.13068 | 地球化学异常检测 | 提出 GeoChemAD 开源基准数据集（8 个子集，覆盖多区域/多采样源/多目标元素）和 GeoChemFormer 框架，通过空间上下文自监督预训练和元素依赖建模实现无监督地球化学异常检测，在所有子集上取得最优 AUC。"
+title: >-
+  [论文解读] GeoChemAD: Benchmarking Unsupervised Geochemical Anomaly Detection for Mineral Exploration
+description: >-
+  [CVPR 2025][模型压缩][地球化学异常检测] 提出 GeoChemAD 开源基准数据集（8 个子集，覆盖多区域/多采样源/多目标元素）和 GeoChemFormer 框架，通过空间上下文自监督预训练和元素依赖建模实现无监督地球化学异常检测，在所有子集上取得最优 AUC。
 tags:
   - CVPR 2025
+  - 模型压缩
   - 地球化学异常检测
   - 无监督学习
   - Transformer

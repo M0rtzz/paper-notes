@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression 论文解读 | CVPR 2026 | arXiv 2603.13162 | Transformer diffusion transformer | 将预训练文生图 DiT 适配为高效单步图像压缩解码器，通过方差引导重建流、自蒸馏对齐和潜空间条件引导三种对齐机制，在 32× 下采样的深层潜空间中实现 SOTA 感知质量，同时比现有扩散压缩方法解码快 30 倍。"
+title: >-
+  [论文解读] DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression
+description: >-
+  [CVPR 2026][图像生成][Transformer] 将预训练文生图 DiT 适配为高效单步图像压缩解码器，通过方差引导重建流、自蒸馏对齐和潜空间条件引导三种对齐机制，在 32× 下采样的深层潜空间中实现 SOTA 感知质量，同时比现有扩散压缩方法解码快 30 倍。
 tags:
   - CVPR 2026
+  - 图像生成
   - Transformer
   - image compression
   - 扩散模型

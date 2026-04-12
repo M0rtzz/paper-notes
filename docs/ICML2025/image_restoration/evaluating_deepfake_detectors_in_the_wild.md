@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Evaluating Deepfake Detectors in the Wild 论文解读 | ICML2025 | arXiv 2507.21905 | 深伪检测 | 用SOTA生成方法创建50万+高质量深伪图像，在模拟真实场景的测试流程下评估现有深伪检测器，发现不到一半的检测器AUC超过60%（最低50%=随机），且基本图像操作（JPEG压缩/增强）即可显著降低检测性能。"
+title: >-
+  [论文解读] Evaluating Deepfake Detectors in the Wild
+description: >-
+  [ICML2025][图像恢复][深伪检测] 用SOTA生成方法创建50万+高质量深伪图像，在模拟真实场景的测试流程下评估现有深伪检测器，发现不到一半的检测器AUC超过60%（最低50%=随机），且基本图像操作（JPEG压缩/增强）即可显著降低检测性能。
 tags:
   - ICML2025
+  - 图像恢复
   - 深伪检测
   - 真实场景评估
   - 人脸交换

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GnnXemplar: Exemplars to Explanations -- Natural Language Rules for Global GNN Interpretability 论文解读 | NeurIPS 2025 | arXiv 2509.18376 | 图神经网络可解释性 | 提出GnnXemplar框架，基于认知科学的样例理论（Exemplar Theory），通过在GNN嵌入空间中选取代表性节点（exemplar）并利用LLM迭代生成自然语言布尔规则，实现大规模图上节点分类GNN的全局可解释性。"
+title: >-
+  [论文解读] GnnXemplar: Exemplars to Explanations -- Natural Language Rules for Global GNN Interpretability
+description: >-
+  [NeurIPS 2025][图学习][图神经网络可解释性] 提出GnnXemplar框架，基于认知科学的样例理论（Exemplar Theory），通过在GNN嵌入空间中选取代表性节点（exemplar）并利用LLM迭代生成自然语言布尔规则，实现大规模图上节点分类GNN的全局可解释性。
 tags:
   - NeurIPS 2025
+  - 图学习
   - 图神经网络可解释性
   - 全局解释
   - 样例理论

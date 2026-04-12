@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Breaking the n^{1.5} Additive Error Barrier for Private and Efficient Graph Sparsification 论文解读 | ICML 2025 | arXiv 2507.01873 | differential privacy | 本文突破了差分隐私图割稀疏化的 n^1.5 加性误差壁垒，提出了一种多项式时间的 (ε,δ)-DP 算法，将加性误差降至 n^1.25+o(1)，核心技术是首个隐私保护的 expander decomposition 算法。"
+title: >-
+  [论文解读] Breaking the n^{1.5} Additive Error Barrier for Private and Efficient Graph Sparsification
+description: >-
+  [ICML 2025][AI安全][differential privacy] 本文突破了差分隐私图割稀疏化的 $n^{1.5}$ 加性误差壁垒，提出了一种多项式时间的 $(\varepsilon,\delta)$-DP 算法，将加性误差降至 $n^{1.25+o(1)}$，核心技术是首个隐私保护的 expander decomposition 算法。
 tags:
   - ICML 2025
+  - AI安全
   - differential privacy
   - graph sparsification
   - expander decomposition

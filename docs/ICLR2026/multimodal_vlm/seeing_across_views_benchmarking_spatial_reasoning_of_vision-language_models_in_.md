@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Seeing Across Views: Benchmarking Spatial Reasoning of Vision-Language Models in Robotic Scenes 论文解读 | ICLR 2026 | arXiv 2510.19400 | 多视角空间推理 | 提出MV-RoboBench——首个专门评估VLM在机器人操作场景中多视角空间推理能力的基准：1.7K人工策划的QA×8个子任务(空间理解+机器人执行)，发现SOTA模型远低于人类性能，揭示两个关键发现：(1)空间智能与机器人执行正相关,(2)通用单视角基准的强表现不能迁移到多视角机器人场景。"
+title: >-
+  [论文解读] Seeing Across Views: Benchmarking Spatial Reasoning of Vision-Language Models in Robotic Scenes
+description: >-
+  [ICLR 2026][多模态][多视角空间推理] 提出MV-RoboBench——首个专门评估VLM在机器人操作场景中多视角空间推理能力的基准：1.7K人工策划的QA×8个子任务(空间理解+机器人执行)，发现SOTA模型远低于人类性能，揭示两个关键发现：(1)空间智能与机器人执行正相关,(2)通用单视角基准的强表现不能迁移到多视角机器人场景。
 tags:
   - ICLR 2026
+  - 多模态
   - 多视角空间推理
   - 机器人操作
   - VLM基准

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multi-document Summarization through Event Relation Graph Reasoning for Framing Bias Mitigation 论文解读 | ACL 2025 | arXiv 2506.12978 | 多文档摘要 | 提出基于多文档事件关系图的中立化摘要方法，通过构建包含文内事件关系（时间/因果/子事件/共指）、跨文档事件共指和事件级道德观点的知识图，以图文本化（硬提示）和图提示调优（软提示）两种方式引导 LLM 生成去偏见的中立摘要，在内容保持和偏见消除上均优于基线。"
+title: >-
+  [论文解读] Multi-document Summarization through Event Relation Graph Reasoning for Framing Bias Mitigation
+description: >-
+  [ACL 2025][文本生成][多文档摘要] 提出基于多文档事件关系图的中立化摘要方法，通过构建包含文内事件关系（时间/因果/子事件/共指）、跨文档事件共指和事件级道德观点的知识图，以图文本化（硬提示）和图提示调优（软提示）两种方式引导 LLM 生成去偏见的中立摘要，在内容保持和偏见消除上均优于基线。
 tags:
   - ACL 2025
+  - 文本生成
   - 多文档摘要
   - 事件关系图
   - 媒体偏见消除

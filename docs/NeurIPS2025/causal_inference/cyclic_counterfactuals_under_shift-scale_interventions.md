@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Cyclic Counterfactuals under Shift–Scale Interventions 论文解读 | NeurIPS 2025 | arXiv 2510.25005 | 循环因果模型 | 为含有反馈循环的循环结构因果模型(cyclic SCM)建立了移位-缩放(shift-scale)干预下的反事实推断理论框架，证明了全局收缩条件下唯一可解性、干预复合封闭性，以及反事实泛函的sub-Gaussian集中不等式。"
+title: >-
+  [论文解读] Cyclic Counterfactuals under Shift–Scale Interventions
+description: >-
+  [NeurIPS 2025][循环因果模型] 为含有反馈循环的循环结构因果模型(cyclic SCM)建立了移位-缩放(shift-scale)干预下的反事实推断理论框架，证明了全局收缩条件下唯一可解性、干预复合封闭性，以及反事实泛函的sub-Gaussian集中不等式。
 tags:
   - NeurIPS 2025
   - 循环因果模型

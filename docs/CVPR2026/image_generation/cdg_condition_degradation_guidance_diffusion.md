@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CDG: Guiding Diffusion Models with Semantically Degraded Conditions 论文解读 | CVPR 2026 | arXiv 2603.10780 | CFG替代 | 提出CDG替代CFG——用语义退化条件替代空null prompt作为负面引导，将引导信号从粗粒度\"好vs空\"变为精细\"好vs差一点\"，在SD3/FLUX/Qwen-Image上显著提升组合精度，零额外计算。"
+title: >-
+  [论文解读] CDG: Guiding Diffusion Models with Semantically Degraded Conditions
+description: >-
+  [CVPR 2026][图像生成][CFG替代] 提出CDG替代CFG——用语义退化条件替代空null prompt作为负面引导，将引导信号从粗粒度"好vs空"变为精细"好vs差一点"，在SD3/FLUX/Qwen-Image上显著提升组合精度，零额外计算。
 tags:
   - CVPR 2026
+  - 图像生成
   - CFG替代
   - 条件退化引导
   - 组合语义

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction 论文解读 | ICCV 2025 | arXiv 2504.07961 | 4D重建 | 将预训练视频扩散模型(DynamiCrafter)改造为单目4D动态场景重建器——同时预测点云图、视差图和射线图三种互补几何模态，通过多模态对齐融合算法和滑动窗口推理，仅用合成数据训练即可零样本泛化至真实视频，大幅超越当前视频深度估计SOTA。"
+title: >-
+  [论文解读] Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction
+description: >-
+  [ICCV 2025][3D视觉][4D重建] 将预训练视频扩散模型(DynamiCrafter)改造为单目4D动态场景重建器——同时预测点云图、视差图和射线图三种互补几何模态，通过多模态对齐融合算法和滑动窗口推理，仅用合成数据训练即可零样本泛化至真实视频，大幅超越当前视频深度估计SOTA。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 4D重建
   - 视频扩散模型
   - 多模态几何

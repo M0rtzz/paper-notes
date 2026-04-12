@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Detect Anything 3D in the Wild 论文解读 | ICCV 2025 | arXiv 2504.07958 | 3D检测基础模型 | DetAny3D 是一个可提示（promptable）的3D检测基础模型，通过融合SAM和depth-pretrained DINO两个2D基础模型的先验知识，并提出2D Aggregator和Zero-Embedding Mapping机制实现稳定的2D-to-3D知识迁移，仅用单目图像即可在任意场景和相机配置下实现零样本3D目标检测，在新类别上零样本AP3D超越基线最多21%。"
+title: >-
+  [论文解读] Detect Anything 3D in the Wild
+description: >-
+  [ICCV 2025][自动驾驶][3D检测基础模型] DetAny3D 是一个可提示（promptable）的3D检测基础模型，通过融合SAM和depth-pretrained DINO两个2D基础模型的先验知识，并提出2D Aggregator和Zero-Embedding Mapping机制实现稳定的2D-to-3D知识迁移，仅用单目图像即可在任意场景和相机配置下实现零样本3D目标检测，在新类别上零样本AP3D超越基线最多21%。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 3D检测基础模型
   - 零样本泛化
   - 单目3D检测

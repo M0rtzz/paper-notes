@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OccluGaussian: Occlusion-Aware Gaussian Splatting for Large Scene Reconstruction and Rendering 论文解读 | ICCV 2025 | arXiv 2503.16177 | 3D Gaussian Splatting | 提出遮挡感知的场景划分策略和基于区域的渲染技术,通过相机共可见性图聚类实现与场景布局对齐的分区,显著提升大场景3DGS重建质量和渲染速度。"
+title: >-
+  [论文解读] OccluGaussian: Occlusion-Aware Gaussian Splatting for Large Scene Reconstruction and Rendering
+description: >-
+  [ICCV 2025][3D视觉][3D Gaussian Splatting] 提出遮挡感知的场景划分策略和基于区域的渲染技术,通过相机共可见性图聚类实现与场景布局对齐的分区,显著提升大场景3DGS重建质量和渲染速度。
 tags:
   - ICCV 2025
+  - 3D视觉
   - 3D Gaussian Splatting
   - 大场景重建
   - 遮挡感知

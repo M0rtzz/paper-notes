@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments 论文解读 | ICCV 2025 | arXiv 2506.23468 | 视觉语言导航 | 提出 NavMorph，一种基于 RSSM 的**自进化世界模型**，通过 World-aware Navigator 和 Foresight Action Planner 在隐空间建模连续环境动态，并引入上下文进化记忆（CEM）实现在线测试时的快速适应。"
+title: >-
+  [论文解读] NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments
+description: >-
+  [ICCV 2025][机器人][视觉语言导航] 提出 NavMorph，一种基于 RSSM 的**自进化世界模型**，通过 World-aware Navigator 和 Foresight Action Planner 在隐空间建模连续环境动态，并引入上下文进化记忆（CEM）实现在线测试时的快速适应。
 tags:
   - ICCV 2025
+  - 机器人
   - 视觉语言导航
   - 世界模型
   - 连续环境

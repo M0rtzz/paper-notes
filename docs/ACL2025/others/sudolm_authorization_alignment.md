@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】SudoLM: Learning Access Control of Parametric Knowledge with Authorization Alignment 论文解读 | ACL 2025 | arXiv 2410.14676 | access control | SudoLM 提出了一种 LLM 参数化知识访问控制框架，通过\"SUDO key\"机制让授权用户解锁受限知识（如医学领域知识），未授权用户则只能访问公开知识，用 DPO 的 authorization alignment 在一个模型内实现了传统需要多版本模型才能完成的分级访问控制。"
+title: >-
+  [论文解读] SudoLM: Learning Access Control of Parametric Knowledge with Authorization Alignment
+description: >-
+  [ACL 2025][access control] SudoLM 提出了一种 LLM 参数化知识访问控制框架，通过"SUDO key"机制让授权用户解锁受限知识（如医学领域知识），未授权用户则只能访问公开知识，用 DPO 的 authorization alignment 在一个模型内实现了传统需要多版本模型才能完成的分级访问控制。
 tags:
   - ACL 2025
   - access control

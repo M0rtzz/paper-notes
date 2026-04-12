@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Random Search Neural Networks for Efficient and Expressive Graph Learning 论文解读 | NeurIPS 2025 | arXiv 2510.22520 | 图神经网络 | 提出随机搜索神经网络（RSNN），用随机深度优先搜索（DFS）替代随机游走来采样图结构，在稀疏图上仅需O(log|V|)次搜索即可实现完整边覆盖，配合通用序列模型可达到通用逼近能力，在分子和蛋白质基准上以最多16倍更少的采样量持续超越RWNN。"
+title: >-
+  [论文解读] Random Search Neural Networks for Efficient and Expressive Graph Learning
+description: >-
+  [NeurIPS 2025][医学图像][图神经网络] 提出随机搜索神经网络（RSNN），用随机深度优先搜索（DFS）替代随机游走来采样图结构，在稀疏图上仅需$O(\log|V|)$次搜索即可实现完整边覆盖，配合通用序列模型可达到通用逼近能力，在分子和蛋白质基准上以最多16倍更少的采样量持续超越RWNN。
 tags:
   - NeurIPS 2025
+  - 医学图像
   - 图神经网络
   - 随机游走
   - 深度优先搜索

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Connecting the Dots: A ML Ready Dataset for Ionospheric Forecasting 论文解读 | NeurIPS 2025 | arXiv 2511.15743 | 电离层预测 | 构建了首个ML-ready电离层预测数据集，整合SDO、太阳风、地磁指数和TEC观测等多源异构数据为统一的时间-空间结构，并基准测试了多种时空ML架构用于TEC预测。"
+title: >-
+  [论文解读] Connecting the Dots: A ML Ready Dataset for Ionospheric Forecasting
+description: >-
+  [NeurIPS 2025][时间序列][电离层预测] 构建了首个ML-ready电离层预测数据集，整合SDO、太阳风、地磁指数和TEC观测等多源异构数据为统一的时间-空间结构，并基准测试了多种时空ML架构用于TEC预测。
 tags:
   - NeurIPS 2025
+  - 时间序列
   - 电离层预测
   - TEC
   - 空间天气

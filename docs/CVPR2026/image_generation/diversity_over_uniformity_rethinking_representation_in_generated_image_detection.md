@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Diversity over Uniformity: Rethinking Representation in Generated Image Detection 论文解读 | CVPR 2026 | arXiv 2603.00717 | 生成图像检测 | 提出反特征坍塌学习框架 AFCL，通过信息瓶颈过滤无关特征并抑制不同伪造线索之间的过度重叠，保持判别表征的多样性和互补性，在跨模型生成图像检测上取得显著提升。"
+title: >-
+  [论文解读] Diversity over Uniformity: Rethinking Representation in Generated Image Detection
+description: >-
+  [CVPR 2026][图像生成][生成图像检测] 提出反特征坍塌学习框架 AFCL，通过信息瓶颈过滤无关特征并抑制不同伪造线索之间的过度重叠，保持判别表征的多样性和互补性，在跨模型生成图像检测上取得显著提升。
 tags:
   - CVPR 2026
+  - 图像生成
   - 生成图像检测
   - 特征坍塌
   - 表征多样性

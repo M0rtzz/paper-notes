@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP 论文解读 | CVPR 2025 | arXiv 2503.06661 | 零样本异常检测 | 提出 AA-CLIP，通过两阶段训练策略（先适配文本编码器建立异常感知锚点，再对齐 patch 级视觉特征），在保留 CLIP 泛化能力的前提下增强其异常判别力，仅需极少训练样本即可在工业和医学多个数据集上达到 SOTA 零样本异常检测性能。"
+title: >-
+  [论文解读] AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP
+description: >-
+  [CVPR 2025][医学图像][零样本异常检测] 提出 AA-CLIP，通过两阶段训练策略（先适配文本编码器建立异常感知锚点，再对齐 patch 级视觉特征），在保留 CLIP 泛化能力的前提下增强其异常判别力，仅需极少训练样本即可在工业和医学多个数据集上达到 SOTA 零样本异常检测性能。
 tags:
   - CVPR 2025
+  - 医学图像
   - 零样本异常检测
   - CLIP适配
   - 文本锚点解耦

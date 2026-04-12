@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Forecasting Epileptic Seizures from Contactless Camera via Cross-Species Transfer Learning 论文解读 | CVPR 2026 | arXiv 2603.12887 | 癫痫发作预测 | 首次提出纯视频的癫痫发作预测任务，利用大规模啮齿动物癫痫视频进行跨物种自监督预训练，通过 VideoMAE 框架实现 3-10 秒预测窗口内 >70% 的发作预测准确率。"
+title: >-
+  [论文解读] Forecasting Epileptic Seizures from Contactless Camera via Cross-Species Transfer Learning
+description: >-
+  [CVPR 2026][医学图像][癫痫发作预测] 首次提出纯视频的癫痫发作预测任务，利用大规模啮齿动物癫痫视频进行跨物种自监督预训练，通过 VideoMAE 框架实现 3-10 秒预测窗口内 >70% 的发作预测准确率。
 tags:
   - CVPR 2026
+  - 医学图像
   - 癫痫发作预测
   - 视频分析
   - 跨物种迁移学习

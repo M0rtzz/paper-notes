@@ -1,10 +1,13 @@
 ---
-description: "【论文笔记】Universal Retrieval for Multimodal Trajectory Modeling 论文解读 | ICML2025 | arXiv 2506.22056 | trajectory retrieval | 首次提出多模态轨迹检索（Multimodal Trajectory Retrieval）任务，构建统一代理轨迹数据集 UATD 和 GAE-Bench 基准，并提出基于 VLM 的 GAE-Retriever 框架，在轨迹级检索上显著优于基线。"
+title: >-
+  [论文解读] Universal Retrieval for Multimodal Trajectory Modeling
+description: >-
+  [ICML2025][多模态][trajectory retrieval] 首次提出多模态轨迹检索（Multimodal Trajectory Retrieval）任务，构建统一代理轨迹数据集 UATD 和 GAE-Bench 基准，并提出基于 VLM 的 GAE-Retriever 框架，在轨迹级检索上显著优于基线。
 tags:
   - ICML2025
+  - 多模态
   - trajectory retrieval
   - GUI agents
-  - 多模态
   - 对比学习
   - VLM
 ---

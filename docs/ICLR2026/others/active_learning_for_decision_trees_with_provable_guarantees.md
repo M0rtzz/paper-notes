@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Active Learning for Decision Trees with Provable Guarantees 论文解读 | ICLR 2026 | arXiv 2601.20775 | 主动学习 | 为决策树主动学习提供首个理论保证：(1) 首次分析决策树的不一致系数（disagreement coefficient）并给出 O(ln^OPT(n)) 上界；(2) 提出首个达到乘法误差 (1+ε) 保证的二分类主动学习算法；结合两者实现数据集大小的多对数标签复杂度。"
+title: >-
+  [论文解读] Active Learning for Decision Trees with Provable Guarantees
+description: >-
+  [ICLR 2026][主动学习] 为决策树主动学习提供首个理论保证：(1) 首次分析决策树的不一致系数（disagreement coefficient）并给出 $O(\ln^{OPT}(n))$ 上界；(2) 提出首个达到乘法误差 $(1+\epsilon)$ 保证的二分类主动学习算法；结合两者实现数据集大小的多对数标签复杂度。
 tags:
   - ICLR 2026
   - 主动学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning 论文解读 | NeurIPS 2025 | arXiv 2504.14305 | 人形机器人 | ALMI提出上下半身对抗训练框架：下半身策略在上半身动作干扰下学习鲁棒运动，上半身策略在下半身运动干扰下学习精确动作模仿，通过迭代对抗训练收敛到Nash均衡，实现Unitree H1-2真实机器人的稳定全身协调控制。"
+title: >-
+  [论文解读] Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning
+description: >-
+  [NeurIPS 2025][视频理解][人形机器人] ALMI提出上下半身对抗训练框架：下半身策略在上半身动作干扰下学习鲁棒运动，上半身策略在下半身运动干扰下学习精确动作模仿，通过迭代对抗训练收敛到Nash均衡，实现Unitree H1-2真实机器人的稳定全身协调控制。
 tags:
   - NeurIPS 2025
+  - 视频理解
   - 人形机器人
   - 对抗学习
   - 运动模仿

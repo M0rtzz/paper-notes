@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Empowering Semantic-Sensitive Underwater Image Enhancement with VLM 论文解读 | CVPR 2026 | arXiv 2603.12773 | underwater image enhancement | 提出 VLM 驱动的语义敏感学习策略，通过 VLM 生成目标物体描述、BLIP 构建空间语义引导图、双重引导机制（cross-attention + 语义对齐损失）注入 UIE decoder，使增强结果在感知质量和检测/分割下游任务上同时提升。"
+title: >-
+  [论文解读] Empowering Semantic-Sensitive Underwater Image Enhancement with VLM
+description: >-
+  [CVPR 2026][图像分割][underwater image enhancement] 提出 VLM 驱动的语义敏感学习策略，通过 VLM 生成目标物体描述、BLIP 构建空间语义引导图、双重引导机制（cross-attention + 语义对齐损失）注入 UIE decoder，使增强结果在感知质量和检测/分割下游任务上同时提升。
 tags:
   - CVPR 2026
+  - 图像分割
   - underwater image enhancement
   - VLM
   - semantic guidance

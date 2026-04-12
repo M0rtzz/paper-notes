@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】InfiniDreamer: Arbitrarily Long Human Motion Generation via Segment Score Distillation 论文解读 | ICCV 2025 | arXiv 2411.18303 | 长序列运动生成 | InfiniDreamer 通过将预训练的短序列运动扩散模型作为先验，提出 Segment Score Distillation (SSD) 优化方法，对粗初始化的长运动序列中的重叠短片段进行迭代优化，实现了无需额外长序列训练数据的任意长度人体运动生成。"
+title: >-
+  [论文解读] InfiniDreamer: Arbitrarily Long Human Motion Generation via Segment Score Distillation
+description: >-
+  [ICCV 2025][图像生成][长序列运动生成] InfiniDreamer 通过将预训练的短序列运动扩散模型作为先验，提出 Segment Score Distillation (SSD) 优化方法，对粗初始化的长运动序列中的重叠短片段进行迭代优化，实现了无需额外长序列训练数据的任意长度人体运动生成。
 tags:
   - ICCV 2025
+  - 图像生成
   - 长序列运动生成
   - Score Distillation
   - 滑动窗口

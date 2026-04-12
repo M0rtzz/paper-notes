@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Point-SRA: Self-Representation Alignment for 3D Representation Learning 论文解读 | AAAI 2026 | arXiv 2601.01746 | 3D representation learning | 提出 Point-SRA，通过 Dual Self-Representation Alignment（MAE 层 + MFT 层）和 MeanFlow 概率建模，利用不同 mask ratio 下表征的互补性来增强 3D 点云表征学习，在 ScanObjectNN 上超越 Point-MAE 达 5.59%。"
+title: >-
+  [论文解读] Point-SRA: Self-Representation Alignment for 3D Representation Learning
+description: >-
+  [AAAI 2026][3D视觉][3D representation learning] 提出 Point-SRA，通过 Dual Self-Representation Alignment（MAE 层 + MFT 层）和 MeanFlow 概率建模，利用不同 mask ratio 下表征的互补性来增强 3D 点云表征学习，在 ScanObjectNN 上超越 Point-MAE 达 5.59%。
 tags:
   - AAAI 2026
+  - 3D视觉
   - 3D representation learning
   - masked autoencoder
   - self-distillation

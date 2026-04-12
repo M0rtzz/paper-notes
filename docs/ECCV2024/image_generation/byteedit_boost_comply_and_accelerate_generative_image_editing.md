@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ByteEdit: Boost, Comply and Accelerate Generative Image Editing 论文解读 | ECCV 2024 | arXiv 2404.04860 | 图像编辑 | 提出 ByteEdit，一个将人类反馈学习引入生成式图像编辑（inpainting/outpainting）的框架，通过美学、对齐、一致性三个奖励模型提升编辑质量，并利用对抗训练和渐进策略加速推理。"
+title: >-
+  [论文解读] ByteEdit: Boost, Comply and Accelerate Generative Image Editing
+description: >-
+  [ECCV 2024][图像生成][图像编辑] 提出 ByteEdit，一个将人类反馈学习引入生成式图像编辑（inpainting/outpainting）的框架，通过美学、对齐、一致性三个奖励模型提升编辑质量，并利用对抗训练和渐进策略加速推理。
 tags:
   - ECCV 2024
+  - 图像生成
   - 图像编辑
   - 反馈学习
   - 奖励模型

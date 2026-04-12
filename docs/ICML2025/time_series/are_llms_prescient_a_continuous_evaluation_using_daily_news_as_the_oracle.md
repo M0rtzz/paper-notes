@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle 论文解读 | ICML 2025 | arXiv 2411.08324 | LLM评估 | 提出 Daily Oracle 基准——从每日新闻自动生成 QA 对来持续评估 LLM 的时间泛化和预测能力，揭示 LLM 性能随预训练数据过时而持续退化（True/False 题平均下降 21.55%），且 RAG 也无法完全挽救。"
+title: >-
+  [论文解读] Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle
+description: >-
+  [ICML 2025][时间序列][LLM评估] 提出 Daily Oracle 基准——从每日新闻自动生成 QA 对来持续评估 LLM 的时间泛化和预测能力，揭示 LLM 性能随预训练数据过时而持续退化（True/False 题平均下降 21.55%），且 RAG 也无法完全挽救。
 tags:
   - ICML 2025
+  - 时间序列
   - LLM评估
   - 持续评估
   - 新闻预测

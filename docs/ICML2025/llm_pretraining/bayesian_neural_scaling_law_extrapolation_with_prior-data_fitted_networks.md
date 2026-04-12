@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Bayesian Neural Scaling Law Extrapolation with Prior-Data Fitted Networks 论文解读 | ICML 2025 | arXiv 2505.23032 | 神经缩放定律 | 首个面向神经缩放定律(Neural Scaling Law)的贝叶斯外推方法，通过设计专门的先验分布（覆盖Down/Down-Down/Down-Up-Down三种功能族），利用PFN (Prior-data Fitted Networks) meta-learn外推能力，在点估计精度和不确定性质量上均优于现有方法。"
+title: >-
+  [论文解读] Bayesian Neural Scaling Law Extrapolation with Prior-Data Fitted Networks
+description: >-
+  [ICML 2025][神经缩放定律] 首个面向神经缩放定律(Neural Scaling Law)的贝叶斯外推方法，通过设计专门的先验分布（覆盖Down/Down-Down/Down-Up-Down三种功能族），利用PFN (Prior-data Fitted Networks) meta-learn外推能力，在点估计精度和不确定性质量上均优于现有方法。
 tags:
   - ICML 2025
   - 神经缩放定律

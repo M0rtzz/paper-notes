@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MAT-Agent: Adaptive Multi-Agent Training Optimization 论文解读 | NeurIPS 2025 | arXiv 2510.17845 | multi-agent system | 提出 MAT-Agent，一个由四个自主 agent（分别负责数据增强、优化器、学习率调度、损失函数）组成的多智能体框架，在训练过程中动态调整训练配置，用 DQN 学习策略以替代传统静态超参配置，在多标签图像分类任务上实现了 SOTA。"
+title: >-
+  [论文解读] MAT-Agent: Adaptive Multi-Agent Training Optimization
+description: >-
+  [NeurIPS 2025][LLM Agent][multi-agent system] 提出 MAT-Agent，一个由四个自主 agent（分别负责数据增强、优化器、学习率调度、损失函数）组成的多智能体框架，在训练过程中动态调整训练配置，用 DQN 学习策略以替代传统静态超参配置，在多标签图像分类任务上实现了 SOTA。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - multi-agent system
   - training optimization
   - multi-label classification

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ContinualFlow: Learning and Unlearning with Neural Flow Matching 论文解读 | ICML 2025 | arXiv 2506.18747 | Flow Matching | 提出 ContinualFlow，一种基于 Flow Matching 的生成模型定向遗忘框架，通过能量函数重加权软性减去数据分布中不需要的区域，无需重新训练或直接访问待遗忘样本即可实现高效遗忘。"
+title: >-
+  [论文解读] ContinualFlow: Learning and Unlearning with Neural Flow Matching
+description: >-
+  [ICML 2025][图像生成][Flow Matching] 提出 ContinualFlow，一种基于 Flow Matching 的生成模型定向遗忘框架，通过能量函数重加权软性减去数据分布中不需要的区域，无需重新训练或直接访问待遗忘样本即可实现高效遗忘。
 tags:
   - ICML 2025
+  - 图像生成
   - Flow Matching
   - 机器遗忘
   - 能量函数

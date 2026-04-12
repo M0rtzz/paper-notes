@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Embedding Safety into RL: A New Take on Trust Region Methods 论文解读 | ICML 2025 | arXiv 2411.02957 | 安全强化学习 | 提出 C-TRPO 算法，通过修改策略空间的几何结构（在 KL 散度中嵌入约束感知的障碍项），使信赖域天然只包含安全策略，从而在训练全程保障约束满足，同时保持与 SOTA 相当的回报性能。"
+title: >-
+  [论文解读] Embedding Safety into RL: A New Take on Trust Region Methods
+description: >-
+  [ICML 2025][安全强化学习] 提出 C-TRPO 算法，通过修改策略空间的几何结构（在 KL 散度中嵌入约束感知的障碍项），使信赖域天然只包含安全策略，从而在训练全程保障约束满足，同时保持与 SOTA 相当的回报性能。
 tags:
   - ICML 2025
   - 安全强化学习

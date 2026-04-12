@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Segment-Level Diffusion: A Framework for Controllable Long-Form Generation with Diffusion Language Models 论文解读 | ACL 2025 | arXiv 2412.11333 | 扩散模型 | 提出段落级扩散（Segment-Level Diffusion, SLD），将长文本输出切分为多个段落（如句子/对话轮次），对每个段落的潜在表示进行扩散建模，结合对比学习和对抗训练增强表示鲁棒性，在摘要、故事生成、对话生成等任务上实现了比现有扩散模型更好的长文本生成质量。"
+title: >-
+  [论文解读] Segment-Level Diffusion: A Framework for Controllable Long-Form Generation with Diffusion Language Models
+description: >-
+  [ACL 2025][LLM/NLP][扩散模型] 提出段落级扩散（Segment-Level Diffusion, SLD），将长文本输出切分为多个段落（如句子/对话轮次），对每个段落的潜在表示进行扩散建模，结合对比学习和对抗训练增强表示鲁棒性，在摘要、故事生成、对话生成等任务上实现了比现有扩散模型更好的长文本生成质量。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 扩散模型
   - 长文本生成
   - 段落级扩散

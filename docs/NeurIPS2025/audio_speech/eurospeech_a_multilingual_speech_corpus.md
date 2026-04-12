@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】EuroSpeech: A Multilingual Speech Corpus 论文解读 | NeurIPS2025 | arXiv 2510.00514 | 多语言语音 | 提出可扩展的开源 pipeline，从 22 个欧洲议会录音中自动构建 EuroSpeech 数据集——61K 小时、覆盖 22 种语言的高质量语音-文本对齐数据，其中 19 种语言超 1K 小时，微调 Whisper 后平均 WER 降低 41.8%。"
+title: >-
+  [论文解读] EuroSpeech: A Multilingual Speech Corpus
+description: >-
+  [NeurIPS2025][语音][多语言语音] 提出可扩展的开源 pipeline，从 22 个欧洲议会录音中自动构建 EuroSpeech 数据集——61K 小时、覆盖 22 种语言的高质量语音-文本对齐数据，其中 19 种语言超 1K 小时，微调 Whisper 后平均 WER 降低 41.8%。
 tags:
   - NeurIPS2025
+  - 语音
   - 多语言语音
   - 议会录音
   - ASR

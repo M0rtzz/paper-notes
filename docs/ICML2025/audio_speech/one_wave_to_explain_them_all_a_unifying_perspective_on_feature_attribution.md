@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】One Wave To Explain Them All: A Unifying Perspective On Feature Attribution 论文解读 | ICML2025 | arXiv 2410.01482 | 小波变换 | 提出 Wavelet Attribution Method (WAM)，将特征归因从像素域迁移到小波域，利用小波系数的空间-尺度局部性为音频、图像、体数据提供统一且更具结构信息的模型解释。"
+title: >-
+  [论文解读] One Wave To Explain Them All: A Unifying Perspective On Feature Attribution
+description: >-
+  [ICML2025][语音][小波变换] 提出 Wavelet Attribution Method (WAM)，将特征归因从像素域迁移到小波域，利用小波系数的空间-尺度局部性为音频、图像、体数据提供统一且更具结构信息的模型解释。
 tags:
   - ICML2025
+  - 语音
   - 小波变换
   - 特征归因
   - 可解释AI

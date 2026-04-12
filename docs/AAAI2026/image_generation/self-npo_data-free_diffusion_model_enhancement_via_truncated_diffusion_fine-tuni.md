@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-NPO: Data-Free Diffusion Model Enhancement via Truncated Diffusion Fine-Tuning 论文解读 | AAAI 2026 | arXiv 2505.11777 | 扩散模型 | 提出 Self-NPO，一种无需外部数据标注或奖励模型的负偏好优化方法，通过截断扩散微调(TDFT)让扩散模型从自身生成的低质量数据中学习\"什么是不好的\"，配合 CFG 引导远离不良输出，仅需不到 Diffusion-NPO 1%的训练成本即可达到可比性能。"
+title: >-
+  [论文解读] Self-NPO: Data-Free Diffusion Model Enhancement via Truncated Diffusion Fine-Tuning
+description: >-
+  [AAAI 2026][图像生成][扩散模型] 提出 Self-NPO，一种无需外部数据标注或奖励模型的负偏好优化方法，通过截断扩散微调(TDFT)让扩散模型从自身生成的低质量数据中学习"什么是不好的"，配合 CFG 引导远离不良输出，仅需不到 Diffusion-NPO 1%的训练成本即可达到可比性能。
 tags:
   - AAAI 2026
+  - 图像生成
   - 扩散模型
   - 偏好优化
   - 负偏好优化

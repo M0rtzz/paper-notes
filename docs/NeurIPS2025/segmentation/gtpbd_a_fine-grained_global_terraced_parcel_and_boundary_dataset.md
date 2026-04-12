@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】GTPBD: A Fine-Grained Global Terraced Parcel and Boundary Dataset 论文解读 | NeurIPS 2025 | arXiv 2507.14697 | 梯田地块提取 | 构建首个全球性细粒度梯田地块与边界数据集GTPBD，包含47,537张高分辨率影像（0.5-0.7m）和超20万个人工标注地块，提供三级标签支持语义分割、边缘检测、地块提取和无监督域适应四项任务，并在20种方法上进行全面基准评测。"
+title: >-
+  [论文解读] GTPBD: A Fine-Grained Global Terraced Parcel and Boundary Dataset
+description: >-
+  [NeurIPS 2025][图像分割][梯田地块提取] 构建首个全球性细粒度梯田地块与边界数据集GTPBD，包含47,537张高分辨率影像（0.5-0.7m）和超20万个人工标注地块，提供三级标签支持语义分割、边缘检测、地块提取和无监督域适应四项任务，并在20种方法上进行全面基准评测。
 tags:
   - NeurIPS 2025
+  - 图像分割
   - 梯田地块提取
   - 细粒度边界标注
   - 语义分割

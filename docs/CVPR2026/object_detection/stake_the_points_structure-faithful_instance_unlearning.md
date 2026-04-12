@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Stake the Points: Structure-Faithful Instance Unlearning 论文解读 | CVPR2026 | arXiv 2603.12915 | machine unlearning | 提出 Structguard，通过语义锚点（semantic anchors）保持遗忘过程中保留实例间的语义关系结构，避免结构性崩塌，在图像分类/人脸识别/检索三任务上平均提升 32.9%/19.3%/22.5%。"
+title: >-
+  [论文解读] Stake the Points: Structure-Faithful Instance Unlearning
+description: >-
+  [CVPR2026][目标检测][machine unlearning] 提出 Structguard，通过语义锚点（semantic anchors）保持遗忘过程中保留实例间的语义关系结构，避免结构性崩塌，在图像分类/人脸识别/检索三任务上平均提升 32.9%/19.3%/22.5%。
 tags:
   - CVPR2026
+  - 目标检测
   - machine unlearning
   - instance-level unlearning
   - structural preservation

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Discovering Transformer Circuits via a Hybrid Attribution and Pruning Framework 论文解读 | NeurIPS 2025 | arXiv 2510.03282 | circuit discovery | 提出混合归因与剪枝框架 HAP，先用快速的边归因修补（EAP）筛选高潜力子图，再在缩小后的搜索空间上运行精确的边剪枝（EP），在 GPT-2 Small 的 IOI 任务上比纯 EP 快 46% 且保持相当的电路忠实度，同时成功保留了 EAP 单独使用时会遗漏的 S-inhibition 头。"
+title: >-
+  [论文解读] Discovering Transformer Circuits via a Hybrid Attribution and Pruning Framework
+description: >-
+  [NeurIPS 2025][人体理解][circuit discovery] 提出混合归因与剪枝框架 HAP，先用快速的边归因修补（EAP）筛选高潜力子图，再在缩小后的搜索空间上运行精确的边剪枝（EP），在 GPT-2 Small 的 IOI 任务上比纯 EP 快 46% 且保持相当的电路忠实度，同时成功保留了 EAP 单独使用时会遗漏的 S-inhibition 头。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - circuit discovery
   - attribution patching
   - 剪枝

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】CityNav: A Large-Scale Dataset for Real-World Aerial Navigation 论文解读 | ICCV 2025 | arXiv 2406.14240 | 视觉语言导航 | 构建了首个面向真实城市环境的大规模空中视觉语言导航数据集 CityNav（32,637 条人类演示轨迹，覆盖 4.65 km²），并提出地理语义地图（GSM）辅助表示，显著提升基线模型的导航性能。"
+title: >-
+  [论文解读] CityNav: A Large-Scale Dataset for Real-World Aerial Navigation
+description: >-
+  [ICCV 2025][遥感][视觉语言导航] 构建了首个面向真实城市环境的大规模空中视觉语言导航数据集 CityNav（32,637 条人类演示轨迹，覆盖 4.65 km²），并提出地理语义地图（GSM）辅助表示，显著提升基线模型的导航性能。
 tags:
   - ICCV 2025
+  - 遥感
   - 视觉语言导航
   - 无人机
   - 真实世界

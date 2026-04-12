@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Steerable Adversarial Scenario Generation through Test-Time Preference Alignment (SAGE) 论文解读 | ICLR 2026 | arXiv 2509.20102 | 对抗场景生成 | SAGE 将自动驾驶对抗场景生成重构为多目标偏好对齐问题，通过训练两个偏好专家模型并在推理时通过权重插值实现对抗性与真实性之间的连续可控权衡，无需重新训练即可生成从温和到激进的全谱场景，显著提升闭环训练效果。"
+title: >-
+  [论文解读] Steerable Adversarial Scenario Generation through Test-Time Preference Alignment (SAGE)
+description: >-
+  [ICLR 2026][自动驾驶][对抗场景生成] SAGE 将自动驾驶对抗场景生成重构为多目标偏好对齐问题，通过训练两个偏好专家模型并在推理时通过权重插值实现对抗性与真实性之间的连续可控权衡，无需重新训练即可生成从温和到激进的全谱场景，显著提升闭环训练效果。
 tags:
   - ICLR 2026
+  - 自动驾驶
   - 对抗场景生成
   - 偏好对齐
   - 多目标优化

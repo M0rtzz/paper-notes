@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】MoPFormer: Motion-Primitive Transformer for Wearable-Sensor Activity Recognition 论文解读 | NeurIPS 2025 | arXiv 2505.20744 | 运动原语 | 提出 MoPFormer，将可穿戴传感器信号分解为运动原语（motion primitives）序列，通过 Transformer 建模原语间的时序依赖关系，在多个 HAR 基准上超越 SOTA 并保持轻量化。"
+title: >-
+  [论文解读] MoPFormer: Motion-Primitive Transformer for Wearable-Sensor Activity Recognition
+description: >-
+  [NeurIPS 2025][运动原语] 提出 MoPFormer，将可穿戴传感器信号分解为运动原语（motion primitives）序列，通过 Transformer 建模原语间的时序依赖关系，在多个 HAR 基准上超越 SOTA 并保持轻量化。
 tags:
   - NeurIPS 2025
   - 运动原语

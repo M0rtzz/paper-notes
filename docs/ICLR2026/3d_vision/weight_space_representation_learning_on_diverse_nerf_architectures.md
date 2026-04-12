@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Weight Space Representation Learning on Diverse NeRF Architectures 论文解读 | ICLR 2026 | arXiv 2502.09623 | NeRF | 提出首个能处理多种 NeRF 架构（MLP/tri-plane/hash table）权重的表示学习框架，通过 Graph Meta-Network 编码器 + SigLIP 对比损失构建架构无关的潜在空间，在 13 种 NeRF 架构上实现分类、检索和语言任务，并能泛化到训练时未见的架构。"
+title: >-
+  [论文解读] Weight Space Representation Learning on Diverse NeRF Architectures
+description: >-
+  [ICLR 2026][3D视觉][NeRF] 提出首个能处理多种 NeRF 架构（MLP/tri-plane/hash table）权重的表示学习框架，通过 Graph Meta-Network 编码器 + SigLIP 对比损失构建架构无关的潜在空间，在 13 种 NeRF 架构上实现分类、检索和语言任务，并能泛化到训练时未见的架构。
 tags:
   - ICLR 2026
+  - 3D视觉
   - NeRF
   - weight space
   - graph meta-network

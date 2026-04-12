@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】BiasGuard: A Reasoning-Enhanced Bias Detection Tool for Large Language Models 论文解读 | ACL 2025 | arXiv 2504.21299 | 偏见检测 | 提出 BiasGuard，通过显式推理公平性规范来检测 LLM 输出偏见：第一阶段用教师模型生成推理轨迹做 SFT 初始化，第二阶段用 DPO 强化推理质量，在 5 个数据集上超越分类器和 LLM-as-Judge 方法且降低过度公平误判。"
+title: >-
+  [论文解读] BiasGuard: A Reasoning-Enhanced Bias Detection Tool for Large Language Models
+description: >-
+  [ACL 2025][偏见检测] 提出 BiasGuard，通过显式推理公平性规范来检测 LLM 输出偏见：第一阶段用教师模型生成推理轨迹做 SFT 初始化，第二阶段用 DPO 强化推理质量，在 5 个数据集上超越分类器和 LLM-as-Judge 方法且降低过度公平误判。
 tags:
   - ACL 2025
   - 偏见检测

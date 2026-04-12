@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】UnCLe: Towards Scalable Dynamic Causal Discovery in Non-Linear Temporal Systems 论文解读 | NeurIPS 2025 | arXiv 2511.03168 | 动态因果发现 | 提出 UnCLe，一种基于 TCN 自编码器解耦和自回归依赖矩阵的可扩展动态因果发现方法，通过时序扰动后逐数据点预测误差增量推断时变因果关系，在静态和动态因果发现基准上均达到 SOTA。"
+title: >-
+  [论文解读] UnCLe: Towards Scalable Dynamic Causal Discovery in Non-Linear Temporal Systems
+description: >-
+  [NeurIPS 2025][人体理解][动态因果发现] 提出 UnCLe，一种基于 TCN 自编码器解耦和自回归依赖矩阵的可扩展动态因果发现方法，通过时序扰动后逐数据点预测误差增量推断时变因果关系，在静态和动态因果发现基准上均达到 SOTA。
 tags:
   - NeurIPS 2025
+  - 人体理解
   - 动态因果发现
   - 时间序列
   - Granger 因果

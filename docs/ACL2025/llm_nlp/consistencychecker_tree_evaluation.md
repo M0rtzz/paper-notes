@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ConsistencyChecker: Tree-based Evaluation of LLM Generalization Capabilities 论文解读 | ACL 2025 | arXiv 2506.12376 | LLM evaluation | ConsistencyChecker 提出基于自一致性树（self-consistency tree）的无参考 LLM 评估框架，通过构建可逆变换的树状多步路径（如多语言往返翻译、代码等价重写），量化模型在迭代变换中的语义/功能保持能力，动态生成 benchmark 从根源消除数据泄露，且与 WMT 2024 权威排名的相关性 r > 0.7，证明无需配对数据即可可靠评估 LLM 泛化能力。"
+title: >-
+  [论文解读] ConsistencyChecker: Tree-based Evaluation of LLM Generalization Capabilities
+description: >-
+  [ACL 2025][LLM/NLP][LLM evaluation] ConsistencyChecker 提出基于自一致性树（self-consistency tree）的无参考 LLM 评估框架，通过构建可逆变换的树状多步路径（如多语言往返翻译、代码等价重写），量化模型在迭代变换中的语义/功能保持能力，动态生成 benchmark 从根源消除数据泄露，且与 WMT 2024 权威排名的相关性 r > 0.7，证明无需配对数据即可可靠评估 LLM 泛化能力。
 tags:
   - ACL 2025
+  - LLM/NLP
   - LLM evaluation
   - self-consistency
   - tree-based benchmark

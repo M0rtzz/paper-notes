@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PE3R: Perception-Efficient 3D Reconstruction 论文解读 | CVPR 2026 | arXiv 2503.07507 | 3D语义重建 | PE3R 提出一个免调优的前馈式3D语义重建框架，通过像素嵌入消歧、语义点云重建和全局视图感知三个模块，从无位姿的2D图像直接生成语义3D点云，实现了9倍加速且在开放词汇分割和深度估计上达到新SOTA。"
+title: >-
+  [论文解读] PE3R: Perception-Efficient 3D Reconstruction
+description: >-
+  [CVPR 2026][3D视觉][3D语义重建] PE3R 提出一个免调优的前馈式3D语义重建框架，通过像素嵌入消歧、语义点云重建和全局视图感知三个模块，从无位姿的2D图像直接生成语义3D点云，实现了9倍加速且在开放词汇分割和深度估计上达到新SOTA。
 tags:
   - CVPR 2026
+  - 3D视觉
   - 3D语义重建
   - 开放词汇分割
   - 免调优

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Detection of Human and Machine-Authored Fake News in Urdu 论文解读 | ACL 2025 | arXiv 2410.19517 | 假新闻检测 | 本文提出了乌尔都语四分类假新闻检测任务（人类假/人类真/机器假/机器真），构建了首个乌尔都语机器生成新闻数据集，并提出层次化检测方法将四分类分解为机器文本检测和假新闻检测两个子任务，在域内和跨域设置中均优于基线。"
+title: >-
+  [论文解读] Detection of Human and Machine-Authored Fake News in Urdu
+description: >-
+  [ACL 2025][假新闻检测] 本文提出了乌尔都语四分类假新闻检测任务（人类假/人类真/机器假/机器真），构建了首个乌尔都语机器生成新闻数据集，并提出层次化检测方法将四分类分解为机器文本检测和假新闻检测两个子任务，在域内和跨域设置中均优于基线。
 tags:
   - ACL 2025
   - 假新闻检测

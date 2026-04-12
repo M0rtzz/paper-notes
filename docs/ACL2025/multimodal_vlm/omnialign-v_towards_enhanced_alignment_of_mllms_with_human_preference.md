@@ -1,7 +1,10 @@
 ---
-description: "【论文笔记】OmniAlign-V: Towards Enhanced Alignment of MLLMs with Human Preference 论文解读 | 构建了 OmniAlign-V（200K 高质量多模态 SFT 数据集）和 MM-AlignBench 评测基准，通过多样化图片来源、开放式问题设计和多样化回答格式，显著提升开源 MLLM 的人类偏好对齐能力，使 LLaVA-Next-32B 经 SFT+DPO 后超越 Qwen2VL-72B。"
+title: >-
+  [论文解读] OmniAlign-V: Towards Enhanced Alignment of MLLMs with Human Preference
+description: >-
+  [多模态] 构建了 OmniAlign-V（200K 高质量多模态 SFT 数据集）和 MM-AlignBench 评测基准，通过多样化图片来源、开放式问题设计和多样化回答格式，显著提升开源 MLLM 的人类偏好对齐能力，使 LLaVA-Next-32B 经 SFT+DPO 后超越 Qwen2VL-72B。
 tags:
-
+  - 多模态
 ---
 
 # OmniAlign-V: Towards Enhanced Alignment of MLLMs with Human Preference

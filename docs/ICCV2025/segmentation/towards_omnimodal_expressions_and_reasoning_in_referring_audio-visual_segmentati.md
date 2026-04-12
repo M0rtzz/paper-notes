@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation 论文解读 | ICCV 2025 | arXiv 2507.22886 | 音频-视觉分割 | 提出 OmniAVS 数据集和 OISA 模型，将指代音频-视觉分割从简单声学属性感知拓展至**全模态表达（文本/语音/声音/图像的任意组合）**和**深度推理（理解声音内容+世界知识）**，在新基准及多个相关任务上取得 SOTA。"
+title: >-
+  [论文解读] Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation
+description: >-
+  [ICCV 2025][图像分割][音频-视觉分割] 提出 OmniAVS 数据集和 OISA 模型，将指代音频-视觉分割从简单声学属性感知拓展至**全模态表达（文本/语音/声音/图像的任意组合）**和**深度推理（理解声音内容+世界知识）**，在新基准及多个相关任务上取得 SOTA。
 tags:
   - ICCV 2025
+  - 图像分割
   - 音频-视觉分割
   - 全模态指代
   - 推理分割

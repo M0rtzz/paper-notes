@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Decoupling Common and Unique Representations for Multimodal Self-supervised Learning 论文解读 | ECCV2024 | arXiv 2309.05300 | 多模态自监督学习 | 提出 DeCUR，在多模态自监督学习中将嵌入维度显式拆分为跨模态共有 (common) 和模态独有 (unique) 两部分，通过互相关矩阵分别驱动对齐与去相关，同时引入模态内训练保证独有维度学到有意义信息，在 SAR-光学、RGB-DEM、RGB-Depth 三类多模态场景上均优于 Barlow Twins / CLIP 等基线。"
+title: >-
+  [论文解读] Decoupling Common and Unique Representations for Multimodal Self-supervised Learning
+description: >-
+  [ECCV2024][多模态][多模态自监督学习] 提出 DeCUR，在多模态自监督学习中将嵌入维度显式拆分为跨模态共有 (common) 和模态独有 (unique) 两部分，通过互相关矩阵分别驱动对齐与去相关，同时引入模态内训练保证独有维度学到有意义信息，在 SAR-光学、RGB-DEM、RGB-Depth 三类多模态场景上均优于 Barlow Twins / CLIP 等基线。
 tags:
   - ECCV2024
+  - 多模态
   - 多模态自监督学习
   - 表征解耦
   - 冗余消减

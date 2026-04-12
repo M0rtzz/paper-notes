@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】From Utterance to Vividity: Training Expressive Subtitle Translation LLM via Adaptive Local Preference Optimization 论文解读 | ICLR 2026 | arXiv 2602.01068 | 字幕翻译 | 提出ALPO(自适应局部偏好优化)用于训练表达力强的字幕翻译LLM：通过实证发现字幕翻译偏好意译且推理型LLM意译能力优于对话型LLM -> 验证LLM作为翻译评估器与人类高度一致 -> 提出逐句段的细粒度过程监督偏好对齐方法(自适应权重+动态beta+前缀混合) -> 14B模型在多方向字幕翻译的鲜活度上超越GPT-4o/DeepSeek-R1等SOTA。"
+title: >-
+  [论文解读] From Utterance to Vividity: Training Expressive Subtitle Translation LLM via Adaptive Local Preference Optimization
+description: >-
+  [ICLR 2026][LLM对齐][字幕翻译] 提出ALPO(自适应局部偏好优化)用于训练表达力强的字幕翻译LLM：通过实证发现字幕翻译偏好意译且推理型LLM意译能力优于对话型LLM -> 验证LLM作为翻译评估器与人类高度一致 -> 提出逐句段的细粒度过程监督偏好对齐方法(自适应权重+动态beta+前缀混合) -> 14B模型在多方向字幕翻译的鲜活度上超越GPT-4o/DeepSeek-R1等SOTA。
 tags:
   - ICLR 2026
+  - LLM对齐
   - 字幕翻译
   - 偏好优化
   - LLM-as-Judge

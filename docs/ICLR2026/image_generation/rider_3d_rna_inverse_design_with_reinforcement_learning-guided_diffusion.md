@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】RIDER: 3D RNA Inverse Design with Reinforcement Learning-Guided Diffusion 论文解读 | ICLR 2026 | arXiv 2602.16548 | RNA 逆向设计 | 提出 RIDER 框架，首次将强化学习引入 RNA 3D 逆向设计，先预训练条件扩散模型 RIDE 学习序列-结构关系，再用 RL 微调以直接优化 3D 结构相似性而非序列恢复率，在所有 3D 自一致性指标上实现超过 100% 的提升。"
+title: >-
+  [论文解读] RIDER: 3D RNA Inverse Design with Reinforcement Learning-Guided Diffusion
+description: >-
+  [ICLR 2026][图像生成][RNA 逆向设计] 提出 RIDER 框架，首次将强化学习引入 RNA 3D 逆向设计，先预训练条件扩散模型 RIDE 学习序列-结构关系，再用 RL 微调以直接优化 3D 结构相似性而非序列恢复率，在所有 3D 自一致性指标上实现超过 100% 的提升。
 tags:
   - ICLR 2026
+  - 图像生成
   - RNA 逆向设计
   - 3D 结构相似性
   - 扩散模型

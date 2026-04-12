@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Q2E: Query-to-Event Decomposition for Zero-Shot Multilingual Text-to-Video Retrieval 论文解读 | ACL 2025 | arXiv 2506.10202 | 文本到视频检索 | Q2E 提出了一种零样本的查询到事件分解方法，利用 LLM 和 VLM 的参数化世界知识将简单查询分解为前因/当前/后果事件，并结合视频的视觉描述和语音转录，通过逆熵融合排序实现 SOTA 的多语言文本到视频检索性能。"
+title: >-
+  [论文解读] Q2E: Query-to-Event Decomposition for Zero-Shot Multilingual Text-to-Video Retrieval
+description: >-
+  [ACL 2025][文本到视频检索] Q2E 提出了一种零样本的查询到事件分解方法，利用 LLM 和 VLM 的参数化世界知识将简单查询分解为前因/当前/后果事件，并结合视频的视觉描述和语音转录，通过逆熵融合排序实现 SOTA 的多语言文本到视频检索性能。
 tags:
   - ACL 2025
   - 文本到视频检索

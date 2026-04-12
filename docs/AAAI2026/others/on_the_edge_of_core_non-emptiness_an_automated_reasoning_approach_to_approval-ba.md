@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】On the Edge of Core (Non-)Emptiness: An Automated Reasoning Approach to Approval-Based Multi-Winner Voting 论文解读 | AAAI 2026 | arXiv 2512.16895 | 核稳定性 | 针对基于认可的多赢者投票中核稳定性（core stability）是否总存在这一重大开放问题，提出基于混合整数线性规划（MILP）的自动推理框架，证明了新的存在性结果，发现了核稳定性与其他公理（如 Lindahl 可定价性）之间此前未知的关系，并推翻了一个已有猜想。"
+title: >-
+  [论文解读] On the Edge of Core (Non-)Emptiness: An Automated Reasoning Approach to Approval-Based Multi-Winner Voting
+description: >-
+  [AAAI 2026][核稳定性] 针对基于认可的多赢者投票中核稳定性（core stability）是否总存在这一重大开放问题，提出基于混合整数线性规划（MILP）的自动推理框架，证明了新的存在性结果，发现了核稳定性与其他公理（如 Lindahl 可定价性）之间此前未知的关系，并推翻了一个已有猜想。
 tags:
   - AAAI 2026
   - 核稳定性

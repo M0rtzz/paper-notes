@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Robust Sampling for Active Statistical Inference 论文解读 | NeurIPS 2025 | arXiv 2511.08991 | 主动推断 | 提出基于预算保持路径的鲁棒采样策略，通过在均匀采样和主动采样之间最优插值，确保估计器的方差永远不比两者中任何一个更差，解决了主动统计推断中不确定性估计不准确导致性能恶化的问题。"
+title: >-
+  [论文解读] Robust Sampling for Active Statistical Inference
+description: >-
+  [NeurIPS 2025][主动推断] 提出基于预算保持路径的鲁棒采样策略，通过在均匀采样和主动采样之间最优插值，确保估计器的方差永远不比两者中任何一个更差，解决了主动统计推断中不确定性估计不准确导致性能恶化的问题。
 tags:
   - NeurIPS 2025
   - 主动推断

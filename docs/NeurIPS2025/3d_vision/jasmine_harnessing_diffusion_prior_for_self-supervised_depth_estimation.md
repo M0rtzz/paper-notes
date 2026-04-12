@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Jasmine: Harnessing Diffusion Prior for Self-supervised Depth Estimation 论文解读 | NEURIPS2025 | arXiv 2503.15905 | 自监督深度估计 | 首次将Stable Diffusion视觉先验引入自监督单目深度估计：提出Mix-Batch Image Reconstruction避免自监督噪声损坏SD先验，设计Scale-Shift GRU桥接SD的尺度偏移不变性(SSI)与自监督的尺度不变性(SI)深度，在KITTI上AbsRel达0.102且泛化性强。"
+title: >-
+  [论文解读] Jasmine: Harnessing Diffusion Prior for Self-supervised Depth Estimation
+description: >-
+  [NEURIPS2025][3D视觉][自监督深度估计] 首次将Stable Diffusion视觉先验引入自监督单目深度估计：提出Mix-Batch Image Reconstruction避免自监督噪声损坏SD先验，设计Scale-Shift GRU桥接SD的尺度偏移不变性(SSI)与自监督的尺度不变性(SI)深度，在KITTI上AbsRel达0.102且泛化性强。
 tags:
   - NEURIPS2025
+  - 3D视觉
   - 自监督深度估计
   - 扩散模型
   - 扩散先验

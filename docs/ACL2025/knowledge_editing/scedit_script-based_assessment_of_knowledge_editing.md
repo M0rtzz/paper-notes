@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】ScEdit: Script-based Assessment of Knowledge Editing 论文解读 | ACL 2025 | arXiv 2505.23291 | 知识编辑 | 提出 ScEdit，一个基于脚本（Script）的知识编辑评估基准，将传统的\"What\"类事实回忆评估扩展为\"How\"类程序性推理评估，同时引入 token 级和文本级双层评估体系，揭示了现有知识编辑方法在实际应用场景中的显著不足。"
+title: >-
+  [论文解读] ScEdit: Script-based Assessment of Knowledge Editing
+description: >-
+  [ACL 2025][知识编辑] 提出 ScEdit，一个基于脚本（Script）的知识编辑评估基准，将传统的"What"类事实回忆评估扩展为"How"类程序性推理评估，同时引入 token 级和文本级双层评估体系，揭示了现有知识编辑方法在实际应用场景中的显著不足。
 tags:
   - ACL 2025
   - 知识编辑

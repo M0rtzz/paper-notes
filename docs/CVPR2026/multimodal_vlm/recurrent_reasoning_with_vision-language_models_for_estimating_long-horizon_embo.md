@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress 论文解读 | CVPR 2026 | arXiv 2603.17312 | 任务进度估计 | 提出 R²VLM，通过循环推理框架逐步处理本地视频片段，维护动态更新的 CoT 记录任务分解和完成状态，结合多维 RL 奖励实现长时域具身任务进度估计的 SOTA，并支持策略学习、奖励建模、主动辅助等下游应用。"
+title: >-
+  [论文解读] Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress
+description: >-
+  [CVPR 2026][多模态][任务进度估计] 提出 R²VLM，通过循环推理框架逐步处理本地视频片段，维护动态更新的 CoT 记录任务分解和完成状态，结合多维 RL 奖励实现长时域具身任务进度估计的 SOTA，并支持策略学习、奖励建模、主动辅助等下游应用。
 tags:
   - CVPR 2026
+  - 多模态
   - 任务进度估计
   - 具身智能
   - 循环推理

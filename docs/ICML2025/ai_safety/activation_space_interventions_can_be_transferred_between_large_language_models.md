@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Activation Space Interventions Can Be Transferred Between Large Language Models 论文解读 | ICML2025 | arXiv 2503.04429 | 激活空间迁移 | 本文证明了 LLM 之间存在共享的激活空间结构，通过训练自编码器（autoencoder）学习模型间的激活映射，可以将安全干预（如后门移除、有害拒绝转向向量）从源模型迁移到目标模型，实现\"小模型对齐大模型\"的高效安全干预范式。"
+title: >-
+  [论文解读] Activation Space Interventions Can Be Transferred Between Large Language Models
+description: >-
+  [ICML2025][AI安全][激活空间迁移] 本文证明了 LLM 之间存在共享的激活空间结构，通过训练自编码器（autoencoder）学习模型间的激活映射，可以将安全干预（如后门移除、有害拒绝转向向量）从源模型迁移到目标模型，实现"小模型对齐大模型"的高效安全干预范式。
 tags:
   - ICML2025
+  - AI安全
   - 激活空间迁移
   - 安全对齐
   - 转向向量

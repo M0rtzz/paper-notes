@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Training-free Detection of Generated Videos via Spatial-Temporal Likelihoods 论文解读 | CVPR 2026 | arXiv 2603.15026 | 零样本检测 | 提出 STALL，一种无需训练的零样本生成视频检测器，通过在白化嵌入空间中联合建模逐帧空间似然和帧间时序似然，仅依赖真实视频校准即可实现对多种生成模型的鲁棒检测。"
+title: >-
+  [论文解读] Training-free Detection of Generated Videos via Spatial-Temporal Likelihoods
+description: >-
+  [CVPR 2026][目标检测][零样本检测] 提出 STALL，一种无需训练的零样本生成视频检测器，通过在白化嵌入空间中联合建模逐帧空间似然和帧间时序似然，仅依赖真实视频校准即可实现对多种生成模型的鲁棒检测。
 tags:
   - CVPR 2026
+  - 目标检测
   - 零样本检测
   - 生成视频检测
   - 似然估计

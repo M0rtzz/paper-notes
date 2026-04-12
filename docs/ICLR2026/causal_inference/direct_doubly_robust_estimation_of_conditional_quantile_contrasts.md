@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Direct Doubly Robust Estimation of Conditional Quantile Contrasts 论文解读 | ICLR 2026 | arXiv 2601.19666 | heterogeneous treatment effect | 提出首个对条件分位数比较器 (CQC) 的**直接估计方法**，通过显式参数化 CQC 并结合双重鲁棒梯度下降，在理论上保持双重鲁棒性的同时，实验中在估计精度、可解释性和计算效率上全面优于现有的间接反演方法。"
+title: >-
+  [论文解读] Direct Doubly Robust Estimation of Conditional Quantile Contrasts
+description: >-
+  [ICLR 2026][heterogeneous treatment effect] 提出首个对条件分位数比较器 (CQC) 的**直接估计方法**，通过显式参数化 CQC 并结合双重鲁棒梯度下降，在理论上保持双重鲁棒性的同时，实验中在估计精度、可解释性和计算效率上全面优于现有的间接反演方法。
 tags:
   - ICLR 2026
   - heterogeneous treatment effect

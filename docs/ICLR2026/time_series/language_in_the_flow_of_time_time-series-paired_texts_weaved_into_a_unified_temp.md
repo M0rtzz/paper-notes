@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative 论文解读 | ICLR2026 | arXiv 2502.08942 | 多模态 multimodal time series | 发现时间序列配对文本具有与时间序列相似的周期性（Chronological Textual Resonance），提出 TaTS 框架将文本表征转化为辅助变量，以即插即用方式增强任意现有时间序列模型的预测和插补性能。"
+title: >-
+  [论文解读] Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative
+description: >-
+  [ICLR2026][时间序列][多模态] 发现时间序列配对文本具有与时间序列相似的周期性（Chronological Textual Resonance），提出 TaTS 框架将文本表征转化为辅助变量，以即插即用方式增强任意现有时间序列模型的预测和插补性能。
 tags:
   - ICLR2026
+  - 时间序列
   - 多模态
   - text-augmented forecasting
   - Chronological Textual Resonance

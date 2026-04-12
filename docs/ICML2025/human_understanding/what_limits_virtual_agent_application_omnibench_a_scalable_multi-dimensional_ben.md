@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】What Limits Virtual Agent Application? OmniBench: A Scalable Multi-Dimensional Benchmark for Essential Virtual Agent Capabilities 论文解读 | ICML 2025 (Oral) | arXiv 2506.08933 | virtual agent | 本文提出 OmniBench——一个基于图结构的可扩展虚拟 Agent 基准，通过自动化流水线合成可控复杂度的任务，配合 OmniEval 多维评估框架，在 20 个应用场景中生成 36K 个任务，系统揭示了虚拟 Agent 在不同能力维度上的短板。"
+title: >-
+  [论文解读] What Limits Virtual Agent Application? OmniBench: A Scalable Multi-Dimensional Benchmark for Essential Virtual Agent Capabilities
+description: >-
+  [ICML 2025 (Oral)][人体理解][virtual agent] 本文提出 OmniBench——一个基于图结构的可扩展虚拟 Agent 基准，通过自动化流水线合成可控复杂度的任务，配合 OmniEval 多维评估框架，在 20 个应用场景中生成 36K 个任务，系统揭示了虚拟 Agent 在不同能力维度上的短板。
 tags:
   - ICML 2025 (Oral)
+  - 人体理解
   - virtual agent
   - benchmark
   - graph-based tasks

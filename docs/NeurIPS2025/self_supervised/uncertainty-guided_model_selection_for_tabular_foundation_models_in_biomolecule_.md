@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Uncertainty-Guided Model Selection for Tabular Foundation Models in Biomolecule Efficacy Prediction 论文解读 | NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences) | arXiv 2510.02476 | TabPFN | 本文提出OligoICP方法，利用TabPFN模型的预测分位数间距（IQR）作为无标签模型选择启发式指标，在siRNA敲低效率预测中实现了优于专用SOTA模型和朴素集成的性能。"
+title: >-
+  [论文解读] Uncertainty-Guided Model Selection for Tabular Foundation Models in Biomolecule Efficacy Prediction
+description: >-
+  [NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)][自监督学习][TabPFN] 本文提出OligoICP方法，利用TabPFN模型的预测分位数间距（IQR）作为无标签模型选择启发式指标，在siRNA敲低效率预测中实现了优于专用SOTA模型和朴素集成的性能。
 tags:
-  - "NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)"
+  - NeurIPS 2025 (Workshop: Multi-modal Foundation Models for Life Sciences)
+  - 自监督学习
   - TabPFN
   - siRNA功效预测
   - 不确定性引导

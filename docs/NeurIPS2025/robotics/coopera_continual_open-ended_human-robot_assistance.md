@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】C-NAV: Towards Self-Evolving Continual Object Navigation in Open World 论文解读 | NeurIPS 2025 | arXiv 2510.20685 | continual learning | 提出 C-Nav 持续目标导航框架，通过**双路径抗遗忘机制**（特征蒸馏 + 特征回放）和**基于 LOF 的自适应经验选择**，使导航智能体在增量学习新物体类别时有效避免灾难性遗忘，在 4 种主流架构和 2 个数据集上均超越全量数据回放基线。"
+title: >-
+  [论文解读] C-NAV: Towards Self-Evolving Continual Object Navigation in Open World
+description: >-
+  [NeurIPS 2025][机器人][continual learning] 提出 C-Nav 持续目标导航框架，通过**双路径抗遗忘机制**（特征蒸馏 + 特征回放）和**基于 LOF 的自适应经验选择**，使导航智能体在增量学习新物体类别时有效避免灾难性遗忘，在 4 种主流架构和 2 个数据集上均超越全量数据回放基线。
 tags:
   - NeurIPS 2025
+  - 机器人
   - continual learning
   - object navigation
   - catastrophic forgetting

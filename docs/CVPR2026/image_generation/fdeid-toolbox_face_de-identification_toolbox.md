@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FDeID-Toolbox: Face De-Identification Toolbox 论文解读 | CVPR 2026 | arXiv 2603.13121 | face de-identification | 提出 FDeID-Toolbox，一个模块化的人脸去标识化工具箱，统一集成了 16 种去标识化方法（涵盖朴素/生成式/对抗式/K-Same 四大类）、6 个基准数据集和覆盖隐私保护/属性保持/视觉质量三维度的系统化评估协议，解决了该领域实现碎片化、评估不一致、结果不可比的问题。"
+title: >-
+  [论文解读] FDeID-Toolbox: Face De-Identification Toolbox
+description: >-
+  [CVPR 2026][图像生成][face de-identification] 提出 FDeID-Toolbox，一个模块化的人脸去标识化工具箱，统一集成了 16 种去标识化方法（涵盖朴素/生成式/对抗式/K-Same 四大类）、6 个基准数据集和覆盖隐私保护/属性保持/视觉质量三维度的系统化评估协议，解决了该领域实现碎片化、评估不一致、结果不可比的问题。
 tags:
   - CVPR 2026
+  - 图像生成
   - face de-identification
   - privacy preservation
   - toolbox

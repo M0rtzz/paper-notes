@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Learning Single Index Models with Diffusion Priors 论文解读 | ICML2025 | arXiv 2505.21135 | 扩散模型 | 提出利用扩散模型先验从半参数单指标模型（SIM）的非线性观测中恢复信号的高效方法，只需一轮无条件采样和部分反演，无需已知链接函数，在1-bit和三次测量上以极少的NFE显著优于现有方法。"
+title: >-
+  [论文解读] Learning Single Index Models with Diffusion Priors
+description: >-
+  [ICML2025][图像生成][扩散模型] 提出利用扩散模型先验从半参数单指标模型（SIM）的非线性观测中恢复信号的高效方法，只需一轮无条件采样和部分反演，无需已知链接函数，在1-bit和三次测量上以极少的NFE显著优于现有方法。
 tags:
   - ICML2025
+  - 图像生成
   - 扩散模型
   - 信号恢复
   - 单指标模型

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】TTOM: Test-Time Optimization and Memorization for Compositional Video Generation 论文解读 | ICLR 2026 | arXiv 2510.07940 | 测试时优化 | 提出 TTOM 框架，在推理时通过优化新增参数将视频生成模型的注意力与 LLM 生成的时空布局对齐，并用参数记忆机制保存历史优化上下文支持复用，在 T2V-CompBench 上相对提升 34%（CogVideoX）和 14%（Wan2.1）。"
+title: >-
+  [论文解读] TTOM: Test-Time Optimization and Memorization for Compositional Video Generation
+description: >-
+  [ICLR 2026][视频理解][测试时优化] 提出 TTOM 框架，在推理时通过优化新增参数将视频生成模型的注意力与 LLM 生成的时空布局对齐，并用参数记忆机制保存历史优化上下文支持复用，在 T2V-CompBench 上相对提升 34%（CogVideoX）和 14%（Wan2.1）。
 tags:
   - ICLR 2026
+  - 视频理解
   - 测试时优化
   - 组合视频生成
   - 参数记忆

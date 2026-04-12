@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MS-BART: Unified Modeling of Mass Spectra and Molecules for Structure Elucidation 论文解读 | NeurIPS 2025 | arXiv 2510.20615 | 质谱分析 | 提出 MS-Bart，通过统一词表将分子指纹和分子结构（SELFIES）映射到共享的 token 空间，在 400 万指纹-分子对上进行多任务预训练，再通过实验谱微调和化学反馈对齐，实现从质谱到分子结构的高效生成。"
+title: >-
+  [论文解读] MS-BART: Unified Modeling of Mass Spectra and Molecules for Structure Elucidation
+description: >-
+  [NeurIPS 2025][图像恢复][质谱分析] 提出 MS-Bart，通过统一词表将分子指纹和分子结构（SELFIES）映射到共享的 token 空间，在 400 万指纹-分子对上进行多任务预训练，再通过实验谱微调和化学反馈对齐，实现从质谱到分子结构的高效生成。
 tags:
   - NeurIPS 2025
+  - 图像恢复
   - 质谱分析
   - 分子指纹
   - 预训练-微调-对齐

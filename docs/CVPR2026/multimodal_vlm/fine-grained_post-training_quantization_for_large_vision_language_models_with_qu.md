@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients 论文解读 | CVPR 2026 | arXiv 2603.17809 | 后训练量化 | 提出量化感知积分梯度（QIG），将 LVLM 量化的灵敏度分析从模态级推进到 token 级，利用公理化归因原理精确量化每个 token 对量化误差的贡献，在 W4A8 和 W3A16 设置下显著提升量化模型精度，且几乎无额外计算开销。"
+title: >-
+  [论文解读] Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients
+description: >-
+  [CVPR 2026][多模态][后训练量化] 提出量化感知积分梯度（QIG），将 LVLM 量化的灵敏度分析从模态级推进到 token 级，利用公理化归因原理精确量化每个 token 对量化误差的贡献，在 W4A8 和 W3A16 设置下显著提升量化模型精度，且几乎无额外计算开销。
 tags:
   - CVPR 2026
+  - 多模态
   - 后训练量化
   - LVLM压缩
   - token级敏感度

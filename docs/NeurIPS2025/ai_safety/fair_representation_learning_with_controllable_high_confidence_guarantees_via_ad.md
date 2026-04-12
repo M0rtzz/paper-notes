@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference 论文解读 | NeurIPS 2025 | arXiv 2510.21017 | 公平表征学习 | 提出 FRG（Fair Representation learning with high-confidence Guarantees），首个允许用户指定公平性阈值 ε 和置信水平 1-δ 的公平表征学习框架：通过 VAE 候选选择 + 对抗推断最大化协方差 + Student's t-检验构造高置信上界，保证对**任意**下游模型和任务，Δ_DP ≤ ε 以至少 1-δ 概率成立。"
+title: >-
+  [论文解读] Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference
+description: >-
+  [NeurIPS 2025][AI安全][公平表征学习] 提出 FRG（Fair Representation learning with high-confidence Guarantees），首个允许用户指定公平性阈值 $\varepsilon$ 和置信水平 $1-\delta$ 的公平表征学习框架：通过 VAE 候选选择 + 对抗推断最大化协方差 + Student's t-检验构造高置信上界，保证对**任意**下游模型和任务，$\Delta_{DP} \leq \varepsilon$ 以至少 $1-\delta$ 概率成立。
 tags:
   - NeurIPS 2025
+  - AI安全
   - 公平表征学习
   - 高置信保证
   - 对抗推断

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】A Learning Framework For Cooperative Collision Avoidance of UAV Swarms Leveraging Domain Knowledge 论文解读 | AAAI 2026 (Under review) | arXiv 2507.10913 | MARL | 提出 reMARL 框架，将图像处理中的主动轮廓模型（active contour）作为领域知识引入多智能体强化学习的奖励设计，使无人机集群仅通过最大化个体奖励即可学会协作避撞，在大规模集群（≤10架）中性能显著优于 COMA/VDN/QMIX/MAPPO 等 SOTA MARL 方法，反应时间比元启发式方法快 98.75%，能耗降低 85.37%。"
+title: >-
+  [论文解读] A Learning Framework For Cooperative Collision Avoidance of UAV Swarms Leveraging Domain Knowledge
+description: >-
+  [AAAI 2026 (Under review)][MARL] 提出 reMARL 框架，将图像处理中的主动轮廓模型（active contour）作为领域知识引入多智能体强化学习的奖励设计，使无人机集群仅通过最大化个体奖励即可学会协作避撞，在大规模集群（≤10架）中性能显著优于 COMA/VDN/QMIX/MAPPO 等 SOTA MARL 方法，反应时间比元启发式方法快 98.75%，能耗降低 85.37%。
 tags:
   - AAAI 2026 (Under review)
   - MARL

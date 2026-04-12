@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FeDaL: Federated Dataset Learning for General Time Series Foundation Models 论文解读 | ICLR 2026 | arXiv 2508.04045 | 时序基础模型 | 提出 FeDaL 联邦框架从头训练通用时序基础模型（TSFM），通过客户端域偏差消除（DBE）和服务器全局偏差消除（GBE）处理数据集级异质性，在8个任务上超越54个baseline。"
+title: >-
+  [论文解读] FeDaL: Federated Dataset Learning for General Time Series Foundation Models
+description: >-
+  [ICLR 2026][3D视觉][时序基础模型] 提出 FeDaL 联邦框架从头训练通用时序基础模型（TSFM），通过客户端域偏差消除（DBE）和服务器全局偏差消除（GBE）处理数据集级异质性，在8个任务上超越54个baseline。
 tags:
   - ICLR 2026
+  - 3D视觉
   - 时序基础模型
   - 联邦学习
   - 数据集异质性

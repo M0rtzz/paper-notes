@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】FreeMesh: Boosting Mesh Generation with Coordinates Merging 论文解读 | ICML2025 | arXiv 2505.13573 | 网格生成 | 提出 Per-Token-Mesh-Entropy（PTME）度量免训练评估网格 tokenizer 质量，并引入基于 BPE 的坐标合并技术（RMC）进一步压缩网格序列，在 MeshXL/MeshAnythingV2/EdgeRunner 上验证了压缩率和生成质量的同步提升。"
+title: >-
+  [论文解读] FreeMesh: Boosting Mesh Generation with Coordinates Merging
+description: >-
+  [ICML2025][3D视觉][网格生成] 提出 Per-Token-Mesh-Entropy（PTME）度量免训练评估网格 tokenizer 质量，并引入基于 BPE 的坐标合并技术（RMC）进一步压缩网格序列，在 MeshXL/MeshAnythingV2/EdgeRunner 上验证了压缩率和生成质量的同步提升。
 tags:
   - ICML2025
+  - 3D视觉
   - 网格生成
   - 坐标合并
   - Token化

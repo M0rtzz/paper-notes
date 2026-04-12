@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Inference Compute-Optimal Video Vision Language Models 论文解读 | ACL 2025 (Long Paper) | 推理计算优化 | 首次系统研究视频VLM推理时的计算预算最优分配问题：在固定推理FLOPs下，如何在语言模型大小(x_N)、帧数(x_T)和每帧视觉token数(x_V)三个维度间做最优权衡，通过大规模训练扫描（~100k A100小时）和参数化建模得出实用的分配策略。"
+title: >-
+  [论文解读] Inference Compute-Optimal Video Vision Language Models
+description: >-
+  [ACL 2025 (Long Paper)][多模态][推理计算优化] 首次系统研究视频VLM推理时的计算预算最优分配问题：在固定推理FLOPs下，如何在语言模型大小(x_N)、帧数(x_T)和每帧视觉token数(x_V)三个维度间做最优权衡，通过大规模训练扫描（~100k A100小时）和参数化建模得出实用的分配策略。
 tags:
   - ACL 2025 (Long Paper)
+  - 多模态
   - 推理计算优化
   - 视频VLM
   - 缩放定律

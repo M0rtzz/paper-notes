@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Chameleon: A Flexible Data-mixing Framework for LM Pretraining and Finetuning 论文解读 | ICML2025 | arXiv 2505.24844 | 数据混合 | 提出Chameleon框架，用kernel ridge leverage scores在学习的嵌入空间中量化域重要性，实现高效的数据混合权重计算，可在预训练/微调/域变化三种场景下工作，且无需重新训练代理模型。"
+title: >-
+  [论文解读] Chameleon: A Flexible Data-mixing Framework for LM Pretraining and Finetuning
+description: >-
+  [ICML2025][数据混合] 提出Chameleon框架，用kernel ridge leverage scores在学习的嵌入空间中量化域重要性，实现高效的数据混合权重计算，可在预训练/微调/域变化三种场景下工作，且无需重新训练代理模型。
 tags:
   - ICML2025
   - 数据混合

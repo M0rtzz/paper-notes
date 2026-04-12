@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】SDF-Net: Structure-Aware Disentangled Feature Learning for Optical-SAR Ship Re-identification 论文解读 | CVPR 2026 | arXiv 2603.12588 | 光学-SAR跨模态 | 提出SDF-Net——物理引导的结构感知解耦特征学习网络，通过中间层梯度能量提取几何结构一致性(SCL)和终端层共享/模态专用特征解耦(DFL)+无参数加法融合，在HOSS-ReID上mAP达60.9%(+3.5% vs SOTA TransOSS)。"
+title: >-
+  [论文解读] SDF-Net: Structure-Aware Disentangled Feature Learning for Optical-SAR Ship Re-identification
+description: >-
+  [CVPR 2026][遥感][光学-SAR跨模态] 提出SDF-Net——物理引导的结构感知解耦特征学习网络，通过中间层梯度能量提取几何结构一致性(SCL)和终端层共享/模态专用特征解耦(DFL)+无参数加法融合，在HOSS-ReID上mAP达60.9%(+3.5% vs SOTA TransOSS)。
 tags:
   - CVPR 2026
+  - 遥感
   - 光学-SAR跨模态
   - 船舶重识别
   - 结构感知

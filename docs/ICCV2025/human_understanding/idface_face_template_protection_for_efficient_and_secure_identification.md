@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】IDFace: Face Template Protection for Efficient and Secure Identification 论文解读 | ICCV 2025 | arXiv 2507.12050 | 人脸模板保护 | 提出 IDFace，一种基于同态加密（HE）的人脸模板保护方法，通过近等距变换（实值向量→三值向量）和空间高效编码两项技术，使 100 万加密模板的检索仅需 126ms，相比无保护仅 2× 开销。"
+title: >-
+  [论文解读] IDFace: Face Template Protection for Efficient and Secure Identification
+description: >-
+  [ICCV 2025][人体理解][人脸模板保护] 提出 IDFace，一种基于同态加密（HE）的人脸模板保护方法，通过近等距变换（实值向量→三值向量）和空间高效编码两项技术，使 100 万加密模板的检索仅需 126ms，相比无保护仅 2× 开销。
 tags:
   - ICCV 2025
+  - 人体理解
   - 人脸模板保护
   - 同态加密
   - 生物特征隐私

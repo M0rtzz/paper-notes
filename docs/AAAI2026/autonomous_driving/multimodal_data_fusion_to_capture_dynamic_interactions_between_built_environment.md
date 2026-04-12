@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Multimodal Data Fusion to Capture Dynamic Interactions between Built Environment and Vulnerable Older Adults 论文解读 | AAAI 2026 | arXiv 2601.11545 | 多模态数据融合 | 提出一种**多模态数据融合框架**，整合眼动追踪、运动传感器（IMU）、生理监测（EDA/HRV）、GPS和视频录制等多种穿戴与环境传感数据，动态表征脆弱老年人（膝骨关节炎/跌倒史）与城市建成环境的交互过程，通过AI驱动的数据融合揭示微观尺度上对步行行为和感知有显著影响的城市路段，为**适老化城市规划**提供循证依据。"
+title: >-
+  [论文解读] Multimodal Data Fusion to Capture Dynamic Interactions between Built Environment and Vulnerable Older Adults
+description: >-
+  [AAAI 2026][自动驾驶][多模态数据融合] 提出一种**多模态数据融合框架**，整合眼动追踪、运动传感器（IMU）、生理监测（EDA/HRV）、GPS和视频录制等多种穿戴与环境传感数据，动态表征脆弱老年人（膝骨关节炎/跌倒史）与城市建成环境的交互过程，通过AI驱动的数据融合揭示微观尺度上对步行行为和感知有显著影响的城市路段，为**适老化城市规划**提供循证依据。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 多模态数据融合
   - 建成环境
   - 老年人步行

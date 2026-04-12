@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】ALOcc: Adaptive Lifting-Based 3D Semantic Occupancy and Cost Volume-Based Flow Predictions 论文解读 | ICCV 2025 | arXiv 2411.07725 | 3D Occupancy Prediction | 提出ALOcc框架，通过遮挡感知的自适应提升机制、语义原型对齐和BEV代价体flow预测三个改进，在多个占据预测基准上取得SOTA，同时保持较高推理速度。"
+title: >-
+  [论文解读] ALOcc: Adaptive Lifting-Based 3D Semantic Occupancy and Cost Volume-Based Flow Predictions
+description: >-
+  [ICCV 2025][图像恢复][3D Occupancy Prediction] 提出ALOcc框架，通过遮挡感知的自适应提升机制、语义原型对齐和BEV代价体flow预测三个改进，在多个占据预测基准上取得SOTA，同时保持较高推理速度。
 tags:
   - ICCV 2025
+  - 图像恢复
   - 3D Occupancy Prediction
   - 2D-to-3D View Transformation
   - Occlusion-Aware Lifting

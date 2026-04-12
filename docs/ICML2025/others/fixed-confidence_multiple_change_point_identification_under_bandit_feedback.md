@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Fixed-Confidence Multiple Change Point Identification under Bandit Feedback 论文解读 | ICML2025 | arXiv 2507.08994 | change point detection | 提出了固定置信度下分段常数 bandit 中多变点识别问题，给出实例相关的采样复杂度下界，并设计了简单高效且渐近最优的 MCPI（Multiple Change Point Identification）算法。"
+title: >-
+  [论文解读] Fixed-Confidence Multiple Change Point Identification under Bandit Feedback
+description: >-
+  [ICML2025][change point detection] 提出了固定置信度下分段常数 bandit 中多变点识别问题，给出实例相关的采样复杂度下界，并设计了简单高效且渐近最优的 MCPI（Multiple Change Point Identification）算法。
 tags:
   - ICML2025
   - change point detection

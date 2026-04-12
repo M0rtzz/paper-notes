@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】I²-World: Intra-Inter Tokenization for Efficient Dynamic 4D Scene Forecasting 论文解读 | ICCV 2025 | arXiv 2507.09144 | 4D occupancy forecasting | 提出 I²-World，通过将 3D 场景 tokenization 解耦为帧内（intra-scene）多尺度残差量化和帧间（inter-scene）时序量化两个互补过程，在保持 3D tokenizer 高压缩率的同时获得 4D tokenizer 的时序建模能力，实现高效且高质量的 4D occupancy 预测。"
+title: >-
+  [论文解读] I²-World: Intra-Inter Tokenization for Efficient Dynamic 4D Scene Forecasting
+description: >-
+  [ICCV 2025][时间序列][4D occupancy forecasting] 提出 I²-World，通过将 3D 场景 tokenization 解耦为帧内（intra-scene）多尺度残差量化和帧间（inter-scene）时序量化两个互补过程，在保持 3D tokenizer 高压缩率的同时获得 4D tokenizer 的时序建模能力，实现高效且高质量的 4D occupancy 预测。
 tags:
   - ICCV 2025
+  - 时间序列
   - 4D occupancy forecasting
   - scene tokenization
   - world model

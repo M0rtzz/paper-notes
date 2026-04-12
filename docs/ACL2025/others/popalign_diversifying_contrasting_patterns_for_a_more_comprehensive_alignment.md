@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】PopAlign: Diversifying Contrasting Patterns for a More Comprehensive Alignment 论文解读 | 提出PopAlign框架，从Prompt、Model、Pipeline三个层面构建六种多样化对比策略（包括创新的Elicitive Contrast），无需额外人工标注即可合成高质量偏好数据，实现更全面的LLM对齐。"
+title: >-
+  [论文解读] PopAlign: Diversifying Contrasting Patterns for a More Comprehensive Alignment
+description: >-
+   提出PopAlign框架，从Prompt、Model、Pipeline三个层面构建六种多样化对比策略（包括创新的Elicitive Contrast），无需额外人工标注即可合成高质量偏好数据，实现更全面的LLM对齐。
 tags:
 
 ---

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】HiMTok: Learning Hierarchical Mask Tokens for Image Segmentation with Large Multimodal Model 论文解读 | ICCV 2025 | arXiv 2503.13026 | 分层掩码Token化 | 提出HiMTok（分层掩码Token化器），将分割掩码表示为最多32个由粗到细的离散token，使LMM像生成文本一样直接生成分割结果，无需额外的图像条件掩码解码器，在多个分割基准上达到SOTA。"
+title: >-
+  [论文解读] HiMTok: Learning Hierarchical Mask Tokens for Image Segmentation with Large Multimodal Model
+description: >-
+  [ICCV 2025][图像分割][分层掩码Token化] 提出HiMTok（分层掩码Token化器），将分割掩码表示为最多32个由粗到细的离散token，使LMM像生成文本一样直接生成分割结果，无需额外的图像条件掩码解码器，在多个分割基准上达到SOTA。
 tags:
   - ICCV 2025
+  - 图像分割
   - 分层掩码Token化
   - 大型多模态模型
   - 分割

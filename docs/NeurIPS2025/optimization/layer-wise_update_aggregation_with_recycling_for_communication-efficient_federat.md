@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Layer-wise Update Aggregation with Recycling for Communication-Efficient Federated Learning 论文解读 | NeurIPS 2025 | arXiv 2503.11146 | 联邦学习 federated learning | 提出 FedLUAR：基于梯度-权重比的层级优先级度量选择低优先级层复用上一轮梯度（而非丢弃），在仅 17% 通信开销下保持与 FedAvg 几乎相同的精度。"
+title: >-
+  [论文解读] Layer-wise Update Aggregation with Recycling for Communication-Efficient Federated Learning
+description: >-
+  [NeurIPS 2025][优化][联邦学习] 提出 FedLUAR：基于梯度-权重比的层级优先级度量选择低优先级层复用上一轮梯度（而非丢弃），在仅 17% 通信开销下保持与 FedAvg 几乎相同的精度。
 tags:
   - NeurIPS 2025
+  - 优化
   - 联邦学习
   - communication efficiency
   - gradient recycling

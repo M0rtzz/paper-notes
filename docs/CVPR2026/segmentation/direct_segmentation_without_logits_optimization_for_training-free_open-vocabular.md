@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Direct Segmentation without Logits Optimization for Training-Free Open-Vocabulary Semantic Segmentation 论文解读 | CVPR 2026 | arXiv 2604.07723 | 开放词汇语义分割 | 提出一种跳过logits优化过程的开放词汇语义分割方法，基于\"同类区域的logits到退化分布的分布差异一致\"这一假设，直接通过最优传输路径或最大传输速度的解析解来构造分割图，在8个基准上达到SOTA且无需训练或模型特定调制。"
+title: >-
+  [论文解读] Direct Segmentation without Logits Optimization for Training-Free Open-Vocabulary Semantic Segmentation
+description: >-
+  [CVPR 2026][图像分割][开放词汇语义分割] 提出一种跳过logits优化过程的开放词汇语义分割方法，基于"同类区域的logits到退化分布的分布差异一致"这一假设，直接通过最优传输路径或最大传输速度的解析解来构造分割图，在8个基准上达到SOTA且无需训练或模型特定调制。
 tags:
   - CVPR 2026
+  - 图像分割
   - 开放词汇语义分割
   - 免训练
   - 分布差异

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Debiased Dual-Invariant Defense for Adversarially Robust Person Re-Identification 论文解读 | AAAI 2026 | arXiv 2511.09933 | 对抗防御 | 系统识别出行人ReID对抗防御的两大独特挑战（模型偏差和复合泛化需求），提出去偏双不变防御框架：数据平衡阶段用扩散模型重采样缓解偏差，双对抗自元防御阶段通过最远负样本扩展软化的度量对抗训练和对抗增强的自元学习实现对未见ID和未见攻击的双重泛化。"
+title: >-
+  [论文解读] Debiased Dual-Invariant Defense for Adversarially Robust Person Re-Identification
+description: >-
+  [AAAI 2026][自动驾驶][对抗防御] 系统识别出行人ReID对抗防御的两大独特挑战（模型偏差和复合泛化需求），提出去偏双不变防御框架：数据平衡阶段用扩散模型重采样缓解偏差，双对抗自元防御阶段通过最远负样本扩展软化的度量对抗训练和对抗增强的自元学习实现对未见ID和未见攻击的双重泛化。
 tags:
   - AAAI 2026
+  - 自动驾驶
   - 对抗防御
   - 行人重识别
   - 元学习

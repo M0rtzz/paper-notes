@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Core Context Aware Transformers for Long Context Language Modeling 论文解读 | ICML 2025 | arXiv 2412.12465 | 长上下文建模 | 提出 Core Context Aware (CCA) Attention，通过全局感知池化将输入 token 动态压缩为少量核心 token，结合局部保持模块捕获邻近细粒度信息，实现即插即用地替换标准自注意力，在 128K 上下文下获得 7.9× 加速和 46% 显存节省，同时保持建模性能。"
+title: >-
+  [论文解读] Core Context Aware Transformers for Long Context Language Modeling
+description: >-
+  [ICML 2025][模型压缩][长上下文建模] 提出 Core Context Aware (CCA) Attention，通过全局感知池化将输入 token 动态压缩为少量核心 token，结合局部保持模块捕获邻近细粒度信息，实现即插即用地替换标准自注意力，在 128K 上下文下获得 7.9× 加速和 46% 显存节省，同时保持建模性能。
 tags:
   - ICML 2025
+  - 模型压缩
   - 长上下文建模
   - 高效注意力
   - KV缓存压缩

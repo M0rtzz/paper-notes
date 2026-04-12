@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Instant Video Models: Universal Adapters for Stabilizing Image-Based Networks 论文解读 | NeurIPS 2025 | arXiv 2512.03014 | 时序稳定性 | 提出一类通用的稳定化适配器（Stabilization Adapters），可插入几乎任何图像模型架构中，通过冻结基础网络仅训练适配器参数，配合统一的精度-稳定性-鲁棒性损失函数，使帧级模型获得视频时序一致性和腐蚀鲁棒性。"
+title: >-
+  [论文解读] Instant Video Models: Universal Adapters for Stabilizing Image-Based Networks
+description: >-
+  [NeurIPS 2025][3D视觉][时序稳定性] 提出一类通用的稳定化适配器（Stabilization Adapters），可插入几乎任何图像模型架构中，通过冻结基础网络仅训练适配器参数，配合统一的精度-稳定性-鲁棒性损失函数，使帧级模型获得视频时序一致性和腐蚀鲁棒性。
 tags:
   - NeurIPS 2025
+  - 3D视觉
   - 时序稳定性
   - 稳定化适配器
   - 视频一致性

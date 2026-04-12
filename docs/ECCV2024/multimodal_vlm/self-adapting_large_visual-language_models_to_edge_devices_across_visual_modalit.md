@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities 论文解读 | ECCV 2024 | arXiv 2403.04908 | 边缘部署 | 提出EdgeVL框架，通过两阶段适配（双模态知识蒸馏+量化感知对比学习），将大规模VLM（如CLIP）适配到边缘设备上，实现无需人工标注的跨模态（RGB和非RGB）开放词汇分类，达到最高15.4%的准确率提升和93倍的模型压缩。"
+title: >-
+  [论文解读] Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities
+description: >-
+  [ECCV 2024][多模态][边缘部署] 提出EdgeVL框架，通过两阶段适配（双模态知识蒸馏+量化感知对比学习），将大规模VLM（如CLIP）适配到边缘设备上，实现无需人工标注的跨模态（RGB和非RGB）开放词汇分类，达到最高15.4%的准确率提升和93倍的模型压缩。
 tags:
   - ECCV 2024
+  - 多模态
   - 边缘部署
   - 知识蒸馏
   - 量化

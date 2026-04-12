@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LongSafety: Evaluating Long-Context Safety of Large Language Models 论文解读 | ACL 2025 | arXiv 2502.16971 | 长上下文安全 | 提出LongSafety——首个专门针对开放式长上下文任务的LLM安全评估基准，包含7类安全问题和6种任务类型共1,543个测试用例，揭示大多数模型安全率低于55%，且短上下文安全能力无法迁移到长上下文场景。"
+title: >-
+  [论文解读] LongSafety: Evaluating Long-Context Safety of Large Language Models
+description: >-
+  [ACL 2025][LLM效率][长上下文安全] 提出LongSafety——首个专门针对开放式长上下文任务的LLM安全评估基准，包含7类安全问题和6种任务类型共1,543个测试用例，揭示大多数模型安全率低于55%，且短上下文安全能力无法迁移到长上下文场景。
 tags:
   - ACL 2025
+  - LLM效率
   - 长上下文安全
   - 安全评估基准
   - 多智能体评估

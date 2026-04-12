@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification 论文解读 | ICML 2025 | arXiv 2504.10174 | 本文定义了交互式行人重识别（Inter-ReID）新任务，构建了 Interactive-PEDES 多轮对话数据集，并提出 LLaVA-ReID——一个基于选择性多图像上下文和前瞻性监督的大多模态问题生成模型，通过迭代对话逐步细化目标人物描述。"
+title: >-
+  [论文解读] LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification
+description: >-
+  [ICML 2025][人体理解] 本文定义了交互式行人重识别（Inter-ReID）新任务，构建了 Interactive-PEDES 多轮对话数据集，并提出 LLaVA-ReID——一个基于选择性多图像上下文和前瞻性监督的大多模态问题生成模型，通过迭代对话逐步细化目标人物描述。
 tags:
   - ICML 2025
+  - 人体理解
 ---
 
 # LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification

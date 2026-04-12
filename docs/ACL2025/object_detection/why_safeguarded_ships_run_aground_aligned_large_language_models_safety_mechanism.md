@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region 论文解读 | ACL 2025 | arXiv 2502.13946 | LLM safety | 揭示了安全对齐LLM的一个普遍现象：安全机制过度锚定在chat template区域（TASA），导致越狱攻击可通过干扰template区域的信息处理来绕过安全防线，并提出通过将安全探针从template区域迁移到生成阶段来缓解该漏洞。"
+title: >-
+  [论文解读] Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region
+description: >-
+  [ACL 2025][目标检测][LLM safety] 揭示了安全对齐LLM的一个普遍现象：安全机制过度锚定在chat template区域（TASA），导致越狱攻击可通过干扰template区域的信息处理来绕过安全防线，并提出通过将安全探针从template区域迁移到生成阶段来缓解该漏洞。
 tags:
   - ACL 2025
+  - 目标检测
   - LLM safety
   - jailbreak
   - template-anchored alignment

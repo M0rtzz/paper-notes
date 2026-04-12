@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Inner Thinking Transformer: Leveraging Dynamic Depth Scaling to Foster Adaptive Internal Thinking 论文解读 | ACL 2025 | arXiv 2502.13842 | 动态深度 | 提出 Inner Thinking Transformer (ITT)，通过自适应 token 路由和残差思维连接，在不增加参数的情况下为关键 token 动态分配更多计算步骤，实现隐式深度推理，162M 参数即可达到 466M Transformer 96.5% 的性能。"
+title: >-
+  [论文解读] Inner Thinking Transformer: Leveraging Dynamic Depth Scaling to Foster Adaptive Internal Thinking
+description: >-
+  [ACL 2025][动态深度] 提出 Inner Thinking Transformer (ITT)，通过自适应 token 路由和残差思维连接，在不增加参数的情况下为关键 token 动态分配更多计算步骤，实现隐式深度推理，162M 参数即可达到 466M Transformer 96.5% 的性能。
 tags:
   - ACL 2025
   - 动态深度

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Meta-Learning Neural Mechanisms rather than Bayesian Priors 论文解读 | ACL 2025 | arXiv 2503.16048 | 元学习 | 挑战了\"元学习在神经网络中蒸馏贝叶斯简单性先验\"的主流观点，通过形式语言实验证明元学习实际上是在模型中植入有用的**神经机制**（如计数器），而非学习简单性偏好。"
+title: >-
+  [论文解读] Meta-Learning Neural Mechanisms rather than Bayesian Priors
+description: >-
+  [ACL 2025][元学习] 挑战了"元学习在神经网络中蒸馏贝叶斯简单性先验"的主流观点，通过形式语言实验证明元学习实际上是在模型中植入有用的**神经机制**（如计数器），而非学习简单性偏好。
 tags:
   - ACL 2025
   - 元学习

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】MultiMM: Cultural Bias Matters — Cross-Cultural Benchmark for Multimodal Metaphors 论文解读 | ACL 2025 | arXiv 2506.06987 | 多模态隐喻 | 提出MultiMM——首个跨文化多模态隐喻数据集，包含8461个中英文广告图文对及细粒度标注，并设计SEMD模型融合情感特征增强隐喻检测。"
+title: >-
+  [论文解读] MultiMM: Cultural Bias Matters — Cross-Cultural Benchmark for Multimodal Metaphors
+description: >-
+  [ACL 2025][多模态][多模态隐喻] 提出MultiMM——首个跨文化多模态隐喻数据集，包含8461个中英文广告图文对及细粒度标注，并设计SEMD模型融合情感特征增强隐喻检测。
 tags:
   - ACL 2025
+  - 多模态
   - 多模态隐喻
   - 文化偏见
   - 跨文化

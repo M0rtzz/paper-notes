@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Learning to Orchestrate Agents in Natural Language with the Conductor 论文解读 | ICLR2026 | arXiv 2512.04388 | 多Agent协调 | 用RL训练7B的Conductor模型，通过自然语言输出Agent工作流(子任务分配+通信拓扑)来协调GPT-5/Claude/Gemini等大模型，在LiveCodeBench和GPQA等benchmark上超越所有单模型和多Agent基线，达到SOTA(平均77.27 vs GPT-5的74.78)。"
+title: >-
+  [论文解读] Learning to Orchestrate Agents in Natural Language with the Conductor
+description: >-
+  [ICLR2026][多Agent协调] 用RL训练7B的Conductor模型，通过自然语言输出Agent工作流(子任务分配+通信拓扑)来协调GPT-5/Claude/Gemini等大模型，在LiveCodeBench和GPQA等benchmark上超越所有单模型和多Agent基线，达到SOTA(平均77.27 vs GPT-5的74.78)。
 tags:
   - ICLR2026
   - 多Agent协调

@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】PixPerfect: Seamless Latent Diffusion Local Editing with Discriminative Pixel-Space Refinement 论文解读 | NeurIPS 2025 | arXiv 2512.03247 | 图像修复 | 提出 PixPerfect，一个通用的像素级精修框架，通过判别性像素空间损失和全面的伪影模拟管线，消除潜在扩散模型局部编辑中的色差、纹理不匹配和可见接缝，在修复、目标移除和插入任务上大幅提升视觉保真度。"
+title: >-
+  [论文解读] PixPerfect: Seamless Latent Diffusion Local Editing with Discriminative Pixel-Space Refinement
+description: >-
+  [NeurIPS 2025][图像生成][图像修复] 提出 PixPerfect，一个通用的像素级精修框架，通过判别性像素空间损失和全面的伪影模拟管线，消除潜在扩散模型局部编辑中的色差、纹理不匹配和可见接缝，在修复、目标移除和插入任务上大幅提升视觉保真度。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - 图像修复
   - 像素级精修
   - 判别性像素空间

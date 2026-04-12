@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Understanding Cross-Domain Adaptation in Low-Resource Topic Modeling 论文解读 | ACL 2025 | arXiv 2506.07453 | 主题建模 | 首次将领域自适应形式化引入低资源主题建模，推导有限样本泛化上界指导方法设计，提出 DALTA 框架通过共享编码器、领域专用解码器和对抗对齐实现跨领域主题知识的选择性迁移。"
+title: >-
+  [论文解读] Understanding Cross-Domain Adaptation in Low-Resource Topic Modeling
+description: >-
+  [ACL 2025][主题建模] 首次将领域自适应形式化引入低资源主题建模，推导有限样本泛化上界指导方法设计，提出 DALTA 框架通过共享编码器、领域专用解码器和对抗对齐实现跨领域主题知识的选择性迁移。
 tags:
   - ACL 2025
   - 主题建模

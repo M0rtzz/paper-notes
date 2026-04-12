@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AC-LoRA: (Almost) Training-Free Access Control-Aware Multi-Modal LLMs 论文解读 | NeurIPS 2025 | arXiv 2505.11557 | access control | 设计AC-LoRA系统，通过为不同权限数据集维护独立的LoRA适配器，并基于查询相似度和用户权限进行检索+无训练合并，实现企业级LLM聊天机器人的强信息隔离保证。"
+title: >-
+  [论文解读] AC-LoRA: (Almost) Training-Free Access Control-Aware Multi-Modal LLMs
+description: >-
+  [NeurIPS 2025][access control] 设计AC-LoRA系统，通过为不同权限数据集维护独立的LoRA适配器，并基于查询相似度和用户权限进行检索+无训练合并，实现企业级LLM聊天机器人的强信息隔离保证。
 tags:
   - NeurIPS 2025
   - access control

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Blessing of Multilinguality: A Systematic Analysis of Multilingual In-Context Learning 论文解读 | ACL 2025 (Findings) | arXiv 2502.11364 | multilingual ICL | 系统分析多语言 ICL 策略，发现在 prompt 中混合多种高资源语言（HRL）的 demonstrations 一致性优于纯英文 demonstrations，尤其在低资源语言（LRL）上提升显著（Llama3.1 上 LRL 平均准确率提升 8.9~12.6%），甚至仅在 prompt 中加入不相关的非英语句子也能带来可测量的增益，揭示了\"多语言暴露本身即有效\"的现象。"
+title: >-
+  [论文解读] Blessing of Multilinguality: A Systematic Analysis of Multilingual In-Context Learning
+description: >-
+  [ACL 2025 (Findings)][multilingual ICL] 系统分析多语言 ICL 策略，发现在 prompt 中混合多种高资源语言（HRL）的 demonstrations 一致性优于纯英文 demonstrations，尤其在低资源语言（LRL）上提升显著（Llama3.1 上 LRL 平均准确率提升 8.9~12.6%），甚至仅在 prompt 中加入不相关的非英语句子也能带来可测量的增益，揭示了"多语言暴露本身即有效"的现象。
 tags:
   - ACL 2025 (Findings)
   - multilingual ICL

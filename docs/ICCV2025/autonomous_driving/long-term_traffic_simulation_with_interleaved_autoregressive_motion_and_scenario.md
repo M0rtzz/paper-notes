@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Long-term Traffic Simulation with Interleaved Autoregressive Motion and Scenario Generation 论文解读 | ICCV 2025 | arXiv 2506.17213 | 交通仿真 | 提出 InfGen，一个统一的自回归 next-token prediction 模型，通过交替进行闭环运动仿真和场景生成（智能体的动态插入与移除），首次实现稳定的长时程（30秒）交通仿真，在短时程任务上达到 SOTA 水平，在长时程任务上显著超越所有现有方法。"
+title: >-
+  [论文解读] Long-term Traffic Simulation with Interleaved Autoregressive Motion and Scenario Generation
+description: >-
+  [ICCV 2025][自动驾驶][交通仿真] 提出 InfGen，一个统一的自回归 next-token prediction 模型，通过交替进行闭环运动仿真和场景生成（智能体的动态插入与移除），首次实现稳定的长时程（30秒）交通仿真，在短时程任务上达到 SOTA 水平，在长时程任务上显著超越所有现有方法。
 tags:
   - ICCV 2025
+  - 自动驾驶
   - 交通仿真
   - 长时程仿真
   - 自回归生成

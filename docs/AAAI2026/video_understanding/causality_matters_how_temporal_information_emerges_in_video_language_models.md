@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Causality Matters: How Temporal Information Emerges in Video Language Models 论文解读 | AAAI 2026 | arXiv 2508.11576 | 视频语言模型 | 通过系统性消融实验揭示VideoLM的时序理解能力并非来源于位置编码(PE)，而是由因果注意力掩码的序列敏感性产生——时序信息沿\"帧间交互→末帧聚合→query融合\"的因果路径逐层构建，并据此提出两种无损推理加速策略。"
+title: >-
+  [论文解读] Causality Matters: How Temporal Information Emerges in Video Language Models
+description: >-
+  [AAAI 2026][视频理解][视频语言模型] 通过系统性消融实验揭示VideoLM的时序理解能力并非来源于位置编码(PE)，而是由因果注意力掩码的序列敏感性产生——时序信息沿"帧间交互→末帧聚合→query融合"的因果路径逐层构建，并据此提出两种无损推理加速策略。
 tags:
   - AAAI 2026
+  - 视频理解
   - 视频语言模型
   - 时序理解
   - 因果注意力

@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence 论文解读 | ICML 2025 | arXiv 2502.13943 | Process Reward Model | 提出基于模型预测置信度自动划分推理步骤的方法 AdaptiveStep，用于训练更精确的 Process Reward Model（ASPRM），在数学推理和代码生成任务上以不到 70% 的数据构建成本超越现有开源 PRM，并能通过 Token 级引导解码进一步提升推理性能。"
+title: >-
+  [论文解读] AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence
+description: >-
+  [ICML 2025][Process Reward Model] 提出基于模型预测置信度自动划分推理步骤的方法 AdaptiveStep，用于训练更精确的 Process Reward Model（ASPRM），在数学推理和代码生成任务上以不到 70% 的数据构建成本超越现有开源 PRM，并能通过 Token 级引导解码进一步提升推理性能。
 tags:
   - ICML 2025
   - Process Reward Model

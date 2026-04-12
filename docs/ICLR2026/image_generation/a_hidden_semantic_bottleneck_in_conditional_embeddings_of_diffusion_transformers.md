@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers 论文解读 | ICLR 2026 | arXiv 2602.21596 | Transformer diffusion transformer | 对扩散 Transformer 的条件嵌入进行首次系统分析，发现极端的角度相似性（类间余弦相似度>99%）和维度稀疏性（仅 1-2% 的维度携带语义信息），裁剪掉 2/3 的低幅维度后生成质量基本不变，揭示了条件嵌入中隐藏的语义瓶颈。"
+title: >-
+  [论文解读] A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers
+description: >-
+  [ICLR 2026][图像生成][Transformer] 对扩散 Transformer 的条件嵌入进行首次系统分析，发现极端的角度相似性（类间余弦相似度>99%）和维度稀疏性（仅 1-2% 的维度携带语义信息），裁剪掉 2/3 的低幅维度后生成质量基本不变，揭示了条件嵌入中隐藏的语义瓶颈。
 tags:
   - ICLR 2026
+  - 图像生成
   - Transformer
   - conditioning
   - embedding sparsity

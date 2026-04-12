@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Parameter-Efficient Fine-Tuning of State Space Models 论文解读 | ICML 2025 | arXiv 2410.09016 | 参数高效微调 | 本文系统性地评估了现有 PEFT 方法在 SSM（如 Mamba）模型上的效果，发现 LoRA 虽在线性投影层表现最优但无法有效调优 SSM 模块，进而提出 Sparse Dimension Tuning（SDT）——一种专为 SSM 模块设计的 PEFT 方法，结合 LoRA 用于线性层，在多个基准上达到 SOTA 性能。"
+title: >-
+  [论文解读] Parameter-Efficient Fine-Tuning of State Space Models
+description: >-
+  [ICML 2025][模型压缩][参数高效微调] 本文系统性地评估了现有 PEFT 方法在 SSM（如 Mamba）模型上的效果，发现 LoRA 虽在线性投影层表现最优但无法有效调优 SSM 模块，进而提出 Sparse Dimension Tuning（SDT）——一种专为 SSM 模块设计的 PEFT 方法，结合 LoRA 用于线性层，在多个基准上达到 SOTA 性能。
 tags:
   - ICML 2025
+  - 模型压缩
   - 参数高效微调
   - State Space Models
   - Mamba

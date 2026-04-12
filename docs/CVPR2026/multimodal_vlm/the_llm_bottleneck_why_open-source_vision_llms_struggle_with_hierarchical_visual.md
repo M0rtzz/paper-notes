@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】The LLM Bottleneck: Why Open-Source Vision LLMs Struggle with Hierarchical Visual Recognition 论文解读 | CVPR2026 | arXiv 2505.24840 | 层次视觉识别 | 揭示开源LLM缺乏关于视觉世界的层次分类知识（甚至不知道基本的生物分类体系），这使得LLM成为Vision LLM层次视觉识别的瓶颈。"
+title: >-
+  [论文解读] The LLM Bottleneck: Why Open-Source Vision LLMs Struggle with Hierarchical Visual Recognition
+description: >-
+  [CVPR2026][多模态][层次视觉识别] 揭示开源LLM缺乏关于视觉世界的层次分类知识（甚至不知道基本的生物分类体系），这使得LLM成为Vision LLM层次视觉识别的瓶颈。
 tags:
   - CVPR2026
+  - 多模态
   - 层次视觉识别
   - 分类一致性
   - LLM瓶颈

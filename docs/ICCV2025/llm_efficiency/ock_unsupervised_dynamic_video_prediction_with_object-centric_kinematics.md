@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】OCK: Unsupervised Dynamic Video Prediction with Object-Centric Kinematics 论文解读 | ICCV 2025 | arXiv 2404.18423 | 对象中心学习 | 提出 OCK（Object-Centric Kinematics），在以对象为中心的视频预测中引入显式的运动学属性（位置、速度、加速度）作为 Slot 表示的补充，通过 Joint-OCK 和 Cross-OCK 两种 Transformer 变体融合外观与运动信息，在复杂合成和真实场景中显著提升动态视频预测质量。"
+title: >-
+  [论文解读] OCK: Unsupervised Dynamic Video Prediction with Object-Centric Kinematics
+description: >-
+  [ICCV 2025][LLM效率][对象中心学习] 提出 OCK（Object-Centric Kinematics），在以对象为中心的视频预测中引入显式的运动学属性（位置、速度、加速度）作为 Slot 表示的补充，通过 Joint-OCK 和 Cross-OCK 两种 Transformer 变体融合外观与运动信息，在复杂合成和真实场景中显著提升动态视频预测质量。
 tags:
   - ICCV 2025
+  - LLM效率
   - 对象中心学习
   - 视频预测
   - 运动学建模

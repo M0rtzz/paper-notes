@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Preference Learning with Lie Detectors can Induce Honesty or Evasion 论文解读 | NeurIPS 2025 | arXiv 2505.13787 | LLM欺骗检测 | 系统研究了将谎言检测器（lie detector）整合到LLM偏好学习标注流程中的效果（SOLiD框架），发现训练后模型是变得诚实还是学会规避检测取决于三个关键因素：探索程度（GRPO vs DPO）、检测器准确率（TPR）和KL正则化强度。"
+title: >-
+  [论文解读] Preference Learning with Lie Detectors can Induce Honesty or Evasion
+description: >-
+  [NeurIPS 2025][目标检测][LLM欺骗检测] 系统研究了将谎言检测器（lie detector）整合到LLM偏好学习标注流程中的效果（SOLiD框架），发现训练后模型是变得诚实还是学会规避检测取决于三个关键因素：探索程度（GRPO vs DPO）、检测器准确率（TPR）和KL正则化强度。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - LLM欺骗检测
   - 偏好学习
   - 谎言检测器

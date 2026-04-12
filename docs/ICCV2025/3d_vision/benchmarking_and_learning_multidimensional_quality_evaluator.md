@@ -1,7 +1,11 @@
 ---
-description: "【论文笔记】Benchmarking and Learning Multi-Dimensional Quality Evaluator for Text-to-3D Generation 论文解读 | ICCV 2025 | arXiv 2412.11170 | Text-to-3D评估 | 构建MATE-3D基准（8类prompt×8种方法=1280个textured mesh，4维度×21人主观评分=107520标注）并提出HyperScore多维质量评估器：通过可学习条件特征+条件特征融合(模拟注意力转移)+超网络生成维度自适应映射函数(模拟决策过程变化)，在语义对齐、几何、纹理、整体4个维度上全面超越现有指标。"
+title: >-
+  [论文解读] Benchmarking and Learning Multi-Dimensional Quality Evaluator for Text-to-3D Generation
+description: >-
+  [ICCV 2025][3D视觉][Text-to-3D评估] 构建MATE-3D基准（8类prompt×8种方法=1280个textured mesh，4维度×21人主观评分=107520标注）并提出HyperScore多维质量评估器：通过可学习条件特征+条件特征融合(模拟注意力转移)+超网络生成维度自适应映射函数(模拟决策过程变化)，在语义对齐、几何、纹理、整体4个维度上全面超越现有指标。
 tags:
   - ICCV 2025
+  - 3D视觉
   - Text-to-3D评估
   - 多维质量评估
   - 超网络

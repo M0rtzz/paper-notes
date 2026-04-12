@@ -1,5 +1,8 @@
 ---
-description: "【论文笔记】Unsupervised Discovery of High-Redshift Galaxy Populations with Variational Autoencoders 论文解读 | NEURIPS2025 | arXiv 2511.05439 | 高红移星系 | 用变分自编码器(VAE)对 2743 条 JWST 高红移($z>4$)星系光谱进行无监督聚类，发现 12 个不同的天体物理类别，使已知的后星暴星系、Lyman-α 发射星系、极端发射线星系、Little Red Dots 等稀有种群数量翻倍。"
+title: >-
+  [论文解读] Unsupervised Discovery of High-Redshift Galaxy Populations with Variational Autoencoders
+description: >-
+  [NEURIPS2025][高红移星系] 用变分自编码器(VAE)对 2743 条 JWST 高红移($z>4$)星系光谱进行无监督聚类，发现 12 个不同的天体物理类别，使已知的后星暴星系、Lyman-α 发射星系、极端发射线星系、Little Red Dots 等稀有种群数量翻倍。
 tags:
   - NEURIPS2025
   - 高红移星系
