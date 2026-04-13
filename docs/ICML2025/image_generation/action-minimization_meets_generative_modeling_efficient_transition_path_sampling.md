@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：过渡路径采样 (Transition Path Sampling, TPS) 是统计力学中的核心挑战——需要找到连接能量景观上两个稳定态之间的高概率路径（如化学反应、蛋白质折叠）。传统方法包括伞形采样 (umbrella sampling)、元动力学 (metadynamics) 和射击算法 (shooting methods)。
+**领域现状**：过渡路径采样 (Transition Path Sampling, TPS) 是统计力学中的核心挑战——需要找到连接能量景观上两个稳定态之间的高概率路径（如化学反应、蛋白质折叠）。传统方法包括伞形采样 (umbrella sampling)、元动力学 (metadynamics) 和射击算法 (shooting methods)。
 
-2. **现有痛点**：
+**现有痛点**：
    - 传统方法如元动力学需要定义合适的集体变量 (CVs)，而在过渡态附近选择合适的 CV 本身就很困难
    - 射击方法 (shooting) 采样效率低、拒绝率高、需要昂贵的 MD 模拟
    - 现有基于 ML 的方法（强化学习、可微分模拟、h-变换学习）需要针对每个系统专门训练，无法利用已有的大规模原子模拟数据和预训练生成模型
 
-3. **核心矛盾**：分子构象生成模型（如扩散模型）能生成独立的无偏样本，但它们训练时使用的是不相关的静态样本，无法直接用于采样**时间相关的过渡路径**。
+**核心矛盾**：分子构象生成模型（如扩散模型）能生成独立的无偏样本，但它们训练时使用的是不相关的静态样本，无法直接用于采样**时间相关的过渡路径**。
 
-4. **本文要解决什么？** 如何在不进行任何 TPS 专用训练的情况下，复用预训练生成模型来采样分子系统之间的高概率过渡路径。
+**本文要解决什么？** 如何在不进行任何 TPS 专用训练的情况下，复用预训练生成模型来采样分子系统之间的高概率过渡路径。
 
-5. **切入角度**：作者观察到扩散模型和流匹配模型的 score 函数 $s_{\theta^*} \approx \nabla \log p_{\text{data}}(\mathbf{x})$ 可以解释为随机微分方程 (SDE) 的漂移项。在这组 SDE 下，路径的概率可以通过 Onsager-Machlup 作用泛函来刻画——类似于物理学中的最小作用量原理。
+**切入角度**：作者观察到扩散模型和流匹配模型的 score 函数 $s_{\theta^*} \approx \nabla \log p_{\text{data}}(\mathbf{x})$ 可以解释为随机微分方程 (SDE) 的漂移项。在这组 SDE 下，路径的概率可以通过 Onsager-Machlup 作用泛函来刻画——类似于物理学中的最小作用量原理。
 
-6. **核心idea一句话**：将预训练生成模型诱导的随机动力学与 OM 作用泛函结合，通过梯度优化最小化 OM 作用来找到高概率过渡路径，实现生成模型的零样本 TPS 复用。
+**核心idea一句话**：将预训练生成模型诱导的随机动力学与 OM 作用泛函结合，通过梯度优化最小化 OM 作用来找到高概率过渡路径，实现生成模型的零样本 TPS 复用。
 
 ## 方法详解
 
@@ -55,24 +55,28 @@ tags:
 ### 关键设计
 
 1. **OM 作用泛函的构建与物理解释**:
-   - 做什么：将路径概率的负对数定义为 OM 作用泛函 $S[\mathbf{X}]$，最大化路径概率等价于最小化 $S$
-   - 核心思路：离散化 OM 作用包含三个项——**项 A** $\frac{1}{2\Delta t}\|\mathbf{x}^{(i+1)} - \mathbf{x}^{(i)}\|^2$ 鼓励相邻点平滑过渡；**项 B** $\frac{\Delta t}{2\zeta^2}\|\mathbf{\Phi}(\mathbf{x}^{(i)})\|^2$ 鼓励路径经过低漂移区域（能量极值或鞍点）；**项 C** $\frac{D\Delta t}{\zeta}\nabla \cdot \mathbf{\Phi}(\mathbf{x}^{(i)})$ 鼓励路径经过凸区域（动力学更稳定的区域）
-   - 设计动机：物理参数 $\Delta t$（时间步长）、$\zeta$（阻尼系数）、$D$（扩散系数）控制三项的相对贡献，提供直观的物理调控手段。对于玻尔兹曼分布数据，学到的 score 直接对应原子力场 $\mathbf{s}_{\theta^*} \propto -\nabla U(\mathbf{x}) = \mathbf{F}(\mathbf{x})$
+
+    - 做什么：将路径概率的负对数定义为 OM 作用泛函 $S[\mathbf{X}]$，最大化路径概率等价于最小化 $S$
+    - 核心思路：离散化 OM 作用包含三个项——**项 A** $\frac{1}{2\Delta t}\|\mathbf{x}^{(i+1)} - \mathbf{x}^{(i)}\|^2$ 鼓励相邻点平滑过渡；**项 B** $\frac{\Delta t}{2\zeta^2}\|\mathbf{\Phi}(\mathbf{x}^{(i)})\|^2$ 鼓励路径经过低漂移区域（能量极值或鞍点）；**项 C** $\frac{D\Delta t}{\zeta}\nabla \cdot \mathbf{\Phi}(\mathbf{x}^{(i)})$ 鼓励路径经过凸区域（动力学更稳定的区域）
+    - 设计动机：物理参数 $\Delta t$（时间步长）、$\zeta$（阻尼系数）、$D$（扩散系数）控制三项的相对贡献，提供直观的物理调控手段。对于玻尔兹曼分布数据，学到的 score 直接对应原子力场 $\mathbf{s}_{\theta^*} \propto -\nabla U(\mathbf{x}) = \mathbf{F}(\mathbf{x})$
 
 2. **从生成模型提取 score 函数构建随机动力学**:
-   - 做什么：从预训练的 DDPM 或流匹配模型中提取 score 函数，构建等价的 SDE
-   - 核心思路（DDPM）：通过在固定时间边际 $\tau$ 进行迭代"去噪-加噪"过程，推导出等价的 SDE：$d\mathbf{x} = \mathbf{s}_\theta(\mathbf{x}, \tau) dt + \sqrt{2} d\mathbf{W}_t$，其中 $\mathbf{s}_\theta$ 直接从去噪模型获得
-   - 核心思路（Flow Matching）：证明了流匹配的速度场 $u_\theta$ 可通过解析公式转换为 score：$\mathbf{s}_\theta^{\text{FM}} = \frac{\alpha_\tau}{\dot{\sigma}_\tau \sigma_\tau \alpha_\tau - \dot{\alpha}_\tau \sigma_\tau^2}(\frac{\dot{\alpha}_\tau}{\alpha_\tau}\mathbf{x} - u_{\theta^*}(\mathbf{x}, \tau))$
-   - 设计动机：这使得 OM 框架不局限于 DDPM，可扩展到流匹配等更广泛的生成模型类别
+
+    - 做什么：从预训练的 DDPM 或流匹配模型中提取 score 函数，构建等价的 SDE
+    - 核心思路（DDPM）：通过在固定时间边际 $\tau$ 进行迭代"去噪-加噪"过程，推导出等价的 SDE：$d\mathbf{x} = \mathbf{s}_\theta(\mathbf{x}, \tau) dt + \sqrt{2} d\mathbf{W}_t$，其中 $\mathbf{s}_\theta$ 直接从去噪模型获得
+    - 核心思路（Flow Matching）：证明了流匹配的速度场 $u_\theta$ 可通过解析公式转换为 score：$\mathbf{s}_\theta^{\text{FM}} = \frac{\alpha_\tau}{\dot{\sigma}_\tau \sigma_\tau \alpha_\tau - \dot{\alpha}_\tau \sigma_\tau^2}(\frac{\dot{\alpha}_\tau}{\alpha_\tau}\mathbf{x} - u_{\theta^*}(\mathbf{x}, \tau))$
+    - 设计动机：这使得 OM 框架不局限于 DDPM，可扩展到流匹配等更广泛的生成模型类别
 
 3. **潜在空间线性插值初始化**:
-   - 做什么：在生成模型的低噪声潜在空间 $\tau_{\text{initial}}$ 进行端点插值，生成初始路径
-   - 核心思路：直接在构型空间线性插值会产生非物理路径（原子构型流形高度非凸），而在潜在空间插值生成的样本更接近数据流形
-   - 设计动机：高质量的初始路径对优化结果至关重要，潜在空间的平滑性提供了更好的起点
+
+    - 做什么：在生成模型的低噪声潜在空间 $\tau_{\text{initial}}$ 进行端点插值，生成初始路径
+    - 核心思路：直接在构型空间线性插值会产生非物理路径（原子构型流形高度非凸），而在潜在空间插值生成的样本更接近数据流形
+    - 设计动机：高质量的初始路径对优化结果至关重要，潜在空间的平滑性提供了更好的起点
 
 4. **基于 Hutchinson 估计器的散度加速**:
-   - 做什么：使用 Hutchinson 随机迹估计器来加速 OM 作用中散度项 $\nabla \cdot \mathbf{s}_{\theta^*}$ 的计算
-   - 设计动机：精确计算高维 score 的散度代价过高，随机估计器将计算复杂度降至可接受范围，使得方法可扩展到大规模蛋白质系统
+
+    - 做什么：使用 Hutchinson 随机迹估计器来加速 OM 作用中散度项 $\nabla \cdot \mathbf{s}_{\theta^*}$ 的计算
+    - 设计动机：精确计算高维 score 的散度代价过高，随机估计器将计算复杂度降至可接受范围，使得方法可扩展到大规模蛋白质系统
 
 ### 训练策略
 本方法**不需要任何训练**——核心优势在于直接复用已有预训练生成模型。优化过程仅对路径点做梯度下降，生成模型参数 $\theta^*$ 全程冻结。路径的所有中间点并行优化，天然适合多设备加速。此外引入 Truncated OM Action（忽略散度项 C）作为低扩散率情况下的简化版本。

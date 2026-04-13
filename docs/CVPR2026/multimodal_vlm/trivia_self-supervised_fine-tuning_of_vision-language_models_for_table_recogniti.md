@@ -40,22 +40,25 @@ tags:
 ### 关键设计
 
 1. **Table QA驱动的GRPO训练**：
-   - 为每张表格图像生成R个识别结果
-   - 每个结果与QA对配对，用LLM回答问题
-   - 奖励: $\text{Reward}(o_j) = \frac{1}{|QA|}\sum F1(M_{LLM}(q;o_j), a)$
-   - 关键洞察：表格QA作为TR的代理任务，能正确回答问题意味着识别结果充分保留了文本和结构信息
+
+    - 为每张表格图像生成R个识别结果
+    - 每个结果与QA对配对，用LLM回答问题
+    - 奖励: $\text{Reward}(o_j) = \frac{1}{|QA|}\sum F1(M_{LLM}(q;o_j), a)$
+    - 关键洞察：表格QA作为TR的代理任务，能正确回答问题意味着识别结果充分保留了文本和结构信息
 
 2. **Response-Consistency Sampling**：
-   - 不是所有无标注样本都同等有用
-   - 对每张图像生成K个识别结果，计算配对TEDS相似度
-   - $\text{Consistency}(I) = \frac{2}{K^2-K}\sum_{i<j} \text{TEDS}(o_i, o_j)$
-   - 低一致性 = 高响应多样性 = 更有价值的GRPO训练样本
+
+    - 不是所有无标注样本都同等有用
+    - 对每张图像生成K个识别结果，计算配对TEDS相似度
+    - $\text{Consistency}(I) = \frac{2}{K^2-K}\sum_{i<j} \text{TEDS}(o_i, o_j)$
+    - 低一致性 = 高响应多样性 = 更有价值的GRPO训练样本
 
 3. **Attention-Guided 多样化QA生成**：
-   - 利用VLM的注意力机制确定每个QA的视觉来源
-   - $\text{VS}((q,a); I, M_{QA}) = \{v | A_{M_{QA}}(v|a) > \tau_A\}$
-   - 贪心选择视觉源重叠最小的QA对，确保覆盖表格不同区域
-   - 有效性交叉验证：仅保留有图像时能正确回答的QA
+
+    - 利用VLM的注意力机制确定每个QA的视觉来源
+    - $\text{VS}((q,a); I, M_{QA}) = \{v | A_{M_{QA}}(v|a) > \tau_A\}$
+    - 贪心选择视觉源重叠最小的QA对，确保覆盖表格不同区域
+    - 有效性交叉验证：仅保留有图像时能正确回答的QA
 
 ### 损失函数 / 训练策略
 TRivia-3B三阶段训练：

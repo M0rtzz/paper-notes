@@ -40,20 +40,23 @@ LLM展现出令人惊叹的能力，但其训练目标——下一token预测—
 ### 关键设计
 
 1. **VQ-VAE 隐状态压缩**:
-   - 做什么：将变长的高维隐状态集合 $G_\mathcal{S} = \{h_t^\ell | (\ell,t) \in \mathcal{S}\}$ 映射为离散码 $Z_\mathcal{S} \in [K]$
-   - 核心思路：Transformer编码器将变长输入映射为固定维度潜向量 $r_\mathcal{S}$，然后在codebook $\{e_k\}_{k=1}^K$ 中找最近邻量化为离散码 $k^* = \arg\min_k \|r_\mathcal{S} - e_k\|_2^2$
-   - 训练目标：$\mathcal{L} = \mathcal{L}_{\text{rec}} + \lambda_q \mathcal{L}_{\text{vq}} + \lambda_{\text{cos}} \mathcal{L}_{\text{cos}} + \lambda_{\text{ent}} \mathcal{L}_{\text{ent}}$。额外加入余弦相似度惩罚和熵正则化，确保码本多样且充分利用
-   - 设计动机：离散码既保留了区分不同计算的关键差异，又过滤了细粒度冗余细节，使MI估计更稳定
+
+    - 做什么：将变长的高维隐状态集合 $G_\mathcal{S} = \{h_t^\ell | (\ell,t) \in \mathcal{S}\}$ 映射为离散码 $Z_\mathcal{S} \in [K]$
+    - 核心思路：Transformer编码器将变长输入映射为固定维度潜向量 $r_\mathcal{S}$，然后在codebook $\{e_k\}_{k=1}^K$ 中找最近邻量化为离散码 $k^* = \arg\min_k \|r_\mathcal{S} - e_k\|_2^2$
+    - 训练目标：$\mathcal{L} = \mathcal{L}_{\text{rec}} + \lambda_q \mathcal{L}_{\text{vq}} + \lambda_{\text{cos}} \mathcal{L}_{\text{cos}} + \lambda_{\text{ent}} \mathcal{L}_{\text{ent}}$。额外加入余弦相似度惩罚和熵正则化，确保码本多样且充分利用
+    - 设计动机：离散码既保留了区分不同计算的关键差异，又过滤了细粒度冗余细节，使MI估计更稳定
 
 2. **规划视野分析 (Horizon of the Plan)**:
-   - 做什么：量化前缀计算包含多少关于未来token的信息
-   - 核心思路：对比前缀所有隐状态块 $H = \{h_t^\ell | t=1,...,T; \ell=1,...,L-1\}$ 的摘要码 $Z_{1:T}^{1:L-1}$ 与第 $\tau$ 个生成token的最后层隐状态码 $Z_{T+\tau}^L$ 之间的 nMI。若 nMI 随 $\tau$ 衰减缓慢，说明前缀编码了长视野的信息
-   - 设计动机：MI比探针更robust——不引入额外模型的表达能力，直接度量信息共享
+
+    - 做什么：量化前缀计算包含多少关于未来token的信息
+    - 核心思路：对比前缀所有隐状态块 $H = \{h_t^\ell | t=1,...,T; \ell=1,...,L-1\}$ 的摘要码 $Z_{1:T}^{1:L-1}$ 与第 $\tau$ 个生成token的最后层隐状态码 $Z_{T+\tau}^L$ 之间的 nMI。若 nMI 随 $\tau$ 衰减缓慢，说明前缀编码了长视野的信息
+    - 设计动机：MI比探针更robust——不引入额外模型的表达能力，直接度量信息共享
 
 3. **分支意识分析 (Branches in the Plan)**:
-   - 做什么：检验模型生成正确答案时是否也编码了替代正确路径的信息
-   - 核心思路：在路径寻找(PF)任务中设计每个样本有2条正确路径和1条诱饵路径（三者不共享节点）。比较前缀摘要码与替代正确路径码的MI vs 与诱饵路径码的MI，比值 $\mathcal{I}(Z_H; Z_{\text{alt}}) / \mathcal{I}(Z_H; Z_{\text{decoy}})$ >1 表明分支意识
-   - 设计动机：三条路径不共享节点排除了trivial重叠的解释
+
+    - 做什么：检验模型生成正确答案时是否也编码了替代正确路径的信息
+    - 核心思路：在路径寻找(PF)任务中设计每个样本有2条正确路径和1条诱饵路径（三者不共享节点）。比较前缀摘要码与替代正确路径码的MI vs 与诱饵路径码的MI，比值 $\mathcal{I}(Z_H; Z_{\text{alt}}) / \mathcal{I}(Z_H; Z_{\text{decoy}})$ >1 表明分支意识
+    - 设计动机：三条路径不共享节点排除了trivial重叠的解释
 
 ### 实验设置
 使用GPT-3 Small架构（带RoPE），在三类数据上分析：(1)上下文无关文法(CFG)——局部句法规则；(2)路径寻找(PF)——需多步推理的图任务；(3)自然语言(OpenWebText)。比较NTP与MTP训练目标的差异。

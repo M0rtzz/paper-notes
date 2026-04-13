@@ -42,26 +42,30 @@ ArrowRL 是基于 GRPO（Group Relative Policy Optimization）的后训练策略
 ### 关键设计
 
 1. **时间散度评分（TDS）**:
-   - 为量化样本和基准的时间敏感性，提出基于 KL 散度的评分方法
-   - 对每个样本，比较模型对正放和倒放视频的首 token 概率分布：$\text{TDS}_i = D_{KL}[p_i \| \tilde{p}_i]$
-   - 比简单的准确率差异更细粒度，能捕捉模型置信度的变化
-   - 用于系统分析 8 个主流 VQA 基准的时间敏感性，发现 TVBench、Vinoground、TempCompass 时间敏感度高，而 VITATECS、TemporalBench 等低
+
+    - 为量化样本和基准的时间敏感性，提出基于 KL 散度的评分方法
+    - 对每个样本，比较模型对正放和倒放视频的首 token 概率分布：$\text{TDS}_i = D_{KL}[p_i \| \tilde{p}_i]$
+    - 比简单的准确率差异更细粒度，能捕捉模型置信度的变化
+    - 用于系统分析 8 个主流 VQA 基准的时间敏感性，发现 TVBench、Vinoground、TempCompass 时间敏感度高，而 VITATECS、TemporalBench 等低
 
 2. **保真度奖励（Target Fidelity Reward）**:
-   - 衡量候选响应 $o_i$ 与目标响应 $o^*$ 的相似度
-   - MCQ 任务：精确匹配（1.0 或 0.0）
-   - 开放式 QA 和视频描述：使用 LLM 评分
-   - 确保模型输出与正确答案对齐
+
+    - 衡量候选响应 $o_i$ 与目标响应 $o^*$ 的相似度
+    - MCQ 任务：精确匹配（1.0 或 0.0）
+    - 开放式 QA 和视频描述：使用 LLM 评分
+    - 确保模型输出与正确答案对齐
 
 3. **反向奖励（Reverse Reward）**:
-   - 最大化正向候选响应 $o_i$ 与反向响应 $\tilde{o}$ 之间的差异：$r_i^{rev} = 1 - \text{Similarity}(o_i, \tilde{o})$
-   - 动机：AoT 敏感的模型应对正放和倒放视频产生不同的响应
-   - 动态加权机制：当 $\text{Similarity}(\tilde{o}, o^*) > \gamma$ 时（说明该样本时间不敏感），设 $\alpha_i = 0$ 禁用反向奖励
-   - 最终奖励：$r_i = r_i^{fid} + \alpha_i \cdot r_i^{rev}$
+
+    - 最大化正向候选响应 $o_i$ 与反向响应 $\tilde{o}$ 之间的差异：$r_i^{rev} = 1 - \text{Similarity}(o_i, \tilde{o})$
+    - 动机：AoT 敏感的模型应对正放和倒放视频产生不同的响应
+    - 动态加权机制：当 $\text{Similarity}(\tilde{o}, o^*) > \gamma$ 时（说明该样本时间不敏感），设 $\alpha_i = 0$ 禁用反向奖励
+    - 最终奖励：$r_i = r_i^{fid} + \alpha_i \cdot r_i^{rev}$
 
 4. **AoTBench 基准**:
-   - 三个任务：(a) 序列方向分类（613 个视频判断正放/倒放）；(b) 方向性描述匹配（2000 个视频的 V2T 和 T2V 任务）；(c) AoT 敏感 VQA（从 8 个基准中挑选高 TDS 的 1800 个样本）
-   - 专门针对时间方向感知能力的评估
+
+    - 三个任务：(a) 序列方向分类（613 个视频判断正放/倒放）；(b) 方向性描述匹配（2000 个视频的 V2T 和 T2V 任务）；(c) AoT 敏感 VQA（从 8 个基准中挑选高 TDS 的 1800 个样本）
+    - 专门针对时间方向感知能力的评估
 
 ### 损失函数 / 训练策略
 

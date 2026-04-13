@@ -24,12 +24,12 @@ tags:
 提出 Mixture of Decoders (MxD)，将 LLM 的 MLP 层分解为数万个稀疏激活的专家子层（layer-level sparsity），每个专家通过 Hadamard 乘积张量分解实现满秩线性变换，在稀疏性-准确性权衡上显著优于 Transcoders，同时保持可解释性。
 
 ## 研究背景与动机
-1. **领域现状**：LLM 的 MLP 层表示是密集的——单个神经元编码多个概念，难以隔离特定特征。SAE 和 Transcoder 通过学习稀疏的过完备基来近似 MLP 层输出，使特征更可解释。
-2. **现有痛点**：目前方法都采用**神经元级稀疏性**（限制隐层中非零元素数量），但这导致严重的**稀疏性-准确性权衡**——稀疏度越高，对原始 MLP 映射的重建误差越大。不忠实的重建意味着可能遗漏关键行为，且无法直接替换原始层做推理。
-3. **核心矛盾**：可解释性要求高稀疏度，但高稀疏度的神经元级方法只能使用输出空间的低维子空间（$K$ 个非零隐层单元 → $K$ 维子空间），丢失了原始层的表达能力。
-4. **本文要解决什么？** 在保持高稀疏度的同时，忠实地重建原始 MLP 层的功能。
-5. **切入角度**：从神经元级稀疏性转向**层级稀疏性**——每次选择少量全秩线性变换（专家子层），每个专家的表达能力远强于单个神经元。
-6. **核心idea一句话**：用 Hadamard 乘积参数化的张量分解构造大量参数高效的满秩专家子层，稀疏激活 $K$ 个即可忠实重建原始 MLP。
+**领域现状**：LLM 的 MLP 层表示是密集的——单个神经元编码多个概念，难以隔离特定特征。SAE 和 Transcoder 通过学习稀疏的过完备基来近似 MLP 层输出，使特征更可解释。
+**现有痛点**：目前方法都采用**神经元级稀疏性**（限制隐层中非零元素数量），但这导致严重的**稀疏性-准确性权衡**——稀疏度越高，对原始 MLP 映射的重建误差越大。不忠实的重建意味着可能遗漏关键行为，且无法直接替换原始层做推理。
+**核心矛盾**：可解释性要求高稀疏度，但高稀疏度的神经元级方法只能使用输出空间的低维子空间（$K$ 个非零隐层单元 → $K$ 维子空间），丢失了原始层的表达能力。
+**本文要解决什么？** 在保持高稀疏度的同时，忠实地重建原始 MLP 层的功能。
+**切入角度**：从神经元级稀疏性转向**层级稀疏性**——每次选择少量全秩线性变换（专家子层），每个专家的表达能力远强于单个神经元。
+**核心idea一句话**：用 Hadamard 乘积参数化的张量分解构造大量参数高效的满秩专家子层，稀疏激活 $K$ 个即可忠实重建原始 MLP。
 
 ## 方法详解
 
@@ -39,18 +39,21 @@ MxD 将原始 MLP 输出近似为 $N$ 个线性变换的稀疏加权组合：$\t
 ### 关键设计
 
 1. **Hadamard 乘积张量分解**：
-   - 做什么：参数高效地存储 $N$ 个全秩专家权重
-   - 核心思路：$\boldsymbol{\mathcal{W}}(n,h,:) = \mathbf{c}_n * \mathbf{d}_h$，$\mathbf{C} \in \mathbb{R}^{N \times O}$ 是专家特定参数，$\mathbf{D} \in \mathbb{R}^{H \times O}$ 是共享变换。参数量从 $NHO$ 降到 $O(N+H)$
-   - 等效前向传播：$\text{MxD}(\mathbf{x}) = (\mathbf{C}^\top\mathbf{a}) * (\mathbf{D}^\top\mathbf{z})$
+
+    - 做什么：参数高效地存储 $N$ 个全秩专家权重
+    - 核心思路：$\boldsymbol{\mathcal{W}}(n,h,:) = \mathbf{c}_n * \mathbf{d}_h$，$\mathbf{C} \in \mathbb{R}^{N \times O}$ 是专家特定参数，$\mathbf{D} \in \mathbb{R}^{H \times O}$ 是共享变换。参数量从 $NHO$ 降到 $O(N+H)$
+    - 等效前向传播：$\text{MxD}(\mathbf{x}) = (\mathbf{C}^\top\mathbf{a}) * (\mathbf{D}^\top\mathbf{z})$
 
 2. **满秩保证（Lemma 1）**：
-   - 做什么：证明每个专家权重满秩
-   - 核心结论：$\mathbf{W}_n = \mathbf{D}\,\text{diag}(\mathbf{c}_n)$，只要 $\mathbf{c}_n$ 无零元素，$\text{rank}(\mathbf{W}_n) = \text{rank}(\mathbf{D})$
-   - 设计动机：Transcoder 稀疏度 $K$ 时输出限于 $K$ 维子空间，MxD 是 $K$ 个满秩变换的和，表达力更强
+
+    - 做什么：证明每个专家权重满秩
+    - 核心结论：$\mathbf{W}_n = \mathbf{D}\,\text{diag}(\mathbf{c}_n)$，只要 $\mathbf{c}_n$ 无零元素，$\text{rank}(\mathbf{W}_n) = \text{rank}(\mathbf{D})$
+    - 设计动机：Transcoder 稀疏度 $K$ 时输出限于 $K$ 维子空间，MxD 是 $K$ 个满秩变换的和，表达力更强
 
 3. **GLU 扩展**：
-   - 做什么：推广到现代 LLM 的 Gated Linear Unit 架构
-   - 核心思路：直接将 GLU 隐层 $\mathbf{z}_{\text{GLU}} = \psi(\mathbf{E}_{\text{GLU}}^\top\mathbf{x}) * (\mathbf{E}^\top\mathbf{x})$ 代入 MxD
+
+    - 做什么：推广到现代 LLM 的 Gated Linear Unit 架构
+    - 核心思路：直接将 GLU 隐层 $\mathbf{z}_{\text{GLU}} = \psi(\mathbf{E}_{\text{GLU}}^\top\mathbf{x}) * (\mathbf{E}^\top\mathbf{x})$ 代入 MxD
 
 ### 损失函数 / 训练策略
 - MSE 蒸馏损失（MxD 输出 vs 原始 MLP 输出）

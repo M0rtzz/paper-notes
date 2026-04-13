@@ -28,8 +28,8 @@ tags:
 随着 LLM Agent 在持久运行的现实角色中日益普及，它们自然会遇到连续的任务流。然而一个关键限制是它们无法从累积的交互历史中学习——每次面对新任务都从零开始，被迫丢弃有价值的洞察并重复过去的错误。
 
 现有 Agent 记忆方法有两大缺陷：
-1. **只存储原始轨迹或成功套路**：Synapse 存储原始轨迹作为上下文记忆，AWM 从轨迹中抽取工作流程（workflow），但都无法蒸馏更高层次的可迁移推理模式
-2. **忽视失败经验的价值**：过度强调成功经验，导致 Agent 无法从自身的失败中学到教训
+**只存储原始轨迹或成功套路**：Synapse 存储原始轨迹作为上下文记忆，AWM 从轨迹中抽取工作流程（workflow），但都无法蒸馏更高层次的可迁移推理模式
+**忽视失败经验的价值**：过度强调成功经验，导致 Agent 无法从自身的失败中学到教训
 
 核心 idea：将成功和失败经验都蒸馏为可泛化的推理策略（而非具体操作步骤），存入结构化的记忆库；结合 test-time scaling 生成丰富的对比信号，进一步提升记忆质量。
 
@@ -41,21 +41,23 @@ ReasoningBank 是一个闭环记忆系统：Agent 接收新任务 → 从 Reason
 ### 关键设计
 
 1. **Memory Schema（结构化记忆单元）**: 每个记忆项包含三个部分：
-   - **Title**: 简要标识核心策略或推理模式
-   - **Description**: 一句话概要
-   - **Content**: 蒸馏后的推理步骤、决策依据或操作洞察
+
+    - **Title**: 简要标识核心策略或推理模式
+    - **Description**: 一句话概要
+    - **Content**: 蒸馏后的推理步骤、决策依据或操作洞察
    
    设计为人类可理解且机器可用，既高于原始轨迹（抽象共性），又具体到可执行（含推理步骤）。
 
 2. **三步闭环流程**:
-   - **Memory Retrieval**: 用 embedding-based 相似度搜索从 ReasoningBank 检索 top-k 相关经验的记忆项，注入 Agent 的 system prompt
-   - **Memory Construction**: 任务完成后，用 LLM-as-a-judge 评判轨迹成功/失败。成功轨迹贡献"验证过的策略"，失败轨迹贡献"反事实信号和陷阱警示"。每条轨迹最多提取 3 个记忆项
-   - **Memory Consolidation**: 新记忆项直接追加到 ReasoningBank（有意采用最简合并策略以隔离记忆内容的效果）
+
+    - **Memory Retrieval**: 用 embedding-based 相似度搜索从 ReasoningBank 检索 top-k 相关经验的记忆项，注入 Agent 的 system prompt
+    - **Memory Construction**: 任务完成后，用 LLM-as-a-judge 评判轨迹成功/失败。成功轨迹贡献"验证过的策略"，失败轨迹贡献"反事实信号和陷阱警示"。每条轨迹最多提取 3 个记忆项
+    - **Memory Consolidation**: 新记忆项直接追加到 ReasoningBank（有意采用最简合并策略以隔离记忆内容的效果）
 
 3. **MaTTS: Memory-Aware Test-Time Scaling**: 
    将 ReasoningBank 与 test-time scaling 结合，建立双向协同：
-   - **Parallel Scaling**: 对同一查询生成多条轨迹，通过 self-contrast 比较不同轨迹的成败，识别一致的推理模式并过滤虚假解。提供多样化的对比信号，使记忆更可靠
-   - **Sequential Scaling**: 单条轨迹内迭代式 self-refinement，中间的推理尝试、纠正和洞察也被捕获为有价值的记忆信号
+    - **Parallel Scaling**: 对同一查询生成多条轨迹，通过 self-contrast 比较不同轨迹的成败，识别一致的推理模式并过滤虚假解。提供多样化的对比信号，使记忆更可靠
+    - **Sequential Scaling**: 单条轨迹内迭代式 self-refinement，中间的推理尝试、纠正和洞察也被捕获为有价值的记忆信号
    
    **关键区别**: vanilla TTS 独立处理多条轨迹再各自提取记忆（suboptimal）；MaTTS 利用冗余探索产生的内在对比信号来策划更高质量的记忆。好记忆引导扩展走向更有前景的路径，丰富的经验又锻造更强的记忆——形成正反馈循环。
 

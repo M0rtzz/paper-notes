@@ -55,9 +55,10 @@ DFloat11 的核心观察：**BFloat16 的 8-bit 指数位信息冗余极大**。
 1. **层次化查找表（Hierarchical LUTs）解码**：传统 Huffman 解码逐 bit 遍历树，分支频繁、并行度低。DFloat11 将 Huffman 树分解为一组不重叠的高度为 8 的子树，每棵子树对应一张 256 项的紧凑 LUT。解码时每次读取 1 字节，通过数组查找即可完成一步解码——若当前子树能直接解码则返回符号，否则指向下一级 LUT。利用 BF16 权重中 exponent 值的稀疏性（240~255 范围的极大指数值在 LLM 权重中从不出现），将这些空闲值复用为子表指针。全部 LUT + CodeLengths 表总共不超过 $(8+1) \times 256$ 字节，完全放得进 GPU SRAM（shared memory），可以高速反复查表。
 
 2. **两阶段 GPU Kernel + 轻量辅助变量**：将编码后的 exponent 字节流按固定 $n=8$ 字节切块，每个 GPU 线程负责解码一个块。变长编码导致两个并行难题：(a) 每个线程的起始 bit 偏移未知；(b) 除第一个线程外，解码结果的输出位置未知。解决方案：
-   - **Gaps 数组**：每个线程存 5 bit，记录该线程块内第一个有效 Huffman 码相对于起始字节的 bit 偏移（范围 [0,31]）。
-   - **BlockOutputPos 数组**：每个线程块仅存一个 32-bit 整数，表示该块第一个元素的输出索引。相比为每个线程都存输出位置，开销降低了数百到数千倍。
-   - **两阶段执行**：Phase 1 — 每个线程解码其块并统计元素数量（不写 HBM），线程块内做 prefix sum（Blelloch 算法）算出每个线程的精确输出位置；Phase 2 — 重新解码并写入 SRAM 缓冲区，最后以合并写（coalesced write）一次性写入 HBM。编码数据在 Phase 1 前加载到 SRAM，避免重复读 HBM。
+
+    - **Gaps 数组**：每个线程存 5 bit，记录该线程块内第一个有效 Huffman 码相对于起始字节的 bit 偏移（范围 [0,31]）。
+    - **BlockOutputPos 数组**：每个线程块仅存一个 32-bit 整数，表示该块第一个元素的输出索引。相比为每个线程都存输出位置，开销降低了数百到数千倍。
+    - **两阶段执行**：Phase 1 — 每个线程解码其块并统计元素数量（不写 HBM），线程块内做 prefix sum（Blelloch 算法）算出每个线程的精确输出位置；Phase 2 — 重新解码并写入 SRAM 缓冲区，最后以合并写（coalesced write）一次性写入 HBM。编码数据在 Phase 1 前加载到 SRAM，避免重复读 HBM。
 
 3. **Transformer Block 级别批量解压**：单个权重矩阵通常不够大，无法充分利用 GPU 资源。DFloat11 将同一 Transformer block 内的所有权重矩阵打包为一个 batch 一起解压，在该 block 的 forward pass 之前统一完成。Token embedding 和 LM head 因为足够大，单独解压即可饱和 GPU 资源。
 

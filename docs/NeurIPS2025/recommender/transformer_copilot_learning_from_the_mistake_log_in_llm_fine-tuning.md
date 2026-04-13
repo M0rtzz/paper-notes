@@ -25,20 +25,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：监督微调（SFT）是适配 LLM 到特定领域的标准方法。但微调后模型在推理时仍存在训练-测试不对齐问题——模型无法完全捕获任务特定细微差异，或过拟合训练数据中的某些模式。
+**领域现状**：监督微调（SFT）是适配 LLM 到特定领域的标准方法。但微调后模型在推理时仍存在训练-测试不对齐问题——模型无法完全捕获任务特定细微差异，或过拟合训练数据中的某些模式。
 
-2. **现有痛点**：
+**现有痛点**：
    - 标准 SFT 仅用损失梯度更新参数，每个错误被消费后立即丢弃，模型不保留"在哪里、如何、为什么犯错"的显式记忆
    - 数据侧干预（self-refinement）和外部反馈（RLHF、Reflexion）需要额外数据或人类标注
    - 微调后的最终参数 $\theta_T^P$ 不包含训练轨迹中的错误信息——这些有价值的学习信号被浪费
 
-3. **核心矛盾**：SFT 优化参数使 loss 最小化，但参数更新是"即用即丢"的——模型可能在同类问题上反复犯类似错误，因为它没有显式的错误反思机制。
+**核心矛盾**：SFT 优化参数使 loss 最小化，但参数更新是"即用即丢"的——模型可能在同类问题上反复犯类似错误，因为它没有显式的错误反思机制。
 
-4. **本文要解决什么**：不改变 Pilot 模型的训练过程，而是通过记录和利用训练中的中间信号（错误日志），在推理时辅助纠正。
+**本文要解决什么**：不改变 Pilot 模型的训练过程，而是通过记录和利用训练中的中间信号（错误日志），在推理时辅助纠正。
 
-5. **切入角度**：类比人类学习中"错题本"的反思机制——记录错误、分析原因、在考试时提醒自己注意类似错误。
+**切入角度**：类比人类学习中"错题本"的反思机制——记录错误、分析原因、在考试时提醒自己注意类似错误。
 
-6. **核心idea一句话**：在微调过程中系统记录模型的错误模式（输入、内部状态、token级误差），训练辅助 Copilot 学习这些模式并在推理时修正 Pilot 的 logits。
+**核心idea一句话**：在微调过程中系统记录模型的错误模式（输入、内部状态、token级误差），训练辅助 Copilot 学习这些模式并在推理时修正 Pilot 的 logits。
 
 ## 方法详解
 
@@ -48,27 +48,31 @@ tags:
 ### 关键设计
 
 1. **Mistake Log（错误日志）**：
-   - 做什么：系统记录微调全过程中的三类信息
-   - 三个组件：
-     - **Question** $\tilde{X}_t$：输入表示（encoder 输出或 embedding 层输出）
-     - **Rationale** $h_t$：每个 token 在所有 decoder 层的隐藏状态 $\{h_{t,i,l}\}_{l=1}^{L^P}$，反映模型的内部"推理过程"
-     - **Mistake** $\ell_t$：token 级预测误差 $\ell_t(p_{t,i}, \hat{p}_{t,i}) = p_{t,i} - \hat{p}_{t,i}$，精确量化每个 token 的错误方向和程度
-   - 完整 Mistake Log：$M_T = \{(\tilde{X}_t, h_t, \ell_t)\}_{t=1}^T$
+
+    - 做什么：系统记录微调全过程中的三类信息
+    - 三个组件：
+      - **Question** $\tilde{X}_t$：输入表示（encoder 输出或 embedding 层输出）
+      - **Rationale** $h_t$：每个 token 在所有 decoder 层的隐藏状态 $\{h_{t,i,l}\}_{l=1}^{L^P}$，反映模型的内部"推理过程"
+      - **Mistake** $\ell_t$：token 级预测误差 $\ell_t(p_{t,i}, \hat{p}_{t,i}) = p_{t,i} - \hat{p}_{t,i}$，精确量化每个 token 的错误方向和程度
+    - 完整 Mistake Log：$M_T = \{(\tilde{X}_t, h_t, \ell_t)\}_{t=1}^T$
 
 2. **Copilot 模型设计**：
-   - 做什么：从 Pilot 的 decoder 初始化，学习预测 Pilot 的 token 级误差
-   - **Encoder-Decoder Copilot**：输入是 token 级误差序列 $\ell_{t,<i}$（投影到 hidden dim）。使用修改的 cross-attention：Query 来自 Copilot 自身隐藏状态，Key/Value 来自 Pilot 的输入表示和池化后的隐藏状态的拼接
-   - **Decoder-only Copilot**：奇数层用标准 self-attention，偶数层用修改的 cross-attention 关注 Pilot 信息
-   - 损失函数：$\mathcal{L}_t^C = \sqrt{\sum_i \|f_{t,i}^C - \ell_t(p_{t,i}, \hat{p}_{t,i})\|^2}$（RMSE 避免梯度过度平滑）
+
+    - 做什么：从 Pilot 的 decoder 初始化，学习预测 Pilot 的 token 级误差
+    - **Encoder-Decoder Copilot**：输入是 token 级误差序列 $\ell_{t,<i}$（投影到 hidden dim）。使用修改的 cross-attention：Query 来自 Copilot 自身隐藏状态，Key/Value 来自 Pilot 的输入表示和池化后的隐藏状态的拼接
+    - **Decoder-only Copilot**：奇数层用标准 self-attention，偶数层用修改的 cross-attention 关注 Pilot 信息
+    - 损失函数：$\mathcal{L}_t^C = \sqrt{\sum_i \|f_{t,i}^C - \ell_t(p_{t,i}, \hat{p}_{t,i})\|^2}$（RMSE 避免梯度过度平滑）
 
 3. **联合训练范式**：
-   - 每轮：(a) Pilot 前向传播并更新参数；(b) 收集 Mistake Log 条目；(c) 从 Mistake Log 采样训练 Copilot
-   - Copilot 持续跟随 Pilot 的演化，学习最新的错误模式
+
+    - 每轮：(a) Pilot 前向传播并更新参数；(b) 收集 Mistake Log 条目；(c) 从 Mistake Log 采样训练 Copilot
+    - Copilot 持续跟随 Pilot 的演化，学习最新的错误模式
 
 4. **推理时 logits 修正**：
-   - 核心公式：$\tilde{p}_{t,i} = \hat{p}_{t,i} + \lambda f_{t,i}^C$
-   - Copilot 自回归生成误差预测，加回 Pilot 的 logits 上
-   - $\lambda$ 是修正强度超参（默认 1），理论保证存在 $\lambda_0 > 0$ 使修正后更接近真实分布
+
+    - 核心公式：$\tilde{p}_{t,i} = \hat{p}_{t,i} + \lambda f_{t,i}^C$
+    - Copilot 自回归生成误差预测，加回 Pilot 的 logits 上
+    - $\lambda$ 是修正强度超参（默认 1），理论保证存在 $\lambda_0 > 0$ 使修正后更接近真实分布
 
 ### 理论保证（定理4.1）
 在 Copilot 误差 $\epsilon_C < \sqrt{\epsilon_P^2 + \sigma_P^2}$ 的温和条件下，修正后的 $\tilde{p}_{t,i}$ 严格比 $\hat{p}_{t,i}$ 更接近真实分布 $p_{t,i}$。注意 Copilot 可以比 Pilot 有更大的偏差（$\epsilon_C > \epsilon_P$），仍然有效——这解释了为什么可以用较小的 Copilot。

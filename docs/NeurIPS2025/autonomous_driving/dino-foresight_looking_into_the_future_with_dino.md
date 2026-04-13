@@ -28,11 +28,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：未来场景预测对自动驾驶和机器人至关重要。现有方法主要分两类：(a) 像素级预测——计算昂贵且关注无关细节；(b) 潜空间生成方法——用 VAE latent 做扩散/自回归预测，但 VAE latent 缺少语义对齐，难以直接用于下游场景理解任务。
-2. **现有痛点**：(a) VAE latent 缺乏语义信息，必须重建回 RGB 再跑任务 head；(b) 每种下游任务需要独立训练预测模型（PFA、F2MF 等方法不可扩展）；(c) VISTA 等世界模型参数量 2.5B 且推理极慢。
-3. **核心矛盾**：自动驾驶决策系统需要的是语义场景理解（物体在哪、是什么），而非低层外观重建。现有方法把模型容量浪费在建模无关的低层细节上。
-4. **切入角度**：VFM（如 DINOv2）特征天然包含丰富语义且支持多任务 head，如果能直接预测 VFM 特征的时间演化，就能绕过 RGB 重建直接做未来帧理解。
-5. **核心 idea**：不预测未来 RGB 或 VAE latent，而是预测 DINOv2 特征的时间演化。将 VFM 特征空间视为语义丰富的高维潜空间，预测后直接挂各种 off-the-shelf task head 即可完成多种密集预测任务。
+**领域现状**：未来场景预测对自动驾驶和机器人至关重要。现有方法主要分两类：(a) 像素级预测——计算昂贵且关注无关细节；(b) 潜空间生成方法——用 VAE latent 做扩散/自回归预测，但 VAE latent 缺少语义对齐，难以直接用于下游场景理解任务。
+**现有痛点**：(a) VAE latent 缺乏语义信息，必须重建回 RGB 再跑任务 head；(b) 每种下游任务需要独立训练预测模型（PFA、F2MF 等方法不可扩展）；(c) VISTA 等世界模型参数量 2.5B 且推理极慢。
+**核心矛盾**：自动驾驶决策系统需要的是语义场景理解（物体在哪、是什么），而非低层外观重建。现有方法把模型容量浪费在建模无关的低层细节上。
+**切入角度**：VFM（如 DINOv2）特征天然包含丰富语义且支持多任务 head，如果能直接预测 VFM 特征的时间演化，就能绕过 RGB 重建直接做未来帧理解。
+**核心 idea**：不预测未来 RGB 或 VAE latent，而是预测 DINOv2 特征的时间演化。将 VFM 特征空间视为语义丰富的高维潜空间，预测后直接挂各种 off-the-shelf task head 即可完成多种密集预测任务。
 
 ## 方法详解
 
@@ -43,24 +43,28 @@ tags:
 ### 关键设计
 
 1. **Hierarchical Target Feature Construction**：
-   - **目标**：构建高质量的预测目标特征空间。
-   - **做法**：从 DINOv2 ViT 提取 $L$ 层特征 $\mathbf{F}^{(l)} \in \mathbb{R}^{N \times H \times W \times D_{enc}}$，沿通道维拼接得到 $\mathbf{F}_{concat} \in \mathbb{R}^{N \times H \times W \times L \cdot D_{enc}}$，再用 PCA 降维至 $D \ll L \cdot D_{enc}$ 维，得到目标特征 $\mathbf{F}_{TRG} = \mathbf{F}_{PCA}$。
-   - **动机**：多层特征捕获不同抽象层次的语义信息；PCA 压缩在保留关键信息（98%+ 方差）的同时大幅降低预测难度。
+
+    - **目标**：构建高质量的预测目标特征空间。
+    - **做法**：从 DINOv2 ViT 提取 $L$ 层特征 $\mathbf{F}^{(l)} \in \mathbb{R}^{N \times H \times W \times D_{enc}}$，沿通道维拼接得到 $\mathbf{F}_{concat} \in \mathbb{R}^{N \times H \times W \times L \cdot D_{enc}}$，再用 PCA 降维至 $D \ll L \cdot D_{enc}$ 维，得到目标特征 $\mathbf{F}_{TRG} = \mathbf{F}_{PCA}$。
+    - **动机**：多层特征捕获不同抽象层次的语义信息；PCA 压缩在保留关键信息（98%+ 方差）的同时大幅降低预测难度。
 
 2. **Masked Feature Transformer**：
-   - **目标**：自监督预测未来帧的 VFM 特征。
-   - **做法**：12 层 transformer，每层包含 temporal MSA + spatial MSA + FFN。Token embedding 将 $D$ 维特征投射到隐维度 $D_{dec}=1152$。训练时将 future 帧 token 替换为可学习 [MASK] 向量，推理时直接拼接 [MASK] token。时空分离注意力将计算复杂度从 $O((NHW)^2)$ 降至 $O(N^2 + (HW)^2)$。
-   - **训练目标**：SmoothL1 loss，$\mathcal{L}_{MFM} = \mathbb{E}_{x \in \mathcal{X}} \left[ \sum_{p \in \mathcal{P}} L(\mathbf{F}_{TRG}(p), \tilde{\mathbf{F}}_{TRG}(p)) \right]$，其中 $\beta=0.1$。SmoothL1 对异常值鲁棒，优于 L1/MSE。
+
+    - **目标**：自监督预测未来帧的 VFM 特征。
+    - **做法**：12 层 transformer，每层包含 temporal MSA + spatial MSA + FFN。Token embedding 将 $D$ 维特征投射到隐维度 $D_{dec}=1152$。训练时将 future 帧 token 替换为可学习 [MASK] 向量，推理时直接拼接 [MASK] token。时空分离注意力将计算复杂度从 $O((NHW)^2)$ 降至 $O(N^2 + (HW)^2)$。
+    - **训练目标**：SmoothL1 loss，$\mathcal{L}_{MFM} = \mathbb{E}_{x \in \mathcal{X}} \left[ \sum_{p \in \mathcal{P}} L(\mathbf{F}_{TRG}(p), \tilde{\mathbf{F}}_{TRG}(p)) \right]$，其中 $\beta=0.1$。SmoothL1 对异常值鲁棒，优于 L1/MSE。
 
 3. **高分辨率训练策略**（三种方案对比）：
-   - 低分辨率训练 + 高分辨率推理（位置编码插值）：有分布偏移，效果最差。
-   - 滑动窗口方法：高分辨率提取特征，训练时随机裁剪 $16 \times 32$ patch，推理时滑动窗口。
-   - **两阶段训练**（最优方案）：先低分辨率 $224 \times 448$ 训练多 epoch，再高分辨率 $448 \times 896$ 微调少量 epoch。优势在于 transformer 能看到更大空间上下文。
+
+    - 低分辨率训练 + 高分辨率推理（位置编码插值）：有分布偏移，效果最差。
+    - 滑动窗口方法：高分辨率提取特征，训练时随机裁剪 $16 \times 32$ patch，推理时滑动窗口。
+    - **两阶段训练**（最优方案）：先低分辨率 $224 \times 448$ 训练多 epoch，再高分辨率 $448 \times 896$ 微调少量 epoch。优势在于 transformer 能看到更大空间上下文。
 
 4. **模块化多任务预测框架**：
-   - **目标**：即插即用的任务头库，新增任务无需重训核心模型。
-   - **做法**：语义分割/深度/法线用 DPT head，实例分割用 Mask2Former。Task head 在冻结 VFM 特征上独立训练，可选择性经过 PCA 压缩/解压适配，训练时甚至不需要视频数据。
-   - **动机**：VFM 特征空间的统一性使得不同任务 head 可独立训练和自由组合。
+
+    - **目标**：即插即用的任务头库，新增任务无需重训核心模型。
+    - **做法**：语义分割/深度/法线用 DPT head，实例分割用 Mask2Former。Task head 在冻结 VFM 特征上独立训练，可选择性经过 PCA 压缩/解压适配，训练时甚至不需要视频数据。
+    - **动机**：VFM 特征空间的统一性使得不同任务 head 可独立训练和自由组合。
 
 ### 训练配置
 

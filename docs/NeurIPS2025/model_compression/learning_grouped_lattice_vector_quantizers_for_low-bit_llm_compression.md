@@ -26,12 +26,12 @@ GLVQ 提出为 LLM 权重的每个分组学习专属的格（lattice）码本（
 
 ## 研究背景与动机
 
-1. **领域现状**：后训练量化（PTQ）是 LLM 部署压缩的主流方案。标量量化（如 GPTQ）在 4-bit 以上效果尚可，但低于 3-bit 时性能严重退化。向量量化（VQ）方法（如 QuIP#、AQLM）通过利用高维空间的结构化码本提升量化保真度。
-2. **现有痛点**：QuIP# 使用固定的 $E_8$ 格来量化所有组/层的权重，忽略了不同权重组统计特性的差异，导致某些组量化失配。AQLM 学习自由形式的 VQ 码本，虽灵活但解码需要查表操作，速度慢。
-3. **核心矛盾**：固定格（如 $E_8$）结构化程度高但适应性差；自由形式 VQ 适应性强但计算复杂度高——需要在码本灵活性和解码效率之间取得平衡。
-4. **本文要解决什么？** 设计一种既保持格量化的高效解码（简单矩阵乘法），又能自适应不同权重组分布的量化方案。
-5. **切入角度**：每个权重组学习一个独立的生成矩阵 $\mathbf{G}_g$ 定义格码本，配合可学习的 companding 变换 $F_g$ 处理非均匀分布。
-6. **核心idea一句话**：分组学习格生成矩阵 + 分组 μ-law companding = 保持格结构化解码效率的同时适配局部权重分布。
+**领域现状**：后训练量化（PTQ）是 LLM 部署压缩的主流方案。标量量化（如 GPTQ）在 4-bit 以上效果尚可，但低于 3-bit 时性能严重退化。向量量化（VQ）方法（如 QuIP#、AQLM）通过利用高维空间的结构化码本提升量化保真度。
+**现有痛点**：QuIP# 使用固定的 $E_8$ 格来量化所有组/层的权重，忽略了不同权重组统计特性的差异，导致某些组量化失配。AQLM 学习自由形式的 VQ 码本，虽灵活但解码需要查表操作，速度慢。
+**核心矛盾**：固定格（如 $E_8$）结构化程度高但适应性差；自由形式 VQ 适应性强但计算复杂度高——需要在码本灵活性和解码效率之间取得平衡。
+**本文要解决什么？** 设计一种既保持格量化的高效解码（简单矩阵乘法），又能自适应不同权重组分布的量化方案。
+**切入角度**：每个权重组学习一个独立的生成矩阵 $\mathbf{G}_g$ 定义格码本，配合可学习的 companding 变换 $F_g$ 处理非均匀分布。
+**核心idea一句话**：分组学习格生成矩阵 + 分组 μ-law companding = 保持格结构化解码效率的同时适配局部权重分布。
 
 ## 方法详解
 
@@ -41,27 +41,30 @@ GLVQ 提出为 LLM 权重的每个分组学习专属的格（lattice）码本（
 ### 关键设计
 
 1. **Salience-Determined Bit Allocation (SDBA)**:
-   - 做什么：在全局比特预算约束下为每个权重组分配最优比特宽度
-   - 核心思路：最小化量化后输出的 KL 散度 $D_{KL}(\mathbf{WX} \| \hat{\mathbf{W}}\mathbf{X})$，约束 $\frac{1}{G}\sum_g b_g = N$ 且高 1-bit 和低 1-bit 的组数相等
-   - 搜索算法：双指针法，仅需 $\mathcal{O}(\log m)$ 次迭代
-   - 例如 2-bit 目标：高 salience 组用 3-bit，低 salience 组用 1-bit，其余用 2-bit
+
+    - 做什么：在全局比特预算约束下为每个权重组分配最优比特宽度
+    - 核心思路：最小化量化后输出的 KL 散度 $D_{KL}(\mathbf{WX} \| \hat{\mathbf{W}}\mathbf{X})$，约束 $\frac{1}{G}\sum_g b_g = N$ 且高 1-bit 和低 1-bit 的组数相等
+    - 搜索算法：双指针法，仅需 $\mathcal{O}(\log m)$ 次迭代
+    - 例如 2-bit 目标：高 salience 组用 3-bit，低 salience 组用 1-bit，其余用 2-bit
 
 2. **可学习格码本（Lattice Codebook Learning）**:
-   - 做什么：为每个权重组学习专属的格结构
-   - 核心公式：把权重组 $\mathbf{W}_g \in \mathbb{R}^{m_g \times n_g}$ reshape 为 $d \times \ell_g$，通过生成矩阵量化：$\hat{\mathbf{W}}_g = \mathbf{G}_g \mathbf{Z}_g$
-   - 优化目标：$\mathcal{L}_g = \|\mathbf{W}_g \mathbf{X} - \mathbf{G}_g \mathbf{Z}_g \mathbf{X}\|_2^2 + \lambda \|\mathbf{G}_g - \mathbf{G}_g^{(0)}\|_2^2$
-   - 交替优化：(i) 固定 $\mathbf{G}_g$，Babai rounding 更新整数索引 $\mathbf{z}_i = \lfloor \mathbf{G}_g^{-1} \mathbf{w}_i \rceil$（复杂度 $\mathcal{O}(d^3)$）；(ii) 固定 $\mathbf{Z}_g$，梯度下降更新 $\mathbf{G}_g$，梯度 $\nabla_{\mathbf{G}_g} \mathcal{L}_g = -2(\mathbf{W}_g \mathbf{X} - \mathbf{G}_g \mathbf{Z}_g \mathbf{X})(\mathbf{Z}_g \mathbf{X})^\top$
-   - 初始化：$\mathbf{G}_g^{(0)}$ 由组协方差矩阵的 Cholesky 分解得到，使初始格方向对齐权重的主分布
-   - 稳定化：谱归一化限制 $\mathbf{G}_g$ 的奇异值在 $[\sigma_{\min}, \sigma_{\max}]$ 范围内
-   - **关键区别**：QuIP# 全局用固定 $E_8$ 格，AQLM 学习自由码本需查表解码；GLVQ 学习组特异的格但保持格结构，解码仅需矩阵乘法
+
+    - 做什么：为每个权重组学习专属的格结构
+    - 核心公式：把权重组 $\mathbf{W}_g \in \mathbb{R}^{m_g \times n_g}$ reshape 为 $d \times \ell_g$，通过生成矩阵量化：$\hat{\mathbf{W}}_g = \mathbf{G}_g \mathbf{Z}_g$
+    - 优化目标：$\mathcal{L}_g = \|\mathbf{W}_g \mathbf{X} - \mathbf{G}_g \mathbf{Z}_g \mathbf{X}\|_2^2 + \lambda \|\mathbf{G}_g - \mathbf{G}_g^{(0)}\|_2^2$
+    - 交替优化：(i) 固定 $\mathbf{G}_g$，Babai rounding 更新整数索引 $\mathbf{z}_i = \lfloor \mathbf{G}_g^{-1} \mathbf{w}_i \rceil$（复杂度 $\mathcal{O}(d^3)$）；(ii) 固定 $\mathbf{Z}_g$，梯度下降更新 $\mathbf{G}_g$，梯度 $\nabla_{\mathbf{G}_g} \mathcal{L}_g = -2(\mathbf{W}_g \mathbf{X} - \mathbf{G}_g \mathbf{Z}_g \mathbf{X})(\mathbf{Z}_g \mathbf{X})^\top$
+    - 初始化：$\mathbf{G}_g^{(0)}$ 由组协方差矩阵的 Cholesky 分解得到，使初始格方向对齐权重的主分布
+    - 稳定化：谱归一化限制 $\mathbf{G}_g$ 的奇异值在 $[\sigma_{\min}, \sigma_{\max}]$ 范围内
+    - **关键区别**：QuIP# 全局用固定 $E_8$ 格，AQLM 学习自由码本需查表解码；GLVQ 学习组特异的格但保持格结构，解码仅需矩阵乘法
 
 3. **分组 μ-law Companding**:
-   - 做什么：在量化前将重尾权重分布压缩为更均匀的分布，减少低幅值区域的量化误差
-   - 变换公式：$F_g(x) = \text{sgn}(x) \frac{\ln(1 + \mu_g |x|)}{\ln(1 + \mu_g)}$，反变换 $F_g^{-1}(y) = \text{sgn}(y) \frac{(1+\mu_g)^{|y|}-1}{\mu_g}$
-   - 可学习参数：$\mu_g > 0$ 控制压缩强度，与 $\mathbf{G}_g$ 联合梯度优化
-   - 初始化：$\mu_g^{(0)} = 100 \tanh(\kappa_g / 10)$，$\kappa_g$ 为组的样本峰度——重尾组初始压缩更强
-   - 约束：$\mu_g \in [10, 255]$，保证数值稳定性
-   - 完整编解码链：$\tilde{\mathbf{W}}_g = F_g(\mathbf{W}_g) \to \mathbf{Z}_g = \lfloor \mathbf{G}_g^{-1} \tilde{\mathbf{W}}_g \rceil \to \hat{\mathbf{W}}_g = F_g^{-1}(\mathbf{G}_g \mathbf{Z}_g)$
+
+    - 做什么：在量化前将重尾权重分布压缩为更均匀的分布，减少低幅值区域的量化误差
+    - 变换公式：$F_g(x) = \text{sgn}(x) \frac{\ln(1 + \mu_g |x|)}{\ln(1 + \mu_g)}$，反变换 $F_g^{-1}(y) = \text{sgn}(y) \frac{(1+\mu_g)^{|y|}-1}{\mu_g}$
+    - 可学习参数：$\mu_g > 0$ 控制压缩强度，与 $\mathbf{G}_g$ 联合梯度优化
+    - 初始化：$\mu_g^{(0)} = 100 \tanh(\kappa_g / 10)$，$\kappa_g$ 为组的样本峰度——重尾组初始压缩更强
+    - 约束：$\mu_g \in [10, 255]$，保证数值稳定性
+    - 完整编解码链：$\tilde{\mathbf{W}}_g = F_g(\mathbf{W}_g) \to \mathbf{Z}_g = \lfloor \mathbf{G}_g^{-1} \tilde{\mathbf{W}}_g \rceil \to \hat{\mathbf{W}}_g = F_g^{-1}(\mathbf{G}_g \mathbf{Z}_g)$
 
 ### 运行时特性
 - **存储开销极小**：每组只需存储 $d \times d$ FP16 生成矩阵 + 1个 FP16 标量 $\mu_g$，对 Llama 2-7B 仅增加约 2MB（总量 1.1GB 的 0.2%）

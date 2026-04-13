@@ -25,12 +25,12 @@ tags:
 分析了线性 Transformer 在噪声线性动力系统上的 ICL 近似能力：$O(\log T)$ 深度可达到 $O(\log T / T)$ 测试误差（接近最小二乘估计器），而单层线性 Transformer 存在不可消除的下界——揭示了非 IID 数据下的深度分离现象。
 
 ## 研究背景与动机
-1. **领域现状**：ICL 理论主要研究 IID 数据下的线性回归：单层线性 Transformer 可实现一步梯度下降，测试误差 $O(1/T)$。但实际语言数据是序列相关的（非 IID）。
-2. **现有痛点**：非 IID 设定（如动力系统）的 ICL 理论远不成熟——Transformer 能否 ICL 学习动力系统？需要多深？与 IID 情况有何本质区别？
-3. **核心矛盾**：IID 设定下单层 Transformer 就够了，非 IID 下是否也是如此？动力系统中 token 之间的时间相关性如何影响 ICL？
-4. **本文要解决什么？** (1) 量化深层 Transformer 的 ICL 近似能力上界；(2) 证明单层 Transformer 的近似下界；(3) 揭示 IID vs 非 IID 的本质区别。
-5. **切入角度**：将 Transformer 构造为近似实现 Richardson 迭代算法来求解最小二乘，再利用最小二乘估计器的统计性质得到测试误差界。
-6. **核心idea一句话**：非 IID 数据下 ICL 需要深度——$O(\log T)$ 层 Transformer 可以通过展开 Richardson 迭代近似最小二乘估计器，而单层做不到。
+**领域现状**：ICL 理论主要研究 IID 数据下的线性回归：单层线性 Transformer 可实现一步梯度下降，测试误差 $O(1/T)$。但实际语言数据是序列相关的（非 IID）。
+**现有痛点**：非 IID 设定（如动力系统）的 ICL 理论远不成熟——Transformer 能否 ICL 学习动力系统？需要多深？与 IID 情况有何本质区别？
+**核心矛盾**：IID 设定下单层 Transformer 就够了，非 IID 下是否也是如此？动力系统中 token 之间的时间相关性如何影响 ICL？
+**本文要解决什么？** (1) 量化深层 Transformer 的 ICL 近似能力上界；(2) 证明单层 Transformer 的近似下界；(3) 揭示 IID vs 非 IID 的本质区别。
+**切入角度**：将 Transformer 构造为近似实现 Richardson 迭代算法来求解最小二乘，再利用最小二乘估计器的统计性质得到测试误差界。
+**核心idea一句话**：非 IID 数据下 ICL 需要深度——$O(\log T)$ 层 Transformer 可以通过展开 Richardson 迭代近似最小二乘估计器，而单层做不到。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **深层 Transformer 上界（Theorem 1）**：
-   - 做什么：构造 $O(\log T)$ 深的线性 Transformer 实现近似最小二乘预测
-   - 核心思路：最小二乘估计需要计算 $X_t^{-1}x_t$（经验协方差的逆）。用 Richardson 迭代展开为多步线性操作（每步对应一层 Transformer），$O(\log T)$ 步即可收敛
-   - 关键结果：$L_T(\theta) \lesssim \log(T)/T$，接近参数化的最优速率 $O(1/T)$
-   - 设计动机：直接计算矩阵逆在 Transformer 中不可行，但迭代法可以
+
+    - 做什么：构造 $O(\log T)$ 深的线性 Transformer 实现近似最小二乘预测
+    - 核心思路：最小二乘估计需要计算 $X_t^{-1}x_t$（经验协方差的逆）。用 Richardson 迭代展开为多步线性操作（每步对应一层 Transformer），$O(\log T)$ 步即可收敛
+    - 关键结果：$L_T(\theta) \lesssim \log(T)/T$，接近参数化的最优速率 $O(1/T)$
+    - 设计动机：直接计算矩阵逆在 Transformer 中不可行，但迭代法可以
 
 2. **单层 Transformer 下界（Theorem 2）**：
-   - 做什么：证明单层线性注意力对动力系统的测试 loss 有不可消除的正下界
-   - 核心思路：单层注意力的预测是经验二阶统计量的线性函数乘以 $x_T$。由于数据非 IID，这些统计量与 $W$ 的关系是非线性的（通过 $\sigma^2/(1-w^2)$），而任何线性函数无法统一拟合所有 $W$
-   - 关键结果：$\inf_{\mathbf{p},\mathbf{q}} L_T(\mathbf{p}, \mathbf{q}) = \Omega(1)$，即误差不随 $T$ 趋于零
+
+    - 做什么：证明单层线性注意力对动力系统的测试 loss 有不可消除的正下界
+    - 核心思路：单层注意力的预测是经验二阶统计量的线性函数乘以 $x_T$。由于数据非 IID，这些统计量与 $W$ 的关系是非线性的（通过 $\sigma^2/(1-w^2)$），而任何线性函数无法统一拟合所有 $W$
+    - 关键结果：$\inf_{\mathbf{p},\mathbf{q}} L_T(\mathbf{p}, \mathbf{q}) = \Omega(1)$，即误差不随 $T$ 趋于零
 
 3. **IID vs 非 IID 的根本区别**：
-   - IID 数据下经验协方差 $X_t$ 趋向常数 $\Sigma$（对所有任务 $W$ 相同），单层 Transformer 可以通过固定参数近似 $\Sigma^{-1}$
-   - 非 IID（动力系统）下，$X_t$ 的极限依赖于 $W$（$\sigma^2/(1-W^2)$），单层参数无法适配所有 $W$——需要多层来实现自适应的矩阵逆
+
+    - IID 数据下经验协方差 $X_t$ 趋向常数 $\Sigma$（对所有任务 $W$ 相同），单层 Transformer 可以通过固定参数近似 $\Sigma^{-1}$
+    - 非 IID（动力系统）下，$X_t$ 的极限依赖于 $W$（$\sigma^2/(1-W^2)$），单层参数无法适配所有 $W$——需要多层来实现自适应的矩阵逆
 
 ### 损失函数 / 训练策略
 - 训练 loss: 自回归预测 $\frac{1}{T-1}\sum_{t=1}^{T-1}\|\hat{y}_t - x_{t+1}\|^2$

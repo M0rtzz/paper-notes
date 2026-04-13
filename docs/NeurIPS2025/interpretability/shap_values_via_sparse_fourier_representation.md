@@ -52,16 +52,17 @@ FourierShap 是一个两阶段算法：
 ### 关键设计
 
 1. **Fourier 表示与稀疏性**：对于二值输入 $\{0,1\}^n$ 上的函数 $h$，其 Fourier 展开为 $h(x) = \frac{1}{\sqrt{2^n}} \sum_{f \in \{0,1\}^n} \hat{h}(f)(-1)^{\langle f, x \rangle}$。若只有 $k$ 个非零 Fourier 系数，则称 $h$ 为 $k$-稀疏的。关键结论是：
-   - 深度为 $d$ 的决策树集成（$T$ 棵树）是 $O(T \cdot 4^d)$-稀疏的
-   - 神经网络由于谱偏置倾向于学习低阶（因而稀疏）函数
-   - 度为 $d$ 的函数是 $O(n^d)$-稀疏的（Proposition 2）
+
+    - 深度为 $d$ 的决策树集成（$T$ 棵树）是 $O(T \cdot 4^d)$-稀疏的
+    - 神经网络由于谱偏置倾向于学习低阶（因而稀疏）函数
+    - 度为 $d$ 的函数是 $O(n^d)$-稀疏的（Proposition 2）
 
 2. **SHAP 值的闭式公式（核心贡献）**：对单个 Fourier 基函数 $\Psi_f(x) = (-1)^{\langle f, x \rangle}$，通过组合论证推导出 SHAP 值的闭式解（Lemma 1）：
-   $$\phi_i^{\Psi_f} = -\frac{2f_i}{|\mathcal{D}|} \sum_{(x,y) \in \mathcal{D}} \mathbb{1}_{x_i \neq x_i^*} (-1)^{\langle f, x \rangle} \frac{(|A|+1) \bmod 2}{|A|+1}$$
+    $\phi_i^{\Psi_f} = -\frac{2f_i}{|\mathcal{D}|} \sum_{(x,y) \in \mathcal{D}} \mathbb{1}_{x_i \neq x_i^*} (-1)^{\langle f, x \rangle} \frac{(|A|+1) \bmod 2}{|A|+1}$
    其中 $A = \{j \in [n] | x_j \neq x_j^*, j \neq i, f_j = 1\}$。关键组合洞察是：指数和中大量正负项相互抵消，不需要实际计算就能统计抵消的数量。
 
 3. **总体复杂度（Theorem 2）**：利用 SHAP 值关于被解释函数的线性性，最终公式为：
-   $$\phi_i^h = -\frac{2}{|\mathcal{D}|} \sum_{f \in \text{supp}(h)} \hat{h}(f) \cdot f_i \cdot \sum_{(x,y) \in \mathcal{D}} \mathbb{1}_{x_i \neq x_i^*} (-1)^{\langle f, x \rangle} \frac{(|A|+1) \bmod 2}{|A|+1}$$
+    $\phi_i^h = -\frac{2}{|\mathcal{D}|} \sum_{f \in \text{supp}(h)} \hat{h}(f) \cdot f_i \cdot \sum_{(x,y) \in \mathcal{D}} \mathbb{1}_{x_i \neq x_i^*} (-1)^{\langle f, x \rangle} \frac{(|A|+1) \bmod 2}{|A|+1}$
    计算复杂度为 $\Theta(n \cdot |\mathcal{D}| \cdot k)$，完全消除了指数级求和。且两个求和都可以用 JAX 的 vmap 在 GPU 上高效并行化。
 
 ### 树模型的精确设置

@@ -28,8 +28,8 @@ tags:
 
 运动预测是自动驾驶的关键组件，需要根据历史轨迹和地图信息预测多条未来可能轨迹。现有方法主要有两类：
 
-1. **MLP-based**: 直接从 agent 当前状态通过 MLP 生成未来轨迹
-2. **Query-based**: 用可学习 query 从编码表示中聚合信息再解码轨迹
+**MLP-based**: 直接从 agent 当前状态通过 MLP 生成未来轨迹
+**Query-based**: 用可学习 query 从编码表示中聚合信息再解码轨迹
 
 这两类方法的共同问题是：**未来轨迹在场景编码阶段是缺失的**，导致历史状态和未来状态的优化是分离的，可能产生不合理的预测（如错误预测左转）。此外，Transformer 的二次复杂度在多 agent 场景下效率低下。
 
@@ -47,24 +47,27 @@ FINet 包含三个主要组件：
 ### 关键设计
 
 1. **Lightweight Scene Encoder (LSEnc)**:
-   - 用 Mamba blocks 编码 agent 历史轨迹（线性复杂度），取最后时刻 token 代表整条轨迹
-   - 用 mini-PointNet 编码车道地图（处理更多点效率更高）
-   - 每个轨迹/车道段编码为一个 token，加上语义类别嵌入（车辆/行人/车道类型）
-   - 公式：$\mathcal{ST}_i^A = \text{MambaBlocks}(\mathcal{T}_i^{hist})[0] + Cls_i^A$
+
+    - 用 Mamba blocks 编码 agent 历史轨迹（线性复杂度），取最后时刻 token 代表整条轨迹
+    - 用 mini-PointNet 编码车道地图（处理更多点效率更高）
+    - 每个轨迹/车道段编码为一个 token，加上语义类别嵌入（车辆/行人/车道类型）
+    - 公式：$\mathcal{ST}_i^A = \text{MambaBlocks}(\mathcal{T}_i^{hist})[0] + Cls_i^A$
 
 2. **Future-Aware Interaction Mamba (FIM)**:
-   - **未来轨迹建模**: 将未来轨迹表示为当前运动状态 + 驾驶意图 + 归纳偏置的组合：$\mathcal{T}^{fut} = \mathcal{T}_0^{hist} + \mathcal{T}^{bias} + \mathcal{T}^{DI}$
-   - 驾驶意图用 K 个可学习 token 建模，归纳偏置仅加到第一条轨迹上并通过 Mamba 传播
-   - **Adaptive Reorder Strategy (ARS)**: 解决 Mamba 无法直接处理无序空间数据的问题。通过预测参考点，按场景元素到参考点的距离排序，将无序数据转为有序序列
-   - focal agent token 放在排序末尾确保对未来轨迹影响最大
-   - 使用双向 Mamba blocks 进行空间交互建模
-   - 第二阶段参考点由第一条未来轨迹 token 预测，并用辅助监督对齐到 GT 终点
+
+    - **未来轨迹建模**: 将未来轨迹表示为当前运动状态 + 驾驶意图 + 归纳偏置的组合：$\mathcal{T}^{fut} = \mathcal{T}_0^{hist} + \mathcal{T}^{bias} + \mathcal{T}^{DI}$
+    - 驾驶意图用 K 个可学习 token 建模，归纳偏置仅加到第一条轨迹上并通过 Mamba 传播
+    - **Adaptive Reorder Strategy (ARS)**: 解决 Mamba 无法直接处理无序空间数据的问题。通过预测参考点，按场景元素到参考点的距离排序，将无序数据转为有序序列
+    - focal agent token 放在排序末尾确保对未来轨迹影响最大
+    - 使用双向 Mamba blocks 进行空间交互建模
+    - 第二阶段参考点由第一条未来轨迹 token 预测，并用辅助监督对齐到 GT 终点
 
 3. **Temporal Enhanced Decoder (TEDec)**:
-   - 将未来轨迹 token 通过插值扩展为时序格式：$\mathcal{IDT}^{fut} = \frac{t}{T^{fut}} \cdot \mathcal{ST}^{fut}$
-   - 通过 Cross-Attention + Mamba (CAMBlock) 聚合场景信息并时序精炼
-   - Cross-attention 聚合场景信息，Mamba 按时间顺序处理确保时序一致性
-   - 最终用 MLP 输出轨迹和置信度分数
+
+    - 将未来轨迹 token 通过插值扩展为时序格式：$\mathcal{IDT}^{fut} = \frac{t}{T^{fut}} \cdot \mathcal{ST}^{fut}$
+    - 通过 Cross-Attention + Mamba (CAMBlock) 聚合场景信息并时序精炼
+    - Cross-attention 聚合场景信息，Mamba 按时间顺序处理确保时序一致性
+    - 最终用 MLP 输出轨迹和置信度分数
 
 ### 损失函数 / 训练策略
 

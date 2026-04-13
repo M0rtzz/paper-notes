@@ -25,11 +25,11 @@ tags:
 提出PosteL（Posterior Label Smoothing），通过贝叶斯后验分布从邻域标签中推导soft label用于节点分类，自然适应同质图和异质图，在8种backbone×10个数据集的80个组合中76个取得精度提升。
 
 ## 研究背景与动机
-1. **领域现状**：Label smoothing（向one-hot标签添加uniform噪声）在CV和NLP中广泛使用，但在图节点分类中很少研究。Knowledge distillation的soft label能编码"dark knowledge"提升学生模型性能。
-2. **现有痛点**：现有的图label smoothing方法（SALS、ALS）假设节点倾向于与邻居有相同标签，直接聚合邻域标签作为soft label。这在同质图上有效，但在异质图上反而有害——因为异质图中邻居标签恰好与目标节点不同。
-3. **核心矛盾**：需要一个label smoothing方法能同时适应同质图（邻居=同标签）和异质图（邻居≠同标签），现有方法只处理前者。
-4. **切入角度**："You can tell a person by the company they keep"——从邻域标签的全局统计推导后验分布，同质图下后验偏向多数邻居标签，异质图下后验偏向少数邻居标签。
-5. **核心idea一句话**：用贝叶斯后验分布（基于全局label共现统计）推导的soft label，自然适应同质和异质图
+**领域现状**：Label smoothing（向one-hot标签添加uniform噪声）在CV和NLP中广泛使用，但在图节点分类中很少研究。Knowledge distillation的soft label能编码"dark knowledge"提升学生模型性能。
+**现有痛点**：现有的图label smoothing方法（SALS、ALS）假设节点倾向于与邻居有相同标签，直接聚合邻域标签作为soft label。这在同质图上有效，但在异质图上反而有害——因为异质图中邻居标签恰好与目标节点不同。
+**核心矛盾**：需要一个label smoothing方法能同时适应同质图（邻居=同标签）和异质图（邻居≠同标签），现有方法只处理前者。
+**切入角度**："You can tell a person by the company they keep"——从邻域标签的全局统计推导后验分布，同质图下后验偏向多数邻居标签，异质图下后验偏向少数邻居标签。
+**核心idea一句话**：用贝叶斯后验分布（基于全局label共现统计）推导的soft label，自然适应同质和异质图
 
 ## 方法详解
 
@@ -41,14 +41,16 @@ tags:
 ### 关键设计
 
 1. **后验标签平滑**:
-   - 做什么：为每个节点推导基于邻域的soft label
-   - 核心思路：$P(\hat{Y}_i=k|\{Y_j\}_{j\in\mathcal{N}(i)}) \propto P(\{Y_j\}|\hat{Y}_i=k) \cdot P(\hat{Y}_i=k)$。假设邻居标签条件独立，似然分解为各邻居的条件概率乘积。条件概率和先验都从图的全局标签共现统计估计。最终soft label = $\alpha \cdot$ 后验 $+ (1-\alpha) \cdot$ one-hot + $\beta \cdot$ uniform
-   - 设计动机：Lemma 1证明在同质图下，多数邻居标签推高后验概率；Lemma 2证明在异质图下，少数邻居标签反而推高后验概率。这完美适配两种图类型
+
+    - 做什么：为每个节点推导基于邻域的soft label
+    - 核心思路：$P(\hat{Y}_i=k|\{Y_j\}_{j\in\mathcal{N}(i)}) \propto P(\{Y_j\}|\hat{Y}_i=k) \cdot P(\hat{Y}_i=k)$。假设邻居标签条件独立，似然分解为各邻居的条件概率乘积。条件概率和先验都从图的全局标签共现统计估计。最终soft label = $\alpha \cdot$ 后验 $+ (1-\alpha) \cdot$ one-hot + $\beta \cdot$ uniform
+    - 设计动机：Lemma 1证明在同质图下，多数邻居标签推高后验概率；Lemma 2证明在异质图下，少数邻居标签反而推高后验概率。这完美适配两种图类型
 
 2. **迭代伪标签**:
-   - 做什么：用模型预测扩充label信息，改善全局统计估计
-   - 核心思路：训练GNN → 预测未标注节点 → 用伪标签更新似然和先验 → 重新推导soft label → 再训练
-   - 设计动机：稀疏图中很多节点没有已标注邻居，伪标签填补信息空缺
+
+    - 做什么：用模型预测扩充label信息，改善全局统计估计
+    - 核心思路：训练GNN → 预测未标注节点 → 用伪标签更新似然和先验 → 重新推导soft label → 再训练
+    - 设计动机：稀疏图中很多节点没有已标注邻居，伪标签填补信息空缺
 
 ### 损失函数 / 训练策略
 - 用推导的soft label替代one-hot label训练任意GNN backbone

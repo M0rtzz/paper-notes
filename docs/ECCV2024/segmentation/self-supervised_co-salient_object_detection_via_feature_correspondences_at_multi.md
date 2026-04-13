@@ -29,8 +29,8 @@ tags:
 
 共显著目标检测（CoSOD）旨在从一组相关图像中同时检测共同出现的显著物体。现有方法面临两大挑战：
 
-1. **有监督方法**（如 GCoNet+, DCFM）依赖昂贵的逐像素分割标注，限制了可扩展性
-2. **现有无监督方法**的局限：
+**有监督方法**（如 GCoNet+, DCFM）依赖昂贵的逐像素分割标注，限制了可扩展性
+**现有无监督方法**的局限：
    - DVFDVD 仅利用局部 patch 级信息（聚类 ViT patch 描述子），忽略区域级语义
    - ZS-CSD 和 US-CoSOD 依赖 SAM、STEGO 等重型预训练组件，计算开销大、推理速度慢
    - 手工特征方法（如 UCCDGO）性能显著落后
@@ -48,27 +48,31 @@ SCoSPARC 分为两个阶段：
 ### 关键设计
 
 1. **Patch 级特征对应关系（Stage 1）**：
-   - 使用 DINO 预训练的 ViT-B/8 作为特征编码器，提取 patch 特征 $\mathbf{x}^{pat}_n \in \mathbb{R}^{C \times H \times W}$
-   - 通过残差块增强特征：$\mathcal{F}_{res} = \mathcal{F}_{init} + conv^{1\times 1}(\mathcal{F}_{init})$
-   - 计算 Key 和 Query 映射，得到全局特征相似度矩阵 $S = \frac{1}{\sqrt{d}} K Q^\top \in \mathbb{R}^{NHW \times NHW}$
-   - 对每张图像取行均值得到 cross-attention map $S_n \in \mathbb{R}^{H \times W}$，再通过改进的 Sigmoid 函数二值化：$\mathcal{M}_n = \frac{1}{1 + e^{-k(S_n - s_{th})}}$（$k=6.66$, $s_{th}=0.65$）
+
+    - 使用 DINO 预训练的 ViT-B/8 作为特征编码器，提取 patch 特征 $\mathbf{x}^{pat}_n \in \mathbb{R}^{C \times H \times W}$
+    - 通过残差块增强特征：$\mathcal{F}_{res} = \mathcal{F}_{init} + conv^{1\times 1}(\mathcal{F}_{init})$
+    - 计算 Key 和 Query 映射，得到全局特征相似度矩阵 $S = \frac{1}{\sqrt{d}} K Q^\top \in \mathbb{R}^{NHW \times NHW}$
+    - 对每张图像取行均值得到 cross-attention map $S_n \in \mathbb{R}^{H \times W}$，再通过改进的 Sigmoid 函数二值化：$\mathcal{M}_n = \frac{1}{1 + e^{-k(S_n - s_{th})}}$（$k=6.66$, $s_{th}=0.65$）
 
 2. **双损失自监督训练**：
-   - **共现损失 $\mathcal{L}_{cooc}$**：基于对比学习思想，拉近不同图像中前景区域的特征嵌入（正样本），推开同一图像中前景与背景的特征嵌入（负样本），使用余弦相似度衡量：$d^+_{nm} = 1 - \cos(f(\mathcal{M}^f_n, \mathbf{x}^{pat}), f(\mathcal{M}^f_m, \mathbf{x}^{pat}))$
-   - **显著性损失 $\mathcal{L}_{sal}$**：利用 DINO 自注意力图（多头平均）作为显著性先验，最大化检测区域的平均显著性：$\mathcal{L}_{sal} = 1 - \frac{1}{N}\sum_{n=1}^{N} \mathcal{M}_n \otimes SA_n$
-   - 总损失：$\mathcal{L}_{total} = \mathcal{L}_{cooc} + \lambda_{sal} \mathcal{L}_{sal}$（$\lambda_{sal} = 0.3$）
-   - 设计精妙之处：**不需要外部显著性模型**，直接复用 ViT 编码器的自注意力图和 patch 特征
+
+    - **共现损失 $\mathcal{L}_{cooc}$**：基于对比学习思想，拉近不同图像中前景区域的特征嵌入（正样本），推开同一图像中前景与背景的特征嵌入（负样本），使用余弦相似度衡量：$d^+_{nm} = 1 - \cos(f(\mathcal{M}^f_n, \mathbf{x}^{pat}), f(\mathcal{M}^f_m, \mathbf{x}^{pat}))$
+    - **显著性损失 $\mathcal{L}_{sal}$**：利用 DINO 自注意力图（多头平均）作为显著性先验，最大化检测区域的平均显著性：$\mathcal{L}_{sal} = 1 - \frac{1}{N}\sum_{n=1}^{N} \mathcal{M}_n \otimes SA_n$
+    - 总损失：$\mathcal{L}_{total} = \mathcal{L}_{cooc} + \lambda_{sal} \mathcal{L}_{sal}$（$\lambda_{sal} = 0.3$）
+    - 设计精妙之处：**不需要外部显著性模型**，直接复用 ViT 编码器的自注意力图和 patch 特征
 
 3. **置信度自适应阈值（CAT）**：
-   - 核心发现：高置信度 attention map 需要较低阈值，低置信度需要较高阈值，固定 0.5 阈值并非最优
-   - 计算预测置信度：$c_M = \frac{1}{n_{conf}} \sum_{p \geq \bar{\mathcal{M}}} \mathcal{M}_p$
-   - 自适应阈值：$th = th_0 + \alpha_c (b_M - \overline{b_M})$，其中 $b_M = 1 - c_M$，$th_0 = 0.5$，$\alpha_c = 1$
+
+    - 核心发现：高置信度 attention map 需要较低阈值，低置信度需要较高阈值，固定 0.5 阈值并非最优
+    - 计算预测置信度：$c_M = \frac{1}{n_{conf}} \sum_{p \geq \bar{\mathcal{M}}} \mathcal{M}_p$
+    - 自适应阈值：$th = th_0 + \alpha_c (b_M - \overline{b_M})$，其中 $b_M = 1 - c_M$，$th_0 = 0.5$，$\alpha_c = 1$
 
 4. **Region 级特征对应关系（Stage 2）**：
-   - 对中间分割 mask 做连通域标注，得到每张图像的子区域
-   - 计算所有图像前景区域的平均特征嵌入 $F_G$（全局共识表征）
-   - 对每个子区域计算其特征嵌入与 $F_G$ 的余弦相似度，仅保留相似度 $\geq d_f^{th}=0.75$ 的区域
-   - 这一步有效剔除了 Stage 1 中因局部特征匹配而产生的假阳性（如共同背景区域）
+
+    - 对中间分割 mask 做连通域标注，得到每张图像的子区域
+    - 计算所有图像前景区域的平均特征嵌入 $F_G$（全局共识表征）
+    - 对每个子区域计算其特征嵌入与 $F_G$ 的余弦相似度，仅保留相似度 $\geq d_f^{th}=0.75$ 的区域
+    - 这一步有效剔除了 Stage 1 中因局部特征匹配而产生的假阳性（如共同背景区域）
 
 ### 损失函数 / 训练策略
 

@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：联邦学习中使用 LoRA 进行参数高效微调是主流趋势。LoRA 将权重更新分解为 $\Delta \mathbf{W} = \alpha \mathbf{A}\mathbf{B}$，其中 $\mathbf{A} \in \mathbb{R}^{d \times r}$, $\mathbf{B} \in \mathbb{R}^{r \times d}$, $r \ll d$。
+**领域现状**：联邦学习中使用 LoRA 进行参数高效微调是主流趋势。LoRA 将权重更新分解为 $\Delta \mathbf{W} = \alpha \mathbf{A}\mathbf{B}$，其中 $\mathbf{A} \in \mathbb{R}^{d \times r}$, $\mathbf{B} \in \mathbb{R}^{r \times d}$, $r \ll d$。
 
-2. **现有痛点**：
+**现有痛点**：
    - **FedAVG of LoRA**：直接平均各客户端的 $\mathbf{A}_i$ 和 $\mathbf{B}_i$ 会引入聚合干扰——$\frac{1}{N}\sum_i \mathbf{A}_i \mathbf{B}_i \neq \frac{1}{N}\sum_i \mathbf{A}_i \cdot \frac{1}{N}\sum_i \mathbf{B}_i$
    - **FFA-LoRA**：冻结 $\mathbf{A}$（down-projection）只更新 $\mathbf{B}$ 虽然避免了干扰，但牺牲了模型表达力，在参数量少或客户端多时性能显著下降
    - **FlexLoRA/FLoRA**：通过矩阵乘法 + 截断 SVD 恢复精确更新，但计算开销大
 
-3. **核心矛盾**：精确聚合 vs 模型表达力 vs 计算/通信效率的三方博弈。
+**核心矛盾**：精确聚合 vs 模型表达力 vs 计算/通信效率的三方博弈。
 
-4. **本文要解决什么**：设计一个同时保证精确聚合、充分表达力和低通信/计算开销的联邦 LoRA 微调框架。
+**本文要解决什么**：设计一个同时保证精确聚合、充分表达力和低通信/计算开销的联邦 LoRA 微调框架。
 
-5. **切入角度**：受多任务线性表示学习（MLRL）启发，交替冻结 $\mathbf{A}$ 和 $\mathbf{B}$——每轮只有一个矩阵被训练和聚合，自然保证精确聚合。
+**切入角度**：受多任务线性表示学习（MLRL）启发，交替冻结 $\mathbf{A}$ 和 $\mathbf{B}$——每轮只有一个矩阵被训练和聚合，自然保证精确聚合。
 
-6. **核心idea一句话**：奇数轮冻结 $\mathbf{A}$ 更新 $\mathbf{B}$，偶数轮冻结 $\mathbf{B}$ 更新 $\mathbf{A}$，交替进行即可兼得精确聚合和充分表达力。
+**核心idea一句话**：奇数轮冻结 $\mathbf{A}$ 更新 $\mathbf{B}$，偶数轮冻结 $\mathbf{B}$ 更新 $\mathbf{A}$，交替进行即可兼得精确聚合和充分表达力。
 
 ## 方法详解
 

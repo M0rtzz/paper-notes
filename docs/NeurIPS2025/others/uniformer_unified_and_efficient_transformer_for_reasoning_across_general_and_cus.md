@@ -39,19 +39,22 @@ tags:
 
 ### 关键设计
 1. **局部块注意力**（Block-Local Attention）：
-   - 将序列分割为 T 个窗口，每个窗口大小 $N_w = s^2$
-   - 在每个窗口内执行标准缩放点积注意力
-   - 窗口间完全独立，天然适合并行化
+
+    - 将序列分割为 T 个窗口，每个窗口大小 $N_w = s^2$
+    - 在每个窗口内执行标准缩放点积注意力
+    - 窗口间完全独立，天然适合并行化
 
 2. **全局线性注意力**（Global Linear Attention）：
-   - 对 Q 和 K 分别在特征维度和序列维度做 softmax 归一化
-   - 先计算全局内容矩阵 $C_g = \text{softmax}_{seq}(K)^T V \in \mathbb{R}^{d_k \times d_k}$
-   - 再用 $X_g = \text{softmax}_{feat}(Q) \cdot C_g$，复杂度线性
+
+    - 对 Q 和 K 分别在特征维度和序列维度做 softmax 归一化
+    - 先计算全局内容矩阵 $C_g = \text{softmax}_{seq}(K)^T V \in \mathbb{R}^{d_k \times d_k}$
+    - 再用 $X_g = \text{softmax}_{feat}(Q) \cdot C_g$，复杂度线性
 
 3. **Triton 加速内核**：
-   - 为全局线性注意力分支设计了 Triton 融合内核
-   - 内循环和外循环调度策略最大化数据复用和内存利用
-   - 局部分支兼容 FlashAttention2
+
+    - 为全局线性注意力分支设计了 Triton 融合内核
+    - 内循环和外循环调度策略最大化数据复用和内存利用
+    - 局部分支兼容 FlashAttention2
 
 ### 损失函数 / 训练策略
 - 标准 ImageNet 分类训练

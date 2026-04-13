@@ -26,19 +26,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：QAT 是训练高质量量化模型的主流方法，通常采用"先全精度（FP）训练→再 QAT 微调"的两阶段流程。Liu et al. (2025) 建议 QAT 阶段占总训练步数的 10%。
-2. **现有痛点**：
+**领域现状**：QAT 是训练高质量量化模型的主流方法，通常采用"先全精度（FP）训练→再 QAT 微调"的两阶段流程。Liu et al. (2025) 建议 QAT 阶段占总训练步数的 10%。
+**现有痛点**：
    - 先前关于"10%最优"的结论在有限计算预算下得出，未验证是否在更大规模下成立
    - PTQ 引入的量化误差随预训练数据量增长而增大（Kumar et al.），暗示 FP-QAT 分配应与规模相关
    - 现有 QAT scaling law（Chen et al.）将 Dfp=0（从头开始 QAT），不处理"FP→QAT"的两阶段场景
    - 没有跨 bit-width 的统一 scaling law
-3. **核心矛盾**：QAT 步数太少→模型无法适应低精度；QAT 步数太多→压缩 FP 阶段→用噪声梯度训练太久。随着总计算量增长，这个平衡点如何变化？
-4. **本文要解决什么？**
+**核心矛盾**：QAT 步数太少→模型无法适应低精度；QAT 步数太多→压缩 FP 阶段→用噪声梯度训练太久。随着总计算量增长，这个平衡点如何变化？
+**本文要解决什么？**
    - 最优 QAT fraction 如何随模型大小、总 token 数、bit-width 变化？
    - 能否用一个统一的 scaling law 预测所有配置下的最终损失？
    - 能否进一步优化训练流程（如合并 cooldown 和 QAT）？
-5. **切入角度**：引入 tokens-per-parameter-byte $S = D/(N \cdot B/8)$ 作为统一的缩放变量——它同时编码了模型大小、数据量和量化精度的信息。
-6. **核心idea一句话**：QAT 的最优时间分配不是固定的 10%，而是随 tokens-per-parameter-byte 增长的函数，可用一个统一 scaling law 精确建模。
+**切入角度**：引入 tokens-per-parameter-byte $S = D/(N \cdot B/8)$ 作为统一的缩放变量——它同时编码了模型大小、数据量和量化精度的信息。
+**核心idea一句话**：QAT 的最优时间分配不是固定的 10%，而是随 tokens-per-parameter-byte 增长的函数，可用一个统一 scaling law 精确建模。
 
 ## 方法详解
 
@@ -48,27 +48,31 @@ tags:
 ### 关键设计
 
 1. **Tokens-per-Parameter-Byte 统计量**:
-   - 做什么：统一不同模型大小和 bit-width 的 QAT 最优分配预测
-   - 核心思路：$S_{total} = D_{total}/(N \cdot B/8)$，将模型参数量按量化后的字节数归一化。大模型更容易量化（$N$ 大→$S$ 小），低 bit 更难量化（$B$ 小→$S$ 大），训练更长更难量化（$D$ 大→$S$ 大）。
-   - 设计动机：图 2 对比显示，在 token 坐标下不同 bit-width 的最优点分散，而在 tokens-per-parameter-byte 坐标下不同 bit-width 的最优点几乎落在同一条线上。
+
+    - 做什么：统一不同模型大小和 bit-width 的 QAT 最优分配预测
+    - 核心思路：$S_{total} = D_{total}/(N \cdot B/8)$，将模型参数量按量化后的字节数归一化。大模型更容易量化（$N$ 大→$S$ 小），低 bit 更难量化（$B$ 小→$S$ 大），训练更长更难量化（$D$ 大→$S$ 大）。
+    - 设计动机：图 2 对比显示，在 token 坐标下不同 bit-width 的最优点分散，而在 tokens-per-parameter-byte 坐标下不同 bit-width 的最优点几乎落在同一条线上。
 
 2. **最优 QAT Fraction 预测**:
-   - 做什么：直接拟合最优 QAT fraction 与 $S_{total}$ 的关系
-   - 核心思路：$\hat{f}(D_{total}, N, B) = \frac{\exp(\log S_{total} - a/\log S_{total})}{S_{total}}$，其中 $a=6.7297$ 是唯一需要拟合的参数。
-   - 设计动机：观察到 $S_{total}$ 与最优 $S_{qat}$ 在对数坐标下近似线性，加约束 $D_{qat} \leq D_{total}$。MAE 仅 0.091。
+
+    - 做什么：直接拟合最优 QAT fraction 与 $S_{total}$ 的关系
+    - 核心思路：$\hat{f}(D_{total}, N, B) = \frac{\exp(\log S_{total} - a/\log S_{total})}{S_{total}}$，其中 $a=6.7297$ 是唯一需要拟合的参数。
+    - 设计动机：观察到 $S_{total}$ 与最优 $S_{qat}$ 在对数坐标下近似线性，加约束 $D_{qat} \leq D_{total}$。MAE 仅 0.091。
 
 3. **统一 Loss Scaling Law**:
-   - 做什么：跨模型大小、token 数、bit-width 预测最终损失
-   - 核心思路：$L = \text{Chinchilla-like} + \delta(N, D_{qat}, D_{fp}, B)$，其中 QAT 惩罚项 $\delta$ 分解为三部分：
-     - **不可约 QAT 误差** $\theta \cdot 2^{-\kappa B}$：bit-width 决定的精度下限
-     - **纯 QAT 惩罚** $\frac{\phi \cdot 2^{-\chi B}}{N^\psi \cdot S_{qat}^\omega}$：QAT 步数不够时的误差
-     - **FP/QAT 交互项** $\frac{\lambda \cdot 2^{-\mu B}}{N^\nu \cdot S_{fp}^\xi \cdot S_{qat}^\rho}$：FP 阶段过长导致量化更困难
-   - 设计动机：之前的 scaling law 在 $D \to \infty$ 时 loss 趋向无穷（不合理）；新公式的所有惩罚项随 $S$ 增大而减小，保证 loss 最终收敛。757 个实验点拟合后准确预测最优 fraction 和 loss。
+
+    - 做什么：跨模型大小、token 数、bit-width 预测最终损失
+    - 核心思路：$L = \text{Chinchilla-like} + \delta(N, D_{qat}, D_{fp}, B)$，其中 QAT 惩罚项 $\delta$ 分解为三部分：
+      - **不可约 QAT 误差** $\theta \cdot 2^{-\kappa B}$：bit-width 决定的精度下限
+      - **纯 QAT 惩罚** $\frac{\phi \cdot 2^{-\chi B}}{N^\psi \cdot S_{qat}^\omega}$：QAT 步数不够时的误差
+      - **FP/QAT 交互项** $\frac{\lambda \cdot 2^{-\mu B}}{N^\nu \cdot S_{fp}^\xi \cdot S_{qat}^\rho}$：FP 阶段过长导致量化更困难
+    - 设计动机：之前的 scaling law 在 $D \to \infty$ 时 loss 趋向无穷（不合理）；新公式的所有惩罚项随 $S$ 增大而减小，保证 loss 最终收敛。757 个实验点拟合后准确预测最优 fraction 和 loss。
 
 4. **Cooldown + QAT 融合**:
-   - 做什么：将 learning rate 衰减阶段与 QAT 合并，消除冗余的 FP 更新
-   - 核心思路：在 FP 阶段的最高学习率处直接开始 QAT，同时执行学习率衰减，而不是先完成 FP cooldown 再开始 QAT。
-   - 设计动机：标准 FP+cooldown+QAT 中，cooldown 阶段的 FP 更新对最终量化模型价值不大，可以省掉。
+
+    - 做什么：将 learning rate 衰减阶段与 QAT 合并，消除冗余的 FP 更新
+    - 核心思路：在 FP 阶段的最高学习率处直接开始 QAT，同时执行学习率衰减，而不是先完成 FP cooldown 再开始 QAT。
+    - 设计动机：标准 FP+cooldown+QAT 中，cooldown 阶段的 FP 更新对最终量化模型价值不大，可以省掉。
 
 ### 损失函数 / 训练策略
 - QAT 使用 straight-through estimator 处理量化操作的不可导性

@@ -44,11 +44,12 @@ tags:
 2. **Self-Value Enhancement**：对提取的 Value 特征做"自注意力"（Q=K=V 全来自 Value），强化局部语义的内部一致性：$\widetilde{\mathbf{V}}^{(k)} = \text{Attn}(\mathbf{V}^{(k)}, \mathbf{V}^{(k)}, \mathbf{V}^{(k)})$
 
 3. **Text-Guided Value Manipulation**：
-   - 用 CLIP 文本编码器编码源/目标概念
-   - 计算每个增强 Value token 与源文本的余弦相似度
-   - 自适应阈值 $\tau^{(k)}$ 选出与源概念对齐的 token 集合 $\mathcal{I}_{\text{align}}^{(k)}$
-   - 损失：$\mathcal{L} = \sum_{k} \sum_{i \in \mathcal{I}_{\text{align}}^{(k)}} [-s_i^{(k)}(t_s) + s_i^{(k)}(t_t)]$
-   - PGD 迭代 + 随机裁缩增强迁移性
+
+    - 用 CLIP 文本编码器编码源/目标概念
+    - 计算每个增强 Value token 与源文本的余弦相似度
+    - 自适应阈值 $\tau^{(k)}$ 选出与源概念对齐的 token 集合 $\mathcal{I}_{\text{align}}^{(k)}$
+    - 损失：$\mathcal{L} = \sum_{k} \sum_{i \in \mathcal{I}_{\text{align}}^{(k)}} [-s_i^{(k)}(t_s) + s_i^{(k)}(t_t)]$
+    - PGD 迭代 + 随机裁缩增强迁移性
 
 ### 损失函数 / 训练策略
 

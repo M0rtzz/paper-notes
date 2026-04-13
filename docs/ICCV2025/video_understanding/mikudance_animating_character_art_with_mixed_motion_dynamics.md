@@ -29,8 +29,8 @@ tags:
 
 将静态角色艺术画作动画化在影视、游戏、数字设计领域需求巨大。传统软件（MMD、Live2D）需要专业技能，现有图像到视频方法（Animate Anyone、DISCO）主要针对真实人类，无法直接用于角色画作，面临两大挑战：
 
-1. **高动态运动引导**：角色画作动画需要同时处理复杂前景角色运动和背景的大尺度相机运动。现有方法仅支持静态背景 + 人体运动，无法建模整个场景的动态
-2. **参考-引导不对齐**：动漫角色有独特的头身比、夸张姿势和多样艺术风格，与运动引导（通常来自真人视频）之间存在严重的尺度和体型差异。显式对齐不可行（角色形态各异），需要隐式对齐
+**高动态运动引导**：角色画作动画需要同时处理复杂前景角色运动和背景的大尺度相机运动。现有方法仅支持静态背景 + 人体运动，无法建模整个场景的动态
+**参考-引导不对齐**：动漫角色有独特的头身比、夸张姿势和多样艺术风格，与运动引导（通常来自真人视频）之间存在严重的尺度和体型差异。显式对齐不可行（角色形态各异），需要隐式对齐
 
 ## 方法详解
 
@@ -44,27 +44,30 @@ MikuDance 基于 SD-1.5，包含：
 ### 关键设计
 
 1. **Scene Motion Tracking (SMT)**：
-   - 给定参考图的深度图构建场景点云 $\phi^l \in \mathbb{R}^{N \times 3}$
-   - 通过相机-世界坐标变换矩阵 $\mathcal{T}^l$ 和 $\mathcal{Y}^{l+1}$，将点云从第 $l$ 帧投影到第 $l+1$ 帧
-   - 计算两帧投影图像间的像素对应关系得到场景运动 $\mathbf{m}^s \in \mathbb{R}^{N \times 2}$
-   - 公式：$(z^l - z^{l+1})[\mathbf{m}^s; \mathbf{1}] = \mathcal{K}^l[\phi^l; \mathbf{1}] - \mathcal{K}^{l+1}\mathcal{Y}^{l+1}\mathcal{T}^l[\phi^l; \mathbf{1}]$
+
+    - 给定参考图的深度图构建场景点云 $\phi^l \in \mathbb{R}^{N \times 3}$
+    - 通过相机-世界坐标变换矩阵 $\mathcal{T}^l$ 和 $\mathcal{Y}^{l+1}$，将点云从第 $l$ 帧投影到第 $l+1$ 帧
+    - 计算两帧投影图像间的像素对应关系得到场景运动 $\mathbf{m}^s \in \mathbb{R}^{N \times 2}$
+    - 公式：$(z^l - z^{l+1})[\mathbf{m}^s; \mathbf{1}] = \mathcal{K}^l[\phi^l; \mathbf{1}] - \mathcal{K}^{l+1}\mathcal{Y}^{l+1}\mathcal{T}^l[\phi^l; \mathbf{1}]$
 
    与光流的关键区别：(1) SMT 与驱动视频内容无关，光流是内容相关的；(2) SMT 跟踪 3D 点云，光流跟踪 2D 像素。因此 SMT 提供解耦的相机动态信息。
 
    设计动机：将 3D 相机运动转化为与角色 pose 同域的 2D 像素表示，统一运动引导。
 
 2. **Mixed-Control Diffusion**：
-   - **去掉独立编码器**：与 Animate Anyone 等方法不同，不使用独立的 pose 编码器或 ControlNet
-   - 将参考图 + 参考 pose + 所有驱动 pose 全部 VAE 编码后沿通道维拼接，作为 Reference UNet 输入
-   - 扩展 Reference UNet 输入卷积层的通道，新增参数用 zero convolution 初始化
-   - 参考图还通过 CLIP 图像编码器嵌入，作为两个 UNet 的交叉注意力 key
+
+    - **去掉独立编码器**：与 Animate Anyone 等方法不同，不使用独立的 pose 编码器或 ControlNet
+    - 将参考图 + 参考 pose + 所有驱动 pose 全部 VAE 编码后沿通道维拼接，作为 Reference UNet 输入
+    - 扩展 Reference UNet 输入卷积层的通道，新增参数用 zero convolution 初始化
+    - 参考图还通过 CLIP 图像编码器嵌入，作为两个 UNet 的交叉注意力 key
 
    设计动机：混合隐式对齐优于显式对齐 + 独立编码器的复杂设计。实验验证此简洁架构效果最好。
 
 3. **Motion-Adaptive Normalization (MAN)**：
-   - 受 SPADE 启发，对 Reference UNet 每个下采样块的特征做实例归一化后，用场景运动 $\mathbf{m}^s$ 生成空间自适应的缩放参数 $\gamma^i$ 和偏移参数 $\beta^i$
-   - $f^{i'} = \gamma^i_{C,H,W}(\mathbf{m}^s) \frac{f^i_{C,H,W} - \mu^i_C}{\sigma^i_C} + \beta^i_{C,H,W}(\mathbf{m}^s)$
-   - $\gamma^i$ 和 $\beta^i$ 具有空间维度，实现像素级场景运动引导
+
+    - 受 SPADE 启发，对 Reference UNet 每个下采样块的特征做实例归一化后，用场景运动 $\mathbf{m}^s$ 生成空间自适应的缩放参数 $\gamma^i$ 和偏移参数 $\beta^i$
+    - $f^{i'} = \gamma^i_{C,H,W}(\mathbf{m}^s) \frac{f^i_{C,H,W} - \mu^i_C}{\sigma^i_C} + \beta^i_{C,H,W}(\mathbf{m}^s)$
+    - $\gamma^i$ 和 $\beta^i$ 具有空间维度，实现像素级场景运动引导
 
    设计动机：场景运动对动画帧产生全局影响，自适应归一化能有效注入全局运动同时保持局部一致性。
 

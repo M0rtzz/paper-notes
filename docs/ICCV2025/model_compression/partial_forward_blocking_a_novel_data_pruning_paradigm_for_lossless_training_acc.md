@@ -47,28 +47,31 @@ PFB 将训练网络分为**浅层子网络** $Net^{sh}$ 和**深层子网络** $
 ### 关键设计
 
 1. **Partial Forward Blocking 策略**: 核心创新在于将剪枝时机提前到前向传播早期阶段。被剪枝样本仅经过浅层网络（如 stage-1），深层计算完全跳过。相比之下：
-   - 梯度方法需完整前向+额外反向传播
-   - 代理方法需完整的代理模型前向
-   - InfoBatch 等需完整前向
+
+    - 梯度方法需完整前向+额外反向传播
+    - 代理方法需完整的代理模型前向
+    - InfoBatch 等需完整前向
    
    PFB 的计算成本 = 保留样本的完整前向 + 被剪枝样本的浅层前向，显著低于所有现有方法。
 
 2. **Probability Density Importance (概率密度重要性)**: 使用样本在特征空间中的概率密度作为冗余度衡量：
-   - 高概率密度 = 特征空间中密集区域 = 冗余度高 = 重要性低
-   - 低概率密度 = 稀疏区域 = 罕见样本 = 重要性高
+
+    - 高概率密度 = 特征空间中密集区域 = 冗余度高 = 重要性低
+    - 低概率密度 = 稀疏区域 = 罕见样本 = 重要性高
    
    重要性定义为：
-   $$\mathcal{I}(z_i^t) = \frac{1}{f_\mathbf{X}(\mathbf{x}_i^t) + r}$$
+    $\mathcal{I}(z_i^t) = \frac{1}{f_\mathbf{X}(\mathbf{x}_i^t) + r}$
    
    其中 $r = \alpha \cdot \max_{z_i \in B} f_\mathbf{X}(\mathbf{x}_i^t)$，$\alpha \sim U(0, 0.01)$ 引入随机性进一步保证多样性。
 
 3. **Adaptive Distribution Estimation (ADE，自适应分布估计)**: 使用核密度估计 (KDE) 高效估计概率密度：
-   - 对浅层特征做空间平均池化 → 通道降维 → 得到紧凑表示 $\mathbf{x}_i^t \in \mathbb{R}^{1 \times D}$
-   - 维护一组聚类中心 $C^t = \{\mathbf{c}_j^t\}$，用标准多元正态核函数计算 KDE：
-     $$\hat{f}_\mathbf{X}(\mathbf{x}_i^t) = \sum_{j=1}^{N_C} \frac{w_j^t}{N_C} K_\mathbf{H}(\mathbf{x}_i^t - \mathbf{c}_j^t)$$
-   - 使用 Silverman's rule 设置带宽矩阵 $\mathbf{H}$
-   - 仅用**保留样本**更新中心（EMA 方式，$\beta=0.01$）
-   - 权重 $w_j^{t+1} = n_j^t / (t \cdot (1-p) N_B)$ 平衡不同核的贡献
+
+    - 对浅层特征做空间平均池化 → 通道降维 → 得到紧凑表示 $\mathbf{x}_i^t \in \mathbb{R}^{1 \times D}$
+    - 维护一组聚类中心 $C^t = \{\mathbf{c}_j^t\}$，用标准多元正态核函数计算 KDE：
+    $\hat{f}_\mathbf{X}(\mathbf{x}_i^t) = \sum_{j=1}^{N_C} \frac{w_j^t}{N_C} K_\mathbf{H}(\mathbf{x}_i^t - \mathbf{c}_j^t)$
+    - 使用 Silverman's rule 设置带宽矩阵 $\mathbf{H}$
+    - 仅用**保留样本**更新中心（EMA 方式，$\beta=0.01$）
+    - 权重 $w_j^{t+1} = n_j^t / (t \cdot (1-p) N_B)$ 平衡不同核的贡献
 
 ### 损失函数 / 训练策略
 

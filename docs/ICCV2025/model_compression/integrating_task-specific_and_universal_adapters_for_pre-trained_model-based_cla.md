@@ -29,8 +29,8 @@ tags:
 
 类增量学习（CIL）要求模型不断学习新类别而不遗忘旧类别。在预训练模型（PTM）时代，主流做法是冻结 PTM 权重，通过轻量模块（如 prompt、adapter）进行增量适配。然而现有方法存在两大问题：
 
-1. **模块选择不准确**：L2P 等方法依赖 key-query 匹配来选择 task-specific prompt，匹配过程脆弱，容易选错模块导致性能下降
-2. **忽略跨任务共享知识**：现有方法只关注 task-specific 知识，无法区分跨任务的高度相似类别（例如不同任务中学到的猫和狗可能外观相似）
+**模块选择不准确**：L2P 等方法依赖 key-query 匹配来选择 task-specific prompt，匹配过程脆弱，容易选错模块导致性能下降
+**忽略跨任务共享知识**：现有方法只关注 task-specific 知识，无法区分跨任务的高度相似类别（例如不同任务中学到的猫和狗可能外观相似）
 
 这两个问题导致推理时既可能选错 adapter，又无法利用通用知识来辅助分类。
 
@@ -43,20 +43,22 @@ TUNA 包含三个核心组件：（1）正交约束的 task-specific adapter 训
 ### 关键设计
 
 1. **正交 Task-Specific Adapter 训练**：对每个增量任务 $t$，初始化新 adapter $\mathcal{A}_t$（bottleneck 结构：$W_{down} \in \mathbb{R}^{d \times r}$, ReLU, $W_{up} \in \mathbb{R}^{r \times d}$），通过残差连接注入 MLP 层。为防止任务间特征冗余，在 up-projection 权重上施加正交约束：
-   $$\mathcal{L}_{orth} = \sum_{i=1}^{t-1} \|W_{up}^t \cdot {W_{up}^i}^\top\|_1$$
+    $\mathcal{L}_{orth} = \sum_{i=1}^{t-1} \|W_{up}^t \cdot {W_{up}^i}^\top\|_1$
    仅对 up-projection 权重施加正交（消融实验表明同时约束 down-projection 反而有害），因为 up-projection 负责将特征投影到高维空间、编码 task-specific 信息。
 
 2. **多阶段 Adapter 融合（Universal Adapter）**：训练完 $t$ 个任务后，将所有 adapter 权重展平为向量 $\{\mathbf{v}^1, \ldots, \mathbf{v}^t\}$，通过两步操作融合：
-   - **符号聚合**：对每个参数位置取所有任务向量的符号投票 $\mathbf{s}^{uni} = \text{sgn}(\sum_i \mathbf{v}^i)$
-   - **幅值选择**：对每个参数位置，在保持共识符号方向的前提下取最大绝对值
-   - 最终 universal task vector $\mathbf{v}^{uni} = \epsilon^{uni} \odot \mathbf{s}^{uni}$，reshape 回 adapter 形状
+
+    - **符号聚合**：对每个参数位置取所有任务向量的符号投票 $\mathbf{s}^{uni} = \text{sgn}(\sum_i \mathbf{v}^i)$
+    - **幅值选择**：对每个参数位置，在保持共识符号方向的前提下取最大绝对值
+    - 最终 universal task vector $\mathbf{v}^{uni} = \epsilon^{uni} \odot \mathbf{s}^{uni}$，reshape 回 adapter 形状
    
    该融合策略基于模型合并技术的两个操作：符号求和作为投票系统保持主导特征方向，最大绝对值选择抑制噪声并保留具有判别力的特征幅值。
 
 3. **基于熵的 Adapter 选择与双 Adapter 集成**：
-   - **选择机制**：通过实验发现低熵（高置信度）与高准确率强相关。推理时计算每个 task-specific adapter 的预测熵，选择熵最小的 adapter $\mathcal{A}^*$
-   $$\mathcal{A}^* = \arg\min_{\mathcal{A}_i} \left(-\sum_c f_c(\mathbf{x}; \mathcal{A}_i) \log f_c(\mathbf{x}; \mathcal{A}_i)\right)$$
-   - **集成推理**：将选中的 task-specific adapter 与 universal adapter 的预测概率相加：$y^* = \arg\max_y (f_y(\mathbf{x}; \mathcal{A}^*) + f_y(\mathbf{x}; \mathcal{A}_{uni}))$
+
+    - **选择机制**：通过实验发现低熵（高置信度）与高准确率强相关。推理时计算每个 task-specific adapter 的预测熵，选择熵最小的 adapter $\mathcal{A}^*$
+    $\mathcal{A}^* = \arg\min_{\mathcal{A}_i} \left(-\sum_c f_c(\mathbf{x}; \mathcal{A}_i) \log f_c(\mathbf{x}; \mathcal{A}_i)\right)$
+    - **集成推理**：将选中的 task-specific adapter 与 universal adapter 的预测概率相加：$y^* = \arg\max_y (f_y(\mathbf{x}; \mathcal{A}^*) + f_y(\mathbf{x}; \mathcal{A}_{uni}))$
 
 ### 损失函数 / 训练策略
 

@@ -69,15 +69,17 @@ DreamRunner 包含三个阶段：
 核心是对 CogVideoX 的 3D full attention 进行区域化改造：
 
 1. **区域3D注意力**：
-   - 给定 N 个区域文本描述 $C_1,...,C_N$ 和对应布局 $L_1,...,L_N$
-   - 编码每个文本条件得到嵌入 $T_1,...,T_N$
-   - 注意力掩码规则：每个区域视觉 latent $L_i$ 可以注意到其对应文本 $T_i$ 及所有视觉 latent $L_1,...,L_N$；每个文本嵌入 $T_i$ 只注意自身和对应 $L_i$
-   - 保证各区域受各自文本约束，同时视觉 latent 间保持交互（非硬隔离）
+
+    - 给定 N 个区域文本描述 $C_1,...,C_N$ 和对应布局 $L_1,...,L_N$
+    - 编码每个文本条件得到嵌入 $T_1,...,T_N$
+    - 注意力掩码规则：每个区域视觉 latent $L_i$ 可以注意到其对应文本 $T_i$ 及所有视觉 latent $L_1,...,L_N$；每个文本嵌入 $T_i$ 只注意自身和对应 $L_i$
+    - 保证各区域受各自文本约束，同时视觉 latent 间保持交互（非硬隔离）
 
 2. **区域 LoRA 注入**：
-   - 对每个 LoRA 根据文本描述和布局信息计算 latent mask
-   - 公式：$Wx = W_0x + A_{\text{witch}}B_{\text{witch}}(Mask_{\text{witch}} \cdot x) + A_{\text{cat}}B_{\text{cat}}(Mask_{\text{cat}} \cdot x)$
-   - 角色 LoRA 注入空间层，运动 LoRA 注入时间层，无层级重叠 → 避免多 LoRA 冲突
+
+    - 对每个 LoRA 根据文本描述和布局信息计算 latent mask
+    - 公式：$Wx = W_0x + A_{\text{witch}}B_{\text{witch}}(Mask_{\text{witch}} \cdot x) + A_{\text{cat}}B_{\text{cat}}(Mask_{\text{cat}} \cdot x)$
+    - 角色 LoRA 注入空间层，运动 LoRA 注入时间层，无层级重叠 → 避免多 LoRA 冲突
 
 ### 损失函数 / 训练策略
 

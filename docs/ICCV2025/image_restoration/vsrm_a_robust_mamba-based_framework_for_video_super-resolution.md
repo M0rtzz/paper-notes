@@ -45,20 +45,23 @@ VSRM 包含两个主要部分：特征提取（Conv2d + Feature Propagation Bloc
 ### 关键设计
 
 1. **Dual Aggregation Mamba Block (DAMB)**：核心模块，由 N 个 S2TMB 和 1 个 T2SMB 组成。
-   - **S2TMB（空间到时间Mamba）**：将3D序列展平为1D，按先空间后时间的顺序进行前向和反向双向扫描。双向扫描保持空间感知的同时实现时间建模。公式：$S2T\text{-}Mamba(x,z)=Linear(x_1 \odot z + x_2 \odot z)$
-   - **T2SMB（时间到空间Mamba）**：仅执行前向扫描（实验证明单向更优），优先提取时间信息，弥补 S2TMB 对时间建模的不足。
-   - **TGFN（时间门控前馈网络）**：引入3D深度可分离卷积建模时空邻域关系，并使用门控机制（通道分割+GELU）优化信息流：$TGFN(X)=W_p^2(W_d^1 LN(\hat{X}_1) \odot \sigma(W_d^2 LN(\hat{X}_2)))$
+
+    - **S2TMB（空间到时间Mamba）**：将3D序列展平为1D，按先空间后时间的顺序进行前向和反向双向扫描。双向扫描保持空间感知的同时实现时间建模。公式：$S2T\text{-}Mamba(x,z)=Linear(x_1 \odot z + x_2 \odot z)$
+    - **T2SMB（时间到空间Mamba）**：仅执行前向扫描（实验证明单向更优），优先提取时间信息，弥补 S2TMB 对时间建模的不足。
+    - **TGFN（时间门控前馈网络）**：引入3D深度可分离卷积建模时空邻域关系，并使用门控机制（通道分割+GELU）优化信息流：$TGFN(X)=W_p^2(W_d^1 LN(\hat{X}_1) \odot \sigma(W_d^2 LN(\hat{X}_2)))$
 
 2. **Deformable Cross-mamba Alignment (DCA)**：解决帧间运动对齐问题。
-   - 使用预训练 SpyNet 估计光流
-   - 在补偿阶段引入可变形窗口机制：在参考帧上提取窗口 $w$，初始化参考区域 $r$，通过小型偏移网络学习偏移量 $\epsilon_r$ 得到动态参考区域 $\bar{r}=\phi(w; r+\epsilon_r)$
-   - 通过交叉Mamba模块融合目标点和动态参考点：$\bar{X}(x,y) = cross\text{-}mamba(R,Q)$，其中 $H_t = \bar{A}_R H_{t-1} + \bar{B}_R \bar{R}_t$, $\bar{X}_t = C_Q H_t$
-   - 相比固定窗口对齐，能更灵活地适应不同幅度的运动
+
+    - 使用预训练 SpyNet 估计光流
+    - 在补偿阶段引入可变形窗口机制：在参考帧上提取窗口 $w$，初始化参考区域 $r$，通过小型偏移网络学习偏移量 $\epsilon_r$ 得到动态参考区域 $\bar{r}=\phi(w; r+\epsilon_r)$
+    - 通过交叉Mamba模块融合目标点和动态参考点：$\bar{X}(x,y) = cross\text{-}mamba(R,Q)$，其中 $H_t = \bar{A}_R H_{t-1} + \bar{B}_R \bar{R}_t$, $\bar{X}_t = C_Q H_t$
+    - 相比固定窗口对齐，能更灵活地适应不同幅度的运动
 
 3. **Frequency Charbonnier-like Loss (FCL)**：在频域计算损失以恢复高频细节。
-   - 对图像进行FFT变换，分别计算实部和虚部的Charbonnier损失
-   - $\mathcal{L}_{FCL}=\sum_{i\in\{Re,Im\}} \lambda_i \sqrt{\|i\mathcal{F}(\mathbf{I}_{SR})-i\mathcal{F}(\mathbf{I}_{HR})\|^2+\epsilon^2}$
-   - 不使用幅度/相位（避免平方根和arctan带来的不连续性），直接对实部和虚部操作
+
+    - 对图像进行FFT变换，分别计算实部和虚部的Charbonnier损失
+    - $\mathcal{L}_{FCL}=\sum_{i\in\{Re,Im\}} \lambda_i \sqrt{\|i\mathcal{F}(\mathbf{I}_{SR})-i\mathcal{F}(\mathbf{I}_{HR})\|^2+\epsilon^2}$
+    - 不使用幅度/相位（避免平方根和arctan带来的不连续性），直接对实部和虚部操作
 
 ### 损失函数 / 训练策略
 

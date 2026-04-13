@@ -48,8 +48,9 @@ Zero-AVSR 由两个核心组件组成：(1) AV-Romanizer：将多语言视听语
 3. **Cascaded Zero-AVSR**: 级联 AV-Romanizer 和预训练 LLM（如 GPT-4o-mini），不需要微调 LLM。AV-Romanizer 将视听语音转为罗马文本，然后通过指令引导 LLM 将罗马文本转为目标语言文字。优势是可以使用任意 LLM（包括 API 形式）。
 
 4. **Zero-AVSR（统一模型）**: 将 AV-Romanizer 编码的视听特征直接嵌入 LLM（Llama3.2-3B），通过多任务训练实现端到端的零样本识别。
-   - **Task 1（对齐）**: 使用长度压缩器（1D 卷积，kernel=2, stride=2）和 adapter 将视听特征映射到 LLM 嵌入空间，在已见语言上用语言建模目标训练。冻结 AV-Romanizer 和 LLM 原始权重，仅训练 LoRA 权重、压缩器和 adapter。
-   - **Task 2（学习去罗马化）**: 纯文本任务，训练 LLM 将罗马文本转为目标语言文字，覆盖已见和未见语言，防止 LLM 遗忘多语言能力。仅训练 LoRA 权重。
+
+    - **Task 1（对齐）**: 使用长度压缩器（1D 卷积，kernel=2, stride=2）和 adapter 将视听特征映射到 LLM 嵌入空间，在已见语言上用语言建模目标训练。冻结 AV-Romanizer 和 LLM 原始权重，仅训练 LoRA 权重、压缩器和 adapter。
+    - **Task 2（学习去罗马化）**: 纯文本任务，训练 LLM 将罗马文本转为目标语言文字，覆盖已见和未见语言，防止 LLM 遗忘多语言能力。仅训练 LoRA 权重。
 
 ### 损失函数 / 训练策略
 

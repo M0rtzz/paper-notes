@@ -38,22 +38,25 @@ URDF-Anything由三个阶段构成：（1）输入表示——从单视角或多
 
 ### 关键设计
 1. **输入表示（Input Representation）**:
-   - 多视角输入：使用DUSt3R从多视角RGB图像生成稠密3D点云$P_{obj} \in \mathbb{R}^{N \times 6}$
-   - 单视角输入：先用扩散模型生成一致的多视角图像，再通过LGM重建3D几何
-   - 设计动机：适应不同的输入条件（单目/多目），输出统一的整体点云表示
+
+    - 多视角输入：使用DUSt3R从多视角RGB图像生成稠密3D点云$P_{obj} \in \mathbb{R}^{N \times 6}$
+    - 单视角输入：先用扩散模型生成一致的多视角图像，再通过LGM重建3D几何
+    - 设计动机：适应不同的输入条件（单目/多目），输出统一的整体点云表示
 
 2. **基于3D MLLM的关节解析与[SEG] Token机制**:
-   - 以ShapeLLM为骨干网络，结合点云编码器和LLM
-   - 点云$P_{obj}$经3D编码器提取特征$F_{pc} \in \mathbb{R}^{M \times d_{pc}}$，文本指令经LLM词嵌入层得到$F_{txt}$
-   - MLLM自回归输出：$Y_{output} = \text{MLLM}(F_{pc}, F_{txt})$
-   - 关键创新：扩展词汇表引入[SEG] token。每个link描述关联一个[SEG] token（如`"link_0": "base_cabinet[SEG]"`），使得符号输出与几何分割紧密耦合
-   - 设计动机：标准MLLM无法做逐点预测。受LISA启发引入[SEG] token，使MLLM在生成运动学结构的同时标记需要分割的几何区域
+
+    - 以ShapeLLM为骨干网络，结合点云编码器和LLM
+    - 点云$P_{obj}$经3D编码器提取特征$F_{pc} \in \mathbb{R}^{M \times d_{pc}}$，文本指令经LLM词嵌入层得到$F_{txt}$
+    - MLLM自回归输出：$Y_{output} = \text{MLLM}(F_{pc}, F_{txt})$
+    - 关键创新：扩展词汇表引入[SEG] token。每个link描述关联一个[SEG] token（如`"link_0": "base_cabinet[SEG]"`），使得符号输出与几何分割紧密耦合
+    - 设计动机：标准MLLM无法做逐点预测。受LISA启发引入[SEG] token，使MLLM在生成运动学结构的同时标记需要分割的几何区域
 
 3. **从[SEG] Token到几何分割**:
-   - 对每个生成的[SEG] token，利用其最终隐状态$h_{seg}$和前置类别token状态$h_{category}$融合：$h_{combined} = [h_{category}; h_{seg}]$
-   - 融合表示经MLP映射为查询$H_{query}$，通过交叉注意力对点云特征$F'_{pc}$计算逐点分数：$y_{mask} = \text{CrossAttn}(Q=H_{query}, K=F'_{pc}, V=F'_{pc})$
-   - sigmoid+threshold得到每个部件的二值分割掩码
-   - 设计动机：通过交叉注意力实现[SEG] token隐状态与点云特征的高效交互，既利用了MLLM的语义理解又保持了几何分割的精细性
+
+    - 对每个生成的[SEG] token，利用其最终隐状态$h_{seg}$和前置类别token状态$h_{category}$融合：$h_{combined} = [h_{category}; h_{seg}]$
+    - 融合表示经MLP映射为查询$H_{query}$，通过交叉注意力对点云特征$F'_{pc}$计算逐点分数：$y_{mask} = \text{CrossAttn}(Q=H_{query}, K=F'_{pc}, V=F'_{pc})$
+    - sigmoid+threshold得到每个部件的二值分割掩码
+    - 设计动机：通过交叉注意力实现[SEG] token隐状态与点云特征的高效交互，既利用了MLLM的语义理解又保持了几何分割的精细性
 
 ### 损失函数 / 训练策略
 - 总损失为语言建模损失和分割损失的加权和：$L = \lambda_{text}L_{text} + \lambda_{seg}\sum_{i=1}^{N}L_{i,seg}$

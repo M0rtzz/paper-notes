@@ -29,15 +29,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：基于 LLM/VLM 的通用 Web Agent（如 SeeAct）能够自主与真实网站交互，完成金融交易、电商购物、医疗操作等高风险任务。这些 Agent 通过解析网页截图和 HTML 内容来理解页面并执行用户指令。
-2. **安全隐患**：Web Agent 拥有对敏感资源的访问权限和自主决策能力，一旦被攻击者利用，可能导致严重后果——例如在股票交易中被误导购买错误标的、在电商中下单错误商品等。
-3. **现有攻击方法的局限**：
+**领域现状**：基于 LLM/VLM 的通用 Web Agent（如 SeeAct）能够自主与真实网站交互，完成金融交易、电商购物、医疗操作等高风险任务。这些 Agent 通过解析网页截图和 HTML 内容来理解页面并执行用户指令。
+**安全隐患**：Web Agent 拥有对敏感资源的访问权限和自主决策能力，一旦被攻击者利用，可能导致严重后果——例如在股票交易中被误导购买错误标的、在电商中下单错误商品等。
+**现有攻击方法的局限**：
    - **白盒方法**（Wu et al., 2024a）：需要访问 Agent 权重进行梯度优化，在实际部署中不可行
    - **手动设计方法**（Wu et al., 2024c; Liao et al., 2024）：需要人工启发式编写攻击指令，成本高、扩展性差
    - **针对 LLM/VLM 的自动攻击**（Zou et al., 2023; Guo et al., 2024）：缺乏对 Agent 交互场景的灵活性，在黑盒跨模型迁移时效果有限
-4. **核心矛盾**：如何在完全黑盒（不访问 Agent 权重或 logits）的条件下，自动、高效且可控地生成对抗 prompt 来攻击 Web Agent？
-5. **切入角度**：将对抗 prompt 生成建模为序列生成问题，通过 RL（DPO）利用黑盒 Agent 反馈来训练一个 prompter 模型，使其学会生成既有效又隐蔽的对抗性 HTML 注入内容。
-6. **核心 idea 一句话**：用 DPO 强化学习训练对抗 prompter，从黑盒 Agent 的成功/失败反馈中学习，自动生成可控的隐形网页对抗注入。
+**核心矛盾**：如何在完全黑盒（不访问 Agent 权重或 logits）的条件下，自动、高效且可控地生成对抗 prompt 来攻击 Web Agent？
+**切入角度**：将对抗 prompt 生成建模为序列生成问题，通过 RL（DPO）利用黑盒 Agent 反馈来训练一个 prompter 模型，使其学会生成既有效又隐蔽的对抗性 HTML 注入内容。
+**核心 idea 一句话**：用 DPO 强化学习训练对抗 prompter，从黑盒 Agent 的成功/失败反馈中学习，自动生成可控的隐形网页对抗注入。
 
 ## 方法详解
 
@@ -54,37 +54,41 @@ AdvAgent 的攻击流程分为三个核心阶段：
 ### 关键设计
 
 1. **两阶段训练范式（Two-Stage Training Paradigm）**
-   - **Stage 1 — 监督微调（SFT Warm-up）**：
-     - 使用手工设计的成功攻击 prompt 作为种子数据
-     - 对预训练语言模型进行监督微调，使其学习对抗 prompt 的基本模式和结构
-     - 目的：为 prompter 建立初始的对抗 prompt 生成能力，避免 RL 阶段从零开始探索
-   - **Stage 2 — DPO 强化学习优化**：
-     - 使用 SFT 模型生成大量候选对抗 prompt
-     - 将候选 prompt 注入网页，观察黑盒 Agent 的行为反馈
-     - 根据攻击是否成功，将 prompt 分为正样本（成功攻击）和负样本（攻击失败）
-     - 使用 Direct Policy Optimization（DPO）进行偏好学习：$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\left[\log\sigma\left(\beta\log\frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta\log\frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)}\right)\right]$
-     - 其中 $y_w$ 为攻击成功的 prompt（正样本），$y_l$ 为攻击失败的 prompt（负样本）
-     - 核心优势：无需访问 Agent 权重或 logits，仅需观察 Agent 的最终行为作为奖励信号
+
+    - **Stage 1 — 监督微调（SFT Warm-up）**：
+      - 使用手工设计的成功攻击 prompt 作为种子数据
+      - 对预训练语言模型进行监督微调，使其学习对抗 prompt 的基本模式和结构
+      - 目的：为 prompter 建立初始的对抗 prompt 生成能力，避免 RL 阶段从零开始探索
+    - **Stage 2 — DPO 强化学习优化**：
+      - 使用 SFT 模型生成大量候选对抗 prompt
+      - 将候选 prompt 注入网页，观察黑盒 Agent 的行为反馈
+      - 根据攻击是否成功，将 prompt 分为正样本（成功攻击）和负样本（攻击失败）
+      - 使用 Direct Policy Optimization（DPO）进行偏好学习：$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\left[\log\sigma\left(\beta\log\frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta\log\frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)}\right)\right]$
+      - 其中 $y_w$ 为攻击成功的 prompt（正样本），$y_l$ 为攻击失败的 prompt（负样本）
+      - 核心优势：无需访问 Agent 权重或 logits，仅需观察 Agent 的最终行为作为奖励信号
 
 2. **隐蔽注入机制（Stealthy Injection Mechanism）**
-   - 做什么：将对抗 prompt 嵌入网页 HTML 的不可见元素中
-   - 核心思路：利用 HTML 中对用户不可见但 Agent 可读取的字段，如：
-     - 隐藏的 `<input type="hidden">` 元素
-     - CSS 设置为不可见的 `<div style="display:none">`
-     - HTML 属性字段（如 `aria-label`、`title` 等）
-   - 注入后网页在浏览器中的视觉渲染完全不变，普通用户无法察觉
-   - Agent 在解析 HTML 或处理页面元素时会读取到这些隐藏内容
+
+    - 做什么：将对抗 prompt 嵌入网页 HTML 的不可见元素中
+    - 核心思路：利用 HTML 中对用户不可见但 Agent 可读取的字段，如：
+      - 隐藏的 `<input type="hidden">` 元素
+      - CSS 设置为不可见的 `<div style="display:none">`
+      - HTML 属性字段（如 `aria-label`、`title` 等）
+    - 注入后网页在浏览器中的视觉渲染完全不变，普通用户无法察觉
+    - Agent 在解析 HTML 或处理页面元素时会读取到这些隐藏内容
 
 3. **攻击可控性（Controllability）**
-   - 做什么：允许攻击者灵活修改攻击目标而无需重新训练
-   - 核心思路：训练好的 prompter 模型学会了对抗 prompt 的通用模式，攻击者可以通过简单修改输入条件（如将目标公司从 NVIDIA 改为 Tesla）来生成针对新目标的对抗 prompt
-   - 无需为每个新攻击目标重新优化，大幅降低攻击成本
-   - 这一特性使 AdvAgent 比固定 prompt 的手动方法更具实用价值
+
+    - 做什么：允许攻击者灵活修改攻击目标而无需重新训练
+    - 核心思路：训练好的 prompter 模型学会了对抗 prompt 的通用模式，攻击者可以通过简单修改输入条件（如将目标公司从 NVIDIA 改为 Tesla）来生成针对新目标的对抗 prompt
+    - 无需为每个新攻击目标重新优化，大幅降低攻击成本
+    - 这一特性使 AdvAgent 比固定 prompt 的手动方法更具实用价值
 
 4. **攻击目标设定（Targeted Attack Formulation）**
-   - 攻击者指定一个**目标动作** $a^*$，该动作与用户原始请求不同
-   - 攻击成功的判定标准：Agent 最终执行的动作 $a_t$ 与目标动作 $a^*$ 一致
-   - 攻击成功率（ASR）= 成功攻击的任务数 / 总任务数
+
+    - 攻击者指定一个**目标动作** $a^*$，该动作与用户原始请求不同
+    - 攻击成功的判定标准：Agent 最终执行的动作 $a_t$ 与目标动作 $a^*$ 一致
+    - 攻击成功率（ASR）= 成功攻击的任务数 / 总任务数
 
 ## 实验关键数据
 

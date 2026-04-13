@@ -26,14 +26,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：黎曼优化广泛应用于深度学习（正交约束）、PCA、字典学习、低秩矩阵补全等涉及流形结构搜索空间的问题。现有黎曼优化算法主要针对光滑目标函数，包括梯度下降、无投影方法、加速方法等。
-2. **现有痛点**：
+**领域现状**：黎曼优化广泛应用于深度学习（正交约束）、PCA、字典学习、低秩矩阵补全等涉及流形结构搜索空间的问题。现有黎曼优化算法主要针对光滑目标函数，包括梯度下降、无投影方法、加速方法等。
+**现有痛点**：
    - 非光滑非凸函数的 $\epsilon$-驻点不可求解（NP-hard），需引入替代准则
    - 欧几里德空间中 Goldstein 稳定性近年才被研究（2020-），且已达到最优 $O(\delta^{-1}\epsilon^{-3})$
    - 黎曼设定下，非光滑非凸优化的有限时间分析完全空白——仅有渐近收敛结果
-3. **核心矛盾**：流形几何（不同点的切空间不同、平行移动引入失真、retraction 非线性）使得欧几里德分析工具无法直接迁移
-4. **切入角度**：将欧几里德空间的 O2NC 算法（基于在线学习到非凸优化的转换）适配到黎曼流形，利用 retraction 保证可行性，用平行移动/投影处理不同切空间的向量运算
-5. **核心idea**：通过巧妙选择基准动作 $u_t$（使用平行移动将梯度传输到公共切空间）和分析流形曲率引入的误差项，将欧几里德最优复杂度延伸到黎曼设定
+**核心矛盾**：流形几何（不同点的切空间不同、平行移动引入失真、retraction 非线性）使得欧几里德分析工具无法直接迁移
+**切入角度**：将欧几里德空间的 O2NC 算法（基于在线学习到非凸优化的转换）适配到黎曼流形，利用 retraction 保证可行性，用平行移动/投影处理不同切空间的向量运算
+**核心idea**：通过巧妙选择基准动作 $u_t$（使用平行移动将梯度传输到公共切空间）和分析流形曲率引入的误差项，将欧几里德最优复杂度延伸到黎曼设定
 
 ## 方法详解
 
@@ -43,24 +43,28 @@ RO2NC 基于双层循环结构：外层 epoch $k=1,...,K$，内层迭代 $t=0,..
 ### 关键设计
 
 1. **Goldstein 稳定性的黎曼推广**:
-   - 做什么：定义黎曼流形上的 $(\delta,\epsilon)$-驻点概念
-   - 核心思路：Riemannian $\delta$-subdifferential 定义为 $\partial_\delta f(x) := \text{cl conv}\{P_{y,x}^g(\partial f(y)): y \in \text{cl } B(x,\delta)\}$，需要平行移动将不同切空间的次微分集搬到同一切空间。点 $x$ 是 $(\delta,\epsilon)$-驻点当 $\|\text{grad } f(x)\|_\delta \leq \epsilon$
-   - 设计动机：平行移动保持向量长度（等距性），适合定义距离相关的概念；若用投影则失去等距性
+
+    - 做什么：定义黎曼流形上的 $(\delta,\epsilon)$-驻点概念
+    - 核心思路：Riemannian $\delta$-subdifferential 定义为 $\partial_\delta f(x) := \text{cl conv}\{P_{y,x}^g(\partial f(y)): y \in \text{cl } B(x,\delta)\}$，需要平行移动将不同切空间的次微分集搬到同一切空间。点 $x$ 是 $(\delta,\epsilon)$-驻点当 $\|\text{grad } f(x)\|_\delta \leq \epsilon$
+    - 设计动机：平行移动保持向量长度（等距性），适合定义距离相关的概念；若用投影则失去等距性
 
 2. **RO2NC 的平行移动版本**:
-   - 做什么：使用平行移动更新动作 $\Delta_t$ 和反馈梯度 $g_t$
-   - 核心思路：$\Delta_{t+1} = \text{clip}(P_{x_t,x_{t+1}}^g(\Delta_t) - \eta g_t')$，其中 $g_t' = P_{w_t,x_{t+1}}^g(g_t)$ 是梯度的平行移动版本。clip 将动作限制在切空间球 $\mathbb{B}_{T_{x_{t+1}}\mathcal{M}}(D)$ 内
-   - 设计动机：平行移动保证分析中可以复用在线优化的遗憾界；关键创新在于基准动作的选择：$u_t = \mathcal{P}_{S_t}^s\big(-D \frac{\sum_\tau (\mathcal{P}_{S_{\tau+1}}^s)^{-1} \circ P_{w_\tau,x_{\tau+1}}^g(\nabla_\tau)}{\|\cdot\|}\big)$，将所有梯度传输到公共切空间 $T_{x_0}\mathcal{M}$
+
+    - 做什么：使用平行移动更新动作 $\Delta_t$ 和反馈梯度 $g_t$
+    - 核心思路：$\Delta_{t+1} = \text{clip}(P_{x_t,x_{t+1}}^g(\Delta_t) - \eta g_t')$，其中 $g_t' = P_{w_t,x_{t+1}}^g(g_t)$ 是梯度的平行移动版本。clip 将动作限制在切空间球 $\mathbb{B}_{T_{x_{t+1}}\mathcal{M}}(D)$ 内
+    - 设计动机：平行移动保证分析中可以复用在线优化的遗憾界；关键创新在于基准动作的选择：$u_t = \mathcal{P}_{S_t}^s\big(-D \frac{\sum_\tau (\mathcal{P}_{S_{\tau+1}}^s)^{-1} \circ P_{w_\tau,x_{\tau+1}}^g(\nabla_\tau)}{\|\cdot\|}\big)$，将所有梯度传输到公共切空间 $T_{x_0}\mathcal{M}$
 
 3. **RO2NC 的投影版本**:
-   - 做什么：用计算更高效的投影替代平行移动
-   - 核心思路：$\Delta_{t+1} = \text{Proj}_{T_{x_{t+1}}\mathcal{M}}(\Delta_t - \eta g_t)$，在环境空间计算后投影回切空间
-   - 设计动机：投影在实现上更高效（无需计算测地线），虽失去等距性但通过 Lemma 2.8 控制失真：$\|P_{0,t}^\gamma(v) - \text{Proj}(v)\| \leq C\|v\| \cdot \text{length}(\gamma)$
+
+    - 做什么：用计算更高效的投影替代平行移动
+    - 核心思路：$\Delta_{t+1} = \text{Proj}_{T_{x_{t+1}}\mathcal{M}}(\Delta_t - \eta g_t)$，在环境空间计算后投影回切空间
+    - 设计动机：投影在实现上更高效（无需计算测地线），虽失去等距性但通过 Lemma 2.8 控制失真：$\|P_{0,t}^\gamma(v) - \text{Proj}(v)\| \leq C\|v\| \cdot \text{length}(\gamma)$
 
 4. **零阶 ZO-RO2NC**:
-   - 做什么：在梯度不可用时用函数值查询估计梯度
-   - 核心思路：黎曼梯度估计器 $g_\delta(x) = \frac{d}{2\delta}(F(\text{Exp}_x(\delta u), \nu) - F(\text{Exp}_x(-\delta u), \nu))u$，其中 $u$ 从切空间单位球均匀采样。定义辅助函数 $h_\delta(x) = \int f \circ \text{Exp}_x(u) dp_x(u)$ 建立梯度估计与 Goldstein 次微分的关系
-   - 设计动机：在切空间采样（而非流形上）避免流形体积计算；通过 Lemma 4.1 控制梯度估计与次微分集的距离
+
+    - 做什么：在梯度不可用时用函数值查询估计梯度
+    - 核心思路：黎曼梯度估计器 $g_\delta(x) = \frac{d}{2\delta}(F(\text{Exp}_x(\delta u), \nu) - F(\text{Exp}_x(-\delta u), \nu))u$，其中 $u$ 从切空间单位球均匀采样。定义辅助函数 $h_\delta(x) = \int f \circ \text{Exp}_x(u) dp_x(u)$ 建立梯度估计与 Goldstein 次微分的关系
+    - 设计动机：在切空间采样（而非流形上）避免流形体积计算；通过 Lemma 4.1 控制梯度估计与次微分集的距离
 
 ### 训练策略
 - 步长 $\eta = D/G\sqrt{T}$，裁剪参数 $D = \delta/T$

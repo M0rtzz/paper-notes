@@ -29,9 +29,9 @@ tags:
 
 人类感知将复杂多物体场景分解为**时间不变的外观**（大小、形状、颜色）和**时间变化的运动**（位置、速度、加速度）。基于对象中心的 Transformer 视频预测方法（如 SlotFormer、OCVP）主要依赖 Slot Attention 提取的对象外观表示，存在以下问题：
 
-1. **忽略显式运动动力学**：仅隐式学习运动变化，难以准确建模动态交互（如碰撞、加减速）
-2. **复杂场景中表现不佳**：在包含多样物体外观、运动模式和背景的场景中（如 MOVi-C/D/E），现有方法预测质量下降甚至发散
-3. **长期预测泛化差**：缺乏显式的运动学先验导致误差快速累积
+**忽略显式运动动力学**：仅隐式学习运动变化，难以准确建模动态交互（如碰撞、加减速）
+**复杂场景中表现不佳**：在包含多样物体外观、运动模式和背景的场景中（如 MOVi-C/D/E），现有方法预测质量下降甚至发散
+**长期预测泛化差**：缺乏显式的运动学先验导致误差快速累积
 
 ## 方法详解
 
@@ -45,16 +45,18 @@ OCK 由三个主要模块组成：
 ### 关键设计
 
 1. **Object Kinematics（对象运动学）**：使用 CNN 提取低层图像特征后定位每个物体质心的 2D 坐标，构建三层运动学状态：
-   $$\mathbf{K}_t = \begin{bmatrix} \mathbf{x}_t^{\text{pos}} \\ \mathbf{x}_t^{\text{vel}} \\ \mathbf{x}_t^{\text{acc}} \end{bmatrix} = \begin{bmatrix} \phi(\mathbf{o}_t) \\ \lambda(\mathbf{x}_t^{\text{pos}} - \mathbf{x}_{t-1}^{\text{pos}}) \\ \mathbf{x}_t^{\text{vel}} - \mathbf{x}_{t-1}^{\text{vel}} \end{bmatrix}$$
+    $\mathbf{K}_t = \begin{bmatrix} \mathbf{x}_t^{\text{pos}} \\ \mathbf{x}_t^{\text{vel}} \\ \mathbf{x}_t^{\text{acc}} \end{bmatrix} = \begin{bmatrix} \phi(\mathbf{o}_t) \\ \lambda(\mathbf{x}_t^{\text{pos}} - \mathbf{x}_{t-1}^{\text{pos}}) \\ \mathbf{x}_t^{\text{vel}} - \mathbf{x}_{t-1}^{\text{vel}} \end{bmatrix}$
    其中 $\lambda$ 为可学习缩放参数。运动学在 2D 图像空间建模（避免 3D 深度估计的计算开销），且不依赖任务特定的损失函数。
 
 2. **两种运动学使用方式**：
-   - **分析方法（Analytical）**：根据当前运动学预测下一帧的位置 $\mathbf{x}_{t+1}^{\text{pos}'} = \mathbf{x}_t^{\text{pos}} + \mathbf{x}_t^{\text{vel}} \times \delta$，然后将当前和预测运动学一起送入 Transformer
-   - **经验方法（Empirical）**：仅使用当前帧运动学，让 Transformer 隐式学习运动模式
+
+    - **分析方法（Analytical）**：根据当前运动学预测下一帧的位置 $\mathbf{x}_{t+1}^{\text{pos}'} = \mathbf{x}_t^{\text{pos}} + \mathbf{x}_t^{\text{vel}} \times \delta$，然后将当前和预测运动学一起送入 Transformer
+    - **经验方法（Empirical）**：仅使用当前帧运动学，让 Transformer 隐式学习运动模式
 
 3. **两种 OCK Transformer 架构**：
-   - **Joint-OCK**：将 slot 和运动学拼接后联合输入标准 Transformer 编码器进行自注意力
-   - **Cross-OCK**：使用交叉注意力机制，slot 作为 query，运动学作为 key/value，并引入温度参数 $\tau$ 调节注意力校准：$\text{Cross-OCK}(\mathbf{v}, \mathbf{k}, \mathbf{q}; \tau) = \mathbf{v} \cdot \text{softmax}(\frac{\mathbf{k}^\top \mathbf{q}}{\tau})$
+
+    - **Joint-OCK**：将 slot 和运动学拼接后联合输入标准 Transformer 编码器进行自注意力
+    - **Cross-OCK**：使用交叉注意力机制，slot 作为 query，运动学作为 key/value，并引入温度参数 $\tau$ 调节注意力校准：$\text{Cross-OCK}(\mathbf{v}, \mathbf{k}, \mathbf{q}; \tau) = \mathbf{v} \cdot \text{softmax}(\frac{\mathbf{k}^\top \mathbf{q}}{\tau})$
 
 ### 损失函数 / 训练策略
 

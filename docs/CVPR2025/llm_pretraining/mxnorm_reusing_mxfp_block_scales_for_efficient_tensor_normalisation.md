@@ -25,10 +25,10 @@ tags:
 MXNorm 提出复用 MXFP 量化过程中已计算的 block absmax 来近似 RMS，将归一化与 MX 量化融合为单次统计收集操作，实现 RMSNorm 的 drop-in 替换，在 Llama 3 8B 预训练中保持训练精度的同时获得最高 2.4× 的 kernel 加速。
 
 ## 研究背景与动机
-1. **领域现状**：过去 8 年 GPU 矩阵乘法加速提升了 80×（V100→GB200），但内存带宽仅提升 8.9×，CUDA core 仅提升 5.1×。随着 MXFP8/FP4 等低精度矩阵乘法的普及，非矩阵乘法操作（归一化、逐元素计算、规约）正成为新的吞吐瓶颈。
-2. **核心矛盾**：Pre-Norm Transformer（Llama 系列）在每个 QKV 投影和 FFN 投影前都执行 RMSNorm，而 RMSNorm 需要对整个隐层维度做规约（求平方均值），紧接着又要对同一张量做 MX 量化（求 block absmax）——这是两次独立的统计收集操作。
-3. **关键观察**：RMSNorm 和 MXCast 都在隐层维度上收集统计量来缩放元素。当概率分布被线性缩放时，其期望 absmax 也等比缩放——因此 block absmax 的广义幂均值可以用来估计 RMS。
-4. **本文目标**：融合归一化和量化为单次操作，将规约大小降低 32×（从 D 维降到 K=D/B 个 block absmax）。
+**领域现状**：过去 8 年 GPU 矩阵乘法加速提升了 80×（V100→GB200），但内存带宽仅提升 8.9×，CUDA core 仅提升 5.1×。随着 MXFP8/FP4 等低精度矩阵乘法的普及，非矩阵乘法操作（归一化、逐元素计算、规约）正成为新的吞吐瓶颈。
+**核心矛盾**：Pre-Norm Transformer（Llama 系列）在每个 QKV 投影和 FFN 投影前都执行 RMSNorm，而 RMSNorm 需要对整个隐层维度做规约（求平方均值），紧接着又要对同一张量做 MX 量化（求 block absmax）——这是两次独立的统计收集操作。
+**关键观察**：RMSNorm 和 MXCast 都在隐层维度上收集统计量来缩放元素。当概率分布被线性缩放时，其期望 absmax 也等比缩放——因此 block absmax 的广义幂均值可以用来估计 RMS。
+**本文目标**：融合归一化和量化为单次操作，将规约大小降低 32×（从 D 维降到 K=D/B 个 block absmax）。
 
 ## 方法详解
 

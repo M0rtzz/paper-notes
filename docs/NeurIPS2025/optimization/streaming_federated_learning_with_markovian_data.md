@@ -27,9 +27,9 @@ tags:
 ## 研究背景与动机
 传统联邦学习（FL）假设客户端拥有预采集的数据集，但在健康监测、环境监控、机器人控制等场景中，客户端持续收集数据，形成数据流。这些数据流的特点是：
 
-1. **马尔可夫依赖性**：由物理/生物系统产生的数据自然具有时间相关性，而非 i.i.d. 采样
-2. **内存约束**：客户端只能存储有限数量的当前样本，无法控制采样过程
-3. **非平稳性**：马尔可夫链的初始分布与稳态分布不同，导致早期样本偏差
+**马尔可夫依赖性**：由物理/生物系统产生的数据自然具有时间相关性，而非 i.i.d. 采样
+**内存约束**：客户端只能存储有限数量的当前样本，无法控制采样过程
+**非平稳性**：马尔可夫链的初始分布与稳态分布不同，导致早期样本偏差
 
 **核心问题**：FL 在马尔可夫数据流下是否仍能支持协作学习？具体来说，每个客户端的样本复杂度能否随客户端数 $M$ 线性减少？
 
@@ -47,28 +47,32 @@ tags:
 ### 关键设计
 
 1. **Minibatch SGD 分析**（问题类 $\mathcal{F}_1$）：
-   - 仅需全局平滑性（Assumption 4.1）+ 有界梯度噪声（Assumption 4.3）
-   - 收敛上界：$\mathbb{E}[\|\nabla F(\hat{w}_T)\|^2] \leq \mathcal{O}\left(\frac{\Delta_0}{\gamma T} + \frac{C_\infty \sigma^2}{\nu_{ps} MK}\right)$
-   - 第二项反映马尔可夫数据的代价：梯度噪声被谱隙 $\nu_{ps}$ 的倒数放大，且**无法通过调小学习率消除**
-   - 样本复杂度 $K = \mathcal{O}(C_\infty \sigma^2 / (\nu_{ps} M\epsilon^2))$：与 $1/M$ 成正比 → **线性加速✓**
+
+    - 仅需全局平滑性（Assumption 4.1）+ 有界梯度噪声（Assumption 4.3）
+    - 收敛上界：$\mathbb{E}[\|\nabla F(\hat{w}_T)\|^2] \leq \mathcal{O}\left(\frac{\Delta_0}{\gamma T} + \frac{C_\infty \sigma^2}{\nu_{ps} MK}\right)$
+    - 第二项反映马尔可夫数据的代价：梯度噪声被谱隙 $\nu_{ps}$ 的倒数放大，且**无法通过调小学习率消除**
+    - 样本复杂度 $K = \mathcal{O}(C_\infty \sigma^2 / (\nu_{ps} M\epsilon^2))$：与 $1/M$ 成正比 → **线性加速✓**
 
 2. **Local SGD 分析**（问题类 $\mathcal{F}_3$，需要异质性假设）：
-   - 额外需要逐样本平滑性（Assumption 4.2）+ 有界梯度散度 BGD（Assumption 4.4）
-   - 多出客户端漂移项 $\frac{LK\eta(\theta^2+\sigma^2)}{\delta^2}$，可通过小学习率控制
-   - 通信复杂度 $T = \mathcal{O}\left(\frac{L\Delta_0}{\epsilon^2}(\delta^2 \vee \frac{\theta^2+\sigma^2}{\delta^2\epsilon^2})\right)$
-   - 只有在低异质性、低噪声条件下才能达到最优通信复杂度
+
+    - 额外需要逐样本平滑性（Assumption 4.2）+ 有界梯度散度 BGD（Assumption 4.4）
+    - 多出客户端漂移项 $\frac{LK\eta(\theta^2+\sigma^2)}{\delta^2}$，可通过小学习率控制
+    - 通信复杂度 $T = \mathcal{O}\left(\frac{L\Delta_0}{\epsilon^2}(\delta^2 \vee \frac{\theta^2+\sigma^2}{\delta^2\epsilon^2})\right)$
+    - 只有在低异质性、低噪声条件下才能达到最优通信复杂度
 
 3. **Local SGD with Momentum（Local SGD-M）**：
-   - 核心更新：$v_t^{(m,k)} = \beta \nabla f_m(w_t^{(m,k)}; x_t^{(m,k)}) + (1-\beta) v_t$
-   - 将梯度估计与上一轮聚合更新做凸组合
-   - **关键优势**：无需 BGD 异质性假设，在问题类 $\mathcal{F}_2$ 上即可工作
-   - 收敛上界：$\mathbb{E}[\|\nabla F(\hat{w}_T)\|^2] \leq \mathcal{O}\left(\frac{L\Delta_0}{\beta T} + \frac{C_\infty \sigma^2}{\nu_{ps} MK}\right)$
-   - 通信复杂度 $T = \mathcal{O}(L\Delta_0/(\beta\epsilon^2))$：仅多一个常数 $1/\beta$，达到 i.i.d. 下界
+
+    - 核心更新：$v_t^{(m,k)} = \beta \nabla f_m(w_t^{(m,k)}; x_t^{(m,k)}) + (1-\beta) v_t$
+    - 将梯度估计与上一轮聚合更新做凸组合
+    - **关键优势**：无需 BGD 异质性假设，在问题类 $\mathcal{F}_2$ 上即可工作
+    - 收敛上界：$\mathbb{E}[\|\nabla F(\hat{w}_T)\|^2] \leq \mathcal{O}\left(\frac{L\Delta_0}{\beta T} + \frac{C_\infty \sigma^2}{\nu_{ps} MK}\right)$
+    - 通信复杂度 $T = \mathcal{O}(L\Delta_0/(\beta\epsilon^2))$：仅多一个常数 $1/\beta$，达到 i.i.d. 下界
 
 4. **更宽松的马尔可夫假设**：
-   - 不要求常用的一致几何遍历性（指数快速收敛到稳态），仅需转移核对稳态测度的绝对连续性（Assumption 3.2）
-   - 通过简单的测度变换处理非平稳性，而非依赖快速混合
-   - 结果更具广泛适用性
+
+    - 不要求常用的一致几何遍历性（指数快速收敛到稳态），仅需转移核对稳态测度的绝对连续性（Assumption 3.2）
+    - 通过简单的测度变换处理非平稳性，而非依赖快速混合
+    - 结果更具广泛适用性
 
 ### 损失函数 / 训练策略
 - 非凸光滑损失函数 + 全局有界下方

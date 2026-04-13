@@ -24,12 +24,12 @@ tags:
 提出 Generalized Contrastive Learning (GCL)——在 mini-batch 内对所有 6 种模态对组合（image↔text, image↔image+text, text↔image+text）执行对比学习，无需构建新的三元组数据集，仅用现有图文对即可在 M-BEIR 上将 VISTA 的平均检索精度从 21.18 提升到 34.06（+60.8%），在 MMEB 的 text→image+text 任务上从 10.1% 提升到 31.1%。
 
 ## 研究背景与动机
-1. **领域现状**：CLIP 等跨模态检索模型在标准图-文对检索上表现好，但当查询或键涉及融合模态（fused image+text，如 Wikipedia 页面包含图片和文字）时性能急剧下降。
-2. **现有痛点**：先前方法（如 VISTA、UniIR）通过构建包含 fused modality 的三元组数据集来训练，但(a) 需要额外数据标注/生成，成本高；(b) 构建的数据只覆盖有限的模态组合，无法泛化到未见组合；(c) 用生成数据训练可能导致跨模态任务的遗忘。
-3. **核心矛盾**：标准对比学习（InfoNCE）只在 image↔text 两对之间做对比，忽略了 fused modality（image+text）——导致 3 种模态之间的 $3 \times 3 = 9$ 种可能的检索组合中只有 2 种被学习。
-4. **本文要解决什么**：设计一种 loss 函数使检索模型能处理任意模态组合，且不需要新的标注数据。
-5. **切入角度**：利用已有图文对数据，在 mini-batch 内自动构造所有模态组合的正负样本，通过统一的 GCL loss 覆盖所有 6 种跨模态对比方向。
-6. **核心idea一句话**：将 InfoNCE 从 2 种跨模态对扩展到 6 种（加入 fused modality），从现有数据中免费获得多模态检索能力。
+**领域现状**：CLIP 等跨模态检索模型在标准图-文对检索上表现好，但当查询或键涉及融合模态（fused image+text，如 Wikipedia 页面包含图片和文字）时性能急剧下降。
+**现有痛点**：先前方法（如 VISTA、UniIR）通过构建包含 fused modality 的三元组数据集来训练，但(a) 需要额外数据标注/生成，成本高；(b) 构建的数据只覆盖有限的模态组合，无法泛化到未见组合；(c) 用生成数据训练可能导致跨模态任务的遗忘。
+**核心矛盾**：标准对比学习（InfoNCE）只在 image↔text 两对之间做对比，忽略了 fused modality（image+text）——导致 3 种模态之间的 $3 \times 3 = 9$ 种可能的检索组合中只有 2 种被学习。
+**本文要解决什么**：设计一种 loss 函数使检索模型能处理任意模态组合，且不需要新的标注数据。
+**切入角度**：利用已有图文对数据，在 mini-batch 内自动构造所有模态组合的正负样本，通过统一的 GCL loss 覆盖所有 6 种跨模态对比方向。
+**核心idea一句话**：将 InfoNCE 从 2 种跨模态对扩展到 6 种（加入 fused modality），从现有数据中免费获得多模态检索能力。
 
 ## 方法详解
 
@@ -39,20 +39,23 @@ tags:
 ### 关键设计
 
 1. **GCL Loss**:
-   - 做什么：在 mini-batch 内对所有 6 种跨模态对执行对比学习
-   - 标准 CL：$S = \{(i,t), (t,i)\}$，仅 2 种对
-   - GCL：$P = \{(i,t), (i,it), (t,i), (t,it), (it,t), (it,i)\}$，6 种对
-   - 核心公式：$\mathcal{L}_{GCL} = -\frac{1}{6N}\sum_{j=1}^{N}\sum_{(a,b)\in P}\log\frac{\exp[(e_a^j \cdot e_b^j)/\tau]}{\sum_{m\in M}\sum_{k=1}^{N}\exp[(e_a^j \cdot e_m^k)/\tau]}$
-   - 关键：分母中包含所有 3 种模态的 embeddings，使模型学到真正统一的表示空间
-   - 设计动机：覆盖所有可能的检索方向，使模型对任意 query→candidate 模态组合都有效
+
+    - 做什么：在 mini-batch 内对所有 6 种跨模态对执行对比学习
+    - 标准 CL：$S = \{(i,t), (t,i)\}$，仅 2 种对
+    - GCL：$P = \{(i,t), (i,it), (t,i), (t,it), (it,t), (it,i)\}$，6 种对
+    - 核心公式：$\mathcal{L}_{GCL} = -\frac{1}{6N}\sum_{j=1}^{N}\sum_{(a,b)\in P}\log\frac{\exp[(e_a^j \cdot e_b^j)/\tau]}{\sum_{m\in M}\sum_{k=1}^{N}\exp[(e_a^j \cdot e_m^k)/\tau]}$
+    - 关键：分母中包含所有 3 种模态的 embeddings，使模型学到真正统一的表示空间
+    - 设计动机：覆盖所有可能的检索方向，使模型对任意 query→candidate 模态组合都有效
 
 2. **同模态样本处理**:
-   - 做什么：同模态的样本对（如 image↔image）被 mask 掉，不作为正样本
-   - 设计动机：避免同模态坍缩，只学习跨模态对齐
+
+    - 做什么：同模态的样本对（如 image↔image）被 mask 掉，不作为正样本
+    - 设计动机：避免同模态坍缩，只学习跨模态对齐
 
 3. **即插即用**:
-   - 做什么：GCL loss 直接替换标准 CL loss，不改模型架构
-   - 适用范围：在 VISTA（双塔+fusion）、CLIP-SF（CLIP+score fusion）、TinyCLIP 三种不同架构上均有效
+
+    - 做什么：GCL loss 直接替换标准 CL loss，不改模型架构
+    - 适用范围：在 VISTA（双塔+fusion）、CLIP-SF（CLIP+score fusion）、TinyCLIP 三种不同架构上均有效
 
 ### 训练策略
 使用现有图文对数据训练（无额外数据构建）。Fused embedding 的构造方式为简单向量加法 $e_{it} = e_i + e_t$。

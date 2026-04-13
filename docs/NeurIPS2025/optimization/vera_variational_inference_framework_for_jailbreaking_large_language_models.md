@@ -39,20 +39,22 @@ tags:
 
 ### 关键设计
 1. **变分目标（ELBO）**：
-   $$\mathbb{E}_{q_\theta(x)}[\log P_{LM}(y^*|x) + \log P(x) - \log q_\theta(x)]$$
-   - 第一项：有害内容生成概率（攻击有效性）
-   - 第二项：先验下的合理性（提示流畅性）
-   - 第三项：熵正则化（鼓励多样性，避免模式坍缩）
+    $\mathbb{E}_{q_\theta(x)}[\log P_{LM}(y^*|x) + \log P(x) - \log q_\theta(x)]$
+    - 第一项：有害内容生成概率（攻击有效性）
+    - 第二项：先验下的合理性（提示流畅性）
+    - 第三项：熵正则化（鼓励多样性，避免模式坍缩）
 
 2. **Judge 作为似然近似器**：
-   - 黑盒场景无法直接计算 $P_{LM}(y^*|x)$
-   - 使用外部判断模型 $J(x,\hat{y}) \in [0,1]$ 作为代理
-   - 可使用二分类器（如 HarmBench 的 LLaMA2-13B 分类器）或 LLM 提示评分
+
+    - 黑盒场景无法直接计算 $P_{LM}(y^*|x)$
+    - 使用外部判断模型 $J(x,\hat{y}) \in [0,1]$ 作为代理
+    - 可使用二分类器（如 HarmBench 的 LLaMA2-13B 分类器）或 LLM 提示评分
 
 3. **REINFORCE 梯度估计**：
-   - 使用 REINFORCE trick 处理离散采样的梯度
-   - $\nabla_\theta \approx \frac{1}{N}\sum_i f(x_i) \nabla_\theta \log q_\theta(x_i)$
-   - 早停机制：一旦有提示成功越狱即停止，防止过优化导致攻击者退化
+
+    - 使用 REINFORCE trick 处理离散采样的梯度
+    - $\nabla_\theta \approx \frac{1}{N}\sum_i f(x_i) \nabla_\theta \log q_\theta(x_i)$
+    - 早停机制：一旦有提示成功越狱即停止，防止过优化导致攻击者退化
 
 ### 损失函数 / 训练策略
 - 攻击者模型：Vicuna-7b + LoRA

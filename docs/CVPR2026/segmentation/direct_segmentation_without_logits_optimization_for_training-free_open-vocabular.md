@@ -29,8 +29,8 @@ tags:
 
 开放词汇语义分割（OVSS）需要像素级的视觉-语言对齐能力。现有方法的核心范式可归纳为**logits优化**——计算视觉与语言特征的余弦相似度（logits），最小化logits分布与GT分布的差异以获得最优logits，再取argmax得到分割图。这一范式有两种实现方式：
 
-1. **迭代训练范式**：需要GT标注和耗时的训练过程
-2. **注意力调制范式**（免训练）：校准自注意力计算来纠正细粒度对齐，但其去噪操作是**数据无关但模型特定**的（如CLIP特定的注意力替换），泛化性差
+**迭代训练范式**：需要GT标注和耗时的训练过程
+**注意力调制范式**（免训练）：校准自注意力计算来纠正细粒度对齐，但其去噪操作是**数据无关但模型特定**的（如CLIP特定的注意力替换），泛化性差
 
 这两种方式都**优先推导最优logits、然后构造分割图**。作者的核心洞察是：能否**完全跳过logits优化**，直接从分布差异本身获得分割图？
 
@@ -51,30 +51,34 @@ tags:
 ### 关键设计
 
 1. **退化分布替代GT分布（§3.3）**：
-   - 推理时GT分布不可用，需要替代。作者提出用退化分布（均匀分布）作为替代
-   - 实验验证：KL散度从logits到GT（$\mathbf{D}(\mathcal{P}\|\mathcal{Q})$）和从logits到退化分布（$\mathbf{D}(\mathcal{S}\|\mathcal{Q})$）在5个数据集上的性能高度一致
-   - 可视化显示$\mathcal{S}$和$\mathcal{P}$在特征空间中占据对跖位置——logits优化向GT端点走，本方法计算到退化端点的差异
-   - **设计动机**：退化分布是推理时唯一无需额外信息就能确定的分布
+
+    - 推理时GT分布不可用，需要替代。作者提出用退化分布（均匀分布）作为替代
+    - 实验验证：KL散度从logits到GT（$\mathbf{D}(\mathcal{P}\|\mathcal{Q})$）和从logits到退化分布（$\mathbf{D}(\mathcal{S}\|\mathcal{Q})$）在5个数据集上的性能高度一致
+    - 可视化显示$\mathcal{S}$和$\mathcal{P}$在特征空间中占据对跖位置——logits优化向GT端点走，本方法计算到退化端点的差异
+    - **设计动机**：退化分布是推理时唯一无需额外信息就能确定的分布
 
 2. **最优传输路径（Optimal Path, §3.4）**：
-   - 直觉：同类区域的退化路径应一致，因此路径本身可量化差异
-   - 将问题形式化为Sinkhorn最优传输：
-   $$\boldsymbol{\pi}^* = \min_{\boldsymbol{\pi}} \sum_{i,j} \mathbf{C}_{i,j}\boldsymbol{\pi}_{i,j} - \epsilon\sum_{i,j}\boldsymbol{\pi}_{i,j}(\ln\boldsymbol{\pi}_{i,j} - 1)$$
-   - 代价矩阵 $\mathbf{C}$ 使用Stable Diffusion v2的层级平均自注意力张量
-   - 通过Lagrange乘子法得到解析解：$\boldsymbol{\pi}^* = \text{diag}(\boldsymbol{\mu})\mathbf{K}\text{diag}(\boldsymbol{\nu})$，其中Gibbs核 $\mathbf{K} = \exp(-\mathbf{C}/\epsilon)$
-   - 用Sinkhorn迭代更新 $\boldsymbol{\mu}$ 和 $\boldsymbol{\nu}$（50次迭代，$\epsilon=0.1$）
+
+    - 直觉：同类区域的退化路径应一致，因此路径本身可量化差异
+    - 将问题形式化为Sinkhorn最优传输：
+    $\boldsymbol{\pi}^* = \min_{\boldsymbol{\pi}} \sum_{i,j} \mathbf{C}_{i,j}\boldsymbol{\pi}_{i,j} - \epsilon\sum_{i,j}\boldsymbol{\pi}_{i,j}(\ln\boldsymbol{\pi}_{i,j} - 1)$
+    - 代价矩阵 $\mathbf{C}$ 使用Stable Diffusion v2的层级平均自注意力张量
+    - 通过Lagrange乘子法得到解析解：$\boldsymbol{\pi}^* = \text{diag}(\boldsymbol{\mu})\mathbf{K}\text{diag}(\boldsymbol{\nu})$，其中Gibbs核 $\mathbf{K} = \exp(-\mathbf{C}/\epsilon)$
+    - 用Sinkhorn迭代更新 $\boldsymbol{\mu}$ 和 $\boldsymbol{\nu}$（50次迭代，$\epsilon=0.1$）
 
 3. **最大传输速度（Maximum Velocity, §3.5）**：
-   - 直觉：传输速度也能量化差异——路径相同时，速度越慢意味着差异越大
-   - 将logits收敛到静止分布的过程建模为马尔可夫过程：$\mathbf{f}^{c(l)} = \mathbf{f}^{c(0)} \cdot \mathbf{T}^l$
-   - 转移矩阵 $\mathbf{T}$ 通过迭代比例拟合（IPF, 15次迭代）将自注意力张量转化为双随机矩阵
-   - 每个patch的最大传输速度定义为收敛步数的倒数：$\mathbf{v}_i^c = \max\{1/l : |\mathbf{f}_i^{c(l)} - \mathbf{f}_i^{c(l-1)}| \leq \tau\}$
-   - $\tau=0.3$ 为收敛阈值
+
+    - 直觉：传输速度也能量化差异——路径相同时，速度越慢意味着差异越大
+    - 将logits收敛到静止分布的过程建模为马尔可夫过程：$\mathbf{f}^{c(l)} = \mathbf{f}^{c(0)} \cdot \mathbf{T}^l$
+    - 转移矩阵 $\mathbf{T}$ 通过迭代比例拟合（IPF, 15次迭代）将自注意力张量转化为双随机矩阵
+    - 每个patch的最大传输速度定义为收敛步数的倒数：$\mathbf{v}_i^c = \max\{1/l : |\mathbf{f}_i^{c(l)} - \mathbf{f}_i^{c(l-1)}| \leq \tau\}$
+    - $\tau=0.3$ 为收敛阈值
 
 4. **自注意力张量来源**：
-   - 使用Stable Diffusion v2的自注意力而非CLIP的自注意力
-   - 无噪声潜在特征直接编码，单步无条件去噪提取自注意力
-   - 组合 $\text{up}_0$ 和 $\text{up}_1$ 块的张量效果最佳
+
+    - 使用Stable Diffusion v2的自注意力而非CLIP的自注意力
+    - 无噪声潜在特征直接编码，单步无条件去噪提取自注意力
+    - 组合 $\text{up}_0$ 和 $\text{up}_1$ 块的张量效果最佳
 
 ### 损失函数 / 训练策略
 

@@ -29,10 +29,10 @@ tags:
 
 自监督学习（SSL）已在图像级表示学习中取得巨大成功，但稠密（patch/pixel 级）表示学习改善有限。本文发现了一个反直觉现象：
 
-1. **Self-supervised Dense Degradation (SDD)**：虽然训练损失收敛且分类性能稳步提升，但语义分割等稠密任务的性能在训练后期反而下降
-2. **普遍性**：SDD 在 16 种 SOTA SSL 方法中一致出现，涵盖对比学习（MoCo v3, DenseCL）、非对比学习（BYOL, SimSiam, DINO）、基于聚类（SwAV）、掩码建模（MAE, I-JEPA）等各种范式
-3. **非过拟合**：即使训练和评估使用同一数据集（COCO），SDD 仍然存在（DINO 下降 4.0% mIoU）
-4. **现有度量失效**：α-REQ、RankMe、Lidar 等指标主要面向图像级任务，与稠密性能负相关
+**Self-supervised Dense Degradation (SDD)**：虽然训练损失收敛且分类性能稳步提升，但语义分割等稠密任务的性能在训练后期反而下降
+**普遍性**：SDD 在 16 种 SOTA SSL 方法中一致出现，涵盖对比学习（MoCo v3, DenseCL）、非对比学习（BYOL, SimSiam, DINO）、基于聚类（SwAV）、掩码建模（MAE, I-JEPA）等各种范式
+**非过拟合**：即使训练和评估使用同一数据集（COCO），SDD 仍然存在（DINO 下降 4.0% mIoU）
+**现有度量失效**：α-REQ、RankMe、Lidar 等指标主要面向图像级任务，与稠密性能负相关
 
 ## 方法详解
 

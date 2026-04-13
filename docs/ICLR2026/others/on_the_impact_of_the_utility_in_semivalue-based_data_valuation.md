@@ -25,15 +25,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：半值数据估值法(Data Shapley/Beta Shapley/Banzhaf)用博弈论为数据点赋值，但结果高度依赖效用函数(accuracy/F1等)选择。
+**领域现状**：半值数据估值法(Data Shapley/Beta Shapley/Banzhaf)用博弈论为数据点赋值，但结果高度依赖效用函数(accuracy/F1等)选择。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) 效用权衡场景：微调LLM平衡helpfulness/harmlessness，权重变化时top-k数据剧变→反复重训
    - (2) 多效用场景：accuracy vs F1同为合理选择但排名完全不同→估值不可信
    - (3) Kendall秩相关在不同数据集x半值下差异极大(Titanic: Shapley=-0.19, Banzhaf=0.94)
    - (4) 缺乏量化效用改变时排名偏移程度的系统方法
 
-3. **切入角度**：统一几何框架→空间签名→效用稳定性→单位圆上排名区域分析。
+**切入角度**：统一几何框架→空间签名→效用稳定性→单位圆上排名区域分析。
 
 ## 方法详解
 
@@ -43,21 +43,24 @@ tags:
 ### 关键设计
 
 1. **空间签名(Spatial Signature)**：
-   - Proposition 3.1: 存在映射psi使phi(z;w,u_alpha)=<psi(z),alpha>
-   - 排名=嵌入点在方向alpha上投影排序
-   - 方向归一化到单位圆S1→排名稳定性=投影顺序随旋转的变化
-   - Banzhaf权重让嵌入趋于共线→对旋转最不敏感
+
+    - Proposition 3.1: 存在映射psi使phi(z;w,u_alpha)=<psi(z),alpha>
+    - 排名=嵌入点在方向alpha上投影排序
+    - 方向归一化到单位圆S1→排名稳定性=投影顺序随旋转的变化
+    - Banzhaf权重让嵌入趋于共线→对旋转最不敏感
 
 2. **鲁棒性度量R_p**：
-   - n(n-1)/2对点产生2N个切割角→分S1为排名区域(弧段内排名不变)
-   - rho_p(alpha0)=从alpha0旋转到发生p次swap的最小测地距离
-   - R_p=E[rho_p]/(pi/4)归一到[0,1]；共线时取最大pi/4
-   - 闭式计算O(n2 log n)→附加成本可忽略
+
+    - n(n-1)/2对点产生2N个切割角→分S1为排名区域(弧段内排名不变)
+    - rho_p(alpha0)=从alpha0旋转到发生p次swap的最小测地距离
+    - R_p=E[rho_p]/(pi/4)归一到[0,1]；共线时取最大pi/4
+    - 闭式计算O(n2 log n)→附加成本可忽略
 
 3. **Banzhaf高鲁棒性解释**：
-   - Proposition 3.3: Corr(phi(u1),phi(u2))分解为大小j对齐因子r_j的wj2加权平均
-   - Banzhaf集中权重在r_j高的区间→加权相关更高→更稳定
-   - 可视化证实Banzhaf下嵌入点近乎共线
+
+    - Proposition 3.3: Corr(phi(u1),phi(u2))分解为大小j对齐因子r_j的wj2加权平均
+    - Banzhaf集中权重在r_j高的区间→加权相关更高→更稳定
+    - 可视化证实Banzhaf下嵌入点近乎共线
 
 ### 训练策略
 - Monte Carlo 55次近似半值→R_p为附加步骤

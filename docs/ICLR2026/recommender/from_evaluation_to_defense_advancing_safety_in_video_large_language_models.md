@@ -24,10 +24,10 @@ tags:
 构建 VideoSafetyEval（11.4k 视频-查询对覆盖 19 种风险类别）揭示视频模态使安全性能下降 34.2%，提出 VideoSafety-R1 三阶段框架（报警 Token+SFT+Safety-guided GRPO）在 VSE-HH 上提升 71.1% 防御成功率。
 
 ## 研究背景与动机
-1. **领域现状**：图像 LLM 的安全风险已被广泛研究（MMBench、SIUO、SafeVLM 等），但视频 LLM 的安全对齐严重不足。视频的时间动态、视觉线索和演化上下文引入了比静态图像更微妙且更有效的风险。
-2. **现有痛点**：对 21 个主流视频 LLM 的系统测试发现，引入视频模态后防御成功率（DSR）平均下降 34.2%，暴露了多模态攻击利用中的系统性风险。VideoLLaMA3-2B 的 DSR 降幅高达 79.4%。
-3. **安全研究空白**：现有防御方法（SafeVLM、SPA-VL、MM-RLHF）均聚焦静态图像，忽略了视频安全。视频异常检测（VAD）虽相关但目标不同——VAD 关注检测异常事件，而安全对齐关注控制模型在有害输入下的行为响应。
-4. **核心设计理念**：安全对齐应从单纯的"危害感知"升级为"主动推理"——模型不仅要识别有害内容，还要通过推理链分析视频-文本对的有害性并生成有帮助的安全响应。
+**领域现状**：图像 LLM 的安全风险已被广泛研究（MMBench、SIUO、SafeVLM 等），但视频 LLM 的安全对齐严重不足。视频的时间动态、视觉线索和演化上下文引入了比静态图像更微妙且更有效的风险。
+**现有痛点**：对 21 个主流视频 LLM 的系统测试发现，引入视频模态后防御成功率（DSR）平均下降 34.2%，暴露了多模态攻击利用中的系统性风险。VideoLLaMA3-2B 的 DSR 降幅高达 79.4%。
+**安全研究空白**：现有防御方法（SafeVLM、SPA-VL、MM-RLHF）均聚焦静态图像，忽略了视频安全。视频异常检测（VAD）虽相关但目标不同——VAD 关注检测异常事件，而安全对齐关注控制模型在有害输入下的行为响应。
+**核心设计理念**：安全对齐应从单纯的"危害感知"升级为"主动推理"——模型不仅要识别有害内容，还要通过推理链分析视频-文本对的有害性并生成有帮助的安全响应。
 
 ## 方法详解
 
@@ -37,21 +37,24 @@ VideoSafety-R1 是一个后训练框架，包含三个创新组件：VideoSafety
 ### 关键设计
 
 1. **VideoSafetyEval (VSE) 基准**
-   - 11.4k 视频-查询对，覆盖 6 大风险类别（暴力、管制物品、色情等）、19 个子类别、10 种语言社区
-   - 三个子集：VSE-HH（有害视频+有害查询，最强对抗），VSE-SH（安全视频+有害查询），VSE-SafeQ（安全查询，评估误拒率）
-   - 数据来源：YouTube，经 DINOv2 静态过滤 → 商业视频理解模型标注 → 模板驱动查询生成
+
+    - 11.4k 视频-查询对，覆盖 6 大风险类别（暴力、管制物品、色情等）、19 个子类别、10 种语言社区
+    - 三个子集：VSE-HH（有害视频+有害查询，最强对抗），VSE-SH（安全视频+有害查询），VSE-SafeQ（安全查询，评估误拒率）
+    - 数据来源：YouTube，经 DINOv2 静态过滤 → 商业视频理解模型标注 → 模板驱动查询生成
 
 2. **报警 Token 引导安全微调 (AT-SFT)**
-   - 在视觉序列末尾注入可学习报警 Token $\mathbf{h}_v^{\text{alarm}}$，文本序列末尾注入 $\mathbf{h}_t^{\text{alarm}}$
-   - 多任务训练目标：$\mathcal{L}_{\text{AT-SFT}} = \mathcal{L}_{\text{base}} + \lambda_1 \mathcal{L}_{\text{ATC}}^v + \lambda_2 \mathcal{L}_{\text{ATC}}^t$
-   - ATC（报警 Token 分类）对视觉和文本分别进行二分类（有害/安全），使报警 Token 的隐藏状态与安全信号对齐
-   - 作为安全机制的"预激活"步骤，为后续 GRPO 训练奠定基础
+
+    - 在视觉序列末尾注入可学习报警 Token $\mathbf{h}_v^{\text{alarm}}$，文本序列末尾注入 $\mathbf{h}_t^{\text{alarm}}$
+    - 多任务训练目标：$\mathcal{L}_{\text{AT-SFT}} = \mathcal{L}_{\text{base}} + \lambda_1 \mathcal{L}_{\text{ATC}}^v + \lambda_2 \mathcal{L}_{\text{ATC}}^t$
+    - ATC（报警 Token 分类）对视觉和文本分别进行二分类（有害/安全），使报警 Token 的隐藏状态与安全信号对齐
+    - 作为安全机制的"预激活"步骤，为后续 GRPO 训练奠定基础
 
 3. **Safety-guided GRPO**
-   - 冷启动阶段：用 15k 样本训练结构化思维链（`<think>` 安全推理 + `<answer>` 响应 + `<vidType>`/`<textType>` 双模态标签）
-   - 复合奖励函数：$r = r_{\text{format}} + \alpha \cdot r_{\text{ROUGE}} + \gamma_1 \cdot r_v + \gamma_2 \cdot r_t$
-   - 动态奖励适应（DRA）：当双模态分类均正确时降低 ROUGE 权重（鼓励多样性），分类错误时增强 ROUGE（强制对齐安全参考）
-   - $\alpha = \alpha_{\min} + (1 - \text{Correct}_v \cdot \text{Correct}_t)(\alpha_{\max} - \alpha_{\min})$
+
+    - 冷启动阶段：用 15k 样本训练结构化思维链（`<think>` 安全推理 + `<answer>` 响应 + `<vidType>`/`<textType>` 双模态标签）
+    - 复合奖励函数：$r = r_{\text{format}} + \alpha \cdot r_{\text{ROUGE}} + \gamma_1 \cdot r_v + \gamma_2 \cdot r_t$
+    - 动态奖励适应（DRA）：当双模态分类均正确时降低 ROUGE 权重（鼓励多样性），分类错误时增强 ROUGE（强制对齐安全参考）
+    - $\alpha = \alpha_{\min} + (1 - \text{Correct}_v \cdot \text{Correct}_t)(\alpha_{\max} - \alpha_{\min})$
 
 ### VideoSafetyThinking 数据集
 46k 视频-查询-思维链三元组：6k 用于 AT-SFT，15k 用于冷启动 SFT，25k 用于 GRPO 训练。

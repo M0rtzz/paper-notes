@@ -51,8 +51,9 @@ tags:
 4. **鲁棒保证（Theorem 3）**: 若测试环境 $P_{\text{test}} \in \mathcal{P}$，则鲁棒联合 Q 值是真实 Q 值的下界，提供了可证明的性能保障。
 
 5. **鲁棒 Bellman 算子**: 针对两种常用不确定性集合设计：
-   - **ρ-contamination**: 鲁棒目标为 $r(s,\mathbf{a}) + \gamma(1-\rho)\mathbb{E}[Q_{\text{tot}}^{\mathcal{P}}(\mathbf{h}', \bar{\mathbf{a}}')]$，即以 $(1-\rho)$ 的概率保持标称模型。
-   - **Total Variation (TV)**: 引入对偶变量 $\eta$ 进行优化，通过 hinge 函数形式的 Bellman 更新处理 TV 约束。
+
+    - **ρ-contamination**: 鲁棒目标为 $r(s,\mathbf{a}) + \gamma(1-\rho)\mathbb{E}[Q_{\text{tot}}^{\mathcal{P}}(\mathbf{h}', \bar{\mathbf{a}}')]$，即以 $(1-\rho)$ 的概率保持标称模型。
+    - **Total Variation (TV)**: 引入对偶变量 $\eta$ 进行优化，通过 hinge 函数形式的 Bellman 更新处理 TV 约束。
 
 ### 损失函数 / 训练策略
 

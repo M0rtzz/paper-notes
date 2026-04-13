@@ -42,8 +42,9 @@ tags:
 2. **层级ZO探索（Layer-wise）**：在确定单分支ZO有效后，进一步探索四种层级配置：Hop-odd（奇数层ZO）、Hop-even（偶数层ZO）、Prefix(six)（前6层ZO）、Suffix(six)（后6层ZO）。关键发现：交错式（Hop-odd/even）显著优于连续式（Prefix/Suffix），因为浅层关注局部特征、深层捕获抽象语义，统一优化方法忽略了这种多样性，而ZO-FO交错能更好匹配每层对探索和稳定的不同需求。Dual w/ ZO + layer-wise平均比全分支ZO提升9.4%。
 
 3. **MoZO（Modality-aware ZO）策略**：通过分析梯度方差分布，发现视觉分支在ZO下的梯度方差显著大于语言分支，导致优化不稳定。MoZO包含两个组件：
-   - **梯度符号归一化**：对ZO估计的梯度取sign，只保留方向信息，丢弃幅度信息，抑制异常大梯度
-   - **模态差异化扰动**：为视觉分支设置更小的扰动因子 $\epsilon_v < \epsilon_l$，约束视觉分支的参数探索幅度
+
+    - **梯度符号归一化**：对ZO估计的梯度取sign，只保留方向信息，丢弃幅度信息，抑制异常大梯度
+    - **模态差异化扰动**：为视觉分支设置更小的扰动因子 $\epsilon_v < \epsilon_l$，约束视觉分支的参数探索幅度
 
 ### 损失函数 / 训练策略
 - ZO梯度估计：$\nabla_{ZO}\mathcal{L}(\theta) \approx \frac{\mathcal{L}(\theta + \varepsilon\Delta) - \mathcal{L}(\theta)}{\varepsilon} \cdot \Delta$，其中 $\Delta$ 为随机方向向量，$\varepsilon=0.001$

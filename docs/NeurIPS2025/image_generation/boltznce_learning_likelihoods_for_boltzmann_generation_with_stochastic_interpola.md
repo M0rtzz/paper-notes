@@ -25,12 +25,12 @@ tags:
 BoltzNCE 用 Score Matching + InfoNCE 混合训练 Energy-Based Model 来近似 Boltzmann Generator 的似然，避免了昂贵的 Jacobian trace 计算，在丙氨酸二肽构象生成上实现 100× 推理加速且自由能误差仅 0.02 $k_BT$。
 
 ## 研究背景与动机
-1. **领域现状**：Boltzmann Generator（BG）是从能量函数 $E(x)$ 对应的 Boltzmann 分布 $p(x) \propto \exp(-E(x)/k_BT)$ 采样的深度生成模型。基于 normalizing flow 或 diffusion 的方法可以生成样本，但计算似然需要昂贵的 Jacobian 行列式/trace。
-2. **现有痛点**：精确似然计算（如 Hutchinson estimator for trace）在推理时极慢（equivariant CNF 需 9.37 小时 for alanine dipeptide），成为将 BG 用于自由能计算和重要性采样的瓶颈。
-3. **核心矛盾**：好的采样质量需要准确的 flow/diffusion 模型，但似然评估的计算代价与采样质量无关——即使采样很好，每次评估似然仍然贵。
-4. **本文要解决什么**：将采样器质量和似然可处理性解耦——用一个独立的 EBM 来近似似然，避免 Jacobian 计算。
-5. **切入角度**：将 BG 分为两阶段——先训练 Boltzmann Emulator（用 flow matching），再训练 EBM 近似其密度（用 NCE + score matching）。
-6. **核心idea一句话**：用 EBM 的 NCE 训练作为 Boltzmann Generator 似然的快速代理，实现 100× 推理加速。
+**领域现状**：Boltzmann Generator（BG）是从能量函数 $E(x)$ 对应的 Boltzmann 分布 $p(x) \propto \exp(-E(x)/k_BT)$ 采样的深度生成模型。基于 normalizing flow 或 diffusion 的方法可以生成样本，但计算似然需要昂贵的 Jacobian 行列式/trace。
+**现有痛点**：精确似然计算（如 Hutchinson estimator for trace）在推理时极慢（equivariant CNF 需 9.37 小时 for alanine dipeptide），成为将 BG 用于自由能计算和重要性采样的瓶颈。
+**核心矛盾**：好的采样质量需要准确的 flow/diffusion 模型，但似然评估的计算代价与采样质量无关——即使采样很好，每次评估似然仍然贵。
+**本文要解决什么**：将采样器质量和似然可处理性解耦——用一个独立的 EBM 来近似似然，避免 Jacobian 计算。
+**切入角度**：将 BG 分为两阶段——先训练 Boltzmann Emulator（用 flow matching），再训练 EBM 近似其密度（用 NCE + score matching）。
+**核心idea一句话**：用 EBM 的 NCE 训练作为 Boltzmann Generator 似然的快速代理，实现 100× 推理加速。
 
 ## 方法详解
 
@@ -40,21 +40,24 @@ BoltzNCE 用 Score Matching + InfoNCE 混合训练 Energy-Based Model 来近似 
 ### 关键设计
 
 1. **Stochastic Interpolant 框架**:
-   - 做什么：在噪声 $x_0$ 和 Boltzmann 样本 $x_1$ 之间建立平滑路径 $I_t = \alpha_t x_0 + \beta_t x_1$
-   - 核心思路：训练向量场 $v_t$ 匹配由插值诱导的概率流，实现从噪声到 Boltzmann 分布的映射
-   - 设计动机：stochastic interpolant 自然地连接了 ODE 流和扩散过程，为后续的 EBM 训练提供特殊的 score function
+
+    - 做什么：在噪声 $x_0$ 和 Boltzmann 样本 $x_1$ 之间建立平滑路径 $I_t = \alpha_t x_0 + \beta_t x_1$
+    - 核心思路：训练向量场 $v_t$ 匹配由插值诱导的概率流，实现从噪声到 Boltzmann 分布的映射
+    - 设计动机：stochastic interpolant 自然地连接了 ODE 流和扩散过程，为后续的 EBM 训练提供特殊的 score function
 
 2. **BoltzNCE 混合训练**:
-   - 做什么：同时用 Score Matching 和 InfoNCE 训练 EBM
-   - Score Matching Loss：$\mathcal{L}_{SM} = \mathbb{E}[|\alpha_t \nabla\hat{U}_t(\tilde{I}_t) + x_0|^2]$ — 强制 EBM 的梯度匹配插值过程的 score
-   - InfoNCE Loss：$\mathcal{L}_{InfoNCE} = -\mathbb{E}[\log\frac{\exp(\hat{U}_t(\tilde{I}_t))}{\sum_{t'}\exp(\hat{U}_{t'}(\tilde{I}_t))}]$ — 通过时间步对比学习密度
-   - 混合：$\mathcal{L}_{BoltzNCE} = \mathcal{L}_{SM} + \mathcal{L}_{InfoNCE}$
-   - 设计动机：单独 InfoNCE 给出全局密度但梯度不准，单独 SM 给出好的梯度但密度不准——两者互补
+
+    - 做什么：同时用 Score Matching 和 InfoNCE 训练 EBM
+    - Score Matching Loss：$\mathcal{L}_{SM} = \mathbb{E}[|\alpha_t \nabla\hat{U}_t(\tilde{I}_t) + x_0|^2]$ — 强制 EBM 的梯度匹配插值过程的 score
+    - InfoNCE Loss：$\mathcal{L}_{InfoNCE} = -\mathbb{E}[\log\frac{\exp(\hat{U}_t(\tilde{I}_t))}{\sum_{t'}\exp(\hat{U}_{t'}(\tilde{I}_t))}]$ — 通过时间步对比学习密度
+    - 混合：$\mathcal{L}_{BoltzNCE} = \mathcal{L}_{SM} + \mathcal{L}_{InfoNCE}$
+    - 设计动机：单独 InfoNCE 给出全局密度但梯度不准，单独 SM 给出好的梯度但密度不准——两者互补
 
 3. **自由能估计与重要性采样重加权**:
-   - 做什么：用 EBM 的似然做重要性采样，修正采样偏差
-   - 核心思路：$\hat{Z} = \sum_i w_i$，$w_i = \exp(-E(x_i)/k_BT) / \hat{\rho}(x_i)$
-   - 自由能差：$\Delta F = -k_BT \ln(\hat{Z}_A / \hat{Z}_B)$
+
+    - 做什么：用 EBM 的似然做重要性采样，修正采样偏差
+    - 核心思路：$\hat{Z} = \sum_i w_i$，$w_i = \exp(-E(x_i)/k_BT) / \hat{\rho}(x_i)$
+    - 自由能差：$\Delta F = -k_BT \ln(\hat{Z}_A / \hat{Z}_B)$
 
 ### 损失函数 / 训练策略
 两阶段训练。Stage 1: Flow matching with equivariant vector field。Stage 2: Score matching + InfoNCE，各 epoch ~12h 总训练时间。

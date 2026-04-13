@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：预训练基础模型（DINOv2、CLIP）适配下游任务仍需标注数据。主动学习通过智能选择标注样本降低标注成本，但近年基准显示没有单一策略始终最优。
-2. **现有痛点**：(a) 不同 AL 策略捕获不同"数据价值"观——不确定性 vs 代表性，无策略始终占优；(b) 选错策略可能比随机采样更差；(c) 现有集成方法（TCM/TAILOR/SelectAL）依赖启发式切换或学习调度，表现不稳定。
-3. **核心矛盾**：AL 是 one-shot 问题（无试错机会），必须在不知最佳策略时做选择。
-4. **本文要解决什么**：设计无需学习的集成方法，自动整合多种互补策略优势。
-5. **切入角度**：将重点从"选什么样本"转为"先清理池子去掉无价值样本"。
-6. **核心 idea**：让多策略反复投票筛选——经多轮保留的样本必被至少一个策略认为有价值，未被任何策略选中的样本必无价值。
+**领域现状**：预训练基础模型（DINOv2、CLIP）适配下游任务仍需标注数据。主动学习通过智能选择标注样本降低标注成本，但近年基准显示没有单一策略始终最优。
+**现有痛点**：(a) 不同 AL 策略捕获不同"数据价值"观——不确定性 vs 代表性，无策略始终占优；(b) 选错策略可能比随机采样更差；(c) 现有集成方法（TCM/TAILOR/SelectAL）依赖启发式切换或学习调度，表现不稳定。
+**核心矛盾**：AL 是 one-shot 问题（无试错机会），必须在不知最佳策略时做选择。
+**本文要解决什么**：设计无需学习的集成方法，自动整合多种互补策略优势。
+**切入角度**：将重点从"选什么样本"转为"先清理池子去掉无价值样本"。
+**核心 idea**：让多策略反复投票筛选——经多轮保留的样本必被至少一个策略认为有价值，未被任何策略选中的样本必无价值。
 
 ## 方法详解
 
@@ -43,21 +43,22 @@ tags:
 ### 关键设计
 
 1. **渐进过滤 (Progressive Filtering)**：$R=5$ 轮迭代，每轮每个策略从 $\alpha=0.4$ 的随机子采样中选 $J=10$ 个批次，取所有批次的并集作为下一轮候选池：
-   $$\mathcal{C}_r = \bigcup_{m=1}^M \bigcup_{j=1}^J s_m(\text{SubSample}(\mathcal{C}_{r-1}, \alpha \cdot |\mathcal{C}_{r-1}|), b)$$
+    $\mathcal{C}_r = \bigcup_{m=1}^M \bigcup_{j=1}^J s_m(\text{SubSample}(\mathcal{C}_{r-1}, \alpha \cdot |\mathcal{C}_{r-1}|), b)$
    
    三个关键设计决策及动机：
-   - **并集而非交集**：保留所有被任一策略认为有价值的样本，避免丢弃独特发现
-   - **多轮迭代**：单轮仅简单拼接；多轮中无价值样本存活概率指数衰减
-   - **子采样 $\alpha < 1$**：使确定性策略产生多样批次，降低内存需求
+    - **并集而非交集**：保留所有被任一策略认为有价值的样本，避免丢弃独特发现
+    - **多轮迭代**：单轮仅简单拼接；多轮中无价值样本存活概率指数衰减
+    - **子采样 $\alpha < 1$**：使确定性策略产生多样批次，降低内存需求
 
 2. **覆盖选择 (Coverage-Based Selection)**：从精炼池 $\mathcal{C}_R$ 中用 UHerding 选最大化覆盖的批次：
-   $$\mathcal{B}^* = \arg\max_{\mathcal{B} \subset \mathcal{C}_R} \mathbb{E}_{\mathbf{x}}[\max_{\mathbf{x}' \in (\mathcal{L}_t \cup \mathcal{B})} k(\mathbf{x}, \mathbf{x}')]$$
+    $\mathcal{B}^* = \arg\max_{\mathcal{B} \subset \mathcal{C}_R} \mathbb{E}_{\mathbf{x}}[\max_{\mathbf{x}' \in (\mathcal{L}_t \cup \mathcal{B})} k(\mathbf{x}, \mathbf{x}')]$
    设计动机：精炼后的池已是高价值候选集，只需覆盖式选择确保多样性。
 
 3. **理论保证**：
-   - 定理1（价值保留）：$P_r(\mathbf{x}) \geq 1 - (1 - \alpha \cdot \max_m p_{m,r}(\mathbf{x}))^J$
-   - 定理2（指数衰减）：$\epsilon$-无价值样本经 $R$ 轮存活概率 $\leq (MJ\alpha\epsilon)^R$
-   - 定理3（价值单调性）：$\mathbb{E}[V|\mathcal{C}_R] \geq ... \geq \mathbb{E}[V|\mathcal{C}_0]$
+
+    - 定理1（价值保留）：$P_r(\mathbf{x}) \geq 1 - (1 - \alpha \cdot \max_m p_{m,r}(\mathbf{x}))^J$
+    - 定理2（指数衰减）：$\epsilon$-无价值样本经 $R$ 轮存活概率 $\leq (MJ\alpha\epsilon)^R$
+    - 定理3（价值单调性）：$\mathbb{E}[V|\mathcal{C}_R] \geq ... \geq \mathbb{E}[V|\mathcal{C}_0]$
 
 ### 训练设置
 

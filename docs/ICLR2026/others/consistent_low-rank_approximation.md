@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：低秩近似是机器学习核心工具（推荐系统、降维、特征工程）。流数据场景中数据逐行到达，需要在线维护低秩近似。Frequent Directions 和在线 ridge leverage score 采样是主流方法。
-2. **现有痛点**：(a) 在线算法只关注近似质量，不关注解的稳定性——频繁改变因子矩阵导致下游模型重训成本高；(b) Frequent Directions 在第 $k$ 和第 $k+1$ 奇异向量交替时 recourse 可达 $O(n)$（灾难性）；(c) 一致性（consistency/recourse）在聚类和缓存问题中已被研究，但低秩近似中尚未系统化。
-3. **核心矛盾**：在线低秩近似的最优子空间可能每一步都完全改变（$\Omega(nk)$ recourse），但下游应用需要稳定的特征空间。目标是在近似质量和解稳定性之间取得最优 trade-off。
-4. **本文要解决什么？** 形式化一致低秩近似问题，给出上下界。
-5. **切入角度**：用子空间投影矩阵的 Frobenius 距离度量 recourse，结合 online ridge leverage score 采样减少有效流长度，再通过精细的奇异值分析最小化每步因子变化。
-6. **核心idea一句话**：通过 ridge leverage 采样压缩流长度 + 按奇异值大小分类处理每步更新（小奇异值直接替换、大奇异值保持稳定），实现次二次 recourse。
+**领域现状**：低秩近似是机器学习核心工具（推荐系统、降维、特征工程）。流数据场景中数据逐行到达，需要在线维护低秩近似。Frequent Directions 和在线 ridge leverage score 采样是主流方法。
+**现有痛点**：(a) 在线算法只关注近似质量，不关注解的稳定性——频繁改变因子矩阵导致下游模型重训成本高；(b) Frequent Directions 在第 $k$ 和第 $k+1$ 奇异向量交替时 recourse 可达 $O(n)$（灾难性）；(c) 一致性（consistency/recourse）在聚类和缓存问题中已被研究，但低秩近似中尚未系统化。
+**核心矛盾**：在线低秩近似的最优子空间可能每一步都完全改变（$\Omega(nk)$ recourse），但下游应用需要稳定的特征空间。目标是在近似质量和解稳定性之间取得最优 trade-off。
+**本文要解决什么？** 形式化一致低秩近似问题，给出上下界。
+**切入角度**：用子空间投影矩阵的 Frobenius 距离度量 recourse，结合 online ridge leverage score 采样减少有效流长度，再通过精细的奇异值分析最小化每步因子变化。
+**核心idea一句话**：通过 ridge leverage 采样压缩流长度 + 按奇异值大小分类处理每步更新（小奇异值直接替换、大奇异值保持稳定），实现次二次 recourse。
 
 ## 方法详解
 
@@ -40,22 +40,25 @@ tags:
 ### 关键设计
 
 1. **加性误差算法（Theorem 1.1）**:
-   - 思路：维护 Frobenius 范数。每当 $\|\mathbf{A}^{(t)}\|_F^2$ 增长 $(1+\varepsilon)$ 倍时重算 SVD
-   - Recourse：重算次数 $O(1/\varepsilon \cdot \log(ndM))$，每次 recourse $k$ → 总 $O(k/\varepsilon \cdot \log(ndM))$
-   - 正确性：两次重算之间新行贡献 $\leq \varepsilon \cdot \|\mathbf{A}^{(t)}\|_F^2$
+
+    - 思路：维护 Frobenius 范数。每当 $\|\mathbf{A}^{(t)}\|_F^2$ 增长 $(1+\varepsilon)$ 倍时重算 SVD
+    - Recourse：重算次数 $O(1/\varepsilon \cdot \log(ndM))$，每次 recourse $k$ → 总 $O(k/\varepsilon \cdot \log(ndM))$
+    - 正确性：两次重算之间新行贡献 $\leq \varepsilon \cdot \|\mathbf{A}^{(t)}\|_F^2$
 
 2. **乘性误差算法（Theorem 1.3，核心贡献）**:
-   - 第一步：online ridge leverage score 采样将流长从 $n$ 压缩到 $k/\varepsilon \cdot \text{polylog}$
-   - 第二步：对压缩流做精细更新
-   - **关键分析**：对 top-$k$ 奇异值的后 $\sqrt{k}$ 个做 case work:
-     - 若 $\sum_{i=k-\sqrt{k}}^k \sigma_i^2$ 小（尾部弱）：可用新行替换尾部奇异向量，$\sqrt{k}$ 步后重算 → 每 $\sqrt{k}$ 步 $O(k)$ recourse
-     - 若尾部强：最优子空间不会剧烈变化 → 直接重算顶部 SVD，recourse $\leq \sqrt{k}$
-   - 总 recourse：$k^{3/2}/\varepsilon^2 \cdot \text{polylog}$——$\sqrt{k}$ 是两种情况平衡的最优选择
-   - **Anti-Hadamard 矩阵特殊处理**：整数矩阵最优低秩代价可能指数级小 → 低秩时精细分析
+
+    - 第一步：online ridge leverage score 采样将流长从 $n$ 压缩到 $k/\varepsilon \cdot \text{polylog}$
+    - 第二步：对压缩流做精细更新
+    - **关键分析**：对 top-$k$ 奇异值的后 $\sqrt{k}$ 个做 case work:
+      - 若 $\sum_{i=k-\sqrt{k}}^k \sigma_i^2$ 小（尾部弱）：可用新行替换尾部奇异向量，$\sqrt{k}$ 步后重算 → 每 $\sqrt{k}$ 步 $O(k)$ recourse
+      - 若尾部强：最优子空间不会剧烈变化 → 直接重算顶部 SVD，recourse $\leq \sqrt{k}$
+    - 总 recourse：$k^{3/2}/\varepsilon^2 \cdot \text{polylog}$——$\sqrt{k}$ 是两种情况平衡的最优选择
+    - **Anti-Hadamard 矩阵特殊处理**：整数矩阵最优低秩代价可能指数级小 → 低秩时精细分析
 
 3. **下界（Theorem 1.4）**:
-   - 构造：分 $\Theta(1/\varepsilon \cdot \log(n/k))$ 个阶段，每阶段最优子空间在两组正交基之间交替
-   - 结果：$\Omega(k/\varepsilon \cdot \log(n/k))$ recourse 是必需的
+
+    - 构造：分 $\Theta(1/\varepsilon \cdot \log(n/k))$ 个阶段，每阶段最优子空间在两组正交基之间交替
+    - 结果：$\Omega(k/\varepsilon \cdot \log(n/k))$ recourse 是必需的
 
 ### Recourse 度量选择
 用子空间投影矩阵的 Frobenius 距离而非基向量差——对基旋转不敏感，是自然且鲁棒的度量。

@@ -25,11 +25,11 @@ tags:
 将 Epistemic Neural Networks (ENN/epinet) 集成到 GFlowNets 中实现不确定性驱动的探索，提出 ENN-GFN-Enhanced 算法，在 HyperGrid 和序列生成任务上显著改善模式发现效率和分布学习质量。
 
 ## 研究背景与动机
-1. **领域现状**: GFlowNets 是一类生成式模型，通过序列化构建对象来采样与奖励成正比的样本，在分子设计等科学发现中有重要应用。
-2. **现有痛点**: (a) GFlowNets 训练中容易发生模式坍塌 (mode collapse)，被早期发现的模式吸引；(b) 探索策略 (on-policy, ε-noisy) 不够高效；(c) 现有 Thompson Sampling (TS-GFN) 用 ensemble 近似后验，计算开销大且联合预测质量有限。
-3. **核心矛盾**: GFlowNets 的性能高度依赖采样轨迹的质量，但有效探索需要感知认知不确定性 (epistemic uncertainty)——即"知道自己不知道什么"。
-4. **本文切入**: 用 ENN (epinet) 替代 ensemble 来获得更高效的联合预测和不确定性量化。
-5. **核心 idea**: 在 GFlowNet 的策略网络上附加轻量级 epinet 模块，通过 epistemic index 采样实现隐式 Thompson Sampling。
+**领域现状**: GFlowNets 是一类生成式模型，通过序列化构建对象来采样与奖励成正比的样本，在分子设计等科学发现中有重要应用。
+**现有痛点**: (a) GFlowNets 训练中容易发生模式坍塌 (mode collapse)，被早期发现的模式吸引；(b) 探索策略 (on-policy, ε-noisy) 不够高效；(c) 现有 Thompson Sampling (TS-GFN) 用 ensemble 近似后验，计算开销大且联合预测质量有限。
+**核心矛盾**: GFlowNets 的性能高度依赖采样轨迹的质量，但有效探索需要感知认知不确定性 (epistemic uncertainty)——即"知道自己不知道什么"。
+**本文切入**: 用 ENN (epinet) 替代 ensemble 来获得更高效的联合预测和不确定性量化。
+**核心 idea**: 在 GFlowNet 的策略网络上附加轻量级 epinet 模块，通过 epistemic index 采样实现隐式 Thompson Sampling。
 
 ## 方法详解
 
@@ -39,23 +39,26 @@ tags:
 ### 关键设计
 
 1. **ENN 与 Epinet**:
-   - ENN 输出额外依赖 epistemic index $z$：$f_\theta(x,z) = \mu_\zeta(x) + \sigma_\eta(\text{sg}[\phi_\zeta(x)], z)$
-   - $\mu_\zeta(x)$：base network 输出
-   - $\sigma_\eta$：learnable epinet（轻量 MLP）+ 固定 prior function $\sigma_P$
-   - sg 表示 stop-gradient，防止 epinet 影响 base network 的特征学习
-   - 联合预测：$\hat{P}^{\text{ENN}}(y_{1:\tau}) = \int_z P_Z(dz) \prod_t \text{softmax}(f_\theta(x_t, z))_{y_t}$
-   - 设计动机：ENN 以很小的计算开销实现校准的认知不确定性估计
+
+    - ENN 输出额外依赖 epistemic index $z$：$f_\theta(x,z) = \mu_\zeta(x) + \sigma_\eta(\text{sg}[\phi_\zeta(x)], z)$
+    - $\mu_\zeta(x)$：base network 输出
+    - $\sigma_\eta$：learnable epinet（轻量 MLP）+ 固定 prior function $\sigma_P$
+    - sg 表示 stop-gradient，防止 epinet 影响 base network 的特征学习
+    - 联合预测：$\hat{P}^{\text{ENN}}(y_{1:\tau}) = \int_z P_Z(dz) \prod_t \text{softmax}(f_\theta(x_t, z))_{y_t}$
+    - 设计动机：ENN 以很小的计算开销实现校准的认知不确定性估计
 
 2. **ENN-GFN (基础版)**:
-   - 将 epinet 附加到 GFlowNet 的前向策略网络
-   - 每个轨迹采样一组 $z$，用加权和方式组合 prior network 的输出
-   - 设计动机：直接将 ENN 框架应用于 GFlowNet
+
+    - 将 epinet 附加到 GFlowNet 的前向策略网络
+    - 每个轨迹采样一组 $z$，用加权和方式组合 prior network 的输出
+    - 设计动机：直接将 ENN 框架应用于 GFlowNet
 
 3. **ENN-GFN-Enhanced (增强版)**:
-   - 关键区别：不用加权和，而是随机选取一个 prior ensemble member
-   - 类似 TS-GFN 的维护近似后验策略的方式
-   - 但不确定性估计来自 epinet 而非 ensemble
-   - 设计动机：结合 Thompson Sampling 的探索优势和 ENN 的高效不确定性估计
+
+    - 关键区别：不用加权和，而是随机选取一个 prior ensemble member
+    - 类似 TS-GFN 的维护近似后验策略的方式
+    - 但不确定性估计来自 epinet 而非 ensemble
+    - 设计动机：结合 Thompson Sampling 的探索优势和 ENN 的高效不确定性估计
 
 ### 损失函数 / 训练策略
 - Trajectory Balance (TB) Loss: $\mathcal{L}_{\text{TB}}(\tau;\theta) = (\log \frac{Z_\theta \prod P_F(s_{t+1}|s_t)}{R(s_n) \prod P_B(s_t|s_{t+1})})^2$

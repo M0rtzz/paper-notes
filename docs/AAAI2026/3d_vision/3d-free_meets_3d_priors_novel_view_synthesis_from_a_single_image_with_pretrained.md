@@ -52,13 +52,14 @@ tags:
 1. **弱引导图生成**：用预训练 Zero123++ 从输入图 $I_{input}$ 生成目标角度 $(\alpha_{elev}, \alpha_{azi})$ 的预测图 $I_{view}$。该预测质量不高（尤其在复杂场景下），但提供方向性指导。
 
 2. **四步 Test-time Optimization**：
-   - **Step 1**：优化 CLIP 文本嵌入 $e_{optim}$，使其最准确重建 $I_{input}$（1000 次迭代，lr=1e-3）
-   - **Step 2**：在 $e_{optim}$ 处微调 UNet 的 LoRA 层以重建 $I_{input}$（500 次迭代，lr=2e-4）
-   - **Step 3**：进一步优化嵌入为 $e_{view}$ 以重建弱引导图 $I_{view}$（500 次迭代）
-   - **Step 4**：微调 LoRA 层重建 $I_{view}$，同时加入视角正则化损失（250 次迭代）
+
+    - **Step 1**：优化 CLIP 文本嵌入 $e_{optim}$，使其最准确重建 $I_{input}$（1000 次迭代，lr=1e-3）
+    - **Step 2**：在 $e_{optim}$ 处微调 UNet 的 LoRA 层以重建 $I_{input}$（500 次迭代，lr=2e-4）
+    - **Step 3**：进一步优化嵌入为 $e_{view}$ 以重建弱引导图 $I_{view}$（500 次迭代）
+    - **Step 4**：微调 LoRA 层重建 $I_{view}$，同时加入视角正则化损失（250 次迭代）
 
 3. **视角正则化损失**（核心贡献）：
-   $$L_{reg} = \|e_{view} - e_{target}\|^2$$
+    $L_{reg} = \|e_{view} - e_{target}\|^2$
    其中 $e_{target}$ 是包含目标仰角/方位角信息的文本嵌入（如"View from +30 degrees elevation"）。该正则化在 CLIP 空间中注入 3D 角度知识，弥补 CLIP 对精确角度理解的不足。
 
 4. **互信息引导推理**：生成阶段使用目标文本描述（角度+场景描述），并施加互信息引导确保生成内容与输入图像一致。

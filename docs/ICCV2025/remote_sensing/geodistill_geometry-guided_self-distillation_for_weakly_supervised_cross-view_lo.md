@@ -44,17 +44,18 @@ GeoDistill分为两阶段流水线：
 ### 关键设计
 
 1. **方向估计网络**: 要对齐地面和航拍视角中共享的结构线索（如道路布局），首先用球面变换将全景图 $I_g$ 投影为鸟瞰图（BEV）$I_g^b$，矫正因透视投影导致的道路弯曲。然后分别用非共享权重的EfficientNet-B0提取卫星和BEV特征：
-   $$\mathbf{F}_s = \mathcal{E}_s(\mathbf{I}_s), \quad \mathbf{F}_g = \mathcal{E}_g(\mathbf{I}_g^b)$$
+    $\mathbf{F}_s = \mathcal{E}_s(\mathbf{I}_s), \quad \mathbf{F}_g = \mathcal{E}_g(\mathbf{I}_g^b)$
    通道拼接后通过MLP进行分类（每度一个类别），用交叉熵损失训练。
 
 2. **FoV-based遮挡策略**: 与随机patch遮挡或激活值遮挡不同，FoV遮挡模拟有限视场角的相机：$\tilde{I_g}^m = I_g \odot M_{\text{mask}}$，其中mask保持一段连续的水平视场（如180°-240°），丢弃其余部分。关键优势在于：FoV遮挡总是保留一个连贯的场景几何结构（包含车道线、建筑等判别性特征），而patch遮挡可能破坏关键结构或保留无用区域（如天空）。值得注意的是，FoV遮挡作为单纯的数据增强反而会损害性能，只有在教师-学生蒸馏框架中才能发挥作用。
 
 3. **几何引导自蒸馏**:
-   - **教师模型** $f_t$：接收完整全景图 $\tilde{I_g}$ 和卫星图 $I_s$，利用全局上下文生成热力图
-   - **学生模型** $f_s$：同架构但接收FoV遮挡图像 $\tilde{I_g}^m$ 和 $I_s$
-   - **不确定性保留**: 用低温度 $\tau < 1$ 的softmax锐化双方热力图：$P_t = \text{Softmax}(H_t/\tau)$, $P_s = \text{Softmax}(H_s/\tau)$。锐化的双重作用：压制噪声低置信度信号，同时保留教师的"暗知识"（分布形状和相对激活强度）
-   - **自蒸馏损失**: 交叉熵 $\mathcal{L}_{SD} = \mathbb{E}[-\sum_i P_t(i)\log P_s(i)]$
-   - **双向知识流**: 教师权重通过EMA吸收学生学到的鲁棒特征：$\theta_t \leftarrow \alpha\theta_t + (1-\alpha)\theta_s$（$\alpha=0.9$），实现持续自我改进
+
+    - **教师模型** $f_t$：接收完整全景图 $\tilde{I_g}$ 和卫星图 $I_s$，利用全局上下文生成热力图
+    - **学生模型** $f_s$：同架构但接收FoV遮挡图像 $\tilde{I_g}^m$ 和 $I_s$
+    - **不确定性保留**: 用低温度 $\tau < 1$ 的softmax锐化双方热力图：$P_t = \text{Softmax}(H_t/\tau)$, $P_s = \text{Softmax}(H_s/\tau)$。锐化的双重作用：压制噪声低置信度信号，同时保留教师的"暗知识"（分布形状和相对激活强度）
+    - **自蒸馏损失**: 交叉熵 $\mathcal{L}_{SD} = \mathbb{E}[-\sum_i P_t(i)\log P_s(i)]$
+    - **双向知识流**: 教师权重通过EMA吸收学生学到的鲁棒特征：$\theta_t \leftarrow \alpha\theta_t + (1-\alpha)\theta_s$（$\alpha=0.9$），实现持续自我改进
 
 ### 损失函数 / 训练策略
 

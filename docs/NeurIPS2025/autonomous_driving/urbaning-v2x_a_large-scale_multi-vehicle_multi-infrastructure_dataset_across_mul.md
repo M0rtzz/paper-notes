@@ -39,24 +39,28 @@ tags:
 
 ### 关键设计
 1. **传感器配置**：
-   - 每辆车：6 个 FHD RGB 相机（360° 覆盖）+ 1 个 128 线 LiDAR + 高精度 IMU + RTK GPS（1cm 精度）
-   - 每个杆：1-3 个 VGA 热红外相机 + 1 个 64 线 LiDAR + 1 个 32 线盲区 LiDAR
-   - 总计：12 个车载 RGB 相机、2 个车载 LiDAR、17 个基础设施热红外相机、12 个基础设施 LiDAR
+
+    - 每辆车：6 个 FHD RGB 相机（360° 覆盖）+ 1 个 128 线 LiDAR + 高精度 IMU + RTK GPS（1cm 精度）
+    - 每个杆：1-3 个 VGA 热红外相机 + 1 个 64 线 LiDAR + 1 个 32 线盲区 LiDAR
+    - 总计：12 个车载 RGB 相机、2 个车载 LiDAR、17 个基础设施热红外相机、12 个基础设施 LiDAR
 
 2. **时空同步**：
-   - UTC 时钟作为统一时间参考
-   - 车辆端：IMU 通过 GPS 同步 UTC，PTP 协议同步相机和 LiDAR
-   - LiDAR 相位锁定，确保旋转周期同步对齐
-   - 基础设施热红外相机最大时间偏差 16.6ms
+
+    - UTC 时钟作为统一时间参考
+    - 车辆端：IMU 通过 GPS 同步 UTC，PTP 协议同步相机和 LiDAR
+    - LiDAR 相位锁定，确保旋转周期同步对齐
+    - 基础设施热红外相机最大时间偏差 16.6ms
 
 3. **标定与融合**：
-   - 锥形反射标定靶 + RTK GPS + 手动标注的多步骤外参标定
-   - 逐点运动补偿处理 LiDAR 旋转扫描引起的运动模糊
-   - 最大空间误差估计 0.7m（50 km/h 目标速度下）
+
+    - 锥形反射标定靶 + RTK GPS + 手动标注的多步骤外参标定
+    - 逐点运动补偿处理 LiDAR 旋转扫描引起的运动模糊
+    - 最大空间误差估计 0.7m（50 km/h 目标速度下）
 
 4. **数据划分策略**：
-   - EIS（Equal Intersection Split）：序列级划分，每个路口均匀分配到训练/验证/测试
-   - SIS（Separate Intersection Split）：留一路口测试，评估跨路口泛化能力
+
+    - EIS（Equal Intersection Split）：序列级划分，每个路口均匀分配到训练/验证/测试
+    - SIS（Separate Intersection Split）：留一路口测试，评估跨路口泛化能力
 
 ### 损失函数 / 训练策略
 - 使用 PointPillars 作为骨干网络

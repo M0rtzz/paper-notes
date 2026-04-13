@@ -47,22 +47,25 @@ DisCL 包含两个阶段：
 ### 关键设计
 
 1. **图像引导控制的合成-真实插值**：
-   - 基于 Stable Diffusion XL，修改 Classifier-free guidance 中的初始扩散步 $t(\lambda) = \lfloor(1-\lambda)T\rfloor$
-   - 噪声初始化公式：$z_{t(\lambda)} = \sqrt{\tilde{\alpha}_{t(\lambda)}} z_{real} + \sqrt{1-\tilde{\alpha}_{t(\lambda)}} \epsilon$
-   - $\lambda = 0$ 对应纯文本引导（最多样但最远离原始）；$\lambda \rightarrow 1$ 对应接近原始图像（最相似但多样性最低）
-   - 通过 CLIPScore 阈值过滤低保真度合成图像（目标对象缺失或被遮挡的情况）
+
+    - 基于 Stable Diffusion XL，修改 Classifier-free guidance 中的初始扩散步 $t(\lambda) = \lfloor(1-\lambda)T\rfloor$
+    - 噪声初始化公式：$z_{t(\lambda)} = \sqrt{\tilde{\alpha}_{t(\lambda)}} z_{real} + \sqrt{1-\tilde{\alpha}_{t(\lambda)}} \epsilon$
+    - $\lambda = 0$ 对应纯文本引导（最多样但最远离原始）；$\lambda \rightarrow 1$ 对应接近原始图像（最相似但多样性最低）
+    - 通过 CLIPScore 阈值过滤低保真度合成图像（目标对象缺失或被遮挡的情况）
 
 2. **长尾分类的非自适应课程（Diverse-to-Specific）**：
-   - 核心思路：尾部类数据稀缺，先用低引导级别数据增加多样性和数量，再逐步提高引导级别让模型适应真实分布
-   - 训练初期使用 $\lambda \rightarrow 0$ 的合成数据（原型化特征，高多样性）
-   - 训练后期渐进切换到 $\lambda \rightarrow 1$ 的数据（贴近真实分布）
-   - 逐步弥合合成-真实差距，避免分布突变
+
+    - 核心思路：尾部类数据稀缺，先用低引导级别数据增加多样性和数量，再逐步提高引导级别让模型适应真实分布
+    - 训练初期使用 $\lambda \rightarrow 0$ 的合成数据（原型化特征，高多样性）
+    - 训练后期渐进切换到 $\lambda \rightarrow 1$ 的数据（贴近真实分布）
+    - 逐步弥合合成-真实差距，避免分布突变
 
 3. **低质量数据的自适应课程（Adaptive）**：
-   - 困难样本通过预训练分类器的真实类概率判定（概率越低越困难）
-   - 每个 epoch 根据"学习进展"（验证子集上真实类置信度提升量）自适应选择下一轮的引导级别 $\lambda$
-   - 选择使当前训练阶段进展最大的 $\lambda$，确保在每个阶段学习最有信息量的数据
-   - 避免非自适应课程在低质量场景下因过早引入分布外数据导致的负迁移
+
+    - 困难样本通过预训练分类器的真实类概率判定（概率越低越困难）
+    - 每个 epoch 根据"学习进展"（验证子集上真实类置信度提升量）自适应选择下一轮的引导级别 $\lambda$
+    - 选择使当前训练阶段进展最大的 $\lambda$，确保在每个阶段学习最有信息量的数据
+    - 避免非自适应课程在低质量场景下因过早引入分布外数据导致的负迁移
 
 ### 训练策略
 

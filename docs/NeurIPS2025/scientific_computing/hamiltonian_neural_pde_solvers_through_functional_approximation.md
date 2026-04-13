@@ -27,17 +27,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：神经 PDE 求解器（FNO、Unet 等）在参数化 PDE 求解上取得了显著进展，但绝大多数方法工作在 Newtonian 框架下——直接预测下一时刻的状态或时间导数，没有利用物理系统的守恒结构。
+**领域现状**：神经 PDE 求解器（FNO、Unet 等）在参数化 PDE 求解上取得了显著进展，但绝大多数方法工作在 Newtonian 框架下——直接预测下一时刻的状态或时间导数，没有利用物理系统的守恒结构。
 
-2. **现有痛点**：Hamiltonian Neural Networks（HNN）已在离散粒子系统中证明了保守恒律的能力，但 HNN 局限于有限维系统（如 N 体问题），其 Hamiltonian 是一个函数 $\mathcal{H}(\mathbf{q}, \mathbf{p}): \mathbb{R}^{2n} \to \mathbb{R}$。然而，大多数实际 PDE 描述的是连续场（流体、波动、弹性体），需要**无限维** Hamiltonian 力学，其中 Hamiltonian 是泛函 $\mathcal{H}[u]: \mathcal{F}(\Omega) \to \mathbb{R}$，演化由泛函导数 $\delta\mathcal{H}/\delta u$ 驱动。
+**现有痛点**：Hamiltonian Neural Networks（HNN）已在离散粒子系统中证明了保守恒律的能力，但 HNN 局限于有限维系统（如 N 体问题），其 Hamiltonian 是一个函数 $\mathcal{H}(\mathbf{q}, \mathbf{p}): \mathbb{R}^{2n} \to \mathbb{R}$。然而，大多数实际 PDE 描述的是连续场（流体、波动、弹性体），需要**无限维** Hamiltonian 力学，其中 Hamiltonian 是泛函 $\mathcal{H}[u]: \mathcal{F}(\Omega) \to \mathbb{R}$，演化由泛函导数 $\delta\mathcal{H}/\delta u$ 驱动。
 
-3. **核心矛盾**：将 Hamiltonian 框架推广到 PDE 有两大难题：(a) 需要逼近从函数空间到标量的映射（泛函），传统神经网络不是为此设计的；(b) 逼近后的泛函必须具有准确的泛函导数，以便用于 Hamilton 方程的时间演化。
+**核心矛盾**：将 Hamiltonian 框架推广到 PDE 有两大难题：(a) 需要逼近从函数空间到标量的映射（泛函），传统神经网络不是为此设计的；(b) 逼近后的泛函必须具有准确的泛函导数，以便用于 Hamilton 方程的时间演化。
 
-4. **本文要解决什么？** 设计一种能够学习 Hamiltonian 泛函并准确计算泛函导数的神经网络架构，以此构建遵循 Hamiltonian 框架的神经 PDE 求解器。
+**本文要解决什么？** 设计一种能够学习 Hamiltonian 泛函并准确计算泛函导数的神经网络架构，以此构建遵循 Hamiltonian 框架的神经 PDE 求解器。
 
-5. **切入角度**：利用泛函分析中的 **Riesz 表示定理**——任何连续线性泛函都可以表示为内积 $\mathcal{H}[u] = \langle u, \kappa_\theta \rangle$，从而将泛函逼近问题转化为函数逼近问题，而神经网络天然擅长后者。
+**切入角度**：利用泛函分析中的 **Riesz 表示定理**——任何连续线性泛函都可以表示为内积 $\mathcal{H}[u] = \langle u, \kappa_\theta \rangle$，从而将泛函逼近问题转化为函数逼近问题，而神经网络天然擅长后者。
 
-6. **核心 idea 一句话**：用神经场参数化的核积分来逼近 Hamiltonian 泛函，结合自动微分获取泛函导数，构建保守恒律的 PDE 求解器。
+**核心 idea 一句话**：用神经场参数化的核积分来逼近 Hamiltonian 泛函，结合自动微分获取泛函导数，构建保守恒律的 PDE 求解器。
 
 ## 方法详解
 

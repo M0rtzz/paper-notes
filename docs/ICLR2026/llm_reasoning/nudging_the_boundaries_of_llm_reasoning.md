@@ -39,20 +39,23 @@ NuRL = 离线Hint收集 + 在线Rollout增强(两阶段训练)
 
 ### 关键设计
 1. **离线Hint收集**:
-   - 输入: (问题q, 正确答案a)
-   - Step 1: 让模型生成"为什么答案正确"的CoT: $y = \pi_{old}(q, a; p_y)$
-   - Step 2: 从CoT抽象出高层hint(核心知识线索): $h = \pi_\theta(q, a, y; p_h)$
-   - 关键约束: hint必须抽象且高层，不包含具体答案或解题步骤
+
+    - 输入: (问题q, 正确答案a)
+    - Step 1: 让模型生成"为什么答案正确"的CoT: $y = \pi_{old}(q, a; p_y)$
+    - Step 2: 从CoT抽象出高层hint(核心知识线索): $h = \pi_\theta(q, a, y; p_h)$
+    - 关键约束: hint必须抽象且高层，不包含具体答案或解题步骤
 
 2. **在线Rollout增强**:
-   - GRPO训练中对每个问题生成 $\mathcal{G}$ 个rollout
-   - 若全部失败(pass rate=0%): 将hint拼接到问题末尾
-   - 重新生成 $\mathcal{G}-1$ 个带hint的rollout + 1个不带hint的rollout(避免全部正确导致零方差)
-   - 推理时不用hint——训练时的hint帮助模型内化推理模式
+
+    - GRPO训练中对每个问题生成 $\mathcal{G}$ 个rollout
+    - 若全部失败(pass rate=0%): 将hint拼接到问题末尾
+    - 重新生成 $\mathcal{G}-1$ 个带hint的rollout + 1个不带hint的rollout(避免全部正确导致零方差)
+    - 推理时不用hint——训练时的hint帮助模型内化推理模式
 
 3. **Hint类型探索**:
-   - 抽象线索(最佳) > 部分步骤 > 解释 > 直接答案(最差)
-   - 核心发现: 暴露越多答案信息，性能越差——与人类学习规律一致
+
+    - 抽象线索(最佳) > 部分步骤 > 解释 > 直接答案(最差)
+    - 核心发现: 暴露越多答案信息，性能越差——与人类学习规律一致
 
 ### 训练策略
 - Stage 1: 标准GRPO训练至训练奖励和验证准确率收敛

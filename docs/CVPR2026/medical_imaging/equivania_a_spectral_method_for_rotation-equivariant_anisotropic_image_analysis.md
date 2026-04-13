@@ -50,32 +50,33 @@ $$S(\xi) = S(\xi_1, \xi_2) = |\hat{x}(\xi)|^2$$
 
 1. **定向滤波器族**：基于基函数 $\phi$ 通过平移和旋转变换生成滤波器族
 
-   $$\phi_{v,\theta}(u) = \phi(R_\theta^{-1}(u - v)), \quad u \in \mathbb{R}^2$$
+    $\phi_{v,\theta}(u) = \phi(R_\theta^{-1}(u - v)), \quad u \in \mathbb{R}^2$
 
    其中 $R_\theta$ 为旋转矩阵。计算分析系数：
 
-   $$c_{v,\theta} = \int_{\mathbb{R}^2} x(u) \bar{\phi}_{v,\theta}(u) \, du$$
+    $c_{v,\theta} = \int_{\mathbb{R}^2} x(u) \bar{\phi}_{v,\theta}(u) \, du$
 
    角度分布定义为各方向的能量响应：
 
-   $$\rho(\theta) = \int_{\mathbb{R}^2} |c_{v,\theta}|^2 \, dv, \quad \theta \in [0, \pi)$$
+    $\rho(\theta) = \int_{\mathbb{R}^2} |c_{v,\theta}|^2 \, dv, \quad \theta \in [0, \pi)$
 
    文中考察两种滤波器：
-   - **Cake wavelets**：在频域中定义的扇形覆盖滤波器，对结构图像效果更好
-   - **Ridge filters**：在频域中沿方向的线形滤波器，对纹理图像效果更好
+    - **Cake wavelets**：在频域中定义的扇形覆盖滤波器，对结构图像效果更好
+    - **Ridge filters**：在频域中沿方向的线形滤波器，对纹理图像效果更好
 
    两者在频域中都设为中心对称（权重 $\theta$ 和 $\theta + 180°$ 相同）。
 
 2. **主方向估计**：各向异性图像的主方向 $\eta$ 通过角度分布的峰值估计：
 
-   $$\eta = \arg\max_{\theta \in [0, \pi)} \rho(\theta)$$
+    $\eta = \arg\max_{\theta \in [0, \pi)} \rho(\theta)$
 
    实验表明对于有明确主方向的图像，全局最大值通常唯一。
 
 3. **角度图像配准算法**：给定同一图像的两个旋转副本 $x^{(1)}$, $x^{(2)}$，目标是估计相对旋转角 $\gamma$：
-   - 分别计算两图的主方向估计 $\hat{\theta}^{(1)}$, $\hat{\theta}^{(2)}$
-   - 由于方法无法区分 $\theta$ 和 $\theta + 180°$，测试两个候选角度 $\hat{\gamma}_1 = \hat{\theta}^{(1)} - \hat{\theta}^{(2)}$ 和 $\hat{\gamma}_2 = \hat{\gamma}_1 + \pi \mod 2\pi$
-   - 选择使 MSE $\|x^{(1)} - R_{\gamma_k} x^{(2)}\|^2$ 最小的候选
+
+    - 分别计算两图的主方向估计 $\hat{\theta}^{(1)}$, $\hat{\theta}^{(2)}$
+    - 由于方法无法区分 $\theta$ 和 $\theta + 180°$，测试两个候选角度 $\hat{\gamma}_1 = \hat{\theta}^{(1)} - \hat{\theta}^{(2)}$ 和 $\hat{\gamma}_2 = \hat{\gamma}_1 + \pi \mod 2\pi$
+    - 选择使 MSE $\|x^{(1)} - R_{\gamma_k} x^{(2)}\|^2$ 最小的候选
 
    完整算法（Algorithm 1）：对每张图做 FFT → 计算 PSD → 遍历角度计算 $\rho(\theta)$ → 取 argmax → 比较两个候选旋转角。
 

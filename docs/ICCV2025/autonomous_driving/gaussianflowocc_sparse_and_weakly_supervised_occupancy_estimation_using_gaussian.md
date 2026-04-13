@@ -29,11 +29,11 @@ tags:
 
 3D 语义占用估计是自动驾驶的核心任务，为车辆周围环境提供密集的体素级理解。但现有方法面临三个关键限制：
 
-1. **密集 3D 标注依赖**：大多数占用估计模型需要昂贵的 3D 体素 ground truth 标注，这些标注通常来自 LiDAR 积累+人工校正，获取成本极高且难以大规模扩展。
+**密集 3D 标注依赖**：大多数占用估计模型需要昂贵的 3D 体素 ground truth 标注，这些标注通常来自 LiDAR 积累+人工校正，获取成本极高且难以大规模扩展。
 
-2. **密集体素表示的低效性**：传统密集 3D 体素网格浪费大量计算资源在"空"体素上——真实驾驶场景中大部分 3D 空间是空区域。3D 卷积操作进一步加剧计算负担。
+**密集体素表示的低效性**：传统密集 3D 体素网格浪费大量计算资源在"空"体素上——真实驾驶场景中大部分 3D 空间是空区域。3D 卷积操作进一步加剧计算负担。
 
-3. **弱监督方法忽视场景动态**：现有自/弱监督方法（如 SelfOcc, OccNeRF）通过时序渲染一致性训练，但未处理动态物体运动导致的时序不一致——运动物体在相邻帧位置不同，直接渲染会产生错误监督信号。
+**弱监督方法忽视场景动态**：现有自/弱监督方法（如 SelfOcc, OccNeRF）通过时序渲染一致性训练，但未处理动态物体运动导致的时序不一致——运动物体在相邻帧位置不同，直接渲染会产生错误监督信号。
 
 GaussianFlowOcc 的核心洞察：用稀疏 Gaussian 替代密集体素，不仅节省计算，还天然支持 Gaussian Splatting 进行高效 2D 渲染训练；同时通过学习每个 Gaussian 的 3D flow 来显式建模场景动态，解决弱监督中的时序不一致问题。
 
@@ -48,13 +48,14 @@ GaussianFlowOcc 的核心洞察：用稀疏 Gaussian 替代密集体素，不仅
 ### 关键设计
 
 1. **Gaussian Transformer（高效 3D 场景建模）**：这是架构的核心创新。包含 $B$ 个迭代块，每个块依次执行：
-   - **位置编码**：将前一块的 Gaussian 位置 $\mathcal{G}_\mu^{b-1}$ 通过 MLP 编码并加到特征上
-   - **GICA（Gaussian-Image Cross-Attention）**：采用可变形交叉注意力（deformable cross-attention），将 Gaussian 位置投影到图像特征图上采样局部信息
-   - **ISA（Induced Self-Attention）**：受 Set Transformer 启发，引入 $M$ 个可学习的诱导点 $P \in \mathbb{R}^{M \times D}$（$M \ll N$），将二次复杂度 $\mathcal{O}(N^2)$ 降低为 $\mathcal{O}(MN)$：
-   $$H = \text{MHA}(P, \mathcal{G}_f, \mathcal{G}_f), \quad \text{ISA}(\mathcal{G}_f) = \text{MHA}(\mathcal{G}_f, H, H)$$
+
+    - **位置编码**：将前一块的 Gaussian 位置 $\mathcal{G}_\mu^{b-1}$ 通过 MLP 编码并加到特征上
+    - **GICA（Gaussian-Image Cross-Attention）**：采用可变形交叉注意力（deformable cross-attention），将 Gaussian 位置投影到图像特征图上采样局部信息
+    - **ISA（Induced Self-Attention）**：受 Set Transformer 启发，引入 $M$ 个可学习的诱导点 $P \in \mathbb{R}^{M \times D}$（$M \ll N$），将二次复杂度 $\mathcal{O}(N^2)$ 降低为 $\mathcal{O}(MN)$：
+    $H = \text{MHA}(P, \mathcal{G}_f, \mathcal{G}_f), \quad \text{ISA}(\mathcal{G}_f) = \text{MHA}(\mathcal{G}_f, H, H)$
    这使得模型能处理 $N=10000$ 个 Gaussian，而标准注意力在 $N=5000$ 时就需 50GB 显存
-   - **ITA（Induced Temporal Attention）**：类似 ISA 但用于时序信息传播，诱导点先聚合前一帧 Gaussian 特征，再让当前帧与之交互
-   - **Gaussian Rectification**：MLP 估计位置残差 $\Delta\mathcal{G}_\mu^b$ 更新 Gaussian 位置
+    - **ITA（Induced Temporal Attention）**：类似 ISA 但用于时序信息传播，诱导点先聚合前一帧 Gaussian 特征，再让当前帧与之交互
+    - **Gaussian Rectification**：MLP 估计位置残差 $\Delta\mathcal{G}_\mu^b$ 更新 Gaussian 位置
 
 2. **Temporal Module（3D 时序流估计）**：解决弱监督中动态物体的关键问题。为每个 Gaussian 估计到每个时间步的 3D 位移：
 

@@ -28,8 +28,8 @@ tags:
 
 基于 LLM 的对话系统虽取得显著进展，但面临两大核心问题：
 
-1. **幻觉问题**：LLM 易生成看似合理但事实错误的回复
-2. **用户过度依赖**：用户倾向于接受 AI 建议，即使建议是错误的
+**幻觉问题**：LLM 易生成看似合理但事实错误的回复
+**用户过度依赖**：用户倾向于接受 AI 建议，即使建议是错误的
 
 在任务型对话系统（TODS）中，这两个问题尤其危险。对话状态追踪（DST）是 TODS 的关键组件，负责追踪用户意图的 slot-value 对。DST 存在三类错误：
 - **假阳性（FP）**: 预测了对话中未提及的 slot
@@ -49,28 +49,32 @@ tags:
 ### 关键设计
 
 1. **Accountability Head 设计**：
-   - 取对话上下文 $C_t$ 最后一个 token 的编码 $\phi_t \in \mathbb{R}^d$
-   - 经过线性层 + sigmoid 得到每个 slot 的概率 $p = \sigma(\text{LIN}(\phi_t)) \in \mathbb{R}^{|S|}$
-   - 使用二元交叉熵损失训练
-   - 设计动机：$\phi_t$ 同时优化 BCE 和 LM 损失，因此编码了 slot 相关性信息，可反过来提升生成准确性
+
+    - 取对话上下文 $C_t$ 最后一个 token 的编码 $\phi_t \in \mathbb{R}^d$
+    - 经过线性层 + sigmoid 得到每个 slot 的概率 $p = \sigma(\text{LIN}(\phi_t)) \in \mathbb{R}^{|S|}$
+    - 使用二元交叉熵损失训练
+    - 设计动机：$\phi_t$ 同时优化 BCE 和 LM 损失，因此编码了 slot 相关性信息，可反过来提升生成准确性
 
 2. **联合训练目标**：
-   - $\mathcal{L}_{Account} = \mathcal{L}_{LM} + \lambda \cdot \mathcal{L}_{BCE}$
-   - $\lambda \in [0, 1]$ 控制 accountability head 的权重
-   - 最优 $\lambda$：MultiWOZ 为 0.25，Snips 为 0.1-0.25
-   - 设计动机：辅助损失提供 slot 先验信息，引导更准确的对话状态生成
+
+    - $\mathcal{L}_{Account} = \mathcal{L}_{LM} + \lambda \cdot \mathcal{L}_{BCE}$
+    - $\lambda \in [0, 1]$ 控制 accountability head 的权重
+    - 最优 $\lambda$：MultiWOZ 为 0.25，Snips 为 0.1-0.25
+    - 设计动机：辅助损失提供 slot 先验信息，引导更准确的对话状态生成
 
 3. **对话状态自校正算法（Algorithm 1）**：
-   - **Step 1 — 过滤假阳性**: 对预测的每个 slot-value 对，如果 $p_{slot} < \tau_{fp}$，则移除
-   - **Step 2 — 添加假阴性**: 对不在预测中的 slot，如果 $p_{slot} \geq \tau_{fn}$，则调用 `generateSlotValue()` 生成其值
-   - `generateSlotValue()` 将 slot 名称附加到已生成的对话状态后，让模型解码器继续生成
-   - 最优阈值通过验证集网格搜索确定
-   - 设计动机：利用 accountability head 的分类能力直接修正生成结果
+
+    - **Step 1 — 过滤假阳性**: 对预测的每个 slot-value 对，如果 $p_{slot} < \tau_{fp}$，则移除
+    - **Step 2 — 添加假阴性**: 对不在预测中的 slot，如果 $p_{slot} \geq \tau_{fn}$，则调用 `generateSlotValue()` 生成其值
+    - `generateSlotValue()` 将 slot 名称附加到已生成的对话状态后，让模型解码器继续生成
+    - 最优阈值通过验证集网格搜索确定
+    - 设计动机：利用 accountability head 的分类能力直接修正生成结果
 
 4. **Friction Turn（摩擦轮次）机制**：
-   - 替代自校正的另一方案：将检测到的错误通过澄清问题向用户确认
-   - 例如：模型检测到 `attraction-area` 可能遗漏，主动询问"请问您想去哪个区域的公园？"
-   - 设计动机：引入有益的"正向摩擦"，促进用户分析性思考，减少过度依赖
+
+    - 替代自校正的另一方案：将检测到的错误通过澄清问题向用户确认
+    - 例如：模型检测到 `attraction-area` 可能遗漏，主动询问"请问您想去哪个区域的公园？"
+    - 设计动机：引入有益的"正向摩擦"，促进用户分析性思考，减少过度依赖
 
 ### 训练细节
 

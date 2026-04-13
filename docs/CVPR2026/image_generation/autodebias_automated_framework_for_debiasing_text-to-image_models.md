@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 T2I 扩散模型（如 Stable Diffusion）生成能力强大，但面临两类偏见问题：
-1. **自然偏见**：训练数据不均衡导致的统计过度表示（如性别、种族刻板印象）
-2. **后门偏见（Backdoor Biases）**：恶意注入的攻击——特定触发词组合会激活隐藏的视觉属性（如"总统+写作"→光头红领带）
+**自然偏见**：训练数据不均衡导致的统计过度表示（如性别、种族刻板印象）
+**后门偏见（Backdoor Biases）**：恶意注入的攻击——特定触发词组合会激活隐藏的视觉属性（如"总统+写作"→光头红领带）
 
 后门攻击（B² style）的威胁尤为严重：
 - **成本极低**：仅需 $10-$15 即可执行
@@ -55,25 +55,28 @@ AutoDebias 分三步：
 ### 关键设计
 
 1. **开放集后门检测（基于 VLM）**：
-   - **做什么**：在不知道具体攻击类型的情况下，自动发现触发词与视觉属性的异常关联
-   - **核心思路**：用 VQA 模型（Gemini-2.5-flash）分析生成图像后直接推理出异常频繁出现的属性，构建**查找表**——每行包含检测到的偏见属性和对应的多个反偏见属性（如"bandana" → "Surgical Cap, Plain headband"）
-   - **阈值过滤**：通过严重度阈值 $\tau = 0.6$ 和最小出现次数 $N_{\min} \geq 3$ 过滤误检：
-     $$\text{Severity}(c, a) = \frac{\text{Count}(c, a)}{|\mathcal{I}_c|} - P_{\text{expected}}(a) > \tau$$
-   - **设计动机**：不同于预定义类别的封闭检测，VLM 可以动态分析任意视觉内容，检测非常规偏见（如"spiky hair"、"sleeve tattoo"）
+
+    - **做什么**：在不知道具体攻击类型的情况下，自动发现触发词与视觉属性的异常关联
+    - **核心思路**：用 VQA 模型（Gemini-2.5-flash）分析生成图像后直接推理出异常频繁出现的属性，构建**查找表**——每行包含检测到的偏见属性和对应的多个反偏见属性（如"bandana" → "Surgical Cap, Plain headband"）
+    - **阈值过滤**：通过严重度阈值 $\tau = 0.6$ 和最小出现次数 $N_{\min} \geq 3$ 过滤误检：
+    $\text{Severity}(c, a) = \frac{\text{Count}(c, a)}{|\mathcal{I}_c|} - P_{\text{expected}}(a) > \tau$
+    - **设计动机**：不同于预定义类别的封闭检测，VLM 可以动态分析任意视觉内容，检测非常规偏见（如"spiky hair"、"sleeve tattoo"）
 
 2. **CLIP 引导分布对齐训练**：
-   - **做什么**：渐进地打破后门关联，同时保持模型原有生成质量
-   - **核心思路**：受偏好优化启发，用 CLIP 零样本分类能力实现对齐。对每个检测到的偏见对 $(c, a)$，设定二元目标——偏见属性目标为 0（抑制），反偏见属性目标为 1（鼓励）：
-     $$\mathcal{L}_{\text{CLIP}}(I, c, a) = \text{BCE}(\mathbf{s}, \mathbf{t}_{(c,a)}, \mathbf{w})$$
-   - **多样本多 prompt 训练**：每步采样 $m$ 个 prompt、每 prompt 生成 $n$ 张图像，对所有检测到的偏见求平均损失
-   - **总损失**：$\mathcal{L}_{\text{align}} = \alpha \cdot \log(1 + S_{\text{CLIP}}) + \beta \mathcal{L}_{\text{prior}}$，其中先验损失 $\mathcal{L}_{\text{prior}} = \|I - I_{\text{orig}}\|_2^2$ 确保编辑最小化
-   - **交替训练**：每 3 轮中 1 轮执行 CLIP 对齐步（优化偏见消除），其余 2 轮做重建步（保持生成能力）
-   - **设计动机**：后门偏见不会一次性消除，可能反复出现。CLIP 在每个对齐步中评估当前输出是否仍含偏见，若有则给出更大的对齐梯度来压制
+
+    - **做什么**：渐进地打破后门关联，同时保持模型原有生成质量
+    - **核心思路**：受偏好优化启发，用 CLIP 零样本分类能力实现对齐。对每个检测到的偏见对 $(c, a)$，设定二元目标——偏见属性目标为 0（抑制），反偏见属性目标为 1（鼓励）：
+    $\mathcal{L}_{\text{CLIP}}(I, c, a) = \text{BCE}(\mathbf{s}, \mathbf{t}_{(c,a)}, \mathbf{w})$
+    - **多样本多 prompt 训练**：每步采样 $m$ 个 prompt、每 prompt 生成 $n$ 张图像，对所有检测到的偏见求平均损失
+    - **总损失**：$\mathcal{L}_{\text{align}} = \alpha \cdot \log(1 + S_{\text{CLIP}}) + \beta \mathcal{L}_{\text{prior}}$，其中先验损失 $\mathcal{L}_{\text{prior}} = \|I - I_{\text{orig}}\|_2^2$ 确保编辑最小化
+    - **交替训练**：每 3 轮中 1 轮执行 CLIP 对齐步（优化偏见消除），其余 2 轮做重建步（保持生成能力）
+    - **设计动机**：后门偏见不会一次性消除，可能反复出现。CLIP 在每个对齐步中评估当前输出是否仍含偏见，若有则给出更大的对齐梯度来压制
 
 3. **多场景后门注入基准**：
-   - **做什么**：构建覆盖 17 种后门场景的评测基准
-   - **范围**：超越传统的性别/年龄/种族类别，增加发型（mohawk、bald、spiky）、头饰（fedora、cowboy hat）、面部特征（mustache、blue eyes）、配饰（red tie、Nike t-shirt）等细粒度类别
-   - **注入方式**：用 B² 方法在 Stable Diffusion 上注入——用 FLUX 生成带偏见图像，训练 10 epochs（400 毒样本 + 800 干净样本）
+
+    - **做什么**：构建覆盖 17 种后门场景的评测基准
+    - **范围**：超越传统的性别/年龄/种族类别，增加发型（mohawk、bald、spiky）、头饰（fedora、cowboy hat）、面部特征（mustache、blue eyes）、配饰（red tie、Nike t-shirt）等细粒度类别
+    - **注入方式**：用 B² 方法在 Stable Diffusion 上注入——用 FLUX 生成带偏见图像，训练 10 epochs（400 毒样本 + 800 干净样本）
 
 ### 训练策略
 

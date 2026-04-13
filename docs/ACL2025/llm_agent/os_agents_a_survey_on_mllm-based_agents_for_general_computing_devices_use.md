@@ -25,12 +25,12 @@ tags:
 首篇全面综述 MLLM 驱动的操作系统代理（OS Agents），系统梳理其基础组件、构建方法、评估基准和未来方向。
 
 ## 研究背景与动机
-1. **领域现状**：随着 Claude Computer Use、Apple Intelligence、AutoGLM 等产品发布，基于 (M)LLM 的 OS Agents 正快速发展。
-2. **现有痛点**：缺乏对 OS Agents 领域的系统化综述，研究分散在 web、mobile、desktop 等不同平台。
-3. **核心矛盾**：Siri/Cortana 等传统助手受限于上下文理解能力，无法实现真正的通用设备自动化。
-4. **本文要解决什么？** 提供 OS Agents 研究的全景图，整合基础、方法、评估和未来方向。
-5. **切入角度**：从环境（Environment）、观察空间（Observation Space）、动作空间（Action Space）三个核心组件出发。
-6. **核心idea一句话**：构建 OS Agents 需要理解（Understanding）、规划（Planning）、执行落地（Grounding）三大核心能力。
+**领域现状**：随着 Claude Computer Use、Apple Intelligence、AutoGLM 等产品发布，基于 (M)LLM 的 OS Agents 正快速发展。
+**现有痛点**：缺乏对 OS Agents 领域的系统化综述，研究分散在 web、mobile、desktop 等不同平台。
+**核心矛盾**：Siri/Cortana 等传统助手受限于上下文理解能力，无法实现真正的通用设备自动化。
+**本文要解决什么？** 提供 OS Agents 研究的全景图，整合基础、方法、评估和未来方向。
+**切入角度**：从环境（Environment）、观察空间（Observation Space）、动作空间（Action Space）三个核心组件出发。
+**核心idea一句话**：构建 OS Agents 需要理解（Understanding）、规划（Planning）、执行落地（Grounding）三大核心能力。
 
 ## 方法详解
 
@@ -39,19 +39,22 @@ tags:
 
 ### 关键设计
 1. **基础模型构建**:
-   - 做什么：总结 30+ 个 OS Agent 基础模型的架构和训练策略
-   - 核心思路：四类架构（现有 LLM / 现有 MLLM / 拼接 MLLM / 改进 MLLM）+ 三阶段训练（预训练 / SFT / RL）
-   - 设计动机：不同平台的 GUI 特性要求不同的架构适配方案
+
+    - 做什么：总结 30+ 个 OS Agent 基础模型的架构和训练策略
+    - 核心思路：四类架构（现有 LLM / 现有 MLLM / 拼接 MLLM / 改进 MLLM）+ 三阶段训练（预训练 / SFT / RL）
+    - 设计动机：不同平台的 GUI 特性要求不同的架构适配方案
 
 2. **代理框架设计**:
-   - 做什么：梳理感知（Perception）、规划（Planning）、记忆（Memory）、动作（Action）四大模块
-   - 核心思路：文本描述 vs GUI 截图感知、全局 vs 迭代规划、自动探索 vs 经验增强记忆
-   - 设计动机：构建灵活的非微调代理框架
+
+    - 做什么：梳理感知（Perception）、规划（Planning）、记忆（Memory）、动作（Action）四大模块
+    - 核心思路：文本描述 vs GUI 截图感知、全局 vs 迭代规划、自动探索 vs 经验增强记忆
+    - 设计动机：构建灵活的非微调代理框架
 
 3. **评估体系**:
-   - 做什么：整理桌面/移动/Web 三大平台的评估基准
-   - 核心思路：按平台和任务类型分类，涵盖在线/离线评估
-   - 设计动机：指导研究者选择合适的评测场景
+
+    - 做什么：整理桌面/移动/Web 三大平台的评估基准
+    - 核心思路：按平台和任务类型分类，涵盖在线/离线评估
+    - 设计动机：指导研究者选择合适的评测场景
 
 ### 核心发现
 

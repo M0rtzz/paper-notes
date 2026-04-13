@@ -38,18 +38,21 @@ ReferSplat 含三个核心组件：(1) 3D Gaussian Referring Fields；(2) 位置
 
 ### 关键设计
 1. **3D Gaussian Referring Fields**:
-   - 为每个 Gaussian 引入 referring 特征 f_r,i，计算与词特征相似度 m_i = sum_j f_r,i * f_w,j，再光栅化渲染 2D 掩码。
-   - 设计动机：不同于在 2D 渲染特征上做检索，直接在 3D 空间建模使模型能通过多视角知识识别遮挡物体。
+
+    - 为每个 Gaussian 引入 referring 特征 f_r,i，计算与词特征相似度 m_i = sum_j f_r,i * f_w,j，再光栅化渲染 2D 掩码。
+    - 设计动机：不同于在 2D 渲染特征上做检索，直接在 3D 空间建模使模型能通过多视角知识识别遮挡物体。
 
 2. **位置感知跨模态交互（PCMI）**:
-   - Gaussian 位置特征：将中心坐标通过 MLP 映射为位置嵌入。
-   - 文本位置推断：通过词特征与 Gaussian referring 特征的关系间接获取文本位置。
-   - 位置引导注意力精化 referring 特征，融合位置和语义信息。
-   - 设计动机：理解含空间关系的表达需要语义识别与空间推理并行。
+
+    - Gaussian 位置特征：将中心坐标通过 MLP 映射为位置嵌入。
+    - 文本位置推断：通过词特征与 Gaussian referring 特征的关系间接获取文本位置。
+    - 位置引导注意力精化 referring 特征，融合位置和语义信息。
+    - 设计动机：理解含空间关系的表达需要语义识别与空间推理并行。
 
 3. **Gaussian-Text 对比学习（GTCL）**:
-   - 选择 top-tau 响应的 Gaussian 特征取平均作为正 Gaussian 嵌入，对比学习拉近对应文本、推开不相关文本。
-   - 设计动机：区分语义相似但指向不同物体的描述。
+
+    - 选择 top-tau 响应的 Gaussian 特征取平均作为正 Gaussian 嵌入，对比学习拉近对应文本、推开不相关文本。
+    - 设计动机：区分语义相似但指向不同物体的描述。
 
 ### 损失函数 / 训练策略
 - 总损失：BCE损失 + lambda * 对比损失，lambda=0.02

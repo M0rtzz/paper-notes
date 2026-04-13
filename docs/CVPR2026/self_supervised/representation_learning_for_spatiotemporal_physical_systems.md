@@ -41,25 +41,28 @@ tags:
 
 ### 关键设计
 1. **JEPA（Joint Embedding Predictive Architecture）用于物理动力学**:
-   - 做什么：学习一个编码器 $f: \mathcal{X} \to \mathcal{Z}$ 和预测器 $g: \mathcal{Z} \to \mathcal{Z}$，在隐空间预测下一时间段的表示
-   - 核心思路：给定样本的 $T$ 个时间步 $x_{0:T}$，将 $x_{t:t+k}$ 编码为 $z_i = f(x_i)$，然后最小化隐空间预测误差：
-     $$\mathcal{L}(f,g) = \mathbb{E}_{x_i, x_{i+1} \sim \mathcal{X}}[\ell_{\text{VICReg}}(g(f(x_i)), f(x_{i+1}))]$$
-   - 使用 VICReg 损失防止模式坍塌：
-     $$\ell_{\text{VICReg}}(z_i, z_{i+1}) = \lambda s(z_i, z_{i+1}) + \mu[v(z_i) + v(z_{i+1})] + \nu[c(z_i) + c(z_{i+1})]$$
-     其中 $s$ 是不变性项（L2距离），$v$ 是方差正则化，$c$ 是协方差正则化
-   - 编码器：3D ConvNeXt 下采样 CNN；预测器：通道维度逆瓶颈 CNN
-   - 设计动机：JEPA 在表示空间而非像素空间最小化误差，避免学习低层视觉细节（如纹理），更关注高层动力学特征
+
+    - 做什么：学习一个编码器 $f: \mathcal{X} \to \mathcal{Z}$ 和预测器 $g: \mathcal{Z} \to \mathcal{Z}$，在隐空间预测下一时间段的表示
+    - 核心思路：给定样本的 $T$ 个时间步 $x_{0:T}$，将 $x_{t:t+k}$ 编码为 $z_i = f(x_i)$，然后最小化隐空间预测误差：
+    $\mathcal{L}(f,g) = \mathbb{E}_{x_i, x_{i+1} \sim \mathcal{X}}[\ell_{\text{VICReg}}(g(f(x_i)), f(x_{i+1}))]$
+    - 使用 VICReg 损失防止模式坍塌：
+    $\ell_{\text{VICReg}}(z_i, z_{i+1}) = \lambda s(z_i, z_{i+1}) + \mu[v(z_i) + v(z_{i+1})] + \nu[c(z_i) + c(z_{i+1})]$
+      其中 $s$ 是不变性项（L2距离），$v$ 是方差正则化，$c$ 是协方差正则化
+    - 编码器：3D ConvNeXt 下采样 CNN；预测器：通道维度逆瓶颈 CNN
+    - 设计动机：JEPA 在表示空间而非像素空间最小化误差，避免学习低层视觉细节（如纹理），更关注高层动力学特征
 
 2. **VideoMAE 基线（像素级重建）**:
-   - 做什么：学习 encoder-decoder 对，最小化掩码区域的像素重建误差
-   - 核心思路：时空 tube masking + 像素级 MSE 重建
-   - 架构：ViT-tiny/16，输出 $l/16 \times w/16 \times t/2 \times 384$
-   - 设计动机：作为像素级预测范式的代表，与 JEPA 形成对比
+
+    - 做什么：学习 encoder-decoder 对，最小化掩码区域的像素重建误差
+    - 核心思路：时空 tube masking + 像素级 MSE 重建
+    - 架构：ViT-tiny/16，输出 $l/16 \times w/16 \times t/2 \times 384$
+    - 设计动机：作为像素级预测范式的代表，与 JEPA 形成对比
 
 3. **物理建模基线**:
-   - **MPP（多物理预训练）**：自回归基础模型，逐帧预测像素值，使用已发布的预训练权重（AViT-tiny）
-   - **DISCO**：算子元学习框架，从短上下文窗口推断轨迹特定的算子网络，在 The Well 数据集上预训练
-   - 设计动机：测试专为物理设计的方法是否在下游科学任务上真的更优
+
+    - **MPP（多物理预训练）**：自回归基础模型，逐帧预测像素值，使用已发布的预训练权重（AViT-tiny）
+    - **DISCO**：算子元学习框架，从短上下文窗口推断轨迹特定的算子网络，在 The Well 数据集上预训练
+    - 设计动机：测试专为物理设计的方法是否在下游科学任务上真的更优
 
 ### 损失函数 / 训练策略
 - JEPA 和 VideoMAE 对每个物理系统分别预训练（6 epoch），以学习系统特定的动力学

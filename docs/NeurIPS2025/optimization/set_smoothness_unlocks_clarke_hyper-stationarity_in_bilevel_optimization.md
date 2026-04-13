@@ -47,8 +47,9 @@ tags:
 ### 关键设计
 
 1. **集合光滑性 (Definition 3)**: 对于集值映射 $\mathcal{Y}: \mathbb{R}^m \rightrightarrows \mathbb{R}^n$，称其为 $L$-smooth，如果对任意 $\mathbf{x}_1, \mathbf{x}_2$ 和 $\theta \in [0,1]$，对任意中间点处的解 $\mathbf{y} \in \mathcal{Y}(\theta\mathbf{x}_1 + (1-\theta)\mathbf{x}_2)$，存在 $\mathbf{y}_1 \in \mathcal{Y}(\mathbf{x}_1), \mathbf{y}_2 \in \mathcal{Y}(\mathbf{x}_2)$ 使得：
-   - 凸组合逼近：$\|\theta\mathbf{y}_1 + (1-\theta)\mathbf{y}_2 - \mathbf{y}\| \leq \frac{L}{2}\theta(1-\theta)\|\mathbf{x}_1 - \mathbf{x}_2\|^2$
-   - 一致分支选择：$\|\mathbf{y}_1 - \mathbf{y}_2\|^2 \leq L\|\mathbf{x}_1 - \mathbf{x}_2\|^2$
+
+    - 凸组合逼近：$\|\theta\mathbf{y}_1 + (1-\theta)\mathbf{y}_2 - \mathbf{y}\| \leq \frac{L}{2}\theta(1-\theta)\|\mathbf{x}_1 - \mathbf{x}_2\|^2$
+    - 一致分支选择：$\|\mathbf{y}_1 - \mathbf{y}_2\|^2 \leq L\|\mathbf{x}_1 - \mathbf{x}_2\|^2$
 
    条件(4)是实值函数光滑性向集值映射的自然推广——凸组合的近似误差是二阶的。条件(5)防止"跨分支配对"的平凡满足（Example 1给出了反例）。整体来看，集合光滑性等价于 $\mathcal{Y}(\theta\mathbf{x}_1 + (1-\theta)\mathbf{x}_2) \subseteq \theta\mathcal{Y}(\mathbf{x}_1) + (1-\theta)\mathcal{Y}(\mathbf{x}_2) + O(\|\mathbf{x}_1 - \mathbf{x}_2\|^2)\mathbb{B}$。
 

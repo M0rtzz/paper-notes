@@ -30,9 +30,9 @@ tags:
 
 然而，现有将 RAW 用于视觉任务的方法存在三个核心问题：
 
-1. **ISP 目标不匹配**：传统 ISP 旨在生成"视觉上令人愉悦"的图像，而**非优化下游视觉任务**。手动设计的 ISP 有时甚至不如直接使用 RAW 数据效果好。
-2. **联合训练方法的局限**：现有方案要么用进化策略优化传统 ISP 参数（如 Hardware-in-the-loop），要么用神经网络替代 ISP（如 Dirty-Pixel 用残差 UNet），但前者不可微分，后者引入大量计算负担（Dirty-Pixel 增加 4.28M 参数）。
-3. **缺乏交互**：上述方法将 ISP 和后端网络视为两个独立模块，缺少 ISP 阶段与下游网络之间的**信息交互**。同时，从头在 RAW 数据上训练会放弃 sRGB 大规模预训练模型的知识（Fig.2 显示使用预训练权重可显著提升性能）。
+**ISP 目标不匹配**：传统 ISP 旨在生成"视觉上令人愉悦"的图像，而**非优化下游视觉任务**。手动设计的 ISP 有时甚至不如直接使用 RAW 数据效果好。
+**联合训练方法的局限**：现有方案要么用进化策略优化传统 ISP 参数（如 Hardware-in-the-loop），要么用神经网络替代 ISP（如 Dirty-Pixel 用残差 UNet），但前者不可微分，后者引入大量计算负担（Dirty-Pixel 增加 4.28M 参数）。
+**缺乏交互**：上述方法将 ISP 和后端网络视为两个独立模块，缺少 ISP 阶段与下游网络之间的**信息交互**。同时，从头在 RAW 数据上训练会放弃 sRGB 大规模预训练模型的知识（Fig.2 显示使用预训练权重可显著提升性能）。
 
 **核心问题**：如何高效地将信息丰富的 RAW 图像适配到知识丰富的 sRGB 预训练模型中？
 
@@ -51,10 +51,11 @@ $$parameters = FFN\left(softmax\left(\frac{\mathbbm{q} \cdot \mathbbm{k}^T}{\sqr
 这使得每张图像可根据自身内容自适应预测不同的 ISP 参数。定义了两个 QAL 块 $\mathbb{P_K}$（预测增益/去噪参数）和 $\mathbb{P_M}$（预测白平衡/CCM 参数）。
 
 2. **输入级适配器的 ISP 阶段**：保留传统 ISP 的模块化设计，但每个阶段的关键参数由 QAL 自适应预测：
-   - **Gain & Denoise**：$\mathbb{P_K}$ 预测增益比 $g$（适应不同光照）和各向异性高斯核参数 $\{r_1, r_2\}$（自适应去噪），以及锐化参数 $\sigma$：
-   $$\mathbf{I}_2' = (g \cdot \mathbf{I}_1) \circledast k, \quad \mathbf{I}_2 = \mathbf{I}_2' + (g \cdot \mathbf{I}_1 - \mathbf{I}_2') \cdot \sigma$$
-   - **White Balance & CCM**：$\mathbb{P_M}$ 预测 Minkowski 距离参数 $\rho$（统一 gray-world 和 Max-RGB 白平衡）和 $3\times3$ 颜色转换矩阵 $\mathbf{E}_{ccm}$
-   - **Color Manipulation**：使用 NILUT（Neural Implicit 3D LUT）进行端到端可学习的颜色映射
+
+    - **Gain & Denoise**：$\mathbb{P_K}$ 预测增益比 $g$（适应不同光照）和各向异性高斯核参数 $\{r_1, r_2\}$（自适应去噪），以及锐化参数 $\sigma$：
+    $\mathbf{I}_2' = (g \cdot \mathbf{I}_1) \circledast k, \quad \mathbf{I}_2 = \mathbf{I}_2' + (g \cdot \mathbf{I}_1 - \mathbf{I}_2') \cdot \sigma$
+    - **White Balance & CCM**：$\mathbb{P_M}$ 预测 Minkowski 距离参数 $\rho$（统一 gray-world 和 Max-RGB 白平衡）和 $3\times3$ 颜色转换矩阵 $\mathbf{E}_{ccm}$
+    - **Color Manipulation**：使用 NILUT（Neural Implicit 3D LUT）进行端到端可学习的颜色映射
 
 3. **模型级适配器**：ISP 中间阶段 $\mathbf{I}_1 \sim \mathbf{I}_4$ 含有丰富的先验信息，但此前方法完全忽略了这些信息。模型级适配器通过卷积层提取各 ISP 阶段特征并拼接：$\mathbb{C}(\mathbf{I}_{1\sim4}) = \mathbb{C}(c_1(\mathbf{I}_1), c_2(\mathbf{I}_2), c_3(\mathbf{I}_3), c_4(\mathbf{I}_4))$，经残差块处理后通过 merge block（拼接 + 残差连接）逐级注入骨干网络的 stage 1-3。这使得下游任务网络能够**利用 ISP 各阶段的先验知识**。
 

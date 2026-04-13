@@ -38,19 +38,22 @@ CIM 是一个无标注的 RL 框架，核心流程：(1) LVLM 为输入图像生
 ### 关键设计
 
 1. **Gallery Representation Consistency (GRC)**:
-   - 做什么：评估用 caption 检索到的图像集合的内部一致性，反映 caption 的细节丰富程度
-   - 核心思路：$GRC(c) = \|\frac{1}{K}\sum_{r=1}^{K}\tilde{v}(x_{i_r})\|_2$，其中 $\tilde{v}(x_j)$ 是图像经视觉表示模型提取并 $\ell_2$ 归一化后的 embedding。GRC 本质上是 mean resultant length，衡量 embedding 向量在超球面上的集中程度
-   - 设计动机：caption 越详细和具体，检索到的图像在视觉表示空间中越集中（GRC 越高）；caption 越模糊粗粒度，检索结果越分散
+
+    - 做什么：评估用 caption 检索到的图像集合的内部一致性，反映 caption 的细节丰富程度
+    - 核心思路：$GRC(c) = \|\frac{1}{K}\sum_{r=1}^{K}\tilde{v}(x_{i_r})\|_2$，其中 $\tilde{v}(x_j)$ 是图像经视觉表示模型提取并 $\ell_2$ 归一化后的 embedding。GRC 本质上是 mean resultant length，衡量 embedding 向量在超球面上的集中程度
+    - 设计动机：caption 越详细和具体，检索到的图像在视觉表示空间中越集中（GRC 越高）；caption 越模糊粗粒度，检索结果越分散
 
 2. **Query-gallery Image Relevance (QIR)**:
-   - 做什么：衡量源图像与检索到的图像之间的相关性，反映 caption 的准确性
-   - 核心思路：$QIR(v, c) = \sum_{r=1}^{K}\lambda(r) \cdot Cos(\tilde{v}(v), \tilde{v}(x_{i_r}))$，其中 $\lambda(r) = 1/2^{r-1}$ 是指数衰减权重，越靠前的检索结果权重越大
-   - 设计动机：如果 caption 准确描述了源图像内容，检索到的图像应与源图像在语义上高度相似；若 caption 包含错误信息，检索结果将偏离源图像
+
+    - 做什么：衡量源图像与检索到的图像之间的相关性，反映 caption 的准确性
+    - 核心思路：$QIR(v, c) = \sum_{r=1}^{K}\lambda(r) \cdot Cos(\tilde{v}(v), \tilde{v}(x_{i_r}))$，其中 $\lambda(r) = 1/2^{r-1}$ 是指数衰减权重，越靠前的检索结果权重越大
+    - 设计动机：如果 caption 准确描述了源图像内容，检索到的图像应与源图像在语义上高度相似；若 caption 包含错误信息，检索结果将偏离源图像
 
 3. **Cross-modal Identity Mapping 奖励函数**:
-   - 做什么：将 GRC 和 QIR 组合为 RL 奖励，通过 GRPO 优化 LVLM
-   - 核心思路：$\Upsilon(v, c) = GRC(c) + \beta \cdot QIR(v, c)$，$\beta$ 平衡精确性和细节丰富度。采样 $G$ 个 caption，计算组内归一化 advantage $A_z = \frac{\Upsilon_z - mean(\{\Upsilon\})}{std(\{\Upsilon\})}$
-   - 设计动机：将 caption 质量评估转化为图像-图像相似度问题，绕开了直接衡量跨模态信息损失的难题，无需额外标注
+
+    - 做什么：将 GRC 和 QIR 组合为 RL 奖励，通过 GRPO 优化 LVLM
+    - 核心思路：$\Upsilon(v, c) = GRC(c) + \beta \cdot QIR(v, c)$，$\beta$ 平衡精确性和细节丰富度。采样 $G$ 个 caption，计算组内归一化 advantage $A_z = \frac{\Upsilon_z - mean(\{\Upsilon\})}{std(\{\Upsilon\})}$
+    - 设计动机：将 caption 质量评估转化为图像-图像相似度问题，绕开了直接衡量跨模态信息损失的难题，无需额外标注
 
 ### 损失函数 / 训练策略
 使用 VERL 框架进行 GRPO 训练。训练数据为 RefinedCaps（6.5K 图像），每图生成 5 个 caption。文本检索用 SBERT（MPNet-base），图像编码用 OpenCLIP ViT-H/14，检索库由 RefinedCaps + DenseFusion-1M 扩增。学习率 $1 \times 10^{-6}$，训练 2 个 epoch。

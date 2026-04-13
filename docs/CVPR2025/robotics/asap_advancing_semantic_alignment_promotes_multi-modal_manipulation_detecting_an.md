@@ -25,9 +25,9 @@ tags:
 
 随着AI生成技术的飞速发展，多模态虚假信息（Multimodal Misinformation）已成为严峻的社会挑战。不同于传统的单模态篡改（仅图像PS或仅文本编造），现代虚假信息往往涉及图像和文本的联合篡改：
 
-1. **图像篡改**：使用Deepfake、Inpainting等技术修改图像
-2. **文本篡改**：编造或修改与图像配套的描述文字
-3. **跨模态不一致**：真实图像搭配虚假文本，或篡改图像搭配合理化文本
+**图像篡改**：使用Deepfake、Inpainting等技术修改图像
+**文本篡改**：编造或修改与图像配套的描述文字
+**跨模态不一致**：真实图像搭配虚假文本，或篡改图像搭配合理化文本
 
 DGM4（Detecting and Grounding Multi-Modal Media Manipulation）任务要求模型不仅判断图文对是否被篡改，还要**定位**篡改区域（图像中的哪些区域？文本中的哪些词句？）。
 
@@ -67,7 +67,8 @@ $$\mathcal{L}_{	ext{VLC}} = -\log rac{\exp(	ext{sim}(v, t^+) / 	au)}{\sum_j \ex
 - 引入**引导掩码** $G \in \{0, 1\}^{N_v 	imes N_t}$，标记疑似篡改的图文对应区域
 - 交叉注意力计算时，引导掩码调制注意力权重：
 
-$$	ext{Attn}(Q, K, V) = 	ext{softmax}\left(rac{QK^T}{\sqrt{d}} + \lambda \cdot Gight) V$$
+$$	ext{Attn}(Q, K, V) = 	ext{softmax}\left(rac{QK^T}{\sqrt{d}} + \lambda \cdot G
+ight) V$$
 
 | 组件 | 输入 | 输出 | 作用 |
 |------|------|------|------|

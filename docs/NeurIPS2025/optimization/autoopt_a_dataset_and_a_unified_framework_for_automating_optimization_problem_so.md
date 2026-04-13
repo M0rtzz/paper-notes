@@ -26,12 +26,12 @@ AutoOpt 构建了首个优化问题图像到代码的端到端框架——11554 
 
 ## 研究背景与动机
 
-1. **领域现状**：数学优化公式常以图像形式存在——白板、论文扫描、手写笔记。OCR 和 LLM 在通用文档上表现好但数学公式识别仍难。
-2. **现有痛点**：(a) 无专门的优化问题图像数据集——现有 OCR 数据集不覆盖目标函数/约束的特定结构；(b) LaTeX 识别到可执行代码的管线断裂——需要理解优化语义转为 PYOMO；(c) 复杂非凸/多层优化缺乏统一的自动求解方法。
-3. **核心矛盾**：将优化问题从图像到解需要三个不同能力——视觉识别、语义理解、求解算法——但没有系统同时解决。
-4. **本文要解决什么？** 构建图像→LaTeX→PYOMO→求解的完整自动化管线。
-5. **切入角度**：分三个模块各个击破——M1 用 CNN+Transformer 混合编码器处理图像→LaTeX；M2 用微调 DeepSeek-Coder 处理 LaTeX→PYOMO；M3 用双层分解处理复杂优化。
-6. **核心 idea 一句话**：AutoOpt-11k 数据集 + ResNet-Swin-mBART 图像→LaTeX + DeepSeek-Coder LaTeX→PYOMO + 双层优化分解 = 图像到优化解的全自动管线。
+**领域现状**：数学优化公式常以图像形式存在——白板、论文扫描、手写笔记。OCR 和 LLM 在通用文档上表现好但数学公式识别仍难。
+**现有痛点**：(a) 无专门的优化问题图像数据集——现有 OCR 数据集不覆盖目标函数/约束的特定结构；(b) LaTeX 识别到可执行代码的管线断裂——需要理解优化语义转为 PYOMO；(c) 复杂非凸/多层优化缺乏统一的自动求解方法。
+**核心矛盾**：将优化问题从图像到解需要三个不同能力——视觉识别、语义理解、求解算法——但没有系统同时解决。
+**本文要解决什么？** 构建图像→LaTeX→PYOMO→求解的完整自动化管线。
+**切入角度**：分三个模块各个击破——M1 用 CNN+Transformer 混合编码器处理图像→LaTeX；M2 用微调 DeepSeek-Coder 处理 LaTeX→PYOMO；M3 用双层分解处理复杂优化。
+**核心 idea 一句话**：AutoOpt-11k 数据集 + ResNet-Swin-mBART 图像→LaTeX + DeepSeek-Coder LaTeX→PYOMO + 双层优化分解 = 图像到优化解的全自动管线。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ AutoOpt 构建了首个优化问题图像到代码的端到端框架——11554 
 ### 关键设计
 
 1. **M1 混合编码器（ResNet+Swin→mBART）**:
-   - 做什么：将优化公式图像转为 LaTeX
-   - 核心思路：ResNet-101 提取局部特征 $\mathbf{f}_{ResNet} = \alpha \cdot \text{LN}(\text{Proj}(F))$，前置拼接到 Swin Transformer 的 patch embedding，mBART 解码生成 LaTeX。从 NOUGAT 权重迁移学习
-   - 设计动机：CNN 捕获局部笔画，Swin 捕获全局结构——互补。消融显示 CNN+Transformer (DL3) BLEU 96.70 vs Transformer only (DL2) 95.51 vs CNN only (DL1) 16.10
+
+    - 做什么：将优化公式图像转为 LaTeX
+    - 核心思路：ResNet-101 提取局部特征 $\mathbf{f}_{ResNet} = \alpha \cdot \text{LN}(\text{Proj}(F))$，前置拼接到 Swin Transformer 的 patch embedding，mBART 解码生成 LaTeX。从 NOUGAT 权重迁移学习
+    - 设计动机：CNN 捕获局部笔画，Swin 捕获全局结构——互补。消融显示 CNN+Transformer (DL3) BLEU 96.70 vs Transformer only (DL2) 95.51 vs CNN only (DL1) 16.10
 
 2. **M2 LaTeX→PYOMO（DeepSeek-Coder）**:
-   - 做什么：将 LaTeX 数学公式翻译为可执行的 PYOMO 优化代码
-   - 核心思路：在 1018 个数学程序的 80% 上微调 DeepSeek-Coder-1.3B，BLEU 88.25
-   - 设计动机：LaTeX 是数学表示，PYOMO 是编程接口——需要理解变量声明、目标函数、约束映射
+
+    - 做什么：将 LaTeX 数学公式翻译为可执行的 PYOMO 优化代码
+    - 核心思路：在 1018 个数学程序的 80% 上微调 DeepSeek-Coder-1.3B，BLEU 88.25
+    - 设计动机：LaTeX 是数学表示，PYOMO 是编程接口——需要理解变量声明、目标函数、约束映射
 
 3. **M3 BOBD 双层分解**:
-   - 做什么：处理复杂非凸/多层优化问题
-   - 核心思路：ML 分类变量为上/下层 → 上层用遗传算法优化不可微变量 → 下层用 CVX 求解凸子问题
-   - 设计动机：统一处理线性/非线性/凸/非凸/多层目标/随机优化
+
+    - 做什么：处理复杂非凸/多层优化问题
+    - 核心思路：ML 分类变量为上/下层 → 上层用遗传算法优化不可微变量 → 下层用 CVX 求解凸子问题
+    - 设计动机：统一处理线性/非线性/凸/非凸/多层目标/随机优化
 
 ### 损失函数 / 训练策略
 - M1: NOUGAT 迁移学习，图像 768×1024 + 对比增强

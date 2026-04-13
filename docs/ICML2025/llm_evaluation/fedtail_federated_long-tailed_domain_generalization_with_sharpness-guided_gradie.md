@@ -24,11 +24,11 @@ tags:
 FedTAIL 提出了一个联邦域泛化框架，通过梯度一致性正则化、逐类锐度感知最小化和曲率感知动态加权三个模块，同时解决域偏移和长尾类别不平衡的双重挑战，在多个基准上达到 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：域泛化（DG）旨在训练能泛化到未见目标域的模型。锐度感知最小化（SAM）通过寻找平坦极小值来改善泛化。
-2. **现有痛点**：标准 SAM 全局操作，忽略类别间曲率差异，在长尾场景下尾部类可能收敛到鞍点；分类损失和对抗域对齐损失的梯度可能冲突。
-3. **核心矛盾**：联邦场景下，数据天然 non-i.i.d. 且长尾分布，同时面临域偏移和类别不平衡。
-4. **切入角度**：将梯度协调、类别感知正则化和条件分布对齐统一到一个可扩展框架中。
-5. **核心idea**：计算逐类的 SAM 扰动 $\epsilon_c$，并通过类别 Hessian 最大特征值的倒数动态加权。
+**领域现状**：域泛化（DG）旨在训练能泛化到未见目标域的模型。锐度感知最小化（SAM）通过寻找平坦极小值来改善泛化。
+**现有痛点**：标准 SAM 全局操作，忽略类别间曲率差异，在长尾场景下尾部类可能收敛到鞍点；分类损失和对抗域对齐损失的梯度可能冲突。
+**核心矛盾**：联邦场景下，数据天然 non-i.i.d. 且长尾分布，同时面临域偏移和类别不平衡。
+**切入角度**：将梯度协调、类别感知正则化和条件分布对齐统一到一个可扩展框架中。
+**核心idea**：计算逐类的 SAM 扰动 $\epsilon_c$，并通过类别 Hessian 最大特征值的倒数动态加权。
 
 ## 方法详解
 
@@ -38,20 +38,23 @@ FedTAIL 提出了一个联邦域泛化框架，通过梯度一致性正则化、
 ### 关键设计
 
 1. **梯度一致性正则化（Gradient Coherence）**:
-   - 做什么：缓解分类梯度和对抗域对齐梯度之间的冲突
-   - 核心思路：$\mathcal{L}_{\text{coh}} = -\alpha \langle \nabla_\theta \mathcal{L}_{\text{cls}}, \nabla_\theta \mathcal{L}_{\text{adv}} \rangle$，惩罚两个梯度方向的负内积
-   - 设计动机：确保域对齐不会损害分类性能
+
+    - 做什么：缓解分类梯度和对抗域对齐梯度之间的冲突
+    - 核心思路：$\mathcal{L}_{\text{coh}} = -\alpha \langle \nabla_\theta \mathcal{L}_{\text{cls}}, \nabla_\theta \mathcal{L}_{\text{adv}} \rangle$，惩罚两个梯度方向的负内积
+    - 设计动机：确保域对齐不会损害分类性能
 
 2. **逐类锐度感知最小化（Class-wise SAM）**:
-   - 做什么：为每个类别单独计算 SAM 扰动
-   - 核心思路：$\epsilon_c = \rho \cdot \nabla_\theta \mathcal{L}_c / \|\nabla_\theta \mathcal{L}_c\|_2$，然后 $\mathcal{L}_{\text{sharp}} = \sum_c \mathbb{E}_{(x,y=c)}[\ell(h_{\theta+\epsilon_c}(x), y)]$
-   - 引入曲率感知权重：$\gamma_c = 1/(1 + \sigma_{\max}(\nabla^2 \mathcal{L}_c))$，曲率大（高频/尾部类）→ 权重大
-   - 设计动机：全局 SAM 无法捕捉类别间差异，尾部类需要更多关注
+
+    - 做什么：为每个类别单独计算 SAM 扰动
+    - 核心思路：$\epsilon_c = \rho \cdot \nabla_\theta \mathcal{L}_c / \|\nabla_\theta \mathcal{L}_c\|_2$，然后 $\mathcal{L}_{\text{sharp}} = \sum_c \mathbb{E}_{(x,y=c)}[\ell(h_{\theta+\epsilon_c}(x), y)]$
+    - 引入曲率感知权重：$\gamma_c = 1/(1 + \sigma_{\max}(\nabla^2 \mathcal{L}_c))$，曲率大（高频/尾部类）→ 权重大
+    - 设计动机：全局 SAM 无法捕捉类别间差异，尾部类需要更多关注
 
 3. **锐度感知条件分布对齐（Sharpness-Aware ER）**:
-   - 做什么：将 SAM 扰动注入熵正则化中
-   - 核心思路：$\mathcal{L}_{\text{sharp-er}} = \sum_i \text{KL}(P_i(Y|F(X)) \| Q_T(Y|F(X+\epsilon)))$
-   - 设计动机：传统熵正则化放大易迁移样本的梯度，忽视困难样本
+
+    - 做什么：将 SAM 扰动注入熵正则化中
+    - 核心思路：$\mathcal{L}_{\text{sharp-er}} = \sum_i \text{KL}(P_i(Y|F(X)) \| Q_T(Y|F(X+\epsilon)))$
+    - 设计动机：传统熵正则化放大易迁移样本的梯度，忽视困难样本
 
 ### 损失函数 / 训练策略
 联邦平均（FedAvg）聚合各客户端更新，每个客户端本地计算梯度、逐类扰动和锐度感知更新。

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Transformer 的计算能力有内在限制——固定深度 Transformer 被限制在 $\mathsf{TC}^0$ 内，即高度可并行化的问题类。Chain of Thought (CoT) 可以扩展到 $\mathsf{TC}^0$ 之外，但代价是顺序解码，牺牲并行性。
-2. **现有痛点**：CoT 虽然表达能力强但推理慢。是否存在不增加参数、保持并行性、同时扩展 Transformer 表达能力的推理时计算方法？
-3. **核心矛盾**：此前已知 padded Transformer 上界为 $\mathsf{TC}^0$，但是否能达到整个 $\mathsf{TC}^0$（即下界是否匹配）一直是开放问题。
-4. **本文要解决什么**：(a) 精确刻画 padded Transformer 的表达能力；(b) 理解 padding + looping 组合如何系统地扩展 Transformer 能力。
-5. **切入角度**：不走标准的 $\mathsf{FO}[\mathsf{M}, \mathsf{bit}]$ 路线（`bit` 谓词难以在 Transformer 中模拟），而是使用 $\mathsf{FO}+\mathsf{M}^2$（含成对多数量词的一阶逻辑），后者等价于 $\mathsf{TC}^0$ 但不需要 `bit`。
-6. **核心idea一句话**：$n^k$ 个 padding token 为 Transformer 提供了足够"存储空间"来枚举 $k$ 个变量的所有赋值组合，从而求解任意 $\mathsf{FO}+\mathsf{M}^2$ 公式。
+**领域现状**：Transformer 的计算能力有内在限制——固定深度 Transformer 被限制在 $\mathsf{TC}^0$ 内，即高度可并行化的问题类。Chain of Thought (CoT) 可以扩展到 $\mathsf{TC}^0$ 之外，但代价是顺序解码，牺牲并行性。
+**现有痛点**：CoT 虽然表达能力强但推理慢。是否存在不增加参数、保持并行性、同时扩展 Transformer 表达能力的推理时计算方法？
+**核心矛盾**：此前已知 padded Transformer 上界为 $\mathsf{TC}^0$，但是否能达到整个 $\mathsf{TC}^0$（即下界是否匹配）一直是开放问题。
+**本文要解决什么**：(a) 精确刻画 padded Transformer 的表达能力；(b) 理解 padding + looping 组合如何系统地扩展 Transformer 能力。
+**切入角度**：不走标准的 $\mathsf{FO}[\mathsf{M}, \mathsf{bit}]$ 路线（`bit` 谓词难以在 Transformer 中模拟），而是使用 $\mathsf{FO}+\mathsf{M}^2$（含成对多数量词的一阶逻辑），后者等价于 $\mathsf{TC}^0$ 但不需要 `bit`。
+**核心idea一句话**：$n^k$ 个 padding token 为 Transformer 提供了足够"存储空间"来枚举 $k$ 个变量的所有赋值组合，从而求解任意 $\mathsf{FO}+\mathsf{M}^2$ 公式。
 
 ## 方法详解
 
@@ -45,27 +45,31 @@ tags:
 ### 关键设计
 
 1. **Padding → 变量枚举存储空间** (Lemma 2):
-   - 做什么：证明含 $k$ 个不同变量、嵌套深度 $\ell$ 的 $\mathsf{FO}+\mathsf{M}^2$ 公式可在 $\mathsf{uAHAT}^0_k$ 中计算
-   - 核心思路：用 $n^k$ 个 padding token 枚举 $k$ 个变量的所有 $n^k$ 种赋值。每个 token $v$ 存储赋值 $v$ 下各子公式的真值。通过归纳法，每层计算一级公式：
-     - 常量/变量：通过 layer-norm hash $\phi(z) = \langle z,1,-z,-1\rangle / \sqrt{2z^2+2}$ 检索位置
-     - 量词 $\exists i. P$：从赋值 $v$ attention 到所有 $v'$（除变量 $i$ 外其余一致），取均值得 $c/n$，与 $1/(2n)$ 比较
-     - 成对多数量词 $\mathsf{M}^2(i,j).P$：类似地，attention 到除 $i,j$ 外一致的 $v'$，得到 $c/n^2$，与 $1/2$ 比较
-   - 设计动机：$\mathsf{FO}+\mathsf{M}^2$ 等价于 $\mathsf{FO}\text{-uniform } \mathsf{TC}^0$，通过证 padding 可模拟这个逻辑的所有算子，得到下界
+
+    - 做什么：证明含 $k$ 个不同变量、嵌套深度 $\ell$ 的 $\mathsf{FO}+\mathsf{M}^2$ 公式可在 $\mathsf{uAHAT}^0_k$ 中计算
+    - 核心思路：用 $n^k$ 个 padding token 枚举 $k$ 个变量的所有 $n^k$ 种赋值。每个 token $v$ 存储赋值 $v$ 下各子公式的真值。通过归纳法，每层计算一级公式：
+      - 常量/变量：通过 layer-norm hash $\phi(z) = \langle z,1,-z,-1\rangle / \sqrt{2z^2+2}$ 检索位置
+      - 量词 $\exists i. P$：从赋值 $v$ attention 到所有 $v'$（除变量 $i$ 外其余一致），取均值得 $c/n$，与 $1/(2n)$ 比较
+      - 成对多数量词 $\mathsf{M}^2(i,j).P$：类似地，attention 到除 $i,j$ 外一致的 $v'$，得到 $c/n^2$，与 $1/2$ 比较
+    - 设计动机：$\mathsf{FO}+\mathsf{M}^2$ 等价于 $\mathsf{FO}\text{-uniform } \mathsf{TC}^0$，通过证 padding 可模拟这个逻辑的所有算子，得到下界
 
 2. **Reduction 框架引入 Transformer 分析** (Lemma 3):
-   - 做什么：将经典复杂度理论中的规约（reduction）和完全问题（complete problem）工具引入 Transformer 分析
-   - 核心思路：若类 $\mathsf{C}$ 有一个在 $\mathsf{R}$-规约下的完全问题 $L$，且 padded Transformer 可识别 $L$ 并计算所有 $\mathsf{R}$-规约，则 $\mathsf{C} \subseteq \mathsf{AHAT}^d_*$
-   - 设计动机：建立了一种模块化证明策略——只需证 Transformer 能解一个完全问题和实现规约，就可得到整个类的可识别性
+
+    - 做什么：将经典复杂度理论中的规约（reduction）和完全问题（complete problem）工具引入 Transformer 分析
+    - 核心思路：若类 $\mathsf{C}$ 有一个在 $\mathsf{R}$-规约下的完全问题 $L$，且 padded Transformer 可识别 $L$ 并计算所有 $\mathsf{R}$-规约，则 $\mathsf{C} \subseteq \mathsf{AHAT}^d_*$
+    - 设计动机：建立了一种模块化证明策略——只需证 Transformer 能解一个完全问题和实现规约，就可得到整个类的可识别性
 
 3. **Looping 扩展深度** (Lemma 5):
-   - 做什么：证明 $O(\log^d n)$ looping + 多项式 padding 可识别整个 $\mathsf{FO}\text{-uniform } \mathsf{TC}^d$
-   - 核心思路：利用图连通性问题是 $\mathsf{NL}$-complete under $\mathsf{FO}$ reductions，而 log-looped padded Transformer 可解图连通性（已知结果）。由此得到 padded Transformer 可实现 $\mathsf{L}$ 规约。再利用 wide-$\mathsf{TC}^d$ 电路求值问题在 $\mathsf{L}$ 规约下的完全性，链式推导
-   - 设计动机：确立 padding 控制宽度、looping 控制深度的直觉
+
+    - 做什么：证明 $O(\log^d n)$ looping + 多项式 padding 可识别整个 $\mathsf{FO}\text{-uniform } \mathsf{TC}^d$
+    - 核心思路：利用图连通性问题是 $\mathsf{NL}$-complete under $\mathsf{FO}$ reductions，而 log-looped padded Transformer 可解图连通性（已知结果）。由此得到 padded Transformer 可实现 $\mathsf{L}$ 规约。再利用 wide-$\mathsf{TC}^d$ 电路求值问题在 $\mathsf{L}$ 规约下的完全性，链式推导
+    - 设计动机：确立 padding 控制宽度、looping 控制深度的直觉
 
 4. **Uniformity 坍缩定理** (Theorem 3):
-   - 做什么：证明对 $d \geq 1$，$\mathsf{FO}\text{-uniform } \mathsf{TC}^d = \mathsf{L}\text{-uniform } \mathsf{TC}^d$
-   - 核心思路：$\mathsf{L}$ 本身在 $\mathsf{FO}\text{-uniform } \mathsf{AC}^d$ 中，因此构建电路的 $\mathsf{L}$-computation 可被 $\mathsf{FO}\text{-uniform}$ 电路模拟后与求值电路复合
-   - 设计动机：作为副产品的电路复杂度新结果，加强了 Theorem 2
+
+    - 做什么：证明对 $d \geq 1$，$\mathsf{FO}\text{-uniform } \mathsf{TC}^d = \mathsf{L}\text{-uniform } \mathsf{TC}^d$
+    - 核心思路：$\mathsf{L}$ 本身在 $\mathsf{FO}\text{-uniform } \mathsf{AC}^d$ 中，因此构建电路的 $\mathsf{L}$-computation 可被 $\mathsf{FO}\text{-uniform}$ 电路模拟后与求值电路复合
+    - 设计动机：作为副产品的电路复杂度新结果，加强了 Theorem 2
 
 ### 损失函数 / 训练策略
 无（纯理论工作，无训练）。

@@ -25,15 +25,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：统一MLLM需同时支持理解(高层语义)和生成(低层像素)的tokenizer。
+**领域现状**：统一MLLM需同时支持理解(高层语义)和生成(低层像素)的tokenizer。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) CLIP族→语义好丢像素; VQGAN族→保像素缺语义
    - (2) 联合训练(VILA-U混合loss→子最优; SDE encoder解耦但codebook混合)
    - (3) 双编码器(Janus)→token翻倍或词汇爆炸→不高效
    - (4) TokenFlow shared mapping但联合训练仍影响性能
 
-3. **切入角度**：观察到同语义code的patches有相似像素→在每个语义code下建子codebook→结构+训练都解耦。
+**切入角度**：观察到同语义code的patches有相似像素→在每个语义code下建子codebook→结构+训练都解耦。
 
 ## 方法详解
 

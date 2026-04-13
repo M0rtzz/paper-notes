@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Joint-embedding SSL（如 SimCLR、BYOL）通过鼓励正样本对表征相似来学习表征，通常依赖手工数据增强构造语义相关的正样本对。
+**领域现状**：Joint-embedding SSL（如 SimCLR、BYOL）通过鼓励正样本对表征相似来学习表征，通常依赖手工数据增强构造语义相关的正样本对。
 
-2. **现有痛点**：手工增强（裁剪、色彩抖动）无法精确模拟真实世界的变化因素，可能丢弃细粒度信息、需要模态特定启发式、且不同于自然的分布偏移。使用自然配对数据（如相邻视频帧、图文对）可以更好地反映真实变化，但自然对引入了复杂的条件分布 $p(\mathbf{z}^+|\mathbf{z})$——异方差、多模态——现有 SSL 方法无法建模。
+**现有痛点**：手工增强（裁剪、色彩抖动）无法精确模拟真实世界的变化因素，可能丢弃细粒度信息、需要模态特定启发式、且不同于自然的分布偏移。使用自然配对数据（如相邻视频帧、图文对）可以更好地反映真实变化，但自然对引入了复杂的条件分布 $p(\mathbf{z}^+|\mathbf{z})$——异方差、多模态——现有 SSL 方法无法建模。
 
-3. **核心矛盾**：InfoNCE 的点积相似度隐式假设 vMF 分布（等向噪声），AnInfoNCE 扩展到各向异性但仍是常数噪声。然而理论证明（Proposition 2.1），即使噪声在潜空间是等向的，映射到归一化嵌入空间后也必然产生异方差性——这是几何失配的必然结果。
+**核心矛盾**：InfoNCE 的点积相似度隐式假设 vMF 分布（等向噪声），AnInfoNCE 扩展到各向异性但仍是常数噪声。然而理论证明（Proposition 2.1），即使噪声在潜空间是等向的，映射到归一化嵌入空间后也必然产生异方差性——这是几何失配的必然结果。
 
-4. **本文要解决什么**：如何让 SSL 灵活建模任意复杂的条件分布 $p(\mathbf{z}^+|\mathbf{z})$，同时保持相似度函数简单？
+**本文要解决什么**：如何让 SSL 灵活建模任意复杂的条件分布 $p(\mathbf{z}^+|\mathbf{z})$，同时保持相似度函数简单？
 
-5. **切入角度**：受 JEPA 启发，引入潜变量 $\mathbf{r}$ 捕获预测不确定性，将复杂条件分布分解为两步：先采样 $\mathbf{r}$（如相机运动、动作），再用简单模型预测 $\mathbf{z}^+$。
+**切入角度**：受 JEPA 启发，引入潜变量 $\mathbf{r}$ 捕获预测不确定性，将复杂条件分布分解为两步：先采样 $\mathbf{r}$（如相机运动、动作），再用简单模型预测 $\mathbf{z}^+$。
 
-6. **核心 idea**：通过互信息链式法则 $I(f(\mathbf{x}); f(\mathbf{x}^+)) = I(f(\mathbf{x}), \mathbf{r}; f(\mathbf{x}^+)) - I(\mathbf{r}; f(\mathbf{x}^+)|f(\mathbf{x}))$，第一项用扩展的 InfoNCE 优化（简单相似度+潜变量），第二项用 KL 正则化防止 $\mathbf{r}$ 编码捷径。
+**核心 idea**：通过互信息链式法则 $I(f(\mathbf{x}); f(\mathbf{x}^+)) = I(f(\mathbf{x}), \mathbf{r}; f(\mathbf{x}^+)) - I(\mathbf{r}; f(\mathbf{x}^+)|f(\mathbf{x}))$，第一项用扩展的 InfoNCE 优化（简单相似度+潜变量），第二项用 KL 正则化防止 $\mathbf{r}$ 编码捷径。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ tags:
 ### 关键设计
 
 1. **AdaSSL-V（变分版本）**:
-   - **做什么**：用变分分布 $q_\phi(\mathbf{r}|\mathbf{x}, \mathbf{x}^+)$ 建模潜变量
-   - **核心思路**：$\mathcal{L} = \mathcal{L}_{SSL}(\mathbb{E}_{q_\phi} \psi_1(\mathbf{x}, \mathbf{r}), \psi_2(\mathbf{x}^+)) + \beta D_{KL}(q_\phi(\mathbf{r}|\mathbf{x}, \mathbf{x}^+) \| p_\theta(\mathbf{r}|\mathbf{x}))$，KL 正则防止 $\mathbf{r}$ 直接编码 $f(\mathbf{x}^+)$
-   - **设计动机**：推导出 $I(f(\mathbf{x}); f(\mathbf{x}^+))$ 的可处理下界，理论上严格
+
+    - **做什么**：用变分分布 $q_\phi(\mathbf{r}|\mathbf{x}, \mathbf{x}^+)$ 建模潜变量
+    - **核心思路**：$\mathcal{L} = \mathcal{L}_{SSL}(\mathbb{E}_{q_\phi} \psi_1(\mathbf{x}, \mathbf{r}), \psi_2(\mathbf{x}^+)) + \beta D_{KL}(q_\phi(\mathbf{r}|\mathbf{x}, \mathbf{x}^+) \| p_\theta(\mathbf{r}|\mathbf{x}))$，KL 正则防止 $\mathbf{r}$ 直接编码 $f(\mathbf{x}^+)$
+    - **设计动机**：推导出 $I(f(\mathbf{x}); f(\mathbf{x}^+))$ 的可处理下界，理论上严格
 
 2. **AdaSSL-S（稀疏版本）**:
-   - **做什么**：确定性预测 $\mathbf{r}$，正则化其稀疏性
-   - **核心思路**：$\mathbf{r} = m(f(\mathbf{x}), f(\mathbf{x}^+))$，用 Gumbel-Sigmoid 实现可微 L0 惩罚。编辑函数采用模块化低秩设计 $t(f(\mathbf{x}), \mathbf{r}) = f(\mathbf{x}) + \sum_i r_i (\mathbf{B}_i \mathbf{A}_i f(\mathbf{x}) + b_i)$
-   - **设计动机**：自然变化通常对应潜因子的稀疏改变，稀疏归纳偏置更符合因果表征学习
+
+    - **做什么**：确定性预测 $\mathbf{r}$，正则化其稀疏性
+    - **核心思路**：$\mathbf{r} = m(f(\mathbf{x}), f(\mathbf{x}^+))$，用 Gumbel-Sigmoid 实现可微 L0 惩罚。编辑函数采用模块化低秩设计 $t(f(\mathbf{x}), \mathbf{r}) = f(\mathbf{x}) + \sum_i r_i (\mathbf{B}_i \mathbf{A}_i f(\mathbf{x}) + b_i)$
+    - **设计动机**：自然变化通常对应潜因子的稀疏改变，稀疏归纳偏置更符合因果表征学习
 
 3. **异方差性必然性定理（Proposition 2.1）**:
-   - **做什么**：理论证明嵌入空间中配对的条件分布必然异方差
-   - **核心思路**：当潜空间 $\mathbb{R}^{d_z}$ 映射到弯曲流形（如单位球 $\mathbb{S}^{d_f}$）时，局部邻域的扭曲与位置相关，即使原始噪声等向也会产生位置依赖的方差
-   - **设计动机**：从根本上证明了标准 SSL 相似度函数的不足
+
+    - **做什么**：理论证明嵌入空间中配对的条件分布必然异方差
+    - **核心思路**：当潜空间 $\mathbb{R}^{d_z}$ 映射到弯曲流形（如单位球 $\mathbb{S}^{d_f}$）时，局部邻域的扭曲与位置相关，即使原始噪声等向也会产生位置依赖的方差
+    - **设计动机**：从根本上证明了标准 SSL 相似度函数的不足
 
 ### 损失函数 / 训练策略
 

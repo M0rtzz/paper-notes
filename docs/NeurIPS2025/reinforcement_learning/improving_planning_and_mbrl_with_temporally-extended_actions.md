@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：连续系统常用离散时间近似，仿真步长 $\delta_t$ 小导致规划 horizon $D$ 需要很长，给 CEM/MPPI 带来计算负担。
-2. **现有痛点**：frame-skip 最优值因环境而异。Model-free RL 有学习 frame-skip 的工作，但无人在规划/MBRL 中解决。长 rollout 导致 compounding error。
-3. **核心矛盾**：小 $\delta_t$ 保证精度但搜索空间大；大 frame-skip 减少搜索但不灵活。
-4. **本文要解决什么？** 让 planner 每步同时优化动作和持续时间 $\delta t_k \in [\delta t_{\min}, \delta t_{\max}]$。
-5. **切入角度**：$\delta t$ 作为连续优化变量 + MAB 自动选择 $\delta t_{\max}$。
-6. **核心idea一句话**：动作持续时间作为 planner 优化变量 + 学习的 TE 动力学模型 + MAB 自动范围选择。
+**领域现状**：连续系统常用离散时间近似，仿真步长 $\delta_t$ 小导致规划 horizon $D$ 需要很长，给 CEM/MPPI 带来计算负担。
+**现有痛点**：frame-skip 最优值因环境而异。Model-free RL 有学习 frame-skip 的工作，但无人在规划/MBRL 中解决。长 rollout 导致 compounding error。
+**核心矛盾**：小 $\delta_t$ 保证精度但搜索空间大；大 frame-skip 减少搜索但不灵活。
+**本文要解决什么？** 让 planner 每步同时优化动作和持续时间 $\delta t_k \in [\delta t_{\min}, \delta t_{\max}]$。
+**切入角度**：$\delta t$ 作为连续优化变量 + MAB 自动选择 $\delta t_{\max}$。
+**核心idea一句话**：动作持续时间作为 planner 优化变量 + 学习的 TE 动力学模型 + MAB 自动范围选择。
 
 ## 方法详解
 
@@ -41,18 +41,21 @@ CEM 每决策步输出 $(a_k, \delta t_k)$。回报：$J_2 = \sum_k \gamma^{e_{<
 ### 关键设计
 
 1. **时间扩展动力学模型 $\hat{F}_{\text{TE}}$**:
-   - 输入 $(s, a, \delta t)$，输出下一状态分布+奖励
-   - 推理时间恒定（vs 迭代式 $F_{\text{IP}}$ 随 $\delta t$ 线性增长）
-   - 更短 rollout 减少 compounding error
+
+    - 输入 $(s, a, \delta t)$，输出下一状态分布+奖励
+    - 推理时间恒定（vs 迭代式 $F_{\text{IP}}$ 随 $\delta t$ 线性增长）
+    - 更短 rollout 减少 compounding error
 
 2. **MAB 自动选择 $\delta t_{\max}$**:
-   - $m = \log_2(T)$ 个指数间隔候选值
-   - UCB + EMA：$\arg\max_i (\hat{R}_{i,T} + c\sqrt{2\log T / N(i,T)})$
-   - 每个候选维护独立数据集和模型
+
+    - $m = \log_2(T)$ 个指数间隔候选值
+    - UCB + EMA：$\arg\max_i (\hat{R}_{i,T} + c\sqrt{2\log T / N(i,T)})$
+    - 每个候选维护独立数据集和模型
 
 3. **搜索空间分析**:
-   - 原始：搜索 $|\mathcal{A}|^H$，优化 $H|\mathcal{A}|$ 变量
-   - TE（$m$ 倍）：搜索 $|\mathcal{A}|^{H/m}$，优化 $(H/m)(|\mathcal{A}|+1)$ 变量
+
+    - 原始：搜索 $|\mathcal{A}|^H$，优化 $H|\mathcal{A}|$ 变量
+    - TE（$m$ 倍）：搜索 $|\mathcal{A}|^{H/m}$，优化 $(H/m)(|\mathcal{A}|+1)$ 变量
 
 ## 实验关键数据
 

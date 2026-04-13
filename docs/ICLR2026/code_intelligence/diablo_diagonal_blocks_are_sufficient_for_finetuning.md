@@ -25,28 +25,31 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LoRA 及其变体（DoRA、PiSSA、MiLoRA、LoRA-GA）是主流 PEFT 方法，通过低秩矩阵乘积 $\mathbf{AB}$ 适配预训练权重。
-2. **现有痛点**：(a) LoRA 的 $\mathbf{AB}$ 乘积是非凸优化，梯度依赖于 $\mathbf{A}$ 和 $\mathbf{B}$ 的值→对初始化敏感、收敛不稳定；(b) 各种变体的核心是设计更好的初始化/优化策略→增加算法复杂度；(c) 稀疏方法多为非结构化→硬件不友好。
-3. **核心洞察**：权重矩阵的对角块更新等价于全量微调在对应子空间的行为——梯度 $\mathbf{g}_{\mathbf{D}_i} = \mathbf{g}_{\mathbf{W}_{ii}}$，不经过矩阵乘积，零初始化不会梯度消失。
-4. **核心idea一句话**：不做低秩分解，直接更新 $N$ 个对角块 $\mathbf{D}_i \in \mathbb{R}^{d_1 \times d_2}$，用 torch.einsum 做 batched matmul。
+**领域现状**：LoRA 及其变体（DoRA、PiSSA、MiLoRA、LoRA-GA）是主流 PEFT 方法，通过低秩矩阵乘积 $\mathbf{AB}$ 适配预训练权重。
+**现有痛点**：(a) LoRA 的 $\mathbf{AB}$ 乘积是非凸优化，梯度依赖于 $\mathbf{A}$ 和 $\mathbf{B}$ 的值→对初始化敏感、收敛不稳定；(b) 各种变体的核心是设计更好的初始化/优化策略→增加算法复杂度；(c) 稀疏方法多为非结构化→硬件不友好。
+**核心洞察**：权重矩阵的对角块更新等价于全量微调在对应子空间的行为——梯度 $\mathbf{g}_{\mathbf{D}_i} = \mathbf{g}_{\mathbf{W}_{ii}}$，不经过矩阵乘积，零初始化不会梯度消失。
+**核心idea一句话**：不做低秩分解，直接更新 $N$ 个对角块 $\mathbf{D}_i \in \mathbb{R}^{d_1 \times d_2}$，用 torch.einsum 做 batched matmul。
 
 ## 方法详解
 
 ### 关键设计
 
 1. **对角块适配**:
-   - 权重分为 $N \times N$ 块矩阵，只更新对角块 $\mathbf{W}_{11}, \ldots, \mathbf{W}_{NN}$
-   - 存储为张量 $\mathcal{D} \in \mathbb{R}^{N \times d_1 \times d_2}$，前向/反向都用 batched matmul
-   - 初始化：全零（LoRA 需要精心设计初始化）
+
+    - 权重分为 $N \times N$ 块矩阵，只更新对角块 $\mathbf{W}_{11}, \ldots, \mathbf{W}_{NN}$
+    - 存储为张量 $\mathcal{D} \in \mathbb{R}^{N \times d_1 \times d_2}$，前向/反向都用 batched matmul
+    - 初始化：全零（LoRA 需要精心设计初始化）
 
 2. **理论保证**:
-   - 线性问题：DiaBlo 收敛到全量微调的全局最优，且表达力严格优于同参数量 LoRA
-   - 非线性问题：在激活和梯度低秩条件下，收敛到全量微调的驻点
-   - 梯度稳定性：$\mathbf{g}_{\mathbf{D}_i} = \mathbf{X}_i^\top \mathbf{g}_{\mathbf{Y}_i}$——不经过 $\mathbf{A}, \mathbf{B}$，无梯度消失/不稳定
+
+    - 线性问题：DiaBlo 收敛到全量微调的全局最优，且表达力严格优于同参数量 LoRA
+    - 非线性问题：在激活和梯度低秩条件下，收敛到全量微调的驻点
+    - 梯度稳定性：$\mathbf{g}_{\mathbf{D}_i} = \mathbf{X}_i^\top \mathbf{g}_{\mathbf{Y}_i}$——不经过 $\mathbf{A}, \mathbf{B}$，无梯度消失/不稳定
 
 3. **实现效率**:
-   - 参数量与 LoRA rank $r$ 的对应：$N$ 个块 × $d_1 d_2$ 参数，$N=32-128$ 常用
-   - PyTorch 一行实现：`torch.einsum("bNd1,Nd1d2->bNd2", X, D)`
+
+    - 参数量与 LoRA rank $r$ 的对应：$N$ 个块 × $d_1 d_2$ 参数，$N=32-128$ 常用
+    - PyTorch 一行实现：`torch.einsum("bNd1,Nd1d2->bNd2", X, D)`
 
 ## 实验关键数据
 

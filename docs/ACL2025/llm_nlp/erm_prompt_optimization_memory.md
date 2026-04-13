@@ -24,12 +24,12 @@ tags:
 提出 ERM 方法，通过指导性元提示生成带详细解题过程的 exemplar 来增强 feedback 质量，并引入 Feedback Memory 和 Exemplar Factory 两种长期记忆机制来高效存储和复用历史反馈与示例，在多个任务上以约一半的优化步数超越了 SOTA prompt 优化方法。
 
 ## 研究背景与动机
-1. **领域现状**：自动 prompt 优化旨在无需人工干预地找到最优 prompt，主流方法包括进化式（EvoPrompt）、轨迹式（OPRO、GPO）和反馈式（ProTeGi）三类。
-2. **现有痛点**：反馈式方法存在两个核心问题——（a）只使用当前步骤的 feedback，历史 feedback 和未选中的 feedback 被直接丢弃，导致需要更多优化步数才能收敛；（b）推理时检索 exemplar 仅基于语义相似度，未评估其对实际任务性能的影响。
-3. **核心矛盾**：有价值的 feedback 信息被浪费，exemplar 的选择与任务性能脱节。
-4. **本文要解决什么？** 如何高效利用所有历史 feedback？如何选择真正有助于任务性能的 exemplar？
-5. **切入角度**：借鉴人类记忆机制（Ebbinghaus 遗忘曲线），对 feedback 和 exemplar 建立带优先级分数的长期记忆存储，通过评估效果动态调整优先级并选择性遗忘。
-6. **核心 idea 一句话**：用记忆机制管理 feedback 和 exemplar，让有价值的信息持续被利用而无价值的被遗忘。
+**领域现状**：自动 prompt 优化旨在无需人工干预地找到最优 prompt，主流方法包括进化式（EvoPrompt）、轨迹式（OPRO、GPO）和反馈式（ProTeGi）三类。
+**现有痛点**：反馈式方法存在两个核心问题——（a）只使用当前步骤的 feedback，历史 feedback 和未选中的 feedback 被直接丢弃，导致需要更多优化步数才能收敛；（b）推理时检索 exemplar 仅基于语义相似度，未评估其对实际任务性能的影响。
+**核心矛盾**：有价值的 feedback 信息被浪费，exemplar 的选择与任务性能脱节。
+**本文要解决什么？** 如何高效利用所有历史 feedback？如何选择真正有助于任务性能的 exemplar？
+**切入角度**：借鉴人类记忆机制（Ebbinghaus 遗忘曲线），对 feedback 和 exemplar 建立带优先级分数的长期记忆存储，通过评估效果动态调整优先级并选择性遗忘。
+**核心 idea 一句话**：用记忆机制管理 feedback 和 exemplar，让有价值的信息持续被利用而无价值的被遗忘。
 
 ## 方法详解
 
@@ -38,19 +38,22 @@ ERM（Exemplar-Guided Reflection with Memory）包含三个核心组件：输入
 
 ### 关键设计
 1. **Exemplar-Guided Reflection（指导性反思）**:
-   - 做什么：设计指导性元提示，引导 prompt optimizer 从错误样本中选出典型样本并提供详细解题过程（CoT 风格），再基于这些 exemplar 生成更有信息量的 feedback。
-   - 核心思路：$\mathcal{E}^t = M_e(p^t, \mathcal{B}; p^{meta}_{ref*})$，先生成 exemplar 集合（含 question、answer、CoT），再基于 exemplar 生成 feedback $\mathcal{F}^t = M_e(p^t, \mathcal{B}, \mathcal{E}^t; p^{meta}_{ref*})$。
-   - 设计动机：传统方法直接在错误样本上生成 feedback 信息量有限，加入详细解题过程使 feedback 更具针对性，为后续 prompt 优化提供更精准的改进方向。
+
+    - 做什么：设计指导性元提示，引导 prompt optimizer 从错误样本中选出典型样本并提供详细解题过程（CoT 风格），再基于这些 exemplar 生成更有信息量的 feedback。
+    - 核心思路：$\mathcal{E}^t = M_e(p^t, \mathcal{B}; p^{meta}_{ref*})$，先生成 exemplar 集合（含 question、answer、CoT），再基于 exemplar 生成 feedback $\mathcal{F}^t = M_e(p^t, \mathcal{B}, \mathcal{E}^t; p^{meta}_{ref*})$。
+    - 设计动机：传统方法直接在错误样本上生成 feedback 信息量有限，加入详细解题过程使 feedback 更具针对性，为后续 prompt 优化提供更精准的改进方向。
 
 2. **Feedback Memory（反馈记忆）**:
-   - 做什么：存储历史 feedback 并为每条分配优先级分数，周期性检索高优先级 feedback 指导 prompt 优化。
-   - 核心思路：存储时过滤（仅存储能带来性能提升的 feedback + 去重）；检索时按优先级概率采样 $P_f = \text{softmax}(\{e^{s_p(f_i)/\tau_f}\})$；使用后更新优先级 $s_p^t(f) = (1-\beta)s_p(f)^{t-1} + \beta \mathbb{I}(f)$，低于阈值 $\theta$ 的 feedback 被遗忘。
-   - 设计动机：避免有价值的历史 feedback 被丢弃，同时通过选择性遗忘机制确保记忆中只保留有效信息，加速优化收敛。
+
+    - 做什么：存储历史 feedback 并为每条分配优先级分数，周期性检索高优先级 feedback 指导 prompt 优化。
+    - 核心思路：存储时过滤（仅存储能带来性能提升的 feedback + 去重）；检索时按优先级概率采样 $P_f = \text{softmax}(\{e^{s_p(f_i)/\tau_f}\})$；使用后更新优先级 $s_p^t(f) = (1-\beta)s_p(f)^{t-1} + \beta \mathbb{I}(f)$，低于阈值 $\theta$ 的 feedback 被遗忘。
+    - 设计动机：避免有价值的历史 feedback 被丢弃，同时通过选择性遗忘机制确保记忆中只保留有效信息，加速优化收敛。
 
 3. **Exemplar Factory（示例工厂）**:
-   - 做什么：存储、评估和检索 exemplar，推理时选择最优 exemplar 拼接到 prompt 中增强预测。
-   - 核心思路：同样使用优先级分数管理，检索时综合考虑优先级和与当前问题的语义相似度 $P_e^r = \text{softmax}(\{e^{s_p(e_i) \cdot s_s^j(e_i)/\tau_e}\})$。存储时验证解题过程正确性并去重，使用后根据对预测的帮助程度更新优先级。
-   - 设计动机：纯语义相似度检索不一定选出对任务最有帮助的 exemplar，需要通过实际效果反馈来优化检索策略。
+
+    - 做什么：存储、评估和检索 exemplar，推理时选择最优 exemplar 拼接到 prompt 中增强预测。
+    - 核心思路：同样使用优先级分数管理，检索时综合考虑优先级和与当前问题的语义相似度 $P_e^r = \text{softmax}(\{e^{s_p(e_i) \cdot s_s^j(e_i)/\tau_e}\})$。存储时验证解题过程正确性并去重，使用后根据对预测的帮助程度更新优先级。
+    - 设计动机：纯语义相似度检索不一定选出对任务最有帮助的 exemplar，需要通过实际效果反馈来优化检索策略。
 
 ### 损失函数 / 训练策略
 - 使用 beam search 在候选 prompt 中选择验证集上表现最好的 $k$ 个进入下一步优化

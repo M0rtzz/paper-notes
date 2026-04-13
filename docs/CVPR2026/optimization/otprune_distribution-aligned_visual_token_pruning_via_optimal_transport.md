@@ -28,12 +28,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **MLLM 视觉 token 冗余严重**：单张图像可产生数百个 patch-level token，而 Transformer self-attention 的计算量与序列长度呈平方关系，导致推理代价极高。
-2. **经验表明 70-90% 视觉 token 可裁剪**：已有研究证实大部分视觉 token 存在冗余，裁剪后对准确率影响很小，这为 token pruning 提供了充分动机。
-3. **现有裁剪方法的局限**：基于 attention 的方法（FastV、VTW）在 attention 值不能准确反映 token 重要性时失效；基于 calibration 的方法（FitPrune）依赖外部数据集且泛化性差；fine-tuning 方法（M³）计算成本高。
-4. **DivPrune 只关注多样性，忽视全局代表性**：DivPrune 通过选择彼此不相似的 token 来降低冗余，但多样性（diversity）不等于代表性（representativeness）——选出的子集可能无法保留原始 token 分布的协方差结构和语义覆盖。
-5. **分布对齐假设的实证支持**：作者在 LLaVA 1.5-7B 上用多种子集选择策略验证了 OT 距离与下游任务性能的 Spearman 秩相关性很强，即 OT 距离越小、下游性能越好。
-6. **需要一个 principled、training-free、task-agnostic 的裁剪框架**：既保留局部多样性又确保全局分布对齐，同时保持计算可行性和理论保证。
+**MLLM 视觉 token 冗余严重**：单张图像可产生数百个 patch-level token，而 Transformer self-attention 的计算量与序列长度呈平方关系，导致推理代价极高。
+**经验表明 70-90% 视觉 token 可裁剪**：已有研究证实大部分视觉 token 存在冗余，裁剪后对准确率影响很小，这为 token pruning 提供了充分动机。
+**现有裁剪方法的局限**：基于 attention 的方法（FastV、VTW）在 attention 值不能准确反映 token 重要性时失效；基于 calibration 的方法（FitPrune）依赖外部数据集且泛化性差；fine-tuning 方法（M³）计算成本高。
+**DivPrune 只关注多样性，忽视全局代表性**：DivPrune 通过选择彼此不相似的 token 来降低冗余，但多样性（diversity）不等于代表性（representativeness）——选出的子集可能无法保留原始 token 分布的协方差结构和语义覆盖。
+**分布对齐假设的实证支持**：作者在 LLaVA 1.5-7B 上用多种子集选择策略验证了 OT 距离与下游任务性能的 Spearman 秩相关性很强，即 OT 距离越小、下游性能越好。
+**需要一个 principled、training-free、task-agnostic 的裁剪框架**：既保留局部多样性又确保全局分布对齐，同时保持计算可行性和理论保证。
 
 ## 方法详解
 

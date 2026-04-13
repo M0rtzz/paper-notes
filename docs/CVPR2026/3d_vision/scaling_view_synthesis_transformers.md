@@ -28,11 +28,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **NVS 缺少缩放分析**：NLP（Chinchilla、Kaplan）和 2D 视觉（DiT）已有系统缩放定律，但 3D 视觉/NVS 领域完全空白——模型设计、训练配置缺乏计算最优的原则性指导
-2. **Decoder-only 架构冗余严重**：LVSM decoder-only 渲染每张目标视图都要重新走完全部上下文 token，FLOPs 的 MLP 部分 ∝ V_T×(V_C+1)，注意力部分 ∝ V_T×(V_C+1)²，随目标视图数线性增长
-3. **Encoder-decoder 被不公平否定**：LVSM 原文中 encoder-decoder 变体显著弱于 decoder-only，但本文发现根因是：(a) 使用了固定大小场景潜表示引入瓶颈，(b) 在不等计算预算下对比，并非架构本身劣势
-4. **目标视图与批量大小的交互效应未知**：NVS 训练标准做法是每个场景重建多个目标视图，但增加 V_T vs 增加 B 对训练动态的影响从未被形式化分析
-5. **多视图（V_C>2）缩放是否保持**：将 encoder-decoder 扩展到多视图时，场景表示瓶颈是否会导致缩放退化是开放问题
+**NVS 缺少缩放分析**：NLP（Chinchilla、Kaplan）和 2D 视觉（DiT）已有系统缩放定律，但 3D 视觉/NVS 领域完全空白——模型设计、训练配置缺乏计算最优的原则性指导
+**Decoder-only 架构冗余严重**：LVSM decoder-only 渲染每张目标视图都要重新走完全部上下文 token，FLOPs 的 MLP 部分 ∝ V_T×(V_C+1)，注意力部分 ∝ V_T×(V_C+1)²，随目标视图数线性增长
+**Encoder-decoder 被不公平否定**：LVSM 原文中 encoder-decoder 变体显著弱于 decoder-only，但本文发现根因是：(a) 使用了固定大小场景潜表示引入瓶颈，(b) 在不等计算预算下对比，并非架构本身劣势
+**目标视图与批量大小的交互效应未知**：NVS 训练标准做法是每个场景重建多个目标视图，但增加 V_T vs 增加 B 对训练动态的影响从未被形式化分析
+**多视图（V_C>2）缩放是否保持**：将 encoder-decoder 扩展到多视图时，场景表示瓶颈是否会导致缩放退化是开放问题
 
 ## 方法详解
 

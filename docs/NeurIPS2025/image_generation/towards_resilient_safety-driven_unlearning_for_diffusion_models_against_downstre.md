@@ -44,22 +44,25 @@ ResAlign在标准卸载目标上增加一个韧性项：$\theta^* = \arg\min_\th
 ### 关键设计
 
 1. **基于Moreau包络的高效超梯度近似**：
-   - 直接计算"有害性损失关于当前参数的超梯度" $\nabla_\theta \mathcal{L}_{\text{harmful}}(\theta_{\text{FT}}^*)$ 需要存储和反向传播整个微调轨迹——计算和内存上不可行
-   - 将微调近似为Moreau包络的最小化问题：$\theta_{\text{FT}}^* \in \arg\min_{\theta'} \mathcal{L}_{\text{FT}}(\theta') + \frac{1}{2\gamma}\|\theta'-\theta\|^2$
-   - 利用一阶最优性条件+隐函数定理，将超梯度转化为线性系统 $Ax=b$ 的求解
-   - 用Richardson迭代法高效求解：$x^{(k+1)} = \gamma b - \gamma \nabla^2_{\theta_{\text{FT}}^*} \mathcal{L}_{\text{FT}} \cdot x^{(k)}$，仅需5步即可收敛
-   - 关键优势：只需最终微调参数 $\theta_{\text{FT}}^*$ 和局部Hessian-向量积（HVP），无需存储中间轨迹
+
+    - 直接计算"有害性损失关于当前参数的超梯度" $\nabla_\theta \mathcal{L}_{\text{harmful}}(\theta_{\text{FT}}^*)$ 需要存储和反向传播整个微调轨迹——计算和内存上不可行
+    - 将微调近似为Moreau包络的最小化问题：$\theta_{\text{FT}}^* \in \arg\min_{\theta'} \mathcal{L}_{\text{FT}}(\theta') + \frac{1}{2\gamma}\|\theta'-\theta\|^2$
+    - 利用一阶最优性条件+隐函数定理，将超梯度转化为线性系统 $Ax=b$ 的求解
+    - 用Richardson迭代法高效求解：$x^{(k+1)} = \gamma b - \gamma \nabla^2_{\theta_{\text{FT}}^*} \mathcal{L}_{\text{FT}} \cdot x^{(k)}$，仅需5步即可收敛
+    - 关键优势：只需最终微调参数 $\theta_{\text{FT}}^*$ 和局部Hessian-向量积（HVP），无需存储中间轨迹
 
 2. **跨配置元学习泛化**：
-   - 对下游微调的配置（学习率、步数、损失函数、优化器、全参数/LoRA等）建模为元变量
-   - 每次内循环：随机采样一组配置 $\mathcal{C} \sim \pi(\mathcal{C})$ 和数据 $\mathcal{D}_{\text{FT}}$，执行模拟微调，计算超梯度
-   - 重复J次后聚合超梯度，更新基础模型参数
-   - 这使得模型的安全韧性不局限于单一微调配置，而能泛化到各种可能的下游适应场景
+
+    - 对下游微调的配置（学习率、步数、损失函数、优化器、全参数/LoRA等）建模为元变量
+    - 每次内循环：随机采样一组配置 $\mathcal{C} \sim \pi(\mathcal{C})$ 和数据 $\mathcal{D}_{\text{FT}}$，执行模拟微调，计算超梯度
+    - 重复J次后聚合超梯度，更新基础模型参数
+    - 这使得模型的安全韧性不局限于单一微调配置，而能泛化到各种可能的下游适应场景
 
 3. **理论洞察（Proposition 1）**：
-   - 韧性项等价于隐式惩罚有害性损失的Hessian迹 $\text{Tr}(\nabla^2_\theta \mathcal{L}_{\text{harmful}})$
-   - Hessian迹是损失曲面曲率的指标——大值对应尖锐极小值（对参数扰动敏感），小值对应平坦区域
-   - ResAlign鼓励模型收敛到**平坦的安全区域**，降低对下游参数更新的敏感性
+
+    - 韧性项等价于隐式惩罚有害性损失的Hessian迹 $\text{Tr}(\nabla^2_\theta \mathcal{L}_{\text{harmful}})$
+    - Hessian迹是损失曲面曲率的指标——大值对应尖锐极小值（对参数扰动敏感），小值对应平坦区域
+    - ResAlign鼓励模型收敛到**平坦的安全区域**，降低对下游参数更新的敏感性
 
 ### 损失函数 / 训练策略
 

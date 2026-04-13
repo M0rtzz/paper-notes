@@ -45,20 +45,23 @@ PAMM 分两阶段工作：(1) 前向时将 $X$ 压缩为少量生成点和辅助
 ### 关键设计
 
 1. **激活压缩 (Compression Stage)**：
-   - 从 $X \in \mathbb{R}^{b \times n}$ 中随机采样 $k = r \cdot b$ 行作为生成点 $C \in \mathbb{R}^{k \times n}$
-   - 对每个点 $A_i$，选择最佳生成点：$f(i) = \arg\max_j |\text{csim}(A_i, C_j)|$（Lemma 1）
-   - 计算缩放系数：$\tilde{A}_i = \alpha(i, f(i)) \cdot C_{f(i)}$，其中 $\alpha = \frac{\langle A_i, C_j \rangle}{\|C_j\|_2^2}$
-   - 邻域条件：$\|A_i - \tilde{A}_i\|_2 \leq \varepsilon \|A_i\|_2$，不满足则丢弃
+
+    - 从 $X \in \mathbb{R}^{b \times n}$ 中随机采样 $k = r \cdot b$ 行作为生成点 $C \in \mathbb{R}^{k \times n}$
+    - 对每个点 $A_i$，选择最佳生成点：$f(i) = \arg\max_j |\text{csim}(A_i, C_j)|$（Lemma 1）
+    - 计算缩放系数：$\tilde{A}_i = \alpha(i, f(i)) \cdot C_{f(i)}$，其中 $\alpha = \frac{\langle A_i, C_j \rangle}{\|C_j\|_2^2}$
+    - 邻域条件：$\|A_i - \tilde{A}_i\|_2 \leq \varepsilon \|A_i\|_2$，不满足则丢弃
 
 2. **近似矩阵乘法 (Approximate Multiplication)**：
-   - 不重建完整 $\tilde{A}$，而是先聚合 $\tilde{B}_j = \sum_{i:f(i)=j} \alpha_i B_i$
-   - 计算 $\tilde{O} = C^\top \tilde{B}$，维度从 $b \times n$ 降为 $k \times n$
-   - 引入归一化因子 $\beta = \frac{b}{b-\eta}$ 保证无偏估计 $\mathbb{E}[\tilde{O}] = O$
+
+    - 不重建完整 $\tilde{A}$，而是先聚合 $\tilde{B}_j = \sum_{i:f(i)=j} \alpha_i B_i$
+    - 计算 $\tilde{O} = C^\top \tilde{B}$，维度从 $b \times n$ 降为 $k \times n$
+    - 引入归一化因子 $\beta = \frac{b}{b-\eta}$ 保证无偏估计 $\mathbb{E}[\tilde{O}] = O$
 
 3. **理论保证**：
-   - **Lemma 2**（$k$ 的充分条件）：$k > \frac{b}{n_{\min}} \ln(\frac{b}{\delta})$，仅需对数级别的生成点
-   - 近似误差上界：$\|O - \tilde{O}\|_F^2 \leq \|B\|_2^2 (\varepsilon^2 \|A_\mathcal{I}\|_F^2 + \|A_{\bar{\mathcal{I}}}\|_F^2)$
-   - 实践中 $\varepsilon \to \infty$（不使用邻域约束）效果最好
+
+    - **Lemma 2**（$k$ 的充分条件）：$k > \frac{b}{n_{\min}} \ln(\frac{b}{\delta})$，仅需对数级别的生成点
+    - 近似误差上界：$\|O - \tilde{O}\|_F^2 \leq \|B\|_2^2 (\varepsilon^2 \|A_\mathcal{I}\|_F^2 + \|A_{\bar{\mathcal{I}}}\|_F^2)$
+    - 实践中 $\varepsilon \to \infty$（不使用邻域约束）效果最好
 
 ### 损失函数 / 训练策略
 

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：语言学研究明确表明，手势等非言语线索在口语交流中扮演关键角色——手势可标记话题转换、传达说话者态度和确信程度。
-2. **现有痛点**：处理口语数据的语言模型几乎完全依赖文本，忽略了手势传达的丰富信息；现有手势-语言整合工作多使用粗粒度的 2D 网格位置编码手部位置，丢失了精细的运动信息。
-3. **核心矛盾**：手势包含与语言互补的信息（如空间手势表达时间概念、掌心朝下表达确定性），但如何有效将 3D 运动序列编码并与文本 embedding 对齐是未解决的挑战。
-4. **本文要解决什么？** 探索联合建模手势与语言能否提升语言模型的口语篇章理解能力。
-5. **切入角度**：设计三个有语言学依据的文本填充任务来评估手势对篇章建模的贡献。
-6. **核心 idea 一句话**：用 VQ-VAE 将 3D 手势序列离散化为 token，通过特征对齐映射到语言模型空间，从而让语言模型在口语篇章建模中利用手势信息。
+**领域现状**：语言学研究明确表明，手势等非言语线索在口语交流中扮演关键角色——手势可标记话题转换、传达说话者态度和确信程度。
+**现有痛点**：处理口语数据的语言模型几乎完全依赖文本，忽略了手势传达的丰富信息；现有手势-语言整合工作多使用粗粒度的 2D 网格位置编码手部位置，丢失了精细的运动信息。
+**核心矛盾**：手势包含与语言互补的信息（如空间手势表达时间概念、掌心朝下表达确定性），但如何有效将 3D 运动序列编码并与文本 embedding 对齐是未解决的挑战。
+**本文要解决什么？** 探索联合建模手势与语言能否提升语言模型的口语篇章理解能力。
+**切入角度**：设计三个有语言学依据的文本填充任务来评估手势对篇章建模的贡献。
+**核心 idea 一句话**：用 VQ-VAE 将 3D 手势序列离散化为 token，通过特征对齐映射到语言模型空间，从而让语言模型在口语篇章建模中利用手势信息。
 
 ## 方法详解
 
@@ -41,28 +41,31 @@ tags:
 ### 关键设计
 
 1. **Gesture Tokenization（手势离散化）**
-   - 输入：$N=32$ 帧的上半身 3D 运动序列（15 fps），$J=13$ 个关节的 6D 旋转表示
-   - 将序列分为 $M=8$ 个 chunk，用 time-aware transformer encoder 编码
-   - VQ-VAE 量化：codebook 大小 $K=512$，embedding 维度 $d=256$
-   - Transformer decoder 从量化后的 token 重建原始运动序列
-   - 引入 [BOG] 和 [EOG] 特殊 token 标记手势序列边界
+
+    - 输入：$N=32$ 帧的上半身 3D 运动序列（15 fps），$J=13$ 个关节的 6D 旋转表示
+    - 将序列分为 $M=8$ 个 chunk，用 time-aware transformer encoder 编码
+    - VQ-VAE 量化：codebook 大小 $K=512$，embedding 维度 $d=256$
+    - Transformer decoder 从量化后的 token 重建原始运动序列
+    - 引入 [BOG] 和 [EOG] 特殊 token 标记手势序列边界
 
 2. **Feature Alignment（特征对齐）**
-   - MLP 投影器：两层全连接 + GeLU 激活
-   - 投影后的 gesture embedding 与文本 embedding 拼接输入预训练语言模型
-   - **联合训练目标**：$\mathcal{L}_{FA} = \mathcal{L}_{MGP} + \mathcal{L}_{MLM}$
-     - $\mathcal{L}_{MGP}$：Masked Gesture Prediction——预测被 mask 的 gesture token 的 codebook 索引（K-类分类）
-     - $\mathcal{L}_{MLM}$：Masked Language Modeling——标准 MLM 目标
-   - 随机 mask 30% 的手势和文本 token
-   - 仅更新 MLP 投影器参数，语言模型和其他组件冻结
-   - **时序对齐**：gesture token 的位置编码基于共同出现的文本 token 的位置，确保时间同步
+
+    - MLP 投影器：两层全连接 + GeLU 激活
+    - 投影后的 gesture embedding 与文本 embedding 拼接输入预训练语言模型
+    - **联合训练目标**：$\mathcal{L}_{FA} = \mathcal{L}_{MGP} + \mathcal{L}_{MLM}$
+      - $\mathcal{L}_{MGP}$：Masked Gesture Prediction——预测被 mask 的 gesture token 的 codebook 索引（K-类分类）
+      - $\mathcal{L}_{MLM}$：Masked Language Modeling——标准 MLM 目标
+    - 随机 mask 30% 的手势和文本 token
+    - 仅更新 MLP 投影器参数，语言模型和其他组件冻结
+    - **时序对齐**：gesture token 的位置编码基于共同出现的文本 token 的位置，确保时间同步
 
 3. **Fine-tuning（微调）**
-   - 三个文本填充任务，mask 目标标记让模型预测
-   - 使用 LoRA（$r=128, \alpha=256$）微调语言模型的 adapter 层
-   - 冻结所有其他组件
-   - 输入格式：$\langle s \rangle \mathbf{t_1} \langle mask \rangle \mathbf{t_2} \langle /s \rangle$
-   - 用 mask 位置的输出向过 LM Head，在任务特定词表子集 $L_{task}$ 上分类
+
+    - 三个文本填充任务，mask 目标标记让模型预测
+    - 使用 LoRA（$r=128, \alpha=256$）微调语言模型的 adapter 层
+    - 冻结所有其他组件
+    - 输入格式：$\langle s \rangle \mathbf{t_1} \langle mask \rangle \mathbf{t_2} \langle /s \rangle$
+    - 用 mask 位置的输出向过 LM Head，在任务特定词表子集 $L_{task}$ 上分类
 
 ### 损失函数 / 训练策略
 

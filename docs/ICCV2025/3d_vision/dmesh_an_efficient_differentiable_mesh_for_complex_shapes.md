@@ -48,28 +48,32 @@ DMesh++延续DMesh的概率化思想：每个点用 $(d+1)$ 维向量表示（$d
 ### 关键设计
 
 1. **Minimum-Ball条件（Definition 3.1）**：
-   - 做什么：定义面 $F$ 的最小包围球 $B_F$（过 $F$ 所有顶点的最小半径球），如果 $B_F$ 内部不包含 $\mathbb{P}$ 中的其他点，则 $F \in \mathbb{F}_{min}$
-   - 核心思路：将判断面是否合法转化为最近邻搜索问题。计算 $B_F$ 的中心 $B_F^c$ 和半径 $B_F^r$，然后查找 $B_F^c$ 在 $\mathbb{P}-F$ 中的最近邻：
-     $$d(B_F, \mathbb{P}) = \min_{p \in \mathbb{P}-F} ||p - B_F^c|| - B_F^r$$
-     $F \in \mathbb{F}_{min} \Leftrightarrow d(B_F, \mathbb{P}) > 0$
-   - 设计动机：最近邻搜索可高度并行化（GPU上利用KD-tree），而WDT由于固有的竟态条件几乎无法并行化
+
+    - 做什么：定义面 $F$ 的最小包围球 $B_F$（过 $F$ 所有顶点的最小半径球），如果 $B_F$ 内部不包含 $\mathbb{P}$ 中的其他点，则 $F \in \mathbb{F}_{min}$
+    - 核心思路：将判断面是否合法转化为最近邻搜索问题。计算 $B_F$ 的中心 $B_F^c$ 和半径 $B_F^r$，然后查找 $B_F^c$ 在 $\mathbb{P}-F$ 中的最近邻：
+    $d(B_F, \mathbb{P}) = \min_{p \in \mathbb{P}-F} ||p - B_F^c|| - B_F^r$
+      $F \in \mathbb{F}_{min} \Leftrightarrow d(B_F, \mathbb{P}) > 0$
+    - 设计动机：最近邻搜索可高度并行化（GPU上利用KD-tree），而WDT由于固有的竟态条件几乎无法并行化
 
 2. **可微概率计算**：
-   - 做什么：将离散的Minimum-Ball条件用sigmoid函数软化为连续概率
-   - 核心思路：
-     $$\Lambda_{min}(F) = \sigma(d(B_F, \mathbb{P}) \cdot \alpha_{min})$$
-     其中 $\alpha_{min}$ 是控制sharpness的常数。$B_F$ 的中心和半径可通过解几何方程以可微方式计算
-   - 设计动机：保持梯度可传播，使得优化点位置时网格拓扑可以动态变化
+
+    - 做什么：将离散的Minimum-Ball条件用sigmoid函数软化为连续概率
+    - 核心思路：
+    $\Lambda_{min}(F) = \sigma(d(B_F, \mathbb{P}) \cdot \alpha_{min})$
+      其中 $\alpha_{min}$ 是控制sharpness的常数。$B_F$ 的中心和半径可通过解几何方程以可微方式计算
+    - 设计动机：保持梯度可传播，使得优化点位置时网格拓扑可以动态变化
 
 3. **理论保证**：
-   - $\mathbb{F}_{min} \subseteq \mathbb{F}_{dt}$（Minimum-Ball面集是Delaunay三角化面集的子集），因此继承无自交叉特性
-   - 虽然 $\mathbb{F}_{min}$ 不一定tessellate整个凸包，但这恰好有利于形状重建（不强制填充不应存在的"imaginary"面）
-   - Minimum-Ball最小化薄三角形的出现（继承自Delaunay三角化的性质）
+
+    - $\mathbb{F}_{min} \subseteq \mathbb{F}_{dt}$（Minimum-Ball面集是Delaunay三角化面集的子集），因此继承无自交叉特性
+    - 虽然 $\mathbb{F}_{min}$ 不一定tessellate整个凸包，但这恰好有利于形状重建（不强制填充不应存在的"imaginary"面）
+    - Minimum-Ball最小化薄三角形的出现（继承自Delaunay三角化的性质）
 
 4. **重建流程优化**：
-   - 多阶段优化：分别优化位置和real值，避免同时优化导致的不稳定
-   - 网格细分：通过在现有面上插入新点来增加细节
-   - 损失函数：点云重建使用Chamfer Distance；多视图重建使用可微渲染损失
+
+    - 多阶段优化：分别优化位置和real值，避免同时优化导致的不稳定
+    - 网格细分：通过在现有面上插入新点来增加细节
+    - 损失函数：点云重建使用Chamfer Distance；多视图重建使用可微渲染损失
 
 ### 损失函数 / 训练策略
 

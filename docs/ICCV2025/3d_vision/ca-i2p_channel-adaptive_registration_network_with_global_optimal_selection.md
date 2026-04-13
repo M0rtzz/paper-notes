@@ -31,9 +31,9 @@ tags:
 
 现有检测无关方法（如 2D3D-MATR）采用粗到细流程：先提取图像/点云特征，进行 patch 级匹配，再精化到像素-点对应。但存在两个核心问题：
 
-1. **通道级特征不一致**：LiDAR 和相机的成像范围差异导致两种模态特征在不同通道上的注意力分布不同。2D 编码器和 3D 编码器输出的特征在通道维度上存在系统性偏差，会导致感受野不对齐和遮挡区域的错误匹配。如图所示，两种模态的通道颜色分布明显不同，经过模块处理后才趋于一致。
+**通道级特征不一致**：LiDAR 和相机的成像范围差异导致两种模态特征在不同通道上的注意力分布不同。2D 编码器和 3D 编码器输出的特征在通道维度上存在系统性偏差，会导致感受野不对齐和遮挡区域的错误匹配。如图所示，两种模态的通道颜色分布明显不同，经过模块处理后才趋于一致。
 
-2. **局部选择导致冗余对应**：场景中常有相似结构（如重复的家具、对称的建筑），传统 top-k 选择策略会导致多个相似结构被错误匹配到同一个跨模态物体上，产生冗余的多对一对应关系，降低配准精度。
+**局部选择导致冗余对应**：场景中常有相似结构（如重复的家具、对称的建筑），传统 top-k 选择策略会导致多个相似结构被错误匹配到同一个跨模态物体上，产生冗余的多对一对应关系，降低配准精度。
 
 ## 方法详解
 
@@ -44,28 +44,31 @@ CA-I2P 使用 FPN-ResNet 提取图像特征、KPFCNN 提取点云特征，经 Fo
 ### 关键设计
 
 1. **Intra-Modal Enhancement Stage (IME)**：针对两种模态的特征分别设计增强单元：
-   - **Image Channel Enhancement Unit (ICE)**：设计三个并行分支，分别捕获 $(H,W)$、$(C,H)$、$(C,W)$ 维度间的交叉依赖关系。通过沿不同轴旋转张量实现维度交互，每个分支使用 GO-Pool（Max+Avg 池化拼接）降维后经卷积+BN+Sigmoid 产生注意力权重，三分支结果取平均：
-     $$F'_I = \frac{1}{3}\sum_{y=1}^{3} F_{Iy} \sigma(\text{Conv}(\text{GO-Pool}(F_{Iy})))$$
-   - **Point Channel Enhancement Unit (PCE)**：对点云特征使用通道自注意力机制，通过 Q/K/V 线性投影计算通道间相关性并自适应调整：
-     $$A = \text{Softmax}\left(\frac{QK^T S}{\sqrt{C}}\right), \quad F'_P = AV$$
-   - 增强后的特征与原始特征通过可学习权重融合：$F_I = \alpha F_I + \beta F'_I$
+
+    - **Image Channel Enhancement Unit (ICE)**：设计三个并行分支，分别捕获 $(H,W)$、$(C,H)$、$(C,W)$ 维度间的交叉依赖关系。通过沿不同轴旋转张量实现维度交互，每个分支使用 GO-Pool（Max+Avg 池化拼接）降维后经卷积+BN+Sigmoid 产生注意力权重，三分支结果取平均：
+    $F'_I = \frac{1}{3}\sum_{y=1}^{3} F_{Iy} \sigma(\text{Conv}(\text{GO-Pool}(F_{Iy})))$
+    - **Point Channel Enhancement Unit (PCE)**：对点云特征使用通道自注意力机制，通过 Q/K/V 线性投影计算通道间相关性并自适应调整：
+    $A = \text{Softmax}\left(\frac{QK^T S}{\sqrt{C}}\right), \quad F'_P = AV$
+    - 增强后的特征与原始特征通过可学习权重融合：$F_I = \alpha F_I + \beta F'_I$
 
 2. **Cross-Modal Channel Filtering Stage (CMCF)**：
-   - 先对每个样本做 Instance Normalization（IN），使特征独立于训练集统计量
-   - 计算图像和点云特征的协方差矩阵 $\mathbf{V}^x_I$ 和 $\mathbf{V}^x_P$，再计算两者之间的协方差矩阵 $\mathbf{Cov}_x$
-   - $\mathbf{Cov}_x(i,j)$ 衡量第 $i$ 和第 $j$ 通道在不同模态间的敏感度
-   - 高方差通道包含更多关注非对应区域的注意力，通过选择性掩码 $M_x$ 过滤
-   - 仅优化上三角部分，防止模型过拟合特定模态的统计信息
-   - 过滤后的特征与原始特征融合以保持信息完整性
-   - 过滤损失：$L_f = \frac{1}{X}\sum_{x=1}^X (\|\hat{\mathbf{V}}^x_I \odot M_x\|_1 + \|\hat{\mathbf{V}}^x_P \odot M_x\|_1)$
+
+    - 先对每个样本做 Instance Normalization（IN），使特征独立于训练集统计量
+    - 计算图像和点云特征的协方差矩阵 $\mathbf{V}^x_I$ 和 $\mathbf{V}^x_P$，再计算两者之间的协方差矩阵 $\mathbf{Cov}_x$
+    - $\mathbf{Cov}_x(i,j)$ 衡量第 $i$ 和第 $j$ 通道在不同模态间的敏感度
+    - 高方差通道包含更多关注非对应区域的注意力，通过选择性掩码 $M_x$ 过滤
+    - 仅优化上三角部分，防止模型过拟合特定模态的统计信息
+    - 过滤后的特征与原始特征融合以保持信息完整性
+    - 过滤损失：$L_f = \frac{1}{X}\sum_{x=1}^X (\|\hat{\mathbf{V}}^x_I \odot M_x\|_1 + \|\hat{\mathbf{V}}^x_P \odot M_x\|_1)$
 
 3. **Global Optimal Selection Module (GOS)**：
-   - 将 patch 级匹配问题建模为最优传输（OT）问题
-   - 相似度代价矩阵为 $(1-S)$，通过 Sinkhorn 迭代求解全局最优传输计划：
-     $$T^* = \min_{T \in \mathcal{T}} \text{Tr}(T^T(1-S)) - \epsilon H(\mathcal{T})$$
-   - 约束 $\mathcal{T} = \{T | T\mathbf{1} = \frac{1}{N}\mathbf{1}, T^T\mathbf{1} = \frac{1}{N}\mathbf{1}\}$ 确保均匀分布
-   - 约 10 次 Sinkhorn 迭代即可收敛，高效可 GPU 并行
-   - 从全局视角优化匹配，有效减少多对一错误
+
+    - 将 patch 级匹配问题建模为最优传输（OT）问题
+    - 相似度代价矩阵为 $(1-S)$，通过 Sinkhorn 迭代求解全局最优传输计划：
+    $T^* = \min_{T \in \mathcal{T}} \text{Tr}(T^T(1-S)) - \epsilon H(\mathcal{T})$
+    - 约束 $\mathcal{T} = \{T | T\mathbf{1} = \frac{1}{N}\mathbf{1}, T^T\mathbf{1} = \frac{1}{N}\mathbf{1}\}$ 确保均匀分布
+    - 约 10 次 Sinkhorn 迭代即可收敛，高效可 GPU 并行
+    - 从全局视角优化匹配，有效减少多对一错误
 
 ### 损失函数 / 训练策略
 

@@ -29,16 +29,16 @@ tags:
 
 从单张图像生成动态 3D 场景（4D 场景）对影视制作、游戏和 AR 等领域至关重要，但面临以下挑战：
 
-1. **现有方法局限**：
+**现有方法局限**：
    - 物体级方法（4Dfy、Dream-in-4D）只生成单个物体，忽略背景和场景交互
    - 基于微调视频扩散模型的方法（DimensionX、GenXD）依赖大规模 4D 数据训练，成本高且泛化受限
    - 基于 SDS 的方法（4Real）继承了颜色过饱和、多样性差、优化时间长等缺点
 
-2. **两大核心难题**：
+**两大核心难题**：
    - **空间-时序一致的多视角视频生成**：如何从单图生成跨视角、跨时间一致的视频？
    - **一致的 4D 表示优化**：即使多视角视频近似一致，微小的不一致性仍会破坏 4D 表示的质量
 
-3. **本文的关键洞察**：利用预训练的基础模型（图像-视频生成、动态重建、点云条件扩散）进行蒸馏，以高效且可泛化的方式实现 4D 场景生成，无需昂贵的 4D 数据训练。
+**本文的关键洞察**：利用预训练的基础模型（图像-视频生成、动态重建、点云条件扩散）进行蒸馏，以高效且可泛化的方式实现 4D 场景生成，无需昂贵的 4D 数据训练。
 
 ## 方法详解
 
@@ -52,33 +52,36 @@ Free4D 由三个阶段组成：
 ### 关键设计
 
 1. **4D 几何结构初始化**：使用 MonST3R 从参考视频重建世界坐标点图。针对背景冗余问题，提出**渐进式静态点云聚合策略**：
-   - 用静态掩码 $m_t^s$ 将点图分解为静态和动态组件
-   - 以第一帧静态区域初始化：$P_1^s = p_1 \odot m_1^s$
-   - 逐帧增量更新：$P_t^s = P_{t-1}^s \cup (p_t \odot \hat{m}_t^s)$，其中 $\hat{m}_t^s = m_t^s \cap (1 - \bigcup_{i=1}^{t-1} m_i^s)$ 避免冗余
-   - 最终每帧点云：$P_t = P_T^s \cup (p_t \odot m_t^d)$
+
+    - 用静态掩码 $m_t^s$ 将点图分解为静态和动态组件
+    - 以第一帧静态区域初始化：$P_1^s = p_1 \odot m_1^s$
+    - 逐帧增量更新：$P_t^s = P_{t-1}^s \cup (p_t \odot \hat{m}_t^s)$，其中 $\hat{m}_t^s = m_t^s \cap (1 - \bigcup_{i=1}^{t-1} m_i^s)$ 避免冗余
+    - 最终每帧点云：$P_t = P_T^s \cup (p_t \odot m_t^d)$
 
    这确保了紧凑而完整的静态点云表示，同时保持跨帧对齐一致性。
 
 2. **自适应 Classifier-Free Guidance（CFG）**：标准 CFG 会在可见区域引入颜色偏移和过饱和，而完全禁用 CFG 则导致遮挡区域补全质量下降。本文提出自适应策略：
-   - 可见区域（$M(t,k)=1$）禁用 CFG：$\epsilon_1 = \epsilon_\theta(z_i, c)$
-   - 遮挡/缺失区域（$M(t,k)=0$）启用 CFG：$\epsilon_2 = \epsilon_\theta(z_i) + s \cdot (\epsilon_\theta(z_i,c) - \epsilon_\theta(z_i))$
-   - 最终噪声融合：$\epsilon = M(t,k) \cdot \epsilon_1 + (1-M(t,k)) \cdot \epsilon_2$
+
+    - 可见区域（$M(t,k)=1$）禁用 CFG：$\epsilon_1 = \epsilon_\theta(z_i, c)$
+    - 遮挡/缺失区域（$M(t,k)=0$）启用 CFG：$\epsilon_2 = \epsilon_\theta(z_i) + s \cdot (\epsilon_\theta(z_i,c) - \epsilon_\theta(z_i))$
+    - 最终噪声融合：$\epsilon = M(t,k) \cdot \epsilon_1 + (1-M(t,k)) \cdot \epsilon_2$
 
 3. **点云引导去噪（PGD）**：利用粗渲染的多视角图像引导去噪早期阶段。将粗渲染编码为潜变量 $z_0'$，在早期去噪时刻融合：
-   $$\hat{z}_i = m \cdot z_i' + (1-m) \cdot z_i$$
+    $\hat{z}_i = m \cdot z_i' + (1-m) \cdot z_i$
    有效缓解动态场景中不期望的运动伪影。
 
 4. **参考潜变量替换（RLR）**：解决时序不一致的关键策略。对于时刻 $t_j > 1$，使用第一帧相同视角的已生成图像 $I(1, k_j)$ 作为参考。在两帧均需补全的区域（共同遮挡区域），用参考帧的潜变量替换当前帧：
-   $$\hat{m} = (1-M(t_j,k_j)) \cdot (1-M(1,k_j))$$
-   $$\hat{z}_i = \hat{m} \cdot z_i^{ref} + (1-\hat{m}) \cdot z_i$$
+    $\hat{m} = (1-M(t_j,k_j)) \cdot (1-M(1,k_j))$
+    $\hat{z}_i = \hat{m} \cdot z_i^{ref} + (1-\hat{m}) \cdot z_i$
    确保同一视角下不同时刻的遮挡补全一致。
 
 5. **基于调制的精化（MBR）**：直接用生成的多视角图像做像素级监督会引入不一致性。本文提出在潜变量空间进行调制：
-   - 渲染粗 4D-GS 得到 $I^r$，加噪得 $z_{\bar{T}}^r$
-   - 在去噪每步中，用生成图像的潜变量 $z_0 = \mathcal{E}(I(t_j,k_j))$ 调制去噪方向：
-   $$\tilde{z}_{0 \leftarrow i} = w_i \gamma_i z_0 + (1-w_i) z_{0 \leftarrow i}$$
+
+    - 渲染粗 4D-GS 得到 $I^r$，加噪得 $z_{\bar{T}}^r$
+    - 在去噪每步中，用生成图像的潜变量 $z_0 = \mathcal{E}(I(t_j,k_j))$ 调制去噪方向：
+    $\tilde{z}_{0 \leftarrow i} = w_i \gamma_i z_0 + (1-w_i) z_{0 \leftarrow i}$
    其中 $\gamma_i = \text{std}(z_{0 \leftarrow i}) / \text{std}(z_0)$ 防止过曝
-   - 得到增强渲染 $\tilde{I^r}$ 用于精化 4D-GS
+    - 得到增强渲染 $\tilde{I^r}$ 用于精化 4D-GS
 
 ### 损失函数 / 训练策略
 

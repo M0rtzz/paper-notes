@@ -35,9 +35,9 @@ DETR 系列检测器近年来在遥感图像旋转目标检测中取得成功，
 
 现有的检测预训练方法主要分为两类：
 
-1. **预测性方法**（如 UP-DETR、DETReg）：通过让检测器对齐从预训练 backbone 裁剪提取的 object embeddings 来实现预训练。但 **object embeddings 与 detector features 之间存在显著的特征差异（feature discrepancy）**，因为两者的特征提取方式不同——检测器利用图像特征和 DETR decoder 预测 embeddings，而 object embeddings 是通过整个 backbone 从裁剪图像中提取的。遥感图像复杂环境和密集目标分布进一步加剧了这种差异。
+**预测性方法**（如 UP-DETR、DETReg）：通过让检测器对齐从预训练 backbone 裁剪提取的 object embeddings 来实现预训练。但 **object embeddings 与 detector features 之间存在显著的特征差异（feature discrepancy）**，因为两者的特征提取方式不同——检测器利用图像特征和 DETR decoder 预测 embeddings，而 object embeddings 是通过整个 backbone 从裁剪图像中提取的。遥感图像复杂环境和密集目标分布进一步加剧了这种差异。
 
-2. **自监督学习方法**（如 AlignDet、PreSoCo）：通过约束不同视角下实例特征的一致性来实现自训练，但错过了预训练 backbone 中蕴含的宝贵视觉知识。
+**自监督学习方法**（如 AlignDet、PreSoCo）：通过约束不同视角下实例特征的一致性来实现自训练，但错过了预训练 backbone 中蕴含的宝贵视觉知识。
 
 ### 核心动机
 

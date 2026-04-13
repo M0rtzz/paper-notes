@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：OOD 检测是确保 ML 系统可靠性的关键。Post-hoc 方法（如 MSP、Energy、Mahalanobis）因不需修改训练过程而广泛应用。另一方面，double descent 已在 in-distribution 泛化中被充分研究——测试误差随模型复杂度在插值阈值附近出现峰值后再次下降。
+**领域现状**：OOD 检测是确保 ML 系统可靠性的关键。Post-hoc 方法（如 MSP、Energy、Mahalanobis）因不需修改训练过程而广泛应用。另一方面，double descent 已在 in-distribution 泛化中被充分研究——测试误差随模型复杂度在插值阈值附近出现峰值后再次下降。
 
-2. **现有痛点**：尽管 double descent 已在 ID 泛化中被广泛关注，其在 OOD 检测中的表现完全未被探索。实践中常默认更大的模型等于更好的 OOD 检测，但这一假设从未被系统验证。
+**现有痛点**：尽管 double descent 已在 ID 泛化中被广泛关注，其在 OOD 检测中的表现完全未被探索。实践中常默认更大的模型等于更好的 OOD 检测，但这一假设从未被系统验证。
 
-3. **核心矛盾**：过参数化对 ID 泛化的益处是否能转移到 OOD 检测？如果 double descent 在 OOD 检测中也存在，那么模型选择策略需要根本性的重新思考。
+**核心矛盾**：过参数化对 ID 泛化的益处是否能转移到 OOD 检测？如果 double descent 在 OOD 检测中也存在，那么模型选择策略需要根本性的重新思考。
 
-4. **本文要解决什么**：(a) 验证 OOD 检测是否展现 double descent；(b) 提供理论解释；(c) 当过参数化不再最优时，如何选择合适的模型复杂度。
+**本文要解决什么**：(a) 验证 OOD 检测是否展现 double descent；(b) 提供理论解释；(c) 当过参数化不再最优时，如何选择合适的模型复杂度。
 
-5. **切入角度**：定义 expected OOD risk 作为度量指标，在高斯协变量模型下用随机矩阵理论推导其与模型复杂度 p/n 的关系。
+**切入角度**：定义 expected OOD risk 作为度量指标，在高斯协变量模型下用随机矩阵理论推导其与模型复杂度 p/n 的关系。
 
-6. **核心idea一句话**：OOD 检测也存在 double descent，过参数化不总是最优，Neural Collapse 的 NC1 指标可预测哪个复杂度区间更适合 OOD 检测。
+**核心idea一句话**：OOD 检测也存在 double descent，过参数化不总是最优，Neural Collapse 的 NC1 指标可预测哪个复杂度区间更适合 OOD 检测。
 
 ## 方法详解
 
@@ -45,24 +45,27 @@ tags:
 ### 关键设计
 
 1. **Expected OOD Risk 定义**:
-   - 做什么：统一度量分类器在 ID 和 OOD 数据上的置信度表现
-   - 核心公式：$R_{\text{OOD}}(\hat{f}) = \mathbb{E}_{P}[(\hat{f}(x) - f^{\text{OOD}}(x))^2] + \mathbb{E}_{P^{\text{OOD}}}[(\hat{f}(x) - f^{\text{OOD}}(x))^2]$
-   - 其中 $f^{\text{OOD}}(x)$ 在 OOD 样本上接近 0.5（不确定），在 ID 样本上接近 $f^*(x)$（高置信度）
-   - 设计动机：低 OOD risk 意味着对 ID 数据高置信度且对 OOD 数据低置信度，正是 OOD 检测的目标
+
+    - 做什么：统一度量分类器在 ID 和 OOD 数据上的置信度表现
+    - 核心公式：$R_{\text{OOD}}(\hat{f}) = \mathbb{E}_{P}[(\hat{f}(x) - f^{\text{OOD}}(x))^2] + \mathbb{E}_{P^{\text{OOD}}}[(\hat{f}(x) - f^{\text{OOD}}(x))^2]$
+    - 其中 $f^{\text{OOD}}(x)$ 在 OOD 样本上接近 0.5（不确定），在 ID 样本上接近 $f^*(x)$（高置信度）
+    - 设计动机：低 OOD risk 意味着对 ID 数据高置信度且对 OOD 数据低置信度，正是 OOD 检测的目标
 
 2. **OOD Risk 的 Double Descent 理论（定理1）**:
-   - 做什么：证明最小二乘二分类器的 expected OOD risk 在 $p \approx n$ 处发散
-   - 核心结果：存在常数 $c, C > 0$ 使得 $c \cdot c(n,p) \leq \mathbb{E}[R_{\text{OOD}}(\hat{f})] \leq C \cdot c(n,p)$
-     - 欠参数化 ($p \leq n-2$)：$c(n,p) = \frac{p}{n-p-1}(\|w^{\text{OOD}}_{\mathcal{T}^c}\|^2 + \sigma^2) + \|w^{\text{OOD}}_{\mathcal{T}^c}\|^2$
-     - 插值阈值 ($n-1 \leq p \leq n+1$)：$c(n,p) = +\infty$，风险发散
-     - 过参数化 ($p \geq n+2$)：包含 $(1-n/p)\|w^{\text{OOD}}_\mathcal{T}\|^2 + \frac{n}{p-n-1}(\cdot)$ 项，渐降
-   - 设计动机：将 Belkin et al. (2020) 的回归理论扩展到分类 + OOD 设置，需处理非线性激活函数
+
+    - 做什么：证明最小二乘二分类器的 expected OOD risk 在 $p \approx n$ 处发散
+    - 核心结果：存在常数 $c, C > 0$ 使得 $c \cdot c(n,p) \leq \mathbb{E}[R_{\text{OOD}}(\hat{f})] \leq C \cdot c(n,p)$
+      - 欠参数化 ($p \leq n-2$)：$c(n,p) = \frac{p}{n-p-1}(\|w^{\text{OOD}}_{\mathcal{T}^c}\|^2 + \sigma^2) + \|w^{\text{OOD}}_{\mathcal{T}^c}\|^2$
+      - 插值阈值 ($n-1 \leq p \leq n+1$)：$c(n,p) = +\infty$，风险发散
+      - 过参数化 ($p \geq n+2$)：包含 $(1-n/p)\|w^{\text{OOD}}_\mathcal{T}\|^2 + \frac{n}{p-n-1}(\cdot)$ 项，渐降
+    - 设计动机：将 Belkin et al. (2020) 的回归理论扩展到分类 + OOD 设置，需处理非线性激活函数
 
 3. **Neural Collapse 判据（NC1 指标）**:
-   - 做什么：判断过参数化是否优于欠参数化用于 OOD 检测
-   - 核心思路：计算 $NC1_{u/o} = NC1_u / NC1_o$，其中 $NC1 = \text{Tr}[\Sigma_W \Sigma_B^+ / C]$ 衡量类内与类间协方差比
-   - 判别规则：$NC1_{u/o} > 1$ 意味着过参数化时类分离更好，OOD 检测性能更佳
-   - 设计动机：准确率比 $Acc_{o/u}$ 无法稳定预测 OOD 检测趋势，但 $NC1_{u/o}$ 可以——OOD 检测更依赖表征几何质量
+
+    - 做什么：判断过参数化是否优于欠参数化用于 OOD 检测
+    - 核心思路：计算 $NC1_{u/o} = NC1_u / NC1_o$，其中 $NC1 = \text{Tr}[\Sigma_W \Sigma_B^+ / C]$ 衡量类内与类间协方差比
+    - 判别规则：$NC1_{u/o} > 1$ 意味着过参数化时类分离更好，OOD 检测性能更佳
+    - 设计动机：准确率比 $Acc_{o/u}$ 无法稳定预测 OOD 检测趋势，但 $NC1_{u/o}$ 可以——OOD 检测更依赖表征几何质量
 
 ### 实验设置
 - 架构：4-block CNN, ResNet-18, ResNet-34, ViT, Swin Transformer

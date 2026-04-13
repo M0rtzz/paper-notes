@@ -50,11 +50,11 @@ Easy3E 构建在 TRELLIS 生成骨干之上，分两个阶段：**几何编辑**
 
 2. **Voxel FlowEdit（稀疏体素编辑）**：核心创新。在体素结构的 3D VAE 潜空间中，构建从源到目标的连续编辑轨迹。受 FlowEdit 启发，编辑速度场定义为源/目标条件下速度差：
 
-   $$\mathbf{v}_{\text{edit}}(\mathbf{x}_t, t) = \mathbf{v}_{\theta}(\mathbf{x}^{\text{tgt}}_t, t \mid I^{\text{tgt}}) - \mathbf{v}_{\theta}(\mathbf{x}^{\text{src}}_t, t \mid I^{\text{src}})$$
+    $\mathbf{v}_{\text{edit}}(\mathbf{x}_t, t) = \mathbf{v}_{\theta}(\mathbf{x}^{\text{tgt}}_t, t \mid I^{\text{tgt}}) - \mathbf{v}_{\theta}(\mathbf{x}^{\text{src}}_t, t \mid I^{\text{src}})$
 
    但直接积分 ODE 会因离散化误差导致轨迹漂移和结构崩塌。为此引入 **Guided Flow Regularization**：
-   - **轮廓引导** $\mathbf{G}_{\text{sil}}$：基于目标轮廓的 BCE 损失梯度，将演化结构对齐到目标轮廓
-   - **轨迹一致性校正** $\boldsymbol{\xi}_{\text{traj}}$：将偏离的潜状态投射回流形
+    - **轮廓引导** $\mathbf{G}_{\text{sil}}$：基于目标轮廓的 BCE 损失梯度，将演化结构对齐到目标轮廓
+    - **轨迹一致性校正** $\boldsymbol{\xi}_{\text{traj}}$：将偏离的潜状态投射回流形
 
    最终更新：$\mathrm{d}\mathbf{x}_t = \mathcal{M}_\ell \odot \big[\mathbf{v}_{\text{edit}} + \Gamma\boldsymbol{\xi}_{\text{traj}} - \eta\mathbf{G}_{\text{sil}}\big]\mathrm{d}t$
 
@@ -62,14 +62,15 @@ Easy3E 构建在 TRELLIS 生成骨干之上，分两个阶段：**几何编辑**
 
 3. **SLAT Repainting（潜空间重绘）**：在编辑后的体素 $\mathcal{V}_{\text{tgt}}$ 上精修局部潜特征。可编辑区域用目标条件速度场更新，非编辑区域回放源分布的前向扩散轨迹以保持一致性：
 
-   $$\mathbf{z}_{k-1} = \mathcal{M}_z \odot [\mathbf{z}_k + \Delta t \cdot \mathbf{v}_\theta(\mathbf{z}_k, t_k \mid I^{\text{tgt}})] + (1-\mathcal{M}_z) \odot [(1-t_k)\mathbf{z}^{\text{src}} + t_k\boldsymbol{\epsilon}_k]$$
+    $\mathbf{z}_{k-1} = \mathcal{M}_z \odot [\mathbf{z}_k + \Delta t \cdot \mathbf{v}_\theta(\mathbf{z}_k, t_k \mid I^{\text{tgt}})] + (1-\mathcal{M}_z) \odot [(1-t_k)\mathbf{z}^{\text{src}} + t_k\boldsymbol{\epsilon}_k]$
 
    使用柔化掩码 $\widetilde{\mathcal{M}_z}=\text{blur}(\mathcal{M}_z; \sigma_b)$ 避免接缝伪影。
 
 4. **法线引导纹理精修**：可选模块，解决压缩 3D 表示高频纹理丢失问题。
-   - **Control Branch**：冻结的 ControlNet + 可训练 Ctrl-Adapter，输入编辑 mesh 各视角法线图，提取多尺度几何控制特征
-   - **Generation Branch**：基于 ERA3D 多视角扩散架构，以编辑图 $I^{\text{tgt}}$ 为上下文，在控制特征引导下生成 6 个几何一致辅助视角
-   - **Texture Fusion**：可见性感知、掩码加权融合到 UV 纹理
+
+    - **Control Branch**：冻结的 ControlNet + 可训练 Ctrl-Adapter，输入编辑 mesh 各视角法线图，提取多尺度几何控制特征
+    - **Generation Branch**：基于 ERA3D 多视角扩散架构，以编辑图 $I^{\text{tgt}}$ 为上下文，在控制特征引导下生成 6 个几何一致辅助视角
+    - **Texture Fusion**：可见性感知、掩码加权融合到 UV 纹理
 
 ### 损失函数 / 训练策略
 

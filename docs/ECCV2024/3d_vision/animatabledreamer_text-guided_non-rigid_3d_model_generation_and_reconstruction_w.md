@@ -25,20 +25,20 @@ tags:
 提出 AnimatableDreamer，通过 Canonical Score Distillation (CSD) 技术，从单目视频提取骨骼和运动后生成文本引导的可动画化 3D 非刚体模型，在生成质量和时序一致性上全面超越现有方法。
 
 ## 研究背景与动机
-1. **领域现状**：文本到 3D 生成（SDS/DreamFusion）已能生成高质量静态 3D 物体，但可变形/非刚体物体的生成仍然困难。现有方法要么限于特定类别（人体），要么无法保证不同姿态下的形态一致性。
+**领域现状**：文本到 3D 生成（SDS/DreamFusion）已能生成高质量静态 3D 物体，但可变形/非刚体物体的生成仍然困难。现有方法要么限于特定类别（人体），要么无法保证不同姿态下的形态一致性。
 
-2. **现有痛点**：
+**现有痛点**：
    - 直接对可动画物体施加 vanilla SDS 会破坏运动一致性——不同姿态下生成的表面不连贯
    - 从单目视频重建可变形物体时，不可见区域（如动物的另一侧）几何质量差
    - 现有方法（BANMo）需要多段视频才能获取好的 3D 重建
 
-3. **核心矛盾**：想生成可动画化的非刚体 3D 模型，但 SDS 监督在 canonical space 和观测空间之间缺乏一致性桥梁
+**核心矛盾**：想生成可动画化的非刚体 3D 模型，但 SDS 监督在 canonical space 和观测空间之间缺乏一致性桥梁
 
-4. **本文要解决什么？** (a) 如何从单目视频提取可复用的骨骼/蒙皮；(b) 如何在骨骼约束下用文本引导生成新的可动画 3D 模型
+**本文要解决什么？** (a) 如何从单目视频提取可复用的骨骼/蒙皮；(b) 如何在骨骼约束下用文本引导生成新的可动画 3D 模型
 
-5. **切入角度**：将变形场（warping field）作为 canonical space 和观测空间的桥梁，让扩散模型的梯度通过 warp 传回 canonical model
+**切入角度**：将变形场（warping field）作为 canonical space 和观测空间的桥梁，让扩散模型的梯度通过 warp 传回 canonical model
 
-6. **核心 idea 一句话**：Canonical Score Distillation——在被观测的变形姿态上计算扩散先验梯度，通过可微 warp 反传到 canonical 模型，确保所有姿态下的一致性
+**核心 idea 一句话**：Canonical Score Distillation——在被观测的变形姿态上计算扩散先验梯度，通过可微 warp 反传到 canonical 模型，确保所有姿态下的一致性
 
 ## 方法详解
 
@@ -48,21 +48,24 @@ tags:
 ### 关键设计
 
 1. **Implicit Articulate Model**:
-   - 做什么：用 NeuS（SDF + 颜色 + 特征描述子）表示 canonical 模型，blend skinning 做变形
-   - 核心思路：B 根骨骼用高斯分布建模蒙皮权重，通过 Mahalanobis 距离计算。骨骼变换用 MLP + Fourier 时间嵌入学习
-   - 设计动机：canonical space 保证时序一致性，骨骼蒙皮提供可控的动画能力
+
+    - 做什么：用 NeuS（SDF + 颜色 + 特征描述子）表示 canonical 模型，blend skinning 做变形
+    - 核心思路：B 根骨骼用高斯分布建模蒙皮权重，通过 Mahalanobis 距离计算。骨骼变换用 MLP + Fourier 时间嵌入学习
+    - 设计动机：canonical space 保证时序一致性，骨骼蒙皮提供可控的动画能力
 
 2. **Skeleton Construction**:
-   - 做什么：从学到的骨骼模型构建结构化骨架，约束生成过程
-   - 核心思路：用 DINOv2 特征计算骨骼间的语义关联 + 蒙皮权重计算形态关联，综合得到骨骼连接强度 $\mathcal{T}_{j,k}$。施加平移/角度约束防止不合理变形
-   - 设计动机：骨架约束确保生成的新物体保持合理的运动模式
+
+    - 做什么：从学到的骨骼模型构建结构化骨架，约束生成过程
+    - 核心思路：用 DINOv2 特征计算骨骼间的语义关联 + 蒙皮权重计算形态关联，综合得到骨骼连接强度 $\mathcal{T}_{j,k}$。施加平移/角度约束防止不合理变形
+    - 设计动机：骨架约束确保生成的新物体保持合理的运动模式
 
 3. **Canonical Score Distillation (CSD)** ← 核心贡献:
-   - 做什么：让扩散模型的监督信号通过 warp 机制传回 canonical 模型
-   - 核心思路：$\nabla_\phi \mathcal{L}_{CSD} = \mathbb{E}[\underbrace{(\epsilon_\theta - \epsilon)}_{\text{扩散先验}} \cdot \underbrace{\frac{\partial \mathcal{R}(\mathbf{X}_*)}{\partial \mathbf{X}_*}}_{\text{Canonical 渲染}} \cdot \underbrace{\frac{\partial W(\mathbf{X}^t)}{\partial \phi_w}}_{\text{Warp 精化}}]$
-   - 三个梯度项：扩散先验提供外观指导 → canonical 渲染保证一致性 → warp 精化优化变形参数
-   - 使用 MVDream（多视角扩散模型）同时渲染 4 个正交视角，保证 3D 一致性
-   - 设计动机：普通 SDS 只在观测空间计算梯度，不保证 canonical space 一致。CSD 通过 warp 链式法则确保梯度传到 canonical model
+
+    - 做什么：让扩散模型的监督信号通过 warp 机制传回 canonical 模型
+    - 核心思路：$\nabla_\phi \mathcal{L}_{CSD} = \mathbb{E}[\underbrace{(\epsilon_\theta - \epsilon)}_{\text{扩散先验}} \cdot \underbrace{\frac{\partial \mathcal{R}(\mathbf{X}_*)}{\partial \mathbf{X}_*}}_{\text{Canonical 渲染}} \cdot \underbrace{\frac{\partial W(\mathbf{X}^t)}{\partial \phi_w}}_{\text{Warp 精化}}]$
+    - 三个梯度项：扩散先验提供外观指导 → canonical 渲染保证一致性 → warp 精化优化变形参数
+    - 使用 MVDream（多视角扩散模型）同时渲染 4 个正交视角，保证 3D 一致性
+    - 设计动机：普通 SDS 只在观测空间计算梯度，不保证 canonical space 一致。CSD 通过 warp 链式法则确保梯度传到 canonical model
 
 ### 损失函数 / 训练策略
 - 提取阶段：$\mathcal{L}_{Ext} = \mathcal{L}_{recon}(\text{RGB+轮廓+光流}) + \mathcal{L}_{CSD} + \mathcal{L}_{reg}(\text{特征匹配+循环一致性})$

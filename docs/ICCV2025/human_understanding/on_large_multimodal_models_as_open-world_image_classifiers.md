@@ -51,26 +51,29 @@ tags:
 ### 关键设计
 
 1. **任务形式化（Open-World Classification）**:
-   - 做什么：定义 LMM 作为函数 $f_{\text{LMM}}: \mathcal{X} \times \mathcal{T} \rightarrow \mathcal{T}$，输入图像和查询文本，输出文本预测
-   - 核心思路：闭合世界在查询中提供候选集 $\mathcal{C}$，开放世界不限制输出空间，模型从所有可能语义概念 $\mathcal{Y}$ 中自由预测，其中 $|\mathcal{C}| \ll |\mathcal{Y}|$
-   - 设计动机：LMM 的生成能力不应被预定义类别列表所限制，开放世界设定更符合真实应用场景
+
+    - 做什么：定义 LMM 作为函数 $f_{\text{LMM}}: \mathcal{X} \times \mathcal{T} \rightarrow \mathcal{T}$，输入图像和查询文本，输出文本预测
+    - 核心思路：闭合世界在查询中提供候选集 $\mathcal{C}$，开放世界不限制输出空间，模型从所有可能语义概念 $\mathcal{Y}$ 中自由预测，其中 $|\mathcal{C}| \ll |\mathcal{Y}|$
+    - 设计动机：LMM 的生成能力不应被预定义类别列表所限制，开放世界设定更符合真实应用场景
 
 2. **四种评估指标**:
-   - 做什么：从不同角度衡量预测与真值的对齐程度
-   - 核心思路：
-     - **文本包含（TI）**：检查真值标签是否为预测文本的子串，$\text{TI}(y, \hat{y}) = \mathbf{1}[y \subseteq \hat{y}]$。简单但过于严格，语义等价但文字不同会被判错
-     - **Llama 包含（LI）**：使用 Llama 3.2 3B 作为判官，判断预测是否与真值语义一致。LLM-as-judge 范式的分类任务特化版本
-     - **语义相似度（SS）**：$\text{SS} = \langle g_{\text{emb}}(\hat{y}), g_{\text{emb}}(y) \rangle$，使用 Sentence-BERT 计算预测与真值的向量余弦相似度，提供 0-1 连续分数
-     - **概念相似度（CS）**：$\text{CS} = \max_{p \in \text{split}(\hat{y})} \langle g_{\text{emb}}(p), g_{\text{emb}}(y) \rangle$，先用 spaCy 对预测分句，取最相似片段与真值的余弦相似度，解决冗长预测被整体稀释的问题
-   - 设计动机：单一指标无法全面评估，不同指标的不一致恰好可以揭示错误模式
+
+    - 做什么：从不同角度衡量预测与真值的对齐程度
+    - 核心思路：
+      - **文本包含（TI）**：检查真值标签是否为预测文本的子串，$\text{TI}(y, \hat{y}) = \mathbf{1}[y \subseteq \hat{y}]$。简单但过于严格，语义等价但文字不同会被判错
+      - **Llama 包含（LI）**：使用 Llama 3.2 3B 作为判官，判断预测是否与真值语义一致。LLM-as-judge 范式的分类任务特化版本
+      - **语义相似度（SS）**：$\text{SS} = \langle g_{\text{emb}}(\hat{y}), g_{\text{emb}}(y) \rangle$，使用 Sentence-BERT 计算预测与真值的向量余弦相似度，提供 0-1 连续分数
+      - **概念相似度（CS）**：$\text{CS} = \max_{p \in \text{split}(\hat{y})} \langle g_{\text{emb}}(p), g_{\text{emb}}(y) \rangle$，先用 spaCy 对预测分句，取最相似片段与真值的余弦相似度，解决冗长预测被整体稀释的问题
+    - 设计动机：单一指标无法全面评估，不同指标的不一致恰好可以揭示错误模式
 
 3. **错误分析框架**:
-   - 做什么：利用指标间的差异定位模型错误类型
-   - 核心思路：
-     - CS 高而 LI 低 → 粒度错误（correct but too generic，如预测"动物"而非"拉布拉多"）
-     - LI 高而 CS 低 → 标注歧义或多标签问题
-     - 两者均低 → 细粒度区分失败（wrong but specific，如混淆两种相似花卉）
-   - 设计动机：不同于简单报告准确率，组合指标提供可操作的改进方向
+
+    - 做什么：利用指标间的差异定位模型错误类型
+    - 核心思路：
+      - CS 高而 LI 低 → 粒度错误（correct but too generic，如预测"动物"而非"拉布拉多"）
+      - LI 高而 CS 低 → 标注歧义或多标签问题
+      - 两者均低 → 细粒度区分失败（wrong but specific，如混淆两种相似花卉）
+    - 设计动机：不同于简单报告准确率，组合指标提供可操作的改进方向
 
 ### 损失函数 / 训练策略
 

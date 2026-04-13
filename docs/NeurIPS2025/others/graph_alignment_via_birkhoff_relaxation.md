@@ -43,9 +43,9 @@ $$\Pi^{\star} = \arg\min_{X \in \mathcal{P}_n} \|AX - XB\|_F^2$$
 
 图对齐在网络去匿名化、计算生物学、模式识别等领域有广泛应用。现有凸松弛方法包括：
 
-1. **GRAMPA**（Fan et al., 2023）：进一步松弛 Birkhoff 约束并添加二次正则化项，理论上在 $\sigma = O(1/\log n)$ 时成功，但需要调参 $\eta$，且实证表现不如 Birkhoff 松弛
-2. **Simplex 松弛**（Araya & Tyagi, 2024）：保留非负约束但放松行/列和约束，仅在 $\sigma = 0$（无噪声）时有理论保证
-3. **谱方法 EIG1**（Ganassali et al., 2022）：噪声阈值仅为 $\sigma = \Theta(n^{-7/6})$
+**GRAMPA**（Fan et al., 2023）：进一步松弛 Birkhoff 约束并添加二次正则化项，理论上在 $\sigma = O(1/\log n)$ 时成功，但需要调参 $\eta$，且实证表现不如 Birkhoff 松弛
+**Simplex 松弛**（Araya & Tyagi, 2024）：保留非负约束但放松行/列和约束，仅在 $\sigma = 0$（无噪声）时有理论保证
+**谱方法 EIG1**（Ganassali et al., 2022）：噪声阈值仅为 $\sigma = \Theta(n^{-7/6})$
 
 ### 核心动机
 

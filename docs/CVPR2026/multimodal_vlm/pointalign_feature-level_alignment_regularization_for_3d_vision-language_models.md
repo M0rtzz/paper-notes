@@ -25,14 +25,14 @@ tags:
 提出 PointAlign，在 3D VLM 的 LLM 中间层对点云 token 施加特征级对齐正则化（与 Q-Former 输出对齐），仅训练轻量对齐投影器和 LoRA 适配器，即可有效防止几何信息在语言建模过程中退化，在开放词汇分类上提升 7.50pp。
 
 ## 研究背景与动机
-1. **领域现状**：3D 视觉语言模型（3D VLM）对机器人、自动驾驶、AR 等应用至关重要，但受限于 3D-文本配对数据的稀缺。
-2. **现有痛点**：现有方法（PointLLM、ShapeLLM、MiniGPT-3D）仅靠 next-token prediction 损失训练，只有语言 token 提供监督信号，导致：
+**领域现状**：3D 视觉语言模型（3D VLM）对机器人、自动驾驶、AR 等应用至关重要，但受限于 3D-文本配对数据的稀缺。
+**现有痛点**：现有方法（PointLLM、ShapeLLM、MiniGPT-3D）仅靠 next-token prediction 损失训练，只有语言 token 提供监督信号，导致：
    - 有限的 3D 数据利用效率低
    - 中间表示中有价值的几何信息在 LLM 不同层传播时逐步退化和丢失
-3. **核心矛盾**：语言建模目标只奖励直接有助于预测下一个 token 的几何特征，而对空间推理有用但与当前语言任务无关的结构性线索会在训练中被丢弃。
-4. **本文要解决什么**：在不增加推理开销的前提下，显式监督 LLM 中间层的点云 token 以保持细粒度 3D 几何-语义信息。
-5. **切入角度**：观察到 Q-Former 输出的特征既包含几何信息又包含语义信息（因为经过了 point cloud-text 配对训练），可以作为理想的内部监督目标。
-6. **核心idea**：用 consistency loss 将 LLM 中间层的点云 token 与冻结的 Q-Former 输出对齐，通过轻量对齐投影器实现，推理时丢弃投影器零额外开销。
+**核心矛盾**：语言建模目标只奖励直接有助于预测下一个 token 的几何特征，而对空间推理有用但与当前语言任务无关的结构性线索会在训练中被丢弃。
+**本文要解决什么**：在不增加推理开销的前提下，显式监督 LLM 中间层的点云 token 以保持细粒度 3D 几何-语义信息。
+**切入角度**：观察到 Q-Former 输出的特征既包含几何信息又包含语义信息（因为经过了 point cloud-text 配对训练），可以作为理想的内部监督目标。
+**核心idea**：用 consistency loss 将 LLM 中间层的点云 token 与冻结的 Q-Former 输出对齐，通过轻量对齐投影器实现，推理时丢弃投影器零额外开销。
 
 ## 方法详解
 
@@ -42,20 +42,23 @@ tags:
 ### 关键设计
 
 1. **对齐目标选择 — Q-Former 输出 $\bar{Q}$**:
-   - 为什么不用点云编码器输出？因为编码器只捕捉几何特征，缺少语义信息
-   - 为什么不用 LLM 深层表示？因为深层表示可能已经丢失了 3D 信息
-   - Q-Former 输出在直接监督下保留了最多的几何+语义信息，是最优对齐目标
+
+    - 为什么不用点云编码器输出？因为编码器只捕捉几何特征，缺少语义信息
+    - 为什么不用 LLM 深层表示？因为深层表示可能已经丢失了 3D 信息
+    - Q-Former 输出在直接监督下保留了最多的几何+语义信息，是最优对齐目标
 
 2. **对齐投影器 $f_\pi$（3层 Linear + SiLU）**:
-   - 将 LLM 第 $\ell$ 层的点云 token $T_{pc}^{(\ell)}$ 映射到 Q-Former 特征空间
-   - 结构：$\mathbb{R}^C \to \mathbb{R}^{d_h} \to \mathbb{R}^{d_h} \to \mathbb{R}^{D_1}$，仅 8.39M 参数
-   - 推理时完全丢弃，零推理开销
+
+    - 将 LLM 第 $\ell$ 层的点云 token $T_{pc}^{(\ell)}$ 映射到 Q-Former 特征空间
+    - 结构：$\mathbb{R}^C \to \mathbb{R}^{d_h} \to \mathbb{R}^{d_h} \to \mathbb{R}^{D_1}$，仅 8.39M 参数
+    - 推理时完全丢弃，零推理开销
 
 3. **对齐损失**:
-   - 采用余弦相似度损失：$\mathcal{L}_{align} = -\frac{1}{o}\sum_{i=1}^{o} \frac{\tilde{Q}_i^\top \bar{Q}_i}{\|\tilde{Q}_i\|_2 \|\bar{Q}_i\|_2}$
-   - 关注特征方向而非幅度，更适合跨空间对齐
-   - Q-Former 输出 $\bar{Q}$ 梯度 detach，避免反向传播影响冻结模块
-   - 总损失 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$
+
+    - 采用余弦相似度损失：$\mathcal{L}_{align} = -\frac{1}{o}\sum_{i=1}^{o} \frac{\tilde{Q}_i^\top \bar{Q}_i}{\|\tilde{Q}_i\|_2 \|\bar{Q}_i\|_2}$
+    - 关注特征方向而非幅度，更适合跨空间对齐
+    - Q-Former 输出 $\bar{Q}$ 梯度 detach，避免反向传播影响冻结模块
+    - 总损失 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$
 
 ### 损失函数 / 训练策略
 Stage 2 用 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$ 联合训练 LoRA 和对齐投影器。仅更新极少参数。

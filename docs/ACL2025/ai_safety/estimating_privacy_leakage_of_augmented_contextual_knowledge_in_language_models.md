@@ -40,21 +40,24 @@ tags:
 
 ### 关键设计
 1. **Context Influence (Definition 3.1)**
-   - 核心思路：度量移除上下文中第 $i$ 个 $n$-gram $D_{i,n}$ 后输出概率的变化
-   - 定义：$\tau_{i,n} = |\log p_\theta(y_t | D, \mathbf{x}, \mathbf{y}_{<t}) - \log p_\theta(y_t | D \setminus D_{i,n}, \mathbf{x}, \mathbf{y}_{<t})|$
-   - $n=1$ 对应词级隐私，$n=|D|$ 对应文档级隐私
-   - 对整个响应的context influence为各token的求和（类比DP的组合性质）
+
+    - 核心思路：度量移除上下文中第 $i$ 个 $n$-gram $D_{i,n}$ 后输出概率的变化
+    - 定义：$\tau_{i,n} = |\log p_\theta(y_t | D, \mathbf{x}, \mathbf{y}_{<t}) - \log p_\theta(y_t | D \setminus D_{i,n}, \mathbf{x}, \mathbf{y}_{<t})|$
+    - $n=1$ 对应词级隐私，$n=|D|$ 对应文档级隐私
+    - 对整个响应的context influence为各token的求和（类比DP的组合性质）
 
 2. **Context Influence Decoding (CID)**
-   - 将CAD（Context-aware Decoding）重新表述为参数 $\lambda$ 控制的上下文影响
-   - $\bar{p}_{\theta,\lambda}(y_t) = \sigma[(\lambda \cdot \text{logit}_\theta(y_t|D,\mathbf{x}) + (1-\lambda) \cdot \text{logit}_\theta(y_t|\mathbf{x})) / T]$
-   - $\lambda=0$：仅用参数知识（无上下文隐私泄露）
-   - $\lambda=1$：正常解码
-   - $\lambda>1$：放大上下文影响（减少幻觉但增加隐私风险）
+
+    - 将CAD（Context-aware Decoding）重新表述为参数 $\lambda$ 控制的上下文影响
+    - $\bar{p}_{\theta,\lambda}(y_t) = \sigma[(\lambda \cdot \text{logit}_\theta(y_t|D,\mathbf{x}) + (1-\lambda) \cdot \text{logit}_\theta(y_t|\mathbf{x})) / T]$
+    - $\lambda=0$：仅用参数知识（无上下文隐私泄露）
+    - $\lambda=1$：正常解码
+    - $\lambda>1$：放大上下文影响（减少幻觉但增加隐私风险）
 
 3. **理论联系 (Theorem 3.1)**
-   - Context influence正比于 $\lambda \cdot |\text{pmi}(D) - \text{pmi}(D \setminus D_{i,n})|$
-   - 两个关键泄露因素：(a) 上下文相对参数知识的OOD程度（PMI差异大），(b) 解码时上下文放大程度（$\lambda$ 大）
+
+    - Context influence正比于 $\lambda \cdot |\text{pmi}(D) - \text{pmi}(D \setminus D_{i,n})|$
+    - 两个关键泄露因素：(a) 上下文相对参数知识的OOD程度（PMI差异大），(b) 解码时上下文放大程度（$\lambda$ 大）
 
 ### 损失函数 / 训练策略
 本文不涉及模型训练，是一个分析/度量框架。关键公式：

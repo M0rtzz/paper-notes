@@ -41,9 +41,10 @@ tags:
 ### 关键设计
 
 1. **深入分析现有VLM的自纠正能力（Section 3）**：
-   - Step-wise：在LLaVA-CoT/VL-Rethinker上修改一个推理步后让模型续写，<10%出现aha moment（反思信号），且即使出现也仅约50%能纠正到正确答案
-   - Response-wise：无论是用self-correction prompt还是外部critic（Critic-V、Qwen2.5-VL），都无法有效改善推理，甚至可能下降
-   - 结论：当前推理VLM本质上不具备自纠正能力
+
+    - Step-wise：在LLaVA-CoT/VL-Rethinker上修改一个推理步后让模型续写，<10%出现aha moment（反思信号），且即使出现也仅约50%能纠正到正确答案
+    - Response-wise：无论是用self-correction prompt还是外部critic（Critic-V、Qwen2.5-VL），都无法有效改善推理，甚至可能下降
+    - 结论：当前推理VLM本质上不具备自纠正能力
 
 2. **Trajectory-level Self-Correction Objective**：不是修改整个response，而是只修改从错误步开始的suffix。给定preference pair (Y_w, Y_l)，在随机truncation点i处分割，只对≥i的suffix做偏好学习。这避免了对已正确prefix的无意义更新，提供更清晰的学习信号。
 

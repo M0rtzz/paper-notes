@@ -41,29 +41,33 @@ EPI框架包含：（1）将安全CT-MARL形式化为连续时间约束MDP（CT-
 ### 关键设计
 
 1. **Epigraph重构（核心理论贡献）**:
-   - 做什么：引入辅助状态 $z(t)$ 将约束优化转化为无约束连续值函数
-   - 核心思路：定义辅助值函数 $V(x,z) = \min_{u} \max\{\max_\tau c(x(\tau)), \int_t^\infty \gamma^{\tau-t} l(x(\tau),u(\tau))d\tau - z\}$
-   - Lemma 3.1证明 $v(x) = \min\{z \in \mathbb{R} | V(x,z) \leq 0\}$，使得约束值 $v$ 的获取转化为 $V$ 的零水平集搜索
-   - 设计动机：$V(x,z)$ 是连续的（Theorem 3.3），而原始约束值函数不连续，PINN可以逼近连续函数
+
+    - 做什么：引入辅助状态 $z(t)$ 将约束优化转化为无约束连续值函数
+    - 核心思路：定义辅助值函数 $V(x,z) = \min_{u} \max\{\max_\tau c(x(\tau)), \int_t^\infty \gamma^{\tau-t} l(x(\tau),u(\tau))d\tau - z\}$
+    - Lemma 3.1证明 $v(x) = \min\{z \in \mathbb{R} | V(x,z) \leq 0\}$，使得约束值 $v$ 的获取转化为 $V$ 的零水平集搜索
+    - 设计动机：$V(x,z)$ 是连续的（Theorem 3.3），而原始约束值函数不连续，PINN可以逼近连续函数
 
 2. **改进的Outer优化（$z^*$ 计算）**:
-   - 做什么：在训练中直接计算最优 $z^*$ 而非随机采样
-   - 核心思路：$z^* = \min\{z | \max\{V_\phi^{\text{cons}}(x), V_\psi^{\text{ret}}(x) - z\} \leq 0\}$
-   - 设计动机：先前方法（EPPO等）随机采样 $z$ 引入非平稳噪声，破坏策略更新稳定性；且执行时需要昂贵的根查找。EPI将return和constraint网络设计为仅依赖 $x$（不依赖 $z$），训练时直接用 $z^*$，执行时无需根查找
+
+    - 做什么：在训练中直接计算最优 $z^*$ 而非随机采样
+    - 核心思路：$z^* = \min\{z | \max\{V_\phi^{\text{cons}}(x), V_\psi^{\text{ret}}(x) - z\} \leq 0\}$
+    - 设计动机：先前方法（EPPO等）随机采样 $z$ 引入非平稳噪声，破坏策略更新稳定性；且执行时需要昂贵的根查找。EPI将return和constraint网络设计为仅依赖 $x$（不依赖 $z$），训练时直接用 $z^*$，执行时无需根查找
 
 3. **PINN-based Critic（三重损失）**:
-   - 做什么：用三种互补损失训练值函数
-   - 核心思路：
-     - **残差损失**：惩罚HJB PDE的违反 $\mathcal{L}_{\text{Residual}} = (\max\{c(x)-\tilde{V}, \min_u \mathcal{H}\})^2$
-     - **目标损失**：基于轨迹的数值目标 $\mathcal{L}_{\text{Target}} = (V_{\text{tgt}} - \tilde{V})^2$，无限时域下无边界条件时作为锚点
-     - **值梯度迭代（VGI）**：约束值梯度一致性，确保 $\nabla_x V$ 的准确性
-   - 设计动机：残差损失在无界问题中不足以单独工作；值梯度对策略更新至关重要
+
+    - 做什么：用三种互补损失训练值函数
+    - 核心思路：
+      - **残差损失**：惩罚HJB PDE的违反 $\mathcal{L}_{\text{Residual}} = (\max\{c(x)-\tilde{V}, \min_u \mathcal{H}\})^2$
+      - **目标损失**：基于轨迹的数值目标 $\mathcal{L}_{\text{Target}} = (V_{\text{tgt}} - \tilde{V})^2$，无限时域下无边界条件时作为锚点
+      - **值梯度迭代（VGI）**：约束值梯度一致性，确保 $\nabla_x V$ 的准确性
+    - 设计动机：残差损失在无界问题中不足以单独工作；值梯度对策略更新至关重要
 
 4. **分散式Actor学习**:
-   - 做什么：基于epigraph优势函数更新分散策略
-   - 核心思路：$A(x_t,z_t^*,u_t) = \max\{c(x_t)-V, \nabla_x V \cdot f(x,u) - \partial_z V \cdot l(x,u) + \ln\gamma \cdot V\}$
-   - 通过学习的动力学网络 $f_\xi$ 和代价网络 $l_\phi$ 替代未知真实函数
-   - 设计动机：集中训练分散执行（CTDE），每个agent仅需本地观测
+
+    - 做什么：基于epigraph优势函数更新分散策略
+    - 核心思路：$A(x_t,z_t^*,u_t) = \max\{c(x_t)-V, \nabla_x V \cdot f(x,u) - \partial_z V \cdot l(x,u) + \ln\gamma \cdot V\}$
+    - 通过学习的动力学网络 $f_\xi$ 和代价网络 $l_\phi$ 替代未知真实函数
+    - 设计动机：集中训练分散执行（CTDE），每个agent仅需本地观测
 
 ### 损失函数 / 训练策略
 

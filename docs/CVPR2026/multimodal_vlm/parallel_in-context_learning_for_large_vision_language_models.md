@@ -25,12 +25,12 @@ tags:
 提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。
 
 ## 研究背景与动机
-1. **领域现状**：大型视觉语言模型（LVLM）通过 MM-ICL 利用多个 demonstration 示例来适应新任务，示例越多性能越好。
-2. **现有痛点**：Transformer 的注意力计算代价随上下文长度二次增长，而 LVLM 中每张图片需要数千个视觉 token，导致增加 demonstration 数量会急剧增加推理延迟。例如 32-shot 比 8-shot 慢约 3.5 倍。
-3. **核心矛盾**：准确率与推理效率之间存在严重的 trade-off：性能需要更多 demonstration，但推理速度要求更短的上下文。
-4. **本文要解决什么**：在推理时高效近似长上下文 MM-ICL，无需额外训练或数据集。
-5. **切入角度**：各个 demonstration 之间是独立的，不需要必须作为一个长序列处理。可以分块并行处理后再集成结果。
-6. **核心idea**：将长 demonstration 上下文分成多个短"块"（chunk），并行处理后用加权 PoE 在 logit 层合并预测，理论依据来自集成学习中 Fano 不等式的 diversity-relevance 分析。
+**领域现状**：大型视觉语言模型（LVLM）通过 MM-ICL 利用多个 demonstration 示例来适应新任务，示例越多性能越好。
+**现有痛点**：Transformer 的注意力计算代价随上下文长度二次增长，而 LVLM 中每张图片需要数千个视觉 token，导致增加 demonstration 数量会急剧增加推理延迟。例如 32-shot 比 8-shot 慢约 3.5 倍。
+**核心矛盾**：准确率与推理效率之间存在严重的 trade-off：性能需要更多 demonstration，但推理速度要求更短的上下文。
+**本文要解决什么**：在推理时高效近似长上下文 MM-ICL，无需额外训练或数据集。
+**切入角度**：各个 demonstration 之间是独立的，不需要必须作为一个长序列处理。可以分块并行处理后再集成结果。
+**核心idea**：将长 demonstration 上下文分成多个短"块"（chunk），并行处理后用加权 PoE 在 logit 层合并预测，理论依据来自集成学习中 Fano 不等式的 diversity-relevance 分析。
 
 ## 方法详解
 
@@ -40,20 +40,23 @@ tags:
 ### 关键设计
 
 1. **Context Chunking（上下文分块）**:
-   - 使用 k-means 聚类对 demonstration 的多模态特征（CLIP 的图像+文本特征拼接）进行分组
-   - 每个聚类作为一个 chunk，使得 chunk 间差异最大化
-   - 设计动机：基于 Fano 不等式，集成学习的误差下界与预测多样性负相关（$I_{redun}$ 越小越好），聚类可以最大化 chunk 间多样性
+
+    - 使用 k-means 聚类对 demonstration 的多模态特征（CLIP 的图像+文本特征拼接）进行分组
+    - 每个聚类作为一个 chunk，使得 chunk 间差异最大化
+    - 设计动机：基于 Fano 不等式，集成学习的误差下界与预测多样性负相关（$I_{redun}$ 越小越好），聚类可以最大化 chunk 间多样性
 
 2. **Context Compilation（上下文编译）**:
-   - 用加权 Product-of-Experts (PoE) 集成各 chunk 的预测分布
-   - 在 logit 层实现：$\hat{l}_\theta(y_i) = \sum_{k=1}^{K} w_k l_\theta(y_i | C_k, x, t)$
-   - 权重 $w_k$ 基于 chunk 与查询的相似度计算（softmax 归一化的余弦相似度）
-   - 设计动机：基于 Fano 不等式的 relevance 项（$I_{relev}$），给与查询更相关的 chunk 更高权重
+
+    - 用加权 Product-of-Experts (PoE) 集成各 chunk 的预测分布
+    - 在 logit 层实现：$\hat{l}_\theta(y_i) = \sum_{k=1}^{K} w_k l_\theta(y_i | C_k, x, t)$
+    - 权重 $w_k$ 基于 chunk 与查询的相似度计算（softmax 归一化的余弦相似度）
+    - 设计动机：基于 Fano 不等式的 relevance 项（$I_{relev}$），给与查询更相关的 chunk 更高权重
 
 3. **理论基础**:
-   - 基于 Theorem 5.1（Brown & Zhou-Li），集成预测误差被分解为 relevance（各模型与真值的相关性）和 redundancy（模型间重复信息）
-   - 低误差需要：高 relevance（每个 chunk 的预测准确）+ 高 diversity（chunk 间信息冗余低）
-   - 这两个性质直接指导了 chunking（最大化多样性）和 compilation（基于相关性加权）的设计
+
+    - 基于 Theorem 5.1（Brown & Zhou-Li），集成预测误差被分解为 relevance（各模型与真值的相关性）和 redundancy（模型间重复信息）
+    - 低误差需要：高 relevance（每个 chunk 的预测准确）+ 高 diversity（chunk 间信息冗余低）
+    - 这两个性质直接指导了 chunking（最大化多样性）和 compilation（基于相关性加权）的设计
 
 ### 损失函数 / 训练策略
 无需任何训练，纯推理时方法（plug-and-play）。

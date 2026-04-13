@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM对齐依赖高质量偏好数据。现有方法用外部reward model或GPT-4过滤数据，隐含假设"数据质量是数据自身的固有属性"。但这忽略了模型和训练配置对数据价值的影响。
+**领域现状**：LLM对齐依赖高质量偏好数据。现有方法用外部reward model或GPT-4过滤数据，隐含假设"数据质量是数据自身的固有属性"。但这忽略了模型和训练配置对数据价值的影响。
 
-2. **现有痛点**：(1) 外部过滤(GPT-4/reward model)把数据质量视为数据固有属性，不考虑模型差异——同一数据对不同模型可能有益也可能有害；(2) 经典影响函数(IF)在偏好对齐中存在过拟合验证集的问题(高IF数据不一定最好)；(3) 精确IF计算需要梯度，对大模型不可行。
+**现有痛点**：(1) 外部过滤(GPT-4/reward model)把数据质量视为数据固有属性，不考虑模型差异——同一数据对不同模型可能有益也可能有害；(2) 经典影响函数(IF)在偏好对齐中存在过拟合验证集的问题(高IF数据不一定最好)；(3) 精确IF计算需要梯度，对大模型不可行。
 
-3. **核心矛盾**：偏好对齐是开放式任务(没有标准答案)，验证集gradient只是不完美的代理。传统IF假设高IF数据=好数据，但在偏好对齐中这导致过拟合——模型在少数high-IF样本上overfit到极大margin而损害其他样本。
+**核心矛盾**：偏好对齐是开放式任务(没有标准答案)，验证集gradient只是不完美的代理。传统IF假设高IF数据=好数据，但在偏好对齐中这导致过拟合——模型在少数high-IF样本上overfit到极大margin而损害其他样本。
 
-4. **本文要解决什么**：(a) 什么样的偏好数据真正有价值？(b) 如何高效识别有价值的数据？(c) 如何使数据选择适配到具体模型？
+**本文要解决什么**：(a) 什么样的偏好数据真正有价值？(b) 如何高效识别有价值的数据？(c) 如何使数据选择适配到具体模型？
 
-5. **切入角度**：用IF把训练数据分成small/medium/large三组 -> 观察训练动态发现medium-IF数据产生最稳定的对齐效果 -> 提出TIF(截断IF)只保留中间区间 -> 设计轻量正相关代理指标近似TIF。
+**切入角度**：用IF把训练数据分成small/medium/large三组 -> 观察训练动态发现medium-IF数据产生最稳定的对齐效果 -> 提出TIF(截断IF)只保留中间区间 -> 设计轻量正相关代理指标近似TIF。
 
-6. **核心idea一句话**：偏好数据的价值是模型依赖的，且中等影响力的数据最有价值——不是太容易也不是太难，而是"刚好合适"的数据。
+**核心idea一句话**：偏好数据的价值是模型依赖的，且中等影响力的数据最有价值——不是太容易也不是太难，而是"刚好合适"的数据。
 
 ## 方法详解
 
@@ -48,24 +48,28 @@ tags:
 ### 关键设计
 
 1. **截断影响函数(TIF)**：
-   - 做什么：修正传统IF在偏好对齐中的过拟合问题
-   - 核心思路：将IF按百分位分为small/medium/large三组。实验发现：small-IF数据=噪声/歧义(训练后eval loss上升，reward margin降为负)；large-IF数据=过拟合(eval loss先降后升，少数pair overfit到极大margin)；**medium-IF数据**=最优(eval loss稳定下降，margin稳定上升)。TIF定义：$\text{TIF}(d) = \mathbb{I}[\delta_{small} < \text{IF}(d) < \delta_{large}]$
-   - 设计动机：偏好对齐是开放式任务，验证梯度是不完美的人类偏好代理。极端IF值(过小过大)都反映低质量数据。这与分类任务中"高IF=好数据"截然不同——counter-intuitive但合理
+
+    - 做什么：修正传统IF在偏好对齐中的过拟合问题
+    - 核心思路：将IF按百分位分为small/medium/large三组。实验发现：small-IF数据=噪声/歧义(训练后eval loss上升，reward margin降为负)；large-IF数据=过拟合(eval loss先降后升，少数pair overfit到极大margin)；**medium-IF数据**=最优(eval loss稳定下降，margin稳定上升)。TIF定义：$\text{TIF}(d) = \mathbb{I}[\delta_{small} < \text{IF}(d) < \delta_{large}]$
+    - 设计动机：偏好对齐是开放式任务，验证梯度是不完美的人类偏好代理。极端IF值(过小过大)都反映低质量数据。这与分类任务中"高IF=好数据"截然不同——counter-intuitive但合理
 
 2. **Loss Difference (LossDiff) - 验证依赖的代理**：
-   - 做什么：用前向pass近似IF避免梯度计算
-   - 核心思路：训练一个在验证集上对齐的辅助模型 $\pi_{\theta_{val}}$，计算 $\text{LossDiff}(d) = \ell(\theta; d) - \ell(\theta_{val}; d)$。直觉：LossDiff大→从 $\theta$ 移向 $\theta_{val}$ 能降低该样本loss→该样本与验证目标一致
-   - 设计动机：数学上证明LossDiff与IF正相关(Pearson r=0.77)。只需两次前向pass，无需反向传播
+
+    - 做什么：用前向pass近似IF避免梯度计算
+    - 核心思路：训练一个在验证集上对齐的辅助模型 $\pi_{\theta_{val}}$，计算 $\text{LossDiff}(d) = \ell(\theta; d) - \ell(\theta_{val}; d)$。直觉：LossDiff大→从 $\theta$ 移向 $\theta_{val}$ 能降低该样本loss→该样本与验证目标一致
+    - 设计动机：数学上证明LossDiff与IF正相关(Pearson r=0.77)。只需两次前向pass，无需反向传播
 
 3. **Implicit Reward Margin (IRM) - 无验证的代理**：
-   - 做什么：只用当前模型的内部信号评估数据质量
-   - 核心思路：$\text{IRM}(d) = \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)}$——即DPO loss中sigmoid内的项
-   - 设计动机：IRM衡量模型对chosen vs rejected的偏好强度。与IF正相关(r=0.67)但弱于LossDiff(因不使用验证信息)。优势是完全无需验证集
+
+    - 做什么：只用当前模型的内部信号评估数据质量
+    - 核心思路：$\text{IRM}(d) = \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)}$——即DPO loss中sigmoid内的项
+    - 设计动机：IRM衡量模型对chosen vs rejected的偏好强度。与IF正相关(r=0.67)但弱于LossDiff(因不使用验证信息)。优势是完全无需验证集
 
 4. **LossDiff-IRM组合选择器**：
-   - 做什么：组合两个代理的中间区间交集
-   - 核心思路：选择同时满足LossDiff和IRM都在中间百分位范围内的数据。两者误差来源不同(一个依赖验证一个不依赖)，取交集可以互相抵消错误
-   - 设计动机：单一指标的TIF近似精度有限(Overlap ~0.67-0.70)。组合后Overlap提升到0.73-0.78
+
+    - 做什么：组合两个代理的中间区间交集
+    - 核心思路：选择同时满足LossDiff和IRM都在中间百分位范围内的数据。两者误差来源不同(一个依赖验证一个不依赖)，取交集可以互相抵消错误
+    - 设计动机：单一指标的TIF近似精度有限(Overlap ~0.67-0.70)。组合后Overlap提升到0.73-0.78
 
 ### 训练策略
 - Warm-up: 在全部数据上DPO训练1 epoch

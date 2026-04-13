@@ -52,21 +52,24 @@ $$y' = (W_0 T + \Delta) x$$
 ### 关键设计
 
 1. **张量环矩阵（TRM）变换适应**：
-   - 做什么：参数化变换矩阵 $T$，使其成为全秩、稠密但参数高效的结构
-   - 核心思路：将 $I \times I$ 的矩阵 $T$ 张量化为 $D$ 个 4 阶核心张量 $\mathcal{A}^d \in \mathbb{R}^{I_d \times I_d \times R \times R}$，矩阵元素通过 $T[\overline{i_1 \cdots i_D}, \overline{j_1 \cdots j_D}] = \text{tr}(\mathcal{A}^1[i_1,j_1,:,:] \cdots \mathcal{A}^D[i_D,j_D,:,:])$ 计算
-   - 空间复杂度：$\mathcal{O}(D I^{2/D} R^2)$，远小于原始的 $\mathcal{O}(I^2)$
-   - 设计动机：TRM 天然能表示全秩稠密矩阵（当核心张量稠密且满秩时），解决 OFT 块对角矩阵稀疏性的问题。实验验证（Fig. 3）表明 TRM 在相同参数量下的近似误差显著优于 BOFT
+
+    - 做什么：参数化变换矩阵 $T$，使其成为全秩、稠密但参数高效的结构
+    - 核心思路：将 $I \times I$ 的矩阵 $T$ 张量化为 $D$ 个 4 阶核心张量 $\mathcal{A}^d \in \mathbb{R}^{I_d \times I_d \times R \times R}$，矩阵元素通过 $T[\overline{i_1 \cdots i_D}, \overline{j_1 \cdots j_D}] = \text{tr}(\mathcal{A}^1[i_1,j_1,:,:] \cdots \mathcal{A}^D[i_D,j_D,:,:])$ 计算
+    - 空间复杂度：$\mathcal{O}(D I^{2/D} R^2)$，远小于原始的 $\mathcal{O}(I^2)$
+    - 设计动机：TRM 天然能表示全秩稠密矩阵（当核心张量稠密且满秩时），解决 OFT 块对角矩阵稀疏性的问题。实验验证（Fig. 3）表明 TRM 在相同参数量下的近似误差显著优于 BOFT
 
 2. **张量环（TR）残差适应**：
-   - 做什么：用极致紧凑的结构参数化残差 $\Delta$
-   - 核心思路：将 $\Delta$ 分解为 $2D$ 个 3 阶核心张量 $\mathcal{B}^d \in \mathbb{R}^{I_d \times R \times R}$ 和 $\mathcal{C}^d \in \mathbb{R}^{J_d \times R \times R}$
-   - 空间复杂度：$\mathcal{O}(D I^{1/D} R^2)$，比 TRM 更紧凑
-   - 设计动机：在变换的帮助下，残差部分的秩被有效降低，因此可以使用更紧凑的 TR 结构。模拟实验（Fig. 2c）显示 TRM+TR 组合在极低参数量下（< LoRA R=1 的 10%）就能达到可比较的近似误差
+
+    - 做什么：用极致紧凑的结构参数化残差 $\Delta$
+    - 核心思路：将 $\Delta$ 分解为 $2D$ 个 3 阶核心张量 $\mathcal{B}^d \in \mathbb{R}^{I_d \times R \times R}$ 和 $\mathcal{C}^d \in \mathbb{R}^{J_d \times R \times R}$
+    - 空间复杂度：$\mathcal{O}(D I^{1/D} R^2)$，比 TRM 更紧凑
+    - 设计动机：在变换的帮助下，残差部分的秩被有效降低，因此可以使用更紧凑的 TR 结构。模拟实验（Fig. 2c）显示 TRM+TR 组合在极低参数量下（< LoRA R=1 的 10%）就能达到可比较的近似误差
 
 3. **零初始化策略**：
-   - 做什么：确保训练开始时微调模型与原始模型一致
-   - 核心思路：TRM 部分初始化为单位矩阵（Proposition 1：令每个核心张量切片 $\mathcal{A}^d[:,:,r,r'] = I_{I_d}/R$）；TR 部分的 $\mathcal{B}^1$ 初始化为零张量，其余核心张量用 $\mu P$ 框架的高斯初始化（$\sigma = \Theta(\sqrt{n\_out}/n\_in)$）
-   - 设计动机：与 LoRA 的零初始化一致，避免破坏预训练模型的信息。先前 TR-PEFT 工作使用随机高斯初始化所有因子，导致训练不稳定
+
+    - 做什么：确保训练开始时微调模型与原始模型一致
+    - 核心思路：TRM 部分初始化为单位矩阵（Proposition 1：令每个核心张量切片 $\mathcal{A}^d[:,:,r,r'] = I_{I_d}/R$）；TR 部分的 $\mathcal{B}^1$ 初始化为零张量，其余核心张量用 $\mu P$ 框架的高斯初始化（$\sigma = \Theta(\sqrt{n\_out}/n\_in)$）
+    - 设计动机：与 LoRA 的零初始化一致，避免破坏预训练模型的信息。先前 TR-PEFT 工作使用随机高斯初始化所有因子，导致训练不稳定
 
 ### 损失函数 / 训练策略
 

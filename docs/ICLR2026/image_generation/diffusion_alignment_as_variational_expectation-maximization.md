@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：扩散模型对齐（使生成匹配外部奖励）主要有两条路线：RL（DDPO/DPOK）和直接反向传播（DRaFT/AlignProp）。
+**领域现状**：扩散模型对齐（使生成匹配外部奖励）主要有两条路线：RL（DDPO/DPOK）和直接反向传播（DRaFT/AlignProp）。
 
-2. **现有痛点**：RL 方法用 reverse-KL 优化，导致 mode-seeking 行为→模式坍缩和多样性丧失；直接反向传播依赖奖励模型的梯度信号，容易 reward over-optimization。两类方法在训练后期都出现 reward 高但图像质量/多样性急剧下降的现象。
+**现有痛点**：RL 方法用 reverse-KL 优化，导致 mode-seeking 行为→模式坍缩和多样性丧失；直接反向传播依赖奖励模型的梯度信号，容易 reward over-optimization。两类方法在训练后期都出现 reward 高但图像质量/多样性急剧下降的现象。
 
-3. **核心矛盾**：reward 优化 vs 多样性保持的 trade-off。Reverse-KL 天然 mode-seeking，容易坍缩到单一模式。
+**核心矛盾**：reward 优化 vs 多样性保持的 trade-off。Reverse-KL 天然 mode-seeking，容易坍缩到单一模式。
 
-4. **本文要解决什么？** 设计一个对齐框架，能有效优化奖励的同时保持样本多样性和自然性，且适用于连续（图像）和离散（DNA）扩散模型。
+**本文要解决什么？** 设计一个对齐框架，能有效优化奖励的同时保持样本多样性和自然性，且适用于连续（图像）和离散（DNA）扩散模型。
 
-5. **切入角度**：将对齐问题形式化为变分 EM——引入最优性变量 $\mathcal{O}$ 和轨迹潜变量 $\tau$，E-step 找多模态后验，M-step 用 forward-KL（mode-covering）蒸馏。Forward-KL 天然鼓励覆盖所有模式而非聚焦单一模式。
+**切入角度**：将对齐问题形式化为变分 EM——引入最优性变量 $\mathcal{O}$ 和轨迹潜变量 $\tau$，E-step 找多模态后验，M-step 用 forward-KL（mode-covering）蒸馏。Forward-KL 天然鼓励覆盖所有模式而非聚焦单一模式。
 
-6. **核心 idea 一句话**：E-step 用 test-time search 发现多模态高奖励样本，M-step 用 forward-KL 蒸馏保持多样性，循环迭代逐步改善。
+**核心 idea 一句话**：E-step 用 test-time search 发现多模态高奖励样本，M-step 用 forward-KL 蒸馏保持多样性，循环迭代逐步改善。
 
 ## 方法详解
 
@@ -49,23 +49,27 @@ DAV 在训练中交替执行：
 ### 关键设计
 
 1. **变分 EM 形式化**:
-   - 做什么：将 reward 优化转化为最优性变量的边际似然最大化
-   - 核心思路：定义 $p(\mathcal{O}=1|\tau) \propto \exp(\sum r_t/\alpha)$，轨迹 $\tau$ 是潜变量。ELBO 为 $\mathcal{J}_{\alpha,\gamma}(\eta, p_\theta)$，引入折扣因子 $\gamma$ 衰减远离终端的时间步的信用
-   - 设计动机：EM 框架天然将探索（E-step）和利用（M-step）解耦，且 M-step 的 forward-KL 是 mode-covering 的，防止坍缩
+
+    - 做什么：将 reward 优化转化为最优性变量的边际似然最大化
+    - 核心思路：定义 $p(\mathcal{O}=1|\tau) \propto \exp(\sum r_t/\alpha)$，轨迹 $\tau$ 是潜变量。ELBO 为 $\mathcal{J}_{\alpha,\gamma}(\eta, p_\theta)$，引入折扣因子 $\gamma$ 衰减远离终端的时间步的信用
+    - 设计动机：EM 框架天然将探索（E-step）和利用（M-step）解耦，且 M-step 的 forward-KL 是 mode-covering 的，防止坍缩
 
 2. **E-step: Test-time search**:
-   - 做什么：近似采样最优变分后验 $\eta_k^*(x_{t-1}|x_t) \propto p_{\theta_k}(x_{t-1}|x_t) \exp(Q_{\text{soft}}^*/\alpha)$
-   - 核心思路：两阶段——先用梯度引导（$Q_{\text{soft}}$ 近似为 $\gamma^{t-1} r(\hat{x}_0(x_{t-1}))$，Tweedie's formula）采样 $M$ 个候选粒子，再用重要性采样精炼
-   - 设计动机：单纯 on-policy 重加权（传统 EM-RL）在策略偏离后验时严重偏差。Test-time search 主动探索，发现策略分布外的高奖励区域
+
+    - 做什么：近似采样最优变分后验 $\eta_k^*(x_{t-1}|x_t) \propto p_{\theta_k}(x_{t-1}|x_t) \exp(Q_{\text{soft}}^*/\alpha)$
+    - 核心思路：两阶段——先用梯度引导（$Q_{\text{soft}}$ 近似为 $\gamma^{t-1} r(\hat{x}_0(x_{t-1}))$，Tweedie's formula）采样 $M$ 个候选粒子，再用重要性采样精炼
+    - 设计动机：单纯 on-policy 重加权（传统 EM-RL）在策略偏离后验时严重偏差。Test-time search 主动探索，发现策略分布外的高奖励区域
 
 3. **M-step: Forward-KL 蒸馏**:
-   - 做什么：将 E-step 的搜索轨迹蒸馏到模型参数
-   - 核心思路：$\mathcal{L}_{\text{DAV}} = -\mathbb{E}_{\tau \sim \eta_k^*}[\log p_\theta(\tau)]$。可选加 KL 正则化 $\mathcal{L}_{\text{DAV-KL}} = \mathcal{L}_{\text{DAV}} + \lambda D_{\text{KL}}(p_\theta || p_{\theta^0})$ 约束对预训练模型的偏离
-   - 设计动机：Forward-KL 最小化 = 最大化搜索样本的似然 = mode-covering。与 RL 的 reverse-KL (mode-seeking) 相反，自然保持多样性
+
+    - 做什么：将 E-step 的搜索轨迹蒸馏到模型参数
+    - 核心思路：$\mathcal{L}_{\text{DAV}} = -\mathbb{E}_{\tau \sim \eta_k^*}[\log p_\theta(\tau)]$。可选加 KL 正则化 $\mathcal{L}_{\text{DAV-KL}} = \mathcal{L}_{\text{DAV}} + \lambda D_{\text{KL}}(p_\theta || p_{\theta^0})$ 约束对预训练模型的偏离
+    - 设计动机：Forward-KL 最小化 = 最大化搜索样本的似然 = mode-covering。与 RL 的 reverse-KL (mode-seeking) 相反，自然保持多样性
 
 4. **模块化设计**:
-   - E-step 的搜索算法可替换为任何 test-time search 方法
-   - 适用于连续和离散扩散模型
+
+    - E-step 的搜索算法可替换为任何 test-time search 方法
+    - 适用于连续和离散扩散模型
 
 ### 损失函数 / 训练策略
 

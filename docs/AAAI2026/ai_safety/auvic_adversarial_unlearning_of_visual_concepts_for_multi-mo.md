@@ -59,18 +59,21 @@ $$\min_\theta \max_\phi \mathbb{E}_{x \sim \mathcal{D}} [\mathcal{L}_f + \lambda
 ### 关键设计
 
 1. **多模态对抗扰动（Multimodal Perturbations）**
-   - **文本侧**：通过prompt扰动增强对抗鲁棒性——生成多样化的语义等价查询（问候语变体、改写、上下文干扰），并在每个查询前加上目标概念名称引导模型注意力，放大目标激活以产生更强梯度
-   - **视觉侧**：引入**特征引导图像扰动模块**。冻结CLIP图像编码器提取特征向量 $h = \text{CLIP}(x)$，通过3层Linear-ReLU+tanh的轻量生成器网络 $G_\theta$ 映射到图像形状的扰动 $\delta_\theta \in \mathbb{R}^{3 \times H \times W}$，扰动幅度受 $\ell_\infty$ 约束（$\epsilon = 8/255$），最终对抗图像 $x' = \text{clip}(x + \delta_\theta, 0, 1)$
+
+    - **文本侧**：通过prompt扰动增强对抗鲁棒性——生成多样化的语义等价查询（问候语变体、改写、上下文干扰），并在每个查询前加上目标概念名称引导模型注意力，放大目标激活以产生更强梯度
+    - **视觉侧**：引入**特征引导图像扰动模块**。冻结CLIP图像编码器提取特征向量 $h = \text{CLIP}(x)$，通过3层Linear-ReLU+tanh的轻量生成器网络 $G_\theta$ 映射到图像形状的扰动 $\delta_\theta \in \mathbb{R}^{3 \times H \times W}$，扰动幅度受 $\ell_\infty$ 约束（$\epsilon = 8/255$），最终对抗图像 $x' = \text{clip}(x + \delta_\theta, 0, 1)$
 
 2. **动态锚点保留机制（Dynamic Anchor Preservation）**
-   - 使用GPT生成K个公众人物名称候选列表
-   - 从冻结词表中提取各候选的平均token嵌入 $\bar{e}_i$，计算与目标概念 $\bar{e}_T$ 的余弦相似度
-   - 通过**Gumbel-Softmax采样**可微分地选择top-m个语义最相近的概念作为保护集 $\mathcal{P}_{top}$
-   - Gumbel-Softmax引入的随机性使保护集在训练过程中动态变化，增强鲁棒性
+
+    - 使用GPT生成K个公众人物名称候选列表
+    - 从冻结词表中提取各候选的平均token嵌入 $\bar{e}_i$，计算与目标概念 $\bar{e}_T$ 的余弦相似度
+    - 通过**Gumbel-Softmax采样**可微分地选择top-m个语义最相近的概念作为保护集 $\mathcal{P}_{top}$
+    - Gumbel-Softmax引入的随机性使保护集在训练过程中动态变化，增强鲁棒性
 
 3. **参数高效微调（Parameter-Efficient）**
-   - 仅在CLIP视觉塔的 `q_proj`, `v_proj`, `fc1`, `fc2` 模块插入LoRA适配器
-   - 所有原始权重冻结，语言头完全不动——确保语言流畅性不受影响
+
+    - 仅在CLIP视觉塔的 `q_proj`, `v_proj`, `fc1`, `fc2` 模块插入LoRA适配器
+    - 所有原始权重冻结，语言头完全不动——确保语言流畅性不受影响
 
 ### 损失函数 / 训练策略
 

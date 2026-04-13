@@ -24,12 +24,12 @@ tags:
 将神经网络验证（NN verification）引入机制可解释性，提出首个具有可证明保证的电路发现框架：在连续输入域上保证电路忠实度（input robustness）、在连续 patching 域上保证电路一致性（patching robustness），并形式化了四级最小性层次（quasi → local → subset → cardinal），通过单调性理论将三类保证统一连接。
 
 ## 研究背景与动机
-1. **领域现状**：机制可解释性（MI）中的电路发现旨在找到驱动模型特定行为的子图（circuit）。ACDC、edge attribution patching 等方法已取得进展，但均依赖启发式或采样近似。
-2. **现有痛点**：采样评估电路忠实度存在根本缺陷——即使电路在所有采样点上忠实，微小的输入扰动就可能打破一致性。这在安全关键场景中是不可接受的。同时，"最小性"的定义模糊，不同算法达到的最小性层次不同但缺乏形式化讨论。
-3. **核心矛盾**：电路发现既需要在连续域上保证忠实度（而非离散点），又需要电路尽可能小（可解释），同时 patching 策略的选择（zero/mean/sampling）本身也引入不确定性。
-4. **本文要解决什么？**（1）如何在连续输入域上保证电路忠实度？（2）如何在连续 patching 域上保证电路一致性？（3）如何形式化并追求不同层次的最小性？
-5. **切入角度**：利用神经网络验证领域的 α-β-CROWN 等工具，通过 Siamese 编码将电路和原模型并列，将电路忠实度转化为可验证的输入-输出约束。
-6. **核心idea一句话**：用神经网络验证器替代采样来证明电路的连续域忠实度，用单调性理论统一输入鲁棒性、patching 鲁棒性和最小性保证。
+**领域现状**：机制可解释性（MI）中的电路发现旨在找到驱动模型特定行为的子图（circuit）。ACDC、edge attribution patching 等方法已取得进展，但均依赖启发式或采样近似。
+**现有痛点**：采样评估电路忠实度存在根本缺陷——即使电路在所有采样点上忠实，微小的输入扰动就可能打破一致性。这在安全关键场景中是不可接受的。同时，"最小性"的定义模糊，不同算法达到的最小性层次不同但缺乏形式化讨论。
+**核心矛盾**：电路发现既需要在连续域上保证忠实度（而非离散点），又需要电路尽可能小（可解释），同时 patching 策略的选择（zero/mean/sampling）本身也引入不确定性。
+**本文要解决什么？**（1）如何在连续输入域上保证电路忠实度？（2）如何在连续 patching 域上保证电路一致性？（3）如何形式化并追求不同层次的最小性？
+**切入角度**：利用神经网络验证领域的 α-β-CROWN 等工具，通过 Siamese 编码将电路和原模型并列，将电路忠实度转化为可验证的输入-输出约束。
+**核心idea一句话**：用神经网络验证器替代采样来证明电路的连续域忠实度，用单调性理论统一输入鲁棒性、patching 鲁棒性和最小性保证。
 
 ## 方法详解
 
@@ -39,25 +39,29 @@ tags:
 ### 关键设计
 
 1. **Siamese 编码（输入鲁棒性验证）**：
-   - 做什么：将电路 $C$ 和完整模型 $G$ 并列为一个联合网络 $G \sqcup C'$，共享输入层。
-   - 核心思路：非电路组件的激活固定为 patching 值 $\alpha$，输入约束 $\psi_{in}$ 限制 $z \in \mathcal{Z}$，输出约束 $\psi_{out}$ 检验 $\|f_C(z|\bar{C}=\alpha) - f_G(z)\|_p \leq \delta$。调用 α-β-CROWN 验证。
-   - 保证：若验证通过，电路在整个连续域 $\mathcal{Z}$ 上 100% 忠实。
+
+    - 做什么：将电路 $C$ 和完整模型 $G$ 并列为一个联合网络 $G \sqcup C'$，共享输入层。
+    - 核心思路：非电路组件的激活固定为 patching 值 $\alpha$，输入约束 $\psi_{in}$ 限制 $z \in \mathcal{Z}$，输出约束 $\psi_{out}$ 检验 $\|f_C(z|\bar{C}=\alpha) - f_G(z)\|_p \leq \delta$。调用 α-β-CROWN 验证。
+    - 保证：若验证通过，电路在整个连续域 $\mathcal{Z}$ 上 100% 忠实。
 
 2. **Patching 鲁棒性验证**：
-   - 做什么：保证电路在任意可达 patching 值下忠实，而非仅 zero/mean patching。
-   - Siamese 编码变体：$G$ 和 $C'$ 有不同输入，$C'$ 的非电路激活连接到 $G$ 在 $\mathcal{Z}'$ 上的对应激活。
-   - 解决了 zero-patching "out-of-distribution"的批评。
+
+    - 做什么：保证电路在任意可达 patching 值下忠实，而非仅 zero/mean patching。
+    - Siamese 编码变体：$G$ 和 $C'$ 有不同输入，$C'$ 的非电路激活连接到 $G$ 在 $\mathcal{Z}'$ 上的对应激活。
+    - 解决了 zero-patching "out-of-distribution"的批评。
 
 3. **四级最小性层次**：
-   - **Quasi-minimal**：存在某个组件移除后电路不忠实
-   - **Locally-minimal**：每个组件都是必需的（移除任一都不忠实）
-   - **Subset-minimal**：任何子集的移除都不忠实
-   - **Cardinally-minimal**：全局最小电路
-   - 关键理论：**单调性** (monotonicity)——忠实谓词 $\Phi$ 单调（扩大电路不破坏忠实度）时，贪心算法保证收敛到 subset-minimal。Proposition 5 证明当 $\mathcal{Z} \subseteq \mathcal{Z}'$ 且激活空间闭合时，input+patching robustness 的谓词自动满足单调性。
+
+    - **Quasi-minimal**：存在某个组件移除后电路不忠实
+    - **Locally-minimal**：每个组件都是必需的（移除任一都不忠实）
+    - **Subset-minimal**：任何子集的移除都不忠实
+    - **Cardinally-minimal**：全局最小电路
+    - 关键理论：**单调性** (monotonicity)——忠实谓词 $\Phi$ 单调（扩大电路不破坏忠实度）时，贪心算法保证收敛到 subset-minimal。Proposition 5 证明当 $\mathcal{Z} \subseteq \mathcal{Z}'$ 且激活空间闭合时，input+patching robustness 的谓词自动满足单调性。
 
 4. **MHS 对偶发现 cardinally-minimal 电路**：
-   - 做什么：通过电路与 blocking-set 的最小打击集对偶，逼近全局最小电路。
-   - 核心思路 (Proposition 7)：所有 circuit blocking-sets 的最小打击集等于 cardinally-minimal 电路。用 MaxSAT 求解器高效计算。
+
+    - 做什么：通过电路与 blocking-set 的最小打击集对偶，逼近全局最小电路。
+    - 核心思路 (Proposition 7)：所有 circuit blocking-sets 的最小打击集等于 cardinally-minimal 电路。用 MaxSAT 求解器高效计算。
 
 ## 实验关键数据
 

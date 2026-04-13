@@ -29,9 +29,9 @@ tags:
 
 参考式素描生成的目标是：给定一张内容图像和一张参考素描，生成一幅保持内容结构但采用参考笔触风格（线条粗细、曲率、纹理疏密等）的素描。这一任务面临三个基本挑战：
 
-1. **语义感知的笔触迁移**：需要将参考笔触属性精确映射到语义对应的内容区域，而非简单的全局风格混合
-2. **前景优先**：人类画家自然地用丰富的笔触强调前景、简化背景，但现有方法对所有区域施加均匀风格化
-3. **内容-风格平衡**：素描通过线条编码内容，内容泄露（content leakage）会破坏关键边缘结构
+**语义感知的笔触迁移**：需要将参考笔触属性精确映射到语义对应的内容区域，而非简单的全局风格混合
+**前景优先**：人类画家自然地用丰富的笔触强调前景、简化背景，但现有方法对所有区域施加均匀风格化
+**内容-风格平衡**：素描通过线条编码内容，内容泄露（content leakage）会破坏关键边缘结构
 
 **现有方法的不足**：
 - **训练式方法**（Ref2Sketch、Semi-Ref2Sketch）：对未见风格泛化失败（灾难性遗忘）
@@ -51,23 +51,25 @@ tags:
 
 1. **跨图像笔触注意力（CSA）**：在扩散模型的自注意力层中进行 Key-Value 交换。将参考素描的 K/V 特征与内容图像的 K/V 特征混合后注入生成过程：
 
-   $$K^{ske}_t = K^{ref}_t + \alpha K^{cnt}_t, \quad V^{ske}_t = V^{ref}_t + \alpha V^{cnt}_t$$
+    $K^{ske}_t = K^{ref}_t + \alpha K^{cnt}_t, \quad V^{ske}_t = V^{ref}_t + \alpha V^{cnt}_t$
 
    其中 $\alpha$ 控制参考与内容的混合比例。这种方式不同于直接的特征混合（如 InstantStyle），而是通过注意力机制让笔触特征自然地映射到语义对应区域。但直接 K-V 交换可能扭曲某些结构元素（如曲线），因此需要后续模块配合。
 
 2. **指导性注意力模块（DAM）**：解决前景/背景不均匀风格化问题。具体流程：
-   - 提取 32×32 分辨率的自注意力特征图 $F_{SA}$，通过通道平均聚合
-   - 使用 KMeans 聚类获得分割掩码 $M_j$
-   - 利用 BLIP 提取的名词的交叉注意力图 $A_n$ 计算每个聚类与前景的相关性分数：$r(j,n) = \frac{\sum M_j \cdot A_n}{\sum M_j + \delta}$
-   - 相关性 > 0.35 的聚类标记为前景，抑制背景区域的风格迁移
+
+    - 提取 32×32 分辨率的自注意力特征图 $F_{SA}$，通过通道平均聚合
+    - 使用 KMeans 聚类获得分割掩码 $M_j$
+    - 利用 BLIP 提取的名词的交叉注意力图 $A_n$ 计算每个聚类与前景的相关性分数：$r(j,n) = \frac{\sum M_j \cdot A_n}{\sum M_j + \delta}$
+    - 相关性 > 0.35 的聚类标记为前景，抑制背景区域的风格迁移
 
 3. **语义保持模块（SPM）**：解决参考素描与内容图像语义不匹配时的噪声和错位问题。双重指导：
-   - **文本引导**：通过 CLIP 损失 $L_{sem} = \lambda \cdot \text{CLIP}(I^{ske}, T^{cnt})$ 保持高层语义
-   - **轮廓引导**：将 DDPM 反演过程中缓存的轮廓查询特征注入生成查询：$Q^{ske}_{i+1} = \gamma Q^{cont}_i + (1-\gamma) Q^{ske}_i$（默认 $\gamma=0.25$），轮廓作为"软约束"而非 ControlNet 式的刚性约束
+
+    - **文本引导**：通过 CLIP 损失 $L_{sem} = \lambda \cdot \text{CLIP}(I^{ske}, T^{cnt})$ 保持高层语义
+    - **轮廓引导**：将 DDPM 反演过程中缓存的轮廓查询特征注入生成查询：$Q^{ske}_{i+1} = \gamma Q^{cont}_i + (1-\gamma) Q^{ske}_i$（默认 $\gamma=0.25$），轮廓作为"软约束"而非 ControlNet 式的刚性约束
 
 4. **笔触细节传播增强（SDPE）**：通过自适应对比度增强 $\text{Enhance}(A) = (A - \mu(A))\zeta(\sigma(A)) + \mu(A)$ 抑制低对比度噪声。并行双通道 CFG：一路使用跨图像注意力捕捉笔触特征，一路使用文本引导保持语义，最终 noise 预测为：
 
-   $$\epsilon^t = \epsilon^{self} + \beta_{sg}(\epsilon^{\times}_{stroke} - \epsilon^{self}) + \beta_{text}(\epsilon^{\times}_{text} - \epsilon^{self})$$
+    $\epsilon^t = \epsilon^{self} + \beta_{sg}(\epsilon^{\times}_{stroke} - \epsilon^{self}) + \beta_{text}(\epsilon^{\times}_{text} - \epsilon^{self})$
 
 ### 训练策略
 

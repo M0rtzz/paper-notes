@@ -44,26 +44,29 @@ CarGait是一个两阶段方法：（1）用预训练步态模型做全局排序
 ### 关键设计
 
 1. **Strip-wise多头交叉注意力（Cross-Attention）**:
-   - 预训练模型输出特征图 $F_p, F_c \in \mathbb{R}^{s \times d}$，其中 $s$ 是body strip数量，$d$ 是特征维度
-   - 对probe $F_p$（作为Query）和候选 $F_c$（作为Key/Value）执行多头交叉注意力，得到 $E_p$
-   - 反向再做一次：$F_c$作为Query，$F_p$作为Key/Value，得到 $E_c$
-   - 加残差连接保留预训练模型的信息：$E_p = E_p + F_p$
-   - 设计动机：单阶段模型仅计算对应strip之间的距离（身体部件一一对应），而交叉注意力允许**任意strip之间交互**——头部strip可以关注对方的腿部strip，捕获全局步态动态关系
+
+    - 预训练模型输出特征图 $F_p, F_c \in \mathbb{R}^{s \times d}$，其中 $s$ 是body strip数量，$d$ 是特征维度
+    - 对probe $F_p$（作为Query）和候选 $F_c$（作为Key/Value）执行多头交叉注意力，得到 $E_p$
+    - 反向再做一次：$F_c$作为Query，$F_p$作为Key/Value，得到 $E_c$
+    - 加残差连接保留预训练模型的信息：$E_p = E_p + F_p$
+    - 设计动机：单阶段模型仅计算对应strip之间的距离（身体部件一一对应），而交叉注意力允许**任意strip之间交互**——头部strip可以关注对方的腿部strip，捕获全局步态动态关系
 
 2. **新度量空间与距离计算**:
-   - 交叉注意力后的表示 $E_p, E_c$ 构成新嵌入空间
-   - 新距离 $d_{p,c}^r = \mathcal{Z}(E_p, E_c)$：所有strip特征的平均欧氏距离
-   - 重排序即按新距离升序重新排列top-K列表
-   - 设计动机：在全局特征基础上引入成对的细粒度比较，更好区分hard negatives
+
+    - 交叉注意力后的表示 $E_p, E_c$ 构成新嵌入空间
+    - 新距离 $d_{p,c}^r = \mathcal{Z}(E_p, E_c)$：所有strip特征的平均欧氏距离
+    - 重排序即按新距离升序重新排列top-K列表
+    - 设计动机：在全局特征基础上引入成对的细粒度比较，更好区分hard negatives
 
 3. **训练数据生成与损失函数**:
-   - 训练集构造：用预训练模型对训练集每个probe检索top-v（v=30）候选，包含正样本（同身份）和负样本
-   - Ranking损失（改进的BPR损失）：
-     $$\mathcal{L}_i^* = -\log[\sigma(d_{p_i,neg_i}^r - d_{p_i,pos_i}^r)]$$
-     当triplet已正确排序时用 $\beta=0.1$ 降权，聚焦hard cases
-   - 分类损失：在 $E_p, E_c$ 上接MLP分类器，标准交叉熵，作为正则项
-   - 总损失：$\mathcal{L} = \mathcal{L}_{ranking} + \alpha \mathcal{L}_{CE}$，$\alpha=0.01$
-   - 设计动机：ranking loss直接优化排序目标，分类loss保持身份判别信息
+
+    - 训练集构造：用预训练模型对训练集每个probe检索top-v（v=30）候选，包含正样本（同身份）和负样本
+    - Ranking损失（改进的BPR损失）：
+    $\mathcal{L}_i^* = -\log[\sigma(d_{p_i,neg_i}^r - d_{p_i,pos_i}^r)]$
+      当triplet已正确排序时用 $\beta=0.1$ 降权，聚焦hard cases
+    - 分类损失：在 $E_p, E_c$ 上接MLP分类器，标准交叉熵，作为正则项
+    - 总损失：$\mathcal{L} = \mathcal{L}_{ranking} + \alpha \mathcal{L}_{CE}$，$\alpha=0.01$
+    - 设计动机：ranking loss直接优化排序目标，分类loss保持身份判别信息
 
 ### 推理策略
 

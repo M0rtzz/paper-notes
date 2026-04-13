@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：神经网络在面对分布不一致时表现出不可靠行为，包括后门触发器（neural Trojans）、虚假相关（spurious correlations）和特征泄漏（feature leakage），严重影响模型在安全关键场景中的部署。
-2. **现有痛点**：主流修复策略依赖数据清洗+模型重训，计算和人工代价巨大。Rank-one model editing已在生成/判别模型中展现知识编辑能力，但用于领域适配时存在两个结构性瓶颈：(1) out-of-span残差——新key $k^*$ 不在训练key span内导致已有关联被破坏（Lemma 1）；(2) 样本复杂度——分布偏移下需大量样本精确估计key（Lemma 2）。
-3. **核心矛盾**：现有模型编辑方法固定在最后特征层操作（因其编码高层语义），但实验表明不同层的可编辑性差异显著——对ResNet-18各层分别做rectifying后排名差异可达数倍（Fig. 2），没有哪一层是普遍最优的。
-4. **要解决什么**：(1) data-efficient条件下（甚至仅1个清洁样本）修复模型不可靠行为；(2) 自动定位导致不可靠行为的最关键层，而非手动指定固定层。
-5. **切入角度**：将rank-one editing从"领域适配"重新定位为"行为纠正"（rectification），利用模型训练时已见过clean-corrupted对的结构性质绕开标准编辑的理论瓶颈；再用归因方法量化各层可编辑性作为层选择依据。
-6. **核心idea**：计算corrupted→clean路径上各层Integrated Gradients归因，投影到rank-one编辑方向得到可编辑性标量得分，选得分最高层进行编辑，迭代执行直至行为纠正完成。
+**领域现状**：神经网络在面对分布不一致时表现出不可靠行为，包括后门触发器（neural Trojans）、虚假相关（spurious correlations）和特征泄漏（feature leakage），严重影响模型在安全关键场景中的部署。
+**现有痛点**：主流修复策略依赖数据清洗+模型重训，计算和人工代价巨大。Rank-one model editing已在生成/判别模型中展现知识编辑能力，但用于领域适配时存在两个结构性瓶颈：(1) out-of-span残差——新key $k^*$ 不在训练key span内导致已有关联被破坏（Lemma 1）；(2) 样本复杂度——分布偏移下需大量样本精确估计key（Lemma 2）。
+**核心矛盾**：现有模型编辑方法固定在最后特征层操作（因其编码高层语义），但实验表明不同层的可编辑性差异显著——对ResNet-18各层分别做rectifying后排名差异可达数倍（Fig. 2），没有哪一层是普遍最优的。
+**要解决什么**：(1) data-efficient条件下（甚至仅1个清洁样本）修复模型不可靠行为；(2) 自动定位导致不可靠行为的最关键层，而非手动指定固定层。
+**切入角度**：将rank-one editing从"领域适配"重新定位为"行为纠正"（rectification），利用模型训练时已见过clean-corrupted对的结构性质绕开标准编辑的理论瓶颈；再用归因方法量化各层可编辑性作为层选择依据。
+**核心idea**：计算corrupted→clean路径上各层Integrated Gradients归因，投影到rank-one编辑方向得到可编辑性标量得分，选得分最高层进行编辑，迭代执行直至行为纠正完成。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **纠正设定的理论优势（Rectifiability & Span-Aligned Control）**
-   - 做什么：证明行为纠正设定相比领域适配的两个结构性优势
-   - 核心思路：模型训练时已见过clean和corrupted样本，故corrupted key $k^*$ 天然在训练key的span内（Proposition 4.1, Rectifiability），out-of-span残差消失，已有key-value关联不被破坏；同时paired supervision使key估计误差趋零而不依赖大量新域样本（Proposition 4.2, Span-Aligned Control）
-   - 设计动机：这两个性质从理论上解释了"1个样本即可修复"不是偶然——rectification设定在结构上避开了domain adaptation编辑的两个瓶颈
+
+    - 做什么：证明行为纠正设定相比领域适配的两个结构性优势
+    - 核心思路：模型训练时已见过clean和corrupted样本，故corrupted key $k^*$ 天然在训练key的span内（Proposition 4.1, Rectifiability），out-of-span残差消失，已有key-value关联不被破坏；同时paired supervision使key估计误差趋零而不依赖大量新域样本（Proposition 4.2, Span-Aligned Control）
+    - 设计动机：这两个性质从理论上解释了"1个样本即可修复"不是偶然——rectification设定在结构上避开了domain adaptation编辑的两个瓶颈
 
 2. **归因引导的层定位（Attribution-Guided Layer Localization）**
-   - 做什么：自动找到对不可靠行为贡献最大且最适合编辑的层
-   - 核心思路：以corrupted $\tilde{x}$ 为reference、clean $x$ 为input计算IG归因 $M^l_i(x, \tilde{x}) = (f_l(x_i) - f_l(\tilde{x}_i)) \cdot \int_0^1 \frac{\partial f(\hat{x})}{\partial f_l(\hat{x}_i)} d\alpha$。利用Completeness公理（Lemma 3：各层归因和均等于输出变化 $f(x)-f(\tilde{x})$）实现跨层可比性。将归因投影到编辑方向 $M^{*,l} = M^l \cdot (C^{-1}k^*)^T$，取Frobenius范数得标量得分
-   - 设计动机：归因大小只衡量"这层对不可靠行为多重要"，投影到编辑方向后才衡量"编辑这层能减少多少不可靠性"——这是"归因×编辑方向"的交叉信号，直接关联一阶下降系数 $G_l$
+
+    - 做什么：自动找到对不可靠行为贡献最大且最适合编辑的层
+    - 核心思路：以corrupted $\tilde{x}$ 为reference、clean $x$ 为input计算IG归因 $M^l_i(x, \tilde{x}) = (f_l(x_i) - f_l(\tilde{x}_i)) \cdot \int_0^1 \frac{\partial f(\hat{x})}{\partial f_l(\hat{x}_i)} d\alpha$。利用Completeness公理（Lemma 3：各层归因和均等于输出变化 $f(x)-f(\tilde{x})$）实现跨层可比性。将归因投影到编辑方向 $M^{*,l} = M^l \cdot (C^{-1}k^*)^T$，取Frobenius范数得标量得分
+    - 设计动机：归因大小只衡量"这层对不可靠行为多重要"，投影到编辑方向后才衡量"编辑这层能减少多少不可靠性"——这是"归因×编辑方向"的交叉信号，直接关联一阶下降系数 $G_l$
 
 3. **动态模型纠正框架（Algorithm 1）**
-   - 做什么：迭代定位+编辑多层，自适应修复
-   - 核心思路：while循环检查预测差距 $\delta^* = f(x) - f(\tilde{x})$ 是否超过目标 $\delta$ 且性能退化 $\epsilon^*$ 未超预算。每轮：归因定位嫌疑层→rank-one编辑 $T$ 个epoch→评估编辑后模型→若性能退化可接受则保留编辑结果继续循环，否则回滚并返回
-   - 设计动机：编辑一层后模型状态改变，原先非最优的层可能变成新瓶颈，动态框架允许逐步探索多层修复路径
+
+    - 做什么：迭代定位+编辑多层，自适应修复
+    - 核心思路：while循环检查预测差距 $\delta^* = f(x) - f(\tilde{x})$ 是否超过目标 $\delta$ 且性能退化 $\epsilon^*$ 未超预算。每轮：归因定位嫌疑层→rank-one编辑 $T$ 个epoch→评估编辑后模型→若性能退化可接受则保留编辑结果继续循环，否则回滚并返回
+    - 设计动机：编辑一层后模型状态改变，原先非最优的层可能变成新瓶颈，动态框架允许逐步探索多层修复路径
 
 ### 损失函数 / 训练策略
 Rank-one编辑的优化目标为约束最小二乘：$\min_\Lambda \|v^* - f_l(k^*; W')\|$，约束 $W' = W + \Lambda(C^{-1}k^*)^T$，其中 $k^*$ 是corrupted样本在该层的特征key，$v^*$ 是clean样本在该层的输出value，$C = KK^T$ 是训练样本key的二阶矩统计量。更新矩阵是两个向量的外积（rank-one），有闭式解。动态框架中每轮编辑 $T$ 个epoch后用验证指标 $\zeta$ 评估性能退化程度。

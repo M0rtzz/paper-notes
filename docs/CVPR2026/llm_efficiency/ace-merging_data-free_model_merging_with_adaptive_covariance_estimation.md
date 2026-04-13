@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：预训练+微调产生大量任务专用模型，模型合并(Model Merging)旨在将多个专家模型融合为一个统一模型，避免昂贵的多任务重训。现有方法分三类：数据依赖(需原始数据)、测试时自适应(推理开销大)、数据无关(最灵活)。
-2. **现有痛点**：数据无关方法最具实用价值，但从 Task Arithmetic 到 TIES-Merging 等都只是参数空间的启发式操作（符号对齐、剪枝等），只处理干扰的"症状"而未触及根本原因——任务数据分布的统计结构差异。
-3. **核心矛盾**：最优合并公式 $\bar{W} = (\sum_t W_t \Sigma_t)(\sum_t \Sigma_t)^{-1}$ 需要每个任务的输入协方差 $\Sigma_t$，但数据无关设定下恰恰无法获取这些统计量。
-4. **本文要解决什么？** 如何在完全不访问数据的情况下，准确估计每个任务的输入协方差，从而实现有理论保障的最优合并。
-5. **切入角度**：作者发现微调产生的权重位移 $\Delta W_t$ 的行之间隐含了输入协方差信息——将 $\Delta W_t$ 的行视为独立样本，其经验协方差正比于 $\Sigma_t$。
-6. **核心idea一句话**：微调参数差本身就编码了输入协方差，无需任何数据即可估计并构造理论最优的闭式合并解。
+**领域现状**：预训练+微调产生大量任务专用模型，模型合并(Model Merging)旨在将多个专家模型融合为一个统一模型，避免昂贵的多任务重训。现有方法分三类：数据依赖(需原始数据)、测试时自适应(推理开销大)、数据无关(最灵活)。
+**现有痛点**：数据无关方法最具实用价值，但从 Task Arithmetic 到 TIES-Merging 等都只是参数空间的启发式操作（符号对齐、剪枝等），只处理干扰的"症状"而未触及根本原因——任务数据分布的统计结构差异。
+**核心矛盾**：最优合并公式 $\bar{W} = (\sum_t W_t \Sigma_t)(\sum_t \Sigma_t)^{-1}$ 需要每个任务的输入协方差 $\Sigma_t$，但数据无关设定下恰恰无法获取这些统计量。
+**本文要解决什么？** 如何在完全不访问数据的情况下，准确估计每个任务的输入协方差，从而实现有理论保障的最优合并。
+**切入角度**：作者发现微调产生的权重位移 $\Delta W_t$ 的行之间隐含了输入协方差信息——将 $\Delta W_t$ 的行视为独立样本，其经验协方差正比于 $\Sigma_t$。
+**核心idea一句话**：微调参数差本身就编码了输入协方差，无需任何数据即可估计并构造理论最优的闭式合并解。
 
 ## 方法详解
 
@@ -41,24 +41,28 @@ tags:
 ### 关键设计
 
 1. **从参数差估计输入协方差（理论核心）**:
-   - 做什么：不访问数据即可获得每个任务的输入协方差估计
-   - 核心思路：Theorem 1 证明了 $\Sigma_t \propto \text{Cov}_{\mathcal{D}_t}[\Delta W_t]$。由于微调更新量小，梯度可在 $W_0$ 处线性化，$\Delta W_t \approx -2\eta N_t \mathbb{E}[(W_0 x - y)x^\top]$，因此权重位移隐式编码了输入二阶矩。实际操作中将 $\Delta W_t$ 的行当作独立样本，计算经验协方差 $\hat{\Sigma}_t \propto (\Delta W_t - \mathbf{1}\mu_t^\top)^\top (\Delta W_t - \mathbf{1}\mu_t^\top)$
-   - 设计动机：这是 ACE-Merging 的理论根基，将数据无关合并问题转化为有显式目标的优化问题。此前 WUDI-Merging 虽然隐式使用了类似 proxy $\hat{\Sigma}_t \propto \|\Delta W_t\|_F^{-2} (\Delta W_t)^\top \Delta W_t$，但依赖迭代梯度下降，不稳定
+
+    - 做什么：不访问数据即可获得每个任务的输入协方差估计
+    - 核心思路：Theorem 1 证明了 $\Sigma_t \propto \text{Cov}_{\mathcal{D}_t}[\Delta W_t]$。由于微调更新量小，梯度可在 $W_0$ 处线性化，$\Delta W_t \approx -2\eta N_t \mathbb{E}[(W_0 x - y)x^\top]$，因此权重位移隐式编码了输入二阶矩。实际操作中将 $\Delta W_t$ 的行当作独立样本，计算经验协方差 $\hat{\Sigma}_t \propto (\Delta W_t - \mathbf{1}\mu_t^\top)^\top (\Delta W_t - \mathbf{1}\mu_t^\top)$
+    - 设计动机：这是 ACE-Merging 的理论根基，将数据无关合并问题转化为有显式目标的优化问题。此前 WUDI-Merging 虽然隐式使用了类似 proxy $\hat{\Sigma}_t \propto \|\Delta W_t\|_F^{-2} (\Delta W_t)^\top \Delta W_t$，但依赖迭代梯度下降，不稳定
 
 2. **自适应协方差归一化 (Adaptive Covariance Normalization)**:
-   - 做什么：平衡不同任务间的能量尺度差异
-   - 核心思路：通过异质性度量 $\gamma = \frac{\text{Var}_t[\log\|\Delta W_t\|_F^2]}{(\mathbb{E}_t[\log\|\Delta W_t\|_F^2])^2}$ 检测任务间尺度差异。当 $\gamma > \tau$ 时，先对协方差做 trace 归一化 $\hat{\Sigma}_{t,\text{scaled}} = \hat{\Sigma}_t / \text{Tr}(\hat{\Sigma}_t)$，再施加自适应 Tikhonov 正则 $\hat{\Sigma}_{t,\text{reg}} = \hat{\Sigma}_{t,\text{scaled}} + \frac{\epsilon}{\text{Tr}(\hat{\Sigma}_t)} I$
-   - 设计动机：实验发现 RoBERTa 的任务异质性($\gamma > 0.3$)远大于 ViT($\gamma < 0.25$)；不归一化会导致高能量任务主导合并结果。$\gamma$ 作为开关门控，避免对齐次任务做不必要的归一化
+
+    - 做什么：平衡不同任务间的能量尺度差异
+    - 核心思路：通过异质性度量 $\gamma = \frac{\text{Var}_t[\log\|\Delta W_t\|_F^2]}{(\mathbb{E}_t[\log\|\Delta W_t\|_F^2])^2}$ 检测任务间尺度差异。当 $\gamma > \tau$ 时，先对协方差做 trace 归一化 $\hat{\Sigma}_{t,\text{scaled}} = \hat{\Sigma}_t / \text{Tr}(\hat{\Sigma}_t)$，再施加自适应 Tikhonov 正则 $\hat{\Sigma}_{t,\text{reg}} = \hat{\Sigma}_{t,\text{scaled}} + \frac{\epsilon}{\text{Tr}(\hat{\Sigma}_t)} I$
+    - 设计动机：实验发现 RoBERTa 的任务异质性($\gamma > 0.3$)远大于 ViT($\gamma < 0.25$)；不归一化会导致高能量任务主导合并结果。$\gamma$ 作为开关门控，避免对齐次任务做不必要的归一化
 
 3. **集体结构先验 (Collective Structural Prior, CSP)**:
-   - 做什么：引入各向异性的正则化，捕捉跨任务共享的特征几何结构
-   - 核心思路：$\mathbf{C}_{\text{agg}} = \mathbf{1} \cdot (\frac{1}{d_{\text{in}}} \mathbf{1}^\top \sum_t \hat{\Sigma}_{t,\text{scaled}})$，将所有任务缩放协方差的列均值广播到每一行，形成低秩共识先验。最终闭式解为 $\bar{W}_{\text{pre}} = (\sum_t W_t \hat{\Sigma}_{t,\text{reg}})(\sum_t \hat{\Sigma}_{t,\text{reg}} + \mathbf{C}_{\text{agg}})^{-1}$
-   - 设计动机：标准 $\epsilon I$ 正则是各向同性的，对所有特征维度一视同仁，忽略了输入空间的内在几何。CSP 用跨任务共识的能量分布做权重，选择性增强共享重要维度
+
+    - 做什么：引入各向异性的正则化，捕捉跨任务共享的特征几何结构
+    - 核心思路：$\mathbf{C}_{\text{agg}} = \mathbf{1} \cdot (\frac{1}{d_{\text{in}}} \mathbf{1}^\top \sum_t \hat{\Sigma}_{t,\text{scaled}})$，将所有任务缩放协方差的列均值广播到每一行，形成低秩共识先验。最终闭式解为 $\bar{W}_{\text{pre}} = (\sum_t W_t \hat{\Sigma}_{t,\text{reg}})(\sum_t \hat{\Sigma}_{t,\text{reg}} + \mathbf{C}_{\text{agg}})^{-1}$
+    - 设计动机：标准 $\epsilon I$ 正则是各向同性的，对所有特征维度一视同仁，忽略了输入空间的内在几何。CSP 用跨任务共识的能量分布做权重，选择性增强共享重要维度
 
 4. **谱精炼 (Spectral Refinement)**:
-   - 做什么：修正闭式解中严重的谱病态问题
-   - 核心思路：先计算结构残差 $\Delta_{\text{res}} = \sum_t W_t (\hat{\Sigma}_{t,\text{scaled}} - \bar{\Sigma})$，与 $\bar{W}_{\text{pre}}$ 融合后做 SVD，对 top-$k$ 奇异方向用其均值奇异值 $\sigma_{\text{iso}}$ 重新加权：$\Delta W_{\text{refine}} = \sigma_{\text{iso}} \mathbf{U}_{:,1:k} \mathbf{V}_{:,1:k}^\top$，最终 $\bar{W} = \bar{W}_{\text{pre}} + \Delta W_{\text{refine}}$
-   - 设计动机：实验观察到 $\bar{W}_{\text{pre}}$ 的 top 5% 奇异值就占 99% 以上能量，条件数 >$8.7 \times 10^5$，但主方向是正确的（与最终解余弦相似度≈1）。因此只需保留方向、重新分配能量即可
+
+    - 做什么：修正闭式解中严重的谱病态问题
+    - 核心思路：先计算结构残差 $\Delta_{\text{res}} = \sum_t W_t (\hat{\Sigma}_{t,\text{scaled}} - \bar{\Sigma})$，与 $\bar{W}_{\text{pre}}$ 融合后做 SVD，对 top-$k$ 奇异方向用其均值奇异值 $\sigma_{\text{iso}}$ 重新加权：$\Delta W_{\text{refine}} = \sigma_{\text{iso}} \mathbf{U}_{:,1:k} \mathbf{V}_{:,1:k}^\top$，最终 $\bar{W} = \bar{W}_{\text{pre}} + \Delta W_{\text{refine}}$
+    - 设计动机：实验观察到 $\bar{W}_{\text{pre}}$ 的 top 5% 奇异值就占 99% 以上能量，条件数 >$8.7 \times 10^5$，但主方向是正确的（与最终解余弦相似度≈1）。因此只需保留方向、重新分配能量即可
 
 ### 损失函数 / 训练策略
 ACE-Merging 是纯闭式方法，不涉及任何训练/优化迭代。超参固定为 $\tau=0.3$, $k_{\text{frac}}=0.3$，$\epsilon$ 按模型族调整（GPT-2: $4\times 10^{-2}$, RoBERTa-Base: $2\times 10^{-4}$, 其余: $1\times 10^{-5}$）。

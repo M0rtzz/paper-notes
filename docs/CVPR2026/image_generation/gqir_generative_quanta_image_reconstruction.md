@@ -28,11 +28,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：SPAD 传感器可在极低光照和超高帧率（10k–100k fps）条件下成像，每像素仅记录是否检测到光子（伯努利分布），原始 quanta 帧极度稀疏噪声大。现有重建方法（QBP、QUIVER、QuDI）采用对齐-合并策略或任务特定网络，未利用大规模生成先验。
-2. **现有痛点**：(a) 传统去噪网络（NAFNet、Restormer）针对泊松-高斯噪声，面对伯努利量化噪声严重过度平滑；(b) 已有生成式恢复模型（InstantIR）在常规退化上表现良好但在光子受限域完全失效（PSNR 仅 7.9）；(c) 朴素微调扩散模型的 VAE 编码器会导致**编码器坍缩**——可训练编码器同时控制预测和监督两端，快速收敛到常数输出。
-3. **核心矛盾**：伯努利噪声统计与扩散模型训练数据（连续自然图像）之间存在巨大域差距，直接 fine-tune 会导致 shortcut learning。
-4. **切入角度**：发现退化预移除损失的对称性结构是编码器坍缩的根因，引入冻结编码器副本打破对称性。
-5. **核心idea**：冻结编码器做 LSA 锚点防坍缩 + 对抗 LoRA 单步化 + 潜空间 FusionViT 时空融合。
+**领域现状**：SPAD 传感器可在极低光照和超高帧率（10k–100k fps）条件下成像，每像素仅记录是否检测到光子（伯努利分布），原始 quanta 帧极度稀疏噪声大。现有重建方法（QBP、QUIVER、QuDI）采用对齐-合并策略或任务特定网络，未利用大规模生成先验。
+**现有痛点**：(a) 传统去噪网络（NAFNet、Restormer）针对泊松-高斯噪声，面对伯努利量化噪声严重过度平滑；(b) 已有生成式恢复模型（InstantIR）在常规退化上表现良好但在光子受限域完全失效（PSNR 仅 7.9）；(c) 朴素微调扩散模型的 VAE 编码器会导致**编码器坍缩**——可训练编码器同时控制预测和监督两端，快速收敛到常数输出。
+**核心矛盾**：伯努利噪声统计与扩散模型训练数据（连续自然图像）之间存在巨大域差距，直接 fine-tune 会导致 shortcut learning。
+**切入角度**：发现退化预移除损失的对称性结构是编码器坍缩的根因，引入冻结编码器副本打破对称性。
+**核心idea**：冻结编码器做 LSA 锚点防坍缩 + 对抗 LoRA 单步化 + 潜空间 FusionViT 时空融合。
 
 ## 方法详解
 
@@ -42,27 +42,31 @@ tags:
 ### 关键设计
 
 1. **成像模型**:
-   - 将干净 sRGB 做 gamma 校正 $x_{lin} = x_{gt}^{2.2}$ 映射到线性辐照空间
-   - SPAD 输出服从伯努利分布：$x_{spad} = \text{Bern}(1 - e^{-\alpha \cdot x_{lin}})$，$\alpha=1.0$ 对应期望 PPP=3.5
-   - 施加随机 Bayer 图案后 N 帧平均：$x_{lq} = \frac{1}{N}\sum_{i=1}^{N} M_\pi[\text{Bern}(1-e^{-\alpha \cdot x_{lin}})]$
+
+    - 将干净 sRGB 做 gamma 校正 $x_{lin} = x_{gt}^{2.2}$ 映射到线性辐照空间
+    - SPAD 输出服从伯努利分布：$x_{spad} = \text{Bern}(1 - e^{-\alpha \cdot x_{lin}})$，$\alpha=1.0$ 对应期望 PPP=3.5
+    - 施加随机 Bayer 图案后 N 帧平均：$x_{lq} = \frac{1}{N}\sum_{i=1}^{N} M_\pi[\text{Bern}(1-e^{-\alpha \cdot x_{lin}})]$
 
 2. **量子对齐 VAE（Stage 1）**:
-   - **确定性均值编码**：用 $\mu_\phi(x_{lq})$ 代替随机采样，避免伯努利噪声下的方差放大
-   - **潜空间对齐损失 (LSA)**：$\mathcal{L}_{lsa} = \|\mu_{\phi^*}(x_{lq}) - \mu_\phi(x_{gt})\|_2^2$，其中 $\mu_\phi$ 为**冻结**的原始预训练编码器副本，提供稳定锚点
-   - 辅以像素空间 MSE ($\lambda=10^3$) 和 LPIPS ($\lambda=2$) 损失
-   - 总损失：$\mathcal{L} = 0.1\mathcal{L}_{lsa} + 10^3\mathcal{L}_{MSE} + 2\mathcal{L}_{perc}$
-   - **设计动机**：现有退化预移除让可训练编码器同时出现在预测和监督中导致退化最优，冻结副本从根本上打破对称性
+
+    - **确定性均值编码**：用 $\mu_\phi(x_{lq})$ 代替随机采样，避免伯努利噪声下的方差放大
+    - **潜空间对齐损失 (LSA)**：$\mathcal{L}_{lsa} = \|\mu_{\phi^*}(x_{lq}) - \mu_\phi(x_{gt})\|_2^2$，其中 $\mu_\phi$ 为**冻结**的原始预训练编码器副本，提供稳定锚点
+    - 辅以像素空间 MSE ($\lambda=10^3$) 和 LPIPS ($\lambda=2$) 损失
+    - 总损失：$\mathcal{L} = 0.1\mathcal{L}_{lsa} + 10^3\mathcal{L}_{MSE} + 2\mathcal{L}_{perc}$
+    - **设计动机**：现有退化预移除让可训练编码器同时出现在预测和监督中导致退化最优，冻结副本从根本上打破对称性
 
 3. **对抗 LoRA 微调（Stage 2）**:
-   - 多层级 ConvNeXt-Large 判别器 $\mathcal{V}_\theta$ 对 LoRA 初始化的 U-Net 做标准 min-max GAN 训练
-   - 生成器总损失：$\mathcal{L}_{G} = \mathcal{L}_{adv} + \mathcal{L}_{perc} + \|\mathcal{D}(G_{lora}(\mu_{\phi^*}(x_{lq}))) - x_{gt}\|_2^2$
-   - **设计动机**：SPAD 极高采集速率要求单步推理；LoRA 初始化继承扩散权重保证 GAN 稳定训练起点
+
+    - 多层级 ConvNeXt-Large 判别器 $\mathcal{V}_\theta$ 对 LoRA 初始化的 U-Net 做标准 min-max GAN 训练
+    - 生成器总损失：$\mathcal{L}_{G} = \mathcal{L}_{adv} + \mathcal{L}_{perc} + \|\mathcal{D}(G_{lora}(\mu_{\phi^*}(x_{lq}))) - x_{gt}\|_2^2$
+    - **设计动机**：SPAD 极高采集速率要求单步推理；LoRA 初始化继承扩散权重保证 GAN 稳定训练起点
 
 4. **潜空间 Burst 融合（Stage 3 - FusionViT）**:
-   - 先用 S1+S2 重建所有帧 $Y$，再用 RAFT（FlyingThings3D 预训练）在重建域估光流，避免低质量输入的域差距
-   - pseudo-3D miniViT 用亚二次窗口注意力在时间+空间轴自适应融合，避免朴素平均的运动模糊
-   - 输出通过可学习标量 $\delta=0.05$ 与中心帧潜编码残差相加后送入 $\mathcal{G}_{lora}$
-   - 训练损失：$\mathcal{L}_{fusion} = \|\mathcal{F}(\mu_{\phi^*}(X)) - \mu_\phi(x_{gt})\|_2^2 + \|\mathcal{D}(\mathcal{G}(\mathcal{F}(\mu_{\phi^*}(X)))) - x_{gt}\|_2^2 + \mathcal{L}_{perc}$
+
+    - 先用 S1+S2 重建所有帧 $Y$，再用 RAFT（FlyingThings3D 预训练）在重建域估光流，避免低质量输入的域差距
+    - pseudo-3D miniViT 用亚二次窗口注意力在时间+空间轴自适应融合，避免朴素平均的运动模糊
+    - 输出通过可学习标量 $\delta=0.05$ 与中心帧潜编码残差相加后送入 $\mathcal{G}_{lora}$
+    - 训练损失：$\mathcal{L}_{fusion} = \|\mathcal{F}(\mu_{\phi^*}(X)) - \mu_\phi(x_{gt})\|_2^2 + \|\mathcal{D}(\mathcal{G}(\mathcal{F}(\mu_{\phi^*}(X)))) - x_{gt}\|_2^2 + \mathcal{L}_{perc}$
 
 ### 训练配置
 - Stage 1：8×A100, 600k 步, batch=8, Adam(lr=1e-5), 训练数据 2.81M 图 + 44k 视频

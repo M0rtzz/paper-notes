@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LVLM（如 LLaVA-NeXT、Qwen2-VL）通过高分辨率输入在多模态任务上取得显著进展，但处理信息密集图像（如信息图、文档排版）需要大量 visual token，计算开销巨大。
+**领域现状**：LVLM（如 LLaVA-NeXT、Qwen2-VL）通过高分辨率输入在多模态任务上取得显著进展，但处理信息密集图像（如信息图、文档排版）需要大量 visual token，计算开销巨大。
 
-2. **现有痛点**：Token Pruning 方法（FastV、PyramidDrop、SparseVLM）基于 LLM 解码层的注意力权重来裁剪不重要 token。存在三大问题：
+**现有痛点**：Token Pruning 方法（FastV、PyramidDrop、SparseVLM）基于 LLM 解码层的注意力权重来裁剪不重要 token。存在三大问题：
    - 注意力图不可靠，可能导致幻觉
    - 语义碎片化——视觉元素（如文字）跨多个 token，逐 token 裁剪破坏语义完整性
    - 上下文纠缠——全局自注意力使相关/无关区域 token 纠缠
 
-3. **核心矛盾**：需要高分辨率以捕获细粒度信息 vs 计算效率；逐 token 裁剪的粗暴方式无法保持语义完整性。
+**核心矛盾**：需要高分辨率以捕获细粒度信息 vs 计算效率；逐 token 裁剪的粗暴方式无法保持语义完整性。
 
-4. **本文要解决什么**：如何在保持精度的同时大幅减少视觉 token 数量？
+**本文要解决什么**：如何在保持精度的同时大幅减少视觉 token 数量？
 
-5. **切入角度**：模拟人类视觉策略——先全局扫描定位相关区域，再聚焦细节。区域级而非 token 级的选择更符合语义结构。
+**切入角度**：模拟人类视觉策略——先全局扫描定位相关区域，再聚焦细节。区域级而非 token 级的选择更符合语义结构。
 
-6. **核心 idea**：用可学习的 guidance query 在公共特征空间中对齐视觉区域和文本指令，选择指令相关区域后重新编码，去除无关上下文。
+**核心 idea**：用可学习的 guidance query 在公共特征空间中对齐视觉区域和文本指令，选择指令相关区域后重新编码，去除无关上下文。
 
 ## 方法详解
 
@@ -53,20 +53,23 @@ PinPoint 包含两个阶段：
 ### 关键设计
 
 1. **Region-Level Feature Extraction（区域级特征提取）**：
-   - 将 visual token 重排为 2D 空间网格，使用 $W \times H$ 滑动窗口（stride $S$）提取区域表示 $\mathbf{R}_i \in \mathbb{R}^{W \times H \times d}$
-   - **设计动机**：区域级比较比 token 级更好地捕获上下文关系和语义完整性
+
+    - 将 visual token 重排为 2D 空间网格，使用 $W \times H$ 滑动窗口（stride $S$）提取区域表示 $\mathbf{R}_i \in \mathbb{R}^{W \times H \times d}$
+    - **设计动机**：区域级比较比 token 级更好地捕获上下文关系和语义完整性
 
 2. **Instruction-Region Alignment（指令-区域对齐）**：
-   - 使用可学习 guidance queries $E \in \mathbb{R}^{K \times d}$ 作为跨模态桥梁
-   - 分别对视觉区域和文本指令做缩放点积注意力：
-     $$E_i^v = A_i^v \cdot \mathbf{R}_i', \quad E^t = A^t \cdot \mathbf{T}'$$
-   - 通过余弦相似度排序候选区域，自适应选择 top 区域直至覆盖率达到预设比例 $r$
-   - **设计动机**：decoder-only LLM 没有 CLS token 来聚合语义，BPE 子词与视觉特征不对齐，需要额外模块来桥接
+
+    - 使用可学习 guidance queries $E \in \mathbb{R}^{K \times d}$ 作为跨模态桥梁
+    - 分别对视觉区域和文本指令做缩放点积注意力：
+    $E_i^v = A_i^v \cdot \mathbf{R}_i', \quad E^t = A^t \cdot \mathbf{T}'$
+    - 通过余弦相似度排序候选区域，自适应选择 top 区域直至覆盖率达到预设比例 $r$
+    - **设计动机**：decoder-only LLM 没有 CLS token 来聚合语义，BPE 子词与视觉特征不对齐，需要额外模块来桥接
 
 3. **双对比学习训练**：
-   - **Inter-modal Contrastive Loss** $\mathcal{L}_\text{inter}$：跨模态对齐——正样本为指令文本与其对应正区域，负样本为 batch 内不配对样本
-   - **Intra-image Contrastive Loss** $\mathcal{L}_\text{intra}$：图内区域区分——将指令文本拉向答案相关区域，推离无关区域
-   - **设计动机**：双损失确保模型既能跨模态对齐，又能图内区域区分
+
+    - **Inter-modal Contrastive Loss** $\mathcal{L}_\text{inter}$：跨模态对齐——正样本为指令文本与其对应正区域，负样本为 batch 内不配对样本
+    - **Intra-image Contrastive Loss** $\mathcal{L}_\text{intra}$：图内区域区分——将指令文本拉向答案相关区域，推离无关区域
+    - **设计动机**：双损失确保模型既能跨模态对齐，又能图内区域区分
 
 ### 损失函数 / 训练策略
 

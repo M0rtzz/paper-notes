@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RLHF/DPO 等偏好对齐方法已广泛用于将 T2I 扩散模型（如 SDXL）与人类偏好对齐。这些方法通常依赖一个冻结的参考模型（reference model）做 KL 散度正则化，以确保训练稳定性。
-2. **现有痛点**：作者发现 T2I 扩散模型存在严重的 **"reference mismatch"（参考模型不匹配）** 问题——当偏好数据的分布与参考模型差距较大时（如学习新的艺术风格或个性化特定对象），参考模型反而会**阻碍有效适配**。视觉模态的非结构化特性使得这个问题比 LLM 场景更严重。
-3. **核心矛盾**：reference mismatch 越大，DPO 等方法的性能退化越严重。但实际应用中经常需要将模型适配到与预训练分布差异很大的偏好（如从写实到动漫风格），这正是 reference mismatch 最严重的场景。
-4. **本文要解决什么？** 设计无需参考模型的偏好对齐方法，彻底消除 reference mismatch 对 T2I 扩散模型对齐的负面影响。
-5. **切入角度**：直接在 Bradley-Terry 偏好模型下最大化偏好和非偏好输出之间的似然 margin，同时最大化偏好输出的似然，不锚定任何参考模型。
-6. **核心 idea**：将 T2I 对齐统一为无参考的成对偏好优化，同时学习通用风格特征和特定偏好。
+**领域现状**：RLHF/DPO 等偏好对齐方法已广泛用于将 T2I 扩散模型（如 SDXL）与人类偏好对齐。这些方法通常依赖一个冻结的参考模型（reference model）做 KL 散度正则化，以确保训练稳定性。
+**现有痛点**：作者发现 T2I 扩散模型存在严重的 **"reference mismatch"（参考模型不匹配）** 问题——当偏好数据的分布与参考模型差距较大时（如学习新的艺术风格或个性化特定对象），参考模型反而会**阻碍有效适配**。视觉模态的非结构化特性使得这个问题比 LLM 场景更严重。
+**核心矛盾**：reference mismatch 越大，DPO 等方法的性能退化越严重。但实际应用中经常需要将模型适配到与预训练分布差异很大的偏好（如从写实到动漫风格），这正是 reference mismatch 最严重的场景。
+**本文要解决什么？** 设计无需参考模型的偏好对齐方法，彻底消除 reference mismatch 对 T2I 扩散模型对齐的负面影响。
+**切入角度**：直接在 Bradley-Terry 偏好模型下最大化偏好和非偏好输出之间的似然 margin，同时最大化偏好输出的似然，不锚定任何参考模型。
+**核心 idea**：将 T2I 对齐统一为无参考的成对偏好优化，同时学习通用风格特征和特定偏好。
 
 ## 方法详解
 
@@ -41,18 +41,21 @@ MaPO 基于 Bradley-Terry 模型，直接优化偏好图像和非偏好图像的
 ### 关键设计
 
 1. **无参考偏好优化（Reference-free Preference Optimization）**:
-   - **做什么**：在 Bradley-Terry 模型下直接优化 margin，不依赖参考模型。
-   - **核心思路**：标准 DPO 的损失函数形如 $\mathcal{L}_\text{DPO} = -\log \sigma(\beta [\log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}])$，需要参考模型 $\pi_\text{ref}$。MaPO 去掉参考模型，直接优化 $\log \pi_\theta(y_w|x) - \log \pi_\theta(y_l|x)$（似然 margin），同时加上 $\log \pi_\theta(y_w|x)$ 项防止两侧似然同时下降。
-   - **设计动机**：参考模型在 reference mismatch 场景下成为"锚定障碍"——它限制模型向偏好分布移动的自由度。移除参考模型相当于释放了这个约束，让模型可以自由地向偏好分布适配。
+
+    - **做什么**：在 Bradley-Terry 模型下直接优化 margin，不依赖参考模型。
+    - **核心思路**：标准 DPO 的损失函数形如 $\mathcal{L}_\text{DPO} = -\log \sigma(\beta [\log \frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \log \frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}])$，需要参考模型 $\pi_\text{ref}$。MaPO 去掉参考模型，直接优化 $\log \pi_\theta(y_w|x) - \log \pi_\theta(y_l|x)$（似然 margin），同时加上 $\log \pi_\theta(y_w|x)$ 项防止两侧似然同时下降。
+    - **设计动机**：参考模型在 reference mismatch 场景下成为"锚定障碍"——它限制模型向偏好分布移动的自由度。移除参考模型相当于释放了这个约束，让模型可以自由地向偏好分布适配。
 
 2. **构造 Reference Mismatch 场景的数据集**:
-   - **做什么**：创建 Pick-Style 和 Pick-Safety 两个数据集，分别模拟 reference-chosen mismatch 和 reference-rejected mismatch。
-   - **核心思路**：Pick-Style 通过在 prompt 前加"Disney style animated image"或"Pixel art style image"作为偏好图像 prompt，加"Realistic 8k image"作为非偏好 prompt，模拟风格偏好偏移（参考模型远离偏好风格）。Pick-Safety 则用"Sexual, nudity"前缀生成非偏好图像，模拟安全偏好（参考模型远离非偏好内容）。
-   - **设计动机**：现有偏好数据集不能直接控制 reference mismatch 程度，需要专门构造数据来验证 MaPO 在不同 mismatch 程度下的优势。
+
+    - **做什么**：创建 Pick-Style 和 Pick-Safety 两个数据集，分别模拟 reference-chosen mismatch 和 reference-rejected mismatch。
+    - **核心思路**：Pick-Style 通过在 prompt 前加"Disney style animated image"或"Pixel art style image"作为偏好图像 prompt，加"Realistic 8k image"作为非偏好 prompt，模拟风格偏好偏移（参考模型远离偏好风格）。Pick-Safety 则用"Sexual, nudity"前缀生成非偏好图像，模拟安全偏好（参考模型远离非偏好内容）。
+    - **设计动机**：现有偏好数据集不能直接控制 reference mismatch 程度，需要专门构造数据来验证 MaPO 在不同 mismatch 程度下的优势。
 
 3. **统一多任务 T2I 对齐**:
-   - **做什么**：将 5 个不同的 T2I 任务（安全生成、风格适配、文化表示、个性化、通用偏好）统一为成对偏好优化。
-   - **设计动机**：传统方法需要为不同任务设计不同的对齐策略（如 DreamBooth 用于个性化），MaPO 的无参考框架足够灵活，可以适配所有场景。
+
+    - **做什么**：将 5 个不同的 T2I 任务（安全生成、风格适配、文化表示、个性化、通用偏好）统一为成对偏好优化。
+    - **设计动机**：传统方法需要为不同任务设计不同的对齐策略（如 DreamBooth 用于个性化），MaPO 的无参考框架足够灵活，可以适配所有场景。
 
 ### 损失函数 / 训练策略
 - MaPO 损失：margin-aware loss + 偏好似然最大化项

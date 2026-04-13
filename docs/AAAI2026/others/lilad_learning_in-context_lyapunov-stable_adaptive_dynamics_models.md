@@ -26,14 +26,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：系统辨识旨在从轨迹数据中近似动力系统。神经网络因强表达能力被广泛使用，但通常不保证物理属性（如稳定性），且假设系统是平稳的。
-2. **现有痛点**：
+**领域现状**：系统辨识旨在从轨迹数据中近似动力系统。神经网络因强表达能力被广泛使用，但通常不保证物理属性（如稳定性），且假设系统是平稳的。
+**现有痛点**：
    - 稳定性保证方法（如 Lyapunov 约束的神经网络）假设系统参数不变，无法处理非平稳动态
    - 自适应方法（如 meta-learning、ICL）只追求预测精度，不保证学到的模型稳定
    - 当系统参数变化时，重新训练稳定模型代价极高，不适合时间敏感的安全关键应用
-3. **核心矛盾**：稳定性与自适应性此前分别研究，没有统一框架同时保证两者
-4. **切入角度**：利用 ICL 的 prompt 机制实现零样本自适应，同时通过对抗训练联合学习 Lyapunov 函数来保证稳定性
-5. **核心 idea**：基于 GPT-2 的 ICL 框架联合训练动力学模型 $G_\theta$ 和 Lyapunov 函数 $V_\phi$，并通过二分法计算状态相关的衰减因子 $\gamma(x)$ 严格保证稳定性
+**核心矛盾**：稳定性与自适应性此前分别研究，没有统一框架同时保证两者
+**切入角度**：利用 ICL 的 prompt 机制实现零样本自适应，同时通过对抗训练联合学习 Lyapunov 函数来保证稳定性
+**核心 idea**：基于 GPT-2 的 ICL 框架联合训练动力学模型 $G_\theta$ 和 Lyapunov 函数 $V_\phi$，并通过二分法计算状态相关的衰减因子 $\gamma(x)$ 严格保证稳定性
 
 ## 方法详解
 
@@ -44,19 +44,22 @@ tags:
 ### 关键设计
 
 1. **ICL 框架下的双模型架构**:
-   - 做什么：用相同的 prompt 结构同时训练动力学预测器和 Lyapunov 函数
-   - 核心思路：构建 prompt $\mathscr{P}_j^i = \{x_{i,1}, f(x_{i,1}), \ldots, x_{i,j}, f(x_{i,j}), x_{i,j+1}\}$，$G_\theta$ 预测下一状态，$V_\phi$ 输出 Lyapunov 值。两者共享相同的（linear → GPT-2 transformer → linear）架构
-   - 设计动机：ICL 天然支持上下文自适应，无需梯度更新即可泛化到新任务
+
+    - 做什么：用相同的 prompt 结构同时训练动力学预测器和 Lyapunov 函数
+    - 核心思路：构建 prompt $\mathscr{P}_j^i = \{x_{i,1}, f(x_{i,1}), \ldots, x_{i,j}, f(x_{i,j}), x_{i,j+1}\}$，$G_\theta$ 预测下一状态，$V_\phi$ 输出 Lyapunov 值。两者共享相同的（linear → GPT-2 transformer → linear）架构
+    - 设计动机：ICL 天然支持上下文自适应，无需梯度更新即可泛化到新任务
 
 2. **输出变形确保半正定性**:
-   - 做什么：强制 Lyapunov 函数满足正半定条件 $V(x) > 0, V(0) = 0$
-   - 核心思路：$V_\phi(x|\mathscr{C}) = \sigma(c \cdot \tanh(V^{\text{raw}}_\phi(x|\mathscr{C})) - c \cdot \tanh(V^{\text{raw}}_\phi(0|\mathscr{C}))) + \epsilon \|x\|^2$，其中 $\sigma$ 是平滑 ReLU
-   - 设计动机：通过架构设计内在满足前两个 Lyapunov 条件，训练只需关注第三个条件（指数衰减）
+
+    - 做什么：强制 Lyapunov 函数满足正半定条件 $V(x) > 0, V(0) = 0$
+    - 核心思路：$V_\phi(x|\mathscr{C}) = \sigma(c \cdot \tanh(V^{\text{raw}}_\phi(x|\mathscr{C})) - c \cdot \tanh(V^{\text{raw}}_\phi(0|\mathscr{C}))) + \epsilon \|x\|^2$，其中 $\sigma$ 是平滑 ReLU
+    - 设计动机：通过架构设计内在满足前两个 Lyapunov 条件，训练只需关注第三个条件（指数衰减）
 
 3. **状态相关衰减因子 $\gamma(x)$**:
-   - 做什么：在推理时对可能违反 Lyapunov 约束的状态强制稳定性
-   - 核心思路：对违约状态求解 $V_\phi(\gamma(x) \cdot G_\theta(x|\mathscr{C})|\mathscr{C}) - \beta V_\phi(x|\mathscr{C}) = 0$，通过中值定理证明 $\gamma \in [0,1]$ 必存在解，用二分法高效求解
-   - 设计动机：提供严格的 out-of-distribution 稳定性保证，不依赖于 Lyapunov 模型的凸性假设
+
+    - 做什么：在推理时对可能违反 Lyapunov 约束的状态强制稳定性
+    - 核心思路：对违约状态求解 $V_\phi(\gamma(x) \cdot G_\theta(x|\mathscr{C})|\mathscr{C}) - \beta V_\phi(x|\mathscr{C}) = 0$，通过中值定理证明 $\gamma \in [0,1]$ 必存在解，用二分法高效求解
+    - 设计动机：提供严格的 out-of-distribution 稳定性保证，不依赖于 Lyapunov 模型的凸性假设
 
 ### 损失函数 / 训练策略
 

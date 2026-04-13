@@ -44,15 +44,17 @@ CoRL采用"Foundation-then-Specialization"两阶段范式：
 1. **Pilot Study揭示的设计直觉**：系统对比了4种RL范式（单独训练、单独训练+权重merge、交替训练、统一训练），发现(a)单独RL对生成任务无效甚至有害，(b)统一RL在两个任务上都有优势。这说明双任务在共享policy下能产生协同效应。
 
 2. **Bidirectional Cycle Consistency Reward (ℛcycle)**：针对图像生成设计的核心reward，包含两个方向：
-   - 视觉一致性：用LPIPS计算生成图像与真实图像的感知相似度
-   - 文本一致性：用BLIP对生成图像re-caption，再算SPICE分数衡量与原始prompt的语义一致性
-   - 形成闭环反馈，同时约束视觉和语义
+
+    - 视觉一致性：用LPIPS计算生成图像与真实图像的感知相似度
+    - 文本一致性：用BLIP对生成图像re-caption，再算SPICE分数衡量与原始prompt的语义一致性
+    - 形成闭环反馈，同时约束视觉和语义
 
 3. **Text-Image Matching Reward (ℛTIM)**：用ULM自身的表示空间计算文本-图像token间的双向最大余弦相似度，捕捉细粒度的跨模态对齐。比CLIP Score更适合密集长prompt场景（DPG-Bench上效果更好）。
 
 4. **两阶段训练策略**：
-   - Stage 1：联合reward = ℛcycle + ℛTIM + λ(ℛAcc + ℛFormat)，去掉KL约束以提升泛化
-   - Stage 2：分别用ℛT2I-S2和ℛMCQ/OE-S2做精细化，重新引入KL约束保持稳定，最终权重通过高斯分布merge得到同时支持两种QA格式的模型
+
+    - Stage 1：联合reward = ℛcycle + ℛTIM + λ(ℛAcc + ℛFormat)，去掉KL约束以提升泛化
+    - Stage 2：分别用ℛT2I-S2和ℛMCQ/OE-S2做精细化，重新引入KL约束保持稳定，最终权重通过高斯分布merge得到同时支持两种QA格式的模型
 
 ### 损失函数 / 训练策略
 - GRPO基于group-wise relative advantage，不需要额外的value network

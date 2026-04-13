@@ -25,11 +25,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：自动提示优化（APO）旨在克服手工 prompt 的认知偏差，自动探索更优的 prompt 设计空间。现有方法分两大类——生成-搜索法（APE/ProTeGi/PoisonedRAG：生成候选 prompt + 搜索最优）和元 prompt 法（OPRO/PE2：设计精细的 meta-prompt 指导优化）。
-2. **现有痛点**：(a) **模板刚性**：固定的元 prompt 模板无法动态适应不同任务需求，难以捕捉任务特定的优化方向；(b) **探索低效**：生成-搜索方法只在初始候选附近做局部搜索，可能过早收敛或遗漏更好的 prompt 空间。
-3. **核心矛盾**：prompt 优化的搜索空间是离散、高维、不可微的，无法直接用梯度下降；但又需要类似梯度的"方向性引导"来避免盲目搜索。
-4. **切入角度**：受苏格拉底教学法启发——通过提问（而非直接告知）引导学生自主发现答案。将 prompt 优化过程建模为 POMDP，用多 Agent 协作模拟梯度式的迭代精炼。
-5. **核心 idea 一句话**：五智能体 POMDP 框架——Planner 规划路径 + Teacher-Critic-Student 苏格拉底对话做伪梯度精炼 + Target 评估反馈。
+**领域现状**：自动提示优化（APO）旨在克服手工 prompt 的认知偏差，自动探索更优的 prompt 设计空间。现有方法分两大类——生成-搜索法（APE/ProTeGi/PoisonedRAG：生成候选 prompt + 搜索最优）和元 prompt 法（OPRO/PE2：设计精细的 meta-prompt 指导优化）。
+**现有痛点**：(a) **模板刚性**：固定的元 prompt 模板无法动态适应不同任务需求，难以捕捉任务特定的优化方向；(b) **探索低效**：生成-搜索方法只在初始候选附近做局部搜索，可能过早收敛或遗漏更好的 prompt 空间。
+**核心矛盾**：prompt 优化的搜索空间是离散、高维、不可微的，无法直接用梯度下降；但又需要类似梯度的"方向性引导"来避免盲目搜索。
+**切入角度**：受苏格拉底教学法启发——通过提问（而非直接告知）引导学生自主发现答案。将 prompt 优化过程建模为 POMDP，用多 Agent 协作模拟梯度式的迭代精炼。
+**核心 idea 一句话**：五智能体 POMDP 框架——Planner 规划路径 + Teacher-Critic-Student 苏格拉底对话做伪梯度精炼 + Target 评估反馈。
 
 ## 方法详解
 
@@ -44,19 +44,22 @@ tags:
 ### 关键设计
 
 1. **Planner — 优化轨迹规划**:
-   - 做什么：将抽象的"优化 prompt"目标分解为具体的、有序的子目标序列
-   - 核心思路：$\mathbf{ST} = \pi_{\text{plan}}(g, x, p_0)$，引入隐变量 $z$ 建模任务语义，通过 $\arg\max_{\mathbf{ST}} \mathbb{E}_{z \sim q(z|g,x)}[\log P(\mathbf{ST}|z, p_0)]$ 生成结构化计划
-   - 设计动机：静态 meta-prompt 是"一刀切"的，Planner 为每个任务定制优化路径，实现自适应
+
+    - 做什么：将抽象的"优化 prompt"目标分解为具体的、有序的子目标序列
+    - 核心思路：$\mathbf{ST} = \pi_{\text{plan}}(g, x, p_0)$，引入隐变量 $z$ 建模任务语义，通过 $\arg\max_{\mathbf{ST}} \mathbb{E}_{z \sim q(z|g,x)}[\log P(\mathbf{ST}|z, p_0)]$ 生成结构化计划
+    - 设计动机：静态 meta-prompt 是"一刀切"的，Planner 为每个任务定制优化路径，实现自适应
 
 2. **Teacher-Critic-Student 苏格拉底对话**:
-   - 做什么：通过迭代的问答-批评-修改循环精炼 prompt
-   - 核心思路：每步 $i$——Teacher 提问 $q_i = \pi_t(st_i, p_{i-1}, \mathcal{H}_{<i})$（引导 Student 思考特定方向）→ Critic 评估 $c_i = \pi_c(q_i, \mathcal{H}_{<i})$（确保问题质量和方向正确） → Student 响应更新 $p_i = \pi_s((q_i, c_i), p_{i-1}, \mathcal{H}_{<i})$。所有 Agent 都有对话历史 $\mathcal{H}_{<i}$ 的完整上下文
-   - 设计动机：模拟离散 prompt 空间中的"伪梯度"——Teacher 的问题相当于梯度方向，Critic 确保方向正确，Student 执行"步进"。Proposition 1 形式证明：累计改进有下界 $\geq \sum_i (\bar{A}_i - \sigma^2/2\lambda)$
+
+    - 做什么：通过迭代的问答-批评-修改循环精炼 prompt
+    - 核心思路：每步 $i$——Teacher 提问 $q_i = \pi_t(st_i, p_{i-1}, \mathcal{H}_{<i})$（引导 Student 思考特定方向）→ Critic 评估 $c_i = \pi_c(q_i, \mathcal{H}_{<i})$（确保问题质量和方向正确） → Student 响应更新 $p_i = \pi_s((q_i, c_i), p_{i-1}, \mathcal{H}_{<i})$。所有 Agent 都有对话历史 $\mathcal{H}_{<i}$ 的完整上下文
+    - 设计动机：模拟离散 prompt 空间中的"伪梯度"——Teacher 的问题相当于梯度方向，Critic 确保方向正确，Student 执行"步进"。Proposition 1 形式证明：累计改进有下界 $\geq \sum_i (\bar{A}_i - \sigma^2/2\lambda)$
 
 3. **自适应终止**:
-   - 做什么：基于边际收益自动决定何时停止优化
-   - 核心思路：$\Delta\mathcal{R}^{(t)} = \mathcal{R}^{(t)} - \mathcal{R}^{(t-1)} > \delta$ 且 $t < I$ 则继续。Proposition 2 证明 Lipschitz 条件下奖励变化有界，小步长时收敛
-   - 设计动机：避免过度精炼浪费计算资源
+
+    - 做什么：基于边际收益自动决定何时停止优化
+    - 核心思路：$\Delta\mathcal{R}^{(t)} = \mathcal{R}^{(t)} - \mathcal{R}^{(t-1)} > \delta$ 且 $t < I$ 则继续。Proposition 2 证明 Lipschitz 条件下奖励变化有界，小步长时收敛
+    - 设计动机：避免过度精炼浪费计算资源
 
 ### 训练效率亮点
 仅需 **1 个训练样本**做优化——Planner 从单个示例即可推断任务结构和语义，这是因为 APO 的核心是理解"任务是什么"而非记忆"数据是什么"。

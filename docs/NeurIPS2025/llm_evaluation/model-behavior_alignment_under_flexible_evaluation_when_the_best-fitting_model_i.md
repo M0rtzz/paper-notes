@@ -47,23 +47,24 @@ tags:
 
 1. **从 ANN 表征到行为预测的映射**：对每个预训练 ANN，提取最终表征层 $\mathbf{X} \in \mathbb{R}^{n \times p}$（$n=1854$ 张图像），学习线性变换 $\mathbf{W} \in \mathbb{R}^{p \times p}$。相似性矩阵为 $\mathbf{S} = (\mathbf{X}\mathbf{W})(\mathbf{X}\mathbf{W})^\top$。对三元组 $\{a,b,c\}$ 的 odd-one-out 预测使用 softmax：
 
-   $$p(\text{odd-one-out}=a \mid \{a,b,c\}) = \frac{\exp(S_{b,c}/T)}{\exp(S_{a,b}/T) + \exp(S_{a,c}/T) + \exp(S_{b,c}/T)}$$
+    $p(\text{odd-one-out}=a \mid \{a,b,c\}) = \frac{\exp(S_{b,c}/T)}{\exp(S_{a,b}/T) + \exp(S_{a,c}/T) + \exp(S_{b,c}/T)}$
 
    用 L-BFGS 最小化负对数似然 + 正则化。
 
 2. **改进的正则化**：替换标准 Frobenius 范数正则化为"收缩到标量矩阵"：
-   $$\mathcal{R}(\mathbf{W}) = \min_\gamma \|\mathbf{W} - \gamma\mathbf{I}\|_F^2 = \|\mathbf{W}\|_F^2 - \frac{(\text{tr}(\mathbf{W}))^2}{p}$$
+    $\mathcal{R}(\mathbf{W}) = \min_\gamma \|\mathbf{W} - \gamma\mathbf{I}\|_F^2 = \|\mathbf{W}\|_F^2 - \frac{(\text{tr}(\mathbf{W}))^2}{p}$
    这避免了强惩罚下性能降至零样本以下的问题（Frobenius 正则化会出现此情况）。
 
 3. **噪声校准**：不是最大化预测似然，而是调整温度参数 $T$ 使模型的响应变异性匹配人类噪声天花板（67.8% 的留一被试一致率）。这确保合成数据的噪声水平与真实实验一致。
 
 4. **模型恢复实验流程**：
-   - 20 个多样化 ANN（不同架构和训练任务）
-   - 每个模型先用全量人类数据拟合 $\mathbf{W}$ 并校准温度
-   - 从校准后的模型采样合成行为数据
-   - 所有模型从头拟合合成数据
-   - 3 折交叉验证（不同图像子集），比较预测准确率
-   - 30 个随机种子 × 20 个生成模型 × 18 个数据集大小
+
+    - 20 个多样化 ANN（不同架构和训练任务）
+    - 每个模型先用全量人类数据拟合 $\mathbf{W}$ 并校准温度
+    - 从校准后的模型采样合成行为数据
+    - 所有模型从头拟合合成数据
+    - 3 折交叉验证（不同图像子集），比较预测准确率
+    - 30 个随机种子 × 20 个生成模型 × 18 个数据集大小
 
 ### 可辨识性分析
 

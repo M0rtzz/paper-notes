@@ -26,12 +26,12 @@ TopLoRA 从输入-输出投影角度分析 LoRA 的表达能力，发现所有 t
 
 ## 研究背景与动机
 
-1. **领域现状**：LoRA 通过低秩矩阵 $\Delta W = BA$ 参数高效微调大模型。现有改进主要关注提高秩——HiRA（Hadamard 乘积）、MELoRA（mini-ensemble 堆叠）、MoELoRA（专家混合）。
-2. **现有痛点**：LoRA 中所有 token 共享同一个 $\Delta W = BA$，即同一个输入-输出投影矩阵 $P = R_B L_A$。但不同 token 语义差异大，同一投影方向对不同 token 可能代表完全不同的信息，需要不同的处理方式。
-3. **核心矛盾**：提高秩增加输入/输出空间维度但参数量线性增长；共享投影的表达能力瓶颈不随秩增加而消除。即使秩很高，所有 token 仍共享同一映射关系。
-4. **本文要解决什么？** 在不增加 LoRA 秩的前提下，为每个 token 学习不同的输入-输出投影。
-5. **切入角度**：将 LoRA 通过 QR/LQ 分解为三个组件——输入空间 $Q_A$、输出空间 $Q_B$、投影矩阵 $P = R_B L_A$。秩决定空间维度，$P$ 决定映射关系。投影应该 token-specific。
-6. **核心 idea 一句话**：用轻量投影网络从 token $X$ 生成对角矩阵 $\Sigma_X$，修改投影 $P \to P_X = R_B \Sigma_X L_A$，实现 token 级自适应的输入-输出映射。
+**领域现状**：LoRA 通过低秩矩阵 $\Delta W = BA$ 参数高效微调大模型。现有改进主要关注提高秩——HiRA（Hadamard 乘积）、MELoRA（mini-ensemble 堆叠）、MoELoRA（专家混合）。
+**现有痛点**：LoRA 中所有 token 共享同一个 $\Delta W = BA$，即同一个输入-输出投影矩阵 $P = R_B L_A$。但不同 token 语义差异大，同一投影方向对不同 token 可能代表完全不同的信息，需要不同的处理方式。
+**核心矛盾**：提高秩增加输入/输出空间维度但参数量线性增长；共享投影的表达能力瓶颈不随秩增加而消除。即使秩很高，所有 token 仍共享同一映射关系。
+**本文要解决什么？** 在不增加 LoRA 秩的前提下，为每个 token 学习不同的输入-输出投影。
+**切入角度**：将 LoRA 通过 QR/LQ 分解为三个组件——输入空间 $Q_A$、输出空间 $Q_B$、投影矩阵 $P = R_B L_A$。秩决定空间维度，$P$ 决定映射关系。投影应该 token-specific。
+**核心 idea 一句话**：用轻量投影网络从 token $X$ 生成对角矩阵 $\Sigma_X$，修改投影 $P \to P_X = R_B \Sigma_X L_A$，实现 token 级自适应的输入-输出映射。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ TopLoRA 从输入-输出投影角度分析 LoRA 的表达能力，发现所有 t
 ### 关键设计
 
 1. **Token-wise 对角矩阵生成**:
-   - 做什么：为每个输入 token 生成不同的 $r$ 维对角缩放矩阵
-   - 核心思路：$\Sigma_X = \text{Diag}(\text{Exp}(\text{RMSNorm}(\Theta X)))$。$\Theta X$ 将 token 投影到 $r$ 维空间 → RMSNorm 归一化消除量级影响 → Exp 转为正值缩放因子
-   - 设计动机：RMSNorm 防止 $\Sigma_X$ 受 token 量级和 $\Theta$ 大小影响，增大不同 token 的 $\Sigma_X$ 差异；Exp 防止近零值导致信息丢失，确保即使微小的归一化差异也能被放大
+
+    - 做什么：为每个输入 token 生成不同的 $r$ 维对角缩放矩阵
+    - 核心思路：$\Sigma_X = \text{Diag}(\text{Exp}(\text{RMSNorm}(\Theta X)))$。$\Theta X$ 将 token 投影到 $r$ 维空间 → RMSNorm 归一化消除量级影响 → Exp 转为正值缩放因子
+    - 设计动机：RMSNorm 防止 $\Sigma_X$ 受 token 量级和 $\Theta$ 大小影响，增大不同 token 的 $\Sigma_X$ 差异；Exp 防止近零值导致信息丢失，确保即使微小的归一化差异也能被放大
 
 2. **与标准 LoRA 的关系**:
-   - 做什么：TopLoRA 输出可分解为 LoRA 基础项 + token 自适应修正项
-   - 核心思路：$\Delta W_X X = BAX + B(\Sigma_X - I)AX$。第一项 $BAX$ 是标准 LoRA 输出（全局模式），第二项 $B(\Sigma_X - I)AX$ 是 token 特定的修正
-   - 设计动机：当 $\Sigma_X = I$ 时退化为标准 LoRA，保持了与 LoRA 的兼容性
+
+    - 做什么：TopLoRA 输出可分解为 LoRA 基础项 + token 自适应修正项
+    - 核心思路：$\Delta W_X X = BAX + B(\Sigma_X - I)AX$。第一项 $BAX$ 是标准 LoRA 输出（全局模式），第二项 $B(\Sigma_X - I)AX$ 是 token 特定的修正
+    - 设计动机：当 $\Sigma_X = I$ 时退化为标准 LoRA，保持了与 LoRA 的兼容性
 
 3. **Kaiming 初始化**:
-   - 做什么：$\Theta$ 使用 Kaiming 初始化而非零初始化
-   - 核心思路：与 $A$ 矩阵保持一致的初始化策略，确保使用统一学习率时训练稳定
-   - 设计动机：零初始化会导致初始 $\Sigma_X$ 全为 1（退化为 LoRA），Kaiming 初始化提供有意义的初始差异
+
+    - 做什么：$\Theta$ 使用 Kaiming 初始化而非零初始化
+    - 核心思路：与 $A$ 矩阵保持一致的初始化策略，确保使用统一学习率时训练稳定
+    - 设计动机：零初始化会导致初始 $\Sigma_X$ 全为 1（退化为 LoRA），Kaiming 初始化提供有意义的初始差异
 
 ### 损失函数 / 训练策略
 - 直接使用下游任务损失，与 LoRA 训练流程完全一致

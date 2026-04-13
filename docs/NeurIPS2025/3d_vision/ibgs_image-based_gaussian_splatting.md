@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 3D高斯泼溅（3DGS）已成为新视角合成（NVS）的主流方法，因其高质量渲染和快速优化而广受关注。但每个高斯球在给定视角只能表示单一颜色，且低阶球谐函数（SH）难以捕捉复杂的视角依赖效果。
-2. **现有痛点**: 现有改进方法要么使用全局纹理映射（在复杂场景中失效），要么使用逐高斯纹理映射（存储开销随纹理分辨率平方增长），且仍然无法处理视角依赖效果。
-3. **核心矛盾**: 如何在不显著增加存储的前提下同时建模高频细节和视角依赖效果？
-4. **本文要解决什么**: 利用训练图像中已有的高频细节和视角信息来增强渲染。
-5. **切入角度**: 受传统图像基渲染（IBR）技术启发，将3DGS与图像基渲染结合。
-6. **核心idea**: 像素颜色 = 标准3DGS基础颜色 + 从邻近视角图像学习的颜色残差。
+**领域现状**: 3D高斯泼溅（3DGS）已成为新视角合成（NVS）的主流方法，因其高质量渲染和快速优化而广受关注。但每个高斯球在给定视角只能表示单一颜色，且低阶球谐函数（SH）难以捕捉复杂的视角依赖效果。
+**现有痛点**: 现有改进方法要么使用全局纹理映射（在复杂场景中失效），要么使用逐高斯纹理映射（存储开销随纹理分辨率平方增长），且仍然无法处理视角依赖效果。
+**核心矛盾**: 如何在不显著增加存储的前提下同时建模高频细节和视角依赖效果？
+**本文要解决什么**: 利用训练图像中已有的高频细节和视角信息来增强渲染。
+**切入角度**: 受传统图像基渲染（IBR）技术启发，将3DGS与图像基渲染结合。
+**核心idea**: 像素颜色 = 标准3DGS基础颜色 + 从邻近视角图像学习的颜色残差。
 
 ## 方法详解
 
@@ -47,27 +47,30 @@ $$\mathbf{c}^{\text{final}}(\mathbf{p}) = \underbrace{\sum_{i=1}^{N} w_i \Psi_l(
 ### 关键设计
 
 1. **源视图特征提取**:
-   - 对目标像素 $\mathbf{p}$，计算射线与高斯球的交点 $\mathbf{x}_i(\mathbf{p})$
-   - 交点由射线与高斯中心和法向量定义的平面的交集计算：
-     $$\mathbf{x}_i(\mathbf{p}) = \mathbf{o} + \frac{\mathbf{n}_i^T(\boldsymbol{\mu}_i - \mathbf{o})}{\mathbf{n}_i^T \mathbf{d}(\mathbf{p})} \mathbf{d}(\mathbf{p})$$
-   - 仅投影累计透射率接近0.5的 $K$ 个中位交点（过滤浮动高斯噪声）
-   - 将交点投影到邻近源视图获取颜色，计算加权平均warped颜色与基础颜色的差值：
-     $$\Delta\mathbf{c}_m(\mathbf{p}) = \mathbf{c}_m^{\text{warp}}(\mathbf{p}) - \mathbf{c}(\mathbf{p})$$
+
+    - 对目标像素 $\mathbf{p}$，计算射线与高斯球的交点 $\mathbf{x}_i(\mathbf{p})$
+    - 交点由射线与高斯中心和法向量定义的平面的交集计算：
+    $\mathbf{x}_i(\mathbf{p}) = \mathbf{o} + \frac{\mathbf{n}_i^T(\boldsymbol{\mu}_i - \mathbf{o})}{\mathbf{n}_i^T \mathbf{d}(\mathbf{p})} \mathbf{d}(\mathbf{p})$
+    - 仅投影累计透射率接近0.5的 $K$ 个中位交点（过滤浮动高斯噪声）
+    - 将交点投影到邻近源视图获取颜色，计算加权平均warped颜色与基础颜色的差值：
+    $\Delta\mathbf{c}_m(\mathbf{p}) = \mathbf{c}_m^{\text{warp}}(\mathbf{p}) - \mathbf{c}(\mathbf{p})$
 
 2. **颜色残差预测网络**:
-   - 采用**PointNet风格**的逐像素特征提取器处理每个源视图的颜色差异和相机差异特征
-   - 对多视图特征做max-pooling聚合，得到 $\mathbf{F} \in \mathbb{R}^{H \times W \times 32}$ 的特征图
-   - 使用**9层 $3\times3$ 卷积解码器**预测颜色残差图 $\Delta\mathbf{C}$
-   - 网络极轻量，不影响渲染速度
+
+    - 采用**PointNet风格**的逐像素特征提取器处理每个源视图的颜色差异和相机差异特征
+    - 对多视图特征做max-pooling聚合，得到 $\mathbf{F} \in \mathbb{R}^{H \times W \times 32}$ 的特征图
+    - 使用**9层 $3\times3$ 卷积解码器**预测颜色残差图 $\Delta\mathbf{C}$
+    - 网络极轻量，不影响渲染速度
 
 3. **曝光校正模块**:
-   - 解决现代相机自动曝光导致的跨视图亮度不一致问题
-   - 假设邻近位置有相似光照条件，通过最小二乘拟合仿射变换矩阵：
-     $$\mathbf{A}^{\star} = \arg\min_{\mathbf{A}} \sum_{\mathbf{p}} \left\| \mathbf{A} \begin{bmatrix} \mathbf{c}(\mathbf{p}) \\ 1 \end{bmatrix} - \mathbf{c}_1^{\text{warp}}(\mathbf{p}) \right\|_2^2$$
-   - 关键优势：可推广到任意新视角（现有方法仅校正训练视角）
+
+    - 解决现代相机自动曝光导致的跨视图亮度不一致问题
+    - 假设邻近位置有相似光照条件，通过最小二乘拟合仿射变换矩阵：
+    $\mathbf{A}^{\star} = \arg\min_{\mathbf{A}} \sum_{\mathbf{p}} \left\| \mathbf{A} \begin{bmatrix} \mathbf{c}(\mathbf{p}) \\ 1 \end{bmatrix} - \mathbf{c}_1^{\text{warp}}(\mathbf{p}) \right\|_2^2$
+    - 关键优势：可推广到任意新视角（现有方法仅校正训练视角）
 
 4. **基于可见性的源视图选择**: 通过深度一致性检查排除目标点不可见的源视图：
-   $$\frac{|z(\mathbf{x}(\mathbf{p})) - z(\mathbf{x}_s^{\text{warp}}(\mathbf{p}))|}{z(\mathbf{x}(\mathbf{p})) + z(\mathbf{x}_s^{\text{warp}}(\mathbf{p}))} \leq \tau$$
+    $\frac{|z(\mathbf{x}(\mathbf{p})) - z(\mathbf{x}_s^{\text{warp}}(\mathbf{p}))|}{z(\mathbf{x}(\mathbf{p})) + z(\mathbf{x}_s^{\text{warp}}(\mathbf{p}))} \leq \tau$
 
 ### 损失函数 / 训练策略
 

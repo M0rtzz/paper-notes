@@ -25,12 +25,12 @@ tags:
 提出EPO（Energy Preference Optimization），将反向SDE采样与listwise能量排序偏好优化结合，用能量信号对齐预训练蛋白质生成器与目标Boltzmann分布，在Tetrapeptides/ATLAS/Fast-Folding三个基准9个指标上达到SOTA，完全消除了昂贵的分子动力学（MD）模拟需求。
 
 ## 研究背景与动机
-1. **领域现状**：蛋白质功能依赖于构象集合体（而非单一结构），理解这些集合对药物设计至关重要。传统方法依赖昂贵的MD模拟生成构象。
-2. **现有痛点**：(a) MD模拟计算成本极高（一个蛋白质需要数天到数周）；(b) 预训练生成模型能生成构象但不遵循Boltzmann分布；(c) 基于DPO的pairwise偏好优化会忽视高能量但重要的亚稳态。
-3. **核心矛盾**：想要多样且物理真实的构象集合，但(a)MD太慢、(b)生成模型不遵循热力学、(c)pairwise优化损害多样性。
-4. **本文要解决什么？** 仅用能量信号（无需MD轨迹）对齐生成器产生物理真实且多样的蛋白质构象集合。
-5. **切入角度**：(1) ODE→SDE转换增加随机性逃离局部最小值；(2) listwise替代pairwise保留ensemble多样性；(3) Jensen不等式推导可计算的上界。
-6. **核心idea一句话**：listwise能量排序偏好优化+SDE随机性=多样且物理真实的构象集合，无需MD模拟。
+**领域现状**：蛋白质功能依赖于构象集合体（而非单一结构），理解这些集合对药物设计至关重要。传统方法依赖昂贵的MD模拟生成构象。
+**现有痛点**：(a) MD模拟计算成本极高（一个蛋白质需要数天到数周）；(b) 预训练生成模型能生成构象但不遵循Boltzmann分布；(c) 基于DPO的pairwise偏好优化会忽视高能量但重要的亚稳态。
+**核心矛盾**：想要多样且物理真实的构象集合，但(a)MD太慢、(b)生成模型不遵循热力学、(c)pairwise优化损害多样性。
+**本文要解决什么？** 仅用能量信号（无需MD轨迹）对齐生成器产生物理真实且多样的蛋白质构象集合。
+**切入角度**：(1) ODE→SDE转换增加随机性逃离局部最小值；(2) listwise替代pairwise保留ensemble多样性；(3) Jensen不等式推导可计算的上界。
+**核心idea一句话**：listwise能量排序偏好优化+SDE随机性=多样且物理真实的构象集合，无需MD模拟。
 
 ## 方法详解
 
@@ -40,23 +40,27 @@ tags:
 ### 关键设计
 
 1. **ODE→SDE转换**：
-   - 做什么：将确定性ODE采样转为随机SDE采样
-   - 核心思路：$dx_t = v(x_t,t)dt + \frac{1}{2}w_t s(x_t,t)dt + \sqrt{w_t}d\bar{W}_t$，其中$w_t$控制随机性水平
-   - 设计动机：ODE陷在单一构象的局部最小值，SDE随机性帮助逃离能量屏障探索多个亚稳态
+
+    - 做什么：将确定性ODE采样转为随机SDE采样
+    - 核心思路：$dx_t = v(x_t,t)dt + \frac{1}{2}w_t s(x_t,t)dt + \sqrt{w_t}d\bar{W}_t$，其中$w_t$控制随机性水平
+    - 设计动机：ODE陷在单一构象的局部最小值，SDE随机性帮助逃离能量屏障探索多个亚稳态
 
 2. **Listwise能量排序偏好优化**：
-   - 做什么：用listwise替代pairwise，更公平地对待不同亚稳态
-   - 核心思路：$\mathcal{L}_{LiPO} = -\mathbb{E}\sum_{k=1}^K \log\frac{\exp[s_\theta(\tau^{(k)})]}{\sum_{j=k}^K \exp[s_\theta(\tau^{(j)})]}$，基于Plackett-Luce选择概率
-   - 设计动机：pairwise DPO在多构象场景会渐进忽略高能量但功能重要的亚稳态——listwise给所有排序位置相等的梯度权重
+
+    - 做什么：用listwise替代pairwise，更公平地对待不同亚稳态
+    - 核心思路：$\mathcal{L}_{LiPO} = -\mathbb{E}\sum_{k=1}^K \log\frac{\exp[s_\theta(\tau^{(k)})]}{\sum_{j=k}^K \exp[s_\theta(\tau^{(j)})]}$，基于Plackett-Luce选择概率
+    - 设计动机：pairwise DPO在多构象场景会渐进忽略高能量但功能重要的亚稳态——listwise给所有排序位置相等的梯度权重
 
 3. **可计算轨迹概率上界**：
-   - 做什么：推导连续时间模型中不可解轨迹概率的实用上界
-   - 核心思路：用Jensen不等式近似，$s_\theta(\tau^{(i)}) = \beta(\text{MSE}_t(y_0^{(i)}, y_1^{(i)}; \theta_{ref}) - \text{MSE}_t(y_0^{(i)}, y_1^{(i)}; \theta_{opt}))$
-   - 设计动机：精确轨迹概率在连续生成模型中不可计算
+
+    - 做什么：推导连续时间模型中不可解轨迹概率的实用上界
+    - 核心思路：用Jensen不等式近似，$s_\theta(\tau^{(i)}) = \beta(\text{MSE}_t(y_0^{(i)}, y_1^{(i)}; \theta_{ref}) - \text{MSE}_t(y_0^{(i)}, y_1^{(i)}; \theta_{opt}))$
+    - 设计动机：精确轨迹概率在连续生成模型中不可计算
 
 4. **蛋白质结构表示**：
-   - SE(3)×R³旋转-平移 + 7个扭转角(ψ,φ,ω,χ₁,...,χ₄)
-   - 每残基token $\xi_t^j \in \mathbb{R}^{7+14}$
+
+    - SE(3)×R³旋转-平移 + 7个扭转角(ψ,φ,ω,χ₁,...,χ₄)
+    - 每残基token $\xi_t^j \in \mathbb{R}^{7+14}$
 
 ### 损失函数 / 训练策略
 Listwise LiPO损失+LoRA在线迭代更新。能量通过力场计算（无需MD）。

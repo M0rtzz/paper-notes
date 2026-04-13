@@ -49,22 +49,25 @@ tags:
    常见激活函数都是 Pfaffian 函数（偏导数是自身和多项式的复合），而 Wilkie (1999) 证明所有 Pfaffian 函数生成的结构是 o-minimal 的。这涵盖了 sigmoid、tanh、softplus、swish、GELU、Mish、ELU、softsign 等。
 
 2. **二元性定理（Theorem 2.8）**：对于 $C^1$ 可定义的激活函数和损失函数，梯度流 $\Theta'(t) = -\nabla\mathcal{L}(\Theta(t))$ 有唯一全局解，且恰好满足以下之一：
-   - **(a)** $\lim_{t\to\infty}\Theta(t)$ 存在且为临界点
-   - **(b)** $\lim_{t\to\infty}\|\Theta(t)\|=\infty$ 且 $\lim_{t\to\infty}\mathcal{L}(\Theta(t))$ 为渐近临界值
+
+    - **(a)** $\lim_{t\to\infty}\Theta(t)$ 存在且为临界点
+    - **(b)** $\lim_{t\to\infty}\|\Theta(t)\|=\infty$ 且 $\lim_{t\to\infty}\mathcal{L}(\Theta(t))$ 为渐近临界值
 
    关键推论：存在 $\varepsilon > 0$ 使得任何损失初始值在最优值 $+\varepsilon$ 以内的梯度流最终损失都收敛到最优值。这一"吸引阈值"在深度学习文献中似乎未被注意到。
 
 3. **SAD（Sublinear Analytic Definable）激活函数类**：定义三个性质：
-   - **(S) 次线性**：$\limsup_{t\to\infty}\|f(tx)\|/t < \infty$
-   - **(A) 解析性**：$f$ 是解析函数
-   - **(D) 可定义性**：$f$ 在某个 o-minimal 结构中可定义
+
+    - **(S) 次线性**：$\limsup_{t\to\infty}\|f(tx)\|/t < \infty$
+    - **(A) 解析性**：$f$ 是解析函数
+    - **(D) 可定义性**：$f$ 在某个 o-minimal 结构中可定义
 
    sigmoid、tanh、softplus、swish、GELU、Mish 都是 SAD。ReLU 满足 (S)(D) 但不满足 (A)。SAD 函数具有良好的永久性：SAD 激活构成的神经网络仍然是 SAD。
 
 4. **多项式目标函数的不可精确表示性（Theorem 3.4）**：对任何 $\deg(f)\geq 2$ 的多项式目标、SAD 激活和足够大的架构/数据集，证明 $\mathcal{L}(\theta) > 0$ 对所有 $\theta$ 成立。核心论证：
-   - SAD 网络的次线性性阻止它在全局上等同于 $\geq 2$ 次多项式
-   - 解析性和可定义性提供足够的"刚性"来在有限数据上检测这一性质
-   - 但解析性保证有足够的非平凡 Taylor 系数，允许任意好的近似（Theorem 3.5：$\inf_\theta \mathcal{L}(\theta) = 0$）
+
+    - SAD 网络的次线性性阻止它在全局上等同于 $\geq 2$ 次多项式
+    - 解析性和可定义性提供足够的"刚性"来在有限数据上检测这一性质
+    - 但解析性保证有足够的非平凡 Taylor 系数，允许任意好的近似（Theorem 3.5：$\inf_\theta \mathcal{L}(\theta) = 0$）
 
    结合二元性定理：损失不能为零 + 可以任意接近零 → 最优值只能渐近实现 → 梯度流必然发散。
 

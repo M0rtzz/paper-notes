@@ -28,20 +28,20 @@ tags:
 
 企业ESG（环境、社会与治理）报告中的承诺验证是一个日益重要但极具挑战的任务：
 
-1. **任务背景**：企业发布的ESG报告中包含大量关于环保、社会责任等方面的承诺，这些承诺深刻影响利益相关者的信任和企业声誉。然而，承诺的复杂性和庞大数量使得人工验证极其困难。
+**任务背景**：企业发布的ESG报告中包含大量关于环保、社会责任等方面的承诺，这些承诺深刻影响利益相关者的信任和企业声誉。然而，承诺的复杂性和庞大数量使得人工验证极其困难。
 
-2. **任务分解**：PromiseEval 将承诺验证分解为四个子任务：
+**任务分解**：PromiseEval 将承诺验证分解为四个子任务：
    - 承诺识别（是否包含承诺）
    - 支撑证据评估（是否有具体证据）
    - 清晰度评价（清晰/不清晰/误导）
    - 验证时间分类（2年内/2-5年/5年以上/其他）
 
-3. **核心挑战**：
+**核心挑战**：
    - **数据极少**：英语部分仅约400个训练实例
    - **类别不平衡**：四个子任务的类别分布严重不均
    - **领域特异性**：ESG报告的语言模式（如承诺用语、回避措辞）需要专门处理
 
-4. **研究动机**：在数据稀缺和类别不平衡条件下，单纯依赖预训练模型不足，需要结合领域知识的特征工程和跨任务知识共享的多任务学习来提升性能。
+**研究动机**：在数据稀缺和类别不平衡条件下，单纯依赖预训练模型不足，需要结合领域知识的特征工程和跨任务知识共享的多任务学习来提升性能。
 
 ## 方法详解
 
@@ -55,31 +55,34 @@ tags:
 ### 关键设计
 
 1. **ESG-BERT基线模型（Model 1）**:
-   - 使用预训练的ESG-BERT模型，利用其ESG领域专有知识
-   - 四个子任务各训练一个独立模型
-   - **冻结策略**：仅微调最后2个transformer层和分类头，其余参数冻结。在仅400个训练样本的情况下，这能有效防止过拟合
-   - 使用4折分层交叉验证+Optuna进行超参搜索
+
+    - 使用预训练的ESG-BERT模型，利用其ESG领域专有知识
+    - 四个子任务各训练一个独立模型
+    - **冻结策略**：仅微调最后2个transformer层和分类头，其余参数冻结。在仅400个训练样本的情况下，这能有效防止过拟合
+    - 使用4折分层交叉验证+Optuna进行超参搜索
 
 2. **语言特征增强（Model 2）**:
-   - **核心思路**：将任务特定的语言特征以标签形式前置（prepend）到输入文本前，帮助模型快速捕捉关键模式
-   - **子任务1（承诺识别）**：检测承诺相关词（"commit"、"pledge"、"goal"等词干匹配）+ 情感极性分析（承诺通常正面表述）
-     - 例：`POSITIVE Sentiment. Contains Promise Word. We commit to...`
-   - **子任务2（证据检测）**：统计量化指标词（"percentage"、"dollars"）和证据支撑词（"document"）的数量 + NER检测数字和日期
-     - 例：`Proof_Count_2. Has_Numbers. Our carbon emissions decreased by 15%...`
-   - **子任务3（清晰度评估）**：分别统计模糊用语和明确用语的出现次数
-     - 例：`Vague_Terms_2. Specific_Terms_0. We might consider...`
-   - **子任务4（时间分类）**：提取日期+识别时间线指示词
+
+    - **核心思路**：将任务特定的语言特征以标签形式前置（prepend）到输入文本前，帮助模型快速捕捉关键模式
+    - **子任务1（承诺识别）**：检测承诺相关词（"commit"、"pledge"、"goal"等词干匹配）+ 情感极性分析（承诺通常正面表述）
+      - 例：`POSITIVE Sentiment. Contains Promise Word. We commit to...`
+    - **子任务2（证据检测）**：统计量化指标词（"percentage"、"dollars"）和证据支撑词（"document"）的数量 + NER检测数字和日期
+      - 例：`Proof_Count_2. Has_Numbers. Our carbon emissions decreased by 15%...`
+    - **子任务3（清晰度评估）**：分别统计模糊用语和明确用语的出现次数
+      - 例：`Vague_Terms_2. Specific_Terms_0. We might consider...`
+    - **子任务4（时间分类）**：提取日期+识别时间线指示词
 
 3. **联合子任务模型（Model 3）**:
-   - **基础模型**：DeBERTa-v3-large（比ESG-BERT更强大）
-   - **注意力池化**：替代标准的[CLS] token表示，动态加权所有token的表示
-     - $\alpha_i = \text{softmax}(W_{\text{attn}} h_i)$，$r = \sum_{i=1}^{n} \alpha_i h_i$
-     - 使模型能聚焦于文档中语义相关的关键token
-   - **双任务分类头**：子任务1（承诺）和子任务2（证据）共享encoder，各自有独立的分类通路（Linear → Dropout → LayerNorm → GELU → Linear）
-   - **上下文富化**：在文本前加入页码和文档类型标记
-     - $x_{\text{enriched}} = \text{"[PAGE } p \text{] [ESG REPORT] "} + x_{\text{raw}}$
-   - **多目标加权**：$\mathcal{L} = 0.6 \cdot \mathcal{L}_{\text{promise}} + 0.4 \cdot \mathcal{L}_{\text{evidence}}$，承诺检测权重更高因为它更基础
-   - **测试时增强（TTA）**：3次前向传播使用随机词dropout(10%)和元数据变化，集成平均后用校准阈值分类
+
+    - **基础模型**：DeBERTa-v3-large（比ESG-BERT更强大）
+    - **注意力池化**：替代标准的[CLS] token表示，动态加权所有token的表示
+      - $\alpha_i = \text{softmax}(W_{\text{attn}} h_i)$，$r = \sum_{i=1}^{n} \alpha_i h_i$
+      - 使模型能聚焦于文档中语义相关的关键token
+    - **双任务分类头**：子任务1（承诺）和子任务2（证据）共享encoder，各自有独立的分类通路（Linear → Dropout → LayerNorm → GELU → Linear）
+    - **上下文富化**：在文本前加入页码和文档类型标记
+      - $x_{\text{enriched}} = \text{"[PAGE } p \text{] [ESG REPORT] "} + x_{\text{raw}}$
+    - **多目标加权**：$\mathcal{L} = 0.6 \cdot \mathcal{L}_{\text{promise}} + 0.4 \cdot \mathcal{L}_{\text{evidence}}$，承诺检测权重更高因为它更基础
+    - **测试时增强（TTA）**：3次前向传播使用随机词dropout(10%)和元数据变化，集成平均后用校准阈值分类
 
 ### 损失函数 / 训练策略
 

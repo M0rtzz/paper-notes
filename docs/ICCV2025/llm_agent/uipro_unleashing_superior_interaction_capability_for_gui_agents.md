@@ -31,8 +31,8 @@ tags:
 
 现有方法面临两个关键瓶颈：
 
-1. **数据规模不足**：现有 GUI 交互数据集通常缺乏足够的规模和场景多样性。大规模训练的优势在小规模下无法显现（涌现能力），但 CogAgent（2.47 亿）和 ScreenAI（4.21 亿）等大规模数据集未公开
-2. **训练流程缺陷**：不同 GUI 轨迹数据集采用**异构动作空间**（如 AITW 定义 swipe 为 DUAL_POINT(start, end)，AndroidControl 用 scroll(direction)），直接混合训练会导致动作冲突和性能下降
+**数据规模不足**：现有 GUI 交互数据集通常缺乏足够的规模和场景多样性。大规模训练的优势在小规模下无法显现（涌现能力），但 CogAgent（2.47 亿）和 ScreenAI（4.21 亿）等大规模数据集未公开
+**训练流程缺陷**：不同 GUI 轨迹数据集采用**异构动作空间**（如 AITW 定义 swipe 为 DUAL_POINT(start, end)，AndroidControl 用 scroll(direction)），直接混合训练会导致动作冲突和性能下降
 
 **核心思路**：(1) 构建最大规模开源 GUI 理解数据集（2060 万样本），为 agent 奠定强 grounding 基础；(2) 设计统一动作空间整合异构数据源，释放多源数据的潜力。
 
@@ -49,23 +49,26 @@ UIPro 采用两阶段训练：
 ### 关键设计
 
 1. **大规模 GUI 理解数据构建**：从多来源采集并清洗 GUI 数据（Common Crawl 网页、Android 模拟器、RICO、MobileViews 等），生成 13 种任务类型的 <截图, 指代表达, 坐标> 三元组：
-   - **元素描述（elemgnd/elemref）**：描述视觉外观、元素类型和位置
-   - **用户意图（intentgnd）**：描述用户如何与元素交互，如"点击密码输入框"
-   - **上下文功能（funcgnd/funcref）**：描述交互可供性，如"此元素使用户能分享内容"
-   - **文本定位（textgnd/OCR）**、**图标分类（icongnd/iconref）**、widget 列表、GUI 问答和 GUI 摘要
-   - 最终 2060 万样本关联 250 万唯一截图，67% 新标注、33% 清洗自开源数据
+
+    - **元素描述（elemgnd/elemref）**：描述视觉外观、元素类型和位置
+    - **用户意图（intentgnd）**：描述用户如何与元素交互，如"点击密码输入框"
+    - **上下文功能（funcgnd/funcref）**：描述交互可供性，如"此元素使用户能分享内容"
+    - **文本定位（textgnd/OCR）**、**图标分类（icongnd/iconref）**、widget 列表、GUI 问答和 GUI 摘要
+    - 最终 2060 万样本关联 250 万唯一截图，67% 新标注、33% 清洗自开源数据
 
 2. **统一动作空间设计**：针对异构动作定义的冲突，设计**动作超集**：
-   - 统一 swipe 为 `swipe(start, direction, distance)`，兼容 AITW 的 DUAL_POINT 和 AndroidControl 的 scroll(direction)
-   - 为移动端、Web 端、桌面端分别定义统一动作空间（移动端含 tap, long_press, drag, input_text, swipe, navigate 等 12 种动作）
-   - 统一为 JSON 格式输出，如 `{"action_type": "click", "target": (x, y)}`
-   - 不在 prompt 中包含动作定义（实验发现排除后训练更高效）
+
+    - 统一 swipe 为 `swipe(start, direction, distance)`，兼容 AITW 的 DUAL_POINT 和 AndroidControl 的 scroll(direction)
+    - 为移动端、Web 端、桌面端分别定义统一动作空间（移动端含 tap, long_press, drag, input_text, swipe, navigate 等 12 种动作）
+    - 统一为 JSON 格式输出，如 `{"action_type": "click", "target": (x, y)}`
+    - 不在 prompt 中包含动作定义（实验发现排除后训练更高效）
 
 3. **系统化去噪流程**：因原始 GUI 数据噪声严重（95.9% 主页有可访问性错误，某数据源噪声率达 29%），设计七步去噪：
-   - 检测空白元素（颜色标准差 < 5）
-   - OCR 检测不可见元素
-   - 移除无效/过大/过小边界框
-   - 移除重复框和不匹配元素
+
+    - 检测空白元素（颜色标准差 < 5）
+    - OCR 检测不可见元素
+    - 移除无效/过大/过小边界框
+    - 移除重复框和不匹配元素
 
 ### 损失函数 / 训练策略
 

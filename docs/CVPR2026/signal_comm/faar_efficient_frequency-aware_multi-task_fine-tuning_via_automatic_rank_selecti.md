@@ -30,9 +30,9 @@ tags:
 
 然而，现有 LoRA-based MTL 方法存在两个核心局限：
 
-1. **固定秩问题**：现有方法对所有层和所有任务使用统一的秩，这不符合直觉——不同任务可能需要不同的适应强度，不同层也需要不同程度的微调灵活性。深层需要更强的适应能力来处理任务特定的精细信息，而浅层可能只需少量调整。
+**固定秩问题**：现有方法对所有层和所有任务使用统一的秩，这不符合直觉——不同任务可能需要不同的适应强度，不同层也需要不同程度的微调灵活性。深层需要更强的适应能力来处理任务特定的精细信息，而浅层可能只需少量调整。
 
-2. **缺乏空间归纳偏置**：现有 LoRA-based MTL 策略忽视了跨任务交互在深层的作用。对于语义分割、深度估计、法线估计等密集视觉任务，强空间感知和跨任务几何一致性至关重要，但低秩适应本身缺乏这种能力。
+**缺乏空间归纳偏置**：现有 LoRA-based MTL 策略忽视了跨任务交互在深层的作用。对于语义分割、深度估计、法线估计等密集视觉任务，强空间感知和跨任务几何一致性至关重要，但低秩适应本身缺乏这种能力。
 
 FAAR 的解决思路：
 - 通过动态秩收缩（PDRS）解决固定秩问题，让每个任务/每层自动找到最优秩
@@ -47,34 +47,37 @@ FAAR 基于冻结的 Swin Transformer 骨干，在注意力和 MLP 层放置 DoR
 ### 关键设计
 
 1. **Performance-Driven Rank Shrinking (PDRS)**：
-   - **秩掩码（Rank Masking）**：每次前向传播随机采样前缀大小 $b \in \{1, ..., r_{curr}\}$，构建二进制掩码 $m$，只让前 $b$ 个秩分量参与计算
-     - $A^{eff} = \text{diag}(m) A$, $B^{eff} = B \text{diag}(m)$
-   - 这迫使重要的秩-1 更新向低维方向集中
-   - **覆盖策略（Coverage Strategy）**：
-     - 每次反向传播计算每个活跃秩 $i$ 的重要性分数：$s_i = \frac{1}{2}(|\langle A_{:,i}^{eff}, \frac{\partial \mathcal{L}}{\partial A_{:,i}^{eff}} \rangle| + |\langle B_{i,:}^{eff}, \frac{\partial \mathcal{L}}{\partial B_{i,:}^{eff}} \rangle|)$
-     - 通过 EMA 累积跨批次的分数：$\hat{s}_i \leftarrow \beta \hat{s}_{i-1} + (1-\beta) s_i$
-     - 每个 epoch 末尾，按分数降序排列，选择满足覆盖率 $\rho$ 的最少秩数 $K$：$K = \min\{k : c(k) \geq \rho\}$
-     - 未覆盖的秩从优化中永久删除
-   - 设计动机：基于 MTL 损失的方向导数反映每个秩-1 分量的实际贡献，以性能为导向的收缩确保不损失关键更新
+
+    - **秩掩码（Rank Masking）**：每次前向传播随机采样前缀大小 $b \in \{1, ..., r_{curr}\}$，构建二进制掩码 $m$，只让前 $b$ 个秩分量参与计算
+      - $A^{eff} = \text{diag}(m) A$, $B^{eff} = B \text{diag}(m)$
+    - 这迫使重要的秩-1 更新向低维方向集中
+    - **覆盖策略（Coverage Strategy）**：
+      - 每次反向传播计算每个活跃秩 $i$ 的重要性分数：$s_i = \frac{1}{2}(|\langle A_{:,i}^{eff}, \frac{\partial \mathcal{L}}{\partial A_{:,i}^{eff}} \rangle| + |\langle B_{i,:}^{eff}, \frac{\partial \mathcal{L}}{\partial B_{i,:}^{eff}} \rangle|)$
+      - 通过 EMA 累积跨批次的分数：$\hat{s}_i \leftarrow \beta \hat{s}_{i-1} + (1-\beta) s_i$
+      - 每个 epoch 末尾，按分数降序排列，选择满足覆盖率 $\rho$ 的最少秩数 $K$：$K = \min\{k : c(k) \geq \rho\}$
+      - 未覆盖的秩从优化中永久删除
+    - 设计动机：基于 MTL 损失的方向导数反映每个秩-1 分量的实际贡献，以性能为导向的收缩确保不损失关键更新
 
 2. **DoRA 适配器（而非 LoRA）**：
-   - DoRA 将低秩适应解耦为幅度和方向：$\text{Out}_i^{DoRA} = m_i \frac{W_i + \alpha B_i A_i}{\|W_i + \alpha B_i A_i\|_2} x + b_i$
-   - 在极低秩下比 LoRA 更稳定，与 PDRS 的秩收缩配合更好
-   - 实验验证：高秩时 DoRA 不一定优于 LoRA，但低秩时 DoRA 明显更好
+
+    - DoRA 将低秩适应解耦为幅度和方向：$\text{Out}_i^{DoRA} = m_i \frac{W_i + \alpha B_i A_i}{\|W_i + \alpha B_i A_i\|_2} x + b_i$
+    - 在极低秩下比 LoRA 更稳定，与 PDRS 的秩收缩配合更好
+    - 实验验证：高秩时 DoRA 不一定优于 LoRA，但低秩时 DoRA 明显更好
 
 3. **Task-Spectral Pyramidal Decoder (TS-PD)**：
-   - **Channel-wise Spectral Filter (CW-SP)**：
-     - 对每个任务特定特征进行 FFT，学习任务/分辨率特定的 2D 频率滤波矩阵 $W_t^{res}$
-     - 通过逐元素乘法 $Y = W \odot FFT(I)$ 选择性增强/抑制不同频率
-     - 逆 FFT 变换回特征空间后，用可学习的 scale/shift 参数调制
-     - 设计动机：不同任务需要不同的频率信息——边缘检测依赖高频，深度估计利用高低频
 
-   - **Cross-Task Consensus Alignment (XT-Cons)**：
-     - 对于主任务，计算辅助任务频谱的平均表示 $F_{avg}$
-     - 从主任务频谱提取高频和低频掩码 $M_{low}$, $M_{high}$
-     - 计算对齐差异：$\Delta_{low,high} = M_{low,high} * (F_{avg} - FFT(X_i^{main}))$
-     - 用可学习标量 $\alpha_{low,high}$ 缩放贡献
-     - 设计动机：通过频域中辅助任务的"共识"来推动主任务表示的几何一致性，比直接在空间域交互更廉价
+    - **Channel-wise Spectral Filter (CW-SP)**：
+      - 对每个任务特定特征进行 FFT，学习任务/分辨率特定的 2D 频率滤波矩阵 $W_t^{res}$
+      - 通过逐元素乘法 $Y = W \odot FFT(I)$ 选择性增强/抑制不同频率
+      - 逆 FFT 变换回特征空间后，用可学习的 scale/shift 参数调制
+      - 设计动机：不同任务需要不同的频率信息——边缘检测依赖高频，深度估计利用高低频
+
+    - **Cross-Task Consensus Alignment (XT-Cons)**：
+      - 对于主任务，计算辅助任务频谱的平均表示 $F_{avg}$
+      - 从主任务频谱提取高频和低频掩码 $M_{low}$, $M_{high}$
+      - 计算对齐差异：$\Delta_{low,high} = M_{low,high} * (F_{avg} - FFT(X_i^{main}))$
+      - 用可学习标量 $\alpha_{low,high}$ 缩放贡献
+      - 设计动机：通过频域中辅助任务的"共识"来推动主任务表示的几何一致性，比直接在空间域交互更廉价
 
 ### 损失函数 / 训练策略
 

@@ -25,21 +25,21 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：药品不良事件（ADE）是可预防性医疗伤害的重要来源，自动药丸识别系统被寄予厚望。现有系统多在受控条件下（单药丸、干净背景、统一光照）训练和评估，表现优异。
+**领域现状**：药品不良事件（ADE）是可预防性医疗伤害的重要来源，自动药丸识别系统被寄予厚望。现有系统多在受控条件下（单药丸、干净背景、统一光照）训练和评估，表现优异。
 
-2. **现有痛点**：实际部署场景与受控环境差异巨大——药丸存放在dosette box中，多药丸重叠、遮挡、反光、背景杂乱。现有few-shot药丸识别研究几乎都在同分布数据上评估（训练和测试来自相似视觉条件），报告的高精度可能严重高估了真实鲁棒性。
+**现有痛点**：实际部署场景与受控环境差异巨大——药丸存放在dosette box中，多药丸重叠、遮挡、反光、背景杂乱。现有few-shot药丸识别研究几乎都在同分布数据上评估（训练和测试来自相似视觉条件），报告的高精度可能严重高估了真实鲁棒性。
 
-3. **核心矛盾**：few-shot学习能否在跨域场景下保持有效？现有评估协议回避了最关键的部署挑战——训练数据（受控单药丸）和部署环境（混乱多药丸场景）之间存在系统性domain shift。标准的mAP指标在标注异构条件下也无法公平比较。
+**核心矛盾**：few-shot学习能否在跨域场景下保持有效？现有评估协议回避了最关键的部署挑战——训练数据（受控单药丸）和部署环境（混乱多药丸场景）之间存在系统性domain shift。标准的mAP指标在标注异构条件下也无法公平比较。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 跨数据集domain shift下few-shot适应的真实泛化能力如何？
    - base训练数据的视觉真实性vs数据量，哪个更影响few-shot表现？
    - 语义分类和定位性能在few-shot+遮挡条件下是否一致？
    - few-shot fine-tuning能否作为部署就绪性的诊断工具？
 
-5. **切入角度**：不追求架构创新，而是设计严格的跨域评估协议（CURE受控单药丸 vs MEDISEG真实多药丸 → 新部署环境），用classification-centric metrics替代传统mAP来公平评估。
+**切入角度**：不追求架构创新，而是设计严格的跨域评估协议（CURE受控单药丸 vs MEDISEG真实多药丸 → 新部署环境），用classification-centric metrics替代传统mAP来公平评估。
 
-6. **核心idea一句话**：将few-shot fine-tuning重新定位为部署就绪性诊断工具，通过跨域+重叠压力测试暴露分类-定位解耦的系统性失败模式。
+**核心idea一句话**：将few-shot fine-tuning重新定位为部署就绪性诊断工具，通过跨域+重叠压力测试暴露分类-定位解耦的系统性失败模式。
 
 ## 方法详解
 
@@ -51,24 +51,28 @@ tags:
 ### 关键设计
 
 1. **数据集设计与对比**
-   - 做什么：刻意选择两个视觉复杂度差异巨大的数据集作为base training来源
-   - 核心思路：CURE（8973图/196类/单药丸受控环境/全图bbox标注）vs MEDISEG（8262图/32类/多药丸真实场景/实例级bbox标注）。两者类别不重叠，都不与novel类别混合
-   - 设计动机：通过控制base domain的视觉真实性，隔离"训练数据真实性"这一变量对few-shot泛化的影响。CURE数据量多、类别多但单一简单；MEDISEG数据量少、类别少但视觉复杂度高——这构成了一个自然的"量vs质"实验
+
+    - 做什么：刻意选择两个视觉复杂度差异巨大的数据集作为base training来源
+    - 核心思路：CURE（8973图/196类/单药丸受控环境/全图bbox标注）vs MEDISEG（8262图/32类/多药丸真实场景/实例级bbox标注）。两者类别不重叠，都不与novel类别混合
+    - 设计动机：通过控制base domain的视觉真实性，隔离"训练数据真实性"这一变量对few-shot泛化的影响。CURE数据量多、类别多但单一简单；MEDISEG数据量少、类别少但视觉复杂度高——这构成了一个自然的"量vs质"实验
 
 2. **Few-shot适应协议**
-   - 做什么：在novel deployment dataset上执行5-way K-shot适应
-   - 核心思路：$K \in \{1, 5, 10\}$，support set从部署数据集采样，query set（516图）和overlap-only set（133图）严格分离。Fine-tuning固定2000 iterations，SGD + momentum 0.9，lr=$1\times10^{-3}$，backbone冻结，仅微调ROI heads和部分RPN
-   - 设计动机：固定训练预算消除训练时长混淆；冻结backbone保留base知识；严格数据分离确保观察到的差异归因于base-domain特性而非数据泄露
+
+    - 做什么：在novel deployment dataset上执行5-way K-shot适应
+    - 核心思路：$K \in \{1, 5, 10\}$，support set从部署数据集采样，query set（516图）和overlap-only set（133图）严格分离。Fine-tuning固定2000 iterations，SGD + momentum 0.9，lr=$1\times10^{-3}$，backbone冻结，仅微调ROI heads和部分RPN
+    - 设计动机：固定训练预算消除训练时长混淆；冻结backbone保留base知识；严格数据分离确保观察到的差异归因于base-domain特性而非数据泄露
 
 3. **Classification-centric评估体系**
-   - 做什么：用前景分类准确率（FG-Acc）、假阴性率（FN rate）、RPN分类loss、总loss替代传统mAP作为主要指标
-   - 核心思路：$\text{FG-Acc} = \frac{\text{正确前景分类数}}{\text{总前景提议数}}$，$\text{FN} = \frac{\text{漏检GT目标数}}{\text{总GT目标数}}$
-   - 设计动机：CURE（全图bbox）和MEDISEG（实例bbox）标注粒度不同导致IoU匹配不一致，AP在跨标注策略时不可比。分类指标和错误指标能隔离语义识别和定位失败，暴露mAP掩盖的失败模式
+
+    - 做什么：用前景分类准确率（FG-Acc）、假阴性率（FN rate）、RPN分类loss、总loss替代传统mAP作为主要指标
+    - 核心思路：$\text{FG-Acc} = \frac{\text{正确前景分类数}}{\text{总前景提议数}}$，$\text{FN} = \frac{\text{漏检GT目标数}}{\text{总GT目标数}}$
+    - 设计动机：CURE（全图bbox）和MEDISEG（实例bbox）标注粒度不同导致IoU匹配不一致，AP在跨标注策略时不可比。分类指标和错误指标能隔离语义识别和定位失败，暴露mAP掩盖的失败模式
 
 4. **Overlap-only压力测试**
-   - 做什么：从部署数据集中筛选133张严重重叠的药丸场景作为独立测试集
-   - 核心思路：人工验证每张图片确实存在显著遮挡/边界模糊，提供instance-level bbox + segmentation mask标注。与standard评估共享label space但改变场景结构
-   - 设计动机：标准评估可能混淆简单场景和困难场景的表现；overlap-only set隔离最具挑战的视觉条件，直接暴露模型在遮挡下的脆弱性
+
+    - 做什么：从部署数据集中筛选133张严重重叠的药丸场景作为独立测试集
+    - 核心思路：人工验证每张图片确实存在显著遮挡/边界模糊，提供instance-level bbox + segmentation mask标注。与standard评估共享label space但改变场景结构
+    - 设计动机：标准评估可能混淆简单场景和困难场景的表现；overlap-only set隔离最具挑战的视觉条件，直接暴露模型在遮挡下的脆弱性
 
 ### 训练策略
 - Base training：标准Faster R-CNN训练，固定设置不随实验变化

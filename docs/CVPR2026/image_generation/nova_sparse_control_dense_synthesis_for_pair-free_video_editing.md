@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：扩散模型驱动的视频编辑方法发展迅速。数据驱动方法（Senorita-2M、VACE）需要大规模配对数据；首帧引导方法（AnyV2V、I2VEdit）将编辑从第一帧传播到整个视频，依赖运动补偿。
-2. **现有痛点**：(a) 配对视频数据极难获取，合成数据含伪影影响泛化；(b) 仅依赖首帧的方法在相机/物体大运动下出现结构漂移；(c) 全局编辑效果尚可但**局部编辑**（特定区域修改）普遍失败——背景不一致、编辑区域伪影严重。
-3. **核心矛盾**：控制信号（what to change）和合成信号（what to preserve）被耦合在同一路径中，模型难以区分"变什么"和"保什么"。
-4. **本文要解决什么**：解耦控制与合成，在无配对数据条件下实现高质量视频编辑。
-5. **切入角度**：多关键帧提供更强的时空锚点，而原始视频本身就是最好的运动/纹理参考。
-6. **核心idea一句话**：稀疏分支编码多编辑关键帧做语义引导，密集分支编码原始视频做运动/纹理注入，退化模拟实现自监督训练。
+**领域现状**：扩散模型驱动的视频编辑方法发展迅速。数据驱动方法（Senorita-2M、VACE）需要大规模配对数据；首帧引导方法（AnyV2V、I2VEdit）将编辑从第一帧传播到整个视频，依赖运动补偿。
+**现有痛点**：(a) 配对视频数据极难获取，合成数据含伪影影响泛化；(b) 仅依赖首帧的方法在相机/物体大运动下出现结构漂移；(c) 全局编辑效果尚可但**局部编辑**（特定区域修改）普遍失败——背景不一致、编辑区域伪影严重。
+**核心矛盾**：控制信号（what to change）和合成信号（what to preserve）被耦合在同一路径中，模型难以区分"变什么"和"保什么"。
+**本文要解决什么**：解耦控制与合成，在无配对数据条件下实现高质量视频编辑。
+**切入角度**：多关键帧提供更强的时空锚点，而原始视频本身就是最好的运动/纹理参考。
+**核心idea一句话**：稀疏分支编码多编辑关键帧做语义引导，密集分支编码原始视频做运动/纹理注入，退化模拟实现自监督训练。
 
 ## 方法详解
 
@@ -41,20 +41,23 @@ tags:
 ### 关键设计
 
 1. **双分支解耦架构**:
-   - 做什么：将编辑控制和源视频保真解耦到两条路径
-   - 核心思路：在第 $l$ 层，$\boldsymbol{z}_m^{(l)} \leftarrow \boldsymbol{z}_m^{(l)} + \underbrace{\mathcal{S}^{(l)}(\boldsymbol{z}_m^{(l)}, \boldsymbol{r})}_{\text{稀疏控制}} + \underbrace{\mathcal{D}^{(l)}(\boldsymbol{z}_m^{(l)}, \boldsymbol{z}_d^{(l)})}_{\text{密集合成}}$。稀疏分支用 VACE 块注入退化关键帧序列，密集分支通过可训练跨注意力（主分支做 Q，密集分支做 K/V）注入原始视频信息
-   - 设计动机：直接融合密集特征会干扰编辑；跨注意力让主分支主动查询需要的运动/纹理信息
+
+    - 做什么：将编辑控制和源视频保真解耦到两条路径
+    - 核心思路：在第 $l$ 层，$\boldsymbol{z}_m^{(l)} \leftarrow \boldsymbol{z}_m^{(l)} + \underbrace{\mathcal{S}^{(l)}(\boldsymbol{z}_m^{(l)}, \boldsymbol{r})}_{\text{稀疏控制}} + \underbrace{\mathcal{D}^{(l)}(\boldsymbol{z}_m^{(l)}, \boldsymbol{z}_d^{(l)})}_{\text{密集合成}}$。稀疏分支用 VACE 块注入退化关键帧序列，密集分支通过可训练跨注意力（主分支做 Q，密集分支做 K/V）注入原始视频信息
+    - 设计动机：直接融合密集特征会干扰编辑；跨注意力让主分支主动查询需要的运动/纹理信息
 
 2. **退化模拟训练（无配对学习）**:
-   - **锚定控制管线（Anchored Control Pipeline）**：从目标视频稀疏采样关键帧，施加随机退化（高斯模糊、仿射变换等）模拟编辑伪影：$\hat{\boldsymbol{x}}_{k_i} = (\boldsymbol{1}-\boldsymbol{b}_{k_i})\odot\boldsymbol{x}_{k_i} + \boldsymbol{b}_{k_i}\odot\mathcal{D}_{aug}(\boldsymbol{x}_{k_i})$。然后线性插值重建完整序列作为稀疏分支输入
-   - **源保真管线（Source Fidelity Pipeline）**：对目标视频随机 Cut-and-Paste 生成伪源视频 $\tilde{\boldsymbol{x}}_t = \boldsymbol{m}_t\odot\boldsymbol{y}_t + (1-\boldsymbol{m}_t)\odot\boldsymbol{x}_t$ 作为密集分支输入
-   - 训练目标：标准去噪损失 $\mathcal{L} = \mathbb{E}[\|\epsilon - \epsilon_\theta(\boldsymbol{z}_t, t, \tilde{\mathcal{X}}, \hat{\mathcal{X}})\|_2^2]$
-   - 设计动机：退化模拟让模型学习时序恢复和纹理传播；Cut-and-Paste 让模型学习从密集分支恢复运动和背景
+
+    - **锚定控制管线（Anchored Control Pipeline）**：从目标视频稀疏采样关键帧，施加随机退化（高斯模糊、仿射变换等）模拟编辑伪影：$\hat{\boldsymbol{x}}_{k_i} = (\boldsymbol{1}-\boldsymbol{b}_{k_i})\odot\boldsymbol{x}_{k_i} + \boldsymbol{b}_{k_i}\odot\mathcal{D}_{aug}(\boldsymbol{x}_{k_i})$。然后线性插值重建完整序列作为稀疏分支输入
+    - **源保真管线（Source Fidelity Pipeline）**：对目标视频随机 Cut-and-Paste 生成伪源视频 $\tilde{\boldsymbol{x}}_t = \boldsymbol{m}_t\odot\boldsymbol{y}_t + (1-\boldsymbol{m}_t)\odot\boldsymbol{x}_t$ 作为密集分支输入
+    - 训练目标：标准去噪损失 $\mathcal{L} = \mathbb{E}[\|\epsilon - \epsilon_\theta(\boldsymbol{z}_t, t, \tilde{\mathcal{X}}, \hat{\mathcal{X}})\|_2^2]$
+    - 设计动机：退化模拟让模型学习时序恢复和纹理传播；Cut-and-Paste 让模型学习从密集分支恢复运动和背景
 
 3. **一致性感知关键帧编辑（推理时）**:
-   - 做什么：确保多关键帧编辑间的视觉一致性
-   - 核心思路：用 FLUX Kontext 编辑，第一帧标准编辑，后续关键帧以第一帧编辑结果为参考：$\boldsymbol{x}_{k_i}^{edit} = \text{FLUX}(\boldsymbol{x}_{k_i}, \boldsymbol{x}_{k_0}^{edit}, \boldsymbol{m}_{k_i}, \mathcal{P})$
-   - 设计动机：独立编辑各帧会产生风格不一致、闪烁
+
+    - 做什么：确保多关键帧编辑间的视觉一致性
+    - 核心思路：用 FLUX Kontext 编辑，第一帧标准编辑，后续关键帧以第一帧编辑结果为参考：$\boldsymbol{x}_{k_i}^{edit} = \text{FLUX}(\boldsymbol{x}_{k_i}, \boldsymbol{x}_{k_0}^{edit}, \boldsymbol{m}_{k_i}, \mathcal{P})$
+    - 设计动机：独立编辑各帧会产生风格不一致、闪烁
 
 ### 损失函数 / 训练策略
 - 仅训练新增的跨注意力模块，基座冻结

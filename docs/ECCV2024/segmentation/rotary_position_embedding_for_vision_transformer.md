@@ -27,17 +27,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：ViT 的位置编码主要有两种：APE（Absolute Positional Embedding，加在 stem 层的绝对位置编码）用于标准 ViT，RPB（Relative Position Bias，加在 attention 矩阵上的相对位置偏置）用于 Swin Transformer 等分层 ViT。在 NLP 领域，RoPE 已成为 LLM 的标配位置编码（LLaMA、Mistral 等），尤其在长序列外推上表现卓越。
+**领域现状**：ViT 的位置编码主要有两种：APE（Absolute Positional Embedding，加在 stem 层的绝对位置编码）用于标准 ViT，RPB（Relative Position Bias，加在 attention 矩阵上的相对位置偏置）用于 Swin Transformer 等分层 ViT。在 NLP 领域，RoPE 已成为 LLM 的标配位置编码（LLaMA、Mistral 等），尤其在长序列外推上表现卓越。
 
-2. **现有痛点**：APE 和 RPB 在训练分辨率固定时工作良好，但对分辨率变化（resolution change）适应性差。APE 是固定长度的可学习参数，换分辨率只能做双线性插值，效果不佳。RPB 的相对位置表维度固定，超出范围只能 zero-padding。而视觉任务频繁需要分辨率变化——分类用 224x224，检测用 800+，分割用 512x512——位置编码的外推能力直接影响下游性能。
+**现有痛点**：APE 和 RPB 在训练分辨率固定时工作良好，但对分辨率变化（resolution change）适应性差。APE 是固定长度的可学习参数，换分辨率只能做双线性插值，效果不佳。RPB 的相对位置表维度固定，超出范围只能 zero-padding。而视觉任务频繁需要分辨率变化——分类用 224x224，检测用 800+，分割用 512x512——位置编码的外推能力直接影响下游性能。
 
-3. **核心矛盾**：RoPE 在 LLM 上已证明出色的长度外推能力，但从 1D 文本到 2D 图像的扩展并非简单重复。先前工作（EVA-02、Unified-IO 2、FiT）使用的 2D Axial RoPE 仅在 x/y 轴分别应用独立频率，无法处理对角方向的空间关系——而卷积网络通过方形 kernel 天然处理对角方向。
+**核心矛盾**：RoPE 在 LLM 上已证明出色的长度外推能力，但从 1D 文本到 2D 图像的扩展并非简单重复。先前工作（EVA-02、Unified-IO 2、FiT）使用的 2D Axial RoPE 仅在 x/y 轴分别应用独立频率，无法处理对角方向的空间关系——而卷积网络通过方形 kernel 天然处理对角方向。
 
-4. **本文要解决什么？** 如何为 2D 图像设计更优的 RoPE 实现，使其既能外推又能充分利用 2D 空间结构？
+**本文要解决什么？** 如何为 2D 图像设计更优的 RoPE 实现，使其既能外推又能充分利用 2D 空间结构？
 
-5. **切入角度**：从傅里叶分析的视角发现 Axial 频率在 2D 空间中只能表示沿轴线的频率分量，重建图像时出现轴向伪影。提出 Mixed 频率让每个频率通道同时使用 x 和 y 两个轴的频率参数，作为可学习参数端到端优化。
+**切入角度**：从傅里叶分析的视角发现 Axial 频率在 2D 空间中只能表示沿轴线的频率分量，重建图像时出现轴向伪影。提出 Mixed 频率让每个频率通道同时使用 x 和 y 两个轴的频率参数，作为可学习参数端到端优化。
 
-6. **核心idea一句话**：用混合轴可学习频率 (RoPE-Mixed) 扩展 RoPE 到 2D 视觉任务，使每个频率通道能表示任意方向（包括对角线）的空间关系，大幅提升分辨率外推和下游任务性能。
+**核心idea一句话**：用混合轴可学习频率 (RoPE-Mixed) 扩展 RoPE 到 2D 视觉任务，使每个频率通道能表示任意方向（包括对角线）的空间关系，大幅提升分辨率外推和下游任务性能。
 
 ## 方法详解
 
@@ -51,24 +51,27 @@ $$\mathbf{A}'_{(n,m)} = \mathrm{Re}[\mathbf{q}_n \mathbf{k}_m^* e^{i(n-m)\theta}
 ### 关键设计
 
 1. **2D Axial RoPE (基线方案)**:
-   - 做什么：将 1D RoPE 的 token 索引替换为 2D 坐标 $(p_n^x, p_n^y)$，将 head 维度一分为二，偶数通道编码 x 轴、奇数通道编码 y 轴
-   - 核心公式：$\mathbf{R}(n, 2t) = e^{i\theta_t p_n^x}$, $\mathbf{R}(n, 2t+1) = e^{i\theta_t p_n^y}$
-   - 频率基数从 $10000$ 降为 $100$（$\sqrt{10000}$），因为 2D 图像的位置索引范围比 1D 序列短
-   - 局限：每个频率通道只看一个轴，无法表示对角方向的空间关系
+
+    - 做什么：将 1D RoPE 的 token 索引替换为 2D 坐标 $(p_n^x, p_n^y)$，将 head 维度一分为二，偶数通道编码 x 轴、奇数通道编码 y 轴
+    - 核心公式：$\mathbf{R}(n, 2t) = e^{i\theta_t p_n^x}$, $\mathbf{R}(n, 2t+1) = e^{i\theta_t p_n^y}$
+    - 频率基数从 $10000$ 降为 $100$（$\sqrt{10000}$），因为 2D 图像的位置索引范围比 1D 序列短
+    - 局限：每个频率通道只看一个轴，无法表示对角方向的空间关系
 
 2. **RoPE-Mixed（本文核心贡献）**:
-   - 做什么：让每个频率通道同时使用 x 和 y 两个轴的频率参数，能表示任意2D方向
-   - 核心公式：$\mathbf{R}(n, t) = e^{i(\theta_t^x p_n^x + \theta_t^y p_n^y)}$
-   - 注意力矩阵变为：$\mathbf{A}'_{(n,m)} = \mathrm{Re}[\mathbf{q}_n \mathbf{k}_m^* e^{i(\theta_t^x(p_n^x - p_m^x) + \theta_t^y(p_n^y - p_m^y))}]$
-   - $(\theta_t^x, \theta_t^y)$ 作为**可学习参数**端到端优化，每个 head、每层有独立的频率参数集合
-   - RoPE-Axial 是 RoPE-Mixed 的特例（$\theta_t^y = 0$ 或 $\theta_t^x = 0$）
-   - 设计动机：2D 傅里叶分析表明 Axial 频率只能覆盖轴对齐的频率分量，重建图像有十字形伪影；Mixed 频率可覆盖2D频域的各种方向，重建更锐利。可学习频率让网络自主决定最优方向分配
-   - 额外参数量：每层 $d$ 个参数（ViT-B 约占总参数的 0.01%），几乎可忽略
+
+    - 做什么：让每个频率通道同时使用 x 和 y 两个轴的频率参数，能表示任意2D方向
+    - 核心公式：$\mathbf{R}(n, t) = e^{i(\theta_t^x p_n^x + \theta_t^y p_n^y)}$
+    - 注意力矩阵变为：$\mathbf{A}'_{(n,m)} = \mathrm{Re}[\mathbf{q}_n \mathbf{k}_m^* e^{i(\theta_t^x(p_n^x - p_m^x) + \theta_t^y(p_n^y - p_m^y))}]$
+    - $(\theta_t^x, \theta_t^y)$ 作为**可学习参数**端到端优化，每个 head、每层有独立的频率参数集合
+    - RoPE-Axial 是 RoPE-Mixed 的特例（$\theta_t^y = 0$ 或 $\theta_t^x = 0$）
+    - 设计动机：2D 傅里叶分析表明 Axial 频率只能覆盖轴对齐的频率分量，重建图像有十字形伪影；Mixed 频率可覆盖2D频域的各种方向，重建更锐利。可学习频率让网络自主决定最优方向分配
+    - 额外参数量：每层 $d$ 个参数（ViT-B 约占总参数的 0.01%），几乎可忽略
 
 3. **与传统位置编码的组合使用**:
-   - RoPE 可与 APE 或 RPB 联合使用（RoPE+APE / RoPE+RPB）
-   - 经验发现：RoPE+APE 在插值区间（分辨率 < 训练分辨率）有优势，但降低外推增益；RoPE+RPB 对 Mixed 几乎无额外增益
-   - 结论：对于需要外推的任务，RoPE-Mixed 单独使用即可；对于固定分辨率或需插值的任务，RoPE-Mixed+APE 效果更佳
+
+    - RoPE 可与 APE 或 RPB 联合使用（RoPE+APE / RoPE+RPB）
+    - 经验发现：RoPE+APE 在插值区间（分辨率 < 训练分辨率）有优势，但降低外推增益；RoPE+RPB 对 Mixed 几乎无额外增益
+    - 结论：对于需要外推的任务，RoPE-Mixed 单独使用即可；对于固定分辨率或需插值的任务，RoPE-Mixed+APE 效果更佳
 
 ### 损失函数 / 训练策略
 - 无需特殊训练策略，直接使用标准训练食谱（DeiT-III 400ep for ViT，Swin 300ep）

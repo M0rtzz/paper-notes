@@ -30,9 +30,9 @@ tags:
 
 核心挑战在于：真实世界退化使得低质量（LQ）输入与参考（Ref）图像之间的对应关系不可靠。现有方法在调控参考使用方面存在严重缺陷：
 
-1. **PFStorer（全局可学习向量）**：使用全局权重统一控制参考分支，无法适应不同对齐质量的输入对——对齐质量好和坏的图像对使用相同的门控值
-2. **ReFIR（显式token相似性）**：基于显式相关性的空间门控容易被噪声干扰，且存在长尾分布问题（多数相同token主导计算，少数关键token被忽略）
-3. **两面问题**：
+**PFStorer（全局可学习向量）**：使用全局权重统一控制参考分支，无法适应不同对齐质量的输入对——对齐质量好和坏的图像对使用相同的门控值
+**ReFIR（显式token相似性）**：基于显式相关性的空间门控容易被噪声干扰，且存在长尾分布问题（多数相同token主导计算，少数关键token被忽略）
+**两面问题**：
    - **过度依赖参考**：错误注入参考线索，导致语义不一致（如鸟眼被复制到非眼区域）
    - **参考利用不足**：有价值的参考信息未被充分利用
 
@@ -49,29 +49,32 @@ Ada-RefSR 包含两个核心组件：
 ### 关键设计
 
 1. **Trust: 直接参考特征注入**
-   - 使用 ReferenceNet（SD-Turbo 初始化，固定 timestep=1）提取多层次参考特征
-   - Reference Attention (RA) 模块：
-     - $\mathbf{Q} = \mathbf{H}_{src}\mathbf{W}_Q$, $\mathbf{K} = \mathbf{H}_{ref}\mathbf{W}_K$, $\mathbf{V} = \mathbf{H}_{ref}\mathbf{W}_V$
-     - $\mathbf{H}_{out} = \text{ZeroLinear}(\text{Softmax}(\frac{\mathbf{QK}^\top}{\sqrt{d}})\mathbf{V}) + \mathbf{H}_{src}$
-   - RA 权重从骨干自注意力复制初始化，ZeroLinear 稳定早期训练
-   - 设计动机：不预先过滤，确保所有潜在的 LQ-Ref 匹配都被捕获
-   - 问题：无差别融合会导致局部语义不一致
+
+    - 使用 ReferenceNet（SD-Turbo 初始化，固定 timestep=1）提取多层次参考特征
+    - Reference Attention (RA) 模块：
+      - $\mathbf{Q} = \mathbf{H}_{src}\mathbf{W}_Q$, $\mathbf{K} = \mathbf{H}_{ref}\mathbf{W}_K$, $\mathbf{V} = \mathbf{H}_{ref}\mathbf{W}_V$
+      - $\mathbf{H}_{out} = \text{ZeroLinear}(\text{Softmax}(\frac{\mathbf{QK}^\top}{\sqrt{d}})\mathbf{V}) + \mathbf{H}_{src}$
+    - RA 权重从骨干自注意力复制初始化，ZeroLinear 稳定早期训练
+    - 设计动机：不预先过滤，确保所有潜在的 LQ-Ref 匹配都被捕获
+    - 问题：无差别融合会导致局部语义不一致
 
 2. **Verify: 自适应隐式相关性门控（AICG）**
-   - **参考摘要 Token**：引入可学习摘要 token $\mathbf{T}_S \in \mathbb{R}^{M \times d}$（$M=16$），紧凑地概括参考特征
-     - $\mathbf{S} = \mathbf{T}_S \mathbf{W}_K$
-     - $\mathbf{K}_{sum} = \text{Softmax}(\frac{\mathbf{SK}^\top}{\sqrt{d}})\mathbf{K} \in \mathbb{R}^{M \times d}$
-   - **隐式相关性门控**：
-     - $\mathbf{S}_{map} = \text{Softmax}(\frac{\mathbf{Q}\mathbf{K}_{sum}^\top}{\sqrt{d}}) \in \mathbb{R}^{L_q \times M}$
-     - $\mathbf{G} = \sigma(\frac{1}{M}\sum_{j=1}^{M}[\mathbf{S}_{map}]_{:,j}) \in \mathbb{R}^{L_q \times 1}$
-   - **门控调制**：$\mathbf{H}_{out} = \text{ZeroLinear}(\mathbf{G} \odot \text{RA}(\mathbf{H}_{src}, \mathbf{H}_{ref})) + \mathbf{H}_{src}$
-   - 设计动机：隐式建模替代显式 token-to-token 相似性，避免噪声干扰
-   - 关键优势：复用 RA 模块内的现有投影和中间变量，极轻量
+
+    - **参考摘要 Token**：引入可学习摘要 token $\mathbf{T}_S \in \mathbb{R}^{M \times d}$（$M=16$），紧凑地概括参考特征
+      - $\mathbf{S} = \mathbf{T}_S \mathbf{W}_K$
+      - $\mathbf{K}_{sum} = \text{Softmax}(\frac{\mathbf{SK}^\top}{\sqrt{d}})\mathbf{K} \in \mathbb{R}^{M \times d}$
+    - **隐式相关性门控**：
+      - $\mathbf{S}_{map} = \text{Softmax}(\frac{\mathbf{Q}\mathbf{K}_{sum}^\top}{\sqrt{d}}) \in \mathbb{R}^{L_q \times M}$
+      - $\mathbf{G} = \sigma(\frac{1}{M}\sum_{j=1}^{M}[\mathbf{S}_{map}]_{:,j}) \in \mathbb{R}^{L_q \times 1}$
+    - **门控调制**：$\mathbf{H}_{out} = \text{ZeroLinear}(\mathbf{G} \odot \text{RA}(\mathbf{H}_{src}, \mathbf{H}_{ref})) + \mathbf{H}_{src}$
+    - 设计动机：隐式建模替代显式 token-to-token 相似性，避免噪声干扰
+    - 关键优势：复用 RA 模块内的现有投影和中间变量，极轻量
 
 3. **核心创新对比**
-   - PFStorer：全局门控，不考虑 LQ-Ref 相关性 → 无法适应变化的对齐质量
-   - ReFIR：显式 $L_{src} \times L_{ref}$ 相似性矩阵 → 计算量大（+16%），易受噪声干扰
-   - AICG（本文）：$M=16$ 个摘要 token 的隐式估计 → 仅 +0.13% 开销，鲁棒
+
+    - PFStorer：全局门控，不考虑 LQ-Ref 相关性 → 无法适应变化的对齐质量
+    - ReFIR：显式 $L_{src} \times L_{ref}$ 相似性矩阵 → 计算量大（+16%），易受噪声干扰
+    - AICG（本文）：$M=16$ 个摘要 token 的隐式估计 → 仅 +0.13% 开销，鲁棒
 
 ### 损失函数 / 训练策略
 

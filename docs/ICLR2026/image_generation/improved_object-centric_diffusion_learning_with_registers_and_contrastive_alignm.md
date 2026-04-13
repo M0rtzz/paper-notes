@@ -29,9 +29,9 @@ tags:
 
 物体中心学习（OCL）旨在将复杂场景分解为结构化的、可组合的物体表示，支撑视觉推理、因果推断、世界模型和组合式生成等下游任务。Slot Attention（SA）是一种完全无监督的方法，但在真实场景中表现有限。近期将 SA 与预训练扩散模型（如 Stable Diffusion）结合的方法（Stable-LSD, SlotAdapt）虽取得进展，但仍面临两大核心问题：
 
-1. **Slot 纠缠（Slot Entanglement）**：一个 slot 编码了多个物体的特征，导致单 slot 生成时图像失真或语义不一致。本质原因是 softmax 归一化迫使注意力权重在所有 slot 上求和为 1，当 U-Net 中的某些 query 不强匹配任何语义 slot 时，注意力分散到多个 slot 上。
+**Slot 纠缠（Slot Entanglement）**：一个 slot 编码了多个物体的特征，导致单 slot 生成时图像失真或语义不一致。本质原因是 softmax 归一化迫使注意力权重在所有 slot 上求和为 1，当 U-Net 中的某些 query 不强匹配任何语义 slot 时，注意力分散到多个 slot 上。
 
-2. **弱对齐（Weak Alignment）**：slot 未能与不同的图像区域一致对应，导致过分割（一个物体被拆成多个 slot）或欠分割（多个物体合并到一个 slot）。
+**弱对齐（Weak Alignment）**：slot 未能与不同的图像区域一致对应，导致过分割（一个物体被拆成多个 slot）或欠分割（多个物体合并到一个 slot）。
 
 这两个问题严重影响了物体中心表示的准确性和组合式场景生成的实用性。
 

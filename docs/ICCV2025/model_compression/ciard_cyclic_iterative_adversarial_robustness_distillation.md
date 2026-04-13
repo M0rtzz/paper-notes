@@ -43,21 +43,24 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 ### 关键设计
 
 1. **对比推离损失（Contrastive Push Loss）**：
-   - 核心洞察：不是让学生同时靠近两个教师，而是让学生**主动远离**clean teacher的错误预测
-   - 当clean teacher在对抗样本上预测错误时，push loss让学生偏离错误方向
-   - 学生更有效地吸收robust teacher的专业知识
-   - 解耦了clean knowledge和robust knowledge的传递路径
+
+    - 核心洞察：不是让学生同时靠近两个教师，而是让学生**主动远离**clean teacher的错误预测
+    - 当clean teacher在对抗样本上预测错误时，push loss让学生偏离错误方向
+    - 学生更有效地吸收robust teacher的专业知识
+    - 解耦了clean knowledge和robust knowledge的传递路径
 
 2. **迭代教师训练（ITT）**：
-   - 阶段1（预热）：冻结两个教师参数，让学生建立基本知识
-   - 阶段2（迭代更新）：周期性地用当前学生生成的对抗样本重训练robust teacher
-   - 持续对抗重训练确保robust teacher始终能有效防御当前最强对抗样本
-   - 类似GAN中判别器-生成器交替更新
+
+    - 阶段1（预热）：冻结两个教师参数，让学生建立基本知识
+    - 阶段2（迭代更新）：周期性地用当前学生生成的对抗样本重训练robust teacher
+    - 持续对抗重训练确保robust teacher始终能有效防御当前最强对抗样本
+    - 类似GAN中判别器-生成器交替更新
 
 3. **训练流程**：
-   - 用PGD等攻击方法对学生生成对抗样本
-   - 蒸馏损失 = KL(student, robust_teacher on adv) + push_loss + CE(student, GT)
-   - 周期性触发ITT更新robust teacher
+
+    - 用PGD等攻击方法对学生生成对抗样本
+    - 蒸馏损失 = KL(student, robust_teacher on adv) + push_loss + CE(student, GT)
+    - 周期性触发ITT更新robust teacher
 
 ## 实验关键数据
 

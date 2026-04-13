@@ -47,24 +47,27 @@ GNVC-VD 由两个紧耦合组件构成：
 
 ### 关键设计
 1. **条件上下文变换编解码器（Contextual Latent Codec）**:
-   - 做什么：在 3D VAE 的潜空间中压缩时空潜变量序列
-   - 核心思路：3D Causal VAE 编码器（来自 Wan2.1）将视频编码为序列 $\boldsymbol{x}_1 = \{l_t\}_{t=1}^{1+T/4}$，每个 $l_t \in \mathbb{R}^{H/8 \times W/8 \times 16}$。I 帧潜变量独立编码，P 帧潜变量以前一帧的解码结果为上下文条件编码（借鉴 DCVC-RT 的设计）：
-     $$\hat{y}_t = \text{Quant}(g_a(l_t | f_{t-1})), \quad \hat{l}_t = g_s(\hat{y}_t, f_{t-1})$$
-   - 设计动机：条件编码利用时间冗余显著降低码率；在潜空间而非像素空间编码，天然利用 VAE 的压缩能力
+
+    - 做什么：在 3D VAE 的潜空间中压缩时空潜变量序列
+    - 核心思路：3D Causal VAE 编码器（来自 Wan2.1）将视频编码为序列 $\boldsymbol{x}_1 = \{l_t\}_{t=1}^{1+T/4}$，每个 $l_t \in \mathbb{R}^{H/8 \times W/8 \times 16}$。I 帧潜变量独立编码，P 帧潜变量以前一帧的解码结果为上下文条件编码（借鉴 DCVC-RT 的设计）：
+    $\hat{y}_t = \text{Quant}(g_a(l_t | f_{t-1})), \quad \hat{l}_t = g_s(\hat{y}_t, f_{t-1})$
+    - 设计动机：条件编码利用时间冗余显著降低码率；在潜空间而非像素空间编码，天然利用 VAE 的压缩能力
 
 2. **Flow-Matching 潜变量精炼**:
-   - 做什么：用预训练 VideoDiT 对压缩潜变量序列进行序列级生成式增强
-   - 核心思路：压缩潜变量 $\boldsymbol{x}_c$ 可视为原始潜变量 $\boldsymbol{x}_1$ 加量化误差 $\boldsymbol{e}$。不必从纯噪声 $\boldsymbol{x}_0$ 开始全程去噪，而是在 $\boldsymbol{x}_c$ 上加部分噪声：
-     $$\boldsymbol{x}_{t_N} = t_N \boldsymbol{x}_c + (1-t_N)\boldsymbol{x}_0, \quad t_N = 0.7$$
-     定义从 $\boldsymbol{x}_{t_N}$ 到 $\boldsymbol{x}_1$ 的流路径，目标速度场分解为：
-     $$\boldsymbol{v}_{\tau} = \underbrace{(\boldsymbol{x}_1 - \boldsymbol{x}_0)}_{\boldsymbol{v}_{\text{pre-train}}} - \underbrace{\frac{t_N}{1-t_N}(\boldsymbol{x}_c - \boldsymbol{x}_1)}_{\Delta\boldsymbol{v}_{\text{fine}}}$$
-     其中 $\boldsymbol{v}_{\text{pre-train}}$ 是预训练 DiT 已学到的速度场，$\Delta\boldsymbol{v}_{\text{fine}}$ 是需要学习的压缩错误校正项。通过 $L=5$ 步确定性 flow 积分完成精炼
-   - 设计动机：(1) 从压缩潜变量出发而非纯噪声，大幅减少去噪步数（5 步 vs 典型 50 步）；(2) 分解为预训练+校正项的形式，冻结 DiT backbone、仅训练 adapter，高效利用预训练知识；(3) 序列级去噪确保时空一致性
+
+    - 做什么：用预训练 VideoDiT 对压缩潜变量序列进行序列级生成式增强
+    - 核心思路：压缩潜变量 $\boldsymbol{x}_c$ 可视为原始潜变量 $\boldsymbol{x}_1$ 加量化误差 $\boldsymbol{e}$。不必从纯噪声 $\boldsymbol{x}_0$ 开始全程去噪，而是在 $\boldsymbol{x}_c$ 上加部分噪声：
+    $\boldsymbol{x}_{t_N} = t_N \boldsymbol{x}_c + (1-t_N)\boldsymbol{x}_0, \quad t_N = 0.7$
+      定义从 $\boldsymbol{x}_{t_N}$ 到 $\boldsymbol{x}_1$ 的流路径，目标速度场分解为：
+    $\boldsymbol{v}_{\tau} = \underbrace{(\boldsymbol{x}_1 - \boldsymbol{x}_0)}_{\boldsymbol{v}_{\text{pre-train}}} - \underbrace{\frac{t_N}{1-t_N}(\boldsymbol{x}_c - \boldsymbol{x}_1)}_{\Delta\boldsymbol{v}_{\text{fine}}}$
+      其中 $\boldsymbol{v}_{\text{pre-train}}$ 是预训练 DiT 已学到的速度场，$\Delta\boldsymbol{v}_{\text{fine}}$ 是需要学习的压缩错误校正项。通过 $L=5$ 步确定性 flow 积分完成精炼
+    - 设计动机：(1) 从压缩潜变量出发而非纯噪声，大幅减少去噪步数（5 步 vs 典型 50 步）；(2) 分解为预训练+校正项的形式，冻结 DiT backbone、仅训练 adapter，高效利用预训练知识；(3) 序列级去噪确保时空一致性
 
 3. **压缩感知条件适配器（Conditioning Adapter）**:
-   - 做什么：将压缩域的上下文特征注入 VideoDiT 的中间层
-   - 核心思路：从条件编解码器提取的特征序列 $\{f_t\}$ 通过 adapter 块注入 DiT transformer 层，调制中间表示
-   - 设计动机：让生成先验感知压缩伪影的具体模式（块效应、模糊等），从而针对性修复，而非盲目生成
+
+    - 做什么：将压缩域的上下文特征注入 VideoDiT 的中间层
+    - 核心思路：从条件编解码器提取的特征序列 $\{f_t\}$ 通过 adapter 块注入 DiT transformer 层，调制中间表示
+    - 设计动机：让生成先验感知压缩伪影的具体模式（块效应、模糊等），从而针对性修复，而非盲目生成
 
 ### 损失函数 / 训练策略
 **两阶段训练**：

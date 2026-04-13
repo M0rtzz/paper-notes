@@ -42,18 +42,21 @@ SCORE 由三个分支构成：(1) 上下文分支（蓝）——使用遥感 CLI
 ### 关键设计
 
 1. **场景上下文提取（Scene Context Extraction）**: 使用冻结的 RemoteCLIP ViT-L/14 编码输入图像，获取两种粒度的上下文：
-   - 全局上下文 $\mathbf{F}^{final}_{CLS} \in \mathbb{R}^{1 \times C}$：[CLS] token 编码全局图像语义
-   - 区域上下文 $\mathbf{F}^{final}_{HW} \in \mathbb{R}^{\frac{H}{14} \times \frac{W}{14} \times C}$：patch 嵌入提供空间密集特征
+
+    - 全局上下文 $\mathbf{F}^{final}_{CLS} \in \mathbb{R}^{1 \times C}$：[CLS] token 编码全局图像语义
+    - 区域上下文 $\mathbf{F}^{final}_{HW} \in \mathbb{R}^{\frac{H}{14} \times \frac{W}{14} \times C}$：patch 嵌入提供空间密集特征
 
 2. **区域感知集成（Region-Aware Integration, RAI）**: 利用目标周围环境信息增强类嵌入
-   - **自适应区域形成**：通过可学习膨胀因子 $\delta$ 扩展预测掩码，膨胀核大小 $k = 3 + \text{clamp}(\delta, 0, 10)$，使用 max-pooling 实现
-   - **区域上下文提取**：在扩展掩码内对 RemoteCLIP patch 嵌入做加权池化得到 $F_{region}$
-   - **区域上下文集成**：通过 $l$ 层 Transformer 将区域上下文注入类嵌入：$\mathbf{V}_{i+1} = \text{TransLayer}_i(\mathbf{V}_i, \lambda \cdot \mathbf{F}_{region})$
+
+    - **自适应区域形成**：通过可学习膨胀因子 $\delta$ 扩展预测掩码，膨胀核大小 $k = 3 + \text{clamp}(\delta, 0, 10)$，使用 max-pooling 实现
+    - **区域上下文提取**：在扩展掩码内对 RemoteCLIP patch 嵌入做加权池化得到 $F_{region}$
+    - **区域上下文集成**：通过 $l$ 层 Transformer 将区域上下文注入类嵌入：$\mathbf{V}_{i+1} = \text{TransLayer}_i(\mathbf{V}_i, \lambda \cdot \mathbf{F}_{region})$
 
 3. **全局上下文适配（Global Context Adaptation, GCA）**: 将遥感领域特定的全局视觉上下文注入文本嵌入
-   - 以全局上下文 $\mathbf{F}^{final}_{CLS}$ 作为 Query，文本嵌入 $\mathbf{T}$ 作为 Key/Value
-   - 通过多头交叉注意力：$\hat{\mathbf{T}} = \text{MHA}(Q, K, V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$
-   - 使用可学习线性投影矩阵 $\mathbf{w}_Q, \mathbf{w}_K, \mathbf{w}_V$ 缓解 RS CLIP 与通用 CLIP 间的对齐问题
+
+    - 以全局上下文 $\mathbf{F}^{final}_{CLS}$ 作为 Query，文本嵌入 $\mathbf{T}$ 作为 Key/Value
+    - 通过多头交叉注意力：$\hat{\mathbf{T}} = \text{MHA}(Q, K, V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$
+    - 使用可学习线性投影矩阵 $\mathbf{w}_Q, \mathbf{w}_K, \mathbf{w}_V$ 缓解 RS CLIP 与通用 CLIP 间的对齐问题
 
 ### 损失函数 / 训练策略
 

@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：扩散模型会无意中记忆训练样本的精确副本，这引发数据隐私、版权和评估偏差等问题。记忆检测已成为重要研究方向。
-2. **现有痛点**：主流方法（Wen et al., Jeon et al.）基于 score 差异的范数 $\|s_\theta^\Delta(\mathbf{x}_t, t, c)\|$ 来检测记忆，这本质上衡量的是对数概率的整体曲率（Hessian trace）。
-3. **核心矛盾**：范数指标暗含假设——对数概率分布是各向同性的（即 Hessian $\propto \mathbf{I}$，所有方向曲率相同）。但实验表明低噪声区域对数概率实际上是各向异性的（Hessian 特征值方差剧增），此时范数无法区分记忆与非记忆样本（KL 散度从各向同性的 0.166 降至各向异性的 0.022）。
-4. **本文要解决什么？** 在各向异性区域也能准确检测记忆，且无需昂贵的去噪步骤。
-5. **切入角度**：分析低噪声各向异性区域中条件与无条件 score 的方向关系，发现记忆样本的 guidance 向量与无条件 score 高度对齐。
-6. **核心 idea 一句话**：记忆在各向异性区域的签名是角度对齐而非范数尖峰，用 "各向同性范数 + 各向异性余弦相似度" 的加权组合即可高效无去噪检测记忆。
+**领域现状**：扩散模型会无意中记忆训练样本的精确副本，这引发数据隐私、版权和评估偏差等问题。记忆检测已成为重要研究方向。
+**现有痛点**：主流方法（Wen et al., Jeon et al.）基于 score 差异的范数 $\|s_\theta^\Delta(\mathbf{x}_t, t, c)\|$ 来检测记忆，这本质上衡量的是对数概率的整体曲率（Hessian trace）。
+**核心矛盾**：范数指标暗含假设——对数概率分布是各向同性的（即 Hessian $\propto \mathbf{I}$，所有方向曲率相同）。但实验表明低噪声区域对数概率实际上是各向异性的（Hessian 特征值方差剧增），此时范数无法区分记忆与非记忆样本（KL 散度从各向同性的 0.166 降至各向异性的 0.022）。
+**本文要解决什么？** 在各向异性区域也能准确检测记忆，且无需昂贵的去噪步骤。
+**切入角度**：分析低噪声各向异性区域中条件与无条件 score 的方向关系，发现记忆样本的 guidance 向量与无条件 score 高度对齐。
+**核心 idea 一句话**：记忆在各向异性区域的签名是角度对齐而非范数尖峰，用 "各向同性范数 + 各向异性余弦相似度" 的加权组合即可高效无去噪检测记忆。
 
 ## 方法详解
 
@@ -43,18 +43,20 @@ tags:
 ### 关键设计
 
 1. **各向同性范数项（高噪声区域）**：
-   - 做什么：在 $t \approx T$ 处计算 $\|s_\theta^\Delta(\mathbf{x}_T, t \approx T, c)\|$
-   - 核心思路：高噪声处对数概率近似各向同性（Hessian 特征值方差接近零），范数项是有效的记忆指标，对应 Wen et al. 的方法
-   - 设计动机：继承已验证有效的各向同性信号
+
+    - 做什么：在 $t \approx T$ 处计算 $\|s_\theta^\Delta(\mathbf{x}_T, t \approx T, c)\|$
+    - 核心思路：高噪声处对数概率近似各向同性（Hessian 特征值方差接近零），范数项是有效的记忆指标，对应 Wen et al. 的方法
+    - 设计动机：继承已验证有效的各向同性信号
 
 2. **各向异性角度对齐项（低噪声区域）**：
-   - 做什么：在 $t \approx 0$ 处计算 guidance 向量与无条件 score 的余弦相似度
-   - 核心思路：记忆样本中，无条件模式和条件模式几乎重合（$\delta \to 0$），导致 $\nabla \log p_t(c|\mathbf{x}_t)$ 与 $\nabla \log p_t(\mathbf{x}_t)$ 方向高度一致
-   - 理论保证：Theorem 1 给出下界 $\cos \geq \frac{1-r}{1+r}$，其中 $r = \varepsilon + \tau$，$\varepsilon$ 控制协方差近似误差，$\tau$ 控制模式位移
+
+    - 做什么：在 $t \approx 0$ 处计算 guidance 向量与无条件 score 的余弦相似度
+    - 核心思路：记忆样本中，无条件模式和条件模式几乎重合（$\delta \to 0$），导致 $\nabla \log p_t(c|\mathbf{x}_t)$ 与 $\nabla \log p_t(\mathbf{x}_t)$ 方向高度一致
+    - 理论保证：Theorem 1 给出下界 $\cos \geq \frac{1-r}{1+r}$，其中 $r = \varepsilon + \tau$，$\varepsilon$ 控制协方差近似误差，$\tau$ 控制模式位移
 
 3. **组合检测指标**：
-   $$\mathcal{M}(\mathbf{x}_T, c) = \gamma_1 \cdot \text{cos\_sim}(s_\theta^\Delta, s_\theta)|_{t \approx 0} + \gamma_2 \cdot \|s_\theta^\Delta\||_{t \approx T}$$
-   - $\gamma_1, \gamma_2$ 通过小规模 Logistic 回归确定（仅需 20 个记忆 prompt 拟合一次）
+    $\mathcal{M}(\mathbf{x}_T, c) = \gamma_1 \cdot \text{cos\_sim}(s_\theta^\Delta, s_\theta)|_{t \approx 0} + \gamma_2 \cdot \|s_\theta^\Delta\||_{t \approx T}$
+    - $\gamma_1, \gamma_2$ 通过小规模 Logistic 回归确定（仅需 20 个记忆 prompt 拟合一次）
 
 ### 损失函数 / 缓解策略
 

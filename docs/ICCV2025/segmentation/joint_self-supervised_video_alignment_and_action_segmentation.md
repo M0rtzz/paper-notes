@@ -30,9 +30,9 @@ tags:
 **视频对齐**（帧到帧匹配）和**动作分割**（帧到动作标签分配）都需要对视频进行细粒度时序理解，但这两个任务此前从未被联合研究。
 
 现有问题：
-1. **视频对齐**: VAVA 使用标准 Kantorovich 最优传输 + 最优性先验，但难以平衡多个损失且不能处理重复动作
-2. **动作分割**: TOT、UFSA 等方法在顺序变化、不平衡分割和重复动作场景下性能下降
-3. **ASOT** 用融合 GW 最优传输解决了动作分割问题，但未涉及视频对齐
+**视频对齐**: VAVA 使用标准 Kantorovich 最优传输 + 最优性先验，但难以平衡多个损失且不能处理重复动作
+**动作分割**: TOT、UFSA 等方法在顺序变化、不平衡分割和重复动作场景下性能下降
+**ASOT** 用融合 GW 最优传输解决了动作分割问题，但未涉及视频对齐
 
 核心观察：两个任务都需要细粒度时序理解，多任务学习可以共享表示并互相促进。特别是，视频对齐可以显著提升动作分割性能。
 
@@ -47,27 +47,31 @@ tags:
 ### 关键设计
 
 1. **Video Alignment Optimal Transport (VAOT)**:
-   - 基于融合 Gromov-Wasserstein (FGW) 最优传输：
-   $$\mathcal{F}_{FGW} = (1-\alpha)\mathcal{F}_{KOT}(\mathbf{C}, \mathbf{T}) + \alpha \mathcal{F}_{GW}(\mathbf{C}^x, \mathbf{C}^y, \mathbf{T})$$
-   - **视觉线索** (KOT): 代价矩阵 $\mathbf{C}_{ij} = 1 - \frac{\mathbf{x}_i^\top \mathbf{y}_j}{\|\mathbf{x}_i\| \|\mathbf{y}_j\|}$ 衡量帧间视觉相似性
-   - **结构先验** (GW): 通过 $\mathbf{C}^x$ 和 $\mathbf{C}^y$ 定义时序一致性约束，惩罚将时序邻近帧映射到时序远离帧的配对
-   - 结构先验设计精巧：在半径 $r$ 内的邻近帧配对到远离帧时产生 $1/r$ 的代价
-   - 能自然处理顺序变化和重复动作
+
+    - 基于融合 Gromov-Wasserstein (FGW) 最优传输：
+    $\mathcal{F}_{FGW} = (1-\alpha)\mathcal{F}_{KOT}(\mathbf{C}, \mathbf{T}) + \alpha \mathcal{F}_{GW}(\mathbf{C}^x, \mathbf{C}^y, \mathbf{T})$
+    - **视觉线索** (KOT): 代价矩阵 $\mathbf{C}_{ij} = 1 - \frac{\mathbf{x}_i^\top \mathbf{y}_j}{\|\mathbf{x}_i\| \|\mathbf{y}_j\|}$ 衡量帧间视觉相似性
+    - **结构先验** (GW): 通过 $\mathbf{C}^x$ 和 $\mathbf{C}^y$ 定义时序一致性约束，惩罚将时序邻近帧映射到时序远离帧的配对
+    - 结构先验设计精巧：在半径 $r$ 内的邻近帧配对到远离帧时产生 $1/r$ 的代价
+    - 能自然处理顺序变化和重复动作
 
 2. **高效数值求解**:
-   - 添加熵正则化 $-\epsilon H(\mathbf{T})$，通过投影镜面下降求解
-   - 利用 $\mathbf{C}^x$ 和 $\mathbf{C}^y$ 的稀疏结构，每次迭代 $O(NM)$ 复杂度
-   - 通常 25 次迭代内收敛，可在 GPU 上高效训练
+
+    - 添加熵正则化 $-\epsilon H(\mathbf{T})$，通过投影镜面下降求解
+    - 利用 $\mathbf{C}^x$ 和 $\mathbf{C}^y$ 的稀疏结构，每次迭代 $O(NM)$ 复杂度
+    - 通常 25 次迭代内收敛，可在 GPU 上高效训练
 
 3. **背景/冗余帧处理**:
-   - 在 X 和 Y 中各添加一个虚拟帧
-   - 如果某帧与所有对端帧的匹配概率都低于阈值 $\zeta$，则匹配到虚拟帧
-   - 虚拟帧及其关联帧不参与损失计算
+
+    - 在 X 和 Y 中各添加一个虚拟帧
+    - 如果某帧与所有对端帧的匹配概率都低于阈值 $\zeta$，则匹配到虚拟帧
+    - 虚拟帧及其关联帧不参与损失计算
 
 4. **VASOT - 联合多任务框架**:
-   - 将 VAOT（视频对齐）和 ASOT（动作分割）整合到统一框架
-   - 视频对齐进行帧到帧匹配 $(X \leftrightarrow Y)$，动作分割进行帧到动作匹配 $(X \leftrightarrow A, Y \leftrightarrow A)$
-   - 共享帧编码器参数 $\theta$ 和动作嵌入 $\mathbf{A}$
+
+    - 将 VAOT（视频对齐）和 ASOT（动作分割）整合到统一框架
+    - 视频对齐进行帧到帧匹配 $(X \leftrightarrow Y)$，动作分割进行帧到动作匹配 $(X \leftrightarrow A, Y \leftrightarrow A)$
+    - 共享帧编码器参数 $\theta$ 和动作嵌入 $\mathbf{A}$
 
 ### 损失函数 / 训练策略
 

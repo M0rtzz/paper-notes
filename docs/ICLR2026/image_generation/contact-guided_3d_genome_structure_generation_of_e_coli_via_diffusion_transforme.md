@@ -28,12 +28,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Hi-C 技术提供基因组片段间的群体平均接触频率，但 Hi-C 矩阵是间接测量——同一接触图谱可对应多种三维构象集合。
-2. **确定性方法的局限**：FLAMINGO（优化方法）、CHROMFORMER（Transformer 回归）等主流方法只输出单一共识构象，忽略了染色质组织的固有异质性。
-3. **集合方法的瓶颈**：基于聚合物模拟的集合方法（如 Li & Schlick 2024）计算昂贵，难以扩展到大规模数据。
-4. **生成式建模的机会**：将基因组重建定义为条件生成问题——给定 Hi-C，采样物理合理的三维构象分布。训练后可对新输入高效生成集合，实现摊余推断。
-5. **为何选细菌**：细菌染色体有较完善的物理和生物约束可做合理性检验；原核生物跨物种组织模式多样，适合评估模型迁移能力。
-6. **核心idea**：用 CrossDiT 架构实现 Hi-C → 3D 结构的单向条件生成，交叉注意力确保 Hi-C 作为"外场"约束结构而不被结构反向影响。
+**领域现状**：Hi-C 技术提供基因组片段间的群体平均接触频率，但 Hi-C 矩阵是间接测量——同一接触图谱可对应多种三维构象集合。
+**确定性方法的局限**：FLAMINGO（优化方法）、CHROMFORMER（Transformer 回归）等主流方法只输出单一共识构象，忽略了染色质组织的固有异质性。
+**集合方法的瓶颈**：基于聚合物模拟的集合方法（如 Li & Schlick 2024）计算昂贵，难以扩展到大规模数据。
+**生成式建模的机会**：将基因组重建定义为条件生成问题——给定 Hi-C，采样物理合理的三维构象分布。训练后可对新输入高效生成集合，实现摊余推断。
+**为何选细菌**：细菌染色体有较完善的物理和生物约束可做合理性检验；原核生物跨物种组织模式多样，适合评估模型迁移能力。
+**核心idea**：用 CrossDiT 架构实现 Hi-C → 3D 结构的单向条件生成，交叉注意力确保 Hi-C 作为"外场"约束结构而不被结构反向影响。
 
 ## 方法详解
 
@@ -43,20 +43,23 @@ tags:
 ### 关键设计
 
 1. **ResNet VAE（保持 per-bin 对齐）**:
-   - 1D ResNet18 架构，编码 928×16 维输入（每个 Hi-C bin 对应 2 个 bead × 2 条染色体 × (xyz + mask)）
-   - 序列长度不压缩——潜向量长度 = Hi-C 矩阵维度，确保逐 bin 对齐
-   - 引入复制掩码（replication mask）处理 DNA 复制中的分支结构，损失函数 $\mathcal{L} = \mathcal{L}_{coord} + \lambda_{mask}\mathcal{L}_{mask} + \lambda_{KL}\mathcal{L}_{KL}$
-   - $\mathcal{L}_{coord}$ 仅在掩码激活位置计算 MSE，避免不同复制阶段的 bead 数量偏差
+
+    - 1D ResNet18 架构，编码 928×16 维输入（每个 Hi-C bin 对应 2 个 bead × 2 条染色体 × (xyz + mask)）
+    - 序列长度不压缩——潜向量长度 = Hi-C 矩阵维度，确保逐 bin 对齐
+    - 引入复制掩码（replication mask）处理 DNA 复制中的分支结构，损失函数 $\mathcal{L} = \mathcal{L}_{coord} + \lambda_{mask}\mathcal{L}_{mask} + \lambda_{KL}\mathcal{L}_{KL}$
+    - $\mathcal{L}_{coord}$ 仅在掩码激活位置计算 MSE，避免不同复制阶段的 bead 数量偏差
 
 2. **CrossDiT 条件注入**:
-   - Hi-C 编码器：Transformer 沿行维度处理 Hi-C 矩阵（列作特征），输出逐 bin 条件嵌入 $z_c$
-   - 全局条件：$c = t + \tilde{z}_c$（时间步嵌入 + 全局平均池化的 $z_c$），通过 AdaLN-Zero 注入每个 DiT 块
-   - 交叉注意力：$x$ 作 Q，$z_c$ 作 K/V——结构向条件"查询"信息，条件不被结构更新，物理可解释
+
+    - Hi-C 编码器：Transformer 沿行维度处理 Hi-C 矩阵（列作特征），输出逐 bin 条件嵌入 $z_c$
+    - 全局条件：$c = t + \tilde{z}_c$（时间步嵌入 + 全局平均池化的 $z_c$），通过 AdaLN-Zero 注入每个 DiT 块
+    - 交叉注意力：$x$ 作 Q，$z_c$ 作 K/V——结构向条件"查询"信息，条件不被结构更新，物理可解释
 
 3. **Flow-Matching 训练**:
-   - 采用 rectified flow 框架替代 DDPM，优化更直接稳定
-   - 推理 50 步采样，CFG scale=1.0（不放大条件信号，保留多样性）
-   - 潜空间标准化 scale=1.335 确保噪声调度校准
+
+    - 采用 rectified flow 框架替代 DDPM，优化更直接稳定
+    - 推理 50 步采样，CFG scale=1.0（不放大条件信号，保留多样性）
+    - 潜空间标准化 scale=1.335 确保噪声调度校准
 
 ### 损失函数
 VAE: $\mathcal{L} = \mathcal{L}_{coord} + 1.0 \cdot \mathcal{L}_{mask} + 5 \times 10^{-3} \cdot \mathcal{L}_{KL}$；DiT: flow-matching velocity MSE loss。

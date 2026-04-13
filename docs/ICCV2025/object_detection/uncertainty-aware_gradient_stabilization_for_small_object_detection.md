@@ -53,26 +53,29 @@ UGS 框架由三个相互协作的组件组成：（1）分类式定位目标函
 ### 关键设计
 
 1. **分类式定位目标函数（Classification-based Localization with IN Labels）**:
-   - 做什么：将连续回归问题转化为分类问题，使梯度有界
-   - 核心思路：将连续回归范围 $[-\alpha, \alpha]$ 量化为 $n+1$ 个离散网格点，目标值 $T$ 被映射到相邻的两个网格形成 two-hot 软标签，用交叉熵损失优化：
-     $$\mathcal{L}_{CE} = -\mathbf{p}_{i_l}^* \log \mathbf{p}_{i_l} - \mathbf{p}_{i_r}^* \log \mathbf{p}_{i_r}$$
-     关键改进是引入**区间非均匀（IN）标签**通过指数网格间距：
-     $$\mathbf{y}_i^{IN} = \text{sign}(\mathbf{y}_i) \cdot \frac{\alpha}{e^{\alpha\beta}-1}(e^{\beta|\mathbf{y}_i|}-1)$$
-     参数 $\beta$ 控制网格密度——更大的 $\beta$ 使零附近的网格更密，平衡小目标的定位目标分布
-   - 设计动机：分类式损失的梯度 $|\mathbf{p}_i - \mathbf{p}_i^*|$ 被限制在 $[0,1]$ 内，是有界且置信度驱动的，避免了回归损失随目标尺度变化导致的梯度爆炸问题。IN 标签解决了小目标回归目标集中在有限范围、软标签头部区域仅占少量网格的类别不平衡问题
+
+    - 做什么：将连续回归问题转化为分类问题，使梯度有界
+    - 核心思路：将连续回归范围 $[-\alpha, \alpha]$ 量化为 $n+1$ 个离散网格点，目标值 $T$ 被映射到相邻的两个网格形成 two-hot 软标签，用交叉熵损失优化：
+    $\mathcal{L}_{CE} = -\mathbf{p}_{i_l}^* \log \mathbf{p}_{i_l} - \mathbf{p}_{i_r}^* \log \mathbf{p}_{i_r}$
+      关键改进是引入**区间非均匀（IN）标签**通过指数网格间距：
+    $\mathbf{y}_i^{IN} = \text{sign}(\mathbf{y}_i) \cdot \frac{\alpha}{e^{\alpha\beta}-1}(e^{\beta|\mathbf{y}_i|}-1)$
+      参数 $\beta$ 控制网格密度——更大的 $\beta$ 使零附近的网格更密，平衡小目标的定位目标分布
+    - 设计动机：分类式损失的梯度 $|\mathbf{p}_i - \mathbf{p}_i^*|$ 被限制在 $[0,1]$ 内，是有界且置信度驱动的，避免了回归损失随目标尺度变化导致的梯度爆炸问题。IN 标签解决了小目标回归目标集中在有限范围、软标签头部区域仅占少量网格的类别不平衡问题
 
 2. **不确定性最小化损失（Uncertainty Minimization, UM）**:
-   - 做什么：通过熵最小化显式降低预测的不确定性
-   - 核心思路：对预测分布 $\mathbf{p}$ 计算信息熵并最小化：
-     $$\mathcal{L}_{UM} = \mathcal{H}(\mathbf{p}) = -\sum_{i=0}^{n} \mathbf{p}_i \log \mathbf{p}_i$$
-   - 设计动机：小目标由于特征表示不充分，容易产生高不确定性（扁平的预测分布）。通过最小化熵可以抑制预测分布的发散，降低坐标预测方差，同时提供有界的梯度稳定优化
+
+    - 做什么：通过熵最小化显式降低预测的不确定性
+    - 核心思路：对预测分布 $\mathbf{p}$ 计算信息熵并最小化：
+    $\mathcal{L}_{UM} = \mathcal{H}(\mathbf{p}) = -\sum_{i=0}^{n} \mathbf{p}_i \log \mathbf{p}_i$
+    - 设计动机：小目标由于特征表示不充分，容易产生高不确定性（扁平的预测分布）。通过最小化熵可以抑制预测分布的发散，降低坐标预测方差，同时提供有界的梯度稳定优化
 
 3. **不确定性引导精炼模块（Uncertainty-guided Refinement, UR）**:
-   - 做什么：利用对抗扰动识别高不确定性区域并针对性精炼
-   - 核心思路：在 FPN 特征空间建立 min-max 优化目标，通过 $\mathcal{L}_{UM}$ 的梯度方向生成对抗扰动：
-     $$\epsilon_i^* \approx \rho \cdot \frac{\nabla_{\mathbf{P}_i} \mathcal{L}_{UM}(\mathbf{P}_i)}{\|\nabla_{\mathbf{P}_i} \mathcal{L}_{UM}(\mathbf{P}_i)\|_2}$$
-     扰动方向指向 $\mathcal{L}_{UM}$ 对激活变化最敏感的区域，即高不确定性区域
-   - 设计动机：对抗扰动放大高不确定性区域的精炼力度，同时保持高置信区域的稳定更新，整体增强特征鲁棒性。实验证明该模块能学习到被遮挡目标和类似噪声的目标
+
+    - 做什么：利用对抗扰动识别高不确定性区域并针对性精炼
+    - 核心思路：在 FPN 特征空间建立 min-max 优化目标，通过 $\mathcal{L}_{UM}$ 的梯度方向生成对抗扰动：
+    $\epsilon_i^* \approx \rho \cdot \frac{\nabla_{\mathbf{P}_i} \mathcal{L}_{UM}(\mathbf{P}_i)}{\|\nabla_{\mathbf{P}_i} \mathcal{L}_{UM}(\mathbf{P}_i)\|_2}$
+      扰动方向指向 $\mathcal{L}_{UM}$ 对激活变化最敏感的区域，即高不确定性区域
+    - 设计动机：对抗扰动放大高不确定性区域的精炼力度，同时保持高置信区域的稳定更新，整体增强特征鲁棒性。实验证明该模块能学习到被遮挡目标和类似噪声的目标
 
 ### 损失函数 / 训练策略
 

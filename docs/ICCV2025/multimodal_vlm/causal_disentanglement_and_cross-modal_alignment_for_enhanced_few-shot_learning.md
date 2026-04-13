@@ -33,9 +33,9 @@ tags:
 
 ### 已有方法的不足
 
-1. **纠缠特征导致过拟合**：CLIP 视觉编码器输出的特征 $\mathbf{z}'$ 是真实潜变量 $\mathbf{z}$ 的线性混合。现有方法（如 Tip-Adapter、TaskRes 等）直接使用这些纠缠特征，分类器需要隐式学习一个密集权重矩阵 $\mathbf{W}_{\text{dense}} = \mathbf{W}_{\text{unmix}} \cdot \mathbf{W}'_{\text{sparse}}$，参数量大，在少样本场景下容易过拟合
-2. **仅依赖 Cache Model 不够**：Tip-Adapter 等方法仅在图像模态内构建相似度匹配，未充分利用 CLIP 的跨模态对齐能力
-3. **Prompt-tuning 方法训练开销大**：CoOp 等需要通过 CLIP 文本编码器反向传播，训练时间显著高于 adapter 方法
+**纠缠特征导致过拟合**：CLIP 视觉编码器输出的特征 $\mathbf{z}'$ 是真实潜变量 $\mathbf{z}$ 的线性混合。现有方法（如 Tip-Adapter、TaskRes 等）直接使用这些纠缠特征，分类器需要隐式学习一个密集权重矩阵 $\mathbf{W}_{\text{dense}} = \mathbf{W}_{\text{unmix}} \cdot \mathbf{W}'_{\text{sparse}}$，参数量大，在少样本场景下容易过拟合
+**仅依赖 Cache Model 不够**：Tip-Adapter 等方法仅在图像模态内构建相似度匹配，未充分利用 CLIP 的跨模态对齐能力
+**Prompt-tuning 方法训练开销大**：CoOp 等需要通过 CLIP 文本编码器反向传播，训练时间显著高于 adapter 方法
 
 ### 核心动机
 

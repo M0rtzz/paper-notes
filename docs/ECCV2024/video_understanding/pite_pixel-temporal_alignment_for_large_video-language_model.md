@@ -24,12 +24,12 @@ tags:
 提出 PiTe 模型，通过物体运动轨迹在像素级别实现视频与语言的时空对齐，构建 PiTe-143k 数据集，在零样本 QA、时序定位和密集描述任务上大幅超越现有方法。
 
 ## 研究背景与动机
-1. **领域现状**：大语言模型（LLM）驱动了大视觉语言模型（LVLM）的发展，从图像扩展到视频理解成为热点。现有 LVidLM（如 VideoChat、Video-LLaMA、Video-ChatGPT）通过指令微调对齐视觉和语言特征。
-2. **现有痛点**：传统的 QA 训练范式主要帮助 LLM 从空间角度理解视觉数据，难以有效捕捉时间动态和空间一致性关系。单纯依赖指令微调不足以实现全面的视频理解。
-3. **核心矛盾**：视频包含复杂的时空数据结构，现有方案缺乏跨空间和时间维度的细粒度多模态对齐。
-4. **本文要解决什么**：如何在像素级别同时实现跨空间和时间维度的视频-语言细粒度对齐。
-5. **切入角度**：利用物体运动轨迹（trajectory）作为视频和语言之间的桥梁，让模型预测文本中提及的物体在视频中的运动轨迹，从而学习细粒度的文本到像素的对齐。
-6. **核心 idea 一句话**：通过轨迹引导的像素-时间对齐，让 LVidLM 在训练时预测每个物体的运动轨迹，实现空间和时间维度的细粒度对齐。
+**领域现状**：大语言模型（LLM）驱动了大视觉语言模型（LVLM）的发展，从图像扩展到视频理解成为热点。现有 LVidLM（如 VideoChat、Video-LLaMA、Video-ChatGPT）通过指令微调对齐视觉和语言特征。
+**现有痛点**：传统的 QA 训练范式主要帮助 LLM 从空间角度理解视觉数据，难以有效捕捉时间动态和空间一致性关系。单纯依赖指令微调不足以实现全面的视频理解。
+**核心矛盾**：视频包含复杂的时空数据结构，现有方案缺乏跨空间和时间维度的细粒度多模态对齐。
+**本文要解决什么**：如何在像素级别同时实现跨空间和时间维度的视频-语言细粒度对齐。
+**切入角度**：利用物体运动轨迹（trajectory）作为视频和语言之间的桥梁，让模型预测文本中提及的物体在视频中的运动轨迹，从而学习细粒度的文本到像素的对齐。
+**核心 idea 一句话**：通过轨迹引导的像素-时间对齐，让 LVidLM 在训练时预测每个物体的运动轨迹，实现空间和时间维度的细粒度对齐。
 
 ## 方法详解
 
@@ -39,32 +39,35 @@ PiTe 由四个核心组件构成：(1) ViT 视觉编码器（CLIP ViT-L/14）提
 ### 关键设计
 
 1. **PiTe-143k 自动标注数据集**
-   - 做什么：构建包含物体运动轨迹的大规模视频-语言数据集
-   - 核心思路：基于 InternVid-10M-FLT，通过两阶段自动标注管线生成。Stage 1 用 SuPar 提取名词短语，GLaMM 生成分割掩码；Stage 2 用 DOT 追踪点获得轨迹，k-means++ 聚类为 3 个关键点
-   - 数据规模：143.64k 视频，343.93k 事件片段，1.02M 运动轨迹，总时长 2086.44 小时
-   - 设计动机：现有视频指令数据集缺乏物体运动轨迹标注，无法支持像素级对齐研究
+
+    - 做什么：构建包含物体运动轨迹的大规模视频-语言数据集
+    - 核心思路：基于 InternVid-10M-FLT，通过两阶段自动标注管线生成。Stage 1 用 SuPar 提取名词短语，GLaMM 生成分割掩码；Stage 2 用 DOT 追踪点获得轨迹，k-means++ 聚类为 3 个关键点
+    - 数据规模：143.64k 视频，343.93k 事件片段，1.02M 运动轨迹，总时长 2086.44 小时
+    - 设计动机：现有视频指令数据集缺乏物体运动轨迹标注，无法支持像素级对齐研究
 
 2. **三阶段训练策略**
-   - 做什么：逐步从图像定位 → 视频轨迹对齐 → 指令跟随
-   - **Stage 1 — Referring Expression Localization**：
-     - 使用 Localized Narratives 数据集训练视觉适配器
-     - 在词汇映射层并行添加 MLP 定位投影器 $\varphi(\cdot)$，将语言特征映射为 2D 坐标：$p_i = \varphi(h_i)$
-     - 损失：交叉熵 + L1 回归：$\mathcal{L}_1 = \frac{1}{\ell}\sum_{i=1}^{\ell}(\text{CE}(\text{LLM}(\mathbf{z}, \mathbf{w}_{1:i-1}), w_i) + \lambda|\hat{p}_i - p_i|)$
-     - 使用 LoRA (r=64, α=128) 微调 LLM
-   - **Stage 2 — Pixel-Temporal Alignment**：
-     - 使用 PiTe-143k 数据集通过轨迹对齐视频和语言
-     - 轨迹投影器 $\rho(\cdot)$ 输出 $P \times N$ 个 2D 坐标（P 个追踪点 × N 帧）：$\mathbf{p}_i = \rho(h_i)$
-     - 损失：$\mathcal{L}_2 = \frac{1}{\ell}\sum_{i=1}^{\ell}(\text{CE} + \frac{\lambda}{P \cdot N}\sum_{j=1}^{P}\sum_{k=1}^{N}|\hat{p}_{ijk} - p_{ijk}|)$
-     - 关键：用 Stage 1 的定位投影器权重初始化轨迹投影器，公式为 $\mathbf{m}_\varphi = \overbrace{\mathbf{m}_\rho \oplus \cdots \oplus \mathbf{m}_\rho}^{P \cdot N}$
-   - **Stage 3 — Video QA Instruction Tuning**：
-     - 使用 Valley + Video-ChatGPT 高质量对话数据微调
-     - 仅用标准交叉熵自回归生成损失
+
+    - 做什么：逐步从图像定位 → 视频轨迹对齐 → 指令跟随
+    - **Stage 1 — Referring Expression Localization**：
+      - 使用 Localized Narratives 数据集训练视觉适配器
+      - 在词汇映射层并行添加 MLP 定位投影器 $\varphi(\cdot)$，将语言特征映射为 2D 坐标：$p_i = \varphi(h_i)$
+      - 损失：交叉熵 + L1 回归：$\mathcal{L}_1 = \frac{1}{\ell}\sum_{i=1}^{\ell}(\text{CE}(\text{LLM}(\mathbf{z}, \mathbf{w}_{1:i-1}), w_i) + \lambda|\hat{p}_i - p_i|)$
+      - 使用 LoRA (r=64, α=128) 微调 LLM
+    - **Stage 2 — Pixel-Temporal Alignment**：
+      - 使用 PiTe-143k 数据集通过轨迹对齐视频和语言
+      - 轨迹投影器 $\rho(\cdot)$ 输出 $P \times N$ 个 2D 坐标（P 个追踪点 × N 帧）：$\mathbf{p}_i = \rho(h_i)$
+      - 损失：$\mathcal{L}_2 = \frac{1}{\ell}\sum_{i=1}^{\ell}(\text{CE} + \frac{\lambda}{P \cdot N}\sum_{j=1}^{P}\sum_{k=1}^{N}|\hat{p}_{ijk} - p_{ijk}|)$
+      - 关键：用 Stage 1 的定位投影器权重初始化轨迹投影器，公式为 $\mathbf{m}_\varphi = \overbrace{\mathbf{m}_\rho \oplus \cdots \oplus \mathbf{m}_\rho}^{P \cdot N}$
+    - **Stage 3 — Video QA Instruction Tuning**：
+      - 使用 Valley + Video-ChatGPT 高质量对话数据微调
+      - 仅用标准交叉熵自回归生成损失
 
 3. **时间边界学习**
-   - 做什么：让模型学习事件的时间边界
-   - 核心思路：在生成文本中结构化时间信息，以 "..., from s to e" 或 "From s to e, ..." 格式，s 和 e 为帧索引
-   - 不存在轨迹的物体坐标统一设为 $(-1, -1)$ 表示缺失
-   - 设计动机：增强模型对时间边界的感知能力
+
+    - 做什么：让模型学习事件的时间边界
+    - 核心思路：在生成文本中结构化时间信息，以 "..., from s to e" 或 "From s to e, ..." 格式，s 和 e 为帧索引
+    - 不存在轨迹的物体坐标统一设为 $(-1, -1)$ 表示缺失
+    - 设计动机：增强模型对时间边界的感知能力
 
 ### 损失函数 / 训练策略
 - 三个阶段分别使用不同损失：Stage 1 (CE + L1)、Stage 2 (CE + 轨迹 L1)、Stage 3 (仅 CE)

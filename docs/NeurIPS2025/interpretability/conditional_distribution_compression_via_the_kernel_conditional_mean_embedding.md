@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：现有分布压缩方法（如 Kernel Herding、Kernel Thinning）专注于无标签数据，通过最小化 MMD 构建压缩集来近似原始分布 $\mathbb{P}_X$。这些方法在减少数据量的同时保持统计保真度方面取得了显著成功。
+**领域现状**：现有分布压缩方法（如 Kernel Herding、Kernel Thinning）专注于无标签数据，通过最小化 MMD 构建压缩集来近似原始分布 $\mathbb{P}_X$。这些方法在减少数据量的同时保持统计保真度方面取得了显著成功。
 
-2. **现有痛点**：对于有标签数据 $\{(\mathbf{x}_i, \mathbf{y}_i)\}_{i=1}^n$，没有任何现有方法直接针对条件分布族 $\mathbb{P}_{Y|X}$ 进行压缩。现有方法要么忽略标签信息，要么只能间接通过压缩联合分布 $\mathbb{P}_{X,Y}$ 来实现。
+**现有痛点**：对于有标签数据 $\{(\mathbf{x}_i, \mathbf{y}_i)\}_{i=1}^n$，没有任何现有方法直接针对条件分布族 $\mathbb{P}_{Y|X}$ 进行压缩。现有方法要么忽略标签信息，要么只能间接通过压缩联合分布 $\mathbb{P}_{X,Y}$ 来实现。
 
-3. **核心矛盾**：核条件均值嵌入（KCME）的估计代价为 $\mathcal{O}(n^3)$（需要矩阵求逆），这使得大规模数据下的条件分布压缩在计算上不可行。直觉上，直接压缩条件分布应优于通过联合分布间接压缩，但高计算成本阻碍了实际应用。
+**核心矛盾**：核条件均值嵌入（KCME）的估计代价为 $\mathcal{O}(n^3)$（需要矩阵求逆），这使得大规模数据下的条件分布压缩在计算上不可行。直觉上，直接压缩条件分布应优于通过联合分布间接压缩，但高计算成本阻碍了实际应用。
 
-4. **本文要解决什么**：如何以线性时间 $\mathcal{O}(n)$ 代价构建一个压缩集 $\mathcal{C}$，使得压缩后的条件分布 $\tilde{\mathbb{P}}_{Y|X=\mathbf{x}} \approx \mathbb{P}_{Y|X=\mathbf{x}}$ 对几乎所有 $\mathbf{x}$ 成立。
+**本文要解决什么**：如何以线性时间 $\mathcal{O}(n)$ 代价构建一个压缩集 $\mathcal{C}$，使得压缩后的条件分布 $\tilde{\mathbb{P}}_{Y|X=\mathbf{x}} \approx \mathbb{P}_{Y|X=\mathbf{x}}$ 对几乎所有 $\mathbf{x}$ 成立。
 
-5. **切入角度**：利用 tower property（塔性质）的关键观察——在条件分布压缩的目标中，$\mathbb{E}_{\mathbf{x} \sim \mathbb{P}_X}[\langle \mu_{Y|X=\mathbf{x}}, h(\mathbf{x}) \rangle] = \mathbb{E}_{(\mathbf{x},\mathbf{y}) \sim \mathbb{P}_{X,Y}}[h(\mathbf{x})(\mathbf{y})]$，从而避免显式估计 KCME，将复杂度从 $\mathcal{O}(n^3)$ 降至 $\mathcal{O}(n)$。
+**切入角度**：利用 tower property（塔性质）的关键观察——在条件分布压缩的目标中，$\mathbb{E}_{\mathbf{x} \sim \mathbb{P}_X}[\langle \mu_{Y|X=\mathbf{x}}, h(\mathbf{x}) \rangle] = \mathbb{E}_{(\mathbf{x},\mathbf{y}) \sim \mathbb{P}_{X,Y}}[h(\mathbf{x})(\mathbf{y})]$，从而避免显式估计 KCME，将复杂度从 $\mathcal{O}(n^3)$ 降至 $\mathcal{O}(n)$。
 
-6. **核心 idea 一句话**：通过定义条件分布的度量 AMCMD 并利用塔性质简化估计，设计首个线性时间条件分布压缩算法。
+**核心 idea 一句话**：通过定义条件分布的度量 AMCMD 并利用塔性质简化估计，设计首个线性时间条件分布压缩算法。
 
 ## 方法详解
 

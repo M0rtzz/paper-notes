@@ -41,16 +41,18 @@ tags:
 1. **Mask 条件注入**: 将二值分割 mask $M$ 下采样后与输入图像拼接在一起，作为额外的通道输入到扩散模型。通过扩展 image projection layer 的输入通道来支持额外的 mask 通道，新增权重初始化为零以保留预训练参数。这让模型能感知目标的空间位置，但仅此不足以保证目标感知——模型可能忽略 mask 信息。
 
 2. **[TGT] Token 与交叉注意力损失**: 这是本文的核心创新。
-   - 在文本 prompt 末尾添加 "The person interacts with [TGT] object."，引入特殊 token [TGT] 来编码目标的空间信息
-   - 设计交叉注意力损失将 [TGT] token 的交叉注意力图与输入 mask 对齐：
-   $$\mathcal{L}_{\text{attn}} = \mathbb{E}[\|A(\mathbf{z}_t^0, [\text{TGT}]) - M\|_2^2]$$
+
+    - 在文本 prompt 末尾添加 "The person interacts with [TGT] object."，引入特殊 token [TGT] 来编码目标的空间信息
+    - 设计交叉注意力损失将 [TGT] token 的交叉注意力图与输入 mask 对齐：
+    $\mathcal{L}_{\text{attn}} = \mathbb{E}[\|A(\mathbf{z}_t^0, [\text{TGT}]) - M\|_2^2]$
    其中 $A(\mathbf{z}_t^0, [\text{TGT}])$ 是第一帧视频潜变量与 [TGT] token 间的交叉注意力权重
-   - 总训练目标为：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{rec}} + \lambda_{\text{attn}} \mathcal{L}_{\text{attn}}$（$\lambda_{\text{attn}} = 0.1$）
-   - 推理时，将 [TGT] 前置到文本中指代目标的词语前，使模型利用 mask 提供的空间线索
+    - 总训练目标为：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{rec}} + \lambda_{\text{attn}} \mathcal{L}_{\text{attn}}$（$\lambda_{\text{attn}} = 0.1$）
+    - 推理时，将 [TGT] 前置到文本中指代目标的词语前，使模型利用 mask 提供的空间线索
 
 3. **选择性交叉注意力损失**: 不是对所有 transformer block 和注意力区域无差别施加损失，而是精心选择：
-   - **选择性 Transformer Block**: 通过实验评估发现第 5~23 个 block（共 42 个）的注意力图与分割 mask 最为语义对齐，每个训练步在这些 block 中选择 7 个施加损失
-   - **选择性注意力区域**: MM-DiT 架构的注意力分为 4 种（text-to-text, T2V, V2T, video-to-video），其中 **V2T (video-to-text) cross-attention** 直接影响视频潜表示的值，效果最好。T2V 虽也编码语义信息但影响间接
+
+    - **选择性 Transformer Block**: 通过实验评估发现第 5~23 个 block（共 42 个）的注意力图与分割 mask 最为语义对齐，每个训练步在这些 block 中选择 7 个施加损失
+    - **选择性注意力区域**: MM-DiT 架构的注意力分为 4 种（text-to-text, T2V, V2T, video-to-video），其中 **V2T (video-to-text) cross-attention** 直接影响视频潜表示的值，效果最好。T2V 虽也编码语义信息但影响间接
 
 4. **数据集构建**: 从 BEHAVE（简单人物-物体交互）和 Ego-Exo4D（复杂场景如烹饪、修车）数据集中提取 1290 个视频片段，每个片段满足：(1) 初始帧中演员存在但未与目标交互，(2) 后续帧中演员与目标发生交互。用 SAM 获取目标 mask，用 CogVLM2 生成文本 caption。
 

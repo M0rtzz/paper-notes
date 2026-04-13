@@ -49,14 +49,16 @@ FEAT（Feedback Dataset Generation Framework for English AI Tutoring）由三个
 1. **五维反馈标准体系**：FEAT 基于 Seo et al. (2025) 定义的五个教师反馈标准——Correct（准确具体）、Revealing（不直接给答案）、Guidance（引导性）、Diagnostic（诊断性）和 Encouragement（鼓励性）。这五个标准贯穿数据生成和评估的全过程。
 
 2. **DM 数据集构建流程**：
-   - **反馈生成**：从5种来源收集反馈——Human、DIRECT数据集、PrepTutor、GPT-3.5 和 GPT-4
-   - **人工排序**：标注者基于 Correct 和 Revealing 两个优先标准对5个候选反馈排序
-   - **偏好对构建**：从排序中构建成对（chosen, rejected）偏好数据
+
+    - **反馈生成**：从5种来源收集反馈——Human、DIRECT数据集、PrepTutor、GPT-3.5 和 GPT-4
+    - **人工排序**：标注者基于 Correct 和 Revealing 两个优先标准对5个候选反馈排序
+    - **偏好对构建**：从排序中构建成对（chosen, rejected）偏好数据
 
 3. **DG 数据集构建流程**：
-   - **场景转换**：将阅读理解任务（MCTest）转化为辅导场景，大规模生成对话
-   - **基于标准的自动标注**：生成两版反馈——"有标准指导"版和"无标准指导"版。前者为 chosen，后者为 rejected
-   - 这避免了人工标注的开销，假设遵循教育标准的反馈质量更高
+
+    - **场景转换**：将阅读理解任务（MCTest）转化为辅导场景，大规模生成对话
+    - **基于标准的自动标注**：生成两版反馈——"有标准指导"版和"无标准指导"版。前者为 chosen，后者为 rejected
+    - 这避免了人工标注的开销，假设遵循教育标准的反馈质量更高
 
 4. **DA 数据集构建**：将 DG 和不同比例的 DM（5%-100%）混合。核心发现是仅需少量高质量种子数据就能显著提升整体质量。
 

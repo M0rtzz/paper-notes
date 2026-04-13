@@ -28,8 +28,8 @@ tags:
 
 预训练视觉语言模型（如 CLIP）在零样本分类中表现优异，但类别名称的歧义性限制了文本原型的判别力：
 
-1. **词汇歧义**：如 "sword lily" 和 "blackberry lily" 都包含 "lily" 且余弦相似度高达 0.67，难以区分
-2. **语义歧义**：如 "laptop" 和 "desktop computer" 无共同词但余弦相似度 0.69，因为都属于计算机
+**词汇歧义**：如 "sword lily" 和 "blackberry lily" 都包含 "lily" 且余弦相似度高达 0.67，难以区分
+**语义歧义**：如 "laptop" 和 "desktop computer" 无共同词但余弦相似度 0.69，因为都属于计算机
 
 现有方法（TPT、TDA、AWT 等）仅从文本域构建原型，忽视了视觉信息能提供互补的判别线索。将测试图像的视觉特征融入原型可显著减少歧义——作者展示随着测试流推进，多模态原型与真实分布的 KL 散度从 18.7 下降到 9.5。
 
@@ -44,23 +44,26 @@ ProtoMM 由两个模块组成：
 ### 关键设计
 
 1. **分布式特征构建**：
-   - 将测试图像增强为 $N$ 个视图（随机裁剪/翻转/缩放），分布表示为 $P_t = \sum_{n=1}^{N} a_t^n \delta_{\mathbf{x}_t^n}$
-   - 通过 LLM（GPT-3.5）为每个类生成 $M$ 个文本描述，扩展为 $S$ 个视觉粒子
-   - 多模态原型：$Q_c = \sum_{m=1}^{M} w_c^m \delta_{\mathbf{z}_c^m} + \sum_{s=1}^{S} w_c^{M+s} \delta_{\mathbf{e}_c^s}$
-   - 视觉粒子初始化为文本描述特征的均值，随测试流动态更新
-   - 重要性权重基于负熵计算：高置信度增强（与原型匹配好的）获得更高权重
+
+    - 将测试图像增强为 $N$ 个视图（随机裁剪/翻转/缩放），分布表示为 $P_t = \sum_{n=1}^{N} a_t^n \delta_{\mathbf{x}_t^n}$
+    - 通过 LLM（GPT-3.5）为每个类生成 $M$ 个文本描述，扩展为 $S$ 个视觉粒子
+    - 多模态原型：$Q_c = \sum_{m=1}^{M} w_c^m \delta_{\mathbf{z}_c^m} + \sum_{s=1}^{S} w_c^{M+s} \delta_{\mathbf{e}_c^s}$
+    - 视觉粒子初始化为文本描述特征的均值，随测试流动态更新
+    - 重要性权重基于负熵计算：高置信度增强（与原型匹配好的）获得更高权重
 
 2. **基于最优传输的预测**：
-   - 构建代价矩阵 $\mathbf{C}_{tc}$ 为视觉增强与多模态原型间的余弦距离
-   - 通过 Sinkhorn 算法求解带熵正则化的 OT 问题
-   - 预测概率 $p(y_t=c|\mathbf{x}_t) \propto \exp(-d_{\text{OT}}(P_t, Q_c))$
-   - OT 距离比点对点的余弦相似度更精确地衡量分布间距离
+
+    - 构建代价矩阵 $\mathbf{C}_{tc}$ 为视觉增强与多模态原型间的余弦距离
+    - 通过 Sinkhorn 算法求解带熵正则化的 OT 问题
+    - 预测概率 $p(y_t=c|\mathbf{x}_t) \propto \exp(-d_{\text{OT}}(P_t, Q_c))$
+    - OT 距离比点对点的余弦相似度更精确地衡量分布间距离
 
 3. **动态原型更新**：
-   - 对预测置信度 $\geq \tau$ 的高质量样本，利用传输计划 $\mathbf{T}_{tc}$ 计算增强得分 $\Theta_t = \mathbf{T}_{tc} \mathbf{w}_{y_t}$
-   - 选取 top-$S$ 个高得分增强作为候选
-   - 加权移动平均更新视觉缓存：$\mathbf{e}_c^s \leftarrow \frac{w_t^{M+s} \mathbf{e}_c^s + \theta_t^{(s)} \mathbf{x}_t^{(s)}}{w_t^{M+s} + \theta_t^{(s)}}$
-   - 随着测试流推进，多模态原型持续积累更多视觉先验
+
+    - 对预测置信度 $\geq \tau$ 的高质量样本，利用传输计划 $\mathbf{T}_{tc}$ 计算增强得分 $\Theta_t = \mathbf{T}_{tc} \mathbf{w}_{y_t}$
+    - 选取 top-$S$ 个高得分增强作为候选
+    - 加权移动平均更新视觉缓存：$\mathbf{e}_c^s \leftarrow \frac{w_t^{M+s} \mathbf{e}_c^s + \theta_t^{(s)} \mathbf{x}_t^{(s)}}{w_t^{M+s} + \theta_t^{(s)}}$
+    - 随着测试流推进，多模态原型持续积累更多视觉先验
 
 ### 损失函数 / 训练策略
 

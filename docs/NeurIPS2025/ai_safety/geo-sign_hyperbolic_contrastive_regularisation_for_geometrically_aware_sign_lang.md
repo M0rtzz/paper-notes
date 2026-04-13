@@ -26,12 +26,12 @@ Geo-Sign 提出将骨架特征投影到 Poincaré 球模型的双曲空间中，
 
 ## 研究背景与动机
 
-1. **领域现状**：手语翻译 (SLT) 近年转向利用大型语言模型（如 T5 变体）处理视觉特征。大多数 SOTA 方法依赖 RGB 视频输入和大型视觉编码器（如 DINO-ViT），计算成本高且存在隐私问题。
-2. **现有痛点**：骨架表示通过时空图卷积 (ST-GCN) 提取后，被投影到欧几里得空间供语言模型处理。然而欧几里得空间中，大尺度的手臂运动主导嵌入范数，压缩了手指关节等细粒度动作的区分度。例如"水"的 ASL 手势需要区分手指 W 形 + 点下巴（叶节点动作）和手臂外展（枝节点动作），在平坦空间中二者嵌入会混淆。
-3. **核心矛盾**：手语运动具有天然的树状层次结构（躯干→手臂→手腕→手指），但欧几里得空间的多项式体积增长无法有效编码这种层次。
-4. **本文要解决什么**：增强骨架表示的几何性质，使其自然尊重手语运动学的层次结构。
-5. **切入角度**：双曲空间的体积呈指数增长 $V_H(r) \propto e^{(d-1)r}$，天然适合编码树状层次——边界附近距离放大区分细粒度差异，中心附近类欧几里得适合语义级表示。
-6. **核心idea一句话**：将骨架部件特征投影到可学习曲率的 Poincaré 球中，用双曲对比损失对齐姿态-文本嵌入，正则化语言模型以感知运动层次。
+**领域现状**：手语翻译 (SLT) 近年转向利用大型语言模型（如 T5 变体）处理视觉特征。大多数 SOTA 方法依赖 RGB 视频输入和大型视觉编码器（如 DINO-ViT），计算成本高且存在隐私问题。
+**现有痛点**：骨架表示通过时空图卷积 (ST-GCN) 提取后，被投影到欧几里得空间供语言模型处理。然而欧几里得空间中，大尺度的手臂运动主导嵌入范数，压缩了手指关节等细粒度动作的区分度。例如"水"的 ASL 手势需要区分手指 W 形 + 点下巴（叶节点动作）和手臂外展（枝节点动作），在平坦空间中二者嵌入会混淆。
+**核心矛盾**：手语运动具有天然的树状层次结构（躯干→手臂→手腕→手指），但欧几里得空间的多项式体积增长无法有效编码这种层次。
+**本文要解决什么**：增强骨架表示的几何性质，使其自然尊重手语运动学的层次结构。
+**切入角度**：双曲空间的体积呈指数增长 $V_H(r) \propto e^{(d-1)r}$，天然适合编码树状层次——边界附近距离放大区分细粒度差异，中心附近类欧几里得适合语义级表示。
+**核心idea一句话**：将骨架部件特征投影到可学习曲率的 Poincaré 球中，用双曲对比损失对齐姿态-文本嵌入，正则化语言模型以感知运动层次。
 
 ## 方法详解
 
@@ -42,28 +42,32 @@ Geo-Sign 提出将骨架特征投影到 Poincaré 球模型的双曲空间中，
 ### 关键设计
 
 1. **双曲投影层 (Hyperbolic Projection)**：
-   - 做什么：将欧几里得部件特征 $\bar{\mathbf{f}}_p$ 映射到 Poincaré 球
-   - 核心公式：$\mathbf{h}_p = \exp_{\mathbf{0}}^c(s_p \mathbf{W}^p \bar{\mathbf{f}}_p)$，其中指数映射 $\exp_{\mathbf{0}}^c(\mathbf{v}) = \tanh(\frac{\sqrt{c}\|\mathbf{v}\|_2}{2}) \frac{\mathbf{v}}{\frac{\sqrt{c}}{2}\|\mathbf{v}\|_2}$
-   - 可学习缩放标量 $s_p$ 控制各部件在双曲空间中的"深度"——大运动幅度的手臂靠近原点，细粒度的手指靠近边界
-   - 设计动机：利用双曲空间边界区域的距离放大效应区分细粒度手指动作
+
+    - 做什么：将欧几里得部件特征 $\bar{\mathbf{f}}_p$ 映射到 Poincaré 球
+    - 核心公式：$\mathbf{h}_p = \exp_{\mathbf{0}}^c(s_p \mathbf{W}^p \bar{\mathbf{f}}_p)$，其中指数映射 $\exp_{\mathbf{0}}^c(\mathbf{v}) = \tanh(\frac{\sqrt{c}\|\mathbf{v}\|_2}{2}) \frac{\mathbf{v}}{\frac{\sqrt{c}}{2}\|\mathbf{v}\|_2}$
+    - 可学习缩放标量 $s_p$ 控制各部件在双曲空间中的"深度"——大运动幅度的手臂靠近原点，细粒度的手指靠近边界
+    - 设计动机：利用双曲空间边界区域的距离放大效应区分细粒度手指动作
 
 2. **加权 Fréchet 均值聚合 (Pooled 策略)**：
-   - 做什么：将多个部件嵌入 $\{\mathbf{h}_p\}$ 聚合为全局姿态嵌入 $\boldsymbol{\mu}_\text{pose}$
-   - 核心思路：权重 $w_p \propto \exp(d_{\mathbb{B}_c}(\mathbf{0}, \mathbf{h}_p))$，离原点越远（越靠近边界、越细粒度）的部件权重越大
-   - 迭代算法：在切空间中做加权对数映射求和，再用指数映射返回流形
-   - 设计动机：Fréchet 均值是双曲空间中几何上正确的平均操作，比欧几里得平均更准确
+
+    - 做什么：将多个部件嵌入 $\{\mathbf{h}_p\}$ 聚合为全局姿态嵌入 $\boldsymbol{\mu}_\text{pose}$
+    - 核心思路：权重 $w_p \propto \exp(d_{\mathbb{B}_c}(\mathbf{0}, \mathbf{h}_p))$，离原点越远（越靠近边界、越细粒度）的部件权重越大
+    - 迭代算法：在切空间中做加权对数映射求和，再用指数映射返回流形
+    - 设计动机：Fréchet 均值是双曲空间中几何上正确的平均操作，比欧几里得平均更准确
 
 3. **双曲注意力对齐 (Token 策略)**：
-   - 做什么：每个姿态部件 $\mathbf{h}_p$ 作为 Query，对文本 token 嵌入做双曲注意力，生成部件特定的上下文向量 $\mathbf{c}_p$
-   - Key 变换：$\mathbf{k}_t = (\mathbf{M} \otimes \mathbf{v}_t) \oplus \mathbf{b}$（Möbius 仿射变换）
-   - 注意力分数：$s_{pt} = -d_{\mathbb{B}_c}(\mathbf{h}_p, \mathbf{k}_t)$（负测地距离）
-   - 上下文向量：$\mathbf{c}_p = \mu_{\mathcal{B}_c}(\{\mathbf{v}_t\}, \{\alpha_{pt}\})$（双曲加权中点）
-   - 设计动机：允许不同身体部位关注不同的文本 token，实现更精细的姿态-语义对齐
+
+    - 做什么：每个姿态部件 $\mathbf{h}_p$ 作为 Query，对文本 token 嵌入做双曲注意力，生成部件特定的上下文向量 $\mathbf{c}_p$
+    - Key 变换：$\mathbf{k}_t = (\mathbf{M} \otimes \mathbf{v}_t) \oplus \mathbf{b}$（Möbius 仿射变换）
+    - 注意力分数：$s_{pt} = -d_{\mathbb{B}_c}(\mathbf{h}_p, \mathbf{k}_t)$（负测地距离）
+    - 上下文向量：$\mathbf{c}_p = \mu_{\mathcal{B}_c}(\{\mathbf{v}_t\}, \{\alpha_{pt}\})$（双曲加权中点）
+    - 设计动机：允许不同身体部位关注不同的文本 token，实现更精细的姿态-语义对齐
 
 4. **双曲对比损失 (Geometric Contrastive Loss)**：
-   - 核心公式：$\mathcal{L}_\text{hyp\_pair}(\mathbf{p}_i, \mathbf{t}_i) = -\log \frac{\exp(-d_{\mathbb{B}_c}(\mathbf{p}_i, \mathbf{t}_i)/\tau)}{\sum_{j=1}^B \exp(-d_{\mathbb{B}_c}(\mathbf{p}_i, \mathbf{t}_j)/\tau + m \cdot \mathbb{I}(i \neq j))}$
-   - 可学习温度 $\tau$ 和可学习 margin $m$
-   - 测地距离：$d_{\mathbb{B}_c}(\mathbf{u}, \mathbf{v}) = \frac{2}{\sqrt{c}} \text{artanh}(\sqrt{c}\|(-\mathbf{u}) \oplus_c \mathbf{v}\|_2)$
+
+    - 核心公式：$\mathcal{L}_\text{hyp\_pair}(\mathbf{p}_i, \mathbf{t}_i) = -\log \frac{\exp(-d_{\mathbb{B}_c}(\mathbf{p}_i, \mathbf{t}_i)/\tau)}{\sum_{j=1}^B \exp(-d_{\mathbb{B}_c}(\mathbf{p}_i, \mathbf{t}_j)/\tau + m \cdot \mathbb{I}(i \neq j))}$
+    - 可学习温度 $\tau$ 和可学习 margin $m$
+    - 测地距离：$d_{\mathbb{B}_c}(\mathbf{u}, \mathbf{v}) = \frac{2}{\sqrt{c}} \text{artanh}(\sqrt{c}\|(-\mathbf{u}) \oplus_c \mathbf{v}\|_2)$
 
 ### 训练策略
 - 总损失：$\mathcal{L}_\text{total} = \alpha \cdot \mathcal{L}_{CE} + (1-\alpha) \cdot \mathcal{L}_{hyp\_reg}$，$\alpha$ 在训练中动态调整，初期偏重双曲正则化

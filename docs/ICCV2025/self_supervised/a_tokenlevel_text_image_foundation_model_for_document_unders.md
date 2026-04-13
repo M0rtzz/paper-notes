@@ -48,19 +48,22 @@ tags:
 ### 关键设计
 
 1. **TokenIT 数据集构建**:
-   - 做什么：构建首个 token 级图像文本数据集
-   - 核心思路：四步流水线——①文本图像分割（自然场景用微调 SAM，文档用无监督聚类）；②文本识别（SOTA OCR 获取转录）；③BPE Tokenizer 拆分子词；④将字符级 mask 合并为 token 级 mask。每个样本包含原图、mask 图和 JSON 文件（记录 BPE token 信息）
-   - 设计动机：覆盖自然场景、文档、表格、图表、代码、GUI 等多种类型，三轮人工检验历时 4 个月确保质量
+
+    - 做什么：构建首个 token 级图像文本数据集
+    - 核心思路：四步流水线——①文本图像分割（自然场景用微调 SAM，文档用无监督聚类）；②文本识别（SOTA OCR 获取转录）；③BPE Tokenizer 拆分子词；④将字符级 mask 合并为 token 级 mask。每个样本包含原图、mask 图和 JSON 文件（记录 BPE token 信息）
+    - 设计动机：覆盖自然场景、文档、表格、图表、代码、GUI 等多种类型，三轮人工检验历时 4 个月确保质量
 
 2. **TokenFD 预训练**:
-   - 做什么：实现 token 级视觉-语言对齐
-   - 核心思路：输入图像经 ViT 编码器提取特征，两层反卷积上采样 4x 到更高分辨率，再线性投射到与语言嵌入相同维度。对每个 BPE token-mask 对，通过 mean pooling 在 mask 区域提取 token 级视觉特征 $\mathbf{t}_i$，用简单的 token 嵌入层（无需复杂文本编码器）获取语言嵌入 $\mathbf{e}_i$。三个损失函数联合优化：距离损失 $\mathcal{L}_{dis}$（L1 距离）、相似性损失 $\mathcal{L}_{sim}$（余弦相似度）、sigmoid 对比损失 $\mathcal{L}_{sig}$（类 SigLIP）
-   - 设计动机：不同于 CLIP 需要复杂文本编码器，TokenFD 直接用 token 嵌入层对齐——因为操作粒度已经是 BPE 子词，无需上下文编码
+
+    - 做什么：实现 token 级视觉-语言对齐
+    - 核心思路：输入图像经 ViT 编码器提取特征，两层反卷积上采样 4x 到更高分辨率，再线性投射到与语言嵌入相同维度。对每个 BPE token-mask 对，通过 mean pooling 在 mask 区域提取 token 级视觉特征 $\mathbf{t}_i$，用简单的 token 嵌入层（无需复杂文本编码器）获取语言嵌入 $\mathbf{e}_i$。三个损失函数联合优化：距离损失 $\mathcal{L}_{dis}$（L1 距离）、相似性损失 $\mathcal{L}_{sim}$（余弦相似度）、sigmoid 对比损失 $\mathcal{L}_{sig}$（类 SigLIP）
+    - 设计动机：不同于 CLIP 需要复杂文本编码器，TokenFD 直接用 token 嵌入层对齐——因为操作粒度已经是 BPE 子词，无需上下文编码
 
 3. **TokenVL（MLLM）**:
-   - 做什么：构建文档理解 MLLM
-   - 核心思路：两阶段训练。**阶段1 LLM-guided Token Alignment**：自回归 VQA 训练（隐式对齐）+ token 对齐分支（显式空间对齐，从 LLM 中间层提取视觉-语言特征在 token 级对齐）。**阶段2 SFT**：取消 token 对齐分支避免推理开销，在 VQA 数据上全参数微调。还设计了 token abstractor 用可学习 token 在每个窗口内自适应压缩视觉特征
-   - 设计动机：token 对齐分支在训练时强制 LLM 更多参考图像内容而非依赖语义上下文推测，推理时移除无额外开销
+
+    - 做什么：构建文档理解 MLLM
+    - 核心思路：两阶段训练。**阶段1 LLM-guided Token Alignment**：自回归 VQA 训练（隐式对齐）+ token 对齐分支（显式空间对齐，从 LLM 中间层提取视觉-语言特征在 token 级对齐）。**阶段2 SFT**：取消 token 对齐分支避免推理开销，在 VQA 数据上全参数微调。还设计了 token abstractor 用可学习 token 在每个窗口内自适应压缩视觉特征
+    - 设计动机：token 对齐分支在训练时强制 LLM 更多参考图像内容而非依赖语义上下文推测，推理时移除无额外开销
 
 ### 损失函数 / 训练策略
 

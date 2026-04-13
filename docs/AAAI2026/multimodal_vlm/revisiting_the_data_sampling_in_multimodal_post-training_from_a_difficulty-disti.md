@@ -48,32 +48,35 @@ tags:
 ### 关键设计
 
 1. **PISM（Progressive Image Semantic Masking）——基于敏感度的难度评估**:
-   - **核心思路**：逐步遮蔽图像像素，观察模型预测何时崩溃
-   - 定义遮蔽比例序列 $\Lambda=\{0.0, 0.1, ..., 0.9\}$
-   - 对每个遮蔽比例重复K=10次随机遮蔽，计算稳健准确率 $P_c(\lambda_i) = \frac{1}{K}\sum_{k=1}^K \delta_{\lambda_i}^{(k)}$
-   - 找到**失败阈值** $\lambda_s^* = \min\{\lambda_i \in \Lambda \mid P_c(\lambda_i) < \tau\}$，其中 $\tau=0.1$
-   - **难度分类**：
-     - Hard: $\lambda_s^* \leq 0.4$（轻微遮蔽就崩溃→高度依赖视觉细节）
-     - Medium: $0.4 < \lambda_s^* < 0.7$
-     - Easy: $\lambda_s^* \geq 0.7$（大量遮蔽仍正确→文本线索即可回答）
-     - Unsolved: 原始图像就答错
-   - **设计动机**：如果图像信息至关重要，那么稍微破坏图像，模型就应该出错——这就是"难"样本
+
+    - **核心思路**：逐步遮蔽图像像素，观察模型预测何时崩溃
+    - 定义遮蔽比例序列 $\Lambda=\{0.0, 0.1, ..., 0.9\}$
+    - 对每个遮蔽比例重复K=10次随机遮蔽，计算稳健准确率 $P_c(\lambda_i) = \frac{1}{K}\sum_{k=1}^K \delta_{\lambda_i}^{(k)}$
+    - 找到**失败阈值** $\lambda_s^* = \min\{\lambda_i \in \Lambda \mid P_c(\lambda_i) < \tau\}$，其中 $\tau=0.1$
+    - **难度分类**：
+      - Hard: $\lambda_s^* \leq 0.4$（轻微遮蔽就崩溃→高度依赖视觉细节）
+      - Medium: $0.4 < \lambda_s^* < 0.7$
+      - Easy: $\lambda_s^* \geq 0.7$（大量遮蔽仍正确→文本线索即可回答）
+      - Unsolved: 原始图像就答错
+    - **设计动机**：如果图像信息至关重要，那么稍微破坏图像，模型就应该出错——这就是"难"样本
 
 2. **CMAB（Cross-Modality Attention Balance）——基于注意力的难度评估**:
-   - **核心思路**：分析模型生成回答时对图像token vs 文本token的注意力分配
-   - 计算每个生成token在每层的注意力比例 $\rho^{(l,t)} = S_{img}^{(l,t)} / S_{txt}^{(l,t)}$
-   - 跨层取几何平均（排除首尾层）：$\rho_t = \exp\left(\frac{1}{L_{layers}-2}\sum_{l=2}^{L_{layer}-1}\log(\rho^{(l,t)}+\epsilon)\right)$
-   - 样本级注意力平衡：$\bar{\rho} = \frac{1}{T}\sum_{t=1}^T \rho_t$
-   - **难度分类**：
-     - Easy: $\bar{\rho} < 0.1$ 或 $\bar{\rho} > 1.9$（单模态主导，不需要复杂跨模态推理）
-     - Medium: $0.1 \leq \bar{\rho} < 0.4$ 或 $1.6 < \bar{\rho} \leq 1.9$
-     - Hard: $0.4 \leq \bar{\rho} \leq 1.6$（需要平衡利用两种模态→真正的跨模态推理）
-   - **设计动机**：当注意力均匀分配在图像和文本之间时，说明两种模态的信息都不可或缺，这才是"难"的多模态样本
+
+    - **核心思路**：分析模型生成回答时对图像token vs 文本token的注意力分配
+    - 计算每个生成token在每层的注意力比例 $\rho^{(l,t)} = S_{img}^{(l,t)} / S_{txt}^{(l,t)}$
+    - 跨层取几何平均（排除首尾层）：$\rho_t = \exp\left(\frac{1}{L_{layers}-2}\sum_{l=2}^{L_{layer}-1}\log(\rho^{(l,t)}+\epsilon)\right)$
+    - 样本级注意力平衡：$\bar{\rho} = \frac{1}{T}\sum_{t=1}^T \rho_t$
+    - **难度分类**：
+      - Easy: $\bar{\rho} < 0.1$ 或 $\bar{\rho} > 1.9$（单模态主导，不需要复杂跨模态推理）
+      - Medium: $0.1 \leq \bar{\rho} < 0.4$ 或 $1.6 < \bar{\rho} \leq 1.9$
+      - Hard: $0.4 \leq \bar{\rho} \leq 1.6$（需要平衡利用两种模态→真正的跨模态推理）
+    - **设计动机**：当注意力均匀分配在图像和文本之间时，说明两种模态的信息都不可或缺，这才是"难"的多模态样本
 
 3. **训练范式对比**:
-   - GRPO-only: 直接在难度分层数据上做GRPO
-   - SFT+GRPO: 先在一组数据上SFT，再在另一组上GRPO
-   - 穷举了所有可能的难度组合（mid→hard, hard→mid, rand→hard 等）
+
+    - GRPO-only: 直接在难度分层数据上做GRPO
+    - SFT+GRPO: 先在一组数据上SFT，再在另一组上GRPO
+    - 穷举了所有可能的难度组合（mid→hard, hard→mid, rand→hard 等）
 
 ### 训练配置
 - 基础模型：Qwen2.5VL-7B

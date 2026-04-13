@@ -27,23 +27,23 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Scaling Laws（尤其是 Chinchilla）已成为预测 LLM 性能的核心工具，指导在固定计算预算下平衡模型参数量 $N$ 和训练 Token 数 $D$，得出经典的 $D \approx 20N$ 结论。
+**领域现状**：Scaling Laws（尤其是 Chinchilla）已成为预测 LLM 性能的核心工具，指导在固定计算预算下平衡模型参数量 $N$ 和训练 Token 数 $D$，得出经典的 $D \approx 20N$ 结论。
 
-2. **现有痛点**：
+**现有痛点**：
    - 现有 Scaling Law 仅关注**训练成本**，完全忽略了**推理成本**，而在实际部署中推理开销远大于训练（模型生命周期内要反复推理）。
    - FLOPs 约束不符合实际：实践中模型大小由部署设备内存决定，训练 Token 数由可用数据量决定（例如 LLaMA-3-8B 用了 15T tokens，远超 Chinchilla 推荐的 160B），两者并不受 FLOPs 预算约束。
    - 虽然 Sardana et al. (2023) 尝试考虑推理 FLOPs，但其方法需要预估模型生命周期内推理的 Token 总量，实际不可行。
 
-3. **核心矛盾**：相同参数量的模型，推理延迟可以相差高达 **3.5 倍**——例如 MiniCPM-1B 的延迟甚至高于 Qwen2.5-14B。这说明参数量并非影响推理效率的唯一因素，**模型架构（形状）** 才是关键变量，但现有 Scaling Law 完全没有建模这一项。
+**核心矛盾**：相同参数量的模型，推理延迟可以相差高达 **3.5 倍**——例如 MiniCPM-1B 的延迟甚至高于 Qwen2.5-14B。这说明参数量并非影响推理效率的唯一因素，**模型架构（形状）** 才是关键变量，但现有 Scaling Law 完全没有建模这一项。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 子问题 1：如何在 Scaling Law 中引入模型架构变量（宽度 $d_{\text{model}}$ vs 深度 $n_{\text{layers}}$）？
    - 子问题 2：如何将推理延迟预算 $T_C$ 纳入优化约束？
    - 子问题 3：Scaling Law 预测的 loss 和下游任务精度之间存在 gap，如何选出真正最优的模型配置？
 
-5. **切入角度**：作者通过大量实验观察到推理延迟随层数线性增长（因为层间计算必须串行），但宽度增大的影响远小于深度——同参数量下，**更宽更浅**的模型推理更快。
+**切入角度**：作者通过大量实验观察到推理延迟随层数线性增长（因为层间计算必须串行），但宽度增大的影响远小于深度——同参数量下，**更宽更浅**的模型推理更快。
 
-6. **核心 idea 一句话**：在 Chinchilla 损失函数上乘以一个关于宽高比 $R = d_{\text{model}} / n_{\text{layers}}$ 的修正项 $(1 + \varepsilon R^\gamma)$，从而联合优化 loss 和推理效率。
+**核心 idea 一句话**：在 Chinchilla 损失函数上乘以一个关于宽高比 $R = d_{\text{model}} / n_{\text{layers}}$ 的修正项 $(1 + \varepsilon R^\gamma)$，从而联合优化 loss 和推理效率。
 
 ## 方法详解
 
@@ -61,23 +61,26 @@ tags:
 ### 关键设计
 
 1. **推理感知 Scaling Law 公式**
-   - 做什么：预测给定参数量 $N$、训练 Token 数 $D$ 和宽高比 $R$ 的模型训练 loss。
-   - 核心思路：在 Chinchilla 的 $L(N, D) = E + AN^{-\alpha} + BD^{-\beta}$ 基础上，乘以架构修正因子：
-     $$L(N, D, R) = (E + AN^{-\alpha} + BD^{-\beta}) \cdot (1 + \varepsilon R^\gamma)$$
-     其中 $R = d_{\text{model}} / n_{\text{layers}}$，$A, B, E, \alpha, \beta, \gamma, \varepsilon$ 为可学习参数。实验中令 $\alpha = \beta = \gamma$ 以简化拟合。
-   - 设计动机：实验发现宽高比 $R$ 对 loss 的影响呈现可用 $(1 + \varepsilon R^\gamma)$ 捕捉的规律——过宽（$R$ 过大）的模型 loss 会略微上升，但换取显著的推理加速。这个乘法形式使得架构修正对不同 $(N, D)$ 组合都能均匀地施加影响。
+
+    - 做什么：预测给定参数量 $N$、训练 Token 数 $D$ 和宽高比 $R$ 的模型训练 loss。
+    - 核心思路：在 Chinchilla 的 $L(N, D) = E + AN^{-\alpha} + BD^{-\beta}$ 基础上，乘以架构修正因子：
+    $L(N, D, R) = (E + AN^{-\alpha} + BD^{-\beta}) \cdot (1 + \varepsilon R^\gamma)$
+      其中 $R = d_{\text{model}} / n_{\text{layers}}$，$A, B, E, \alpha, \beta, \gamma, \varepsilon$ 为可学习参数。实验中令 $\alpha = \beta = \gamma$ 以简化拟合。
+    - 设计动机：实验发现宽高比 $R$ 对 loss 的影响呈现可用 $(1 + \varepsilon R^\gamma)$ 捕捉的规律——过宽（$R$ 过大）的模型 loss 会略微上升，但换取显著的推理加速。这个乘法形式使得架构修正对不同 $(N, D)$ 组合都能均匀地施加影响。
 
 2. **约束重写：从 FLOPs 约束到三重约束**
-   - 做什么：将 Scaling Law 的优化目标从不实用的 FLOPs 约束改为参数量 + Token 数 + 推理延迟三重约束。
-   - 核心思路：原始 Chinchilla 目标是 $\arg\min_{N,D} L(N,D) \text{ s.t. } \text{FLOPs}(N,D) = C$。本文改为：
-     $$\arg\min_{N,D} L(N,D) \text{ s.t. } N \leq N_C, \; D \leq D_C, \; T_{\text{inf}} \leq T_C$$
-     这样就把推理延迟预算显式地纳入了优化。推理延迟 $T_{\text{inf}}$ 通过实际在目标硬件上测量获得（几分钟即可）。
-   - 设计动机：实际部署中，模型大小受设备内存限制，训练数据量受语料规模限制，两者都是硬性约束而非 trade-off。延迟预算由应用场景决定（如聊天机器人需要低延迟）。
+
+    - 做什么：将 Scaling Law 的优化目标从不实用的 FLOPs 约束改为参数量 + Token 数 + 推理延迟三重约束。
+    - 核心思路：原始 Chinchilla 目标是 $\arg\min_{N,D} L(N,D) \text{ s.t. } \text{FLOPs}(N,D) = C$。本文改为：
+    $\arg\min_{N,D} L(N,D) \text{ s.t. } N \leq N_C, \; D \leq D_C, \; T_{\text{inf}} \leq T_C$
+      这样就把推理延迟预算显式地纳入了优化。推理延迟 $T_{\text{inf}}$ 通过实际在目标硬件上测量获得（几分钟即可）。
+    - 设计动机：实际部署中，模型大小受设备内存限制，训练数据量受语料规模限制，两者都是硬性约束而非 trade-off。延迟预算由应用场景决定（如聊天机器人需要低延迟）。
 
 3. **Predict-Rank-Select 模型选择方法**
-   - 做什么：解决"loss 相近但下游任务表现差异大"的问题，从多个候选中选出真正好的模型。
-   - 核心思路：不依赖 Scaling Law 的绝对 loss 值来直接预测下游精度（noise 太大），而是利用其**排序能力**——预测 loss 越低的排名越靠前。选取 top-k 候选全量训练，再用下游评估做最终决定。
-   - 设计动机：作者在 PIQA、BoolQ、HellaSwag 上观察到，loss 和 accuracy 的关系呈现不同模式——有些近似线性、有些"阶梯状"——使得精确预测 accuracy 非常困难。但 Scaling Law 的排序准确性远高于绝对预测准确性（Spearman 相关系数达到 1.0）。
+
+    - 做什么：解决"loss 相近但下游任务表现差异大"的问题，从多个候选中选出真正好的模型。
+    - 核心思路：不依赖 Scaling Law 的绝对 loss 值来直接预测下游精度（noise 太大），而是利用其**排序能力**——预测 loss 越低的排名越靠前。选取 top-k 候选全量训练，再用下游评估做最终决定。
+    - 设计动机：作者在 PIQA、BoolQ、HellaSwag 上观察到，loss 和 accuracy 的关系呈现不同模式——有些近似线性、有些"阶梯状"——使得精确预测 accuracy 非常困难。但 Scaling Law 的排序准确性远高于绝对预测准确性（Spearman 相关系数达到 1.0）。
 
 ### 训练策略
 

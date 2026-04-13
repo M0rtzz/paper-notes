@@ -29,8 +29,8 @@ tags:
 
 6D物体位姿估计是AR、自动驾驶和机器人操作等领域的基础任务。现有方法主要分为两类：
 
-1. **Model-based方法**：依赖CAD模型或参考图像，对未见物体扩展性差
-2. **Model-free方法**：如BundleSDF，通过神经隐式场（Neural Object Field）联合优化位姿和重建，但计算开销极大（每帧2.1秒），难以用于实时场景
+**Model-based方法**：依赖CAD模型或参考图像，对未见物体扩展性差
+**Model-free方法**：如BundleSDF，通过神经隐式场（Neural Object Field）联合优化位姿和重建，但计算开销极大（每帧2.1秒），难以用于实时场景
 
 BundleSDF虽然报告near real-time位姿优化（约10Hz），但其神经场训练远未实时（每轮约6.7秒），整体追踪频率仅约0.4Hz。这严重限制了在动态场景（如手持物体操作）中的应用。
 

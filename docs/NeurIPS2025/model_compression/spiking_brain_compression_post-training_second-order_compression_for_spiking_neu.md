@@ -31,9 +31,9 @@ tags:
 
 **现有方法的痛点**：
 
-1. **训练中剪枝（如 LTH、UPF、STDS）**需要多轮迭代的压缩-训练循环，对大型预训练 SNN（如 SEW-ResNet152、Spiking Transformer）计算成本过高。
-2. **ANN 后训练压缩方法直接移植到 SNN 效果差**：Optimal Brain Compression（OBC）等方法的损失函数基于电流域（current-based），而 SNN 的实际输出是脉冲序列（spike train），两者存在根本性的"目标函数断裂"。
-3. **SNN 的量化后训练（PTQ）发展滞后**，不像 ANN 领域已有 GPTQ 等成熟方法。
+**训练中剪枝（如 LTH、UPF、STDS）**需要多轮迭代的压缩-训练循环，对大型预训练 SNN（如 SEW-ResNet152、Spiking Transformer）计算成本过高。
+**ANN 后训练压缩方法直接移植到 SNN 效果差**：Optimal Brain Compression（OBC）等方法的损失函数基于电流域（current-based），而 SNN 的实际输出是脉冲序列（spike train），两者存在根本性的"目标函数断裂"。
+**SNN 的量化后训练（PTQ）发展滞后**，不像 ANN 领域已有 GPTQ 等成熟方法。
 
 核心动机：需要一种**一次性后训练**压缩方法，既利用二阶优化的精度优势，又正确反映 SNN 的脉冲动态特性。
 
@@ -50,13 +50,14 @@ $$\arg\min_{\hat{W}} E_X[\mathcal{L}(f(X,W), f(X,\hat{W}))], \text{ s.t. } \math
 1. **Van Rossum 距离（VRD）损失函数**: 由于脉冲序列是离散的 0/1 信号，简单的 L2 范数忽略了时间维度上的脉冲距离。SBC 使用 VRD 的平方作为损失：$\mathcal{L}(W) = \|MS - M\hat{S}\|_2^2$，其中 $M$ 是由衰减核 $k[t] = (1 - 1/\tau_m)^t \cdot (1/\tau_m)$ 产生的卷积矩阵。关键性质：VRD 可按每个 LIF 神经元独立分解 $\|MS - M\hat{S}\|_2^2 = \sum_{j=1}^{d_{\text{out}}} \|MS_{:,j} - M\hat{S}_{:,j}\|_2^2$，使 Hessian 的计算可以按神经元并行化。
 
 2. **替代膜电位（SMP）Hessian**: 脉冲函数 $S[t] = \Theta(U[t] - V_{th})$ 不可微，受代理梯度（surrogate gradient）启发，用常数函数 $g(u) = c$ 替代 Heaviside 函数的导数。由于 OBS 框架只关注 Hessian 的相对大小，$c$ 可以约掉（取 $c=1$）。此时二阶项 $h'' = g' = 0$，得到 SMP Hessian：
-   $$\mathbf{H}_{\text{SMP}} = E_X[2(MX)^T MX]$$
+    $\mathbf{H}_{\text{SMP}} = E_X[2(MX)^T MX]$
    这恰好是无脉冲情况下膜电位最小二乘损失 $\|MXw - MX\hat{w}\|_2^2$ 的精确 Hessian。相比 OBC 的 $\mathbf{H}_{\text{OBC}} = E_X[2X^TX]$，SMP Hessian 多了卷积矩阵 $M$，更好地捕捉了脉冲时间动态。
 
 3. **SBC 剪枝算法**: 
-   - **自适应稀疏度分配**：用 LAMPS 从全局目标稀疏度确定每模块的剪枝比例。
-   - **权重排序**（Step 1）：对每个神经元的权重执行 OBS，按损失从小到大记录剪枝顺序，每次批量剪 $B_{\text{in}}$ 个权重并用 Woodbury 公式更新逆 Hessian。时间 $O(d_{\text{in}}^3 / B_{\text{in}})$。
-   - **权重剪枝**（Step 2）：根据排序结果生成掩码，用分组 OBS 公式一次性更新剩余权重：$\delta_{\mathbb{P}} = -\mathbf{H}^{-1}_{:,\mathbb{P}}((\mathbf{H}^{-1})_{\mathbb{P}})^{-1}\mathbf{W}_{:,i}$。
+
+    - **自适应稀疏度分配**：用 LAMPS 从全局目标稀疏度确定每模块的剪枝比例。
+    - **权重排序**（Step 1）：对每个神经元的权重执行 OBS，按损失从小到大记录剪枝顺序，每次批量剪 $B_{\text{in}}$ 个权重并用 Woodbury 公式更新逆 Hessian。时间 $O(d_{\text{in}}^3 / B_{\text{in}})$。
+    - **权重剪枝**（Step 2）：根据排序结果生成掩码，用分组 OBS 公式一次性更新剩余权重：$\delta_{\mathbb{P}} = -\mathbf{H}^{-1}_{:,\mathbb{P}}((\mathbf{H}^{-1})_{\mathbb{P}})^{-1}\mathbf{W}_{:,i}$。
 
 ### 损失函数 / 训练策略
 

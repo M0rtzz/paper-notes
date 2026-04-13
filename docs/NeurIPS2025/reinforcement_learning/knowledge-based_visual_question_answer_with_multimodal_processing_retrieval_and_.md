@@ -26,14 +26,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：知识密集型视觉问答（KB-VQA）要求模型同时理解图像内容并检索外部知识。检索增强生成（RAG）方法已展示了在该任务上的显著进步。
-2. **现有痛点**：
+**领域现状**：知识密集型视觉问答（KB-VQA）要求模型同时理解图像内容并检索外部知识。检索增强生成（RAG）方法已展示了在该任务上的显著进步。
+**现有痛点**：
    - **检索粒度不足**：现有方法通常使用全图视觉特征做检索，在复杂场景中（如钟楼旁的小雕像），全局特征被主体对象主导，检索到大量无关信息
    - **过滤精度低**：段落级别的重排序无法过滤段落内部的无关内容，检索结果含大量噪声
-3. **核心矛盾**：需要细粒度的信息提取以精准检索，同时又要过滤海量检索结果中的噪声。
-4. **本文要解决什么**：设计更精准的多模态检索和更有效的结果过滤机制。
-5. **切入角度**：让 VLM 自主决定使用哪些视觉工具（captioning、grounding、flipping）来处理输入，并用 RL 训练 VLM 学会过滤检索结果中的无关信息。
-6. **核心 idea**：训练一个 VLM-PRF 模型，用答案准确率和格式一致性作为奖励信号，通过 GRPO 让模型学会灵活调用工具+高效过滤信息——这是 RL 首次应用于多模态 RAG。
+**核心矛盾**：需要细粒度的信息提取以精准检索，同时又要过滤海量检索结果中的噪声。
+**本文要解决什么**：设计更精准的多模态检索和更有效的结果过滤机制。
+**切入角度**：让 VLM 自主决定使用哪些视觉工具（captioning、grounding、flipping）来处理输入，并用 RL 训练 VLM 学会过滤检索结果中的无关信息。
+**核心 idea**：训练一个 VLM-PRF 模型，用答案准确率和格式一致性作为奖励信号，通过 GRPO 让模型学会灵活调用工具+高效过滤信息——这是 RL 首次应用于多模态 RAG。
 
 ## 方法详解
 
@@ -48,22 +48,23 @@ Wiki-PRF 包含三个核心阶段：
 ### 关键设计
 
 1. **工具调用机制**：
-   - **Captioning 工具**：VLM-PRF 输出初始描述 $C_{init}$，再由 VLM-base 细化为检索查询 $C_{query} = \text{VLM}_{\text{captioning}}(C_{init}, Q)$
-   - **Grounding 工具**：VLM-PRF 指定目标对象，VLM-base 定位并裁剪图像区域 $I_{\text{grounding}} = \text{Crop}(I, \text{VLM}_{\text{grounding}}(\text{object}))$
-   - **Flipping 工具**：对图像做左右翻转以缓解角度变化对检索的影响
-   - VLM-PRF 在 `<think>` 标签中推理使用哪些工具及顺序，在 `<tool>` 标签中输出工具调用
+
+    - **Captioning 工具**：VLM-PRF 输出初始描述 $C_{init}$，再由 VLM-base 细化为检索查询 $C_{query} = \text{VLM}_{\text{captioning}}(C_{init}, Q)$
+    - **Grounding 工具**：VLM-PRF 指定目标对象，VLM-base 定位并裁剪图像区域 $I_{\text{grounding}} = \text{Crop}(I, \text{VLM}_{\text{grounding}}(\text{object}))$
+    - **Flipping 工具**：对图像做左右翻转以缓解角度变化对检索的影响
+    - VLM-PRF 在 `<think>` 标签中推理使用哪些工具及顺序，在 `<tool>` 标签中输出工具调用
 
 2. **多模态检索**：使用 EVA-CLIP 8B 编码查询，通过 Faiss-GPU 做余弦相似度检索。检索结果拆分为段落级 sections，按与问题的相似度排序选取 Top-$k_s$。
 
 3. **过滤阶段**：VLM-PRF 接收直接检索信息 $D$ 和工具检索结果 $\mathcal{S}_{\text{search}}$，在 `<think>` 中推理，在 `<answer>` 中输出过滤后的面向任务知识 $F$：
-   $$F = \text{VLM-PRF}(D, \mathcal{S}_{\text{search}}), \quad A = \text{VLM}(F, Q)$$
+    $F = \text{VLM-PRF}(D, \mathcal{S}_{\text{search}}), \quad A = \text{VLM}(F, Q)$
 
 4. **强化学习训练**：使用 GRPO（去除 KL 约束）训练 VLM-PRF，奖励函数：
-   $$r_\phi(x,y) = \alpha \cdot EM(a_{\text{pred}}, a_{\text{gt}}) + \beta \cdot M(a_{\text{tool}}, t_{\text{tool}}) + \gamma \cdot M(a_{\text{filter}}, t_{\text{filter}})$$
-   - 答案奖励 ($\alpha=1$)：精确匹配评分
-   - 工具格式奖励 ($\beta=0.3$)：正则表达式验证格式合规性
-   - 过滤格式奖励 ($\gamma=0.7$)：验证过滤输出格式
-   - 使用 LoRA（rank=64, alpha=128）仅训练少量附加参数
+    $r_\phi(x,y) = \alpha \cdot EM(a_{\text{pred}}, a_{\text{gt}}) + \beta \cdot M(a_{\text{tool}}, t_{\text{tool}}) + \gamma \cdot M(a_{\text{filter}}, t_{\text{filter}})$
+    - 答案奖励 ($\alpha=1$)：精确匹配评分
+    - 工具格式奖励 ($\beta=0.3$)：正则表达式验证格式合规性
+    - 过滤格式奖励 ($\gamma=0.7$)：验证过滤输出格式
+    - 使用 LoRA（rank=64, alpha=128）仅训练少量附加参数
 
 ### 训练策略
 

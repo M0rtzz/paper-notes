@@ -47,28 +47,32 @@ PEMP 基于冻结的 CLIP 模型，包含三个学习过程：
 ### 关键设计
 
 1. **视觉先验知识注入（Visual Prompt Construction）**:
-   - 做什么：为每个分类任务构建典型的 patch 和 slide 视觉样例作为固定 prompt
-   - 核心思路：由病理专家从权威教材中挑选代表性图像，如预后差的宫颈癌病理特征包括"高级别异型性"、"血管侵犯"、"坏死"等 patch 样例，以及"模糊肿瘤边界、低间质比"等 slide 样例
-   - 设计动机：在少样本场景下，仅靠有限训练数据难以获取有效知识，引入外部典型样例可引导模型关注任务相关的关键病理模式
-   - 实现：用 CLIP 图像编码器提取样例特征 $z_l = \phi_{img}(e_l)$，通过余弦相似度匹配每个 patch 最相似的样例，拼接为增强特征 $f_{i,j}^e$
+
+    - 做什么：为每个分类任务构建典型的 patch 和 slide 视觉样例作为固定 prompt
+    - 核心思路：由病理专家从权威教材中挑选代表性图像，如预后差的宫颈癌病理特征包括"高级别异型性"、"血管侵犯"、"坏死"等 patch 样例，以及"模糊肿瘤边界、低间质比"等 slide 样例
+    - 设计动机：在少样本场景下，仅靠有限训练数据难以获取有效知识，引入外部典型样例可引导模型关注任务相关的关键病理模式
+    - 实现：用 CLIP 图像编码器提取样例特征 $z_l = \phi_{img}(e_l)$，通过余弦相似度匹配每个 patch 最相似的样例，拼接为增强特征 $f_{i,j}^e$
 
 2. **Messenger Layer 与 Summary Layer**:
-   - 做什么：建模同一 slide 内 patch 间关系，并聚合 patch 特征为 slide 特征
-   - Messenger Layer：轻量级自注意力层，输入增强后的 patch 特征 $F_i^e$，通过标准注意力机制 $F_i^{ML} = \text{softmax}(\frac{QK^\top}{\sqrt{d_w}})V$ 捕获 patch 间的空间关系
-   - Summary Layer：基于 attention pooling 的聚合层，通过可学习权重 $a_{i,j} = \frac{\exp(w^\top \tanh(Vf_{i,j}^\top))}{\sum_j \exp(w^\top \tanh(Vf_{i,j}^\top))}$ 将所有 patch 特征加权求和为 slide 特征 $F_i^S$
-   - 和之前方法的区别：TOP 等方法直接用平均池化或简单注意力，缺乏 patch 间的交互建模
+
+    - 做什么：建模同一 slide 内 patch 间关系，并聚合 patch 特征为 slide 特征
+    - Messenger Layer：轻量级自注意力层，输入增强后的 patch 特征 $F_i^e$，通过标准注意力机制 $F_i^{ML} = \text{softmax}(\frac{QK^\top}{\sqrt{d_w}})V$ 捕获 patch 间的空间关系
+    - Summary Layer：基于 attention pooling 的聚合层，通过可学习权重 $a_{i,j} = \frac{\exp(w^\top \tanh(Vf_{i,j}^\top))}{\sum_j \exp(w^\top \tanh(Vf_{i,j}^\top))}$ 将所有 patch 特征加权求和为 slide 特征 $F_i^S$
+    - 和之前方法的区别：TOP 等方法直接用平均池化或简单注意力，缺乏 patch 间的交互建模
 
 3. **文本先验知识注入（Textual Prompt Construction）**:
-   - 做什么：在文本侧构建三层结构化 prompt——Slide Task Token、Slide-level Descriptive Token、Patch-level Descriptive Token
-   - 每层都包含固定的病理描述和可学习 prompt 向量（如 $[\alpha]_1[\alpha]_2\ldots[\alpha]_M$），分别对应任务类别描述、slide 级病理特征描述、patch 级病理特征描述
-   - 设计动机：病理图像的专业术语对 CLIP 来说可能是"unseen"的，仅靠文本难以激活正确特征；配合视觉样例形成跨模态对齐
+
+    - 做什么：在文本侧构建三层结构化 prompt——Slide Task Token、Slide-level Descriptive Token、Patch-level Descriptive Token
+    - 每层都包含固定的病理描述和可学习 prompt 向量（如 $[\alpha]_1[\alpha]_2\ldots[\alpha]_M$），分别对应任务类别描述、slide 级病理特征描述、patch 级病理特征描述
+    - 设计动机：病理图像的专业术语对 CLIP 来说可能是"unseen"的，仅靠文本难以激活正确特征；配合视觉样例形成跨模态对齐
 
 4. **双层对齐对比学习（Two-level Alignment）**:
-   - 总损失函数：$\mathcal{L}_{total} = \mathcal{L}_t + \lambda_1 \mathcal{L}_s + \lambda_2 \mathcal{L}_p$
-   - $\mathcal{L}_t$：slide 视觉特征与 slide 文本特征的对齐（完成分类任务）
-   - $\mathcal{L}_s$：slide 级视觉样例与 slide 级文本描述的对齐
-   - $\mathcal{L}_p$：patch 级视觉样例与 patch 级文本描述的对齐
-   - 基本形式为标准对比损失：$\mathcal{L} = -\sum_{F_i} \log \frac{\exp(\text{sim}(F_i, T_y)/\tau)}{\sum_{i=1}^{U} \exp(\text{sim}(F_i, T_i)/\tau)}$
+
+    - 总损失函数：$\mathcal{L}_{total} = \mathcal{L}_t + \lambda_1 \mathcal{L}_s + \lambda_2 \mathcal{L}_p$
+    - $\mathcal{L}_t$：slide 视觉特征与 slide 文本特征的对齐（完成分类任务）
+    - $\mathcal{L}_s$：slide 级视觉样例与 slide 级文本描述的对齐
+    - $\mathcal{L}_p$：patch 级视觉样例与 patch 级文本描述的对齐
+    - 基本形式为标准对比损失：$\mathcal{L} = -\sum_{F_i} \log \frac{\exp(\text{sim}(F_i, T_y)/\tau)}{\sum_{i=1}^{U} \exp(\text{sim}(F_i, T_i)/\tau)}$
 
 ### 损失函数 / 训练策略
 

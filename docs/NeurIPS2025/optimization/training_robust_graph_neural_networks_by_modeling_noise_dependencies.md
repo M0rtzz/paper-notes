@@ -47,28 +47,29 @@ DA-GNN是一个基于变分推断的编码器-解码器框架：
 ### 关键设计
 
 1. **DANG的数据生成过程(DGP)**：定义了六个因果关系——
-   - $X \leftarrow (\epsilon, Z_Y)$：噪声变量和真实标签共同产生（可能含噪的）特征
-   - $A \leftarrow (Z_A, X)$：潜在干净结构和特征共同产生（可能含噪的）边
-   - $A \leftarrow \epsilon$：噪声变量也可直接导致结构噪声
-   - $Y \leftarrow (Z_Y, X, A)$：真实标签、特征和结构共同产生（可能含噪的）观测标签
+
+    - $X \leftarrow (\epsilon, Z_Y)$：噪声变量和真实标签共同产生（可能含噪的）特征
+    - $A \leftarrow (Z_A, X)$：潜在干净结构和特征共同产生（可能含噪的）边
+    - $A \leftarrow \epsilon$：噪声变量也可直接导致结构噪声
+    - $Y \leftarrow (Z_Y, X, A)$：真实标签、特征和结构共同产生（可能含噪的）观测标签
 
    这个DGP的关键特点是：图中不存在任何完全干净的数据源。
 
 2. **推断编码器的设计**：
 
-   - **$q_{\phi_1}(Z_A|X,A)$（推断干净图结构）**：使用GCN编码器计算节点表示 $\mathbf{Z} = \text{GCN}_{\phi_1}(\mathbf{X}, \mathbf{A})$，然后通过余弦相似性得到潜在图 $\hat{p}_{ij} = \rho(s(\mathbf{Z}_i, \mathbf{Z}_j))$。用 $\gamma$-hop子图相似性先验进行正则化（对应KL散度项）。为避免 $O(N^2)$ 的全图计算，预定义代理图来限制计算范围。
+    - **$q_{\phi_1}(Z_A|X,A)$（推断干净图结构）**：使用GCN编码器计算节点表示 $\mathbf{Z} = \text{GCN}_{\phi_1}(\mathbf{X}, \mathbf{A})$，然后通过余弦相似性得到潜在图 $\hat{p}_{ij} = \rho(s(\mathbf{Z}_i, \mathbf{Z}_j))$。用 $\gamma$-hop子图相似性先验进行正则化（对应KL散度项）。为避免 $O(N^2)$ 的全图计算，预定义代理图来限制计算范围。
 
-   - **$q_{\phi_3}(Z_Y|X,A)$（推断干净标签）**：GCN分类器，在推断的干净图 $\hat{\mathbf{A}}$ 上操作。用同质性正则化鼓励连接节点有相似预测：
+    - **$q_{\phi_3}(Z_Y|X,A)$（推断干净标签）**：GCN分类器，在推断的干净图 $\hat{\mathbf{A}}$ 上操作。用同质性正则化鼓励连接节点有相似预测：
 
-   $$\mathcal{L}_{\text{hom}} = \sum_{i \in \mathcal{V}} \frac{\sum_{j \in \mathcal{N}_i} \hat{p}_{ij} \cdot kl(\hat{\mathbf{Y}}_j || \hat{\mathbf{Y}}_i)}{\sum_{j \in \mathcal{N}_i} \hat{p}_{ij}}$$
+    $\mathcal{L}_{\text{hom}} = \sum_{i \in \mathcal{V}} \frac{\sum_{j \in \mathcal{N}_i} \hat{p}_{ij} \cdot kl(\hat{\mathbf{Y}}_j || \hat{\mathbf{Y}}_i)}{\sum_{j \in \mathcal{N}_i} \hat{p}_{ij}}$
 
-   - **$q_{\phi_2}(\epsilon|X,A,Z_Y)$（推断噪声变量）**：分解为结构噪声 $\epsilon_A$（通过early-learning阶段的小损失方法估计边清洁度）和特征噪声 $\epsilon_X$（通过MLP从 $X$ 和 $Z_Y$ 推断，正则化为标准正态分布）。用EMA技巧缓解单点估计的不确定性：$\hat{p}_{ij}^{el} \leftarrow \xi \hat{p}_{ij}^{el} + (1-\xi)\hat{p}_{ij}^c$，$\xi=0.9$。
+    - **$q_{\phi_2}(\epsilon|X,A,Z_Y)$（推断噪声变量）**：分解为结构噪声 $\epsilon_A$（通过early-learning阶段的小损失方法估计边清洁度）和特征噪声 $\epsilon_X$（通过MLP从 $X$ 和 $Z_Y$ 推断，正则化为标准正态分布）。用EMA技巧缓解单点估计的不确定性：$\hat{p}_{ij}^{el} \leftarrow \xi \hat{p}_{ij}^{el} + (1-\xi)\hat{p}_{ij}^c$，$\xi=0.9$。
 
 3. **生成解码器的设计**：
 
-   - **$p_{\theta_1}(A|X,\epsilon,Z_A)$（重建含噪边）**：边重建损失，对预测和标签都进行正则化处理含噪监督。预测正则化 $\hat{p}_{ij}^{reg} = \theta_1 \hat{p}_{ij} + (1-\theta_1)s(\mathbf{X}_i, \mathbf{X}_j)$，当特征相似性高时惩罚边预测（因为可能是特征噪声导致的虚假连接）。标签平滑到 $[0.9, 1]$ 区间。
-   - **$p_{\theta_2}(X|\epsilon,Z_Y)$（重建含噪特征）**：MLP解码器，输入为 $\epsilon_X$ 和 $Z_Y$，使用重参数化技巧采样。
-   - **$p_{\theta_3}(Y|X,A,Z_Y)$（重建含噪标签）**：GCN分类器建模从干净标签到噪声标签的转移关系。
+    - **$p_{\theta_1}(A|X,\epsilon,Z_A)$（重建含噪边）**：边重建损失，对预测和标签都进行正则化处理含噪监督。预测正则化 $\hat{p}_{ij}^{reg} = \theta_1 \hat{p}_{ij} + (1-\theta_1)s(\mathbf{X}_i, \mathbf{X}_j)$，当特征相似性高时惩罚边预测（因为可能是特征噪声导致的虚假连接）。标签平滑到 $[0.9, 1]$ 区间。
+    - **$p_{\theta_2}(X|\epsilon,Z_Y)$（重建含噪特征）**：MLP解码器，输入为 $\epsilon_X$ 和 $Z_Y$，使用重参数化技巧采样。
+    - **$p_{\theta_3}(Y|X,A,Z_Y)$（重建含噪标签）**：GCN分类器建模从干净标签到噪声标签的转移关系。
 
 ### 损失函数 / 训练策略
 

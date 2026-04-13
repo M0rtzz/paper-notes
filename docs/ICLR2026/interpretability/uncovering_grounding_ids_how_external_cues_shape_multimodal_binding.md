@@ -25,15 +25,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LVLM在推理中面临跨模态对齐不准→幻觉。外部线索(符号/网格)经验有效但机制不清。
+**领域现状**：LVLM在推理中面临跨模态对齐不准→幻觉。外部线索(符号/网格)经验有效但机制不清。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) LVLM形状盲(Rudman et al.)→外部线索帮助但why不清楚
    - (2) VISER引入水平线→改善但仅经验方法
    - (3) Binding IDs仅在LLM中研究→LVLM多模态绑定机制未知
    - (4) 现有绑定研究限于简单图像→复杂场景下grounding非平凡
 
-3. **切入角度**：图像+文本加共享符号→分区→研究内部Grounding IDs如何跨层传播改善对齐。
+**切入角度**：图像+文本加共享符号→分区→研究内部Grounding IDs如何跨层传播改善对齐。
 
 ## 方法详解
 
@@ -49,14 +49,16 @@ tags:
 3. **模态差距**：逐层余弦相似度→structured在22-27层更高；符号嵌入对齐甚至高于物体。
 
 4. **因果中介(核心)**：
-   - Activation Swap：交换两个context间分区物体patch激活
-   - 模型跟随被交换物体的绑定符号预测→swap accuracy=**0.98**
-   - 标准准确率1.00→交换后0.02→但swap accuracy 0.98→因果证明
-   - 不相交符号实验(源{&$#@}/目标{!%x+})→准确率仍达**0.86**→超随机
+
+    - Activation Swap：交换两个context间分区物体patch激活
+    - 模型跟随被交换物体的绑定符号预测→swap accuracy=**0.98**
+    - 标准准确率1.00→交换后0.02→但swap accuracy 0.98→因果证明
+    - 不相交符号实验(源{&$#@}/目标{!%x+})→准确率仍达**0.86**→超随机
 
 5. **层级分析**：
-   - Logit lens：20-27层logit difference变正→模型偏向bound object
-   - 注意力头SNR：16层附近特定头传播Grounding IDs
+
+    - Logit lens：20-27层logit difference变正→模型偏向bound object
+    - 注意力头SNR：16层附近特定头传播Grounding IDs
 
 ### 训练策略
 - 零微调：Qwen2.5-VL-7B推理；合成数据集15物体(35种shape x color)

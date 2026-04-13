@@ -28,9 +28,9 @@ tags:
 定位化人群计数广泛应用于公共安全、零售分析和流行病跟踪等场景，目前主流方案分为两大范式：**密度图方法**（如 SASNet、FIDTM）通过回归空间密度分布再后处理提取定位，以及**点回归方法**（如 P2PNet、PET）端到端输出坐标和置信度。
 
 现有对抗攻击存在以下痛点：
-1. **攻击强度与隐蔽性矛盾**：PAP、GE-AdvGAN 视觉质量好（PSNR≥22dB）但攻击弱（MAE<120）；DiffAttack 攻击强（MAE=414）但视觉塌陷（PSNR=11.5dB）
-2. **单范式局限**：已有可迁移攻击（APAM、PAP）仅在密度图方法间迁移，未考虑跨范式（密度图 ↔ 点回归）
-3. **黑盒场景需求**：实际部署的人群计数系统通常是黑盒的，需要基于代理模型的迁移攻击
+**攻击强度与隐蔽性矛盾**：PAP、GE-AdvGAN 视觉质量好（PSNR≥22dB）但攻击弱（MAE<120）；DiffAttack 攻击强（MAE=414）但视觉塌陷（PSNR=11.5dB）
+**单范式局限**：已有可迁移攻击（APAM、PAP）仅在密度图方法间迁移，未考虑跨范式（密度图 ↔ 点回归）
+**黑盒场景需求**：实际部署的人群计数系统通常是黑盒的，需要基于代理模型的迁移攻击
 
 核心 idea：利用两种范式共享的 backbone 特征空间（如 VGG-16, ResNet-50）的归纳偏置，通过范式特有的攻击损失 + 范式无关的感知约束，学习一个统一的生成式扰动器。
 
@@ -42,21 +42,24 @@ tags:
 ### 关键设计
 
 1. **Logit 抑制损失（针对点回归模型）**：
-   - 针对高置信检测 $\mathcal{P}_{high} = \{i : s_i^{(h)} > \tau\}$ 进行攻击
-   - 密集场景（$C_{gt} > C_{sparse}$）：直接最小化高置信区域 logit 值
-   - 稀疏场景（$C_{gt} \le C_{sparse}$）：对置信边界附近的检测加权惩罚
-   - 自适应阈值衰减：$\tau(t) = \max(\tau_{min}, \tau_{max} - \nu \cdot t / T_{max})$，随训练推进降低阈值，扩大攻击面
+
+    - 针对高置信检测 $\mathcal{P}_{high} = \{i : s_i^{(h)} > \tau\}$ 进行攻击
+    - 密集场景（$C_{gt} > C_{sparse}$）：直接最小化高置信区域 logit 值
+    - 稀疏场景（$C_{gt} \le C_{sparse}$）：对置信边界附近的检测加权惩罚
+    - 自适应阈值衰减：$\tau(t) = \max(\tau_{min}, \tau_{max} - \nu \cdot t / T_{max})$，随训练推进降低阈值，扩大攻击面
 
 2. **密度抑制损失（针对密度图模型）**：
-   - **Heatmap 抑制** $\mathcal{L}_{hmap}$：同时攻击显著峰值和阈值附近区域，通过 3×3 max-pooling 检测局部极大值，自适应阈值 $\phi = \phi' \cdot \max(\mathcal{D})$ 分离前景
-   - **峰值抑制** $\mathcal{L}_{peak}$：额外加入峰值prominence（峰值与局部邻域差值），侧重孤立的高密度聚集区
-   - 通过孤立比率（5×5 窗口内无邻近峰的比例 > 0.7）自动选择使用哪个损失
+
+    - **Heatmap 抑制** $\mathcal{L}_{hmap}$：同时攻击显著峰值和阈值附近区域，通过 3×3 max-pooling 检测局部极大值，自适应阈值 $\phi = \phi' \cdot \max(\mathcal{D})$ 分离前景
+    - **峰值抑制** $\mathcal{L}_{peak}$：额外加入峰值prominence（峰值与局部邻域差值），侧重孤立的高密度聚集区
+    - 通过孤立比率（5×5 窗口内无邻近峰的比例 > 0.7）自动选择使用哪个损失
 
 3. **跨范式扰动损失**：
-   - **频域约束** $\mathcal{L}_{freq}$：通过 FFT 抑制高频分量，利用人群场景低频主导的统计特性提升迁移性
-   - **GradCAM 引导** $\mathcal{L}_{cam}$：将扰动集中到共享 backbone 认为语义重要的区域，最小化注意力区域外的扰动
-   - **幅度约束** $\mathcal{L}_{hinge}$：L2 范数限制扰动能量
-   - **空间平滑正则** $\mathcal{L}_{tv}$：总变差正则化减少扰动伪影
+
+    - **频域约束** $\mathcal{L}_{freq}$：通过 FFT 抑制高频分量，利用人群场景低频主导的统计特性提升迁移性
+    - **GradCAM 引导** $\mathcal{L}_{cam}$：将扰动集中到共享 backbone 认为语义重要的区域，最小化注意力区域外的扰动
+    - **幅度约束** $\mathcal{L}_{hinge}$：L2 范数限制扰动能量
+    - **空间平滑正则** $\mathcal{L}_{tv}$：总变差正则化减少扰动伪影
 
 ### 损失函数 / 训练策略
 总损失 $\mathcal{L}_{attack} = \alpha \cdot \mathcal{L}_{model} + \beta \cdot \mathcal{L}_{hinge} + \gamma \cdot \mathcal{L}_{tv} + \zeta \cdot \mathcal{L}_{freq} + \kappa \cdot \mathcal{L}_{cam}$

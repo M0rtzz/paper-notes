@@ -46,28 +46,32 @@ tags:
 
 ### 关键设计
 1. **Dynamic Prompt Injection（动态提示注入）**:
-   - 在每个chunk后拼接local context的末512个token（推理时）
-   - 动机：让模型根据**当前解码上下文**决定从chunk中提取什么信息
-   - 每步生成新token后，该token追加到dynamic prompt末尾（可丢弃最旧的token保持固定长度）
-   - 关键：dynamic prompt随解码过程**动态演化**，因此每步提取的信息不同——避免了信息丢失
+
+    - 在每个chunk后拼接local context的末512个token（推理时）
+    - 动机：让模型根据**当前解码上下文**决定从chunk中提取什么信息
+    - 每步生成新token后，该token追加到dynamic prompt末尾（可丢弃最旧的token保持固定长度）
+    - 关键：dynamic prompt随解码过程**动态演化**，因此每步提取的信息不同——避免了信息丢失
 
 2. **Candidate Token Generation（候选token生成）**:
-   - 候选token = 每个chunk中最后一个local token $x_S$ 对应的**可训练hidden states**
-   - 引入新的线性投影参数 $\{W_Q^c, W_K^c, W_V^c, W_O^c\}_l$（每层）
-   - 候选token的query用新参数生成，但attend to的key/value包含原始token + 候选token自身
-   - 原始模型参数完全冻结，仅训练新增参数
-   - 候选token本质上是对chunk内容的**条件压缩表示**——条件来自dynamic prompt
+
+    - 候选token = 每个chunk中最后一个local token $x_S$ 对应的**可训练hidden states**
+    - 引入新的线性投影参数 $\{W_Q^c, W_K^c, W_V^c, W_O^c\}_l$（每层）
+    - 候选token的query用新参数生成，但attend to的key/value包含原始token + 候选token自身
+    - 原始模型参数完全冻结，仅训练新增参数
+    - 候选token本质上是对chunk内容的**条件压缩表示**——条件来自dynamic prompt
 
 3. **Parallel Decoding（并行解码）**:
-   - k个chunk的候选token生成过程**相互独立**，可并行前向传播
-   - 所有候选token的K/V逐层拼接到local context的KV缓存中
-   - 最终用冻结的原始decoder在拼接后的表示上生成next token
-   - 计算复杂度从 $O(L^2)$ 降至 $O((L/n)^2)$
+
+    - k个chunk的候选token生成过程**相互独立**，可并行前向传播
+    - 所有候选token的K/V逐层拼接到local context的KV缓存中
+    - 最终用冻结的原始decoder在拼接后的表示上生成next token
+    - 计算复杂度从 $O(L^2)$ 降至 $O((L/n)^2)$
 
 4. **双损失联合训练**:
-   - **Continuation Loss**：local context是memory tokens的自然续写，训练模型生成后续token
-   - **Reconstruction Loss**：随机选L个连续memory tokens作为local context，训练模型重建这些token
-   - 两者缺一不可：仅Continuation导致Passkey Retrieval准确率从99%降到1.69%；仅Reconstruction导致生成能力退化
+
+    - **Continuation Loss**：local context是memory tokens的自然续写，训练模型生成后续token
+    - **Reconstruction Loss**：随机选L个连续memory tokens作为local context，训练模型重建这些token
+    - 两者缺一不可：仅Continuation导致Passkey Retrieval准确率从99%降到1.69%；仅Reconstruction导致生成能力退化
 
 ### 损失函数 / 训练策略
 - 自回归损失：仅在local context的token上计算loss

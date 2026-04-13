@@ -41,16 +41,18 @@ BACL 是一个即插即用的轻量级附加模块，由两个可微组件组成
 
 ### 关键设计
 1. **Boundary-aware Negative Sampler (BNS)**:
-   - **边界分数**：$BS(z^I, z^{T'}) = sim(z^I, z^{T'}) - sim(z^I, z^T)$，衡量负样本与正样本的混淆程度
-   - **策略网络**：2 层 MLP 输出每个候选负样本的优先级分数
-   - **难度调度**：logistic 函数 $\alpha(\eta)$ 从 $\alpha_{early} > 0$（抑制困难负例）渐变到 $\alpha_{late} < 0$（鼓励困难负例），实现由易到难的课程学习
-   - **可微采样**：Gumbel-Softmax 使整个采样过程端到端可微
+
+    - **边界分数**：$BS(z^I, z^{T'}) = sim(z^I, z^{T'}) - sim(z^I, z^T)$，衡量负样本与正样本的混淆程度
+    - **策略网络**：2 层 MLP 输出每个候选负样本的优先级分数
+    - **难度调度**：logistic 函数 $\alpha(\eta)$ 从 $\alpha_{early} > 0$（抑制困难负例）渐变到 $\alpha_{late} < 0$（鼓励困难负例），实现由易到难的课程学习
+    - **可微采样**：Gumbel-Softmax 使整个采样过程端到端可微
 
 2. **Contrastive Local Attention (CLA)**:
-   - 对比正样本对和 BNS 选中的最难负样本的交叉注意力图
-   - 计算 $\Delta A(i,j) = |A^{(+)}(i,j) - A^{(-)}(i,j)|$，找到 token 级别差异最大的位置
-   - 对差异大的 token 对放大负样本注意力：$A_b(i,j) = A^{(-)}(i,j) \times [1 + \beta \cdot \Delta A(i,j)]$
-   - 局部 mismatch 损失 $\mathcal{L}_{local} = \sum_{(i,j) \in \Omega} -\log(A_b(i,j))$ 强制模型精确定位 mismatch 位置
+
+    - 对比正样本对和 BNS 选中的最难负样本的交叉注意力图
+    - 计算 $\Delta A(i,j) = |A^{(+)}(i,j) - A^{(-)}(i,j)|$，找到 token 级别差异最大的位置
+    - 对差异大的 token 对放大负样本注意力：$A_b(i,j) = A^{(-)}(i,j) \times [1 + \beta \cdot \Delta A(i,j)]$
+    - 局部 mismatch 损失 $\mathcal{L}_{local} = \sum_{(i,j) \in \Omega} -\log(A_b(i,j))$ 强制模型精确定位 mismatch 位置
 
 ### 损失函数 / 训练策略
 $\mathcal{L}_{main} = \mathcal{L}_{contrast} + \lambda_{local} \cdot \mathcal{L}_{local}$（$\lambda_{local} = 0.3$）。BNS 策略网络用边界分数作为 reward 通过 Gumbel-Softmax 反向传播优化。冻结 CLIP ViT-B/16 等编码器，只训练 4 层跨模态 Transformer。

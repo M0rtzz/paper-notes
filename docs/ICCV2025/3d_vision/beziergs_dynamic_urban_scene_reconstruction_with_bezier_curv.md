@@ -55,33 +55,38 @@ tags:
 ### 关键设计
 
 1. **Bézier曲线轨迹建模**：
-   - 每个动态物体的中心轨迹由一条可学习的三次Bézier曲线（n=3，4个控制点）控制：$\gamma(t,g) = \sum_{i=0}^{n} b_{i,n}(t) \cdot p_i^g$
-   - 每个Gaussian基元相对于物体中心的**偏移轨迹**也用Bézier曲线建模：$\delta(t) = \sum_{i=0}^{n} b_{i,n}(t) \cdot p_i$
-   - 最终位置：$\mu(\tau,g) = \delta(t) + \gamma(t,g)$，其中 $t = f(\tau,g)$
-   - 关键洞察：基于bbox的方法是BézierGS的特例（偏移在物体坐标系中恒定、bbox朝向和位移固定）
-   - 可学习曲线能**自动修正标注误差**，无需精确标注
+
+    - 每个动态物体的中心轨迹由一条可学习的三次Bézier曲线（n=3，4个控制点）控制：$\gamma(t,g) = \sum_{i=0}^{n} b_{i,n}(t) \cdot p_i^g$
+    - 每个Gaussian基元相对于物体中心的**偏移轨迹**也用Bézier曲线建模：$\delta(t) = \sum_{i=0}^{n} b_{i,n}(t) \cdot p_i$
+    - 最终位置：$\mu(\tau,g) = \delta(t) + \gamma(t,g)$，其中 $t = f(\tau,g)$
+    - 关键洞察：基于bbox的方法是BézierGS的特例（偏移在物体坐标系中恒定、bbox朝向和位移固定）
+    - 可学习曲线能**自动修正标注误差**，无需精确标注
 
 2. **Time-to-Bézier映射**：
-   - 不同物体运动速度不同（如匀速行驶 vs 减速停车），时间戳τ到Bézier参数t的映射是非均匀的
-   - 用额外的Bézier曲线建模每个物体的映射 $t = f(\tau, g)$
-   - 初始化：先用弦长参数化（chord length parameterization）合理初始化参数，再通过最小二乘拟合控制点坐标，迭代优化至收敛
+
+    - 不同物体运动速度不同（如匀速行驶 vs 减速停车），时间戳τ到Bézier参数t的映射是非均匀的
+    - 用额外的Bézier曲线建模每个物体的映射 $t = f(\tau, g)$
+    - 初始化：先用弦长参数化（chord length parameterization）合理初始化参数，再通过最小二乘拟合控制点坐标，迭代优化至收敛
 
 3. **分组曲线间一致性约束（Inter-curve Consistency, ICC）**：
-   - **问题**：Gaussian基元自由度过高，单个基元可能不受控地偏离其所属动态物体，导致不同时间步由不同基元表示同一区域，新视角渲染产生floater和伪影
-   - **解决**：对刚体物体，其各部分相对于整体的偏移量随时间应保持恒定。约束偏移 $\delta(t)$ 的模长与起止控制点模长的均值一致：$\mathcal{L}_{icc} = \left\| \|\delta(t)\| - \frac{\|p_0\| + \|p_n\|}{2} \right\|_1$
-   - 这个约束简单但效果显著，有效消除floater并增强时序一致性
+
+    - **问题**：Gaussian基元自由度过高，单个基元可能不受控地偏离其所属动态物体，导致不同时间步由不同基元表示同一区域，新视角渲染产生floater和伪影
+    - **解决**：对刚体物体，其各部分相对于整体的偏移量随时间应保持恒定。约束偏移 $\delta(t)$ 的模长与起止控制点模长的均值一致：$\mathcal{L}_{icc} = \left\| \|\delta(t)\| - \frac{\|p_0\| + \|p_n\|}{2} \right\|_1$
+    - 这个约束简单但效果显著，有效消除floater并增强时序一致性
 
 4. **动态渲染损失（Dynamic Rendering Loss）**：
-   - 由于alpha blending中动/静态Gaussian交互可能引入干扰，需额外监督动态Gaussian的独立渲染结果
-   - 用Grounded-SAM从3D bbox投影区域中提取精确的动态物体mask $M_{dyn}$
-   - 动态RGB损失：$\mathcal{L}_{rgb}^{dyn} = (1-\lambda_r)\mathcal{L}_1^{dyn} + \lambda_r \mathcal{L}_{ssim}^{dyn}$
-   - 动态opacity对齐：$\mathcal{L}_o^{dyn} = \|M_{dyn} - O_G^{dyn}\|_1$
-   - 总动态渲染损失：$\mathcal{L}_{dr} = \mathcal{L}_{rgb}^{dyn} + \mathcal{L}_o^{dyn}$
+
+    - 由于alpha blending中动/静态Gaussian交互可能引入干扰，需额外监督动态Gaussian的独立渲染结果
+    - 用Grounded-SAM从3D bbox投影区域中提取精确的动态物体mask $M_{dyn}$
+    - 动态RGB损失：$\mathcal{L}_{rgb}^{dyn} = (1-\lambda_r)\mathcal{L}_1^{dyn} + \lambda_r \mathcal{L}_{ssim}^{dyn}$
+    - 动态opacity对齐：$\mathcal{L}_o^{dyn} = \|M_{dyn} - O_G^{dyn}\|_1$
+    - 总动态渲染损失：$\mathcal{L}_{dr} = \mathcal{L}_{rgb}^{dyn} + \mathcal{L}_o^{dyn}$
 
 5. **速度损失（Velocity Loss）**：
-   - 由Bézier曲线的解析导数直接计算每个Gaussian基元的速度：$v(\tau,g) = \left(\frac{d\gamma}{dt} + \frac{d\delta}{dt}\right) \frac{dt}{d\tau}$
-   - 渲染动态速度图 $V_G^{dyn}$，约束其在静态区域为零：$\mathcal{L}_v = \|V_G^{dyn} \cdot (1 - M_{dyn})\|_2$
-   - 隐式防止动态Gaussian漂移到静态区域
+
+    - 由Bézier曲线的解析导数直接计算每个Gaussian基元的速度：$v(\tau,g) = \left(\frac{d\gamma}{dt} + \frac{d\delta}{dt}\right) \frac{dt}{d\tau}$
+    - 渲染动态速度图 $V_G^{dyn}$，约束其在静态区域为零：$\mathcal{L}_v = \|V_G^{dyn} \cdot (1 - M_{dyn})\|_2$
+    - 隐式防止动态Gaussian漂移到静态区域
 
 ### 损失函数 / 训练策略
 

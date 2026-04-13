@@ -25,12 +25,12 @@ tags:
 通过理论分析和受控实验研究 sparse attention 的涌现机制，揭示涌现时间遵循关于序列长度和维度的幂律关系 $T_\epsilon \propto \sqrt{d} \cdot T$，并发现 in-context 和 cross-sample 两种数据重复策略都能加速涌现，为理解 LLM 能力涌现提供了统一的 sparse attention 视角。
 
 ## 研究背景与动机
-1. **领域现状**：LLM 中的能力涌现（训练过程中突然出现新能力）是重要但理解不足的现象。已有工作观察到 induction head 等 sparse attention 模式的形成与 in-context learning 能力的突然出现同时发生。
-2. **现有痛点**：(1) 现有研究多是事后观察，缺乏对涌现时机的预测能力；(2) 数据重复加速涌现的现象被反复观察到但缺乏理论解释；(3) 不清楚 sparse attention 学习本身是否是导致涌现的因果机制。
-3. **核心矛盾**：能力涌现的不可预测性既是科学理解的空白，也是 AI 安全的风险。
-4. **本文要解决什么？** 建立 sparse attention 涌现的理论模型，精确量化数据分布（序列长度、维度、重复性）对涌现时机的影响。
-5. **切入角度**：设计一个需要 sparse attention 的线性回归变体任务，使理论分析可行而不丧失核心动力学。
-6. **核心idea一句话**：sparse attention 的学习天然产生涌现（从均匀 attention 到聚焦的正反馈回路），数据重复通过降低等效稀疏度或增强信号来加速这一过程。
+**领域现状**：LLM 中的能力涌现（训练过程中突然出现新能力）是重要但理解不足的现象。已有工作观察到 induction head 等 sparse attention 模式的形成与 in-context learning 能力的突然出现同时发生。
+**现有痛点**：(1) 现有研究多是事后观察，缺乏对涌现时机的预测能力；(2) 数据重复加速涌现的现象被反复观察到但缺乏理论解释；(3) 不清楚 sparse attention 学习本身是否是导致涌现的因果机制。
+**核心矛盾**：能力涌现的不可预测性既是科学理解的空白，也是 AI 安全的风险。
+**本文要解决什么？** 建立 sparse attention 涌现的理论模型，精确量化数据分布（序列长度、维度、重复性）对涌现时机的影响。
+**切入角度**：设计一个需要 sparse attention 的线性回归变体任务，使理论分析可行而不丧失核心动力学。
+**核心idea一句话**：sparse attention 的学习天然产生涌现（从均匀 attention 到聚焦的正反馈回路），数据重复通过降低等效稀疏度或增强信号来加速这一过程。
 
 ## 方法详解
 
@@ -40,18 +40,21 @@ tags:
 ### 关键设计
 
 1. **Reduced Learning Dynamics（ODE 分析）**:
-   - 做什么：推导出整个模型学习动力学归约为两个标量变量 $w$（权重对齐程度）和 $\Delta a$（attention 稀疏度）的 ODE
-   - 核心思路：$\dot{w} = \alpha(\sqrt{d} - \alpha w)/d$, $\dot{\Delta a} = \alpha(1-\alpha) \cdot w(\sqrt{d}-\alpha w)/d$。attention $\alpha$ 初始为 $1/T$（均匀），$w$ 先缓慢增长，$w$ 增长后才能驱动 $\Delta a$ 增长（attention 开始聚焦），形成正反馈回路
-   - 设计动机：这解释了涌现的"先平台后突变"模式——权重学习是瓶颈，一旦权重对齐，attention 学习加速
+
+    - 做什么：推导出整个模型学习动力学归约为两个标量变量 $w$（权重对齐程度）和 $\Delta a$（attention 稀疏度）的 ODE
+    - 核心思路：$\dot{w} = \alpha(\sqrt{d} - \alpha w)/d$, $\dot{\Delta a} = \alpha(1-\alpha) \cdot w(\sqrt{d}-\alpha w)/d$。attention $\alpha$ 初始为 $1/T$（均匀），$w$ 先缓慢增长，$w$ 增长后才能驱动 $\Delta a$ 增长（attention 开始聚焦），形成正反馈回路
+    - 设计动机：这解释了涌现的"先平台后突变"模式——权重学习是瓶颈，一旦权重对齐，attention 学习加速
 
 2. **涌现时间的幂律预测**:
-   - 做什么：通过线性化初始条件附近的动力学，预测逃离初始平台的时间
-   - 核心思路：$T_\epsilon = \frac{\sqrt{d}T}{2} \ln(\epsilon\sqrt{d}T)$，涌现时间与 $\sqrt{d} \cdot T$ 成正比
-   - 设计动机：这是可验证的定量预测，而非定性描述，拟合 $R^2 = 0.999$
+
+    - 做什么：通过线性化初始条件附近的动力学，预测逃离初始平台的时间
+    - 核心思路：$T_\epsilon = \frac{\sqrt{d}T}{2} \ln(\epsilon\sqrt{d}T)$，涌现时间与 $\sqrt{d} \cdot T$ 成正比
+    - 设计动机：这是可验证的定量预测，而非定性描述，拟合 $R^2 = 0.999$
 
 3. **两种重复策略的理论分析**:
-   - In-context repetition（task-relevant token 在序列中重复 B 次）：等效于将序列长度从 T 降为 T/B，直接降低 attention 稀疏度
-   - Cross-sample repetition（以概率 p 用固定 token 替换 relevant token）：使输入协方差各向异性，在重复方向上加速权重学习，间接加速 attention 聚焦。平台长度 $\propto \sqrt{d}T/\sqrt{p^2d + (1-p)^2}$
+
+    - In-context repetition（task-relevant token 在序列中重复 B 次）：等效于将序列长度从 T 降为 T/B，直接降低 attention 稀疏度
+    - Cross-sample repetition（以概率 p 用固定 token 替换 relevant token）：使输入协方差各向异性，在重复方向上加速权重学习，间接加速 attention 聚焦。平台长度 $\propto \sqrt{d}T/\sqrt{p^2d + (1-p)^2}$
 
 ### 实验验证
 在 associative recall 任务（induction head 学习的简化版）上验证理论预测。

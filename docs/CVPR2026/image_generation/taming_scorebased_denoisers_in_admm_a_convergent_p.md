@@ -38,9 +38,10 @@ tags:
 
 ### 关键设计
 1. **AC-DC三阶段去噪器**: 
-   - **AC(Auto-Correction)**: 向ADMM迭代$\tilde{\mathbf{z}}^{(k)}$添加高斯噪声→$\mathbf{z}_{ac}^{(k)} = \tilde{\mathbf{z}}^{(k)} + \sigma^{(k)}\mathbf{n}$，将其拉向噪声训练流形$\mathcal{M}_{\sigma^{(k)}}$的邻域。但仅加噪不保证流形对齐。
-   - **DC(Directional Correction)**: 用条件Langevin动力学（$J$步迭代）将$\mathbf{z}_{ac}^{(k)}$精炼至$\mathcal{M}_{\sigma^{(k)}}$上。条件分布$p(\mathbf{z}_{\sigma^{(k)}}|\mathbf{z}_{ac}^{(k)})$的梯度由分数函数和高斯似然的近似结合。
-   - **Denoising**: 在对齐流形上应用Tweedie引理进行去噪：$\mathbf{z}_{tw}^{(k)} = \mathbf{z}_{dc}^{(k)} + (\sigma^{(k)})^2 \mathbf{s}_\theta(\mathbf{z}_{dc}^{(k)}, \sigma^{(k)})$。也可用ODE采样器替代(Ours-ode)。
+
+    - **AC(Auto-Correction)**: 向ADMM迭代$\tilde{\mathbf{z}}^{(k)}$添加高斯噪声→$\mathbf{z}_{ac}^{(k)} = \tilde{\mathbf{z}}^{(k)} + \sigma^{(k)}\mathbf{n}$，将其拉向噪声训练流形$\mathcal{M}_{\sigma^{(k)}}$的邻域。但仅加噪不保证流形对齐。
+    - **DC(Directional Correction)**: 用条件Langevin动力学（$J$步迭代）将$\mathbf{z}_{ac}^{(k)}$精炼至$\mathcal{M}_{\sigma^{(k)}}$上。条件分布$p(\mathbf{z}_{\sigma^{(k)}}|\mathbf{z}_{ac}^{(k)})$的梯度由分数函数和高斯似然的近似结合。
+    - **Denoising**: 在对齐流形上应用Tweedie引理进行去噪：$\mathbf{z}_{tw}^{(k)} = \mathbf{z}_{dc}^{(k)} + (\sigma^{(k)})^2 \mathbf{s}_\theta(\mathbf{z}_{dc}^{(k)}, \sigma^{(k)})$。也可用ODE采样器替代(Ours-ode)。
 
 2. **弱非扩张算子下的收敛保证(Theorem 1+2)**: 在$\ell$为$\mu$-强凸、AC-DC去噪器满足弱非扩张假设($\|R_\sigma(\tilde{\mathbf{z}}_1) - R_\sigma(\tilde{\mathbf{z}}_2)\|^2 \leq \epsilon^2\|\tilde{\mathbf{z}}_1-\tilde{\mathbf{z}}_2\|^2 + \delta^2$)下，固定步长$\rho$保证收敛到固定点的$\delta$-球内。进而证明在$\log p_{data}$满足$M$-光滑性和强制性条件下，AC-DC确实满足该假设。
 

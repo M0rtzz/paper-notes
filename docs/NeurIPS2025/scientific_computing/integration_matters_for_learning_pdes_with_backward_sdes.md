@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：求解高维 PDE 有两大深度学习方法——PINNs（直接最小化 PDE 残差）和 BSDE 方法（将 PDE 重写为前向-后向 SDE 并模拟轨迹）。BSDE 方法在随机最优控制等有底层动力学的问题中有天然优势。
+**领域现状**：求解高维 PDE 有两大深度学习方法——PINNs（直接最小化 PDE 残差）和 BSDE 方法（将 PDE 重写为前向-后向 SDE 并模拟轨迹）。BSDE 方法在随机最优控制等有底层动力学的问题中有天然优势。
 
-2. **现有痛点**：经验上 BSDE 方法显著不如 PINNs，但原因不明。先前工作 [33] 提出混合插值损失来弥补，但引入了需要调参的超参数，且未解释根本原因。
+**现有痛点**：经验上 BSDE 方法显著不如 PINNs，但原因不明。先前工作 [33] 提出混合插值损失来弥补，但引入了需要调参的超参数，且未解释根本原因。
 
-3. **核心矛盾**：标准 BSDE 使用 Euler-Maruyama (EM) 积分离散化一步自一致损失时，会产生与步长 $\tau$ 无关的**不可消除偏差项** $\text{Bias}(\theta) = \frac{1}{2T}\int_0^T \mathbb{E}\text{tr}((H \cdot \nabla^2 u_\theta)^2)dt$，使得优化目标偏离真实解。
+**核心矛盾**：标准 BSDE 使用 Euler-Maruyama (EM) 积分离散化一步自一致损失时，会产生与步长 $\tau$ 无关的**不可消除偏差项** $\text{Bias}(\theta) = \frac{1}{2T}\int_0^T \mathbb{E}\text{tr}((H \cdot \nabla^2 u_\theta)^2)dt$，使得优化目标偏离真实解。
 
-4. **本文要解决什么？** (1) 揭示 BSDE vs PINNs 性能差距的根因；(2) 提出无偏差的积分方案。
+**本文要解决什么？** (1) 揭示 BSDE vs PINNs 性能差距的根因；(2) 提出无偏差的积分方案。
 
-5. **切入角度**：将 BSDE 解释为 Stratonovich SDE（而非 Itô SDE），使用随机 Heun 积分（收敛到 Stratonovich 解），从而消除偏差。
+**切入角度**：将 BSDE 解释为 Stratonovich SDE（而非 Itô SDE），使用随机 Heun 积分（收敛到 Stratonovich 解），从而消除偏差。
 
-6. **核心idea一句话**：用 Stratonovich + Heun 积分替代 Itô + EM 积分，消除 BSDE 损失中的离散化偏差。
+**核心idea一句话**：用 Stratonovich + Heun 积分替代 Itô + EM 积分，消除 BSDE 损失中的离散化偏差。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ tags:
 ### 关键设计
 
 1. **偏差分析（Theorem 4.2）**:
-   - 做什么：理论证明 EM 一步损失的偏差不可消除
-   - 核心思路：$\tau^{-2} \cdot \ell_{\text{EM},\tau}(\theta,x,t) = (R[u_\theta])^2 + \frac{1}{2}\text{tr}((H \cdot \nabla^2 u_\theta)^2) + O(\tau^{1/2})$，其中第二项是与 $\tau$ 无关的偏差——即使 $\tau \to 0$ 也无法消除
-   - 设计动机：解释了为什么缩小步长也无法改善 EM-BSDE
+
+    - 做什么：理论证明 EM 一步损失的偏差不可消除
+    - 核心思路：$\tau^{-2} \cdot \ell_{\text{EM},\tau}(\theta,x,t) = (R[u_\theta])^2 + \frac{1}{2}\text{tr}((H \cdot \nabla^2 u_\theta)^2) + O(\tau^{1/2})$，其中第二项是与 $\tau$ 无关的偏差——即使 $\tau \to 0$ 也无法消除
+    - 设计动机：解释了为什么缩小步长也无法改善 EM-BSDE
 
 2. **Stratonovich-Heun BSDE 损失（Theorem 4.4）**:
-   - 做什么：提出无偏的损失函数
-   - 核心思路：$L_{\text{Heun},\tau}(\theta) = \frac{1}{T}\int_0^T \mathbb{E}[(R[u_\theta])^2]dt + O(\tau^{1/2})$——偏差项仅为 $O(\tau^{1/2})$，可通过减小步长消除
-   - 设计动机：Heun 方法是二阶精度的预测-校正格式，自然收敛到 Stratonovich 解
+
+    - 做什么：提出无偏的损失函数
+    - 核心思路：$L_{\text{Heun},\tau}(\theta) = \frac{1}{T}\int_0^T \mathbb{E}[(R[u_\theta])^2]dt + O(\tau^{1/2})$——偏差项仅为 $O(\tau^{1/2})$，可通过减小步长消除
+    - 设计动机：Heun 方法是二阶精度的预测-校正格式，自然收敛到 Stratonovich 解
 
 3. **高效子采样实现**:
-   - 做什么：加速训练
-   - 核心思路：先完整 rollout 前向 SDE 轨迹（stop gradient），然后随机子采样 $B$ 个时间步计算损失，而非使用全部 $N$ 步
-   - 设计动机：减少每步计算量，同时保持性能
+
+    - 做什么：加速训练
+    - 核心思路：先完整 rollout 前向 SDE 轨迹（stop gradient），然后随机子采样 $B$ 个时间步计算损失，而非使用全部 $N$ 步
+    - 设计动机：减少每步计算量，同时保持性能
 
 ### 训练策略
 - Heun 离散化需要额外一次函数评估（预测步+校正步），但允许使用更大步长

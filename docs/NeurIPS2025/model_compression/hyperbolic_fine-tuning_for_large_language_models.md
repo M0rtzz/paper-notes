@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 参数高效微调（PEFT）中 LoRA 因简单有效成为主流。然而所有现有 LoRA 变体均在欧氏空间操作权重矩阵。
-2. **现有痛点**：语言中的概念天然具有层级结构（"水果" → "苹果"/"香蕉"），欧氏空间难以高效表示此类树状层级。双曲空间因负曲率和指数体积增长更适合，但直接训练双曲 LLM 成本过高。
-3. **核心发现**：作者对多个开源 LLM 进行深入分析发现：(a) token 频率服从幂律分布（$\gamma \approx 1.9$），高频 token 靠近原点、低频 token 远离原点；(b) token 嵌入的 $\delta$-hyperbolicity 测量值极低（$\delta_{\text{rel}} \approx 0.06$-$0.12$），表明嵌入空间具有强烈的树状结构。
-4. **核心矛盾**：传统双曲神经网络通过"切空间→指数映射→对数映射→切空间"路径操作，导致指数和对数映射互逆相消（$\log \circ \exp = \text{id}$），双曲几何优势被抹杀。
-5. **核心 idea**：设计 HypLoRA。直接在双曲流形（Lorentz 模型）上做低秩变换，绕过切空间映射，保留双曲几何的建模能力。
+**领域现状**：LLM 参数高效微调（PEFT）中 LoRA 因简单有效成为主流。然而所有现有 LoRA 变体均在欧氏空间操作权重矩阵。
+**现有痛点**：语言中的概念天然具有层级结构（"水果" → "苹果"/"香蕉"），欧氏空间难以高效表示此类树状层级。双曲空间因负曲率和指数体积增长更适合，但直接训练双曲 LLM 成本过高。
+**核心发现**：作者对多个开源 LLM 进行深入分析发现：(a) token 频率服从幂律分布（$\gamma \approx 1.9$），高频 token 靠近原点、低频 token 远离原点；(b) token 嵌入的 $\delta$-hyperbolicity 测量值极低（$\delta_{\text{rel}} \approx 0.06$-$0.12$），表明嵌入空间具有强烈的树状结构。
+**核心矛盾**：传统双曲神经网络通过"切空间→指数映射→对数映射→切空间"路径操作，导致指数和对数映射互逆相消（$\log \circ \exp = \text{id}$），双曲几何优势被抹杀。
+**核心 idea**：设计 HypLoRA。直接在双曲流形（Lorentz 模型）上做低秩变换，绕过切空间映射，保留双曲几何的建模能力。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **LLM 嵌入的双曲性分析**：
-   - 做什么：验证 LLM 嵌入空间确实具有双曲几何特性
-   - 核心思路：(a) 全局统计 token 频率→幂律分布 $P(k) \sim k^{-\gamma}$；(b) 分析 token 频率与嵌入范数的关系→高频 token 范数小、低频 token 范数大（跨 LLaMA/Gemma/Qwen 一致）；(c) 用 Gromov 四点条件计算 $\delta$-hyperbolicity→值接近 0（0.06-0.12），远低于球面空间（0.99）和随机图（0.62）
-   - 设计动机：为在双曲空间做微调提供实证基础，证明这不是凭空假设
+
+    - 做什么：验证 LLM 嵌入空间确实具有双曲几何特性
+    - 核心思路：(a) 全局统计 token 频率→幂律分布 $P(k) \sim k^{-\gamma}$；(b) 分析 token 频率与嵌入范数的关系→高频 token 范数小、低频 token 范数大（跨 LLaMA/Gemma/Qwen 一致）；(c) 用 Gromov 四点条件计算 $\delta$-hyperbolicity→值接近 0（0.06-0.12），远低于球面空间（0.99）和随机图（0.62）
+    - 设计动机：为在双曲空间做微调提供实证基础，证明这不是凭空假设
 
 2. **直接 Lorentz 低秩变换 (LLR)**：
-   - 做什么：在双曲空间直接做低秩矩阵变换，避免切空间映射相消
-   - 核心思路：$\mathbf{LLR}(BA, \mathbf{x}^H) = (\sqrt{\|BA\mathbf{x}_s^H\|_2^2 + K}, BA\mathbf{x}_s^H)$，其中 $\mathbf{x}_s^H$ 是双曲点的空间分量。变换仅作用于空间维度，时间维度由 Lorentz 约束自动恢复
-   - 设计动机：绕过传统"指数映射→对数映射"相消问题。输出保持在 Lorentz 流形上（$\langle \mathbf{x}, \mathbf{x} \rangle_\mathcal{L} = -K$），等效于伪 Lorentz 旋转
+
+    - 做什么：在双曲空间直接做低秩矩阵变换，避免切空间映射相消
+    - 核心思路：$\mathbf{LLR}(BA, \mathbf{x}^H) = (\sqrt{\|BA\mathbf{x}_s^H\|_2^2 + K}, BA\mathbf{x}_s^H)$，其中 $\mathbf{x}_s^H$ 是双曲点的空间分量。变换仅作用于空间维度，时间维度由 Lorentz 约束自动恢复
+    - 设计动机：绕过传统"指数映射→对数映射"相消问题。输出保持在 Lorentz 流形上（$\langle \mathbf{x}, \mathbf{x} \rangle_\mathcal{L} = -K$），等效于伪 Lorentz 旋转
 
 3. **HypLoRA 完整适配公式**：
-   - $\mathbf{z}^E = W\mathbf{x}^E + \Pi_{\log}^K(\mathbf{LLR}(BA, \Pi_{\exp}^K(\mathbf{x}^E)))$
-   - 其中 $A \in \mathbb{R}^{r \times d}$, $B \in \mathbb{R}^{k \times r}$，$r \ll \min(d, k)$
-   - 与标准 LoRA 相同的参数量 $(d+k) \cdot r$，仅增加了双曲投影的 $O(N)$ 开销
+
+    - $\mathbf{z}^E = W\mathbf{x}^E + \Pi_{\log}^K(\mathbf{LLR}(BA, \Pi_{\exp}^K(\mathbf{x}^E)))$
+    - 其中 $A \in \mathbb{R}^{r \times d}$, $B \in \mathbb{R}^{k \times r}$，$r \ll \min(d, k)$
+    - 与标准 LoRA 相同的参数量 $(d+k) \cdot r$，仅增加了双曲投影的 $O(N)$ 开销
 
 ### 训练策略
 - 微调时仅训练 $A$, $B$ 矩阵，冻结原始 $W$

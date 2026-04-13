@@ -46,31 +46,35 @@ LVFace 采用标准 ViT 作为骨干网络，配合 MLP 头（两层 512-d FC + 
 ### 关键设计
 
 1. **Stage 1 - 特征对齐（Feature Alignment）**：
-   - 在大规模数据（百万级身份）中，正样本远少于负样本，直接训练 ViT 难以收敛
-   - 采用负类子采样（NCS），以比例 $r=0.1$ 采样负类：$S = \text{NCS}(C, r) = C \times r$
-   - 使用 CosFace 损失：$\mathcal{L}_a = \log(1 + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j}}{e^{s(\cos\theta_i - m)}})$
-   - 设计动机：减少初期大量困难负样本的干扰，加速基础特征对齐
+
+    - 在大规模数据（百万级身份）中，正样本远少于负样本，直接训练 ViT 难以收敛
+    - 采用负类子采样（NCS），以比例 $r=0.1$ 采样负类：$S = \text{NCS}(C, r) = C \times r$
+    - 使用 CosFace 损失：$\mathcal{L}_a = \log(1 + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j}}{e^{s(\cos\theta_i - m)}})$
+    - 设计动机：减少初期大量困难负样本的干扰，加速基础特征对齐
 
 2. **Stage 2 - 质心稳定（Centroid Stabilization）**：
-   - 特征对齐后，困难正样本可能与负类质心相似度更高，误导分类器更新
-   - 引入特征期望 $\boldsymbol{e}_i = \mathbb{E}(\boldsymbol{x}_i)$ 作为类的统计原型
-   - 自适应更新：$\boldsymbol{e}_i^{new} = \alpha_i \boldsymbol{e}_i^{old} + (1-\alpha_i)\boldsymbol{x}_i$，其中 $\alpha_i = \sigma(\cos\theta_i^e)$
-   - 修改损失函数，加入特征期望正则项：
 
-   $$\mathcal{L}_s = \log\left(1 + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j}}{e^{s(\cos\theta_i - m_1)}} + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j^e}}{e^{s(\cos\theta_i^e - m_2)}}\right)$$
+    - 特征对齐后，困难正样本可能与负类质心相似度更高，误导分类器更新
+    - 引入特征期望 $\boldsymbol{e}_i = \mathbb{E}(\boldsymbol{x}_i)$ 作为类的统计原型
+    - 自适应更新：$\boldsymbol{e}_i^{new} = \alpha_i \boldsymbol{e}_i^{old} + (1-\alpha_i)\boldsymbol{x}_i$，其中 $\alpha_i = \sigma(\cos\theta_i^e)$
+    - 修改损失函数，加入特征期望正则项：
 
-   - 设计动机：通过期望锚定聚类中心，防止困难样本导致质心漂移
+    $\mathcal{L}_s = \log\left(1 + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j}}{e^{s(\cos\theta_i - m_1)}} + \frac{\sum_{j\neq i}^S e^{s\cos\theta_j^e}}{e^{s(\cos\theta_i^e - m_2)}}\right)$
+
+    - 设计动机：通过期望锚定聚类中心，防止困难样本导致质心漂移
 
 3. **Stage 3 - 边界精炼（Boundary Refinement）**：
-   - 禁用 NCS，使用全部负类训练
-   - 更多未见负样本惩罚聚类边界，实现类内紧致
-   - 由于第二阶段已稳定质心，增加负样本不会导致收敛问题
-   - 损失与 Stage 2 相同结构，但求和范围从 $S$ 扩展到全部 $C$ 个类
-   - 设计动机：利用稳定的质心作为"锚点"，全量负样本收缩决策边界
+
+    - 禁用 NCS，使用全部负类训练
+    - 更多未见负样本惩罚聚类边界，实现类内紧致
+    - 由于第二阶段已稳定质心，增加负样本不会导致收敛问题
+    - 损失与 Stage 2 相同结构，但求和范围从 $S$ 扩展到全部 $C$ 个类
+    - 设计动机：利用稳定的质心作为"锚点"，全量负样本收缩决策边界
 
 4. **Cosine Stage Scheduler (CSS)**：
-   - 通过监控批内余弦相似度的均方值控制阶段转换：$s^{(t)} = \frac{1}{|\mathcal{B}^{(t)}|}\sum \|\frac{f_\theta(\mathcal{I}_i) \cdot \boldsymbol{w}_{y_i}^{(t)}}{\|f_\theta(\mathcal{I}_i)\|_2 \|\boldsymbol{w}_{y_i}^{(t)}\|_2}\|^2$
-   - 阈值：$\delta_1 = 0.2$（→Stage 2），$\delta_2 = 0.35$（→Stage 3）
+
+    - 通过监控批内余弦相似度的均方值控制阶段转换：$s^{(t)} = \frac{1}{|\mathcal{B}^{(t)}|}\sum \|\frac{f_\theta(\mathcal{I}_i) \cdot \boldsymbol{w}_{y_i}^{(t)}}{\|f_\theta(\mathcal{I}_i)\|_2 \|\boldsymbol{w}_{y_i}^{(t)}\|_2}\|^2$
+    - 阈值：$\delta_1 = 0.2$（→Stage 2），$\delta_2 = 0.35$（→Stage 3）
 
 ### 损失函数 / 训练策略
 

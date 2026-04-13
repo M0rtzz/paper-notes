@@ -49,27 +49,30 @@ tags:
 ### 关键设计
 
 1. **Minimal Pixel Sets (MPS) 提取**：rex 采用因果推理框架，将模型视为黑盒因果模型。核心算法：
-   - 将图像分为 4 个 superpixel 区域
-   - 通过组合遮盖（baseline=0）生成 mutant，测试模型分类结果
-   - 按因果 responsibility 排序像素（高 responsibility = 对分类贡献大）
-   - 迭代细化 superpixel 划分（默认 20 次迭代），生成 responsibility landscape
-   - 按 responsibility 排名逐步添加像素，直到复现原始 top-1 分类
-   - 最终得到的像素集即为 MPS（近似最小但保证充分）
+
+    - 将图像分为 4 个 superpixel 区域
+    - 通过组合遮盖（baseline=0）生成 mutant，测试模型分类结果
+    - 按因果 responsibility 排序像素（高 responsibility = 对分类贡献大）
+    - 迭代细化 superpixel 划分（默认 20 次迭代），生成 responsibility landscape
+    - 按 responsibility 排名逐步添加像素，直到复现原始 top-1 分类
+    - 最终得到的像素集即为 MPS（近似最小但保证充分）
 
 2. **模型架构选择**：覆盖从小型 CNN 到超大 Transformer 的完整谱系：
-   - **Inception** (CNN): V3, V4, ResNet-V2（宽网络架构）
-   - **ResNet** (CNN): 152-B A1, A2, D（残差网络）
-   - **ConvNext** (现代 CNN): V2 Large, V2 Huge v1/v2（现代化 ResNet）
-   - **ViT** (Transformer): Large, Huge V1/V2（标准视觉 Transformer）
-   - **EVA** (Transformer): 02 Large V1/V2, Giant（大规模预训练 ViT，高达 10 亿参数）
+
+    - **Inception** (CNN): V3, V4, ResNet-V2（宽网络架构）
+    - **ResNet** (CNN): 152-B A1, A2, D（残差网络）
+    - **ConvNext** (现代 CNN): V2 Large, V2 Huge v1/v2（现代化 ResNet）
+    - **ViT** (Transformer): Large, Huge V1/V2（标准视觉 Transformer）
+    - **EVA** (Transformer): 02 Large V1/V2, Giant（大规模预训练 ViT，高达 10 亿参数）
 
 3. **统计分析方法**：
-   - **Kruskal-Wallis H 检验**：跨架构 MPS 大小差异（非参数检验）
-   - **Friedman 检验**：架构内部模型间 MPS 大小差异（配对数据检验）
-   - **Sørensen-Dice 系数**：衡量不同模型 MPS 的重叠度
-   - **Hausdorff 距离**：衡量 MPS 空间位置差异
-   - **Bonferroni 校正**：控制多重比较的 I 类错误
-   - **混合线性模型**：控制模型准确率混淆因素，分析正确/错误分类对 MPS 大小的影响
+
+    - **Kruskal-Wallis H 检验**：跨架构 MPS 大小差异（非参数检验）
+    - **Friedman 检验**：架构内部模型间 MPS 大小差异（配对数据检验）
+    - **Sørensen-Dice 系数**：衡量不同模型 MPS 的重叠度
+    - **Hausdorff 距离**：衡量 MPS 空间位置差异
+    - **Bonferroni 校正**：控制多重比较的 I 类错误
+    - **混合线性模型**：控制模型准确率混淆因素，分析正确/错误分类对 MPS 大小的影响
 
 ### 损失函数 / 训练策略
 

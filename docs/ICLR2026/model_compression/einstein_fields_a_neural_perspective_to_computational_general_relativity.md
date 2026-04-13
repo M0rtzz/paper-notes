@@ -26,25 +26,25 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：广义相对论（GR）将引力描述为四维时空的曲率，由Einstein场方程（EFEs）控制。精确解仅适用于理想化情况，数值相对论（NR）成为模拟黑洞合并、引力波等天体事件的必要手段。NR是科学计算中计算量最大的领域之一，需要PB级存储和超算级并行计算。
+**领域现状**：广义相对论（GR）将引力描述为四维时空的曲率，由Einstein场方程（EFEs）控制。精确解仅适用于理想化情况，数值相对论（NR）成为模拟黑洞合并、引力波等天体事件的必要手段。NR是科学计算中计算量最大的领域之一，需要PB级存储和超算级并行计算。
 
-2. **现有痛点**：
+**现有痛点**：
    - NR模拟产生**PB级数据**，难以存储和分发
    - 自适应网格上的有限差分（FD）方法在敏感区域容易产生数值误差
    - 高阶FD模板虽提高精度但增加通信成本
    - 离散表示无法在任意分辨率查询，且导数计算受截断误差限制
 
-3. **核心矛盾**：GR的物理完全由度量张量及其前两阶导数编码，但传统方法将连续张量场离散化存储导致巨大存储开销和导数精度损失。
+**核心矛盾**：GR的物理完全由度量张量及其前两阶导数编码，但传统方法将连续张量场离散化存储导致巨大存储开销和导数精度损失。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 将NR模拟数据压缩到可管理的存储大小
    - 提供网格无关、分辨率无限的连续表示
    - 通过自动微分获得高精度张量导数（Christoffel符号、Riemann张量等）
    - 支持下游物理任务（测地线、曲率诊断、引力波提取）
 
-5. **切入角度**：将计算机视觉中的神经场（NeRF/SDF等）推广到物理张量场，提出"神经张量场"概念——用MLP拟合度量张量的10个独立分量。
+**切入角度**：将计算机视觉中的神经场（NeRF/SDF等）推广到物理张量场，提出"神经张量场"概念——用MLP拟合度量张量的10个独立分量。
 
-6. **核心idea一句话**：用紧凑的神经隐式网络（<2M参数~7MiB）表示四维时空度量张量场，结合Sobolev训练和自动微分，同时实现4000×压缩和10^5×导数精度提升。
+**核心idea一句话**：用紧凑的神经隐式网络（<2M参数~7MiB）表示四维时空度量张量场，结合Sobolev训练和自动微分，同时实现4000×压缩和10^5×导数精度提升。
 
 ## 方法详解
 
@@ -57,25 +57,29 @@ tags:
 ### 关键设计
 
 1. **畸变分解（Distortion Decomposition）**
-   - 做什么：将度量张量分解为平坦背景+畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$
-   - 核心思路：网络只学习非平凡的曲率贡献部分，去除平坦时空的主导数值贡献（如 $g_{tt} \sim 1/r$, $g_{\theta\theta} \sim r^2$）
-   - 设计动机：将网络表示能力集中在物理上有意义的偏差上，加速收敛、改善缩放性
+
+    - 做什么：将度量张量分解为平坦背景+畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$
+    - 核心思路：网络只学习非平凡的曲率贡献部分，去除平坦时空的主导数值贡献（如 $g_{tt} \sim 1/r$, $g_{\theta\theta} \sim r^2$）
+    - 设计动机：将网络表示能力集中在物理上有意义的偏差上，加速收敛、改善缩放性
 
 2. **Sobolev训练（高阶导数监督）**
-   - 做什么：不仅监督度量张量本身，还监督其Jacobian（40个独立分量）和Hessian（100个独立分量）
-   - 核心公式：$\mathcal{L}^g_{\text{Sob}}(\theta) = \mathbb{E}_x[\lambda_0\|g - \hat{g}\|^2 + \lambda_1\|\partial g - \partial\hat{g}\|^2 + \lambda_2\|\partial^2 g - \partial^2\hat{g}\|^2]$
-   - 设计动机：GR的物理量（Christoffel符号、Riemann张量）由度量的1阶和2阶导数定义，仅监督度量本身无法保证导数精度。Sobolev损失将Christoffel符号精度提升2个数量级
+
+    - 做什么：不仅监督度量张量本身，还监督其Jacobian（40个独立分量）和Hessian（100个独立分量）
+    - 核心公式：$\mathcal{L}^g_{\text{Sob}}(\theta) = \mathbb{E}_x[\lambda_0\|g - \hat{g}\|^2 + \lambda_1\|\partial g - \partial\hat{g}\|^2 + \lambda_2\|\partial^2 g - \partial^2\hat{g}\|^2]$
+    - 设计动机：GR的物理量（Christoffel符号、Riemann张量）由度量的1阶和2阶导数定义，仅监督度量本身无法保证导数精度。Sobolev损失将Christoffel符号精度提升2个数量级
 
 3. **自动微分替代有限差分**
-   - 做什么：通过JAX的forward-mode AD精确计算微分几何量
-   - 实现路径：$g_{\alpha\beta} \xrightarrow{\texttt{jacfwd}} \Gamma^\gamma_{\alpha\beta} \xrightarrow{\nabla} R^\delta_{\alpha\beta\gamma} \xrightarrow{\text{Tr}_g} R_{\alpha\beta} \xrightarrow{\text{Tr}_g} R$
-   - 设计动机：FD在FLOAT32下受截断误差限制（$O(h^n)$），AD在单精度下精度提升可达5个数量级
+
+    - 做什么：通过JAX的forward-mode AD精确计算微分几何量
+    - 实现路径：$g_{\alpha\beta} \xrightarrow{\texttt{jacfwd}} \Gamma^\gamma_{\alpha\beta} \xrightarrow{\nabla} R^\delta_{\alpha\beta\gamma} \xrightarrow{\text{Tr}_g} R_{\alpha\beta} \xrightarrow{\text{Tr}_g} R$
+    - 设计动机：FD在FLOAT32下受截断误差限制（$O(h^n)$），AD在单精度下精度提升可达5个数量级
 
 4. **网络架构选择**
-   - MLP + SiLU激活函数（在导数监督下表现最佳）
-   - SOAP优化器（准牛顿法，优于Adam）
-   - GradNorm平衡多任务梯度
-   - 参数规模：64×3到512×8，总参数<190万
+
+    - MLP + SiLU激活函数（在导数监督下表现最佳）
+    - SOAP优化器（准牛顿法，优于Adam）
+    - GradNorm平衡多任务梯度
+    - 参数规模：64×3到512×8，总参数<190万
 
 ### 损失函数 / 训练策略
 - Sobolev损失：度量 + Jacobian + Hessian三项加权

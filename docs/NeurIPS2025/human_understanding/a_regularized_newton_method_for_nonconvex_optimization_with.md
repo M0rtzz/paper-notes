@@ -57,22 +57,25 @@ tags:
 ### 关键设计
 
 1. **新型正则化器构造**：论文提出两类正则化器，通过引入一个额外参数$\theta>0$和比率$\delta_k$来调节全局-局部权衡：
-   - **第一类**：$\omega_k^f=\|g_k\|^{1/2}$，$\omega_k^t=\omega_k^f\cdot\min(1, (g_k/g_{k-1})^\theta)$
-   - **第二类**：$\omega_k^f=\epsilon_k^{1/2}$（其中$\epsilon_k=\min_{i\leq k}\|g_i\|$），$\omega_k^t=\omega_k^f\cdot(\epsilon_k/\epsilon_{k-1})^\theta$
+
+    - **第一类**：$\omega_k^f=\|g_k\|^{1/2}$，$\omega_k^t=\omega_k^f\cdot\min(1, (g_k/g_{k-1})^\theta)$
+    - **第二类**：$\omega_k^f=\epsilon_k^{1/2}$（其中$\epsilon_k=\min_{i\leq k}\|g_i\|$），$\omega_k^t=\omega_k^f\cdot(\epsilon_k/\epsilon_{k-1})^\theta$
    
    关键洞察：当$\theta=0$时退化为经典的梯度平方根正则化（局部阶$3/2$）；当$\theta>0$时，额外项$\delta_k^\theta$在迭代开始超线性收敛时快速趋零，逐步将局部收敛率从$3/2$提升到接近$2$；当$\theta>1$时达到完整的二次收敛。
 
 2. **带负曲率监测的Capped CG**：基于Royer et al. (2020)的算法，输出三种状态：
-   - **SOL**：找到了正则化Newton方程的近似解
-   - **NC**：发现了负曲率方向$d^T H d \leq -\rho\|d\|^2$
-   - **TERM**：正则化参数太小导致迭代次数过多，提前终止
+
+    - **SOL**：找到了正则化Newton方程的近似解
+    - **NC**：发现了负曲率方向$d^T H d \leq -\rho\|d\|^2$
+    - **TERM**：正则化参数太小导致迭代次数过多，提前终止
    
    每次CG迭代只需一次Hessian向量积，且整个CG过程负曲率监测只引入一次额外的Hessian向量积。
 
 3. **自适应Lipschitz常数估计**：参数$M_k$自适应估计$L_H$，通过线搜索的成功/失败来调节：
-   - 成功且下降充分→减小$M_k$（$\mathcal{J}_{-1}$集合）
-   - 成功且下降适中→保持$M_k$（$\mathcal{J}_0$集合）
-   - 失败→增大$M_k$（$\mathcal{J}_1$集合）
+
+    - 成功且下降充分→减小$M_k$（$\mathcal{J}_{-1}$集合）
+    - 成功且下降适中→保持$M_k$（$\mathcal{J}_0$集合）
+    - 失败→增大$M_k$（$\mathcal{J}_1$集合）
    
    经过$O(\log(M_0/L_H))$次迭代后，$M_k$稳定在$O(L_H)$水平。
 

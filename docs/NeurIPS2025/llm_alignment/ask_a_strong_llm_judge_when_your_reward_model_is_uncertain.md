@@ -26,12 +26,12 @@ tags:
 提出基于不确定性的路由框架，用SNGP对pairwise reward model做不确定性量化，将高认知不确定性的样本路由到强LLM judge（DeepSeek-R1），在仅调用9.2%~42.5% judge的成本下显著超越随机路由的准确率，且有效改善下游在线RLHF对齐效果。
 
 ## 研究背景与动机
-1. **领域现状**：RLHF中reward model（RM）是核心组件，但标准RM（pointwise/pairwise）在OOD数据上泛化差，容易被reward hacking。强LLM judge（如DeepSeek-R1、GPT-4）通过CoT推理给出更可靠的偏好判断。
-2. **现有痛点**：RM廉价但不可靠——在RM-Bench的hard子集上，SOTA的8B RM准确率仅46.6%（不如随机猜50%）。LLM judge准确但昂贵——长CoT推理导致延迟是标量RM的数十倍，在线RLHF中不可行。
-3. **核心矛盾**：如何在有限的LLM judge调用预算下最大化偏好判断准确率？随机路由浪费预算在RM已经判对的样本上。
-4. **本文要解决什么？** 设计一个自适应路由策略，精准识别RM不确定的样本（最可能判错），将其路由到强judge，其余用RM快速处理。
-5. **切入角度**：从不确定性量化入手——pairwise RM的偏好分类问题天然适合UQ方法（vs pointwise RM在BT模型下不确定性是ill-defined的），采用SNGP（单次推理、无需集成）高效量化认知不确定性。
-6. **核心idea一句话**：用SNGP给pairwise RM加不确定性感知，高认知不确定性的配对自动路由到LLM judge，低不确定性的用RM快速处理。
+**领域现状**：RLHF中reward model（RM）是核心组件，但标准RM（pointwise/pairwise）在OOD数据上泛化差，容易被reward hacking。强LLM judge（如DeepSeek-R1、GPT-4）通过CoT推理给出更可靠的偏好判断。
+**现有痛点**：RM廉价但不可靠——在RM-Bench的hard子集上，SOTA的8B RM准确率仅46.6%（不如随机猜50%）。LLM judge准确但昂贵——长CoT推理导致延迟是标量RM的数十倍，在线RLHF中不可行。
+**核心矛盾**：如何在有限的LLM judge调用预算下最大化偏好判断准确率？随机路由浪费预算在RM已经判对的样本上。
+**本文要解决什么？** 设计一个自适应路由策略，精准识别RM不确定的样本（最可能判错），将其路由到强judge，其余用RM快速处理。
+**切入角度**：从不确定性量化入手——pairwise RM的偏好分类问题天然适合UQ方法（vs pointwise RM在BT模型下不确定性是ill-defined的），采用SNGP（单次推理、无需集成）高效量化认知不确定性。
+**核心idea一句话**：用SNGP给pairwise RM加不确定性感知，高认知不确定性的配对自动路由到LLM judge，低不确定性的用RM快速处理。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **SNGP-PM（不确定性感知的Pairwise RM）**:
-   - 做什么：同时输出偏好分数和认知不确定性
-   - 核心思路：在LLM backbone上加spectral normalization（保持距离感知）+ GP层（random feature近似），logit $g(h)$ 除以标准差 $u = \sqrt{1 + \lambda \cdot \phi(h)^\top \Sigma \phi(h)}$ 得到校准的偏好分数。$\Sigma$ 是GP后验协方差，在额外一个frozen epoch中计算
-   - 设计动机：SNGP只需单模型单次推理，不像MC Dropout或集成需要多次，延迟与普通PM几乎相同。分离了aleatoric uncertainty（BT模型内在噪声，不可减）和epistemic uncertainty（数据覆盖不足，可由judge补充）
+
+    - 做什么：同时输出偏好分数和认知不确定性
+    - 核心思路：在LLM backbone上加spectral normalization（保持距离感知）+ GP层（random feature近似），logit $g(h)$ 除以标准差 $u = \sqrt{1 + \lambda \cdot \phi(h)^\top \Sigma \phi(h)}$ 得到校准的偏好分数。$\Sigma$ 是GP后验协方差，在额外一个frozen epoch中计算
+    - 设计动机：SNGP只需单模型单次推理，不像MC Dropout或集成需要多次，延迟与普通PM几乎相同。分离了aleatoric uncertainty（BT模型内在噪声，不可减）和epistemic uncertainty（数据覆盖不足，可由judge补充）
 
 2. **不确定性路由策略**:
-   - 做什么：根据不确定性阈值 $\bar{u}$ 决定用PM还是judge
-   - 核心思路：$u > \bar{u}$ 时路由到DeepSeek-R1，judge返回三类标签（$y_1$更好、$y_2$更好、平局），分别映射为高置信logit或零logit
-   - 设计动机：认知不确定性高 = OOD数据 = PM最可能判错，精准投放judge预算
+
+    - 做什么：根据不确定性阈值 $\bar{u}$ 决定用PM还是judge
+    - 核心思路：$u > \bar{u}$ 时路由到DeepSeek-R1，judge返回三类标签（$y_1$更好、$y_2$更好、平局），分别映射为高置信logit或零logit
+    - 设计动机：认知不确定性高 = OOD数据 = PM最可能判错，精准投放judge预算
 
 3. **Pairwise Advantage估计（兼容RLOO/GRPO）**:
-   - 做什么：将pairwise reward差值转化为policy gradient可用的advantage
-   - 核心思路：RLOO的advantage $A_i = \frac{1}{K-1}\sum_{j \neq i}(r(x,y_i) - r(x,y_j))$ 只依赖reward差值，天然适配pairwise PM。无需pointwise reward的绝对值
-   - 设计动机：避免了pointwise RM在BT模型下的不确定性ill-defined问题（加任意 $s(x)$ 偏移不改变偏好）
+
+    - 做什么：将pairwise reward差值转化为policy gradient可用的advantage
+    - 核心思路：RLOO的advantage $A_i = \frac{1}{K-1}\sum_{j \neq i}(r(x,y_i) - r(x,y_j))$ 只依赖reward差值，天然适配pairwise PM。无需pointwise reward的绝对值
+    - 设计动机：避免了pointwise RM在BT模型下的不确定性ill-defined问题（加任意 $s(x)$ 偏移不改变偏好）
 
 ### 训练策略
 - 基础模型：Llama-3.1-8B-Instruct

@@ -43,26 +43,30 @@ CLEME2.0 的流程分为三步：
 
 ### 关键设计
 1. **编辑解耦（Edit Disentangling）**：
-   - **TP（True Positive）**：假设 chunk 与参考 chunk 一致的正确纠正
-   - **FPne（False Positive - Necessary）**：假设 chunk 与参考 chunk 不同，但参考确实有修改 → 纠正位置正确但内容错误
-   - **FPun（False Positive - Unnecessary）**：假设做了修改但参考未修改 → 不必要的过度纠正
-   - **FN（False Negative）**：假设未修改但参考有修改 → 遗漏纠正
-   - 核心创新在于将传统的 FP 进一步拆分为 FPne 和 FPun，建立了四类编辑与四个系统特征的一一对应关系
+
+    - **TP（True Positive）**：假设 chunk 与参考 chunk 一致的正确纠正
+    - **FPne（False Positive - Necessary）**：假设 chunk 与参考 chunk 不同，但参考确实有修改 → 纠正位置正确但内容错误
+    - **FPun（False Positive - Unnecessary）**：假设做了修改但参考未修改 → 不必要的过度纠正
+    - **FN（False Negative）**：假设未修改但参考有修改 → 遗漏纠正
+    - 核心创新在于将传统的 FP 进一步拆分为 FPne 和 FPun，建立了四类编辑与四个系统特征的一一对应关系
 
 2. **四维解耦分数**：
-   - $Hit = \frac{TP}{TP + FP_{ne} + FN}$（正确纠正率）
-   - $Wrong = \frac{FP_{ne}}{TP + FP_{ne} + FN}$（错误纠正率）
-   - $Under = \frac{FN}{TP + FP_{ne} + FN}$（欠纠正率）
-   - $Over = \frac{FP_{un}}{TP + FP_{ne} + FP_{un}}$（过纠正率）
-   - 综合分数：$Score = \alpha_1 \cdot Hit + \alpha_2 \cdot (1-Wrong) + \alpha_3 \cdot (1-Under) + \alpha_4 \cdot (1-Over)$
+
+    - $Hit = \frac{TP}{TP + FP_{ne} + FN}$（正确纠正率）
+    - $Wrong = \frac{FP_{ne}}{TP + FP_{ne} + FN}$（错误纠正率）
+    - $Under = \frac{FN}{TP + FP_{ne} + FN}$（欠纠正率）
+    - $Over = \frac{FP_{un}}{TP + FP_{ne} + FP_{un}}$（过纠正率）
+    - 综合分数：$Score = \alpha_1 \cdot Hit + \alpha_2 \cdot (1-Wrong) + \alpha_3 \cdot (1-Under) + \alpha_4 \cdot (1-Over)$
 
 3. **编辑加权技术（Edit Weighting）**：
-   - **Similarity-based weighting**：基于 PTScore/BERTScore 计算每个编辑的语义重要性权重，通过模拟部分正确句子来衡量编辑对整体质量的影响
-   - **LLM-based weighting**：使用 Llama-2-7B 对每个编辑打 1-5 分的重要性分数，利用 LLM 的语义理解能力来区分不同修改的重要程度
+
+    - **Similarity-based weighting**：基于 PTScore/BERTScore 计算每个编辑的语义重要性权重，通过模拟部分正确句子来衡量编辑对整体质量的影响
+    - **LLM-based weighting**：使用 Llama-2-7B 对每个编辑打 1-5 分的重要性分数，利用 LLM 的语义理解能力来区分不同修改的重要程度
 
 4. **权重因子确定**：通过交叉验证搜索最优权重：
-   - Corpus-level: $\alpha_1, \alpha_2, \alpha_3, \alpha_4 = 0.45, 0.35, 0.15, 0.05$
-   - Sentence-level: $\alpha_1, \alpha_2, \alpha_3, \alpha_4 = 0.35, 0.25, 0.20, 0.20$
+
+    - Corpus-level: $\alpha_1, \alpha_2, \alpha_3, \alpha_4 = 0.45, 0.35, 0.15, 0.05$
+    - Sentence-level: $\alpha_1, \alpha_2, \alpha_3, \alpha_4 = 0.35, 0.25, 0.20, 0.20$
 
 ## 实验关键数据
 

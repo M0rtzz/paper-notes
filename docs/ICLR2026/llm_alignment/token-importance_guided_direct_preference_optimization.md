@@ -26,13 +26,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：DPO在序列级优化偏好，忽略不同token的差异化重要性。已有token级方法(TDPO/TIS-DPO)用概率代理评估重要性，但有偏差。
-2. **现有痛点**：
+**领域现状**：DPO在序列级优化偏好，忽略不同token的差异化重要性。已有token级方法(TDPO/TIS-DPO)用概率代理评估重要性，但有偏差。
+**现有痛点**：
    - DPO的粗粒度优化对数据噪声敏感、分布偏移严重
    - 现有token级方法的概率代理产生不一致输出
    - 二元"好/坏"对比框架无法在连续语义空间精细调整生成行为
-3. **核心矛盾**：需要同时精确识别关键token + 在连续空间引导偏好调整
-4. **核心idea一句话**：梯度归因定位关键token + 高斯先验修正位置偏差 + 三元组损失做连续空间引导
+**核心矛盾**：需要同时精确识别关键token + 在连续空间引导偏好调整
+**核心idea一句话**：梯度归因定位关键token + 高斯先验修正位置偏差 + 三元组损失做连续空间引导
 
 ## 方法详解
 
@@ -42,19 +42,22 @@ $\mathcal{L}_{\text{TI-DPO}} = \mathcal{L}_{\text{DPO-w}} + \gamma \mathcal{L}_{
 ### 关键设计
 
 1. **混合权重机制**:
-   - 梯度归因：$I_i = \|\nabla_{e_i}\mathcal{L}_{\text{target}}\|_1$，计算每个token embedding对最终预测的梯度贡献
-   - 高斯先验：$\mathcal{P}(t) = \exp(-\frac{1}{2}(\frac{t-\mu}{\sigma})^2)$，$\mu=(T-1)/2$, $\sigma=T/4$，修正模型的U型注意力偏差（首尾token被过度关注）
-   - 凸组合：$W = \lambda \cdot \mathcal{I}_{\text{norm}} + (1-\lambda) \cdot \mathcal{P}$
-   - 分别对 $y_w$ 和 $y_l$ 独立计算权重
+
+    - 梯度归因：$I_i = \|\nabla_{e_i}\mathcal{L}_{\text{target}}\|_1$，计算每个token embedding对最终预测的梯度贡献
+    - 高斯先验：$\mathcal{P}(t) = \exp(-\frac{1}{2}(\frac{t-\mu}{\sigma})^2)$，$\mu=(T-1)/2$, $\sigma=T/4$，修正模型的U型注意力偏差（首尾token被过度关注）
+    - 凸组合：$W = \lambda \cdot \mathcal{I}_{\text{norm}} + (1-\lambda) \cdot \mathcal{P}$
+    - 分别对 $y_w$ 和 $y_l$ 独立计算权重
 
 2. **加权token级DPO**:
-   - $\Delta r_{\text{token}} = \sum_t w_t^w \log\frac{\pi_\theta(y_w^t|\cdot)}{\pi_{\text{ref}}(y_w^t|\cdot)} - \sum_t w_t^l \log\frac{\pi_\theta(y_l^t|\cdot)}{\pi_{\text{ref}}(y_l^t|\cdot)}$
-   - 关键token的贡献被放大，噪声token被抑制
+
+    - $\Delta r_{\text{token}} = \sum_t w_t^w \log\frac{\pi_\theta(y_w^t|\cdot)}{\pi_{\text{ref}}(y_w^t|\cdot)} - \sum_t w_t^l \log\frac{\pi_\theta(y_l^t|\cdot)}{\pi_{\text{ref}}(y_l^t|\cdot)}$
+    - 关键token的贡献被放大，噪声token被抑制
 
 3. **三元组损失**:
-   - 从策略模型生成锚点回答 $y$，在隐式奖励空间拉近 $y$ 与 $y_w$、推远 $y$ 与 $y_l$
-   - $\mathcal{L}_{\text{triplet}} = \max(0, d(y, y_w) - d(y, y_l) + \alpha)$
-   - 在连续语义空间提供比二元对比更细粒度的引导
+
+    - 从策略模型生成锚点回答 $y$，在隐式奖励空间拉近 $y$ 与 $y_w$、推远 $y$ 与 $y_l$
+    - $\mathcal{L}_{\text{triplet}} = \max(0, d(y, y_w) - d(y, y_l) + \alpha)$
+    - 在连续语义空间提供比二元对比更细粒度的引导
 
 ## 实验关键数据
 

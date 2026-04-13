@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 多目标强化学习（MORL）处理向量值奖励的MDP，效用函数方法是主流，其中加权和最常见。Max-min MORL追求最差目标维度的最大化，天然适合公平性资源分配场景。
+**领域现状**: 多目标强化学习（MORL）处理向量值奖励的MDP，效用函数方法是主流，其中加权和最常见。Max-min MORL追求最差目标维度的最大化，天然适合公平性资源分配场景。
 
-2. **现有痛点**: (i) GGF-DQN/GGF-PPO优化的是代理目标 $\mathbb{E}_\pi[\min_k \sum_t \gamma^t r_k]$（Jensen不等式下界），而非真实目标 $\min_k \mathbb{E}_\pi[\sum_t \gamma^t r_k]$；(ii) Park et al.的双循环方法虽直接求解真实目标但内存和计算开销极大（20份Q网络），仅保证平均迭代收敛；(iii) GGF-PPO每批只优化当前最差维度，相当于 $w$ 在one-hot向量间切换，只有平均迭代收敛。
+**现有痛点**: (i) GGF-DQN/GGF-PPO优化的是代理目标 $\mathbb{E}_\pi[\min_k \sum_t \gamma^t r_k]$（Jensen不等式下界），而非真实目标 $\min_k \mathbb{E}_\pi[\sum_t \gamma^t r_k]$；(ii) Park et al.的双循环方法虽直接求解真实目标但内存和计算开销极大（20份Q网络），仅保证平均迭代收敛；(iii) GGF-PPO每批只优化当前最差维度，相当于 $w$ 在one-hot向量间切换，只有平均迭代收敛。
 
-3. **核心矛盾**: $\min$ 算子的非线性导致max-min MORL无法直接用标准RL方法求解，同时又需要高效的数值求解方法。
+**核心矛盾**: $\min$ 算子的非线性导致max-min MORL无法直接用标准RL方法求解，同时又需要高效的数值求解方法。
 
-4. **本文要解决什么**: 设计一个计算和内存高效、具有最后迭代收敛保证的max-min MORL算法。
+**本文要解决什么**: 设计一个计算和内存高效、具有最后迭代收敛保证的max-min MORL算法。
 
-5. **切入角度**: 利用max-min与min-max在熵正则化下的特殊等价性，将问题转化为两人零和博弈的纳什均衡求解。
+**切入角度**: 利用max-min与min-max在熵正则化下的特殊等价性，将问题转化为两人零和博弈的纳什均衡求解。
 
-6. **核心idea一句话**: Learner用NPG/PPO更新策略，Adversary用熵正则化镜像下降的闭式softmax公式更新权重 $w$——两者协同实现max-min公平。
+**核心idea一句话**: Learner用NPG/PPO更新策略，Adversary用熵正则化镜像下降的闭式softmax公式更新权重 $w$——两者协同实现max-min公平。
 
 ## 方法详解
 

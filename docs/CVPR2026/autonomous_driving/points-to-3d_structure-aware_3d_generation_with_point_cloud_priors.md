@@ -27,13 +27,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：3D 生成模型（TRELLIS、GaussianAnything 等）已能从图像或文本合成逼真 3D 资产，但都以 2D 图像/文本为条件，缺乏对真实 3D 几何的直接约束，生成结果在几何精度上不可控。
+**领域现状**：3D 生成模型（TRELLIS、GaussianAnything 等）已能从图像或文本合成逼真 3D 资产，但都以 2D 图像/文本为条件，缺乏对真实 3D 几何的直接约束，生成结果在几何精度上不可控。
 
-2. **被忽视的信息源**：在自动驾驶、机器人等场景中，可见区域点云极易获取——来自 LiDAR、结构光、甚至 VGGT 等前馈预测器。这些点云提供了显式的几何约束，但当前生成框架无法利用。
+**被忽视的信息源**：在自动驾驶、机器人等场景中，可见区域点云极易获取——来自 LiDAR、结构光、甚至 VGGT 等前馈预测器。这些点云提供了显式的几何约束，但当前生成框架无法利用。
 
-3. **技术限制**：TRELLIS 的结构生成从纯高斯噪声初始化 SS latent，仅受图像/文本 embedding 引导，无法锚定到真实 3D 观测。简单地将点云作为额外条件注入效果有限——需要将结构先验嵌入潜空间本身。
+**技术限制**：TRELLIS 的结构生成从纯高斯噪声初始化 SS latent，仅受图像/文本 embedding 引导，无法锚定到真实 3D 观测。简单地将点云作为额外条件注入效果有限——需要将结构先验嵌入潜空间本身。
 
-4. **核心思路**：将点云引导的 3D 生成重新定义为**潜空间补全（latent inpainting）**问题：可见区域编码为固定约束，不可见区域由补全网络合成。
+**核心思路**：将点云引导的 3D 生成重新定义为**潜空间补全（latent inpainting）**问题：可见区域编码为固定约束，不可见区域由补全网络合成。
 
 ## 方法详解
 
@@ -44,25 +44,28 @@ tags:
 ### 关键设计
 
 1. **点云先验驱动的潜空间初始化**：
-   - **做什么**：将可见点云编码到 TRELLIS 的 SS latent 空间作为生成起点，替代纯噪声初始化
-   - **核心公式**：
-     $$\mathbf{q}_{\text{comb}} = \mathbf{m}_s \odot \mathbf{q}_{\text{vis}} + (1 - \mathbf{m}_s) \odot \boldsymbol{\epsilon}_s$$
-     其中 $\mathbf{q}_{\text{vis}} = \mathcal{E}_s(\mathbf{M}')$ 是编码后的可见区域 latent，$\mathbf{m}_s$ 是下采样到 latent 分辨率（$r=16$）的 occupancy mask
-   - **设计动机**：直接在潜空间中"锚定"可见几何，使扩散过程受真实 3D 观测约束，而非仅依赖图像/文本的隐式引导
+
+    - **做什么**：将可见点云编码到 TRELLIS 的 SS latent 空间作为生成起点，替代纯噪声初始化
+    - **核心公式**：
+    $\mathbf{q}_{\text{comb}} = \mathbf{m}_s \odot \mathbf{q}_{\text{vis}} + (1 - \mathbf{m}_s) \odot \boldsymbol{\epsilon}_s$
+      其中 $\mathbf{q}_{\text{vis}} = \mathcal{E}_s(\mathbf{M}')$ 是编码后的可见区域 latent，$\mathbf{m}_s$ 是下采样到 latent 分辨率（$r=16$）的 occupancy mask
+    - **设计动机**：直接在潜空间中"锚定"可见几何，使扩散过程受真实 3D 观测约束，而非仅依赖图像/文本的隐式引导
 
 2. **Mask-aware 结构补全网络 $\mathcal{G}_{inp}$**：
-   - **做什么**：基于 TRELLIS 的 Structure Flow Transformer 微调，学习从可见区域向不可见区域推断几何
-   - **输入设计**：将 mask $\mathbf{m}_s$ 沿通道维度拼接到 $\mathbf{q}_{\text{comb}}$，替换掉原始输入层适配新通道数 $(c_s + c_m)$
-   - **训练数据构建**：从完整 3D 资产的 $T=24$ 个视角渲染深度图，通过深度一致性检验（阈值 $\tau$）提取每个视角的可见点云，构造 $(\mathbf{q}_{\text{comb}}^t, \mathbf{m}_s^t, \mathbf{I}_t, \mathbf{q}_{\text{gt}})$ 训练对
-   - **训练目标**：Conditional Flow Matching 损失
-     $$\mathcal{L}_{CFM} = \mathbb{E}_{t, \mathbf{q}_{\text{gt}}, \epsilon} \|\mathcal{G}_{inp}(\mathbf{x}_{\text{inp}}, t) - (\epsilon - \mathbf{q}_{\text{gt}})\|_2^2$$
+
+    - **做什么**：基于 TRELLIS 的 Structure Flow Transformer 微调，学习从可见区域向不可见区域推断几何
+    - **输入设计**：将 mask $\mathbf{m}_s$ 沿通道维度拼接到 $\mathbf{q}_{\text{comb}}$，替换掉原始输入层适配新通道数 $(c_s + c_m)$
+    - **训练数据构建**：从完整 3D 资产的 $T=24$ 个视角渲染深度图，通过深度一致性检验（阈值 $\tau$）提取每个视角的可见点云，构造 $(\mathbf{q}_{\text{comb}}^t, \mathbf{m}_s^t, \mathbf{I}_t, \mathbf{q}_{\text{gt}})$ 训练对
+    - **训练目标**：Conditional Flow Matching 损失
+    $\mathcal{L}_{CFM} = \mathbb{E}_{t, \mathbf{q}_{\text{gt}}, \epsilon} \|\mathcal{G}_{inp}(\mathbf{x}_{\text{inp}}, t) - (\epsilon - \mathbf{q}_{\text{gt}})\|_2^2$
 
 3. **两阶段采样策略（Staged Sampling）**：
-   - **做什么**：将 $t$ 步采样分为结构补全阶段（$s$ 步）和边界精炼阶段（$t-s$ 步）
-   - **结构补全阶段**：每步重建 $\mathbf{q}_{\text{pred}}$ 后与 mask $\mathbf{m}_s$ 重新拼接，循环 $s$ 步，保持可见区域锚定
-   - **边界精炼阶段**：将 mask 替换为全 1（$\mathbf{m}_1$），转为标准去噪，修复补全边界处的"空洞"伪影
-   - **设计动机**：纯 inpainting 会在可见/不可见区域交界处因下采样信息损失产生几何空洞；后续精炼步骤可在不破坏全局结构的前提下修复边界
-   - **最佳配置**：$s=25$, $t-s=25$（总 50 步）
+
+    - **做什么**：将 $t$ 步采样分为结构补全阶段（$s$ 步）和边界精炼阶段（$t-s$ 步）
+    - **结构补全阶段**：每步重建 $\mathbf{q}_{\text{pred}}$ 后与 mask $\mathbf{m}_s$ 重新拼接，循环 $s$ 步，保持可见区域锚定
+    - **边界精炼阶段**：将 mask 替换为全 1（$\mathbf{m}_1$），转为标准去噪，修复补全边界处的"空洞"伪影
+    - **设计动机**：纯 inpainting 会在可见/不可见区域交界处因下采样信息损失产生几何空洞；后续精炼步骤可在不破坏全局结构的前提下修复边界
+    - **最佳配置**：$s=25$, $t-s=25$（总 50 步）
 
 ### 损失函数 / 训练策略
 

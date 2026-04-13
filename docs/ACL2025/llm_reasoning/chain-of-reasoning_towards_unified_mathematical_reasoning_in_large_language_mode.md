@@ -43,25 +43,28 @@ CoR的核心idea：不同推理范式不应互相替代，而应**链式协作**
 
 ### 关键设计
 1. **多范式数学数据集（MPM）构建**:
-   - 做什么：将单范式数据集扩展为包含NLR、AR、SR三种推理路径的多范式数据
-   - 核心思路：
-     - Stage 1（重构+扩展）：以Numina-TIR和Lean-Workbook为种子数据，利用GPT-4o生成缺失的推理范式 $\tau_g \sim \mathbb{P}_\mathcal{G}(\tau_g | p_s \oplus x \oplus y \oplus \tau')$，并设计统一文本模板规范各范式的位置和关系
-     - Stage 2（修正）：将SR部分提交给Lean证明器验证，失败的样本通过DeepSeek-Prover-V1.5迭代修正（最多64轮），最终得到82,770道题目、167,412条多范式推理路径
-   - 设计动机：现有数据集要么只有NLR要么只有SR，没有同一问题的多范式完整推理路径
+
+    - 做什么：将单范式数据集扩展为包含NLR、AR、SR三种推理路径的多范式数据
+    - 核心思路：
+      - Stage 1（重构+扩展）：以Numina-TIR和Lean-Workbook为种子数据，利用GPT-4o生成缺失的推理范式 $\tau_g \sim \mathbb{P}_\mathcal{G}(\tau_g | p_s \oplus x \oplus y \oplus \tau')$，并设计统一文本模板规范各范式的位置和关系
+      - Stage 2（修正）：将SR部分提交给Lean证明器验证，失败的样本通过DeepSeek-Prover-V1.5迭代修正（最多64轮），最终得到82,770道题目、167,412条多范式推理路径
+    - 设计动机：现有数据集要么只有NLR要么只有SR，没有同一问题的多范式完整推理路径
 
 2. **渐进范式训练（PPT）**:
-   - 做什么：让模型分阶段逐步掌握多种推理范式
-   - 核心思路：
-     - Stage ①：仅NLR数据训练（Numina-CoT*），生成序列 $z = [x]\tau_{NLR}y$，激活模型的数学理解能力
-     - Stage ②：NLR+AR数据训练（Numina-TIR*），生成序列 $z = [x]\tau_{NLR}\tau_{AR}y$，激活计算技能
-     - Stage ③：NLR+AR+SR数据训练（MPM），生成序列 $z = [x]\tau_{NLR}\tau_{AR}\tau_{SR}y$，学习形式化推理
-     - 损失函数为标准语言建模损失：$\mathcal{L} = -\sum_{t=1}^{|z|} \log \mathbb{P}_\theta(z_t | z_{<t})$
-   - 设计动机：从最熟悉的NLR到最不熟悉的SR渐进过渡，类似于从常识到形式化的认知递进，而非一次性混合训练
+
+    - 做什么：让模型分阶段逐步掌握多种推理范式
+    - 核心思路：
+      - Stage ①：仅NLR数据训练（Numina-CoT*），生成序列 $z = [x]\tau_{NLR}y$，激活模型的数学理解能力
+      - Stage ②：NLR+AR数据训练（Numina-TIR*），生成序列 $z = [x]\tau_{NLR}\tau_{AR}y$，激活计算技能
+      - Stage ③：NLR+AR+SR数据训练（MPM），生成序列 $z = [x]\tau_{NLR}\tau_{AR}\tau_{SR}y$，学习形式化推理
+      - 损失函数为标准语言建模损失：$\mathcal{L} = -\sum_{t=1}^{|z|} \log \mathbb{P}_\theta(z_t | z_{<t})$
+    - 设计动机：从最熟悉的NLR到最不熟悉的SR渐进过渡，类似于从常识到形式化的认知递进，而非一次性混合训练
 
 3. **顺序多范式采样（SMPS）**:
-   - 做什么：推理时通过跨范式的层次化采样探索更大的解空间
-   - 核心思路：先为第一个范式采样 $J$ 条路径，再为每条路径的第二个范式采样 $K$ 条路径，总共得到 $J \times K$ 个候选答案，公式为 $y_{jk} \sim \mathbb{P}(y_{jk} | x, \tau_{1j}, \tau_{2k})$
-   - 设计动机：相比单范式内的token级树搜索，跨范式采样能以更低成本探索更多样的解空间
+
+    - 做什么：推理时通过跨范式的层次化采样探索更大的解空间
+    - 核心思路：先为第一个范式采样 $J$ 条路径，再为每条路径的第二个范式采样 $K$ 条路径，总共得到 $J \times K$ 个候选答案，公式为 $y_{jk} \sim \mathbb{P}(y_{jk} | x, \tau_{1j}, \tau_{2k})$
+    - 设计动机：相比单范式内的token级树搜索，跨范式采样能以更低成本探索更多样的解空间
 
 ### 损失函数 / 训练策略
 标准自回归语言模型损失，三阶段顺序训练。基座模型为DeepSeekMath-7B-Base，也在Llama-3.1-8B上做了验证。推理时范式顺序可通过prompt灵活控制，支持NLR→SR→AR（最优）和NLR→AR→SR两种顺序。

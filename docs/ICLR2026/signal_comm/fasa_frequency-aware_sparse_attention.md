@@ -36,24 +36,28 @@ tags:
 
 ### 关键设计
 1. **频率块(FC)分解**：
-   - RoPE 注意力 $\mathbf{A}_{t_1,t_2} = \mathbf{q}_{t_1}\mathbf{R}_{\Delta t}\mathbf{k}_{t_2}^T$ 可精确分解为 $d/2$ 个频率块的和
-   - 每个 FC 是一个 2D 子空间，对应不同的旋转频率 $\theta_i = B^{-2(i-1)/d}$
-   - 低维 FC 对应高频旋转（主要编码位置信息），高维 FC 对应低频旋转（主要编码语义信息）
+
+    - RoPE 注意力 $\mathbf{A}_{t_1,t_2} = \mathbf{q}_{t_1}\mathbf{R}_{\Delta t}\mathbf{k}_{t_2}^T$ 可精确分解为 $d/2$ 个频率块的和
+    - 每个 FC 是一个 2D 子空间，对应不同的旋转频率 $\theta_i = B^{-2(i-1)/d}$
+    - 低维 FC 对应高频旋转（主要编码位置信息），高维 FC 对应低频旋转（主要编码语义信息）
 
 2. **Contextual Agreement (CA) 指标**：
-   - 定义：单个 FC 的 top-K token 集合与全注意力头的 top-K token 集合的归一化交集
-   - 少数"主导 FC"（<1% of all FCs）的 CA 值远高于其余 FC（>0.15 vs <0.05）
-   - 主导 FC 的三个关键性质：**稀疏**（仅 1-3 个 FC 即可）、**跨模型通用**（LLaMA/Mistral/Qwen 均成立）、**跨任务不变**（不同校准数据集的主导 FC 重叠率 >70%）
+
+    - 定义：单个 FC 的 top-K token 集合与全注意力头的 top-K token 集合的归一化交集
+    - 少数"主导 FC"（<1% of all FCs）的 CA 值远高于其余 FC（>0.15 vs <0.05）
+    - 主导 FC 的三个关键性质：**稀疏**（仅 1-3 个 FC 即可）、**跨模型通用**（LLaMA/Mistral/Qwen 均成立）、**跨任务不变**（不同校准数据集的主导 FC 重叠率 >70%）
 
 3. **FASA-M（内存优先变体）**：
-   - 将 value cache 和非主导 key 卸载到 CPU 内存
-   - 仅保留主导 FC 的 key 在 GPU 上用于 TIP
-   - 实现 8× KV cache 压缩
+
+    - 将 value cache 和非主导 key 卸载到 CPU 内存
+    - 仅保留主导 FC 的 key 在 GPU 上用于 TIP
+    - 实现 8× KV cache 压缩
 
 4. **FASA-C（计算优先变体）**：
-   - 保留完整 cache 在 GPU 上
-   - TIP 阶段仅访问主导 FC 的 key 子集（稀疏内存访问）
-   - 实现 2.6× 推理加速
+
+    - 保留完整 cache 在 GPU 上
+    - TIP 阶段仅访问主导 FC 的 key 子集（稀疏内存访问）
+    - 实现 2.6× 推理加速
 
 ### 损失函数 / 训练策略
 完全免训练——主导 FC 通过离线校准（在少量样本上计算 CA 分数）一次性确定，适用于所有下游任务。

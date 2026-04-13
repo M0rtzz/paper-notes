@@ -27,12 +27,12 @@ TAPTR 将 Tracking Any Point (TAP) 任务重新建模为类 DETR 的检测问题
 
 ## 研究背景与动机
 
-1. **领域现状**: 理解视频中每个像素的运动是计算机视觉的基础任务。光流估计 (Optical Flow) 是主流方法但仅处理连续两帧间的对应关系，无法应对遮挡。语义关键点跟踪可以处理遮挡但目标语义类别受限（如人体关节）。近期 TAP (Tracking Any Point) 任务被提出，要求在整个视频中跟踪任意用户指定的点，其代表性方法包括 PIPs、TAP-Net、TAPIR 和 CoTracker。
-2. **现有痛点**: 现有 TAP 方法（PIPs、TAPIR、CoTracker）对跟踪点的建模方式不够清晰——将 flow vector、flow embedding、visibility、content feature、cost volume 等多种特征简单拼接成一个"黑箱"向量，送入 MLP 或 Transformer 期望模型自行解读和利用。这种方式缺乏结构化设计，不利于理解和优化。
-3. **核心矛盾**: TAP 任务需要同时处理长距离时序建模（遮挡恢复）和精细的低层特征匹配（精确定位），需要一个既简洁又强大的统一框架。大多数先前方法独立处理每个跟踪点，忽略了属于同一物体的点之间可提供的上下文信息。
-4. **本文要解决什么?** 设计一个概念简洁、含义清晰的点跟踪框架，使每个组件都有明确的物理意义，同时在性能和速度上超越现有方法。
-5. **切入角度**: 观察到点跟踪与目标检测/跟踪具有高度相似性——在每一帧中，跟踪点本质上是需要检测的目标。因此可以直接借用 DETR 系列算法的成熟设计。
-6. **核心idea一句话**: 将每个跟踪点建模为 DETR-like 的 point query（位置部分 + 内容部分），通过 Transformer 解码器逐层优化，自然地复用检测任务中已被充分验证的自注意力、交叉注意力和迭代优化机制。
+**领域现状**: 理解视频中每个像素的运动是计算机视觉的基础任务。光流估计 (Optical Flow) 是主流方法但仅处理连续两帧间的对应关系，无法应对遮挡。语义关键点跟踪可以处理遮挡但目标语义类别受限（如人体关节）。近期 TAP (Tracking Any Point) 任务被提出，要求在整个视频中跟踪任意用户指定的点，其代表性方法包括 PIPs、TAP-Net、TAPIR 和 CoTracker。
+**现有痛点**: 现有 TAP 方法（PIPs、TAPIR、CoTracker）对跟踪点的建模方式不够清晰——将 flow vector、flow embedding、visibility、content feature、cost volume 等多种特征简单拼接成一个"黑箱"向量，送入 MLP 或 Transformer 期望模型自行解读和利用。这种方式缺乏结构化设计，不利于理解和优化。
+**核心矛盾**: TAP 任务需要同时处理长距离时序建模（遮挡恢复）和精细的低层特征匹配（精确定位），需要一个既简洁又强大的统一框架。大多数先前方法独立处理每个跟踪点，忽略了属于同一物体的点之间可提供的上下文信息。
+**本文要解决什么?** 设计一个概念简洁、含义清晰的点跟踪框架，使每个组件都有明确的物理意义，同时在性能和速度上超越现有方法。
+**切入角度**: 观察到点跟踪与目标检测/跟踪具有高度相似性——在每一帧中，跟踪点本质上是需要检测的目标。因此可以直接借用 DETR 系列算法的成熟设计。
+**核心idea一句话**: 将每个跟踪点建模为 DETR-like 的 point query（位置部分 + 内容部分），通过 Transformer 解码器逐层优化，自然地复用检测任务中已被充分验证的自注意力、交叉注意力和迭代优化机制。
 
 ## 方法详解
 
@@ -43,25 +43,29 @@ TAPTR 由四个主要部分组成：(1) **Video Preparation** — 使用 CNN bac
 ### 关键设计
 
 1. **Point Query 建模**:
-   - **做什么**: 在每帧中，每个跟踪点被表示为一个 point query $q_t^i = [f_t^i, l_t^i]$，包含内容特征 $f_t^i$ 和位置 $l_t^i$ 两部分，含义清晰。
-   - **核心思路**: 内容特征通过在跟踪点首次出现的帧的多尺度特征图上进行双线性插值获得：$f_e^i = \text{MLP}(\text{Cat}(\text{Bili}(F_{e^i,1}, l_e^i), \ldots, \text{Bili}(F_{e^i,S}, l_e^i)))$。所有属于同一跟踪点的 query 共享初始内容特征和初始位置。
-   - **设计动机**: 区别于先前方法将所有信息拼接成黑箱向量，DETR-like 的 query（位置+内容）具有明确的物理含义——位置描述"在哪"，内容描述"是什么"，与检测任务的 query 设计一致。
+
+    - **做什么**: 在每帧中，每个跟踪点被表示为一个 point query $q_t^i = [f_t^i, l_t^i]$，包含内容特征 $f_t^i$ 和位置 $l_t^i$ 两部分，含义清晰。
+    - **核心思路**: 内容特征通过在跟踪点首次出现的帧的多尺度特征图上进行双线性插值获得：$f_e^i = \text{MLP}(\text{Cat}(\text{Bili}(F_{e^i,1}, l_e^i), \ldots, \text{Bili}(F_{e^i,S}, l_e^i)))$。所有属于同一跟踪点的 query 共享初始内容特征和初始位置。
+    - **设计动机**: 区别于先前方法将所有信息拼接成黑箱向量，DETR-like 的 query（位置+内容）具有明确的物理含义——位置描述"在哪"，内容描述"是什么"，与检测任务的 query 设计一致。
 
 2. **Cost Volume 聚合**:
-   - **做什么**: 计算 point query 与图像特征的内积得到视觉相似度图，在解码器中局部采样 cost volume 来增强 query 的内容特征。
-   - **核心思路**: Cost volume 在解码器开始前一次性计算 $C_{t,s}^i = \text{InnerProd}(F_{t,s}, f_t^i)$，在解码器层间作为静态特征图重复使用。采用 RAFT 风格的局部 grid sampling：$c_{t,s}^i = \text{GridSample}(C_{t,s}^i, \text{Grid}(l_t^i, G))$，采样后的 cost vector 与内容特征拼接经 MLP 融合。
-   - **设计动机**: (a) 点跟踪比目标检测需要更多局部低层特征来精确定位；(b) 不同于先前方法在每次内容特征更新后重新计算 cost volume，一次计算保持了解码器的简洁性和多层优化目标的稳定性；(c) Cost volume 在光流和立体匹配中已被充分验证。实验证明一次性计算 + 窗口间更新优于逐迭代更新（DAVIS 上 +1.1 AJ, RGB-Stacking 上 +2.8 AJ）。
+
+    - **做什么**: 计算 point query 与图像特征的内积得到视觉相似度图，在解码器中局部采样 cost volume 来增强 query 的内容特征。
+    - **核心思路**: Cost volume 在解码器开始前一次性计算 $C_{t,s}^i = \text{InnerProd}(F_{t,s}, f_t^i)$，在解码器层间作为静态特征图重复使用。采用 RAFT 风格的局部 grid sampling：$c_{t,s}^i = \text{GridSample}(C_{t,s}^i, \text{Grid}(l_t^i, G))$，采样后的 cost vector 与内容特征拼接经 MLP 融合。
+    - **设计动机**: (a) 点跟踪比目标检测需要更多局部低层特征来精确定位；(b) 不同于先前方法在每次内容特征更新后重新计算 cost volume，一次计算保持了解码器的简洁性和多层优化目标的稳定性；(c) Cost volume 在光流和立体匹配中已被充分验证。实验证明一次性计算 + 窗口间更新优于逐迭代更新（DAVIS 上 +1.1 AJ, RGB-Stacking 上 +2.8 AJ）。
 
 3. **Point Decoder 多模块设计**:
-   - **Visual Feature Enhancer (交叉注意力)**: 使用 2D deformable attention 在跟踪点周围采样多尺度局部图像特征，补充 cost volume 缺少的详细几何信息。
-   - **Point Query 自注意力**: 同一帧内所有 point queries 通过自注意力交互，添加正弦位置编码（降低温度 $\tau$ 以获得更尖锐的位置嵌入，适应点跟踪的高精度需求）。降温 100 倍带来 1.1 AJ 提升。
-   - **Temporal Attention**: 属于同一跟踪点的 queries 沿时间维度进行密集注意力交互 $f^i \Leftarrow \text{Attention}(f^i, f^i)$，$f^i \in \mathbb{R}^{W \times C}$，建模短期时序信息。
-   - **Residual Content Update**: 位置更新采用 DETR 式的 Sigmoid 迭代优化；内容特征采用残差更新 $f_t^i \Leftarrow f_t^i + \text{MLP}(\text{Cat}(f_t^i, f_{e^i}^i))$，始终参考初始特征避免漂移。比 DETR 原始的直接更新好 1.7 AJ。
+
+    - **Visual Feature Enhancer (交叉注意力)**: 使用 2D deformable attention 在跟踪点周围采样多尺度局部图像特征，补充 cost volume 缺少的详细几何信息。
+    - **Point Query 自注意力**: 同一帧内所有 point queries 通过自注意力交互，添加正弦位置编码（降低温度 $\tau$ 以获得更尖锐的位置嵌入，适应点跟踪的高精度需求）。降温 100 倍带来 1.1 AJ 提升。
+    - **Temporal Attention**: 属于同一跟踪点的 queries 沿时间维度进行密集注意力交互 $f^i \Leftarrow \text{Attention}(f^i, f^i)$，$f^i \in \mathbb{R}^{W \times C}$，建模短期时序信息。
+    - **Residual Content Update**: 位置更新采用 DETR 式的 Sigmoid 迭代优化；内容特征采用残差更新 $f_t^i \Leftarrow f_t^i + \text{MLP}(\text{Cat}(f_t^i, f_{e^i}^i))$，始终参考初始特征避免漂移。比 DETR 原始的直接更新好 1.7 AJ。
 
 4. **窗口后处理与特征漂移缓解**:
-   - **做什么**: 在滑动窗口间更新轨迹状态，同时传递内容特征以保留长程时序信息，但需解决特征漂移问题。
-   - **核心思路**: 训练时以 0.6 的概率随机丢弃特征更新（Random Drop），迫使网络适应有/无特征更新两种情况。推理时保持特征更新开启但以动态频率（$T/24$ 窗口间隔）丢弃特征 padding，在时序信息保留与漂移控制之间取得最佳平衡。
-   - **设计动机**: 直接无限制更新内容特征会在长视频上导致严重漂移（RGB-Stacking 上 AJ 从 60.8 暴降到 23.1），因为训练时视频只有 24 帧但推理时可能很长，存在长度不一致问题。
+
+    - **做什么**: 在滑动窗口间更新轨迹状态，同时传递内容特征以保留长程时序信息，但需解决特征漂移问题。
+    - **核心思路**: 训练时以 0.6 的概率随机丢弃特征更新（Random Drop），迫使网络适应有/无特征更新两种情况。推理时保持特征更新开启但以动态频率（$T/24$ 窗口间隔）丢弃特征 padding，在时序信息保留与漂移控制之间取得最佳平衡。
+    - **设计动机**: 直接无限制更新内容特征会在长视频上导致严重漂移（RGB-Stacking 上 AJ 从 60.8 暴降到 23.1），因为训练时视频只有 24 帧但推理时可能很长，存在长度不一致问题。
 
 ### 损失函数 / 训练策略
 

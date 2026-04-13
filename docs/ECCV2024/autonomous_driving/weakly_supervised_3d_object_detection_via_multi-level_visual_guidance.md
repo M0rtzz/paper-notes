@@ -29,8 +29,8 @@ tags:
 
 3D 目标检测是自动驾驶感知系统的核心，但 3D 标注成本极高（比 2D 标注慢 3-16 倍）。现有弱监督方法存在两个关键不足：
 
-1. **仍依赖部分 3D 标注**：WS3D 需要 BEV 中心标注 + 534 个 3D 标注，MTrans/MAP-Gen 需要 500 帧精确 3D 标注
-2. **仅利用单一层次约束**：FGR 只用了输出级的 frustum 几何关系，没有充分挖掘 2D 和 3D 域之间的多层次关联
+**仍依赖部分 3D 标注**：WS3D 需要 BEV 中心标注 + 534 个 3D 标注，MTrans/MAP-Gen 需要 500 帧精确 3D 标注
+**仅利用单一层次约束**：FGR 只用了输出级的 frustum 几何关系，没有充分挖掘 2D 和 3D 域之间的多层次关联
 
 作者观察到：2D 图像和 3D 点云之间的关联可以从三个层次进行利用——特征层面的物体感知对齐、输出层面的 2D-3D 框重叠约束、训练层面的高质量伪标签生成。这一洞察促成了多层次视觉引导的设计。
 
@@ -48,19 +48,21 @@ VG-W3D 由两个分支构成：
 ### 关键设计
 
 1. **特征级视觉引导（Feature-Level）**：将点云特征投影到图像平面后，利用 DINO 自监督分割生成物体前景图 $\mathbf{S}$，分别对图像和点云特征学习 objectness 二分类。核心思路是不直接用 L2 模仿图像特征（会丢失几何信息），而是对齐物体性概率分布。损失包括：
-   - 点云 objectness 分割损失：$\mathcal{L}_{seg}^{\mathcal{P}} = \frac{1}{|\mathcal{A}|}\sum_{i \in \mathcal{A}} \text{FL}(\mathbf{C}_{\mathcal{P}'}(i), \mathbf{S}(i))$
-   - 图像 objectness 分割损失：$\mathcal{L}_{seg}^{\mathcal{I}}$（同形式）
-   - KL 散度对齐：$\mathcal{L}_{kl} = \text{KL}(\mathbf{C}_{\mathcal{I}} || \mathbf{C}_{\mathcal{P}'})$
+
+    - 点云 objectness 分割损失：$\mathcal{L}_{seg}^{\mathcal{P}} = \frac{1}{|\mathcal{A}|}\sum_{i \in \mathcal{A}} \text{FL}(\mathbf{C}_{\mathcal{P}'}(i), \mathbf{S}(i))$
+    - 图像 objectness 分割损失：$\mathcal{L}_{seg}^{\mathcal{I}}$（同形式）
+    - KL 散度对齐：$\mathcal{L}_{kl} = \text{KL}(\mathbf{C}_{\mathcal{I}} || \mathbf{C}_{\mathcal{P}'})$
 
 2. **输出级视觉引导（Output-Level）**：利用 3D 框投影到图像平面后应与对应 2D GT 框高度重叠的先验，使用 GIoU 损失约束投影 3D 框与 2D 框的对齐。关键是引入 2D 检测置信度 $\hat{\sigma}_{\mathcal{I}}$ 作为加权，低置信度的 2D 框给予更小权重：
-   $$\mathcal{L}_{box} = \hat{\sigma}_{\mathcal{I}} (1 - \text{GIoU}(\mathbf{B}_{\mathcal{I}}, \mathbf{B}_{proj}))$$
+    $\mathcal{L}_{box} = \hat{\sigma}_{\mathcal{I}} (1 - \text{GIoU}(\mathbf{B}_{\mathcal{I}}, \mathbf{B}_{proj}))$
    使用 GIoU 而非 IoU 的原因：GIoU 能更好处理无重叠情况下的梯度消失问题。
 
 3. **训练级视觉引导（Training-Level）**：通过迭代式伪标签生成来提升 3D 标签质量。每轮包含三步：
-   - 用当前伪标签训练 3D 检测器
-   - 生成新的 3D 伪标签及置信度
-   - 过滤伪标签：(a) 匹配集合 $\mathbf{B}_{overlap}$：投影 3D 框与 2D GT 的 IoU > $\alpha_0$ 且平均置信度 > $\alpha_1$；(b) 高分集合 $\mathbf{B}_{score}$：未匹配框中 3D 置信度 > $\alpha_2$ 的保留
-   - 最终伪标签 = $\mathbf{B}_{overlap} + \mathbf{B}_{score}$
+
+    - 用当前伪标签训练 3D 检测器
+    - 生成新的 3D 伪标签及置信度
+    - 过滤伪标签：(a) 匹配集合 $\mathbf{B}_{overlap}$：投影 3D 框与 2D GT 的 IoU > $\alpha_0$ 且平均置信度 > $\alpha_1$；(b) 高分集合 $\mathbf{B}_{score}$：未匹配框中 3D 置信度 > $\alpha_2$ 的保留
+    - 最终伪标签 = $\mathbf{B}_{overlap} + \mathbf{B}_{score}$
 
 ### 损失函数 / 训练策略
 

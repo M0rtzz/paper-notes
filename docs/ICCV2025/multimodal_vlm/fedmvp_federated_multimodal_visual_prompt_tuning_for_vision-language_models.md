@@ -29,9 +29,9 @@ tags:
 
 然而，现有FL提示学习方法面临严重的**泛化性退化**问题：
 
-1. **文本提示学习（TPT，如PromptFL）**：学到的是静态上下文，固定后无法泛化到未见类别
-2. **视觉提示学习（VPT，如FedVPT）**：同样因静态上下文导致泛化受限
-3. **条件化提示方法**：FedTPG仅利用类名文本信息，FedCoCoOp仅利用图像视觉信息——在FL的高异质性场景下，单一模态的上下文信息不足
+**文本提示学习（TPT，如PromptFL）**：学到的是静态上下文，固定后无法泛化到未见类别
+**视觉提示学习（VPT，如FedVPT）**：同样因静态上下文导致泛化受限
+**条件化提示方法**：FedTPG仅利用类名文本信息，FedCoCoOp仅利用图像视觉信息——在FL的高异质性场景下，单一模态的上下文信息不足
 
 核心矛盾：FL场景的数据异质性极高（各客户端数据来自不相交的类别和领域），需要提示具备跨类别和跨域的泛化能力，但现有方法的条件化信息来源过于单一。
 
@@ -44,29 +44,33 @@ tags:
 
 ### 关键设计
 1. **LLM属性生成**:
-   - 做什么：使用GPT-4o为每个类别名称生成丰富的文本属性描述
-   - 示例："giraffe" → "Exceptionally long neck, unique coat pattern with irregular brown patches, ..."
-   - 设计动机：标签名称本身包含的语义信息有限。属性提供了细粒度的类别共性描述——"鸡"的"两条腿"属性可以迁移到未见类"海鸥"
+
+    - 做什么：使用GPT-4o为每个类别名称生成丰富的文本属性描述
+    - 示例："giraffe" → "Exceptionally long neck, unique coat pattern with irregular brown patches, ..."
+    - 设计动机：标签名称本身包含的语义信息有限。属性提供了细粒度的类别共性描述——"鸡"的"两条腿"属性可以迁移到未见类"海鸥"
 
 2. **PromptFormer网络**:
-   - 做什么：将图像patch嵌入和文本属性嵌入通过交叉注意力融合，生成多模态视觉提示
-   - 核心架构：
-     - 属性嵌入提取：$\mathbf{A}_i = \{\mathcal{E}_t(\text{LLM}(c_k))\}_{k=1}^K$
-     - 线性投影对齐维度：$\mathbf{A}' = T_{\text{proj}}(\mathbf{A})$（512→768）
-     - 交叉注意力融合：
+
+    - 做什么：将图像patch嵌入和文本属性嵌入通过交叉注意力融合，生成多模态视觉提示
+    - 核心架构：
+      - 属性嵌入提取：$\mathbf{A}_i = \{\mathcal{E}_t(\text{LLM}(c_k))\}_{k=1}^K$
+      - 线性投影对齐维度：$\mathbf{A}' = T_{\text{proj}}(\mathbf{A})$（512→768）
+      - 交叉注意力融合：
        $$\mathbf{P}(\mathbf{A}', \mathbf{E}) = \text{FFN}(\text{CrossAttention}(\mathbf{Q}_\mathbf{E}, \mathbf{K}_{\mathbf{A}'}, \mathbf{V}_{\mathbf{A}'}))$$
        其中 $\mathbf{Q}_\mathbf{E} = \mathbf{E}W_\mathbf{Q}$（图像patch为query），$\mathbf{K}_{\mathbf{A}'} = \mathbf{A}'W_\mathbf{K}$（属性为key/value）
-     - 4头交叉注意力 + LayerNorm + 两层FFN
-   - 设计动机：通过交叉注意力，图像的patch特征学习attend到相关的属性特征。例如，描绘"腿"的patch会关注"四条腿"属性——当出现共享该属性的未见类时，提示自然包含相关信息
+      - 4头交叉注意力 + LayerNorm + 两层FFN
+    - 设计动机：通过交叉注意力，图像的patch特征学习attend到相关的属性特征。例如，描绘"腿"的patch会关注"四条腿"属性——当出现共享该属性的未见类时，提示自然包含相关信息
 
 3. **视觉提示注入**:
-   - 做什么：将生成的多模态提示 $\mathbf{P} \in \mathbb{R}^{m \times d_v}$（$m=4$）拼接到视觉编码器的输入
-   - 输入重定义：$\mathbf{I} = [\mathbf{z}; \mathbf{E}; \mathbf{P}] \in \mathbb{R}^{(1+b+m) \times d_v}$
-   - 设计动机：与FedTPG等注入文本编码器的方法不同，视觉提示调优允许更直接地影响视觉特征表示，且支持实例级别的动态提示（每张图像生成不同的提示）
+
+    - 做什么：将生成的多模态提示 $\mathbf{P} \in \mathbb{R}^{m \times d_v}$（$m=4$）拼接到视觉编码器的输入
+    - 输入重定义：$\mathbf{I} = [\mathbf{z}; \mathbf{E}; \mathbf{P}] \in \mathbb{R}^{(1+b+m) \times d_v}$
+    - 设计动机：与FedTPG等注入文本编码器的方法不同，视觉提示调优允许更直接地影响视觉特征表示，且支持实例级别的动态提示（每张图像生成不同的提示）
 
 4. **轻量级LoRA微调**:
-   - 做什么：当客户端的训练损失初始值低于阈值 $\sigma=0.5$ 时，冻结PromptFormer参数，仅训练注入的LoRA矩阵
-   - 设计动机：数据量少的客户端容易过拟合，LoRA将可训练参数减少 $267\times$，同时降低通信开销
+
+    - 做什么：当客户端的训练损失初始值低于阈值 $\sigma=0.5$ 时，冻结PromptFormer参数，仅训练注入的LoRA矩阵
+    - 设计动机：数据量少的客户端容易过拟合，LoRA将可训练参数减少 $267\times$，同时降低通信开销
 
 ### 损失函数 / 训练策略
 - **CLIP交叉熵损失**：$\mathcal{L}_{ce} = -\mathbb{E}_{(\mathbf{x},y)} y \log p(y|\mathbf{I})$

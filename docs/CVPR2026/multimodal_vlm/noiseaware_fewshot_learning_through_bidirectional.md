@@ -45,22 +45,25 @@ NA-MVP包含两个核心模块协同工作：
 
 ### 关键设计
 1. **双向多视图Prompt构建**:
-   - 每个类 $k$ 构建两组可学习prompt：clean-oriented $\{Prompt_{m,k}^c\}_{m=1}^N$ 和 noise-aware $\{Prompt_{m,k}^n\}_{m=1}^N$
-   - 每个prompt由 $M$ 个可学习context token + 类别特定token组成
-   - Clean prompt捕捉类别相关语义，noise-aware prompt作为自适应过滤器抑制误导信号
-   - 非目标类作为隐式负样本，避免显式负标签的僵硬问题
+
+    - 每个类 $k$ 构建两组可学习prompt：clean-oriented $\{Prompt_{m,k}^c\}_{m=1}^N$ 和 noise-aware $\{Prompt_{m,k}^n\}_{m=1}^N$
+    - 每个prompt由 $M$ 个可学习context token + 类别特定token组成
+    - Clean prompt捕捉类别相关语义，noise-aware prompt作为自适应过滤器抑制误导信号
+    - 非目标类作为隐式负样本，避免显式负标签的僵硬问题
 
 2. **基于UOT的细粒度噪声感知对齐**:
-   - 将局部图像特征 $F_i \in \mathbb{R}^{L \times d}$ 和prompt特征 $G_k \in \mathbb{R}^{N \times d}$ 视为离散分布
-   - 用余弦相似度计算代价矩阵 $C_k = 1 - F_i G_k^\top$
-   - UOT放松严格质量守恒约束（$T\mathbf{1}_N \leq \mu$ 而非等号），允许部分匹配
-   - 通过Dykstra算法的快速实现（Sinkhorn + 熵正则化）求解
-   - 核心优势：不强制所有特征都对齐，允许噪声/不相关patch被"丢弃"
+
+    - 将局部图像特征 $F_i \in \mathbb{R}^{L \times d}$ 和prompt特征 $G_k \in \mathbb{R}^{N \times d}$ 视为离散分布
+    - 用余弦相似度计算代价矩阵 $C_k = 1 - F_i G_k^\top$
+    - UOT放松严格质量守恒约束（$T\mathbf{1}_N \leq \mu$ 而非等号），允许部分匹配
+    - 通过Dykstra算法的快速实现（Sinkhorn + 熵正则化）求解
+    - 核心优势：不强制所有特征都对齐，允许噪声/不相关patch被"丢弃"
 
 3. **选择性标签修正**:
-   - **噪声识别**：计算样本与clean/noise-aware prompt的UOT距离，得到相似度 $s_{i,k}^c$ 和 $s_{i,k}^n$，通过自适应阈值 $\phi_{i,k} = \frac{\exp(s_{i,k}^n/\tau)}{\exp(s_{i,k}^c/\tau) + \exp(s_{i,k}^n/\tau)}$ 判定样本是否noisy
-   - **标签修正**：对识别为noisy的样本，用经典OT（严格质量守恒）计算全局图像特征与类prompt特征之间的最优传输计划 $T^*$，选 $\arg\max_j T^*_{ij}$ 作为伪标签
-   - 仅修正 $p_{ik}^c < \phi_{i,k}$ 的样本，保留可信样本不变，避免过度修正
+
+    - **噪声识别**：计算样本与clean/noise-aware prompt的UOT距离，得到相似度 $s_{i,k}^c$ 和 $s_{i,k}^n$，通过自适应阈值 $\phi_{i,k} = \frac{\exp(s_{i,k}^n/\tau)}{\exp(s_{i,k}^c/\tau) + \exp(s_{i,k}^n/\tau)}$ 判定样本是否noisy
+    - **标签修正**：对识别为noisy的样本，用经典OT（严格质量守恒）计算全局图像特征与类prompt特征之间的最优传输计划 $T^*$，选 $\arg\max_j T^*_{ij}$ 作为伪标签
+    - 仅修正 $p_{ik}^c < \phi_{i,k}$ 的样本，保留可信样本不变，避免过度修正
 
 ### 损失函数 / 训练策略
 - **早期阶段** (前 $T_{sup}$ 个epoch)：$\mathcal{L}_{sup} = \mathcal{L}_{gce} + \lambda_i \cdot \mathcal{L}_{itbp}$

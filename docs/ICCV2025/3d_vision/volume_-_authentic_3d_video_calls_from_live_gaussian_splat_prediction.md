@@ -29,9 +29,9 @@ tags:
 
 3D虚拟会议有望提升远程沟通的共同在场感和参与度，但现有3D表示方案各有硬伤：
 
-1. **复杂硬件方案**（如Google Project Starline）：需要多相机、专用传感器、强算力，成本极高
-2. **Avatar方案**（如Meta Codec Avatars）：需要预先注册（enrollment）建模用户外观，无法实时适应当前时刻的穿着、发型、眼镜等变化
-3. **生成模型方案**（如Live 3D Portrait / TriPlaneNet）：基于EG3D生成模型反演，受限于模型训练数据，纹理和几何都不够真实
+**复杂硬件方案**（如Google Project Starline）：需要多相机、专用传感器、强算力，成本极高
+**Avatar方案**（如Meta Codec Avatars）：需要预先注册（enrollment）建模用户外观，无法实时适应当前时刻的穿着、发型、眼镜等变化
+**生成模型方案**（如Live 3D Portrait / TriPlaneNet）：基于EG3D生成模型反演，受限于模型训练数据，纹理和几何都不够真实
 
 **视频通话的四个核心需求**：
 - **保真性(Authenticity)**：从原始相机视角渲染时必须忠实还原输入视频（包括眼镜、配饰、发型等每个细节）

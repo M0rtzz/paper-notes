@@ -29,9 +29,9 @@ tags:
 
 标准 Transformer 的核心是注意力机制，其打分函数将输入投影到低维的 query 和 key 空间后做点积。这种设计存在两个根本性缺陷：
 
-1. **低秩瓶颈（Low-Rank Bottleneck）**：head 维度 $r$ 远小于 embedding 维度 $D$（$D = H \cdot r$），导致 $\mathbf{W}_Q \mathbf{W}_K^\top$ 是秩为 $r$ 的低秩矩阵。对于本征高维的输入（如高维回归任务），信息在投影过程中被大量丢失。Amsel et al. (2024) 证明了除非 $r \gtrsim d_{\text{input}}$，attention 甚至无法近似解决高维球面上的最近邻问题。
+**低秩瓶颈（Low-Rank Bottleneck）**：head 维度 $r$ 远小于 embedding 维度 $D$（$D = H \cdot r$），导致 $\mathbf{W}_Q \mathbf{W}_K^\top$ 是秩为 $r$ 的低秩矩阵。对于本征高维的输入（如高维回归任务），信息在投影过程中被大量丢失。Amsel et al. (2024) 证明了除非 $r \gtrsim d_{\text{input}}$，attention 甚至无法近似解决高维球面上的最近邻问题。
 
-2. **缺乏距离依赖的计算偏置**：标准 attention 对序列中所有 token 对使用相同的打分函数，不区分局部和全局交互。然而自然语言等现实数据具有显著的局部性——同一段落中的词联系紧密，而相隔很远的词很少直接相关。滑动窗口注意力（SWA）等稀疏方案虽能节省计算，但通常是脆弱的且会降低精度。
+**缺乏距离依赖的计算偏置**：标准 attention 对序列中所有 token 对使用相同的打分函数，不区分局部和全局交互。然而自然语言等现实数据具有显著的局部性——同一段落中的词联系紧密，而相隔很远的词很少直接相关。滑动窗口注意力（SWA）等稀疏方案虽能节省计算，但通常是脆弱的且会降低精度。
 
 本文的核心洞察：attention 的打分函数本质上是一个双线性变换 $s(\mathbf{x}, \mathbf{x}') = \mathbf{x}^\top \mathbf{M} \mathbf{x}'$，矩阵 $\mathbf{M}$ 的结构决定了 attention 的归纳偏置。通过选择合适的**结构化矩阵**替换低秩的 $\mathbf{W}_Q \mathbf{W}_K^\top$，可以精确定制归纳偏置以适配不同任务。
 

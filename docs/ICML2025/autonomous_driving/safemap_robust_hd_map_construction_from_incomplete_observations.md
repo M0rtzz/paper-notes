@@ -31,9 +31,9 @@ SafeMap 提出了一个即插即用的鲁棒高精地图构建框架，通过高
 
 现有方法存在以下问题：
 
-1. **脆弱性暴露**：MapBench 评测表明传感器故障会严重影响 HD Map 模型性能，威胁交通安全
-2. **已有方案局限**：MetaBEV、UniBEV 等方法针对 3D 目标检测的传感器失效问题，仍依赖完整多视角图像；M-BEV 仅利用相邻视角局部裁剪进行恢复，需要预设裁剪比例且未充分利用所有可用视角信息
-3. **领域空白**：面向 HD Map 构建的不完整观测鲁棒方法尚未被充分探索，而地图构建高度依赖周围相机捕获的静态环境数据
+**脆弱性暴露**：MapBench 评测表明传感器故障会严重影响 HD Map 模型性能，威胁交通安全
+**已有方案局限**：MetaBEV、UniBEV 等方法针对 3D 目标检测的传感器失效问题，仍依赖完整多视角图像；M-BEV 仅利用相邻视角局部裁剪进行恢复，需要预设裁剪比例且未充分利用所有可用视角信息
+**领域空白**：面向 HD Map 构建的不完整观测鲁棒方法尚未被充分探索，而地图构建高度依赖周围相机捕获的静态环境数据
 
 SafeMap 是**首个**专门针对不完整多视角相机数据进行 HD Map 构建的鲁棒框架。
 
@@ -63,12 +63,13 @@ SafeMap 构建在 MapTR 框架之上，由四个核心组件组成：
 1. **全景视角拼接**：以缺失视角的左右相邻视角为起点，按空间距离远近依次排列所有可用帧，拼接成全景透视图 $F_{PPV} = \text{Concat}(F_{PV}^a) \in \mathbb{R}^{H \times N_a W \times C}$
 
 2. **高斯参考点生成**：在全景透视图上生成高斯分布的参考点：
-   - 水平方向：$p_x \sim \mathcal{N}(N_a W / 2, \sigma^2)$（以中心为均值，使采样点集中在相邻视角区域）
-   - 垂直方向：$p_y \sim \mathcal{U}(0, H)$（均匀分布覆盖全高度）
+
+    - 水平方向：$p_x \sim \mathcal{N}(N_a W / 2, \sigma^2)$（以中心为均值，使采样点集中在相邻视角区域）
+    - 垂直方向：$p_y \sim \mathcal{U}(0, H)$（均匀分布覆盖全高度）
 
 3. **可变形注意力重建**：利用可学习 query $V$ 和偏移网络 $\theta_{\text{offset}}$ 生成采样偏移，通过可变形注意力机制在参考点位置采样特征：
-   $$\hat{k} = \hat{x} W_k, \quad \hat{v} = \hat{x} W_v$$
-   $$\Delta p = \theta_{\text{offset}}(V), \quad \hat{x} = \phi(F_{PV}^a; p + \Delta p)$$
+    $\hat{k} = \hat{x} W_k, \quad \hat{v} = \hat{x} W_v$
+    $\Delta p = \theta_{\text{offset}}(V), \quad \hat{x} = \phi(F_{PV}^a; p + \Delta p)$
 
 4. **MAE 式 Transformer 重建**：使用类 MAE 的 Transformer blocks 重建缺失视角特征
 

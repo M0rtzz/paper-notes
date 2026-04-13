@@ -28,12 +28,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大 batch 训练通过增加数据并行性来提升 LLM 训练吞吐量，是大规模预训练的核心需求。临界 batch size (CBS) 作为"不显著降低 token 效率的最大 batch size"是平衡效率与性能的关键概念。
-2. **现有痛点**：McCandlish et al. (2018) 提出用梯度噪声尺度 (gradient noise scale) 作为 CBS 的代理指标，被 GPT-3 等工作采用。但该方法依赖两个强假设：(a) 使用 SGD 优化器；(b) 梯度是良条件的 (well-conditioned)。
-3. **核心矛盾**：实际 LLM 训练使用 Adam 优化器，理论分析表明 Adam 应遵循平方根缩放规则而非线性缩放规则。此外，梯度噪声尺度的简化形式 $\mathcal{B}_{\text{simple}}$ 需要 Hessian 为单位矩阵的假设才能等价于真正的 CBS。
-4. **本文要解决什么**：如何在不依赖强假设的前提下直接测量 CBS？CBS 在训练过程中如何变化？如何利用 CBS 信息制定实用的大 batch 训练策略？
-5. **切入角度**：用 branched training 直接实证逼近 CBS，避免间接代理带来的不可靠性。
-6. **核心idea**：CBS 是训练过程中的动态量，从近零增长到平台值，这一洞察自然引出 batch size warmup 策略。
+**领域现状**：大 batch 训练通过增加数据并行性来提升 LLM 训练吞吐量，是大规模预训练的核心需求。临界 batch size (CBS) 作为"不显著降低 token 效率的最大 batch size"是平衡效率与性能的关键概念。
+**现有痛点**：McCandlish et al. (2018) 提出用梯度噪声尺度 (gradient noise scale) 作为 CBS 的代理指标，被 GPT-3 等工作采用。但该方法依赖两个强假设：(a) 使用 SGD 优化器；(b) 梯度是良条件的 (well-conditioned)。
+**核心矛盾**：实际 LLM 训练使用 Adam 优化器，理论分析表明 Adam 应遵循平方根缩放规则而非线性缩放规则。此外，梯度噪声尺度的简化形式 $\mathcal{B}_{\text{simple}}$ 需要 Hessian 为单位矩阵的假设才能等价于真正的 CBS。
+**本文要解决什么**：如何在不依赖强假设的前提下直接测量 CBS？CBS 在训练过程中如何变化？如何利用 CBS 信息制定实用的大 batch 训练策略？
+**切入角度**：用 branched training 直接实证逼近 CBS，避免间接代理带来的不可靠性。
+**核心idea**：CBS 是训练过程中的动态量，从近零增长到平台值，这一洞察自然引出 batch size warmup 策略。
 
 ## 方法详解
 
@@ -44,24 +44,28 @@ tags:
 ### 关键设计
 
 1. **Branched Training 测量 CBS**
-   - **做什么**：从 checkpoint 出发，以不同的 batch size 倍数 k 训练 Δ=2B tokens，比较最终 loss
-   - **核心思路**：直接观察 loss 对 batch size 的响应，而非通过梯度统计量间接推断
-   - **设计动机**：避免梯度噪声方法的两个强假设（SGD + 良条件梯度），只需一个弱假设——如果在 Δ token 内 loss 能恢复，则此 batch size 在长期训练中也可以
+
+    - **做什么**：从 checkpoint 出发，以不同的 batch size 倍数 k 训练 Δ=2B tokens，比较最终 loss
+    - **核心思路**：直接观察 loss 对 batch size 的响应，而非通过梯度统计量间接推断
+    - **设计动机**：避免梯度噪声方法的两个强假设（SGD + 良条件梯度），只需一个弱假设——如果在 Δ token 内 loss 能恢复，则此 batch size 在长期训练中也可以
 
 2. **局部恢复假设 (Local Recovery Assumption)**
-   - **做什么**：假设如果某 batch size B 在 Δ token 的窗口内能恢复到与小 batch size 相近的 loss，那么它在更长训练中也不会退化
-   - **核心思路**：将全局 CBS 测量简化为局部测量，只需少量额外训练即可
-   - **设计动机**：避免像先前工作那样需要为每个 batch size 跑完整训练流程
+
+    - **做什么**：假设如果某 batch size B 在 Δ token 的窗口内能恢复到与小 batch size 相近的 loss，那么它在更长训练中也不会退化
+    - **核心思路**：将全局 CBS 测量简化为局部测量，只需少量额外训练即可
+    - **设计动机**：避免像先前工作那样需要为每个 batch size 跑完整训练流程
 
 3. **CBS 检测标准**
-   - **做什么**：用 tolerance ε=0.01 判断 loss 是否显著上升，用指数移动平均 (α=0.5) 平滑 loss 噪声
-   - **核心思路**：以 loss 对 k 的曲线为依据，找到 loss 开始上升的拐点 k*，对应的 B* = k* × B_base 即为 CBS
-   - **设计动机**：预训练 loss 噪声较大，需要平滑处理；tolerance 防止因噪声导致误判
+
+    - **做什么**：用 tolerance ε=0.01 判断 loss 是否显著上升，用指数移动平均 (α=0.5) 平滑 loss 噪声
+    - **核心思路**：以 loss 对 k 的曲线为依据，找到 loss 开始上升的拐点 k*，对应的 B* = k* × B_base 即为 CBS
+    - **设计动机**：预训练 loss 噪声较大，需要平滑处理；tolerance 防止因噪声导致误判
 
 4. **Batch Size Warmup 策略**
-   - **做什么**：训练初始 BS=1024，当测得 CBS 超过 2×当前 BS 时翻倍 BS，同时按平方根规则调整 LR
-   - **核心思路**：CBS 在训练早期快速增长，跟踪 CBS 增长来逐步增大 BS，既享受大 batch 的吞吐量优势又不损性能
-   - **设计动机**：CBS 从近零开始意味着训练开始时不能用大 batch，但 CBS 很快增长到数千，大部分训练时间可用大 batch
+
+    - **做什么**：训练初始 BS=1024，当测得 CBS 超过 2×当前 BS 时翻倍 BS，同时按平方根规则调整 LR
+    - **核心思路**：CBS 在训练早期快速增长，跟踪 CBS 增长来逐步增大 BS，既享受大 batch 的吞吐量优势又不损性能
+    - **设计动机**：CBS 从近零开始意味着训练开始时不能用大 batch，但 CBS 很快增长到数千，大部分训练时间可用大 batch
 
 ### 损失函数 / 训练策略
 

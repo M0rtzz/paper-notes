@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 深度神经网络在偏差数据集上训练时，容易依赖虚假相关性（如通过背景识别物体），导致在偏差冲突样本上性能严重下降。现有方法存在两大问题：
-1. **对抗学习不稳定**：通过训练辅助网络预测偏差属性来"遗忘"偏差信息，但min-max博弈训练不稳定
-2. **正则化需要仔细调参**：用互信息、HSIC等统计量测量依赖性，且难以评估神经估计器的精度
+**对抗学习不稳定**：通过训练辅助网络预测偏差属性来"遗忘"偏差信息，但min-max博弈训练不稳定
+**正则化需要仔细调参**：用互信息、HSIC等统计量测量依赖性，且难以评估神经估计器的精度
 
 本文的核心洞察是：虽然零协方差不等于统计独立，但它确保了线性独立——即一个变量无法作为另一个变量的线性组合。由于深度网络的最后一层通常是线性分类器，送入最后线性层的特征之间的线性无关就足以实现有效去偏。
 
@@ -46,25 +46,28 @@ tags:
 ### 关键设计
 
 1. **特征白化去偏**：
-   - 白化变换：$\tilde{X} = \Sigma^{-1/2} \cdot (X - \mu \cdot \mathbf{1}^\top)$
-   - 将目标特征和偏差特征拼接为 $z = [z_t; z_b]$，进行联合白化
-   - 白化后 $z_{wt}$ 与 $z_{wb}$ 之间所有通道对正交，线性分类器 $g_{wt}$ 无法从 $z_{wt}$ 中线性提取偏差信息
-   - 使用coupled Newton-Schultz迭代计算 $\Sigma^{-1/2}$，数值稳定且计算高效
-   - 利用 $\Sigma^{-1/2}$ 的非唯一性，使 $z_{wt}$ 尽量接近原始 $z_t$，保留有用信息
+
+    - 白化变换：$\tilde{X} = \Sigma^{-1/2} \cdot (X - \mu \cdot \mathbf{1}^\top)$
+    - 将目标特征和偏差特征拼接为 $z = [z_t; z_b]$，进行联合白化
+    - 白化后 $z_{wt}$ 与 $z_{wb}$ 之间所有通道对正交，线性分类器 $g_{wt}$ 无法从 $z_{wt}$ 中线性提取偏差信息
+    - 使用coupled Newton-Schultz迭代计算 $\Sigma^{-1/2}$，数值稳定且计算高效
+    - 利用 $\Sigma^{-1/2}$ 的非唯一性，使 $z_{wt}$ 尽量接近原始 $z_t$，保留有用信息
 
 2. **协方差重加权策略**：
-   - 偏差协方差 $\Sigma_b$：直接从偏差训练数据估计
-   - 无偏协方差 $\Sigma_u$：对稀有组过采权、优势组欠采权，令 $P(y,b|\mathcal{D}_u) = \frac{1}{N_Y \cdot N_B}$
-   - 关键洞察：在无偏分布中demographic parity等价于equalized odds
-   - 用 $\Sigma_b$ 白化促进demographic parity（$Y$ 与 $B$ 无条件独立）
-   - 用 $\Sigma_u$ 白化促进equalized odds（$Y$ 给定下 $\hat{Y}$ 与 $B$ 条件独立）
+
+    - 偏差协方差 $\Sigma_b$：直接从偏差训练数据估计
+    - 无偏协方差 $\Sigma_u$：对稀有组过采权、优势组欠采权，令 $P(y,b|\mathcal{D}_u) = \frac{1}{N_Y \cdot N_B}$
+    - 关键洞察：在无偏分布中demographic parity等价于equalized odds
+    - 用 $\Sigma_b$ 白化促进demographic parity（$Y$ 与 $B$ 无条件独立）
+    - 用 $\Sigma_u$ 白化促进equalized odds（$Y$ 给定下 $\hat{Y}$ 与 $B$ 条件独立）
 
 3. **可控特征白化(CFW)**：
-   - 混合协方差：$\Sigma_\lambda = \lambda \cdot \Sigma_u + (1-\lambda) \cdot \Sigma_b$
-   - $\lambda = 0$：纯偏差协方差白化，降低 $\Delta_{DP}$ 但可能丢失目标相关信息
-   - $\lambda = 1$：纯无偏协方差白化，降低 $\Delta_{EO}$ 但可能因稀有组样本多样性不足而过拟合
-   - $\lambda = 0.25$：经验最优，在所有数据集上一致表现良好，因此方法可视为无超参数的
-   - 训练目标：$\min_{g_{wt}} \mathcal{L}_t + \min_{h_b, g_{wb}} \mathcal{L}_b$
+
+    - 混合协方差：$\Sigma_\lambda = \lambda \cdot \Sigma_u + (1-\lambda) \cdot \Sigma_b$
+    - $\lambda = 0$：纯偏差协方差白化，降低 $\Delta_{DP}$ 但可能丢失目标相关信息
+    - $\lambda = 1$：纯无偏协方差白化，降低 $\Delta_{EO}$ 但可能因稀有组样本多样性不足而过拟合
+    - $\lambda = 0.25$：经验最优，在所有数据集上一致表现良好，因此方法可视为无超参数的
+    - 训练目标：$\min_{g_{wt}} \mathcal{L}_t + \min_{h_b, g_{wb}} \mathcal{L}_b$
 
 ### 损失函数 / 训练策略
 

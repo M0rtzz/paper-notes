@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：KV cache 是 LLM 推理加速的标准技术，但其内存占用随上下文长度线性增长。已有 cache 驱逐方法（H2O、TOVA、SnapKV、StreamingLLM）通过注意力分数评估 token 重要性并驱逐不重要的 KV 对。
-2. **现有痛点**：在资源受限环境（如边缘设备）中，必须采用逐块（block-wise）推理——将 prompt 分成小块依次处理。现有基于注意力分数的驱逐方法在此场景下严重退化，因为每块只能看到局部 token 的注意力权重，无法预知未来块中哪些 token 重要，误驱逐会跨块累积传播。
-3. **核心矛盾**：注意力分数是 query-dependent 的，在逐块推理中只能基于当前块的局部 query 计算，导致驱逐决策短视。
-4. **关键观察**：与其他 key 余弦相似度低（即几何上独特）的 key 倾向于获得高注意力分数——这一性质完全基于 key 自身，与 query 无关，在逐块场景下仍然有效。
-5. **核心 idea**：用 key 之间的余弦相似度代替注意力分数作为驱逐标准——保留最"独特"的 key，驱逐冗余的。
+**领域现状**：KV cache 是 LLM 推理加速的标准技术，但其内存占用随上下文长度线性增长。已有 cache 驱逐方法（H2O、TOVA、SnapKV、StreamingLLM）通过注意力分数评估 token 重要性并驱逐不重要的 KV 对。
+**现有痛点**：在资源受限环境（如边缘设备）中，必须采用逐块（block-wise）推理——将 prompt 分成小块依次处理。现有基于注意力分数的驱逐方法在此场景下严重退化，因为每块只能看到局部 token 的注意力权重，无法预知未来块中哪些 token 重要，误驱逐会跨块累积传播。
+**核心矛盾**：注意力分数是 query-dependent 的，在逐块推理中只能基于当前块的局部 query 计算，导致驱逐决策短视。
+**关键观察**：与其他 key 余弦相似度低（即几何上独特）的 key 倾向于获得高注意力分数——这一性质完全基于 key 自身，与 query 无关，在逐块场景下仍然有效。
+**核心 idea**：用 key 之间的余弦相似度代替注意力分数作为驱逐标准——保留最"独特"的 key，驱逐冗余的。
 
 ## 方法详解
 
@@ -40,24 +40,28 @@ tags:
 ### 关键设计
 
 1. **KeyDiff 基本公式**：
-   - 做什么：给每个 cached key 打分，保留最独特的
-   - 核心思路：$S = \text{topk}(-\text{CosSim}(K)\mathbf{1}, N)$，其中 $\text{CosSim}(K) \in \mathbb{R}^{n \times n}$ 是 key 间的成对余弦相似度矩阵，$\mathbf{1}$ 为全 1 向量。分数为负的行和（相似度越低分数越高）
-   - 设计动机：与注意力分数不同，key 间相似度不依赖 query，在逐块推理中仍能准确评估全局重要性
+
+    - 做什么：给每个 cached key 打分，保留最独特的
+    - 核心思路：$S = \text{topk}(-\text{CosSim}(K)\mathbf{1}, N)$，其中 $\text{CosSim}(K) \in \mathbb{R}^{n \times n}$ 是 key 间的成对余弦相似度矩阵，$\mathbf{1}$ 为全 1 向量。分数为负的行和（相似度越低分数越高）
+    - 设计动机：与注意力分数不同，key 间相似度不依赖 query，在逐块推理中仍能准确评估全局重要性
 
 2. **高效变体（线性复杂度）**：
-   - 做什么：将 $O(n^2)$ 的成对相似度计算降为 $O(n)$
-   - 核心思路：$S = \text{topk}(-\text{CosSim}(\mu(\hat{K}), \hat{k}_i), N)$，其中 anchor 向量 $\mu(\hat{K}) = \frac{1}{n}\sum_i \hat{k}_i$ 是归一化 key 的均值。每个 key 只需与 anchor 算一次余弦相似度
-   - 设计动机：在温和条件下与完整版保留相同的 KV 对（Appendix 证明）；实验中甚至可以用非归一化 key 的均值 $\mu(K)$ 而不损失精度
+
+    - 做什么：将 $O(n^2)$ 的成对相似度计算降为 $O(n)$
+    - 核心思路：$S = \text{topk}(-\text{CosSim}(\mu(\hat{K}), \hat{k}_i), N)$，其中 anchor 向量 $\mu(\hat{K}) = \frac{1}{n}\sum_i \hat{k}_i$ 是归一化 key 的均值。每个 key 只需与 anchor 算一次余弦相似度
+    - 设计动机：在温和条件下与完整版保留相同的 KV 对（Appendix 证明）；实验中甚至可以用非归一化 key 的均值 $\mu(K)$ 而不损失精度
 
 3. **理论支撑**：
-   - **Lemma 3.1**：建立注意力权重 $w$ 与 key-query 余弦相似度的下界关系——$\frac{-\log(1-w)}{2M} - 1 \leq \text{CosSim}(k^*, q)$
-   - **Theorem 3.2**：建立三角关系——若 key $k^*$ 与 query $q$ 高度对齐（$\text{CosSim}(k^*, q) = \beta_q > 0$）而 key 均值与 query 不对齐（$\text{CosSim}(\bar{k}, q) = \alpha_q < 0$），则 $\text{CosSim}(\bar{k}, k^*) \leq 1 + \alpha_q\beta_q - 0.5\alpha_q^2 - 0.5\beta_q^2$（趋向 -1）
-   - 含义：高注意力的 key 与 anchor 向量余弦相似度趋向 -1，因此 KeyDiff 保留的恰好是与 query 最对齐的 key
+
+    - **Lemma 3.1**：建立注意力权重 $w$ 与 key-query 余弦相似度的下界关系——$\frac{-\log(1-w)}{2M} - 1 \leq \text{CosSim}(k^*, q)$
+    - **Theorem 3.2**：建立三角关系——若 key $k^*$ 与 query $q$ 高度对齐（$\text{CosSim}(k^*, q) = \beta_q > 0$）而 key 均值与 query 不对齐（$\text{CosSim}(\bar{k}, q) = \alpha_q < 0$），则 $\text{CosSim}(\bar{k}, k^*) \leq 1 + \alpha_q\beta_q - 0.5\alpha_q^2 - 0.5\beta_q^2$（趋向 -1）
+    - 含义：高注意力的 key 与 anchor 向量余弦相似度趋向 -1，因此 KeyDiff 保留的恰好是与 query 最对齐的 key
 
 4. **滑动窗口扩展**：
-   - 做什么：分配一部分 cache 预算给最近 token（sliding window）
-   - 核心思路：在推理和代码等最近 token 更重要的任务中，将 cache 预算的一部分保留给最近的 token
-   - 设计动机：对 DeepSeek-R1 等推理模型效果显著，无额外开销
+
+    - 做什么：分配一部分 cache 预算给最近 token（sliding window）
+    - 核心思路：在推理和代码等最近 token 更重要的任务中，将 cache 预算的一部分保留给最近的 token
+    - 设计动机：对 DeepSeek-R1 等推理模型效果显著，无额外开销
 
 ### 与 FlashAttention 的兼容性
 KeyDiff 不需要显式计算注意力矩阵 $A$，可以直接与 FlashAttention 等优化 kernel 配合使用——这是相比 H2O、SnapKV 等方法的重要实用优势。

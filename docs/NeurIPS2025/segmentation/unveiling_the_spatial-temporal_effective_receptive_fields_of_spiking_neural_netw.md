@@ -31,9 +31,9 @@ tags:
 
 **现有痛点**：
 
-1. **SNN 在密集预测任务上表现差**：这些任务需要对整幅图像做空间密集输出，要求模型具备建模长距离空间依赖的能力
-2. **Transformer-based SNN 未充分发挥全局建模潜力**：虽然引入了 Transformer 的自注意力机制，但现有设计（如 Spike-driven Transformer）仍大量使用卷积操作作为通道混合器，引入了局部性偏置
-3. **缺乏分析工具**：传统 ERF 框架仅考虑空间维度，无法表征 SNN 固有的时空动态特性
+**SNN 在密集预测任务上表现差**：这些任务需要对整幅图像做空间密集输出，要求模型具备建模长距离空间依赖的能力
+**Transformer-based SNN 未充分发挥全局建模潜力**：虽然引入了 Transformer 的自注意力机制，但现有设计（如 Spike-driven Transformer）仍大量使用卷积操作作为通道混合器，引入了局部性偏置
+**缺乏分析工具**：传统 ERF 框架仅考虑空间维度，无法表征 SNN 固有的时空动态特性
 
 **核心矛盾**：Transformer-based SNN 理论上应该有全局感受野，但实际上由于卷积通道混合器的局部性偏置，导致早期阶段无法建立有效的全局感受野，限制了长序列建模性能。
 
@@ -50,23 +50,26 @@ tags:
 ### 关键设计
 
 1. **ST-ERF 理论框架**：
-   - **做什么**：量化 SNN 中各输入特征在不同时空位置对输出的贡献
-   - **核心定义**：$\text{ERF}^{(\mathcal{S},\mathcal{T})}_{(i,j)}[y_{(m,n)}[t], \tau; \mathbf{x}] = \frac{\partial y_{(m,n)}[t]}{\partial x_{(i,j)}[t-\tau]}$
-   - 空间 ERF 是 ST-ERF 在所有时间步上的加权平均；时间 ERF 是 ST-ERF 在空间维度上的积分
-   - **Loss-Derived 计算方法**：利用 PyTorch 自动微分，通过设置特定的梯度刺激（gradient stimuli）高效计算。具体地，将中心位置所有通道和时间步的梯度设为 1，反向传播即可得到空间 ERF
-   - **设计动机**：传统 ERF 接无法处理 SNN 的时间动态，ST-ERF 将时间维度纳入分析
+
+    - **做什么**：量化 SNN 中各输入特征在不同时空位置对输出的贡献
+    - **核心定义**：$\text{ERF}^{(\mathcal{S},\mathcal{T})}_{(i,j)}[y_{(m,n)}[t], \tau; \mathbf{x}] = \frac{\partial y_{(m,n)}[t]}{\partial x_{(i,j)}[t-\tau]}$
+    - 空间 ERF 是 ST-ERF 在所有时间步上的加权平均；时间 ERF 是 ST-ERF 在空间维度上的积分
+    - **Loss-Derived 计算方法**：利用 PyTorch 自动微分，通过设置特定的梯度刺激（gradient stimuli）高效计算。具体地，将中心位置所有通道和时间步的梯度设为 1，反向传播即可得到空间 ERF
+    - **设计动机**：传统 ERF 接无法处理 SNN 的时间动态，ST-ERF 将时间维度纳入分析
 
 2. **MLPixer（MLP-based Mixer）**：
-   - **做什么**：完全用 MLP 替换卷积通道混合器
-   - **核心设计**：$\text{MLPixer}(\mathbf{X}) = \text{BN}(\text{MLP}(\mathbb{SN}\{\text{BN}(\text{MLP}\{\mathbb{SN}(\mathbf{X})\})\}))$
-   - 两层 MLP + 批归一化 + 脉冲神经元的堆叠
-   - **设计动机**：MLP 是逐像素操作，不引入空间局部性偏置，使通道混合时不会破坏全局空间特征。ST-ERF 可视化显示 MLPixer 确实实现了更广泛的全局感受野
+
+    - **做什么**：完全用 MLP 替换卷积通道混合器
+    - **核心设计**：$\text{MLPixer}(\mathbf{X}) = \text{BN}(\text{MLP}(\mathbb{SN}\{\text{BN}(\text{MLP}\{\mathbb{SN}(\mathbf{X})\})\}))$
+    - 两层 MLP + 批归一化 + 脉冲神经元的堆叠
+    - **设计动机**：MLP 是逐像素操作，不引入空间局部性偏置，使通道混合时不会破坏全局空间特征。ST-ERF 可视化显示 MLPixer 确实实现了更广泛的全局感受野
 
 3. **SRB（Splash-and-Reconstruct Block）**：
-   - **做什么**：折中方案——保留第一层卷积用于局部特征提取，第二层用 MLP
-   - **核心设计**：$\text{SRB}(\mathbf{X}) = \text{BN}(\text{MLP}(\mathbb{SN}\{\text{BN}(\text{Conv}\{\mathbb{SN}(\mathbf{X})\})\}))$
-   - 第一层用 1×1 卷积，第二层用 MLP
-   - **设计动机**：在减少参数量的同时保持性能。SRB 在准确率和模型大小之间达到最优平衡
+
+    - **做什么**：折中方案——保留第一层卷积用于局部特征提取，第二层用 MLP
+    - **核心设计**：$\text{SRB}(\mathbf{X}) = \text{BN}(\text{MLP}(\mathbb{SN}\{\text{BN}(\text{Conv}\{\mathbb{SN}(\mathbf{X})\})\}))$
+    - 第一层用 1×1 卷积，第二层用 MLP
+    - **设计动机**：在减少参数量的同时保持性能。SRB 在准确率和模型大小之间达到最优平衡
 
 ### 损失函数 / 训练策略
 

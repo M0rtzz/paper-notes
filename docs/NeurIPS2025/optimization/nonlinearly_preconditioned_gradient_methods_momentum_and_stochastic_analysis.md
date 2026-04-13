@@ -55,8 +55,8 @@ iHGD的预条件映射为 $\nabla\phi^*(y) = \text{arsinh}(\|y\|) \frac{y}{\|y\|
 
 1. **带动量的更新规则（m-NPGM）**: 与标准方法不同，本文在**预条件后的梯度上做动量**，而非在梯度上做动量再预条件：
    
-   $$m^k = \beta m^{k-1} + (1-\beta) \nabla\phi^*(\nabla f(x^k))$$
-   $$x^{k+1} = x^k - \gamma m^k$$
+    $m^k = \beta m^{k-1} + (1-\beta) \nabla\phi^*(\nabla f(x^k))$
+    $x^{k+1} = x^k - \gamma m^k$
    
    等价形式为 $x^{k+1} = x^k - (1-\beta)\gamma \nabla\phi^*(\nabla f(x^k)) + \beta(x^k - x^{k-1})$，即标准重球法应用于映射 $\nabla\phi^* \circ \nabla f$。这种设计更自然，因为分析基于各向异性下降不等式。
 
@@ -67,9 +67,10 @@ iHGD的预条件映射为 $\nabla\phi^*(y) = \text{arsinh}(\|y\|) \frac{y}{\|y\|
 4. **预条件Lipschitz连续性（Assumption 2.5）**: 引入新条件 $\|\nabla\phi^*(\nabla f(x)) - \nabla\phi^*(\nabla f(\bar{x}))\| \leq L\|x - \bar{x}\|$，在此条件下将 $\beta$ 范围扩展至 $(0, 1)$（Theorem 2.7）。证明该条件对 $(L_0,L_1)$-光滑函数自然成立（Proposition 2.6）。
 
 5. **随机版本分析**: 
-   - **Theorem 3.1**: 在新噪声条件 $E[\phi(\nabla\phi^*(\nabla f(x)) - \nabla\phi^*(g(x)))] \leq \sigma^2$ 下，近似收敛到 $\sigma^2$ 邻域
-   - **Proposition 3.2**: 对 $\phi = \cosh - 1$，新噪声条件弱于有界方差（Example 3.3给出了满足新条件但不满足有界方差的函数）
-   - **Theorem 3.4**: 在标准有界方差+无偏假设下，mini-batch大小为 $K$ 时可精确收敛
+
+    - **Theorem 3.1**: 在新噪声条件 $E[\phi(\nabla\phi^*(\nabla f(x)) - \nabla\phi^*(g(x)))] \leq \sigma^2$ 下，近似收敛到 $\sigma^2$ 邻域
+    - **Proposition 3.2**: 对 $\phi = \cosh - 1$，新噪声条件弱于有界方差（Example 3.3给出了满足新条件但不满足有界方差的函数）
+    - **Theorem 3.4**: 在标准有界方差+无偏假设下，mini-batch大小为 $K$ 时可精确收敛
 
 ### 损失函数 / 训练策略
 

@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：DPO 基于 Bradley-Terry 模型，要求每对训练数据必须有明确的胜负关系 $y_w \succ y_l$。实践中（如 Llama 3、Qwen2），会大量丢弃标注者难以区分优劣的"平局"数据。
-2. **现有痛点**：丢弃平局数据是一种浪费——这些数据收集成本高，且确实包含有用信息（两者质量接近本身就是一种偏好信号）。直接将平局数据作为随机胜负塞入 DPO 会导致性能下降。
-3. **核心矛盾**：Bradley-Terry 模型只有两个outcomes（$y_i$ 赢或 $y_j$ 赢），没有给"平局"留出概率空间。当 $\lambda_i \neq \lambda_j$ 时，模型永远偏向更强的一方。
-4. **本文要解决什么？** 让 DPO 能正确利用平局数据，既不丢弃也不降低性能。
-5. **切入角度**：从经典配对比较理论出发，Rao-Kupper (1967) 和 Davidson (1970) 早已提出了容纳平局的 Bradley-Terry 扩展——直接嵌入 DPO 框架即可。
-6. **核心idea一句话**：用经典统计中的平局感知偏好模型替换 DPO 的 Bradley-Terry 模型，使优化目标对胜负对增大reward margin，对平局对驱动reward margin趋近零。
+**领域现状**：DPO 基于 Bradley-Terry 模型，要求每对训练数据必须有明确的胜负关系 $y_w \succ y_l$。实践中（如 Llama 3、Qwen2），会大量丢弃标注者难以区分优劣的"平局"数据。
+**现有痛点**：丢弃平局数据是一种浪费——这些数据收集成本高，且确实包含有用信息（两者质量接近本身就是一种偏好信号）。直接将平局数据作为随机胜负塞入 DPO 会导致性能下降。
+**核心矛盾**：Bradley-Terry 模型只有两个outcomes（$y_i$ 赢或 $y_j$ 赢），没有给"平局"留出概率空间。当 $\lambda_i \neq \lambda_j$ 时，模型永远偏向更强的一方。
+**本文要解决什么？** 让 DPO 能正确利用平局数据，既不丢弃也不降低性能。
+**切入角度**：从经典配对比较理论出发，Rao-Kupper (1967) 和 Davidson (1970) 早已提出了容纳平局的 Bradley-Terry 扩展——直接嵌入 DPO 框架即可。
+**核心idea一句话**：用经典统计中的平局感知偏好模型替换 DPO 的 Bradley-Terry 模型，使优化目标对胜负对增大reward margin，对平局对驱动reward margin趋近零。
 
 ## 方法详解
 
@@ -42,19 +42,22 @@ tags:
 ### 关键设计
 
 1. **Rao-Kupper 模型 (DPO-RK)**:
-   - 做什么：引入感知阈值 $\alpha_{RK}$，当reward差距小于阈值时视为平局
-   - 核心思路：胜利概率 $p^{RK}(y_w \succ y_l) = \sigma(d_\theta - \alpha_{RK})$，相当于将 DPO 的sigmoid右移 $\alpha_{RK}$。平局概率由两端sigmoid的乘积给出。对胜负对，梯度推动 $d_\theta$ 增大；对平局对，梯度驱动 $d_\theta$ 趋近零
-   - 设计动机：Rao-Kupper从"感知分辨率"出发，认为两者差距太小时评判者无法区分，这很符合偏好标注的实际情况
+
+    - 做什么：引入感知阈值 $\alpha_{RK}$，当reward差距小于阈值时视为平局
+    - 核心思路：胜利概率 $p^{RK}(y_w \succ y_l) = \sigma(d_\theta - \alpha_{RK})$，相当于将 DPO 的sigmoid右移 $\alpha_{RK}$。平局概率由两端sigmoid的乘积给出。对胜负对，梯度推动 $d_\theta$ 增大；对平局对，梯度驱动 $d_\theta$ 趋近零
+    - 设计动机：Rao-Kupper从"感知分辨率"出发，认为两者差距太小时评判者无法区分，这很符合偏好标注的实际情况
 
 2. **Davidson 模型 (DPO-D)**:
-   - 做什么：通过几何平均分配平局概率
-   - 核心思路：$p^D(y_w \succ y_l) = \frac{1}{1 + e^{-d_\theta} + 2\nu_D e^{-d_\theta/2}}$。平局概率正比于两者强度的几何平均。满足 Luce 选择公理 $p(y_i \succ y_j)/p(y_j \succ y_i) = \lambda_i/\lambda_j$（Rao-Kupper不满足此性质）
-   - 设计动机：Davidson从公理化角度推导，确保比较的逻辑一致性
+
+    - 做什么：通过几何平均分配平局概率
+    - 核心思路：$p^D(y_w \succ y_l) = \frac{1}{1 + e^{-d_\theta} + 2\nu_D e^{-d_\theta/2}}$。平局概率正比于两者强度的几何平均。满足 Luce 选择公理 $p(y_i \succ y_j)/p(y_j \succ y_i) = \lambda_i/\lambda_j$（Rao-Kupper不满足此性质）
+    - 设计动机：Davidson从公理化角度推导，确保比较的逻辑一致性
 
 3. **平局的正则化效应（理论解释）**:
-   - 做什么：用理想 DPO 策略理论解释为什么平局数据能增强正则化
-   - 核心思路：对于真实偏好概率 $\gamma = 0.5$ 的平局对，理想策略应满足 $\pi^*(y_w|x)/\pi^*(y_l|x) = \pi_{ref}(y_w|x)/\pi_{ref}(y_l|x)$，即策略不应偏离参考模型。这本质上是对 $\pi_\theta$ 的正则化约束——50%数据要求策略保持参考模型的行为
-   - 设计动机：解释了为什么即使原始 DPO 加入平局也会出现更低的 KL 散度
+
+    - 做什么：用理想 DPO 策略理论解释为什么平局数据能增强正则化
+    - 核心思路：对于真实偏好概率 $\gamma = 0.5$ 的平局对，理想策略应满足 $\pi^*(y_w|x)/\pi^*(y_l|x) = \pi_{ref}(y_w|x)/\pi_{ref}(y_l|x)$，即策略不应偏离参考模型。这本质上是对 $\pi_\theta$ 的正则化约束——50%数据要求策略保持参考模型的行为
+    - 设计动机：解释了为什么即使原始 DPO 加入平局也会出现更低的 KL 散度
 
 ### 损失函数 / 训练策略
 $\mathcal{L}(\pi_\theta; \pi_{ref}) = -\mathbb{E}_{t=0}[\log p_\theta(y_w \succ y_l)] - \mathbb{E}_{t=1}[\log p_\theta(y_w \sim y_l)]$

@@ -46,30 +46,33 @@ tags:
 ### 关键设计
 
 1. **五种推理策略的系统比较**：通过控制RL训练中的格式奖励，研究了从隐式到显式的五种推理策略：
-   - **NoThink**：仅生成可执行动作，$z_t = \emptyset$
-   - **FreeThink**：自由形式自然语言推理
-   - **StateEstimation**：显式描述当前状态信念 $\hat{s}_t$，学习 $\hat{s}_t \to s_t$
-   - **TransitionModeling**：显式预测下一状态 $\hat{s}_{t+1}$，学习 $\hat{s}_{t+1} \to s_{t+1}$
-   - **WorldModeling**：同时包含状态估计和转移建模，完整世界模型
+
+    - **NoThink**：仅生成可执行动作，$z_t = \emptyset$
+    - **FreeThink**：自由形式自然语言推理
+    - **StateEstimation**：显式描述当前状态信念 $\hat{s}_t$，学习 $\hat{s}_t \to s_t$
+    - **TransitionModeling**：显式预测下一状态 $\hat{s}_{t+1}$，学习 $\hat{s}_{t+1} \to s_{t+1}$
+    - **WorldModeling**：同时包含状态估计和转移建模，完整世界模型
 
    结论：WorldModeling（0.76）> FreeThink（0.67）>> NoThink（0.28），显式视觉状态推理至关重要。
 
 2. **视觉状态表示选择**：探索了三种内部信念表示方式：
-   - **自然语言**：通用任务中最优，利用预训练语义知识（Sokoban: 0.61, FrozenLake: 0.71）
-   - **结构化格式**：高精度操控任务中最优，提供精确坐标（PrimitiveSkill avg: 0.94）
-   - **符号表示**：最差，模型难以将抽象符号与原始视觉输入对接
+
+    - **自然语言**：通用任务中最优，利用预训练语义知识（Sokoban: 0.61, FrozenLake: 0.71）
+    - **结构化格式**：高精度操控任务中最优，提供精确坐标（PrimitiveSkill avg: 0.94）
+    - **符号表示**：最差，模型难以将抽象符号与原始视觉输入对接
    
    核心洞察：**表示选择是任务依赖的**，非通用解。
 
 3. **WorldModeling Reward**：利用LLM-as-a-Judge框架评估智能体的状态描述和预测与真实状态的匹配度：
-   $$r_t^{reason} = \beta_s \cdot \mathbb{I}_{\text{StateEstimation}}(\hat{s}_t, s_t) + \beta_w \cdot \mathbb{I}_{\text{TransitionModeling}}(\hat{s}_{t+1}, s_{t+1})$$
+    $r_t^{reason} = \beta_s \cdot \mathbb{I}_{\text{StateEstimation}}(\hat{s}_t, s_t) + \beta_w \cdot \mathbb{I}_{\text{TransitionModeling}}(\hat{s}_{t+1}, s_{t+1})$
    提供逐轮密集奖励信号，弥补任务奖励的稀疏性。
 
 4. **Bi-Level GAE**：分两层计算优势估计，解决多轮场景中的信用分配问题：
-   - **Turn-level**：在轮次间用 $\gamma_{\text{turn}}$ 计算轮次级TD误差和优势
-     $$\delta_t^{turn} = r_t + \gamma_{turn} V_\phi(\bar{\tau}_{\leq a_{t+1}}) - V_\phi(\bar{\tau}_{\leq a_t})$$
-   - **Token-level**：在各轮内部用 $\gamma_{\text{token}}$ 传播轮次优势到token级
-   - 关键链接：用已计算的轮次优势 $A_t^{turn}$ 初始化该轮最后一个token的优势，层次化传递
+
+    - **Turn-level**：在轮次间用 $\gamma_{\text{turn}}$ 计算轮次级TD误差和优势
+    $\delta_t^{turn} = r_t + \gamma_{turn} V_\phi(\bar{\tau}_{\leq a_{t+1}}) - V_\phi(\bar{\tau}_{\leq a_t})$
+    - **Token-level**：在各轮内部用 $\gamma_{\text{token}}$ 传播轮次优势到token级
+    - 关键链接：用已计算的轮次优势 $A_t^{turn}$ 初始化该轮最后一个token的优势，层次化传递
 
 ### 损失函数 / 训练策略
 

@@ -30,9 +30,9 @@ tags:
 指令引导的图像编辑（Instruction-Guided Image Editing）近年来取得了巨大进展，闭源模型如 GPT-Image-1、Seedream 表现优异，但开源模型仍有明显差距。**核心瓶颈在于缺乏可靠的奖励模型来筛选和扩展高质量训练数据。**
 
 现有的评估/奖励手段存在三大问题：
-1. **感知分数（如 LPIPS）**：无法捕捉与指令的语义对齐
-2. **特征分数（如 CLIP）**：无法理解编辑语义
-3. **VLM-as-judge（如 VIEScore）**：通用 VLM 未针对编辑任务优化
+**感知分数（如 LPIPS）**：无法捕捉与指令的语义对齐
+**特征分数（如 CLIP）**：无法理解编辑语义
+**VLM-as-judge（如 VIEScore）**：通用 VLM 未针对编辑任务优化
 
 已有的微调 reward model 要么依赖噪声众包标注（低一致性），要么使用闭源模型生成的伪标签（有偏差）。**核心矛盾是：需要高质量人工标注的偏好数据来训练可靠的 reward model，但此前缺乏这样的大规模数据集。**
 
@@ -50,23 +50,26 @@ EditReward 包含三个核心组件：
 ### 关键设计
 
 1. **EditReward-Data 数据构建**：
-   - 从 6 个编辑基准收集 9557 个指令-图像对（GEdit-Bench、ImgEdit-Bench、MagicBrush 等）
-   - 使用 6 个 SOTA 编辑模型（Step1X-Edit、Flux-Kontext、Qwen-Image-Edit 等）各生成多组输出
-   - **关键**：训练有素的标注员按严格协议标注，采用 4 级 Likert 量表在两个维度评分：
-     - Instruction Following（IF）：语义准确性、完整性、无多余改动
-     - Visual Quality（VQ）：合理性、无伪影、美学
-   - Krippendorff's α 达到 IF=0.668, VQ=0.597，证明高标注质量
+
+    - 从 6 个编辑基准收集 9557 个指令-图像对（GEdit-Bench、ImgEdit-Bench、MagicBrush 等）
+    - 使用 6 个 SOTA 编辑模型（Step1X-Edit、Flux-Kontext、Qwen-Image-Edit 等）各生成多组输出
+    - **关键**：训练有素的标注员按严格协议标注，采用 4 级 Likert 量表在两个维度评分：
+      - Instruction Following（IF）：语义准确性、完整性、无多余改动
+      - Visual Quality（VQ）：合理性、无伪影、美学
+    - Krippendorff's α 达到 IF=0.668, VQ=0.597，证明高标注质量
 
 2. **多维不确定性感知排序损失（Multi-Dimensional Uncertainty-Aware Ranking）**：
-   - 受 HPSv3 启发，将分数建模为高斯分布 $s_{i,d} \sim \mathcal{N}(\mu_{i,d}, \sigma_{i,d}^2)$，其中 $d \in \{1,2\}$ 对应 IF 和 VQ 两个维度
-   - 使用多任务学习（MTL），reward head 为每个维度独立预测高斯参数
-   - 聚合策略探索了三种方式：悲观最小值、均衡平均、直接求和
-   - 最终偏好概率通过两个聚合分布的积分计算：$\mathcal{L}_{\text{rank}} = -\log(P(I_h \succ I_l))$
+
+    - 受 HPSv3 启发，将分数建模为高斯分布 $s_{i,d} \sim \mathcal{N}(\mu_{i,d}, \sigma_{i,d}^2)$，其中 $d \in \{1,2\}$ 对应 IF 和 VQ 两个维度
+    - 使用多任务学习（MTL），reward head 为每个维度独立预测高斯参数
+    - 聚合策略探索了三种方式：悲观最小值、均衡平均、直接求和
+    - 最终偏好概率通过两个聚合分布的积分计算：$\mathcal{L}_{\text{rank}} = -\log(P(I_h \succ I_l))$
 
 3. **Tie 样本解耦增强（Disentangling Ties via Dimensional Preference）**：
-   - 核心洞察：整体打平的样本对往往在不同维度各有优势（A 的 IF 更好，B 的 VQ 更好）
-   - 将打平对 $(I_A, I_B)_{\text{tie}}$ 拆分为两个训练样本，分别标注为 $I_A \succ I_B$ 和 $I_B \succ I_A$
-   - 迫使模型学习更细粒度的维度间权衡，带来更平滑的训练曲线
+
+    - 核心洞察：整体打平的样本对往往在不同维度各有优势（A 的 IF 更好，B 的 VQ 更好）
+    - 将打平对 $(I_A, I_B)_{\text{tie}}$ 拆分为两个训练样本，分别标注为 $I_A \succ I_B$ 和 $I_B \succ I_A$
+    - 迫使模型学习更细粒度的维度间权衡，带来更平滑的训练曲线
 
 ### 损失函数 / 训练策略
 

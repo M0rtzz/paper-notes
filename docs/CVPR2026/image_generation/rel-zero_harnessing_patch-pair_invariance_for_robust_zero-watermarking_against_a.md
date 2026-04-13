@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：数字水印是保护图像版权和认证内容真实性的关键技术。现有方法分为嵌入式水印（在图像中注入信号）和零水印（不修改图像，提取特征指纹存储在外部数据库中）。
+**领域现状**：数字水印是保护图像版权和认证内容真实性的关键技术。现有方法分为嵌入式水印（在图像中注入信号）和零水印（不修改图像，提取特征指纹存储在外部数据库中）。
 
-2. **现有痛点**：嵌入式水印（如VINE、RobustWide）为了抵抗扩散模型编辑，必须注入强信号，这不可避免地引入可感知的失真，降低图像质量。零水印方法虽然保持完美图像质量，但依赖全局特征（SIFT、深度分类器的绝对特征描述子），这些特征恰恰是生成模型擅长改变的，导致鲁棒性极低。
+**现有痛点**：嵌入式水印（如VINE、RobustWide）为了抵抗扩散模型编辑，必须注入强信号，这不可避免地引入可感知的失真，降低图像质量。零水印方法虽然保持完美图像质量，但依赖全局特征（SIFT、深度分类器的绝对特征描述子），这些特征恰恰是生成模型擅长改变的，导致鲁棒性极低。
 
-3. **核心矛盾**：保真度与鲁棒性的trade-off——嵌入式方法牺牲质量换鲁棒性，零水印方法保持质量但鲁棒性差。在医学影像、自动驾驶等高精度领域，水印引入的噪声可能导致灾难性后果。
+**核心矛盾**：保真度与鲁棒性的trade-off——嵌入式方法牺牲质量换鲁棒性，零水印方法保持质量但鲁棒性差。在医学影像、自动驾驶等高精度领域，水印引入的噪声可能导致灾难性后果。
 
-4. **本文要解决什么？** 在不修改原图的前提下（零水印），实现对生成式AI编辑的高鲁棒性认证。
+**本文要解决什么？** 在不修改原图的前提下（零水印），实现对生成式AI编辑的高鲁棒性认证。
 
-5. **切入角度**：作者通过大规模实验分析发现，虽然AI编辑会大幅改变单个patch的像素值和绝对特征，但patch对之间的关系距离（pairwise distance）却保持惊人的不变性。$d_{ij}^{\text{after}} \approx \alpha \cdot d_{ij}^{\text{before}} + \beta$，其中 $\alpha \approx 1, \beta \approx 0, R^2 > 0.95$。
+**切入角度**：作者通过大规模实验分析发现，虽然AI编辑会大幅改变单个patch的像素值和绝对特征，但patch对之间的关系距离（pairwise distance）却保持惊人的不变性。$d_{ij}^{\text{after}} \approx \alpha \cdot d_{ij}^{\text{before}} + \beta$，其中 $\alpha \approx 1, \beta \approx 0, R^2 > 0.95$。
 
-6. **核心idea一句话**：利用patch对关系距离的编辑不变性作为零水印的基础，将水印构建为一组稳定patch对的索引集合。
+**核心idea一句话**：利用patch对关系距离的编辑不变性作为零水印的基础，将水印构建为一组稳定patch对的索引集合。
 
 ## 方法详解
 
@@ -54,19 +54,22 @@ Rel-Zero包含三个阶段：（1）稳定patch对识别——通过VAE模拟编
 ### 关键设计
 
 1. **稳定Patch对识别（训练目标构建）**:
-   - 做什么：构建训练用的ground-truth稳定patch对集合 $\mathcal{E}_g$
-   - 核心思路：用预训练VAE模拟生成式编辑（受VINE启发），将原始图像和VAE重建图像分别通过ViT提取patch-level特征 $\mathcal{F} = \phi_{\text{vit}}(\mathbf{I})$，计算patch对在编辑前后的L2距离差异 $s_{ij} = \exp(-|d_{ij} - \hat{d}_{ij}|)$，选择稳定性分数最高的top-K对作为ground-truth
-   - 设计动机：VAE重建对patch关系的影响与扩散编辑类似（受VINE工作启发），但计算代价小得多——不需要运行完整的扩散编辑pipeline。使用ViT高维特征而非RGB向量进行距离计算，能捕获更丰富的语义关系。注意发现阶段用RGB均值做分析，但方法阶段升级到ViT特征，这增强了表达能力
+
+    - 做什么：构建训练用的ground-truth稳定patch对集合 $\mathcal{E}_g$
+    - 核心思路：用预训练VAE模拟生成式编辑（受VINE启发），将原始图像和VAE重建图像分别通过ViT提取patch-level特征 $\mathcal{F} = \phi_{\text{vit}}(\mathbf{I})$，计算patch对在编辑前后的L2距离差异 $s_{ij} = \exp(-|d_{ij} - \hat{d}_{ij}|)$，选择稳定性分数最高的top-K对作为ground-truth
+    - 设计动机：VAE重建对patch关系的影响与扩散编辑类似（受VINE工作启发），但计算代价小得多——不需要运行完整的扩散编辑pipeline。使用ViT高维特征而非RGB向量进行距离计算，能捕获更丰富的语义关系。注意发现阶段用RGB均值做分析，但方法阶段升级到ViT特征，这增强了表达能力
 
 2. **Patch关系学习（Edge Predictor）**:
-   - 做什么：训练一个轻量级预测器，从单张图像预测哪些patch对是稳定的
-   - 核心思路：对ViT提取的N个patch特征构建全连接pair集合 $\mathcal{E}$，每个pair $(i,j)$ 的特征为 $\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2$（拼接+距离），通过MLP $\psi$ 和sigmoid $\sigma$ 输出预测分数 $p_{ij} = \sigma(\psi(\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2))$
-   - 设计动机：简单的MLP就足够——消融实验证明Transformer或GAT反而会模糊patch间的精细距离差异（Transformer降至92.11%，GAT至94.45%，而MLP达97.43%）。关键信息在于patch对的**局部距离特征**，注意力机制会混合patch表征，反而损害精确的距离判别能力。这是一个"less is more"的设计哲学
+
+    - 做什么：训练一个轻量级预测器，从单张图像预测哪些patch对是稳定的
+    - 核心思路：对ViT提取的N个patch特征构建全连接pair集合 $\mathcal{E}$，每个pair $(i,j)$ 的特征为 $\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2$（拼接+距离），通过MLP $\psi$ 和sigmoid $\sigma$ 输出预测分数 $p_{ij} = \sigma(\psi(\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2))$
+    - 设计动机：简单的MLP就足够——消融实验证明Transformer或GAT反而会模糊patch间的精细距离差异（Transformer降至92.11%，GAT至94.45%，而MLP达97.43%）。关键信息在于patch对的**局部距离特征**，注意力机制会混合patch表征，反而损害精确的距离判别能力。这是一个"less is more"的设计哲学
 
 3. **水印生成与验证**:
-   - 做什么：基于预测器输出生成/验证零水印
-   - 核心思路：生成时取top-K最自信的预测对 $\mathcal{E}_p = \text{Top-K}(\Phi(\phi_{\text{vit}}(\mathbf{I})))$ 作为水印索引存储；验证时对嫌疑图像提取同样的top-K对 $\mathcal{E}_p'$，计算Jaccard重叠率 $\eta = |\mathcal{E}_p \cap \mathcal{E}_p'| / K$ 作为认证依据
-   - 设计动机：将水印编码为patch对索引而非数值特征，天然适应仿射变换不变性——因为关系保序性而非绝对数值。索引集合可以哈希加密存储在外部数据库中（论文附录有安全存储方案）。验证阈值基于目标误报率（FPR=0.1%）校准，确保高置信度认证
+
+    - 做什么：基于预测器输出生成/验证零水印
+    - 核心思路：生成时取top-K最自信的预测对 $\mathcal{E}_p = \text{Top-K}(\Phi(\phi_{\text{vit}}(\mathbf{I})))$ 作为水印索引存储；验证时对嫌疑图像提取同样的top-K对 $\mathcal{E}_p'$，计算Jaccard重叠率 $\eta = |\mathcal{E}_p \cap \mathcal{E}_p'| / K$ 作为认证依据
+    - 设计动机：将水印编码为patch对索引而非数值特征，天然适应仿射变换不变性——因为关系保序性而非绝对数值。索引集合可以哈希加密存储在外部数据库中（论文附录有安全存储方案）。验证阈值基于目标误报率（FPR=0.1%）校准，确保高置信度认证
 
 ### 损失函数 / 训练策略
 使用标准二元交叉熵损失训练edge predictor：$\mathcal{L}_{BCE} = -\sum_{i \neq j} [y_{ij} \log(\hat{y}_{ij}) + (1-y_{ij})\log(1-\hat{y}_{ij})] / N(N-1)$，其中 $y_{ij}=1$ 对应top-K不变对（正样本），$y_{ij}=0$ 对应其余pair（负样本）。正负样本比例约为 $K : \binom{N}{2}-K$，极度不平衡（$K=50$ vs $\sim$19000负样本），但BCE在此场景下仍有效工作。

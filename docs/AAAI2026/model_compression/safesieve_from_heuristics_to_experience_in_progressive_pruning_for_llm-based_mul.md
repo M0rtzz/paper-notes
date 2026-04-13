@@ -30,11 +30,11 @@ LLM多智能体系统(MAS)展现了强大的协作问题解决能力，但密集
 
 **两大范式及其局限**：
 
-1. **预设计(pre-design)方法**（GPTSwarm、G-Designer）：在执行前构建压缩图拓扑
+**预设计(pre-design)方法**（GPTSwarm、G-Designer）：在执行前构建压缩图拓扑
    - 优点：初始化时提升通信效率
    - 缺点：泛化性有限，无法适应运行时动态变化
 
-2. **后剪枝(post-prune)方法**（AgentPrune、AgentDropout）：从全连接拓扑出发，基于任务反馈迭代剪边
+**后剪枝(post-prune)方法**（AgentPrune、AgentDropout）：从全连接拓扑出发，基于任务反馈迭代剪边
    - 优点：无需预训练，任务适应性强
    - 缺点：依赖**贪心Top-k剪枝**，可能错误移除关键通信路径，降低系统鲁棒性
 

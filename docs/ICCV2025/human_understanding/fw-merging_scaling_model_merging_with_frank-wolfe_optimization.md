@@ -29,8 +29,8 @@ tags:
 
 模型合并(Model Merging)作为多任务学习的数据高效替代方案日益重要。然而随着开源AI生态的快速发展，现有方法面临两个关键限制：
 
-1. **缺乏对未知模型的适应性**：现有方法基于已知的模型能力信息调整合并系数，对来源多样、信息部分未知的模型效果差，无法区分高质量与低质量微调模型
-2. **无法有效扩展**：当合并大量未知model checkpoint时，性能严重退化。作者的分析实验显示，添加16个无关模型时性能下降18.9%-64.4%
+**缺乏对未知模型的适应性**：现有方法基于已知的模型能力信息调整合并系数，对来源多样、信息部分未知的模型效果差，无法区分高质量与低质量微调模型
+**无法有效扩展**：当合并大量未知model checkpoint时，性能严重退化。作者的分析实验显示，添加16个无关模型时性能下降18.9%-64.4%
 
 理想的合并方法应满足两个基本缩放属性：(1) 添加无关模型不影响性能；(2) 添加相关模型性能稳步提升。
 
@@ -52,14 +52,16 @@ $$\text{LMO}(\{\theta_i^*\}, \theta_t) = \arg\min_{s \in \{\theta_1^*,...,\theta
 即在有限顶点集上做内积最小化，计算高效。
 
 2. **Hard FW vs. Soft FW**：
-   - **Hard LMO**：选择线性子问题的argmin作为合并方向，简单直接
-   - **Soft LMO**：选择top-k个顶点，对它们的合并系数做内部优化（投影梯度下降到单纯形上），更新公式为 $\theta_{t+1} = \theta_t + \sum_{j=1}^k \lambda_j^*(\tilde{s}_j - \theta_t)$
-   - Theorem 1证明Soft FW收敛速率为 $O(1/T)$，优于vanilla的 $O(1/\sqrt{T})$
+
+    - **Hard LMO**：选择线性子问题的argmin作为合并方向，简单直接
+    - **Soft LMO**：选择top-k个顶点，对它们的合并系数做内部优化（投影梯度下降到单纯形上），更新公式为 $\theta_{t+1} = \theta_t + \sum_{j=1}^k \lambda_j^*(\tilde{s}_j - \theta_t)$
+    - Theorem 1证明Soft FW收敛速率为 $O(1/T)$，优于vanilla的 $O(1/\sqrt{T})$
 
 3. **Task-wise vs. Layer-wise LMO**：
-   - Task-wise LMO：将整个模型权重向量化后求解LMO
-   - Layer-wise LMO：约束集定义为各层凸包的笛卡尔积 $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_L$，每层独立选择最佳模型，可视为块坐标Frank-Wolfe算法
-   - $\text{FW}_{hard}$ 更适合layer-wise（NLP判别任务提升7.2分），$\text{FW}_{soft}$ 更适合task-wise（因为内部已做层级系数优化）
+
+    - Task-wise LMO：将整个模型权重向量化后求解LMO
+    - Layer-wise LMO：约束集定义为各层凸包的笛卡尔积 $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_L$，每层独立选择最佳模型，可视为块坐标Frank-Wolfe算法
+    - $\text{FW}_{hard}$ 更适合layer-wise（NLP判别任务提升7.2分），$\text{FW}_{soft}$ 更适合task-wise（因为内部已做层级系数优化）
 
 ### 损失函数 / 训练策略
 

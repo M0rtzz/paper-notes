@@ -41,12 +41,14 @@ tags:
 1. **六层级 CoT 标注结构**: 模拟人类"全局到局部"推理路径：Caption（全局场景描述）→ Facial Description（面部特征描述）→ Facial Attributes（面部属性列举）→ Reasoning（基于多尺度信息的逻辑推理）→ Spoofing Description（欺骗特征和方法描述）→ Conclusion（最终判断 Yes/No）。用 XML 标签格式化，为模型提供清晰的推理结构。
 
 2. **数据构建流水线**: 
-   - Gold100K：GPT-4o 自动标注 + 为不同攻击类型提供针对性 hint（如"拍摄海报构成欺骗"）+ 正则匹配检查 → 二轮标注失败的 581 个 hard case 由专家人工修正
-   - Silver982K：在 Gold100K 上 SFT 训练 caption 模型，再用双奖励 RL（准确性奖励：结论匹配标签=1；格式奖励：输出符合模板=1）增强，标注准确率从 88% 提升至 **99.6%**
+
+    - Gold100K：GPT-4o 自动标注 + 为不同攻击类型提供针对性 hint（如"拍摄海报构成欺骗"）+ 正则匹配检查 → 二轮标注失败的 581 个 hard case 由专家人工修正
+    - Silver982K：在 Gold100K 上 SFT 训练 caption 模型，再用双奖励 RL（准确性奖励：结论匹配标签=1；格式奖励：输出符合模板=1）增强，标注准确率从 88% 提升至 **99.6%**
 
 3. **CEPL 两阶段训练**:
-   - Stage 1（Visual Enhancement Pre-training）：全参数 SFT on CoT 数据，让视觉编码器学习提取细粒度欺骗特征。直觉：语言引导的监督信号可以驱动视觉编码器关注微妙的伪造痕迹
-   - Stage 2（Multi-task Joint Training）：继承 Stage 1 的视觉编码器，重置连接层和语言解码器为预训练权重 + LoRA 微调，联合训练 CoT 推理和二分类损失。解决了端到端训练中分类目标快速收敛导致推理任务欠优化的问题
+
+    - Stage 1（Visual Enhancement Pre-training）：全参数 SFT on CoT 数据，让视觉编码器学习提取细粒度欺骗特征。直觉：语言引导的监督信号可以驱动视觉编码器关注微妙的伪造痕迹
+    - Stage 2（Multi-task Joint Training）：继承 Stage 1 的视觉编码器，重置连接层和语言解码器为预训练权重 + LoRA 微调，联合训练 CoT 推理和二分类损失。解决了端到端训练中分类目标快速收敛导致推理任务欠优化的问题
 
 ### 损失函数 / 训练策略
 - 输入分辨率 448×448，backbone 为 MiniCPMV-2.6-8B

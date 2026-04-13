@@ -55,11 +55,12 @@ tags:
 2. **多Agent工作流**：AG2/Autogen 框架，每个工作流包含专门化 Agent（gpt-4.1-mini）：生成器+评审器，迭代循环直到满意。Pydantic 保证结构化输出。
 
 3. **辩论生成流水线**：
-   - **1AC**：Plan-text → Harms/Inherency/Solvency → Advantage（Uniqueness+Link+Internal Link+Impact）
-   - **1NC**：战略组合 → Topicality + DA + CP + Kritik + On-Case 反驳
-   - **后续**：2AC→2NC→1NR→1AR→2NR→2AR，每轮以全前文为上下文
-   - **交叉质询**：两Agent对话模拟
-   - **裁判**：独立 Judge Agent（Claude/Gemini）
+
+    - **1AC**：Plan-text → Harms/Inherency/Solvency → Advantage（Uniqueness+Link+Internal Link+Impact）
+    - **1NC**：战略组合 → Topicality + DA + CP + Kritik + On-Case 反驳
+    - **后续**：2AC→2NC→1NR→1AR→2NR→2AR，每轮以全前文为上下文
+    - **交叉质询**：两Agent对话模拟
+    - **裁判**：独立 Judge Agent（Claude/Gemini）
 
 4. **语音+数字人**：GPT-4o mini TTS → EchoMimic V1 数字人唇形同步
 

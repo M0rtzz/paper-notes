@@ -47,12 +47,13 @@ MyVLM采用两阶段pipeline：(1) 外部概念头识别图像中是否存在目
 1. **概念识别头（Concept Head）**：为每个用户概念训练一个独立的分类头，用于判断图像中是否存在该概念。对于物体使用基于CLIP嵌入的线性分类器，对于人物使用预训练人脸识别网络（RetinaFace + ArcFace）。独立的头设计使得系统可以灵活扩展到更多概念。
 
 2. **概念嵌入向量（Concept Embedding）**：在VLM的中间特征空间中学习一个d=768维的嵌入向量 $e_*$，追加到视觉编码器输出后，通过Q-Former的交叉注意力层传递给语言模型。优化目标为标准交叉熵损失：
-   $$e_* = \arg\min_e \sum_{i=1}^{N} \mathcal{L}_{CE}(t_i, o(I_i, e))$$
+    $e_* = \arg\min_e \sum_{i=1}^{N} \mathcal{L}_{CE}(t_i, o(I_i, e))$
    其中 $t_i$ 为目标描述，$o(I_i, e)$ 为给定概念嵌入后生成的描述。
 
 3. **泛化增强机制**：
-   - **Key/Value归一化**：在Q-Former交叉注意力层中，概念嵌入对应的key和value向量范数远大于冻结图像特征，因此将其归一化到原始key/value的平均范数：$\hat{k}_* = \frac{k_*}{\|k_*\|} \cdot n_k$
-   - **注意力正则化**：对概念token的注意力概率施加L2正则化，防止query token过度关注概念token而忽略原始图像token：$\mathcal{L}_{reg} = \|\text{softmax}(Q \cdot \hat{k}_*)\|_2^2$
+
+    - **Key/Value归一化**：在Q-Former交叉注意力层中，概念嵌入对应的key和value向量范数远大于冻结图像特征，因此将其归一化到原始key/value的平均范数：$\hat{k}_* = \frac{k_*}{\|k_*\|} \cdot n_k$
+    - **注意力正则化**：对概念token的注意力概率施加L2正则化，防止query token过度关注概念token而忽略原始图像token：$\mathcal{L}_{reg} = \|\text{softmax}(Q \cdot \hat{k}_*)\|_2^2$
 
 ### 在LLaVA上的适配
 - 概念嵌入追加到线性投影层输出之后（而非视觉编码器之后）

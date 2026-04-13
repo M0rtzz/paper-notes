@@ -28,9 +28,9 @@ tags:
 
 深度神经网络在有噪声标签的数据集上训练时，会先学习干净数据的特征然后逐渐过拟合到噪声数据，导致泛化能力严重退化。现有噪声标签处理方法主要包括：
 
-1. **样本选择方法**（Co-teaching、MentorNet）：利用训练动态（损失值、预测置信度）筛选可靠样本，但本质上是被动的筛选策略，无法主动纠正标签。
-2. **标签纠正方法**（PLC、SSR）：利用模型预测调整标签，但通常仅做单步贪心纠正，缺乏**长期后果考虑**——某次纠正可能在短期看合理但长期看导致错误累积。
-3. **半监督学习方法**（DivideMix、LongReMix）：将噪声数据视为无标签数据，但依赖固定的分割机制，难以动态适应数据特征变化。
+**样本选择方法**（Co-teaching、MentorNet）：利用训练动态（损失值、预测置信度）筛选可靠样本，但本质上是被动的筛选策略，无法主动纠正标签。
+**标签纠正方法**（PLC、SSR）：利用模型预测调整标签，但通常仅做单步贪心纠正，缺乏**长期后果考虑**——某次纠正可能在短期看合理但长期看导致错误累积。
+**半监督学习方法**（DivideMix、LongReMix）：将噪声数据视为无标签数据，但依赖固定的分割机制，难以动态适应数据特征变化。
 
 核心洞察：**噪声标签纠正天然适合 RL 的序列决策框架**——纠正是一系列动作，每次纠正改变数据状态，需要最大化长期累积奖励（最终标签质量），且需要探索不同纠正策略以避免局部最优。
 
@@ -50,14 +50,15 @@ RLNLC 将问题定义为 MDP $\mathcal{M} = (\mathcal{S}, \mathcal{A}, P, \mathc
 
 1. **基于 k 近邻的策略函数**：策略函数建立在特征提取网络 $f_\theta$ 的嵌入空间上。对每个样本 $\mathbf{x}_i$，通过注意力加权其 k 近邻的标签生成预测标签 $\bar{\mathbf{y}}_i = \sum_{j \in \mathcal{N}(\mathbf{x}_i)} \alpha_{ij} \hat{\mathbf{y}}_j^t$，其中注意力权重通过余弦相似度和温度参数 $\tau$ 计算。纠正概率定义为：
 
-   $$\pi_\theta(\boldsymbol{s}^t)_i = \frac{\sum_{j=1}^C \mathbb{1}(\bar{\mathbf{y}}_{ij} > \bar{\mathbf{y}}_{i\hat{y}_i}) \cdot \bar{\mathbf{y}}_{ij}}{\sum_{j=1}^C \mathbb{1}(\bar{\mathbf{y}}_{ij} \geq \bar{\mathbf{y}}_{i\hat{y}_i}) \cdot \bar{\mathbf{y}}_{ij}}$$
+    $\pi_\theta(\boldsymbol{s}^t)_i = \frac{\sum_{j=1}^C \mathbb{1}(\bar{\mathbf{y}}_{ij} > \bar{\mathbf{y}}_{i\hat{y}_i}) \cdot \bar{\mathbf{y}}_{ij}}{\sum_{j=1}^C \mathbb{1}(\bar{\mathbf{y}}_{ij} \geq \bar{\mathbf{y}}_{i\hat{y}_i}) \cdot \bar{\mathbf{y}}_{ij}}$
 
    这个设计非常精巧：它量化了 k 近邻预测与当前标签的不一致程度——如果当前标签在 k 近邻预测中已是最大概率类，纠正概率为零；偏离越大，纠正概率越高。
 
 2. **双重奖励函数**：
-   - **标签一致性奖励 (LCR)**：评估纠正后全局标签的统计平滑性。使用独立的固定骨干 $f_\omega$（与策略网络解耦），计算每个样本标签与其 k 近邻标签的 KL 散度的负均值：$\mathcal{R}_{\text{LCR}} = -\mathbb{E}_{i \in [1:N]}[\text{KL}(\hat{\mathbf{y}}_i^{t+1}, \sum_j \alpha_{ij} \hat{\mathbf{y}}_j^{t+1})]$
-   - **噪声标签对齐奖励 (NLA)**：将数据划分为"干净子集"（$a_i=0$，标签未改动）和"噪声子集"（$a_i=1$，标签被纠正），计算噪声子集中每个样本的纠正标签与其在干净子集中 k 近邻标签的 KL 散度负均值。
-   - 复合奖励：$\mathcal{R} = \exp(\mathcal{R}_{\text{LCR}} + \lambda \mathcal{R}_{\text{NLA}})$，用指数函数将无界的负 KL 散度映射到 $(0, 1]$，确保奖励有界。
+
+    - **标签一致性奖励 (LCR)**：评估纠正后全局标签的统计平滑性。使用独立的固定骨干 $f_\omega$（与策略网络解耦），计算每个样本标签与其 k 近邻标签的 KL 散度的负均值：$\mathcal{R}_{\text{LCR}} = -\mathbb{E}_{i \in [1:N]}[\text{KL}(\hat{\mathbf{y}}_i^{t+1}, \sum_j \alpha_{ij} \hat{\mathbf{y}}_j^{t+1})]$
+    - **噪声标签对齐奖励 (NLA)**：将数据划分为"干净子集"（$a_i=0$，标签未改动）和"噪声子集"（$a_i=1$，标签被纠正），计算噪声子集中每个样本的纠正标签与其在干净子集中 k 近邻标签的 KL 散度负均值。
+    - 复合奖励：$\mathcal{R} = \exp(\mathcal{R}_{\text{LCR}} + \lambda \mathcal{R}_{\text{NLA}})$，用指数函数将无界的负 KL 散度映射到 $(0, 1]$，确保奖励有界。
 
 3. **Critic 的高效输入编码**：由于确定性转移机制，用下一状态 $\boldsymbol{s}^{t+1}$ 替代 $(s^t, a^t)$ 作为 Critic 输入。为降低维度（状态维度与数据集大小 $N$ 成正比），采用分箱策略：将每个样本按其标签一致性奖励 $r(\mathbf{x}_i, \hat{\mathbf{y}}_i^{t+1})$ 分到 $N_b$ 个 bin 中（$N_b \ll N$），用各 bin 的样本比例构成长度为 $N_b$ 的向量作为 Critic 输入。
 

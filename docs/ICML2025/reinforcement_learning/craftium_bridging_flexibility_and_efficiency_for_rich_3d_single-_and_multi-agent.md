@@ -24,11 +24,11 @@ tags:
 Craftium 基于开源 Minetest 游戏引擎构建了一个灵活高效的 3D RL 环境创建框架，通过 Lua API 实现完全自定义，同时提供标准 Gymnasium 接口和五个基准环境。
 
 ## 研究背景与动机
-1. **领域现状**: RL 研究高度依赖环境，但目前主流环境 (Atari ALE, DeepMind Lab, MineRL) 大多基于已有游戏/物理模拟器改编，定制能力有限。
-2. **现有痛点**: (a) 游戏类环境只提供预定义任务，仅能调参无法新建环境；(b) 可创建环境的框架 (Griddly, MiniGrid) 仅支持 2D/网格世界，视觉复杂度不足；(c) MineRL/MineDojo 依赖闭源 Minecraft (Java 实现)，性能和定制受限。
-3. **核心矛盾**: 丰富 3D 视觉环境 vs 灵活定制能力——两者难以兼得。
-4. **本文切入**: 利用 Minetest (开源 C++ 体素引擎 + Lua API) 作为底层平台，兼具性能和可扩展性。
-5. **核心 idea**: 对 Minetest 做最小化修改实现 RL 通信，通过 Lua 脚本定义奖励/终止逻辑，封装为 Gymnasium API。
+**领域现状**: RL 研究高度依赖环境，但目前主流环境 (Atari ALE, DeepMind Lab, MineRL) 大多基于已有游戏/物理模拟器改编，定制能力有限。
+**现有痛点**: (a) 游戏类环境只提供预定义任务，仅能调参无法新建环境；(b) 可创建环境的框架 (Griddly, MiniGrid) 仅支持 2D/网格世界，视觉复杂度不足；(c) MineRL/MineDojo 依赖闭源 Minecraft (Java 实现)，性能和定制受限。
+**核心矛盾**: 丰富 3D 视觉环境 vs 灵活定制能力——两者难以兼得。
+**本文切入**: 利用 Minetest (开源 C++ 体素引擎 + Lua API) 作为底层平台，兼具性能和可扩展性。
+**核心 idea**: 对 Minetest 做最小化修改实现 RL 通信，通过 Lua 脚本定义奖励/终止逻辑，封装为 Gymnasium API。
 
 ## 方法详解
 
@@ -38,20 +38,23 @@ Craftium 基于开源 Minetest 游戏引擎构建了一个灵活高效的 3D RL 
 ### 关键设计
 
 1. **观测空间**:
-   - 默认为可自定义尺寸的 RGB 图像 (如 64×64)
-   - 支持 Gymnasium 的 observation wrapper (如 FrameStack 用于感知运动)
-   - 设计动机：图像观测是 3D RL 最直观且通用的输入形式
+
+    - 默认为可自定义尺寸的 RGB 图像 (如 64×64)
+    - 支持 Gymnasium 的 observation wrapper (如 FrameStack 用于感知运动)
+    - 设计动机：图像观测是 3D RL 最直观且通用的输入形式
 
 2. **动作空间**:
-   - 默认 21 个键盘动作 (二值) + 鼠标移动元组 $(\Delta x, \Delta y) \in [-1,1]^2$
-   - 提供 action wrapper 简化为离散动作子集
-   - 设计动机：完整控制保证灵活性，wrapper 降低特定任务的学习难度
+
+    - 默认 21 个键盘动作 (二值) + 鼠标移动元组 $(\Delta x, \Delta y) \in [-1,1]^2$
+    - 提供 action wrapper 简化为离散动作子集
+    - 设计动机：完整控制保证灵活性，wrapper 降低特定任务的学习难度
 
 3. **环境创建流程**:
-   - 创建 Minetest 世界 (可手动/Lua 脚本/地图生成器)
-   - 编写 Lua mod：`init.lua` 定义奖励函数和终止条件
-   - 通过 `set_reward_once(1.0, 0.0)` 和 `set_termination()` 等 API 控制 RL 逻辑
-   - 设计动机：利用 Minetest 成熟的 mod 生态，最小侵入式修改保证前向兼容
+
+    - 创建 Minetest 世界 (可手动/Lua 脚本/地图生成器)
+    - 编写 Lua mod：`init.lua` 定义奖励函数和终止条件
+    - 通过 `set_reward_once(1.0, 0.0)` 和 `set_termination()` 等 API 控制 RL 逻辑
+    - 设计动机：利用 Minetest 成熟的 mod 生态，最小侵入式修改保证前向兼容
 
 ### 预定义环境
 - **Chop Tree**: 砍树得分，稀疏奖励

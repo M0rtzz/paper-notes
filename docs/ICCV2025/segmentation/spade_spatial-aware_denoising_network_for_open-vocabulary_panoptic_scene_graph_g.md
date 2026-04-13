@@ -29,10 +29,10 @@ tags:
 
 全景场景图生成（PSG）将实例分割与关系理解统一为 subject-predicate-object 三元组。近年来基于VLM的开放词汇方法取得显著进展，但存在一个被忽视的关键问题：
 
-1. **VLM的空间推理缺陷**：多项研究表明CLIP、BLIP、GLIP等VLM在空间关系理解上存在先天不足（因训练数据中缺乏空间描述），导致模型难以判断"左/右/上方/下方"等空间关系
-2. **距离敏感性**：作者系统性实验发现，当两个物体距离较远（中心间距>1/3图像宽度）时，VLM-based模型的空间关系预测性能急剧下降（如OpenPSG的R@50从43.7降至37.1）
-3. **缺乏上下文推理**：现有方法主要关注设计视觉提示来提取VLM知识，忽略了关系对之间的空间和语义上下文信息
-4. **直接使用扩散模型的不足**：虽然扩散模型具有出色的空间组合能力，但预训练知识未针对PSG任务优化，直接使用效果不佳
+**VLM的空间推理缺陷**：多项研究表明CLIP、BLIP、GLIP等VLM在空间关系理解上存在先天不足（因训练数据中缺乏空间描述），导致模型难以判断"左/右/上方/下方"等空间关系
+**距离敏感性**：作者系统性实验发现，当两个物体距离较远（中心间距>1/3图像宽度）时，VLM-based模型的空间关系预测性能急剧下降（如OpenPSG的R@50从43.7降至37.1）
+**缺乏上下文推理**：现有方法主要关注设计视觉提示来提取VLM知识，忽略了关系对之间的空间和语义上下文信息
+**直接使用扩散模型的不足**：虽然扩散模型具有出色的空间组合能力，但预训练知识未针对PSG任务优化，直接使用效果不佳
 
 **核心动机**：能否将扩散模型的空间知识注入VLM，而不损害其固有的开放世界识别能力？
 
@@ -47,24 +47,27 @@ SPADE是一个两阶段方法：
 ### 关键设计
 
 1. **逆向引导校准（Inversion-guided Calibration）**：
-   - **逆向空间先验提取**：将真实图像通过DDIM逆向过程转为确定性噪声 $z$，再用教师扩散模型（BELM）在关系提示 "[subject] is [predicate] [object]..." 条件下进行确定性采样，得到交叉注意力图 $A_i$ 作为空间先验
-   - **隐式文本编码器**：由于推理时无文本描述，用CLIP图像编码器 + MLP适配器替代文本编码器：$f_i = \epsilon_\phi(x_i, \mathrm{MLP} \circ \mathrm{CLIP_{image}}(x_i))$
-   - **LoRA校准**：仅更新UNet交叉注意力层的低秩矩阵 $\Delta\mathbf{W}_k = \mathbf{B} \times \mathbf{D}$（$\mathbf{B} \in \mathbb{R}^{m_{in} \times r}$, $\mathbf{D} \in \mathbb{R}^{r \times m_{out}}$），保留预训练知识
-   - **校准损失**：$\mathcal{L}_{cal} = \frac{1}{N}\sum_{i=1}^{N}(\lambda\|A_i - A_i'\|_1)$，对齐真实图像上的交叉注意力图与逆向过程得到的先验
-   - 设计动机：DDIM逆向过程天然保留输入图像的空间结构；LoRA微调可在注入PSG空间知识的同时最大限度保留扩散模型的世界知识
+
+    - **逆向空间先验提取**：将真实图像通过DDIM逆向过程转为确定性噪声 $z$，再用教师扩散模型（BELM）在关系提示 "[subject] is [predicate] [object]..." 条件下进行确定性采样，得到交叉注意力图 $A_i$ 作为空间先验
+    - **隐式文本编码器**：由于推理时无文本描述，用CLIP图像编码器 + MLP适配器替代文本编码器：$f_i = \epsilon_\phi(x_i, \mathrm{MLP} \circ \mathrm{CLIP_{image}}(x_i))$
+    - **LoRA校准**：仅更新UNet交叉注意力层的低秩矩阵 $\Delta\mathbf{W}_k = \mathbf{B} \times \mathbf{D}$（$\mathbf{B} \in \mathbb{R}^{m_{in} \times r}$, $\mathbf{D} \in \mathbb{R}^{r \times m_{out}}$），保留预训练知识
+    - **校准损失**：$\mathcal{L}_{cal} = \frac{1}{N}\sum_{i=1}^{N}(\lambda\|A_i - A_i'\|_1)$，对齐真实图像上的交叉注意力图与逆向过程得到的先验
+    - 设计动机：DDIM逆向过程天然保留输入图像的空间结构；LoRA微调可在注入PSG空间知识的同时最大限度保留扩散模型的世界知识
 
 2. **空间感知关系图Transformer（RGT）**：
-   - **空间-语义图构建**：基于实例掩码的空间距离（相邻=1）和特征余弦相似度（>阈值=1）构建图 $G \in \mathbb{R}^{N \times N}$
-   - **长程上下文学习**（$\mathrm{RGT_g}$）：分别对邻居 $\mathcal{P}(r)^+$ 和非邻居 $\mathcal{P}(r)^-$ 计算自注意力，然后融合：$\mathbf{q}_r \leftarrow \mathbf{q}_r + \mathrm{RGT}(\mathbf{q}_r)_{\mathcal{P}^+} + \mathrm{RGT}(\mathbf{q}_r)_{\mathcal{P}^-}$，再用MLP融合所有特征
-   - **局部上下文学习**（$\mathrm{RGT_l}$）：用GCN在图 $G$ 上聚合局部邻域信息：$\hat{\mathbf{q}}_r = \mathrm{GCN}(G, \mathbf{q}_r'; \mathbf{W}_l)$
-   - **关系查询构造**：基于余弦距离选择相近目标对构建关系查询 $\Psi_r$，辅助loss $\mathcal{L}_{rqc}$ 优化选择质量
-   - 设计动机：仅建模相连对象不够，非相连对象间也可能存在关系（如"远处的人看着飞机"）；长程+局部双路推理覆盖不同空间尺度
+
+    - **空间-语义图构建**：基于实例掩码的空间距离（相邻=1）和特征余弦相似度（>阈值=1）构建图 $G \in \mathbb{R}^{N \times N}$
+    - **长程上下文学习**（$\mathrm{RGT_g}$）：分别对邻居 $\mathcal{P}(r)^+$ 和非邻居 $\mathcal{P}(r)^-$ 计算自注意力，然后融合：$\mathbf{q}_r \leftarrow \mathbf{q}_r + \mathrm{RGT}(\mathbf{q}_r)_{\mathcal{P}^+} + \mathrm{RGT}(\mathbf{q}_r)_{\mathcal{P}^-}$，再用MLP融合所有特征
+    - **局部上下文学习**（$\mathrm{RGT_l}$）：用GCN在图 $G$ 上聚合局部邻域信息：$\hat{\mathbf{q}}_r = \mathrm{GCN}(G, \mathbf{q}_r'; \mathbf{W}_l)$
+    - **关系查询构造**：基于余弦距离选择相近目标对构建关系查询 $\Psi_r$，辅助loss $\mathcal{L}_{rqc}$ 优化选择质量
+    - 设计动机：仅建模相连对象不够，非相连对象间也可能存在关系（如"远处的人看着飞机"）；长程+局部双路推理覆盖不同空间尺度
 
 3. **开放词汇关系预测**：
-   - 使用CLIP文本编码器对目标/谓词类别模板编码，与特征做相似度分类
-   - 双路预测融合：扩散模型特征分数 $\mathbf{P}_o$ + CLIP池化特征分数 $\mathbf{P}_o'$，通过几何均值融合：$\mathbf{P}^o_{\text{final}} = \mathbf{P}_o^\alpha \cdot \mathbf{P}_o'^{(1-\alpha)}$
-   - 关系预测同理，使用subject+object的联合掩码进行池化
-   - 设计动机：扩散模型擅长空间推理但开放词汇能力有限，CLIP擅长开放世界识别但空间推理弱，互补融合
+
+    - 使用CLIP文本编码器对目标/谓词类别模板编码，与特征做相似度分类
+    - 双路预测融合：扩散模型特征分数 $\mathbf{P}_o$ + CLIP池化特征分数 $\mathbf{P}_o'$，通过几何均值融合：$\mathbf{P}^o_{\text{final}} = \mathbf{P}_o^\alpha \cdot \mathbf{P}_o'^{(1-\alpha)}$
+    - 关系预测同理，使用subject+object的联合掩码进行池化
+    - 设计动机：扩散模型擅长空间推理但开放词汇能力有限，CLIP擅长开放世界识别但空间推理弱，互补融合
 
 ### 损失函数 / 训练策略
 

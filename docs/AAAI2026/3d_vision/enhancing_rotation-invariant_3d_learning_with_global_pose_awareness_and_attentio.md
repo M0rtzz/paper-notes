@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：旋转不变（RI）3D 点云学习的主流做法是用手工设计的局部几何特征（如 PPF、RI 张量）替代原始坐标，确保在任意旋转下特征不变。代表方法包括 PaRI-Conv、RISurConv、PaRot 等。
+**领域现状**：旋转不变（RI）3D 点云学习的主流做法是用手工设计的局部几何特征（如 PPF、RI 张量）替代原始坐标，确保在任意旋转下特征不变。代表方法包括 PaRI-Conv、RISurConv、PaRot 等。
 
-2. **现有痛点**：这些方法通过丢弃绝对坐标信息来获得旋转不变性，但同时也丢失了全局姿态上下文。这导致几何结构相似但空间位置不同的部件（如飞机的左翼和右翼）产生完全相同的特征表示。
+**现有痛点**：这些方法通过丢弃绝对坐标信息来获得旋转不变性，但同时也丢失了全局姿态上下文。这导致几何结构相似但空间位置不同的部件（如飞机的左翼和右翼）产生完全相同的特征表示。
 
-3. **核心矛盾**：作者形式化定义了"Wing-tip Feature Collapse"现象——对于对称点 $p_{\text{left}}$ 和 $p_{\text{right}}$，由于其局部邻域 $\Omega(p_{\text{right}}) = \Omega(p_{\text{left}}) R_{\text{sym}}$，在 RI 函数下必有 $f(p_{\text{left}}) = f(p_{\text{right}})$。这是有限感受野的根本限制。
+**核心矛盾**：作者形式化定义了"Wing-tip Feature Collapse"现象——对于对称点 $p_{\text{left}}$ 和 $p_{\text{right}}$，由于其局部邻域 $\Omega(p_{\text{right}}) = \Omega(p_{\text{left}}) R_{\text{sym}}$，在 RI 函数下必有 $f(p_{\text{left}}) = f(p_{\text{right}})$。这是有限感受野的根本限制。
 
-4. **本文要解决什么？** 如何在保持旋转不变性的同时注入全局姿态信息，使模型能区分几何相似但空间位置不同的结构。
+**本文要解决什么？** 如何在保持旋转不变性的同时注入全局姿态信息，使模型能区分几何相似但空间位置不同的结构。
 
-5. **切入角度**：为每个点引入一个"影子"参考点——通过学习的共享旋转矩阵将点投影到新位置，用这个全局一致的锚点编码相对位置信息。
+**切入角度**：为每个点引入一个"影子"参考点——通过学习的共享旋转矩阵将点投影到新位置，用这个全局一致的锚点编码相对位置信息。
 
-6. **核心 idea 一句话**：用基于 Bingham 分布学习的全局旋转生成"影子点"，将其编码到局部 PPF 特征中构成 SiPF，配合注意力卷积算子实现全局姿态感知的旋转不变学习。
+**核心 idea 一句话**：用基于 Bingham 分布学习的全局旋转生成"影子点"，将其编码到局部 PPF 特征中构成 SiPF，配合注意力卷积算子实现全局姿态感知的旋转不变学习。
 
 ## 方法详解
 
@@ -49,23 +49,26 @@ tags:
 ### 关键设计
 
 1. **Shadow-informed Pose Feature (SiPF)**:
-   - 做什么：将全局姿态信息编码到局部旋转不变特征中
-   - 核心思路：对参考点 $p_r$ 通过共享旋转 $R_g$ 生成影子点 $p_r' = p_r R_g$。在标准 PPF（4D：距离 + 3个角度）基础上，额外计算 SiPPF——参考点和邻居点各自与影子点的 PPF 差值：$\text{SiPPF}(p_r, p_r', p_j) = \frac{\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')}{\|\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')\|_2}$
-   - 最终 SiPF 为 8D 向量：$\mathcal{P}_r^j = (\text{PPF}(p_r, p_j), \text{SiPPF}(p_r, p_r', p_j))$
-   - 设计动机：PPF 对于在 LRF 主轴圆周上对称分布的邻居点产生相同值，丢失了位置信息。影子点提供了全局一致的参考方向，打破了这种对称性
+
+    - 做什么：将全局姿态信息编码到局部旋转不变特征中
+    - 核心思路：对参考点 $p_r$ 通过共享旋转 $R_g$ 生成影子点 $p_r' = p_r R_g$。在标准 PPF（4D：距离 + 3个角度）基础上，额外计算 SiPPF——参考点和邻居点各自与影子点的 PPF 差值：$\text{SiPPF}(p_r, p_r', p_j) = \frac{\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')}{\|\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')\|_2}$
+    - 最终 SiPF 为 8D 向量：$\mathcal{P}_r^j = (\text{PPF}(p_r, p_j), \text{SiPPF}(p_r, p_r', p_j))$
+    - 设计动机：PPF 对于在 LRF 主轴圆周上对称分布的邻居点产生相同值，丢失了位置信息。影子点提供了全局一致的参考方向，打破了这种对称性
 
 2. **Task-adaptive Shadow Locating**:
-   - 做什么：自适应学习最优的全局旋转 $R_g$ 来生成影子点
-   - 核心思路：用 Bingham 分布在单位四元数球面 $S^3$ 上建模旋转的不确定性：$\mathcal{B}(q | \mathbf{V}, \mathbf{\Lambda}) = \frac{1}{F(\mathbf{\Lambda})} \exp(q^\top \mathbf{V} \mathbf{\Lambda} \mathbf{V}^\top q)$
-   - 从 $\mathbf{V}$ 中提取 mode 向量作为当前 epoch 的最优旋转候选
-   - 联合损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \delta \cdot \sqrt{(\mathcal{L}_{\text{bingham}} - 0.1 \cdot \mathcal{L}_{\text{task}})^2}$
-   - 设计动机：任意选择的 $R_g$ 可能在某些几何配置下失效（如影子点与 LRF 主轴对齐时退化为标准 PPF）。通过端到端学习 + Bingham 分布建模不确定性，自动找到避免退化的最优旋转
+
+    - 做什么：自适应学习最优的全局旋转 $R_g$ 来生成影子点
+    - 核心思路：用 Bingham 分布在单位四元数球面 $S^3$ 上建模旋转的不确定性：$\mathcal{B}(q | \mathbf{V}, \mathbf{\Lambda}) = \frac{1}{F(\mathbf{\Lambda})} \exp(q^\top \mathbf{V} \mathbf{\Lambda} \mathbf{V}^\top q)$
+    - 从 $\mathbf{V}$ 中提取 mode 向量作为当前 epoch 的最优旋转候选
+    - 联合损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \delta \cdot \sqrt{(\mathcal{L}_{\text{bingham}} - 0.1 \cdot \mathcal{L}_{\text{task}})^2}$
+    - 设计动机：任意选择的 $R_g$ 可能在某些几何配置下失效（如影子点与 LRF 主轴对齐时退化为标准 PPF）。通过端到端学习 + Bingham 分布建模不确定性，自动找到避免退化的最优旋转
 
 3. **RIAttnConv 算子**:
-   - 做什么：基于注意力机制聚合邻居特征，利用 SiPF 引导权重
-   - 核心思路：用 MLP 将 SiPF $\mathcal{P}_r^j$ 映射为自适应核权重 $W_j^r$，然后用缩放点积注意力：$Q = \mathbf{W}_r, K = \mathbf{X}_r, V = \mathbf{W}_r \cdot \mathbf{X}_r$
-   - 配合 Reversed EdgeConv：先聚合邻居特征得到 $\hat{x}_r$，再与参考点特征 $x_r$ 融合：$x_r' = g((\hat{x}_r - x_r) \oplus x_r)$
-   - 设计动机：传统方法中核权重仅依赖局部相对姿态，当局部几何相同时核权重也相同。SiPF 引入的全局信息使得核权重在不同全局位置处产生差异，从而区分对称结构
+
+    - 做什么：基于注意力机制聚合邻居特征，利用 SiPF 引导权重
+    - 核心思路：用 MLP 将 SiPF $\mathcal{P}_r^j$ 映射为自适应核权重 $W_j^r$，然后用缩放点积注意力：$Q = \mathbf{W}_r, K = \mathbf{X}_r, V = \mathbf{W}_r \cdot \mathbf{X}_r$
+    - 配合 Reversed EdgeConv：先聚合邻居特征得到 $\hat{x}_r$，再与参考点特征 $x_r$ 融合：$x_r' = g((\hat{x}_r - x_r) \oplus x_r)$
+    - 设计动机：传统方法中核权重仅依赖局部相对姿态，当局部几何相同时核权重也相同。SiPF 引入的全局信息使得核权重在不同全局位置处产生差异，从而区分对称结构
 
 ### 损失函数 / 训练策略
 分类任务用交叉熵损失 + Bingham 正则化。SGD 优化器，初始学习率 0.1，余弦退火到 0.001，训练 300 epochs。分类 batch size=32，分割 batch size=16，dropout=0.5。

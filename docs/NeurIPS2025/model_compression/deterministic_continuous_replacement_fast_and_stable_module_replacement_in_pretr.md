@@ -26,12 +26,12 @@ DCR 通过确定性退火权重 α(t) 混合 teacher 和 student 模块输出，
 
 ## 研究背景与动机
 
-1. **领域现状**：随着训练成本攀升，模型适配（model adaptation）成为关键方向。主流做法包括用更小的代理模块替换原始块（压缩）和用高效注意力变体（Linformer/Performer 等 O(n) 复杂度）替换标准自注意力。
-2. **现有痛点**：在冻结的预训练骨干网络中替换模块时，冷启动的随机初始化模块会产生分布外特征，导致下游层收到异常输入、优化不稳定、梯度更新无效、恢复缓慢。
-3. **核心矛盾**：知识蒸馏需要昂贵的全 teacher 前向传播且强制刚性特征匹配；BERT-of-Theseus 等随机替换方法使用 Bernoulli 门控 $z_\ell(t) \sim \text{Bernoulli}(p(t))$，在 p(t) 处于中间值时引入大量梯度方差。
-4. **本文要解决什么？** 核心问题是"如何在冻结骨干中稳定地集成一个随机初始化的新模块"——即模块替换的稳定性问题。
-5. **切入角度**：将随机门控替换为确定性混合权重，从理论上消除门控导致的梯度方差项。
-6. **核心 idea 一句话**：用确定性退火的 α(t) 代替随机伯努利门控，理论上消除 gate-induced 梯度方差，实践中实现更快收敛。
+**领域现状**：随着训练成本攀升，模型适配（model adaptation）成为关键方向。主流做法包括用更小的代理模块替换原始块（压缩）和用高效注意力变体（Linformer/Performer 等 O(n) 复杂度）替换标准自注意力。
+**现有痛点**：在冻结的预训练骨干网络中替换模块时，冷启动的随机初始化模块会产生分布外特征，导致下游层收到异常输入、优化不稳定、梯度更新无效、恢复缓慢。
+**核心矛盾**：知识蒸馏需要昂贵的全 teacher 前向传播且强制刚性特征匹配；BERT-of-Theseus 等随机替换方法使用 Bernoulli 门控 $z_\ell(t) \sim \text{Bernoulli}(p(t))$，在 p(t) 处于中间值时引入大量梯度方差。
+**本文要解决什么？** 核心问题是"如何在冻结骨干中稳定地集成一个随机初始化的新模块"——即模块替换的稳定性问题。
+**切入角度**：将随机门控替换为确定性混合权重，从理论上消除门控导致的梯度方差项。
+**核心 idea 一句话**：用确定性退火的 α(t) 代替随机伯努利门控，理论上消除 gate-induced 梯度方差，实践中实现更快收敛。
 
 ## 方法详解
 
@@ -45,18 +45,21 @@ $$x_{\ell+1}(t) = x_\ell(t) + [\alpha(t) T_\ell(h_\ell(t)) + (1-\alpha(t)) S_\el
 ### 关键设计
 
 1. **确定性退火门控（Deterministic Gate）**:
-   - 做什么：用全局确定性权重 α(t) 线性混合 teacher 和 student 输出
-   - 核心思路：aggr20 调度——前 10% 训练 $\alpha: 1.0 \to 0.3$，10%-20% $\alpha: 0.3 \to 0.0$，之后 $\alpha = 0$ student 独立运行
-   - 设计动机：确定性门控完全消除了 gate-induced 梯度方差。对于 Theseus 硬门控 $z \sim \text{Bernoulli}(p)$，梯度方差的门控分量为 $p(1-p)\mathbb{E}\|a\|^2$；DCR 的确定性 α 使条件方差 $\text{Var}(\nabla_{\theta_\ell} L | X) = 0$
+
+    - 做什么：用全局确定性权重 α(t) 线性混合 teacher 和 student 输出
+    - 核心思路：aggr20 调度——前 10% 训练 $\alpha: 1.0 \to 0.3$，10%-20% $\alpha: 0.3 \to 0.0$，之后 $\alpha = 0$ student 独立运行
+    - 设计动机：确定性门控完全消除了 gate-induced 梯度方差。对于 Theseus 硬门控 $z \sim \text{Bernoulli}(p)$，梯度方差的门控分量为 $p(1-p)\mathbb{E}\|a\|^2$；DCR 的确定性 α 使条件方差 $\text{Var}(\nabla_{\theta_\ell} L | X) = 0$
 
 2. **Deep Feature Guidance (DFG)**:
-   - 做什么：在替换位置添加辅助 L2 对齐损失
-   - 核心思路：$\mathcal{L}_{\text{DFG}} = \sum_{\ell \in \mathcal{I}} \|S_\ell(h_\ell) - T_\ell(h_\ell)\|_2^2$，因为 DCR 已经计算了两个分支的输出，所以 DFG 几乎零额外成本
-   - 设计动机：与标准蒸馏不同，不需要全 teacher 模型前向传播，仅在替换层做局部对齐。DFG 权重 λ 与 α 同步退火
+
+    - 做什么：在替换位置添加辅助 L2 对齐损失
+    - 核心思路：$\mathcal{L}_{\text{DFG}} = \sum_{\ell \in \mathcal{I}} \|S_\ell(h_\ell) - T_\ell(h_\ell)\|_2^2$，因为 DCR 已经计算了两个分支的输出，所以 DFG 几乎零额外成本
+    - 设计动机：与标准蒸馏不同，不需要全 teacher 模型前向传播，仅在替换层做局部对齐。DFG 权重 λ 与 α 同步退火
 
 3. **曲率偏差消除（Curvature Bias）**:
-   - 做什么：消除随机混合通过非线性层时的曲率偏差
-   - 核心思路：Theseus 随机选择在非线性函数 ψ 后产生期望偏差 $|\mathbb{E}[\psi(Y)] - \psi(\mu)| \leq \frac{M}{2} p(1-p)\|\Delta\|^2$，而 DCR 的确定性路径使 $\mathbb{E}[\psi(Y_\alpha)] = \psi(Y_\alpha)$，不存在混合偏差
+
+    - 做什么：消除随机混合通过非线性层时的曲率偏差
+    - 核心思路：Theseus 随机选择在非线性函数 ψ 后产生期望偏差 $|\mathbb{E}[\psi(Y)] - \psi(\mu)| \leq \frac{M}{2} p(1-p)\|\Delta\|^2$，而 DCR 的确定性路径使 $\mathbb{E}[\psi(Y_\alpha)] = \psi(Y_\alpha)$，不存在混合偏差
 
 ### 损失函数 / 训练策略
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}}(\hat{y}, y^\star) + \lambda \mathcal{L}_{\text{DFG}}$$

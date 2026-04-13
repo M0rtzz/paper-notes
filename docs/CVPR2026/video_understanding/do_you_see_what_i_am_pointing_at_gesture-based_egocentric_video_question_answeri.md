@@ -38,24 +38,27 @@ HINT 在标准 MLLM 架构上增加了一条并行的手意图流。对每帧视
 
 ### 关键设计
 1. **EgoPointVQA 数据集**:
-   - 做什么：构建首个面向指示性手势问答的第一人称视频数据集
-   - 核心思路：4000 条合成视频（AI2-THOR 模拟器，184 个室内场景 + MIXAMO 逆运动学动画生成指向手势）+ 400 条真实视频（Meta Ray-Ban 智能眼镜采集，20 名参与者，360 室内 + 40 室外），共 18,745 个 QA 对
-   - 6 类任务：Reference（指向物体识别）、Counting（同类计数）、Spatial（空间关系）、Temporal（多次指向顺序）、Attribute（属性）、Feedback（功能反馈）
-   - 测试集：300 真实视频，672 个 QA 对，经人工验证正确性和指示歧义性
-   - 设计动机：现有第一人称 VQA 数据集无一聚焦于手势指向场景，模型训练数据的缺失是性能瓶颈的根源
+
+    - 做什么：构建首个面向指示性手势问答的第一人称视频数据集
+    - 核心思路：4000 条合成视频（AI2-THOR 模拟器，184 个室内场景 + MIXAMO 逆运动学动画生成指向手势）+ 400 条真实视频（Meta Ray-Ban 智能眼镜采集，20 名参与者，360 室内 + 40 室外），共 18,745 个 QA 对
+    - 6 类任务：Reference（指向物体识别）、Counting（同类计数）、Spatial（空间关系）、Temporal（多次指向顺序）、Attribute（属性）、Feedback（功能反馈）
+    - 测试集：300 真实视频，672 个 QA 对，经人工验证正确性和指示歧义性
+    - 设计动机：现有第一人称 VQA 数据集无一聚焦于手势指向场景，模型训练数据的缺失是性能瓶颈的根源
 
 2. **Keypoint Adapter（手意图 token 编码器）**:
-   - 做什么：将 21 个 3D 手关键点压缩为 1 个手意图 token
-   - 核心思路：先 flatten 为 63 维向量 $\tilde{k}_t = \text{flatten}(K_t) \in \mathbb{R}^{63}$，经 LayerNorm + 两层 MLP + GeLU 映射到 LLM 隐层维度：
-     $$H_t = W_2 \sigma(W_1 \text{LN}(\tilde{k}_t)), \quad W_1 \in \mathbb{R}^{d_h \times 63}, W_2 \in \mathbb{R}^{d \times d_h}$$
-     当手检测置信度 $c_t < \tau = 0.5$ 时不插入 token（跳过无手帧）
-   - 设计动机：直接用视觉方式叠加关键点或箭头到帧上效果差（消融实验证明），学习式编码让模型自己发现如何利用几何信息。adapter 极轻量（< 1% token 开销，推理仅增加 0.26s）
+
+    - 做什么：将 21 个 3D 手关键点压缩为 1 个手意图 token
+    - 核心思路：先 flatten 为 63 维向量 $\tilde{k}_t = \text{flatten}(K_t) \in \mathbb{R}^{63}$，经 LayerNorm + 两层 MLP + GeLU 映射到 LLM 隐层维度：
+    $H_t = W_2 \sigma(W_1 \text{LN}(\tilde{k}_t)), \quad W_1 \in \mathbb{R}^{d_h \times 63}, W_2 \in \mathbb{R}^{d \times d_h}$
+      当手检测置信度 $c_t < \tau = 0.5$ 时不插入 token（跳过无手帧）
+    - 设计动机：直接用视觉方式叠加关键点或箭头到帧上效果差（消融实验证明），学习式编码让模型自己发现如何利用几何信息。adapter 极轻量（< 1% token 开销，推理仅增加 0.26s）
 
 3. **帧-关键点交错输入（Frame-Keypoint Interleaving）**:
-   - 做什么：将手意图 token 与对应帧的视觉 token 交错排列
-   - 核心思路：序列格式为 `Frame-1: <vis> Keypoint-1: <key> Frame-2: <vis> ...`，模型自回归生成答案时条件化于手意图信号：
-     $$p(X_a | V, X_q, H) = \prod_{i=1}^{L} p(x_i | V, X_{q,<i}, X_{a,<i}, H_{<i})$$
-   - 设计动机：交错而非拼接可以让 LLM 在时间维度上自然地将手势与对应帧关联，实现时空对齐
+
+    - 做什么：将手意图 token 与对应帧的视觉 token 交错排列
+    - 核心思路：序列格式为 `Frame-1: <vis> Keypoint-1: <key> Frame-2: <vis> ...`，模型自回归生成答案时条件化于手意图信号：
+    $p(X_a | V, X_q, H) = \prod_{i=1}^{L} p(x_i | V, X_{q,<i}, X_{a,<i}, H_{<i})$
+    - 设计动机：交错而非拼接可以让 LLM 在时间维度上自然地将手势与对应帧关联，实现时空对齐
 
 ### 损失函数 / 训练策略
 - LoRA 微调 vision encoder 和 LLM，Keypoint Adapter 从零训练

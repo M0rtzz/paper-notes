@@ -29,9 +29,9 @@ tags:
 
 **活动生物特征识别（Activity-Biometrics）** 是在人执行日常活动（不仅是行走/站立）时识别身份的新任务，比传统行人重识别更具挑战性：
 
-1. **身份线索与运动/外观纠缠**：行走、跳跃等不同活动引入了大量运动变化，与身份特征混合使识别困难
-2. **现有方法依赖额外视觉模态**：ABNet 等方法需要轮廓图（silhouette），但提取精度受限于环境
-3. **CLIP-based 方法的局限**：只做全局 image-text 对齐，缺乏 identity-specific 特征分离，无法维护时序一致性
+**身份线索与运动/外观纠缠**：行走、跳跃等不同活动引入了大量运动变化，与身份特征混合使识别困难
+**现有方法依赖额外视觉模态**：ABNet 等方法需要轮廓图（silhouette），但提取精度受限于环境
+**CLIP-based 方法的局限**：只做全局 image-text 对齐，缺乏 identity-specific 特征分离，无法维护时序一致性
 
 核心动机：**能否用语言监督替代额外的视觉模态**，通过结构化文本描述来引导特征解纠缠，使生物特征不受外观和动作变化影响？
 
@@ -44,26 +44,29 @@ tags:
 ### 关键设计
 
 1. **DisenQ（Disentangling Querying Transformer）**：
-   - 基于 BLIP-2 的 Q-Former 架构改造，引入**三组独立的可学习 query**：$z_b$（生物特征）、$z_m$（动作）、$z_{\hat{b}}$（非生物特征）
-   - 三组 query 共享 self-attention 和 cross-attention 层，但彼此不交互，各自保持独立
-   - 每组 query 与对应的视觉特征和文本特征做 cross-attention：
-     $$Q_b = Wz_b, \quad K_b = W[F, T_b], \quad V_b = W[F, T_b]$$
-   - 动作 query $z_m$ 和非生物特征 query $z_{\hat{b}}$ 同理，分别使用 $T_m$ 和 $T_{\hat{b}}$
-   - 设计动机：共享层减少参数（消融显示三个独立 Q-Former 参数量×3 但只提升 0.23% R@1），独立 query 保证特征分离
+
+    - 基于 BLIP-2 的 Q-Former 架构改造，引入**三组独立的可学习 query**：$z_b$（生物特征）、$z_m$（动作）、$z_{\hat{b}}$（非生物特征）
+    - 三组 query 共享 self-attention 和 cross-attention 层，但彼此不交互，各自保持独立
+    - 每组 query 与对应的视觉特征和文本特征做 cross-attention：
+    $Q_b = Wz_b, \quad K_b = W[F, T_b], \quad V_b = W[F, T_b]$
+    - 动作 query $z_m$ 和非生物特征 query $z_{\hat{b}}$ 同理，分别使用 $T_m$ 和 $T_{\hat{b}}$
+    - 设计动机：共享层减少参数（消融显示三个独立 Q-Former 参数量×3 但只提升 0.23% R@1），独立 query 保证特征分离
 
 2. **结构化文本生成与编码**：
-   - 使用冻结的 LLaVA 1.5 7B 从关键帧生成三类描述：
-     - **生物特征描述 $P_b$**：体型、姿态、显著身体特征；每个身份只生成一次，后续用 running average 更新
-     - **动作描述 $P_m$**：动作标签和运动方式
-     - **非生物特征描述 $P_{\hat{b}}$**：服装、配饰等
-   - 文本经冻结 BERT 编码为 $T_b, T_m, T_{\hat{b}}$
-   - 推理时不需要 VLM 和文本——DisenQ 已从训练中学会了解纠缠
+
+    - 使用冻结的 LLaVA 1.5 7B 从关键帧生成三类描述：
+      - **生物特征描述 $P_b$**：体型、姿态、显著身体特征；每个身份只生成一次，后续用 running average 更新
+      - **动作描述 $P_m$**：动作标签和运动方式
+      - **非生物特征描述 $P_{\hat{b}}$**：服装、配饰等
+    - 文本经冻结 BERT 编码为 $T_b, T_m, T_{\hat{b}}$
+    - 推理时不需要 VLM 和文本——DisenQ 已从训练中学会了解纠缠
 
 3. **自适应身份相似度计算**：
-   - query 嵌入经 mean pooling 得到 $F_b$, $F_m$, $F_{\hat{b}}$，仅 $F_b$ 和 $F_m$ 用于最终识别
-   - 用轻量 MLP 动态计算生物特征和动作特征的权重 $\alpha_1, \alpha_2$：
-   $$Sim(A,B) = \alpha_1 Sim_b(A,B) + \alpha_2 Sim_m(A,B)$$
-   - 动态权重让模型在运动信息有意义时利用动作线索，否则依赖生物特征
+
+    - query 嵌入经 mean pooling 得到 $F_b$, $F_m$, $F_{\hat{b}}$，仅 $F_b$ 和 $F_m$ 用于最终识别
+    - 用轻量 MLP 动态计算生物特征和动作特征的权重 $\alpha_1, \alpha_2$：
+    $Sim(A,B) = \alpha_1 Sim_b(A,B) + \alpha_2 Sim_m(A,B)$
+    - 动态权重让模型在运动信息有意义时利用动作线索，否则依赖生物特征
 
 ### 损失函数 / 训练策略
 

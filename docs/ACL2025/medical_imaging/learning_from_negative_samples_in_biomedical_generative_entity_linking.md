@@ -31,8 +31,8 @@ tags:
 
 生物医学实体链接（BioEL）旨在将文本中的实体提及（mention）映射到标准化知识库（如 UMLS、MeSH）中的概念。该任务面临两大核心挑战：
 
-1. **同义词多样性**：同一概念有多种表达方式，如 "ADHD" 的同义词包括 hyperkinetic disorder 和 attention deficit hyperactivity disorder
-2. **表面形式歧义性**：不同概念可能有相似的名称，如 "ADA" 可指 adenosine deaminase 或 American Diabetes Association
+**同义词多样性**：同一概念有多种表达方式，如 "ADHD" 的同义词包括 hyperkinetic disorder 和 attention deficit hyperactivity disorder
+**表面形式歧义性**：不同概念可能有相似的名称，如 "ADA" 可指 adenosine deaminase 或 American Diabetes Association
 
 ### 现有方法局限
 

@@ -25,19 +25,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：多模态大模型（MLLM）主要有两条路线：(a) **连续 embedding**方法（LLaVA、Qwen-VL 等）使用预训练视觉编码器（如 CLIP）将图像映射为连续向量，通过投影层对齐到语言模型空间；(b) **离散 token** 方法（Chameleon、Unified-IO-2）使用向量量化（VQ-GAN/VQVAE）将图像离散化为 token 序列，与文本 token 统一处理。
+**领域现状**：多模态大模型（MLLM）主要有两条路线：(a) **连续 embedding**方法（LLaVA、Qwen-VL 等）使用预训练视觉编码器（如 CLIP）将图像映射为连续向量，通过投影层对齐到语言模型空间；(b) **离散 token** 方法（Chameleon、Unified-IO-2）使用向量量化（VQ-GAN/VQVAE）将图像离散化为 token 序列，与文本 token 统一处理。
 
-2. **现有痛点**：
+**现有痛点**：
    - 连续方法存在**模态鸠沟**（视觉编码器输出的高维连续特征与语言模型期望的离散 token 不匹配）和**信息瓶颈**（压缩过程丢失低频视觉细节，导致幻觉问题）
    - 离散方法虽然天然统一了多模态表示，但简单的 VQ 量化不考虑视觉内容的语义结构、关键视觉概念在 token 空间分布不均匀、且当前性能显著落后于连续方法
 
-3. **核心矛盾**：NLP 中 BPE token 化已被证明能显著提升 Transformer 的学习效率，因为它将频繁共现的字符合并为语义丰富的 token。先前工作 (Being-VL-0) 已将 BPE 应用于视觉数据的理论框架，但从理论到实践的落地面临三个挑战：(1) 如何设计超越简单频率的编码策略；(2) 如何构建匹配 BPE 层次性的数据混合策略；(3) 如何设计多阶段训练流程。
+**核心矛盾**：NLP 中 BPE token 化已被证明能显著提升 Transformer 的学习效率，因为它将频繁共现的字符合并为语义丰富的 token。先前工作 (Being-VL-0) 已将 BPE 应用于视觉数据的理论框架，但从理论到实践的落地面临三个挑战：(1) 如何设计超越简单频率的编码策略；(2) 如何构建匹配 BPE 层次性的数据混合策略；(3) 如何设计多阶段训练流程。
 
-4. **本文要解决什么**：将 BPE 视觉 token 化从理论概念推进到实用化的多模态大模型，缩小离散 token 方法与连续 embedding 方法之间的性能差距。
+**本文要解决什么**：将 BPE 视觉 token 化从理论概念推进到实用化的多模态大模型，缩小离散 token 方法与连续 embedding 方法之间的性能差距。
 
-5. **切入角度**：BPE 视觉 token 天然具有层次结构（底层 token 对应简单图像块，高层 token 编码越来越复杂的视觉模式），因此训练策略也应该是层次化/课程式的。
+**切入角度**：BPE 视觉 token 天然具有层次结构（底层 token 对应简单图像块，高层 token 编码越来越复杂的视觉模式），因此训练策略也应该是层次化/课程式的。
 
-6. **核心 idea 一句话**：优先级引导的 BPE 词表构建（频率 + 空间一致性）+ 课程式数据混合 + 渐进式参数解冻 = 实用化离散视觉 token MLLM。
+**核心 idea 一句话**：优先级引导的 BPE 词表构建（频率 + 空间一致性）+ 课程式数据混合 + 渐进式参数解冻 = 实用化离散视觉 token MLLM。
 
 ## 方法详解
 
@@ -47,22 +47,25 @@ tags:
 ### 关键设计
 
 1. **优先级引导的 BPE 词表构建（Priority-Guided Encoding）**:
-   - 做什么：构建既考虑出现频率又考虑空间关系的 BPE 视觉词表
-   - 核心思路：定义优先级函数 $P(a,b) = F(a,b) + \alpha \cdot S(a,b)$，其中 $F(a,b)$ 是 token 对 $(a,b)$ 的共现频率，$S(a,b) = \frac{1}{N_{a,b}} \sum_{i=1}^{N_{a,b}} d(u_i(a,b), \bar{u}(a,b))$ 是空间一致性分数，衡量该 token 对在不同图像中的相对位置是否一致（用高斯核 $d(u_1,u_2) = \exp(-\|u_1 - u_2\|^2 / 2\sigma^2)$ 度量）。每轮迭代选择优先级最高的 token 对合并为新 token，直到词表达到目标大小
-   - 设计动机：纯频率 BPE 在文本中有效的原因是文本是一维序列，但视觉数据是二维的，空间关系至关重要。一个 token 对即使频繁共现，如果其空间关系不一致（如在不同图像中位于不同相对位置），合并后的 token 缺乏稳定的语义含义
+
+    - 做什么：构建既考虑出现频率又考虑空间关系的 BPE 视觉词表
+    - 核心思路：定义优先级函数 $P(a,b) = F(a,b) + \alpha \cdot S(a,b)$，其中 $F(a,b)$ 是 token 对 $(a,b)$ 的共现频率，$S(a,b) = \frac{1}{N_{a,b}} \sum_{i=1}^{N_{a,b}} d(u_i(a,b), \bar{u}(a,b))$ 是空间一致性分数，衡量该 token 对在不同图像中的相对位置是否一致（用高斯核 $d(u_1,u_2) = \exp(-\|u_1 - u_2\|^2 / 2\sigma^2)$ 度量）。每轮迭代选择优先级最高的 token 对合并为新 token，直到词表达到目标大小
+    - 设计动机：纯频率 BPE 在文本中有效的原因是文本是一维序列，但视觉数据是二维的，空间关系至关重要。一个 token 对即使频繁共现，如果其空间关系不一致（如在不同图像中位于不同相对位置），合并后的 token 缺乏稳定的语义含义
 
 2. **模型扩展（Model Expanding）**:
-   - 做什么：将预训练的文本 LLM 扩展为支持视觉 token 的多模态模型
-   - 核心思路：将 embedding 层从 $|V_{\text{text}}|$ 扩展到 $|V_{\text{text}}| + |D|$（默认 8K VQ + 8K BPE = 16K 新 token），新增 embedding 使用 He 初始化。同步扩展 output head 的词表
-   - 设计动机：直接扩展词表而非使用额外的投影层，保持了统一 token 表示的简洁性
+
+    - 做什么：将预训练的文本 LLM 扩展为支持视觉 token 的多模态模型
+    - 核心思路：将 embedding 层从 $|V_{\text{text}}|$ 扩展到 $|V_{\text{text}}| + |D|$（默认 8K VQ + 8K BPE = 16K 新 token），新增 embedding 使用 He 初始化。同步扩展 output head 的词表
+    - 设计动机：直接扩展词表而非使用额外的投影层，保持了统一 token 表示的简洁性
 
 3. **多阶段渐进式训练（Multi-Stage Training）**:
-   - 做什么：通过三阶段训练逐步释放模型容量
-   - 核心思路：
-     - **Stage 1 (Embedding Alignment)**：仅训练新增的视觉 token embedding，冻结所有 LLM 参数。数据以基础 image-caption 对为主
-     - **Stage 2 (Selective Fine-tuning)**：解冻前 25% 的 Transformer 层，数据逐渐加入感知任务（详细视觉属性描述）
-     - **Stage 3 (Full Fine-tuning)**：解冻全部参数，数据侧重复杂推理和指令跟随任务
-   - 设计动机：BPE token 具有层次性——底层 token 对应简单图像块，高层 token 编码复杂视觉模式。训练也需要匹配这个层次：先让 token 学会基础语义映射，再逐步挑战复杂推理任务。这与直接全参数微调相比，避免了语言能力的灾难性遗忘
+
+    - 做什么：通过三阶段训练逐步释放模型容量
+    - 核心思路：
+      - **Stage 1 (Embedding Alignment)**：仅训练新增的视觉 token embedding，冻结所有 LLM 参数。数据以基础 image-caption 对为主
+      - **Stage 2 (Selective Fine-tuning)**：解冻前 25% 的 Transformer 层，数据逐渐加入感知任务（详细视觉属性描述）
+      - **Stage 3 (Full Fine-tuning)**：解冻全部参数，数据侧重复杂推理和指令跟随任务
+    - 设计动机：BPE token 具有层次性——底层 token 对应简单图像块，高层 token 编码复杂视觉模式。训练也需要匹配这个层次：先让 token 学会基础语义映射，再逐步挑战复杂推理任务。这与直接全参数微调相比，避免了语言能力的灾难性遗忘
 
 ### 损失函数 / 训练策略
 标准自回归交叉熵损失：$\mathcal{L}(\theta) = -\mathbb{E}_{(X,I,Y) \sim \mathcal{D}} [\sum_{i=1}^{|Y|} \log p_\theta(y_i | y_{<i}, X, T(Q(I)))]$。数据分为 Foundation、Perception、Reasoning、Instruction 四类，按课程式策略在三个阶段中调整混合比例。

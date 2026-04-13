@@ -28,8 +28,8 @@ tags:
 
 视频大语言模型面临两个核心挑战：
 
-1. **数据缺口**: 图像领域有大量高质量合成数据（LLaVA, ShareGPT4V 等），但视频领域的微调数据仍严重依赖低质量的旧数据集，问题类型单一（仅活动识别、物体计数等）
-2. **架构瓶颈**: 现有 VideoLLM 方案要么：
+**数据缺口**: 图像领域有大量高质量合成数据（LLaVA, ShareGPT4V 等），但视频领域的微调数据仍严重依赖低质量的旧数据集，问题类型单一（仅活动识别、物体计数等）
+**架构瓶颈**: 现有 VideoLLM 方案要么：
    - 将视频特征压入外部记忆模块 → 丢失帧级细节
    - 简单扩展LLM上下文窗口 → 计算成本爆炸且性能退化
    - 使用固定压缩率 → 短视频信息丢失、长视频Token过多
@@ -50,28 +50,31 @@ Dynamic-VLM = ViT视觉编码器 + 动态Token压缩器 + LLM。
 ### 关键设计
 
 1. **动态视觉Token压缩器**: 探索了三种候选方案：
-   - **Dynamic Spatial Pooling（自适应空间池化）**: $\hat{\mathcal{F}} = \text{AdaptiveAvgPool2d}(\mathcal{F}, [H, W])$，$H=W \in [4, 28]$，Token数 $M = H \times W$。**最终选用此方案**
-   - **Dynamic Token Merging**: 基于 ToMe 的双边软匹配，按余弦相似度合并Token
-   - **Token Pruning**: 使用 MLP + Gumbel Softmax 打分，保留 Top-K Token
+
+    - **Dynamic Spatial Pooling（自适应空间池化）**: $\hat{\mathcal{F}} = \text{AdaptiveAvgPool2d}(\mathcal{F}, [H, W])$，$H=W \in [4, 28]$，Token数 $M = H \times W$。**最终选用此方案**
+    - **Dynamic Token Merging**: 基于 ToMe 的双边软匹配，按余弦相似度合并Token
+    - **Token Pruning**: 使用 MLP + Gumbel Softmax 打分，保留 Top-K Token
 
    推理时的动态策略：每帧Token数 = $\max(N_{max}/T, 576)$，其中 $N_{max}$ 是最大视觉Token总预算（7B: 12K，14B: 10K），$T$ 是视频帧数。短视频（少帧）→ 每帧多Token；长视频（多帧）→ 每帧少Token。
 
 2. **200万级合成视频QA数据集**: 从闭源模型 GPT-4V/GPT-4o 收集，原始视频来自三个数据集：
-   - **WebVid-10M**（349k视频）: 通过caption去重+低频名词下采样
-   - **InternVid-10M**（547k视频）: 仅提供视频（caption质量低）
-   - **HDVILA-100M**（3.3M原始视频）: 包含小时级长视频
+
+    - **WebVid-10M**（349k视频）: 通过caption去重+低频名词下采样
+    - **InternVid-10M**（547k视频）: 仅提供视频（caption质量低）
+    - **HDVILA-100M**（3.3M原始视频）: 包含小时级长视频
 
    任务设计覆盖五大类：
-   - **感知任务**: 实体识别、属性、位置、运动描述
-   - **通用任务**: 重描述、情感分析、故事写作
-   - **时序任务**: 密集视频描述、带时间戳QA、通用时序QA
-   - **推理任务**: 视觉推理，提升细节理解
-   - **格式化任务**: 多选QA格式引导
+    - **感知任务**: 实体识别、属性、位置、运动描述
+    - **通用任务**: 重描述、情感分析、故事写作
+    - **时序任务**: 密集视频描述、带时间戳QA、通用时序QA
+    - **推理任务**: 视觉推理，提升细节理解
+    - **格式化任务**: 多选QA格式引导
 
 3. **训练流程**:
-   - 预训练: llava-558K 上先冻结backbone只训练压缩器，再端到端训练caption数据
-   - 图像指令微调: 大规模公开数据（General VQA + OCR 类）
-   - 视频指令微调: 自制200万 + PerceptionTest + NextQA，上下文窗口16K
+
+    - 预训练: llava-558K 上先冻结backbone只训练压缩器，再端到端训练caption数据
+    - 图像指令微调: 大规模公开数据（General VQA + OCR 类）
+    - 视频指令微调: 自制200万 + PerceptionTest + NextQA，上下文窗口16K
 
 ### 损失函数 / 训练策略
 

@@ -29,9 +29,9 @@ tags:
 
 计算机辅助设计（CAD）领域长期面临自动化瓶颈。现有研究集中在固定工作流（如3D逆向工程、CAD生成等），通用CAD智能体仍然几乎空白。尽管VLLM在多领域展现了强大能力，但在CAD场景中面临三大核心挑战：
 
-1. **几何推理能力不足**：VLLM难以准确理解渲染对象的语义、空间排列和基本体的定位
-2. **CAD命令效果不可预测**：高级CAD操作（倒角、圆角、几何约束等）对模型拓扑的影响复杂且非直觉，VLLM无法可靠预测
-3. **缺乏实际CAD交互**：现有方法无法与CAD软件直接交互，生成的设计无法被验证
+**几何推理能力不足**：VLLM难以准确理解渲染对象的语义、空间排列和基本体的定位
+**CAD命令效果不可预测**：高级CAD操作（倒角、圆角、几何约束等）对模型拓扑的影响复杂且非直觉，VLLM无法可靠预测
+**缺乏实际CAD交互**：现有方法无法与CAD软件直接交互，生成的设计无法被验证
 
 工具增强（Tool-Augmentation）已被证明能有效缓解基础模型的短板，但在CAD领域尚未被探索。本文正是填补这一空白。
 
@@ -50,25 +50,28 @@ $$(f_t, e_t) \leftarrow \mathcal{E}(a_t; e_{t-1}, \mathcal{T}, x_0)$$
 ### 关键设计
 
 1. **VLLM规划器（Planner）**：
-   - 采用GPT-4o作为核心规划器
-   - 接受多模态输入（文本、草图、绘制命令、3D扫描）
-   - 生成Python代码形式的动作（而非自然语言指令），可直接使用FreeCAD API
-   - 通过上下文拼接机制 $c_{t+1} \leftarrow \text{concat}(f_t, \{c_s\}_{s=1}^t)$ 维持长期记忆
+
+    - 采用GPT-4o作为核心规划器
+    - 接受多模态输入（文本、草图、绘制命令、3D扫描）
+    - 生成Python代码形式的动作（而非自然语言指令），可直接使用FreeCAD API
+    - 通过上下文拼接机制 $c_{t+1} \leftarrow \text{concat}(f_t, \{c_s\}_{s=1}^t)$ 维持长期记忆
 
 2. **CAD专用工具集（7种工具）**：
-   - **Python**：逻辑运算和动作格式化
-   - **FreeCAD集成**：通过Python API直接调用CAD软件
-   - **Sketch Parameterizer**：基于Davinci模型将手绘草图图像转为参数化CAD草图
-   - **Sketch Recognizer**：渲染草图并可视化参数，供规划器理解2D几何
-   - **Solid Recognizer**：渲染3D CAD模型并标注参数，增强3D理解
-   - **Constraint Checker**：分析几何约束的应用效果，判断约束是否破坏几何完整性
-   - **Crosssection Extractor**：从3D网格生成截面图像，用于3D扫描的逆向工程
+
+    - **Python**：逻辑运算和动作格式化
+    - **FreeCAD集成**：通过Python API直接调用CAD软件
+    - **Sketch Parameterizer**：基于Davinci模型将手绘草图图像转为参数化CAD草图
+    - **Sketch Recognizer**：渲染草图并可视化参数，供规划器理解2D几何
+    - **Solid Recognizer**：渲染3D CAD模型并标注参数，增强3D理解
+    - **Constraint Checker**：分析几何约束的应用效果，判断约束是否破坏几何完整性
+    - **Crosssection Extractor**：从3D网格生成截面图像，用于3D扫描的逆向工程
 
 3. **几何推理增强策略**：
-   - **参数化策略**：point-based表示优于SGPBench的implicit表示（精度从0.674提升到0.748）
-   - **序列化策略**：schema-embedded格式（JSON, 0.748）优于tabular格式（HTML/CSV/Markdown, ~0.71）
-   - **渲染增强**：精确渲染（0.754）优于文本描述（0.748），也优于手绘草图（0.616）
-   - **过参数化**：冗余参数集与point-based相比精度几乎无损（0.747 vs 0.748），但某些任务可能受益
+
+    - **参数化策略**：point-based表示优于SGPBench的implicit表示（精度从0.674提升到0.748）
+    - **序列化策略**：schema-embedded格式（JSON, 0.748）优于tabular格式（HTML/CSV/Markdown, ~0.71）
+    - **渲染增强**：精确渲染（0.754）优于文本描述（0.748），也优于手绘草图（0.616）
+    - **过参数化**：冗余参数集与point-based相比精度几乎无损（0.747 vs 0.748），但某些任务可能受益
 
 ### 损失函数 / 训练策略
 

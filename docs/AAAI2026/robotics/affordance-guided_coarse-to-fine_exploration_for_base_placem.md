@@ -50,17 +50,19 @@ tags:
 ### 关键设计
 
 1. **Affordance Guidance Projection（跨模态表征构建）**：这是整个方法最关键的设计——将RGB图像中的语义affordance信息"投射"到2D障碍物地图上，克服VLM只能在RGB上推理的局限。具体构建两个互补表征：
-   - **Affordance RGB（$I_{aff}$）**：在RGB图上叠加12个方向箭头（30°间隔，不同颜色），再标记一个"A"箭头表示VLM推荐的粗affordance方向
-   - **Obstacle Map+（$M_{local}^+$）**：在俯视障碍物地图上叠加目标物体轮廓$\mathcal{R}_t$、机器人当前位置、以"A"方向为中心±60°的扇形affordance区域$\mathcal{F}_t$，以及12个方向箭头（颜色与RGB中一致）
+
+    - **Affordance RGB（$I_{aff}$）**：在RGB图上叠加12个方向箭头（30°间隔，不同颜色），再标记一个"A"箭头表示VLM推荐的粗affordance方向
+    - **Obstacle Map+（$M_{local}^+$）**：在俯视障碍物地图上叠加目标物体轮廓$\mathcal{R}_t$、机器人当前位置、以"A"方向为中心±60°的扇形affordance区域$\mathcal{F}_t$，以及12个方向箭头（颜色与RGB中一致）
    
    两个表征通过**颜色一致性**实现跨模态对齐——VLM可以将RGB中看到的方向箭头与地图上的空间位置关联起来，从而实现超越自中心视角的全局语义推理。affordance方向通过向VLM提问3次并多数投票确定，确保鲁棒性。
 
 2. **Affordance Point Selection（affordance关键点选择）**：用DINOv2提取目标物体区域的视觉特征，k-means聚类（k=20，余弦相似度）生成候选关键点，经空间去重后在RGB上标注并提交VLM选择与任务最相关的关键点$\mathbf{g}$（如壶把手、柜门拉手）。这个点作为后续高斯采样的中心。
 
 3. **Coarse-to-Fine Iterative Optimization（粗到细迭代优化）**：在$\mathbf{g}$周围迭代采样候选基座位置，通过动态加权的复合评分平衡语义和几何：
-   - **评分**：每个候选$x$得分 $w(x) = w_{geo}(x)^{\alpha_t} \cdot w_{sem}(x)^{1-\alpha_t}$，其中几何项鼓励距离$\mathbf{g}$保持在首选半径$r^*$附近，语义项鼓励靠近由VLM更新的语义中心$\mu_t$
-   - **采样**：按归一化权重采样$N_{sample}$个候选点，将它们投射到$M_{local}^+$上标注索引，连同$I_{aff}$和子指令一起提交VLM做语义排序
-   - **精化**：VLM返回top-k语义最佳点，更新语义中心$\mu_t$并缩小$\sigma_s$促进收敛；最后一轮取top-5去掉2个离群值，剩余3个均值作为最终基座位置
+
+    - **评分**：每个候选$x$得分 $w(x) = w_{geo}(x)^{\alpha_t} \cdot w_{sem}(x)^{1-\alpha_t}$，其中几何项鼓励距离$\mathbf{g}$保持在首选半径$r^*$附近，语义项鼓励靠近由VLM更新的语义中心$\mu_t$
+    - **采样**：按归一化权重采样$N_{sample}$个候选点，将它们投射到$M_{local}^+$上标注索引，连同$I_{aff}$和子指令一起提交VLM做语义排序
+    - **精化**：VLM返回top-k语义最佳点，更新语义中心$\mu_t$并缩小$\sigma_s$促进收敛；最后一轮取top-5去掉2个离群值，剩余3个均值作为最终基座位置
    
    核心trick是**$\alpha_t$用sigmoid调度**：早期$\alpha_t$小（偏重语义探索），后期$\alpha_t$大（偏重几何精度），实现从粗到细的平滑过渡，避免陷入局部最优。
 

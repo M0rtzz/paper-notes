@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **对抗鲁棒性的挑战**：对抗样本是安全关键应用（自动驾驶、医学影像、恶意软件检测）的核心威胁。经验防御无法提供形式化保证，模型可能在更强攻击下依然脆弱。
+**对抗鲁棒性的挑战**：对抗样本是安全关键应用（自动驾驶、医学影像、恶意软件检测）的核心威胁。经验防御无法提供形式化保证，模型可能在更强攻击下依然脆弱。
 
-2. **认证鲁棒性的两条路线**：(a) 随机平滑(RS)通过噪声平均给出概率保证；(b) Lipschitz方法利用网络的Lipschitz常数给出确定性(worst-case)保证。本文聚焦后者。
+**认证鲁棒性的两条路线**：(a) 随机平滑(RS)通过噪声平均给出概率保证；(b) Lipschitz方法利用网络的Lipschitz常数给出确定性(worst-case)保证。本文聚焦后者。
 
-3. **Lipschitz方法的scaling瓶颈**：现有方法大多使用 $\leq 32$M参数的VGG风格架构，在CIFAR-100上就开始欠拟合，ImageNet上性能大幅下降。增大模型带来的增益迅速饱和。
+**Lipschitz方法的scaling瓶颈**：现有方法大多使用 $\leq 32$M参数的VGG风格架构，在CIFAR-100上就开始欠拟合，ImageNet上性能大幅下降。增大模型带来的增益迅速饱和。
 
-4. **正交矩阵是性能关键也是开销瓶颈**：紧的Lipschitz界要求所有权重正交。现有显式方法（矩阵指数SOC、Cayley变换、LOT-Orth、Cholesky-Orth）和隐式方法（AOL、CPL、SLL层）都引入大量额外计算（FFT、矩阵逆、power iteration等），限制了扩展性和低精度训练。
+**正交矩阵是性能关键也是开销瓶颈**：紧的Lipschitz界要求所有权重正交。现有显式方法（矩阵指数SOC、Cayley变换、LOT-Orth、Cholesky-Orth）和隐式方法（AOL、CPL、SLL层）都引入大量额外计算（FFT、矩阵逆、power iteration等），限制了扩展性和低精度训练。
 
-5. **注意力机制不适合Lipschitz控制**：Transformer的attention缺乏直接的Lipschitz约束手段。但ConvNeXt和MetaFormer表明，Transformer时代的宏观设计可以与Lipschitz架构结合。
+**注意力机制不适合Lipschitz控制**：Transformer的attention缺乏直接的Lipschitz约束手段。但ConvNeXt和MetaFormer表明，Transformer时代的宏观设计可以与Lipschitz架构结合。
 
-6. **核心动机**：能否设计一个无需约束重参数化、无需卷积的1-Lipschitz架构，使认证鲁棒性像标准训练一样享受scaling law的红利？
+**核心动机**：能否设计一个无需约束重参数化、无需卷积的1-Lipschitz架构，使认证鲁棒性像标准训练一样享受scaling law的红利？
 
 ## 方法详解
 

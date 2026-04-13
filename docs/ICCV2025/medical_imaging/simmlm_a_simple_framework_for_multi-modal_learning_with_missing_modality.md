@@ -29,9 +29,9 @@ tags:
 
 多模态学习虽然能利用互补信息提升性能，但实际部署中经常遇到**测试时模态缺失**问题（硬件故障、环境限制、数据采集约束等）。现有解决方案存在以下不足：
 
-1. **数据填补方法**（用生成模型合成缺失模态）：合成数据质量难以保证，存在幻觉、对抗脆弱性等问题，且计算开销大
-2. **复杂架构方法**（mmFormer、ShaSpec 等）：需要特殊的网络设计来对齐/共享跨模态特征，参数量大、灵活性差，且共享编码器要求所有模态维度一致
-3. **现有 MoE 方法**（MoMKE）：每个模态需通过所有专家，计算复杂度随模态数量平方增长
+**数据填补方法**（用生成模型合成缺失模态）：合成数据质量难以保证，存在幻觉、对抗脆弱性等问题，且计算开销大
+**复杂架构方法**（mmFormer、ShaSpec 等）：需要特殊的网络设计来对齐/共享跨模态特征，参数量大、灵活性差，且共享编码器要求所有模态维度一致
+**现有 MoE 方法**（MoMKE）：每个模态需通过所有专家，计算复杂度随模态数量平方增长
 
 SimMLM 的核心理念是**简单即有效**：每个模态只需对应一个专家网络，通过动态门控网络自适应调整贡献权重，再用 MoFe 排序损失确保"模态越多性能越好"的直觉性质。
 
@@ -46,25 +46,28 @@ SimMLM 由两个组件组成：
 ### 关键设计
 
 1. **动态模态专家混合（DMoME）**：
-   - 每个模态 $m$ 对应一个专家网络 $E^m(\mathbf{x}^m; \theta_m)$，产生任务输出 $\mathbf{o}^m$（如分类 logits）
-   - 门控网络 $G(\cdot; \phi)$ 以所有可用模态为输入，产生门控值 $\{g^m\}_{m=1}^M$，经 softmax 得到权重 $w^m$
-   - 缺失模态的输入置零，对应 $g_m = -\infty$（softmax 后权重为 0），自然排除缺失模态的贡献
-   - 最终输出为加权组合：$\mathbf{o} = \sum_{m=1}^M w^m E^m(\mathbf{x}^m; \theta_m)$
-   - **关键优势**：每个模态只过自己的专家网络（vs. MoMKE 的每个过所有专家），FLOPS 线性而非二次增长；对专家网络的架构无约束，可异构
+
+    - 每个模态 $m$ 对应一个专家网络 $E^m(\mathbf{x}^m; \theta_m)$，产生任务输出 $\mathbf{o}^m$（如分类 logits）
+    - 门控网络 $G(\cdot; \phi)$ 以所有可用模态为输入，产生门控值 $\{g^m\}_{m=1}^M$，经 softmax 得到权重 $w^m$
+    - 缺失模态的输入置零，对应 $g_m = -\infty$（softmax 后权重为 0），自然排除缺失模态的贡献
+    - 最终输出为加权组合：$\mathbf{o} = \sum_{m=1}^M w^m E^m(\mathbf{x}^m; \theta_m)$
+    - **关键优势**：每个模态只过自己的专家网络（vs. MoMKE 的每个过所有专家），FLOPS 线性而非二次增长；对专家网络的架构无约束，可异构
 
 2. **More vs. Fewer (MoFe) 排序损失**：
-   - 核心直觉：有更多模态输入时，模型性能应不低于较少模态的情况
-   - 每次训练迭代，从完整模态 $\mathbf{x}^{full}$ 中采样两组：$\mathbf{x}^+ \supseteq \mathbf{x}^-$
-   - MoFe 损失定义为：
-   $$\ell_{\text{MoFe}}(\mathbf{o}^+, \mathbf{o}^-, \mathbf{y}) = \max(0, \ell_{\text{task}}(\mathbf{o}^+, \mathbf{y}) - \ell_{\text{task}}(\mathbf{o}^-, \mathbf{y}))$$
-   - 即当更多模态的 task loss 反而高于更少模态时产生梯度，鼓励网络消除这种"反直觉"现象
-   - **创新点**：在 loss level 而非 confidence level 做排序，直接正则化损失景观的几何结构，且通用于分类、分割、回归等任意任务
+
+    - 核心直觉：有更多模态输入时，模型性能应不低于较少模态的情况
+    - 每次训练迭代，从完整模态 $\mathbf{x}^{full}$ 中采样两组：$\mathbf{x}^+ \supseteq \mathbf{x}^-$
+    - MoFe 损失定义为：
+    $\ell_{\text{MoFe}}(\mathbf{o}^+, \mathbf{o}^-, \mathbf{y}) = \max(0, \ell_{\text{task}}(\mathbf{o}^+, \mathbf{y}) - \ell_{\text{task}}(\mathbf{o}^-, \mathbf{y}))$
+    - 即当更多模态的 task loss 反而高于更少模态时产生梯度，鼓励网络消除这种"反直觉"现象
+    - **创新点**：在 loss level 而非 confidence level 做排序，直接正则化损失景观的几何结构，且通用于分类、分割、回归等任意任务
 
 3. **两阶段训练**：
-   - **Stage 1（独立学习）**：各模态专家独立训练，避免某个模态主导学习过程
-   - **Stage 2（协作学习）**：联合训练专家和门控网络，使用 MoFe 损失，总损失为：
-   $$\ell_{\text{total}} = \ell_{\text{task}}(\mathbf{o}^+, \mathbf{y}) + \ell_{\text{task}}(\mathbf{o}^-, \mathbf{y}) + \lambda \ell_{\text{MoFe}}$$
-   - Stage 1 可并行训练，新增模态时可重用已训练专家
+
+    - **Stage 1（独立学习）**：各模态专家独立训练，避免某个模态主导学习过程
+    - **Stage 2（协作学习）**：联合训练专家和门控网络，使用 MoFe 损失，总损失为：
+    $\ell_{\text{total}} = \ell_{\text{task}}(\mathbf{o}^+, \mathbf{y}) + \ell_{\text{task}}(\mathbf{o}^-, \mathbf{y}) + \lambda \ell_{\text{MoFe}}$
+    - Stage 1 可并行训练，新增模态时可重用已训练专家
 
 ### 损失函数 / 训练策略
 

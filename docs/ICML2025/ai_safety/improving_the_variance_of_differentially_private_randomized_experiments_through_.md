@@ -42,8 +42,8 @@ tags:
 
 ### 已有方法局限
 
-1. **Uniform-Prior-DP**（Kancharla & Kang, 2021 的推广）：以固定概率 λ 用均匀随机响应替换真实响应。未利用响应分布的先验信息，方差损失大。
-2. **聚合方法**（Noisy Horvitz-Thompson / Noisy Histogram）：仅输出聚合统计量，不提供用户级数据，无法满足广告商想做细粒度分析的需求。
+**Uniform-Prior-DP**（Kancharla & Kang, 2021 的推广）：以固定概率 λ 用均匀随机响应替换真实响应。未利用响应分布的先验信息，方差损失大。
+**聚合方法**（Noisy Horvitz-Thompson / Noisy Histogram）：仅输出聚合统计量，不提供用户级数据，无法满足广告商想做细粒度分析的需求。
 
 ## 方法详解
 

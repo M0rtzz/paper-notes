@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 2D扩散模型已经超越GAN，但统一的3D扩散管线尚未建立。现有方法分为2D提升（SDS/Zero-123）和前馈3D扩散两大路线。
-2. **现有痛点**: 
+**领域现状**: 2D扩散模型已经超越GAN，但统一的3D扩散管线尚未建立。现有方法分为2D提升（SDS/Zero-123）和前馈3D扩散两大路线。
+**现有痛点**: 
    - **可扩展性差**: 现有方法使用共享低容量MLP解码器进行逐实例优化，需要50+视角，计算成本随数据集线性增长
    - **效率低**: 高维3D潜在空间（如256×256×96）导致扩散训练困难；auto-decoding产生不干净的潜在空间
    - **泛化性弱**: 多集中在单类别无条件生成，忽视了跨类别的条件3D生成
-3. **核心矛盾**: 需要同时实现紧凑潜在空间（高效扩散）、高质量3D重建（保留细节）、通用条件生成（跨类别泛化）
-4. **本文要解决什么**: 设计一个3D表示无关的管线，支持快速、高质量、通用的条件3D生成
-5. **切入角度**: 借鉴2D LDM的成功经验，构建3D感知的VAE将图像压缩到结构化的三平面潜在空间
-6. **核心idea一句话**: 在KL正则化的紧凑三平面潜在空间上训练扩散模型，解耦3D压缩与生成两阶段
+**核心矛盾**: 需要同时实现紧凑潜在空间（高效扩散）、高质量3D重建（保留细节）、通用条件生成（跨类别泛化）
+**本文要解决什么**: 设计一个3D表示无关的管线，支持快速、高质量、通用的条件3D生成
+**切入角度**: 借鉴2D LDM的成功经验，构建3D感知的VAE将图像压缩到结构化的三平面潜在空间
+**核心idea一句话**: 在KL正则化的紧凑三平面潜在空间上训练扩散模型，解耦3D压缩与生成两阶段
 
 ## 方法详解
 
@@ -48,9 +48,10 @@ tags:
 ### 关键设计
 
 1. **3D感知的Transformer解码器**: 为促进3D空间信息流动，设计两种注意力机制：
-   - **Self-Plane Attention**: 对每个平面内部做自注意力，$z \in \mathbb{R}^{l \times 3 \times c}$ 中每个平面独立进行特征聚合，复杂度低
-   - **Cross-Plane Attention**: 将三个平面展开为长序列 $l \times 3 \times c \to 3l \times c$ 做全局注意力，所有token互相关注
-   - 两种注意力交替排列，使用DiT block和AdaLN层注入潜在条件，比Rodin更高效且支持并行计算
+
+    - **Self-Plane Attention**: 对每个平面内部做自注意力，$z \in \mathbb{R}^{l \times 3 \times c}$ 中每个平面独立进行特征聚合，复杂度低
+    - **Cross-Plane Attention**: 将三个平面展开为长序列 $l \times 3 \times c \to 3l \times c$ 做全局注意力，所有token互相关注
+    - 两种注意力交替排列，使用DiT block和AdaLN层注入潜在条件，比Rodin更高效且支持并行计算
 
 2. **紧凑三平面潜在空间**: 编码器下采样因子 $f=8$，输出 $z \in \mathbb{R}^{h \times w \times 3 \times c}$（三平面形式），与传统tri-plane类似但处于紧凑潜在空间。通过KL正则化 $\mathcal{L}_{\text{KL}}$ 确保潜在空间结构化，适合扩散训练。仅需V=2个视角（ShapeNet）即可训练，远少于SSDNeRF所需的50视角。
 
@@ -61,9 +62,10 @@ $$\mathcal{L}_{\text{FM}} = -\frac{1}{2}\mathbb{E}_{\mathcal{E}_\phi(I), \epsilo
 其中 $z_t = (1-t)x_0 + t\epsilon$ 定义直线路径，网络预测速度 $v_\Theta$。
 
 4. **多模态条件注入**: 
-   - 文本条件：CLIP文本编码器输出77×768 token通过cross attention注入
-   - 图像条件：CLIP图像编码器+DINOv2 patch features。DINO特征通过prepend到self-attention（类似SD-3），提供低层细节提升重建保真度
-   - Classifier-free guidance：15%概率随机drop条件，采样时混合条件/无条件分数
+
+    - 文本条件：CLIP文本编码器输出77×768 token通过cross attention注入
+    - 图像条件：CLIP图像编码器+DINOv2 patch features。DINO特征通过prepend到self-attention（类似SD-3），提供低层细节提升重建保真度
+    - Classifier-free guidance：15%概率随机drop条件，采样时混合条件/无条件分数
 
 ### 损失函数 / 训练策略
 

@@ -43,23 +43,27 @@ tags:
 ### 关键设计
 
 1. **临床对齐的奖励函数（C1）**：
-   - **主要目标**：采用无通气天数（VFD）替代死亡率。VFD = alive × max(0, min(再插管时间, 30天) - 通气天数)，综合考虑存活和通气时长
-   - **次要目标**：范围奖励 $r_{range}$，检查血pH、MAP、PaO2、SaO2、PaCO2、心率、SpO2等7个生理参数是否在安全范围内（参数和权重由多家医院专家通过Delphi共识确定）
-   - **时间惩罚** $r_{tp} = -1$，防止策略为收集正的Range奖励而拖延通气
-   - 总奖励 $r = r_{range} + r_{tp} + r_{vfd}$
-   - VFD奖励的应用方式（逐步 vs 终端）和权重 $w_{vfd}$ 通过 **Tchebycheff 多目标优化**选择，在Corr@VFD和Corr@RangeReward间找Pareto最优折中
+
+    - **主要目标**：采用无通气天数（VFD）替代死亡率。VFD = alive × max(0, min(再插管时间, 30天) - 通气天数)，综合考虑存活和通气时长
+    - **次要目标**：范围奖励 $r_{range}$，检查血pH、MAP、PaO2、SaO2、PaCO2、心率、SpO2等7个生理参数是否在安全范围内（参数和权重由多家医院专家通过Delphi共识确定）
+    - **时间惩罚** $r_{tp} = -1$，防止策略为收集正的Range奖励而拖延通气
+    - 总奖励 $r = r_{range} + r_{tp} + r_{vfd}$
+    - VFD奖励的应用方式（逐步 vs 终端）和权重 $w_{vfd}$ 通过 **Tchebycheff 多目标优化**选择，在Corr@VFD和Corr@RangeReward间找Pareto最优折中
 
 2. **离散动作空间优化（C2）**：
-   - **约束动作空间**：仅保留数据集中临床医生实际使用过的动作组合，将空间降至原来的53.6%；进一步利用通气模式互斥关系（VCV下mask驱动压，PCV下mask潮气量），可降至6.9%
-   - **因子化Q分解**：将 $Q(s,a) \approx \sum_{k=1}^{K} q_k(s, a_k)$，输出维度从 $O(\prod_k |A_k|)$ 降到 $O(\sum_k |A_k|)$，减小方差，虽引入偏差（忽略交叉项）但在低覆盖场景下方差-偏差折中更优
+
+    - **约束动作空间**：仅保留数据集中临床医生实际使用过的动作组合，将空间降至原来的53.6%；进一步利用通气模式互斥关系（VCV下mask驱动压，PCV下mask潮气量），可降至6.9%
+    - **因子化Q分解**：将 $Q(s,a) \approx \sum_{k=1}^{K} q_k(s, a_k)$，输出维度从 $O(\prod_k |A_k|)$ 降到 $O(\sum_k |A_k|)$，减小方差，虽引入偏差（忽略交叉项）但在低覆盖场景下方差-偏差折中更优
 
 3. **混合动作空间的离线RL（C3）**：
-   - **HybridIQL**：Critic接受连续动作+one-hot离散动作作为输入，策略用AWR优化，$\log\pi_\phi(a|s) = \log\pi^d_\phi(a_d|s) + \log\pi^c_\phi(a_c|s)$
-   - **HybridEDAC**：基于SAC的ensemble方法，改造Critic接受混合输入，而非为每个离散组合输出Q值（经验上更稳定）。离散部分通过直接计算精确分布的期望（而非Gumbel-Softmax），大幅降低策略更新方差
+
+    - **HybridIQL**：Critic接受连续动作+one-hot离散动作作为输入，策略用AWR优化，$\log\pi_\phi(a|s) = \log\pi^d_\phi(a_d|s) + \log\pi^c_\phi(a_c|s)$
+    - **HybridEDAC**：基于SAC的ensemble方法，改造Critic接受混合输入，而非为每个离散组合输出Q值（经验上更稳定）。离散部分通过直接计算精确分布的期望（而非Gumbel-Softmax），大幅降低策略更新方差
 
 4. **离散化的分布偏移分析（C4）**：
-   - 对比了4种bin-to-value映射：bin众数/高斯采样/bin均值/均匀采样
-   - 均匀采样覆盖率最低（-1.26），bin众数最高（-0.62），证明离散化确实引入非平凡的分布偏移
+
+    - 对比了4种bin-to-value映射：bin众数/高斯采样/bin均值/均匀采样
+    - 均匀采样覆盖率最低（-1.26），bin众数最高（-0.62），证明离散化确实引入非平凡的分布偏移
 
 ### 损失函数 / 训练策略
 - 离散设置：CQL用 $\alpha=0.1$，IQL用 $\tau=0.8, \beta=5$，学习率 $10^{-6}$（CQL）/$5 \times 10^{-5}$（IQL），训练10万步

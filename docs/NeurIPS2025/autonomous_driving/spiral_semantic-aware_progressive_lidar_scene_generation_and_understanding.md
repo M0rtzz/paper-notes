@@ -44,21 +44,24 @@ Spiral 采用 4 层 Efficient U-Net 作为骨干网络，基于连续时间 DDPM
 ### 关键设计
 
 1. **完整语义感知（Complete Semantic Awareness）**:
-   - 无条件步：模型同时预测语义图 $\hat{y}_t$ 和噪声 $\hat{\epsilon}_t$，损失为 MSE + 交叉熵
-   - 条件步：以给定语义图 $y$ 为条件，仅预测去噪残差 $\hat{\epsilon}_t$，损失为 MSE
-   - 训练时以 50% 概率随机切换两种步骤，统一损失函数为 $\mathcal{L} = \mathcal{L}_c \cdot \mathbb{I}(\psi \leq 0.5) + \mathcal{L}_u \cdot \mathbb{I}(\psi > 0.5)$
+
+    - 无条件步：模型同时预测语义图 $\hat{y}_t$ 和噪声 $\hat{\epsilon}_t$，损失为 MSE + 交叉熵
+    - 条件步：以给定语义图 $y$ 为条件，仅预测去噪残差 $\hat{\epsilon}_t$，损失为 MSE
+    - 训练时以 50% 概率随机切换两种步骤，统一损失函数为 $\mathcal{L} = \mathcal{L}_c \cdot \mathbb{I}(\psi \leq 0.5) + \mathcal{L}_u \cdot \mathbb{I}(\psi > 0.5)$
 
 2. **渐进式语义预测（Progressive Semantic Predictions）**:
-   - 推理时每步无条件去噪都输出一个中间语义图 $\hat{y}_t$
-   - 使用指数移动平均（EMA）平滑预测结果：$\bar{y}_t = \alpha \cdot \hat{y}_t + (1-\alpha) \cdot \bar{y}_{t+1}$
-   - 抑制扩散过程的随机波动，输出稳定的逐像素置信度分数
-   - 最终 $\bar{y}_0$ 作为语义输出
+
+    - 推理时每步无条件去噪都输出一个中间语义图 $\hat{y}_t$
+    - 使用指数移动平均（EMA）平滑预测结果：$\bar{y}_t = \alpha \cdot \hat{y}_t + (1-\alpha) \cdot \bar{y}_{t+1}$
+    - 抑制扩散过程的随机波动，输出稳定的逐像素置信度分数
+    - 最终 $\bar{y}_0$ 作为语义输出
 
 3. **闭环推理（Closed-Loop Inference）**:
-   - 推理从开环模式开始，执行无条件步
-   - 当 $\bar{y}_t$ 中超过 $\delta$ 比例的像素置信度超过阈值 $\delta$（默认 0.8），切换到闭环模式
-   - 闭环模式下交替执行无条件步和条件步：无条件步预测语义+噪声，条件步以当前语义图引导深度/反射率生成
-   - 实现语义与几何的联合优化，增强跨模态一致性
+
+    - 推理从开环模式开始，执行无条件步
+    - 当 $\bar{y}_t$ 中超过 $\delta$ 比例的像素置信度超过阈值 $\delta$（默认 0.8），切换到闭环模式
+    - 闭环模式下交替执行无条件步和条件步：无条件步预测语义+噪声，条件步以当前语义图引导深度/反射率生成
+    - 实现语义与几何的联合优化，增强跨模态一致性
 
 ### 语义感知评估指标
 

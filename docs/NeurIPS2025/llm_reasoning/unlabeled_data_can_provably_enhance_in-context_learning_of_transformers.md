@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：ICL让Transformer无需参数更新就能从prompt中的示例学习新任务，但严重依赖标记示例的数量和质量。高质量标记数据获取成本高昂（如GPT-3.5/4的RLHF数据涉及数千小时专家标注）。
-2. **现有痛点**：(a) prompt长度限制了标记示例数量；(b) 现有方法用LLM自身生成伪标签（pseudo-labels），但会继承模型偏差；(c) 海量无标记数据未被ICL利用。
-3. **核心矛盾**：存在大量无标记数据但ICL不知道怎么用——传统ICL只处理 $(x,y)$ 对，无标记的 $x$ 被忽略。
-4. **本文要解决什么？** 从理论上证明无标记数据可以提升ICL性能，并给出具体的Transformer构造和训练收敛保证。
-5. **切入角度**：将增强ICL（labeled + unlabeled in prompt）与经典半监督学习中的EM算法联系——Transformer通过CoT的多步推理可以迭代精化类均值估计。
-6. **核心idea一句话**：4层Transformer + CoT推理 = 隐式EM算法，在prompt中同时从标记和无标记数据学习。
+**领域现状**：ICL让Transformer无需参数更新就能从prompt中的示例学习新任务，但严重依赖标记示例的数量和质量。高质量标记数据获取成本高昂（如GPT-3.5/4的RLHF数据涉及数千小时专家标注）。
+**现有痛点**：(a) prompt长度限制了标记示例数量；(b) 现有方法用LLM自身生成伪标签（pseudo-labels），但会继承模型偏差；(c) 海量无标记数据未被ICL利用。
+**核心矛盾**：存在大量无标记数据但ICL不知道怎么用——传统ICL只处理 $(x,y)$ 对，无标记的 $x$ 被忽略。
+**本文要解决什么？** 从理论上证明无标记数据可以提升ICL性能，并给出具体的Transformer构造和训练收敛保证。
+**切入角度**：将增强ICL（labeled + unlabeled in prompt）与经典半监督学习中的EM算法联系——Transformer通过CoT的多步推理可以迭代精化类均值估计。
+**核心idea一句话**：4层Transformer + CoT推理 = 隐式EM算法，在prompt中同时从标记和无标记数据学习。
 
 ## 方法详解
 
@@ -42,24 +42,28 @@ tags:
 ### 关键设计
 
 1. **增强ICL的CoT编码**:
-   - 做什么：将labeled+unlabeled数据和推理中间状态编码到统一的token序列中
-   - 核心思路：推理块 $\mathbf{Q}^{(t)}$ 存储第 $t$ 步的类均值估计 $\hat{\mu}_i^{(t)}$。每步CoT将新产生的 $C$ 个token append到序列末尾
-   - 设计动机：利用CoT的自回归特性实现EM的迭代——每步CoT = 一步EM迭代
+
+    - 做什么：将labeled+unlabeled数据和推理中间状态编码到统一的token序列中
+    - 核心思路：推理块 $\mathbf{Q}^{(t)}$ 存储第 $t$ 步的类均值估计 $\hat{\mu}_i^{(t)}$。每步CoT将新产生的 $C$ 个token append到序列末尾
+    - 设计动机：利用CoT的自回归特性实现EM的迭代——每步CoT = 一步EM迭代
 
 2. **4层Transformer构造（Theorem 4.1）**:
-   - 做什么：显式构造一个4层Transformer实现EM更新
-   - 核心思路：更新公式为 $\hat{\mu}_i^{(t+1)} = \hat{\mu}_i^{(t)} - \frac{\eta^{(t)}}{M} \sum_{j} p_{ij}^{(t)}(\hat{\mu}_i^{(t)} - \mathbf{x}_j) + \mathbf{1}_{\{t=0\}} \frac{C}{N} \sum_j (\mathbf{e}_i^\top \mathbf{y}_j) \mathbf{x}_j$。第一层用softmax attention计算E-step（类成员概率 $p_{ij}^{(t)}$），后续层实现M-step（加权均值更新）。初始化用标记数据的类均值
-   - 设计动机：精确模拟高斯混合模型的EM算法——E-step计算后验概率，M-step更新参数
+
+    - 做什么：显式构造一个4层Transformer实现EM更新
+    - 核心思路：更新公式为 $\hat{\mu}_i^{(t+1)} = \hat{\mu}_i^{(t)} - \frac{\eta^{(t)}}{M} \sum_{j} p_{ij}^{(t)}(\hat{\mu}_i^{(t)} - \mathbf{x}_j) + \mathbf{1}_{\{t=0\}} \frac{C}{N} \sum_j (\mathbf{e}_i^\top \mathbf{y}_j) \mathbf{x}_j$。第一层用softmax attention计算E-step（类成员概率 $p_{ij}^{(t)}$），后续层实现M-step（加权均值更新）。初始化用标记数据的类均值
+    - 设计动机：精确模拟高斯混合模型的EM算法——E-step计算后验概率，M-step更新参数
 
 3. **收敛性分析（Theorem 4.2）**:
-   - 做什么：证明类均值估计在CoT步数增加时收敛到真值
-   - 核心思路：在信噪比 $\text{SNR} \geq \Omega(\sqrt{C \log(CM)})$、足够多标记数据 $N$ 和无标记数据 $M$ 的条件下，excess risk为 $\mathcal{O}(1/\sqrt{N + \text{poly}(M)})$，严格优于仅用标记数据的下界 $\mathcal{O}(1/\sqrt{N})$
-   - 设计动机：从理论上严格证明无标记数据的价值——不只是经验观察
+
+    - 做什么：证明类均值估计在CoT步数增加时收敛到真值
+    - 核心思路：在信噪比 $\text{SNR} \geq \Omega(\sqrt{C \log(CM)})$、足够多标记数据 $N$ 和无标记数据 $M$ 的条件下，excess risk为 $\mathcal{O}(1/\sqrt{N + \text{poly}(M)})$，严格优于仅用标记数据的下界 $\mathcal{O}(1/\sqrt{N})$
+    - 设计动机：从理论上严格证明无标记数据的价值——不只是经验观察
 
 4. **训练收敛（Theorem 5.1）**:
-   - 做什么：证明用teacher forcing训练的Transformer参数线性收敛到目标解
-   - 核心思路：将CoT训练损失的梯度分解为两个可分析项，利用involved quantities的各向同性简化分析
-   - 设计动机：证明理论构造不只是存在性结果，还能通过标准训练找到
+
+    - 做什么：证明用teacher forcing训练的Transformer参数线性收敛到目标解
+    - 核心思路：将CoT训练损失的梯度分解为两个可分析项，利用involved quantities的各向同性简化分析
+    - 设计动机：证明理论构造不只是存在性结果，还能通过标准训练找到
 
 ### 损失函数 / 训练策略
 Teacher forcing训练：在每个CoT步骤 $t$，监督信号是EM算法的"真实"下一步输出。梯度下降在population loss上以线性速率收敛。

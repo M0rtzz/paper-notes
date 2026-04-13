@@ -43,9 +43,10 @@ tags:
 ### 关键设计
 
 1. **三种不同规模的 Amharic 嵌入模型**：
-   - **RoBERTa-Base-AM-Embed (110M)**：12 层 Transformer，隐层 768 维，基于 XLM-RoBERTa，提供最强的上下文表示能力
-   - **RoBERTa-Medium-AM-Embed (42M)**：8 层 Transformer，隐层 512 维，面向延迟敏感和资源受限场景
-   - **BERT-Medium-AM-Embed (40M)**：同样 8 层/512 维，基于原始 BERT 架构
+
+    - **RoBERTa-Base-AM-Embed (110M)**：12 层 Transformer，隐层 768 维，基于 XLM-RoBERTa，提供最强的上下文表示能力
+    - **RoBERTa-Medium-AM-Embed (42M)**：8 层 Transformer，隐层 512 维，面向延迟敏感和资源受限场景
+    - **BERT-Medium-AM-Embed (40M)**：同样 8 层/512 维，基于原始 BERT 架构
    
    设计动机：提供不同精度-效率平衡点，证明即使紧凑模型也能超越大规模多语言模型。
 

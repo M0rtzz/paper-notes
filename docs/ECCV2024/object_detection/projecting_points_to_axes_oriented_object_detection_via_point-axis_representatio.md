@@ -29,9 +29,9 @@ tags:
 
 旋转目标检测是计算机视觉中的重要任务，广泛应用于航空图像分析。现有方法主要使用旋转框（rotated bounding box）表示目标，但面临**损失不连续**问题：
 
-1. **角度方法** $(x, y, w, h, \theta)$：当长短边长度接近时，角度 $\theta$ 会在 $\theta$ 和 $\theta \pm 90°$ 之间跳变，导致 loss 不连续
-2. **四边形方法** $(x, y, w, h, l_1, l_2, l_3, l_4)$：目标接近水平时偏移量突变，同样产生不连续
-3. **其他变体**（bbox boundary vectors、middle lines、Gaussian distributions）：均面临类似的边界问题（如 square problem）
+**角度方法** $(x, y, w, h, \theta)$：当长短边长度接近时，角度 $\theta$ 会在 $\theta$ 和 $\theta \pm 90°$ 之间跳变，导致 loss 不连续
+**四边形方法** $(x, y, w, h, l_1, l_2, l_3, l_4)$：目标接近水平时偏移量突变，同样产生不连续
+**其他变体**（bbox boundary vectors、middle lines、Gaussian distributions）：均面临类似的边界问题（如 square problem）
 
 近期基于**点集**的方法（如 Oriented Reppoints）虽避免了定义边界的跳变，但缺乏方向信息描述能力——当点集呈近圆形分布时，计算得到的最小外接矩形可能无法准确包围目标。
 

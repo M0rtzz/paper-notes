@@ -24,12 +24,12 @@ tags:
 深入分析多智能体系统中 prompt 和拓扑设计的影响，发现 prompt 优化是最关键的设计因素（仅优化 prompt 的单 Agent 即可超越复杂多 Agent 拓扑），提出 Mass 三阶段框架（block-level prompt → topology → workflow-level prompt）在 8 个 benchmark 上取得 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：多智能体系统（MAS）通过 Debate、Reflect、Aggregate 等拓扑组织多个 LLM Agent 协作。近期出现自动化 MAS 设计方法（如 ADAS、AFlow）。
-2. **现有痛点**：不清楚 MAS 性能提升究竟来自"多 Agent 拓扑"还是"更好的 prompt"。许多复杂拓扑反而降低性能，但原因不明。
-3. **核心矛盾**：增加 Agent 和拓扑复杂度的收益不确定——有时有帮助，有时反而有害。
-4. **本文要解决**：① 量化 prompt vs 拓扑的贡献；② 设计统一的自动化框架同时优化两者。
-5. **切入角度**：控制变量分析——先只优化 prompt 看效果，再叠加拓扑搜索。
-6. **核心idea**：Prompt 优化 >> 拓扑选择；但两者联合优化 > 任何单独优化。
+**领域现状**：多智能体系统（MAS）通过 Debate、Reflect、Aggregate 等拓扑组织多个 LLM Agent 协作。近期出现自动化 MAS 设计方法（如 ADAS、AFlow）。
+**现有痛点**：不清楚 MAS 性能提升究竟来自"多 Agent 拓扑"还是"更好的 prompt"。许多复杂拓扑反而降低性能，但原因不明。
+**核心矛盾**：增加 Agent 和拓扑复杂度的收益不确定——有时有帮助，有时反而有害。
+**本文要解决**：① 量化 prompt vs 拓扑的贡献；② 设计统一的自动化框架同时优化两者。
+**切入角度**：控制变量分析——先只优化 prompt 看效果，再叠加拓扑搜索。
+**核心idea**：Prompt 优化 >> 拓扑选择；但两者联合优化 > 任何单独优化。
 
 ## 方法详解
 
@@ -39,21 +39,24 @@ Mass 三阶段交替优化：① Block-level prompt optimization（对每个 age
 ### 关键设计
 
 1. **Block-level Prompt 优化（热身阶段）**:
-   - 对每个 agent 模块独立进行 instruction + exemplar 联合优化
-   - 使用验证集反馈迭代改进
-   - 作为拓扑搜索的"预训练"——确保每个模块的 prompt 质量
-   - 设计动机：实验发现仅 prompt 优化的单 Agent 已超越 SC/Reflect/Debate 等复杂拓扑
+
+    - 对每个 agent 模块独立进行 instruction + exemplar 联合优化
+    - 使用验证集反馈迭代改进
+    - 作为拓扑搜索的"预训练"——确保每个模块的 prompt 质量
+    - 设计动机：实验发现仅 prompt 优化的单 Agent 已超越 SC/Reflect/Debate 等复杂拓扑
 
 2. **Workflow Topology 优化**:
-   - 计算每个模块的增量影响力 $I_{a_i}$
-   - 基于 softmax 概率采样剪枝搜索空间
-   - 评估候选拓扑时使用第一阶段优化好的 prompt
-   - 发现：不是所有拓扑都有正面影响（如 HotpotQA 上仅 debate 带来 3% 增益）
+
+    - 计算每个模块的增量影响力 $I_{a_i}$
+    - 基于 softmax 概率采样剪枝搜索空间
+    - 评估候选拓扑时使用第一阶段优化好的 prompt
+    - 发现：不是所有拓扑都有正面影响（如 HotpotQA 上仅 debate 带来 3% 增益）
 
 3. **Workflow-level Prompt 优化**:
-   - 在最优拓扑确定后，全局联合优化所有 agent 的 prompt
-   - 考虑 agent 间的交互效应（拓扑中的信息流如何影响 prompt 设计）
-   - 细粒度调整以适配最终拓扑
+
+    - 在最优拓扑确定后，全局联合优化所有 agent 的 prompt
+    - 考虑 agent 间的交互效应（拓扑中的信息流如何影响 prompt 设计）
+    - 细粒度调整以适配最终拓扑
 
 ## 实验关键数据
 

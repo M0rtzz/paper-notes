@@ -31,14 +31,14 @@ tags:
 MLLM（如LLaVA、Qwen2-VL）通过在预训练LLM上接入视觉编码器来处理多模态输入。随着多模态输入的复杂度增长（高分辨率图像、长视频、多轮对话），维护完整KV-Cache的计算和显存开销变得难以承受。
 
 ### 现有方法的局限
-1. **通用KV-Cache压缩（SnapKV/PyramidKV/AdaKV）**：专为纯文本设计，均匀对待所有attention head，忽略了视觉token在MLLM中的特殊角色
-2. **视觉token剪枝（FastV）**：按层级剪枝冗余视觉token，但未从head层面考虑模态特异性
-3. **根本性知识缺口**：LLM是如何在visual instruction tuning中获得视觉理解能力的，这一问题尚未被充分研究
+**通用KV-Cache压缩（SnapKV/PyramidKV/AdaKV）**：专为纯文本设计，均匀对待所有attention head，忽略了视觉token在MLLM中的特殊角色
+**视觉token剪枝（FastV）**：按层级剪枝冗余视觉token，但未从head层面考虑模态特异性
+**根本性知识缺口**：LLM是如何在visual instruction tuning中获得视觉理解能力的，这一问题尚未被充分研究
 
 ### 核心发现
 通过分析MLLM的注意力机制，发现两个关键性质：
-1. **稀疏性**：即使经过大量多模态数据训练，各层中仅不到5%的attention head是"视觉活跃"的
-2. **普遍性**：visual head在不同LLM架构（Vicuna/Qwen2）和注意力机制（MHA/GQA）中一致存在
+**稀疏性**：即使经过大量多模态数据训练，各层中仅不到5%的attention head是"视觉活跃"的
+**普遍性**：visual head在不同LLM架构（Vicuna/Qwen2）和注意力机制（MHA/GQA）中一致存在
 
 ## 方法详解
 

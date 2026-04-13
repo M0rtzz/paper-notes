@@ -29,8 +29,8 @@ HaMI 将幻觉检测建模为多示例学习（MIL）问题，将生成序列视
 
 LLM 的幻觉（hallucination）问题是其安全部署的核心障碍——模型可能生成看似合理但实际不忠实或错误的内容。现有检测方法主要分两条路线：
 
-1. **基于不确定性的方法**（如 Semantic Entropy、Perplexity、MARS）：依赖预测概率或多次采样的语义一致性，但性能受限于辅助 LLM 的能力
-2. **基于内部表示的方法**（如 SAPLMA、HaloScope、CED）：利用 LLM 隐藏层表示训练二分类器，但严重依赖预定义的 token 位置
+**基于不确定性的方法**（如 Semantic Entropy、Perplexity、MARS）：依赖预测概率或多次采样的语义一致性，但性能受限于辅助 LLM 的能力
+**基于内部表示的方法**（如 SAPLMA、HaloScope、CED）：利用 LLM 隐藏层表示训练二分类器，但严重依赖预定义的 token 位置
 
 **核心矛盾**：大多数内部表示方法使用预定义 token（如第一个、最后一个或倒数第二个 token）的表示来训练检测器。但如图 1 所示，包含幻觉信息最丰富的 token 位置会因回复长度和幻觉实体分布的不同而显著变化。预定义位置会遗漏幻觉信息集中的关键 token。
 
@@ -48,28 +48,32 @@ HaMI 框架包含两大模块：
 ### 关键设计
 
 1. **MIL 建模**：
-   - 正样本 bag $\mathcal{B}^+$（含幻觉的回复）：仅少数 token 是真正的幻觉 token（正实例）
-   - 负样本 bag $\mathcal{B}^-$（正确回复）：所有 token 均为负实例
-   - 幻觉检测器 $f_\theta$ 为每个 token 分配幻觉分数
-   - 选择每个 bag 中幻觉分数最高的 top-k 个 token 作为显著 token（$k = \lfloor 0.1 \times l \rfloor + 1$，l 为序列长度）
+
+    - 正样本 bag $\mathcal{B}^+$（含幻觉的回复）：仅少数 token 是真正的幻觉 token（正实例）
+    - 负样本 bag $\mathcal{B}^-$（正确回复）：所有 token 均为负实例
+    - 幻觉检测器 $f_\theta$ 为每个 token 分配幻觉分数
+    - 选择每个 bag 中幻觉分数最高的 top-k 个 token 作为显著 token（$k = \lfloor 0.1 \times l \rfloor + 1$，l 为序列长度）
 
 2. **MIL 损失函数**：
-   - 最大化正 bag 显著 token 与负 bag 最难负 token 之间的判别边际
-   - $\mathcal{L}_{MIL} = 1 - \|\frac{1}{k}\sum_{i^+ \in \mathcal{I}_{top-k}^+} f_\theta(h_{i^+})\|_2 + \|\frac{1}{k}\sum_{i^- \in \mathcal{I}_{top-k}^-} f_\theta(h_{i^-})\|_2$
-   - 正 bag 的 top-k token 得分应高，负 bag 的 top-k token 得分应低
+
+    - 最大化正 bag 显著 token 与负 bag 最难负 token 之间的判别边际
+    - $\mathcal{L}_{MIL} = 1 - \|\frac{1}{k}\sum_{i^+ \in \mathcal{I}_{top-k}^+} f_\theta(h_{i^+})\|_2 + \|\frac{1}{k}\sum_{i^- \in \mathcal{I}_{top-k}^-} f_\theta(h_{i^-})\|_2$
+    - 正 bag 的 top-k token 得分应高，负 bag 的 top-k token 得分应低
 
 3. **平滑性约束**：
-   - 利用 token 生成的序列特性，相邻 token 的幻觉分数应平滑变化
-   - $\mathcal{L}_{Smooth} = (f_\theta(h_i) - f_\theta(h_{i-1}))^2$
-   - 总损失：$\mathcal{L}_{ATS} = \mathcal{L}_{MIL} + \mathcal{L}_{Smooth}$
+
+    - 利用 token 生成的序列特性，相邻 token 的幻觉分数应平滑变化
+    - $\mathcal{L}_{Smooth} = (f_\theta(h_i) - f_\theta(h_{i-1}))^2$
+    - 总损失：$\mathcal{L}_{ATS} = \mathcal{L}_{MIL} + \mathcal{L}_{Smooth}$
 
 4. **预测不确定性增强**：
-   - 三个层次的不确定性度量：
-     - Token 级：预测概率 $P^t$
-     - 句子级：困惑度（perplexity）$P^s$
-     - 语义一致性级：基于多次采样的语义熵 $P^c$
-   - 增强公式：$h' = (1 + \lambda \cdot P_{\text{uncertainty}}) \cdot h$
-   - 默认使用语义一致性 $P^c$，$\lambda = 1.0$
+
+    - 三个层次的不确定性度量：
+      - Token 级：预测概率 $P^t$
+      - 句子级：困惑度（perplexity）$P^s$
+      - 语义一致性级：基于多次采样的语义熵 $P^c$
+    - 增强公式：$h' = (1 + \lambda \cdot P_{\text{uncertainty}}) \cdot h$
+    - 默认使用语义一致性 $P^c$，$\lambda = 1.0$
 
 ### 损失函数 / 训练策略
 

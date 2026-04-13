@@ -52,22 +52,23 @@ tags:
    关键发现：准确率相关设定（正确帧、改写、打乱）的选项分布与默认设定几乎一致，说明模型更依赖选项位置而非内容；准确率无关设定（相同选项、空设定）清晰暴露了偏差模式。
 
 2. **偏差公平性指标适配**: 将公平性研究中的指标适配到VLM-MCQA评估：
-   - **F1_std**：各选项F1分数的标准差，高值表示对不同选项性能不一致
-   - **Recall_std**：各选项召回率的标准差，高值说明特定位置的正确答案更容易被识别
-   - **JS_std**：预测分布与真实分布之间Jensen-Shannon距离的标准差，检测分布不一致性
+
+    - **F1_std**：各选项F1分数的标准差，高值表示对不同选项性能不一致
+    - **Recall_std**：各选项召回率的标准差，高值说明特定位置的正确答案更容易被识别
+    - **JS_std**：预测分布与真实分布之间Jensen-Shannon距离的标准差，检测分布不一致性
 
 3. **BOLD去偏方法**: 核心思路是将观测到的预测分布 $P_o$ 分解为先验偏差分布 $P_p$ 和去偏分布 $P_d$：
    
-   $$P_o(d_i|T) = \frac{1}{Z_T} P_p(d_i|T) \times P_d(d_i|T)$$
+    $P_o(d_i|T) = \frac{1}{Z_T} P_p(d_i|T) \times P_d(d_i|T)$
    
    **偏差估计**：通过三种"攻击"使任务变为ill-defined（移除视频/问题/选项），此时理想模型应均匀选择。由此估计先验偏差：
    
-   $$\tilde{P}_p(d_i|T) = softmax\left(\sum_j P_p(d_i|A_j(T))\right)$$
+    $\tilde{P}_p(d_i|T) = softmax\left(\sum_j P_p(d_i|A_j(T))\right)$
    
    **全局先验计算**：从数据集中采样 $K = k \times ||D||$ 个样本（$k=0.5$最优），对每个样本分别进行三种攻击，平均得到全局先验。
    
    **去偏推断**：
-   $$P_d(d_i|T) = softmax\left(\log P_o(d_i|T) - \log \tilde{P}_p(d_i)\right)$$
+    $P_d(d_i|T) = softmax\left(\log P_o(d_i|T) - \log \tilde{P}_p(d_i)\right)$
 
 4. **Weighted_BOLD扩展**: 对三种分解的先验引入可学习权重 $w_j$，通过5折交叉验证和COBYLA优化器优化权重，以更精确地估计偏差方向。权重约束为 $0 \leq w_i \leq 1$ 或 $|w_i| \leq 1$。
 

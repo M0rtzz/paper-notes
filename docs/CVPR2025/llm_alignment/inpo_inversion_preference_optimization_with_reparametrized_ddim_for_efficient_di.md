@@ -21,12 +21,12 @@ tags:
 > 基于摘要：Without using explicit reward, direct preference optimization (DPO) employs paired human preference data to fine-tune generative models, a method that has garnered considerable attention in large language models (LLMs). However, exploration of aligning text-to-image (T2I) diffusion models with human
 
 ## 研究背景与动机
-1. **领域现状**：本文研究的问题属于 对齐RLHF 方向。Without using explicit reward, direct preference optimization (DPO) employs paired human preference data to fine-tune generative models, a method that has garnered considerable attention in large language models (LLMs). However, exploration of aligning text-to-image (T2I) diffusion models with human preferences remains limited. In comparison to supervised fine-tuning, existing methods that align diffusion model suffer from low training efficiency and subpar generation quality due to the long Markov chain process and the intractability of the reverse process.
-2. **现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
-3. **核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
-4. **本文要解决什么？** 针对上述问题，作者提出了新方法。
-5. **切入角度**：从新的技术视角或观察出发。
-6. **核心idea一句话**：To address these limitations, we introduce DDIM-InPO, an efficient method for direct preference alignment of diffusion models. Our approach conceptualizes diffusion model as a single-step generative m
+**领域现状**：本文研究的问题属于 对齐RLHF 方向。Without using explicit reward, direct preference optimization (DPO) employs paired human preference data to fine-tune generative models, a method that has garnered considerable attention in large language models (LLMs). However, exploration of aligning text-to-image (T2I) diffusion models with human preferences remains limited. In comparison to supervised fine-tuning, existing methods that align diffusion model suffer from low training efficiency and subpar generation quality due to the long Markov chain process and the intractability of the reverse process.
+**现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+**核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+**本文要解决什么？** 针对上述问题，作者提出了新方法。
+**切入角度**：从新的技术视角或观察出发。
+**核心idea一句话**：To address these limitations, we introduce DDIM-InPO, an efficient method for direct preference alignment of diffusion models. Our approach conceptualizes diffusion model as a single-step generative m
 
 ## 方法详解
 
@@ -38,15 +38,17 @@ To address these limitations, we introduce DDIM-InPO, an efficient method for di
 ### 关键设计
 
 1. **核心模块**:
-   - 做什么：解决上述痛点的关键技术组件
-   - 核心思路：详见论文方法部分
-   - 设计动机：提升性能或效率
+
+    - 做什么：解决上述痛点的关键技术组件
+    - 核心思路：详见论文方法部分
+    - 设计动机：提升性能或效率
 
 
 3. **优化策略**
-   - 做什么：提升训练稳定性和收敛速度
-   - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-   - 设计动机：确保模型在大规模数据上的训练效率
+
+    - 做什么：提升训练稳定性和收敛速度
+    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
+    - 设计动机：确保模型在大规模数据上的训练效率
 
 ### 实现细节
 - 框架基于 PyTorch 实现

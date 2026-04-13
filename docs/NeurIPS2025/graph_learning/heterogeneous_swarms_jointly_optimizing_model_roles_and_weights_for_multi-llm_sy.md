@@ -28,8 +28,8 @@ tags:
 
 多LLM协作是提升单一模型能力上限的重要方向，核心问题在于如何为每个LLM分配恰当的角色（role）和调整合适的权重（weight）。现有方法存在两个瓶颈：
 
-1. **Fixed-weight系统**（如LLM辩论/多智能体）：使用静态黑盒LLM，通过文本交互上下文化角色，模型本身无法针对任务适配，权重不变导致灵活性不足。
-2. **Fixed-role系统**（如AgentVerse/MetaGPT）：通过手工设计的prompt赋予LLM固定角色，扩展到新任务/领域时需要大量prompt工程，且角色分配依赖先验知识。
+**Fixed-weight系统**（如LLM辩论/多智能体）：使用静态黑盒LLM，通过文本交互上下文化角色，模型本身无法针对任务适配，权重不变导致灵活性不足。
+**Fixed-role系统**（如AgentVerse/MetaGPT）：通过手工设计的prompt赋予LLM固定角色，扩展到新任务/领域时需要大量prompt工程，且角色分配依赖先验知识。
 
 **核心矛盾**：角色和权重是多LLM系统的两个正交维度，但现有方法几乎都只优化其中一个。动态联合优化两者是实现任务自适应的关键。
 
@@ -45,24 +45,27 @@ tags:
 ### 关键设计
 
 1. **Role-step：图结构优化**
-   - 做什么：学习最优DAG拓扑，确定LLM间的输入输出关系
-   - 核心思路：随机初始化一群连续邻接矩阵 $\{A^i\}_{i=1}^N \sim \mathcal{U}_{n\times n}(0,1)$，通过**G-Decode**将连续矩阵解码为离散DAG：先按逆出度top-p采样选择终止节点 $k$，然后迭代地按出度选择新节点 $u$ 并以softmax概率 $\frac{\exp(a_{uv})}{\sum_{i\in\mathcal{E}}\exp(a_{ui})}$ 与已有节点建边。解码后的DAG按拓扑序调用LLM，评估效用 $f$，通过PSO优化邻接矩阵：
-   $$\{A^i\}_{i=1}^N, A_\text{best} \leftarrow \text{PSO}(\{A^i\}_{i=1}^N, \{f(\text{G-Decode}(A^i))\}_{i=1}^N)$$
-   - 设计动机：将离散图优化松弛为连续空间优化，使PSO这类不依赖梯度的搜索算法可以直接应用。G-Decode保证生成的图一定是DAG（新节点只连接已有节点），避免环路。
+
+    - 做什么：学习最优DAG拓扑，确定LLM间的输入输出关系
+    - 核心思路：随机初始化一群连续邻接矩阵 $\{A^i\}_{i=1}^N \sim \mathcal{U}_{n\times n}(0,1)$，通过**G-Decode**将连续矩阵解码为离散DAG：先按逆出度top-p采样选择终止节点 $k$，然后迭代地按出度选择新节点 $u$ 并以softmax概率 $\frac{\exp(a_{uv})}{\sum_{i\in\mathcal{E}}\exp(a_{ui})}$ 与已有节点建边。解码后的DAG按拓扑序调用LLM，评估效用 $f$，通过PSO优化邻接矩阵：
+    $\{A^i\}_{i=1}^N, A_\text{best} \leftarrow \text{PSO}(\{A^i\}_{i=1}^N, \{f(\text{G-Decode}(A^i))\}_{i=1}^N)$
+    - 设计动机：将离散图优化松弛为连续空间优化，使PSO这类不依赖梯度的搜索算法可以直接应用。G-Decode保证生成的图一定是DAG（新节点只连接已有节点），避免环路。
 
 2. **Weight-step：基于JFK-score的权重优化**
-   - 做什么：在最优DAG中评估每个LLM的个体贡献，指导模型权重更新
-   - 核心思路：给定最优DAG $A_\text{best}$，随机将 $n$ 个LLM分配到DAG的各位置 $M$ 次，得到 $M$ 种分配 $\{\mathcal{X}^i\}_{i=1}^M$。JFK-score定义为：
-   $$\text{JFK-score}(x_i) = \frac{\sum_{j=1}^M \text{cnt}_{i,j} \times f(\mathcal{X}^j)}{\sum_{j=1}^M \text{cnt}_{i,j}}$$
+
+    - 做什么：在最优DAG中评估每个LLM的个体贡献，指导模型权重更新
+    - 核心思路：给定最优DAG $A_\text{best}$，随机将 $n$ 个LLM分配到DAG的各位置 $M$ 次，得到 $M$ 种分配 $\{\mathcal{X}^i\}_{i=1}^M$。JFK-score定义为：
+    $\text{JFK-score}(x_i) = \frac{\sum_{j=1}^M \text{cnt}_{i,j} \times f(\mathcal{X}^j)}{\sum_{j=1}^M \text{cnt}_{i,j}}$
    其中 $\text{cnt}_{i,j}$ 是模型 $x_i$ 在第 $j$ 次分配中出现的频率。然后用PSO优化模型权重。
-   - 设计动机：直接评估单个LLM在多LLM系统中的"效用"很难（不像独立评估那么简单），JFK-score通过多次随机分配+频率加权的方式，稳健地量化每个LLM跨角色、跨协作伙伴的平均贡献。名字来源："Ask not what the multi-LLM system can do for you, ask what you can do for the multi-LLM system."
+    - 设计动机：直接评估单个LLM在多LLM系统中的"效用"很难（不像独立评估那么简单），JFK-score通过多次随机分配+频率加权的方式，稳健地量化每个LLM跨角色、跨协作伙伴的平均贡献。名字来源："Ask not what the multi-LLM system can do for you, ask what you can do for the multi-LLM system."
 
 3. **PSO优化器**
-   - 做什么：在不可微的搜索空间中优化连续邻接矩阵和模型权重
-   - 核心思路：每个向量 $x_i$ 的速度更新为惯性、个人最优方向、全局最优方向和远离全局最差方向的加权混合：
-   $$v_i \leftarrow \frac{1}{\mathcal{C}}[r_v\phi_v v_i + r_p\phi_p(p_i - x_i) + r_g\phi_g(g - x_i) - r_w\phi_w(g_w - x_i)]$$
+
+    - 做什么：在不可微的搜索空间中优化连续邻接矩阵和模型权重
+    - 核心思路：每个向量 $x_i$ 的速度更新为惯性、个人最优方向、全局最优方向和远离全局最差方向的加权混合：
+    $v_i \leftarrow \frac{1}{\mathcal{C}}[r_v\phi_v v_i + r_p\phi_p(p_i - x_i) + r_g\phi_g(g - x_i) - r_w\phi_w(g_w - x_i)]$
    然后 $x_i \leftarrow x_i + \lambda v_i$。
-   - 设计动机：LLM调用和效用评估不可微，传统梯度方法不适用。PSO作为无梯度群体搜索算法，天然适合这种黑盒优化场景，且能利用多个搜索粒子的多样性。
+    - 设计动机：LLM调用和效用评估不可微，传统梯度方法不适用。PSO作为无梯度群体搜索算法，天然适合这种黑盒优化场景，且能利用多个搜索粒子的多样性。
 
 ### 训练策略
 - 使用 Gemma-7B 的10个不同领域微调版本作为专家池

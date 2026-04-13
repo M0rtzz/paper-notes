@@ -27,11 +27,11 @@ tags:
 
 现有方法的局限性：
 
-1. **Maximum Concept Matching (MCM)**：VLM 版本的最大类别概率。虽然简单有效，但在设计上会对错误预测赋予过高置信度。例如，当 "American Eskimo dog" 被错误分类为 "Siberian husky" 时，MCM 仍给出高置信分数，无法检测错误。
+**Maximum Concept Matching (MCM)**：VLM 版本的最大类别概率。虽然简单有效，但在设计上会对错误预测赋予过高置信度。例如，当 "American Eskimo dog" 被错误分类为 "Siberian husky" 时，MCM 仍给出高置信分数，无法检测错误。
 
-2. **Learning Visual Uncertainties (LVU)**：仅基于视觉特征学习预测分类器的损失值。应用到 VLM 时不建模下游概念之间的关系，限制了失败预测能力。LVU 同样无法区分上述狗品种的错误。
+**Learning Visual Uncertainties (LVU)**：仅基于视觉特征学习预测分类器的损失值。应用到 VLM 时不建模下游概念之间的关系，限制了失败预测能力。LVU 同样无法区分上述狗品种的错误。
 
-3. **BayesVLM**：使用 Laplace 近似建模嵌入的不确定性，但其目标并非针对失败预测优化。
+**BayesVLM**：使用 Laplace 近似建模嵌入的不确定性，但其目标并非针对失败预测优化。
 
 核心 insight：VLM 的不确定性来源于**两个模态**——视觉模式的模糊性和文本概念间的歧义性。有效的 UQ 须同时建模这两种不确定性及其交互。
 

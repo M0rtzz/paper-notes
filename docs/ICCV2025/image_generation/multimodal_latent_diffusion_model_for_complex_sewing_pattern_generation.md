@@ -29,13 +29,13 @@ tags:
 
 缝纫版型（Sewing Pattern）是工业界广泛使用的服装表示方式，因其兼容物理仿真和动画而在 CG 管线中具有天然优势。然而现有的缝纫版型生成方法面临以下挑战：
 
-1. **复杂版型表示不足**：现有方法（如 NeuralTailor）仅支持直线和二次曲线两种边类型，无法表示现代服装设计中常见的三次曲线、圆弧线等复杂几何，也缺乏对附着约束（如领口、腰带的防滑约束）的建模。
+**复杂版型表示不足**：现有方法（如 NeuralTailor）仅支持直线和二次曲线两种边类型，无法表示现代服装设计中常见的三次曲线、圆弧线等复杂几何，也缺乏对附着约束（如领口、腰带的防滑约束）的建模。
 
-2. **缺乏精细控制**：DressCode 等方法虽然支持文本生成，但在处理复杂服装描述（如一字肩礼服、方领衬衫）时失败率高，生成能力受限。参数化方法（如 GarmentCodeData）虽然支持复杂控制，但需要预定义模板和专业知识。
+**缺乏精细控制**：DressCode 等方法虽然支持文本生成，但在处理复杂服装描述（如一字肩礼服、方领衬衫）时失败率高，生成能力受限。参数化方法（如 GarmentCodeData）虽然支持复杂控制，但需要预定义模板和专业知识。
 
-3. **忽略体型适配**：大多数方法仅在标准体型上训练，无法生成适合不同体型的定制服装。当把生成的版型穿戴到不同体型上时，会出现布料穿模、滑落等问题。
+**忽略体型适配**：大多数方法仅在标准体型上训练，无法生成适合不同体型的定制服装。当把生成的版型穿戴到不同体型上时，会出现布料穿模、滑落等问题。
 
-4. **3D 网格方法不兼容 CG 管线**：Wonder3D、RichDreamer 等 3D 网格生成方法可以生成视觉上美观的服装，但其闭合表面网格无法与现代 CG 生产流程集成，且穿戴时会出现严重的穿模现象。
+**3D 网格方法不兼容 CG 管线**：Wonder3D、RichDreamer 等 3D 网格生成方法可以生成视觉上美观的服装，但其闭合表面网格无法与现代 CG 生产流程集成，且穿戴时会出现严重的穿模现象。
 
 ## 方法详解
 
@@ -50,19 +50,20 @@ SewingLDM 包含三个核心组件：
 
 1. **扩展缝纫版型表示**：在原始表示基础上增加：三次曲线控制点 $C^b_{i,j} \in \mathbb{R}^4$、圆弧线参数 $C^r_{i,j} \in \mathbb{R}^3$、边类型标志 $E^t_{i,j,k}$（2-bit 表示 4 种边类型）、附着类型标志 $A_{i,j,k}$（3-bit 表示领口/腰带等约束）、缝合方向反转标志（防止仿真时缝合交叉）。每条边最终表示为 29 维向量：
 
-   $$E^f_{i,j} = V_{i,j} \oplus C_{i,j} \oplus C^b_{i,j} \oplus C^r_{i,j} \oplus S_{i,j} \oplus R_i \oplus T_i \oplus E^t_{i,j} \oplus E^m_{i,j} \oplus A_{i,j} \oplus M'_{i,j}$$
+    $E^f_{i,j} = V_{i,j} \oplus C_{i,j} \oplus C^b_{i,j} \oplus C^r_{i,j} \oplus S_{i,j} \oplus R_i \oplus T_i \oplus E^t_{i,j} \oplus E^m_{i,j} \oplus A_{i,j} \oplus M'_{i,j}$
 
    所有版型通过零填充统一到固定尺寸 $(max(N_p) \times max(N_i), 29)$。
 
 2. **紧凑潜空间压缩**：训练自编码器将版型 $F$ 压缩到有界潜空间 $[-1, 1]$。编码后通过量化 $\hat{z} = \frac{round(n \times tanh(z))}{n}$ 使每个维度均匀分布在 $\{-1, -0.5, 0, 0.5, 1\}$（$n=2$），利于扩散模型学习分布。训练损失包括重建 MSE 损失 $\mathcal{L}_{rec}$、面板完整性损失 $\mathcal{L}_{panel}$、缝合精度损失 $\mathcal{L}_{stitch}$ 和新增的二元交叉熵损失 $\mathcal{L}_{BCE}$：
 
-   $$\mathcal{L}_{total} = \lambda_1 \mathcal{L}_{rec} + \lambda_2 \mathcal{L}_{panel} + \lambda_3 \mathcal{L}_{stitch} + \lambda_4 \mathcal{L}_{BCE}$$
+    $\mathcal{L}_{total} = \lambda_1 \mathcal{L}_{rec} + \lambda_2 \mathcal{L}_{panel} + \lambda_3 \mathcal{L}_{stitch} + \lambda_4 \mathcal{L}_{BCE}$
 
 3. **两阶段多模态条件注入**：
-   - **第一阶段**：仅在文本条件下训练潜空间扩散模型（DiT 架构 + T5 tokenizer），使用 IDDPM 损失，建立基础生成能力
-   - **第二阶段**：注入草图和体型条件。通过嵌入器提取草图和体型特征并拼接，送入轻量 Transformer 层融合（因为草图会随体型变化），然后通过统计归一化将融合特征 $\bm{F}_{bs}$ 对齐到潜变量特征 $\bm{F}_z$ 的分布：
 
-   $$\hat{\bm{F}}_z = \frac{(\bm{F}_{bs} - \bm{\mu}_{bs}) \times \bm{\sigma}_{bs}}{\bm{\sigma}_z + \epsilon} + \bm{\mu}_z + \bm{F}_z$$
+    - **第一阶段**：仅在文本条件下训练潜空间扩散模型（DiT 架构 + T5 tokenizer），使用 IDDPM 损失，建立基础生成能力
+    - **第二阶段**：注入草图和体型条件。通过嵌入器提取草图和体型特征并拼接，送入轻量 Transformer 层融合（因为草图会随体型变化），然后通过统计归一化将融合特征 $\bm{F}_{bs}$ 对齐到潜变量特征 $\bm{F}_z$ 的分布：
+
+    $\hat{\bm{F}}_z = \frac{(\bm{F}_{bs} - \bm{\mu}_{bs}) \times \bm{\sigma}_{bs}}{\bm{\sigma}_z + \epsilon} + \bm{\mu}_z + \bm{F}_z$
 
    仅微调注意力模块的输出层，保持对文本引导的响应。草图/文本条件以 25% 概率置零以支持单条件生成。
 

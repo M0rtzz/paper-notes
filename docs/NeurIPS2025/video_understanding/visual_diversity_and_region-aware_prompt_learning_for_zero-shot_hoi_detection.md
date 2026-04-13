@@ -27,9 +27,9 @@ tags:
 ## 研究背景与动机
 人-物交互（HOI）检测需要定位人和物体并识别它们之间的交互。零样本 HOI 检测要求模型泛化到训练时未见过的动词-物体组合，这带来了两个核心视觉挑战：
 
-1. **类内视觉多样性**：同一个动词（如"拿着棒球手套"）在不同姿势、视角和场景下视觉差异巨大。作者量化发现动词类的多样性得分（0.364±0.060）显著高于物体类（0.274±0.048），说明单一静态 prompt 无法覆盖动词的视觉变化。
+**类内视觉多样性**：同一个动词（如"拿着棒球手套"）在不同姿势、视角和场景下视觉差异巨大。作者量化发现动词类的多样性得分（0.364±0.060）显著高于物体类（0.274±0.048），说明单一静态 prompt 无法覆盖动词的视觉变化。
 
-2. **类间视觉纠缠**：语义不同的动词（如"吃"、"舔"、"坐在旁边"）在全局/联合区域特征下产生高度相似的视觉模式，t-SNE 可视化显示不同动词类出现大量重叠。
+**类间视觉纠缠**：语义不同的动词（如"吃"、"舔"、"坐在旁边"）在全局/联合区域特征下产生高度相似的视觉模式，t-SNE 可视化显示不同动词类出现大量重叠。
 
 **现有方法不足**：大多数 CLIP prompt 方法（GEN-VLKT、ADA-CM）每个动词仅用一个静态 prompt；CMMP 加入空间线索但文本 prompt 仍不感知区域；EZ-HOI 用 LLM 描述但忽略类内变化。
 
@@ -43,16 +43,18 @@ tags:
 ### 关键设计
 
 1. **视觉多样性感知 Prompt 学习**：
-   - 从训练集提取每个动词 $v$ 的联合区域 CLS 特征，计算方差 $\boldsymbol{\sigma}_v^2$
-   - 按 CLIP 文本嵌入余弦相似度构建语义相近动词组 $\mathcal{G}(v)$，计算组级方差 $\bar{\boldsymbol{\sigma}}_v^2 = \frac{1}{|\mathcal{G}(v)|}\sum_{v' \in \mathcal{G}(v)} \boldsymbol{\sigma}_{v'}^2$（稳定化估计，对罕见动词尤为重要）
-   - 用 MLP 将组级方差转为调制向量 $\mathbf{d}_v$，注入共享上下文嵌入：$\hat{\mathbf{E}}_v = \mathbf{E} + \mathbf{d}_v \alpha$
-   - 经 CLIP 文本编码器后，再施加方差引导的高斯扰动：$\tilde{\mathbf{t}}^v = \mathbf{t}^v + (\epsilon \odot \tilde{\boldsymbol{\sigma}}_v)\beta$
+
+    - 从训练集提取每个动词 $v$ 的联合区域 CLS 特征，计算方差 $\boldsymbol{\sigma}_v^2$
+    - 按 CLIP 文本嵌入余弦相似度构建语义相近动词组 $\mathcal{G}(v)$，计算组级方差 $\bar{\boldsymbol{\sigma}}_v^2 = \frac{1}{|\mathcal{G}(v)|}\sum_{v' \in \mathcal{G}(v)} \boldsymbol{\sigma}_{v'}^2$（稳定化估计，对罕见动词尤为重要）
+    - 用 MLP 将组级方差转为调制向量 $\mathbf{d}_v$，注入共享上下文嵌入：$\hat{\mathbf{E}}_v = \mathbf{E} + \mathbf{d}_v \alpha$
+    - 经 CLIP 文本编码器后，再施加方差引导的高斯扰动：$\tilde{\mathbf{t}}^v = \mathbf{t}^v + (\epsilon \odot \tilde{\boldsymbol{\sigma}}_v)\beta$
 
 2. **区域感知 Prompt 增强**：
-   - 用 LLM（LLaMA-7B / GPT-4）为每个动词的每个区域（人/物体/联合）生成 $K$ 个视觉概念描述
-   - 用 CLIP 文本编码器编码为概念池 $\mathcal{C}_{(\cdot)}^v$
-   - 给定区域特征 $\mathbf{x}_{(\cdot)}$，计算与概念的余弦相似度，通过 Sparsemax（而非 Softmax）产生稀疏权重，仅保留最相关概念
-   - 加权聚合得区域概念向量 $\bar{\mathbf{c}}_{(\cdot)}^v$，增强至多样性 prompt：$\hat{\mathbf{t}}_{(\cdot)}^v = \mathbf{t}^v + \bar{\mathbf{c}}_{(\cdot)}^v \gamma$
+
+    - 用 LLM（LLaMA-7B / GPT-4）为每个动词的每个区域（人/物体/联合）生成 $K$ 个视觉概念描述
+    - 用 CLIP 文本编码器编码为概念池 $\mathcal{C}_{(\cdot)}^v$
+    - 给定区域特征 $\mathbf{x}_{(\cdot)}$，计算与概念的余弦相似度，通过 Sparsemax（而非 Softmax）产生稀疏权重，仅保留最相关概念
+    - 加权聚合得区域概念向量 $\bar{\mathbf{c}}_{(\cdot)}^v$，增强至多样性 prompt：$\hat{\mathbf{t}}_{(\cdot)}^v = \mathbf{t}^v + \bar{\mathbf{c}}_{(\cdot)}^v \gamma$
 
 3. **空间增强的联合区域特征**：通过 SpatialHead 融合联合区域特征与人、物体特征及其边界框，引入空间先验。
 

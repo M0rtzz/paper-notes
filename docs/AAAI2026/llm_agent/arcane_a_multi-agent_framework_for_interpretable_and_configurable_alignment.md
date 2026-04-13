@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RLHF是当前LLM对齐的主流范式，但它在训练时固化偏好，无法适应stakeholder偏好的变化。测试时奖励模型（如GenRM、GRAM）提供动态评估但不透明——用户不知道评估标准是什么、权重如何分配。
+**领域现状**：RLHF是当前LLM对齐的主流范式，但它在训练时固化偏好，无法适应stakeholder偏好的变化。测试时奖励模型（如GenRM、GRAM）提供动态评估但不透明——用户不知道评估标准是什么、权重如何分配。
 
-2. **现有痛点**：
+**现有痛点**：
    - **RLHF的刚性**：优化固定训练偏好，偏好漂移后需重新训练。在多agent部署中，分布式偏好更难静态捕捉
    - **测试时方法的不透明**：GenRM/GRAM输出标量或文本判断，但不揭示哪些准则驱动评估
    - **现有rubric方法的静态性**：Auto-Rubric、RaR等假设rubric预先给定而非学习得到，无法适应偏好演化
 
-3. **核心矛盾**：对齐需要同时满足可解释性（stakeholder能审计）、可配置性（测试时可调）、和有效性（真正提升输出质量），传统方法最多满足其中两个。
+**核心矛盾**：对齐需要同时满足可解释性（stakeholder能审计）、可配置性（测试时可调）、和有效性（真正提升输出质量），传统方法最多满足其中两个。
 
-4. **本文要解决什么？** 将rubric生成本身作为策略优化问题，让manager agent学会从stakeholder对话中提炼出可解释、可验证的加权准则集。
+**本文要解决什么？** 将rubric生成本身作为策略优化问题，让manager agent学会从stakeholder对话中提炼出可解释、可验证的加权准则集。
 
-5. **切入角度**：借鉴效用理论，将stakeholder的潜在效用函数分解为加权可验证准则的线性组合，通过manager-stakeholder对话交互式地"重建"效用函数。
+**切入角度**：借鉴效用理论，将stakeholder的潜在效用函数分解为加权可验证准则的线性组合，通过manager-stakeholder对话交互式地"重建"效用函数。
 
-6. **核心idea一句话**：对齐 = manager学习生成自然语言rubric + worker按rubric执行 + stakeholder可在测试时调整权重。
+**核心idea一句话**：对齐 = manager学习生成自然语言rubric + worker按rubric执行 + stakeholder可在测试时调整权重。
 
 ## 方法详解
 
@@ -49,24 +49,28 @@ tags:
 ### 关键设计
 
 1. **Rubric表征与验证器**:
-   - 做什么：将偏好分解为结构化、可验证的自然语言准则
-   - 核心思路：每个准则 $c_j$ 是自然语言描述（如"包含近期实证研究引用"），权重 $w_j \in [0,1]$，$\sum w_j = 1$。验证器可以是规则型（确定性检查）或模型型（LLM/分类器评估语义属性）
-   - 设计动机：线性加权使效用可分解、可审计；自然语言准则使非技术stakeholder也能理解
+
+    - 做什么：将偏好分解为结构化、可验证的自然语言准则
+    - 核心思路：每个准则 $c_j$ 是自然语言描述（如"包含近期实证研究引用"），权重 $w_j \in [0,1]$，$\sum w_j = 1$。验证器可以是规则型（确定性检查）或模型型（LLM/分类器评估语义属性）
+    - 设计动机：线性加权使效用可分解、可审计；自然语言准则使非技术stakeholder也能理解
 
 2. **Stakeholder-Manager协作对话**:
-   - 做什么：manager向stakeholder提问以揭示潜在偏好，然后合成rubric
-   - 核心思路：$R = \mathfrak{D}_\phi(x, q_{1:T}, a_{1:T})$，同时优化包含交互成本的目标：$\max_{\pi_M} \mathbb{E}[U^*(y|x) - \lambda_{\text{clarify}} C_{\text{clarify}} - \lambda_{\text{compute}} C_{\text{compute}}]$
-   - 设计动机：建模为"部分可观测下的单次合作博弈"——stakeholder通过语言暴露有限、噪声信息，manager必须推断出忠实的结构化近似
+
+    - 做什么：manager向stakeholder提问以揭示潜在偏好，然后合成rubric
+    - 核心思路：$R = \mathfrak{D}_\phi(x, q_{1:T}, a_{1:T})$，同时优化包含交互成本的目标：$\max_{\pi_M} \mathbb{E}[U^*(y|x) - \lambda_{\text{clarify}} C_{\text{clarify}} - \lambda_{\text{compute}} C_{\text{compute}}]$
+    - 设计动机：建模为"部分可观测下的单次合作博弈"——stakeholder通过语言暴露有限、噪声信息，manager必须推断出忠实的结构化近似
 
 3. **两阶段训练（SFT + GSPO）**:
-   - **Stage I (SFT)**：用大推理模型生成合成对话+参考rubric，standard language modeling loss热启
-   - **Stage II (GSPO)**：将manager视为随机策略，每个任务采样K个rubric，worker执行后获得stakeholder效用作为回报。使用序列级重要性比率 $s_k(\phi)$（而非token级），加上KL正则、澄清成本 $C_{\text{clarify}}$、计算成本 $C_{\text{compute}}$。引入优先经验回放机制关注低回报episode
-   - 设计动机：SFT避免冷启动；GSPO直接优化端到端效用而非模仿参考rubric
+
+    - **Stage I (SFT)**：用大推理模型生成合成对话+参考rubric，standard language modeling loss热启
+    - **Stage II (GSPO)**：将manager视为随机策略，每个任务采样K个rubric，worker执行后获得stakeholder效用作为回报。使用序列级重要性比率 $s_k(\phi)$（而非token级），加上KL正则、澄清成本 $C_{\text{clarify}}$、计算成本 $C_{\text{compute}}$。引入优先经验回放机制关注低回报episode
+    - 设计动机：SFT避免冷启动；GSPO直接优化端到端效用而非模仿参考rubric
 
 4. **测试时Rubric引导**:
-   - 做什么：用学到的rubric在测试时引导worker，无需梯度更新
-   - 核心思路：支持Best-of-K采样（按rubric得分选最佳）、重要性重采样、树/束搜索等。stakeholder可直接编辑准则 $\{c_j\}$ 和权重 $\{w_j\}$
-   - 设计动机：rubric的可解释性使得人类可以在推理时直接修改对齐方向
+
+    - 做什么：用学到的rubric在测试时引导worker，无需梯度更新
+    - 核心思路：支持Best-of-K采样（按rubric得分选最佳）、重要性重采样、树/束搜索等。stakeholder可直接编辑准则 $\{c_j\}$ 和权重 $\{w_j\}$
+    - 设计动机：rubric的可解释性使得人类可以在推理时直接修改对齐方向
 
 ### 损失函数 / 训练策略
 - SFT Loss：标准next-token prediction，mask系统提示和任务输入

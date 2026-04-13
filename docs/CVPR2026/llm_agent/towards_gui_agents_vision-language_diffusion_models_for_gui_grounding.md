@@ -57,32 +57,36 @@ GUI Grounding 输出是结构化的动作字符串（如 `lclick [42,180,120,250
 ### 关键设计
 
 1. **LLaDA-V 适配为 GUI Grounding**：
-   - 将 GUI Grounding 框架化为**文本生成任务**：给定图像和指令，生成动作类型和边界框坐标
-   - 训练目标：重建被掩码的动作 token
-   - $L(\theta) = -\mathbb{E}[\frac{1}{t} \sum_i \mathbb{1}[r_t^{1,i}=[M]] \times \log p_\theta(r_0^{1,i} | v, p_0^1, r_t^1)]$
-   - 推理时：从全掩码序列开始，通过反向扩散过程迭代去噪，使用低置信度重掩码策略
-   - 设计动机：利用 LLaDA-V 已有的三阶段预训练（视觉-语言对齐、指令微调、推理增强）的迁移能力
+
+    - 将 GUI Grounding 框架化为**文本生成任务**：给定图像和指令，生成动作类型和边界框坐标
+    - 训练目标：重建被掩码的动作 token
+    - $L(\theta) = -\mathbb{E}[\frac{1}{t} \sum_i \mathbb{1}[r_t^{1,i}=[M]] \times \log p_\theta(r_0^{1,i} | v, p_0^1, r_t^1)]$
+    - 推理时：从全掩码序列开始，通过反向扩散过程迭代去噪，使用低置信度重掩码策略
+    - 设计动机：利用 LLaDA-V 已有的三阶段预训练（视觉-语言对齐、指令微调、推理增强）的迁移能力
 
 2. **混合掩码调度（Hybrid Masking Schedule）**：
-   - **线性掩码阶段（Linear Masking Phase）**：
-     - 保留 LLaDA-V 的标准调度，掩码概率 $p_{mask} = (1-\varepsilon)t + \varepsilon$
-     - 负责学习粗粒度 Grounding：预测动作类型和锚点坐标 $(x_1, y_1)$
-   - **确定性掩码阶段（Full Deterministic Masking Phase）**：
-     - 所有响应 token 被完全掩码
-     - 以图像 $I$、指令 $N$ 和锚点 $(x_1, y_1)$ 为条件，预测剩余坐标 $(x_2, y_2)$
-     - 强化模型学习条件概率 $p_\theta(x_2, y_2 | a_{type}, x_1, y_1, I, N)$
-   - 设计动机：线性掩码的随机性很少产生"锚点可见、范围被掩码"的配置，确定性阶段强制这种条件关系，模拟从粗到细的精炼过程
+
+    - **线性掩码阶段（Linear Masking Phase）**：
+      - 保留 LLaDA-V 的标准调度，掩码概率 $p_{mask} = (1-\varepsilon)t + \varepsilon$
+      - 负责学习粗粒度 Grounding：预测动作类型和锚点坐标 $(x_1, y_1)$
+    - **确定性掩码阶段（Full Deterministic Masking Phase）**：
+      - 所有响应 token 被完全掩码
+      - 以图像 $I$、指令 $N$ 和锚点 $(x_1, y_1)$ 为条件，预测剩余坐标 $(x_2, y_2)$
+      - 强化模型学习条件概率 $p_\theta(x_2, y_2 | a_{type}, x_1, y_1, I, N)$
+    - 设计动机：线性掩码的随机性很少产生"锚点可见、范围被掩码"的配置，确定性阶段强制这种条件关系，模拟从粗到细的精炼过程
 
 3. **数据扩展策略**：
-   - 初始用 7k Mind2Web 样本验证可行性
-   - 扩展到 120K 多领域数据：Mind2Web (20K) + WebLinX (20K) + OS-Atlas (60K, 涵盖 Web/Mobile/Desktop) + Rico Widget Caption (20K)
-   - 对大尺寸截图使用随机裁剪（保证目标元素可见）
-   - 使用 OCR 文本关联的标注替代纯图标级标注
+
+    - 初始用 7k Mind2Web 样本验证可行性
+    - 扩展到 120K 多领域数据：Mind2Web (20K) + WebLinX (20K) + OS-Atlas (60K, 涵盖 Web/Mobile/Desktop) + Rico Widget Caption (20K)
+    - 对大尺寸截图使用随机裁剪（保证目标元素可见）
+    - 使用 OCR 文本关联的标注替代纯图标级标注
 
 4. **推理参数分析**：
-   - 三个关键参数：扩散步数、生成长度、块长度
-   - 全部设为 64 时达到最佳精度-延迟平衡
-   - 超过阈值后精度趋于平稳但延迟持续增加
+
+    - 三个关键参数：扩散步数、生成长度、块长度
+    - 全部设为 64 时达到最佳精度-延迟平衡
+    - 超过阈值后精度趋于平稳但延迟持续增加
 
 ### 损失函数 / 训练策略
 

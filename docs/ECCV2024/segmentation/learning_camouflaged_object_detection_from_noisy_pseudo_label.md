@@ -47,23 +47,26 @@ WSSCOD 是一个两阶段方法：
 ### 关键设计
 
 1. **辅助网络 ANet（双分支编码器 + 反转融合解码器）**：
-   - **双分支编码器**：使用两个 ConvNeXt-B 分别编码原始图像 $x_m$ 和框 proposal $\tilde{b}_m = x_m \cdot b_m$，提取互补的多尺度特征
-   - **频率变换器 (Frequency Transformer)**：利用离散小波变换 DWT 提取低频和高频分量，高频与浅层特征融合捕捉细节，低频与深层特征融合增强语义
-   - **反转融合解码器**：UNet 风格的多层特征融合，同时引入反转 mask $Rev(p) = -\sigma(p) + 1$，将背景与困难区域关联，放大其与正确像素的差异
-   - 设计动机：框内信息不总是可靠的，因此需要原始图像与框 proposal 互补，而频率域信息可以揭示伪装场景中更细微的目标结构
+
+    - **双分支编码器**：使用两个 ConvNeXt-B 分别编码原始图像 $x_m$ 和框 proposal $\tilde{b}_m = x_m \cdot b_m$，提取互补的多尺度特征
+    - **频率变换器 (Frequency Transformer)**：利用离散小波变换 DWT 提取低频和高频分量，高频与浅层特征融合捕捉细节，低频与深层特征融合增强语义
+    - **反转融合解码器**：UNet 风格的多层特征融合，同时引入反转 mask $Rev(p) = -\sigma(p) + 1$，将背景与困难区域关联，放大其与正确像素的差异
+    - 设计动机：框内信息不总是可靠的，因此需要原始图像与框 proposal 互补，而频率域信息可以揭示伪装场景中更细微的目标结构
 
 2. **主网络 PNet（单分支结构）**：
-   - 保留 ANet 的模块但仅使用图像分支，编码器改用更强的 PVTv2-B4
-   - 推理时仅需输入图像，不需要框标注
-   - $p_{pn}^k = \Pi(\Phi_t(\mathbf{F}_t^k), ASPP(\mathbf{F}_t^4))$
+
+    - 保留 ANet 的模块但仅使用图像分支，编码器改用更强的 PVTv2-B4
+    - 推理时仅需输入图像，不需要框标注
+    - $p_{pn}^k = \Pi(\Phi_t(\mathbf{F}_t^k), ASPP(\mathbf{F}_t^4))$
 
 3. **噪声校正损失 $\mathcal{L}_{NC}$**：
-   - 核心公式：$\mathcal{L}_{NC} = \frac{\sum_{i=1}^{H \times W} |p_i - g_i|^q}{\sum_{i=1}^{H \times W}(p_i + g_i) - \sum_{i=1}^{H \times W} p_i \cdot g_i}$
-   - **早期学习阶段** ($q=2$)：等价于 IoU-form 损失，加速模型收敛到正确像素
-   - **记忆化阶段** ($q=1$)：变为 MAE-form 损失，梯度值对每个像素相同（$\frac{\partial \mathcal{L}_{NC}}{\partial p_i} = \frac{sign(p_i - g_i)}{分母}$），不会被噪声像素主导
-   - 相比纯 MAE：$\mathcal{L}_{NC}$ 是面积依赖的，可利用像素间空间相关性，收敛更快更好
-   - 可容忍高达 50% 的噪声率
-   - 设计动机：传统 CE 和 IoU 损失对困难像素更敏感，在干净标签时有利但在噪声标签上会导致严重错误引导
+
+    - 核心公式：$\mathcal{L}_{NC} = \frac{\sum_{i=1}^{H \times W} |p_i - g_i|^q}{\sum_{i=1}^{H \times W}(p_i + g_i) - \sum_{i=1}^{H \times W} p_i \cdot g_i}$
+    - **早期学习阶段** ($q=2$)：等价于 IoU-form 损失，加速模型收敛到正确像素
+    - **记忆化阶段** ($q=1$)：变为 MAE-form 损失，梯度值对每个像素相同（$\frac{\partial \mathcal{L}_{NC}}{\partial p_i} = \frac{sign(p_i - g_i)}{分母}$），不会被噪声像素主导
+    - 相比纯 MAE：$\mathcal{L}_{NC}$ 是面积依赖的，可利用像素间空间相关性，收敛更快更好
+    - 可容忍高达 50% 的噪声率
+    - 设计动机：传统 CE 和 IoU 损失对困难像素更敏感，在干净标签时有利但在噪声标签上会导致严重错误引导
 
 ### 损失函数 / 训练策略
 

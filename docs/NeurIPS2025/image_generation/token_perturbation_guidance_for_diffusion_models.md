@@ -46,28 +46,32 @@ s̃_θ = s_θ⁺ + γ(s_θ⁺ - s_θ⁻)
 ### 关键设计
 
 1. **Token Shuffling 扰动**：
-   - 在 token 维度应用置换矩阵 S∈R^{N×N} 得到 H' = S·H
-   - Shuffling 满足三个关键性质：
-     - **线性**：可表示为矩阵乘法，计算效率与 CFG 相当
-     - **保范数**：S^T·S = I，是正交变换，保持 token 范数不变，避免内部协变量偏移
-     - **破坏局部结构同时保持全局统计**：随机重排 token 位置
-   - 每个时间步 t 和每层 k 使用**不同的独立随机置换矩阵** S_{k,t}
+
+    - 在 token 维度应用置换矩阵 S∈R^{N×N} 得到 H' = S·H
+    - Shuffling 满足三个关键性质：
+      - **线性**：可表示为矩阵乘法，计算效率与 CFG 相当
+      - **保范数**：S^T·S = I，是正交变换，保持 token 范数不变，避免内部协变量偏移
+      - **破坏局部结构同时保持全局统计**：随机重排 token 位置
+    - 每个时间步 t 和每层 k 使用**不同的独立随机置换矩阵** S_{k,t}
 
 2. **为何 Shuffling 优于其他保范数扰动**：
-   - 对比了 Sign Flip（翻转符号）、Hadamard 变换、Haar 随机正交变换
-   - Shuffling 在 FID 上远优于其他：78.43 vs 118-120（5K 样本评估）
-   - 原因：Hadamard 和 Haar 将所有 token 混合在一起，可能破坏有用信息；Sign Flip 信号太弱；Shuffling 随机重排但保留可恢复的全局结构
+
+    - 对比了 Sign Flip（翻转符号）、Hadamard 变换、Haar 随机正交变换
+    - Shuffling 在 FID 上远优于其他：78.43 vs 118-120（5K 样本评估）
+    - 原因：Hadamard 和 Haar 将所有 token 混合在一起，可能破坏有用信息；Sign Flip 信号太弱；Shuffling 随机重排但保留可恢复的全局结构
 
 3. **与 CFG 行为的深度对比分析**：
-   - **方向分析**：TPG 和 CFG 的引导向量在整个去噪轨迹上与真实噪声几乎正交（余弦值接近 0），而 PAG/SEG 在中间步骤出现强负对齐
-   - **范数分析**：TPG 和 CFG 的引导项范数趋势几乎一致（从约 40 开始、后期陡增），而 PAG/SEG 始终保持低范数
-   - **频域分析**：TPG 和 CFG 在低频段有轻微正偏向，其余频率保持正交；SEG 在中频出现负条纹，能量比 CFG/TPG 小两个数量级
-   - 结论：TPG 在方向、频率内容上最接近 CFG 行为
+
+    - **方向分析**：TPG 和 CFG 的引导向量在整个去噪轨迹上与真实噪声几乎正交（余弦值接近 0），而 PAG/SEG 在中间步骤出现强负对齐
+    - **范数分析**：TPG 和 CFG 的引导项范数趋势几乎一致（从约 40 开始、后期陡增），而 PAG/SEG 始终保持低范数
+    - **频域分析**：TPG 和 CFG 在低频段有轻微正偏向，其余频率保持正交；SEG 在中频出现负条纹，能量比 CFG/TPG 小两个数量级
+    - 结论：TPG 在方向、频率内容上最接近 CFG 行为
 
 4. **对 DiT/ViT 架构的兼容性**：
-   - U-Net 架构的残差连接帮助恢复扰动 token，但 DiT 的连续 Transformer 层会让退化累积
-   - 对于 SD3（DiT 架构）：仅 shuffle 少部分 token 并在每个 Transformer block 后立即 unshuffle
-   - PAG 在 SD3 上甚至比 vanilla 更差（FID 138.08 vs 113.86），而 TPG 大幅提升（83.01）
+
+    - U-Net 架构的残差连接帮助恢复扰动 token，但 DiT 的连续 Transformer 层会让退化累积
+    - 对于 SD3（DiT 架构）：仅 shuffle 少部分 token 并在每个 Transformer block 后立即 unshuffle
+    - PAG 在 SD3 上甚至比 vanilla 更差（FID 138.08 vs 113.86），而 TPG 大幅提升（83.01）
 
 ### 损失函数 / 训练策略
 

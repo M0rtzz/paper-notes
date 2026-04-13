@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：音频 SR 在录音修复、助听器、生成音频后处理中的应用。AudioSR 用扩散模型在 mel 谱图隐空间做 noise-to-latent 实现 any-to-48kHz。
+**领域现状**：音频 SR 在录音修复、助听器、生成音频后处理中的应用。AudioSR 用扩散模型在 mel 谱图隐空间做 noise-to-latent 实现 any-to-48kHz。
 
-2. **现有痛点**：(a) AudioSR 从无信息高斯噪声出发，忽略 LR 波形先验；(b) A2SB 在 STFT 域做桥但将缺失高频填高斯噪声；(c) 高分辨率数据稀缺；(d) >48kHz 超分从未被探索。
+**现有痛点**：(a) AudioSR 从无信息高斯噪声出发，忽略 LR 波形先验；(b) A2SB 在 STFT 域做桥但将缺失高频填高斯噪声；(c) 高分辨率数据稀缺；(d) >48kHz 超分从未被探索。
 
-3. **核心矛盾**：SR 是 LR→HR 数据变换，但现有方法用 noise→data 生成范式，先验不匹配。
+**核心矛盾**：SR 是 LR→HR 数据变换，但现有方法用 noise→data 生成范式，先验不匹配。
 
-4. **切入角度**：波形直接压缩的隐空间中 LR/HR latent 高度相关——桥模型 latent-to-latent 完美匹配 SR。
+**切入角度**：波形直接压缩的隐空间中 LR/HR latent 高度相关——桥模型 latent-to-latent 完美匹配 SR。
 
-5. **核心 idea 一句话**：波形隐空间 + 桥模型 = LR-latent→HR-latent 生成匹配 SR 本质。
+**核心 idea 一句话**：波形隐空间 + 桥模型 = LR-latent→HR-latent 生成匹配 SR 本质。
 
 ## 方法详解
 

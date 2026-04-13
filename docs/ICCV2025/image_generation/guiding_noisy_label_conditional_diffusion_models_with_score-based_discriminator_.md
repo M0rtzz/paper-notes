@@ -31,9 +31,9 @@ tags:
 
 现有解决方案面临几个关键问题：
 
-1. **重训练成本过高**：基于转移矩阵估计的方法（如TDSM）需要多阶段训练，错误会在阶段间传播；噪声检测方法需要清洗数据后重训练模型，对于大规模模型不切实际
-2. **直接方法的缺陷**：TDSM在高噪声率下严重失效，经常生成标签错误的图像
-3. **推理效率问题**：需要一种计算开销小、无需重训练生成模型的方案
+**重训练成本过高**：基于转移矩阵估计的方法（如TDSM）需要多阶段训练，错误会在阶段间传播；噪声检测方法需要清洗数据后重训练模型，对于大规模模型不切实际
+**直接方法的缺陷**：TDSM在高噪声率下严重失效，经常生成标签错误的图像
+**推理效率问题**：需要一种计算开销小、无需重训练生成模型的方案
 
 SBDC的核心动机是：**能否在推理时通过一个轻量的辅助信号来校正噪声模型的生成轨迹？** 论文借鉴了噪声对比估计（NCE）的思想，利用现有的噪声检测技术和判别器训练来实现这一目标。
 
@@ -48,21 +48,22 @@ SBDC的流程分为两步：
 ### 关键设计
 
 1. **噪声条件生成行为分析**：论文将采样过程分为三个阶段：
-   - **Phase I（边缘化阶段）**：$t$ 较大时条件信息被遗忘，$C(t)$（置信度）低，$I(t)$（不稳定性）低
-   - **Phase II（条件化阶段）**：多个模式竞争影响扰动身份，$I(t)$ 达到峰值，**这是类别不稳定最严重的阶段**
-   - **Phase III（精细化阶段）**：后验集中在单一目标上，$C(t)$ 仅反映噪声率
+
+    - **Phase I（边缘化阶段）**：$t$ 较大时条件信息被遗忘，$C(t)$（置信度）低，$I(t)$（不稳定性）低
+    - **Phase II（条件化阶段）**：多个模式竞争影响扰动身份，$I(t)$ 达到峰值，**这是类别不稳定最严重的阶段**
+    - **Phase III（精细化阶段）**：后验集中在单一目标上，$C(t)$ 仅反映噪声率
 
    量化衡量指标为：
 
-   $$C(t) = \mathbb{P}[f(\mathbf{x}_\theta(\mathbf{x}_t, \mathbf{y})) = \mathbf{y}]$$
+    $C(t) = \mathbb{P}[f(\mathbf{x}_\theta(\mathbf{x}_t, \mathbf{y})) = \mathbf{y}]$
 
-   $$I(t) = \mathbb{P}[f(\mathbf{x}_\theta(\mathbf{x}_t, \mathbf{y})) \neq f(\mathbf{x}_\theta(\mathbf{x}_{t-1}, \mathbf{y}))]$$
+    $I(t) = \mathbb{P}[f(\mathbf{x}_\theta(\mathbf{x}_t, \mathbf{y})) \neq f(\mathbf{x}_\theta(\mathbf{x}_{t-1}, \mathbf{y}))]$
 
    核心洞察：**Phase II的类别变化一旦发生，错误会持续到最终输出**，因此校正应集中在此阶段。
 
 2. **Score-based判别器校正**：假设score网络已完美学到噪声分布，通过以下公式恢复干净分布：
 
-   $$\nabla_{\mathbf{x}_t} \log p(\mathbf{x}_t|\mathbf{y}) = \nabla_{\mathbf{x}_t} \log p_\theta(\mathbf{x}_t|\tilde{\mathbf{y}}) + \nabla_{\mathbf{x}_t} \log \frac{p(\mathbf{x}_t|\mathbf{y})}{p_\theta(\mathbf{x}_t|\tilde{\mathbf{y}})}$$
+    $\nabla_{\mathbf{x}_t} \log p(\mathbf{x}_t|\mathbf{y}) = \nabla_{\mathbf{x}_t} \log p_\theta(\mathbf{x}_t|\tilde{\mathbf{y}}) + \nabla_{\mathbf{x}_t} \log \frac{p(\mathbf{x}_t|\mathbf{y})}{p_\theta(\mathbf{x}_t|\tilde{\mathbf{y}})}$
 
    右侧第二项（校正项）通过判别器的对数似然比来近似。论文证明了理论界（Theorem 1）：当噪声率不过高时，最优判别器的梯度可以有效估计真实的对数似然比。
 
@@ -70,7 +71,7 @@ SBDC的流程分为两步：
 
 4. **SiMix数据增强**：为缓解判别器的过拟合问题，提出Similarity-based Mixup（SiMix）——在特征空间中找到最近邻样本进行混合，而非随机配对。具体地，对每个样本在batch内找到编码距离最近的样本，按Beta分布采样系数进行线性插值：
 
-   $$\mathbf{z}_i \leftarrow \lambda_i \mathbf{z}_i + (1 - \lambda_i) \mathbf{z}_{\arg\min_{j} \|f_i - f_j\|_2}$$
+    $\mathbf{z}_i \leftarrow \lambda_i \mathbf{z}_i + (1 - \lambda_i) \mathbf{z}_{\arg\min_{j} \|f_i - f_j\|_2}$
 
 ### 损失函数 / 训练策略
 

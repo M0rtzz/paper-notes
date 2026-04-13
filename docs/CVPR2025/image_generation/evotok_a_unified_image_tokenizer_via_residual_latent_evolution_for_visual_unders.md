@@ -25,14 +25,14 @@ tags:
 EvoTok 提出了一种基于残差潜在演化（Residual Latent Evolution）的统一图像 tokenizer，通过在共享潜空间中级联残差向量量化，使表示从浅层的像素级细节渐进演化到深层的语义级抽象，在仅用 13M 图像训练的情况下实现了 0.43 rFID 的重建质量，并在 7/9 个理解 benchmark 和 GenEval/GenAI-Bench 上取得优异效果。
 
 ## 研究背景与动机
-1. **领域现状**：统一多模态 LLM 需要同时支持视觉理解（高层语义）和图像生成（像素级细节），核心问题是设计一个统一的图像 tokenizer。
-2. **现有痛点**：现有两种范式各有缺陷——
+**领域现状**：统一多模态 LLM 需要同时支持视觉理解（高层语义）和图像生成（像素级细节），核心问题是设计一个统一的图像 tokenizer。
+**现有痛点**：现有两种范式各有缺陷——
    - **纠缠式**（ViLA-U, UniTok）：在同一组特征上同时施加 VQ 重建和对比学习 loss，导致语义对齐和像素重建之间的优化冲突
    - **解耦式**（DualToken, TokLIP, TokenFlow）：用独立分支/层/codebook 分别建模语义和像素特征，但过度独立导致两种特征之间缺乏内在一致性
-3. **核心矛盾**：理解需要高层语义抽象，生成需要细粒度像素表示——两者似乎矛盾，但本质上视觉信息是一个从像素到语义的连续谱。
-4. **本文要解决什么？** 如何在一个统一的潜空间中同时实现解耦（减少任务冲突）和一致性（共享视觉结构和语义先验）？
-5. **切入角度**：将图像表示为残差量化的演化轨迹——浅层捕获像素细节，深层逐步积累为语义抽象，两者在同一空间中共同演化。
-6. **核心idea一句话**：残差量化的不同深度自然对应像素→语义的演化谱，解耦来自不同深度切分，一致性来自共享空间。
+**核心矛盾**：理解需要高层语义抽象，生成需要细粒度像素表示——两者似乎矛盾，但本质上视觉信息是一个从像素到语义的连续谱。
+**本文要解决什么？** 如何在一个统一的潜空间中同时实现解耦（减少任务冲突）和一致性（共享视觉结构和语义先验）？
+**切入角度**：将图像表示为残差量化的演化轨迹——浅层捕获像素细节，深层逐步积累为语义抽象，两者在同一空间中共同演化。
+**核心idea一句话**：残差量化的不同深度自然对应像素→语义的演化谱，解耦来自不同深度切分，一致性来自共享空间。
 
 ## 方法详解
 
@@ -42,23 +42,27 @@ EvoTok 提出了一种基于残差潜在演化（Residual Latent Evolution）的
 ### 关键设计
 
 1. **残差潜在演化（Residual Latent Evolution）**:
-   - 做什么：用 RQ-VAE 的级联残差量化将图像编码为共享空间中的演化轨迹
-   - 核心思路：$\mathbf{k}_i = \mathcal{Q}(\mathbf{r}_{i-1}; \mathcal{C}_i)$，$\mathbf{r}_i = \mathbf{r}_{i-1} - \mathbf{e}_i(\mathbf{k}_i)$。像素特征 $\mathbf{f}_{\text{pix}} = \sum_{i=1}^{L_{\text{pix}}} \mathbf{e}_i(\mathbf{k}_i)$，语义特征 $\mathbf{f}_{\text{sem}} = \sum_{i=1}^{L_{\text{sem}}} \mathbf{e}_i(\mathbf{k}_i)$
-   - 设计动机：标准 RQ-VAE 中浅层自然捕获主体结构，深层捕获精细残差。EvoTok 反转这一用法——让浅层对应像素（前4级），全部16级对应语义，实现像素→语义的渐进演化
+
+    - 做什么：用 RQ-VAE 的级联残差量化将图像编码为共享空间中的演化轨迹
+    - 核心思路：$\mathbf{k}_i = \mathcal{Q}(\mathbf{r}_{i-1}; \mathcal{C}_i)$，$\mathbf{r}_i = \mathbf{r}_{i-1} - \mathbf{e}_i(\mathbf{k}_i)$。像素特征 $\mathbf{f}_{\text{pix}} = \sum_{i=1}^{L_{\text{pix}}} \mathbf{e}_i(\mathbf{k}_i)$，语义特征 $\mathbf{f}_{\text{sem}} = \sum_{i=1}^{L_{\text{sem}}} \mathbf{e}_i(\mathbf{k}_i)$
+    - 设计动机：标准 RQ-VAE 中浅层自然捕获主体结构，深层捕获精细残差。EvoTok 反转这一用法——让浅层对应像素（前4级），全部16级对应语义，实现像素→语义的渐进演化
 
 2. **像素→语义的方向选择**:
-   - 做什么：验证了演化方向的重要性（pixel-to-semantic vs semantic-to-pixel）
-   - 核心思路：消融实验表明 $(L_{\text{pix}}=4, L_{\text{sem}}=16)$ 优于 $(L_{\text{pix}}=16, L_{\text{sem}}=4)$ 和纠缠式 $(L_{\text{pix}}=L_{\text{sem}}=4)$
-   - 设计动机：高层语义可以从像素特征逐步积累得到，但反向回归（从语义回到像素）效果不佳
+
+    - 做什么：验证了演化方向的重要性（pixel-to-semantic vs semantic-to-pixel）
+    - 核心思路：消融实验表明 $(L_{\text{pix}}=4, L_{\text{sem}}=16)$ 优于 $(L_{\text{pix}}=16, L_{\text{sem}}=4)$ 和纠缠式 $(L_{\text{pix}}=L_{\text{sem}}=4)$
+    - 设计动机：高层语义可以从像素特征逐步积累得到，但反向回归（从语义回到像素）效果不佳
 
 3. **统一训练目标**:
-   - 做什么：同时优化像素重建和语义对齐
-   - 核心思路：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{pix}} + \mathcal{L}_{\text{sem}} + \mathcal{L}_{\text{VQ}}$，其中 $\mathcal{L}_{\text{pix}}$ 包含重建+感知+对抗 loss，$\mathcal{L}_{\text{sem}}$ 为与 SigLIP2 特征的余弦相似度，$\mathcal{L}_{\text{VQ}}$ 为标准 VQ loss
-   - 设计动机：两种 loss 作用在轨迹的不同深度切面上，自然解耦、不冲突
+
+    - 做什么：同时优化像素重建和语义对齐
+    - 核心思路：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{pix}} + \mathcal{L}_{\text{sem}} + \mathcal{L}_{\text{VQ}}$，其中 $\mathcal{L}_{\text{pix}}$ 包含重建+感知+对抗 loss，$\mathcal{L}_{\text{sem}}$ 为与 SigLIP2 特征的余弦相似度，$\mathcal{L}_{\text{VQ}}$ 为标准 VQ loss
+    - 设计动机：两种 loss 作用在轨迹的不同深度切面上，自然解耦、不冲突
 
 4. **理解与生成集成**:
-   - 理解：$\mathbf{f}_{\text{sem}}$ 经语义解码器 + MLP 投影器送入 LLM（LLaVA 范式）
-   - 生成：LLM 自回归预测空间位置后，RQ-Transformer head 沿深度预测 $L_{\text{pix}}$ 个 codes，累加得到像素特征后解码图像
+
+    - 理解：$\mathbf{f}_{\text{sem}}$ 经语义解码器 + MLP 投影器送入 LLM（LLaVA 范式）
+    - 生成：LLM 自回归预测空间位置后，RQ-Transformer head 沿深度预测 $L_{\text{pix}}$ 个 codes，累加得到像素特征后解码图像
 
 ### 损失函数
 $$\mathcal{L}_{\text{total}} = \underbrace{(\mathcal{L}_R + \lambda_P \mathcal{L}_P + \lambda_G \mathcal{L}_G)}_{\text{pixel}} + \underbrace{\mathcal{L}_{\text{sem}}}_{\text{semantic}} + \underbrace{\mathcal{L}_{\text{VQ}}}_{\text{codebook}}$$

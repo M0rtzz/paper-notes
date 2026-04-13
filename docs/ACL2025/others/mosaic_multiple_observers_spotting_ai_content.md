@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 生成文本的检测已成为紧迫需求（虚假新闻/学术抄袭/有害内容）。零样本检测方法（如 GPTZero、Binoculars）基于 detector LLM 的 perplexity/surprisal 判别，但严重依赖单一或固定的 detector 模型对选择。
-2. **现有痛点**：(a) 单一 detector 的检测效果因域/语言/生成器不同而波动大；(b) Binoculars 等双模型方法需搜索最优模型对，不同验证集给出不同最优对；(c) 随模型数量增加，枚举所有可能对组合指数爆炸。
-3. **核心矛盾**：如何在不依赖特定 detector 选择的情况下，鲁棒地检测多种生成器的输出？
-4. **本文要解决什么**：设计一个有理论基础的多 LLM 集成检测方法，自动为各 LLM 分配最优权重。
-5. **切入角度**：将检测问题与通用压缩（universal compression）联系——最优的多模型混合就是能最好"压缩"（即最低困惑度描述）人类文本的混合分布。用 Blahut-Arimoto 算法求解这个信息论优化问题。
-6. **核心 idea**：$q^*(y_t|\mathbf{y}_{<t}) = \sum_{m \in \mathcal{M}} \mu^*(m|\mathbf{y}_{<t}) p_m(y_t|\mathbf{y}_{<t})$，先用 BA 算法找最优权重 $\mu^*$，再用混合模型 $q^*$ 替代 Binoculars 中的单一 detector $q$。
+**领域现状**：LLM 生成文本的检测已成为紧迫需求（虚假新闻/学术抄袭/有害内容）。零样本检测方法（如 GPTZero、Binoculars）基于 detector LLM 的 perplexity/surprisal 判别，但严重依赖单一或固定的 detector 模型对选择。
+**现有痛点**：(a) 单一 detector 的检测效果因域/语言/生成器不同而波动大；(b) Binoculars 等双模型方法需搜索最优模型对，不同验证集给出不同最优对；(c) 随模型数量增加，枚举所有可能对组合指数爆炸。
+**核心矛盾**：如何在不依赖特定 detector 选择的情况下，鲁棒地检测多种生成器的输出？
+**本文要解决什么**：设计一个有理论基础的多 LLM 集成检测方法，自动为各 LLM 分配最优权重。
+**切入角度**：将检测问题与通用压缩（universal compression）联系——最优的多模型混合就是能最好"压缩"（即最低困惑度描述）人类文本的混合分布。用 Blahut-Arimoto 算法求解这个信息论优化问题。
+**核心 idea**：$q^*(y_t|\mathbf{y}_{<t}) = \sum_{m \in \mathcal{M}} \mu^*(m|\mathbf{y}_{<t}) p_m(y_t|\mathbf{y}_{<t})$，先用 BA 算法找最优权重 $\mu^*$，再用混合模型 $q^*$ 替代 Binoculars 中的单一 detector $q$。
 
 ## 方法详解
 
@@ -40,25 +40,29 @@ tags:
 ### 关键设计
 
 1. **最优混合分布 (Blahut-Arimoto)**
-   - 做什么：为 $K$ 个 detector LLM 计算位置自适应的最优权重 $\mu^*(m|\mathbf{y}_{<t})$
-   - 核心思路：通过迭代 Blahut-Arimoto 算法最大化互信息 $\mathcal{I}(\mathbb{M}; Y_t|\mathbf{y}_{<t})$，使混合模型 $q^*$ 是对当前上下文最具判别力的模型组合
-   - 设计动机：来自通用压缩理论——最优混合分布是所有模型中能最短编码（最低困惑度）描述观测文本的分布
+
+    - 做什么：为 $K$ 个 detector LLM 计算位置自适应的最优权重 $\mu^*(m|\mathbf{y}_{<t})$
+    - 核心思路：通过迭代 Blahut-Arimoto 算法最大化互信息 $\mathcal{I}(\mathbb{M}; Y_t|\mathbf{y}_{<t})$，使混合模型 $q^*$ 是对当前上下文最具判别力的模型组合
+    - 设计动机：来自通用压缩理论——最优混合分布是所有模型中能最短编码（最低困惑度）描述观测文本的分布
 
 2. **MOSAIC 评分**
-   - 做什么：每个 token 计算 surprisal 与期望交叉熵的差
-   - 公式：$s_t(\mathbf{y}) = \mathcal{L}_{q^*}(y_t|\mathbf{y}_{<t}) - \sum_{y \in \Omega} p_{m^*}(y|\mathbf{y}_{<t}) \mathcal{L}_{q^*}(y|\mathbf{y}_{<t})$
-   - 直觉：AI 生成文本在混合模型下 surprisal 低（因为某个 LLM 很好地"预测"了它），但参考模型的期望交叉熵也低 → 差值小 → 检测为 AI
-   - 最终分数：$S_\mathcal{M}(\mathbf{y}) = \frac{1}{T}\sum_t s_t(\mathbf{y})$
+
+    - 做什么：每个 token 计算 surprisal 与期望交叉熵的差
+    - 公式：$s_t(\mathbf{y}) = \mathcal{L}_{q^*}(y_t|\mathbf{y}_{<t}) - \sum_{y \in \Omega} p_{m^*}(y|\mathbf{y}_{<t}) \mathcal{L}_{q^*}(y|\mathbf{y}_{<t})$
+    - 直觉：AI 生成文本在混合模型下 surprisal 低（因为某个 LLM 很好地"预测"了它），但参考模型的期望交叉熵也低 → 差值小 → 检测为 AI
+    - 最终分数：$S_\mathcal{M}(\mathbf{y}) = \frac{1}{T}\sum_t s_t(\mathbf{y})$
 
 3. **参考模型选择**
-   - 做什么：从集成中选择对人类文本困惑度最低的模型作为 $m^*$
-   - 核心思路：$m^* = \arg\min_{m \in \mathcal{M}} -\sum_t \log p_m(y_t|\mathbf{y}_{<t})$ on human text
-   - 实践：通常是集成中最大的 LLM（如 Llama-3-70B）
+
+    - 做什么：从集成中选择对人类文本困惑度最低的模型作为 $m^*$
+    - 核心思路：$m^* = \arg\min_{m \in \mathcal{M}} -\sum_t \log p_m(y_t|\mathbf{y}_{<t})$ on human text
+    - 实践：通常是集成中最大的 LLM（如 Llama-3-70B）
 
 4. **与 Binoculars/FastDetectGPT 的统一视角**
-   - Binoculars = MOSAIC 的特例（$|\mathcal{M}|=1$, 固定 $q$）
-   - FastDetectGPT = 差值版 Binoculars（逐 token 归一化而非全句平均）
-   - MOSAIC 推广为任意数量 detector 的集成，权重自适应
+
+    - Binoculars = MOSAIC 的特例（$|\mathcal{M}|=1$, 固定 $q$）
+    - FastDetectGPT = 差值版 Binoculars（逐 token 归一化而非全句平均）
+    - MOSAIC 推广为任意数量 detector 的集成，权重自适应
 
 ## 实验关键数据
 

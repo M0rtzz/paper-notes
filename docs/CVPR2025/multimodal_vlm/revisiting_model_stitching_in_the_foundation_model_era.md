@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: VFM 已成为视觉任务的默认 backbone，不同 VFM（CLIP、DINOv2、SigLIP 2 等）在不同任务上各有所长，现代多模态系统越来越多地同时使用多个 VFM。
-2. **现有痛点**: 同时部署 $k$ 个 VFM 需要 $k\times$ 的计算和内存开销；不清楚这些异构 VFM 的内部表示是否兼容可复用。
-3. **核心矛盾**: 先前 model stitching 研究仅在同数据集小模型上验证（如 ResNet-18 on CIFAR-10），VFM 时代下训练目标、数据、模态混合完全不同的大模型是否仍可拼接未知。
-4. **本文要解决什么**: 异构 VFM 是否可拼接？如何正确训练 stitch layer？是否能从拼接中获得超越单模型的性能？
-5. **切入角度**: 设计系统化的实验协议（stitch point × stitch layer family × training loss × downstream task），揭示现有方法的失败模式并提出新方案。
-6. **核心 idea 一句话**: 用 Final Feature Matching 匹配 target 模型倒数第二层特征来初始化 stitch layer，使异构 VFM 可靠拼接并融合互补知识。
+**领域现状**: VFM 已成为视觉任务的默认 backbone，不同 VFM（CLIP、DINOv2、SigLIP 2 等）在不同任务上各有所长，现代多模态系统越来越多地同时使用多个 VFM。
+**现有痛点**: 同时部署 $k$ 个 VFM 需要 $k\times$ 的计算和内存开销；不清楚这些异构 VFM 的内部表示是否兼容可复用。
+**核心矛盾**: 先前 model stitching 研究仅在同数据集小模型上验证（如 ResNet-18 on CIFAR-10），VFM 时代下训练目标、数据、模态混合完全不同的大模型是否仍可拼接未知。
+**本文要解决什么**: 异构 VFM 是否可拼接？如何正确训练 stitch layer？是否能从拼接中获得超越单模型的性能？
+**切入角度**: 设计系统化的实验协议（stitch point × stitch layer family × training loss × downstream task），揭示现有方法的失败模式并提出新方案。
+**核心 idea 一句话**: 用 Final Feature Matching 匹配 target 模型倒数第二层特征来初始化 stitch layer，使异构 VFM 可靠拼接并融合互补知识。
 
 ## 方法详解
 

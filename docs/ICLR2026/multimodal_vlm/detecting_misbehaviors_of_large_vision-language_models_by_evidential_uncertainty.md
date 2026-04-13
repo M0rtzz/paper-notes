@@ -26,10 +26,10 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LVLM 在困难/分布外输入下会产生幻觉、越狱响应、对抗脆弱性和 OOD 失败等错误行为。现有不确定性量化方法多关注总体预测不确定性。
-2. **现有痛点**：(a) 贝叶斯方法计算成本太高无法应用于 LVLM；(b) 采样方法（语义熵等）需多次推理；(c) 现有方法无法区分不确定性的来源——是内部矛盾还是知识缺失。
-3. **核心洞察**：幻觉主要源于高内部冲突（模型同时有支持和反对的证据），OOD 失败源于高无知（缺乏相关知识）。
-4. **核心idea**：从 LVLM output head 的 pre-logits 特征中提取正/负证据，用 Dempster 规则融合后分别计算冲突和无知。
+**领域现状**：LVLM 在困难/分布外输入下会产生幻觉、越狱响应、对抗脆弱性和 OOD 失败等错误行为。现有不确定性量化方法多关注总体预测不确定性。
+**现有痛点**：(a) 贝叶斯方法计算成本太高无法应用于 LVLM；(b) 采样方法（语义熵等）需多次推理；(c) 现有方法无法区分不确定性的来源——是内部矛盾还是知识缺失。
+**核心洞察**：幻觉主要源于高内部冲突（模型同时有支持和反对的证据），OOD 失败源于高无知（缺乏相关知识）。
+**核心idea**：从 LVLM output head 的 pre-logits 特征中提取正/负证据，用 Dempster 规则融合后分别计算冲突和无知。
 
 ## 方法详解
 
@@ -39,18 +39,21 @@ LVLM 单次前向推理 → 提取 output head 的 pre-logits 特征 $\mathbf{Z}
 ### 关键设计
 
 1. **证据权重闭式估计（Lemma 1）**:
-   - 用仿射变换 $\mathbf{E} = \mathbf{A} \odot \mathbf{Z}^\top + \mathbf{B}$ 从 pre-logits 构造证据
-   - 最小承诺原则约束下闭式解 $\mathbf{A}^* = W - \mu_0(W)$
-   - 分解为 $\mathbf{E}^+$（支持）和 $\mathbf{E}^-$（反对）
+
+    - 用仿射变换 $\mathbf{E} = \mathbf{A} \odot \mathbf{Z}^\top + \mathbf{B}$ 从 pre-logits 构造证据
+    - 最小承诺原则约束下闭式解 $\mathbf{A}^* = W - \mu_0(W)$
+    - 分解为 $\mathbf{E}^+$（支持）和 $\mathbf{E}^-$（反对）
 
 2. **Dempster 融合计算 CF 和 IG**:
-   - CF = 正负证据间的冲突度 $\kappa$（高 CF = 模型内部矛盾）
-   - IG = 融合后分配给全集 $\mathcal{H}$ 的质量（高 IG = 模型缺乏知识）
-   - 完全无需训练，单次前向传播
+
+    - CF = 正负证据间的冲突度 $\kappa$（高 CF = 模型内部矛盾）
+    - IG = 融合后分配给全集 $\mathcal{H}$ 的质量（高 IG = 模型缺乏知识）
+    - 完全无需训练，单次前向传播
 
 3. **Misbehavior-Bench**:
-   - 涵盖 4 类错误行为：幻觉、越狱、对抗攻击、OOD 失败
-   - 评估 4 个 SOTA LVLM：DeepSeek-VL2-Tiny、Qwen2.5-VL-7B、InternVL2.5-8B、MoF-7B
+
+    - 涵盖 4 类错误行为：幻觉、越狱、对抗攻击、OOD 失败
+    - 评估 4 个 SOTA LVLM：DeepSeek-VL2-Tiny、Qwen2.5-VL-7B、InternVL2.5-8B、MoF-7B
 
 ## 实验关键数据
 

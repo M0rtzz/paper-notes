@@ -45,26 +45,30 @@ VeriTrail 对最终输出提取的每个 claim 独立执行以下迭代过程，
 
 ### 关键设计
 1. **Sub-Claim 分解**：
-   - 使用 Claimify 将复合 claim 分解为独立可验证的子声明
-   - 例："公司X在2020年收购了两家医疗创业公司" → (1) 收购了两家创业公司 (2) 在2020年 (3) 属于医疗扩张战略
-   - 子声明作为后续验证的上下文保留，但不直接验证
+
+    - 使用 Claimify 将复合 claim 分解为独立可验证的子声明
+    - 例："公司X在2020年收购了两家医疗创业公司" → (1) 收购了两家创业公司 (2) 在2020年 (3) 属于医疗扩张战略
+    - 子声明作为后续验证的上下文保留，但不直接验证
 
 2. **Evidence Selection（证据选择）**：
-   - 取终端节点的源节点 $src(v^*)$，将其切分为句子并分配唯一 ID
-   - LLM 选择强烈支持或反驳 claim 的句子 ID
-   - 关键：返回的 ID 必须与程序化分配的 ID 匹配，**保证选中的句子不会是幻觉**
-   - 支持并行处理以降低延迟
+
+    - 取终端节点的源节点 $src(v^*)$，将其切分为句子并分配唯一 ID
+    - LLM 选择强烈支持或反驳 claim 的句子 ID
+    - 关键：返回的 ID 必须与程序化分配的 ID 匹配，**保证选中的句子不会是幻觉**
+    - 支持并行处理以降低延迟
 
 3. **Verdict Generation（判定生成）**：
-   - 基于选中的证据句子，LLM 给出三级判定：Fully Supported / Not Fully Supported / Inconclusive
-   - 避免冗余上下文：根节点保留全文，中间节点使用 Evidence Selection 生成的摘要
-   - 超出上下文限制时自动重跑 Evidence Selection 进行压缩
+
+    - 基于选中的证据句子，LLM 给出三级判定：Fully Supported / Not Fully Supported / Inconclusive
+    - 避免冗余上下文：根节点保留全文，中间节点使用 Evidence Selection 生成的摘要
+    - 超出上下文限制时自动重跑 Evidence Selection 进行压缩
 
 4. **Candidate Node Selection & 终止条件**：
-   - Fully Supported/Inconclusive → 继续验证证据来源节点
-   - Not Fully Supported → 扩大搜索范围（验证所有检查过的节点的源节点），降低假阳性
-   - 终止条件：(1) 仅剩已验证的根节点 (2) 无候选节点 (3) 连续 $q$ 次 Not Fully Supported
-   - 超参 $q$ 控制检测严格度：$q=1$ 偏向高 recall，$q=3$ 偏向高 precision
+
+    - Fully Supported/Inconclusive → 继续验证证据来源节点
+    - Not Fully Supported → 扩大搜索范围（验证所有检查过的节点的源节点），降低假阳性
+    - 终止条件：(1) 仅剩已验证的根节点 (2) 无候选节点 (3) 连续 $q$ 次 Not Fully Supported
+    - 超参 $q$ 控制检测严格度：$q=1$ 偏向高 recall，$q=3$ 偏向高 precision
 
 ### 可追溯性输出
 - **Provenance**：对 Fully Supported 的 claim，返回从终端到根节点的完整证据链

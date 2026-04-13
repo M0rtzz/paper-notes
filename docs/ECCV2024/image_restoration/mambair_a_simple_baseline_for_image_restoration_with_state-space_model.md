@@ -30,8 +30,8 @@ tags:
 图像修复领域长期存在一个核心矛盾：**全局感受野 vs 计算效率**。CNN 方法（如 EDSR、RCAN）计算效率高但感受野有限；Transformer 方法（如 SwinIR、HAT）虽然能建模全局依赖，但自注意力的二次复杂度使得在全图尺度上计算代价极高。即使使用窗口注意力等高效变体，也只是在全局建模和计算效率间做折中。
 
 Mamba 作为改进的选择性结构化状态空间模型，具有线性复杂度的长程依赖建模能力，天然适合解决这一困境。然而，标准 Mamba 是为 1D NLP 序列设计的，直接应用于 2D 图像修复面临两个问题：
-1. **局部像素遗忘**：将 2D 图像展平为 1D 序列后，空间上邻近的像素在序列中可能距离很远，递归处理时容易被遗忘
-2. **通道冗余**：为记忆长序列依赖，隐藏状态数量通常很大，导致通道特征冗余
+**局部像素遗忘**：将 2D 图像展平为 1D 序列后，空间上邻近的像素在序列中可能距离很远，递归处理时容易被遗忘
+**通道冗余**：为记忆长序列依赖，隐藏状态数量通常很大，导致通道特征冗余
 
 核心 idea：设计专门的修复模块（RSSB），通过局部卷积增强和通道注意力来弥补 Mamba 在底层视觉中的不足，使其成为 CNN 和 Transformer 之外的第三类修复 backbone。
 
@@ -47,15 +47,16 @@ MambaIR 采用三阶段架构：
 ### 关键设计
 
 1. **残差状态空间块（RSSB）**：RSSB 是 MambaIR 的核心模块，打破了 Transformer 中 "Norm → Attention → Norm → MLP" 的固定范式。它包含两个子模块：
-   - 第一部分：LayerNorm → VSSM（视觉状态空间模块）+ 可学习缩放因子 $s$ 的跳跃连接，即 $Z^l = \text{VSSM}(\text{LN}(F_D^l)) + s \cdot F_D^l$
-   - 第二部分：LayerNorm → 瓶颈结构局部卷积 → 通道注意力（CA）+ 可学习缩放因子 $s'$ 的跳跃连接，即 $F_D^{l+1} = \text{CA}(\text{Conv}(\text{LN}(Z^l))) + s' \cdot Z^l$
+
+    - 第一部分：LayerNorm → VSSM（视觉状态空间模块）+ 可学习缩放因子 $s$ 的跳跃连接，即 $Z^l = \text{VSSM}(\text{LN}(F_D^l)) + s \cdot F_D^l$
+    - 第二部分：LayerNorm → 瓶颈结构局部卷积 → 通道注意力（CA）+ 可学习缩放因子 $s'$ 的跳跃连接，即 $F_D^{l+1} = \text{CA}(\text{Conv}(\text{LN}(Z^l))) + s' \cdot Z^l$
    
    局部卷积用于恢复被 1D 展平破坏的邻域相似性，通道注意力用于缓解大量隐藏状态导致的通道冗余。可学习缩放因子控制跳跃连接的信息流。
 
 2. **视觉状态空间模块（VSSM）**：采用双分支结构，第一分支通过 Linear → DWConv → SiLU → 2D-SSM → LN 提取全局特征；第二分支通过 Linear → SiLU 作为门控。两分支经 Hadamard 乘积融合后投影回原通道数。公式为：
-   $$X_1 = \text{LN}(\text{2D-SSM}(\text{SiLU}(\text{DWConv}(\text{Linear}(X)))))$$
-   $$X_2 = \text{SiLU}(\text{Linear}(X))$$
-   $$X_{out} = \text{Linear}(X_1 \odot X_2)$$
+    $X_1 = \text{LN}(\text{2D-SSM}(\text{SiLU}(\text{DWConv}(\text{Linear}(X)))))$
+    $X_2 = \text{SiLU}(\text{Linear}(X))$
+    $X_{out} = \text{Linear}(X_1 \odot X_2)$
 
 3. **2D 选择性扫描模块（2D-SSM）**：为了让 Mamba 处理 2D 图像的非因果数据，采用四方向扫描策略（左上→右下、右下→左上、右上→左下、左下→右上），对每个方向的展平序列分别用离散状态空间方程建模长程依赖，最后将四个方向的结果求和并 reshape 回 2D。
 

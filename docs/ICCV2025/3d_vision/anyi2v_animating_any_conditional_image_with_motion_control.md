@@ -48,24 +48,27 @@ tags:
 
 ### 关键设计
 1. **Structure-Preserved Feature Injection（结构保持的特征注入）**:
-   - 通过实验分析发现：residual hidden state提供最好的结构控制但会泄漏外观信息；query提供高级语义和实体感知表示；attention map时域一致性差
-   - 对residual hidden采用**Patch-wise AdaIN去偏**：将特征分割为不重叠的patch（p=4），在patch级别做AdaIN操作消除外观信息泄漏，同时保留结构信息
-   - 注入去偏后的residual hidden + query作为首帧引导
-   - 将首帧的K/V复制到后续帧（K_{2:f}=K_1, V_{2:f}=V_1）确保内容一致性
+
+    - 通过实验分析发现：residual hidden state提供最好的结构控制但会泄漏外观信息；query提供高级语义和实体感知表示；attention map时域一致性差
+    - 对residual hidden采用**Patch-wise AdaIN去偏**：将特征分割为不重叠的patch（p=4），在patch级别做AdaIN操作消除外观信息泄漏，同时保留结构信息
+    - 注入去偏后的residual hidden + query作为首帧引导
+    - 将首帧的K/V复制到后续帧（K_{2:f}=K_1, V_{2:f}=V_1）确保内容一致性
 
 2. **Zero-Shot Trajectory Control（零样本轨迹控制）**:
-   - 通过PCA降维分析发现：query在时域上具有强一致性和实体感知能力，是最适合做跨帧对齐的特征
-   - 用户定义bounding box指定目标区域和轨迹
-   - 通过PCA提取query的前M=64个主成分，对齐后续帧与首帧的特征
-   - 优化目标：$$z_t^* = \arg\min_{z_t} \sum_{i=1}^{n}\sum_{j=2}^{f} \mathcal{L}(F_j[\mathcal{B}_j^i], \text{SG}(F_1[\mathcal{B}_1^i]))$$
-   - 其中 $F_j = \text{PCA}(\text{Query}_j, M)$，SG为stop-gradient
+
+    - 通过PCA降维分析发现：query在时域上具有强一致性和实体感知能力，是最适合做跨帧对齐的特征
+    - 用户定义bounding box指定目标区域和轨迹
+    - 通过PCA提取query的前M=64个主成分，对齐后续帧与首帧的特征
+    - 优化目标：$$z_t^* = \arg\min_{z_t} \sum_{i=1}^{n}\sum_{j=2}^{f} \mathcal{L}(F_j[\mathcal{B}_j^i], \text{SG}(F_1[\mathcal{B}_1^i]))$$
+    - 其中 $F_j = \text{PCA}(\text{Query}_j, M)$，SG为stop-gradient
 
 3. **Semantic Mask Generation（语义掩码生成）**:
-   - 解决bounding box对不规则形状物体控制不精确的问题
-   - 在首帧bounding box内选取显著点P，计算与各帧特征的余弦相似度
-   - 对相似度图做K-Means二聚类生成自适应语义掩码
-   - 最终损失函数为掩码约束的MSE：$$\mathcal{L}_j^i = \|M_1^i \odot M_j^i \odot (F_j[\mathcal{B}_j^i] - \text{SG}(F_1[\mathcal{B}_1^i]))\|_2^2$$
-   - 动态掩码允许物体自然形变，比静态掩码更灵活
+
+    - 解决bounding box对不规则形状物体控制不精确的问题
+    - 在首帧bounding box内选取显著点P，计算与各帧特征的余弦相似度
+    - 对相似度图做K-Means二聚类生成自适应语义掩码
+    - 最终损失函数为掩码约束的MSE：$$\mathcal{L}_j^i = \|M_1^i \odot M_j^i \odot (F_j[\mathcal{B}_j^i] - \text{SG}(F_1[\mathcal{B}_1^i]))\|_2^2$$
+    - 动态掩码允许物体自然形变，比静态掩码更灵活
 
 ### 损失函数 / 训练策略
 - **完全免训练**：无需额外训练任何模块

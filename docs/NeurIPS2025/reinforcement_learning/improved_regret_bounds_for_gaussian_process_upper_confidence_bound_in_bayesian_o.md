@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：BO 中 GP-UCB 广泛使用。Srinivas et al. (2010) 的上界为 $O(\sqrt{\beta_T T \gamma_T(\mathcal{X})})$，其中 $\gamma_T$ 是最大信息增益。
-2. **现有痛点**：Matern 核下 GP-UCB 给出 $\widetilde{O}(T^{(\nu+d)/(2\nu+d)})$，劣于 Scarlett (2018) 的 $O(\sqrt{T\ln T})$。
-3. **核心矛盾**：$I(\mathbf{X}_T) \leq \gamma_T(\mathcal{X})$ 是最坏情况约束。GP-UCB 输入集中在最优点附近，信息增益远小于最大值。
-4. **本文要解决什么？** 利用 GP-UCB 输入集中性给出更紧信息增益上界。
-5. **切入角度**：GP-UCB 因 sublinear regret 导致输入集中在 $\mathbf{x}^*$ 附近，集中输入的信息增益 $\ll \gamma_T(\mathcal{X})$。
-6. **核心idea一句话**：利用算法自身行为导致的输入集中性，在收缩局部区域上分析信息增益。
+**领域现状**：BO 中 GP-UCB 广泛使用。Srinivas et al. (2010) 的上界为 $O(\sqrt{\beta_T T \gamma_T(\mathcal{X})})$，其中 $\gamma_T$ 是最大信息增益。
+**现有痛点**：Matern 核下 GP-UCB 给出 $\widetilde{O}(T^{(\nu+d)/(2\nu+d)})$，劣于 Scarlett (2018) 的 $O(\sqrt{T\ln T})$。
+**核心矛盾**：$I(\mathbf{X}_T) \leq \gamma_T(\mathcal{X})$ 是最坏情况约束。GP-UCB 输入集中在最优点附近，信息增益远小于最大值。
+**本文要解决什么？** 利用 GP-UCB 输入集中性给出更紧信息增益上界。
+**切入角度**：GP-UCB 因 sublinear regret 导致输入集中在 $\mathbf{x}^*$ 附近，集中输入的信息增益 $\ll \gamma_T(\mathcal{X})$。
+**核心idea一句话**：利用算法自身行为导致的输入集中性，在收缩局部区域上分析信息增益。
 
 ## 方法详解
 
@@ -41,21 +41,25 @@ GP-UCB：$\mathbf{x}_t = \arg\max \mu(\mathbf{x}) + \beta_t^{1/2} \sigma(\mathbf
 ### 关键设计
 
 1. **Regret 两部分分解**:
-   - $R_T^{(1)}(\varepsilon)$：大 regret 轮次（lenient regret），$= \widetilde{O}(1)$
-   - $R_T^{(2)}(\varepsilon)$：小 regret 轮次，输入在 $\mathbf{x}^*$ 的二次增长区域内
+
+    - $R_T^{(1)}(\varepsilon)$：大 regret 轮次（lenient regret），$= \widetilde{O}(1)$
+    - $R_T^{(2)}(\varepsilon)$：小 regret 轮次，输入在 $\mathbf{x}^*$ 的二次增长区域内
 
 2. **$R_T^{(2)}$ 的 Dyadic 分解**:
-   - 将 $[T]$ 分为 $T, T/2, T/4, \ldots$ 段
-   - 每段：worst-case 界 $\to$ 输入数量 $\leq T/2^i$ $\to$ sub-optimality $\leq \eta_i$ + 二次增长 $\to$ 输入在球 $\mathcal{B}_2(\sqrt{c_{\text{quad}}^{-1}\eta_i}; \mathbf{x}^*)$ 内
-   - 用局部 MIG $\gamma_{T/2^{i-1}}(\mathcal{B}_2(\cdot))$ 替代全局 $\gamma_T(\mathcal{X})$
-   - **关键**：$\eta_i$ 随 $i$ 增大而减小，球收缩，"时间增大"和"区域缩小"相互对消
+
+    - 将 $[T]$ 分为 $T, T/2, T/4, \ldots$ 段
+    - 每段：worst-case 界 $\to$ 输入数量 $\leq T/2^i$ $\to$ sub-optimality $\leq \eta_i$ + 二次增长 $\to$ 输入在球 $\mathcal{B}_2(\sqrt{c_{\text{quad}}^{-1}\eta_i}; \mathbf{x}^*)$ 内
+    - 用局部 MIG $\gamma_{T/2^{i-1}}(\mathcal{B}_2(\cdot))$ 替代全局 $\gamma_T(\mathcal{X})$
+    - **关键**：$\eta_i$ 随 $i$ 增大而减小，球收缩，"时间增大"和"区域缩小"相互对消
 
 3. **核心公式（Lemma 4）**:
-   - $R_T^{(2)} \leq 2c_{\text{sup}}\bar{T} + O(\log T) + \frac{2\sqrt{2C\beta_T T}}{\sqrt{2}-1} \max_i \sqrt{\gamma_{T/2^{i-1}}(\mathcal{B}_2(\sqrt{c_{\text{quad}}^{-1}\eta_i}))}$
+
+    - $R_T^{(2)} \leq 2c_{\text{sup}}\bar{T} + O(\log T) + \frac{2\sqrt{2C\beta_T T}}{\sqrt{2}-1} \max_i \sqrt{\gamma_{T/2^{i-1}}(\mathcal{B}_2(\sqrt{c_{\text{quad}}^{-1}\eta_i}))}$
 
 4. **具体核函数结论**:
-   - Matern ($2\nu+d \leq \nu^2$)：MIG 多项式增长被球收缩抵消，$\max_i \gamma = \widetilde{O}(1)$
-   - SE：$R_T^{(2)} = O(\sqrt{T \ln^2 T})$
+
+    - Matern ($2\nu+d \leq \nu^2$)：MIG 多项式增长被球收缩抵消，$\max_i \gamma = \widetilde{O}(1)$
+    - SE：$R_T^{(2)} = O(\sqrt{T \ln^2 T})$
 
 ### 主定理
 

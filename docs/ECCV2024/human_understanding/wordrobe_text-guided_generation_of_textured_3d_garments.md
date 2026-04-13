@@ -30,10 +30,10 @@ tags:
 **领域现状**：3D 服装建模在虚拟试穿、游戏角色、AR/VR 体验中需求巨大。传统方法依赖 CLO 等设计工具手动建模或高端 3D 扫描仪，成本高且难以规模化。
 
 **现有痛点**：
-1. **参数化方法**（BCNet, SMPLicit）：受限于 SMPL 等人体模型模板，只能处理紧身衣物，服装种类有限
-2. **非参数化方法**（ReEF, xCloth）：能建模多种样式但输出带姿态、纹理质量低，无法直接用于图形管线
-3. **DrapeNet**：虽能学习潜空间但不支持纹理、生成不可控、编辑需要显式标签
-4. **通用 text-to-3D**（DreamBooth3D 等）：生成服装表面质量差，NeRF/SDF 无法处理开放曲面（袖口、领口），且多视角优化极慢
+**参数化方法**（BCNet, SMPLicit）：受限于 SMPL 等人体模型模板，只能处理紧身衣物，服装种类有限
+**非参数化方法**（ReEF, xCloth）：能建模多种样式但输出带姿态、纹理质量低，无法直接用于图形管线
+**DrapeNet**：虽能学习潜空间但不支持纹理、生成不可控、编辑需要显式标签
+**通用 text-to-3D**（DreamBooth3D 等）：生成服装表面质量差，NeRF/SDF 无法处理开放曲面（袖口、领口），且多视角优化极慢
 
 **核心矛盾**：需要一种既能生成高质量无姿态（canonical T-pose）3D 服装网格、又能通过文字直觉控制形状与纹理的方法。
 
@@ -50,26 +50,29 @@ tags:
 ### 关键设计
 
 1. **Coarse-to-Fine 3D 服装隐空间**:
-   - 做什么：将多类 3D 服装编码到 32 维隐空间 $\Omega$，并能解码恢复高质量几何
-   - 核心思路：使用 DGCNN 作为编码器 $\xi$ 将服装表面点云编码为 $\phi \in \mathbb{R}^{32}$；采用两个 MLP 解码器分工：$D_{coarse}$ 预测平滑 UDF，$D_{fine}$ 预测残差修正高频细节
-   - 关键公式：$\sigma_{fine} = D_{coarse}(\phi) + D_{fine}(\phi) = \sigma_{coarse} + \sigma_{delta}$
-   - 设计动机：单一解码器无法同时学好正则化隐空间和高频几何细节（如褶皱、裥褶）。Coarse decoder 负责整体形状 + 隐空间规范化，Fine decoder 负责细节补充
-   - 隐空间去纠缠损失：$\mathcal{L}_{latent} = \|\Sigma_b - \mathbf{I}_k\|$，鼓励 latent 各维度独立，让单维度操控对应单一属性变化
-   - Coarse 阶段损失：$\mathcal{L}_{coarse} = \lambda_{dist}\mathcal{L}_{dist} + \lambda_{grad}\mathcal{L}_{grad} + \lambda_{latent}\mathcal{L}_{latent}$
-   - Fine 阶段损失：$\mathcal{L}_{fine} = \lambda_{dist}\mathcal{L}_{dist} + \lambda_{grad}\mathcal{L}_{grad}$
+
+    - 做什么：将多类 3D 服装编码到 32 维隐空间 $\Omega$，并能解码恢复高质量几何
+    - 核心思路：使用 DGCNN 作为编码器 $\xi$ 将服装表面点云编码为 $\phi \in \mathbb{R}^{32}$；采用两个 MLP 解码器分工：$D_{coarse}$ 预测平滑 UDF，$D_{fine}$ 预测残差修正高频细节
+    - 关键公式：$\sigma_{fine} = D_{coarse}(\phi) + D_{fine}(\phi) = \sigma_{coarse} + \sigma_{delta}$
+    - 设计动机：单一解码器无法同时学好正则化隐空间和高频几何细节（如褶皱、裥褶）。Coarse decoder 负责整体形状 + 隐空间规范化，Fine decoder 负责细节补充
+    - 隐空间去纠缠损失：$\mathcal{L}_{latent} = \|\Sigma_b - \mathbf{I}_k\|$，鼓励 latent 各维度独立，让单维度操控对应单一属性变化
+    - Coarse 阶段损失：$\mathcal{L}_{coarse} = \lambda_{dist}\mathcal{L}_{dist} + \lambda_{grad}\mathcal{L}_{grad} + \lambda_{latent}\mathcal{L}_{latent}$
+    - Fine 阶段损失：$\mathcal{L}_{fine} = \lambda_{dist}\mathcal{L}_{dist} + \lambda_{grad}\mathcal{L}_{grad}$
 
 2. **CLIP-Guided 弱监督映射网络**:
-   - 做什么：训练 $MLP_{map}$ 将 CLIP embedding 映射到服装 latent code，实现文本控制
-   - 核心思路：无需手动文本标注——对每件训练服装随机旋转渲染深度图，送入 ControlNet 生成服装图像，再通过 CLIP image encoder 得到 $\psi_i$；同时通过编码器 $\xi$ 得到 $\phi_i$。以 $(\psi_i, \phi_i)$ 对训练 $MLP_{map}$
-   - 训练损失：简单的 L1 loss $\|\text{MLP}_{map}(\psi_i) - \phi_i\|_1$
-   - 设计动机：3D 服装数据缺少文本标注。利用 ControlNet 生成逼真服装图像再过 CLIP image encoder，巧妙消除了标注需求
-   - 模板 prompt 构造：随机组合 "a garment made of {silk/cotton/wool/leather}, with {vibrant/dull/bright/shiny/matte} colors"
+
+    - 做什么：训练 $MLP_{map}$ 将 CLIP embedding 映射到服装 latent code，实现文本控制
+    - 核心思路：无需手动文本标注——对每件训练服装随机旋转渲染深度图，送入 ControlNet 生成服装图像，再通过 CLIP image encoder 得到 $\psi_i$；同时通过编码器 $\xi$ 得到 $\phi_i$。以 $(\psi_i, \phi_i)$ 对训练 $MLP_{map}$
+    - 训练损失：简单的 L1 loss $\|\text{MLP}_{map}(\psi_i) - \phi_i\|_1$
+    - 设计动机：3D 服装数据缺少文本标注。利用 ControlNet 生成逼真服装图像再过 CLIP image encoder，巧妙消除了标注需求
+    - 模板 prompt 构造：随机组合 "a garment made of {silk/cotton/wool/leather}, with {vibrant/dull/bright/shiny/matte} colors"
 
 3. **View-Composited ControlNet 纹理合成**:
-   - 做什么：单次前向推理为 3D 服装生成视角一致的高质量纹理贴图
-   - 核心思路：发现 ControlNet 的关键属性——当多视角深度图拼为一张图输入时，生成的 RGB 图在不同视角间保持颜色和光照一致性。利用 front-back 正交投影渲染深度图 $\pi_{depth}$ 拼接为单张 1024×1024 图像，ControlNet 生成 $\pi_{rgb}$，再投影到 UV 纹理贴图
-   - 设计动机：Text2Tex 等多视角优化方法慢（~5min/prompt）且会出现视角不一致和斑块伪影。本方法仅需 ~22 秒
-   - 正交投影选择：透视投影在切线区域信息丢失更多；front-back 分割是服装的自然选择，减少可见接缝
+
+    - 做什么：单次前向推理为 3D 服装生成视角一致的高质量纹理贴图
+    - 核心思路：发现 ControlNet 的关键属性——当多视角深度图拼为一张图输入时，生成的 RGB 图在不同视角间保持颜色和光照一致性。利用 front-back 正交投影渲染深度图 $\pi_{depth}$ 拼接为单张 1024×1024 图像，ControlNet 生成 $\pi_{rgb}$，再投影到 UV 纹理贴图
+    - 设计动机：Text2Tex 等多视角优化方法慢（~5min/prompt）且会出现视角不一致和斑块伪影。本方法仅需 ~22 秒
+    - 正交投影选择：透视投影在切线区域信息丢失更多；front-back 分割是服装的自然选择，减少可见接缝
 
 ### 损失函数 / 训练策略
 

@@ -46,20 +46,23 @@ tags:
 ### 关键设计
 
 1. **BLR 框架下的自然梯度更新**：
-   - 变分分布选择多元高斯 $q(\boldsymbol{\theta}) = \mathcal{N}(\boldsymbol{\theta}|\mathbf{m}, \mathbf{S}^{-1})$
-   - 自然梯度更新自然参数：$\boldsymbol{\lambda}_{t+1} \leftarrow \boldsymbol{\lambda}_t - \alpha \nabla_{\boldsymbol{\mu}}\{\mathbb{E}_{q}[l(\boldsymbol{\theta})] - \mathcal{H}(q)\}$
-   - 等价于类牛顿法更新，需要梯度和 Hessian 信息
+
+    - 变分分布选择多元高斯 $q(\boldsymbol{\theta}) = \mathcal{N}(\boldsymbol{\theta}|\mathbf{m}, \mathbf{S}^{-1})$
+    - 自然梯度更新自然参数：$\boldsymbol{\lambda}_{t+1} \leftarrow \boldsymbol{\lambda}_t - \alpha \nabla_{\boldsymbol{\mu}}\{\mathbb{E}_{q}[l(\boldsymbol{\theta})] - \mathcal{H}(q)\}$
+    - 等价于类牛顿法更新，需要梯度和 Hessian 信息
 
 2. **iVON 的可扩展近似**：
-   - **对角 Hessian 近似**：降低计算从 $O(d^2)$ 到 $O(d)$
-   - **重参数化技巧**估计二阶信息：$\hat{\mathbf{h}} = \hat{\mathbf{g}} \cdot (\boldsymbol{\theta} - \mathbf{m}) / \boldsymbol{\sigma}^2$——通过测量梯度对参数随机扰动的响应来近似曲率
-   - **几何修正项**：保证精度矩阵正定性，确保变分分布在训练全程有效
-   - 均值和标准差更新：$\mathbf{m} \leftarrow \mathbf{m} - \alpha \frac{(\hat{\mathbf{g}} + \delta\mathbf{m})}{(\mathbf{h} + \delta)}$，$\boldsymbol{\sigma} \leftarrow \frac{1}{\sqrt{\text{ess}(\mathbf{h} + \delta)}}$
+
+    - **对角 Hessian 近似**：降低计算从 $O(d^2)$ 到 $O(d)$
+    - **重参数化技巧**估计二阶信息：$\hat{\mathbf{h}} = \hat{\mathbf{g}} \cdot (\boldsymbol{\theta} - \mathbf{m}) / \boldsymbol{\sigma}^2$——通过测量梯度对参数随机扰动的响应来近似曲率
+    - **几何修正项**：保证精度矩阵正定性，确保变分分布在训练全程有效
+    - 均值和标准差更新：$\mathbf{m} \leftarrow \mathbf{m} - \alpha \frac{(\hat{\mathbf{g}} + \delta\mathbf{m})}{(\mathbf{h} + \delta)}$，$\boldsymbol{\sigma} \leftarrow \frac{1}{\sqrt{\text{ess}(\mathbf{h} + \delta)}}$
 
 3. **与 BBB-VI 的关键区别**：
-   - BBB-VI 在欧几里得空间分别对均值和方差计算梯度：$\mathbf{m} \leftarrow \mathbf{m} - \alpha \nabla_\mathbf{m} \mathcal{L}$
-   - iVON 使用自然梯度，分母中的曲率估计 $(\mathbf{h} + \delta)$ 提供自适应步长
-   - iVON 使用1个 MC 样本即可，与 BBB 一致
+
+    - BBB-VI 在欧几里得空间分别对均值和方差计算梯度：$\mathbf{m} \leftarrow \mathbf{m} - \alpha \nabla_\mathbf{m} \mathcal{L}$
+    - iVON 使用自然梯度，分母中的曲率估计 $(\mathbf{h} + \delta)$ 提供自适应步长
+    - iVON 使用1个 MC 样本即可，与 BBB 一致
 
 ### 训练策略
 

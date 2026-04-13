@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大型视觉语言模型（VLM）在物体级理解上表现出色——目标检测、语义分割、referring segmentation 等任务。但大多数模型将物体视为不可分割的整体，忽略了组成部件。
-2. **现有痛点**：(1) 现有部件分割数据集（PartImageNet/Pascal-Part/PACO）只有物体-部件标注，没有任务指令——无法评估"给定任务推理哪个部件"的能力；(2) 机器人/affordance 数据集（UMD/AGD20K）的affordance 类别有限或只有点标注/来自仿真；(3) 指令中不直接提及部件名（如说"冲马桶"而非"按马桶手柄"），需要推理。
-3. **核心矛盾**：VLM 能理解语言指令也能做分割，但将两者结合到部件粒度的任务推理上，现有模型几乎无法胜任。
-4. **本文要解决什么**：(1) 构建联结任务指令和部件分割的 benchmark；(2) 评估现有 VLM 的部件推理能力；(3) 提供 baseline 方法。
-5. **切入角度**：日常家务场景——给定"倒些水"的指令和水壶图片，模型需推理出应该抓水壶的"把手"，并输出把手的分割 mask。
-6. **核心 idea**：将部件分割从"识别"问题升级为"推理"问题——模型需要从隐含指令中推断目标部件。
+**领域现状**：大型视觉语言模型（VLM）在物体级理解上表现出色——目标检测、语义分割、referring segmentation 等任务。但大多数模型将物体视为不可分割的整体，忽略了组成部件。
+**现有痛点**：(1) 现有部件分割数据集（PartImageNet/Pascal-Part/PACO）只有物体-部件标注，没有任务指令——无法评估"给定任务推理哪个部件"的能力；(2) 机器人/affordance 数据集（UMD/AGD20K）的affordance 类别有限或只有点标注/来自仿真；(3) 指令中不直接提及部件名（如说"冲马桶"而非"按马桶手柄"），需要推理。
+**核心矛盾**：VLM 能理解语言指令也能做分割，但将两者结合到部件粒度的任务推理上，现有模型几乎无法胜任。
+**本文要解决什么**：(1) 构建联结任务指令和部件分割的 benchmark；(2) 评估现有 VLM 的部件推理能力；(3) 提供 baseline 方法。
+**切入角度**：日常家务场景——给定"倒些水"的指令和水壶图片，模型需推理出应该抓水壶的"把手"，并输出把手的分割 mask。
+**核心 idea**：将部件分割从"识别"问题升级为"推理"问题——模型需要从隐含指令中推断目标部件。
 
 ## 方法详解
 
@@ -42,21 +42,24 @@ InstructPart 是 benchmark + 简单 baseline。核心贡献在数据集构建和
 ### 关键设计
 
 1. **两个评估任务**:
-   - **TRPS（Task Reasoning Part Segmentation）**：输入自然语言任务指令+图像，输出目标部件 mask。指令中**不直接提及部件名**（如"Flush the toilet"而非"Press the toilet handle"），需要推理
-   - **ORPS（Oracle Referring Part Segmentation）**：输入部件名+图像，直接定位。可附加 affordance 信息（如"handle of the cup that can be held"）
-   - 设计动机：TRPS 评估推理+视觉 grounding 双重能力；ORPS 仅评估 grounding，控制变量
+
+    - **TRPS（Task Reasoning Part Segmentation）**：输入自然语言任务指令+图像，输出目标部件 mask。指令中**不直接提及部件名**（如"Flush the toilet"而非"Press the toilet handle"），需要推理
+    - **ORPS（Oracle Referring Part Segmentation）**：输入部件名+图像，直接定位。可附加 affordance 信息（如"handle of the cup that can be held"）
+    - 设计动机：TRPS 评估推理+视觉 grounding 双重能力；ORPS 仅评估 grounding，控制变量
 
 2. **数据集构建**:
-   - 2400 张真实图像，48 类物体（家居日常用品），均匀分布
-   - 44 类部件 + 30 种 affordance + 37 种 action
-   - 每张图配 4 条任务指令（人工 + GPT-4 改写）+ 手标分割 mask
-   - Affordance 分两层：低层（pull/push/twist 等操作动作）和高层（turn on/pick up 等功能动作）
-   - 6 名专家标注，GPT-4 润色+人工验证质量
+
+    - 2400 张真实图像，48 类物体（家居日常用品），均匀分布
+    - 44 类部件 + 30 种 affordance + 37 种 action
+    - 每张图配 4 条任务指令（人工 + GPT-4 改写）+ 手标分割 mask
+    - Affordance 分两层：低层（pull/push/twist 等操作动作）和高层（turn on/pick up 等功能动作）
+    - 6 名专家标注，GPT-4 润色+人工验证质量
 
 3. **PISA Baseline**:
-   - 做什么：基于 LISA（LLaVA + SAM decoder）的改进版
-   - 核心思路：用冻结 DINOv2 替代 SAM encoder 做特征提取，线性层融合多层 DINOv2 特征，保留 SAM 的 mask decoder（TransConv + 上采样交替解码）
-   - 设计动机：DINOv2 在提取部件级对应关系上优于 SAM，微调后在 TRPS 上 gIoU 几乎翻倍
+
+    - 做什么：基于 LISA（LLaVA + SAM decoder）的改进版
+    - 核心思路：用冻结 DINOv2 替代 SAM encoder 做特征提取，线性层融合多层 DINOv2 特征，保留 SAM 的 mask decoder（TransConv + 上采样交替解码）
+    - 设计动机：DINOv2 在提取部件级对应关系上优于 SAM，微调后在 TRPS 上 gIoU 几乎翻倍
 
 ### 评估指标
 - gIoU：所有图像 IoU 的平均

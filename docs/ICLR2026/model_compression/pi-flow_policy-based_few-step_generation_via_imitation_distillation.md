@@ -31,17 +31,17 @@ tags:
 
 ### 现有蒸馏方法的问题
 
-1. **格式不匹配（Format Mismatch）**：
+**格式不匹配（Format Mismatch）**：
    - 教师模型输出的是**速度场（velocity）**——在流的方向上的瞬时变化
    - 学生模型通常被要求输出**去噪后的数据（shortcut prediction）**——直接预测最终结果
    - 这种格式不匹配导致蒸馏过程复杂、不稳定
 
-2. **质量-多样性权衡（Quality-Diversity Trade-off）**：
+**质量-多样性权衡（Quality-Diversity Trade-off）**：
    - Distribution Matching Distillation (DMD) 等方法使用 KL 散度匹配分布
    - 但 KL 散度倾向于模式覆盖（mode covering）或模式选择（mode seeking），难以两全
    - 在实际大模型（FLUX, Qwen-Image）上表现为多样性显著下降
 
-3. **训练不稳定**：
+**训练不稳定**：
    - 许多方法需要在线生成学生样本、训练判别器或使用对抗训练
    - 这些策略增加了训练复杂度和不稳定性
 

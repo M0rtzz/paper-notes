@@ -28,9 +28,9 @@ tags:
 
 多智能体协作（多机器人操作、AR 助手、人机协作）需要建立第一人称（egocentric）和第三人称（exocentric）视角之间的物体对应关系。虽然单图分割已非常成熟，但跨视角分割面临独特挑战：
 
-1. **剧烈视角变换**：ego 视角捕捉手-物交互细节但动态强、运动模糊严重；exo 视角覆盖全场景但物体尺度差异大
-2. **遮挡与域偏移**：不同相机光学特性、成像条件导致的域差异
-3. **传统几何匹配失效**：即使 SOTA 的 RoMa 在 ego-exo 场景下也仅有 67.6% 的成功率
+**剧烈视角变换**：ego 视角捕捉手-物交互细节但动态强、运动模糊严重；exo 视角覆盖全场景但物体尺度差异大
+**遮挡与域偏移**：不同相机光学特性、成像条件导致的域差异
+**传统几何匹配失效**：即使 SOTA 的 RoMa 在 ego-exo 场景下也仅有 67.6% 的成功率
 
 核心洞察：与其让模型从零做跨视角分割（pixel-level 预测），不如利用 SAM 模型的零样本分割能力先生成高质量候选 mask，然后只需解决"哪个候选 mask 对应目标物体"的 matching 问题。
 
@@ -48,24 +48,27 @@ O-MaMa pipeline：
 ### 关键设计
 
 1. **Mask-Context Encoder（Mask 上下文编码器）**：
-   - 使用 DINOv2 ViT-B/14 提取密集特征图 $\psi(I)$，上采样 4× 以保持细粒度
-   - **物体描述子** $\mathbf{o}_n$：在 mask 区域上对 DINOv2 特征做平均池化
-   - **上下文描述子** $\mathbf{c}_n$：在扩展 bounding box 区域上做平均池化，引入周围环境信息以辅助跨视角定位
-   - 设计动机：DINOv2 的自监督特征具有优秀的语义理解和物体分解能力。实验证明 Avg-Pool(mask) 优于 Avg-Pool(bbox)、Max-Pool(bbox)、Centroid、CLIP 特征
+
+    - 使用 DINOv2 ViT-B/14 提取密集特征图 $\psi(I)$，上采样 4× 以保持细粒度
+    - **物体描述子** $\mathbf{o}_n$：在 mask 区域上对 DINOv2 特征做平均池化
+    - **上下文描述子** $\mathbf{c}_n$：在扩展 bounding box 区域上做平均池化，引入周围环境信息以辅助跨视角定位
+    - 设计动机：DINOv2 的自监督特征具有优秀的语义理解和物体分解能力。实验证明 Avg-Pool(mask) 优于 Avg-Pool(bbox)、Max-Pool(bbox)、Centroid、CLIP 特征
 
 2. **Hard Negative Adjacent Mining（邻近硬负例挖掘）**：
-   - 问题：邻近物体共享相似上下文但物体本身不同，简单的全局负采样不足以学到区分能力
-   - 使用 Delaunay 三角剖分构建 mask 段的邻接图
-   - 取每个物体的 1 阶和 2 阶邻居：$\mathcal{O}_n^- = \mathcal{N}(\mathbf{o}_n) \cup \mathcal{N}^2(\mathbf{o}_n)$
-   - 从邻居集合中采样硬负例进行对比学习
-   - 消融显示此策略带来 +4.2 IoU (Ego2Exo) 和 +1.2 IoU (Exo2Ego) 提升
+
+    - 问题：邻近物体共享相似上下文但物体本身不同，简单的全局负采样不足以学到区分能力
+    - 使用 Delaunay 三角剖分构建 mask 段的邻接图
+    - 取每个物体的 1 阶和 2 阶邻居：$\mathcal{O}_n^- = \mathcal{N}(\mathbf{o}_n) \cup \mathcal{N}^2(\mathbf{o}_n)$
+    - 从邻居集合中采样硬负例进行对比学习
+    - 消融显示此策略带来 +4.2 IoU (Ego2Exo) 和 +1.2 IoU (Exo2Ego) 提升
 
 3. **Ego↔Exo Cross Attention（跨视角交叉注意力）**：
-   - 将候选 mask 描述子 $\mathbf{o}_n$ 作为 Query，源图像的完整 DINOv2 特征图 $\psi(I^S)$ 作为 Key/Value
-   - 计算标准 cross attention：$\hat{\mathbf{o}}_n = \text{Softmax}(\frac{\mathbf{o}_n W_Q \cdot (\psi(I^S) W_K)^\top}{\sqrt{d}}) \cdot \psi(I^S) W_V$
-   - 加入可学习位置编码和 LayerNorm
-   - 同样计算源 mask 在目标视角的跨视角嵌入 $\hat{\mathbf{o}}_S$
-   - 设计动机：上下文嵌入只包含局部信息，缺乏全局跨视角语义关联
+
+    - 将候选 mask 描述子 $\mathbf{o}_n$ 作为 Query，源图像的完整 DINOv2 特征图 $\psi(I^S)$ 作为 Key/Value
+    - 计算标准 cross attention：$\hat{\mathbf{o}}_n = \text{Softmax}(\frac{\mathbf{o}_n W_Q \cdot (\psi(I^S) W_K)^\top}{\sqrt{d}}) \cdot \psi(I^S) W_V$
+    - 加入可学习位置编码和 LayerNorm
+    - 同样计算源 mask 在目标视角的跨视角嵌入 $\hat{\mathbf{o}}_S$
+    - 设计动机：上下文嵌入只包含局部信息，缺乏全局跨视角语义关联
 
 ### 损失函数 / 训练策略
 

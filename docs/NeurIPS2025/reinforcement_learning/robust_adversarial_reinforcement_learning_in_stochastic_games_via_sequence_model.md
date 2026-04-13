@@ -51,9 +51,10 @@ $$Q_{\text{CART}}(s, a) = \min_{\bar{a}} \bar{Q}(s, a, \bar{a})$$
 这是阶段博弈的解，同时考虑了对抗鲁棒性和转移随机性。与ARDT的关键区别在于：ARDT直接在轨迹return上做min-max操作，而CART通过显式的 $V$ 函数整合状态转移概率。
 
 3. **Expectile Regression近似Min/Max**：直接在数据中遍历所有动作来计算 $\min_{\bar{a}}$ 或 $\max_a$ 效率低下。CART使用期望分位数回归（ER）联合进行Q-learning和极值近似：
-   - 学习支付函数 $\bar{Q}$：最小化TD误差 $\mathcal{L}(\bar{Q}) = \mathbb{E}[\bar{Q}(s,a,\bar{a}) - V(s') - r]$
-   - 估计NashQ值：$\mathcal{L}(Q) = \mathbb{E}[L_{\text{ER}}^{\alpha \to 0}(Q(s,a) - \bar{Q}(s,a,\bar{a}))]$（$\alpha \to 0$ 近似 $\min$）
-   - 估计最优状态价值：$\mathcal{L}(V) = \mathbb{E}[L_{\text{ER}}^{\alpha \to 1}(V(s') - Q(s',a'))]$（$\alpha \to 1$ 近似 $\max$）
+
+    - 学习支付函数 $\bar{Q}$：最小化TD误差 $\mathcal{L}(\bar{Q}) = \mathbb{E}[\bar{Q}(s,a,\bar{a}) - V(s') - r]$
+    - 估计NashQ值：$\mathcal{L}(Q) = \mathbb{E}[L_{\text{ER}}^{\alpha \to 0}(Q(s,a) - \bar{Q}(s,a,\bar{a}))]$（$\alpha \to 0$ 近似 $\min$）
+    - 估计最优状态价值：$\mathcal{L}(V) = \mathbb{E}[L_{\text{ER}}^{\alpha \to 1}(V(s') - Q(s',a'))]$（$\alpha \to 1$ 近似 $\max$）
 
 ### 损失函数 / 训练策略
 

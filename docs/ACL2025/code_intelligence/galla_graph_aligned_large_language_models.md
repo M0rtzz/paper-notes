@@ -25,11 +25,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：代码 LLM（Code LLaMA、DeepSeek-Coder等）通过扩大模型和数据规模取得了显著进展，但本质上仍是标准的 decoder-only Transformer，仅将源代码视为文本 token 序列。
-2. **现有痛点**：代码具有丰富的图结构语义（AST 抽象语法树、DFG 数据流图、CFG 控制流图），这些信息在纯文本表征中被忽略。现有图增强方法分三类：(1) 修改注意力掩码编码图结构（如 GraphCodeBERT，不兼容 decoder-only LLM）；(2) 将图线性化为文本（仅适用简单树，如 AST，不适用含环的 DFG）；(3) 修改位置编码（需大规模重训练）。
-3. **核心矛盾**：图增强和大规模预训练 LLM 不兼容——要么改架构丢预训练知识，要么不用图丢结构信息。
-4. **切入角度**：受 VLM 领域（LLaVA 等）用轻量 adapter 桥接视觉和语言模态的启发，用外部 GNN + adapter 处理图信息，LLM 架构完全不变。
-5. **核心 idea 一句话**：图信息通过 GNN+adapter 在训练时注入 LLM 理解，推理时丢弃——训练时有图，推理时零开销。
+**领域现状**：代码 LLM（Code LLaMA、DeepSeek-Coder等）通过扩大模型和数据规模取得了显著进展，但本质上仍是标准的 decoder-only Transformer，仅将源代码视为文本 token 序列。
+**现有痛点**：代码具有丰富的图结构语义（AST 抽象语法树、DFG 数据流图、CFG 控制流图），这些信息在纯文本表征中被忽略。现有图增强方法分三类：(1) 修改注意力掩码编码图结构（如 GraphCodeBERT，不兼容 decoder-only LLM）；(2) 将图线性化为文本（仅适用简单树，如 AST，不适用含环的 DFG）；(3) 修改位置编码（需大规模重训练）。
+**核心矛盾**：图增强和大规模预训练 LLM 不兼容——要么改架构丢预训练知识，要么不用图丢结构信息。
+**切入角度**：受 VLM 领域（LLaVA 等）用轻量 adapter 桥接视觉和语言模态的启发，用外部 GNN + adapter 处理图信息，LLM 架构完全不变。
+**核心 idea 一句话**：图信息通过 GNN+adapter 在训练时注入 LLM 理解，推理时丢弃——训练时有图，推理时零开销。
 
 ## 方法详解
 
@@ -39,21 +39,25 @@ tags:
 ### 关键设计
 
 1. **图编码与输入**:
-   - GNN 编码 AST 和 DFG 的节点特征（使用文本编码器初始化）和边结构，输出上下文化节点表征 $H \in \mathbb{R}^{n_v \times d_{gnn}}$。
-   - Adapter 用可学习的 query vectors 通过交叉注意力将节点表征压缩为固定数量的图 token $X_g \in \mathbb{R}^{n_g \times d_{lm}}$。
-   - 图 token 与文本 token 拼接输入 LLM，loss 仅在文本 token 上计算。
+
+    - GNN 编码 AST 和 DFG 的节点特征（使用文本编码器初始化）和边结构，输出上下文化节点表征 $H \in \mathbb{R}^{n_v \times d_{gnn}}$。
+    - Adapter 用可学习的 query vectors 通过交叉注意力将节点表征压缩为固定数量的图 token $X_g \in \mathbb{R}^{n_g \times d_{lm}}$。
+    - 图 token 与文本 token 拼接输入 LLM，loss 仅在文本 token 上计算。
 
 2. **两阶段训练**:
-   - **Stage 1（图编码器预训练）**: 冻结 LLM，仅训练 GNN + adapter。任务：Graph2Code（给图生成源代码），让 GNN+adapter 学习生成 LLM 可理解的图 token。
-   - **Stage 2（图-LLM 对齐）**: 解冻 LLM，三模块联合训练。任务：Graph2Code + GraphQA（预测边是否存在、预测节点的父/子节点）。**同时**在下游任务数据上微调 LLM（此时不走 GNN，直接文本输入）。
+
+    - **Stage 1（图编码器预训练）**: 冻结 LLM，仅训练 GNN + adapter。任务：Graph2Code（给图生成源代码），让 GNN+adapter 学习生成 LLM 可理解的图 token。
+    - **Stage 2（图-LLM 对齐）**: 解冻 LLM，三模块联合训练。任务：Graph2Code + GraphQA（预测边是否存在、预测节点的父/子节点）。**同时**在下游任务数据上微调 LLM（此时不走 GNN，直接文本输入）。
 
 3. **推理时丢弃 GNN**:
-   - 训练完成后，丢弃 GNN 和 adapter，LLM 独立推理——速度与基线 LLM 完全一致。
-   - 关键假设：通过图对齐训练，LLM 内部已经习得了代码结构理解的能力，推理时不再需要显式图输入。
+
+    - 训练完成后，丢弃 GNN 和 adapter，LLM 独立推理——速度与基线 LLM 完全一致。
+    - 关键假设：通过图对齐训练，LLM 内部已经习得了代码结构理解的能力，推理时不再需要显式图输入。
 
 4. **模型和任务无关性**:
-   - GNN 选择取决于图类型（有向/无向），LLM 选择取决于应用场景——框架本身不限制。
-   - 图对齐数据来自 CodeNet（240K Python + 75K Java），与下游任务数据完全独立。
+
+    - GNN 选择取决于图类型（有向/无向），LLM 选择取决于应用场景——框架本身不限制。
+    - 图对齐数据来自 CodeNet（240K Python + 75K Java），与下游任务数据完全独立。
 
 ## 实验关键数据
 

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：机器学习力场（MLFFs）已成为分子动力学模拟的重要工具，但主流方法聚焦于原子层级的多体交互建模（原子类型、坐标、距离、角度、扭转角等），对微观层面的电子分布关注不足。
-2. **现有痛点**：根据 Hohenberg-Kohn 定理，电子密度 $\rho(\mathbf{r})$ 唯一确定多粒子系统的所有基态性质（能量、分子结构等），提供了比原子级表征更细粒度、更物理真实的分子描述。但 ED 的计算依赖耗时的 DFT，导致缺乏大规模 ED 数据集。
-3. **核心矛盾**：现有 QC 数据集（QM7、QM9、MD17 等）主要提供能量和力数据，提供 ED 的数据集极少（MP 约 122K PBE 精度，ECD 约 140K），且多集中在材料领域。对药物类分子而言，缺乏大规模 ED 数据和配套基准。
-4. **本文要解决什么？** (1) 构建大规模高质量的分子 ED 数据集；(2) 设计 ED 中心的基准任务体系，系统评估模型对电子信息的理解和利用能力。
-5. **切入角度**：基于 PCQM4Mv2 数据集的 330 万药物类分子，使用 B3LYP 混合泛函（Jacob's ladder 高阶）+ Psi4 计算引擎，耗费 20.5 万核时（约 23.4 年单核计算），生成高质量 CUBE 文件格式的 ED 数据。
-6. **核心idea一句话**：构建首个百万级分子电子密度数据集 + 设计预测/检索/生成三类基准任务，推动 MLFFs 从原子级向电子级建模演进。
+**领域现状**：机器学习力场（MLFFs）已成为分子动力学模拟的重要工具，但主流方法聚焦于原子层级的多体交互建模（原子类型、坐标、距离、角度、扭转角等），对微观层面的电子分布关注不足。
+**现有痛点**：根据 Hohenberg-Kohn 定理，电子密度 $\rho(\mathbf{r})$ 唯一确定多粒子系统的所有基态性质（能量、分子结构等），提供了比原子级表征更细粒度、更物理真实的分子描述。但 ED 的计算依赖耗时的 DFT，导致缺乏大规模 ED 数据集。
+**核心矛盾**：现有 QC 数据集（QM7、QM9、MD17 等）主要提供能量和力数据，提供 ED 的数据集极少（MP 约 122K PBE 精度，ECD 约 140K），且多集中在材料领域。对药物类分子而言，缺乏大规模 ED 数据和配套基准。
+**本文要解决什么？** (1) 构建大规模高质量的分子 ED 数据集；(2) 设计 ED 中心的基准任务体系，系统评估模型对电子信息的理解和利用能力。
+**切入角度**：基于 PCQM4Mv2 数据集的 330 万药物类分子，使用 B3LYP 混合泛函（Jacob's ladder 高阶）+ Psi4 计算引擎，耗费 20.5 万核时（约 23.4 年单核计算），生成高质量 CUBE 文件格式的 ED 数据。
+**核心idea一句话**：构建首个百万级分子电子密度数据集 + 设计预测/检索/生成三类基准任务，推动 MLFFs 从原子级向电子级建模演进。
 
 ## 方法详解
 
@@ -41,28 +41,32 @@ EDBench 包含两部分：(1) 数据集——330 万分子的 ED 分布 + 量子
 ### 关键设计
 
 1. **数据集构建**:
-   - 做什么：为 PCQM4Mv2 的 3,359,472 个分子生成高精度 ED
-   - 核心思路：使用 Psi4 1.7 计算引擎，B3LYP 混合泛函，闭壳层系统用 RHF 参考，开壳层用 UHF 参考。基组根据元素组成选择：不含硫用 6-31G**，含硫用 6-31+G**（弥散函数更适合极化性强的重原子）。SCF 收敛后生成 CUBE 文件，网格间距 0.4 Bohr，padding 4.0 Bohr，密度分数阈值 0.85
-   - 计算规模：8 × Intel Xeon Platinum 8270 (26 核×2 线程 = 416 逻辑核)，总计 20.5 万核时
-   - ED 定义：$\rho(\mathbf{r}) = \rho_\alpha(\mathbf{r}) + \rho_\beta(\mathbf{r})$，由 Kohn-Sham 方程 $[-\frac{1}{2}\nabla^2 + V_{\text{eff}}(r)]\psi_i(r) = \epsilon_i \psi_i(r)$ 通过 SCF 迭代收敛得到
+
+    - 做什么：为 PCQM4Mv2 的 3,359,472 个分子生成高精度 ED
+    - 核心思路：使用 Psi4 1.7 计算引擎，B3LYP 混合泛函，闭壳层系统用 RHF 参考，开壳层用 UHF 参考。基组根据元素组成选择：不含硫用 6-31G**，含硫用 6-31+G**（弥散函数更适合极化性强的重原子）。SCF 收敛后生成 CUBE 文件，网格间距 0.4 Bohr，padding 4.0 Bohr，密度分数阈值 0.85
+    - 计算规模：8 × Intel Xeon Platinum 8270 (26 核×2 线程 = 416 逻辑核)，总计 20.5 万核时
+    - ED 定义：$\rho(\mathbf{r}) = \rho_\alpha(\mathbf{r}) + \rho_\beta(\mathbf{r})$，由 Kohn-Sham 方程 $[-\frac{1}{2}\nabla^2 + V_{\text{eff}}(r)]\psi_i(r) = \epsilon_i \psi_i(r)$ 通过 SCF 迭代收敛得到
 
 2. **预测任务（ED5-EC/OE/MM/OCS）**:
-   - 做什么：输入 ED 数据，预测各类量子化学性质
-   - 核心思路：ED 编码器 $\text{Enc}_\mathcal{P}$ 提取 ED 特征，接任务特定预测头 $\text{Enc}_t$：$\hat{y}^\bullet = \text{Enc}_t^\bullet(\text{Enc}_\mathcal{P}(\mathcal{P}))$
-   - 包括 4 个子任务：6 个能量分量（EC）、7 个轨道能量（OE）、4 个多极矩（MM）、开/闭壳层分类（OCS）
-   - 采样策略：结构聚类 $C^s$（ECFP4+USR 指纹, k=100）× 标签聚类，均匀采样确保多样性
+
+    - 做什么：输入 ED 数据，预测各类量子化学性质
+    - 核心思路：ED 编码器 $\text{Enc}_\mathcal{P}$ 提取 ED 特征，接任务特定预测头 $\text{Enc}_t$：$\hat{y}^\bullet = \text{Enc}_t^\bullet(\text{Enc}_\mathcal{P}(\mathcal{P}))$
+    - 包括 4 个子任务：6 个能量分量（EC）、7 个轨道能量（OE）、4 个多极矩（MM）、开/闭壳层分类（OCS）
+    - 采样策略：结构聚类 $C^s$（ECFP4+USR 指纹, k=100）× 标签聚类，均匀采样确保多样性
 
 3. **检索任务（ED5-MER）**:
-   - 做什么：分子结构 ↔ 电子密度的双向跨模态检索
-   - 核心思路：分别用分子编码器 $\text{Enc}_\mathcal{G}$ 和 ED 编码器 $\text{Enc}_\mathcal{P}$ 提取潜在表征 $h_\mathcal{G}, h_\mathcal{P}$，用 InfoNCE 损失训练对齐：
-     $$\mathcal{L}_{\text{ret}} = -\log \frac{\exp(\text{sim}(h_{\mathcal{G}_i}, h_{\mathcal{P}_i})/\tau)}{\sum_j \exp(\text{sim}(h_{\mathcal{G}_i}, h_{\mathcal{P}_j})/\tau)}$$
-   - 每个锚点配 10 个负样本（半数同簇易负、半数跨簇难负）
+
+    - 做什么：分子结构 ↔ 电子密度的双向跨模态检索
+    - 核心思路：分别用分子编码器 $\text{Enc}_\mathcal{G}$ 和 ED 编码器 $\text{Enc}_\mathcal{P}$ 提取潜在表征 $h_\mathcal{G}, h_\mathcal{P}$，用 InfoNCE 损失训练对齐：
+    $\mathcal{L}_{\text{ret}} = -\log \frac{\exp(\text{sim}(h_{\mathcal{G}_i}, h_{\mathcal{P}_i})/\tau)}{\sum_j \exp(\text{sim}(h_{\mathcal{G}_i}, h_{\mathcal{P}_j})/\tau)}$
+    - 每个锚点配 10 个负样本（半数同簇易负、半数跨簇难负）
 
 4. **生成任务（ED5-EDP）**:
-   - 做什么：从分子结构预测电子密度分布
-   - 核心思路：构建异质图 $\mathcal{HG}$，包含原子节点和电子节点，用 k-NN (k=9) 建立原子-原子、原子-电子、电子-电子三类边。将 EGNN 扩展为异质图版 HGEGNN，掩码 ED 值后预测：
-     $$h^{\mathcal{HG}} = \text{HGEGNN}(\hat{\mathcal{HG}}), \quad \hat{\mathcal{D}} = \text{Enc}_t^{\text{EDP}}(h_\mathcal{P}^{\mathcal{HG}})$$
-   - 训练损失：$\mathcal{L}_{\text{gen}} = \|\hat{\mathcal{D}} - \mathcal{D}\|_2$
+
+    - 做什么：从分子结构预测电子密度分布
+    - 核心思路：构建异质图 $\mathcal{HG}$，包含原子节点和电子节点，用 k-NN (k=9) 建立原子-原子、原子-电子、电子-电子三类边。将 EGNN 扩展为异质图版 HGEGNN，掩码 ED 值后预测：
+    $h^{\mathcal{HG}} = \text{HGEGNN}(\hat{\mathcal{HG}}), \quad \hat{\mathcal{D}} = \text{Enc}_t^{\text{EDP}}(h_\mathcal{P}^{\mathcal{HG}})$
+    - 训练损失：$\mathcal{L}_{\text{gen}} = \|\hat{\mathcal{D}} - \mathcal{D}\|_2$
 
 ### 损失函数 / 训练策略
 - 预测：回归任务用 L2 损失，分类任务用交叉熵

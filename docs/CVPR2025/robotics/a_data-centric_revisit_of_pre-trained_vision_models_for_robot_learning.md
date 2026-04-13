@@ -27,13 +27,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：预训练视觉模型(PVM)已成为机器人学习的基础构建块。主流做法（MVP、VC-1）是MAE+自中心视角(ego-centric)数据预训练。
+**领域现状**：预训练视觉模型(PVM)已成为机器人学习的基础构建块。主流做法（MVP、VC-1）是MAE+自中心视角(ego-centric)数据预训练。
 
-2. **现有痛点**：两个未被质疑的假设——(1) MAE是最优预训练方法；(2) ego-centric数据是最佳选择。实验发现均不成立：DINO/iBOT在操作和感知任务上全面优于MAE；ImageNet（物体中心）数据效果优于ego-centric数据。
+**现有痛点**：两个未被质疑的假设——(1) MAE是最优预训练方法；(2) ego-centric数据是最佳选择。实验发现均不成立：DINO/iBOT在操作和感知任务上全面优于MAE；ImageNet（物体中心）数据效果优于ego-centric数据。
 
-3. **核心矛盾**：DINO/iBOT虽在物体中心数据上表现最优，但在场景中心/ego-centric等NOC数据上严重退化。原因：它们难以从NOC数据中学到物体中心表示——而objectness与操作任务成功率高度相关（相关系数0.72）。
+**核心矛盾**：DINO/iBOT虽在物体中心数据上表现最优，但在场景中心/ego-centric等NOC数据上严重退化。原因：它们难以从NOC数据中学到物体中心表示——而objectness与操作任务成功率高度相关（相关系数0.72）。
 
-4. **核心idea**：设计SlotMIM——通过减少原型数量（语义瓶颈）促进objectness涌现，加跨视图一致性学习语义原型，再用slot级对比学习增强区分性。使得PVM能在任何类型数据上都学到物体中心表示。
+**核心idea**：设计SlotMIM——通过减少原型数量（语义瓶颈）促进objectness涌现，加跨视图一致性学习语义原型，再用slot级对比学习增强区分性。使得PVM能在任何类型数据上都学到物体中心表示。
 
 ## 方法详解
 
@@ -44,19 +44,22 @@ tags:
 ### 关键设计
 
 1. **语义瓶颈（Representation Bottleneck）**：
-   - 做什么：大幅减少聚类原型数量
-   - 核心发现：iBOT用8192原型捕获细粒度模式但缺乏语义，减少到512后objectness自然涌现（Fig.4a：从纹理级聚类变为物体级聚类）
-   - 设计动机：信息瓶颈迫使模型学习组合性的物体概念而非低级模式
+
+    - 做什么：大幅减少聚类原型数量
+    - 核心发现：iBOT用8192原型捕获细粒度模式但缺乏语义，减少到512后objectness自然涌现（Fig.4a：从纹理级聚类变为物体级聚类）
+    - 设计动机：信息瓶颈迫使模型学习组合性的物体概念而非低级模式
 
 2. **跨视图一致性（Cross-view Consistency）**：
-   - 做什么：强制同一图像不同增强视图的对应patch共享相同原型
-   - 核心思路：用ROIAlign对齐两个视图的重叠区域，对匹配的patch对计算跨视图交叉熵：$\mathcal{L}_{patch}^{cross}$
-   - 设计动机：iBOT的within-view MIM损失不提供视图不变性引导，导致原型缺乏语义一致性
+
+    - 做什么：强制同一图像不同增强视图的对应patch共享相同原型
+    - 核心思路：用ROIAlign对齐两个视图的重叠区域，对匹配的patch对计算跨视图交叉熵：$\mathcal{L}_{patch}^{cross}$
+    - 设计动机：iBOT的within-view MIM损失不提供视图不变性引导，导致原型缺乏语义一致性
 
 3. **Slot级对比学习**：
-   - 做什么：将patch按原型分配pooling为object-level slot特征，在slot间做MoCo对比
-   - 核心思路：$\mathbf{s}_{\theta,i} = h_\theta(\sum_j p_\theta(\mathbf{v}_j)_i \mathbf{z}_{\theta,j})$，同一原型的slot在两个视图中形成正对
-   - 设计动机：patch级学习不足以区分物体，slot级对比学习提升物体级区分性
+
+    - 做什么：将patch按原型分配pooling为object-level slot特征，在slot间做MoCo对比
+    - 核心思路：$\mathbf{s}_{\theta,i} = h_\theta(\sum_j p_\theta(\mathbf{v}_j)_i \mathbf{z}_{\theta,j})$，同一原型的slot在两个视图中形成正对
+    - 设计动机：patch级学习不足以区分物体，slot级对比学习提升物体级区分性
 
 ### 关键发现：逆向缩放
 

@@ -49,14 +49,15 @@ tags:
 1. **拓扑感知多模态混合器**：在每个编码层，从全图收集各节点的 CLS 表示，通过带图结构位置偏置的多头注意力聚合邻居信息，再将结构感知的 CLS 重新注入 token 序列替代原 CLS。逐层迭代实现结构+模态的深度融合。
 
 2. **图条件对比学习**：对结构感知的文本/图像 CLS 嵌入做双向 InfoNCE：
-   $$\mathcal{L}_{\text{S1}} = -\frac{1}{|\mathcal{B}|}\sum_v [\log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(v,u)/\tau}} + \log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(u,v)/\tau}}]$$
+    $\mathcal{L}_{\text{S1}} = -\frac{1}{|\mathcal{B}|}\sum_v [\log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(v,u)/\tau}} + \log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(u,v)/\tau}}]$
 
 3. **模态自适应提示路由器 (MAPR)**：
-   - 为每个节点构建3种提示：$\mathcal{S}_v^{\text{txt}}$（仅文本token）、$\mathcal{S}_v^{\text{vis}}$（仅图像token）、$\mathcal{S}_v^{\text{mm}}$（双模态token）
-   - 路由器输入：$[\mathbf{h}_v^{\text{text}}; \mathbf{h}_v^{\text{image}}; \phi^{(1)}(v); \phi^{(2)}(v); \log d_v]$
-   - MLP 输出3类路由概率 $\mathbf{p}_v = \text{softmax}(\mathbf{s}_v)$
-   - 用性能后验 $\mathbf{q}_v = \text{softmax}(-[\ell_v^{(\text{txt})}, \ell_v^{(\text{vis})}, \ell_v^{(\text{mm})}])$ 作为教师信号
-   - 损失：$\mathcal{L}_{\text{S2}} = \frac{1}{|B|}\sum_v [\sum_k q_v^{(k)} \ell_v^{(k)} + \lambda \text{KL}(\mathbf{q}_v \| \mathbf{p}_v)]$
+
+    - 为每个节点构建3种提示：$\mathcal{S}_v^{\text{txt}}$（仅文本token）、$\mathcal{S}_v^{\text{vis}}$（仅图像token）、$\mathcal{S}_v^{\text{mm}}$（双模态token）
+    - 路由器输入：$[\mathbf{h}_v^{\text{text}}; \mathbf{h}_v^{\text{image}}; \phi^{(1)}(v); \phi^{(2)}(v); \log d_v]$
+    - MLP 输出3类路由概率 $\mathbf{p}_v = \text{softmax}(\mathbf{s}_v)$
+    - 用性能后验 $\mathbf{q}_v = \text{softmax}(-[\ell_v^{(\text{txt})}, \ell_v^{(\text{vis})}, \ell_v^{(\text{mm})}])$ 作为教师信号
+    - 损失：$\mathcal{L}_{\text{S2}} = \frac{1}{|B|}\sum_v [\sum_k q_v^{(k)} \ell_v^{(k)} + \lambda \text{KL}(\mathbf{q}_v \| \mathbf{p}_v)]$
 
 ### 损失函数 / 训练策略
 

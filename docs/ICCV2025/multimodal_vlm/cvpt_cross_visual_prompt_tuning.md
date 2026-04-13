@@ -26,19 +26,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大规模预训练模型（如 ViT）全量微调成本巨大，参数高效微调（PEFT）成为主流。PEFT 中有两大流派：adapter 方法和 prompt 方法。在视觉领域，adapter 方法（如 AdaptFormer、LoRA）通常优于 prompt 方法（如 VPT），导致社区普遍认为"prompt 方法不如 adapter"。
+**领域现状**：大规模预训练模型（如 ViT）全量微调成本巨大，参数高效微调（PEFT）成为主流。PEFT 中有两大流派：adapter 方法和 prompt 方法。在视觉领域，adapter 方法（如 AdaptFormer、LoRA）通常优于 prompt 方法（如 VPT），导致社区普遍认为"prompt 方法不如 adapter"。
 
-2. **现有痛点**：VPT 将 prompt token 直接拼接到 image token 序列中一起送入 Transformer block 的 self-attention，带来两个严重问题：
+**现有痛点**：VPT 将 prompt token 直接拼接到 image token 序列中一起送入 Transformer block 的 self-attention，带来两个严重问题：
    - **计算复杂度**：self-attention 的复杂度从 $n^2$ 增长到 $(n+m)^2$，随 prompt 数量增加，开销急剧上升
    - **注意力破坏**：prompt token 在 softmax 归一化中"抢占"了 embedded token 之间的注意力权重。当 prompt 数为 196 时，prompt 占据了超过 80% 的注意力权重，严重破坏原始特征表示
 
-3. **核心矛盾**：VPT 需要大量 prompt 来适应下游任务，但放入更多 prompt 反而破坏性能。这个矛盾的根源在于 prompt 的"部署方式"——它与 image token 共享同一个 self-attention，二者耦合在一起。
+**核心矛盾**：VPT 需要大量 prompt 来适应下游任务，但放入更多 prompt 反而破坏性能。这个矛盾的根源在于 prompt 的"部署方式"——它与 image token 共享同一个 self-attention，二者耦合在一起。
 
-4. **本文要解决什么**：如何在保留 prompt 灵活性的同时，消除其对 self-attention 的干扰，使 prompt 方法能够在使用大量 prompt 时仍保持高性能和高效率。
+**本文要解决什么**：如何在保留 prompt 灵活性的同时，消除其对 self-attention 的干扰，使 prompt 方法能够在使用大量 prompt 时仍保持高性能和高效率。
 
-5. **切入角度**：作者观察到 prompt token 并非原始序列的固有组成部分，不携带语义信息，只是作为间接调优因子。因此，将 prompt 从 self-attention 中解耦是根本解法。
+**切入角度**：作者观察到 prompt token 并非原始序列的固有组成部分，不携带语义信息，只是作为间接调优因子。因此，将 prompt 从 self-attention 中解耦是根本解法。
 
-6. **核心 idea 一句话**：用 cross-attention 替代 self-attention 中的 prompt 拼接，让 embedded token 作为 query、prompt 作为 key-value，解耦二者交互。
+**核心 idea 一句话**：用 cross-attention 替代 self-attention 中的 prompt 拼接，让 embedded token 作为 query、prompt 作为 key-value，解耦二者交互。
 
 ## 方法详解
 
@@ -48,19 +48,22 @@ CVPT 的 pipeline 与 VPT 类似：冻结预训练 ViT 主干参数，只训练 
 ### 关键设计
 
 1. **Cross-Attention 解耦模块**:
-   - 做什么：在每个 Transformer block 的 self-attention 之后、MLP 之前，插入一个 cross-attention 层
-   - 核心思路：embedded token 作为 query（$Q = X_1 W^Q$），prompt token 作为 key 和 value（$K = V = X_2 W^K$），计算 $\text{CrossAttention}(X_1, X_2) = \text{Softmax}(\frac{Q \cdot K}{\sqrt{d_k}}) V$，结果以残差方式加回 embedded token
-   - 设计动机：这样做有三个好处：(1) self-attention 中只有 image token，保留完整的特征表示能力；(2) cross-attention 的计算复杂度为 $O(n \cdot m)$，是线性的而非二次的；(3) 输出维度与 embedded token 一致，可以直接做残差连接，不会给后续 MLP 增加额外计算
+
+    - 做什么：在每个 Transformer block 的 self-attention 之后、MLP 之前，插入一个 cross-attention 层
+    - 核心思路：embedded token 作为 query（$Q = X_1 W^Q$），prompt token 作为 key 和 value（$K = V = X_2 W^K$），计算 $\text{CrossAttention}(X_1, X_2) = \text{Softmax}(\frac{Q \cdot K}{\sqrt{d_k}}) V$，结果以残差方式加回 embedded token
+    - 设计动机：这样做有三个好处：(1) self-attention 中只有 image token，保留完整的特征表示能力；(2) cross-attention 的计算复杂度为 $O(n \cdot m)$，是线性的而非二次的；(3) 输出维度与 embedded token 一致，可以直接做残差连接，不会给后续 MLP 增加额外计算
 
 2. **权重共享机制（Weight Sharing）**:
-   - 做什么：用预训练 self-attention 的权重初始化 cross-attention，并在训练过程中冻结 cross-attention 的参数
-   - 核心思路：cross-attention 和 self-attention 结构相同（都是 QKV 投影 + softmax），因此可以直接复用 self-attention 的预训练权重作为初始化
-   - 设计动机：(1) 避免引入大量可学习参数（frozen CA 只需 0.09M 参数 vs 可学习 CA 需 28.4M）；(2) self-attention 的预训练权重编码了丰富的视觉知识，提供了强有力的归纳偏置；(3) 实验证明 frozen CA + weight sharing 的性能与 learnable CA 相当
+
+    - 做什么：用预训练 self-attention 的权重初始化 cross-attention，并在训练过程中冻结 cross-attention 的参数
+    - 核心思路：cross-attention 和 self-attention 结构相同（都是 QKV 投影 + softmax），因此可以直接复用 self-attention 的预训练权重作为初始化
+    - 设计动机：(1) 避免引入大量可学习参数（frozen CA 只需 0.09M 参数 vs 可学习 CA 需 28.4M）；(2) self-attention 的预训练权重编码了丰富的视觉知识，提供了强有力的归纳偏置；(3) 实验证明 frozen CA + weight sharing 的性能与 learnable CA 相当
 
 3. **最优部署位置**:
-   - 做什么：探索 cross-attention 在 Transformer block 中的最佳插入位置
-   - 核心思路：测试了 5 个候选位置，发现在 SA 之后（位置 3）效果最好，准确率 74.0%
-   - 设计动机：SA 模块产生丰富的上下文特征，在其后立即进行 cross-attention 可以更有效地利用这些特征进行 prompt 适配
+
+    - 做什么：探索 cross-attention 在 Transformer block 中的最佳插入位置
+    - 核心思路：测试了 5 个候选位置，发现在 SA 之后（位置 3）效果最好，准确率 74.0%
+    - 设计动机：SA 模块产生丰富的上下文特征，在其后立即进行 cross-attention 可以更有效地利用这些特征进行 prompt 适配
 
 ### 损失函数 / 训练策略
 沿用 VPT 的训练策略，使用 AdamW 优化器，仅优化 prompt token 和分类头。prompt 数量从 {1, 5, 10, 20, 50, 100, 200} 中选择最优值。

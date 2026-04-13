@@ -26,14 +26,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RL 后训练是 LLM 对齐和推理的核心阶段。主流方法采用策略梯度（PPO、DPO、RLOO），通过 KL 散度约束防止偏离参考策略 $\pi^{ref}$，但这些方法计算开销大（需全量反向传播）
-2. **现有痛点**：
+**领域现状**：RL 后训练是 LLM 对齐和推理的核心阶段。主流方法采用策略梯度（PPO、DPO、RLOO），通过 KL 散度约束防止偏离参考策略 $\pi^{ref}$，但这些方法计算开销大（需全量反向传播）
+**现有痛点**：
    - 策略方法在 star-graph 实验中暴露致命缺陷：预训练学到的走捷径（随机选首个节点、准确率 1/d）无法被 REINFORCE/RPO 修复——策略梯度在低概率路径上梯度也低，形成恶性循环
    - 现有值方法（CD/VAS）使用**未正则化**的 $Q^{\pi^{ref},0}$ 引导 $\pi^{ref}$，忽略了 KL 项，无法保证收敛到最优策略
    - CD 对 $\eta$ 极其敏感——$\eta^{-1}$ 增大后 KL 急剧膨胀，性能反降
-3. **核心矛盾**：策略方法无法修复预训练捷径，现有值方法目标函数不正确
-4. **切入角度**：在确定性 MDP（覆盖 LLM 自回归生成）中，$Q^{\star,\eta}$ 可通过参考策略下累积奖励分布的泛函直接计算，无需 TD 学习
-5. **核心 idea**：学习 $Z^\star$（$\pi^{ref}$ 的累积奖励条件分布），通过简单泛函 $Q^{\star,\eta} = \eta \ln \mathbb{E}_{z \sim Z^\star}[\exp(z/\eta)]$ 得到最优 Q 函数
+**核心矛盾**：策略方法无法修复预训练捷径，现有值方法目标函数不正确
+**切入角度**：在确定性 MDP（覆盖 LLM 自回归生成）中，$Q^{\star,\eta}$ 可通过参考策略下累积奖励分布的泛函直接计算，无需 TD 学习
+**核心 idea**：学习 $Z^\star$（$\pi^{ref}$ 的累积奖励条件分布），通过简单泛函 $Q^{\star,\eta} = \eta \ln \mathbb{E}_{z \sim Z^\star}[\exp(z/\eta)]$ 得到最优 Q 函数
 
 ## 方法详解
 
@@ -43,24 +43,28 @@ Q♯ 是一个迭代式值函数学习算法：每轮 (1) 用当前引导策略 
 ### 关键设计
 
 1. **确定性 MDP 下的分布式简化**：
-   - 做什么：将最优 Q 函数计算简化为参考策略下的奖励分布学习
-   - 核心思路：在确定性 MDP 中，Theorem 2.2 证明 $Q_h^{\star,\eta}(x_h, y_h) = \eta \ln \mathbb{E}_{\pi^{ref}}[\exp(\eta^{-1} \sum_{t \geq h} r_t) | x_h, y_h]$。对稀疏奖励（如数学题正确性判定），进一步简化为 $\eta \ln \mathbb{E}_{\pi^{ref}}[\exp(\eta^{-1} r(x_H, y_H)) | x_h, y_h]$
-   - 设计动机：避免了 TD 学习的所有痛点——无 bootstrapping、无 changing targets、无 distributional Bellman 方程的非收缩性问题。变成了标准的固定目标监督学习
+
+    - 做什么：将最优 Q 函数计算简化为参考策略下的奖励分布学习
+    - 核心思路：在确定性 MDP 中，Theorem 2.2 证明 $Q_h^{\star,\eta}(x_h, y_h) = \eta \ln \mathbb{E}_{\pi^{ref}}[\exp(\eta^{-1} \sum_{t \geq h} r_t) | x_h, y_h]$。对稀疏奖励（如数学题正确性判定），进一步简化为 $\eta \ln \mathbb{E}_{\pi^{ref}}[\exp(\eta^{-1} r(x_H, y_H)) | x_h, y_h]$
+    - 设计动机：避免了 TD 学习的所有痛点——无 bootstrapping、无 changing targets、无 distributional Bellman 方程的非收缩性问题。变成了标准的固定目标监督学习
 
 2. **分布式监督学习**：
-   - 做什么：用 MLE 拟合 $Z^\star$ 的条件分布
-   - 核心思路：二值奖励用 binary cross-entropy 拟合 Bernoulli 分布；任意奖励用直方图离散化 + MLE
-   - 设计动机：分布式 RL 在表征学习、方差减少和二阶界方面都有优势
+
+    - 做什么：用 MLE 拟合 $Z^\star$ 的条件分布
+    - 核心思路：二值奖励用 binary cross-entropy 拟合 Bernoulli 分布；任意奖励用直方图离散化 + MLE
+    - 设计动机：分布式 RL 在表征学习、方差减少和二阶界方面都有优势
 
 3. **DAgger 式迭代数据收集**：
-   - 做什么：每轮用当前引导策略 roll-in、参考策略 roll-out 收集数据，解决分布偏移
-   - 核心思路：随机切换时刻 $h \sim [H]$，用 $\pi^k$ roll-in $h-1$ 步，用 $\pi^{ref}$ roll-out，记录 $(x_t, y_t, R_t)$ 加入聚合数据集
-   - 设计动机：CD/VAS 仅在 $\pi^{ref}$ 数据上离线训练，推理时分布偏移导致估计不准确
+
+    - 做什么：每轮用当前引导策略 roll-in、参考策略 roll-out 收集数据，解决分布偏移
+    - 核心思路：随机切换时刻 $h \sim [H]$，用 $\pi^k$ roll-in $h-1$ 步，用 $\pi^{ref}$ roll-out，记录 $(x_t, y_t, R_t)$ 加入聚合数据集
+    - 设计动机：CD/VAS 仅在 $\pi^{ref}$ 数据上离线训练，推理时分布偏移导致估计不准确
 
 4. **多 η 推理**：
-   - 做什么：一个训练好的 $Z^\theta$ 支持任意 $\eta$ 值的推理
-   - 核心思路：$Z^\theta$ 与 $\eta$ 无关，仅在引导公式中通过 $\exp(z/\eta)$ 引入
-   - 设计动机：部署时可灵活调节 KL 约束强度而无需重训
+
+    - 做什么：一个训练好的 $Z^\theta$ 支持任意 $\eta$ 值的推理
+    - 核心思路：$Z^\theta$ 与 $\eta$ 无关，仅在引导公式中通过 $\exp(z/\eta)$ 引入
+    - 设计动机：部署时可灵活调节 KL 约束强度而无需重训
 
 ### 损失函数 / 训练策略
 - 损失：$L_{bce}(r, \hat{p}) = -r \ln \hat{p} - (1-r) \ln(1 - \hat{p})$（二值奖励）

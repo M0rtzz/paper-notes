@@ -34,10 +34,10 @@ tags:
 
 ### 现有方法的不足
 
-1. **Prompt 方法**（L2P、DualPrompt、S-Prompts）：推理时需从 prompt 池中**选择**对应 prompt → 选择错误直接降性能
-2. **MoE-Adapter**（Yu et al. 2024）：预定义 adapter 数量 → 需知总任务数；推理时同样需要**选择**激活哪些 adapter
-3. **全参微调**（ZSCL）：更新预训练参数 → 前向遗忘（forward forgetting）严重，零样本泛化退化
-4. **分类器扩展**（RAIL）：依赖原始 CLIP 判断任务是否已学 → 误差传播
+**Prompt 方法**（L2P、DualPrompt、S-Prompts）：推理时需从 prompt 池中**选择**对应 prompt → 选择错误直接降性能
+**MoE-Adapter**（Yu et al. 2024）：预定义 adapter 数量 → 需知总任务数；推理时同样需要**选择**激活哪些 adapter
+**全参微调**（ZSCL）：更新预训练参数 → 前向遗忘（forward forgetting）严重，零样本泛化退化
+**分类器扩展**（RAIL）：依赖原始 CLIP 判断任务是否已学 → 误差传播
 
 核心痛点：**参数选择（parameter selection）**——现有方法在推理时都需要一个额外步骤来决定用哪组参数提取特征，这种选择天然容易出错。
 

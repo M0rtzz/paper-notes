@@ -45,25 +45,29 @@ Jumbo 在标准 ViT 基础上做了最小改动：(1) CLS token 宽度扩展为 
 ### 关键设计
 
 1. **Jumbo CLS Token 的创建与处理**：
-   - 初始化一个宽度为 $J \cdot D$ 的可学习 CLS token $\mathbf{x}_{\text{Jumbo}} \in \mathbb{R}^{J \cdot D}$
-   - **注意力前**：沿特征维度拆分为 $J$ 个宽度 $D$ 的 token，与 patch token 拼接形成长度 $(N+J)$ 的序列
-   - **注意力中**：标准多头自注意力处理所有 $(N+J)$ 个等宽 token
-   - **注意力后**：从序列中提取 $J$ 个 Jumbo 分片，沿通道维度重新拼接为 $\mathbb{R}^{1 \times J \cdot D}$
-   - **专用 FFN**：宽度为 $J \cdot D$ 的独立 FFN 处理重组后的 Jumbo token；patch token 则由共享的标准 FFN 处理
-   - 最后一层的 patch FFN 被丢弃（因为分类头直接从 Jumbo token 投射）
+
+    - 初始化一个宽度为 $J \cdot D$ 的可学习 CLS token $\mathbf{x}_{\text{Jumbo}} \in \mathbb{R}^{J \cdot D}$
+    - **注意力前**：沿特征维度拆分为 $J$ 个宽度 $D$ 的 token，与 patch token 拼接形成长度 $(N+J)$ 的序列
+    - **注意力中**：标准多头自注意力处理所有 $(N+J)$ 个等宽 token
+    - **注意力后**：从序列中提取 $J$ 个 Jumbo 分片，沿通道维度重新拼接为 $\mathbb{R}^{1 \times J \cdot D}$
+    - **专用 FFN**：宽度为 $J \cdot D$ 的独立 FFN 处理重组后的 Jumbo token；patch token 则由共享的标准 FFN 处理
+    - 最后一层的 patch FFN 被丢弃（因为分类头直接从 Jumbo token 投射）
 
 2. **为什么计算开销极低（设计动机）**：
-   - ViT 层的计算量几乎完全由 patch 数 $N$ 和 patch 宽度 $D$ 决定
-   - 添加 $J=6$ 个额外 token 对注意力的 FLOP 影响微乎其微（$(N+J)$ vs $N$，而 $N=196$）
-   - 宽 FFN 虽然参数更多，但只处理单个 token——FLOP 贡献可忽略
+
+    - ViT 层的计算量几乎完全由 patch 数 $N$ 和 patch 宽度 $D$ 决定
+    - 添加 $J=6$ 个额外 token 对注意力的 FLOP 影响微乎其微（$(N+J)$ vs $N$，而 $N=196$）
+    - 宽 FFN 虽然参数更多，但只处理单个 token——FLOP 贡献可忽略
 
 3. **两个核心假说**：
-   - **假说 1**：patch width 越窄（模型越小），Jumbo 增益越大——因为窄网络对全局容量的"饥渴"更严重
-   - **假说 2**：输出维度越高（任务越复杂），Jumbo 增益越大——需要更多宽度来存储和推理更多概念
+
+    - **假说 1**：patch width 越窄（模型越小），Jumbo 增益越大——因为窄网络对全局容量的"饥渴"更严重
+    - **假说 2**：输出维度越高（任务越复杂），Jumbo 增益越大——需要更多宽度来存储和推理更多概念
 
 4. **从 Vision 到 Time Series 的迁移**：
-   - 将 Jumbo 应用于 PatchTST 架构：将 1D 时间序列 patch 化后添加 Jumbo CLS token
-   - 无需任何架构修改即可迁移，展示了 plain transformer 的通用性
+
+    - 将 Jumbo 应用于 PatchTST 架构：将 1D 时间序列 patch 化后添加 Jumbo CLS token
+    - 无需任何架构修改即可迁移，展示了 plain transformer 的通用性
 
 ### 损失函数 / 训练策略
 

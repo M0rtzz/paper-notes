@@ -25,14 +25,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：工具学习（tool learning）使 LLM 能够调用外部 API 完成真实世界任务。当前方法分为流水线式（CoT/ReAct，每轮调用一个工具）和树搜索式（DFSDT，通过深度优先搜索回溯提高容错率）。
-2. **现有痛点**：
+**领域现状**：工具学习（tool learning）使 LLM 能够调用外部 API 完成真实世界任务。当前方法分为流水线式（CoT/ReAct，每轮调用一个工具）和树搜索式（DFSDT，通过深度优先搜索回溯提高容错率）。
+**现有痛点**：
    - CoT/ReAct：每轮仅调用一个工具，感知范围窄，需要更多轮次
    - DFSDT：回溯机制导致工具调用序列更长，token 消耗和推理时间大幅增加
    - 两类方法都无法在单轮中并行调用多个工具
-3. **核心矛盾**：如何在保持任务完成率的同时减少工具调用轮次和计算开销。
-4. **切入角度**：类比操作系统的 Process/Thread 机制——每轮"Process"分解任务为可并行的子任务，多个"Thread"并行执行工具调用，执行后聚合结果。
-5. **核心 idea 一句话**：将树搜索的串行路径转为 DAG 并行结构训练数据 + Process/Thread 推理框架，实现每轮多工具并行调用。
+**核心矛盾**：如何在保持任务完成率的同时减少工具调用轮次和计算开销。
+**切入角度**：类比操作系统的 Process/Thread 机制——每轮"Process"分解任务为可并行的子任务，多个"Thread"并行执行工具调用，执行后聚合结果。
+**核心 idea 一句话**：将树搜索的串行路径转为 DAG 并行结构训练数据 + Process/Thread 推理框架，实现每轮多工具并行调用。
 
 ## 方法详解
 
@@ -44,19 +44,22 @@ tags:
 ### 关键设计
 
 1. **串行→并行数据转换**:
-   - 从树搜索轨迹中提取成功路径 $\mathcal{P}$
-   - 用 GPT-4 判断路径中哪些工具调用可以并行（无输入输出依赖 + 无因果关系）
-   - 构建 DAG $\mathcal{G}$，层次遍历同一层的工具可并行执行
-   - 数据过滤：去除循环调用、不完整调用、无法聚合的结构
+
+    - 从树搜索轨迹中提取成功路径 $\mathcal{P}$
+    - 用 GPT-4 判断路径中哪些工具调用可以并行（无输入输出依赖 + 无因果关系）
+    - 构建 DAG $\mathcal{G}$，层次遍历同一层的工具可并行执行
+    - 数据过滤：去除循环调用、不完整调用、无法聚合的结构
 
 2. **Process/Thread 推理框架**:
-   - **Process**：LLM 评估任务状态 → 分析当前步骤需求 → 生成多个可并行的工具调用计划（名称+参数）
-   - **Thread**：并行执行 Process 提出的所有工具调用
-   - **Intermediate State Lock**：等待所有 Thread 完成后聚合结果，作为下一轮 Process 的输入
+
+    - **Process**：LLM 评估任务状态 → 分析当前步骤需求 → 生成多个可并行的工具调用计划（名称+参数）
+    - **Thread**：并行执行 Process 提出的所有工具调用
+    - **Intermediate State Lock**：等待所有 Thread 完成后聚合结果，作为下一轮 Process 的输入
 
 3. **训练设计**：
-   - 从 Thought-Action-Observation 框架简化为 Thought-Observation（Action 集成到 Thought 中作为工具调用计划）
-   - 损失函数：$\mathcal{L}(\theta) = -\log \sum_{i=1}^n p_\theta(y^i | q, y^{[1:i-1]}, o^{[1:i-1]})$
+
+    - 从 Thought-Action-Observation 框架简化为 Thought-Observation（Action 集成到 Thought 中作为工具调用计划）
+    - 损失函数：$\mathcal{L}(\theta) = -\log \sum_{i=1}^n p_\theta(y^i | q, y^{[1:i-1]}, o^{[1:i-1]})$
 
 ## 实验关键数据
 

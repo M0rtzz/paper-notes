@@ -26,13 +26,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM需要按需遗忘特定知识（GDPR合规/版权/过时信息），但从头重训不切实际。现有方法分输入级（拒绝策略）、数据级（构造辅助数据）、模型级（修改参数）。
-2. **现有痛点**：
+**领域现状**：LLM需要按需遗忘特定知识（GDPR合规/版权/过时信息），但从头重训不切实际。现有方法分输入级（拒绝策略）、数据级（构造辅助数据）、模型级（修改参数）。
+**现有痛点**：
    - 输入级方法脆弱，对抗prompt可绕过拒绝
    - 模型级方法用静态权重平衡遗忘/保留目标，无法动态适应
    - GradAscent/GradDiff在难遗忘样本上破坏性强——样本难度与效用损失强耦合
-3. **核心矛盾**：遗忘梯度和保留梯度相关时，提升遗忘会破坏保留
-4. **核忊idea一句话**：双层优化 + 梯度去相关 = 遗忘时不伤及保留
+**核心矛盾**：遗忘梯度和保留梯度相关时，提升遗忘会破坏保留
+**核忊idea一句话**：双层优化 + 梯度去相关 = 遗忘时不伤及保留
 
 ## 方法详解
 
@@ -42,15 +42,17 @@ tags:
 ### 关键设计
 
 1. **双层优化建模**:
-   - 内层目标：$\Phi(\theta) = \mathcal{L}_f(\theta) - \beta \cdot \text{Sim}(\nabla\mathcal{L}_f, \nabla\mathcal{L}_r)$
-   - 外层目标：$F(\theta) = \mathcal{L}_r(\theta) + \rho\|\nabla\Phi(\theta)\|^2$
-   - 梯度去相关项 $\text{Sim}$ 用余弦相似度，确保遗忘梯度方向与保留梯度正交
-   - 惩罚项 $\rho\|\nabla\Phi\|^2$ 确保内层达到平稳点
+
+    - 内层目标：$\Phi(\theta) = \mathcal{L}_f(\theta) - \beta \cdot \text{Sim}(\nabla\mathcal{L}_f, \nabla\mathcal{L}_r)$
+    - 外层目标：$F(\theta) = \mathcal{L}_r(\theta) + \rho\|\nabla\Phi(\theta)\|^2$
+    - 梯度去相关项 $\text{Sim}$ 用余弦相似度，确保遗忘梯度方向与保留梯度正交
+    - 惩罚项 $\rho\|\nabla\Phi\|^2$ 确保内层达到平稳点
 
 2. **两循环算法**:
-   - 内循环(T步梯度上升)：$\theta'^{(t+1)} = \theta'^{(t)} + \eta_{\text{in}}\nabla\Phi(\theta'^{(t)})$
-   - 外循环(保留+惩罚)：$\theta^{(k+1)} = \theta^{(k)} - \eta_{\text{out}}(\nabla\mathcal{L}_r + 2\rho\nabla^2\Phi\cdot\nabla\Phi)$
-   - 理论收敛保证：凸场景 $O(1/K)+O(K/T^2)$，非凸 $O(1/K)+O(1/T)+O(\sigma^2)$
+
+    - 内循环(T步梯度上升)：$\theta'^{(t+1)} = \theta'^{(t)} + \eta_{\text{in}}\nabla\Phi(\theta'^{(t)})$
+    - 外循环(保留+惩罚)：$\theta^{(k+1)} = \theta^{(k)} - \eta_{\text{out}}(\nabla\mathcal{L}_r + 2\rho\nabla^2\Phi\cdot\nabla\Phi)$
+    - 理论收敛保证：凸场景 $O(1/K)+O(K/T^2)$，非凸 $O(1/K)+O(1/T)+O(\sigma^2)$
 
 ### 损失函数 / 训练策略
 - 内循环T=5~10步，不需要完全收敛

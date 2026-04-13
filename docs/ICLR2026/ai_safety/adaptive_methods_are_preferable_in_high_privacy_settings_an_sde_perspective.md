@@ -43,14 +43,16 @@ SDE是分析优化器的成熟工具，但从未被用于DP优化器。本文首
 1. **噪声建模**：区分裁剪/未裁剪两种状态。未裁剪样本的batch噪声为高斯；裁剪样本建模为Student-t分布（捕获重尾）。利用高维近似 E[∇f/||∇f||] ≈ ∇f/(σ√d)。
 
 2. **Protocol A（固定超参）**：
-   - DP-SGD (Thm 4.1)：收敛速度与ε无关，trade-off ∝ 1/ε²
-   - DP-SignSGD (Thm 4.3)：收敛速度 ∝ ε（更慢），trade-off ∝ 1/ε（更好）
-   - 存在临界阈值 ε*：当 ε < ε* 时DP-SignSGD严格占优
+
+    - DP-SGD (Thm 4.1)：收敛速度与ε无关，trade-off ∝ 1/ε²
+    - DP-SignSGD (Thm 4.3)：收敛速度 ∝ ε（更慢），trade-off ∝ 1/ε（更好）
+    - 存在临界阈值 ε*：当 ε < ε* 时DP-SignSGD严格占优
 
 3. **Protocol B（最优超参）**：
-   - DP-SGD：η* ∝ ε（需要ε-dependent调参）
-   - DP-SignSGD：η* 几乎ε-independent（可跨隐私级别迁移）
-   - 两者在最优调参下渐近性能可比，但自适应方法更实用
+
+    - DP-SGD：η* ∝ ε（需要ε-dependent调参）
+    - DP-SignSGD：η* 几乎ε-independent（可跨隐私级别迁移）
+    - 两者在最优调参下渐近性能可比，但自适应方法更实用
 
 4. **临界阈值 (Thm 4.5)**：当batch噪声足够大时，DP-SignSGD总是更优。batch噪声小时，结果取决于ε：ε < ε* 时自适应占优。
 

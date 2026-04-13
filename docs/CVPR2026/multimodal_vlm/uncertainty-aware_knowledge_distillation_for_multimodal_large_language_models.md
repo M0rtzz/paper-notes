@@ -41,24 +41,28 @@ tags:
 ### 关键设计
 
 1. **Teacher-Informed Gibbs先验**：
-   - $p(a^s | a^t, \beta) = \frac{1}{Z_\beta(a^t)} \exp[-\beta \ell(a^s; a^t)]$
-   - $\ell$可为任意对齐能量（FKL、RKL、Cosine、MSE等）
-   - $\beta$控制监督强度：大$\beta$意味着更信任教师，小$\beta$更信任数据
+
+    - $p(a^s | a^t, \beta) = \frac{1}{Z_\beta(a^t)} \exp[-\beta \ell(a^s; a^t)]$
+    - $\ell$可为任意对齐能量（FKL、RKL、Cosine、MSE等）
+    - $\beta$控制监督强度：大$\beta$意味着更信任教师，小$\beta$更信任数据
 
 2. **MAP推断与Laplace近似**：
-   - MAP目标：$\min_{a^s} -\log p(y|a^s) + \beta\ell(a^s;a^t) + \log Z_\beta(a^t)$
-   - Laplace近似后: $\log Z_\beta \approx -d/2 \cdot \log\beta + \text{const}$
-   - 最终目标: $\min \mathcal{L}_{CE} + \beta \ell + \frac{d}{2}\log\beta$（自然正则化）
+
+    - MAP目标：$\min_{a^s} -\log p(y|a^s) + \beta\ell(a^s;a^t) + \log Z_\beta(a^t)$
+    - Laplace近似后: $\log Z_\beta \approx -d/2 \cdot \log\beta + \text{const}$
+    - 最终目标: $\min \mathcal{L}_{CE} + \beta \ell + \frac{d}{2}\log\beta$（自然正则化）
 
 3. **两种不确定性粒度**：
-   - **任务级(homoscedastic)**：$\beta$为每个任务共享的可学习标量
-   - **实例级(heteroscedastic)**：$\beta(x) = g_\phi(h(x)) > 0$，轻量级网络从输入预测
-   - 实例级允许每个样本有不同的数据-教师平衡
+
+    - **任务级(homoscedastic)**：$\beta$为每个任务共享的可学习标量
+    - **实例级(heteroscedastic)**：$\beta(x) = g_\phi(h(x)) > 0$，轻量级网络从输入预测
+    - 实例级允许每个样本有不同的数据-教师平衡
 
 4. **能量函数设计空间探索**：
-   - 发现Cosine-Probs效果最佳（尺度不变性，关注方向对齐）
-   - 前-softmax logit匹配(MSE-Logits、Cosine-Logits)在生成式MLLM中表现很差
-   - 与判别式任务的发现不同
+
+    - 发现Cosine-Probs效果最佳（尺度不变性，关注方向对齐）
+    - 前-softmax logit匹配(MSE-Logits、Cosine-Logits)在生成式MLLM中表现很差
+    - 与判别式任务的发现不同
 
 ### 损失函数 / 训练策略
 $\min_{\theta,\phi} \mathcal{L}_{CE}(\theta) + g_\phi(h(x))\ell(\theta) - \frac{d}{2}\log g_\phi(h(x))$

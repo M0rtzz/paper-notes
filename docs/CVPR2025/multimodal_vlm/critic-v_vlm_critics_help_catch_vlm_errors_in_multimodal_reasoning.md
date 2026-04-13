@@ -43,32 +43,35 @@ Critic-V包含三个核心阶段：
 
 ### 关键设计
 1. **Reasoner（推理器）**:
-   - 直接使用现有的VLM（如Qwen2-VL-7B、DeepSeek-VL-7B等）作为Reasoner，不修改其参数
-   - 核心创新：用动态文本prompt替代传统RL中的参数化策略。推理策略通过prompt变化来实现，而非梯度更新
-   - Critic的反馈 $\delta P^{reasoner}$ 被直接拼接到下一轮的prompt中，引导推理方向
-   - 借鉴TextGrad框架进行prompt更新：将Critic的自然语言反馈视为"文本梯度"，指导推理路径的调整
-   - 即"plug-and-play"——无需对Reasoner做任何训练或微调
+
+    - 直接使用现有的VLM（如Qwen2-VL-7B、DeepSeek-VL-7B等）作为Reasoner，不修改其参数
+    - 核心创新：用动态文本prompt替代传统RL中的参数化策略。推理策略通过prompt变化来实现，而非梯度更新
+    - Critic的反馈 $\delta P^{reasoner}$ 被直接拼接到下一轮的prompt中，引导推理方向
+    - 借鉴TextGrad框架进行prompt更新：将Critic的自然语言反馈视为"文本梯度"，指导推理路径的调整
+    - 即"plug-and-play"——无需对Reasoner做任何训练或微调
 
 2. **Critic模型训练**:
-   - **VEST（Vision Error inSertion Technique）数据构造**：
-     - 从VQA数据集收集问题-图像对，用GPT-4o在正确答案中插入1-5个虚假细节（伪造的错误答案）
-     - 让GLM-4V-9B、GPT-4o mini、MiniCPM-V三个VLM分别对错误答案生成批评意见
-     - 总计构建29,012个多模态QA对及对应的批评数据
-   - **Rule-based Reward（RBR）评分**：
-     - 结合Jaccard指数和GPT评分来评估批评质量：$Score(i) = Jaccard(i) + \alpha \times GPT(i)$
-     - Jaccard指数：$J(G,C) = |G \cap C| / |G \cup C|$，其中G为插入的错误集合，C为批评检出的错误集合
-     - Jaccard指数的引入关键在于防止"长批评倾向"——过长的批评可能包含更多假阳性（nitpicks）
-     - 根据RBR得分构建偏好对（preferred vs disfavored critique）
-   - **DPO训练**：
-     - 基于Qwen2-VL-7B训练Critic模型
-     - 使用标准DPO损失函数优化，鼓励模型给高质量批评分配更高概率
-     - 偏好数据集 $\mathcal{D}_{cri} = \{(Q, I, C_w, C_l)\}$ ，其中 $C_w$ 为偏好批评，$C_l$ 为非偏好批评
+
+    - **VEST（Vision Error inSertion Technique）数据构造**：
+      - 从VQA数据集收集问题-图像对，用GPT-4o在正确答案中插入1-5个虚假细节（伪造的错误答案）
+      - 让GLM-4V-9B、GPT-4o mini、MiniCPM-V三个VLM分别对错误答案生成批评意见
+      - 总计构建29,012个多模态QA对及对应的批评数据
+    - **Rule-based Reward（RBR）评分**：
+      - 结合Jaccard指数和GPT评分来评估批评质量：$Score(i) = Jaccard(i) + \alpha \times GPT(i)$
+      - Jaccard指数：$J(G,C) = |G \cap C| / |G \cup C|$，其中G为插入的错误集合，C为批评检出的错误集合
+      - Jaccard指数的引入关键在于防止"长批评倾向"——过长的批评可能包含更多假阳性（nitpicks）
+      - 根据RBR得分构建偏好对（preferred vs disfavored critique）
+    - **DPO训练**：
+      - 基于Qwen2-VL-7B训练Critic模型
+      - 使用标准DPO损失函数优化，鼓励模型给高质量批评分配更高概率
+      - 偏好数据集 $\mathcal{D}_{cri} = \{(Q, I, C_w, C_l)\}$ ，其中 $C_w$ 为偏好批评，$C_l$ 为非偏好批评
 
 3. **Reasoner-Critic交互框架**:
-   - Reasoner生成初始回答 → Critic在问题、图像和回答的完整上下文下评估 → 以自然语言形式给出反馈（指出哪里错了、为什么错、应该如何修正）
-   - Reasoner将反馈纳入新的prompt继续推理 → 循环直到Critic认为满意或达到最大迭代次数
-   - 自然语言反馈比标量奖励更具信息量：能精确指出错误位置和类型，而不只是给一个"好/坏"的信号
-   - 每次Critic评估仅消耗几十个额外token，计算开销可忽略
+
+    - Reasoner生成初始回答 → Critic在问题、图像和回答的完整上下文下评估 → 以自然语言形式给出反馈（指出哪里错了、为什么错、应该如何修正）
+    - Reasoner将反馈纳入新的prompt继续推理 → 循环直到Critic认为满意或达到最大迭代次数
+    - 自然语言反馈比标量奖励更具信息量：能精确指出错误位置和类型，而不只是给一个"好/坏"的信号
+    - 每次Critic评估仅消耗几十个额外token，计算开销可忽略
 
 ### 损失函数 / 训练策略
 - Critic使用DPO损失训练：$\mathcal{L}_{DPO} = -\mathbb{E}[\log \sigma f(\pi_\theta; \pi_{ref})]$

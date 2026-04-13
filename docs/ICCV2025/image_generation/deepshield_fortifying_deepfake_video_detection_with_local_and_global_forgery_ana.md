@@ -29,8 +29,8 @@ tags:
 
 深度生成模型（GAN、VAE、扩散模型）使人脸视频篡改门槛大幅降低，伪造检测成为关键问题。现有检测器面临两大挑战：
 
-1. **局部敏感性不足**：基于 CLIP 等大模型的方法主要利用全局特征，倾向于关注最显著的篡改痕迹（如面部转换的夸张过渡），忽略了细微的伪造线索（如混合边界、微小纹理不一致）
-2. **跨域泛化差**：模型容易过拟合训练时见过的特定篡改类型，面对未知篡改手段性能大幅下降。依赖重新训练或数据增强的方案成本高、扩展性差
+**局部敏感性不足**：基于 CLIP 等大模型的方法主要利用全局特征，倾向于关注最显著的篡改痕迹（如面部转换的夸张过渡），忽略了细微的伪造线索（如混合边界、微小纹理不一致）
+**跨域泛化差**：模型容易过拟合训练时见过的特定篡改类型，面对未知篡改手段性能大幅下降。依赖重新训练或数据增强的方案成本高、扩展性差
 
 本文核心思想：通过局部-全局学习范式，让模型既能捕捉细粒度的 patch 级伪造痕迹，又能通过特征空间的伪造多样化增强跨域泛化能力。
 
@@ -45,20 +45,23 @@ DeepShield 基于 CLIP-ViT-B/16 + ST-Adapter，包含两个互补组件：
 ### 关键设计
 
 1. **时空伪影建模（SAM, Spatiotemporal Artifact Modeling）**：
-   - 将 SBI 技术从图像级扩展到视频级，生成带有精确 mask 的伪造视频
-   - **空间伪影**：对每帧图像分别增强内层（面部）和外层（背景），通过面部关键点凸包 mask 混合，产生统计不一致性
-   - **时间伪影**：跨 $T$ 帧保持一致的增强方向和 mask 变换策略，模拟真实 deepfake 的生成模式
-   - 关键：同一增强类型跨帧一致，mask 的随机变形和模糊跨帧保持微小差异
+
+    - 将 SBI 技术从图像级扩展到视频级，生成带有精确 mask 的伪造视频
+    - **空间伪影**：对每帧图像分别增强内层（面部）和外层（背景），通过面部关键点凸包 mask 混合，产生统计不一致性
+    - **时间伪影**：跨 $T$ 帧保持一致的增强方向和 mask 变换策略，模拟真实 deepfake 的生成模式
+    - 关键：同一增强类型跨帧一致，mask 的随机变形和模糊跨帧保持微小差异
 
 2. **Local Patch Guidance (LPG)**：
-   - 将每帧和对应 mask 划分为 $P$ 个非重叠 patch，通过 PatchMaskScore 和阈值 $\theta$ 分配 patch 级二分类标签
-   - 每个 patch token 独立作为训练样本，通过二分类器 $\phi$ 和交叉熵损失 $\mathcal{L}_{\text{LPG}}$ 训练
-   - 效果：patch 嵌入同类聚集、异类分离，cls token 通过自注意力聚合更丰富的局部语义
+
+    - 将每帧和对应 mask 划分为 $P$ 个非重叠 patch，通过 PatchMaskScore 和阈值 $\theta$ 分配 patch 级二分类标签
+    - 每个 patch token 独立作为训练样本，通过二分类器 $\phi$ 和交叉熵损失 $\mathcal{L}_{\text{LPG}}$ 训练
+    - 效果：patch 嵌入同类聚集、异类分离，cls token 通过自注意力聚合更丰富的局部语义
 
 3. **Global Forgery Diversification (GFD)**：
-   - **Domain-Bridging Feature Generation (DFG)**：随机配对不同篡改类型的视频，通过 Beta(0.1, 0.1) 采样权重 $\lambda$，用 AdaIN 混合两个域的均值/方差统计量，生成跨域桥接特征
-   - **Boundary-Expanding Feature Generation (BFG)**：将标准差缩放 $\alpha=1.1$ 倍，将特征推向现有域边界外，扩展检测范围
-   - 训练目标：交叉熵损失 + 监督对比损失 $\mathcal{L}_{\text{GFD}} = \mathcal{L}^{\text{cls}} + \upsilon \mathcal{L}^{\text{supCon}}$
+
+    - **Domain-Bridging Feature Generation (DFG)**：随机配对不同篡改类型的视频，通过 Beta(0.1, 0.1) 采样权重 $\lambda$，用 AdaIN 混合两个域的均值/方差统计量，生成跨域桥接特征
+    - **Boundary-Expanding Feature Generation (BFG)**：将标准差缩放 $\alpha=1.1$ 倍，将特征推向现有域边界外，扩展检测范围
+    - 训练目标：交叉熵损失 + 监督对比损失 $\mathcal{L}_{\text{GFD}} = \mathcal{L}^{\text{cls}} + \upsilon \mathcal{L}^{\text{supCon}}$
 
 ### 损失函数 / 训练策略
 

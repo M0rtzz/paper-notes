@@ -36,24 +36,27 @@ tags:
 
 ### 关键设计
 1. **Instance Cross-Attention + InsVSD（语义级蒸馏）**:
-   - 做什么：确保每个实例的纹理与其参考图像语义一致
-   - 核心思路：IP-Adapter提取参考图特征$f^{ref}_i$，用实例mask $m_i$在feature级调制cross-attention：
-   $$Z' = \frac{1}{N}\sum_{i=1}^N m_i \cdot \text{Softmax}\left(\frac{\mathbf{Q}\mathbf{K}_i^\top}{\sqrt{d_k}}\right)\mathbf{V}_i$$
-   - 基于VSD交替优化：冻结LoRA更新纹理$\theta$（VSD梯度$\nabla_\theta\mathcal{L}_{\text{VSD}} = \mathbb{E}[\omega(t)(\epsilon_{\phi_d} - \epsilon_{\phi_{\text{LoRA}}})\frac{\partial\mathcal{T}}{\partial\theta}]$），再冻结$\theta$更新LoRA $\phi$
-   - 设计动机：Feature-level mask比noise-level mask更稳定（消融证实），精确对齐每个参考特征到对应实例区域
+
+    - 做什么：确保每个实例的纹理与其参考图像语义一致
+    - 核心思路：IP-Adapter提取参考图特征$f^{ref}_i$，用实例mask $m_i$在feature级调制cross-attention：
+    $Z' = \frac{1}{N}\sum_{i=1}^N m_i \cdot \text{Softmax}\left(\frac{\mathbf{Q}\mathbf{K}_i^\top}{\sqrt{d_k}}\right)\mathbf{V}_i$
+    - 基于VSD交替优化：冻结LoRA更新纹理$\theta$（VSD梯度$\nabla_\theta\mathcal{L}_{\text{VSD}} = \mathbb{E}[\omega(t)(\epsilon_{\phi_d} - \epsilon_{\phi_{\text{LoRA}}})\frac{\partial\mathcal{T}}{\partial\theta}]$），再冻结$\theta$更新LoRA $\phi$
+    - 设计动机：Feature-level mask比noise-level mask更稳定（消融证实），精确对齐每个参考特征到对应实例区域
 
 2. **像素级蒸馏（Pixel-Level Distillation）**:
-   - 做什么：增强纹理清晰度和高频细节
-   - 核心思路：利用预训练SR模型$\phi_{SR}$计算SR梯度：$\nabla_\theta\mathcal{L}_{\text{SR}} = \mathbb{E}[\omega(t)(\epsilon_{\phi_{SR}} - \epsilon_{\phi_{\text{LoRA}}})\frac{\partial\mathcal{T}}{\partial\theta}]$
-   - 最终梯度：$\nabla_\theta\mathcal{L} = \nabla_\theta\mathcal{L}_{\text{VSD}} + \lambda_{SR}\nabla_\theta\mathcal{L}_{\text{SR}}$
-   - 训练策略：前5000次$\lambda_{SR}=0$仅做语义蒸馏，之后$\lambda_{SR}=1.2$加入像素增强
-   - 设计动机：集成到蒸馏过程比后处理SR好得多——UV纹理缺乏自然图像语义结构，SR模型无法直接对UV纹理做超分
+
+    - 做什么：增强纹理清晰度和高频细节
+    - 核心思路：利用预训练SR模型$\phi_{SR}$计算SR梯度：$\nabla_\theta\mathcal{L}_{\text{SR}} = \mathbb{E}[\omega(t)(\epsilon_{\phi_{SR}} - \epsilon_{\phi_{\text{LoRA}}})\frac{\partial\mathcal{T}}{\partial\theta}]$
+    - 最终梯度：$\nabla_\theta\mathcal{L} = \nabla_\theta\mathcal{L}_{\text{VSD}} + \lambda_{SR}\nabla_\theta\mathcal{L}_{\text{SR}}$
+    - 训练策略：前5000次$\lambda_{SR}=0$仅做语义蒸馏，之后$\lambda_{SR}=1.2$加入像素增强
+    - 设计动机：集成到蒸馏过程比后处理SR好得多——UV纹理缺乏自然图像语义结构，SR模型无法直接对UV纹理做超分
 
 3. **多分辨率哈希网格纹理表示**:
-   - 做什么：隐式表示纹理并支持任意分辨率输出
-   - 核心思路：基于Instant-NGP的多分辨率哈希网格，UV坐标→多尺度grid→hash映射→特征拼接→Cross-Attention解码器→RGB
-   - 推理效率：4K纹理约2.4秒，12K约22秒
-   - 设计动机：比固定分辨率纹理贴图更灵活，优化更高效
+
+    - 做什么：隐式表示纹理并支持任意分辨率输出
+    - 核心思路：基于Instant-NGP的多分辨率哈希网格，UV坐标→多尺度grid→hash映射→特征拼接→Cross-Attention解码器→RGB
+    - 推理效率：4K纹理约2.4秒，12K约22秒
+    - 设计动机：比固定分辨率纹理贴图更灵活，优化更高效
 
 ### 损失函数 / 训练策略
 - VSD梯度（语义）+ SR梯度（像素），交替优化纹理$\theta$和LoRA $\phi$

@@ -50,23 +50,26 @@ $$\mathcal{L}_{3D}(\bm{x}, \bm{I}; \Theta) = \mathcal{D}(\mathcal{J}_\pi(\bm{x}_
 ### 关键设计
 
 1. **跨视图重建（Cross-View Reconstruction）**:
-   - 做什么：随机遮挡一部分视图，要求模型从剩余视图推断被遮挡视图的内容
-   - 核心思路：对多视图图像 $\bm{I} \in \mathbb{R}^{M\times H\times W\times 3}$，生成视图级别的二值掩码 $\bm{M} \in \{0,1\}^M$，mask ratio $\gamma=25\%$。被遮挡视图的特征用可学习的mask token $\bm{m}$ 替代，重建目标为被遮挡视图的VAE latent token
-   - 关键公式：$\mathcal{L}_{3D}^{cross} = \frac{1}{\gamma M}\sum_{j=1}^{M}(1-\bm{M}_j)\cdot\mathcal{D}(\mathcal{J}_\pi \circ \mathcal{P}_\theta(\bm{v}), \mathcal{F}(\bm{I}_j))$
-   - 设计动机：跨视图重建要求模型从其他视图中找到有重叠的信息来恢复被遮挡视图，这迫使模型学习精细的视图间空间关系。这对需要精确跨视角对齐的任务（如3D visual grounding）尤为关键
-   - 重要细节：为避免训练和测试的不一致，该目标每隔 $\Delta t=4$ 步才应用一次，并且使用较小的mask ratio（25%）
+
+    - 做什么：随机遮挡一部分视图，要求模型从剩余视图推断被遮挡视图的内容
+    - 核心思路：对多视图图像 $\bm{I} \in \mathbb{R}^{M\times H\times W\times 3}$，生成视图级别的二值掩码 $\bm{M} \in \{0,1\}^M$，mask ratio $\gamma=25\%$。被遮挡视图的特征用可学习的mask token $\bm{m}$ 替代，重建目标为被遮挡视图的VAE latent token
+    - 关键公式：$\mathcal{L}_{3D}^{cross} = \frac{1}{\gamma M}\sum_{j=1}^{M}(1-\bm{M}_j)\cdot\mathcal{D}(\mathcal{J}_\pi \circ \mathcal{P}_\theta(\bm{v}), \mathcal{F}(\bm{I}_j))$
+    - 设计动机：跨视图重建要求模型从其他视图中找到有重叠的信息来恢复被遮挡视图，这迫使模型学习精细的视图间空间关系。这对需要精确跨视角对齐的任务（如3D visual grounding）尤为关键
+    - 重要细节：为避免训练和测试的不一致，该目标每隔 $\Delta t=4$ 步才应用一次，并且使用较小的mask ratio（25%）
 
 2. **全局视图重建（Global-View Reconstruction）**:
-   - 做什么：从所有可用视图中聚合信息，恢复整个场景的鸟瞰图（BEV）
-   - 核心思路：利用3D重建技术（使用自ego视频、外参矩阵和内参矩阵）生成3D mesh和点云，然后从上方渲染BEV图像作为重建目标
-   - 关键公式：$\mathcal{L}_{3D}^{global}(\bm{x}, \bm{I}; \Theta) = \mathcal{D}(J_\pi \circ \mathcal{P}_\theta(\bm{v}), \mathcal{F}(\bm{I}_{BEV}))$
-   - 设计动机：BEV图包含整个场景的全局布局信息，重建BEV要求模型综合所有视角，理解场景的完整上下文。这对需要全局理解的任务（如3D问答）至关重要
-   - 重要细节：由于BEV图从稀疏点云渲染，会存在黑色空洞区域，因此重建时跳过这些空白区域
+
+    - 做什么：从所有可用视图中聚合信息，恢复整个场景的鸟瞰图（BEV）
+    - 核心思路：利用3D重建技术（使用自ego视频、外参矩阵和内参矩阵）生成3D mesh和点云，然后从上方渲染BEV图像作为重建目标
+    - 关键公式：$\mathcal{L}_{3D}^{global}(\bm{x}, \bm{I}; \Theta) = \mathcal{D}(J_\pi \circ \mathcal{P}_\theta(\bm{v}), \mathcal{F}(\bm{I}_{BEV}))$
+    - 设计动机：BEV图包含整个场景的全局布局信息，重建BEV要求模型综合所有视角，理解场景的完整上下文。这对需要全局理解的任务（如3D问答）至关重要
+    - 重要细节：由于BEV图从稀疏点云渲染，会存在黑色空洞区域，因此重建时跳过这些空白区域
 
 3. **去噪网络（Denoiser $\mathcal{J}_\pi$）**:
-   - 做什么：以DiT为基础架构，负责从噪声latent token中恢复干净的目标token
-   - 核心思路：使用FLUX提供的连续VAE作为teacher tokenizer，利用可学习queries $\bm{q}$ 从LMM视觉输出 $\bm{x}_{i\leq N}$ 和时间步 $t$ 计算condition $\bm{c}$，然后在diffusion框架下进行去噪
-   - 设计动机：使用去噪而非直接回归，是因为直接回归会受限于视觉信号的严重空间冗余，无法产生有效的监督信号
+
+    - 做什么：以DiT为基础架构，负责从噪声latent token中恢复干净的目标token
+    - 核心思路：使用FLUX提供的连续VAE作为teacher tokenizer，利用可学习queries $\bm{q}$ 从LMM视觉输出 $\bm{x}_{i\leq N}$ 和时间步 $t$ 计算condition $\bm{c}$，然后在diffusion框架下进行去噪
+    - 设计动机：使用去噪而非直接回归，是因为直接回归会受限于视觉信号的严重空间冗余，无法产生有效的监督信号
 
 ### 损失函数 / 训练策略
 

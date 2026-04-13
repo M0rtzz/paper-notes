@@ -26,9 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：开放词汇3D分割旨在用文本查询分割3D场景中的任意目标。基于NeRF/3DGS的方法将CLIP/DINO特征蒸馏到3D表示中，通过文本-视觉相似度定位目标。
-2. **现有痛点**：（a）纯language field方法（LangSplat等）边界模糊——语义特征在物体边界处过度平滑；（b）class-agnostic分割+后选方法（OpenGaussian等）误差累积——分割错误不可纠正。两类方法各有优势但未结合。
-3. **核心idea**：让instance field和language field在训练和推理中协作——训练时Instance→Language映射，推理时Language→Instance精化。
+**领域现状**：开放词汇3D分割旨在用文本查询分割3D场景中的任意目标。基于NeRF/3DGS的方法将CLIP/DINO特征蒸馏到3D表示中，通过文本-视觉相似度定位目标。
+**现有痛点**：（a）纯language field方法（LangSplat等）边界模糊——语义特征在物体边界处过度平滑；（b）class-agnostic分割+后选方法（OpenGaussian等）误差累积——分割错误不可纠正。两类方法各有优势但未结合。
+**核心idea**：让instance field和language field在训练和推理中协作——训练时Instance→Language映射，推理时Language→Instance精化。
 
 ## 方法详解
 

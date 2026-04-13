@@ -32,8 +32,8 @@ tags:
 
 现有的加速方案主要分为两大类：
 
-1. **蒸馏方法**（Knowledge Distillation, Progressive Distillation, Rectified Flow 等）：将预训练扩散模型蒸馏为一步生成器
-2. **一致性模型**（Consistency Models, iCT, ECM 等）：学习时间一致的映射，从噪声直接到干净数据
+**蒸馏方法**（Knowledge Distillation, Progressive Distillation, Rectified Flow 等）：将预训练扩散模型蒸馏为一步生成器
+**一致性模型**（Consistency Models, iCT, ECM 等）：学习时间一致的映射，从噪声直接到干净数据
 
 这些方法虽然实现了一步生成，但本质上都是学习"黑盒"的噪声→图像映射，**完全放弃了扩散模型固有的时序去噪轨迹**。这导致：
 

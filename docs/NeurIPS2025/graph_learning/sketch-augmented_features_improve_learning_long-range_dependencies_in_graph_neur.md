@@ -29,9 +29,9 @@ tags:
 
 标准消息传递GNN（MPGNN）面临三个公认的基本限制：
 
-1. **过压缩（Oversquashing）**：远距离节点的信号经多跳传播后被压缩到固定维度向量中，信息严重丢失。感受野指数增长但隐藏维度 $|\mathbf{h}|$ 固定，导致长程依赖捕获困难
-2. **过平滑（Oversmoothing）**：随网络深度增加，节点表示指数收敛到近乎相同的值，用Dirichlet能量衡量：$\mathcal{D}(H^{(\ell)}) = \frac{1}{N}\sum_{i}\sum_{j \in \mathcal{N}(i)}\|\mathbf{h}_i^{(\ell)} - \mathbf{h}_j^{(\ell)}\|_2^2$，该值随 $\ell$ 增长快速衰减
-3. **表达力受限**：MPGNN的表达力不超过1-WL测试，无法区分许多非同构图
+**过压缩（Oversquashing）**：远距离节点的信号经多跳传播后被压缩到固定维度向量中，信息严重丢失。感受野指数增长但隐藏维度 $|\mathbf{h}|$ 固定，导致长程依赖捕获困难
+**过平滑（Oversmoothing）**：随网络深度增加，节点表示指数收敛到近乎相同的值，用Dirichlet能量衡量：$\mathcal{D}(H^{(\ell)}) = \frac{1}{N}\sum_{i}\sum_{j \in \mathcal{N}(i)}\|\mathbf{h}_i^{(\ell)} - \mathbf{h}_j^{(\ell)}\|_2^2$，该值随 $\ell$ 增长快速衰减
+**表达力受限**：MPGNN的表达力不超过1-WL测试，无法区分许多非同构图
 
 现有解法要么引入 $O(N^2)$ 的Graph Transformer，要么依赖纯随机节点特征（收敛慢）或拓扑结构编码（难以同时唯一、距离敏感且等变）。
 

@@ -50,33 +50,37 @@ tags:
 ### 关键设计
 
 1. **图像形成模型（Bernoulli SPAD Simulator）**
-   - 做什么：建立从 clean sRGB 图像到 SPAD 观测的物理一致模拟管线
-   - 核心思路：clean 图像 $x_{gt}$ 经 gamma 校正映射到线性辐射空间 $x_{lin} = x_{gt}^{2.2}$，然后每个像素的光子检测服从 Bernoulli 分布 $x_{spad} = \text{Bern}(1 - e^{-\alpha \cdot x_{lin}})$，其中 $\alpha$ 控制每像素期望光子数（PPP）。对于 color SPAD，施加随机 Bayer pattern 产生 mosaiced binary frame。$N$ 帧平均得到 $\log_2(N+1)$ bit 观测
-   - 设计动机：与传统高斯噪声模型完全不同的 Bernoulli 统计特性是本文所有技术创新的出发点。训练时用 $\alpha=1.0$（PPP≈3.5）
+
+    - 做什么：建立从 clean sRGB 图像到 SPAD 观测的物理一致模拟管线
+    - 核心思路：clean 图像 $x_{gt}$ 经 gamma 校正映射到线性辐射空间 $x_{lin} = x_{gt}^{2.2}$，然后每个像素的光子检测服从 Bernoulli 分布 $x_{spad} = \text{Bern}(1 - e^{-\alpha \cdot x_{lin}})$，其中 $\alpha$ 控制每像素期望光子数（PPP）。对于 color SPAD，施加随机 Bayer pattern 产生 mosaiced binary frame。$N$ 帧平均得到 $\log_2(N+1)$ bit 观测
+    - 设计动机：与传统高斯噪声模型完全不同的 Bernoulli 统计特性是本文所有技术创新的出发点。训练时用 $\alpha=1.0$（PPP≈3.5）
 
 2. **Stage 1: Quanta-Aligned VAE**
-   - 做什么：微调预训练 SD VAE 的 encoder，使其能从极度噪声的 SPAD 输入产生与 clean 图像对齐的 latent code
-   - 核心思路：冻结 decoder $\mathcal{D}$，微调 encoder $\mathcal{E}_{\phi^*}$。两个关键修改防止 encoder 崩溃：
-     - **确定性均值编码**：不从后验分布采样，直接使用均值 $\mu_\phi(x_{lq})$，避免 Bernoulli 噪声下的方差放大
-     - **Latent Space Alignment (LSA) Loss**：$\mathcal{L}_{lsa} = \|\mu_{\phi^*}(x_{lq}) - \mu_\phi(x_{gt})\|_2^2$，其中第二项使用**冻结的预训练 encoder** 对 GT 编码——这与现有方法 SUPIR/DiffBIR 用同一个可训练 encoder 不同，避免了 predegradation removal loss 导致的崩溃
-   - 总损失：$\mathcal{L} = \lambda_{lsa}\mathcal{L}_{lsa} + \lambda_{MSE}\mathcal{L}_{MSE} + \lambda_{perc}\mathcal{L}_{perc}$
-   - 设计动机：直接用现有方法的微调目标（如 SUPIR 的 predegradation removal loss），encoder 会学到一个 shortcut——不管输入什么都输出近似相同的 latent code，因为训练 encoder 同时控制 supervision 和 prediction 两端，在极端噪声下迅速收敛到退化解
+
+    - 做什么：微调预训练 SD VAE 的 encoder，使其能从极度噪声的 SPAD 输入产生与 clean 图像对齐的 latent code
+    - 核心思路：冻结 decoder $\mathcal{D}$，微调 encoder $\mathcal{E}_{\phi^*}$。两个关键修改防止 encoder 崩溃：
+      - **确定性均值编码**：不从后验分布采样，直接使用均值 $\mu_\phi(x_{lq})$，避免 Bernoulli 噪声下的方差放大
+      - **Latent Space Alignment (LSA) Loss**：$\mathcal{L}_{lsa} = \|\mu_{\phi^*}(x_{lq}) - \mu_\phi(x_{gt})\|_2^2$，其中第二项使用**冻结的预训练 encoder** 对 GT 编码——这与现有方法 SUPIR/DiffBIR 用同一个可训练 encoder 不同，避免了 predegradation removal loss 导致的崩溃
+    - 总损失：$\mathcal{L} = \lambda_{lsa}\mathcal{L}_{lsa} + \lambda_{MSE}\mathcal{L}_{MSE} + \lambda_{perc}\mathcal{L}_{perc}$
+    - 设计动机：直接用现有方法的微调目标（如 SUPIR 的 predegradation removal loss），encoder 会学到一个 shortcut——不管输入什么都输出近似相同的 latent code，因为训练 encoder 同时控制 supervision 和 prediction 两端，在极端噪声下迅速收敛到退化解
 
 3. **Stage 2: 对抗微调 LoRA U-Net（感知增强）**
-   - 做什么：将 SD 的扩散 U-Net 蒸馏为单步生成器，增强重建的高频细节和感知质量
-   - 核心思路：用 LoRA adapter 初始化 generator $\mathcal{G}_{lora}$（继承扩散权重保证小初始梯度），设计多层 ConvNext-Large 判别器 $\mathcal{V}_\theta$，通过标准 min-max GAN 目标对抗训练：$\min_\phi \max_\theta \mathbb{E}[\log \mathcal{V}_\theta(x)] + \mathbb{E}[\log(1 - \mathcal{V}_\theta(\mathcal{G}(x)))]$
-   - 总损失：$\mathcal{L} = \mathcal{L}_{adv} + \mathcal{L}_{perc} + \|\mathcal{D}(\mathcal{G}_{lora}(\mu_{\phi^*}(x_{lq}))) - x_{gt}\|_2^2$
-   - 设计动机：SPAD 超高帧率（10K-100K fps）产生海量数据处理需求，多步扩散采样不现实；对抗蒸馏方案将扩散先验压缩为单步推理，既保留了预训练知识又满足实时性需求
+
+    - 做什么：将 SD 的扩散 U-Net 蒸馏为单步生成器，增强重建的高频细节和感知质量
+    - 核心思路：用 LoRA adapter 初始化 generator $\mathcal{G}_{lora}$（继承扩散权重保证小初始梯度），设计多层 ConvNext-Large 判别器 $\mathcal{V}_\theta$，通过标准 min-max GAN 目标对抗训练：$\min_\phi \max_\theta \mathbb{E}[\log \mathcal{V}_\theta(x)] + \mathbb{E}[\log(1 - \mathcal{V}_\theta(\mathcal{G}(x)))]$
+    - 总损失：$\mathcal{L} = \mathcal{L}_{adv} + \mathcal{L}_{perc} + \|\mathcal{D}(\mathcal{G}_{lora}(\mu_{\phi^*}(x_{lq}))) - x_{gt}\|_2^2$
+    - 设计动机：SPAD 超高帧率（10K-100K fps）产生海量数据处理需求，多步扩散采样不现实；对抗蒸馏方案将扩散先验压缩为单步推理，既保留了预训练知识又满足实时性需求
 
 4. **Stage 3: FusionViT（Latent Burst 时空融合）**
-   - 做什么：利用 burst 序列的时间冗余信息，在 latent space 对齐并动态融合多帧，提高重建保真度并减轻时域 artifacts
-   - 核心思路：
-     - 先用 Stage 1+2 重建所有帧 $Y = \mathcal{D}(\mathcal{G}_{lora}(\mathcal{E}_{\phi^*}(X_{lq})))$，在重建图像上用预训练 RAFT 估计光流（直接在 noisy SPAD 上估计光流会因域差距严重失败）
-     - 将所有 burst latent maps 按光流 warp 到 center frame
-     - 引入 pseudo-3D miniViT $\mathcal{F}$，用亚二次复杂度窗口注意力跨时间和空间轴做动态融合（naive 平均会因运动产生模糊）
-     - FusionViT 输出通过可学习标量 $\delta$（初始 0.05）残差加到 center latent $z_{T/2}$ 上
-   - 损失：$\mathcal{L}_{fusion} = \|\mathcal{F}(\mu_{\phi^*}(X_{lq})) - \mu_\phi(x_{gt})\|_2^2 + \text{pixel MSE} + \mathcal{L}_{perc}$
-   - 设计动机：朴素 flow-warp + 平均在运动场景下严重模糊；FusionViT 通过注意力机制自适应地根据运动幅度和到 center frame 的距离加权不同帧的贡献
+
+    - 做什么：利用 burst 序列的时间冗余信息，在 latent space 对齐并动态融合多帧，提高重建保真度并减轻时域 artifacts
+    - 核心思路：
+      - 先用 Stage 1+2 重建所有帧 $Y = \mathcal{D}(\mathcal{G}_{lora}(\mathcal{E}_{\phi^*}(X_{lq})))$，在重建图像上用预训练 RAFT 估计光流（直接在 noisy SPAD 上估计光流会因域差距严重失败）
+      - 将所有 burst latent maps 按光流 warp 到 center frame
+      - 引入 pseudo-3D miniViT $\mathcal{F}$，用亚二次复杂度窗口注意力跨时间和空间轴做动态融合（naive 平均会因运动产生模糊）
+      - FusionViT 输出通过可学习标量 $\delta$（初始 0.05）残差加到 center latent $z_{T/2}$ 上
+    - 损失：$\mathcal{L}_{fusion} = \|\mathcal{F}(\mu_{\phi^*}(X_{lq})) - \mu_\phi(x_{gt})\|_2^2 + \text{pixel MSE} + \mathcal{L}_{perc}$
+    - 设计动机：朴素 flow-warp + 平均在运动场景下严重模糊；FusionViT 通过注意力机制自适应地根据运动幅度和到 center frame 的距离加权不同帧的贡献
 
 ### 损失函数 / 训练策略
 

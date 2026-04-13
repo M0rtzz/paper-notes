@@ -28,10 +28,10 @@ tags:
 
 RAG（检索增强生成）已成为 LLM 应用中的核心技术——通过从外部知识源动态检索信息来弥补模型的知识局限性。虽然已有众多 RAG 框架（LangChain、LlamaIndex、FlashRAG 等），但作者通过分析发现现有框架仍存在几个核心问题：
 
-1. **算法复现和共享困难**：RAG 系统涉及多个组件和复杂的环境配置，研究者难以精确复现他人工作
-2. **工程负担过重**：构建完整 RAG 系统需要处理数据预处理、索引构建、API 对接等大量工程问题，分散了研究精力
-3. **技术覆盖不全**：多数现有框架仅关注检索策略，缺乏对多模态检索、Web 检索、文档解析分块等前沿方向的支持
-4. **系统开销大**：检索和生成组件的计算成本高，限制了资源有限的研究者
+**算法复现和共享困难**：RAG 系统涉及多个组件和复杂的环境配置，研究者难以精确复现他人工作
+**工程负担过重**：构建完整 RAG 系统需要处理数据预处理、索引构建、API 对接等大量工程问题，分散了研究精力
+**技术覆盖不全**：多数现有框架仅关注检索策略，缺乏对多模态检索、Web 检索、文档解析分块等前沿方向的支持
+**系统开销大**：检索和生成组件的计算成本高，限制了资源有限的研究者
 
 FlexRAG 旨在成为一个"研究者友好"的全生命周期 RAG 开发工具。
 
@@ -49,32 +49,37 @@ FlexRAG 包含12个核心模块，按功能分为四大类：
 ### 关键设计
 
 1. **FlexRetriever——核心检索引擎**：
-   - 支持 **MultiField**（多字段）和 **MultiIndex**（多索引）检索范式
-   - 文档可分解为标题、摘要、正文等语义字段，每个字段独立建索引
-   - 支持稀疏检索（BM25s）和密集检索（Contriever、E5、BGE M3 等）
-   - 关键优化：采用**内存映射（Memory Map）** 和 **IVFPQ 经验公式**作为默认配置，CPU 和内存资源消耗仅为同类框架的 1/10
-   - 与 HuggingFace Hub 深度集成，可一键发布和共享检索器
+
+    - 支持 **MultiField**（多字段）和 **MultiIndex**（多索引）检索范式
+    - 文档可分解为标题、摘要、正文等语义字段，每个字段独立建索引
+    - 支持稀疏检索（BM25s）和密集检索（Contriever、E5、BGE M3 等）
+    - 关键优化：采用**内存映射（Memory Map）** 和 **IVFPQ 经验公式**作为默认配置，CPU 和内存资源消耗仅为同类框架的 1/10
+    - 与 HuggingFace Hub 深度集成，可一键发布和共享检索器
 
 2. **Web 检索器**：
-   - 三角色设计：Web Seeker（定位资源）→ Web Downloader（下载）→ Web Reader（提取内容）
-   - 内置 SimpleWebRetriever（搜索引擎+页面解析）和 WikipediaRetriever
-   - 自动将 HTML 转换为 LLM 友好格式
+
+    - 三角色设计：Web Seeker（定位资源）→ Web Downloader（下载）→ Web Reader（提取内容）
+    - 内置 SimpleWebRetriever（搜索引擎+页面解析）和 WikipediaRetriever
+    - 自动将 HTML 转换为 LLM 友好格式
 
 3. **预处理器（Preprocessors）**：
-   - Document Parser：从 PDF、DOCX、HTML 等格式提取可读内容
-   - Chunker：将内容切分为更小的语义单元
-   - Knowledge Preprocessor：对提取内容进行过滤和结构化优化
-   - 解决了 RAG 实践中"数据准备"这一被低估但极其重要的环节
+
+    - Document Parser：从 PDF、DOCX、HTML 等格式提取可读内容
+    - Chunker：将内容切分为更小的语义单元
+    - Knowledge Preprocessor：对提取内容进行过滤和结构化优化
+    - 解决了 RAG 实践中"数据准备"这一被低估但极其重要的环节
 
 4. **精炼器（Refiners）**：
-   - Prompt Squeezer：压缩和优化输入 prompt
-   - Context Repacker：重新组织检索结果以防关键信息被忽略
-   - Context Summarizer：浓缩检索上下文以降低推理开销
-   - 这三个模块直接回应了"检索到了但 LLM 用不好"的问题
+
+    - Prompt Squeezer：压缩和优化输入 prompt
+    - Context Repacker：重新组织检索结果以防关键信息被忽略
+    - Context Summarizer：浓缩检索上下文以降低推理开销
+    - 这三个模块直接回应了"检索到了但 LLM 用不好"的问题
 
 5. **异步处理和持久缓存**：
-   - 计算密集型组件使用异步函数实现高吞吐
-   - 持久缓存机制减少重复检索开销
+
+    - 计算密集型组件使用异步函数实现高吞吐
+    - 持久缓存机制减少重复检索开销
 
 ### 损失函数 / 训练策略
 

@@ -24,12 +24,12 @@ tags:
 提出 XLM-SWCM 框架，通过将多语言编码器权重复用到解码器中（CustomDecoderLayer 共享 + NormalDecoderLayer 随机初始化交替插入），以 457M 参数在极低资源语言（藏语）上超越 13B 参数的 MC2-LLaMA，藏语摘要 ROUGE-L 达 25.7 vs 16.1。
 
 ## 研究背景与动机
-1. **领域现状**：大语言模型在高资源语言（英文、中文）上取得了显著进展，但对极低资源语言（如藏语 Tibetan、维吾尔语 Uyghur、蒙古语 Mongolian）的支持严重不足。这些语言在预训练语料中占比极低（通常 <0.01%），导致 LLM 在这些语言上的生成能力近乎为零。
-2. **现有痛点**：(a) 直接在低资源语言上预训练 decoder-only LLM 面临数据量不足的根本问题——藏语维基百科仅约 1 万篇文章；(b) 现有多语言 LLM（如 BLOOM、LLaMA-2 多语言版）虽然号称支持多语言，但在极低资源语言上的实际生成质量极差；(c) 有趣的是，多语言编码器（如 XLM-R）在这些语言的理解任务（分类、NER）上表现尚可，但编码器模型天然不支持文本生成。
-3. **核心矛盾**：多语言编码器（如 XLM-R）在极低资源语言上已学到可用的表示，但编码器架构不能直接做生成。同时从零训练 decoder 又缺少数据。如何利用编码器已学到的语言知识来初始化和加速 decoder 的学习？
-4. **本文要解决什么**：提出一种高效的权重复用策略，将多语言编码器的知识转移到编码器-解码器架构的 decoder 部分，使得小模型（457M）在极低资源语言上也能进行高质量的文本生成。
-5. **切入角度**：观察到编码器和 decoder 的 Transformer 层结构有大量共享——self-attention 和 FFN 部分完全同构，区别仅在于 decoder 多了 cross-attention 层。因此可以将编码器权重直接复用到 decoder 的 self-attention 和 FFN，只需随机初始化 cross-attention。
-6. **核心 idea**：通过 CustomDecoderLayer（共享编码器权重的 self-attention + FFN，随机初始化的 cross-attention）和 NormalDecoderLayer（完全随机初始化）的交替插入，以最优频率 X=3 组合，让编码器知识为 decoder 提供初始化——权重共享是最关键组件（去掉后性能下降 33%）。
+**领域现状**：大语言模型在高资源语言（英文、中文）上取得了显著进展，但对极低资源语言（如藏语 Tibetan、维吾尔语 Uyghur、蒙古语 Mongolian）的支持严重不足。这些语言在预训练语料中占比极低（通常 <0.01%），导致 LLM 在这些语言上的生成能力近乎为零。
+**现有痛点**：(a) 直接在低资源语言上预训练 decoder-only LLM 面临数据量不足的根本问题——藏语维基百科仅约 1 万篇文章；(b) 现有多语言 LLM（如 BLOOM、LLaMA-2 多语言版）虽然号称支持多语言，但在极低资源语言上的实际生成质量极差；(c) 有趣的是，多语言编码器（如 XLM-R）在这些语言的理解任务（分类、NER）上表现尚可，但编码器模型天然不支持文本生成。
+**核心矛盾**：多语言编码器（如 XLM-R）在极低资源语言上已学到可用的表示，但编码器架构不能直接做生成。同时从零训练 decoder 又缺少数据。如何利用编码器已学到的语言知识来初始化和加速 decoder 的学习？
+**本文要解决什么**：提出一种高效的权重复用策略，将多语言编码器的知识转移到编码器-解码器架构的 decoder 部分，使得小模型（457M）在极低资源语言上也能进行高质量的文本生成。
+**切入角度**：观察到编码器和 decoder 的 Transformer 层结构有大量共享——self-attention 和 FFN 部分完全同构，区别仅在于 decoder 多了 cross-attention 层。因此可以将编码器权重直接复用到 decoder 的 self-attention 和 FFN，只需随机初始化 cross-attention。
+**核心 idea**：通过 CustomDecoderLayer（共享编码器权重的 self-attention + FFN，随机初始化的 cross-attention）和 NormalDecoderLayer（完全随机初始化）的交替插入，以最优频率 X=3 组合，让编码器知识为 decoder 提供初始化——权重共享是最关键组件（去掉后性能下降 33%）。
 
 ## 方法详解
 
@@ -45,24 +45,28 @@ XLM-SWCM (Cross-lingual Language Model with Shared Weight Cross-modal) 的核心
 ### 关键设计
 
 1. **CustomDecoderLayer 设计**：
-   - **共享部分**：将 XLM-R encoder layer 的 self-attention QKV 权重和 FFN 权重直接拷贝到 decoder layer 对应位置
-   - **新增部分**：cross-attention 层（encoder-decoder attention）完全随机初始化
-   - **设计动机**：编码器的 self-attention 已学会处理多语言 token 序列的注意力模式，FFN 已学会语言特定的特征变换——这些能力可直接迁移给 decoder，只需让 decoder 额外学会"如何关注编码器输出"（cross-attention 的功能）
+
+    - **共享部分**：将 XLM-R encoder layer 的 self-attention QKV 权重和 FFN 权重直接拷贝到 decoder layer 对应位置
+    - **新增部分**：cross-attention 层（encoder-decoder attention）完全随机初始化
+    - **设计动机**：编码器的 self-attention 已学会处理多语言 token 序列的注意力模式，FFN 已学会语言特定的特征变换——这些能力可直接迁移给 decoder，只需让 decoder 额外学会"如何关注编码器输出"（cross-attention 的功能）
 
 2. **NormalDecoderLayer 设计**：
-   - 完全随机初始化的标准 Transformer decoder 层
-   - **存在意义**：纯共享权重会限制 decoder 学习生成特有模式的能力（如自回归 causal attention mask 导致的信息流差异）。交替插入随机层给模型提供了"自由度"来适应生成任务
+
+    - 完全随机初始化的标准 Transformer decoder 层
+    - **存在意义**：纯共享权重会限制 decoder 学习生成特有模式的能力（如自回归 causal attention mask 导致的信息流差异）。交替插入随机层给模型提供了"自由度"来适应生成任务
 
 3. **插入频率 X 的选择**：
-   - X=1：每隔 1 个 Normal 插入 1 个 Custom（50% 共享）——共享比例最高
-   - X=3：每隔 3 个 Normal 插入 1 个 Custom（25% 共享）——**最优**
-   - X=6：每隔 6 个 Normal 插入 1 个 Custom（~14% 共享）——共享不足
-   - **结论**：X=3 在"编码器知识利用"和"生成自由度"之间取得最佳平衡
+
+    - X=1：每隔 1 个 Normal 插入 1 个 Custom（50% 共享）——共享比例最高
+    - X=3：每隔 3 个 Normal 插入 1 个 Custom（25% 共享）——**最优**
+    - X=6：每隔 6 个 Normal 插入 1 个 Custom（~14% 共享）——共享不足
+    - **结论**：X=3 在"编码器知识利用"和"生成自由度"之间取得最佳平衡
 
 4. **训练策略**：
-   - 第一阶段：冻结编码器，只训练 decoder（含 Custom + Normal 层）
-   - 第二阶段：解冻编码器低速学习率微调全模型
-   - 数据增强：使用翻译对齐数据扩充藏语训练集（中→藏翻译对）
+
+    - 第一阶段：冻结编码器，只训练 decoder（含 Custom + Normal 层）
+    - 第二阶段：解冻编码器低速学习率微调全模型
+    - 数据增强：使用翻译对齐数据扩充藏语训练集（中→藏翻译对）
 
 ## 实验关键数据
 

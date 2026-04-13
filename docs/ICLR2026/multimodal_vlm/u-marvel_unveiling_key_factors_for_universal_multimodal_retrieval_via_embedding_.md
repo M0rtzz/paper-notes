@@ -27,14 +27,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：UMR需统一检索器处理跨模态query/candidate。MLLM方法(LamRA/MM-Embed/GME/UniME)用对比学习但设计细节各异。
+**领域现状**：UMR需统一检索器处理跨模态query/candidate。MLLM方法(LamRA/MM-Embed/GME/UniME)用对比学习但设计细节各异。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) decoder-only MLLM天然做生成→如何做嵌入？设计空间未系统探索
    - (2) 被忽视因素(注意力/温度策略)可能有重大影响
    - (3) recall-then-rerank计算低效→能否蒸馏到单模型
 
-3. **切入角度**：实现通用pipeline→系统消融三轴→发现→构建统一框架。
+**切入角度**：实现通用pipeline→系统消融三轴→发现→构建统一框架。
 
 ## 方法详解
 
@@ -44,23 +44,26 @@ tags:
 ### 关键设计
 
 1. **嵌入提取(核心发现)**：
-   - 常规Last token+causal+prompt: 56.6 local avg
-   - **Bidirectional+mean+无prompt: 57.2** → 被忽视的最优方案
-   - 去prompt后bidir+mean反而提升→prompt与mean pooling冲突
-   - 原因：last token受recency bias影响→mean更全面
+
+    - 常规Last token+causal+prompt: 56.6 local avg
+    - **Bidirectional+mean+无prompt: 57.2** → 被忽视的最优方案
+    - 去prompt后bidir+mean反而提升→prompt与mean pooling冲突
+    - 原因：last token受recency bias影响→mean更全面
 
 2. **指令集成**：mean pooling时mask掉instruction(已通过self-attention影响)→消除偏差
 
 3. **渐进过渡**：
-   - Step 1: NLI文本→单向InfoNCE→建立基础(+0.7/+1.6)
-   - Step 2: CC3M图文→双向InfoNCE→跨模态对齐(+0.4/+0.3)
-   - Step 3: M-BEIR→指令微调
-   - CC3M简洁文本比ShareGPT4V更适合检索任务
+
+    - Step 1: NLI文本→单向InfoNCE→建立基础(+0.7/+1.6)
+    - Step 2: CC3M图文→双向InfoNCE→跨模态对齐(+0.4/+0.3)
+    - Step 3: M-BEIR→指令微调
+    - CC3M简洁文本比ShareGPT4V更适合检索任务
 
 4. **InfoNCE参数交互(核心发现)**：
-   - 增大batch需同步增大lr(否则边际提升)
-   - **可学习温度>>固定温度**(+1.4% local avg)→严重被忽视
-   - 最优: batch 3840+lr 4e-4+learnable temp=60.1(vs baseline 56.6)
+
+    - 增大batch需同步增大lr(否则边际提升)
+    - **可学习温度>>固定温度**(+1.4% local avg)→严重被忽视
+    - 最优: batch 3840+lr 4e-4+learnable temp=60.1(vs baseline 56.6)
 
 5. **过滤硬负样本**：直接top-k→collapse(false negative)→阈值0.7过滤+k=5→61.7 local avg
 

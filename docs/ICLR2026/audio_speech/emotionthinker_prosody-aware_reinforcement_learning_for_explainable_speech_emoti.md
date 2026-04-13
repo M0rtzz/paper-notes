@@ -67,10 +67,11 @@ tags:
 1. **格式奖励 R_f**：输出是否遵循 think/answer XML 格式，0/1 二值
 2. **结果准确度奖励 R_o**：预测标签是否匹配真实标签，0/1 二值
 3. **推理质量奖励 R_t**：基于训练好的奖励模型（Qwen2.5-Omni-3B 微调于 101.4K 样本），从四个维度评分（1-5 分）：
-   - 事实对齐（factual_alignment）
-   - 解释质量（interpretative_quality）
-   - 描述完整性（caption_completeness）
-   - 流畅与结构清晰度（fluency_and_structural_clarity）
+
+    - 事实对齐（factual_alignment）
+    - 解释质量（interpretative_quality）
+    - 描述完整性（caption_completeness）
+    - 流畅与结构清晰度（fluency_and_structural_clarity）
 
 **可信度权重 τ**：
 - 将采样回复按结果正确/错误分为两组，计算各组推理奖励均值

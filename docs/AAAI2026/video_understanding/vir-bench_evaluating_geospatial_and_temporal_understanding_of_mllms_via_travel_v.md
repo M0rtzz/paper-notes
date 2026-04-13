@@ -25,12 +25,12 @@ tags:
 提出VIR-Bench——一个基于200个日本旅行vlog视频的benchmark，通过行程重建任务（visiting order graph构建）评估MLLM的地理空间和时间理解能力，发现SOTA模型（包括GPT-4.1和Gemini-2.5）在POI识别和时间转移推理上仍困难重重。
 
 ## 研究背景与动机
-1. **领域现状**：MLLM的视频理解能力提升迅速，但现有benchmark（Ego4D、HourVideo、VSI-Bench等）主要关注室内场景或短距离户外活动，缺乏对长距离旅行（跨城市/跨地区）的地理空间-时间理解评估。
-2. **现有痛点**：长距离地理空间-时间推理对embodied AI规划、导航等应用至关重要，但无相关benchmark。
-3. **核心矛盾**：现有benchmark的空间尺度太小（室内/短距离），无法评估模型在宏观地理（城市间导航）和长时间跨度（多日行程）上的理解能力。
-4. **本文要解决什么？** 构建一个评估MLLM长距离地理空间-时间理解的视频benchmark。
-5. **切入角度**：用旅行vlog视频的行程重建（itinerary reconstruction）作为测试任务——模型需要从视频中识别所有访问的地点及其层次关系和时间顺序。
-6. **核心idea一句话**：从旅行视频中重建visiting order graph（节点=地点，边=包含/转移关系）来评估MLLM的地理空间和时间智能。
+**领域现状**：MLLM的视频理解能力提升迅速，但现有benchmark（Ego4D、HourVideo、VSI-Bench等）主要关注室内场景或短距离户外活动，缺乏对长距离旅行（跨城市/跨地区）的地理空间-时间理解评估。
+**现有痛点**：长距离地理空间-时间推理对embodied AI规划、导航等应用至关重要，但无相关benchmark。
+**核心矛盾**：现有benchmark的空间尺度太小（室内/短距离），无法评估模型在宏观地理（城市间导航）和长时间跨度（多日行程）上的理解能力。
+**本文要解决什么？** 构建一个评估MLLM长距离地理空间-时间理解的视频benchmark。
+**切入角度**：用旅行vlog视频的行程重建（itinerary reconstruction）作为测试任务——模型需要从视频中识别所有访问的地点及其层次关系和时间顺序。
+**核心idea一句话**：从旅行视频中重建visiting order graph（节点=地点，边=包含/转移关系）来评估MLLM的地理空间和时间智能。
 
 ## 方法详解
 
@@ -43,19 +43,22 @@ VIR-Bench定义了一个层次化的visiting order graph：
 ### 关键设计
 
 1. **数据集构建**:
-   - 200个YouTube旅行vlog（100英文+100日文），覆盖日本47都道府县中的43个
-   - 10名日本本地标注员，每人收集并标注20个视频
-   - 每个POI标注时间戳+Google Maps URL，通过Google Places API获取详细信息
-   - 总计3,689个POI，手工构建visiting order graph + 质量检查
+
+    - 200个YouTube旅行vlog（100英文+100日文），覆盖日本47都道府县中的43个
+    - 10名日本本地标注员，每人收集并标注20个视频
+    - 每个POI标注时间戳+Google Maps URL，通过Google Places API获取详细信息
+    - 总计3,689个POI，手工构建visiting order graph + 质量检查
 
 2. **Node Prediction任务**:
-   - 给定视频，模型需输出所有访问的prefecture/city/POI的JSON列表
-   - 评估地理空间理解能力（类似GeoGuessr游戏）
-   - 用macro-averaged Precision/Recall/F1评估
+
+    - 给定视频，模型需输出所有访问的prefecture/city/POI的JSON列表
+    - 评估地理空间理解能力（类似GeoGuessr游戏）
+    - 用macro-averaged Precision/Recall/F1评估
 
 3. **Edge Prediction任务**:
-   - 给定视频+所有访问地点（gold labels，打乱顺序），预测inclusion和transition边
-   - Inclusion评估地理知识（A属于B），Transition评估时间理解（先A后B）
+
+    - 给定视频+所有访问地点（gold labels，打乱顺序），预测inclusion和transition边
+    - Inclusion评估地理知识（A属于B），Transition评估时间理解（先A后B）
 
 ### 损失函数 / 训练策略
 纯评估benchmark，无训练。Zero-shot评估主流MLLM。

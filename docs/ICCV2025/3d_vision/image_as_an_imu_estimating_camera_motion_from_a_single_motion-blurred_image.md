@@ -49,27 +49,30 @@ tags:
 ### 关键设计
 
 1. **光流与深度预测网络**:
-   - 做什么：从模糊图像同时预测像素级运动光流场和度量深度图
-   - 核心思路：使用SegNeXt作为共享backbone编码器，分别接两个解码器输出光流 $\mathcal{F} \in \mathbb{R}^{2 \times H \times W}$ 和深度 $\mathcal{D} \in \mathbb{R}^{1 \times H \times W}$。光流定义为第一帧虚拟图像到最后一帧的像素位移
-   - 关键设计——**重定向函数** $h_f$：由于从模糊图像中无法确定运动的起始方向（左移和右移产生相同的水平模糊），训练时使用重定向函数选择与预测方向一致的GT标签：
-   $$h_f(\hat{\mathcal{F}}_{fw}, \hat{\mathcal{F}}_{bw}; \mathcal{F}) = \begin{cases} \hat{\mathcal{F}}_{fw} & \text{if } \langle\hat{\mathcal{F}}_{fw}, \mathcal{F}\rangle > \langle\hat{\mathcal{F}}_{bw}, \mathcal{F}\rangle \\ \hat{\mathcal{F}}_{bw} & \text{otherwise} \end{cases}$$
-   - 训练损失：$\mathcal{L}_1 = \lambda_F\|\mathcal{F} - h_f(\hat{\mathcal{F}}_{fw}, \hat{\mathcal{F}}_{bw})\| + \lambda_D\|\mathcal{D} - \hat{\mathcal{D}}\|$
+
+    - 做什么：从模糊图像同时预测像素级运动光流场和度量深度图
+    - 核心思路：使用SegNeXt作为共享backbone编码器，分别接两个解码器输出光流 $\mathcal{F} \in \mathbb{R}^{2 \times H \times W}$ 和深度 $\mathcal{D} \in \mathbb{R}^{1 \times H \times W}$。光流定义为第一帧虚拟图像到最后一帧的像素位移
+    - 关键设计——**重定向函数** $h_f$：由于从模糊图像中无法确定运动的起始方向（左移和右移产生相同的水平模糊），训练时使用重定向函数选择与预测方向一致的GT标签：
+    $h_f(\hat{\mathcal{F}}_{fw}, \hat{\mathcal{F}}_{bw}; \mathcal{F}) = \begin{cases} \hat{\mathcal{F}}_{fw} & \text{if } \langle\hat{\mathcal{F}}_{fw}, \mathcal{F}\rangle > \langle\hat{\mathcal{F}}_{bw}, \mathcal{F}\rangle \\ \hat{\mathcal{F}}_{bw} & \text{otherwise} \end{cases}$
+    - 训练损失：$\mathcal{L}_1 = \lambda_F\|\mathcal{F} - h_f(\hat{\mathcal{F}}_{fw}, \hat{\mathcal{F}}_{bw})\| + \lambda_D\|\mathcal{D} - \hat{\mathcal{D}}\|$
 
 2. **可微分速度求解器**:
-   - 做什么：从光流场和深度图恢复相机的平移和旋转参数
-   - 核心思路：利用经典的运动场方程将每个像素的光流分解为平移和旋转分量：
-   $$F_x = \frac{t_z p_x - t_x f}{d} - \theta_y f + \theta_z p_y + \frac{\theta_x p_x p_y}{f} - \frac{\theta_y(p_x)^2}{f}$$
-   $$F_y = \frac{t_z p_y - t_y f}{d} + \theta_x f - \theta_z p_x - \frac{\theta_y p_x p_y}{f} + \frac{\theta_x(p_y)^2}{f}$$
+
+    - 做什么：从光流场和深度图恢复相机的平移和旋转参数
+    - 核心思路：利用经典的运动场方程将每个像素的光流分解为平移和旋转分量：
+    $F_x = \frac{t_z p_x - t_x f}{d} - \theta_y f + \theta_z p_y + \frac{\theta_x p_x p_y}{f} - \frac{\theta_y(p_x)^2}{f}$
+    $F_y = \frac{t_z p_y - t_y f}{d} + \theta_x f - \theta_z p_x - \frac{\theta_y p_x p_y}{f} + \frac{\theta_x(p_y)^2}{f}$
    将所有像素组成超定线性方程组 $\bm{A}\bm{x}=\bm{b}$，用最小二乘求解：$\bm{x} = (\bm{A}^\top\bm{A})^{-1}\bm{A}^\top\bm{b}$
-   - 设计动机：最小二乘求解器完全可微分，因此可以端到端地用位姿监督来训练整个网络。端到端损失：
-   $$\mathcal{L}_2 = \lambda_R\|R - h_p(\hat{R})\|_2 + \lambda_t\|\bm{t} - h_p(\hat{\bm{t}})\|_2 + \mathcal{L}_1$$
+    - 设计动机：最小二乘求解器完全可微分，因此可以端到端地用位姿监督来训练整个网络。端到端损失：
+    $\mathcal{L}_2 = \lambda_R\|R - h_p(\hat{R})\|_2 + \lambda_t\|\bm{t} - h_p(\hat{\bm{t}})\|_2 + \mathcal{L}_1$
 
 3. **方向消歧**:
-   - 做什么：解决模糊导致的180°方向歧义（左移和右移产生相同的模糊）
-   - 核心思路：利用视频中的相邻帧，将当前帧按正向和反向光流分别warp，比较与前后帧的光度误差来判断正确方向：
-   $$e_{fw} = \mathcal{P}(I_{i+1}, I'_{i,fw}) + \mathcal{P}(I_{i-1}, I'_{i,bw})$$
+
+    - 做什么：解决模糊导致的180°方向歧义（左移和右移产生相同的模糊）
+    - 核心思路：利用视频中的相邻帧，将当前帧按正向和反向光流分别warp，比较与前后帧的光度误差来判断正确方向：
+    $e_{fw} = \mathcal{P}(I_{i+1}, I'_{i,fw}) + \mathcal{P}(I_{i-1}, I'_{i,bw})$
    选择光度误差更小的方向作为最终运动方向
-   - 设计动机：这是一个推理时的后处理启发式方法，利用视频时序信息消除固有的180°歧义
+    - 设计动机：这是一个推理时的后处理启发式方法，利用视频时序信息消除固有的180°歧义
 
 ### 损失函数 / 训练策略
 

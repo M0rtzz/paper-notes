@@ -38,9 +38,10 @@ RoboMaster 基于 CogVideoX-5B，输入为初始帧、文本提示、物体 mask
 ### 关键设计
 
 1. **协作轨迹分解**: 将交互过程分解为三个子阶段：
-   - 前交互 $\mathcal{C}_1$：机械臂 $\mathbf{o}_d$ 运动，物体 $\mathbf{o}_s$ 静止，用 $\mathbf{v}_d$ 引导
-   - 交互 $\mathcal{C}_2$：用物体轨迹 $\mathbf{v}_s$ 引导（物体运动隐式同步机械臂）
-   - 后交互 $\mathcal{C}_3$：机械臂完成撤离，再用 $\mathbf{v}_d$ 引导
+
+    - 前交互 $\mathcal{C}_1$：机械臂 $\mathbf{o}_d$ 运动，物体 $\mathbf{o}_s$ 静止，用 $\mathbf{v}_d$ 引导
+    - 交互 $\mathcal{C}_2$：用物体轨迹 $\mathbf{v}_s$ 引导（物体运动隐式同步机械臂）
+    - 后交互 $\mathcal{C}_3$：机械臂完成撤离，再用 $\mathbf{v}_d$ 引导
    总分布分解为：$p_\theta(\mathbf{x}_1|\mathbf{I},\mathbf{c},\mathbf{v}_d,\mathcal{C}_1) \cdot p_\theta(\mathbf{x}_2|\ldots,\mathcal{C}_2) \cdot p_\theta(\mathbf{x}_3|\ldots,\mathcal{C}_3)$
 
 2. **物体表征**: 结合外观和形状的圆柱体表示。通过 VAE 编码器将初始帧投射到潜在空间，用 mask 采样有效像素并池化得到物体嵌入 $\tilde{\mathbf{v}}$，然后在每个时间步以轨迹点为中心、mask 面积为半径构造圆柱体 $\mathbf{v} \in \mathbb{R}^{c \times h \times w}$。

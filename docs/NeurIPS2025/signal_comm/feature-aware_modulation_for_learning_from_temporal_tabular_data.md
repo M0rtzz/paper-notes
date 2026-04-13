@@ -24,9 +24,9 @@ tags:
 提出特征感知时间调制机制，通过基于时间上下文的可学习 Yeo-Johnson 变换动态调整特征分布（均值、标准差、偏度），实现跨时间语义对齐。
 
 ## 研究背景与动机
-1. **领域现状**：表格 ML 假设 i.i.d.，但真实场景中特征语义随时间演变。
-2. **核心矛盾**：静态模型忽略时间动态 vs 自适应模型容易过拟合。
-3. **解决方案**：$\tilde{x}_i = \gamma_i(\psi(t)) \cdot \text{YJ}(x_i; \lambda_i(\psi(t))) + \beta_i(\psi(t))$
+**领域现状**：表格 ML 假设 i.i.d.，但真实场景中特征语义随时间演变。
+**核心矛盾**：静态模型忽略时间动态 vs 自适应模型容易过拟合。
+**解决方案**：$\tilde{x}_i = \gamma_i(\psi(t)) \cdot \text{YJ}(x_i; \lambda_i(\psi(t))) + \beta_i(\psi(t))$
 
 ## 方法详解
 
@@ -35,9 +35,10 @@ tags:
 
 ### 关键设计
 1. **时间调制函数**：
-   - $\tilde{x}_i = \gamma_i(\psi(t)) \cdot \text{YJ}(x_i; \lambda_i(\psi(t))) + \beta_i(\psi(t))$
-   - $\gamma$ 控制尺度（对应标准差变化），$\beta$ 控制偏移（对应均值漂移），$\lambda$ 控制 Yeo-Johnson 变换参数（对应偏度重塑）
-   - Yeo-Johnson 变换：$\text{YJ}(x; \lambda) = ((x+1)^\lambda - 1)/\lambda$ (x≥0) 或 $-((-x+1)^{2-\lambda}-1)/(2-\lambda)$ (x<0)
+
+    - $\tilde{x}_i = \gamma_i(\psi(t)) \cdot \text{YJ}(x_i; \lambda_i(\psi(t))) + \beta_i(\psi(t))$
+    - $\gamma$ 控制尺度（对应标准差变化），$\beta$ 控制偏移（对应均值漂移），$\lambda$ 控制 Yeo-Johnson 变换参数（对应偏度重塑）
+    - Yeo-Johnson 变换：$\text{YJ}(x; \lambda) = ((x+1)^\lambda - 1)/\lambda$ (x≥0) 或 $-((-x+1)^{2-\lambda}-1)/(2-\lambda)$ (x<0)
 2. **时间嵌入 $\psi(t)$**：将时间戳映射到向量，捕获长短期时间动态（趋势+周期性）
 3. **多位置应用**：可灵活放在原始输入、中间表示或输出 logits 处。实验发现单次调制在原始输入即可学到稳定决策边界
 

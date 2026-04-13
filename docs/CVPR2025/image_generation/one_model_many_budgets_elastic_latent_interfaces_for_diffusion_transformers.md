@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：DiT 通过简单的 Transformer 设计在图像/视频生成上取得 SOTA 质量，但 FLOPs 与分辨率绑定——固定计算、均匀分配到所有空间位置。
-2. **现有痛点**：两个问题——(a) 推理计算预算无法灵活调整（不支持 latency-quality 权衡），(b) 简单区域和复杂区域获得相同计算量，浪费资源。
-3. **核心矛盾**：用零填充实验证实——给 DiT 额外 token（零值 patch），它不会利用多余计算改善图像质量。注意力图显示零值 token 只关注其他零值 token，说明 DiT 无法重分配计算。
-4. **本文要解决什么？** 让 DiT 能灵活分配计算：把更多计算给困难区域，推理时按需调节总计算量。
-5. **切入角度**：引入一个 latent domain 作为计算的"中间层"——Read 层从空间 token 选择性拉取信息到 latent，核心 Transformer 块在 latent 上操作，Write 层再写回空间。
-6. **核心 idea 一句话**：用可变长度的 latent interface 解耦图像分辨率与计算量，同时实现非均匀计算分配和弹性推理预算。
+**领域现状**：DiT 通过简单的 Transformer 设计在图像/视频生成上取得 SOTA 质量，但 FLOPs 与分辨率绑定——固定计算、均匀分配到所有空间位置。
+**现有痛点**：两个问题——(a) 推理计算预算无法灵活调整（不支持 latency-quality 权衡），(b) 简单区域和复杂区域获得相同计算量，浪费资源。
+**核心矛盾**：用零填充实验证实——给 DiT 额外 token（零值 patch），它不会利用多余计算改善图像质量。注意力图显示零值 token 只关注其他零值 token，说明 DiT 无法重分配计算。
+**本文要解决什么？** 让 DiT 能灵活分配计算：把更多计算给困难区域，推理时按需调节总计算量。
+**切入角度**：引入一个 latent domain 作为计算的"中间层"——Read 层从空间 token 选择性拉取信息到 latent，核心 Transformer 块在 latent 上操作，Write 层再写回空间。
+**核心 idea 一句话**：用可变长度的 latent interface 解耦图像分辨率与计算量，同时实现非均匀计算分配和弹性推理预算。
 
 ## 方法详解
 
@@ -43,23 +43,27 @@ tags:
 ### 关键设计
 
 1. **Latent Interface（可变长度 latent token）**：
-   - K 个可学习 latent token，通过 Read cross-attention 从空间 token 中拉取信息
-   - Read 层自然学会优先关注困难区域（高损失区域），忽略简单区域（如零填充区域）
-   - Write 层将更新后的 latent 广播回空间 token
-   - Latent 数量是用户可控的"旋钮"——直接设定每步计算预算
+
+    - K 个可学习 latent token，通过 Read cross-attention 从空间 token 中拉取信息
+    - Read 层自然学会优先关注困难区域（高损失区域），忽略简单区域（如零填充区域）
+    - Write 层将更新后的 latent 广播回空间 token
+    - Latent 数量是用户可控的"旋钮"——直接设定每步计算预算
 
 2. **尾部 Token 丢弃训练**：
-   - 训练时随机丢弃尾部 latent token（类似 tail dropping）
-   - 效果：latent 自动学出重要性排序——前面的 latent 捕获全局结构，后面的 latent 细化细节
-   - 推理时删减尾部 latent 就能平滑降低计算量，不需要重训
+
+    - 训练时随机丢弃尾部 latent token（类似 tail dropping）
+    - 效果：latent 自动学出重要性排序——前面的 latent 捕获全局结构，后面的 latent 细化细节
+    - 推理时删减尾部 latent 就能平滑降低计算量，不需要重训
 
 3. **分组机制**：
-   - 空间 token 和 latent token 被分组，cross-attention 只在组内进行
-   - 减少 cross-attention 复杂度，同时保持空间局部性
+
+    - 空间 token 和 latent token 被分组，cross-attention 只在组内进行
+    - 减少 cross-attention 复杂度，同时保持空间局部性
 
 4. **自动引导（Autoguidance）**：
-   - 用少量 latent token 的"弱模型"代替无条件模型做 CFG → 推理成本降低约 33%
-   - CCFG（Cheap CFG）：在引导项中只丢类别条件，用少 token 版本做引导
+
+    - 用少量 latent token 的"弱模型"代替无条件模型做 CFG → 推理成本降低约 33%
+    - CCFG（Cheap CFG）：在引导项中只丢类别条件，用少 token 版本做引导
 
 ### 训练策略
 

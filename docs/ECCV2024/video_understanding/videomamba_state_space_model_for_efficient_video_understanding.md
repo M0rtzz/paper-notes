@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：视频理解的核心在于掌握时空表征，面临两大挑战——短视频片段中的大量时空冗余，以及长上下文中的复杂时空依赖关系。
-2. **现有痛点**：3D CNN（如 SlowFast）擅长局部建模但无法捕捉长程依赖；Video Transformer（如 TimeSformer、ViViT）能建模远程依赖但自注意力的二次复杂度导致计算成本极高；UniFormer 试图结合两者优势，但在长视频上仍力不从心。
-3. **核心矛盾**：高效率与强建模能力难以兼得——处理 64 帧视频时，TimeSformer 的吞吐量和显存消耗远不可接受。
-4. **本文要解决什么**：设计一种兼具线性复杂度和强时空动态建模能力的视频理解架构。
-5. **切入角度**：利用 NLP 领域新兴的 Mamba（选择性 SSM），将其双向扩展到 3D 视频序列。
-6. **核心 idea 一句话**：以 vanilla ViT 的简洁架构为基础，用双向 Mamba block 替代自注意力层，构建纯 SSM 视频模型。
+**领域现状**：视频理解的核心在于掌握时空表征，面临两大挑战——短视频片段中的大量时空冗余，以及长上下文中的复杂时空依赖关系。
+**现有痛点**：3D CNN（如 SlowFast）擅长局部建模但无法捕捉长程依赖；Video Transformer（如 TimeSformer、ViViT）能建模远程依赖但自注意力的二次复杂度导致计算成本极高；UniFormer 试图结合两者优势，但在长视频上仍力不从心。
+**核心矛盾**：高效率与强建模能力难以兼得——处理 64 帧视频时，TimeSformer 的吞吐量和显存消耗远不可接受。
+**本文要解决什么**：设计一种兼具线性复杂度和强时空动态建模能力的视频理解架构。
+**切入角度**：利用 NLP 领域新兴的 Mamba（选择性 SSM），将其双向扩展到 3D 视频序列。
+**核心 idea 一句话**：以 vanilla ViT 的简洁架构为基础，用双向 Mamba block 替代自注意力层，构建纯 SSM 视频模型。
 
 ## 方法详解
 
@@ -43,18 +43,19 @@ VideoMamba 严格遵循 vanilla ViT 的架构设计。输入视频 $\mathbf{X}^v
 
 1. **选择性状态空间模型（S6）**：核心算子基于 Mamba 的选择性扫描机制。与传统线性时不变 SSM 不同，S6 的参数 $\mathbf{B}$、$\mathbf{C}$、$\boldsymbol{\Delta}$ 均由输入数据动态生成，具备上下文感知能力。连续系统通过零阶保持（ZOH）离散化：
 
-   $$\bar{\mathbf{A}} = \exp(\boldsymbol{\Delta} \mathbf{A}), \quad \bar{\mathbf{B}} = (\boldsymbol{\Delta} \mathbf{A})^{-1}(\exp(\boldsymbol{\Delta} \mathbf{A}) - \mathbf{I}) \cdot \boldsymbol{\Delta} \mathbf{B}$$
+    $\bar{\mathbf{A}} = \exp(\boldsymbol{\Delta} \mathbf{A}), \quad \bar{\mathbf{B}} = (\boldsymbol{\Delta} \mathbf{A})^{-1}(\exp(\boldsymbol{\Delta} \mathbf{A}) - \mathbf{I}) \cdot \boldsymbol{\Delta} \mathbf{B}$
 
-   $$h_t = \bar{\mathbf{A}} h_{t-1} + \bar{\mathbf{B}} x_t, \quad y_t = \mathbf{C} h_t$$
+    $h_t = \bar{\mathbf{A}} h_{t-1} + \bar{\mathbf{B}} x_t, \quad y_t = \mathbf{C} h_t$
 
    这种数据依赖的参数化使模型能够自适应地调节权重，实现内容感知的上下文建模，同时保持线性复杂度 $\mathcal{O}(n_h \cdot n_w \cdot n_t)$。
 
 2. **双向 Mamba Block（B-Mamba）**：原始 Mamba 为单向 1D 序列设计，缺乏空间感知能力。借鉴 Vision Mamba，VideoMamba 采用双向 SSM 同时处理前向和后向序列，增强空间感知。每个 B-Mamba block 包含：线性投影（$384 \to 768$）→ 1D 卷积 → 双向 ST-SSM → 线性投影（$768 \to 384$）。
 
 3. **时空扫描策略**：将 2D 双向扫描扩展到 3D 视频，探索了四种策略：
-   - **Spatial-First（空间优先）**：按空间位置组织 token，逐帧堆叠——最简洁且最有效
-   - **Temporal-First（时间优先）**：按帧排列时间 token，沿空间维度堆叠
-   - **Spatiotemporal（时空混合）**：两种的混合，v1 各执行一半，v2 全部执行（2× 计算量）
+
+    - **Spatial-First（空间优先）**：按空间位置组织 token，逐帧堆叠——最简洁且最有效
+    - **Temporal-First（时间优先）**：按帧排列时间 token，沿空间维度堆叠
+    - **Spatiotemporal（时空混合）**：两种的混合，v1 各执行一半，v2 全部执行（2× 计算量）
    
    消融实验表明 **Spatial-First 双向扫描** 效果最优，因其能无缝利用 2D 预训练知识。
 

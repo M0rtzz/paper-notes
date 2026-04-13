@@ -31,10 +31,10 @@ tags:
 
 具体而言，擦除一个概念时，与其视觉相似、语义关联或二项配对的其他概念也会受到意外影响，表现为：
 
-1. **过度擦除（Over-Erasure）**：非目标概念的T2I对齐度下降，例如擦除"cat"后模型也无法正确生成"tiger"
-2. **图像失真（Artifacts）**：非目标概念生成的图像出现身体部位错位、概念被裁剪、文字扭曲等问题
-3. **风格泄露（Style Leakage）**：擦除一个艺术家风格后，相近风格的艺术家也无法被正确渲染
-4. **概念泄露（Concept Leakage）**：在retain set中引入过多相关概念时，已擦除概念会部分恢复
+**过度擦除（Over-Erasure）**：非目标概念的T2I对齐度下降，例如擦除"cat"后模型也无法正确生成"tiger"
+**图像失真（Artifacts）**：非目标概念生成的图像出现身体部位错位、概念被裁剪、文字扭曲等问题
+**风格泄露（Style Leakage）**：擦除一个艺术家风格后，相近风格的艺术家也无法被正确渲染
+**概念泄露（Concept Leakage）**：在retain set中引入过多相关概念时，已擦除概念会部分恢复
 
 论文的核心论点是：**现有的概念擦除评估框架过于简化，仅关注目标概念是否被成功移除，而忽视了对相关概念的连锁影响。** 实际部署中，这种不受控的溢出退化使得"sanitized"模型的可靠性存疑。
 
@@ -47,18 +47,20 @@ tags:
 ### 关键设计
 
 1. **EraseBench多维度评估框架**：定义了四种概念间关系维度来测试擦除的副作用：
-   - **视觉相似性（Visual Similarity）**：擦除"cat"后测试"tiger""cheetah"等视觉近似概念
-   - **艺术风格相似性（Artistic Similarity）**：擦除Van Gogh后测试Cézanne、Bernard等相近风格
-   - **子集-超集关系（Subset-Superset）**：擦除"goldfish"后测试"guppy""koi"等同类概念
-   - **二项关联（Binomial Relations）**：擦除"sun"后测试紧密关联的"moon"
+
+    - **视觉相似性（Visual Similarity）**：擦除"cat"后测试"tiger""cheetah"等视觉近似概念
+    - **艺术风格相似性（Artistic Similarity）**：擦除Van Gogh后测试Cézanne、Bernard等相近风格
+    - **子集-超集关系（Subset-Superset）**：擦除"goldfish"后测试"guppy""koi"等同类概念
+    - **二项关联（Binomial Relations）**：擦除"sun"后测试紧密关联的"moon"
 
    每个维度包含多个主概念（用于擦除）和相关非目标概念（用于评估副作用）。概念收集利用LLM和ImageNet层级分类，经过人工验证确保T2I模型能成功生成。
 
 2. **三维评估指标体系**：
-   - **Efficacy (Eff.)** ↓：目标概念擦除的有效性（CLIP零样本分类准确率）
-   - **Generality (Gen.)** ↓：对改述/同义概念的擦除泛化性
-   - **Sensitivity (Sens.)** ↑：非目标但相关概念的保留度（新指标，本文核心贡献）
-   - 同时使用RAHF（美学+伪影评分）和Gecko（VQA-based对齐评分）进行多维质量评估
+
+    - **Efficacy (Eff.)** ↓：目标概念擦除的有效性（CLIP零样本分类准确率）
+    - **Generality (Gen.)** ↓：对改述/同义概念的擦除泛化性
+    - **Sensitivity (Sens.)** ↑：非目标但相关概念的保留度（新指标，本文核心贡献）
+    - 同时使用RAHF（美学+伪影评分）和Gecko（VQA-based对齐评分）进行多维质量评估
 
 3. **Gecko VQA评估流程**：使用Gemini 1.5模型进行两步VQA评估——先根据文本prompt生成相关问题，再根据生成图像回答问题。最终分数为正确回答比例的均值，支持回溯分析具体哪些文本方面与图像失配。
 

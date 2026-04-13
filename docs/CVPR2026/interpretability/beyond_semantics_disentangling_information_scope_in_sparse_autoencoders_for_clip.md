@@ -24,10 +24,10 @@ tags:
 提出"信息范围"（information scope）作为SAE特征可解释性的新维度，通过Contextual Dependency Score（CDS）将CLIP的SAE特征分为局部特征（低CDS）和全局特征（高CDS），揭示两类特征在分类、分割、深度估计中的差异化功能角色。
 
 ## 研究背景与动机
-1. **领域现状**：稀疏自编码器（SAE）已成为解释CLIP等视觉模型内部表示的核心工具，能将稠密多义（polysemantic）表示分解为稀疏单义（monosemantic）特征。
-2. **现有痛点**：当前SAE可解释性研究几乎只关注特征的**语义身份**（"这个特征代表什么概念"），但一个标记为"dog"的特征可能是对整个物体的全局编码，也可能仅对局部纹理（如毛发）响应——后语义分析无法区分这两者。
-3. **关键观察**：Vision Transformer中的**outlier token**（异常高范数的patch token）在微小上下文偏移（Shifted Context Cropping，SCC）下表现出极强的**空间不稳定性**——位置随上下文变化剧烈。这暗示全局信号对上下文高度敏感，而局部信号则稳定锚定于视觉内容。
-4. **核心idea**：利用上下文偏移下的空间稳定性差异，量化每个SAE特征的"信息范围"——是聚合局部证据还是全局证据。
+**领域现状**：稀疏自编码器（SAE）已成为解释CLIP等视觉模型内部表示的核心工具，能将稠密多义（polysemantic）表示分解为稀疏单义（monosemantic）特征。
+**现有痛点**：当前SAE可解释性研究几乎只关注特征的**语义身份**（"这个特征代表什么概念"），但一个标记为"dog"的特征可能是对整个物体的全局编码，也可能仅对局部纹理（如毛发）响应——后语义分析无法区分这两者。
+**关键观察**：Vision Transformer中的**outlier token**（异常高范数的patch token）在微小上下文偏移（Shifted Context Cropping，SCC）下表现出极强的**空间不稳定性**——位置随上下文变化剧烈。这暗示全局信号对上下文高度敏感，而局部信号则稳定锚定于视觉内容。
+**核心idea**：利用上下文偏移下的空间稳定性差异，量化每个SAE特征的"信息范围"——是聚合局部证据还是全局证据。
 
 ## 方法详解
 
@@ -36,18 +36,19 @@ tags:
 
 ### 关键设计
 1. **Shifted Context Cropping (SCC)**：
-   - 将图像调整为 $(p+s)n \times (p+s)n$ 后裁剪两个 $pn \times pn$ 的图，偏移 $sn$ 像素
-   - 两个裁剪共享 $(p-s) \times (p-s)$ 个像素完全相同的patch
-   - **设计动机**：隔离纯上下文因素（位置编码差异+注意力上下文变化），排除内容差异
+
+    - 将图像调整为 $(p+s)n \times (p+s)n$ 后裁剪两个 $pn \times pn$ 的图，偏移 $sn$ 像素
+    - 两个裁剪共享 $(p-s) \times (p-s)$ 个像素完全相同的patch
+    - **设计动机**：隔离纯上下文因素（位置编码差异+注意力上下文变化），排除内容差异
 
 2. **Contextual Dependency Score (CDS)**：
    对每个SAE特征 $f_j$：
-   - 选取该特征激活最强的 $k_{CDS}$ 张图像
-   - 对每张图像做SCC，获取重叠区域的特征激活图 $M_{j,1}^{(m)}$ 和 $M_{j,2}^{(m)}$
-   - 归一化为概率分布，计算Earth Mover's Distance (EMD)
-   - 归一化网格对角线距离后取平均：
-   $$CDS_j = \frac{1}{k_{CDS} \cdot D_{grid}} \sum_{m=1}^{k_{CDS}} \text{EMD}(\mathcal{N}(M_{j,1}^{(m)}), \mathcal{N}(M_{j,2}^{(m)}))$$
-   - **低CDS** → 空间稳定 → 局部范围特征；**高CDS** → 空间变化大 → 全局范围特征
+    - 选取该特征激活最强的 $k_{CDS}$ 张图像
+    - 对每张图像做SCC，获取重叠区域的特征激活图 $M_{j,1}^{(m)}$ 和 $M_{j,2}^{(m)}$
+    - 归一化为概率分布，计算Earth Mover's Distance (EMD)
+    - 归一化网格对角线距离后取平均：
+    $CDS_j = \frac{1}{k_{CDS} \cdot D_{grid}} \sum_{m=1}^{k_{CDS}} \text{EMD}(\mathcal{N}(M_{j,1}^{(m)}), \mathcal{N}(M_{j,2}^{(m)}))$
+    - **低CDS** → 空间稳定 → 局部范围特征；**高CDS** → 空间变化大 → 全局范围特征
 
 3. **特征分区与验证**：
    CDS直方图呈多峰分布，用阈值 $\gamma$ 自然分为低CDS组和高CDS组。通过检查两组在outlier/non-outlier token上的激活模式验证：高CDS特征主要在outlier token上激活，低CDS特征主要在normal token上激活。

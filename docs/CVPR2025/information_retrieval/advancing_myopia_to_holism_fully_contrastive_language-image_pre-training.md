@@ -26,16 +26,16 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：CLIP是视觉语言模型的基石，通过对(image, text)对做InfoNCE对比学习建立跨模态对齐。OpenAI CLIP使用400M网络爬取的图文对训练。
+**领域现状**：CLIP是视觉语言模型的基石，通过对(image, text)对做InfoNCE对比学习建立跨模态对齐。OpenAI CLIP使用400M网络爬取的图文对训练。
 
-2. **现有痛点**——CLIP的"近视"困境：
+**现有痛点**——CLIP的"近视"困境：
    - **单一文本**：网络文本格式统一、大多是简短概述，缺乏复杂关系描述，甚至包含噪声
    - **视觉损伤**：一张包含丰富信息的图片只匹配一段紧凑文本，大量视觉多样性被丢弃
    - **语义混乱**：不同语义层级（整体概述/局部细节/风格/情感）被粗暴聚合到同一embedding空间
 
-3. **核心矛盾**：一张图包含的信息量远超一段文本，用一个embedding向量无法充分表达一张图的所有视觉元素。
+**核心矛盾**：一张图包含的信息量远超一段文本，用一个embedding向量无法充分表达一张图的所有视觉元素。
 
-4. **本文切入角度**：受"盲人摸象"寓言启发——多个短视的认知组合在一起就能得到全局理解。为每张图生成多视角多层次的文本描述，并设计多分支视觉编码器输出多个互补的视觉embedding，实现part-to-part的多对多对齐。
+**本文切入角度**：受"盲人摸象"寓言启发——多个短视的认知组合在一起就能得到全局理解。为每张图生成多视角多层次的文本描述，并设计多分支视觉编码器输出多个互补的视觉embedding，实现part-to-part的多对多对齐。
 
 ## 方法详解
 
@@ -46,20 +46,23 @@ tags:
 ### 关键设计
 
 1. **多视角多层次数据构建**：
-   - 做什么：为每张图生成M个多样化描述文本，覆盖不同视角、粒度和层次
-   - 核心思路：设计四种prompt spirit——Focus Guide（前景vs背景）、Physical or Sensory（实体名词vs感觉风格）、Gaze or Glance（细致长描述vs概括短概述）、Complex Reasoning（关系vs序列）。使用InternVL2等VLM按不同prompt生成描述
-   - 设计动机：单VLM+多prompt（公式2）比多VLM+单prompt（公式1）文本多样性更高（similarity 0.48 vs 0.58），且部署更简单
+
+    - 做什么：为每张图生成M个多样化描述文本，覆盖不同视角、粒度和层次
+    - 核心思路：设计四种prompt spirit——Focus Guide（前景vs背景）、Physical or Sensory（实体名词vs感觉风格）、Gaze or Glance（细致长描述vs概括短概述）、Complex Reasoning（关系vs序列）。使用InternVL2等VLM按不同prompt生成描述
+    - 设计动机：单VLM+多prompt（公式2）比多VLM+单prompt（公式1）文本多样性更高（similarity 0.48 vs 0.58），且部署更简单
 
 2. **多分支视觉编码器**：
-   - 做什么：修改CLIP图像编码器，输出M个不同的视觉embedding
-   - 核心思路：提出两种参数高效方案——(a) 初始化M个CLS token，每个输出对应的embedding；(b) 扩展最后几层的MLP为M个并行部分。单次前向即可得到M个视觉embedding
-   - 设计动机：一个embedding向量无法充分表达图像中的多种视觉元素（颜色、物体、风格、事件等），多分支输出可解决"视觉损伤"问题，且每个embedding可以有自己的语义角色
+
+    - 做什么：修改CLIP图像编码器，输出M个不同的视觉embedding
+    - 核心思路：提出两种参数高效方案——(a) 初始化M个CLS token，每个输出对应的embedding；(b) 扩展最后几层的MLP为M个并行部分。单次前向即可得到M个视觉embedding
+    - 设计动机：一个embedding向量无法充分表达图像中的多种视觉元素（颜色、物体、风格、事件等），多分支输出可解决"视觉损伤"问题，且每个embedding可以有自己的语义角色
 
 3. **Multi-to-Multi对比学习（M2M）**：
-   - 做什么：实现M个视觉embedding与M个文本embedding的part-to-part精确匹配
-   - 核心思路：先通过最优匹配（匈牙利算法或贪心匹配）建立视觉-文本embedding对之间的对应关系，然后对每对做标准InfoNCE对比损失：
-     $\mathcal{L}_{M2M}^{T2I} = -\sum_{j=1}^K \sum_{m=1}^M \log \frac{\exp(\langle \mathbf{v}_{m,j}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}{\sum_{k=1}^K \exp(\langle \mathbf{v}_{m,k}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}$
-   - 设计动机：比one-to-multi（O2M）对比学习更好——O2M将M个语义差异巨大的文本都拉向同一个视觉embedding，导致语义混乱。M2M让每个视觉分支对齐最匹配的文本，语义解耦更清晰
+
+    - 做什么：实现M个视觉embedding与M个文本embedding的part-to-part精确匹配
+    - 核心思路：先通过最优匹配（匈牙利算法或贪心匹配）建立视觉-文本embedding对之间的对应关系，然后对每对做标准InfoNCE对比损失：
+      $\mathcal{L}_{M2M}^{T2I} = -\sum_{j=1}^K \sum_{m=1}^M \log \frac{\exp(\langle \mathbf{v}_{m,j}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}{\sum_{k=1}^K \exp(\langle \mathbf{v}_{m,k}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}$
+    - 设计动机：比one-to-multi（O2M）对比学习更好——O2M将M个语义差异巨大的文本都拉向同一个视觉embedding，导致语义混乱。M2M让每个视觉分支对齐最匹配的文本，语义解耦更清晰
 
 ### 训练策略
 

@@ -37,10 +37,11 @@ LLaVA-CoT基于Llama-3.2-11B-Vision-Instruct进行微调。输入为图像和问
 
 ### 关键设计
 1. **四阶段结构化推理**：模型被训练成自动产生四个推理阶段：
-   - **Summary阶段**：理解问题，明确需要做什么（"What's the problem? What should I do?"）
-   - **Caption阶段**：从图像中提取与问题相关的视觉信息（"What can I know from the image?"）
-   - **Reasoning阶段**：基于提取的信息进行逐步逻辑推理（"How to solve the problem step-by-step?"）
-   - **Conclusion阶段**：综合前面的分析给出最终答案
+
+    - **Summary阶段**：理解问题，明确需要做什么（"What's the problem? What should I do?"）
+    - **Caption阶段**：从图像中提取与问题相关的视觉信息（"What can I know from the image?"）
+    - **Reasoning阶段**：基于提取的信息进行逐步逻辑推理（"How to solve the problem step-by-step?"）
+    - **Conclusion阶段**：综合前面的分析给出最终答案
    
    这种设计的核心洞察是：VLM需要先"看懂"图像再"想清楚"问题，而不是混在一起处理。
 

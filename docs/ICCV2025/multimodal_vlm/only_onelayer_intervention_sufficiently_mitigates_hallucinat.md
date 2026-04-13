@@ -25,12 +25,12 @@ tags:
 提出ONLY，一种training-free的单层干预解码方法——通过Text-to-Visual Entropy Ratio（TVER）选择偏向文本的attention head生成textually-enhanced logits，然后与原始logits做自适应对比/协作解码，仅增加1.07×推理时间就在POPE上比VCD/M3ID高3.14%，在CHAIR上降低CHAIR_S 6.2个点。
 
 ## 研究背景与动机
-1. **领域现状**：LVLM幻觉的主流缓解方法是contrastive decoding——对比原始输出和扰动版本的输出（如VCD用噪声图像、M3ID去掉图像）。但这些方法需要2次或更多完整推理查询，推理时间翻倍，不适合实时应用。
-2. **现有痛点**：VCD需要2.01×推理时间和1.05×GPU内存，M3ID需要2.03×推理时间，OPERA需要7.12×，HALC需要6.52×。虽然准确率有提升但效率-性能权衡不合理——增加100%时间只换来几个点的提升。
-3. **核心矛盾**：contrastive decoding需要对比两个分布，但现有方法通过跑两次完整模型来获取这两个分布，极其浪费。能否在单次推理内部直接构造出一个"textually-enhanced"分布？
-4. **本文要解决什么**：用单层intervention替代双重推理，在不显著增加计算的情况下获取用于对比解码的增强logits。
-5. **切入角度**：观察到当图像输入被扰动时（如加噪声），文本attention的熵上升而视觉attention的熵下降。直接选择TVER高的attention head就能模拟"visual distortion"效果，无需真的扰动图像。
-6. **核心idea一句话**：用text-to-visual entropy ratio筛选attention head构造textually-enhanced输出，只需一层额外attention计算就能实现与双重推理等效的对比解码。
+**领域现状**：LVLM幻觉的主流缓解方法是contrastive decoding——对比原始输出和扰动版本的输出（如VCD用噪声图像、M3ID去掉图像）。但这些方法需要2次或更多完整推理查询，推理时间翻倍，不适合实时应用。
+**现有痛点**：VCD需要2.01×推理时间和1.05×GPU内存，M3ID需要2.03×推理时间，OPERA需要7.12×，HALC需要6.52×。虽然准确率有提升但效率-性能权衡不合理——增加100%时间只换来几个点的提升。
+**核心矛盾**：contrastive decoding需要对比两个分布，但现有方法通过跑两次完整模型来获取这两个分布，极其浪费。能否在单次推理内部直接构造出一个"textually-enhanced"分布？
+**本文要解决什么**：用单层intervention替代双重推理，在不显著增加计算的情况下获取用于对比解码的增强logits。
+**切入角度**：观察到当图像输入被扰动时（如加噪声），文本attention的熵上升而视觉attention的熵下降。直接选择TVER高的attention head就能模拟"visual distortion"效果，无需真的扰动图像。
+**核心idea一句话**：用text-to-visual entropy ratio筛选attention head构造textually-enhanced输出，只需一层额外attention计算就能实现与双重推理等效的对比解码。
 
 ## 方法详解
 
@@ -40,22 +40,25 @@ tags:
 ### 关键设计
 
 1. **Text-to-Visual Entropy Ratio (TVER)**:
-   - 做什么：衡量每个attention head对文本vs视觉token的信息分散程度。
-   - 核心思路：将attention矩阵按照文本/视觉token indices拆分为$a^{\mathcal{T}}$和$a^{\mathcal{V}}$，分别计算归一化后的entroy：$\text{TVER}_{\ell,i} = \frac{\text{Entropy}(a^{\mathcal{T}}_{\ell,i})}{\text{Entropy}(a^{\mathcal{V}}_{\ell,i})}$。TVER高的head说明它对文本信息的uncertainty高（更依赖语言先验），低的head更关注视觉信息。
-   - 关键发现：TVER与幻觉高度相关——response级别的平均TVER越高，CHAIR_I越高（幻觉越多）；token级别上，幻觉token和非幻觉token在textual-enhanced logits与原始logits间的曼哈顿距离有显著分布差异。
-   - 设计动机：不需要实际扰动图像，直接从attention head的entropy特征中提取语言偏差信息。
+
+    - 做什么：衡量每个attention head对文本vs视觉token的信息分散程度。
+    - 核心思路：将attention矩阵按照文本/视觉token indices拆分为$a^{\mathcal{T}}$和$a^{\mathcal{V}}$，分别计算归一化后的entroy：$\text{TVER}_{\ell,i} = \frac{\text{Entropy}(a^{\mathcal{T}}_{\ell,i})}{\text{Entropy}(a^{\mathcal{V}}_{\ell,i})}$。TVER高的head说明它对文本信息的uncertainty高（更依赖语言先验），低的head更关注视觉信息。
+    - 关键发现：TVER与幻觉高度相关——response级别的平均TVER越高，CHAIR_I越高（幻觉越多）；token级别上，幻觉token和非幻觉token在textual-enhanced logits与原始logits间的曼哈顿距离有显著分布差异。
+    - 设计动机：不需要实际扰动图像，直接从attention head的entropy特征中提取语言偏差信息。
 
 2. **Textual-Enhanced MHA (TE-MHA)**:
-   - 做什么：在选定层$\tilde{\ell}$中，保留TVER高于该层平均值的head，屏蔽其余head，生成偏向文本的attention输出。
-   - 核心思路：$\tilde{a}_{\ell,i} = a_{\ell,i}$ if $\text{TVER}_{\ell,i} \geq \text{average}(\text{TVER}_\ell)$, 否则置0。用筛选后的attention做MHA计算。
-   - 通过两个残差连接连到原始最后一层输出：$\tilde{\bar{\mathcal{H}}}^{L-1}_t = \tilde{\mathcal{H}}^{\tilde{\ell}}_t + \mathcal{H}^{L-1}_t$，再过MLP得到增强logits。
-   - 设计动机：只需计算一层额外attention（复用已有的K/V），开销极小。
+
+    - 做什么：在选定层$\tilde{\ell}$中，保留TVER高于该层平均值的head，屏蔽其余head，生成偏向文本的attention输出。
+    - 核心思路：$\tilde{a}_{\ell,i} = a_{\ell,i}$ if $\text{TVER}_{\ell,i} \geq \text{average}(\text{TVER}_\ell)$, 否则置0。用筛选后的attention做MHA计算。
+    - 通过两个残差连接连到原始最后一层输出：$\tilde{\bar{\mathcal{H}}}^{L-1}_t = \tilde{\mathcal{H}}^{\tilde{\ell}}_t + \mathcal{H}^{L-1}_t$，再过MLP得到增强logits。
+    - 设计动机：只需计算一层额外attention（复用已有的K/V），开销极小。
 
 3. **自适应解码策略**:
-   - 做什么：根据原始logits和增强logits之间的曼哈顿距离，动态选择协作或对比解码。
-   - 核心思路：$d_t = \sum_{y_t} |p_\theta - \tilde{p}_\theta|$。当$d_t < \gamma$（两者分布接近）时做协作解码（加权合并）；当$d_t \geq \gamma$（差异大，可能有幻觉风险）时做对比解码（减去增强logits）。
-   - 公式：${f_\theta^{\text{final}}} = f_\theta + \alpha_1 \tilde{f}_\theta$ (collaborative) 或 $(1+\alpha_2)f_\theta - \alpha_2 \tilde{f}_\theta$ (contrastive)。
-   - 设计动机：不是所有token都需要对比解码。当模型有信心时协作可以增强细节，当模型不确定时对比可以压制幻觉。
+
+    - 做什么：根据原始logits和增强logits之间的曼哈顿距离，动态选择协作或对比解码。
+    - 核心思路：$d_t = \sum_{y_t} |p_\theta - \tilde{p}_\theta|$。当$d_t < \gamma$（两者分布接近）时做协作解码（加权合并）；当$d_t \geq \gamma$（差异大，可能有幻觉风险）时做对比解码（减去增强logits）。
+    - 公式：${f_\theta^{\text{final}}} = f_\theta + \alpha_1 \tilde{f}_\theta$ (collaborative) 或 $(1+\alpha_2)f_\theta - \alpha_2 \tilde{f}_\theta$ (contrastive)。
+    - 设计动机：不是所有token都需要对比解码。当模型有信心时协作可以增强细节，当模型不确定时对比可以压制幻觉。
 
 ### 效率分析
 只需一层额外attention计算 → 1.07×推理时间，几乎无额外GPU内存（14951MB vs 原始14945MB）。相比VCD (2.01×, 15749MB)、M3ID (2.03×, 15575MB)、OPERA (7.12×, 22706MB)、HALC (6.52×, 23084MB)，效率提升巨大。

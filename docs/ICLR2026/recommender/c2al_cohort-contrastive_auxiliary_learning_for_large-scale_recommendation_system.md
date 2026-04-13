@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大规模推荐模型（如 DHEN）在单一全局目标下训练，隐含假设用户群体分布同质。工业界常用多任务学习（MTL）引入辅助任务改善表征，但辅助任务设计多依赖经验启发式。
-2. **现有痛点**：真实数据由异质群体（cohort）组成。随着模型和数据扩大，优化偏向高密度区域（多数群体），导致：(a) FM attention 权重稀疏集中——大量特征交互路径被浪费；(b) 少数群体的特征模式被忽略，出现表征偏差（representation bias）。
-3. **核心矛盾**：全局优化只提供"平均"梯度信号，FM attention 收敛到只捕获全局高频特征交互的稀疏状态，缺少群体特异的梯度驱动力。已有的 PCGrad、CAGrad 等多任务梯度方法关注任务冲突管理，但没有建立辅助损失→注意力机制→表征改进的因果链条。
-4. **本文要解决什么？** (a) 有原则地发现分布差异最大的群体对；(b) 构造辅助任务注入群体特异梯度；(c) 提供可解释的机制分析——辅助损失如何精确地改变 FM attention。
-5. **切入角度**：从梯度传播出发分析 FM attention 更新公式，发现辅助损失的梯度会直接叠加到注意力矩阵 $\mathbf{Y}$ 的更新中，提供了精确的机制解释。
-6. **核心idea一句话**：用分布散度找到对比最大的 head/tail 群体对，构造辅助二分类任务，训练时注入群体特异梯度使 FM attention 稠密化，推理时丢弃辅助头零额外开销。
+**领域现状**：大规模推荐模型（如 DHEN）在单一全局目标下训练，隐含假设用户群体分布同质。工业界常用多任务学习（MTL）引入辅助任务改善表征，但辅助任务设计多依赖经验启发式。
+**现有痛点**：真实数据由异质群体（cohort）组成。随着模型和数据扩大，优化偏向高密度区域（多数群体），导致：(a) FM attention 权重稀疏集中——大量特征交互路径被浪费；(b) 少数群体的特征模式被忽略，出现表征偏差（representation bias）。
+**核心矛盾**：全局优化只提供"平均"梯度信号，FM attention 收敛到只捕获全局高频特征交互的稀疏状态，缺少群体特异的梯度驱动力。已有的 PCGrad、CAGrad 等多任务梯度方法关注任务冲突管理，但没有建立辅助损失→注意力机制→表征改进的因果链条。
+**本文要解决什么？** (a) 有原则地发现分布差异最大的群体对；(b) 构造辅助任务注入群体特异梯度；(c) 提供可解释的机制分析——辅助损失如何精确地改变 FM attention。
+**切入角度**：从梯度传播出发分析 FM attention 更新公式，发现辅助损失的梯度会直接叠加到注意力矩阵 $\mathbf{Y}$ 的更新中，提供了精确的机制解释。
+**核心idea一句话**：用分布散度找到对比最大的 head/tail 群体对，构造辅助二分类任务，训练时注入群体特异梯度使 FM attention 稠密化，推理时丢弃辅助头零额外开销。
 
 ## 方法详解
 
@@ -40,20 +40,23 @@ tags:
 ### 关键设计
 
 1. **对比群体发现（Contrastive Cohort Discovery）**:
-   - 做什么：从数据中自动找到分布差异最大的群体对
-   - 核心思路：沿可解释语义轴（用户价值、年龄等）将数据分割为 $\{\mathcal{C}_1, \ldots, \mathcal{C}_N\}$，用 baseline 模型的预测分布计算两两之间的散度（KL、JS、Wasserstein、余弦相似度），取差异最大的一对为 $\mathcal{C}_{\text{head}}$ 和 $\mathcal{C}_{\text{tail}}$
-   - 设计动机：不是随意选群体，而是有原则地找"模型预测行为差异最大"的群体对——这保证辅助梯度信号与主任务梯度"部分冲突"，提供最大信息增益
+
+    - 做什么：从数据中自动找到分布差异最大的群体对
+    - 核心思路：沿可解释语义轴（用户价值、年龄等）将数据分割为 $\{\mathcal{C}_1, \ldots, \mathcal{C}_N\}$，用 baseline 模型的预测分布计算两两之间的散度（KL、JS、Wasserstein、余弦相似度），取差异最大的一对为 $\mathcal{C}_{\text{head}}$ 和 $\mathcal{C}_{\text{tail}}$
+    - 设计动机：不是随意选群体，而是有原则地找"模型预测行为差异最大"的群体对——这保证辅助梯度信号与主任务梯度"部分冲突"，提供最大信息增益
 
 2. **对比辅助任务构造（Contrastive Auxiliary Learning）**:
-   - 做什么：构造两个群体特异的辅助二分类任务
-   - 核心思路：$y_{\text{head}} = y \cdot \mathbb{I}(\mathbf{x} \in \mathcal{C}_{\text{head}})$，$y_{\text{tail}} = y \cdot \mathbb{I}(\mathbf{x} \in \mathcal{C}_{\text{tail}})$，总损失为：$\mathcal{L}_{\text{C2AL}} = \mathcal{L}_{\text{primary}} + \lambda_{\text{head}} \mathcal{L}_{\text{head}} + \lambda_{\text{tail}} \mathcal{L}_{\text{tail}}$
-   - 设计动机：辅助标签只在对应群体内为正，对其他样本为 0——这迫使共享编码器学习群体区分能力。两个群体分布"部分冲突"，辅助梯度打破主任务的多数群体主导
+
+    - 做什么：构造两个群体特异的辅助二分类任务
+    - 核心思路：$y_{\text{head}} = y \cdot \mathbb{I}(\mathbf{x} \in \mathcal{C}_{\text{head}})$，$y_{\text{tail}} = y \cdot \mathbb{I}(\mathbf{x} \in \mathcal{C}_{\text{tail}})$，总损失为：$\mathcal{L}_{\text{C2AL}} = \mathcal{L}_{\text{primary}} + \lambda_{\text{head}} \mathcal{L}_{\text{head}} + \lambda_{\text{tail}} \mathcal{L}_{\text{tail}}$
+    - 设计动机：辅助标签只在对应群体内为正，对其他样本为 0——这迫使共享编码器学习群体区分能力。两个群体分布"部分冲突"，辅助梯度打破主任务的多数群体主导
 
 3. **机制可解释性分析**:
-   - 做什么：从数学上证明辅助损失如何精确改变 FM attention
-   - 核心思路：DHEN 的 FM attention 计算 $\mathbf{G} = \mathbf{X}\mathbf{X}^\top \mathbf{Y}$，对注意力矩阵 $\mathbf{Y}$ 求梯度得：$\nabla_{\mathbf{Y}} \mathcal{L}_{\text{C2AL}} = (\mathbf{X}\mathbf{X}^\top)(\nabla_{\mathbf{G}} \mathcal{L}_{\text{primary}} + \lambda_{\text{aux}} \nabla_{\mathbf{G}} \mathcal{L}_{\text{aux}})$
-   - 关键洞察：辅助梯度 $\nabla_{\mathbf{G}} \mathcal{L}_{\text{aux}}$ 被直接注入 $\mathbf{Y}$ 的更新——这不是间接正则化，是直接改变 attention 权重。由于辅助梯度编码了少数群体的特征交互模式，$\mathbf{Y}$ 被迫从稀疏（只捕获多数群体高频交互）变为稠密多样（也捕获少数群体的特异交互）
-   - 实证验证：可视化显示 C2AL 主要影响 attention 层权重，前置层变化很小——确认了理论分析的预测
+
+    - 做什么：从数学上证明辅助损失如何精确改变 FM attention
+    - 核心思路：DHEN 的 FM attention 计算 $\mathbf{G} = \mathbf{X}\mathbf{X}^\top \mathbf{Y}$，对注意力矩阵 $\mathbf{Y}$ 求梯度得：$\nabla_{\mathbf{Y}} \mathcal{L}_{\text{C2AL}} = (\mathbf{X}\mathbf{X}^\top)(\nabla_{\mathbf{G}} \mathcal{L}_{\text{primary}} + \lambda_{\text{aux}} \nabla_{\mathbf{G}} \mathcal{L}_{\text{aux}})$
+    - 关键洞察：辅助梯度 $\nabla_{\mathbf{G}} \mathcal{L}_{\text{aux}}$ 被直接注入 $\mathbf{Y}$ 的更新——这不是间接正则化，是直接改变 attention 权重。由于辅助梯度编码了少数群体的特征交互模式，$\mathbf{Y}$ 被迫从稀疏（只捕获多数群体高频交互）变为稠密多样（也捕获少数群体的特异交互）
+    - 实证验证：可视化显示 C2AL 主要影响 attention 层权重，前置层变化很小——确认了理论分析的预测
 
 ### 损失函数 / 训练策略
 - 训练时：三头联合优化（primary + head + tail），辅助权重 $\lambda_{\text{head}}, \lambda_{\text{tail}}$ 为超参数

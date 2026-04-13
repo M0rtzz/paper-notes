@@ -36,8 +36,8 @@ tags:
 **局限二：依赖伪标签**。现有 NCD 方法通常使用伪标签监督新类聚类，但伪标签质量受数据噪声、特征维度等因素影响，导致性能不稳定。在多视图场景下，伪标签生成更加困难。
 
 **本文核心思路**：从视图内和视图间两个层面解决多视图 NCD：
-1. **视图内**：利用已知类和新类之间数据分布的相似性，学习共享的特征基矩阵
-2. **视图间**：利用已知类上的监督信号学习视图权重，迁移到新类的视图融合
+**视图内**：利用已知类和新类之间数据分布的相似性，学习共享的特征基矩阵
+**视图间**：利用已知类上的监督信号学习视图权重，迁移到新类的视图融合
 
 ## 方法详解
 
@@ -51,26 +51,29 @@ IICMVNCD 是一个端到端的一阶段方法，包含三个核心组件：
 ### 关键设计
 
 1. **视图内共享基矩阵分解（Intra-view）**:
-   - 做什么：为每个视图学习已知类和新类共享的基矩阵，提升特征表示质量
-   - 核心思路：NCD 的核心假设是已知类和新类的数据分布相似。基于此假设，对每个视图 $v$ 的特征矩阵 $\mathbf{X}_v = [\mathbf{X}_v^l, \mathbf{X}_v^u]$（拼接已知类和新类数据）进行矩阵分解：
-     $$\min_{\mathbf{W}_v, \mathbf{Z}_v} \|\mathbf{X}_v - \mathbf{W}_v \mathbf{Z}_v\|_F^2 \quad \text{s.t.} \quad \mathbf{W}_v^\top \mathbf{W}_v = \mathbf{I}_k$$
-     其中 $\mathbf{W}_v \in \mathbb{R}^{d_v \times k}$ 是视图特有的共享基矩阵，$\mathbf{Z}_v \in \mathbb{R}^{k \times n}$ 是因子矩阵，$k = k_l + k_u$ 为总类别数
-   - 设计动机：共享基矩阵 $\mathbf{W}_v$ 捕捉两个数据集间的分布一致性，正交约束防止冗余并稳定优化。因子矩阵 $\mathbf{Z}_v$ 编码样本间的关系，为后续标签预测提供基础
+
+    - 做什么：为每个视图学习已知类和新类共享的基矩阵，提升特征表示质量
+    - 核心思路：NCD 的核心假设是已知类和新类的数据分布相似。基于此假设，对每个视图 $v$ 的特征矩阵 $\mathbf{X}_v = [\mathbf{X}_v^l, \mathbf{X}_v^u]$（拼接已知类和新类数据）进行矩阵分解：
+    $\min_{\mathbf{W}_v, \mathbf{Z}_v} \|\mathbf{X}_v - \mathbf{W}_v \mathbf{Z}_v\|_F^2 \quad \text{s.t.} \quad \mathbf{W}_v^\top \mathbf{W}_v = \mathbf{I}_k$
+      其中 $\mathbf{W}_v \in \mathbb{R}^{d_v \times k}$ 是视图特有的共享基矩阵，$\mathbf{Z}_v \in \mathbb{R}^{k \times n}$ 是因子矩阵，$k = k_l + k_u$ 为总类别数
+    - 设计动机：共享基矩阵 $\mathbf{W}_v$ 捕捉两个数据集间的分布一致性，正交约束防止冗余并稳定优化。因子矩阵 $\mathbf{Z}_v$ 编码样本间的关系，为后续标签预测提供基础
 
 2. **视图间权重学习与标签预测（Inter-view）**:
-   - 做什么：利用已知类的监督信号学习最优视图权重，融合多视图信息生成一致的预测标签
-   - 核心思路：引入可学习的视图权重 $\boldsymbol{\alpha}$，将因子矩阵进一步分解为视图特有中心矩阵 $\mathbf{A}_v$ 和一致预测标签 $\mathbf{Y}$：
-     $$\min_{\boldsymbol{\alpha}, \mathbf{W}_v, \mathbf{A}_v, \mathbf{Y}} \sum_{v=1}^V \alpha_v^2 \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2 + \lambda_1 \|\mathbf{Y}_l - \mathbf{G}_l\|_F^2$$
-     约束 $\boldsymbol{\alpha}^\top \mathbf{1} = 1, \boldsymbol{\alpha} \geq \mathbf{0}$。视图权重根据重构误差自动调整：
-     $$\alpha_v = \frac{1/r_v^2}{\sum_{v=1}^V 1/r_v^2}$$
-     其中 $r_v^2 = \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2$
-   - 设计动机：不同视图的质量和重要性不同，固定权重无法适应具体数据。通过已知类的真实标签 $\mathbf{G}_l$ 约束预测标签 $\mathbf{Y}_l$ 的学习，间接优化视图权重，然后将学到的权重应用于新类
+
+    - 做什么：利用已知类的监督信号学习最优视图权重，融合多视图信息生成一致的预测标签
+    - 核心思路：引入可学习的视图权重 $\boldsymbol{\alpha}$，将因子矩阵进一步分解为视图特有中心矩阵 $\mathbf{A}_v$ 和一致预测标签 $\mathbf{Y}$：
+    $\min_{\boldsymbol{\alpha}, \mathbf{W}_v, \mathbf{A}_v, \mathbf{Y}} \sum_{v=1}^V \alpha_v^2 \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2 + \lambda_1 \|\mathbf{Y}_l - \mathbf{G}_l\|_F^2$
+      约束 $\boldsymbol{\alpha}^\top \mathbf{1} = 1, \boldsymbol{\alpha} \geq \mathbf{0}$。视图权重根据重构误差自动调整：
+    $\alpha_v = \frac{1/r_v^2}{\sum_{v=1}^V 1/r_v^2}$
+      其中 $r_v^2 = \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2$
+    - 设计动机：不同视图的质量和重要性不同，固定权重无法适应具体数据。通过已知类的真实标签 $\mathbf{G}_l$ 约束预测标签 $\mathbf{Y}_l$ 的学习，间接优化视图权重，然后将学到的权重应用于新类
 
 3. **类别分离约束**:
-   - 做什么：防止新类样本被错误归入已知类
-   - 核心思路：在最终目标函数中添加排斥项，最大化新类预测标签与已知类真实标签之间的距离：
-     $$\mathcal{L} = \sum_v \alpha_v^2 \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2 + \lambda_1 \|\mathbf{Y}_l - \mathbf{G}_l\|_F^2 - \lambda_2 \sum_{\mathbf{g}^i \in \mathbf{G}_l} \sum_{\mathbf{y}^j \in \mathbf{Y}_u} \|\mathbf{g}^i - \mathbf{y}^j\|_F^2$$
-   - 设计动机：由于已知类和新类分布相似，联合学习时新类样本容易被错误分配到已知类的聚类中。排斥项鼓励新类标签远离已知类标签
+
+    - 做什么：防止新类样本被错误归入已知类
+    - 核心思路：在最终目标函数中添加排斥项，最大化新类预测标签与已知类真实标签之间的距离：
+    $\mathcal{L} = \sum_v \alpha_v^2 \|\mathbf{X}_v - \mathbf{W}_v \mathbf{A}_v \mathbf{Y}\|_F^2 + \lambda_1 \|\mathbf{Y}_l - \mathbf{G}_l\|_F^2 - \lambda_2 \sum_{\mathbf{g}^i \in \mathbf{G}_l} \sum_{\mathbf{y}^j \in \mathbf{Y}_u} \|\mathbf{g}^i - \mathbf{y}^j\|_F^2$
+    - 设计动机：由于已知类和新类分布相似，联合学习时新类样本容易被错误分配到已知类的聚类中。排斥项鼓励新类标签远离已知类标签
 
 ### 损失函数 / 训练策略
 

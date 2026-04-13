@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM在大规模数据上训练时会记忆敏感、有版权或有害的内容，带来隐私和法律风险。从头重训代价过高，LLM遗忘（unlearning）成为高效替代方案。
-2. **现有方法分类**：
+**领域现状**：LLM在大规模数据上训练时会记忆敏感、有版权或有害的内容，带来隐私和法律风险。从头重训代价过高，LLM遗忘（unlearning）成为高效替代方案。
+**现有方法分类**：
    - **发散型遗忘（Divergence-based）**：如梯度上升（GA）、NPO，通过将参数推离原始收敛解来逆转学习效果。问题是遗忘力度难以控制——不足则遗忘不彻底，过度则模型整体性能严重退化。
    - **收敛型遗忘（Convergence-based）**：如IDK（用"我不知道"作为目标）、DPO，将模型引导到新状态。问题是容易让模型变得过度无知，且遗忘效果往往只在QA格式下有效，无法推广到自由文本生成。
-3. **核心痛点**：现有方法在处理遗忘集相关提示时经常产生乱码（gibberish）输出，暴露了遗忘操作的痕迹。根本原因是这些方法未能彻底消除注意力权重中的词汇级和语义级关联——这些关联使模型仍能检索相关的上下文或事实信息。
-4. **本文切入角度**：直接对注意力机制下手，通过提高softmax温度来平滑注意力分布，从源头上破坏事实信息的回忆链路，同时保持语法结构和语言连贯性。
+**核心痛点**：现有方法在处理遗忘集相关提示时经常产生乱码（gibberish）输出，暴露了遗忘操作的痕迹。根本原因是这些方法未能彻底消除注意力权重中的词汇级和语义级关联——这些关联使模型仍能检索相关的上下文或事实信息。
+**本文切入角度**：直接对注意力机制下手，通过提高softmax温度来平滑注意力分布，从源头上破坏事实信息的回忆链路，同时保持语法结构和语言连贯性。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ ASU将遗忘重新定义为自蒸馏过程：构建一个forget-teacher（通过
 ### 关键设计
 
 1. **Forget-Teacher机制（注意力温度平滑）**
-   - 做什么：在每层每个注意力头的softmax中引入温度参数 $\tau \geq 1$，将标准注意力 $\text{Softmax}(\frac{QK^T}{\sqrt{d_k}})$ 修改为 $\text{Softmax}(\frac{QK^T}{\tau\sqrt{d_k}})$
-   - 核心原理：$\tau > 1$ 使注意力分布熵增大→更均匀→削弱token间的精确关联→记忆的事实信息无法被精准回忆。$\tau = 1$ 恢复原始模型行为；$\tau \to \infty$ 时softmax趋近均匀分布，模型完全丧失精确注意能力
-   - 关键发现：通过TOFU实验，将答案token分为事实型token（factual）和功能型token（function，如"is""the"），发现提高 $\tau$ 后事实型token的NLL增幅远大于功能型token——说明事实回忆依赖精确的注意力模式，而句法结构token对注意力平滑不敏感。这解释了ASU为何能保持输出连贯性
+
+    - 做什么：在每层每个注意力头的softmax中引入温度参数 $\tau \geq 1$，将标准注意力 $\text{Softmax}(\frac{QK^T}{\sqrt{d_k}})$ 修改为 $\text{Softmax}(\frac{QK^T}{\tau\sqrt{d_k}})$
+    - 核心原理：$\tau > 1$ 使注意力分布熵增大→更均匀→削弱token间的精确关联→记忆的事实信息无法被精准回忆。$\tau = 1$ 恢复原始模型行为；$\tau \to \infty$ 时softmax趋近均匀分布，模型完全丧失精确注意能力
+    - 关键发现：通过TOFU实验，将答案token分为事实型token（factual）和功能型token（function，如"is""the"），发现提高 $\tau$ 后事实型token的NLL增幅远大于功能型token——说明事实回忆依赖精确的注意力模式，而句法结构token对注意力平滑不敏感。这解释了ASU为何能保持输出连贯性
 
 2. **遗忘目标函数**
-   - 在遗忘集 $\mathcal{D}_F$ 上最小化student和forget-teacher之间的KL散度：$\mathcal{L}_{\text{ASU}} = \mathbb{E}_{(x,y)\sim\mathcal{D}_F}[\frac{1}{T}\sum_{t=1}^T \text{KL}(p(\cdot|x \circ y_{<t}; \theta_\tau) \| p(\cdot|x \circ y_{<t}; \theta))]$
-   - 注意力平滑仅应用于遗忘集，保留集不受影响
-   - 保留集上使用标准梯度下降（GD）或KL散度正则化，分别对应 $\text{ASU}_\text{GD}$ 和 $\text{ASU}_\text{KL}$
+
+    - 在遗忘集 $\mathcal{D}_F$ 上最小化student和forget-teacher之间的KL散度：$\mathcal{L}_{\text{ASU}} = \mathbb{E}_{(x,y)\sim\mathcal{D}_F}[\frac{1}{T}\sum_{t=1}^T \text{KL}(p(\cdot|x \circ y_{<t}; \theta_\tau) \| p(\cdot|x \circ y_{<t}; \theta))]$
+    - 注意力平滑仅应用于遗忘集，保留集不受影响
+    - 保留集上使用标准梯度下降（GD）或KL散度正则化，分别对应 $\text{ASU}_\text{GD}$ 和 $\text{ASU}_\text{KL}$
 
 3. **设计优势**
-   - 不引入外部模型或额外参数，仅需一个温度超参数 $\tau$
-   - Forget-teacher在训练过程中冻结不更新
-   - 提供自然的遗忘目标——不是强制输出固定模板（如"I don't know"），而是引导模型产生信息被平滑掉的自然输出
+
+    - 不引入外部模型或额外参数，仅需一个温度超参数 $\tau$
+    - Forget-teacher在训练过程中冻结不更新
+    - 提供自然的遗忘目标——不是强制输出固定模板（如"I don't know"），而是引导模型产生信息被平滑掉的自然输出
 
 ### 与现有方法的本质区别
 - GA/NPO等发散型方法：直接推离原始模型，容易过度遗忘产生乱码

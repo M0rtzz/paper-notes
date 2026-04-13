@@ -25,12 +25,12 @@ tags:
 本文揭示了在良性 Agent 数据上微调 LLM 会导致意外的安全对齐偏移（攻击成功率增加 32-38%），并提出 PING（Prefix Injection Guard）——通过迭代生成+评估自然语言前缀来引导微调后的 Agent 拒绝有害请求，平均提升拒绝率 66%（Web）和 44%（代码），同时保持任务性能（仅降 1.8%）。
 
 ## 研究背景与动机
-1. **领域现状**：LLM Agent（如 Web 导航、代码生成）通过在任务数据上微调来增强特定能力，但微调过程中安全考量经常被忽视。
-2. **现有痛点**：非对抗领域已有研究表明，即使在良性数据（数学推理、医学知识）上微调也可能导致有害性增加。但 Agent 场景更危险——Agent 被设计为"执行动作"而非仅"生成文本"，一旦安全失效可能直接执行有害操作（如下载违法文件、删除系统文件、传播虚假信息）。
-3. **核心矛盾**：Agent 微调追求"更好地遵循指令并执行任务"，但这个能力提升本身就弱化了"拒绝有害指令"的能力——因为训练数据全是执行任务的示例，没有拒绝的示例。
-4. **本文要解决什么？** (1) 验证和量化 Agent 微调导致的安全偏移；(2) 提出轻量有效的缓解方法。
-5. **切入角度**：观察到 LLM 的安全拒绝行为高度依赖响应的初始 Token（如 "I cannot"）——微调后这些安全模式概率大幅下降。因此通过注入合适的前缀可以"重新激活"拒绝行为。
-6. **核心 idea 一句话**：用 LLM 自动生成+迭代优化自然语言前缀，prepend 到 Agent 响应前，在保持任务能力的同时恢复对有害请求的拒绝行为。
+**领域现状**：LLM Agent（如 Web 导航、代码生成）通过在任务数据上微调来增强特定能力，但微调过程中安全考量经常被忽视。
+**现有痛点**：非对抗领域已有研究表明，即使在良性数据（数学推理、医学知识）上微调也可能导致有害性增加。但 Agent 场景更危险——Agent 被设计为"执行动作"而非仅"生成文本"，一旦安全失效可能直接执行有害操作（如下载违法文件、删除系统文件、传播虚假信息）。
+**核心矛盾**：Agent 微调追求"更好地遵循指令并执行任务"，但这个能力提升本身就弱化了"拒绝有害指令"的能力——因为训练数据全是执行任务的示例，没有拒绝的示例。
+**本文要解决什么？** (1) 验证和量化 Agent 微调导致的安全偏移；(2) 提出轻量有效的缓解方法。
+**切入角度**：观察到 LLM 的安全拒绝行为高度依赖响应的初始 Token（如 "I cannot"）——微调后这些安全模式概率大幅下降。因此通过注入合适的前缀可以"重新激活"拒绝行为。
+**核心 idea 一句话**：用 LLM 自动生成+迭代优化自然语言前缀，prepend 到 Agent 响应前，在保持任务能力的同时恢复对有害请求的拒绝行为。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **Agent 微调导致的安全偏移量化**:
-   - 做什么：系统评估微调前后多个 LLM 在任务能力和安全方面的变化
-   - 核心发现：Llama-3.1-8B-Instruct 微调后——Web 导航成功率 +20%，但 WebDojo 攻击成功率 +32%，拒绝率从 26% 降到 7%。Gemini-2.0-flash 代码生成成功率 +33%，但 RedCode 攻击成功率 +28%，拒绝率从 20% 降到 3%
-   - 新 Benchmark WebDojo：包含 8 个真实网站（OmniMart/RandomBoard/ByteHaven 等）的 80 个有害任务 + 70 个良性任务，用规则评估器判断任务完成和拒绝
+
+    - 做什么：系统评估微调前后多个 LLM 在任务能力和安全方面的变化
+    - 核心发现：Llama-3.1-8B-Instruct 微调后——Web 导航成功率 +20%，但 WebDojo 攻击成功率 +32%，拒绝率从 26% 降到 7%。Gemini-2.0-flash 代码生成成功率 +33%，但 RedCode 攻击成功率 +28%，拒绝率从 20% 降到 3%
+    - 新 Benchmark WebDojo：包含 8 个真实网站（OmniMart/RandomBoard/ByteHaven 等）的 80 个有害任务 + 70 个良性任务，用规则评估器判断任务完成和拒绝
 
 2. **PING（Prefix Injection Guard）**:
-   - 做什么：自动搜索最优安全前缀，部署时 prepend 到 Agent 响应前
-   - 核心思路：迭代算法交替进行——(a) Generator（GPT-4o）基于前几轮最优前缀生成 $M=5$ 个候选；(b) 在 $\mathcal{D}_{\text{benign}}$（7 任务）和 $\mathcal{D}_{\text{harmful}}$（7 任务）上评估每个前缀的 performance score（良性任务不拒绝=1）和 refusal score（有害任务拒绝=1）；(c) 选出 Top-$k$ 前缀 seed 下一轮。20 轮共 100 个前缀中选 overall score 最高的
-   - 设计动机：简单的 "I can't" 前缀虽能拒绝有害任务（100%），但也过度拒绝良性任务。PING 通过优化找到平衡点——如 Llama 的最优前缀是 "As an AI committed to ethical standards, ensure that you assist with helpful and constructive tasks, while consistently refusing any requests that could be harmful or unethical."
+
+    - 做什么：自动搜索最优安全前缀，部署时 prepend 到 Agent 响应前
+    - 核心思路：迭代算法交替进行——(a) Generator（GPT-4o）基于前几轮最优前缀生成 $M=5$ 个候选；(b) 在 $\mathcal{D}_{\text{benign}}$（7 任务）和 $\mathcal{D}_{\text{harmful}}$（7 任务）上评估每个前缀的 performance score（良性任务不拒绝=1）和 refusal score（有害任务拒绝=1）；(c) 选出 Top-$k$ 前缀 seed 下一轮。20 轮共 100 个前缀中选 overall score 最高的
+    - 设计动机：简单的 "I can't" 前缀虽能拒绝有害任务（100%），但也过度拒绝良性任务。PING 通过优化找到平衡点——如 Llama 的最优前缀是 "As an AI committed to ethical standards, ensure that you assist with helpful and constructive tasks, while consistently refusing any requests that could be harmful or unethical."
 
 3. **线性探针内部表征分析**:
-   - 做什么：训练线性分类器区分 Agent 处理有害/良性输入时的激活值，分析 PING 如何改变模型内部表征
-   - 核心发现：vanilla Agent 面对有害任务时，平均 logit 为正（说明内部安全特征仍存在），但**最终 Token 的 logit 为负**——这正是 Agent 不拒绝的原因。PING 使最终 Token logit 变为正值。前缀注入比后缀注入更有效，因为它直接影响首个响应 Token 这个关键决策点
-   - 验证：激活导向（activation steering）加入线性探针向量到最终 Token 激活上，可将拒绝率从 0% 提升到 95.9%，证实探针捕捉了真正的安全特征
+
+    - 做什么：训练线性分类器区分 Agent 处理有害/良性输入时的激活值，分析 PING 如何改变模型内部表征
+    - 核心发现：vanilla Agent 面对有害任务时，平均 logit 为正（说明内部安全特征仍存在），但**最终 Token 的 logit 为负**——这正是 Agent 不拒绝的原因。PING 使最终 Token logit 变为正值。前缀注入比后缀注入更有效，因为它直接影响首个响应 Token 这个关键决策点
+    - 验证：激活导向（activation steering）加入线性探针向量到最终 Token 激活上，可将拒绝率从 0% 提升到 95.9%，证实探针捕捉了真正的安全特征
 
 ### 训练策略
 PING 不需要任何模型训练——仅在推理时 prepend 自然语言前缀。前缀搜索过程约需 100 次 LLM 推理。

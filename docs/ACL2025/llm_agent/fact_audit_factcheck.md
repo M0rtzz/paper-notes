@@ -41,26 +41,30 @@ tags:
 ### 关键设计
 
 1. **五角色多智能体协作**
-   - **Appraiser（评估师）**：构建并维护事实核查场景的分类体系（taxonomy），初始覆盖Complex Claims、Fake News、Social Rumors三大类，每类下设多个子场景（如多步推理、统计聚合推理、标题错配等）。迭代中根据模型弱点自适应添加新测试场景
-   - **Inquirer（询问者）**：根据每个场景生成原型测试数据，每条sample包含Key Point（任务指令）、Source Claim（待验证声明）、Auxiliary Information（辅助信息）、Test Mode（测试模式），温度设为0确保公平性
-   - **Quality Inspector（质量检查员）**：利用外部工具（Wikipedia API）粗筛+强LLM精筛，确保生成数据的质量和多样性
-   - **Evaluator（评估者）**：以LLM-as-a-Judge方式评估目标LLM的回答，同时给出1-10的评分和自然语言评语，≤3分视为错误。先由3个GPT-4o投票生成参考答案，再用另一个判别agent校验
-   - **Prober（探测者）**：基于记忆池中的历史评估记录，迭代生成更多样、更具挑战性的测试数据，深入挖掘模型弱点
+
+    - **Appraiser（评估师）**：构建并维护事实核查场景的分类体系（taxonomy），初始覆盖Complex Claims、Fake News、Social Rumors三大类，每类下设多个子场景（如多步推理、统计聚合推理、标题错配等）。迭代中根据模型弱点自适应添加新测试场景
+    - **Inquirer（询问者）**：根据每个场景生成原型测试数据，每条sample包含Key Point（任务指令）、Source Claim（待验证声明）、Auxiliary Information（辅助信息）、Test Mode（测试模式），温度设为0确保公平性
+    - **Quality Inspector（质量检查员）**：利用外部工具（Wikipedia API）粗筛+强LLM精筛，确保生成数据的质量和多样性
+    - **Evaluator（评估者）**：以LLM-as-a-Judge方式评估目标LLM的回答，同时给出1-10的评分和自然语言评语，≤3分视为错误。先由3个GPT-4o投票生成参考答案，再用另一个判别agent校验
+    - **Prober（探测者）**：基于记忆池中的历史评估记录，迭代生成更多样、更具挑战性的测试数据，深入挖掘模型弱点
 
 2. **三种测试模式**
-   - **[claim]**：闭卷模式，LLM仅依赖参数化知识验证声明（最难）
-   - **[evidence]**：提供Wiki来源的金标准证据作为辅助（最容易）
-   - **[wisdom of crowds]**：提供模拟社交媒体评论线程作为辅助信息（中等难度）
+
+    - **[claim]**：闭卷模式，LLM仅依赖参数化知识验证声明（最难）
+    - **[evidence]**：提供Wiki来源的金标准证据作为辅助（最容易）
+    - **[wisdom of crowds]**：提供模拟社交媒体评论线程作为辅助信息（中等难度）
 
 3. **重要性采样理论支撑**
-   - 传统Monte Carlo采样收敛速度 $\mathcal{O}(1/\sqrt{N})$，长尾知识分布进一步加剧效率低下
-   - 设计提议分布 $q(x) \propto p(x) \cdot \mathcal{F}_\alpha(x)$，向模型弱点区域倾斜
-   - 自适应更新确保方差单调递减：$Var_{q_{i+1}} \leq Var_{q_i} \leq \cdots \leq Var_p$，收敛速度逐轮加快
+
+    - 传统Monte Carlo采样收敛速度 $\mathcal{O}(1/\sqrt{N})$，长尾知识分布进一步加剧效率低下
+    - 设计提议分布 $q(x) \propto p(x) \cdot \mathcal{F}_\alpha(x)$，向模型弱点区域倾斜
+    - 自适应更新确保方差单调递减：$Var_{q_{i+1}} \leq Var_{q_i} \leq \cdots \leq Var_p$，收敛速度逐轮加快
 
 4. **自适应分类体系更新**
-   - 每轮评估后，Appraiser分析记忆池中低分案例，挖掘新的挑战性测试场景
-   - 例如"Aggregated Statistical Reasoning"（聚合统计推理）是在自适应更新中发现的新挑战场景
-   - 形成"评估→发现弱点→扩展场景→再评估"的持续改进闭环
+
+    - 每轮评估后，Appraiser分析记忆池中低分案例，挖掘新的挑战性测试场景
+    - 例如"Aggregated Statistical Reasoning"（聚合统计推理）是在自适应更新中发现的新挑战场景
+    - 形成"评估→发现弱点→扩展场景→再评估"的持续改进闭环
 
 ## 实验关键数据
 

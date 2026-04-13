@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：单目4D动物重建主要有两条路线：(a) 无模板方法（BANMo、RAC等）学习可变形辐射场但缺乏几何先验，形状粗糙；(b) 基于SMAL/hSMAL参数化模型的方法（SMALR、Dessie等）有几何先验但纹理质量差，且需要逐视频优化。近期GART等方法用3D Gaussian Splatting做动物avatar，但仍需360°视频+逐实例优化。
+**领域现状**：单目4D动物重建主要有两条路线：(a) 无模板方法（BANMo、RAC等）学习可变形辐射场但缺乏几何先验，形状粗糙；(b) 基于SMAL/hSMAL参数化模型的方法（SMALR、Dessie等）有几何先验但纹理质量差，且需要逐视频优化。近期GART等方法用3D Gaussian Splatting做动物avatar，但仍需360°视频+逐实例优化。
 
-2. **现有痛点**：(a) 逐视频优化方法（GART）计算昂贵且需要完整观测覆盖，真实视频往往视角有限导致优化失败；(b) 前馈方法（3D-Fauna、MagicPony等）虽不需逐实例优化，但必须牺牲形状真实感换取泛化性；(c) 现有方法不使用最新的高精度VAREN马匹模型，而是依赖较粗糙的SMAL。
+**现有痛点**：(a) 逐视频优化方法（GART）计算昂贵且需要完整观测覆盖，真实视频往往视角有限导致优化失败；(b) 前馈方法（3D-Fauna、MagicPony等）虽不需逐实例优化，但必须牺牲形状真实感换取泛化性；(c) 现有方法不使用最新的高精度VAREN马匹模型，而是依赖较粗糙的SMAL。
 
-3. **核心矛盾**：4D重建同时估计运动和外观，两者相互耦合——运动不准导致外观无法对齐，外观不好又反过来影响运动估计。联合优化既慢又对不完整观测敏感。
+**核心矛盾**：4D重建同时估计运动和外观，两者相互耦合——运动不准导致外观无法对齐，外观不好又反过来影响运动估计。联合优化既慢又对不完整观测敏感。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 如何高效准确地从单目视频恢复马匹的逐帧运动（pose+shape序列）？
    - 如何从极少输入（甚至单张图像）前馈生成高保真可动画3D Gaussian avatar？
    - 如何在真实数据缺乏的情况下训练上述网络？
 
-5. **切入角度**：将4D重建显式解耦为两个独立子问题——动态运动恢复 + 静态外观重建，用VAREN参数化模型作为桥梁连接两者。分别构建合成数据集训练各自网络。
+**切入角度**：将4D重建显式解耦为两个独立子问题——动态运动恢复 + 静态外观重建，用VAREN参数化模型作为桥梁连接两者。分别构建合成数据集训练各自网络。
 
-6. **核心idea一句话**：运动和外观解耦后分别用专门的网络+合成数据解决，再通过VAREN模型的skinning将外观驱动到每帧姿态，实现高效高质量4D马匹重建。
+**核心idea一句话**：运动和外观解耦后分别用专门的网络+合成数据解决，再通过VAREN模型的skinning将外观驱动到每帧姿态，实现高效高质量4D马匹重建。
 
 ## 方法详解
 
@@ -52,34 +52,39 @@ tags:
 ### 关键设计
 
 1. **VarenPoser合成运动数据集**
-   - 做什么：创建大规模合成马匹视频数据集，提供VAREN参数GT用于训练运动网络
-   - 核心思路：将VAREN模型拟合到标记点运动捕捉数据集PFERD上获得姿态参数，随机分配形状参数增加多样性，用MV-Adapter生成纹理，关键创新是模拟三种真实相机运动轨迹（fix/dolly/orbit）
-   - 设计动机：真实4D马匹数据标注极其困难，合成数据集包含1171个video clip、512×512分辨率、60FPS，提供精确的VAREN参数GT
+
+    - 做什么：创建大规模合成马匹视频数据集，提供VAREN参数GT用于训练运动网络
+    - 核心思路：将VAREN模型拟合到标记点运动捕捉数据集PFERD上获得姿态参数，随机分配形状参数增加多样性，用MV-Adapter生成纹理，关键创新是模拟三种真实相机运动轨迹（fix/dolly/orbit）
+    - 设计动机：真实4D马匹数据标注极其困难，合成数据集包含1171个video clip、512×512分辨率、60FPS，提供精确的VAREN参数GT
 
 2. **AniMoFormer时空Transformer**
-   - 做什么：从16帧视频窗口回归时间一致的VAREN参数
-   - 核心思路：两阶段设计——(1) Spatial Transformer逐帧提取空间特征，(2) Temporal Transformer在N帧窗口上做self-attention建模时序关系，(3) VAREN Transformer Decoder回归参数。训练损失：
-     $$\mathcal{L} = \lambda_{varen}\mathcal{L}_{varen} + \lambda_{smooth}\mathcal{L}_{smooth} + \lambda_{2D}\mathcal{L}_{2D} + \lambda_{3D}\mathcal{L}_{3D}$$
-     其中$\mathcal{L}_{smooth}$约束相邻帧参数变化平滑
-   - 设计动机：单帧方法（AniMer）无法利用时序信息，导致帧间抖动。时空Transformer天然支持滑动窗口处理任意长视频
+
+    - 做什么：从16帧视频窗口回归时间一致的VAREN参数
+    - 核心思路：两阶段设计——(1) Spatial Transformer逐帧提取空间特征，(2) Temporal Transformer在N帧窗口上做self-attention建模时序关系，(3) VAREN Transformer Decoder回归参数。训练损失：
+    $\mathcal{L} = \lambda_{varen}\mathcal{L}_{varen} + \lambda_{smooth}\mathcal{L}_{smooth} + \lambda_{2D}\mathcal{L}_{2D} + \lambda_{3D}\mathcal{L}_{3D}$
+      其中$\mathcal{L}_{smooth}$约束相邻帧参数变化平滑
+    - 设计动机：单帧方法（AniMer）无法利用时序信息，导致帧间抖动。时空Transformer天然支持滑动窗口处理任意长视频
 
 3. **Post-Optimization后优化**
-   - 做什么：将Transformer预测的mesh与2D图像精确对齐
-   - 核心思路：用可微分渲染器将3D mesh投影到2D，与ViTPose++提取的pseudo GT关键点和Samurai提取的mask对比，优化姿态参数使其pixel-aligned
-   - 设计动机：Transformer预测的mesh可能与2D证据有偏移，后优化通过图像级监督弥补这一gap，两者缺一不可（消融证实去掉任何一个都会掉点）
+
+    - 做什么：将Transformer预测的mesh与2D图像精确对齐
+    - 核心思路：用可微分渲染器将3D mesh投影到2D，与ViTPose++提取的pseudo GT关键点和Samurai提取的mask对比，优化姿态参数使其pixel-aligned
+    - 设计动机：Transformer预测的mesh可能与2D证据有偏移，后优化通过图像级监督弥补这一gap，两者缺一不可（消融证实去掉任何一个都会掉点）
 
 4. **EquineGS前馈外观重建**
-   - 做什么：从单张图像前馈生成可动画的3DGS avatar
-   - 核心思路：
-     - **点云初始化**：将VAREN模板mesh细分（每边中点+每面分四），从13,873顶点上采样到55,486个Gaussian初始位置
-     - **双流特征提取**：DINOv3 ViT-L提取图像多尺度特征$F_I \in \mathbb{R}^{784\times1024}$，Point Transformer对3D点编码得$F_P \in \mathbb{R}^{N_G\times1024}$
-     - **DSTG解码器**：改进的MMDiT块，三步融合——全局上下文向量提取→图像+点特征联合注意力→MLP预测每个Gaussian的属性（位置偏移、旋转、缩放、颜色、不透明度）
-   - 设计动机：视频中马匹外观不变，且真实视频视角有限→单帧前馈比逐帧优化更合理。DSTG比标准cross-attention融合效果更好（消融验证）
+
+    - 做什么：从单张图像前馈生成可动画的3DGS avatar
+    - 核心思路：
+      - **点云初始化**：将VAREN模板mesh细分（每边中点+每面分四），从13,873顶点上采样到55,486个Gaussian初始位置
+      - **双流特征提取**：DINOv3 ViT-L提取图像多尺度特征$F_I \in \mathbb{R}^{784\times1024}$，Point Transformer对3D点编码得$F_P \in \mathbb{R}^{N_G\times1024}$
+      - **DSTG解码器**：改进的MMDiT块，三步融合——全局上下文向量提取→图像+点特征联合注意力→MLP预测每个Gaussian的属性（位置偏移、旋转、缩放、颜色、不透明度）
+    - 设计动机：视频中马匹外观不变，且真实视频视角有限→单帧前馈比逐帧优化更合理。DSTG比标准cross-attention融合效果更好（消融验证）
 
 5. **VarenTex合成外观数据集**
-   - 做什么：生成150K张高质量多视角马匹图像用于训练EquineGS
-   - 核心思路：从VarenPoser mesh渲染法线图和CCM→ControlNet生成参考图像→UniTex多视角扩散模型生成一致的多视角训练图像
-   - 设计动机：VarenPoser的纹理质量不够高保真，且外观网络需要多视角数据而不是单目视频
+
+    - 做什么：生成150K张高质量多视角马匹图像用于训练EquineGS
+    - 核心思路：从VarenPoser mesh渲染法线图和CCM→ControlNet生成参考图像→UniTex多视角扩散模型生成一致的多视角训练图像
+    - 设计动机：VarenPoser的纹理质量不够高保真，且外观网络需要多视角数据而不是单目视频
 
 ### 损失函数 / 训练策略
 - **AniMoFormer**：VAREN参数L2损失 + 平滑损失 + 2D/3D关键点L1损失

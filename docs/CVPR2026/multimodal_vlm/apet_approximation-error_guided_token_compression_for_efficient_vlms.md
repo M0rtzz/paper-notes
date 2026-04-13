@@ -27,19 +27,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **VLM 视觉 token 冗余严重**：当前主流 VLM（如 LLaVA、InternVL）将图像编码为数百甚至上千个 visual token 送入 LLM。一张 336×336 的图像在 LLaVA-1.5 中产生 576 个 token，高分辨率方案下更是超过 2000 个。然而大量研究表明，这些 token 中存在严重冗余——相邻 patch 编码的信息高度重叠，真正对下游任务有用的"关键 token"可能只占 10-20%。
+**VLM 视觉 token 冗余严重**：当前主流 VLM（如 LLaVA、InternVL）将图像编码为数百甚至上千个 visual token 送入 LLM。一张 336×336 的图像在 LLaVA-1.5 中产生 576 个 token，高分辨率方案下更是超过 2000 个。然而大量研究表明，这些 token 中存在严重冗余——相邻 patch 编码的信息高度重叠，真正对下游任务有用的"关键 token"可能只占 10-20%。
 
-2. **计算瓶颈**：LLM 的 self-attention 计算复杂度为 $O(n^2)$，其中 $n$ 是序列长度。视觉 token 占据序列长度的大部分（通常 >70%），因此减少视觉 token 数量可以近二次方地降低计算量。在多帧视频理解任务中，问题更加突出——多帧叠加后序列长度轻松超过 10K。
+**计算瓶颈**：LLM 的 self-attention 计算复杂度为 $O(n^2)$，其中 $n$ 是序列长度。视觉 token 占据序列长度的大部分（通常 >70%），因此减少视觉 token 数量可以近二次方地降低计算量。在多帧视频理解任务中，问题更加突出——多帧叠加后序列长度轻松超过 10K。
 
-3. **基于 Attention 权重的方法存在两大硬伤**：
+**基于 Attention 权重的方法存在两大硬伤**：
 
    **(a) 位置偏差问题**：现有主流方法（FastV、FitPrune、VisionZip 等）通过 LLM 中间层的 attention 权重评估 token 重要性——attention 值高的 token 被保留，低的被丢弃。但作者发现，LLM 的 attention 分布存在明显的位置偏差：序列后部的 token 由于因果 attention mask 的作用，被 attend 的次数天然更多（后面的 token 能看到前面所有 token，但位置偏差导致后面的 token 自身也获得更高的 attention score），这与 token 的实际信息量无关。实验显示，仅靠位置就能预测 attention 排名的 60% 以上。
 
    **(b) 与 FlashAttention 不兼容**：FlashAttention 是当前 LLM 推理的标配加速技术，它通过分块计算避免存储完整的 attention 矩阵。但基于 attention 权重裁剪的方法需要读取完整的 $n \times n$ attention 矩阵，这与 FlashAttention 的设计冲突。要使用这些方法，必须禁用 FlashAttention，反而可能导致净速度下降。这是工程落地的致命障碍。
 
-4. **信息论视角的启发**：如果一个 token 可以被其他 token 线性重建出来（近似误差小），说明它承载的独特信息很少，是"冗余"的；反之，如果重建误差大，说明该 token 包含其他 token 无法代替的独特信息，是"重要"的。这个直觉简洁有力，且评估过程只需要 token 的特征向量，完全不涉及 attention 计算。
+**信息论视角的启发**：如果一个 token 可以被其他 token 线性重建出来（近似误差小），说明它承载的独特信息很少，是"冗余"的；反之，如果重建误差大，说明该 token 包含其他 token 无法代替的独特信息，是"重要"的。这个直觉简洁有力，且评估过程只需要 token 的特征向量，完全不涉及 attention 计算。
 
-5. **与现有 attention-free 方法的区别**：也有少数方法不依赖 attention（如 ToMe 用相似度合并、LOOK-M 用 KV cache 压缩），但它们的重要性评估标准仍然是启发式的。ApET 从近似理论出发，提供了一个有原理支撑的重要性度量。
+**与现有 attention-free 方法的区别**：也有少数方法不依赖 attention（如 ToMe 用相似度合并、LOOK-M 用 KV cache 压缩），但它们的重要性评估标准仍然是启发式的。ApET 从近似理论出发，提供了一个有原理支撑的重要性度量。
 
 ## 方法详解
 

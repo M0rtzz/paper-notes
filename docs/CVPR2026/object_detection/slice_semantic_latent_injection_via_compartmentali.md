@@ -41,9 +41,10 @@ SLICE的pipeline分三步：(1) 从参考图像中提取四个语义因子描述
 2. **空间分区语义注入 (Spatially-Partitioned Semantic Injection)**：将latent空间的 $h \times w$ 网格划分为四个不重叠区域 $\Omega_k$，每个区域对应一个语义因子。对每个位置 $p \in \Omega_k$，通过 $\mathbf{z}_T(p) = H(E(s_k), p, \sigma)$ 生成噪声值（$E$ 是文本编码器，$H$ 是keyed哈希合成函数，$\sigma$ 是密钥）。这样每个分区的噪声只依赖对应的语义描述、空间位置和密钥。
 
 3. **三态检测机制 (Three-State Detection)**：检测时对可疑图像做DDIM反转得到 $\mathbf{z}_{inv}$，重新提取语义并重建参考噪声 $\hat{\mathbf{z}}_T$，逐像素比较距离。定义分区匹配率 $m_k$ 和全局匹配率 $m_g$，输出三种状态：
-   - State I（完整且可信）：$m_g \geq \tau_g$ 且所有 $m_k \geq \tau_k$
-   - State II（局部语义篡改）：$m_g \geq \tau_g$ 但某些 $m_k < \tau_k$，失败的分区直接指示被篡改的因子
-   - State III（无水印或严重损坏）：$m_g < \tau_g$
+
+    - State I（完整且可信）：$m_g \geq \tau_g$ 且所有 $m_k \geq \tau_k$
+    - State II（局部语义篡改）：$m_g \geq \tau_g$ 但某些 $m_k < \tau_k$，失败的分区直接指示被篡改的因子
+    - State III（无水印或严重损坏）：$m_g < \tau_g$
 
 ### 理论保证
 - **Theorem 4.3**：在有界DDIM反转误差和语义稳定性假设下，未篡改因子保持高匹配率 $m_k \geq 1 - \beta_k - \gamma_k$，被篡改因子的匹配率有上界 $m_k \leq 1 - (\rho_k - \beta_k)^+$

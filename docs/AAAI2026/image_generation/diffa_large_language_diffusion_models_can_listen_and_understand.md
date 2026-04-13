@@ -29,8 +29,8 @@ tags:
 
 大型音频-语言模型（LALMs）近年发展迅速，但现有方法几乎全部基于自回归（AR）解码范式：
 
-1. **编码器+LLM 范式**（如 Qwen2-Audio、SALMONN）：通过适配器将语音编码器的输出投射到 LLM 输入空间
-2. **语音 token 化范式**（如 SpeechGPT、Moshi）：将音频离散化为 token 后直接用 LLM 训练
+**编码器+LLM 范式**（如 Qwen2-Audio、SALMONN）：通过适配器将语音编码器的输出投射到 LLM 输入空间
+**语音 token 化范式**（如 SpeechGPT、Moshi）：将音频离散化为 token 后直接用 LLM 训练
 
 这两种范式都依赖 AR 解码，存在固有缺陷：曝光偏差、生成速度慢、缺乏双向上下文建模和部分条件推理的灵活性。
 

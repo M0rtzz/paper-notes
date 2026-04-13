@@ -54,12 +54,13 @@ MODEM 采用两阶段训练策略：
 
 2. **Dual Degradation Estimation Module (DDEM)**：
    从输入提取退化特征 $F$ 后，生成两种互补的退化先验：
-   - **全局退化描述符** $Z_0 = \sigma(\text{Linear}(\text{MLP}(\text{AvgPool}(F)))) \in \mathbb{R}^{C_d}$：编码天气类型和严重程度
-   - **空间自适应退化核** $Z_1 = \text{Conv}(F) \times \text{Conv}(F)^T \in \mathbb{R}^{C_{d1} \times C_{d2}}$：编码局部退化结构和变化
+    - **全局退化描述符** $Z_0 = \sigma(\text{Linear}(\text{MLP}(\text{AvgPool}(F)))) \in \mathbb{R}^{C_d}$：编码天气类型和严重程度
+    - **空间自适应退化核** $Z_1 = \text{Conv}(F) \times \text{Conv}(F)^T \in \mathbb{R}^{C_{d1} \times C_{d2}}$：编码局部退化结构和变化
 
 3. **双重退化调制**：
-   - **DAFM（退化自适应特征调制）**：用 $Z_0$ 生成通道级自适应权重和偏置，通过 FiLM 调制 $F_{\text{DAFM}} = (Z_0^w \odot F_i) + Z_0^b$
-   - **DSAM（退化选择性注意力调制）**：用 $Z_1$ 构造注意力矩阵指导 SSM 的 $B$、$C$、$\Delta$ 参数生成：$F_{\text{DSAM}} = W_F F_{\text{DAFM}} \times \text{Softmax}(W_Z Z_1)$
+
+    - **DAFM（退化自适应特征调制）**：用 $Z_0$ 生成通道级自适应权重和偏置，通过 FiLM 调制 $F_{\text{DAFM}} = (Z_0^w \odot F_i) + Z_0^b$
+    - **DSAM（退化选择性注意力调制）**：用 $Z_1$ 构造注意力矩阵指导 SSM 的 $B$、$C$、$\Delta$ 参数生成：$F_{\text{DSAM}} = W_F F_{\text{DAFM}} \times \text{Softmax}(W_Z Z_1)$
    SSM 参数由 $F_{\text{DSAM}}$ 动态生成，确保状态演化和输出自适应于退化特征
 
 ### 损失函数 / 训练策略

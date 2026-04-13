@@ -29,8 +29,8 @@ tags:
 
 视觉机器人操控(VRM)需要配对的图像、语言指令和机器人动作状态数据，采集成本极高，数据稀缺严重制约了性能。现有方法虽利用大规模数据预训练弥补不足，但存在两个核心问题：
 
-1. **数据域不匹配**：使用 VQA 等 Web 数据预训练，与机器人操控任务差异大，知识迁移受限
-2. **隐式学习的局限**：部分方法使用人类动作视频（如 Ego4D），但通过对比学习或像素级未来帧预测进行隐式学习，不可避免地引入无关背景信息和像素噪声
+**数据域不匹配**：使用 VQA 等 Web 数据预训练，与机器人操控任务差异大，知识迁移受限
+**隐式学习的局限**：部分方法使用人类动作视频（如 Ego4D），但通过对比学习或像素级未来帧预测进行隐式学习，不可避免地引入无关背景信息和像素噪声
 
 **关键洞察**：人手关键点和机器人动作在操控物体时具有底层相似性。应该显式地聚焦于动作本身（关键点），忽略无关视觉信息。核心挑战在于：(1) 如何从大规模人类视频中以关键点形式提取动作知识？(2) 如何建立形态差异巨大的人手和机器人臂之间的对应关系？
 
@@ -43,31 +43,34 @@ AR-VRM 由两部分组成：预训练阶段学习关键点视觉语言模型(Key
 ### 关键设计
 
 1. **关键点视觉语言模型预训练 (Keypoint VLM Pretraining)**
-   - 使用大规模人类第一人称视频数据集 Ego4D（3,500小时、800K视频片段、8M帧）
-   - 使用 InterHand 离线检测3D手部关键点 $k_t \in \mathbb{R}^K$（图像坐标系下的3D坐标）
-   - 三模态 token 对齐：
-     - 语言：CLIP 文本编码器 + MLP → $z_l \in \mathbb{R}^d$
-     - 视觉：ViT(MAE预训练) + Perceiver Resampler → $z_o^{CLS}, z_o^{p_{1:M}} \in \mathbb{R}^d$
-     - 关键点：HandFormer 编码器 + MLP → $z_k \in \mathbb{R}^d$
-   - 三模态 token 拼接后送入 Transformer 层进行 next-token prediction：
-   $$\hat{z_{k_t}} = h^{Atten}(z_l, z_{o_1}, z_{k_1}, ..., z_{o_{t-1}}, z_{k_{t-1}})$$
-   - 预训练损失为 MSE：$\mathcal{L}_{pretrain} = \sum_{t=1}^T \mathcal{L}_{MSE}(\text{KeypointHead}(\hat{z_{k_t}}), k_t)$
-   - 固定 CLIP 文本编码器和 ViT 参数，仅训练交互层
+
+    - 使用大规模人类第一人称视频数据集 Ego4D（3,500小时、800K视频片段、8M帧）
+    - 使用 InterHand 离线检测3D手部关键点 $k_t \in \mathbb{R}^K$（图像坐标系下的3D坐标）
+    - 三模态 token 对齐：
+      - 语言：CLIP 文本编码器 + MLP → $z_l \in \mathbb{R}^d$
+      - 视觉：ViT(MAE预训练) + Perceiver Resampler → $z_o^{CLS}, z_o^{p_{1:M}} \in \mathbb{R}^d$
+      - 关键点：HandFormer 编码器 + MLP → $z_k \in \mathbb{R}^d$
+    - 三模态 token 拼接后送入 Transformer 层进行 next-token prediction：
+    $\hat{z_{k_t}} = h^{Atten}(z_l, z_{o_1}, z_{k_1}, ..., z_{o_{t-1}}, z_{k_{t-1}})$
+    - 预训练损失为 MSE：$\mathcal{L}_{pretrain} = \sum_{t=1}^T \mathcal{L}_{MSE}(\text{KeypointHead}(\hat{z_{k_t}}), k_t)$
+    - 固定 CLIP 文本编码器和 ViT 参数，仅训练交互层
 
 2. **机器人微调与类比推理 (Analogical Reasoning)**
-   - **人类动作检索**：基于语言相似度和视觉帧特征的余弦相似度检索相关人类动作视频：
-   $$sim(\tau^R, \tau^H) = cos(z_l^R, z_l^H) + \sum_t cos(z_{o_t}^R, z_{o_t}^H)$$
-   - **类比映射矩阵**：引入可学习矩阵 $m \in \mathbb{R}^{S \times K}$ 表示人手关键点到机器人组件的映射，$S$ 为机器人组件数，$K$ 为手部关键点数
-   - 通过映射矩阵将人类关键点特征变换为模拟的机器人状态特征：
-   $$f_{s_j}^* = (1-\alpha) \cdot m \cdot f_{k_j} + \alpha \cdot f_s$$
-   - 类比推理损失：$\mathcal{L}_{AR} = \sum_{j=1}^J \mathcal{L}_{MSE}(\text{Linear}(f_{s_{j,T}}^*), s_T)$
-   - 总微调损失：$\mathcal{L}_{finetune} = \mathcal{L}_{state} + \beta \cdot \mathcal{L}_{AR}$
+
+    - **人类动作检索**：基于语言相似度和视觉帧特征的余弦相似度检索相关人类动作视频：
+    $sim(\tau^R, \tau^H) = cos(z_l^R, z_l^H) + \sum_t cos(z_{o_t}^R, z_{o_t}^H)$
+    - **类比映射矩阵**：引入可学习矩阵 $m \in \mathbb{R}^{S \times K}$ 表示人手关键点到机器人组件的映射，$S$ 为机器人组件数，$K$ 为手部关键点数
+    - 通过映射矩阵将人类关键点特征变换为模拟的机器人状态特征：
+    $f_{s_j}^* = (1-\alpha) \cdot m \cdot f_{k_j} + \alpha \cdot f_s$
+    - 类比推理损失：$\mathcal{L}_{AR} = \sum_{j=1}^J \mathcal{L}_{MSE}(\text{Linear}(f_{s_{j,T}}^*), s_T)$
+    - 总微调损失：$\mathcal{L}_{finetune} = \mathcal{L}_{state} + \beta \cdot \mathcal{L}_{AR}$
 
 3. **微调策略设计**
-   - 冻结关键点编码器和关键点预测头，微调 VLM 的 Transformer 层
-   - 冻结关键点模块可保持预训练获得的关键点编解码能力
-   - 微调 VLM 防止在小规模机器人数据上过拟合并遗忘预训练知识
-   - 人类视频样本在微调阶段起到数据回放的作用
+
+    - 冻结关键点编码器和关键点预测头，微调 VLM 的 Transformer 层
+    - 冻结关键点模块可保持预训练获得的关键点编解码能力
+    - 微调 VLM 防止在小规模机器人数据上过拟合并遗忘预训练知识
+    - 人类视频样本在微调阶段起到数据回放的作用
 
 ### 损失函数总结
 

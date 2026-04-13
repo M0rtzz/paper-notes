@@ -28,12 +28,12 @@ tags:
 
 当前 LLM 推理能力的评估过度偏向数学和编程领域，而推理实际上涵盖逻辑推导、时空理解、常识推理、幽默理解等广泛的认知技能。BIG-Bench Hard (BBH) 长期作为评估通用推理的事实标准，但存在以下问题导致其逐渐失效：
 
-1. **性能饱和**：最先进模型在 BBH 上已达 90%+ 准确率，无法区分模型间差异
-2. **随机基线过高**：8/23 的任务为二分类，5/23 的任务选项不超过 5 个
-3. **捷径可用**：某些任务可通过简单规则（如出现三个 L 命令就是三角形）绕过推理直接回答
-4. **输入过短**：BBH 任务的宏平均输入长度仅约 700 字符
-5. **推理步数少**：大多数问题只需少量推理步骤
-6. **技能覆盖有限**：虽然技能种类多，但仍可大幅扩展
+**性能饱和**：最先进模型在 BBH 上已达 90%+ 准确率，无法区分模型间差异
+**随机基线过高**：8/23 的任务为二分类，5/23 的任务选项不超过 5 个
+**捷径可用**：某些任务可通过简单规则（如出现三个 L 命令就是三角形）绕过推理直接回答
+**输入过短**：BBH 任务的宏平均输入长度仅约 700 字符
+**推理步数少**：大多数问题只需少量推理步骤
+**技能覆盖有限**：虽然技能种类多，但仍可大幅扩展
 
 BBEH 的目标是在保留 BBH 多样性优势的同时，大幅提升难度并扩展所需的推理技能。
 
@@ -50,26 +50,28 @@ BBEH 用 23 个新任务一一替换 BBH 中的原始任务，每个新任务：
 ### 关键设计
 
 1. **需要的推理技能大幅扩展**：在 BBH 原有的 11 类技能（时间理解、空间几何、常识、幽默、因果、世界知识、逻辑推导、语言知识、计数过滤、数据结构与算法、算术运算）基础上，新增了 12 类更高阶的技能需求：
-   - 多跳推理（Many-hop reasoning）
-   - 超长程依赖（Very long-range dependency）
-   - 违背强先验（Going against strong prior）
-   - 即时学习（Learning on the fly）
-   - 抗干扰（Dealing with distractors）
-   - 长上下文处理（Long-context）
-   - 大海捞针（Needle in a haystack）
-   - 推理链纠错（Finding errors in reasoning traces）
-   - 归纳推理（Inductive reasoning）
-   - 约束满足（Constraint satisfaction）
-   - 组合理解（Compositional understanding）
-   - 知识密集推理（Knowledge-intensive reasoning）
+
+    - 多跳推理（Many-hop reasoning）
+    - 超长程依赖（Very long-range dependency）
+    - 违背强先验（Going against strong prior）
+    - 即时学习（Learning on the fly）
+    - 抗干扰（Dealing with distractors）
+    - 长上下文处理（Long-context）
+    - 大海捞针（Needle in a haystack）
+    - 推理链纠错（Finding errors in reasoning traces）
+    - 归纳推理（Inductive reasoning）
+    - 约束满足（Constraint satisfaction）
+    - 组合理解（Compositional understanding）
+    - 知识密集推理（Knowledge-intensive reasoning）
 
 2. **半对抗式难度校准**：选择两个参考模型——Gemini 1.5 Flash（通用）和 Gemini-2.0-Flash-Thinking-Exp（推理），迭代增加任务难度，直到两个参考模型的准确率均低于 70%。通常只将模型作为黑盒使用，但在必要时会分析模型策略（如发现模型用 Python 直接执行布尔表达式后，改用自然语言子表达式替换 True/False）。
 
 3. **典型任务升级示例**：
-   - **Boolean Expressions**：将 "True" 替换为 "The capital of Canada is Ottawa" 等文本子表达式，防止模型用代码执行
-   - **Buggy Tables**：从简单表格查询升级为理解和重建大型有缺陷表格
-   - **Object Counting**：从短列表简单计数升级为超长列表中带大量干扰项的特定类型计数
-   - **Word Sorting**：从标准字母序排序升级为使用修改后的字母序（违背先验）+ 查找排序错误
+
+    - **Boolean Expressions**：将 "True" 替换为 "The capital of Canada is Ottawa" 等文本子表达式，防止模型用代码执行
+    - **Buggy Tables**：从简单表格查询升级为理解和重建大型有缺陷表格
+    - **Object Counting**：从短列表简单计数升级为超长列表中带大量干扰项的特定类型计数
+    - **Word Sorting**：从标准字母序排序升级为使用修改后的字母序（违背先验）+ 查找排序错误
 
 ### 数据集属性
 

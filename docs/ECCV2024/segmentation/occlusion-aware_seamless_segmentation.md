@@ -26,15 +26,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 全景图像理解（panoramic scene understanding）和遮挡感知的 Amodal 分割各自均有进展，但两个方向长期独立发展。全景分割方法（Trans4PASS、DATR）能处理 360° 图像畸变但无法推理被遮挡物体；Amodal 方法（ORCNN、SLN）能预测完整遮挡轮廓但无法泛化到全景图像。
-2. **现有痛点**:
+**领域现状**: 全景图像理解（panoramic scene understanding）和遮挡感知的 Amodal 分割各自均有进展，但两个方向长期独立发展。全景分割方法（Trans4PASS、DATR）能处理 360° 图像畸变但无法推理被遮挡物体；Amodal 方法（ORCNN、SLN）能预测完整遮挡轮廓但无法泛化到全景图像。
+**现有痛点**:
    - 全景图像存在严重的畸变（distortion），直接使用传统分割模型性能大幅下降；
    - 现有语义/实例分割只能预测可见区域，无法推理被遮挡部分的完整形状；
    - 全景图像标注极其昂贵（每张约 210 分钟），导致标注稀缺，需要无监督域适应（UDA）从标签丰富的针孔域迁移。
-3. **核心矛盾**: 视场遮挡（FoV occlusion）、场景内物体遮挡（in-field occlusion）和跨域差距（domain gap）三者交织，现有方法只能分别解决其中一个，无法实现"无缝"（seamless）的全面理解。
-4. **本文要解决什么?** 统一解决三大"遮罩"问题：(1) 解锁窄视场 $\rightarrow$ 全景 360°；(2) 解锁物体遮挡 $\rightarrow$ amodal 完整分割；(3) 解锁域差距 $\rightarrow$ 从针孔到全景的 UDA。
-5. **切入角度**: 定义全新任务 OASS，构建专用数据集 BlendPASS，设计统一框架 UnmaskFormer 一次性解决畸变处理、遮挡推理和域适应。
-6. **核心idea一句话**: 通过 Unmasking Attention 处理畸变与遮挡、Amodal-oriented Mix 增强跨域适应和遮挡重建能力，在一个 transformer 框架中无缝完成五类分割任务。
+**核心矛盾**: 视场遮挡（FoV occlusion）、场景内物体遮挡（in-field occlusion）和跨域差距（domain gap）三者交织，现有方法只能分别解决其中一个，无法实现"无缝"（seamless）的全面理解。
+**本文要解决什么?** 统一解决三大"遮罩"问题：(1) 解锁窄视场 $\rightarrow$ 全景 360°；(2) 解锁物体遮挡 $\rightarrow$ amodal 完整分割；(3) 解锁域差距 $\rightarrow$ 从针孔到全景的 UDA。
+**切入角度**: 定义全新任务 OASS，构建专用数据集 BlendPASS，设计统一框架 UnmaskFormer 一次性解决畸变处理、遮挡推理和域适应。
+**核心idea一句话**: 通过 Unmasking Attention 处理畸变与遮挡、Amodal-oriented Mix 增强跨域适应和遮挡重建能力，在一个 transformer 框架中无缝完成五类分割任务。
 
 ## 方法详解
 
@@ -48,27 +48,31 @@ UnmaskFormer 由三大部分组成：
 ### 关键设计
 
 1. **Unmasking Attention (UA)**:
-   - **做什么**: 在 self-attention 之后引入增强池化层，生成遮挡感知特征
-   - **核心思路**: 特征 $\boldsymbol{X'}$ 经过 self-attention 后，用全局平均池化 $\boldsymbol{q} = GAP(\boldsymbol{X'})$ 得到池化查询，再通过交叉注意力得到 $\boldsymbol{q'} \in \mathbb{R}^{1 \times 1 \times C}$，应用 sigmoid 函数 $\phi(\boldsymbol{q'})$ 生成遮挡感知掩码，与原特征做逐元素乘法得到遮挡感知特征 $\boldsymbol{X''} = \phi(\boldsymbol{q'}) \odot \boldsymbol{X'}$
-   - **设计动机**: 全局池化捕获全图上下文，sigmoid 掩码有选择地增强/抑制特征通道，使网络学会关注被遮挡区域的信息
+
+    - **做什么**: 在 self-attention 之后引入增强池化层，生成遮挡感知特征
+    - **核心思路**: 特征 $\boldsymbol{X'}$ 经过 self-attention 后，用全局平均池化 $\boldsymbol{q} = GAP(\boldsymbol{X'})$ 得到池化查询，再通过交叉注意力得到 $\boldsymbol{q'} \in \mathbb{R}^{1 \times 1 \times C}$，应用 sigmoid 函数 $\phi(\boldsymbol{q'})$ 生成遮挡感知掩码，与原特征做逐元素乘法得到遮挡感知特征 $\boldsymbol{X''} = \phi(\boldsymbol{q'}) \odot \boldsymbol{X'}$
+    - **设计动机**: 全局池化捕获全图上下文，sigmoid 掩码有选择地增强/抑制特征通道，使网络学会关注被遮挡区域的信息
 
 2. **交错 DPE 排列 (Interleaved DPE)**:
-   - **做什么**: 将 Deformable Patch Embedding 从仅用于初始阶段改为交错放置在 Stage 2 和 Stage 4
-   - **核心思路**: DPE 通过可学习的自适应偏移 $\boldsymbol{\Delta}^{DPE}(i,j)$ 捕获局部几何变化，在深层阶段使用 DPE 比浅层效果更好
-   - **设计动机**: 全景图像在不同层级都存在畸变，仅在初始阶段处理不够。实验证明在深层阶段 (Stage 2, 4) 使用 DPE 比浅层 (Stage 1, 3) 效果更佳
+
+    - **做什么**: 将 Deformable Patch Embedding 从仅用于初始阶段改为交错放置在 Stage 2 和 Stage 4
+    - **核心思路**: DPE 通过可学习的自适应偏移 $\boldsymbol{\Delta}^{DPE}(i,j)$ 捕获局部几何变化，在深层阶段使用 DPE 比浅层效果更好
+    - **设计动机**: 全景图像在不同层级都存在畸变，仅在初始阶段处理不够。实验证明在深层阶段 (Stage 2, 4) 使用 DPE 比浅层 (Stage 1, 3) 效果更佳
 
 3. **Amodal-oriented Mix (AoMix)**:
-   - **做什么**: 跨域数据增强策略，利用 amodal 标注生成遮挡训练样本并融合源域-目标域图像
-   - **核心思路**:
-     - 随机采样 amodal 实例掩码 $\{M_r^{(i)}\}_{i=1}^z$，经随机缩放 $RS(\cdot)$ 和随机填充 $RP(\cdot)$ 生成新掩码 $M_r = H(\sum_i RP(RS(M_r^{(i)})))$
-     - 用 $M_r$ 遮盖源图像 Thing 区域：$\hat{x}_s = (1 - M_r \cap M_s) \odot x_s$
-     - 随机采样一半语义类别从遮盖源图 $\hat{x}_s$ 粘贴到目标图 $x_t$，生成混合图 $\hat{x}_m$
-   - **设计动机**: 用真实物体形状（而非随机 patch）做遮挡，更贴近实际场景；同时混合源域-目标域弥补域差距
+
+    - **做什么**: 跨域数据增强策略，利用 amodal 标注生成遮挡训练样本并融合源域-目标域图像
+    - **核心思路**:
+      - 随机采样 amodal 实例掩码 $\{M_r^{(i)}\}_{i=1}^z$，经随机缩放 $RS(\cdot)$ 和随机填充 $RP(\cdot)$ 生成新掩码 $M_r = H(\sum_i RP(RS(M_r^{(i)})))$
+      - 用 $M_r$ 遮盖源图像 Thing 区域：$\hat{x}_s = (1 - M_r \cap M_s) \odot x_s$
+      - 随机采样一半语义类别从遮盖源图 $\hat{x}_s$ 粘贴到目标图 $x_t$，生成混合图 $\hat{x}_m$
+    - **设计动机**: 用真实物体形状（而非随机 patch）做遮挡，更贴近实际场景；同时混合源域-目标域弥补域差距
 
 4. **OAFusion (Occlusion-Aware Fusion)**:
-   - **做什么**: 融合三分支输出产生五类分割结果
-   - **核心思路**: 语义直接输出；实例/amodal 实例的类别由语义分支多数投票决定；关键改进是在 amodal 场景下只考虑不与其他物体重叠的区域进行投票
-   - **设计动机**: 传统融合在大面积遮挡时会误分类（例如行人被车大面积遮挡→误判为车），OAFusion 忽略重叠区域避免此问题
+
+    - **做什么**: 融合三分支输出产生五类分割结果
+    - **核心思路**: 语义直接输出；实例/amodal 实例的类别由语义分支多数投票决定；关键改进是在 amodal 场景下只考虑不与其他物体重叠的区域进行投票
+    - **设计动机**: 传统融合在大面积遮挡时会误分类（例如行人被车大面积遮挡→误判为车），OAFusion 忽略重叠区域避免此问题
 
 ### 损失函数 / 训练策略
 

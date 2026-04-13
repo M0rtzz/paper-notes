@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：序列推荐模型（SIM、HSTU 等）采用 Transformer 注意力机制提升性能，为降低推理延迟引入了 KV cache 技术预计算并缓存 K/V。
-2. **现有痛点**：推荐系统用户基数庞大（亿级），每个用户可能有很长的行为历史，KV cache 总量很快超过 GPU 显存容量，必须卸载到 CPU/外存，引入巨大传输延迟。
-3. **核心矛盾**：LLM 的 KV 压缩方法（如 token 裁剪、MLA 降维）只压缩单用户序列，忽视了推荐场景独有的跨用户协同信号。
-4. **本文要解决什么**：利用跨用户 KV 相似性实现极致压缩——把大部分信息放入全局共享池，每用户只存极低维度的个性化 KV。
-5. **切入角度**：通过 SVD 分解 K/V，发现主成分（>90% 信息）跨用户相关性强，残差（<10% 信息）是用户特有的——这给出了"什么可以共享"的定量依据。
-6. **核心 idea 一句话**：用可学习的全局 KV 池存储跨用户共享信息，每用户仅缓存低维个性化 KV + 全局索引，实现 0.8% 极端压缩率。
+**领域现状**：序列推荐模型（SIM、HSTU 等）采用 Transformer 注意力机制提升性能，为降低推理延迟引入了 KV cache 技术预计算并缓存 K/V。
+**现有痛点**：推荐系统用户基数庞大（亿级），每个用户可能有很长的行为历史，KV cache 总量很快超过 GPU 显存容量，必须卸载到 CPU/外存，引入巨大传输延迟。
+**核心矛盾**：LLM 的 KV 压缩方法（如 token 裁剪、MLA 降维）只压缩单用户序列，忽视了推荐场景独有的跨用户协同信号。
+**本文要解决什么**：利用跨用户 KV 相似性实现极致压缩——把大部分信息放入全局共享池，每用户只存极低维度的个性化 KV。
+**切入角度**：通过 SVD 分解 K/V，发现主成分（>90% 信息）跨用户相关性强，残差（<10% 信息）是用户特有的——这给出了"什么可以共享"的定量依据。
+**核心 idea 一句话**：用可学习的全局 KV 池存储跨用户共享信息，每用户仅缓存低维个性化 KV + 全局索引，实现 0.8% 极端压缩率。
 
 ## 方法详解
 
@@ -41,18 +41,21 @@ tags:
 ### 关键设计
 
 1. **KV 分解：用户特有 + 集体共享**:
-   - 做什么：将 KV 分为低维 $\mathbf{K}_u \in \mathbb{R}^{n \times d_u}$ 和高维 $\mathbf{K}_c \in \mathbb{R}^{n \times d_g}$
-   - 核心思路：$\mathbf{K}_u = \mathbf{S} W_k + b_k$（线性投影降维），$\mathbf{K}_c[i] = P_k[\mathbf{I}_k[i]]$（从全局池按索引检索），最终拼接 $\mathbf{K} = \text{concat}(\mathbf{K}_u, \mathbf{K}_c)$
-   - 设计动机：SVD 分析表明主成分可跨用户共享、残差是个性化的，故用共享池承载高维主信息，低维投影保留个性化
+
+    - 做什么：将 KV 分为低维 $\mathbf{K}_u \in \mathbb{R}^{n \times d_u}$ 和高维 $\mathbf{K}_c \in \mathbb{R}^{n \times d_g}$
+    - 核心思路：$\mathbf{K}_u = \mathbf{S} W_k + b_k$（线性投影降维），$\mathbf{K}_c[i] = P_k[\mathbf{I}_k[i]]$（从全局池按索引检索），最终拼接 $\mathbf{K} = \text{concat}(\mathbf{K}_u, \mathbf{K}_c)$
+    - 设计动机：SVD 分析表明主成分可跨用户共享、残差是个性化的，故用共享池承载高维主信息，低维投影保留个性化
 
 2. **CollectiveKV Router**:
-   - 做什么：将序列 embedding 映射为每个 item 的全局 KV 池索引
-   - 核心思路：$\mathbf{M} = \mathbf{S} W_r + b_r$，$\mathbf{I}_k[i] = \arg\max_j \mathbf{M}_{ij}$。训练时用 sigmoid 门控保证梯度可传播：$\mathbf{K}_c[i] = \sigma(\mathbf{M}[i, \mathbf{I}_k[i]]) \cdot P_k[\mathbf{I}_k[i]]$
-   - 设计动机：argmax 不可微，sigmoid 门控+peak loss 确保训练推理一致性
+
+    - 做什么：将序列 embedding 映射为每个 item 的全局 KV 池索引
+    - 核心思路：$\mathbf{M} = \mathbf{S} W_r + b_r$，$\mathbf{I}_k[i] = \arg\max_j \mathbf{M}_{ij}$。训练时用 sigmoid 门控保证梯度可传播：$\mathbf{K}_c[i] = \sigma(\mathbf{M}[i, \mathbf{I}_k[i]]) \cdot P_k[\mathbf{I}_k[i]]$
+    - 设计动机：argmax 不可微，sigmoid 门控+peak loss 确保训练推理一致性
 
 3. **全局 KV 池**:
-   - 做什么：$P_k, P_v \in \mathbb{R}^{m \times d_g}$ 常驻 GPU 显存，所有用户共享
-   - 设计动机：池大小 $m$ 远小于用户数 × 序列长度，极大减少存储；高维 $d_g$ 保证信息容量
+
+    - 做什么：$P_k, P_v \in \mathbb{R}^{m \times d_g}$ 常驻 GPU 显存，所有用户共享
+    - 设计动机：池大小 $m$ 远小于用户数 × 序列长度，极大减少存储；高维 $d_g$ 保证信息容量
 
 ### 损失函数 / 训练策略
 - 原始推荐损失 + peak loss $\mathcal{L}_{\text{peak}} = -\frac{1}{n}\sum_i \log\sigma(\mathbf{M}[i, \mathbf{I}_k[i]])$（保证 sigmoid 输出接近 1）

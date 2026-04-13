@@ -37,9 +37,10 @@ MindPower 包含三部分：(1) MindPower Benchmark——590 个家庭场景（V
 
 ### 关键设计
 1. **MindPower Reasoning Hierarchy（六层推理结构）**:
-   - Level-1 **感知** `<Perception>`：观察环境和人类行为
-   - Level-2 **心智推理**: `<Belief>`（推断自己和人类的信念，含二阶信念——"我认为Alice认为苹果在桌上"）→ `<Desire>`（确定辅助目标）→ `<Intention>`（形成具体行动意图）
-   - Level-3 **决策与行动**: `<Decision>`（选择计划）→ `<Action>`（输出原子操作序列如 `walk(fridge), open(fridge), pick(apple)`）
+
+    - Level-1 **感知** `<Perception>`：观察环境和人类行为
+    - Level-2 **心智推理**: `<Belief>`（推断自己和人类的信念，含二阶信念——"我认为Alice认为苹果在桌上"）→ `<Desire>`（确定辅助目标）→ `<Intention>`（形成具体行动意图）
+    - Level-3 **决策与行动**: `<Decision>`（选择计划）→ `<Action>`（输出原子操作序列如 `walk(fridge), open(fridge), pick(apple)`）
 
 2. **Robot-Centric 视角（区别于现有 Role-Centric benchmark）**: 现有 ToM benchmark 只推断视频中人物的心理状态。MindPower 要求 agent 同时推断自己的信念和人类的信念，形成完整的推理闭环。例如："我认为 Alice 在找苹果" + "我知道苹果实际在冰箱里" → "我应该帮她从冰箱拿苹果"
 

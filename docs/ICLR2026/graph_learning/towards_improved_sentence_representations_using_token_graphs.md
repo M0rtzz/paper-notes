@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 产生 token 级隐状态，但许多下游任务需要单向量句子表征。标准做法是 mean/max/[CLS] 池化——将 token 视为独立集合。
+**领域现状**：LLM 产生 token 级隐状态，但许多下游任务需要单向量句子表征。标准做法是 mean/max/[CLS] 池化——将 token 视为独立集合。
 
-2. **现有痛点**：(a) 标准池化丢弃了自注意力层捕获的丰富关系结构；(b) 当仅少数 token 携带任务相关信号时，mean 池化被噪声淹没；(c) decoder-only LLM 的 causal attention 优化了 next-token prediction 而非句子理解。全模型微调太贵。
+**现有痛点**：(a) 标准池化丢弃了自注意力层捕获的丰富关系结构；(b) 当仅少数 token 携带任务相关信号时，mean 池化被噪声淹没；(c) decoder-only LLM 的 causal attention 优化了 next-token prediction 而非句子理解。全模型微调太贵。
 
-3. **核心矛盾**：如何在不微调 LLM 的条件下，从冻结模型的输出中获得高质量句子表征？
+**核心矛盾**：如何在不微调 LLM 的条件下，从冻结模型的输出中获得高质量句子表征？
 
-4. **本文要解决什么**：将池化重新定义为"先做关系学习，再聚合"——token 不是独立集合而是图。
+**本文要解决什么**：将池化重新定义为"先做关系学习，再聚合"——token 不是独立集合而是图。
 
-5. **切入角度**：LLM 的 token 隐状态天然携带相似性结构（cosine similarity），可以构建潜在图。GNN 在图上传播信息后再聚合，比 DeepSets 框架更强。
+**切入角度**：LLM 的 token 隐状态天然携带相似性结构（cosine similarity），可以构建潜在图。GNN 在图上传播信息后再聚合，比 DeepSets 框架更强。
 
-6. **核心 idea**：Glot = Token 相似性图构建 + Token-GNN 细化 + 可学习 readout。冻结 LLM backbone，仅训练轻量 GNN head。
+**核心 idea**：Glot = Token 相似性图构建 + Token-GNN 细化 + 可学习 readout。冻结 LLM backbone，仅训练轻量 GNN head。
 
 ## 方法详解
 
@@ -47,19 +47,22 @@ tags:
 ### 关键设计
 
 1. **Token 图构建**:
-   - **做什么**：基于 cosine 相似度构建稀疏图
-   - **核心思路**：$\mathbf{S}_{ij} = \cos(\mathbf{x}_i, \mathbf{x}_j)$，仅 $\mathbf{S}_{ij} > \tau$ 时创建边。$\tau$ 是超参数
-   - **设计动机**：保留语义相关的 token 间连接，丢弃无关连接。阈值控制图稀疏度
+
+    - **做什么**：基于 cosine 相似度构建稀疏图
+    - **核心思路**：$\mathbf{S}_{ij} = \cos(\mathbf{x}_i, \mathbf{x}_j)$，仅 $\mathbf{S}_{ij} > \tau$ 时创建边。$\tau$ 是超参数
+    - **设计动机**：保留语义相关的 token 间连接，丢弃无关连接。阈值控制图稀疏度
 
 2. **Token-GNN 细化**:
-   - **做什么**：在 token 图上传播信息
-   - **核心思路**：$K$ 层 GNN，$\mathbf{a}_i^{(\ell)} = \text{AGGREGATE}_{j \in \mathcal{N}_i}(\mathbf{h}_j^{(\ell)})$，$\mathbf{h}_i^{(\ell+1)} = \sigma(\mathbf{W}^{(\ell)} \text{CONCAT}(\mathbf{h}_i^{(\ell)}, \mathbf{a}_i^{(\ell)}))$
-   - **设计动机**：GNN 捕获 token 间依赖，如"not good"中 not 对 good 的否定。DeepSets（K=0）无法建模此类交互
+
+    - **做什么**：在 token 图上传播信息
+    - **核心思路**：$K$ 层 GNN，$\mathbf{a}_i^{(\ell)} = \text{AGGREGATE}_{j \in \mathcal{N}_i}(\mathbf{h}_j^{(\ell)})$，$\mathbf{h}_i^{(\ell+1)} = \sigma(\mathbf{W}^{(\ell)} \text{CONCAT}(\mathbf{h}_i^{(\ell)}, \mathbf{a}_i^{(\ell)}))$
+    - **设计动机**：GNN 捕获 token 间依赖，如"not good"中 not 对 good 的否定。DeepSets（K=0）无法建模此类交互
 
 3. **可学习 Readout**:
-   - **做什么**：加权聚合细化后的 token 表征
-   - **核心思路**：$m_i = \mathbf{v}^\top \tanh(\mathbf{W}_m \mathbf{u}_i + \mathbf{b}_m)$，$\pi = \text{softmax}(\mathbf{m})$，$\mathbf{z} = \sum_i \pi_i \mathbf{u}_i$
-   - **设计动机**：自适应权重优于固定 mean/max。理论证明 Glot 泛化了 mean/max/CLS 和 AdaPool
+
+    - **做什么**：加权聚合细化后的 token 表征
+    - **核心思路**：$m_i = \mathbf{v}^\top \tanh(\mathbf{W}_m \mathbf{u}_i + \mathbf{b}_m)$，$\pi = \text{softmax}(\mathbf{m})$，$\mathbf{z} = \sum_i \pi_i \mathbf{u}_i$
+    - **设计动机**：自适应权重优于固定 mean/max。理论证明 Glot 泛化了 mean/max/CLS 和 AdaPool
 
 ### 损失函数 / 训练策略
 

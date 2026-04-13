@@ -31,9 +31,9 @@ tags:
 
 传统 GAN 方法（SimSwap、E4S、InfoSwap）受限于 GAN 本身的图像质量和模式崩塌问题。扩散模型凭借更强的生成能力成为新方向，但现有扩散方法（DiffFace、DiffSwap、REFace）面临两个核心挑战：
 
-1. **身份与属性的优先级问题**：人脸替换中身份保持应优先于属性一致性——结果首先要"像"源人脸，其次才是跟目标表情/姿态对齐。但现有方法通常联合注入所有条件，缺乏优先级控制。
+**身份与属性的优先级问题**：人脸替换中身份保持应优先于属性一致性——结果首先要"像"源人脸，其次才是跟目标表情/姿态对齐。但现有方法通常联合注入所有条件，缺乏优先级控制。
 
-2. **身份-属性条件冲突**：身份条件驱动输出接近源人脸，属性条件驱动输出接近目标人脸，两者在训练中方向相反（见论文 Fig.3），联合训练容易陷入次优解。
+**身份-属性条件冲突**：身份条件驱动输出接近源人脸，属性条件驱动输出接近目标人脸，两者在训练中方向相反（见论文 Fig.3），联合训练容易陷入次优解。
 
 ## 方法详解
 
@@ -44,25 +44,28 @@ tags:
 ### 关键设计
 
 1. **解耦条件注入（Decoupled Facial Condition Injection）**:
-   - **数据层面解耦**：不同于以往用同一图像做增强生成条件对（容易泄露身份和属性信息），本文使用**同一人不同属性**的配对图像，从根本上解耦身份与属性特征
-   - **双路径提取**：身份路径使用 ArcFace 人脸识别模型提取 $d$ 维特征，通过 MLP 扩展为 $n \times d$ 的 token 序列 $c_{\text{face}}$，再用 DINOv2 提取空间细节特征 $c_{\text{dino}}$，通过交叉注意力融合：
-   $$c_{\text{id}} = c_{\text{face}} + \lambda_{\text{id}} \cdot \text{Attention}(c_{\text{face}}, c_{\text{dino}}, c_{\text{dino}})$$
+
+    - **数据层面解耦**：不同于以往用同一图像做增强生成条件对（容易泄露身份和属性信息），本文使用**同一人不同属性**的配对图像，从根本上解耦身份与属性特征
+    - **双路径提取**：身份路径使用 ArcFace 人脸识别模型提取 $d$ 维特征，通过 MLP 扩展为 $n \times d$ 的 token 序列 $c_{\text{face}}$，再用 DINOv2 提取空间细节特征 $c_{\text{dino}}$，通过交叉注意力融合：
+    $c_{\text{id}} = c_{\text{face}} + \lambda_{\text{id}} \cdot \text{Attention}(c_{\text{face}}, c_{\text{dino}}, c_{\text{dino}})$
    属性路径使用 SimSwap 的 3 层下采样网络从目标人脸提取表情特征 $c_{\text{attr}}$
-   - **注意力融合**：身份特征作为 query、属性特征作为 key-value，通过融合因子 $\lambda_{\text{fuse}}$ 控制属性注入强度：
-   $$c_{\text{fuse}} = c_{\text{id}} + \lambda_{\text{fuse}} \cdot \text{Attention}(c_{\text{id}}, c_{\text{attr}}, c_{\text{attr}})$$
+    - **注意力融合**：身份特征作为 query、属性特征作为 key-value，通过融合因子 $\lambda_{\text{fuse}}$ 控制属性注入强度：
+    $c_{\text{fuse}} = c_{\text{id}} + \lambda_{\text{fuse}} \cdot \text{Attention}(c_{\text{id}}, c_{\text{attr}}, c_{\text{attr}})$
    当 $\lambda_{\text{fuse}} = 0$ 时退化为纯身份条件。融合特征通过 GLIGEN 适配器注入 UNet 交叉注意力层。
 
 2. **身份约束的多阶段训练（Identity-Constrained Facial Conditioning）**:
-   - **Stage 1 — 身份导向调优**：扩展 UNet 输入层接受噪声隐变量 $x_t$、修复区域掩码 $m$ 和背景上下文 $(1-m) \odot x_t$。仅使用身份条件（$\lambda_{\text{fuse}} = 0$），无属性约束，将模型解空间收缩到身份一致的输出区域
-   - **Stage 2 — 属性调优**：启用属性条件（$\lambda_{\text{fuse}} = 1$），引导模型在保持身份约束的前提下对齐目标表情和姿态。两个关键细节：(a) 融合模块输出层零初始化，避免属性注入破坏已学的身份特征；(b) 降低身份空间增强因子 $\lambda_{\text{id}}$ 至 0.2，防止身份条件过强而忽视属性
-   - **Stage 3 — 端到端精炼**：将 50 步 DDIM 采样视为级联端到端生成模型，在采样结果上施加身份损失和对抗损失：
-   $$\mathcal{L} = \lambda_{\text{adv}} \mathcal{L}_{\text{adv}} + \lambda_{\text{id}} \mathcal{L}_{\text{id}}$$
+
+    - **Stage 1 — 身份导向调优**：扩展 UNet 输入层接受噪声隐变量 $x_t$、修复区域掩码 $m$ 和背景上下文 $(1-m) \odot x_t$。仅使用身份条件（$\lambda_{\text{fuse}} = 0$），无属性约束，将模型解空间收缩到身份一致的输出区域
+    - **Stage 2 — 属性调优**：启用属性条件（$\lambda_{\text{fuse}} = 1$），引导模型在保持身份约束的前提下对齐目标表情和姿态。两个关键细节：(a) 融合模块输出层零初始化，避免属性注入破坏已学的身份特征；(b) 降低身份空间增强因子 $\lambda_{\text{id}}$ 至 0.2，防止身份条件过强而忽视属性
+    - **Stage 3 — 端到端精炼**：将 50 步 DDIM 采样视为级联端到端生成模型，在采样结果上施加身份损失和对抗损失：
+    $\mathcal{L} = \lambda_{\text{adv}} \mathcal{L}_{\text{adv}} + \lambda_{\text{id}} \mathcal{L}_{\text{id}}$
    为解决反向传播的内存开销，每个 mini-batch 仅从 50 步中随机采样 $k$ 步计算梯度
 
 3. **与 GAN 方法的关键区别**:
-   - DiffSwap/DiffFace 直接将 ID loss 加到噪声预测损失上，这放松了 ELBO 理论界，降低生成质量
-   - REFace 在多步 DDIM 采样结果上加 ID loss，但计算量大
-   - 本文将 ID 监督独立为第三阶段，避免干扰扩散训练的 ELBO，同时利用 SNGAN 判别器进一步提升真实感
+
+    - DiffSwap/DiffFace 直接将 ID loss 加到噪声预测损失上，这放松了 ELBO 理论界，降低生成质量
+    - REFace 在多步 DDIM 采样结果上加 ID loss，但计算量大
+    - 本文将 ID 监督独立为第三阶段，避免干扰扩散训练的 ELBO，同时利用 SNGAN 判别器进一步提升真实感
 
 ### 损失函数 / 训练策略
 

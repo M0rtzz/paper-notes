@@ -24,11 +24,11 @@ tags:
 将MeanFlow重新形式化为残差映射 $g(a_t,b,t) = a_t - u(a_t,b,t)$，实现一步噪声→动作的生成式策略，无需蒸馏或多步ODE积分，可直接与Q-learning联合训练，在OGBench和D4RL的73个任务上取得强性能。
 
 ## 研究背景与动机
-1. **领域现状**：Offline RL中需要表达强且高效的策略网络。高斯策略推理快但表达力不足（无法建模多模态动作分布），Flow/Diffusion策略表达强但需要多步推理。
-2. **现有痛点**：将flow-based策略与Q-learning结合面临严重困难——多步生成需要BPTT，计算昂贵且不稳定。现有解决方案采用两阶段蒸馏（先BC训练多步策略，再蒸馏到一步），但增加复杂性且损失表达力。
-3. **核心矛盾**：需要同时满足：一步推理、多模态表达、Q-learning兼容。现有方法最多满足其中两个。
-4. **切入角度**：MeanFlow允许一步生成（通过平均速度场），但原始形式的"速度估计→积分"解耦设计在Q-learning中不稳定。关键是将MeanFlow重新形式化为单步残差映射。
-5. **核心idea一句话**：用残差形式 $g(a_t,b,t)=a_t-u(a_t,b,t)$ 重新形式化MeanFlow，合并速度估计和动作生成为一个前向传播
+**领域现状**：Offline RL中需要表达强且高效的策略网络。高斯策略推理快但表达力不足（无法建模多模态动作分布），Flow/Diffusion策略表达强但需要多步推理。
+**现有痛点**：将flow-based策略与Q-learning结合面临严重困难——多步生成需要BPTT，计算昂贵且不稳定。现有解决方案采用两阶段蒸馏（先BC训练多步策略，再蒸馏到一步），但增加复杂性且损失表达力。
+**核心矛盾**：需要同时满足：一步推理、多模态表达、Q-learning兼容。现有方法最多满足其中两个。
+**切入角度**：MeanFlow允许一步生成（通过平均速度场），但原始形式的"速度估计→积分"解耦设计在Q-learning中不稳定。关键是将MeanFlow重新形式化为单步残差映射。
+**核心idea一句话**：用残差形式 $g(a_t,b,t)=a_t-u(a_t,b,t)$ 重新形式化MeanFlow，合并速度估计和动作生成为一个前向传播
 
 ## 方法详解
 
@@ -40,9 +40,10 @@ tags:
 ### 关键设计
 
 1. **残差形式MeanFlow**:
-   - 原始形式是 $v_{ave}=u(e,0,1)$，$\hat{a}=e-v_{ave}$（两步）——早期训练中动作常超出边界需clipping，破坏Bellman target
-   - 残差形式 $g(a_t,b,t)=a_t-u(a_t,b,t)$ 合并为单步，通过zero/small-variance初始化保证早期输出在[-1,1]范围内
-   - 由UAT（万能近似定理）保证 $g_\theta$ 的表达能力等价于原始 $u_\theta$
+
+    - 原始形式是 $v_{ave}=u(e,0,1)$，$\hat{a}=e-v_{ave}$（两步）——早期训练中动作常超出边界需clipping，破坏Bellman target
+    - 残差形式 $g(a_t,b,t)=a_t-u(a_t,b,t)$ 合并为单步，通过zero/small-variance初始化保证早期输出在[-1,1]范围内
+    - 由UAT（万能近似定理）保证 $g_\theta$ 的表达能力等价于原始 $u_\theta$
 
 2. **MeanFlow Identity训练**: 损失 $\mathcal{L}_{MFI}(\theta) = E\|g_\theta(a_t,b,t) - \text{sg}(g_{tgt})\|_2^2$，target通过链式法则计算
 

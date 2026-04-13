@@ -46,8 +46,9 @@ Inv²A (Invariant Inverse Attacker) 采用编码器-解码器架构：
 ### 关键设计
 
 1. **不变潜空间假说 (ILSH)**: 提出两个关键性质：
-   - **源不变性(Source Invariance)**: 同一prompt生成的不同输出应在潜空间中保持一致的语义表示
-   - **循环不变性(Cyclic Invariance)**: 前向映射 $\mathcal{X} \to \mathcal{Z} \to \mathcal{Y}$ 和逆映射 $\mathcal{Y} \to \mathcal{Z} \to \mathcal{X}$ 应在共享潜空间中自恰
+
+    - **源不变性(Source Invariance)**: 同一prompt生成的不同输出应在潜空间中保持一致的语义表示
+    - **循环不变性(Cyclic Invariance)**: 前向映射 $\mathcal{X} \to \mathcal{Z} \to \mathcal{Y}$ 和逆映射 $\mathcal{Y} \to \mathcal{Z} \to \mathcal{X}$ 应在共享潜空间中自恰
    
    作者通过实验验证了ILSH：当输出受到扰动时，逆映射的熵、条件概率和往返保真度都急剧恶化；增强前向映射时，逆映射指标同步提升。这说明LLM潜空间中已经隐含了逆映射。
 

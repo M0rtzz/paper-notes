@@ -44,32 +44,36 @@ tags:
 ### 关键设计
 
 1. **投影非线性统一框架 (Definition 3.1 & Table 1)**:
-   - **ReLU**: $g(\mathbf{v}) = \Pi_{\mathcal{S}}\{\mathbf{v}\}$，$\mathcal{S} = \{\mathbf{y} \geq 0\}$（正象限投影）
-   - **TopK**: $g(\mathbf{v}) = \Pi_{\mathcal{S}}\{\mathbf{v}\}$，$\mathcal{S} = \{\mathbf{y} \geq 0, \|\mathbf{y}\|_0 \leq k\}$（k-稀疏约束投影）
-   - **JumpReLU**: ReLU($\mathbf{v} - \theta$) + $\theta \odot H(\mathbf{v} - \theta)$，结合了阈值化和正象限投影
+
+    - **ReLU**: $g(\mathbf{v}) = \Pi_{\mathcal{S}}\{\mathbf{v}\}$，$\mathcal{S} = \{\mathbf{y} \geq 0\}$（正象限投影）
+    - **TopK**: $g(\mathbf{v}) = \Pi_{\mathcal{S}}\{\mathbf{v}\}$，$\mathcal{S} = \{\mathbf{y} \geq 0, \|\mathbf{y}\|_0 \leq k\}$（k-稀疏约束投影）
+    - **JumpReLU**: ReLU($\mathbf{v} - \theta$) + $\theta \odot H(\mathbf{v} - \theta)$，结合了阈值化和正象限投影
 
    关键洞察：不同SAE的本质区别在于投影集 $\mathcal{S}$ 的选择。
 
 2. **双层优化形式化 (Claim 3.1)**: SAE求解如下双层问题：
-   $$\arg\min_{\mathbf{D}, \mathbf{z} \geq 0} \sum_\mathbf{x} \|\mathbf{x} - \mathbf{D}\mathbf{z}\|^2 + \lambda\mathcal{R}(\mathbf{z})$$
-   $$\text{s.t.} \quad \mathbf{z} = \mathbf{f}(\mathbf{x}) \in \arg\min_{\pi \in \mathcal{S}} \mathbf{F}(\pi, \mathbf{W}, \mathbf{x})$$
+    $\arg\min_{\mathbf{D}, \mathbf{z} \geq 0} \sum_\mathbf{x} \|\mathbf{x} - \mathbf{D}\mathbf{z}\|^2 + \lambda\mathcal{R}(\mathbf{z})$
+    $\text{s.t.} \quad \mathbf{z} = \mathbf{f}(\mathbf{x}) \in \arg\min_{\pi \in \mathcal{S}} \mathbf{F}(\pi, \mathbf{W}, \mathbf{x})$
    内层优化（由编码器架构决定）约束了外层字典学习的解空间。
 
 3. **感受野与隐式假设 (Definition 3.2 & Table 2)**:
-   - **ReLU/JumpReLU**: 感受野是半空间 → 假设概念**线性可分**
-   - **TopK**: 感受野是超锥体的并集 → 假设概念**角度可分**且**维度均匀**（因为k对所有输入固定）
+
+    - **ReLU/JumpReLU**: 感受野是半空间 → 假设概念**线性可分**
+    - **TopK**: 感受野是超锥体的并集 → 假设概念**角度可分**且**维度均匀**（因为k对所有输入固定）
 
 4. **两种关键数据性质**:
-   - **非线性可分性**: 不同大小/量级的概念可能无法被超平面分开（如"洋葱特征"、不同量级的线性特征）
-   - **维度异质性**: 不同概念占据不同维度的子空间（如truth是1维的，一周七天是2维的，安全特征是高维的）
+
+    - **非线性可分性**: 不同大小/量级的概念可能无法被超平面分开（如"洋葱特征"、不同量级的线性特征）
+    - **维度异质性**: 不同概念占据不同维度的子空间（如truth是1维的，一周七天是2维的，安全特征是高维的）
 
    Table 3分析了各SAE的兼容性：ReLU/JumpReLU支持异质性但不支持非线性可分；TopK支持有限的非线性可分但不支持异质性。
 
 5. **SpaDE (Sparsemax Distance Encoder)**: 通过对偶性原则设计：
-   - 投影集选择概率单纯形 $\mathcal{S} = \Delta^s = \{\mathbf{x}: \sum_i x_i = 1, \mathbf{x} \geq 0\}$，得到Sparsemax非线性——自适应稀疏（不同输入可激活不同数量的潜变量）
-   - 编码器使用欧氏距离而非线性变换：$\mathbf{z} = \text{Sparsemax}(-\lambda d(\mathbf{x}, \mathbf{W}))$，其中 $d(\mathbf{x}, \mathbf{W})_i = \|\mathbf{x} - \mathbf{W}_i\|^2$
-   - $\mathbf{W}_i$ 作为原型(prototype)，基于距离的编码天然支持非线性可分
-   - 外层优化对应K-Deep Simplex (KDS)，正则项 $\sum_i z_i\|\mathbf{x} - \mathbf{W}_i\|^2$ 鼓励原型靠近数据
+
+    - 投影集选择概率单纯形 $\mathcal{S} = \Delta^s = \{\mathbf{x}: \sum_i x_i = 1, \mathbf{x} \geq 0\}$，得到Sparsemax非线性——自适应稀疏（不同输入可激活不同数量的潜变量）
+    - 编码器使用欧氏距离而非线性变换：$\mathbf{z} = \text{Sparsemax}(-\lambda d(\mathbf{x}, \mathbf{W}))$，其中 $d(\mathbf{x}, \mathbf{W})_i = \|\mathbf{x} - \mathbf{W}_i\|^2$
+    - $\mathbf{W}_i$ 作为原型(prototype)，基于距离的编码天然支持非线性可分
+    - 外层优化对应K-Deep Simplex (KDS)，正则项 $\sum_i z_i\|\mathbf{x} - \mathbf{W}_i\|^2$ 鼓励原型靠近数据
 
 ### 训练策略
 

@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GNN 中各边对模型行为的影响尚不明确，理解边的贡献对可解释性和鲁棒性至关重要。影响函数可以高效地估计移除训练数据对模型的影响，无需重训练。
-2. **现有痛点**：现有图影响函数（GIF）依赖严格凸性假设（实际 GNN 是非凸的），仅考虑边删除而忽略边插入，且不能捕捉边编辑导致的消息传播路径变化。
-3. **核心矛盾**：标准影响函数要求损失函数严格凸，但常用 GNN 架构天然非凸；边编辑改变了 GNN 的计算图结构，而传统影响函数仅建模参数变化。
-4. **本文要解决什么**：为非凸 GNN 设计准确的边编辑影响函数，同时支持删除和插入，并显式建模消息传播效应。
-5. **切入角度**：结合 proximal Bregman 响应函数（PBRF）和链式法则分解，将影响分解为参数偏移项和消息传播项。
-6. **核心idea一句话**：通过 edge-edit PBRF 放松凸性假设，并将影响函数分解为参数偏移+消息传播两部分，统一处理边的删除与插入。
+**领域现状**：GNN 中各边对模型行为的影响尚不明确，理解边的贡献对可解释性和鲁棒性至关重要。影响函数可以高效地估计移除训练数据对模型的影响，无需重训练。
+**现有痛点**：现有图影响函数（GIF）依赖严格凸性假设（实际 GNN 是非凸的），仅考虑边删除而忽略边插入，且不能捕捉边编辑导致的消息传播路径变化。
+**核心矛盾**：标准影响函数要求损失函数严格凸，但常用 GNN 架构天然非凸；边编辑改变了 GNN 的计算图结构，而传统影响函数仅建模参数变化。
+**本文要解决什么**：为非凸 GNN 设计准确的边编辑影响函数，同时支持删除和插入，并显式建模消息传播效应。
+**切入角度**：结合 proximal Bregman 响应函数（PBRF）和链式法则分解，将影响分解为参数偏移项和消息传播项。
+**核心idea一句话**：通过 edge-edit PBRF 放松凸性假设，并将影响函数分解为参数偏移+消息传播两部分，统一处理边的删除与插入。
 
 ## 方法详解
 
@@ -46,26 +46,27 @@ $$\frac{df(\theta^*_\epsilon, \mathcal{G}^\epsilon)}{d\epsilon}\bigg|_{\epsilon=
 
 1. **Edge-edit PBRF（边编辑 Proximal Bregman 响应函数）**：扩展 Bae et al. 的 PBRF 到图边编辑场景：
 
-   $$\theta^*_\epsilon := \arg\min_\theta \frac{1}{N}\sum_{v \in \mathcal{V}_{train}} D_\mathcal{L}(h_v^{\mathcal{G},\theta}, h_v^{\mathcal{G},\theta_s}) + \frac{\lambda}{2}\|\theta - \theta_s\|^2 + \sum_v \epsilon(\mathcal{L}(h_v^{\mathcal{G},\theta}) - \mathcal{L}(h_v^{\mathcal{G}^{-1/N},\theta}))$$
+    $\theta^*_\epsilon := \arg\min_\theta \frac{1}{N}\sum_{v \in \mathcal{V}_{train}} D_\mathcal{L}(h_v^{\mathcal{G},\theta}, h_v^{\mathcal{G},\theta_s}) + \frac{\lambda}{2}\|\theta - \theta_s\|^2 + \sum_v \epsilon(\mathcal{L}(h_v^{\mathcal{G},\theta}) - \mathcal{L}(h_v^{\mathcal{G}^{-1/N},\theta}))$
 
-   - 前两项约束参数不远离参考点 $\theta_s$（输出空间和参数空间）
-   - 第三项鼓励参数在原图上失败、在编辑后的图上成功，从而响应边编辑
-   - 不再要求损失函数严格凸，只需损失相对输出凸（如交叉熵、MSE自然满足）
+    - 前两项约束参数不远离参考点 $\theta_s$（输出空间和参数空间）
+    - 第三项鼓励参数在原图上失败、在编辑后的图上成功，从而响应边编辑
+    - 不再要求损失函数严格凸，只需损失相对输出凸（如交叉熵、MSE自然满足）
 
 2. **参数偏移项**：利用广义 Gauss-Newton Hessian $\mathbf{G} = \mathbf{J}_{h\theta_s}^\top \mathbf{H}_{h_s} \mathbf{J}_{h\theta_s} + \lambda\mathbf{I}$：
 
-   $$-\nabla_\theta f(\theta_s, \mathcal{G})^\top \mathbf{G}^{-1} \sum_v (\nabla_\theta \mathcal{L}(h_v^{\mathcal{G},\theta_s}) - \nabla_\theta \mathcal{L}(h_v^{\mathcal{G}^{-1/N},\theta_s}))$$
+    $-\nabla_\theta f(\theta_s, \mathcal{G})^\top \mathbf{G}^{-1} \sum_v (\nabla_\theta \mathcal{L}(h_v^{\mathcal{G},\theta_s}) - \nabla_\theta \mathcal{L}(h_v^{\mathcal{G}^{-1/N},\theta_s}))$
 
 3. **消息传播项**：显式计算边权重变化对评估函数的直接影响（不经过参数变化）：
 
-   $$(2\mathbb{I}[\{u,v\} \in \mathcal{E}] - 1) \cdot N \cdot \left(\frac{\partial f(\theta_s, \mathcal{G})}{\partial A_{uv}} + \frac{\partial f(\theta_s, \mathcal{G})}{\partial A_{vu}}\right)$$
+    $(2\mathbb{I}[\{u,v\} \in \mathcal{E}] - 1) \cdot N \cdot \left(\frac{\partial f(\theta_s, \mathcal{G})}{\partial A_{uv}} + \frac{\partial f(\theta_s, \mathcal{G})}{\partial A_{vu}}\right)$
 
    这一项被 GIF 等先前方法完全忽略，但实验证明其与参数偏移的相关性低且量级相当。
 
 4. **多种评估指标**：
-   - **Over-squashing 度量**：通过掩蔽 L-hop 邻域特征衡量信息传播影响
-   - **Over-smoothing（Dirichlet 能量）**：量化邻接节点表示的差异度
-   - **验证损失**：标准交叉熵
+
+    - **Over-squashing 度量**：通过掩蔽 L-hop 邻域特征衡量信息传播影响
+    - **Over-smoothing（Dirichlet 能量）**：量化邻接节点表示的差异度
+    - **验证损失**：标准交叉熵
 
 ### 损失函数 / 训练策略
 

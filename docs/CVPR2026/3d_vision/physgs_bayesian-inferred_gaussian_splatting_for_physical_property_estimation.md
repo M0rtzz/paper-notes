@@ -25,15 +25,15 @@ tags:
 提出 PhysGS，将贝叶斯推断嵌入3D高斯溅射管线，利用视觉-语言模型先验和多视角置信度加权更新，实现逐点物理属性（摩擦力、硬度、密度、刚度）的概率估计与不确定性量化，在质量估计上比 NeRF2Physics 提升 22.8%（APE），岸氏硬度误差降低 61.2%。
 
 ## 研究背景与动机
-1. **领域现状**：理解环境的物理属性（摩擦力、硬度、弹性、密度等）对机器人安全交互至关重要。现有3D重建方法（NeRF、3DGS）主要关注几何和外观，无法推断底层物理属性。
-2. **现有痛点**：
+**领域现状**：理解环境的物理属性（摩擦力、硬度、弹性、密度等）对机器人安全交互至关重要。现有3D重建方法（NeRF、3DGS）主要关注几何和外观，无法推断底层物理属性。
+**现有痛点**：
    - NeRF2Physics 等方法用语言嵌入做零样本回归，但没有建模不确定性，在模糊区域（泥土 vs 沥青）容易产生脆弱预测
    - 已有方法通常只估计一两种物理属性（如摩擦力或弹性），不够通用
    - 室外场景几乎未被探索
    - 传感器噪声和模型知识不足导致的两类不确定性（偶然+认知）未被显式建模
-3. **核心矛盾**：如何从视觉传感器出发，在统一框架下估计多种物理属性，同时量化估计的可靠程度
-4. **切入角度**：将每个高斯原语视为概率实体，其物理属性信念通过贝叶斯后验更新不断精化
-5. **核心idea一句话**：用 Dirichlet-Categorical 模型融合离散材质分类 + Normal-Inverse-Gamma 先验建模连续属性的偶然和认知不确定性
+**核心矛盾**：如何从视觉传感器出发，在统一框架下估计多种物理属性，同时量化估计的可靠程度
+**切入角度**：将每个高斯原语视为概率实体，其物理属性信念通过贝叶斯后验更新不断精化
+**核心idea一句话**：用 Dirichlet-Categorical 模型融合离散材质分类 + Normal-Inverse-Gamma 先验建模连续属性的偶然和认知不确定性
 
 ## 方法详解
 
@@ -43,23 +43,27 @@ tags:
 ### 关键设计
 
 1. **Dirichlet-Categorical 材质分类**
-   - 做什么：将 VLM 预测的离散材质标签通过贝叶斯更新融合为后验概率
-   - 核心思路：Dirichlet 分布作为 Categorical 似然的共轭先验，后验参数递归更新 $\tilde{\alpha}_i \leftarrow \alpha_i(0) + \sum_{m: c_m=i} \lambda p_m$，其中 $p_m$ 是 VLM 对第 $m$ 次预测的置信度。后验预测概率为 $f(z=i | Z, \boldsymbol{\alpha}) = \tilde{\alpha}_i / \sum_j \tilde{\alpha}_j$
-   - 设计动机：VLM 的单视角预测可能不一致，需要跨视角融合。Dirichlet-Categorical 的共轭性使得融合可以闭式完成，适合在线更新
+
+    - 做什么：将 VLM 预测的离散材质标签通过贝叶斯更新融合为后验概率
+    - 核心思路：Dirichlet 分布作为 Categorical 似然的共轭先验，后验参数递归更新 $\tilde{\alpha}_i \leftarrow \alpha_i(0) + \sum_{m: c_m=i} \lambda p_m$，其中 $p_m$ 是 VLM 对第 $m$ 次预测的置信度。后验预测概率为 $f(z=i | Z, \boldsymbol{\alpha}) = \tilde{\alpha}_i / \sum_j \tilde{\alpha}_j$
+    - 设计动机：VLM 的单视角预测可能不一致，需要跨视角融合。Dirichlet-Categorical 的共轭性使得融合可以闭式完成，适合在线更新
 
 2. **连续属性的贝叶斯估计**
-   - 做什么：对每种材质的连续物理属性（摩擦系数、密度等）估计均值和方差
-   - 核心思路：维护置信度加权的三个累积器 $W_i = \sum p_m$、$S_i = \sum p_m \psi_m$、$Q_i = \sum p_m \psi_m^2$，计算后验均值 $\mu_i = S_i / W_i$ 和方差 $\sigma_i^2 = Q_i/W_i - \mu_i^2$。最终属性分布为高斯混合 $f(\psi | Z, \boldsymbol{\alpha}) = \sum_i \frac{\tilde{\alpha}_i}{\sum_j \tilde{\alpha}_j} \mathcal{N}(\mu_i, \sigma_i^2)$
-   - 设计动机：用增量在线更新避免存储历史观测，特别适合流式重建场景
+
+    - 做什么：对每种材质的连续物理属性（摩擦系数、密度等）估计均值和方差
+    - 核心思路：维护置信度加权的三个累积器 $W_i = \sum p_m$、$S_i = \sum p_m \psi_m$、$Q_i = \sum p_m \psi_m^2$，计算后验均值 $\mu_i = S_i / W_i$ 和方差 $\sigma_i^2 = Q_i/W_i - \mu_i^2$。最终属性分布为高斯混合 $f(\psi | Z, \boldsymbol{\alpha}) = \sum_i \frac{\tilde{\alpha}_i}{\sum_j \tilde{\alpha}_j} \mathcal{N}(\mu_i, \sigma_i^2)$
+    - 设计动机：用增量在线更新避免存储历史观测，特别适合流式重建场景
 
 3. **Normal-Inverse-Gamma 不确定性建模**
-   - 做什么：将总预测不确定性分解为偶然不确定性（传感器/感知噪声）和认知不确定性（模型知识不足）
-   - 核心思路：对均值 $\mu_i$ 和方差 $\sigma_i^2$ 的联合先验使用 NIG 分布 $p(\mu_i, \sigma_i^2 | \tau_i, \kappa_i, \alpha_i, \beta_i)$。不确定性分解为 $\text{Var}[\psi_i] = \underbrace{\mathbb{E}[\sigma_i^2]}_{\text{偶然}} + \underbrace{\text{Var}[\mu_i]}_{\text{认知}}$，其中 $\mathbb{E}[\sigma_i^2] = \tilde{\beta}_i / (\tilde{\alpha}_i - 1)$，$\text{Var}[\mu_i] = \mathbb{E}[\sigma_i^2] / \tilde{\kappa}_i$
-   - 设计动机：机器人决策需要知道"我有多不确定"——高偶然不确定性意味着感知困难，高认知不确定性意味着需要更多观测
+
+    - 做什么：将总预测不确定性分解为偶然不确定性（传感器/感知噪声）和认知不确定性（模型知识不足）
+    - 核心思路：对均值 $\mu_i$ 和方差 $\sigma_i^2$ 的联合先验使用 NIG 分布 $p(\mu_i, \sigma_i^2 | \tau_i, \kappa_i, \alpha_i, \beta_i)$。不确定性分解为 $\text{Var}[\psi_i] = \underbrace{\mathbb{E}[\sigma_i^2]}_{\text{偶然}} + \underbrace{\text{Var}[\mu_i]}_{\text{认知}}$，其中 $\mathbb{E}[\sigma_i^2] = \tilde{\beta}_i / (\tilde{\alpha}_i - 1)$，$\text{Var}[\mu_i] = \mathbb{E}[\sigma_i^2] / \tilde{\kappa}_i$
+    - 设计动机：机器人决策需要知道"我有多不确定"——高偶然不确定性意味着感知困难，高认知不确定性意味着需要更多观测
 
 4. **3DGS 语义属性映射**
-   - 做什么：将贝叶斯推断的材质-属性对应关系映射回3D高斯场
-   - 核心思路：用贝叶斯推断确定的材质对应颜色重着色场景图像，作为语义输入建3DGS。每个体素关联一个预测属性值，支持逐点查询（如摩擦力）和全局聚合（如总质量）
+
+    - 做什么：将贝叶斯推断的材质-属性对应关系映射回3D高斯场
+    - 核心思路：用贝叶斯推断确定的材质对应颜色重着色场景图像，作为语义输入建3DGS。每个体素关联一个预测属性值，支持逐点查询（如摩擦力）和全局聚合（如总质量）
 
 ### 损失函数 / 训练策略
 - 使用 Nerfstudio 的 splatfacto-big 变体，20k 迭代，RTX A5000

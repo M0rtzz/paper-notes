@@ -25,20 +25,20 @@ tags:
 提出 STAformer 架构和两个基于 affordance 的模块（环境 affordance 数据库 + 交互热点），将第一人称视频中的短期物体交互预测（STA）在 Ego4D 和 EPIC-Kitchens 上提升了 30-45% 的相对性能。
 
 ## 研究背景与动机
-1. **领域现状**：短期物体交互预测（STA）要求从第一人称视频中同时预测下一个交互物体的位置（bbox）、类别（noun）、动作（verb）和接触时间（time-to-contact）。这是可穿戴助手和人机交互的关键能力。
+**领域现状**：短期物体交互预测（STA）要求从第一人称视频中同时预测下一个交互物体的位置（bbox）、类别（noun）、动作（verb）和接触时间（time-to-contact）。这是可穿戴助手和人机交互的关键能力。
 
-2. **现有痛点**：
+**现有痛点**：
    - 之前方法（StillFast、TransFusion、GANO）大多基于卷积或简单特征融合，视频动态建模不充分
    - 图像分支和视频分支的融合方式粗糙（求和或拼接），没有充分利用两者的互补信息
    - 预测缺乏对人类行为模式的先验约束，容易产生与场景功能不符的误检
 
-3. **核心矛盾**：STA 需要同时理解高分辨率空间细节（检测物体位置）和时序动态（预测未来动作），但现有方法在这两个维度上的融合是浅层的
+**核心矛盾**：STA 需要同时理解高分辨率空间细节（检测物体位置）和时序动态（预测未来动作），但现有方法在这两个维度上的融合是浅层的
 
-4. **本文要解决什么？** (a) 如何更好地融合图像和视频特征用于 STA？(b) 如何利用环境中的交互先验来约束预测？
+**本文要解决什么？** (a) 如何更好地融合图像和视频特征用于 STA？(b) 如何利用环境中的交互先验来约束预测？
 
-5. **切入角度**：从两个互补方向出发——结构化的 attention 融合（STAformer）+ 基于人类行为规律的 affordance 先验（Environment Affordances + Interaction Hotspots）
+**切入角度**：从两个互补方向出发——结构化的 attention 融合（STAformer）+ 基于人类行为规律的 affordance 先验（Environment Affordances + Interaction Hotspots）
 
-6. **核心 idea 一句话**：用 frame-guided temporal pooling + dual cross-attention 实现精细的图像-视频融合，再用 affordance 数据库和交互热点从语义和空间两个层面约束预测
+**核心 idea 一句话**：用 frame-guided temporal pooling + dual cross-attention 实现精细的图像-视频融合，再用 affordance 数据库和交互热点从语义和空间两个层面约束预测
 
 ## 方法详解
 
@@ -48,24 +48,28 @@ tags:
 ### 关键设计
 
 1. **Frame-guided Temporal Pooling Attention**:
-   - 做什么：将 TimeSformer 输出的 3D 时空 token 压缩到 2D 空间，与最后一帧对齐
-   - 核心思路：用最后一帧的视频 token 作为 query，所有帧的 token 作为 key/value，通过残差交叉注意力实现自适应时间池化：$\Phi_{3D}^{2D} = \Phi_{3D}(\mathcal{V}_T) + A(Q_{last}, K_{all}, V_{all})$
-   - 设计动机：比 mean pooling 或 conv pooling 更灵活，能根据最后一帧的空间位置自适应地聚合时序信息，消融实验证明比 mean pooling 提升 0.76 mAP All
+
+    - 做什么：将 TimeSformer 输出的 3D 时空 token 压缩到 2D 空间，与最后一帧对齐
+    - 核心思路：用最后一帧的视频 token 作为 query，所有帧的 token 作为 key/value，通过残差交叉注意力实现自适应时间池化：$\Phi_{3D}^{2D} = \Phi_{3D}(\mathcal{V}_T) + A(Q_{last}, K_{all}, V_{all})$
+    - 设计动机：比 mean pooling 或 conv pooling 更灵活，能根据最后一帧的空间位置自适应地聚合时序信息，消融实验证明比 mean pooling 提升 0.76 mAP All
 
 2. **Dual Image-Video Attention**:
-   - 做什么：双向交叉注意力，让图像 token 吸收视频动态信息，同时让视频 token 获取高分辨率空间细节
-   - 核心思路：两个并行的残差 cross-attention 层——image-guided（图像做 Q，视频做 KV）和 video-guided（视频做 Q，图像做 KV），各自输出精化后的 token
-   - 设计动机：单向注意力（只从图像→视频或视频→图像）效果不如双向，因为两种模态各有互补信息。消融显示双向比 sum fusion 提升约 0.1 mAP All
+
+    - 做什么：双向交叉注意力，让图像 token 吸收视频动态信息，同时让视频 token 获取高分辨率空间细节
+    - 核心思路：两个并行的残差 cross-attention 层——image-guided（图像做 Q，视频做 KV）和 video-guided（视频做 Q，图像做 KV），各自输出精化后的 token
+    - 设计动机：单向注意力（只从图像→视频或视频→图像）效果不如双向，因为两种模态各有互补信息。消融显示双向比 sum fusion 提升约 0.1 mAP All
 
 3. **Environment Affordance Module**:
-   - 做什么：从训练集构建一个"环境-交互"数据库，推理时匹配当前场景到数据库中功能相似的区域，获取可能的 noun/verb 分布
-   - 核心思路：(a) 从训练视频中用 Siamese 网络聚类出 activity-centric zones；(b) 每个 zone 记录出现过的 noun/verb 集合；(c) 推理时用 EgoVLP-v2 编码当前视频，KNN 找最近的 2K 个 zone（K 个视觉匹配 + K 个文本匹配）；(d) 按相似度加权得到 affordance 概率分布 $p_{aff}(n|\mathcal{V}') \propto \exp(\sum S_i \cdot \mathbb{1}_{n \in \mathcal{N}^{Z_i}})$；(e) 与 STA 模型预测做贝叶斯融合
-   - 设计动机：相似环境中的人类行为具有一致性（如厨房→拿刀切菜），这种先验可以约束预测的 noun/verb 分布，减少不合理预测
+
+    - 做什么：从训练集构建一个"环境-交互"数据库，推理时匹配当前场景到数据库中功能相似的区域，获取可能的 noun/verb 分布
+    - 核心思路：(a) 从训练视频中用 Siamese 网络聚类出 activity-centric zones；(b) 每个 zone 记录出现过的 noun/verb 集合；(c) 推理时用 EgoVLP-v2 编码当前视频，KNN 找最近的 2K 个 zone（K 个视觉匹配 + K 个文本匹配）；(d) 按相似度加权得到 affordance 概率分布 $p_{aff}(n|\mathcal{V}') \propto \exp(\sum S_i \cdot \mathbb{1}_{n \in \mathcal{N}^{Z_i}})$；(e) 与 STA 模型预测做贝叶斯融合
+    - 设计动机：相似环境中的人类行为具有一致性（如厨房→拿刀切菜），这种先验可以约束预测的 noun/verb 分布，减少不合理预测
 
 4. **Interaction Hotspot Module**:
-   - 做什么：通过观察手和物体的轨迹，预测未来交互可能发生的空间位置分布
-   - 核心思路：基于 Liu et al. 的手运动预测方法改进——用在 Ego4D 上微调的手-物体检测器 + EgoVLP 特征，输出每个像素的交互概率图 $p_{ih}(x,y)$，然后用检测框中心处的概率值来重新加权 STA 检测的置信度
-   - 设计动机：affordance 数据库解决了"什么交互"的问题，hotspot 解决了"在哪交互"的问题，两者互补
+
+    - 做什么：通过观察手和物体的轨迹，预测未来交互可能发生的空间位置分布
+    - 核心思路：基于 Liu et al. 的手运动预测方法改进——用在 Ego4D 上微调的手-物体检测器 + EgoVLP 特征，输出每个像素的交互概率图 $p_{ih}(x,y)$，然后用检测框中心处的概率值来重新加权 STA 检测的置信度
+    - 设计动机：affordance 数据库解决了"什么交互"的问题，hotspot 解决了"在哪交互"的问题，两者互补
 
 ### 损失函数 / 训练策略
 - 采用 StillFast 的 Faster-RCNN 预测头，包含 bbox 回归 + 分类 + 置信度损失

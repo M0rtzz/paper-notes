@@ -26,12 +26,12 @@ tags:
 提出CycleReward，利用cycle consistency作为自监督信号替代人工偏好标注——将caption用T2I模型重建为图像再比较相似度来排序，构建866K偏好对数据集CyclePrefDB，训练的奖励模型在detailed captioning上比HPSv2/PickScore/ImageReward高6%+，且DPO训练后提升VLM在多个VL任务上的性能，无需任何人工标注。
 
 ## 研究背景与动机
-1. **领域现状**：图文对齐度量是多模态学习的核心挑战。现有奖励模型（ImageReward、HPSv2、PickScore）依赖大规模人工偏好标注，成本高且难以扩展。GPT-4V标注虽可用但昂贵、闭源且rate-limited。
-2. **现有痛点**：(1) 人工偏好数据收集成本高、难以规模化；(2) 现有偏好数据主要针对短文本（~20 token），无法有效评估长描述性caption；(3) CLIP等嵌入式方法对长文本不敏感。
-3. **核心矛盾**：长描述性caption越来越重要（ShareGPT4V、LLaVA等生成的详细描述），但缺乏能有效评估它们的alignment metric。直接比较图文很难，但把文本映射回图像空间后，图图比较就容易得多。
-4. **本文要解决什么**：用cycle consistency构建无需人工标注的偏好数据集和奖励模型，特别针对长描述性caption的对齐评估。
-5. **切入角度**：经典的cycle consistency思想——$x \xrightarrow{F} y \xrightarrow{G} x'$，如果caption $y$越准确，重建图像$x' = G(y)$就越接近原图$x$。把这个相似度作为偏好信号而非直接作为metric。
-6. **核心idea一句话**：用cycle consistency score排序caption/image候选，构建偏好数据集训练奖励模型，实现无人工标注的图文对齐学习。
+**领域现状**：图文对齐度量是多模态学习的核心挑战。现有奖励模型（ImageReward、HPSv2、PickScore）依赖大规模人工偏好标注，成本高且难以扩展。GPT-4V标注虽可用但昂贵、闭源且rate-limited。
+**现有痛点**：(1) 人工偏好数据收集成本高、难以规模化；(2) 现有偏好数据主要针对短文本（~20 token），无法有效评估长描述性caption；(3) CLIP等嵌入式方法对长文本不敏感。
+**核心矛盾**：长描述性caption越来越重要（ShareGPT4V、LLaVA等生成的详细描述），但缺乏能有效评估它们的alignment metric。直接比较图文很难，但把文本映射回图像空间后，图图比较就容易得多。
+**本文要解决什么**：用cycle consistency构建无需人工标注的偏好数据集和奖励模型，特别针对长描述性caption的对齐评估。
+**切入角度**：经典的cycle consistency思想——$x \xrightarrow{F} y \xrightarrow{G} x'$，如果caption $y$越准确，重建图像$x' = G(y)$就越接近原图$x$。把这个相似度作为偏好信号而非直接作为metric。
+**核心idea一句话**：用cycle consistency score排序caption/image候选，构建偏好数据集训练奖励模型，实现无人工标注的图文对齐学习。
 
 ## 方法详解
 
@@ -41,20 +41,23 @@ tags:
 ### 关键设计
 
 1. **Cycle Consistency作为偏好信号**:
-   - **Image-to-Text方向**：给定图像$x$，11个I2T模型（BLIP2, LLaVA系列, InternVL2系列）生成不同质量的caption $\{y_i\}$，用Stable Diffusion 3将每个caption反向重建为图像$G(y_i)$，用DreamSim计算$d_{img}(x, G(y_i))$。更高相似度 = preferred。
-   - **Text-to-Image方向**：给定caption $y$，4个T2I模型（SD1.5, SDXL, SD3, FLUX）×3 seeds生成候选图像$\{x_i\}$，用LLaVA-1.5-13B将每张图reverse-caption为$F(x_i)$，用SBERT计算$d_{text}(y, F(x_i))$。更高相似度 = preferred。
-   - 设计动机：直接比较跨模态（图文）不如同模态（图图或文文）比较准确。Cycle consistency巧妙地将跨模态对齐问题转化为同模态相似度问题。
+
+    - **Image-to-Text方向**：给定图像$x$，11个I2T模型（BLIP2, LLaVA系列, InternVL2系列）生成不同质量的caption $\{y_i\}$，用Stable Diffusion 3将每个caption反向重建为图像$G(y_i)$，用DreamSim计算$d_{img}(x, G(y_i))$。更高相似度 = preferred。
+    - **Text-to-Image方向**：给定caption $y$，4个T2I模型（SD1.5, SDXL, SD3, FLUX）×3 seeds生成候选图像$\{x_i\}$，用LLaVA-1.5-13B将每张图reverse-caption为$F(x_i)$，用SBERT计算$d_{text}(y, F(x_i))$。更高相似度 = preferred。
+    - 设计动机：直接比较跨模态（图文）不如同模态（图图或文文）比较准确。Cycle consistency巧妙地将跨模态对齐问题转化为同模态相似度问题。
 
 2. **CyclePrefDB数据集**:
-   - 866K偏好对（398K I2T + 468K T2I），基于7.6K DCI数据集的高分辨率图像和dense caption。
-   - 平均文本长度56 token，远高于HPDv2 (19 token)和Pick-A-Pic (24 token)—— 特别适合评估detailed captioning。
-   - 数据过滤：移除重复、过滤奖励差距过小的对（$|r_i - r_j| < \tau_{sim}$）和preferred奖励过低的对。
-   - 设计动机：使用多个不同能力的模型（从BLIP2到InternVL2-40B）生成质量梯度明显的候选，确保偏好对的信息量。
+
+    - 866K偏好对（398K I2T + 468K T2I），基于7.6K DCI数据集的高分辨率图像和dense caption。
+    - 平均文本长度56 token，远高于HPDv2 (19 token)和Pick-A-Pic (24 token)—— 特别适合评估detailed captioning。
+    - 数据过滤：移除重复、过滤奖励差距过小的对（$|r_i - r_j| < \tau_{sim}$）和preferred奖励过低的对。
+    - 设计动机：使用多个不同能力的模型（从BLIP2到InternVL2-40B）生成质量梯度明显的候选，确保偏好对的信息量。
 
 3. **CycleReward奖励模型**:
-   - 架构：BLIP backbone（ViT-L/16 + BERT-base + 5层MLP + 标量输出头）。
-   - 三种变体：I2T-only、T2I-only、Combo（联合训练$\mathcal{L} = \mathcal{L}_{text} + \lambda \mathcal{L}_{img}$）。
-   - 训练证明了一个关键结论：**蒸馏cycle consistency训练的奖励模型优于直接使用raw cycle consistency score**——即使多seed平均的raw score也无法达到CycleReward的性能（+4%在DetailCaps上），因为奖励模型学到了比pixel重建更丰富的对齐概念。
+
+    - 架构：BLIP backbone（ViT-L/16 + BERT-base + 5层MLP + 标量输出头）。
+    - 三种变体：I2T-only、T2I-only、Combo（联合训练$\mathcal{L} = \mathcal{L}_{text} + \lambda \mathcal{L}_{img}$）。
+    - 训练证明了一个关键结论：**蒸馏cycle consistency训练的奖励模型优于直接使用raw cycle consistency score**——即使多seed平均的raw score也无法达到CycleReward的性能（+4%在DetailCaps上），因为奖励模型学到了比pixel重建更丰富的对齐概念。
 
 ### DPO应用
 - I2T方向：用CyclePrefDB-I2T对Qwen-VL-Chat做DPO → 在detailed captioning提升同时，在perception/reasoning/hallucination等VL任务上全面提升，比VLFeedback（GPT-4V标注）效果相当或更好。

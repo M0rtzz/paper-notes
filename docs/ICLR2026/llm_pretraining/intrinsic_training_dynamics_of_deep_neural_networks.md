@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **隐式偏置的核心问题**：深度学习理论的核心挑战之一是理解梯度训练是否会促使参数趋向某些低维结构（稀疏、低秩等），即所谓的隐式偏置（implicit bias）问题。
-2. **提升变量框架**：许多分析将参数 $\theta$ 通过架构相关的映射 $\phi$ "提升"为 $z = \phi(\theta)$，例如线性网络中 $\phi(\theta) = U_L \cdots U_1$，ReLU 网络中 $\phi(\theta) = (u_j v_j^\top)_j$。
-3. **内在动力学的重要性**：若能证明 $z(t)$ 遵循内在Riemannian梯度流，则可以利用凸优化理论工具（如mirror flow）来分析隐式正则化效应。
-4. **现有条件过强**：Li et al. (2022) 的commuting条件在实际中很少满足；Marcotte et al. (2023) 的involutive条件仅适用于两层ReLU网络。
-5. **平衡初始化的限制**：线性网络中，之前的内在动力学结果依赖于严格的balanced初始化条件 $U_{i+1}^\top U_{i+1} = U_i U_i^\top$。
-6. **缺乏统一理论**：对于一般DAG架构的深层ReLU网络、非平衡初始化的线性网络以及无限深线性网络，缺乏统一的内在动力学分析框架。
+**隐式偏置的核心问题**：深度学习理论的核心挑战之一是理解梯度训练是否会促使参数趋向某些低维结构（稀疏、低秩等），即所谓的隐式偏置（implicit bias）问题。
+**提升变量框架**：许多分析将参数 $\theta$ 通过架构相关的映射 $\phi$ "提升"为 $z = \phi(\theta)$，例如线性网络中 $\phi(\theta) = U_L \cdots U_1$，ReLU 网络中 $\phi(\theta) = (u_j v_j^\top)_j$。
+**内在动力学的重要性**：若能证明 $z(t)$ 遵循内在Riemannian梯度流，则可以利用凸优化理论工具（如mirror flow）来分析隐式正则化效应。
+**现有条件过强**：Li et al. (2022) 的commuting条件在实际中很少满足；Marcotte et al. (2023) 的involutive条件仅适用于两层ReLU网络。
+**平衡初始化的限制**：线性网络中，之前的内在动力学结果依赖于严格的balanced初始化条件 $U_{i+1}^\top U_{i+1} = U_i U_i^\top$。
+**缺乏统一理论**：对于一般DAG架构的深层ReLU网络、非平衡初始化的线性网络以及无限深线性网络，缺乏统一的内在动力学分析框架。
 
 ## 方法详解
 
@@ -46,29 +46,34 @@ $$\text{Intrinsic Recoverability} \Rightarrow \text{Intrinsic Metric} \Rightarro
 ### 关键设计
 
 1. **内在动力学性质（Definition 2.6）**
-   - **做什么**：定义何时 $\theta_0$ 相对于 $\phi$ 具有内在动力学性质
-   - **核心思路**：存在函数 $K_{\theta_0}$ 使得 $M(\theta(t)) = K_{\theta_0}(\phi(\theta(t)))$ 对所有 $f$ 成立
-   - **设计动机**：将度量矩阵与数据/任务解耦，$K_{\theta_0}$ 仅依赖网络架构和初始化
+
+    - **做什么**：定义何时 $\theta_0$ 相对于 $\phi$ 具有内在动力学性质
+    - **核心思路**：存在函数 $K_{\theta_0}$ 使得 $M(\theta(t)) = K_{\theta_0}(\phi(\theta(t)))$ 对所有 $f$ 成立
+    - **设计动机**：将度量矩阵与数据/任务解耦，$K_{\theta_0}$ 仅依赖网络架构和初始化
 
 2. **内在度量性质（Definition 2.10）**
-   - **做什么**：在守恒律约束的流形 $\mathcal{M}_{\theta_0}$ 上要求度量的内在性
-   - **核心思路**：存在守恒律 $\mathbf{h}$ 和函数 $K_{\theta_0}$ 使得 $M(\theta) = K_{\theta_0}(\phi(\theta))$ 对所有 $\theta \in \mathcal{M}_{\theta_0}$ 成立
-   - **设计动机**：利用守恒律将轨迹约束在低维流形上
+
+    - **做什么**：在守恒律约束的流形 $\mathcal{M}_{\theta_0}$ 上要求度量的内在性
+    - **核心思路**：存在守恒律 $\mathbf{h}$ 和函数 $K_{\theta_0}$ 使得 $M(\theta) = K_{\theta_0}(\phi(\theta))$ 对所有 $\theta \in \mathcal{M}_{\theta_0}$ 成立
+    - **设计动机**：利用守恒律将轨迹约束在低维流形上
 
 3. **内在可恢复性（Definition 2.15）与等价判据（Theorem 2.17）**
-   - **做什么**：要求参数 $\theta$ 可从 $\phi(\theta)$ 和 $\mathbf{h}(\theta)$ 完全恢复
-   - **核心思路**：等价于核交集条件 $\ker\partial\phi(\theta) \cap \ker\partial\mathbf{h}(\theta) = \{0\}$
-   - **设计动机**：最强条件，等价于可验证的线性代数条件
+
+    - **做什么**：要求参数 $\theta$ 可从 $\phi(\theta)$ 和 $\mathbf{h}(\theta)$ 完全恢复
+    - **核心思路**：等价于核交集条件 $\ker\partial\phi(\theta) \cap \ker\partial\mathbf{h}(\theta) = \{0\}$
+    - **设计动机**：最强条件，等价于可验证的线性代数条件
 
 4. **ReLU 网络的 Frobenius 性质（Theorem 3.1 & Corollary 3.3）**
-   - **做什么**：证明任意 DAG 架构的 ReLU 网络的 path-lifting 满足 Frobenius 性质
-   - **核心思路**：在非零参数（稠密集）上验证 Lie 括号封闭性
-   - **设计动机**：对几乎所有初始化建立了最强的内在可恢复性
+
+    - **做什么**：证明任意 DAG 架构的 ReLU 网络的 path-lifting 满足 Frobenius 性质
+    - **核心思路**：在非零参数（稠密集）上验证 Lie 括号封闭性
+    - **设计动机**：对几乎所有初始化建立了最强的内在可恢复性
 
 5. **松弛平衡条件下的线性网络（Theorem 3.8 & 3.9）**
-   - **做什么**：将内在度量性质从 balanced ($\lambda=0$) 推广到 relaxed balanced ($S = \lambda I$)
-   - **核心思路**：推导闭式的内在动力学表达式，并证明松弛平衡是必要条件（$r \leq \max(n,m)$ 时）
-   - **设计动机**：在线性网络中建立了充要条件
+
+    - **做什么**：将内在度量性质从 balanced ($\lambda=0$) 推广到 relaxed balanced ($S = \lambda I$)
+    - **核心思路**：推导闭式的内在动力学表达式，并证明松弛平衡是必要条件（$r \leq \max(n,m)$ 时）
+    - **设计动机**：在线性网络中建立了充要条件
 
 ### 损失函数 / 训练策略
 

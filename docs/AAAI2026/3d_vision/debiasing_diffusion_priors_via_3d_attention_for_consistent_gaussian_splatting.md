@@ -31,10 +31,10 @@ tags:
 
 作者通过数学分析揭示了根本原因：
 
-1. **训练数据分布偏差**：T2I 模型的训练数据中，先验视角（如正面）的样本远多于其他视角：$p_{\mathcal{D}}(v_{prior}|y_{obj}) \gg p_{\mathcal{D}}(v_{other}|y_{obj})$
-2. **主题词注意力偏差**：当概率比 $\mathcal{R} = \frac{p(v_{prior}|Y)}{p(v^*|Y)} \gg 1$ 时，主题词 token 优先激活先验视角特征，覆盖目标视角条件
-3. **梯度干扰**：在远离先验视角时，$\nabla_{z_\phi}\log C \ll 0$ 产生强烈的负梯度效应，破坏 3D 优化过程
-4. **层间异质性**：UNet 不同层对先验视角偏好的响应程度不同
+**训练数据分布偏差**：T2I 模型的训练数据中，先验视角（如正面）的样本远多于其他视角：$p_{\mathcal{D}}(v_{prior}|y_{obj}) \gg p_{\mathcal{D}}(v_{other}|y_{obj})$
+**主题词注意力偏差**：当概率比 $\mathcal{R} = \frac{p(v_{prior}|Y)}{p(v^*|Y)} \gg 1$ 时，主题词 token 优先激活先验视角特征，覆盖目标视角条件
+**梯度干扰**：在远离先验视角时，$\nabla_{z_\phi}\log C \ll 0$ 产生强烈的负梯度效应，破坏 3D 优化过程
+**层间异质性**：UNet 不同层对先验视角偏好的响应程度不同
 
 ## 方法详解
 
@@ -54,14 +54,14 @@ TD-Attn 包含两个核心模块：
 核心思想是利用 3DGS 的显式特性，将多视角 2D 注意力图逆映射到 3D 空间，构建视角一致的 3D 注意力高斯体。
 
 1. **注意力累积**：对每个高斯体 $i$，累积多视角 2D 注意力权重：
-   $$w_i = \sum_{v \in \Lambda}\sum_{p \in \mathcal{I}(\mathcal{S}_{2D}^v)}[o_i(p)T_i^v(p)\mathcal{I}(\mathcal{S}(p)_{2D}^v)]$$
+    $w_i = \sum_{v \in \Lambda}\sum_{p \in \mathcal{I}(\mathcal{S}_{2D}^v)}[o_i(p)T_i^v(p)\mathcal{I}(\mathcal{S}(p)_{2D}^v)]$
    其中 $o_i$ 是不透明度，$T_i^v$ 是透射率，$\mathcal{S}_{2D}^v$ 是主题词 token 的 CA 图
 
 2. **2D CA 图计算**：
-   $$\mathcal{S}_{2D}^v = \text{Softmax}\left(\frac{Q_v K_{sbj}^T}{\sqrt{d}}\right)$$
+    $\mathcal{S}_{2D}^v = \text{Softmax}\left(\frac{Q_v K_{sbj}^T}{\sqrt{d}}\right)$
 
 3. **注意力引导损失**：用 KL 散度约束 2D CA 图与 3D 注意力高斯体渲染结果的一致性：
-   $$\mathcal{L}_{attn} = KL(\text{Softmax}(\widetilde{\mathcal{S}}_{2D}^v) \| \mathcal{I}(\mathcal{S}_{2D}^v))$$
+    $\mathcal{L}_{attn} = KL(\text{Softmax}(\widetilde{\mathcal{S}}_{2D}^v) \| \mathcal{I}(\mathcal{S}_{2D}^v))$
 
 4. **与 3DGS 密度化同步**：3D 注意力高斯体随 3DGS 的自适应分裂/克隆操作同步更新
 
@@ -70,16 +70,18 @@ TD-Attn 包含两个核心模块：
 HAM 针对 UNet 不同层对视角偏好的异质性进行精细调制：
 
 1. **语义引导树（SGT）构建**：利用 LLM 构建三级层级结构
-   - Root：$M$ 个语义类（Object, Attribute 等）
-   - 中间层：$F$ 个子类
-   - 叶节点：$F$ 个实例词
+
+    - Root：$M$ 个语义类（Object, Attribute 等）
+    - 中间层：$F$ 个子类
+    - 叶节点：$F$ 个实例词
 
 2. **语义响应分析（SRP）**：
-   - **Head 级**：计算 CA Head 对子类的响应分数 $W_h^f$
-   - **Layer 级**：计算 UNet 层对语义类的响应分数 $W_l^m$
+
+    - **Head 级**：计算 CA Head 对子类的响应分数 $W_h^f$
+    - **Layer 级**：计算 UNet 层对语义类的响应分数 $W_l^m$
 
 3. **注意力调制**：
-   $$\hat{\mathcal{A}}_h = \lambda W_l^{m^*} W_h^{f^*} \mathcal{A}_h$$
+    $\hat{\mathcal{A}}_h = \lambda W_l^{m^*} W_h^{f^*} \mathcal{A}_h$
    选择性增强目标语义（如视角）的响应，抑制先验偏差
 
 4. **语义编辑能力**：HAM 不仅追踪视角语义，还能定位和控制颜色、材质等语义，实现精细 3D 编辑

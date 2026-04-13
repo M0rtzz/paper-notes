@@ -40,13 +40,14 @@ UV-CoT在推理时模拟人类感知过程：给定原图和问题，先通过Co
 ### 关键设计
 
 1. **自动偏好数据生成管线（Algorithm 1）**: 
-   - **Response Generation**: 给定图像-问题对 $x$，目标模型 $f_{\text{tar}}$（LLaVA-1.5-7B）通过模板提示和随机解码，生成 $n$ 个不同的候选bounding box及对应回答 $\{y_t^i\}_{i=1}^n$。
-   - **Response Evaluation**: 评估器模型 $f_{\text{eval}}$（OmniLMM-12B）为每个回答打分。关键创新在于引入累积评估：$s^i = s_{\text{cur}}^i + \gamma s_{\text{nxt}}^i$，其中 $s_{\text{nxt}}^i$ 衡量当前区域对后续推理步骤的影响，$\gamma$ 为超参数。
-   - **Pair Construction**: 从 $n$ 个候选中随机选取 $k$ 个偏好对（preferred vs dis-preferred），每对包含完整推理链和对应分数 $\{y_w, s_w, y_l, s_l\}$。
-   - **Response Selection**: 保留最高分回答作为下一步推理的上下文，形成"最优链"。
+
+    - **Response Generation**: 给定图像-问题对 $x$，目标模型 $f_{\text{tar}}$（LLaVA-1.5-7B）通过模板提示和随机解码，生成 $n$ 个不同的候选bounding box及对应回答 $\{y_t^i\}_{i=1}^n$。
+    - **Response Evaluation**: 评估器模型 $f_{\text{eval}}$（OmniLMM-12B）为每个回答打分。关键创新在于引入累积评估：$s^i = s_{\text{cur}}^i + \gamma s_{\text{nxt}}^i$，其中 $s_{\text{nxt}}^i$ 衡量当前区域对后续推理步骤的影响，$\gamma$ 为超参数。
+    - **Pair Construction**: 从 $n$ 个候选中随机选取 $k$ 个偏好对（preferred vs dis-preferred），每对包含完整推理链和对应分数 $\{y_w, s_w, y_l, s_l\}$。
+    - **Response Selection**: 保留最高分回答作为下一步推理的上下文，形成"最优链"。
 
 2. **Score-DPO（sDPO）损失函数**: 标准DPO仅排序偏好数据而不量化偏好强度。UV-CoT改进为引入分数间距的sDPO：
-   $$\mathcal{L}_{\text{sDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}} \left[\log \sigma\left(\beta \log\frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta \log\frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)} - (g(s_w) - g(s_l))\right)\right]$$
+    $\mathcal{L}_{\text{sDPO}}(\theta) = -\mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}} \left[\log \sigma\left(\beta \log\frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta \log\frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)} - (g(s_w) - g(s_l))\right)\right]$
    其中 $g(\cdot)$ 为单调递增函数，将偏好分数映射到DPO目标的logit空间。基于Gumbel分布推导可知，$\Delta_r = g(s_w) - g(s_l)$ 量化偏好对之间的差异程度，使模型不仅区分偏好顺序，还优化偏好差异的幅度。
 
 3. **迭代学习策略（Algorithm 2）**: 为避免标准DPO中静态偏好数据与模型演进分布不匹配的问题，将训练查询集 $\mathcal{X}$ 均分为 $m$ 个子集，迭代 $m$ 次。每次迭代用当前模型 $f_{\text{tar}}^i$ 在子集 $\mathcal{X}_i$ 上生成新偏好数据 $\mathcal{D}_i$，然后训练得到 $f_{\text{tar}}^{i+1}$。这确保偏好数据始终与模型当前能力匹配。实际用4次迭代，共249K偏好数据对（少于Visual-CoT的376K标注数据）。

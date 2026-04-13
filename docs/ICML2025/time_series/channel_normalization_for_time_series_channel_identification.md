@@ -26,13 +26,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **通道可辨识性问题**：多变量时间序列建模中，"通道可辨识性"（Channel Identifiability, CID）指模型区分不同通道的能力。缺乏 CID 的模型（如 PatchTST、DLinear）会对相同输入产生相同输出，忽略通道特异性。
-2. **现有方法的分类**：
+**通道可辨识性问题**：多变量时间序列建模中，"通道可辨识性"（Channel Identifiability, CID）指模型区分不同通道的能力。缺乏 CID 的模型（如 PatchTST、DLinear）会对相同输入产生相同输出，忽略通道特异性。
+**现有方法的分类**：
    - **非 CID 模型**：所有通道共享参数（如 PatchTST），参数效率高但丢失通道信息
    - **CID 模型**：每通道独立参数（如 iTransformer），保留通道信息但参数量大
-3. **核心矛盾**：如何在不显著增加参数量的情况下赋予模型通道辨识能力？
-4. **信息论视角**：作者从互信息角度分析，当模型输入与通道索引的互信息为零时，模型无法区分通道——这正是非 CID 模型的问题。
-5. **切入角度**：在归一化层注入通道特定的仿射参数，最小侵入式地增强 CID。
+**核心矛盾**：如何在不显著增加参数量的情况下赋予模型通道辨识能力？
+**信息论视角**：作者从互信息角度分析，当模型输入与通道索引的互信息为零时，模型无法区分通道——这正是非 CID 模型的问题。
+**切入角度**：在归一化层注入通道特定的仿射参数，最小侵入式地增强 CID。
 
 ## 方法详解
 
@@ -46,22 +46,25 @@ $$\text{CN}(x_c) = \gamma_c \cdot \frac{x_c - \mu_c}{\sqrt{\sigma_c^2 + \epsilon
 ### 关键设计
 
 1. **Channel Normalization (CN)**:
-   - 每个通道有独立的 $(\gamma_c, \beta_c)$ 参数对
-   - 参数量仅增加 $2 \times C \times D$（$C$ 为通道数，$D$ 为特征维度）
-   - 可直接替换任何模型中的 LayerNorm
+
+    - 每个通道有独立的 $(\gamma_c, \beta_c)$ 参数对
+    - 参数量仅增加 $2 \times C \times D$（$C$ 为通道数，$D$ 为特征维度）
+    - 可直接替换任何模型中的 LayerNorm
 
 2. **Adaptive Channel Normalization (ACN)**:
-   - 动机：CN 的参数是静态的，无法适应输入的动态变化
-   - 设计：基于通道间余弦相似度计算注意力权重，动态聚合仿射参数
-   - 公式：$\alpha_{ij} = \text{softmax}(\cos(x_i, x_j) / \tau)$
-   - 最终参数：$\tilde{\gamma}_c = \gamma_c^{global} \odot \sum_j \alpha_{cj} \gamma_j$
-   - 优势：相似通道共享信息，提升泛化能力
+
+    - 动机：CN 的参数是静态的，无法适应输入的动态变化
+    - 设计：基于通道间余弦相似度计算注意力权重，动态聚合仿射参数
+    - 公式：$\alpha_{ij} = \text{softmax}(\cos(x_i, x_j) / \tau)$
+    - 最终参数：$\tilde{\gamma}_c = \gamma_c^{global} \odot \sum_j \alpha_{cj} \gamma_j$
+    - 优势：相似通道共享信息，提升泛化能力
 
 3. **Prototypical Channel Normalization (PCN)**:
-   - 动机：CN/ACN 需要预知通道数 $C$，无法用于通道数变化的场景（如基础模型）
-   - 设计：引入 $K$ 个可学习原型 $\{p_k\}_{k=1}^K$，通道通过与原型的相似度获取仿射参数
-   - 公式：$\gamma_c = \sum_k \text{softmax}(\text{sim}(x_c, p_k)) \cdot \gamma_k^{proto}$
-   - 优势：$K$ 固定，与实际通道数无关，适用于时间序列基础模型
+
+    - 动机：CN/ACN 需要预知通道数 $C$，无法用于通道数变化的场景（如基础模型）
+    - 设计：引入 $K$ 个可学习原型 $\{p_k\}_{k=1}^K$，通道通过与原型的相似度获取仿射参数
+    - 公式：$\gamma_c = \sum_k \text{softmax}(\text{sim}(x_c, p_k)) \cdot \gamma_k^{proto}$
+    - 优势：$K$ 固定，与实际通道数无关，适用于时间序列基础模型
 
 ### 损失函数 / 训练策略
 - 直接使用原始任务的损失函数（如预测任务用 MSE）

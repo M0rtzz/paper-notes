@@ -27,13 +27,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Test-time scaling（如 OpenAI o1、DeepSeek R1）通过在推理时分配更多计算资源生成更长的 CoT 来提升推理能力，已在数学竞赛、编程等任务上取得显著成功。
-2. **核心问题**：尽管实践效果显著，训练数据在什么条件下支持 test-time scaling 仍不清楚——具体地：
+**领域现状**：Test-time scaling（如 OpenAI o1、DeepSeek R1）通过在推理时分配更多计算资源生成更长的 CoT 来提升推理能力，已在数学竞赛、编程等任务上取得显著成功。
+**核心问题**：尽管实践效果显著，训练数据在什么条件下支持 test-time scaling 仍不清楚——具体地：
    - 增加 test-time 计算是否**总是**能提升下游推理表现？
    - 增加 test-time 计算能否降低训练时的计算需求？
    - 什么是"困难"训练样本？它们为何对 test-time scaling 有益？
-3. **现有工作不足**：先前关于训练数据多样性和难度的研究大多是经验性的，缺乏严格的理论框架解释 test-time scaling 的机制。
-4. **本文切入角度**：在 linear regression 的 in-context learning 框架下，从理论和实验两个维度回答上述三个问题。
+**现有工作不足**：先前关于训练数据多样性和难度的研究大多是经验性的，缺乏严格的理论框架解释 test-time scaling 的机制。
+**本文切入角度**：在 linear regression 的 in-context learning 框架下，从理论和实验两个维度回答上述三个问题。
 
 ## 方法详解
 

@@ -25,8 +25,8 @@ tags:
 分析 Particle Transformer (ParT) 在jet tagging中出现的二值化稀疏attention现象：稀疏性来自attention机制本身而非物理启发的interaction矩阵，但两者对性能都不可或缺。
 
 ## 研究背景与动机
-1. **领域现状**：ParT在高能物理jet分类任务中是SOTA，使用了物理启发的粒子对interaction矩阵作为attention偏置。
-2. **核心问题**：训练后的attention图呈现令人惊讶的二值化稀疏模式（几乎0或1），这种稀疏性的来源和作用不清楚。
+**领域现状**：ParT在高能物理jet分类任务中是SOTA，使用了物理启发的粒子对interaction矩阵作为attention偏置。
+**核心问题**：训练后的attention图呈现令人惊讶的二值化稀疏模式（几乎0或1），这种稀疏性的来源和作用不清楚。
 
 ## 方法详解
 

@@ -26,12 +26,12 @@ tags:
 提出 OraPO, 一种结合 GRPO 和 DPO 的自适应混合 RL 框架, 用于数据高效的放射学报告生成: 通过 Zero-Reward Rate 检测动态切换 GRPO 和 DPO, 加上 FactScore-based 临床事实级奖励, 仅用 1K 样本 (对比基线 227K) 在 CheXpert Plus 和 MIMIC-CXR 上取得 SOTA 的临床 F1 (0.341/0.357).
 
 ## 研究背景与动机
-1. **领域现状**: 主流放射学报告生成 (RRG) 依赖多阶段训练 + 大规模配对语料 + 大骨干模型, 计算和数据成本极高.
-2. **现有痛点**: (a) Vanilla GRPO 在 RRG 上失效——约 30% 的 rollout 组获得全零奖励, 导致梯度消失和计算浪费; (b) 难以设计捕捉临床准确性而非表面相似性的句子级奖励; (c) 大规模标注数据获取困难.
-3. **核心矛盾**: GRPO 在早期输出高度不确定时产生大量零奖励组, 而这些"失败"的探索被完全浪费; 需要一种方式将失败 rollout 转化为有用的学习信号.
-4. **本文要解决什么**: (a) 在极少数据 (1K 样本) 下实现 SOTA 报告生成; (b) 设计捕捉临床事实正确性的奖励; (c) 解决 GRPO 零奖励问题.
-5. **切入角度**: 检测 Zero-Reward Rate, 高 ZRR 时自动切换到 DPO——用 ground-truth 报告作 positive, 用失败 rollout 作 negative, 将浪费的探索转化为偏好学习信号.
-6. **核心idea一句话**: 用 EMA-smoothed ZRR 检测 GRPO 失效时刻, 动态混入 DPO 将失败 rollout 转化为偏好对, 加上原子事实级奖励捕捉临床正确性.
+**领域现状**: 主流放射学报告生成 (RRG) 依赖多阶段训练 + 大规模配对语料 + 大骨干模型, 计算和数据成本极高.
+**现有痛点**: (a) Vanilla GRPO 在 RRG 上失效——约 30% 的 rollout 组获得全零奖励, 导致梯度消失和计算浪费; (b) 难以设计捕捉临床准确性而非表面相似性的句子级奖励; (c) 大规模标注数据获取困难.
+**核心矛盾**: GRPO 在早期输出高度不确定时产生大量零奖励组, 而这些"失败"的探索被完全浪费; 需要一种方式将失败 rollout 转化为有用的学习信号.
+**本文要解决什么**: (a) 在极少数据 (1K 样本) 下实现 SOTA 报告生成; (b) 设计捕捉临床事实正确性的奖励; (c) 解决 GRPO 零奖励问题.
+**切入角度**: 检测 Zero-Reward Rate, 高 ZRR 时自动切换到 DPO——用 ground-truth 报告作 positive, 用失败 rollout 作 negative, 将浪费的探索转化为偏好学习信号.
+**核心idea一句话**: 用 EMA-smoothed ZRR 检测 GRPO 失效时刻, 动态混入 DPO 将失败 rollout 转化为偏好对, 加上原子事实级奖励捕捉临床正确性.
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **Zero-Reward Rate (ZRR) 检测与自适应混合**:
-   - 做什么: 检测 GRPO 零奖励比例, 高 ZRR 时自动补入 DPO 训练信号
-   - 核心思路: EMA 平滑 ZRR, 映射为混合权重 w_i; L_OraPO = (1-w_i)*L_GRPO + w_i*L_DPO. DPO 的正例用 ground-truth 报告, 负例用所有 GRPO rollout
-   - 设计动机: GRPO 早期~30% 组获得全零奖励→梯度消失. DPO 不依赖绝对奖励, 只需偏好排序, 能从失败中学习
+
+    - 做什么: 检测 GRPO 零奖励比例, 高 ZRR 时自动补入 DPO 训练信号
+    - 核心思路: EMA 平滑 ZRR, 映射为混合权重 w_i; L_OraPO = (1-w_i)*L_GRPO + w_i*L_DPO. DPO 的正例用 ground-truth 报告, 负例用所有 GRPO rollout
+    - 设计动机: GRPO 早期~30% 组获得全零奖励→梯度消失. DPO 不依赖绝对奖励, 只需偏好排序, 能从失败中学习
 
 2. **FactScore-based 奖励 (FactS)**:
-   - 做什么: 设计基于原子临床事实的密集奖励, 而非报告级文本相似度
-   - 核心思路: (a) 用 GPT-4 从生成报告提取原子临床事实; (b) 对 14 个 CheXpert 病理标签做蕴含检查; (c) 计算 precision/recall, 用 F_beta (beta>1 强调 recall) 作为奖励
-   - 设计动机: 临床上漏检 (假阴性) 比误报 (假阳性) 更危险, 故偏好高 recall; 原子事实比整句 BLEU/ROUGE 更准确地捕捉临床正确性
+
+    - 做什么: 设计基于原子临床事实的密集奖励, 而非报告级文本相似度
+    - 核心思路: (a) 用 GPT-4 从生成报告提取原子临床事实; (b) 对 14 个 CheXpert 病理标签做蕴含检查; (c) 计算 precision/recall, 用 F_beta (beta>1 强调 recall) 作为奖励
+    - 设计动机: 临床上漏检 (假阴性) 比误报 (假阳性) 更危险, 故偏好高 recall; 原子事实比整句 BLEU/ROUGE 更准确地捕捉临床正确性
 
 3. **Oracle-educated DPO 组件**:
-   - 做什么: 将 GRPO 失败 rollout 转化为 DPO 负例, ground-truth 作正例
-   - 核心思路: 无需额外数据, 直接复用 GRPO 采样结果
-   - 设计动机: 创建自强化飞轮——差 rollout→DPO 负例→更好策略→更多信息性 rollout→更高奖励
+
+    - 做什么: 将 GRPO 失败 rollout 转化为 DPO 负例, ground-truth 作正例
+    - 核心思路: 无需额外数据, 直接复用 GRPO 采样结果
+    - 设计动机: 创建自强化飞轮——差 rollout→DPO 负例→更好策略→更多信息性 rollout→更高奖励
 
 ### 损失函数 / 训练策略
 - L_OraPO = (1-w_i)*L_GRPO + w_i*L_DPO, w_min=0.05, w_max=0.15, gamma=2.0 (锐化)

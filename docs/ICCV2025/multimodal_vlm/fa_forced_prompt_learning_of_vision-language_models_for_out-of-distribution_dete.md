@@ -47,30 +47,34 @@ FA框架包含两个提示——冻结的原始提示（参考基准）和可学
 
 ### 关键设计
 1. **强制提示（Forced Prompt）**:
-   - 做什么：引入一个与原始提示初始化相同但可学习的提示副本
-   - 核心思路：提示格式 $\mathbf{u}_c = [\mathbf{v}_1, \cdots, \mathbf{v}_L, \mathbf{w}_c]$，其中 $\mathbf{v}_i$ 是所有类共享的可学习向量（与CoOp一致），$\mathbf{w}_c$ 是冻结的类名嵌入
-   - 设计动机：
-     - 使用手工模板初始化（而非随机初始化），保留CLIP先验知识中的语义信息，提升泛化能力
-     - 共享可学习向量（而非类独立），在少样本场景下避免参数过多导致的过拟合
-     - 冻结原始提示作为参考基线，确保强制提示必须学到"更多"而非偏离
+
+    - 做什么：引入一个与原始提示初始化相同但可学习的提示副本
+    - 核心思路：提示格式 $\mathbf{u}_c = [\mathbf{v}_1, \cdots, \mathbf{v}_L, \mathbf{w}_c]$，其中 $\mathbf{v}_i$ 是所有类共享的可学习向量（与CoOp一致），$\mathbf{w}_c$ 是冻结的类名嵌入
+    - 设计动机：
+      - 使用手工模板初始化（而非随机初始化），保留CLIP先验知识中的语义信息，提升泛化能力
+      - 共享可学习向量（而非类独立），在少样本场景下避免参数过多导致的过拟合
+      - 冻结原始提示作为参考基线，确保强制提示必须学到"更多"而非偏离
 
 2. **强制交叉熵损失（FCE Loss）**:
-   - 做什么：修改标准交叉熵损失的分母，将原始提示的得分也纳入归一化
-   - 核心公式：
-     $$\mathcal{L}_{FCE} = \mathbb{E}_{(\mathbf{x}, y_c)} \left[-\log \frac{e^{s_c^f/\tau}}{\sum_{j=1}^C e^{s_j^f/\tau} + \sum_{j=1}^C e^{s_j^o/\tau}}\right]$$
-     其中 $s_j^f = \cos(\mathbf{z}, \mathbf{t}_j^f)$ 和 $s_j^o = \cos(\mathbf{z}, \mathbf{t}_j^o)$ 分别是图像与强制/原始提示的相似度
-   - 设计动机：分母中包含原始提示的相似度，意味着仅靠与原始提示一样好是不够的——强制提示必须产生**更高**的相似度才能最小化损失。这迫使强制提示学习到更丰富、更具区分性的ID类别描述
+
+    - 做什么：修改标准交叉熵损失的分母，将原始提示的得分也纳入归一化
+    - 核心公式：
+    $\mathcal{L}_{FCE} = \mathbb{E}_{(\mathbf{x}, y_c)} \left[-\log \frac{e^{s_c^f/\tau}}{\sum_{j=1}^C e^{s_j^f/\tau} + \sum_{j=1}^C e^{s_j^o/\tau}}\right]$
+      其中 $s_j^f = \cos(\mathbf{z}, \mathbf{t}_j^f)$ 和 $s_j^o = \cos(\mathbf{z}, \mathbf{t}_j^o)$ 分别是图像与强制/原始提示的相似度
+    - 设计动机：分母中包含原始提示的相似度，意味着仅靠与原始提示一样好是不够的——强制提示必须产生**更高**的相似度才能最小化损失。这迫使强制提示学习到更丰富、更具区分性的ID类别描述
 
 3. **强制系数 $K$**:
-   - 做什么：控制原始提示在分母中的权重，调节"强制"的强度
-   - 核心公式：
-     $$\mathcal{L}_{FCE-K} = \mathbb{E}_{(\mathbf{x}, y_c)} \left[-\log \frac{e^{s_c^f/\tau}}{\sum_{j=1}^C e^{s_j^f/\tau} + K\sum_{j=1}^C e^{s_j^o/\tau}}\right]$$
-   - 设计动机：$K=0$ 时退化为CoOp（无强制约束），$K$ 越大则强制提示被迫学到越全面的ID描述。实验发现 $K=1$ 即可带来显著提升，最优值与数据集相关
+
+    - 做什么：控制原始提示在分母中的权重，调节"强制"的强度
+    - 核心公式：
+    $\mathcal{L}_{FCE-K} = \mathbb{E}_{(\mathbf{x}, y_c)} \left[-\log \frac{e^{s_c^f/\tau}}{\sum_{j=1}^C e^{s_j^f/\tau} + K\sum_{j=1}^C e^{s_j^o/\tau}}\right]$
+    - 设计动机：$K=0$ 时退化为CoOp（无强制约束），$K$ 越大则强制提示被迫学到越全面的ID描述。实验发现 $K=1$ 即可带来显著提升，最优值与数据集相关
 
 4. **推理阶段的得分函数**:
-   - MCM得分：$S_{MCM}(\mathbf{x}) = \max_c \frac{e^{\cos(\mathbf{z}^g, \mathbf{t}_c^a)/\tau_0}}{\sum_j e^{\cos(\mathbf{z}^g, \mathbf{t}_j^f)/\tau_0} + K e^{\cos(\mathbf{z}^g, \mathbf{t}_j^o)/\tau_0}}$
-   - GL-MCM得分：同时考虑全局和局部特征的匹配
-   - $\mathbf{t}_c^a$ 是强制提示和原始提示特征的拼接
+
+    - MCM得分：$S_{MCM}(\mathbf{x}) = \max_c \frac{e^{\cos(\mathbf{z}^g, \mathbf{t}_c^a)/\tau_0}}{\sum_j e^{\cos(\mathbf{z}^g, \mathbf{t}_j^f)/\tau_0} + K e^{\cos(\mathbf{z}^g, \mathbf{t}_j^o)/\tau_0}}$
+    - GL-MCM得分：同时考虑全局和局部特征的匹配
+    - $\mathbf{t}_c^a$ 是强制提示和原始提示特征的拼接
 
 ### 损失函数 / 训练策略
 - 仅训练强制提示的共享token向量，参数量与CoOp完全一致

@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 不规则多变量时间序列(IMTS)在交通、气象、医疗等场景中普遍存在，其特征是：
-1. **变量内不规则(intra-series irregularity)**：同一变量的观测时间间隔不均匀
-2. **变量间异步(inter-series asynchrony)**：不同变量的采样时刻不一致
+**变量内不规则(intra-series irregularity)**：同一变量的观测时间间隔不均匀
+**变量间异步(inter-series asynchrony)**：不同变量的采样时刻不一致
 
 **规范预对齐(CPA)的两面性**：
 

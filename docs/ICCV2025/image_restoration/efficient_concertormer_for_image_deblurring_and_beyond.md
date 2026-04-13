@@ -29,9 +29,9 @@ tags:
 
 Transformer 在高层视觉和 NLP 中取得了巨大成功，但其自注意力的计算复杂度与图像尺寸呈二次关系，对高分辨率图像复原来说代价过高。现有解决方案主要有两类，但各有局限：
 
-1. **窗口多头自注意力 (W-MSA)**：将特征图划分为 $k \times k$ 的不重叠块，仅在块内计算注意力。虽然降低了复杂度，但完全忽略了块间关系，导致全局建模能力不足。即使使用 shifted window 技术，也需要堆叠足够多的层才能间接获得全局感受野。
+**窗口多头自注意力 (W-MSA)**：将特征图划分为 $k \times k$ 的不重叠块，仅在块内计算注意力。虽然降低了复杂度，但完全忽略了块间关系，导致全局建模能力不足。即使使用 shifted window 技术，也需要堆叠足够多的层才能间接获得全局感受野。
 
-2. **转置自注意力 (Transposed SA)**：沿通道维度而非空间维度计算注意力，将复杂度降为 $\mathcal{O}(hw)$。但这种方式**丢失了空间连通性信息**——论文通过一个巧妙的论证指出，对 Q 和 K 矩阵的列进行随机排列不会影响转置自注意力的结果，说明它本质上无法感知空间位置关系。
+**转置自注意力 (Transposed SA)**：沿通道维度而非空间维度计算注意力，将复杂度降为 $\mathcal{O}(hw)$。但这种方式**丢失了空间连通性信息**——论文通过一个巧妙的论证指出，对 Q 和 K 矩阵的列进行随机排列不会影响转置自注意力的结果，说明它本质上无法感知空间位置关系。
 
 核心动机在于：能否设计一种**同时捕捉局部和全局关系**、复杂度为**线性**的自注意力机制？Concertormer 借鉴音乐术语中独奏（Concertino）与协奏（Ripieno）的概念，将注意力分为两个互补分量来解决这一问题。
 
@@ -44,32 +44,36 @@ Concertormer 采用多尺度 U-Net 架构。输入图像通过双线性下采样
 ### 关键设计
 
 1. **Concerto Self-Attention (CSA)**:
-   - **做什么**：将自注意力分解为全局共享的 Concertino 和局部特有的 Ripieno 两个分量，同时在空间和通道两个维度进行计算。
-   - **核心思路**：将 Q, K, V 划分为 $k \times k$ 的块后，Concertino 分量 $C$ 对所有块的注意力进行**求和/平均**，捕捉一般性的全局空间关系：
-     $$C = \text{softmax}\left(\sum_i Q_i^c K_i^{c\top} / \beta\right)$$
-     Ripieno 分量 $R_i$ 则计算每个块相对于平均值的**差异**，补偿信息损失：
-     $$R_i = \text{softmax}\left((Q_i^r K_i^{r\top} - \overline{Q_i^r K_i^{r\top}}) / \alpha\right)$$
-     通道被分为两半分别用于 Concertino 和 Ripieno 计算，最终拼接输出。这一分解使得全局信息通过 $C$ 传播到每个局部块，而每个块又保留了特有的局部细节。注意力图以张量形式表示：$\mathbf{R}^s \in \mathbb{R}^{n \times k^2 \times k^2}$, $\mathbf{C}^s \in \mathbb{R}^{d_s/2 \times k^2 \times k^2}$，自然引入了额外维度。
-   - **设计动机**：W-MSA 完全忽略块间关系，转置 SA 丢失空间信息。CSA 通过 Concertino 提供全局上下文、Ripieno 提供局部差异化细节，两者互补。复杂度为 $\mathcal{O}(hw)$，线性于图像尺寸。
+
+    - **做什么**：将自注意力分解为全局共享的 Concertino 和局部特有的 Ripieno 两个分量，同时在空间和通道两个维度进行计算。
+    - **核心思路**：将 Q, K, V 划分为 $k \times k$ 的块后，Concertino 分量 $C$ 对所有块的注意力进行**求和/平均**，捕捉一般性的全局空间关系：
+    $C = \text{softmax}\left(\sum_i Q_i^c K_i^{c\top} / \beta\right)$
+      Ripieno 分量 $R_i$ 则计算每个块相对于平均值的**差异**，补偿信息损失：
+    $R_i = \text{softmax}\left((Q_i^r K_i^{r\top} - \overline{Q_i^r K_i^{r\top}}) / \alpha\right)$
+      通道被分为两半分别用于 Concertino 和 Ripieno 计算，最终拼接输出。这一分解使得全局信息通过 $C$ 传播到每个局部块，而每个块又保留了特有的局部细节。注意力图以张量形式表示：$\mathbf{R}^s \in \mathbb{R}^{n \times k^2 \times k^2}$, $\mathbf{C}^s \in \mathbb{R}^{d_s/2 \times k^2 \times k^2}$，自然引入了额外维度。
+    - **设计动机**：W-MSA 完全忽略块间关系，转置 SA 丢失空间信息。CSA 通过 Concertino 提供全局上下文、Ripieno 提供局部差异化细节，两者互补。复杂度为 $\mathcal{O}(hw)$，线性于图像尺寸。
 
 2. **跨维度通信 (Cross-Dimensional Communication, CDC)**:
-   - **做什么**：在 CSA 引入的额外维度上建立连接，增强注意力图的表达力。
-   - **核心思路**：对 Ripieno 张量，将其 reshape 为 $t \times h/k \times w/k \times k^4$ 形式后，使用 $3 \times 3 \times 1$ 卷积 $\mathbf{W}^{r_s}$ 在块间维度上做线性组合：
-     $$\mathbf{R}^s = \text{softmax}\left(\mathbf{W}^{r_s}(\mathbf{Q}^{r_s} \times \mathbf{K}^{r_s\top})\right)$$
-     对 Concertino 张量，使用全连接层 $\mathbf{W}_p^{c_s}$ 在其常数维度上做线性投影。这样做还有一个副作用：卷积操作将全局均值替换为**局部均值**（卷积核覆盖的邻域平均），更适合局部细节建模。
-   - **设计动机**：CSA 中不同头和不同块的注意力图是独立计算的，通过 CDC 允许信息在这些维度间流通，可以显著增大感受野（扩散指数提升 39.15 vs 20.51）。
+
+    - **做什么**：在 CSA 引入的额外维度上建立连接，增强注意力图的表达力。
+    - **核心思路**：对 Ripieno 张量，将其 reshape 为 $t \times h/k \times w/k \times k^4$ 形式后，使用 $3 \times 3 \times 1$ 卷积 $\mathbf{W}^{r_s}$ 在块间维度上做线性组合：
+    $\mathbf{R}^s = \text{softmax}\left(\mathbf{W}^{r_s}(\mathbf{Q}^{r_s} \times \mathbf{K}^{r_s\top})\right)$
+      对 Concertino 张量，使用全连接层 $\mathbf{W}_p^{c_s}$ 在其常数维度上做线性投影。这样做还有一个副作用：卷积操作将全局均值替换为**局部均值**（卷积核覆盖的邻域平均），更适合局部细节建模。
+    - **设计动机**：CSA 中不同头和不同块的注意力图是独立计算的，通过 CDC 允许信息在这些维度间流通，可以显著增大感受野（扩散指数提升 39.15 vs 20.51）。
 
 3. **通道 CSA (Channel CSA)**:
-   - **做什么**：将 Concerto Self-Attention 扩展到通道维度。
-   - **核心思路**：与空间 CSA 对称地，在通道维度上也分解为 Ripieno $\mathbf{R}^c$ 和 Concertino $\mathbf{C}^c$。由于位置信息分别编码在 $\mathbf{R}^c$ 的 $n$ 维度和 $\mathbf{C}^c$ 的 $k^2$ 维度中，通道 CSA 能够感知空间位置，克服了原始转置自注意力的局限。
-   - **设计动机**：转置 SA 效率高但缺乏空间感知，通过在通道维度引入 Concerto 分解，保留效率的同时解决了空间不变性问题。
+
+    - **做什么**：将 Concerto Self-Attention 扩展到通道维度。
+    - **核心思路**：与空间 CSA 对称地，在通道维度上也分解为 Ripieno $\mathbf{R}^c$ 和 Concertino $\mathbf{C}^c$。由于位置信息分别编码在 $\mathbf{R}^c$ 的 $n$ 维度和 $\mathbf{C}^c$ 的 $k^2$ 维度中，通道 CSA 能够感知空间位置，克服了原始转置自注意力的局限。
+    - **设计动机**：转置 SA 效率高但缺乏空间感知，通过在通道维度引入 Concerto 分解，保留效率的同时解决了空间不变性问题。
 
 4. **门控深度卷积 MLP (gdMLP)**:
-   - **做什么**：替代传统 Transformer 的两阶段设计（SA + FFN），将自注意力和 FFN 合并到单阶段。
-   - **核心思路**：
-     $$\text{gdMLP}(\mathbf{X}) = \mathbf{W}_p^g\left((\text{SCA}(\mathbf{X}^A) + \mathbf{U}) \odot \mathbf{Z}\right)$$
-     其中 $\mathbf{U} = \mathbf{W}_d^u(\mathbf{W}_p^u(\mathbf{X}))$ 通过深度卷积提取特征，$\mathbf{Z} = \mathbf{W}_p^z \mathbf{X}$ 作为门控信号，$\mathbf{X}^A$ 为 CSA 输出经过简化通道注意力 (SCA) 加权后的结果。深度卷积还能补偿不重叠分块导致的边界不连续。
-   - **设计动机**：FFN 在 NLP 中的作用在视觉任务中尚不明确，且两阶段设计限制了灵活性。gdMLP 通过门控机制融合注意力和前馈计算，减少了复杂度。
+
+    - **做什么**：替代传统 Transformer 的两阶段设计（SA + FFN），将自注意力和 FFN 合并到单阶段。
+    - **核心思路**：
+    $\text{gdMLP}(\mathbf{X}) = \mathbf{W}_p^g\left((\text{SCA}(\mathbf{X}^A) + \mathbf{U}) \odot \mathbf{Z}\right)$
+      其中 $\mathbf{U} = \mathbf{W}_d^u(\mathbf{W}_p^u(\mathbf{X}))$ 通过深度卷积提取特征，$\mathbf{Z} = \mathbf{W}_p^z \mathbf{X}$ 作为门控信号，$\mathbf{X}^A$ 为 CSA 输出经过简化通道注意力 (SCA) 加权后的结果。深度卷积还能补偿不重叠分块导致的边界不连续。
+    - **设计动机**：FFN 在 NLP 中的作用在视觉任务中尚不明确，且两阶段设计限制了灵活性。gdMLP 通过门控机制融合注意力和前馈计算，减少了复杂度。
 
 ### 损失函数 / 训练策略
 

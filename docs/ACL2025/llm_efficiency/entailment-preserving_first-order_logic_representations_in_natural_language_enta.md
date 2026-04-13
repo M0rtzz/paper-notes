@@ -45,31 +45,35 @@ tags:
 
 ### 关键设计
 1. **EPR指标系列（Entailment-Preserving Rate）**:
-   - **EPR**：对每个前提-假设对，取概率最高的FOL翻译组合，检查是否保持蕴含
-   - **EPR@K**：允许每个句子K个翻译，任一组合保持蕴含即成功（宽松版）
-   - **EPR@K-Oracle**：每个句子选一个翻译，全局优化EPR（NP-complete，用ASP求解）
-   - 不等式关系：EPR = EPR@1 ≤ EPR@K-Oracle ≤ EPR@K
-   - 完全无参考：不需要gold FOL表示，只需NL蕴含标签
-   - 防虚假蕴含：验证步骤确保假设不引入新谓词/常量，且证明必须使用所有前提
+
+    - **EPR**：对每个前提-假设对，取概率最高的FOL翻译组合，检查是否保持蕴含
+    - **EPR@K**：允许每个句子K个翻译，任一组合保持蕴含即成功（宽松版）
+    - **EPR@K-Oracle**：每个句子选一个翻译，全局优化EPR（NP-complete，用ASP求解）
+    - 不等式关系：EPR = EPR@1 ≤ EPR@K-Oracle ≤ EPR@K
+    - 完全无参考：不需要gold FOL表示，只需NL蕴含标签
+    - 防虚假蕴含：验证步骤确保假设不引入新谓词/常量，且证明必须使用所有前提
 
 2. **得分函数（Scoring Function）**:
-   - 全局指标EPR无法直接用于句子级训练，因此定义句子级得分
-   - 一个FOL输出 $S(p)_j$ 的得分 = 包含它的所有蕴含保持组合的数量
-   - 语法错误的输出得分为-1
-   - 若一个句子出现在多个前提-假设对中，分值累加
-   - 设计动机：最大化得分 → 自然提升全局EPR
+
+    - 全局指标EPR无法直接用于句子级训练，因此定义句子级得分
+    - 一个FOL输出 $S(p)_j$ 的得分 = 包含它的所有蕴含保持组合的数量
+    - 语法错误的输出得分为-1
+    - 若一个句子出现在多个前提-假设对中，分值累加
+    - 设计动机：最大化得分 → 自然提升全局EPR
 
 3. **BRIO Learning-to-rank损失**:
-   - 对每个输入的K个输出按得分降序排列
-   - 目标：高分输出的token平均对数概率 > 低分输出
-   - $\mathcal{L}_{BRIO} = \sum_i \sum_j max(\hat{p}(y_j|x) - \hat{p}(y_i|x) + \Delta(j-i), 0)$
-   - 加入交叉熵正则：$\mathcal{L} = \mathcal{L}_{CE} + \lambda \mathcal{L}_{BRIO}$
-   - $\Delta=0.01$, $\lambda=10$
+
+    - 对每个输入的K个输出按得分降序排列
+    - 目标：高分输出的token平均对数概率 > 低分输出
+    - $\mathcal{L}_{BRIO} = \sum_i \sum_j max(\hat{p}(y_j|x) - \hat{p}(y_i|x) + \Delta(j-i), 0)$
+    - 加入交叉熵正则：$\mathcal{L} = \mathcal{L}_{CE} + \lambda \mathcal{L}_{BRIO}$
+    - $\Delta=0.01$, $\lambda=10$
 
 4. **迭代训练**:
-   - 每次迭代用当前模型的采样结果重新评估和训练
-   - 类比RLHF中的在线迭代策略（如Iterative DPO）
-   - 5次迭代，每次20 epoch
+
+    - 每次迭代用当前模型的采样结果重新评估和训练
+    - 类比RLHF中的在线迭代策略（如Iterative DPO）
+    - 5次迭代，每次20 epoch
 
 ### 损失函数 / 训练策略
 - 初始训练：标准交叉熵在MALLS上微调T5-base（34k NL-FOL对）

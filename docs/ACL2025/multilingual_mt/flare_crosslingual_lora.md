@@ -24,15 +24,15 @@ tags:
 FLARE 在 LoRA 适配器的低秩瓶颈中通过轻量线性/非线性变换融合源语言（英语）和目标语言的逐层表示，无需额外参数即可实现参数高效的跨语言迁移，在 Llama 3.1 上 QA 精确匹配提升 4.9%。
 
 ## 研究背景与动机
-1. **领域现状**：多语言预训练模型（mPLM）因英语语料占主导地位，非英语语言的表示空间欠训练，下游任务性能明显低于英语
-2. **现有痛点**：
+**领域现状**：多语言预训练模型（mPLM）因英语语料占主导地位，非英语语言的表示空间欠训练，下游任务性能明显低于英语
+**现有痛点**：
    - 输入级融合（拼接源+目标序列）导致序列长度翻倍，attention 计算量平方增长
    - X-Mixup 只在单个 transformer 层进行跨注意力对齐，且需额外参数
    - 翻译后测试（translate-test）丢失文化细节和语义
    - 翻译后训练（translate-train）利用标准 LoRA 未充分利用源语言信息
-3. **核心矛盾**：改善跨语言迁移通常需要处理双语输入或额外模块，但这增加计算复杂度，与参数高效微调的目标冲突
-4. **切入角度**：LoRA 已经将表示压缩到低秩瓶颈中，可以在这个压缩空间中融合双语信息，几乎不增加额外开销
-5. **核心idea一句话**：在 LoRA 的 down-projection 后、up-projection 前，用简单的逐元素操作融合源语言和目标语言表示
+**核心矛盾**：改善跨语言迁移通常需要处理双语输入或额外模块，但这增加计算复杂度，与参数高效微调的目标冲突
+**切入角度**：LoRA 已经将表示压缩到低秩瓶颈中，可以在这个压缩空间中融合双语信息，几乎不增加额外开销
+**核心idea一句话**：在 LoRA 的 down-projection 后、up-projection 前，用简单的逐元素操作融合源语言和目标语言表示
 
 ## 方法详解
 
@@ -42,19 +42,22 @@ FLARE 的流程：(1) 先在英语任务数据上标准 LoRA 微调得到 base m
 ### 关键设计
 
 1. **瓶颈内语言融合（Bottleneck Fusion）**:
-   - 做什么：在 LoRA 的低秩空间（$r \ll d$）中融合双语表示
-   - 核心思路：源语言表示 $S = v^S W^{down}$，目标语言表示 $T = v^T W^{down}$，共享 down-projection 确保在同一空间。融合函数 $\phi$ 包括：加法 $S+T$、乘法 $S \circ T$、ReLU 变体（add+relu、mul+relu）、cross-attention
-   - 设计动机：复用 LoRA 已有的 down/up projection，不增加额外参数（除 cross-attention 外）。在低秩空间融合比在原始高维空间融合计算量小得多
+
+    - 做什么：在 LoRA 的低秩空间（$r \ll d$）中融合双语表示
+    - 核心思路：源语言表示 $S = v^S W^{down}$，目标语言表示 $T = v^T W^{down}$，共享 down-projection 确保在同一空间。融合函数 $\phi$ 包括：加法 $S+T$、乘法 $S \circ T$、ReLU 变体（add+relu、mul+relu）、cross-attention
+    - 设计动机：复用 LoRA 已有的 down/up projection，不增加额外参数（除 cross-attention 外）。在低秩空间融合比在原始高维空间融合计算量小得多
 
 2. **逐层表示提取与偏移**:
-   - 做什么：源语言用 base model 第 $i+1$ 层表示与目标语言第 $i$ 层表示融合
-   - 核心思路：$h = \phi(v_{i+1}^S W^{down}, v_i^T W^{down})$，源语言"领先一层"
-   - 设计动机：第 $i+1$ 层已经过该层 transformer block 处理，包含更丰富的任务特定信息，可以"引导"目标语言的第 $i$ 层学习
+
+    - 做什么：源语言用 base model 第 $i+1$ 层表示与目标语言第 $i$ 层表示融合
+    - 核心思路：$h = \phi(v_{i+1}^S W^{down}, v_i^T W^{down})$，源语言"领先一层"
+    - 设计动机：第 $i+1$ 层已经过该层 transformer block 处理，包含更丰富的任务特定信息，可以"引导"目标语言的第 $i$ 层学习
 
 3. **FLARE MT 变体**:
-   - 做什么：用机器翻译模型的 encoder 表示（latent translation）代替 mPLM 的源语言表示
-   - 核心思路：直接用 NLLB encoder 将目标语言映射为"潜在翻译"$v^T = \mathcal{M}(x^T)$，经线性投影后融合
-   - 设计动机：免去源语言在 mPLM 中的前向传播，进一步减少计算量
+
+    - 做什么：用机器翻译模型的 encoder 表示（latent translation）代替 mPLM 的源语言表示
+    - 核心思路：直接用 NLLB encoder 将目标语言映射为"潜在翻译"$v^T = \mathcal{M}(x^T)$，经线性投影后融合
+    - 设计动机：免去源语言在 mPLM 中的前向传播，进一步减少计算量
 
 ### 融合函数对比
 | 融合函数 | XNLI | TyDiQA | NusaX | 是否需额外参数 |

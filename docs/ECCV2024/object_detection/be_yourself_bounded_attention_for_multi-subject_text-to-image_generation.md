@@ -29,9 +29,9 @@ tags:
 
 文本到图像扩散模型在生成包含**多个主体**（尤其是语义或视觉相似的主体）的场景时常常失败，主要表现为三类问题：
 
-1. **灾难性忽略（catastrophic neglect）**：模型未能在生成图像中包含提示词中提到的一个或多个主体
-2. **错误属性绑定（incorrect attribute binding）**：属性未正确匹配到对应主体（如"ginger kitten and gray puppy"中颜色混淆）
-3. **主体融合（subject fusion）**：模型将多个主体合并为一个更大的主体
+**灾难性忽略（catastrophic neglect）**：模型未能在生成图像中包含提示词中提到的一个或多个主体
+**错误属性绑定（incorrect attribute binding）**：属性未正确匹配到对应主体（如"ginger kitten and gray puppy"中颜色混淆）
+**主体融合（subject fusion）**：模型将多个主体合并为一个更大的主体
 
 现有的布局引导方法（如 Layout Guidance、BoxDiff、MultiDiffusion）虽然试图通过空间约束来定位主体，但仍然无法有效处理语义相似主体间的特征泄漏。作者深入分析发现，**语义泄漏** 的根本原因在于注意力层固有地混合不同主体的视觉特征。
 

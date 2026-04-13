@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：现代 LLM（如 ChatGPT）尽管经过 RLHF 对齐，仍然在交互中展现出社会偏见行为（性别、种族、年龄、残障等）。近期涌现了多种去偏技术，包括 prompting（Self-Awareness、Self-Reflection 等）和 training（DPO、SFT、Safe RLHF、Task Vector 等）两大类。
-2. **现有痛点**：各去偏方法使用不同的基线和评估指标，导致方法间无法公平比较（如表 1 所示，DAMA、BiasDPO、FAST 等各用不同基线）。更关键的是，**大多数评估基于 LLM 内部概率**（比较有偏和无偏上下文的 likelihood），而非直接评估模型响应中的偏差——这与实际使用场景脱节，用户看到的是模型输出而非概率分布。
-3. **核心矛盾**：概率级评估 vs. 响应级评估的差距。StereoSet、CrowS-Pairs 等经典基准衡量的是 token 概率偏差，但用户真正关心的是"模型回答是否公平安全"。现有研究缺乏统一、面向响应的去偏评估平台。
-4. **本文要解决什么？** (a) 建立统一基准，公平比较 prompting 和 training 去偏方法；(b) 设计响应级指标直接衡量输出偏差；(c) 分析模型大小、偏差类型、方法范式等维度的影响。
-5. **切入角度**：将现有偏差数据集重组为 query-response 格式（与真实 LLM 使用对齐），统一所有方法的测试条件。
-6. **核心 idea 一句话**：构建统一的 query-response 框架 + Bias-Free Score 指标，系统比较 8 种去偏技术在响应层面的效果。
+**领域现状**：现代 LLM（如 ChatGPT）尽管经过 RLHF 对齐，仍然在交互中展现出社会偏见行为（性别、种族、年龄、残障等）。近期涌现了多种去偏技术，包括 prompting（Self-Awareness、Self-Reflection 等）和 training（DPO、SFT、Safe RLHF、Task Vector 等）两大类。
+**现有痛点**：各去偏方法使用不同的基线和评估指标，导致方法间无法公平比较（如表 1 所示，DAMA、BiasDPO、FAST 等各用不同基线）。更关键的是，**大多数评估基于 LLM 内部概率**（比较有偏和无偏上下文的 likelihood），而非直接评估模型响应中的偏差——这与实际使用场景脱节，用户看到的是模型输出而非概率分布。
+**核心矛盾**：概率级评估 vs. 响应级评估的差距。StereoSet、CrowS-Pairs 等经典基准衡量的是 token 概率偏差，但用户真正关心的是"模型回答是否公平安全"。现有研究缺乏统一、面向响应的去偏评估平台。
+**本文要解决什么？** (a) 建立统一基准，公平比较 prompting 和 training 去偏方法；(b) 设计响应级指标直接衡量输出偏差；(c) 分析模型大小、偏差类型、方法范式等维度的影响。
+**切入角度**：将现有偏差数据集重组为 query-response 格式（与真实 LLM 使用对齐），统一所有方法的测试条件。
+**核心 idea 一句话**：构建统一的 query-response 框架 + Bias-Free Score 指标，系统比较 8 种去偏技术在响应层面的效果。
 
 ## 方法详解
 
@@ -40,27 +40,31 @@ BiasFreeBench 的设计包含三个核心组件：(1) 8 种去偏技术的统一
 ### 关键设计
 
 1. **四种 Prompting 去偏方法**
-   - **Self-Awareness**：在查询末尾加入偏差类型提示（如"注意避免性别偏见"），让模型在回答时意识到偏差。优点是零额外计算开销
-   - **Self-Reflection**：先让 LLM 生成初始回答，再用指令要求其反思并去除偏差、重新生成。类似 agent 中的 reflection 机制
-   - **Self-Help**：让 LLM 先重写可能含偏差的查询，用净化后的查询在新 session 中重新获取回答。需要两次前向传播
-   - **CoT（Chain-of-Thought）**：指示模型进行逐步推理以避免偏差回答。通过暴露推理过程来减少偏差
+
+    - **Self-Awareness**：在查询末尾加入偏差类型提示（如"注意避免性别偏见"），让模型在回答时意识到偏差。优点是零额外计算开销
+    - **Self-Reflection**：先让 LLM 生成初始回答，再用指令要求其反思并去除偏差、重新生成。类似 agent 中的 reflection 机制
+    - **Self-Help**：让 LLM 先重写可能含偏差的查询，用净化后的查询在新 session 中重新获取回答。需要两次前向传播
+    - **CoT（Chain-of-Thought）**：指示模型进行逐步推理以避免偏差回答。通过暴露推理过程来减少偏差
 
 2. **四种 Training 去偏方法**
-   - **SFT**：在反刻板印象数据上微调，直接学习无偏响应模式
-   - **DPO**：构造偏好对（反刻板印象为正例、刻板印象为负例），学习区分安全/不安全行为。比 SFT 多了"对比学习"的信号
-   - **Safe RLHF**：两阶段流程——先训练 reward model (有用性) 和 cost model (无害性)，再用约束优化训练 LLM 同时满足两个目标
-   - **Task Vector**：先用 SFT 训练出有偏模型 $\theta_{\text{biased}}$，计算偏差向量 $\tau = \theta_{\text{biased}} - \theta_{\text{pre}}$，然后反向更新 $\theta_{\text{biasfree}} = \theta_{\text{pre}} - \tau$，"减去"偏差
+
+    - **SFT**：在反刻板印象数据上微调，直接学习无偏响应模式
+    - **DPO**：构造偏好对（反刻板印象为正例、刻板印象为负例），学习区分安全/不安全行为。比 SFT 多了"对比学习"的信号
+    - **Safe RLHF**：两阶段流程——先训练 reward model (有用性) 和 cost model (无害性)，再用约束优化训练 LLM 同时满足两个目标
+    - **Task Vector**：先用 SFT 训练出有偏模型 $\theta_{\text{biased}}$，计算偏差向量 $\tau = \theta_{\text{biased}} - \theta_{\text{pre}}$，然后反向更新 $\theta_{\text{biasfree}} = \theta_{\text{pre}} - \tau$，"减去"偏差
 
 3. **Bias-Free Score (BFS) 指标**
-   - 做什么：直接衡量 LLM 响应中无偏/安全/反刻板印象回答的比例
-   - BBQ 数据集上的 BFS：$\text{BFS}_{\text{BBQ}} = \frac{N_{\text{anti-stereo}} + N_{\text{unknown}}}{N_{\text{total}}}$，其中 unknown 包括"信息不足无法判断"等安全回答
-   - FairMT-Bench 上的 BFS：$\text{BFS}_{\text{FairMT}} = \frac{N_{\text{unbiased}}}{N_{\text{total}}}$
-   - 设计动机：与概率级指标不同，BFS 直接反映用户实际看到的输出是否公平安全
+
+    - 做什么：直接衡量 LLM 响应中无偏/安全/反刻板印象回答的比例
+    - BBQ 数据集上的 BFS：$\text{BFS}_{\text{BBQ}} = \frac{N_{\text{anti-stereo}} + N_{\text{unknown}}}{N_{\text{total}}}$，其中 unknown 包括"信息不足无法判断"等安全回答
+    - FairMT-Bench 上的 BFS：$\text{BFS}_{\text{FairMT}} = \frac{N_{\text{unbiased}}}{N_{\text{total}}}$
+    - 设计动机：与概率级指标不同，BFS 直接反映用户实际看到的输出是否公平安全
 
 4. **评估流程（三方投票）**
-   - 做什么：对 LLM 响应进行偏差分类
-   - 使用 GPT-4o-mini（3 次投票取多数）、LlamaGuard-3-8B 和 OpenAI Moderation API 三个评判器
-   - 人工验证显示：BBQ 上与人类判断 100% 一致（Cohen's kappa=1.0），FairMT-Bench 上 94% 一致（kappa=0.7）
+
+    - 做什么：对 LLM 响应进行偏差分类
+    - 使用 GPT-4o-mini（3 次投票取多数）、LlamaGuard-3-8B 和 OpenAI Moderation API 三个评判器
+    - 人工验证显示：BBQ 上与人类判断 100% 一致（Cohen's kappa=1.0），FairMT-Bench 上 94% 一致（kappa=0.7）
 
 ### 训练数据
 - 使用 StereoSet 的 intersentence 部分作为 SFT/DPO/Task Vector 的训练数据

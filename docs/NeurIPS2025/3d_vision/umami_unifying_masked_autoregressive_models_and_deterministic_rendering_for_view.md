@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：新视角合成（NVS）两大范式——确定性方法（PixelSplat、MVSplat、LVSM）速度快但遮挡区域模糊；生成方法（CAT3D、Stable Video 3D）能幻想遮挡内容但训练推理成本高
-2. **现有痛点**：全扩散方法用大型 UNet/Transformer 对**整张图像**迭代去噪，即使大部分目标视角已被上下文视角覆盖——这是巨大的计算浪费
-3. **核心矛盾**：确定性方法无法生成未见区域，生成方法对已见区域效率极低
-4. **切入角度**：将目标图像分为"确定性可渲染"（几何约束好的区域）和"需要生成"（遮挡/未见区域），分别用不同头处理
-5. **核心 idea**：双向 Transformer 编码共享表示 → 前馈回归头直接渲染可见像素 → MAR 扩散头生成遮挡像素。端到端训练，无手工 3D 归纳偏置
+**领域现状**：新视角合成（NVS）两大范式——确定性方法（PixelSplat、MVSplat、LVSM）速度快但遮挡区域模糊；生成方法（CAT3D、Stable Video 3D）能幻想遮挡内容但训练推理成本高
+**现有痛点**：全扩散方法用大型 UNet/Transformer 对**整张图像**迭代去噪，即使大部分目标视角已被上下文视角覆盖——这是巨大的计算浪费
+**核心矛盾**：确定性方法无法生成未见区域，生成方法对已见区域效率极低
+**切入角度**：将目标图像分为"确定性可渲染"（几何约束好的区域）和"需要生成"（遮挡/未见区域），分别用不同头处理
+**核心 idea**：双向 Transformer 编码共享表示 → 前馈回归头直接渲染可见像素 → MAR 扩散头生成遮挡像素。端到端训练，无手工 3D 归纳偏置
 
 ## 方法详解
 
@@ -40,24 +40,28 @@ tags:
 ### 关键设计
 
 1. **数据表示——Plücker 射线嵌入**：
-   - 做什么：将相机位姿信息编码为逐像素的 Plücker 射线，与图像 Token 沿通道维拼接
-   - 核心思路：$(\mathbf{d}, \mathbf{d} \times \mathbf{o}) \in \mathbb{R}^6$，其中 $\mathbf{d}$ 是射线方向、$\mathbf{o}$ 是原点
-   - 设计动机：无需显式 3D 表示（如点云/深度），射线本身编码了足够的几何信息
+
+    - 做什么：将相机位姿信息编码为逐像素的 Plücker 射线，与图像 Token 沿通道维拼接
+    - 核心思路：$(\mathbf{d}, \mathbf{d} \times \mathbf{o}) \in \mathbb{R}^6$，其中 $\mathbf{d}$ 是射线方向、$\mathbf{o}$ 是原点
+    - 设计动机：无需显式 3D 表示（如点云/深度），射线本身编码了足够的几何信息
 
 2. **双头架构**：
-   - **确定性头 φ**：轻量 MLP，从潜在 z 直接回归 RGB 像素值和逐像素置信度 $\mathbf{s}_p$。用 MSE + 感知损失训练
-   - **MAR 扩散头 ϕ**：轻量 MLP + 时间步嵌入，对每个 Token 的潜在 z 做条件去噪。用 DDPM 目标训练
-   - 分工机制：置信度 $\mathbf{s}_p$ 将 Token 分为 $\mathbf{x}_D$（确定性渲染）和 $\mathbf{x}_S$（扩散生成）
-   - 形式化：$p(\mathbf{x}|\mathbf{c}) = \delta(\mathbf{x}_D - F(\mathbf{c})) \cdot p(\mathbf{x}_S | \mathbf{x}_D, \mathbf{c})$
+
+    - **确定性头 φ**：轻量 MLP，从潜在 z 直接回归 RGB 像素值和逐像素置信度 $\mathbf{s}_p$。用 MSE + 感知损失训练
+    - **MAR 扩散头 ϕ**：轻量 MLP + 时间步嵌入，对每个 Token 的潜在 z 做条件去噪。用 DDPM 目标训练
+    - 分工机制：置信度 $\mathbf{s}_p$ 将 Token 分为 $\mathbf{x}_D$（确定性渲染）和 $\mathbf{x}_S$（扩散生成）
+    - 形式化：$p(\mathbf{x}|\mathbf{c}) = \delta(\mathbf{x}_D - F(\mathbf{c})) \cdot p(\mathbf{x}_S | \mathbf{x}_D, \mathbf{c})$
 
 3. **混合采样器**：
-   - 做什么：推理时高效合并两种头的输出
-   - 核心思路：迭代解掩——每轮用确定性头填充高置信 Token（置信度 > τ），其余用扩散头解码。已填充的 Token 在下一轮作为条件
-   - 设计动机：避免了全图扩散的高成本——只对遮挡部分做生成，可见部分实时渲染
+
+    - 做什么：推理时高效合并两种头的输出
+    - 核心思路：迭代解掩——每轮用确定性头填充高置信 Token（置信度 > τ），其余用扩散头解码。已填充的 Token 在下一轮作为条件
+    - 设计动机：避免了全图扩散的高成本——只对遮挡部分做生成，可见部分实时渲染
 
 4. **置信度损失**：
-   - $\mathcal{L}_{conf} = \mathbf{m} \odot (\mathbf{s}_p \odot \|\hat{\mathbf{I}} - \mathbf{I}\|_2^2 - \lambda_s \cdot \log \mathbf{s}_p)$
-   - 鼓励高置信度区域预测准确，同时惩罚过度自信
+
+    - $\mathcal{L}_{conf} = \mathbf{m} \odot (\mathbf{s}_p \odot \|\hat{\mathbf{I}} - \mathbf{I}\|_2^2 - \lambda_s \cdot \log \mathbf{s}_p)$
+    - 鼓励高置信度区域预测准确，同时惩罚过度自信
 
 ### 损失函数
 - 总损失 = $\mathcal{L}_{render}$ (MSE + 感知) + $\mathcal{L}_{conf}$ (置信度) + $\mathcal{L}_{diff}$ (DDPM去噪)

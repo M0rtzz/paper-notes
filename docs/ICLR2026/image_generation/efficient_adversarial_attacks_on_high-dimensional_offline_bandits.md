@@ -30,8 +30,8 @@ tags:
 多臂老虎机（MAB）算法近年来被广泛用于评估生成模型（扩散模型、LLM 等），通过 UCB 等策略高效识别最优模型，替代昂贵的穷举对比。这些评估通常依赖部署在 Hugging Face 等平台上的**公开权重奖励模型**（如 CLIP、BLIP、美学评分器）。
 
 **核心安全隐患**：离线 bandit 评估（用固定 logged 数据替代在线评估）引入了两个被忽视的风险：
-1. **容易被对抗操纵**：攻击者可以偏倚模型选择过程
-2. **容易对奖励模型过拟合**：同一数据集上反复调整评估指标
+**容易被对抗操纵**：攻击者可以偏倚模型选择过程
+**容易对奖励模型过拟合**：同一数据集上反复调整评估指标
 
 **研究空白**：以往对抗攻击研究聚焦于训练过程中篡改奖励值，从未考虑过**在训练前扰动奖励模型本身**这一更现实的威胁模型。
 
@@ -47,22 +47,24 @@ tags:
 
 1. **三种攻击策略**：
 
-   - **Full Trajectory Attack**：强制 bandit 遵循完全预设的目标轨迹 $\widetilde{A}_t$，需 $(T-K)(K-1)$ 个约束
-   - **Trajectory-Free Attack**：仅阻止最优 arm $i^*$ 被选中，不指定具体选哪个，约束数降为 $T-K$
-   - **Online Score-Aware (OSA) Attack**：在线逐步添加约束——仅当最优 arm 即将被选中时才加约束，实际约束数仅为 $\mathcal{O}(\log T)$，大幅降低计算成本
+    - **Full Trajectory Attack**：强制 bandit 遵循完全预设的目标轨迹 $\widetilde{A}_t$，需 $(T-K)(K-1)$ 个约束
+    - **Trajectory-Free Attack**：仅阻止最优 arm $i^*$ 被选中，不指定具体选哪个，约束数降为 $T-K$
+    - **Online Score-Aware (OSA) Attack**：在线逐步添加约束——仅当最优 arm 即将被选中时才加约束，实际约束数仅为 $\mathcal{O}(\log T)$，大幅降低计算成本
    
    对于线性奖励模型 $r(\mathbf{X}) = \mathbf{w}^\top \mathbf{X}$，所有攻击都可归结为凸二次规划（QP）：
-   $$\boldsymbol{\delta}^* = \arg\min_{\boldsymbol{\delta}} \|\boldsymbol{\delta}\|_2^2 \quad \text{s.t.} \quad \boldsymbol{\delta}^\top \mathbf{T}_{i,t} > R_{i,t}, \forall (i,t) \in \mathcal{I}$$
+    $\boldsymbol{\delta}^* = \arg\min_{\boldsymbol{\delta}} \|\boldsymbol{\delta}\|_2^2 \quad \text{s.t.} \quad \boldsymbol{\delta}^\top \mathbf{T}_{i,t} > R_{i,t}, \forall (i,t) \in \mathcal{I}$
 
 2. **从线性到神经网络的推广**：
-   - 利用 Neural Tangent Kernel (NTK) 理论，对于足够宽的随机初始化网络：
-     $$\text{NN}_{\boldsymbol{\theta}+\boldsymbol{\delta}}(\mathbf{X}) \approx \text{NN}_{\boldsymbol{\theta}}(\mathbf{X}) + \nabla_{\boldsymbol{\theta}}\text{NN}_{\boldsymbol{\theta}}(\mathbf{X})^\top \boldsymbol{\delta}$$
-   - 即过参数化网络在参数空间近似线性，攻击退化为线性情形
-   - 隐藏层宽度超过 750 时，攻击成功率达到 100%
+
+    - 利用 Neural Tangent Kernel (NTK) 理论，对于足够宽的随机初始化网络：
+    $\text{NN}_{\boldsymbol{\theta}+\boldsymbol{\delta}}(\mathbf{X}) \approx \text{NN}_{\boldsymbol{\theta}}(\mathbf{X}) + \nabla_{\boldsymbol{\theta}}\text{NN}_{\boldsymbol{\theta}}(\mathbf{X})^\top \boldsymbol{\delta}$
+    - 即过参数化网络在参数空间近似线性，攻击退化为线性情形
+    - 隐藏层宽度超过 750 时，攻击成功率达到 100%
 
 3. **理论保证**：
-   - **可行性定理（Theorem 3.3）**：当 $d > (T-K)(K-1)$ 且数据分布非退化时，攻击以概率 1 可行
-   - **攻击范数定理（Theorem 3.4）**：在 $d \geq KT$ 的高维情形下，全轨迹攻击所需扰动范数满足 $\|\boldsymbol{\delta}^*\|_2 \leq \mathcal{O}\left(\sqrt{\frac{T^3 \log T \cdot \log d}{Kd}}\right)$，即扰动随维度增大而缩小
+
+    - **可行性定理（Theorem 3.3）**：当 $d > (T-K)(K-1)$ 且数据分布非退化时，攻击以概率 1 可行
+    - **攻击范数定理（Theorem 3.4）**：在 $d \geq KT$ 的高维情形下，全轨迹攻击所需扰动范数满足 $\|\boldsymbol{\delta}^*\|_2 \leq \mathcal{O}\left(\sqrt{\frac{T^3 \log T \cdot \log d}{Kd}}\right)$，即扰动随维度增大而缩小
 
 ### 损失函数 / 训练策略
 

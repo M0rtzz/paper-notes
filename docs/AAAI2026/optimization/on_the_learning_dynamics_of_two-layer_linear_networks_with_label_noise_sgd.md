@@ -27,14 +27,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：深度学习的成功部分源于梯度训练算法中噪声引发的隐式偏置。近来有实证发现，训练时注入标签噪声反而能提升泛化性能（如 CIFAR-10 + ResNet-18 上约 1.5% 测试准确率提升），且训练出的模型更稀疏。
+**领域现状**：深度学习的成功部分源于梯度训练算法中噪声引发的隐式偏置。近来有实证发现，训练时注入标签噪声反而能提升泛化性能（如 CIFAR-10 + ResNet-18 上约 1.5% 测试准确率提升），且训练出的模型更稀疏。
 
-2. **现有痛点**：现有理论工作（Blanc et al. 2020; Damian et al. 2021; HaoChen et al. 2021）大多关注 label noise SGD 在全局极小值附近的局部隐式正则化效应（如正则化 sharpness），或在对角线性网络这种极简模型上分析。对于有两个可训层、存在层间耦合效应的更现实网络，缺乏对完整学习动力学（从初始化到收敛）的理论分析。
+**现有痛点**：现有理论工作（Blanc et al. 2020; Damian et al. 2021; HaoChen et al. 2021）大多关注 label noise SGD 在全局极小值附近的局部隐式正则化效应（如正则化 sharpness），或在对角线性网络这种极简模型上分析。对于有两个可训层、存在层间耦合效应的更现实网络，缺乏对完整学习动力学（从初始化到收敛）的理论分析。
 
-3. **核心矛盾**：过参数化网络在 NTK 初始化下倾向于停留在 lazy regime（参数几乎不动、等价于线性核方法），无法解释深度学习的泛化优势。然而实践中模型确实学到了有意义的特征（rich regime）。标签噪声如何驱动这一关键转变？
-4. **本文要解决什么？** 严格刻画二层线性网络在 label noise SGD 下的完整学习轨迹，解释标签噪声如何以及为什么能驱动 lazy-to-rich 过渡。
-5. **切入角度**：从第二层参数的振荡效应出发——标签噪声加速了第二层权重 $\mathbf{a}$ 的振荡，这些振荡通过层间耦合导致第一层权重 $\mathbf{W}$ 范数逐渐缩小，从而实现从 NTK 初始化的 lazy regime 到小初始化行为的 rich regime 的过渡。
-6. **核心idea一句话**：标签噪声通过放大第二层参数的振荡，间接驱动第一层权重范数持续衰减，使网络从 lazy regime 自然过渡到 rich regime，最终收敛到稀疏的 ground-truth 插值器。
+**核心矛盾**：过参数化网络在 NTK 初始化下倾向于停留在 lazy regime（参数几乎不动、等价于线性核方法），无法解释深度学习的泛化优势。然而实践中模型确实学到了有意义的特征（rich regime）。标签噪声如何驱动这一关键转变？
+**本文要解决什么？** 严格刻画二层线性网络在 label noise SGD 下的完整学习轨迹，解释标签噪声如何以及为什么能驱动 lazy-to-rich 过渡。
+**切入角度**：从第二层参数的振荡效应出发——标签噪声加速了第二层权重 $\mathbf{a}$ 的振荡，这些振荡通过层间耦合导致第一层权重 $\mathbf{W}$ 范数逐渐缩小，从而实现从 NTK 初始化的 lazy regime 到小初始化行为的 rich regime 的过渡。
+**核心idea一句话**：标签噪声通过放大第二层参数的振荡，间接驱动第一层权重范数持续衰减，使网络从 lazy regime 自然过渡到 rich regime，最终收敛到稀疏的 ground-truth 插值器。
 
 ## 方法详解
 
@@ -43,19 +43,22 @@ tags:
 
 ### 关键设计
 1. **Phase I：逐渐缩小与 Lazy-to-Rich 过渡（Theorem 4.2, Lemma 4.3）**
-   - 做什么：证明在 Phase I 期间，所有神经元的第一层权重范数 $\|\mathbf{w}_i(t)\|$ 单调递减，最终模型逃逸 lazy regime。
-   - 核心思路：权重范数的变化量 $\Delta W_i(j) = -\nabla\hat{\ell}^2 \cdot ((\mathbf{x}^\top \mathbf{w}_i)^2 - a_i^2 \|\mathbf{x}\|^2)$。由于 $\mathbf{a}(0)$ 初始化很小，$(\mathbf{x}^\top \mathbf{w}_i)^2$ 项占主导，使得 $\Delta W_i(j)$ 以高概率为负。关键等式 $\nabla\hat{\ell}^2 \cdot (\mathbf{x}^\top \mathbf{w}_i)^2 = (a_i(j+1) - a_i(j))^2$ 表明第一层范数的衰减由第二层的振荡幅度直接控制，而标签噪声正是振荡的来源。
-   - 设计动机：这是论文的核心发现——建立了"标签噪声 → 第二层振荡 → 第一层范数衰减 → lazy-to-rich 过渡"的因果链。Theorem 4.2 给出逃逸时间 $T_1 = O(\frac{\sqrt{\log m}}{\sigma^2 \eta^2 \sqrt{m}})$，明确依赖噪声强度 $\sigma$。
+
+    - 做什么：证明在 Phase I 期间，所有神经元的第一层权重范数 $\|\mathbf{w}_i(t)\|$ 单调递减，最终模型逃逸 lazy regime。
+    - 核心思路：权重范数的变化量 $\Delta W_i(j) = -\nabla\hat{\ell}^2 \cdot ((\mathbf{x}^\top \mathbf{w}_i)^2 - a_i^2 \|\mathbf{x}\|^2)$。由于 $\mathbf{a}(0)$ 初始化很小，$(\mathbf{x}^\top \mathbf{w}_i)^2$ 项占主导，使得 $\Delta W_i(j)$ 以高概率为负。关键等式 $\nabla\hat{\ell}^2 \cdot (\mathbf{x}^\top \mathbf{w}_i)^2 = (a_i(j+1) - a_i(j))^2$ 表明第一层范数的衰减由第二层的振荡幅度直接控制，而标签噪声正是振荡的来源。
+    - 设计动机：这是论文的核心发现——建立了"标签噪声 → 第二层振荡 → 第一层范数衰减 → lazy-to-rich 过渡"的因果链。Theorem 4.2 给出逃逸时间 $T_1 = O(\frac{\sqrt{\log m}}{\sigma^2 \eta^2 \sqrt{m}})$，明确依赖噪声强度 $\sigma$。
 
 2. **Phase II：对齐与收敛（Lemma 4.5, 4.6）**
-   - 做什么：证明当权重范数足够小后（$\|\mathbf{w}_i\|, |a_i| \leq \sqrt{\eta}$），神经元快速与 ground-truth 插值器 $\theta^*$ 对齐并收敛。
-   - 核心思路：Lemma 4.5 证明经过 $T_2 = \frac{1}{\|\theta^*\|} \ln(1/\eta)$ 步后，对齐度 $\frac{|\langle \theta^*, \mathbf{w}_i \rangle|}{\|\theta^*\| \cdot \|\mathbf{w}_i\|} \geq 1 - O(\ln(1/\eta) \cdot \sqrt{\eta})$。Lemma 4.6 证明完美对齐后再经 $T_3 = O(\frac{-\ln\eta}{\eta})$ 步收敛到 $\|\theta(t_3) - \theta^*\| \leq O(\eta \ln(1/\eta))$。
-   - 设计动机：Phase II 类似于小初始化下的学习行为——这正是 Phase I 的效果，label noise SGD 将大初始化"变成了"等效的小初始化。
+
+    - 做什么：证明当权重范数足够小后（$\|\mathbf{w}_i\|, |a_i| \leq \sqrt{\eta}$），神经元快速与 ground-truth 插值器 $\theta^*$ 对齐并收敛。
+    - 核心思路：Lemma 4.5 证明经过 $T_2 = \frac{1}{\|\theta^*\|} \ln(1/\eta)$ 步后，对齐度 $\frac{|\langle \theta^*, \mathbf{w}_i \rangle|}{\|\theta^*\| \cdot \|\mathbf{w}_i\|} \geq 1 - O(\ln(1/\eta) \cdot \sqrt{\eta})$。Lemma 4.6 证明完美对齐后再经 $T_3 = O(\frac{-\ln\eta}{\eta})$ 步收敛到 $\|\theta(t_3) - \theta^*\| \leq O(\eta \ln(1/\eta))$。
+    - 设计动机：Phase II 类似于小初始化下的学习行为——这正是 Phase I 的效果，label noise SGD 将大初始化"变成了"等效的小初始化。
 
 3. **扩展到 SAM**
-   - 做什么：验证 SAM（Sharpness-Aware Minimization）也展现相同的两阶段动力学。
-   - 核心思路：SAM 的内层对抗扰动放大了梯度噪声，类似于标签噪声的效应。在合成和 CIFAR-10 实验中，SAM 训练的 WideResNet 损失曲线与线性化模型显著偏离（rich regime 特征），同时第一层权重范数明显衰减。
-   - 设计动机：将发现的机制从一种特定噪声源推广到更一般的"噪声放大"优化策略。
+
+    - 做什么：验证 SAM（Sharpness-Aware Minimization）也展现相同的两阶段动力学。
+    - 核心思路：SAM 的内层对抗扰动放大了梯度噪声，类似于标签噪声的效应。在合成和 CIFAR-10 实验中，SAM 训练的 WideResNet 损失曲线与线性化模型显著偏离（rich regime 特征），同时第一层权重范数明显衰减。
+    - 设计动机：将发现的机制从一种特定噪声源推广到更一般的"噪声放大"优化策略。
 
 ### 损失函数 / 训练策略
 使用均方损失 $\hat{\ell}_i(\theta(t)) = \frac{1}{2} |f(\theta(t); \mathbf{x}_i) - y_i - \epsilon|^2$，其中 $\epsilon \sim \{-\sigma, +\sigma\}$。关键条件包括：过参数化 $m = \Omega(1/\sqrt{\eta})$，小学习率 $\eta \leq 1/C^{96}$，充足数据 $n \geq 1/\eta^2$，稀疏 ground-truth $\|\theta^*\| \leq m^{-1/4}$。这些条件确保 Phase I 足够长以实现充分的范数衰减，并且网络宽度足够大以保证高概率结果。训练采用在线 SGD（批大小 1）加标签噪声，每步随机采样一个训练样本并随机翻转标签。

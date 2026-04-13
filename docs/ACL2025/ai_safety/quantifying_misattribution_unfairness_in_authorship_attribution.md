@@ -40,22 +40,25 @@ tags:
 
 ### 关键设计
 1. **MAUI_k指标 (Misattribution Unfairness Index)**
-   - 无偏基线：在随机排列中，每位作者被排在top-k的期望次数为 $E_k = \lceil \frac{k}{N_h} \times N_q \rceil$
-   - 定义：$\text{MAUI}_k = \frac{\sum_{j=1}^{N_h} \max(0, c_j^k - E_k)}{k \times (N_q - E_k)}$
-   - $c_j^k$：作者 $a_j$ 实际被排在top-k的次数
-   - 归一化到[0,1]，0最公平，1最不公平
-   - 分母为最坏情况（同k个作者总被排在top-k）
+
+    - 无偏基线：在随机排列中，每位作者被排在top-k的期望次数为 $E_k = \lceil \frac{k}{N_h} \times N_q \rceil$
+    - 定义：$\text{MAUI}_k = \frac{\sum_{j=1}^{N_h} \max(0, c_j^k - E_k)}{k \times (N_q - E_k)}$
+    - $c_j^k$：作者 $a_j$ 实际被排在top-k的次数
+    - 归一化到[0,1]，0最公平，1最不公平
+    - 分母为最坏情况（同k个作者总被排在top-k）
 
 2. **嵌入质心距离分析**
-   - 计算所有haystack作者嵌入的质心（均值向量）
-   - 每位作者到质心的距离：$1 - \cos(\text{embedding}_j, \text{centroid})$
-   - 绘制"平均排名 vs 距质心距离"散点图
+
+    - 计算所有haystack作者嵌入的质心（均值向量）
+    - 每位作者到质心的距离：$1 - \cos(\text{embedding}_j, \text{centroid})$
+    - 绘制"平均排名 vs 距质心距离"散点图
 
 3. **MRR与距质心距离的假设检验**
-   - H1：高MRR作者比低MRR作者距质心更远
-   - H2：高MRR作者比随机子集距质心更远
-   - H3：低MRR作者比随机子集距质心更近
-   - 使用Mann-Whitney U检验（非参数，不假设正态性）
+
+    - H1：高MRR作者比低MRR作者距质心更远
+    - H2：高MRR作者比随机子集距质心更远
+    - H3：低MRR作者比随机子集距质心更近
+    - 使用Mann-Whitney U检验（非参数，不假设正态性）
 
 ### 损失函数 / 训练策略
 本文是评估/分析工作，不涉及新的训练。仅MPNet_AR进行了作者表示微调：

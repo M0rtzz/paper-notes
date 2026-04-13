@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：UMM 通过共享骨干整合视觉理解和生成，理论上可实现复杂指令跟随的 T2I 任务。代表模型包括 Chameleon、Emu3、Janus、BAGEL、Show-o、BLIP3-o 等。
-2. **核心问题**：UMM 存在严重的**理解-生成能力不对称**——理解分支通常远强于生成分支。联合训练两个任务还会导致负迁移，优化一个任务损害另一个。
-3. **现有方案不足**：传统 RL 用图像级外部奖励（如 ImageReward、PickScore），粒度太粗无法捕捉细微语义，容易 reward hacking，且依赖外部模型。
-4. **核心洞察**：理解（图→文）和生成（文→图）是对偶任务。UMM 已有的强理解能力天然可作"老师"，评估自己生成的图像与文本的对齐度，无需外部监督。
-5. **核心idea**：用 UMM 理解分支计算生成图像对原始 prompt 各 token 的条件概率作为细粒度内在奖励，驱动 GRPO 自监督 RL。
+**领域现状**：UMM 通过共享骨干整合视觉理解和生成，理论上可实现复杂指令跟随的 T2I 任务。代表模型包括 Chameleon、Emu3、Janus、BAGEL、Show-o、BLIP3-o 等。
+**核心问题**：UMM 存在严重的**理解-生成能力不对称**——理解分支通常远强于生成分支。联合训练两个任务还会导致负迁移，优化一个任务损害另一个。
+**现有方案不足**：传统 RL 用图像级外部奖励（如 ImageReward、PickScore），粒度太粗无法捕捉细微语义，容易 reward hacking，且依赖外部模型。
+**核心洞察**：理解（图→文）和生成（文→图）是对偶任务。UMM 已有的强理解能力天然可作"老师"，评估自己生成的图像与文本的对齐度，无需外部监督。
+**核心idea**：用 UMM 理解分支计算生成图像对原始 prompt 各 token 的条件概率作为细粒度内在奖励，驱动 GRPO 自监督 RL。
 
 ## 方法详解
 
@@ -40,20 +40,23 @@ tags:
 ### 关键设计
 
 1. **自生成管线**:
-   - 给定文本 prompt $T = T_{1:L}$，生成分支自回归生成图像 token $I_{1:L_I}$，经扩散头解码为像素图像
-   - 理解分支接收生成图像 + 系统指令，计算原始 prompt token 的自回归条件概率
-   - 整个过程不需要外部图像数据或模型，完全闭环
+
+    - 给定文本 prompt $T = T_{1:L}$，生成分支自回归生成图像 token $I_{1:L_I}$，经扩散头解码为像素图像
+    - 理解分支接收生成图像 + 系统指令，计算原始 prompt token 的自回归条件概率
+    - 整个过程不需要外部图像数据或模型，完全闭环
 
 2. **Token 级内在奖励（GvU 核心）**:
-   - 给定生成图像 $I$ 和原始 prompt $T_{1:L}$，计算每个 token 的条件概率：$p_\theta(T_j|\mathbf{X}_{j-1}) = \text{Softmax}(\text{Logits}_\theta(\mathbf{X}_{j-1})[T_j])$
-   - 整体对齐概率为几何均值（消除长度偏差）：$P(T_{1:L}|I) = (\prod_{j=1}^{L} p_\theta(T_j|\mathbf{X}_{j-1}))^{1/L}$
-   - **设计动机**：与图像级奖励不同，token 级概率提供密集细粒度信号，可区分颜色、数量、位置等细微语义差异
+
+    - 给定生成图像 $I$ 和原始 prompt $T_{1:L}$，计算每个 token 的条件概率：$p_\theta(T_j|\mathbf{X}_{j-1}) = \text{Softmax}(\text{Logits}_\theta(\mathbf{X}_{j-1})[T_j])$
+    - 整体对齐概率为几何均值（消除长度偏差）：$P(T_{1:L}|I) = (\prod_{j=1}^{L} p_\theta(T_j|\mathbf{X}_{j-1}))^{1/L}$
+    - **设计动机**：与图像级奖励不同，token 级概率提供密集细粒度信号，可区分颜色、数量、位置等细微语义差异
 
 3. **自监督 GRPO 优化**:
-   - 对每个 prompt 生成 $G$ 个轨迹，各得到奖励 $R_i = P(T|I_i)$
-   - 组内相对优势估计：$A_i = \frac{R_i - \text{mean}(\{R_i\})}{\text{std}(\{R_i\})}$
-   - 最大化裁剪 GRPO 目标（含 KL 散度约束），无需维护价值函数或外部奖励模型
-   - 训练用 LoRA 微调，50k 文本 prompt 训练集
+
+    - 对每个 prompt 生成 $G$ 个轨迹，各得到奖励 $R_i = P(T|I_i)$
+    - 组内相对优势估计：$A_i = \frac{R_i - \text{mean}(\{R_i\})}{\text{std}(\{R_i\})}$
+    - 最大化裁剪 GRPO 目标（含 KL 散度约束），无需维护价值函数或外部奖励模型
+    - 训练用 LoRA 微调，50k 文本 prompt 训练集
 
 ### 损失函数
 $$\mathcal{J}_{GRPO}(\theta) = \mathbb{E}\left[\frac{1}{G}\sum_{i=1}^{G}\min\left(r_i(\theta)A_i, \text{clip}(r_i(\theta),1-\epsilon,1+\epsilon)A_i\right) - \beta D_{KL}(\pi_\theta \| \pi_{ref})\right]$$

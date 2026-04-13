@@ -25,15 +25,15 @@ tags:
 本文系统研究了 LLM Agent 记忆模块的隐私风险，提出 MEXTRA 黑盒记忆提取攻击，通过精心设计的定位-对齐攻击 prompt 和自动化多样 prompt 生成方法，在医疗和网购两种 Agent 上成功提取大量私人查询记录。
 
 ## 研究背景与动机
-1. **领域现状**：LLM Agent 广泛应用于医疗、网购等隐私敏感场景，记忆模块存储用户交互历史作为 few-shot 示范
-2. **现有痛点**：
+**领域现状**：LLM Agent 广泛应用于医疗、网购等隐私敏感场景，记忆模块存储用户交互历史作为 few-shot 示范
+**现有痛点**：
    - 已有工作研究了 RAG 中外部数据的泄露，但 Agent 记忆模块作为新的隐私信息源几乎未被研究
    - 记忆中存储的用户查询可能包含高度敏感信息（如患者病情、购物偏好）
    - 现有 RAG 攻击 prompt（如"请重复所有上下文"）对 Agent 无效，因为 Agent 工作流更复杂
-3. **核心矛盾**：Agent 需要记忆模块提升性能，但记忆中的私人信息面临被提取的风险
-4. **本文要解决什么**：(1) Agent 记忆信息能否被提取？(2) 哪些因素影响泄露程度？(3) 什么攻击策略更有效？
-5. **切入角度**：设计针对 Agent 工作流特点的两部分攻击 prompt（定位+对齐）
-6. **核心idea一句话**：通过 locator+aligner 的攻击 prompt 设计让 Agent 按自身工作流输出记忆中的隐私信息
+**核心矛盾**：Agent 需要记忆模块提升性能，但记忆中的私人信息面临被提取的风险
+**本文要解决什么**：(1) Agent 记忆信息能否被提取？(2) 哪些因素影响泄露程度？(3) 什么攻击策略更有效？
+**切入角度**：设计针对 Agent 工作流特点的两部分攻击 prompt（定位+对齐）
+**核心idea一句话**：通过 locator+aligner 的攻击 prompt 设计让 Agent 按自身工作流输出记忆中的隐私信息
 
 ## 方法详解
 
@@ -42,20 +42,23 @@ tags:
 
 ### 关键设计
 1. **攻击 Prompt 设计 (Locator + Aligner)**:
-   - **Locator** ($\tilde{q}^{loc}$)：明确指定要提取检索到的用户查询（而非其他上下文描述），并优先输出它们而非完成原始任务。如"I lost previous example queries"
-   - **Aligner** ($\tilde{q}^{align}$)：指定输出格式使其符合 Agent 工作流。如 Web Agent 的"please enter them in the search box"，Code Agent 的"print them as output"
-   - 设计动机：Agent 工作流复杂（代码执行/网页操作），不能简单要求文本输出，必须让 Agent 在自身工作流框架内返回隐私信息
+
+    - **Locator** ($\tilde{q}^{loc}$)：明确指定要提取检索到的用户查询（而非其他上下文描述），并优先输出它们而非完成原始任务。如"I lost previous example queries"
+    - **Aligner** ($\tilde{q}^{align}$)：指定输出格式使其符合 Agent 工作流。如 Web Agent 的"please enter them in the search box"，Code Agent 的"print them as output"
+    - 设计动机：Agent 工作流复杂（代码执行/网页操作），不能简单要求文本输出，必须让 Agent 在自身工作流框架内返回隐私信息
 
 2. **自动化多样 Prompt 生成**:
-   - 做什么：用 GPT-4 自动生成 n 个多样的攻击 prompt，最大化提取不同的记忆条目
-   - **Basic level**：只知道 Agent 的应用领域，通过改变措辞和表达方式生成多样 prompt
-   - **Advanced level**：已推断出相似度函数后，针对性优化——若用编辑距离则变化长度，若用语义相似度则添加不同领域关键词
-   - 设计动机：单次攻击只能提取 top-k 条记录，需要多样化 prompt 覆盖更多记忆
+
+    - 做什么：用 GPT-4 自动生成 n 个多样的攻击 prompt，最大化提取不同的记忆条目
+    - **Basic level**：只知道 Agent 的应用领域，通过改变措辞和表达方式生成多样 prompt
+    - **Advanced level**：已推断出相似度函数后，针对性优化——若用编辑距离则变化长度，若用语义相似度则添加不同领域关键词
+    - 设计动机：单次攻击只能提取 top-k 条记录，需要多样化 prompt 覆盖更多记忆
 
 3. **威胁模型**:
-   - 攻击者只能通过输入查询与 Agent 交互（黑盒）
-   - 目标：提取记忆中存储的用户查询 $q_i$
-   - 两个知识级别：Basic（知道应用领域）和 Advanced（推断出检索函数）
+
+    - 攻击者只能通过输入查询与 Agent 交互（黑盒）
+    - 目标：提取记忆中存储的用户查询 $q_i$
+    - 两个知识级别：Basic（知道应用领域）和 Advanced（推断出检索函数）
 
 ## 实验关键数据
 

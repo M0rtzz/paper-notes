@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：VLM 已广泛部署为 API 服务（如 Microsoft Seeing AI、Be My Eyes），需要实时响应。NVIDIA 和 AWS 报告推理阶段占 ML 总能耗的 90% 以上。现有对抗攻击研究主要关注准确率鲁棒性。
-2. **现有痛点**：少数针对 VLM 效率攻击的研究（如 NICGSlowdown、Verbose Images）都假设白盒访问（完全知道模型架构和参数），而现实中 VLM 多以 API 形式部署，白盒假设不切实际。
-3. **核心矛盾**：黑盒设置下无法使用梯度信息进行优化，且零阶优化方法在目标函数存在剧烈变化时容易失效。
-4. **本文要解决什么？** 在黑盒设置（仅通过 API 交互）下评估 VLM 的效率鲁棒性——能否通过不可感知的图像扰动显著增加 VLM 的推理开销？
-5. **切入角度**：VLM 的自回归解码特性天然使推理效率与生成序列长度正相关。通过延长生成序列长度，可以有效增加推理开销。结合零阶优化估计梯度替代白盒梯度。
-6. **核心 idea 一句话**：设计三个效率导向的对抗目标（延长序列 + 延迟 EOS + 增加 token 多样性），用零阶优化在黑盒下搜索不可感知的对抗图像扰动。
+**领域现状**：VLM 已广泛部署为 API 服务（如 Microsoft Seeing AI、Be My Eyes），需要实时响应。NVIDIA 和 AWS 报告推理阶段占 ML 总能耗的 90% 以上。现有对抗攻击研究主要关注准确率鲁棒性。
+**现有痛点**：少数针对 VLM 效率攻击的研究（如 NICGSlowdown、Verbose Images）都假设白盒访问（完全知道模型架构和参数），而现实中 VLM 多以 API 形式部署，白盒假设不切实际。
+**核心矛盾**：黑盒设置下无法使用梯度信息进行优化，且零阶优化方法在目标函数存在剧烈变化时容易失效。
+**本文要解决什么？** 在黑盒设置（仅通过 API 交互）下评估 VLM 的效率鲁棒性——能否通过不可感知的图像扰动显著增加 VLM 的推理开销？
+**切入角度**：VLM 的自回归解码特性天然使推理效率与生成序列长度正相关。通过延长生成序列长度，可以有效增加推理开销。结合零阶优化估计梯度替代白盒梯度。
+**核心 idea 一句话**：设计三个效率导向的对抗目标（延长序列 + 延迟 EOS + 增加 token 多样性），用零阶优化在黑盒下搜索不可感知的对抗图像扰动。
 
 ## 方法详解
 
@@ -41,20 +41,23 @@ tags:
 ### 关键设计
 
 1. **三合一对抗目标**:
-   - **$\mathcal{L}_{len}$（延长序列）**: 直接最大化输出序列长度 $\text{Length}(\mathcal{F}(\mathcal{I}+\delta))$。虽然非可微，但适用于无导数优化。
-   - **$\mathcal{L}_{eos}$（延迟终止）**: 降低每个位置输出 EOS token 的概率，并引入动态权重衰减策略，越靠后的位置权重越大：$\mathcal{L}_{eos} = -\sum_{i=1}^{N} \omega^{N-i} \text{Pr}^{\text{EOS}}(y_i | \mathcal{I}+\delta)$，$\omega=0.1$。
-   - **$\mathcal{L}_{var}$（增加多样性）**: 将每个 token 位置的 top-k 概率分布向均匀分布对齐，使用 KL 散度：$\mathcal{L}_{var} = -\frac{1}{N}\sum_{i=1}^{N} D_{KL}(\tilde{\text{Pr}}(y_i | \mathcal{I}+\delta) \| \mathcal{U})$，$k=100$。
-   - **最终目标**: $\mathcal{L} = \mathcal{L}_{len} + \alpha \mathcal{L}_{eos} + \beta \mathcal{L}_{var}$
-   - 设计动机：单一目标不够，三个目标分别从序列长度、终止信号、token 分布三个角度综合施压。
+
+    - **$\mathcal{L}_{len}$（延长序列）**: 直接最大化输出序列长度 $\text{Length}(\mathcal{F}(\mathcal{I}+\delta))$。虽然非可微，但适用于无导数优化。
+    - **$\mathcal{L}_{eos}$（延迟终止）**: 降低每个位置输出 EOS token 的概率，并引入动态权重衰减策略，越靠后的位置权重越大：$\mathcal{L}_{eos} = -\sum_{i=1}^{N} \omega^{N-i} \text{Pr}^{\text{EOS}}(y_i | \mathcal{I}+\delta)$，$\omega=0.1$。
+    - **$\mathcal{L}_{var}$（增加多样性）**: 将每个 token 位置的 top-k 概率分布向均匀分布对齐，使用 KL 散度：$\mathcal{L}_{var} = -\frac{1}{N}\sum_{i=1}^{N} D_{KL}(\tilde{\text{Pr}}(y_i | \mathcal{I}+\delta) \| \mathcal{U})$，$k=100$。
+    - **最终目标**: $\mathcal{L} = \mathcal{L}_{len} + \alpha \mathcal{L}_{eos} + \beta \mathcal{L}_{var}$
+    - 设计动机：单一目标不够，三个目标分别从序列长度、终止信号、token 分布三个角度综合施压。
 
 2. **零阶梯度估计**:
-   - 做什么：在无法获取梯度的黑盒设置下估计目标函数的梯度方向。
-   - 核心思路：采用 Natural Evolution Strategies，在搜索分布 $\pi(z|\delta) = \mathcal{N}(\delta, \eta^2 I)$ 下采样 $2q$ 个高斯噪声扰动，估计梯度：$\hat{\nabla}_\delta J(\delta) = \frac{1}{2\eta q}\sum_{i=1}^{2q} \mu_i \mathcal{L}(\delta + \eta\mu_i)$。使用反镜像技巧（$\mu_{q+j} = -\mu_j$）降低方差。
-   - 设计动机：标准零阶优化在损失面剧烈变化时不稳定；结合精细化的多目标使损失面更平滑，改善了零阶优化的搜索效果。
+
+    - 做什么：在无法获取梯度的黑盒设置下估计目标函数的梯度方向。
+    - 核心思路：采用 Natural Evolution Strategies，在搜索分布 $\pi(z|\delta) = \mathcal{N}(\delta, \eta^2 I)$ 下采样 $2q$ 个高斯噪声扰动，估计梯度：$\hat{\nabla}_\delta J(\delta) = \frac{1}{2\eta q}\sum_{i=1}^{2q} \mu_i \mathcal{L}(\delta + \eta\mu_i)$。使用反镜像技巧（$\mu_{q+j} = -\mu_j$）降低方差。
+    - 设计动机：标准零阶优化在损失面剧烈变化时不稳定；结合精细化的多目标使损失面更平滑，改善了零阶优化的搜索效果。
 
 3. **扰动约束更新**:
-   - 做什么：梯度上升更新扰动后裁剪到 $L_2$ 范数约束内。
-   - 核心思路：$\delta \leftarrow \delta + \gamma \hat{\nabla}_\delta J(\delta)$，然后 $\text{Clip}(\delta, \epsilon)$，并确保 $(\mathcal{I}+\delta) \in [0,1]^n$。
+
+    - 做什么：梯度上升更新扰动后裁剪到 $L_2$ 范数约束内。
+    - 核心思路：$\delta \leftarrow \delta + \gamma \hat{\nabla}_\delta J(\delta)$，然后 $\text{Clip}(\delta, \epsilon)$，并确保 $(\mathcal{I}+\delta) \in [0,1]^n$。
 
 ### 损失函数 / 训练策略
 本文不涉及模型训练，而是在推理时通过迭代优化生成对抗扰动。

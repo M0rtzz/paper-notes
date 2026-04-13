@@ -29,9 +29,9 @@ tags:
 语言模型在知识密集型任务中表现强大，但其推理能力往往缺乏逻辑一致性。一个典型例子是"逆向诅咒"（reversal curse）：模型学了"A 是 B 的父亲"却推不出"B 是 A 的孩子"。模型编辑（model editing）领域致力于在不重训模型的情况下更新知识，但现有编辑方法无法将更新传播到逻辑蕴含的事实。
 
 ### 现有痛点
-1. **逆向诅咒被认为是根本局限**：主流观点将其归因于自回归训练目标的方向性，即模型只能建模 $P(B|A)$ 而非 $P(A|B)$
-2. **模型编辑无法逻辑泛化**：编辑"A 的配偶是 C→D"后，模型不能自动推出"D 的配偶是 A"，需要显式双向编辑
-3. **现有解决方案治标不治本**：数据增强（生成反向样本）或修改训练目标只是在表面修补
+**逆向诅咒被认为是根本局限**：主流观点将其归因于自回归训练目标的方向性，即模型只能建模 $P(B|A)$ 而非 $P(A|B)$
+**模型编辑无法逻辑泛化**：编辑"A 的配偶是 C→D"后，模型不能自动推出"D 的配偶是 A"，需要显式双向编辑
+**现有解决方案治标不治本**：数据增强（生成反向样本）或修改训练目标只是在表面修补
 
 ### 核心矛盾
 这些逻辑失败到底是 Transformer 架构的固有缺陷，还是模型表示知识方式的产物？
@@ -59,31 +59,36 @@ tags:
 ### 关键设计
 
 1. **合成知识图谱的精巧设计**:
-   - 做什么：构建包含 husband, wife, father, mother, son, daughter, brother, sister 8 种关系的家庭图谱
-   - 核心思路：将 1000 个家庭分两组——Group 1 包含全部 36 个事实/家庭，Group 2 故意去掉 father/mother 关系。测试集就是 Group 2 的被隐藏关系
-   - 设计动机：这 8 种关系恰好构成一个最小闭合系统，同时涵盖逆关系（husband↔wife）和组合关系（husband∘mother=father），理想地测试逆向推理和多跳推理
+
+    - 做什么：构建包含 husband, wife, father, mother, son, daughter, brother, sister 8 种关系的家庭图谱
+    - 核心思路：将 1000 个家庭分两组——Group 1 包含全部 36 个事实/家庭，Group 2 故意去掉 father/mother 关系。测试集就是 Group 2 的被隐藏关系
+    - 设计动机：这 8 种关系恰好构成一个最小闭合系统，同时涵盖逆关系（husband↔wife）和组合关系（husband∘mother=father），理想地测试逆向推理和多跳推理
 
 2. **三种表示探针的对比**:
-   - **Linear Relational Embedding**：$o_L \approx W_r s_l + b_r$，用雅可比矩阵从 subject 表示预测 object 在最后一层的表示
-   - **Translational**：$s_l + v_r \approx o_l$，类似 Word2Vec 的向量平移，subject 和 object 在同一层
-   - **Bilinear**：$f_r(s_l, o_l) = s_l^\top M_r o_l$，关系用矩阵 $M_r$ 建模 subject 和 object 之间的交互，用 RESCAL + 岭回归求解
-   - 设计动机：bilinear 模型天然支持 $M_r^\top$ 表示逆关系、$M_{r_2} M_{r_1}$ 表示组合关系，而 linear 和 translational 做不到
+
+    - **Linear Relational Embedding**：$o_L \approx W_r s_l + b_r$，用雅可比矩阵从 subject 表示预测 object 在最后一层的表示
+    - **Translational**：$s_l + v_r \approx o_l$，类似 Word2Vec 的向量平移，subject 和 object 在同一层
+    - **Bilinear**：$f_r(s_l, o_l) = s_l^\top M_r o_l$，关系用矩阵 $M_r$ 建模 subject 和 object 之间的交互，用 RESCAL + 岭回归求解
+    - 设计动机：bilinear 模型天然支持 $M_r^\top$ 表示逆关系、$M_{r_2} M_{r_1}$ 表示组合关系，而 linear 和 translational 做不到
 
 3. **Weight Decay 作为关键正则化手段**:
-   - 做什么：在 AdamW 中扫描 weight decay 从 0 到 6.0
-   - 核心发现：所有模型训练精度 100%，但低 weight decay（<1.0）的模型完全无法推理逆向关系，高 weight decay 的模型能达到近 100% 的逆向推理精度
-   - 设计动机：正则化促使模型学到更泛化的内部结构（bilinear），而非简单记忆
+
+    - 做什么：在 AdamW 中扫描 weight decay 从 0 到 6.0
+    - 核心发现：所有模型训练精度 100%，但低 weight decay（<1.0）的模型完全无法推理逆向关系，高 weight decay 的模型能达到近 100% 的逆向推理精度
+    - 设计动机：正则化促使模型学到更泛化的内部结构（bilinear），而非简单记忆
 
 4. **代数性质验证**:
-   - 做什么：验证学到的 $M_r$ 矩阵是否满足转置=逆和乘积=组合
-   - 核心思路：测试 $M_{\text{husband}}^\top$ 能否作为 wife 的关系矩阵，$M_{\text{husband}} \cdot M_{\text{mother}}$ 能否预测 father 关系
-   - 结果：非逆向诅咒模型在第 6-9 层达到 >95% 精度，逆向诅咒模型始终低精度
+
+    - 做什么：验证学到的 $M_r$ 矩阵是否满足转置=逆和乘积=组合
+    - 核心思路：测试 $M_{\text{husband}}^\top$ 能否作为 wife 的关系矩阵，$M_{\text{husband}} \cdot M_{\text{mother}}$ 能否预测 father 关系
+    - 结果：非逆向诅咒模型在第 6-9 层达到 >95% 精度，逆向诅咒模型始终低精度
 
 5. **模型编辑实验**:
-   - 做什么：编辑一个 husband 关系事实 (A, husband, B→B')，评估逻辑传播
-   - 三个指标：Edit Success（直接编辑成功率）、Logical Generalization（蕴含事实更新率）、Locality（无关事实保持率）
-   - 核心发现：有/无 bilinear 结构的模型直接编辑都成功，但逻辑泛化差异巨大——bilinear 模型能传播到 (B', wife, A) 等蕴含事实，逆向诅咒模型几乎完全失败
-   - 定量关联：bilinear 探针精度与逻辑泛化成功率的相关性 $R^2 = 0.939$
+
+    - 做什么：编辑一个 husband 关系事实 (A, husband, B→B')，评估逻辑传播
+    - 三个指标：Edit Success（直接编辑成功率）、Logical Generalization（蕴含事实更新率）、Locality（无关事实保持率）
+    - 核心发现：有/无 bilinear 结构的模型直接编辑都成功，但逻辑泛化差异巨大——bilinear 模型能传播到 (B', wife, A) 等蕴含事实，逆向诅咒模型几乎完全失败
+    - 定量关联：bilinear 探针精度与逻辑泛化成功率的相关性 $R^2 = 0.939$
 
 ### 有趣的层级发现
 编辑效果最好的层（1-4 层）与 bilinear 结构最强的层（6-9 层）不一致——要在结构"正在形成"的层编辑，而非在结构"已经建立"的层编辑，这样才能正确更新下游表示。

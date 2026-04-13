@@ -27,9 +27,9 @@ tags:
 ## 研究背景与动机
 文本到图像扩散模型（如 Stable Diffusion）可能记忆并复制训练图像，带来版权和隐私风险。现有方法的局限：
 
-1. **推理时提示扰动**（如随机 token 插入、BLIP 改写、CLIP 嵌入加噪）：降低拷贝率但损害提示-图像对齐和生成质量，且不解决训练时记忆化
-2. **单视角检测指标**（SSIM、SSCD、CLIP 余弦）：仅提供粗粒度信号，对部分拷贝或风格拷贝不鲁棒，依赖人工判断
-3. **缺乏大规模标注的拷贝对数据集**
+**推理时提示扰动**（如随机 token 插入、BLIP 改写、CLIP 嵌入加噪）：降低拷贝率但损害提示-图像对齐和生成质量，且不解决训练时记忆化
+**单视角检测指标**（SSIM、SSCD、CLIP 余弦）：仅提供粗粒度信号，对部分拷贝或风格拷贝不鲁棒，依赖人工判断
+**缺乏大规模标注的拷贝对数据集**
 
 本文的核心观察：记忆化源于大模型容量 + 强文本-图像对齐 + 过度依赖训练时 caption-image 配对，因此应在训练时多样化提示以打破固定配对关系。
 
@@ -43,19 +43,21 @@ tags:
 ### 关键设计
 
 1. **RAPTA（Region-Aware Prompt Augmentation）**：
-   - 对训练图像 $I$ 运行预训练检测器（Faster R-CNN），获取高置信度区域 $(b_i, c_i, S_i)$
-   - 将框中心离散化到 $3 \times 3$ 网格 $\mathcal{G}$ 得到位置 token（如 top-left, center 等）
-   - 通过小型模板集 $\{T_j\}_{j=1}^{J}$ 实例化区域感知变体，如 "$p$, with a $\langle c \rangle$ in the $\langle \text{pos} \rangle$"
-   - CLIP 一致性评分 $S_v = \cos(f_I, f_v)$ → 温度加权 $w_v = S_v^\gamma$ → 归一化为采样分布 $\pi(v)$
-   - 每次迭代采样一个变体 $\tilde{p} \sim \pi(\cdot)$ 条件化去噪器，损失不变：$\mathcal{L}_{\mathrm{diff}} = \mathbb{E}[\|\epsilon - \epsilon_\theta(x_t, t, e)\|_2^2]$
-   - 核心优势：语义锚定的多样性（基于检测区域），不引入语义漂移
+
+    - 对训练图像 $I$ 运行预训练检测器（Faster R-CNN），获取高置信度区域 $(b_i, c_i, S_i)$
+    - 将框中心离散化到 $3 \times 3$ 网格 $\mathcal{G}$ 得到位置 token（如 top-left, center 等）
+    - 通过小型模板集 $\{T_j\}_{j=1}^{J}$ 实例化区域感知变体，如 "$p$, with a $\langle c \rangle$ in the $\langle \text{pos} \rangle$"
+    - CLIP 一致性评分 $S_v = \cos(f_I, f_v)$ → 温度加权 $w_v = S_v^\gamma$ → 归一化为采样分布 $\pi(v)$
+    - 每次迭代采样一个变体 $\tilde{p} \sim \pi(\cdot)$ 条件化去噪器，损失不变：$\mathcal{L}_{\mathrm{diff}} = \mathbb{E}[\|\epsilon - \epsilon_\theta(x_t, t, e)\|_2^2]$
+    - 核心优势：语义锚定的多样性（基于检测区域），不引入语义漂移
 
 2. **ADMCD（Attention-Driven Multimodal Copy Detection）**：
-   - **三流特征提取**：ViT patch 级视觉描述子 $\mathbf{f}^{\mathrm{vis}}$、CLIP 全局语义描述子 $\mathbf{f}^{\mathrm{clip}}$、CNN 纹理描述子 $\mathbf{f}^{\mathrm{tex}}$
-   - **注意力融合**：线性投影到共同维度 → 轻量 Transformer 编码器进行注意力融合 → $\ell_2$ 归一化得到融合向量 $\hat{\mathbf{f}}_{\mathrm{fus}}$
-   - **两阶段决策规则**：
-     - 拷贝判定：$S_{\mathrm{fus}} = \cos(\hat{\mathbf{f}}_{\mathrm{fus}}(G), \hat{\mathbf{f}}_{\mathrm{fus}}(R)) > \tau_1 = 0.938$
-     - 拷贝类型：加权评分 $\bar{S} = 0.24 S_{\mathrm{vis}} + 0.38 S_{\mathrm{clip}} + 0.38 S_{\mathrm{tex}}$，$\bar{S} > \tau_2 = 0.970$ 为 Retrieve/Exact，否则为 Style 拷贝
+
+    - **三流特征提取**：ViT patch 级视觉描述子 $\mathbf{f}^{\mathrm{vis}}$、CLIP 全局语义描述子 $\mathbf{f}^{\mathrm{clip}}$、CNN 纹理描述子 $\mathbf{f}^{\mathrm{tex}}$
+    - **注意力融合**：线性投影到共同维度 → 轻量 Transformer 编码器进行注意力融合 → $\ell_2$ 归一化得到融合向量 $\hat{\mathbf{f}}_{\mathrm{fus}}$
+    - **两阶段决策规则**：
+      - 拷贝判定：$S_{\mathrm{fus}} = \cos(\hat{\mathbf{f}}_{\mathrm{fus}}(G), \hat{\mathbf{f}}_{\mathrm{fus}}(R)) > \tau_1 = 0.938$
+      - 拷贝类型：加权评分 $\bar{S} = 0.24 S_{\mathrm{vis}} + 0.38 S_{\mathrm{clip}} + 0.38 S_{\mathrm{tex}}$，$\bar{S} > \tau_2 = 0.970$ 为 Retrieve/Exact，否则为 Style 拷贝
 
 3. **ADMCD 作为相似度度量**：融合相似度比单一指标更符合人类感知，在光度和几何扰动下更稳定。三流设计使得当某一线索不可靠时（如纹理匹配对 LPIPS、关键点稀疏对 ORB），其他线索可以补偿。
 

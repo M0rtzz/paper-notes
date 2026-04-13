@@ -28,13 +28,13 @@ EI 提出在单模态嵌入（UIE）**之前**就注入跨模态语义引导（[
 
 ## 研究背景与动机
 
-1. **领域现状**：多模态医学图像（如 CFP+OCT 眼底、皮肤镜+临床照片、多视角 MRI）的疾病识别是 CV 重要任务。现有方法（MM-MIL、CosCatNet、RadDiag、MMRAD）都遵循"**fusion after UIE**"范式——先用各自编码器独立提取单模态特征，再通过拼接/加权求和/注意力做后期融合。
+**领域现状**：多模态医学图像（如 CFP+OCT 眼底、皮肤镜+临床照片、多视角 MRI）的疾病识别是 CV 重要任务。现有方法（MM-MIL、CosCatNet、RadDiag、MMRAD）都遵循"**fusion after UIE**"范式——先用各自编码器独立提取单模态特征，再通过拼接/加权求和/注意力做后期融合。
 
-2. **痛点一——融合太晚**：所有方法在单模态嵌入（UIE）阶段对其他模态"一无所知"，导致 UIE 无法利用互补信息。这与临床实践不符——医生从不孤立解读某一模态，而是先从一个模态形成初步假设，再用该假设引导另一模态的检查。
+**痛点一——融合太晚**：所有方法在单模态嵌入（UIE）阶段对其他模态"一无所知"，导致 UIE 无法利用互补信息。这与临床实践不符——医生从不孤立解读某一模态，而是先从一个模态形成初步假设，再用该假设引导另一模态的检查。
 
-3. **痛点二——VFM 适配难**：医学标注数据稀缺 + 自然图像与医学图像存在巨大域偏移。CLIP/DINOv2 等 VFM 直接用效果差，全参微调会过拟合，prompt learning 只能激活预有知识、无法注入新知识。
+**痛点二——VFM 适配难**：医学标注数据稀缺 + 自然图像与医学图像存在巨大域偏移。CLIP/DINOv2 等 VFM 直接用效果差，全参微调会过拟合，prompt learning 只能激活预有知识、无法注入新知识。
 
-4. **核心思路**：(a) 将参考模态的高层语义（[CLS] token）作为干预 token [INT]，在目标模态 UIE 的**最早期**注入；(b) 设计 MoR——多种秩 LoRA + 带 bypass 的松弛路由器，兼顾适配能力与参数效率。
+**核心思路**：(a) 将参考模态的高层语义（[CLS] token）作为干预 token [INT]，在目标模态 UIE 的**最早期**注入；(b) 设计 MoR——多种秩 LoRA + 带 bypass 的松弛路由器，兼顾适配能力与参数效率。
 
 ## 方法详解
 
@@ -45,26 +45,30 @@ EI 提出在单模态嵌入（UIE）**之前**就注入跨模态语义引导（[
 ### 关键设计
 
 1. **[INT] Token 生成**:
-   - 做什么：从参考模态提取高层语义 token 作为跨模态干预信号
-   - 核心思路：对每个参考模态 $r$，用辅助 VFM $\phi_{a,r}$ 提取最后一层 [CLS] token $Z^L[0]$，收集所有参考模态的 [CLS] token 后通过两层 MLP Adapter 转换为 [INT] 序列。选择最后一层是因为它包含最丰富的高层语义信息
-   - 设计动机：模拟临床医生的工作流——先从一种检查（如 OCT 断层扫描）形成初步诊断假设，再用该假设引导另一种检查（如 CFP 彩色眼底照）的解读。辅助 VFM 只负责生成 [INT]，计算量可控
+
+    - 做什么：从参考模态提取高层语义 token 作为跨模态干预信号
+    - 核心思路：对每个参考模态 $r$，用辅助 VFM $\phi_{a,r}$ 提取最后一层 [CLS] token $Z^L[0]$，收集所有参考模态的 [CLS] token 后通过两层 MLP Adapter 转换为 [INT] 序列。选择最后一层是因为它包含最丰富的高层语义信息
+    - 设计动机：模拟临床医生的工作流——先从一种检查（如 OCT 断层扫描）形成初步诊断假设，再用该假设引导另一种检查（如 CFP 彩色眼底照）的解读。辅助 VFM 只负责生成 [INT]，计算量可控
 
 2. **早期干预的主特征提取**:
-   - 做什么：将 [INT] token 拼接到 target 模态 patch embedding 序列的最前端，让其从第 0 层就参与 self-attention
-   - 核心思路：$\hat{Z}_t^0 = \text{Concat}(\text{Conv}(\mathbf{x}[t]),\ \text{INT})$，然后正常前向传播得到 $\hat{\text{CLS}}_t = \phi_{p,t}(\hat{Z}_t^0, L)[0]$
-   - 关键实验发现：消融实验明确表明**越早注入效果越好**——Layer 0 注入始终最优（CLIP 0.824, DINOv2 0.841），Layer 11 注入性能下降到 0.815。这验证了"早期干预"原则的正确性
-   - 可视化证据：Fig. 2 展示加入 [INT] 后，patch-level 注意力图从发散变为聚焦于病灶区域（如 OCT 中的 drusen、CFP 中的出血点），说明跨模态引导确实让 UIE 更有针对性
+
+    - 做什么：将 [INT] token 拼接到 target 模态 patch embedding 序列的最前端，让其从第 0 层就参与 self-attention
+    - 核心思路：$\hat{Z}_t^0 = \text{Concat}(\text{Conv}(\mathbf{x}[t]),\ \text{INT})$，然后正常前向传播得到 $\hat{\text{CLS}}_t = \phi_{p,t}(\hat{Z}_t^0, L)[0]$
+    - 关键实验发现：消融实验明确表明**越早注入效果越好**——Layer 0 注入始终最优（CLIP 0.824, DINOv2 0.841），Layer 11 注入性能下降到 0.815。这验证了"早期干预"原则的正确性
+    - 可视化证据：Fig. 2 展示加入 [INT] 后，patch-level 注意力图从发散变为聚焦于病灶区域（如 OCT 中的 drusen、CFP 中的出血点），说明跨模态引导确实让 UIE 更有针对性
 
 3. **MoR（Mixture of Low-varied-Ranks Adaptation）**:
-   - 做什么：参数高效微调 VFM 的每个线性层
-   - 核心思路：同时维护 3 个不同 rank（2, 4, 8）的 LoRA adapter，plus 一个松弛路由器（linear + softmax）生成 4 维权重 $[w_0, w_1, w_2, w_3]$，其中 $w_0$ 是 **bypass 权重**。输出为 $h' = Wh + \sum_{k=1}^{3} w_k B_k A_k h$
-   - vs LoRA：单一固定 rank 无法适应不同模态和不同样本的复杂度差异
-   - vs LoRAMoE：标准 MoE 路由器的权重和为 1，强制接受适配结果；MoR 的 bypass 机制允许模型在原始权重已经足够好时跳过适配（极端情况 $w_0 = 1$ 时完全跳过所有 LoRA）
+
+    - 做什么：参数高效微调 VFM 的每个线性层
+    - 核心思路：同时维护 3 个不同 rank（2, 4, 8）的 LoRA adapter，plus 一个松弛路由器（linear + softmax）生成 4 维权重 $[w_0, w_1, w_2, w_3]$，其中 $w_0$ 是 **bypass 权重**。输出为 $h' = Wh + \sum_{k=1}^{3} w_k B_k A_k h$
+    - vs LoRA：单一固定 rank 无法适应不同模态和不同样本的复杂度差异
+    - vs LoRAMoE：标准 MoE 路由器的权重和为 1，强制接受适配结果；MoR 的 bypass 机制允许模型在原始权重已经足够好时跳过适配（极端情况 $w_0 = 1$ 时完全跳过所有 LoRA）
 
 4. **自适应后期融合**:
-   - 每个模态的 $\hat{\text{CLS}}_t$ 经线性层投影为 $C$ 维预测 $\hat{y}_t$
-   - 门控层（linear + softmax）生成模态重要性权重 $\{\alpha_1, \ldots, \alpha_M\}$
-   - 最终预测 $\hat{y} = \sum_{t=1}^{M} \alpha_t \hat{y}_t$
+
+    - 每个模态的 $\hat{\text{CLS}}_t$ 经线性层投影为 $C$ 维预测 $\hat{y}_t$
+    - 门控层（linear + softmax）生成模态重要性权重 $\{\alpha_1, \ldots, \alpha_M\}$
+    - 最终预测 $\hat{y} = \sum_{t=1}^{M} \alpha_t \hat{y}_t$
 
 ### 损失函数
 

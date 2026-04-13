@@ -32,9 +32,9 @@ tags:
 
 LLM 推理面临**质量-成本权衡**的根本矛盾：大模型（如 GPT-4）质量高但成本昂贵，小模型（如 Llama 系列）成本低但单次响应质量不足。现有三种主要策略试图缓解这一矛盾：
 
-1. **Query Routing**：根据查询难度将请求分配给不同规模的模型（Ong et al., 2024）
-2. **Speculative Decoding**：小模型草稿 + 大模型验证的 token 级协作（Kim et al., 2023）
-3. **Model Cascades**：从便宜模型开始逐级升级，直到获得满意响应（Chen et al., 2023）
+**Query Routing**：根据查询难度将请求分配给不同规模的模型（Ong et al., 2024）
+**Speculative Decoding**：小模型草稿 + 大模型验证的 token 级协作（Kim et al., 2023）
+**Model Cascades**：从便宜模型开始逐级升级，直到获得满意响应（Chen et al., 2023）
 
 ### 现有方法的关键缺陷
 

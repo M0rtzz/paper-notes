@@ -29,8 +29,8 @@ tags:
 
 **发育性髋关节发育不良（DDH）**是婴幼儿时期常见的骨科疾病，涵盖从髋臼覆盖不足到髋关节脱位的一系列病变。临床上存在两种互补的影像检查方式：
 
-1. **超声（US）**：用于早期筛查和管理，报告 Graf α/β 角和股骨头覆盖率。优点是无辐射、可及性强。
-2. **X 光（XR）**：在骨化进展后更适合评估髋臼发育和手术规划，测量髋臼指数（AI）、中心边缘角（CE）和 IHDI 分级。缺点是有电离辐射。
+**超声（US）**：用于早期筛查和管理，报告 Graf α/β 角和股骨头覆盖率。优点是无辐射、可及性强。
+**X 光（XR）**：在骨化进展后更适合评估髋臼发育和手术规划，测量髋臼指数（AI）、中心边缘角（CE）和 IHDI 分级。缺点是有电离辐射。
 
 **核心矛盾**：在儿科中，最小化电离辐射暴露是重要原则，但单纯依赖超声可能会遗漏需要 X 光才能发现的异常。临床上，**明显正常的超声**（高 α 角、充分覆盖）通常意味着 X 光的额外信息价值低；异常或边界的超声则提高了 X 光的价值。
 
@@ -57,18 +57,21 @@ tags:
 1. **SimSiam 自监督预训练**：对每种模态独立训练编码器 $f_\phi$。设投影 MLP 为 $h_\phi$，预测 MLP 为 $q_\phi$。对图像 $x$ 生成两个增强视图 $v_1, v_2$，损失函数为停止梯度负余弦相似度：$\mathcal{L}_{SSL} = -\frac{1}{2}[\frac{\langle p_1, \text{sg}(z_2)\rangle}{\|p_1\| \|\text{sg}(z_2)\|} + \frac{\langle p_2, \text{sg}(z_1)\rangle}{\|p_2\| \|\text{sg}(z_1)\|}]$。训练 10 epoch 后丢弃投影和预测头，冻结编码器。设计动机：利用大量无标注影像学习通用视觉表示，弥补有标注数据稀缺的不足。
 
 2. **测量忠实头网络**：从冻结编码器提取 512 维全局平均池化特征 $u = f_\phi(x)$，在其上训练小型 MLP：
-   - **超声头**：单隐层（128 单元），3 输出预测 $\hat{\alpha}, \hat{\beta}, \widehat{\text{cov}}$，损失 $\mathcal{L}_{US} = \lambda_\alpha |\hat{\alpha} - y^\alpha| + \lambda_\beta |\hat{\beta} - y^\beta| + \lambda_{\text{cov}} |\widehat{\text{cov}} - y^{\text{cov}}|$
-   - **X 光头**：预测 AI 和 CE 角（MAE 损失）加可选的 IHDI 分类（交叉熵）
+
+    - **超声头**：单隐层（128 单元），3 输出预测 $\hat{\alpha}, \hat{\beta}, \widehat{\text{cov}}$，损失 $\mathcal{L}_{US} = \lambda_\alpha |\hat{\alpha} - y^\alpha| + \lambda_\beta |\hat{\beta} - y^\beta| + \lambda_{\text{cov}} |\widehat{\text{cov}} - y^{\text{cov}}|$
+    - **X 光头**：预测 AI 和 CE 角（MAE 损失）加可选的 IHDI 分类（交叉熵）
    核心设计理念是**测量忠实（measurement-faithful）**——输出的是临床医生日常使用的命名测量值，而非黑盒分类，使决策过程可追溯。
 
 3. **共形校准的单侧下界**：分为两步：
-   - (i) **仿射偏差校正**：在校准集上拟合 $\tilde{y}^t = a_t \hat{y}^t + b_t$，减少系统性偏差而不重训头网络。
-   - (ii) **单侧残差分位数**：定义残差 $r_i^t = y_i^t - \tilde{y}_i^t$，对误覆盖水平 $\delta_t$ 计算共形半径 $q_t^+(\delta_t)$，确保在可交换性假设下以 $\geq 1 - \delta_t$ 的概率满足 $y^t \geq \text{LB}_t(x; \delta_t)$。校准下界为 $\text{LB}_t(x; \delta_t) = \tilde{y}^t(x) - q_t^+(\delta_t)$。
+
+    - (i) **仿射偏差校正**：在校准集上拟合 $\tilde{y}^t = a_t \hat{y}^t + b_t$，减少系统性偏差而不重训头网络。
+    - (ii) **单侧残差分位数**：定义残差 $r_i^t = y_i^t - \tilde{y}_i^t$，对误覆盖水平 $\delta_t$ 计算共形半径 $q_t^+(\delta_t)$，确保在可交换性假设下以 $\geq 1 - \delta_t$ 的概率满足 $y^t \geq \text{LB}_t(x; \delta_t)$。校准下界为 $\text{LB}_t(x; \delta_t) = \tilde{y}^t(x) - q_t^+(\delta_t)$。
 
 4. **三种选择性成像规则**：基于校准下界与临床阈值 $T_\alpha = 60°$, $T_{\text{cov}} = 50\%$ 的比较：
-   - **Alpha-only**：$d_\alpha(x) = \mathbb{I}[\text{LB}_\alpha(x) \geq 60°]$
-   - **Alpha OR Coverage**：任一下界超过阈值即可仅用超声
-   - **Alpha AND Coverage**：两者同时超过阈值才可仅用超声
+
+    - **Alpha-only**：$d_\alpha(x) = \mathbb{I}[\text{LB}_\alpha(x) \geq 60°]$
+    - **Alpha OR Coverage**：任一下界超过阈值即可仅用超声
+    - **Alpha AND Coverage**：两者同时超过阈值才可仅用超声
    通过扫描 $(\delta_\alpha, \delta_{\text{cov}})$ 网格生成一系列策略，保守设置（小 $\delta$）提供高覆盖但低超声通过率，宽松设置（大 $\delta$）增加超声通过率但接受更高遗漏风险。
 
 ### 损失函数 / 训练策略

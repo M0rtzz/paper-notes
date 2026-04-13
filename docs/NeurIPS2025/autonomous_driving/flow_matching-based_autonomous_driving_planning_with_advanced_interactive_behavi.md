@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：自动驾驶规划方法分为规则方法（PDM-Closed 等）和学习方法（模仿学习+生成模型）。学习方法近年因 transformer 和扩散模型而快速发展，但在交互场景中仍显不足。
-2. **现有痛点**：(a) 简单堆叠 transformer block 缺乏对异质信息（静态车道 + 动态邻车）的有效融合机制；(b) 训练数据中高质量交互场景稀缺，朴素行为克隆收敛到偏离真实交互行为的分布；(c) 辅助 loss（碰撞惩罚等）需逐案设计且损害训练稳定性；(d) Diffusion Planner 的交互限于最近几辆车，架构无专门融合设计。
-3. **核心矛盾**：有效的交互行为建模需要三个条件同时满足——(i) 表达性强的轨迹表示、(ii) 高效的异质信息融合、(iii) 对条件信号的动态增强以弥补交互数据不足。现有方法最多满足其中一个。
-4. **切入角度**：从数据建模（轨迹 token 化）、模型架构（时空融合）、学习范式（flow matching + CFG）三个维度协同设计。
-5. **核心idea**：Flow Planner = 细粒度轨迹 token + scale-adaptive attention 时空融合 + flow matching CFG 动态增强邻车条件。
+**领域现状**：自动驾驶规划方法分为规则方法（PDM-Closed 等）和学习方法（模仿学习+生成模型）。学习方法近年因 transformer 和扩散模型而快速发展，但在交互场景中仍显不足。
+**现有痛点**：(a) 简单堆叠 transformer block 缺乏对异质信息（静态车道 + 动态邻车）的有效融合机制；(b) 训练数据中高质量交互场景稀缺，朴素行为克隆收敛到偏离真实交互行为的分布；(c) 辅助 loss（碰撞惩罚等）需逐案设计且损害训练稳定性；(d) Diffusion Planner 的交互限于最近几辆车，架构无专门融合设计。
+**核心矛盾**：有效的交互行为建模需要三个条件同时满足——(i) 表达性强的轨迹表示、(ii) 高效的异质信息融合、(iii) 对条件信号的动态增强以弥补交互数据不足。现有方法最多满足其中一个。
+**切入角度**：从数据建模（轨迹 token 化）、模型架构（时空融合）、学习范式（flow matching + CFG）三个维度协同设计。
+**核心idea**：Flow Planner = 细粒度轨迹 token + scale-adaptive attention 时空融合 + flow matching CFG 动态增强邻车条件。
 
 ## 方法详解
 
@@ -40,27 +40,30 @@ tags:
 ### 关键设计
 
 1. **Fine-grained Trajectory Tokenization**：
-   - 做什么：将整条轨迹分解为有重叠的片段 token，平衡表达性与一致性。
-   - 核心思路：$L$ 个路点的轨迹 $\tau_t$ 分为 $K$ 段，每段 $L_{seg}$ 个点，相邻段重叠 $L_{overlap}$：$F_{ego}^k = \text{MLP}((x_{l^k}, \ldots, x_{r^k}))$，其中 $l^k = (k-1)(L_{seg} - L_{overlap})$。加正弦位置编码后拼接为 $F_{ego} = \text{Concat}(F_{ego}^1, \ldots, F_{ego}^K)$。
-   - 重叠区域施加一致性 loss：$\mathcal{L}_{consist} = \frac{1}{K-1} \sum_{k=1}^{K-1} \|\hat{\tau}^{k:k+1} - \hat{\tau}^{k+1:k}\|^2$
-   - 设计动机：单 token 表示整条轨迹压缩过度导致场景信息融合不充分；逐时步 token 误差累积严重。重叠片段在二者之间取得平衡。最优段数为 20（消融验证）。
+
+    - 做什么：将整条轨迹分解为有重叠的片段 token，平衡表达性与一致性。
+    - 核心思路：$L$ 个路点的轨迹 $\tau_t$ 分为 $K$ 段，每段 $L_{seg}$ 个点，相邻段重叠 $L_{overlap}$：$F_{ego}^k = \text{MLP}((x_{l^k}, \ldots, x_{r^k}))$，其中 $l^k = (k-1)(L_{seg} - L_{overlap})$。加正弦位置编码后拼接为 $F_{ego} = \text{Concat}(F_{ego}^1, \ldots, F_{ego}^K)$。
+    - 重叠区域施加一致性 loss：$\mathcal{L}_{consist} = \frac{1}{K-1} \sum_{k=1}^{K-1} \|\hat{\tau}^{k:k+1} - \hat{\tau}^{k+1:k}\|^2$
+    - 设计动机：单 token 表示整条轨迹压缩过度导致场景信息融合不充分；逐时步 token 误差累积严重。重叠片段在二者之间取得平衡。最优段数为 20（消融验证）。
 
 2. **Interaction-enhanced Spatiotemporal Fusion**：
-   - 做什么：高效融合异质场景 token 以增强交互建模。
-   - 核心思路：
-     - 先通过分别的 adaptive LayerNorm (adaLN) 将异质特征（lane, neighbor, ego）投射到共享潜空间并注入时步/导航条件。
-     - 拼接后用 **scale-adaptive self-attention** 做全局融合：$F_{global} = \text{Softmax}\left(\frac{F_{global}W^Q (F_{global}W^K)^T}{\sqrt{d}} - \lambda \cdot D\right) F_{global}W^V$
-     - 其中 $D$ 是 token 间的欧氏距离矩阵，$\lambda$ 是由 token 本身经线性投影生成的可学习感受野缩放因子。距离远的 token 得到更小的 attention score。
-     - 融合后分解回模态特定 token，各自经独立 adaLN + FFN 进一步减少模态间隙。
-   - 设计动机：vanilla attention 无法有效处理异质信息融合；scale-adaptive attention 让模型根据空间距离自适应关注重要邻车。
+
+    - 做什么：高效融合异质场景 token 以增强交互建模。
+    - 核心思路：
+      - 先通过分别的 adaptive LayerNorm (adaLN) 将异质特征（lane, neighbor, ego）投射到共享潜空间并注入时步/导航条件。
+      - 拼接后用 **scale-adaptive self-attention** 做全局融合：$F_{global} = \text{Softmax}\left(\frac{F_{global}W^Q (F_{global}W^K)^T}{\sqrt{d}} - \lambda \cdot D\right) F_{global}W^V$
+      - 其中 $D$ 是 token 间的欧氏距离矩阵，$\lambda$ 是由 token 本身经线性投影生成的可学习感受野缩放因子。距离远的 token 得到更小的 attention score。
+      - 融合后分解回模态特定 token，各自经独立 adaLN + FFN 进一步减少模态间隙。
+    - 设计动机：vanilla attention 无法有效处理异质信息融合；scale-adaptive attention 让模型根据空间距离自适应关注重要邻车。
 
 3. **Flow Matching + Classifier-Free Guidance**：
-   - 做什么：通过条件增强的流匹配实现多模态交互行为生成。
-   - 条件生成分布：$\tilde{q}(\tau_1|C) \propto q(\tau_1)^{1-\omega} q(\tau_1|C)^{\omega}$，引导速度场：$\tilde{v}_t(\tau_t, t|C) = (1-\omega) v_t(\tau_t, t) + \omega \cdot v_t(\tau_t, t|C)$
-   - 训练用 Bernoulli 条件 masking：$\mathcal{L}_{flow} = \mathbb{E}_{t, b \sim \mathcal{B}} \|\tau_\theta(\tau_t, t|(1-b) \cdot C + b \cdot \emptyset) - \tau_1\|^2$
-   - 实际只 mask 邻车信息（实验发现对交互建模最关键）。
-   - 推理用最优传输路径 + 二阶中点 ODE solver。
-   - 设计动机：CFG 让模型同时学到"无条件规划"和"有条件规划"，差异部分就是邻车交互引起的行为变化——inference 时可通过 $\omega$ 放大这个差异来增强交互感知。
+
+    - 做什么：通过条件增强的流匹配实现多模态交互行为生成。
+    - 条件生成分布：$\tilde{q}(\tau_1|C) \propto q(\tau_1)^{1-\omega} q(\tau_1|C)^{\omega}$，引导速度场：$\tilde{v}_t(\tau_t, t|C) = (1-\omega) v_t(\tau_t, t) + \omega \cdot v_t(\tau_t, t|C)$
+    - 训练用 Bernoulli 条件 masking：$\mathcal{L}_{flow} = \mathbb{E}_{t, b \sim \mathcal{B}} \|\tau_\theta(\tau_t, t|(1-b) \cdot C + b \cdot \emptyset) - \tau_1\|^2$
+    - 实际只 mask 邻车信息（实验发现对交互建模最关键）。
+    - 推理用最优传输路径 + 二阶中点 ODE solver。
+    - 设计动机：CFG 让模型同时学到"无条件规划"和"有条件规划"，差异部分就是邻车交互引起的行为变化——inference 时可通过 $\omega$ 放大这个差异来增强交互感知。
 
 ### 损失函数
 - 最终 loss：$\mathcal{L} = \mathcal{L}_{flow} + \alpha \cdot \mathcal{L}_{consist}$

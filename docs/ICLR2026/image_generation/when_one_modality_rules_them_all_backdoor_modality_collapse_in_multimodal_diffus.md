@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：扩散模型的后门攻击已成为重要研究方向。现有工作（BadDiffusion、VillanDiffusion等）已展示在单模态和多模态场景中注入后门的可行性。
+**领域现状**：扩散模型的后门攻击已成为重要研究方向。现有工作（BadDiffusion、VillanDiffusion等）已展示在单模态和多模态场景中注入后门的可行性。
 
-2. **现有痛点**：(1) 直觉假设同时攻击多个模态应产生更强后门，但缺乏验证；(2) 受多模态学习中"模态坍缩"启发，后门攻击中可能存在同样问题；(3) 现有评估仅关注整体攻击成功率，未分解各模态贡献。
+**现有痛点**：(1) 直觉假设同时攻击多个模态应产生更强后门，但缺乏验证；(2) 受多模态学习中"模态坍缩"启发，后门攻击中可能存在同样问题；(3) 现有评估仅关注整体攻击成功率，未分解各模态贡献。
 
-3. **核心矛盾**：高攻击成功率可能掩盖一个关键事实——后门实际上仅依赖于部分模态。这意味着防御者可能低估了攻击的简单性（只需操纵文本prompt即可触发）。
+**核心矛盾**：高攻击成功率可能掩盖一个关键事实——后门实际上仅依赖于部分模态。这意味着防御者可能低估了攻击的简单性（只需操纵文本prompt即可触发）。
 
-4. **本文要解决什么**：多模态扩散后门中是否存在模态坍缩？如何量化各模态的后门贡献和跨模态交互？
+**本文要解决什么**：多模态扩散后门中是否存在模态坍缩？如何量化各模态的后门贡献和跨模态交互？
 
-5. **切入角度**：利用合作博弈论的Shapley值框架，将模态视为"玩家"，后门偏移量视为"收益"，进行精确的贡献分解。
+**切入角度**：利用合作博弈论的Shapley值框架，将模态视为"玩家"，后门偏移量视为"收益"，进行精确的贡献分解。
 
-6. **核心idea一句话**：通过Shapley值分解各模态对后门激活的边际贡献（TMA），并通过超可加性检验量化跨模态交互（CTI），揭示"赢者通吃"的坍缩特性。
+**核心idea一句话**：通过Shapley值分解各模态对后门激活的边际贡献（TMA），并通过超可加性检验量化跨模态交互（CTI），揭示"赢者通吃"的坍缩特性。
 
 ## 方法详解
 
@@ -46,28 +46,32 @@ tags:
 ### 关键设计
 
 1. **Per-example值函数**:
-   - 对每个样本和coalition $S$，计算触发器分数和正常分数的差值
-   - $v(S) = s_{\text{tr}}(S) - s_{\text{nr}}(S) = \cos(\mathbf{z}_S, \mathbf{z}_{\text{tr}}) - \cos(\mathbf{z}_S, \mathbf{z}_{\text{cl}})$
-   - 使用CLIP嵌入空间的余弦相似度
-   - 衡量输出更接近后门目标还是干净参考
+
+    - 对每个样本和coalition $S$，计算触发器分数和正常分数的差值
+    - $v(S) = s_{\text{tr}}(S) - s_{\text{nr}}(S) = \cos(\mathbf{z}_S, \mathbf{z}_{\text{tr}}) - \cos(\mathbf{z}_S, \mathbf{z}_{\text{cl}})$
+    - 使用CLIP嵌入空间的余弦相似度
+    - 衡量输出更接近后门目标还是干净参考
 
 2. **Trigger Modality Attribution (TMA)**:
-   - $\phi_I = \frac{1}{2}(v(\{I\}) - v(\emptyset)) + \frac{1}{2}(v(\{I,T\}) - v(\{T\}))$
-   - $\phi_T = \frac{1}{2}(v(\{T\}) - v(\emptyset)) + \frac{1}{2}(v(\{I,T\}) - v(\{I\}))$
-   - 二模态精确计算（4次评估，无需蒙特卡洛近似）
-   - Efficiency axiom：$\phi_I + \phi_T = v(\{I,T\}) - v(\emptyset)$
+
+    - $\phi_I = \frac{1}{2}(v(\{I\}) - v(\emptyset)) + \frac{1}{2}(v(\{I,T\}) - v(\{T\}))$
+    - $\phi_T = \frac{1}{2}(v(\{T\}) - v(\emptyset)) + \frac{1}{2}(v(\{I,T\}) - v(\{I\}))$
+    - 二模态精确计算（4次评估，无需蒙特卡洛近似）
+    - Efficiency axiom：$\phi_I + \phi_T = v(\{I,T\}) - v(\emptyset)$
 
 3. **Cross-Trigger Interaction (CTI)**:
-   - $\mathcal{I} = v(\{I,T\}) - v(\{I\}) - v(\{T\}) + v(\emptyset)$
-   - $\mathcal{I} > 0$：超可加性合作（真正的协同）
-   - $\mathcal{I} < 0$：干扰/冗余
-   - 数据集级别聚合：$\bar{\mathcal{I}} = \frac{1}{|\mathcal{D}_{\text{val}}|} \sum \mathcal{I}(x)$
+
+    - $\mathcal{I} = v(\{I,T\}) - v(\{I\}) - v(\{T\}) + v(\emptyset)$
+    - $\mathcal{I} > 0$：超可加性合作（真正的协同）
+    - $\mathcal{I} < 0$：干扰/冗余
+    - 数据集级别聚合：$\bar{\mathcal{I}} = \frac{1}{|\mathcal{D}_{\text{val}}|} \sum \mathcal{I}(x)$
 
 4. **实验设置**:
-   - 三对触发器：White-box+mignneko、Eyeglasses+anonymous、Stop-sign+latte coffee
-   - 两种投毒协议：OR（三个等大小子集分别投毒）、AND（仅联合投毒）
-   - 三种投毒比例：1%、5%、10%
-   - 模型：InstructPix2Pix，数据集：CelebA
+
+    - 三对触发器：White-box+mignneko、Eyeglasses+anonymous、Stop-sign+latte coffee
+    - 两种投毒协议：OR（三个等大小子集分别投毒）、AND（仅联合投毒）
+    - 三种投毒比例：1%、5%、10%
+    - 模型：InstructPix2Pix，数据集：CelebA
 
 ## 实验关键数据
 

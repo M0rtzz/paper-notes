@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：KL 散度在 RLHF（正则化项）、可解释性（分布偏移度量）、知识蒸馏中广泛使用。精确计算语言模型间 KL 不可行（$\Sigma^*$ 可数无穷）。
+**领域现状**：KL 散度在 RLHF（正则化项）、可解释性（分布偏移度量）、知识蒸馏中广泛使用。精确计算语言模型间 KL 不可行（$\Sigma^*$ 可数无穷）。
 
-2. **现有痛点**：（a）标准 MC 估计器 $\mu_{mc} = \frac{1}{M}\sum_m \log\frac{p(Y^{(m)})}{q(Y^{(m)})}$ 方差高、可能为负值；（b）Schulman 提出的控制变量方法（$\alpha=1$）保证非负但方差可能爆炸（实验证实）；（c）训练中 KL 估计不稳定会导致 RLHF 不稳定。
+**现有痛点**：（a）标准 MC 估计器 $\mu_{mc} = \frac{1}{M}\sum_m \log\frac{p(Y^{(m)})}{q(Y^{(m)})}$ 方差高、可能为负值；（b）Schulman 提出的控制变量方法（$\alpha=1$）保证非负但方差可能爆炸（实验证实）；（c）训练中 KL 估计不稳定会导致 RLHF 不稳定。
 
-3. **核心矛盾**：MC 估计器只用采样的完整字符串计算 log-ratio，浪费了前向传播已经产生的每个位置上完整的 next-token 分布信息。
+**核心矛盾**：MC 估计器只用采样的完整字符串计算 log-ratio，浪费了前向传播已经产生的每个位置上完整的 next-token 分布信息。
 
-4. **本文要解决什么？** 在零额外计算开销下显著降低 KL 估计方差。
+**本文要解决什么？** 在零额外计算开销下显著降低 KL 估计方差。
 
-5. **切入角度**：Rao-Blackwell 化——在每个位置 $n$ 对 next-token 分布求精确 KL（$|\bar{\Sigma}|$ 个 token 的求和），而非只用采样到的那个 token。
+**切入角度**：Rao-Blackwell 化——在每个位置 $n$ 对 next-token 分布求精确 KL（$|\bar{\Sigma}|$ 个 token 的求和），而非只用采样到的那个 token。
 
-6. **核心 idea**：$\mu_{rb} = \frac{1}{M}\sum_m \sum_{n=1}^{|Y^{(m)}|} KL(\vec{p}(\cdot|Y^{(m)}_{<n}) \| \vec{q}(\cdot|Y^{(m)}_{<n}))$。
+**核心 idea**：$\mu_{rb} = \frac{1}{M}\sum_m \sum_{n=1}^{|Y^{(m)}|} KL(\vec{p}(\cdot|Y^{(m)}_{<n}) \| \vec{q}(\cdot|Y^{(m)}_{<n}))$。
 
 ## 方法详解
 
@@ -45,19 +45,22 @@ tags:
 ### 关键设计
 
 1. **Rao-Blackwell 化 KL 估计器**:
-   - 做什么：在每个 token 位置精确计算分布级 KL 而非仅用采样 token
-   - 核心思路：将 MC 估计器的每一步 $\log\frac{\vec{p}(Y_n|Y_{<n})}{\vec{q}(Y_n|Y_{<n})}$ 替换为 $KL(\vec{p}(\cdot|Y_{<n}) \| \vec{q}(\cdot|Y_{<n}))$——对整个 vocabulary 求和而非只看采样到的 token
-   - 设计动机：Rao-Blackwell 定理保证条件期望的方差不超过原始方差。方差减少来源：不再依赖采样到的特定 token，而是利用完整分布信息
+
+    - 做什么：在每个 token 位置精确计算分布级 KL 而非仅用采样 token
+    - 核心思路：将 MC 估计器的每一步 $\log\frac{\vec{p}(Y_n|Y_{<n})}{\vec{q}(Y_n|Y_{<n})}$ 替换为 $KL(\vec{p}(\cdot|Y_{<n}) \| \vec{q}(\cdot|Y_{<n}))$——对整个 vocabulary 求和而非只看采样到的 token
+    - 设计动机：Rao-Blackwell 定理保证条件期望的方差不超过原始方差。方差减少来源：不再依赖采样到的特定 token，而是利用完整分布信息
 
 2. **理论保证（Theorem 2）**:
-   - 无偏性：$\mathbb{E}[\mu_{rb}] = KL(p \| q)$
-   - 方差减少：$Var[\mu_{rb}] \leq Var[\mu_{mc}]$
-   - 非负性：每项都是精确 KL（非负），所以总和非负——不像 MC 可能产生负值
+
+    - 无偏性：$\mathbb{E}[\mu_{rb}] = KL(p \| q)$
+    - 方差减少：$Var[\mu_{rb}] \leq Var[\mu_{mc}]$
+    - 非负性：每项都是精确 KL（非负），所以总和非负——不像 MC 可能产生负值
 
 3. **RB 梯度估计器**:
-   - 做什么：将 RB 扩展到 KL 梯度估计（用于 RLHF 训练循环）
-   - 核心思路：通过 Theorem 4 推导 KL 梯度的 local decomposition，然后 RB 化得到 $\delta_{rb}$（Theorem 5 证明 $\mathbb{E}[\|\delta_{rb} - G\|^2] \leq \mathbb{E}[\|\delta_{mc} - G\|^2]$）
-   - 设计动机：RLHF 循环中梯度的方差直接影响训练稳定性
+
+    - 做什么：将 RB 扩展到 KL 梯度估计（用于 RLHF 训练循环）
+    - 核心思路：通过 Theorem 4 推导 KL 梯度的 local decomposition，然后 RB 化得到 $\delta_{rb}$（Theorem 5 证明 $\mathbb{E}[\|\delta_{rb} - G\|^2] \leq \mathbb{E}[\|\delta_{mc} - G\|^2]$）
+    - 设计动机：RLHF 循环中梯度的方差直接影响训练稳定性
 
 ### 损失函数 / 训练策略
 - RLHF 目标：期望奖励 - $\beta \cdot KL(p_\theta \| q)$

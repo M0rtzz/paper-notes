@@ -50,33 +50,36 @@ tags:
 ### 关键设计
 
 1. **异构专家学习（HEL）**:
-   - 做什么：为每个模态独立训练身份分类专家
-   - 核心思路：使用 ResNet-50 作为骨干网络，前几层参数不共享（模态特异编码器），后续卷积层参数共享。为可见光和红外模态分别构建分类器 $\boldsymbol{W}^v$ 和 $\boldsymbol{W}^r$。使用交叉熵损失 + 加权正则化三元组损失联合训练：
-     $$\mathcal{L}_{phase1} = \mathcal{L}_{id}^{exp} + \lambda_1 \mathcal{L}_{wrt}^{intr}$$
-     其中交叉熵损失：$\mathcal{L}_{id}^{exp} = -\sum_{t \in \{v,r\}} \frac{1}{n^t} \sum_i \boldsymbol{y}_i^t \log \boldsymbol{p}_i^t$
-   - 设计动机：两个专家在不同模态上训练，关注不同的身份相关信息，因此称为"异构专家"。它们各自具备强大的模态内身份判别能力，为后续跨模态预测奠定基础
+
+    - 做什么：为每个模态独立训练身份分类专家
+    - 核心思路：使用 ResNet-50 作为骨干网络，前几层参数不共享（模态特异编码器），后续卷积层参数共享。为可见光和红外模态分别构建分类器 $\boldsymbol{W}^v$ 和 $\boldsymbol{W}^r$。使用交叉熵损失 + 加权正则化三元组损失联合训练：
+    $\mathcal{L}_{phase1} = \mathcal{L}_{id}^{exp} + \lambda_1 \mathcal{L}_{wrt}^{intr}$
+      其中交叉熵损失：$\mathcal{L}_{id}^{exp} = -\sum_{t \in \{v,r\}} \frac{1}{n^t} \sum_i \boldsymbol{y}_i^t \log \boldsymbol{p}_i^t$
+    - 设计动机：两个专家在不同模态上训练，关注不同的身份相关信息，因此称为"异构专家"。它们各自具备强大的模态内身份判别能力，为后续跨模态预测奠定基础
 
 2. **跨模态关系建立（CRE）**:
-   - 做什么：融合两个专家的跨模态预测，建立可靠的跨模态身份对应关系
-   - 核心思路：让每个专家预测对方模态样本的身份，使用 Count Priority Selection 方法得到决策矩阵 $\boldsymbol{M}^{t \to \bar{t}}$。然后将跨模态对应关系分为三类：
-     - **一致匹配 $\boldsymbol{M}_c$**：两个专家一致认为身份对应，最可靠
+
+    - 做什么：融合两个专家的跨模态预测，建立可靠的跨模态身份对应关系
+    - 核心思路：让每个专家预测对方模态样本的身份，使用 Count Priority Selection 方法得到决策矩阵 $\boldsymbol{M}^{t \to \bar{t}}$。然后将跨模态对应关系分为三类：
+      - **一致匹配 $\boldsymbol{M}_c$**：两个专家一致认为身份对应，最可靠
        $$\boldsymbol{M}_c = \boldsymbol{M}^{t \to \bar{t}} \odot (\boldsymbol{M}^{\bar{t} \to t})^T$$
-     - **单一匹配 $\boldsymbol{M}_s$**：仅一个专家给出了对应预测，另一个专家无法判断
-     - **矛盾匹配 $\boldsymbol{M}_w$**：两个专家给出了不同的对应预测
+      - **单一匹配 $\boldsymbol{M}_s$**：仅一个专家给出了对应预测，另一个专家无法判断
+      - **矛盾匹配 $\boldsymbol{M}_w$**：两个专家给出了不同的对应预测
        $$\boldsymbol{M}_w = \boldsymbol{M}^{v \to r} + (\boldsymbol{M}^{r \to v})^T - 2\boldsymbol{M}_c - \boldsymbol{M}_s$$
-   - 设计动机：单个专家预测跨模态样本可能不准确，但两个专家的预测一致时可信度很高。将对应关系分为三类允许对不同可信度的对应关系采用不同的训练策略
+    - 设计动机：单个专家预测跨模态样本可能不准确，但两个专家的预测一致时可信度很高。将对应关系分为三类允许对不同可信度的对应关系采用不同的训练策略
 
 3. **协同一致性学习（CCL）**:
-   - 做什么：利用跨模态对应关系约束编码器学习模态不变特征，同时提升专家的跨模态判别能力
-   - 核心思路包含两部分：
-     - **跨模态一致性学习（CMCL）**：
+
+    - 做什么：利用跨模态对应关系约束编码器学习模态不变特征，同时提升专家的跨模态判别能力
+    - 核心思路包含两部分：
+      - **跨模态一致性学习（CMCL）**：
        - 对一致/单一匹配的样本，使用强约束（跨模态交叉熵）：$\mathcal{L}_{id}^{stro}$
        - 对矛盾匹配的样本，使用弱约束（排除不可能的身份）：$\mathcal{L}_{id}^{weak} = -\frac{1}{n_w^v} \sum_i \boldsymbol{m}_i \log(1 - \boldsymbol{W}^c(\boldsymbol{f}_i^v) + \epsilon)$
-     - **专家协同学习（CLAE）**：
+      - **专家协同学习（CLAE）**：
        - 为每个模态维护身份原型特征：$\mathcal{P}_i^t \leftarrow \lambda \mathcal{P}_i^t + (1-\lambda) \bar{\boldsymbol{f}}_i^t$
        - 通过协同一致性损失约束专家对跨模态正样本产生一致预测：$\mathcal{L}_{homo}^v = \frac{1}{n^c \times C^v} \sum_i \| \boldsymbol{p}_i^{v \to v} - \boldsymbol{p}_i^{r \to v} \|_2^2$
        - 使用信息熵自适应调节约束强度：预测越不确定，协同约束越强
-   - 设计动机：CMCL 让编码器学习跨模态一致特征，CLAE 让专家逐步提升跨模态预测能力，两者相互促进。弱约束设计避免了矛盾标签对训练的负面影响
+    - 设计动机：CMCL 让编码器学习跨模态一致特征，CLAE 让专家逐步提升跨模态预测能力，两者相互促进。弱约束设计避免了矛盾标签对训练的负面影响
 
 ### 损失函数 / 训练策略
 

@@ -28,9 +28,9 @@ KITAB-Bench 是一个涵盖 9 大领域 36 个子领域共 8,809 个样本的综
 
 随着 RAG（检索增强生成）在文档处理中的广泛应用，高质量的文本识别对知识提取变得越来越关键。英文及其他语言的 OCR 受益于大规模数据集和成熟的基准测试，但**阿拉伯语 OCR 面临独特挑战**：
 
-1. **书写系统特殊性**：阿拉伯语是连写字体（cursive script）、从右到左（RTL）书写、具有复杂的排版和书法特征
-2. **现有基准不足**：KHATT 和 IFN/ENIT 仅聚焦手写文本，APTI 仅覆盖印刷文本的特定方面，CAMEL-Bench 和 LAraBench 对文档理解任务关注有限
-3. **缺乏综合评估**：没有能同时评估表格解析、字体检测、数字识别、布局分析等高级任务的阿拉伯语基准
+**书写系统特殊性**：阿拉伯语是连写字体（cursive script）、从右到左（RTL）书写、具有复杂的排版和书法特征
+**现有基准不足**：KHATT 和 IFN/ENIT 仅聚焦手写文本，APTI 仅覆盖印刷文本的特定方面，CAMEL-Bench 和 LAraBench 对文档理解任务关注有限
+**缺乏综合评估**：没有能同时评估表格解析、字体检测、数字识别、布局分析等高级任务的阿拉伯语基准
 
 ## 方法详解
 
@@ -41,28 +41,32 @@ KITAB-Bench 包含三大核心组成：（1）多来源数据收集策略；（2
 ### 关键设计
 
 1. **多来源数据收集**：
-   - **PDF 数据**: 从学术、医学、法律、文学等领域精选 33 个复杂 PDF，包含丰富格式的表格、合并单元格、水印、手写注释等
-   - **现有数据集整合**: 来自 KHATT(手写)、HistoryAr(历史文档)、EvAREST(场景文本)、DocLayNet(布局)等多个来源
-   - **合成数据**: 通过 LLM 管线生成图表、流程图、表格和 VQA 数据
-   - 设计动机：确保真实世界复杂性的覆盖
+
+    - **PDF 数据**: 从学术、医学、法律、文学等领域精选 33 个复杂 PDF，包含丰富格式的表格、合并单元格、水印、手写注释等
+    - **现有数据集整合**: 来自 KHATT(手写)、HistoryAr(历史文档)、EvAREST(场景文本)、DocLayNet(布局)等多个来源
+    - **合成数据**: 通过 LLM 管线生成图表、流程图、表格和 VQA 数据
+    - 设计动机：确保真实世界复杂性的覆盖
 
 2. **五阶段 LLM 辅助数据生成管线**：
-   - Phase I: **主题生成** — LLM 跨领域生成多样化主题（学术、法律、医学、技术角色）
-   - Phase II: **数据生成** — 将主题转化为符合阿拉伯语语言和格式规范的结构化原始数据
-   - Phase III: **代码生成** — 将数据转化为绘图代码，专门处理阿拉伯语文本渲染和 RTL 内容
-   - Phase IV: **图像渲染** — 使用 Mermaid、Plotly、Vegalite、HTML 渲染引擎创建视觉表示
-   - Phase V: **人工评估** — 阿拉伯语母语评审者验证质量
-   - 设计动机：保证数据多样性和质量的平衡
+
+    - Phase I: **主题生成** — LLM 跨领域生成多样化主题（学术、法律、医学、技术角色）
+    - Phase II: **数据生成** — 将主题转化为符合阿拉伯语语言和格式规范的结构化原始数据
+    - Phase III: **代码生成** — 将数据转化为绘图代码，专门处理阿拉伯语文本渲染和 RTL 内容
+    - Phase IV: **图像渲染** — 使用 Mermaid、Plotly、Vegalite、HTML 渲染引擎创建视觉表示
+    - Phase V: **人工评估** — 阿拉伯语母语评审者验证质量
+    - 设计动机：保证数据多样性和质量的平衡
 
 3. **新评估指标设计**：
-   - **MARS (Markdown Recognition Score)**: 结合 chrF 和 TEDS 评估 PDF → Markdown 转换
-   - **CharTeX (Chart Extraction Score)**: 结合图表类型 chrF、主题 chrF 和 Jaccard 数据相似度
-   - **CODM (Code-Oriented Diagram Metric)**: 扩展 SCRM 评估流程图/技术图转 JSON
-   - 设计动机：现有指标无法充分捕捉阿拉伯语文档的结构复杂性
+
+    - **MARS (Markdown Recognition Score)**: 结合 chrF 和 TEDS 评估 PDF → Markdown 转换
+    - **CharTeX (Chart Extraction Score)**: 结合图表类型 chrF、主题 chrF 和 Jaccard 数据相似度
+    - **CODM (Code-Oriented Diagram Metric)**: 扩展 SCRM 评估流程图/技术图转 JSON
+    - 设计动机：现有指标无法充分捕捉阿拉伯语文档的结构复杂性
 
 4. **九大评测任务**：
-   - PDF-to-Markdown、布局检测、行检测、行识别、表格识别、图像到文本、图表转DataFrame、流程图转JSON、VQA
-   - 每个任务使用专门的评估指标
+
+    - PDF-to-Markdown、布局检测、行检测、行识别、表格识别、图像到文本、图表转DataFrame、流程图转JSON、VQA
+    - 每个任务使用专门的评估指标
 
 ### 数据集统计
 

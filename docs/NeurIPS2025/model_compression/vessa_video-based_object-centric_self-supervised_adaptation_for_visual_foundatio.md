@@ -55,13 +55,14 @@ VESSA 的训练流程如 Figure 2 所示，包含三个主要模块：
 1. **视频帧对采样策略**：对每个视频 $V$ 的 $T$ 帧 $\{F_i\}_{i=1}^T$，随机采样起始帧 $t \sim \mathcal{U}(1, T-\delta_{\max})$ 和时间偏移 $\delta \sim \mathcal{U}(1, \delta_{\max})$，构成帧对 $(F_t, F_{t+\delta})$。这种随机化策略引入了时间多样性，使模型从不同视角学习更鲁棒的表征。实验表明，随机偏移 $\delta \in [5,10]$ 效果最佳（DINO 85.03%，DINOv2 91.85%）。相比静态图像增强，真实视频帧对提供了远超几何/光度变换的外观变化。
 
 2. **分阶段训练与 LoRA 适配**：这是使自监督微调成功的关键。训练分两步：
-   - **Phase 1**：冻结 backbone，仅训练投影头数个 epoch，使其适配现有嵌入空间。消融实验显示，不经过此步直接训练会导致 10+ 个百分点的性能下降（从 91.87% 降至 80.87%）。
-   - **Phase 2**：解冻 backbone。前 $H$ 层使用 LoRA 进行低秩适配（仅在 Q/K/V 投影中插入可训练矩阵 $\Delta W = AB$，$r \ll \min(d,k)$），保持 normalization 层可训练，保护低层的通用视觉特征（如边缘、纹理）；后 $L$ 层完全解冻，允许高层语义表征充分适配。最优配置为解冻最后 2 层。
+
+    - **Phase 1**：冻结 backbone，仅训练投影头数个 epoch，使其适配现有嵌入空间。消融实验显示，不经过此步直接训练会导致 10+ 个百分点的性能下降（从 91.87% 降至 80.87%）。
+    - **Phase 2**：解冻 backbone。前 $H$ 层使用 LoRA 进行低秩适配（仅在 Q/K/V 投影中插入可训练矩阵 $\Delta W = AB$，$r \ll \min(d,k)$），保持 normalization 层可训练，保护低层的通用视觉特征（如边缘、纹理）；后 $L$ 层完全解冻，允许高层语义表征充分适配。最优配置为解冻最后 2 层。
 
 3. **不确定性加权自蒸馏损失（UWSD）**：在标准 DINO 损失基础上引入基于教师网络输出熵的自适应权重：
-   $$w(q) = 1 + \gamma \cdot \mathcal{H}(q)$$
+    $w(q) = 1 + \gamma \cdot \mathcal{H}(q)$
    最终损失为：
-   $$\mathcal{L}_{\text{UWSD}} = \frac{1}{N} \sum_{(q,s,s_{lc_i}) \in \mathcal{B}} w(q) \cdot \mathcal{L}_{\text{DINO}}(q, s, s_{lc_i})$$
+    $\mathcal{L}_{\text{UWSD}} = \frac{1}{N} \sum_{(q,s,s_{lc_i}) \in \mathcal{B}} w(q) \cdot \mathcal{L}_{\text{DINO}}(q, s, s_{lc_i})$
    其中 $\gamma=1$。这使模型更关注教师预测不确定的困难样本，消融显示 UWSD 带来约 1% 的额外提升。
 
 ### 损失函数 / 训练策略

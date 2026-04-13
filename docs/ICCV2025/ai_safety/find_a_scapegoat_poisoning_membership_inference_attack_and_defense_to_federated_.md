@@ -50,7 +50,7 @@ tags:
 1. **攻击梯度生成（Step I）**：将 $D_{attack}$ 中样本的真实标签替换为随机错误标签，计算梯度 $g_{attack}$。通过错误标签引发目标样本的损失上升，如果良性客户端有相同样本（正确标签），损失会被拉回，从而通过损失差异推断成员身份。
 
 2. **贪心掩码样本选择（Step II）**：从 $D_{mask}$ 中选择子集 $\hat{D}_{mask}$，优化目标为：
-   $$\arg\max_{\hat{D}_{mask}} \max_{i \in \mathcal{B}} \angle(g_{malicious}, g_{benign}^i)$$
+    $\arg\max_{\hat{D}_{mask}} \max_{i \in \mathcal{B}} \angle(g_{malicious}, g_{benign}^i)$
    约束：$\max_{i \in \mathcal{B}} \angle(g_{malicious}, g_{benign}^i) \leq \max_{i,j \in \mathcal{B}} \angle(g_{benign}^i, g_{benign}^j)$
    
    由于穷举所有子集是 NP-hard 的，采用贪心策略逐一添加使目标函数最大化的样本，直达目标数量 $\lfloor \gamma |D_{mask}| \rfloor$。
@@ -58,10 +58,11 @@ tags:
 3. **缩放系数优化（Step III）**：固定 $\hat{D}_{mask}$ 后优化 α，在保持角度偏差约束的前提下最大化偏差。
 
 4. **ATM 防御机制**：
-   - 计算所有梯度两两间角度 $\theta_{i,j}$
-   - 对每个梯度算平均角度 $\bar{\theta}_k = \frac{1}{|G|-1} \sum \theta_{k,l}$
-   - 按平均角度升序排列，去除最大的 2b 个梯度
-   - 对剩余梯度取均值作为聚合结果
+
+    - 计算所有梯度两两间角度 $\theta_{i,j}$
+    - 对每个梯度算平均角度 $\bar{\theta}_k = \frac{1}{|G|-1} \sum \theta_{k,l}$
+    - 按平均角度升序排列，去除最大的 2b 个梯度
+    - 对剩余梯度取均值作为聚合结果
 
 ### 损失函数 / 训练策略
 

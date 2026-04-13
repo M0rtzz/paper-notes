@@ -30,9 +30,9 @@ tags:
 导航指令生成要求具身智能体根据导航轨迹用自然语言描述路线，在机器人、人机交互等领域有重要价值，例如辅助视障人士导航、自主搜救报告等。
 
 **现有方法的局限性**：
-1. **缺乏 3D 感知**：现有方法 (如 CCC-speaker、Lana) 直接将 2D 透视观测映射为路线描述，忽略了 3D 环境的几何信息和物体语义，容易产生模糊的路径描述。
-2. **MLLM 的领域差距**：多模态大语言模型 (GPT-4V、InstructBLIP 等) 主要在第三人称的独立图像-文本对上预训练，难以直接理解第一人称视角序列的空间上下文。零样本方式生成导航指令效果不佳。
-3. **缺少逐步优化**：认知科学研究表明，人类描述路线时会先根据地标构思草稿再逐步完善，但现有方法缺乏这种迭代优化机制。
+**缺乏 3D 感知**：现有方法 (如 CCC-speaker、Lana) 直接将 2D 透视观测映射为路线描述，忽略了 3D 环境的几何信息和物体语义，容易产生模糊的路径描述。
+**MLLM 的领域差距**：多模态大语言模型 (GPT-4V、InstructBLIP 等) 主要在第三人称的独立图像-文本对上预训练，难以直接理解第一人称视角序列的空间上下文。零样本方式生成导航指令效果不佳。
+**缺少逐步优化**：认知科学研究表明，人类描述路线时会先根据地标构思草稿再逐步完善，但现有方法缺乏这种迭代优化机制。
 
 **核心动机**：引入 BEV 感知来编码 3D 空间语义和几何结构，结合 MLLM 的强大语言能力，并模拟人类"先标志物草稿 → 再完善描述"的过程来提升指令质量。
 
@@ -49,20 +49,23 @@ $$\max_\Theta \sum_{l=1}^L \log P_\Theta(x_l | x_{<l}, \mathcal{O}, \mathcal{A})
 ### 关键设计
 
 1. **Perspective-BEV Visual Encoder**：编码 3D 环境语义和几何信息
-   - **透视嵌入**：将多视角图像特征 $F_{t,k}$ 与方向角编码 $\delta_{t,k}$、时间步嵌入组合为 $p_{t,k} = \mathcal{E}^p(F_{t,k}) + \mathcal{E}^\delta(\delta_{t,k}) + E_t + E_o$
-   - **BEV 嵌入**：通过 BEV 编码器 (6 层可变形注意力) 将多视角特征聚合到 $15 \times 15$ 的 BEV 网格，使用深度一致性权重 $w_{k,n}^c$ 区分不同深度的参考点投影。BEV 编码器在 3D 检测任务监督下预训练后冻结
-   - **Perspective-BEV 融合**：用 Transformer 层融合 BEV 嵌入 $B_t$ 和透视嵌入 $[P_t, a_t]$，再通过轻量 Transformer $\mathcal{Q}$ 将 $H_b W_b$ 个 token 压缩为 $N_q = 10$ 个固定长度 token，避免输入 MLLM 时 token 过长
-   - **设计动机**：2D 透视特征保留丰富视觉线索但缺乏 3D 几何，BEV 特征编码空间结构但缺乏纹理细节，两者互补融合实现全面场景理解
+
+    - **透视嵌入**：将多视角图像特征 $F_{t,k}$ 与方向角编码 $\delta_{t,k}$、时间步嵌入组合为 $p_{t,k} = \mathcal{E}^p(F_{t,k}) + \mathcal{E}^\delta(\delta_{t,k}) + E_t + E_o$
+    - **BEV 嵌入**：通过 BEV 编码器 (6 层可变形注意力) 将多视角特征聚合到 $15 \times 15$ 的 BEV 网格，使用深度一致性权重 $w_{k,n}^c$ 区分不同深度的参考点投影。BEV 编码器在 3D 检测任务监督下预训练后冻结
+    - **Perspective-BEV 融合**：用 Transformer 层融合 BEV 嵌入 $B_t$ 和透视嵌入 $[P_t, a_t]$，再通过轻量 Transformer $\mathcal{Q}$ 将 $H_b W_b$ 个 token 压缩为 $N_q = 10$ 个固定长度 token，避免输入 MLLM 时 token 过长
+    - **设计动机**：2D 透视特征保留丰富视觉线索但缺乏 3D 几何，BEV 特征编码空间结构但缺乏纹理细节，两者互补融合实现全面场景理解
 
 2. **Perspective-BEV Prompt Tuning**：参数高效地利用 MLLM 的跨模态能力
-   - 在视觉嵌入 $O_{1:T}$ 中插入 $N_p$ 个可学习嵌入作为 Perspective-BEV Prompt：$O' = O_{1:T} \oplus E_v$
-   - 在 LLaMA 最后 $N_a = 31$ 层引入 zero-initialized attention 和可学习 scale vector
-   - **设计动机**：直接微调 MLLM 代价高且可能损害文本生成能力。通过仅更新 7.2% 的参数实现参数高效的场景-指令对齐
+
+    - 在视觉嵌入 $O_{1:T}$ 中插入 $N_p$ 个可学习嵌入作为 Perspective-BEV Prompt：$O' = O_{1:T} \oplus E_v$
+    - 在 LLaMA 最后 $N_a = 31$ 层引入 zero-initialized attention 和可学习 scale vector
+    - **设计动机**：直接微调 MLLM 代价高且可能损害文本生成能力。通过仅更新 7.2% 的参数实现参数高效的场景-指令对齐
 
 3. **实例引导的迭代优化**：模拟人类描述路线的认知过程
-   - 第一阶段：BEVInstructor 先识别关键实例，生成地标 token $\mathcal{X}^I$
-   - 第二阶段：基于地标草稿条件下生成完整指令：$\mathcal{O} \times \mathcal{A} \times \mathcal{X}^I \rightarrow \mathcal{X}$
-   - **设计动机**：认知科学表明关键地标在人类路线描述中起核心作用，分阶段生成可逐步丰富指令中的物体语义
+
+    - 第一阶段：BEVInstructor 先识别关键实例，生成地标 token $\mathcal{X}^I$
+    - 第二阶段：基于地标草稿条件下生成完整指令：$\mathcal{O} \times \mathcal{A} \times \mathcal{X}^I \rightarrow \mathcal{X}$
+    - **设计动机**：认知科学表明关键地标在人类路线描述中起核心作用，分阶段生成可逐步丰富指令中的物体语义
 
 ### 损失函数 / 训练策略
 

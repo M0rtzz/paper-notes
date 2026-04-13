@@ -48,25 +48,28 @@ LoRA-A² 包含两个核心组件：**交替冻结**（Alternating Freeze）和*
 ### 关键设计
 
 1. **交替冻结（Alternating Freeze）**
-   - 偶数轮冻结 A、训练 B；奇数轮冻结 B、训练 A
-   - 当冻结 A 时，所有客户端共享相同的 A，聚合变为：
-     $$\Delta W = \sum_k w_k B_k \cdot A = \sum_k w_k (B_k A_k) = \sum_k w_k \Delta W_k$$
-     聚合不一致问题自然消除
-   - 与 FFA-LoRA（永久冻结 A）相比，交替冻结使 A 也能被训练，保留了完整的优化空间
-   - 借鉴 LoRA+ 的思想，为 A 和 B 设置不同的学习率，进一步增强优化效果
+
+    - 偶数轮冻结 A、训练 B；奇数轮冻结 B、训练 A
+    - 当冻结 A 时，所有客户端共享相同的 A，聚合变为：
+    $\Delta W = \sum_k w_k B_k \cdot A = \sum_k w_k (B_k A_k) = \sum_k w_k \Delta W_k$
+      聚合不一致问题自然消除
+    - 与 FFA-LoRA（永久冻结 A）相比，交替冻结使 A 也能被训练，保留了完整的优化空间
+    - 借鉴 LoRA+ 的思想，为 A 和 B 设置不同的学习率，进一步增强优化效果
 
 2. **自适应秩选择（Adaptive Rank Selection）**
-   - **动机**：关注上传通信（上行带宽通常远慢于下行），允许不同客户端选择不同的秩
-   - **贡献度准则**：定义模块 $m$ 中秩 $i$ 的重要性分数：
-     $$S_{m,i}^{B_k} = \|\Delta B_k[:,i] \cdot A[i,:]\|_F$$
-     该准则捕获每个秩对模型更新 $\Delta W$ 的贡献，同时考虑了 A 和 B 之间的交互（优于单纯的梯度大小准则）
-   - **选择与稀疏化**：从全模型 $r_G \times N$ 个秩中选 top-$(r_i \times N)$ 个秩（$N$ 为目标模块数），生成二值掩码 $M_k$，仅上传 $B_k \odot M_k$（或 $A_k \odot M_k$），实现稀疏通信
-   - **两大收益**：(1) 不同客户端可选择不同秩，减少异构数据下的客户端冲突；(2) 将秩资源从不重要的模块重新分配到需要更多微调的模块
+
+    - **动机**：关注上传通信（上行带宽通常远慢于下行），允许不同客户端选择不同的秩
+    - **贡献度准则**：定义模块 $m$ 中秩 $i$ 的重要性分数：
+    $S_{m,i}^{B_k} = \|\Delta B_k[:,i] \cdot A[i,:]\|_F$
+      该准则捕获每个秩对模型更新 $\Delta W$ 的贡献，同时考虑了 A 和 B 之间的交互（优于单纯的梯度大小准则）
+    - **选择与稀疏化**：从全模型 $r_G \times N$ 个秩中选 top-$(r_i \times N)$ 个秩（$N$ 为目标模块数），生成二值掩码 $M_k$，仅上传 $B_k \odot M_k$（或 $A_k \odot M_k$），实现稀疏通信
+    - **两大收益**：(1) 不同客户端可选择不同秩，减少异构数据下的客户端冲突；(2) 将秩资源从不重要的模块重新分配到需要更多微调的模块
 
 3. **理论分析**
-   - 证明了参数空间的包含关系：
-     $$\Omega_{\text{FFA-LoRA}} \subsetneq \Omega_{\text{FL+LoRA}} = \Omega_{\text{FlexLoRA}} \subset \Omega_{\text{LoRA-A}^2}$$
-   - LoRA-A² 拥有最大的可达参数空间，同时传输的参数量更少
+
+    - 证明了参数空间的包含关系：
+    $\Omega_{\text{FFA-LoRA}} \subsetneq \Omega_{\text{FL+LoRA}} = \Omega_{\text{FlexLoRA}} \subset \Omega_{\text{LoRA-A}^2}$
+    - LoRA-A² 拥有最大的可达参数空间，同时传输的参数量更少
 
 ## 实验关键数据
 

@@ -26,17 +26,17 @@ WIMLE将隐式最大似然估计（IMLE）扩展到model-based RL，学习能捕
 
 ## 研究背景与动机
 
-1. **领域现状**：Model-based RL通过学习世界模型生成合成数据增强策略训练，理论上应大幅提升样本效率。但实际中MBRL长期难以一致超越强model-free基线。
+**领域现状**：Model-based RL通过学习世界模型生成合成数据增强策略训练，理论上应大幅提升样本效率。但实际中MBRL长期难以一致超越强model-free基线。
 
-2. **现有痛点**：(1) 标准预测模型在同一state-action对产生不同/冲突监督信号时（部分可观测、接触丰富、固有随机性）会平均化多模态→regression to the mean，产生非物理的预测；(2) 缺乏不确定性感知→世界模型在数据不足或动力学复杂的区域过度自信，误导策略学习。
+**现有痛点**：(1) 标准预测模型在同一state-action对产生不同/冲突监督信号时（部分可观测、接触丰富、固有随机性）会平均化多模态→regression to the mean，产生非物理的预测；(2) 缺乏不确定性感知→世界模型在数据不足或动力学复杂的区域过度自信，误导策略学习。
 
-3. **核心矛盾**：需要多模态世界模型但不能太慢（diffusion model迭代采样慢不适合online RL），需要不确定性加权但不能改变Bellman不动点。
+**核心矛盾**：需要多模态世界模型但不能太慢（diffusion model迭代采样慢不适合online RL），需要不确定性加权但不能改变Bellman不动点。
 
-4. **本文要解决什么**：(1) 如何高效学习多模态世界模型？(2) 如何估计和利用预测不确定性？(3) 不确定性加权是否影响value function收敛？
+**本文要解决什么**：(1) 如何高效学习多模态世界模型？(2) 如何估计和利用预测不确定性？(3) 不确定性加权是否影响value function收敛？
 
-5. **切入角度**：用IMLE——一步生成、mode-covering、低数据高效——替代Gaussian或diffusion世界模型，通过ensemble+多latent采样估计总预测方差，逆方差加权synthetic transitions。
+**切入角度**：用IMLE——一步生成、mode-covering、低数据高效——替代Gaussian或diffusion世界模型，通过ensemble+多latent采样估计总预测方差，逆方差加权synthetic transitions。
 
-6. **核心idea一句话**：IMLE世界模型提供多模态mode-covering预测 + ensemble×latent不确定性估计 + 逆方差加权保证最优Bellman收敛。
+**核心idea一句话**：IMLE世界模型提供多模态mode-covering预测 + ensemble×latent不确定性估计 + 逆方差加权保证最优Bellman收敛。
 
 ## 方法详解
 
@@ -46,26 +46,29 @@ WIMLE由三部分组成：(1) IMLE训练的随机世界模型集成；(2) 基于
 ### 关键设计
 
 1. **IMLE世界模型**:
-   - 条件随机生成器：$(\tilde{s}_{t+1}, \tilde{r}_t) = g_\theta(s_t, a_t, z), \quad z \sim \mathcal{N}(0, I)$
-   - 训练步骤交替进行：
-     - Assignment（无梯度）：$z_i^* = \arg\min_{1 \leq j \leq m} \|g_\theta(s_i, a_i, z_j) - y_i\|^2$（为每个数据点找最近的latent）
-     - Update（梯度下降）：$\theta \leftarrow \theta - \eta \nabla_\theta \frac{1}{|B|}\sum_{i \in B}\|g_\theta(s_i, a_i, z_i^*) - y_i\|^2$
-   - **核心优势**：IMLE保证mode coverage——每个数据点至少被一个生成样本覆盖，避免Gaussian模型的均值回归
-   - vs Diffusion：IMLE是one-step生成，吞吐量高适合online RL
+
+    - 条件随机生成器：$(\tilde{s}_{t+1}, \tilde{r}_t) = g_\theta(s_t, a_t, z), \quad z \sim \mathcal{N}(0, I)$
+    - 训练步骤交替进行：
+      - Assignment（无梯度）：$z_i^* = \arg\min_{1 \leq j \leq m} \|g_\theta(s_i, a_i, z_j) - y_i\|^2$（为每个数据点找最近的latent）
+      - Update（梯度下降）：$\theta \leftarrow \theta - \eta \nabla_\theta \frac{1}{|B|}\sum_{i \in B}\|g_\theta(s_i, a_i, z_i^*) - y_i\|^2$
+    - **核心优势**：IMLE保证mode coverage——每个数据点至少被一个生成样本覆盖，避免Gaussian模型的均值回归
+    - vs Diffusion：IMLE是one-step生成，吞吐量高适合online RL
 
 2. **不确定性估计**:
-   - $K=7$ 个IMLE模型集成，每个模型采样 $m$ 个latent
-   - 预测不确定性：$\sigma(s,a) = \text{std}_{k,j}[g_{\theta_k}(s,a,z_j)]$
-   - 全方差分解：$\sigma^2 = \underbrace{\text{Var}_k[\mathbb{E}_z[g_{\theta_k}]]}_{\text{epistemic}} + \underbrace{\mathbb{E}_k[\text{Var}_z[g_{\theta_k}]]}_{\text{aleatoric}}$
-   - 同时捕获认识论不确定性（模型间分歧）和偶然不确定性（latent采样变异性）
+
+    - $K=7$ 个IMLE模型集成，每个模型采样 $m$ 个latent
+    - 预测不确定性：$\sigma(s,a) = \text{std}_{k,j}[g_{\theta_k}(s,a,z_j)]$
+    - 全方差分解：$\sigma^2 = \underbrace{\text{Var}_k[\mathbb{E}_z[g_{\theta_k}]]}_{\text{epistemic}} + \underbrace{\mathbb{E}_k[\text{Var}_z[g_{\theta_k}]]}_{\text{aleatoric}}$
+    - 同时捕获认识论不确定性（模型间分歧）和偶然不确定性（latent采样变异性）
 
 3. **不确定性加权学习**:
-   - 权重：$w(s,a) = \frac{1}{\sigma(s,a) + 1} \in (0, 1]$
-   - TD loss：$\mathcal{L}_{\text{critic}} = \mathbb{E}[w_i \cdot \delta_i^2]$
-   - 真实数据 $w=1$，合成数据用计算权重
-   - **理论保证**：
-     - Lemma 1：正权重不改变Bellman不动点
-     - Lemma 2：在线性critic下，逆方差加权是minimum-covariance unbiased estimator（Gauss-Markov定理）
+
+    - 权重：$w(s,a) = \frac{1}{\sigma(s,a) + 1} \in (0, 1]$
+    - TD loss：$\mathcal{L}_{\text{critic}} = \mathbb{E}[w_i \cdot \delta_i^2]$
+    - 真实数据 $w=1$，合成数据用计算权重
+    - **理论保证**：
+      - Lemma 1：正权重不改变Bellman不动点
+      - Lemma 2：在线性critic下，逆方差加权是minimum-covariance unbiased estimator（Gauss-Markov定理）
 
 ### 架构
 3个残差块（Dense + ReLU + L2 normalization），输入 $(s_t, a_t, z)$，输出 $(r_t, s_{t+1})$ 的分离head。

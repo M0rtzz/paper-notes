@@ -49,21 +49,24 @@ PAD（Pivot-Aware Speculative Decoding）的工作流程：
 ### 关键设计
 
 1. **效用匹配目标（ε-Utility Preserving Decoding）**：
-   - 定义效用函数 $u(y,x) = \mathbb{1}[\text{Eval}(y,x) \geq \theta_{\text{eval}}]$（二值化，正确=1，错误=0）
-   - 目标：$\mathbb{E}[U(\hat{p}, x_c)] \geq \mathbb{E}[U(p_{\text{target}}, x_c)] - \epsilon$
-   - 这是比分布匹配更宽松的约束，允许更多 token 被接受
+
+    - 定义效用函数 $u(y,x) = \mathbb{1}[\text{Eval}(y,x) \geq \theta_{\text{eval}}]$（二值化，正确=1，错误=0）
+    - 目标：$\mathbb{E}[U(\hat{p}, x_c)] \geq \mathbb{E}[U(p_{\text{target}}, x_c)] - \epsilon$
+    - 这是比分布匹配更宽松的约束，允许更多 token 被接受
 
 2. **Pivot Token 定义**：
-   - 形式化定义：token $\tilde{y}_t$ 为 pivot 当且仅当接受它后导致后续 target 模型续写的期望效用显著下降
-   - $U(p_{\text{target}}, (x_c, y_{<t}, \tilde{y}_t)) \leq U(p_{\text{target}}, (x_c, y_{<t})) - \epsilon$
-   - 直觉：pivot token 将生成轨迹"转向"低效用区域
+
+    - 形式化定义：token $\tilde{y}_t$ 为 pivot 当且仅当接受它后导致后续 target 模型续写的期望效用显著下降
+    - $U(p_{\text{target}}, (x_c, y_{<t}, \tilde{y}_t)) \leq U(p_{\text{target}}, (x_c, y_{<t})) - \epsilon$
+    - 直觉：pivot token 将生成轨迹"转向"低效用区域
 
 3. **Pivot 分类器训练（数据与特征）**：
-   - **候选收割**：仅对 SD 会拒绝的 token 进行标注（聚焦被拒绝边界）
-   - **蒙特卡洛 Rollout 估计**：对每个候选 token，用 target 模型生成 N 个独立续写，计算效用均值 $\hat{U}_{\text{cand}}$ 和基线 $\hat{U}_{\text{base}}$；引入容差 α，当 $\hat{U}_{\text{cand}} < \alpha \hat{U}_{\text{base}}$ 时标为 pivot
-   - **LLM-as-Judge 安全检查**：对标为 non-pivot 的候选，抽取"正确但推理过程有问题"的 rollout，用 LLM 评估推理合理性，若不合理则翻转为 pivot（只能翻转为 pivot，不可能引入误接受）
-   - **特征**：target 模型第 ℓ 层隐藏状态、target 概率、target 分布熵
-   - **模型**：小型 MLP 分类器，开销可忽略
+
+    - **候选收割**：仅对 SD 会拒绝的 token 进行标注（聚焦被拒绝边界）
+    - **蒙特卡洛 Rollout 估计**：对每个候选 token，用 target 模型生成 N 个独立续写，计算效用均值 $\hat{U}_{\text{cand}}$ 和基线 $\hat{U}_{\text{base}}$；引入容差 α，当 $\hat{U}_{\text{cand}} < \alpha \hat{U}_{\text{base}}$ 时标为 pivot
+    - **LLM-as-Judge 安全检查**：对标为 non-pivot 的候选，抽取"正确但推理过程有问题"的 rollout，用 LLM 评估推理合理性，若不合理则翻转为 pivot（只能翻转为 pivot，不可能引入误接受）
+    - **特征**：target 模型第 ℓ 层隐藏状态、target 概率、target 分布熵
+    - **模型**：小型 MLP 分类器，开销可忽略
 
 4. **安全阈值**：target 概率低于 10⁻⁴ 的 token 无条件拒绝，无论分类器输出如何
 

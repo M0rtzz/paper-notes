@@ -48,7 +48,7 @@ DPoser-X 由三个层次组成：(1) 部位级 DPoser（body/hand/face 各一个
 
 1. **DPoser 正则化**：核心思想是用扩散模型的单步去噪作为姿态先验的正则化项。对当前优化变量 $\mathbf{x}_0$（即 SMPL 姿态参数 $\theta$），加噪到时间步 $t$ 得到 $\mathbf{x}_t$，然后用训练好的噪声预测器 $\epsilon_\phi$ 进行单步去噪得到 $\hat{\mathbf{x}}_0(t)$，正则化损失为：
 
-   $$L_{\text{DPoser}} = w_t \|\mathbf{x}_0 - \text{sg}[\hat{\mathbf{x}}_0(t)]\|_2^2$$
+    $L_{\text{DPoser}} = w_t \|\mathbf{x}_0 - \text{sg}[\hat{\mathbf{x}}_0(t)]\|_2^2$
 
    其中 $\hat{\mathbf{x}}_0(t) = \frac{\mathbf{x}_t - \sigma_t \epsilon_\phi(\mathbf{x}_t; t)}{\alpha_t}$，$\text{sg}$ 表示停止梯度。该损失的梯度方向与变分扩散采样（Eq. 4）中的正则化项一致（$\propto \epsilon_\phi(\mathbf{x}_t; t) - \epsilon$），但形式更直观且自然等价于 Score Distillation Sampling。
 
@@ -61,9 +61,10 @@ DPoser-X 由三个层次组成：(1) 部位级 DPoser（body/hand/face 各一个
    **直觉解释**：小 $t$ 时加噪和去噪路径短，$\hat{\mathbf{x}}_0(t)$ 接近 $\mathbf{x}_0$，DPoser 引导弱但精准；大 $t$ 时引导强但可能导致去噪后的姿态与原始关联性降低。根据任务噪声水平选择合适范围是关键。
 
 3. **混合训练策略（DPoser-X-mixed）**：解决全身姿态数据稀缺问题。
-   - 将部位数据（body-only/hand-only/face-only）视为不完整的全身数据，仅对可用部分计算损失
-   - 对全身数据以 20% 概率随机遮盖某些部分，强制模型预测被遮盖部分（防止全身与部位数据分布偏差过大）
-   - 数据混合比例：约 65% 全身 + 14% 身体 + 12% 单手 + 4% 双手 + 5% 面部
+
+    - 将部位数据（body-only/hand-only/face-only）视为不完整的全身数据，仅对可用部分计算损失
+    - 对全身数据以 20% 概率随机遮盖某些部分，强制模型预测被遮盖部分（防止全身与部位数据分布偏差过大）
+    - 数据混合比例：约 65% 全身 + 14% 身体 + 12% 单手 + 4% 双手 + 5% 面部
    
    该策略使模型既能学习部位间关联（如全身数据中的双手协调），又能通过部位数据增强泛化能力。
 

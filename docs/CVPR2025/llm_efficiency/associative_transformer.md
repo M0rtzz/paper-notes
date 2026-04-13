@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Vision Transformer (ViT) 通过 self-attention 机制在视觉任务中取得了显著进展，但其 token 表示缺乏显式结构化记忆的支持，所有信息都隐式编码在注意力权重中。
+**领域现状**：Vision Transformer (ViT) 通过 self-attention 机制在视觉任务中取得了显著进展，但其 token 表示缺乏显式结构化记忆的支持，所有信息都隐式编码在注意力权重中。
 
-2. **现有痛点**：标准 Transformer 的 attention 机制对所有 token 进行全局交互，计算复杂度为 $O(N^2)$，且没有机制来维护跨样本的持久化信息表示。模型容易在小数据集上过拟合，且在需要关系推理的任务中表现受限。
+**现有痛点**：标准 Transformer 的 attention 机制对所有 token 进行全局交互，计算复杂度为 $O(N^2)$，且没有机制来维护跨样本的持久化信息表示。模型容易在小数据集上过拟合，且在需要关系推理的任务中表现受限。
 
-3. **核心矛盾**：Transformer 虽然有强大的表示能力，但缺乏类似人脑"全局工作空间"（Global Workspace Theory）的机制。现有方法要么完全依赖隐式表示，要么引入外部记忆但缺乏有效的检索机制。
+**核心矛盾**：Transformer 虽然有强大的表示能力，但缺乏类似人脑"全局工作空间"（Global Workspace Theory）的机制。现有方法要么完全依赖隐式表示，要么引入外部记忆但缺乏有效的检索机制。
 
-4. **本文要解决什么？** 如何在 Transformer 中引入持久化显式记忆，使 token 能够通过竞争访问共享的记忆池，同时保持计算效率？
+**本文要解决什么？** 如何在 Transformer 中引入持久化显式记忆，使 token 能够通过竞争访问共享的记忆池，同时保持计算效率？
 
-5. **切入角度**：借鉴认知科学中的全局工作空间理论和联想记忆（Hopfield Network），设计 bottleneck 机制让 token 竞争进入共享记忆空间。
+**切入角度**：借鉴认知科学中的全局工作空间理论和联想记忆（Hopfield Network），设计 bottleneck 机制让 token 竞争进入共享记忆空间。
 
-6. **核心idea一句话**：引入 Global Workspace Layer，结合 low-rank 显式记忆、bottleneck attention 和 Hopfield 网络，让 Transformer 具备持久化、竞争性的联想记忆能力。
+**核心idea一句话**：引入 Global Workspace Layer，结合 low-rank 显式记忆、bottleneck attention 和 Hopfield 网络，让 Transformer 具备持久化、竞争性的联想记忆能力。
 
 ## 方法详解
 
@@ -46,20 +46,23 @@ AiT 在标准 ViT 的基础上在每个 Transformer block 中新增一个 Global
 ### 关键设计
 
 1. **Low-rank Explicit Memory**
-   - 做什么：维护一个可学习的记忆池 $\gamma \in \mathbb{R}^{M \times D}$，$M$ 为记忆槽位数（32-128），$D$ 为低维嵌入维度（32）
-   - 核心思路：记忆通过 EWMA 持续更新 $\gamma^{t+1} = (1-\alpha)\gamma^t + \alpha \cdot \text{LN}(\text{Concat}(h_1,...,h_S)W^O)$，$\alpha=0.1$
-   - 设计动机：低维设计使记忆池可扩展到 32.8K 个 token 而不增加过多计算开销，跨 batch 更新使其积累全局统计信息
+
+    - 做什么：维护一个可学习的记忆池 $\gamma \in \mathbb{R}^{M \times D}$，$M$ 为记忆槽位数（32-128），$D$ 为低维嵌入维度（32）
+    - 核心思路：记忆通过 EWMA 持续更新 $\gamma^{t+1} = (1-\alpha)\gamma^t + \alpha \cdot \text{LN}(\text{Concat}(h_1,...,h_S)W^O)$，$\alpha=0.1$
+    - 设计动机：低维设计使记忆池可扩展到 32.8K 个 token 而不增加过多计算开销，跨 batch 更新使其积累全局统计信息
 
 2. **Bottleneck Attention**
-   - 做什么：通过 top-k 选择机制强制 token 竞争进入记忆空间
-   - 核心思路：计算每个 token 对各记忆槽的注意力分数，仅保留 top-k 个分数最高的 token 与记忆交互
-   - 设计动机：竞争机制模拟了全局工作空间的"广播"过程，确保只有最相关的信息被写入共享记忆
-   - Balance Loss 包含两部分：累积注意力均衡和选择频率均衡
+
+    - 做什么：通过 top-k 选择机制强制 token 竞争进入记忆空间
+    - 核心思路：计算每个 token 对各记忆槽的注意力分数，仅保留 top-k 个分数最高的 token 与记忆交互
+    - 设计动机：竞争机制模拟了全局工作空间的"广播"过程，确保只有最相关的信息被写入共享记忆
+    - Balance Loss 包含两部分：累积注意力均衡和选择频率均衡
 
 3. **Hopfield Network Token Reconstruction**
-   - 做什么：使用连续 Hopfield 网络从记忆中检索和重建 token 表示
-   - 核心思路：Hopfield 能量函数 $E(\Xi^t) = -\text{lse}(\beta, f_{LT}(\gamma^{t+1})\Xi^t) + \frac{1}{2}\Xi^t(\Xi^t)^T$
-   - 设计动机：Hopfield 网络天然适合从记忆池中提取匹配模式，且 FLOPs 仅占总计算量的 0.84%
+
+    - 做什么：使用连续 Hopfield 网络从记忆中检索和重建 token 表示
+    - 核心思路：Hopfield 能量函数 $E(\Xi^t) = -\text{lse}(\beta, f_{LT}(\gamma^{t+1})\Xi^t) + \frac{1}{2}\Xi^t(\Xi^t)^T$
+    - 设计动机：Hopfield 网络天然适合从记忆池中提取匹配模式，且 FLOPs 仅占总计算量的 0.84%
 
 ### 损失函数 / 训练策略
 - 总损失：$\ell = \ell_{\text{class}} + \sigma \cdot \sum \ell_{\text{bottleneck}_i}$，$\sigma = 10^{-2}$

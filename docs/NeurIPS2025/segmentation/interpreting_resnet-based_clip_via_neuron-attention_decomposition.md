@@ -27,9 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-1. **CLIP可解释性的空白**：现有CLIP可解释性方法（TextSpan、SPLICE、SecondOrderLens）主要针对CLIP-ViT，利用残差流的线性可加性分解输出。但CLIP-ResNet在每个残差块后有ReLU非线性，使得这些方法不适用。
-2. **架构差异**：CLIP-ViT有自注意力块和class token，而CLIP-ResNet使用卷积+最终的注意力池化（attention pooling）。现有ViT解释方法不能直接迁移。
-3. **核心洞察**：虽然CLIP-ResNet的早期层不可线性分解，但**最后卷积层到注意力池化层这一段是可以线性分解的**。进一步，将此分解细化到neuron-head对的粒度，可以获得比单独分析神经元或注意力头更加可解释的语义单元。
+**CLIP可解释性的空白**：现有CLIP可解释性方法（TextSpan、SPLICE、SecondOrderLens）主要针对CLIP-ViT，利用残差流的线性可加性分解输出。但CLIP-ResNet在每个残差块后有ReLU非线性，使得这些方法不适用。
+**架构差异**：CLIP-ViT有自注意力块和class token，而CLIP-ResNet使用卷积+最终的注意力池化（attention pooling）。现有ViT解释方法不能直接迁移。
+**核心洞察**：虽然CLIP-ResNet的早期层不可线性分解，但**最后卷积层到注意力池化层这一段是可以线性分解的**。进一步，将此分解细化到neuron-head对的粒度，可以获得比单独分析神经元或注意力头更加可解释的语义单元。
 
 ## 方法详解
 

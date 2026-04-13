@@ -31,11 +31,11 @@ MaterialMVP 是一个端到端的多视图 PBR 纹理生成模型，通过参考
 
 PBR 纹理是现代计算机图形中实现真实材质表现和光照交互的基石。为3D模型生成高质量 PBR 纹理面临多个挑战：
 
-1. **优化方法慢**：基于 SDS 的文本引导方法（TextureDreamer, Hyperdreamer）计算开销巨大
-2. **单视图方法受限**：SuperMat、RGB↔X、IntrinsicAnything 仅支持单视图
-3. **多视图对齐不足**：CLAY 用 IP-Adapter 引入参考图像，常无法精确对齐
-4. **光照残余问题**：扩散模型生成的 albedo 常包含光照信息
-5. **材质通道不对齐**：albedo 和 MR 贴图独立生成易产生空间不对齐
+**优化方法慢**：基于 SDS 的文本引导方法（TextureDreamer, Hyperdreamer）计算开销巨大
+**单视图方法受限**：SuperMat、RGB↔X、IntrinsicAnything 仅支持单视图
+**多视图对齐不足**：CLAY 用 IP-Adapter 引入参考图像，常无法精确对齐
+**光照残余问题**：扩散模型生成的 albedo 常包含光照信息
+**材质通道不对齐**：albedo 和 MR 贴图独立生成易产生空间不对齐
 
 ## 方法详解
 

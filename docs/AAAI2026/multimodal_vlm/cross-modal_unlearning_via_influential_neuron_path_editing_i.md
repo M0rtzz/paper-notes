@@ -47,22 +47,26 @@ MIP-Editor 分为两个阶段：
 ### 关键设计
 
 1. **跨层梯度积分（IGI）用于文本分支**：
-   - 不同于 MANU 的逐点激活评分，IGI 将神经元激活从 0 线性插值到原始值（$m$ 步 Riemann 近似），计算路径上所有层的联合梯度积分：$\text{IGI}(\mathbf{w}) = \sum_{j=1}^{N} \tilde{w}_{i_j}^n \sum_{k=1}^{m} \sum_{l=1}^{N} \frac{\partial F_T}{\partial w_{i_l}^l}$
-   - 这捕捉的是跨层级联效应而非单点重要性，对文本信息流建模更准确
+
+    - 不同于 MANU 的逐点激活评分，IGI 将神经元激活从 0 线性插值到原始值（$m$ 步 Riemann 近似），计算路径上所有层的联合梯度积分：$\text{IGI}(\mathbf{w}) = \sum_{j=1}^{N} \tilde{w}_{i_j}^n \sum_{k=1}^{m} \sum_{l=1}^{N} \frac{\partial F_T}{\partial w_{i_l}^l}$
+    - 这捕捉的是跨层级联效应而非单点重要性，对文本信息流建模更准确
 
 2. **跨层 Fisher 积分（IFI）用于视觉分支**：
-   - 视觉编码器维度高、空间相关性强、参数冗余大，用 Fisher 信息矩阵对角近似（平方梯度）比一阶梯度更适合：$\text{IFI}(\mathbf{z}) = \sum_{n=1}^{N} \tilde{z}_{i_n}^n \sum_{k=1}^{m} \sum_{l=1}^{N} \left(\frac{\partial \mathbf{G}}{\partial z_{i_l}^l}\right)^2$
-   - 设计动机：文本和视觉信号特性不同，用不同阶的信号估计各自的神经元重要性
+
+    - 视觉编码器维度高、空间相关性强、参数冗余大，用 Fisher 信息矩阵对角近似（平方梯度）比一阶梯度更适合：$\text{IFI}(\mathbf{z}) = \sum_{n=1}^{N} \tilde{z}_{i_n}^n \sum_{k=1}^{m} \sum_{l=1}^{N} \left(\frac{\partial \mathbf{G}}{\partial z_{i_l}^l}\right)^2$
+    - 设计动机：文本和视觉信号特性不同，用不同阶的信号估计各自的神经元重要性
 
 3. **基于路径的 RMisU 编辑**：
-   - 第一步：剪枝路径神经元（激活置零），切断遗忘信息流
-   - 第二步：冻结其他参数，仅对路径神经元做微调
-   - 遗忘目标：将遗忘集表示 $\mathbf{h}^{(l)}(x_f)$ 引向随机方向 $\mathbf{v}_f = \lambda \cdot \|\mathbf{h}^{(l)}(x_f)\|_2 \cdot \mathbf{u}$
-   - 关键：与全模型 RMisU 相比，**仅编辑路径神经元**大幅减少对通用知识的干扰
+
+    - 第一步：剪枝路径神经元（激活置零），切断遗忘信息流
+    - 第二步：冻结其他参数，仅对路径神经元做微调
+    - 遗忘目标：将遗忘集表示 $\mathbf{h}^{(l)}(x_f)$ 引向随机方向 $\mathbf{v}_f = \lambda \cdot \|\mathbf{h}^{(l)}(x_f)\|_2 \cdot \mathbf{u}$
+    - 关键：与全模型 RMisU 相比，**仅编辑路径神经元**大幅减少对通用知识的干扰
 
 4. **贪心层级搜索定位路径**：
-   - 在每层选择得分最高的神经元，组成有序路径 $\mathcal{P}_t$（文本）和 $\mathcal{P}_v$（视觉）
-   - 复杂度为 $O(C_{\text{grad}} \cdot m \cdot L_t \cdot \sum |w_l^t|)$，相比全局搜索显著降低
+
+    - 在每层选择得分最高的神经元，组成有序路径 $\mathcal{P}_t$（文本）和 $\mathcal{P}_v$（视觉）
+    - 复杂度为 $O(C_{\text{grad}} \cdot m \cdot L_t \cdot \sum |w_l^t|)$，相比全局搜索显著降低
 
 ### 损失函数 / 训练策略
 总损失由三部分组成：

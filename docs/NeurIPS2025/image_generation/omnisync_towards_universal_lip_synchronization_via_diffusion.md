@@ -51,17 +51,19 @@ OmniSync的pipeline很直观：给定一段源视频 $V_{cd}$ 和目标音频 $A
 ### 关键设计
 
 1. **无掩码训练范式 (Mask-Free Training Paradigm)**：抛弃传统的"遮住嘴巴→根据音频补全"的模式，转而让DiT直接学习跨帧编辑映射 $(V_{cd}, A_{ab}) \mapsto V_{ab}$。关键难点是：直接帧编辑需要完美配对的训练数据（姿态/身份完全一致，只有嘴唇不同），这在实际中几乎不存在。作者巧妙地利用了扩散模型的渐进去噪特性，提出**时间步依赖的数据采样策略**：
-   - **高噪声时间步**（$t > 850$，负责生成面部基础结构）：使用MEAD数据集的伪配对数据（实验室固定机位拍摄，同一人不同话语形成自然的姿态一致配对），让模型学会在保持姿态/身份的条件下构建面部结构
-   - **中低噪声时间步**（$t \leq 850$，负责唇形生成和细节精修）：切换到多样性更强的YouTube非配对数据，学习泛化性更强的"音频→唇形"映射
+
+    - **高噪声时间步**（$t > 850$，负责生成面部基础结构）：使用MEAD数据集的伪配对数据（实验室固定机位拍摄，同一人不同话语形成自然的姿态一致配对），让模型学会在保持姿态/身份的条件下构建面部结构
+    - **中低噪声时间步**（$t \leq 850$，负责唇形生成和细节精修）：切换到多样性更强的YouTube非配对数据，学习泛化性更强的"音频→唇形"映射
    
    训练损失为标准的Conditional Flow Matching (CFM) loss：$\mathcal{L}_{CFM}(\theta) = \mathbb{E}[\|v_\theta(x_t, V_{cd}, A_{ab}, t) - u_t(x_t|V_{ab})\|^2_2]$
 
 2. **基于Flow Matching的渐进噪声初始化 (Progressive Noise Initialization)**：推理时不从纯随机噪声开始去噪（这会在早期过程中因误差累积导致姿态偏移和身份漂移），而是将原始视频帧加入受控噪声：$x_{init} = (1-\tau)V_{source} + \tau\epsilon$（$\tau=0.92$），然后只执行后续50步去噪。相当于跳过了扩散过程的早期阶段（负责宏观结构），直接继承源视频的姿态和全局结构，让模型专注于嘴巴区域的编辑。这既保证了空间一致性，又降低了计算量。
 
 3. **动态时空Classifier-Free Guidance (DS-CFG)**：解决音频条件过弱的问题。标准CFG面临两难：scale高→唇形准但有伪影，scale低→视觉好但唇形不准。DS-CFG在两个维度做自适应：
-   - **空间维度**：以嘴巴为中心构建高斯权重矩阵 $\mathbf{G}_{spatial}(x,y)$，嘴巴处guidance最强（$\omega_{peak}$），远离嘴巴处最弱（$\omega_{base}$），确保只在需要改变的区域施加强音频引导
-   - **时间维度**：guidance强度随去噪进程衰减 $\omega(t) = \omega_{peak} \cdot (t/T)^\gamma$（$\gamma=1.5$），早期强引导建立正确唇形，后期弱引导保护纹理细节
-   - 最终公式：$\hat{\epsilon}_\theta = \epsilon_\theta(x_t, \varnothing, t) + \mathbf{G}_{spatial} \cdot \omega(t) \cdot [\epsilon_\theta(x_t, c, t) - \epsilon_\theta(x_t, \varnothing, t)]$
+
+    - **空间维度**：以嘴巴为中心构建高斯权重矩阵 $\mathbf{G}_{spatial}(x,y)$，嘴巴处guidance最强（$\omega_{peak}$），远离嘴巴处最弱（$\omega_{base}$），确保只在需要改变的区域施加强音频引导
+    - **时间维度**：guidance强度随去噪进程衰减 $\omega(t) = \omega_{peak} \cdot (t/T)^\gamma$（$\gamma=1.5$），早期强引导建立正确唇形，后期弱引导保护纹理细节
+    - 最终公式：$\hat{\epsilon}_\theta = \epsilon_\theta(x_t, \varnothing, t) + \mathbf{G}_{spatial} \cdot \omega(t) \cdot [\epsilon_\theta(x_t, c, t) - \epsilon_\theta(x_t, \varnothing, t)]$
 
 ### 损失函数 / 训练策略
 

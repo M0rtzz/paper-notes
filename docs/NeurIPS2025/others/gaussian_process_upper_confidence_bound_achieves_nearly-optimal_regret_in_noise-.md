@@ -34,9 +34,9 @@ Noise-free GP bandit 问题：学习者在紧致域 $\mathcal{X} \subset \mathbb
 
 ### 现有困境
 
-1. **理论与实践脱节**：GP-UCB 是最经典的自适应 GP bandit 算法，实际表现一直优于其他方法，但理论分析（Lyu et al. 2019; Kim et al. 2024）给出的 regret 界是 strictly sub-optimal 的
-2. **非自适应算法的局限**：已有 nearly-optimal 算法（如 REDS、PE）采用非自适应采样策略（uniform sampling 或 maximum variance reduction），理论最优但实际表现反而不如 GP-UCB
-3. **开放猜想**：Vakili (2022) 猜想 posterior standard deviation 的累积和在 Matérn 核下可以达到更紧的上界，但此猜想在一般算法下一直未被证实
+**理论与实践脱节**：GP-UCB 是最经典的自适应 GP bandit 算法，实际表现一直优于其他方法，但理论分析（Lyu et al. 2019; Kim et al. 2024）给出的 regret 界是 strictly sub-optimal 的
+**非自适应算法的局限**：已有 nearly-optimal 算法（如 REDS、PE）采用非自适应采样策略（uniform sampling 或 maximum variance reduction），理论最优但实际表现反而不如 GP-UCB
+**开放猜想**：Vakili (2022) 猜想 posterior standard deviation 的累积和在 Matérn 核下可以达到更紧的上界，但此猜想在一般算法下一直未被证实
 
 ### 核心动机
 

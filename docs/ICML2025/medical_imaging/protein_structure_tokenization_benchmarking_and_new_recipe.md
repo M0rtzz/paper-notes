@@ -23,8 +23,8 @@ tags:
 
 蛋白质结构分词 (PST) 将蛋白质 3D 结构编码为离散或连续表示，是蛋白质语言建模和多模态模型的基础。现有 PST 方法分为两类：
 
-1. **VQ-VAE 型**：FoldSeek、ProTokens、ESM3——通过重建目标压缩为离散 codebook
-2. **反折叠型 (IF)**：ProteinMPNN、MIF——通过预测能折叠成目标结构的序列来压缩
+**VQ-VAE 型**：FoldSeek、ProTokens、ESM3——通过重建目标压缩为离散 codebook
+**反折叠型 (IF)**：ProteinMPNN、MIF——通过预测能折叠成目标结构的序列来压缩
 
 但这些方法的能力和局限因缺乏统一评估框架而不明确。特别是 **codebook collapse** 问题严重——ESM3 的 4096 个 code 中最多 70% 在推理时不活跃。
 

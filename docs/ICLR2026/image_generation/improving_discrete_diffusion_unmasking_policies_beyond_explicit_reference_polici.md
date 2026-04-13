@@ -29,11 +29,11 @@ tags:
 
 Masked Diffusion Models（MDMs）通过迭代去掩码实现离散空间的生成，已在语言建模中展现与自回归模型竞争的能力（如 LLaDA、Dream-7B）。在推理阶段，选择**哪个位置先去掩码**对生成质量至关重要：
 
-1. **理论动机**：Kim et al. (2025) 证明了多项式时间算法无法在所有掩码句子上精确恢复数据分布，存在"困难子问题"。但经验表明，max-confidence 策略可以绕过这些困难实例。
+**理论动机**：Kim et al. (2025) 证明了多项式时间算法无法在所有掩码句子上精确恢复数据分布，存在"困难子问题"。但经验表明，max-confidence 策略可以绕过这些困难实例。
 
-2. **现有方法的局限**：当前大规模 MDM（LLaDA、Dream-7B）依赖规则式调度器（max-confidence、max-margin、entropy），这些只是启发式的，没有理论最优性保证。通过 Pass@N 实验发现，当采样 N 条轨迹时，随机和 Top-5 策略都能超过 max-confidence 的单路径准确率，说明存在比 max-confidence 更好的 unmasking 路径。
+**现有方法的局限**：当前大规模 MDM（LLaDA、Dream-7B）依赖规则式调度器（max-confidence、max-margin、entropy），这些只是启发式的，没有理论最优性保证。通过 Pass@N 实验发现，当采样 N 条轨迹时，随机和 Top-5 策略都能超过 max-confidence 的单路径准确率，说明存在比 max-confidence 更好的 unmasking 路径。
 
-3. **核心问题**：如何学习一个比启发式更优的 unmasking 策略，同时保持训练稳定性和理论保证？
+**核心问题**：如何学习一个比启发式更优的 unmasking 策略，同时保持训练稳定性和理论保证？
 
 ## 方法详解
 
@@ -56,8 +56,9 @@ $$\max_\phi \mathbb{E}\left[\frac{p_{g_\phi}(\mathbf{x}_0|\mathbf{q})}{p_{g_{\ph
 正则化项保持 $g_\phi$ 接近 $g_{\mathrm{ref}}$，充当信任域防止不稳定。
 
 3. **理论保证（Theorem 1 & 2）**：
-   - **收敛性**：在迭代优化下，策略的期望奖励收敛到高于参考策略的不动点 $r_{g^*} > r_{g_{\mathrm{ref}}}$
-   - **分布接近性**：优化后的策略生成的终端分布与真实数据分布的 KL 散度严格小于参考策略，即 $D_{\mathrm{KL}}(p_{\mathrm{data}} \| p_{g_{\phi^*}}) < D_{\mathrm{KL}}(p_{\mathrm{data}} \| p_{g_{\mathrm{ref}}})$
+
+    - **收敛性**：在迭代优化下，策略的期望奖励收敛到高于参考策略的不动点 $r_{g^*} > r_{g_{\mathrm{ref}}}$
+    - **分布接近性**：优化后的策略生成的终端分布与真实数据分布的 KL 散度严格小于参考策略，即 $D_{\mathrm{KL}}(p_{\mathrm{data}} \| p_{g_{\phi^*}}) < D_{\mathrm{KL}}(p_{\mathrm{data}} \| p_{g_{\mathrm{ref}}})$
 
 ### 损失函数 / 训练策略
 

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：文本到图像扩散模型（SD、FLUX 等）通过 cross-attention 或 self-attention 将文本条件融入图像生成，但文本-图像表征之间仍存在残余的不对齐——生成图像可能遗漏文本描述的关键属性、颜色、数量等。
-2. **现有痛点**：现有改进方案如偏好优化（DPO）需要定制的人类偏好数据集且训练开销大。REPA 等表征对齐方法只对齐图像内部表征与外部视觉编码器，没有直接改善文本-图像对齐。
-3. **核心矛盾**：标准 T2I 训练仅使用正样本对（matched image-text pairs）最小化去噪损失，从表征对齐角度看是次优的——缺少负样本对的对比信号来区分不同文本条件。
-4. **本文要解决什么？** 如何用最小的额外参数和计算开销提升已训练好的 T2I 模型的文本-图像对齐？
-5. **切入角度**：将扩散模型的去噪损失重新解释为 logit（条件似然），在此基础上构建 InfoNCE 风格的对比学习损失，结合 prompt tuning 中的 soft token 概念实现轻量微调。
-6. **核心idea一句话**：把去噪损失当 logit 做对比学习 + 只训练 soft text token = 用不到 1M 参数显著提升文本-图像对齐。
+**领域现状**：文本到图像扩散模型（SD、FLUX 等）通过 cross-attention 或 self-attention 将文本条件融入图像生成，但文本-图像表征之间仍存在残余的不对齐——生成图像可能遗漏文本描述的关键属性、颜色、数量等。
+**现有痛点**：现有改进方案如偏好优化（DPO）需要定制的人类偏好数据集且训练开销大。REPA 等表征对齐方法只对齐图像内部表征与外部视觉编码器，没有直接改善文本-图像对齐。
+**核心矛盾**：标准 T2I 训练仅使用正样本对（matched image-text pairs）最小化去噪损失，从表征对齐角度看是次优的——缺少负样本对的对比信号来区分不同文本条件。
+**本文要解决什么？** 如何用最小的额外参数和计算开销提升已训练好的 T2I 模型的文本-图像对齐？
+**切入角度**：将扩散模型的去噪损失重新解释为 logit（条件似然），在此基础上构建 InfoNCE 风格的对比学习损失，结合 prompt tuning 中的 soft token 概念实现轻量微调。
+**核心idea一句话**：把去噪损失当 logit 做对比学习 + 只训练 soft text token = 用不到 1M 参数显著提升文本-图像对齐。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **对比 T2I 对齐损失 (Contrastive T2I Alignment Loss)**:
-   - 做什么：利用同一 batch 内的正负文本-图像对构建 InfoNCE 风格损失
-   - 核心思路：将去噪损失 $\|\epsilon_\theta(\mathbf{x}_t, t, \mathbf{y}) - \epsilon\|^2$ 的负值通过指数函数映射为 logit $\tilde{l}(\mathbf{x}, \mathbf{y}, \mathbf{s}) = e^{-\|v_\theta(\mathbf{x}_t, t, \mathbf{y}, \mathbf{s}) - (\epsilon - \mathbf{x}_0)\|^2 / \tau(t)}$，然后构建对比损失 $\mathcal{L} = -\log \frac{\exp(\tilde{l}(\mathbf{x}, \mathbf{y}, \mathbf{s}))}{\sum_j \exp(\tilde{l}(\mathbf{x}, \mathbf{y}^{(j)}, \mathbf{s}))}$
-   - 设计动机：标准训练只有正对，无法区分不同文本条件的差异。对比损失通过负样本推开不匹配的文本-图像对，锐化条件概率分布。指数映射保证 logit 有界，避免训练不稳定
+
+    - 做什么：利用同一 batch 内的正负文本-图像对构建 InfoNCE 风格损失
+    - 核心思路：将去噪损失 $\|\epsilon_\theta(\mathbf{x}_t, t, \mathbf{y}) - \epsilon\|^2$ 的负值通过指数函数映射为 logit $\tilde{l}(\mathbf{x}, \mathbf{y}, \mathbf{s}) = e^{-\|v_\theta(\mathbf{x}_t, t, \mathbf{y}, \mathbf{s}) - (\epsilon - \mathbf{x}_0)\|^2 / \tau(t)}$，然后构建对比损失 $\mathcal{L} = -\log \frac{\exp(\tilde{l}(\mathbf{x}, \mathbf{y}, \mathbf{s}))}{\sum_j \exp(\tilde{l}(\mathbf{x}, \mathbf{y}^{(j)}, \mathbf{s}))}$
+    - 设计动机：标准训练只有正对，无法区分不同文本条件的差异。对比损失通过负样本推开不匹配的文本-图像对，锐化条件概率分布。指数映射保证 logit 有界，避免训练不稳定
 
 2. **可学习 Soft Token**:
-   - 做什么：每层、每时间步引入可学习 token 拼接到文本表征前
-   - 核心思路：$\hat{\mathbf{H}}_{\text{text}}^{(k-1,t)} = [\mathbf{s}^{(k,t)}; \mathbf{H}_{\text{text}}^{(k-1,t)}]$，soft token 通过 Embedding(k,t) 生成，与注意力层一起处理。只训练这些 token（<1M 参数），冻结模型其余部分
-   - 设计动机：类似于 prompt tuning 的思想——不改变模型权重，通过在输入空间注入可学习信号来调整模型行为。极低的参数量意味着快速训练、几乎无推理开销
+
+    - 做什么：每层、每时间步引入可学习 token 拼接到文本表征前
+    - 核心思路：$\hat{\mathbf{H}}_{\text{text}}^{(k-1,t)} = [\mathbf{s}^{(k,t)}; \mathbf{H}_{\text{text}}^{(k-1,t)}]$，soft token 通过 Embedding(k,t) 生成，与注意力层一起处理。只训练这些 token（<1M 参数），冻结模型其余部分
+    - 设计动机：类似于 prompt tuning 的思想——不改变模型权重，通过在输入空间注入可学习信号来调整模型行为。极低的参数量意味着快速训练、几乎无推理开销
 
 3. **互信息理论分析**:
-   - 做什么：证明最小化对比损失等价于最大化文本-图像表征的互信息
-   - 核心思路：利用 Song & Kong 等人的结论——扩散模型的条件似然 $p_\theta(\mathbf{x}|\mathbf{y}) = \exp(\hat{l}(\mathbf{x}, \mathbf{y}))$。因此对比损失的 logit 近似于 PMI $i(\mathbf{x}, \mathbf{y}) = \log \frac{p_\theta(\mathbf{x}|\mathbf{y})}{p_\theta(\mathbf{x})}$，互信息 $I(X,Y) = \mathbb{E}[i(X,Y)]$。最小化对比损失即最大化互信息
-   - 设计动机：提供理论保障，说明为什么这种简单方法能有效提升语义一致性
+
+    - 做什么：证明最小化对比损失等价于最大化文本-图像表征的互信息
+    - 核心思路：利用 Song & Kong 等人的结论——扩散模型的条件似然 $p_\theta(\mathbf{x}|\mathbf{y}) = \exp(\hat{l}(\mathbf{x}, \mathbf{y}))$。因此对比损失的 logit 近似于 PMI $i(\mathbf{x}, \mathbf{y}) = \log \frac{p_\theta(\mathbf{x}|\mathbf{y})}{p_\theta(\mathbf{x})}$，互信息 $I(X,Y) = \mathbb{E}[i(X,Y)]$。最小化对比损失即最大化互信息
+    - 设计动机：提供理论保障，说明为什么这种简单方法能有效提升语义一致性
 
 ### 损失函数 / 训练策略
 - 训练损失：$\mathcal{L}_{\text{SoftREPA}}(\mathbf{s})$，对比损失，仅优化 soft token 参数

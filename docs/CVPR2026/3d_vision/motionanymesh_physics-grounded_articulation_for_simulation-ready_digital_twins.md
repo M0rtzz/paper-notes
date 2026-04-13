@@ -40,14 +40,15 @@ tags:
 1. **运动感知部件分割（SP4D引导的多模态聚类）**: 首先用P3-SAM在3D原生空间提取细粒度几何基元 $\mathcal{P} = \{p_1, \ldots, p_m\}$，保证几何边界的纯净性。然后引入SP4D生成的多视角运动分割mask作为显式运动先验，与渲染的基元可视化图一起输入VLM。VLM将几何基元与运动区域交叉关联，按"物理装配手册"组装碎片化基元为运动学一致的功能部件 $K_i = \bigcup_{j \in \mathcal{I}_i} p_j$。核心动机：纯语义VLM推理频繁"幻觉"，SP4D先验将推理锚定在物理现实中。
 
 2. **类型感知运动初始化**: 针对不同关节类型采用不同几何策略：
-   - **旋转关节-Spin类型**（如轮子、旋钮）：对接触点云 $S_{contact}$ 做PCA，最小特征值对应特征向量作为旋转轴 $\mathbf{v}_{init} = \mathbf{n}$；将接触点投影到垂直于轴的2D平面，用RANSAC拟合2D圆确定轴心：
-     $$q_{init} = \bar{\mathbf{x}} + x_c \mathbf{b}_1 + y_c \mathbf{b}_2$$
-   - **旋转关节-Hinge类型**（如门铰链）：接触区域沿旋转轴纵向分布，PCA最大特征值方向即为旋转轴。
-   - **平移关节**（如抽屉）：对整个部件做PCA得3个候选轴，通过归一化双罚验证机制选出最优滑动方向，综合评估碰撞罚项 $\mathcal{L}_{collide}$ 和脱轨罚项 $\mathcal{L}_{derail}$：
-     $$\mathcal{C}(\mathbf{v}) = \mathcal{L}_{collide}(\mathbf{v}) + \omega \cdot \mathcal{L}_{derail}(\mathbf{v})$$
+
+    - **旋转关节-Spin类型**（如轮子、旋钮）：对接触点云 $S_{contact}$ 做PCA，最小特征值对应特征向量作为旋转轴 $\mathbf{v}_{init} = \mathbf{n}$；将接触点投影到垂直于轴的2D平面，用RANSAC拟合2D圆确定轴心：
+    $q_{init} = \bar{\mathbf{x}} + x_c \mathbf{b}_1 + y_c \mathbf{b}_2$
+    - **旋转关节-Hinge类型**（如门铰链）：接触区域沿旋转轴纵向分布，PCA最大特征值方向即为旋转轴。
+    - **平移关节**（如抽屉）：对整个部件做PCA得3个候选轴，通过归一化双罚验证机制选出最优滑动方向，综合评估碰撞罚项 $\mathcal{L}_{collide}$ 和脱轨罚项 $\mathcal{L}_{derail}$：
+    $\mathcal{C}(\mathbf{v}) = \mathcal{L}_{collide}(\mathbf{v}) + \omega \cdot \mathcal{L}_{derail}(\mathbf{v})$
 
 3. **物理约束轨迹优化**: 初始化参数可能存在微小偏差，长程运动中会积累导致穿透。通过统一表面距离最小化约束并用Levenberg-Marquardt算法优化关节参数：
-   $$\mathcal{L}_{opt}(\mathbf{v}, \mathbf{q}) = \sum_{\phi \in \Phi}\sum_{\mathbf{x} \in S_{contact}}\|\mathcal{D}_{SDF}(\mathcal{T}(\mathbf{x}; \mathbf{v}, \mathbf{q}, \phi), \mathcal{M}_{static})\|_2^2$$
+    $\mathcal{L}_{opt}(\mathbf{v}, \mathbf{q}) = \sum_{\phi \in \Phi}\sum_{\mathbf{x} \in S_{contact}}\|\mathcal{D}_{SDF}(\mathcal{T}(\mathbf{x}; \mathbf{v}, \mathbf{q}, \phi), \mathcal{M}_{static})\|_2^2$
    利用SDF确保运动部件在整个运动范围内与静态基座保持最小均匀距离，保证物理有效、无碰撞的运动学。
 
 ### 损失函数 / 训练策略

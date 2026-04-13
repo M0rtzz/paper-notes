@@ -24,12 +24,12 @@ tags:
 提出"基于文本引用的原子视频动作识别"（RAVAR）新任务和 RefAVA 数据集（36,630 实例），以及 RefAtomNet 方法，通过跨流 agent 注意力融合视觉、文本和位置-语义三路 token，在 mAP 上比最佳基线 BLIPv2 提升 3.85%/3.17%。
 
 ## 研究背景与动机
-1. **领域现状**：原子视频动作识别（Atomic Video Action Recognition）关注人的最基本、不可再分的动作。现有工作（如 I3D、X3D、MViTv2、Hiera）在多人场景中要么手动裁剪特定人物区域，要么自动检测所有人并分别预测，需要大量前/后处理。
-2. **现有痛点**：在实际应用中（如辅助系统、人机交互），用户往往只关心特定个体的动作。现有方法要么对所有人预测（低效），要么需手动裁剪（不实用）。缺乏利用自然语言描述来指定目标个体的机制。
-3. **核心矛盾**：视频中包含大量无关视觉信息，会干扰模型对目标个体的关注。如何根据文本引用抑制不相关信息是核心挑战。
-4. **本文要解决什么**：定义 RAVAR 任务——给定视频和描述特定个体的文本（如"穿红色上衣的女性"），识别该个体的原子动作并给出位置。
-5. **切入角度**：三流架构（视觉+文本+位置-语义），通过 agent attention 跨流融合抑制不相关信息。
-6. **核心 idea 一句话**：引入位置-语义感知流（融合检测框坐标和目标类别语义），结合跨流 agent 注意力融合，精确定位文本描述的特定个体并识别其原子动作。
+**领域现状**：原子视频动作识别（Atomic Video Action Recognition）关注人的最基本、不可再分的动作。现有工作（如 I3D、X3D、MViTv2、Hiera）在多人场景中要么手动裁剪特定人物区域，要么自动检测所有人并分别预测，需要大量前/后处理。
+**现有痛点**：在实际应用中（如辅助系统、人机交互），用户往往只关心特定个体的动作。现有方法要么对所有人预测（低效），要么需手动裁剪（不实用）。缺乏利用自然语言描述来指定目标个体的机制。
+**核心矛盾**：视频中包含大量无关视觉信息，会干扰模型对目标个体的关注。如何根据文本引用抑制不相关信息是核心挑战。
+**本文要解决什么**：定义 RAVAR 任务——给定视频和描述特定个体的文本（如"穿红色上衣的女性"），识别该个体的原子动作并给出位置。
+**切入角度**：三流架构（视觉+文本+位置-语义），通过 agent attention 跨流融合抑制不相关信息。
+**核心 idea 一句话**：引入位置-语义感知流（融合检测框坐标和目标类别语义），结合跨流 agent 注意力融合，精确定位文本描述的特定个体并识别其原子动作。
 
 ## 方法详解
 
@@ -39,25 +39,28 @@ RefAtomNet 包含三个 token 流：(1) 视觉流——ViT 编码视频帧，QFo
 ### 关键设计
 
 1. **位置-语义感知 Token（Location-Semantic Aware Tokens）**
-   - 做什么：将场景中检测到的物体的位置和语义信息编码为 token，辅助定位
-   - 核心思路：用冻结的 DETR 从关键帧检测 $N_o$ 个目标，得到边界框 $\mathbf{r}_{boxes} \in \mathbb{R}^{N_o \times 4}$ 和类别标签 $\mathbf{r}_{cats}$。类别标签过 BERT 编码得到语义嵌入，与框坐标拼接并投影：
-   $$\mathbf{t}^{LS} = \mathbf{P}_{LS}(\text{Concat}[\mathcal{V}_{RT}(\mathbf{r}_{cats}), \mathbf{r}_{boxes}])$$
-   - 设计动机：文本引用常包含位置信息（"左侧的人"），单纯视觉特征难以提供精确的空间关系。目标检测结果天然包含位置和语义，可作为定位辅助信号
+
+    - 做什么：将场景中检测到的物体的位置和语义信息编码为 token，辅助定位
+    - 核心思路：用冻结的 DETR 从关键帧检测 $N_o$ 个目标，得到边界框 $\mathbf{r}_{boxes} \in \mathbb{R}^{N_o \times 4}$ 和类别标签 $\mathbf{r}_{cats}$。类别标签过 BERT 编码得到语义嵌入，与框坐标拼接并投影：
+    $\mathbf{t}^{LS} = \mathbf{P}_{LS}(\text{Concat}[\mathcal{V}_{RT}(\mathbf{r}_{cats}), \mathbf{r}_{boxes}])$
+    - 设计动机：文本引用常包含位置信息（"左侧的人"），单纯视觉特征难以提供精确的空间关系。目标检测结果天然包含位置和语义，可作为定位辅助信号
 
 2. **跨流 Agent 注意力融合（Cross-Stream Agent Attention Fusion）**
-   - 做什么：利用 agent token 跨流抑制不相关视觉信息
-   - 核心思路：
-     - 对每个流 $\phi \in \{RT, VT, LS\}$ 计算 Q、K、V 和 agent token $\mathbf{A}^\phi$
-     - 对文本和位置-语义流做 agent attention：$\mathbf{M}_{QA}^\pi = \sigma_c(\text{MatMul}[\alpha \cdot \mathbf{A}_*^\pi, \mathbf{Q}^\pi])$
-     - 跨流融合视觉流的 agent query 注意力：
-     $$\hat{\mathbf{M}}_{QA}^\gamma = \text{AVG}[\mathbf{M}_{QA}^\gamma, \sigma_c(\sum_\pi \mathbf{M}_{QA}^\pi) \cdot \mathbf{M}_{QA}^\gamma, \sigma_t(\sum_\pi \mathbf{M}_{QA}^\pi) \cdot \mathbf{M}_{QA}^\gamma]$$
-     - 类似地计算跨流 agent token 融合，最终聚合所有流：$\mathbf{t}_{agg} = \sum_\phi \mathbf{t}_*^\phi / N_s$
-   - 设计动机：标准注意力无法有效区分不同流的重要性。Agent attention 通过中间 agent token 聚合关键信息并排除冗余，跨流应用可以用文本和位置-语义线索指导视觉流关注正确区域
+
+    - 做什么：利用 agent token 跨流抑制不相关视觉信息
+    - 核心思路：
+      - 对每个流 $\phi \in \{RT, VT, LS\}$ 计算 Q、K、V 和 agent token $\mathbf{A}^\phi$
+      - 对文本和位置-语义流做 agent attention：$\mathbf{M}_{QA}^\pi = \sigma_c(\text{MatMul}[\alpha \cdot \mathbf{A}_*^\pi, \mathbf{Q}^\pi])$
+      - 跨流融合视觉流的 agent query 注意力：
+    $\hat{\mathbf{M}}_{QA}^\gamma = \text{AVG}[\mathbf{M}_{QA}^\gamma, \sigma_c(\sum_\pi \mathbf{M}_{QA}^\pi) \cdot \mathbf{M}_{QA}^\gamma, \sigma_t(\sum_\pi \mathbf{M}_{QA}^\pi) \cdot \mathbf{M}_{QA}^\gamma]$
+      - 类似地计算跨流 agent token 融合，最终聚合所有流：$\mathbf{t}_{agg} = \sum_\phi \mathbf{t}_*^\phi / N_s$
+    - 设计动机：标准注意力无法有效区分不同流的重要性。Agent attention 通过中间 agent token 聚合关键信息并排除冗余，跨流应用可以用文本和位置-语义线索指导视觉流关注正确区域
 
 3. **1D Sequential Agent Token 改造**
-   - 做什么：将原本为 2D 图像设计的 agent attention 适配为 1D 序列格式
-   - 核心思路：用全连接层替代 2D 池化获取 agent token，去除深度卷积分支和 2D 位置编码
-   - 设计动机：三路 token 来自不同模态，都是 1D 序列格式，原始 agent attention 的 2D 设计不适用
+
+    - 做什么：将原本为 2D 图像设计的 agent attention 适配为 1D 序列格式
+    - 核心思路：用全连接层替代 2D 池化获取 agent token，去除深度卷积分支和 2D 位置编码
+    - 设计动机：三路 token 来自不同模态，都是 1D 序列格式，原始 agent attention 的 2D 设计不适用
 
 ### 损失函数 / 训练策略
 - BCE 损失（多标签动作分类）：$L_{BCE} = -\frac{1}{N_c}\sum_{i=1}^{N_c}[y_i \log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i)]$

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：结构基础虚拟筛选 (SBVS) 是药物发现的核心步骤，通过评估化合物与蛋白质口袋的匹配度从大型化合物库中识别潜在活性分子。现有方法（Glide docking、DrugCLIP 等）都依赖 holo 蛋白质结构（已知配体结合的结构）。
-2. **现有痛点**：(a) 大多数有价值靶点没有 holo 结构，只有 apo（无配体）或 AlphaFold2 预测结构；(b) 在 apo/predicted 结构上现有方法性能断崖式下降；(c) 关键瓶颈不是结构形变，而是 **结合位点定位不准**。
-3. **核心矛盾**：DrugCLIP 等深度学习方法对结构噪声鲁棒，但对口袋定位极其敏感。几何检测工具（Fpocket）找到的 cavity 与真实结合位点偏差大。
-4. **本文要解决什么？** 如何在不知道配体结合位置的情况下进行准确的虚拟筛选？
-5. **切入角度**：几何检测的 cavity 是 holo pocket 的"噪声代理"——学习对齐两者的表征。
-6. **核心 idea 一句话**：三模态对齐（配体-holo pocket-cavity）+ 交叉注意力聚合候选位点，使模型在结合位点未知时仍能准确筛选。
+**领域现状**：结构基础虚拟筛选 (SBVS) 是药物发现的核心步骤，通过评估化合物与蛋白质口袋的匹配度从大型化合物库中识别潜在活性分子。现有方法（Glide docking、DrugCLIP 等）都依赖 holo 蛋白质结构（已知配体结合的结构）。
+**现有痛点**：(a) 大多数有价值靶点没有 holo 结构，只有 apo（无配体）或 AlphaFold2 预测结构；(b) 在 apo/predicted 结构上现有方法性能断崖式下降；(c) 关键瓶颈不是结构形变，而是 **结合位点定位不准**。
+**核心矛盾**：DrugCLIP 等深度学习方法对结构噪声鲁棒，但对口袋定位极其敏感。几何检测工具（Fpocket）找到的 cavity 与真实结合位点偏差大。
+**本文要解决什么？** 如何在不知道配体结合位置的情况下进行准确的虚拟筛选？
+**切入角度**：几何检测的 cavity 是 holo pocket 的"噪声代理"——学习对齐两者的表征。
+**核心 idea 一句话**：三模态对齐（配体-holo pocket-cavity）+ 交叉注意力聚合候选位点，使模型在结合位点未知时仍能准确筛选。
 
 ## 方法详解
 
@@ -41,22 +41,25 @@ tags:
 ### 关键设计
 
 1. **三模态对比对齐 (Tri-modal Contrastive Alignment)**:
-   - 做什么：学习配体、holo pocket、检测 cavity 三者的对齐表征
-   - 核心思路：三种模态两两配对做 pairwise sigmoid loss：$\mathcal{L}_{CL} = \mathcal{L}_{p,l}(P_l, l) + \mathcal{L}_{p,l}(P_c, l) + \mathcal{L}_{p,p}(P_c, P_l)$
-   - 设计动机：仅对齐 ligand-pocket 会导致对 holo 口袋位置的过拟合；加入 cavity 模态使模型学习蛋白质结构本身的空间特征
-   - 关键细节：cavity 通过 IoU 筛选正样本（IoU > τ），pocket 提取半径从 6Å 扩大到 10Å 以应对 cavity 分裂问题
+
+    - 做什么：学习配体、holo pocket、检测 cavity 三者的对齐表征
+    - 核心思路：三种模态两两配对做 pairwise sigmoid loss：$\mathcal{L}_{CL} = \mathcal{L}_{p,l}(P_l, l) + \mathcal{L}_{p,l}(P_c, l) + \mathcal{L}_{p,p}(P_c, P_l)$
+    - 设计动机：仅对齐 ligand-pocket 会导致对 holo 口袋位置的过拟合；加入 cavity 模态使模型学习蛋白质结构本身的空间特征
+    - 关键细节：cavity 通过 IoU 筛选正样本（IoU > τ），pocket 提取半径从 6Å 扩大到 10Å 以应对 cavity 分裂问题
 
 2. **硬负样本挖掘 (Hard Negative Mining)**:
-   - 做什么：从非结合 cavity 中选负样本增强判别能力
-   - 核心思路：IoU 低的 cavity 作为负样本，与配体和 holo pocket 做对比推远
-   - 设计动机：蛋白质表面有很多几何凹陷但无功能的"假口袋"，模型需要学会区分
+
+    - 做什么：从非结合 cavity 中选负样本增强判别能力
+    - 核心思路：IoU 低的 cavity 作为负样本，与配体和 holo pocket 做对比推远
+    - 设计动机：蛋白质表面有很多几何凹陷但无功能的"假口袋"，模型需要学会区分
 
 3. **交叉注意力聚合 (Cross-Attention Adapter)**:
-   - 做什么：对多个候选 cavity 进行动态加权聚合
-   - 核心思路：以配体 embedding 为 query，cavity embeddings 为 key/value，单头注意力聚合：$\tilde{e}_c = \sum_{s=1}^S a^{(s)} \cdot \mathcal{F}_s(P_c^{(s)})$
-   - 初始化近似恒等映射（高温 softmax ≈ 均匀平均），逐步学习最优权重
-   - 设计动机：在无口袋标注的活性数据上训练，让模型自主推断哪个 cavity 最可能是结合位点
-   - 注意力监督：有标注数据用 one-hot 标签，无标注数据用预训练 AANet 的 cavity 评分作为软标签，KL 散度监督
+
+    - 做什么：对多个候选 cavity 进行动态加权聚合
+    - 核心思路：以配体 embedding 为 query，cavity embeddings 为 key/value，单头注意力聚合：$\tilde{e}_c = \sum_{s=1}^S a^{(s)} \cdot \mathcal{F}_s(P_c^{(s)})$
+    - 初始化近似恒等映射（高温 softmax ≈ 均匀平均），逐步学习最优权重
+    - 设计动机：在无口袋标注的活性数据上训练，让模型自主推断哪个 cavity 最可能是结合位点
+    - 注意力监督：有标注数据用 one-hot 标签，无标注数据用预训练 AANet 的 cavity 评分作为软标签，KL 散度监督
 
 ### 训练策略
 - 对齐阶段：PDBBind 2020 general set（去除与测试集重叠）

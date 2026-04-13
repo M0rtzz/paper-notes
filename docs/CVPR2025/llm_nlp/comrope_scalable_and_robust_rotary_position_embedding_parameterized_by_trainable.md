@@ -21,12 +21,12 @@ tags:
 > 基于摘要：The Transformer architecture has revolutionized various fields since it was proposed, where positional encoding plays an essential role in effectively capturing sequential order and context. Therefore, Rotary Positional Encoding (RoPE) was proposed to alleviate these issues, which integrates positio
 
 ## 研究背景与动机
-1. **领域现状**：本文研究的问题属于 NLP理解 方向。The Transformer architecture has revolutionized various fields since it was proposed, where positional encoding plays an essential role in effectively capturing sequential order and context. Therefore, Rotary Positional Encoding (RoPE) was proposed to alleviate these issues, which integrates positional information by rotating the embeddings in the attention mechanism. However, RoPE utilizes manually defined rotation matrices, a design choice that favors computational efficiency but limits the model's flexibility and adaptability.
-2. **现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
-3. **核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
-4. **本文要解决什么？** 针对上述问题，作者提出了新方法。
-5. **切入角度**：从新的技术视角或观察出发。
-6. **核心idea一句话**：In this work, we propose ComRoPE, which generalizes RoPE by defining it in terms of trainable commuting angle matrices. Specifically, we demonstrate that pairwise commutativity of these matrices is es
+**领域现状**：本文研究的问题属于 NLP理解 方向。The Transformer architecture has revolutionized various fields since it was proposed, where positional encoding plays an essential role in effectively capturing sequential order and context. Therefore, Rotary Positional Encoding (RoPE) was proposed to alleviate these issues, which integrates positional information by rotating the embeddings in the attention mechanism. However, RoPE utilizes manually defined rotation matrices, a design choice that favors computational efficiency but limits the model's flexibility and adaptability.
+**现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+**核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+**本文要解决什么？** 针对上述问题，作者提出了新方法。
+**切入角度**：从新的技术视角或观察出发。
+**核心idea一句话**：In this work, we propose ComRoPE, which generalizes RoPE by defining it in terms of trainable commuting angle matrices. Specifically, we demonstrate that pairwise commutativity of these matrices is es
 
 ## 方法详解
 
@@ -38,15 +38,17 @@ In this work, we propose ComRoPE, which generalizes RoPE by defining it in terms
 ### 关键设计
 
 1. **核心模块**:
-   - 做什么：解决上述痛点的关键技术组件
-   - 核心思路：详见论文方法部分
-   - 设计动机：提升性能或效率
+
+    - 做什么：解决上述痛点的关键技术组件
+    - 核心思路：详见论文方法部分
+    - 设计动机：提升性能或效率
 
 
 3. **优化策略**
-   - 做什么：提升训练稳定性和收敛速度
-   - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-   - 设计动机：确保模型在大规模数据上的训练效率
+
+    - 做什么：提升训练稳定性和收敛速度
+    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
+    - 设计动机：确保模型在大规模数据上的训练效率
 
 ### 实现细节
 - 框架基于 PyTorch 实现

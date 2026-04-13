@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：情感支持对话（ESC）旨在缓解用户情绪困扰，LLM 在此方向取得进展。ESC 通常分三阶段：探索->安慰->行动。
-2. **现有痛点**：现有 LLM 方法聚焦即时回复质量，缺乏长期策略规划，导致策略偏差和阶段转换不流畅。
-3. **核心矛盾**：如何让 LLM 在对话中考虑长期回报而非短视地选择当前最优策略？
-4. **本文要解决什么？** 将 ESC 形式化为策略级 MDP，用价值 RL 方法学习最优策略选择。
-5. **切入角度**：用 LLM 的平均 token logit 作为 Q 值，通过 Bellman 方程训练 Q 网络。
-6. **核心idea一句话**：将 LLM 的 next-token prediction 转化为 next-strategy prediction，用 DQN 学习策略价值函数。
+**领域现状**：情感支持对话（ESC）旨在缓解用户情绪困扰，LLM 在此方向取得进展。ESC 通常分三阶段：探索->安慰->行动。
+**现有痛点**：现有 LLM 方法聚焦即时回复质量，缺乏长期策略规划，导致策略偏差和阶段转换不流畅。
+**核心矛盾**：如何让 LLM 在对话中考虑长期回报而非短视地选择当前最优策略？
+**本文要解决什么？** 将 ESC 形式化为策略级 MDP，用价值 RL 方法学习最优策略选择。
+**切入角度**：用 LLM 的平均 token logit 作为 Q 值，通过 Bellman 方程训练 Q 网络。
+**核心idea一句话**：将 LLM 的 next-token prediction 转化为 next-strategy prediction，用 DQN 学习策略价值函数。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **策略级 MDP**
-   - 状态：对话历史 + 当前情绪 + 背景描述
-   - 动作：ESC 支持策略集合（如"提供建议""情感验证"等）
-   - Q(s,a) = LLM 对策略 token 的平均 log probability
-   - 设计动机：策略级比 token 级 MDP 更适合对话规划
+
+    - 状态：对话历史 + 当前情绪 + 背景描述
+    - 动作：ESC 支持策略集合（如"提供建议""情感验证"等）
+    - Q(s,a) = LLM 对策略 token 的平均 log probability
+    - 设计动机：策略级比 token 级 MDP 更适合对话规划
 
 2. **Q 值计算与训练**
-   - 用 Bellman 方程的 TD loss 替代交叉熵损失训练
-   - 设计动机：平均 logit 自然表示 LLM 对策略的"信心"
+
+    - 用 Bellman 方程的 TD loss 替代交叉熵损失训练
+    - 设计动机：平均 logit 自然表示 LLM 对策略的"信心"
 
 3. **两种奖励机制**
-   - Imitation reward：基于专家策略序列
-   - Distillation reward：用强 LLM 评估策略合理性
-   - 设计动机：imitation 更适合自动指标，distillation 更适合人类评价和泛化
+
+    - Imitation reward：基于专家策略序列
+    - Distillation reward：用强 LLM 评估策略合理性
+    - 设计动机：imitation 更适合自动指标，distillation 更适合人类评价和泛化
 
 ## 实验关键数据
 

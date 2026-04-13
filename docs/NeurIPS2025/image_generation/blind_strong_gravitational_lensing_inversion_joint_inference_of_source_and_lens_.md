@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Score-based 模型已成功用于天文学逆问题（干涉成像、引力透镜源重建、宇宙学场推断等）。在强引力透镜中，它们作为数据驱动的先验可以从扭曲的多重像中推断背景源。
+**领域现状**：Score-based 模型已成功用于天文学逆问题（干涉成像、引力透镜源重建、宇宙学场推断等）。在强引力透镜中，它们作为数据驱动的先验可以从扭曲的多重像中推断背景源。
 
-2. **现有痛点**：
+**现有痛点**：
    - 之前的 score-based 透镜分析假设透镜质量分布（即前向算子）已知，但实际中透镜参数也是未知的
    - 联合推断源和透镜（"盲反演"）极具挑战——透镜参数后验包含多个局部极小值，源和透镜之间存在退化性
    - 之前的盲反演只能用解析先验（高斯假设或平滑约束），限制了源重建的灵活性
 
-3. **核心矛盾**：score-based 先验很有表达力但需要已知前向算子（透镜模型），而天文学中前向算子本身就是未知的——需要同时推断数据和算子。
+**核心矛盾**：score-based 先验很有表达力但需要已知前向算子（透镜模型），而天文学中前向算子本身就是未知的——需要同时推断数据和算子。
 
-4. **本文要解决什么？** 在 score-based 先验框架下实现源和透镜的联合推断（盲反演）。
+**本文要解决什么？** 在 score-based 先验框架下实现源和透镜的联合推断（盲反演）。
 
-5. **切入角度**：将离散时间的 GibbsDDRM（一种用于未知前向算子逆问题的扩散采样器）改编到连续时间域，结合两种似然 score 近似（CLA 和 ΠiGDM）。
+**切入角度**：将离散时间的 GibbsDDRM（一种用于未知前向算子逆问题的扩散采样器）改编到连续时间域，结合两种似然 score 近似（CLA 和 ΠiGDM）。
 
-6. **核心 idea 一句话**：连续时间 GibbsDDRM + score-based 源先验 + 参数化透镜模型 = 首次实现 score-based 盲透镜反演。
+**核心 idea 一句话**：连续时间 GibbsDDRM + score-based 源先验 + 参数化透镜模型 = 首次实现 score-based 盲透镜反演。
 
 ## 方法详解
 
@@ -49,20 +49,23 @@ tags:
 ### 关键设计
 
 1. **连续时间 GibbsDDRM**:
-   - 做什么：将离散时间的 GibbsDDRM 扩展到连续时间 SDE 框架
-   - 核心思路：在反向 SDE 中交替更新源（扩散 guidance）和透镜参数（Langevin），利用 score-based 先验 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{x}_t)$ 加上近似似然 score $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
-   - 设计动机：连续时间允许使用 VE-SDE（variance-exploding）的灵活噪声调度，避免离散时间的步长限制
+
+    - 做什么：将离散时间的 GibbsDDRM 扩展到连续时间 SDE 框架
+    - 核心思路：在反向 SDE 中交替更新源（扩散 guidance）和透镜参数（Langevin），利用 score-based 先验 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{x}_t)$ 加上近似似然 score $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
+    - 设计动机：连续时间允许使用 VE-SDE（variance-exploding）的灵活噪声调度，避免离散时间的步长限制
 
 2. **两种似然 score 近似**:
-   - 做什么：近似不可处理的 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
-   - CLA (Conditional Likelihood Approximation)：假设 $p_t(\mathbf{y} | \mathbf{x}_t)$ 与 $p(\mathbf{y} | \hat{\mathbf{x}}_0(\mathbf{x}_t))$ 成比例
-   - ΠiGDM：使用投影近似，更精确但计算稍贵
-   - 设计动机：精确计算需要对所有可能的 $\mathbf{x}_0$ 积分，两种近似在不同场景有不同的精度-效率权衡
+
+    - 做什么：近似不可处理的 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
+    - CLA (Conditional Likelihood Approximation)：假设 $p_t(\mathbf{y} | \mathbf{x}_t)$ 与 $p(\mathbf{y} | \hat{\mathbf{x}}_0(\mathbf{x}_t))$ 成比例
+    - ΠiGDM：使用投影近似，更精确但计算稍贵
+    - 设计动机：精确计算需要对所有可能的 $\mathbf{x}_0$ 积分，两种近似在不同场景有不同的精度-效率权衡
 
 3. **透镜参数采样**:
-   - 做什么：在给定源重建下采样 12 个透镜宏参数
-   - 核心思路：利用前向模型的可微性，对 $\boldsymbol{\ell}$ 做梯度基 Langevin 步骤。每个源样本后追加 500 个条件透镜样本以充分探索参数空间
-   - 设计动机：参数空间中存在多个局部极小值，MCMC 采样（而非单点优化）可以量化不确定性
+
+    - 做什么：在给定源重建下采样 12 个透镜宏参数
+    - 核心思路：利用前向模型的可微性，对 $\boldsymbol{\ell}$ 做梯度基 Langevin 步骤。每个源样本后追加 500 个条件透镜样本以充分探索参数空间
+    - 设计动机：参数空间中存在多个局部极小值，MCMC 采样（而非单点优化）可以量化不确定性
 
 ### 损失函数 / 训练策略
 - Score 模型在模拟的未透镜星系图像上预训练

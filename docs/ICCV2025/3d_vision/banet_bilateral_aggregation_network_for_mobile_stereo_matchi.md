@@ -46,22 +46,25 @@ tags:
 ### 关键设计
 
 1. **双边聚合 (Bilateral Aggregation)**:
-   - 使用空间注意力图 $\mathbf{A}$ 将完整相关代价体 $\mathbf{C}_{cor}$ 分离为两部分：
-     - 细节代价体：$\mathbf{C}_d = \mathbf{A} \odot \mathbf{C}_{cor}$（高频区域）
-     - 平滑代价体：$\mathbf{C}_s = (1-\mathbf{A}) \odot \mathbf{C}_{cor}$（低频区域）
-   - 分别用独立的聚合分支 $\mathbf{G}_d$ 和 $\mathbf{G}_s$ 处理（结构相同但不共享权重）
-   - 最终融合：$\mathbf{C}_{agg} = \mathbf{A} \odot \mathbf{C}'_d + (1-\mathbf{A}) \odot \mathbf{C}'_s$
-   - 每个分支由MobileNetV2 inverted residual blocks构成：1/4分辨率4块、1/8分辨率6块、1/16分辨率8块，扩展因子为4
+
+    - 使用空间注意力图 $\mathbf{A}$ 将完整相关代价体 $\mathbf{C}_{cor}$ 分离为两部分：
+      - 细节代价体：$\mathbf{C}_d = \mathbf{A} \odot \mathbf{C}_{cor}$（高频区域）
+      - 平滑代价体：$\mathbf{C}_s = (1-\mathbf{A}) \odot \mathbf{C}_{cor}$（低频区域）
+    - 分别用独立的聚合分支 $\mathbf{G}_d$ 和 $\mathbf{G}_s$ 处理（结构相同但不共享权重）
+    - 最终融合：$\mathbf{C}_{agg} = \mathbf{A} \odot \mathbf{C}'_d + (1-\mathbf{A}) \odot \mathbf{C}'_s$
+    - 每个分支由MobileNetV2 inverted residual blocks构成：1/4分辨率4块、1/8分辨率6块、1/16分辨率8块，扩展因子为4
 
 2. **尺度感知空间注意力 (Scale-aware Spatial Attention, SSA)**:
-   - 利用多尺度特征（1/4、1/8、1/16）的感知差异：细尺度感知高频细节，粗尺度感知低频平滑信息
-   - 将多尺度特征上采样至1/4分辨率后，各自通过卷积层、拼接、再通过卷积+sigmoid生成注意力图
-   - 公式：$\mathbf{S} = Concat[Conv(\mathbf{F}^{up}_{l,16}), Conv(\mathbf{F}^{up}_{l,8}), Conv(\mathbf{F}_{l,4})]$，$\mathbf{A} = \sigma(Conv(\mathbf{S}))$
+
+    - 利用多尺度特征（1/4、1/8、1/16）的感知差异：细尺度感知高频细节，粗尺度感知低频平滑信息
+    - 将多尺度特征上采样至1/4分辨率后，各自通过卷积层、拼接、再通过卷积+sigmoid生成注意力图
+    - 公式：$\mathbf{S} = Concat[Conv(\mathbf{F}^{up}_{l,16}), Conv(\mathbf{F}^{up}_{l,8}), Conv(\mathbf{F}_{l,4})]$，$\mathbf{A} = \sigma(Conv(\mathbf{S}))$
 
 3. **3D版本扩展 (BANet-3D)**:
-   - 将双边聚合概念应用于3D卷积聚合网络
-   - 3D聚合网络包含3个下采样块（2个3×3×3 3D卷积）和3个上采样块（4×4×4转置3D卷积 + 2个3×3×3 3D卷积）
-   - 在高端GPU上实现所有已发表实时方法中的最高精度
+
+    - 将双边聚合概念应用于3D卷积聚合网络
+    - 3D聚合网络包含3个下采样块（2个3×3×3 3D卷积）和3个上采样块（4×4×4转置3D卷积 + 2个3×3×3 3D卷积）
+    - 在高端GPU上实现所有已发表实时方法中的最高精度
 
 ### 损失函数 / 训练策略
 

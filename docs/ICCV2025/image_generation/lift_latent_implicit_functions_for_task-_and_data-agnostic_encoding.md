@@ -28,9 +28,9 @@ LIFT 提出了一个基于元学习的多尺度隐式神经表示框架，通过
 
 隐式神经表示（INR）通过神经网络将坐标映射到信号值，为各种数据模态提供了连续、分辨率无关的表示方式。现有 INR 框架面临几个核心问题：
 
-1. **全局潜向量的局限性**：Functa 等方法使用单一全局潜向量表示整个数据点，无法捕获细粒度局部细节，在生成和分类等下游任务上表现受限。
-2. **计算效率低下**：SpatialFuncta 虽采用空间化潜表示，但需要深度为 6、宽度为 256 的大型 MLP，仅处理 CIFAR-10 就需要 0.271 GFLOPs。
-3. **模态依赖性强**：传统深度学习模型通常是模态依赖的，需要针对不同信号类型定制架构和目标函数。
+**全局潜向量的局限性**：Functa 等方法使用单一全局潜向量表示整个数据点，无法捕获细粒度局部细节，在生成和分类等下游任务上表现受限。
+**计算效率低下**：SpatialFuncta 虽采用空间化潜表示，但需要深度为 6、宽度为 256 的大型 MLP，仅处理 CIFAR-10 就需要 0.271 GFLOPs。
+**模态依赖性强**：传统深度学习模型通常是模态依赖的，需要针对不同信号类型定制架构和目标函数。
 
 核心矛盾在于：如何在保持计算效率的同时，既能捕获局部细节又能保留全局上下文，且能跨任务、跨模态通用？
 
@@ -49,31 +49,34 @@ LIFT 是一个两阶段框架：
 ### 关键设计
 
 1. **并行局部隐式函数（P-MLP）**:
-   - 做什么：将输入域 $[0,1]^D$ 分割为 $M^D$ 个区域，每个区域分配独立的小型 MLP
-   - 核心思路：总函数表示为子函数的加权和
-     $$\mathcal{F}_\theta(\mathbf{x}) = \sum_{m=1}^{M^D} f_m(\mathbf{x}) \cdot \mathbb{1}_m(\mathbf{x})$$
-     其中 $\mathbb{1}_m$ 是指示函数，$f_m$ 是对应区域的局部 MLP
-   - 设计动机：局部化学习使每个子网络专注于小区域的信号建模，提升表达能力的同时降低单个 MLP 的复杂度
+
+    - 做什么：将输入域 $[0,1]^D$ 分割为 $M^D$ 个区域，每个区域分配独立的小型 MLP
+    - 核心思路：总函数表示为子函数的加权和
+    $\mathcal{F}_\theta(\mathbf{x}) = \sum_{m=1}^{M^D} f_m(\mathbf{x}) \cdot \mathbb{1}_m(\mathbf{x})$
+      其中 $\mathbb{1}_m$ 是指示函数，$f_m$ 是对应区域的局部 MLP
+    - 设计动机：局部化学习使每个子网络专注于小区域的信号建模，提升表达能力的同时降低单个 MLP 的复杂度
 
 2. **层次化潜变量生成器（HLG）**:
-   - 做什么：生成融合全局、中间、局部三个尺度信息的组合潜变量 $Z^\alpha$
-   - 核心思路：定义三级潜变量层次：
-     - 全局潜变量 $\mathbf{Z}^\dagger \in \mathbb{R}^{1 \times 1 \times d_g}$
-     - 中间潜变量 $\mathbf{Z}^\star \in \mathbb{R}^{P_i \times P_i \times d_i}$
-     - 局部潜变量 $\mathbf{Z} \in \mathbb{R}^{P \times P \times d_l}$
 
-     融合公式为：
-     $$\mathbf{Z}' = \text{Linear}_1(\text{Concat}(\text{Upsample}(\mathbf{Z}^\dagger, P_i, P_i), \mathbf{Z}^\star))$$
-     $$\mathbf{Z}^\alpha = \text{Linear}_2(\text{Concat}(\text{Upsample}(\mathbf{Z}', P, P), \mathbf{Z}))$$
-   - 设计动机：相邻区域通过共享的中间和全局潜变量获得一致的高层表示，从而实现平滑的区域间过渡，消除 patch 边界不连续性
+    - 做什么：生成融合全局、中间、局部三个尺度信息的组合潜变量 $Z^\alpha$
+    - 核心思路：定义三级潜变量层次：
+      - 全局潜变量 $\mathbf{Z}^\dagger \in \mathbb{R}^{1 \times 1 \times d_g}$
+      - 中间潜变量 $\mathbf{Z}^\star \in \mathbb{R}^{P_i \times P_i \times d_i}$
+      - 局部潜变量 $\mathbf{Z} \in \mathbb{R}^{P \times P \times d_l}$
+
+      融合公式为：
+    $\mathbf{Z}' = \text{Linear}_1(\text{Concat}(\text{Upsample}(\mathbf{Z}^\dagger, P_i, P_i), \mathbf{Z}^\star))$
+    $\mathbf{Z}^\alpha = \text{Linear}_2(\text{Concat}(\text{Upsample}(\mathbf{Z}', P, P), \mathbf{Z}))$
+    - 设计动机：相邻区域通过共享的中间和全局潜变量获得一致的高层表示，从而实现平滑的区域间过渡，消除 patch 边界不连续性
 
 3. **ReLIFT 变体**:
-   - 做什么：在 SIREN 激活函数基础上引入残差连接和频率缩放因子
-   - 核心思路：
-     $$\mathbf{z}^{(0)} = \sin(\gamma \Omega \mathbf{r})$$
-     $$\mathbf{z}^{(1)} = \sin(\mathbf{W}^{(1)} \sin(\gamma \Omega \mathbf{r})) + \sin(\gamma \Omega \mathbf{r})$$
-     当 $\gamma > 1$ 时，频率 $\gamma \sum s_t \boldsymbol{\omega}_t$ 按比例增大，扩展了网络对高频分量的建模能力。残差连接保留了基频分量不被丢失。
-   - 设计动机：标准 SIREN 由于 Bessel 函数性质存在对低频信号的隐式偏好（convergence-capacity gap），ReLIFT 通过频率缩放增强高频能力，残差连接平衡高低频
+
+    - 做什么：在 SIREN 激活函数基础上引入残差连接和频率缩放因子
+    - 核心思路：
+    $\mathbf{z}^{(0)} = \sin(\gamma \Omega \mathbf{r})$
+    $\mathbf{z}^{(1)} = \sin(\mathbf{W}^{(1)} \sin(\gamma \Omega \mathbf{r})) + \sin(\gamma \Omega \mathbf{r})$
+      当 $\gamma > 1$ 时，频率 $\gamma \sum s_t \boldsymbol{\omega}_t$ 按比例增大，扩展了网络对高频分量的建模能力。残差连接保留了基频分量不被丢失。
+    - 设计动机：标准 SIREN 由于 Bessel 函数性质存在对低频信号的隐式偏好（convergence-capacity gap），ReLIFT 通过频率缩放增强高频能力，残差连接平衡高低频
 
 ### 损失函数 / 训练策略
 

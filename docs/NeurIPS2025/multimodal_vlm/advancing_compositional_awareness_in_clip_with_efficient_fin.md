@@ -41,9 +41,10 @@ CLIC 冻结视觉编码器，仅微调文本编码器。训练时每次采样一
 2. **多正样本策略**: 除了 p1（拼接首句）和 p2（首句交换顺序，语义不变但词序变），还从各自 caption 的其他句子中随机取出构造 p3、p4。多个正样本迫使模型学习语义不变性——不同词汇形式描述同一图像应有相似嵌入。
 
 3. **三重损失函数**: 
-   - $\mathcal{L}_{Cont}$：扩展到 4 个正样本的标准对比损失
-   - $\mathcal{L}_{S\text{-}Neg}$：每个正样本与 hard negative 的单独损失项，确保 hard negative 始终影响训练
-   - $\mathcal{L}_{Uni}$：p1 和 p2 文本嵌入的 L2 距离，强制模型对语义等价但词序不同的句子产生相似编码
+
+    - $\mathcal{L}_{Cont}$：扩展到 4 个正样本的标准对比损失
+    - $\mathcal{L}_{S\text{-}Neg}$：每个正样本与 hard negative 的单独损失项，确保 hard negative 始终影响训练
+    - $\mathcal{L}_{Uni}$：p1 和 p2 文本嵌入的 L2 距离，强制模型对语义等价但词序不同的句子产生相似编码
    
    总损失 $\mathcal{L} = \frac{1}{2}\mathcal{L}_{Cont} + \frac{1}{2}\mathcal{L}_{S\text{-}Neg} + \mathcal{L}_{Uni}$
 

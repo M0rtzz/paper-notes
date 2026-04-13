@@ -38,19 +38,22 @@ ELogitNorm 是一个替代标准交叉熵的训练目标函数。模型架构不
 ### 关键设计
 
 1. **特征坍塌诊断**:
-   - 做什么：揭示 LogitNorm 导致的两种坍塌现象
-   - 核心思路：(a) **维度坍塌**——LogitNorm 训练的特征协方差矩阵的奇异值谱中有大量接近零的奇异值，说明有效特征维度大幅降低；(b) **原点坍塌**——OOD 样本在特征空间中聚集于原点附近，而 LogitNorm 的归一化会进一步加剧这一趋势
-   - 设计动机：通过 Proposition 1 证明 $\|\mathbf{f}\|$ 与 $\|\mathbf{z}\|$ 近似成正比（$\sigma_{min}\|\mathbf{z}\| - \|\mathbf{b}\| \leq \|\mathbf{f}\| \leq \sigma_{max}\|\mathbf{z}\| + \|\mathbf{b}\|$），因此 LogitNorm 隐式地基于到原点的距离做约束
+
+    - 做什么：揭示 LogitNorm 导致的两种坍塌现象
+    - 核心思路：(a) **维度坍塌**——LogitNorm 训练的特征协方差矩阵的奇异值谱中有大量接近零的奇异值，说明有效特征维度大幅降低；(b) **原点坍塌**——OOD 样本在特征空间中聚集于原点附近，而 LogitNorm 的归一化会进一步加剧这一趋势
+    - 设计动机：通过 Proposition 1 证明 $\|\mathbf{f}\|$ 与 $\|\mathbf{z}\|$ 近似成正比（$\sigma_{min}\|\mathbf{z}\| - \|\mathbf{b}\| \leq \|\mathbf{f}\| \leq \sigma_{max}\|\mathbf{z}\| + \|\mathbf{b}\|$），因此 LogitNorm 隐式地基于到原点的距离做约束
 
 2. **决策边界距离缩放（ELogitNorm 核心）**:
-   - 做什么：用特征到所有竞争类决策边界的平均距离替代 logit 范数作为缩放因子
-   - 核心思路：令 $f_{max}$ 为预测类别索引，缩放因子定义为 $\mathcal{D}(\mathbf{z}) = \frac{1}{c-1}\sum_{i \neq f_{max}} \frac{|(\mathbf{w}_{f_{max}} - \mathbf{w}_i)^T\mathbf{z} + (b_{f_{max}} - b_i)|}{\|\mathbf{w}_{f_{max}} - \mathbf{w}_i\|_2}$，训练损失为 $\mathcal{L}_{ELogitNorm} = -\log \frac{e^{f_y/\mathcal{D}(\mathbf{z})}}{\sum_i e^{f_i/\mathcal{D}(\mathbf{z})}}$
-   - 设计动机：距离决策边界近的样本产生更大的缩放，使梯度信号更强，迫使网络把这些"模糊"样本推离边界
+
+    - 做什么：用特征到所有竞争类决策边界的平均距离替代 logit 范数作为缩放因子
+    - 核心思路：令 $f_{max}$ 为预测类别索引，缩放因子定义为 $\mathcal{D}(\mathbf{z}) = \frac{1}{c-1}\sum_{i \neq f_{max}} \frac{|(\mathbf{w}_{f_{max}} - \mathbf{w}_i)^T\mathbf{z} + (b_{f_{max}} - b_i)|}{\|\mathbf{w}_{f_{max}} - \mathbf{w}_i\|_2}$，训练损失为 $\mathcal{L}_{ELogitNorm} = -\log \frac{e^{f_y/\mathcal{D}(\mathbf{z})}}{\sum_i e^{f_i/\mathcal{D}(\mathbf{z})}}$
+    - 设计动机：距离决策边界近的样本产生更大的缩放，使梯度信号更强，迫使网络把这些"模糊"样本推离边界
 
 3. **最小缩放因子空间分析（Proposition 2）**:
-   - 做什么：证明 ELogitNorm 的最小缩放因子空间维度远高于 LogitNorm
-   - 核心思路：LogitNorm 的最小缩放因子对应原点（零维点），而 ELogitNorm 的最小缩放因子对应所有决策边界的交集，是一个 $m-c+1$ 维的仿射子空间（如 ResNet-18 on CIFAR-10: 503 维 vs 0 维）
-   - 设计动机：更高维的最小缩放空间意味着优化过程有更大的"自由度"，不会被迫收缩到单一点
+
+    - 做什么：证明 ELogitNorm 的最小缩放因子空间维度远高于 LogitNorm
+    - 核心思路：LogitNorm 的最小缩放因子对应原点（零维点），而 ELogitNorm 的最小缩放因子对应所有决策边界的交集，是一个 $m-c+1$ 维的仿射子空间（如 ResNet-18 on CIFAR-10: 503 维 vs 0 维）
+    - 设计动机：更高维的最小缩放空间意味着优化过程有更大的"自由度"，不会被迫收缩到单一点
 
 ### 损失函数 / 训练策略
 唯一的损失函数就是 $\mathcal{L}_{ELogitNorm}$，**无需额外超参数**（LogitNorm 需要调温度参数 $\tau$）。训练设置与标准交叉熵完全一致：ResNet-18 on CIFAR 训练 100 epochs，SGD，lr=0.1，momentum=0.9，weight decay $5 \times 10^{-4}$。

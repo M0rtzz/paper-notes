@@ -38,23 +38,25 @@ tags:
 ### 关键设计
 
 1. **推理误差分解（Proposition 1）**: 对任意答案 $\hat{y}$，推理误差可分解为：
-   $$\mathcal{E}_{\hat{p}}(\hat{y}) = \underbrace{\mathbb{E}[(\hat{p}(\hat{y}|x) - p(\hat{y}|x))^2]}_{\text{Estimation Error}} + \underbrace{(p(\hat{y}|x) - \mathbb{I}[\hat{y}=y])^2}_{\text{Model Error}}$$
-   - **估计误差**：取决于采样数量和置信度估计策略，可通过更好的估计方法降低
-   - **模型误差**：由LLM本身的推理能力决定，是固定的
+    $\mathcal{E}_{\hat{p}}(\hat{y}) = \underbrace{\mathbb{E}[(\hat{p}(\hat{y}|x) - p(\hat{y}|x))^2]}_{\text{Estimation Error}} + \underbrace{(p(\hat{y}|x) - \mathbb{I}[\hat{y}=y])^2}_{\text{Model Error}}$
+    - **估计误差**：取决于采样数量和置信度估计策略，可通过更好的估计方法降低
+    - **模型误差**：由LLM本身的推理能力决定，是固定的
 
 2. **SC和PPL的理论分析**:
-   - **SC**（Proposition 2）：估计误差为 $\frac{1}{n} p(\hat{y}|x)(1-p(\hat{y}|x))$，仅以 $O(1/n)$ 线性速率收敛，采样有限时效果差；但模型误差较低
-   - **PPL**（Proposition 3）：估计误差以 $(1-p(\hat{t}|x))^n$ 指数速率收敛，但模型误差比SC大（因为不使用一致性函数聚合等价答案）；且当概率极低时收敛优势退化
+
+    - **SC**（Proposition 2）：估计误差为 $\frac{1}{n} p(\hat{y}|x)(1-p(\hat{y}|x))$，仅以 $O(1/n)$ 线性速率收敛，采样有限时效果差；但模型误差较低
+    - **PPL**（Proposition 3）：估计误差以 $(1-p(\hat{t}|x))^n$ 指数速率收敛，但模型误差比SC大（因为不使用一致性函数聚合等价答案）；且当概率极低时收敛优势退化
 
 3. **Perplexity Consistency（PC）**: 核心创新——将LLM内部概率融入Self-Consistency框架。对每个答案 $\hat{y}$，估计置信度为所有对应推理路径的概率之和：
-   $$\hat{p}^{(\text{PC})}(\hat{y}|x) = \sum_{\tilde{t} \in \mathcal{R}} \mathbb{I}[g(\tilde{t})=\hat{y}] \cdot p(\tilde{t}|x)$$
+    $\hat{p}^{(\text{PC})}(\hat{y}|x) = \sum_{\tilde{t} \in \mathcal{R}} \mathbb{I}[g(\tilde{t})=\hat{y}] \cdot p(\tilde{t}|x)$
    理论保证（Theorem 4）：PC的估计误差以指数速率 $\alpha^n$ 收敛（$\alpha = 1 - \frac{1}{k}p(\hat{y}|x)$），同时保持与SC相同的低模型误差。
 
 4. **Reasoning Pruning（RP）**: 解决PC在低概率答案上的退化问题。当 $p(\hat{y}|x) \to 0$ 时，指数收敛退化为线性。RP通过建模概率分布来自动过滤低概率推理路径：
-   - 用两个Weibull分布的混合模型拟合所有采样路径的概率分布
-   - 通过最大似然估计参数，计算每条路径属于高概率分布的后验概率
-   - 移除 $P_{\text{High}} < 0.5$ 的路径，并用Truncated Mean保底
-   - Theorem 7证明在最优阈值下，RP以高概率实现最优误差缩减
+
+    - 用两个Weibull分布的混合模型拟合所有采样路径的概率分布
+    - 通过最大似然估计参数，计算每条路径属于高概率分布的后验概率
+    - 移除 $P_{\text{High}} < 0.5$ 的路径，并用Truncated Mean保底
+    - Theorem 7证明在最优阈值下，RP以高概率实现最优误差缩减
 
 5. **RPC方法**: 先Reasoning Pruning过滤低概率路径，再用Perplexity Consistency计算置信度，是一个无超参数的即插即用方法。
 

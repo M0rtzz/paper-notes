@@ -26,16 +26,16 @@ DGPST 提出了一个基于扩散模型的人像风格迁移框架，通过 sema
 
 ## 研究背景与动机
 
-1. **领域现状**：人像风格迁移需要对面部各语义区域（皮肤、嘴唇、眼睛、头发、背景）进行精确的局部色调调整，同时保持人物身份和面部结构。现有方法包括传统手工方法（Shih et al.）、GAN-based（StyleGAN 系列）和扩散模型方法。
-2. **现有痛点**：
+**领域现状**：人像风格迁移需要对面部各语义区域（皮肤、嘴唇、眼睛、头发、背景）进行精确的局部色调调整，同时保持人物身份和面部结构。现有方法包括传统手工方法（Shih et al.）、GAN-based（StyleGAN 系列）和扩散模型方法。
+**现有痛点**：
    - **传统方法**（Shih、Chen 等）依赖显式语义区域对齐，仅在输入和参考结构差异较小时有效，无法处理跨域（照片→卡通）场景
    - **GAN-based 方法**（StyleGAN）不可避免地改变人物身份
    - **已有扩散方法**（StyleID、IP-Adapter+ControlNet、InstantStyle+）主要面向艺术风格迁移，不考虑语义对应，在人像风格迁移中语义区域对齐质量差
    - 通用风格迁移方法在人像这种需要精细语义对齐的任务上表现不佳
-3. **核心矛盾**：人像风格迁移同时需要① 精确的跨域语义对应（眼睛对眼睛、嘴唇对嘴唇）和② 高质量的风格转移（色调、纹理），但现有方法在其中一个或两个方面不足。
-4. **本文要解决什么？** 构建一个仅在真实照片上训练就能泛化到任意域（卡通、素描、动漫、旧照片）的人像风格迁移框架。
-5. **切入角度**：利用预训练扩散模型（Stable Diffusion）的特征空间天然具有跨域语义理解能力来建立稠密对应；用小波变换分离高低频来平衡内容和风格。
-6. **核心 idea 一句话**：基于扩散特征的语义对应 → 参考图像扭曲 → AdaIN-Wavelet 初始化潜空间 → 双条件扩散模型生成。
+**核心矛盾**：人像风格迁移同时需要① 精确的跨域语义对应（眼睛对眼睛、嘴唇对嘴唇）和② 高质量的风格转移（色调、纹理），但现有方法在其中一个或两个方面不足。
+**本文要解决什么？** 构建一个仅在真实照片上训练就能泛化到任意域（卡通、素描、动漫、旧照片）的人像风格迁移框架。
+**切入角度**：利用预训练扩散模型（Stable Diffusion）的特征空间天然具有跨域语义理解能力来建立稠密对应；用小波变换分离高低频来平衡内容和风格。
+**核心 idea 一句话**：基于扩散特征的语义对应 → 参考图像扭曲 → AdaIN-Wavelet 初始化潜空间 → 双条件扩散模型生成。
 
 ## 方法详解
 
@@ -45,28 +45,31 @@ DGPST 提出了一个基于扩散模型的人像风格迁移框架，通过 sema
 ### 关键设计
 
 1. **Semantic-Aware Style Alignment（语义感知对齐）**
-   - 做什么：建立内容与参考人像之间的稠密语义对应，生成扭曲后的参考图 $z_0^{s\_w}$
-   - 核心思路：
-     - 用 CLIP 图像编码器提取图像特征，通过 projection network 送入 SD U-Net 做 decoupled cross-attention
-     - 将两张图像送入 SD U-Net（注入 semantic adapter 特征），从第三个上采样块提取特征 $F_0^c, F_0^s \in \mathbb{R}^{HW \times C}$
-     - 计算 normalized correlation matrix $\mathcal{M}(i,j)$，然后对参考图做 softmax-weighted warping：$z_0^{s\_w}(i) = \sum_j \text{softmax}(\mathcal{M}(i,j)/\tau) \cdot z_0^s(j)$
-   - 训练损失：mask warping loss $\mathcal{L}_{mask} = \|M^c - M^{s\_w}\|_1$（语义 mask 对齐）+ cyclic warping consistency loss $\mathcal{L}_{cwc} = \mathcal{L}_{LPIPS}(z_0^s, z^{s'\_w})$（循环一致性）
-   - 设计动机：直接用 SD 特征做对应可能语义区域不完整，semantic adapter + 两个损失函数约束对应的准确性
+
+    - 做什么：建立内容与参考人像之间的稠密语义对应，生成扭曲后的参考图 $z_0^{s\_w}$
+    - 核心思路：
+      - 用 CLIP 图像编码器提取图像特征，通过 projection network 送入 SD U-Net 做 decoupled cross-attention
+      - 将两张图像送入 SD U-Net（注入 semantic adapter 特征），从第三个上采样块提取特征 $F_0^c, F_0^s \in \mathbb{R}^{HW \times C}$
+      - 计算 normalized correlation matrix $\mathcal{M}(i,j)$，然后对参考图做 softmax-weighted warping：$z_0^{s\_w}(i) = \sum_j \text{softmax}(\mathcal{M}(i,j)/\tau) \cdot z_0^s(j)$
+    - 训练损失：mask warping loss $\mathcal{L}_{mask} = \|M^c - M^{s\_w}\|_1$（语义 mask 对齐）+ cyclic warping consistency loss $\mathcal{L}_{cwc} = \mathcal{L}_{LPIPS}(z_0^s, z^{s'\_w})$（循环一致性）
+    - 设计动机：直接用 SD 特征做对应可能语义区域不完整，semantic adapter + 两个损失函数约束对应的准确性
 
 2. **Dual-Conditional Diffusion Model（双条件扩散模型）**
-   - 做什么：同时利用结构引导和风格引导生成高质量人像
-   - **结构引导（ControlNet）**：对内容图像 $z_0^c$ 做 Haar 离散小波变换（DWT），取三个高频子带（LH、HL、HH）作为 ControlNet 输入。只用高频信息（边缘/纹理）而不用原图本身，可以提供与风格无关的结构引导
-   - **风格引导（Style Adapter）**：使用 IP-Adapter 架构，从扭曲后的参考图提取 CLIP 图像特征，通过 projection 后在 decoupled cross-attention 层注入：$Z^{new} = \text{softmax}(\frac{QK^t}{\sqrt{d}})V^t + \lambda \cdot \text{softmax}(\frac{QK^i}{\sqrt{d}})V^i$
-   - 设计动机：ControlNet 用高频而非原图可以避免将内容的颜色风格带入输出；扭曲后的参考图已经语义对齐，比直接用参考图提供更精准的风格引导
+
+    - 做什么：同时利用结构引导和风格引导生成高质量人像
+    - **结构引导（ControlNet）**：对内容图像 $z_0^c$ 做 Haar 离散小波变换（DWT），取三个高频子带（LH、HL、HH）作为 ControlNet 输入。只用高频信息（边缘/纹理）而不用原图本身，可以提供与风格无关的结构引导
+    - **风格引导（Style Adapter）**：使用 IP-Adapter 架构，从扭曲后的参考图提取 CLIP 图像特征，通过 projection 后在 decoupled cross-attention 层注入：$Z^{new} = \text{softmax}(\frac{QK^t}{\sqrt{d}})V^t + \lambda \cdot \text{softmax}(\frac{QK^i}{\sqrt{d}})V^i$
+    - 设计动机：ControlNet 用高频而非原图可以避免将内容的颜色风格带入输出；扭曲后的参考图已经语义对齐，比直接用参考图提供更精准的风格引导
 
 3. **AdaIN-Wavelet Transform（潜空间初始化）**
-   - 做什么：构建既保持内容结构细节又增强风格色调迁移的初始潜空间
-   - 核心思路：
-     - 对扭曲参考图做 DDIM inversion 得到 $z_T^{s\_w}$（直接用它初始化会增强色彩迁移但丢失内容细节导致模糊）
-     - 先做 AdaIN：$z_T^{cs'} = \sigma(z_T^{s\_w}) \cdot \frac{z_T^c - \mu(z_T^c)}{\sigma(z_T^c)} + \mu(z_T^{s\_w})$（逐通道均值/方差对齐，让内容潜空间的统计量靠近风格）
-     - 再做 Wavelet 融合：取 $z_T^{s\_w}$ 的低频 + $z_T^{cs'}$ 的高频，通过 IDWT 合成最终初始潜空间 $z_T^{cs}$
-   - 引入 $\gamma$ 参数控制风格化强度，通过插值 $z_T^{cs} = \gamma \cdot z_T^{cs} + (1-\gamma) \cdot z_T^c$ 实现连续风格强度控制
-   - 设计动机：从内容潜空间出发保持原色调（风格迁移不足），从参考潜空间出发丢失细节（过度模糊）。AdaIN 对齐统计量+Wavelet 融合高/低频取长补短
+
+    - 做什么：构建既保持内容结构细节又增强风格色调迁移的初始潜空间
+    - 核心思路：
+      - 对扭曲参考图做 DDIM inversion 得到 $z_T^{s\_w}$（直接用它初始化会增强色彩迁移但丢失内容细节导致模糊）
+      - 先做 AdaIN：$z_T^{cs'} = \sigma(z_T^{s\_w}) \cdot \frac{z_T^c - \mu(z_T^c)}{\sigma(z_T^c)} + \mu(z_T^{s\_w})$（逐通道均值/方差对齐，让内容潜空间的统计量靠近风格）
+      - 再做 Wavelet 融合：取 $z_T^{s\_w}$ 的低频 + $z_T^{cs'}$ 的高频，通过 IDWT 合成最终初始潜空间 $z_T^{cs}$
+    - 引入 $\gamma$ 参数控制风格化强度，通过插值 $z_T^{cs} = \gamma \cdot z_T^{cs} + (1-\gamma) \cdot z_T^c$ 实现连续风格强度控制
+    - 设计动机：从内容潜空间出发保持原色调（风格迁移不足），从参考潜空间出发丢失细节（过度模糊）。AdaIN 对齐统计量+Wavelet 融合高/低频取长补短
 
 ### 损失函数 / 训练策略
 两阶段训练：

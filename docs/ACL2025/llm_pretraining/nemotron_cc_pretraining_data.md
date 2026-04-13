@@ -24,12 +24,12 @@ tags:
 Nemotron-CC 通过分类器集成、合成数据改写和减少启发式过滤三种策略，从 Common Crawl 构建了 6.3T token 的长期预训练数据集，在 15T token 训练中超越 Llama 3.1 8B。
 
 ## 研究背景与动机
-1. **领域现状**：FineWeb-Edu 和 DCLM 等数据集通过激进的模型过滤提升了基准性能，但丢弃了 90% 的数据
-2. **现有痛点**：激进过滤导致数据量不足，DCLM 仅 1T 唯一 token，FineWeb-Edu 仅 0.2T——在 15T token 长训练中必须大量重复
-3. **核心矛盾**：数据质量与数据数量之间的权衡——高质量过滤牺牲了训练所需的多样性和数据量
-4. **本文要解决什么**：在保持甚至提升质量的前提下，大幅增加可用唯一 token 数量
-5. **切入角度**：多分类器集成扩大高质量数据召回 + 合成改写扩展 token 数量 + 对高质量数据取消启发式过滤
-6. **核心idea一句话**：用分类器集成 + 合成数据 + 减少过滤来同时提升数据质量和数量
+**领域现状**：FineWeb-Edu 和 DCLM 等数据集通过激进的模型过滤提升了基准性能，但丢弃了 90% 的数据
+**现有痛点**：激进过滤导致数据量不足，DCLM 仅 1T 唯一 token，FineWeb-Edu 仅 0.2T——在 15T token 长训练中必须大量重复
+**核心矛盾**：数据质量与数据数量之间的权衡——高质量过滤牺牲了训练所需的多样性和数据量
+**本文要解决什么**：在保持甚至提升质量的前提下，大幅增加可用唯一 token 数量
+**切入角度**：多分类器集成扩大高质量数据召回 + 合成改写扩展 token 数量 + 对高质量数据取消启发式过滤
+**核心idea一句话**：用分类器集成 + 合成数据 + 减少过滤来同时提升数据质量和数量
 
 ## 方法详解
 
@@ -38,24 +38,28 @@ Common Crawl HTML → JusText 提取（比 Trafilatura 多 28.6% 高质量 token
 
 ### 关键设计
 1. **分类器集成 (Classifier Ensembling)**:
-   - 三个分类器：FineWeb-Edu classifier (Nemotron-340B 标注)、Mixtral classifier (Mixtral-8x22B 标注)、DCLM classifier (fastText)
-   - 每个分类器按排名映射到 0-19 分，取三者最大值作为最终分数
-   - 设计动机：单一分类器召回率仅约 10%，集成可以扩大高质量数据的覆盖面
+
+    - 三个分类器：FineWeb-Edu classifier (Nemotron-340B 标注)、Mixtral classifier (Mixtral-8x22B 标注)、DCLM classifier (fastText)
+    - 每个分类器按排名映射到 0-19 分，取三者最大值作为最终分数
+    - 设计动机：单一分类器召回率仅约 10%，集成可以扩大高质量数据的覆盖面
 
 2. **质量分级 (Quality Labeling)**:
-   - 将 20 个细粒度桶通过退火实验分组为 5 级（High/Medium-High/Medium/Medium-Low/Low）
-   - 退火实验：在 70% 训完的 8B 模型上用 50B token 继续训练，评估每个桶的下游效果
-   - 设计动机：让质量标签直接与下游任务性能对齐，而非仅依赖分类器分数
+
+    - 将 20 个细粒度桶通过退火实验分组为 5 级（High/Medium-High/Medium/Medium-Low/Low）
+    - 退火实验：在 70% 训完的 8B 模型上用 50B token 继续训练，评估每个桶的下游效果
+    - 设计动机：让质量标签直接与下游任务性能对齐，而非仅依赖分类器分数
 
 3. **合成数据生成 (Synthetic Data)**:
-   - 低质量数据：用 Wikipedia 风格 prompt 改写，减少噪声和错误（336B token）
-   - 高质量数据：用四种 prompt 生成多样变体——QA 对、蒸馏、知识提取、知识列表（1.5T token）
-   - 使用 Mistral NeMo 12B (FP8) 生成，总计 1.9T 合成 token
-   - 设计动机：为高质量数据创造"新的唯一 token"以避免多 epoch 的边际递减
+
+    - 低质量数据：用 Wikipedia 风格 prompt 改写，减少噪声和错误（336B token）
+    - 高质量数据：用四种 prompt 生成多样变体——QA 对、蒸馏、知识提取、知识列表（1.5T token）
+    - 使用 Mistral NeMo 12B (FP8) 生成，总计 1.9T 合成 token
+    - 设计动机：为高质量数据创造"新的唯一 token"以避免多 epoch 的边际递减
 
 4. **减少启发式过滤**:
-   - 对高质量数据（分类器高分）不应用传统启发式过滤（C4 filter/Gopher filter/PPL filter）
-   - 实验验证移除过滤反而提升了高质量 token 产量 (+57.4%) 而不损失质量
+
+    - 对高质量数据（分类器高分）不应用传统启发式过滤（C4 filter/Gopher filter/PPL filter）
+    - 实验验证移除过滤反而提升了高质量 token 产量 (+57.4%) 而不损失质量
 
 ## 实验关键数据
 

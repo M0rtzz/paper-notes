@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：求解对称正定（SPD）稀疏线性系统 $\mathbf{Ax} = \mathbf{b}$ 是科学计算的核心问题，共轭梯度法（CG）是主流迭代求解器，但收敛速度严重依赖预条件技术。
-2. **现有痛点**：
+**领域现状**：求解对称正定（SPD）稀疏线性系统 $\mathbf{Ax} = \mathbf{b}$ 是科学计算的核心问题，共轭梯度法（CG）是主流迭代求解器，但收敛速度严重依赖预条件技术。
+**现有痛点**：
    - 对角预条件子：GPU 友好但收敛改善有限
    - 不完全 Cholesky (IC)：CPU 性能好但需要三角求解，GPU 难以并行
    - 现有基于学习的方法（GNN→IC）：继承了三角求解的 GPU 并行性问题，且 GNN 难以建模沿消除树的长程依赖
-3. **核心矛盾**：IC 类预条件子在迭代次数上表现好但 GPU 执行效率差（三角求解瓶颈），对角预条件子 GPU 效率高但迭代次数多。
-4. **本文要解决什么**：如何构建既能有效降低条件数又能充分利用 GPU 并行性的预条件子。
-5. **切入角度**：从 SPAI（稀疏近似逆）入手，将 $\mathbf{M}^{-1} = \mathbf{GG}^\top + \varepsilon\mathbf{I}$ 直接作为预条件子，每步 CG 只需两次稀疏矩阵向量乘（SpMV），天然 GPU 友好。
-6. **核心idea**：SPAI 的局部性（输出节点依赖两跳邻域）与 GNN 的局部消息传递天然相容，用 GNN 学习 SPAI 比学习 IC 更适合。
+**核心矛盾**：IC 类预条件子在迭代次数上表现好但 GPU 执行效率差（三角求解瓶颈），对角预条件子 GPU 效率高但迭代次数多。
+**本文要解决什么**：如何构建既能有效降低条件数又能充分利用 GPU 并行性的预条件子。
+**切入角度**：从 SPAI（稀疏近似逆）入手，将 $\mathbf{M}^{-1} = \mathbf{GG}^\top + \varepsilon\mathbf{I}$ 直接作为预条件子，每步 CG 只需两次稀疏矩阵向量乘（SpMV），天然 GPU 友好。
+**核心idea**：SPAI 的局部性（输出节点依赖两跳邻域）与 GNN 的局部消息传递天然相容，用 GNN 学习 SPAI 比学习 IC 更适合。
 
 ## 方法详解
 
@@ -50,20 +50,22 @@ $$\mathbf{s}_j = \varepsilon\mathbf{r}_j + \sum_{l: \mathbf{A}_{jl}\neq 0} \math
 这与 IC 沿消除树的全局依赖形成鲜明对比，使 SPAI 天然适配 GNN 的局部传播机制。
 
 2. **GNN 架构**：采用编码器-处理器-解码器结构，包括：
-   - 编码器：两个 MLP 分别编码节点特征 $\mathbf{v}_i$ 和边特征 $\mathbf{e}_{ij}$（即 $\mathbf{A}_{ij}$）
-   - 处理器：$L=4$ 层消息传递，每层包含消息函数 $f_m^{(t)}$、节点更新 $f_v^{(t)}$、边更新 $f_e^{(t)}$，均使用残差连接
-   - 解码器：MLP 将最终边特征 $\mathbf{h}_{ij}^{(L)}$ 映射为 $\mathbf{G}_{ij} \in \mathbb{R}^{b \times b}$
+
+    - 编码器：两个 MLP 分别编码节点特征 $\mathbf{v}_i$ 和边特征 $\mathbf{e}_{ij}$（即 $\mathbf{A}_{ij}$）
+    - 处理器：$L=4$ 层消息传递，每层包含消息函数 $f_m^{(t)}$、节点更新 $f_v^{(t)}$、边更新 $f_e^{(t)}$，均使用残差连接
+    - 解码器：MLP 将最终边特征 $\mathbf{h}_{ij}^{(L)}$ 映射为 $\mathbf{G}_{ij} \in \mathbb{R}^{b \times b}$
 
    总参数量仅约 24k。
 
 3. **尺度不变对齐恒等损失函数（SAI Loss）**：
-   - 传统 SPAI 损失 $\|\mathbf{AM}^{-1} - \mathbf{I}\|_F^2$ 的两个问题：(1) 直接计算 $\mathbf{AM}^{-1}$ 对大矩阵代价过高；(2) 依赖 $\mathbf{A}$ 的绝对量级，而 CG 收敛率是尺度不变的
-   - **随机估计**：用随机向量 $\mathbf{w} \sim \mathcal{N}(0,1)$ 近似 Frobenius 范数，将矩阵乘法简化为矩阵-向量乘法
-   - **尺度归一化**：
+
+    - 传统 SPAI 损失 $\|\mathbf{AM}^{-1} - \mathbf{I}\|_F^2$ 的两个问题：(1) 直接计算 $\mathbf{AM}^{-1}$ 对大矩阵代价过高；(2) 依赖 $\mathbf{A}$ 的绝对量级，而 CG 收敛率是尺度不变的
+    - **随机估计**：用随机向量 $\mathbf{w} \sim \mathcal{N}(0,1)$ 近似 Frobenius 范数，将矩阵乘法简化为矩阵-向量乘法
+    - **尺度归一化**：
 $$\mathcal{L}_{\text{SAI}}(\mathbf{A}, \mathbf{M}^{-1}, \mathbf{w}) = \left\|\left(\frac{1}{\|\mathbf{A}\|}\mathbf{AM}^{-1} - \mathbf{I}\right)\mathbf{w}\right\|_2^2$$
    满足 $\mathcal{L}_{\text{SAI}}(\mathbf{A}, \mathbf{M}^{-1}) = \mathcal{L}_{\text{SAI}}(\alpha\mathbf{A}, \mathbf{M}^{-1})$ 对任意 $\alpha > 0$ 成立
-   - 范数定义为 $\|\mathbf{A}\| = \text{mean}_{\mathbf{A}_{ij}\neq 0}|\mathbf{A}_{ij}|$，对矩阵维度和异常值更鲁棒
-   - 理论推导：该损失直接约束条件数 $\kappa(\mathbf{AM}^{-1}) \leq 1 + 2\|\mathbf{E}\|_2$
+    - 范数定义为 $\|\mathbf{A}\| = \text{mean}_{\mathbf{A}_{ij}\neq 0}|\mathbf{A}_{ij}|$，对矩阵维度和异常值更鲁棒
+    - 理论推导：该损失直接约束条件数 $\kappa(\mathbf{AM}^{-1}) \leq 1 + 2\|\mathbf{E}\|_2$
 
 ### 训练策略
 

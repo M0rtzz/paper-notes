@@ -26,23 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：长上下文语言模型(LCLMs)已能处理128K-1M token的上下文。现有评估基准（NIAH、RULER、InfiniteBench、HELMET等）主要关注模型从外部上下文中检索和利用信息的能力（extrinsic retrieval ability），而忽略了模型参数中编码的知识（parametric knowledge）在生成中的作用。
+**领域现状**：长上下文语言模型(LCLMs)已能处理128K-1M token的上下文。现有评估基准（NIAH、RULER、InfiniteBench、HELMET等）主要关注模型从外部上下文中检索和利用信息的能力（extrinsic retrieval ability），而忽略了模型参数中编码的知识（parametric knowledge）在生成中的作用。
 
-2. **现有痛点**：
+**现有痛点**：
    - **参数知识的影响被低估**：现有NIAH测试故意使用虚构信息避免参数知识干扰，但实际应用中参数知识与外部上下文的交互不可避免
    - **改进外部检索可能有副作用**：STRING等专为长上下文设计的位置编码改进了上下文检索，但其对参数知识利用的影响未知
    - **评估存在盲区**：当前所有long-context benchmark都只评估一种能力，无法反映模型综合利用两种知识源的真实能力
 
-3. **核心矛盾**：外部检索能力(extrinsic retrieval)和参数召回能力(parametric recall)之间可能存在Trade-off——增强前者会抑制后者，但现有评估完全忽视了这一矛盾。
+**核心矛盾**：外部检索能力(extrinsic retrieval)和参数召回能力(parametric recall)之间可能存在Trade-off——增强前者会抑制后者，但现有评估完全忽视了这一矛盾。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 验证参数知识在长上下文生成中的重要性及其随上下文长度的变化趋势
    - 揭示外部检索能力与参数召回能力之间的Trade-off
    - 设计能同时评估两种能力的新benchmark
 
-5. **切入角度**：从知识冲突(knowledge conflict)的角度出发，构造参数知识与外部上下文对齐/冲突的数据集，通过控制变量实验揭示两种知识源的交互关系。
+**切入角度**：从知识冲突(knowledge conflict)的角度出发，构造参数知识与外部上下文对齐/冲突的数据集，通过控制变量实验揭示两种知识源的交互关系。
 
-6. **核心idea一句话**：长上下文模型的参数知识影响随上下文增长而增强，提升外部检索会抑制参数召回，需要Hybrid NIAH同时评估两种能力。
+**核心idea一句话**：长上下文模型的参数知识影响随上下文增长而增强，提升外部检索会抑制参数召回，需要Hybrid NIAH同时评估两种能力。
 
 ## 方法详解
 
@@ -52,23 +52,26 @@ tags:
 ### 关键设计
 
 1. **I-WhoQA数据集构建**:
-   - 做什么：构建用于探测参数知识影响的长上下文QA数据集
-   - 核心思路：基于WhoQA数据集，对每个实体生成答案，只保留模型始终给出唯一确定答案的实体（确保参数知识明确）。然后为每个实体构造两个子集：I-WhoQA-Parametric（外部上下文与参数知识一致）和I-WhoQA-Conflict（外部上下文与参数知识冲突）
-   - 设计动机：通过对比两个子集在不同上下文长度下的表现差异，直接量化参数知识的影响程度。为每个模型单独构建300个样本的数据集，因为不同模型的参数知识不同
+
+    - 做什么：构建用于探测参数知识影响的长上下文QA数据集
+    - 核心思路：基于WhoQA数据集，对每个实体生成答案，只保留模型始终给出唯一确定答案的实体（确保参数知识明确）。然后为每个实体构造两个子集：I-WhoQA-Parametric（外部上下文与参数知识一致）和I-WhoQA-Conflict（外部上下文与参数知识冲突）
+    - 设计动机：通过对比两个子集在不同上下文长度下的表现差异，直接量化参数知识的影响程度。为每个模型单独构建300个样本的数据集，因为不同模型的参数知识不同
 
 2. **Trade-off实验设计**:
-   - 做什么：验证改进外部检索能力是否会损害参数召回能力
-   - 核心思路：在三个数据集上对比RoPE（基线）和STRING（改进版RoPE）：
-     - I-WhoQA-Irrelevant：外部上下文完全无关，答案需要参数知识
-     - HotpotQA-Context：答案在外部上下文中，需要外部检索
-     - HotpotQA-Parametric：外部上下文相关但无用，答案在参数知识中
-   - 关键发现：STRING在HotpotQA-Context上提升明显（增强了外部检索），但在I-WhoQA-Irrelevant和HotpotQA-Parametric上一致下降（抑制了参数召回），证实了Trade-off的存在
+
+    - 做什么：验证改进外部检索能力是否会损害参数召回能力
+    - 核心思路：在三个数据集上对比RoPE（基线）和STRING（改进版RoPE）：
+      - I-WhoQA-Irrelevant：外部上下文完全无关，答案需要参数知识
+      - HotpotQA-Context：答案在外部上下文中，需要外部检索
+      - HotpotQA-Parametric：外部上下文相关但无用，答案在参数知识中
+    - 关键发现：STRING在HotpotQA-Context上提升明显（增强了外部检索），但在I-WhoQA-Irrelevant和HotpotQA-Parametric上一致下降（抑制了参数召回），证实了Trade-off的存在
 
 3. **Hybrid Needle-in-a-Haystack测试**:
-   - 做什么：设计同时评估参数召回和外部检索两种能力的测试
-   - 核心思路：传统NIAH直接在haystack中插入答案让模型检索；Hybrid NIAH设计需要两步的问题——例如"What's the favorite thing of the person who wrote {Book_Name}?"模型必须先从参数知识中回忆书的作者（parametric recall），然后在上下文中检索关于该作者的inserted needle（extrinsic retrieval）
-   - 插入干扰：为防止模型利用句法模式直接匹配needle而非真正使用参数知识，插入0-3个随机事实作为干扰。结果显示干扰显著降低Hybrid NIAH分数（最多25%），而标准NIAH不受影响
-   - 设计动机：仅修改问题的表述方式（增加一步参数知识回忆），就能将测试从单能力评估升级为双能力评估，巧妙且成本极低
+
+    - 做什么：设计同时评估参数召回和外部检索两种能力的测试
+    - 核心思路：传统NIAH直接在haystack中插入答案让模型检索；Hybrid NIAH设计需要两步的问题——例如"What's the favorite thing of the person who wrote {Book_Name}?"模型必须先从参数知识中回忆书的作者（parametric recall），然后在上下文中检索关于该作者的inserted needle（extrinsic retrieval）
+    - 插入干扰：为防止模型利用句法模式直接匹配needle而非真正使用参数知识，插入0-3个随机事实作为干扰。结果显示干扰显著降低Hybrid NIAH分数（最多25%），而标准NIAH不受影响
+    - 设计动机：仅修改问题的表述方式（增加一步参数知识回忆），就能将测试从单能力评估升级为双能力评估，巧妙且成本极低
 
 ## 实验关键数据
 

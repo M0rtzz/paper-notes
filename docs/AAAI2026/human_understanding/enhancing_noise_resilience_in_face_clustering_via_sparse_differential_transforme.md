@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：基于 GCN 的人脸聚类方法通过图消息传播学习特征，但构建人脸图时基于 kNN 的余弦距离产生大量噪声边（连接不同身份的节点），消息沿噪声边传播会污染特征。Ada-NETS 和 FC-ESER 引入 Jaccard 相似度系数替代余弦距离，但引入过多无关节点导致 Jaccard 系数区分度不足。
+**领域现状**：基于 GCN 的人脸聚类方法通过图消息传播学习特征，但构建人脸图时基于 kNN 的余弦距离产生大量噪声边（连接不同身份的节点），消息沿噪声边传播会污染特征。Ada-NETS 和 FC-ESER 引入 Jaccard 相似度系数替代余弦距离，但引入过多无关节点导致 Jaccard 系数区分度不足。
 
-2. **现有痛点**：
+**现有痛点**：
    - FC-ESER 计算的不同人脸之间 Jaccard 系数非常接近——阈值稍低就混合不同身份，稍高就切碎同一身份
    - Ada-NETS 对最优邻居数 $k$ 的预测不准确，偏离最优值
    - Vanilla Transformer 在关系预测中过度关注所有特征关系（包括无关和噪声特征），导致错误聚类
 
-3. **核心矛盾**：如何精确确定每个节点的有效邻居范围，同时在 Top-K 边界附近可靠地判断节点关系？
+**核心矛盾**：如何精确确定每个节点的有效邻居范围，同时在 Top-K 边界附近可靠地判断节点关系？
 
-4. **本文要解决什么？** 提升 Jaccard 相似度计算的可靠性 + 处理 Top-K 边界的不确定性 + 消除 Transformer 的噪声注意力。
+**本文要解决什么？** 提升 Jaccard 相似度计算的可靠性 + 处理 Top-K 边界的不确定性 + 消除 Transformer 的噪声注意力。
 
-5. **切入角度**：(1) 用 Transformer 预测每个节点的最优邻居数 Top-K，仅用 Top-K 内邻居计算 Jaccard (2) 用 SDT 处理 Top-K 边界不确定性。
+**切入角度**：(1) 用 Transformer 预测每个节点的最优邻居数 Top-K，仅用 Top-K 内邻居计算 Jaccard (2) 用 SDT 处理 Top-K 边界不确定性。
 
-6. **核心 idea 一句话**：预测驱动的 Top-K Jaccard 提纯邻居 + 稀疏差分注意力消除噪声关系判断。
+**核心 idea 一句话**：预测驱动的 Top-K Jaccard 提纯邻居 + 稀疏差分注意力消除噪声关系判断。
 
 ## 方法详解
 
@@ -49,18 +49,20 @@ tags:
 ### 关键设计
 
 1. **预测驱动 Top-K Jaccard 相似度**:
-   - 做什么：动态预测每个节点的最优邻居数，提升 Jaccard 计算质量
-   - 核心思路：用 Transformer 替换 Ada-NETS 的 LSTM 预测 Top-K，仅用 Top-K 之前的邻居计算 Jaccard
-   - 距离变换改进：$p_{ij} = \frac{1}{1 + e^{\delta d_{ij} + \epsilon}}$（sigmoid 形式，$\delta=7.5, \epsilon=-5$），放大小距离差异
-   - 设计动机：FC-ESER 的指数距离变换压缩了相似度差异导致不同身份的 Jaccard 系数过于接近
+
+    - 做什么：动态预测每个节点的最优邻居数，提升 Jaccard 计算质量
+    - 核心思路：用 Transformer 替换 Ada-NETS 的 LSTM 预测 Top-K，仅用 Top-K 之前的邻居计算 Jaccard
+    - 距离变换改进：$p_{ij} = \frac{1}{1 + e^{\delta d_{ij} + \epsilon}}$（sigmoid 形式，$\delta=7.5, \epsilon=-5$），放大小距离差异
+    - 设计动机：FC-ESER 的指数距离变换压缩了相似度差异导致不同身份的 Jaccard 系数过于接近
 
 2. **稀疏差分 Transformer（SDT）**:
-   - 做什么：处理 Top-K 边界附近的不确定关系
-   - 核心思路：基于 Differential Transformer 的差分注意力消噪 + Top-K 稀疏 mask 屏蔽无关节点
-   - 差分注意力：计算两个独立 softmax 注意力图的差值来消除噪声注意力
-   - 稀疏 mask：只关注 Top-K 之前的相关节点，屏蔽 Top-K 之后的无关节点
-   - 还有 MoE-SDT 变体进一步增强能力
-   - 设计动机：Vanilla Transformer 对所有特征关系分配注意力，包括不相关或噪声特征，导致误判
+
+    - 做什么：处理 Top-K 边界附近的不确定关系
+    - 核心思路：基于 Differential Transformer 的差分注意力消噪 + Top-K 稀疏 mask 屏蔽无关节点
+    - 差分注意力：计算两个独立 softmax 注意力图的差值来消除噪声注意力
+    - 稀疏 mask：只关注 Top-K 之前的相关节点，屏蔽 Top-K 之后的无关节点
+    - 还有 MoE-SDT 变体进一步增强能力
+    - 设计动机：Vanilla Transformer 对所有特征关系分配注意力，包括不相关或噪声特征，导致误判
 
 ### 损失函数 / 训练策略
 二分类交叉熵损失。先训练 Transformer 预测 Top-K，再用 SDT 精化关系，最后 Map Equation 聚类。

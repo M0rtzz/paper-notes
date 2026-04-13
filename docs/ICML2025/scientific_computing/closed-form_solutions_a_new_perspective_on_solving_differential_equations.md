@@ -25,12 +25,12 @@ tags:
 本文提出 SymPDE 框架，利用深度强化学习直接搜索 PDE 的闭式符号解，绕过了 PINNs 数值解精度不足和可解释性差的问题，在 Poisson 方程和热方程上达到 90% 的恢复率。
 
 ## 研究背景与动机
-1. **领域现状**: 偏微分方程 (PDE) 广泛存在于物理、数学等领域，其求解是核心问题。传统解析方法 (如 Green 函数) 对非线性 PDE 几乎不可行；PINNs 虽然利用深度学习给出数值解，但本质上是连续函数空间中的近似。
-2. **现有痛点**: (a) PINNs 拟合高频和陡变函数时精度不够，数值解在振荡或畸变区域偏差大；(b) 神经算子方法 (DeepONet, FNO) 需要大量标注数据；(c) 所有神经网络方案得到的都是数值解，缺乏可解释性，外推能力差。
-3. **核心矛盾**: 数值解 vs 符号解——符号解天然具备精确性、可解释性和外推能力，但搜索空间巨大、优化困难。
-4. **已有尝试的不足**: 先用 PINN 求数值解、再用符号回归拟合符号表达式 (DSR* 范式) 的两步法，因数值解本身的近似误差会误导符号回归。
-5. **本文切入**: 跳过数值解中间步骤，用强化学习直接在符号空间搜索满足 PDE 定义的闭式解。
-6. **核心 idea**: 用 RNN 生成表达式骨架 (skeleton)，通过 BFGS 优化常数使其满足 PDE 约束，以满足程度为奖励训练 RNN (risk-seeking policy gradient)。
+**领域现状**: 偏微分方程 (PDE) 广泛存在于物理、数学等领域，其求解是核心问题。传统解析方法 (如 Green 函数) 对非线性 PDE 几乎不可行；PINNs 虽然利用深度学习给出数值解，但本质上是连续函数空间中的近似。
+**现有痛点**: (a) PINNs 拟合高频和陡变函数时精度不够，数值解在振荡或畸变区域偏差大；(b) 神经算子方法 (DeepONet, FNO) 需要大量标注数据；(c) 所有神经网络方案得到的都是数值解，缺乏可解释性，外推能力差。
+**核心矛盾**: 数值解 vs 符号解——符号解天然具备精确性、可解释性和外推能力，但搜索空间巨大、优化困难。
+**已有尝试的不足**: 先用 PINN 求数值解、再用符号回归拟合符号表达式 (DSR* 范式) 的两步法，因数值解本身的近似误差会误导符号回归。
+**本文切入**: 跳过数值解中间步骤，用强化学习直接在符号空间搜索满足 PDE 定义的闭式解。
+**核心 idea**: 用 RNN 生成表达式骨架 (skeleton)，通过 BFGS 优化常数使其满足 PDE 约束，以满足程度为奖励训练 RNN (risk-seeking policy gradient)。
 
 ## 方法详解
 
@@ -40,23 +40,26 @@ tags:
 ### 关键设计
 
 1. **多系统 PDE 建模**:
-   - 时间无关系统：$\mathcal{F}[\mathbf{x}, u(\mathbf{x}), \nabla u, ..., \nabla^k u] = 0$，损失为 $\mathcal{L}_s = \text{MSE}_\mathcal{F} + \text{MSE}_\mathcal{B}$
-   - 时空连续模型：$u_t = \mathcal{N}(\mathbf{x},t,\nabla u,...,\nabla^k u)$，增加初始条件损失 $\text{MSE}_\mathcal{I}$
-   - 时空离散模型：将时间参数化，每个时间步的解共享同一骨架但参数不同 $\hat{u}(\mathbf{x}; \vec{\alpha}_t)$，用参数神经网络 (PNN) 学习 $t \to \vec{\alpha}_t$ 的映射
-   - 设计动机：离散时间模型降低了时空耦合表达式的搜索空间复杂度
+
+    - 时间无关系统：$\mathcal{F}[\mathbf{x}, u(\mathbf{x}), \nabla u, ..., \nabla^k u] = 0$，损失为 $\mathcal{L}_s = \text{MSE}_\mathcal{F} + \text{MSE}_\mathcal{B}$
+    - 时空连续模型：$u_t = \mathcal{N}(\mathbf{x},t,\nabla u,...,\nabla^k u)$，增加初始条件损失 $\text{MSE}_\mathcal{I}$
+    - 时空离散模型：将时间参数化，每个时间步的解共享同一骨架但参数不同 $\hat{u}(\mathbf{x}; \vec{\alpha}_t)$，用参数神经网络 (PNN) 学习 $t \to \vec{\alpha}_t$ 的映射
+    - 设计动机：离散时间模型降低了时空耦合表达式的搜索空间复杂度
 
 2. **基于 RL 的表达式生成与优化**:
-   - 用 RNN 自回归生成表达式树的前序遍历序列
-   - 每个 token 的选择概率由 softmax 输出，同时提供父节点和兄弟节点信息以强化结构理解
-   - 每生成一个完整表达式即为一个 episode；对骨架中的常数用 BFGS/Adam 优化 → 计算奖励
-   - 设计动机：将 PDE 求解转化为 MDP，利用 RL 自动化搜索
+
+    - 用 RNN 自回归生成表达式树的前序遍历序列
+    - 每个 token 的选择概率由 softmax 输出，同时提供父节点和兄弟节点信息以强化结构理解
+    - 每生成一个完整表达式即为一个 episode；对骨架中的常数用 BFGS/Adam 优化 → 计算奖励
+    - 设计动机：将 PDE 求解转化为 MDP，利用 RL 自动化搜索
 
 3. **Risk-Seeking Policy Gradient**:
-   - 奖励函数：$\mathcal{R}_s(\tau) = \frac{1}{1 + \sqrt{\text{MSE}_\mathcal{F} + \text{MSE}_\mathcal{B}}}$
-   - 不优化平均表现，而是最大化最佳情况表现：$J_{\text{risk}}(\theta; \epsilon) \approx \mathbb{E}[\mathcal{R}(\tau) | \mathcal{R}(\tau) \geq \mathcal{R}_\epsilon]$
-   - 仅用奖励超过 $(1-\epsilon)$-分位数的样本更新策略
-   - 加入熵正则化促进探索
-   - 设计动机：找到 PDE 的精确解而非平均好的近似解
+
+    - 奖励函数：$\mathcal{R}_s(\tau) = \frac{1}{1 + \sqrt{\text{MSE}_\mathcal{F} + \text{MSE}_\mathcal{B}}}$
+    - 不优化平均表现，而是最大化最佳情况表现：$J_{\text{risk}}(\theta; \epsilon) \approx \mathbb{E}[\mathcal{R}(\tau) | \mathcal{R}(\tau) \geq \mathcal{R}_\epsilon]$
+    - 仅用奖励超过 $(1-\epsilon)$-分位数的样本更新策略
+    - 加入熵正则化促进探索
+    - 设计动机：找到 PDE 的精确解而非平均好的近似解
 
 ### 损失函数 / 训练策略
 - 常数优化：BFGS 最小化 $\mathcal{L}_s$ 或 $\mathcal{L}_{s\text{-}t}$

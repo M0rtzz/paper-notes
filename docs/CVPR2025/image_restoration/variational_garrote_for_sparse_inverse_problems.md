@@ -26,12 +26,12 @@ tags:
 系统比较 $\ell_1$ 正则化 (LASSO) 与 Variational Garrote (VG, 概率 $\ell_0$ 近似) 在信号重采样、去噪和稀疏视角 CT 重建三种逆问题上的表现，发现 VG 在强欠定情况下（采样率低/角度稀疏）通常获得更低的泛化误差，因为 spike-and-slab 先验与真实稀疏分布更匹配。
 
 ## 研究背景与动机
-1. **领域现状**：稀疏正则化是解决欠定逆问题的核心工具。LASSO ($\ell_1$) 因凸性和理论保证被广泛使用，对应 Laplace 先验。理想的 $\ell_0$ 稀疏对应 spike-and-slab 先验但 NP-hard。
-2. **现有痛点**：LASSO 施加连续收缩，会偏置大系数并产生近似稀疏而非真正稀疏的解；在强稀疏信号和严重欠定条件下，support recovery 不准确。
-3. **核心矛盾**：正则化器隐式对应不同的先验分布，重建性能取决于先验与数据稀疏结构的匹配程度——但这种"先验-数据对齐"的影响在实际逆问题中缺乏系统实证研究。
-4. **本文要解决什么**：统一框架下比较 $\ell_1$ (LASSO) 和概率 $\ell_0$ (VG) 在不同信息瓶颈下的重建行为。
-5. **切入角度**：通过 train-generalization error curve（扫描正则化强度，比较各方法在最优正则化强度下的最小泛化误差）实现模型无关的公平比较。
-6. **核心idea一句话**：当底层系数分布是强稀疏时，spike-and-slab 型先验 (VG) 比 Laplace 型先验 (LASSO) 在 support recovery 上更准确，从而在强欠定域获得更低重建误差。
+**领域现状**：稀疏正则化是解决欠定逆问题的核心工具。LASSO ($\ell_1$) 因凸性和理论保证被广泛使用，对应 Laplace 先验。理想的 $\ell_0$ 稀疏对应 spike-and-slab 先验但 NP-hard。
+**现有痛点**：LASSO 施加连续收缩，会偏置大系数并产生近似稀疏而非真正稀疏的解；在强稀疏信号和严重欠定条件下，support recovery 不准确。
+**核心矛盾**：正则化器隐式对应不同的先验分布，重建性能取决于先验与数据稀疏结构的匹配程度——但这种"先验-数据对齐"的影响在实际逆问题中缺乏系统实证研究。
+**本文要解决什么**：统一框架下比较 $\ell_1$ (LASSO) 和概率 $\ell_0$ (VG) 在不同信息瓶颈下的重建行为。
+**切入角度**：通过 train-generalization error curve（扫描正则化强度，比较各方法在最优正则化强度下的最小泛化误差）实现模型无关的公平比较。
+**核心idea一句话**：当底层系数分布是强稀疏时，spike-and-slab 型先验 (VG) 比 Laplace 型先验 (LASSO) 在 support recovery 上更准确，从而在强欠定域获得更低重建误差。
 
 ## 方法详解
 
@@ -41,20 +41,23 @@ tags:
 ### 关键设计
 
 1. **Variational Garrote (VG)**：
-   - 做什么：通过隐二值门控变量 $s_i \in \{0,1\}$ 近似 $\ell_0$ 稀疏
-   - 核心思路：回归模型为 $y_\mu = \sum_i w_i s_i X_{i\mu} + \xi_\mu$，对 $s_i$ 施加 Bernoulli 先验 $p(s_i|\gamma) = e^{\gamma s_i}/(1+e^\gamma)$。由于精确推断不可行，用均场变分近似 $q(\mathbf{s}) = \prod_i q_i(s_i)$，引入激活概率 $m_i = q(s_i=1)$
-   - 变分自由能包含：重建能量 $E_{\text{rec}}$（含 $m_i(1-m_i)w_i^2$ 的方差项）、先验项 $\Omega = -\gamma \sum_i m_i$、熵项 $H$
-   - 设计动机：解耦 support 选择（$m_i$）和系数幅度（$w_i$），减少 LASSO 的收缩偏差
+
+    - 做什么：通过隐二值门控变量 $s_i \in \{0,1\}$ 近似 $\ell_0$ 稀疏
+    - 核心思路：回归模型为 $y_\mu = \sum_i w_i s_i X_{i\mu} + \xi_\mu$，对 $s_i$ 施加 Bernoulli 先验 $p(s_i|\gamma) = e^{\gamma s_i}/(1+e^\gamma)$。由于精确推断不可行，用均场变分近似 $q(\mathbf{s}) = \prod_i q_i(s_i)$，引入激活概率 $m_i = q(s_i=1)$
+    - 变分自由能包含：重建能量 $E_{\text{rec}}$（含 $m_i(1-m_i)w_i^2$ 的方差项）、先验项 $\Omega = -\gamma \sum_i m_i$、熵项 $H$
+    - 设计动机：解耦 support 选择（$m_i$）和系数幅度（$w_i$），减少 LASSO 的收缩偏差
 
 2. **公平比较协议**：
-   - 做什么：通过 train-generalization error curve 进行模型无关比较
-   - 核心思路：对每个信息瓶颈设置，宽范围扫描正则化超参（LASSO $\lambda$; VG $\gamma$），绘制训练误差 vs 泛化误差曲线，取最小泛化误差 (MGE) 作为方法的最优性能
-   - 设计动机：LASSO 的 $\lambda$ 和 VG 的 $\gamma$ 不可直接比较，但 bias-variance tradeoff 曲线是通用的
+
+    - 做什么：通过 train-generalization error curve 进行模型无关比较
+    - 核心思路：对每个信息瓶颈设置，宽范围扫描正则化超参（LASSO $\lambda$; VG $\gamma$），绘制训练误差 vs 泛化误差曲线，取最小泛化误差 (MGE) 作为方法的最优性能
+    - 设计动机：LASSO 的 $\lambda$ 和 VG 的 $\gamma$ 不可直接比较，但 bias-variance tradeoff 曲线是通用的
 
 3. **三种任务涵盖不同信息瓶颈**：
-   - 信号重采样：采样率 $R = M/N$ 从 5% 到 50%，DCT 域稀疏
-   - 信号去噪：噪声幅度 $\alpha$ 从 $10^{-2}$ 到 $10^0$，DCT 域稀疏
-   - 稀疏视角 CT：投影角度 $K$ 从 10 到 120，像素域稀疏
+
+    - 信号重采样：采样率 $R = M/N$ 从 5% 到 50%，DCT 域稀疏
+    - 信号去噪：噪声幅度 $\alpha$ 从 $10^{-2}$ 到 $10^0$，DCT 域稀疏
+    - 稀疏视角 CT：投影角度 $K$ 从 10 到 120，像素域稀疏
 
 ### 训练策略
 所有任务使用 AdamW 优化器，初始学习率 0.3，ReduceLROnPlateau 到 $10^{-5}$ 终止，最多 50000 迭代。参数用小高斯噪声初始化。信号实验用 100 个独立 mask/噪声实现做 batch 稳定优化。

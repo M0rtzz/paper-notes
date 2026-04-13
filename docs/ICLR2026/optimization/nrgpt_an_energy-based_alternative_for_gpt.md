@@ -26,15 +26,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GPT→标准自回归→next-token prediction。EBM→通过能量函数定义模型→低能量=合理样本。两者看似完全不同但隐含深层联系(ICL≈梯度下降等暗示)。
+**领域现状**：GPT→标准自回归→next-token prediction。EBM→通过能量函数定义模型→低能量=合理样本。两者看似完全不同但隐含深层联系(ICL≈梯度下降等暗示)。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) GPT和EBM之间的联系→仍不明确→无法互相借鉴
    - (2) Energy Transformer→为BERT-like掩码补全设计→不适用于GPT的序列移位设定
    - (3) Von Oswald/Ahn等工作→仅考虑线性Transformer(无softmax)→过度简化
    - (4) 如何在不改变训练范式的情况下让GPT具有EBM的优势(可解释性/对齐)？
 
-3. **切入角度**：最小修改GPT→使推理(前向传播)成为tokens在能量landscape上的迭代更新→统一两个框架。
+**切入角度**：最小修改GPT→使推理(前向传播)成为tokens在能量landscape上的迭代更新→统一两个框架。
 
 ## 方法详解
 

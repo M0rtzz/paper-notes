@@ -50,18 +50,20 @@ tags:
 1. **ALG.1（$(α+1)$-近似，参数 $p$）**：最简单的算法。选择一个好顶点 $o$，用动态规划在 $G[V_b \cup \{o\}]$ 上求最优TSP tour $T_b$，再用度量TSP的 $\alpha$-近似算法在 $G[V_g]$ 上求 $T_g$，最后对 $T_b \cup T_g$ 做shortcut得到完整TSP tour。关键观察是 $\text{OPT} \geq w(T_b^*)$ 且 $\text{OPT} \geq w(T_g^*)$，因此总近似比为 $(\alpha + 1)$。运行时间为 $2^{O(p)} + n^{O(1)}$，同时改进了近似比和运行时间。
 
 2. **ALG.2（1.5-近似，参数 $p$）**：更精细的算法。首先猜测最优tour $T^*$ 在坏顶点上的子图（即"坏链" $\mathcal{A}$），再构造约束生成树（CST）$F_{\mathcal{A}}$，然后通过辅助图上的最小权匹配来修正奇度顶点。核心创新在于：
-   - 通过收缩坏链构造辅助图 $\widetilde{G}$，在其上找最小生成树
-   - 构造辅助图 $G'$ 来处理奇度顶点的匹配问题（因为原图可能非度量，不能直接用最小权匹配）
-   - 证明 $w(F_{\mathcal{A}}) \leq \text{OPT}$ 且 $w(\mathcal{M}_{\mathcal{A}}) \leq \frac{1}{2} \text{OPT}$
+
+    - 通过收缩坏链构造辅助图 $\widetilde{G}$，在其上找最小生成树
+    - 构造辅助图 $G'$ 来处理奇度顶点的匹配问题（因为原图可能非度量，不能直接用最小权匹配）
+    - 证明 $w(F_{\mathcal{A}}) \leq \text{OPT}$ 且 $w(\mathcal{M}_{\mathcal{A}}) \leq \frac{1}{2} \text{OPT}$
 
    通过精巧的shortcutting引理（Lemma 3），最终得到 $\frac{3}{2} \cdot \text{OPT}$ 的近似比。
 
 3. **ALG.3（$(α+\varepsilon)$-近似，参数 $p$ 为常数时）**：将TSP归约到度量 $k$-TSPP（$k$-TSP路径问题），利用Traub等人的 $\Phi$-TSP算法。当 $p = O(1)$ 时，近似比几乎等同于度量TSP。运行时间为 $n^{O(p/\varepsilon)}$。
 
 4. **ALG.4（3-近似，参数 $q$）**：参数 $q$ 下的核心算法。面临的挑战是：与 $p$ 参数不同，包含一个坏顶点和两个好顶点的三角形也可能违反三角不等式，因此Property 1不适用。算法包含三个子过程：
-   - **LIMB**：通过势集（potential set）技术猜测锚点（anchors）和肢边（limbs），使得 $w(\mathcal{B}') \leq w(\mathcal{B})$
-   - **CONNECT**：通过猜测分区将断开的组件连接起来，复杂度控制在 $2^{O(q \log q)}$
-   - **SHORTCUT**：处理Euler图上的shortcut操作
+
+    - **LIMB**：通过势集（potential set）技术猜测锚点（anchors）和肢边（limbs），使得 $w(\mathcal{B}') \leq w(\mathcal{B})$
+    - **CONNECT**：通过猜测分区将断开的组件连接起来，复杂度控制在 $2^{O(q \log q)}$
+    - **SHORTCUT**：处理Euler图上的shortcut操作
 
 ### 损失函数 / 训练策略
 

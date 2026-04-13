@@ -29,13 +29,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **Encoder 模型仍是生产主力**：尽管 LLM 大放异彩，encoder-only 模型（如 BERT）因推理轻量、吞吐高，仍广泛用于检索（RAG pipeline 的核心组件）、分类、NER 等非生成式任务。HuggingFace 上下载量前 100 的模型中超过一半是 encoder-based 检索模型。
+**Encoder 模型仍是生产主力**：尽管 LLM 大放异彩，encoder-only 模型（如 BERT）因推理轻量、吞吐高，仍广泛用于检索（RAG pipeline 的核心组件）、分类、NER 等非生成式任务。HuggingFace 上下载量前 100 的模型中超过一半是 encoder-based 检索模型。
 
-2. **老模型积弊深重**：现有 pipeline 大量直接使用原版 BERT，面临多重瓶颈——序列长度仅 512、模型结构未优化、词表过时（不含代码符号）、训练数据体量小且领域单一。
+**老模型积弊深重**：现有 pipeline 大量直接使用原版 BERT，面临多重瓶颈——序列长度仅 512、模型结构未优化、词表过时（不含代码符号）、训练数据体量小且领域单一。
 
-3. **已有改进不够全面**：MosaicBERT、CrammingBERT 只关注训练效率；NomicBERT、GTE-en-MLM 延长了上下文但未优化推理效率或分类性能，且沿用旧数据配方，在代码任务上表现不佳。
+**已有改进不够全面**：MosaicBERT、CrammingBERT 只关注训练效率；NomicBERT、GTE-en-MLM 延长了上下文但未优化推理效率或分类性能，且沿用旧数据配方，在代码任务上表现不佳。
 
-4. **核心问题**：能否将 decoder-only LLM 近年积累的架构改进和训练策略系统性地迁移到 encoder-only 模型，实现性能与效率的 Pareto 改进？
+**核心问题**：能否将 decoder-only LLM 近年积累的架构改进和训练策略系统性地迁移到 encoder-only 模型，实现性能与效率的 Pareto 改进？
 
 ## 方法详解
 

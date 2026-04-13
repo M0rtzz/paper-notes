@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：基于深度网络的视觉 SLAM（如 DROID-SLAM）在精度上已显著超越传统方法，被广泛用于单目深度估计、视图合成、3D 人体姿态等下游任务的子系统。
-2. **现有痛点**：
+**领域现状**：基于深度网络的视觉 SLAM（如 DROID-SLAM）在精度上已显著超越传统方法，被广泛用于单目深度估计、视图合成、3D 人体姿态等下游任务的子系统。
+**现有痛点**：
    - **显存开销巨大**：DROID-SLAM 等方法需要 24G 显存，因为需要为所有帧存储密集特征图
    - **无法单 GPU 实时**：深度 SLAM 的前端和后端争抢 GPU 资源，CUDA 操作实际上是串行的，导致帧率从 30Hz 骤降至 <1Hz
    - **跨域泛化差**：传统方法在室内效果好但室外失败，深度方法反之
-3. **核心矛盾**：深度 SLAM 系统要实现回环检测需要全局优化，但全局优化需要存储大量深度特征，导致显存线性增长且阻塞前端推理。
-4. **本文要解决什么？** 构建一个单 GPU 上高效运行、跨域鲁棒的单目深度 SLAM 系统。
-5. **切入角度**：DPVO 用稀疏光流替代密集对应，大幅降低了单帧成本。作者观察到 patch graph 中边的方向可以任意翻转而不影响优化，从而巧妙控制哪些帧需存储密集特征。
-6. **核心idea一句话**：通过单向边 patch graph 设计最小化特征存储，将邻近回环和经典回环混入同一优化中，实现单 GPU 实时深度 SLAM。
+**核心矛盾**：深度 SLAM 系统要实现回环检测需要全局优化，但全局优化需要存储大量深度特征，导致显存线性增长且阻塞前端推理。
+**本文要解决什么？** 构建一个单 GPU 上高效运行、跨域鲁棒的单目深度 SLAM 系统。
+**切入角度**：DPVO 用稀疏光流替代密集对应，大幅降低了单帧成本。作者观察到 patch graph 中边的方向可以任意翻转而不影响优化，从而巧妙控制哪些帧需存储密集特征。
+**核心idea一句话**：通过单向边 patch graph 设计最小化特征存储，将邻近回环和经典回环混入同一优化中，实现单 GPU 实时深度 SLAM。
 
 ## 方法详解
 
@@ -46,24 +46,27 @@ DPV-SLAM 以 DPVO 视觉里程计为基础，引入两种回环检测机制：(1
 ### 关键设计
 
 1. **Patch Graph 场景表示**:
-   - **做什么**：用稀疏的 $p \times p$ patch 替代密集深度图来表示场景。
-   - **核心思路**：每个帧 $i$ 包含若干 patch $\mathbf{P}_{ik} = (\mathbf{x}, \mathbf{y}, \mathbf{1}, \mathbf{d})^T$，其中 $\mathbf{d}$ 为逆深度估计。patch 通过有向边连接到其他帧，重投影为 $\mathbf{P}'_{ikj} = \Pi[G_j^{-1} \cdot G_i \cdot \Pi^{-1}(\mathbf{P}_{ik})]$。优化目标为最小化重投影误差：
-     $$\arg\min_{G,\mathbf{d}} \sum_i \sum_k \sum_j \|\Pi[G_j^{-1} \cdot G_i \cdot \Pi^{-1}(\mathbf{P}_{ik})] - \mathcal{I}_{ikj}\|^2_{\Sigma_{ikj}}$$
-   - **设计动机**：稀疏 patch 相比密集光流大幅节省存储和计算。
+
+    - **做什么**：用稀疏的 $p \times p$ patch 替代密集深度图来表示场景。
+    - **核心思路**：每个帧 $i$ 包含若干 patch $\mathbf{P}_{ik} = (\mathbf{x}, \mathbf{y}, \mathbf{1}, \mathbf{d})^T$，其中 $\mathbf{d}$ 为逆深度估计。patch 通过有向边连接到其他帧，重投影为 $\mathbf{P}'_{ikj} = \Pi[G_j^{-1} \cdot G_i \cdot \Pi^{-1}(\mathbf{P}_{ik})]$。优化目标为最小化重投影误差：
+    $\arg\min_{G,\mathbf{d}} \sum_i \sum_k \sum_j \|\Pi[G_j^{-1} \cdot G_i \cdot \Pi^{-1}(\mathbf{P}_{ik})] - \mathcal{I}_{ikj}\|^2_{\Sigma_{ikj}}$
+    - **设计动机**：稀疏 patch 相比密集光流大幅节省存储和计算。
 
 2. **邻近回环检测 (Proximity Loop Closure)**:
-   - **做什么**：检测相机重访先前位置，插入长程边并进行全局 bundle adjustment。
-   - **核心思路**：利用 patch graph 边方向可翻转的特性——每条边的相关性运算 $\mathbf{C}(u,v,\alpha,\beta) = \langle \mathbf{g}(u,v), \mathbf{f}(\mathbf{P}'(u,v) + \Delta_{\alpha\beta}) \rangle$ 只需存储目标帧的密集特征图。因此，创建从旧帧 patch 指向新帧的单向边，只需永久存储所有历史帧的 patch 特征（约 0.6G / 1K 帧），而无需密集特征图。
-   - **高效全局优化**：贡献了 CUDA 加速的块稀疏 bundle adjustment 实现，将里程计因子和回环因子混合在同一优化中。回环检测每次仅需 0.1-0.18s，远快于 DROID-SLAM 的 0.5-5s。
-   - **设计动机**：避免双 GPU 需求，利用边方向不影响优化结果的独特性质来最小化存储。
+
+    - **做什么**：检测相机重访先前位置，插入长程边并进行全局 bundle adjustment。
+    - **核心思路**：利用 patch graph 边方向可翻转的特性——每条边的相关性运算 $\mathbf{C}(u,v,\alpha,\beta) = \langle \mathbf{g}(u,v), \mathbf{f}(\mathbf{P}'(u,v) + \Delta_{\alpha\beta}) \rangle$ 只需存储目标帧的密集特征图。因此，创建从旧帧 patch 指向新帧的单向边，只需永久存储所有历史帧的 patch 特征（约 0.6G / 1K 帧），而无需密集特征图。
+    - **高效全局优化**：贡献了 CUDA 加速的块稀疏 bundle adjustment 实现，将里程计因子和回环因子混合在同一优化中。回环检测每次仅需 0.1-0.18s，远快于 DROID-SLAM 的 0.5-5s。
+    - **设计动机**：避免双 GPU 需求，利用边方向不影响优化结果的独特性质来最小化存储。
 
 3. **经典回环检测 (Classical Loop Closure)**:
-   - **做什么**：检测和纠正尺度漂移，通过图像检索和 $Sim(3)$ 位姿图优化。
-   - **核心思路**：
-     - 使用 dBoW2 进行图像检索（ORB 特征），提取和检索在独立 CPU 进程中并行进行
-     - 用现成的关键点检测器和匹配器估计 2D 对应，三角化深度后通过 RANSAC+Umeyama 进行 3D 点云对齐，估计 7-DOF 漂移 $\Delta S^{loop}_{jk} \in Sim(3)$
-     - 优化位姿图目标：$\arg\min_{S_1,...S_N} \sum_i \|r_i\|^2 + \sum_{(j,k)} \|r_{jk}\|^2$，其中平滑项 $r_i = \log_{Sim(3)}(\Delta S_{(i,i+1)}^{-1} \cdot S_i^{-1} \cdot S_{i+1})$，回环项 $r_{jk} = \log_{Sim(3)}(\Delta S^{loop}_{jk} \cdot S_j^{-1} \cdot S_k)$
-   - **设计动机**：邻近检测在存在尺度漂移时不足以检测回环（如户外长序列），需要基于外观的检测补充。
+
+    - **做什么**：检测和纠正尺度漂移，通过图像检索和 $Sim(3)$ 位姿图优化。
+    - **核心思路**：
+      - 使用 dBoW2 进行图像检索（ORB 特征），提取和检索在独立 CPU 进程中并行进行
+      - 用现成的关键点检测器和匹配器估计 2D 对应，三角化深度后通过 RANSAC+Umeyama 进行 3D 点云对齐，估计 7-DOF 漂移 $\Delta S^{loop}_{jk} \in Sim(3)$
+      - 优化位姿图目标：$\arg\min_{S_1,...S_N} \sum_i \|r_i\|^2 + \sum_{(j,k)} \|r_{jk}\|^2$，其中平滑项 $r_i = \log_{Sim(3)}(\Delta S_{(i,i+1)}^{-1} \cdot S_i^{-1} \cdot S_{i+1})$，回环项 $r_{jk} = \log_{Sim(3)}(\Delta S^{loop}_{jk} \cdot S_j^{-1} \cdot S_k)$
+    - **设计动机**：邻近检测在存在尺度漂移时不足以检测回环（如户外长序列），需要基于外观的检测补充。
 
 ### 损失函数 / 训练策略
 

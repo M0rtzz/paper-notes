@@ -53,8 +53,9 @@ PAR基于掩码自回归建模（MAR），整体pipeline为：
 1. **循环平移一致性损失（Translation Consistency Loss）**：ERP全景图具有水平循环平移等变性——将图像水平平移$v$像素后，语义内容不变（只是起始经度变了）。作者利用这一性质，对原始输入$(x, \epsilon, M)$和平移后的输入$(\mathcal{T}_v(x), \mathcal{T}_v(\epsilon), \mathcal{T}_v(M))$分别前向传播，强制两个输出满足等变关系：$\mathcal{L}_{consistency} = M' \circ ||\mathcal{T}_v(y) - y'||^2$。这迫使模型学会ERP的循环特性。注意：此约束仅对全景图成立；透视图平移会引入不连续边界，语义不再等价。
 
 2. **双空间循环填充（Dual-space Circular Padding）**：VAE在编码/解码时，边缘像素的感受野不完整（只有单侧上下文），导致左右边界不连续。解决方案是在**两个空间**做循环填充：
-   - **Pre-padding**（像素空间）：VAE编码前，裁剪图像左右$rW/2$宽度的区域拼接到另一侧，使编码器边缘有充分上下文→保证**语义级**连续性
-   - **Post-padding**（latent空间）：VAE解码前，在latent上做同样操作→保证**像素级**平滑过渡
+
+    - **Pre-padding**（像素空间）：VAE编码前，裁剪图像左右$rW/2$宽度的区域拼接到另一侧，使编码器边缘有充分上下文→保证**语义级**连续性
+    - **Post-padding**（latent空间）：VAE解码前，在latent上做同样操作→保证**像素级**平滑过渡
    
    变换后丢弃padding区域，公式：$C_r(x) = \text{concat}(x[...,-rW/2:], x, x[...,:rW/2])$
 

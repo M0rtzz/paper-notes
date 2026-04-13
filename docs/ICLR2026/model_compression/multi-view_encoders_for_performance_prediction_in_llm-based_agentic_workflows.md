@@ -30,8 +30,8 @@ tags:
 LLM Agent 系统近年发展迅速，但优化其工作流配置面临巨大搜索空间挑战。现有的自动化设计方法（如 ADAS、AFlow）依赖大量 LLM API 调用进行评估，计算代价极高。本文提出用**性能预测器**替代完整执行评估，类似于神经架构搜索（NAS）中的预测器方法。
 
 核心挑战有两个：
-1. **工作流异构性**：不同工作流在通信结构、提示策略、工具调用模式上差异巨大，难以用统一模型建模
-2. **标注数据稀缺**：通过完整执行获取性能标签代价高昂，监督学习数据不足
+**工作流异构性**：不同工作流在通信结构、提示策略、工具调用模式上差异巨大，难以用统一模型建模
+**标注数据稀缺**：通过完整执行获取性能标签代价高昂，监督学习数据不足
 
 ## 方法详解
 
@@ -42,20 +42,23 @@ Agentic Predictor 包含三个阶段：(a) 多视图工作流编码器将 Agent 
 ### 关键设计
 
 1. **多视图工作流编码 (Multi-View Encoding)**：
-   - **图视图 $\mathcal{G}$**：将工作流建模为 DAG，通过 GNN 编码 Agent 间的通信依赖
-   - **代码视图 $\mathcal{C}$**：用 MLP 编码工作流完整代码，捕获逻辑结构和工具使用模式
-   - **提示视图 $\mathcal{P}$**：用 MLP 编码系统提示中的角色描述和行为规范
-   - 三个视图通过聚合层融合：$\mathbf{Z} = \text{MLP}([\mathbf{Z}_\mathcal{G}, \mathbf{Z}_\mathcal{C}, \mathbf{Z}_\mathcal{P}])$
+
+    - **图视图 $\mathcal{G}$**：将工作流建模为 DAG，通过 GNN 编码 Agent 间的通信依赖
+    - **代码视图 $\mathcal{C}$**：用 MLP 编码工作流完整代码，捕获逻辑结构和工具使用模式
+    - **提示视图 $\mathcal{P}$**：用 MLP 编码系统提示中的角色描述和行为规范
+    - 三个视图通过聚合层融合：$\mathbf{Z} = \text{MLP}([\mathbf{Z}_\mathcal{G}, \mathbf{Z}_\mathcal{C}, \mathbf{Z}_\mathcal{P}])$
 
 2. **多图注意力机制 (Cross-Graph Attention)**：
-   - 构建三种图：提示图 $\mathcal{G}_\text{prompt}$、代码图 $\mathcal{G}_\text{code}$、算子图 $\mathcal{G}_\text{operator}$
-   - 通过跨视图自注意力进行节点级信息交互
-   - ViewAttnPool 自适应学习各视图的重要性权重
+
+    - 构建三种图：提示图 $\mathcal{G}_\text{prompt}$、代码图 $\mathcal{G}_\text{code}$、算子图 $\mathcal{G}_\text{operator}$
+    - 通过跨视图自注意力进行节点级信息交互
+    - ViewAttnPool 自适应学习各视图的重要性权重
 
 3. **跨域无监督预训练 (Cross-Domain Unsupervised Pretraining)**：
-   - 重建损失：$\mathcal{L}_{rec} = \frac{1}{M}\sum_{i=1}^{M}\|\mathcal{G}_i - \hat{\mathcal{G}}_i\|^2 + \|\mathcal{C}_i - \hat{\mathcal{C}}_i\|^2 + \|\mathcal{P}_i - \hat{\mathcal{P}}_i\|^2$
-   - 跨模态对比损失：在 $(\mathcal{G}, \mathcal{C})$、$(\mathcal{G}, \mathcal{P})$、$(\mathcal{C}, \mathcal{P})$ 三对视图间施加 InfoNCE 损失
-   - 预训练不使用任何性能标签，避免标签泄漏
+
+    - 重建损失：$\mathcal{L}_{rec} = \frac{1}{M}\sum_{i=1}^{M}\|\mathcal{G}_i - \hat{\mathcal{G}}_i\|^2 + \|\mathcal{C}_i - \hat{\mathcal{C}}_i\|^2 + \|\mathcal{P}_i - \hat{\mathcal{P}}_i\|^2$
+    - 跨模态对比损失：在 $(\mathcal{G}, \mathcal{C})$、$(\mathcal{G}, \mathcal{P})$、$(\mathcal{C}, \mathcal{P})$ 三对视图间施加 InfoNCE 损失
+    - 预训练不使用任何性能标签，避免标签泄漏
 
 ### 损失函数 / 训练策略
 

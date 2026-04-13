@@ -15,14 +15,14 @@ tags: [NeurIPS 2025, 医学影像, 视网膜病变, 序数分类, label distribu
 提出 CAP-WAE（Constrained Asymmetric Prior Wasserstein Autoencoder），通过非对称先验、序数边距正交紧凑损失和方向感知序数损失三重创新，解决糖尿病视网膜病变分级中长尾分布和序数结构的挑战，在多个 DR 基准上达到 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：糖尿病视网膜病变（DR）分级是典型的序数分类任务（0-4 级），且数据严重长尾——重度 DR（3/4 级）样本稀少但临床最关键。
-2. **现有痛点**：
+**领域现状**：糖尿病视网膜病变（DR）分级是典型的序数分类任务（0-4 级），且数据严重长尾——重度 DR（3/4 级）样本稀少但临床最关键。
+**现有痛点**：
    - 传统方法使用各向同性高斯先验，无法建模少数类的重尾/偏斜结构
    - 对称损失函数（如 CE）对"误低估"和"误高估"惩罚相同，不符合临床需求（误低估更危险）
    - 潜空间缺乏级别有序性，相邻级别重叠严重
-3. **核心矛盾**：长尾分布 + 序数结构 + 非对称临床代价，三重困难交织。
-4. **切入角度**：用 WAE 替代 VAE 避免后验塌陷，非对称先验匹配少数类分布特性。
-5. **核心idea一句话**：非对称先验 WAE + 距边距正交紧凑损失 + 方向感知序数软标签，端到端解决 DR 长尾序数分级。
+**核心矛盾**：长尾分布 + 序数结构 + 非对称临床代价，三重困难交织。
+**切入角度**：用 WAE 替代 VAE 避免后验塌陷，非对称先验匹配少数类分布特性。
+**核心idea一句话**：非对称先验 WAE + 距边距正交紧凑损失 + 方向感知序数软标签，端到端解决 DR 长尾序数分级。
 
 ## 方法详解
 
@@ -32,24 +32,27 @@ tags: [NeurIPS 2025, 医学影像, 视网膜病变, 序数分类, label distribu
 ### 关键设计
 
 1. **Wasserstein Autoencoder with Asymmetric Prior**
-   - 做什么：用 WAE 对齐聚合后验 $Q_Z$ 与非对称先验 $P_Z$
-   - 非对称先验：使用偏斜分布（如 skew-normal / log-normal）替代标准高斯
-   - 优势：保留少数类的重尾结构，避免标准高斯先验将少数类"挤压"
-   - WAE 目标：$\min_{E,D} \mathbb{E}[\|x - D(E(x))\|^2] + \lambda \cdot \text{MMD}(Q_Z, P_Z)$
+
+    - 做什么：用 WAE 对齐聚合后验 $Q_Z$ 与非对称先验 $P_Z$
+    - 非对称先验：使用偏斜分布（如 skew-normal / log-normal）替代标准高斯
+    - 优势：保留少数类的重尾结构，避免标准高斯先验将少数类"挤压"
+    - WAE 目标：$\min_{E,D} \mathbb{E}[\|x - D(E(x))\|^2] + \lambda \cdot \text{MMD}(Q_Z, P_Z)$
 
 2. **Margin-Aware Orthogonality and Compactness (MAOC) Loss**
-   - 做什么：在潜空间中强制级别有序且可分
-   - 正交性：不同级别的潜向量均值彼此正交 $\langle \mu_i, \mu_j \rangle \to 0$
-   - 紧凑性：同级别样本聚集 $\text{Var}(z | y=k) \to \text{small}$
-   - 边距感知：相邻级别间保持 $\|\mu_k - \mu_{k+1}\| \geq m$
-   - 公式：$\mathcal{L}_{MAOC} = \alpha \sum_{i \neq j} |\langle \mu_i, \mu_j \rangle| + \beta \sum_k \text{tr}(\Sigma_k) + \gamma \sum_k \max(0, m - \|\mu_k - \mu_{k+1}\|)$
+
+    - 做什么：在潜空间中强制级别有序且可分
+    - 正交性：不同级别的潜向量均值彼此正交 $\langle \mu_i, \mu_j \rangle \to 0$
+    - 紧凑性：同级别样本聚集 $\text{Var}(z | y=k) \to \text{small}$
+    - 边距感知：相邻级别间保持 $\|\mu_k - \mu_{k+1}\| \geq m$
+    - 公式：$\mathcal{L}_{MAOC} = \alpha \sum_{i \neq j} |\langle \mu_i, \mu_j \rangle| + \beta \sum_k \text{tr}(\Sigma_k) + \gamma \sum_k \max(0, m - \|\mu_k - \mu_{k+1}\|)$
 
 3. **Direction-Aware Ordinal Loss**
-   - 做什么：生成反映临床优先级的软标签
-   - 轻量级头预测非对称散度参数 $(\sigma_L^k, \sigma_R^k)$
-   - 软标签：$\tilde{y}_j^k = \exp(-\frac{(j-k)^2}{2\sigma_{L/R}^{k,2}})$（左右散度不同）
-   - 核心：$\sigma_L < \sigma_R$ 使得"误低估"的惩罚更重
-   - KL 散度度量预测分布与软标签分布的差异
+
+    - 做什么：生成反映临床优先级的软标签
+    - 轻量级头预测非对称散度参数 $(\sigma_L^k, \sigma_R^k)$
+    - 软标签：$\tilde{y}_j^k = \exp(-\frac{(j-k)^2}{2\sigma_{L/R}^{k,2}})$（左右散度不同）
+    - 核心：$\sigma_L < \sigma_R$ 使得"误低估"的惩罚更重
+    - KL 散度度量预测分布与软标签分布的差异
 
 ### 训练策略
 - 自适应多任务加权（Adaptive MTL Weighting）平衡 WAE 重建、MAOC 和序数损失

@@ -46,30 +46,33 @@ ERC Loss 的核心思想来自一个优雅的观察：路由器参数矩阵 $\ma
 ### 关键设计
 
 1. **代理 Token 生成（Step 1: 噪声注入）**:
-   - 对每个聚类中心 $\mathbf{R}[i]$ 施加有界乘性随机噪声得到 $\tilde{\mathbf{R}}[i] = \mathbf{R}[i] \odot \boldsymbol{\delta}_i$
-   - 噪声 $\boldsymbol{\delta}_i \sim \mathcal{U}(1-\epsilon_i, 1+\epsilon_i)^d$ 模拟 $\mathcal{X}_i$ 内的 token 变化
-   - **噪声边界推导**: $\epsilon_i \leq \frac{\|\mathbf{R}[i] - \mathbf{R}[j]\|}{2\|\mathbf{R}[i]\|}$（$j$ 为最近邻聚类中心），确保扰动后的代理不越过聚类边界
-   - $\epsilon_i$ 在每层每步动态计算，反映训练过程中聚类的变化
-   - **关键**: 被扰动的 $\tilde{\mathbf{R}}$ 仅用于损失计算，实际路由仍使用原始 $\mathbf{R}$
+
+    - 对每个聚类中心 $\mathbf{R}[i]$ 施加有界乘性随机噪声得到 $\tilde{\mathbf{R}}[i] = \mathbf{R}[i] \odot \boldsymbol{\delta}_i$
+    - 噪声 $\boldsymbol{\delta}_i \sim \mathcal{U}(1-\epsilon_i, 1+\epsilon_i)^d$ 模拟 $\mathcal{X}_i$ 内的 token 变化
+    - **噪声边界推导**: $\epsilon_i \leq \frac{\|\mathbf{R}[i] - \mathbf{R}[j]\|}{2\|\mathbf{R}[i]\|}$（$j$ 为最近邻聚类中心），确保扰动后的代理不越过聚类边界
+    - $\epsilon_i$ 在每层每步动态计算，反映训练过程中聚类的变化
+    - **关键**: 被扰动的 $\tilde{\mathbf{R}}$ 仅用于损失计算，实际路由仍使用原始 $\mathbf{R}$
 
 2. **激活矩阵计算（Step 2: 探测专家响应）**:
-   - 将每个代理 token $\tilde{\mathbf{R}}[i]$ 送入所有 $n$ 个专家的 $\mathbf{W}_g$ 参数
-   - 构造 $n \times n$ 的激活矩阵: $\mathbf{M}[i,j] = \|\tilde{\mathbf{R}}[i] \cdot \mathbf{W}_g^j\|$
-   - $\mathbf{M}[i,j]$ 反映专家 $j$ 对分配给专家 $i$ 的代理 token 的响应强度
-   - 选择 $\mathbf{W}_g$ 的激活范数而非最终输出，因为实验表明 $\mathbf{W}_g$ 的中间激活最有效
+
+    - 将每个代理 token $\tilde{\mathbf{R}}[i]$ 送入所有 $n$ 个专家的 $\mathbf{W}_g$ 参数
+    - 构造 $n \times n$ 的激活矩阵: $\mathbf{M}[i,j] = \|\tilde{\mathbf{R}}[i] \cdot \mathbf{W}_g^j\|$
+    - $\mathbf{M}[i,j]$ 反映专家 $j$ 对分配给专家 $i$ 的代理 token 的响应强度
+    - 选择 $\mathbf{W}_g$ 的激活范数而非最终输出，因为实验表明 $\mathbf{W}_g$ 的中间激活最有效
 
 3. **ERC 损失函数（Step 3: 双向约束）**:
-   $$\mathcal{L}_{\text{ERC}} = \frac{1}{n^2} \sum_{i=1}^{n} \sum_{j \neq i}^{n} \left(\max(\mathbf{M}[i,j] - \alpha \mathbf{M}[i,i], 0) + \max(\mathbf{M}[j,i] - \alpha \mathbf{M}[i,i], 0)\right)$$
+    $\mathcal{L}_{\text{ERC}} = \frac{1}{n^2} \sum_{i=1}^{n} \sum_{j \neq i}^{n} \left(\max(\mathbf{M}[i,j] - \alpha \mathbf{M}[i,i], 0) + \max(\mathbf{M}[j,i] - \alpha \mathbf{M}[i,i], 0)\right)$
    
    两个约束项的含义：
-   - **约束 1** ($\mathbf{M}[i,j] < \alpha \mathbf{M}[i,i]$): **专家特化** — 代理 token $\tilde{\mathbf{R}}[i]$ 在专家 $i$ 上的激活必须显著强于在其他专家上的激活，确保专家 $i$ 针对其分配的 token 族进行了特化
-   - **约束 2** ($\mathbf{M}[j,i] < \alpha \mathbf{M}[i,i]$): **精准路由** — 专家 $i$ 对自身代理 $\tilde{\mathbf{R}}[i]$ 的响应必须高于对其他代理 $\tilde{\mathbf{R}}[j]$ 的响应，确保 $\mathbf{R}[i]$ 准确代表了专家 $i$ 的能力
+    - **约束 1** ($\mathbf{M}[i,j] < \alpha \mathbf{M}[i,i]$): **专家特化** — 代理 token $\tilde{\mathbf{R}}[i]$ 在专家 $i$ 上的激活必须显著强于在其他专家上的激活，确保专家 $i$ 针对其分配的 token 族进行了特化
+    - **约束 2** ($\mathbf{M}[j,i] < \alpha \mathbf{M}[i,i]$): **精准路由** — 专家 $i$ 对自身代理 $\tilde{\mathbf{R}}[i]$ 的响应必须高于对其他代理 $\tilde{\mathbf{R}}[j]$ 的响应，确保 $\mathbf{R}[i]$ 准确代表了专家 $i$ 的能力
 
 4. **超参数 $\alpha$ 的控制作用**:
-   - $\alpha \in [0, 1]$ 控制耦合强度
-   - $\alpha \to 0$: 鼓励 $\mathbf{R}[i]$ 与其他专家参数正交，最大化特化
-   - $\alpha \to 1$: 放松约束，允许专家之间更多的重叠
-   - $\alpha$ 同时是探索专家特化程度的工具——通过对比不同 $\alpha$ 下的性能，可以找到特化与协作的最优平衡
+
+    - $\alpha \in [0, 1]$ 控制耦合强度
+    - $\alpha \to 0$: 鼓励 $\mathbf{R}[i]$ 与其他专家参数正交，最大化特化
+    - $\alpha \to 1$: 放松约束，允许专家之间更多的重叠
+    - $\alpha$ 同时是探索专家特化程度的工具——通过对比不同 $\alpha$ 下的性能，可以找到特化与协作的最优平衡
 
 ### 效率分析
 

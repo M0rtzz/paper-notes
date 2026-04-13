@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Rectified Flow 通过学习噪声到数据的 ODE 速度场实现高效生成，k-rectified flow 通过反复 reflow 将轨迹拉直，从而支持少步甚至单步生成。当前 SOTA 模型（Flux、SD3、AuraFlow）都采用 1-rectified flow + ~30 NFE 的方案。
+**领域现状**：Rectified Flow 通过学习噪声到数据的 ODE 速度场实现高效生成，k-rectified flow 通过反复 reflow 将轨迹拉直，从而支持少步甚至单步生成。当前 SOTA 模型（Flux、SD3、AuraFlow）都采用 1-rectified flow + ~30 NFE 的方案。
 
-2. **现有痛点**：
+**现有痛点**：
    - Reflow 需要大量 fake pair（原始方法使用 4M 对），生成代价高昂
    - Fake pair 来自不完美的模型，本身就偏离真实分布，导致 reflow 训练的监督信号存在系统性偏差
    - 多轮 reflow 会使误差不断累积，模型逐步远离真实数据分布
 
-3. **核心矛盾**：Reflow 旨在拉直轨迹以支持少步生成，但其依赖的 fake pair 监督本身会引入分布漂移（distribution drift），导致生成质量在 full-step 下反而下降，形成"拉直轨迹"与"保持分布一致性"之间的矛盾。
+**核心矛盾**：Reflow 旨在拉直轨迹以支持少步生成，但其依赖的 fake pair 监督本身会引入分布漂移（distribution drift），导致生成质量在 full-step 下反而下降，形成"拉直轨迹"与"保持分布一致性"之间的矛盾。
 
-4. **本文要解决什么？**：揭示 reflow 引起的分布漂移现象，并设计一种新的 reflow 策略使模型在拉直轨迹的同时保持对真实数据分布的忠实度。
+**本文要解决什么？**：揭示 reflow 引起的分布漂移现象，并设计一种新的 reflow 策略使模型在拉直轨迹的同时保持对真实数据分布的忠实度。
 
-5. **切入角度**：通过真实图像的重建误差（reconstruction error）定量揭示漂移——fake 图像的重建误差远低于 real 图像，说明模型过拟合了 fake 分布而偏离了 real 分布。进而提出用真实图像反演噪声 + Slerp 扰动构建"锥形"监督作为纠偏手段。
+**切入角度**：通过真实图像的重建误差（reconstruction error）定量揭示漂移——fake 图像的重建误差远低于 real 图像，说明模型过拟合了 fake 分布而偏离了 real 分布。进而提出用真实图像反演噪声 + Slerp 扰动构建"锥形"监督作为纠偏手段。
 
-6. **核心 idea 一句话**：用真实图像的反演噪声及其 Slerp 邻域构成锥形监督轨迹，交替训练 real pair 和 fake pair，既纠正分布漂移又保证轨迹平直。
+**核心 idea 一句话**：用真实图像的反演噪声及其 Slerp 邻域构成锥形监督轨迹，交替训练 real pair 和 fake pair，既纠正分布漂移又保证轨迹平直。
 
 ## 方法详解
 
@@ -54,28 +54,32 @@ Balanced Conic Rectified Flow 包含三个关键组件：
 ### 关键设计
 
 1. **Real Pair 构造**：
-   - 核心思路：不再依赖 $(Z_0, v(Z_0))$ 这种 fake pair，而是用真实图像 $X_1$ 及其反演 $Z_{0,R} = v^{-1}(X_1)$ 组成 real pair
-   - 动机：fake pair 的终点 $Z_1 = v(Z_0)$ 偏离真实分布 $\pi_1$，而 real pair 的终点就是真实数据，能直接锚定目标分布
-   - 反演过程利用 ODE 的确定性性质，无需引入随机性，实现简洁
+
+    - 核心思路：不再依赖 $(Z_0, v(Z_0))$ 这种 fake pair，而是用真实图像 $X_1$ 及其反演 $Z_{0,R} = v^{-1}(X_1)$ 组成 real pair
+    - 动机：fake pair 的终点 $Z_1 = v(Z_0)$ 偏离真实分布 $\pi_1$，而 real pair 的终点就是真实数据，能直接锚定目标分布
+    - 反演过程利用 ODE 的确定性性质，无需引入随机性，实现简洁
 
 2. **Conic Reflow（Slerp 扰动）**：
-   - 核心思路：对反演噪声 $Z_{0,R}$ 施加 Slerp 插值扰动，将监督扩展到邻域
-   - Slerp 公式：$$\text{Slerp}(Z_{0,R}, \epsilon, \zeta) = \frac{\sin((1-\zeta)\phi)}{\sin(\phi)} Z_{0,R} + \frac{\sin(\zeta\phi)}{\sin(\phi)} \epsilon$$
-   - 其中 $\phi = \arccos(Z_{0,R} \cdot \epsilon)$，$\epsilon \sim \mathcal{N}(0, I)$，$\zeta$ 为插值比例
-   - Conic 插值：$$\text{Conic}(X_1, \epsilon, \zeta, t) = t X_1 + (1-t) \cdot \text{Slerp}(Z_{0,R}, \epsilon, \zeta)$$
-   - 多次采样 $\epsilon$ 和 $\zeta$ 形成锥形轨迹束，故名"conic"
-   - 设计动机：单条 real pair 轨迹覆盖范围有限，Slerp 在高斯超球面上保持向量模长，比 Lerp 更好地保持噪声空间几何结构
+
+    - 核心思路：对反演噪声 $Z_{0,R}$ 施加 Slerp 插值扰动，将监督扩展到邻域
+    - Slerp 公式：$$\text{Slerp}(Z_{0,R}, \epsilon, \zeta) = \frac{\sin((1-\zeta)\phi)}{\sin(\phi)} Z_{0,R} + \frac{\sin(\zeta\phi)}{\sin(\phi)} \epsilon$$
+    - 其中 $\phi = \arccos(Z_{0,R} \cdot \epsilon)$，$\epsilon \sim \mathcal{N}(0, I)$，$\zeta$ 为插值比例
+    - Conic 插值：$$\text{Conic}(X_1, \epsilon, \zeta, t) = t X_1 + (1-t) \cdot \text{Slerp}(Z_{0,R}, \epsilon, \zeta)$$
+    - 多次采样 $\epsilon$ 和 $\zeta$ 形成锥形轨迹束，故名"conic"
+    - 设计动机：单条 real pair 轨迹覆盖范围有限，Slerp 在高斯超球面上保持向量模长，比 Lerp 更好地保持噪声空间几何结构
 
 3. **Slerp 噪声调度**：
-   - $\zeta_{\max}$ 基于 real/fake 样本扰动重建误差的最大差异点自动确定
-   - 训练过程中噪声量渐减：$\zeta(t') = \zeta^{\max} \cdot \frac{2t'^2}{1+t'^2}$
-   - 周期性更新 real pair 的反演噪声以保持与最新模型的对齐
-   - CIFAR-10 上 $\zeta^{\max} = 0.13$，ImageNet 上 $\zeta^{\max} = 0.23$
+
+    - $\zeta_{\max}$ 基于 real/fake 样本扰动重建误差的最大差异点自动确定
+    - 训练过程中噪声量渐减：$\zeta(t') = \zeta^{\max} \cdot \frac{2t'^2}{1+t'^2}$
+    - 周期性更新 real pair 的反演噪声以保持与最新模型的对齐
+    - CIFAR-10 上 $\zeta^{\max} = 0.13$，ImageNet 上 $\zeta^{\max} = 0.23$
 
 4. **Balanced Training 策略**：
-   - 前半段训练交替进行 conic reflow（real pair）和原始 reflow（fake pair）
-   - 后半段仅使用原始 reflow，补偿 fake pair 与 real pair 的数量不对称
-   - 例如总步数 100 时，$U_{\text{real}} = \{1, 3, 5, \ldots, 49\}$，$U_{\text{fake}} = \{2, 4, \ldots, 50, 51, \ldots, 100\}$
+
+    - 前半段训练交替进行 conic reflow（real pair）和原始 reflow（fake pair）
+    - 后半段仅使用原始 reflow，补偿 fake pair 与 real pair 的数量不对称
+    - 例如总步数 100 时，$U_{\text{real}} = \{1, 3, 5, \ldots, 49\}$，$U_{\text{fake}} = \{2, 4, \ldots, 50, 51, \ldots, 100\}$
 
 ### 损失函数 / 训练策略
 

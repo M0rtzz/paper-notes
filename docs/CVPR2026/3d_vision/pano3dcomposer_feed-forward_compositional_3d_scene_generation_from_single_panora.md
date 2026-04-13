@@ -25,16 +25,16 @@ tags:
 提出 Pano3DComposer，一个从单张全景图出发的模块化前馈式组合3D场景生成框架，通过即插即用的 Object-World Transformation Predictor（基于 Alignment-VGGT）将生成的3D物体从局部坐标转换到世界坐标，约20秒即可在 RTX 4090 上生成高保真3D场景。
 
 ## 研究背景与动机
-1. **领域现状**：3D场景生成是 VR/AR 和数字孪生的基础。当前方法主要依赖透视图像，视野有限；全景图能提供360°完整空间上下文，但引入了严重的畸变问题。
-2. **现有痛点**：
+**领域现状**：3D场景生成是 VR/AR 和数字孪生的基础。当前方法主要依赖透视图像，视野有限；全景图能提供360°完整空间上下文，但引入了严重的畸变问题。
+**现有痛点**：
    - 前馈式场景理解方法（Total3D、InstPIFu）受限于缺乏精确3D mesh监督和泛化能力不足
    - 前馈式多实例生成模型（MIDI、SceneGen）需要昂贵的微调，且物体生成和布局耦合度高
    - 组合式优化方法（GALA3D、LayoutYour3D）需要耗时的迭代优化，难以满足效率需求
    - 针对全景图的方法（DeepPanoContext、PanoContext-Former）只能生成无纹理的mesh
-3. **核心矛盾**：如何在保持高效率的同时，实现物体生成与布局估计的解耦，并处理全景图的畸变问题
-4. **本文要解决什么**：(a) 耗时的迭代优化 → 前馈式推理；(b) 物体-布局耦合 → 解耦设计；(c) 全景畸变 → 透视投影预处理
-5. **切入角度**：将物体-世界坐标变换问题从困难的3D空间转移到更鲁棒的2D图像空间，利用多视角渲染与目标裁剪图之间的对应关系
-6. **核心idea一句话**：用 Alignment-VGGT 在一次前馈中预测3D物体从局部坐标到世界坐标的旋转、平移和各向异性缩放
+**核心矛盾**：如何在保持高效率的同时，实现物体生成与布局估计的解耦，并处理全景图的畸变问题
+**本文要解决什么**：(a) 耗时的迭代优化 → 前馈式推理；(b) 物体-布局耦合 → 解耦设计；(c) 全景畸变 → 透视投影预处理
+**切入角度**：将物体-世界坐标变换问题从困难的3D空间转移到更鲁棒的2D图像空间，利用多视角渲染与目标裁剪图之间的对应关系
+**核心idea一句话**：用 Alignment-VGGT 在一次前馈中预测3D物体从局部坐标到世界坐标的旋转、平移和各向异性缩放
 
 ## 方法详解
 
@@ -48,26 +48,30 @@ tags:
 ### 关键设计
 
 1. **预处理模块——全景畸变消除**
-   - 做什么：将全景图中检测到的物体投影为无畸变的透视裁剪图
-   - 核心思路：对每个物体用 SAM 提取 mask $\mathbf{M}_i$，根据其在球面上的经纬度 $(\theta_i, \phi_i)$ 和视野角 $\alpha_i$，通过透视投影算子 $\Pi_{\text{persp}}$ 得到无畸变裁剪：$\mathbf{I}_i^{\text{crop}} = \Pi_{\text{persp}}(\mathbf{I} \odot \mathbf{M}_i; \theta_i, \phi_i, \alpha_i)$
-   - 设计动机：等距柱形投影引入的畸变使得通用 image-to-3D 模型难以直接处理，透视投影后可以使用任何现成3D生成器
+
+    - 做什么：将全景图中检测到的物体投影为无畸变的透视裁剪图
+    - 核心思路：对每个物体用 SAM 提取 mask $\mathbf{M}_i$，根据其在球面上的经纬度 $(\theta_i, \phi_i)$ 和视野角 $\alpha_i$，通过透视投影算子 $\Pi_{\text{persp}}$ 得到无畸变裁剪：$\mathbf{I}_i^{\text{crop}} = \Pi_{\text{persp}}(\mathbf{I} \odot \mathbf{M}_i; \theta_i, \phi_i, \alpha_i)$
+    - 设计动机：等距柱形投影引入的畸变使得通用 image-to-3D 模型难以直接处理，透视投影后可以使用任何现成3D生成器
 
 2. **Object-World Transformation Predictor（Alignment-VGGT）**
-   - 做什么：预测将生成3D物体从局部坐标系转换到世界坐标系的变换参数（旋转 $\mathbf{R}$、平移 $\mathbf{t}$、各向异性缩放 $\mathbf{S}$）
-   - 核心思路：改造 VGGT 架构，输入包括目标裁剪图 $\mathbf{I}_i^{\text{crop}}$（作为序列第一张图）和生成物体的多视角渲染 $\{\mathbf{I}_{i,v}^{\text{gen}}\}_{v=1}^V$，同时提供已知的相机参数避免内外参歧义。在 VGGT 的相机头之外增加缩放头输出各向异性缩放因子 $\hat{\mathbf{S}} = \text{diag}(\hat{s}_x, \hat{s}_y, \hat{s}_z)$
-   - 通过相对位姿链推导未知的局部外参 $\mathbf{E}_0^{\text{obj}}$，再与世界坐标外参组合得到非刚性变换 $\mathbf{T}_i$
-   - 设计动机：直接在3D空间对齐依赖于单目全景深度估计（不准确），转到2D空间利用多视角渲染与裁剪图的对应关系更加鲁棒
+
+    - 做什么：预测将生成3D物体从局部坐标系转换到世界坐标系的变换参数（旋转 $\mathbf{R}$、平移 $\mathbf{t}$、各向异性缩放 $\mathbf{S}$）
+    - 核心思路：改造 VGGT 架构，输入包括目标裁剪图 $\mathbf{I}_i^{\text{crop}}$（作为序列第一张图）和生成物体的多视角渲染 $\{\mathbf{I}_{i,v}^{\text{gen}}\}_{v=1}^V$，同时提供已知的相机参数避免内外参歧义。在 VGGT 的相机头之外增加缩放头输出各向异性缩放因子 $\hat{\mathbf{S}} = \text{diag}(\hat{s}_x, \hat{s}_y, \hat{s}_z)$
+    - 通过相对位姿链推导未知的局部外参 $\mathbf{E}_0^{\text{obj}}$，再与世界坐标外参组合得到非刚性变换 $\mathbf{T}_i$
+    - 设计动机：直接在3D空间对齐依赖于单目全景深度估计（不准确），转到2D空间利用多视角渲染与裁剪图的对应关系更加鲁棒
 
 3. **伪几何监督（Pseudo-Geometry Supervision）**
-   - 做什么：解决生成物体与GT物体形状差异导致的监督信号不匹配问题
-   - 核心思路：对每个生成物体，离线运行可微优化器（双向 Chamfer Loss 或单向 Chamfer + Mask Loss），得到伪GT变换参数 $(\mathbf{R}^\star, \mathbf{t}^\star, \mathbf{S}^\star)$，用 L1 损失监督网络预测
-   - 训练损失：$\mathcal{L} = \lambda_{\text{CD}}\mathcal{L}_{\text{CD}} + \lambda_{\text{PGD}}\mathcal{L}_{\text{PGD}} + \lambda_{\text{MASK}}\mathcal{L}_{\text{MASK}}$
-   - 设计动机：GT mesh 的位姿标注对应的是GT几何，而非生成几何，直接用GT位姿监督会导致监督信号错位
+
+    - 做什么：解决生成物体与GT物体形状差异导致的监督信号不匹配问题
+    - 核心思路：对每个生成物体，离线运行可微优化器（双向 Chamfer Loss 或单向 Chamfer + Mask Loss），得到伪GT变换参数 $(\mathbf{R}^\star, \mathbf{t}^\star, \mathbf{S}^\star)$，用 L1 损失监督网络预测
+    - 训练损失：$\mathcal{L} = \lambda_{\text{CD}}\mathcal{L}_{\text{CD}} + \lambda_{\text{PGD}}\mathcal{L}_{\text{PGD}} + \lambda_{\text{MASK}}\mathcal{L}_{\text{MASK}}$
+    - 设计动机：GT mesh 的位姿标注对应的是GT几何，而非生成几何，直接用GT位姿监督会导致监督信号错位
 
 4. **Coarse-to-Fine (C2F) 对齐机制**
-   - 做什么：在推理时为未见域的输入迭代优化物体位姿
-   - 核心思路：额外训练一个基于 Alignment-VGGT 的 C2F Refiner。每步渲染当前位姿下的物体图像，与目标裁剪图对比，预测相对位姿更新 $\Delta\mathbf{T}^{(k)}$，固定缩放只更新旋转和平移。用 Chamfer 距离监控收敛：$\mathcal{L}_{\text{CD}}^{(k)} - \mathcal{L}_{\text{CD}}^{(k+1)} < \tau$ 时停止
-   - 设计动机：前馈预测器在分布外数据上可能不够精确，渲染反馈迭代可以不依赖梯度优化地逐步纠正
+
+    - 做什么：在推理时为未见域的输入迭代优化物体位姿
+    - 核心思路：额外训练一个基于 Alignment-VGGT 的 C2F Refiner。每步渲染当前位姿下的物体图像，与目标裁剪图对比，预测相对位姿更新 $\Delta\mathbf{T}^{(k)}$，固定缩放只更新旋转和平移。用 Chamfer 距离监控收敛：$\mathcal{L}_{\text{CD}}^{(k)} - \mathcal{L}_{\text{CD}}^{(k+1)} < \tau$ 时停止
+    - 设计动机：前馈预测器在分布外数据上可能不够精确，渲染反馈迭代可以不依赖梯度优化地逐步纠正
 
 ### 损失函数 / 训练策略
 - Chamfer 损失 $\mathcal{L}_{\text{CD}}$：有GT mesh 时用双向，否则用单向 + 深度反投影点云

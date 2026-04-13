@@ -46,24 +46,27 @@ ArtiFade的pipeline分为两个阶段：
 ### 关键设计
 
 1. **配对数据集构建**:
-   - 收集N=20个主题的无瑕疵图像集合（涵盖宠物、植物、容器、玩具、穿戴物等）
-   - 定义L种瑕疵增强变换（如10种水印：不同字体、方向、颜色、大小、文本）
-   - 对每个主题的每张图像应用每种瑕疵，构成N×L=200个瑕疵子集
-   - 对每个瑕疵子集用Textual Inversion训练5000步得到瑕疵textual embedding
-   - 最终形成（瑕疵embedding，无瑕疵原图）的配对训练数据
+
+    - 收集N=20个主题的无瑕疵图像集合（涵盖宠物、植物、容器、玩具、穿戴物等）
+    - 定义L种瑕疵增强变换（如10种水印：不同字体、方向、颜色、大小、文本）
+    - 对每个主题的每张图像应用每种瑕疵，构成N×L=200个瑕疵子集
+    - 对每个瑕疵子集用Textual Inversion训练5000步得到瑕疵textual embedding
+    - 最终形成（瑕疵embedding，无瑕疵原图）的配对训练数据
 
 2. **部分微调策略（Partial Fine-tuning）**:
-   - 核心洞察：瑕疵信息编码在textual embedding中，通过cross-attention层影响生成
-   - 只微调扩散模型cross-attention层中处理文本条件的**key权重W^k和value权重W^v**
-   - 不微调query权重W^q（处理图像特征的参数）——消融实验证明微调W^q反而降低效果
-   - 冻结扩散模型其他所有参数
-   - 这种策略确保：优化文本条件相关参数来"纠正"瑕疵embedding，同时保留模型原有生成能力
+
+    - 核心洞察：瑕疵信息编码在textual embedding中，通过cross-attention层影响生成
+    - 只微调扩散模型cross-attention层中处理文本条件的**key权重W^k和value权重W^v**
+    - 不微调query权重W^q（处理图像特征的参数）——消融实验证明微调W^q反而降低效果
+    - 冻结扩散模型其他所有参数
+    - 这种策略确保：优化文本条件相关参数来"纠正"瑕疵embedding，同时保留模型原有生成能力
 
 3. **Artifact-free Embedding ⟨Φ⟩**:
-   - 在文本空间额外优化一个可学习的embedding
-   - 推理时构造prompt："a ⟨Φ⟩ photo of [V_test^β']"
-   - 作用：增强prompt fidelity，帮助模型更好地保留文本信息
-   - 消融实验表明：单独用⟨Φ⟩不够（会过拟合），但与部分微调结合能提升文本忠实度
+
+    - 在文本空间额外优化一个可学习的embedding
+    - 推理时构造prompt："a ⟨Φ⟩ photo of [V_test^β']"
+    - 作用：增强prompt fidelity，帮助模型更好地保留文本信息
+    - 消融实验表明：单独用⟨Φ⟩不够（会过拟合），但与部分微调结合能提升文本忠实度
 
 ### 损失函数 / 训练策略
 

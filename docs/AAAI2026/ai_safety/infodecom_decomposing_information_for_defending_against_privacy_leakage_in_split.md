@@ -31,10 +31,10 @@ tags:
 
 **现有防御的两条路线及其局限**：
 
-1. **正则化方法**（Shredder、Nopeek、InfoScissors 等）：通过启发式优化目标（如互信息上界、距离相关性）指导 smashed data 产生扰动
+**正则化方法**（Shredder、Nopeek、InfoScissors 等）：通过启发式优化目标（如互信息上界、距离相关性）指导 smashed data 产生扰动
    - 缺点：无严格的可证明隐私保证
 
-2. **闭式噪声计算**（dFIL、FSInfo 等）：基于 Fisher Information 或条件熵计算满足特定隐私预算的噪声尺度
+**闭式噪声计算**（dFIL、FSInfo 等）：基于 Fisher Information 或条件熵计算满足特定隐私预算的噪声尺度
    - 缺点：当 bottom model 浅层时（资源受限设备的常见场景），smashed data 保留大量输入信息 → 需要大量噪声才能满足隐私要求 → 严重损害任务性能
 
 **核心洞察**：现有防御之所以 UPT（utility-privacy trade-off）差，根源在于它们将扰动浪费在 smashed data 中大量的**任务无关冗余信息**上。

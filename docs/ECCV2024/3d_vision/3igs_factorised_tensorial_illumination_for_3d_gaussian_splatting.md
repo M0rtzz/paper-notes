@@ -27,17 +27,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：3D Gaussian Splatting (3DGS) 已成为从多视角图像实时重建和渲染3D场景的主流方法。它通过为每个高斯体独立优化球谐系数 (SH) 来表示出射辐射，结合基于 tile 的光栅化实现实时渲染。
+**领域现状**：3D Gaussian Splatting (3DGS) 已成为从多视角图像实时重建和渲染3D场景的主流方法。它通过为每个高斯体独立优化球谐系数 (SH) 来表示出射辐射，结合基于 tile 的光栅化实现实时渲染。
 
-2. **现有痛点**：3DGS 为每个高斯体**独立**优化 SH 系数来描述出射辐射，这种做法完全忽略了场景中相邻高斯体之间的光照交互：一个高斯体的颜色应该受周围物体反射光的影响，但当前框架无法建模这种场景级的间接光照。这导致在具有镜面反射和光泽表面的场景中，渲染效果不佳——反射高光缺乏真实感，表面颜色随视角变化不够准确。
+**现有痛点**：3DGS 为每个高斯体**独立**优化 SH 系数来描述出射辐射，这种做法完全忽略了场景中相邻高斯体之间的光照交互：一个高斯体的颜色应该受周围物体反射光的影响，但当前框架无法建模这种场景级的间接光照。这导致在具有镜面反射和光泽表面的场景中，渲染效果不佳——反射高光缺乏真实感，表面颜色随视角变化不够准确。
 
-3. **核心矛盾**：一方面希望像 PBR 那样准确建模 BRDF 和光照来产生真实的视角依赖效果；另一方面，从多视角图像精确估计物理材质参数（roughness, albedo, metallicity 等）本身是严重的病态逆问题（ill-posed inverse rendering），现有方法（如 GaussianShader 直接预测 Cook-Torrance BRDF 参数）精度有限，反而引入了误差。
+**核心矛盾**：一方面希望像 PBR 那样准确建模 BRDF 和光照来产生真实的视角依赖效果；另一方面，从多视角图像精确估计物理材质参数（roughness, albedo, metallicity 等）本身是严重的病态逆问题（ill-posed inverse rendering），现有方法（如 GaussianShader 直接预测 Cook-Torrance BRDF 参数）精度有限，反而引入了误差。
 
-4. **本文要解决什么？** 如何在不依赖精确物理参数估计的前提下，为 3DGS 引入场景级光照建模以提升视角依赖效果？
+**本文要解决什么？** 如何在不依赖精确物理参数估计的前提下，为 3DGS 引入场景级光照建模以提升视角依赖效果？
 
-5. **切入角度**：受游戏引擎中 irradiance volume 和 light probe 的启发——它们不精确求解物理方程，而是在空间中预计算/存储光照信息，渲染时通过插值快速查询。类似地，可以学一个连续光照场，每个高斯体从中查询"入射光照特征"，再结合自身的 BRDF 特征输出颜色。
+**切入角度**：受游戏引擎中 irradiance volume 和 light probe 的启发——它们不精确求解物理方程，而是在空间中预计算/存储光照信息，渲染时通过插值快速查询。类似地，可以学一个连续光照场，每个高斯体从中查询"入射光照特征"，再结合自身的 BRDF 特征输出颜色。
 
-6. **核心idea一句话**：用张量分解的连续光照场 + 可学习 BRDF 特征 + 神经渲染器，替代 3DGS 中独立优化的球谐系数，在不求解逆渲染的前提下建模视角依赖效果。
+**核心idea一句话**：用张量分解的连续光照场 + 可学习 BRDF 特征 + 神经渲染器，替代 3DGS 中独立优化的球谐系数，在不求解逆渲染的前提下建模视角依赖效果。
 
 ## 方法详解
 
@@ -51,20 +51,23 @@ $$\mathcal{F}: \{\rho_i, L_i, \omega_o\} \mapsto \mathbf{c_s}$$
 ### 关键设计
 
 1. **张量分解的光照场 (Factorised Tensorial Illumination Field)**:
-   - 做什么：学习一个覆盖整个场景的连续3D光照场，每个高斯体可以从中查询自己位置的入射光照特征
-   - 核心思路：采用 TensoRF 的 VM (Vector-Matrix) 分解，将3D光照体素网格分解为紧凑的向量和矩阵乘积之和。给定高斯体位置 $\mathbf{x}_i$，通过三线性插值从分解后的张量中获取光照特征 $L_i$：
-     $$\mathcal{G}_l = \sum_{r=1}^{R_L} \mathbf{A}_{L,r}^{X} \circ \mathbf{b}_{3r-2} + \mathbf{A}_{L,r}^{Y} \circ \mathbf{b}_{3r-1} + \mathbf{A}_{L,r}^{Z} \circ \mathbf{b}_{3r}$$
-   - 设计动机：（1）连续光照场让所有高斯体共享场景光照信息，打破了独立优化的限制；（2）VM 分解极其紧凑（$150^3$ 体素，比 TensoRF 少 87.5%），查询只需插值，几乎不影响渲染速度；（3）训练中途会 shrink 边界框并重采样，进一步提高效率
+
+    - 做什么：学习一个覆盖整个场景的连续3D光照场，每个高斯体可以从中查询自己位置的入射光照特征
+    - 核心思路：采用 TensoRF 的 VM (Vector-Matrix) 分解，将3D光照体素网格分解为紧凑的向量和矩阵乘积之和。给定高斯体位置 $\mathbf{x}_i$，通过三线性插值从分解后的张量中获取光照特征 $L_i$：
+    $\mathcal{G}_l = \sum_{r=1}^{R_L} \mathbf{A}_{L,r}^{X} \circ \mathbf{b}_{3r-2} + \mathbf{A}_{L,r}^{Y} \circ \mathbf{b}_{3r-1} + \mathbf{A}_{L,r}^{Z} \circ \mathbf{b}_{3r}$
+    - 设计动机：（1）连续光照场让所有高斯体共享场景光照信息，打破了独立优化的限制；（2）VM 分解极其紧凑（$150^3$ 体素，比 TensoRF 少 87.5%），查询只需插值，几乎不影响渲染速度；（3）训练中途会 shrink 边界框并重采样，进一步提高效率
 
 2. **高斯体 BRDF 特征 (Gaussian BRDF Features)**:
-   - 做什么：每个高斯体携带可学习的 BRDF 特征向量 $\rho_i$，描述其表面反射属性
-   - 核心思路：将原来 3DGS 中的 16x3 SH 系数重新利用为 BRDF 特征通道，并额外增加 4 个参数（base color + roughness）用于 IDE 视角编码。关键在于**不强制物理可解释性**——不像 GaussianShader 那样预测 roughness/albedo/metallicity 等物理参数，而是将 BRDF 特征视为一组权重，在神经渲染器中调制入射光照场
-   - 设计动机：物理材质参数的逆渲染估计是严重的病态问题，不如让网络自己学习一组"广义 BRDF"特征。受 SH 卷积理论启发（$B_{lm} = \Lambda_l \rho_l L_{lm}$），BRDF 本质上是对入射光照的滤波器
+
+    - 做什么：每个高斯体携带可学习的 BRDF 特征向量 $\rho_i$，描述其表面反射属性
+    - 核心思路：将原来 3DGS 中的 16x3 SH 系数重新利用为 BRDF 特征通道，并额外增加 4 个参数（base color + roughness）用于 IDE 视角编码。关键在于**不强制物理可解释性**——不像 GaussianShader 那样预测 roughness/albedo/metallicity 等物理参数，而是将 BRDF 特征视为一组权重，在神经渲染器中调制入射光照场
+    - 设计动机：物理材质参数的逆渲染估计是严重的病态问题，不如让网络自己学习一组"广义 BRDF"特征。受 SH 卷积理论启发（$B_{lm} = \Lambda_l \rho_l L_{lm}$），BRDF 本质上是对入射光照的滤波器
 
 3. **神经渲染器与 Shading (Neural Renderer)**:
-   - 做什么：一个小型 MLP 将光照特征、BRDF 特征和视角方向映射到镜面颜色
-   - 核心思路：视角方向用 Integrated Directional Encoding (IDE) 编码（来自 Ref-NeRF），IDE 需要 roughness 参数来调制编码频率——粗糙表面保留低频，光滑表面保留高频
-   - 与 GaussianShader 区别：GaussianShader 使用全局可微分环境立方体贴图（cube map）+ GGX BRDF 解析计算；3iGS 使用局部连续光照场 + 神经网络预测，无需依赖特定的渲染方程
+
+    - 做什么：一个小型 MLP 将光照特征、BRDF 特征和视角方向映射到镜面颜色
+    - 核心思路：视角方向用 Integrated Directional Encoding (IDE) 编码（来自 Ref-NeRF），IDE 需要 roughness 参数来调制编码频率——粗糙表面保留低频，光滑表面保留高频
+    - 与 GaussianShader 区别：GaussianShader 使用全局可微分环境立方体贴图（cube map）+ GGX BRDF 解析计算；3iGS 使用局部连续光照场 + 神经网络预测，无需依赖特定的渲染方程
 
 ### 损失函数 / 训练策略
 - 与 3DGS 完全相同的损失函数：$\mathcal{L} = (1-\lambda)\mathcal{L}_1 + \lambda \mathcal{L}_{\text{D-SSIM}}$，$\lambda=0.2$

@@ -44,8 +44,9 @@ tags:
 1. **Visual Cue Enhancement (VCE)**：典型 MLLM（如 LLaVA）仅使用 ViT 倒数第二层的高级特征图，容易忽略局部视觉细节。VCE 通过可变形注意力 (Deformable Attention) 从多个中间层特征图提取局部信息，具体选择 CLIP ViT-L 的第 2、8、14、20 层，以第 2 层作为锚点特征。对每个锚点 patch $p_q$，在每层通过可变形注意力聚合 $K$ 个邻域参考 patch 的信息，再通过多层级拼接和线性投影融合，最后与高级特征残差融合后送入视觉投影器。VCE 仅 5.53 MB。
 
 2. **Dual-LoRA (技能空间 + 任务空间)**：基于理论分析（Proposition 1 & Corollary 1-2），证明单个 rank-$r$ 的 LoRA 理论上至少与 $K$ 个 LoRA 专家同样具有表达力。但 LoRA-MoE 实际表现更好是因为其"局部响应"能力。为此引入双空间：
-   - **技能空间 (Skill Space)** $S$：低秩矩阵，用于稳定学习跨任务的整体知识
-   - **任务空间 (Task Space)** $T$：rank 修正矩阵，通过非线性激活 $\sigma$（ReLU）动态调制技能空间
+
+    - **技能空间 (Skill Space)** $S$：低秩矩阵，用于稳定学习跨任务的整体知识
+    - **任务空间 (Task Space)** $T$：rank 修正矩阵，通过非线性激活 $\sigma$（ReLU）动态调制技能空间
 
    输出公式为：$z = Wx + \frac{r}{\alpha} B(\text{Norm}(Sx) \odot \sigma(Tx))$
 

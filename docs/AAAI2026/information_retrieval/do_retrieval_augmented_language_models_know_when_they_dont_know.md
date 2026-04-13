@@ -40,26 +40,30 @@ tags:
 ### 关键设计
 
 1. **四象限知识状态分析（RQ1）**
-   - 将每个问题分类为"highlyknown"/"maybeknown"/"weaklyknown"/"unknown"四种知识状态
-   - 分类基于温度采样和贪婪解码的结果一致性
-   - 在不同检索配置下（0正10负、1正9负、5正5负等）分析各知识状态的拒绝行为
-   - 发现：即使是"highlyknown"的问题，在全负面检索下也会被过度拒绝
+
+    - 将每个问题分类为"highlyknown"/"maybeknown"/"weaklyknown"/"unknown"四种知识状态
+    - 分类基于温度采样和贪婪解码的结果一致性
+    - 在不同检索配置下（0正10负、1正9负、5正5负等）分析各知识状态的拒绝行为
+    - 发现：即使是"highlyknown"的问题，在全负面检索下也会被过度拒绝
 
 2. **拒绝训练方法对比分析（RQ2）**
-   - **R-tuning**：检测模型无法回答的问题，训练其输出"I don't know"——结果反而加剧过度拒绝
-   - **In-Context Fine-Tuning（ICFT）**：在微调数据中同时插入正面和负面上下文，根据知识象限设定训练目标——有效缓解过度拒绝
-   - 关键发现：ICFT改善拒绝行为但不一定改善校准或准确率，原因在于鲁棒性和上下文忠实度的变化
+
+    - **R-tuning**：检测模型无法回答的问题，训练其输出"I don't know"——结果反而加剧过度拒绝
+    - **In-Context Fine-Tuning（ICFT）**：在微调数据中同时插入正面和负面上下文，根据知识象限设定训练目标——有效缓解过度拒绝
+    - 关键发现：ICFT改善拒绝行为但不一定改善校准或准确率，原因在于鲁棒性和上下文忠实度的变化
 
 3. **不确定性基础的拒绝机制（RQ3）**
-   - 利用不确定性估计及其变化来推断RALM的知识状态
-   - 根据推断结果决定：使用检索上下文回答 / 不使用检索上下文回答 / 拒绝回答
-   - 三类不确定性估计方法：Verbalization-based（模型自述置信度，4种prompt变体）、Consistency-based（Agreement/Entropy/FSD三种度量）、Similarity Matrix-based（特征值/度数）
+
+    - 利用不确定性估计及其变化来推断RALM的知识状态
+    - 根据推断结果决定：使用检索上下文回答 / 不使用检索上下文回答 / 拒绝回答
+    - 三类不确定性估计方法：Verbalization-based（模型自述置信度，4种prompt变体）、Consistency-based（Agreement/Entropy/FSD三种度量）、Similarity Matrix-based（特征值/度数）
 
 4. **实验设计的严谨性**
-   - 使用Milvus进行混合搜索+重排序构建高质量负面检索样本
-   - 严格的答案判定：LLM-as-judge + 精确匹配 + 拒绝词过滤
-   - Qwen评估中文（CRUD、RGB_zh），LLaMA评估英文（NQ、RGB_en）
-   - 生成温度0.5，采样16次
+
+    - 使用Milvus进行混合搜索+重排序构建高质量负面检索样本
+    - 严格的答案判定：LLM-as-judge + 精确匹配 + 拒绝词过滤
+    - Qwen评估中文（CRUD、RGB_zh），LLaMA评估英文（NQ、RGB_en）
+    - 生成温度0.5，采样16次
 
 ### 损失函数/训练策略
 

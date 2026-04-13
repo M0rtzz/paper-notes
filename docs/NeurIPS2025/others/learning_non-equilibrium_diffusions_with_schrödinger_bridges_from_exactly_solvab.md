@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Schrödinger桥问题（SBP）是从种群快照重建随机动力学的理论核心，广泛应用于生物细胞动态建模和生成模型。
-2. **现有痛点**：现有方法几乎都假设布朗运动或标量OU过程作为参考动力学，只能建模梯度驱动的（平衡态）系统；而生物系统等天然处于非平衡态。
-3. **核心矛盾**：非平衡系统需要非对称漂移矩阵（非保守力场），但允许一般漂移的方法（如IPFP、Neural SDE）依赖昂贵的数值模拟，且高维精度差。
-4. **本文要解决什么**：在线性参考动力学（mvOU过程）框架下高效精确地求解非平衡系统的SBP。
-5. **切入角度**：利用mvOU过程的解析可处理性，在物理相关性和计算可行性之间取得平衡。
-6. **核心idea一句话**：用mvOU过程作为参考过程，利用其解析桥公式实现无模拟的score/flow matching训练。
+**领域现状**：Schrödinger桥问题（SBP）是从种群快照重建随机动力学的理论核心，广泛应用于生物细胞动态建模和生成模型。
+**现有痛点**：现有方法几乎都假设布朗运动或标量OU过程作为参考动力学，只能建模梯度驱动的（平衡态）系统；而生物系统等天然处于非平衡态。
+**核心矛盾**：非平衡系统需要非对称漂移矩阵（非保守力场），但允许一般漂移的方法（如IPFP、Neural SDE）依赖昂贵的数值模拟，且高维精度差。
+**本文要解决什么**：在线性参考动力学（mvOU过程）框架下高效精确地求解非平衡系统的SBP。
+**切入角度**：利用mvOU过程的解析可处理性，在物理相关性和计算可行性之间取得平衡。
+**核心idea一句话**：用mvOU过程作为参考过程，利用其解析桥公式实现无模拟的score/flow matching训练。
 
 ## 方法详解
 
@@ -42,29 +42,33 @@ tags:
 ### 关键设计
 
 1. **mvOU桥的解析表征（Theorem 1 & 2）**：
-   - 做什么：推导mvOU过程条件化在初末端点后的桥SDE、score函数和flow场的闭式表达
-   - 为什么：这些闭式表达是无模拟训练的基础
-   - 怎么做：桥的SDE为 $d\mathbf{Y}_t = (\mathbf{A}(\mathbf{Y}_t - \mathbf{m}) + \mathbf{c}_{t|(\mathbf{x}_0,\mathbf{x}_1)})dt + \boldsymbol{\sigma} d\mathbf{B}_t$，其中控制项 $\mathbf{c}_{t} = -\mathbf{\Lambda}_t^{-1}(\mathbf{Y}_t - \mathbf{k}_t)$
-   - Score: $\mathbf{s}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{x}) = \mathbf{\Sigma}_{t|(\mathbf{x}_0,\mathbf{x}_T)}^{-1}(\boldsymbol{\mu}_{t|(\mathbf{x}_0,\mathbf{x}_T)} - \mathbf{x})$
-   - 区别：当 $\mathbf{A}=0$ 时退化为标准布朗桥公式
+
+    - 做什么：推导mvOU过程条件化在初末端点后的桥SDE、score函数和flow场的闭式表达
+    - 为什么：这些闭式表达是无模拟训练的基础
+    - 怎么做：桥的SDE为 $d\mathbf{Y}_t = (\mathbf{A}(\mathbf{Y}_t - \mathbf{m}) + \mathbf{c}_{t|(\mathbf{x}_0,\mathbf{x}_1)})dt + \boldsymbol{\sigma} d\mathbf{B}_t$，其中控制项 $\mathbf{c}_{t} = -\mathbf{\Lambda}_t^{-1}(\mathbf{Y}_t - \mathbf{k}_t)$
+    - Score: $\mathbf{s}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{x}) = \mathbf{\Sigma}_{t|(\mathbf{x}_0,\mathbf{x}_T)}^{-1}(\boldsymbol{\mu}_{t|(\mathbf{x}_0,\mathbf{x}_T)} - \mathbf{x})$
+    - 区别：当 $\mathbf{A}=0$ 时退化为标准布朗桥公式
 
 2. **高斯Schrödinger桥精确解（Theorem 3）**：
-   - 做什么：对高斯端点分布给出mvOU-GSB的完整解析表征
-   - 为什么：提供精度基准，同时本身可直接用于高斯分布间的插值
-   - 怎么做：通过坐标变换将mvOU-SBP转化为标准entropic OT问题，推导均值和协方差的闭式公式
-   - 区别：推广了Bunne et al. (2023)的标量OU和布朗运动结果
+
+    - 做什么：对高斯端点分布给出mvOU-GSB的完整解析表征
+    - 为什么：提供精度基准，同时本身可直接用于高斯分布间的插值
+    - 怎么做：通过坐标变换将mvOU-SBP转化为标准entropic OT问题，推导均值和协方差的闭式公式
+    - 区别：推广了Bunne et al. (2023)的标量OU和布朗运动结果
 
 3. **mvOU-OTFM算法（Proposition 1 & Theorem 4）**：
-   - 做什么：对一般（非高斯）分布提供无模拟的训练算法
-   - 为什么：一般分布无法直接获得解析解
-   - 怎么做：先用Sinkhorn算法求解静态SBP（利用解析的mvOU传输代价），再用条件score和flow matching训练
-   - 损失函数：$L(\theta,\varphi) = \mathbb{E}[\|\mathbf{u}_t^\theta(\mathbf{z}) - \mathbf{u}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{z})\|^2 + \lambda_t \|\mathbf{s}_t^\varphi(\mathbf{z}) - \mathbf{s}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{z})\|^2]$
-   - 区别：Tong et al. (2023b)的布朗版本是特殊情形
+
+    - 做什么：对一般（非高斯）分布提供无模拟的训练算法
+    - 为什么：一般分布无法直接获得解析解
+    - 怎么做：先用Sinkhorn算法求解静态SBP（利用解析的mvOU传输代价），再用条件score和flow matching训练
+    - 损失函数：$L(\theta,\varphi) = \mathbb{E}[\|\mathbf{u}_t^\theta(\mathbf{z}) - \mathbf{u}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{z})\|^2 + \lambda_t \|\mathbf{s}_t^\varphi(\mathbf{z}) - \mathbf{s}_{t|(\mathbf{x}_0,\mathbf{x}_T)}(\mathbf{z})\|^2]$
+    - 区别：Tong et al. (2023b)的布朗版本是特殊情形
 
 4. **迭代参考过程精化（Algorithm 2）**：
-   - 做什么：从数据中学习最优的mvOU参考过程参数
-   - 为什么：初始参考过程可能不够准确
-   - 怎么做：交替求解SBP和通过正则化线性回归更新 $(\mathbf{A}, \mathbf{m})$
+
+    - 做什么：从数据中学习最优的mvOU参考过程参数
+    - 为什么：初始参考过程可能不够准确
+    - 怎么做：交替求解SBP和通过正则化线性回归更新 $(\mathbf{A}, \mathbf{m})$
 
 ### 损失函数 / 训练策略
 

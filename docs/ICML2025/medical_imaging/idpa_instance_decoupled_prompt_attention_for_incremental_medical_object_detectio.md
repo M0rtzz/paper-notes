@@ -31,11 +31,11 @@ tags:
 
 **现有方法的不足**：
 
-1. **全局 Prompt 的前景-背景耦合**：现有 Prompt-based CL 方法（L2P, DualPrompt, CODA-Prompt 等）为分类设计，使用全局 Prompt 编码知识，混合了前景和背景信息。但目标检测需要细粒度的实例级信息，全局 Prompt 中的过量背景信息会干扰定位和分类，尤其在医学影像中不同模态（CT、MRI、X-ray）相似度高时容易导致类别混淆。
+**全局 Prompt 的前景-背景耦合**：现有 Prompt-based CL 方法（L2P, DualPrompt, CODA-Prompt 等）为分类设计，使用全局 Prompt 编码知识，混合了前景和背景信息。但目标检测需要细粒度的实例级信息，全局 Prompt 中的过量背景信息会干扰定位和分类，尤其在医学影像中不同模态（CT、MRI、X-ray）相似度高时容易导致类别混淆。
 
-2. **Prompt 与图像-文本 Token 的耦合注意力**：将 Prompt 直接拼接到图像/文本 Token 前，由于图像-文本 Token 长度远超 Prompt 长度，Prompt 信息被稀释，阻碍了任务特定知识的学习。此外，这种拼接在视觉-语言模型的跨模态交互中引入视觉与文本 Prompt 之间的额外干扰。
+**Prompt 与图像-文本 Token 的耦合注意力**：将 Prompt 直接拼接到图像/文本 Token 前，由于图像-文本 Token 长度远超 Prompt 长度，Prompt 信息被稀释，阻碍了任务特定知识的学习。此外，这种拼接在视觉-语言模型的跨模态交互中引入视觉与文本 Prompt 之间的额外干扰。
 
-3. **知识注入位置不当**：现有方法仅在 backbone 层插入 Prompt，但检测所需的细粒度推理发生在 backbone 之后的融合层，限制了 Prompt 微调的效果。
+**知识注入位置不当**：现有方法仅在 backbone 层插入 Prompt，但检测所需的细粒度推理发生在 backbone 之后的融合层，限制了 Prompt 微调的效果。
 
 ## 方法详解
 

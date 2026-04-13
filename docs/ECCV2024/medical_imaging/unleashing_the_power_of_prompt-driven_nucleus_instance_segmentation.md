@@ -45,34 +45,38 @@ PromptNucSeg 由两个独立训练的模型组成：
 ### 关键设计
 
 1. **SAM 微调策略（Adapt SAM to Nucleus Segmentation）**:
-   - 做什么：用细胞核实例分割数据微调 SAM，使其适应医学图像域
-   - 核心思路：对每个图像-标签对，随机选取 $Z$ 个核实例，从每个实例前景区域随机采样一个正点 prompt $p_z$，微调 SAM 预测该核的 mask
-   - 前向过程：$\widetilde{\mathcal{O}}_z = \mathcal{M}(\mathcal{F}(x), \mathcal{P}(\{p_z\}), [\text{mask}], [\text{IoU}])$
-   - 损失函数：$\mathcal{L}_{sam} = \omega \cdot \text{FL}(\widetilde{\mathcal{O}}_z, \mathcal{O}_z) + \text{DL}(\widetilde{\mathcal{O}}_z, \mathcal{O}_z) + \text{MSE}(\widetilde{\nu}, \nu)$，由 focal loss、dice loss 和 IoU 回归损失组成
-   - 冻结 prompt encoder，更新 image encoder 和 mask decoder
-   - 将输入分辨率从 1024×1024 降至 256×256，大幅减少 GPU 显存
+
+    - 做什么：用细胞核实例分割数据微调 SAM，使其适应医学图像域
+    - 核心思路：对每个图像-标签对，随机选取 $Z$ 个核实例，从每个实例前景区域随机采样一个正点 prompt $p_z$，微调 SAM 预测该核的 mask
+    - 前向过程：$\widetilde{\mathcal{O}}_z = \mathcal{M}(\mathcal{F}(x), \mathcal{P}(\{p_z\}), [\text{mask}], [\text{IoU}])$
+    - 损失函数：$\mathcal{L}_{sam} = \omega \cdot \text{FL}(\widetilde{\mathcal{O}}_z, \mathcal{O}_z) + \text{DL}(\widetilde{\mathcal{O}}_z, \mathcal{O}_z) + \text{MSE}(\widetilde{\nu}, \nu)$，由 focal loss、dice loss 和 IoU 回归损失组成
+    - 冻结 prompt encoder，更新 image encoder 和 mask decoder
+    - 将输入分辨率从 1024×1024 降至 256×256，大幅减少 GPU 显存
 
 2. **Nucleus Prompter（自动 prompt 生成）**:
-   - 做什么：自动预测每个细胞核的中心点坐标和类别，替代手工 prompt
-   - 核心思路：受 P2PNet 启发，在输入图像上放置均匀 anchor points（间距 $\lambda$ 像素），通过特征金字塔提取多尺度特征，用 MLP 预测每个 anchor 的偏移量 $\delta_i$ 和分类 logit $q_i \in \mathbb{R}^{C+1}$
-   - 匹配策略：通过二部图最大权匹配（Hungarian 算法）建立 anchor 到 ground-truth 核中心的一一映射，权重定义为 $w_{i,j} = q_i(c_j) - \alpha \|\hat{a}_i - b_j\|_2$，综合考虑分类置信度和位置距离
-   - 训练损失：$\mathcal{L}_{prompter} = \mathcal{L}_{reg} + \mathcal{L}_{cls} + \mathcal{L}_{aux}$
-     - 分类损失：$\mathcal{L}_{cls} = -\frac{1}{M}(\sum_{i=1}^N \log q_{\sigma(i)}(c_i) + \beta \sum_{a_i \in \mathcal{A}'} \log q_i(\varnothing))$
-     - 回归损失：$\mathcal{L}_{reg} = \frac{\gamma}{N} \sum_{i=1}^N \|\hat{a}_{\sigma(i)} - b_i\|_2$
-   - 设计动机：点 prompt 比 bounding box 更容易定位，且能更精确地分离接触的目标
+
+    - 做什么：自动预测每个细胞核的中心点坐标和类别，替代手工 prompt
+    - 核心思路：受 P2PNet 启发，在输入图像上放置均匀 anchor points（间距 $\lambda$ 像素），通过特征金字塔提取多尺度特征，用 MLP 预测每个 anchor 的偏移量 $\delta_i$ 和分类 logit $q_i \in \mathbb{R}^{C+1}$
+    - 匹配策略：通过二部图最大权匹配（Hungarian 算法）建立 anchor 到 ground-truth 核中心的一一映射，权重定义为 $w_{i,j} = q_i(c_j) - \alpha \|\hat{a}_i - b_j\|_2$，综合考虑分类置信度和位置距离
+    - 训练损失：$\mathcal{L}_{prompter} = \mathcal{L}_{reg} + \mathcal{L}_{cls} + \mathcal{L}_{aux}$
+      - 分类损失：$\mathcal{L}_{cls} = -\frac{1}{M}(\sum_{i=1}^N \log q_{\sigma(i)}(c_i) + \beta \sum_{a_i \in \mathcal{A}'} \log q_i(\varnothing))$
+      - 回归损失：$\mathcal{L}_{reg} = \frac{\gamma}{N} \sum_{i=1}^N \|\hat{a}_{\sigma(i)} - b_i\|_2$
+    - 设计动机：点 prompt 比 bounding box 更容易定位，且能更精确地分离接触的目标
 
 3. **辅助任务与 Mask-aided Prompt Filtering**:
-   - 做什么：引入细胞核区域分割辅助任务，提升 prompter 对前景区域的感知能力
-   - 核心思路：在 prompter 中增加一个简单的 mask head（Conv-BN-ReLU-Conv），从高分辨率特征 $P_2$ 预测核概率图 $\hat{S}$，用 focal loss 监督
-   - 推理时利用预测的核概率图过滤假阳性 prompt：仅保留概率 > 0.5 的 prompt
-   - 设计动机：prompter 训练仅涉及点标注和类别，辅助分割任务引入了核的大小、形态等丰富信息
+
+    - 做什么：引入细胞核区域分割辅助任务，提升 prompter 对前景区域的感知能力
+    - 核心思路：在 prompter 中增加一个简单的 mask head（Conv-BN-ReLU-Conv），从高分辨率特征 $P_2$ 预测核概率图 $\hat{S}$，用 focal loss 监督
+    - 推理时利用预测的核概率图过滤假阳性 prompt：仅保留概率 > 0.5 的 prompt
+    - 设计动机：prompter 训练仅涉及点标注和类别，辅助分割任务引入了核的大小、形态等丰富信息
 
 4. **Negative Prompts 解决重叠核分割**:
-   - 做什么：将相邻核作为 negative prompt 输入 SAM，抑制重叠区域的过分割
-   - 问题分析：对两个重叠核各用一个正 prompt 分割时，由于边界模糊会产生过分割 mask
-   - 关键发现：**仅在推理时加 negative prompt 无效**，因为只用正 prompt 微调会导致模型对 negative prompt 的"灾难性遗忘"
-   - 解决方案：在微调阶段就引入 negative prompt——对每个目标核，用其正 prompt $p_z$ 和 $K$ 个最近邻点 $\{n_{z,k}\}_{k=1}^K$ 作为 negative prompt 联合输入：$\widetilde{\mathcal{O}}_z = \mathcal{M}(\mathcal{F}(x), \mathcal{P}(\{p_z\} \cup \{n_{z,k}\}_{k=1}^K), [\text{mask}], [\text{IoU}])$
-   - 推理时同样用 prompter 预测的最近 $K$ 个点作为 negative prompt
+
+    - 做什么：将相邻核作为 negative prompt 输入 SAM，抑制重叠区域的过分割
+    - 问题分析：对两个重叠核各用一个正 prompt 分割时，由于边界模糊会产生过分割 mask
+    - 关键发现：**仅在推理时加 negative prompt 无效**，因为只用正 prompt 微调会导致模型对 negative prompt 的"灾难性遗忘"
+    - 解决方案：在微调阶段就引入 negative prompt——对每个目标核，用其正 prompt $p_z$ 和 $K$ 个最近邻点 $\{n_{z,k}\}_{k=1}^K$ 作为 negative prompt 联合输入：$\widetilde{\mathcal{O}}_z = \mathcal{M}(\mathcal{F}(x), \mathcal{P}(\{p_z\} \cup \{n_{z,k}\}_{k=1}^K), [\text{mask}], [\text{IoU}])$
+    - 推理时同样用 prompter 预测的最近 $K$ 个点作为 negative prompt
 
 ### 损失函数 / 训练策略
 

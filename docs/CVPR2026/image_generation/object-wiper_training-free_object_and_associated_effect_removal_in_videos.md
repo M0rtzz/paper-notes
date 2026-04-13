@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：视频物体移除是影视制作和隐私保护的关键技术。经典方法（PatchMatch/图割）和学习方法（Propainter）专注填充物体区域，完全忽视关联效应（阴影/反射）。近期扩散方法（VACE/Videopainter）也保留关联效应。
-2. **现有痛点**：(a) 几乎所有现有方法保留阴影/反射导致视觉伪影；(b) ROSE 能处理关联效应但需大量合成数据训练；(c) Omnimatte-Zero 从用户 mask 扩展关联区域但依赖外部点追踪模型（TAP-Net），在快速运动/透明物体下失败，且扩展策略次优。
-3. **核心矛盾**：物体移除不等于区域填充——必须同时移除物体的"视觉痕迹"（阴影、反射、镜像等）才算干净移除。
-4. **本文要解决什么**：无训练地同时移除物体及其所有关联视觉效应。
-5. **切入角度**：利用 MMDiT 中文本-视觉共享嵌入空间直接定位关联效应，不依赖外部模型。
-6. **核心idea一句话**：交叉注意力定位关联效应种子 → 自注意力精修 → 前景重初始化 + 注意力缩放 → 自适应时序 mask。
+**领域现状**：视频物体移除是影视制作和隐私保护的关键技术。经典方法（PatchMatch/图割）和学习方法（Propainter）专注填充物体区域，完全忽视关联效应（阴影/反射）。近期扩散方法（VACE/Videopainter）也保留关联效应。
+**现有痛点**：(a) 几乎所有现有方法保留阴影/反射导致视觉伪影；(b) ROSE 能处理关联效应但需大量合成数据训练；(c) Omnimatte-Zero 从用户 mask 扩展关联区域但依赖外部点追踪模型（TAP-Net），在快速运动/透明物体下失败，且扩展策略次优。
+**核心矛盾**：物体移除不等于区域填充——必须同时移除物体的"视觉痕迹"（阴影、反射、镜像等）才算干净移除。
+**本文要解决什么**：无训练地同时移除物体及其所有关联视觉效应。
+**切入角度**：利用 MMDiT 中文本-视觉共享嵌入空间直接定位关联效应，不依赖外部模型。
+**核心idea一句话**：交叉注意力定位关联效应种子 → 自注意力精修 → 前景重初始化 + 注意力缩放 → 自适应时序 mask。
 
 ## 方法详解
 
@@ -41,28 +41,33 @@ tags:
 ### 关键设计
 
 1. **关联效应定位**:
-   - 做什么：从视频中找出物体关联效应（阴影、反射等）的空间位置
-   - 核心思路：**两步法**——Step 1: 从 $T\to I$ 交叉注意力中提取与物体/效应文本 token 高相关的视觉 token：$\bar{\mathbf{A}}^{\tilde{T}\to I} = \text{Mean}(\text{Softmax}(\frac{\mathbf{Q}_{\tilde{T}}\cdot\mathbf{K}_I^\top}{\sqrt{d}}))$，Otsu 阈值得到提议 mask $m^{PRO}$。Step 2: 用视觉自注意力 $\mathbf{A}^{I\to I}$ 计算每个 token 对 $m^{PRO}$ 的响应比，阈值化得到最终 mask $\mathbf{M}^{AE}$
-   - 设计动机：(a) 仅用物体 mask 扩展（Omnimatte-Zero 做法）会遗漏弱激活区域；(b) 交叉注意力提供语义定位但不完整（内部有孔洞）；(c) 自注意力精修可以填补孔洞——如果隶属同一物体则必有高自注意力
-   - 与 Omnimatte-Zero 的区别：不依赖外部点追踪模型，利用 DiT 内在注意力更鲁棒
+
+    - 做什么：从视频中找出物体关联效应（阴影、反射等）的空间位置
+    - 核心思路：**两步法**——Step 1: 从 $T\to I$ 交叉注意力中提取与物体/效应文本 token 高相关的视觉 token：$\bar{\mathbf{A}}^{\tilde{T}\to I} = \text{Mean}(\text{Softmax}(\frac{\mathbf{Q}_{\tilde{T}}\cdot\mathbf{K}_I^\top}{\sqrt{d}}))$，Otsu 阈值得到提议 mask $m^{PRO}$。Step 2: 用视觉自注意力 $\mathbf{A}^{I\to I}$ 计算每个 token 对 $m^{PRO}$ 的响应比，阈值化得到最终 mask $\mathbf{M}^{AE}$
+    - 设计动机：(a) 仅用物体 mask 扩展（Omnimatte-Zero 做法）会遗漏弱激活区域；(b) 交叉注意力提供语义定位但不完整（内部有孔洞）；(c) 自注意力精修可以填补孔洞——如果隶属同一物体则必有高自注意力
+    - 与 Omnimatte-Zero 的区别：不依赖外部点追踪模型，利用 DiT 内在注意力更鲁棒
 
 2. **时步自适应 Masking**:
-   - 做什么：解决固定 mask 在噪声空间中覆盖不足的问题
-   - 核心思路：在反转过程中计算物体响应分数 $RS_p(j) = \frac{\sum_{y\in\mathbf{M}^{obj}(j)}A_{p,y}^{I\to I}}{\sum_{x\in\mathcal{I}(j)}A_{p,x}^{I\to I}}$，随时步增加物体"存在感"扩散，阈值化得到自适应 mask $\hat{M}_t^{obj}$
-   - 设计动机：反转到噪声分布的过程中，自注意力使物体影响持续扩散，固定 mask 无法完全覆盖
+
+    - 做什么：解决固定 mask 在噪声空间中覆盖不足的问题
+    - 核心思路：在反转过程中计算物体响应分数 $RS_p(j) = \frac{\sum_{y\in\mathbf{M}^{obj}(j)}A_{p,y}^{I\to I}}{\sum_{x\in\mathcal{I}(j)}A_{p,x}^{I\to I}}$，随时步增加物体"存在感"扩散，阈值化得到自适应 mask $\hat{M}_t^{obj}$
+    - 设计动机：反转到噪声分布的过程中，自注意力使物体影响持续扩散，固定 mask 无法完全覆盖
 
 3. **注意力缩放（Attention Scaling）**:
-   - 反转时：缩小背景对前景的注意力 $\tilde{\mathbf{A}}^{bg\to obj} = \text{Softmax}(\frac{\mathbf{Q}_I^{bg}\cdot(c\mathbf{K}_I^{obj})^\top}{\sqrt{d}})$，$c<1$
-   - 去噪时：放大前景对背景的注意力 $\tilde{\mathbf{A}}^{obj\to bg} = \text{Softmax}(\frac{\mathbf{Q}_I^{obj}\cdot(b\mathbf{K}_I^{bg})^\top}{\sqrt{d}})$，$b>1$
-   - 设计动机：反转时减少背景受前景"污染"，去噪时让前景（已重初始化）主动从背景获取语义
+
+    - 反转时：缩小背景对前景的注意力 $\tilde{\mathbf{A}}^{bg\to obj} = \text{Softmax}(\frac{\mathbf{Q}_I^{bg}\cdot(c\mathbf{K}_I^{obj})^\top}{\sqrt{d}})$，$c<1$
+    - 去噪时：放大前景对背景的注意力 $\tilde{\mathbf{A}}^{obj\to bg} = \text{Softmax}(\frac{\mathbf{Q}_I^{obj}\cdot(b\mathbf{K}_I^{bg})^\top}{\sqrt{d}})$，$b>1$
+    - 设计动机：反转时减少背景受前景"污染"，去噪时让前景（已重初始化）主动从背景获取语义
 
 4. **前景重初始化**:
-   - 做什么：在反转结果的前景区域替换为高斯噪声
-   - 核心思路：$\tilde{\mathbf{Z}}_1 = \mathbf{Z}_1\odot(1-\mathbf{M}^{obj}\cup\mathbf{M}^{AE}) + \varepsilon\odot(\mathbf{M}^{obj}\cup\mathbf{M}^{AE})$
-   - 设计动机：消除物体及其效应的任何残留先验
+
+    - 做什么：在反转结果的前景区域替换为高斯噪声
+    - 核心思路：$\tilde{\mathbf{Z}}_1 = \mathbf{Z}_1\odot(1-\mathbf{M}^{obj}\cup\mathbf{M}^{AE}) + \varepsilon\odot(\mathbf{M}^{obj}\cup\mathbf{M}^{AE})$
+    - 设计动机：消除物体及其效应的任何残留先验
 
 5. **TokSim 指标**:
-   - 核心思路：$\text{TokSim} = 100\cdot\frac{1}{F}\sum_z\sum_i \lambda_z^k\cdot(1-\eta_z^k)\cdot\tau_z^k$，其中 $\lambda$ 奖励时序一致、$\eta$ 惩罚物体残留、$\tau$ 奖励前景-背景融合
+
+    - 核心思路：$\text{TokSim} = 100\cdot\frac{1}{F}\sum_z\sum_i \lambda_z^k\cdot(1-\eta_z^k)\cdot\tau_z^k$，其中 $\lambda$ 奖励时序一致、$\eta$ 惩罚物体残留、$\tau$ 奖励前景-背景融合
 
 ### 损失函数 / 训练策略
 - 完全无训练，基于预训练 T2V DiT

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：当前 MLLM 在 STEM 领域的改进集中在推理能力——cold-start 数据、RL 训练、text-only thinking data 迁移。大量工作用 RL reward 来提升数学/科学推理。
-2. **现有痛点**：模型在 STEM 任务上失败时，不知道是感知不够还是推理不够。传统 benchmark 只测问题求解准确率，无法分离两种能力。
-3. **核心矛盾**：作者通过 scaling 实验揭示——将 STEM 推理解耦为 perception (image→caption) 和 reasoning (caption→answer)，独立 scale 两者时，perception scaling 始终优于 reasoning scaling。这表明感知才是真正的杠杆。
-4. **本文要解决什么？** 如何系统性提升 MLLM 在 STEM 领域的视觉感知能力？
-5. **切入角度**：自然语言描述 STEM 图像时存在"描述失语"——复杂空间关系、精确数值无法用自然语言完整表达。但可执行代码天然具有精确语义，与 STEM 图像的结构化特性高度匹配。
-6. **核心 idea 一句话**：用可执行 Python 代码作为 STEM 视觉感知的 ground truth 和训练媒介——能准确重构图像才证明真正理解了图像。
+**领域现状**：当前 MLLM 在 STEM 领域的改进集中在推理能力——cold-start 数据、RL 训练、text-only thinking data 迁移。大量工作用 RL reward 来提升数学/科学推理。
+**现有痛点**：模型在 STEM 任务上失败时，不知道是感知不够还是推理不够。传统 benchmark 只测问题求解准确率，无法分离两种能力。
+**核心矛盾**：作者通过 scaling 实验揭示——将 STEM 推理解耦为 perception (image→caption) 和 reasoning (caption→answer)，独立 scale 两者时，perception scaling 始终优于 reasoning scaling。这表明感知才是真正的杠杆。
+**本文要解决什么？** 如何系统性提升 MLLM 在 STEM 领域的视觉感知能力？
+**切入角度**：自然语言描述 STEM 图像时存在"描述失语"——复杂空间关系、精确数值无法用自然语言完整表达。但可执行代码天然具有精确语义，与 STEM 图像的结构化特性高度匹配。
+**核心 idea 一句话**：用可执行 Python 代码作为 STEM 视觉感知的 ground truth 和训练媒介——能准确重构图像才证明真正理解了图像。
 
 ## 方法详解
 
@@ -42,26 +42,30 @@ tags:
 ### 关键设计
 
 1. **Scaling 分析（关键发现）**：
-   - 做什么：将 STEM 推理解耦为 感知（MLLMcaptioner → 描述）和 推理（LLMsolver → 答案）两阶段
-   - 实验设计：固定一方用 4B 模型，另一方分别用 4B/8B/32B 模型，观测性能变化
-   - 关键结论：scaling perception 的提升始终大于 scaling reasoning。用 Qwen3-VL-Thinking 模型在 MathVision 上验证。这回答了一个长期存在的问题——STEM 失败的根因是感知
+
+    - 做什么：将 STEM 推理解耦为 感知（MLLMcaptioner → 描述）和 推理（LLMsolver → 答案）两阶段
+    - 实验设计：固定一方用 4B 模型，另一方分别用 4B/8B/32B 模型，观测性能变化
+    - 关键结论：scaling perception 的提升始终大于 scaling reasoning。用 Qwen3-VL-Thinking 模型在 MathVision 上验证。这回答了一个长期存在的问题——STEM 失败的根因是感知
 
 2. **ICC-1M 数据集构建（三条 pipeline）**：
-   - **Image Reproduce (IR)**：用 MLLM 为现有 STEM 图像生成重构代码——先 caption 理解内容，再据此 + 原图生成代码
-   - **Image Diversity (ID)**：从种子图像提取底层 STEM 原理，然后在不同视觉上下文中重新实例化（如从多米诺逻辑谜题→圆形多米诺轮、三角排列等），扩展多样性
-   - **Solid Geometry (SG)**：用参数化模板生成立体几何图像+代码，解决 LLM 无法生成准确 3D 空间代码的问题
-   - 统一质量控制：图像质量 + 代码质量 + 图像-代码一致性三重过滤
+
+    - **Image Reproduce (IR)**：用 MLLM 为现有 STEM 图像生成重构代码——先 caption 理解内容，再据此 + 原图生成代码
+    - **Image Diversity (ID)**：从种子图像提取底层 STEM 原理，然后在不同视觉上下文中重新实例化（如从多米诺逻辑谜题→圆形多米诺轮、三角排列等），扩展多样性
+    - **Solid Geometry (SG)**：用参数化模板生成立体几何图像+代码，解决 LLM 无法生成准确 3D 空间代码的问题
+    - 统一质量控制：图像质量 + 代码质量 + 图像-代码一致性三重过滤
 
 3. **Code-Grounded Caption Generation**：
-   - 做什么：利用可执行代码作为 ground truth 来生成精确 caption
-   - 核心思路：先生成 native caption（可能有幻觉）→ 分析代码+执行日志提取 verified visual facts → 用 visual facts 修正 caption 中的错误
-   - 亮点：execution tracer 自动记录几何坐标、数量、颜色等精确信息，解决代码复杂逻辑难以直接分析的问题
-   - 设计动机：直接让 MLLM 描述 STEM 图像会产生数值、空间关系的幻觉
+
+    - 做什么：利用可执行代码作为 ground truth 来生成精确 caption
+    - 核心思路：先生成 native caption（可能有幻觉）→ 分析代码+执行日志提取 verified visual facts → 用 visual facts 修正 caption 中的错误
+    - 亮点：execution tracer 自动记录几何坐标、数量、颜色等精确信息，解决代码复杂逻辑难以直接分析的问题
+    - 设计动机：直接让 MLLM 描述 STEM 图像会产生数值、空间关系的幻觉
 
 4. **STEM Image-to-Code Translation**：
-   - 做什么：训练模型从图像直接生成可执行重构代码
-   - 核心思路：先生成解释性代码草稿（有步骤说明但可能错误）→ 用 ground truth 代码修正错误，保留解释性结构
-   - 代码作为"结构化 caption"，与自然语言 caption 互补
+
+    - 做什么：训练模型从图像直接生成可执行重构代码
+    - 核心思路：先生成解释性代码草稿（有步骤说明但可能错误）→ 用 ground truth 代码修正错误，保留解释性结构
+    - 代码作为"结构化 caption"，与自然语言 caption 互补
 
 ### 训练策略
 

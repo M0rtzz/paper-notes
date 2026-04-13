@@ -47,26 +47,29 @@ tags:
 ### 关键设计
 
 1. **Part-Based Image Hierarchy 定义**:
-   - 全场景图像处于层次最高层，包含的 bounding box 构成下层
-   - 大 bounding box 若显著包围小 bounding box（≥80% 面积重叠），则构成 entailment 关系
-   - **图像内层次**：递归应用包含规则构建树（road scene → cyclist → bicycle → wheels）
-   - **跨图像层次**：对每个 bounding box，从其他图像采样 K 个同类 bounding box，建立全场景到跨图同类物体的 entailment
-   - 设计动机：仅需 bounding box + 类别标注（无需层次标注），即可自动构建复杂多层层次
+
+    - 全场景图像处于层次最高层，包含的 bounding box 构成下层
+    - 大 bounding box 若显著包围小 bounding box（≥80% 面积重叠），则构成 entailment 关系
+    - **图像内层次**：递归应用包含规则构建树（road scene → cyclist → bicycle → wheels）
+    - **跨图像层次**：对每个 bounding box，从其他图像采样 K 个同类 bounding box，建立全场景到跨图同类物体的 entailment
+    - 设计动机：仅需 bounding box + 类别标注（无需层次标注），即可自动构建复杂多层层次
 
 2. **Angle-Based Entailment Loss（双曲角度 entailment 损失）**:
-   - 给定 entailment 对 (x→y)，在双曲空间中最大化外角 $\beta_1$ 和 $\alpha_2$：
-     - $\beta_1(\mathbf{x}, \mathbf{y}) = \pi - \text{ext}(\mathbf{x}, \mathbf{y})$
-     - $\alpha_2(\mathbf{y}, \mathbf{x}) = \text{ext}(\mathbf{y}, \mathbf{x})$
-   - 外角通过 Lorentz 模型的内积计算：$\text{ext}(\mathbf{x}, \mathbf{y}) = \cos^{-1}\left(\frac{y_{\text{time}} + x_{\text{time}} c\langle\mathbf{x}, \mathbf{y}\rangle_{\mathbb{H}}}{\|\mathbf{x}_{\text{space}}\|\sqrt{(c\langle\mathbf{x}, \mathbf{y}\rangle_{\mathbb{H}})^2 - 1}}\right)$
-   - 使用 multi-positive InfoNCE 损失处理一个 parent 对应多个 child 的情况
-   - 双向损失：$L_{\text{angle}} = L^{p\to c}(\mathcal{D}, \beta_1) + L^{c\to p}(\mathcal{D}, \alpha_2)$
-   - 设计动机：角度度量提供径向轴上的额外自由度，允许嵌入沿树结构自然分布；双向约束比单向更稳定
+
+    - 给定 entailment 对 (x→y)，在双曲空间中最大化外角 $\beta_1$ 和 $\alpha_2$：
+      - $\beta_1(\mathbf{x}, \mathbf{y}) = \pi - \text{ext}(\mathbf{x}, \mathbf{y})$
+      - $\alpha_2(\mathbf{y}, \mathbf{x}) = \text{ext}(\mathbf{y}, \mathbf{x})$
+    - 外角通过 Lorentz 模型的内积计算：$\text{ext}(\mathbf{x}, \mathbf{y}) = \cos^{-1}\left(\frac{y_{\text{time}} + x_{\text{time}} c\langle\mathbf{x}, \mathbf{y}\rangle_{\mathbb{H}}}{\|\mathbf{x}_{\text{space}}\|\sqrt{(c\langle\mathbf{x}, \mathbf{y}\rangle_{\mathbb{H}})^2 - 1}}\right)$
+    - 使用 multi-positive InfoNCE 损失处理一个 parent 对应多个 child 的情况
+    - 双向损失：$L_{\text{angle}} = L^{p\to c}(\mathcal{D}, \beta_1) + L^{c\to p}(\mathcal{D}, \alpha_2)$
+    - 设计动机：角度度量提供径向轴上的额外自由度，允许嵌入沿树结构自然分布；双向约束比单向更稳定
 
 3. **Hierarchical Retrieval Evaluation（最优传输评估指标）**:
-   - 对每个查询图像 $I$，预计算其层次树 $\mathcal{H}_I$ 的标签分布 $\mathbf{h}_I$
-   - 计算检索标签分布 $\mathbf{r}_I$ 与 $\mathbf{h}_I$ 的 1-D Wasserstein 距离：$\text{OT}(\mathbf{h}_I, \mathbf{r}_I) = \text{Wasserstein}(\bar{\mathbf{h}}_I, \bar{\mathbf{r}}_I)$
-   - 较小距离表示更好的层次对齐
-   - 设计动机：标准 Recall@k 忽略类别分布不平衡问题，OT 距离衡量检索结果与真实层次分布的匹配度
+
+    - 对每个查询图像 $I$，预计算其层次树 $\mathcal{H}_I$ 的标签分布 $\mathbf{h}_I$
+    - 计算检索标签分布 $\mathbf{r}_I$ 与 $\mathbf{h}_I$ 的 1-D Wasserstein 距离：$\text{OT}(\mathbf{h}_I, \mathbf{r}_I) = \text{Wasserstein}(\bar{\mathbf{h}}_I, \bar{\mathbf{r}}_I)$
+    - 较小距离表示更好的层次对齐
+    - 设计动机：标准 Recall@k 忽略类别分布不平衡问题，OT 距离衡量检索结果与真实层次分布的匹配度
 
 ### 损失函数 / 训练策略
 

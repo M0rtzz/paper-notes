@@ -28,9 +28,9 @@ tags:
 
 调查记者频繁使用 OpenStreetMap (OSM) 进行地理位置验证，但现有工具存在显著门槛：
 
-1. **技术壁垒高**：Overpass Turbo 等工具要求用户掌握 OverpassQL 查询语言
-2. **现有 AI 工具不足**：GeoGuessr GPT 基于闭源模型且不支持 OSM 集成；GeoSpy 仅支持图像输入；EarthKit 需要手动选择 OSM 标签
-3. **OSM 标签体系复杂**：同一物体可能有多种标签表示方式，且标签组合才能描述一个概念
+**技术壁垒高**：Overpass Turbo 等工具要求用户掌握 OverpassQL 查询语言
+**现有 AI 工具不足**：GeoGuessr GPT 基于闭源模型且不支持 OSM 集成；GeoSpy 仅支持图像输入；EarthKit 需要手动选择 OSM 标签
+**OSM 标签体系复杂**：同一物体可能有多种标签表示方式，且标签组合才能描述一个概念
 
 核心挑战：将非结构化的、可能含有错别字和语法错误的自然语言场景描述，准确转换为 OSM 数据库查询。
 

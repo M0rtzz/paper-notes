@@ -24,16 +24,16 @@ tags:
 提出 sAwMIL（稀疏感知多实例学习）三类探测框架，结合 MIL 和保形预测，将 LLM 内部激活分类为 true/false/neither，揭示真假信号并非简单的双向对称编码，而是跨越多维子空间的分布式表征。
 
 ## 研究背景与动机
-1. **领域现状**：现有 veracity probing 方法（如 mean-difference、CCS、TTPD）通过线性探针分离 LLM 内部激活中的"真"和"假"方向，基于最后一个 token 的表征做二分类
-2. **现有痛点**：
+**领域现状**：现有 veracity probing 方法（如 mean-difference、CCS、TTPD）通过线性探针分离 LLM 内部激活中的"真"和"假"方向，基于最后一个 token 的表征做二分类
+**现有痛点**：
    - 假设真假编码是双向对称的（$P(\phi|K_\mathcal{M}) = 1 - P(\neg\phi|K_\mathcal{M})$），但实际证据不支持
    - 假设 LLM 知道所有事实，忽略模型可能根本没有某些知识的情况
    - 仅用最后一个 token 的表征，丢失了句子中关键位置（如事实实现点）的信号
    - 输出分数未经校准，不能作为可靠的置信度估计
    - 只有二分类（true/false），无法处理"模型不知道"的情况
-3. **核心矛盾**：二值逻辑无法准确描述 LLM 的内部知识状态——模型可能对某个陈述既不认为真也不认为假
-4. **切入角度**：引入三值逻辑（true/false/neither），用 MIL 机制关注句子中最关键的 token，而非固定使用最后一个 token
-5. **核心idea一句话**：用多实例学习让探针自动发现句子中承载真实性信号的关键位置，配合保形预测量化不确定性，实现三类分类
+**核心矛盾**：二值逻辑无法准确描述 LLM 的内部知识状态——模型可能对某个陈述既不认为真也不认为假
+**切入角度**：引入三值逻辑（true/false/neither），用 MIL 机制关注句子中最关键的 token，而非固定使用最后一个 token
+**核心idea一句话**：用多实例学习让探针自动发现句子中承载真实性信号的关键位置，配合保形预测量化不确定性，实现三类分类
 
 ## 方法详解
 
@@ -43,24 +43,28 @@ tags:
 ### 关键设计
 
 1. **稀疏感知多实例学习 (sAwMIL)**：
-   - 做什么：将整个句子视为一个"bag"，每个 token 的激活是一个"instance"，自动识别哪些 token 承载了真实性信号
-   - 核心思路：两阶段训练。第一阶段用 MIL-SVM 找到正例 bag 中得分最高的 instance，计算 $\eta$-分位数阈值。第二阶段只用阈值以上且属于"已实现部分"（actualized part）的 token 训练标准 SVM
-   - 设计动机：句子中只有事实关键词（如"Latvia"在"The city of Riga is in Latvia"中）承载真实性信号，前缀部分（"The city of Riga is in"）不包含判定信息。MIL 自动定位这些关键 token，无需人工标注
+
+    - 做什么：将整个句子视为一个"bag"，每个 token 的激活是一个"instance"，自动识别哪些 token 承载了真实性信号
+    - 核心思路：两阶段训练。第一阶段用 MIL-SVM 找到正例 bag 中得分最高的 instance，计算 $\eta$-分位数阈值。第二阶段只用阈值以上且属于"已实现部分"（actualized part）的 token 训练标准 SVM
+    - 设计动机：句子中只有事实关键词（如"Latvia"在"The city of Riga is in Latvia"中）承载真实性信号，前缀部分（"The city of Riga is in"）不包含判定信息。MIL 自动定位这些关键 token，无需人工标注
 
 2. **句内标签机制（Intra-bag Labels）**：
-   - 做什么：将句子分为 pre-actualized 部分 $\boldsymbol{x}^p$（标签0）和 actualized 部分 $\boldsymbol{x}^a$（标签1）
-   - 核心思路：$\eta$-分位数筛选后，再用 intra-bag 标签过滤，只保留 actualized 区域中得分高的 token
-   - 设计动机：防止 MIL 错误地把非关键位置的噪声信号当作真实性信号
+
+    - 做什么：将句子分为 pre-actualized 部分 $\boldsymbol{x}^p$（标签0）和 actualized 部分 $\boldsymbol{x}^a$（标签1）
+    - 核心思路：$\eta$-分位数筛选后，再用 intra-bag 标签过滤，只保留 actualized 区域中得分高的 token
+    - 设计动机：防止 MIL 错误地把非关键位置的噪声信号当作真实性信号
 
 3. **One-vs-All → 多类整合**：
-   - 训练三个独立的 sAwMIL 探针：is-true、is-false、is-neither
-   - 通过 softmax 回归将三个探针输出整合：$p_k = \frac{\exp(z_k)}{\sum_j \exp(z_j)}$，其中 $z_k = g_i^k(\boldsymbol{x}) \cdot \alpha_k + \beta_k$
-   - 最终得到校准后的三类概率分布
+
+    - 训练三个独立的 sAwMIL 探针：is-true、is-false、is-neither
+    - 通过 softmax 回归将三个探针输出整合：$p_k = \frac{\exp(z_k)}{\sum_j \exp(z_j)}$，其中 $z_k = g_i^k(\boldsymbol{x}) \cdot \alpha_k + \beta_k$
+    - 最终得到校准后的三类概率分布
 
 4. **保形预测 (Conformal Prediction)**：
-   - 做什么：将 SVM 原始距离分数转换为有统计保证的预测集
-   - 核心思路：构造非一致性分数，确保预测集以 $1-\alpha$ 的概率覆盖真实标签
-   - 设计动机：SVM 距离分数不是校准的概率，直接用 sigmoid 压缩也不可靠
+
+    - 做什么：将 SVM 原始距离分数转换为有统计保证的预测集
+    - 核心思路：构造非一致性分数，确保预测集以 $1-\alpha$ 的概率覆盖真实标签
+    - 设计动机：SVM 距离分数不是校准的概率，直接用 sigmoid 压缩也不可靠
 
 ## 实验关键数据
 

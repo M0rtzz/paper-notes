@@ -48,9 +48,10 @@ tags:
 2. **低秩参数化**：直接学习$h \times w$（288×480=138K参数）的prompt代价太大。论文提出rank-1外积表示：将prompt参数化为一个$h$维向量和一个$w$维向量的外积，只需$h+w=768$个参数（不到0.1%的模型参数增量）。实验表明rank-1效果与全秩矩阵相当。
 
 3. **三种部署配置**：
-   - **LC（仅prompt）**：整个预测器完全冻结，只学prompt，最快速适应，适合短时瞬态事件
-   - **LC + Joint FT**：K个场景各有独立prompt，但共享一个微调的预测头，更紧凑
-   - **LC + Per-Scene FT**：每个场景独立学prompt和预测头，性能最强
+
+    - **LC（仅prompt）**：整个预测器完全冻结，只学prompt，最快速适应，适合短时瞬态事件
+    - **LC + Joint FT**：K个场景各有独立prompt，但共享一个微调的预测头，更紧凑
+    - **LC + Per-Scene FT**：每个场景独立学prompt和预测头，性能最强
 
 ### 损失函数 / 训练策略
 - 使用与预训练相同的二值交叉熵损失：$\ell = \sum_\tau \text{BCE}(\mathcal{P}([\tilde{\mathbf{M}}_{\tau-H:\tau}, S]), \mathbf{M}_{\tau+1:\tau+T})$

@@ -44,16 +44,18 @@ tags:
 ### 关键设计
 
 1. **7D高斯表示**：每个场景元素的完整7D协方差矩阵通过 Cholesky 分解 $\Sigma = LL^\top$ 参数化，保证正定性。交叉协方差块 $\Sigma_{pt}$（空间-时间）、$\Sigma_{pd}$（空间-方向）、$\Sigma_{td}$（时间-方向）自然建模三维度的耦合关系。
-   - **设计动机**：移动镜面高光需要同时感知位置、时间和方向的变化，单独建模无法捕捉这种耦合。
+
+    - **设计动机**：移动镜面高光需要同时感知位置、时间和方向的变化，单独建模无法捕捉这种耦合。
 
 2. **条件切片机制**：给定观测时间 $t$ 和视角 $d$，利用多元高斯条件分布公式得到空间分量的条件分布：
-   $$\mu_{cond} = \mu_p + \Sigma_{p,(t,d)} \Sigma_{(t,d)}^{-1} \begin{pmatrix} t - \mu_t \\ d - \mu_d \end{pmatrix}$$
-   $$\Sigma_{cond} = \Sigma_p - \Sigma_{p,(t,d)} \Sigma_{(t,d)}^{-1} \Sigma_{p,(t,d)}^\top$$
+    $\mu_{cond} = \mu_p + \Sigma_{p,(t,d)} \Sigma_{(t,d)}^{-1} \begin{pmatrix} t - \mu_t \\ d - \mu_d \end{pmatrix}$
+    $\Sigma_{cond} = \Sigma_p - \Sigma_{p,(t,d)} \Sigma_{(t,d)}^{-1} \Sigma_{p,(t,d)}^\top$
    同时通过时间和方向调制因子修正不透明度 $\alpha_{cond} = \alpha \cdot f_{temp} \cdot f_{dir}$。
-   - **设计动机**：该操作数学上精确，无近似误差，且产出的3D高斯可直接复用3DGS的高效光栅化。
+    - **设计动机**：该操作数学上精确，无近似误差，且产出的3D高斯可直接复用3DGS的高效光栅化。
 
 3. **自适应高斯精化（AGR）**：用轻量MLP（$C_{in} \times 64 \times C_{out}$）从特征向量 $f = \mu_p \oplus \mu_t \oplus \mu_d \oplus \gamma(t)$ 预测残差修正 $\Delta\mu_p, \Delta\mu_t, \Delta\mu_d, \Delta l$，在条件切片前动态调整高斯参数，以建模非刚性变形等复杂运动。
-   - **设计动机**：条件切片保持高斯形状不随时间变化，AGR弥补了这一局限，使得同一高斯在不同时刻可以表现出不同的空间形状。
+
+    - **设计动机**：条件切片保持高斯形状不随时间变化，AGR弥补了这一局限，使得同一高斯在不同时刻可以表现出不同的空间形状。
 
 ### 损失函数 / 训练策略
 - 使用与3DGS相同的损失函数（L1 + SSIM）、优化器和超参数

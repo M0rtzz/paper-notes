@@ -40,19 +40,22 @@ tags:
 
 ### 关键设计
 1. **LM优化器适配3DGS**:
-   - 做什么：将3DGS的渲染损失重构为平方和形式，适配LM算法
-   - 核心思路：将L1和SSIM损失取平方根得到残差形式 $r_i^{abs} = \sqrt{\lambda_1|c_i - C_i|}$ 和 $r_i^{SSIM} = \sqrt{\lambda_2(1 - \text{SSIM}(c_i, C_i))}$，目标函数保持不变但符合LM的平方和要求。每次迭代通过求解正规方程 $(\mathbf{J}^T\mathbf{J} + \lambda_{reg}\text{diag}(\mathbf{J}^T\mathbf{J}))\Delta = -\mathbf{J}^T\mathbf{F}(\mathbf{x})$ 获得更新方向
-   - 设计动机：LM通过近似二阶更新，一次迭代的更新质量远高于ADAM，只需5次迭代vs 10K次
+
+    - 做什么：将3DGS的渲染损失重构为平方和形式，适配LM算法
+    - 核心思路：将L1和SSIM损失取平方根得到残差形式 $r_i^{abs} = \sqrt{\lambda_1|c_i - C_i|}$ 和 $r_i^{SSIM} = \sqrt{\lambda_2(1 - \text{SSIM}(c_i, C_i))}$，目标函数保持不变但符合LM的平方和要求。每次迭代通过求解正规方程 $(\mathbf{J}^T\mathbf{J} + \lambda_{reg}\text{diag}(\mathbf{J}^T\mathbf{J}))\Delta = -\mathbf{J}^T\mathbf{F}(\mathbf{x})$ 获得更新方向
+    - 设计动机：LM通过近似二阶更新，一次迭代的更新质量远高于ADAM，只需5次迭代vs 10K次
 
 2. **缓存驱动的并行化方案**:
-   - 做什么：加速PCG算法中反复需要的Jacobian-向量积计算
-   - 核心思路：将梯度计算分解为三个独立阶段 $\frac{\partial r}{\partial x_i} = \frac{\partial r}{\partial c} \frac{\partial c}{\partial s} \frac{\partial s}{\partial x_i}$。关键观察是中间量 $T_s$, $\frac{\partial c}{\partial \alpha_s}$ 在PCG迭代中被重复计算多达18次。方案：一次性缓存这些中间梯度（buildCache），然后将并行模式从"逐像素"改为"逐像素-逐splat"，每个线程处理一条射线上的一个splat
-   - 设计动机：原始3DGS的逐像素并行需要每个线程遍历射线上所有splat，导致中间量的重复计算；缓存后解耦了splat，实现了更细粒度的并行
+
+    - 做什么：加速PCG算法中反复需要的Jacobian-向量积计算
+    - 核心思路：将梯度计算分解为三个独立阶段 $\frac{\partial r}{\partial x_i} = \frac{\partial r}{\partial c} \frac{\partial c}{\partial s} \frac{\partial s}{\partial x_i}$。关键观察是中间量 $T_s$, $\frac{\partial c}{\partial \alpha_s}$ 在PCG迭代中被重复计算多达18次。方案：一次性缓存这些中间梯度（buildCache），然后将并行模式从"逐像素"改为"逐像素-逐splat"，每个线程处理一条射线上的一个splat
+    - 设计动机：原始3DGS的逐像素并行需要每个线程遍历射线上所有splat，导致中间量的重复计算；缓存后解耦了splat，实现了更细粒度的并行
 
 3. **图像子采样方案**:
-   - 做什么：控制缓存大小以适配GPU显存限制
-   - 核心思路：将图像分成 $n_b$ 个batch，独立求解正规方程，然后用加权平均合并更新方向：$\Delta = \sum_{i=1}^{n_b} \frac{\mathbf{M}_i \Delta_i}{\sum_k \mathbf{M}_k}$，其中权重 $\mathbf{M}_i = \text{diag}(\mathbf{J}_i^T\mathbf{J}_i)$ 反映各高斯参数对渲染的贡献
-   - 设计动机：高分辨率稠密捕获场景的缓存可能超出GPU显存；加权平均比简单平均更合理
+
+    - 做什么：控制缓存大小以适配GPU显存限制
+    - 核心思路：将图像分成 $n_b$ 个batch，独立求解正规方程，然后用加权平均合并更新方向：$\Delta = \sum_{i=1}^{n_b} \frac{\mathbf{M}_i \Delta_i}{\sum_k \mathbf{M}_k}$，其中权重 $\mathbf{M}_i = \text{diag}(\mathbf{J}_i^T\mathbf{J}_i)$ 反映各高斯参数对渲染的贡献
+    - 设计动机：高分辨率稠密捕获场景的缓存可能超出GPU显存；加权平均比简单平均更合理
 
 ### 损失函数 / 训练策略
 - 使用与原始3DGS完全相同的L1+SSIM损失函数

@@ -28,9 +28,9 @@ tags:
 
 语音增强（Speech Enhancement, SE）旨在从含噪观测中恢复干净语音，深度学习方法可分为**预测式**（直接学习含噪到干净信号的映射）和**生成式**（对干净语音的条件分布建模）。近年来，基于 flow 和 diffusion 的生成式方法在 SE 中大量涌现，主要包括：
 
-1. **Score-based diffusion 模型**：通过 OU 过程或布朗桥设计 SDE 的漂移项，在干净和含噪信号之间建立扩散过程（SGMSE+、BBED 等）。
-2. **Schrödinger bridge（SB）**：在 Dirac 端点约束下优化路径测度，配合数据预测训练策略达到 SOTA（SBVE 等）。
-3. **Flow matching（FM）**：在含噪语音条件下构造概率路径，通过条件向量场实现高效采样（FlowSE 等）。
+**Score-based diffusion 模型**：通过 OU 过程或布朗桥设计 SDE 的漂移项，在干净和含噪信号之间建立扩散过程（SGMSE+、BBED 等）。
+**Schrödinger bridge（SB）**：在 Dirac 端点约束下优化路径测度，配合数据预测训练策略达到 SOTA（SBVE 等）。
+**Flow matching（FM）**：在含噪语音条件下构造概率路径，通过条件向量场实现高效采样（FlowSE 等）。
 
 然而，这些方法基于不同的理论基础（score matching、SB 优化、flow matching），**尚未在 SE 领域被统一到一个共同框架中**。此外，SB 模型中使用的数据预测目标暗示其与预测式方法存在内在联系，但这一联系在先前工作中**未被充分探索**。
 

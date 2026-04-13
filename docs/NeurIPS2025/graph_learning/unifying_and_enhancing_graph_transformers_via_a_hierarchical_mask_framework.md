@@ -51,13 +51,14 @@ M3Dphormer 包含三个核心组件：
 ### 关键设计
 
 1. **定理指导的掩码设计**：
-   - **Local mask** $\mathbf{M}^{l2} = \mathbf{A}$：采用 1-hop 邻接矩阵而非 $K$-hop。$K$ 增大时同质率 $\rho_c$ 快速下降，违背设计原则；且 $\mathbf{A}$ 更稀疏，利于双重计算方案。
-   - **Cluster mask** $\mathbf{M}^{c4}$：引入簇级虚拟节点 $\mathcal{V}^p$，掩码仅连接节点与其所属簇的虚拟节点。非零率从 $\mathbf{M}^{c3}$ 的 $1/P$ 降至 $3N/(N+P)^2$。Proposition 4.1 证明两层 $\mathbf{M}^{c4}$ 可等价建模一层 $\mathbf{M}^{c3}$ 的簇内交互。
-   - **Global mask** $\mathbf{M}^{g3}$：引入 $|\mathcal{Y}|$ 个全局虚拟节点，每个关联一个类标签。全局节点仅聚合对应类的训练节点特征。表示方差从 $\sigma^2$ 降至 $\sigma^2/n_c$，更集中于类均值，提高分类概率。
+
+    - **Local mask** $\mathbf{M}^{l2} = \mathbf{A}$：采用 1-hop 邻接矩阵而非 $K$-hop。$K$ 增大时同质率 $\rho_c$ 快速下降，违背设计原则；且 $\mathbf{A}$ 更稀疏，利于双重计算方案。
+    - **Cluster mask** $\mathbf{M}^{c4}$：引入簇级虚拟节点 $\mathcal{V}^p$，掩码仅连接节点与其所属簇的虚拟节点。非零率从 $\mathbf{M}^{c3}$ 的 $1/P$ 降至 $3N/(N+P)^2$。Proposition 4.1 证明两层 $\mathbf{M}^{c4}$ 可等价建模一层 $\mathbf{M}^{c3}$ 的簇内交互。
+    - **Global mask** $\mathbf{M}^{g3}$：引入 $|\mathcal{Y}|$ 个全局虚拟节点，每个关联一个类标签。全局节点仅聚合对应类的训练节点特征。表示方差从 $\sigma^2$ 降至 $\sigma^2/n_c$，更集中于类均值，提高分类概率。
 
 2. **双层注意力专家路由**：
    第一层门控 $\beta_1$ 决定 local expert 的权重，第二层门控 $\beta_2$ 在 cluster 和 global expert 间分配。初始权重 $[0.5, 0.25, 0.25]$（通过零初始化 $\mathbf{W}_G$ 实现），优先保证局部信息。不使用 top-k 选择，所有专家的输出都参与加权聚合：
-   $$\text{BiMoE} = \beta_1 \cdot \text{MHA}^D(\mathbf{M}^{l2}) + (1-\beta_1)\beta_2 \cdot \text{MHA}^D(\mathbf{M}^{c4}) + (1-\beta_1)(1-\beta_2) \cdot \text{MHA}^D(\mathbf{M}^{g3})$$
+    $\text{BiMoE} = \beta_1 \cdot \text{MHA}^D(\mathbf{M}^{l2}) + (1-\beta_1)\beta_2 \cdot \text{MHA}^D(\mathbf{M}^{c4}) + (1-\beta_1)(1-\beta_2) \cdot \text{MHA}^D(\mathbf{M}^{g3})$
 
 3. **双重注意力计算方案**：
    将掩码分区后，根据 Proposition 4.2 判断每个区域的最优模式：当非零率 $\kappa < 1/(3d_h)$ 时用稀疏计算，否则用稠密计算。稀疏模式空间复杂度为 $O(6mHd_h)$（$m$ 为非零entries数），避免了 $O(N^2)$ 的全注意力矩阵。

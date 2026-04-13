@@ -27,11 +27,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：层次结构在CV和ML中无处不在——分类学、3D物体、神经网络架构、语言结构等。但标准降维方法（如PCA/SVD）会丢弃层次信息。
+**领域现状**：层次结构在CV和ML中无处不在——分类学、3D物体、神经网络架构、语言结构等。但标准降维方法（如PCA/SVD）会丢弃层次信息。
 
-2. **现有痛点**：SVD和QR分解各有局限——SVD能恢复整体子空间但不保持内部嵌套关系；QR保持局部顺序但可能遗漏远处的数据列。均无法同时恢复完整的层次保持flag。
+**现有痛点**：SVD和QR分解各有局限——SVD能恢复整体子空间但不保持内部嵌套关系；QR保持局部顺序但可能遗漏远处的数据列。均无法同时恢复完整的层次保持flag。
 
-3. **核心idea**：设计一种通用矩阵分解 $\mathbf{D} = \mathbf{Q}\mathbf{R}\mathbf{P}^\top$，其中 $\mathbf{Q}$ 是Stiefel坐标表示的层次保持flag，$\mathbf{R}$ 是块上三角矩阵，$\mathbf{P}$ 是置换矩阵。通过迭代投影和正交化（Flag-BMGS算法）恢复flag。
+**核心idea**：设计一种通用矩阵分解 $\mathbf{D} = \mathbf{Q}\mathbf{R}\mathbf{P}^\top$，其中 $\mathbf{Q}$ 是Stiefel坐标表示的层次保持flag，$\mathbf{R}$ 是块上三角矩阵，$\mathbf{P}$ 是置换矩阵。通过迭代投影和正交化（Flag-BMGS算法）恢复flag。
 
 ## 方法详解
 
@@ -42,19 +42,22 @@ tags:
 ### 关键设计
 
 1. **层次保持Flag的定义与存在性**：
-   - 核心概念：flag $[[\mathbf{X}]] = [\mathbf{X}_1] \subset [\mathbf{X}_1, \mathbf{X}_2] \subset \cdots$ 是嵌套子空间序列
-   - Prop.1证明：给定列层次，总存在满足投影性质 $\Pi_{\mathbf{Q}_i^\perp}\cdots\Pi_{\mathbf{Q}_1^\perp}\mathbf{B}_i = 0$ 的flag坐标
-   - 关键区别于SVD/QR：FD既能处理秩亏矩阵（SVD不行），又能保持任意类型的层次签名（QR不行）
+
+    - 核心概念：flag $[[\mathbf{X}]] = [\mathbf{X}_1] \subset [\mathbf{X}_1, \mathbf{X}_2] \subset \cdots$ 是嵌套子空间序列
+    - Prop.1证明：给定列层次，总存在满足投影性质 $\Pi_{\mathbf{Q}_i^\perp}\cdots\Pi_{\mathbf{Q}_1^\perp}\mathbf{B}_i = 0$ 的flag坐标
+    - 关键区别于SVD/QR：FD既能处理秩亏矩阵（SVD不行），又能保持任意类型的层次签名（QR不行）
 
 2. **Flag-BMGS算法**：
-   - 做什么：从（可能含噪的）数据中恢复层次保持flag
-   - 核心思路：受Block Modified Gram-Schmidt启发，迭代地：(1) 生成置换矩阵按层次重排列；(2) 对每一层 $i$，将 $\mathbf{B}_i$ 投影到前面所有 $\mathbf{Q}_1,...,\mathbf{Q}_{i-1}$ 的正交补空间；(3) 对投影结果做截断SVD得到 $\mathbf{Q}_i$
-   - 鲁棒版本（RFD）：用 $L_1$ 惩罚（$q=1$）替代 $L_2$（$q=2$），通过IRLS-SVD求解，对含异常列的数据更鲁棒
+
+    - 做什么：从（可能含噪的）数据中恢复层次保持flag
+    - 核心思路：受Block Modified Gram-Schmidt启发，迭代地：(1) 生成置换矩阵按层次重排列；(2) 对每一层 $i$，将 $\mathbf{B}_i$ 投影到前面所有 $\mathbf{Q}_1,...,\mathbf{Q}_{i-1}$ 的正交补空间；(3) 对投影结果做截断SVD得到 $\mathbf{Q}_i$
+    - 鲁棒版本（RFD）：用 $L_1$ 惩罚（$q=1$）替代 $L_2$（$q=2$），通过IRLS-SVD求解，对含异常列的数据更鲁棒
 
 3. **应用：Flag原型的小样本学习**：
-   - 做什么：用flag作为类原型替代传统均值原型
-   - 核心思路：对预训练特征提取器的中间层和最终层特征构建层次数据矩阵，用FD获得flag原型。用flag弦距离（各层Grassmannian弦距离之和的平方根）度量query到原型的距离
-   - 距离公式：$\|\Pi_{\mathbf{Q}_1^{(c)\perp}} f_\Theta^{(1)}(x)\|_2^2 + \|\Pi_{\mathbf{Q}_2^{(c)\perp}} f_\Theta(x)\|_2^2$
+
+    - 做什么：用flag作为类原型替代传统均值原型
+    - 核心思路：对预训练特征提取器的中间层和最终层特征构建层次数据矩阵，用FD获得flag原型。用flag弦距离（各层Grassmannian弦距离之和的平方根）度量query到原型的距离
+    - 距离公式：$\|\Pi_{\mathbf{Q}_1^{(c)\perp}} f_\Theta^{(1)}(x)\|_2^2 + \|\Pi_{\mathbf{Q}_2^{(c)\perp}} f_\Theta(x)\|_2^2$
 
 ## 实验关键数据
 

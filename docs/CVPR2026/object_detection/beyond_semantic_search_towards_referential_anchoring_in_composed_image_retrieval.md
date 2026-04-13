@@ -25,11 +25,11 @@ tags:
 提出Object-Anchored Composed Image Retrieval（OACIR）新任务和OACIRR大规模基准（160K+四元组），以及AdaFocal框架通过上下文感知注意力调制器自适应地增强对锚定实例区域的关注，在实例级检索保真度上大幅超越现有方法。
 
 ## 研究背景与动机
-1. **领域现状**：组合图像检索（CIR）通过参考图像+修改文本的多模态查询实现灵活检索，在电商和交互搜索中广泛应用。
-2. **核心痛点**：CIR本质上优先语义匹配，参考图像仅作为粗粒度视觉锚点——在存在视觉相似干扰项时，**无法可靠地检索用户指定的特定实例**。
-3. **实际需求**：数字记忆检索、长期身份追踪等场景中，保证**具体实例的保真度**比宽泛语义对齐更为关键。
-4. **核心矛盾**：需要同时完成（1）三源信息的组合推理（锚定实例+全局场景+文本修改）和（2）从充满视觉相似干扰项的gallery中精确区分目标实例。
-5. **核心idea**：通过显式的bounding box视觉锚定 + 自适应注意力增强机制，将CIR从语义级提升到实例级。
+**领域现状**：组合图像检索（CIR）通过参考图像+修改文本的多模态查询实现灵活检索，在电商和交互搜索中广泛应用。
+**核心痛点**：CIR本质上优先语义匹配，参考图像仅作为粗粒度视觉锚点——在存在视觉相似干扰项时，**无法可靠地检索用户指定的特定实例**。
+**实际需求**：数字记忆检索、长期身份追踪等场景中，保证**具体实例的保真度**比宽泛语义对齐更为关键。
+**核心矛盾**：需要同时完成（1）三源信息的组合推理（锚定实例+全局场景+文本修改）和（2）从充满视觉相似干扰项的gallery中精确区分目标实例。
+**核心idea**：通过显式的bounding box视觉锚定 + 自适应注意力增强机制，将CIR从语义级提升到实例级。
 
 ## 方法详解
 
@@ -40,21 +40,23 @@ tags:
 
 ### 关键设计
 1. **Context-Aware Attention Modulator (CAAM)**：
-   - 将参考图像和修改文本编入多模态编码器，同时注入 $K$ 个可学习的**上下文探针token**
-   - 探针token通过与多模态输入的交互学习上下文线索
-   - Transformer-based CRM（Contextual Reasoning Module）聚合推理后，线性映射输出**调制标量 $\beta$**
-   - **设计动机**：实例关注的强度应随查询上下文动态变化——如果修改文本要求大幅场景变化，应适度放宽实例关注；如果仅改变背景，应强化实例关注
+
+    - 将参考图像和修改文本编入多模态编码器，同时注入 $K$ 个可学习的**上下文探针token**
+    - 探针token通过与多模态输入的交互学习上下文线索
+    - Transformer-based CRM（Contextual Reasoning Module）聚合推理后，线性映射输出**调制标量 $\beta$**
+    - **设计动机**：实例关注的强度应随查询上下文动态变化——如果修改文本要求大幅场景变化，应适度放宽实例关注；如果仅改变背景，应强化实例关注
 
 2. **Attention Activation Mechanism**：
    在查询分支的交叉注意力中，将 $\beta$ 作为动态偏置注入：
-   $$\{\hat{q}_m\} = \text{Softmax}\left(\frac{QK^T + \beta \cdot M_{B_r}}{\sqrt{d_k}}\right)V$$
+    $\{\hat{q}_m\} = \text{Softmax}\left(\frac{QK^T + \beta \cdot M_{B_r}}{\sqrt{d_k}}\right)V$
    其中 $M_{B_r}$ 是与bounding box空间对齐的二值mask。$\beta>0$ 增强实例区域注意力，实现自适应聚焦。
 
 3. **OACIRR基准构建**（四阶段流水线）：
-   - **图像对收集**：从DeepFashion2、Stanford Cars、Products-10K、Google Landmarks v2提取同实例跨语境图像对
-   - **图像对过滤**：去除过于相似的对（防止捷径学习）+ 过滤类别中心图像
-   - **四元组标注**：MLLM生成修改文本 + Grounding模型标注bounding box
-   - **Gallery构建**：定向挖掘hard-negative（类别相关但实例不同的干扰项）
+
+    - **图像对收集**：从DeepFashion2、Stanford Cars、Products-10K、Google Landmarks v2提取同实例跨语境图像对
+    - **图像对过滤**：去除过于相似的对（防止捷径学习）+ 过滤类别中心图像
+    - **四元组标注**：MLLM生成修改文本 + Grounding模型标注bounding box
+    - **Gallery构建**：定向挖掘hard-negative（类别相关但实例不同的干扰项）
 
 ### 损失函数 / 训练策略
 - Contrastive Alignment Loss：batch内对比学习，最大化正确查询-目标对的余弦相似度

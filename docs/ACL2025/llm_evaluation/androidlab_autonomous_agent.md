@@ -37,21 +37,24 @@ AndroidLab = 统一操作环境 + 可复现Benchmark + Android Instruct训练数
 ### 关键设计
 
 1. **统一操作模式**: 
-   - **XML模式（纯文本LLM）**: Agent接收UI树的XML描述，输出动作
-   - **SoM模式（多模态LMM）**: Agent接收带Set-of-Mark标注的屏幕截图，输出动作
-   - 两种模式共享**完全相同的动作空间**（Tap/Swipe/Type/Long Press/Press Key/Finish），确保公平比较
-   - 每种模式都可用ReAct或SeeAct推理框架
+
+    - **XML模式（纯文本LLM）**: Agent接收UI树的XML描述，输出动作
+    - **SoM模式（多模态LMM）**: Agent接收带Set-of-Mark标注的屏幕截图，输出动作
+    - 两种模式共享**完全相同的动作空间**（Tap/Swipe/Type/Long Press/Press Key/Finish），确保公平比较
+    - 每种模式都可用ReAct或SeeAct推理框架
 
 2. **可复现Benchmark**: 
-   - 9个预安装App（Clock, Settings, Contacts, Calendar, Bluecoins, Pi Music, MAPS.ME, Zoom, Cantook）
-   - 138个任务，每个任务拆分为多个子目标（sub-goals），通过UI树结构匹配验证完成度
-   - 使用Android虚拟设备+离线数据，消除网络和时间依赖
+
+    - 9个预安装App（Clock, Settings, Contacts, Calendar, Bluecoins, Pi Music, MAPS.ME, Zoom, Cantook）
+    - 138个任务，每个任务拆分为多个子目标（sub-goals），通过UI树结构匹配验证完成度
+    - 使用Android虚拟设备+离线数据，消除网络和时间依赖
 
 3. **评估指标**: 
-   - **Success Rate**: 整体任务完成率
-   - **Sub-Goal Success Rate**: 子目标完成率（更细粒度）
-   - **Reversed Redundancy**: 衡量操作效率（冗余步骤比例）
-   - **Reasonable Operation**: 合理操作占比
+
+    - **Success Rate**: 整体任务完成率
+    - **Sub-Goal Success Rate**: 子目标完成率（更细粒度）
+    - **Reversed Redundancy**: 衡量操作效率（冗余步骤比例）
+    - **Reasonable Operation**: 合理操作占比
 
 4. **Android Instruct数据集**: 在线标注工具收集10.5k条轨迹、94.3k步操作。用于SFT的子集包含726条轨迹、6208步操作，同时包含XML和SoM格式。
 

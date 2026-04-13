@@ -29,9 +29,9 @@ tags:
 
 传统 SLAM/SfM 系统依赖极线约束，本质假设场景是静态的。当场景包含运动物体时，极线约束被违反，导致系统失效。现有应对策略各有缺陷：
 
-1. **过滤动态元素**：检测并移除运动物体后再做 BA → 重建不完整，丢失动态物体信息
-2. **独立建模运动**：分别估计相机和物体运动 → 运动估计容易不一致
-3. **单目深度回归**：利用深度先验逐帧重建 → 帧间深度尺度不一致，难以全局对齐
+**过滤动态元素**：检测并移除运动物体后再做 BA → 重建不完整，丢失动态物体信息
+**独立建模运动**：分别估计相机和物体运动 → 运动估计容易不一致
+**单目深度回归**：利用深度先验逐帧重建 → 帧间深度尺度不一致，难以全局对齐
 
 BA-Track 的核心洞察：不是丢弃动态点，而是**推断动态点的相机引起运动分量**。动态点在其局部参考系中变为"伪静态"，极线约束重新适用于所有点。
 
@@ -47,29 +47,32 @@ BA-Track 包含三个阶段：
 ### 关键设计
 
 1. **运动解耦 3D 追踪器**
-   - 使用双网络架构而非单网络：
-     - 追踪器 $\mathcal{T}$（6 层 Transformer）：预测**总运动** $X_{total}$、可见性 $v$ 和静态/动态标签 $m$
-     - 动态追踪器 $\mathcal{T}_{dyn}$（3 层 Transformer，更轻量）：预测**动态分量** $X_{dyn}$
-   - 运动解耦公式：$X_{static} = X_{total} - m \cdot X_{dyn}$
-   - $m$ 作为门控因子：$m=0$（静态点）时静态分量 = 总运动；$m=1$（动态点）时减去物体运动
-   - 输入包含 RGB 特征和深度特征（来自单目深度模型 ZoeDepth），增强 3D 推理能力
-   - 设计动机：实验发现单网络同时学习视觉追踪和运动模式是次优的，双网络分工更有效
+
+    - 使用双网络架构而非单网络：
+      - 追踪器 $\mathcal{T}$（6 层 Transformer）：预测**总运动** $X_{total}$、可见性 $v$ 和静态/动态标签 $m$
+      - 动态追踪器 $\mathcal{T}_{dyn}$（3 层 Transformer，更轻量）：预测**动态分量** $X_{dyn}$
+    - 运动解耦公式：$X_{static} = X_{total} - m \cdot X_{dyn}$
+    - $m$ 作为门控因子：$m=0$（静态点）时静态分量 = 总运动；$m=1$（动态点）时减去物体运动
+    - 输入包含 RGB 特征和深度特征（来自单目深度模型 ZoeDepth），增强 3D 推理能力
+    - 设计动机：实验发现单网络同时学习视觉追踪和运动模式是次优的，双网络分工更有效
 
 2. **RGB-D Bundle Adjustment**
-   - 基于 DPVO 框架扩展为 RGB-D BA
-   - 滑动窗口提取查询点的 3D 轨迹，得到局部轨迹张量 $\mathbf{X} \in \mathbb{R}^{L \times N \times S \times 3}$
-   - 重投影误差：
-   $$\arg\min_{\{\mathbf{T}_t\},\{\mathbf{Y}\}} \sum_{|i-j|\leq S} \sum_n W_n^i(j) \|\mathcal{P}_j(\mathbf{x}_n^i, y_n^i) - X_n^t(j)\|_\rho + \alpha \|y_n^i - d(\mathbf{X}_n^i)\|^2$$
-   - 置信权重 $W_n^i(j) = v_n^i(j) \cdot (1 - m_n^i)$：动态点权重低，主要依靠静态点恢复位姿
-   - 用 Gauss-Newton + Schur 分解高效求解
+
+    - 基于 DPVO 框架扩展为 RGB-D BA
+    - 滑动窗口提取查询点的 3D 轨迹，得到局部轨迹张量 $\mathbf{X} \in \mathbb{R}^{L \times N \times S \times 3}$
+    - 重投影误差：
+    $\arg\min_{\{\mathbf{T}_t\},\{\mathbf{Y}\}} \sum_{|i-j|\leq S} \sum_n W_n^i(j) \|\mathcal{P}_j(\mathbf{x}_n^i, y_n^i) - X_n^t(j)\|_\rho + \alpha \|y_n^i - d(\mathbf{X}_n^i)\|^2$
+    - 置信权重 $W_n^i(j) = v_n^i(j) \cdot (1 - m_n^i)$：动态点权重低，主要依靠静态点恢复位姿
+    - 用 Gauss-Newton + Schur 分解高效求解
 
 3. **全局深度精炼**
-   - BA 仅调整稀疏查询点的深度，其余点未被优化
-   - 引入 2D 尺度网格 $\theta_t \in \mathbb{R}^{H_g \times W_g}$（分辨率低于原图），对深度图做逐像素缩放：
-   $$\hat{D}_t[\mathbf{x}] = \theta_t[\mathbf{x}] \cdot D_t[\mathbf{x}]$$
-   - 深度一致性损失：对齐稠密深度与稀疏 BA 轨迹
-   - 场景刚性损失：静态点之间的 3D 距离在帧间保持不变
-   $$\mathcal{L}_{rigid} = \sum_{|i-j|<S} \sum_{(a,b) \in N} W_{static}(\|P_a^i(j) - P_b^i(j)\| - \|P_a^i - P_b^i\|)$$
+
+    - BA 仅调整稀疏查询点的深度，其余点未被优化
+    - 引入 2D 尺度网格 $\theta_t \in \mathbb{R}^{H_g \times W_g}$（分辨率低于原图），对深度图做逐像素缩放：
+    $\hat{D}_t[\mathbf{x}] = \theta_t[\mathbf{x}] \cdot D_t[\mathbf{x}]$
+    - 深度一致性损失：对齐稠密深度与稀疏 BA 轨迹
+    - 场景刚性损失：静态点之间的 3D 距离在帧间保持不变
+    $\mathcal{L}_{rigid} = \sum_{|i-j|<S} \sum_{(a,b) \in N} W_{static}(\|P_a^i(j) - P_b^i(j)\| - \|P_a^i - P_b^i\|)$
 
 ### 损失函数 / 训练策略
 

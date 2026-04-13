@@ -25,12 +25,12 @@ HRPO 提出混合潜在推理策略优化：通过可学习的门控机制将前
 
 ## 研究背景与动机
 
-1. **领域现状**：潜在推理（Latent Reasoning）作为 CoT 的替代方案正受到关注。Coconut 等方法将模型最后一层的隐藏状态作为"连续思维"反馈为下一步输入，在推理任务上取得了不错效果。但这类方法普遍依赖 CoT 轨迹进行训练。
-2. **现有痛点**：(1) 现有潜在推理方法（如 Coconut、CODI）需要大量 CoT 标注数据进行多阶段训练，成本高且无法利用 LLM 本身的内在推理能力；(2) 直接将隐藏状态作为下一步的输入会破坏生成质量（重复、不连贯），因为隐藏状态和 token embedding 位于不同的表示空间。
-3. **核心矛盾**：潜在推理需要连续表示以获得更丰富的信息，但 LLM 的自回归生成本质上是离散的。直接桥接两者会导致分布不匹配，破坏模型的生成能力。
-4. **本文要解决什么？** 如何在不需要 CoT 标注的情况下，让现有 LLM 同时利用离散 token 和连续隐藏状态进行推理？
-5. **切入角度**：设计一个门控机制，在 token embedding 中逐步混入隐藏状态信息，初始时几乎完全使用 token embedding（保持生成质量），训练过程中通过 RL 自动学习何时、多少地融入潜在表示。
-6. **核心idea一句话**：用门控机制渐进融合离散 token 和连续隐藏状态，并通过 RL（而非 CoT 蒸馏）让 LLM 自主学习混合推理策略。
+**领域现状**：潜在推理（Latent Reasoning）作为 CoT 的替代方案正受到关注。Coconut 等方法将模型最后一层的隐藏状态作为"连续思维"反馈为下一步输入，在推理任务上取得了不错效果。但这类方法普遍依赖 CoT 轨迹进行训练。
+**现有痛点**：(1) 现有潜在推理方法（如 Coconut、CODI）需要大量 CoT 标注数据进行多阶段训练，成本高且无法利用 LLM 本身的内在推理能力；(2) 直接将隐藏状态作为下一步的输入会破坏生成质量（重复、不连贯），因为隐藏状态和 token embedding 位于不同的表示空间。
+**核心矛盾**：潜在推理需要连续表示以获得更丰富的信息，但 LLM 的自回归生成本质上是离散的。直接桥接两者会导致分布不匹配，破坏模型的生成能力。
+**本文要解决什么？** 如何在不需要 CoT 标注的情况下，让现有 LLM 同时利用离散 token 和连续隐藏状态进行推理？
+**切入角度**：设计一个门控机制，在 token embedding 中逐步混入隐藏状态信息，初始时几乎完全使用 token embedding（保持生成质量），训练过程中通过 RL 自动学习何时、多少地融入潜在表示。
+**核心idea一句话**：用门控机制渐进融合离散 token 和连续隐藏状态，并通过 RL（而非 CoT 蒸馏）让 LLM 自主学习混合推理策略。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ HRPO 在 LLM 的推理阶段（`<think>` 到 `</think>` 之间）引入混合输
 ### 关键设计
 
 1. **隐藏状态投影（Hidden State Projection）**:
-   - 做什么：将模型输出的隐藏状态 $\hat{h}_t$ 映射回 embedding 空间
-   - 核心思路：使用 softmax 输出概率 $p_{t+1} = \text{softmax}(\text{Head}(\hat{h}_t) / \tau)$ 对所有 token embedding 做加权求和：$h_{t+1} = W_e^T \frac{p_{t+1}}{\|p_{t+1}\|}$。温度 $\tau$ 控制分布的锐利程度
-   - 设计动机：直接使用隐藏状态会导致分布不匹配和生成退化；通过概率加权插值，投影后的表示与模型原生 embedding 空间对齐，保持可微性
+
+    - 做什么：将模型输出的隐藏状态 $\hat{h}_t$ 映射回 embedding 空间
+    - 核心思路：使用 softmax 输出概率 $p_{t+1} = \text{softmax}(\text{Head}(\hat{h}_t) / \tau)$ 对所有 token embedding 做加权求和：$h_{t+1} = W_e^T \frac{p_{t+1}}{\|p_{t+1}\|}$。温度 $\tau$ 控制分布的锐利程度
+    - 设计动机：直接使用隐藏状态会导致分布不匹配和生成退化；通过概率加权插值，投影后的表示与模型原生 embedding 空间对齐，保持可微性
 
 2. **门控机制（Gating Mechanism）**:
-   - 做什么：控制离散 token embedding $\hat{e}_{t+1}$ 和连续隐藏表示 $h_{t+1}$ 的混合比例
-   - 核心思路：设计 reset gate $r_t = \sigma(W_a \hat{e}_{t+1} + b_a)$、input gate $i_t = \sigma(W_x \hat{e}_{t+1} + b_x)$，以及衰减系数 $a_t = \exp(-c \cdot \text{softplus}(\Lambda) \odot r_t)$，最终输入为 $e_{t+1} = a_t \odot \hat{e}_{t+1} + \sqrt{1 - a_t^2} \odot (i_t \odot h_{t+1})$。$\Lambda$ 是可学习参数
-   - 设计动机：初始化 $a_t \to 1$ 使得训练开始时几乎完全使用 token embedding（保持 LLM 生成能力），随训练进行，门控逐步学习融入更多隐藏状态信息。这种渐进式设计避免了直接使用隐藏状态导致的生成崩溃
+
+    - 做什么：控制离散 token embedding $\hat{e}_{t+1}$ 和连续隐藏表示 $h_{t+1}$ 的混合比例
+    - 核心思路：设计 reset gate $r_t = \sigma(W_a \hat{e}_{t+1} + b_a)$、input gate $i_t = \sigma(W_x \hat{e}_{t+1} + b_x)$，以及衰减系数 $a_t = \exp(-c \cdot \text{softplus}(\Lambda) \odot r_t)$，最终输入为 $e_{t+1} = a_t \odot \hat{e}_{t+1} + \sqrt{1 - a_t^2} \odot (i_t \odot h_{t+1})$。$\Lambda$ 是可学习参数
+    - 设计动机：初始化 $a_t \to 1$ 使得训练开始时几乎完全使用 token embedding（保持 LLM 生成能力），随训练进行，门控逐步学习融入更多隐藏状态信息。这种渐进式设计避免了直接使用隐藏状态导致的生成崩溃
 
 3. **混合推理策略优化（HRPO）**:
-   - 做什么：基于 REINFORCE 风格的 RL 进行在线策略优化
-   - 核心思路：对每个问题生成 $g$ 个混合 rollout（离散 token + 隐藏表示），用结果奖励（正确/错误）计算组内标准化优势 $\hat{A}_i = \frac{r_i - \text{mean}([r_1,...,r_g])}{\text{std}([r_1,...,r_g])}$，策略梯度为 $\nabla_\theta \mathcal{J} = \mathbb{E}[\frac{1}{g}\sum_i \frac{1}{|y_i|}\sum_t \nabla_\theta \log \pi_\theta(y_{i,t}|...) \hat{A}_{i,t}] - \beta \nabla_\theta D_{KL}[\pi_\theta \| \pi_{ref}]$
-   - 设计动机：采样操作保留了随机性使得 RL rollout 可行；严格在线策略（每条轨迹只用一次）因为隐藏表示直接依赖当前参数 $\theta$；轻量设计无需额外价值网络
+
+    - 做什么：基于 REINFORCE 风格的 RL 进行在线策略优化
+    - 核心思路：对每个问题生成 $g$ 个混合 rollout（离散 token + 隐藏表示），用结果奖励（正确/错误）计算组内标准化优势 $\hat{A}_i = \frac{r_i - \text{mean}([r_1,...,r_g])}{\text{std}([r_1,...,r_g])}$，策略梯度为 $\nabla_\theta \mathcal{J} = \mathbb{E}[\frac{1}{g}\sum_i \frac{1}{|y_i|}\sum_t \nabla_\theta \log \pi_\theta(y_{i,t}|...) \hat{A}_{i,t}] - \beta \nabla_\theta D_{KL}[\pi_\theta \| \pi_{ref}]$
+    - 设计动机：采样操作保留了随机性使得 RL rollout 可行；严格在线策略（每条轨迹只用一次）因为隐藏表示直接依赖当前参数 $\theta$；轻量设计无需额外价值网络
 
 ### 损失函数 / 训练策略
 使用 REINFORCE + KL 正则化，$\beta = 0.005$。不使用 PPO 的裁剪比率，直接用原始 log 概率，因为保守的学习率设置使得比率裁剪很少被触发。单 GPU 可运行。使用 LoRA (rank=32, $\alpha$=64) 进行高效微调。

@@ -24,12 +24,12 @@ tags:
 提出 BlurDM，将运动模糊的物理形成过程（连续曝光导致渐进模糊累积）集成到扩散模型——双扩散前向（同时加噪声+模糊）+ 双去噪去模糊反向，作为隐空间先验生成器一致性增强 4 种去模糊方法在 4 个数据集上的效果，GoPro 平均 +0.31 dB，RealBlur-J 平均 +0.78 dB，仅增加 ~4 GFLOPs 和 ~9ms。
 
 ## 研究背景与动机
-1. **领域现状**：深度学习去模糊方法（CNN/Transformer）受回归损失限制产生过于平滑的结果。扩散模型生成丰富细节但其标准噪声扩散过程与运动模糊的物理过程不匹配。
-2. **现有痛点**：运动模糊源于连续曝光的**结构化方向性**累积——$B = \frac{1}{\alpha_T}\int_0^{\alpha_T} H(\tau)d\tau$，而非标准扩散的各向同性高斯噪声扰动。直接用 DDPM 做去模糊先验仅提升 +0.13 dB，几乎无效。
-3. **核心矛盾**：标准扩散过程（加高斯噪声）与模糊形成过程（加方向性模糊）之间的失配——噪声是随机的，模糊是结构化的。
-4. **本文要解决什么**：设计一个物理上合理的扩散过程，使其前向过程模仿模糊形成，反向过程自然执行去模糊。
-5. **切入角度**：将模糊公式分解为累积形式——$I_t = \frac{\alpha_{t-1}}{\alpha_t}I_{t-1} + \frac{1}{\alpha_t}e_t + \beta_t\epsilon_t$，前两项是渐进模糊，最后一项是噪声——自然形成双扩散过程。
-6. **核心idea一句话**：让扩散模型的前向过程同时加噪声和加模糊，反向过程同时去噪和去模糊，在隐空间中作为通用先验增强任意去模糊网络。
+**领域现状**：深度学习去模糊方法（CNN/Transformer）受回归损失限制产生过于平滑的结果。扩散模型生成丰富细节但其标准噪声扩散过程与运动模糊的物理过程不匹配。
+**现有痛点**：运动模糊源于连续曝光的**结构化方向性**累积——$B = \frac{1}{\alpha_T}\int_0^{\alpha_T} H(\tau)d\tau$，而非标准扩散的各向同性高斯噪声扰动。直接用 DDPM 做去模糊先验仅提升 +0.13 dB，几乎无效。
+**核心矛盾**：标准扩散过程（加高斯噪声）与模糊形成过程（加方向性模糊）之间的失配——噪声是随机的，模糊是结构化的。
+**本文要解决什么**：设计一个物理上合理的扩散过程，使其前向过程模仿模糊形成，反向过程自然执行去模糊。
+**切入角度**：将模糊公式分解为累积形式——$I_t = \frac{\alpha_{t-1}}{\alpha_t}I_{t-1} + \frac{1}{\alpha_t}e_t + \beta_t\epsilon_t$，前两项是渐进模糊，最后一项是噪声——自然形成双扩散过程。
+**核心idea一句话**：让扩散模型的前向过程同时加噪声和加模糊，反向过程同时去噪和去模糊，在隐空间中作为通用先验增强任意去模糊网络。
 
 ## 方法详解
 
@@ -39,23 +39,26 @@ tags:
 ### 关键设计
 
 1. **双扩散前向过程**:
-   - 做什么：同时向图像添加高斯噪声和模糊残差
-   - 核心公式：$I_t = \frac{\alpha_{t-1}}{\alpha_t}I_{t-1} + \frac{1}{\alpha_t}e_t + \beta_t\epsilon_t$
-   - 其中 $e_t = \int_{\alpha_{t-1}}^{\alpha_t} H(\tau)d\tau$ 是时间段 $[\alpha_{t-1}, \alpha_t]$ 内累积的模糊残差
-   - 最终状态：$q(I_T|I_0, e_{1:T}) = \mathcal{N}(I_T; \frac{\alpha_0}{\alpha_T}I_0 + \frac{1}{\alpha_T}\sum e_t, \bar{\beta}_T^2\mathbf{I})$
-   - 物理意义：模拟相机快门从打开到关闭的连续曝光过程
+
+    - 做什么：同时向图像添加高斯噪声和模糊残差
+    - 核心公式：$I_t = \frac{\alpha_{t-1}}{\alpha_t}I_{t-1} + \frac{1}{\alpha_t}e_t + \beta_t\epsilon_t$
+    - 其中 $e_t = \int_{\alpha_{t-1}}^{\alpha_t} H(\tau)d\tau$ 是时间段 $[\alpha_{t-1}, \alpha_t]$ 内累积的模糊残差
+    - 最终状态：$q(I_T|I_0, e_{1:T}) = \mathcal{N}(I_T; \frac{\alpha_0}{\alpha_T}I_0 + \frac{1}{\alpha_T}\sum e_t, \bar{\beta}_T^2\mathbf{I})$
+    - 物理意义：模拟相机快门从打开到关闭的连续曝光过程
 
 2. **双去噪去模糊反向过程**:
-   - 做什么：学习两个估计器——模糊残差估计器 $e^\theta$ 和噪声估计器 $\epsilon^\theta$，同时执行去模糊和去噪
-   - 反向步骤：$I_{t-1} = \frac{\alpha_t}{\alpha_{t-1}}I_t - \frac{1}{\alpha_{t-1}}e^\theta(I_t,t,B) - (\frac{\alpha_t\bar{\beta}_t}{\alpha_{t-1}} - \bar{\beta}_{t-1})\epsilon^\theta(I_t,t,B)$
-   - 条件依赖：以模糊图像 $B$ 为条件指导去模糊方向
+
+    - 做什么：学习两个估计器——模糊残差估计器 $e^\theta$ 和噪声估计器 $\epsilon^\theta$，同时执行去模糊和去噪
+    - 反向步骤：$I_{t-1} = \frac{\alpha_t}{\alpha_{t-1}}I_t - \frac{1}{\alpha_{t-1}}e^\theta(I_t,t,B) - (\frac{\alpha_t\bar{\beta}_t}{\alpha_{t-1}} - \bar{\beta}_{t-1})\epsilon^\theta(I_t,t,B)$
+    - 条件依赖：以模糊图像 $B$ 为条件指导去模糊方向
 
 3. **Latent BlurDM 架构**:
-   - 做什么：在隐空间中运行 BlurDM，作为灵活的先验生成器
-   - Stage 1：预训练 Sharp Encoder 提取 GT 清晰先验 $Z^S$，PFM 用仿射参数调制解码器特征：$F_i' = Z^{S,\alpha_i} \times F_i + Z^{S,\beta_i}$
-   - Stage 2：BlurDM 在隐空间中从 $Z^B$（模糊隐码+噪声）恢复 $Z^S$（清晰先验），损失 $\mathcal{L}_{prior} = \|Z_0^B - Z^S\|_1$
-   - Stage 3：联合优化 BlurDM+PFM+去模糊网络
-   - 设计动机：三阶段确保 BlurDM 学到有意义的先验（仅 Stage 3 联合训练效果差）
+
+    - 做什么：在隐空间中运行 BlurDM，作为灵活的先验生成器
+    - Stage 1：预训练 Sharp Encoder 提取 GT 清晰先验 $Z^S$，PFM 用仿射参数调制解码器特征：$F_i' = Z^{S,\alpha_i} \times F_i + Z^{S,\beta_i}$
+    - Stage 2：BlurDM 在隐空间中从 $Z^B$（模糊隐码+噪声）恢复 $Z^S$（清晰先验），损失 $\mathcal{L}_{prior} = \|Z_0^B - Z^S\|_1$
+    - Stage 3：联合优化 BlurDM+PFM+去模糊网络
+    - 设计动机：三阶段确保 BlurDM 学到有意义的先验（仅 Stage 3 联合训练效果差）
 
 ### 计算开销
 BlurDM 仅增加 ~4.16 GFLOPs（<8% 开销）、~3.33M 参数、~9ms 推理时间。T=5 steps 是最优迭代数。

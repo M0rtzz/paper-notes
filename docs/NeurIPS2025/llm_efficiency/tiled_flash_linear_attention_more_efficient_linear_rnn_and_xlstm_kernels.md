@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：线性 RNN/线性注意力机制（RetNet、Mamba、GLA、mLSTM）提供 O(T) 的计算复杂度，理论上优于 Transformer 的 O(T²)。FlashAttention 系列通过 IO 感知算法成为标准 attention 实现。
-2. **现有痛点**：
+**领域现状**：线性 RNN/线性注意力机制（RetNet、Mamba、GLA、mLSTM）提供 O(T) 的计算复杂度，理论上优于 Transformer 的 O(T²)。FlashAttention 系列通过 IO 感知算法成为标准 attention 实现。
+**现有痛点**：
    - 线性 RNN 虽然理论复杂度低，但缺乏充分优化的 CUDA 内核，实际速度优势难以兑现
    - Flash Linear Attention (FLA) 受限于 GPU SRAM 大小，块大小最大 L=64，导致大量中间状态需物化到 HBM
    - 小块大小→低算术强度（arithmetic intensity）→高内存 IO 成本→无法充分利用 GPU 计算能力
-3. **核心矛盾**：块大小两难——小块导致 IO 瓶颈，大块超出 SRAM 容量
-4. **本文要解决什么？** 突破 SRAM 对块大小的限制，实现任意大块大小的高效线性 RNN 内核
-5. **切入角度**：在 FLA 的单层序列并行（块间）基础上，引入第二层序列并行（块内 tiling），类比 FlashAttention 2 的分块思想
-6. **核心idea一句话**：TFLA = Flash Linear Attention（块间并行）+ Flash Attention 2 的 tiling 思想（块内并行）
+**核心矛盾**：块大小两难——小块导致 IO 瓶颈，大块超出 SRAM 容量
+**本文要解决什么？** 突破 SRAM 对块大小的限制，实现任意大块大小的高效线性 RNN 内核
+**切入角度**：在 FLA 的单层序列并行（块间）基础上，引入第二层序列并行（块内 tiling），类比 FlashAttention 2 的分块思想
+**核心idea一句话**：TFLA = Flash Linear Attention（块间并行）+ Flash Attention 2 的 tiling 思想（块内并行）
 
 ## 方法详解
 
@@ -47,19 +47,22 @@ TFLA 包含两个核心内核：
 ### 关键设计
 
 1. **块级递归（Inter-chunk Recurrence）**：
-   - 做什么：递归计算块级内存状态 $C_k = \bar{g}_k C_{k-1} + (\bar{a}_k \odot K^{(k)})^T V^{(k)}$
-   - 核心思路：将 T 个时间步的递归压缩为 $N_c = \lceil T/L \rceil$ 个块级递归，大幅减少中间状态物化数量
-   - 设计动机：从 O(T) 个中间状态降至 O(T/L)，L 越大越省
+
+    - 做什么：递归计算块级内存状态 $C_k = \bar{g}_k C_{k-1} + (\bar{a}_k \odot K^{(k)})^T V^{(k)}$
+    - 核心思路：将 T 个时间步的递归压缩为 $N_c = \lceil T/L \rceil$ 个块级递归，大幅减少中间状态物化数量
+    - 设计动机：从 O(T) 个中间状态降至 O(T/L)，L 越大越省
 
 2. **块内并行与 Tiling（Intra-chunk Parallel）**：
-   - 做什么：对块内的矩阵乘法进行融合和 tiling，支持任意大块大小
-   - 核心思路：将块内输出分解为 $H^{(k)} = (\tilde{Q}^{(k)} K^{(k)T} V^{(k)}) + (Q^{(k)} C_{k-1})$，引入 block size $B_{L_{hq}}$（序列维度）和 $B_{d_{hv}}$（嵌入维度），并行化这两个维度而循环遍历 $L_{kv}$ 和 $d_{qk}$
-   - 设计动机：大块大小可以超越 SRAM 限制（FLA 的 L=64 → TFLA 的 L=256+），通过 tiling 自动分解为多个 SRAM 友好的操作。算术强度随块大小增加而提升
+
+    - 做什么：对块内的矩阵乘法进行融合和 tiling，支持任意大块大小
+    - 核心思路：将块内输出分解为 $H^{(k)} = (\tilde{Q}^{(k)} K^{(k)T} V^{(k)}) + (Q^{(k)} C_{k-1})$，引入 block size $B_{L_{hq}}$（序列维度）和 $B_{d_{hv}}$（嵌入维度），并行化这两个维度而循环遍历 $L_{kv}$ 和 $d_{qk}$
+    - 设计动机：大块大小可以超越 SRAM 限制（FLA 的 L=64 → TFLA 的 L=256+），通过 tiling 自动分解为多个 SRAM 友好的操作。算术强度随块大小增加而提升
 
 3. **mLSTMsig：sigmoid 输入门变体**：
-   - 做什么：将 mLSTM 的指数输入门改为 sigmoid：$C_t = \sigma(\tilde{f}_t) C_{t-1} + \sigma(\tilde{i}_t) k_t v_t^T$
-   - 核心思路：sigmoid 自动处理指数上下界，消除 max state 和规范化状态的跟踪需求
-   - 设计动机：简化内核实现（去掉 rescaling 逻辑），前向传播快 30%+，且通过 transfer behavior 分析证明与 mLSTMexp 等价
+
+    - 做什么：将 mLSTM 的指数输入门改为 sigmoid：$C_t = \sigma(\tilde{f}_t) C_{t-1} + \sigma(\tilde{i}_t) k_t v_t^T$
+    - 核心思路：sigmoid 自动处理指数上下界，消除 max state 和规范化状态的跟踪需求
+    - 设计动机：简化内核实现（去掉 rescaling 逻辑），前向传播快 30%+，且通过 transfer behavior 分析证明与 mLSTMexp 等价
 
 ### 损失函数 / 训练策略
 - **输入门偏差初始化**：偏差设为 -10（而非默认 0），使预激活值在早期保持负值，减少梯度范数尖峰，改善训练稳定性

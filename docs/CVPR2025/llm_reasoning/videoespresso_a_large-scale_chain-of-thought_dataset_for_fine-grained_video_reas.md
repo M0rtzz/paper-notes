@@ -21,12 +21,12 @@ tags:
 > 基于摘要：The advancement of Large Vision Language Models (LVLMs) has significantly improved multimodal understanding, yet challenges remain in video reasoning tasks due to the scarcity of high-quality, large-scale datasets. Existing video question-answering (VideoQA) datasets often rely on costly manual anno
 
 ## 研究背景与动机
-1. **领域现状**：本文研究的问题属于 LLM推理 方向。The advancement of Large Vision Language Models (LVLMs) has significantly improved multimodal understanding, yet challenges remain in video reasoning tasks due to the scarcity of high-quality, large-scale datasets. Existing video question-answering (VideoQA) datasets often rely on costly manual annotations with insufficient granularity or automatic construction methods with redundant frame-by-frame analysis, limiting their scalability and effectiveness for complex reasoning. To address these challenges, we introduce VideoEspresso, a novel dataset that features VideoQA pairs preserving essential spatial details and temporal coherence, along with multimodal annotations of intermediate reasoning steps.
-2. **现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
-3. **核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
-4. **本文要解决什么？** 针对上述问题，作者提出了新方法。
-5. **切入角度**：从新的技术视角或观察出发。
-6. **核心idea一句话**：Our construction pipeline employs a semantic-aware method to reduce redundancy, followed by generating QA pairs using GPT-4o. We further develop video Chain-of-Thought (CoT) annotations to enrich reas
+**领域现状**：本文研究的问题属于 LLM推理 方向。The advancement of Large Vision Language Models (LVLMs) has significantly improved multimodal understanding, yet challenges remain in video reasoning tasks due to the scarcity of high-quality, large-scale datasets. Existing video question-answering (VideoQA) datasets often rely on costly manual annotations with insufficient granularity or automatic construction methods with redundant frame-by-frame analysis, limiting their scalability and effectiveness for complex reasoning. To address these challenges, we introduce VideoEspresso, a novel dataset that features VideoQA pairs preserving essential spatial details and temporal coherence, along with multimodal annotations of intermediate reasoning steps.
+**现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+**核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+**本文要解决什么？** 针对上述问题，作者提出了新方法。
+**切入角度**：从新的技术视角或观察出发。
+**核心idea一句话**：Our construction pipeline employs a semantic-aware method to reduce redundancy, followed by generating QA pairs using GPT-4o. We further develop video Chain-of-Thought (CoT) annotations to enrich reas
 
 ## 方法详解
 
@@ -38,15 +38,17 @@ Our construction pipeline employs a semantic-aware method to reduce redundancy, 
 ### 关键设计
 
 1. **核心模块**:
-   - 做什么：解决上述痛点的关键技术组件
-   - 核心思路：详见论文方法部分
-   - 设计动机：提升性能或效率
+
+    - 做什么：解决上述痛点的关键技术组件
+    - 核心思路：详见论文方法部分
+    - 设计动机：提升性能或效率
 
 
 3. **优化策略**
-   - 做什么：提升训练稳定性和收敛速度
-   - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-   - 设计动机：确保模型在大规模数据上的训练效率
+
+    - 做什么：提升训练稳定性和收敛速度
+    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
+    - 设计动机：确保模型在大规模数据上的训练效率
 
 ### 实现细节
 - 框架基于 PyTorch 实现

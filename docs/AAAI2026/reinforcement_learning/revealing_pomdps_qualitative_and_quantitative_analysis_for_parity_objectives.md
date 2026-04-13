@@ -31,10 +31,10 @@ tags:
 部分可观测马尔可夫决策过程（POMDPs）是不确定性下序贯决策的核心模型。在每一步中，环境处于某个隐藏状态，控制器选择动作后只能观测到部分状态信息（信号），需在此基础上做最优决策。
 
 POMDPs的计算分析包含两大类问题：
-1. **定性分析（Qualitative Analysis）**：
+**定性分析（Qualitative Analysis）**：
    - **几乎确定性（almost-sure）**：是否存在策略使目标满足概率恰好为1？
    - **极限确定性（limit-sure）**：目标满足概率能否任意接近1？
-2. **定量分析（Quantitative Analysis）**：计算满足目标的最优概率的近似值
+**定量分析（Quantitative Analysis）**：计算满足目标的最优概率的近似值
 
 ### POMDP中的目标类型
 

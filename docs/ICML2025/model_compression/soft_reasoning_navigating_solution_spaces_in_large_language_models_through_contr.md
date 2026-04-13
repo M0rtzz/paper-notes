@@ -31,8 +31,8 @@ tags:
 
 LLM 在简单推理任务上表现出色，但在复杂推理任务（如多步数学推理）中仍然面临重大挑战。现有提升推理质量的主流策略可分为两类：
 
-1. **多样性采样方法**：通过 temperature scaling、top-k、nucleus sampling 等增加生成多样性，以期在多个候选答案中命中正确解。
-2. **规划搜索方法**：如 Chain-of-Thought (CoT)、Tree of Thoughts (ToT)、MCTS 等，通过语言指令或树结构搜索来探索推理路径。
+**多样性采样方法**：通过 temperature scaling、top-k、nucleus sampling 等增加生成多样性，以期在多个候选答案中命中正确解。
+**规划搜索方法**：如 Chain-of-Thought (CoT)、Tree of Thoughts (ToT)、MCTS 等，通过语言指令或树结构搜索来探索推理路径。
 
 ### 痛点
 

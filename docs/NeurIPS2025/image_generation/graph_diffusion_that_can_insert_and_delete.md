@@ -41,8 +41,8 @@ tags:
 
 现有图扩散模型的根本限制是：**样本大小在整个生成过程中保持不变**。这会带来两个严重问题：
 
-1. **性质靶向（Property Targeting）**：目标性质与分子大小相关时（如分子量），固定大小的模型无法响应
-2. **分子优化（Property Optimization）**：无法通过增减原子来优化目标性质
+**性质靶向（Property Targeting）**：目标性质与分子大小相关时（如分子量），固定大小的模型无法响应
+**分子优化（Property Optimization）**：无法通过增减原子来优化目标性质
 
 现有的解决方案：
 - DiGress、E(3) Equivariant Diffusion：从训练集经验分布采样图大小

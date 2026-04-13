@@ -26,15 +26,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM用于分子生成→但SMILES原子级tokenization=字符级NLP→泛化差+生成的分子难以实际合成。块化学(block chemistry)→用预制构建块自动化合成→但AI未充分利用。
+**领域现状**：LLM用于分子生成→但SMILES原子级tokenization=字符级NLP→泛化差+生成的分子难以实际合成。块化学(block chemistry)→用预制构建块自动化合成→但AI未充分利用。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) 原子级tokenization→open vocabulary→类似字符级语言模型→泛化差
    - (2) 生成的分子大多不可合成→AI提案和实验室之间有巨大鸿沟
    - (3) SMILES破坏分子图结构→相邻原子在字符串中可能很远
    - (4) 改善一个药物属性常牺牲另一个→多目标优化困难
 
-3. **切入角度**：分子tokenization从原子→构建块=从字符→子词→自然对齐NLP的tokenization哲学+保证自动化合成可行性。
+**切入角度**：分子tokenization从原子→构建块=从字符→子词→自然对齐NLP的tokenization哲学+保证自动化合成可行性。
 
 ## 方法详解
 

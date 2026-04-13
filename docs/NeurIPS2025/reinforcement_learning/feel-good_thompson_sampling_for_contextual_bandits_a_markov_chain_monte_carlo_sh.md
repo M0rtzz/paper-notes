@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Thompson Sampling (TS) 是上下文赌博机中最流行的探索-利用算法之一，实用性强、实现简单。但在高维场景下，TS 的探索力度不足，理论 regret 为 $O(d\sqrt{dT})$，未达到信息论下界 $\Omega(d\sqrt{T})$。
+**领域现状**：Thompson Sampling (TS) 是上下文赌博机中最流行的探索-利用算法之一，实用性强、实现简单。但在高维场景下，TS 的探索力度不足，理论 regret 为 $O(d\sqrt{dT})$，未达到信息论下界 $\Omega(d\sqrt{T})$。
 
-2. **现有痛点**：FG-TS（Zhang, 2022）通过在似然中添加"feel-good bonus"增加乐观偏差强制更积极探索，在线性设置下取得了最优 $O(d\sqrt{T})$ regret。但其理论分析假设精确后验，而实际中大规模或神经网络场景必须使用近似后验（如 MCMC），**FG-TS 在近似后验下的表现完全未知**。
+**现有痛点**：FG-TS（Zhang, 2022）通过在似然中添加"feel-good bonus"增加乐观偏差强制更积极探索，在线性设置下取得了最优 $O(d\sqrt{T})$ regret。但其理论分析假设精确后验，而实际中大规模或神经网络场景必须使用近似后验（如 MCMC），**FG-TS 在近似后验下的表现完全未知**。
 
-3. **核心矛盾**：乐观偏差在精确后验时帮助探索，但当后验采样本身有噪声时，乐观偏差可能放大错误——两种噪声叠加可能导致决策退化。
+**核心矛盾**：乐观偏差在精确后验时帮助探索，但当后验采样本身有噪声时，乐观偏差可能放大错误——两种噪声叠加可能导致决策退化。
 
-4. **本文要解决什么**：近似后验如何影响 FG-TS 的性能？在什么条件下 FG-TS 优于/劣于标准 TS？bonus 幅度、先验强度、预处理等超参数如何交互？
+**本文要解决什么**：近似后验如何影响 FG-TS 的性能？在什么条件下 FG-TS 优于/劣于标准 TS？bonus 幅度、先验强度、预处理等超参数如何交互？
 
-5. **切入角度**：构建从精确到粗糙后验的谱系——线性（闭式后验）→ 逻辑（近高斯）→ 神经（高度非线性），系统对比多种 MCMC 采样器。
+**切入角度**：构建从精确到粗糙后验的谱系——线性（闭式后验）→ 逻辑（近高斯）→ 神经（高度非线性），系统对比多种 MCMC 采样器。
 
-6. **核心 idea 一句话**：第一个系统性 FG-TS benchmark，揭示"bonus 幅度 × 后验精度"的权衡是性能的决定性因素。
+**核心 idea 一句话**：第一个系统性 FG-TS benchmark，揭示"bonus 幅度 × 后验精度"的权衡是性能的决定性因素。
 
 ## 方法详解
 
@@ -45,26 +45,30 @@ tags:
 ### 关键设计
 
 1. **Feel-Good Thompson Sampling (FG-TS)**:
-   - 做什么：在标准 TS 的似然中加入对高奖励模型的偏好（乐观偏差）
-   - 核心思路：修改似然函数为 $L^{\text{FG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda \min(b, f_\theta(x))$，其中 $\lambda > 0$ 控制 bonus 幅度，$b$ 是截断上界。负号使高 $f_\theta$ 的模型更被倾向采样
-   - 设计动机：标准 TS 在高维中探索不足，加入乐观偏差让采样偏向"乐观"方向，理论上将 regret 从 $O(d\sqrt{dT})$ 降到最优 $O(d\sqrt{T})$
+
+    - 做什么：在标准 TS 的似然中加入对高奖励模型的偏好（乐观偏差）
+    - 核心思路：修改似然函数为 $L^{\text{FG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda \min(b, f_\theta(x))$，其中 $\lambda > 0$ 控制 bonus 幅度，$b$ 是截断上界。负号使高 $f_\theta$ 的模型更被倾向采样
+    - 设计动机：标准 TS 在高维中探索不足，加入乐观偏差让采样偏向"乐观"方向，理论上将 regret 从 $O(d\sqrt{dT})$ 降到最优 $O(d\sqrt{T})$
 
 2. **Smoothed Feel-Good TS (SFG-TS)**:
-   - 做什么：将 FG-TS 的 min 截断平滑化，使后验更适合 MCMC 采样
-   - 核心思路：用 softplus 替换 min：$L^{\text{SFG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda(b - \Phi_s(b - f_\theta^\star))$，其中 $\Phi_s(u) = \log(1 + \exp(su))/s$
-   - 设计动机：min 操作导致后验不光滑，MCMC 采样困难；softplus 平滑化后保持理论 regret 保证的同时改善采样质量
+
+    - 做什么：将 FG-TS 的 min 截断平滑化，使后验更适合 MCMC 采样
+    - 核心思路：用 softplus 替换 min：$L^{\text{SFG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda(b - \Phi_s(b - f_\theta^\star))$，其中 $\Phi_s(u) = \log(1 + \exp(su))/s$
+    - 设计动机：min 操作导致后验不光滑，MCMC 采样困难；softplus 平滑化后保持理论 regret 保证的同时改善采样质量
 
 3. **MCMC 采样器家族**:
-   - **LMC (Langevin MC)**：$\theta_{t,k+1} = \theta_{t,k} - \eta_t \nabla \mathcal{L}_t(\theta_{t,k}) + \sqrt{2\eta_t \beta_t^{-1}} \epsilon_{t,k}$，最基础的梯度+噪声采样
-   - **MALA (Metropolis-Adjusted LMC)**：在 LMC 基础上加 Metropolis 接受/拒绝步骤修正离散化偏差
-   - **HMC (Hamiltonian MC)**：引入动量变量模拟哈密顿动力学，$H(\theta, v) = \mathcal{L}_t(\theta) + \frac{1}{2}\|v\|^2$，理论上混合更快
-   - **Preconditioned 变体**：用设计矩阵 $\mathbf{V}_t^{-1}$ 预处理梯度，将条件数 $\kappa_t$ 的影响降一个量级
-   - **SVRG 变体**：方差缩减梯度估计，用控制变量降低随机梯度噪声
+
+    - **LMC (Langevin MC)**：$\theta_{t,k+1} = \theta_{t,k} - \eta_t \nabla \mathcal{L}_t(\theta_{t,k}) + \sqrt{2\eta_t \beta_t^{-1}} \epsilon_{t,k}$，最基础的梯度+噪声采样
+    - **MALA (Metropolis-Adjusted LMC)**：在 LMC 基础上加 Metropolis 接受/拒绝步骤修正离散化偏差
+    - **HMC (Hamiltonian MC)**：引入动量变量模拟哈密顿动力学，$H(\theta, v) = \mathcal{L}_t(\theta) + \frac{1}{2}\|v\|^2$，理论上混合更快
+    - **Preconditioned 变体**：用设计矩阵 $\mathbf{V}_t^{-1}$ 预处理梯度，将条件数 $\kappa_t$ 的影响降一个量级
+    - **SVRG 变体**：方差缩减梯度估计，用控制变量降低随机梯度噪声
 
 4. **Underdamped LMC (ULMC)**:
-   - 做什么：引入动量项和阻尼系数的 Langevin 变体
-   - 核心思路：$v_{t,k+1/2} = (1-\gamma\eta)v_{t,k} - \eta\nabla U(\theta_{t,k}) + \sqrt{2\gamma\eta}\xi_{t,k}$，额外的速度变量让采样器在粗糙landscape上混合更快
-   - 设计动机：对比 overdamped LMC 在复杂后验上的表现差异
+
+    - 做什么：引入动量项和阻尼系数的 Langevin 变体
+    - 核心思路：$v_{t,k+1/2} = (1-\gamma\eta)v_{t,k} - \eta\nabla U(\theta_{t,k}) + \sqrt{2\gamma\eta}\xi_{t,k}$，额外的速度变量让采样器在粗糙landscape上混合更快
+    - 设计动机：对比 overdamped LMC 在复杂后验上的表现差异
 
 ### 实验设置
 - 线性赌博机：$d=20/40$, $K=5$ 臂, $T=10000$, 高斯噪声 $\sigma=0.5$

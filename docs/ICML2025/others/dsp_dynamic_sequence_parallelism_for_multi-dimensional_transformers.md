@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：将多维 Transformer 扩展到长序列在视频生成（OpenSora、Latte）、图像生成、蛋白质结构预测、时空信息处理等领域至关重要。长序列带来巨大的 activation 内存开销和计算速度下降，需要序列并行来分摊。
+**领域现状**：将多维 Transformer 扩展到长序列在视频生成（OpenSora、Latte）、图像生成、蛋白质结构预测、时空信息处理等领域至关重要。长序列带来巨大的 activation 内存开销和计算速度下降，需要序列并行来分摊。
 
-2. **现有痛点**：当前主流序列并行方法——Ring Attention、Megatron-SP、DeepSpeed-Ulysses——全部属于 **嵌入式序列并行 (Embedded Sequence Parallelism)**，它们只能沿单一序列维度进行分片。对于多维 Transformer，这种策略存在严重的通信冗余：
+**现有痛点**：当前主流序列并行方法——Ring Attention、Megatron-SP、DeepSpeed-Ulysses——全部属于 **嵌入式序列并行 (Embedded Sequence Parallelism)**，它们只能沿单一序列维度进行分片。对于多维 Transformer，这种策略存在严重的通信冗余：
    - Ring Attention 使用 P2P 环形通信，高延迟环境下效率低
    - Megatron-SP 受限于 attention head 数量，需要额外的 all-gather 和 reduce-scatter
    - DeepSpeed-Ulysses 同样受限于 attention head 数量
 
-3. **核心矛盾**：多维 Transformer 的关键特性是**不同序列维度的计算是独立的**（如视频模型中的 temporal attention 和 spatial attention 分开计算），但嵌入式方法无视这一特性，在模块内部引入了大量不必要的通信操作来切换并行维度。
+**核心矛盾**：多维 Transformer 的关键特性是**不同序列维度的计算是独立的**（如视频模型中的 temporal attention 和 spatial attention 分开计算），但嵌入式方法无视这一特性，在模块内部引入了大量不必要的通信操作来切换并行维度。
 
-4. **本文要解决什么？** 如何利用多维 Transformer 中各维度计算独立的特征，设计一种能在计算阶段之间动态切换并行维度的序列并行方法，最小化通信开销。
+**本文要解决什么？** 如何利用多维 Transformer 中各维度计算独立的特征，设计一种能在计算阶段之间动态切换并行维度的序列并行方法，最小化通信开销。
 
-5. **切入角度**：作者观察到，既然多维 Transformer 在每个计算阶段只需沿一个维度做 attention，那么可以让并行分片维度与当前计算维度正交——即分片"不参与计算的维度"，这样模块内部完全不需要通信。
+**切入角度**：作者观察到，既然多维 Transformer 在每个计算阶段只需沿一个维度做 attention，那么可以让并行分片维度与当前计算维度正交——即分片"不参与计算的维度"，这样模块内部完全不需要通信。
 
-6. **核心idea一句话**：在计算阶段之间用 all-to-all 动态切换分片维度，使并行维度始终与计算维度正交，从根本上消除模块内部的冗余通信。
+**核心idea一句话**：在计算阶段之间用 all-to-all 动态切换分片维度，使并行维度始终与计算维度正交，从根本上消除模块内部的冗余通信。
 
 ## 方法详解
 
@@ -57,25 +57,29 @@ DSP 的流程如下：
 ### 关键设计
 
 1. **Dynamic Switch（动态切换）**:
-   - 做什么：在两个计算阶段之间，将序列的分片维度从 $S_i$ 切换到 $S_j$
-   - 核心思路：通过一次 all-to-all 集合通信，将张量从 $\mathbb{R}^{[B, S_1, \ldots, S_i/N, \ldots, S_j, \ldots, S_K, C]}$ 重新分布为 $\mathbb{R}^{[B, S_1, \ldots, S_i, \ldots, S_j/N, \ldots, S_K, C]}$，即 $\mathbf{Y} = \text{DynamicSwitch}(\mathbf{X}, i, j)$
-   - 设计动机：all-to-all 通信量仅为 $M/N$（$M$ 为序列总大小），远小于嵌入式方法中需要在模块内部反复执行的 all-reduce/all-gather 操作。而且 Dynamic Switch 只在阶段间执行，频率低于嵌入式方法的模块内通信
-   - 与之前方法的区别：嵌入式方法（如 Ring Attention）需要在 attention 计算过程中持续通信（P2P 传递 KV），DSP 则完全不干涉 attention 计算，只在前后做一次维度切换
+
+    - 做什么：在两个计算阶段之间，将序列的分片维度从 $S_i$ 切换到 $S_j$
+    - 核心思路：通过一次 all-to-all 集合通信，将张量从 $\mathbb{R}^{[B, S_1, \ldots, S_i/N, \ldots, S_j, \ldots, S_K, C]}$ 重新分布为 $\mathbb{R}^{[B, S_1, \ldots, S_i, \ldots, S_j/N, \ldots, S_K, C]}$，即 $\mathbf{Y} = \text{DynamicSwitch}(\mathbf{X}, i, j)$
+    - 设计动机：all-to-all 通信量仅为 $M/N$（$M$ 为序列总大小），远小于嵌入式方法中需要在模块内部反复执行的 all-reduce/all-gather 操作。而且 Dynamic Switch 只在阶段间执行，频率低于嵌入式方法的模块内通信
+    - 与之前方法的区别：嵌入式方法（如 Ring Attention）需要在 attention 计算过程中持续通信（P2P 传递 KV），DSP 则完全不干涉 attention 计算，只在前后做一次维度切换
 
 2. **Split（分裂操作）**:
-   - 做什么：将未分片的完整序列沿某维度分片到各 GPU
-   - 核心思路：纯本地操作，将 $\hat{s}$ 状态转为 $s_i$ 状态，通信量为 0
-   - 设计动机：用于模型前端，将输入序列首次分配到各设备。由于只是本地 reshape + slice，不需要任何通信
+
+    - 做什么：将未分片的完整序列沿某维度分片到各 GPU
+    - 核心思路：纯本地操作，将 $\hat{s}$ 状态转为 $s_i$ 状态，通信量为 0
+    - 设计动机：用于模型前端，将输入序列首次分配到各设备。由于只是本地 reshape + slice，不需要任何通信
 
 3. **Gather（聚合操作）**:
-   - 做什么：将分片的序列恢复为完整序列
-   - 核心思路：通过 all-gather 操作，通信量为 $M$
-   - 设计动机：用于模型尾部或少数需要操作全部维度的全局操作。由于只在模型首尾使用，开销可忽略
+
+    - 做什么：将分片的序列恢复为完整序列
+    - 核心思路：通过 all-gather 操作，通信量为 $M$
+    - 设计动机：用于模型尾部或少数需要操作全部维度的全局操作。由于只在模型首尾使用，开销可忽略
 
 4. **状态转换体系**:
-   - 做什么：用状态标记 $s_i$（沿维度 $i$ 分片）和 $\hat{s}$（未分片）统一描述所有并行状态
-   - 核心思路：三个原语（Switch、Split、Gather）覆盖所有可能的状态转换
-   - 设计动机：提供了统一的形式化抽象，使 DSP 能适配任意多维 Transformer 架构，只需在计算图中标注每个模块需要哪个维度完整即可自动生成通信计划
+
+    - 做什么：用状态标记 $s_i$（沿维度 $i$ 分片）和 $\hat{s}$（未分片）统一描述所有并行状态
+    - 核心思路：三个原语（Switch、Split、Gather）覆盖所有可能的状态转换
+    - 设计动机：提供了统一的形式化抽象，使 DSP 能适配任意多维 Transformer 架构，只需在计算图中标注每个模块需要哪个维度完整即可自动生成通信计划
 
 ### 适配性与灵活性
 

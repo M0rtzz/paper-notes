@@ -29,8 +29,8 @@ tags:
 自动化数学发现是 AI 的长期梦想——从 1950 年代的 Logic Theorist 到近年的 AlphaProof。然而，现有工作主要聚焦于**解决预定义问题**（定理证明），而数学研究的本质是**开放式探索**过程：定义新概念、研究性质、提出猜想、证明或反驳。
 
 两个核心挑战：
-1. **缺乏完整的理论形成框架**：现有系统要么只做定理证明，要么只做猜想生成，没有一个统一框架支持定义新概念、提出猜想、证明定理的完整过程
-2. **搜索引导问题**：数学探索的搜索空间组合爆炸，大部分路径导向平凡或无趣的数学。人类数学家靠直觉判断"什么值得研究"——即**兴趣度（interestingness）**，但之前的系统（如 HR）依赖硬编码的兴趣度度量
+**缺乏完整的理论形成框架**：现有系统要么只做定理证明，要么只做猜想生成，没有一个统一框架支持定义新概念、提出猜想、证明定理的完整过程
+**搜索引导问题**：数学探索的搜索空间组合爆炸，大部分路径导向平凡或无趣的数学。人类数学家靠直觉判断"什么值得研究"——即**兴趣度（interestingness）**，但之前的系统（如 HR）依赖硬编码的兴趣度度量
 
 本文的切入：将兴趣度度量的发现建模为**学习问题**——用进化程序合成自动搜索最优的兴趣度函数，引导智能体发现有意义的数学理论。
 
@@ -48,25 +48,29 @@ tags:
 ### 关键设计
 
 1. **数学实体表示**：每个实体 $m$ 包含三个组件：
-   - 符号定义 $m_{sym}$（Fermat DSL 中的形式化表达）
-   - 计算解释 $m_{comp}$（可执行 Python 函数）
-   - 缓存实例 $\mathcal{X}(m) = (\mathcal{X}^+(m), \mathcal{X}^-(m))$（正例和反例集合）
+
+    - 符号定义 $m_{sym}$（Fermat DSL 中的形式化表达）
+    - 计算解释 $m_{comp}$（可执行 Python 函数）
+    - 缓存实例 $\mathcal{X}(m) = (\mathcal{X}^+(m), \mathcal{X}^-(m))$（正例和反例集合）
 
 2. **EvoAbstract 进化搜索**：
-   - **EvolutionStep**：使用 LLM $\mathcal{L}_{var}$（GPT-4o-mini）作为变异算子，输入高分父程序和模板，生成新的兴趣度函数候选
-   - **Island 模型**：$k=4$ 个并行种群维护多样性
-   - **PolicyEvaluationStep**：通过 episodic rollouts 在 Fermat 中评估候选程序（64 episodes, 60 秒超时），累积外在奖励作为适应度
+
+    - **EvolutionStep**：使用 LLM $\mathcal{L}_{var}$（GPT-4o-mini）作为变异算子，输入高分父程序和模板，生成新的兴趣度函数候选
+    - **Island 模型**：$k=4$ 个并行种群维护多样性
+    - **PolicyEvaluationStep**：通过 episodic rollouts 在 Fermat 中评估候选程序（64 episodes, 60 秒超时），累积外在奖励作为适应度
 
 3. **抽象学习（EvoAbstract 的核心创新）**：
-   - **AbstractionStep**：每 8 轮进行一次，LLM $\mathcal{L}_{abs}$ 分析高分程序集，识别可复用的子程序（抽象），加入抽象库 $\text{Lib}_i$
-   - 后续进化中，$\mathcal{L}_{var}$ 可使用抽象库中的组件构建更复杂的解决方案
-   - 效果：促进模块化、组合式构建，引导搜索走向更有前景的程序空间区域
-   - 例子：EvoAbstract 自动发现了 `compute_example_balance`（类似 applicability）、`calculate_rule_diversity_score`（规则多样性）等抽象
+
+    - **AbstractionStep**：每 8 轮进行一次，LLM $\mathcal{L}_{abs}$ 分析高分程序集，识别可复用的子程序（抽象），加入抽象库 $\text{Lib}_i$
+    - 后续进化中，$\mathcal{L}_{var}$ 可使用抽象库中的组件构建更复杂的解决方案
+    - 效果：促进模块化、组合式构建，引导搜索走向更有前景的程序空间区域
+    - 例子：EvoAbstract 自动发现了 `compute_example_balance`（类似 applicability）、`calculate_rule_diversity_score`（规则多样性）等抽象
 
 4. **产生规则**：
-   - 定义产生：Exists（存在量化）、Specialize（特化变量）、Compose（组合）、ForAll（全称量化）、Match（等值匹配）、Negate（取反）、Size（计数）等
-   - 猜想产生：Implication（蕴含）、Equivalence（等价）、Nonexistence（不存在性）、Exclusivity（排他性）
-   - 后端证明器：Z3 SMT Solver
+
+    - 定义产生：Exists（存在量化）、Specialize（特化变量）、Compose（组合）、ForAll（全称量化）、Match（等值匹配）、Negate（取反）、Size（计数）等
+    - 猜想产生：Implication（蕴含）、Equivalence（等价）、Nonexistence（不存在性）、Exclusivity（排他性）
+    - 后端证明器：Z3 SMT Solver
 
 ### 损失函数 / 训练策略
 

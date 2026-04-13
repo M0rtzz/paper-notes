@@ -49,10 +49,11 @@ tags:
 2. **指代表达式生成**：采用两种策略确保多样性——1) 直接提示 GPT-4o 生成短/长描述（选取 3 个目标最清晰的帧，画框后让模型生成）；2) 先让 GPT-4o 生成元数据（视觉属性、世界知识、物体功能等），再用预定义模板组合成表达式。最终所有标注经人工校验。
 
 3. **多时长分层评测设计**：
-   - EgoMask-Short（<1分钟，200 video，400 expr.）：基于 RefEgo 采样，人工标注 mask 和精化表达式
-   - EgoMask-Medium（1-3分钟，100 video，200 expr.）：从标注好的长视频中随机截取
-   - EgoMask-Long（>3分钟，15 video，100 expr.）：基于 EgoTracks 验证集，用流水线生成后人工精化
-   - EgoMask-Train：2,624 视频，9,592 个对象，47,968 个表达式
+
+    - EgoMask-Short（<1分钟，200 video，400 expr.）：基于 RefEgo 采样，人工标注 mask 和精化表达式
+    - EgoMask-Medium（1-3分钟，100 video，200 expr.）：从标注好的长视频中随机截取
+    - EgoMask-Long（>3分钟，15 video，100 expr.）：基于 EgoTracks 验证集，用流水线生成后人工精化
+    - EgoMask-Train：2,624 视频，9,592 个对象，47,968 个表达式
 
 ### 损失函数 / 训练策略
 

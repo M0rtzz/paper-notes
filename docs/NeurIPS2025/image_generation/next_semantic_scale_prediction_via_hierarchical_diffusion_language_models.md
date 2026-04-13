@@ -29,8 +29,8 @@ tags:
 
 自回归语言模型是当前 SOTA，但"下一 token 预测"范式无法修正已生成 token。离散扩散模型因渐进去噪和修正能力受关注，主要有两类：
 
-1. **Masked 离散扩散**（MDLM）：所有被 mask 的 token 共享同一 embedding，缺乏丰富语义；已解码 token 无法自纠正
-2. **Uniform 离散扩散**（SEDD）：均匀扰动为随机 token，语义不一致，性能弱于 masked 扩散
+**Masked 离散扩散**（MDLM）：所有被 mask 的 token 共享同一 embedding，缺乏丰富语义；已解码 token 无法自纠正
+**Uniform 离散扩散**（SEDD）：均匀扰动为随机 token，语义不一致，性能弱于 masked 扩散
 
 GIDD 统一框架结合 masked 和 uniform 噪声，但噪声 token 仍缺乏丰富语义，自纠正能力仅来自 uniform 噪声（实际损害性能）。
 
@@ -47,23 +47,27 @@ HDLM 基于 CTMC 框架。层级词汇表：word tokens - cluster tokens - mask 
 ### 关键设计
 
 1. **层级词汇表构建**:
-   - 做什么：在标准词汇和 mask 之间建立语义中间层
-   - 核心思路：用预训练模型 embedding 做 K-means 聚类，建立满射映射。最优聚类数约为词汇量的平方根
-   - 设计动机：cluster token 是"带高层语义的部分 mask"，比纯 mask 信息量更丰富，比随机 token 语义更一致，不确定性为自纠正提供空间
+
+    - 做什么：在标准词汇和 mask 之间建立语义中间层
+    - 核心思路：用预训练模型 embedding 做 K-means 聚类，建立满射映射。最优聚类数约为词汇量的平方根
+    - 设计动机：cluster token 是"带高层语义的部分 mask"，比纯 mask 信息量更丰富，比随机 token 语义更一致，不确定性为自纠正提供空间
 
 2. **层级 CTMC 过程**:
-   - 做什么：定义层级扩散的前向-逆向过程
-   - 核心思路：边际分布为 Cat(z_t; alpha_t x + beta_{t,c} c(x) + beta_{t,m} m)。转移率矩阵为分块上三角结构（word to cluster to mask），mask 为吸收态
-   - 设计动机：分块结构确保 token 只向更高层级转移，逆向通过贝叶斯后验实现层级解码
+
+    - 做什么：定义层级扩散的前向-逆向过程
+    - 核心思路：边际分布为 Cat(z_t; alpha_t x + beta_{t,c} c(x) + beta_{t,m} m)。转移率矩阵为分块上三角结构（word to cluster to mask），mask 为吸收态
+    - 设计动机：分块结构确保 token 只向更高层级转移，逆向通过贝叶斯后验实现层级解码
 
 3. **闭式 ELBO（定理 3）**:
-   - 做什么：推导训练目标
-   - 核心思路：ELBO 分解为两个 CE 损失：cluster token 做 cluster 内 word 分类，mask token 做 cluster 级分类。两个权重期望恒等于 1（定理 4）
-   - 设计动机：自然形成由易到难的课程学习。MDLM 是 n=1 的特例
+
+    - 做什么：推导训练目标
+    - 核心思路：ELBO 分解为两个 CE 损失：cluster token 做 cluster 内 word 分类，mask token 做 cluster 级分类。两个权重期望恒等于 1（定理 4）
+    - 设计动机：自然形成由易到难的课程学习。MDLM 是 n=1 的特例
 
 4. **随机扰动（xi < 1）**:
-   - 做什么：训练时以概率 1-xi 将 token 扰动到错误 cluster
-   - 设计动机：训练模型从不准确上下文恢复正确 token，缓解 train-test gap。xi=0.8 时 Gen PPL 降 62%
+
+    - 做什么：训练时以概率 1-xi 将 token 扰动到错误 cluster
+    - 设计动机：训练模型从不准确上下文恢复正确 token，缓解 train-test gap。xi=0.8 时 Gen PPL 降 62%
 
 ### 实用技巧
 

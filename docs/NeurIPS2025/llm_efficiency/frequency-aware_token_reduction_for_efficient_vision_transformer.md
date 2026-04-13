@@ -25,12 +25,12 @@ tags:
 从频域视角提出 frequency-aware token reduction，将 token 分为高频（HF）和低频（LF）两组，选择性保留 HF token 并将 LF token 聚合为 DC token，在缓解 rank collapse 的同时减少 ViT 的计算量，在 30% token 减少率下多个模型上超越现有 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：Vision Transformer 的二次复杂度推动了 token reduction 研究——主要分为 merging（融合相似 token）和 pruning（丢弃不重要 token）两大类，已有 ToME、EViT、DynamicViT 等方法。
-2. **现有痛点**：现有方法忽略了 self-attention 的频域特性——SA 本质上是低通滤波器，堆叠 SA 层会导致 rank collapse（所有 token 表示趋同）。Token reduction 会加剧这一问题：merging 直接平均掉高频信号，pruning 如果移除含高频信息的 token 也加速 collapse。
-3. **核心矛盾**：减少 token 数量以提高效率 vs 保留高频信息以维持 ViT 表达能力，二者看似矛盾。
-4. **本文要解决什么？** 设计一种在 token reduction 中显式保护高频信息的方法，在提高效率的同时缓解 rank collapse。
-5. **切入角度**：将 attention 矩阵分解为低频分量 $A^{LP} = \frac{1}{n}\mathbf{11}^T$ 和高频分量 $A^{HP} = A - A^{LP}$，根据 $A^{HP}$ 中每个 token 对高频贡献的大小选择保留/聚合。
-6. **核心idea一句话**：保留对输出高频分量贡献最大的 token，将低频 token 聚合为 DC token 保留零频信息。
+**领域现状**：Vision Transformer 的二次复杂度推动了 token reduction 研究——主要分为 merging（融合相似 token）和 pruning（丢弃不重要 token）两大类，已有 ToME、EViT、DynamicViT 等方法。
+**现有痛点**：现有方法忽略了 self-attention 的频域特性——SA 本质上是低通滤波器，堆叠 SA 层会导致 rank collapse（所有 token 表示趋同）。Token reduction 会加剧这一问题：merging 直接平均掉高频信号，pruning 如果移除含高频信息的 token 也加速 collapse。
+**核心矛盾**：减少 token 数量以提高效率 vs 保留高频信息以维持 ViT 表达能力，二者看似矛盾。
+**本文要解决什么？** 设计一种在 token reduction 中显式保护高频信息的方法，在提高效率的同时缓解 rank collapse。
+**切入角度**：将 attention 矩阵分解为低频分量 $A^{LP} = \frac{1}{n}\mathbf{11}^T$ 和高频分量 $A^{HP} = A - A^{LP}$，根据 $A^{HP}$ 中每个 token 对高频贡献的大小选择保留/聚合。
+**核心idea一句话**：保留对输出高频分量贡献最大的 token，将低频 token 聚合为 DC token 保留零频信息。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **频域 Token 分选**:
-   - 做什么：将 token 分为高频（HF）和低频（LF）两组
-   - 核心思路：对多头注意力矩阵求高频分量 $A^{HP} = A - \frac{1}{n}\mathbf{11}^T$，按列求和得到每个 token 的高频贡献分数 $\tilde{A}_k$。分数最高的 r 个为 HF token，最低的 r 个为 LF token
-   - 设计动机：只需简单的列平均运算（比 FFT 或余弦相似度计算高效得多），直接利用已有的 attention 矩阵，零额外计算开销
+
+    - 做什么：将 token 分为高频（HF）和低频（LF）两组
+    - 核心思路：对多头注意力矩阵求高频分量 $A^{HP} = A - \frac{1}{n}\mathbf{11}^T$，按列求和得到每个 token 的高频贡献分数 $\tilde{A}_k$。分数最高的 r 个为 HF token，最低的 r 个为 LF token
+    - 设计动机：只需简单的列平均运算（比 FFT 或余弦相似度计算高效得多），直接利用已有的 attention 矩阵，零额外计算开销
 
 2. **Local DC Token 聚合**:
-   - 做什么：将 LF token 按 $w^2$ 个空间局部组聚合为 DC token，保留零频信息
-   - 核心思路：$x_{DC}^j = \frac{1}{|N_{LF}^j|} \sum_{i \in N_{LF}^j} x_i$，多层 reduction 时递归更新 DC token
-   - 设计动机：直接丢弃 LF token 会损失 DC 信号（图 2b 验证 LF token 确实主导 DC 分量）；局部 DC token（$w>1$）在早期层保留 LF token 中残余的高频空间局部信息
+
+    - 做什么：将 LF token 按 $w^2$ 个空间局部组聚合为 DC token，保留零频信息
+    - 核心思路：$x_{DC}^j = \frac{1}{|N_{LF}^j|} \sum_{i \in N_{LF}^j} x_i$，多层 reduction 时递归更新 DC token
+    - 设计动机：直接丢弃 LF token 会损失 DC 信号（图 2b 验证 LF token 确实主导 DC 分量）；局部 DC token（$w>1$）在早期层保留 LF token 中残余的高频空间局部信息
 
 3. **注意力权重调整**:
-   - 做什么：修改 attention 矩阵以强调 HF token 并补偿 DC token 的低 attention 权重
-   - 核心思路：$\hat{A} = A^{LP} + (\omega_1+1)A^{HP} + (\omega_2+1)A^{N_{DC}}$，$\omega_1$ 增强高频信号，$\omega_2$ 补偿 DC token 因 Jensen 不等式导致的偏低 attention score
-   - 设计动机：仅减少 token 不够，还需主动抑制后续层对剩余 token 的 rank collapse 趋势
+
+    - 做什么：修改 attention 矩阵以强调 HF token 并补偿 DC token 的低 attention 权重
+    - 核心思路：$\hat{A} = A^{LP} + (\omega_1+1)A^{HP} + (\omega_2+1)A^{N_{DC}}$，$\omega_1$ 增强高频信号，$\omega_2$ 补偿 DC token 因 Jensen 不等式导致的偏低 attention score
+    - 设计动机：仅减少 token 不够，还需主动抑制后续层对剩余 token 的 rank collapse 趋势
 
 ### 理论支撑
 Proposition 3.1 证明：无论 pruning 还是 merging 都使 $\|H_f[SA(MX)]\|_F \leq \|H_f[SA(X)]\|_F$，即 token reduction 加速 rank collapse。本方法通过选择性保留 HF token 减缓这一趋势。

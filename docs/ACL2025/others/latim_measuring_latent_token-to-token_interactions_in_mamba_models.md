@@ -44,21 +44,24 @@ LaTIM 的核心思想是：将 Mamba 的前向计算重新排列，使得输出 
 ### 关键设计
 
 1. **Mamba-1 分解**：
-   - 首先展开 SSM 递推，得到隐式注意力张量 $\boldsymbol{M}_{i,j}$，表示 token $j$ 对 token $i$ 的隐式贡献
-   - 关键挑战是 SiLU 激活函数的非可加性——无法直接将卷积层的输出按 token 拆分
-   - 解决方案：假设存在一个可加函数 $f$ 近似 SiLU，将卷积后的激活分解为各 token 的独立贡献
-   - 经过实验验证，直接令 $f := \text{SiLU}$ 反而产生了所有层中最低的近似误差
-   - 最终，结合门控机制和输出投影，得到 $(i,j)$ 贡献向量：$T_i(\boldsymbol{x}_j) = \boldsymbol{W}_o^\top (\boldsymbol{Z}_i \odot \boldsymbol{\upsilon}_{i \leftarrow j})$
+
+    - 首先展开 SSM 递推，得到隐式注意力张量 $\boldsymbol{M}_{i,j}$，表示 token $j$ 对 token $i$ 的隐式贡献
+    - 关键挑战是 SiLU 激活函数的非可加性——无法直接将卷积层的输出按 token 拆分
+    - 解决方案：假设存在一个可加函数 $f$ 近似 SiLU，将卷积后的激活分解为各 token 的独立贡献
+    - 经过实验验证，直接令 $f := \text{SiLU}$ 反而产生了所有层中最低的近似误差
+    - 最终，结合门控机制和输出投影，得到 $(i,j)$ 贡献向量：$T_i(\boldsymbol{x}_j) = \boldsymbol{W}_o^\top (\boldsymbol{Z}_i \odot \boldsymbol{\upsilon}_{i \leftarrow j})$
 
 2. **Mamba-2 分解**：
-   - Mamba-2 的 $\boldsymbol{A}$ 矩阵简化为标量乘以单位矩阵，使得分解更为简洁
-   - 新增的 GroupNorm 层在推理时可视为关于 $\boldsymbol{u}_i$ 的仿射映射，因此各 token 的贡献可以线性通过
-   - 最终分解为：$T_i(\boldsymbol{x}_j) = \boldsymbol{W}_o^\top [\gamma_i(\boldsymbol{u}_i) \boldsymbol{u}_{i \leftarrow j}]$
+
+    - Mamba-2 的 $\boldsymbol{A}$ 矩阵简化为标量乘以单位矩阵，使得分解更为简洁
+    - 新增的 GroupNorm 层在推理时可视为关于 $\boldsymbol{u}_i$ 的仿射映射，因此各 token 的贡献可以线性通过
+    - 最终分解为：$T_i(\boldsymbol{x}_j) = \boldsymbol{W}_o^\top [\gamma_i(\boldsymbol{u}_i) \boldsymbol{u}_{i \leftarrow j}]$
 
 3. **多种聚合方式**：
-   - **LaTIM($\ell_p$)**：使用向量范数衡量贡献大小
-   - **LaTIM(ALTI)**：采用上下文混合方法，计算移除某 token 贡献后 $\ell_1$ 范数的变化
-   - **LaTIM(ALTI-Logit)**：追踪 token 通过残差流对最终预测的贡献
+
+    - **LaTIM($\ell_p$)**：使用向量范数衡量贡献大小
+    - **LaTIM(ALTI)**：采用上下文混合方法，计算移除某 token 贡献后 $\ell_1$ 范数的变化
+    - **LaTIM(ALTI-Logit)**：追踪 token 通过残差流对最终预测的贡献
 
 4. **精确分解策略**：提出去除 SiLU 激活的 Mamba 变体（令 $f$ 为恒等函数），需要重新训练但能实现零近似误差。实验表明该变体在保持任务性能的同时，实现了完全精确的分解。
 

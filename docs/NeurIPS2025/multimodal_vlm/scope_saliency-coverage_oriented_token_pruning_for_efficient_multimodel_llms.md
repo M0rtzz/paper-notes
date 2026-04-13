@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：MLLM 将图像编码为大量视觉 Token（如 576 或 2000+），与文本 Token 一起输入 LLM，自注意力的二次复杂度导致巨大计算开销
-2. **现有痛点**：基于显著性的剪枝（如 FastV、SparseVLM、VisionZip）只保留注意力分数最高的 Token，存在两个问题：
+**领域现状**：MLLM 将图像编码为大量视觉 Token（如 576 或 2000+），与文本 Token 一起输入 LLM，自注意力的二次复杂度导致巨大计算开销
+**现有痛点**：基于显著性的剪枝（如 FastV、SparseVLM、VisionZip）只保留注意力分数最高的 Token，存在两个问题：
    - **语义不完整**：高显著性 Token 往往集中在少数物体上，丢失了上下文信息（如对 "猫在哪" 的回答需要猫和它周围的环境）
    - **注意力分布偏斜**：只有极少数 Token 获得高注意力，其余 Token 注意力几乎均匀分布，难以区分信息性 Token 和冗余 Token
-3. **核心矛盾**：显著性优先会导致所选 Token 语义高度重叠，覆盖率低
-4. **切入角度**：借鉴子模函数优化（submodular optimization）中的覆盖函数思想，提出联合考虑显著性和覆盖率的选择策略
+**核心矛盾**：显著性优先会导致所选 Token 语义高度重叠，覆盖率低
+**切入角度**：借鉴子模函数优化（submodular optimization）中的覆盖函数思想，提出联合考虑显著性和覆盖率的选择策略
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **集合覆盖率（Set-Coverage）**：
-   - 做什么：量化已选 Token 集合对全部 Token 的语义覆盖程度
-   - 核心思路：对每个 Token $u$，其被覆盖程度定义为它与已选集合中最相似 Token 的余弦相似度：$C(u,\mathcal{S}) = \max_{s \in \mathcal{S}} \text{sim}(u,s)$。总覆盖率：$f(\mathcal{S}) = \sum_{u \in \mathcal{V}} \max_{s \in \mathcal{S}} \text{sim}(u,s)$
-   - 设计动机：鼓励选择语义多样化的 Token，确保每个未选 Token 都有至少一个相似的代表
+
+    - 做什么：量化已选 Token 集合对全部 Token 的语义覆盖程度
+    - 核心思路：对每个 Token $u$，其被覆盖程度定义为它与已选集合中最相似 Token 的余弦相似度：$C(u,\mathcal{S}) = \max_{s \in \mathcal{S}} \text{sim}(u,s)$。总覆盖率：$f(\mathcal{S}) = \sum_{u \in \mathcal{V}} \max_{s \in \mathcal{S}} \text{sim}(u,s)$
+    - 设计动机：鼓励选择语义多样化的 Token，确保每个未选 Token 都有至少一个相似的代表
 
 2. **Token 覆盖增益（Token-Coverage Gain）**：
-   - 做什么：量化新增一个 Token 带来的额外覆盖
-   - 核心思路：边际增益 $\Delta(v;\mathcal{S}) = \sum_{u \in \mathcal{V}}[\max(C(u,\mathcal{S}), \text{sim}(u,v)) - C(u,\mathcal{S})]$
-   - 设计动机：贪心选择增益最大的 Token，这是经典的次模函数最大化策略，有 $(1-1/e)$ 的近似保证
+
+    - 做什么：量化新增一个 Token 带来的额外覆盖
+    - 核心思路：边际增益 $\Delta(v;\mathcal{S}) = \sum_{u \in \mathcal{V}}[\max(C(u,\mathcal{S}), \text{sim}(u,v)) - C(u,\mathcal{S})]$
+    - 设计动机：贪心选择增益最大的 Token，这是经典的次模函数最大化策略，有 $(1-1/e)$ 的近似保证
 
 3. **SCOPE 得分**：
-   - 做什么：融合显著性和覆盖增益
-   - 核心思路：$\Delta(v, A_v^\alpha; \mathcal{S}) = \Delta(v; \mathcal{S}) \cdot A_v^\alpha$，其中 $A_v$ 是注意力分数，$\alpha$ 是缩放因子
-   - 设计动机：纯覆盖增益忽略了 Token 的内在信息量，乘以注意力分数后可以在覆盖和重要性之间取得平衡
+
+    - 做什么：融合显著性和覆盖增益
+    - 核心思路：$\Delta(v, A_v^\alpha; \mathcal{S}) = \Delta(v; \mathcal{S}) \cdot A_v^\alpha$，其中 $A_v$ 是注意力分数，$\alpha$ 是缩放因子
+    - 设计动机：纯覆盖增益忽略了 Token 的内在信息量，乘以注意力分数后可以在覆盖和重要性之间取得平衡
 
 ### 训练策略
 完全无需训练，即插即用。在推理时的指定 Transformer 层执行一次剪枝即可。

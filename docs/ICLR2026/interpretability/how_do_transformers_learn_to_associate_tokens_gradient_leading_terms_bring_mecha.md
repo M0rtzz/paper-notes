@@ -45,25 +45,27 @@ tags:
 ### 关键设计
 
 1. **梯度前导项近似**：
-   - 对梯度进行分解，识别出对权重更新贡献最大的主导项
-   - 忽略高阶项后，梯度的前导项可以用语料库的统计量来表达
-   - 这一近似在训练早期（权重尚小时）特别精确
+
+    - 对梯度进行分解，识别出对权重更新贡献最大的主导项
+    - 忽略高阶项后，梯度的前导项可以用语料库的统计量来表达
+    - 这一近似在训练早期（权重尚小时）特别精确
 
 2. **三种基函数（Basis Functions）**：
    推导结果显示，Transformer的每组权重都可以表达为以下三种基函数的组合：
    
-   - **Bigram映射**：捕捉相邻token对的共现统计。例如"the"→"cat"的高频共现导致对应权重增大。这是最直接的序列统计——当token $A$ 频繁出现在token $B$ 之前时，模型学习到$A \rightarrow B$的关联
+    - **Bigram映射**：捕捉相邻token对的共现统计。例如"the"→"cat"的高频共现导致对应权重增大。这是最直接的序列统计——当token $A$ 频繁出现在token $B$ 之前时，模型学习到$A \rightarrow B$的关联
    
-   - **Token-interchangeability映射**：捕捉"可互换性"——在相似上下文中出现的token之间的关系。例如，"dog"和"cat"虽然不是相邻共现的token，但它们在"The ___ sat on the mat"这类上下文中具有互换性。这反映了分布式语义假说（distributional semantics）
+    - **Token-interchangeability映射**：捕捉"可互换性"——在相似上下文中出现的token之间的关系。例如，"dog"和"cat"虽然不是相邻共现的token，但它们在"The ___ sat on the mat"这类上下文中具有互换性。这反映了分布式语义假说（distributional semantics）
    
-   - **Context映射**：捕捉更广泛的上下文模式——特定上下文如何影响对后续token的预测。这一基函数编码了"给定一个上下文窗口，什么token最可能跟随"的统计规律
+    - **Context映射**：捕捉更广泛的上下文模式——特定上下文如何影响对后续token的预测。这一基函数编码了"给定一个上下文窗口，什么token最可能跟随"的统计规律
 
 3. **闭式权重表达**：
-   - 每个权重矩阵（$W_Q$, $W_K$, $W_V$等）在训练早期可以写成上述三种基函数的线性组合
-   - 组合系数取决于架构细节（层数、头数）和训练超参数
-   - 这些闭式表达揭示了Transformer各组件的**功能性分工**：
-     - Query-Key权重主要依赖bigram和token-interchangeability → 决定"attend to what"
-     - Value权重主要依赖context mapping → 决定"传递什么信息"
+
+    - 每个权重矩阵（$W_Q$, $W_K$, $W_V$等）在训练早期可以写成上述三种基函数的线性组合
+    - 组合系数取决于架构细节（层数、头数）和训练超参数
+    - 这些闭式表达揭示了Transformer各组件的**功能性分工**：
+      - Query-Key权重主要依赖bigram和token-interchangeability → 决定"attend to what"
+      - Value权重主要依赖context mapping → 决定"传递什么信息"
 
 ### 理论贡献的层次
 1. **描述性**：给出了权重的数学表达形式

@@ -37,22 +37,25 @@ SALMUBench 提供完整的遗忘评估生态系统，包含三个核心组件：
 ### 关键设计
 
 1. **合成数据集构建（5 阶段流水线）**：
-   - 锚点播种：从 SFHQ 选取 1000 张合成人脸作为身份锚点
-   - 身份保持图像生成：用 IP-Adapter-FaceID Plus 为每个人物生成 ~100 张多样化图像
-   - CLIP 过滤与人口统计学整理：零样本标注+一致性检查→774 个连贯身份
-   - PII 属性分配：为每人分配文化一致的姓名、城市、电话、邮箱、IBAN 等（均为虚构且唯一）
-   - LLM 标注多样化：用 Gemma3-12B 对模板标注进行 5 种语言改写，确保多样性
+
+    - 锚点播种：从 SFHQ 选取 1000 张合成人脸作为身份锚点
+    - 身份保持图像生成：用 IP-Adapter-FaceID Plus 为每个人物生成 ~100 张多样化图像
+    - CLIP 过滤与人口统计学整理：零样本标注+一致性检查→774 个连贯身份
+    - PII 属性分配：为每人分配文化一致的姓名、城市、电话、邮箱、IBAN 等（均为虚构且唯一）
+    - LLM 标注多样化：用 Gemma3-12B 对模板标注进行 5 种语言改写，确保多样性
    最终得到 ~60K 图文对，覆盖 774 个虚构人物、65 个国家
 
 2. **从头训练的控制实验设置**：训练两个 ViT-B/16 CLIP 模型：
-   - **Clean 模型**：仅在 retain set（~400M 真实图文对）上训练
-   - **Compromised 模型**：在 retain + sensitive（60K）上训练
+
+    - **Clean 模型**：仅在 retain set（~400M 真实图文对）上训练
+    - **Compromised 模型**：在 retain + sensitive（60K）上训练
    两者同种子、同架构、同训练配置（32 epochs, 128 H100），确保差异仅来自敏感数据的有无
 
 3. **结构化 holdout 评估协议**：将 774 个敏感身份分为两组：
-   - **forget set**：遗忘算法可见的全部数据（含 forget_identity + forget_association）
-   - **holdout_identity**：来自不在 forget 中的身份——检测**身份间附带损害**
-   - **holdout_association**：同一人物的其他关联（如遗忘电话后是否职业也被擦除）——检测**身份内附带损害**
+
+    - **forget set**：遗忘算法可见的全部数据（含 forget_identity + forget_association）
+    - **holdout_identity**：来自不在 forget 中的身份——检测**身份间附带损害**
+    - **holdout_association**：同一人物的其他关联（如遗忘电话后是否职业也被擦除）——检测**身份内附带损害**
    
    这种设计首次实现了对**过度泛化遗忘**的定量诊断。
 

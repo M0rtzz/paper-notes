@@ -29,8 +29,8 @@ tags:
 
 随着多模态大语言模型（MLLM）快速发展，目前已有 300+ MLLM 基准测试集，开发者面临两大困境：
 
-1. **选择困难**：面对海量 benchmark，不知道哪个最能揭示模型的强弱
-2. **评估机制本身不可靠**：许多 benchmark 存在以下缺陷：
+**选择困难**：面对海量 benchmark，不知道哪个最能揭示模型的强弱
+**评估机制本身不可靠**：许多 benchmark 存在以下缺陷：
    - **Fallacy（谬误）**：题目或标注本身有误，反映的信息不可靠
    - **Difficulty（难度不足）**：题目太简单，几乎所有模型都能答对，无法提供有意义的区分
    - **Redundancy（冗余）**：仅凭部分信息（如纯文本不看图）就能答对，多出的模态是冗余的
@@ -56,23 +56,27 @@ $$E(I) \propto (1 - D_{fal}) \cdot D_{dif} \cdot (1 - D_{red}) \cdot D_{div}$$
 ### 关键设计
 
 1. **Difficulty 评估**：
-   - **Model Eval**：用 GPT-4o、InternVL-2.5、QwenVL-2.5 三模型投票，定义 Junior（至少一个错）、Extreme（全错）、Ambiguity（最佳和备选答案在模型间交叉）三个子维度
-   - $D_{dif} = P(Q_{jun}) + P(Q_{amb})$
-   - **Data Eval**：从图像结构复杂度（2D 拉普拉斯算子）、文本语法深度（语法树）、选项语义距离（CLIP 距离）、关注区域大小（语法根节点熵）四个特征拟合 Model Eval 结果
+
+    - **Model Eval**：用 GPT-4o、InternVL-2.5、QwenVL-2.5 三模型投票，定义 Junior（至少一个错）、Extreme（全错）、Ambiguity（最佳和备选答案在模型间交叉）三个子维度
+    - $D_{dif} = P(Q_{jun}) + P(Q_{amb})$
+    - **Data Eval**：从图像结构复杂度（2D 拉普拉斯算子）、文本语法深度（语法树）、选项语义距离（CLIP 距离）、关注区域大小（语法根节点熵）四个特征拟合 Model Eval 结果
 
 2. **Fallacy 评估**（仅 Human Eval）：
-   - 在 Difficulty 筛出的困难样本中，人类专家标注三种谬误：Question（问题本身有误）、Annotation（标注有误但有其他正确选项）、Ambiguity（多选项均合理）
-   - $D_{fal} = P((Q_{que} + Q_{ano} + Q_{amb}) | D_{dif}=1)$
+
+    - 在 Difficulty 筛出的困难样本中，人类专家标注三种谬误：Question（问题本身有误）、Annotation（标注有误但有其他正确选项）、Ambiguity（多选项均合理）
+    - $D_{fal} = P((Q_{que} + Q_{ano} + Q_{amb}) | D_{dif}=1)$
 
 3. **Redundancy 评估**：
-   - **Model Eval**：分别去掉图像/文本，让模型推理，若仍能答对则说明被去掉的模态冗余
-   - $D_{red} = \frac{w_{img} \cdot \mathrm{Acc}(\overline{I_{img}}) + w_{txt} \cdot \mathrm{Acc}(\overline{I_{txt}})}{w_{img} + w_{txt}}$
-   - 使用 QwenVL-2.5 推理（其他模型会拒绝回答）
+
+    - **Model Eval**：分别去掉图像/文本，让模型推理，若仍能答对则说明被去掉的模态冗余
+    - $D_{red} = \frac{w_{img} \cdot \mathrm{Acc}(\overline{I_{img}}) + w_{txt} \cdot \mathrm{Acc}(\overline{I_{txt}})}{w_{img} + w_{txt}}$
+    - 使用 QwenVL-2.5 推理（其他模型会拒绝回答）
 
 4. **Diversity 评估**：
-   - **Model Eval**：用 CLIP 编码器对图像/文本样本做聚类和去重，剩余样本比例即多样性
-   - $D_{div} = \frac{w_{img} \cdot \frac{\#(\mathrm{SIM}(I_{img}))}{\#(I_{img})} + w_{txt} \cdot \frac{\#(\mathrm{SIM}(I_{txt}))}{\#(I_{txt})}}{w_{img} + w_{txt}}$
-   - **Data Eval**：图像用 5 个低层特征（亮度、对比度、色彩、模糊、纹理）的分布方差；文本用 10 种疑问词类型的覆盖率
+
+    - **Model Eval**：用 CLIP 编码器对图像/文本样本做聚类和去重，剩余样本比例即多样性
+    - $D_{div} = \frac{w_{img} \cdot \frac{\#(\mathrm{SIM}(I_{img}))}{\#(I_{img})} + w_{txt} \cdot \frac{\#(\mathrm{SIM}(I_{txt}))}{\#(I_{txt})}}{w_{img} + w_{txt}}$
+    - **Data Eval**：图像用 5 个低层特征（亮度、对比度、色彩、模糊、纹理）的分布方差；文本用 10 种疑问词类型的覆盖率
 
 ### 损失函数 / 训练策略
 

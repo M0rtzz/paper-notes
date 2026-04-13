@@ -24,12 +24,12 @@ tags:
 通过 AttnLRP 归因方法系统解剖 LLM 在 in-context retrieval augmented QA 中的内部机制，发现三类功能特化的注意力头——Task heads（中间层，解析指令/问题）、Retrieval heads（后层，逐字复制上下文答案）、Parametric heads（编码参数化知识），并通过 Function Vector 注入和来源追踪探针验证其功能，在 Llama-3.1/Mistral/Gemma 上 ROC AUC ≥94%。
 
 ## 研究背景与动机
-1. **领域现状**：LLM 通过 in-context learning 直接从 prompt 中的上下文获取知识来回答问题。先前研究发现了 induction heads 等模式，但缺乏系统性分析——特别是对 retrieval augmentation 场景中不同注意力头如何分工协作的理解。
-2. **现有痛点**：(a) 不清楚 LLM 何时使用上下文提供的信息 vs 参数记忆；(b) 现有分析方法（如仅看注意力权重）无法捕获注意力头对输出的因果贡献；(c) 缺乏在多个模型上一致的功能性划分框架。
-3. **核心矛盾**：LLM 在 in-context QA 中同时依赖两种知识来源（上下文 vs 参数），但它们如何在 attention 层面竞争和协作是黑箱的。
-4. **本文要解决什么**：建立 LLM in-context retrieval 的"注意力头地图"——哪些头负责什么功能，以及如何用这些发现来控制和诊断模型行为。
-5. **切入角度**：用 AttnLRP（attention-aware Layer-wise Relevance Propagation）做因果归因，比仅看注意力权重更准确地衡量每个头对输出的贡献。
-6. **核心idea一句话**：三类头各司其职——Task heads 解析"问什么"，Retrieval heads 执行"从哪抄"，Parametric heads 提供"记住什么"，可通过 Function Vector 注入和探针验证。
+**领域现状**：LLM 通过 in-context learning 直接从 prompt 中的上下文获取知识来回答问题。先前研究发现了 induction heads 等模式，但缺乏系统性分析——特别是对 retrieval augmentation 场景中不同注意力头如何分工协作的理解。
+**现有痛点**：(a) 不清楚 LLM 何时使用上下文提供的信息 vs 参数记忆；(b) 现有分析方法（如仅看注意力权重）无法捕获注意力头对输出的因果贡献；(c) 缺乏在多个模型上一致的功能性划分框架。
+**核心矛盾**：LLM 在 in-context QA 中同时依赖两种知识来源（上下文 vs 参数），但它们如何在 attention 层面竞争和协作是黑箱的。
+**本文要解决什么**：建立 LLM in-context retrieval 的"注意力头地图"——哪些头负责什么功能，以及如何用这些发现来控制和诊断模型行为。
+**切入角度**：用 AttnLRP（attention-aware Layer-wise Relevance Propagation）做因果归因，比仅看注意力权重更准确地衡量每个头对输出的贡献。
+**核心idea一句话**：三类头各司其职——Task heads 解析"问什么"，Retrieval heads 执行"从哪抄"，Parametric heads 提供"记住什么"，可通过 Function Vector 注入和探针验证。
 
 ## 方法详解
 
@@ -39,26 +39,30 @@ tags:
 ### 关键设计
 
 1. **AttnLRP 归因方法**:
-   - 做什么：为每个注意力头计算其对最终输出 token 的因果贡献
-   - 核心思路：$\mathcal{R}^+(x|y) = \max(\mathcal{R}(x|y), 0)$——正相关度表示放大效应，负相关度表示抑制效应
-   - 每个头的输出：$z_i^h = \sum_{j=1}^{S} A_{i,j}^h(W_V^h x_j)$
-   - 优势：比单纯注意力权重更准确——注意力权重高不等于对输出贡献大
+
+    - 做什么：为每个注意力头计算其对最终输出 token 的因果贡献
+    - 核心思路：$\mathcal{R}^+(x|y) = \max(\mathcal{R}(x|y), 0)$——正相关度表示放大效应，负相关度表示抑制效应
+    - 每个头的输出：$z_i^h = \sum_{j=1}^{S} A_{i,j}^h(W_V^h x_j)$
+    - 优势：比单纯注意力权重更准确——注意力权重高不等于对输出贡献大
 
 2. **注意力头识别与分类**:
-   - 做什么：将头分为 in-context heads 和 parametric heads
-   - 方法：计算每个头在 open-book（有上下文）vs closed-book（无上下文）条件下的贡献差异：$\mathcal{D} = \mathbb{E}_{X_{OB}}[\mathcal{R}^h(y_{cf})] - \mathbb{E}_{X_{CB}}[\mathcal{R}^h(y_{gold})]$
-   - 选取 $\mathcal{D}$ 最高的 100 个头为 in-context heads，最低的为 parametric heads（占总头数 10-15%）
-   - 进一步细分 in-context heads：Task heads（对问题 token 贡献高）vs Retrieval heads（对答案 token 贡献高）
+
+    - 做什么：将头分为 in-context heads 和 parametric heads
+    - 方法：计算每个头在 open-book（有上下文）vs closed-book（无上下文）条件下的贡献差异：$\mathcal{D} = \mathbb{E}_{X_{OB}}[\mathcal{R}^h(y_{cf})] - \mathbb{E}_{X_{CB}}[\mathcal{R}^h(y_{gold})]$
+    - 选取 $\mathcal{D}$ 最高的 100 个头为 in-context heads，最低的为 parametric heads（占总头数 10-15%）
+    - 进一步细分 in-context heads：Task heads（对问题 token 贡献高）vs Retrieval heads（对答案 token 贡献高）
 
 3. **Function Vector (FV) 验证**:
-   - 做什么：提取特定类型头的输出向量，注入到没有该功能的场景中，验证是否诱导出对应行为
-   - 核心发现：注入 Task heads FV → recall 从 18%→94.75%（+76.75%）；注入 Retrieval heads FV → 15.94%→93.45%（+77.51%）
-   - 设计动机：如果注入一组头的 FV 能诱导对应功能，说明这些头确实是该功能的核心载体
+
+    - 做什么：提取特定类型头的输出向量，注入到没有该功能的场景中，验证是否诱导出对应行为
+    - 核心发现：注入 Task heads FV → recall 从 18%→94.75%（+76.75%）；注入 Retrieval heads FV → 15.94%→93.45%（+77.51%）
+    - 设计动机：如果注入一组头的 FV 能诱导对应功能，说明这些头确实是该功能的核心载体
 
 4. **来源追踪探针**:
-   - 做什么：在 Retrieval heads 的激活上训练线性探针，判断答案来源是上下文还是参数记忆
-   - ROC AUC：Llama 95%, Mistral 98%, Gemma 94%
-   - 定位精度：通过聚合注意力权重 + logit lens，Top-1 答案位置定位准确率 Llama 97%, Mistral 96%, Gemma 84%
+
+    - 做什么：在 Retrieval heads 的激活上训练线性探针，判断答案来源是上下文还是参数记忆
+    - ROC AUC：Llama 95%, Mistral 98%, Gemma 94%
+    - 定位精度：通过聚合注意力权重 + logit lens，Top-1 答案位置定位准确率 Llama 97%, Mistral 96%, Gemma 84%
 
 ### 层级分布
 实验发现一致的层级模式：Parametric heads 分散在各层 → Task heads 集中在中间层 → Retrieval heads 集中在后层。

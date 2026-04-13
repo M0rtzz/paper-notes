@@ -26,17 +26,17 @@ PepTune 结合 Masked Discrete Language Model (MDLM) 和蒙特卡罗树搜索 (M
 
 ## 研究背景与动机
 
-1. **领域现状**：肽疗法（如 GLP-1 受体激动剂 semaglutide/liraglutide）在糖尿病、肥胖等疾病治疗中取得里程碑式成功。肽能结合多样的蛋白表面、打断蛋白-蛋白相互作用，自 2000 年以来已有 33 种 FDA 批准的治疗性肽。
+**领域现状**：肽疗法（如 GLP-1 受体激动剂 semaglutide/liraglutide）在糖尿病、肥胖等疾病治疗中取得里程碑式成功。肽能结合多样的蛋白表面、打断蛋白-蛋白相互作用，自 2000 年以来已有 33 种 FDA 批准的治疗性肽。
 
-2. **现有痛点**：设计同时满足多个冲突目标（如结合亲和力、溶解性、膜通透性）的肽是重大挑战。现有方法限于(1)连续空间、(2)无条件生成、(3)单目标引导。传统方法依赖筛选 10^12 量级的随机组合文库。
+**现有痛点**：设计同时满足多个冲突目标（如结合亲和力、溶解性、膜通透性）的肽是重大挑战。现有方法限于(1)连续空间、(2)无条件生成、(3)单目标引导。传统方法依赖筛选 10^12 量级的随机组合文库。
 
-3. **核心矛盾**：治疗性肽需要含非天然氨基酸(nAAs)和环化修饰（提高稳定性和通透性），但现有深度学习模型只能处理 20 种标准氨基酸；同时，多目标引导在离散空间极为困难——梯度无法直接计算。
+**核心矛盾**：治疗性肽需要含非天然氨基酸(nAAs)和环化修饰（提高稳定性和通透性），但现有深度学习模型只能处理 20 种标准氨基酸；同时，多目标引导在离散空间极为困难——梯度无法直接计算。
 
-4. **本文要解决什么**：构建一个能在离散肽 SMILES 空间中进行多目标条件生成的扩散模型。
+**本文要解决什么**：构建一个能在离散肽 SMILES 空间中进行多目标条件生成的扩散模型。
 
-5. **切入角度**：(1)用 SMILES 而非氨基酸序列表示肽→支持 nAAs 和环化；(2)用 MCTS 而非梯度引导→解决离散空间引导难题。
+**切入角度**：(1)用 SMILES 而非氨基酸序列表示肽→支持 nAAs 和环化；(2)用 MCTS 而非梯度引导→解决离散空间引导难题。
 
-6. **核心 idea 一句话**：MDLM 负责探索离散肽空间的有效结构，MCTS 负责引导生成向多个治疗目标的 Pareto 最优方向演化。
+**核心 idea 一句话**：MDLM 负责探索离散肽空间的有效结构，MCTS 负责引导生成向多个治疗目标的 Pareto 最优方向演化。
 
 ## 方法详解
 
@@ -50,26 +50,29 @@ PepTune 结合 Masked Discrete Language Model (MDLM) 和蒙特卡罗树搜索 (M
 ### 关键设计
 
 1. **状态依赖的 Masking Schedule**:
-   - 核心洞察：肽键(peptide bond)是所有有效肽的基础结构
-   - 设计多项式masking schedule：$\alpha_t(\mathbf{x}_0) = 1 - t^w$ 对肽键token，$\alpha_t = 1 - t$ 对非肽键token
-   - 肽键token在前向过程中被更晚mask，在逆过程中被更早unmask
-   - 训练损失中肽键token权重放大 $w$ 倍：$\frac{w}{t} \log \langle \mathbf{x}_0, \mathbf{x}_\theta \rangle$
-   - **为什么**：肽的绝大多数 SMILES 不是有效肽——让模型先"搭好骨架"再填充侧链
+
+    - 核心洞察：肽键(peptide bond)是所有有效肽的基础结构
+    - 设计多项式masking schedule：$\alpha_t(\mathbf{x}_0) = 1 - t^w$ 对肽键token，$\alpha_t = 1 - t$ 对非肽键token
+    - 肽键token在前向过程中被更晚mask，在逆过程中被更早unmask
+    - 训练损失中肽键token权重放大 $w$ 倍：$\frac{w}{t} \log \langle \mathbf{x}_0, \mathbf{x}_\theta \rangle$
+    - **为什么**：肽的绝大多数 SMILES 不是有效肽——让模型先"搭好骨架"再填充侧链
 
 2. **全局序列无效性损失 (Invalid Loss)**:
-   - 对预测概率取 argmax 得到离散序列，检查是否为有效肽
-   - 无效序列通过 softmax 概率加权的惩罚传播梯度
-   - $\mathcal{L}_{\text{invalid}} = \sum_\ell \text{SM}(x_{\theta,k}^{(\ell)}) \cdot \mathbf{1}[\tilde{\mathbf{x}}_0 \text{ is Invalid}]$
-   - **为什么**：argmax 不可微，用 softmax 概率作为 surrogate 来绕过
+
+    - 对预测概率取 argmax 得到离散序列，检查是否为有效肽
+    - 无效序列通过 softmax 概率加权的惩罚传播梯度
+    - $\mathcal{L}_{\text{invalid}} = \sum_\ell \text{SM}(x_{\theta,k}^{(\ell)}) \cdot \mathbf{1}[\tilde{\mathbf{x}}_0 \text{ is Invalid}]$
+    - **为什么**：argmax 不可微，用 softmax 概率作为 surrogate 来绕过
 
 3. **MCTS 多目标引导**:
-   - **Selection**：从根节点（全mask）开始，根据累积奖励选择非支配的子节点路径
-   - **Expansion**：用 Gumbel noise 采样 $M$ 个不同的 unmask 方案
-   - **Rollout**：贪心 unmask 到完整序列，用分类器计算 $K$ 个目标的分数
-   - **Backpropagation**：奖励向量回传更新路径上所有节点
-   - 奖励定义：$r_k(\mathbf{x}) = \frac{1}{|\mathcal{P}^*|} \sum_n \mathbb{I}[s_k(\mathbf{x}) \geq s_k(\tilde{\mathbf{x}}_n)]$（击败 Pareto 集中的比例）
-   - 无效肽惩罚：从所有维度扣减与无效比例成正比的分数
-   - **为什么**：离散空间无梯度，MCTS 通过搜索+奖励信号实现不依赖梯度的多目标引导
+
+    - **Selection**：从根节点（全mask）开始，根据累积奖励选择非支配的子节点路径
+    - **Expansion**：用 Gumbel noise 采样 $M$ 个不同的 unmask 方案
+    - **Rollout**：贪心 unmask 到完整序列，用分类器计算 $K$ 个目标的分数
+    - **Backpropagation**：奖励向量回传更新路径上所有节点
+    - 奖励定义：$r_k(\mathbf{x}) = \frac{1}{|\mathcal{P}^*|} \sum_n \mathbb{I}[s_k(\mathbf{x}) \geq s_k(\tilde{\mathbf{x}}_n)]$（击败 Pareto 集中的比例）
+    - 无效肽惩罚：从所有维度扣减与无效比例成正比的分数
+    - **为什么**：离散空间无梯度，MCTS 通过搜索+奖励信号实现不依赖梯度的多目标引导
 
 ### 损失函数 / 训练策略
 

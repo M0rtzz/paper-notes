@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大规模ViT的下游适配面临训练开销和推理效率两大挑战。PEFT（LoRA等）解决训练效率但不降推理成本；模型压缩解决推理效率但需大量重训。
-2. **现有痛点**：简单组合PEFT+Token Merging（如LoRA+ToMe）在低压缩率下性能略降，高压缩率（>3×）下出现"逆向压缩"——压缩后大模型性能不如直接用小模型。
-3. **核心矛盾**：PEFT只微调少量参数，对数据分布的感知力有限；token合并造成信息损失，有限参数无法弥补。
-4. **本文要解决什么**：提出"训练-推理高效任务适配"新范式——用极少可训练参数适配同时获得推理加速。
-5. **切入角度**：在token合并前对被合并token做自适应特征调制，补偿合并造成的信息损失。
-6. **核心idea一句话**：用两个轻量可学习向量并行生成通道维和token维的调制权重，通过sigmoid re-activation策略校准token特征。
+**领域现状**：大规模ViT的下游适配面临训练开销和推理效率两大挑战。PEFT（LoRA等）解决训练效率但不降推理成本；模型压缩解决推理效率但需大量重训。
+**现有痛点**：简单组合PEFT+Token Merging（如LoRA+ToMe）在低压缩率下性能略降，高压缩率（>3×）下出现"逆向压缩"——压缩后大模型性能不如直接用小模型。
+**核心矛盾**：PEFT只微调少量参数，对数据分布的感知力有限；token合并造成信息损失，有限参数无法弥补。
+**本文要解决什么**：提出"训练-推理高效任务适配"新范式——用极少可训练参数适配同时获得推理加速。
+**切入角度**：在token合并前对被合并token做自适应特征调制，补偿合并造成的信息损失。
+**核心idea一句话**：用两个轻量可学习向量并行生成通道维和token维的调制权重，通过sigmoid re-activation策略校准token特征。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **并行生成自适应权重（Parallel Yielding）**
-   - 做什么：解耦生成通道维 $\delta_D^l \in \mathbb{R}^{D \times 1}$ 和token维 $\delta_r^l \in \mathbb{R}^{1 \times r}$ 的调制权重
-   - 核心思路：$\delta_D^l = M_{info}^l W_r^l$，$\delta_r^l = W_D^l M_{info}^l$，两路平行计算
-   - 设计动机：低秩解耦让每个方向各自感知数据分布，参数极少（2个向量/层）
+
+    - 做什么：解耦生成通道维 $\delta_D^l \in \mathbb{R}^{D \times 1}$ 和token维 $\delta_r^l \in \mathbb{R}^{1 \times r}$ 的调制权重
+    - 核心思路：$\delta_D^l = M_{info}^l W_r^l$，$\delta_r^l = W_D^l M_{info}^l$，两路平行计算
+    - 设计动机：低秩解耦让每个方向各自感知数据分布，参数极少（2个向量/层）
 
 2. **Re-Activation调制策略**
-   - 做什么：两重sigmoid门控+残差连接实现稳定的特征调制
-   - 核心思路：$\hat{M}_s^l = 2\sigma(\hat{\delta}_D^l) \odot M_s^l$，然后 $M_s^l \leftarrow M_s^l + (2\sigma(\hat{\delta}_r^l)-1) \odot \hat{M}_s^l$
-   - 设计动机：sigmoid约束权重范围；两重调制+残差使低秩分解等效于更高秩表达；$W_D^l$ 初始化为0保证初始恒等
+
+    - 做什么：两重sigmoid门控+残差连接实现稳定的特征调制
+    - 核心思路：$\hat{M}_s^l = 2\sigma(\hat{\delta}_D^l) \odot M_s^l$，然后 $M_s^l \leftarrow M_s^l + (2\sigma(\hat{\delta}_r^l)-1) \odot \hat{M}_s^l$
+    - 设计动机：sigmoid约束权重范围；两重调制+残差使低秩分解等效于更高秩表达；$W_D^l$ 初始化为0保证初始恒等
 
 3. **仅调制源token**
-   - 做什么：只调制pair中的源token $M_s^l$，不动目标token $M_t^l$
-   - 核心思路：源token互不重复，但目标token可能共享同一个token
-   - 设计动机：避免对共享目标token的冲突修改，保持并行一致性
+
+    - 做什么：只调制pair中的源token $M_s^l$，不动目标token $M_t^l$
+    - 核心思路：源token互不重复，但目标token可能共享同一个token
+    - 设计动机：避免对共享目标token的冲突修改，保持并行一致性
 
 ### 损失函数 / 训练策略
 标准交叉熵，仅训练LoRA+每层2个调制向量，backbone冻结。

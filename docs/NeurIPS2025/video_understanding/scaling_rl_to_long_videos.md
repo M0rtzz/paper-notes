@@ -29,8 +29,8 @@ tags:
 
 长视频理解需要超越简单识别的推理能力——包括时序推理、空间追踪、目标推理和叙事理解。但目前面临两大瓶颈：
 
-1. **数据缺口**：不同于数学/代码推理有丰富的结构化数据，长视频推理标注涉及复杂的时空动态、目标和叙事元素，标注成本极高
-2. **训练基础设施瓶颈**：RL 应用于长视频时计算负担极重——数百到数千帧的视频需要巨大的显存和更长的 rollout 时间，现有 RL 框架（如 R1-V、EasyR1）无法处理
+**数据缺口**：不同于数学/代码推理有丰富的结构化数据，长视频推理标注涉及复杂的时空动态、目标和叙事元素，标注成本极高
+**训练基础设施瓶颈**：RL 应用于长视频时计算负担极重——数百到数千帧的视频需要巨大的显存和更长的 rollout 时间，现有 RL 框架（如 R1-V、EasyR1）无法处理
 
 ## 方法详解
 
@@ -44,22 +44,25 @@ LongVILA-R1 包含三个核心组件：
 ### 关键设计
 
 1. **LongVideo-Reason 数据构建**：
-   - 从 Shot2Story 数据集筛选 18K 长视频，加入 2K 额外高分辨率视频
-   - 先将视频切成 ~10 秒片段，用 NVILA-8B 生成每段字幕
-   - 将所有片段字幕输入 DeepSeek-R1-671B，生成跨越整个视频内容的 Question-Reasoning-Answer 三元组
-   - 覆盖四类推理：时序推理、目标/意图推理、空间推理、情节/叙事推理
-   - 数据过滤：用 LongVILA 推理 10 次，过滤掉太简单或太难的问题，保留中等难度样本以保证 GRPO 有有意义的 advantage 信号
-   - 36K 用于 CoT-SFT，68K + 额外 102K 开源数据用于 RL
+
+    - 从 Shot2Story 数据集筛选 18K 长视频，加入 2K 额外高分辨率视频
+    - 先将视频切成 ~10 秒片段，用 NVILA-8B 生成每段字幕
+    - 将所有片段字幕输入 DeepSeek-R1-671B，生成跨越整个视频内容的 Question-Reasoning-Answer 三元组
+    - 覆盖四类推理：时序推理、目标/意图推理、空间推理、情节/叙事推理
+    - 数据过滤：用 LongVILA 推理 10 次，过滤掉太简单或太难的问题，保留中等难度样本以保证 GRPO 有有意义的 advantage 信号
+    - 36K 用于 CoT-SFT，68K + 额外 102K 开源数据用于 RL
 
 2. **两阶段训练**：
-   - **Stage-1 (CoT-SFT)**：用 36K 高质量 CoT 数据做 SFT，格式为 `<think></think><answer></answer>`，为模型注入基本推理和指令跟随能力
-   - **Stage-2 (GRPO)**：标准 GRPO 框架，组大小 $G=8$，使用基于规则的奖励（格式+准确率），优化目标：
-   $$\mathcal{J}(\theta) = \mathbb{E}_{q,\{o_i\}} \left[ \frac{1}{G} \sum_{i=1}^{G} \min\left(\frac{\pi_\theta(o_i|q)}{\pi_{\theta_{old}}(o_i|q)} A_i, \text{clip}(\cdot) A_i\right) - \beta D_{KL} \right]$$
+
+    - **Stage-1 (CoT-SFT)**：用 36K 高质量 CoT 数据做 SFT，格式为 `<think></think><answer></answer>`，为模型注入基本推理和指令跟随能力
+    - **Stage-2 (GRPO)**：标准 GRPO 框架，组大小 $G=8$，使用基于规则的奖励（格式+准确率），优化目标：
+    $\mathcal{J}(\theta) = \mathbb{E}_{q,\{o_i\}} \left[ \frac{1}{G} \sum_{i=1}^{G} \min\left(\frac{\pi_\theta(o_i|q)}{\pi_{\theta_{old}}(o_i|q)} A_i, \text{clip}(\cdot) A_i\right) - \beta D_{KL} \right]$
 
 3. **MR-SP 多模态强化序列并行**：
-   - **Stage 1 - 并行编码与嵌入复用**：视频帧均匀分配到多 GPU，各 GPU 独立编码后 all-gather 聚合。关键优化：编码结果缓存复用，一次编码供 8~16 次 rollout 使用
-   - **Stage 2 - 序列并行预填充**：聚合后的嵌入先 padding 到统一长度，再均匀分片到各 GPU，实现 policy 和 reference 模型的并行预填充
-   - 解决核心痛点：避免长视频的重复编码开销和单 GPU 显存溢出
+
+    - **Stage 1 - 并行编码与嵌入复用**：视频帧均匀分配到多 GPU，各 GPU 独立编码后 all-gather 聚合。关键优化：编码结果缓存复用，一次编码供 8~16 次 rollout 使用
+    - **Stage 2 - 序列并行预填充**：聚合后的嵌入先 padding 到统一长度，再均匀分片到各 GPU，实现 policy 和 reference 模型的并行预填充
+    - 解决核心痛点：避免长视频的重复编码开销和单 GPU 显存溢出
 
 ### 损失函数 / 训练策略
 

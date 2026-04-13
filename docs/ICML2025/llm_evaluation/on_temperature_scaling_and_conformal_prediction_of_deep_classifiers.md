@@ -28,8 +28,8 @@ tags:
 
 深度分类器的不确定性量化主要有两类后处理方法：
 
-1. **校准 (Calibration)**：调整 softmax 值使其最大值更好地估计正确概率。Temperature Scaling (TS) 是最流行的方法，将 logits 除以温度 $T$ 后再做 softmax：$\hat{\pi}_T(\mathbf{x}) = \sigma(\mathbf{z}(\mathbf{x})/T)$
-2. **Conformal Prediction (CP)**：生成一组候选标签的预测集，保证以用户指定概率包含真实标签（边际覆盖保证）
+**校准 (Calibration)**：调整 softmax 值使其最大值更好地估计正确概率。Temperature Scaling (TS) 是最流行的方法，将 logits 除以温度 $T$ 后再做 softmax：$\hat{\pi}_T(\mathbf{x}) = \sigma(\mathbf{z}(\mathbf{x})/T)$
+**Conformal Prediction (CP)**：生成一组候选标签的预测集，保证以用户指定概率包含真实标签（边际覆盖保证）
 
 在关键应用中两者都需要——校准提供置信度估计，CP 提供覆盖保证。然而此前几乎无人研究两者的交互效应。虽然 APS、RAPS 等论文在使用 CP 前会先做 TS 校准，但没有人调查过 TS 校准究竟如何影响 CP 的表现。
 

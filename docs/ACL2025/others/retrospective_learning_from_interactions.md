@@ -56,29 +56,33 @@ ReSpect 在多轮部署中迭代运行：
 ### 关键设计
 
 1. **MultiRef 交互场景**：
-   - 经典参考游戏的泛化版本：说话者（人类）和听者（模型）共同观察一组 tangram 图形
-   - 说话者指导听者选择一个未知大小的子集——组合解空间为 $2^n$（远大于经典的 $n$）
-   - 使用 KiloGram 数据集的抽象 tangram 形状，天然产生模糊描述和丰富的多轮交互
-   - 人类说话者可以发送文字消息，模型听者只能选择/取消选择图片
-   - 20 轮超时即视为失败
+
+    - 经典参考游戏的泛化版本：说话者（人类）和听者（模型）共同观察一组 tangram 图形
+    - 说话者指导听者选择一个未知大小的子集——组合解空间为 $2^n$（远大于经典的 $n$）
+    - 使用 KiloGram 数据集的抽象 tangram 形状，天然产生模糊描述和丰富的多轮交互
+    - 人类说话者可以发送文字消息，模型听者只能选择/取消选择图片
+    - 20 轮超时即视为失败
 
 2. **隐式反馈解码器**：
-   - 使用**模型自身**（不是更强的模型）对过去交互中的每个 action 进行反馈判断
-   - 基于文本提示，输入包括：交互上下文 $x$、模型 action $\hat{a}$、后续交互 $\bar{f}$
-   - 输出：positive / neutral / negative（三元），或 positive / negative（二元）
-   - **不访问任何特权信息**（如正确答案、任务成功与否）
-   - 反馈解码器的精度持续保持在 90% 以上
+
+    - 使用**模型自身**（不是更强的模型）对过去交互中的每个 action 进行反馈判断
+    - 基于文本提示，输入包括：交互上下文 $x$、模型 action $\hat{a}$、后续交互 $\bar{f}$
+    - 输出：positive / neutral / negative（三元），或 positive / negative（二元）
+    - **不访问任何特权信息**（如正确答案、任务成功与否）
+    - 反馈解码器的精度持续保持在 90% 以上
 
 3. **三种学习方法**：
-   - **FFT (Filtered Fine-tuning)**：仅在 positive 数据点上微调，cross-entropy + label smoothing
-   - **REINFORCE**：使用策略梯度，将反馈映射为数值奖励（positive=1, neutral=0, negative=-0.1），负反馈用逆倾向得分加权
-   - **KTO (Kahneman-Tversky Optimization)**：使用正/负数据点，丢弃中性，正:负比例约 5:4
+
+    - **FFT (Filtered Fine-tuning)**：仅在 positive 数据点上微调，cross-entropy + label smoothing
+    - **REINFORCE**：使用策略梯度，将反馈映射为数值奖励（positive=1, neutral=0, negative=-0.1），负反馈用逆倾向得分加权
+    - **KTO (Kahneman-Tversky Optimization)**：使用正/负数据点，丢弃中性，正:负比例约 5:4
 
 4. **持续学习设置**：
-   - 每轮约 330 次交互、~2400 个回合
-   - 训练和评估不分离——部署交互既用于评估又用于训练下一轮
-   - 累积数据训练：每轮使用所有历史数据 $D_{\leq \rho}$
-   - FFT 和 RL 每轮从头训练；KTO 从上轮 checkpoint 继续微调
+
+    - 每轮约 330 次交互、~2400 个回合
+    - 训练和评估不分离——部署交互既用于评估又用于训练下一轮
+    - 累积数据训练：每轮使用所有历史数据 $D_{\leq \rho}$
+    - FFT 和 RL 每轮从头训练；KTO 从上轮 checkpoint 继续微调
 
 ### 损失函数 / 训练策略
 

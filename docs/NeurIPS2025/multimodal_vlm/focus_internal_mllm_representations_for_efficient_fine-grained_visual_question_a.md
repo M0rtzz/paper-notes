@@ -27,11 +27,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：MLLM 在 VQA 任务上表现出色，但面对高分辨率图像中的细小目标时性能受限。全局视图 MLLM（如 LLaVA-1.5，仅支持 336x336）会下采样导致信息丢失；全局-局部视图 MLLM（如 LLaVA-OneVision）虽保留了局部 crop，但难以从大量视觉 token 中精准找到与问题相关的少数 token。
-2. **现有痛点**：已有视觉裁剪方法各有不足——SEAL 需要任务特定微调；DC2 和 ZoomEye 采用穷举层级搜索效率极低（ZoomEye 每个候选区域需 3 次 forward pass）；ViCrop 依赖完整 Q-K 注意力权重，与 FlashAttention 不兼容。
-3. **核心矛盾**：如何在无需额外训练、不穷举搜索、且兼容高效注意力实现的前提下，精准定位图像中与问题相关的细小目标区域。
-4. **切入角度**：MLLM 推理时的 KV-cache 中已隐含视觉 token 与文本 token 的语义对应关系。目标物体对应的文本 token 和图像 token 在 value 特征空间中应具有高相似度，可直接从中提取空间定位信息，且不引入额外计算开销。
-5. **核心 idea**：用 KV-cache 中 value 特征的余弦相似度替代传统注意力权重构建目标相关性图，实现无训练、高效、FlashAttention 兼容的细粒度目标定位。
+**领域现状**：MLLM 在 VQA 任务上表现出色，但面对高分辨率图像中的细小目标时性能受限。全局视图 MLLM（如 LLaVA-1.5，仅支持 336x336）会下采样导致信息丢失；全局-局部视图 MLLM（如 LLaVA-OneVision）虽保留了局部 crop，但难以从大量视觉 token 中精准找到与问题相关的少数 token。
+**现有痛点**：已有视觉裁剪方法各有不足——SEAL 需要任务特定微调；DC2 和 ZoomEye 采用穷举层级搜索效率极低（ZoomEye 每个候选区域需 3 次 forward pass）；ViCrop 依赖完整 Q-K 注意力权重，与 FlashAttention 不兼容。
+**核心矛盾**：如何在无需额外训练、不穷举搜索、且兼容高效注意力实现的前提下，精准定位图像中与问题相关的细小目标区域。
+**切入角度**：MLLM 推理时的 KV-cache 中已隐含视觉 token 与文本 token 的语义对应关系。目标物体对应的文本 token 和图像 token 在 value 特征空间中应具有高相似度，可直接从中提取空间定位信息，且不引入额外计算开销。
+**核心 idea**：用 KV-cache 中 value 特征的余弦相似度替代传统注意力权重构建目标相关性图，实现无训练、高效、FlashAttention 兼容的细粒度目标定位。
 
 ## 方法详解
 
@@ -42,26 +42,30 @@ FOCUS 分为四步：(1) 从 VQA 问题中用 ICL 提取目标物体名称；(2)
 ### 关键设计
 
 1. **目标物体提取**：
-   - 利用 MLLM 的 in-context learning 能力，通过 few-shot 示例提示从 VQA 问题中提取需要关注的目标物体名称
-   - 可提取单个或多个目标物体，后续为每个目标分别构建相关性图
+
+    - 利用 MLLM 的 in-context learning 能力，通过 few-shot 示例提示从 VQA 问题中提取需要关注的目标物体名称
+    - 可提取单个或多个目标物体，后续为每个目标分别构建相关性图
 
 2. **V-V 伪注意力与目标相关性图**：
-   - 对每个目标 token 与所有视觉 token 在第 l 层计算余弦相似度，reshape 为 a x a 的空间图
-   - 跨层聚合：用注意力 rollout 加残差连接聚合第 l 到第 L 层的信息
-   - 多 token 交集：不同 target token 间用逐元素乘法取交集，确保只有同时匹配所有 token 的区域被保留（如 "red car" 只保留红色+车共现区域）
-   - 设计动机：传统 Q-K 注意力权重在 FlashAttention 下不可用，而 value 特征已在推理必须的 KV-cache 中，零额外计算开销
-   - 对全局-局部视图 MLLM，使用局部 crop 的视觉 token 来计算伪注意力，经验上能更好捕捉细粒度细节
+
+    - 对每个目标 token 与所有视觉 token 在第 l 层计算余弦相似度，reshape 为 a x a 的空间图
+    - 跨层聚合：用注意力 rollout 加残差连接聚合第 l 到第 L 层的信息
+    - 多 token 交集：不同 target token 间用逐元素乘法取交集，确保只有同时匹配所有 token 的区域被保留（如 "red car" 只保留红色+车共现区域）
+    - 设计动机：传统 Q-K 注意力权重在 FlashAttention 下不可用，而 value 特征已在推理必须的 KV-cache 中，零额外计算开销
+    - 对全局-局部视图 MLLM，使用局部 crop 的视觉 token 来计算伪注意力，经验上能更好捕捉细粒度细节
 
 3. **候选区域提出与排序**：
-   - 选取相关性图中 top-k 最高分位置为锚点（保证最小间距）
-   - 每个锚点生成初始 ROI（最小尺寸），向外扩展直至最大尺寸或平均相关性低于阈值
-   - 用 NMS 去重后，对 top-n_steps 个 ROI 向 MLLM 询问"该区域是否存在目标"并计算存在置信度，据此重排序
-   - 设计动机：相关性图可能有噪声（spurious high-activation tokens），需二次验证确认 ROI 中确实包含目标
+
+    - 选取相关性图中 top-k 最高分位置为锚点（保证最小间距）
+    - 每个锚点生成初始 ROI（最小尺寸），向外扩展直至最大尺寸或平均相关性低于阈值
+    - 用 NMS 去重后，对 top-n_steps 个 ROI 向 MLLM 询问"该区域是否存在目标"并计算存在置信度，据此重排序
+    - 设计动机：相关性图可能有噪声（spurious high-activation tokens），需二次验证确认 ROI 中确实包含目标
 
 4. **最终 VQA 推理**：
-   - Type-1 问题（单目标）：选最高置信度 ROI 执行 VQA；涉及多个目标物体则合并各自最佳 ROI
-   - Type-2 问题（多实例）：选取所有置信度超过阈值的 ROI
-   - 对全局-局部视图 MLLM，利用 text-image-interleaved 能力，同时提供标注了目标位置的全局图和各目标的最佳 ROI
+
+    - Type-1 问题（单目标）：选最高置信度 ROI 执行 VQA；涉及多个目标物体则合并各自最佳 ROI
+    - Type-2 问题（多实例）：选取所有置信度超过阈值的 ROI
+    - 对全局-局部视图 MLLM，利用 text-image-interleaved 能力，同时提供标注了目标位置的全局图和各目标的最佳 ROI
 
 ### 训练策略
 

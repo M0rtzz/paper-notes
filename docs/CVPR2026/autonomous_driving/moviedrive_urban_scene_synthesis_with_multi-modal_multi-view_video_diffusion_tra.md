@@ -27,13 +27,13 @@ MoVieDrive 提出统一的多模态多视图视频扩散 Transformer，通过 mo
 
 ## 研究背景与动机
 
-1. **领域现状**：视频生成模型（SVD、CogVideoX）在通用视频生成上表现优异，但直接用于自动驾驶场景需要多视图时空一致性和高可控性。DriveDreamer、MagicDrive 等方法已探索多视图城市场景生成，但仅支持 RGB 单模态。
+**领域现状**：视频生成模型（SVD、CogVideoX）在通用视频生成上表现优异，但直接用于自动驾驶场景需要多视图时空一致性和高可控性。DriveDreamer、MagicDrive 等方法已探索多视图城市场景生成，但仅支持 RGB 单模态。
 
-2. **核心痛点**：自动驾驶不仅需要 RGB 视频，还需要深度图和语义图来全面理解场景。现有方案用**多个独立模型**分别生成不同模态，导致：(a) 部署复杂度高；(b) 无法利用跨模态互补信息提升生成质量；(c) 模态间一致性无法保证。
+**核心痛点**：自动驾驶不仅需要 RGB 视频，还需要深度图和语义图来全面理解场景。现有方案用**多个独立模型**分别生成不同模态，导致：(a) 部署复杂度高；(b) 无法利用跨模态互补信息提升生成质量；(c) 模态间一致性无法保证。
 
-3. **UniScene 的局限**：UniScene 尝试同时生成 RGB 和 LiDAR，但仍然使用多个独立模型，未构建真正统一的多模态生成框架。
+**UniScene 的局限**：UniScene 尝试同时生成 RGB 和 LiDAR，但仍然使用多个独立模型，未构建真正统一的多模态生成框架。
 
-4. **核心假设**：不同模态（RGB、深度、语义）经过共享的 3D VAE 编码后共享公共隐空间，仅需少量模态特定组件区分它们——因此可以用一个统一模型完成多模态生成。
+**核心假设**：不同模态（RGB、深度、语义）经过共享的 3D VAE 编码后共享公共隐空间，仅需少量模态特定组件区分它们——因此可以用一个统一模型完成多模态生成。
 
 ## 方法详解
 
@@ -46,24 +46,27 @@ MoVieDrive 提出统一的多模态多视图视频扩散 Transformer，通过 mo
 ### 关键设计
 
 1. **多样条件输入编码**：
-   - **文本条件**：相机内外参（Fourier embedding + MLP）和场景文本描述（冻结 T5 编码器）拼接得到 $f^{text}$，通过 cross-attention 注入扩散模型
-   - **布局条件**：三种细粒度控制信号——3D 框投影的 box map $c^b$、道路结构投影的 road map $c^r$、稀疏 3D occupancy 投影的 layout map $c^o$。创新点在于使用**统一布局编码器**（各条件独立 causal resnet block + 共享 causal resnet block）融合三种条件，避免多个独立编码器：$f^{layout} = E_s^l(E_b^l(c^b) \otimes E_r^l(c^r) \otimes E_o^l(c^o))$
-   - **上下文参考条件**：可选的初始帧，用共享 3D VAE 编码（时序维度=1），用于未来场景预测
-   - 设计动机：不同条件控制不同粒度——文本控制全局风格，布局控制细粒度结构，参考帧提供初始上下文
+
+    - **文本条件**：相机内外参（Fourier embedding + MLP）和场景文本描述（冻结 T5 编码器）拼接得到 $f^{text}$，通过 cross-attention 注入扩散模型
+    - **布局条件**：三种细粒度控制信号——3D 框投影的 box map $c^b$、道路结构投影的 road map $c^r$、稀疏 3D occupancy 投影的 layout map $c^o$。创新点在于使用**统一布局编码器**（各条件独立 causal resnet block + 共享 causal resnet block）融合三种条件，避免多个独立编码器：$f^{layout} = E_s^l(E_b^l(c^b) \otimes E_r^l(c^r) \otimes E_o^l(c^o))$
+    - **上下文参考条件**：可选的初始帧，用共享 3D VAE 编码（时序维度=1），用于未来场景预测
+    - 设计动机：不同条件控制不同粒度——文本控制全局风格，布局控制细粒度结构，参考帧提供初始上下文
 
 2. **Modal-Shared 组件（时序层 + 多视图时空块）**：
-   - **时序注意力层 $D^{tem}$**：基于 CogVideoX 的 3D full attention，学习帧间时序一致性，文本条件通过 cross-attention 注入
-   - **多视图时空块 $D^{st}$**（每 $\alpha_1$ 个时序层后插入一次）：包含四个子层：
-     - *3D 空间嵌入层*：多分辨率 Hash grid 编码 3D occupancy 位置 $c^{occ}$，增强空间一致性
-     - *3D 空间注意力*：将 latent 维度变为 $\mathcal{R}^{K \times (VHW) \times C}$，学习所有相机视图的 3D 空间结构
-     - *时空注意力*：维度变为 $\mathcal{R}^{(VKHW) \times C}$，捕获完整的多视图时空信息
-     - *前馈层*：进一步变换特征
-   - 公式：$h = D^{st}(D^{tem}(z', f^{text}, t), c^{occ}, t)$
+
+    - **时序注意力层 $D^{tem}$**：基于 CogVideoX 的 3D full attention，学习帧间时序一致性，文本条件通过 cross-attention 注入
+    - **多视图时空块 $D^{st}$**（每 $\alpha_1$ 个时序层后插入一次）：包含四个子层：
+      - *3D 空间嵌入层*：多分辨率 Hash grid 编码 3D occupancy 位置 $c^{occ}$，增强空间一致性
+      - *3D 空间注意力*：将 latent 维度变为 $\mathcal{R}^{K \times (VHW) \times C}$，学习所有相机视图的 3D 空间结构
+      - *时空注意力*：维度变为 $\mathcal{R}^{(VKHW) \times C}$，捕获完整的多视图时空信息
+      - *前馈层*：进一步变换特征
+    - 公式：$h = D^{st}(D^{tem}(z', f^{text}, t), c^{occ}, t)$
 
 3. **Modal-Specific 组件（跨模态交互层 + 投影头）**：
-   - **跨模态交互层 $D_m^{cm}$**（每 $\alpha_2$ 个 modal-shared 层后插入）：self-attention + cross-attention + FFN。Cross-attention 的 query 是当前模态的 latent，key/value 来自**其他模态**的 latent 拼接：$h'_m = D_m^{cm}(h, h_m^{modal}, t)$
-   - **模态特定投影头**：线性层 + adaptive normalization，估计各模态的噪声 $\epsilon$
-   - 设计动机：通过跨模态注意力让不同模态互相提供互补信息，同时保持各模态的特异性特征
+
+    - **跨模态交互层 $D_m^{cm}$**（每 $\alpha_2$ 个 modal-shared 层后插入）：self-attention + cross-attention + FFN。Cross-attention 的 query 是当前模态的 latent，key/value 来自**其他模态**的 latent 拼接：$h'_m = D_m^{cm}(h, h_m^{modal}, t)$
+    - **模态特定投影头**：线性层 + adaptive normalization，估计各模态的噪声 $\epsilon$
+    - 设计动机：通过跨模态注意力让不同模态互相提供互补信息，同时保持各模态的特异性特征
 
 ### 损失函数 / 训练策略
 

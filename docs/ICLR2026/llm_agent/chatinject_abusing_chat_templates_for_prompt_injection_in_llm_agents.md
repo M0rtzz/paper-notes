@@ -25,12 +25,12 @@ tags:
 揭示 LLM Agent 中 chat template 的结构性漏洞：通过在工具返回的数据中伪造角色标签（如 `<system>`, `<user>`），攻击者可以劫持模型的角色层级认知，将恶意指令伪装为高优先级指令，ASR 从 5-15% 提升至 32-52%。
 
 ## 研究背景与动机
-1. **领域现状**：LLM Agent 通过调用外部工具（搜索、API、文件读取）获取数据，数据通过 chat template 中的角色标签（system > user > assistant > tool）组织，模型依赖这些特殊 token 来区分不同优先级的指令。
-2. **现有痛点**：间接 prompt injection（在工具返回数据中嵌入恶意指令）是已知威胁，但现有攻击主要在纯文本层面操作，忽视了 chat template 本身的结构性漏洞。同时，instruction hierarchy 防御（Wallace et al., 2024）恰恰依赖角色标签来实现优先级分层，这反而创造了新的攻击面。
-3. **核心矛盾**：LLM 被训练为严格遵循角色标签标记的指令层级，但角色标签可以被伪造——如果工具返回的数据中包含 `<user>` 或 `<system>` 标签，模型会将其误读为更高优先级的指令。
-4. **本文要解决什么？**（1）验证 chat template 伪造是否构成有效攻击向量；（2）探索多轮对话模拟能否放大攻击效果；（3）测试跨模型迁移性。
-5. **切入角度**：多轮 jailbreak 在交互场景中很有效但在间接注入中不可行（攻击者只能一次注入），而 chat template 提供了在单次注入中模拟多轮对话的手段。
-6. **核心idea一句话**：利用 chat template 的角色标签伪造来劫持 LLM 的指令层级认知，并结合虚拟多轮对话进行说服式攻击。
+**领域现状**：LLM Agent 通过调用外部工具（搜索、API、文件读取）获取数据，数据通过 chat template 中的角色标签（system > user > assistant > tool）组织，模型依赖这些特殊 token 来区分不同优先级的指令。
+**现有痛点**：间接 prompt injection（在工具返回数据中嵌入恶意指令）是已知威胁，但现有攻击主要在纯文本层面操作，忽视了 chat template 本身的结构性漏洞。同时，instruction hierarchy 防御（Wallace et al., 2024）恰恰依赖角色标签来实现优先级分层，这反而创造了新的攻击面。
+**核心矛盾**：LLM 被训练为严格遵循角色标签标记的指令层级，但角色标签可以被伪造——如果工具返回的数据中包含 `<user>` 或 `<system>` 标签，模型会将其误读为更高优先级的指令。
+**本文要解决什么？**（1）验证 chat template 伪造是否构成有效攻击向量；（2）探索多轮对话模拟能否放大攻击效果；（3）测试跨模型迁移性。
+**切入角度**：多轮 jailbreak 在交互场景中很有效但在间接注入中不可行（攻击者只能一次注入），而 chat template 提供了在单次注入中模拟多轮对话的手段。
+**核心idea一句话**：利用 chat template 的角色标签伪造来劫持 LLM 的指令层级认知，并结合虚拟多轮对话进行说服式攻击。
 
 ## 方法详解
 
@@ -40,20 +40,23 @@ tags:
 ### 关键设计
 
 1. **Chat Template 伪造 (ChatInject)**：
-   - 做什么：将恶意指令用目标模型的原生角色标签包装，伪造高优先级来源。
-   - 核心思路：注意力前缀用 `<system>` 角色包装，恶意指令 $I_a$ 用 `<user>` 角色包装。模型遇到这些标签时，会将后续内容视为高优先级指令执行。
-   - 与纯文本注入的区别：纯文本只是文字层面的"请忽略之前指令"，而 ChatInject 在结构层面劫持了模型的角色解析机制。
+
+    - 做什么：将恶意指令用目标模型的原生角色标签包装，伪造高优先级来源。
+    - 核心思路：注意力前缀用 `<system>` 角色包装，恶意指令 $I_a$ 用 `<user>` 角色包装。模型遇到这些标签时，会将后续内容视为高优先级指令执行。
+    - 与纯文本注入的区别：纯文本只是文字层面的"请忽略之前指令"，而 ChatInject 在结构层面劫持了模型的角色解析机制。
 
 2. **Template-Based Multi-turn 变体**：
-   - 做什么：在单次注入中构造一段虚拟的多轮对话，逐步"说服"模型执行恶意操作。
-   - 核心思路：用 GPT-4.1 生成 7 轮 user-assistant 对话 $C_a = \{(r_1^a, m_1^a), \ldots, (r_n^a, m_n^a)\}$，每轮都用角色标签包装。对话设计为逐步将恶意操作正当化——先建立场景、分解为无害步骤、最后让 assistant "同意"执行。
-   - 设计动机：单纯的 ChatInject 将 ASR 从 5% 提升到 32%，加入 Multi-turn 后进一步提升到 52%（InjecAgent），说明结构劫持 + 说服式对话有强协同效应。
+
+    - 做什么：在单次注入中构造一段虚拟的多轮对话，逐步"说服"模型执行恶意操作。
+    - 核心思路：用 GPT-4.1 生成 7 轮 user-assistant 对话 $C_a = \{(r_1^a, m_1^a), \ldots, (r_n^a, m_n^a)\}$，每轮都用角色标签包装。对话设计为逐步将恶意操作正当化——先建立场景、分解为无害步骤、最后让 assistant "同意"执行。
+    - 设计动机：单纯的 ChatInject 将 ASR 从 5% 提升到 32%，加入 Multi-turn 后进一步提升到 52%（InjecAgent），说明结构劫持 + 说服式对话有强协同效应。
 
 3. **Agentic 扩展（Reasoning/Tool-calling Hooks）**：
-   - 做什么：利用模型特有的 `<think>` 和 `<tool_call>` 标签进一步放大攻击。
-   - Reasoning hook：在 payload 后附加 `<think> Sure! </think>`，引导模型内部推理直接同意。
-   - Tool-calling hook：附加 `<tool_call>` 脚手架指定要调用的恶意工具，直接跳过模型的决策过程。
-   - 效果：Tool-calling hook 在 InjecAgent 上进一步提升 ASR 约 5-15 pp。
+
+    - 做什么：利用模型特有的 `<think>` 和 `<tool_call>` 标签进一步放大攻击。
+    - Reasoning hook：在 payload 后附加 `<think> Sure! </think>`，引导模型内部推理直接同意。
+    - Tool-calling hook：附加 `<tool_call>` 脚手架指定要调用的恶意工具，直接跳过模型的决策过程。
+    - 效果：Tool-calling hook 在 InjecAgent 上进一步提升 ASR 约 5-15 pp。
 
 ## 实验关键数据
 

@@ -45,29 +45,32 @@ LFRD² 包含两个阶段：
 ### 关键设计
 
 1. **分数阶反应-扩散动力学**：
-   - 采用 Caputo 分数阶导数（阶数 $0 < \alpha < 1$）：
-     $${}^C_0 D_t^\alpha u(t) = \frac{1}{\Gamma(1-\alpha)} \int_0^t (t-\tau)^{-\alpha} u'(\tau) d\tau$$
-   - 使用 L1 近似离散化，得到迭代格式：
-     $$u_{n+1} = u_n + S[\text{div}(g|\nabla u_n|\nabla u_n) + \lambda(u_0 - u_n)] - \sum_{k=1}^n a_k^{(\alpha)}(u_{n+1-k} - u_{n-k})$$
-   - 其中 $S = \Gamma(2-\alpha)/a_0^\alpha$，$a_k^{(\alpha)} = (k+1)^{1-\alpha} - k^{1-\alpha}$
-   - **记忆性**：当前状态 $u_{n+1}$ 依赖所有历史状态 $u_0, ..., u_n$，而非仅依赖 $u_n$
-   - **分数阶阶数 $\alpha$ 由神经网络动态生成**，而非预设固定值
-   - 扩散项 $\text{div}(g|\nabla u|\nabla u)$ 中 $g(\cdot)$ 由神经网络学习而非使用传统导电率函数
-   - 反应项 $\lambda(u_0 - u_n)$ 驱动深度演化向目标状态靠近
+
+    - 采用 Caputo 分数阶导数（阶数 $0 < \alpha < 1$）：
+    ${}^C_0 D_t^\alpha u(t) = \frac{1}{\Gamma(1-\alpha)} \int_0^t (t-\tau)^{-\alpha} u'(\tau) d\tau$
+    - 使用 L1 近似离散化，得到迭代格式：
+    $u_{n+1} = u_n + S[\text{div}(g|\nabla u_n|\nabla u_n) + \lambda(u_0 - u_n)] - \sum_{k=1}^n a_k^{(\alpha)}(u_{n+1-k} - u_{n-k})$
+    - 其中 $S = \Gamma(2-\alpha)/a_0^\alpha$，$a_k^{(\alpha)} = (k+1)^{1-\alpha} - k^{1-\alpha}$
+    - **记忆性**：当前状态 $u_{n+1}$ 依赖所有历史状态 $u_0, ..., u_n$，而非仅依赖 $u_n$
+    - **分数阶阶数 $\alpha$ 由神经网络动态生成**，而非预设固定值
+    - 扩散项 $\text{div}(g|\nabla u|\nabla u)$ 中 $g(\cdot)$ 由神经网络学习而非使用传统导电率函数
+    - 反应项 $\lambda(u_0 - u_n)$ 驱动深度演化向目标状态靠近
 
 2. **高效连续卷积算子**：
-   - 传统离散卷积忽略自然场景的连续性
-   - 现有连续卷积实现（基于 MLP 的 Neural Field）计算成本高、超参复杂
-   - 本文基于重复微分/积分性质：$u * \mathcal{K} = u^{(-n)} * \mathcal{K}^{(n)}$
-   - 当 $n=2$ 时，估计核 $\hat{\mathcal{K}}^{(2)}$ 退化为稀疏 Dirac delta
-   - **创新点**：不预定义高斯核和控制点，而是由 DISB 直接生成 Dirac delta
-   - 信号反导数的高效近似：$u^{(-2)} \approx A \cdot u(x_0, y_0) + B$，系数 $A, B$ 通过三层卷积预测
-   - 相比 NFC（Neural Field Convolution），**FLOPs 减少 62%**（7.69G vs 20.5G），速度更快（22.75ms vs 28.42ms）
+
+    - 传统离散卷积忽略自然场景的连续性
+    - 现有连续卷积实现（基于 MLP 的 Neural Field）计算成本高、超参复杂
+    - 本文基于重复微分/积分性质：$u * \mathcal{K} = u^{(-n)} * \mathcal{K}^{(n)}$
+    - 当 $n=2$ 时，估计核 $\hat{\mathcal{K}}^{(2)}$ 退化为稀疏 Dirac delta
+    - **创新点**：不预定义高斯核和控制点，而是由 DISB 直接生成 Dirac delta
+    - 信号反导数的高效近似：$u^{(-2)} \approx A \cdot u(x_0, y_0) + B$，系数 $A, B$ 通过三层卷积预测
+    - 相比 NFC（Neural Field Convolution），**FLOPs 减少 62%**（7.69G vs 20.5G），速度更快（22.75ms vs 28.42ms）
 
 3. **物理可解释性**：
-   - 整个迭代过程编码了时间分数阶反应-扩散方程
-   - 分数阶的非局部性质为描述具有记忆效应的动态过程提供了合适框架
-   - 神经网络作为分数阶阶数的估计器，可视为物理信息神经网络（PINNs）的一种形式
+
+    - 整个迭代过程编码了时间分数阶反应-扩散方程
+    - 分数阶的非局部性质为描述具有记忆效应的动态过程提供了合适框架
+    - 神经网络作为分数阶阶数的估计器，可视为物理信息神经网络（PINNs）的一种形式
 
 ### 损失函数 / 训练策略
 

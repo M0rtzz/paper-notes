@@ -37,24 +37,28 @@ tags:
 
 ### 关键设计
 1. **核心理论洞察**：
-   - 证明训练损失 $L(\eta)$ 和损失下降速度 $V(\eta)$ 都是关于学习率的凸函数，且共享同一最优学习率 $\eta^*$
-   - 理论推导：SGD 下 $\mathbb{E}[L_{t+1}-L_t] \approx -\eta\|\nabla L_t\|^2 + \frac{C_{Lip}}{2}\eta^2\|\nabla L_t\|^2$，最优 $\eta^* = 1/C_{Lip}$
-   - 这意味着可以通过优化可在线估计的斜率来间接优化损失
+
+    - 证明训练损失 $L(\eta)$ 和损失下降速度 $V(\eta)$ 都是关于学习率的凸函数，且共享同一最优学习率 $\eta^*$
+    - 理论推导：SGD 下 $\mathbb{E}[L_{t+1}-L_t] \approx -\eta\|\nabla L_t\|^2 + \frac{C_{Lip}}{2}\eta^2\|\nabla L_t\|^2$，最优 $\eta^* = 1/C_{Lip}$
+    - 这意味着可以通过优化可在线估计的斜率来间接优化损失
 
 2. **在线调整算法**：
-   - 每 k 步窗口用最小二乘法估计损失斜率 $v(\eta)$
-   - 调整规则：试探性放大 $\alpha'\eta$，比较 $v(\alpha'\eta)$ 与 $v(\eta)+2e$ 的关系决定保持/放大/缩小
-   - 缩放因子递减：$\alpha' = \max(\lambda^t\alpha, 1)$, $\beta' = 1/\max(\lambda^t\beta, 1)$，$\lambda=0.99$ 默认
-   - 搜索仅在训练的 [0.1, 0.4] 阶段进行，后期交还给标准调度器
+
+    - 每 k 步窗口用最小二乘法估计损失斜率 $v(\eta)$
+    - 调整规则：试探性放大 $\alpha'\eta$，比较 $v(\alpha'\eta)$ 与 $v(\eta)+2e$ 的关系决定保持/放大/缩小
+    - 缩放因子递减：$\alpha' = \max(\lambda^t\alpha, 1)$, $\beta' = 1/\max(\lambda^t\beta, 1)$，$\lambda=0.99$ 默认
+    - 搜索仅在训练的 [0.1, 0.4] 阶段进行，后期交还给标准调度器
 
 3. **稳定性机制**：
-   - 回退策略（backtracking）：放大失败时恢复模型和优化器状态，防止参数被破坏性更新污染
-   - 早停：若损失超过历史最大值，停止放大
-   - 边界条件：连续2窗口损失上升则缩小学习率
+
+    - 回退策略（backtracking）：放大失败时恢复模型和优化器状态，防止参数被破坏性更新污染
+    - 早停：若损失超过历史最大值，停止放大
+    - 边界条件：连续2窗口损失上升则缩小学习率
 
 4. **收敛保证**：
-   - Theorem 2.1: $\lim_{t\to\infty}\mathbb{P}(|\eta_t-\eta^*|<e)=1$（几乎必然收敛到 $e$-邻域）
-   - Theorem 2.4: 几何误差衰减 $|\eta_{t+k}-\eta^*|\leq\gamma|\eta_t-\eta^*|$，复杂度 $O(\log R)$
+
+    - Theorem 2.1: $\lim_{t\to\infty}\mathbb{P}(|\eta_t-\eta^*|<e)=1$（几乎必然收敛到 $e$-邻域）
+    - Theorem 2.4: 几何误差衰减 $|\eta_{t+k}-\eta^*|\leq\gamma|\eta_t-\eta^*|$，复杂度 $O(\log R)$
 
 ## 实验关键数据
 

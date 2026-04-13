@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 评估通常在固定 benchmark 上用确定性解码（greedy）生成一次回复，计算准确率/拒绝率等指标。但实际部署中 LLM 使用随机解码（temperature>0、top-p 等），同一 prompt 每次生成的结果可能不同。
-2. **现有痛点**：(a) 确定性评估忽略了 LLM 输出的随机性，无法区分"99% 概率拒绝"和"55% 概率拒绝"的 prompt；(b) 评估指标通常不附带不确定性量化，无法判断两个模型的性能差异是否显著；(c) 多次采样评估成本高（API 调用收费），但简单地均匀分配采样次数效率低。
-3. **核心矛盾**：准确评估 LLM 的随机行为需要每个 prompt 多次采样，但 API 成本限制了总采样数。如何在有限预算下最大化评估精度？
-4. **本文要解决什么**：(1) 为 LLM 二值行为评估提供带不确定性量化的贝叶斯框架；(2) 通过序贯采样策略降低评估成本。
-5. **切入角度**：将每个 prompt 的二值行为建模为 Bernoulli 试验（参数 $\theta_m$ 未知），用 Beta 先验 + Binomial 似然进行贝叶斯推断，得到 $\theta_m$ 后验分布。在此基础上推导聚合指标（均值、阈值计数等）的后验分布。
-6. **核心 idea 一句话**：用 Beta-Binomial 共轭模型为每个 prompt 的随机二值行为建模，再用 Thompson sampling 把采样预算优先分配给不确定性最大的 prompt。
+**领域现状**：LLM 评估通常在固定 benchmark 上用确定性解码（greedy）生成一次回复，计算准确率/拒绝率等指标。但实际部署中 LLM 使用随机解码（temperature>0、top-p 等），同一 prompt 每次生成的结果可能不同。
+**现有痛点**：(a) 确定性评估忽略了 LLM 输出的随机性，无法区分"99% 概率拒绝"和"55% 概率拒绝"的 prompt；(b) 评估指标通常不附带不确定性量化，无法判断两个模型的性能差异是否显著；(c) 多次采样评估成本高（API 调用收费），但简单地均匀分配采样次数效率低。
+**核心矛盾**：准确评估 LLM 的随机行为需要每个 prompt 多次采样，但 API 成本限制了总采样数。如何在有限预算下最大化评估精度？
+**本文要解决什么**：(1) 为 LLM 二值行为评估提供带不确定性量化的贝叶斯框架；(2) 通过序贯采样策略降低评估成本。
+**切入角度**：将每个 prompt 的二值行为建模为 Bernoulli 试验（参数 $\theta_m$ 未知），用 Beta 先验 + Binomial 似然进行贝叶斯推断，得到 $\theta_m$ 后验分布。在此基础上推导聚合指标（均值、阈值计数等）的后验分布。
+**核心 idea 一句话**：用 Beta-Binomial 共轭模型为每个 prompt 的随机二值行为建模，再用 Thompson sampling 把采样预算优先分配给不确定性最大的 prompt。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **Beta-Binomial 后验推断**：
-   - 做什么：估计每个 prompt 的二值行为概率 $\theta_m$ 及其不确定性
-   - 核心思路：$\theta_m \sim Beta(\alpha_m, \beta_m)$ 先验，观测 $r_m$ 次正例后后验为 $Beta(\alpha_m + r_m, \beta_m + n_m - r_m)$。共轭性保证闭式更新，计算高效
-   - 设计动机：Beta-Binomial 是二值数据不确定性建模的经典方案，每个 prompt 独立建模，后验可增量更新
+
+    - 做什么：估计每个 prompt 的二值行为概率 $\theta_m$ 及其不确定性
+    - 核心思路：$\theta_m \sim Beta(\alpha_m, \beta_m)$ 先验，观测 $r_m$ 次正例后后验为 $Beta(\alpha_m + r_m, \beta_m + n_m - r_m)$。共轭性保证闭式更新，计算高效
+    - 设计动机：Beta-Binomial 是二值数据不确定性建模的经典方案，每个 prompt 独立建模，后验可增量更新
 
 2. **聚合指标的后验分布**：
-   - 做什么：从个体 $\theta_m$ 后验推导评估指标（如均值 $W_{mean}$、超阈值数 $W_{>\nu}$）的分布
-   - 核心思路：$W_{mean} = \frac{1}{M}\sum \theta_m$ 通过 Monte Carlo 采样近似后验分布；$W_{>\nu} = \sum I(\theta_m > \nu)$ 服从 Poisson Binomial 分布，可精确计算
-   - 设计动机：用户关心的往往不是单个 prompt 而是整体指标，贝叶斯框架自然地将个体不确定性传播到聚合指标
+
+    - 做什么：从个体 $\theta_m$ 后验推导评估指标（如均值 $W_{mean}$、超阈值数 $W_{>\nu}$）的分布
+    - 核心思路：$W_{mean} = \frac{1}{M}\sum \theta_m$ 通过 Monte Carlo 采样近似后验分布；$W_{>\nu} = \sum I(\theta_m > \nu)$ 服从 Poisson Binomial 分布，可精确计算
+    - 设计动机：用户关心的往往不是单个 prompt 而是整体指标，贝叶斯框架自然地将个体不确定性传播到聚合指标
 
 3. **序贯 Thompson Sampling**：
-   - 做什么：在有限 API 调用预算下，动态决定下一次采样哪个 prompt
-   - 核心思路：每轮利用当前 $\theta_m$ 后验进行 Thompson sampling——对每个 prompt 采样一个 $\theta_m$ 值，基于采样值选择对聚合指标不确定性贡献最大的 prompt 进行下一次生成。还探索了 maximum variance 等策略
-   - 设计动机：不同 prompt 的 $\theta_m$ 不确定性不同（有些接近 0 或 1，几次就够；有些接近 0.5，需要更多次），序贯策略智能分配预算
+
+    - 做什么：在有限 API 调用预算下，动态决定下一次采样哪个 prompt
+    - 核心思路：每轮利用当前 $\theta_m$ 后验进行 Thompson sampling——对每个 prompt 采样一个 $\theta_m$ 值，基于采样值选择对聚合指标不确定性贡献最大的 prompt 进行下一次生成。还探索了 maximum variance 等策略
+    - 设计动机：不同 prompt 的 $\theta_m$ 不确定性不同（有些接近 0 或 1，几次就够；有些接近 0.5，需要更多次），序贯策略智能分配预算
 
 ### 训练策略
 本文不涉及模型训练，是纯推断框架。全部实验基于现有 LLM API（GPT-4o-mini、GPT-4.1-nano）和 LM-as-judge（GPT-4.1-mini）进行推理。对于偏好实验使用 temperature=1.0 和 top-p=0.9，对于拒绝率实验同样使用随机解码以确保捕获输出级别的随机性。先验设为 Beta(1,1) 均匀分布。

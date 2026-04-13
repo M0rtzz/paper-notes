@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：FTaaS（如OpenAI/Mistral的微调服务）允许用户上传数据微调LLM，但用户提交的数据可能包含有害样本（有意或无意），导致安全对齐被破坏。
-2. **现有痛点**：(a) 对齐阶段防御（如Vaccine/Booster）是静态的，无法适应不同的攻击配置（高步数、大学习率）；(b) 微调阶段防御（如Lisa/SafeInstr）要么保护不足要么损害任务性能；(c) 大多数方法在安全性和任务性能之间存在严重tradeoff。
-3. **核心矛盾**：标准SFT不区分良性和有害样本——所有梯度都被聚合更新，即使少量有害样本的梯度也能毒化模型。
-4. **本文要解决什么**：设计在对齐和微调两个阶段协同工作的防御，既能彻底抑制有害梯度的影响，又不损害良性任务学习。
-5. **切入角度**：从梯度影响的角度出发——如果有害样本的梯度在对齐后本来就很小（平坦区域），且在微调时被进一步降权，就能有效消除其影响。
-6. **核心idea一句话**：对齐阶段让有害loss平坦（梯度小）+微调阶段用似然比加权（有害样本权重低）→有害梯度被双重抑制。
+**领域现状**：FTaaS（如OpenAI/Mistral的微调服务）允许用户上传数据微调LLM，但用户提交的数据可能包含有害样本（有意或无意），导致安全对齐被破坏。
+**现有痛点**：(a) 对齐阶段防御（如Vaccine/Booster）是静态的，无法适应不同的攻击配置（高步数、大学习率）；(b) 微调阶段防御（如Lisa/SafeInstr）要么保护不足要么损害任务性能；(c) 大多数方法在安全性和任务性能之间存在严重tradeoff。
+**核心矛盾**：标准SFT不区分良性和有害样本——所有梯度都被聚合更新，即使少量有害样本的梯度也能毒化模型。
+**本文要解决什么**：设计在对齐和微调两个阶段协同工作的防御，既能彻底抑制有害梯度的影响，又不损害良性任务学习。
+**切入角度**：从梯度影响的角度出发——如果有害样本的梯度在对齐后本来就很小（平坦区域），且在微调时被进一步降权，就能有效消除其影响。
+**核心idea一句话**：对齐阶段让有害loss平坦（梯度小）+微调阶段用似然比加权（有害样本权重低）→有害梯度被双重抑制。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ Antibody分两阶段：(1) **对齐阶段**——优化 $\mathcal{L}_{\text{alig
 ### 关键设计
 
 1. **平坦度正则化对齐（Robust Alignment via Flatness）**
-   - 做什么：使模型处于有害损失 $\mathcal{L}_{\text{harm}}$ 的平坦区域
-   - 核心思路：定义sharpness为 $\mathcal{L}_{\text{sharp}}(\theta) = \mathcal{L}_{\text{harm}}(\theta) - \min_{\phi \in \mathcal{B}_\rho(\theta)} \mathcal{L}_{\text{harm}}(\phi)$，即有害损失在ρ邻域内的下降幅度。最小化sharpness→模型处于平坦区域→后续微调中有害样本的梯度自然很小。通过Theorem 4.1（KKT条件）求解双目标优化得到更新方向 $\delta_t^* = \nabla \mathcal{L}_{\text{align}} + \lambda_t \nabla \mathcal{L}_{\text{sharp}}$，$\lambda_t$ 自适应调整
-   - 设计动机：平坦区域意味着在θ附近扰动（即微调）不会显著降低有害loss——安全对齐更鲁棒
+
+    - 做什么：使模型处于有害损失 $\mathcal{L}_{\text{harm}}$ 的平坦区域
+    - 核心思路：定义sharpness为 $\mathcal{L}_{\text{sharp}}(\theta) = \mathcal{L}_{\text{harm}}(\theta) - \min_{\phi \in \mathcal{B}_\rho(\theta)} \mathcal{L}_{\text{harm}}(\phi)$，即有害损失在ρ邻域内的下降幅度。最小化sharpness→模型处于平坦区域→后续微调中有害样本的梯度自然很小。通过Theorem 4.1（KKT条件）求解双目标优化得到更新方向 $\delta_t^* = \nabla \mathcal{L}_{\text{align}} + \lambda_t \nabla \mathcal{L}_{\text{sharp}}$，$\lambda_t$ 自适应调整
+    - 设计动机：平坦区域意味着在θ附近扰动（即微调）不会显著降低有害loss——安全对齐更鲁棒
 
 2. **基于似然比的样本加权微调（Safety Fine-tuning with Weighted Loss）**
-   - 做什么：在微调时对每个mini-batch中的样本动态赋权，抑制有害样本
-   - 核心思路：对每个样本计算 $r_\theta(x_i,y_i) = \log \frac{\pi_\theta(y_i|x_i)}{\pi_\theta(y_r|x_i)}$（目标完成 vs 拒绝的似然比），然后softmax归一化为权重。安全对齐的模型面对有害prompt时更倾向拒绝→似然比低→权重小→有害梯度被抑制
-   - 设计动机：利用对齐阶段已嵌入的安全知识作为隐式有害检测器——无需显式标注哪些样本有害
+
+    - 做什么：在微调时对每个mini-batch中的样本动态赋权，抑制有害样本
+    - 核心思路：对每个样本计算 $r_\theta(x_i,y_i) = \log \frac{\pi_\theta(y_i|x_i)}{\pi_\theta(y_r|x_i)}$（目标完成 vs 拒绝的似然比），然后softmax归一化为权重。安全对齐的模型面对有害prompt时更倾向拒绝→似然比低→权重小→有害梯度被抑制
+    - 设计动机：利用对齐阶段已嵌入的安全知识作为隐式有害检测器——无需显式标注哪些样本有害
 
 3. **扰动模型拒绝训练**
-   - 做什么：确保即使模型参数发生漂移（被有害样本微调），仍能维持低似然比权重
-   - 核心思路：在对齐阶段，模拟微调漂移 $\theta_{\text{pert}} = \theta - \rho \frac{\nabla \mathcal{L}_{\text{harm}}}{\|\nabla \mathcal{L}_{\text{harm}}\|}$，然后训练扰动模型仍能对有害prompt产生高拒绝概率 $\mathcal{L}_{\text{refusal}}(\theta_{\text{pert}})$
-   - 设计动机：防止微调过程中有害样本逐渐提高自身权重→权重机制失效
+
+    - 做什么：确保即使模型参数发生漂移（被有害样本微调），仍能维持低似然比权重
+    - 核心思路：在对齐阶段，模拟微调漂移 $\theta_{\text{pert}} = \theta - \rho \frac{\nabla \mathcal{L}_{\text{harm}}}{\|\nabla \mathcal{L}_{\text{harm}}\|}$，然后训练扰动模型仍能对有害prompt产生高拒绝概率 $\mathcal{L}_{\text{refusal}}(\theta_{\text{pert}})$
+    - 设计动机：防止微调过程中有害样本逐渐提高自身权重→权重机制失效
 
 ### 理论分析
 - Proposition 4.2和4.3提供了mini-batch更新的损失变化分解——通过eNTK分析证明：当batch梯度仅由良性样本贡献时，有害测试样本的loss不变（安全保持），良性测试样本的loss下降（任务学习）

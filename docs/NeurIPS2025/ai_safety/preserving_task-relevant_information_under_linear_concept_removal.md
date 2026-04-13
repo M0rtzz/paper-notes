@@ -43,22 +43,25 @@ SPLINCE是一种线性代数方法，计算一个投影矩阵 $\mathbf{P}^*_{SPL
 ### 关键设计
 
 1. **双约束优化问题**：
-   - 给定表征 $\bm{x}$、敏感属性 $\bm{z}$、任务标签 $\bm{y}$，目标是找到投影 $\mathbf{P}$ 满足：
-     - **核约束(Kernel Constraint)**：$\mathbf{P}\Sigma_{\bm{x},\bm{z}} = \mathbf{0}$（线性守护性，使投影后的表征与敏感属性零协方差）
-     - **值域约束(Range Constraint)**：$\mathbf{P}\Sigma_{\bm{x},\bm{y}} = \Sigma_{\bm{x},\bm{y}}$（保留表征与任务标签的协方差完全不变）
-     - **最小化失真**：$\min_{\mathbf{P}} \mathbb{E}[\|\mathbf{P}\bm{x} - \bm{x}\|^2_{\mathbf{M}}]$
-   - 闭式解：$\mathbf{P}^*_{SPLINCE} = \mathbf{W}^+ \mathbf{V}(\mathbf{U}^T\mathbf{V})^{-1}\mathbf{U}^T\mathbf{W}$
-   - 其中 $\mathbf{W}$ 是白化矩阵，$\mathbf{U}$、$\mathbf{V}$ 是特定子空间的正交基
+
+    - 给定表征 $\bm{x}$、敏感属性 $\bm{z}$、任务标签 $\bm{y}$，目标是找到投影 $\mathbf{P}$ 满足：
+      - **核约束(Kernel Constraint)**：$\mathbf{P}\Sigma_{\bm{x},\bm{z}} = \mathbf{0}$（线性守护性，使投影后的表征与敏感属性零协方差）
+      - **值域约束(Range Constraint)**：$\mathbf{P}\Sigma_{\bm{x},\bm{y}} = \Sigma_{\bm{x},\bm{y}}$（保留表征与任务标签的协方差完全不变）
+      - **最小化失真**：$\min_{\mathbf{P}} \mathbb{E}[\|\mathbf{P}\bm{x} - \bm{x}\|^2_{\mathbf{M}}]$
+    - 闭式解：$\mathbf{P}^*_{SPLINCE} = \mathbf{W}^+ \mathbf{V}(\mathbf{U}^T\mathbf{V})^{-1}\mathbf{U}^T\mathbf{W}$
+    - 其中 $\mathbf{W}$ 是白化矩阵，$\mathbf{U}$、$\mathbf{V}$ 是特定子空间的正交基
 
 2. **等价性定理(Theorem 3.2)**：
-   - 关键理论发现：所有具有相同核（即擦除相同子空间）的投影，在**无正则化重训练线性分类器**后，会产生完全相同的预测
-   - 这意味着SPLINCE与LEACE在无正则化场景下等价——值域的选择不影响最终预测
-   - 但在两种实际重要场景下，值域选择**确实影响**结果：(1) 有正则化的重训练；(2) 不重训练最后一层（如语言模型干预）
+
+    - 关键理论发现：所有具有相同核（即擦除相同子空间）的投影，在**无正则化重训练线性分类器**后，会产生完全相同的预测
+    - 这意味着SPLINCE与LEACE在无正则化场景下等价——值域的选择不影响最终预测
+    - 但在两种实际重要场景下，值域选择**确实影响**结果：(1) 有正则化的重训练；(2) 不重训练最后一层（如语言模型干预）
 
 3. **适用条件**：
-   - 前提假设：$\mathcal{U}^\perp \cap \text{colsp}(\mathbf{W}\Sigma_{\bm{x},\bm{y}}) = \{\mathbf{0}\}$
-   - 即白化后，敏感属性和任务标签的协方差方向不完全重叠
-   - 对二元变量来说，等价于 $\text{Cov}(\bm{x},\bm{z})$ 与 $\text{Cov}(\bm{x},\bm{y})$ 线性无关（不成比例）
+
+    - 前提假设：$\mathcal{U}^\perp \cap \text{colsp}(\mathbf{W}\Sigma_{\bm{x},\bm{y}}) = \{\mathbf{0}\}$
+    - 即白化后，敏感属性和任务标签的协方差方向不完全重叠
+    - 对二元变量来说，等价于 $\text{Cov}(\bm{x},\bm{z})$ 与 $\text{Cov}(\bm{x},\bm{y})$ 线性无关（不成比例）
 
 ### 损失函数 / 训练策略
 - SPLINCE本身无需训练——它是一个闭式投影计算

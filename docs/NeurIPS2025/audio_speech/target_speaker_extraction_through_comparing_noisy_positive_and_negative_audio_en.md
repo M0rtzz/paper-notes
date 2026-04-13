@@ -45,17 +45,19 @@ tags:
 ### 关键设计
 
 1. **正负注册策略 (Positive/Negative Enrollment)**：将注册输入构建为一对正注册 $a^P$（目标说话人在说话）和负注册 $a^N$（目标说话人沉默）。信号模型为：
-   - $a^M = \sum_{i \in S^{IM} \cup \{t\}} a_i^M + n^M$（混合音频）
-   - $a^P = \sum_{i \in S^{IE} \cup \{t\}} a_i^P + n^P$（正注册）
-   - $a^N = \sum_{i \in S^{IE}} a_i^N + n^N$（负注册）
+
+    - $a^M = \sum_{i \in S^{IM} \cup \{t\}} a_i^M + n^M$（混合音频）
+    - $a^P = \sum_{i \in S^{IE} \cup \{t\}} a_i^P + n^P$（正注册）
+    - $a^N = \sum_{i \in S^{IE}} a_i^N + n^N$（负注册）
    
    目标说话人是**唯一在所有正注册中持续说话但在负注册中不出现**的人。干扰说话人被分为四类：负干扰者（NI, 正负中都有）、正干扰者（PI, 仅在正注册部分时段出现）、混合干扰者（HI）和需忽略干扰者（NRI）。
 
 2. **编码器融合模块 (Encoder Fusion Module)**：孪生编码器共享参数，分别编码正/负注册得到 $E_{pos} \in \mathbb{R}^{T_{pos} \times D}$ 和 $E_{neg} \in \mathbb{R}^{T_{neg} \times D}$。融合步骤：
-   - 添加可学习段嵌入 $S_{pos}, S_{neg}$ 以区分来源
-   - 沿时间维度拼接：$E_{concat} = [E_{pos}, E_{neg}]$
-   - 通过两层 Full-band Self-attention 处理
-   - 截取前 $T_{pos}$ 帧作为输出
+
+    - 添加可学习段嵌入 $S_{pos}, S_{neg}$ 以区分来源
+    - 沿时间维度拼接：$E_{concat} = [E_{pos}, E_{neg}]$
+    - 通过两层 Full-band Self-attention 处理
+    - 截取前 $T_{pos}$ 帧作为输出
    
    设计动机：自注意力机制允许正注册帧间比较（发现正干扰者的沉默段）和正负注册帧间比较（识别负干扰者），自然实现消歧。
 

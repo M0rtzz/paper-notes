@@ -25,14 +25,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM Agent 在软件开发、文档翻译、事实核查等领域已展现强大能力，但在网络安全领域的评估仍然不足。现有安全评测（Cybench 做 CTF、CyberMetric 做知识问答、CyberSecEval 做代码漏洞）各自只关注单一任务。
+**领域现状**：LLM Agent 在软件开发、文档翻译、事实核查等领域已展现强大能力，但在网络安全领域的评估仍然不足。现有安全评测（Cybench 做 CTF、CyberMetric 做知识问答、CyberSecEval 做代码漏洞）各自只关注单一任务。
 
-2. **核心痛点**：
+**核心痛点**：
    - 缺乏**统一的**涵盖攻防和知识理解的综合评测平台
    - 不同工作使用不同评测框架，难以公平比较不同 LLM 的安全能力
    - 现有基准大多成本高、不易复现
 
-3. **本文切入点**：构建一个**实用、开源、模块化**的一站式评测工具包，让研究者能以低成本公平评估 LLM Agent 在网络安全任务上的表现。
+**本文切入点**：构建一个**实用、开源、模块化**的一站式评测工具包，让研究者能以低成本公平评估 LLM Agent 在网络安全任务上的表现。
 
 ## 方法详解
 
@@ -48,30 +48,35 @@ DefenderBench 由三大模块组成：
 **五类网络安全任务**：
 
 1. **网络入侵模拟 (CyberBattleSim)**
-   - 基于 CyberBattleSim 仿真工具，转化为文本交互游戏
-   - Agent 可执行三种操作：`local_vulnerability`（本地漏洞利用）、`remote_vulnerability`（远程攻击）、`connect`（凭证连接）
-   - 两种网络拓扑：Chain（链式，较简单）和 CTF（捕获旗帜，更复杂）
-   - 指标：节点接管率（winning rate）
+
+    - 基于 CyberBattleSim 仿真工具，转化为文本交互游戏
+    - Agent 可执行三种操作：`local_vulnerability`（本地漏洞利用）、`remote_vulnerability`（远程攻击）、`connect`（凭证连接）
+    - 两种网络拓扑：Chain（链式，较简单）和 CTF（捕获旗帜，更复杂）
+    - 指标：节点接管率（winning rate）
 
 2. **恶意内容检测**
-   - Malicious-Text：钓鱼邮件/短信检测（20,137 样本，500 测试）
-   - Malicious-Web：钓鱼网页检测（15,612 样本，500 测试）
-   - 指标：Macro-F1
+
+    - Malicious-Text：钓鱼邮件/短信检测（20,137 样本，500 测试）
+    - Malicious-Web：钓鱼网页检测（15,612 样本，500 测试）
+    - 指标：Macro-F1
 
 3. **CTI 知识问答 (MCQA)**
-   - 基于 CTI-MCQA 数据集，2,338 个网络威胁情报相关四选一问题
-   - 500 测试样本 + 20 few-shot 样本池
-   - 指标：Macro-F1
+
+    - 基于 CTI-MCQA 数据集，2,338 个网络威胁情报相关四选一问题
+    - 500 测试样本 + 20 few-shot 样本池
+    - 指标：Macro-F1
 
 4. **代码漏洞检测**
-   - Vulnerable-CG：基于 CodeXGLUE 的 C 语言函数漏洞检测
-   - Vulnerable-DV：基于 Devign（FFmpeg + Qemu）的漏洞检测
-   - 指标：Macro-F1
+
+    - Vulnerable-CG：基于 CodeXGLUE 的 C 语言函数漏洞检测
+    - Vulnerable-DV：基于 Devign（FFmpeg + Qemu）的漏洞检测
+    - 指标：Macro-F1
 
 5. **代码漏洞修复 (CVEFix)**
-   - 240 个单方法漏洞修复样本，覆盖 C/C++/Go/Java/JS/PHP/Python/Rust
-   - 给定漏洞代码，要求 Agent 生成修复后的代码
-   - 指标：CodeBLEU
+
+    - 240 个单方法漏洞修复样本，覆盖 C/C++/Go/Java/JS/PHP/Python/Rust
+    - 给定漏洞代码，要求 Agent 生成修复后的代码
+    - 指标：CodeBLEU
 
 **全局指标**：DefenderBench Score = 所有任务指标的无权重平均值
 

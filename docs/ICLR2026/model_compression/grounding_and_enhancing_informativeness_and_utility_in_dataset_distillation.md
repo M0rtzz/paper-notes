@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：数据集蒸馏旨在从大数据集中合成小型数据集，使模型训练效果接近原始数据。主流方法分为匹配类（matching-based, 如梯度匹配/轨迹匹配）和知识蒸馏类。知识蒸馏类方法（如RDED）性能更好但缺乏理论解释。
+**领域现状**：数据集蒸馏旨在从大数据集中合成小型数据集，使模型训练效果接近原始数据。主流方法分为匹配类（matching-based, 如梯度匹配/轨迹匹配）和知识蒸馏类。知识蒸馏类方法（如RDED）性能更好但缺乏理论解释。
 
-2. **现有痛点**：匹配类方法效率与性能难以兼顾（如轨迹匹配需4×A100）；知识蒸馏类方法（如RDED）用随机裁剪+启发式评分选patch，缺乏principled的理论保证——随机选的patch经常错过语义关键区域。
+**现有痛点**：匹配类方法效率与性能难以兼顾（如轨迹匹配需4×A100）；知识蒸馏类方法（如RDED）用随机裁剪+启发式评分选patch，缺乏principled的理论保证——随机选的patch经常错过语义关键区域。
 
-3. **核心矛盾**：如何在理论可解释的框架下同时解决两个问题：(1) 每个样本中哪些区域最重要（Informativeness）？(2) 哪些样本对训练最有价值（Utility）？
+**核心矛盾**：如何在理论可解释的框架下同时解决两个问题：(1) 每个样本中哪些区域最重要（Informativeness）？(2) 哪些样本对训练最有价值（Utility）？
 
-4. **本文要解决什么**：为数据集蒸馏提供理论基础，定义最优蒸馏，并据此设计算法。
+**本文要解决什么**：为数据集蒸馏提供理论基础，定义最优蒸馏，并据此设计算法。
 
-5. **切入角度**：提出Informativeness（patch级别，衡量信息量）和Utility（样本级别，衡量训练价值）两个概念，数学化定义最优蒸馏，用Shapley Value做信息量归因，用梯度范数做效用评估。
+**切入角度**：提出Informativeness（patch级别，衡量信息量）和Utility（样本级别，衡量训练价值）两个概念，数学化定义最优蒸馏，用Shapley Value做信息量归因，用梯度范数做效用评估。
 
-6. **核心idea一句话**：Shapley Value选最重要的patch + 梯度范数选最有价值的样本 = 理论有基础的最优蒸馏。
+**核心idea一句话**：Shapley Value选最重要的patch + 梯度范数选最有价值的样本 = 理论有基础的最优蒸馏。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ tags:
 ### 关键设计
 
 1. **博弈论信息量最大化 (Game-theoretic Informativeness Maximization)**:
-   - 做什么：用Shapley Value归因找到每个图像中最重要的patch
-   - 核心思路：将图像视为博弈游戏，每个patch是一个玩家，$\phi_f(x^{(i)}) = \frac{1}{d}\sum_{s:s_i=0}\binom{d-1}{\mathbf{1}^\top s}(f(x\circ(s+e_i)) - f(x\circ s))$。用KernelShap快速估计。选Shapley值最高的patch保留。
-   - 设计动机：Shapley Value是唯一同时满足线性、虚拟、对称、效率四条公理的归因方法，理论基础最扎实。
+
+    - 做什么：用Shapley Value归因找到每个图像中最重要的patch
+    - 核心思路：将图像视为博弈游戏，每个patch是一个玩家，$\phi_f(x^{(i)}) = \frac{1}{d}\sum_{s:s_i=0}\binom{d-1}{\mathbf{1}^\top s}(f(x\circ(s+e_i)) - f(x\circ s))$。用KernelShap快速估计。选Shapley值最高的patch保留。
+    - 设计动机：Shapley Value是唯一同时满足线性、虚拟、对称、效率四条公理的归因方法，理论基础最扎实。
 
 2. **有原则的效用最大化 (Principled Utility Maximization)**:
-   - 做什么：用梯度范数评估每个样本对训练的重要性并选top-m
-   - 核心思路：Theorem 1证明效用函数 $\mathcal{U}$ 的上界是梯度范数：$\mathcal{U}(x_i, y_i; f_{\theta^{(t)}}) \leq c\|\nabla_{\theta^{(t)}}\ell_t(f_{\theta^{(t)}}(x_i), y_i)\|$
-   - 设计动机：直接计算Utility需要对每个样本做"有/无"实验，计算代价太高。梯度范数是可计算的上界，越大说明该样本对训练影响越大。
+
+    - 做什么：用梯度范数评估每个样本对训练的重要性并选top-m
+    - 核心思路：Theorem 1证明效用函数 $\mathcal{U}$ 的上界是梯度范数：$\mathcal{U}(x_i, y_i; f_{\theta^{(t)}}) \leq c\|\nabla_{\theta^{(t)}}\ell_t(f_{\theta^{(t)}}(x_i), y_i)\|$
+    - 设计动机：直接计算Utility需要对每个样本做"有/无"实验，计算代价太高。梯度范数是可计算的上界，越大说明该样本对训练影响越大。
 
 3. **多样性控制**:
-   - 做什么：在Shapley归因热力图上加随机噪声引入patch选择的多样性
-   - 核心思路：$\phi + \varepsilon$，$\varepsilon \sim \mathcal{N}(0, \sigma^2)$
-   - 设计动机：纯Shapley可能总是选同一区域，噪声让不同样本选择不同的informative区域
+
+    - 做什么：在Shapley归因热力图上加随机噪声引入patch选择的多样性
+    - 核心思路：$\phi + \varepsilon$，$\varepsilon \sim \mathcal{N}(0, \sigma^2)$
+    - 设计动机：纯Shapley可能总是选同一区域，噪声让不同样本选择不同的informative区域
 
 ### 损失函数 / 训练策略
 - Shapley Value用KernelShap快速估计（避免 $2^{16}$ 次推理）

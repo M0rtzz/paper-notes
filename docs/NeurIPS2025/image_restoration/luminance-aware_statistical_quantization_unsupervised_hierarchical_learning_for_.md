@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 低光图像增强(LLIE)方法分为监督（需配对数据）和无监督两类，近期扩散模型引入提升了灵活性。
-2. **现有痛点**: 
+**领域现状**: 低光图像增强(LLIE)方法分为监督（需配对数据）和无监督两类，近期扩散模型引入提升了灵活性。
+**现有痛点**: 
    - 监督方法过拟合于像素级对应关系，忽略亮度转换的连续物理过程
    - 无监督方法依赖伪参考（如经验性 gamma 校正），继承先验偏差
    - 两类方法都将本质连续、上下文相关的亮度动态过度简化，导致泛化能力有限
-3. **核心矛盾**: 重建保真度 vs 跨场景泛化能力——专注于域内精度则泛化差，追求泛化则域内不足。
-4. **本文要解决什么**: 建立基于自然照明物理规律的 LLIE 统计模型，不依赖配对数据。
-5. **切入角度**: 经验发现自然亮度转换服从幂律密度分布，可用分层幂函数近似。
-6. **核心idea**: 将 LLIE 从确定性像素映射重新定义为在层次化亮度分布上的统计采样过程。
+**核心矛盾**: 重建保真度 vs 跨场景泛化能力——专注于域内精度则泛化差，追求泛化则域内不足。
+**本文要解决什么**: 建立基于自然照明物理规律的 LLIE 统计模型，不依赖配对数据。
+**切入角度**: 经验发现自然亮度转换服从幂律密度分布，可用分层幂函数近似。
+**核心idea**: 将 LLIE 从确定性像素映射重新定义为在层次化亮度分布上的统计采样过程。
 
 ## 方法详解
 
@@ -46,30 +46,34 @@ tags:
 ### 关键设计
 
 1. **亮度变化坐标系 (Luminance Variation Coordinate System)**:
-   - **做什么**: 建立低光-正常光亮度关系的几何框架
-   - **为什么**: 需要将亮度转换的物理规律数学化
-   - **怎么做**: 对每个像素 $i$，以 $(I_L^{(i)}, I_N^{(i)})$ 为坐标点，发现这些点遵循幂律分布 $y = ax^\kappa$，不同 $\kappa$ 对应不同的亮度适配策略（$\kappa < 0.5$: 暗区恢复，$0.5 < \kappa < 1$: 中间调增强，$\kappa \to 1$: 高光保持）
+
+    - **做什么**: 建立低光-正常光亮度关系的几何框架
+    - **为什么**: 需要将亮度转换的物理规律数学化
+    - **怎么做**: 对每个像素 $i$，以 $(I_L^{(i)}, I_N^{(i)})$ 为坐标点，发现这些点遵循幂律分布 $y = ax^\kappa$，不同 $\kappa$ 对应不同的亮度适配策略（$\kappa < 0.5$: 暗区恢复，$0.5 < \kappa < 1$: 中间调增强，$\kappa \to 1$: 高光保持）
 
 2. **层次化亮度适配算子 (Hierarchical Luminance Adaptation Operator, LAO)**:
-   - **做什么**: 构建从全局到局部的多尺度亮度校正算子
-   - **怎么做**: 对区域 $\mathcal{P}$ 计算亮度标量 $G_\mathcal{P}$ 及 LAO：
-   $$\gamma_\mathcal{P} = (\alpha + G_\mathcal{P})^{\beta_\mathcal{P}}, \quad \beta_\mathcal{P} = 2G_\mathcal{P} - 1 + \eta\frac{\sigma_{G_\mathcal{P}}^2}{\sigma_{G_\mathcal{P}}^2 + \delta}$$
-   - **分布建模**: LAO 服从截断高斯分布 $\gamma \sim \mathcal{N}_{\text{trunc}}(\mu=\gamma_0, \sigma^2; \gamma_{\min}, \gamma_{\max})$
-   - **物理含义**: 高概率算子对应物理合理的全局适配，低概率算子代表局部精调
+
+    - **做什么**: 构建从全局到局部的多尺度亮度校正算子
+    - **怎么做**: 对区域 $\mathcal{P}$ 计算亮度标量 $G_\mathcal{P}$ 及 LAO：
+    $\gamma_\mathcal{P} = (\alpha + G_\mathcal{P})^{\beta_\mathcal{P}}, \quad \beta_\mathcal{P} = 2G_\mathcal{P} - 1 + \eta\frac{\sigma_{G_\mathcal{P}}^2}{\sigma_{G_\mathcal{P}}^2 + \delta}$
+    - **分布建模**: LAO 服从截断高斯分布 $\gamma \sim \mathcal{N}_{\text{trunc}}(\mu=\gamma_0, \sigma^2; \gamma_{\min}, \gamma_{\max})$
+    - **物理含义**: 高概率算子对应物理合理的全局适配，低概率算子代表局部精调
 
 3. **MCMC 层次采样**:
-   - **做什么**: 从 LAO 分布空间中渐进采样，生成从粗到细的增强图像集合
-   - **怎么做**: 第 $n$ 次迭代产生 $2^{n-1}$ 个 LAO 配置：
-   $$p(\mathcal{I}_H^{(n)}) \approx \sum_{z=1}^{2^{n-1}} p(\mathcal{I}_H^{(n)}|\gamma_{\mathcal{P},z}^{(n)}) p(\gamma_{\mathcal{P},z}^{(n)})$$
+
+    - **做什么**: 从 LAO 分布空间中渐进采样，生成从粗到细的增强图像集合
+    - **怎么做**: 第 $n$ 次迭代产生 $2^{n-1}$ 个 LAO 配置：
+    $p(\mathcal{I}_H^{(n)}) \approx \sum_{z=1}^{2^{n-1}} p(\mathcal{I}_H^{(n)}|\gamma_{\mathcal{P},z}^{(n)}) p(\gamma_{\mathcal{P},z}^{(n)})$
    转移核为截断高斯：$q(\gamma_z^{(n)}|\gamma_{z-1}^{(n)}) = \mathcal{N}_{\text{trunc}}(\gamma_z^{(n)}|\gamma_{z-1}^{(n)}, \lambda^2)$
-   - **网格策略**: 第 $n$ 次将图像分为 $m_n \times w_n$ 非重叠块（$m_n = 2^{\lceil(n-1)/2\rceil}$），实现从粗到细
+    - **网格策略**: 第 $n$ 次将图像分为 $m_n \times w_n$ 非重叠块（$m_n = 2^{\lceil(n-1)/2\rceil}$），实现从粗到细
 
 4. **层次引导扩散模型 (Hierarchically-Guided Diffusion)**:
-   - **做什么**: 将 MCMC 采样的层次化增强嵌入扩散前向过程
-   - **怎么做**: 通过时间映射 $\psi(t) = \lfloor t \cdot N/T \rfloor$ 将 $T$ 步扩散对齐到 $N$ 层层次化特征。前向过程在每个时间区间 $T_n$ 内使用对应的 $\mathcal{F}_H^{(\psi(t))}$ 作为照明归一化参考
-   - **训练**: 噪声预测目标 $\mathcal{L}_d$ + 全局标签弱引导 $\mathcal{L}_g$
-   - **LASQ++ 扩展**: 可选加入非配对正常光照参考的对抗判别器：
-   $$\mathcal{L}_{\text{total}} = \lambda_d\mathcal{L}_d + \lambda_g\mathcal{L}_g + \lambda_{\text{GAN}}\mathbb{E}[-\log\mathcal{D}_\phi(G_\theta(\mathcal{I}_L))]$$
+
+    - **做什么**: 将 MCMC 采样的层次化增强嵌入扩散前向过程
+    - **怎么做**: 通过时间映射 $\psi(t) = \lfloor t \cdot N/T \rfloor$ 将 $T$ 步扩散对齐到 $N$ 层层次化特征。前向过程在每个时间区间 $T_n$ 内使用对应的 $\mathcal{F}_H^{(\psi(t))}$ 作为照明归一化参考
+    - **训练**: 噪声预测目标 $\mathcal{L}_d$ + 全局标签弱引导 $\mathcal{L}_g$
+    - **LASQ++ 扩展**: 可选加入非配对正常光照参考的对抗判别器：
+    $\mathcal{L}_{\text{total}} = \lambda_d\mathcal{L}_d + \lambda_g\mathcal{L}_g + \lambda_{\text{GAN}}\mathbb{E}[-\log\mathcal{D}_\phi(G_\theta(\mathcal{I}_L))]$
 
 ### 损失函数 / 训练策略
 

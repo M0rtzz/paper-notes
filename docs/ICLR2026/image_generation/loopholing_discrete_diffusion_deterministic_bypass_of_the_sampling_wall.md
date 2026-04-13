@@ -44,13 +44,15 @@ $$\mathbf{e}_t = E_\theta(\mathbf{z}_t) + \text{LN}(\mathbf{h}_t), \quad \mathbf
    token embedding 与前一步潜在嵌入经 Layer Norm 相加，通过 backbone 更新，形成跨步的确定性上下文传播。
 
 2. **自条件化训练**: 避免全轨迹展开的计算开销。两次前向传播：
-   - 第一次（伪上下文生成）：$\mathbf{h}_t = \mathbf{0}$，得到 $\mathbf{h}^0$
-   - 第二次（上下文条件预测）：$\mathbf{h}_t = \text{sg}[\mathbf{h}^0]$（stop-gradient）
+
+    - 第一次（伪上下文生成）：$\mathbf{h}_t = \mathbf{0}$，得到 $\mathbf{h}^0$
+    - 第二次（上下文条件预测）：$\mathbf{h}_t = \text{sg}[\mathbf{h}^0]$（stop-gradient）
    以概率 $p$ 使用自条件化损失，$1-p$ 使用标准损失。
 
 3. **为何有效——缓解两类低效**:
-   - **空闲步**：即使采样结果 $\mathbf{z}_t$ 不变，$\mathbf{h}_t$ 仍持续更新，每步都有进展
-   - **过度振荡**：确定性路径维持关于目标 $\mathbf{x}$ 的上下文记忆，使预测更稳定
+
+    - **空闲步**：即使采样结果 $\mathbf{z}_t$ 不变，$\mathbf{h}_t$ 仍持续更新，每步都有进展
+    - **过度振荡**：确定性路径维持关于目标 $\mathbf{x}$ 的上下文记忆，使预测更稳定
    实验验证：LDDM 早期 Temporal KL 更高（更快探索），后期更低（更稳定），Token-Prediction Entropy 始终更低
 
 ### 损失函数 / 训练策略

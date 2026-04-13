@@ -26,15 +26,15 @@ MELLE 提出了一种基于连续 mel-spectrogram 帧的自回归语言模型 TT
 
 ## 研究背景与动机
 
-1. **领域现状**：当前零样本 TTS 的主流方法是 codec 语言模型（如 VALL-E），先将音频通过神经编解码器（EnCodec 等）量化为离散 token，再用自回归语言模型预测这些离散 token。
-2. **现有痛点**：
+**领域现状**：当前零样本 TTS 的主流方法是 codec 语言模型（如 VALL-E），先将音频通过神经编解码器（EnCodec 等）量化为离散 token，再用自回归语言模型预测这些离散 token。
+**现有痛点**：
    - 向量量化本质是为音频压缩设计的，量化后的离散码相比连续表示会丢失保真度
    - 离散 codec 码之间高度相似，随机采样策略容易导致长时间静音或持续噪音等鲁棒性问题
    - 需要两阶段解码：AR 模型生成粗糙一级 token → NAR 模型迭代预测多层 codebook 码进行精细化，推理效率低
-3. **核心矛盾**：离散 token 范式天然不适合音频这种连续信号——离散化本身就是信息有损压缩，而连续表示（如 mel-spectrogram）保留更丰富的声学细节。但连续值 token 面临两大难题：如何定义训练目标（无法用交叉熵）？如何在连续空间实现采样（无法用 top-p）？
-4. **本文要解决什么？** 在自回归语音合成中用连续值 mel-spectrogram 帧完全替代离散量化 token，解决训练目标和采样机制两大挑战。
-5. **切入角度**：从 mel-spectrogram 重建的语音在 WER 和说话人相似度上都优于 EnCodec 重建的语音，证实连续表示保真度更高。作者借鉴 VAE 的变分推断来实现连续空间的采样。
-6. **核心 idea 一句话**：用回归损失替代交叉熵、用 VAE 式变分推断替代 top-p 采样，实现单阶段自回归连续 mel-spectrogram 预测的 TTS 模型。
+**核心矛盾**：离散 token 范式天然不适合音频这种连续信号——离散化本身就是信息有损压缩，而连续表示（如 mel-spectrogram）保留更丰富的声学细节。但连续值 token 面临两大难题：如何定义训练目标（无法用交叉熵）？如何在连续空间实现采样（无法用 top-p）？
+**本文要解决什么？** 在自回归语音合成中用连续值 mel-spectrogram 帧完全替代离散量化 token，解决训练目标和采样机制两大挑战。
+**切入角度**：从 mel-spectrogram 重建的语音在 WER 和说话人相似度上都优于 EnCodec 重建的语音，证实连续表示保真度更高。作者借鉴 VAE 的变分推断来实现连续空间的采样。
+**核心 idea 一句话**：用回归损失替代交叉熵、用 VAE 式变分推断替代 top-p 采样，实现单阶段自回归连续 mel-spectrogram 预测的 TTS 模型。
 
 ## 方法详解
 
@@ -44,24 +44,28 @@ MELLE 是一个 decoder-only 的自回归语言模型，输入是 BPE 文本 tok
 ### 关键设计
 
 1. **自回归语言模型 (Transformer Decoder)**:
-   - 做什么：作为核心骨干，自回归地生成连续声学 token
-   - 核心思路：12 层 Transformer block（16 head, 1024 dim），输入文本通过 embedding layer、mel-spectrogram 通过 3 层 MLP pre-net 投影到模型维度，拼接后建模语义-声学依赖。每步输出 $\boldsymbol{e}_t$ 传给后续模块
-   - 设计动机：利用 LM 的 in-context learning 能力实现零样本 TTS，decoder-only 结构简洁高效
+
+    - 做什么：作为核心骨干，自回归地生成连续声学 token
+    - 核心思路：12 层 Transformer block（16 head, 1024 dim），输入文本通过 embedding layer、mel-spectrogram 通过 3 层 MLP pre-net 投影到模型维度，拼接后建模语义-声学依赖。每步输出 $\boldsymbol{e}_t$ 传给后续模块
+    - 设计动机：利用 LM 的 in-context learning 能力实现零样本 TTS，decoder-only 结构简洁高效
 
 2. **Latent Sampling Module（变分采样模块）**:
-   - 做什么：在连续空间实现采样机制，增强输出多样性和鲁棒性
-   - 核心思路：基于 VAE 的重参数化技巧。对 LM 输出 $\boldsymbol{e}_t$，用线性层预测高斯分布的均值 $\boldsymbol{\mu}_t$ 和对数方差 $\log \boldsymbol{\sigma}_t^2$，然后用 $\boldsymbol{z}_t = \boldsymbol{\mu}_t + \boldsymbol{\sigma}_t \odot \boldsymbol{\epsilon}$（$\boldsymbol{\epsilon} \sim \mathcal{N}(0, \boldsymbol{I})$）采样潜变量，再通过带残差连接的 3 层 MLP 映射回 mel-spectrogram 空间
-   - 设计动机：离散模型可以用 top-p 采样引入多样性，连续模型无法使用。VAE 式采样自动学习每个输入对应的分布，比手动设计采样策略更自适应。消融实验表明该模块对保持说话人相似度（SIM）贡献显著
+
+    - 做什么：在连续空间实现采样机制，增强输出多样性和鲁棒性
+    - 核心思路：基于 VAE 的重参数化技巧。对 LM 输出 $\boldsymbol{e}_t$，用线性层预测高斯分布的均值 $\boldsymbol{\mu}_t$ 和对数方差 $\log \boldsymbol{\sigma}_t^2$，然后用 $\boldsymbol{z}_t = \boldsymbol{\mu}_t + \boldsymbol{\sigma}_t \odot \boldsymbol{\epsilon}$（$\boldsymbol{\epsilon} \sim \mathcal{N}(0, \boldsymbol{I})$）采样潜变量，再通过带残差连接的 3 层 MLP 映射回 mel-spectrogram 空间
+    - 设计动机：离散模型可以用 top-p 采样引入多样性，连续模型无法使用。VAE 式采样自动学习每个输入对应的分布，比手动设计采样策略更自适应。消融实验表明该模块对保持说话人相似度（SIM）贡献显著
 
 3. **Spectrogram Flux Loss（频谱变化损失）**:
-   - 做什么：鼓励生成帧间动态变化，防止重复/静音
-   - 核心思路：$\mathcal{L}_{\text{flux}} = -\sum_{t=1}^{T-1} \|\boldsymbol{\mu}_t - \boldsymbol{y}_{t-1}\|_1$，即最大化预测均值与前一帧真值的 L1 差异。这是一个负的度量，奖励帧间变化，惩罚过于静态的预测
-   - 设计动机：纯回归损失容易让模型预测过于平滑/重复的帧，导致合成语音单调。flux loss 直接解决这个问题，消融显示对跨句任务 WER 从 10.87 降至 2.10（WERH）
+
+    - 做什么：鼓励生成帧间动态变化，防止重复/静音
+    - 核心思路：$\mathcal{L}_{\text{flux}} = -\sum_{t=1}^{T-1} \|\boldsymbol{\mu}_t - \boldsymbol{y}_{t-1}\|_1$，即最大化预测均值与前一帧真值的 L1 差异。这是一个负的度量，奖励帧间变化，惩罚过于静态的预测
+    - 设计动机：纯回归损失容易让模型预测过于平滑/重复的帧，导致合成语音单调。flux loss 直接解决这个问题，消融显示对跨句任务 WER 从 10.87 降至 2.10（WERH）
 
 4. **Reduction Factor（缩减因子）**:
-   - 做什么：每步预测多帧 mel-spectrogram，加速推理
-   - 核心思路：将序列按因子 $r$ 分组，每步预测 $r$ 帧而非 1 帧，训练和推理速度提高约 $r$ 倍
-   - 设计动机：长序列建模的效率与鲁棒性权衡。$r=4$ 时推理时间仅 1.40s（VALL-E 需 7.32s），性能仍可接受
+
+    - 做什么：每步预测多帧 mel-spectrogram，加速推理
+    - 核心思路：将序列按因子 $r$ 分组，每步预测 $r$ 帧而非 1 帧，训练和推理速度提高约 $r$ 倍
+    - 设计动机：长序列建模的效率与鲁棒性权衡。$r=4$ 时推理时间仅 1.40s（VALL-E 需 7.32s），性能仍可接受
 
 ### 损失函数 / 训练策略
 

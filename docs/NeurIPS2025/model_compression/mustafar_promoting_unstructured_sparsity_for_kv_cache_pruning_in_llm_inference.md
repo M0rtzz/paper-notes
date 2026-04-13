@@ -29,9 +29,9 @@ tags:
 
 随着大语言模型处理越来越长的序列，KV 缓存的内存开销已成为扩展上下文长度的关键瓶颈。现有压缩技术包括量化、低秩近似、token 驱逐和结构化剪枝，但在剪枝方面存在以下核心问题：
 
-1. **结构化剪枝的局限性**：此前的 KV 缓存剪枝工作（如 ThinK）局限于结构化模式（按通道移除），这严重限制了可达到的稀疏度。ThinK 在 Key 缓存上仅能达到约 50% 的结构化稀疏度，对 Value 缓存更是只能承受 30% 的稀疏度。
-2. **Value 缓存难以压缩**：Value 缓存的激活分布相对均匀，没有明显的通道级异常值，使得结构化剪枝极易导致精度崩塌。
-3. **非结构化稀疏的计算挑战**：虽然非结构化稀疏理论上能保留更多重要元素，但由于稀疏模式不规则，难以在 GPU 上高效利用，此前缺乏合适的稀疏计算方案。
+**结构化剪枝的局限性**：此前的 KV 缓存剪枝工作（如 ThinK）局限于结构化模式（按通道移除），这严重限制了可达到的稀疏度。ThinK 在 Key 缓存上仅能达到约 50% 的结构化稀疏度，对 Value 缓存更是只能承受 30% 的稀疏度。
+**Value 缓存难以压缩**：Value 缓存的激活分布相对均匀，没有明显的通道级异常值，使得结构化剪枝极易导致精度崩塌。
+**非结构化稀疏的计算挑战**：虽然非结构化稀疏理论上能保留更多重要元素，但由于稀疏模式不规则，难以在 GPU 上高效利用，此前缺乏合适的稀疏计算方案。
 
 MUSTAFAR 的核心洞察是：放弃对稀疏模式的任何约束（即采用非结构化稀疏），可以在更高稀疏度下保持模型精度。关键在于解决两个问题——找到合适的剪枝策略，以及设计能高效利用非结构化稀疏的计算内核。
 
@@ -52,9 +52,10 @@ $$S = |K| \odot \text{broadcast}\left(\sum_{t=T}^{T+31} |Q_t|\right)$$
 2. **Value 缓存剪枝策略**：Value 缓存的分布更均匀，没有通道级异常值。作者系统比较了 (per-channel/per-token) × (magnitude/output-aware) 四种组合。关键发现是：对于 Value 缓存，**per-token magnitude-based pruning 等价于 per-token output-aware pruning**，因为注意力计算 $\text{AttentionScore} \times \text{Value}$ 中，同一 token 的所有 Value 元素被同一个注意力分数相乘，因此幅值本身就反映了对输出的贡献。最终统一采用 per-token magnitude-based pruning 处理 Key 和 Value 缓存。
 
 3. **Bitmap 稀疏格式与自定义注意力内核**：
-   - **稀疏格式**：扩展 Coruscant 的 bitmap 格式，将剪枝后的 KV 缓存按 $1 \times 64$ 列分块，每块用 64 位 bitmap 表示非零位置，加上 tile offset 定位起始非零元素，实现最大压缩比。
-   - **SpMV 内核**：解码阶段的注意力操作（Query × Key^T 和 Attention Score × Value）本质上是内存受限的矩阵-向量乘法。自定义 CUDA 内核采用 "load-as-compressed, compute-as-dense" 范式——从全局内存加载压缩数据到寄存器，解压到共享内存，然后执行分块稠密计算。
-   - **混合计算**：解码阶段注意力被重构为两部分：压缩 KV 缓存的 SpMV + 局部窗口（最近 32 个 token）的稠密 MV，通过 online softmax 组合两部分结果。
+
+    - **稀疏格式**：扩展 Coruscant 的 bitmap 格式，将剪枝后的 KV 缓存按 $1 \times 64$ 列分块，每块用 64 位 bitmap 表示非零位置，加上 tile offset 定位起始非零元素，实现最大压缩比。
+    - **SpMV 内核**：解码阶段的注意力操作（Query × Key^T 和 Attention Score × Value）本质上是内存受限的矩阵-向量乘法。自定义 CUDA 内核采用 "load-as-compressed, compute-as-dense" 范式——从全局内存加载压缩数据到寄存器，解压到共享内存，然后执行分块稠密计算。
+    - **混合计算**：解码阶段注意力被重构为两部分：压缩 KV 缓存的 SpMV + 局部窗口（最近 32 个 token）的稠密 MV，通过 online softmax 组合两部分结果。
 
 ### 损失函数 / 训练策略
 

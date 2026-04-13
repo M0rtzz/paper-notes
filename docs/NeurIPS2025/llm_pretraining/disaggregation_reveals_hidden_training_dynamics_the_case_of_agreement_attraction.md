@@ -25,16 +25,16 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域共识**：语言模型通常能生成语法正确的文本，主谓一致（subject-verb agreement）是早期就能学会的基本语法能力，甚至传统 LSTM 也能处理简单情况。
+**领域共识**：语言模型通常能生成语法正确的文本，主谓一致（subject-verb agreement）是早期就能学会的基本语法能力，甚至传统 LSTM 也能处理简单情况。
 
-2. **已知困难**：当句子中存在"干扰名词"（attractor）时（如 "The athletes near the bike know/knows"），模型更容易犯错——这与人类心理语言学中的 agreement attraction 效应一致。
+**已知困难**：当句子中存在"干扰名词"（attractor）时（如 "The athletes near the bike know/knows"），模型更容易犯错——这与人类心理语言学中的 agreement attraction 效应一致。
 
-3. **核心问题**：
+**核心问题**：
    - 模型到底学到了**通用的语法规则**还是只是**越来越复杂的表面启发式**？
    - 聚合指标（准确率）隐藏了什么样的训练动态？
    - 训练过程中，模型何时、如何学会处理不同复杂度的语法结构？
 
-4. **方法论创新**：借鉴心理语言学中的两大方法——**分析错误模式** + **追踪习得过程**——对模型行为进行条件层面的纵向分析。
+**方法论创新**：借鉴心理语言学中的两大方法——**分析错误模式** + **追踪习得过程**——对模型行为进行条件层面的纵向分析。
 
 ## 方法详解
 
@@ -55,22 +55,25 @@ tags:
 ### 关键设计
 
 1. **模型选择：PolyPythia 系列**
-   - 使用 PolyPythia（van der Wal et al., 2024）——Pythia 模型的多随机种子版本
-   - 覆盖 14M 到 410M 参数的多个规模
-   - 每个规模 10 个随机种子，提供统计稳定性
-   - 多个训练 checkpoint（尤其是训练早期有密集 checkpoint）
-   - 关键优势：跨规模、跨种子可比较（相同 tokenizer、相同 token 数步数对应关系）
+
+    - 使用 PolyPythia（van der Wal et al., 2024）——Pythia 模型的多随机种子版本
+    - 覆盖 14M 到 410M 参数的多个规模
+    - 每个规模 10 个随机种子，提供统计稳定性
+    - 多个训练 checkpoint（尤其是训练早期有密集 checkpoint）
+    - 关键优势：跨规模、跨种子可比较（相同 tokenizer、相同 token 数步数对应关系）
 
 2. **评估指标**
-   - 计算每个动词在其上下文中的对数概率
-   - 正确 = 正确形式的对数概率 > 错误形式
-   - 单 token 动词 vs 多 token 动词分开分析
-   - 多 token 词的对数概率 = token 对数概率之和
+
+    - 计算每个动词在其上下文中的对数概率
+    - 正确 = 正确形式的对数概率 > 错误形式
+    - 单 token 动词 vs 多 token 动词分开分析
+    - 多 token 词的对数概率 = token 对数概率之和
 
 3. **分解维度**
-   - 按**动词类型**：be 动词（is/are）vs 其他动词
-   - 按**条件**：singular / plural × no-attractor / match-attractor / mismatch-attractor
-   - 按**token 化方式**：单 token 动词 vs 多 token 动词（如 admires = 2 token）
+
+    - 按**动词类型**：be 动词（is/are）vs 其他动词
+    - 按**条件**：singular / plural × no-attractor / match-attractor / mismatch-attractor
+    - 按**token 化方式**：单 token 动词 vs 多 token 动词（如 admires = 2 token）
 
 ### 损失函数 / 训练策略
 本文不训练新模型。使用预训练好的 PolyPythia 系列模型的各个 checkpoint 进行评估，研究的是**训练动态**而非训练方法。

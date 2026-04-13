@@ -26,29 +26,29 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**:
+**领域现状**:
    - LLM 推理能力提升主要依赖 test-time compute scaling（如 System 2 慢思考）
    - 大型推理模型（LRM）如 DeepSeek-R1 在数学和代码上达到专家水平
    - RAG 是获取外部知识的有效方式，CoT prompting 可以将检索嵌入推理步骤
 
-2. **现有痛点**:
+**现有痛点**:
    - **推理方法的局限**: LRM 隐式假设模型已拥有所有推理所需知识，在开放领域（法律、医学）场景下失效
    - **错误传播（Error Propagation）**: 基于 CoT 的知识增强推理中，早期步骤的错误会在链式推理中级联放大
    - **验证瓶颈（Verification Bottleneck）**: 多分支决策过程中的 explore-exploit 权衡难以有效解决；现有验证方案要么依赖不可靠的自验证，要么需要特定的验证器训练
 
-3. **核心矛盾**:
+**核心矛盾**:
    - 知识增强（RAG）和推理增强（search/reasoning）需要协同工作，但现有方法未能有效结合
    - 在多分支搜索中如何评估中间推理状态的质量？自验证不可靠，外部验证器成本高
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 如何在开放领域、知识密集的复杂推理场景中有效结合知识检索与推理搜索
    - 如何在树搜索中动态评估推理路径的风险，平衡探索与利用
 
-5. **切入角度**:
+**切入角度**:
    - 将贝叶斯风险最小化引入 MCTS 的节点评估，用 "问题生成似然" 作为中间状态质量的代理指标
    - 每一步包含分解+检索推理两个动作，精细化推理粒度
 
-6. **核心idea一句话**:
+**核心idea一句话**:
    - 用贝叶斯风险评估指导 MCTS 中知识增强推理的 explore-exploit 权衡
 
 ## 方法详解
@@ -63,24 +63,27 @@ ARise 由三个核心组件组成：
 ### 关键设计
 
 1. **推理状态生成（Reasoning State Generation）**:
-   - 做什么: 每步 LLM 进行问题分解和基于检索文档的推理，中间结果依次追加到推理状态中
-   - 核心思路: 第 $i$ 步输入为原始问题 $\mathbf{q}$ + 前序结果 $\mathbf{s_{i-1}}$，先生成子问题 $\mathbf{d_i}$，再结合检索文档得到推理结果 $\mathbf{r_i}$
-   - 设计动机: 分解+检索推理的交替进行提供更细粒度的知识获取，每步都有明确定义的（状态, 动作）对
+
+    - 做什么: 每步 LLM 进行问题分解和基于检索文档的推理，中间结果依次追加到推理状态中
+    - 核心思路: 第 $i$ 步输入为原始问题 $\mathbf{q}$ + 前序结果 $\mathbf{s_{i-1}}$，先生成子问题 $\mathbf{d_i}$，再结合检索文档得到推理结果 $\mathbf{r_i}$
+    - 设计动机: 分解+检索推理的交替进行提供更细粒度的知识获取，每步都有明确定义的（状态, 动作）对
 
 2. **蒙特卡洛树搜索（MCTS）**:
-   - 做什么: 包含 Selection（UCT）、Expansion（多角度分解）、Simulation（想象性 rollout）、Backpropagation（自底向上更新）四阶段
-   - 核心思路: 
-     - **Selection**: $\text{UCT}(\mathbf{s}, \mathbf{a}) = Q(\mathbf{s}, \mathbf{a}) + w\sqrt{\frac{\ln N(Pa(\mathbf{s}))}{N(\mathbf{s}, \mathbf{a})}}$
-     - **Backpropagation**: $Q(\mathbf{s}, \mathbf{a}) = \frac{\sum_{\mathbf{c}} Q(\mathbf{c}) \cdot N(\mathbf{c})}{\sum_{\mathbf{c}} N(\mathbf{c})}$
-   - 设计动机: 将线性 CoT 推理扩展为树结构，允许回溯和多路径探索，缓解错误传播
+
+    - 做什么: 包含 Selection（UCT）、Expansion（多角度分解）、Simulation（想象性 rollout）、Backpropagation（自底向上更新）四阶段
+    - 核心思路: 
+      - **Selection**: $\text{UCT}(\mathbf{s}, \mathbf{a}) = Q(\mathbf{s}, \mathbf{a}) + w\sqrt{\frac{\ln N(Pa(\mathbf{s}))}{N(\mathbf{s}, \mathbf{a})}}$
+      - **Backpropagation**: $Q(\mathbf{s}, \mathbf{a}) = \frac{\sum_{\mathbf{c}} Q(\mathbf{c}) \cdot N(\mathbf{c})}{\sum_{\mathbf{c}} N(\mathbf{c})}$
+    - 设计动机: 将线性 CoT 推理扩展为树结构，允许回溯和多路径探索，缓解错误传播
 
 3. **风险评估（Risk Assessment）**:
-   - 做什么: 用贝叶斯公式将节点的中间结果质量转化为可计算的"问题生成似然"
-   - 核心思路: 
-     - 相关性: $\log p(\mathbf{r}|\mathbf{q}) \propto \log p(\mathbf{q}|\mathbf{r})$
-     - 风险: $\text{Risk}((\mathbf{s}, \mathbf{a}) \to \mathbf{r}|\mathbf{q}) = -\frac{1}{|\mathbf{q}|}\sum_t \log p(q_t | \mathbf{q}_{<t}, \mathbf{r}; \Theta)$
-     - 价值: $Q(\mathbf{s}, \mathbf{a}) = 1 - \frac{1}{1+e^{\alpha(\text{Risk} - \beta)}}$
-   - 设计动机: 利用策略模型本身计算风险，无需额外训练验证器；风险低说明中间结果与原始问题高度相关
+
+    - 做什么: 用贝叶斯公式将节点的中间结果质量转化为可计算的"问题生成似然"
+    - 核心思路: 
+      - 相关性: $\log p(\mathbf{r}|\mathbf{q}) \propto \log p(\mathbf{q}|\mathbf{r})$
+      - 风险: $\text{Risk}((\mathbf{s}, \mathbf{a}) \to \mathbf{r}|\mathbf{q}) = -\frac{1}{|\mathbf{q}|}\sum_t \log p(q_t | \mathbf{q}_{<t}, \mathbf{r}; \Theta)$
+      - 价值: $Q(\mathbf{s}, \mathbf{a}) = 1 - \frac{1}{1+e^{\alpha(\text{Risk} - \beta)}}$
+    - 设计动机: 利用策略模型本身计算风险，无需额外训练验证器；风险低说明中间结果与原始问题高度相关
 
 ### 损失函数 / 训练策略
 

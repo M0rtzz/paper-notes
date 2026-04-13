@@ -46,26 +46,30 @@ BLT由三个模块组成：
 ### 关键设计
 
 1. **基于熵的动态分段（Entropy Patching）**
-   - 训练一个小型字节级LM（100M参数）估计每个字节位置的下一字节熵H(x_i)
-   - 当H(x_i)超过阈值θ_g时，在该位置创建新patch边界
-   - 直觉：高熵=不确定=难以预测=需要更多计算→分配更多Global Transformer步骤
-   - 例如"George R.R. Martin"中，"G"的熵高（新实体开始），其后字母可预测（低熵），所以"eorge"被合并为一个大patch
-   - 满足**增量分段**（incremental patching）属性：不依赖未来字节，兼容自回归生成
+
+    - 训练一个小型字节级LM（100M参数）估计每个字节位置的下一字节熵H(x_i)
+    - 当H(x_i)超过阈值θ_g时，在该位置创建新patch边界
+    - 直觉：高熵=不确定=难以预测=需要更多计算→分配更多Global Transformer步骤
+    - 例如"George R.R. Martin"中，"G"的熵高（新实体开始），其后字母可预测（低熵），所以"eorge"被合并为一个大patch
+    - 满足**增量分段**（incremental patching）属性：不依赖未来字节，兼容自回归生成
 
 2. **Hash N-gram嵌入**
-   - 对每个字节位置计算3-gram到8-gram的滚动多项式哈希
-   - 映射到固定大小的嵌入表（500K哈希），无需维护显式n-gram表
-   - 这是BLT匹配tokenizer模型性能的关键因素（消融实验中移除后BPB显著下降）
+
+    - 对每个字节位置计算3-gram到8-gram的滚动多项式哈希
+    - 映射到固定大小的嵌入表（500K哈希），无需维护显式n-gram表
+    - 这是BLT匹配tokenizer模型性能的关键因素（消融实验中移除后BPB显著下降）
 
 3. **Perceiver式Cross-Attention**
-   - Encoder中：patch表示作为query，字节表示作为key/value → 将字节信息聚合到patch
-   - Decoder中：角色互换，字节表示作为query → 将patch信息展开回字节
-   - mask策略：每个patch query只attend到构成该patch的字节
+
+    - Encoder中：patch表示作为query，字节表示作为key/value → 将字节信息聚合到patch
+    - Decoder中：角色互换，字节表示作为query → 将patch信息展开回字节
+    - mask策略：每个patch query只attend到构成该patch的字节
 
 4. **新Scaling维度：同时增大patch和模型**
-   - 传统token模型中，固定推理预算=固定模型大小
-   - BLT中，增大patch size → 减少Global Transformer步数 → 节省的FLOP可用于增大模型
-   - 实验证明：patch size 8 + 更大模型在固定推理预算下超越了更小patch + 更小模型
+
+    - 传统token模型中，固定推理预算=固定模型大小
+    - BLT中，增大patch size → 减少Global Transformer步数 → 节省的FLOP可用于增大模型
+    - 实验证明：patch size 8 + 更大模型在固定推理预算下超越了更小patch + 更小模型
 
 ## 实验关键数据
 

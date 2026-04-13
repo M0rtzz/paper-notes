@@ -29,9 +29,9 @@ tags:
 
 地球观测（EO）基础模型的发展面临三大瓶颈：
 
-1. **传感器多样性不足**：现有预训练数据集主要聚焦Sentinel-1/2和Landsat等高/中分辨率传感器，忽略了Sentinel-3和Sentinel-5P等低分辨率但具有高时间频率的大气监测任务
-2. **模型灵活性有限**：大多数模型采用针对特定传感器模态的刚性架构，无法动态适应新光谱波段或非光谱输入（如大气成分）
-3. **评估范围狭窄**：现有基准主要关注地表应用的RGB/多光谱/SAR传感器，忽略粗尺度传感器和大气任务
+**传感器多样性不足**：现有预训练数据集主要聚焦Sentinel-1/2和Landsat等高/中分辨率传感器，忽略了Sentinel-3和Sentinel-5P等低分辨率但具有高时间频率的大气监测任务
+**模型灵活性有限**：大多数模型采用针对特定传感器模态的刚性架构，无法动态适应新光谱波段或非光谱输入（如大气成分）
+**评估范围狭窄**：现有基准主要关注地表应用的RGB/多光谱/SAR传感器，忽略粗尺度传感器和大气任务
 
 这些限制阻碍了将EO与天气和气候研究相结合的通用多模态基础模型的发展。本文旨在通过数据、模型和基准三方面的贡献来突破这些壁垒。
 
@@ -44,27 +44,30 @@ tags:
 ### 关键设计
 
 1. **Copernicus-Pretrain数据集**: 按ERA5再分析数据集的 $0.25° \times 0.25°$ 网格划分全球约310K个网格单元，覆盖8种Sentinel模态：
-   - Sentinel-1 GRD（SAR，10m，264×264×2，约420万图像）
-   - Sentinel-2 TOA（多光谱，10m，264×264×13，约420万图像）
-   - Sentinel-3 OLCI（多光谱，300m，96×96×21，约220万图像）
-   - Sentinel-5P（大气变量：CO/NO2/SO2/O3，1km，28×28，约780万图像）
-   - Copernicus DEM（高程，30m，960×960，约30万图像）
+
+    - Sentinel-1 GRD（SAR，10m，264×264×2，约420万图像）
+    - Sentinel-2 TOA（多光谱，10m，264×264×13，约420万图像）
+    - Sentinel-3 OLCI（多光谱，300m，96×96×21，约220万图像）
+    - Sentinel-5P（大气变量：CO/NO2/SO2/O3，1km，28×28，约780万图像）
+    - Copernicus DEM（高程，30m，960×960，约30万图像）
    
    总计约1870万图像，是目前最大最多样的EO预训练数据集。采用高斯采样策略在全球前10K人口密集城市周围采样S1/S2局部块，同时覆盖极地区域。
 
 2. **动态Patch嵌入的传感器感知超网络**: 解决不同模态输入尺寸和通道数差异的关键模块：
-   - **光谱超网络**：将每个通道的中心波长 $\lambda$ 和带宽 $\delta$ 通过Fourier编码映射到 $D$ 维向量，再通过MLP和多头注意力生成卷积核权重 $\mathbf{K}_{\text{conv}} \in \mathbb{R}^{D \times C \times p \times p}$
-   
-   $$\text{FE}(x) = [\cos \frac{2\pi x}{\omega_i}, \sin \frac{2\pi x}{\omega_i}], \quad \omega_i = \exp(\log \omega_{\min} + i \cdot \frac{\log \omega_{\max} - \log \omega_{\min}}{D/2-1})$$
 
-   - **变量超网络**（创新点）：非光谱模态（如S5P大气成分、DEM高程）无波长属性。使用冻结的Llama 3.2 LLM编码变量名称为 $D$ 维向量，通过类似MLP管道生成对应的patch嵌入权重。这是零额外推理成本的一次性预处理。
-   - **FlexiViT动态patch尺寸**：针对不同GSD（10m到1km）动态调整卷积核的patch尺寸（S1/2用16×16，S3用8×8，S5P用4×4，DEM用64×64）
+    - **光谱超网络**：将每个通道的中心波长 $\lambda$ 和带宽 $\delta$ 通过Fourier编码映射到 $D$ 维向量，再通过MLP和多头注意力生成卷积核权重 $\mathbf{K}_{\text{conv}} \in \mathbb{R}^{D \times C \times p \times p}$
+   
+    $\text{FE}(x) = [\cos \frac{2\pi x}{\omega_i}, \sin \frac{2\pi x}{\omega_i}], \quad \omega_i = \exp(\log \omega_{\min} + i \cdot \frac{\log \omega_{\max} - \log \omega_{\min}}{D/2-1})$
+
+    - **变量超网络**（创新点）：非光谱模态（如S5P大气成分、DEM高程）无波长属性。使用冻结的Llama 3.2 LLM编码变量名称为 $D$ 维向量，通过类似MLP管道生成对应的patch嵌入权重。这是零额外推理成本的一次性预处理。
+    - **FlexiViT动态patch尺寸**：针对不同GSD（10m到1km）动态调整卷积核的patch尺寸（S1/2用16×16，S3用8×8，S5P用4×4，DEM用64×64）
 
 3. **元数据集成的统一Fourier编码**: 除位置编码外，引入三类可选元数据编码，均用Fourier编码统一处理：
-   - **地理位置**：经纬度编码拼接为 $\text{Loc} \in \mathbb{R}^D$
-   - **空间覆盖面积**：根据GSD和patch尺寸计算面积编码 $\text{Area} \in \mathbb{R}^D$
-   - **时间**：距参考日期的天数编码 $\text{Time} \in \mathbb{R}^D$
-   - 训练时以0.7概率随机丢弃元数据，使用可学习token作为缺失替代
+
+    - **地理位置**：经纬度编码拼接为 $\text{Loc} \in \mathbb{R}^D$
+    - **空间覆盖面积**：根据GSD和patch尺寸计算面积编码 $\text{Area} \in \mathbb{R}^D$
+    - **时间**：距参考日期的天数编码 $\text{Time} \in \mathbb{R}^D$
+    - 训练时以0.7概率随机丢弃元数据，使用可学习token作为缺失替代
 
 ### 损失函数 / 训练策略
 

@@ -29,9 +29,9 @@ tags:
 **领域现状**：扩散模型已成为图像生成的主流框架，其核心组件是去噪网络。传统上使用CNN-based U-Net作为去噪骨干，近期DiT和MDT等工作开始探索用Vision Transformer替代U-Net。
 
 **现有痛点**：
-1. **时间条件注入方式粗糙**：DiT和MDT使用AdaLN（Adaptive LayerNorm）进行噪声时间步条件化，通过逐通道的scale和shift参数调制输入。这种机制无法有效建模去噪过程中空间与时间依赖性的联合关系
-2. **去噪过程的时间动态未被充分捕捉**：去噪初期模型主要预测低频内容（整体结构），后期则聚焦于高频细节。AdaLN机制无法让注意力机制根据时间步动态调整关注模式
-3. **参数效率低**：AdaLN每个Transformer块需要学习6个调制分量（self-attention和MLP各需shift、scale、gate），参数开销大
+**时间条件注入方式粗糙**：DiT和MDT使用AdaLN（Adaptive LayerNorm）进行噪声时间步条件化，通过逐通道的scale和shift参数调制输入。这种机制无法有效建模去噪过程中空间与时间依赖性的联合关系
+**去噪过程的时间动态未被充分捕捉**：去噪初期模型主要预测低频内容（整体结构），后期则聚焦于高频细节。AdaLN机制无法让注意力机制根据时间步动态调整关注模式
+**参数效率低**：AdaLN每个Transformer块需要学习6个调制分量（self-attention和MLP各需shift、scale、gate），参数开销大
 
 **核心矛盾**：如何设计一种既能精细控制时间-空间交互、又能保持参数高效的去噪网络架构？
 
@@ -50,29 +50,33 @@ DiffiT提供两种变体：
 ### 关键设计
 
 1. **时间依赖多头自注意力（TMSA）**：
-   - **做什么**：将时间嵌入直接融入自注意力的Q/K/V计算中
-   - **核心思路**：对于空间token $\mathbf{x_s}$ 和时间token $\mathbf{x_t}$，计算时间依赖的Q/K/V：
-     $$\mathbf{q_s} = \mathbf{x_s}\mathbf{W}_{qs} + \mathbf{x_t}\mathbf{W}_{qt}$$
-     $$\mathbf{k_s} = \mathbf{x_s}\mathbf{W}_{ks} + \mathbf{x_t}\mathbf{W}_{kt}$$
-     $$\mathbf{v_s} = \mathbf{x_s}\mathbf{W}_{vs} + \mathbf{x_t}\mathbf{W}_{vt}$$
-     自注意力计算为：$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}(\frac{\mathbf{QK}^\top}{\sqrt{d}} + \mathbf{B})\mathbf{V}$
-   - **设计动机**：Q/K/V都是空间和时间token的线性函数，使注意力能在不同时间步自适应调整。相比AdaLN的6个调制分量，TMSA每块仅需3个时间线性投影（$\mathbf{W}_{qt}, \mathbf{W}_{kt}, \mathbf{W}_{vt}$），参数更少。可视化表明TMSA模型的注意力图展现出从全局到局部的渐进聚焦效果。
+
+    - **做什么**：将时间嵌入直接融入自注意力的Q/K/V计算中
+    - **核心思路**：对于空间token $\mathbf{x_s}$ 和时间token $\mathbf{x_t}$，计算时间依赖的Q/K/V：
+    $\mathbf{q_s} = \mathbf{x_s}\mathbf{W}_{qs} + \mathbf{x_t}\mathbf{W}_{qt}$
+    $\mathbf{k_s} = \mathbf{x_s}\mathbf{W}_{ks} + \mathbf{x_t}\mathbf{W}_{kt}$
+    $\mathbf{v_s} = \mathbf{x_s}\mathbf{W}_{vs} + \mathbf{x_t}\mathbf{W}_{vt}$
+      自注意力计算为：$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}(\frac{\mathbf{QK}^\top}{\sqrt{d}} + \mathbf{B})\mathbf{V}$
+    - **设计动机**：Q/K/V都是空间和时间token的线性函数，使注意力能在不同时间步自适应调整。相比AdaLN的6个调制分量，TMSA每块仅需3个时间线性投影（$\mathbf{W}_{qt}, \mathbf{W}_{kt}, \mathbf{W}_{vt}$），参数更少。可视化表明TMSA模型的注意力图展现出从全局到局部的渐进聚焦效果。
 
 2. **窗口化TMSA（图像空间模型）**：
-   - **做什么**：将自注意力限制在不重叠的局部窗口内计算
-   - **核心思路**：在不减少局部区域间通信的前提下，通过U-Net瓶颈层实现跨区域信息共享
-   - **设计动机**：自注意力的二次复杂度在大特征图时代价昂贵，窗口化大幅降低token序列长度。实验表明窗口大小为4时即可获得大部分性能提升
+
+    - **做什么**：将自注意力限制在不重叠的局部窗口内计算
+    - **核心思路**：在不减少局部区域间通信的前提下，通过U-Net瓶颈层实现跨区域信息共享
+    - **设计动机**：自注意力的二次复杂度在大特征图时代价昂贵，窗口化大幅降低token序列长度。实验表明窗口大小为4时即可获得大部分性能提升
 
 3. **DiffiT ResBlock（图像空间模型）**：
-   - **做什么**：组合卷积层与DiffiT Transformer块的混合残差单元
-   - **核心思路**：
-     $$\mathbf{\hat{x}_s} = \text{Conv}_{3\times 3}(\text{Swish}(\text{GN}(\mathbf{x_s})))$$
-     $$\mathbf{x_s} = \text{DiffiT-Block}(\mathbf{\hat{x}_s}, \mathbf{x_t}) + \mathbf{x_s}$$
-   - **设计动机**：卷积层嵌入图像归纳偏置，与Transformer块互补
+
+    - **做什么**：组合卷积层与DiffiT Transformer块的混合残差单元
+    - **核心思路**：
+    $\mathbf{\hat{x}_s} = \text{Conv}_{3\times 3}(\text{Swish}(\text{GN}(\mathbf{x_s})))$
+    $\mathbf{x_s} = \text{DiffiT-Block}(\mathbf{\hat{x}_s}, \mathbf{x_t}) + \mathbf{x_s}$
+    - **设计动机**：卷积层嵌入图像归纳偏置，与Transformer块互补
 
 4. **三通道Classifier-Free Guidance（潜空间模型）**：
-   - **做什么**：在潜空间模型中使用三通道的CFG以提升生成质量
-   - **设计动机**：直接提升条件生成的保真度，在ImageNet-256上使用4.6的guidance scale达到最优1.73 FID
+
+    - **做什么**：在潜空间模型中使用三通道的CFG以提升生成质量
+    - **设计动机**：直接提升条件生成的保真度，在ImageNet-256上使用4.6的guidance scale达到最优1.73 FID
 
 ### 损失函数 / 训练策略
 

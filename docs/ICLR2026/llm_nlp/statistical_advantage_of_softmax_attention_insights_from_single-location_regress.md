@@ -30,17 +30,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **Softmax 的实践主导地位**：当前大语言模型（LLM）的核心是 Transformer 架构中的 softmax attention，但 softmax 的二次复杂度促使大量替代方案出现（线性 attention、核化 attention、SSM 等）。
+**Softmax 的实践主导地位**：当前大语言模型（LLM）的核心是 Transformer 架构中的 softmax attention，但 softmax 的二次复杂度促使大量替代方案出现（线性 attention、核化 attention、SSM 等）。
 
-2. **替代方案在检索任务上的短板**：Shen et al. (2024) 的大规模实验显示，核化 attention 和 SSM（如 HGRN2）在语言能力基准上与 softmax 相当，但在检索任务（如 Needle-in-a-Haystack）上系统性地落后于 softmax attention。
+**替代方案在检索任务上的短板**：Shen et al. (2024) 的大规模实验显示，核化 attention 和 SSM（如 HGRN2）在语言能力基准上与 softmax 相当，但在检索任务（如 Needle-in-a-Haystack）上系统性地落后于 softmax attention。
 
-3. **理论理解的空白**：现有理论工作多聚焦于更容易分析的线性 attention（如 in-context learning 的梯度下降解释），对 softmax 本身的优势缺乏原理性解释。为什么 softmax 的**指数非线性**和**归一化**如此关键？
+**理论理解的空白**：现有理论工作多聚焦于更容易分析的线性 attention（如 in-context learning 的梯度下降解释），对 softmax 本身的优势缺乏原理性解释。为什么 softmax 的**指数非线性**和**归一化**如此关键？
 
-4. **线性 attention 被过度研究**：大量理论文献（Ahn et al., 2023; von Oswald et al., 2023; Bai et al., 2023 等）以线性 attention 作为分析对象，隐含假设其可以近似 softmax 的行为，但这一假设在检索场景下并不成立。
+**线性 attention 被过度研究**：大量理论文献（Ahn et al., 2023; von Oswald et al., 2023; Bai et al., 2023 等）以线性 attention 作为分析对象，隐含假设其可以近似 softmax 的行为，但这一假设在检索场景下并不成立。
 
-5. **检索任务的形式化需求**：Needle-in-a-Haystack、Associative Recall (AR)、Multi-Query AR (MQAR) 等经典任务缺乏统一的数学框架来支撑理论分析。
+**检索任务的形式化需求**：Needle-in-a-Haystack、Associative Recall (AR)、Multi-Query AR (MQAR) 等经典任务缺乏统一的数学框架来支撑理论分析。
 
-6. **弥合表达力与统计/计算优势的鸿沟**：已有工作（Arora et al., 2024）从表达力角度解释 SSM 的不足，但本文进一步深入到**统计**层面（有限样本）和**计算**层面（SGD 收敛性），提供更完整的图景。
+**弥合表达力与统计/计算优势的鸿沟**：已有工作（Arora et al., 2024）从表达力角度解释 SSM 的不足，但本文进一步深入到**统计**层面（有限样本）和**计算**层面（SGD 收敛性），提供更完整的图景。
 
 ---
 

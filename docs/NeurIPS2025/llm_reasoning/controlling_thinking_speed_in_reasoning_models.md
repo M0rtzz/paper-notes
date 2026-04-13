@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大型推理模型（LRM）如 DeepSeek-R1、OpenAI o1 通过长链式思维（Long CoT）实现 System 2 级别的深度推理。但这种模式对所有推理步骤一律使用复杂思考，导致大量冗余计算。
+**领域现状**：大型推理模型（LRM）如 DeepSeek-R1、OpenAI o1 通过长链式思维（Long CoT）实现 System 2 级别的深度推理。但这种模式对所有推理步骤一律使用复杂思考，导致大量冗余计算。
 
-2. **现有痛点**：现有加速方案要么依赖 prompt 控制 token 预算（如 Budget Forcing 的 "Final Answer:" 截断、Thought Extrapolation 的 "Wait" 追加），但 LRM 对 prompt 中的时间/长度约束不敏感；要么需要额外训练（如在快慢推理 trace 上微调），成本高昂。
+**现有痛点**：现有加速方案要么依赖 prompt 控制 token 预算（如 Budget Forcing 的 "Final Answer:" 截断、Thought Extrapolation 的 "Wait" 追加），但 LRM 对 prompt 中的时间/长度约束不敏感；要么需要额外训练（如在快慢推理 trace 上微调），成本高昂。
 
-3. **核心矛盾**：人类推理在一个问题内部也会动态切换快/慢思考——简单步骤快速跳过，关键步骤深入分析。但现有 LRM 缺乏在单次推理中段落级动态调速的能力。
+**核心矛盾**：人类推理在一个问题内部也会动态切换快/慢思考——简单步骤快速跳过，关键步骤深入分析。但现有 LRM 缺乏在单次推理中段落级动态调速的能力。
 
-4. **本文要解决什么**：(1) 如何在推理过程中实现快/慢思考的平滑切换，(2) 何时切换才能最优地平衡效率和准确率。
+**本文要解决什么**：(1) 如何在推理过程中实现快/慢思考的平滑切换，(2) 何时切换才能最优地平衡效率和准确率。
 
-5. **切入角度**：作者发现一个有趣现象——LRM 的短回复和长回复有截然不同的开头词（短回复以 "To"、"First" 开头，长回复以 "Okay"、"Alright" 开头），说明快/慢思考模式在模型表示空间中是可分离的。基于 Representation Engineering（RopE）可以提取控制这种思考模式转换的方向向量。
+**切入角度**：作者发现一个有趣现象——LRM 的短回复和长回复有截然不同的开头词（短回复以 "To"、"First" 开头，长回复以 "Okay"、"Alright" 开头），说明快/慢思考模式在模型表示空间中是可分离的。基于 Representation Engineering（RopE）可以提取控制这种思考模式转换的方向向量。
 
-6. **核心idea一句话**：用 PCA 从 LRM 隐藏层中提取"快→慢"思考的 steering vector，在推理时通过加/减该向量实现 token 级别的思考速度连续控制，并用早晚层 logit 散度作为实时难度信号驱动自适应调速。
+**核心idea一句话**：用 PCA 从 LRM 隐藏层中提取"快→慢"思考的 steering vector，在推理时通过加/减该向量实现 token 级别的思考速度连续控制，并用早晚层 logit 散度作为实时难度信号驱动自适应调速。
 
 ## 方法详解
 
@@ -46,24 +46,28 @@ tags:
 ### 关键设计
 
 1. **快/慢思考 Steering Vector 提取（Representation Reading）**：
-   - 做什么：从 LRM 表示空间中找到控制思考速度的方向向量
-   - 核心思路：用 MATH 训练集的 7.5k 问题采样快思考（以 "To" 开头）和慢思考（正常开头）的配对响应。截取两种响应的前 2 个推理步骤作为 stimuli，收集最后一个 token 位置的各层隐藏状态 $(h_i^+, h_i^-)$，计算差值向量 $d_i = h_i^+ - h_i^-$（一半正向，一半反向），然后用 PCA 提取第一主成分作为 steering vector $v$
-   - 设计动机：RopE 理论认为高层语义概念编码为隐空间中的线性方向。快/慢思考作为高层认知功能，应该也服从此规律。PCA 验证集分类准确率接近 100%，证实了这一假设
+
+    - 做什么：从 LRM 表示空间中找到控制思考速度的方向向量
+    - 核心思路：用 MATH 训练集的 7.5k 问题采样快思考（以 "To" 开头）和慢思考（正常开头）的配对响应。截取两种响应的前 2 个推理步骤作为 stimuli，收集最后一个 token 位置的各层隐藏状态 $(h_i^+, h_i^-)$，计算差值向量 $d_i = h_i^+ - h_i^-$（一半正向，一半反向），然后用 PCA 提取第一主成分作为 steering vector $v$
+    - 设计动机：RopE 理论认为高层语义概念编码为隐空间中的线性方向。快/慢思考作为高层认知功能，应该也服从此规律。PCA 验证集分类准确率接近 100%，证实了这一假设
 
 2. **推理时表示控制（Representation Controlling）**：
-   - 做什么：在每个 token 生成时注入 steering vector 来调节思考速度
-   - 核心思路：对目标层 $l \in L$，修改隐状态 $h^l \leftarrow h^l + \alpha \cdot v^l$。$\alpha > 0$ 加速思考（更简洁），$\alpha < 0$ 减速思考（更深入，含反思和回溯）
-   - 设计动机：相比 prompt 方法（如追加 "Wait"、截断），表示级操作保留了自然推理流，不会打断模型的推理逻辑。实验显示在相同 token 预算下，表示控制比 Budget Forcing 平均高出 +11.4% Pass@1
+
+    - 做什么：在每个 token 生成时注入 steering vector 来调节思考速度
+    - 核心思路：对目标层 $l \in L$，修改隐状态 $h^l \leftarrow h^l + \alpha \cdot v^l$。$\alpha > 0$ 加速思考（更简洁），$\alpha < 0$ 减速思考（更深入，含反思和回溯）
+    - 设计动机：相比 prompt 方法（如追加 "Wait"、截断），表示级操作保留了自然推理流，不会打断模型的推理逻辑。实验显示在相同 token 预算下，表示控制比 Budget Forcing 平均高出 +11.4% Pass@1
 
 3. **实时推理难度估计**：
-   - 做什么：在推理过程中逐 token 判断当前推理步骤的难度
-   - 核心思路：利用早期层和最终层的 next-token 分布之间的 Jensen-Shannon 散度来度量难度：$d(x_t) = \text{avg}_{l \in L_e} \text{JSD}(p^N(\cdot|x_{<t}) \| p^l(\cdot|x_{<t}))$。高散度意味着需要深层处理，对应反思、计算、逻辑推演等复杂推理行为
-   - 设计动机：研究表明 LLM 在处理复杂信息时，早期层和后期层的 logit 差异更大。验证发现 logit 散度最高的 100 个 token 确实对应反思词（Wait, Alternatively）、计算词（equals, multiply）和分析词（analysis, need）
+
+    - 做什么：在推理过程中逐 token 判断当前推理步骤的难度
+    - 核心思路：利用早期层和最终层的 next-token 分布之间的 Jensen-Shannon 散度来度量难度：$d(x_t) = \text{avg}_{l \in L_e} \text{JSD}(p^N(\cdot|x_{<t}) \| p^l(\cdot|x_{<t}))$。高散度意味着需要深层处理，对应反思、计算、逻辑推演等复杂推理行为
+    - 设计动机：研究表明 LLM 在处理复杂信息时，早期层和后期层的 logit 差异更大。验证发现 logit 散度最高的 100 个 token 确实对应反思词（Wait, Alternatively）、计算词（equals, multiply）和分析词（analysis, need）
 
 4. **滑动窗口自适应调速算法**：
-   - 做什么：根据实时难度信号动态调节 $\alpha$
-   - 核心思路：维护最近 $k=8$ 个 token 的难度窗口 $W$，若当前 token 难度超过阈值 $\mu_W + \lambda \cdot \sigma_W$（类似异常检测），则将 $\alpha$ 设为 $\alpha_{\min}$（减速/踩刹车）；否则逐步增大 $\alpha$（加速）直到上限
-   - 设计动机：模拟人类推理——快速跳过简单步骤，遇到关键推理点则放慢深入思考
+
+    - 做什么：根据实时难度信号动态调节 $\alpha$
+    - 核心思路：维护最近 $k=8$ 个 token 的难度窗口 $W$，若当前 token 难度超过阈值 $\mu_W + \lambda \cdot \sigma_W$（类似异常检测），则将 $\alpha$ 设为 $\alpha_{\min}$（减速/踩刹车）；否则逐步增大 $\alpha$（加速）直到上限
+    - 设计动机：模拟人类推理——快速跳过简单步骤，遇到关键推理点则放慢深入思考
 
 ### 损失函数 / 训练策略
 无需训练。Steering vector 仅需在少量数据上一次性提取。自适应控制算法作为推理时 plug-in 直接集成到 vLLM 中。

@@ -24,12 +24,12 @@ tags:
 系统分析了 LLM 在扑克中的三大推理缺陷（启发式推理、事实误解、知行差距），提出 ToolPoker 框架——首个面向不完全信息博弈的工具集成 LLM 推理系统，通过外部 CFR solver 提供博弈论最优的行动指导，使 7B 模型在 Limit Hold'em 中逼近 Nash 均衡。
 
 ## 研究背景与动机
-1. **领域现状**：LLM 在数学推理、编程等任务上取得突破，但在不完全信息博弈中表现远不如传统方法。扑克需要贝叶斯信念更新、博弈论推理和策略执行的紧密结合。
-2. **现有痛点**：LLM 存在三大推理缺陷——① Heuristic Reasoning：依赖浅层启发式而非博弈论原则；② Factual Misunderstanding：误判手牌强度、底池赔率等客观量；③ Knowing-Doing Gap：推理正确但行动偏离。
-3. **核心矛盾**：LLM 能生成"听起来正确"的博弈论分析文本，但无法精确执行计算。
-4. **本文要解决**：如何让 LLM 在不完全信息博弈中进行符合博弈论的推理和决策？
-5. **切入角度**：将 CFR solver 作为外部工具集成到 LLM 推理流程中。
-6. **核心idea**：ToolPoker = LLM 的语言理解能力 + CFR solver 的精确博弈论计算。
+**领域现状**：LLM 在数学推理、编程等任务上取得突破，但在不完全信息博弈中表现远不如传统方法。扑克需要贝叶斯信念更新、博弈论推理和策略执行的紧密结合。
+**现有痛点**：LLM 存在三大推理缺陷——① Heuristic Reasoning：依赖浅层启发式而非博弈论原则；② Factual Misunderstanding：误判手牌强度、底池赔率等客观量；③ Knowing-Doing Gap：推理正确但行动偏离。
+**核心矛盾**：LLM 能生成"听起来正确"的博弈论分析文本，但无法精确执行计算。
+**本文要解决**：如何让 LLM 在不完全信息博弈中进行符合博弈论的推理和决策？
+**切入角度**：将 CFR solver 作为外部工具集成到 LLM 推理流程中。
+**核心idea**：ToolPoker = LLM 的语言理解能力 + CFR solver 的精确博弈论计算。
 
 ## 方法详解
 
@@ -39,20 +39,23 @@ tags:
 ### 关键设计
 
 1. **三大推理缺陷的定量分析**:
-   - HR（Heuristic Reasoning）：用"大牌就 raise"等浅层规则，无精确范围分析
-   - FA（Factual Accuracy）：误判胜率、赔率等可计算量——最严重的瓶颈
-   - AC（Action Consistency）：推理说 fold 但实际选了 call
-   - 评估方法：LLM-as-Judge 打分（0-2 分制）
+
+    - HR（Heuristic Reasoning）：用"大牌就 raise"等浅层规则，无精确范围分析
+    - FA（Factual Accuracy）：误判胜率、赔率等可计算量——最严重的瓶颈
+    - AC（Action Consistency）：推理说 fold 但实际选了 call
+    - 评估方法：LLM-as-Judge 打分（0-2 分制）
 
 2. **BC-RIRL（初步方案，效果有限）**:
-   - BC：5k 专家推理轨迹行为克隆；RIRL：CFR 累积遗憾信号做 RL
-   - 改善推理风格但 FA 仍低（~1.12/2.0），甚至总体更差（-77.5 vs -53.5 筹码）
+
+    - BC：5k 专家推理轨迹行为克隆；RIRL：CFR 累积遗憾信号做 RL
+    - 改善推理风格但 FA 仍低（~1.12/2.0），甚至总体更差（-77.5 vs -53.5 筹码）
 
 3. **ToolPoker（最终方案）**:
-   - 统一工具接口：CFR solver + equity 计算器合并为单一 API，返回 GTO 动作 + equity + range + 赔率
-   - BC 阶段：程序化生成工具调用数据集，教模型何时/如何调用 solver
-   - RL 阶段：复合奖励 $R = R_{answer} + \alpha_f R_{format} + \alpha_t R_{tool}$
-   - 设计动机：solver 填补 LLM 计算短板，保留 LLM 推理解释能力
+
+    - 统一工具接口：CFR solver + equity 计算器合并为单一 API，返回 GTO 动作 + equity + range + 赔率
+    - BC 阶段：程序化生成工具调用数据集，教模型何时/如何调用 solver
+    - RL 阶段：复合奖励 $R = R_{answer} + \alpha_f R_{format} + \alpha_t R_{tool}$
+    - 设计动机：solver 填补 LLM 计算短板，保留 LLM 推理解释能力
 
 ## 实验关键数据
 

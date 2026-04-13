@@ -29,8 +29,8 @@ tags:
 
 作者通过仔细分析预训练 ViT 的权重矩阵 $\mathbf{W}_q, \mathbf{W}_v$ 等，观察到一个重要且此前未被充分利用的现象：
 
-1. **预训练骨干矩阵的行/列向量之间呈现近似正交性**——角度分布集中在 90° 附近
-2. **LoRA/Adapter 训练出的下/上投影矩阵不具备此性质**——角度分布分散，远非正交
+**预训练骨干矩阵的行/列向量之间呈现近似正交性**——角度分布集中在 90° 附近
+**LoRA/Adapter 训练出的下/上投影矩阵不具备此性质**——角度分布分散，远非正交
 
 正交性在数学上意味着向量间的独立性，从泛化理论的角度看，正交的权重矩阵具有更小的 L2 范数，进而降低了 Rademacher 复杂度给出的泛化误差上界。
 
@@ -43,24 +43,27 @@ AOFT 是一种通用的投影矩阵替代策略，可以插入到 LoRA、Adapter
 
 ### 关键设计
 1. **近似正交矩阵生成**
-   - 做什么：用一个向量 $\vec{q} = (q_0, q_1, \cdots, q_N)^\top$ 构造正交矩阵 $\mathbf{Q}$
-   - 核心思路：$\mathbf{Q}$ 的构造基于 Householder 变换的推广形式。矩阵 $\mathbf{Q}$ 的第 $(i,j)$ 元素为：
-     - 第一行：$q_0, -q_1, -q_2, \cdots, -q_N$
-     - 其余：对角元素 $1 - \frac{q_i q_i}{1+q_0}$，非对角元素 $-\frac{q_j q_i}{1+q_0}$
-   - 当满足归一化约束 $\sum_{i=1}^N |q_i|^2 = 1$ 时，$\mathbf{Q}$ 严格正交
-   - **关键放松**：不严格施加此归一化，使列向量保持"近似"正交，增强模型灵活性
-   - 操作定义：$\text{AO}(\vec{q}) = \mathbf{Q}[:, 0:d]$，取前 $d$ 列
+
+    - 做什么：用一个向量 $\vec{q} = (q_0, q_1, \cdots, q_N)^\top$ 构造正交矩阵 $\mathbf{Q}$
+    - 核心思路：$\mathbf{Q}$ 的构造基于 Householder 变换的推广形式。矩阵 $\mathbf{Q}$ 的第 $(i,j)$ 元素为：
+      - 第一行：$q_0, -q_1, -q_2, \cdots, -q_N$
+      - 其余：对角元素 $1 - \frac{q_i q_i}{1+q_0}$，非对角元素 $-\frac{q_j q_i}{1+q_0}$
+    - 当满足归一化约束 $\sum_{i=1}^N |q_i|^2 = 1$ 时，$\mathbf{Q}$ 严格正交
+    - **关键放松**：不严格施加此归一化，使列向量保持"近似"正交，增强模型灵活性
+    - 操作定义：$\text{AO}(\vec{q}) = \mathbf{Q}[:, 0:d]$，取前 $d$ 列
 
 2. **AOFT 与不同 PEFT 方法的结合**
-   - **LoRA + AOFT**：$\mathbf{X}_{FT}^{(l-1)} = \mathbf{X}^{(l-1)}(\mathbf{W}^{(l)} + \text{AO}(\vec{q}_{down}) \cdot \text{AO}(\vec{q}_{up})^\top)$
-   - **Adapter + AOFT**：分别在 MHA 和 FFN 后添加 $\text{AO}(\vec{q}_{down}^{MHA}) \cdot \text{AO}(\vec{q}_{up}^{MHA})^\top$
-   - **VPT + AOFT**：用近似正交矩阵替代 prompt tokens
-   - 设计动机：由于 AOFT 不随 bottleneck 维度增加引入更多参数（仅需一个 $N$ 维向量），可以灵活调整 bottleneck 大小
+
+    - **LoRA + AOFT**：$\mathbf{X}_{FT}^{(l-1)} = \mathbf{X}^{(l-1)}(\mathbf{W}^{(l)} + \text{AO}(\vec{q}_{down}) \cdot \text{AO}(\vec{q}_{up})^\top)$
+    - **Adapter + AOFT**：分别在 MHA 和 FFN 后添加 $\text{AO}(\vec{q}_{down}^{MHA}) \cdot \text{AO}(\vec{q}_{up}^{MHA})^\top$
+    - **VPT + AOFT**：用近似正交矩阵替代 prompt tokens
+    - 设计动机：由于 AOFT 不随 bottleneck 维度增加引入更多参数（仅需一个 $N$ 维向量），可以灵活调整 bottleneck 大小
 
 3. **AOFT* 变体：可学习缩放**
-   - 做什么：引入可学习缩放向量 $\vec{\lambda}$ 进一步增强灵活性
-   - 实现：$(\mathbf{W}_{down} \odot \vec{\lambda}^\top) \mathbf{W}_{up}$
-   - 提供对每个秩分量的独立缩放控制
+
+    - 做什么：引入可学习缩放向量 $\vec{\lambda}$ 进一步增强灵活性
+    - 实现：$(\mathbf{W}_{down} \odot \vec{\lambda}^\top) \mathbf{W}_{up}$
+    - 提供对每个秩分量的独立缩放控制
 
 ### 泛化误差理论分析
 通过 Rademacher 复杂度分析泛化误差上界：

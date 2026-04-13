@@ -29,10 +29,10 @@ tags:
 
 开放词汇语义分割（OVSS）可以用任意文本描述分割图像，但无法理解个人化概念——例如识别"我的杯子"需要区分它与其他杯子的不同。这在实际应用中极为关键：
 
-1. **OVSS的局限**：现有OVSS模型设计用于区分不同类别（如杯子 vs 瓶子），而非区分同类别内的特定实例（"我的杯子"vs "其他杯子"）
-2. **少样本分割的不足**：(a)不支持开放词汇分割——只能分割给定的目标类别；(b)不考虑在同类别物体中区分特定实例
-3. **个性化需求**：机器人助手场景中，用户希望说"拿我的杯子"即可，无需每次提供详细描述
-4. **文本提示调优的假阳性问题**：直接进行text prompt tuning虽能识别目标概念，但会把其他相似物体也误识别为个性化概念（如把所有鸟都识别为"我的鸟"）
+**OVSS的局限**：现有OVSS模型设计用于区分不同类别（如杯子 vs 瓶子），而非区分同类别内的特定实例（"我的杯子"vs "其他杯子"）
+**少样本分割的不足**：(a)不支持开放词汇分割——只能分割给定的目标类别；(b)不考虑在同类别物体中区分特定实例
+**个性化需求**：机器人助手场景中，用户希望说"拿我的杯子"即可，无需每次提供详细描述
+**文本提示调优的假阳性问题**：直接进行text prompt tuning虽能识别目标概念，但会把其他相似物体也误识别为个性化概念（如把所有鸟都识别为"我的鸟"）
 
 **核心动机**：需要一种即插即用方法，仅用少量图像-掩码对学习个人视觉概念，同时保持对其他类别的正常分割能力。
 
@@ -48,27 +48,30 @@ tags:
 ### 关键设计
 
 1. **文本提示调优（Text Prompt Tuning）**：
-   - 初始化一个可学习文本嵌入 $\textbf{T}_{\text{per}} \in \mathbb{R}^{1 \times D}$，用目标类别名的文本嵌入初始化（如"a photo of black footed albatross"）
-   - 拼接到原有词汇的文本嵌入 $\textbf{T}_{\text{open}}$ 后：$\textbf{T} = [\textbf{T}_{\text{open}}; \textbf{T}_{\text{per}}]$
-   - 使用标准分割损失训练：$\mathcal{L}_{seg} = \lambda_1\mathcal{L}_{dice} + \lambda_2\mathcal{L}_{bce} + \lambda_3\mathcal{L}_{cls}$
-   - **关键发现**：单纯文本提示调优提高了recall（能识别目标），但precision大幅下降（把其他类似物体也误识别为目标），即假阳性严重
-   - 设计动机：文本提示调优是最直接的个性化方法，但需要配合负掩码来控制假阳性
+
+    - 初始化一个可学习文本嵌入 $\textbf{T}_{\text{per}} \in \mathbb{R}^{1 \times D}$，用目标类别名的文本嵌入初始化（如"a photo of black footed albatross"）
+    - 拼接到原有词汇的文本嵌入 $\textbf{T}_{\text{open}}$ 后：$\textbf{T} = [\textbf{T}_{\text{open}}; \textbf{T}_{\text{per}}]$
+    - 使用标准分割损失训练：$\mathcal{L}_{seg} = \lambda_1\mathcal{L}_{dice} + \lambda_2\mathcal{L}_{bce} + \lambda_3\mathcal{L}_{cls}$
+    - **关键发现**：单纯文本提示调优提高了recall（能识别目标），但precision大幅下降（把其他类似物体也误识别为目标），即假阳性严重
+    - 设计动机：文本提示调优是最直接的个性化方法，但需要配合负掩码来控制假阳性
 
 2. **负掩码提案（Negative Mask Proposal）**：
-   - **负掩码嵌入**：通过对原有掩码嵌入的可学习线性组合得到 $\textbf{Z}_{\text{neg}} = \textbf{W}_{\text{Z}} \textbf{Z}_{\text{open}}$，$\textbf{W}_{\text{Z}} \in \mathbb{R}^{1 \times N}$
-   - **负掩码**：通过可学习卷积层 $\textbf{W}_{\text{M}}$ 从原有掩码提案生成 $\textbf{M}_{\text{neg}} = \textbf{W}_{\text{M}} \textbf{M}_{\text{open}}$
-   - **监督信号**：
-     - 负掩码嵌入学习均匀匹配除个性化概念外的所有词汇：$\mathcal{L}^{\text{neg}}_{\text{Z}} = -\sum_{i \neq k} \frac{1}{V-1}\log S[i,j]$
-     - 负掩码以 $1 - \textbf{M}_{\text{gt}}$ 为GT进行BCE监督：$\mathcal{L}^{\text{neg}}_{\text{M}} = -(1-\textbf{M}_{\text{gt}})\log(\textbf{M}_{\text{neg}}) - \textbf{M}_{\text{gt}}\log(1-\textbf{M}_{\text{neg}})$
-   - 拼接后：$\textbf{Z} = [\textbf{Z}_{\text{open}}; \textbf{Z}_{\text{neg}}]$, $\textbf{M} = [\textbf{M}_{\text{open}}; \textbf{M}_{\text{neg}}]$
-   - 设计动机：显式学习"非目标区域"的表征，给模型提供反例信号；相比Yo'LLaVA需要收集大量负样本，本方法从已有掩码提案中自动生成负掩码，无需额外数据
+
+    - **负掩码嵌入**：通过对原有掩码嵌入的可学习线性组合得到 $\textbf{Z}_{\text{neg}} = \textbf{W}_{\text{Z}} \textbf{Z}_{\text{open}}$，$\textbf{W}_{\text{Z}} \in \mathbb{R}^{1 \times N}$
+    - **负掩码**：通过可学习卷积层 $\textbf{W}_{\text{M}}$ 从原有掩码提案生成 $\textbf{M}_{\text{neg}} = \textbf{W}_{\text{M}} \textbf{M}_{\text{open}}$
+    - **监督信号**：
+      - 负掩码嵌入学习均匀匹配除个性化概念外的所有词汇：$\mathcal{L}^{\text{neg}}_{\text{Z}} = -\sum_{i \neq k} \frac{1}{V-1}\log S[i,j]$
+      - 负掩码以 $1 - \textbf{M}_{\text{gt}}$ 为GT进行BCE监督：$\mathcal{L}^{\text{neg}}_{\text{M}} = -(1-\textbf{M}_{\text{gt}})\log(\textbf{M}_{\text{neg}}) - \textbf{M}_{\text{gt}}\log(1-\textbf{M}_{\text{neg}})$
+    - 拼接后：$\textbf{Z} = [\textbf{Z}_{\text{open}}; \textbf{Z}_{\text{neg}}]$, $\textbf{M} = [\textbf{M}_{\text{open}}; \textbf{M}_{\text{neg}}]$
+    - 设计动机：显式学习"非目标区域"的表征，给模型提供反例信号；相比Yo'LLaVA需要收集大量负样本，本方法从已有掩码提案中自动生成负掩码，无需额外数据
 
 3. **视觉嵌入注入（Injection of Visual Embeddings）**：
-   - 用CLIP图像编码器提取特征图 $\textbf{F} = \textbf{I}_{\text{enc}}(\textbf{X})$
-   - 用掩码提取目标区域特征并平均池化：$\textbf{F}_{\text{per}} = \frac{1}{\sum \mathbb{1}(\textbf{M}'_{\text{gt}}=1)} \sum \textbf{F} \odot \textbf{M}'_{\text{gt}}$
-   - 多张图像的 $\textbf{F}_{\text{per}}$ 取平均
-   - 与文本嵌入插值融合：$\textbf{T}_{\text{per}}^{vis} = \alpha \cdot \textbf{F}_{\text{per}} + (1-\alpha) \cdot \textbf{T}_{\text{per}}$
-   - 设计动机：单模态（纯文本或纯视觉）的提示调优表征能力有限；文本-视觉联合能更好地编码个性化概念的细粒度外观特征
+
+    - 用CLIP图像编码器提取特征图 $\textbf{F} = \textbf{I}_{\text{enc}}(\textbf{X})$
+    - 用掩码提取目标区域特征并平均池化：$\textbf{F}_{\text{per}} = \frac{1}{\sum \mathbb{1}(\textbf{M}'_{\text{gt}}=1)} \sum \textbf{F} \odot \textbf{M}'_{\text{gt}}$
+    - 多张图像的 $\textbf{F}_{\text{per}}$ 取平均
+    - 与文本嵌入插值融合：$\textbf{T}_{\text{per}}^{vis} = \alpha \cdot \textbf{F}_{\text{per}} + (1-\alpha) \cdot \textbf{T}_{\text{per}}$
+    - 设计动机：单模态（纯文本或纯视觉）的提示调优表征能力有限；文本-视觉联合能更好地编码个性化概念的细粒度外观特征
 
 ### 损失函数 / 训练策略
 

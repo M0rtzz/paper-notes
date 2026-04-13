@@ -28,10 +28,10 @@ tags:
 ## 研究背景与动机
 
 数字病理面临几个核心挑战使得数据增强尤为困难：
-1. **WSI分辨率极高**：一张切片含数万到数十万patch，在线图像增强需要对每个patch读取、变换、重新编码，计算量不可承受
-2. **离线增强方案受限**：预增强多个版本需要巨大存储空间且增强多样性有限
-3. **现有特征级增强不足**：扩散模型（如AugDiff）速度慢、内存消耗大；GAN缺乏对变换的显式控制；噪声扰动无法模拟有意义的变换
-4. **基础模型非完全不变**：UNI、CONCH等foundation model对图像变换并非完全不变，因此特征空间的合理增强可以为MIL训练带来实质收益
+**WSI分辨率极高**：一张切片含数万到数十万patch，在线图像增强需要对每个patch读取、变换、重新编码，计算量不可承受
+**离线增强方案受限**：预增强多个版本需要巨大存储空间且增强多样性有限
+**现有特征级增强不足**：扩散模型（如AugDiff）速度慢、内存消耗大；GAN缺乏对变换的显式控制；噪声扰动无法模拟有意义的变换
+**基础模型非完全不变**：UNI、CONCH等foundation model对图像变换并非完全不变，因此特征空间的合理增强可以为MIL训练带来实质收益
 
 ## 方法详解
 
@@ -42,22 +42,25 @@ HistAug的工作流程：(1) 使用冻结的foundation model编码器 $\mathcal{
 ### 关键设计
 
 1. **分块Transformer架构**：
-   - 高维特征 $\mathbf{z} \in \mathbb{R}^d$ 分割为 $C$ 个chunk：$\mathbf{z} \mapsto (\mathbf{z}_i)_{i=1}^C$，每个chunk作为transformer token
-   - 每个变换 $T_k$ 的参数 $\alpha_k$ 通过独立的线性投影层编码为参数向量 $\mathbf{p}_k$
-   - 生成器由 $L$ 层transformer块组成，每层通过跨注意力从chunk token（query）到变换token（key/value）交互
-   - 最终拼接各chunk并通过MLP head输出增强后特征 $\hat{\mathbf{z}}$
-   - 生成目标：$\rho(\mathbf{z}, (T_k, \alpha_k)_{k=1}^K; \theta_\rho) \approx \mathcal{E}(\tau(\mathbf{x}; (T_k, \alpha_k)_{k=1}^K))$
+
+    - 高维特征 $\mathbf{z} \in \mathbb{R}^d$ 分割为 $C$ 个chunk：$\mathbf{z} \mapsto (\mathbf{z}_i)_{i=1}^C$，每个chunk作为transformer token
+    - 每个变换 $T_k$ 的参数 $\alpha_k$ 通过独立的线性投影层编码为参数向量 $\mathbf{p}_k$
+    - 生成器由 $L$ 层transformer块组成，每层通过跨注意力从chunk token（query）到变换token（key/value）交互
+    - 最终拼接各chunk并通过MLP head输出增强后特征 $\hat{\mathbf{z}}$
+    - 生成目标：$\rho(\mathbf{z}, (T_k, \alpha_k)_{k=1}^K; \theta_\rho) \approx \mathcal{E}(\tau(\mathbf{x}; (T_k, \alpha_k)_{k=1}^K))$
 
 2. **可控变换参数化**：
-   - 支持多类变换的组合：几何（旋转、翻转、裁剪、形态学膨胀/腐蚀）、颜色（亮度、对比度、色相、伽马、饱和度）、组织学专用（HED变换）
-   - 每种变换有独立的参数投影层 $\varphi_{T_k}$，变换间有学习型位置编码
-   - 关键：当所有变换参数为恒等值时，生成器需恢复原始特征（identity约束）
-   - 参数值完全可控——可针对特定任务选择变换类型和强度，无需重训生成器
+
+    - 支持多类变换的组合：几何（旋转、翻转、裁剪、形态学膨胀/腐蚀）、颜色（亮度、对比度、色相、伽马、饱和度）、组织学专用（HED变换）
+    - 每种变换有独立的参数投影层 $\varphi_{T_k}$，变换间有学习型位置编码
+    - 关键：当所有变换参数为恒等值时，生成器需恢复原始特征（identity约束）
+    - 参数值完全可控——可针对特定任务选择变换类型和强度，无需重训生成器
 
 3. **WSI级一致增强**：
-   - Instance-wise：每个patch用不同的随机变换参数
-   - WSI-wise（Bag-wise）：同一WSI内所有patch共享相同变换参数
-   - WSI-wise保持全局一致性（如统一的染色颜色偏移），更符合实际场景，效果更优
+
+    - Instance-wise：每个patch用不同的随机变换参数
+    - WSI-wise（Bag-wise）：同一WSI内所有patch共享相同变换参数
+    - WSI-wise保持全局一致性（如统一的染色颜色偏移），更符合实际场景，效果更优
 
 ### 损失函数 / 训练策略
 

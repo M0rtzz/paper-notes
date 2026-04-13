@@ -26,15 +26,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：3DGS已成为主流新视角合成技术，但高内存消耗严重限制了其在边缘设备上的部署。大量压缩方法被提出，但绝大多数只关注存储压缩(文件大小)而忽视了渲染内存压缩(VRAM)。
+**领域现状**：3DGS已成为主流新视角合成技术，但高内存消耗严重限制了其在边缘设备上的部署。大量压缩方法被提出，但绝大多数只关注存储压缩(文件大小)而忽视了渲染内存压缩(VRAM)。
 
-2. **现有痛点**：(1) 基于神经压缩/VQ/hash grid的方法(CompactGaussian/EAGLES/HAC++)虽然存储压缩率高，但渲染前必须解压全部参数，VRAM甚至超过原始3DGS；(2) primitive剪枝方法(GaussianSpa/Mini-Splatting)能减少VRAM但压缩率有限——过度剪枝会严重损害质量；(3) 球谐函数(SH)作为颜色表示参数效率低，高阶系数多但利用率差。
+**现有痛点**：(1) 基于神经压缩/VQ/hash grid的方法(CompactGaussian/EAGLES/HAC++)虽然存储压缩率高，但渲染前必须解压全部参数，VRAM甚至超过原始3DGS；(2) primitive剪枝方法(GaussianSpa/Mini-Splatting)能减少VRAM但压缩率有限——过度剪枝会严重损害质量；(3) 球谐函数(SH)作为颜色表示参数效率低，高阶系数多但利用率差。
 
-3. **核心矛盾**：渲染VRAM = primitive数量 x 每个primitive的参数量。现有方法只优化其中一个因素。需要同时减少两个因素才能突破VRAM瓶颈。
+**核心矛盾**：渲染VRAM = primitive数量 x 每个primitive的参数量。现有方法只优化其中一个因素。需要同时减少两个因素才能突破VRAM瓶颈。
 
-4. **切入角度**：SH是全局基函数，需要大量高阶系数才能表示局部高频细节(锐利高光)。球面高斯(SG)是局部基函数，用少量lobe就能高效建模视角依赖效果，且lobe数量可灵活调整——天然适合剪枝。
+**切入角度**：SH是全局基函数，需要大量高阶系数才能表示局部高频细节(锐利高光)。球面高斯(SG)是局部基函数，用少量lobe就能高效建模视角依赖效果，且lobe数量可灵活调整——天然适合剪枝。
 
-5. **核心idea一句话**：用可剪枝的SG替代SH降低每个primitive的参数成本，再通过统一约束优化同时裁剪primitive数量和lobe数量，实现VRAM最优分配。
+**核心idea一句话**：用可剪枝的SG替代SH降低每个primitive的参数成本，再通过统一约束优化同时裁剪primitive数量和lobe数量，实现VRAM最优分配。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ tags:
 ### 关键设计
 
 1. **任意方向可剪枝球面高斯(SG)替代SH**：
-   - 做什么：用SG完全替代SH作为视角依赖颜色的表示
-   - 核心思路：每个primitive的颜色 $c(\mathbf{v}) = c_0 + \sum_{i=1}^n G(\mathbf{v}; \mu_i, s_i, a_i)$，其中 $c_0$ 是漫反射分量，每个SG lobe由方向轴 $\mu_i$、锐度 $s_i$、RGB幅度 $a_i$ 定义。关键是lobe方向不约束为正交——任意方向提供更高自由度
-   - 设计动机：3阶SH需48个参数(16系数x3通道)，3-lobe SG只需约一半参数且能更好捕捉局部高频细节。固定正交轴的SG(SG-Splatting)会导致0.6dB PSNR下降，任意方向SG避免了这个问题。SG的lobe数量可变——natural fit for pruning
+
+    - 做什么：用SG完全替代SH作为视角依赖颜色的表示
+    - 核心思路：每个primitive的颜色 $c(\mathbf{v}) = c_0 + \sum_{i=1}^n G(\mathbf{v}; \mu_i, s_i, a_i)$，其中 $c_0$ 是漫反射分量，每个SG lobe由方向轴 $\mu_i$、锐度 $s_i$、RGB幅度 $a_i$ 定义。关键是lobe方向不约束为正交——任意方向提供更高自由度
+    - 设计动机：3阶SH需48个参数(16系数x3通道)，3-lobe SG只需约一半参数且能更好捕捉局部高频细节。固定正交轴的SG(SG-Splatting)会导致0.6dB PSNR下降，任意方向SG避免了这个问题。SG的lobe数量可变——natural fit for pruning
 
 2. **统一软剪枝框架(ADMM-inspired)**：
-   - 做什么：将primitive数量裁剪和每个primitive的lobe数量裁剪统一为单一内存约束优化问题
-   - 核心思路：优化目标 $\min \mathcal{L}(\mathbf{o}, \mathbf{s}, \Theta)$，约束 $\rho_o \|\mathbf{o}\|_0 + \rho_s \|\mathbf{s}\|_0 \leq \kappa$，其中 $\rho_o=11$(每个primitive的基础参数), $\rho_s=7$(每个SG lobe的参数), $\kappa$ 是总参数预算。由于L0范数不可微，引入ADMM代理变量分解为可解的子问题：梯度步+近端投影步+对偶更新
-   - 设计动机：顺序剪枝(先减primitive再减lobe)会陷入次优——因为两者的最优分配是耦合的。统一框架在总预算约束下自动找到primitive数量和lobe数量的最优权衡。实验证明统一优于顺序
+
+    - 做什么：将primitive数量裁剪和每个primitive的lobe数量裁剪统一为单一内存约束优化问题
+    - 核心思路：优化目标 $\min \mathcal{L}(\mathbf{o}, \mathbf{s}, \Theta)$，约束 $\rho_o \|\mathbf{o}\|_0 + \rho_s \|\mathbf{s}\|_0 \leq \kappa$，其中 $\rho_o=11$(每个primitive的基础参数), $\rho_s=7$(每个SG lobe的参数), $\kappa$ 是总参数预算。由于L0范数不可微，引入ADMM代理变量分解为可解的子问题：梯度步+近端投影步+对偶更新
+    - 设计动机：顺序剪枝(先减primitive再减lobe)会陷入次优——因为两者的最优分配是耦合的。统一框架在总预算约束下自动找到primitive数量和lobe数量的最优权衡。实验证明统一优于顺序
 
 3. **后处理：颜色补偿**：
-   - 做什么：移除低sharpness的lobe时补偿其对漫反射颜色的贡献
-   - 核心思路：移除lobe $i$ 后，计算补偿项 $\Delta c_0 = a_i \cdot \frac{1 - e^{-2s_i}}{2s_i}$，更新漫反射颜色 $c_0' = c_0 + \Delta c_0$。这是通过最小化球面上颜色差异的积分推导出的解析解
-   - 设计动机：直接移除低shaprness lobe会丢失其对平均颜色的贡献，导致整体色偏。解析补偿几乎无额外开销地恢复能量
+
+    - 做什么：移除低sharpness的lobe时补偿其对漫反射颜色的贡献
+    - 核心思路：移除lobe $i$ 后，计算补偿项 $\Delta c_0 = a_i \cdot \frac{1 - e^{-2s_i}}{2s_i}$，更新漫反射颜色 $c_0' = c_0 + \Delta c_0$。这是通过最小化球面上颜色差异的积分推导出的解析解
+    - 设计动机：直接移除低shaprness lobe会丢失其对平均颜色的贡献，导致整体色偏。解析补偿几乎无额外开销地恢复能量
 
 ### 损失函数 / 训练策略
 - 基于3DGS标准训练流程(Kerbl et al., 2023)

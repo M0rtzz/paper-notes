@@ -41,19 +41,21 @@ tags:
 ### 关键设计
 
 1. **FF-KV方法族**: 
-   - **Vanilla FF-KV**: 直接将FF层的激活 $\phi(\mathbf{x}_{FF_{in}}\mathbf{W}_K + \mathbf{b}_K)$ 作为特征激活，$\mathbf{W}_V$ 的行作为特征向量
-   - **TopK FF-KV**: 对FF激活施加Top-k稀疏化，仅保留最大的 $k$ 个激活值，与SAE的稀疏性对齐
-   - **Normalized FF-KV**: 对 $\mathbf{W}_V$ 的每行进行L2归一化，将折扣的范数权重加到激活上，避免特征向量范数差异造成的偏差
-   - **SwiGLU兼容**: 对现代LM采用的SwiGLU门控激活，上述方法均可自然适配
+
+    - **Vanilla FF-KV**: 直接将FF层的激活 $\phi(\mathbf{x}_{FF_{in}}\mathbf{W}_K + \mathbf{b}_K)$ 作为特征激活，$\mathbf{W}_V$ 的行作为特征向量
+    - **TopK FF-KV**: 对FF激活施加Top-k稀疏化，仅保留最大的 $k$ 个激活值，与SAE的稀疏性对齐
+    - **Normalized FF-KV**: 对 $\mathbf{W}_V$ 的每行进行L2归一化，将折扣的范数权重加到激活上，避免特征向量范数差异造成的偏差
+    - **SwiGLU兼容**: 对现代LM采用的SwiGLU门控激活，上述方法均可自然适配
 
 2. **SAEBench评估框架**: 使用8个互补指标全面评估：
-   - **Feature Alive Rate**: 活跃特征比例
-   - **Explained Variance**: 重建质量（FF-KV自动满分）
-   - **Absorption Score**: 概念是否被过度分割（越低越好）
-   - **Sparse Probing**: 特征的判别性和泛化能力
-   - **Auto-Interpretation**: LLM能否用自然语言总结特征的激活模式
-   - **SCR/TPP**: 虚假相关特征的解纠缠能力
-   - **RAVEL**: 同一实体不同属性的可分性和可控性
+
+    - **Feature Alive Rate**: 活跃特征比例
+    - **Explained Variance**: 重建质量（FF-KV自动满分）
+    - **Absorption Score**: 概念是否被过度分割（越低越好）
+    - **Sparse Probing**: 特征的判别性和泛化能力
+    - **Auto-Interpretation**: LLM能否用自然语言总结特征的激活模式
+    - **SCR/TPP**: 虚假相关特征的解纠缠能力
+    - **RAVEL**: 同一实体不同属性的可分性和可控性
 
 3. **忠实度分析**: 使用Transcoder（TC）作为分析对象（TC是FF-KV的最近对应物），检查TC特征与原始FF特征的重叠度——即代理模块是否真正"翻译"了原始模块的工作方式，还是"幻觉"出了新特征。
 

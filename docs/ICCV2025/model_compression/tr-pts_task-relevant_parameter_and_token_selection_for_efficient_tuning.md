@@ -28,9 +28,9 @@ tags:
 ## 研究背景与动机
 
 大规模预训练 ViT 在下游视觉任务上表现优异，但全量微调代价高昂。现有参数高效微调（PEFT）方法存在三大问题：
-1. **推理开销**：VPT 等方法引入额外可学习模块，导致推理时计算增加
-2. **缺乏任务感知**：大多数方法对不同任务使用统一的调优策略，忽略不同层和参数对特定任务的重要性差异
-3. **参数与 token 优化脱节**：已有工作将参数选择和 token 处理分开考虑，但 token 的信息量本身高度依赖于任务
+**推理开销**：VPT 等方法引入额外可学习模块，导致推理时计算增加
+**缺乏任务感知**：大多数方法对不同任务使用统一的调优策略，忽略不同层和参数对特定任务的重要性差异
+**参数与 token 优化脱节**：已有工作将参数选择和 token 处理分开考虑，但 token 的信息量本身高度依赖于任务
 
 作者观察到：**不同任务依赖不同的 token 子集进行最终预测**（图 2 可视化证实了这一点），因此需要一个统一框架同时完成任务相关的参数选择和 token 精炼。
 
@@ -43,22 +43,25 @@ TR-PTS 包含两个协同模块：Task-Relevant Parameter Selection 和 Task-Rel
 ### 关键设计
 
 1. **Task-Relevant Parameter Selection（基于 FIM 的逐层参数分配）**:
-   - 利用 Fisher 信息矩阵（FIM）量化每个参数对任务的敏感度。FIM 通过交叉熵损失的梯度平方近似：$\mathcal{F}(\theta) \approx \mathbb{E}_{(x,y)\sim D}\left[\left(\frac{\partial \mathcal{L}_{CE}}{\partial \theta}\right)^2\right]$
-   - 选出 top-M% 高 FIM 值参数后，计算每层的贡献权重 $w_l$，再归一化得到每层神经元的可训练连接数 $C_l = \max(1, \frac{w_l}{\min(w)} \cdot C_{\min})$
-   - 每层内进一步按 FIM 分数选出每个神经元的 top-$C_l$ 个连接作为可训练参数
-   - 设计动机：相比 GPS 使用的梯度幅值，FIM 不受优化噪声影响，能更准确反映参数对任务的重要性；逐层分配保证每层至少保留一个活跃连接，避免网络局部失活
+
+    - 利用 Fisher 信息矩阵（FIM）量化每个参数对任务的敏感度。FIM 通过交叉熵损失的梯度平方近似：$\mathcal{F}(\theta) \approx \mathbb{E}_{(x,y)\sim D}\left[\left(\frac{\partial \mathcal{L}_{CE}}{\partial \theta}\right)^2\right]$
+    - 选出 top-M% 高 FIM 值参数后，计算每层的贡献权重 $w_l$，再归一化得到每层神经元的可训练连接数 $C_l = \max(1, \frac{w_l}{\min(w)} \cdot C_{\min})$
+    - 每层内进一步按 FIM 分数选出每个神经元的 top-$C_l$ 个连接作为可训练参数
+    - 设计动机：相比 GPS 使用的梯度幅值，FIM 不受优化噪声影响，能更准确反映参数对任务的重要性；逐层分配保证每层至少保留一个活跃连接，避免网络局部失活
 
 2. **Task-Relevant Token Selection（基于 CLS 注意力的动态 token 筛选与合并）**:
-   - 利用 CLS token 对各 image token 的注意力分数 $a_i$ 衡量 token 重要性
-   - 按选择率 $\rho$ 保留 top-$\lfloor\rho N\rfloor$ 个高注意力 token
-   - 未被选中的 token 并不丢弃，而是通过注意力加权平均合并为一个聚合 token：$x_{\text{merged}} = \frac{\sum_{i\in\mathcal{I}} a_i x_i}{\sum_{i\in\mathcal{I}} a_i}$
-   - 合并后的精炼序列为 $X_{\text{refined}} = \{x_{\text{CLS}}, X_{\text{selected}}, x_{\text{merged}}\}$
-   - 设计动机：结合了 token pruning（减少计算量）和 token merging（保留全局信息）的优势
+
+    - 利用 CLS token 对各 image token 的注意力分数 $a_i$ 衡量 token 重要性
+    - 按选择率 $\rho$ 保留 top-$\lfloor\rho N\rfloor$ 个高注意力 token
+    - 未被选中的 token 并不丢弃，而是通过注意力加权平均合并为一个聚合 token：$x_{\text{merged}} = \frac{\sum_{i\in\mathcal{I}} a_i x_i}{\sum_{i\in\mathcal{I}} a_i}$
+    - 合并后的精炼序列为 $X_{\text{refined}} = \{x_{\text{CLS}}, X_{\text{selected}}, x_{\text{merged}}\}$
+    - 设计动机：结合了 token pruning（减少计算量）和 token merging（保留全局信息）的优势
 
 3. **参数-Token 协同选择策略**:
-   - 关键发现：参数稀疏的层倾向于编码信息量较少的 token
-   - 因此将 token reduction 优先应用于参数稀疏层（"sparse insertion"策略）
-   - 用二值掩码 $M$ 控制梯度更新：$\Theta^{(t+1)} = \Theta^{(t)} - \eta(M \odot \nabla_\Theta \mathcal{L})$
+
+    - 关键发现：参数稀疏的层倾向于编码信息量较少的 token
+    - 因此将 token reduction 优先应用于参数稀疏层（"sparse insertion"策略）
+    - 用二值掩码 $M$ 控制梯度更新：$\Theta^{(t+1)} = \Theta^{(t)} - \eta(M \odot \nabla_\Theta \mathcal{L})$
 
 ### 损失函数 / 训练策略
 

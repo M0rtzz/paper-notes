@@ -29,9 +29,9 @@ tags:
 
 大语言模型（LLM）的偏好对齐是当前研究热点，目标是让模型输出符合人类在多个维度上的偏好（如有用性、正确性、指令遵循等）。然而现有方法存在两个核心问题：
 
-1. **多维度平衡困难**：现有多目标对齐方法（如MODPO）难以有效平衡不同偏好维度之间的权衡关系。简单的固定权重或线性加权无法捕捉不同维度在不同样本上的优先级差异——某些样本可能更需要关注正确性，而另一些则更需要关注有用性。
+**多维度平衡困难**：现有多目标对齐方法（如MODPO）难以有效平衡不同偏好维度之间的权衡关系。简单的固定权重或线性加权无法捕捉不同维度在不同样本上的优先级差异——某些样本可能更需要关注正确性，而另一些则更需要关注有用性。
 
-2. **依赖辅助模型带来计算开销**：DPO等方法需要参考模型（reference model），RLHF需要奖励模型（reward model），这些辅助模型不仅增加了计算和存储成本，还可能引入额外的对齐误差。
+**依赖辅助模型带来计算开销**：DPO等方法需要参考模型（reference model），RLHF需要奖励模型（reward model），这些辅助模型不仅增加了计算和存储成本，还可能引入额外的对齐误差。
 
 核心矛盾在于：如何在不引入额外模型的前提下，实现对多个偏好维度的动态平衡？AMoPO的切入角度是**利用维度感知的生成指标作为隐式奖励**，结合**基于高斯分布的自适应权重机制**，让模型根据当前生成质量自动调整各维度的优化优先级。
 
@@ -49,28 +49,31 @@ AMoPO的训练流程：
 ### 关键设计
 
 1. **维度感知的Prompt注入（Dimension-Aware Prompting）**:
-   - 做什么：为每个偏好维度构造专门的系统提示，引导模型理解当前优化方向
-   - 核心思路：对于"无特定维度"的通用版本，使用综合性prompt；对于特定维度（如helpfulness），注入评估标准描述（1-5分量表），并将该维度的评分值嵌入prompt中：`"focus on the {dimension} dimension... based on the evaluation value of {score}"`
-   - 设计动机：通过prompt让模型在生成时意识到当前需要优化的维度，实现隐式的维度感知，无需额外的奖励模型来评估各维度质量
+
+    - 做什么：为每个偏好维度构造专门的系统提示，引导模型理解当前优化方向
+    - 核心思路：对于"无特定维度"的通用版本，使用综合性prompt；对于特定维度（如helpfulness），注入评估标准描述（1-5分量表），并将该维度的评分值嵌入prompt中：`"focus on the {dimension} dimension... based on the evaluation value of {score}"`
+    - 设计动机：通过prompt让模型在生成时意识到当前需要优化的维度，实现隐式的维度感知，无需额外的奖励模型来评估各维度质量
 
 2. **基于ORPO/SimPO的无参考模型损失函数**:
-   - 做什么：在不依赖参考模型的情况下计算偏好损失
-   - 核心思路：ORPO损失结合了SFT损失和odds ratio损失：
-     $$\mathcal{L}_{ORPO} = -\log p_{chosen} + \beta \cdot (-\log\sigma(\log\frac{p_{chosen}/(1-p_{chosen})}{p_{rejected}/(1-p_{rejected})}))$$
-     SimPO的单维度损失：
-     $$\mathcal{L}_{SimPO} = -\log\sigma(\beta \cdot (\log p_{chosen} - \log p_{rejected} - \gamma/\beta))$$
-   - 设计动机：ORPO直接在语言建模目标中嵌入偏好信号，SimPO通过length-normalized log概率差异实现参考模型无关的对齐
+
+    - 做什么：在不依赖参考模型的情况下计算偏好损失
+    - 核心思路：ORPO损失结合了SFT损失和odds ratio损失：
+    $\mathcal{L}_{ORPO} = -\log p_{chosen} + \beta \cdot (-\log\sigma(\log\frac{p_{chosen}/(1-p_{chosen})}{p_{rejected}/(1-p_{rejected})}))$
+      SimPO的单维度损失：
+    $\mathcal{L}_{SimPO} = -\log\sigma(\beta \cdot (\log p_{chosen} - \log p_{rejected} - \gamma/\beta))$
+    - 设计动机：ORPO直接在语言建模目标中嵌入偏好信号，SimPO通过length-normalized log概率差异实现参考模型无关的对齐
 
 3. **高斯分布自适应权重分配（Gaussian Adaptive Weighting）**:
-   - 做什么：根据当前batch中每个维度的生成质量动态分配损失权重
-   - 核心思路：
-     1. 提取每个维度下chosen和rejected序列的逐token概率
-     2. 对每个序列的非零token概率计算均值 $\mu$ 和标准差 $\sigma$
-     3. 从高斯分布 $\mathcal{N}(\mu, \sigma)$ 中采样得到该序列的质量指标
-     4. 将chosen和rejected的采样值相加，得到各维度的原始权重
-     5. 对所有维度权重做softmax归一化
-     6. 将归一化后的权重与对应维度损失相乘
-   - 设计动机：生成质量差的维度（token概率分布更散）会得到更高的权重，引导模型优先优化薄弱维度；引入随机采样增加探索性，避免陷入固定权重模式
+
+    - 做什么：根据当前batch中每个维度的生成质量动态分配损失权重
+    - 核心思路：
+      1. 提取每个维度下chosen和rejected序列的逐token概率
+      2. 对每个序列的非零token概率计算均值 $\mu$ 和标准差 $\sigma$
+      3. 从高斯分布 $\mathcal{N}(\mu, \sigma)$ 中采样得到该序列的质量指标
+      4. 将chosen和rejected的采样值相加，得到各维度的原始权重
+      5. 对所有维度权重做softmax归一化
+      6. 将归一化后的权重与对应维度损失相乘
+    - 设计动机：生成质量差的维度（token概率分布更散）会得到更高的权重，引导模型优先优化薄弱维度；引入随机采样增加探索性，避免陷入固定权重模式
 
 ### 损失函数 / 训练策略
 

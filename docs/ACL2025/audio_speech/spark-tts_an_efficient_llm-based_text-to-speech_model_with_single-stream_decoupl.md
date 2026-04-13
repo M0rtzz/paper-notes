@@ -27,22 +27,22 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 基于 LLM 的 codec TTS 已成为零样本 TTS 的主流范式，通过大规模训练数据和大模型架构，合成语音自然度接近真人。代表方法包括 VALL-E、CosyVoice、Seed-TTS 等。
+**领域现状**: 基于 LLM 的 codec TTS 已成为零样本 TTS 的主流范式，通过大规模训练数据和大模型架构，合成语音自然度接近真人。代表方法包括 VALL-E、CosyVoice、Seed-TTS 等。
 
-2. **现有痛点**: 
+**现有痛点**: 
    - 现有 codec TTS 架构复杂，需要双生成模型（如语义→声学两阶段）或并行多流 codebook 预测机制（如 group VQ），偏离标准文本 LLM 框架
    - 语义 token 虽然紧凑但缺乏音色控制能力，需要额外的声学特征预测模块
    - 声学 token 依赖复杂的 codebook 架构
    - 现有系统主要限于参考音频驱动的生成，无法精确指定声音特征（如精确的音高值）来创建新声音
    - 大量研究使用私有数据，难以公平对比
 
-3. **核心矛盾**: 如何在保持架构与文本 LLM 统一（单流自回归）的同时，既实现高质量语音重建，又支持灵活的声音属性控制？
+**核心矛盾**: 如何在保持架构与文本 LLM 统一（单流自回归）的同时，既实现高质量语音重建，又支持灵活的声音属性控制？
 
-4. **本文要解决什么**: 设计统一架构实现零样本 TTS + 属性可控语音生成，且完全对齐标准文本 LLM 范式。
+**本文要解决什么**: 设计统一架构实现零样本 TTS + 属性可控语音生成，且完全对齐标准文本 LLM 范式。
 
-5. **切入角度**: 设计 BiCodec 将语音解耦为语义 token（时变语言内容）和全局 token（时不变说话人属性），配合 Chain-of-Thought 生成策略实现从粗到细的属性控制。
+**切入角度**: 设计 BiCodec 将语音解耦为语义 token（时变语言内容）和全局 token（时不变说话人属性），配合 Chain-of-Thought 生成策略实现从粗到细的属性控制。
 
-6. **核心idea一句话**: 用 BiCodec 将语音分解为语义 token + 全局 token 的单流结构，让标准文本 LLM 直接建模语音生成。
+**核心idea一句话**: 用 BiCodec 将语音分解为语义 token + 全局 token 的单流结构，让标准文本 LLM 直接建模语音生成。
 
 ## 方法详解
 
@@ -57,21 +57,23 @@ tags:
 
 1. **BiCodec — 双重 token 化架构**:
 
-   - **Semantic Tokenizer**: 输入 wav2vec 2.0 (XLSR-53) 的第 11/14/16 层特征平均值，经卷积编码器 $E_s$ + VQ 量化 $Q_s$，生成 50 TPS 的语义 token $\bm{z}_q$
-   - **Global Tokenizer**: 输入 Mel 频谱，经 ECAPA-TDNN 编码器 $E_g$ + 可学习 query 的 Cross Attention + FSQ 量化 $Q_g$，生成固定长度（32 个）全局 token $\bm{g}_q$
-   - **Decoder**: 卷积解码器 $G$，从量化后的语义 token 和聚合后的全局 embedding 重建波形
+    - **Semantic Tokenizer**: 输入 wav2vec 2.0 (XLSR-53) 的第 11/14/16 层特征平均值，经卷积编码器 $E_s$ + VQ 量化 $Q_s$，生成 50 TPS 的语义 token $\bm{z}_q$
+    - **Global Tokenizer**: 输入 Mel 频谱，经 ECAPA-TDNN 编码器 $E_g$ + 可学习 query 的 Cross Attention + FSQ 量化 $Q_g$，生成固定长度（32 个）全局 token $\bm{g}_q$
+    - **Decoder**: 卷积解码器 $G$，从量化后的语义 token 和聚合后的全局 embedding 重建波形
 
 $$\bm{z} = E_s(F(\bm{x})), \quad \bm{g} = E_g(\text{Mel}(\bm{x}))$$
 $$\bm{g}_f = \text{CrossAttention}(\bm{g}, \bm{h}), \quad \hat{\bm{x}} = G(\bm{z}_q, A_g(\bm{g}_q))$$
 
 2. **语音语言模型**: 基于 Qwen2.5-0.5B，支持两种生成模式：
-   - **零样本 TTS**: 输入文本 prompt $\mathcal{T}$ + 参考音频的全局 token $\mathcal{G}$，预测语义 token $\bm{o}$
-   - **属性控制生成（CoT 方式）**: 输入文本 + 粗粒度属性标签（性别/音高等级/语速等级）$\mathcal{A}$，模型以 Chain-of-Thought 方式依次预测：细粒度属性值 $\mathcal{F}$ → 全局 token $\mathcal{G}$ → 语义 token $\mathcal{S}$
+
+    - **零样本 TTS**: 输入文本 prompt $\mathcal{T}$ + 参考音频的全局 token $\mathcal{G}$，预测语义 token $\bm{o}$
+    - **属性控制生成（CoT 方式）**: 输入文本 + 粗粒度属性标签（性别/音高等级/语速等级）$\mathcal{A}$，模型以 Chain-of-Thought 方式依次预测：细粒度属性值 $\mathcal{F}$ → 全局 token $\mathcal{G}$ → 语义 token $\mathcal{S}$
 
 3. **VoxBox 数据集**:
-   - 102.5K 小时语音，来自 29 个开源数据集，470 万音频文件
-   - 标注：性别（WavLM fine-tune 分类，99.4% 准确率）、音高（PyWorld 提取 + Mel 尺度百分位分级）、语速（音节/秒 SPS + 百分位分级）
-   - 数据清洗：Whisper 原始转录用 FunASR 重新识别，WER > 0.05 的样本剔除
+
+    - 102.5K 小时语音，来自 29 个开源数据集，470 万音频文件
+    - 标注：性别（WavLM fine-tune 分类，99.4% 准确率）、音高（PyWorld 提取 + Mel 尺度百分位分级）、语速（音节/秒 SPS + 百分位分级）
+    - 数据清洗：Whisper 原始转录用 FunASR 重新识别，WER > 0.05 的样本剔除
 
 ### 损失函数/训练策略
 

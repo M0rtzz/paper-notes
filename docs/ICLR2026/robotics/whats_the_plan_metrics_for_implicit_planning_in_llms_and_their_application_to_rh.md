@@ -25,14 +25,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM通过next-token prediction训练→但生成连贯文本→暗含某种"规划"。Lindsey等用cross-layer transcoder在Claude Haiku上定性展示了规划行为→但方法复杂不可扩展。
+**领域现状**：LLM通过next-token prediction训练→但生成连贯文本→暗含某种"规划"。Lindsey等用cross-layer transcoder在Claude Haiku上定性展示了规划行为→但方法复杂不可扩展。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) 隐式规划的定量评估方法缺失
    - (2) 之前仅在大型闭源模型上定性研究→不知道小模型是否也有
    - (3) 韵律/问答→理想的规划研究窗口→但缺乏系统化实验框架
 
-3. **切入角度**：简单的mean activation difference steering→可扩展到23个模型→系统化定量研究。
+**切入角度**：简单的mean activation difference steering→可扩展到23个模型→系统化定量研究。
 
 ## 方法详解
 

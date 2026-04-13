@@ -44,29 +44,32 @@ Spark Transformer 包含两个组件：Spark FFN 和 Spark Attention。两者基
 ### 关键设计
 
 1. **Spark FFN（核心架构创新）**：
-   - 将输入 q 的维度分为两部分 q[:r] 和 q[r:]
-   - q[:r] 与 K₁ 相乘作为低秩预测器，通过 Top-k 选出 k 个最重要的神经元
-   - q[r:] 与 K₂ 的稀疏列相乘，仅计算被选中的 k 列
-   - V 也仅计算对应的 k 行
-   - 公式：Spark-FFN(q) = V · (σ(Top_k(K₁ᵀ·q[:r])) ⊙ (K₂ᵀ·q[r:]))
-   - **FLOPs 分析**：当 r≈d_model/2，总 FLOPs 约为 d_model·d_ff + 3·d_model·k，当 k 很小时约为标准 FFN 的 1/4
-   - **参数不增加**：K₁、K₂ 是从原始 K 的维度分割得到，总参数量等同于 Gated FFN
+
+    - 将输入 q 的维度分为两部分 q[:r] 和 q[r:]
+    - q[:r] 与 K₁ 相乘作为低秩预测器，通过 Top-k 选出 k 个最重要的神经元
+    - q[r:] 与 K₂ 的稀疏列相乘，仅计算被选中的 k 列
+    - V 也仅计算对应的 k 行
+    - 公式：Spark-FFN(q) = V · (σ(Top_k(K₁ᵀ·q[:r])) ⊙ (K₂ᵀ·q[r:]))
+    - **FLOPs 分析**：当 r≈d_model/2，总 FLOPs 约为 d_model·d_ff + 3·d_model·k，当 k 很小时约为标准 FFN 的 1/4
+    - **参数不增加**：K₁、K₂ 是从原始 K 的维度分割得到，总参数量等同于 Gated FFN
 
 2. **Spark Attention（统一稀疏框架）**：
-   - 注意力与 FFN 形式相同（Eq.6 vs Eq.1），因此可应用相同策略
-   - 将键向量 K 的维度分为 K₁（预测用）和 K₂（计算用）
-   - σ₁ = softmax, σ₂ = softplus（经验选择）
-   - 每个 token 最多关注 k_attn = 256 个 token
-   - FLOPs 约为 d_model·n_ctx + 3·d_model·min{k_attn, n_ctx}，当 k_attn ≪ n_ctx 时接近 4× 降低
+
+    - 注意力与 FFN 形式相同（Eq.6 vs Eq.1），因此可应用相同策略
+    - 将键向量 K 的维度分为 K₁（预测用）和 K₂（计算用）
+    - σ₁ = softmax, σ₂ = softplus（经验选择）
+    - 每个 token 最多关注 k_attn = 256 个 token
+    - FLOPs 约为 d_model·n_ctx + 3·d_model·min{k_attn, n_ctx}，当 k_attn ≪ n_ctx 时接近 4× 降低
 
 3. **Statistical Top-k（核心技术工具）**：
-   - **动机**：标准 top-k 需要 O(d log d) 的排序，在加速器上极慢；且硬阈值不可微
-   - **核心思想**：假设激活分数近似高斯分布，用样本均值和标准差估计一个阈值 θ，使得约 k 个条目超过该阈值
-   - 阈值公式：θ(x,k) = mean(x) + std(x) · Q(1-k/d)，其中 Q 是标准正态分位函数
-   - 然后使用**软阈值算子**（而非硬阈值）：Soft-Threshold(x,θ) = max{x-θ·1, 0}
-   - **理论保证（Theorem 3.1）**：实际选中数量与 k 的偏差为 O(√(log d / d))
-   - **计算复杂度**：仅需 2d FLOPs（类似 LayerNorm），远低于排序的 O(d log d)
-   - **可微性（Theorem 3.2）**：使用 Huber 函数平滑后连续可微
+
+    - **动机**：标准 top-k 需要 O(d log d) 的排序，在加速器上极慢；且硬阈值不可微
+    - **核心思想**：假设激活分数近似高斯分布，用样本均值和标准差估计一个阈值 θ，使得约 k 个条目超过该阈值
+    - 阈值公式：θ(x,k) = mean(x) + std(x) · Q(1-k/d)，其中 Q 是标准正态分位函数
+    - 然后使用**软阈值算子**（而非硬阈值）：Soft-Threshold(x,θ) = max{x-θ·1, 0}
+    - **理论保证（Theorem 3.1）**：实际选中数量与 k 的偏差为 O(√(log d / d))
+    - **计算复杂度**：仅需 2d FLOPs（类似 LayerNorm），远低于排序的 O(d log d)
+    - **可微性（Theorem 3.2）**：使用 Huber 函数平滑后连续可微
 
 4. **与 Gated FFN 的关系**：Spark FFN 与 Gated FFN（如 Gemma 使用的）结构类似——都有两个线性映射在第一层、一个在第二层。关键差异是：(1) 加入 Top-k 获得稠密稀疏；(2) 输入维度分割而非共享。
 

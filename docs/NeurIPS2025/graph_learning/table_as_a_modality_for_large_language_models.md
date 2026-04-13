@@ -49,23 +49,26 @@ TaMo 是一个多模态框架，包含三个组件：
 ### 关键设计
 
 1. **超图建模表格结构**：
-   - 将表格建模为超图 $\mathcal{G} = (\mathcal{V}, \mathcal{E})$：叶子单元格（不包含子单元格的）为节点，分支单元格（包含子单元格的表头等）为超边
-   - 简单平表：每个单元格是节点，每行/列是一个超边
-   - 复杂层级表（如 HiTab）：根据层级关系自然转化为超图
-   - 核心动机：行列置换只改变排列不改变图结构（节点和边集合不变），天然满足置换不变性
+
+    - 将表格建模为超图 $\mathcal{G} = (\mathcal{V}, \mathcal{E})$：叶子单元格（不包含子单元格的）为节点，分支单元格（包含子单元格的表头等）为超边
+    - 简单平表：每个单元格是节点，每行/列是一个超边
+    - 复杂层级表（如 HiTab）：根据层级关系自然转化为超图
+    - 核心动机：行列置换只改变排列不改变图结构（节点和边集合不变），天然满足置换不变性
 
 2. **HyperTrans 编码器**：
-   - 采用两个多集函数（multiset functions）交替更新节点和超边表示
-   - 节点→超边聚合：$\mathbf{x}_e^{t+1} = \text{Fusion}(\mathbf{x}_e^t, \text{Multiset}_1(\{\mathbf{x}_v^t | v \in e\}))$
-   - 超边→节点聚合：$\mathbf{x}_v^{t+1} = \text{Multiset}_2(\{\mathbf{x}_e^{t+1} | v \in e\})$
-   - 多集函数用 Set Transformer 参数化，包含多头注意力和前馈网络
-   - 多集函数的置换不变性保证了编码器整体的置换不变性
+
+    - 采用两个多集函数（multiset functions）交替更新节点和超边表示
+    - 节点→超边聚合：$\mathbf{x}_e^{t+1} = \text{Fusion}(\mathbf{x}_e^t, \text{Multiset}_1(\{\mathbf{x}_v^t | v \in e\}))$
+    - 超边→节点聚合：$\mathbf{x}_v^{t+1} = \text{Multiset}_2(\{\mathbf{x}_e^{t+1} | v \in e\})$
+    - 多集函数用 Set Transformer 参数化，包含多头注意力和前馈网络
+    - 多集函数的置换不变性保证了编码器整体的置换不变性
 
 3. **模态对齐与融合**：
-   - 用 MLP 将超图输出的节点和超边表示（pooling 后）投射到 LLM 嵌入空间：$\mathbf{X}_{st} = \text{MLP}(\text{Pooling}(\hat{\mathbf{X}}_\mathcal{V}, \hat{\mathbf{X}}_\mathcal{E}))$
-   - 同时保留文本序列化的表格嵌入 $\mathbf{X}_{tt}$（提供细粒度语义内容 "what"）
-   - 结构嵌入 $\mathbf{X}_{st}$ 以类似 soft prompt 的方式注入 LLM 前端（提供全局关系上下文 "where"）
-   - 两个流互补非冗余：消融实验证明去掉任何一个都会损失性能
+
+    - 用 MLP 将超图输出的节点和超边表示（pooling 后）投射到 LLM 嵌入空间：$\mathbf{X}_{st} = \text{MLP}(\text{Pooling}(\hat{\mathbf{X}}_\mathcal{V}, \hat{\mathbf{X}}_\mathcal{E}))$
+    - 同时保留文本序列化的表格嵌入 $\mathbf{X}_{tt}$（提供细粒度语义内容 "what"）
+    - 结构嵌入 $\mathbf{X}_{st}$ 以类似 soft prompt 的方式注入 LLM 前端（提供全局关系上下文 "where"）
+    - 两个流互补非冗余：消融实验证明去掉任何一个都会损失性能
 
 ### 损失函数 / 训练策略
 

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：扩散模型在文本到图像生成中占主导地位，但精确的文本-图像对齐（尤其是复杂 prompt 的组合生成）仍是开放挑战。
-2. **现有痛点**：(1) 传统扩散损失仅提供隐式监督，难以捕获细粒度文本-图像对应关系；(2) 推理时优化方法（Attend-and-Excite 等）泛化性差且不可扩展；(3) 大时间步下噪声严重，cross-attention maps 质量退化，无法建立正确对齐——这是生成质量的关键瓶颈。
-3. **核心矛盾**：小时间步下文本-图像对齐好但"太容易"，大时间步下对齐差但"很重要"（决定了推理初始阶段的生成质量）。
-4. **本文要解决**：如何为扩散模型在大时间步下建立正确的文本-图像对应关系提供显式监督？
-5. **切入角度**：**关键观察**——同一图像-文本-噪声三元组，在训练模式下于不同时间步提取的 cross-attention maps 质量差异巨大：小时间步的 maps 与真实图像结构和语义高度一致，大时间步的完全退化。
-6. **核心 idea**：用小时间步的可靠 attention maps（"teacher"）来校准大时间步的 attention maps（"student"），实现模型自己教自己。
+**领域现状**：扩散模型在文本到图像生成中占主导地位，但精确的文本-图像对齐（尤其是复杂 prompt 的组合生成）仍是开放挑战。
+**现有痛点**：(1) 传统扩散损失仅提供隐式监督，难以捕获细粒度文本-图像对应关系；(2) 推理时优化方法（Attend-and-Excite 等）泛化性差且不可扩展；(3) 大时间步下噪声严重，cross-attention maps 质量退化，无法建立正确对齐——这是生成质量的关键瓶颈。
+**核心矛盾**：小时间步下文本-图像对齐好但"太容易"，大时间步下对齐差但"很重要"（决定了推理初始阶段的生成质量）。
+**本文要解决**：如何为扩散模型在大时间步下建立正确的文本-图像对应关系提供显式监督？
+**切入角度**：**关键观察**——同一图像-文本-噪声三元组，在训练模式下于不同时间步提取的 cross-attention maps 质量差异巨大：小时间步的 maps 与真实图像结构和语义高度一致，大时间步的完全退化。
+**核心 idea**：用小时间步的可靠 attention maps（"teacher"）来校准大时间步的 attention maps（"student"），实现模型自己教自己。
 
 ## 方法详解
 
@@ -41,24 +41,28 @@ tags:
 ### 关键设计
 
 1. **Part-of-Speech-based Cross-Attention Map Selection**：
-   - **做什么**：只提取名词 token 的 attention maps 用于 CTCal 损失，忽略冠词（"the"）、连词（"and"）等无空间语义的 token。
-   - **核心思路**：用 Stanza 做词性分析，$\mathcal{Y}_{\text{noun}}$ 为名词集合，$\mathcal{L}_{\text{CTCal}} = \frac{1}{N_{\text{noun}}} \sum_{\mathbf{y}_i \in \mathcal{Y}_{\text{noun}}} \mathcal{D}(\mathbf{A}_{\text{stu},\mathbf{y}_i}, \mathbf{A}_{\text{tea},\mathbf{y}_i})$
-   - **设计动机**：消融实验表明，对所有 token 施加约束反而降低性能——因为非名词 token 的 attention maps 不包含有意义的空间语义信息，引入噪声干扰。
+
+    - **做什么**：只提取名词 token 的 attention maps 用于 CTCal 损失，忽略冠词（"the"）、连词（"and"）等无空间语义的 token。
+    - **核心思路**：用 Stanza 做词性分析，$\mathcal{Y}_{\text{noun}}$ 为名词集合，$\mathcal{L}_{\text{CTCal}} = \frac{1}{N_{\text{noun}}} \sum_{\mathbf{y}_i \in \mathcal{Y}_{\text{noun}}} \mathcal{D}(\mathbf{A}_{\text{stu},\mathbf{y}_i}, \mathbf{A}_{\text{tea},\mathbf{y}_i})$
+    - **设计动机**：消融实验表明，对所有 token 施加约束反而降低性能——因为非名词 token 的 attention maps 不包含有意义的空间语义信息，引入噪声干扰。
 
 2. **Pixel-Semantic Space Joint Optimization**：
-   - **做什么**：同时在像素空间和语义空间对齐 attention maps。引入轻量自编码器 $(f_{\text{attn}}^{\text{enc}}, f_{\text{attn}}^{\text{dec}})$，加入重建代理任务防止模式崩塌。
-   - **核心公式**：
-     $$\mathcal{L}_{\text{CTCal}} = \lambda_1 \underbrace{\mathcal{D}(\mathbf{A}_{\text{stu}}, \mathbf{A}_{\text{tea}})}_{\text{Pixel}} + \lambda_2 \underbrace{\mathcal{D}(f^{\text{enc}}(\mathbf{A}_{\text{stu}}), f^{\text{enc}}(\mathbf{A}_{\text{tea}}))}_{\text{Semantic}} + \lambda_3 \underbrace{\mathcal{D}(f^{\text{dec}}(\mathbf{A}_{\text{tea}}), \mathbf{A}_{\text{tea}})}_{\text{Reconstruction}}$$
-   - **设计动机**：像素级对齐捕获空间位置信息，语义级对齐捕获高层语义一致性，重建任务防止编码器退化。
+
+    - **做什么**：同时在像素空间和语义空间对齐 attention maps。引入轻量自编码器 $(f_{\text{attn}}^{\text{enc}}, f_{\text{attn}}^{\text{dec}})$，加入重建代理任务防止模式崩塌。
+    - **核心公式**：
+    $\mathcal{L}_{\text{CTCal}} = \lambda_1 \underbrace{\mathcal{D}(\mathbf{A}_{\text{stu}}, \mathbf{A}_{\text{tea}})}_{\text{Pixel}} + \lambda_2 \underbrace{\mathcal{D}(f^{\text{enc}}(\mathbf{A}_{\text{stu}}), f^{\text{enc}}(\mathbf{A}_{\text{tea}}))}_{\text{Semantic}} + \lambda_3 \underbrace{\mathcal{D}(f^{\text{dec}}(\mathbf{A}_{\text{tea}}), \mathbf{A}_{\text{tea}})}_{\text{Reconstruction}}$
+    - **设计动机**：像素级对齐捕获空间位置信息，语义级对齐捕获高层语义一致性，重建任务防止编码器退化。
 
 3. **Subject Response Alignment Regularization**：
-   - **做什么**：将所有主体（名词）的 attention 响应对齐到响应最高的主体：
-     $$\mathcal{R}_{\text{subject}} = \frac{1}{N_{\text{noun}}} \sum \text{ReLU}(\mathcal{S}_{\text{attn}} - \max(\mathbf{A}_{\text{stu},\mathbf{y}_i}) - \tau)$$
-   - **设计动机**：防止高响应主体压制低响应主体，导致后者无法在生成图像中正确渲染（如 "cat and dog" 只生成 cat）。
+
+    - **做什么**：将所有主体（名词）的 attention 响应对齐到响应最高的主体：
+    $\mathcal{R}_{\text{subject}} = \frac{1}{N_{\text{noun}}} \sum \text{ReLU}(\mathcal{S}_{\text{attn}} - \max(\mathbf{A}_{\text{stu},\mathbf{y}_i}) - \tau)$
+    - **设计动机**：防止高响应主体压制低响应主体，导致后者无法在生成图像中正确渲染（如 "cat and dog" 只生成 cat）。
 
 4. **Timestep-aware Adaptive Weighting**：
-   - **做什么**：$\lambda_t = t_{\text{stu}} / T_{\text{train}}$，大时间步下 CTCal 权重更大，小时间步下扩散损失主导。
-   - **设计动机**：小时间步下扩散损失本身已足以建立对齐，大时间步下才需要 CTCal 的显式校准。
+
+    - **做什么**：$\lambda_t = t_{\text{stu}} / T_{\text{train}}$，大时间步下 CTCal 权重更大，小时间步下扩散损失主导。
+    - **设计动机**：小时间步下扩散损失本身已足以建立对齐，大时间步下才需要 CTCal 的显式校准。
 
 ### 损失函数 / 训练策略
 - $\mathcal{L} = \mathcal{L}_{\text{diffusion}} + \lambda_t \mathcal{L}_{\text{CTCal}}$

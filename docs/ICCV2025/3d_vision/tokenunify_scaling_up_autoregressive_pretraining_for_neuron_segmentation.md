@@ -51,24 +51,25 @@ tags:
 ### 关键设计
 
 1. **随机 Token 预测（微观层面）**：类似 MAE，随机掩码比例 ρ 的 token，从未掩码上下文预测被掩码 token：
-   $$\mathcal{L}_{random} = -\mathbb{E}_{\mathcal{M} \sim \mathcal{D}_\rho} \left[\sum_{i \in \mathcal{M}} \log p_\theta(x_i | x_{\mathcal{M}^c})\right]$$
+    $\mathcal{L}_{random} = -\mathbb{E}_{\mathcal{M} \sim \mathcal{D}_\rho} \left[\sum_{i \in \mathcal{M}} \log p_\theta(x_i | x_{\mathcal{M}^c})\right]$
    
    作用：学习位置不变的局部特征检测器，对噪声鲁棒，捕捉细胞膜和细胞器的重复模式。
 
 2. **下一 Token 预测（中观层面）**：沿预定路径 π 进行自回归建模：
-   $$\mathcal{L}_{next} = -\mathbb{E}_\pi \left[\sum_{i=1}^K \log p_\theta(x_{\pi(i)} | x_{\pi(<i)})\right]$$
+    $\mathcal{L}_{next} = -\mathbb{E}_\pi \left[\sum_{i=1}^K \log p_\theta(x_{\pi(i)} | x_{\pi(<i)})\right]$
    
    作用：捕捉神经元形态中的过渡模式——膜连续性、树突/轴突方向一致性等中尺度结构。
 
 3. **下一全部 Token 预测（宏观层面）**：预测给定前文的**所有**后续 token：
-   $$\mathcal{L}_{next\text{-}all} = -\mathbb{E}_\pi \left[\sum_{i=1}^K \sum_{j=i}^K \log p_\theta(x_{\pi(j)} | x_{\pi(<i)})\right]$$
+    $\mathcal{L}_{next\text{-}all} = -\mathbb{E}_\pi \left[\sum_{i=1}^K \sum_{j=i}^K \log p_\theta(x_{\pi(j)} | x_{\pi(<i)})\right]$
    
    作用：捕捉分支模式、细胞类型特异形态和区域组织等长程关联。**关键理论贡献**——预测误差在多个位置分散而非累积，类似中心极限定理，将误差从 O(K) 降至 O(√K)。使用 Perceiver Resampler 通过交叉注意力聚合全序列信息，保持计算效率。
 
 4. **多分辨率优化协议**：课程学习式权重调度——先易后难：
-   - t < T₁ (30%)：随机预测主导 (权重 0.73)
-   - T₁ ≤ t < T₂ (70%)：下一 token 预测主导
-   - t ≥ T₂：下一全部预测主导
+
+    - t < T₁ (30%)：随机预测主导 (权重 0.73)
+    - T₁ ≤ t < T₂ (70%)：下一 token 预测主导
+    - t ≥ T₂：下一全部预测主导
    
    通过 softmax 温度衰减平滑过渡，始终保持辅助任务贡献（~0.18 和 ~0.09），维持多任务协同。
 

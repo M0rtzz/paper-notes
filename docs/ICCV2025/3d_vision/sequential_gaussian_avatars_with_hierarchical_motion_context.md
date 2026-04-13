@@ -29,11 +29,11 @@ tags:
 
 基于3DGS的可动画人体化身重建近年来取得了显著进展，但仍面临一个核心问题：**非刚性形变建模不充分**。具体表现为：
 
-1. **姿态到外观的一对多映射**：同一人体姿态在不同运动状态下可能对应不同的外观（如裙摆的惯性摆动），现有方法仅使用当前帧的空间姿态信息，无法区分这种歧义。
+**姿态到外观的一对多映射**：同一人体姿态在不同运动状态下可能对应不同的外观（如裙摆的惯性摆动），现有方法仅使用当前帧的空间姿态信息，无法区分这种歧义。
 
-2. **局部细节缺失**：当前方法主要依赖全局骨骼信息预测形变，对远离骨骼的区域（如飘逸衣物、头发）无法建模精细运动。
+**局部细节缺失**：当前方法主要依赖全局骨骼信息预测形变，对远离骨骼的区域（如飘逸衣物、头发）无法建模精细运动。
 
-3. **已有序列建模的局限**：Dyco等基于NeRF的方法虽然尝试使用人体姿态残差建模运动序列，但姿态序列的全局性特征限制了其捕捉更细粒度运动细节的能力，且无法充分利用3DGS的显式点特性。
+**已有序列建模的局限**：Dyco等基于NeRF的方法虽然尝试使用人体姿态残差建模运动序列，但姿态序列的全局性特征限制了其捕捉更细粒度运动细节的能力，且无法充分利用3DGS的显式点特性。
 
 核心洞察：**3DGS的显式点表示使得逐点运动建模成为可能**——可以为每个高斯基元计算独立的速度向量，从而捕捉骨骼运动之外的局部细节变化。
 
@@ -46,33 +46,35 @@ SeqAvatar 在标准SMPL+LBS+3DGS管线基础上引入层次化运动上下文条
 ### 关键设计
 
 1. **粗粒度骨骼运动条件 (Coarse Skeleton Motion)**：
-   - 对于目标帧 $t$，采样等间隔历史帧序列 $\mathcal{T} = \{t-s, t-2s, ..., t-Ls\}$
-   - 计算相邻帧间的姿态差异（轴角形式）：$\Delta\mathcal{P} = \{\Delta P^t = \delta(P^t, P^{t-s}) | t \in \mathcal{T}\}$，其中 $P \in \mathbb{R}^{K \times 3}$ 为身体姿态
-   - 通过MLP编码为固定维度嵌入：$f_{\Delta\mathcal{P}} = \mathcal{E}_{\Delta\mathcal{P}}(\Delta\mathcal{P}) \in \mathbb{R}^{32}$
-   - **设计动机**：相比直接使用当前帧姿态，姿态差异序列能捕捉运动的时间动态，从而区分相同姿态下的不同外观状态
+
+    - 对于目标帧 $t$，采样等间隔历史帧序列 $\mathcal{T} = \{t-s, t-2s, ..., t-Ls\}$
+    - 计算相邻帧间的姿态差异（轴角形式）：$\Delta\mathcal{P} = \{\Delta P^t = \delta(P^t, P^{t-s}) | t \in \mathcal{T}\}$，其中 $P \in \mathbb{R}^{K \times 3}$ 为身体姿态
+    - 通过MLP编码为固定维度嵌入：$f_{\Delta\mathcal{P}} = \mathcal{E}_{\Delta\mathcal{P}}(\Delta\mathcal{P}) \in \mathbb{R}^{32}$
+    - **设计动机**：相比直接使用当前帧姿态，姿态差异序列能捕捉运动的时间动态，从而区分相同姿态下的不同外观状态
 
 2. **细粒度逐点速度条件 (Fine Vertex Motion)**：
-   - 每个高斯基元的逐点速度无法直接计算（高斯位置在优化中不断变化，且非刚性变换存在循环依赖）
-   - 解决方案：构建**运动模板场** $\mathcal{F}_\mathbf{V} = \{\mathbf{V}_i\}_{i=1}^{N}$，存储每个SMPL模板顶点的速度
-   - SMPL顶点速度计算：先将模板顶点 $\mathbf{T}$ 通过标准LBS变换到观测空间 $\mathbf{T_o}^t = \mathbf{LBS}(\mathbf{T}, \mathbf{B}^t, \mathbf{W})$，然后计算 $\mathbf{V}^t = (\mathbf{T_o}^t - \mathbf{T_o}^{t-s}) / s$
-   - 每个高斯基元的速度从运动模板场中通过KNN采样获取
-   - **关键优势**：利用3DGS的显式点表示，为每个点提供独立的局部运动信息，捕捉骨骼运动无法覆盖的区域（如飘动的裙摆）
+
+    - 每个高斯基元的逐点速度无法直接计算（高斯位置在优化中不断变化，且非刚性变换存在循环依赖）
+    - 解决方案：构建**运动模板场** $\mathcal{F}_\mathbf{V} = \{\mathbf{V}_i\}_{i=1}^{N}$，存储每个SMPL模板顶点的速度
+    - SMPL顶点速度计算：先将模板顶点 $\mathbf{T}$ 通过标准LBS变换到观测空间 $\mathbf{T_o}^t = \mathbf{LBS}(\mathbf{T}, \mathbf{B}^t, \mathbf{W})$，然后计算 $\mathbf{V}^t = (\mathbf{T_o}^t - \mathbf{T_o}^{t-s}) / s$
+    - 每个高斯基元的速度从运动模板场中通过KNN采样获取
+    - **关键优势**：利用3DGS的显式点表示，为每个点提供独立的局部运动信息，捕捉骨骼运动无法覆盖的区域（如飘动的裙摆）
 
 3. **时空多尺度采样 (Spatio-Temporal Multi-Scale Sampling, STMS)**：
 
    **空间维度**：对每个高斯基元 $\mathcal{G}_i$，采样 $\tau$ 个最近邻模板顶点的速度作为输入，学习局部区域的运动嵌入：
-   $$e_i^t = \mathcal{E}_{knn}(\{\mathbf{V}_j^t\}), \quad j \in \mathbf{KNN}(\mathbf{T}, \mathbf{x}_i)$$
+    $e_i^t = \mathcal{E}_{knn}(\{\mathbf{V}_j^t\}), \quad j \in \mathbf{KNN}(\mathbf{T}, \mathbf{x}_i)$
 
    **时间维度**：使用递增间隔的多尺度序列采样，同时捕获总体运动趋势和帧间细节：
-   $$\mathcal{S} = \{s = s_0 + i\Delta s\}_{i=0}^{i=m}$$
+    $\mathcal{S} = \{s = s_0 + i\Delta s\}_{i=0}^{i=m}$
 
    将多尺度采样的骨骼和逐点运动条件分别拼接后输入编码器：
-   $$f_{\Delta\mathcal{P}} = \mathcal{E}_{\Delta\mathcal{P}}(\{\Delta\mathcal{P}_s\}), \quad f_\mathcal{V} = \mathcal{E}_\mathcal{V}(\{\mathcal{V}_s\}), \quad s \in \mathcal{S}$$
+    $f_{\Delta\mathcal{P}} = \mathcal{E}_{\Delta\mathcal{P}}(\{\Delta\mathcal{P}_s\}), \quad f_\mathcal{V} = \mathcal{E}_\mathcal{V}(\{\mathcal{V}_s\}), \quad s \in \mathcal{S}$
 
    **设计动机**：小间隔捕获细粒度帧间变化，大间隔捕获整体运动趋势，两者互补提升泛化能力
 
 4. **非刚性形变预测**：结合所有运动条件，使用MLP预测每个高斯的位置、缩放和旋转偏移：
-   $$\delta\mathbf{x}, \delta\mathbf{s}, \delta\mathbf{r} = \mathcal{E}_{non-rigid}(\mathbf{x}, P, f_{\Delta\mathcal{P}}, f_\mathcal{V})$$
+    $\delta\mathbf{x}, \delta\mathbf{s}, \delta\mathbf{r} = \mathcal{E}_{non-rigid}(\mathbf{x}, P, f_{\Delta\mathcal{P}}, f_\mathcal{V})$
 
    然后更新标准空间高斯：$\mathbf{x'} = \mathbf{x} + \delta\mathbf{x}$，$\mathbf{s'} = \mathbf{s} + \delta\mathbf{s}$，$\mathbf{r'} = \mathbf{r} \cdot \delta\mathbf{r}$
 

@@ -31,8 +31,8 @@ tags:
 
 核方法是非线性学习的经典范式，理论基础深厚，近年与深度学习（Neural Tangent Kernel 等）的联系进一步突显其潜力。但大规模核方法面临两大瓶颈：
 
-1. **内存开销过高**：当前 SOTA 方法 Falkon 基于 Nyström 近似 + Cholesky 预条件，需要 $O(M^2)$ 内存存储预条件器（$M$ 为 Nyström 中心数）。在 HIGGS 数据集上使用 $M=1.2 \times 10^5$ 需 **>55GB** 内存，普通用户难以承受。
-2. **模型多样性不足**：已有方法主要聚焦 KRR，核逻辑回归 (KLR) 和 SVM 缺乏高效的大规模实现。LIBSVM/ThunderSVM 训练时间超一周，LogFalkon 同样有高内存问题。
+**内存开销过高**：当前 SOTA 方法 Falkon 基于 Nyström 近似 + Cholesky 预条件，需要 $O(M^2)$ 内存存储预条件器（$M$ 为 Nyström 中心数）。在 HIGGS 数据集上使用 $M=1.2 \times 10^5$ 需 **>55GB** 内存，普通用户难以承受。
+**模型多样性不足**：已有方法主要聚焦 KRR，核逻辑回归 (KLR) 和 SVM 缺乏高效的大规模实现。LIBSVM/ThunderSVM 训练时间超一周，LogFalkon 同样有高内存问题。
 
 Joker 的目标：**用统一优化框架覆盖多种核模型，同时大幅降低内存需求**。
 

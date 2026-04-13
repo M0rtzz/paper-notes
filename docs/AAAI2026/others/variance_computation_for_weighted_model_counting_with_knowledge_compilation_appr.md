@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：知识编译是将命题公式编译为紧凑可追踪形式的核心技术，其中最重要的查询是加权模型计数 (WMC)——计算布尔函数满足赋值的加权总数。WMC 已广泛应用于贝叶斯网络、因子图、概率编程等概率推理任务。
+**领域现状**：知识编译是将命题公式编译为紧凑可追踪形式的核心技术，其中最重要的查询是加权模型计数 (WMC)——计算布尔函数满足赋值的加权总数。WMC 已广泛应用于贝叶斯网络、因子图、概率编程等概率推理任务。
 
-2. **现有痛点**：在实际场景中，概率模型的参数通常由数据学习获得，当训练数据不充分时，参数本身就带有不确定性。然而，传统的 WMC 推理方法将权重视为固定实数，完全忽略了参数不确定性，导致推理结果可能不可靠——我们无法判断推理输出到底有多大的波动空间。
+**现有痛点**：在实际场景中，概率模型的参数通常由数据学习获得，当训练数据不充分时，参数本身就带有不确定性。然而，传统的 WMC 推理方法将权重视为固定实数，完全忽略了参数不确定性，导致推理结果可能不可靠——我们无法判断推理输出到底有多大的波动空间。
 
-3. **核心矛盾**：贝叶斯统计方法可以通过为参数引入分布，将推理结果视为随机变量并计算其方差来度量不确定性。但 WMC 方差计算的可追踪性（tractability）在各种知识编译表示上几乎完全未知。此前仅有 Nakamura et al. (2022) 在 OBDD 这一最受限表示上、针对网络可靠性分析这一特殊场景做了初步工作。
+**核心矛盾**：贝叶斯统计方法可以通过为参数引入分布，将推理结果视为随机变量并计算其方差来度量不确定性。但 WMC 方差计算的可追踪性（tractability）在各种知识编译表示上几乎完全未知。此前仅有 Nakamura et al. (2022) 在 OBDD 这一最受限表示上、针对网络可靠性分析这一特殊场景做了初步工作。
 
-4. **本文要解决什么？** (a) 在更通用的知识编译表示上，WMC 方差是否可以多项式时间计算？(b) 在哪些表示上该问题变得不可追踪？(c) 如何将方差计算应用于贝叶斯网络推理以量化不确定性？
+**本文要解决什么？** (a) 在更通用的知识编译表示上，WMC 方差是否可以多项式时间计算？(b) 在哪些表示上该问题变得不可追踪？(c) 如何将方差计算应用于贝叶斯网络推理以量化不确定性？
 
-5. **切入角度**：作者从知识编译图 (knowledge compilation map) 的视角出发，系统地研究 VC（方差计算）和 CVC（协方差计算）查询在各种 NNF 子类上的可追踪性边界。
+**切入角度**：作者从知识编译图 (knowledge compilation map) 的视角出发，系统地研究 VC（方差计算）和 CVC（协方差计算）查询在各种 NNF 子类上的可追踪性边界。
 
-6. **核心idea一句话**：利用 vtree 引导的变量分解结构，通过递归分解协方差公式并缓存中间结果，在 structured d-DNNF 上实现多项式时间 WMC 方差计算，同时通过规约证明更宽松表示上的不可追踪性。
+**核心idea一句话**：利用 vtree 引导的变量分解结构，通过递归分解协方差公式并缓存中间结果，在 structured d-DNNF 上实现多项式时间 WMC 方差计算，同时通过规约证明更宽松表示上的不可追踪性。
 
 ## 方法详解
 
@@ -54,23 +54,26 @@ tags:
 ### 关键设计
 
 1. **WMC 方差的形式化定义 (VC/CVC 查询)**:
-   - 做什么：将每个变量的权重 $(P_x, N_x)$ 视为随机变量，定义方差计算查询 VC 为计算 $\mathrm{V}[W_f^\mathcal{V}]$，协方差计算查询 CVC 为计算 $\mathrm{Cov}[W_f^\mathcal{V}, W_g^\mathcal{V}]$
-   - 核心思路：假设不同变量的权重对 $(P_x, N_x)$ 与 $(P_y, N_y)$（$x \neq y$）互相独立，但同一变量的 $P_x$ 与 $N_x$ 可以相关。这使得期望 $\mathrm{E}[W_f]$ 等价于普通 WMC，方差则是需要新算法来计算的新查询
-   - 设计动机：独立性假设对贝叶斯网络的参数独立性自然成立（parameter independence assumption），且使分解公式可推导
+
+    - 做什么：将每个变量的权重 $(P_x, N_x)$ 视为随机变量，定义方差计算查询 VC 为计算 $\mathrm{V}[W_f^\mathcal{V}]$，协方差计算查询 CVC 为计算 $\mathrm{Cov}[W_f^\mathcal{V}, W_g^\mathcal{V}]$
+    - 核心思路：假设不同变量的权重对 $(P_x, N_x)$ 与 $(P_y, N_y)$（$x \neq y$）互相独立，但同一变量的 $P_x$ 与 $N_x$ 可以相关。这使得期望 $\mathrm{E}[W_f]$ 等价于普通 WMC，方差则是需要新算法来计算的新查询
+    - 设计动机：独立性假设对贝叶斯网络的参数独立性自然成立（parameter independence assumption），且使分解公式可推导
 
 2. **基于 vtree 的协方差递归分解 (Algorithm 1)**:
-   - 做什么：递归计算任意两个 st-d-DNNF 节点 $\alpha, \beta$ 的 WMC 协方差
-   - 核心思路：根据 $\mathsf{d}(\alpha)$ 和 $\mathsf{d}(\beta)$ 在 vtree 中的关系，分三种情况分解：
-     - **Case I**（无祖先-后代关系）：利用乘积独立性公式 $\mathrm{Cov}[AX, BY] = \mathrm{Cov}[A,B]\mathrm{Cov}[X,Y] + \mathrm{Cov}[A,B]\mathrm{E}[X]\mathrm{E}[Y] + \mathrm{E}[A]\mathrm{E}[B]\mathrm{Cov}[X,Y]$，将协方差分解到 vtree 的左右子树
-     - **Case II**（$\alpha$ 是 $\vee$-节点）：利用确定性(determinism)保证，按协方差的可加性 $\mathrm{Cov}[A+B, C] = \mathrm{Cov}[A,C] + \mathrm{Cov}[B,C]$ 分解到子节点
-     - **Case III**（$\alpha$ 是 $\wedge$-节点）：利用结构化分解性(structured decomposability)，将 $\beta$ 也分解到 vtree 的左右子树后用乘积公式
-   - 设计动机：vtree 提供了变量集的层次化分解结构，使得分解过程中可以精确追踪变量集的变化——这是相比 Nakamura et al. (2022) 在 OBDD 上的算法的关键技术差异
-   - 缓存机制：为避免重复递归调用，所有已计算的 $\mathrm{Cov}[\alpha, \beta]$ 值存入 $\mathtt{c}[\alpha, \beta]$，保证总复杂度 $O(|\alpha||\beta|)$
+
+    - 做什么：递归计算任意两个 st-d-DNNF 节点 $\alpha, \beta$ 的 WMC 协方差
+    - 核心思路：根据 $\mathsf{d}(\alpha)$ 和 $\mathsf{d}(\beta)$ 在 vtree 中的关系，分三种情况分解：
+      - **Case I**（无祖先-后代关系）：利用乘积独立性公式 $\mathrm{Cov}[AX, BY] = \mathrm{Cov}[A,B]\mathrm{Cov}[X,Y] + \mathrm{Cov}[A,B]\mathrm{E}[X]\mathrm{E}[Y] + \mathrm{E}[A]\mathrm{E}[B]\mathrm{Cov}[X,Y]$，将协方差分解到 vtree 的左右子树
+      - **Case II**（$\alpha$ 是 $\vee$-节点）：利用确定性(determinism)保证，按协方差的可加性 $\mathrm{Cov}[A+B, C] = \mathrm{Cov}[A,C] + \mathrm{Cov}[B,C]$ 分解到子节点
+      - **Case III**（$\alpha$ 是 $\wedge$-节点）：利用结构化分解性(structured decomposability)，将 $\beta$ 也分解到 vtree 的左右子树后用乘积公式
+    - 设计动机：vtree 提供了变量集的层次化分解结构，使得分解过程中可以精确追踪变量集的变化——这是相比 Nakamura et al. (2022) 在 OBDD 上的算法的关键技术差异
+    - 缓存机制：为避免重复递归调用，所有已计算的 $\mathrm{Cov}[\alpha, \beta]$ 值存入 $\mathtt{c}[\alpha, \beta]$，保证总复杂度 $O(|\alpha||\beta|)$
 
 3. **辅助函数 ADJEXP 和 ADJCOV（变量集调整）**:
-   - 做什么：在递归过程中调整 WMC 的变量集，使不同子问题的变量集一致
-   - 核心思路：由于 $W_f^\mathcal{V}$ 的值随 $\mathcal{V}$ 变化而变化，当节点的作用域小于当前 vtree 节点的作用域时，需要用 true 函数"补全"缺失变量的贡献。预处理阶段计算 $\prod_{x \in S}(\mu_{P_x} + \mu_{N_x})$ 等辅助量，使调整操作在 $O(1)$ 时间内完成
-   - 设计动机：这是将算法从 OBDD 推广到 st-d-DNNF 的核心困难——OBDD 的变量次序是线性的，而 vtree 是树形的，变量集管理更加复杂
+
+    - 做什么：在递归过程中调整 WMC 的变量集，使不同子问题的变量集一致
+    - 核心思路：由于 $W_f^\mathcal{V}$ 的值随 $\mathcal{V}$ 变化而变化，当节点的作用域小于当前 vtree 节点的作用域时，需要用 true 函数"补全"缺失变量的贡献。预处理阶段计算 $\prod_{x \in S}(\mu_{P_x} + \mu_{N_x})$ 等辅助量，使调整操作在 $O(1)$ 时间内完成
+    - 设计动机：这是将算法从 OBDD 推广到 st-d-DNNF 的核心困难——OBDD 的变量次序是线性的，而 vtree 是树形的，变量集管理更加复杂
 
 ### 理论分析
 

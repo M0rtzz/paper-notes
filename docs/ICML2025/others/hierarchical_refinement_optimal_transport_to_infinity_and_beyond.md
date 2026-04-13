@@ -24,11 +24,11 @@ tags:
 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
 
 ## 研究背景与动机
-1. **领域现状**：Sinkhorn 算法解决了 OT 的 $O(n^3)$ 问题但仍有 $O(n^2)$ 时空复杂度；低秩 OT 降至线性但无法给出一一对应。
-2. **现有痛点**：现代数据规模达百万级，Sinkhorn 二次复杂度不可行；mini-batch OT 有固有偏差；神经 OT 映射质量不稳定。
-3. **核心矛盾**：如何在保持线性复杂度的同时恢复全秩双射映射？
-4. **切入角度**：证明低秩 OT 的因子矩阵 (Q,R) 会将 Monge 对共聚类（Proposition 3.1），据此递归细化。
-5. **核心idea**：低秩 OT 的最优共聚类保证 $\mathsf{q}^*(x) = \mathsf{r}^*(T^*(x))$，递归到单点即得 Monge 映射。
+**领域现状**：Sinkhorn 算法解决了 OT 的 $O(n^3)$ 问题但仍有 $O(n^2)$ 时空复杂度；低秩 OT 降至线性但无法给出一一对应。
+**现有痛点**：现代数据规模达百万级，Sinkhorn 二次复杂度不可行；mini-batch OT 有固有偏差；神经 OT 映射质量不稳定。
+**核心矛盾**：如何在保持线性复杂度的同时恢复全秩双射映射？
+**切入角度**：证明低秩 OT 的因子矩阵 (Q,R) 会将 Monge 对共聚类（Proposition 3.1），据此递归细化。
+**核心idea**：低秩 OT 的最优共聚类保证 $\mathsf{q}^*(x) = \mathsf{r}^*(T^*(x))$，递归到单点即得 Monge 映射。
 
 ## 方法详解
 
@@ -38,18 +38,21 @@ tags:
 ### 关键设计
 
 1. **核心理论 (Proposition 3.1)**:
-   - 在严格 $r$-Monge 可分条件下，低秩 OT 的最优因子共聚类 Monge 对
-   - 即 $\mathsf{q}^*(x) = \mathsf{r}^*(T^*(x))$，源点和其 Monge 像被分到同一标签
-   - 保证每步细化都正确保留 Monge 配对关系
+
+    - 在严格 $r$-Monge 可分条件下，低秩 OT 的最优因子共聚类 Monge 对
+    - 即 $\mathsf{q}^*(x) = \mathsf{r}^*(T^*(x))$，源点和其 Monge 像被分到同一标签
+    - 保证每步细化都正确保留 Monge 配对关系
 
 2. **Rank Annealing Schedule**:
-   - 层级深度 $\kappa$，每层使用 rank $r_t$，有效 rank 为 $\rho_t = \prod_{s=1}^t r_s$
-   - 当 $r=2$ 时，最优 Q,R 自动是硬划分（Lemma B.5）
-   - 序列 $(r_1,...,r_\kappa)$ 可适配不同数据规模
+
+    - 层级深度 $\kappa$，每层使用 rank $r_t$，有效 rank 为 $\rho_t = \prod_{s=1}^t r_s$
+    - 当 $r=2$ 时，最优 Q,R 自动是硬划分（Lemma B.5）
+    - 序列 $(r_1,...,r_\kappa)$ 可适配不同数据规模
 
 3. **代价递减保证 (Proposition 3.4)**:
-   - 每步细化的传输代价非增：$0 \leq \Delta_{t,t+1} \leq \|\nabla c\|_\infty \cdot \text{mean\_diam}(\Gamma_t)$
-   - 簇对直径随细化层级递减
+
+    - 每步细化的传输代价非增：$0 \leq \Delta_{t,t+1} \leq \|\nabla c\|_\infty \cdot \text{mean\_diam}(\Gamma_t)$
+    - 簇对直径随细化层级递减
 
 ### 损失函数 / 训练策略
 使用 uniform 内边际约束 $\mathbf{g} = (1/r)\mathbf{1}_r$ 强制均匀分裂，在每个子问题上调用低秩 OT 求解器。

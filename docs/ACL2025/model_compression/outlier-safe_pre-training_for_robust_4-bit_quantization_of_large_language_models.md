@@ -42,9 +42,9 @@ $$\hat{x}_\text{int} = \text{clip}\left(\left\lfloor \frac{x}{s} \right\rceil + 
 
 ### 异常值的三种成因假说
 
-1. **归一化层的通道缩放因子**（Kovaleva et al., 2021; Wei et al., 2022）
-2. **注意力汇聚现象（Attention Sinks）**（Bondarenko et al., 2023）
-3. **对角优化器（Adam/AdaFactor）的自适应梯度缩放**（He et al., 2024; Guo et al., 2024）
+**归一化层的通道缩放因子**（Kovaleva et al., 2021; Wei et al., 2022）
+**注意力汇聚现象（Attention Sinks）**（Bondarenko et al., 2023）
+**对角优化器（Adam/AdaFactor）的自适应梯度缩放**（He et al., 2024; Guo et al., 2024）
 
 ## 方法详解
 

@@ -40,23 +40,27 @@ tags:
 ### 关键设计
 
 1. **模态特定编码器**：
-   - 图像：冻结CLIP ViT，输出CLS+patch嵌入
-   - 位置/时间：Random Fourier Features (RFF)将2D输入投影到高维，频率$\sigma_i \in \{2^{2i}\}$
+
+    - 图像：冻结CLIP ViT，输出CLS+patch嵌入
+    - 位置/时间：Random Fourier Features (RFF)将2D输入投影到高维，频率$\sigma_i \in \{2^{2i}\}$
 
 2. **多模态Transformer融合**：
-   - 6种输入组合各做一次前向传播
-   - 双模态输入时沿token维度拼接后输入自注意力
-   - 使模态间能直接相互attend，学习细粒度的地理时间关联
+
+    - 6种输入组合各做一次前向传播
+    - 双模态输入时沿token维度拼接后输入自注意力
+    - 使模态间能直接相互attend，学习细粒度的地理时间关联
 
 3. **分类损失与软目标**：
-   - 地理位置：HEALPix将地球划分为768个等面积区域
-   - 时间：24×12=288个bins（小时×月份），时间戳映射到平面环面
-   - 软目标：通过度量核$K_{i,j} = \exp[-\kappa(C_i,C_j)/\gamma]$传播概率质量到邻近类
-   - 地理用Haversine距离，时间用环面测地距离
+
+    - 地理位置：HEALPix将地球划分为768个等面积区域
+    - 时间：24×12=288个bins（小时×月份），时间戳映射到平面环面
+    - 软目标：通过度量核$K_{i,j} = \exp[-\kappa(C_i,C_j)/\gamma]$传播概率质量到邻近类
+    - 地理用Haversine距离，时间用环面测地距离
 
 4. **自适应分类器-检索融合推理**：
-   - $\text{score}(x_i^G) = (\bar{v}^Q)^T x_i^G / \psi + \beta(I^Q) \log P(b(x_i^G)|I^Q)$
-   - β通过分类器熵自适应调节：高置信时β大，不确定时β小
+
+    - $\text{score}(x_i^G) = (\bar{v}^Q)^T x_i^G / \psi + \beta(I^Q) \log P(b(x_i^G)|I^Q)$
+    - β通过分类器熵自适应调节：高置信时β大，不确定时β小
 
 ### 损失函数 / 训练策略
 - 对比损失：5对InfoNCE（排除位置-时间直接对齐）

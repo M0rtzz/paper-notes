@@ -42,22 +42,25 @@ Open-MeDe 由两个核心组件构成：（1）跨批次元优化方案，通过
 
 ### 关键设计
 1. **跨批次元优化（Cross-batch Meta-optimization）**:
-   - 做什么：将每个训练步扩展为双批次操作——当前批次作为 support set（元训练），后续批次作为 query set（元测试）
-   - 核心思路：
-     - **内循环（元训练）**：在 support batch $\mathcal{S}$ 上用标准交叉熵损失更新得到 fast weights：$\theta_i' = \theta - \alpha \nabla_\theta \mathcal{L}_{\mathcal{T}_i}^{\mathcal{S}}(\theta)$
-     - **外循环（元测试+元优化）**：用 fast weights 在 query batch $\mathcal{Q}$ 上评估泛化性能，然后联合 support 和 query 的损失进行全局优化：$\min_\theta (\mathcal{L}_{\mathcal{T}_i}^{\mathcal{S}}(\theta) + \mathcal{L}_{\mathcal{T}_i}^{\mathcal{Q}}(\theta_i'))$
-     - 采用一阶近似（FOMAML）避免二阶梯度计算
-   - 设计动机：不同批次的类别分布天然不同，因此跨批次评估自然模拟了"已知到开放"的泛化场景。相比传统 MAML 需要构造 N-way K-shot 任务，本方法无需额外开销——直接利用训练数据采样器的随机性
+
+    - 做什么：将每个训练步扩展为双批次操作——当前批次作为 support set（元训练），后续批次作为 query set（元测试）
+    - 核心思路：
+      - **内循环（元训练）**：在 support batch $\mathcal{S}$ 上用标准交叉熵损失更新得到 fast weights：$\theta_i' = \theta - \alpha \nabla_\theta \mathcal{L}_{\mathcal{T}_i}^{\mathcal{S}}(\theta)$
+      - **外循环（元测试+元优化）**：用 fast weights 在 query batch $\mathcal{Q}$ 上评估泛化性能，然后联合 support 和 query 的损失进行全局优化：$\min_\theta (\mathcal{L}_{\mathcal{T}_i}^{\mathcal{S}}(\theta) + \mathcal{L}_{\mathcal{T}_i}^{\mathcal{Q}}(\theta_i'))$
+      - 采用一阶近似（FOMAML）避免二阶梯度计算
+    - 设计动机：不同批次的类别分布天然不同，因此跨批次评估自然模拟了"已知到开放"的泛化场景。相比传统 MAML 需要构造 N-way K-shot 任务，本方法无需额外开销——直接利用训练数据采样器的随机性
 
 2. **高斯自集成稳定化（Gaussian Weight Average, GWA）**:
-   - 做什么：对优化轨迹上的模型参数进行加权平均，获得泛化性更强的最终参数
-   - 核心思路：用高斯分布 $w_t = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(t-\mu)^2}{2\sigma^2}}$ 为每个 epoch 的参数分配权重。归一化后 $\alpha_t = w_t / \sum_i w_i$，通过移动平均方式更新：$\theta_{\text{GWA}} \leftarrow \frac{\sum_{i=1}^{t-1} w_i}{\sum_{i=1}^{t} w_i} \cdot \theta_{\text{GWA}} + \frac{w_t}{\sum_{i=1}^{t} w_i} \cdot \theta_t$
-   - 设计动机：早期 epoch 的参数保留过多 CLIP 静态偏置，后期 epoch 的参数过度专业化——GWA 赋予中间 epoch 更高权重，不包含 CLIP 原始权重 $\theta_0$，实现静态去偏同时保持泛化
+
+    - 做什么：对优化轨迹上的模型参数进行加权平均，获得泛化性更强的最终参数
+    - 核心思路：用高斯分布 $w_t = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(t-\mu)^2}{2\sigma^2}}$ 为每个 epoch 的参数分配权重。归一化后 $\alpha_t = w_t / \sum_i w_i$，通过移动平均方式更新：$\theta_{\text{GWA}} \leftarrow \frac{\sum_{i=1}^{t-1} w_i}{\sum_{i=1}^{t} w_i} \cdot \theta_{\text{GWA}} + \frac{w_t}{\sum_{i=1}^{t} w_i} \cdot \theta_t$
+    - 设计动机：早期 epoch 的参数保留过多 CLIP 静态偏置，后期 epoch 的参数过度专业化——GWA 赋予中间 epoch 更高权重，不包含 CLIP 原始权重 $\theta_0$，实现静态去偏同时保持泛化
 
 3. **无 CLIP 正则化的隐式去偏**:
-   - 做什么：在元优化过程中自然消除静态偏置，无需显式的 CLIP 正则化项
-   - 核心思路：元学习的虚拟评估机制迫使模型学习真正可泛化的视频特征，而非依赖 CLIP 的静态先验。query batch 提供的反馈鼓励模型捕获运动线索而非静态捷径
-   - 设计动机：显式 CLIP 正则化既增加计算开销，又强制保留静态特征，是导致上下文外性能退化的根源
+
+    - 做什么：在元优化过程中自然消除静态偏置，无需显式的 CLIP 正则化项
+    - 核心思路：元学习的虚拟评估机制迫使模型学习真正可泛化的视频特征，而非依赖 CLIP 的静态先验。query batch 提供的反馈鼓励模型捕获运动线索而非静态捷径
+    - 设计动机：显式 CLIP 正则化既增加计算开销，又强制保留静态特征，是导致上下文外性能退化的根源
 
 ### 损失函数 / 训练策略
 - 基础损失函数为标准视觉-语言交叉熵损失 $\mathcal{L}_{CE}$

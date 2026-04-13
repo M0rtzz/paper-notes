@@ -29,8 +29,8 @@ tags:
 
 精确深度信息对多视图 3D 检测至关重要。现有方法利用 LiDAR 投影点进行像素级深度监督，但存在两个被忽视的问题：
 
-1. **深度分布不匹配**：LiDAR 投影得到的深度分布在物体表面，而 DETR 系检测器的 object query 定义在物体中心。表面深度 ≠ 物体中心深度，导致监督信号与检测目标不对齐
-2. **远距离物体困难**：对远处目标做整体细粒度深度估计非常困难，但仅预测物体中心深度相对更容易
+**深度分布不匹配**：LiDAR 投影得到的深度分布在物体表面，而 DETR 系检测器的 object query 定义在物体中心。表面深度 ≠ 物体中心深度，导致监督信号与检测目标不对齐
+**远距离物体困难**：对远处目标做整体细粒度深度估计非常困难，但仅预测物体中心深度相对更容易
 
 现有位置编码方案的不足：
 - **Ray-aware PE**（StreamPETR）：在相机视锥中生成 3D mesh grid，深度候选不确定
@@ -45,31 +45,35 @@ OPEN 建立在 StreamPETR 基线上，包含三个核心组件：像素级深度
 ### 关键设计
 
 1. **Pixel-wise Depth Encoder (PDE)**：
-   - 输入多视图特征 $\mathbf{F}_i \in \mathbb{R}^{C \times H \times W}$，用 MLP 编码相机内参 $\mathbf{K}$ 调制特征
-   - 通过 DepthNet（残差块 + deformable convolution）预测像素级深度图 $\mathbf{D}_i \in \mathbb{R}^{H \times W \times 1}$
-   - 融合回归深度和概率深度生成最终像素深度
-   - 用 LiDAR 投影点的 8× 下采样深度图作为监督
-   - 设计动机：像素深度作为后续目标深度预测的先验，提供全场景深度感知
+
+    - 输入多视图特征 $\mathbf{F}_i \in \mathbb{R}^{C \times H \times W}$，用 MLP 编码相机内参 $\mathbf{K}$ 调制特征
+    - 通过 DepthNet（残差块 + deformable convolution）预测像素级深度图 $\mathbf{D}_i \in \mathbb{R}^{H \times W \times 1}$
+    - 融合回归深度和概率深度生成最终像素深度
+    - 用 LiDAR 投影点的 8× 下采样深度图作为监督
+    - 设计动机：像素深度作为后续目标深度预测的先验，提供全场景深度感知
 
 2. **Object-wise Depth Encoder (ODE)**：
-   - 将像素坐标 $(u,v)$ 结合像素深度转换到相机坐标：$\mathbf{p}_{(m,n)} = \mathbf{K}^{-1}(u \times D, v \times D, D, 1)^T$
-   - 从图像特征预测 $k=13$ 个 3D offset，加到参考点上得到 3D 采样点
-   - 将 3D 采样点投影到当前帧和前一帧的像素坐标，采样特征并加权聚合：$\mathbf{E}_{(m,n)} = \phi(\sum_{j=1}^k \mathbf{A}_j \cdot \text{Concat}(\mathbf{F}_i(\mathbf{p}^*), \mathbf{F}'_i(\mathbf{p}^*)))$
-   - 将深度嵌入和图像特征送入 FFN 预测目标级深度 $\mathbf{d} \in \mathbb{R}^{(H \times W) \times 1}$ 和物体中心 $\mathbf{c} \in \mathbb{R}^{(H \times W) \times 2}$
-   - 核心思路：通过注意力聚合时序+空间邻域信息，从物体表面深度推理出物体中心深度
-   - 监督：用 3D GT 框投影得到的中心深度标注
+
+    - 将像素坐标 $(u,v)$ 结合像素深度转换到相机坐标：$\mathbf{p}_{(m,n)} = \mathbf{K}^{-1}(u \times D, v \times D, D, 1)^T$
+    - 从图像特征预测 $k=13$ 个 3D offset，加到参考点上得到 3D 采样点
+    - 将 3D 采样点投影到当前帧和前一帧的像素坐标，采样特征并加权聚合：$\mathbf{E}_{(m,n)} = \phi(\sum_{j=1}^k \mathbf{A}_j \cdot \text{Concat}(\mathbf{F}_i(\mathbf{p}^*), \mathbf{F}'_i(\mathbf{p}^*)))$
+    - 将深度嵌入和图像特征送入 FFN 预测目标级深度 $\mathbf{d} \in \mathbb{R}^{(H \times W) \times 1}$ 和物体中心 $\mathbf{c} \in \mathbb{R}^{(H \times W) \times 2}$
+    - 核心思路：通过注意力聚合时序+空间邻域信息，从物体表面深度推理出物体中心深度
+    - 监督：用 3D GT 框投影得到的中心深度标注
 
 3. **Object-wise Position Embedding (OPE)**：
-   - 拼接物体中心和目标深度得到 $\mathbf{o}_j = (x, y, d_j)$
-   - 坐标变换到 LiDAR 坐标系：$\mathbf{O}_j = \mathbf{R}^{-1} \mathbf{K}^{-1} \mathbf{o}'_j$
-   - 归一化后用 3D cosine 位置编码 + MLP 生成位置嵌入：$\mathbf{OPE}_j = \text{MLP}(\text{PE}_{3D}(\text{Norm}(\mathbf{O}_j)))$
-   - 加到对应图像特征上，与 object query 在 Transformer decoder 中交互
-   - 关键优势：相比 ray-aware PE 的不确定深度和 point-aware PE 的表面深度，OPE 直接编码物体中心的 3D 位置，与 DETR query 的定义一致
+
+    - 拼接物体中心和目标深度得到 $\mathbf{o}_j = (x, y, d_j)$
+    - 坐标变换到 LiDAR 坐标系：$\mathbf{O}_j = \mathbf{R}^{-1} \mathbf{K}^{-1} \mathbf{o}'_j$
+    - 归一化后用 3D cosine 位置编码 + MLP 生成位置嵌入：$\mathbf{OPE}_j = \text{MLP}(\text{PE}_{3D}(\text{Norm}(\mathbf{O}_j)))$
+    - 加到对应图像特征上，与 object query 在 Transformer decoder 中交互
+    - 关键优势：相比 ray-aware PE 的不确定深度和 point-aware PE 的表面深度，OPE 直接编码物体中心的 3D 位置，与 DETR query 的定义一致
 
 4. **Depth-aware Focal Loss (DFL)**：
-   - 引入深度分数 $\mathbf{s} = e^{-\text{L2}(\hat{\mathbf{C}} - \mathbf{C})}$ 衡量预测中心与 GT 中心距离
-   - 用 $\mathbf{s}$ 调制 focal loss 的分类标签为软标签，使分类置信度与定位精度挂钩
-   - 鼓励网络更关注 3D 物体中心信息
+
+    - 引入深度分数 $\mathbf{s} = e^{-\text{L2}(\hat{\mathbf{C}} - \mathbf{C})}$ 衡量预测中心与 GT 中心距离
+    - 用 $\mathbf{s}$ 调制 focal loss 的分类标签为软标签，使分类置信度与定位精度挂钩
+    - 鼓励网络更关注 3D 物体中心信息
 
 ### 损失函数 / 训练策略
 

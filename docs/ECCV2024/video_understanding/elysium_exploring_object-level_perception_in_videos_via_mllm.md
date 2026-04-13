@@ -29,9 +29,9 @@ tags:
 
 多模态大语言模型 (MLLM) 已在静态图像的目标级任务（如 Image Grounding、目标检测）中展现出强大能力。然而，将其扩展到视频领域的目标级任务（如目标跟踪）仍面临两大核心挑战：
 
-1. **数据稀缺问题**：视频目标级任务要求模型在多帧中感知目标并理解帧间关系，但现有的大规模视频目标跟踪数据集规模有限（如 LaSOT 仅 1.4K 条轨迹），远不足以训练 MLLM 获得视频目标感知能力。
+**数据稀缺问题**：视频目标级任务要求模型在多帧中感知目标并理解帧间关系，但现有的大规模视频目标跟踪数据集规模有限（如 LaSOT 仅 1.4K 条轨迹），远不足以训练 MLLM 获得视频目标感知能力。
 
-2. **计算负担问题**：视频包含大量帧，将每帧的视觉 token 全部输入 LLM 的上下文窗口会带来巨大的计算开销。例如 ViT@336p 每帧产生 576 个 token，8 帧视频就需要 4608 个 token，严重限制了可处理的帧数。
+**计算负担问题**：视频包含大量帧，将每帧的视觉 token 全部输入 LLM 的上下文窗口会带来巨大的计算开销。例如 ViT@336p 每帧产生 576 个 token，8 帧视频就需要 4608 个 token，严重限制了可处理的帧数。
 
 作者将视频任务按粒度分为三类：视频级（VideoQA、Video Caption）、帧级（Video Grounding、Dense Captioning）和目标级（SOT、MOT、VOS）。目标级任务要求最高的空间精度和时序一致性，是最具挑战性的。现有方法如 PG-Video-LLaVA 依赖额外的外部专家模型进行目标跟踪，无法实现端到端训练。Elysium 旨在构建一个统一的端到端 MLLM 框架，同时处理视频的全局级和目标级任务。
 
@@ -44,14 +44,15 @@ Elysium 的整体架构由三部分组成：CLIP-ViT-L 视觉编码器、T-Selec
 ### 关键设计
 
 1. **ElysiumTrack-1M 数据集构建**：这是本文的核心贡献之一，包含 127 万条带标注的视频轨迹及对应的目标描述。构建流程分两步：
-   - **Step 1**：从 WebVid-10M 的视频字幕中用 spaCy 提取名词短语，过滤虚拟词和复数词，然后用 Grounding DINO 在首帧、中间帧和尾帧定位边界框（置信度 > 0.6）。
-   - **Step 2**：用预训练的 MixFormer 跟踪器从首帧框生成轨迹（跟踪置信度 > 0.8），用 Kalman Filter 去除漂移轨迹，并通过 IoU 验证中间帧和尾帧的一致性（IoU > 0.3）。
+
+    - **Step 1**：从 WebVid-10M 的视频字幕中用 spaCy 提取名词短语，过滤虚拟词和复数词，然后用 Grounding DINO 在首帧、中间帧和尾帧定位边界框（置信度 > 0.6）。
+    - **Step 2**：用预训练的 MixFormer 跟踪器从首帧框生成轨迹（跟踪置信度 > 0.8），用 Kalman Filter 去除漂移轨迹，并通过 IoU 验证中间帧和尾帧的一致性（IoU > 0.3）。
    该数据集支持 SOT、RSOT 和 Video-REG 三个任务，规模远超现有数据集（LaSOT 1.4K 轨迹 vs. ElysiumTrack-1M 127 万轨迹）。
 
 2. **T-Selector 视觉 Token 压缩网络**：基于视频帧间存在大量冗余信息的假设，T-Selector 通过门控选择机制压缩视觉 token。其核心公式为：
 
-   $$\mathbf{G}_v = \text{KeepTopK}(\text{Softmax}(\text{MLP}(\mathbf{F}_v)), k, \mathbf{F}_v)$$
-   $$\mathbf{T}_v = \text{MLP}(\mathbf{G}_v)$$
+    $\mathbf{G}_v = \text{KeepTopK}(\text{Softmax}(\text{MLP}(\mathbf{F}_v)), k, \mathbf{F}_v)$
+    $\mathbf{T}_v = \text{MLP}(\mathbf{G}_v)$
 
    其中 $k = \alpha N$ 表示保留的 token 数量。MLP + Softmax 为每个 token 计算重要性分数，KeepTopK 选择得分最高的 $k$ 个 token，第二个 MLP 将维度转换到 LLM 的隐层维度 $D$。与 Cross-Attention 和 Concatenation 等方式不同，T-Selector 在空间维度上做选择而非融合，避免了严重的性能下降。默认设置 $\alpha N = 108$，相比原始 576 个 token 压缩了 5.3 倍。
 

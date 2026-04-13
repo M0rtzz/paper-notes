@@ -25,10 +25,10 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：后继表示（SR）通过编码转移动态来表示状态间的时间关系，已广泛应用于奖励塑形、探索、迁移学习等。但 SR 是奖励无关的——它只编码到达各状态的转移次数
-2. **现有痛点**：在有"应避免"的低奖励区域的环境中，SR 无法区分高奖励路径和低奖励路径。Piray 和 Daw 提出的默认表示（DR）是奖励感知的，但缺乏高效的在线学习算法和理论分析
-3. **核心矛盾**：SR 编码的是 $\gamma^{\eta(\tau)}$（折扣后的步数），DR 编码的是 $\exp(r(\tau)/\lambda)$（累积奖励的指数）——后者自然地整合了奖励信息
-4. **核心 idea**：完善 DR 的理论工具箱，使其可以像 SR 一样便捷地应用于 RL
+**领域现状**：后继表示（SR）通过编码转移动态来表示状态间的时间关系，已广泛应用于奖励塑形、探索、迁移学习等。但 SR 是奖励无关的——它只编码到达各状态的转移次数
+**现有痛点**：在有"应避免"的低奖励区域的环境中，SR 无法区分高奖励路径和低奖励路径。Piray 和 Daw 提出的默认表示（DR）是奖励感知的，但缺乏高效的在线学习算法和理论分析
+**核心矛盾**：SR 编码的是 $\gamma^{\eta(\tau)}$（折扣后的步数），DR 编码的是 $\exp(r(\tau)/\lambda)$（累积奖励的指数）——后者自然地整合了奖励信息
+**核心 idea**：完善 DR 的理论工具箱，使其可以像 SR 一样便捷地应用于 RL
 
 ## 方法详解
 
@@ -38,18 +38,21 @@ tags:
 ### 关键设计
 
 1. **DP 和 TD 学习算法**：
-   - DP 更新：$\mathbf{Z}_{k+1} = \mathbf{R}^{-1} + \mathbf{R}^{-1}\mathbf{P}^{\pi_d}\mathbf{Z}_k$，证明了收敛性（利用 Neumann 级数）
-   - TD 更新：$\mathbf{Z}(s,j) \leftarrow \mathbf{Z}(s,j) + \alpha[\exp(r/\lambda)(\mathbb{1}_{s=j} + \mathbf{Z}(s',j)) - \mathbf{Z}(s,j)]$
-   - 对比 SR 的 TD 更新（将 $\gamma$ 替换为 $\exp(r/\lambda)$），区别在于奖励感知的折扣因子
+
+    - DP 更新：$\mathbf{Z}_{k+1} = \mathbf{R}^{-1} + \mathbf{R}^{-1}\mathbf{P}^{\pi_d}\mathbf{Z}_k$，证明了收敛性（利用 Neumann 级数）
+    - TD 更新：$\mathbf{Z}(s,j) \leftarrow \mathbf{Z}(s,j) + \alpha[\exp(r/\lambda)(\mathbb{1}_{s=j} + \mathbf{Z}(s',j)) - \mathbf{Z}(s,j)]$
+    - 对比 SR 的 TD 更新（将 $\gamma$ 替换为 $\exp(r/\lambda)$），区别在于奖励感知的折扣因子
 
 2. **特征空间分析**：
-   - 定理3.1：当奖励在所有状态上**恒定**时，SR 和 DR 共享相同的特征向量
-   - 当奖励**不同**时，DR 的特征向量反映低奖励区域位置（见图2），而 SR 只反映转移距离
+
+    - 定理3.1：当奖励在所有状态上**恒定**时，SR 和 DR 共享相同的特征向量
+    - 当奖励**不同**时，DR 的特征向量反映低奖励区域位置（见图2），而 SR 只反映转移距离
 
 3. **默认特征 (Default Features)**：
-   - 类似后继特征（SF），分解为：$\exp(\mathbf{v}^*_N/\lambda) = \boldsymbol{\zeta}(s)^\top \mathbf{w}$
-   - TD 更新：$\boldsymbol{\zeta}(s) \leftarrow \boldsymbol{\zeta}(s) + \alpha(\exp(r/\lambda)\boldsymbol{\zeta}(s') - \boldsymbol{\zeta}(s))$
-   - 不需要访问转移动态即可计算不同终端奖励下的最优策略
+
+    - 类似后继特征（SF），分解为：$\exp(\mathbf{v}^*_N/\lambda) = \boldsymbol{\zeta}(s)^\top \mathbf{w}$
+    - TD 更新：$\boldsymbol{\zeta}(s) \leftarrow \boldsymbol{\zeta}(s) + \alpha(\exp(r/\lambda)\boldsymbol{\zeta}(s') - \boldsymbol{\zeta}(s))$
+    - 不需要访问转移动态即可计算不同终端奖励下的最优策略
 
 ## 实验关键数据
 

@@ -30,11 +30,11 @@ tags:
 文本到图像（T2I）模型（如 Stable Diffusion、DALL·E、Midjourney）在创意设计中广泛应用，但由于训练数据来自互联网未经严格过滤，存在生成 NSFW（Not Safe for Work）内容的风险。
 
 **现有防御体系**：
-1. **安全过滤器（Safety Filters）**：
+**安全过滤器（Safety Filters）**：
    - 文本过滤器：基于关键词黑名单匹配（text-match）或 BERT 分类器（text-classifier）
    - 图像过滤器：检测生成图像中的 NSFW 内容
    - 潜空间过滤器：如 LatentGuard
-2. **概念移除（Concept Removal）**：直接修改模型权重，消除 NSFW 概念（如 ESD、SLD、FMN、SafeGen 等）
+**概念移除（Concept Removal）**：直接修改模型权重，消除 NSFW 概念（如 ESD、SLD、FMN、SafeGen 等）
 
 **现有攻击的局限**：
 - 大多数攻击只能绕过一类防御（过滤器或概念移除），无法同时攻破两者

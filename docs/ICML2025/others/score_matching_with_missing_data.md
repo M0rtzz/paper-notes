@@ -24,12 +24,12 @@ tags:
 本文将 score matching 及其主要扩展适配到缺失数据场景，提出两种变体——重要性加权（IW）方法和变分方法，在图模型估计等任务上展示了不同场景下各自的优势。
 
 ## 研究背景与动机
-1. **领域现状**：Score matching 是学习数据分布的核心工具，广泛应用于扩散模型、能量基模型（EBM）和图模型估计。它通过匹配模型和数据的 score 函数（对数密度梯度 $\nabla_x \log p(x)$），避免了计算归一化常数的需求。
-2. **现有痛点**：现有 score matching 方法假设数据完整（所有坐标均被观测），但实际数据中缺失值极为常见（调查数据、传感器故障、隐私脱敏等）。当数据在任意坐标子集上部分缺失时，标准 score matching 无法直接应用。
-3. **核心矛盾**：Score matching 的核心优势（无需归一化常数）在缺失数据下不再自动成立，因为边际分布的 score 与联合分布的 score 不同。
-4. **本文要解决什么**：设计在任意模式缺失数据上可用的 score matching 方法。
-5. **切入角度**：通过重要性加权或变分近似来处理缺失坐标。
-6. **核心idea**：将观测到的坐标子集上的 score 与完整数据的 score 联系起来，通过积分或近似消除缺失变量的影响。
+**领域现状**：Score matching 是学习数据分布的核心工具，广泛应用于扩散模型、能量基模型（EBM）和图模型估计。它通过匹配模型和数据的 score 函数（对数密度梯度 $\nabla_x \log p(x)$），避免了计算归一化常数的需求。
+**现有痛点**：现有 score matching 方法假设数据完整（所有坐标均被观测），但实际数据中缺失值极为常见（调查数据、传感器故障、隐私脱敏等）。当数据在任意坐标子集上部分缺失时，标准 score matching 无法直接应用。
+**核心矛盾**：Score matching 的核心优势（无需归一化常数）在缺失数据下不再自动成立，因为边际分布的 score 与联合分布的 score 不同。
+**本文要解决什么**：设计在任意模式缺失数据上可用的 score matching 方法。
+**切入角度**：通过重要性加权或变分近似来处理缺失坐标。
+**核心idea**：将观测到的坐标子集上的 score 与完整数据的 score 联系起来，通过积分或近似消除缺失变量的影响。
 
 ## 方法详解
 
@@ -40,23 +40,26 @@ tags:
 ### 关键设计
 
 1. **重要性加权（IW）方法**:
-   - 做什么：通过重要性加权将缺失数据的 score matching 目标转化为可计算形式
-   - 核心思路：对于观测模式 $\mathbf{m}$，边际 score matching 目标为：
-     $$\mathcal{J}_{\text{IW}} = \sum_{\mathbf{m}} \mathbb{E}_{p(\mathbf{x}^{\text{obs}} | \mathbf{m})} \left[ \sum_{j \in \text{obs}} \left( \partial_j s_\theta^j + \frac{1}{2} (s_\theta^j)^2 \right) \cdot w(\mathbf{m}) \right]$$
-     其中 $w(\mathbf{m})$ 是缺失模式的重要性权重，通过缺失机制（如 MAR 假设）估计
-   - 设计动机：IW 方法保持了 score matching 的闭式/半闭式优点，在低维和有限域设置中特别高效。提供了有限域环境下的有限样本界
+
+    - 做什么：通过重要性加权将缺失数据的 score matching 目标转化为可计算形式
+    - 核心思路：对于观测模式 $\mathbf{m}$，边际 score matching 目标为：
+    $\mathcal{J}_{\text{IW}} = \sum_{\mathbf{m}} \mathbb{E}_{p(\mathbf{x}^{\text{obs}} | \mathbf{m})} \left[ \sum_{j \in \text{obs}} \left( \partial_j s_\theta^j + \frac{1}{2} (s_\theta^j)^2 \right) \cdot w(\mathbf{m}) \right]$
+      其中 $w(\mathbf{m})$ 是缺失模式的重要性权重，通过缺失机制（如 MAR 假设）估计
+    - 设计动机：IW 方法保持了 score matching 的闭式/半闭式优点，在低维和有限域设置中特别高效。提供了有限域环境下的有限样本界
 
 2. **变分方法**:
-   - 做什么：引入变分分布来近似缺失变量的条件分布
-   - 核心思路：用变分分布 $q_\phi(\mathbf{x}^{\text{mis}} | \mathbf{x}^{\text{obs}})$ 近似真实条件分布：
-     $$\mathcal{J}_{\text{var}} = \mathbb{E}_{q_\phi(\mathbf{x}^{\text{mis}} | \mathbf{x}^{\text{obs}})} \left[ \sum_j \left( \partial_j s_\theta^j(\mathbf{x}) + \frac{1}{2} (s_\theta^j(\mathbf{x}))^2 \right) \right]$$
-     交替优化 $\theta$（score 模型）和 $\phi$（变分分布）
-   - 设计动机：在高维复杂场景中，IW 的方差可能过大；变分方法通过参数化近似提供更稳定的梯度估计
+
+    - 做什么：引入变分分布来近似缺失变量的条件分布
+    - 核心思路：用变分分布 $q_\phi(\mathbf{x}^{\text{mis}} | \mathbf{x}^{\text{obs}})$ 近似真实条件分布：
+    $\mathcal{J}_{\text{var}} = \mathbb{E}_{q_\phi(\mathbf{x}^{\text{mis}} | \mathbf{x}^{\text{obs}})} \left[ \sum_j \left( \partial_j s_\theta^j(\mathbf{x}) + \frac{1}{2} (s_\theta^j(\mathbf{x}))^2 \right) \right]$
+      交替优化 $\theta$（score 模型）和 $\phi$（变分分布）
+    - 设计动机：在高维复杂场景中，IW 的方差可能过大；变分方法通过参数化近似提供更稳定的梯度估计
 
 3. **扩展到主要 Score Matching 变体**:
-   - 做什么：将上述方法推广到 denoising score matching、sliced score matching 等
-   - 核心思路：在各变体的目标函数中嵌入缺失数据处理（IW 或变分），保持各变体的原有优势
-   - 设计动机：确保方法的通用性，可以与 score matching 生态中的各种方法配合
+
+    - 做什么：将上述方法推广到 denoising score matching、sliced score matching 等
+    - 核心思路：在各变体的目标函数中嵌入缺失数据处理（IW 或变分），保持各变体的原有优势
+    - 设计动机：确保方法的通用性，可以与 score matching 生态中的各种方法配合
 
 ### 损失函数 / 训练策略
 - IW 损失：加权的 Fisher 散度目标

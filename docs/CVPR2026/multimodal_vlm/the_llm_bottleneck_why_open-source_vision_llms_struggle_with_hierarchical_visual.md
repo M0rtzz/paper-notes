@@ -42,18 +42,21 @@ Vision LLM (VLLM)统一了多种视觉任务，具有构建这样的通用系统
 ### 关键设计
 
 1. **评估指标**：
-   - **HCA (Hierarchical Consistent Accuracy)**：$HCA = \frac{1}{N}\sum_{i=1}^N \prod_{j=1}^{L^i} \mathbb{1}[f_\theta(x^i; Y_j) = y_j^i]$ —— 要求路径上所有节点都正确
-   - **叶节点精度 $Acc_{leaf}$**：只关注最细粒度的预测。$Acc_{leaf}$是HCA的上界
+
+    - **HCA (Hierarchical Consistent Accuracy)**：$HCA = \frac{1}{N}\sum_{i=1}^N \prod_{j=1}^{L^i} \mathbb{1}[f_\theta(x^i; Y_j) = y_j^i]$ —— 要求路径上所有节点都正确
+    - **叶节点精度 $Acc_{leaf}$**：只关注最细粒度的预测。$Acc_{leaf}$是HCA的上界
 
 2. **VQA任务构建**：
-   - 6个分类法：iNat21-Animal、iNat21-Plant、ImgNet-Artifact、ImgNet-Animal、CUB-200、Oxford-Pets
-   - 每个层级生成四选一选择题，选项来自同一层级
-   - 覆盖从粗粒度（如脊椎动物/无脊椎动物）到细粒度（如具体物种）的所有层次
+
+    - 6个分类法：iNat21-Animal、iNat21-Plant、ImgNet-Artifact、ImgNet-Animal、CUB-200、Oxford-Pets
+    - 每个层级生成四选一选择题，选项来自同一层级
+    - 覆盖从粗粒度（如脊椎动物/无脊椎动物）到细粒度（如具体物种）的所有层次
 
 3. **瓶颈定位分析**：
-   - 探测VLLM的视觉编码器嵌入：发现它们保留了判别性特征和层次结构
-   - 探测LLM嵌入：发现虽包含足够的层次线索且组织为正交结构，但模型无法解码它们
-   - 微调实验：VLLM微调同时提升了LLM的文本层级一致性和VLLM的视觉层级一致性，但前者提升更大
+
+    - 探测VLLM的视觉编码器嵌入：发现它们保留了判别性特征和层次结构
+    - 探测LLM嵌入：发现虽包含足够的层次线索且组织为正交结构，但模型无法解码它们
+    - 微调实验：VLLM微调同时提升了LLM的文本层级一致性和VLLM的视觉层级一致性，但前者提升更大
 
 ### 损失函数 / 训练策略
 微调实验采用构建的VQA数据进行标准SFT。

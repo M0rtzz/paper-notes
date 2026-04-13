@@ -26,21 +26,21 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 现代视觉-语言模型的训练依赖海量的图像-文本对数据集（如 LAION-400M、CC-12M），这些数据大多从网络爬取，不可避免地包含大量**错误标签**——图像与描述不匹配。标签错误会降低下游模型的可靠性，在医疗等关键领域尤为严重。
+**领域现状**: 现代视觉-语言模型的训练依赖海量的图像-文本对数据集（如 LAION-400M、CC-12M），这些数据大多从网络爬取，不可避免地包含大量**错误标签**——图像与描述不匹配。标签错误会降低下游模型的可靠性，在医疗等关键领域尤为严重。
 
-2. **现有痛点**:
+**现有痛点**:
    - 大多数标签错误检测方法是**单模态的**：仅利用图像表示进行检测，忽略了文本信息
    - 部分高性能方法（如 AUM、Datamap）需要在下游任务上**训练分类器数个 epoch**，计算代价高
    - 现有方法假设标签是"k 选一"的离散类别，**无法处理自然语言标签**（如图像描述）
    - 最简单的 CLIP 相似度方法虽然免训练，但忽略了邻域结构中的丰富信息
 
-3. **核心矛盾**: 数据集规模越大越难人工审核 → 需要自动检测 → 但现有自动方法要么需要昂贵训练，要么局限于单模态和离散标签。
+**核心矛盾**: 数据集规模越大越难人工审核 → 需要自动检测 → 但现有自动方法要么需要昂贵训练，要么局限于单模态和离散标签。
 
-4. **本文要解决什么**: 提出一种**免训练、利用多模态邻域信息**的标签错误检测方法，同时适用于分类标签和自然语言描述。
+**本文要解决什么**: 提出一种**免训练、利用多模态邻域信息**的标签错误检测方法，同时适用于分类标签和自然语言描述。
 
-5. **切入角度**: 在 CLIP 嵌入空间中，正确标签的图像-文本对应该有相似的邻居（邻居的图像对应的文本也应该和当前文本相似），而错误标签的对应关系会在邻域中暴露出不一致。
+**切入角度**: 在 CLIP 嵌入空间中，正确标签的图像-文本对应该有相似的邻居（邻居的图像对应的文本也应该和当前文本相似），而错误标签的对应关系会在邻域中暴露出不一致。
 
-6. **核心idea一句话**: 结合图像-文本多模态距离和两个方向的跨模态邻域信息，构建错误标签检测分数。
+**核心idea一句话**: 结合图像-文本多模态距离和两个方向的跨模态邻域信息，构建错误标签检测分数。
 
 ## 方法详解
 
@@ -53,31 +53,34 @@ tags:
 ### 关键设计
 
 1. **多模态距离 $d_{mm}$（基础分数）**:
-   - 直接计算图像嵌入和文本嵌入的余弦距离：
-     $$d_{mm}(\mathbf{x}, \mathbf{y}) = d_{cos}(h_\theta^\mathcal{X}(\mathbf{x}), h_\theta^\mathcal{Y}(\mathbf{y}))$$
-   - 这就是 CLIP Similarity baseline——距离越大越可能是错误标签
-   - **设计动机**: 这是最基本也最直接的信号，已被先前工作验证有效。LEMoN 以此为基础，在其上增加邻域信息
+
+    - 直接计算图像嵌入和文本嵌入的余弦距离：
+    $d_{mm}(\mathbf{x}, \mathbf{y}) = d_{cos}(h_\theta^\mathcal{X}(\mathbf{x}), h_\theta^\mathcal{Y}(\mathbf{y}))$
+    - 这就是 CLIP Similarity baseline——距离越大越可能是错误标签
+    - **设计动机**: 这是最基本也最直接的信号，已被先前工作验证有效。LEMoN 以此为基础，在其上增加邻域信息
 
 2. **图像空间邻域分数 $s_n$**:
-   - 找到 $\mathbf{x}$ 在图像嵌入空间的 $k$ 个最近邻 $\{\mathbf{x}_{n1}, \ldots, \mathbf{x}_{nk}\}$
-   - 计算当前文本 $\mathbf{y}$ 与这些邻居对应文本 $\mathbf{y}_{nj}$ 的距离，加权平均：
-     $$s_n(\mathbf{x}, \mathbf{y}, \mathcal{D}) = \frac{1}{k} \sum_{j=1}^k d_\mathcal{Y}(\mathbf{y}, \mathbf{y}_{nj}) \cdot e^{-\tau_{1,n} d_\mathcal{X}(\mathbf{x}, \mathbf{x}_{nj})} \cdot e^{-\tau_{2,n} d_{mm}(\mathbf{x}_{nj}, \mathbf{y}_{nj})}$$
-   - **直觉**: 如果我的图像和邻居的图像很像，但我的文本和邻居的文本差距很大——说明我的标签很可能是错的
-   - **权重设计**:
-     - $e^{-\tau_{1,n} d_\mathcal{X}}$: 降权距离远的邻居（自适应 $k$）
-     - $e^{-\tau_{2,n} d_{mm}}$: 降权邻居本身可能也是错误标签的情况
+
+    - 找到 $\mathbf{x}$ 在图像嵌入空间的 $k$ 个最近邻 $\{\mathbf{x}_{n1}, \ldots, \mathbf{x}_{nk}\}$
+    - 计算当前文本 $\mathbf{y}$ 与这些邻居对应文本 $\mathbf{y}_{nj}$ 的距离，加权平均：
+    $s_n(\mathbf{x}, \mathbf{y}, \mathcal{D}) = \frac{1}{k} \sum_{j=1}^k d_\mathcal{Y}(\mathbf{y}, \mathbf{y}_{nj}) \cdot e^{-\tau_{1,n} d_\mathcal{X}(\mathbf{x}, \mathbf{x}_{nj})} \cdot e^{-\tau_{2,n} d_{mm}(\mathbf{x}_{nj}, \mathbf{y}_{nj})}$
+    - **直觉**: 如果我的图像和邻居的图像很像，但我的文本和邻居的文本差距很大——说明我的标签很可能是错的
+    - **权重设计**:
+      - $e^{-\tau_{1,n} d_\mathcal{X}}$: 降权距离远的邻居（自适应 $k$）
+      - $e^{-\tau_{2,n} d_{mm}}$: 降权邻居本身可能也是错误标签的情况
 
 3. **文本空间邻域分数 $s_m$**:
-   - 找到 $\mathbf{y}$ 在文本嵌入空间的 $k$ 个最近邻 $\{\mathbf{y}_{m1}, \ldots, \mathbf{y}_{mk}\}$
-   - 计算当前图像 $\mathbf{x}$ 与这些邻居对应图像 $\mathbf{x}_{mj}$ 的距离：
-     $$s_m(\mathbf{x}, \mathbf{y}, \mathcal{D}) = \frac{1}{k} \sum_{j=1}^k d_\mathcal{X}(\mathbf{x}, \mathbf{x}_{mj}) \cdot e^{-\tau_{1,m} d_\mathcal{Y}(\mathbf{y}, \mathbf{y}_{mj})} \cdot e^{-\tau_{2,m} d_{mm}(\mathbf{x}_{mj}, \mathbf{y}_{mj})}$$
-   - **直觉**: 如果与我文本描述相似的其他文本对应的图像和我的图像差距很大——也说明标签错误
-   - **设计动机**: 与 $s_n$ 互补——$s_n$ 从图像邻域出发，$s_m$ 从文本邻域出发，两个方向的信号共同增强检测
+
+    - 找到 $\mathbf{y}$ 在文本嵌入空间的 $k$ 个最近邻 $\{\mathbf{y}_{m1}, \ldots, \mathbf{y}_{mk}\}$
+    - 计算当前图像 $\mathbf{x}$ 与这些邻居对应图像 $\mathbf{x}_{mj}$ 的距离：
+    $s_m(\mathbf{x}, \mathbf{y}, \mathcal{D}) = \frac{1}{k} \sum_{j=1}^k d_\mathcal{X}(\mathbf{x}, \mathbf{x}_{mj}) \cdot e^{-\tau_{1,m} d_\mathcal{Y}(\mathbf{y}, \mathbf{y}_{mj})} \cdot e^{-\tau_{2,m} d_{mm}(\mathbf{x}_{mj}, \mathbf{y}_{mj})}$
+    - **直觉**: 如果与我文本描述相似的其他文本对应的图像和我的图像差距很大——也说明标签错误
+    - **设计动机**: 与 $s_n$ 互补——$s_n$ 从图像邻域出发，$s_m$ 从文本邻域出发，两个方向的信号共同增强检测
 
 4. **最终分数**:
-   $$s = f(\mathbf{x}, \mathbf{y}) = d_{mm}(\mathbf{x}, \mathbf{y}) + \beta \cdot s_n(\mathbf{x}, \mathbf{y}, \mathcal{D}) + \gamma \cdot s_m(\mathbf{x}, \mathbf{y}, \mathcal{D})$$
-   - $\beta, \gamma \geq 0$ 是超参数
-   - **泛化性**: 当 $\beta = \gamma = 0$，退化为 CLIP Similarity；当 $\beta$ 大、$\gamma = 0$ 且使用离散距离，退化为 Deep k-NN
+    $s = f(\mathbf{x}, \mathbf{y}) = d_{mm}(\mathbf{x}, \mathbf{y}) + \beta \cdot s_n(\mathbf{x}, \mathbf{y}, \mathcal{D}) + \gamma \cdot s_m(\mathbf{x}, \mathbf{y}, \mathcal{D})$
+    - $\beta, \gamma \geq 0$ 是超参数
+    - **泛化性**: 当 $\beta = \gamma = 0$，退化为 CLIP Similarity；当 $\beta$ 大、$\gamma = 0$ 且使用离散距离，退化为 Deep k-NN
 
 ### 损失函数 / 训练策略
 - **LEMoN 本身完全免训练**，仅需预训练 CLIP 模型

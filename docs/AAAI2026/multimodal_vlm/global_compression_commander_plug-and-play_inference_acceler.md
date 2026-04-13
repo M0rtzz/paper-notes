@@ -54,13 +54,14 @@ GlobalCom²的设计理念是"**全局到局部**"（global-to-local）的层级
 1. **缩略图压缩（Thumbnail Compression）**：利用ViT最后一层[CLS] token与所有patch token的注意力分数作为重要性分数$s_i^G$，保留Top-$k$（$k=R \times N$）个token。这一步比较常规，关键在于缩略图的注意力分布会被后续复用来引导crop压缩。
 
 2. **自适应压缩调整（Adaptive Compression Adjustment）**：这是GlobalCom²的核心创新。将每个crop对应到缩略图上的区域，累加该区域内的[CLS]注意力分数得到crop级别的**信息丰富度分数**$s_j^G = \sum_{i \in \text{crop}_j} s_i^G$。然后通过softmax归一化（温度$\tau=10$）得到相对重要性权重$\sigma_j$，每个crop的保留比例调整为：
-   $$r_j = R \times (1 + \sigma_j - \frac{1}{n})$$
+    $r_j = R \times (1 + \sigma_j - \frac{1}{n})$
    这确保了信息丰富的crop保留更多token，冗余crop被更激进地压缩，且所有crop的总token数仍满足预设比例$R$。
 
 3. **综合token评估（Holistic Token Evaluation）**：对每个crop中的每个token，综合两个视角的重要性分数：
-   - **局部分数** $s_{j,i}^L$：crop内部[CLS]与patch的注意力分数，捕捉局部显著性
-   - **全局分数** $\hat{s}_{j,i}^G$：将缩略图的1D注意力scores reshape为2D并双线性插值到原始分辨率，取对应crop区域作为全局重要性
-   - 综合分数：$s_{j,i} = \alpha \cdot \hat{s}_{j,i}^G + (1-\alpha) \cdot s_{j,i}^L$（$\alpha=0.5$）
+
+    - **局部分数** $s_{j,i}^L$：crop内部[CLS]与patch的注意力分数，捕捉局部显著性
+    - **全局分数** $\hat{s}_{j,i}^G$：将缩略图的1D注意力scores reshape为2D并双线性插值到原始分辨率，取对应crop区域作为全局重要性
+    - 综合分数：$s_{j,i} = \alpha \cdot \hat{s}_{j,i}^G + (1-\alpha) \cdot s_{j,i}^L$（$\alpha=0.5$）
 
 4. **无[CLS]模型适配（针对SigLIP等）**：对于LLaVA-OneVision使用的SigLIP（无[CLS] token），提出用**负余弦相似度**替代：计算所有token的全局均值向量$\mathbf{g}$，与全局均值相似度低的token信息独特性更强（$s_i = -\cos(\mathbf{x}_i, \mathbf{g})$）。实验验证其效果接近[CLS]方案。
 

@@ -46,20 +46,23 @@ tags:
 ### 关键设计
 1. **语义无关的纯结构推理**：刻意移除语义内容（用无意义字符串填充），迫使模型仅从结构模式中推理，而非依赖语义先验知识——这是与现有工作的核心区别
 2. **8种结构化语言的分类学**：
-   - 结构化数据：Tree（自定义格式）、Tabular（CSV）
-   - 半结构化数据：Object Notation（JSON/YAML/XML）、Markup Language（Markdown/LaTeX/Org）
+
+    - 结构化数据：Tree（自定义格式）、Tabular（CSV）
+    - 半结构化数据：Object Notation（JSON/YAML/XML）、Markup Language（Markdown/LaTeX/Org）
 3. **8大类29个具体任务**：
-   - **PathCompose (PC)**：层次结构中的路径组合和多级索引推理
-   - **TextRetrieval (TR)**：从各种文档格式中提取特定信息
-   - **PathWalk (PW)**：从结构化文档中提取特定章节或子章节
-   - **Syntax (SY)**：检测JSON/XML/YAML等格式的语法错误
-   - **Statistic (ST)**：统计查询（如满足条件的员工数量）
-   - **Join (JO)**：SQL式多表连接查询
-   - **Tree.Height (TH)**：计算树高
-   - **Node.Depth (ND)**：计算节点深度
+
+    - **PathCompose (PC)**：层次结构中的路径组合和多级索引推理
+    - **TextRetrieval (TR)**：从各种文档格式中提取特定信息
+    - **PathWalk (PW)**：从结构化文档中提取特定章节或子章节
+    - **Syntax (SY)**：检测JSON/XML/YAML等格式的语法错误
+    - **Statistic (ST)**：统计查询（如满足条件的员工数量）
+    - **Join (JO)**：SQL式多表连接查询
+    - **Tree.Height (TH)**：计算树高
+    - **Node.Depth (ND)**：计算节点深度
 4. **双套件设计**：
-   - **Test suite**：3,712个样本，平均长度804字符，depth 1-2, width 1-2
-   - **Test-Hard suite**：2,088个样本，平均长度16,535字符（最长类别达102,531字符），depth/width高达3×3，用于凸显LLM与人类的能力鸿沟
+
+    - **Test suite**：3,712个样本，平均长度804字符，depth 1-2, width 1-2
+    - **Test-Hard suite**：2,088个样本，平均长度16,535字符（最长类别达102,531字符），depth/width高达3×3，用于凸显LLM与人类的能力鸿沟
 5. **每个样本四字段**：Reference（结构化文本）、Question、Requirement、Answer
 
 ## 实验关键数据

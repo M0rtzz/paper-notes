@@ -50,8 +50,9 @@ tags:
    引入标量函数 $\mathfrak{h}(\mathcal{D}_x, \theta) = \sum_{x,y} \tilde{p}(y|x,\theta) \ell_{xy}(\theta) \xi_{xy}$，其中 $\xi$ 是Rademacher随机向量，$\tilde{p}$ 是 $p$ 的detach版本（梯度为零）。通过自动微分计算 $\partial \mathfrak{h}/\partial \theta$，构造 $\mathbb{F}(\theta) = (\partial \mathfrak{h}/\partial \theta)(\partial \mathfrak{h}/\partial \theta)^\top$，这是FIM的无偏估计且变异系数有界（$\leq \sqrt{2}$），仅需一次反向传播。
 
 4. **对角核与低秩核的Hutchinson变体**:
-   - **对角核估计器** $\mathbb{F}^{DG}$: 用于多标签分类或估计FIM上界
-   - **低秩核估计器** $\mathbb{F}^{LR}$: 用于估计FIM下界，仅需 $|\mathcal{D}_x|$ 个Rademacher样本（而非 $C|\mathcal{D}_x|$ 个），计算效率更高。需先用幂迭代法求核空间最大特征值/特征向量（$O(MC|\mathcal{D}_x|)$复杂度）
+
+    - **对角核估计器** $\mathbb{F}^{DG}$: 用于多标签分类或估计FIM上界
+    - **低秩核估计器** $\mathbb{F}^{LR}$: 用于估计FIM下界，仅需 $|\mathcal{D}_x|$ 个Rademacher样本（而非 $C|\mathcal{D}_x|$ 个），计算效率更高。需先用幂迭代法求核空间最大特征值/特征向量（$O(MC|\mathcal{D}_x|)$复杂度）
 
 ### 损失函数 / 训练策略
 本文不涉及新的训练方法，而是提供FIM的分析和估计工具。但其Hutchinson估计器可直接用于：

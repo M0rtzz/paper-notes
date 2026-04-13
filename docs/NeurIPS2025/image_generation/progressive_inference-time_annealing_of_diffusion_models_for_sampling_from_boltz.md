@@ -45,16 +45,17 @@ PITA 训练一系列扩散模型 $\{M_{\beta_i}\}$，从高温 $\beta_0$（低 $
 ### 关键设计
 
 1. **推理时退火（Proposition 1, 核心创新）**：给定已训练的 score 模型 $s_t(x;\theta) \approx \nabla\log p_t(x)$ 和能量模型 $U_t(x;\eta) \approx -\log p_t(x)$，定义退火后的边缘分布 $q_t(x) \propto \exp(-\gamma U_t(x;\eta))$，其中 $\gamma = \beta_{i+1}/\beta_i > 1$。推导出描述 $q_t$ 时间演化的 Feynman-Kac PDE，对应的采样 SDE 为：
-   $$dx_t = \left(-a_t x_t + \frac{\zeta_t^2}{2}(s_t(x_t) - \gamma\xi_t \nabla U_t(x_t;\eta))\right)dt + \zeta_t\sqrt{\xi_t}dW_t$$
+    $dx_t = \left(-a_t x_t + \frac{\zeta_t^2}{2}(s_t(x_t) - \gamma\xi_t \nabla U_t(x_t;\eta))\right)dt + \zeta_t\sqrt{\xi_t}dW_t$
    权重更新：
-   $$d\log w_t = \left[\frac{\zeta_t^2}{2}\langle\nabla, s_t\rangle - \gamma\langle\nabla U_t, -a_t x + \frac{\zeta_t^2}{2}s_t\rangle - \gamma\frac{\partial U_t}{\partial t}\right]dt$$
+    $d\log w_t = \left[\frac{\zeta_t^2}{2}\langle\nabla, s_t\rangle - \gamma\langle\nabla U_t, -a_t x + \frac{\zeta_t^2}{2}s_t\rangle - \gamma\frac{\partial U_t}{\partial t}\right]dt$
    **设计动机**：当 $\gamma=1$（无退火）且模型完美时，权重方差为零（Proposition 2），退化为标准扩散采样。这确保了当退火步长小时重要性权重集中，采样效率高。
 
 2. **训练阶段（Algorithm 1）**：同时优化四个损失函数：
-   - **Denoising Score Matching**：学习 score 模型 $D_t(x_t;\theta)$
-   - **Target Score Matching**：在大噪声水平时利用目标分布的 score $\nabla_x \log \pi(x)$ 直接监督（仅在 $t \geq t_{\text{thresh}}$ 时启用），弥补 DSM 在接近数据分布时的高方差
-   - **EBM Distillation**：将 score 模型蒸馏到能量模型
-   - **Energy Pinning**：用目标刚能量 $\beta_{i+1}\log\pi(x)$ 监督端点能量模型 $U_{t=1}(x;\eta)$，固定能量的gauge（平移不变性）
+
+    - **Denoising Score Matching**：学习 score 模型 $D_t(x_t;\theta)$
+    - **Target Score Matching**：在大噪声水平时利用目标分布的 score $\nabla_x \log \pi(x)$ 直接监督（仅在 $t \geq t_{\text{thresh}}$ 时启用），弥补 DSM 在接近数据分布时的高方差
+    - **EBM Distillation**：将 score 模型蒸馏到能量模型
+    - **Energy Pinning**：用目标刚能量 $\beta_{i+1}\log\pi(x)$ 监督端点能量模型 $U_{t=1}(x;\eta)$，固定能量的gauge（平移不变性）
 
 3. **几何退火变体（Proposition 3 / Appendix A.2）**：对于无界支撑（如 $\text{supp}(\pi) = \mathbb{R}^d$），直接退火可能导致数值不稳定。改用几何平均：$\mathcal{N}(0,\mathbb{1})^{(1-\beta)}\pi(x)^\beta$，确保在任何温度下分布都是可归一化的。
 

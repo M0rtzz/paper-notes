@@ -50,32 +50,35 @@ GenDR-Pix = GenDR - VAE + ×8 pixel-(un)shuffle + 多阶段对抗蒸馏 + PadCFG
 ### 关键设计
 
 1. **Stage I：移除 Encoder**：
-   - 将 VAE encoder 替换为 ×8 pixel-unshuffle 层
-   - 使用 GenDR 的 UNet 作为判别器的特征提取器
-   - 生成器损失：$\mathcal{L}_{\mathcal{G}_1} = \|z_{\text{tea}} - z_{\text{stu}}\|_1 + \lambda_1 \cdot \text{softplus}(-\mathcal{D}(z_{\text{stu}}))$
-   - 产物 GenDR-Adc：低质量像素 → 高质量 latent
+
+    - 将 VAE encoder 替换为 ×8 pixel-unshuffle 层
+    - 使用 GenDR 的 UNet 作为判别器的特征提取器
+    - 生成器损失：$\mathcal{L}_{\mathcal{G}_1} = \|z_{\text{tea}} - z_{\text{stu}}\|_1 + \lambda_1 \cdot \text{softplus}(-\mathcal{D}(z_{\text{stu}}))$
+    - 产物 GenDR-Adc：低质量像素 → 高质量 latent
 
 2. **Stage II：移除 Decoder（核心难点）**：
-   - 将 decoder 替换为 ×8 pixel-shuffle 层
-   - **问题 1 - 重复模式伪影**：×8 upscaling 中一个不当的权重值会在所有 8×8 patch 上产生相同伪影
-   - **解法 - Masked Fourier Space (MFS) Loss**：
-     - 观察到频域中伪影呈周期性高光点，与 pixel-shuffle 缩放因子对齐
-     - 设计带通拒绝滤波器 mask $\mathcal{M}$，对异常振幅施加惩罚：
-     $$\mathcal{L}_{\mathcal{F}} = \|\mathcal{M} \cdot (|\mathcal{F}\{y_{\text{stu}}\}| - |\mathcal{F}\{y_{\text{tea}}\}|)\|_1$$
+
+    - 将 decoder 替换为 ×8 pixel-shuffle 层
+    - **问题 1 - 重复模式伪影**：×8 upscaling 中一个不当的权重值会在所有 8×8 patch 上产生相同伪影
+    - **解法 - Masked Fourier Space (MFS) Loss**：
+      - 观察到频域中伪影呈周期性高光点，与 pixel-shuffle 缩放因子对齐
+      - 设计带通拒绝滤波器 mask $\mathcal{M}$，对异常振幅施加惩罚：
+    $\mathcal{L}_{\mathcal{F}} = \|\mathcal{M} \cdot (|\mathcal{F}\{y_{\text{stu}}\}| - |\mathcal{F}\{y_{\text{tea}}\}|)\|_1$
    
-   - **问题 2 - 缺乏合适判别器**：latent 空间的判别器无法处理 pixel-shuffled 特征
-   - **解法 - 用 Stage I 模型作判别器**：GenDR-Adc ($\mathcal{G}_1$) 天然使用 pixel-unshuffle 编码输入
+    - **问题 2 - 缺乏合适判别器**：latent 空间的判别器无法处理 pixel-shuffled 特征
+    - **解法 - 用 Stage I 模型作判别器**：GenDR-Adc ($\mathcal{G}_1$) 天然使用 pixel-unshuffle 编码输入
    
-   - **问题 3 - 判别器坍塌**：固定的 pixel-unshuffle 模式导致判别器聚焦离散分布表示
-   - **解法 - Random Padding (RandPad) 增强**：随机采样 $p_h, p_w \in \{0,...,7\}$，对 SR 和 HQ 图像执行随机填充
-     $$\text{randpad}(y) = \text{pad}(y, [p_h, 8-p_h, p_w, 8-p_w])$$
-     使判别器提取连续表示，避免模式坍塌
+    - **问题 3 - 判别器坍塌**：固定的 pixel-unshuffle 模式导致判别器聚焦离散分布表示
+    - **解法 - Random Padding (RandPad) 增强**：随机采样 $p_h, p_w \in \{0,...,7\}$，对 SR 和 HQ 图像执行随机填充
+    $\text{randpad}(y) = \text{pad}(y, [p_h, 8-p_h, p_w, 8-p_w])$
+      使判别器提取连续表示，避免模式坍塌
 
 3. **PadCFG：像素空间的 Classifier-Free Guidance**：
-   - 直接在像素空间用 CFG 会加剧伪影
-   - 将 self-ensemble（多种 padding → 融合）与 CFG 融合：
-     $$\bar{y} = \omega \times \mathcal{G}_2(\text{pad}(x,[4,4,4,4]), c_{\text{pos}}) + (1-\omega) \times \mathcal{G}_2(\text{pad}(x,[3,5,3,5]), c_{\text{neg}})$$
-   - 仅需 2 次前向传播（与标准 CFG 相同），但结合了不同 padding 的 ensemble 效果
+
+    - 直接在像素空间用 CFG 会加剧伪影
+    - 将 self-ensemble（多种 padding → 融合）与 CFG 融合：
+    $\bar{y} = \omega \times \mathcal{G}_2(\text{pad}(x,[4,4,4,4]), c_{\text{pos}}) + (1-\omega) \times \mathcal{G}_2(\text{pad}(x,[3,5,3,5]), c_{\text{neg}})$
+    - 仅需 2 次前向传播（与标准 CFG 相同），但结合了不同 padding 的 ensemble 效果
 
 ### 损失函数 / 训练策略
 

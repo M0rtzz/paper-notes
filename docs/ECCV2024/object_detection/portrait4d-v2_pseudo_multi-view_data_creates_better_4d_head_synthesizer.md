@@ -51,15 +51,16 @@ tags:
 1. **基于ViT的Triplane重建器**：采用Portrait4D的backbone架构，两个CNN编码器分别提取全局和细节外观特征，全局特征送入ViT blocks进行姿态正则化，再与细节特征拼接送入ViT解码器生成triplane T。运动信息通过motion-aware cross-attention层注入：前几个block的cross-attention接收源图像的运动嵌入vs用于中性化，后续block接收驱动图像的运动嵌入vd用于重演。运动嵌入通过预训练的2D运动编码器Emot提取。
 
 2. **3D合成器与多视角视频生成**：将完整重建器中的cross-attention层禁用，得到静态3D合成器Ψ3d。使用GenHead（Portrait4D的4D GAN）生成合成多视角数据训练Ψ3d，学习目标为从输入图像重建同一3D头在任意视角下的图像。训练损失包含7项：
-   $$\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_{LPIPS} + \mathcal{L}_{id} + \mathcal{L}_{adv} + \mathcal{L}_{depth} + \mathcal{L}_{opa} + \mathcal{L}_T$$
+    $\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_{LPIPS} + \mathcal{L}_{id} + \mathcal{L}_{adv} + \mathcal{L}_{depth} + \mathcal{L}_{opa} + \mathcal{L}_T$
    
    关键发现：虽然Ψ3d只在静态图像上训练，但它能在视频各帧间保持几何一致性，且比Portrait4D更好地保留真实帧的细节形状和表情。这是因为静态重建利用了更少的3DMM归纳偏置。
 
 3. **跨视角自重演学习**：核心训练策略。每次迭代：
-   - 从真实视频采样源帧Îs
-   - 从伪多视角驱动视频采样两个不同视角的同一运动帧Id(θp)和Id(θq)
-   - 以Îs为外观输入、从Id(θp)提取运动嵌入，让Ψ在θq视角生成重演结果
-   - 训练损失：$\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_{LPIPS} + \mathcal{L}_{id} + \mathcal{L}_{adv}$
+
+    - 从真实视频采样源帧Îs
+    - 从伪多视角驱动视频采样两个不同视角的同一运动帧Id(θp)和Id(θq)
+    - 以Îs为外观输入、从Id(θp)提取运动嵌入，让Ψ在θq视角生成重演结果
+    - 训练损失：$\mathcal{L} = \mathcal{L}_1 + \mathcal{L}_{LPIPS} + \mathcal{L}_{id} + \mathcal{L}_{adv}$
    
    **替换策略**：由于Ψ3d并不完美，以10%概率将Id(θp)替换为真实驱动帧Îd，以80%概率将Id(θq)替换为Îd。这使得模型主要学习重建真实帧，伪多视角帧更多起几何正则化作用。当使用真实帧作为GT时用全部4项损失，否则仅用LPIPS。
 

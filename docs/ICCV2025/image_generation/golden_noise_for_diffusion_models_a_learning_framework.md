@@ -52,33 +52,36 @@ tags:
 ### 关键设计
 
 1. **Re-denoise Sampling 数据收集**:
-   - 做什么：构建大规模噪声提示数据集（NPD），包含 10 万对源噪声-目标噪声及对应文本
-   - 核心思路：对初始噪声 $\mathbf{x}_T$ 先做一步 DDIM 去噪得到 $\mathbf{x}_{T-1}$，再用 DDIM-Inversion 反转回 $\mathbf{x}_T'$。由于 DDIM 和 DDIM-Inversion 使用不同的 CFG 尺度（$\omega_l > \omega_w$），$\mathbf{x}_T'$ 相比 $\mathbf{x}_T$ 携带了更多语义信息：
-     $$\mathbf{x}_T' = \text{DDIM-Inversion}(\text{DDIM}(\mathbf{x}_T))$$
-   - 数据筛选：使用 HPSv2 偏好模型，仅保留 $s_0 + m < s_0'$ 的高质量对
-   - 设计动机：利用 CFG 尺度不一致性将语义信息"注入"到噪声中，AI 反馈确保数据集质量
+
+    - 做什么：构建大规模噪声提示数据集（NPD），包含 10 万对源噪声-目标噪声及对应文本
+    - 核心思路：对初始噪声 $\mathbf{x}_T$ 先做一步 DDIM 去噪得到 $\mathbf{x}_{T-1}$，再用 DDIM-Inversion 反转回 $\mathbf{x}_T'$。由于 DDIM 和 DDIM-Inversion 使用不同的 CFG 尺度（$\omega_l > \omega_w$），$\mathbf{x}_T'$ 相比 $\mathbf{x}_T$ 携带了更多语义信息：
+    $\mathbf{x}_T' = \text{DDIM-Inversion}(\text{DDIM}(\mathbf{x}_T))$
+    - 数据筛选：使用 HPSv2 偏好模型，仅保留 $s_0 + m < s_0'$ 的高质量对
+    - 设计动机：利用 CFG 尺度不一致性将语义信息"注入"到噪声中，AI 反馈确保数据集质量
 
 2. **NPNet 架构设计（SVD 预测 + 残差预测）**:
-   - 做什么：从源噪声和文本提示预测黄金噪声
-   - 核心思路包含两条路径：
+
+    - 做什么：从源噪声和文本提示预测黄金噪声
+    - 核心思路包含两条路径：
    
-     **奇异值预测**：基于 Davis-Kahan 定理的观察——源噪声和目标噪声的奇异向量高度相似，只需预测新的奇异值：
-     $$\mathbf{x}_T = U \times \Sigma \times V^T$$
-     $$\tilde{\Sigma} = f(g(\phi(U, \Sigma, V^T)))$$
-     $$\tilde{\mathbf{x}}_T' = U \times \tilde{\Sigma} \times V^T$$
+      **奇异值预测**：基于 Davis-Kahan 定理的观察——源噪声和目标噪声的奇异向量高度相似，只需预测新的奇异值：
+    $\mathbf{x}_T = U \times \Sigma \times V^T$
+    $\tilde{\Sigma} = f(g(\phi(U, \Sigma, V^T)))$
+    $\tilde{\mathbf{x}}_T' = U \times \tilde{\Sigma} \times V^T$
      
-     **残差预测**：通过 ViT + UpSample/DownSample 预测源噪声和目标噪声的残差，并注入文本语义：
-     $$\mathbf{e} = \sigma(\mathbf{x}_T, \mathcal{E}(\mathbf{c}))$$
-     $$\hat{\mathbf{x}}_T = \varphi'(\psi(\varphi(\mathbf{x}_T + \mathbf{e})))$$
-   - 设计动机：SVD 路径利用了噪声对之间的结构相似性，残差路径捕获文本相关的精细调整
+      **残差预测**：通过 ViT + UpSample/DownSample 预测源噪声和目标噪声的残差，并注入文本语义：
+    $\mathbf{e} = \sigma(\mathbf{x}_T, \mathcal{E}(\mathbf{c}))$
+    $\hat{\mathbf{x}}_T = \varphi'(\psi(\varphi(\mathbf{x}_T + \mathbf{e})))$
+    - 设计动机：SVD 路径利用了噪声对之间的结构相似性，残差路径捕获文本相关的精细调整
 
 3. **训练与推理**:
-   - 做什么：MSE 损失训练，推理时直接替换初始噪声
-   - 核心思路：
-     $$\mathcal{L}_\text{MSE} = \text{MSE}(\mathbf{x}_T', \mathbf{x}_{T_{pred}}')$$
-     $$\mathbf{x}_{T_{pred}}' = \alpha\mathbf{e} + \tilde{\mathbf{x}}_T' + \beta\hat{\mathbf{x}}_T$$
-     其中 $\alpha, \beta$ 为可学习参数
-   - 设计动机：$\alpha$ 控制语义注入强度，$\beta$ 控制残差预测权重，自适应平衡两条路径
+
+    - 做什么：MSE 损失训练，推理时直接替换初始噪声
+    - 核心思路：
+    $\mathcal{L}_\text{MSE} = \text{MSE}(\mathbf{x}_T', \mathbf{x}_{T_{pred}}')$
+    $\mathbf{x}_{T_{pred}}' = \alpha\mathbf{e} + \tilde{\mathbf{x}}_T' + \beta\hat{\mathbf{x}}_T$
+      其中 $\alpha, \beta$ 为可学习参数
+    - 设计动机：$\alpha$ 控制语义注入强度，$\beta$ 控制残差预测权重，自适应平衡两条路径
 
 ### 损失函数 / 训练策略
 

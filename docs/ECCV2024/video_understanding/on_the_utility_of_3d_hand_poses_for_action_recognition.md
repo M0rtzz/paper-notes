@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：AR/VR 头显的普及推动了第一人称手-物交互识别的研究。当前 SOTA 方法（如 SlowFast、Video Transformer）主要依赖多视角或单视角 RGB 流，计算开销大，不适合资源受限的 AR/VR 场景。同时，骨架动作识别领域（MS-G3D、ISTA-Net）主要面向全身骨架，对手部姿态的适配不足。
+**领域现状**：AR/VR 头显的普及推动了第一人称手-物交互识别的研究。当前 SOTA 方法（如 SlowFast、Video Transformer）主要依赖多视角或单视角 RGB 流，计算开销大，不适合资源受限的 AR/VR 场景。同时，骨架动作识别领域（MS-G3D、ISTA-Net）主要面向全身骨架，对手部姿态的适配不足。
 
-2. **现有痛点**：
+**现有痛点**：
    - **全身骨架方法不适用于手部**：全身动作中存在静态参考关节（如头部），运动关节相对参考关节的变化是核心线索。但手部关节高度耦合（Pearson 相关系数 0.93 vs 全身 0.33），所有关节一起运动，缺乏静态参考点，因此远程时空依赖建模效果有限。
    - **纯 RGB 方法计算代价高**：密集采样 RGB 帧代价大，但降低时序分辨率又会丢失细粒度动作区分（如"拧紧"vs"拧松"）。
    - **纯 pose 无法识别物体**：手部姿态擅长识别动词（verb），但无法编码交互物体信息。
 
-3. **核心矛盾**：手部动作识别需要高时序分辨率理解细微运动，又需要视觉语义识别物体，但二者兼顾的计算成本很高。
+**核心矛盾**：手部动作识别需要高时序分辨率理解细微运动，又需要视觉语义识别物体，但二者兼顾的计算成本很高。
 
-4. **本文要解决什么？** 如何设计一个轻量级架构，既能以高时序分辨率捕捉手部细粒度运动，又能引入足够的视觉语义理解场景和物体？
+**本文要解决什么？** 如何设计一个轻量级架构，既能以高时序分辨率捕捉手部细粒度运动，又能引入足够的视觉语义理解场景和物体？
 
-5. **切入角度**：作者从手部骨架与全身骨架的统计差异出发——手部关节高度耦合、全骨架运动占主导、缺乏静态参考——因此提出时序分解（micro-action）+ 轨迹编码替代传统的远程时空注意力。同时，稀疏 RGB 帧足以提供物体语义。
+**切入角度**：作者从手部骨架与全身骨架的统计差异出发——手部关节高度耦合、全骨架运动占主导、缺乏静态参考——因此提出时序分解（micro-action）+ 轨迹编码替代传统的远程时空注意力。同时，稀疏 RGB 帧足以提供物体语义。
 
-6. **核心 idea 一句话**：用密集手部 pose + 稀疏 RGB 帧构成 micro-action 序列，通过 trajectory 编码实现时空因子化，以极低 FLOPs 达到多模态 SOTA。
+**核心 idea 一句话**：用密集手部 pose + 稀疏 RGB 帧构成 micro-action 序列，通过 trajectory 编码实现时空因子化，以极低 FLOPs 达到多模态 SOTA。
 
 ## 方法详解
 
@@ -49,23 +49,27 @@ tags:
 ### 关键设计
 
 1. **Micro-action 时序分解**:
-   - 做什么：将长序列切分为 $K$ 个固定长度 $N$ 的短窗口，每个窗口称为一个 micro-action，类似于"词"构成"句子"
-   - 核心思路：pose 序列通过线性插值调整到 $\mathcal{T}'=(K-1)\times R + N$ 帧（默认 $\mathcal{T}'=120$, $N=15$, $K=8$），用滑动窗口（步长 $R$）切出 $K$ 个 micro-action。每个 micro-action $M_k = [I_{h(k)}, \{P'_{g(k)+i}\}_{i=0}^{N-1}]$，即一帧 RGB + $N$ 帧 pose
-   - 设计动机：手部关节高度耦合，远程时空注意力（如 CTR-GCN、ISTA-Net）效果有限甚至造成冗余。分解为短窗口后，只在局部建模时空依赖，参数共享效率高。消融显示 $N=15$ 最优，比极端的逐帧（$N=1$）或全序列（$N=120$）好 4-5%。
+
+    - 做什么：将长序列切分为 $K$ 个固定长度 $N$ 的短窗口，每个窗口称为一个 micro-action，类似于"词"构成"句子"
+    - 核心思路：pose 序列通过线性插值调整到 $\mathcal{T}'=(K-1)\times R + N$ 帧（默认 $\mathcal{T}'=120$, $N=15$, $K=8$），用滑动窗口（步长 $R$）切出 $K$ 个 micro-action。每个 micro-action $M_k = [I_{h(k)}, \{P'_{g(k)+i}\}_{i=0}^{N-1}]$，即一帧 RGB + $N$ 帧 pose
+    - 设计动机：手部关节高度耦合，远程时空注意力（如 CTR-GCN、ISTA-Net）效果有限甚至造成冗余。分解为短窗口后，只在局部建模时空依赖，参数共享效率高。消融显示 $N=15$ 最优，比极端的逐帧（$N=1$）或全序列（$N=120$）好 4-5%。
 
 2. **Trajectory Encoder**:
-   - 做什么：将 micro-action 内的密集 pose 序列编码为一个特征向量
-   - 核心思路：采用 Lagrangian 视角——不是按帧处理所有关节，而是将每个关节的 $N$ 帧 3D 坐标看作一条轨迹（$3\times N$ 维向量）。所有关节共享参数的 Single-Joint TCN 将轨迹编码为 $2J$ 个 Local Trajectory Token。另有一个独立的 Wrist-TCN 处理整个动作序列的手腕 6D pose（位置+朝向），生成一个 Global Wrist Token 作为全局运动参考。然后对这些 token 做 self-attention + 时空平均池化
-   - 设计动机：手部动作中全骨架运动占主导，关节间关系变化小。轨迹编码自然捕捉每个关节的短期运动模式，而 Global Wrist Token 弥补了手部缺乏静态参考关节的问题（消融显示加入后 verb 准确率从 64.17% 提升到 64.90%）
+
+    - 做什么：将 micro-action 内的密集 pose 序列编码为一个特征向量
+    - 核心思路：采用 Lagrangian 视角——不是按帧处理所有关节，而是将每个关节的 $N$ 帧 3D 坐标看作一条轨迹（$3\times N$ 维向量）。所有关节共享参数的 Single-Joint TCN 将轨迹编码为 $2J$ 个 Local Trajectory Token。另有一个独立的 Wrist-TCN 处理整个动作序列的手腕 6D pose（位置+朝向），生成一个 Global Wrist Token 作为全局运动参考。然后对这些 token 做 self-attention + 时空平均池化
+    - 设计动机：手部动作中全骨架运动占主导，关节间关系变化小。轨迹编码自然捕捉每个关节的短期运动模式，而 Global Wrist Token 弥补了手部缺乏静态参考关节的问题（消融显示加入后 verb 准确率从 64.17% 提升到 64.90%）
 
 3. **Multimodal Tokenizer**:
-   - 做什么：融合 RGB 特征和 pose 特征，生成增强的多模态 token
-   - 核心思路：将 frame feature $f_k^{\text{RGB}}$ 和 trajectory encoding $f_k^{\text{Pose}}$ 拼接后通过 MLP 投影到共享空间，得到 PoseRGB 特征，然后 split 为两部分分别加回原始 RGB 和 pose 特征。这种残差式交互让两种模态互相增强
-   - Frame Encoder 使用冻结的 DINOv2 ViT（或预训练 ResNet50）处理单帧 RGB，生成手部 1.25× 扩展裁剪和全局场景两种特征
+
+    - 做什么：融合 RGB 特征和 pose 特征，生成增强的多模态 token
+    - 核心思路：将 frame feature $f_k^{\text{RGB}}$ 和 trajectory encoding $f_k^{\text{Pose}}$ 拼接后通过 MLP 投影到共享空间，得到 PoseRGB 特征，然后 split 为两部分分别加回原始 RGB 和 pose 特征。这种残差式交互让两种模态互相增强
+    - Frame Encoder 使用冻结的 DINOv2 ViT（或预训练 ResNet50）处理单帧 RGB，生成手部 1.25× 扩展裁剪和全局场景两种特征
 
 4. **Temporal Transformer**:
-   - 做什么：聚合 $K$ 个 micro-action 的多模态 token 进行时序建模
-   - 核心思路：$2K$ 个 token（每 micro-action 一个 RGB token + 一个 pose token）加上正弦位置编码和可学习的模态嵌入，送入标准 Transformer（HandFormer-B: $d=256$, 2 层；HandFormer-L: $d=512$, 4 层），[CLS] token 输出用于分类
+
+    - 做什么：聚合 $K$ 个 micro-action 的多模态 token 进行时序建模
+    - 核心思路：$2K$ 个 token（每 micro-action 一个 RGB token + 一个 pose token）加上正弦位置编码和可学习的模态嵌入，送入标准 Transformer（HandFormer-B: $d=256$, 2 层；HandFormer-L: $d=512$, 4 层），[CLS] token 输出用于分类
 
 ### 损失函数 / 训练策略
 

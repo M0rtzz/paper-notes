@@ -29,8 +29,8 @@ tags:
 在线变点检测是一个经典统计问题：数据流中的分布发生变化时，需要尽快检测到变化同时控制假警报率。现代应用（音频流、视频、交通数据、心电时间序列）面临两个挑战：数据高维且分布未知（排除了参数方法），数据量大且需要实时处理。
 
 现有核方法的两大局限：
-1. **非真正在线**：大多数方法假设已知预变化分布或拥有已知来自预变化分布的历史数据（如 Scan B-statistics、Online kernel CUSUM）
-2. **需要窗口参数**：几乎所有方法需要指定一个窗口大小来计算局部检验统计量（包括 NEWMA），窗口选择不当会降低功效或增加延迟，且窗口大小限制了可检测的最小变化
+**非真正在线**：大多数方法假设已知预变化分布或拥有已知来自预变化分布的历史数据（如 Scan B-statistics、Online kernel CUSUM）
+**需要窗口参数**：几乎所有方法需要指定一个窗口大小来计算局部检验统计量（包括 NEWMA），窗口选择不当会降低功效或增加延迟，且窗口大小限制了可检测的最小变化
 
 MMD 作为检测统计量有核心优势——特征核下 MMD 度量了概率分布空间，能检测任意分布变化。但标准 MMD 估计器需要 $\mathcal{O}(n^2)$ 时间，不适合在线设置。
 
@@ -48,20 +48,22 @@ $$N = \inf\left\{n \geq 2 \mid \bigcup_{j=0}^{\lfloor\log_2(n)\rfloor - 1} \sqrt
 
 1. **RFF 近似 MMD**：对平移不变核 $K(\mathbf{x}, \mathbf{y}) = \psi(\mathbf{x} - \mathbf{y})$，由 Bochner 定理，$K$ 可表示为谱测度 $\Lambda$ 下的期望。采样 $\omega_1, \ldots, \omega_r \sim \Lambda$，构造特征映射：
 
-   $$\hat{z}_K(\mathbf{x}) = \frac{1}{\sqrt{r}}((\sin(\omega_j^\top\mathbf{x}), \cos(\omega_j^\top\mathbf{x})))_{j=1}^r \in \mathbb{R}^{2r}$$
+    $\hat{z}_K(\mathbf{x}) = \frac{1}{\sqrt{r}}((\sin(\omega_j^\top\mathbf{x}), \cos(\omega_j^\top\mathbf{x})))_{j=1}^r \in \mathbb{R}^{2r}$
 
    则 $\text{MMD}_{\hat{K}}[X_{1:n}, Y_{1:m}] = \|n^{-1}\sum_i \hat{z}_K(X_i) - m^{-1}\sum_j \hat{z}_K(Y_j)\|_2$。关键优势：均值嵌入是欧几里得向量，可线性时间计算、常数时间更新。
 
 2. **二进制网格序贯检验**：不枚举所有可能的变点位置（需 $\mathcal{O}(n)$ 次检验），而只在 $n - 2^j$ 处检验，共 $\log_2 n$ 次。通过维护"窗口"列表 $\mathcal{W}$ 实现：
-   - 每个新观测创建大小为 1 的新窗口
-   - 相同大小的窗口自动合并（z 值相加、计数相加）
-   - 合并过程自然维护二进制结构
+
+    - 每个新观测创建大小为 1 的新窗口
+    - 相同大小的窗口自动合并（z 值相加、计数相加）
+    - 合并过程自然维护二进制结构
 
    算法的巧妙之处在于通过记忆化（memoization），变点检测部分只需单次遍历 $\mathcal{W}$，运行时间 $\mathcal{O}(|\mathcal{W}|r) = \mathcal{O}(r\log n)$。
 
 3. **阈值选择的两种模式**：
-   - **ARL 控制**（Theorem 1）：$\lambda_n \geq \sqrt{2} + \sqrt{2\log(4\gamma\log_2(2\gamma))}$ 保证平均游程长度 $\geq \gamma$
-   - **均匀假警报控制**（Theorem 2）：$\lambda_n \geq \sqrt{2} + \sqrt{2(\log(n/\alpha) + 2\log(\log_2 n) + \log(\log_2(2n)))}$ 保证 $\mathbb{P}_\infty(N < \infty) \leq \alpha$
+
+    - **ARL 控制**（Theorem 1）：$\lambda_n \geq \sqrt{2} + \sqrt{2\log(4\gamma\log_2(2\gamma))}$ 保证平均游程长度 $\geq \gamma$
+    - **均匀假警报控制**（Theorem 2）：$\lambda_n \geq \sqrt{2} + \sqrt{2(\log(n/\alpha) + 2\log(\log_2 n) + \log(\log_2(2n)))}$ 保证 $\mathbb{P}_\infty(N < \infty) \leq \alpha$
 
    两种保证都不依赖于 RFF 数量或预变化分布。
 

@@ -26,11 +26,11 @@ tags:
 首次理论分析 mini-batch Adam 的泛化行为，证明大 batch Adam/AdamW 即使带 weight decay 也收敛到高测试误差的解，而小 batch 版本通过随机梯度的隐式正则化 + weight decay 的显式正则化可实现近零测试误差，且 Adam 的有效 weight decay 上界严格小于 AdamW。
 
 ## 研究背景与动机
-1. **领域现状**：Adam 是深度学习中最广泛使用的优化器（GPT、LLaMA、Deepseek 都用 Adam），但理论分析大多限于 full-batch 版本。实践中使用的是 stochastic（mini-batch）Adam。
-2. **现有痛点**：与 SGD 不同，stochastic Adam 在学习率趋于 0 时也不会收敛到 full-batch 版本——这是 Adam 独有的特性。Zou et al. (2023b) 证明 full-batch Adam 即使带正则化也泛化差，但这不代表实践中的 mini-batch Adam 也会如此。
-3. **核心矛盾**：为什么实践中 Adam（小 batch）效果好，但理论分析（full-batch）预测 Adam 泛化差？batch size 如何影响 Adam 的泛化？
-4. **切入角度**：在两层过参数化 CNN + 信号-噪声 patch 数据模型上，分别分析大 batch 和小 batch Adam/AdamW 的收敛和泛化。
-5. **核心 idea**：小 batch 的随机梯度噪声抑制了 Adam 对噪声 patch 的过拟合速度，同时 weight decay 进一步压制残余噪声成分，两者协同确保收敛到以真实特征为主的解。
+**领域现状**：Adam 是深度学习中最广泛使用的优化器（GPT、LLaMA、Deepseek 都用 Adam），但理论分析大多限于 full-batch 版本。实践中使用的是 stochastic（mini-batch）Adam。
+**现有痛点**：与 SGD 不同，stochastic Adam 在学习率趋于 0 时也不会收敛到 full-batch 版本——这是 Adam 独有的特性。Zou et al. (2023b) 证明 full-batch Adam 即使带正则化也泛化差，但这不代表实践中的 mini-batch Adam 也会如此。
+**核心矛盾**：为什么实践中 Adam（小 batch）效果好，但理论分析（full-batch）预测 Adam 泛化差？batch size 如何影响 Adam 的泛化？
+**切入角度**：在两层过参数化 CNN + 信号-噪声 patch 数据模型上，分别分析大 batch 和小 batch Adam/AdamW 的收敛和泛化。
+**核心 idea**：小 batch 的随机梯度噪声抑制了 Adam 对噪声 patch 的过拟合速度，同时 weight decay 进一步压制残余噪声成分，两者协同确保收敛到以真实特征为主的解。
 
 ## 方法详解
 
@@ -42,22 +42,26 @@ tags:
 ### 关键设计
 
 1. **大 batch 分析（Theorem 4.1, 4.4）**
-   - 结论：当 batch size $B = n$（或接近 $n$）时，Adam 和 AdamW 都收敛到高测试误差的解
-   - 机制：full-batch 梯度对所有样本均匀处理，噪声 patch 和信号 patch 同步学习，weight decay 无法选择性抑制噪声
+
+    - 结论：当 batch size $B = n$（或接近 $n$）时，Adam 和 AdamW 都收敛到高测试误差的解
+    - 机制：full-batch 梯度对所有样本均匀处理，噪声 patch 和信号 patch 同步学习，weight decay 无法选择性抑制噪声
 
 2. **小 batch 分析（Theorem 4.2, 4.5）**
-   - 结论：当 batch size $B = \text{polylog}(n)$ 时，Adam 和 AdamW 可达近零测试误差
-   - 双重正则化机制：(i) 随机梯度隐式减慢噪声拟合速度（因为不同 mini-batch 看到不同噪声，信号方向一致但噪声方向不一致）；(ii) weight decay 显式压制残余噪声
-   - 关键条件：weight decay $\lambda$ 需在特定上界内
+
+    - 结论：当 batch size $B = \text{polylog}(n)$ 时，Adam 和 AdamW 可达近零测试误差
+    - 双重正则化机制：(i) 随机梯度隐式减慢噪声拟合速度（因为不同 mini-batch 看到不同噪声，信号方向一致但噪声方向不一致）；(ii) weight decay 显式压制残余噪声
+    - 关键条件：weight decay $\lambda$ 需在特定上界内
 
 3. **Adam vs AdamW 的 weight decay 敏感性（Corollary 4.3, 4.6）**
-   - Adam 的有效 $\lambda$ 上界严格小于 AdamW
-   - 原因：Adam 的自适应梯度归一化放大了 weight decay 的有效影响——$\lambda$ 出现在梯度中被 $\sqrt{v}$ 归一化，导致正则化效果被进一步放大
-   - 实践意义：Adam 需要更精细的 $\lambda$ 调参，而 AdamW 对 $\lambda$ 更鲁棒
+
+    - Adam 的有效 $\lambda$ 上界严格小于 AdamW
+    - 原因：Adam 的自适应梯度归一化放大了 weight decay 的有效影响——$\lambda$ 出现在梯度中被 $\sqrt{v}$ 归一化，导致正则化效果被进一步放大
+    - 实践意义：Adam 需要更精细的 $\lambda$ 调参，而 AdamW 对 $\lambda$ 更鲁棒
 
 4. **SignSGD 近似（附录 C）**
-   - 在适当条件下，stochastic Adam ≈ SignSGD，stochastic AdamW ≈ SignSGDW
-   - 成立条件：梯度幅度主导优化噪声（$|g_{t,j,r}^{(t)}[k]| \geq \tilde{\Theta}(\eta)$）
+
+    - 在适当条件下，stochastic Adam ≈ SignSGD，stochastic AdamW ≈ SignSGDW
+    - 成立条件：梯度幅度主导优化噪声（$|g_{t,j,r}^{(t)}[k]| \geq \tilde{\Theta}(\eta)$）
 
 ### 损失函数 / 训练策略
 - Adam：$L(W) = \frac{1}{n}\sum L_i(W) + \frac{\lambda}{2}\|W\|_F^2$（L2 正则化在损失中）

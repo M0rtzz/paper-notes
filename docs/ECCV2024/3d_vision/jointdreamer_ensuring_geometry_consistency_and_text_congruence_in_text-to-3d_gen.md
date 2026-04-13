@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: Score Distillation Sampling（SDS）是文本到3D生成的主流范式，利用预训练 2D 扩散模型的图像分布先验优化 NeRF 等 3D 表示。DreamFusion、Magic3D、ProlificDreamer 等方法取得了显著进展。
-2. **现有痛点**: SDS 对每个渲染视图独立优化，继承了 2D 扩散模型视角无关（view-agnostic）的特性，导致严重的 **Multi-Face Janus Problem**——3D 资产从不同角度看到重复内容（如多张脸）。
-3. **核心矛盾**: 现有解决方案要么效果有限（prompt engineering），要么在有限 3D 数据上微调导致过拟合、丢失文本保真度（如 MVDream 处理复杂文本时缺失语义组件）。**几何一致性与文本一致性难以兼顾**。
-4. **本文要解决什么**: 从 SDS 优化范式本身出发，引入多视图一致性约束，在不牺牲扩散模型泛化能力的前提下消除 Janus 问题。
-5. **切入角度**: 用能量函数建模多视图图像的联合分布，从理论上推导出多视图 KL 散度并得到联合分数蒸馏函数。
-6. **核心idea一句话**: SDS 是 JSD 在能量项为零时的特例——引入视觉感知的能量函数即可从单视图优化自然过渡到多视图联合优化。
+**领域现状**: Score Distillation Sampling（SDS）是文本到3D生成的主流范式，利用预训练 2D 扩散模型的图像分布先验优化 NeRF 等 3D 表示。DreamFusion、Magic3D、ProlificDreamer 等方法取得了显著进展。
+**现有痛点**: SDS 对每个渲染视图独立优化，继承了 2D 扩散模型视角无关（view-agnostic）的特性，导致严重的 **Multi-Face Janus Problem**——3D 资产从不同角度看到重复内容（如多张脸）。
+**核心矛盾**: 现有解决方案要么效果有限（prompt engineering），要么在有限 3D 数据上微调导致过拟合、丢失文本保真度（如 MVDream 处理复杂文本时缺失语义组件）。**几何一致性与文本一致性难以兼顾**。
+**本文要解决什么**: 从 SDS 优化范式本身出发，引入多视图一致性约束，在不牺牲扩散模型泛化能力的前提下消除 Janus 问题。
+**切入角度**: 用能量函数建模多视图图像的联合分布，从理论上推导出多视图 KL 散度并得到联合分数蒸馏函数。
+**核心idea一句话**: SDS 是 JSD 在能量项为零时的特例——引入视觉感知的能量函数即可从单视图优化自然过渡到多视图联合优化。
 
 ## 方法详解
 
@@ -62,19 +62,20 @@ $$\nabla_\theta L_{JSD}(\theta) = \sum_{i=1}^{V} \mathbb{E}_{t, \epsilon^i_\Phi}
 2. **三种视觉感知能量函数**: 为展示 JSD 的通用性，论文实例化了三种能量函数：
 
    **(a) 二分类模型 $M_{CLS}$**：基于 DINO-ViT/s16 骨干，判断两个视图是否来自同一 3D 物体。输入图像对 $(x^i, x^j)$ 和相对位姿 $\Delta(c^j, c^i)$，输出一致性二分类分数：
-   $$\mathcal{C}_{CLS}(\tilde{\mathbf{x}}, \tilde{\mathbf{c}}) = \sum_{i,j; i\neq j} M_{CLS}(\mathbf{x}_t^i, \mathbf{x}_t^j, \Delta(c^j, c^i))$$
+    $\mathcal{C}_{CLS}(\tilde{\mathbf{x}}, \tilde{\mathbf{c}}) = \sum_{i,j; i\neq j} M_{CLS}(\mathbf{x}_t^i, \mathbf{x}_t^j, \Delta(c^j, c^i))$
 
    **(b) 图像翻译模型 $M_{I2I}$**：使用 Wonder3D，从参考视图合成目标视图，以重建损失衡量一致性：
-   $$\mathcal{C}_{I2I} = -\sum_i \|M_{I2I}(\mathbf{x}_t^{ref}, \Delta(c^i, c^{ref})) - \mathbf{x}_t^i\|_2^2$$
+    $\mathcal{C}_{I2I} = -\sum_i \|M_{I2I}(\mathbf{x}_t^{ref}, \Delta(c^i, c^{ref})) - \mathbf{x}_t^i\|_2^2$
 
    **(c) 多视图生成模型 $M_{MVS}$**：使用 MVDream，直接生成多视图并计算重建损失：
-   $$\mathcal{C}_{MVS} = -\|M_{MVS}(y, \tilde{\mathbf{c}}) - \tilde{\mathbf{x}}\|_2^2$$
+    $\mathcal{C}_{MVS} = -\|M_{MVS}(y, \tilde{\mathbf{c}}) - \tilde{\mathbf{x}}\|_2^2$
 
    设计动机：不同能量函数提供不同角度的 3D 感知——分类器给出粗粒度结构判断、翻译模型提供精细重建参考、多视图生成模型提供最直接的多视图一致性。JSD 框架对能量函数的选择天然兼容。
 
 3. **Geometry Fading 和 CFG Switching**: 
-   - **Geometry Fading**：从第 5K 迭代开始，将 NeRF density 网络学习率从 $1\times10^{-2}$ 降至 $1\times10^{-6}$，orientation loss 设为 0。前期专注几何收敛，后期释放资源给纹理优化。
-   - **CFG Switching**：前 5K 迭代用小 CFG $s=30$ 保持形状完整性并让 JSD 的一致性引导发挥作用；后续切换为 $s=50$ 增强纹理保真度。
+
+    - **Geometry Fading**：从第 5K 迭代开始，将 NeRF density 网络学习率从 $1\times10^{-2}$ 降至 $1\times10^{-6}$，orientation loss 设为 0。前期专注几何收敛，后期释放资源给纹理优化。
+    - **CFG Switching**：前 5K 迭代用小 CFG $s=30$ 保持形状完整性并让 JSD 的一致性引导发挥作用；后续切换为 $s=50$ 增强纹理保真度。
 
 ### 损失函数 / 训练策略
 

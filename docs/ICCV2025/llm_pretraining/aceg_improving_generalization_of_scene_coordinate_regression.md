@@ -53,8 +53,9 @@ ACE-G将传统的单一场景坐标回归器拆分为两部分：
 1. **Map Code与回归器的分离**：把场景特定信息从网络权重中剥离到外部的map code中。Map code是一组可学习的向量，通过与Transformer的交互来表示场景的3D结构。这种分离使得Transformer可以在大量场景上共享训练，积累通用的坐标回归能力。传统ACE方法中，整个网络权重都是场景特定的；而ACE-G中只有map code是场景特定的，Transformer权重是固定的。
 
 2. **Query Pre-Training（查询预训练）**：这是本文最核心的创新。预训练过程模拟了方法的实际使用场景，在数百个场景上并行进行，交替执行两种迭代：
-   - **Mapping迭代**：使用mapping图像同时优化map code和Transformer权重——让map code学会编码场景，Transformer学会如何读取map code
-   - **Query迭代**：使用与mapping图像不同的query图像（包含新视角、不同光照/物体摆放等变化），但**只优化Transformer权重**，不更新map code——这强迫Transformer学会从map code中提取信息来泛化到未见过的查询条件
+
+    - **Mapping迭代**：使用mapping图像同时优化map code和Transformer权重——让map code学会编码场景，Transformer学会如何读取map code
+    - **Query迭代**：使用与mapping图像不同的query图像（包含新视角、不同光照/物体摆放等变化），但**只优化Transformer权重**，不更新map code——这强迫Transformer学会从map code中提取信息来泛化到未见过的查询条件
    
    这种交替训练策略的关键洞察是：query迭代中，场景信息已经"锁"在了map code中，Transformer必须学会利用这些固定的map code来处理变化的查询图像，从而获得泛化能力。
 

@@ -27,11 +27,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Text-to-SQL 领域 LLM（GPT-4 等）性能最强，但需通过远程 API 访问，暴露敏感的数据库 schema 和用户数据。SLM 可本地部署但复杂查询性能差。
-2. **现有痛点**：(1) 加密方法（HE/MPC）计算开销巨大不适合 LLM 规模；(2) 差分隐私降低效用；(3) 现有提示消毒方法（Portcullis、PP-TS）针对通用文本，无法保持 SQL 的 schema 对齐。
-3. **核心矛盾**：LLM 需要看到 schema 信息才能生成正确 SQL，但 schema 本身就是敏感信息。
-4. **切入角度**：LLM 生成 SQL 需要的是问题与 schema 间的**映射关系**，具体名称不重要——可以用抽象符号替代。
-5. **核心 idea**：三阶段管线——Abstraction（本地 SLM 做 schema linking + 符号替换）→ SQL Generation（远程 LLM 处理抽象提示）→ SQL Reconstruction（本地还原 + 自纠错）。
+**领域现状**：Text-to-SQL 领域 LLM（GPT-4 等）性能最强，但需通过远程 API 访问，暴露敏感的数据库 schema 和用户数据。SLM 可本地部署但复杂查询性能差。
+**现有痛点**：(1) 加密方法（HE/MPC）计算开销巨大不适合 LLM 规模；(2) 差分隐私降低效用；(3) 现有提示消毒方法（Portcullis、PP-TS）针对通用文本，无法保持 SQL 的 schema 对齐。
+**核心矛盾**：LLM 需要看到 schema 信息才能生成正确 SQL，但 schema 本身就是敏感信息。
+**切入角度**：LLM 生成 SQL 需要的是问题与 schema 间的**映射关系**，具体名称不重要——可以用抽象符号替代。
+**核心 idea**：三阶段管线——Abstraction（本地 SLM 做 schema linking + 符号替换）→ SQL Generation（远程 LLM 处理抽象提示）→ SQL Reconstruction（本地还原 + 自纠错）。
 
 ## 方法详解
 
@@ -42,24 +42,28 @@ tags:
 ### 关键设计
 
 1. **Schema Ranking and Filtering**
-   - 做什么：用 RoBERTa cross-encoder 对 schema 元素按与问题的相关性排序，保留 top-k 表和 top-j 列
-   - 核心思路：减少发送给 LLM 的 schema 规模，降低噪声和暴露面
-   - 设计动机：真实数据库常有上百表，大部分与查询无关
+
+    - 做什么：用 RoBERTa cross-encoder 对 schema 元素按与问题的相关性排序，保留 top-k 表和 top-j 列
+    - 核心思路：减少发送给 LLM 的 schema 规模，降低噪声和暴露面
+    - 设计动机：真实数据库常有上百表，大部分与查询无关
 
 2. **Value and Reference Linking**
-   - 做什么：用本地 SLM 识别问题中对应数据库值和 schema 元素的 token
-   - 核心思路：三步——(1) SLM 识别值 token（如"New York Hospital"）；(2) 映射到对应列/表；(3) 识别引用 token（如"patients"→Patients 表）
-   - 设计动机：准确的 linking 是抽象质量的关键——遗漏的 token 将暴露敏感信息
+
+    - 做什么：用本地 SLM 识别问题中对应数据库值和 schema 元素的 token
+    - 核心思路：三步——(1) SLM 识别值 token（如"New York Hospital"）；(2) 映射到对应列/表；(3) 识别引用 token（如"patients"→Patients 表）
+    - 设计动机：准确的 linking 是抽象质量的关键——遗漏的 token 将暴露敏感信息
 
 3. **Abstracting Concrete Tokens**
-   - 做什么：用双射映射将表名→$T_i$、列名→$C_i$、值→$V_i$，生成 $\mathcal{Q}'$ 和 $\mathcal{S}'$
-   - 核心思路：简单文本替换 + 附加值-列对应说明（如"$V_1$ is a value of column $C_7$"）
-   - 设计动机：保留了问题与 schema 的逻辑映射关系，LLM 仍能理解查询意图
+
+    - 做什么：用双射映射将表名→$T_i$、列名→$C_i$、值→$V_i$，生成 $\mathcal{Q}'$ 和 $\mathcal{S}'$
+    - 核心思路：简单文本替换 + 附加值-列对应说明（如"$V_1$ is a value of column $C_7$"）
+    - 设计动机：保留了问题与 schema 的逻辑映射关系，LLM 仍能理解查询意图
 
 4. **SQL Reconstruction + Self-Correction**
-   - 做什么：用符号查找表还原抽象 SQL，再用本地 SLM 纠错
-   - 核心思路：执行还原后的 SQL，将结果连同原始问题一起提供给 SLM 进行最终纠错
-   - 设计动机：抽象噪声可能导致值类型错误（如 string "positive" vs numeric 1）
+
+    - 做什么：用符号查找表还原抽象 SQL，再用本地 SLM 纠错
+    - 核心思路：执行还原后的 SQL，将结果连同原始问题一起提供给 SLM 进行最终纠错
+    - 设计动机：抽象噪声可能导致值类型错误（如 string "positive" vs numeric 1）
 
 ### 损失函数 / 训练策略
 

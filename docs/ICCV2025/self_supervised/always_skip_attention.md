@@ -28,23 +28,23 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Vision Transformer（ViT）在计算机视觉任务中取得了巨大成功，自注意力（Self-Attention Block, SAB）和前馈网络（FFN）加上 skip connection 构成其核心架构。Skip connection 作为标配组件被广泛使用，但其在 ViT 中起到作用的根本原因一直缺乏深入的理论解释。
+**领域现状**：Vision Transformer（ViT）在计算机视觉任务中取得了巨大成功，自注意力（Self-Attention Block, SAB）和前馈网络（FFN）加上 skip connection 构成其核心架构。Skip connection 作为标配组件被广泛使用，但其在 ViT 中起到作用的根本原因一直缺乏深入的理论解释。
 
-2. **现有痛点**：
+**现有痛点**：
    - 作者发现了一个有趣但此前未被报道的经验性现象：在 ViT 中移除 SAB 的 skip connection 会导致**灾难性**的性能崩溃（CIFAR-10 上掉 22%），而移除 FFN 的 skip connection 只有温和的性能下降（掉 2%）
    - 这种"不对等依赖"在 CNN（如 ConvMixer）中不存在——移除 skip connection 对 CNN 性能几乎无影响（±0.2%）
    - 之前唯一尝试无 skip connection 训练 Transformer 的工作需要 5 倍训练时间，且原因未解释清楚
 
-3. **核心矛盾**：为什么自注意力机制对 skip connection 如此依赖，而其他组件（FFN、卷积）则不然？这背后的根本原因是什么？
+**核心矛盾**：为什么自注意力机制对 skip connection 如此依赖，而其他组件（FFN、卷积）则不然？这背后的根本原因是什么？
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 从理论上解释 SAB 对 skip connection 的极端依赖性
    - 理解 skip connection 在 SAB 中的真正作用机制
    - 基于理论洞察提出改善 ViT 训练的新方法
 
-5. **切入角度**：从矩阵条件数（condition number）的视角分析。条件数衡量矩阵的"病态程度"——条件数越大，Jacobian 矩阵越病态，梯度下降的训练越不稳定。
+**切入角度**：从矩阵条件数（condition number）的视角分析。条件数衡量矩阵的"病态程度"——条件数越大，Jacobian 矩阵越病态，梯度下降的训练越不稳定。
 
-6. **核心 idea 一句话**：自注意力运算的三次矩阵乘法结构使输出嵌入的条件数上界是输入条件数的**三次方**，导致本质性的病态化，而 skip connection 的作用正是正则化这一条件数。
+**核心 idea 一句话**：自注意力运算的三次矩阵乘法结构使输出嵌入的条件数上界是输入条件数的**三次方**，导致本质性的病态化，而 skip connection 的作用正是正则化这一条件数。
 
 ## 方法详解
 
@@ -57,25 +57,29 @@ tags:
 ### 关键设计
 
 1. **自注意力的病态性分析（Proposition 4.1）**:
-   - 做什么：理论推导 SAB 输出嵌入（无 skip connection）的条件数上界
-   - 核心思路：对于线性注意力（无 softmax），SAB 的输出 $\mathbf{XW_QW_K^TX^TXW_V}$ 的条件数满足 $\kappa(\text{output}) \leq C \cdot (\sigma_{max}/\sigma_{min})^3$，即输入矩阵条件数的**立方**
-   - 设计动机：这解释了为什么 SAB 的输出嵌入在实验中条件数高达 $e^6$，而 FFN 的输出只有 $e^3$。对比 FFN 的乘法结构 $\mathbf{W_{down}W_{up}X}$，其条件数上界仅为输入条件数的**一次方**
-   - 虽然理论证明基于线性注意力，但实验表明 softmax 注意力也有相同的病态化问题
+
+    - 做什么：理论推导 SAB 输出嵌入（无 skip connection）的条件数上界
+    - 核心思路：对于线性注意力（无 softmax），SAB 的输出 $\mathbf{XW_QW_K^TX^TXW_V}$ 的条件数满足 $\kappa(\text{output}) \leq C \cdot (\sigma_{max}/\sigma_{min})^3$，即输入矩阵条件数的**立方**
+    - 设计动机：这解释了为什么 SAB 的输出嵌入在实验中条件数高达 $e^6$，而 FFN 的输出只有 $e^3$。对比 FFN 的乘法结构 $\mathbf{W_{down}W_{up}X}$，其条件数上界仅为输入条件数的**一次方**
+    - 虽然理论证明基于线性注意力，但实验表明 softmax 注意力也有相同的病态化问题
 
 2. **Skip Connection 的正则化作用（Proposition 4.2）**:
-   - 做什么：理论证明 skip connection 显著改善 SAB 输出的条件
-   - 核心思路：$\kappa(\mathbf{XM + X}) \ll \kappa(\mathbf{XM})$，添加恒等映射后条件数大幅降低
-   - 这为"skip connection 为什么对 SAB 不可或缺"提供了清晰的数学解释：它不仅仅是梯度流的通道，更是条件数的正则化器
+
+    - 做什么：理论证明 skip connection 显著改善 SAB 输出的条件
+    - 核心思路：$\kappa(\mathbf{XM + X}) \ll \kappa(\mathbf{XM})$，添加恒等映射后条件数大幅降低
+    - 这为"skip connection 为什么对 SAB 不可或缺"提供了清晰的数学解释：它不仅仅是梯度流的通道，更是条件数的正则化器
 
 3. **Token Graying (TG) — SVD 版本**:
-   - 做什么：通过 SVD 分解重构输入 token，放大小奇异值以改善条件数
-   - 核心思路：对 token 矩阵做 SVD $\mathbf{X = U\Sigma V^T}$，归一化奇异值后用幂指数 $\epsilon \in (0,1]$ 放大（$\tilde{\Sigma} = (\Sigma/\max(\Sigma))^\epsilon$），再重构 $\tilde{\mathbf{X}} = \mathbf{U\tilde{\Sigma}V^T}$
-   - 问题：SVD 计算成本过高（训练慢约 6 倍），实用性差
+
+    - 做什么：通过 SVD 分解重构输入 token，放大小奇异值以改善条件数
+    - 核心思路：对 token 矩阵做 SVD $\mathbf{X = U\Sigma V^T}$，归一化奇异值后用幂指数 $\epsilon \in (0,1]$ 放大（$\tilde{\Sigma} = (\Sigma/\max(\Sigma))^\epsilon$），再重构 $\tilde{\mathbf{X}} = \mathbf{U\tilde{\Sigma}V^T}$
+    - 问题：SVD 计算成本过高（训练慢约 6 倍），实用性差
 
 4. **Token Graying (TG) — DCT 版本**:
-   - 做什么：用离散余弦变换（DCT）近似 SVD 的效果
-   - 核心思路：自然图像中 SVD 的主奇异向量通常对应低频内容，而 DCT 本质上也是频域变换——$\hat{\mathbf{X}} = D\mathbf{X}D^T$，在频域放大后 IDCT 重构
-   - 计算复杂度 $O(nd\log(nd))$ vs SVD 的 $O(nd\min(n,d))$，训练时间几乎无增加（0.732天 vs 0.723天 基准 vs 4.552天 SVD）
+
+    - 做什么：用离散余弦变换（DCT）近似 SVD 的效果
+    - 核心思路：自然图像中 SVD 的主奇异向量通常对应低频内容，而 DCT 本质上也是频域变换——$\hat{\mathbf{X}} = D\mathbf{X}D^T$，在频域放大后 IDCT 重构
+    - 计算复杂度 $O(nd\log(nd))$ vs SVD 的 $O(nd\min(n,d))$，训练时间几乎无增加（0.732天 vs 0.723天 基准 vs 4.552天 SVD）
 
 ### 损失函数 / 训练策略
 

@@ -46,26 +46,29 @@ VICP 框架分两大模块：
 ### 关键设计
 
 1. **上下文视觉提示生成（In-Context Visual Prompt Generation）**：
-   - 输入：支持集 $\mathcal{S} = \{(\boldsymbol{x}_i, \boldsymbol{x}_j, y_{ij})\}$（正负样本对）
-   - 用 DINOv2 编码每张图像，通过 **Q-Former**（Query-based Connector，灵感来自 BLIP-2）将每张图像压缩为 $N$ 个潜在 token
-   - 对每个样本对，将两张图像的压缩 token 与标签嵌入拼接：$\mathbf{T}_{ij} = [\mathbf{I}_i; \mathbf{I}_j; \mathbf{L}_{ij}]$
-   - $K$ 个样本对形成完整上下文序列 $\mathbf{T}_{\text{ctx}}$
-   - 冻结的 LLM（LLaMA）以自回归方式处理该序列，只对标签 token 计算损失（ICL Loss）
-   - 在序列末尾附加 $M$ 个可学习的视觉提示 token $\mathbf{P}_{\text{learn}}$
-   - LLM 的输出经 Visual Head（两层 MLP）映射为视觉提示 $\mathbf{P}_{\text{task}} \in \mathbb{R}^{M \times d_{\text{vision}}}$
+
+    - 输入：支持集 $\mathcal{S} = \{(\boldsymbol{x}_i, \boldsymbol{x}_j, y_{ij})\}$（正负样本对）
+    - 用 DINOv2 编码每张图像，通过 **Q-Former**（Query-based Connector，灵感来自 BLIP-2）将每张图像压缩为 $N$ 个潜在 token
+    - 对每个样本对，将两张图像的压缩 token 与标签嵌入拼接：$\mathbf{T}_{ij} = [\mathbf{I}_i; \mathbf{I}_j; \mathbf{L}_{ij}]$
+    - $K$ 个样本对形成完整上下文序列 $\mathbf{T}_{\text{ctx}}$
+    - 冻结的 LLM（LLaMA）以自回归方式处理该序列，只对标签 token 计算损失（ICL Loss）
+    - 在序列末尾附加 $M$ 个可学习的视觉提示 token $\mathbf{P}_{\text{learn}}$
+    - LLM 的输出经 Visual Head（两层 MLP）映射为视觉提示 $\mathbf{P}_{\text{task}} \in \mathbb{R}^{M \times d_{\text{vision}}}$
 
 2. **视觉提示注入（Prompt Injection into VFM）**：
-   - 将 $\mathbf{P}_{\text{task}}$ 拼接到 ViT 每一层的输入 token 序列中
-   - 通过自注意力机制，提示 token 与空间特征交互，动态放大身份敏感区域（logo、纹理等），抑制无关区域（背景、光照变化）
-   - ViT 参数完全冻结，只有提示在调制特征空间
-   - 推理时提示可缓存复用，对同类别的所有 query-gallery 比较只需一次提示生成
+
+    - 将 $\mathbf{P}_{\text{task}}$ 拼接到 ViT 每一层的输入 token 序列中
+    - 通过自注意力机制，提示 token 与空间特征交互，动态放大身份敏感区域（logo、纹理等），抑制无关区域（背景、光照变化）
+    - ViT 参数完全冻结，只有提示在调制特征空间
+    - 推理时提示可缓存复用，对同类别的所有 query-gallery 比较只需一次提示生成
 
 3. **损失函数设计**：
-   - **ReID Loss（Triplet Loss）**：$\mathcal{L}_{\text{ID}} = \sum \max(0, \alpha - \text{sim}(\phi(\boldsymbol{x}_a), \phi(\boldsymbol{x}_p)) + \text{sim}(\phi(\boldsymbol{x}_a), \phi(\boldsymbol{x}_n)))$
-     - 选择 Triplet 而非 ArcFace/对比损失，因为 Triplet 只惩罚违反 margin 的样本，施加更柔和的更新，保留预训练模型的语义先验
-   - **Patch Alignment Loss（OT距离）**：$\mathcal{L}_{\text{align}}$，利用最优传输距离衡量 patch 级特征的匹配质量，正对齐负分离
-   - **ICL Loss**：仅监督标签 token 的预测，保留 LLM 预训练的语义知识
-   - 总损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{ID}} + \lambda_{\text{ICL}} \mathcal{L}_{\text{ICL}} + \lambda_{\text{align}} \mathcal{L}_{\text{align}}$
+
+    - **ReID Loss（Triplet Loss）**：$\mathcal{L}_{\text{ID}} = \sum \max(0, \alpha - \text{sim}(\phi(\boldsymbol{x}_a), \phi(\boldsymbol{x}_p)) + \text{sim}(\phi(\boldsymbol{x}_a), \phi(\boldsymbol{x}_n)))$
+      - 选择 Triplet 而非 ArcFace/对比损失，因为 Triplet 只惩罚违反 margin 的样本，施加更柔和的更新，保留预训练模型的语义先验
+    - **Patch Alignment Loss（OT距离）**：$\mathcal{L}_{\text{align}}$，利用最优传输距离衡量 patch 级特征的匹配质量，正对齐负分离
+    - **ICL Loss**：仅监督标签 token 的预测，保留 LLM 预训练的语义知识
+    - 总损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{ID}} + \lambda_{\text{ICL}} \mathcal{L}_{\text{ICL}} + \lambda_{\text{align}} \mathcal{L}_{\text{align}}$
 
 ### 损失函数 / 训练策略
 

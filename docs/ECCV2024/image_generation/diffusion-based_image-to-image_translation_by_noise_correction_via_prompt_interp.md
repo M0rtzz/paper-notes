@@ -32,9 +32,9 @@ tags:
 2. 无训练方法（Prompt-to-Prompt、Plug-and-Play、Pix2Pix-Zero等）：操纵反向过程的去噪策略
 
 **现有痛点**：
-1. **起点不准确**：DDIM反向过程的起点 $\mathbf{x}_T^{\text{tgt}}$ 直接设置为 $\mathbf{x}_T^{\text{src}}$，但真正的目标起点 $\mathbf{x}_T^{\text{tgt*}}$ 与之存在偏差，导致朴素的反向过程无法生成理想的目标图像
-2. **文本嵌入突变**：从源prompt嵌入 $\mathbf{y}^{\text{src}}$ 到目标prompt嵌入 $\mathbf{y}^{\text{tgt}}$ 的突然切换，导致生成过程不稳定
-3. **结构保持困难**：现有方法难以在编辑目标区域的同时完美保留背景和结构
+**起点不准确**：DDIM反向过程的起点 $\mathbf{x}_T^{\text{tgt}}$ 直接设置为 $\mathbf{x}_T^{\text{src}}$，但真正的目标起点 $\mathbf{x}_T^{\text{tgt*}}$ 与之存在偏差，导致朴素的反向过程无法生成理想的目标图像
+**文本嵌入突变**：从源prompt嵌入 $\mathbf{y}^{\text{src}}$ 到目标prompt嵌入 $\mathbf{y}^{\text{tgt}}$ 的突然切换，导致生成过程不稳定
+**结构保持困难**：现有方法难以在编辑目标区域的同时完美保留背景和结构
 
 **核心矛盾**：如何在不进行任何训练的情况下，补偿反向过程错误起点带来的偏差，同时精确控制编辑区域和保留区域的边界？
 
@@ -58,25 +58,28 @@ $$\hat{\epsilon}_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}^{\text{tgt}}) :
 ### 关键设计
 
 1. **噪声校正项（Noise Correction Term）**：
-   - **做什么**：捕捉目标prompt相对于源prompt在噪声空间中的差异，仅影响需要编辑的区域
-   - **核心思路**：
-     $$\Delta\epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}_t) := \epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}_t) - \epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}^{\text{src}})$$
-     即同一目标latent在插值prompt和源prompt下的噪声预测差值
-   - **设计动机**：当 $\mathbf{y}_t$ 与 $\mathbf{y}^{\text{src}}$ 相同时差值为零（不编辑），当 $\mathbf{y}_t$ 趋向 $\mathbf{y}^{\text{tgt}}$ 时差值集中在与目标prompt相关的区域。可视化证实校正项自动"高亮"待编辑区域，而背景趋近于零。这有效补偿了 $\mathbf{x}_T^{\text{tgt*}}$ 与 $\mathbf{x}_T^{\text{src}}$ 之间的差距
+
+    - **做什么**：捕捉目标prompt相对于源prompt在噪声空间中的差异，仅影响需要编辑的区域
+    - **核心思路**：
+    $\Delta\epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}_t) := \epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}_t) - \epsilon_\theta(\mathbf{x}_t^{\text{tgt}}, t, \mathbf{y}^{\text{src}})$
+      即同一目标latent在插值prompt和源prompt下的噪声预测差值
+    - **设计动机**：当 $\mathbf{y}_t$ 与 $\mathbf{y}^{\text{src}}$ 相同时差值为零（不编辑），当 $\mathbf{y}_t$ 趋向 $\mathbf{y}^{\text{tgt}}$ 时差值集中在与目标prompt相关的区域。可视化证实校正项自动"高亮"待编辑区域，而背景趋近于零。这有效补偿了 $\mathbf{x}_T^{\text{tgt*}}$ 与 $\mathbf{x}_T^{\text{src}}$ 之间的差距
 
 2. **渐进式Prompt插值（Progressive Prompt Interpolation）**：
-   - **做什么**：在反向过程中，文本嵌入从源prompt平滑过渡到目标prompt
-   - **核心思路（词替换任务）**：逐token线性插值
-     $$\mathbf{y}_t[\ell] = \beta_t \mathbf{y}^{\text{tgt}}[\ell] + (1 - \beta_t) \mathbf{y}^{\text{src}}[\ell]$$
-     其中混合系数 $\beta_t = \beta + (1-\beta) \times \frac{T-t}{T}$，随去噪步数逐渐从源嵌入过渡到目标嵌入
-   - **核心思路（添加短语任务）**：对新增token直接使用目标嵌入，对后续共享token做插值：
-     $$\mathbf{y}_t[\ell] = \begin{cases} \mathbf{y}^{\text{src}}[\ell], & \text{if } \ell < \ell_s \\ \mathbf{y}^{\text{tgt}}[\ell], & \text{if } \ell_s \leq \ell \leq \ell_f \\ \beta_t \mathbf{y}^{\text{tgt}}[\ell] + (1-\beta_t)\mathbf{y}^{\text{src}}[\ell - \ell_f + \ell_s], & \text{if } \ell > \ell_f \end{cases}$$
-   - **设计动机**：避免文本嵌入的突变，让模型渐进适应目标domain，在反向过程早期（低频/结构生成阶段）保持更多源信息
+
+    - **做什么**：在反向过程中，文本嵌入从源prompt平滑过渡到目标prompt
+    - **核心思路（词替换任务）**：逐token线性插值
+    $\mathbf{y}_t[\ell] = \beta_t \mathbf{y}^{\text{tgt}}[\ell] + (1 - \beta_t) \mathbf{y}^{\text{src}}[\ell]$
+      其中混合系数 $\beta_t = \beta + (1-\beta) \times \frac{T-t}{T}$，随去噪步数逐渐从源嵌入过渡到目标嵌入
+    - **核心思路（添加短语任务）**：对新增token直接使用目标嵌入，对后续共享token做插值：
+    $\mathbf{y}_t[\ell] = \begin{cases} \mathbf{y}^{\text{src}}[\ell], & \text{if } \ell < \ell_s \\ \mathbf{y}^{\text{tgt}}[\ell], & \text{if } \ell_s \leq \ell \leq \ell_f \\ \beta_t \mathbf{y}^{\text{tgt}}[\ell] + (1-\beta_t)\mathbf{y}^{\text{src}}[\ell - \ell_f + \ell_s], & \text{if } \ell > \ell_f \end{cases}$
+    - **设计动机**：避免文本嵌入的突变，让模型渐进适应目标domain，在反向过程早期（低频/结构生成阶段）保持更多源信息
 
 3. **与现有方法的集成**：
-   - **做什么**：将PIC的noise correction框架推广到Prompt-to-Prompt、Plug-and-Play和Pix2Pix-Zero
-   - **核心思路**：对每个方法，用 $\mathbf{y}_t$（插值嵌入）替换原方法中的 $\mathbf{y}^{\text{tgt}}$，并将方法特定的noise correction包装进PIC框架
-   - **设计动机**：PIC的公式化与现有方法正交，可作为即插即用的性能增强模块
+
+    - **做什么**：将PIC的noise correction框架推广到Prompt-to-Prompt、Plug-and-Play和Pix2Pix-Zero
+    - **核心思路**：对每个方法，用 $\mathbf{y}_t$（插值嵌入）替换原方法中的 $\mathbf{y}^{\text{tgt}}$，并将方法特定的noise correction包装进PIC框架
+    - **设计动机**：PIC的公式化与现有方法正交，可作为即插即用的性能增强模块
 
 ### 损失函数 / 训练策略
 

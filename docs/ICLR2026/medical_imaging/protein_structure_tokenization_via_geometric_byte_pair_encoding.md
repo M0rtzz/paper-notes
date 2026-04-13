@@ -28,15 +28,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：蛋白质结构tokenizer(PST)是多模态PLM核心。VQ-VAE(ESM3/FoldSeek)为主流但有固有局限。
+**领域现状**：蛋白质结构tokenizer(PST)是多模态PLM核心。VQ-VAE(ESM3/FoldSeek)为主流但有固有局限。
 
-2. **现有痛点**：
+**现有痛点**：
    - (1) VQ-VAE固定codebook→性能瓶颈+token不均衡(codebook collapse)
    - (2) 连续向量token→不可解释(无BPE子词层次关系)
    - (3) 固定token大小→无多尺度→无法捕捉可变残基长度功能域
    - (4) VQ-VAE OOD泛化差(test/train RMSD比达6.4x)
 
-3. **切入角度**：BPE迭代合并→扩展到连续几何→核心是离散化+全局一致性。
+**切入角度**：BPE迭代合并→扩展到连续几何→核心是离散化+全局一致性。
 
 ## 方法详解
 

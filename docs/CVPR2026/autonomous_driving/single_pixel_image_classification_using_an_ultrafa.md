@@ -41,8 +41,9 @@ tags:
 2. **Hadamard pattern压缩策略**: Had12共288个pattern（144基础pattern×正负互补对）。发现pattern按"sequency"(空间频率类比)排序后，低sequency(少空间翻转)的前1/4 pattern包含最多有用分类信息。具体分为Cat1(前44个，仅单轴变化)和Cat2(剩余，双向变化)。使用前1/4 pattern仍能维持~78%精度，同时带宽提升4倍达到4.8kHz。
 
 3. **两种轻量分类模型**:
-   - **ELM(极限学习机)**: 单隐层，输入权重随机固定不训练，只用岭回归求解输出权重(闭式解)。1000隐层神经元时多分类87.37%，二分类(one-vs-all)各类AUC均接近1.0(>99%)。推理31μs/样本。
-   - **DNN**: 3层全连接+ReLU+Softmax，Adam优化，sparse categorical cross-entropy。使用完整Had12达到>90%精度。推理73μs/样本（比ELM慢2倍但精度更高）。
+
+    - **ELM(极限学习机)**: 单隐层，输入权重随机固定不训练，只用岭回归求解输出权重(闭式解)。1000隐层神经元时多分类87.37%，二分类(one-vs-all)各类AUC均接近1.0(>99%)。推理31μs/样本。
+    - **DNN**: 3层全连接+ReLU+Softmax，Adam优化，sparse categorical cross-entropy。使用完整Had12达到>90%精度。推理73μs/样本（比ELM慢2倍但精度更高）。
 
 ### 损失函数 / 训练策略
 - ELM: 岭回归闭式解，α=1.0，无需迭代训练

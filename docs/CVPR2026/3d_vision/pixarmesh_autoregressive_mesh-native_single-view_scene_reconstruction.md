@@ -25,15 +25,15 @@ tags:
 提出 PixARMesh，首个在原生 mesh 空间（而非 SDF）中进行单视图场景重建的自回归框架，通过像素对齐图像特征和全局场景上下文增强点云编码器，在统一的 token 序列中同时预测物体位姿和mesh，在 3D-FRONT 上达到场景级 SOTA 且输出紧凑、可编辑的 artist-ready mesh。
 
 ## 研究背景与动机
-1. **领域现状**：单视图3D场景重建是一个长期存在的病态问题。组合式生成范式近年因大规模物体级重建模型（TRELLIS、CLAY等）的进步而受到关注。
-2. **现有痛点**：
+**领域现状**：单视图3D场景重建是一个长期存在的病态问题。组合式生成范式近年因大规模物体级重建模型（TRELLIS、CLAY等）的进步而受到关注。
+**现有痛点**：
    - 整体式方法（Panoptic3D、Uni-3D）受限于体素分辨率和前馈解码器表达力有限
    - 组合式方法（Gen3DSR、DeepPriorAssembly）需要先修复遮挡再生成，然后用优化方法估计布局——容易陷入局部最优
    - MIDI 避免了布局优化但在归一化场景坐标中直接生成，仍用 SDF
    - **所有现有方法都基于 SDF 表示**，需要 Marching Cubes 提取表面，产生过度三角化、过于光滑的高面数 mesh，不适合编辑
-3. **核心矛盾**：mesh 生成模型（MeshGPT、EdgeRunner、BPT）只能做单物体级别输出，尚未有方法将它们扩展到场景级重建
-4. **切入角度**：利用预训练的物体级自回归 mesh 生成器（EdgeRunner/BPT），增强其点云编码器以融入外观和全局上下文，用统一 token 序列实现位姿+mesh 联合预测
-5. **核心idea一句话**：在单个自回归序列中联合预测物体位姿（tokenized 为包围盒角点）和原生mesh（tokenized 为顶点/面），避免 SDF 提取和后处理布局优化
+**核心矛盾**：mesh 生成模型（MeshGPT、EdgeRunner、BPT）只能做单物体级别输出，尚未有方法将它们扩展到场景级重建
+**切入角度**：利用预训练的物体级自回归 mesh 生成器（EdgeRunner/BPT），增强其点云编码器以融入外观和全局上下文，用统一 token 序列实现位姿+mesh 联合预测
+**核心idea一句话**：在单个自回归序列中联合预测物体位姿（tokenized 为包围盒角点）和原生mesh（tokenized 为顶点/面），避免 SDF 提取和后处理布局优化
 
 ## 方法详解
 
@@ -43,20 +43,23 @@ tags:
 ### 关键设计
 
 1. **像素对齐点云编码器（Pixel-Aligned PC-Encoder）**
-   - 做什么：在点云编码器中融入图像外观特征
-   - 核心思路：对实例点云 $P_i$ 中的每个3D点 $p$，通过相机内参投影到图像平面 $(u,v) = \text{Proj}(K, p)$，提取对应像素的 DINOv2 特征 $\mathbf{f}_p^{\text{img}}$，与几何特征 $\mathbf{f}_p^{\text{pc}}$ 拼接后送入 Transformer 融合块。可学习查询向量聚合融合特征为紧凑潜码 $\mathbf{z}_i$
-   - 设计动机：原始 EdgeRunner/BPT 的点云编码器仅处理坐标，没有利用图像中丰富的外观线索。在单视图场景中物体被大量遮挡，外观特征对推断完整几何至关重要
+
+    - 做什么：在点云编码器中融入图像外观特征
+    - 核心思路：对实例点云 $P_i$ 中的每个3D点 $p$，通过相机内参投影到图像平面 $(u,v) = \text{Proj}(K, p)$，提取对应像素的 DINOv2 特征 $\mathbf{f}_p^{\text{img}}$，与几何特征 $\mathbf{f}_p^{\text{pc}}$ 拼接后送入 Transformer 融合块。可学习查询向量聚合融合特征为紧凑潜码 $\mathbf{z}_i$
+    - 设计动机：原始 EdgeRunner/BPT 的点云编码器仅处理坐标，没有利用图像中丰富的外观线索。在单视图场景中物体被大量遮挡，外观特征对推断完整几何至关重要
 
 2. **场景上下文聚合**
-   - 做什么：为每个物体注入全局场景上下文
-   - 核心思路：先在统一场景坐标系中归一化所有点云（而非独立归一化每个物体），保持空间一致性。编码全局场景点云得 $\mathbf{z}_{\text{scene}}$，每个物体潜码通过交叉注意力聚合场景信息：$\mathbf{z}_i^{\text{agg}} = \text{CrossAttn}(q=\mathbf{z}_i, k=\mathbf{z}_{\text{scene}}, v=\mathbf{z}_{\text{scene}})$
-   - 设计动机：单个物体的局部点云信息不足以推断其完整几何和精确位姿。附近相似物体的上下文能提供补充线索，特别是在严重遮挡下
+
+    - 做什么：为每个物体注入全局场景上下文
+    - 核心思路：先在统一场景坐标系中归一化所有点云（而非独立归一化每个物体），保持空间一致性。编码全局场景点云得 $\mathbf{z}_{\text{scene}}$，每个物体潜码通过交叉注意力聚合场景信息：$\mathbf{z}_i^{\text{agg}} = \text{CrossAttn}(q=\mathbf{z}_i, k=\mathbf{z}_{\text{scene}}, v=\mathbf{z}_{\text{scene}})$
+    - 设计动机：单个物体的局部点云信息不足以推断其完整几何和精确位姿。附近相似物体的上下文能提供补充线索，特别是在严重遮挡下
 
 3. **统一位姿-mesh token化**
-   - 做什么：用相同的词汇表将物体位姿和mesh统一编码为 token 序列
-   - 核心思路：位姿用重力对齐的7-DoF包围盒表示，编码为8个角点的3D坐标。复用mesh生成器的坐标词汇表（EdgeRunner: 每点3个token <x><y><z>，共24 tokens；BPT: 每点2个token <block_id><offset_id>，共16 tokens）。推理时从8个角点反推局部-全局仿射变换 $\mathbf{T}^\star$，将规范空间mesh映射回场景坐标
-   - 最终序列格式：`<bos> [pose_seq] <sep> [mesh_seq] <eos>`
-   - 设计动机：避免引入新的词汇表类型，实现完全的词汇共享。位姿序列只有16-24个token，相比mesh序列微乎其微
+
+    - 做什么：用相同的词汇表将物体位姿和mesh统一编码为 token 序列
+    - 核心思路：位姿用重力对齐的7-DoF包围盒表示，编码为8个角点的3D坐标。复用mesh生成器的坐标词汇表（EdgeRunner: 每点3个token <x><y><z>，共24 tokens；BPT: 每点2个token <block_id><offset_id>，共16 tokens）。推理时从8个角点反推局部-全局仿射变换 $\mathbf{T}^\star$，将规范空间mesh映射回场景坐标
+    - 最终序列格式：`<bos> [pose_seq] <sep> [mesh_seq] <eos>`
+    - 设计动机：避免引入新的词汇表类型，实现完全的词汇共享。位姿序列只有16-24个token，相比mesh序列微乎其微
 
 ### 损失函数 / 训练策略
 - 单一的 next-token 预测交叉熵损失：$\mathcal{L}_{\text{ce}} = -\sum_t \log p_\theta(s_t | s_{<t}, \mathbf{z}_{\text{agg}})$

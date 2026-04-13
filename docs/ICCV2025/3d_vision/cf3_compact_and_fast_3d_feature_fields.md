@@ -29,8 +29,8 @@ tags:
 
 将 CLIP/SAM/LSeg 等 2D 基础模型的语义特征嵌入 3DGS 是实现开放词汇 3D 理解的主流方法。但现有方法（Feature-3DGS、LangSplat）存在两大问题：
 
-1. **底层优化开销大**：将原始 2D 特征当作 ground truth 联合优化颜色与特征，训练耗时长，且为恢复颜色细节产生过多冗余 Gaussian。
-2. **高维特征存储爆炸**：直接在每个 Gaussian 中嵌入 512 维特征带来巨大的存储和计算负担。现有压缩手段（2D 自编码器、哈希网格、向量量化）并未显式考虑"为颜色优化的 Gaussian 对特征场是冗余的"这一关键问题。
+**底层优化开销大**：将原始 2D 特征当作 ground truth 联合优化颜色与特征，训练耗时长，且为恢复颜色细节产生过多冗余 Gaussian。
+**高维特征存储爆炸**：直接在每个 Gaussian 中嵌入 512 维特征带来巨大的存储和计算负担。现有压缩手段（2D 自编码器、哈希网格、向量量化）并未显式考虑"为颜色优化的 Gaussian 对特征场是冗余的"这一关键问题。
 
 此外，2D 基础模型的特征在多视角间缺乏一致性。CF³ 从 top-down 视角出发，先利用预训练 3DGS 做特征提升获得视角一致特征，再压缩和稀疏化。
 
@@ -47,20 +47,22 @@ CF³ pipeline 分三阶段：
 
 1. **Feature Lifting（特征提升）**：利用 3DGS 的渲染权重 $w_{i,m,p}$，对所有视角的 2D 特征做加权平均：
 
-   $$\boldsymbol{f}_i \approx \frac{\sum_{m=1}^{M}\sum_{p \in \mathcal{P}_{i,m}} w_{i,m,p} \boldsymbol{F}_{m,p}}{\sum_{m=1}^{M}\sum_{p \in \mathcal{P}_{i,m}} w_{i,m,p}}$$
+    $\boldsymbol{f}_i \approx \frac{\sum_{m=1}^{M}\sum_{p \in \mathcal{P}_{i,m}} w_{i,m,p} \boldsymbol{F}_{m,p}}{\sum_{m=1}^{M}\sum_{p \in \mathcal{P}_{i,m}} w_{i,m,p}}$
 
    同时计算特征方差，过滤掉方差最大的 0.01% Gaussian（通常位于几何不准确或物体边缘处），消除多视角不一致带来的噪声。设计动机：避免从头联合优化，直接复用预训练 3DGS 的几何信息，快速且视角一致。
 
 2. **Per-Gaussian Autoencoder（特征压缩）**：不同于 LangSplat 先在 2D 训练自编码器再提升，CF³ 先提升再压缩。自编码器为 5 层 MLP（128→64→32→16→3），将 D 维特征压缩到 3 维。损失函数包括：
-   - MSE 重建损失
-   - 余弦相似度损失 $\mathcal{L}_{cos}$
-   - 相似结构保持正则 $\mathcal{L}_{struc}$：保持 Gaussian 间特征的相似度关系
+
+    - MSE 重建损失
+    - 余弦相似度损失 $\mathcal{L}_{cos}$
+    - 相似结构保持正则 $\mathcal{L}_{struc}$：保持 Gaussian 间特征的相似度关系
 
    压缩到 3 维的核心优势：可直接复用现有 3DGS 光栅化器，将压缩特征作为 RGB 通道渲染。
 
 3. **Adaptive Sparsification（自适应稀疏化）**：两步操作交替进行：
-   - **剪枝**：基于全局贡献度 $C(g_i) = \sum_{m,p} w_{i,m,p}$ 剪除低贡献 Gaussian
-   - **合并**：对梯度小（已收敛区域）的 Gaussian，找 k 近邻；若特征余弦相似度高 $\langle \boldsymbol{c}_i, \boldsymbol{c}_j \rangle > \tau_{sim}$ 且 Mahalanobis 距离满足卡方检验 $d_M < \chi^2_\beta$，则进行 moment matching 合并。合并后新 Gaussian 的属性（位置、协方差、透明度、特征）通过加权平均计算。
+
+    - **剪枝**：基于全局贡献度 $C(g_i) = \sum_{m,p} w_{i,m,p}$ 剪除低贡献 Gaussian
+    - **合并**：对梯度小（已收敛区域）的 Gaussian，找 k 近邻；若特征余弦相似度高 $\langle \boldsymbol{c}_i, \boldsymbol{c}_j \rangle > \tau_{sim}$ 且 Mahalanobis 距离满足卡方检验 $d_M < \chi^2_\beta$，则进行 moment matching 合并。合并后新 Gaussian 的属性（位置、协方差、透明度、特征）通过加权平均计算。
 
 ### 损失函数 / 训练策略
 

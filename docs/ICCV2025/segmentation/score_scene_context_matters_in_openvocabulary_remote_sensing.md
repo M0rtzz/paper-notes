@@ -46,9 +46,10 @@ SCORE包含三个分支：
 
 ### 关键设计
 1. **Region-Aware Integration (RAI)**：核心思想是利用物体周围环境来增强物体表示。分三步：
-   - **自适应区域形成**：基于预测的mask proposal，通过可学习膨胀因子δ（初始化为1）控制max-pooling核大小 $k=3+\text{clamp}(\delta,0,10)$，自适应扩展mask以覆盖周围区域
-   - **区域上下文提取**：用扩展后的mask在RemoteCLIP的最终层patch embedding上做加权池化，获得该物体周围区域的语义特征
-   - **区域上下文融合**：通过 $l$ 层Transformer Layer，将区域上下文（乘以温度系数λ）注入类别嵌入，得到region-aware的类别嵌入 $\hat{\mathbf{V}}$
+
+    - **自适应区域形成**：基于预测的mask proposal，通过可学习膨胀因子δ（初始化为1）控制max-pooling核大小 $k=3+\text{clamp}(\delta,0,10)$，自适应扩展mask以覆盖周围区域
+    - **区域上下文提取**：用扩展后的mask在RemoteCLIP的最终层patch embedding上做加权池化，获得该物体周围区域的语义特征
+    - **区域上下文融合**：通过 $l$ 层Transformer Layer，将区域上下文（乘以温度系数λ）注入类别嵌入，得到region-aware的类别嵌入 $\hat{\mathbf{V}}$
 
 2. **Global Context Adaptation (GCA)**：解决通用CLIP文本嵌入缺乏遥感知识的问题。将RemoteCLIP的[CLS] token（即全局上下文）作为query，通过多头交叉注意力与文本嵌入T交互： $\hat{\mathbf{T}} = \text{MHA}(W_Q \mathbf{F}_{\text{CLS}}, W_K \mathbf{T}, W_V \mathbf{T})$。这样文本嵌入保留了OV泛化能力的同时被注入了遥感视觉先验，弥合了通用域和遥感域之间的语义鸿沟。
 

@@ -50,8 +50,9 @@ $$p_{G_*}(y|x) = \frac{1}{1+\exp(\beta^{*\top}x + \tau^*)} f_0(y|h_0(x,\eta_0), 
 2. **可区分情况下的参数估计 (Theorem 1)**：所有参数（门控 $\beta, \tau$ 和 prompt $\eta, \nu$）的 MLE 收敛速率均为参数级 $\tilde{O}(n^{-1/2})$。相比输入无关门控，softmax 门控下 prompt 参数估计速率**不再依赖门控参数趋近零的速度**，因此更快——说明 softmax 门控在统计意义上更高效。
 
 3. **不可区分情况下的参数估计 (Theorem 3)**：当 prompt 与预训练模型知识重叠（$(\eta^*, \nu^*) \to (\eta_0, \nu_0)$）时，估计速率显著变慢：
-   - 门控参数：$\tilde{O}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-2})$
-   - 专家参数：$\tilde{O}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-1})$
+
+    - 门控参数：$\tilde{O}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-2})$
+    - 专家参数：$\tilde{O}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-1})$
    
    例如，若 prompt 参数以 $O(n^{-1/8})$ 趋近预训练参数，则门控和专家参数 MLE 收敛速率分别降至 $O(n^{-1/4})$ 和 $O(n^{-3/8})$。
 

@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：深度学习水印系统（StegaStamp、TrustMark、VINE）通过端到端训练+可微噪声层，在 JPEG/缩放/裁剪等传统后处理下保持高鲁棒性（>95% bit accuracy）。
-2. **现有痛点**：扩散模型编辑（InstructPix2Pix、DragDiffusion、TF-ICON 等）引入了全新的变换类别——先注入大噪声再通过生成先验重建。这与传统后处理本质不同，水印系统未针对此训练。
-3. **核心矛盾**：水印本质是"低幅度结构化扰动"，而扩散去噪器被训练来移除一切"非自然残差"——水印恰好就是这样的残差。编辑者不是在刻意攻击水印，但编辑过程本身就会破坏水印。
-4. **本文要解决什么？** 在什么条件下扩散编辑会导致水印不可恢复？有什么理论原则解释这种崩溃？
-5. **切入角度**：将扩散编辑建模为 Markov kernel（正向加噪+条件去噪），推导水印 SNR 衰减和互信息衰减的界，给出 Fano 型不可恢复条件。
-6. **核心 idea 一句话**：对传统后处理鲁棒 ≠ 对生成式变换鲁棒——扩散编辑的流形收缩效应系统性地消除了水印信号。
+**领域现状**：深度学习水印系统（StegaStamp、TrustMark、VINE）通过端到端训练+可微噪声层，在 JPEG/缩放/裁剪等传统后处理下保持高鲁棒性（>95% bit accuracy）。
+**现有痛点**：扩散模型编辑（InstructPix2Pix、DragDiffusion、TF-ICON 等）引入了全新的变换类别——先注入大噪声再通过生成先验重建。这与传统后处理本质不同，水印系统未针对此训练。
+**核心矛盾**：水印本质是"低幅度结构化扰动"，而扩散去噪器被训练来移除一切"非自然残差"——水印恰好就是这样的残差。编辑者不是在刻意攻击水印，但编辑过程本身就会破坏水印。
+**本文要解决什么？** 在什么条件下扩散编辑会导致水印不可恢复？有什么理论原则解释这种崩溃？
+**切入角度**：将扩散编辑建模为 Markov kernel（正向加噪+条件去噪），推导水印 SNR 衰减和互信息衰减的界，给出 Fano 型不可恢复条件。
+**核心 idea 一句话**：对传统后处理鲁棒 ≠ 对生成式变换鲁棒——扩散编辑的流形收缩效应系统性地消除了水印信号。
 
 ## 方法详解
 
@@ -43,18 +43,21 @@ tags:
 ### 关键设计
 
 1. **水印信号模型**：
-   - $x_w = x + \gamma \mathbf{s}(\mathbf{m}, \mathbf{k}, x)$：水印是低幅度加性扰动
-   - 正向加噪后：$x_t = \sqrt{\bar\alpha_t} x_w + \sqrt{1-\bar\alpha_t} \epsilon$
-   - 水印分量 SNR = $\gamma^2 \bar\alpha_t \|\mathbf{s}\|^2 / (1-\bar\alpha_t)$ → 随 $t$ 指数衰减
+
+    - $x_w = x + \gamma \mathbf{s}(\mathbf{m}, \mathbf{k}, x)$：水印是低幅度加性扰动
+    - 正向加噪后：$x_t = \sqrt{\bar\alpha_t} x_w + \sqrt{1-\bar\alpha_t} \epsilon$
+    - 水印分量 SNR = $\gamma^2 \bar\alpha_t \|\mathbf{s}\|^2 / (1-\bar\alpha_t)$ → 随 $t$ 指数衰减
 
 2. **互信息衰减界**：
-   - 推导 $I(\mathbf{m}; \tilde{x})$ 沿扩散轨迹的衰减，连接到 Fano 不等式 → 给出 bit error rate 的下界
-   - 关键结论：当编辑强度 $t^*$ 超过临界值时，水印不可恢复变成信息论层面的必然
+
+    - 推导 $I(\mathbf{m}; \tilde{x})$ 沿扩散轨迹的衰减，连接到 Fano 不等式 → 给出 bit error rate 的下界
+    - 关键结论：当编辑强度 $t^*$ 超过临界值时，水印不可恢复变成信息论层面的必然
 
 3. **DEW-ST 评估协议**：
-   - 7 种编辑器：InstructPix2Pix、UltraEdit、DragDiffusion、DragFlow、InstantDrag、TF-ICON、SHINE
-   - 3 种水印：StegaStamp (物理鲁棒)、TrustMark (多分辨率)、VINE (扩散感知训练)
-   - 多种编辑强度 $t^* \in \{0.2, 0.4, 0.6, 0.8\}$
+
+    - 7 种编辑器：InstructPix2Pix、UltraEdit、DragDiffusion、DragFlow、InstantDrag、TF-ICON、SHINE
+    - 3 种水印：StegaStamp (物理鲁棒)、TrustMark (多分辨率)、VINE (扩散感知训练)
+    - 多种编辑强度 $t^* \in \{0.2, 0.4, 0.6, 0.8\}$
 
 ### 频域分析
 

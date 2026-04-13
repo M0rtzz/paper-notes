@@ -36,27 +36,31 @@ tags:
 
 ### 关键设计
 1. **双特征编码（Dual-Feature Encoding）**:
-   - 做什么：分别为场景和人体提取专门的特征表示
-   - 核心思路：Pi3X编码器提取全局3D几何特征$F^{scene}$，Multi-HMR编码器提取人体专用特征$F^{human}$。两路特征**不做早期融合**——场景特征进Pi3X解码器，人体特征直接传给人体重建头
-   - 设计动机：实验发现改变解码器输入分布（即使冻结权重）会损害几何重建性能，保持Pi3X解码器的输入分布不变才能充分利用其预训练先验
+
+    - 做什么：分别为场景和人体提取专门的特征表示
+    - 核心思路：Pi3X编码器提取全局3D几何特征$F^{scene}$，Multi-HMR编码器提取人体专用特征$F^{human}$。两路特征**不做早期融合**——场景特征进Pi3X解码器，人体特征直接传给人体重建头
+    - 设计动机：实验发现改变解码器输入分布（即使冻结权重）会损害几何重建性能，保持Pi3X解码器的输入分布不变才能充分利用其预训练先验
 
 2. **Head-Pelvis尺度调整模块**:
-   - 做什么：解决Pi3X预测的近度量尺度场景与度量尺度SMPL之间的尺度不匹配
-   - 核心思路：比较图像中的头-骨盆2D距离$\ell^{\text{img}}$与投影SMPL头-骨盆2D距离$\ell^{\text{smpl}}$，计算全局调整比例$r = \frac{1}{|\mathcal{S}|}\sum \frac{\ell^{\text{smpl}}}{\ell^{\text{img}}}$，最终$s^* = r \cdot s$
-   - 骨盆定位采用**粗到精策略**：先用head token估计粗略骨盆位置，再在该位置采样patch做精细偏移
-   - 设计动机：Pi3X的场景尺度可能偏小（SMPL穿透地面）或偏大（SMPL悬浮），head-pelvis距离是稳定的身体比例参考
+
+    - 做什么：解决Pi3X预测的近度量尺度场景与度量尺度SMPL之间的尺度不匹配
+    - 核心思路：比较图像中的头-骨盆2D距离$\ell^{\text{img}}$与投影SMPL头-骨盆2D距离$\ell^{\text{smpl}}$，计算全局调整比例$r = \frac{1}{|\mathcal{S}|}\sum \frac{\ell^{\text{smpl}}}{\ell^{\text{img}}}$，最终$s^* = r \cdot s$
+    - 骨盆定位采用**粗到精策略**：先用head token估计粗略骨盆位置，再在该位置采样patch做精细偏移
+    - 设计动机：Pi3X的场景尺度可能偏小（SMPL穿透地面）或偏大（SMPL悬浮），head-pelvis距离是稳定的身体比例参考
 
 3. **测试时多视图融合**:
-   - 做什么：无需优化地将各视角估计聚合为统一全局表示
-   - 核心思路：将SMPL参数分为视角不变和视角依赖两类——
-     - **视角不变**（shape $\beta$、canonical pose $\theta$）：直接取各视角预测均值
-     - **视角依赖**（root rotation $R$、head translation $\tau$）：先用估计的相机外参变换到世界坐标系，旋转转为四元数取均值，平移用**多视图射线三角化**
-   - 设计动机：Token级max-pooling会混合视角依赖特征损害视角不变参数估计；显式分开处理更合理
+
+    - 做什么：无需优化地将各视角估计聚合为统一全局表示
+    - 核心思路：将SMPL参数分为视角不变和视角依赖两类——
+      - **视角不变**（shape $\beta$、canonical pose $\theta$）：直接取各视角预测均值
+      - **视角依赖**（root rotation $R$、head translation $\tau$）：先用估计的相机外参变换到世界坐标系，旋转转为四元数取均值，平移用**多视图射线三角化**
+    - 设计动机：Token级max-pooling会混合视角依赖特征损害视角不变参数估计；显式分开处理更合理
 
 4. **基于几何的多人关联**:
-   - 做什么：建立跨视角的人物身份对应
-   - 核心思路：单视角内用human token L2距离+Sinkhorn最优传输跟踪，帧间3D关节位移阈值过滤异常；跨视角用匹配代价$\mathcal{C}(a,b) = \lambda_p\|\mathcal{J}^a - \mathcal{J}^b\|_2 + \lambda_\theta\|\mathcal{J}^{a,\text{canon}} - \mathcal{J}^{b,\text{canon}}\|_2$（$\lambda_p=0.8, \lambda_\theta=0.2$），匈牙利匹配+阈值过滤
-   - 设计动机：外观ReID在视觉相似场景中失败，3D位置+姿态的几何特征更鲁棒
+
+    - 做什么：建立跨视角的人物身份对应
+    - 核心思路：单视角内用human token L2距离+Sinkhorn最优传输跟踪，帧间3D关节位移阈值过滤异常；跨视角用匹配代价$\mathcal{C}(a,b) = \lambda_p\|\mathcal{J}^a - \mathcal{J}^b\|_2 + \lambda_\theta\|\mathcal{J}^{a,\text{canon}} - \mathcal{J}^{b,\text{canon}}\|_2$（$\lambda_p=0.8, \lambda_\theta=0.2$），匈牙利匹配+阈值过滤
+    - 设计动机：外观ReID在视觉相似场景中失败，3D位置+姿态的几何特征更鲁棒
 
 ### 损失函数 / 训练策略
 - **两阶段训练**：Stage1冻结编码器，在BEDLAM上训练SMPL解码器+融合/mask/骨盆检测MLP（20 epochs）；Stage2仅训练骨盆检测MLP，在混合集上训练（10 epochs）

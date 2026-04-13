@@ -27,14 +27,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：近年来基于文本 LLM 扩展的语音大模型（Speech LLM）蓬勃发展，包括理解类（QwenAudio、SALMONN）和生成类（SEED-TTS、UniAudio）。统一理解与生成的工作（SpeechGPT、Moshi、Mini-Omni2）也在探索中。
-2. **现有痛点**：
+**领域现状**：近年来基于文本 LLM 扩展的语音大模型（Speech LLM）蓬勃发展，包括理解类（QwenAudio、SALMONN）和生成类（SEED-TTS、UniAudio）。统一理解与生成的工作（SpeechGPT、Moshi、Mini-Omni2）也在探索中。
+**现有痛点**：
    - **数据依赖**：由于语音和文本之间的巨大模态鸿沟，将文本 LLM 适配为统一语音 LLM 需要大量配对数据（SpeechGPT 需 70K 小时，SpiritLM 需 570K 小时）
    - **任务矛盾**：生成任务需要丰富的声学细节（韵律、情感、说话人特征），理解任务需要高层语义特征。使用同一种 token 难以兼顾两者——用声学 token 理解差，用语义 token 生成差
-3. **核心矛盾**：单一 token 类型无法满足理解（偏语义）和生成（偏声学）的不同信息需求，提升一方往往损害另一方。
-4. **本文要解决什么？** 在小规模数据下，实现语音理解和生成的相互增益而非相互冲突。
-5. **切入角度**：从语音分词（tokenization）和语言建模（language modeling）两个维度分别提出创新——设计面向理解的分词器和双 token 建模框架。
-6. **核心idea一句话**：输入用高层语义 token（USToken）降低模态对齐难度并增强理解，输出用声学 token 保留声学细节确保高质量生成，二者在统一端到端框架中联合训练。
+**核心矛盾**：单一 token 类型无法满足理解（偏语义）和生成（偏声学）的不同信息需求，提升一方往往损害另一方。
+**本文要解决什么？** 在小规模数据下，实现语音理解和生成的相互增益而非相互冲突。
+**切入角度**：从语音分词（tokenization）和语言建模（language modeling）两个维度分别提出创新——设计面向理解的分词器和双 token 建模框架。
+**核心idea一句话**：输入用高层语义 token（USToken）降低模态对齐难度并增强理解，输出用声学 token 保留声学细节确保高质量生成，二者在统一端到端框架中联合训练。
 
 ## 方法详解
 
@@ -48,26 +48,30 @@ DualSpeechLM 包含两个核心模块：
 ### 关键设计
 
 1. **理解驱动语音分词器（USTokenizer）**：
-   - 架构：预训练 Whisper 编码器 → 下采样 Encoder → 向量量化（VQ，单 codebook）→ 上采样 Decoder
-   - **关键创新**：增加 Adapter 模块将 VQ 量化向量投影到冻结文本 LLM 的输入空间，通过理解任务的反向传播来优化 token 的语义内容
-   - 训练损失：$\mathcal{L}_{\text{USTokenizer}} = \alpha \cdot \mathcal{L}_{\text{commit}} + \beta \cdot \mathcal{L}_{\text{Under}} + \gamma \cdot \mathcal{L}_{\text{reconstruction}}$
-   - 其中理解损失 $\mathcal{L}_{\text{Under}}$ 是文本 LLM 在语音输入上的自回归生成似然。这样 token 的优化直接受文本 LLM 语义空间的指导
-   - 与之前基于 SSL 量化（HuBERT）或 ASR 中间层量化（CosyVoice）的语义分词器不同，USTokenizer 显式与文本 LLM 的语义能力对齐，从而显著降低模态对齐难度
+
+    - 架构：预训练 Whisper 编码器 → 下采样 Encoder → 向量量化（VQ，单 codebook）→ 上采样 Decoder
+    - **关键创新**：增加 Adapter 模块将 VQ 量化向量投影到冻结文本 LLM 的输入空间，通过理解任务的反向传播来优化 token 的语义内容
+    - 训练损失：$\mathcal{L}_{\text{USTokenizer}} = \alpha \cdot \mathcal{L}_{\text{commit}} + \beta \cdot \mathcal{L}_{\text{Under}} + \gamma \cdot \mathcal{L}_{\text{reconstruction}}$
+    - 其中理解损失 $\mathcal{L}_{\text{Under}}$ 是文本 LLM 在语音输入上的自回归生成似然。这样 token 的优化直接受文本 LLM 语义空间的指导
+    - 与之前基于 SSL 量化（HuBERT）或 ASR 中间层量化（CosyVoice）的语义分词器不同，USTokenizer 显式与文本 LLM 的语义能力对齐，从而显著降低模态对齐难度
 
 2. **双 token 建模架构**：
-   - **输入侧**：USToken 提供高层语义信息，直接进入文本 LLM
-   - **输出侧**：不直接输出 USToken（因缺少声学细节），而是通过 **AcousticGPT** 模块将 LLM 的隐状态转换为声学 token
-   - AcousticGPT 集成在文本 LLM 内部联合训练，形成端到端流水线
-   - 理解路径：语音 → USToken → LLM → 文本输出
-   - 生成路径：(提示 + USToken) → LLM 预测目标 USToken → AcousticGPT 产生声学 token → 波形
+
+    - **输入侧**：USToken 提供高层语义信息，直接进入文本 LLM
+    - **输出侧**：不直接输出 USToken（因缺少声学细节），而是通过 **AcousticGPT** 模块将 LLM 的隐状态转换为声学 token
+    - AcousticGPT 集成在文本 LLM 内部联合训练，形成端到端流水线
+    - 理解路径：语音 → USToken → LLM → 文本输出
+    - 生成路径：(提示 + USToken) → LLM 预测目标 USToken → AcousticGPT 产生声学 token → 波形
 
 3. **语义监督损失（Semantic Supervision Loss）**：
-   - 在生成路径中增加对中间 USToken 预测的监督，确保 LLM 不会"遗忘"语义信息
-   - 作为正则化手段，稳定双 token 联合训练
+
+    - 在生成路径中增加对中间 USToken 预测的监督，确保 LLM 不会"遗忘"语义信息
+    - 作为正则化手段，稳定双 token 联合训练
 
 4. **条件链策略（Chain-of-Condition, CoC）**：
-   - 在生成任务中，不直接从输入 USToken 一步生成声学 token，而是先让 LLM 逐步生成目标 USToken，再基于此生成声学 token
-   - 类似 Chain-of-Thought 的思路但用于语音生成，提供更稳定的中间条件
+
+    - 在生成任务中，不直接从输入 USToken 一步生成声学 token，而是先让 LLM 逐步生成目标 USToken，再基于此生成声学 token
+    - 类似 Chain-of-Thought 的思路但用于语音生成，提供更稳定的中间条件
 
 ### 损失函数 / 训练策略
 

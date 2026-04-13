@@ -51,25 +51,29 @@ TACLR 将 PAVI 建模为信息检索任务：
 ### 关键设计
 
 1. **编码策略**
-   - 产品端：拼接标题和描述 → `title: {title} description: {description}`
-   - 值端：结合类目和属性的上下文丰富提示 → `A {category} with {attribute} being {value}`
-   - 动机：上下文丰富的提示使模型能更好区分语义接近但属于不同属性的值
+
+    - 产品端：拼接标题和描述 → `title: {title} description: {description}`
+    - 值端：结合类目和属性的上下文丰富提示 → `A {category} with {attribute} being {value}`
+    - 动机：上下文丰富的提示使模型能更好区分语义接近但属于不同属性的值
 
 2. **分类感知对比学习（Taxonomy-Aware Contrastive Learning）**
-   - 核心思路：不使用 batch 内随机负样本，而是从**同一类目同一属性**中选择硬负样本
-   - 例如：对于手机品牌 Apple，负样本是 Huawei、Samsung，而非 T-shirt 尺码 L
-   - 可学习 null 值 $v_0^a$：为无属性值的产品-属性对显式学习一个 null 嵌入
-   - 损失函数：InfoNCE 对比损失，温度参数 τ
+
+    - 核心思路：不使用 batch 内随机负样本，而是从**同一类目同一属性**中选择硬负样本
+    - 例如：对于手机品牌 Apple，负样本是 Huawei、Samsung，而非 T-shirt 尺码 L
+    - 可学习 null 值 $v_0^a$：为无属性值的产品-属性对显式学习一个 null 嵌入
+    - 损失函数：InfoNCE 对比损失，温度参数 τ
 
 3. **自适应推理（Adaptive Inference）**
-   - 问题：静态阈值在大规模分类体系中不可行（26K+ 类目-属性对）
-   - 解决：利用 null 值嵌入的相似度分数作为**动态阈值**
-   - 若 $\max_{v \in \mathcal{V}_a} s(i,v) > s(i, v_0^a)$，取 top-1 值；否则输出 null
-   - 等价于将 null 值加入候选集后取 top-1
+
+    - 问题：静态阈值在大规模分类体系中不可行（26K+ 类目-属性对）
+    - 解决：利用 null 值嵌入的相似度分数作为**动态阈值**
+    - 若 $\max_{v \in \mathcal{V}_a} s(i,v) > s(i, v_0^a)$，取 top-1 值；否则输出 null
+    - 等价于将 null 值加入候选集后取 top-1
 
 4. **高效推理管道**
-   - 离线：预计算所有值的嵌入并用 Faiss 建索引
-   - 在线：仅需编码一次产品嵌入，与索引中的候选值比较
+
+    - 离线：预计算所有值的嵌入并用 Faiss 建索引
+    - 在线：仅需编码一次产品嵌入，与索引中的候选值比较
 
 ### 损失函数
 

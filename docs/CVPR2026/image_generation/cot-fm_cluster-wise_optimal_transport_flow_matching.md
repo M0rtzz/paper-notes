@@ -50,24 +50,26 @@ COT-FM 在预训练 FM 模型基础上交替优化两个阶段：
 
 1. **簇级源分布识别（Cluster-wise Source Distribution）**：利用预训练 FM 模型的可逆性，对簇 $\mathcal{C}_k$ 中每个数据样本 $x_1$ 反转 ODE 追溯源样本：
 
-   $$\hat{x}_0 := x_1 - \int_0^1 v_\theta(\hat{x}_t, t) \, dt$$
+    $\hat{x}_0 := x_1 - \int_0^1 v_\theta(\hat{x}_t, t) \, dt$
 
    将回溯样本集 $\hat{X}_{0,k}$ 近似为高斯分布 $p_{0,k}(x) = \mathcal{N}(x; \boldsymbol{\mu}_{0,k}, \boldsymbol{\Sigma}_{0,k})$。核心洞察：预训练模型的路径天然不交叉，因此反转得到的源分布自然保持了簇间分离性。
 
 2. **簇内最优传输近似**：将全局 OT 问题分解为 $K$ 个小规模 OT 问题。对每个簇 $\mathcal{C}_k$，从估计源分布采样 $X_{0,k} \sim p_{0,k}$，计算簇内 OT 映射 $\pi_k = \text{OT}(X_{0,k}, \mathcal{C}_k)$。优势有二：
-   - 减少每个 OT 问题的样本数量，使 batch OT 近似更准确
-   - 限制源分布空间，让速度场学习更高效
+
+    - 减少每个 OT 问题的样本数量，使 batch OT 近似更准确
+    - 限制源分布空间，让速度场学习更高效
 
 3. **交替优化策略**：Stage 1 构建簇级向量场 → Stage 2 用标准 CFM 损失微调模型：
 
-   $$\mathcal{L}_{\text{CFM}}(\theta) = \mathbb{E}_{t, (x_0, x_1) \sim B} \|v_\theta(x_t, t) - (x_1 - x_0)\|_2^2$$
+    $\mathcal{L}_{\text{CFM}}(\theta) = \mathbb{E}_{t, (x_0, x_1) \sim B} \|v_\theta(x_t, t) - (x_1 - x_0)\|_2^2$
 
    训练 batch 按簇大小占比采样：$P(k) = \frac{|\mathcal{C}_k|}{\sum_j |\mathcal{C}_j|}$。经验表明 2 轮交替即收敛，第 3 轮轻微退化。
 
 4. **聚类策略**：
-   - 有监督（条件生成）：直接使用类别标签
-   - 无监督（CIFAR-10 无条件）：DINO 特征 + K-Means（K=100）
-   - 非固定聚类（机器人策略）：学习模块预测新观测的源分布
+
+    - 有监督（条件生成）：直接使用类别标签
+    - 无监督（CIFAR-10 无条件）：DINO 特征 + K-Means（K=100）
+    - 非固定聚类（机器人策略）：学习模块预测新观测的源分布
 
 ### 损失函数 / 训练策略
 

@@ -29,8 +29,8 @@ tags:
 
 主动脉血管分割对心血管疾病的诊断和治疗至关重要，直接影响计算流体建模、手术规划和疾病进展监测的可靠性。Transformer 在此领域已成为主导范式，但面临两个根本挑战：
 
-1. **固定矩形 patch 破坏血管完整性**：传统 Transformer 将图像切分为固定大小的矩形 patch，而血管结构细长弯曲、形态复杂，矩形框难以包裹纤细血管，导致语义信息被截断。即使 DPT（Deformable Patch Transformer）引入可学习变形，仍限于矩形 patch，无法适配血管形态
-2. **缺乏跨尺度语义相似性建模**：SwinTransformer 的层次化窗口注意力能提取多尺度特征，但固定窗口仍无法建模不同尺度 patch 间的语义相似性。现有方法（含动态 Snake 卷积等）虽增强了细长结构的特征提取，但仍缺少语义聚类机制
+**固定矩形 patch 破坏血管完整性**：传统 Transformer 将图像切分为固定大小的矩形 patch，而血管结构细长弯曲、形态复杂，矩形框难以包裹纤细血管，导致语义信息被截断。即使 DPT（Deformable Patch Transformer）引入可学习变形，仍限于矩形 patch，无法适配血管形态
+**缺乏跨尺度语义相似性建模**：SwinTransformer 的层次化窗口注意力能提取多尺度特征，但固定窗口仍无法建模不同尺度 patch 间的语义相似性。现有方法（含动态 Snake 卷积等）虽增强了细长结构的特征提取，但仍缺少语义聚类机制
 
 核心 insight：用速度场驱动的微分同胚变形（diffeomorphic deformation）生成形态感知 patch，天然保持拓扑连续性；用 Soft K-means 做语义聚类注意力，动态聚合相似 patch。
 
@@ -43,16 +43,18 @@ tags:
 ### 关键设计
 
 1. **Morph Partition Block（形态 patch 划分）**：
-   - 用 CNN 预测速度场 $\upsilon$，通过缩放平方法（scaling and squaring）积分得到微分同胚变形场 $\phi^{(1)}$
-   - 核心公式：$y(p_0) = \sum_{p_n \in \mathcal{R}} w(p_n) \cdot x(p_0 + p_n + \phi(p_0 + p_n))$
-   - 与传统可变形卷积（直接预测偏移场）不同，速度场积分保证变换**光滑、可逆、保拓扑**。变形场的每个点代表坐标偏移，通过双线性插值从原始输入生成变形特征
-   - 递推关系：$\phi^{(1/2^{n-1})} = \phi^{(1/2^n)} \circ \phi^{(1/2^n)}$，迭代 n 步后得到 $\phi^{(1)}$
+
+    - 用 CNN 预测速度场 $\upsilon$，通过缩放平方法（scaling and squaring）积分得到微分同胚变形场 $\phi^{(1)}$
+    - 核心公式：$y(p_0) = \sum_{p_n \in \mathcal{R}} w(p_n) \cdot x(p_0 + p_n + \phi(p_0 + p_n))$
+    - 与传统可变形卷积（直接预测偏移场）不同，速度场积分保证变换**光滑、可逆、保拓扑**。变形场的每个点代表坐标偏移，通过双线性插值从原始输入生成变形特征
+    - 递推关系：$\phi^{(1/2^{n-1})} = \phi^{(1/2^n)} \circ \phi^{(1/2^n)}$，迭代 n 步后得到 $\phi^{(1)}$
 
 2. **语义聚类注意力（SCA）**：
-   - 用可微 Soft K-means 提取核心语义特征 $F_{core}$，根据 patch 特征到核心特征距离的 softmax 权重聚类
-   - 更新公式：$f_{newcore}^s = \sum_{i=1}^m g_s(f^i) \cdot (f^i - f_{core}^s)$，$g_s$ 为可微化的隶属度函数
-   - $\lambda, \mu$ 和 $F_{core}$ 均由网络学习，$g_s$ 通过 $e^{\lambda^s f^i + \mu^s}$ 参数化确保可微
-   - 最终计算 SCA = softmax(QK^T/√d) · V，Q 来自 patch，K/V 来自更新后的语义中心
+
+    - 用可微 Soft K-means 提取核心语义特征 $F_{core}$，根据 patch 特征到核心特征距离的 softmax 权重聚类
+    - 更新公式：$f_{newcore}^s = \sum_{i=1}^m g_s(f^i) \cdot (f^i - f_{core}^s)$，$g_s$ 为可微化的隶属度函数
+    - $\lambda, \mu$ 和 $F_{core}$ 均由网络学习，$g_s$ 通过 $e^{\lambda^s f^i + \mu^s}$ 参数化确保可微
+    - 最终计算 SCA = softmax(QK^T/√d) · V，Q 来自 patch，K/V 来自更新后的语义中心
 
 3. **融合策略**：Morph Partition Block 的形态 patch + SwinTransformer 的窗口注意力（空间关系）+ SCA（语义关系），三者在 Transformer Block 中融合
 

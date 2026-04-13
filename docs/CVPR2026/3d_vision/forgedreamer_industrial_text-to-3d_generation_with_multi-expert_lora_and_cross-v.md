@@ -29,8 +29,8 @@ tags:
 
 文本到3D生成技术（如 DreamFusion、ProlificDreamer）在自然场景上取得了显著进展，但在工业应用中面临两个关键瓶颈：
 
-1. **领域适配挑战**：预训练扩散模型在自然场景上训练，对工业组件（螺丝、螺母、电子元件等）的语义理解不足。传统 LoRA 融合方案在合并多个类别特定的适配器时会产生知识干扰
-2. **几何推理不足**：现有方法依赖成对（pairwise）一致性约束，无法捕捉工业精密制造所需的高阶结构依赖关系，导致螺纹纹理、连接器接口等细节出现伪影
+**领域适配挑战**：预训练扩散模型在自然场景上训练，对工业组件（螺丝、螺母、电子元件等）的语义理解不足。传统 LoRA 融合方案在合并多个类别特定的适配器时会产生知识干扰
+**几何推理不足**：现有方法依赖成对（pairwise）一致性约束，无法捕捉工业精密制造所需的高阶结构依赖关系，导致螺纹纹理、连接器接口等细节出现伪影
 
 现有工业3D数据集（如 MVTec 3D-AD、Real-IAD）视角有限、成像条件不一致，不适合文本到3D生成任务，因此作者还构建了一个受控多视角工业数据集。
 
@@ -45,19 +45,21 @@ $$\mathcal{L}_{\text{total}} = \lambda_{\text{ISM}} \mathcal{L}_{\text{ISM}} + \
 ### 关键设计
 
 1. **Multi-Expert LoRA 师生蒸馏框架**：针对多类别工业组件各自训练 LoRA 专家（Teacher），通过两阶段师生蒸馏将知识整合到统一学生模型中。
-   - **Stage 1**：仅训练学生文本编码器，UNet 冻结，避免灾难性遗忘。损失包含文本特征对齐 $\mathcal{L}_{\text{text}} = \sum_l \alpha_l \cdot \text{MSE}(\text{Pool}(\boldsymbol{f}_T^l), \text{Pool}(\boldsymbol{f}_S^l))$ 和噪声预测损失
-   - **Stage 2**：同时优化文本编码器和 UNet，交替进行噪声预测和特征对齐，加入 UNet 特征蒸馏 $\mathcal{L}_{\text{unet}} = \sum_m \beta_m \cdot \text{MSE}(\boldsymbol{u}_T^m, \boldsymbol{u}_S^m)$
-   - 采用 round-robin 策略确保从所有 Teacher 均衡地进行知识迁移
-   - **动机**：简单叠加融合 $\boldsymbol{W}_{\text{combined}} = \boldsymbol{W}_{\text{base}} + \sum_i \boldsymbol{W}_{\text{LoRA}}^{(i)}$ 会导致知识干扰，蒸馏方法学习找到兼容所有专家知识的公共特征空间
+
+    - **Stage 1**：仅训练学生文本编码器，UNet 冻结，避免灾难性遗忘。损失包含文本特征对齐 $\mathcal{L}_{\text{text}} = \sum_l \alpha_l \cdot \text{MSE}(\text{Pool}(\boldsymbol{f}_T^l), \text{Pool}(\boldsymbol{f}_S^l))$ 和噪声预测损失
+    - **Stage 2**：同时优化文本编码器和 UNet，交替进行噪声预测和特征对齐，加入 UNet 特征蒸馏 $\mathcal{L}_{\text{unet}} = \sum_m \beta_m \cdot \text{MSE}(\boldsymbol{u}_T^m, \boldsymbol{u}_S^m)$
+    - 采用 round-robin 策略确保从所有 Teacher 均衡地进行知识迁移
+    - **动机**：简单叠加融合 $\boldsymbol{W}_{\text{combined}} = \boldsymbol{W}_{\text{base}} + \sum_i \boldsymbol{W}_{\text{LoRA}}^{(i)}$ 会导致知识干扰，蒸馏方法学习找到兼容所有专家知识的公共特征空间
 
 2. **Cross-View Hypergraph Geometric Enhancement (CVGCM)**：将几何一致性建模为超图学习问题，捕捉跨多视角的高阶结构依赖。
-   - 将多视角潜在表示 $\boldsymbol{Z} = \{\boldsymbol{z}^{(i)} \in \mathbb{R}^{H \times W \times C}\}_{i=1}^N$ 展平拼接为节点特征矩阵 $\boldsymbol{F} \in \mathbb{R}^{(N \cdot H \cdot W) \times C}$
-   - 基于特征余弦相似度构建超图 $\mathcal{H} = (\mathcal{V}, \mathcal{E})$，每个超边连接 TopK 相似节点：$e_i = \{v_j : v_j \in \text{TopK}(\text{sim}(\boldsymbol{f}_i, \boldsymbol{f}_j), k)\}$
-   - 使用 Hypergraph Neural Network 进行消息传递聚合：$\boldsymbol{h}_v^{(l+1)} = \sigma(\boldsymbol{W}^{(l)} \sum_{e \in \mathcal{E}(v)} \frac{1}{|\mathcal{E}(v)|} \text{AGG}(\{\boldsymbol{h}_u^{(l)} : u \in e\}))$
-   - **动机**：传统成对约束（如 ISM 的区间得分匹配）只能处理两两关系，无法建模工业组件所需的多视角同时一致的高阶结构关系
+
+    - 将多视角潜在表示 $\boldsymbol{Z} = \{\boldsymbol{z}^{(i)} \in \mathbb{R}^{H \times W \times C}\}_{i=1}^N$ 展平拼接为节点特征矩阵 $\boldsymbol{F} \in \mathbb{R}^{(N \cdot H \cdot W) \times C}$
+    - 基于特征余弦相似度构建超图 $\mathcal{H} = (\mathcal{V}, \mathcal{E})$，每个超边连接 TopK 相似节点：$e_i = \{v_j : v_j \in \text{TopK}(\text{sim}(\boldsymbol{f}_i, \boldsymbol{f}_j), k)\}$
+    - 使用 Hypergraph Neural Network 进行消息传递聚合：$\boldsymbol{h}_v^{(l+1)} = \sigma(\boldsymbol{W}^{(l)} \sum_{e \in \mathcal{E}(v)} \frac{1}{|\mathcal{E}(v)|} \text{AGG}(\{\boldsymbol{h}_u^{(l)} : u \in e\}))$
+    - **动机**：传统成对约束（如 ISM 的区间得分匹配）只能处理两两关系，无法建模工业组件所需的多视角同时一致的高阶结构关系
 
 3. **HSV Mask 引导的 MVHG 损失**：在超图处理后，使用 HSV 掩码聚焦目标物体区域，在跨视角特征空间中计算损失：
-   $$\mathcal{L}_{\text{MVHG}} = \frac{1}{|\mathcal{M}|} \sum_{(h,w) \in \mathcal{M}} \|\boldsymbol{F}_z^{\text{masked}}[h,w,:] - \boldsymbol{F}_{\text{pred}}^{\text{masked}}[h,w,:]\|_2^2$$
+    $\mathcal{L}_{\text{MVHG}} = \frac{1}{|\mathcal{M}|} \sum_{(h,w) \in \mathcal{M}} \|\boldsymbol{F}_z^{\text{masked}}[h,w,:] - \boldsymbol{F}_{\text{pred}}^{\text{masked}}[h,w,:]\|_2^2$
 
 ### 损失函数 / 训练策略
 

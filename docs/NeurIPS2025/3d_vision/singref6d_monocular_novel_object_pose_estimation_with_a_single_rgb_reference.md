@@ -29,10 +29,10 @@ tags:
 
 6D位姿估计是机器人、工业自动化和增强现实的核心任务。当前方法面临几个实际限制：
 
-1. **依赖CAD模型**：获取新物体的CAD模型成本高昂，需要专业扫描设备和人工精修
-2. **深度传感器局限**：传感器对透明、高反射材质的物体失效率超过85%（ClearPose数据集）
-3. **多视角方法开销大**：多视角匹配需要大量模板库，神经场构建计算密集且限于逐实例训练
-4. **RGB方法缺乏几何信息**：在低光照和无纹理场景中匹配性能弱
+**依赖CAD模型**：获取新物体的CAD模型成本高昂，需要专业扫描设备和人工精修
+**深度传感器局限**：传感器对透明、高反射材质的物体失效率超过85%（ClearPose数据集）
+**多视角方法开销大**：多视角匹配需要大量模板库，神经场构建计算密集且限于逐实例训练
+**RGB方法缺乏几何信息**：在低光照和无纹理场景中匹配性能弱
 
 核心矛盾：如何在"最小参考输入"（仅单张RGB图像）的约束下，实现对挑战性表面条件（透明、反光）的鲁棒6D位姿估计？
 
@@ -50,18 +50,19 @@ SingRef6D包含三个阶段：
 ### 关键设计
 
 1. **Token-Scaler微调机制**：在DPAv2的分层特征上引入ControlNet式结构，对不同层级特征进行动态缩放和调制：
-   $$F_l' = \mathcal{F}_l(F_l, Scaler(F_{l+1}'))$$
-   - 低/中层特征（$F_1, F_2$）：使用高效注意力层增强全局感知，抑制噪声
-   - 高/全局层特征（$F_3, F_4$）：使用InceptConv网络强调局部特征以增强高层特征图
-   - 设计动机：模仿人类视觉的分层空间感知机制，冻结DPAv2主体参数仅训练轻量token scaler
+    $F_l' = \mathcal{F}_l(F_l, Scaler(F_{l+1}'))$
+    - 低/中层特征（$F_1, F_2$）：使用高效注意力层增强全局感知，抑制噪声
+    - 高/全局层特征（$F_3, F_4$）：使用InceptConv网络强调局部特征以增强高层特征图
+    - 设计动机：模仿人类视觉的分层空间感知机制，冻结DPAv2主体参数仅训练轻量token scaler
 
 2. **多级损失函数**：结合全局和局部损失 $\mathcal{L}_{depth} = \mathcal{L}_{local} + \mathcal{L}_{global}$
-   - **Scale Alignment Loss**：强制物体级尺度对齐，带鲁棒项抗离群值
-     $$\mathcal{L}_{scale} = \frac{1}{M}\sum_i \frac{(\hat{d}_i - d_i)^2}{1 + \eta|\hat{d}_i - d_i|}$$
-   - **Edge-emphasize Loss**：利用RGB梯度加权深度梯度误差，改善边界重建
-     $$\mathcal{L}_{edge} = \frac{1}{M}\sum_i e^{-\sigma\|\nabla I_i\|} \cdot \|\nabla\hat{d}_i - \nabla d_i\|_2^2$$
-   - **Normal Consistency Loss**：强制表面法线方向一致性，保持几何结构的连贯性
-   - **全局损失**：SSI + BerHu + 正则化
+
+    - **Scale Alignment Loss**：强制物体级尺度对齐，带鲁棒项抗离群值
+    $\mathcal{L}_{scale} = \frac{1}{M}\sum_i \frac{(\hat{d}_i - d_i)^2}{1 + \eta|\hat{d}_i - d_i|}$
+    - **Edge-emphasize Loss**：利用RGB梯度加权深度梯度误差，改善边界重建
+    $\mathcal{L}_{edge} = \frac{1}{M}\sum_i e^{-\sigma\|\nabla I_i\|} \cdot \|\nabla\hat{d}_i - \nabla d_i\|_2^2$
+    - **Normal Consistency Loss**：强制表面法线方向一致性，保持几何结构的连贯性
+    - **全局损失**：SSI + BerHu + 正则化
 
 3. **深度感知匹配模块**：冻结LoFTR参数，在其隐空间中融合RGB和深度特征。深度图提供空间先验，使匹配在低纹理和挑战性光照条件下仍然有效。最后用PointDSC精炼匹配并通过 $T_q^{-1} = T_r^{-1} T_{q\to r}$ 求解6D位姿。
 

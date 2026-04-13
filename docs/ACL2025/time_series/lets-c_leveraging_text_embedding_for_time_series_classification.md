@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：时间序列分类是金融/医疗/活动识别等领域的关键任务。最近 LLM 微调方法（如 OneFitsAll 基于 GPT-2）在标准 benchmark 上达到 SOTA，但需要数百万可训练参数。
-2. **现有痛点**：LLM 微调方法 (a) 模型巨大（即使冻结大部分参数仍需百万级可训练参数）；(b) 推理成本高；(c) 对资源受限场景不实用。
-3. **核心矛盾**：能否利用语言模型在序列建模上的成功，但避免微调 LLM 的高成本？
-4. **本文要解决什么**：用 text embedding 模型（而非 LLM 微调）编码时间序列，配合轻量分类头实现高效分类。
-5. **切入角度**：text embedding 模型已在 MTEB 上展示强大的序列表示能力，且推理是一次性的（可预计算存储），比 LLM 微调高效得多。
-6. **核心 idea**：时间序列 → 数字字符串 → text embedding → 与原始序列融合 → CNN+MLP 分类。
+**领域现状**：时间序列分类是金融/医疗/活动识别等领域的关键任务。最近 LLM 微调方法（如 OneFitsAll 基于 GPT-2）在标准 benchmark 上达到 SOTA，但需要数百万可训练参数。
+**现有痛点**：LLM 微调方法 (a) 模型巨大（即使冻结大部分参数仍需百万级可训练参数）；(b) 推理成本高；(c) 对资源受限场景不实用。
+**核心矛盾**：能否利用语言模型在序列建模上的成功，但避免微调 LLM 的高成本？
+**本文要解决什么**：用 text embedding 模型（而非 LLM 微调）编码时间序列，配合轻量分类头实现高效分类。
+**切入角度**：text embedding 模型已在 MTEB 上展示强大的序列表示能力，且推理是一次性的（可预计算存储），比 LLM 微调高效得多。
+**核心 idea**：时间序列 → 数字字符串 → text embedding → 与原始序列融合 → CNN+MLP 分类。
 
 ## 方法详解
 
@@ -41,22 +41,26 @@ tags:
 ### 关键设计
 
 1. **Digit-Space Tokenization**
-   - 做什么：将浮点数转为每位数字独立 tokenize 的字符串
-   - 核心思路：`0.645, 6.45` → `"6 4 , 6 4 5"`，逗号分隔时间步，空格分隔数字位
-   - 设计动机：BPE 等子词 tokenizer 会任意切割数字（Gruver et al., 2024），导致相似数字表示差异大。Digit-space 确保每位独立 tokenize，保持数值完整性
+
+    - 做什么：将浮点数转为每位数字独立 tokenize 的字符串
+    - 核心思路：`0.645, 6.45` → `"6 4 , 6 4 5"`，逗号分隔时间步，空格分隔数字位
+    - 设计动机：BPE 等子词 tokenizer 会任意切割数字（Gruver et al., 2024），导致相似数字表示差异大。Digit-space 确保每位独立 tokenize，保持数值完整性
 
 2. **Text Embedding 模型编码**
-   - 做什么：用 OpenAI text-embedding-3-large（3072维）编码格式化文本串
-   - 核心思路：每个维度独立编码（channel-wise），得到 $d \times l_e$ 的 embedding 矩阵。**Embedding 是一次性预计算**，可存储复用
-   - 设计动机：text embedding 模型经大规模文本训练，对序列模式有内在理解能力；且推理是 API 调用无需 GPU
+
+    - 做什么：用 OpenAI text-embedding-3-large（3072维）编码格式化文本串
+    - 核心思路：每个维度独立编码（channel-wise），得到 $d \times l_e$ 的 embedding 矩阵。**Embedding 是一次性预计算**，可存储复用
+    - 设计动机：text embedding 模型经大规模文本训练，对序列模式有内在理解能力；且推理是 API 调用无需 GPU
 
 3. **元素级加法融合**
-   - 做什么：$\text{fused} = \text{embedding} + \text{timeseries}$（zero-padding 对齐维度）
-   - 设计动机：类似 ResNet 的 shortcut connection——embedding 提供高级语义特征，原始时间序列保留精确数值信息。实验证明加法优于拼接或注意力融合
+
+    - 做什么：$\text{fused} = \text{embedding} + \text{timeseries}$（zero-padding 对齐维度）
+    - 设计动机：类似 ResNet 的 shortcut connection——embedding 提供高级语义特征，原始时间序列保留精确数值信息。实验证明加法优于拼接或注意力融合
 
 4. **轻量 CNN+MLP 分类头**
-   - 做什么：1D CNN 提取局部模式 → 展平 → MLP + softmax 分类
-   - 设计动机：**刻意简单**——验证 text embedding 本身已提供足够强的特征表示，不需要复杂模型
+
+    - 做什么：1D CNN 提取局部模式 → 展平 → MLP + softmax 分类
+    - 设计动机：**刻意简单**——验证 text embedding 本身已提供足够强的特征表示，不需要复杂模型
 
 ## 实验关键数据
 

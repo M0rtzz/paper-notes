@@ -46,23 +46,26 @@ ActiShade是一个迭代式多轮检索框架，每轮包含三个模块：
 ### 关键设计
 
 1. **GaP（Gaussian Perturbation-based Detection）**：
-   - **Step 1 关键短语提取**：用SpaCy提取命名实体和有意义的token（NOUN/ADJ/VERB/PROPN/NUM/ADV），去掉停用词，得到候选关键短语集合 $P=\{p_1,...,p_n\}$
-   - **Step 2 高斯扰动**：对每个候选短语 $p_i$，在其embedding上注入高斯噪声 $\tilde{H}_{p_i} = H + m_{p_i} \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)$，其中 $m_{p_i}$ 是仅在 $p_i$ token位置为1的二值掩码
-   - **Step 3 遮蔽度量**：比较扰动前后LLM输出分布的余弦相似度，相似度最高的关键短语被认为是被遮蔽的——因为加了噪声还没变化，说明LLM本来就没在用它
+
+    - **Step 1 关键短语提取**：用SpaCy提取命名实体和有意义的token（NOUN/ADJ/VERB/PROPN/NUM/ADV），去掉停用词，得到候选关键短语集合 $P=\{p_1,...,p_n\}$
+    - **Step 2 高斯扰动**：对每个候选短语 $p_i$，在其embedding上注入高斯噪声 $\tilde{H}_{p_i} = H + m_{p_i} \odot \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)$，其中 $m_{p_i}$ 是仅在 $p_i$ token位置为1的二值掩码
+    - **Step 3 遮蔽度量**：比较扰动前后LLM输出分布的余弦相似度，相似度最高的关键短语被认为是被遮蔽的——因为加了噪声还没变化，说明LLM本来就没在用它
    
    与之前CoDA方法（直接删除token）的区别：GaP保留了查询的完整结构，只是在embedding空间中加噪，不会破坏推理链。实验证明CoDA在多跳场景中反而会降低效果。
 
 2. **细粒度对比学习检索器**：
-   - 将文档分为三类：**正**（与查询和遮蔽短语都相关）、**半正**（与查询相关但与遮蔽短语无直接关系）、**负**（无关）
-   - 设计两个损失项：$\mathcal{L}_1$ 让正文档得分高于半正和负文档；$\mathcal{L}_2$ 让半正文档合起来得分高于负文档
-   - 综合损失 $\mathcal{L} = \alpha \mathcal{L}_1 + (1-\alpha) \mathcal{L}_2$（$\alpha=0.7$），确保排序 $D^+ > D^* > D^-$
-   - 基于contriever-msmarco微调，训练数据从MuSiQue构造（5000样本，3500训/750验/750测）
-   - 输入为查询与遮蔽短语的拼接
+
+    - 将文档分为三类：**正**（与查询和遮蔽短语都相关）、**半正**（与查询相关但与遮蔽短语无直接关系）、**负**（无关）
+    - 设计两个损失项：$\mathcal{L}_1$ 让正文档得分高于半正和负文档；$\mathcal{L}_2$ 让半正文档合起来得分高于负文档
+    - 综合损失 $\mathcal{L} = \alpha \mathcal{L}_1 + (1-\alpha) \mathcal{L}_2$（$\alpha=0.7$），确保排序 $D^+ > D^* > D^-$
+    - 基于contriever-msmarco微调，训练数据从MuSiQue构造（5000样本，3500训/750验/750测）
+    - 输入为查询与遮蔽短语的拼接
 
 3. **查询重构（Query Formulation）**：
-   - **文档选择**：让LLM对每个检索到的文档判断相关性（输出Yes/No的概率），选概率最高的
-   - **查询生成**：基于选定文档，让LLM生成新查询，将隐式推理结果显式化。例如，"Gloria in D Major的作曲家出生地的著名桥叫什么？" → 获取到Vivaldi文档后 → "Antonio Vivaldi出生地的著名桥叫什么？"
-   - **终止判断**：让LLM判断新查询是否为单跳问题，若是则再检索一轮后终止
+
+    - **文档选择**：让LLM对每个检索到的文档判断相关性（输出Yes/No的概率），选概率最高的
+    - **查询生成**：基于选定文档，让LLM生成新查询，将隐式推理结果显式化。例如，"Gloria in D Major的作曲家出生地的著名桥叫什么？" → 获取到Vivaldi文档后 → "Antonio Vivaldi出生地的著名桥叫什么？"
+    - **终止判断**：让LLM判断新查询是否为单跳问题，若是则再检索一轮后终止
 
 ## 实验关键数据
 

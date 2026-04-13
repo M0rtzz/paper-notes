@@ -29,8 +29,8 @@ tags:
 
 文本到图像生成服务（如 Midjourney、DALL·E）面临两个核心问题：
 
-1. **Prompt 隐私泄露**: 用户上传的 prompt 可能包含敏感属性（性别、年龄、种族），服务器可以直接获取这些信息。即使不直接泄露 prompt，服务器也可以基于收到的文本嵌入执行完整的图像生成，暴露敏感视觉特征
-2. **服务器成本高昂**: 随着模型规模扩大（Scaling Law），计算成本急剧增加
+**Prompt 隐私泄露**: 用户上传的 prompt 可能包含敏感属性（性别、年龄、种族），服务器可以直接获取这些信息。即使不直接泄露 prompt，服务器也可以基于收到的文本嵌入执行完整的图像生成，暴露敏感视觉特征
+**服务器成本高昂**: 随着模型规模扩大（Scaling Law），计算成本急剧增加
 
 现有方案各有严重缺陷：
 - **密码学方法**（MPC、同态加密）：提供严格安全保证，但计算开销巨大（HE-Diffusion 超过 $10^6$ 倍开销），不切实际
@@ -54,13 +54,14 @@ ObCLIP 的两个核心组件构成完整流程：
 1. **遗忘生成方案（Oblivious Generation）**: 安全性的核心保证基于候选 prompt 的不可区分性。定理 1 证明，任何概率多项式时间（PPT）对手在仅获得 $\mathcal{P}$ 的情况下，识别真实 prompt $p^*$ 的概率不超过 $1/N + \lambda$（$\lambda$ 可忽略）。候选 prompt 通过识别敏感属性并遍历其取值空间构造——例如将 "portrait of young African woman" 扩展为所有年龄×种族×性别的组合。
 
 2. **批次冗余加速（Batch Redundancy）**: 候选 prompt 仅在敏感属性上不同，全局语义共享。通过可视化交叉注意力和自注意力图验证，背景、手势等全局特征在候选间高度相似。因此只为一个枢轴 prompt 计算注意力图，广播给所有候选：
-   $$m^* = \text{get\_attention\_map}(q^*, k^*), \quad O = M \cdot V \{M \leftarrow \text{broadcast}(m^*)\}$$
+    $m^* = \text{get\_attention\_map}(q^*, k^*), \quad O = M \cdot V \{M \leftarrow \text{broadcast}(m^*)\}$
    这大幅减少了 `to_q`、`to_k` 和 Softmax 的计算。
 
 3. **时间冗余加速（Temporal Redundancy）**: 包含两种策略：
-   - **注意力缓存**: 受 T-Gate 启发，前 $r$ 步后自注意力贡献有限，可跳过。交叉注意力图在第 2~3 步后差异急剧下降并稳定，也可缓存（每 5 步刷新一次）
-   - **块跳过**: 中间块输出在前 2~3 步后变化极小。在跳过点 $s$ 后只计算 UpBlock：
-   $$z_t = \begin{cases} (\text{DownBlock} \circ \text{MidBlock} \circ \text{UpBlock})(z_{t-1}, \mathcal{P}, t) & t < s \\ \text{UpBlock}(z_{t-1}, f_{mid}, \mathcal{P}, t) & t \geq s \end{cases}$$
+
+    - **注意力缓存**: 受 T-Gate 启发，前 $r$ 步后自注意力贡献有限，可跳过。交叉注意力图在第 2~3 步后差异急剧下降并稳定，也可缓存（每 5 步刷新一次）
+    - **块跳过**: 中间块输出在前 2~3 步后变化极小。在跳过点 $s$ 后只计算 UpBlock：
+    $z_t = \begin{cases} (\text{DownBlock} \circ \text{MidBlock} \circ \text{UpBlock})(z_{t-1}, \mathcal{P}, t) & t < s \\ \text{UpBlock}(z_{t-1}, f_{mid}, \mathcal{P}, t) & t \geq s \end{cases}$
 
 ### 超参数控制
 

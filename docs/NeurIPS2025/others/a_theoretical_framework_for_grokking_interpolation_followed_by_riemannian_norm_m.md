@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **Grokking 现象**：Power et al. (2022) 首次报道——训练损失迅速降至零，测试损失却在很长一段 plateau 后才突然下降。这一现象在 modular addition、图像分类、矩阵分解等任务中均被观测到。
-2. **现有解释不足**：先前工作（Liu et al. 2022, Lyu et al. 2023）将 grokking 归因于 lazy → rich regime 的转变，但缺乏对慢漂移阶段的严格优化理论刻画，且依赖特定架构（齐次参数化、大初始化）的假设。
-3. **Weight decay 的角色存疑**：grokking 通常在有 weight decay 时更明显、更早出现，但也有无 weight decay 的报道（分类隐式偏置）。理论上缺乏对 weight decay 如何驱动 norm 下降→泛化提升的严格分析。
-4. **插值流形上的漂移**：Li et al. (2021) 利用 Katzenberger 框架研究了 SGD 噪声驱动的漂移，但那是随机效应；本文发现的是**确定性**机制（正则化驱动）。
-5. **技术缺口**：已有分析要么将 Katzenberger 结果作为黑箱，要么仅处理初始化已在流形附近的情况。本文需要从任意初始化出发，刻画快慢阶段的完整衔接。
-6. **回归 vs. 分类**：在回归任务中，没有 weight decay 就无法观测到 grokking（无界动力学无隐式偏置），这进一步说明 weight decay 的核心作用。
+**Grokking 现象**：Power et al. (2022) 首次报道——训练损失迅速降至零，测试损失却在很长一段 plateau 后才突然下降。这一现象在 modular addition、图像分类、矩阵分解等任务中均被观测到。
+**现有解释不足**：先前工作（Liu et al. 2022, Lyu et al. 2023）将 grokking 归因于 lazy → rich regime 的转变，但缺乏对慢漂移阶段的严格优化理论刻画，且依赖特定架构（齐次参数化、大初始化）的假设。
+**Weight decay 的角色存疑**：grokking 通常在有 weight decay 时更明显、更早出现，但也有无 weight decay 的报道（分类隐式偏置）。理论上缺乏对 weight decay 如何驱动 norm 下降→泛化提升的严格分析。
+**插值流形上的漂移**：Li et al. (2021) 利用 Katzenberger 框架研究了 SGD 噪声驱动的漂移，但那是随机效应；本文发现的是**确定性**机制（正则化驱动）。
+**技术缺口**：已有分析要么将 Katzenberger 结果作为黑箱，要么仅处理初始化已在流形附近的情况。本文需要从任意初始化出发，刻画快慢阶段的完整衔接。
+**回归 vs. 分类**：在回归任务中，没有 weight decay 就无法观测到 grokking（无界动力学无隐式偏置），这进一步说明 weight decay 的核心作用。
 
 ## 方法详解
 

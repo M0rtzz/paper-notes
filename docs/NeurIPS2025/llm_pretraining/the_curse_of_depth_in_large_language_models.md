@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：近年研究发现现代 LLM（Llama、Mistral、DeepSeek、Qwen）中几乎一半的深层 Transformer 块效率低——移除深层对性能几乎无影响。
-2. **现有痛点**：LLM 训练极其昂贵，大量无效层意味着计算资源严重浪费，但根本原因缺乏系统理论解释。
-3. **核心矛盾**：Pre-LN 虽然解决了训练稳定性问题（vs Post-LN），但引入了新问题——残差连接使输出方差随深度指数增长，LayerNorm 的归一化效果被稀释。
-4. **本文要解决什么**：① 为什么 Pre-LN 的深层无效？② 数学上如何刻画？③ 如何用最简方案修复？
-5. **切入角度**：从方差传播和梯度流的角度分析，发现方差 $\sigma_{x_L}^2$ 从 $\Theta(L)$ 到 $\Theta(\exp(L))$ 指数增长，导致梯度范数 $\|\partial y_L / \partial x_1\| \leq M$（常数界），深层沦为恒等映射。
-6. **核心 idea 一句话**：在 LayerNorm 后乘以按层递减的因子 $1/\sqrt{\ell}$，将方差增长从指数压为多项式，让深层重新有效学习。
+**领域现状**：近年研究发现现代 LLM（Llama、Mistral、DeepSeek、Qwen）中几乎一半的深层 Transformer 块效率低——移除深层对性能几乎无影响。
+**现有痛点**：LLM 训练极其昂贵，大量无效层意味着计算资源严重浪费，但根本原因缺乏系统理论解释。
+**核心矛盾**：Pre-LN 虽然解决了训练稳定性问题（vs Post-LN），但引入了新问题——残差连接使输出方差随深度指数增长，LayerNorm 的归一化效果被稀释。
+**本文要解决什么**：① 为什么 Pre-LN 的深层无效？② 数学上如何刻画？③ 如何用最简方案修复？
+**切入角度**：从方差传播和梯度流的角度分析，发现方差 $\sigma_{x_L}^2$ 从 $\Theta(L)$ 到 $\Theta(\exp(L))$ 指数增长，导致梯度范数 $\|\partial y_L / \partial x_1\| \leq M$（常数界），深层沦为恒等映射。
+**核心 idea 一句话**：在 LayerNorm 后乘以按层递减的因子 $1/\sqrt{\ell}$，将方差增长从指数压为多项式，让深层重新有效学习。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **方差增长的理论诊断（Lemma 3.2 + Theorem 3.3）**:
-   - 做什么：证明 Pre-LN 输出方差指数增长及其后果
-   - 核心思路：$\sigma_{x_\ell}^2 = \sigma_{x_1}^2 \cdot \Theta(\prod_{k=1}^{\ell-1}(1 + 1/\sigma_{x_k}))$，界为 $\Theta(L) \leq \sigma_{x_L}^2 \leq \Theta(\exp(L))$。梯度范数 $\|\partial y_L/\partial x_1\| \leq M$（常数），深层等效为恒等映射
-   - 设计动机：通过 LLaMA2-7B 的 Jacobian 矩阵可视化验证——深层呈对角占优，非对角项消失
+
+    - 做什么：证明 Pre-LN 输出方差指数增长及其后果
+    - 核心思路：$\sigma_{x_\ell}^2 = \sigma_{x_1}^2 \cdot \Theta(\prod_{k=1}^{\ell-1}(1 + 1/\sigma_{x_k}))$，界为 $\Theta(L) \leq \sigma_{x_L}^2 \leq \Theta(\exp(L))$。梯度范数 $\|\partial y_L/\partial x_1\| \leq M$（常数），深层等效为恒等映射
+    - 设计动机：通过 LLaMA2-7B 的 Jacobian 矩阵可视化验证——深层呈对角占优，非对角项消失
 
 2. **LayerNorm Scaling（LNS）**:
-   - 做什么：$\tilde{h}^{(\ell)} = \text{LayerNorm}(h^{(\ell)}) \times \frac{1}{\sqrt{\ell}}$
-   - 核心思路：LNS 将方差增长从指数压缩为多项式 $\Theta(L) \leq \sigma_{x_L}^2 \leq \Theta(L^{2-\epsilon})$，梯度范数从有界常数变为 $\omega(1)$（随深度增长），深层恢复有效学习
-   - 设计动机：$1/\sqrt{\ell}$ 而非 $1/\ell$——太小会导致初层梯度爆炸，$\sqrt{\ell}$ 实现亚线性增长的平衡点
+
+    - 做什么：$\tilde{h}^{(\ell)} = \text{LayerNorm}(h^{(\ell)}) \times \frac{1}{\sqrt{\ell}}$
+    - 核心思路：LNS 将方差增长从指数压缩为多项式 $\Theta(L) \leq \sigma_{x_L}^2 \leq \Theta(L^{2-\epsilon})$，梯度范数从有界常数变为 $\omega(1)$（随深度增长），深层恢复有效学习
+    - 设计动机：$1/\sqrt{\ell}$ 而非 $1/\ell$——太小会导致初层梯度爆炸，$\sqrt{\ell}$ 实现亚线性增长的平衡点
 
 3. **与 Scaled Initialization 的关系**:
-   - 做什么：分析为什么不能仅靠初始化解决
-   - 核心思路：Scaled Initialization 仅在初始化时调整权重，但训练过程中方差仍然指数增长。LNS 在训练全程持续控制方差
-   - 设计动机：实验显示 LNS + Scaled Init 组合反而更差，两者控制方差的机制冲突
+
+    - 做什么：分析为什么不能仅靠初始化解决
+    - 核心思路：Scaled Initialization 仅在初始化时调整权重，但训练过程中方差仍然指数增长。LNS 在训练全程持续控制方差
+    - 设计动机：实验显示 LNS + Scaled Init 组合反而更差，两者控制方差的机制冲突
 
 ### 损失函数 / 训练策略
 标准语言模型损失，零额外参数，零超参数。仅需一行代码改动：`output * (1 / sqrt(layer_index))`。建议使用 LNS 时移除 Scaled Initialization。

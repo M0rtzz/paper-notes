@@ -50,25 +50,28 @@ RayZer 接收无位姿、无标定的多视角图像 $\mathcal{I} = \{I_i \in \m
 ### 关键设计
 
 1. **相机估计器 (Camera Estimator)**：
-   - 使用可学习的相机token $\mathbf{p} \in \mathbb{R}^{K \times d}$（每视图一个），与图像token $\mathbf{f} \in \mathbb{R}^{Khw \times d}$ 拼接后输入全自注意力Transformer层
-   - 选择一个参考视图（恒等旋转+零平移），其余视图预测相对位姿
-   - 旋转使用6D连续表示，通过MLP预测：$p_i = \text{MLP}_{pose}([\mathbf{p}_i^*, \mathbf{p}_c^*])$
-   - 内参用单一焦距值参数化：$\text{focal} = \text{MLP}_{focal}(\mathbf{p}_c^*)$
-   - **设计动机**：低维、几何定义良好的SE(3)参数化有助于信息解耦；先预测位姿再重建场景（pose-first范式）提供了更好的互相正则化
+
+    - 使用可学习的相机token $\mathbf{p} \in \mathbb{R}^{K \times d}$（每视图一个），与图像token $\mathbf{f} \in \mathbb{R}^{Khw \times d}$ 拼接后输入全自注意力Transformer层
+    - 选择一个参考视图（恒等旋转+零平移），其余视图预测相对位姿
+    - 旋转使用6D连续表示，通过MLP预测：$p_i = \text{MLP}_{pose}([\mathbf{p}_i^*, \mathbf{p}_c^*])$
+    - 内参用单一焦距值参数化：$\text{focal} = \text{MLP}_{focal}(\mathbf{p}_c^*)$
+    - **设计动机**：低维、几何定义良好的SE(3)参数化有助于信息解耦；先预测位姿再重建场景（pose-first范式）提供了更好的互相正则化
 
 2. **Plücker光线桥接**：将预测的SE(3)位姿和内参转换为像素对齐的Plücker光线图 $\mathcal{R} \in \mathbb{R}^{K \times H \times W \times 6}$。这是RayZer中**唯一的3D先验**，它同时编码了：
-   - 2D像素与光线的对齐关系
-   - 3D光线几何（方向和原点）
-   - 相机、像素和场景之间的物理关系
+
+    - 2D像素与光线的对齐关系
+    - 3D光线几何（方向和原点）
+    - 相机、像素和场景之间的物理关系
    
    光线图经线性层token化后与图像token融合：$\mathbf{x}_\mathcal{A} = \text{MLP}_{fuse}([\mathbf{f}_\mathcal{A}, \mathbf{r}_\mathcal{A}])$
-   - **关键细节**：使用原始图像token $\mathbf{f}$ 而非相机估计器输出的 $\mathbf{f}^*$，防止 $\mathcal{I}_\mathcal{B}$ 的信息泄露
+    - **关键细节**：使用原始图像token $\mathbf{f}$ 而非相机估计器输出的 $\mathbf{f}^*$，防止 $\mathcal{I}_\mathcal{B}$ 的信息泄露
 
 3. **潜在集合场景表示与全Transformer渲染**：
-   - 场景表示为可学习的token集合 $\mathbf{z} \in \mathbb{R}^{L \times d}$，不显式3D感知，3D属性完全通过学习获得
-   - 场景重建：$\{\mathbf{z}^*, \mathbf{x}_\mathcal{A}^*\} = \mathcal{E}_{scene}(\{\mathbf{z}, \mathbf{x}_\mathcal{A}\})$
-   - 渲染：给定目标相机的Plücker光线token $\mathbf{r}$，通过渲染解码器生成图像：$\hat{I} = \text{MLP}_{rgb}(\mathbf{r}^*)$
-   - 与传统渲染公式 $v = R(\text{scene}, \text{ray})$ 类比，只是这里"渲染方程"是参数化的可学习模型
+
+    - 场景表示为可学习的token集合 $\mathbf{z} \in \mathbb{R}^{L \times d}$，不显式3D感知，3D属性完全通过学习获得
+    - 场景重建：$\{\mathbf{z}^*, \mathbf{x}_\mathcal{A}^*\} = \mathcal{E}_{scene}(\{\mathbf{z}, \mathbf{x}_\mathcal{A}\})$
+    - 渲染：给定目标相机的Plücker光线token $\mathbf{r}$，通过渲染解码器生成图像：$\hat{I} = \text{MLP}_{rgb}(\mathbf{r}^*)$
+    - 与传统渲染公式 $v = R(\text{scene}, \text{ray})$ 类比，只是这里"渲染方程"是参数化的可学习模型
 
 ### 损失函数 / 训练策略
 

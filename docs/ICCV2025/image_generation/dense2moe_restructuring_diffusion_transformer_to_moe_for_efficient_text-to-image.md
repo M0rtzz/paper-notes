@@ -43,16 +43,17 @@ Dense2MoE包含两层稀疏化设计和三阶段蒸馏流水线：
 ### 关键设计
 
 1. **FFN→MoE替换**: 用共享专家（expansion ratio $r_s$）和 $n$ 个普通专家（expansion ratio $r_n$ ）替换原始FFN。约束 $r = r_s + n \cdot r_n$ 保持总参数不变。推理时每个token仅选top-k个普通专家激活，激活扩展比 $r_a = r_s + k \cdot r_n$。默认配置：$r_s=1, r_n=0.25, n=12, k=2$，FFN激活参数压缩率为 $r_a/r = 1.5/4 = 37.5\%$（压缩62.5%）。前向过程：
-   $$y^{(t)} = \text{MLP}_s(x^{(t)}) + \sum_{i=1}^k g(x^{(t)},i) \cdot \text{MLP}_n^{(i)}(x^{(t)})$$
+    $y^{(t)} = \text{MLP}_s(x^{(t)}) + \sum_{i=1}^k g(x^{(t)},i) \cdot \text{MLP}_n^{(i)}(x^{(t)})$
 
 2. **Mixture of Blocks (MoB)**: 将连续 $m$ 个Transformer块分组为MoB组，推理时仅激活相邻的 $\kappa$ 个块。路由器设计利用AdaLN的全局嵌入 $y$（融合了text和timestep条件）：
-   $$\text{TopK}(\alpha W_x[x^{(p)}, c^{(p)}] + (1-\alpha)W_y y, \kappa)$$
+    $\text{TopK}(\alpha W_x[x^{(p)}, c^{(p)}] + (1-\alpha)W_y y, \kappa)$
    这使路由能显式感知文本和时间步条件，实现动态的深度压缩。
 
 3. **三阶段蒸馏流水线**:
-   - **增强初始化**: 用一阶Taylor度量 $\mathcal{I}_i = |\frac{\partial\mathcal{L}}{\partial w_i}w_i|$ 评估权重重要性，将重要权重分配给共享专家，其余均分给普通专家。再对仅含共享专家的模型做KD提升初始化质量
-   - **MoE蒸馏**: 冻结共享专家，激活普通专家和门控网络，使用输出蒸馏损失 + 块特征损失 + 负载平衡损失训练
-   - **MoB蒸馏**: 设计组特征损失——用原始模型中对应MoB组最后一个块的输出作为教师特征，与MoB组输出对齐
+
+    - **增强初始化**: 用一阶Taylor度量 $\mathcal{I}_i = |\frac{\partial\mathcal{L}}{\partial w_i}w_i|$ 评估权重重要性，将重要权重分配给共享专家，其余均分给普通专家。再对仅含共享专家的模型做KD提升初始化质量
+    - **MoE蒸馏**: 冻结共享专家，激活普通专家和门控网络，使用输出蒸馏损失 + 块特征损失 + 负载平衡损失训练
+    - **MoB蒸馏**: 设计组特征损失——用原始模型中对应MoB组最后一个块的输出作为教师特征，与MoB组输出对齐
 
 ### 损失函数 / 训练策略
 

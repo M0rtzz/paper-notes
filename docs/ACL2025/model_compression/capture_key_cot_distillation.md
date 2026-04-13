@@ -49,21 +49,24 @@ EDIT 分三阶段：
 ### 关键设计
 
 1. **Dual CoTs 数据生成**：
-   - **纠正错误 CoT（Rectify）**：设计 Answer Hint Prompt (AHP)，在 few-shot 示例中先给出正确答案作为提示，引导教师 LLM 对原本错误的 CoT 生成推理路径相似但结论正确的新版本 → 得到 D⁻⁺
-   - **破坏正确 CoT（Corrupt）**：设计 Contrastive CoTs Prompt (CCP)，利用 in-context learning 提供正确-错误配对示例，诱导 LLM 对原本正确的 CoT 生成推理路径相似但结论错误的变体 → 得到 D⁺⁻
-   - 最终得到的 dual CoTs 具有"路径高度相似、结论截然不同"的特性
+
+    - **纠正错误 CoT（Rectify）**：设计 Answer Hint Prompt (AHP)，在 few-shot 示例中先给出正确答案作为提示，引导教师 LLM 对原本错误的 CoT 生成推理路径相似但结论正确的新版本 → 得到 D⁻⁺
+    - **破坏正确 CoT（Corrupt）**：设计 Contrastive CoTs Prompt (CCP)，利用 in-context learning 提供正确-错误配对示例，诱导 LLM 对原本正确的 CoT 生成推理路径相似但结论错误的变体 → 得到 D⁺⁻
+    - 最终得到的 dual CoTs 具有"路径高度相似、结论截然不同"的特性
 
 2. **最小编辑距离定位关键步骤**：
-   - 对 dual CoTs 中的正确/错误版本应用 minimum edit distance 算法
-   - 被标记为 insert/replace 的 token 视为正确推理中的关键步骤
-   - 被标记为 delete/replace 的 token 视为错误推理中的关键步骤
-   - 忽略两者完全相同的部分
+
+    - 对 dual CoTs 中的正确/错误版本应用 minimum edit distance 算法
+    - 被标记为 insert/replace 的 token 视为正确推理中的关键步骤
+    - 被标记为 delete/replace 的 token 视为错误推理中的关键步骤
+    - 忽略两者完全相同的部分
 
 3. **Key Reasoning Steps Learning (KRSL)**：
-   - 对关键步骤赋予 token 级权重：正确关键步骤权重 α=1.0，错误关键步骤权重 β=0.025
-   - 优化目标：**最大化**正确 CoT 中关键步骤的 log-likelihood，同时**最小化**错误 CoT 中关键步骤的 log-likelihood
-   - 损失函数：$\max_{\pi_{sft}} \mathbb{E}[\mathcal{L}(\pi, q, CoT^+, \omega^+) - \mathcal{L}(\pi, q, CoT^-, \omega^-)]$
-   - 与 DPO 的核心区别：DPO 对所有 token 求和，在高度相似的 dual CoTs 上会因相同 token 主导而失效；KRSL 只优化关键步骤 token
+
+    - 对关键步骤赋予 token 级权重：正确关键步骤权重 α=1.0，错误关键步骤权重 β=0.025
+    - 优化目标：**最大化**正确 CoT 中关键步骤的 log-likelihood，同时**最小化**错误 CoT 中关键步骤的 log-likelihood
+    - 损失函数：$\max_{\pi_{sft}} \mathbb{E}[\mathcal{L}(\pi, q, CoT^+, \omega^+) - \mathcal{L}(\pi, q, CoT^-, \omega^-)]$
+    - 与 DPO 的核心区别：DPO 对所有 token 求和，在高度相似的 dual CoTs 上会因相同 token 主导而失效；KRSL 只优化关键步骤 token
 
 ## 实验关键数据
 

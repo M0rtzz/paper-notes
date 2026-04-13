@@ -25,9 +25,9 @@ tags:
 本文引入各向同性随机梯度预言机（ISGO）概念——噪声在每个方向上都以高概率有界——并设计随机切平面算法达到 $\tilde{O}(R^2\sigma_I^2/\epsilon^2 + d)$ 的查询复杂度，较 SGD 在某些参数区间改进 $d$ 倍，作为推论获得了 sub-exponential 噪声下的新 SOTA 复杂度，并通过量子各向同性化子程序改进了量子随机凸优化的维度依赖。
 
 ## 研究背景与动机
-1. **经典结果**：SGD 在 $\sigma_B$-有界随机梯度预言机（BSGO）下达到 $O(R^2\sigma_B^2/\epsilon^2)$，这是最优的。当噪声以方差 $\sigma_V^2$ 刻画（VSGO）时，SGD 达到 $O(R^2(\sigma_V^2 + L^2)/\epsilon^2)$，其中 $R^2\sigma_V^2/\epsilon^2$ 项不可改进，但 $R^2L^2/\epsilon^2$ 项来自非随机部分，在精度足够高时可以用切平面方法改进到 $\tilde{O}(d)$。
-2. **Open Problem**：能否在 VSGO 下达到 $\tilde{O}(R^2\sigma_V^2/\epsilon^2 + d)$？即将随机与非随机贡献解耦？
-3. **本文贡献**：定义 ISGO 噪声模型，在该模型下肯定回答了上述问题；对 sub-exponential 噪声达到完全匹配的复杂度；对一般 VSGO 达到 $\tilde{O}(dR^2\sigma_V^2/\epsilon^2 + d)$。
+**经典结果**：SGD 在 $\sigma_B$-有界随机梯度预言机（BSGO）下达到 $O(R^2\sigma_B^2/\epsilon^2)$，这是最优的。当噪声以方差 $\sigma_V^2$ 刻画（VSGO）时，SGD 达到 $O(R^2(\sigma_V^2 + L^2)/\epsilon^2)$，其中 $R^2\sigma_V^2/\epsilon^2$ 项不可改进，但 $R^2L^2/\epsilon^2$ 项来自非随机部分，在精度足够高时可以用切平面方法改进到 $\tilde{O}(d)$。
+**Open Problem**：能否在 VSGO 下达到 $\tilde{O}(R^2\sigma_V^2/\epsilon^2 + d)$？即将随机与非随机贡献解耦？
+**本文贡献**：定义 ISGO 噪声模型，在该模型下肯定回答了上述问题；对 sub-exponential 噪声达到完全匹配的复杂度；对一般 VSGO 达到 $\tilde{O}(dR^2\sigma_V^2/\epsilon^2 + d)$。
 
 ## 方法详解
 

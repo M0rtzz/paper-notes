@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 注意力机制广泛应用于集合级别回归任务（如数字病理学、视频情感分析、空间转录组学），每个样本由多个元素组成，通过 attention 聚合元素嵌入来预测连续目标值。训练目标通常采用 MSE + PCC 联合损失，既关注预测值的绝对大小（magnitude），也关注预测排序/形状（shape）。
+**领域现状**: 注意力机制广泛应用于集合级别回归任务（如数字病理学、视频情感分析、空间转录组学），每个样本由多个元素组成，通过 attention 聚合元素嵌入来预测连续目标值。训练目标通常采用 MSE + PCC 联合损失，既关注预测值的绝对大小（magnitude），也关注预测排序/形状（shape）。
 
-2. **现有痛点**: 训练过程中频繁出现 **PCC plateau** 现象——PCC 在训练早期就停止提升并趋于平坦，即使 MSE 仍在持续下降。增大 PCC 的损失权重 $\lambda_{	ext{PCC}}$ 也无法解决。这个现象在样本内数据高度同质（homogeneous）的场景下尤为严重。
+**现有痛点**: 训练过程中频繁出现 **PCC plateau** 现象——PCC 在训练早期就停止提升并趋于平坦，即使 MSE 仍在持续下降。增大 PCC 的损失权重 $\lambda_{	ext{PCC}}$ 也无法解决。这个现象在样本内数据高度同质（homogeneous）的场景下尤为严重。
 
-3. **核心矛盾**: 
+**核心矛盾**: 
    - **优化层面**: MSE 优化会驱动预测标准差 $\sigma_{\hat{y}}$ 向目标标准差 $\sigma_y$ 靠齐，而 PCC 梯度的全局缩放因子恰好与 $1/\sigma_{\hat{y}}$ 成正比，因此随着 $\sigma_{\hat{y}}$ 增大，PCC 梯度信号被压制。
    - **容量层面**: softmax 注意力是凸组合，聚合结果被限制在样本内嵌入的凸包内，PCC 的最大改善幅度受凸包半径约束。
 
-4. **本文切入角度**: 作者从"为什么 PCC 会停滞"这个被广泛观察但从未被理论解释的现象出发，分别从优化动力学和模型容量两个维度给出严格分析，并基于分析结论设计针对性解法。
+**本文切入角度**: 作者从"为什么 PCC 会停滞"这个被广泛观察但从未被理论解释的现象出发，分别从优化动力学和模型容量两个维度给出严格分析，并基于分析结论设计针对性解法。
 
-5. **核心idea一句话**: 通过理论揭示注意力回归中 PCC 梯度被 MSE 优化压制且受凸包约束的双重瓶颈，用"凸包外推 + 色散自适应温度 + 梯度归一化"三管齐下打破平台期。
+**核心idea一句话**: 通过理论揭示注意力回归中 PCC 梯度被 MSE 优化压制且受凸包约束的双重瓶颈，用"凸包外推 + 色散自适应温度 + 梯度归一化"三管齐下打破平台期。
 
 ## 方法详解
 
@@ -59,20 +59,23 @@ $$\mathcal{L}_{\text{Total}} = \mathcal{L}_{\text{MSE}} + \lambda_{\text{PCC}} \
 ### 关键设计
 
 1. **Scaled Residual Aggregation (SRA)**:
-   - 做什么：允许聚合嵌入超出凸包，打破凸组合约束
-   - 核心思路：在标准注意力聚合基础上，用可学习的缩放因子 $\gamma_s \geq 1$ 放大残差。$\mathbf{v}_s^{ECA} = \boldsymbol{\mu}_s + \gamma_s \sum_i \alpha_{si}(\mathbf{h}_{si} - \boldsymbol{\mu}_s)$，其中 $\gamma_s = 1 + \text{Softplus}(\text{MLP}(\boldsymbol{\mu}_s))$
-   - 设计动机：Theorem 2.2 证明凸聚合器的 PCC 改善受限于凸包半径。$\gamma_s > 1$ 时模型可以沿残差方向外推，从根本上绕过凸约束
-   - 正则化：$\mathcal{L}_\gamma = \frac{\lambda_\gamma}{S} \sum_s (\gamma_s - 1)^2$ 防止过度缩放
+
+    - 做什么：允许聚合嵌入超出凸包，打破凸组合约束
+    - 核心思路：在标准注意力聚合基础上，用可学习的缩放因子 $\gamma_s \geq 1$ 放大残差。$\mathbf{v}_s^{ECA} = \boldsymbol{\mu}_s + \gamma_s \sum_i \alpha_{si}(\mathbf{h}_{si} - \boldsymbol{\mu}_s)$，其中 $\gamma_s = 1 + \text{Softplus}(\text{MLP}(\boldsymbol{\mu}_s))$
+    - 设计动机：Theorem 2.2 证明凸聚合器的 PCC 改善受限于凸包半径。$\gamma_s > 1$ 时模型可以沿残差方向外推，从根本上绕过凸约束
+    - 正则化：$\mathcal{L}_\gamma = \frac{\lambda_\gamma}{S} \sum_s (\gamma_s - 1)^2$ 防止过度缩放
 
 2. **Dispersion-Aware Temperature Softmax (DATS)**:
-   - 做什么：根据样本内色散自适应调节 softmax 温度
-   - 核心思路：$\tau_s = T_{\min} + \beta \sqrt{\frac{1}{n_s} \sum_i \|\mathbf{h}_{si} - \boldsymbol{\mu}_s\|^2}$。同质样本的色散小 → 温度低 → 小差异被放大 → 注意力更具选择性 → 残差 $\Delta \mathbf{v}_s$ 更大，SRA 才有方向可以放大
-   - 设计动机：当样本内嵌入高度相似时，标准 softmax 产生近均匀权重 $\alpha_{si} \approx 1/n_s$，导致残差趋近于零，SRA 无用。DATS 恢复注意力的区分能力
+
+    - 做什么：根据样本内色散自适应调节 softmax 温度
+    - 核心思路：$\tau_s = T_{\min} + \beta \sqrt{\frac{1}{n_s} \sum_i \|\mathbf{h}_{si} - \boldsymbol{\mu}_s\|^2}$。同质样本的色散小 → 温度低 → 小差异被放大 → 注意力更具选择性 → 残差 $\Delta \mathbf{v}_s$ 更大，SRA 才有方向可以放大
+    - 设计动机：当样本内嵌入高度相似时，标准 softmax 产生近均匀权重 $\alpha_{si} \approx 1/n_s$，导致残差趋近于零，SRA 无用。DATS 恢复注意力的区分能力
 
 3. **Dispersion-Normalized PCC Loss (DNPL)**:
-   - 做什么：补偿 PCC 梯度中 $1/\sigma_{\hat{y}}$ 的衰减效应
-   - 核心思路：$\tilde{\mathcal{L}}_{\text{PCC}} = \text{StopGrad}(\sigma_{\hat{y}}) \cdot (1 - \rho)$。乘以 $\sigma_{\hat{y}}$ 抵消梯度中的 $1/\sigma_{\hat{y}}$ 因子，StopGrad 确保不改变损失的驻点
-   - 设计动机：直接对应 Corollary 2.1 揭示的 PCC/MSE 梯度比以 $O(1/\sigma_{\hat{y}}^{3/2})$ 衰减的问题
+
+    - 做什么：补偿 PCC 梯度中 $1/\sigma_{\hat{y}}$ 的衰减效应
+    - 核心思路：$\tilde{\mathcal{L}}_{\text{PCC}} = \text{StopGrad}(\sigma_{\hat{y}}) \cdot (1 - \rho)$。乘以 $\sigma_{\hat{y}}$ 抵消梯度中的 $1/\sigma_{\hat{y}}$ 因子，StopGrad 确保不改变损失的驻点
+    - 设计动机：直接对应 Corollary 2.1 揭示的 PCC/MSE 梯度比以 $O(1/\sigma_{\hat{y}}^{3/2})$ 衰减的问题
 
 ## 实验关键数据
 

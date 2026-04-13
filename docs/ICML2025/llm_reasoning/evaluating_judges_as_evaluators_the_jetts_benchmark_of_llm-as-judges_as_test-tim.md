@@ -25,10 +25,10 @@ tags:
 
 Test-time scaling（推理时计算扩展）是提升 LLM 性能的重要范式。其核心组件是**评估器**——用于判断候选回答质量。现有评估器分为两类：
 
-1. **Reward Models (RM)**：非生成式，输出标量分数
+**Reward Models (RM)**：非生成式，输出标量分数
    - Outcome RM (ORM)：对完整回答评分
    - Process RM (PRM)：对推理步骤逐步评分
-2. **LLM-Judges**：生成式，输出自然语言评价和评分
+**LLM-Judges**：生成式，输出自然语言评价和评分
 
 LLM-judge 的独特优势在于能生成**自然语言 critique**，可解释性强。然而，它们在 test-time scaling 场景下的有效性从未被系统评估。核心问题：
 

@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **购买意图（Purchase Intention）桥接语义鸿沟**
-   - 为每个产品用LLM生成10条购买意图（如"用户想买跑鞋是因为要参加马拉松"）
-   - 意图描述用户行动目的，与脚本步骤的语义空间天然对齐
-   - 用SentenceBERT (T5-xxl)计算步骤与产品意图的嵌入相似度，选top-3产品
-   - 总计生成2400万条意图，覆盖240万产品
+
+    - 为每个产品用LLM生成10条购买意图（如"用户想买跑鞋是因为要参加马拉松"）
+    - 意图描述用户行动目的，与脚本步骤的语义空间天然对齐
+    - 用SentenceBERT (T5-xxl)计算步骤与产品意图的嵌入相似度，选top-3产品
+    - 总计生成2400万条意图，覆盖240万产品
 
 2. **数据构建Pipeline**
-   - 从Amazon购买评论中用GPT-4o-mini提取用户目标→生成脚本→挖掘产品意图→步骤-意图对齐→关键词过滤缩小搜索范围
-   - 通过AMT（56名合格标注员，从300人中筛选）对15K条目标注gold label
-   - 专家验证：96.33%标注与专家一致
+
+    - 从Amazon购买评论中用GPT-4o-mini提取用户目标→生成脚本→挖掘产品意图→步骤-意图对齐→关键词过滤缩小搜索范围
+    - 通过AMT（56名合格标注员，从300人中筛选）对15K条目标注gold label
+    - 专家验证：96.33%标注与专家一致
 
 3. **评估框架**
-   - 涵盖PTLM (RoBERTa, DeBERTa等)、开源LLM (LLaMA, Gemma, Mistral等)、API LLM (GPT-4o)
-   - 评估设置：Zero-shot、Few-shot、CoT、Self-Consistency CoT、Self-Reflection、Fine-tuning
+
+    - 涵盖PTLM (RoBERTa, DeBERTa等)、开源LLM (LLaMA, Gemma, Mistral等)、API LLM (GPT-4o)
+    - 评估设置：Zero-shot、Few-shot、CoT、Self-Consistency CoT、Self-Reflection、Fine-tuning
 
 ## 实验关键数据
 

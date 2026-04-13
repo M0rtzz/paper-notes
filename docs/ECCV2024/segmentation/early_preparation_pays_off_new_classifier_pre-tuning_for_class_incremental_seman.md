@@ -29,11 +29,11 @@ tags:
 **领域现状**：类增量语义分割（CISS）要求模型在连续学习新类别的同时保留旧类别知识，面临灾难性遗忘和背景偏移两大挑战。现有方法主要通过知识蒸馏（MiB、PLOP）、伪标签、特征正则化等方式缓解遗忘。
 
 **现有痛点**：
-1. **新分类器初始化不当**：随机初始化导致新分类器与backbone特征不对齐，训练初期梯度剧烈变化破坏旧知识
-2. **背景分类器初始化的局限**：MiB用背景分类器初始化新分类器，但会导致真实背景像素误分类
-3. **辅助分类器训练的偏差**：SSUL/DKD预训练辅助分类器，但缺少真实未来数据导致偏差
-4. **忽视新类别间差异**：现有方法对所有新类别使用相同初始化策略，忽视不同新类别与旧类别的关联差异
-5. **AWT的限制**：AWT通过梯度归因从背景分类器转移权重，但忽略其他旧分类器，且内存开销巨大（>24GB）
+**新分类器初始化不当**：随机初始化导致新分类器与backbone特征不对齐，训练初期梯度剧烈变化破坏旧知识
+**背景分类器初始化的局限**：MiB用背景分类器初始化新分类器，但会导致真实背景像素误分类
+**辅助分类器训练的偏差**：SSUL/DKD预训练辅助分类器，但缺少真实未来数据导致偏差
+**忽视新类别间差异**：现有方法对所有新类别使用相同初始化策略，忽视不同新类别与旧类别的关联差异
+**AWT的限制**：AWT通过梯度归因从背景分类器转移权重，但忽略其他旧分类器，且内存开销巨大（>24GB）
 
 **核心矛盾**：如何初始化新分类器使其既能快速适应新类别数据（可塑性），又不对backbone造成剧烈更新从而破坏旧知识（稳定性）？
 
@@ -54,31 +54,33 @@ NeST在每个增量步骤的正式训练前增加预调优阶段：
 
 1. **新分类器生成（New Classifier Generation）**：
    对每个新类别 $c \in \mathcal{C}_t$，分配两个可学习矩阵：
-   - **重要性矩阵** $\mathbf{M}_c \in \mathbb{R}^{d \times n_{old}}$：学习旧分类器每个通道对新类别的重要性权重
-   - **投影矩阵** $\mathbf{P}_c \in \mathbb{R}^{n_{old} \times 1}$：学习旧分类器的线性组合系数
+    - **重要性矩阵** $\mathbf{M}_c \in \mathbb{R}^{d \times n_{old}}$：学习旧分类器每个通道对新类别的重要性权重
+    - **投影矩阵** $\mathbf{P}_c \in \mathbb{R}^{n_{old} \times 1}$：学习旧分类器的线性组合系数
    
    新分类器权重生成公式：
-   $$\mathbf{w}_c = (\mathbf{M}_c \odot \mathbf{W}_{old}) \mathbf{P}_c$$
+    $\mathbf{w}_c = (\mathbf{M}_c \odot \mathbf{W}_{old}) \mathbf{P}_c$
    其中 $\mathbf{W}_{old} \in \mathbb{R}^{d \times n_{old}}$ 是所有旧分类器权重。$\odot$ 为Hadamard积实现通道级加权，$\mathbf{P}_c$ 完成旧分类器的加权组合。
    
    对背景类也学习变换以适应新任务：$\hat{\mathbf{w}}_0 = (\mathbf{M}_0 \odot \mathbf{w}_0) \mathbf{P}_0$
 
 2. **预调优过程（Pre-tuning）**：
-   - 冻结backbone和旧分类器权重，仅优化 $\{\mathbf{M}_c, \mathbf{P}_c\}$
-   - 每次前向传播先由矩阵生成新分类器权重，拼接到旧分类器后进行预测
-   - 使用unbiased cross-entropy损失避免过拟合：
-     $$\mathcal{L}_{unce} = -\frac{1}{|\mathcal{I}|} \sum_{i \in \mathcal{I}} \log \tilde{q}_x^t(i, y_i)$$
-   - 预调优完成后用最终矩阵生成新分类器权重作为初始化，移除额外参数
+
+    - 冻结backbone和旧分类器权重，仅优化 $\{\mathbf{M}_c, \mathbf{P}_c\}$
+    - 每次前向传播先由矩阵生成新分类器权重，拼接到旧分类器后进行预测
+    - 使用unbiased cross-entropy损失避免过拟合：
+    $\mathcal{L}_{unce} = -\frac{1}{|\mathcal{I}|} \sum_{i \in \mathcal{I}} \log \tilde{q}_x^t(i, y_i)$
+    - 预调优完成后用最终矩阵生成新分类器权重作为初始化，移除额外参数
 
 3. **跨任务类别相似性初始化（Cross-Task Class Similarity）**：
-   - 将当前步训练图像送入旧模型，对每个新类别像素embedding $\mathbf{p}_u$，分解分类过程：
-     $$\mathbf{H}_u = \mathbf{W}_{old} \odot \mathbf{p}_u', \quad \mathbf{s}_u = \text{softmax}(\text{sum}(\mathbf{H}_u))^\top$$
-   - 正值位置标记为贡献通道：$\mathbf{H}_u^{mask}(i,j) = \mathbb{1}[\mathbf{H}_u(i,j) > 0]$
-   - 对新类别所有像素取平均得到重要性矩阵初值：
-     $$\mathbf{M}_{c_{new}} = \frac{1}{N} \sum_{\mathbf{p}_u} \mathbf{H}_u^{mask} \odot \mathbf{s}_u'$$
-   - 投影矩阵由重要性矩阵沿通道维求和+softmax得到：
-     $$\mathbf{P}_{c_{new}} = (\text{softmax}(\text{sum}(\mathbf{M}_{c_{new}})))^\top$$
-   - 核心思想：如果某旧类别与新类别更相似（旧模型对新类别像素预测该旧类偏高），则在变换中赋予更大初始权重
+
+    - 将当前步训练图像送入旧模型，对每个新类别像素embedding $\mathbf{p}_u$，分解分类过程：
+    $\mathbf{H}_u = \mathbf{W}_{old} \odot \mathbf{p}_u', \quad \mathbf{s}_u = \text{softmax}(\text{sum}(\mathbf{H}_u))^\top$
+    - 正值位置标记为贡献通道：$\mathbf{H}_u^{mask}(i,j) = \mathbb{1}[\mathbf{H}_u(i,j) > 0]$
+    - 对新类别所有像素取平均得到重要性矩阵初值：
+    $\mathbf{M}_{c_{new}} = \frac{1}{N} \sum_{\mathbf{p}_u} \mathbf{H}_u^{mask} \odot \mathbf{s}_u'$
+    - 投影矩阵由重要性矩阵沿通道维求和+softmax得到：
+    $\mathbf{P}_{c_{new}} = (\text{softmax}(\text{sum}(\mathbf{M}_{c_{new}})))^\top$
+    - 核心思想：如果某旧类别与新类别更相似（旧模型对新类别像素预测该旧类偏高），则在变换中赋予更大初始权重
 
 ### 损失函数 / 训练策略
 - 预调优阶段：unbiased cross-entropy，VOC预调优5 epochs（lr=0.001），ADE20K预调优15 epochs

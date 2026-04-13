@@ -48,28 +48,31 @@ CoSS 是一个两阶段 UKD 框架：
 ### 关键设计
 
 1. **离线 k-近邻预处理**:
-   - 做什么：利用 teacher 编码器为训练集中每个样本计算 $k$ 个最近邻
-   - 核心思路：先用 teacher 产生所有训练样本的 $L_2$ 归一化特征，计算相似度矩阵 $S_{ij} = \hat{f}_t(x_i) \cdot \hat{f}_t(x_j)$，然后取 top-k 作为近邻集合 $\Omega_i^k = \arg\max(S_{i\cdot}, k)$
-   - 设计动机：标准随机采样的 mini-batch 中，局部邻域信息缺失。通过在 batch 中追加近邻样本，使 student 能捕获流形的局部结构。这对流形建模至关重要——不仅要匹配全局结构，还要保留局部细节。
+
+    - 做什么：利用 teacher 编码器为训练集中每个样本计算 $k$ 个最近邻
+    - 核心思路：先用 teacher 产生所有训练样本的 $L_2$ 归一化特征，计算相似度矩阵 $S_{ij} = \hat{f}_t(x_i) \cdot \hat{f}_t(x_j)$，然后取 top-k 作为近邻集合 $\Omega_i^k = \arg\max(S_{i\cdot}, k)$
+    - 设计动机：标准随机采样的 mini-batch 中，局部邻域信息缺失。通过在 batch 中追加近邻样本，使 student 能捕获流形的局部结构。这对流形建模至关重要——不仅要匹配全局结构，还要保留局部细节。
 
 2. **特征相似度（Feature Similarity / Cosine Similarity）**:
-   - 做什么：对每个样本，最大化 teacher 和 student 归一化特征向量的余弦相似度
-   - 核心思路：
 
-   $$\mathcal{L}_{co} = -\frac{1}{bk} \sum_{i=0}^{bk} \text{cosine}(\hat{A}_s^i, \hat{A}_t^i)$$
+    - 做什么：对每个样本，最大化 teacher 和 student 归一化特征向量的余弦相似度
+    - 核心思路：
+
+    $\mathcal{L}_{co} = -\frac{1}{bk} \sum_{i=0}^{bk} \text{cosine}(\hat{A}_s^i, \hat{A}_t^i)$
 
    其中 $\hat{A}^i$ 是样本 $i$ 的 $L_2$ 归一化特征向量。这是 UKD 中广泛使用的标准损失。
-   - 设计动机：保证 teacher 和 student 对同一样本的表征方向一致，在归一化流形上做对齐。但单靠它无法恢复归一化前的结构。
+    - 设计动机：保证 teacher 和 student 对同一样本的表征方向一致，在归一化流形上做对齐。但单靠它无法恢复归一化前的结构。
 
 3. **空间相似度（Space Similarity）**:
-   - 做什么：将特征矩阵**转置**，然后在**空间维度**（即特征的每个维度对应的样本响应向量）上计算余弦相似度
-   - 核心思路：构造转置矩阵 $Z = A^T$（大小 $d \times bk$），归一化后计算：
 
-   $$\mathcal{L}_{ss} = -\frac{1}{d} \sum_{i=0}^{d} \text{cosine}(\hat{Z}_s^i, \hat{Z}_t^i)$$
+    - 做什么：将特征矩阵**转置**，然后在**空间维度**（即特征的每个维度对应的样本响应向量）上计算余弦相似度
+    - 核心思路：构造转置矩阵 $Z = A^T$（大小 $d \times bk$），归一化后计算：
+
+    $\mathcal{L}_{ss} = -\frac{1}{d} \sum_{i=0}^{d} \text{cosine}(\hat{Z}_s^i, \hat{Z}_t^i)$
 
    这里每个 $Z^i$ 是特征空间第 $i$ 个维度在 batch 中所有样本上的响应向量。最小化此损失使 teacher 和 student 的每个特征维度对样本的响应模式一致。
-   - 数学保证：在空间维度上的归一化对同一维度下的所有数据点做相同缩放，因此保留了双射性和连续性。当 $\mathcal{L}_{ss}$ 最小时，$f_s(x_i) = \frac{\alpha}{\beta} f_t(x_i)$，其中 $\alpha, \beta > 0$ 是维度级缩放向量，映射连续、双射且可逆，满足同胚条件。
-   - 设计动机：恢复 $L_2$ 归一化在特征维度上丢失的结构信息。Feature Similarity 保证样本级对齐方向一致，Space Similarity 保证维度级响应模式一致，两者互补覆盖完整的流形结构。
+    - 数学保证：在空间维度上的归一化对同一维度下的所有数据点做相同缩放，因此保留了双射性和连续性。当 $\mathcal{L}_{ss}$ 最小时，$f_s(x_i) = \frac{\alpha}{\beta} f_t(x_i)$，其中 $\alpha, \beta > 0$ 是维度级缩放向量，映射连续、双射且可逆，满足同胚条件。
+    - 设计动机：恢复 $L_2$ 归一化在特征维度上丢失的结构信息。Feature Similarity 保证样本级对齐方向一致，Space Similarity 保证维度级响应模式一致，两者互补覆盖完整的流形结构。
 
 ### 损失函数 / 训练策略
 

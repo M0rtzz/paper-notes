@@ -31,8 +31,8 @@ EvoMesh 提出一种全可微的层次图演化框架，通过各向异性消息
 
 现有解决方案主要采用多尺度层次图结构来创建远距离信息捷径（如 BSMS-GNN、HCMT 等）。但这些方法存在两个核心局限：
 
-1. **图层次结构是固定的**：通过启发式节点选择在预处理阶段构建，对所有输入序列使用相同的图层次，无法适应不同物理上下文（如湍流中微小初始条件变化就会导致完全不同的后续动力学）
-2. **消息传递是各向同性的**：聚合函数对所有邻居贡献同等对待，忽略了物理系统中特征传播的方向性特征（如 CylinderFlow 中流体绕障碍物的定向流动）
+**图层次结构是固定的**：通过启发式节点选择在预处理阶段构建，对所有输入序列使用相同的图层次，无法适应不同物理上下文（如湍流中微小初始条件变化就会导致完全不同的后续动力学）
+**消息传递是各向同性的**：聚合函数对所有邻居贡献同等对待，忽略了物理系统中特征传播的方向性特征（如 CylinderFlow 中流体绕障碍物的定向流动）
 
 EvoMesh 的核心 idea 是：**让图层次结构随数据和时间自适应演化，同时让消息传递具备方向性区分能力**。这同时解决了"固定结构"和"各向同性聚合"两大瓶颈。
 
@@ -64,9 +64,10 @@ $$z_{i,k}^l = \frac{\exp((\log \pi_{i,k}^l + g_{i,k}^l) / \tau)}{\sum_{k'=0}^{1}
 粗粒度图的边通过 K-hop 连接增强连通性，避免降采样导致的图分裂问题。实验中 K=2 效果最佳。
 
 3. **可学习层间特征传播**：先前工作在层间（REDUCE/EXPAND）使用基于节点度数的非参数聚合。EvoMesh 直接复用 AMP 层计算的权重 $\alpha_{ij}^l$ 进行层间传播：
-   - **REDUCE**（下采样）：$\mathbf{v}_i^{l+1} = \sum_{j \in \mathcal{N}_i} \alpha_{ij}^l \mathbf{v}_j^l$
-   - **EXPAND**（上采样）：$\tilde{\mathbf{v}}_i^l = \sum_{j \in \mathcal{N}_i} \mathbf{v}_j^{l+1} \alpha_{ij}^l$
-   - **FeatureMixing**：对上采样特征再做一次 AMP 消息传递，然后与原始层内特征做跳跃连接融合，缓解上采样带来的特征错位：$\bar{\mathbf{v}}_i^l = \mathbf{v}_i^l + \text{AMP}(\tilde{\mathbf{v}}_i^l, \{\tilde{\mathbf{v}}_j^l\}_{j \in \mathcal{N}_i}, \{\mathbf{e}_{ij}^l\}_{j \in \mathcal{N}_i})$
+
+    - **REDUCE**（下采样）：$\mathbf{v}_i^{l+1} = \sum_{j \in \mathcal{N}_i} \alpha_{ij}^l \mathbf{v}_j^l$
+    - **EXPAND**（上采样）：$\tilde{\mathbf{v}}_i^l = \sum_{j \in \mathcal{N}_i} \mathbf{v}_j^{l+1} \alpha_{ij}^l$
+    - **FeatureMixing**：对上采样特征再做一次 AMP 消息传递，然后与原始层内特征做跳跃连接融合，缓解上采样带来的特征错位：$\bar{\mathbf{v}}_i^l = \mathbf{v}_i^l + \text{AMP}(\tilde{\mathbf{v}}_i^l, \{\tilde{\mathbf{v}}_j^l\}_{j \in \mathcal{N}_i}, \{\mathbf{e}_{ij}^l\}_{j \in \mathcal{N}_i})$
 
 ### 损失函数 / 训练策略
 

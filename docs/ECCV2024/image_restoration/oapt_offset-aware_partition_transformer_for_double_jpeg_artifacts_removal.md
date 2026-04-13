@@ -46,27 +46,30 @@ OAPT 由两个组件构成：
 ### 关键设计
 
 1. **压缩偏移预测器**：
-   - 基于 ResNet-18 架构，使用深度可分离卷积（D-Resblocks）减少参数
-   - 仅输入左上角 44×44 patch（JPEG 从左上角开始分块压缩）
-   - 输出通过 Sigmoid 和 Round 操作生成两个 0-7 的整数：
-     $$[\hat{r}, \hat{c}] = \text{Round}(\text{Sigmoid}([r', c']) \times 7)$$
-   - 用 L1 损失优化：$\mathcal{L}_{offset} = \|\hat{r}-r\|_1 + \|\hat{c}-c\|_1$
-   - 动机：利用 JPEG 压缩的周期性和均匀性，偏移量是全局一致的，小 patch 足够预测
+
+    - 基于 ResNet-18 架构，使用深度可分离卷积（D-Resblocks）减少参数
+    - 仅输入左上角 44×44 patch（JPEG 从左上角开始分块压缩）
+    - 输出通过 Sigmoid 和 Round 操作生成两个 0-7 的整数：
+    $[\hat{r}, \hat{c}] = \text{Round}(\text{Sigmoid}([r', c']) \times 7)$
+    - 用 L1 损失优化：$\mathcal{L}_{offset} = \|\hat{r}-r\|_1 + \|\hat{c}-c\|_1$
+    - 动机：利用 JPEG 压缩的周期性和均匀性，偏移量是全局一致的，小 patch 足够预测
 
 2. **Hybrid Partition Attention Block (HPAB)**：
-   - 每个 HPAB 包含 4 个标准 Swin Transformer Layer (STL) 和 2 个 Pattern Clustering-based STL (PC-STL)
-   - STL 提供标准的窗口自注意力，处理局部连续特征
-   - PC-STL 利用偏移量将每个 8×8 block 分为四个模式并聚类：
-     $$[x_1, x_2, x_3, x_4] = \text{PC}(X_{LN}, \text{offset})$$
-     $$\hat{X} = \text{invPC}(\text{W-MSA}([x_1, x_2, x_3, x_4]), \text{offset})$$
-   - 聚类后对每种模式分别进行窗口自注意力，然后反聚类恢复原始位置
-   - 与 ART 的稀疏注意力不同：ART 用均匀下采样增大感受野，OAPT 按偏移量分解为 4 个稀疏 patch 提取相同模式信息
+
+    - 每个 HPAB 包含 4 个标准 Swin Transformer Layer (STL) 和 2 个 Pattern Clustering-based STL (PC-STL)
+    - STL 提供标准的窗口自注意力，处理局部连续特征
+    - PC-STL 利用偏移量将每个 8×8 block 分为四个模式并聚类：
+    $[x_1, x_2, x_3, x_4] = \text{PC}(X_{LN}, \text{offset})$
+    $\hat{X} = \text{invPC}(\text{W-MSA}([x_1, x_2, x_3, x_4]), \text{offset})$
+    - 聚类后对每种模式分别进行窗口自注意力，然后反聚类恢复原始位置
+    - 与 ART 的稀疏注意力不同：ART 用均匀下采样增大感受野，OAPT 按偏移量分解为 4 个稀疏 patch 提取相同模式信息
 
 3. **模式聚类插件模块**：
-   - 模式聚类可作为其他 Transformer 方法的即插即用模块
-   - 不引入额外参数和计算量
-   - 在 HAT-S 上实验验证，能提升双重压缩恢复性能并扩大感受野
-   - 动机：Transformer 本身的窗口分割操作与模式聚类相似，可自然结合
+
+    - 模式聚类可作为其他 Transformer 方法的即插即用模块
+    - 不引入额外参数和计算量
+    - 在 HAT-S 上实验验证，能提升双重压缩恢复性能并扩大感受野
+    - 动机：Transformer 本身的窗口分割操作与模式聚类相似，可自然结合
 
 ### 损失函数 / 训练策略
 

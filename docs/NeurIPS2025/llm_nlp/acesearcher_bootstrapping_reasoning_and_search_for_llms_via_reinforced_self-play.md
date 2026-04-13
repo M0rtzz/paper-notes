@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RAG 已成为弥补 LLM 知识缺陷的标准方法，但大多数 RAG 方法只处理简单的单跳检索问题。
-2. **现有痛点**：复杂推理任务需要 (a) 多跳检索收集多个证据片段，(b) 推理整合多信息生成答案。现有方法要么依赖强闭源 LLM 做多轮 prompting（成本高），要么用在线 RL 训练（内存密集），要么仅在 QA 数据上监督（泛化受限）。
-3. **核心矛盾**：多跳检索需要"知道该搜什么"（问题分解能力），而搜到结果后还需要推理能力——两者耦合但现有方法分开处理。
-4. **切入角度**：让一个模型同时学两个角色——分解者和求解者，通过协作式自我博弈互相提升。
-5. **核心 idea 一句话**：问题分解者的好坏由求解者的准确率衡量，求解者的好坏由最终答案匹配度衡量——无需中间步骤标注。
+**领域现状**：RAG 已成为弥补 LLM 知识缺陷的标准方法，但大多数 RAG 方法只处理简单的单跳检索问题。
+**现有痛点**：复杂推理任务需要 (a) 多跳检索收集多个证据片段，(b) 推理整合多信息生成答案。现有方法要么依赖强闭源 LLM 做多轮 prompting（成本高），要么用在线 RL 训练（内存密集），要么仅在 QA 数据上监督（泛化受限）。
+**核心矛盾**：多跳检索需要"知道该搜什么"（问题分解能力），而搜到结果后还需要推理能力——两者耦合但现有方法分开处理。
+**切入角度**：让一个模型同时学两个角色——分解者和求解者，通过协作式自我博弈互相提升。
+**核心 idea 一句话**：问题分解者的好坏由求解者的准确率衡量，求解者的好坏由最终答案匹配度衡量——无需中间步骤标注。
 
 ## 方法详解
 
@@ -40,34 +40,38 @@ tags:
 ### 关键设计
 
 1. **两角色协作 (Decomposer + Solver)**:
-   - 分解者 $\rho$：$z \sim p_\theta(\cdot|q)$，将原始问题拆为子问题模板
-   - 求解者 $\pi$：$w_i \sim p_\theta(\cdot|z_i, w_{<i}, \mathcal{D}_i)$，基于子问题+之前答案+检索上下文生成
-   - 用一个统一 LLM 实现，通过输入模板区分角色
-   - 联合目标：$p_\theta(a|q) = \sum_z p_\theta(z|q) \sum_w p_\theta(a|q,z,w) p_\theta(w|q,z)$
+
+    - 分解者 $\rho$：$z \sim p_\theta(\cdot|q)$，将原始问题拆为子问题模板
+    - 求解者 $\pi$：$w_i \sim p_\theta(\cdot|z_i, w_{<i}, \mathcal{D}_i)$，基于子问题+之前答案+检索上下文生成
+    - 用一个统一 LLM 实现，通过输入模板区分角色
+    - 联合目标：$p_\theta(a|q) = \sum_z p_\theta(z|q) \sum_w p_\theta(a|q,z,w) p_\theta(w|q,z)$
 
 2. **Stage I: SFT 数据混合**:
-   - 做什么：建立基础能力——检索使用、问题分解、推理
-   - 数据组成（共 180K 样本）：
-     - Context-rich QA：NQ, SQuAD, DROP, NarrativeQA 等——学会从上下文提取答案
-     - 问题分解：GSM8K, ConvFinQA, StrategyQA——学会拆解多步问题
-     - CoT 推理：MathInstruct (CoT + PoT 风格)——增强多步推理能力
-   - 设计动机：现有 RAG 微调仅关注答案提取，缺乏分解和推理能力的训练
+
+    - 做什么：建立基础能力——检索使用、问题分解、推理
+    - 数据组成（共 180K 样本）：
+      - Context-rich QA：NQ, SQuAD, DROP, NarrativeQA 等——学会从上下文提取答案
+      - 问题分解：GSM8K, ConvFinQA, StrategyQA——学会拆解多步问题
+      - CoT 推理：MathInstruct (CoT + PoT 风格)——增强多步推理能力
+    - 设计动机：现有 RAG 微调仅关注答案提取，缺乏分解和推理能力的训练
 
 3. **Stage II: 迭代 DPO 强化微调**:
-   - 做什么：在只有最终答案标注的数据上，同时优化两个角色
-   - 核心思路：
-     - 对每个问题采样 $m$ 个分解方案，每个分解采样 $m'$ 个求解轨迹
-     - 根据最终 EM 奖励 $r(q,a',a) = \text{EM}(a',a) \times \mathbb{I}(f(q,a')=1)$ 构建偏好对
-     - 分解者：按期望奖励 $\bar{r}(q, z^{(i)})$ 选最好/最差分解
-     - 求解者：按最终答案匹配度选最好/最差轨迹
-     - 联合偏好集：$\mathcal{D}_{pref} = \mathcal{D}_{decompose} \cup \mathcal{D}_{subq} \cup \mathcal{D}_{final}$
-   - 理论保证：Theorem 4.1 证明迭代 DPO 的最小化器收敛到真实最优参数 $\theta^*$
-   - 关键优势：不需要中间步骤标注，不需要在线 RL 的高内存开销
+
+    - 做什么：在只有最终答案标注的数据上，同时优化两个角色
+    - 核心思路：
+      - 对每个问题采样 $m$ 个分解方案，每个分解采样 $m'$ 个求解轨迹
+      - 根据最终 EM 奖励 $r(q,a',a) = \text{EM}(a',a) \times \mathbb{I}(f(q,a')=1)$ 构建偏好对
+      - 分解者：按期望奖励 $\bar{r}(q, z^{(i)})$ 选最好/最差分解
+      - 求解者：按最终答案匹配度选最好/最差轨迹
+      - 联合偏好集：$\mathcal{D}_{pref} = \mathcal{D}_{decompose} \cup \mathcal{D}_{subq} \cup \mathcal{D}_{final}$
+    - 理论保证：Theorem 4.1 证明迭代 DPO 的最小化器收敛到真实最优参数 $\theta^*$
+    - 关键优势：不需要中间步骤标注，不需要在线 RL 的高内存开销
 
 4. **多评估环境**:
-   - RAG 环境：HotpotQA, 2WikiMHQA, HOVER——需要多跳检索
-   - Context-Rich 推理环境：GSM8K, TabMWP, ConvFinQA——需要上下文推理
-   - 统一的奖励信号：仅基于最终答案的 EM
+
+    - RAG 环境：HotpotQA, 2WikiMHQA, HOVER——需要多跳检索
+    - Context-Rich 推理环境：GSM8K, TabMWP, ConvFinQA——需要上下文推理
+    - 统一的奖励信号：仅基于最终答案的 EM
 
 ### 训练策略
 - 骨干模型：Qwen-2.5-Instruct (1.5B/14B/32B) 和 Llama-3.1-8B-Instruct

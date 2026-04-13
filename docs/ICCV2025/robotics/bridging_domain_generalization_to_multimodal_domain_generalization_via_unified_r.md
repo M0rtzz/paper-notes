@@ -42,23 +42,26 @@ URMMDG框架分两步：（1）通过监督对比学习+信息解耦构建统一
 ### 关键设计
 
 1. **监督对比解耦（Supervised Contrastive Decoupling）**:
-   - 对每个模态 $m$，用两个编码器分别提取通用信息 $\mathbf{z}_i^m = \Phi^m(\mathbf{x}_i^m)$ 和特定信息 $\bar{\mathbf{z}}_i^m = \Psi^m(\mathbf{x}_i^m)$
-   - 通用信息捕获类别语义（跨模态跨域共享），特定信息捕获域/模态特有特征
-   - 通过多模态监督对比损失 $\mathcal{L}_{scl}$ 拉近同类别跨模态样本的通用表示：
-     $$\mathcal{L}_{scl} = \sum_{i \in I} \frac{-1}{|P(i)|} \sum_{p \in P(i)} \log \frac{\exp(\mathbf{z}_i \cdot \mathbf{z}_p / \tau)}{\sum_{a \in A(i)} \exp(\mathbf{z}_i \cdot \mathbf{z}_a / \tau)}$$
-   - 设计动机：构建模态无关的统一语义空间，使DG方法能在该空间中同步操作所有模态
+
+    - 对每个模态 $m$，用两个编码器分别提取通用信息 $\mathbf{z}_i^m = \Phi^m(\mathbf{x}_i^m)$ 和特定信息 $\bar{\mathbf{z}}_i^m = \Psi^m(\mathbf{x}_i^m)$
+    - 通用信息捕获类别语义（跨模态跨域共享），特定信息捕获域/模态特有特征
+    - 通过多模态监督对比损失 $\mathcal{L}_{scl}$ 拉近同类别跨模态样本的通用表示：
+    $\mathcal{L}_{scl} = \sum_{i \in I} \frac{-1}{|P(i)|} \sum_{p \in P(i)} \log \frac{\exp(\mathbf{z}_i \cdot \mathbf{z}_p / \tau)}{\sum_{a \in A(i)} \exp(\mathbf{z}_i \cdot \mathbf{z}_a / \tau)}$
+    - 设计动机：构建模态无关的统一语义空间，使DG方法能在该空间中同步操作所有模态
 
 2. **互信息最小化（Mutual Information Minimization）**:
-   - 使用CLUB方法最小化通用信息 $\mathbf{z}_i^m$ 和特定信息 $\bar{\mathbf{z}}_i^m$ 之间的互信息上界：
-     $$L_{club} = \frac{1}{N} \sum_{i=1}^{N} [\log q_\theta(\bar{\mathbf{z}}_i^m | \mathbf{z}_i^m) - \frac{1}{N} \sum_{j=1}^{N} \log q_\theta(\bar{\mathbf{z}}_j^m | \mathbf{z}_i^m)]$$
-   - 同时引入重建损失 $L_{rec} = \|\mathbf{x}_i^m - D(\mathbf{z}_i^m; \bar{\mathbf{z}}_i^m)\|_2^2$ 确保解耦后信息完整性
-   - 设计动机：确保通用表示仅包含类别语义，不被域/模态噪声污染
+
+    - 使用CLUB方法最小化通用信息 $\mathbf{z}_i^m$ 和特定信息 $\bar{\mathbf{z}}_i^m$ 之间的互信息上界：
+    $L_{club} = \frac{1}{N} \sum_{i=1}^{N} [\log q_\theta(\bar{\mathbf{z}}_i^m | \mathbf{z}_i^m) - \frac{1}{N} \sum_{j=1}^{N} \log q_\theta(\bar{\mathbf{z}}_j^m | \mathbf{z}_i^m)]$
+    - 同时引入重建损失 $L_{rec} = \|\mathbf{x}_i^m - D(\mathbf{z}_i^m; \bar{\mathbf{z}}_i^m)\|_2^2$ 确保解耦后信息完整性
+    - 设计动机：确保通用表示仅包含类别语义，不被域/模态噪声污染
 
 3. **统一表示上的DG方法迁移**:
-   - **UR-Mixup**：在通用表示 $\mathbf{z}^m$ 上做Mixup，生成增强样本后与特定信息拼接送入解码器重建特征，用于分类训练
-   - **UR-JiGen**：将通用表示切分为片段，**跨模态随机选片**拼接后打乱排列，作为跨模态拼图任务
-   - **UR-IBN**：在统一表示上直接应用IBN-a规范化（半通道IN+半通道BN）
-   - 设计动机：在统一空间中操作，所有模态同步增强，避免了各模态独立增强导致的泛化方向分歧
+
+    - **UR-Mixup**：在通用表示 $\mathbf{z}^m$ 上做Mixup，生成增强样本后与特定信息拼接送入解码器重建特征，用于分类训练
+    - **UR-JiGen**：将通用表示切分为片段，**跨模态随机选片**拼接后打乱排列，作为跨模态拼图任务
+    - **UR-IBN**：在统一表示上直接应用IBN-a规范化（半通道IN+半通道BN）
+    - 设计动机：在统一空间中操作，所有模态同步增强，避免了各模态独立增强导致的泛化方向分歧
 
 ### 损失函数 / 训练策略
 

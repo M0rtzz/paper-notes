@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：MoE 是扩展 LLM 的关键架构——通过稀疏激活多个专家平衡性能与效率。在 expert parallelism 下，专家分布在多个 GPU 上并行计算。
-2. **现有痛点**：训练时的负载均衡损失（auxiliary balance loss）无法保证推理时的均衡。实测表明推理时最重负载专家可承担超过平均值 7 倍的 token——低负载专家算完后只能等待高负载专家同步，造成严重延迟。
-3. **核心矛盾**：这就是 **Straggler Effect**——MoE 层的延迟由最重负载专家决定（$L \propto \max(\{N_i\})$），而非平均负载。现有方案（如 DeepSeek-V3 复制高负载专家）需要额外GPU资源。
-4. **本文要解决什么？** 在推理时不增加 GPU 资源的前提下，通过智能 token 调度缓解 Straggler Effect，提高推理速度。
-5. **切入角度**：两个互补策略——对高负载专家设容量上限丢弃低重要性 token；对低负载专家扩展候选集接收溢出 token。
-6. **核心idea一句话**：用 gating score 作为重要性指标限制高负载专家的 token 数，同时将溢出 token 重路由到同一 GPU 上的低负载专家，实现负载均衡和速度提升。
+**领域现状**：MoE 是扩展 LLM 的关键架构——通过稀疏激活多个专家平衡性能与效率。在 expert parallelism 下，专家分布在多个 GPU 上并行计算。
+**现有痛点**：训练时的负载均衡损失（auxiliary balance loss）无法保证推理时的均衡。实测表明推理时最重负载专家可承担超过平均值 7 倍的 token——低负载专家算完后只能等待高负载专家同步，造成严重延迟。
+**核心矛盾**：这就是 **Straggler Effect**——MoE 层的延迟由最重负载专家决定（$L \propto \max(\{N_i\})$），而非平均负载。现有方案（如 DeepSeek-V3 复制高负载专家）需要额外GPU资源。
+**本文要解决什么？** 在推理时不增加 GPU 资源的前提下，通过智能 token 调度缓解 Straggler Effect，提高推理速度。
+**切入角度**：两个互补策略——对高负载专家设容量上限丢弃低重要性 token；对低负载专家扩展候选集接收溢出 token。
+**核心idea一句话**：用 gating score 作为重要性指标限制高负载专家的 token 数，同时将溢出 token 重路由到同一 GPU 上的低负载专家，实现负载均衡和速度提升。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ MoE 推理时，router 为每个 token 选择 top-k 专家。Capacity-Aware Infe
 ### 关键设计
 
 1. **Capacity-Aware Token Drop（处理高负载专家）**:
-   - 做什么：对超过容量限制的专家，丢弃多余的低重要性 token
-   - 核心思路：定义容量因子 $\gamma$，每个专家最多处理 $C = \gamma \bar{N}$ 个 token（$\bar{N} = tk/n$ 为期望均值）。当专家 $j$ 的负载 $N_j > C$ 时，用评分函数 $\mathcal{S}$ 对该专家的所有 token 评分，保留 top-$C$ 个，丢弃其余。评分函数比较了 Order/Reverse Order/Random/Score 四种，Score（gating 分数）远优于其他
-   - 设计动机：虽然丢弃 token 似乎会损害性能，但过载专家中绝大多数 token 是冗余的——丢弃 12% 的溢出 token 就能带来 85% 的加速（Mixtral）。gating score 自然反映 token-expert 匹配度，用它选择保留哪些 token 最合理
+
+    - 做什么：对超过容量限制的专家，丢弃多余的低重要性 token
+    - 核心思路：定义容量因子 $\gamma$，每个专家最多处理 $C = \gamma \bar{N}$ 个 token（$\bar{N} = tk/n$ 为期望均值）。当专家 $j$ 的负载 $N_j > C$ 时，用评分函数 $\mathcal{S}$ 对该专家的所有 token 评分，保留 top-$C$ 个，丢弃其余。评分函数比较了 Order/Reverse Order/Random/Score 四种，Score（gating 分数）远优于其他
+    - 设计动机：虽然丢弃 token 似乎会损害性能，但过载专家中绝大多数 token 是冗余的——丢弃 12% 的溢出 token 就能带来 85% 的加速（Mixtral）。gating score 自然反映 token-expert 匹配度，用它选择保留哪些 token 最合理
 
 2. **Capacity-Aware Expanded Drop（利用低负载专家）**:
-   - 做什么：将被 Token Drop 丢弃的 token 重路由到同一 GPU 上的低负载专家
-   - 核心思路：对每个 token，除了原始 top-k 专家外，还将同一 GPU 上的 $m$ 个本地专家加入候选集（共 $k+m$ 个候选）。Token Drop 后被原始专家拒绝的 token 可以被本地低负载专家接收。由于在同一 GPU 上，不需要额外的跨设备通信
-   - 设计动机：Token Drop 后低负载专家仍在等待同步，其空闲算力被浪费。Expanded Drop 利用这部分空闲容量处理被丢弃的 token。gating score 在 top-k 之后衰减平缓（Figure 8），说明被重路由到排名稍后的专家不会显著影响输出质量
+
+    - 做什么：将被 Token Drop 丢弃的 token 重路由到同一 GPU 上的低负载专家
+    - 核心思路：对每个 token，除了原始 top-k 专家外，还将同一 GPU 上的 $m$ 个本地专家加入候选集（共 $k+m$ 个候选）。Token Drop 后被原始专家拒绝的 token 可以被本地低负载专家接收。由于在同一 GPU 上，不需要额外的跨设备通信
+    - 设计动机：Token Drop 后低负载专家仍在等待同步，其空闲算力被浪费。Expanded Drop 利用这部分空闲容量处理被丢弃的 token。gating score 在 top-k 之后衰减平缓（Figure 8），说明被重路由到排名稍后的专家不会显著影响输出质量
 
 3. **Device-Level Capacity（高级变体）**:
-   - 做什么：在设备级别而非专家级别施加容量约束
-   - 核心思路：当单个 GPU 上部署多个专家时，约束 $N_1 + N_2 + \cdots + N_{n_l} \leq n_l \cdot \gamma \bar{N}$，允许同一 GPU 上的专家之间负载转移
-   - 设计动机：专家级约束可能过于严格——某个专家超限但同 GPU 其他专家很空闲时，仍会不必要地丢弃 token
+
+    - 做什么：在设备级别而非专家级别施加容量约束
+    - 核心思路：当单个 GPU 上部署多个专家时，约束 $N_1 + N_2 + \cdots + N_{n_l} \leq n_l \cdot \gamma \bar{N}$，允许同一 GPU 上的专家之间负载转移
+    - 设计动机：专家级约束可能过于严格——某个专家超限但同 GPU 其他专家很空闲时，仍会不必要地丢弃 token
 
 ### 损失函数 / 训练策略
 本方法是纯推理时技术，**不需要重新训练**。直接在已训练好的 MoE 模型上应用，零训练成本。

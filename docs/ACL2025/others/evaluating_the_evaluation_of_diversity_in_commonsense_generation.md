@@ -45,27 +45,31 @@ tags:
 ### 关键设计
 
 1. **LLM 作为多样性标注者**：
-   - 为什么不用人工？Tevet & Berant (2021) 发现众包标注者的多样性判断一致性很低且成本高
-   - 使用 GPT-4o 做评分，配合精心设计的 few-shot prompt（8个人类高一致性示例）
-   - 采用 1-5 分打分制而非直接选择偏好（避免 LLM 的顺序敏感问题——预实验中直接选择时 87% 选了 Set-2）
-   - 每对评 5 次取平均，温度设为 1.0 以获得统计稳定的评分
-   - 人工验证：5位语言学训练过的人类标注者在70对上与 GPT-4o 的一致率为 **80.6%**
+
+    - 为什么不用人工？Tevet & Berant (2021) 发现众包标注者的多样性判断一致性很低且成本高
+    - 使用 GPT-4o 做评分，配合精心设计的 few-shot prompt（8个人类高一致性示例）
+    - 采用 1-5 分打分制而非直接选择偏好（避免 LLM 的顺序敏感问题——预实验中直接选择时 87% 选了 Set-2）
+    - 每对评 5 次取平均，温度设为 1.0 以获得统计稳定的评分
+    - 人工验证：5位语言学训练过的人类标注者在70对上与 GPT-4o 的一致率为 **80.6%**
 
 2. **高质量候选集构造**：
-   - **Default**：用三个 LLM（GPT-4-turbo, Llama3.1-8B, Qwen2.5-14B）按 CommonGen 原始指令生成4个句子
-   - **Para-1/2/3**：对 Default 中的句子做递增程度的改写替换，预期多样性递减
-     - Para-1: {A, A*, B, C} — 1个改写
-     - Para-2: {A, A*, B, B*} — 2个改写
-     - Para-3: {A, A*, A**, B} — 3个改写（同源）
+
+    - **Default**：用三个 LLM（GPT-4-turbo, Llama3.1-8B, Qwen2.5-14B）按 CommonGen 原始指令生成4个句子
+    - **Para-1/2/3**：对 Default 中的句子做递增程度的改写替换，预期多样性递减
+      - Para-1: {A, A*, B, C} — 1个改写
+      - Para-2: {A, A*, B, B*} — 2个改写
+      - Para-3: {A, A*, A**, B} — 3个改写（同源）
 
 3. **低质量候选集构造**：
-   - **Nonsensical**：让 LLM 生成语法正确但无常识的句子
-   - **NounShuff**：仅打乱句中的名词和代词位置
-   - **RndShuff**：完全随机打乱所有词序
+
+    - **Nonsensical**：让 LLM 生成语法正确但无常识的句子
+    - **NounShuff**：仅打乱句中的名词和代词位置
+    - **RndShuff**：完全随机打乱所有词序
 
 4. **12种多样性指标**：
-   - 形式级（6种）：self-BLEU-3/4, VS-ngram-0.5/1/∞, Distinct-4, Entropy-2
-   - 内容级（6种）：self-CosSim, Chamfer Distance, VS-Embed-0.5/1/∞（均基于 SimCSE 句子嵌入）
+
+    - 形式级（6种）：self-BLEU-3/4, VS-ngram-0.5/1/∞, Distinct-4, Entropy-2
+    - 内容级（6种）：self-CosSim, Chamfer Distance, VS-Embed-0.5/1/∞（均基于 SimCSE 句子嵌入）
 
 ### 评估方法
 

@@ -47,21 +47,22 @@ tags:
 
 1. **Progressive Representation Weaving (PRW)**：在每个多模态注意力块中，为 source latent 的 KV 投影引入专家池 $\{E_k\}_{k=1}^N$ 和动态路由器 $G$。路由器通过带噪声的 top-1 softmax 选择最相关专家：
 
-   $$\mathbf{w} = hW_r + \epsilon \odot \text{softplus}(hW_n), \quad \epsilon \sim \mathcal{N}(0, \mathbf{I})$$
-   $$(K_{\hat{h}}, V_{\hat{h}}) = \text{KV\_proj}_{\text{base}}(h) + \sum_{k \in \mathcal{S}} \text{softmax}(\mathbf{w})_k E_k(h)$$
+    $\mathbf{w} = hW_r + \epsilon \odot \text{softplus}(hW_n), \quad \epsilon \sim \mathcal{N}(0, \mathbf{I})$
+    $(K_{\hat{h}}, V_{\hat{h}}) = \text{KV\_proj}_{\text{base}}(h) + \sum_{k \in \mathcal{S}} \text{softmax}(\mathbf{w})_k E_k(h)$
 
    注意力分两步：先让 source latent 自注意力融入专家信息，再让 noisy/text latent 与之交互。设计动机：让不同任务自动激活不同专家，避免表征混淆。
 
 2. **渐进式分阶段训练策略**：5 步从易到难：
-   - **Step 0-1（内生预训练）**：Mask Inpainting（3M 合成数据）学概念 + Visual Grounding（1M 数据）学定位
-   - **Step 2（条件注入）**：Controllable Generation（20M 数据）适配 Canny/Depth/HED/Lineart/Seg
-   - **Step 3-4（指令-图像对齐）**：Customized Generation（200K）+ Instruction Editing（1.6M）
+
+    - **Step 0-1（内生预训练）**：Mask Inpainting（3M 合成数据）学概念 + Visual Grounding（1M 数据）学定位
+    - **Step 2（条件注入）**：Controllable Generation（20M 数据）适配 Canny/Depth/HED/Lineart/Seg
+    - **Step 3-4（指令-图像对齐）**：Customized Generation（200K）+ Instruction Editing（1.6M）
 
    每步只解锁新专家 $E_{N-1}$，历史专家冻结保留已学知识，类似终身学习。
 
 3. **Veteran Gate Routing Supervision**：为平衡新旧专家利用率，引入辅助损失约束新专家的路由密度：
 
-   $$\mathcal{L}_{\text{veteran}} = \alpha \cdot |U_t - \rho|, \quad U_t = \frac{1}{L_n} \sum_{i=1}^{L_n} \mathbb{I}(e_i = N-1)$$
+    $\mathcal{L}_{\text{veteran}} = \alpha \cdot |U_t - \rho|, \quad U_t = \frac{1}{L_n} \sum_{i=1}^{L_n} \mathbb{I}(e_i = N-1)$
 
    其中 $\rho = 0.8$ 表示期望新专家被激活 80%，剩余 20% 保留给历史专家。总损失 $\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \mathcal{L}_{\text{veteran}}$。
 

@@ -36,9 +36,10 @@ tags:
 
 ### 关键设计
 1. **SODC (Salient Objects Dataset Creation)**：自动从人类演示视频中创建标注数据集，分三步：
-   - **检测抓取实体**：用HOIST-Former检测每帧中人手抓取的物体，输出分割mask
-   - **跨帧跟踪**：以HOIST-Former输出的mask为种子，用SAMURAI在整个视频中前后追踪物体（包括未被操作的帧），得到大量bounding box轨迹
-   - **时空聚类合并**：先用DBSCAN在每帧内按IoU距离做空间聚类（将重叠的box归为同一物体），再按时间维度将经过相同空间聚类序列的轨迹合并为同一物体的统一轨迹，丢弃噪声短轨迹。最终输出带标签的图像+bounding box数据集
+
+    - **检测抓取实体**：用HOIST-Former检测每帧中人手抓取的物体，输出分割mask
+    - **跨帧跟踪**：以HOIST-Former输出的mask为种子，用SAMURAI在整个视频中前后追踪物体（包括未被操作的帧），得到大量bounding box轨迹
+    - **时空聚类合并**：先用DBSCAN在每帧内按IoU距离做空间聚类（将重叠的box归为同一物体），再按时间维度将经过相同空间聚类序列的轨迹合并为同一物体的统一轨迹，丢弃噪声短轨迹。最终输出带标签的图像+bounding box数据集
 
 2. **MOD (Manipulated Objects Detector)**：在SODC生成的数据集上微调预训练F-RCNN (ResNet50)，标准RCNN Loss（分类+objectness），训练3-4分钟（4×T4 GPU），配合随机翻转、畸变、亮度、对比度等数据增强。核心优势：针对演示中具体物体的定制检测器，擅长实例级识别和消歧。
 

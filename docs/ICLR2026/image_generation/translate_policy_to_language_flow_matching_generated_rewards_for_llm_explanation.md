@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：随着RL、LLM等智能体与日常生活深度融合，用自然语言解释智能体策略变得至关重要。RLHF/RLAIF已成为对齐LLM行为的主流方法，但在解释任务中面临独特挑战。
+**领域现状**：随着RL、LLM等智能体与日常生活深度融合，用自然语言解释智能体策略变得至关重要。RLHF/RLAIF已成为对齐LLM行为的主流方法，但在解释任务中面临独特挑战。
 
-2. **现有痛点**：(1) 人类对解释的评判本质上是多元且概率性的（pluralistic & probabilistic），收集多样化人类反馈成本高昂；(2) 现有RLAIF方法使用代理LLM生成的奖励存在噪声偏差，且未严格研究如何生成管理代理误差的分布式奖励；(3) 现有分布式奖励建模方法（QRM、DPRM、URM）需要离散化或假设特定分布形式。
+**现有痛点**：(1) 人类对解释的评判本质上是多元且概率性的（pluralistic & probabilistic），收集多样化人类反馈成本高昂；(2) 现有RLAIF方法使用代理LLM生成的奖励存在噪声偏差，且未严格研究如何生成管理代理误差的分布式奖励；(3) 现有分布式奖励建模方法（QRM、DPRM、URM）需要离散化或假设特定分布形式。
 
-3. **核心矛盾**：代理LLM奖励与真实人类奖励分布之间存在不可避免的偏差 $W_2(\hat{p}, p) = \sqrt{|\mathcal{A}|}|\sigma_r|$，直接使用代理奖励训练会导致次优解释。
+**核心矛盾**：代理LLM奖励与真实人类奖励分布之间存在不可避免的偏差 $W_2(\hat{p}, p) = \sqrt{|\mathcal{A}|}|\sigma_r|$，直接使用代理奖励训练会导致次优解释。
 
-4. **本文要解决什么**：如何在不需要大量人类反馈的情况下，生成能准确反映人类多元评判的分布式奖励来训练解释生成LLM？
+**本文要解决什么**：如何在不需要大量人类反馈的情况下，生成能准确反映人类多元评判的分布式奖励来训练解释生成LLM？
 
-5. **切入角度**：将Rectified Flow嵌入LLM架构作为奖励模型，利用CNF的去噪特性将代理LLM的噪声奖励恢复为接近真实人类奖励的分布。
+**切入角度**：将Rectified Flow嵌入LLM架构作为奖励模型，利用CNF的去噪特性将代理LLM的噪声奖励恢复为接近真实人类奖励的分布。
 
-6. **核心idea一句话**：用Rectified Flow将代理LLM奖励中的噪声视为前向过程注入的高斯噪声，通过学习逆过程来恢复真实人类奖励分布，并提供理论误差界。
+**核心idea一句话**：用Rectified Flow将代理LLM奖励中的噪声视为前向过程注入的高斯噪声，通过学习逆过程来恢复真实人类奖励分布，并提供理论误差界。
 
 ## 方法详解
 
@@ -46,20 +46,23 @@ tags:
 ### 关键设计
 
 1. **Rectified Flow奖励模型架构**:
-   - 做什么：将Rectified Flow嵌入LLM中，使其能理解语言上下文来生成奖励分布
-   - 核心思路：设计flow token（由 $\mathbf{z}_t$ 和 $PE(t)$ 经MLP投影得到），通过交叉注意力机制与决策上下文和解释的LLM隐藏状态交互。使用Explanation LLM的最后一层权重矩阵 $(W_Q, W_K, W_V)$ 计算交叉注意力
-   - 训练损失：$\mathcal{L}_{\text{Flow}}(\theta_\varphi) = \mathbb{E}[\|(\mathbf{z}_1 - \mathbf{z}_0) - \varphi(t, \mathbf{z}_t | c_j, y_j^e; \theta_\varphi)\|^2]$
-   - 设计动机：标准全连接网络或U-Net无法理解语言线索，嵌入LLM可利用其语言理解能力
+
+    - 做什么：将Rectified Flow嵌入LLM中，使其能理解语言上下文来生成奖励分布
+    - 核心思路：设计flow token（由 $\mathbf{z}_t$ 和 $PE(t)$ 经MLP投影得到），通过交叉注意力机制与决策上下文和解释的LLM隐藏状态交互。使用Explanation LLM的最后一层权重矩阵 $(W_Q, W_K, W_V)$ 计算交叉注意力
+    - 训练损失：$\mathcal{L}_{\text{Flow}}(\theta_\varphi) = \mathbb{E}[\|(\mathbf{z}_1 - \mathbf{z}_0) - \varphi(t, \mathbf{z}_t | c_j, y_j^e; \theta_\varphi)\|^2]$
+    - 设计动机：标准全连接网络或U-Net无法理解语言线索，嵌入LLM可利用其语言理解能力
 
 2. **理论误差界（Theorem 1）**:
-   - 核心结论：$W_2(p_{\text{flow}}, p) \leq \varepsilon + L\sqrt{|\mathcal{A}|}|\sigma - \sigma_r|$
-   - 含义：当Flow的初始分布和代理LLM噪声具有相同函数形式时（如均为高斯），CNF可将不可避免的偏差项 $\sqrt{|\mathcal{A}|}|\sigma_r|$ 转化为可控项 $L\sqrt{|\mathcal{A}|}|\sigma - \sigma_r|$
-   - 当 $\sigma \approx \sigma_r$ 时，误差可做到很小
+
+    - 核心结论：$W_2(p_{\text{flow}}, p) \leq \varepsilon + L\sqrt{|\mathcal{A}|}|\sigma - \sigma_r|$
+    - 含义：当Flow的初始分布和代理LLM噪声具有相同函数形式时（如均为高斯），CNF可将不可避免的偏差项 $\sqrt{|\mathcal{A}|}|\sigma_r|$ 转化为可控项 $L\sqrt{|\mathcal{A}|}|\sigma - \sigma_r|$
+    - 当 $\sigma \approx \sigma_r$ 时，误差可做到很小
 
 3. **句子级密集奖励**:
-   - 做什么：为解释的每个句子提供奖励信号，而非仅在末尾给稀疏奖励
-   - 核心思路：逐句添加解释内容，观察真实决策logit的变化量作为该句的奖励
-   - 设计动机：密集奖励加速PPO训练收敛，且更细粒度地指导解释质量
+
+    - 做什么：为解释的每个句子提供奖励信号，而非仅在末尾给稀疏奖励
+    - 核心思路：逐句添加解释内容，观察真实决策logit的变化量作为该句的奖励
+    - 设计动机：密集奖励加速PPO训练收敛，且更细粒度地指导解释质量
 
 ### 损失函数 / 训练策略
 - Flow模型使用rejection sampling：仅保留代理LLM将最高概率赋予真实决策的样本

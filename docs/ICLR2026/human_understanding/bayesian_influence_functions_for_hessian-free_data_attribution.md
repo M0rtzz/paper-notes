@@ -26,12 +26,12 @@ tags:
 提出 Local Bayesian Influence Function (BIF)，用 SGLD 采样估计的协方差替代经典影响函数中不可行的 Hessian 逆运算，实现了对数十亿参数模型的无架构限制数据归因，在重训练实验中达到 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：训练数据归因（Training Data Attribution, TDA）研究训练数据如何塑造模型行为，是 AI 可解释性和安全性的基础问题。经典影响函数（Influence Functions, IF）通过 Hessian 逆来度量数据点的影响。
-2. **现有痛点**：(a) 深度神经网络的 Hessian 通常是退化的（非可逆），经典 IF 的理论前提不成立；(b) 对大模型直接计算 Hessian 不可行，EK-FAC 等近似方法引入结构性偏差且仅支持 Linear/Conv2D 层；(c) Per-token 级别的细粒度归因在经典方法中需要逐 token 串行计算，不可扩展。
-3. **核心矛盾**：需要一个既理论合理（不依赖 Hessian 可逆性）又计算可行（能扩展到数十亿参数）的数据归因方法。
-4. **本文要解决什么？** 能否用贝叶斯推断框架彻底绕开 Hessian，同时保持或超越经典 IF 的归因质量？
-5. **切入角度**：将经典 IF 的 Hessian 逆替换为局部后验分布上的协方差估计，利用 SGLD 采样实现。
-6. **核心 idea 一句话**：$\text{BIF}(z_i, \phi) = -\text{Cov}_\gamma(\ell_i(\boldsymbol{w}), \phi(\boldsymbol{w}))$——影响就是训练损失与目标可观测量在局部后验下的负协方差。
+**领域现状**：训练数据归因（Training Data Attribution, TDA）研究训练数据如何塑造模型行为，是 AI 可解释性和安全性的基础问题。经典影响函数（Influence Functions, IF）通过 Hessian 逆来度量数据点的影响。
+**现有痛点**：(a) 深度神经网络的 Hessian 通常是退化的（非可逆），经典 IF 的理论前提不成立；(b) 对大模型直接计算 Hessian 不可行，EK-FAC 等近似方法引入结构性偏差且仅支持 Linear/Conv2D 层；(c) Per-token 级别的细粒度归因在经典方法中需要逐 token 串行计算，不可扩展。
+**核心矛盾**：需要一个既理论合理（不依赖 Hessian 可逆性）又计算可行（能扩展到数十亿参数）的数据归因方法。
+**本文要解决什么？** 能否用贝叶斯推断框架彻底绕开 Hessian，同时保持或超越经典 IF 的归因质量？
+**切入角度**：将经典 IF 的 Hessian 逆替换为局部后验分布上的协方差估计，利用 SGLD 采样实现。
+**核心 idea 一句话**：$\text{BIF}(z_i, \phi) = -\text{Cov}_\gamma(\ell_i(\boldsymbol{w}), \phi(\boldsymbol{w}))$——影响就是训练损失与目标可观测量在局部后验下的负协方差。
 
 ## 方法详解
 
@@ -41,28 +41,33 @@ tags:
 ### 关键设计
 
 1. **从 IF 到 BIF 的理论推导**：
-   - 经典 IF：$\text{IF}(z_i, \phi) = -\nabla\phi(\boldsymbol{w}^*)^\top \boldsymbol{H}^{-1} \nabla\ell_i(\boldsymbol{w}^*)$（需要 Hessian 逆）
-   - 贝叶斯 IF：$\text{BIF}(z_i, \phi) = -\text{Cov}(\ell_i(\boldsymbol{w}), \phi(\boldsymbol{w}))$（统计物理标准结果）
-   - 关键等价性：在非退化模型中，BIF 的首阶 Taylor 展开等价于经典 IF（Appendix A）
+
+    - 经典 IF：$\text{IF}(z_i, \phi) = -\nabla\phi(\boldsymbol{w}^*)^\top \boldsymbol{H}^{-1} \nabla\ell_i(\boldsymbol{w}^*)$（需要 Hessian 逆）
+    - 贝叶斯 IF：$\text{BIF}(z_i, \phi) = -\text{Cov}(\ell_i(\boldsymbol{w}), \phi(\boldsymbol{w}))$（统计物理标准结果）
+    - 关键等价性：在非退化模型中，BIF 的首阶 Taylor 展开等价于经典 IF（Appendix A）
 
 2. **局部化机制（Local BIF）**：
-   - 引入以 $\boldsymbol{w}^*$ 为中心的各向同性高斯先验：$p_\gamma \propto \exp(-\sum \ell_i - \frac{\gamma}{2}\|\boldsymbol{w}-\boldsymbol{w}^*\|^2)$
-   - 精度参数 $\gamma$ 控制局部性，类似于经典 IF 中的 Hessian dampening $(\boldsymbol{H} + \gamma\boldsymbol{I})$
-   - Local BIF 是 dampened IF 的高阶推广
+
+    - 引入以 $\boldsymbol{w}^*$ 为中心的各向同性高斯先验：$p_\gamma \propto \exp(-\sum \ell_i - \frac{\gamma}{2}\|\boldsymbol{w}-\boldsymbol{w}^*\|^2)$
+    - 精度参数 $\gamma$ 控制局部性，类似于经典 IF 中的 Hessian dampening $(\boldsymbol{H} + \gamma\boldsymbol{I})$
+    - Local BIF 是 dampened IF 的高阶推广
 
 3. **SGLD 采样估计**：
-   - 使用随机梯度 Langevin 动力学从局部后验采样
-   - 多条独立 SGLD 链提升覆盖率，总共 $N_{\text{draws}} = C \times T$ 个采样点
-   - 每步只需前向传播计算训练集和查询集的损失值——无需反向传播计算梯度用于归因
+
+    - 使用随机梯度 Langevin 动力学从局部后验采样
+    - 多条独立 SGLD 链提升覆盖率，总共 $N_{\text{draws}} = C \times T$ 个采样点
+    - 每步只需前向传播计算训练集和查询集的损失值——无需反向传播计算梯度用于归因
 
 4. **Per-token 归因**：
-   - 自回归模型中损失按 token 分解：$\ell_i = \sum_s \ell_{i,s}$
-   - BIF 天然支持 token 级协方差：$\text{BIF}(z_{i,s}, z_{j,s'}) = -\text{Cov}_\gamma(\ell_{i,s}, \ell_{j,s'})$
-   - 一次采样即可并行计算整个 token-token 影响矩阵，经典方法需逐 token 串行
+
+    - 自回归模型中损失按 token 分解：$\ell_i = \sum_s \ell_{i,s}$
+    - BIF 天然支持 token 级协方差：$\text{BIF}(z_{i,s}, z_{j,s'}) = -\text{Cov}_\gamma(\ell_{i,s}, \ell_{j,s'})$
+    - 一次采样即可并行计算整个 token-token 影响矩阵，经典方法需逐 token 串行
 
 5. **归一化 BIF（Posterior Correlation）**：
-   - 原始协方差受高方差数据点主导
-   - 归一化为 Pearson 相关系数，值在 [-1, 1] 之间，更稳定和可比较
+
+    - 原始协方差受高方差数据点主导
+    - 归一化为 Pearson 相关系数，值在 [-1, 1] 之间，更稳定和可比较
 
 ## 实验关键数据
 

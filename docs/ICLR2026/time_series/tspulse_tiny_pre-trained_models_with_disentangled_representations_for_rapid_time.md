@@ -29,9 +29,9 @@ tags:
 
 时间序列分析涵盖预测、异常检测、插补、分类和检索等多种下游任务。近年来，借鉴 NLP 和 CV 的成功，时间序列社区开始探索大规模预训练模型：
 
-1. **专用模型**：TimesFM、Chronos、Moirai 专注于预测任务
-2. **通用模型**：Moment、UniTS 扩展到分类、异常检测和插补
-3. **跨域模型**：Time-LLM、GPT4TS 尝试将 LLM 适配到时间序列
+**专用模型**：TimesFM、Chronos、Moirai 专注于预测任务
+**通用模型**：Moment、UniTS 扩展到分类、异常检测和插补
+**跨域模型**：Time-LLM、GPT4TS 尝试将 LLM 适配到时间序列
 
 核心问题：**现有预训练模型参数量巨大**（数百M到数十亿），导致部署和微调成本高昂。TTM 证明 1-5M 参数的紧凑模型可在预测任务上提供竞争性性能，但仅限于预测。
 
@@ -47,43 +47,49 @@ TSPulse 基于 TSMixer 轻量架构构建，核心流程为：
 ### 关键设计
 
 1. **双空间掩码重建（Dual-Space Masked Reconstruction）**
-   - 同时在时域和频域进行掩码输入的重建
-   - 核心直觉：某些模式在时域更易检测（如突刺），其他在频域更显著（如周期性）
-   - 时域输入 $\mathbf{X}_m$ 通过 FFT 转换获得频域表示 $\mathbf{X}^f_m$
-   - 关键设计：**不显式掩码频域**，而是将时域掩码信号直接送入 FFT，自然传播掩码到频域
-   - 编码后拼接：$\mathbf{Input}_E = [\mathbf{Time}_E; \mathbf{FFT}_E; \mathbf{Reg}_E] \in \mathbb{R}^{C \times K \times D}$
+
+    - 同时在时域和频域进行掩码输入的重建
+    - 核心直觉：某些模式在时域更易检测（如突刺），其他在频域更显著（如周期性）
+    - 时域输入 $\mathbf{X}_m$ 通过 FFT 转换获得频域表示 $\mathbf{X}^f_m$
+    - 关键设计：**不显式掩码频域**，而是将时域掩码信号直接送入 FFT，自然传播掩码到频域
+    - 编码后拼接：$\mathbf{Input}_E = [\mathbf{Time}_E; \mathbf{FFT}_E; \mathbf{Reg}_E] \in \mathbb{R}^{C \times K \times D}$
 
 2. **双嵌入解耦（Dual-Embedding Disentanglement）**
-   - **详细嵌入**（前 $2N$ 个 patch embedding）：用于全信号重建，捕获细粒度时域和频域模式
-   - **语义嵌入**（后 $R$ 个 register embedding）：用于高层语义重建，编码全局特征
-   - 语义嵌入通过两个任务监督：
-     - 频率签名预测：$\mathcal{L}_{prob} = \text{CE}(\mathbf{X}^f_{prob}, \mathbf{Y}^f_{prob})$（对数幅值谱的softmax分布）
-     - 短期预测：$\mathcal{L}_{future} = \text{MSE}(\mathbf{X}_{future}, \mathbf{Y}_{future})$
-   - 设计动机：不同下游任务需要不同层次的信息——分类需要语义嵌入，插补需要详细嵌入
+
+    - **详细嵌入**（前 $2N$ 个 patch embedding）：用于全信号重建，捕获细粒度时域和频域模式
+    - **语义嵌入**（后 $R$ 个 register embedding）：用于高层语义重建，编码全局特征
+    - 语义嵌入通过两个任务监督：
+      - 频率签名预测：$\mathcal{L}_{prob} = \text{CE}(\mathbf{X}^f_{prob}, \mathbf{Y}^f_{prob})$（对数幅值谱的softmax分布）
+      - 短期预测：$\mathcal{L}_{future} = \text{MSE}(\mathbf{X}_{future}, \mathbf{Y}_{future})$
+    - 设计动机：不同下游任务需要不同层次的信息——分类需要语义嵌入，插补需要详细嵌入
 
 3. **TSLens（分类微调组件）**
-   - 替代标准池化的学习机制，自适应地从双嵌入中提取相关特征
-   - 通过 mini decoder（预训练权重初始化 + 通道混合）→ 降维投影 → flatten → 线性分类头
-   - 动态聚焦局部和全局表示中最具信息量的特征
+
+    - 替代标准池化的学习机制，自适应地从双嵌入中提取相关特征
+    - 通过 mini decoder（预训练权重初始化 + 通道混合）→ 降维投影 → flatten → 线性分类头
+    - 动态聚焦局部和全局表示中最具信息量的特征
 
 4. **多头三角测量异常检测（Multi-Head Triangulation）**
-   - 利用三个预测头从不同视角检测异常：
-     - $\text{Head}_{time}$：时域重建偏差 → 检测突刺异常
-     - $\text{Head}_{fft}$：频域重建偏差 → 检测周期性异常
-     - $\text{Head}_{future}$：短期预测偏差 → 检测趋势异常
-   - 融合策略：$\text{Head}_{ensemble}$（最大值融合）或 $\text{Head}_{triang.}$（基于小验证集选最佳头）
-   - 首个在单一轻量框架中统一多空间输出进行三角测量的预训练模型
+
+    - 利用三个预测头从不同视角检测异常：
+      - $\text{Head}_{time}$：时域重建偏差 → 检测突刺异常
+      - $\text{Head}_{fft}$：频域重建偏差 → 检测周期性异常
+      - $\text{Head}_{future}$：短期预测偏差 → 检测趋势异常
+    - 融合策略：$\text{Head}_{ensemble}$（最大值融合）或 $\text{Head}_{triang.}$（基于小验证集选最佳头）
+    - 首个在单一轻量框架中统一多空间输出进行三角测量的预训练模型
 
 5. **混合掩码策略（Hybrid Masking）**
-   - 传统块掩码不适用于真实世界插补（缺失值是不规则的）
-   - 混合策略：同时掩码完整 patch 和部分点级位置
-   - 关键设计：掩码 token $\mathbf{M} \in \mathbb{R}^{1 \times pl}$ 定义在原始 patch 级别（非嵌入空间），支持灵活的部分掩码
-   - 消融显示：去除混合预训练的模型在混合掩码评估下性能暴降 79%
+
+    - 传统块掩码不适用于真实世界插补（缺失值是不规则的）
+    - 混合策略：同时掩码完整 patch 和部分点级位置
+    - 关键设计：掩码 token $\mathbf{M} \in \mathbb{R}^{1 \times pl}$ 定义在原始 patch 级别（非嵌入空间），支持灵活的部分掩码
+    - 消融显示：去除混合预训练的模型在混合掩码评估下性能暴降 79%
 
 6. **通道混合的恒等初始化**
-   - 预训练采用单变量模式（channel-independent）
-   - 微调时启用通道混合（channel-mixing），但新增的混合层用**恒等权重初始化**
-   - 避免随机初始化在预训练层之间造成激活突变和梯度不稳定
+
+    - 预训练采用单变量模式（channel-independent）
+    - 微调时启用通道混合（channel-mixing），但新增的混合层用**恒等权重初始化**
+    - 避免随机初始化在预训练层之间造成激活突变和梯度不稳定
 
 ### 损失函数 / 训练策略
 

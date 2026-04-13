@@ -44,25 +44,28 @@ RNPC 与 NPC 共享**相同的模型架构和训练**（属性识别模型 + 概
 ### 关键设计
 
 1. **NPC 对抗鲁棒性分析（Theorem 3.4）**：
-   - 定义预测扰动 $\Delta_{\theta,w}^{NPC}$ 为对抗攻击下类别分布变化的最坏情况 TV 距离
-   - 证明：$\Delta_{\theta,w}^{NPC} \leq \sum_{k=1}^K \mathbb{E}_X[\max_{\tilde{X}} d_{TV}(\mathbb{P}_{\theta_k}(A_k|X), \mathbb{P}_{\theta_k}(A_k|\tilde{X}))]$
-   - 含义：鲁棒性上界仅由属性识别模型决定，概率电路不影响鲁棒性——这与 NPC 估计误差的组合性形成鲜明对比
+
+    - 定义预测扰动 $\Delta_{\theta,w}^{NPC}$ 为对抗攻击下类别分布变化的最坏情况 TV 距离
+    - 证明：$\Delta_{\theta,w}^{NPC} \leq \sum_{k=1}^K \mathbb{E}_X[\max_{\tilde{X}} d_{TV}(\mathbb{P}_{\theta_k}(A_k|X), \mathbb{P}_{\theta_k}(A_k|\tilde{X}))]$
+    - 含义：鲁棒性上界仅由属性识别模型决定，概率电路不影响鲁棒性——这与 NPC 估计误差的组合性形成鲜明对比
 
 2. **属性空间的类级分区**：
-   - 将高概率属性节点集 $V$ 按最可能的类别分区：$V = \bigcup_y V_y$
-   - 定义类间 Hamming 距离 $d_{i,j} = \min_{v_i \in V_i, v_j \in V_j} \text{Ham}(v_i, v_j)$
-   - 定义半径 $r = \lfloor \frac{d_{min}-1}{2} \rfloor$
-   - 定义类邻域 $\mathcal{N}(y,r)$：$V_y$ 加上距 $V_y$ 不超过 $r$ 步的低概率节点
+
+    - 将高概率属性节点集 $V$ 按最可能的类别分区：$V = \bigcup_y V_y$
+    - 定义类间 Hamming 距离 $d_{i,j} = \min_{v_i \in V_i, v_j \in V_j} \text{Ham}(v_i, v_j)$
+    - 定义半径 $r = \lfloor \frac{d_{min}-1}{2} \rfloor$
+    - 定义类邻域 $\mathcal{N}(y,r)$：$V_y$ 加上距 $V_y$ 不超过 $r$ 步的低概率节点
 
 3. **RNPC 类级集成推理（Equation 2）**：
-   $$\Phi_{\theta,w}(Y|X) = \sum_{\tilde{y}} (\mathbb{P}_\theta(A_{1:K} \in \mathcal{N}(\tilde{y},r)|X) \cdot \sum_{a_{1:K} \in V_{\tilde{y}}} \mathbb{P}_w(Y|A_{1:K}=a_{1:K}))$$
-   - 核心直觉：当攻击扰动属性预测时，概率从正确节点 $a_{1:K}^*$ 流向相邻节点。如果这些节点仍在 $\mathcal{N}(y,r)$ 内（即攻击属性数 $m \leq r$），那么**整个类的权重几乎不变**，从而维持正确预测
-   - 对比 NPC 的节点级集成：单个节点的权重下降直接影响预测
+    $\Phi_{\theta,w}(Y|X) = \sum_{\tilde{y}} (\mathbb{P}_\theta(A_{1:K} \in \mathcal{N}(\tilde{y},r)|X) \cdot \sum_{a_{1:K} \in V_{\tilde{y}}} \mathbb{P}_w(Y|A_{1:K}=a_{1:K}))$
+    - 核心直觉：当攻击扰动属性预测时，概率从正确节点 $a_{1:K}^*$ 流向相邻节点。如果这些节点仍在 $\mathcal{N}(y,r)$ 内（即攻击属性数 $m \leq r$），那么**整个类的权重几乎不变**，从而维持正确预测
+    - 对比 NPC 的节点级集成：单个节点的权重下降直接影响预测
 
 4. **理论保证**：
-   - **鲁棒性上界**（Lemma 4.6）：RNPC 的扰动上界 $\Lambda_{RNPC} \leq \alpha_\epsilon$，而 NPC 的上界 $\Lambda_{NPC} \leq \frac{|A_1|\cdots|A_K|}{2} \alpha_\epsilon$（Theorem 4.7）——RNPC 的上界比 NPC 小**指数级**
-   - **组合估计误差**（Theorem 4.10）：RNPC 的良性误差仍可分解为两个模块的线性组合
-   - **鲁棒性-准确率 tradeoff**（Theorem 4.11）：最优 RNPC 与真实分布之间的距离由 $V_y$ 分区质量决定
+
+    - **鲁棒性上界**（Lemma 4.6）：RNPC 的扰动上界 $\Lambda_{RNPC} \leq \alpha_\epsilon$，而 NPC 的上界 $\Lambda_{NPC} \leq \frac{|A_1|\cdots|A_K|}{2} \alpha_\epsilon$（Theorem 4.7）——RNPC 的上界比 NPC 小**指数级**
+    - **组合估计误差**（Theorem 4.10）：RNPC 的良性误差仍可分解为两个模块的线性组合
+    - **鲁棒性-准确率 tradeoff**（Theorem 4.11）：最优 RNPC 与真实分布之间的距离由 $V_y$ 分区质量决定
 
 ### 损失函数 / 训练策略
 

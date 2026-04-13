@@ -25,13 +25,13 @@ tags:
 BayesMM 提出了一个无需训练的动态贝叶斯分布学习框架，将文本和几何模态建模为高斯分布，并通过贝叶斯模型平均自动调节模态权重，在多个点云基准上实现了鲁棒的测试时适配，平均提升超过 4%。
 
 ## 研究背景与动机
-1. **领域现状**：大型多模态 3D 视觉-语言模型（如 ULIP-2、Uni3D）通过对比预训练实现了良好的零样本泛化能力，但在分布偏移下性能明显下降。
-2. **现有痛点**：
+**领域现状**：大型多模态 3D 视觉-语言模型（如 ULIP-2、Uni3D）通过对比预训练实现了良好的零样本泛化能力，但在分布偏移下性能明显下降。
+**现有痛点**：
    - 基于缓存的测试时适配（TTA）方法维护有限容量的样本缓存，样本替换导致渐进的信息丢失；
    - 零样本和缓存 logits 的融合依赖经验调参（$\lambda$, $\gamma$），缺乏理论基础，适配过程不稳定。
-3. **核心矛盾**：如何在测试时持续利用所有历史样本的统计信息，同时以有原则的方式融合不同模态？
-4. **本文切入角度**：将每个类别的文本和几何特征建模为高斯分布，在贝叶斯框架下自动平衡两个模态的贡献。
-5. **核心 idea**：用分布替代离散缓存，用贝叶斯模型平均替代启发式融合，实现连续、稳定、无需训练的测试时适配。
+**核心矛盾**：如何在测试时持续利用所有历史样本的统计信息，同时以有原则的方式融合不同模态？
+**本文切入角度**：将每个类别的文本和几何特征建模为高斯分布，在贝叶斯框架下自动平衡两个模态的贡献。
+**核心 idea**：用分布替代离散缓存，用贝叶斯模型平均替代启发式融合，实现连续、稳定、无需训练的测试时适配。
 
 ## 方法详解
 
@@ -40,22 +40,25 @@ BayesMM 提出了一个无需训练的动态贝叶斯分布学习框架，将文
 
 ### 关键设计
 1. **文本分布学习（Textual Distribution Learning）**：
-   - **做什么**：从 LLM 生成的 $M$ 个语义释义中估计每类文本的高斯分布。
-   - **核心思路**：计算经验均值 $\bar{\mathbf{z}}^c$ 和协方差 $\mathbf{S}^c$，建立先验 $p(\boldsymbol{\nu}^c) = \mathcal{N}(\bar{\mathbf{z}}^c, \beta^2\mathbf{I})$，通过 MAP 估计得到确定性原型 $\boldsymbol{\nu}^c_{\text{MAP}}$。
-   - **设计动机**：单一文本模板无法捕获语义多样性，多释义的高斯建模提供更丰富的类别语义先验。
+
+    - **做什么**：从 LLM 生成的 $M$ 个语义释义中估计每类文本的高斯分布。
+    - **核心思路**：计算经验均值 $\bar{\mathbf{z}}^c$ 和协方差 $\mathbf{S}^c$，建立先验 $p(\boldsymbol{\nu}^c) = \mathcal{N}(\bar{\mathbf{z}}^c, \beta^2\mathbf{I})$，通过 MAP 估计得到确定性原型 $\boldsymbol{\nu}^c_{\text{MAP}}$。
+    - **设计动机**：单一文本模板无法捕获语义多样性，多释义的高斯建模提供更丰富的类别语义先验。
 
 2. **几何分布学习（Geometric Distribution Learning）**：
-   - **做什么**：为每类维护在线高斯分布 $\{\boldsymbol{\mu}_t^c, \boldsymbol{\Sigma}_t^c\}$，随新样本到达递归更新。
-   - **核心思路**：初始化为文本原型 $\boldsymbol{\mu}_0^c = \bar{\mathbf{z}}^c$，利用贝叶斯规则闭式递归更新：
-     $$\boldsymbol{\mu}_t^c = \boldsymbol{\Sigma}_t^c((\boldsymbol{\Sigma}^c)^{-1}\mathbf{x}_t + (\boldsymbol{\Sigma}_{t-1}^c)^{-1}\boldsymbol{\mu}_{t-1}^c)$$
-     $$\boldsymbol{\Sigma}_t^c = ((\boldsymbol{\Sigma}_{t-1}^c)^{-1} + (\boldsymbol{\Sigma}^c)^{-1})^{-1}$$
-   - **设计动机**：分布参数连续积累所有历史样本的统计信息，不存在缓存容量限制和信息丢失问题。
+
+    - **做什么**：为每类维护在线高斯分布 $\{\boldsymbol{\mu}_t^c, \boldsymbol{\Sigma}_t^c\}$，随新样本到达递归更新。
+    - **核心思路**：初始化为文本原型 $\boldsymbol{\mu}_0^c = \bar{\mathbf{z}}^c$，利用贝叶斯规则闭式递归更新：
+    $\boldsymbol{\mu}_t^c = \boldsymbol{\Sigma}_t^c((\boldsymbol{\Sigma}^c)^{-1}\mathbf{x}_t + (\boldsymbol{\Sigma}_{t-1}^c)^{-1}\boldsymbol{\mu}_{t-1}^c)$
+    $\boldsymbol{\Sigma}_t^c = ((\boldsymbol{\Sigma}_{t-1}^c)^{-1} + (\boldsymbol{\Sigma}^c)^{-1})^{-1}$
+    - **设计动机**：分布参数连续积累所有历史样本的统计信息，不存在缓存容量限制和信息丢失问题。
 
 3. **贝叶斯多模态加权（Bayesian Model Averaging）**：
-   - **做什么**：将文本和几何模态的后验预测自动融合。
-   - **核心思路**：$p(c|\mathbf{x}_t) = p(c|\mathbf{x}_t, \boldsymbol{\Omega}^c) p(\boldsymbol{\Omega}^c|\mathbf{x}_t) + p(c|\mathbf{x}_t, \boldsymbol{\Theta}_t^c) p(\boldsymbol{\Theta}_t^c|\mathbf{x}_t)$
-   - 每个模态的权重是其后验证据 $p(\boldsymbol{\Omega}^c|\mathbf{x}_t)$ 和 $p(\boldsymbol{\Theta}_t^c|\mathbf{x}_t)$，自动调节。
-   - **设计动机**：缓存方法的 $\lambda$ 需要手动调参，贝叶斯框架根据数据证据自动分配权重，更鲁棒。
+
+    - **做什么**：将文本和几何模态的后验预测自动融合。
+    - **核心思路**：$p(c|\mathbf{x}_t) = p(c|\mathbf{x}_t, \boldsymbol{\Omega}^c) p(\boldsymbol{\Omega}^c|\mathbf{x}_t) + p(c|\mathbf{x}_t, \boldsymbol{\Theta}_t^c) p(\boldsymbol{\Theta}_t^c|\mathbf{x}_t)$
+    - 每个模态的权重是其后验证据 $p(\boldsymbol{\Omega}^c|\mathbf{x}_t)$ 和 $p(\boldsymbol{\Theta}_t^c|\mathbf{x}_t)$，自动调节。
+    - **设计动机**：缓存方法的 $\lambda$ 需要手动调参，贝叶斯框架根据数据证据自动分配权重，更鲁棒。
 
 ### 损失函数 / 训练策略
 - **完全无需训练**：冻结所有编码器，仅通过贝叶斯规则在线更新分布参数

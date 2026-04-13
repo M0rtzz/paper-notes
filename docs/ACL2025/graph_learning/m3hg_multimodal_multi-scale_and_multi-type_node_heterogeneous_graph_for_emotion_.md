@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 多模态对话中的情感原因分析（MECTEC）是社交媒体分析中的重要任务，目标是从包含文本、音频、视频的对话中同时提取情感utterance、原因utterance和情感类别组成的三元组 $\mathcal{P}=\{(\boldsymbol{U}_j^e, \boldsymbol{U}_j^c, y_j^e)\}$。
+**领域现状**: 多模态对话中的情感原因分析（MECTEC）是社交媒体分析中的重要任务，目标是从包含文本、音频、视频的对话中同时提取情感utterance、原因utterance和情感类别组成的三元组 $\mathcal{P}=\{(\boldsymbol{U}_j^e, \boldsymbol{U}_j^c, y_j^e)\}$。
 
-2. **现有痛点**: 
+**现有痛点**: 
    - 数据集匮乏：现有仅一个 ECF 数据集，来源单一（仅 Friends 剧集），场景多样性严重不足
    - 现有方法未显式建模情感和原因上下文，忽视了不同尺度（句间/句内）语义信息的融合
    - 无法有效处理原因utterance出现在情感utterance之后的情况
 
-3. **核心矛盾**: 情感归因理论指出，情感与原因的关系由特定上下文（如文本中的情感词、音频中的语调、视频中的表情）揭示，但现有方法将多模态融合和上下文提取视为独立过程。
+**核心矛盾**: 情感归因理论指出，情感与原因的关系由特定上下文（如文本中的情感词、音频中的语调、视频中的表情）揭示，但现有方法将多模态融合和上下文提取视为独立过程。
 
-4. **本文要解决什么**: 如何在多模态对话中显式捕获情感和原因上下文，同时有效融合不同尺度的语义信息来提取情感-原因三元组。
+**本文要解决什么**: 如何在多模态对话中显式捕获情感和原因上下文，同时有效融合不同尺度的语义信息来提取情感-原因三元组。
 
-5. **切入角度**: 设计异构图，引入多类型节点（情感上下文节点、原因上下文节点、话语超级节点、对话超级节点）和多种边关系，在图上进行多尺度语义融合。
+**切入角度**: 设计异构图，引入多类型节点（情感上下文节点、原因上下文节点、话语超级节点、对话超级节点）和多种边关系，在图上进行多尺度语义融合。
 
-6. **核心idea一句话**: 用多类型节点异构图统一建模情感/原因上下文、多模态特征和多尺度语义关系。
+**核心idea一句话**: 用多类型节点异构图统一建模情感/原因上下文、多模态特征和多尺度语义关系。
 
 ## 方法详解
 
@@ -55,27 +55,31 @@ M3HG 是端到端模型，包含四个核心组件：
 ### 关键设计
 
 1. **单模态特征提取**: 
-   - 文本：SA-RoBERTa 提取 $\boldsymbol{E}^t \in \mathbb{R}^{n \times d_t}$，再用多头自注意力编码局部上下文得到 $\boldsymbol{H}^t$
-   - 音频：Wav2Vec2 提取 $\boldsymbol{E}^a$，用 GRU + LayerNorm + FFN 编码：$\boldsymbol{H}^m = LN(\boldsymbol{E}^m + \boldsymbol{E}'^m + FFN(\boldsymbol{E}'^m))$
-   - 视频：DenseNet 提取 $\boldsymbol{E}^v$，同样用 GRU 编码
-   - 三个模态通过线性层映射到统一维度 $d_h$
+
+    - 文本：SA-RoBERTa 提取 $\boldsymbol{E}^t \in \mathbb{R}^{n \times d_t}$，再用多头自注意力编码局部上下文得到 $\boldsymbol{H}^t$
+    - 音频：Wav2Vec2 提取 $\boldsymbol{E}^a$，用 GRU + LayerNorm + FFN 编码：$\boldsymbol{H}^m = LN(\boldsymbol{E}^m + \boldsymbol{E}'^m + FFN(\boldsymbol{E}'^m))$
+    - 视频：DenseNet 提取 $\boldsymbol{E}^v$，同样用 GRU 编码
+    - 三个模态通过线性层映射到统一维度 $d_h$
 
 2. **异构图构建**: 
-   - **四种节点类型**: 情感上下文节点 $N^e$、原因上下文节点 $N^c$、话语超级节点 $SN^u=\{N^t, N^a, N^v\}$、对话超级节点 $SN^d$
-   - **五种边关系**: 同说话人边 $r_{ss}$、不同说话人边 $r_{ds}$、全局连接边 $r_{gc}$、情感连接边 $r_{ec}$、原因连接边 $r_{cc}$
-   - 全局连接边使得每个话语超级节点都与对话超级节点双向连接，**首次支持原因utterance出现在情感utterance之后的场景**
+
+    - **四种节点类型**: 情感上下文节点 $N^e$、原因上下文节点 $N^c$、话语超级节点 $SN^u=\{N^t, N^a, N^v\}$、对话超级节点 $SN^d$
+    - **五种边关系**: 同说话人边 $r_{ss}$、不同说话人边 $r_{ds}$、全局连接边 $r_{gc}$、情感连接边 $r_{ec}$、原因连接边 $r_{cc}$
+    - 全局连接边使得每个话语超级节点都与对话超级节点双向连接，**首次支持原因utterance出现在情感utterance之后的场景**
 
 3. **多尺度语义融合（HGAT）**: 
-   - **句内融合（Intra-utterance）**: 通过元路径 $\Phi_{intra}$ 在单个话语内部融合三模态语义信息到情感/原因上下文节点。注意力计算为：
-     $$\alpha_{ij}^\phi = \frac{\exp(\sigma(\boldsymbol{a}_\phi^T \cdot [\boldsymbol{H}'_i \| \boldsymbol{H}'_j]))}{\sum_{k \in \mathcal{N}_i^\phi} \exp(\sigma(\boldsymbol{a}_\phi^T \cdot [\boldsymbol{H}'_i \| \boldsymbol{H}'_k]))}$$
-   - **句间融合（Inter-utterance）**: 通过元路径 $\Phi_{inter}$ 在不同话语之间传播语义信息，经由对话超级节点 $SN^d$ 实现全局信息聚合
-   - 融合后用语义注意力机制 + PFFN 更新节点特征
+
+    - **句内融合（Intra-utterance）**: 通过元路径 $\Phi_{intra}$ 在单个话语内部融合三模态语义信息到情感/原因上下文节点。注意力计算为：
+    $\alpha_{ij}^\phi = \frac{\exp(\sigma(\boldsymbol{a}_\phi^T \cdot [\boldsymbol{H}'_i \| \boldsymbol{H}'_j]))}{\sum_{k \in \mathcal{N}_i^\phi} \exp(\sigma(\boldsymbol{a}_\phi^T \cdot [\boldsymbol{H}'_i \| \boldsymbol{H}'_k]))}$
+    - **句间融合（Inter-utterance）**: 通过元路径 $\Phi_{inter}$ 在不同话语之间传播语义信息，经由对话超级节点 $SN^d$ 实现全局信息聚合
+    - 融合后用语义注意力机制 + PFFN 更新节点特征
 
 4. **情感-原因分类**: 
-   - 情感节点 $\boldsymbol{Z}_i^e$ 送入 Emotion MLP 预测情感类别 $\hat{y}_i^e$
-   - 原因节点 $\boldsymbol{Z}_i^c$ 送入 Cause MLP 预测原因指示 $\hat{y}_i^c$
-   - 对于话语对 $(U_i, U_j)$，用 RBF 核函数计算相对位置编码 $RPE_{ij}$，拼接后送入 MLP 判断因果关系：
-     $$\hat{y}_{ij}^{ec} = \sigma(MLP(\boldsymbol{Z}_j^e \| \boldsymbol{Z}_i^c \| RPE_{ij}))$$
+
+    - 情感节点 $\boldsymbol{Z}_i^e$ 送入 Emotion MLP 预测情感类别 $\hat{y}_i^e$
+    - 原因节点 $\boldsymbol{Z}_i^c$ 送入 Cause MLP 预测原因指示 $\hat{y}_i^c$
+    - 对于话语对 $(U_i, U_j)$，用 RBF 核函数计算相对位置编码 $RPE_{ij}$，拼接后送入 MLP 判断因果关系：
+    $\hat{y}_{ij}^{ec} = \sigma(MLP(\boldsymbol{Z}_j^e \| \boldsymbol{Z}_i^c \| RPE_{ij}))$
 
 ### 损失函数/训练策略
 

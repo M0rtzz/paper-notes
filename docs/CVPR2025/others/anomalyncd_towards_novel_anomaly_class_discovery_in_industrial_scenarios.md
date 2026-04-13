@@ -25,16 +25,16 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：工业异常检测已有成熟方法（PatchCore、EfficientAD 等），可定位异常但无法区分细粒度异常类别（如断裂 vs 烧蚀）。下游处理需要识别异常类别，甚至发现新类别。
-2. **现有痛点**：
+**领域现状**：工业异常检测已有成熟方法（PatchCore、EfficientAD 等），可定位异常但无法区分细粒度异常类别（如断裂 vs 烧蚀）。下游处理需要识别异常类别，甚至发现新类别。
+**现有痛点**：
    - **异常聚类方法**（AC、UniFormaly）：冻结特征提取器无法学习异常特有特征
    - **自然场景 NCD 方法**（UNO、GCD、SimGCD）：假设目标居中于图像，不适用于工业场景
    - **两大障碍**：
      - ❶ 非突出异常：工业异常是局部损伤，不在图像中心
      - ❷ 弱语义异常：工业异常语义弱，ViT 更倾向关注背景而非异常
-3. **核心矛盾**：分类网络（ViT）的注意力天然聚焦于显著目标而非细微异常，标准 NCD pipeline 对工业缺陷完全失效。
-4. **切入角度**：设计 MEBin 将异常从检测结果中隔离 → 裁剪为异常中心子图 → 掩码引导注意力强制 [CLS] token 关注异常区域。
-5. **核心 idea 一句话**：异常中心裁剪 + 掩码引导 ViT 注意力 = 让分类网络"看到"弱语义异常。
+**核心矛盾**：分类网络（ViT）的注意力天然聚焦于显著目标而非细微异常，标准 NCD pipeline 对工业缺陷完全失效。
+**切入角度**：设计 MEBin 将异常从检测结果中隔离 → 裁剪为异常中心子图 → 掩码引导注意力强制 [CLS] token 关注异常区域。
+**核心 idea 一句话**：异常中心裁剪 + 掩码引导 ViT 注意力 = 让分类网络"看到"弱语义异常。
 
 ## 方法详解
 
@@ -48,34 +48,38 @@ tags:
 ### 关键设计
 
 1. **Main Element Binarization (MEBin)**
-   - 做什么：从异常检测结果中稳定地提取主要异常区域
-   - 三步流程：
-     - Step 1：确定阈值范围 $[s_{\min}, s_{\max}]$，$s_{\min}$ 为所有异常图的最小异常分数的最大值
-     - Step 2：均匀采样 $\mathcal{T}=64$ 个阈值进行二值化
-     - Step 3：找出出现最频繁的连通区域数 $\bar{\delta}_i$，选最小阈值完整分割
-   - 核心优势：自适应阈值选择，无需验证集，对不同 AD 方法通用
-   - 对比 Otsu：Otsu 倾向过检测，尤其在正常图像上
+
+    - 做什么：从异常检测结果中稳定地提取主要异常区域
+    - 三步流程：
+      - Step 1：确定阈值范围 $[s_{\min}, s_{\max}]$，$s_{\min}$ 为所有异常图的最小异常分数的最大值
+      - Step 2：均匀采样 $\mathcal{T}=64$ 个阈值进行二值化
+      - Step 3：找出出现最频繁的连通区域数 $\bar{\delta}_i$，选最小阈值完整分割
+    - 核心优势：自适应阈值选择，无需验证集，对不同 AD 方法通用
+    - 对比 Otsu：Otsu 倾向过检测，尤其在正常图像上
 
 2. **Mask-Guided Vision Transformer (MGViT)**
-   - 做什么：引导 [CLS] token 注意力聚焦到异常区域
-   - 核心思路：在最后 $L_m=9$ 层的自注意力中插入掩码
-   - 三种设计比较：
-     - (a) 同时在 CLS 和 patch tokens 上加掩码 → 抑制上下文
-     - (b) 仅在 patch tokens 上 → 同样抑制上下文
-     - **(c) 仅在 CLS token 上**（采用）→ patch tokens 保持全局感受野
-   - 掩码注意力：$\text{Attn} = \text{softmax}(\text{concat}(\mathbf{Q}^{cls}\mathbf{K}^\top + \bar{\mathcal{M}}, \mathbf{Q}^{patch}\mathbf{K}^\top))\mathbf{V}$
-   - 其中 $\bar{\mathcal{M}}(i) = 0$ 若 $\mathcal{M}(i) > 0.5$，否则 $-\infty$
+
+    - 做什么：引导 [CLS] token 注意力聚焦到异常区域
+    - 核心思路：在最后 $L_m=9$ 层的自注意力中插入掩码
+    - 三种设计比较：
+      - (a) 同时在 CLS 和 patch tokens 上加掩码 → 抑制上下文
+      - (b) 仅在 patch tokens 上 → 同样抑制上下文
+      - **(c) 仅在 CLS token 上**（采用）→ patch tokens 保持全局感受野
+    - 掩码注意力：$\text{Attn} = \text{softmax}(\text{concat}(\mathbf{Q}^{cls}\mathbf{K}^\top + \bar{\mathcal{M}}, \mathbf{Q}^{patch}\mathbf{K}^\top))\mathbf{V}$
+    - 其中 $\bar{\mathcal{M}}(i) = 0$ 若 $\mathcal{M}(i) > 0.5$，否则 $-\infty$
 
 3. **伪标签校正 (PLC)**
-   - 做什么：利用异常分数校正过检测区域的伪标签
-   - 公式：$\hat{q}_{i,k} \leftarrow w_{i,k}\mathbf{e} + (1-w_{i,k})\hat{q}_{i,k}$，$w_{i,k} = \max(0.5 - s_{i,k}, 0)$
-   - 效果：正常类 Recall 提升 14.9%
+
+    - 做什么：利用异常分数校正过检测区域的伪标签
+    - 公式：$\hat{q}_{i,k} \leftarrow w_{i,k}\mathbf{e} + (1-w_{i,k})\hat{q}_{i,k}$，$w_{i,k} = \max(0.5 - s_{i,k}, 0)$
+    - 效果：正常类 Recall 提升 14.9%
 
 4. **区域融合策略**
-   - 做什么：根据子图分类确定图像级别类别
-   - 核心思路：面积加权（非简单平均或异常分数加权）
-   - 公式：$\alpha_{i,k}^u = \frac{\exp(a_{i,k}^u / \tau_\alpha)}{\sum_k \exp(a_{i,k}^u / \tau_\alpha)}$
-   - 动机：过检测区域面积小但异常分数高，面积加权可削弱其影响
+
+    - 做什么：根据子图分类确定图像级别类别
+    - 核心思路：面积加权（非简单平均或异常分数加权）
+    - 公式：$\alpha_{i,k}^u = \frac{\exp(a_{i,k}^u / \tau_\alpha)}{\sum_k \exp(a_{i,k}^u / \tau_\alpha)}$
+    - 动机：过检测区域面积小但异常分数高，面积加权可削弱其影响
 
 ### 训练目标
 $$\mathcal{L} = \lambda(\mathcal{L}_{rep}^l + \mathcal{L}_{cls}^l) + (1-\lambda)(\mathcal{L}_{rep} + \mathcal{L}_{cls}^u + \mu\mathcal{L}_{reg}^u)$$

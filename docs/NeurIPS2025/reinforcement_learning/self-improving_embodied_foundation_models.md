@@ -39,26 +39,29 @@ tags:
 
 ### 关键设计
 1. **Steps-to-go 预测与数据驱动奖励函数**:
-   - Stage 1 训练两个目标：行为克隆损失 $\mathcal{L}_\text{BC} = -\mathbb{E}[\log p_\text{action}^\text{EFM}(a_t | o_t, g_{t'})]$ 和 steps-to-go 损失 $\mathcal{L}_\text{steps-to-go} = -\mathbb{E}[\log p_\text{steps-to-go}^\text{EFM}(t'-t | o_t, g_{t'})]$
-   - 定义时间距离 $d(o, g) := \mathbb{E}_{p_\text{steps-to-go}}[\text{steps-to-go}]$
-   - 奖励函数为 **时间距离差**：$r(o_t, a_t, o_{t+1}, g) := d(o_t, g) - d(o_{t+1}, g)$
-   - 数学推导表明这个奖励隐含了势能形状奖励（potential-based shaping）：
-   $$r = \underbrace{(1-\gamma) \cdot V^\mu(o_{t+1}, g)}_{\text{core reward}} + \underbrace{[\gamma \cdot V^\mu(o_{t+1}, g) - V^\mu(o_t, g)]}_{\text{reward shaping}}$$
-   - 其中 $V^\mu$ 是数据集策略 $\mu$ 的值函数。Core reward 部分让策略在 $\mu$ 擅长的区域获得更高奖励，shaping 部分提供基线降低方差
-   - 设计动机：完全数据驱动，无需手工设计，自动继承预训练模型的泛化能力
+
+    - Stage 1 训练两个目标：行为克隆损失 $\mathcal{L}_\text{BC} = -\mathbb{E}[\log p_\text{action}^\text{EFM}(a_t | o_t, g_{t'})]$ 和 steps-to-go 损失 $\mathcal{L}_\text{steps-to-go} = -\mathbb{E}[\log p_\text{steps-to-go}^\text{EFM}(t'-t | o_t, g_{t'})]$
+    - 定义时间距离 $d(o, g) := \mathbb{E}_{p_\text{steps-to-go}}[\text{steps-to-go}]$
+    - 奖励函数为 **时间距离差**：$r(o_t, a_t, o_{t+1}, g) := d(o_t, g) - d(o_{t+1}, g)$
+    - 数学推导表明这个奖励隐含了势能形状奖励（potential-based shaping）：
+    $r = \underbrace{(1-\gamma) \cdot V^\mu(o_{t+1}, g)}_{\text{core reward}} + \underbrace{[\gamma \cdot V^\mu(o_{t+1}, g) - V^\mu(o_t, g)]}_{\text{reward shaping}}$
+    - 其中 $V^\mu$ 是数据集策略 $\mu$ 的值函数。Core reward 部分让策略在 $\mu$ 擅长的区域获得更高奖励，shaping 部分提供基线降低方差
+    - 设计动机：完全数据驱动，无需手工设计，自动继承预训练模型的泛化能力
 
 2. **Steps-to-go 成功检测器**:
-   - 成功判定：$\text{success}(o, g) := \mathbb{1}[d(o, g) \leq s]$，其中 $s$ 是一个很小的步数阈值
-   - 比显式训练二分类成功检测器更鲁棒，即使在低数据量下也稳定可靠
-   - 设计动机：终止成功的 episode 避免收集冗余的"静止在成功状态"数据
+
+    - 成功判定：$\text{success}(o, g) := \mathbb{1}[d(o, g) \leq s]$，其中 $s$ 是一个很小的步数阈值
+    - 比显式训练二分类成功检测器更鲁棒，即使在低数据量下也稳定可靠
+    - 设计动机：终止成功的 episode 避免收集冗余的"静止在成功状态"数据
 
 3. **On-policy Self-Improvement 循环**:
-   - 使用 REINFORCE 策略梯度：$-c \cdot R_t \cdot \log p_\text{action}^\text{EFM}(a_t | o_t, g)$
-   - Monte Carlo 回报 $R_t = \sum_{i=t}^T \gamma^{i-t} \cdot r(o_i, a_i, o_{i+1}, g)$，折扣因子 $\gamma = 0.9$
-   - 不使用经验回放、不训练值函数，消除了 deadly triad 的两个顶点（off-policy + bootstrapping）
-   - 每轮收集足够数据后执行 $N$ 次策略更新，然后清空缓冲区重新开始
-   - 一个人类操作员可同时监控多台机器人站点，仅在异常时手动干预
-   - 设计动机：最大化训练稳定性和可靠性，为真实世界部署奠定基础
+
+    - 使用 REINFORCE 策略梯度：$-c \cdot R_t \cdot \log p_\text{action}^\text{EFM}(a_t | o_t, g)$
+    - Monte Carlo 回报 $R_t = \sum_{i=t}^T \gamma^{i-t} \cdot r(o_i, a_i, o_{i+1}, g)$，折扣因子 $\gamma = 0.9$
+    - 不使用经验回放、不训练值函数，消除了 deadly triad 的两个顶点（off-policy + bootstrapping）
+    - 每轮收集足够数据后执行 $N$ 次策略更新，然后清空缓冲区重新开始
+    - 一个人类操作员可同时监控多台机器人站点，仅在异常时手动干预
+    - 设计动机：最大化训练稳定性和可靠性，为真实世界部署奠定基础
 
 ### 损失函数 / 训练策略
 - Stage 1：联合优化 $\mathcal{L}_\text{BC} + \mathcal{L}_\text{steps-to-go}$（+ 可选辅助任务如指令预测）

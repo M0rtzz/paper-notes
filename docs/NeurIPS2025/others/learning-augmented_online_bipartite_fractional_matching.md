@@ -49,14 +49,16 @@ tags:
 1. **建议感知惩罚函数 f(A,X)**：LAB 的核心创新在于设计了一个依赖于建议分配量 A 和算法分配量 X 的二维惩罚函数。该函数由 f₀(z) = min{e^{z+λ-1}, 1} 和基于 Lambert W 函数的 f₁(z) 构成。当 A > X（分配不足）时使用 f₁，当 A ≤ X（分配超过建议）时取 f₀(X-A) 和 f₁(X) 的最大值。这使得建议推荐的顶点获得更低惩罚（鼓励跟随建议），同时保持对过多分配的惩罚（确保鲁棒性）。
 
 2. **LAB 算法的鲁棒性-一致性保证**：通过原始-对偶分析，证明 LAB 的性能保证为：
-   - 鲁棒性：$r(\lambda) = 1 - e^{\lambda-1} - (e^{\lambda-1} - \lambda)\ln(1-\lambda e^{1-\lambda}) - \lambda(1-\lambda)$
-   - 一致性：$c(\lambda) = 1 + \lambda - e^{\lambda-1}$
+
+    - 鲁棒性：$r(\lambda) = 1 - e^{\lambda-1} - (e^{\lambda-1} - \lambda)\ln(1-\lambda e^{1-\lambda}) - \lambda(1-\lambda)$
+    - 一致性：$c(\lambda) = 1 + \lambda - e^{\lambda-1}$
    
    当 λ=0 时，r = 1-1/e（经典 Balance 保证），c = 1-1/e；当 λ=1 时，r = 0，c = 1。
 
 3. **PushAndWaterfill (PAW) 算法**：针对无权设定中 LAB 无法超越 CoinFlip 的问题（因为任何最大匹配自动是 1/2-鲁棒的），PAW 在每次迭代中先将建议边的分数值推高到 λ 阈值，然后再进行 Waterfilling。其保证为：
-   - 鲁棒性：$r(\lambda) = 1 - (1-\lambda+\lambda^2/2)e^{\lambda-1}$
-   - 一致性：$c(\lambda) = 1 - (1-\lambda)e^{\lambda-1}$
+
+    - 鲁棒性：$r(\lambda) = 1 - (1-\lambda+\lambda^2/2)e^{\lambda-1}$
+    - 一致性：$c(\lambda) = 1 - (1-\lambda)e^{\lambda-1}$
 
 4. **不可能性结果**：通过构造两个自适应对手（一个用于鲁棒性，一个用于一致性），结合求解因素揭示LP，证明了无权设定下学习增强算法可达鲁棒性-一致性权衡的上界。
 

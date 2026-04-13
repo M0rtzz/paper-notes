@@ -29,8 +29,8 @@ tags:
 
 从脑活动解码视觉刺激是理解人脑的关键路径。fMRI-to-image 已取得成功（利用 CLIP + Stable Diffusion），但 fMRI-to-video 仍面临巨大挑战：
 
-1. **时空动态复杂**：视频需要捕获物体运动、场景转换、时间一致性，远超静态图像
-2. **现有方法的隐式对齐问题**：
+**时空动态复杂**：视频需要捕获物体运动、场景转换、时间一致性，远超静态图像
+**现有方法的隐式对齐问题**：
    - MinD-Video：用视觉 fMRI 特征条件化扩散模型，但缺乏低级视觉细节
    - NeuroClips：引入语义和感知重建器，但主要依赖在 CLIP 隐藏空间的隐式对齐
    - CLIP 隐藏空间高度语义化，但 fMRI 体素编码了多粒度信息，隐式对齐不鲁棒
@@ -49,26 +49,29 @@ NEURONS 由三部分组成：
 ### 关键设计
 
 1. **解耦任务构建（利用现成模型自动生成标签）**：
-   - **场景描述生成**：Qwen2.5-VL-72B 为每帧生成描述性标题
-   - **概念名称生成**：Qwen 识别帧中主要物体，归类到 WordNet 总结的 51 个概念类别
-   - **概念分割掩码**：Grounded-SAM 用物体名称作为文本 prompt 生成每帧的二值掩码
-   - **关键物体发现**：基于运动动态（帧间位移）、物体大小、语义重要性的多标准方法。排除背景类别，优先选择人/动物等语义重要类别
+
+    - **场景描述生成**：Qwen2.5-VL-72B 为每帧生成描述性标题
+    - **概念名称生成**：Qwen 识别帧中主要物体，归类到 WordNet 总结的 51 个概念类别
+    - **概念分割掩码**：Grounded-SAM 用物体名称作为文本 prompt 生成每帧的二值掩码
+    - **关键物体发现**：基于运动动态（帧间位移）、物体大小、语义重要性的多标准方法。排除背景类别，优先选择人/动物等语义重要类别
 
    设计动机：由粗到细，从最少语义信息的分割开始，逐步引入概念、描述、运动信息，模拟视觉皮层的层级处理。
 
 2. **Brain Model**：
-   - 基于预训练的 MindEyeV2 backbone
-   - 引入 motion projection $\mathcal{P}_{vid}(\cdot)$ 将图像嵌入 $e^i \in \mathbb{R}^{B \times N \times C}$ 映射到时空空间 $e^v \in \mathbb{R}^{B \times F \times N \times C}$（与 NeuroClips 不同，考虑帧间时序关系）
-   - 用 BiMixCo 对比损失对齐 $e^v$ 与 CLIP 视觉编码器的目标视频嵌入
-   - 额外将 $e^v$ 嵌入为文本嵌入 $e^t$，与 CLIP 文本嵌入做对比学习
+
+    - 基于预训练的 MindEyeV2 backbone
+    - 引入 motion projection $\mathcal{P}_{vid}(\cdot)$ 将图像嵌入 $e^i \in \mathbb{R}^{B \times N \times C}$ 映射到时空空间 $e^v \in \mathbb{R}^{B \times F \times N \times C}$（与 NeuroClips 不同，考虑帧间时序关系）
+    - 用 BiMixCo 对比损失对齐 $e^v$ 与 CLIP 视觉编码器的目标视频嵌入
+    - 额外将 $e^v$ 嵌入为文本嵌入 $e^t$，与 CLIP 文本嵌入做对比学习
 
    设计动机：预训练阶段产生合适的视觉和文本嵌入，为后续解耦任务提供基础。
 
 3. **Decoupler - 四个子任务**：
-   - **Key Object Segmentation**：设计文本驱动的 VAE 视频解码器，以视频嵌入 $e^v$ 和关键物体类名的 CLIP 文本嵌入为输入，通过交叉注意力激活对应 patch，上采样后用分割头生成二值掩码。BCE 损失 $\mathcal{L}_{seg}$
-   - **Concept Recognition**：多标签分类器 $\mathcal{D}_{cls}$ 识别帧中的概念，用视觉嵌入的帧维均值作为输入。交叉熵损失 $\mathcal{L}_{cls}$
-   - **Scene Description**：微调 GPT-2 文本解码器，以文本嵌入 $e^t$ 为前缀生成标题。前缀语言建模损失 $\mathcal{L}_{txt}$
-   - **Blurry Video Reconstruction**：复用分割的 VAE 解码器但替换为重建头，生成模糊视频 $y_c^{rec}$，与 SD VAE 的潜在嵌入对齐。MAE 损失 $\mathcal{L}_{rec}$
+
+    - **Key Object Segmentation**：设计文本驱动的 VAE 视频解码器，以视频嵌入 $e^v$ 和关键物体类名的 CLIP 文本嵌入为输入，通过交叉注意力激活对应 patch，上采样后用分割头生成二值掩码。BCE 损失 $\mathcal{L}_{seg}$
+    - **Concept Recognition**：多标签分类器 $\mathcal{D}_{cls}$ 识别帧中的概念，用视觉嵌入的帧维均值作为输入。交叉熵损失 $\mathcal{L}_{cls}$
+    - **Scene Description**：微调 GPT-2 文本解码器，以文本嵌入 $e^t$ 为前缀生成标题。前缀语言建模损失 $\mathcal{L}_{txt}$
+    - **Blurry Video Reconstruction**：复用分割的 VAE 解码器但替换为重建头，生成模糊视频 $y_c^{rec}$，与 SD VAE 的潜在嵌入对齐。MAE 损失 $\mathcal{L}_{rec}$
 
 4. **渐进式学习策略**：
    正弦权重调度 $w = 1 + 9 \cdot |\sin(\frac{C}{T} \cdot \pi)|$，四个损失函数的"上升期"交错排列，确保平滑过渡：先强调分割 → 概念识别 → 场景描述 → 视频重建

@@ -29,9 +29,9 @@ tags:
 
 基于文本描述生成多样且准确的人体运动是计算机视觉的关键研究方向。尽管预训练大模型在文本和图像领域取得巨大成功，运动生成领域仍面临三大挑战：
 
-1. **运动数据分布异质性**：不同数据集在运动类型、录制设备上差异显著，联合训练可能导致在一个数据集上优化反而损害另一个数据集的效果
-2. **缺乏专用运动预训练骨干网络**：现有方法将预训练语言模型适配到运动任务（如 MotionGPT），但运动和文本之间存在本质的结构和上下文差异
-3. **缺乏高质量大规模统一运动数据集**：动作捕捉数据获取成本高，现有数据集各自局限于特定运动类型
+**运动数据分布异质性**：不同数据集在运动类型、录制设备上差异显著，联合训练可能导致在一个数据集上优化反而损害另一个数据集的效果
+**缺乏专用运动预训练骨干网络**：现有方法将预训练语言模型适配到运动任务（如 MotionGPT），但运动和文本之间存在本质的结构和上下文差异
+**缺乏高质量大规模统一运动数据集**：动作捕捉数据获取成本高，现有数据集各自局限于特定运动类型
 
 典型案例：MotionGPT 使用 HumanML3D 训练后，面对简单的文本描述"a person places their hands on their hips"也无法生成正确的运动。
 
@@ -47,27 +47,30 @@ GenM3 包含两个核心组件和三阶段训练流程：
 ### 关键设计
 
 1. **Multi-Expert VQ-VAE (MEVQ-VAE)**: 
-   - 在标准 VQ-VAE 的编码器和解码器中引入多专家 1D 卷积层
-   - **每个 block 包含 3 个标准 1D 卷积层 + 1 个多专家卷积层**
-   - 所有 $e_q$ 个专家同时激活，输出为加权组合：$y = \sum_{i=1}^{e_q} w_i \cdot \text{Conv}_i(x)$
-   - $w_i$ 为可学习权重，自适应调节各专家贡献
-   - 使用共享 codebook（8192 个 32 维码字），下采样率为 4
-   - 损失函数：$\mathcal{L}_q = \mathcal{L}_{rec} + \beta \mathcal{L}_{commit}$
+
+    - 在标准 VQ-VAE 的编码器和解码器中引入多专家 1D 卷积层
+    - **每个 block 包含 3 个标准 1D 卷积层 + 1 个多专家卷积层**
+    - 所有 $e_q$ 个专家同时激活，输出为加权组合：$y = \sum_{i=1}^{e_q} w_i \cdot \text{Conv}_i(x)$
+    - $w_i$ 为可学习权重，自适应调节各专家贡献
+    - 使用共享 codebook（8192 个 32 维码字），下采样率为 4
+    - 损失函数：$\mathcal{L}_q = \mathcal{L}_{rec} + \beta \mathcal{L}_{commit}$
 
 2. **Motion Descriptor（运动描述器）**: 
-   - CLIP 编码器生成文本嵌入 $\mathbf{E}_t$ 和全局文本特征 $\mathbf{e}_t$
-   - 运动 token 通过运动嵌入器得到 $\mathbf{E}_m$
-   - 通过文本引导的注意力聚合生成上下文摘要：$\mathbf{E}_{ctx} = \text{mean}(\text{softmax}(\mathbf{E}_m \mathbf{E}_t) \mathbf{E}_t)$
-   - 上下文 token 提供高层运动语义，增强跨模态对齐
+
+    - CLIP 编码器生成文本嵌入 $\mathbf{E}_t$ 和全局文本特征 $\mathbf{e}_t$
+    - 运动 token 通过运动嵌入器得到 $\mathbf{E}_m$
+    - 通过文本引导的注意力聚合生成上下文摘要：$\mathbf{E}_{ctx} = \text{mean}(\text{softmax}(\mathbf{E}_m \mathbf{E}_t) \mathbf{E}_t)$
+    - 上下文 token 提供高层运动语义，增强跨模态对齐
 
 3. **Multi-path Motion Transformer (MMT)**: 
-   - 前半部分（9 层）：标准 Transformer 自注意力 + FFN
-   - 后半部分（9 层）：多路径 Transformer，在 FFN 层引入三条并行路径：
-     - **运动路径**：处理运动 token，每条路径内含多个密集激活专家
-     - **文本路径**：处理文本 token
-     - **跨模态共享路径**：同时处理运动和文本 token，促进跨模态对齐
-   - 每条路径中的专家输出通过门控函数加权：$\mathbb{E}_p(x) = \sum_i g_{p,i}(x) \mathbb{E}_{p,i}(x)$
-   - 三条路径输出拼接后通过投影层：$\text{Output} = \mathbf{W}_{proj}([\mathbb{E}_{motion}; \mathbb{E}_{text}; \mathbb{E}_{cross-modal}]) + b_{proj}$
+
+    - 前半部分（9 层）：标准 Transformer 自注意力 + FFN
+    - 后半部分（9 层）：多路径 Transformer，在 FFN 层引入三条并行路径：
+      - **运动路径**：处理运动 token，每条路径内含多个密集激活专家
+      - **文本路径**：处理文本 token
+      - **跨模态共享路径**：同时处理运动和文本 token，促进跨模态对齐
+    - 每条路径中的专家输出通过门控函数加权：$\mathbb{E}_p(x) = \sum_i g_{p,i}(x) \mathbb{E}_{p,i}(x)$
+    - 三条路径输出拼接后通过投影层：$\text{Output} = \mathbf{W}_{proj}([\mathbb{E}_{motion}; \mathbb{E}_{text}; \mathbb{E}_{cross-modal}]) + b_{proj}$
 
 ### 损失函数 / 训练策略
 

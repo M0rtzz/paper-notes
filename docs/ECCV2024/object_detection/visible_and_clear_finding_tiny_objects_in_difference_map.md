@@ -54,26 +54,29 @@ SR-TOD（Self-Reconstructed Tiny Object Detection）框架：
 ### 关键设计
 
 1. **差异图构建（Difference Map）**：
-   - 做什么：从检测模型的底层特征图重建输入图像，用重建误差定位微小目标
-   - 核心思路：图像重建任务对像素变化高度敏感。从检测特征重建时，结构/纹理信息丢失严重的区域（即微小目标）最难重建，在差异图中呈现强激活
-   - 重建头结构：P2 → 两次上采样（转置卷积 + 两层 Conv + ReLU）→ 1×1 Conv → Sigmoid → 重建图像
-   - 差异图计算：$D = \text{Mean}_{channel}(\text{Abs}(I_r - I_o))$
-   - 重建头参数通过 MSE 损失优化：$\mathcal{L}_{rec} = \text{MSE}(I_r, I_o)$
-   - **关键发现**：差异图与微小目标之间存在强相关——即使在特征图中信号几乎被抹除的"极微小"目标，在差异图中依然清晰可见，且保留了目标的主要结构
+
+    - 做什么：从检测模型的底层特征图重建输入图像，用重建误差定位微小目标
+    - 核心思路：图像重建任务对像素变化高度敏感。从检测特征重建时，结构/纹理信息丢失严重的区域（即微小目标）最难重建，在差异图中呈现强激活
+    - 重建头结构：P2 → 两次上采样（转置卷积 + 两层 Conv + ReLU）→ 1×1 Conv → Sigmoid → 重建图像
+    - 差异图计算：$D = \text{Mean}_{channel}(\text{Abs}(I_r - I_o))$
+    - 重建头参数通过 MSE 损失优化：$\mathcal{L}_{rec} = \text{MSE}(I_r, I_o)$
+    - **关键发现**：差异图与微小目标之间存在强相关——即使在特征图中信号几乎被抹除的"极微小"目标，在差异图中依然清晰可见，且保留了目标的主要结构
 
 2. **差异图引导特征增强（DGFE, Difference Map Guided Feature Enhancement）**：
-   - 做什么：利用差异图的先验信息增强 P2 中微小目标的特征表示
-   - 核心思路：构建逐元素注意力矩阵 M = 通道维度重加权 × 空间维度过滤
-   - **过滤（Filtration）**：用可学习阈值 t 将差异图二值化，过滤噪声信号，保留显著激活区域。二值图 +1 确保原有特征不被零值区域抹除
-   - 公式：$\text{Filtration}(D) = \text{Resize}((\text{Sign}(D-t)+1) \times 0.5) + 1$
-   - **重加权（Reweighting）**：差异图仅含空间信息，通过对 P2 做通道注意力（AvgPool + MaxPool → MLP → Sigmoid）沿通道维度重加权
-   - 公式：$\text{Reweighting}(P2) = \sigma(\text{MLP}(\text{AvgPool}(P2)) + \text{MLP}(\text{MaxPool}(P2)))$
-   - 最终增强：$P2' = (\text{Reweighting}(P2) \otimes \text{Filtration}(D)) \otimes P2$
+
+    - 做什么：利用差异图的先验信息增强 P2 中微小目标的特征表示
+    - 核心思路：构建逐元素注意力矩阵 M = 通道维度重加权 × 空间维度过滤
+    - **过滤（Filtration）**：用可学习阈值 t 将差异图二值化，过滤噪声信号，保留显著激活区域。二值图 +1 确保原有特征不被零值区域抹除
+    - 公式：$\text{Filtration}(D) = \text{Resize}((\text{Sign}(D-t)+1) \times 0.5) + 1$
+    - **重加权（Reweighting）**：差异图仅含空间信息，通过对 P2 做通道注意力（AvgPool + MaxPool → MLP → Sigmoid）沿通道维度重加权
+    - 公式：$\text{Reweighting}(P2) = \sigma(\text{MLP}(\text{AvgPool}(P2)) + \text{MLP}(\text{MaxPool}(P2)))$
+    - 最终增强：$P2' = (\text{Reweighting}(P2) \otimes \text{Filtration}(D)) \otimes P2$
 
 3. **DroneSwarms 数据集**：
-   - 做什么：提出新的反无人机微小目标检测数据集
-   - 特点：平均无人机大小仅约 7.9 像素，为当前最小；包含复杂背景和多种光照条件；多实例场景
-   - 设计动机：现有反无人机数据集（MAV-VID、Drone-vs-Bird、DUT Anti-UAV）目标偏大或以单目标为主
+
+    - 做什么：提出新的反无人机微小目标检测数据集
+    - 特点：平均无人机大小仅约 7.9 像素，为当前最小；包含复杂背景和多种光照条件；多实例场景
+    - 设计动机：现有反无人机数据集（MAV-VID、Drone-vs-Bird、DUT Anti-UAV）目标偏大或以单目标为主
 
 ### 损失函数 / 训练策略
 

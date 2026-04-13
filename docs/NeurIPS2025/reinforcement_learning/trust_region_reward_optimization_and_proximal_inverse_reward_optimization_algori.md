@@ -28,8 +28,8 @@ tags:
 
 逆强化学习（IRL）从专家演示中学习奖励函数，现代 IRL 方法主要有两种范式：
 
-1. **对抗式 IRL**（如 GAIL、AIRL）：将奖励学习建模为极小极大博弈，交替优化奖励和策略。理论上优雅但实践中训练不稳定，对超参数敏感。
-2. **非对抗式 IRL**（如 SQIL、IQ-Learn、ML-IRL）：通过能量模型将奖励和策略耦合，联合更新。经验稳定性更好，但缺乏对奖励更新的原则性控制——无法保证每一步更新都朝正确方向前进。
+**对抗式 IRL**（如 GAIL、AIRL）：将奖励学习建模为极小极大博弈，交替优化奖励和策略。理论上优雅但实践中训练不稳定，对超参数敏感。
+**非对抗式 IRL**（如 SQIL、IQ-Learn、ML-IRL）：通过能量模型将奖励和策略耦合，联合更新。经验稳定性更好，但缺乏对奖励更新的原则性控制——无法保证每一步更新都朝正确方向前进。
 
 论文指出一个关键观察：现有非对抗式 IRL 方法本质上都在**最大化专家行为的似然**（等价于最小化模仿差距）。这个统一视角引出核心思路：如果能**保证每步更新都提高似然**，就能实现 IRL 的稳定训练。
 
@@ -51,25 +51,28 @@ TRRO/PIRO 采用非对抗式、显式奖励学习（ER）路线：
 ### 关键设计
 
 1. **似然目标的等价形式（Proposition 1）**：
-   - ML-IRL 的对数似然 $\ell(\boldsymbol{\theta}) = \mathbb{E}_{\rho^{\pi_E}}[\log \pi_{\boldsymbol{\theta}}(\mathbf{a}|\mathbf{s})]$
-   - 等价于模仿差距：$\ell(\boldsymbol{\theta}) = J(\pi_E, r_{\boldsymbol{\theta}}) - J(\pi_{\boldsymbol{\theta}}, r_{\boldsymbol{\theta}})$
-   - 梯度为两个占用度量下的奖励梯度之差：$\nabla_{\boldsymbol{\theta}} \ell = \mathbb{E}_{\rho^{\pi_E}}[\nabla r_{\boldsymbol{\theta}}] - \mathbb{E}_{\rho^{\pi_{\boldsymbol{\theta}}}}[\nabla r_{\boldsymbol{\theta}}]$
-   - 这绕过了内层 RL 循环，将嵌套优化简化为单循环
+
+    - ML-IRL 的对数似然 $\ell(\boldsymbol{\theta}) = \mathbb{E}_{\rho^{\pi_E}}[\log \pi_{\boldsymbol{\theta}}(\mathbf{a}|\mathbf{s})]$
+    - 等价于模仿差距：$\ell(\boldsymbol{\theta}) = J(\pi_E, r_{\boldsymbol{\theta}}) - J(\pi_{\boldsymbol{\theta}}, r_{\boldsymbol{\theta}})$
+    - 梯度为两个占用度量下的奖励梯度之差：$\nabla_{\boldsymbol{\theta}} \ell = \mathbb{E}_{\rho^{\pi_E}}[\nabla r_{\boldsymbol{\theta}}] - \mathbb{E}_{\rho^{\pi_{\boldsymbol{\theta}}}}[\nabla r_{\boldsymbol{\theta}}]$
+    - 这绕过了内层 RL 循环，将嵌套优化简化为单循环
 
 2. **Trust Region Reward Optimization (TRRO, 定理 3)**：
-   - 引入代理函数 $\ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta})$：用旧策略 $\pi_{\text{old}}$ 替代新策略计算模仿差距
-   - Proposition 2 证明代理函数在 $\boldsymbol{\theta}_{\text{old}}$ 处与原目标一阶匹配
-   - 定理 3 建立下界：$\ell(\boldsymbol{\theta}_{\text{new}}) \geq \ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}_{\text{new}}) - C\epsilon_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}_{\text{new}})$
-   - 其中 $\epsilon = \max_{s,a} |r_{\boldsymbol{\theta}_{\text{new}}} - r_{\boldsymbol{\theta}_{\text{old}}}|$ 是奖励变化量
-   - 最大化下界保证 $\ell$ 单调不减（推论 4）
-   - 这是一个 MM 算法：代理函数 minorize 原目标，在 $\boldsymbol{\theta}_{\text{old}}$ 处相切
+
+    - 引入代理函数 $\ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta})$：用旧策略 $\pi_{\text{old}}$ 替代新策略计算模仿差距
+    - Proposition 2 证明代理函数在 $\boldsymbol{\theta}_{\text{old}}$ 处与原目标一阶匹配
+    - 定理 3 建立下界：$\ell(\boldsymbol{\theta}_{\text{new}}) \geq \ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}_{\text{new}}) - C\epsilon_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}_{\text{new}})$
+    - 其中 $\epsilon = \max_{s,a} |r_{\boldsymbol{\theta}_{\text{new}}} - r_{\boldsymbol{\theta}_{\text{old}}}|$ 是奖励变化量
+    - 最大化下界保证 $\ell$ 单调不减（推论 4）
+    - 这是一个 MM 算法：代理函数 minorize 原目标，在 $\boldsymbol{\theta}_{\text{old}}$ 处相切
 
 3. **Proximal Inverse Reward Optimization (PIRO)**：
-   - 理论常数 $C$ 太大，用可调系数 $\mu > 0$ 替代
-   - $\epsilon$ 的最大范数不可微，用 $L^2$ 范数在专家数据和策略 rollout 上的估计替代
-   - 目标函数：$L_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}) = \ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}) - \mu \bar{\epsilon}_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta})$
-   - $\mu$ 自适应调节：若 $\bar{\epsilon} > \bar{\epsilon}^{\text{target}} \times x$，则 $\mu \leftarrow \mu \times y$（反之亦然）
-   - 策略用 SAC 的若干轮迭代近似优化（而非精确求解）
+
+    - 理论常数 $C$ 太大，用可调系数 $\mu > 0$ 替代
+    - $\epsilon$ 的最大范数不可微，用 $L^2$ 范数在专家数据和策略 rollout 上的估计替代
+    - 目标函数：$L_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}) = \ell_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta}) - \mu \bar{\epsilon}_{\boldsymbol{\theta}_{\text{old}}}(\boldsymbol{\theta})$
+    - $\mu$ 自适应调节：若 $\bar{\epsilon} > \bar{\epsilon}^{\text{target}} \times x$，则 $\mu \leftarrow \mu \times y$（反之亦然）
+    - 策略用 SAC 的若干轮迭代近似优化（而非精确求解）
 
 ### 损失函数 / 训练策略
 

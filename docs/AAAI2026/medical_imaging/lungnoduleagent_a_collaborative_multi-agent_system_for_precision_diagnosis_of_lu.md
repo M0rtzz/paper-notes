@@ -48,30 +48,34 @@ LungNoduleAgent 处理肺部 CT 体积 $V$，依次经过三个模块：
 ### 关键设计
 
 1. **Nodule Spotter（结节检测模块）**:
-   - 做什么：精确定位 CT 切片中的肺结节区域
-   - 核心思路：采用三层级联设计——
-     - **Mixture of Experts (MoE)**：多个专业检测基础模型并行处理每个 CT 切片，各专家擅长不同类型结节特征，独立生成 mask $m$
-     - **Mask Clustering**：基于 IoU 定义 mask 间距离 $d(m_i, m_j) = 1 - \text{IoU}(m_i, m_j)$，使用 DBSCAN 聚类将空间重叠的 mask 归为同一簇，排除离群值，对每个簇计算平均 mask 并以 0.5 阈值二值化
-     - **Judging Panel**：$N_{VLM}$ 个独立 VLM 同时评估每个候选结节的有效性，输出二元决策 $\text{Sign}(\mathcal{V}_j)$ 和置信度 $C_j$，加权投票 $\text{Score}(M_g) = \sum_j \text{Sign}(\mathcal{V}_j) \times C_j$，正分方可通过
-   - 设计动机：单个检测模型不可避免产生假阳性，MoE 提升鲁棒性，DBSCAN 聚类去噪，VLM 投票模拟同行评审进一步过滤
+
+    - 做什么：精确定位 CT 切片中的肺结节区域
+    - 核心思路：采用三层级联设计——
+      - **Mixture of Experts (MoE)**：多个专业检测基础模型并行处理每个 CT 切片，各专家擅长不同类型结节特征，独立生成 mask $m$
+      - **Mask Clustering**：基于 IoU 定义 mask 间距离 $d(m_i, m_j) = 1 - \text{IoU}(m_i, m_j)$，使用 DBSCAN 聚类将空间重叠的 mask 归为同一簇，排除离群值，对每个簇计算平均 mask 并以 0.5 阈值二值化
+      - **Judging Panel**：$N_{VLM}$ 个独立 VLM 同时评估每个候选结节的有效性，输出二元决策 $\text{Sign}(\mathcal{V}_j)$ 和置信度 $C_j$，加权投票 $\text{Score}(M_g) = \sum_j \text{Sign}(\mathcal{V}_j) \times C_j$，正分方可通过
+    - 设计动机：单个检测模型不可避免产生假阳性，MoE 提升鲁棒性，DBSCAN 聚类去噪，VLM 投票模拟同行评审进一步过滤
 
 2. **Simulated Radiologist（模拟放射科医师）**:
-   - 做什么：针对定位到的结节区域生成详细的 CT 报告
-   - 核心思路：
-     - **Focal Prompting Mechanism**：对图像和 mask 进行焦点裁剪，保留周围上下文。全图和焦点裁剪分别经局部视觉骨干编码，通过门控交叉注意力融合全局上下文。序列拼接捕捉结节跨切片动态变化
-     - **MedPrompt**：专门设计的医学提示词，确保模型聚焦标注区域，使用解剖学准确术语，输出格式化的临床报告，避免推测性内容。最终由 VLM 处理融合特征 $\mathcal{O}_{vlm} = \text{VLM}(\text{MedPrompt}, \Theta_{\text{volume}})$
-   - 设计动机：通用 VLM 缺乏细粒度区域感知能力，focal prompting 在保持全局上下文的同时放大结节细节；MedPrompt 约束输出专业性
+
+    - 做什么：针对定位到的结节区域生成详细的 CT 报告
+    - 核心思路：
+      - **Focal Prompting Mechanism**：对图像和 mask 进行焦点裁剪，保留周围上下文。全图和焦点裁剪分别经局部视觉骨干编码，通过门控交叉注意力融合全局上下文。序列拼接捕捉结节跨切片动态变化
+      - **MedPrompt**：专门设计的医学提示词，确保模型聚焦标注区域，使用解剖学准确术语，输出格式化的临床报告，避免推测性内容。最终由 VLM 处理融合特征 $\mathcal{O}_{vlm} = \text{VLM}(\text{MedPrompt}, \Theta_{\text{volume}})$
+    - 设计动机：通用 VLM 缺乏细粒度区域感知能力，focal prompting 在保持全局上下文的同时放大结节细节；MedPrompt 约束输出专业性
 
 3. **Doctor Agent System (DAS)**:
-   - 做什么：基于 CT 报告和结节图像进行恶性推理
-   - 核心思路：
-     - **Medical Graph RAG**：从权威病理学文献构建知识图谱 $\mathcal{G} = \text{GraphConstruct}(\mathcal{D})$，提取社区级摘要 $\mathcal{S}$，面对查询 $Q$ 时通过 VLM 结合摘要和结节图像生成答案 $\mathcal{A} = \text{VLM}(\mathcal{S}, Q, \mathcal{N})$，实现基于证据的诊断推理
-     - **Multi-Agent Roundtable**：$K$ 个推理智能体各自独立分析后生成初始诊断 $O_i^{(1)} = \text{Agent}_i(I, \text{Report})$；若存在分歧，各智能体参考他人观点修正 $O_i^{(t)} = \text{Revise}(O_i^{(t-1)}, \{O_j^{(t-1)}\}_{j \neq i})$；总结智能体汇总中间结果，迭代至达成共识
-   - 设计动机：单一模型的诊断容易受偏差影响，多智能体讨论模拟临床会诊机制，知识图谱补充 VLM 缺乏的专业病理知识
+
+    - 做什么：基于 CT 报告和结节图像进行恶性推理
+    - 核心思路：
+      - **Medical Graph RAG**：从权威病理学文献构建知识图谱 $\mathcal{G} = \text{GraphConstruct}(\mathcal{D})$，提取社区级摘要 $\mathcal{S}$，面对查询 $Q$ 时通过 VLM 结合摘要和结节图像生成答案 $\mathcal{A} = \text{VLM}(\mathcal{S}, Q, \mathcal{N})$，实现基于证据的诊断推理
+      - **Multi-Agent Roundtable**：$K$ 个推理智能体各自独立分析后生成初始诊断 $O_i^{(1)} = \text{Agent}_i(I, \text{Report})$；若存在分歧，各智能体参考他人观点修正 $O_i^{(t)} = \text{Revise}(O_i^{(t-1)}, \{O_j^{(t-1)}\}_{j \neq i})$；总结智能体汇总中间结果，迭代至达成共识
+    - 设计动机：单一模型的诊断容易受偏差影响，多智能体讨论模拟临床会诊机制，知识图谱补充 VLM 缺乏的专业病理知识
 
 4. **Memory 模块**:
-   - 做什么：作为系统核心存储组件，管理结节图像、尺寸测量值、CT 报告以及多智能体对话和摘要
-   - 设计动机：降低信息处理复杂度，支持智能体间信息共享
+
+    - 做什么：作为系统核心存储组件，管理结节图像、尺寸测量值、CT 报告以及多智能体对话和摘要
+    - 设计动机：降低信息处理复杂度，支持智能体间信息共享
 
 ### 损失函数 / 训练策略
 

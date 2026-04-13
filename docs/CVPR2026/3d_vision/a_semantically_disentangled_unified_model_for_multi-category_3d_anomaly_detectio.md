@@ -25,14 +25,14 @@ tags:
 提出 SeDiR 框架，通过粗到细全局标记化（CFGT）、类别条件对比学习（C3L）和几何引导解码器（GGD）三个模块实现语义解纠缠的统一3D异常检测，解决跨类别特征纠缠（ICE）问题，在 Real3D-AD 和 Anomaly-ShapeNet 上分别超出SOTA 2.8% 和 9.1% AUROC。
 
 ## 研究背景与动机
-1. **领域现状**：3D异常检测(3D-AD)目标是仅在正常数据上训练，检测3D点云中的缺陷。传统方法为每个类别训练单独模型，但在多类别工业场景中维护成本过高。
-2. **统一模型的必要性**：单模型覆盖多类别可减少系统冗余、提高部署效率。MC3D-AD 等方法已初步探索，但性能有限。
-3. **核心问题——类别间纠缠（ICE）**：
+**领域现状**：3D异常检测(3D-AD)目标是仅在正常数据上训练，检测3D点云中的缺陷。传统方法为每个类别训练单独模型，但在多类别工业场景中维护成本过高。
+**统一模型的必要性**：单模型覆盖多类别可减少系统冗余、提高部署效率。MC3D-AD 等方法已初步探索，但性能有限。
+**核心问题——类别间纠缠（ICE）**：
    - 统一模型中，不同类别的潜在特征在空间中重叠（如t-SNE可视化中chicken/duck/gemstone严重混叠）
    - 导致模型以错误的类别先验进行重建（如椅子部分用桌子几何重建）
    - 这不是"检测异常"的失败，而是"建立物体身份"的失败
-4. **关键洞察**：重建失败不是因为物体异常，而是因为模型在重建前没搞清楚"在重建什么"。
-5. **核心idea**：先理解再重建——将统一3D-AD重新定义为"语义条件化重建"问题。
+**关键洞察**：重建失败不是因为物体异常，而是因为模型在重建前没搞清楚"在重建什么"。
+**核心idea**：先理解再重建——将统一3D-AD重新定义为"语义条件化重建"问题。
 
 ## 方法详解
 
@@ -41,25 +41,26 @@ tags:
 
 ### 关键设计
 1. **粗到细全局标记化（CFGT）**：
-   - **多分辨率邻域编码**：对共享中心点使用对称分辨率 $\mathcal{R} = \{k/2, k, 2k\}$ 构建邻域并用预训练 PointMAE 编码，捕获从细节到结构的多尺度几何
-   - **自适应上下文token (ACT)**：可学习token $\mathbf{t}_{\text{act}}$ 前插到基准分辨率序列，经transformer编码后聚合全局上下文
-   - **全局表征**：拼接三个分辨率的全局平均池化 + ACT token：$\mathbf{f}_{\text{global}} = \text{concat}([\mathbf{g}^{(k)}, \mathbf{g}^{(2k)}, \mathbf{g}^{(k/2)}, \mathbf{t}^{\text{enc}}_{\text{act}}])$
-   - **跨尺度对齐损失**：$\mathcal{L}_{\text{cos}} = \frac{1}{g}\sum_{m=1}^{g}\sum_{r}[1 - \cos(\tilde{\mathbf{f}}_m^{(k)}, \tilde{\mathbf{f}}_m^{(r)})]$
-   - **辅助分类损失**：$\mathcal{L}_{\text{cls}} = \text{CrossEntropy}(\hat{\mathbf{y}}, \mathbf{y})$
-   - 设计动机：局部特征无法区分类别身份，需要多尺度全局聚合形成实例级语义表征
+
+    - **多分辨率邻域编码**：对共享中心点使用对称分辨率 $\mathcal{R} = \{k/2, k, 2k\}$ 构建邻域并用预训练 PointMAE 编码，捕获从细节到结构的多尺度几何
+    - **自适应上下文token (ACT)**：可学习token $\mathbf{t}_{\text{act}}$ 前插到基准分辨率序列，经transformer编码后聚合全局上下文
+    - **全局表征**：拼接三个分辨率的全局平均池化 + ACT token：$\mathbf{f}_{\text{global}} = \text{concat}([\mathbf{g}^{(k)}, \mathbf{g}^{(2k)}, \mathbf{g}^{(k/2)}, \mathbf{t}^{\text{enc}}_{\text{act}}])$
+    - **跨尺度对齐损失**：$\mathcal{L}_{\text{cos}} = \frac{1}{g}\sum_{m=1}^{g}\sum_{r}[1 - \cos(\tilde{\mathbf{f}}_m^{(k)}, \tilde{\mathbf{f}}_m^{(r)})]$
+    - **辅助分类损失**：$\mathcal{L}_{\text{cls}} = \text{CrossEntropy}(\hat{\mathbf{y}}, \mathbf{y})$
+    - 设计动机：局部特征无法区分类别身份，需要多尺度全局聚合形成实例级语义表征
 
 2. **类别条件对比学习（C3L）**：
    维护动态缓冲区 $\mathcal{B}$（大小64），对全局token $\mathbf{z}$ 执行监督对比学习：
-   $$\mathcal{L}_{\text{scl}}(i) = \frac{1}{|\mathcal{P}(i)|}\sum_{\mathbf{z}_{\text{pos}} \in \mathcal{P}(i)} -\log \frac{\exp(\mathbf{z}_i^\top \mathbf{z}_{\text{pos}} / \tau)}{\sum_{\mathbf{z}_a \in \mathcal{A}(i)} \exp(\mathbf{z}_i^\top \mathbf{z}_a / \tau)}$$
-   - 正样本：同类别，负样本：不同类别
-   - 总C3L目标：$\mathcal{L}_{\text{C3L}} = \lambda_{\text{scl}}\mathcal{L}_{\text{scl}} + \lambda_{\text{cls}}\mathcal{L}_{\text{cls}} + \lambda_{\text{cos}}\mathcal{L}_{\text{cos}}$
-   - 设计动机：显式强制类内紧凑、类间分离，直接解决ICE问题
+    $\mathcal{L}_{\text{scl}}(i) = \frac{1}{|\mathcal{P}(i)|}\sum_{\mathbf{z}_{\text{pos}} \in \mathcal{P}(i)} -\log \frac{\exp(\mathbf{z}_i^\top \mathbf{z}_{\text{pos}} / \tau)}{\sum_{\mathbf{z}_a \in \mathcal{A}(i)} \exp(\mathbf{z}_i^\top \mathbf{z}_a / \tau)}$
+    - 正样本：同类别，负样本：不同类别
+    - 总C3L目标：$\mathcal{L}_{\text{C3L}} = \lambda_{\text{scl}}\mathcal{L}_{\text{scl}} + \lambda_{\text{cls}}\mathcal{L}_{\text{cls}} + \lambda_{\text{cos}}\mathcal{L}_{\text{cos}}$
+    - 设计动机：显式强制类内紧凑、类间分离，直接解决ICE问题
 
 3. **几何引导解码器（GGD）**：
    将语义先验 $\mathbf{z}$ 作为 query，编码特征序列作为 key/value，注入几何偏置：
-   $$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d}} + \beta \mathbf{B}_{\text{geo}}\right)\mathbf{V}$$
+    $\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d}} + \beta \mathbf{B}_{\text{geo}}\right)\mathbf{V}$
    其中 $\mathbf{B}_{\text{geo}}$ 编码局部法向量和曲率变化。
-   - 设计动机：重建不仅需要正确的语义先验，还需要几何证据引导注意力方向
+    - 设计动机：重建不仅需要正确的语义先验，还需要几何证据引导注意力方向
 
 ### 损失函数 / 训练策略
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{C3L}} + \mathcal{L}_{\text{rec}}$$

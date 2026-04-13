@@ -53,23 +53,26 @@ tags:
 ### 关键设计
 
 1. **3D包围盒作为物体表示**：
-   - 使用DUSt3R从稀疏参考图像预测Pointmap，通过PnP恢复参考相机位姿
-   - 利用多视角物体检测结果过滤无关点，得到物体点云 $\tilde{\mathbf{P}}$，计算3D包围盒 $\mathbf{B}$
-   - 优势：不依赖CAD模型，不需要稠密点云，稀疏视角即可可靠恢复
-   - 实验证明方法对包围盒噪声具有强鲁棒性（不同来源的包围盒性能差异小）
+
+    - 使用DUSt3R从稀疏参考图像预测Pointmap，通过PnP恢复参考相机位姿
+    - 利用多视角物体检测结果过滤无关点，得到物体点云 $\tilde{\mathbf{P}}$，计算3D包围盒 $\mathbf{B}$
+    - 优势：不依赖CAD模型，不需要稠密点云，稀疏视角即可可靠恢复
+    - 实验证明方法对包围盒噪声具有强鲁棒性（不同来源的包围盒性能差异小）
 
 2. **2D热图表示包围盒角点**：
-   - 将3D包围盒的8个角点投影到参考图像，生成热图 $\mathbf{H} \in \mathbb{R}^{H \times W \times 8}$
-   - 受CornerNet启发使用高斯平滑，自定义 $2\sigma^2$ 为角点到物体2D中心像素距离的平方的1/10
-   - 避免直接使用稀疏坐标，更适合Vision Transformer处理
+
+    - 将3D包围盒的8个角点投影到参考图像，生成热图 $\mathbf{H} \in \mathbb{R}^{H \times W \times 8}$
+    - 受CornerNet启发使用高斯平滑，自定义 $2\sigma^2$ 为角点到物体2D中心像素距离的平方的1/10
+    - 避免直接使用稀疏坐标，更适合Vision Transformer处理
 
 3. **基于参考的Transformer解码器**：
-   - 使用预训练DINOv2提取参考和查询图像特征 $\mathbf{F} \in \mathbb{R}^{H_p \times W_p \times d}$
-   - 参考图像：将热图patch化后线性投影，与图像特征相加 $\mathbf{F}_i' = \mathbf{F}_i + \mathbf{H}_i^p$
-   - 查询图像：使用可学习的query tokens $\mathbf{Q}$
-   - 拼接所有参考和查询特征，输入12层全自注意力Transformer解码器
-   - 输出经线性层+Sigmoid得到查询热图 $\mathbf{H}_q \in \mathbb{R}^{H \times W \times 8}$
-   - 各通道对应特定角点，与3D角点按预定义顺序配对，PnP求解最终位姿
+
+    - 使用预训练DINOv2提取参考和查询图像特征 $\mathbf{F} \in \mathbb{R}^{H_p \times W_p \times d}$
+    - 参考图像：将热图patch化后线性投影，与图像特征相加 $\mathbf{F}_i' = \mathbf{F}_i + \mathbf{H}_i^p$
+    - 查询图像：使用可学习的query tokens $\mathbf{Q}$
+    - 拼接所有参考和查询特征，输入12层全自注意力Transformer解码器
+    - 输出经线性层+Sigmoid得到查询热图 $\mathbf{H}_q \in \mathbb{R}^{H \times W \times 8}$
+    - 各通道对应特定角点，与3D角点按预定义顺序配对，PnP求解最终位姿
 
 ### 损失函数 / 训练策略
 

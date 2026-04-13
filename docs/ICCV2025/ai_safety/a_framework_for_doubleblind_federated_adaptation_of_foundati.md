@@ -53,25 +53,29 @@ BlindFed的整体流程分为三个阶段：
 ### 关键设计
 
 1. **FHE友好的非线性近似**
-   - **Softmax → ASoftmax**：用Taylor级数近似指数函数 $e^x \approx \sum_{i=0}^{d} \frac{x^i}{i!}$（取$d=6$），然后除以指数和进行归一化
-   - **GELU → Quad**：用二次函数近似 $\text{Quad}(x) = 0.125x^2 + 0.25x + 0.5$
-   - **除法（LayerNorm/Softmax中的）→ Goldschmidt算法**：$\frac{1}{x} = \prod_{i=0}^{d} (1 + (1-x)^{2^i})$（取$d=7$）
+
+    - **Softmax → ASoftmax**：用Taylor级数近似指数函数 $e^x \approx \sum_{i=0}^{d} \frac{x^i}{i!}$（取$d=6$），然后除以指数和进行归一化
+    - **GELU → Quad**：用二次函数近似 $\text{Quad}(x) = 0.125x^2 + 0.25x + 0.5$
+    - **除法（LayerNorm/Softmax中的）→ Goldschmidt算法**：$\frac{1}{x} = \prod_{i=0}^{d} (1 + (1-x)^{2^i})$（取$d=7$）
    
    这些近似使得所有操作都可以用加法和乘法在FHE域中完成。
 
 2. **并行适配器（LoSA）设计**
-   - 关键选择：不能用LoRA（需要通过FM反向传播），必须用**并行适配器**
-   - 适配器与FM并行运行：$\mathbf{h}_\ell = g_\ell(\mathbf{b}_\ell + \mathbf{h}_{\ell-1}) + \mathbf{h}_{\ell-1}$
-   - 适配器函数：$g_\ell(\mathbf{z}) = \alpha \mathbf{W}_\ell^u \text{GELU}(\mathbf{W}_\ell^d \mathbf{z})$
-   - 优势：只需FM的中间表示（通过加密推理获得），不需要FM的反向传播梯度
+
+    - 关键选择：不能用LoRA（需要通过FM反向传播），必须用**并行适配器**
+    - 适配器与FM并行运行：$\mathbf{h}_\ell = g_\ell(\mathbf{b}_\ell + \mathbf{h}_{\ell-1}) + \mathbf{h}_{\ell-1}$
+    - 适配器函数：$g_\ell(\mathbf{z}) = \alpha \mathbf{W}_\ell^u \text{GELU}(\mathbf{W}_\ell^d \mathbf{z})$
+    - 优势：只需FM的中间表示（通过加密推理获得），不需要FM的反向传播梯度
 
 3. **逐块加密推理协议**
-   - 由于整个FM的乘法深度超过FHE方案支持的范围，采用**逐块处理**：每处理完一个Transformer block后，客户端解密并重新加密中间表示
-   - 这带来了通信开销，但避免了频繁的bootstrapping操作
+
+    - 由于整个FM的乘法深度超过FHE方案支持的范围，采用**逐块处理**：每处理完一个Transformer block后，客户端解密并重新加密中间表示
+    - 这带来了通信开销，但避免了频繁的bootstrapping操作
 
 4. **隐私增强方案**
-   - **样本级置换**：服务器在每个block后用随机置换矩阵$\Pi_\ell$打乱batch中样本的顺序，客户端看到的是打乱的中间表示。服务器只向客户端透露$\Pi_{\ell-1}^{-1} \cdot \Pi_\ell$（相对置换），无法恢复绝对置换（有$n!$种可能的解，$n=16$时约$2 \times 10^{13}$种）
-   - **随机块采样（SBS）**：每轮前向传播只返回部分block的输出，其余设为零。采样规则避免连续block被选中（相邻block的特征相似性高，可被利用进行攻击）。期望采样率约$L/3$
+
+    - **样本级置换**：服务器在每个block后用随机置换矩阵$\Pi_\ell$打乱batch中样本的顺序，客户端看到的是打乱的中间表示。服务器只向客户端透露$\Pi_{\ell-1}^{-1} \cdot \Pi_\ell$（相对置换），无法恢复绝对置换（有$n!$种可能的解，$n=16$时约$2 \times 10^{13}$种）
+    - **随机块采样（SBS）**：每轮前向传播只返回部分block的输出，其余设为零。采样规则避免连续block被选中（相邻block的特征相似性高，可被利用进行攻击）。期望采样率约$L/3$
 
 ### 损失函数 / 训练策略
 

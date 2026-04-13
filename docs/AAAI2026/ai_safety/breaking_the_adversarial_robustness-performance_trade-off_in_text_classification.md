@@ -57,26 +57,29 @@ MC²F 包含两个核心模块：(1) SR-CNF 进行对抗样本检测；(2) Geode
 ### 关键设计
 
 1. **分层黎曼连续正则化流 (SR-CNF)**
-   - 做什么：学习干净数据嵌入的概率密度 $p_{clean}(z)$，用于检测OOD对抗样本
-   - 核心思路：不假设固定几何，而是用 Mixture-of-Experts (MoE) 网络学习位置相关的黎曼度量张量 $G(z) = \sum_{k=1}^{K} \alpha_k(z) E_{\psi_k}(z)$
-   - 门控网络 $g_\phi(z)$ 输出权重，$K$ 个专家网络各自专精于特定层 stratum 的局部几何
-   - 确保正定性：每个专家输出 $L_k(z)L_k(z)^T + \epsilon I$
-   - 在学习到的黎曼流形上定义 CNF，通过黎曼散度计算对数似然（公式 3-4）
-   - 检测机制：$\log p(z_{in}) < \tau$ 即判定为对抗样本
-   - 设计动机：嵌入空间不是单一均匀流形，而是由不同内蕴维度的分层结构组成，MoE 自适应地学习这种分层几何
+
+    - 做什么：学习干净数据嵌入的概率密度 $p_{clean}(z)$，用于检测OOD对抗样本
+    - 核心思路：不假设固定几何，而是用 Mixture-of-Experts (MoE) 网络学习位置相关的黎曼度量张量 $G(z) = \sum_{k=1}^{K} \alpha_k(z) E_{\psi_k}(z)$
+    - 门控网络 $g_\phi(z)$ 输出权重，$K$ 个专家网络各自专精于特定层 stratum 的局部几何
+    - 确保正定性：每个专家输出 $L_k(z)L_k(z)^T + \epsilon I$
+    - 在学习到的黎曼流形上定义 CNF，通过黎曼散度计算对数似然（公式 3-4）
+    - 检测机制：$\log p(z_{in}) < \tau$ 即判定为对抗样本
+    - 设计动机：嵌入空间不是单一均匀流形，而是由不同内蕴维度的分层结构组成，MoE 自适应地学习这种分层几何
 
 2. **测地线净化求解器 (Geodesic Purification Solver)**
-   - 做什么：将检测为对抗的嵌入沿测地线（流形上最短路径）投影回干净流形
-   - 形式化：最小化路径能量泛函 $\mathcal{L}[\gamma] = \int_0^1 \langle \gamma'(t), \gamma'(t) \rangle_{G(\gamma(t))} dt$
-   - 边界条件：$\gamma(0) = z_{adv}$，$\gamma(1) = z_{corr} \in \mathcal{M}_{clean}$
-   - 求解方式：离散化路径，对路径点用梯度下降最小化能量泛函，约束 $\log p(z_{corr}) \geq \tau$ 通过软惩罚实现
-   - 设计动机：不是随意去噪，而是找到几何意义上最近的干净表示——保留最大语义信息
+
+    - 做什么：将检测为对抗的嵌入沿测地线（流形上最短路径）投影回干净流形
+    - 形式化：最小化路径能量泛函 $\mathcal{L}[\gamma] = \int_0^1 \langle \gamma'(t), \gamma'(t) \rangle_{G(\gamma(t))} dt$
+    - 边界条件：$\gamma(0) = z_{adv}$，$\gamma(1) = z_{corr} \in \mathcal{M}_{clean}$
+    - 求解方式：离散化路径，对路径点用梯度下降最小化能量泛函，约束 $\log p(z_{corr}) \geq \tau$ 通过软惩罚实现
+    - 设计动机：不是随意去噪，而是找到几何意义上最近的干净表示——保留最大语义信息
 
 3. **多目标训练范式**
-   - 密度估计损失 $\mathcal{L}_{NLL}$：标准正则化流的负对数似然，驱动学习干净数据分布
-   - 拓扑正则化 $\mathcal{L}_{topo}$：基于可微 persistent homology，计算干净嵌入批次与其潜空间对应点的持续性图之间的 Wasserstein 距离，确保流变换保持全局拓扑结构
-   - 因果语义正则化 $\mathcal{L}_{causal}$：将净化过程视为因果干预（移除对抗扰动的混杂效应），用 Fisher-Rao 距离约束净化后嵌入的分类器输出分布与原始干净嵌入的输出分布一致
-   - 总损失：$\mathcal{L}_{total} = \mathcal{L}_{NLL} + \lambda_{topo}\mathcal{L}_{topo} + \lambda_{causal}\mathcal{L}_{causal}$
+
+    - 密度估计损失 $\mathcal{L}_{NLL}$：标准正则化流的负对数似然，驱动学习干净数据分布
+    - 拓扑正则化 $\mathcal{L}_{topo}$：基于可微 persistent homology，计算干净嵌入批次与其潜空间对应点的持续性图之间的 Wasserstein 距离，确保流变换保持全局拓扑结构
+    - 因果语义正则化 $\mathcal{L}_{causal}$：将净化过程视为因果干预（移除对抗扰动的混杂效应），用 Fisher-Rao 距离约束净化后嵌入的分类器输出分布与原始干净嵌入的输出分布一致
+    - 总损失：$\mathcal{L}_{total} = \mathcal{L}_{NLL} + \lambda_{topo}\mathcal{L}_{topo} + \lambda_{causal}\mathcal{L}_{causal}$
 
 ## 实验关键数据
 

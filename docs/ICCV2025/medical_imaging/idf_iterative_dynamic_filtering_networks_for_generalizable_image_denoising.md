@@ -48,9 +48,10 @@ IDF 采用迭代去噪方案：输入噪声图像 $\mathbf{I}_{Noisy}$ 经过 T 
 2. **Feature Extraction Module (FEM)**: 通过 **RMS 归一化** 对输入进行样本级归一化 $\text{Norm}(\mathbf{a}) = \mathbf{a} / \sqrt{\frac{1}{N}\sum_i \mathbf{a}_i^2 + \epsilon}$，使特征对全局噪声级别变化保持不变。归一化后接两层 3×3 卷积 + ReLU，保持浅层和高效。
 
 3. **Global Statistics Module (GSM) + Local Correlation Module (LCM)**:
-   - GSM 利用迭代策略的优势：计算相邻迭代的残差 $\mathbf{I}_{Res}^{(t)} = \hat{\mathbf{I}}_{Clean}^{(t-1)} - \hat{\mathbf{I}}_{Clean}^{(t-2)}$，提取均值和标准差作为全局噪声统计量，类似 ISO 信息
-   - LCM 计算 patch 内像素间的 Pearson 相关系数，高相关区域（平坦区）适用均匀核，低相关区域（边缘）使用选择性权重
-   - 两者互补：GSM 提供全局噪声级别先验，LCM 提供局部结构先验
+
+    - GSM 利用迭代策略的优势：计算相邻迭代的残差 $\mathbf{I}_{Res}^{(t)} = \hat{\mathbf{I}}_{Clean}^{(t-1)} - \hat{\mathbf{I}}_{Clean}^{(t-2)}$，提取均值和标准差作为全局噪声统计量，类似 ISO 信息
+    - LCM 计算 patch 内像素间的 Pearson 相关系数，高相关区域（平坦区）适用均匀核，低相关区域（边缘）使用选择性权重
+    - 两者互补：GSM 提供全局噪声级别先验，LCM 提供局部结构先验
 
 4. **Kernel Prediction Module (KPM)**: 将 FEM 特征与 GSM 特征进行通道注意力式相乘（$\mathbf{F}_{FE}^{(t)} \odot \mathbf{F}_{GS}^{(t)}$），拼接 LCM 特征后归一化，经 3×3 卷积生成核权重。使用 **Power Normalization**（$p=3$）代替 softmax 进行核归一化的求和归一约束，对异常值更鲁棒。
 

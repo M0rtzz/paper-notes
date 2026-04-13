@@ -25,14 +25,14 @@ tags:
 提出混合二次-线性 Transformer（HQLT），将 KV-memory（softmax attention，精确检索但二次复杂度）与 FW-memory（DeltaNet/线性 attention，线性复杂度但检索粗糙）融合为互补记忆系统，比较三种混合策略（延迟流式/延迟分块/同步），在 340M 和 1.3B 参数规模的语言建模、检索、算法推理和 RL 任务上验证同步混合最优。
 
 ## 研究背景与动机
-1. **领域现状**：现代 Transformer 分为两类——二次 Transformer（QT，standard softmax attention）和线性 Transformer（LT，如 DeltaNet）。两者的计算特性互补但各有硬伤：
+**领域现状**：现代 Transformer 分为两类——二次 Transformer（QT，standard softmax attention）和线性 Transformer（LT，如 DeltaNet）。两者的计算特性互补但各有硬伤：
    - QT 通过 softmax 实现精确检索，但序列长度受二次复杂度限制，必须预设最大上下文窗口
    - LT 通过快权重矩阵实现线性复杂度、支持任意长序列，且 DeltaNet 变体具备状态追踪等 QT 无法完成的计算能力，但牺牲了检索精度
-2. **现有痛点**：单一系统无法同时满足精确检索、长上下文、高表达力三个需求。已有混合尝试（Arora et al.、Munkhdalai et al.）使用过时的 LT（vanilla LA），未利用 DeltaNet 的表达力优势
-3. **生物学启发**：大脑通过互补学习系统（Complementary Learning Systems）整合多种记忆机制——海马体负责情景记忆（精确但容量有限），皮层负责语义记忆（抽象但持久）。类似地，KV-memory 对应精确短期记忆，FW-memory 对应压缩长期记忆
-4. **核心矛盾**：精确检索需要显式存储所有 key-value（二次增长），而长上下文处理需要固定大小的压缩状态（线性复杂度），两者在单一系统中不可兼得
-5. **切入角度**：不是在两类 Transformer 中二选一，而是设计混合架构让两个记忆系统各司其职——关键问题是信息何时、如何分配到两个系统
-6. **核心idea一句话**：用 DeltaNet 的 FW-memory 和 softmax 的 KV-memory 构建互补记忆系统，通过同步输入策略实现两者优势的最大化整合
+**现有痛点**：单一系统无法同时满足精确检索、长上下文、高表达力三个需求。已有混合尝试（Arora et al.、Munkhdalai et al.）使用过时的 LT（vanilla LA），未利用 DeltaNet 的表达力优势
+**生物学启发**：大脑通过互补学习系统（Complementary Learning Systems）整合多种记忆机制——海马体负责情景记忆（精确但容量有限），皮层负责语义记忆（抽象但持久）。类似地，KV-memory 对应精确短期记忆，FW-memory 对应压缩长期记忆
+**核心矛盾**：精确检索需要显式存储所有 key-value（二次增长），而长上下文处理需要固定大小的压缩状态（线性复杂度），两者在单一系统中不可兼得
+**切入角度**：不是在两类 Transformer 中二选一，而是设计混合架构让两个记忆系统各司其职——关键问题是信息何时、如何分配到两个系统
+**核心idea一句话**：用 DeltaNet 的 FW-memory 和 softmax 的 KV-memory 构建互补记忆系统，通过同步输入策略实现两者优势的最大化整合
 
 ## 方法详解
 
@@ -41,25 +41,29 @@ HQLT 在每个时间步接收输入 $\mathbf{x}_t$，同时维护两类记忆：
 
 ### 关键设计
 1. **延迟流式 HQLT（Delayed-Streaming）**：
-   - 新生成的 key-value 对进入 KV-memory，被滑动窗口淘汰的旧 key-value 对"流入" FW-memory
-   - 分工明确：FW-memory 负责 $\leq t-S$ 步前的历史信息，KV-memory 负责最近 $S$ 步的精确检索
-   - 优点是概念优雅——按信息"年龄"分配记忆系统
-   - 缺点：FW-memory 只处理旧信息，无法利用其在当前输入上的表达力优势
+
+    - 新生成的 key-value 对进入 KV-memory，被滑动窗口淘汰的旧 key-value 对"流入" FW-memory
+    - 分工明确：FW-memory 负责 $\leq t-S$ 步前的历史信息，KV-memory 负责最近 $S$ 步的精确检索
+    - 优点是概念优雅——按信息"年龄"分配记忆系统
+    - 缺点：FW-memory 只处理旧信息，无法利用其在当前输入上的表达力优势
 
 2. **延迟分块 HQLT（Delayed-Chunk）**：
-   - 源于 chunk-wise 并行训练算法：块内用 softmax attention（QT），块间用 FW-memory 的递推形式（LT）
-   - 与 Munkhdalai et al. 的模型直接相关
-   - 同样存在延迟架构的表达力限制
+
+    - 源于 chunk-wise 并行训练算法：块内用 softmax attention（QT），块间用 FW-memory 的递推形式（LT）
+    - 与 Munkhdalai et al. 的模型直接相关
+    - 同样存在延迟架构的表达力限制
 
 3. **同步 HQLT（Synchronous）**：
-   - 每个时间步的 key-value 对**同时**输入 KV-memory 和 FW-memory
-   - 动机：DeltaNet 的状态追踪能力（如奇偶性计算、模运算）是 softmax attention 无法实现的，FW-memory 需要处理当前输入才能发挥此优势
-   - 输出混合：$\mathbf{y}_t = \gamma_t \odot \text{FW-output} + (1-\gamma_t) \odot \text{KV-output}$，其中 $\gamma_t$ 是动态向量门控
+
+    - 每个时间步的 key-value 对**同时**输入 KV-memory 和 FW-memory
+    - 动机：DeltaNet 的状态追踪能力（如奇偶性计算、模运算）是 softmax attention 无法实现的，FW-memory 需要处理当前输入才能发挥此优势
+    - 输出混合：$\mathbf{y}_t = \gamma_t \odot \text{FW-output} + (1-\gamma_t) \odot \text{KV-output}$，其中 $\gamma_t$ 是动态向量门控
 
 4. **记忆混合/门控机制**：
-   - 求和混合：直接相加两个系统输出
-   - 动态标量混合：生成两个 sigmoid 标量 $\alpha_t^{FW}, \alpha_t^{KV}$ 分别缩放
-   - 动态向量混合：生成向量 $\gamma_t \in \mathbb{R}^{d_{out}}$ 进行逐维插值——实验表明此策略最优
+
+    - 求和混合：直接相加两个系统输出
+    - 动态标量混合：生成两个 sigmoid 标量 $\alpha_t^{FW}, \alpha_t^{KV}$ 分别缩放
+    - 动态向量混合：生成向量 $\gamma_t \in \mathbb{R}^{d_{out}}$ 进行逐维插值——实验表明此策略最优
 
 ### DeltaNet 作为 FW-memory 组件
 - DeltaNet 使用 delta 学习规则更新快权重矩阵：$\mathbf{W}_t = \mathbf{W}_{t-1} + \sigma(\beta_t)(\mathbf{v}_t - \mathbf{W}_{t-1}\phi(\mathbf{k}_t)) \otimes \phi(\mathbf{k}_t)$

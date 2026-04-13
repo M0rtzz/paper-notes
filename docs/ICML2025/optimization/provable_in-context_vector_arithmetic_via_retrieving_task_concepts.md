@@ -34,9 +34,9 @@ $$f(\mathbf{x}_{\text{query}}) = \mathbf{a}_\theta^f(\mathbf{T}) + \mathbf{b}_\t
 
 这种行为类似 Word2Vec 的向量算术（如 "France - Paris + Poland = Warsaw"），但目前缺乏理论解释：
 
-1. **为什么**梯度训练的非线性残差 Transformer 会自然涌现任务向量算术？
-2. **QA 数据 vs. ICL 数据**：实证表明 QA 数据对事实检索能力至关重要（Allen-Zhu & Li, 2024），但无理论支撑
-3. **Transformer vs. Word2Vec**：在向量算术语境下，Transformer 的优势是什么？
+**为什么**梯度训练的非线性残差 Transformer 会自然涌现任务向量算术？
+**QA 数据 vs. ICL 数据**：实证表明 QA 数据对事实检索能力至关重要（Allen-Zhu & Li, 2024），但无理论支撑
+**Transformer vs. Word2Vec**：在向量算术语境下，Transformer 的优势是什么？
 
 **现有理论的不足**：
 - 已有 ICL 理论忽略残差流的关键作用，或对其处理不自然

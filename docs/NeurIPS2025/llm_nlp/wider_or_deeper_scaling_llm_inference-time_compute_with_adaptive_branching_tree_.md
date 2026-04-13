@@ -45,24 +45,27 @@ AB-MCTS 构建搜索树 $T$，每个非根节点对应一个 LLM 生成的答案
 ### 关键设计
 
 1. **GEN 节点与自适应分支**:
-   - 每个节点 $N$ 的可选动作集为 $A_N = \{a_0, a_1, \ldots, a_{n_{\text{child}}}\}$
-   - $a_0$ 对应 GEN 节点（"变宽"），$a_1 \ldots a_{n_{\text{child}}}$ 对应已有子节点（"变深"）
-   - 选择 GEN 节点 = 生成新候选答案；选择已有子节点 = 深入改进
-   - 与标准 MCTS 的关键区别：已扩展的节点可以再次扩展，分支因子理论上无界
+
+    - 每个节点 $N$ 的可选动作集为 $A_N = \{a_0, a_1, \ldots, a_{n_{\text{child}}}\}$
+    - $a_0$ 对应 GEN 节点（"变宽"），$a_1 \ldots a_{n_{\text{child}}}$ 对应已有子节点（"变深"）
+    - 选择 GEN 节点 = 生成新候选答案；选择已有子节点 = 深入改进
+    - 与标准 MCTS 的关键区别：已扩展的节点可以再次扩展，分支因子理论上无界
 
 2. **AB-MCTS-M（Mixed Model 变体）**:
-   - 为每个节点拟合混合贝叶斯模型：$r_{N_{\text{new}}, a_j} = \alpha_j + \sigma_y \epsilon_{N_{\text{new}}}$
-   - $\alpha_j = \mu_\alpha + \sigma_\alpha \epsilon_j$ 为组级截距，捕获基础答案的质量
-   - GEN 节点视为新引入的组，其参数通过共享后验 $\mu_\alpha, \sigma_\alpha$ 从其他组推断
-   - 使用 MCMC 从后验分布采样，通过 Thompson 采样决定选择哪个动作
-   - 分数回传：新节点分数添加到其所有祖先的历史中
+
+    - 为每个节点拟合混合贝叶斯模型：$r_{N_{\text{new}}, a_j} = \alpha_j + \sigma_y \epsilon_{N_{\text{new}}}$
+    - $\alpha_j = \mu_\alpha + \sigma_\alpha \epsilon_j$ 为组级截距，捕获基础答案的质量
+    - GEN 节点视为新引入的组，其参数通过共享后验 $\mu_\alpha, \sigma_\alpha$ 从其他组推断
+    - 使用 MCMC 从后验分布采样，通过 Thompson 采样决定选择哪个动作
+    - 分数回传：新节点分数添加到其所有祖先的历史中
 
 3. **AB-MCTS-A（Node Aggregation 变体）**:
-   - 引入 CONT 节点聚合所有子节点，代表"继续改进现有答案"
-   - 每个节点有 GEN 节点和 CONT 节点两个选项
-   - 使用指数族分布 + 共轭先验进行高效后验更新
-   - 两个子变体：高斯模型（无界分数）和 Beta 模型（[0,1] 分数）
-   - 比 AB-MCTS-M 更轻量，无共享参数
+
+    - 引入 CONT 节点聚合所有子节点，代表"继续改进现有答案"
+    - 每个节点有 GEN 节点和 CONT 节点两个选项
+    - 使用指数族分布 + 共轭先验进行高效后验更新
+    - 两个子变体：高斯模型（无界分数）和 Beta 模型（[0,1] 分数）
+    - 比 AB-MCTS-M 更轻量，无共享参数
 
 ### Thompson 采样选择策略
 

@@ -25,12 +25,12 @@ tags:
 发现MLLM中约60%的层对视觉token的变换几乎不影响模型输出（Layer Contribution极低），提出ShortV方法在这些"ineffective layers"中冻结视觉token（不参与attention query和FFN），在LLaVA-NeXT-13B上实现50% FLOPs降低且性能几乎不变，且与token剪枝方法（如FastV）正交可叠加。
 
 ## 研究背景与动机
-1. **领域现状**：MLLM的计算开销主要来自两方面：LLM backbone的大规模参数和大量视觉token（LLaVA-NeXT每张图2880 token）。现有加速方法主要关注减少视觉token数量（如FastV剪枝50%的token）。
-2. **现有痛点**：Token剪枝方法从"减少token数量"角度优化，但忽视了另一个维度——MLLM的很多层对视觉token的处理本身就是冗余的。文本LLM中已发现约25%的层是"ineffective"的，但MLLM中这种层级冗余尚未被系统研究。
-3. **核心矛盾**：视觉token和文本token在MLLM中存在模态差距（modality gap），导致它们的层级冗余分布不同。直接套用文本LLM的层级冗余分析方法（perplexity或cosine similarity）对视觉token不适用。
-4. **本文要解决什么**：(1) 提出能准确衡量MLLM各层对视觉/文本token贡献度的指标；(2) 基于此发现冻结哪些层的视觉token可以不影响性能；(3) 实现与token剪枝正交的新效率维度。
-5. **切入角度**：提出Layer Contribution（LC）指标——逐层冻结特定token后测量输出logits的KL散度变化，发现MLLM的初始层和深层对视觉token贡献极小。
-6. **核心idea一句话**：MLLM约60%的层对视觉token的变换是无效的，在这些层中冻结视觉token（跳过Q投影、FFN和attention查询）可以大幅降低计算量而不影响性能。
+**领域现状**：MLLM的计算开销主要来自两方面：LLM backbone的大规模参数和大量视觉token（LLaVA-NeXT每张图2880 token）。现有加速方法主要关注减少视觉token数量（如FastV剪枝50%的token）。
+**现有痛点**：Token剪枝方法从"减少token数量"角度优化，但忽视了另一个维度——MLLM的很多层对视觉token的处理本身就是冗余的。文本LLM中已发现约25%的层是"ineffective"的，但MLLM中这种层级冗余尚未被系统研究。
+**核心矛盾**：视觉token和文本token在MLLM中存在模态差距（modality gap），导致它们的层级冗余分布不同。直接套用文本LLM的层级冗余分析方法（perplexity或cosine similarity）对视觉token不适用。
+**本文要解决什么**：(1) 提出能准确衡量MLLM各层对视觉/文本token贡献度的指标；(2) 基于此发现冻结哪些层的视觉token可以不影响性能；(3) 实现与token剪枝正交的新效率维度。
+**切入角度**：提出Layer Contribution（LC）指标——逐层冻结特定token后测量输出logits的KL散度变化，发现MLLM的初始层和深层对视觉token贡献极小。
+**核心idea一句话**：MLLM约60%的层对视觉token的变换是无效的，在这些层中冻结视觉token（跳过Q投影、FFN和attention查询）可以大幅降低计算量而不影响性能。
 
 ## 方法详解
 
@@ -40,22 +40,25 @@ tags:
 ### 关键设计
 
 1. **Layer Contribution (LC) 指标**:
-   - 做什么：量化每层对特定类型token的贡献度。
-   - 核心思路：在第$i$层冻结token类型$X$（保持hidden state不变），计算修改后模型的输出logits与原始模型的KL散度：$LC_i^X = KL(\text{logits}(M), \text{logits}(\mathcal{M}_i^X))$。LC越低说明该层对这类token越"无效"。
-   - 关键发现：(1) 视觉token的LC普遍低于文本token——层对视觉token比对文本token更冗余；(2) 视觉token的冗余分布不同于文本——初始层和深层（包括最后一层）最冗余，而文本token在中到深层最冗余；(3) 最后一层对视觉token的LC恒为0，因为最后一层视觉token不参与next-token prediction。
-   - 为何不用perplexity：即使完全不输入视觉token，MLLM的perplexity变化也很小（但视觉任务性能显著下降）。perplexity无法区分视觉信息对模型的真实影响。
-   - 为何不用cosine similarity：cosine similarity不考虑层的位置——浅层的小变换会传播到所有后续层，但cosine similarity无法捕捉这种级联效应，导致高估浅层冗余、低估深层冗余。
+
+    - 做什么：量化每层对特定类型token的贡献度。
+    - 核心思路：在第$i$层冻结token类型$X$（保持hidden state不变），计算修改后模型的输出logits与原始模型的KL散度：$LC_i^X = KL(\text{logits}(M), \text{logits}(\mathcal{M}_i^X))$。LC越低说明该层对这类token越"无效"。
+    - 关键发现：(1) 视觉token的LC普遍低于文本token——层对视觉token比对文本token更冗余；(2) 视觉token的冗余分布不同于文本——初始层和深层（包括最后一层）最冗余，而文本token在中到深层最冗余；(3) 最后一层对视觉token的LC恒为0，因为最后一层视觉token不参与next-token prediction。
+    - 为何不用perplexity：即使完全不输入视觉token，MLLM的perplexity变化也很小（但视觉任务性能显著下降）。perplexity无法区分视觉信息对模型的真实影响。
+    - 为何不用cosine similarity：cosine similarity不考虑层的位置——浅层的小变换会传播到所有后续层，但cosine similarity无法捕捉这种级联效应，导致高估浅层冗余、低估深层冗余。
 
 2. **ShortV稀疏层设计**:
-   - 做什么：在被标记为ineffective的层中，视觉token完全跳过计算。
-   - 核心思路：ShortV层中，视觉token不参与attention（不作为Q），不经过$W_Q$和$W_O$投影，不经过FFN。文本token正常计算，且仍然可以attend到视觉token的KV（视觉token的KV仍然存在但不更新）。
-   - 设计动机：既然这些层对视觉token的变换不影响输出，那么直接跳过这些计算就是安全的。但文本token仍需正常处理（它们的LC不为0）。
-   - 默认配置：7B模型冻结19/32层（~60%），13B模型冻结24/40层（~60%）。
+
+    - 做什么：在被标记为ineffective的层中，视觉token完全跳过计算。
+    - 核心思路：ShortV层中，视觉token不参与attention（不作为Q），不经过$W_Q$和$W_O$投影，不经过FFN。文本token正常计算，且仍然可以attend到视觉token的KV（视觉token的KV仍然存在但不更新）。
+    - 设计动机：既然这些层对视觉token的变换不影响输出，那么直接跳过这些计算就是安全的。但文本token仍需正常处理（它们的LC不为0）。
+    - 默认配置：7B模型冻结19/32层（~60%），13B模型冻结24/40层（~60%）。
 
 3. **与Token剪枝的正交性**:
-   - ShortV减少每个视觉token在每层的计算量（层级维度）
-   - FastV减少视觉token的数量（token维度）
-   - 两者可以叠加：ShortV+FastV在LLaVA-1.5-7B上仅需29% FLOPs，同时性能几乎不降（MMBench 64.2 vs 基线64.1）。
+
+    - ShortV减少每个视觉token在每层的计算量（层级维度）
+    - FastV减少视觉token的数量（token维度）
+    - 两者可以叠加：ShortV+FastV在LLaVA-1.5-7B上仅需29% FLOPs，同时性能几乎不降（MMBench 64.2 vs 基线64.1）。
 
 ### FLOPs分析
 假设文本token数$t$，视觉token数$v$，hidden size $h$，FFN中间维度$m$。原始层FLOPs：$2(t+v)(4h+3m)h + 4(t+v)^2h$。ShortV层FLOPs：$2t(4h+3m)h + 4vh^2 + 4t(t+v)h$。主要节省来自视觉token不过FFN和不作为Q投影。

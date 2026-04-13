@@ -44,10 +44,11 @@ RAPTR接收多视角雷达热图（水平-深度 $\mathbf{Y}_{\text{hor}} \in \m
 2. **两阶段解码器架构**: 借鉴RGB姿态估计PETR的设计。**姿态解码器**处理 $N$ 个姿态query，每层迭代更新参考姿态 $\tilde{\mathbf{P}}_{\text{radar}}^{(l)} = \sigma(\sigma^{-1}(\tilde{\mathbf{P}}_{\text{radar}}^{(l-1)}) + \Delta \tilde{\mathbf{P}}_{\text{radar}}^{(l-1)})$，输出初始3D姿态和置信度。**关节解码器**对每个匹配到的姿态进一步逐关节精调，输入为姿态解码器的预测结果。
 
 3. **结构化损失函数（核心）**: 精心设计以利用弱监督标签。
-   - **3D模板损失（T3D）**: 在姿态解码器处使用。从3D BBox标签计算重心 $\mathbf{g}_{\text{world}}$，结合预定义关键点模板 $\mathbf{K}_{\text{world}}$ 生成模板姿态 $\mathbf{T}_{\text{world}} = \mathbf{K}_{\text{world}} + \mathbf{1}^\top \mathbf{g}_{\text{world}}$，约束初始姿态与模板对齐，缓解深度模糊
-   - **3D重力损失（G3D）**: 在关节解码器处，约束精调姿态的重心与BBox重心一致
-   - **2D关键点损失（K2D）**: 将精调的3D姿态投影到图像平面，与2D关键点标签计算欧式距离和OKS损失
-   - 总损失: $\mathcal{L} = \frac{1}{N'}\sum(\lambda_1 \mathcal{L}_{\text{template}} + \lambda_2 \mathcal{L}_{\text{gravity}} + \lambda_3 \mathcal{L}_{\text{kpt2D}} + \lambda_4 \mathcal{L}_{\text{OKS}}) + \lambda_5 \mathcal{L}_{\text{cls}}$
+
+    - **3D模板损失（T3D）**: 在姿态解码器处使用。从3D BBox标签计算重心 $\mathbf{g}_{\text{world}}$，结合预定义关键点模板 $\mathbf{K}_{\text{world}}$ 生成模板姿态 $\mathbf{T}_{\text{world}} = \mathbf{K}_{\text{world}} + \mathbf{1}^\top \mathbf{g}_{\text{world}}$，约束初始姿态与模板对齐，缓解深度模糊
+    - **3D重力损失（G3D）**: 在关节解码器处，约束精调姿态的重心与BBox重心一致
+    - **2D关键点损失（K2D）**: 将精调的3D姿态投影到图像平面，与2D关键点标签计算欧式距离和OKS损失
+    - 总损失: $\mathcal{L} = \frac{1}{N'}\sum(\lambda_1 \mathcal{L}_{\text{template}} + \lambda_2 \mathcal{L}_{\text{gravity}} + \lambda_3 \mathcal{L}_{\text{kpt2D}} + \lambda_4 \mathcal{L}_{\text{OKS}}) + \lambda_5 \mathcal{L}_{\text{cls}}$
 
 ### 损失函数 / 训练策略
 

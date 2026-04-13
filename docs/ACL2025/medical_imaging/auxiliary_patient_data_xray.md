@@ -47,9 +47,10 @@ tags:
 3. **报告部分嵌入**: 利用放射报告的indication（检查原因）、history（病史）和comparison（对比检查）部分作为额外输入。history部分首次被研究用于CXR报告生成。
 
 4. **三阶段训练**:
-   - 阶段1: 仅用图像在MIMIC-CXR上进行Teacher Forcing训练
-   - 阶段2: 在MIMIC-CXR + MIMIC-IV-ED联合数据集上用多源数据进行TF训练（冻结图像编码器）
-   - 阶段3: 使用SCST强化学习，以CXR-BERT + BERTScore + ARN复合奖励优化
+
+    - 阶段1: 仅用图像在MIMIC-CXR上进行Teacher Forcing训练
+    - 阶段2: 在MIMIC-CXR + MIMIC-IV-ED联合数据集上用多源数据进行TF训练（冻结图像编码器）
+    - 阶段3: 使用SCST强化学习，以CXR-BERT + BERTScore + ARN复合奖励优化
 
 5. **ARN指标**: 提出Absence of Repeated N-grams（ARN）指标衡量生成文本的重复率，并将其纳入RL奖励函数以减少重复生成。
 

@@ -30,8 +30,8 @@ tags:
 时间序列基础模型（FM）通过在大规模多领域数据上预训练，实现零样本/少样本泛化，正在引领预测领域的范式转变。现有方法（如Chronos 710M参数、Time-MoE 453M参数、Moment 385M参数）依赖庞大的网络架构和海量预训练数据（数十亿甚至数千亿时间点），严重阻碍了在资源受限环境中的部署。
 
 **核心痛点**：
-1. **数据利用效率低**：现有FM的预训练对低能量频率信号存在偏差——Transformer的self-attention天然倾向于高能量频率分量，而低能量但携带稳定时间动态的信号被忽视（如Figure 1左图所示ChronosS完全忽略了低能量信号）
-2. **模型架构臃肿**：为容纳跨领域异构时间模式，大多数方案选择大型Transformer + MoE，参数量动辄数亿
+**数据利用效率低**：现有FM的预训练对低能量频率信号存在偏差——Transformer的self-attention天然倾向于高能量频率分量，而低能量但携带稳定时间动态的信号被忽视（如Figure 1左图所示ChronosS完全忽略了低能量信号）
+**模型架构臃肿**：为容纳跨领域异构时间模式，大多数方案选择大型Transformer + MoE，参数量动辄数亿
 
 **核心矛盾**：通用性 vs 可负担性——能否在大幅缩减模型规模和预训练数据量的同时，保持甚至提升泛化能力？
 
@@ -48,19 +48,22 @@ SEMPO采用encoder-decoder架构，包含四个核心组件：EASD模块→Patch
 ### 关键设计
 
 1. **能量感知频谱分解（EASD）**：
-   - **能量维度分割**：对输入时序做FFT变换到频域，计算每个频率的频谱能量 $\text{Energy}[f]=|Z[f]|^2$。用可学习阈值 $\tau$ 将频谱分为高能量分量 $Z_{\text{Hec}}$ 和低能量分量 $Z_{\text{Lec}}$，防止低能量被高能量淹没
-   - **频率维度掩码**：在高/低能量两个分支中，独立采样频率阈值 $\delta_i$ 和方向指示器 $d_i$，生成多组频段掩码 $M_i$，分别选择性抑制高频或低频段。两分支使用独立的采样参数（解耦设计）促进频谱多样性
-   - 最终融合：$X_{\text{mask}} = \text{iFFT}(Z_{\text{Hec}} \odot M_{\text{Hec}} + Z_{\text{Lec}} \odot M_{\text{Lec}})$
+
+    - **能量维度分割**：对输入时序做FFT变换到频域，计算每个频率的频谱能量 $\text{Energy}[f]=|Z[f]|^2$。用可学习阈值 $\tau$ 将频谱分为高能量分量 $Z_{\text{Hec}}$ 和低能量分量 $Z_{\text{Lec}}$，防止低能量被高能量淹没
+    - **频率维度掩码**：在高/低能量两个分支中，独立采样频率阈值 $\delta_i$ 和方向指示器 $d_i$，生成多组频段掩码 $M_i$，分别选择性抑制高频或低频段。两分支使用独立的采样参数（解耦设计）促进频谱多样性
+    - 最终融合：$X_{\text{mask}} = \text{iFFT}(Z_{\text{Hec}} \odot M_{\text{Hec}} + Z_{\text{Lec}} \odot M_{\text{Lec}})$
 
 2. **混合提示Transformer（MoPFormer）**：
-   - **提示专家池**：随机初始化 $I=128$ 个轻量级提示向量 $\mathbf{e}_i \in \mathbb{R}^{D_p}$
-   - **自适应路由器**：通过Linear+Softmax对每个token计算门控分数 $\mathbf{s}_{i,p}$，对提示专家进行加权融合：$\tilde{\mathbf{e}}_p = \text{Reshape}(\text{MLP}(\sum_i \mathbf{s}_{i,p} \cdot \mathbf{e}_i))$
-   - **注入self-attention**：融合后的提示拆分为key和value对，拼接到原始K、V矩阵中：$\text{SA} = \text{Attention}(Q=B, K=\text{Concat}(E_{\text{mix}}^K, B), V=\text{Concat}(E_{\text{mix}}^V, B))$
-   - 这样在不增大基础Transformer规模的前提下，注入数据集特定的知识，参数量极少
+
+    - **提示专家池**：随机初始化 $I=128$ 个轻量级提示向量 $\mathbf{e}_i \in \mathbb{R}^{D_p}$
+    - **自适应路由器**：通过Linear+Softmax对每个token计算门控分数 $\mathbf{s}_{i,p}$，对提示专家进行加权融合：$\tilde{\mathbf{e}}_p = \text{Reshape}(\text{MLP}(\sum_i \mathbf{s}_{i,p} \cdot \mathbf{e}_i))$
+    - **注入self-attention**：融合后的提示拆分为key和value对，拼接到原始K、V矩阵中：$\text{SA} = \text{Attention}(Q=B, K=\text{Concat}(E_{\text{mix}}^K, B), V=\text{Concat}(E_{\text{mix}}^V, B))$
+    - 这样在不增大基础Transformer规模的前提下，注入数据集特定的知识，参数量极少
 
 3. **两阶段训练**：
-   - **预训练**：在多领域数据上用自监督重建目标（MSE），不使用MoP
-   - **MoP调优**：冻结Transformer骨干，仅训练MoP模块和预测头，使用多分辨率预测策略
+
+    - **预训练**：在多领域数据上用自监督重建目标（MSE），不使用MoP
+    - **MoP调优**：冻结Transformer骨干，仅训练MoP模块和预测头，使用多分辨率预测策略
 
 ### 损失函数 / 训练策略
 

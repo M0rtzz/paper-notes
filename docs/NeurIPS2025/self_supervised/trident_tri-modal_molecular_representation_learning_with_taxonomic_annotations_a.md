@@ -31,9 +31,9 @@ tags:
 
 **现有方法的三大痛点**：
 
-1. **忽略精细化分类标注**：现有方法只使用通用的功能描述文本，不同分类体系（如 LOTUS Tree 关注天然产物分类，MeSH Tree 关注医学功能）对同一分子有不同侧重，被粗暴忽略
-2. **对齐方式局限**：现有方法依赖以单一模态为锚点的成对对齐（如 SMILES-Text），无法捕捉三模态间的高阶交互关系
-3. **忽视局部对应关系**：大多数方法只做分子级全局对齐，忽略了功能团（如羟基、芳香环）与对应文本描述之间的细粒度关联
+**忽略精细化分类标注**：现有方法只使用通用的功能描述文本，不同分类体系（如 LOTUS Tree 关注天然产物分类，MeSH Tree 关注医学功能）对同一分子有不同侧重，被粗暴忽略
+**对齐方式局限**：现有方法依赖以单一模态为锚点的成对对齐（如 SMILES-Text），无法捕捉三模态间的高阶交互关系
+**忽视局部对应关系**：大多数方法只做分子级全局对齐，忽略了功能团（如羟基、芳香环）与对应文本描述之间的细粒度关联
 
 **核心 idea**：引入 HTA（Hierarchical Taxonomic Annotation）作为第三模态，使用体积对比损失实现三模态几何感知对齐，同时用局部对齐模块捕捉功能团与子文本的对应关系。
 
@@ -46,27 +46,31 @@ tags:
 ### 关键设计
 
 1. **层次分类标注（HTA）模态构建**
-   - 从 PubChem 获取分子信息，跨 32 种分类体系（LOTUS Tree、MeSH Tree 等）提取多层级功能标注
-   - 使用 GPT-4o 将结构化标注合成为高保真、人类可读的 HTA 文本描述
-   - 最终构建 47,269 个 <SMILES, Text, HTA> 三元组数据集
-   - HTA 与传统描述互补：HTA 提供 32 个角度的多面信息（如化学来源、天然产物分类、医学功能），传统描述更直接突出核心特征
+
+    - 从 PubChem 获取分子信息，跨 32 种分类体系（LOTUS Tree、MeSH Tree 等）提取多层级功能标注
+    - 使用 GPT-4o 将结构化标注合成为高保真、人类可读的 HTA 文本描述
+    - 最终构建 47,269 个 <SMILES, Text, HTA> 三元组数据集
+    - HTA 与传统描述互补：HTA 提供 32 个角度的多面信息（如化学来源、天然产物分类、医学功能），传统描述更直接突出核心特征
 
 2. **基于体积的全局三模态对齐**
-   - 不使用传统成对余弦相似度，而是计算三个归一化嵌入 $(m, t, h)$ 张成的平行体体积：
-     $\text{Vol}(m,t,h) = \sqrt{1 - \langle m,t\rangle^2 - \langle m,h\rangle^2 - \langle t,h\rangle^2 + 2\langle m,t\rangle\langle t,h\rangle\langle h,m\rangle}$
-   - 匹配三元组体积应小（三模态趋同），不匹配三元组体积应大
-   - 双向损失：$\mathcal{L}_{M2TH}$（分子检索文本+HTA）和 $\mathcal{L}_{TH2M}$（文本+HTA检索分子），取均值
+
+    - 不使用传统成对余弦相似度，而是计算三个归一化嵌入 $(m, t, h)$ 张成的平行体体积：
+      $\text{Vol}(m,t,h) = \sqrt{1 - \langle m,t\rangle^2 - \langle m,h\rangle^2 - \langle t,h\rangle^2 + 2\langle m,t\rangle\langle t,h\rangle\langle h,m\rangle}$
+    - 匹配三元组体积应小（三模态趋同），不匹配三元组体积应大
+    - 双向损失：$\mathcal{L}_{M2TH}$（分子检索文本+HTA）和 $\mathcal{L}_{TH2M}$（文本+HTA检索分子），取均值
 
 3. **功能团-文本局部对齐**
-   - 使用 RDKit 从 SMILES 中提取显著功能团（85 种，如羟基、胺基、羧基、芳香体系）
-   - 人工+GPT-4o 为每个功能团撰写高质量文本描述
-   - 分别编码功能团和文本描述为嵌入，max-pooling 后做双向对比损失
-   - 双向损失 $\mathcal{L}_{FG2T}$ + $\mathcal{L}_{T2FG}$
+
+    - 使用 RDKit 从 SMILES 中提取显著功能团（85 种，如羟基、胺基、羧基、芳香体系）
+    - 人工+GPT-4o 为每个功能团撰写高质量文本描述
+    - 分别编码功能团和文本描述为嵌入，max-pooling 后做双向对比损失
+    - 双向损失 $\mathcal{L}_{FG2T}$ + $\mathcal{L}_{T2FG}$
 
 4. **动量机制动态平衡**
-   - 整体损失：$\mathcal{L} = \alpha \mathcal{L}_g + (1-\alpha) \mathcal{L}_l$
-   - $\alpha$ 通过指数移动平均动态更新：$\alpha_t = \beta \alpha_{t-1} + (1-\beta) \frac{\mathcal{L}_g^{(t)}}{\mathcal{L}_g^{(t)} + \mathcal{L}_l^{(t)}}$，动量参数 $\beta = 0.9$
-   - 自动聚焦于当前损失更高的对齐目标
+
+    - 整体损失：$\mathcal{L} = \alpha \mathcal{L}_g + (1-\alpha) \mathcal{L}_l$
+    - $\alpha$ 通过指数移动平均动态更新：$\alpha_t = \beta \alpha_{t-1} + (1-\beta) \frac{\mathcal{L}_g^{(t)}}{\mathcal{L}_g^{(t)} + \mathcal{L}_l^{(t)}}$，动量参数 $\beta = 0.9$
+    - 自动聚焦于当前损失更高的对齐目标
 
 ### 损失函数 / 训练策略
 

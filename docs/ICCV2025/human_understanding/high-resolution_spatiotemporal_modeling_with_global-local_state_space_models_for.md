@@ -32,9 +32,9 @@ tags:
 - **局部运动细节**：关键点的高频变化
 
 现有方法的固有问题：
-1. **CNN 方法**（如 TDMI）：固定感受野限制全局推理能力，在遮挡和模糊场景下产生大偏差
-2. **Transformer 方法**（如 DiffPose）：能捕获全局依赖但忽略局部高频细节，且在高分辨率序列上复杂度为二次方——直接在 1/4 分辨率 × T 帧（15,360 tokens）上 OOM
-3. **现有视频 Mamba**（如 VideoMamba）：仅做逐帧双向扫描展平空间 token，拉长时间相邻 token 的距离，缺乏对局部细节的专门设计
+**CNN 方法**（如 TDMI）：固定感受野限制全局推理能力，在遮挡和模糊场景下产生大偏差
+**Transformer 方法**（如 DiffPose）：能捕获全局依赖但忽略局部高频细节，且在高分辨率序列上复杂度为二次方——直接在 1/4 分辨率 × T 帧（15,360 tokens）上 OOM
+**现有视频 Mamba**（如 VideoMamba）：仅做逐帧双向扫描展平空间 token，拉长时间相邻 token 的距离，缺乏对局部细节的专门设计
 
 核心观察：需要一种能 (1) 在高分辨率时空序列上进行全局建模且保持线性复杂度，(2) 同时增强局部关键点运动细节的架构。
 
@@ -49,16 +49,18 @@ tags:
 ### 关键设计
 
 1. **Global Spatiotemporal Mamba (GSM)**：
-   - **Sequential Channel Attention**：将特征序列拼接后通过 GAP → MLPs → sigmoid 得到逐帧通道注意力权重，自适应激活重要时空信息
-   - **6D selective Space-Time Scan (STS6D)**：沿 6 条时空扫描路径展平特征序列为 1D 后分别送入 S6 块。具体是将多帧特征堆叠成全景时空表示，水平/垂直遍历得到 $\tilde{\mathbf{y}}_1, \tilde{\mathbf{y}}_4$（统一扫描，捕获高层时空表示），空间逐帧遍历得到 $\tilde{\mathbf{y}}_2, \tilde{\mathbf{y}}_5$（空间扫描，完整人体空间上下文），时间轴像素遍历得到 $\tilde{\mathbf{y}}_3, \tilde{\mathbf{y}}_6$（时间扫描，密集运动趋势）
-   - **Spatial- and Temporal-Modulated scan Merging (STMM)**：先将双向扫描结果按类型合并（$\tilde{\mathbf{y}}_u, \tilde{\mathbf{y}}_s, \tilde{\mathbf{y}}_t$），然后通过 Deformable Convolution 进行空间调制和时间调制补偿，自适应聚合不同语义的扫描知识
+
+    - **Sequential Channel Attention**：将特征序列拼接后通过 GAP → MLPs → sigmoid 得到逐帧通道注意力权重，自适应激活重要时空信息
+    - **6D selective Space-Time Scan (STS6D)**：沿 6 条时空扫描路径展平特征序列为 1D 后分别送入 S6 块。具体是将多帧特征堆叠成全景时空表示，水平/垂直遍历得到 $\tilde{\mathbf{y}}_1, \tilde{\mathbf{y}}_4$（统一扫描，捕获高层时空表示），空间逐帧遍历得到 $\tilde{\mathbf{y}}_2, \tilde{\mathbf{y}}_5$（空间扫描，完整人体空间上下文），时间轴像素遍历得到 $\tilde{\mathbf{y}}_3, \tilde{\mathbf{y}}_6$（时间扫描，密集运动趋势）
+    - **Spatial- and Temporal-Modulated scan Merging (STMM)**：先将双向扫描结果按类型合并（$\tilde{\mathbf{y}}_u, \tilde{\mathbf{y}}_s, \tilde{\mathbf{y}}_t$），然后通过 Deformable Convolution 进行空间调制和时间调制补偿，自适应聚合不同语义的扫描知识
 
    设计动机：将 1D Mamba 适配到视频时空建模，通过 6 方向扫描充分挖掘各维度信息，用 DCN 自适应融合避免简单加法的信息损失。
 
 2. **Local Refinement Mamba (LRM)**：
-   - **Windowed Space-Time Scan (WSTS)**：将特征序列分为不重叠的 3D 时间管道窗口（如 8×6×T），在每个窗口内逐帧进行正反向扫描并送入 S6 块
-   - 保持序列大小感受野的同时增强局部细节
-   - 去掉 Sequential Channel Attention，将 STS6D/STMM 替换为 WSTS
+
+    - **Windowed Space-Time Scan (WSTS)**：将特征序列分为不重叠的 3D 时间管道窗口（如 8×6×T），在每个窗口内逐帧进行正反向扫描并送入 S6 块
+    - 保持序列大小感受野的同时增强局部细节
+    - 去掉 Sequential Channel Attention，将 STS6D/STMM 替换为 WSTS
 
    设计动机：GSM 关注全局理解但缺乏关键点的局部高频细节，LRM 通过局部窗口内的密集扫描补充细粒度运动信息。
 

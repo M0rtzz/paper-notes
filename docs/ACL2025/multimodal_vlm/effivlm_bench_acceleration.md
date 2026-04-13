@@ -25,14 +25,14 @@ tags:
 提出 EffiVLM-Bench，首个系统评估大型视觉语言模型（LVLM）训练免加速方法的统一框架，覆盖 17 个 benchmark、3 个前沿模型，引入泛化性和忠诚度等新指标，揭示了 token 压缩与参数压缩在不同场景下的性能-效率权衡。
 
 ## 研究背景与动机
-1. **领域现状**：LVLM 取得了显著成功，但计算和内存开销巨大，限制了实际部署。训练免加速方法（token 压缩、参数压缩）因无需重训练而受到关注
-2. **现有痛点**：
+**领域现状**：LVLM 取得了显著成功，但计算和内存开销巨大，限制了实际部署。训练免加速方法（token 压缩、参数压缩）因无需重训练而受到关注
+**现有痛点**：
    - 评估停留在过时模型（LLaVA/LLaVA-v1.5），未考虑动态分辨率等新架构
    - Benchmark 局限于通用 VQA，忽视 OCR、长文本生成等更挑战性任务
    - 评估只看绝对性能，忽略泛化性（跨模型/任务）和忠诚度（是否保持原模型行为）
    - 缺乏性能-效率 Pareto 最优的系统分析
-3. **核心矛盾**：各加速方法各自为政地评估，缺乏统一框架和全面指标，无法指导实际部署选择
-4. **核心idea一句话**：构建统一的评估框架，从性能、泛化性、忠诚度、效率四个维度系统对比 LVLM 加速方法
+**核心矛盾**：各加速方法各自为政地评估，缺乏统一框架和全面指标，无法指导实际部署选择
+**核心idea一句话**：构建统一的评估框架，从性能、泛化性、忠诚度、效率四个维度系统对比 LVLM 加速方法
 
 ## 方法详解
 
@@ -42,18 +42,21 @@ EffiVLM-Bench 评估两类训练免加速方法：(1) Token 压缩 — 包括 to
 ### 关键设计
 
 1. **四维评估指标体系**:
-   - **Performance (OP)**：压缩后与原始模型在各 benchmark 上的性能比值的均方根
-   - **Generalization (OG)**：性能比值在不同 benchmark 和模型间的变异系数（越低越好）
-   - **Loyalty (OL)**：压缩后模型的预测与原模型预测的一致率（越高越好）
-   - **Efficiency (OE)**：实际推理时间的加速比（TTFT + 解码时间）
+
+    - **Performance (OP)**：压缩后与原始模型在各 benchmark 上的性能比值的均方根
+    - **Generalization (OG)**：性能比值在不同 benchmark 和模型间的变异系数（越低越好）
+    - **Loyalty (OL)**：压缩后模型的预测与原模型预测的一致率（越高越好）
+    - **Efficiency (OE)**：实际推理时间的加速比（TTFT + 解码时间）
 
 2. **Token 压缩分类**:
-   - **Token pruning**：在前向过程中裁剪冗余视觉 token。分为视觉编码器内裁剪（VisionZip、PruMerge+）和 LLM backbone 内裁剪（FastV）
-   - **KV cache 压缩**：利用注意力稀疏性选留更少的 key-value 对，减少内存开销。分为通用 LLM 方法（H2O、SnapKV）和专为 LVLM 设计的方法（VL-Cache、LOOK-M）
+
+    - **Token pruning**：在前向过程中裁剪冗余视觉 token。分为视觉编码器内裁剪（VisionZip、PruMerge+）和 LLM backbone 内裁剪（FastV）
+    - **KV cache 压缩**：利用注意力稀疏性选留更少的 key-value 对，减少内存开销。分为通用 LLM 方法（H2O、SnapKV）和专为 LVLM 设计的方法（VL-Cache、LOOK-M）
 
 3. **参数压缩分类**:
-   - **权重剪枝**：SparseGPT、Wanda，在 50% 稀疏率下评估
-   - **量化**：GPTQ、AWQ（INT4/INT8）、QuIP#（FP8/FP4/FP2）
+
+    - **权重剪枝**：SparseGPT、Wanda，在 50% 稀疏率下评估
+    - **量化**：GPTQ、AWQ（INT4/INT8）、QuIP#（FP8/FP4/FP2）
 
 ## 实验关键数据
 

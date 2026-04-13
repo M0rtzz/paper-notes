@@ -37,10 +37,11 @@ tags:
 
 ### 关键设计
 1. **四路专用单模态编码器**:
-   - **场景**: VideoMAE(ViT-based, Kinetics-400预训练)处理16帧序列，全局平均池化得$h_s$
-   - **人脸**: YOLO人脸检测 → EfficientNetB0(AffectNet+微调)提取逐帧情感嵌入 → 统计池化(均值+方差拼接)
-   - **音频**: EmotionWav2Vec2.0(MSP-Podcast微调, 第10层) → **Mamba编码器**(state size 8, conv kernel 4) → 时间平均池化
-   - **文本**: EmotionDistilRoBERTa直接微调做A/H分类。TF-IDF+CatBoost/LogReg也作为备选
+
+    - **场景**: VideoMAE(ViT-based, Kinetics-400预训练)处理16帧序列，全局平均池化得$h_s$
+    - **人脸**: YOLO人脸检测 → EfficientNetB0(AffectNet+微调)提取逐帧情感嵌入 → 统计池化(均值+方差拼接)
+    - **音频**: EmotionWav2Vec2.0(MSP-Podcast微调, 第10层) → **Mamba编码器**(state size 8, conv kernel 4) → 时间平均池化
+    - **文本**: EmotionDistilRoBERTa直接微调做A/H分类。TF-IDF+CatBoost/LogReg也作为备选
 
 2. **Transformer融合模型**: 各模态嵌入经模态专用投影器(线性+LayerNorm+GELU+Dropout)映射到共享128维空间 → 加可学习模态嵌入$E_{mod}$ → 6层Transformer编码器(4头, FFN扩展因子6) → masked mean pooling得融合表示。支持缺失模态(binary mask屏蔽)。
 

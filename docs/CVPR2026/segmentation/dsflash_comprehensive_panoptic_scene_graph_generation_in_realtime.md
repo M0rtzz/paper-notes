@@ -44,9 +44,10 @@ DSFlash 采用两阶段架构：第一阶段用冻结的 EoMT backbone 做全景
 1. **统一 Backbone（Merged Backbones）**: DSFormer 用两个独立 backbone（一个分割、一个关系预测），DSFlash 直接从分割模型 EoMT 中抽取中间层特征张量（blocks 2/5/8/11），拼接得到 $768 \times 40 \times 40$ 的特征图，省去第二个 backbone 的开销。EoMT 始终冻结，训练仅需更新关系预测部分，大幅降低训练成本（单卡 GTX 1080 不到 24 小时）。选择 EoMT 而非 MaskDINO 是因为其纯 encoder 设计更快且易集成。
 
 2. **双向关系预测（Bidirectional Predictions）**: DSFormer 对每对 mask $(S_0, S_1)$ 需做两次前向传播（正向/反向），DSFlash 设计门控机制一次推理同时输出两个方向的关系：
-   - 先计算 $g = \sigma(\text{gate}_{mlp}(x))$
-   - 正向特征 $t^{\rightarrow} = g \odot x$，反向特征 $t^{\leftarrow} = (1-g) \odot x$
-   - 共享 MLP 分别预测 $z^{\rightarrow}$ 和 $z^{\leftarrow}$
+
+    - 先计算 $g = \sigma(\text{gate}_{mlp}(x))$
+    - 正向特征 $t^{\rightarrow} = g \odot x$，反向特征 $t^{\leftarrow} = (1-g) \odot x$
+    - 共享 MLP 分别预测 $z^{\rightarrow}$ 和 $z^{\leftarrow}$
 
    为防止模型利用标注中正/反向标签分布不均的 shortcut，训练时交换 mask 顺序做第二次前向，加入特征一致性损失：$\text{Consistency} = \frac{1}{D}\sum_{i}(t_i^{\rightarrow} - t_i^{\prime\leftarrow})^2 + (t_i^{\leftarrow} - t_i^{\prime\rightarrow})^2$。推理时只需单次前向。
 

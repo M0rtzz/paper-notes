@@ -50,10 +50,11 @@ MIB 包含两个赛道：
 ### 关键设计
 
 1. **两个新指标 CPR 和 CMD**：
-   - **CPR（Integrated Circuit Performance Ratio）**：faithfulness 曲线关于电路大小的 AUC，衡量方法找到正面贡献组件的能力，越高越好
-   - **CMD（Integrated Circuit-Model Distance）**：faithfulness 曲线与 $f=1$ 之间面积，衡量电路行为与完整模型的差距，越小越好
-   - 核心思路：$f(\mathcal{C}, \mathcal{N}; m) = \frac{m(\mathcal{C}) - m(\emptyset)}{m(\mathcal{N}) - m(\emptyset)}$，在 10 个不同的电路大小比例下计算 faithfulness，梯形法则积分
-   - 设计动机：消除阈值 $\lambda$ 对方法比较的影响，同时捕获 minimality（小电路 → 高 faithfulness）
+
+    - **CPR（Integrated Circuit Performance Ratio）**：faithfulness 曲线关于电路大小的 AUC，衡量方法找到正面贡献组件的能力，越高越好
+    - **CMD（Integrated Circuit-Model Distance）**：faithfulness 曲线与 $f=1$ 之间面积，衡量电路行为与完整模型的差距，越小越好
+    - 核心思路：$f(\mathcal{C}, \mathcal{N}; m) = \frac{m(\mathcal{C}) - m(\emptyset)}{m(\mathcal{N}) - m(\emptyset)}$，在 10 个不同的电路大小比例下计算 faithfulness，梯形法则积分
+    - 设计动机：消除阈值 $\lambda$ 对方法比较的影响，同时捕获 minimality（小电路 → 高 faithfulness）
 
 2. **加权边计数（Weighted Edge Count）**：统一不同粒度电路（边级 vs 神经元级）的大小度量。$|\mathcal{C}| = \sum_{(u,v) \in \mathcal{C}} \frac{|N_u \cap N_\mathcal{C}|}{|N_u|}$。设计动机：包含一个 submodule 的一个神经元等价于包含该 submodule 的 $1/d_{\text{model}}$ 的出边。
 

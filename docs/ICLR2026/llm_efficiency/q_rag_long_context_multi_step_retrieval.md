@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：长上下文多步检索是 RAG 的核心挑战。现有方法分两类：(a) 微调 LLM 生成搜索查询（Search-R1, R1-Searcher），需要 8×A100 且只能用开源 LLM；(b) 微调检索器（Beam-Retriever），用监督学习但泛化性差。
+**领域现状**：长上下文多步检索是 RAG 的核心挑战。现有方法分两类：(a) 微调 LLM 生成搜索查询（Search-R1, R1-Searcher），需要 8×A100 且只能用开源 LLM；(b) 微调检索器（Beam-Retriever），用监督学习但泛化性差。
 
-2. **现有痛点**：(a) LLM 微调方法计算成本极高且不能用于闭源 LLM；(b) Beam-Retriever 用 SFT 训练，在 OOD 数据和超长上下文上泛化差；(c) 现有检索器无法做时序推理（如"事件 X 之前发生了什么？"）。
+**现有痛点**：(a) LLM 微调方法计算成本极高且不能用于闭源 LLM；(b) Beam-Retriever 用 SFT 训练，在 OOD 数据和超长上下文上泛化差；(c) 现有检索器无法做时序推理（如"事件 X 之前发生了什么？"）。
 
-3. **核心矛盾**：多步检索需要根据已检索内容动态决策下一步检索什么，本质上是序贯决策问题，但现有方法要么用昂贵的 LLM 做决策，要么用简单的 SFT 缺乏探索能力。
+**核心矛盾**：多步检索需要根据已检索内容动态决策下一步检索什么，本质上是序贯决策问题，但现有方法要么用昂贵的 LLM 做决策，要么用简单的 SFT 缺乏探索能力。
 
-4. **本文要解决什么？** 设计一个轻量、通用、可泛化的多步检索 agent：(a) 只改 embedder 不改 LLM；(b) 用 RL 而非 SFT 训练；(c) 支持时序推理；(d) 短训练长泛化。
+**本文要解决什么？** 设计一个轻量、通用、可泛化的多步检索 agent：(a) 只改 embedder 不改 LLM；(b) 用 RL 而非 SFT 训练；(c) 支持时序推理；(d) 短训练长泛化。
 
-5. **切入角度**：将 Q 函数设计为嵌入空间的内积——这既符合检索的 similarity search 范式，又被证明是万能近似器，且支持高效推理（无需对每个候选做 transformer forward pass）。
+**切入角度**：将 Q 函数设计为嵌入空间的内积——这既符合检索的 similarity search 范式，又被证明是万能近似器，且支持高效推理（无需对每个候选做 transformer forward pass）。
 
-6. **核心idea一句话**：用 RL 微调 embedder 学习"在检索空间中做序贯决策"，Q 函数为内积形式保证计算效率和理论正确性。
+**核心idea一句话**：用 RL 微调 embedder 学习"在检索空间中做序贯决策"，Q 函数为内积形式保证计算效率和理论正确性。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ tags:
 ### 关键设计
 
 1. **Q 函数即内积**
-   - 做什么：将 Q 函数参数化为两个 embedder 的内积
-   - 核心思路：$Q_\theta(s, a_i) = \langle E_s(s; \theta_1), E_a(a_i, i; \theta_2) \rangle$，状态 embedder 编码已检索内容，动作 embedder 编码候选 chunk 及其文档位置
-   - 设计动机：(a) **Theorem 1** 证明此形式是万能近似器（Stone-Weierstrass 定理）；(b) 推理时只需一次 dot product 而非 transformer forward pass，比 Beam-Retriever 快数量级
+
+    - 做什么：将 Q 函数参数化为两个 embedder 的内积
+    - 核心思路：$Q_\theta(s, a_i) = \langle E_s(s; \theta_1), E_a(a_i, i; \theta_2) \rangle$，状态 embedder 编码已检索内容，动作 embedder 编码候选 chunk 及其文档位置
+    - 设计动机：(a) **Theorem 1** 证明此形式是万能近似器（Stone-Weierstrass 定理）；(b) 推理时只需一次 dot product 而非 transformer forward pass，比 Beam-Retriever 快数量级
 
 2. **RoPE 相对位置编码实现时序推理**
-   - 做什么：用旋转位置编码表达候选 chunk 相对于已检索事实的位置关系
-   - 核心思路：定义相对位置映射 $\rho_t(i) = j \cdot \delta + \ell \cdot \frac{i - b_j}{b_{j+1} - b_j}$，已检索事实将文档划分为区间，每个候选 chunk 获得相对于最近区间的位置编码。动作 embedder 使用 $E_a(a_i, \rho_t(i); \theta_2)$
-   - 设计动机：绝对位置编码在长上下文外推时失败，相对位置编码使模型关注"候选在已知事实前/后/之间"的关系，实现时序推理且泛化到任意长度
+
+    - 做什么：用旋转位置编码表达候选 chunk 相对于已检索事实的位置关系
+    - 核心思路：定义相对位置映射 $\rho_t(i) = j \cdot \delta + \ell \cdot \frac{i - b_j}{b_{j+1} - b_j}$，已检索事实将文档划分为区间，每个候选 chunk 获得相对于最近区间的位置编码。动作 embedder 使用 $E_a(a_i, \rho_t(i); \theta_2)$
+    - 设计动机：绝对位置编码在长上下文外推时失败，相对位置编码使模型关注"候选在已知事实前/后/之间"的关系，实现时序推理且泛化到任意长度
 
 3. **PQN + Soft Q-Learning**
-   - 做什么：无 replay buffer 的在线值基 RL 训练
-   - 核心思路：使用 PQN (Periodic Q-Network) 避免 replay buffer 需要重新嵌入所有 chunks 的开销；加入 soft value function $V_{\theta'}(s_t) = \alpha \log \sum_{a} \exp(Q_{\theta'}(s_t, a)/\alpha)$ 和 target network；用 $\lambda$-return 替代单步 TD target 减少偏差
-   - 设计动机：检索场景中 chunk 数量可达数千，replay buffer 每次采样都需重计算所有 chunk 的 Q 值，PQN 的在线特性避免了这一瓶头
+
+    - 做什么：无 replay buffer 的在线值基 RL 训练
+    - 核心思路：使用 PQN (Periodic Q-Network) 避免 replay buffer 需要重新嵌入所有 chunks 的开销；加入 soft value function $V_{\theta'}(s_t) = \alpha \log \sum_{a} \exp(Q_{\theta'}(s_t, a)/\alpha)$ 和 target network；用 $\lambda$-return 替代单步 TD target 减少偏差
+    - 设计动机：检索场景中 chunk 数量可达数千，replay buffer 每次采样都需重计算所有 chunk 的 Q 值，PQN 的在线特性避免了这一瓶头
 
 ### 损失函数 / 训练策略
 $\mathcal{L}_Q = \mathbb{E}[(Q_\theta(s_t, a_t) - G_t^\lambda)^2]$，AdamW 优化器，lr=1.5e-5，温度 $\alpha=0.05$ 退火到 0，$\lambda=0.5$，单卡 A100-80GB 训练 <12 小时。

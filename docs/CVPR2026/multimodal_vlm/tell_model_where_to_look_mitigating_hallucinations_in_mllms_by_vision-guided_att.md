@@ -44,32 +44,37 @@ VGA分两步：(1) 通过Visual Semantic Confidence (VSC)构建视觉定位 → 
 ### 关键设计
 
 1. **Visual Semantic Confidence (VSC)**：
-   - 视觉token $v_i$ 对物体O的语义置信度：$c_{v_i}(O) = \text{softmax}[\text{logit}_{v_i}(O)]$
-   - 用物体O的第一个token化token $o_0$ 近似
-   - 物体O对整幅图像的置信度用最大池化：$c(O) = \max c_{v_i}(o_0)$
-   - 视觉定位：$G_O = \text{Norm}[\{c_{v_i}(o_0)\}_{i=1}^m]$
-   - 实验验证：VSC的定位能力显著优于视觉注意力机制，在大物体上尤其明显（不受attention sink影响）
+
+    - 视觉token $v_i$ 对物体O的语义置信度：$c_{v_i}(O) = \text{softmax}[\text{logit}_{v_i}(O)]$
+    - 用物体O的第一个token化token $o_0$ 近似
+    - 物体O对整幅图像的置信度用最大池化：$c(O) = \max c_{v_i}(o_0)$
+    - 视觉定位：$G_O = \text{Norm}[\{c_{v_i}(o_0)\}_{i=1}^m]$
+    - 实验验证：VSC的定位能力显著优于视觉注意力机制，在大物体上尤其明显（不受attention sink影响）
 
 2. **Visual Semantic Salience (VSS)**——面向图像描述的无目标定位：
-   - 对于captioning等无特定目标的任务，用输出不确定性衡量视觉token的语义显著性
-   - $c_{v_i} = -\sum_k \log c_{v_i}(w_k) / \log K$（Top-K token的熵）
-   - 高VSS的token对应有意义的物体区域，低VSS对应语义不显著的背景
+
+    - 对于captioning等无特定目标的任务，用输出不确定性衡量视觉token的语义显著性
+    - $c_{v_i} = -\sum_k \log c_{v_i}(w_k) / \log K$（Top-K token的熵）
+    - 高VSS的token对应有意义的物体区域，低VSS对应语义不显著的背景
 
 3. **Vision-Guided Attention (VGA)**：
-   - 核心公式：$\hat{z} = z + \beta \cdot \gamma \cdot \Delta z$
-   - 其中 $\Delta z$ 是引导信号，$\beta$ 是引导强度，$\gamma$ 是注意力头平衡系数
-   - 关键特性：VGA不需要计算attention weight → 完全兼容FlashAttention
-   - 利用加法结合律：$\hat{z} = (\alpha + \beta \cdot G)V = z + \beta \cdot \Delta z$
+
+    - 核心公式：$\hat{z} = z + \beta \cdot \gamma \cdot \Delta z$
+    - 其中 $\Delta z$ 是引导信号，$\beta$ 是引导强度，$\gamma$ 是注意力头平衡系数
+    - 关键特性：VGA不需要计算attention weight → 完全兼容FlashAttention
+    - 利用加法结合律：$\hat{z} = (\alpha + \beta \cdot G)V = z + \beta \cdot \Delta z$
 
 4. **Attention Heads Balancing**：
-   - 视觉功能较强的头给予较弱引导，非视觉头给予较强引导
-   - 通过z和Δz的余弦相似度近似头的视觉功能差异
-   - $\gamma = \text{ReLU}(2 - H \cdot \gamma')$
+
+    - 视觉功能较强的头给予较弱引导，非视觉头给予较强引导
+    - 通过z和Δz的余弦相似度近似头的视觉功能差异
+    - $\gamma = \text{ReLU}(2 - H \cdot \gamma')$
 
 5. **Programmed Visual Grounding (PVG)**——面向captioning的动态引导：
-   - 随生成进行动态更新：$G_{t+1} = (1+\lambda)G_t - \lambda G_w$
-   - 抑制已描述区域，引导关注待描述区域
-   - 随生成内容增多，引导强度自动衰减：$\|G\|_0$ 用作衰减因子
+
+    - 随生成进行动态更新：$G_{t+1} = (1+\lambda)G_t - \lambda G_w$
+    - 抑制已描述区域，引导关注待描述区域
+    - 随生成内容增多，引导强度自动衰减：$\|G\|_0$ 用作衰减因子
 
 ### 损失函数 / 训练策略
 完全免训练方法，仅在推理时应用。超参数包括引导强度β和衰减参数λ。

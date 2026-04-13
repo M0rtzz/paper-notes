@@ -53,26 +53,29 @@ MonoWAD 包含三个核心组件：
 ### 关键设计
 
 1. **天气码本(Weather Codebook)**:
-   - 可学习码本 $\mathcal{Z} = \{z_k\}_{k=1}^K$，$K=4096$ 个槽位，每个 $z_k \in \mathbb{R}^{1 \times c}$（$c=256$）
-   - 输入特征通过卷积层得到 $\hat{x}^c$ 或 $\hat{x}^f$，对每个空间位置找最近码字进行量化：$x^{r(c)} = \mathbf{q}(\hat{x}^c) := \arg\min_{z_k \in \mathcal{Z}} \|\hat{x}^c_{ij} - z_k\|$
-   - **Clear Knowledge Embedding (CKE) Loss**：用KL散度使码本输出接近晴天特征的通道分布——$\mathcal{L}_{cke} = D_{KL}(s^c \| s^{r(c)})$，其中 $s^c, s^{r(c)}$ 分别是GAP+softmax后的通道概率
-   - **Weather-Invariant Guiding (WIG) Loss**：确保雾天和晴天输入产生相同的参考特征——$\mathcal{L}_{wig} = \|x^{r(c)} - x^{r(f)}\|_2^2$
-   - 总CKR损失：$\mathcal{L}_{ckr} = \mathcal{L}_{cke} + \mathcal{L}_{wig}$
-   - 设计动机：码本作为"天气记忆库"，训练时记住晴天的视觉知识模式；推理时无论输入是晴天还是雾天，都能回忆出相同的"晴天参考"，这个参考特征隐含了"需要增强多少"的信息
+
+    - 可学习码本 $\mathcal{Z} = \{z_k\}_{k=1}^K$，$K=4096$ 个槽位，每个 $z_k \in \mathbb{R}^{1 \times c}$（$c=256$）
+    - 输入特征通过卷积层得到 $\hat{x}^c$ 或 $\hat{x}^f$，对每个空间位置找最近码字进行量化：$x^{r(c)} = \mathbf{q}(\hat{x}^c) := \arg\min_{z_k \in \mathcal{Z}} \|\hat{x}^c_{ij} - z_k\|$
+    - **Clear Knowledge Embedding (CKE) Loss**：用KL散度使码本输出接近晴天特征的通道分布——$\mathcal{L}_{cke} = D_{KL}(s^c \| s^{r(c)})$，其中 $s^c, s^{r(c)}$ 分别是GAP+softmax后的通道概率
+    - **Weather-Invariant Guiding (WIG) Loss**：确保雾天和晴天输入产生相同的参考特征——$\mathcal{L}_{wig} = \|x^{r(c)} - x^{r(f)}\|_2^2$
+    - 总CKR损失：$\mathcal{L}_{ckr} = \mathcal{L}_{cke} + \mathcal{L}_{wig}$
+    - 设计动机：码本作为"天气记忆库"，训练时记住晴天的视觉知识模式；推理时无论输入是晴天还是雾天，都能回忆出相同的"晴天参考"，这个参考特征隐含了"需要增强多少"的信息
 
 2. **天气自适应扩散模型**:
-   - **核心创新：用雾分布代替高斯噪声**。定义雾分布 $\mathcal{F} = x^f - x^c$（雾天与晴天特征之差），作为扩散模型的噪声
-   - 前向过程：逐步向晴天特征 $x^c_0$ 添加雾噪声——$q(x^c_t | x^c_{t-1}) = \mathcal{F}(x^c_t; \sqrt{1-\beta_t}x^c_{t-1}, \beta_t \mathbf{I})$
-   - 反向过程：条件自编码器 $\boldsymbol{\epsilon}_\theta(x^c_t, t, x^r)$ 估计雾变量，**以天气参考特征 $x^r$ 作为条件**
-   - 通过**交叉注意力机制**融合当前特征和参考特征：
-     $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
-     其中 $Q = W_i^q \cdot \bar{x}^c_t$，$K = W_i^k \cdot \bar{x}^r$，$V = W_i^v \cdot \bar{x}^r$
-   - 设计动机：传统扩散用高斯噪声，不理解天气语义；将雾效果建模为噪声，使扩散的前向/反向过程直接对应加雾/去雾过程。天气参考特征作为注意力的Key/Value，自动控制增强力度——晴天输入与参考差异小，增强少；雾天与参考差异大，增强多
+
+    - **核心创新：用雾分布代替高斯噪声**。定义雾分布 $\mathcal{F} = x^f - x^c$（雾天与晴天特征之差），作为扩散模型的噪声
+    - 前向过程：逐步向晴天特征 $x^c_0$ 添加雾噪声——$q(x^c_t | x^c_{t-1}) = \mathcal{F}(x^c_t; \sqrt{1-\beta_t}x^c_{t-1}, \beta_t \mathbf{I})$
+    - 反向过程：条件自编码器 $\boldsymbol{\epsilon}_\theta(x^c_t, t, x^r)$ 估计雾变量，**以天气参考特征 $x^r$ 作为条件**
+    - 通过**交叉注意力机制**融合当前特征和参考特征：
+    $\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$
+      其中 $Q = W_i^q \cdot \bar{x}^c_t$，$K = W_i^k \cdot \bar{x}^r$，$V = W_i^v \cdot \bar{x}^r$
+    - 设计动机：传统扩散用高斯噪声，不理解天气语义；将雾效果建模为噪声，使扩散的前向/反向过程直接对应加雾/去雾过程。天气参考特征作为注意力的Key/Value，自动控制增强力度——晴天输入与参考差异小，增强少；雾天与参考差异大，增强多
 
 3. **天气自适应增强损失(WAE Loss)**:
-   - $\mathcal{L}_{wae} = \mathbb{E}_{x^c, \boldsymbol{\epsilon}_n \sim \mathcal{F}, t}[\|\boldsymbol{\epsilon}_n - \boldsymbol{\epsilon}_\theta(x^c_t, t, x^r)\|_2^2]$
-   - 确保扩散模型准确估计雾变量
-   - 设计动机：标准DDPM的MSE目标，但噪声分布替换为雾分布
+
+    - $\mathcal{L}_{wae} = \mathbb{E}_{x^c, \boldsymbol{\epsilon}_n \sim \mathcal{F}, t}[\|\boldsymbol{\epsilon}_n - \boldsymbol{\epsilon}_\theta(x^c_t, t, x^r)\|_2^2]$
+    - 确保扩散模型准确估计雾变量
+    - 设计动机：标准DDPM的MSE目标，但噪声分布替换为雾分布
 
 ### 损失函数 / 训练策略
 

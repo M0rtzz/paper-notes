@@ -53,18 +53,20 @@ CoVFT 引入潜在上下文变量 c，将视觉后验从 $p(\mathbf{z}|\mathbf{I
 ### 关键设计
 
 1. **上下文向量提取（CVE）**：从多模态信息中提炼上下文信号 → 文本引导的跨模态注意力 → 与视觉编码同步更新
-   - 使用冻结 BERT 编码文本指令得到文本嵌入 $\mathbf{t}$
-   - 在视觉编码器的某些层，将视觉 token $\mathbf{z}$ 和文本嵌入 $\mathbf{t}$ 分别通过轻量残差块（$f_{res}$，包含 GELU 激活的上下投影）
-   - CrossAttention 以文本为 query，拼接的多模态特征为 key/value：$\mathbf{c}_i = \text{CrossAttn}(\hat{\mathbf{t}}_q, [\hat{\mathbf{z}}, \hat{\mathbf{t}}]_{k,v})$
-   - **设计动机**：(1) 与视觉编码器同步逐层更新，无需额外推理阶段；(2) 以文本为主导进行信息聚合，确保上下文向量反映任务偏好而非仅仅是视觉特征
+
+    - 使用冻结 BERT 编码文本指令得到文本嵌入 $\mathbf{t}$
+    - 在视觉编码器的某些层，将视觉 token $\mathbf{z}$ 和文本嵌入 $\mathbf{t}$ 分别通过轻量残差块（$f_{res}$，包含 GELU 激活的上下投影）
+    - CrossAttention 以文本为 query，拼接的多模态特征为 key/value：$\mathbf{c}_i = \text{CrossAttn}(\hat{\mathbf{t}}_q, [\hat{\mathbf{z}}, \hat{\mathbf{t}}]_{k,v})$
+    - **设计动机**：(1) 与视觉编码器同步逐层更新，无需额外推理阶段；(2) 以文本为主导进行信息聚合，确保上下文向量反映任务偏好而非仅仅是视觉特征
 
 2. **上下文混合专家（CoMoE）**：将上下文信号注入视觉编码器 → 上下文条件的专家路由 → 分解冲突的优化信号
-   - 在 ViT 后半部分的层中，将 FFN 替换为 N=4 个并行专家网络（从原始 FFN 初始化）
-   - 基于上下文向量计算路由权重：$\mathbf{g}(\mathbf{c}) = \text{softmax}(\mathbf{W}\mathbf{c} + \mathbf{b})$
-   - **密集聚合**（Dense routing）：$\tilde{\mathbf{z}} = \sum_{n=1}^N g^n(\mathbf{c}) \mathcal{E}^n(\mathbf{z})$
-   - **核心机制**：第 n 个专家的梯度被路由权重缩放——$\nabla_{\theta_e^n} \mathcal{L} = g^n(\mathbf{c}) \cdot \frac{\partial\mathcal{L}}{\partial\tilde{\mathbf{z}}} \frac{\partial\mathcal{E}^n(\mathbf{z})}{\partial\theta_e^n}$
-   - 相似上下文的样本给予相似专家权重 → 一致梯度更新；不同上下文的样本通过不同路由分离 → 避免梯度冲突
-   - **设计动机**：密集路由优于稀疏路由，因为数据量有限时稀疏路由导致某些专家训练不足
+
+    - 在 ViT 后半部分的层中，将 FFN 替换为 N=4 个并行专家网络（从原始 FFN 初始化）
+    - 基于上下文向量计算路由权重：$\mathbf{g}(\mathbf{c}) = \text{softmax}(\mathbf{W}\mathbf{c} + \mathbf{b})$
+    - **密集聚合**（Dense routing）：$\tilde{\mathbf{z}} = \sum_{n=1}^N g^n(\mathbf{c}) \mathcal{E}^n(\mathbf{z})$
+    - **核心机制**：第 n 个专家的梯度被路由权重缩放——$\nabla_{\theta_e^n} \mathcal{L} = g^n(\mathbf{c}) \cdot \frac{\partial\mathcal{L}}{\partial\tilde{\mathbf{z}}} \frac{\partial\mathcal{E}^n(\mathbf{z})}{\partial\theta_e^n}$
+    - 相似上下文的样本给予相似专家权重 → 一致梯度更新；不同上下文的样本通过不同路由分离 → 避免梯度冲突
+    - **设计动机**：密集路由优于稀疏路由，因为数据量有限时稀疏路由导致某些专家训练不足
 
 ### 损失函数 / 训练策略
 

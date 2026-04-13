@@ -33,9 +33,9 @@ tags:
 
 ### 现有痛点
 
-1. **Self-Attention 的计算瓶颈 vs 固定感受野的两难**：SA 具有全局感受野但 $O(N^2)$ 复杂度；WA 是线性复杂度但感受野固定，都不满足 TE
-2. **TE 缺失的后果被忽视**：实验证据表明缺失 TE 会导致训练收敛慢（NTK condition number 高 7.5×）和泛化差（SRGA value 高 12%）
-3. **现有修复 Transformer 未从 TE 角度系统设计**：SwinIR、HAT、DAT 等方法的注意力模块均不满足 TE
+**Self-Attention 的计算瓶颈 vs 固定感受野的两难**：SA 具有全局感受野但 $O(N^2)$ 复杂度；WA 是线性复杂度但感受野固定，都不满足 TE
+**TE 缺失的后果被忽视**：实验证据表明缺失 TE 会导致训练收敛慢（NTK condition number 高 7.5×）和泛化差（SRGA value 高 12%）
+**现有修复 Transformer 未从 TE 角度系统设计**：SwinIR、HAT、DAT 等方法的注意力模块均不满足 TE
 
 ### 核心切入
 

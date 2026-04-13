@@ -27,23 +27,23 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：强化学习智能体在从仿真到真实世界部署时常遇到性能下降，即所谓的"sim-to-real gap"。域随机化(Domain Randomization, DR)是解决该问题的主流方法——在训练时随机采样物理参数（质量、摩擦系数、传感器噪声等）构建多样化仿真器族，使策略对环境变化具有鲁棒性。DR已在四旋翼飞行、灵巧操作、腿式机器人等任务上实现了零样本迁移。
+**领域现状**：强化学习智能体在从仿真到真实世界部署时常遇到性能下降，即所谓的"sim-to-real gap"。域随机化(Domain Randomization, DR)是解决该问题的主流方法——在训练时随机采样物理参数（质量、摩擦系数、传感器噪声等）构建多样化仿真器族，使策略对环境变化具有鲁棒性。DR已在四旋翼飞行、灵巧操作、腿式机器人等任务上实现了零样本迁移。
 
-2. **现有痛点**：
+**现有痛点**：
    - **均匀DR(UDR)效率低**：标准做法是对物理参数施加宽泛的均匀先验，但Chen et al. (2022)的理论分析表明UDR的sim-to-real gap与候选仿真器数$M$的关系为$O(M^3 \log(MH))$——随仿真器数增加，性能保证迅速恶化
    - **忽视已有真实数据**：UDR完全不利用已从真实系统收集的离线数据来指导参数分布的选择
    - **缺乏理论基础**：虽然ODR方法（如DROPO、DROID、BayesSim）在实验上显示了显著优势，但理论上不知道(i)拟合的分布是否随数据增长收敛到真实动力学，(ii)相比UDR有多少改善
 
-3. **核心矛盾**：经验上ODR表现优越，但缺乏统计保证——不清楚在什么条件下离线数据能可靠地指导域随机化分布的选择。
+**核心矛盾**：经验上ODR表现优越，但缺乏统计保证——不清楚在什么条件下离线数据能可靠地指导域随机化分布的选择。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 证明ODR估计器的弱一致性（依概率收敛到真实参数）
    - 证明ODR估计器的强一致性（几乎必然收敛）
    - 分析各假设的可实践性，并提供松弛条件
 
-5. **切入角度**：将ODR视为参数化仿真器族上的最大似然估计(MLE)，利用经典统计学工具（Glivenko-Cantelli类的一致大数定律、Borel-Cantelli引理等）建立严格的收敛性证明。
+**切入角度**：将ODR视为参数化仿真器族上的最大似然估计(MLE)，利用经典统计学工具（Glivenko-Cantelli类的一致大数定律、Borel-Cantelli引理等）建立严格的收敛性证明。
 
-6. **核心idea一句话**：ODR本质上是一个参数化MLE问题，在温和假设下具有可证明的统计一致性，这为其经验成功提供了坚实的理论支撑。
+**核心idea一句话**：ODR本质上是一个参数化MLE问题，在温和假设下具有可证明的统计一致性，这为其经验成功提供了坚实的理论支撑。
 
 ## 方法详解
 
@@ -59,24 +59,28 @@ tags:
 ### 关键设计
 
 1. **ODR的MLE形式化**:
-   - 做什么：将ODR重新表述为结构化的最大似然估计问题
-   - 核心思路：定义经验对数似然$L_N(\phi) = \frac{1}{N}\sum_{i=1}^N \log q_\phi(s_i' | s_i, a_i)$，其中$q_\phi(s'|s,a) = \int p_\xi(s'|s,a) p_\phi(\xi) d\xi$是混合转移核。通过KL散度分解，证明总体对数似然$L(\phi)$的唯一最大化点为$\phi^* = (\xi^*, 0)$（即退化到真实参数）
-   - 设计动机：将ODR纳入经典MLE框架，使得可以直接使用统计学中已有的一致性工具
+
+    - 做什么：将ODR重新表述为结构化的最大似然估计问题
+    - 核心思路：定义经验对数似然$L_N(\phi) = \frac{1}{N}\sum_{i=1}^N \log q_\phi(s_i' | s_i, a_i)$，其中$q_\phi(s'|s,a) = \int p_\xi(s'|s,a) p_\phi(\xi) d\xi$是混合转移核。通过KL散度分解，证明总体对数似然$L(\phi)$的唯一最大化点为$\phi^* = (\xi^*, 0)$（即退化到真实参数）
+    - 设计动机：将ODR纳入经典MLE框架，使得可以直接使用统计学中已有的一致性工具
 
 2. **弱一致性证明（Theorem 1）**:
-   - 做什么：证明任意可测最大化点$\hat{\phi}_N$依概率收敛到$\phi^*$
-   - 核心思路：分三步——(a) 利用Glivenko-Cantelli类的一致大数定律(ULLN)证明$\sup_\phi |L_N(\phi) - L(\phi)| \to 0$（Lemma 2）；(b) 利用唯一最大化点的分离性质证明偏离$\phi^*$的参数有均匀的似然损失下界$\eta(\epsilon)$（Lemma 3）；(c) 结合两者，$\hat{\phi}_N$落在$\phi^*$的$\epsilon$-邻域外的概率被$P(\sup |L_N - L| \geq \eta/3)$控制住
-   - 所需假设：Assumption 1（仿真器正则性：密度有界且连续）、Assumption 2（参数空间紧致）、Assumption 3（混合正性：$q_\phi \geq c > 0$）、Assumption 4（可辨识性）
+
+    - 做什么：证明任意可测最大化点$\hat{\phi}_N$依概率收敛到$\phi^*$
+    - 核心思路：分三步——(a) 利用Glivenko-Cantelli类的一致大数定律(ULLN)证明$\sup_\phi |L_N(\phi) - L(\phi)| \to 0$（Lemma 2）；(b) 利用唯一最大化点的分离性质证明偏离$\phi^*$的参数有均匀的似然损失下界$\eta(\epsilon)$（Lemma 3）；(c) 结合两者，$\hat{\phi}_N$落在$\phi^*$的$\epsilon$-邻域外的概率被$P(\sup |L_N - L| \geq \eta/3)$控制住
+    - 所需假设：Assumption 1（仿真器正则性：密度有界且连续）、Assumption 2（参数空间紧致）、Assumption 3（混合正性：$q_\phi \geq c > 0$）、Assumption 4（可辨识性）
 
 3. **强一致性证明（Theorem 2）**:
-   - 做什么：将弱一致性升级为几乎必然收敛
-   - 核心思路：额外引入均匀Lipschitz假设（Assumption 5）：$|a(x,\phi) - a(x,\psi)| \leq L\|\phi - \psi\|$。利用参数空间的紧致性构建$\epsilon/L$-网覆盖，结合Hoeffding不等式给出每个网点的指数概率界$P(|L_N(\phi_i) - L(\phi_i)| > \epsilon) \leq 2\exp(-N\epsilon^2 / 2\tilde{M}^2)$，再由Borel-Cantelli引理得到$\sum_N P(\sup|L_N - L| > 2\epsilon) < \infty$，即几乎必然收敛
-   - 与弱一致性的区别：弱一致性只需ULLN（收敛的概率→1），强一致性需要概率的可和性（Borel-Cantelli），Lipschitz条件恰好提供了从点到全局的定量控制
+
+    - 做什么：将弱一致性升级为几乎必然收敛
+    - 核心思路：额外引入均匀Lipschitz假设（Assumption 5）：$|a(x,\phi) - a(x,\psi)| \leq L\|\phi - \psi\|$。利用参数空间的紧致性构建$\epsilon/L$-网覆盖，结合Hoeffding不等式给出每个网点的指数概率界$P(|L_N(\phi_i) - L(\phi_i)| > \epsilon) \leq 2\exp(-N\epsilon^2 / 2\tilde{M}^2)$，再由Borel-Cantelli引理得到$\sum_N P(\sup|L_N - L| > 2\epsilon) < \infty$，即几乎必然收敛
+    - 与弱一致性的区别：弱一致性只需ULLN（收敛的概率→1），强一致性需要概率的可和性（Borel-Cantelli），Lipschitz条件恰好提供了从点到全局的定量控制
 
 4. **$\alpha$-信息性定义**:
-   - 做什么：定义ODR算法的"信息浓缩"能力
-   - 核心思路：称算法$\mathcal{A}$为$(\alpha, \epsilon)$-informative，若存在$N_0$使得$N \geq N_0$时学到的分布$\hat{\phi}_N$将至少$\alpha$概率质量分配在真实参数$\xi^*$的$\epsilon$-球内。由强一致性知，高斯ODR对任意$\alpha < 1$都是$\alpha$-informative
-   - 意义：提供了一个模型无关的度量标准，可用于评估和比较不同ODR算法
+
+    - 做什么：定义ODR算法的"信息浓缩"能力
+    - 核心思路：称算法$\mathcal{A}$为$(\alpha, \epsilon)$-informative，若存在$N_0$使得$N \geq N_0$时学到的分布$\hat{\phi}_N$将至少$\alpha$概率质量分配在真实参数$\xi^*$的$\epsilon$-球内。由强一致性知，高斯ODR对任意$\alpha < 1$都是$\alpha$-informative
+    - 意义：提供了一个模型无关的度量标准，可用于评估和比较不同ODR算法
 
 ### 假设分析与松弛
 

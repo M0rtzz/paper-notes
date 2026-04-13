@@ -44,9 +44,10 @@ DiffusionGS是一个单阶段3D扩散模型。输入一张干净条件视图和N
 1. **将3DGS嵌入去噪器（Baking GS into Denoiser）**: 每个去噪时间步都直接输出3D高斯点云$\mathcal{G}_\theta$，每个高斯包含中心位置$\boldsymbol{\mu}$、协方差$\boldsymbol{\Sigma}$、不透明度$\alpha$和RGB颜色$\boldsymbol{c}$。高斯数量固定为$(N+1) \times H \times W$（条件视图+N个噪声视图的像素对齐高斯）。深度通过近远距离的加权插值参数化：$u_t^{(k)} = w_t^{(k)} u_{near} + (1-w_t^{(k)}) u_{far}$。
 
 2. **场景-物体混合训练策略（Scene-Object Mixed Training）**: 
-   - **视角选择约束**：对相机位置和朝向施加两个角度约束（位置角度$\theta_{cd} \leq \theta_1$、$\theta_{dn} \leq \theta_2$；朝向约束保证视角重叠），确保训练收敛。
-   - **双高斯解码器（Dual Gaussian Decoder）**：物体和场景使用不同的MLP解码器处理不同的深度范围（物体$[u_{near}, u_{far}]=[0.1, 4.2]$，场景$[0, 500]$），混合训练后微调时只保留对应的单个解码器。
-   - **点分布损失$\mathcal{L}_{pd}$**：在训练早期warm-up阶段鼓励物体级高斯点云分布更集中。
+
+    - **视角选择约束**：对相机位置和朝向施加两个角度约束（位置角度$\theta_{cd} \leq \theta_1$、$\theta_{dn} \leq \theta_2$；朝向约束保证视角重叠），确保训练收敛。
+    - **双高斯解码器（Dual Gaussian Decoder）**：物体和场景使用不同的MLP解码器处理不同的深度范围（物体$[u_{near}, u_{far}]=[0.1, 4.2]$，场景$[0, 500]$），混合训练后微调时只保留对应的单个解码器。
+    - **点分布损失$\mathcal{L}_{pd}$**：在训练早期warm-up阶段鼓励物体级高斯点云分布更集中。
 
 3. **Reference-Point Plücker Coordinate (RPPC)**:
    传统Plücker坐标使用力矩向量(moment vector)作为相机条件，但力矩向量随相机位移而变化，无法有效捕捉深度和3D几何。RPPC用光线上离世界坐标系原点最近的点(reference point)替代力矩向量：$\boldsymbol{r} = (\boldsymbol{o} - (\boldsymbol{o} \cdot \boldsymbol{d})\boldsymbol{d}, \boldsymbol{d})$。RPPC满足4D光场的平移不变性假设，同时提供更丰富的射线位置和相对深度信息。

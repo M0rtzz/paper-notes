@@ -45,23 +45,27 @@ tags:
 ### 关键设计
 
 1. **任务定义与假设**
-   - 假设H1：所有任务在相同空间 $(\mathcal{X} \times \mathcal{Y})$ 上（生成范式下文本到文本成立）
-   - 假设H2：所有任务共享相同输入边际分布 $\mathbb{P}_X$，使得比较聚焦于技能差异 $\mathbb{P}_{Y|X}$ 而非领域差异
+
+    - 假设H1：所有任务在相同空间 $(\mathcal{X} \times \mathcal{Y})$ 上（生成范式下文本到文本成立）
+    - 假设H2：所有任务共享相同输入边际分布 $\mathbb{P}_X$，使得比较聚焦于技能差异 $\mathbb{P}_{Y|X}$ 而非领域差异
 
 2. **从缺陷性到信息充分性**
-   - 缺陷性定义（Le Cam, 1964）：$\delta(\mathbb{P}_{Z_U|Y_V} \to \mathbb{P}_{Z_V|Y_V}) = \inf_{M} \|M \circ \mathbb{P}_{Z_U|Y_V} - \mathbb{P}_{Z_V|Y_V}\|_{TV}$
-   - 0-缺陷性定理：$\delta = 0$ 意味着任务包含
-   - $\varepsilon$-缺陷性定理：缺陷性越小，对任意有界损失函数，用$Z_U$推断$Y_V$的风险与用$Z_V$推断$Y_V$的风险差距越小
-   - IS代理：$\mathcal{IS}(Z_U \to Z_V) = \hat{h}(Z_V) - \hat{h}(Z_V|Z_U)$，使用KNIFE估计器（高斯混合模型族）计算
+
+    - 缺陷性定义（Le Cam, 1964）：$\delta(\mathbb{P}_{Z_U|Y_V} \to \mathbb{P}_{Z_V|Y_V}) = \inf_{M} \|M \circ \mathbb{P}_{Z_U|Y_V} - \mathbb{P}_{Z_V|Y_V}\|_{TV}$
+    - 0-缺陷性定理：$\delta = 0$ 意味着任务包含
+    - $\varepsilon$-缺陷性定理：缺陷性越小，对任意有界损失函数，用$Z_U$推断$Y_V$的风险与用$Z_V$推断$Y_V$的风险差距越小
+    - IS代理：$\mathcal{IS}(Z_U \to Z_V) = \hat{h}(Z_V) - \hat{h}(Z_V|Z_U)$，使用KNIFE估计器（高斯混合模型族）计算
 
 3. **层选择策略**
-   - 对比微调模型与预训练模型的IS，发现10-15层IS差距最大（即这些层编码了最多任务特定信息）
-   - 最终取10-15层的平均IS作为任务包含度量
-   - 深层（>15层）更多编码输出格式而非任务语义，引入噪声
+
+    - 对比微调模型与预训练模型的IS，发现10-15层IS差距最大（即这些层编码了最多任务特定信息）
+    - 最终取10-15层的平均IS作为任务包含度量
+    - 深层（>15层）更多编码输出格式而非任务语义，引入噪声
 
 4. **预测力（Predictive Power）指标**
-   - $PP(U) = \sum_V \mathcal{IS}(Z_U \to Z_V) - \mathcal{IS}(Z_V \to Z_U)$
-   - PP越高，说明任务$U$包含其他任务的信息越多而不被其他任务包含
+
+    - $PP(U) = \sum_V \mathcal{IS}(Z_U \to Z_V) - \mathcal{IS}(Z_V \to Z_U)$
+    - PP越高，说明任务$U$包含其他任务的信息越多而不被其他任务包含
 
 ## 实验关键数据
 

@@ -42,8 +42,9 @@ tags:
 
 ### 关键设计
 1. **多种批评策略**：
-   - 黑盒策略：直接估计(Naïve)、思维链(CoT)、选择题(MC)、魔鬼代言人(Devil's Advocate)
-   - 白盒策略：Naïve-logit、CoT-logit、CoT-Perplexity(PPL)
+
+    - 黑盒策略：直接估计(Naïve)、思维链(CoT)、选择题(MC)、魔鬼代言人(Devil's Advocate)
+    - 白盒策略：Naïve-logit、CoT-logit、CoT-Perplexity(PPL)
 2. **预算感知采样**：三种采样规则——归一化、指数加权、阈值化。其中指数加权和阈值化显著优于归一化
 3. **修改的损失函数**：为在ACT标注数据上训练提供理论保证——确保模型收敛到与全人工标注数据类似的性能
 

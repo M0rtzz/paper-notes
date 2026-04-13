@@ -41,19 +41,22 @@ RLP在NTP的每个位置 $t$ 插入一个CoT采样步骤。模型先从上下文
 ### 关键设计
 
 1. **信息增益奖励**:
-   - 做什么：衡量CoT对下一token预测的帮助程度
-   - 核心思路：$r(c_t) = S_{\text{pred}}(c_t) - S_{\text{ema}}$，其中 $S_{\text{pred}}(c_t) = \log p_\theta(x_t|x_{<t},c_t)$ 是有思考的预测对数概率，$S_{\text{ema}} = \log \bar{p}_\phi(x_t|x_{<t})$ 是EMA教师（无思考）的基线
-   - 设计动机：当思考确实提升预测时奖励为正（Proposition 1：期望奖励等于交叉熵下降），且在每个位置提供标量信号——无需学习value函数或外部验证器
+
+    - 做什么：衡量CoT对下一token预测的帮助程度
+    - 核心思路：$r(c_t) = S_{\text{pred}}(c_t) - S_{\text{ema}}$，其中 $S_{\text{pred}}(c_t) = \log p_\theta(x_t|x_{<t},c_t)$ 是有思考的预测对数概率，$S_{\text{ema}} = \log \bar{p}_\phi(x_t|x_{<t})$ 是EMA教师（无思考）的基线
+    - 设计动机：当思考确实提升预测时奖励为正（Proposition 1：期望奖励等于交叉熵下降），且在每个位置提供标量信号——无需学习value函数或外部验证器
 
 2. **EMA教师基线**:
-   - 做什么：提供"不思考"的反事实对比
-   - 核心思路：教师参数 $\phi \leftarrow \tau\phi + (1-\tau)\theta$，$\tau=0.999$，初始化为当前模型
-   - 设计动机：冻结基线会偏离太远导致奖励hacking；完全同步则对数似然比趋零。EMA提供一步延迟的平滑参考，平衡信息量与训练稳定性
+
+    - 做什么：提供"不思考"的反事实对比
+    - 核心思路：教师参数 $\phi \leftarrow \tau\phi + (1-\tau)\theta$，$\tau=0.999$，初始化为当前模型
+    - 设计动机：冻结基线会偏离太远导致奖励hacking；完全同步则对数似然比趋零。EMA提供一步延迟的平滑参考，平衡信息量与训练稳定性
 
 3. **组相对基线与裁剪代理**:
-   - 做什么：减少方差，稳定训练
-   - 核心思路：每个位置采样 $G$ 个思维，使用修正的inclusive mean基线 $A^{(i)} = \frac{G}{G-1}(r(c_t^{(i)}) - \bar{r})$。对思维token使用PPO式裁剪代理损失 $\mathcal{L}_{\text{clip}}$
-   - 设计动机：组相对基线消除了inclusive mean的 $(1-1/G)$ 收缩偏差，裁剪防止策略更新过大
+
+    - 做什么：减少方差，稳定训练
+    - 核心思路：每个位置采样 $G$ 个思维，使用修正的inclusive mean基线 $A^{(i)} = \frac{G}{G-1}(r(c_t^{(i)}) - \bar{r})$。对思维token使用PPO式裁剪代理损失 $\mathcal{L}_{\text{clip}}$
+    - 设计动机：组相对基线消除了inclusive mean的 $(1-1/G)$ 收缩偏差，裁剪防止策略更新过大
 
 ### 损失函数 / 训练策略
 

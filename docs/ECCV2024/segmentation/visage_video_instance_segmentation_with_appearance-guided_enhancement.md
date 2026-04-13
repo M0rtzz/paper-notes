@@ -48,22 +48,25 @@ VISAGE基于Mask2Former检测器构建，分为三个核心组件：
 ### 关键设计
 
 1. **外观查询提取(Appearance Query Extraction)**：
-   - 核心操作：使用object query预测的mask对backbone特征图进行平均池化(mask pooling)，得到appearance query
-   - 设计动机：传统跟踪方法(如RoIPool/RoIAlign)早已使用特征图提取实例特征，但现代query-based方法丢失了这一能力
-   - 将两种query分别投射为appearance embedding $\mathbf{e}_a \in \mathbb{R}^{N \times C}$ 和 object embedding $\mathbf{e}_i \in \mathbb{R}^{N \times C}$
-   - 关键发现：使用backbone特征显著优于使用transformer encoder特征（AP: 55.1 vs 51.4），因为backbone保留了更丰富的视觉信息
+
+    - 核心操作：使用object query预测的mask对backbone特征图进行平均池化(mask pooling)，得到appearance query
+    - 设计动机：传统跟踪方法(如RoIPool/RoIAlign)早已使用特征图提取实例特征，但现代query-based方法丢失了这一能力
+    - 将两种query分别投射为appearance embedding $\mathbf{e}_a \in \mathbb{R}^{N \times C}$ 和 object embedding $\mathbf{e}_i \in \mathbb{R}^{N \times C}$
+    - 关键发现：使用backbone特征显著优于使用transformer encoder特征（AP: 55.1 vs 51.4），因为backbone保留了更丰富的视觉信息
 
 2. **对比学习增强嵌入区分度**：
-   - 对object embedding和appearance embedding分别施加对比损失
-   - 让同一实例在不同帧中的嵌入更接近，不同实例的嵌入更分离
-   - 关键差异：与之前方法(IDOL, CTVIS)不同的是，将两种embedding分开处理，让每种嵌入保持各自特性，在匹配时互补
-   - 对比损失权重设为2.0，与检测器原始损失加权求和
+
+    - 对object embedding和appearance embedding分别施加对比损失
+    - 让同一实例在不同帧中的嵌入更接近，不同实例的嵌入更分离
+    - 关键差异：与之前方法(IDOL, CTVIS)不同的是，将两种embedding分开处理，让每种嵌入保持各自特性，在匹配时互补
+    - 对比损失权重设为2.0，与检测器原始损失加权求和
 
 3. **简化追踪器与记忆库**：
-   - 匹配得分：$\mathbf{s} = (1-\alpha) \cdot \cos(\mathbf{e}_i^t, \mathbf{m}_i^t) + \alpha \cdot \cos(\mathbf{e}_a^t, \mathbf{m}_a^t)$
-   - 使用匈牙利算法进行最优分配，α=0.75在推理时使用
-   - 记忆库大小 W=5，读取记忆嵌入时通过时间加权和置信度加权：$\mathbf{m}^t = \sum_{w=1}^{W} \mathbf{e}^{t-w} s^{t-w} \times \frac{W}{w}$
-   - 不使用NMS、不需要tracklet初始化/删除阈值等heuristic操作，大幅简化pipeline
+
+    - 匹配得分：$\mathbf{s} = (1-\alpha) \cdot \cos(\mathbf{e}_i^t, \mathbf{m}_i^t) + \alpha \cdot \cos(\mathbf{e}_a^t, \mathbf{m}_a^t)$
+    - 使用匈牙利算法进行最优分配，α=0.75在推理时使用
+    - 记忆库大小 W=5，读取记忆嵌入时通过时间加权和置信度加权：$\mathbf{m}^t = \sum_{w=1}^{W} \mathbf{e}^{t-w} s^{t-w} \times \frac{W}{w}$
+    - 不使用NMS、不需要tracklet初始化/删除阈值等heuristic操作，大幅简化pipeline
 
 ### 损失函数 / 训练策略
 

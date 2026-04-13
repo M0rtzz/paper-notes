@@ -29,8 +29,8 @@ tags:
 
 Occupancy-based world model 在自动驾驶中用于预测未来 3D 场景演变，对应对 corner case 至关重要。现有方法面临一个核心矛盾：
 
-1. **3D 场景 tokenizer**（如 OccWorld、OccLLaMA）：将单帧场景压缩为紧凑 token，重建精度高，但无法建模时序动态，预测能力受限
-2. **4D 场景 tokenizer**（如 OccSora、DOME）：处理时空 token 序列，动态建模能力强，但 token 维度暴增，计算开销极大，难以满足实时性需求
+**3D 场景 tokenizer**（如 OccWorld、OccLLaMA）：将单帧场景压缩为紧凑 token，重建精度高，但无法建模时序动态，预测能力受限
+**4D 场景 tokenizer**（如 OccSora、DOME）：处理时空 token 序列，动态建模能力强，但 token 维度暴增，计算开销极大，难以满足实时性需求
 
 此外，现有方法大多采用 GPT 风格的纯解码器自回归架构或扩散模型，资源消耗高。本文的核心问题是：**如何在紧凑的 token 表示中同时编码空间细节和时序动态？**
 
@@ -49,20 +49,21 @@ I²-World 由两个核心组件构成，采用两阶段训练：
 
 1. **Intra-Scene Tokenizer（帧内多尺度残差量化）**: 受 RQ-VAE 和 VAR 启发，将编码器输出特征 $B_t$ 迭代量化为 $S$ 个多尺度 token map $\{b_t^s\}_{s=1}^S$。从低分辨率到高分辨率逐级量化，每级与共享 codebook $\mathcal{C} \in \mathbb{R}^{N \times C}$ 匹配后计算残差，下一级在残差上继续量化。核心公式：
 
-   $$b_t^s = f_{intp}(B_t, h_s, w_s), \quad \hat{b}_t^{s_{i,j}} = \mathcal{Q}(b_t^{s_{i,j}}, \mathcal{C})$$
-   $$B_t = B_t - f_{intp}(\hat{b}_t^s, h, w), \quad \hat{B}_t = \hat{B}_t + \phi_s(\hat{b}_t^s)$$
+    $b_t^s = f_{intp}(B_t, h_s, w_s), \quad \hat{b}_t^{s_{i,j}} = \mathcal{Q}(b_t^{s_{i,j}}, \mathcal{C})$
+    $B_t = B_t - f_{intp}(\hat{b}_t^s, h, w), \quad \hat{B}_t = \hat{B}_t + \phi_s(\hat{b}_t^s)$
 
    其中 $\phi_s$ 是可学习卷积层，用于缓解分辨率缩放的信息损失。设计动机：3D occupancy 天然支持多尺度表示，从粗到细逐级补充空间细节。
 
 2. **Inter-Scene Tokenizer（帧间时序量化）**: 维护历史特征队列 $\{B_{t-g}\}_{g=1}^G$，先用 ego-pose 变换矩阵 $T_{t-g}^t$ 对齐到当前帧坐标系。然后将 Intra-Scene 的残差与对齐后的历史特征相加，进行 $G$ 次时序量化：
 
-   $$b_t^{S+g} = B_t + B_{t-g}', \quad \hat{B}_t = \hat{B}_t + \psi_g(\hat{b}_t^{S+g})$$
+    $b_t^{S+g} = B_t + B_{t-g}', \quad \hat{B}_t = \hat{B}_t + \psi_g(\hat{b}_t^{S+g})$
 
    关键点：与 Intra-Scene 共享同一 codebook $\mathcal{C}$，仅增加 $G+S$ 个轻量卷积层即可同时编码空间和时序信息。
 
 3. **I²-Former（编码器-解码器架构）**: 区别于 GPT 风格纯解码器，采用 Intra-Encoder + Inter-Decoder：
-   - **Intra-Encoder**：用 Spatial Self-Attention (SSA) + 多头交叉注意力融合 plan embedding 和场景 token，3 层多尺度设计（每层下采样 2×），输出通过 FPN 聚合。关键输出：回归**变换矩阵** $T_{t+k}^{t+k+1} \in \mathbb{R}^{4 \times 4}$，编码帧间时空变换
-   - **Inter-Decoder**：以变换矩阵为条件信号，维护历史 token 队列，用 SSA + 轻量 MLP 时序融合（拼接通道维度 + 单层 MLP）自回归生成下一帧 token
+
+    - **Intra-Encoder**：用 Spatial Self-Attention (SSA) + 多头交叉注意力融合 plan embedding 和场景 token，3 层多尺度设计（每层下采样 2×），输出通过 FPN 聚合。关键输出：回归**变换矩阵** $T_{t+k}^{t+k+1} \in \mathbb{R}^{4 \times 4}$，编码帧间时空变换
+    - **Inter-Decoder**：以变换矩阵为条件信号，维护历史 token 队列，用 SSA + 轻量 MLP 时序融合（拼接通道维度 + 单层 MLP）自回归生成下一帧 token
 
    设计动机：变换矩阵提供比轨迹更精细的空间约束，支持可控生成。
 

@@ -39,19 +39,22 @@ tags:
 
 ### 关键设计
 1. **点入射关系（Point Incidence Relation）**:
-   - 做什么：建立 2D 观测与 3D 点位置、相机运动之间的几何约束
-   - 核心思路：3D 点 $\mathbf{P}_i$ 在时刻 $t_{ij}$ 投影到相机平面上的 bearing 向量 $\mathbf{f}_{ij}'$ 必须与相机坐标系下的 3D 点平行。利用叉积为零的条件：$[\mathbf{f}_{ij}']_\times \mathbf{P}_i - t_{ij}' [\mathbf{f}_{ij}']_\times \mathbf{v} = \mathbf{0}$
-   - 设计动机：与经典的对极约束（epipolar constraint）不同，该入射关系直接操作在动力学参数（速度）和 3D 点上，且对时间戳没有同步假设。该关系可以特化为经典的 5-point 算法或最近的直线求解器。
+
+    - 做什么：建立 2D 观测与 3D 点位置、相机运动之间的几何约束
+    - 核心思路：3D 点 $\mathbf{P}_i$ 在时刻 $t_{ij}$ 投影到相机平面上的 bearing 向量 $\mathbf{f}_{ij}'$ 必须与相机坐标系下的 3D 点平行。利用叉积为零的条件：$[\mathbf{f}_{ij}']_\times \mathbf{P}_i - t_{ij}' [\mathbf{f}_{ij}']_\times \mathbf{v} = \mathbf{0}$
+    - 设计动机：与经典的对极约束（epipolar constraint）不同，该入射关系直接操作在动力学参数（速度）和 3D 点上，且对时间戳没有同步假设。该关系可以特化为经典的 5-point 算法或最近的直线求解器。
 
 2. **Schur 补高效求解器**:
-   - 做什么：利用系统矩阵 $\mathbf{A}$ 的稀疏块对角结构，避免对整个大矩阵做 SVD
-   - 核心思路：将法方程 $\mathbf{A}^\top \mathbf{A} \mathbf{x} = \mathbf{0}$ 写成块矩阵形式，利用 Schur 补将 $3M+3$ 维问题降为 $3 \times 3$ 的矩阵 $\mathbf{B}$ 的 SVD 问题：$\mathbf{B} = \mathbf{M}_D - \mathbf{M}_B^\top \mathbf{M}_A^{-1} \mathbf{M}_B$。由于 $\mathbf{M}_A$ 是块对角矩阵（每块 $3 \times 3$），其逆的计算复杂度仅为 $O(M)$ 而非 $O(M^3)$
-   - 设计动机：直接对 $\mathbf{A} \in \mathbb{R}^{3N \times (3M+3)}$ 做 SVD 在观测数量大时计算代价高昂。Schur 补将计算瓶颈降到 $3 \times 3$ 矩阵的 SVD，极大提升了实际效率。最小情况下仅需 63 μs 即可求解。
+
+    - 做什么：利用系统矩阵 $\mathbf{A}$ 的稀疏块对角结构，避免对整个大矩阵做 SVD
+    - 核心思路：将法方程 $\mathbf{A}^\top \mathbf{A} \mathbf{x} = \mathbf{0}$ 写成块矩阵形式，利用 Schur 补将 $3M+3$ 维问题降为 $3 \times 3$ 的矩阵 $\mathbf{B}$ 的 SVD 问题：$\mathbf{B} = \mathbf{M}_D - \mathbf{M}_B^\top \mathbf{M}_A^{-1} \mathbf{M}_B$。由于 $\mathbf{M}_A$ 是块对角矩阵（每块 $3 \times 3$），其逆的计算复杂度仅为 $O(M)$ 而非 $O(M^3)$
+    - 设计动机：直接对 $\mathbf{A} \in \mathbb{R}^{3N \times (3M+3)}$ 做 SVD 在观测数量大时计算代价高昂。Schur 补将计算瓶颈降到 $3 \times 3$ 矩阵的 SVD，极大提升了实际效率。最小情况下仅需 63 μs 即可求解。
 
 3. **退化与解的唯一性分析**:
-   - 做什么：系统分析求解器在何种条件下产生退化解，以及解的多重性
-   - 核心思路：SVD 产生 $\hat{\mathbf{v}}$ 和 $-\hat{\mathbf{v}}$ 两个候选，通过正深度约束 $(\hat{\mathbf{P}}_i)_z > 0$ 选择正确解。退化条件：每条轨迹至少需要 2 个不同时间戳的观测使 $\mathbf{F}_i$ 满秩，且矩阵 $\mathbf{B}$ 的秩至少为 2
-   - 设计动机：明确求解器的适用条件和最小采样需求，为 RANSAC 采样策略提供理论指导
+
+    - 做什么：系统分析求解器在何种条件下产生退化解，以及解的多重性
+    - 核心思路：SVD 产生 $\hat{\mathbf{v}}$ 和 $-\hat{\mathbf{v}}$ 两个候选，通过正深度约束 $(\hat{\mathbf{P}}_i)_z > 0$ 选择正确解。退化条件：每条轨迹至少需要 2 个不同时间戳的观测使 $\mathbf{F}_i$ 满秩，且矩阵 $\mathbf{B}$ 的秩至少为 2
+    - 设计动机：明确求解器的适用条件和最小采样需求，为 RANSAC 采样策略提供理论指导
 
 ### 损失函数 / 训练策略
 该方法无需训练，是纯几何求解器。部署时嵌入 RANSAC 循环：每次迭代采样 $M=4$ 条轨迹、每条 $N_i=5$ 个观测，生成速度假设，通过 bearing 向量的角度残差 $\bar{\theta}_i$ 判断内点（阈值 5°），当内点比例超过 0.9 时提前终止。最终用所有内点重新估计速度。

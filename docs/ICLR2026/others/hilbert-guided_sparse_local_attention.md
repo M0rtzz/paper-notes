@@ -25,15 +25,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Vision Transformer的全局自注意力 $O(N^2)$ 限制了高分辨率图像处理。局部注意力（如Swin的窗口注意力、NAT的邻域注意力）将复杂度降低，是主流方案。
+**领域现状**：Vision Transformer的全局自注意力 $O(N^2)$ 限制了高分辨率图像处理。局部注意力（如Swin的窗口注意力、NAT的邻域注意力）将复杂度降低，是主流方案。
 
-2. **现有痛点**：局部注意力在理论上减少了计算，但实际GPU效率取决于底层kernel实现。传统行优先(row-major)序列排列使得2D窗口内的token在1D序列中不连续，导致块稀疏注意力（如FlexAttention）产生大量partial blocks（部分有效块），需额外mask开销，稀疏加速效果有限。
+**现有痛点**：局部注意力在理论上减少了计算，但实际GPU效率取决于底层kernel实现。传统行优先(row-major)序列排列使得2D窗口内的token在1D序列中不连续，导致块稀疏注意力（如FlexAttention）产生大量partial blocks（部分有效块），需额外mask开销，稀疏加速效果有限。
 
-3. **核心矛盾**：块稀疏kernel跳过空块(empty blocks)加速→但行优先序列的窗口注意力空块率低（87.5%）、partial blocks多→加速受限。
+**核心矛盾**：块稀疏kernel跳过空块(empty blocks)加速→但行优先序列的窗口注意力空块率低（87.5%）、partial blocks多→加速受限。
 
-4. **切入角度**：Hilbert曲线具有优秀的局部性保持特性——2D空间邻近的点在1D曲线上也邻近。用Hilbert曲线重排token→窗口内token在1D上连续→空块率大增、partial blocks大减。
+**切入角度**：Hilbert曲线具有优秀的局部性保持特性——2D空间邻近的点在1D曲线上也邻近。用Hilbert曲线重排token→窗口内token在1D上连续→空块率大增、partial blocks大减。
 
-5. **核心idea一句话**：Hilbert重排让2D局部注意力模式在1D序列中更紧凑→更多空块→块稀疏kernel更高效。
+**核心idea一句话**：Hilbert重排让2D局部注意力模式在1D序列中更紧凑→更多空块→块稀疏kernel更高效。
 
 ## 方法详解
 
@@ -43,23 +43,27 @@ tags:
 ### 关键设计
 
 1. **Hilbert窗口注意力 (HWA)**:
-   - 做什么：在Hilbert重排后的1D序列上连续划分窗口
-   - 核心思路：2×2窗口在行优先序列中取token(1,2,5,6)→4个partial blocks；Hilbert序列取(1,2,3,4)→2个full blocks + 2个empty blocks。空块率从0%提升到50%。
-   - 设计动机：连续窗口→更多空块→FlexAttention跳过更多计算
+
+    - 做什么：在Hilbert重排后的1D序列上连续划分窗口
+    - 核心思路：2×2窗口在行优先序列中取token(1,2,5,6)→4个partial blocks；Hilbert序列取(1,2,3,4)→2个full blocks + 2个empty blocks。空块率从0%提升到50%。
+    - 设计动机：连续窗口→更多空块→FlexAttention跳过更多计算
 
 2. **Hilbert滑动/邻域注意力 (HSA/HNA)**:
-   - 做什么：在Hilbert序列上做滑动窗口或邻域注意力
-   - 核心思路：Hilbert保持空间邻近性→1D上的近邻 $\approx$ 2D上的空间近邻→2D邻域注意力等效为1D邻域注意力
-   - 设计动机：避免了2D邻域注意力的 $N^2$ 中间存储问题
+
+    - 做什么：在Hilbert序列上做滑动窗口或邻域注意力
+    - 核心思路：Hilbert保持空间邻近性→1D上的近邻 $\approx$ 2D上的空间近邻→2D邻域注意力等效为1D邻域注意力
+    - 设计动机：避免了2D邻域注意力的 $N^2$ 中间存储问题
 
 3. **Hilbert Window Transformer (HWT)**:
-   - 做什么：用HWA替换Swin Transformer的WSA
-   - 核心思路：成对使用HWA和Hilbert Shifted Window Attention (HSWA)。窗口位移在1D上做（偏移固定数量token）。使用全局RPB替代窗口RPB（因Hilbert窗口形状不规则）。
-   - 设计动机：FlexAttention的mask_mod和score_mod接口无需修改模型或训练流程
+
+    - 做什么：用HWA替换Swin Transformer的WSA
+    - 核心思路：成对使用HWA和Hilbert Shifted Window Attention (HSWA)。窗口位移在1D上做（偏移固定数量token）。使用全局RPB替代窗口RPB（因Hilbert窗口形状不规则）。
+    - 设计动机：FlexAttention的mask_mod和score_mod接口无需修改模型或训练流程
 
 4. **加速原理分析**:
-   - 总运行时间 $T \approx \frac{\sum_{i=1}^{M}(\alpha + \beta \cdot r_i)}{P_{\text{eff}}}$
-   - 更多空块→更少CTA启动和K/V加载→更短运行时间
+
+    - 总运行时间 $T \approx \frac{\sum_{i=1}^{M}(\alpha + \beta \cdot r_i)}{P_{\text{eff}}}$
+    - 更多空块→更少CTA启动和K/V加载→更短运行时间
 
 ### 损失函数 / 训练策略
 - 标准ImageNet分类训练

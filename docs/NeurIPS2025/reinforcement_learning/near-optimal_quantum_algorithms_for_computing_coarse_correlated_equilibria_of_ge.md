@@ -25,14 +25,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：二人零和博弈的量子算法已有深入研究，实现了 $\sqrt{n}$ 的量子加速（$\tilde{O}(\sqrt{n}/\varepsilon^{2.5})$）。多玩家一般和博弈的**经典**均衡计算也有成熟结果。但多玩家博弈的**量子**均衡计算完全空白
-2. **现有痛点**：
+**领域现状**：二人零和博弈的量子算法已有深入研究，实现了 $\sqrt{n}$ 的量子加速（$\tilde{O}(\sqrt{n}/\varepsilon^{2.5})$）。多玩家一般和博弈的**经典**均衡计算也有成熟结果。但多玩家博弈的**量子**均衡计算完全空白
+**现有痛点**：
    - Nash 均衡是 PPAD-hard，通常转向更一般的 CE/CCE
    - 经典最优 CE 查询：$\tilde{O}(mn(\log mn)^{O(1/\varepsilon)})$（Peng-Rubinstein '23），经典 CCE：$\tilde{O}(mn/\varepsilon^2)$
    - 多玩家设定中联合动作空间 $n^m$ 使朴素量子化面临指数级 QRAM 开销问题
-3. **核心矛盾**：量子化多尺度 MWU 需要对损失向量做幅度编码（amplitude encoding），标准方法需要 $\Omega(n^m)$ 大小的 QRAM 存词频——指数爆炸
-4. **切入角度**：设计统一 QRAM 存历史动作样本（而非词频），从单个 QRAM 构造所有 MWU 子程序所需的幅度编码
-5. **核心 idea**：CE 用量子 Gibbs 采样器加速多尺度 MWU 的指数更新步；CCE 用 ghost iteration 技术扩展零和博弈量子算法到多玩家；统一 QRAM 避免指数开销
+**核心矛盾**：量子化多尺度 MWU 需要对损失向量做幅度编码（amplitude encoding），标准方法需要 $\Omega(n^m)$ 大小的 QRAM 存词频——指数爆炸
+**切入角度**：设计统一 QRAM 存历史动作样本（而非词频），从单个 QRAM 构造所有 MWU 子程序所需的幅度编码
+**核心 idea**：CE 用量子 Gibbs 采样器加速多尺度 MWU 的指数更新步；CCE 用 ghost iteration 技术扩展零和博弈量子算法到多玩家；统一 QRAM 避免指数开销
 
 ## 方法详解
 
@@ -42,24 +42,28 @@ tags:
 ### 关键设计
 
 1. **CE 的量子多尺度 MWU**：
-   - 做什么：计算 ε-相关均衡
-   - 核心思路：经典多尺度 MWU 每轮需 $\Omega(n)$ 次查询计算损失向量，然后做指数更新。量子化通过两步加速：(i) 从 QRAM 构造损失向量的幅度编码，(ii) 用量子 Gibbs 采样器从指数分布中采样——总查询 $\tilde{O}(m\sqrt{n}(\log mn)^{O(1/\varepsilon)})$
-   - 设计动机：$O(1/\varepsilon)$ 个 MWU 实例并行运行，标准方法需要 $O(1/\varepsilon)$ 个独立 QRAM
+
+    - 做什么：计算 ε-相关均衡
+    - 核心思路：经典多尺度 MWU 每轮需 $\Omega(n)$ 次查询计算损失向量，然后做指数更新。量子化通过两步加速：(i) 从 QRAM 构造损失向量的幅度编码，(ii) 用量子 Gibbs 采样器从指数分布中采样——总查询 $\tilde{O}(m\sqrt{n}(\log mn)^{O(1/\varepsilon)})$
+    - 设计动机：$O(1/\varepsilon)$ 个 MWU 实例并行运行，标准方法需要 $O(1/\varepsilon)$ 个独立 QRAM
 
 2. **CCE 的量子化 Grigoriadis-Khachiyan 框架**：
-   - 做什么：计算 ε-粗相关均衡
-   - 核心思路：特别选择 GK 算法（而非更快的 MWU 变体），因为 GK 的 regret 界与玩家数 m **无关**——这是实现查询对 m 线性的关键。用 ghost iteration 证明多玩家收敛
-   - 设计动机：乐观/审慎 MWU 虽有更好的 $\varepsilon$ 依赖，但 regret 对 m 多项式增长，导致总查询超线性于 m
+
+    - 做什么：计算 ε-粗相关均衡
+    - 核心思路：特别选择 GK 算法（而非更快的 MWU 变体），因为 GK 的 regret 界与玩家数 m **无关**——这是实现查询对 m 线性的关键。用 ghost iteration 证明多玩家收敛
+    - 设计动机：乐观/审慎 MWU 虽有更好的 $\varepsilon$ 依赖，但 regret 对 m 多项式增长，导致总查询超线性于 m
 
 3. **统一 QRAM 方案**：
-   - 做什么：用单一 QRAM 存所有历史动作样本，避免指数级存储开销
-   - 核心思路：不存频率向量（需 $n^m$ 空间），而存原始样本序列。每个 MWU 子程序通过对样本的不同子集做叠加来构造所需的幅度编码。门级分析证明 QRAM 仅需 $m \log n \cdot (\log mn)^{O(1/\varepsilon)}$ 门
-   - 设计动机：这是从指数开销到多项式开销的关键技术创新
+
+    - 做什么：用单一 QRAM 存所有历史动作样本，避免指数级存储开销
+    - 核心思路：不存频率向量（需 $n^m$ 空间），而存原始样本序列。每个 MWU 子程序通过对样本的不同子集做叠加来构造所需的幅度编码。门级分析证明 QRAM 仅需 $m \log n \cdot (\log mn)^{O(1/\varepsilon)}$ 门
+    - 设计动机：这是从指数开销到多项式开销的关键技术创新
 
 4. **量子下界**：
-   - 做什么：证明 CE/CCE 计算的量子查询下界 $\Omega(m\sqrt{n})$
-   - 核心思路：将 m 个独立的无结构搜索问题归约到 m 玩家博弈的 CE/CCE 计算。组合无结构搜索下界 $\Omega(\sqrt{n})$ 与 direct product theorem 得到 $\Omega(m\sqrt{n})$
-   - 设计动机：与上界匹配（在 m 和 n 上），证明算法近最优
+
+    - 做什么：证明 CE/CCE 计算的量子查询下界 $\Omega(m\sqrt{n})$
+    - 核心思路：将 m 个独立的无结构搜索问题归约到 m 玩家博弈的 CE/CCE 计算。组合无结构搜索下界 $\Omega(\sqrt{n})$ 与 direct product theorem 得到 $\Omega(m\sqrt{n})$
+    - 设计动机：与上界匹配（在 m 和 n 上），证明算法近最优
 
 ### 损失函数 / 训练策略
 纯理论工作，通过查询复杂度框架分析，无机器学习训练过程。

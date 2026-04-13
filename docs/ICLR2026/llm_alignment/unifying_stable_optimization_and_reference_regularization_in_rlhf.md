@@ -26,13 +26,13 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：在线RLHF（PPO/RLOO/GRPO）通过RL优化LLM策略。两个核心难题：reward hacking(策略过度优化代理奖励)和训练不稳定(策略剧烈偏移导致崩溃)。
-2. **现有痛点**：
+**领域现状**：在线RLHF（PPO/RLOO/GRPO）通过RL优化LLM策略。两个核心难题：reward hacking(策略过度优化代理奖励)和训练不稳定(策略剧烈偏移导致崩溃)。
+**现有痛点**：
    - 防reward hacking用KL(π_θ||π_0)约束到初始模型
    - 防训练不稳定用clip/KL(π_t||π_θ)约束到当前策略
    - **关键发现**：这两个约束逐步冲突——策略必须同时接近π_0和π_t，但随着训练推进π_t远离π_0，两者交集缩小，高奖励策略被排除在外
-3. **核心矛盾**：稳定性约束和参考正则化的冲突导致优化空间过度受限
-4. **核心idea一句话**：用对数空间插值的动态参考策略 $\pi_0^\alpha \cdot \pi_t^{1-\alpha}$ 统一两个约束 + 回归变换消除策略比率不稳定
+**核心矛盾**：稳定性约束和参考正则化的冲突导致优化空间过度受限
+**核心idea一句话**：用对数空间插值的动态参考策略 $\pi_0^\alpha \cdot \pi_t^{1-\alpha}$ 统一两个约束 + 回归变换消除策略比率不稳定
 
 ## 方法详解
 
@@ -42,19 +42,21 @@ tags:
 ### 关键设计
 
 1. **双KL对齐目标**:
-   - 做什么：统一防reward hacking和训练稳定性约束
-   - 核心思路(Proposition 4.1)：$\alpha \text{KL}[\pi_\theta||\pi_0] + (1-\alpha)\text{KL}[\pi_\theta||\pi_t]$ 等价于 $\text{KL}[\pi_\theta || \frac{1}{C}\pi_0^\alpha \pi_t^{1-\alpha}]$
-   - 效果：随着π_t演化，插值参考自动跟踪高奖励区域，提供更好的支持覆盖
-   - α控制trade-off：α→1偏保守(接近初始模型)，α→0偏探索(接近当前策略)
+
+    - 做什么：统一防reward hacking和训练稳定性约束
+    - 核心思路(Proposition 4.1)：$\alpha \text{KL}[\pi_\theta||\pi_0] + (1-\alpha)\text{KL}[\pi_\theta||\pi_t]$ 等价于 $\text{KL}[\pi_\theta || \frac{1}{C}\pi_0^\alpha \pi_t^{1-\alpha}]$
+    - 效果：随着π_t演化，插值参考自动跟踪高奖励区域，提供更好的支持覆盖
+    - α控制trade-off：α→1偏保守(接近初始模型)，α→0偏探索(接近当前策略)
 
 2. **回归变换(Advantage Regression)**:
-   - 做什么：将RL目标转化为加权SFT损失
-   - 闭式最优策略(Theorem 4.2)：$\pi^* \propto \pi_0^\alpha \pi_t^{1-\alpha} \exp(\frac{1}{\beta}A)$
-   - 实际损失：$\mathbb{E}[(w_{\text{reg}} \cdot w_{\text{adv}}) \cdot \log\pi_\theta(y|x)]$
-     - $w_{\text{reg}} = (\pi_0/\pi_t)^\alpha$：正则化权重，惩罚偏离参考的回答
-     - $w_{\text{adv}} = \exp(\frac{1}{\beta}A)$：优势权重，奖励好回答
-   - 设计动机：避免PPO中策略比率的不稳定性，回归损失更平滑稳定
-   - 权重裁剪：$\min(w_{\text{reg}} \cdot w_{\text{adv}}, w_{\text{clip}})$ 防止梯度爆炸
+
+    - 做什么：将RL目标转化为加权SFT损失
+    - 闭式最优策略(Theorem 4.2)：$\pi^* \propto \pi_0^\alpha \pi_t^{1-\alpha} \exp(\frac{1}{\beta}A)$
+    - 实际损失：$\mathbb{E}[(w_{\text{reg}} \cdot w_{\text{adv}}) \cdot \log\pi_\theta(y|x)]$
+      - $w_{\text{reg}} = (\pi_0/\pi_t)^\alpha$：正则化权重，惩罚偏离参考的回答
+      - $w_{\text{adv}} = \exp(\frac{1}{\beta}A)$：优势权重，奖励好回答
+    - 设计动机：避免PPO中策略比率的不稳定性，回归损失更平滑稳定
+    - 权重裁剪：$\min(w_{\text{reg}} \cdot w_{\text{adv}}, w_{\text{clip}})$ 防止梯度爆炸
 
 ### 损失函数 / 训练策略
 - Monte Carlo采样估计优势（避免单独的价值模型）

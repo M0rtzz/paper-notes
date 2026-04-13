@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：自回归 next-token 预测结合 Transformer decoder 已成为 LLM 的事实标准，在 NLP 中取得巨大成功。将该范式扩展到音频一直是研究热点。
+**领域现状**：自回归 next-token 预测结合 Transformer decoder 已成为 LLM 的事实标准，在 NLP 中取得巨大成功。将该范式扩展到音频一直是研究热点。
 
-2. **现有痛点**：音频天然是连续信号，将其扩展到自回归 LM 面临独特挑战。现有方法（如 AudioGen）依赖离散化（通过 VQ-VAE 等方式将音频量化为离散 token），但量化过程不可避免地造成信息损失，限制了生成质量。
+**现有痛点**：音频天然是连续信号，将其扩展到自回归 LM 面临独特挑战。现有方法（如 AudioGen）依赖离散化（通过 VQ-VAE 等方式将音频量化为离散 token），但量化过程不可避免地造成信息损失，限制了生成质量。
 
-3. **核心矛盾**：离散 token 方便用标准 LM 建模（交叉熵损失），但会丢失音频的细微细节；直接建模连续值 token 的概率分布则面临分布复杂、训练困难等问题。
+**核心矛盾**：离散 token 方便用标准 LM 建模（交叉熵损失），但会丢失音频的细微细节；直接建模连续值 token 的概率分布则面临分布复杂、训练困难等问题。
 
-4. **本文要解决什么**：探索无需离散 token 的音频生成因果语言模型，并提出新的训练任务来提升性能。
+**本文要解决什么**：探索无需离散 token 的音频生成因果语言模型，并提出新的训练任务来提升性能。
 
-5. **切入角度**：用 token-wise diffusion 来建模 next continuous-valued token 的分布，同时创新性地将 masked prediction 引入因果 LM 框架。
+**切入角度**：用 token-wise diffusion 来建模 next continuous-valued token 的分布，同时创新性地将 masked prediction 引入因果 LM 框架。
 
-6. **核心 idea 一句话**：在因果 LM 中用 token-wise 扩散建模连续 token 分布 + masked next-token prediction 双管齐下，实现高效的连续音频生成。
+**核心 idea 一句话**：在因果 LM 中用 token-wise 扩散建模连续 token 分布 + masked next-token prediction 双管齐下，实现高效的连续音频生成。
 
 ## 方法详解
 
@@ -50,20 +50,23 @@ tags:
 ### 关键设计
 
 1. **Token-wise Diffusion for Continuous Tokens**:
-   - 不同于传统 LM 在离散 token 上用 softmax+交叉熵，本文在每个自回归步用一个小型扩散模型来建模 next continuous-valued token 的分布 $p(x_{t+1} | x_{\leq t})$
-   - Transformer decoder 提供条件上下文，扩散模型在此条件下去噪生成 next token
-   - **设计动机**：连续 token 空间的分布可以是多模态的、复杂的，扩散模型是建模此类分布的理想选择
+
+    - 不同于传统 LM 在离散 token 上用 softmax+交叉熵，本文在每个自回归步用一个小型扩散模型来建模 next continuous-valued token 的分布 $p(x_{t+1} | x_{\leq t})$
+    - Transformer decoder 提供条件上下文，扩散模型在此条件下去噪生成 next token
+    - **设计动机**：连续 token 空间的分布可以是多模态的、复杂的，扩散模型是建模此类分布的理想选择
 
 2. **Masked Next-Token Prediction (MNTP)**:
-   - 创新性地将 masked prediction 融入因果 LM 框架
-   - 在训练时，随机 mask 部分 token 但仍保持因果结构（只能看到之前的 unmasked tokens）
-   - 模型需要预测被 mask 的 token，相当于在因果框架中加入了 bidirectional 的信息
-   - **设计动机**：标准 next-token prediction 只利用前文，MNTP 迫使模型利用更长距离的依赖关系，类似 BERT 式训练在因果设置下的适配
+
+    - 创新性地将 masked prediction 融入因果 LM 框架
+    - 在训练时，随机 mask 部分 token 但仍保持因果结构（只能看到之前的 unmasked tokens）
+    - 模型需要预测被 mask 的 token，相当于在因果框架中加入了 bidirectional 的信息
+    - **设计动机**：标准 next-token prediction 只利用前文，MNTP 迫使模型利用更长距离的依赖关系，类似 BERT 式训练在因果设置下的适配
 
 3. **轻量参数设计**:
-   - Base 模型仅 193M 参数，Large 模型 462M 参数
-   - 远小于 AudioGen Base (285M) 和 Large (1B)
-   - **设计动机**：证明连续 token 方法的参数效率优势
+
+    - Base 模型仅 193M 参数，Large 模型 462M 参数
+    - 远小于 AudioGen Base (285M) 和 Large (1B)
+    - **设计动机**：证明连续 token 方法的参数效率优势
 
 ### 损失函数 / 训练策略
 

@@ -30,10 +30,10 @@ tags:
 ### 问题定义
 
 Subpopulation shift 指训练集和测试集在子群分布上存在差异，是分布偏移的常见形式。Yang et al. (2023) 将其分为四类：
-1. **虚假相关 (Spurious Correlations)**：非因果特征误导预测（如背景水域→水鸟）
-2. **属性不平衡 (Attribute Imbalance)**：某些属性值出现频率远高于其他
-3. **类别不平衡 (Class Imbalance)**：部分标签严重欠表示
-4. **属性泛化 (Attribute Generalization)**：测试时出现训练中未见的属性值
+**虚假相关 (Spurious Correlations)**：非因果特征误导预测（如背景水域→水鸟）
+**属性不平衡 (Attribute Imbalance)**：某些属性值出现频率远高于其他
+**类别不平衡 (Class Imbalance)**：部分标签严重欠表示
+**属性泛化 (Attribute Generalization)**：测试时出现训练中未见的属性值
 
 ### 现有方法的不足
 

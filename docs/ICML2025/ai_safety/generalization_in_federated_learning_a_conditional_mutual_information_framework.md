@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 联邦学习（FL）的泛化分析有两个层次：
-1. **样本外差距（Out-of-sample Gap, OG）**：参与客户端的训练数据→测试数据的泛化
-2. **参与差距（Participation Gap, PG）**：参与客户端→未见过的非参与客户端的泛化
+**样本外差距（Out-of-sample Gap, OG）**：参与客户端的训练数据→测试数据的泛化
+**参与差距（Participation Gap, PG）**：参与客户端→未见过的非参与客户端的泛化
 
 已有工作的局限：
 - **互信息（MI）界** [Yagli et al., 2020; Barnes et al., 2022]：可能无界，即使真实泛化误差很小（Bassily et al., 2018 的经典反例）

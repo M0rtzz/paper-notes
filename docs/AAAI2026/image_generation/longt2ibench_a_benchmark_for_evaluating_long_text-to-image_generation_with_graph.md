@@ -29,9 +29,9 @@ tags:
 
 随着文本到图像生成模型在艺术创作和广告设计中的广泛应用，用户对**长文本 T2I 生成**能力的需求显著增加。然而，现有的 T2I 对齐评估基准面临严重局限：
 
-1. **短文本偏向**：现有基准（如 Pick-a-pic、HPDv2、TIFA）主要聚焦短 prompt 场景
-2. **标注粗粒度**：仅提供 MOS（Mean Opinion Score）或 Likert 量表标注，缺乏可解释性
-3. **长文本特有挑战**：
+**短文本偏向**：现有基准（如 Pick-a-pic、HPDv2、TIFA）主要聚焦短 prompt 场景
+**标注粗粒度**：仅提供 MOS（Mean Opinion Score）或 Likert 量表标注，缺乏可解释性
+**长文本特有挑战**：
    - **细节过载（Detail Overload）**：标注员难以对长文本直接给出整体对齐分数
    - **对齐复杂性（Alignment Complexity）**：元素级标注不足以捕捉长文本中的复杂对齐关系（如远距离元素间的链接）
 

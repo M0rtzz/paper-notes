@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：点云理解在自动驾驶、机器人等领域应用广泛，但模型通常在单一数据集上训练和测试。当面对分布不同的新数据时（如从合成数据 ModelNet40 到真实扫描 ScanObjectNN），性能会显著下降。
-2. **现有痛点**：
+**领域现状**：点云理解在自动驾驶、机器人等领域应用广泛，但模型通常在单一数据集上训练和测试。当面对分布不同的新数据时（如从合成数据 ModelNet40 到真实扫描 ScanObjectNN），性能会显著下降。
+**现有痛点**：
    - **领域泛化 (DG) 方法**通常只针对单一任务设计（如分类），缺乏多任务处理能力，且忽略了测试数据本身的利用价值
    - **上下文学习 (ICL) 方法**（如 PIC）可以做多任务，但局限于单一数据集，跨域泛化能力差
    - 两类方法都无法同时解决"多域"和"多任务"问题
-3. **核心矛盾**：统一模型需要兼顾任务泛化（多任务）和域泛化（多域），而现有方法只能二选一。
-4. **本文要解决什么？** 在一个统一模型中处理多个领域和多个任务的点云理解，并在测试时不更新模型参数即可泛化到未知域。
-5. **切入角度**：将 PIC 的多任务 ICL 与测试时领域泛化结合——预训练阶段用 PIC 学习跨域泛化信息，测试时通过特征平移将目标域拉向源域。
-6. **核心idea一句话**：双层次源域原型 + 双层次测试时特征平移，无需模型更新即可将未知域测试数据对齐到已知源域。
+**核心矛盾**：统一模型需要兼顾任务泛化（多任务）和域泛化（多域），而现有方法只能二选一。
+**本文要解决什么？** 在一个统一模型中处理多个领域和多个任务的点云理解，并在测试时不更新模型参数即可泛化到未知域。
+**切入角度**：将 PIC 的多任务 ICL 与测试时领域泛化结合——预训练阶段用 PIC 学习跨域泛化信息，测试时通过特征平移将目标域拉向源域。
+**核心idea一句话**：双层次源域原型 + 双层次测试时特征平移，无需模型更新即可将未知域测试数据对齐到已知源域。
 
 ## 方法详解
 
@@ -46,32 +46,36 @@ DG-PIC 分为两个阶段：(1) 预训练阶段——基于 Masked Point Modelin
 ### 关键设计
 
 1. **多域 Prompt 配对 (Multi-domain Prompt Pairing)**:
-   - **做什么**：在预训练时从不同源域随机选取样本作为 prompt，增强跨域关联。
-   - **核心思路**：设 query 来自域 $D_s^i$，prompt 来自域 $D_s^j (j \neq i)$，预测的 masked patch 为：
-     $$P \sim (D_s^i, D_s^j) = Trans([F_\theta(I_i) \oplus F_\theta(T_i^k) \oplus F_\theta(I_j) \oplus F_\theta(T_j^k)], Mask)$$
-     训练损失使用 Chamfer Distance：$\text{CD}(P,G) = \frac{1}{|P|}\sum_{x \in P}\min_{y \in G}\|x-y\|^2 + \frac{1}{|G|}\sum_{y \in G}\min_{x \in P}\|y-x\|^2$
-   - **设计动机**：跨域配对迫使模型学习域不变的特征表示。
+
+    - **做什么**：在预训练时从不同源域随机选取样本作为 prompt，增强跨域关联。
+    - **核心思路**：设 query 来自域 $D_s^i$，prompt 来自域 $D_s^j (j \neq i)$，预测的 masked patch 为：
+    $P \sim (D_s^i, D_s^j) = Trans([F_\theta(I_i) \oplus F_\theta(T_i^k) \oplus F_\theta(I_j) \oplus F_\theta(T_j^k)], Mask)$
+      训练损失使用 Chamfer Distance：$\text{CD}(P,G) = \frac{1}{|P|}\sum_{x \in P}\min_{y \in G}\|x-y\|^2 + \frac{1}{|G|}\sum_{y \in G}\min_{x \in P}\|y-x\|^2$
+    - **设计动机**：跨域配对迫使模型学习域不变的特征表示。
 
 2. **双层次源域原型估计 (Dual-level Source Prototype Estimation)**:
-   - **做什么**：为每个源域计算全局和局部两个层次的原型，作为测试时特征对齐的锚点。
-   - **核心思路**：
-     - **局部原型** $Z_{local}^{i,m}$：对域 $D_s^i$ 中所有样本的 patch 级特征取平均：$Z_{local}^{i,m} = \frac{1}{N_{D_s^i}} \sum_{n=1}^{N_{D_s^i}} F_\theta(P_m)$
-     - **全局原型** $Z_{global}^i$：对所有 patch 特征做 max pooling 后取平均：$Z_{global}^i = \frac{1}{N_{D_s^i}} \sum_{n=1}^{N_{D_s^i}} max(F_\theta(P_m))$
-     - 计算测试样本到每个源域原型的欧氏距离：$\mathcal{E}_{global}^i = \|F_{global} - Z_{global}^i\|$，$\mathcal{E}_{local}^{i,m} = \|F_{local}^m - Z_{local}^{i,m}\|$
-   - **设计动机**：全局特征捕获形状上下文，局部特征捕获几何结构细节，双层次才能全面表示源域。
+
+    - **做什么**：为每个源域计算全局和局部两个层次的原型，作为测试时特征对齐的锚点。
+    - **核心思路**：
+      - **局部原型** $Z_{local}^{i,m}$：对域 $D_s^i$ 中所有样本的 patch 级特征取平均：$Z_{local}^{i,m} = \frac{1}{N_{D_s^i}} \sum_{n=1}^{N_{D_s^i}} F_\theta(P_m)$
+      - **全局原型** $Z_{global}^i$：对所有 patch 特征做 max pooling 后取平均：$Z_{global}^i = \frac{1}{N_{D_s^i}} \sum_{n=1}^{N_{D_s^i}} max(F_\theta(P_m))$
+      - 计算测试样本到每个源域原型的欧氏距离：$\mathcal{E}_{global}^i = \|F_{global} - Z_{global}^i\|$，$\mathcal{E}_{local}^{i,m} = \|F_{local}^m - Z_{local}^{i,m}\|$
+    - **设计动机**：全局特征捕获形状上下文，局部特征捕获几何结构细节，双层次才能全面表示源域。
 
 3. **双层次测试时特征平移 (Dual-level Test-time Feature Shifting)**:
-   - **做什么**：在测试时将目标域特征向源域方向平移，无需更新模型参数。
-   - **核心思路**：
-     - **宏观语义系数 $\alpha$**：从全局距离导出，控制各源域对特征平移的贡献度：$\alpha = softmax(\mathcal{E}_{global})$
-     - **微观位置系数 $\beta^i$**：从局部距离导出，考虑 patch 位置对齐关系：$\beta^i = softmax(\mathcal{E}_{local}^i)$
-     - 最终特征平移公式：
-     $$F'_{local} = \frac{1}{R}\sum_{i=1}^{R}\alpha_i\left(\frac{1}{M}\sum_{m=1}^{M}\beta^{i,m}F_{local}^m\right) + \frac{1}{R}\sum_{i=1}^{R}(1-\alpha_i)\left(\frac{1}{M}\sum_{m=1}^{M}(1-\beta^{i,m})Z_{local}^{i,m}\right)$$
-   - **设计动机**：$\alpha$ 利用跨域语义相似性调节整体平移强度，$\beta$ 利用同位置 patch 的几何相似性进行精细对齐。同位置的 patch 即使跨域也应具有相似的几何结构（如桌子外围是边缘、内部是平面）。
+
+    - **做什么**：在测试时将目标域特征向源域方向平移，无需更新模型参数。
+    - **核心思路**：
+      - **宏观语义系数 $\alpha$**：从全局距离导出，控制各源域对特征平移的贡献度：$\alpha = softmax(\mathcal{E}_{global})$
+      - **微观位置系数 $\beta^i$**：从局部距离导出，考虑 patch 位置对齐关系：$\beta^i = softmax(\mathcal{E}_{local}^i)$
+      - 最终特征平移公式：
+    $F'_{local} = \frac{1}{R}\sum_{i=1}^{R}\alpha_i\left(\frac{1}{M}\sum_{m=1}^{M}\beta^{i,m}F_{local}^m\right) + \frac{1}{R}\sum_{i=1}^{R}(1-\alpha_i)\left(\frac{1}{M}\sum_{m=1}^{M}(1-\beta^{i,m})Z_{local}^{i,m}\right)$
+    - **设计动机**：$\alpha$ 利用跨域语义相似性调节整体平移强度，$\beta$ 利用同位置 patch 的几何相似性进行精细对齐。同位置的 patch 即使跨域也应具有相似的几何结构（如桌子外围是边缘、内部是平面）。
 
 4. **测试时 Prompt 选择**:
-   - **做什么**：从最近源域中选择最相似样本作为 prompt。
-   - **核心思路**：综合全局和局部距离确定最近源域：$\mathcal{E}^i = \lambda \cdot \mathcal{E}_{global}^i + (1-\lambda) \cdot \frac{1}{M}\sum_{m=1}^{M}\mathcal{E}_{local}^{i,m}$（$\lambda=0.5$），在该域中找特征距离最小的样本作为 prompt。
+
+    - **做什么**：从最近源域中选择最相似样本作为 prompt。
+    - **核心思路**：综合全局和局部距离确定最近源域：$\mathcal{E}^i = \lambda \cdot \mathcal{E}_{global}^i + (1-\lambda) \cdot \frac{1}{M}\sum_{m=1}^{M}\mathcal{E}_{local}^{i,m}$（$\lambda=0.5$），在该域中找特征距离最小的样本作为 prompt。
 
 ### 损失函数 / 训练策略
 

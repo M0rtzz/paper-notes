@@ -29,10 +29,10 @@ tags:
 
 图文对齐度量 $d(x,y)$ 是多模态学习的核心问题，广泛用于评估VLM/T2I模型和通过RLHF改进对齐。然而现有方法面临关键瓶颈：
 
-1. **人类偏好数据昂贵且难以规模化**：ImageReward、HPSv2、PickScore等依赖大规模人类标注
-2. **AI反馈（如GPT-4V）成本高且受限**：闭源、限速、长期可用性不保证
-3. **现有指标对长文本描述评估不足**：大多数偏好数据集文本较短（~20-35 tokens），无法评估详细描述
-4. **直接计算循环一致性虽可行但低效且不可微**：需要运行完整的T2I/I2T模型
+**人类偏好数据昂贵且难以规模化**：ImageReward、HPSv2、PickScore等依赖大规模人类标注
+**AI反馈（如GPT-4V）成本高且受限**：闭源、限速、长期可用性不保证
+**现有指标对长文本描述评估不足**：大多数偏好数据集文本较短（~20-35 tokens），无法评估详细描述
+**直接计算循环一致性虽可行但低效且不可微**：需要运行完整的T2I/I2T模型
 
 核心洞察：**将文本映回图像空间后比较重建图像和原始图像**比直接比较文本和图像容易得多。更准确的描述会产生更接近原图的重建结果。
 
@@ -49,23 +49,26 @@ tags:
 ### 关键设计
 
 1. **CyclePrefDB偏好数据集构建**:
-   - 使用DCI数据集（7.6K高分辨率图像+密集描述）作为输入
-   - **图到文**：11个I2T模型（BLIP2到InternVL2-40B）对每张图生成多个候选描述，固定SD3为反向映射计算 $s(x \to y)$。刻意包含旧模型产生的短/幻觉描述作为负例
-   - **文到图**：4个T2I模型（SD1.5到FLUX）各用3个随机种子生成图像，固定LLaVA-1.5-13B为反向映射计算 $s(y \to x)$
-   - 文本限制在77 tokens内（T2I模型提示长度限制）
-   - 最终产生866K偏好对（398K I2T + 468K T2I）
+
+    - 使用DCI数据集（7.6K高分辨率图像+密集描述）作为输入
+    - **图到文**：11个I2T模型（BLIP2到InternVL2-40B）对每张图生成多个候选描述，固定SD3为反向映射计算 $s(x \to y)$。刻意包含旧模型产生的短/幻觉描述作为负例
+    - **文到图**：4个T2I模型（SD1.5到FLUX）各用3个随机种子生成图像，固定LLaVA-1.5-13B为反向映射计算 $s(y \to x)$
+    - 文本限制在77 tokens内（T2I模型提示长度限制）
+    - 最终产生866K偏好对（398K I2T + 468K T2I）
 
 2. **CycleReward奖励模型训练**:
-   - 骨干：BLIP（ViT-L/16编码器 + BERTbase文本编码器 + 5层MLP），共477M参数
-   - 三种变体：CycleReward-I2T / T2I / Combo（联合训练）
-   - I2T损失：$\mathcal{L}_{\text{img}} = -\mathbb{E}[\log \sigma(r_\theta(x,y_i) - r_\theta(x,y_j))]$
-   - T2I损失：$\mathcal{L}_{\text{text}} = -\mathbb{E}[\log \sigma(r_\theta(x_i,y) - r_\theta(x_j,y))]$
-   - Combo联合损失：$\mathcal{L} = \mathcal{L}_{\text{text}} + \lambda \mathcal{L}_{\text{img}}$（$\lambda=1$）
+
+    - 骨干：BLIP（ViT-L/16编码器 + BERTbase文本编码器 + 5层MLP），共477M参数
+    - 三种变体：CycleReward-I2T / T2I / Combo（联合训练）
+    - I2T损失：$\mathcal{L}_{\text{img}} = -\mathbb{E}[\log \sigma(r_\theta(x,y_i) - r_\theta(x,y_j))]$
+    - T2I损失：$\mathcal{L}_{\text{text}} = -\mathbb{E}[\log \sigma(r_\theta(x_i,y) - r_\theta(x_j,y))]$
+    - Combo联合损失：$\mathcal{L} = \mathcal{L}_{\text{text}} + \lambda \mathcal{L}_{\text{img}}$（$\lambda=1$）
 
 3. **DPO应用**:
-   - I2T方向：对Qwen-VL-Chat使用CyclePrefDB-I2T进行DPO微调
-   - T2I方向：对Stable Diffusion 1.5使用CyclePrefDB-T2I进行Diffusion DPO
-   - 无需人类标注即可提升多种下游任务
+
+    - I2T方向：对Qwen-VL-Chat使用CyclePrefDB-I2T进行DPO微调
+    - T2I方向：对Stable Diffusion 1.5使用CyclePrefDB-T2I进行Diffusion DPO
+    - 无需人类标注即可提升多种下游任务
 
 ### 损失函数 / 训练策略
 

@@ -25,12 +25,12 @@ tags:
 首次定义开放集全景场景图生成（OpenPSG）任务，利用 BLIP-2 作为多模态关系解码器，结合关系查询 Transformer（RelQ-Former）实现开放集关系预测，在 PSG 数据集 PredCls R@100 达到 79.3%，闭集场景超越先前 SOTA 26.6%。
 
 ## 研究背景与动机
-1. **领域现状**：全景场景图生成（PSG）旨在分割图像中的物体并识别它们之间的关系，构建结构化的场景理解。已有方法（PSGTR、HiLo、PairNet）在闭集设定下取得进展，但都只能预测预定义的关系类别。
-2. **现有痛点**：大模型时代下，开放集物体检测和分割已有大量工作（OpenSeeD、Grounding DINO），但开放集关系预测尚未被探索。关系预测比物体检测更复杂——模型需要同时理解不同物体并根据交互推理关系，且物体对数量呈 $N(N-1)$ 增长。
-3. **核心矛盾**：已有开放集 SGG 方法（如 Cacao+Epic、OvSGTR）使用 CLIP 特征匹配或知识蒸馏来处理新关系，但这些方法要么受限于固定的关系嵌入空间，要么无法真正生成新颖的关系描述。
-4. **本文要解决什么**：实现真正的开放集全景场景图生成，即物体类别和关系类别都可以超越预定义集合。
-5. **切入角度**：利用 LMM（大规模多模态模型）的自回归文本生成能力来预测关系——LMM 既擅长理解名词（物体）也擅长谓词（关系），用自然语言生成关系描述天然支持开放集。
-6. **核心idea一句话**：用 RelQ-Former 高效提取物体对视觉特征并过滤无关对，再用 BLIP-2 自回归解码生成/判断开放集关系。
+**领域现状**：全景场景图生成（PSG）旨在分割图像中的物体并识别它们之间的关系，构建结构化的场景理解。已有方法（PSGTR、HiLo、PairNet）在闭集设定下取得进展，但都只能预测预定义的关系类别。
+**现有痛点**：大模型时代下，开放集物体检测和分割已有大量工作（OpenSeeD、Grounding DINO），但开放集关系预测尚未被探索。关系预测比物体检测更复杂——模型需要同时理解不同物体并根据交互推理关系，且物体对数量呈 $N(N-1)$ 增长。
+**核心矛盾**：已有开放集 SGG 方法（如 Cacao+Epic、OvSGTR）使用 CLIP 特征匹配或知识蒸馏来处理新关系，但这些方法要么受限于固定的关系嵌入空间，要么无法真正生成新颖的关系描述。
+**本文要解决什么**：实现真正的开放集全景场景图生成，即物体类别和关系类别都可以超越预定义集合。
+**切入角度**：利用 LMM（大规模多模态模型）的自回归文本生成能力来预测关系——LMM 既擅长理解名词（物体）也擅长谓词（关系），用自然语言生成关系描述天然支持开放集。
+**核心idea一句话**：用 RelQ-Former 高效提取物体对视觉特征并过滤无关对，再用 BLIP-2 自回归解码生成/判断开放集关系。
 
 ## 方法详解
 
@@ -39,26 +39,30 @@ OpenPSG 包含三个组件：(1) Object Segmenter：使用预训练的 OpenSeeD 
 
 ### 关键设计
 1. **Patchify + Pairwise 模块**
-   - 做什么：将像素解码器输出的视觉特征 $F_I \in \mathbb{R}^{h \times w \times D}$ 序列化，并构建物体对
-   - 核心思路：用单个卷积层将 $F_I$ 转换为 patch 序列 $F_{Iseq} \in \mathbb{R}^{L \times D}$；将 N 个物体全排列为 $N(N-1)$ 个主客体对 $P$；对每对中两个物体的掩码做 OR 运算得到对掩码序列 $m_{seq}^{pair} \in \{0,1\}^{N(N-1) \times L}$
-   - 设计动机：为后续的关系查询 Transformer 提供标准化的视觉 token 输入和掩码引导
+
+    - 做什么：将像素解码器输出的视觉特征 $F_I \in \mathbb{R}^{h \times w \times D}$ 序列化，并构建物体对
+    - 核心思路：用单个卷积层将 $F_I$ 转换为 patch 序列 $F_{Iseq} \in \mathbb{R}^{L \times D}$；将 N 个物体全排列为 $N(N-1)$ 个主客体对 $P$；对每对中两个物体的掩码做 OR 运算得到对掩码序列 $m_{seq}^{pair} \in \{0,1\}^{N(N-1) \times L}$
+    - 设计动机：为后续的关系查询 Transformer 提供标准化的视觉 token 输入和掩码引导
 
 2. **Pair Feature Extraction Query（对特征提取查询）**
-   - 做什么：从全图视觉特征中提取关注物体交互区域的对特征
-   - 核心思路：可学习查询 $Q^{feat} \in \mathbb{R}^{E \times D}$ 先与 pair instruction（如"Extracting subject-object (person, skateboard) features"）做自注意力 $F_{SA}^{feat} = \text{Trunc}(\text{SA}(\text{Concat}(Q^{feat}, F_{Inst}^{feat})), E)$，然后用掩码交叉注意力从 $F_{Iseq}$ 中提取对特征 $F_{CA}^{feat} = \text{MaskCA}(F_{SA}^{feat}, F_{Iseq}, m_{seq})$，经 FFN、重复两次得到最终对特征 $F_I^{pair(i,j)} \in \mathbb{R}^{E \times D}$
-   - 设计动机：相比简单的 mask pooling（对所有区域一视同仁），注意力机制可以让特征更聚焦于物体交互区域——消融显示这带来 R@100 +5.2% 的提升
+
+    - 做什么：从全图视觉特征中提取关注物体交互区域的对特征
+    - 核心思路：可学习查询 $Q^{feat} \in \mathbb{R}^{E \times D}$ 先与 pair instruction（如"Extracting subject-object (person, skateboard) features"）做自注意力 $F_{SA}^{feat} = \text{Trunc}(\text{SA}(\text{Concat}(Q^{feat}, F_{Inst}^{feat})), E)$，然后用掩码交叉注意力从 $F_{Iseq}$ 中提取对特征 $F_{CA}^{feat} = \text{MaskCA}(F_{SA}^{feat}, F_{Iseq}, m_{seq})$，经 FFN、重复两次得到最终对特征 $F_I^{pair(i,j)} \in \mathbb{R}^{E \times D}$
+    - 设计动机：相比简单的 mask pooling（对所有区域一视同仁），注意力机制可以让特征更聚焦于物体交互区域——消融显示这带来 R@100 +5.2% 的提升
 
 3. **Relation Existence Estimation Query（关系存在性判断查询）**
-   - 做什么：快速判断物体对之间是否可能存在关系，过滤无关对
-   - 核心思路：单 token 查询 $Q^{exist} \in \mathbb{R}^{1 \times D}$ 经类似流程与指令"Is there a relation between $o_i$ and $o_j$?"交互，输出经 2 层 MLP + sigmoid 得到 [0,1] 分数。阈值 $\theta=0.35$ 过滤
-   - 设计动机：$N(N-1)$ 对中大部分无关系，全部送入 LMM 解码极慢。关系存在性过滤实现 **20× 加速**
+
+    - 做什么：快速判断物体对之间是否可能存在关系，过滤无关对
+    - 核心思路：单 token 查询 $Q^{exist} \in \mathbb{R}^{1 \times D}$ 经类似流程与指令"Is there a relation between $o_i$ and $o_j$?"交互，输出经 2 层 MLP + sigmoid 得到 [0,1] 分数。阈值 $\theta=0.35$ 过滤
+    - 设计动机：$N(N-1)$ 对中大部分无关系，全部送入 LMM 解码极慢。关系存在性过滤实现 **20× 加速**
 
 4. **Generation + Judgement 双指令设计**
-   - 做什么：用两种互补的指令方式实现开放集关系预测
-   - 核心思路：
-     - Generation 指令："What are the relations between $c_i$ and $c_j$?" → 自回归生成所有可能关系，多关系用 [SEP] 分隔：$r_{i,j} = \text{Dec}(\text{Concat}(F_I^{pair(i,j)}, F_{inst}^{gen}))$
-     - Judgement 指令："Please judge between $c_i$ and $c_j$ whether there is a relation $r_k$" → 对每个候选关系判断 Yes/No。利用 KV-cache 缓存 prefix：$F_{prefix}^{(i,j)} = \text{Dec}(\text{Concat}(F_I^{pair(i,j)}, F_{inst}^{judge}))$，然后对每个关系只需处理关系名 token
-   - 设计动机：Generation 擅长发现新关系但偏向高频关系；Judgement 借助 LMM 的判断能力处理低频和罕见关系，且通过 prefix caching 保持与 Generation 相同的推理速度
+
+    - 做什么：用两种互补的指令方式实现开放集关系预测
+    - 核心思路：
+      - Generation 指令："What are the relations between $c_i$ and $c_j$?" → 自回归生成所有可能关系，多关系用 [SEP] 分隔：$r_{i,j} = \text{Dec}(\text{Concat}(F_I^{pair(i,j)}, F_{inst}^{gen}))$
+      - Judgement 指令："Please judge between $c_i$ and $c_j$ whether there is a relation $r_k$" → 对每个候选关系判断 Yes/No。利用 KV-cache 缓存 prefix：$F_{prefix}^{(i,j)} = \text{Dec}(\text{Concat}(F_I^{pair(i,j)}, F_{inst}^{judge}))$，然后对每个关系只需处理关系名 token
+    - 设计动机：Generation 擅长发现新关系但偏向高频关系；Judgement 借助 LMM 的判断能力处理低频和罕见关系，且通过 prefix caching 保持与 Generation 相同的推理速度
 
 ### 损失函数 / 训练策略
 - **损失函数**：$\mathcal{L} = \lambda \mathcal{L}_{exist} + \mathcal{L}_{LM}$，其中 $\mathcal{L}_{exist}$ 为二值交叉熵（关系存在性判断），$\mathcal{L}_{LM}$ 为标准语言模型交叉熵，$\lambda=10$

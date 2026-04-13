@@ -43,21 +43,24 @@ FIOC-WM 分为两个阶段：
 ### 关键设计
 
 1. **Factored Interactive Object-Centric POMDP (FIOC-POMDP)**：
-   - 将每个物体 $i$ 的状态分解为动态变量 $\mathbf{d}_t^i$（位置、速度）和静态属性 $\mathbf{c}^i$（颜色、质量）
-   - 引入时变交互图 $G_t$ 建模物体间的交互，每条边表示两个物体在该时刻存在交互
-   - 状态转移分为自转移 $f_{\text{self}}$（物体自身演化）和交互转移 $f_{\text{inter}}$（物体间影响），交互只改变动态变量
-   - 转移公式：$\mathbf{d}_{t+1}^i = f_{\text{self}}(\mathbf{d}_t^i, \mathbf{c}^i, \mathbf{a}_t) + \sum_{j \in \mathcal{N}_t(i)} f_{\text{inter}}(\mathbf{d}_t^i, \mathbf{d}_t^j, \mathbf{c}^j)$
+
+    - 将每个物体 $i$ 的状态分解为动态变量 $\mathbf{d}_t^i$（位置、速度）和静态属性 $\mathbf{c}^i$（颜色、质量）
+    - 引入时变交互图 $G_t$ 建模物体间的交互，每条边表示两个物体在该时刻存在交互
+    - 状态转移分为自转移 $f_{\text{self}}$（物体自身演化）和交互转移 $f_{\text{inter}}$（物体间影响），交互只改变动态变量
+    - 转移公式：$\mathbf{d}_{t+1}^i = f_{\text{self}}(\mathbf{d}_t^i, \mathbf{c}^i, \mathbf{a}_t) + \sum_{j \in \mathcal{N}_t(i)} f_{\text{inter}}(\mathbf{d}_t^i, \mathbf{d}_t^j, \mathbf{c}^j)$
 
 2. **两层分解的潜在表示学习**：
-   - 使用预训练视觉编码器（DINO-v2/R3M）提取特征，再通过 Slot Attention 聚类得到物体级表示
-   - 通过 VAE 将 slot 表示映射为潜在状态，由两个编码器分别提取静态特征 $f_c$ 和动态特征 $f_d$
-   - 静态特征用时间一致性损失 $\mathcal{L}_{\text{static}}$ 约束跨时步不变，用对比损失 $\mathcal{L}_{\text{con}}$ 确保不同物体的静态属性可区分
-   - 动态特征用 GRU 建模时间演化，通过交互图 $G_t$ 条件化的先验分布建模动力学
+
+    - 使用预训练视觉编码器（DINO-v2/R3M）提取特征，再通过 Slot Attention 聚类得到物体级表示
+    - 通过 VAE 将 slot 表示映射为潜在状态，由两个编码器分别提取静态特征 $f_c$ 和动态特征 $f_d$
+    - 静态特征用时间一致性损失 $\mathcal{L}_{\text{static}}$ 约束跨时步不变，用对比损失 $\mathcal{L}_{\text{con}}$ 确保不同物体的静态属性可区分
+    - 动态特征用 GRU 建模时间演化，通过交互图 $G_t$ 条件化的先验分布建模动力学
 
 3. **交互图学习**：
-   - 引入代理潜变量 $\mathbf{u}_t$ 参数化交互图的分布
-   - 对每对物体 $(i,j)$，用 GRU 编码它们的潜在状态得到 pairwise embedding $\mathbf{u}_t^{ij}$
-   - 交互结构通过变分掩码（可微分类别分布采样）或条件独立性检验两种方式学习
+
+    - 引入代理潜变量 $\mathbf{u}_t$ 参数化交互图的分布
+    - 对每对物体 $(i,j)$，用 GRU 编码它们的潜在状态得到 pairwise embedding $\mathbf{u}_t^{ij}$
+    - 交互结构通过变分掩码（可微分类别分布采样）或条件独立性检验两种方式学习
 
 ### 损失函数 / 训练策略
 

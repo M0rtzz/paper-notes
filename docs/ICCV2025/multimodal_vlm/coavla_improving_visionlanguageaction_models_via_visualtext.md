@@ -25,12 +25,12 @@ tags:
 提出Chain-of-Affordance（CoA-VLA）框架，将四类机器人affordance（物体、抓取、空间、运动）以文本和视觉双模态形式注入VLA模型的策略网络，在真实机器人7任务多任务学习中达到85.54%成功率，比OpenVLA高30.65%，并展现出对未见物体姿态和障碍物的泛化能力。
 
 ## 研究背景与动机
-1. **领域现状**：VLA模型通过大规模预训练获得了强大的泛化能力，但现有方法要么依赖LLM/VLM做高层规划（外部推理），要么端到端直接预测动作（缺乏推理）。OpenAI O1展示了长链推理可以显著提升复杂问题解决能力。
-2. **现有痛点**：当前VLA模型在复杂环境中缺乏自驱动的中间推理能力，导致在需要精确抓取、空间推理和避障的任务中容易失败。已有推理方法如ECoT侧重任务分解，但缺乏对物理交互的结构化理解。
-3. **核心矛盾**：机器人执行复杂操作需要理解物体在哪、怎么抓、放哪里、怎么移动这一连串问题，但现有VLA没有显式地建模这些中间推理步骤。
-4. **本文要解决什么**：设计一种结构化的affordance推理链，让VLA模型在预测动作前先推理出与任务相关的四类affordance，并将结果注入策略网络。
-5. **切入角度**：从机器人affordance的经典概念出发，将其形式化为CoT推理链，并创新性地用文本+视觉双模态表示。
-6. **核心idea一句话**：用四类affordance（object/grasp/spatial/movement）构建推理链，以文本和视觉双格式注入VLA的diffusion策略头来指导动作生成。
+**领域现状**：VLA模型通过大规模预训练获得了强大的泛化能力，但现有方法要么依赖LLM/VLM做高层规划（外部推理），要么端到端直接预测动作（缺乏推理）。OpenAI O1展示了长链推理可以显著提升复杂问题解决能力。
+**现有痛点**：当前VLA模型在复杂环境中缺乏自驱动的中间推理能力，导致在需要精确抓取、空间推理和避障的任务中容易失败。已有推理方法如ECoT侧重任务分解，但缺乏对物理交互的结构化理解。
+**核心矛盾**：机器人执行复杂操作需要理解物体在哪、怎么抓、放哪里、怎么移动这一连串问题，但现有VLA没有显式地建模这些中间推理步骤。
+**本文要解决什么**：设计一种结构化的affordance推理链，让VLA模型在预测动作前先推理出与任务相关的四类affordance，并将结果注入策略网络。
+**切入角度**：从机器人affordance的经典概念出发，将其形式化为CoT推理链，并创新性地用文本+视觉双模态表示。
+**核心idea一句话**：用四类affordance（object/grasp/spatial/movement）构建推理链，以文本和视觉双格式注入VLA的diffusion策略头来指导动作生成。
 
 ## 方法详解
 
@@ -40,26 +40,30 @@ tags:
 ### 关键设计
 
 1. **四类Affordance定义**:
-   - **Object affordance**：识别目标物体及其在图像中的位置（用bounding box表示），解决"操作什么、在哪里"的问题。
-   - **Grasp affordance**：确定物体上最适合抓取的部位（用2D关键点表示），如茶壶的壶柄。
-   - **Spatial affordance**：识别环境中的可用空间（如盘子上的空白区域），用于确定放置位置。
-   - **Movement affordance**：规划避碰运动轨迹，确保机器人安全移动。
-   - 四类affordance构成一个序列链：先知道操作什么→怎么抓→放哪里→怎么移动过去。这种链式结构让推理有明确的顺序依赖关系。
+
+    - **Object affordance**：识别目标物体及其在图像中的位置（用bounding box表示），解决"操作什么、在哪里"的问题。
+    - **Grasp affordance**：确定物体上最适合抓取的部位（用2D关键点表示），如茶壶的壶柄。
+    - **Spatial affordance**：识别环境中的可用空间（如盘子上的空白区域），用于确定放置位置。
+    - **Movement affordance**：规划避碰运动轨迹，确保机器人安全移动。
+    - 四类affordance构成一个序列链：先知道操作什么→怎么抓→放哪里→怎么移动过去。这种链式结构让推理有明确的顺序依赖关系。
 
 2. **视觉-文本双模态Affordance表示**:
-   - **文本affordance**：用自然语言描述每类affordance及其坐标信息（如bounding box坐标对、关键点坐标）。使用ChatGPT对affordance描述做语言多样化增强，避免模板化偏差。
-   - **视觉affordance**：将affordance信息直接叠加在观测图像上——bounding box、抓取点用高对比度标注，运动轨迹用低显著度细线标注。这种层次化视觉编码让模型一眼就能区分不同affordance。
-   - 设计动机：文本affordance提供语义丰富的推理信号，视觉affordance提供像素对齐的空间感知。两者互补，单独使用效果都不如联合使用好。
+
+    - **文本affordance**：用自然语言描述每类affordance及其坐标信息（如bounding box坐标对、关键点坐标）。使用ChatGPT对affordance描述做语言多样化增强，避免模板化偏差。
+    - **视觉affordance**：将affordance信息直接叠加在观测图像上——bounding box、抓取点用高对比度标注，运动轨迹用低显著度细线标注。这种层次化视觉编码让模型一眼就能区分不同affordance。
+    - 设计动机：文本affordance提供语义丰富的推理信号，视觉affordance提供像素对齐的空间感知。两者互补，单独使用效果都不如联合使用好。
 
 3. **视觉-文本Co-Injection模块**:
-   - 做什么：将文本和视觉affordance统一融合后注入diffusion策略网络。
-   - 核心思路：文本affordance通过VLM最后一层embedding + MLP投射为token序列；视觉affordance通过预训练ViT-Small抽取patch token。两组token经过2层Transformer block进行跨模态融合，最终通过FiLM conditioning层注入diffusion model。
-   - 设计动机：FiLM层可以动态调制diffusion过程，让策略生成的动作同时考虑空间约束和语义意图，而不需要改变diffusion框架的整体结构。
+
+    - 做什么：将文本和视觉affordance统一融合后注入diffusion策略网络。
+    - 核心思路：文本affordance通过VLM最后一层embedding + MLP投射为token序列；视觉affordance通过预训练ViT-Small抽取patch token。两组token经过2层Transformer block进行跨模态融合，最终通过FiLM conditioning层注入diffusion model。
+    - 设计动机：FiLM层可以动态调制diffusion过程，让策略生成的动作同时考虑空间约束和语义意图，而不需要改变diffusion框架的整体结构。
 
 4. **动态Affordance选择机制**:
-   - 做什么：根据任务进度和机器人状态自适应选择需要哪些affordance，避免全部计算。
-   - 核心思路：将本体感知信息（关节角度等）编码为单个token拼接到视觉token前面，让模型学习在不同时间步智能选择相关affordance。例如：夹爪闭合+腕部摄像头看到物体→跳过object和grasp affordance，只生成spatial和movement affordance。
-   - 效果：推理速度6Hz（vs 无动态选择时1Hz），且去掉动态选择后精度反而下降（冗余affordance引入噪声）。
+
+    - 做什么：根据任务进度和机器人状态自适应选择需要哪些affordance，避免全部计算。
+    - 核心思路：将本体感知信息（关节角度等）编码为单个token拼接到视觉token前面，让模型学习在不同时间步智能选择相关affordance。例如：夹爪闭合+腕部摄像头看到物体→跳过object和grasp affordance，只生成spatial和movement affordance。
+    - 效果：推理速度6Hz（vs 无动态选择时1Hz），且去掉动态选择后精度反而下降（冗余affordance引入噪声）。
 
 ### 数据生成Pipeline
 使用GPT-4o生成场景描述和实体识别 → Grounding DINOv2 + SAM生成bounding box → RoboPoint + GPT-4o预测空间affordance点并聚类 → CoTracker追踪机器人末端轨迹获取运动affordance。整个pipeline自动化，大幅减少人工标注需求。

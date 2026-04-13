@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Transformer 的经验成功背后有 neural scaling laws 描述的可预测改善规律。已有工作推导了 self-attention 的 Hessian 表达式，但 LayerNorm 和 FFN 的二阶分析一直缺失。
-2. **现有痛点**：没有完整的 Transformer block Hessian 意味着：(1) 无法完整理解优化地形如何随数据量变化；(2) 无法从理论上解释曲率在不同子层间的传播；(3) 缺乏 scaling laws 的数学基础。
-3. **核心矛盾**：LayerNorm 和 FFN 的非线性使得二阶导数推导非常复杂，此前的理论工作只能分析 self-attention，留下了"曲率空白"。
-4. **本文要解决什么**：推导包含 LayerNorm 和 FFN 的完整 Transformer block 的 Jacobian 和 Hessian，建立损失面收敛的理论界。
-5. **切入角度**：使用行向量化 $\text{vec}_r(\cdot)$ 框架和 Gauss-Newton 分解，将 Hessian 系统地分解为各子层的贡献，逐层推导。
-6. **核心 idea 一句话**：通过显式推导 LayerNorm 和 FFN 的 Hessian 来补全 Transformer 的二阶理论，并用 Taylor 展开分析损失面随数据量的收敛行为。
+**领域现状**：Transformer 的经验成功背后有 neural scaling laws 描述的可预测改善规律。已有工作推导了 self-attention 的 Hessian 表达式，但 LayerNorm 和 FFN 的二阶分析一直缺失。
+**现有痛点**：没有完整的 Transformer block Hessian 意味着：(1) 无法完整理解优化地形如何随数据量变化；(2) 无法从理论上解释曲率在不同子层间的传播；(3) 缺乏 scaling laws 的数学基础。
+**核心矛盾**：LayerNorm 和 FFN 的非线性使得二阶导数推导非常复杂，此前的理论工作只能分析 self-attention，留下了"曲率空白"。
+**本文要解决什么**：推导包含 LayerNorm 和 FFN 的完整 Transformer block 的 Jacobian 和 Hessian，建立损失面收敛的理论界。
+**切入角度**：使用行向量化 $\text{vec}_r(\cdot)$ 框架和 Gauss-Newton 分解，将 Hessian 系统地分解为各子层的贡献，逐层推导。
+**核心 idea 一句话**：通过显式推导 LayerNorm 和 FFN 的 Hessian 来补全 Transformer 的二阶理论，并用 Taylor 展开分析损失面随数据量的收敛行为。
 
 ## 方法详解
 
@@ -45,28 +45,32 @@ $$\mathbf{Z} = \text{LayerNorm}(\mathbf{Y} + \text{FFN}(\mathbf{Y}))$$
 ### 关键设计
 
 1. **LayerNorm 的 Jacobian 和 Hessian（Theorem 2-3）**:
-   - 做什么：推导 LayerNorm 相对于输入的一阶和二阶导数
-   - 核心思路：将 LayerNorm 分解为 $\text{LN}(\mathbf{X}) = \mathbf{P}(\mathbf{X})\mathbf{M}(\mathbf{X})$，其中 $\mathbf{M}$ 是中心化（减均值），$\mathbf{P}$ 是逆标准差对角矩阵。利用乘积法则得 Jacobian = 两项之和（$\mathbf{P}$ 对 centering 的缩放 + $\mathbf{M}$ 对 $\mathbf{P}$ 变化的贡献）。Hessian 通过进一步对 Jacobian 求导得到，$\frac{\partial^2 \mathbf{M}}{\partial \mathbf{X}^2} = 0$（centering 是线性的），但 $\mathbf{P}$ 的二阶导不为零。
-   - 设计动机：LayerNorm 的 Hessian 此前未被推导过，它通过 per-row variance 贡献曲率，是理解 Transformer 优化地形的关键缺失组件。
+
+    - 做什么：推导 LayerNorm 相对于输入的一阶和二阶导数
+    - 核心思路：将 LayerNorm 分解为 $\text{LN}(\mathbf{X}) = \mathbf{P}(\mathbf{X})\mathbf{M}(\mathbf{X})$，其中 $\mathbf{M}$ 是中心化（减均值），$\mathbf{P}$ 是逆标准差对角矩阵。利用乘积法则得 Jacobian = 两项之和（$\mathbf{P}$ 对 centering 的缩放 + $\mathbf{M}$ 对 $\mathbf{P}$ 变化的贡献）。Hessian 通过进一步对 Jacobian 求导得到，$\frac{\partial^2 \mathbf{M}}{\partial \mathbf{X}^2} = 0$（centering 是线性的），但 $\mathbf{P}$ 的二阶导不为零。
+    - 设计动机：LayerNorm 的 Hessian 此前未被推导过，它通过 per-row variance 贡献曲率，是理解 Transformer 优化地形的关键缺失组件。
 
 2. **完整 Transformer Block 的 Hessian（Theorem 4-5）**:
-   - 做什么：组装含 Self-Attention + LayerNorm + FFN + residual 的完整 block Hessian
-   - 核心思路：设 $\mathbf{S} = \text{ReLU}(\mathbf{Y}\mathbf{W}_1)\mathbf{W}_2 + \mathbf{Y}$（FFN + residual），$\mathbf{Z} = \text{LN}(\mathbf{S})$。利用链式法则：
-     $$\mathbf{H}_{\text{tr}}^{(i,j)} = (\mathbf{J}_Z \otimes \mathbf{I}_{n_i})\bm{\xi}_{ij} + (\mathbf{I}_{Ld_V} \otimes \mathbf{B}_i^\top)\mathbf{H}_Z\mathbf{B}_j$$
-     其中 $\mathbf{J}_Z$ 是 LN 的 Jacobian，$\mathbf{H}_Z$ 是 LN 的 Hessian，$\bm{\xi}_{ij}$ 是 $\mathbf{S}$ 的二阶混合导数，$\mathbf{B}_i$ 是 $\mathbf{S}$ 对参数的 Jacobian。
-   - 设计动机：Gauss-Newton 分解允许将损失的 Hessian 分解为"外积项"（一阶信息）+"函数 Hessian 项"（二阶信息），两者分别对应不同的优化特性。
+
+    - 做什么：组装含 Self-Attention + LayerNorm + FFN + residual 的完整 block Hessian
+    - 核心思路：设 $\mathbf{S} = \text{ReLU}(\mathbf{Y}\mathbf{W}_1)\mathbf{W}_2 + \mathbf{Y}$（FFN + residual），$\mathbf{Z} = \text{LN}(\mathbf{S})$。利用链式法则：
+    $\mathbf{H}_{\text{tr}}^{(i,j)} = (\mathbf{J}_Z \otimes \mathbf{I}_{n_i})\bm{\xi}_{ij} + (\mathbf{I}_{Ld_V} \otimes \mathbf{B}_i^\top)\mathbf{H}_Z\mathbf{B}_j$
+      其中 $\mathbf{J}_Z$ 是 LN 的 Jacobian，$\mathbf{H}_Z$ 是 LN 的 Hessian，$\bm{\xi}_{ij}$ 是 $\mathbf{S}$ 的二阶混合导数，$\mathbf{B}_i$ 是 $\mathbf{S}$ 对参数的 Jacobian。
+    - 设计动机：Gauss-Newton 分解允许将损失的 Hessian 分解为"外积项"（一阶信息）+"函数 Hessian 项"（二阶信息），两者分别对应不同的优化特性。
 
 3. **谱范数上界（Theorem 1, 6）**:
-   - 做什么：为 Self-Attention 和完整 Transformer Block 的 Hessian 提供谱范数的显式上界
-   - 核心思路：利用 Kronecker 积和矩阵范数的亚乘性，将 Hessian 范数界分解为输入范数 $\|\mathbf{X}\|_2$、权重范数 $\|\mathbf{W}\|_2$、序列长度 $L$、维度 $d_V, d_K$ 等因素的函数。完整 block 的界 $\leq 5 \max_{i,j}(\cdots)$（5 = $\sqrt{m_b n_b}$，5 个参数组）。
-   - 设计动机：显式上界揭示了各子层对整体曲率的贡献——Value 和 Key 相关项通过 softmax 导数占主导，FFN 由 ReLU 的分段线性性控制（Hessian 几乎处处为零），LayerNorm 通过 per-row variance 贡献。
+
+    - 做什么：为 Self-Attention 和完整 Transformer Block 的 Hessian 提供谱范数的显式上界
+    - 核心思路：利用 Kronecker 积和矩阵范数的亚乘性，将 Hessian 范数界分解为输入范数 $\|\mathbf{X}\|_2$、权重范数 $\|\mathbf{W}\|_2$、序列长度 $L$、维度 $d_V, d_K$ 等因素的函数。完整 block 的界 $\leq 5 \max_{i,j}(\cdots)$（5 = $\sqrt{m_b n_b}$，5 个参数组）。
+    - 设计动机：显式上界揭示了各子层对整体曲率的贡献——Value 和 Key 相关项通过 softmax 导数占主导，FFN 由 ReLU 的分段线性性控制（Hessian 几乎处处为零），LayerNorm 通过 per-row variance 贡献。
 
 4. **损失面收敛定理（Theorem 7）**:
-   - 做什么：建立损失函数随数据量增加的收敛速率
-   - 核心思路：利用 Taylor 展开和 Hessian 界证明：
-     $$|\mathcal{L}_{k+1}(\mathbf{w}) - \mathcal{L}_k(\mathbf{w})| \leq \frac{2L}{k+1} + \frac{M\|\mathbf{w} - \mathbf{w}^*\|_2^2}{k+1}$$
-     其中 $M$ 来自 Theorem 1/6 的 Hessian 谱范数界。这说明损失面的变化以 $O(1/k)$ 速率衰减。
-   - 设计动机：从理论上解释了数据量增加时损失地形趋于稳定的经验观察，为"何时从数据扩展转向模型扩展"提供了判断依据。
+
+    - 做什么：建立损失函数随数据量增加的收敛速率
+    - 核心思路：利用 Taylor 展开和 Hessian 界证明：
+    $|\mathcal{L}_{k+1}(\mathbf{w}) - \mathcal{L}_k(\mathbf{w})| \leq \frac{2L}{k+1} + \frac{M\|\mathbf{w} - \mathbf{w}^*\|_2^2}{k+1}$
+      其中 $M$ 来自 Theorem 1/6 的 Hessian 谱范数界。这说明损失面的变化以 $O(1/k)$ 速率衰减。
+    - 设计动机：从理论上解释了数据量增加时损失地形趋于稳定的经验观察，为"何时从数据扩展转向模型扩展"提供了判断依据。
 
 ### 损失函数 / 训练策略
 

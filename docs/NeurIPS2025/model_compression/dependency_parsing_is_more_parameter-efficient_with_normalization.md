@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：依存分析（Dependency Parsing）的主流方法基于 Dozat & Manning 的 biaffine 分类器——用 BiLSTM 编码后对每对词计算 biaffine 分数来预测边和关系。当前 SOTA 通常堆叠 3 层 BiLSTM + hidden dim 400 + MLP dim 500。
-2. **现有痛点**：biaffine scoring $QK^\top$ 与 Transformer 自注意力结构相同，但绝大多数依存分析工作都没有对 score 做归一化。Transformer 注意力用 $1/\sqrt{d_k}$ 缩放是为了控制方差避免 softmax 饱和——为什么依存分析不用？
-3. **核心矛盾**：不做归一化 → 高方差输入导致 softmax 输出极化 → 梯度消失/爆炸 → 需要更多 BiLSTM 层的隐式正则化效果来补偿。这意味着额外的参数实际上是在弥补归一化的缺失，而非捕捉更丰富的语言特征。
-4. **本文要解决什么**：证明缺乏归一化导致过参数化，并用理论和实验说明加入归一化后可以大幅削减参数。
-5. **切入角度**：从隐式正则化理论出发——深层线性网络在梯度下降中会降低权重矩阵的有效秩，而低秩权重的输出方差更小。因此更深的 BiLSTM 实际上通过降秩起到了类似归一化的作用。
-6. **核心 idea**：直接加 $a = 1/\sqrt{d}$ 的 score 缩放，就能用 1 层 BiLSTM + 更小参数匹配 3 层无缩放的性能，参数减少高达 85%。
+**领域现状**：依存分析（Dependency Parsing）的主流方法基于 Dozat & Manning 的 biaffine 分类器——用 BiLSTM 编码后对每对词计算 biaffine 分数来预测边和关系。当前 SOTA 通常堆叠 3 层 BiLSTM + hidden dim 400 + MLP dim 500。
+**现有痛点**：biaffine scoring $QK^\top$ 与 Transformer 自注意力结构相同，但绝大多数依存分析工作都没有对 score 做归一化。Transformer 注意力用 $1/\sqrt{d_k}$ 缩放是为了控制方差避免 softmax 饱和——为什么依存分析不用？
+**核心矛盾**：不做归一化 → 高方差输入导致 softmax 输出极化 → 梯度消失/爆炸 → 需要更多 BiLSTM 层的隐式正则化效果来补偿。这意味着额外的参数实际上是在弥补归一化的缺失，而非捕捉更丰富的语言特征。
+**本文要解决什么**：证明缺乏归一化导致过参数化，并用理论和实验说明加入归一化后可以大幅削减参数。
+**切入角度**：从隐式正则化理论出发——深层线性网络在梯度下降中会降低权重矩阵的有效秩，而低秩权重的输出方差更小。因此更深的 BiLSTM 实际上通过降秩起到了类似归一化的作用。
+**核心 idea**：直接加 $a = 1/\sqrt{d}$ 的 score 缩放，就能用 1 层 BiLSTM + 更小参数匹配 3 层无缩放的性能，参数减少高达 85%。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **Biaffine Score Normalization**:
-   - 做什么：将 biaffine score $s = Q K^\top$ 缩放为 $s / \sqrt{d}$，其中 $d$ 是 MLP 投影维度。
-   - 理论依据：假设 $q, k$ 零均值单位方差，则 $\text{Var}(s) = d_k$，$\text{Std} = \sqrt{d_k}$。缩放后每个 score 的标准差约为 1，避免 softmax 输入极端化。
-   - 设计动机：这正是 Transformer 注意力使用 $1/\sqrt{d_k}$ 的原因，但依存分析社区一直忽视了这一点。
+
+    - 做什么：将 biaffine score $s = Q K^\top$ 缩放为 $s / \sqrt{d}$，其中 $d$ 是 MLP 投影维度。
+    - 理论依据：假设 $q, k$ 零均值单位方差，则 $\text{Var}(s) = d_k$，$\text{Std} = \sqrt{d_k}$。缩放后每个 score 的标准差约为 1，避免 softmax 输入极端化。
+    - 设计动机：这正是 Transformer 注意力使用 $1/\sqrt{d_k}$ 的原因，但依存分析社区一直忽视了这一点。
 
 2. **层深度隐式补偿归一化的理论分析**:
-   - **Result 1 (隐式正则化)**：$N$ 层线性网络在梯度下降中，奇异值按 $\sigma_r(t+1) \leftarrow \sigma_r(t) - \eta \cdot \langle \nabla\mathcal{L}, \mathbf{u}_r \mathbf{v}_r^\top \rangle \cdot N \cdot \sigma_r(t)^{2-2/N}$ 演化。$N$ 越大，小奇异值衰减越快 → 有效秩越低。
-   - **Claim 1 (秩与方差单调关系)**：截断 SVD 近似 $\mathbf{A}_r$ 的输出方差 $\text{tr}(\text{Cov}(Y_r))$ 随秩 $r$ 单调递增。
-   - 推论：更深的 BiLSTM → 更低的有效秩 → 更低的输出方差 → softmax 更稳定。所以 3 层 BiLSTM 之所以比 1 层好，部分原因不是特征更丰富，而是变相做了归一化。有了显式归一化就不再需要这些"冗余"层。
-   - 实验验证：Figure 1 展示有效秩 $\rho(W)$ 确实随 BiLSTM 层数增加而下降。
+
+    - **Result 1 (隐式正则化)**：$N$ 层线性网络在梯度下降中，奇异值按 $\sigma_r(t+1) \leftarrow \sigma_r(t) - \eta \cdot \langle \nabla\mathcal{L}, \mathbf{u}_r \mathbf{v}_r^\top \rangle \cdot N \cdot \sigma_r(t)^{2-2/N}$ 演化。$N$ 越大，小奇异值衰减越快 → 有效秩越低。
+    - **Claim 1 (秩与方差单调关系)**：截断 SVD 近似 $\mathbf{A}_r$ 的输出方差 $\text{tr}(\text{Cov}(Y_r))$ 随秩 $r$ 单调递增。
+    - 推论：更深的 BiLSTM → 更低的有效秩 → 更低的输出方差 → softmax 更稳定。所以 3 层 BiLSTM 之所以比 1 层好，部分原因不是特征更丰富，而是变相做了归一化。有了显式归一化就不再需要这些"冗余"层。
+    - 实验验证：Figure 1 展示有效秩 $\rho(W)$ 确实随 BiLSTM 层数增加而下降。
 
 3. **参数高效配置搜索**:
-   - 做什么：在不同数据集上搜索最优 $(N, h_\psi, d_{\text{MLP}})$ 组合。
-   - 发现：baseline 用 (3, 400, 500)，归一化后最优配置通常是 (1, 200-400, 100-300)，参数量减少 ~85%。
+
+    - 做什么：在不同数据集上搜索最优 $(N, h_\psi, d_{\text{MLP}})$ 组合。
+    - 发现：baseline 用 (3, 400, 500)，归一化后最优配置通常是 (1, 200-400, 100-300)，参数量减少 ~85%。
 
 ### 损失函数
 标准多任务损失：$\mathcal{L} = \lambda_1 \mathcal{L}_{\text{tag}} + \lambda_2 (\mathcal{L}_{\text{edge}} + \mathcal{L}_{\text{rel}})$，$\lambda_1 = 0.1$，$\lambda_2 = 1$。

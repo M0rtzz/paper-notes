@@ -25,12 +25,12 @@ tags:
 提出 STA（Steering Target Atoms），利用稀疏自编码器 (SAE) 将 LLM 的表示解耦为原子知识组件，通过激活幅度和频率筛选目标原子并操控，实现比提示工程更鲁棒、更精细的行为控制，在安全解毒和推理控制任务上效果优于现有 steering 方法。
 
 ## 研究背景与动机
-1. **领域现状**：LLM 行为控制主要依赖提示工程（system prompt）和 steering vector（直接修改前向传播中的隐状态）。Steering 比提示更直接，但传统 steering vector 在纠缠的表示空间中操作，容易产生副作用。
-2. **现有痛点**：(a) 提示工程敏感脆弱，微小输入变化导致不可预测输出；(b) 传统 steering vector（如 CAA）在密集表示空间中操作，无法精确控制特定行为方向；(c) 已有 SAE steering 只在 toy task 上验证（实体识别/时态变换），开放生成任务仍未解决。
-3. **核心矛盾**：LLM 的高维表示中知识高度纠缠（polysemanticity/superposition），直接 steering 会误伤非目标知识。
-4. **本文要解决什么？** 在 SAE 解耦的高维稀疏空间中精确定位目标原子组件，实现精细粒度的行为控制。
-5. **切入角度**：用 SAE 将隐状态投射到高维稀疏空间，通过正负样本的激活差异（幅度+频率双重筛选）定位目标原子，映射回原始空间得到精炼的 steering vector。
-6. **核心 idea 一句话**：在 SAE 解耦空间中按幅度和频率筛选目标原子，获得比直接 steering 更精确的行为控制向量。
+**领域现状**：LLM 行为控制主要依赖提示工程（system prompt）和 steering vector（直接修改前向传播中的隐状态）。Steering 比提示更直接，但传统 steering vector 在纠缠的表示空间中操作，容易产生副作用。
+**现有痛点**：(a) 提示工程敏感脆弱，微小输入变化导致不可预测输出；(b) 传统 steering vector（如 CAA）在密集表示空间中操作，无法精确控制特定行为方向；(c) 已有 SAE steering 只在 toy task 上验证（实体识别/时态变换），开放生成任务仍未解决。
+**核心矛盾**：LLM 的高维表示中知识高度纠缠（polysemanticity/superposition），直接 steering 会误伤非目标知识。
+**本文要解决什么？** 在 SAE 解耦的高维稀疏空间中精确定位目标原子组件，实现精细粒度的行为控制。
+**切入角度**：用 SAE 将隐状态投射到高维稀疏空间，通过正负样本的激活差异（幅度+频率双重筛选）定位目标原子，映射回原始空间得到精炼的 steering vector。
+**核心 idea 一句话**：在 SAE 解耦空间中按幅度和频率筛选目标原子，获得比直接 steering 更精确的行为控制向量。
 
 ## 方法详解
 
@@ -43,18 +43,21 @@ tags:
 ### 关键设计
 
 1. **目标原子识别（双重筛选）**:
-   - 幅度：$\Delta\mathbf{a}_j$ 衡量第 $j$ 个原子在正/负样本上的平均激活差异
-   - 频率：$\Delta\mathbf{f}_j$ 衡量第 $j$ 个原子被正/负样本激活的频率差异
-   - 同时满足 $\Delta\mathbf{a}_j \geq \alpha$ AND $\Delta\mathbf{f}_j \geq \beta$ 才被选为目标原子
-   - 设计动机：仅看幅度可能选到偶尔高激活的噪声原子，加上频率约束确保选到**一致性**高的原子
+
+    - 幅度：$\Delta\mathbf{a}_j$ 衡量第 $j$ 个原子在正/负样本上的平均激活差异
+    - 频率：$\Delta\mathbf{f}_j$ 衡量第 $j$ 个原子被正/负样本激活的频率差异
+    - 同时满足 $\Delta\mathbf{a}_j \geq \alpha$ AND $\Delta\mathbf{f}_j \geq \beta$ 才被选为目标原子
+    - 设计动机：仅看幅度可能选到偶尔高激活的噪声原子，加上频率约束确保选到**一致性**高的原子
 
 2. **SAE 解码映射**:
-   - $\mathbf{v}_{STA} = \mathbf{a}_{target} \mathbf{W}_{dec} + \mathbf{b}_{dec}$
-   - 只保留目标原子的贡献，其余置零，得到精炼的 steering vector
+
+    - $\mathbf{v}_{STA} = \mathbf{a}_{target} \mathbf{W}_{dec} + \mathbf{b}_{dec}$
+    - 只保留目标原子的贡献，其余置零，得到精炼的 steering vector
 
 3. **Steering vs Prompting 公平对比**:
-   - 将 prompt 通过 STA 转化为对等的 steering 干预，实现公平比较
-   - 发现 steering 在鲁棒性和灵活性上一致优于 prompting
+
+    - 将 prompt 通过 STA 转化为对等的 steering 干预，实现公平比较
+    - 发现 steering 在鲁棒性和灵活性上一致优于 prompting
 
 ### 应用扩展
 - 不仅用于安全解毒，还成功应用于大推理模型（DeepSeek-R1）的 CoT 长度控制——控制"过度思考"

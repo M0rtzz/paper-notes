@@ -41,23 +41,26 @@ ViZer在冻结的视觉编码器和VLM的隐层特征空间之间引入一个轻
 ### 关键设计
 
 1. **ViZer映射器（Alignment Mapper）**:
-   - 定义映射函数 $M_\tau(\cdot) = h_\tau(f_\psi(\cdot))$，其中 $h$ 是MLP（将文本嵌入变换到视觉特征空间），$f_\psi$ 是VLM的transformer层（不含LM头）
-   - 视觉特征 $F_I = V_\theta(I)$ 直接从冻结视觉编码器提取
-   - 文本特征通过映射器处理：$\hat{F}_T = M_\tau(E_\phi(x_{:t}))$
-   - 参数高效，可随数据集或模型规模灵活扩展
-   - 设计动机：受联合嵌入原理启发，学习视觉和语言嵌入间的双向映射，不同于静态投影层，ViZer在训练中持续优化对齐
+
+    - 定义映射函数 $M_\tau(\cdot) = h_\tau(f_\psi(\cdot))$，其中 $h$ 是MLP（将文本嵌入变换到视觉特征空间），$f_\psi$ 是VLM的transformer层（不含LM头）
+    - 视觉特征 $F_I = V_\theta(I)$ 直接从冻结视觉编码器提取
+    - 文本特征通过映射器处理：$\hat{F}_T = M_\tau(E_\phi(x_{:t}))$
+    - 参数高效，可随数据集或模型规模灵活扩展
+    - 设计动机：受联合嵌入原理启发，学习视觉和语言嵌入间的双向映射，不同于静态投影层，ViZer在训练中持续优化对齐
 
 2. **两种映射器变体（ViZer$_{\text{GT}}$ 和 ViZer$_{\text{G}}$）**:
-   - **ViZer$_{\text{GT}}$**：映射器在真实图像-文本对上训练，图像caption作为文本输入
-   - **ViZer$_{\text{G}}$**：完全零标签——映射器使用VLM自身生成的caption训练，$\hat{F}_T = M_\tau(f_\psi(V_\theta(I) \circ E_\phi(P))_{t+1:})$，其中 $P$ 是caption提示
-   - 只有ViZer$_{\text{G}}$是真正的无监督零标签方案
-   - 设计动机：ViZer$_{\text{G}}$通过模型自身生成的caption建立对齐，形成自我改进的闭环
+
+    - **ViZer$_{\text{GT}}$**：映射器在真实图像-文本对上训练，图像caption作为文本输入
+    - **ViZer$_{\text{G}}$**：完全零标签——映射器使用VLM自身生成的caption训练，$\hat{F}_T = M_\tau(f_\psi(V_\theta(I) \circ E_\phi(P))_{t+1:})$，其中 $P$ 是caption提示
+    - 只有ViZer$_{\text{G}}$是真正的无监督零标签方案
+    - 设计动机：ViZer$_{\text{G}}$通过模型自身生成的caption建立对齐，形成自我改进的闭环
 
 3. **零标签VLM训练**:
-   - VLM使用LoRA微调（rank=32, alpha=64），仅在未标注的OpenImagesV7数据上训练
-   - 损失函数为余弦相似度：$\mathcal{L}_{\text{zero}} = 1 - \frac{F_I \cdot \hat{F}_T}{\|F_I\| \times \|\hat{F}_T\|}$
-   - 使用LoRA避免干扰预训练能力，可通过关闭LoRA恢复原始零样本性能
-   - 设计动机：通过对齐的潜空间提供梯度信号替代缺失的文本标签，让VLM在无标注数据上自我提升
+
+    - VLM使用LoRA微调（rank=32, alpha=64），仅在未标注的OpenImagesV7数据上训练
+    - 损失函数为余弦相似度：$\mathcal{L}_{\text{zero}} = 1 - \frac{F_I \cdot \hat{F}_T}{\|F_I\| \times \|\hat{F}_T\|}$
+    - 使用LoRA避免干扰预训练能力，可通过关闭LoRA恢复原始零样本性能
+    - 设计动机：通过对齐的潜空间提供梯度信号替代缺失的文本标签，让VLM在无标注数据上自我提升
 
 ### 损失函数 / 训练策略
 - Mapper和VLM各训练1个epoch

@@ -41,11 +41,12 @@ Radar 的核心思想是：给定干净源表 $T$，通过程序化扰动函数 
 ### 关键设计
 
 1. **五类数据工件**：
-   - **Missing Data**：用空值替换有效单元格
-   - **Bad Values**：注入明显错误/占位值（如 -1, 9999, TEST, #REF!）
-   - **Outliers**：插入极端不合理数值（如静息心率 220 bpm）
-   - **Inconsistent Formatting**：同一数据的不同表示（如 "22 lbs" vs "22 pounds" vs "weight = 22"）
-   - **Inconsistent Logic**：跨字段矛盾（如结束时间早于开始时间、BMI 与身高体重不匹配）
+
+    - **Missing Data**：用空值替换有效单元格
+    - **Bad Values**：注入明显错误/占位值（如 -1, 9999, TEST, #REF!）
+    - **Outliers**：插入极端不合理数值（如静息心率 220 bpm）
+    - **Inconsistent Formatting**：同一数据的不同表示（如 "22 lbs" vs "22 pounds" vs "weight = 22"）
+    - **Inconsistent Logic**：跨字段矛盾（如结束时间早于开始时间、BMI 与身高体重不匹配）
 
 2. **程序化扰动框架**：每个扰动函数针对特定查询设计，确保直接在扰动表上计算会得到错误结果。扰动影响不超过 10% 的行，保持数据分布的整体完整性。答案函数 $f$ 和扰动函数 $g$ 均可跨不同大小的表格运行，只要核心字段 $\mathcal{C}$ 存在。
 

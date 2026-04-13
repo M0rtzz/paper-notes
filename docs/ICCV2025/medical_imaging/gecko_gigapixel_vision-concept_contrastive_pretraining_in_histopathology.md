@@ -31,8 +31,8 @@ tags:
 
 现有WSI级预训练方法面临两个挑战：
 
-1. **需要额外模态**：单模态预训练（仅用WSI数据）容易过拟合染色伪影。TANGLE需要配对的转录组学数据，MEDELEINE需要不同染色的切片——这些额外模态获取成本高、数据集规模小、难以标准化
-2. **缺乏可解释性**：预训练产出的WSI嵌入本质是不可解释的黑盒，仅能提供patch注意力热力图显示显著区域，无法揭示驱动预测的关键病理学概念
+**需要额外模态**：单模态预训练（仅用WSI数据）容易过拟合染色伪影。TANGLE需要配对的转录组学数据，MEDELEINE需要不同染色的切片——这些额外模态获取成本高、数据集规模小、难以标准化
+**缺乏可解释性**：预训练产出的WSI嵌入本质是不可解释的黑盒，仅能提供patch注意力热力图显示显著区域，无法揭示驱动预测的关键病理学概念
 
 核心问题：能否仅用WSI数据预训练一个有效的MIL聚合器，且提供病理学家可解释的WSI级嵌入？
 
@@ -48,12 +48,13 @@ GECKO预训练一个**双分支MIL网络**：
 ### 关键设计
 
 1. **概念先验提取(Concept Prior Extraction)**：
-   - 利用LLM(GPT-4)为每个下游任务的每个类别生成视觉可区分的病理概念文本描述（每类10个最独特概念）
-   - 用预训练VLM(CONCH)的文本编码器将概念编码为 $T \in \mathbb{R}^{C \times D}$
-   - 用VLM的视觉编码器将WSI的N个patch编码为 $F \in \mathbb{R}^{N \times D}$
-   - 计算patch与概念间的余弦相似度矩阵 $M \in \mathbb{R}^{N \times C}$——这就是概念先验
-   - 每个元素量化了某个patch对特定概念的激活程度，天然可解释
-   - 此过程完全自动化，无需人工标注或额外临床检测
+
+    - 利用LLM(GPT-4)为每个下游任务的每个类别生成视觉可区分的病理概念文本描述（每类10个最独特概念）
+    - 用预训练VLM(CONCH)的文本编码器将概念编码为 $T \in \mathbb{R}^{C \times D}$
+    - 用VLM的视觉编码器将WSI的N个patch编码为 $F \in \mathbb{R}^{N \times D}$
+    - 计算patch与概念间的余弦相似度矩阵 $M \in \mathbb{R}^{N \times C}$——这就是概念先验
+    - 每个元素量化了某个patch对特定概念的激活程度，天然可解释
+    - 此过程完全自动化，无需人工标注或额外临床检测
 
 2. **WSI级深度编码分支**：基于ABMIL架构，patch特征经投影器 $H(\cdot)$ 和注意力模块 $A^p(\cdot)$ 加权聚合：
 
@@ -62,12 +63,13 @@ $$F_{wsi} = \sum_{i=1}^N \alpha_i \cdot \tilde{f}_i$$
 其中 $\alpha_i$ 是可学习的patch注意力权重。
 
 3. **WSI级概念编码分支**：
-   - 用深度编码分支的注意力分数 $\alpha_i$ 选择Top-K显著patch（可微的Perturbed Top-K操作）
-   - 截取对应的概念先验子矩阵 $\tilde{M} \in \mathbb{R}^{K \times C}$
-   - 通过MLP-Mixer上下文化空间和概念信息
-   - 门控注意力网络 $G(\cdot)$ 计算概念注意力 $\beta_j$（sigmoid激活）
-   - **核心约束**：概念先验仅经线性缩放 $\hat{M}_{ij} = \beta_j \times \tilde{M}_{ij}$，保持可解释性
-   - 平均池化得到WSI级概念嵌入 $M_{wsi} = \frac{1}{K}\sum_{i=1}^K \hat{M}_i$
+
+    - 用深度编码分支的注意力分数 $\alpha_i$ 选择Top-K显著patch（可微的Perturbed Top-K操作）
+    - 截取对应的概念先验子矩阵 $\tilde{M} \in \mathbb{R}^{K \times C}$
+    - 通过MLP-Mixer上下文化空间和概念信息
+    - 门控注意力网络 $G(\cdot)$ 计算概念注意力 $\beta_j$（sigmoid激活）
+    - **核心约束**：概念先验仅经线性缩放 $\hat{M}_{ij} = \beta_j \times \tilde{M}_{ij}$，保持可解释性
+    - 平均池化得到WSI级概念嵌入 $M_{wsi} = \frac{1}{K}\sum_{i=1}^K \hat{M}_i$
 
 ### 损失函数 / 训练策略
 

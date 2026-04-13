@@ -44,16 +44,17 @@ BA-Track包含三个阶段：
 
 ### 关键设计
 1. **运动解耦机制（Motion Decoupling）**：采用双网络设计而非单网络。主追踪器$\mathcal{T}$（6层transformer）预测总运动$X_{\text{total}}$，动态追踪器$\mathcal{T}_{\text{dyn}}$（3层transformer，更浅以提效率）预测动态分量$X_{\text{dyn}}$。静态分量通过以下公式获得：
-   $$X_{\text{static}} = X_{\text{total}} - m \cdot X_{\text{dyn}}$$
+    $X_{\text{static}} = X_{\text{total}} - m \cdot X_{\text{dyn}}$
    其中$m \in [0,1]$是学习得到的动态标签，静态点$m=0$时静态分量等于总运动，动态点$m=1$时需要减去物体运动。实验证明双网络方案远优于单网络直接回归静态分量的方案（ATE从0.091降至0.065）。
 
 2. **RGB-D束调整**：将解耦后的静态运动分量输入经典BA框架。优化变量包括每帧相机位姿$\mathbf{T}_t \in SE(3)$和查询点深度$\mathbf{Y}$。目标函数为：
-   $$\arg\min_{\{\mathbf{T}_t\}, \{\mathbf{Y}\}} \sum W_n^i(j) \|\mathcal{P}_j(\mathbf{x}_n^i, y_n^i) - X_n^t(j)\|_\rho + \alpha \|y_n^i - d(\mathbf{X}_n^i)\|^2$$
+    $\arg\min_{\{\mathbf{T}_t\}, \{\mathbf{Y}\}} \sum W_n^i(j) \|\mathcal{P}_j(\mathbf{x}_n^i, y_n^i) - X_n^t(j)\|_\rho + \alpha \|y_n^i - d(\mathbf{X}_n^i)\|^2$
    其中$W_n^i(j) = v_n^i(j) \cdot (1 - m_n^i)$综合了可见性和动态标签的置信度。通过Gauss-Newton + Schur分解高效求解。位姿更新时用严格阈值（$\delta_v=0.9, \delta_m=0.9$）过滤动态点；深度更新时使用所有点以充分利用运动解耦的优势。
 
 3. **全局深度优化（Global Refinement）**：BA只优化了稀疏查询点的深度，稠密深度图仍不一致。引入2D尺度网格$\theta_t$对每帧深度图做乘性缩放：$\hat{D}_t[\mathbf{x}] = \theta_t[\mathbf{x}] \cdot D_t[\mathbf{x}]$。通过两个损失联合优化：
-   - **深度一致性损失$\mathcal{L}_{\text{depth}}$**：使缩放后的稠密深度与BA稀疏深度对齐
-   - **场景刚性损失$\mathcal{L}_{\text{rigid}}$**：保持静态点之间的3D距离在不同帧间不变
+
+    - **深度一致性损失$\mathcal{L}_{\text{depth}}$**：使缩放后的稠密深度与BA稀疏深度对齐
+    - **场景刚性损失$\mathcal{L}_{\text{rigid}}$**：保持静态点之间的3D距离在不同帧间不变
 
 ### 损失函数 / 训练策略
 - 3D追踪器在TAP-Vid-Kubric数据集（11000个序列）上训练，使用AdamW优化器，学习率$3 \times 10^{-4}$，总共100k步

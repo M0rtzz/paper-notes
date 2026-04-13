@@ -26,18 +26,18 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：视觉研究仍以 ImageNet-1K、MS COCO、ADE20K 为评估中心，新模型（ViT、DINOv2、CLIP）的 SOTA 声明都基于这些排行榜。实际科学领域——放射科、组织病理学、微生物学、生态学——的图像与网络照片有根本差异。
-2. **现有痛点**：
+**领域现状**：视觉研究仍以 ImageNet-1K、MS COCO、ADE20K 为评估中心，新模型（ViT、DINOv2、CLIP）的 SOTA 声明都基于这些排行榜。实际科学领域——放射科、组织病理学、微生物学、生态学——的图像与网络照片有根本差异。
+**现有痛点**：
    - ImageNet 的 RGB 网络照片与相机陷阱红外、多光谱无人机图像、显微镜载片等科学图像在频谱、噪声、分布上完全不同；
    - 科学任务是细粒度(fine-grained)且长尾的——生态学家需区分上千种昆虫，ImageNet 的 1000 个类别几乎没有此类细微差异；
    - 因此 ImageNet 准确率越高并不意味着科学任务越好。
-3. **核心矛盾**：在 46 个现代视觉 Transformer checkpoint 上，ImageNet top-1 与生态任务的 Spearman ρ 仅 0.55（整体），>75% 时降至 0.42——即前沿模型中约 30% 的排名是反的。
-4. **本文要解决什么？**
+**核心矛盾**：在 46 个现代视觉 Transformer checkpoint 上，ImageNet top-1 与生态任务的 Spearman ρ 仅 0.55（整体），>75% 时降至 0.42——即前沿模型中约 30% 的排名是反的。
+**本文要解决什么？**
    - 构建一个统一、可复现的生态视觉基准，让研究者能在"真正重要的任务"上评估模型
    - 量化 ImageNet 作为科学 AI 代理评估的失效程度
    - 提供可推广到医学、制造等其他科学领域的 benchmark 设计蓝图
-5. **切入角度**：生态学拥有丰富的公开数据和 CV4Ecology 挑战赛积累的标注任务，是理想的测试场。
-6. **核心 idea 一句话**：将 9 个分散的生态视觉任务统一为 BioBench，证明 ImageNet 排行榜对科学 AI 已失去预测力，并提供 benchmark 设计的标准范式。
+**切入角度**：生态学拥有丰富的公开数据和 CV4Ecology 挑战赛积累的标注任务，是理想的测试场。
+**核心 idea 一句话**：将 9 个分散的生态视觉任务统一为 BioBench，证明 ImageNet 排行榜对科学 AI 已失去预测力，并提供 benchmark 设计的标准范式。
 
 ## 方法详解
 
@@ -50,20 +50,23 @@ tags:
 ### 关键设计
 
 1. **任务覆盖**：
-   - 做什么：统一 9 个公开生态任务
-   - 核心覆盖：4 个分类界（动物/植物/真菌/原生生物）× 6 种图像模态（无人机 RGB、网络视频、显微镜、自然环境照片、标本照片、相机陷阱帧），共 310 万张图像
-   - 任务类型：物种分类（iNat2021、Pl@ntNet、FungiCLEF、Herbarium19、iWildCam、Plankton）、个体重识别（BelugaID）、行为识别（KABR、MammalNet）、功能性状预测（FishNet）
-   - 设计动机：覆盖不同的分类学、分布、任务类型，确保基准能暴露模型在不同维度上的弱点
+
+    - 做什么：统一 9 个公开生态任务
+    - 核心覆盖：4 个分类界（动物/植物/真菌/原生生物）× 6 种图像模态（无人机 RGB、网络视频、显微镜、自然环境照片、标本照片、相机陷阱帧），共 310 万张图像
+    - 任务类型：物种分类（iNat2021、Pl@ntNet、FungiCLEF、Herbarium19、iWildCam、Plankton）、个体重识别（BelugaID）、行为识别（KABR、MammalNet）、功能性状预测（FishNet）
+    - 设计动机：覆盖不同的分类学、分布、任务类型，确保基准能暴露模型在不同维度上的弱点
 
 2. **统一评估协议**：
-   - 做什么：标准化评估流程，消除"锦标赛效应"
-   - 核心思路：所有模型只需实现一个 embedding 接口 $f: \text{image} \to \mathbb{R}^d$。评估用 frozen features + 线性探针，报告 macro-F1 + bootstrap 置信区间。ViT-L 在单 A6000 GPU 上 6 小时完成全部评估
-   - 设计动机：linear probe 隔离表征质量 vs 任务工程，macro-F1 对长尾类别公平
+
+    - 做什么：标准化评估流程，消除"锦标赛效应"
+    - 核心思路：所有模型只需实现一个 embedding 接口 $f: \text{image} \to \mathbb{R}^d$。评估用 frozen features + 线性探针，报告 macro-F1 + bootstrap 置信区间。ViT-L 在单 A6000 GPU 上 6 小时完成全部评估
+    - 设计动机：linear probe 隔离表征质量 vs 任务工程，macro-F1 对长尾类别公平
 
 3. **预测力分析**：
-   - 做什么：定量度量 ImageNet 对 BioBench 的预测能力
-   - 核心思路：计算 46 个 checkpoint 上 ImageNet top-1 vs BioBench 的 $R^2$（0.34）和 Spearman ρ（0.55），以及 >75% 阈值时的 ρ（0.42）。"误排率" = $\frac{1}{2}(1-\rho) = 30\%$
-   - 设计动机：不是主观声称 ImageNet 不够用，而是用统计数据严格证明
+
+    - 做什么：定量度量 ImageNet 对 BioBench 的预测能力
+    - 核心思路：计算 46 个 checkpoint 上 ImageNet top-1 vs BioBench 的 $R^2$（0.34）和 Spearman ρ（0.55），以及 >75% 阈值时的 ρ（0.42）。"误排率" = $\frac{1}{2}(1-\rho) = 30\%$
+    - 设计动机：不是主观声称 ImageNet 不够用，而是用统计数据严格证明
 
 ## 实验关键数据
 

@@ -42,20 +42,23 @@ tags:
 ### 关键设计
 
 1. **信息量优化（Informativeness Optimization）**：
-   - 目标函数基于广义 Jensen-Shannon 散度，最大化不同 LLM 在给定问题上展现的价值分布差异
-   - 同时加入"解耦"正则项，防止 LLM 的价值评估结果被问题本身的价值倾向所主导
-   - 采用类 EM 算法的迭代优化：E步（Response Generation）采样 LLM 的意见并选择得分最高者；M步（Question Refinement）固定意见优化问题使之更具信息量
-   - 每步评估包含四个维度：价值一致性（value conformity）、价值差异（value difference）、语义连贯（semantic coherence）、语义差异（semantic difference）
+
+    - 目标函数基于广义 Jensen-Shannon 散度，最大化不同 LLM 在给定问题上展现的价值分布差异
+    - 同时加入"解耦"正则项，防止 LLM 的价值评估结果被问题本身的价值倾向所主导
+    - 采用类 EM 算法的迭代优化：E步（Response Generation）采样 LLM 的意见并选择得分最高者；M步（Question Refinement）固定意见优化问题使之更具信息量
+    - 每步评估包含四个维度：价值一致性（value conformity）、价值差异（value difference）、语义连贯（semantic coherence）、语义差异（semantic difference）
 
 2. **探索算法（Exploration Algorithm）**：
-   - 基于 Multi-Armed Bandit（MAB）变体，自适应决定是继续优化当前话题还是探索新话题
-   - 使用 UCB 策略选择最有潜力的话题进行扩展和优化
-   - 利用较小、较快的 LLM 集合（P1）做低成本探索，用更强的 LLM 集合（P2）做最终评分
-   - 预算 B 控制总探索次数，平衡问题质量与计算成本
+
+    - 基于 Multi-Armed Bandit（MAB）变体，自适应决定是继续优化当前话题还是探索新话题
+    - 使用 UCB 策略选择最有潜力的话题进行扩展和优化
+    - 利用较小、较快的 LLM 集合（P1）做低成本探索，用更强的 LLM 集合（P2）做最终评分
+    - 预算 B 控制总探索次数，平衡问题质量与计算成本
 
 3. **评估指标设计**：
-   - 基于意见的价值评估：从 LLM 响应中提取多个意见，对每个意见识别 Schwartz 10维价值标签，用逻辑或合并
-   - 基于相对排名的聚合：使用 TrueSkill 系统（贝叶斯技能评估）对所有 LLM 进行多方位比较排名，计算胜率作为最终价值评分，比绝对打分更可靠
+
+    - 基于意见的价值评估：从 LLM 响应中提取多个意见，对每个意见识别 Schwartz 10维价值标签，用逻辑或合并
+    - 基于相对排名的聚合：使用 TrueSkill 系统（贝叶斯技能评估）对所有 LLM 进行多方位比较排名，计算胜率作为最终价值评分，比绝对打分更可靠
 
 ### 损失函数 / 训练策略
 无需训练。所有优化均在 in-context 方式下完成，通过 LLM API 调用实现。核心优化目标为：

@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：集成电路yield分析需要在25+个PVT（Process-Voltage-Temperature）corner上验证电路性能，每个corner需要$N>10^3$次SPICE仿真。传统加速方法分两条路线：(a) Importance Sampling（IS）方法如MNIS实现100x加速但模型容量有限（高斯假设无法建模复杂非线性失效区域）；(b) Surrogate模型（GP、深度核、Normalizing Flow）能建模复杂边界但需要大量超参数调优。
+**领域现状**：集成电路yield分析需要在25+个PVT（Process-Voltage-Temperature）corner上验证电路性能，每个corner需要$N>10^3$次SPICE仿真。传统加速方法分两条路线：(a) Importance Sampling（IS）方法如MNIS实现100x加速但模型容量有限（高斯假设无法建模复杂非线性失效区域）；(b) Surrogate模型（GP、深度核、Normalizing Flow）能建模复杂边界但需要大量超参数调优。
 
-2. **现有痛点**：SOTA surrogate方法虽然准确，但对超参数极其敏感——OPT方法在±20%超参数扰动下误差从19%到111%波动，仿真预算从42k到245k样本变化。每次设计迭代都需要工程师花数小时调参，这是工业落地的根本障碍（Tuning Barrier）。
+**现有痛点**：SOTA surrogate方法虽然准确，但对超参数极其敏感——OPT方法在±20%超参数扰动下误差从19%到111%波动，仿真预算从42k到245k样本变化。每次设计迭代都需要工程师花数小时调参，这是工业落地的根本障碍（Tuning Barrier）。
 
-3. **核心矛盾**：模型表达能力与自动化之间的fundamental trade-off——简单模型（IS）易自动化但精度差，复杂模型（GP/NF）精度高但需调参。
+**核心矛盾**：模型表达能力与自动化之间的fundamental trade-off——简单模型（IS）易自动化但精度差，复杂模型（GP/NF）精度高但需调参。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 如何既保持复杂模型的表达能力又实现零调参的工业自动化？
    - 如何在多corner场景下自动跨corner迁移知识？
    - 如何处理高维电路参数（1152D）的特征选择？
 
-5. **切入角度**：用在百万回归任务上预训练的Foundation Model（TabPFN）替代所有手工先验，通过in-context learning实现零调参推理。
+**切入角度**：用在百万回归任务上预训练的Foundation Model（TabPFN）替代所有手工先验，通过in-context learning实现零调参推理。
 
-6. **核心idea一句话**：用learned priors（预训练权重中编码的先验）替代engineered priors（手工设计的核函数/分布假设），消除Tuning Barrier。
+**核心idea一句话**：用learned priors（预训练权重中编码的先验）替代engineered priors（手工设计的核函数/分布假设），消除Tuning Barrier。
 
 ## 方法详解
 
@@ -49,24 +49,28 @@ tags:
 ### 关键设计
 
 1. **从Engineered Priors到Learned Priors**
-   - 做什么：用预训练Transformer替代GP核函数做后验预测分布估计
-   - 核心思路：传统GP需要对每个电路优化$O(D)$个核超参数（lengthscale等），本文用TabPFN——一个在百万合成回归任务上预训练的Transformer，通过attention机制实现data-dependent kernel。推理时一次前向传播即可输出预测均值$\mu^*$和方差$(\sigma^*)^2$，无需梯度下降或超参数优化
-   - 设计动机：TabPFN的attention机制相当于learned nonlinear kernel：$k_{learned}(z^*, z_i) \propto \exp(Q(z^*)^T K(z_i) / \sqrt{d_k})$，与GP的kernel功能相同但无需per-circuit调参
+
+    - 做什么：用预训练Transformer替代GP核函数做后验预测分布估计
+    - 核心思路：传统GP需要对每个电路优化$O(D)$个核超参数（lengthscale等），本文用TabPFN——一个在百万合成回归任务上预训练的Transformer，通过attention机制实现data-dependent kernel。推理时一次前向传播即可输出预测均值$\mu^*$和方差$(\sigma^*)^2$，无需梯度下降或超参数优化
+    - 设计动机：TabPFN的attention机制相当于learned nonlinear kernel：$k_{learned}(z^*, z_i) \propto \exp(Q(z^*)^T K(z_i) / \sqrt{d_k})$，与GP的kernel功能相同但无需per-circuit调参
 
 2. **跨Corner知识迁移**
-   - 做什么：构建全局代理模型$\hat{f}(x_S, c)$同时建模所有corner
-   - 核心思路：将电路参数$x_S$和corner编码$c$（电压/温度）拼接为统一输入$z = [x_S; c]$，输入TabPFN。attention机制自动发现不同corner之间共享的电路物理规律，在稀疏采样的corner上借用密集采样corner的知识
-   - 设计动机：各corner间存在强相关性（相同电路不同工况），联合建模比独立建模$K$个模型更高效。消融显示跨corner迁移降低误差70%+
+
+    - 做什么：构建全局代理模型$\hat{f}(x_S, c)$同时建模所有corner
+    - 核心思路：将电路参数$x_S$和corner编码$c$（电压/温度）拼接为统一输入$z = [x_S; c]$，输入TabPFN。attention机制自动发现不同corner之间共享的电路物理规律，在稀疏采样的corner上借用密集采样corner的知识
+    - 设计动机：各corner间存在强相关性（相同电路不同工况），联合建模比独立建模$K$个模型更高效。消融显示跨corner迁移降低误差70%+
 
 3. **自动特征选择（1152D→~48D）**
-   - 做什么：自动识别关键工艺参数子集
-   - 核心思路：在初始random samples上一次性训练，通过特征重要性排序选择稀疏、物理可解释的参数子集，压缩到TabPFN可处理的维度
-   - 设计动机：TabPFN对输入维度有限制，且高维输入中大部分参数对yield影响很小，稀疏特征选择不仅降维也提升预测质量
+
+    - 做什么：自动识别关键工艺参数子集
+    - 核心思路：在初始random samples上一次性训练，通过特征重要性排序选择稀疏、物理可解释的参数子集，压缩到TabPFN可处理的维度
+    - 设计动机：TabPFN对输入维度有限制，且高维输入中大部分参数对yield影响很小，稀疏特征选择不仅降维也提升预测质量
 
 4. **不确定性驱动的主动学习**
-   - 做什么：将仿真预算集中在决策边界附近
-   - 核心思路：利用TabPFN输出的预测不确定性$(\sigma^*)^2$指导采样，在yield预测最不确定的区域追加SPICE仿真
-   - 设计动机：决策边界（pass/fail boundary）处的精度对yield估计最关键，主动学习避免在确定区域浪费仿真预算
+
+    - 做什么：将仿真预算集中在决策边界附近
+    - 核心思路：利用TabPFN输出的预测不确定性$(\sigma^*)^2$指导采样，在yield预测最不确定的区域追加SPICE仿真
+    - 设计动机：决策边界（pass/fail boundary）处的精度对yield估计最关键，主动学习避免在确定区域浪费仿真预算
 
 ### 损失函数 / 训练策略
 - TabPFN本身不需要per-circuit训练——预训练在百万合成任务上完成

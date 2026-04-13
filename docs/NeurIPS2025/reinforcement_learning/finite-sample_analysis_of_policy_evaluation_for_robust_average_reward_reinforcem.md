@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：鲁棒 RL 通过在转移概率的不确定集上做最坏情况优化，解决 sim-to-real gap 等问题。在折扣奖励设置下，鲁棒 Bellman 算子因折扣因子 $\gamma < 1$ 自然具有 sup-norm 下的收缩性质，有限样本分析已较成熟。
+**领域现状**：鲁棒 RL 通过在转移概率的不确定集上做最坏情况优化，解决 sim-to-real gap 等问题。在折扣奖励设置下，鲁棒 Bellman 算子因折扣因子 $\gamma < 1$ 自然具有 sup-norm 下的收缩性质，有限样本分析已较成熟。
 
-2. **现有痛点**：平均奖励设置更适合需要长期持续高效的应用（排队系统、库存管理、网络控制），但**即使非鲁棒的平均奖励 Bellman 算子在任何范数下都不具备收缩性质**，使得标准不动点迭代分析不可用。因此现有鲁棒平均奖励 RL 工作仅有渐近收敛保证（基于 ODE 分析），无法给出有限样本复杂度。
+**现有痛点**：平均奖励设置更适合需要长期持续高效的应用（排队系统、库存管理、网络控制），但**即使非鲁棒的平均奖励 Bellman 算子在任何范数下都不具备收缩性质**，使得标准不动点迭代分析不可用。因此现有鲁棒平均奖励 RL 工作仅有渐近收敛保证（基于 ODE 分析），无法给出有限样本复杂度。
 
-3. **核心矛盾**：折扣设置中 $\gamma < 1$ 提供的自然收缩机制在平均奖励中完全缺失，而鲁棒性引入的 min 运算进一步加剧了分析难度——需要在不确定集的所有转移模型上证明收缩。
+**核心矛盾**：折扣设置中 $\gamma < 1$ 提供的自然收缩机制在平均奖励中完全缺失，而鲁棒性引入的 min 运算进一步加剧了分析难度——需要在不确定集的所有转移模型上证明收缩。
 
-4. **本文要解决什么**：(a) 鲁棒平均奖励 Bellman 算子在什么意义下具有收缩性？(b) 如何用有限样本估计涉及非线性最坏情况转移效应的支撑函数？(c) 最终的样本复杂度是什么？
+**本文要解决什么**：(a) 鲁棒平均奖励 Bellman 算子在什么意义下具有收缩性？(b) 如何用有限样本估计涉及非线性最坏情况转移效应的支撑函数？(c) 最终的样本复杂度是什么？
 
-5. **切入角度**：将所有不确定集内的最坏情况转移矩阵视为一族线性映射，利用其联合谱半径严格小于 1 的性质构造极值范数，进而构建能"一步收缩"的半范数。
+**切入角度**：将所有不确定集内的最坏情况转移矩阵视为一族线性映射，利用其联合谱半径严格小于 1 的性质构造极值范数，进而构建能"一步收缩"的半范数。
 
-6. **核心 idea 一句话**：通过极值范数+商空间修正构造半范数证明鲁棒 Bellman 算子的收缩性，配合截断 MLMC 实现有限样本策略评估。
+**核心 idea 一句话**：通过极值范数+商空间修正构造半范数证明鲁棒 Bellman 算子的收缩性，配合截断 MLMC 实现有限样本策略评估。
 
 ## 方法详解
 
@@ -45,25 +45,29 @@ tags:
 ### 关键设计
 
 1. **半范数收缩构造（核心理论贡献）**:
-   - 做什么：证明鲁棒 Bellman 算子 $\mathbf{T}_g(V)(s) = \sum_a \pi(a|s)[r(s,a) - g + \sigma_{\mathcal{P}_s^a}(V)]$ 在某半范数下是收缩映射
-   - 核心思路（非鲁棒版本）：对单一转移矩阵 $\mathsf{P}^{\pi}$，利用遍历性得到唯一平稳分布 $d^\pi$，定义波动矩阵 $Q^\pi = \mathsf{P}^\pi - \mathbf{e}^\top d^\pi$，其特征值严格在单位圆内。通过离散 Lyapunov 方程构造范数 $\|\cdot\|_Q$ 使得 $\|Q^\pi x\|_Q \leq \alpha \|x\|_Q$（$\alpha < 1$）。半范数定义为 $\|x\|_{\mathsf{P}} = \|Q^\pi x\|_Q + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_Q$，核为常向量空间
-   - 核心思路（鲁棒版本）：对不确定集 $\mathcal{P}$ 中所有 $\mathsf{P}$ 的波动矩阵族 $\{Q_\mathsf{P}^\pi\}$，利用其联合谱半径 $< 1$，通过 Berger-Wang 定理构造极值范数 $\|\cdot\|_{\text{ext}}$ 使得所有 $Q_\mathsf{P}^\pi$ 统一收缩因子 $\alpha$。最终半范数 $\|x\|_{\mathcal{P}} = \sup_{\mathsf{P} \in \mathcal{P}} \|Q_\mathsf{P}^\pi x\|_{\text{ext}} + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_{\text{ext}}$，保证 $\|\mathbf{T}_g(V_1) - \mathbf{T}_g(V_2)\|_{\mathcal{P}} \leq \gamma \|V_1 - V_2\|_{\mathcal{P}}$，$\gamma = \alpha + \epsilon < 1$
-   - 设计动机：这是唯一能克服平均奖励缺乏折扣因子收缩的理论路径
+
+    - 做什么：证明鲁棒 Bellman 算子 $\mathbf{T}_g(V)(s) = \sum_a \pi(a|s)[r(s,a) - g + \sigma_{\mathcal{P}_s^a}(V)]$ 在某半范数下是收缩映射
+    - 核心思路（非鲁棒版本）：对单一转移矩阵 $\mathsf{P}^{\pi}$，利用遍历性得到唯一平稳分布 $d^\pi$，定义波动矩阵 $Q^\pi = \mathsf{P}^\pi - \mathbf{e}^\top d^\pi$，其特征值严格在单位圆内。通过离散 Lyapunov 方程构造范数 $\|\cdot\|_Q$ 使得 $\|Q^\pi x\|_Q \leq \alpha \|x\|_Q$（$\alpha < 1$）。半范数定义为 $\|x\|_{\mathsf{P}} = \|Q^\pi x\|_Q + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_Q$，核为常向量空间
+    - 核心思路（鲁棒版本）：对不确定集 $\mathcal{P}$ 中所有 $\mathsf{P}$ 的波动矩阵族 $\{Q_\mathsf{P}^\pi\}$，利用其联合谱半径 $< 1$，通过 Berger-Wang 定理构造极值范数 $\|\cdot\|_{\text{ext}}$ 使得所有 $Q_\mathsf{P}^\pi$ 统一收缩因子 $\alpha$。最终半范数 $\|x\|_{\mathcal{P}} = \sup_{\mathsf{P} \in \mathcal{P}} \|Q_\mathsf{P}^\pi x\|_{\text{ext}} + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_{\text{ext}}$，保证 $\|\mathbf{T}_g(V_1) - \mathbf{T}_g(V_2)\|_{\mathcal{P}} \leq \gamma \|V_1 - V_2\|_{\mathcal{P}}$，$\gamma = \alpha + \epsilon < 1$
+    - 设计动机：这是唯一能克服平均奖励缺乏折扣因子收缩的理论路径
 
 2. **截断 MLMC 估计器（技术贡献）**:
-   - 做什么：为 TV 和 Wasserstein 不确定集的支撑函数 $\sigma_{\mathcal{P}_s^a}(V)$ 构造有限样本无偏/低偏估计器
-   - 核心思路：标准 MLMC 从几何分布 $\text{Geom}(\Psi)$ 采样层数 $N$，需要 $2^{N+1}$ 个样本，当 $\Psi < 0.5$ 时期望样本数为无穷。关键创新是设 $\Psi = 0.5$ 并截断 $N' = \min\{N, N_{\max}\}$，使得期望样本数 $\mathbb{E}[M] = N_{\max} + 2 = \mathcal{O}(N_{\max})$（线性增长而非指数增长）
-   - 偏差以 $2^{-N_{\max}/2}$ 指数衰减，方差与 $N_{\max}$ 线性增长
-   - 设计动机：之前的 MLMC 方法有无穷期望样本复杂度，只能给出渐近收敛保证
+
+    - 做什么：为 TV 和 Wasserstein 不确定集的支撑函数 $\sigma_{\mathcal{P}_s^a}(V)$ 构造有限样本无偏/低偏估计器
+    - 核心思路：标准 MLMC 从几何分布 $\text{Geom}(\Psi)$ 采样层数 $N$，需要 $2^{N+1}$ 个样本，当 $\Psi < 0.5$ 时期望样本数为无穷。关键创新是设 $\Psi = 0.5$ 并截断 $N' = \min\{N, N_{\max}\}$，使得期望样本数 $\mathbb{E}[M] = N_{\max} + 2 = \mathcal{O}(N_{\max})$（线性增长而非指数增长）
+    - 偏差以 $2^{-N_{\max}/2}$ 指数衰减，方差与 $N_{\max}$ 线性增长
+    - 设计动机：之前的 MLMC 方法有无穷期望样本复杂度，只能给出渐近收敛保证
 
 3. **三类不确定集的处理**:
-   - **污染模型**（Contamination）：$\sigma_{\mathcal{P}_s^a}(V) = (1-\delta)(\tilde{\mathsf{P}}_s^a)^\top V + \delta \min_s V(s)$，对名义转移线性，直接用一个样本无偏估计即可
-   - **全变差距离（TV）**：支撑函数涉及 span 半范数的对偶优化，需要 MLMC。Lipschitz 性质：$|\sigma_{\mathcal{P}_{TV}}(V) - \sigma_{\mathcal{Q}_{TV}}(V)| \leq (1+1/\delta)\|V\|_{\text{sp}}\|p-q\|_1$
-   - **Wasserstein 距离**：支撑函数涉及 inf-sup 双层优化，同样需要 MLMC。Lipschitz 常数更紧：$|\sigma_{\mathcal{P}_W}(V) - \sigma_{\mathcal{Q}_W}(V)| \leq \|V\|_{\text{sp}}\|p-q\|_1$
+
+    - **污染模型**（Contamination）：$\sigma_{\mathcal{P}_s^a}(V) = (1-\delta)(\tilde{\mathsf{P}}_s^a)^\top V + \delta \min_s V(s)$，对名义转移线性，直接用一个样本无偏估计即可
+    - **全变差距离（TV）**：支撑函数涉及 span 半范数的对偶优化，需要 MLMC。Lipschitz 性质：$|\sigma_{\mathcal{P}_{TV}}(V) - \sigma_{\mathcal{Q}_{TV}}(V)| \leq (1+1/\delta)\|V\|_{\text{sp}}\|p-q\|_1$
+    - **Wasserstein 距离**：支撑函数涉及 inf-sup 双层优化，同样需要 MLMC。Lipschitz 常数更紧：$|\sigma_{\mathcal{P}_W}(V) - \sigma_{\mathcal{Q}_W}(V)| \leq \|V\|_{\text{sp}}\|p-q\|_1$
 
 4. **鲁棒平均奖励 TD 学习（Algorithm 2）**:
-   - 第一阶段（迭代 $T$ 步）：$V_{t+1}(s) \leftarrow V_t(s) + \eta_t(\hat{\mathbf{T}}_{g_0}(V_t)(s) - V_t(s))$，然后中心化 $V_{t+1}(s) = V_{t+1}(s) - V_{t+1}(s_0)$
-   - 第二阶段（迭代 $T$ 步）：用 $V_T$ 估计 $g_T \leftarrow g_t + \beta_t(\bar{\delta}_t - g_t)$
+
+    - 第一阶段（迭代 $T$ 步）：$V_{t+1}(s) \leftarrow V_t(s) + \eta_t(\hat{\mathbf{T}}_{g_0}(V_t)(s) - V_t(s))$，然后中心化 $V_{t+1}(s) = V_{t+1}(s) - V_{t+1}(s_0)$
+    - 第二阶段（迭代 $T$ 步）：用 $V_T$ 估计 $g_T \leftarrow g_t + \beta_t(\bar{\delta}_t - g_t)$
 
 ### 样本复杂度结论
 - 污染不确定集：$\mathcal{O}\left(\frac{SAt_{\text{mix}}^2}{\epsilon^2(1-\gamma)^2}\right)$

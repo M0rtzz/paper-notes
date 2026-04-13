@@ -33,8 +33,8 @@ tags:
 ### 现有痛点
 
 在长horizon任务中，扩散模型面临两个挑战：
-1. **方差累积**：随轨迹长度增加，价值估计的方差指数级增长
-2. **计算成本**：迭代去噪步骤的计算开销随序列长度线性增长
+**方差累积**：随轨迹长度增加，价值估计的方差指数级增长
+**计算成本**：迭代去噪步骤的计算开销随序列长度线性增长
 
 为此，层次扩散方法（HDMI, Hierarchical Diffuser）将决策分解为高层目标规划 + 低层动作生成。但现有方法存在**两个刚性限制**：
 - **固定两层结构**：只有subgoal层和action层，无法适应不同任务的时间结构复杂度
@@ -56,15 +56,16 @@ SIHD包含三个模块：
 ### 关键设计
 
 1. **多尺度扩散层次构建**：
-   - 从离线数据集中提取所有状态 $s \in \mathcal{S}$，基于特征相似度（余弦相似度）建立k最近邻状态图 $\mathcal{G}_s$
-   - 通过最大化一维结构熵 $\mathcal{H}^1(\mathcal{G}_s)$ 来选择最优 $k$ 值
-   - 应用HCSE优化算法求解高度为 $\mathcal{K}$ 的最优编码树 $\mathcal{T}_s^*$，最小化 $\mathcal{K}$ 维结构熵：
 
-   $$\mathcal{H}^{\mathcal{K}}(\mathcal{G}) = \min_{h_\mathcal{T} \leq \mathcal{K}} \mathcal{H}^{\mathcal{T}}(\mathcal{G}), \quad \mathcal{H}^{\mathcal{T}}(\mathcal{G}) = -\sum_{\alpha \in \mathcal{T}, \alpha \neq \lambda}\left[\frac{g_\alpha}{\operatorname{vol}(\lambda)} \cdot \log\frac{\operatorname{vol}(\alpha)}{\operatorname{vol}(\alpha^-)}\right]$$
+    - 从离线数据集中提取所有状态 $s \in \mathcal{S}$，基于特征相似度（余弦相似度）建立k最近邻状态图 $\mathcal{G}_s$
+    - 通过最大化一维结构熵 $\mathcal{H}^1(\mathcal{G}_s)$ 来选择最优 $k$ 值
+    - 应用HCSE优化算法求解高度为 $\mathcal{K}$ 的最优编码树 $\mathcal{T}_s^*$，最小化 $\mathcal{K}$ 维结构熵：
 
-   - 编码树自然定义了多层社区分区：每个节点 $\alpha$ 对应一个状态社区 $\mathcal{V}_\alpha$
-   - 根据社区分区对轨迹进行自适应分段：同一社区内的连续状态构成一个segment，segment末尾的状态作为subgoal
-   - 不同层级的编码树节点对应不同时间尺度的分段
+    $\mathcal{H}^{\mathcal{K}}(\mathcal{G}) = \min_{h_\mathcal{T} \leq \mathcal{K}} \mathcal{H}^{\mathcal{T}}(\mathcal{G}), \quad \mathcal{H}^{\mathcal{T}}(\mathcal{G}) = -\sum_{\alpha \in \mathcal{T}, \alpha \neq \lambda}\left[\frac{g_\alpha}{\operatorname{vol}(\lambda)} \cdot \log\frac{\operatorname{vol}(\alpha)}{\operatorname{vol}(\alpha^-)}\right]$
+
+    - 编码树自然定义了多层社区分区：每个节点 $\alpha$ 对应一个状态社区 $\mathcal{V}_\alpha$
+    - 根据社区分区对轨迹进行自适应分段：同一社区内的连续状态构成一个segment，segment末尾的状态作为subgoal
+    - 不同层级的编码树节点对应不同时间尺度的分段
 
 2. **条件扩散模型（以结构信息增益为引导）**：
 
@@ -72,23 +73,23 @@ SIHD包含三个模块：
 
    **关键创新**：中间层和底层扩散器不使用奖励，而使用**结构信息增益**作为条件信号：
 
-   $$y(\tau_g^{h,i}) = \mathcal{H}^{\mathcal{T}_s^*}(\mathcal{G}_s; \alpha) = -\frac{g_\alpha}{\operatorname{vol}(\lambda)} \cdot \log\frac{\operatorname{vol}(\alpha)}{\operatorname{vol}(\alpha^-)}$$
+    $y(\tau_g^{h,i}) = \mathcal{H}^{\mathcal{T}_s^*}(\mathcal{G}_s; \alpha) = -\frac{g_\alpha}{\operatorname{vol}(\lambda)} \cdot \log\frac{\operatorname{vol}(\alpha)}{\operatorname{vol}(\alpha^-)}$
 
    这量化了"在知道转移在高层segment内的前提下，推断它在低层segment内所需的额外信息量"。使用classifier-free guidance整合条件信息：$\hat{\epsilon} = \epsilon_{\theta_h}(\tau_{g,k}^{h,i}, (1-\omega)y(\tau_{g,k}^{h,i}) + \omega\emptyset, k)$
 
    Theorem 4.1证明了条件生成可以分解为层次扩散过程：
 
-   $$p(\tau_0|y(\tau_0)) \propto p(\tau_g^{\mathcal{K},1})y(\tau_g^{\mathcal{K},1}) \cdot \prod_{h=1}^{\mathcal{K}-1}\prod_{i=1}^{l_g^h} p(\tau_g^{h,i})y(\tau_g^{h,i})$$
+    $p(\tau_0|y(\tau_0)) \propto p(\tau_g^{\mathcal{K},1})y(\tau_g^{\mathcal{K},1}) \cdot \prod_{h=1}^{\mathcal{K}-1}\prod_{i=1}^{l_g^h} p(\tau_g^{h,i})y(\tau_g^{h,i})$
 
 3. **结构熵正则化**：
 
    基于底层扩散模型估计的状态转移概率构建完全加权图 $\mathcal{G}_s'$，计算其在编码树下的结构熵。Theorem 4.2建立了结构熵与Shannon熵的变分下界关系：
 
-   $$\mathcal{H}(S) - \sum_{h=1}^{\mathcal{K}-1}[\eta_h \cdot \mathcal{H}(\mathcal{U}_h)] \leq \mathcal{H}^{\mathcal{T}_s^*}(\mathcal{G}_s') \leq \mathcal{H}(S)$$
+    $\mathcal{H}(S) - \sum_{h=1}^{\mathcal{K}-1}[\eta_h \cdot \mathcal{H}(\mathcal{U}_h)] \leq \mathcal{H}^{\mathcal{T}_s^*}(\mathcal{G}_s') \leq \mathcal{H}(S)$
 
    训练目标中加入正则项——**最大化** $\mathcal{H}(S)$（鼓励覆盖稀疏状态）的同时**最小化** $\mathcal{H}(\mathcal{U}_h)$（保持层次结构、约束探索范围）：
 
-   $$\mathcal{L}(\theta_h) = \mathbb{E}\sum_{i=1}^{l_g^h}\left[\|\hat{\epsilon} - \epsilon\|^2 - \eta\mathbb{I}_{h=1}\left[\mathcal{H}(S) - \sum_{j=1}^{\mathcal{K}-1}[\eta_j \cdot \mathcal{H}(\mathcal{U}_j)]\right]\right]$$
+    $\mathcal{L}(\theta_h) = \mathbb{E}\sum_{i=1}^{l_g^h}\left[\|\hat{\epsilon} - \epsilon\|^2 - \eta\mathbb{I}_{h=1}\left[\mathcal{H}(S) - \sum_{j=1}^{\mathcal{K}-1}[\eta_j \cdot \mathcal{H}(\mathcal{U}_j)]\right]\right]$
 
 ### 损失函数 / 训练策略
 

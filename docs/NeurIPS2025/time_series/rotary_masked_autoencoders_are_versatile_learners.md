@@ -30,8 +30,8 @@ tags:
 Transformer 已在视觉和 NLP 领域取得巨大成功，但将其应用于不规则采样的时间序列时面临根本性限制：原始 Transformer 仅支持离散整数位置编码，无法处理非均匀采样数据中的连续时间戳。
 
 现有解决方案主要有两类：
-1. **修改 Transformer 内部架构**：如修改前馈层或使用 Neural ODE 作为位置编码，但增加了计算开销和方法复杂度
-2. **使用 State Space Model**：如 Mamba、S5 天然支持多模态，但脱离了 Transformer 生态系统
+**修改 Transformer 内部架构**：如修改前馈层或使用 Neural ODE 作为位置编码，但增加了计算开销和方法复杂度
+**使用 State Space Model**：如 Mamba、S5 天然支持多模态，但脱离了 Transformer 生态系统
 
 **核心洞察**：RoPE（旋转位置编码）虽然最初为离散文本位置设计，但其旋转矩阵公式 $R(\theta, m)$ 中的位置 $m$ 天然可以取任意实数值。如果利用这一特性，就能在不修改任何 Transformer 架构的前提下处理连续位置信息，从而继承 Transformer/MAE 生态中的所有优化和发展。
 

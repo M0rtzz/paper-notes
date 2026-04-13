@@ -40,9 +40,9 @@ tags:
 ### 研究方法论
 
 作者采用**能力感知方法**，将数据分析过程分解为三个核心维度：
-1. **数据理解（Data Comprehension）**：理解和有效利用结构化数据
-2. **代码生成（Code Generation）**：生成正确高效的分析代码
-3. **战略规划（Strategic Planning）**：将复杂问题分解为可管理步骤
+**数据理解（Data Comprehension）**：理解和有效利用结构化数据
+**代码生成（Code Generation）**：生成正确高效的分析代码
+**战略规划（Strategic Planning）**：将复杂问题分解为可管理步骤
 
 形式化定义数据分析函数：$f_\theta: (\mathcal{D}, \mathcal{Q}, \mathcal{T}) \rightarrow (\mathcal{S}, \mathcal{R})$，其中 $\mathcal{D}$ 是结构化数据，$\mathcal{Q}$ 是分析目标，$\mathcal{T}$ 是工具库，$\mathcal{S}$ 是中间分析状态序列，$\mathcal{R}$ 是最终报告。
 

@@ -25,12 +25,12 @@ tags:
 提出对比提示（Contrastive Prompting, CP）方法，通过引入辅助提示（引导编码非核心信息）并在推理时与正常提示的激活值做对比减法，过滤掉停用词等无关语义，使 LLM 的句子嵌入更聚焦核心语义，在 STS 和分类任务上一致提升现有提示方法。
 
 ## 研究背景与动机
-1. **领域现状**：从 LLM 提取零样本句子嵌入是实用方向（无需额外数据/微调），主流方法通过 prompt 工程将句子语义压缩到最后一个 token 的隐状态。
-2. **现有痛点**：最后一个 token 仍编码了大量非核心信息（停用词等）——即使用 Knowledge 提示强调"主语和动作"，解码概率最高的仍是停用词"a"。
-3. **核心矛盾**：prompt 工程只能间接改变表示，无法直接过滤非核心信息。
-4. **本文要解决什么？** 如何在推理时直接修改隐状态以增强核心语义、去除非核心信息？
-5. **切入角度**：引入辅助提示（"这句话的无关信息是..."）编码非核心信息，用正常提示减去辅助提示的激活值得到纯核心语义向量。
-6. **核心 idea 一句话**：用"语义减法"——正常提示的激活值减去辅助提示的激活值，直接过滤非核心信息。
+**领域现状**：从 LLM 提取零样本句子嵌入是实用方向（无需额外数据/微调），主流方法通过 prompt 工程将句子语义压缩到最后一个 token 的隐状态。
+**现有痛点**：最后一个 token 仍编码了大量非核心信息（停用词等）——即使用 Knowledge 提示强调"主语和动作"，解码概率最高的仍是停用词"a"。
+**核心矛盾**：prompt 工程只能间接改变表示，无法直接过滤非核心信息。
+**本文要解决什么？** 如何在推理时直接修改隐状态以增强核心语义、去除非核心信息？
+**切入角度**：引入辅助提示（"这句话的无关信息是..."）编码非核心信息，用正常提示减去辅助提示的激活值得到纯核心语义向量。
+**核心 idea 一句话**：用"语义减法"——正常提示的激活值减去辅助提示的激活值，直接过滤非核心信息。
 
 ## 方法详解
 
@@ -39,18 +39,21 @@ tags:
 
 ### 关键设计
 1. **辅助提示设计**:
-   - 模板："The irrelevant information of this sentence: '[TEXT]' means in one word: "
-   - 仅需传播到第 $\ell$ 层（低层），开销极小
-   - 可探索不同辅助提示（如"This sentence '[TEXT]' can be ignored"）
+
+    - 模板："The irrelevant information of this sentence: '[TEXT]' means in one word: "
+    - 仅需传播到第 $\ell$ 层（低层），开销极小
+    - 可探索不同辅助提示（如"This sentence '[TEXT]' can be ignored"）
 
 2. **对比激活导向（Contrastive Activation Steering）**:
-   - 语义激活向量：$\Delta\mathbf{v}^\ell = \mathbf{v}^{\text{nor},(\ell)}_{N_{\text{nor}}} - \mathbf{v}^{\text{aux},(\ell)}_{N_{\text{aux}}}$
-   - 仅干预最后一个 token 的 value vector
-   - 与 activation steering 方向不同：不需要监督数据的正负样本对
+
+    - 语义激活向量：$\Delta\mathbf{v}^\ell = \mathbf{v}^{\text{nor},(\ell)}_{N_{\text{nor}}} - \mathbf{v}^{\text{aux},(\ell)}_{N_{\text{aux}}}$
+    - 仅干预最后一个 token 的 value vector
+    - 与 activation steering 方向不同：不需要监督数据的正负样本对
 
 3. **范数调整策略**:
-   - 干预后向量范数可能变化，提出两种调整：固定原范数 / 缩放到指定范数
-   - 保持表示空间的一致性
+
+    - 干预后向量范数可能变化，提出两种调整：固定原范数 / 缩放到指定范数
+    - 保持表示空间的一致性
 
 ### 即插即用特性
 CP 可与任意现有提示方法组合：PromptEOL、Pretended CoT、Knowledge、MetaEOL 等，持续提升性能。

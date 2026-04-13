@@ -44,23 +44,26 @@ PerturbPE建立在MöbiusGCN之上。整体流程：(1) 给定可能有边缺失
 ### 关键设计
 
 1. **瑞利-薛定谔微扰理论(RSPT)计算扰动特征向量**:
-   - 做什么：给定原始图拉普拉斯 $\mathbf{A}_0$ 和扰动矩阵 $\mathbf{A}_1$（由被移除的边构成），高效计算扰动后的特征对
-   - 核心思路：$\mathbf{A}(\epsilon) = \mathbf{A}_0 + \epsilon \mathbf{A}_1$，通过级数展开 $\mathbf{v}_i(\epsilon) = \sum_{k=0}^{\infty} \epsilon^k \mathbf{v}_i^{(k)}$ 逐阶逼近。实验中设 $\epsilon=1, k=1$（一阶微扰），利用Moore-Penrose伪逆和QR分解高效求解。对简并(特征值重复)和非简并情况分别处理
-   - 设计动机：RSPT的核心优势是不需要重新计算整个特征分解，只需计算伪逆向量积，对于人体骨架图(17个节点)这种小图来说计算开销可忽略不计(推理时间仅从0.009s增到0.010s)
+
+    - 做什么：给定原始图拉普拉斯 $\mathbf{A}_0$ 和扰动矩阵 $\mathbf{A}_1$（由被移除的边构成），高效计算扰动后的特征对
+    - 核心思路：$\mathbf{A}(\epsilon) = \mathbf{A}_0 + \epsilon \mathbf{A}_1$，通过级数展开 $\mathbf{v}_i(\epsilon) = \sum_{k=0}^{\infty} \epsilon^k \mathbf{v}_i^{(k)}$ 逐阶逼近。实验中设 $\epsilon=1, k=1$（一阶微扰），利用Moore-Penrose伪逆和QR分解高效求解。对简并(特征值重复)和非简并情况分别处理
+    - 设计动机：RSPT的核心优势是不需要重新计算整个特征分解，只需计算伪逆向量积，对于人体骨架图(17个节点)这种小图来说计算开销可忽略不计(推理时间仅从0.009s增到0.010s)
 
 2. **多次扰动取平均提取一致性位置编码(PerturbPE)**:
-   - 做什么：独立执行κ次RSPT扰动，每次随机移除不同的边集，将得到的扰动特征向量取平均
-   - 核心思路：
-     $\mathbf{p} = \frac{\sum_{i=1}^{\kappa} \mathbf{v}_i}{\kappa}$
-     其中 $\mathbf{v}_i$ 是第i次扰动后的特征向量。平均操作过滤掉随机扰动引入的不规则分量，保留图结构的一致性信息
-   - 设计动机：基于图拉普拉斯特征基可分解为规则(consistent)和不规则(irregular)部分的理论。规则部分反映了不受少量边变化影响的结构特征，正是我们需要的位置编码。多次取平均是一种简洁的蒙特卡洛近似
+
+    - 做什么：独立执行κ次RSPT扰动，每次随机移除不同的边集，将得到的扰动特征向量取平均
+    - 核心思路：
+      $\mathbf{p} = \frac{\sum_{i=1}^{\kappa} \mathbf{v}_i}{\kappa}$
+      其中 $\mathbf{v}_i$ 是第i次扰动后的特征向量。平均操作过滤掉随机扰动引入的不规则分量，保留图结构的一致性信息
+    - 设计动机：基于图拉普拉斯特征基可分解为规则(consistent)和不规则(irregular)部分的理论。规则部分反映了不受少量边变化影响的结构特征，正是我们需要的位置编码。多次取平均是一种简洁的蒙特卡洛近似
 
 3. **位置特征融合与Masked Condition训练策略**:
-   - 做什么：将PerturbPE编码与节点特征相加后通过MLP融合，嵌入MöbiusGCN的每一层
-   - 核心思路：$\mathbf{X}^{\ell} = \sigma(f(\mathbf{Z}^{\ell} + \mathbf{P}))$，其中f是MLP。完整的MöbiusGCN块变为：
-     $\mathbf{Z}^{\ell+1} = \sigma(2\Re\{\mathbf{U} \operatorname{Möbius}(\Lambda) \mathbf{U}^\top \sigma(f(\mathbf{Z}^{\ell} + \mathbf{P})) \mathbf{W}^{\ell+1}\} + \mathbf{b})$
-   - 训练时假设每个样本随机缺失0-2条边(Masked Condition Strategy)，使模型学会处理各种缺失模式
-   - 设计动机：一个网络适应所有缺失情况，比为每种缺失模式训练独立模型更实用
+
+    - 做什么：将PerturbPE编码与节点特征相加后通过MLP融合，嵌入MöbiusGCN的每一层
+    - 核心思路：$\mathbf{X}^{\ell} = \sigma(f(\mathbf{Z}^{\ell} + \mathbf{P}))$，其中f是MLP。完整的MöbiusGCN块变为：
+      $\mathbf{Z}^{\ell+1} = \sigma(2\Re\{\mathbf{U} \operatorname{Möbius}(\Lambda) \mathbf{U}^\top \sigma(f(\mathbf{Z}^{\ell} + \mathbf{P})) \mathbf{W}^{\ell+1}\} + \mathbf{b})$
+    - 训练时假设每个样本随机缺失0-2条边(Masked Condition Strategy)，使模型学会处理各种缺失模式
+    - 设计动机：一个网络适应所有缺失情况，比为每种缺失模式训练独立模型更实用
 
 ### 损失函数 / 训练策略
 

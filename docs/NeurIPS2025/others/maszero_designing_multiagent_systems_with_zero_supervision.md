@@ -25,17 +25,17 @@ MAS-ZERO 是首个推理时自动 MAS 设计框架，通过 meta-agent 迭代设
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 多智能体系统（MAS）通过多个 agent 协作（辩论、分工、验证）来解决单模型无法有效处理的复杂任务。当前 MAS 设计主要有两种：手动设计（Debate、Self-Refine 等）和自动设计（ADAS、AFlow 用验证集搜索最优配置）。
+**领域现状**：LLM 多智能体系统（MAS）通过多个 agent 协作（辩论、分工、验证）来解决单模型无法有效处理的复杂任务。当前 MAS 设计主要有两种：手动设计（Debate、Self-Refine 等）和自动设计（ADAS、AFlow 用验证集搜索最优配置）。
 
-2. **现有痛点**：(1) 手动 MAS 依赖人工定义角色和通信协议，难以与底层 LLM 能力对齐且不适应新任务；(2) 自动 MAS 需要标注验证集进行调优，得到的是固定架构（一个配置用于所有问题），缺乏逐问题的适应性；(3) 现有自动方法不能在复杂 MAS 无帮助时动态退化为简单 MAS 或单 agent（如 CoT），导致在困难任务上多 baseline 甚至不如 CoT。
+**现有痛点**：(1) 手动 MAS 依赖人工定义角色和通信协议，难以与底层 LLM 能力对齐且不适应新任务；(2) 自动 MAS 需要标注验证集进行调优，得到的是固定架构（一个配置用于所有问题），缺乏逐问题的适应性；(3) 现有自动方法不能在复杂 MAS 无帮助时动态退化为简单 MAS 或单 agent（如 CoT），导致在困难任务上多 baseline 甚至不如 CoT。
 
-3. **核心矛盾**：有效的自动 MAS 需要同时满足三个条件——(a) 能分解复杂问题并在不需要时退化为简单系统，(b) 自动学习 LLM agent 能力并设计匹配的架构，(c) 推理时逐问题适配而非依赖验证集。现有方法无一同时满足。
+**核心矛盾**：有效的自动 MAS 需要同时满足三个条件——(a) 能分解复杂问题并在不需要时退化为简单系统，(b) 自动学习 LLM agent 能力并设计匹配的架构，(c) 推理时逐问题适配而非依赖验证集。现有方法无一同时满足。
 
-4. **本文要解决什么**：设计一个无需验证集、在推理时自动为每个问题实例定制 MAS 配置的框架。
+**本文要解决什么**：设计一个无需验证集、在推理时自动为每个问题实例定制 MAS 配置的框架。
 
-5. **切入角度**：引入 meta-agent 工作在 MAS 层面（而非 agent 层面），通过迭代的 meta-design（分解问题 + 分配 sub-MAS）和 meta-feedback（评估可解性和完整性）来自我进化，并在最终阶段从所有候选答案（包括简单 building block 的输出）中选择最优。
+**切入角度**：引入 meta-agent 工作在 MAS 层面（而非 agent 层面），通过迭代的 meta-design（分解问题 + 分配 sub-MAS）和 meta-feedback（评估可解性和完整性）来自我进化，并在最终阶段从所有候选答案（包括简单 building block 的输出）中选择最优。
 
-6. **核心idea一句话**：用 meta-agent 将 MAS 设计变成一个推理时的迭代优化过程——每步设计一个 MAS（代码形式），执行后基于可解性和完整性反馈改进，最终从 building block 和多轮进化的候选中选择最佳答案。
+**核心idea一句话**：用 meta-agent 将 MAS 设计变成一个推理时的迭代优化过程——每步设计一个 MAS（代码形式），执行后基于可解性和完整性反馈改进，最终从 building block 和多轮进化的候选中选择最佳答案。
 
 ## 方法详解
 
@@ -45,20 +45,23 @@ MAS-ZERO 分三步：(1) **MAS-Init**——运行 4 个 building block（CoT、C
 ### 关键设计
 
 1. **Meta-Design（任务分解 + sub-MAS 分配）**：
-   - 做什么：将原始问题分解为可管理的子任务，为每个子任务分配由 building block 组成的 sub-MAS
-   - 核心思路：Meta-agent 被要求 (a) 将问题分解为"可管理但相互依赖"的子任务，(b) 为每个子任务指定 sub-MAS（可以是单个 block 如 CoT，或 chain 如 CoT→Self-Refine，或并行 {CoT ∥ Debate}）。设计以可执行 Python 代码形式表达
-   - 设计动机：允许 meta-agent 修改 block 之间的连接和参数（如温度、辩论轮次），但不允许发明新 block——这在探索和可靠性之间取得平衡
+
+    - 做什么：将原始问题分解为可管理的子任务，为每个子任务分配由 building block 组成的 sub-MAS
+    - 核心思路：Meta-agent 被要求 (a) 将问题分解为"可管理但相互依赖"的子任务，(b) 为每个子任务指定 sub-MAS（可以是单个 block 如 CoT，或 chain 如 CoT→Self-Refine，或并行 {CoT ∥ Debate}）。设计以可执行 Python 代码形式表达
+    - 设计动机：允许 meta-agent 修改 block 之间的连接和参数（如温度、辩论轮次），但不允许发明新 block——这在探索和可靠性之间取得平衡
 
 2. **Meta-Feedback（可解性 + 完整性评估）**：
-   - 做什么：评估 meta-design 产出的 MAS 质量并生成改进反馈
-   - 核心思路：执行 MAS 获取两级中间输出（sub-task 级和 agent 级），评估两个标准：
-     - **Solvability**：每个子任务是否被其 sub-MAS 独立且完整地解决？如果不可解，建议进一步分解或更换 sub-MAS
-     - **Completeness**：所有子任务是否覆盖了原始问题的全部必要信息？如果有遗漏，建议修改分解策略
-   - 设计动机：不同于只看最终答案正确与否的验证集方法，solvability+completeness 提供更丰富的过程级反馈
+
+    - 做什么：评估 meta-design 产出的 MAS 质量并生成改进反馈
+    - 核心思路：执行 MAS 获取两级中间输出（sub-task 级和 agent 级），评估两个标准：
+      - **Solvability**：每个子任务是否被其 sub-MAS 独立且完整地解决？如果不可解，建议进一步分解或更换 sub-MAS
+      - **Completeness**：所有子任务是否覆盖了原始问题的全部必要信息？如果有遗漏，建议修改分解策略
+    - 设计动机：不同于只看最终答案正确与否的验证集方法，solvability+completeness 提供更丰富的过程级反馈
 
 3. **Experience Library + MAS-Verify**：
-   - Experience Library：每轮的 MAS 设计、中间输出和反馈存入经验库，作为后续轮次的上下文
-   - MAS-Verify：(a) 按最终答案频率排序候选答案（majority vote 启发），(b) 过滤无效答案，(c) 让 meta-agent 从排序后的候选中选择最佳——包括 building block 的输出，实现动态退化
+
+    - Experience Library：每轮的 MAS 设计、中间输出和反馈存入经验库，作为后续轮次的上下文
+    - MAS-Verify：(a) 按最终答案频率排序候选答案（majority vote 启发），(b) 过滤无效答案，(c) 让 meta-agent 从排序后的候选中选择最佳——包括 building block 的输出，实现动态退化
 
 ### 训练策略
 完全 training-free，zero supervision。所有操作通过 prompting 实现，只需黑盒 LLM 访问。相同 prompt 模板用于所有任务。

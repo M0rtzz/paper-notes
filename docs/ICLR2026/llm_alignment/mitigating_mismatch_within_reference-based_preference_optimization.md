@@ -26,13 +26,13 @@ tags:
 揭示 DPO 的"过早满足"问题——当 reference 策略对 chosen 的概率低于 rejected 时（~45% pairs），DPO 的梯度被 reference 的悲观信号不必要地衰减（即使策略仍然错误即 $\Delta_\theta < 0$）；提出 HyPO（一行代码修改：$\max(0, \Delta_{ref})$ 裁剪 reference margin），在 AlpacaEval 2.0 上相对 DPO 提升 41.2%。
 
 ## 研究背景与动机
-1. **领域现状**：DPO 通过相对 margin $\Delta_\theta - \Delta_{ref}$ 优化偏好，其中 $\Delta_{ref}$ 来自 reference 策略对 chosen/rejected 的对数概率差。这实现了 KL 正则化的近端约束，稳定训练。
-2. **现有痛点**：
+**领域现状**：DPO 通过相对 margin $\Delta_\theta - \Delta_{ref}$ 优化偏好，其中 $\Delta_{ref}$ 来自 reference 策略对 chosen/rejected 的对数概率差。这实现了 KL 正则化的近端约束，稳定训练。
+**现有痛点**：
    - **训练-推理不匹配**：DPO 训练优化的是相对 margin $\Delta_\theta - \Delta_{ref}$，但推理时只看绝对 margin $\Delta_\theta$。研究发现 DPO 训练后 implicit reward 排序与 likelihood 排序的一致率仅 ~50%
    - **两个对立的解决方向**：(a) Reference-free 方法（SimPO、ORPO）去掉 reference 解决不匹配，但丢失稳定性信号；(b) 更强 reference 方法（TR-DPO）减少悲观情况但不能消除
    - **悲观 reference 问题**：即使用最强的 reference（如 SimPO-aligned 模型），仍有 ~45% 的 pair 出现 $\Delta_{ref} < 0$（reference 认为 rejected 比 chosen 更好），这是不可避免的上限
-3. **核心矛盾**：Reference 提供稳定性但引入不匹配；去掉 reference 消除不匹配但丢失稳定性。两者不可兼得？
-4. **核心 idea**：条件性地使用 reference——当 reference 乐观（$\Delta_{ref} \geq 0$）时正常使用（提供稳定性），当 reference 悲观（$\Delta_{ref} < 0$）时视为中性（退化为绝对 margin），两全其美
+**核心矛盾**：Reference 提供稳定性但引入不匹配；去掉 reference 消除不匹配但丢失稳定性。两者不可兼得？
+**核心 idea**：条件性地使用 reference——当 reference 乐观（$\Delta_{ref} \geq 0$）时正常使用（提供稳定性），当 reference 悲观（$\Delta_{ref} < 0$）时视为中性（退化为绝对 margin），两全其美
 
 ## 方法详解
 
@@ -42,23 +42,26 @@ DPO 损失中的 $\Delta_\theta - \Delta_{ref}$ → 替换为 $\Delta_\theta - \
 ### 关键设计
 
 1. **过早满足（Premature Satisfaction）的形式化**
-   - 做什么：揭示 DPO 在悲观 pair 上的系统性失败模式
-   - 核心分析：DPO 的梯度权重 $w_{DPO} = \sigma(-\beta(\Delta_\theta - \Delta_{ref}))$。当 $\Delta_{ref} < 0$ 时，即使 $\Delta_\theta < 0$（策略仍然错误），只要 $\Delta_\theta > \Delta_{ref}$（即策略比 reference "不那么错"），$w_{DPO}$ 就快速衰减。例如 $\Delta_{ref}=-3, \Delta_\theta=-1$：相对 margin = 2 → $w_{DPO} \approx 0.119$，梯度被衰减到 12%
-   - 设计动机：这解释了一个困扰社区的现象——为什么 DPO 训练后 implicit reward 与 likelihood 排序一致率低
+
+    - 做什么：揭示 DPO 在悲观 pair 上的系统性失败模式
+    - 核心分析：DPO 的梯度权重 $w_{DPO} = \sigma(-\beta(\Delta_\theta - \Delta_{ref}))$。当 $\Delta_{ref} < 0$ 时，即使 $\Delta_\theta < 0$（策略仍然错误），只要 $\Delta_\theta > \Delta_{ref}$（即策略比 reference "不那么错"），$w_{DPO}$ 就快速衰减。例如 $\Delta_{ref}=-3, \Delta_\theta=-1$：相对 margin = 2 → $w_{DPO} \approx 0.119$，梯度被衰减到 12%
+    - 设计动机：这解释了一个困扰社区的现象——为什么 DPO 训练后 implicit reward 与 likelihood 排序一致率低
 
 2. **HyPO 目标函数**
-   - 做什么：条件性裁剪 reference margin
-   - 公式：$\widetilde{\Delta}_{ref} = \max(\Delta_{ref}, \gamma)$（默认 $\gamma=0$），$\mathcal{L}_{HyPO} = \mathbb{E}[\log(1 + \exp(-\beta(\Delta_\theta - \widetilde{\Delta}_{ref})))]$
-   - 行为分析：
-     - **乐观 pair**（$\Delta_{ref} \geq 0$）：$\widetilde{\Delta}_{ref} = \Delta_{ref}$，等价于 DPO，保持近端约束和稳定性
-     - **悲观 pair**（$\Delta_{ref} < 0$）：$\widetilde{\Delta}_{ref} = 0$，退化为绝对 margin 更新 $\sigma(-\beta\Delta_\theta)$，消除悲观 reference 的干扰
-   - 平滑版本：可用 softplus 替代 hard max：$\widetilde{\Delta}_{ref} = \gamma + \frac{1}{\alpha}\log(1+\exp(\alpha(\Delta_{ref}-\gamma)))$
-   - **实现：一行代码改动**——将 $\Delta_{ref}$ 替换为 $\max(0, \Delta_{ref})$
+
+    - 做什么：条件性裁剪 reference margin
+    - 公式：$\widetilde{\Delta}_{ref} = \max(\Delta_{ref}, \gamma)$（默认 $\gamma=0$），$\mathcal{L}_{HyPO} = \mathbb{E}[\log(1 + \exp(-\beta(\Delta_\theta - \widetilde{\Delta}_{ref})))]$
+    - 行为分析：
+      - **乐观 pair**（$\Delta_{ref} \geq 0$）：$\widetilde{\Delta}_{ref} = \Delta_{ref}$，等价于 DPO，保持近端约束和稳定性
+      - **悲观 pair**（$\Delta_{ref} < 0$）：$\widetilde{\Delta}_{ref} = 0$，退化为绝对 margin 更新 $\sigma(-\beta\Delta_\theta)$，消除悲观 reference 的干扰
+    - 平滑版本：可用 softplus 替代 hard max：$\widetilde{\Delta}_{ref} = \gamma + \frac{1}{\alpha}\log(1+\exp(\alpha(\Delta_{ref}-\gamma)))$
+    - **实现：一行代码改动**——将 $\Delta_{ref}$ 替换为 $\max(0, \Delta_{ref})$
 
 3. **理论性质**
-   - HyPO 的梯度权重 $w_{HyPO}$ 在所有 pair 上都 ≥ reference-free 的权重 $w_{abs}$（$w_{HyPO} \geq w_{abs}$）
-   - 在非悲观 pair 上 $w_{HyPO} = w_{DPO}$（完全保持 DPO 行为）
-   - 在悲观 pair 上 $w_{HyPO} = w_{abs}$（完全消除悲观偏差）
+
+    - HyPO 的梯度权重 $w_{HyPO}$ 在所有 pair 上都 ≥ reference-free 的权重 $w_{abs}$（$w_{HyPO} \geq w_{abs}$）
+    - 在非悲观 pair 上 $w_{HyPO} = w_{DPO}$（完全保持 DPO 行为）
+    - 在悲观 pair 上 $w_{HyPO} = w_{abs}$（完全消除悲观偏差）
 
 ### 损失函数 / 训练策略
 - 总损失：$\mathcal{L} = \mathcal{L}_{HyPO}$（直接替换 DPO 损失，无额外项）

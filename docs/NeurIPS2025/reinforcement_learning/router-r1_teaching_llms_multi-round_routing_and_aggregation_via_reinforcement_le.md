@@ -28,9 +28,9 @@ Router-R1 将多 LLM 路由和聚合建模为序列决策过程，用 LLM 自身
 
 随着 LLM 的爆发式增长，LLM 路由器应运而生——根据用户查询动态选择最合适的模型。然而现有路由器存在根本性局限：
 
-1. **单轮一对一映射**：现有方法将每个查询分配给单一模型，单次决策，无法利用多个 LLM 的互补优势。对于复杂任务（如多跳问答），单一模型往往不够。
-2. **离散决策不可微分**：每轮选择哪个 LLM 的过程是离散的，无法直接用反向传播端到端训练。虽然有方法用梯度方法做单次路由，但扩展到多轮选择和聚合会迅速变得不可行。
-3. **缺乏推理-路由交织**：复杂任务需要交替进行内部推理和目标性模型选择来逐步完善答案，单步选择无法实现这种能力。
+**单轮一对一映射**：现有方法将每个查询分配给单一模型，单次决策，无法利用多个 LLM 的互补优势。对于复杂任务（如多跳问答），单一模型往往不够。
+**离散决策不可微分**：每轮选择哪个 LLM 的过程是离散的，无法直接用反向传播端到端训练。虽然有方法用梯度方法做单次路由，但扩展到多轮选择和聚合会迅速变得不可行。
+**缺乏推理-路由交织**：复杂任务需要交替进行内部推理和目标性模型选择来逐步完善答案，单步选择无法实现这种能力。
 
 Router-R1 的核心思路是：用一个有能力的 LLM 作为路由器本身，让它通过 RL 学习何时内部思考、何时调用外部模型、调用哪个模型、如何整合结果。
 
@@ -48,13 +48,14 @@ Router-R1 将 LLM 协调建模为序列决策问题。每一步，路由 LLM 选
 
 1. **LLM 即路由器的设计**：
    将路由器实例化为有推理能力的 LLM（如 Qwen2.5-3B-Instruct），利用其固有推理能力进行长篇思考和目标性模型选择。通用优化目标：
-   $$\max_\pi \mathbb{E}_{x \sim D, y \sim \pi(\cdot|x;\mathcal{P})} \left[ r_\phi(x,y) - \beta \log \frac{\pi(y|x;\mathcal{P})}{\pi_{\text{ref}}(y|x;\mathcal{P})} \right]$$
+    $\max_\pi \mathbb{E}_{x \sim D, y \sim \pi(\cdot|x;\mathcal{P})} \left[ r_\phi(x,y) - \beta \log \frac{\pi(y|x;\mathcal{P})}{\pi_{\text{ref}}(y|x;\mathcal{P})} \right]$
    其中 $\mathcal{P}$ 是 LLM 路由池，$y$ 是包含思考和路由结果的生成序列。
 
 2. **三重奖励函数设计**：
-   - **格式奖励 $\mathbf{R}_{\text{format}}$**：输出不符合预定义格式则 $-1$，否则 $0$。采用分层设计——格式不合格则其它奖励全部归零。
-   - **正确性奖励 $\mathbf{R}_{\text{outcome}}$**：提取 `<answer>` 中的预测与真实答案做精确匹配（EM），匹配为 1 否则为 0。
-   - **成本奖励 $\mathbf{R}_{\text{cost}}$**：与候选 LLM 的参数量和输出 token 数成反比：$\mathbf{R}_{\text{cost}} \propto -m(P_{\text{LLM}}) \cdot T_{\text{out}}$，归一化到 [0,1]。
+
+    - **格式奖励 $\mathbf{R}_{\text{format}}$**：输出不符合预定义格式则 $-1$，否则 $0$。采用分层设计——格式不合格则其它奖励全部归零。
+    - **正确性奖励 $\mathbf{R}_{\text{outcome}}$**：提取 `<answer>` 中的预测与真实答案做精确匹配（EM），匹配为 1 否则为 0。
+    - **成本奖励 $\mathbf{R}_{\text{cost}}$**：与候选 LLM 的参数量和输出 token 数成反比：$\mathbf{R}_{\text{cost}} \propto -m(P_{\text{LLM}}) \cdot T_{\text{out}}$，归一化到 [0,1]。
    
    总奖励：$r_\phi(x,y) = \mathbf{R}_{\text{format}} + (1-\alpha)\mathbf{R}_{\text{outcome}} + \alpha\mathbf{R}_{\text{cost}}$
 

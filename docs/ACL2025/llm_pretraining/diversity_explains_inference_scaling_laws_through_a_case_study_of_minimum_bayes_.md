@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：MBR 解码是 LLM 推理时利用多个采样结果提升生成质量的核心方法，Self-Consistency、Complex SC 等流行方法都可归结为 MBR 的变体（Bertsch et al., 2023）。实践中发现增加采样数能持续提升性能但边际递减——即推理 scaling law。
+**领域现状**：MBR 解码是 LLM 推理时利用多个采样结果提升生成质量的核心方法，Self-Consistency、Complex SC 等流行方法都可归结为 MBR 的变体（Bertsch et al., 2023）。实践中发现增加采样数能持续提升性能但边际递减——即推理 scaling law。
 
-2. **现有痛点**：(a) MBR 的经验发现众多但缺乏统一理论解释——为什么高质量评估指标重要？为什么伪参考的多样性重要？样本数如何影响性能？(b) 推理 scaling law 只有经验观察没有理论分析；(c) bias（评估指标质量）和 diversity（采样多样性）之间的关系未被阐明。
+**现有痛点**：(a) MBR 的经验发现众多但缺乏统一理论解释——为什么高质量评估指标重要？为什么伪参考的多样性重要？样本数如何影响性能？(b) 推理 scaling law 只有经验观察没有理论分析；(c) bias（评估指标质量）和 diversity（采样多样性）之间的关系未被阐明。
 
-3. **核心矛盾**：直觉上应该同时优化 bias（评估指标贴近人类）和 diversity（采样多样化），但实际中两者存在 trade-off——本文要形式化这个 trade-off。
+**核心矛盾**：直觉上应该同时优化 bias（评估指标贴近人类）和 diversity（采样多样化），但实际中两者存在 trade-off——本文要形式化这个 trade-off。
 
-4. **本文要解决什么？** 为 MBR 解码和推理 scaling law 提供统一的理论框架。
+**本文要解决什么？** 为 MBR 解码和推理 scaling law 提供统一的理论框架。
 
-5. **切入角度**：借鉴集成学习中的 bias-diversity 分解（Krogh & Vedelsby, 1994），将 MBR 解码视为一种集成学习。
+**切入角度**：借鉴集成学习中的 bias-diversity 分解（Krogh & Vedelsby, 1994），将 MBR 解码视为一种集成学习。
 
-6. **核心idea一句话**：MBR 的估计误差可分解为 Bias - Diversity，diversity 的提升是推理 scaling law 的理论根源。
+**核心idea一句话**：MBR 的估计误差可分解为 Bias - Diversity，diversity 的提升是推理 scaling law 的理论根源。
 
 ## 方法详解
 
@@ -49,26 +49,30 @@ tags:
 ### 关键设计
 
 1. **Bias-Diversity 分解（Theorem 1）**:
-   - $MSE(\hat{\mathbf{u}}, \bar{\mathbf{u}}) = \underbrace{\mathbb{E}[(\hat{u}_i - f_\theta(h_i, y_j))^2]}_{\text{Bias}} - \underbrace{\mathbb{E}[(\bar{u}_i - f_\theta(h_i, y_j))^2]}_{\text{Diversity}}$
-   - Bias：评估函数与人类评估的接近程度（越小越好）
-   - Diversity：不同伪参考产生的评估质量的变异性（越大越好→减小MSE）
-   - 关键：Diversity 项是负号，即 diversity 越大，MSE 越小
+
+    - $MSE(\hat{\mathbf{u}}, \bar{\mathbf{u}}) = \underbrace{\mathbb{E}[(\hat{u}_i - f_\theta(h_i, y_j))^2]}_{\text{Bias}} - \underbrace{\mathbb{E}[(\bar{u}_i - f_\theta(h_i, y_j))^2]}_{\text{Diversity}}$
+    - Bias：评估函数与人类评估的接近程度（越小越好）
+    - Diversity：不同伪参考产生的评估质量的变异性（越大越好→减小MSE）
+    - 关键：Diversity 项是负号，即 diversity 越大，MSE 越小
 
 2. **Diversity 的局限（Theorem 2）与 Trade-off（Theorem 3）**:
-   - Theorem 2：当 Bias → 0 时，Diversity → 0（指标完美时无法从多样性获益）
-   - Theorem 3：Bias 和 Diversity 共享分量 $\Omega$，存在根本性 trade-off
-   - 含义：低质量指标反而可能从 diversity 中获益更多（解释了 BLEU 在某些设置下与 COMET 竞争的原因）
+
+    - Theorem 2：当 Bias → 0 时，Diversity → 0（指标完美时无法从多样性获益）
+    - Theorem 3：Bias 和 Diversity 共享分量 $\Omega$，存在根本性 trade-off
+    - 含义：低质量指标反而可能从 diversity 中获益更多（解释了 BLEU 在某些设置下与 COMET 竞争的原因）
 
 3. **信息论扩展与推理 Scaling Law（Theorems 4-8）**:
-   - Theorem 4：预测误差被 $H(\hat{\mathcal{H}}) - I(\mathcal{X}_{1:|\mathcal{Y}|}; \hat{\mathcal{H}})$ 上下界约束
-   - 最大化互信息 $I$ 需要最大化 Relevancy + Information-Theoretic Diversity
-   - Theorem 7：当采样在给定正确输出下条件独立时，$I$ 具有次模性（submodularity）→ 增加采样单调提升但边际递减 → 推理 scaling law
-   - Theorem 8：误差上下界具有超模性（non-increasing）→ 误差下降并收敛
+
+    - Theorem 4：预测误差被 $H(\hat{\mathcal{H}}) - I(\mathcal{X}_{1:|\mathcal{Y}|}; \hat{\mathcal{H}})$ 上下界约束
+    - 最大化互信息 $I$ 需要最大化 Relevancy + Information-Theoretic Diversity
+    - Theorem 7：当采样在给定正确输出下条件独立时，$I$ 具有次模性（submodularity）→ 增加采样单调提升但边际递减 → 推理 scaling law
+    - Theorem 8：误差上下界具有超模性（non-increasing）→ 误差下降并收敛
 
 4. **MBR = 集成学习的解读**:
-   - 每个伪参考 $y_j$ 对应一个"评估器"$f_\theta(h, y_j)$
-   - MBR 的平均操作等价于集成多个评估器
-   - 大数定律解释了增加伪参考的效果
+
+    - 每个伪参考 $y_j$ 对应一个"评估器"$f_\theta(h, y_j)$
+    - MBR 的平均操作等价于集成多个评估器
+    - 大数定律解释了增加伪参考的效果
 
 ## 实验关键数据
 

@@ -28,9 +28,9 @@ tags:
 
 检索增强生成（RAG）是 LLM 最重要的应用范式之一，但如何可靠地评估 RAG 系统的生成质量仍是一个未解决的问题。当前 RAG 评估存在三个关键缺陷：
 
-1. **缺乏多语言元评估基准**：现有 RAG 评估基准（如 RAGAs）几乎全部面向英语。多语言评估要么缺失，要么依赖翻译数据。
-2. **翻译数据的局限**：翻译数据存在"翻译腔"（translationese）——简化的句法和词汇选择，无法真实反映原生用户的体验和偏好。
-3. **忠实性标注困难**：RAG 的忠实性评估涉及主观判断、标签空间不明确、标注一致性低等问题。
+**缺乏多语言元评估基准**：现有 RAG 评估基准（如 RAGAs）几乎全部面向英语。多语言评估要么缺失，要么依赖翻译数据。
+**翻译数据的局限**：翻译数据存在"翻译腔"（translationese）——简化的句法和词汇选择，无法真实反映原生用户的体验和偏好。
+**忠实性标注困难**：RAG 的忠实性评估涉及主观判断、标签空间不明确、标注一致性低等问题。
 
 作者的核心立场是：**翻译式（parallel）基准应当被原生多语言基准所补充**。他们基于 MIRACL 数据集的原生多语言问题，端到端地构建了覆盖问题生成→检索→回答→人工评估的完整元评估管线。
 
@@ -55,14 +55,16 @@ MEMERAG 的构建流程：
 2. **多模型回答生成**：使用 5 个多样化的 LLM——Claude 3 Sonnet、Llama3 70B、Llama3 8B、Mistral 7B 和 GPT-4o mini。所有模型用英文 prompt 指示其基于上下文回答，并要求回答语言与问题一致。温度 0.1，最大 1000 tokens。
 
 3. **流程图引导的标注（核心创新）**：
-   - **忠实性标注**：3 个粗粒度标签（Supported / Not Supported / Challenging to determine）+ 10 个细粒度标签（如 Direct paraphrase、Logical conclusion、Adds new info、Contradiction、Mis-referencing 等）
-   - **相关性标注**：3 个标签（Directly answers / Adds context / Unrelated）
-   - 标注过程通过**决策流程图**引导，标注者按步骤判断而非直接选择标签，显著提高了一致性
-   - 提供 LLM 生成的"可能支持句"高亮，进一步帮助标注者定位关键信息
+
+    - **忠实性标注**：3 个粗粒度标签（Supported / Not Supported / Challenging to determine）+ 10 个细粒度标签（如 Direct paraphrase、Logical conclusion、Adds new info、Contradiction、Mis-referencing 等）
+    - **相关性标注**：3 个标签（Directly answers / Adds context / Unrelated）
+    - 标注过程通过**决策流程图**引导，标注者按步骤判断而非直接选择标签，显著提高了一致性
+    - 提供 LLM 生成的"可能支持句"高亮，进一步帮助标注者定位关键信息
 
 4. **标注质量保证**：每种语言 250 个问题，其中 10 个由 3 个标注者标注用于计算 IAA。使用 Gwet's AC1 和 Fleiss Kappa：
-   - 忠实性 IAA：AC1 = 0.84-0.93, Kappa = 0.70-0.88（远高于前人工作的 0.34-0.42）
-   - 相关性 IAA：AC1 = 0.95-1.0, Kappa = 0.63-1.0
+
+    - 忠实性 IAA：AC1 = 0.84-0.93, Kappa = 0.70-0.88（远高于前人工作的 0.34-0.42）
+    - 相关性 IAA：AC1 = 0.95-1.0, Kappa = 0.63-1.0
 
 ### 元评估实验设计
 

@@ -41,15 +41,16 @@ tags:
 ### 关键设计
 
 1. **Robust Perception 目标定义**：对良性样本 $\mathbf{x}$ 及其对抗样本 $\mathbf{x}'$，对任意插值 $\alpha \in [0,1]$，要求：
-   $$\|h_{\bm{\theta}}(\mathbf{x}+\alpha \cdot \Delta) - h_{\bm{\theta}}(\mathbf{x})\| = \alpha \cdot \|h_{\bm{\theta}}(\mathbf{x}') - h_{\bm{\theta}}(\mathbf{x})\|$$
+    $\|h_{\bm{\theta}}(\mathbf{x}+\alpha \cdot \Delta) - h_{\bm{\theta}}(\mathbf{x})\| = \alpha \cdot \|h_{\bm{\theta}}(\mathbf{x}') - h_{\bm{\theta}}(\mathbf{x})\|$
    即模型感知应与扰动强度成正比地线性变化。
 
 2. **理论支撑**（两个定理）：
-   - *Theorem 1*（局部线性性）：Robust Perception 约束使 Hessian 矩阵的二次型趋于零 $\Delta^\top H_{h_\theta}(\mathbf{x}) \Delta \to 0$，即抑制高阶非线性效应，使感知主要沿扰动的线性项变化
-   - *Theorem 2*（Lipschitz 正则化）：保证 Jacobian 在扰动方向上变化受限，全局 Lipschitz 常数增量被约束为微量 $\gamma$，从而平滑决策边界
+
+    - *Theorem 1*（局部线性性）：Robust Perception 约束使 Hessian 矩阵的二次型趋于零 $\Delta^\top H_{h_\theta}(\mathbf{x}) \Delta \to 0$，即抑制高阶非线性效应，使感知主要沿扰动的线性项变化
+    - *Theorem 2*（Lipschitz 正则化）：保证 Jacobian 在扰动方向上变化受限，全局 Lipschitz 常数增量被约束为微量 $\gamma$，从而平滑决策边界
 
 3. **RPAT 损失函数**：使用 logits 作为模型感知表示，在良性样本 $\mathbf{x}$、插值样本 $\tilde{\mathbf{x}} = \mathbf{x} + \alpha \cdot \Delta$、对抗样本 $\hat{\mathbf{x}}'$ 之间施加 MSE 正则化：
-   $$\mathcal{L}^{\text{RPAT}} = \frac{1}{n}\sum_{i=1}^n \left(\mathcal{L}^{\text{CE}}(\mathbf{p}(\hat{\mathbf{x}}_i', \bm{\theta}), y_i) + \lambda \cdot \mathcal{L}^{\text{MSE}}\left(\frac{\mathbf{z}(\tilde{\mathbf{x}}_i) - \mathbf{z}(\mathbf{x}_i)}{\alpha} \bigg\| \frac{\mathbf{z}(\hat{\mathbf{x}}_i') - \mathbf{z}(\tilde{\mathbf{x}}_i)}{1-\alpha}\right)\right)$$
+    $\mathcal{L}^{\text{RPAT}} = \frac{1}{n}\sum_{i=1}^n \left(\mathcal{L}^{\text{CE}}(\mathbf{p}(\hat{\mathbf{x}}_i', \bm{\theta}), y_i) + \lambda \cdot \mathcal{L}^{\text{MSE}}\left(\frac{\mathbf{z}(\tilde{\mathbf{x}}_i) - \mathbf{z}(\mathbf{x}_i)}{\alpha} \bigg\| \frac{\mathbf{z}(\hat{\mathbf{x}}_i') - \mathbf{z}(\tilde{\mathbf{x}}_i)}{1-\alpha}\right)\right)$
 
 ### 损失函数 / 训练策略
 

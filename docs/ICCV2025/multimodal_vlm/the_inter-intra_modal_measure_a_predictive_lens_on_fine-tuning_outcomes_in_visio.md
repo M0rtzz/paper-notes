@@ -29,8 +29,8 @@ tags:
 
 视觉-语言基础模型（如 CLIP）的微调面临两个实际问题：
 
-1. **微调是否值得**：计算成本高昂，但某些特化任务（如卫星/医学图像分类）微调后提升有限甚至下降——能否在微调前就预测效果？
-2. **学习 vs 遗忘的权衡**：微调提升目标任务性能的同时会破坏图文嵌入空间对齐，导致灾难性遗忘（off-target 任务性能下降）——能否预测遗忘程度？
+**微调是否值得**：计算成本高昂，但某些特化任务（如卫星/医学图像分类）微调后提升有限甚至下降——能否在微调前就预测效果？
+**学习 vs 遗忘的权衡**：微调提升目标任务性能的同时会破坏图文嵌入空间对齐，导致灾难性遗忘（off-target 任务性能下降）——能否预测遗忘程度？
 
 现有迁移性度量（transferability metrics）的不足：
 - **H-Score、LEEP、NCE** 等经典方法依赖源数据和任务标签，不适用于对比式自监督预训练的基础模型
@@ -53,29 +53,30 @@ IIMM 从对比学习的 InfoNCE 损失出发，将嵌入空间几何分解为两
 
    InfoNCE 损失优化两个目标：正样本对齐 + 负样本分离。IIMM 捕获这两个效果的当前状态：
 
-   - **模态间错误对齐**（Inter-modal misalignment）：
-   $$S_{inter} = \frac{1}{|X|} \sum_{x \in X} \frac{1}{|Y|-1} \sum_{y' \in Y \setminus \{y(x)\}} x^\top y'$$
+    - **模态间错误对齐**（Inter-modal misalignment）：
+    $S_{inter} = \frac{1}{|X|} \sum_{x \in X} \frac{1}{|Y|-1} \sum_{y' \in Y \setminus \{y(x)\}} x^\top y'$
    高 $S_{inter}$ 意味着图像嵌入与错误文本标签的相似度高，说明模型尚未充分分离负样本——微调空间大但遗忘风险高
 
-   - **模态内均匀性**（Intra-modal uniformity）：
-   $$S_{intra} = \frac{2}{|X|(|X|-1)} \sum_{1 \leq i < j \leq |X|} x_i^\top x_j$$
+    - **模态内均匀性**（Intra-modal uniformity）：
+    $S_{intra} = \frac{2}{|X|(|X|-1)} \sum_{1 \leq i < j \leq |X|} x_i^\top x_j$
    高 $S_{intra}$ 意味着图像嵌入过度聚集，表示有进一步分离/重组的空间
 
-   - **IIMM 定义**：
-   $$\text{IIMM} = \frac{1}{2}(S_{inter} + S_{intra})$$
+    - **IIMM 定义**：
+    $\text{IIMM} = \frac{1}{2}(S_{inter} + S_{intra})$
    取值范围 $[-1, 1]$，高值预示高学习增益但也高遗忘风险
 
 2. **理论保证——Wasserstein 距离界**：
 
    证明了 IIMM 的变化被微调前后嵌入分布的 1-Wasserstein 距离约束：
-   $$|\text{IIMM}(Q) - \text{IIMM}(P)| \leq \frac{\delta_A}{2} + \delta_B$$
+    $|\text{IIMM}(Q) - \text{IIMM}(P)| \leq \frac{\delta_A}{2} + \delta_B$
    
    物理含义：只有嵌入空间发生显著重组时 IIMM 才会显著变化，保证了指标的**稳定性和鲁棒性**
 
 3. **使用方式**：
-   - 对目标任务数据做一次前向推理，计算 IIMM
-   - 预先在几个标准视觉基准上微调并拟合 IIMM-to-gain 的线性模型
-   - 对新任务直接用线性模型预测微调增益，无需实际微调
+
+    - 对目标任务数据做一次前向推理，计算 IIMM
+    - 预先在几个标准视觉基准上微调并拟合 IIMM-to-gain 的线性模型
+    - 对新任务直接用线性模型预测微调增益，无需实际微调
 
 ### 损失函数 / 训练策略
 

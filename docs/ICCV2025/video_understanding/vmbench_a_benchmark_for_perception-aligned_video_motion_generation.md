@@ -44,34 +44,40 @@ VMBench 由两大核心组件构成：(1) **感知驱动运动评估指标（PMM
 ### 关键设计
 
 1. **常识遵循分数（Commonsense Adherence Score, CAS）**:
-   - 做什么：评估视频是否符合人类常识和物理规律
-   - 核心思路：收集 10k 生成视频 → 通过 VideoReward 模型进行系统性成对比较建立感知基线 → 将偏好分数离散化为五级标签（Bad/Poor/Fair/Good/Perfect）→ 训练 VideoMAEv2（ViT-Giant 骨干）作为分类器。最终 CAS 通过 Mean Opinion Score 计算：$\text{CAS} = \sum_{i=1}^{5} p_i G(i)$，其中 $p_i$ 是各类别概率，$G(i)$ 将类别映射为质量权重
-   - 设计动机：现有方法缺乏对整体场景合理性的判断。CAS 在消融实验中移除后准确率下降最大（-6.5%），证明其核心地位
+
+    - 做什么：评估视频是否符合人类常识和物理规律
+    - 核心思路：收集 10k 生成视频 → 通过 VideoReward 模型进行系统性成对比较建立感知基线 → 将偏好分数离散化为五级标签（Bad/Poor/Fair/Good/Perfect）→ 训练 VideoMAEv2（ViT-Giant 骨干）作为分类器。最终 CAS 通过 Mean Opinion Score 计算：$\text{CAS} = \sum_{i=1}^{5} p_i G(i)$，其中 $p_i$ 是各类别概率，$G(i)$ 将类别映射为质量权重
+    - 设计动机：现有方法缺乏对整体场景合理性的判断。CAS 在消融实验中移除后准确率下降最大（-6.5%），证明其核心地位
 
 2. **运动平滑度分数（Motion Smoothness Score, MSS）**:
-   - 做什么：检测时序伪影和运动模糊
-   - 核心思路：利用 Q-Align 美学评分检测帧间质量退化，当连续帧间评分下降超过自适应阈值时判定为伪影帧。$\text{MSS} = 1 - \frac{1}{T}\sum_{t=2}^T \mathbb{I}(\Delta Q_t > \tau_s(t))$，其中 $\Delta Q_t = Q(f_{t-1}) - Q(f_t)$，$\tau_s(t)$ 是场景自适应阈值
-   - 设计动机：先前指标用光流偏差或简单运动模型衡量平滑度，与人类感知脱节。自适应阈值允许高运动场景有更高的质量退化容忍度
+
+    - 做什么：检测时序伪影和运动模糊
+    - 核心思路：利用 Q-Align 美学评分检测帧间质量退化，当连续帧间评分下降超过自适应阈值时判定为伪影帧。$\text{MSS} = 1 - \frac{1}{T}\sum_{t=2}^T \mathbb{I}(\Delta Q_t > \tau_s(t))$，其中 $\Delta Q_t = Q(f_{t-1}) - Q(f_t)$，$\tau_s(t)$ 是场景自适应阈值
+    - 设计动机：先前指标用光流偏差或简单运动模型衡量平滑度，与人类感知脱节。自适应阈值允许高运动场景有更高的质量退化容忍度
 
 3. **物体完整性分数（Object Integrity Score, OIS）**:
-   - 做什么：检测运动中物体的不合理变形
-   - 核心思路：用 MMPose 检测主体关键点，分析帧间骨骼长度和关节角度变化，判断是否违反解剖学约束。$\text{OIS} = \frac{1}{F \cdot K}\sum_{f=1}^{F}\sum_{k=1}^{K}\mathbb{I}(\mathcal{D}_f^{(k)} \leq \tau^{(k)})$
-   - 设计动机：已有方法（如 DINO 语义一致性）关注语义级别，忽视人眼敏感的形状变形问题
+
+    - 做什么：检测运动中物体的不合理变形
+    - 核心思路：用 MMPose 检测主体关键点，分析帧间骨骼长度和关节角度变化，判断是否违反解剖学约束。$\text{OIS} = \frac{1}{F \cdot K}\sum_{f=1}^{F}\sum_{k=1}^{K}\mathbb{I}(\mathcal{D}_f^{(k)} \leq \tau^{(k)})$
+    - 设计动机：已有方法（如 DINO 语义一致性）关注语义级别，忽视人眼敏感的形状变形问题
 
 4. **感知幅度分数（Perceptible Amplitude Score, PAS）**:
-   - 做什么：在分离相机运动后估计主体运动幅度
-   - 核心思路：GroundingDINO 定位主体 → GroundedSAM 稳定跟踪 → CoTracker 追踪关键点位移 → 根据场景类型设置感知阈值。$\text{PAS} = \frac{1}{T}\sum_{t=1}^T \min(\frac{\bar{D}_t}{\tau_s}, 1)$
-   - 设计动机：传统 RAFT 光流将相机运动混入整体运动，导致估计偏高
+
+    - 做什么：在分离相机运动后估计主体运动幅度
+    - 核心思路：GroundingDINO 定位主体 → GroundedSAM 稳定跟踪 → CoTracker 追踪关键点位移 → 根据场景类型设置感知阈值。$\text{PAS} = \frac{1}{T}\sum_{t=1}^T \min(\frac{\bar{D}_t}{\tau_s}, 1)$
+    - 设计动机：传统 RAFT 光流将相机运动混入整体运动，导致估计偏高
 
 5. **时序连贯性分数（Temporal Coherence Score, TCS）**:
-   - 做什么：检测物体异常消失/重现
-   - 核心思路：GroundedSAM2 实例分割跟踪 → 对不连续存在的物体用 CoTracker 二次验证 → 规则过滤合理遮挡/入出画面场景。$\text{TCS} = 1 - \frac{1}{N}\sum_{i=1}^N \mathbb{I}(\mathcal{A}_i \wedge \neg \mathcal{R})$
-   - 设计动机：现有 CLIP/DINO 帧间余弦相似度无法区分自然运动和突变
+
+    - 做什么：检测物体异常消失/重现
+    - 核心思路：GroundedSAM2 实例分割跟踪 → 对不连续存在的物体用 CoTracker 二次验证 → 规则过滤合理遮挡/入出画面场景。$\text{TCS} = 1 - \frac{1}{N}\sum_{i=1}^N \mathbb{I}(\mathcal{A}_i \wedge \neg \mathcal{R})$
+    - 设计动机：现有 CLIP/DINO 帧间余弦相似度无法区分自然运动和突变
 
 6. **元信息引导提示生成（MMPG）**:
-   - 做什么：生成覆盖六大运动模式的多样化提示
-   - 核心思路：三阶段流程——(a) 从 VidProm、Place365 等数据集提取主体/场景/动作元数据；(b) GPT-4o 随机组合元数据生成约 50k 候选提示并自验证；(c) DeepSeek-R1 + 人工联合验证，最终筛选出 1050 条高质量提示
-   - 设计动机：确保物理合理性和动作多样性，六大运动模式包括流体动力学、生物运动、机械运动、天气现象、集体行为、能量传递
+
+    - 做什么：生成覆盖六大运动模式的多样化提示
+    - 核心思路：三阶段流程——(a) 从 VidProm、Place365 等数据集提取主体/场景/动作元数据；(b) GPT-4o 随机组合元数据生成约 50k 候选提示并自验证；(c) DeepSeek-R1 + 人工联合验证，最终筛选出 1050 条高质量提示
+    - 设计动机：确保物理合理性和动作多样性，六大运动模式包括流体动力学、生物运动、机械运动、天气现象、集体行为、能量传递
 
 ### 评估设置
 

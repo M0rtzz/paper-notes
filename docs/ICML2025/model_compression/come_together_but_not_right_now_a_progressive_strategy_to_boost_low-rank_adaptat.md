@@ -29,8 +29,8 @@ tags:
 
 LoRA 作为当前最主流的参数高效微调（PEFT）方法，通过将权重增量分解为低秩矩阵 $\Delta W = \alpha BA$ 来减少可训练参数量。然而 vanilla LoRA 存在两个关键缺陷：
 
-1. **"懒惰训练"（Lazy Training）现象**：标准梯度优化的 lazy dynamics 使 adapter 收敛到初始化附近的次优极小值，限制了模型的泛化能力。
-2. **层间梯度不平衡**：高层 adapter 获取绝大部分梯度信号并主导任务表现，低层 adapter 则严重利用不足。这不仅影响单任务泛化，还损害下游的 adapter 合并（merging）和剪枝（pruning）操作。
+**"懒惰训练"（Lazy Training）现象**：标准梯度优化的 lazy dynamics 使 adapter 收敛到初始化附近的次优极小值，限制了模型的泛化能力。
+**层间梯度不平衡**：高层 adapter 获取绝大部分梯度信号并主导任务表现，低层 adapter 则严重利用不足。这不仅影响单任务泛化，还损害下游的 adapter 合并（merging）和剪枝（pruning）操作。
 
 ### 已有方案的不足
 

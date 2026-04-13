@@ -51,27 +51,31 @@ NerVE 框架包含四个主要组件：
 ### 关键设计
 
 1. **频谱熵 (Spectral Entropy, SE)**：
-   - $SE = -\sum_{i=1}^{D} \hat{\lambda}_i \log \hat{\lambda}_i$（归一化特征值的 Shannon 熵）
-   - 等价于量子信息论中的 von Neumann 熵
-   - 高 SE 表示方差均匀分布，低 SE 表示方差集中在少数方向
-   - 对中尾部特征值更敏感
+
+    - $SE = -\sum_{i=1}^{D} \hat{\lambda}_i \log \hat{\lambda}_i$（归一化特征值的 Shannon 熵）
+    - 等价于量子信息论中的 von Neumann 熵
+    - 高 SE 表示方差均匀分布，低 SE 表示方差集中在少数方向
+    - 对中尾部特征值更敏感
 
 2. **参与比 (Participation Ratio, PR)**：
-   - $PR = \frac{(\sum_i \lambda_i)^2}{\sum_i \lambda_i^2}$，范围 $[1, D]$
-   - 衡量有效维度——多少个方向实质性地贡献了总方差
-   - PR ≈ 1 表示高度各向异性，PR ≈ D 表示方差均匀分布
-   - 对头部特征值更敏感
+
+    - $PR = \frac{(\sum_i \lambda_i)^2}{\sum_i \lambda_i^2}$，范围 $[1, D]$
+    - 衡量有效维度——多少个方向实质性地贡献了总方差
+    - PR ≈ 1 表示高度各向异性，PR ≈ D 表示方差均匀分布
+    - 对头部特征值更敏感
 
 3. **特征值早期富集 (Eigenvalue Early Enrichment, EEE)**：
-   - $EEE = \frac{2}{D} \sum_{k=1}^{D} (\tilde{S}_k - \frac{k}{D})$
-   - 衡量特征谱的"头重"程度——累积方差多快地超过均匀基线
-   - EEE ≈ 1 表示方差极度集中，EEE ≈ 0 表示近似均匀
-   - 能区分利用不同分数潜在空间的谱
+
+    - $EEE = \frac{2}{D} \sum_{k=1}^{D} (\tilde{S}_k - \frac{k}{D})$
+    - 衡量特征谱的"头重"程度——累积方差多快地超过均匀基线
+    - EEE ≈ 1 表示方差极度集中，EEE ≈ 0 表示近似均匀
+    - 能区分利用不同分数潜在空间的谱
 
 4. **Jensen-Shannon 散度 (JS)**：
-   - $JS(P_{pre} \| P_{post}) = \frac{1}{2} D_{KL}(P_{pre} \| M) + \frac{1}{2} D_{KL}(P_{post} \| M)$
-   - 量化非线性导致的 pre → post 分布转变
-   - 唯一跨两个谱的指标，其他三个描述单个谱
+
+    - $JS(P_{pre} \| P_{post}) = \frac{1}{2} D_{KL}(P_{pre} \| M) + \frac{1}{2} D_{KL}(P_{post} \| M)$
+    - 量化非线性导致的 pre → post 分布转变
+    - 唯一跨两个谱的指标，其他三个描述单个谱
 
 四个指标的设计原则：覆盖性（不同谱区域）、互补灵敏度、有界性、尺度不变性。
 

@@ -29,11 +29,11 @@ tags:
 
 联合音视频生成（JAVG）要求模型从文本描述同时生成时间同步、语义对齐的视频和音频。当前开源方法与商业模型（如 Veo3）相比存在三方面差距：
 
-1. **生成质量**：现有方法要么用统一 FFN 处理两模态（UniForm），导致模态信息损失；要么用双流 DiT（JavisDiT、UniVerse-1），架构复杂且扩展性差。
+**生成质量**：现有方法要么用统一 FFN 处理两模态（UniForm），导致模态信息损失；要么用双流 DiT（JavisDiT、UniVerse-1），架构复杂且扩展性差。
 
-2. **时间同步**：JavisDiT 用 ST-Prior、UniVerse-1 用 Stitching 策略，均为隐式同步，不够精确且增加推理开销。
+**时间同步**：JavisDiT 用 ST-Prior、UniVerse-1 用 Stitching 策略，均为隐式同步，不够精确且增加推理开销。
 
-3. **人类偏好对齐**：现有 JAVG 方法未引入偏好优化，在美学和和谐度上与人类期望存在差距。JavisDiT++ 是首个将偏好对齐引入 JAVG 的工作。
+**人类偏好对齐**：现有 JAVG 方法未引入偏好优化，在美学和和谐度上与人类期望存在差距。JavisDiT++ 是首个将偏好对齐引入 JAVG 的工作。
 
 ## 方法详解
 
@@ -44,8 +44,9 @@ tags:
 ### 关键设计
 
 1. **模态特定 MoE（MS-MoE）**：音频和视频 token 通过共享的多头自注意力层进行跨模态交互，然后分别经过各自的 FFN 层进行模态内信息聚合。设计思路类似 BAGEL，但按模态而非任务分配 token。虽然总参数从 1.3B 增至 2.1B，但每个 token 激活的参数仍为 1.3B，因此推理开销不增加。相比以下两种替代方案更优：
-   - Shared-DiT + LoRA：音频质量受限于可训练容量不足
-   - Shared-DiT + Full-FT：音频预训练阶段过多参数偏移，严重损害视频质量
+
+    - Shared-DiT + LoRA：音频质量受限于可训练容量不足
+    - Shared-DiT + Full-FT：音频预训练阶段过多参数偏移，严重损害视频质量
 
 2. **时间对齐 RoPE（TA-RoPE）**：在 3D 位置 ID 的第一维（时间维）上对音频和视频 token 强制绝对时间对齐。视频 token 的位置 ID 为 $(t, h, w)$，音频 token 的位置 ID 设为：
 
@@ -54,9 +55,10 @@ $$R_a(t, m) = \left(\left[t \cdot \frac{T_v}{T_a}\right], t + H, m + W\right)$$
 其中 $[\cdot]$ 为取整操作，$H$、$W$ 的偏移保证音视频位置 ID 不重叠。这种设计无需物理重排 token 序列，通过位置 ID 操作即可在全注意力框架中实现时间对齐，零额外推理成本。
 
 3. **音视频 DPO（AV-DPO）**：首创将偏好对齐引入 JAVG。核心贡献：
-   - **奖励模型**：从三个维度评估——音频质量（AudioBox + ImageBind）、视频质量（VideoAlign + ImageBind）、音视频对齐（ImageBind + Syncformer）
-   - **偏好数据构建**：30K 提示 × 3 对生成 + ground truth，按模态分别归一化排序后选取 winner-loser 对，确保 winner 在所有模态维度上都优于 loser（约得到 25K 对）
-   - **模态感知损失**：分别计算音频和视频的 DPO 损失并加权：
+
+    - **奖励模型**：从三个维度评估——音频质量（AudioBox + ImageBind）、视频质量（VideoAlign + ImageBind）、音视频对齐（ImageBind + Syncformer）
+    - **偏好数据构建**：30K 提示 × 3 对生成 + ground truth，按模态分别归一化排序后选取 winner-loser 对，确保 winner 在所有模态维度上都优于 loser（约得到 25K 对）
+    - **模态感知损失**：分别计算音频和视频的 DPO 损失并加权：
 
 $$\mathcal{L}_{\mathrm{DPO}}^{av} = -\mathbb{E}\left[\log\sigma\left(-\beta_v(\mathrm{Diff}_{\mathrm{policy}}^v - \mathrm{Diff}_{\mathrm{ref}}^v) - \beta_a(\mathrm{Diff}_{\mathrm{policy}}^a - \mathrm{Diff}_{\mathrm{ref}}^a)\right)\right]$$
 

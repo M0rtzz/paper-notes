@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Novel Class Discovery (NCD) 旨在利用已知类别的语义知识来发现和分割新类别。在点云分割中，现有方法(如NOPS)使用在线逐点聚类方法，通过简化的等类别大小约束来避免退化解。
-2. **现有痛点**：
+**领域现状**：Novel Class Discovery (NCD) 旨在利用已知类别的语义知识来发现和分割新类别。在点云分割中，现有方法(如NOPS)使用在线逐点聚类方法，通过简化的等类别大小约束来避免退化解。
+**现有痛点**：
    - **类别不平衡**：点云数据中新类别固有的分布严重不平衡，等类别大小约束与实际分布不符，强制均匀约束导致生成的伪标签不能反映真实分布
    - **缺乏空间上下文**：逐点聚类忽略了物体的丰富空间上下文信息，导致语义分割的表示不够表达
    - **NOPS的bi-level优化策略**计算耗时且引入了额外超参数
-3. **核心矛盾**：均匀分布约束在训练后期过强，导致伪标签趋向均匀而非反映真实的不平衡分布；点级学习缺少空间上下文，区域内的点本应有一致语义但被独立处理
-4. **本文要解决什么？** 在点云分割的NCD任务中，生成适应不平衡类别分布的高质量伪标签，同时利用区域一致性提升分割质量
-5. **切入角度**：将最优传输的等式约束松弛为带KL散度的惩罚项，自适应调节约束强度；利用DBSCAN聚类引入区域级表示
-6. **核心idea一句话**：通过半松弛最优传输自适应生成不平衡伪标签，结合点级和区域级双层表示学习，互补提升新类分割性能
+**核心矛盾**：均匀分布约束在训练后期过强，导致伪标签趋向均匀而非反映真实的不平衡分布；点级学习缺少空间上下文，区域内的点本应有一致语义但被独立处理
+**本文要解决什么？** 在点云分割的NCD任务中，生成适应不平衡类别分布的高质量伪标签，同时利用区域一致性提升分割质量
+**切入角度**：将最优传输的等式约束松弛为带KL散度的惩罚项，自适应调节约束强度；利用DBSCAN聚类引入区域级表示
+**核心idea一句话**：通过半松弛最优传输自适应生成不平衡伪标签，结合点级和区域级双层表示学习，互补提升新类分割性能
 
 ## 方法详解
 
@@ -46,32 +46,35 @@ tags:
 ### 关键设计
 
 1. **半松弛最优传输的不平衡自标注(Imbalanced Self-Labeling, ISL)**:
-   - **做什么**：为新类生成反映真实不平衡分布的伪标签
-   - **核心思路**：将标准OT中的两个等式约束松弛为一个等式+一个KL惩罚：
-     $$\min_{\mathbf{Q}} \langle \mathbf{Q}, \mathbf{C} \rangle_F + \gamma \text{KL}(\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\mu})$$
-     $$\text{s.t. } \mathbf{Q} \in \{\mathbf{Q} \in \mathbb{R}^{M \times N} | \mathbf{Q}\mathbf{1}_N = \boldsymbol{\nu}\}$$
-   - 其中 $\mathbf{C} = -\log \mathbf{P}$ 为代价矩阵(基于模型预测)，$\boldsymbol{\mu}$ 为类别边际先验(均匀分布)，$\boldsymbol{\nu}$ 为样本边际分布
-   - 行约束保持等式（确保每个点分配到恰好一个类），列约束松弛为KL惩罚（允许类别大小偏离均匀分布）
-   - 通过引入熵约束 $-\epsilon \mathcal{H}(\mathbf{Q})$，可用高效的scaling算法求解：
-     $$\epsilon \langle \mathbf{Q}, \log \frac{\mathbf{Q}}{e^{-\mathbf{C}/\epsilon}} \rangle_F + \gamma \text{KL}(\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\mu})$$
-   - **设计动机**：标准OT强制均匀分布不适合不平衡数据；与NOPS的bi-level优化相比，直接使用scaling算法更快更简洁
+
+    - **做什么**：为新类生成反映真实不平衡分布的伪标签
+    - **核心思路**：将标准OT中的两个等式约束松弛为一个等式+一个KL惩罚：
+    $\min_{\mathbf{Q}} \langle \mathbf{Q}, \mathbf{C} \rangle_F + \gamma \text{KL}(\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\mu})$
+    $\text{s.t. } \mathbf{Q} \in \{\mathbf{Q} \in \mathbb{R}^{M \times N} | \mathbf{Q}\mathbf{1}_N = \boldsymbol{\nu}\}$
+    - 其中 $\mathbf{C} = -\log \mathbf{P}$ 为代价矩阵(基于模型预测)，$\boldsymbol{\mu}$ 为类别边际先验(均匀分布)，$\boldsymbol{\nu}$ 为样本边际分布
+    - 行约束保持等式（确保每个点分配到恰好一个类），列约束松弛为KL惩罚（允许类别大小偏离均匀分布）
+    - 通过引入熵约束 $-\epsilon \mathcal{H}(\mathbf{Q})$，可用高效的scaling算法求解：
+    $\epsilon \langle \mathbf{Q}, \log \frac{\mathbf{Q}}{e^{-\mathbf{C}/\epsilon}} \rangle_F + \gamma \text{KL}(\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\mu})$
+    - **设计动机**：标准OT强制均匀分布不适合不平衡数据；与NOPS的bi-level优化相比，直接使用scaling算法更快更简洁
 
 2. **自适应正则化(Adaptive Regularization, AR)**:
-   - **做什么**：在训练过程中动态调节KL约束的强度 $\gamma$
-   - **核心思路**：监控伪标签分布 $\frac{1}{M}\mathbf{Q}^\top \mathbf{1}_M$ 与均匀分布 $\boldsymbol{\nu}$ 之间的KL距离。当KL距离持续 $T$ 个迭代低于阈值 $\rho$ 时，减小 $\gamma$：
-     $$\gamma_{t+1} = \lambda \cdot \gamma_t, \quad \text{if } \text{KL}(\frac{1}{M}\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\nu}) \leq \rho \text{ for } T \text{ iters}$$
-   - 其中 $\lambda < 1$ 为衰减系数
-   - **设计动机**：固定 $\gamma$ 要么过分约束(分布太均匀)要么过于松弛(退化解)。训练初期需要较强约束避免退化，后期需要放松让模型学习真实分布
+
+    - **做什么**：在训练过程中动态调节KL约束的强度 $\gamma$
+    - **核心思路**：监控伪标签分布 $\frac{1}{M}\mathbf{Q}^\top \mathbf{1}_M$ 与均匀分布 $\boldsymbol{\nu}$ 之间的KL距离。当KL距离持续 $T$ 个迭代低于阈值 $\rho$ 时，减小 $\gamma$：
+    $\gamma_{t+1} = \lambda \cdot \gamma_t, \quad \text{if } \text{KL}(\frac{1}{M}\mathbf{Q}^\top \mathbf{1}_M, \boldsymbol{\nu}) \leq \rho \text{ for } T \text{ iters}$
+    - 其中 $\lambda < 1$ 为衰减系数
+    - **设计动机**：固定 $\gamma$ 要么过分约束(分布太均匀)要么过于松弛(退化解)。训练初期需要较强约束避免退化，后期需要放松让模型学习真实分布
 
 3. **区域级表示学习(Region-level Learning)**:
-   - **做什么**：利用点云的空间上下文信息，在区域级别进行自标注学习
-   - **核心思路**：
-     - 使用DBSCAN算法将每个场景的点云聚类为若干连续区域 $\{r_k\}_{k=0}^K$
-     - 对同一区域内的点特征进行平均池化得到区域表示：$\mathbf{z}_r = \text{AvgPool}(\mathbf{z}_p | r_k \text{ is same})$
-     - 区域表示使用与点级相同的分类器(原型共享)进行预测
-     - 对区域级预测同样使用半松弛OT生成区域伪标签 $\mathbf{Q}_r^u$
-   - DBSCAN参数：$\epsilon_{\text{dbscan}} = 0.5$（确保95%点参与区域学习），min-samples = 2
-   - **设计动机**：同一区域的点大概率属于同一类别，区域级表示减少了点级噪声，提供更鲁棒的语义信号；共享原型确保两个层级学习方向一致
+
+    - **做什么**：利用点云的空间上下文信息，在区域级别进行自标注学习
+    - **核心思路**：
+      - 使用DBSCAN算法将每个场景的点云聚类为若干连续区域 $\{r_k\}_{k=0}^K$
+      - 对同一区域内的点特征进行平均池化得到区域表示：$\mathbf{z}_r = \text{AvgPool}(\mathbf{z}_p | r_k \text{ is same})$
+      - 区域表示使用与点级相同的分类器(原型共享)进行预测
+      - 对区域级预测同样使用半松弛OT生成区域伪标签 $\mathbf{Q}_r^u$
+    - DBSCAN参数：$\epsilon_{\text{dbscan}} = 0.5$（确保95%点参与区域学习），min-samples = 2
+    - **设计动机**：同一区域的点大概率属于同一类别，区域级表示减少了点级噪声，提供更鲁棒的语义信号；共享原型确保两个层级学习方向一致
 
 ### 损失函数 / 训练策略
 

@@ -43,25 +43,28 @@ REDA由三个核心组件构成：
 
 ### 关键设计
 1. **反转攻击视角 (RAP)**
-   - 核心思路：将有害内容从"核心信息"降级为"辅助信息"
-   - 使用prompt模板（##Role##, ##Task##）让模型相信任务是"防御有害内容"
-   - 输出结构：先解释有害内容 → 生成具体示例 → 提供反制措施
-   - 使用特殊token控制输出结构：`<DANGEROUS_KNOWLEDGE_PROCEDURAL_STEPS>`、`<EXAMPLE_OF_DANGEROUS_KNOWLEDGE>`、`<COUNTERMEASURES>`
-   - 关键优势：模型高度配合，因为它认为自己在执行"正当防御任务"
-   - 与GCG的区别：不插入随机字符，保持高语义清晰度，可绕过困惑度检测
+
+    - 核心思路：将有害内容从"核心信息"降级为"辅助信息"
+    - 使用prompt模板（##Role##, ##Task##）让模型相信任务是"防御有害内容"
+    - 输出结构：先解释有害内容 → 生成具体示例 → 提供反制措施
+    - 使用特殊token控制输出结构：`<DANGEROUS_KNOWLEDGE_PROCEDURAL_STEPS>`、`<EXAMPLE_OF_DANGEROUS_KNOWLEDGE>`、`<COUNTERMEASURES>`
+    - 关键优势：模型高度配合，因为它认为自己在执行"正当防御任务"
+    - 与GCG的区别：不插入随机字符，保持高语义清晰度，可绕过困惑度检测
 
 2. **示例引导增强 (EGE)**
-   - 通过ICL引入4个与当前查询最相似的反向攻击QA示例
-   - 双重目标：(a)示例的结构化格式巩固"防御任务"的伪装；(b)引导模型产生结构化、可读性强的回答
-   - 构建了260个QA对的数据集，覆盖13类有害知识
-   - 使用Jaccard相似度选择最相关的top-4示例
-   - 消融显示Jaccard选择法优于随机/Sentence-BERT/BM25
+
+    - 通过ICL引入4个与当前查询最相似的反向攻击QA示例
+    - 双重目标：(a)示例的结构化格式巩固"防御任务"的伪装；(b)引导模型产生结构化、可读性强的回答
+    - 构建了260个QA对的数据集，覆盖13类有害知识
+    - 使用Jaccard相似度选择最相关的top-4示例
+    - 消融显示Jaccard选择法优于随机/Sentence-BERT/BM25
 
 3. **请求意图削弱 (RIM)**
-   - 核心观察：疑问句（"How to rob a bank"）比陈述句（"Rob a bank"）更容易触发安全机制
-   - 理论依据：预训练数据中陈述句远多于疑问句，给定疑问句条件下生成文本的概率更低
-   - $\frac{P(\mathcal{R}|\mathcal{X}, x_{1:n})}{P(\mathcal{R}|x_{1:n})} \approx (\frac{\lambda}{\mu})^L < 1$（$\lambda$为疑问句频率，$\mu$为陈述句频率）
-   - 简单有效：将"How to rob a bank"改为"Rob a bank"
+
+    - 核心观察：疑问句（"How to rob a bank"）比陈述句（"Rob a bank"）更容易触发安全机制
+    - 理论依据：预训练数据中陈述句远多于疑问句，给定疑问句条件下生成文本的概率更低
+    - $\frac{P(\mathcal{R}|\mathcal{X}, x_{1:n})}{P(\mathcal{R}|x_{1:n})} \approx (\frac{\lambda}{\mu})^L < 1$（$\lambda$为疑问句频率，$\mu$为陈述句频率）
+    - 简单有效：将"How to rob a bank"改为"Rob a bank"
 
 ### 评估方法
 采用两步评估：

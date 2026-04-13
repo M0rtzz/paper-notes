@@ -33,9 +33,9 @@ tags:
 
 ### 现有方法的不足
 
-1. **工具调用方案**（如 LLaVA + DALL-E）：解耦架构限制了模型潜力
-2. **回归式统一模型**（如 Emu、Emu2）：需要联合训练 LLM 和扩散模型，工程成本高、稳定性差
-3. **VQ 分词方案**（如 Chameleon、AnyGPT）：统一了 next-token prediction，但需要**海量数据**进行图文对齐——Chameleon 需 1.4B 图文对，Janus 需 65M
+**工具调用方案**（如 LLaVA + DALL-E）：解耦架构限制了模型潜力
+**回归式统一模型**（如 Emu、Emu2）：需要联合训练 LLM 和扩散模型，工程成本高、稳定性差
+**VQ 分词方案**（如 Chameleon、AnyGPT）：统一了 next-token prediction，但需要**海量数据**进行图文对齐——Chameleon 需 1.4B 图文对，Janus 需 65M
 
 ### 关键洞察
 

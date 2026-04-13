@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 Token 压缩是加速 Vision Transformer（ViT）训练和推理的重要技术，主要有两种方式：
-1. **Token 剪枝**：移除不重要的 token
-2. **Token 合并**（如 ToMe）：合并相似 token
+**Token 剪枝**：移除不重要的 token
+**Token 合并**（如 ToMe）：合并相似 token
 
 然而，现有 token 压缩方法面临一个严峻的实际问题：**训练和推理阶段的压缩度不匹配会导致显著性能下降**。具体来说：
 

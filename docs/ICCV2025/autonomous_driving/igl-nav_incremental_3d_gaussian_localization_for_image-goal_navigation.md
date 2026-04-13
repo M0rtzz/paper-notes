@@ -28,8 +28,8 @@ tags:
 ## 研究背景与动机
 
 图像目标导航（Image-goal Navigation）要求智能体根据一张目标图像导航到相应位置。现有方法主要分为两类：
-1. **端到端 RL** 方法：直接从观测映射到动作，但样本效率低、容易遗忘
-2. **模块化方法**：构建拓扑图或 BEV 地图作为显式记忆，但在图像目标任务中难以保留低层级视觉特征（如纹理、颜色等）
+**端到端 RL** 方法：直接从观测映射到动作，但样本效率低、容易遗忘
+**模块化方法**：构建拓扑图或 BEV 地图作为显式记忆，但在图像目标任务中难以保留低层级视觉特征（如纹理、颜色等）
 
 RNR-Map 虽然引入了可渲染的 NeRF 表示，但由于 NeRF 的隐式性质和高计算成本，被迫维护在 2D BEV 地图上，丢失了关键的 3D 结构信息，且要求目标图像必须水平拍摄。GaussNav 虽然也使用了 3DGS，但需要先完整探索整个建筑再优化 3DGS，无法在线使用。
 
@@ -49,26 +49,29 @@ IGL-Nav 包含三个核心模块：
 ### 关键设计
 
 1. **增量式 3DGS 场景表示**：
-   - 在每个时间步，将 RGB-D 观测输入 UNet 编码器 $\mathcal{E}$ 提取稠密场景嵌入 $\boldsymbol{E}'_t$
-   - 通过高斯头 $\mathcal{H}$（CNN + 线性层）回归 3DGS 参数：位置残差 $\Delta\boldsymbol{C}_{2D}$、深度残差 $\Delta\boldsymbol{D}$、不透明度 $\alpha$、协方差 $\boldsymbol{\Sigma}$、球谐系数 $\boldsymbol{c}$
-   - 利用相机内参和位姿反投影得到 3D 位置：$\boldsymbol{\mu} = \text{Proj}^{-1}(\boldsymbol{C}_{2D}+\Delta\boldsymbol{C}_{2D}, \boldsymbol{D}+\Delta\boldsymbol{D} | \boldsymbol{M}, \boldsymbol{T}_t)$
-   - 场景表示通过并集操作增量更新：$\boldsymbol{G}_t = \boldsymbol{G}_{t-1} \cup (\boldsymbol{\mu}_t, \alpha_t, \boldsymbol{\Sigma}_t, \boldsymbol{c}_t)$
-   - 设计动机：避免传统 3DGS 的离线优化，支持流式视频输入的实时重建
+
+    - 在每个时间步，将 RGB-D 观测输入 UNet 编码器 $\mathcal{E}$ 提取稠密场景嵌入 $\boldsymbol{E}'_t$
+    - 通过高斯头 $\mathcal{H}$（CNN + 线性层）回归 3DGS 参数：位置残差 $\Delta\boldsymbol{C}_{2D}$、深度残差 $\Delta\boldsymbol{D}$、不透明度 $\alpha$、协方差 $\boldsymbol{\Sigma}$、球谐系数 $\boldsymbol{c}$
+    - 利用相机内参和位姿反投影得到 3D 位置：$\boldsymbol{\mu} = \text{Proj}^{-1}(\boldsymbol{C}_{2D}+\Delta\boldsymbol{C}_{2D}, \boldsymbol{D}+\Delta\boldsymbol{D} | \boldsymbol{M}, \boldsymbol{T}_t)$
+    - 场景表示通过并集操作增量更新：$\boldsymbol{G}_t = \boldsymbol{G}_{t-1} \cup (\boldsymbol{\mu}_t, \alpha_t, \boldsymbol{\Sigma}_t, \boldsymbol{c}_t)$
+    - 设计动机：避免传统 3DGS 的离线优化，支持流式视频输入的实时重建
 
 2. **粗目标定位（5维搜索→3D卷积）**：
-   - 观察到相机拍照时上边框几乎总是平行于地面，因此用 $(x,y,z,\theta,\phi)$ 五维球面空间表示相机位姿
-   - 将 3D 空间体素化，球面通过正二十面体 $\gamma$ 级细分离散化为 $N$ 个顶点
-   - 将目标嵌入按离散球面旋转后体素化为 $L\times L\times L$ 的 3D 卷积核 $\boldsymbol{K} \in \mathbb{R}^{L\times L\times L\times C_{in}\times C_{out}}$
-   - 匹配问题转化为高效的 3D 卷积：$\text{argmax}_{x,y,z,k}\; \mathcal{C}(f_1(\mathcal{V}(\boldsymbol{E}_t)), f_2(\boldsymbol{K}))[x][y][z][k]$
-   - 使用 pillar-based 体素化进一步提速
-   - 设计动机：朴素遍历所有体素需要 $V\times N$ 次比较，通过卷积等价实现大幅加速
+
+    - 观察到相机拍照时上边框几乎总是平行于地面，因此用 $(x,y,z,\theta,\phi)$ 五维球面空间表示相机位姿
+    - 将 3D 空间体素化，球面通过正二十面体 $\gamma$ 级细分离散化为 $N$ 个顶点
+    - 将目标嵌入按离散球面旋转后体素化为 $L\times L\times L$ 的 3D 卷积核 $\boldsymbol{K} \in \mathbb{R}^{L\times L\times L\times C_{in}\times C_{out}}$
+    - 匹配问题转化为高效的 3D 卷积：$\text{argmax}_{x,y,z,k}\; \mathcal{C}(f_1(\mathcal{V}(\boldsymbol{E}_t)), f_2(\boldsymbol{K}))[x][y][z][k]$
+    - 使用 pillar-based 体素化进一步提速
+    - 设计动机：朴素遍历所有体素需要 $V\times N$ 次比较，通过卷积等价实现大幅加速
 
 3. **精目标定位（可微渲染优化）**：
-   - **渲染式停止器**：在当前视角用目标相机内参渲染 3DGS 图像，用 LoFTR 与目标图像匹配，匹配对数超阈值 $\tau$ 则触发精定位
-   - **匹配约束优化**：在每次迭代中，渲染当前位姿对应图像，用 LoFTR 获取匹配点对 $(\boldsymbol{x}_g, \boldsymbol{x})$，反投影到 3D 空间得到 $(\boldsymbol{X}_g, \boldsymbol{X})$
-   - 优化损失：$\mathcal{L} = \frac{1}{Q}\sum_{i=0}^{Q-1}|\boldsymbol{X}_g^i - \boldsymbol{X}^i|_2$
-   - 仅关注高质量匹配点的 3D 距离，克服增量式 3DGS 渲染细节不完美的问题
-   - 设计动机：直接使用全局光度损失在增量 3DGS 上效果差，聚焦高置信匹配区域更鲁棒
+
+    - **渲染式停止器**：在当前视角用目标相机内参渲染 3DGS 图像，用 LoFTR 与目标图像匹配，匹配对数超阈值 $\tau$ 则触发精定位
+    - **匹配约束优化**：在每次迭代中，渲染当前位姿对应图像，用 LoFTR 获取匹配点对 $(\boldsymbol{x}_g, \boldsymbol{x})$，反投影到 3D 空间得到 $(\boldsymbol{X}_g, \boldsymbol{X})$
+    - 优化损失：$\mathcal{L} = \frac{1}{Q}\sum_{i=0}^{Q-1}|\boldsymbol{X}_g^i - \boldsymbol{X}^i|_2$
+    - 仅关注高质量匹配点的 3D 距离，克服增量式 3DGS 渲染细节不完美的问题
+    - 设计动机：直接使用全局光度损失在增量 3DGS 上效果差，聚焦高置信匹配区域更鲁棒
 
 ### 损失函数 / 训练策略
 

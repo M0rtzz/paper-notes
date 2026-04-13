@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：自回归（AR）图像生成已成为与扩散模型并驾齐驱的主流范式。核心技术是图像 tokenizer：将图像编码为离散 token 序列，然后用 GPT 式 Transformer 预测。
+**领域现状**：自回归（AR）图像生成已成为与扩散模型并驾齐驱的主流范式。核心技术是图像 tokenizer：将图像编码为离散 token 序列，然后用 GPT 式 Transformer 预测。
 
-2. **现有痛点**：
+**现有痛点**：
    - **2D 网格 tokenizer 的冗余**：传统方法（VQGAN、LlamaGen）将图像编码为 2D token 网格（如 16×16=256 个 token），但很多 token 承载的信息高度冗余（如背景区域）
    - **TiTok 的固定长度限制**：TiTok 证明了 1D tokenizer 的可行性，但对每个压缩率需要训练不同模型，且 token 数量固定
    - **无法适应图像复杂度**：简单图像（纯色背景上的苹果）和复杂图像（拥挤街景）使用相同数量的 token，效率低下
 
-3. **核心矛盾**：固定 token 数量与图像复杂度的可变性之间的矛盾——简单图像浪费 token，复杂图像 token 不足。
+**核心矛盾**：固定 token 数量与图像复杂度的可变性之间的矛盾——简单图像浪费 token，复杂图像 token 不足。
 
-4. **本文要解决什么**：设计一个单一模型，能将图像编码为 1 到 256 个 token 的任意长度序列，且在所有长度下都能生成合理的重建。
+**本文要解决什么**：设计一个单一模型，能将图像编码为 1 到 256 个 token 的任意长度序列，且在所有长度下都能生成合理的重建。
 
-5. **切入角度**：用 nested dropout 强制编码器按重要性排序 token（从语义到细节），用 rectified flow 解码器确保任意 token 数量下都能生成高质量输出。
+**切入角度**：用 nested dropout 强制编码器按重要性排序 token（从语义到细节），用 rectified flow 解码器确保任意 token 数量下都能生成高质量输出。
 
-6. **核心 idea**：FlexTok 将图像压缩为有序的 1D token 序列，形成一种"视觉词汇表"——少量 token 描述粗略语义，更多 token 逐步添加细节。
+**核心 idea**：FlexTok 将图像压缩为有序的 1D token 序列，形成一种"视觉词汇表"——少量 token 描述粗略语义，更多 token 逐步添加细节。
 
 ## 方法详解
 
@@ -53,25 +53,28 @@ tags:
 ### 关键设计
 
 1. **ViT 编码器 + Register Token 瓶颈**:
-   - 编码器是 Vision Transformer，输入 2D VAE latent patches
-   - 使用 256 个 **register tokens** 作为 1D 瓶颈表示
-   - 对 register tokens 做 **Finite Scalar Quantization (FSQ)**，levels=[8,8,8,5,5,5]，有效 codebook 大小 64000
-   - 编码器和解码器使用 2×2 patchification，结合 VAE 的 8× 下采样实现总共 16× 下采样
-   - **设计动机**：Register tokens 机制来自 ViT 研究，天然适合做 1D 信息瓶颈；FSQ 比 VQ 更稳定且无需 codebook collapse 的担忧
+
+    - 编码器是 Vision Transformer，输入 2D VAE latent patches
+    - 使用 256 个 **register tokens** 作为 1D 瓶颈表示
+    - 对 register tokens 做 **Finite Scalar Quantization (FSQ)**，levels=[8,8,8,5,5,5]，有效 codebook 大小 64000
+    - 编码器和解码器使用 2×2 patchification，结合 VAE 的 8× 下采样实现总共 16× 下采样
+    - **设计动机**：Register tokens 机制来自 ViT 研究，天然适合做 1D 信息瓶颈；FSQ 比 VQ 更稳定且无需 codebook collapse 的担忧
 
 2. **Nested Dropout 实现有序编码**:
-   - 训练时对 register tokens 做 nested dropout：随机保留前 $k$ 个 token（$k$ 从 1 到 256 均匀采样），丢弃后面的 token
-   - 这迫使编码器将最重要的信息放在靠前的 token 中
-   - 前几个 token 编码高层语义（如"金毛犬"），后面的 token 逐步补充细节（如毛发纹理、背景）
-   - **为什么这样设计**：Nested dropout 是实现 token 排序的最简洁方式——无需显式定义"重要性"，模型自动学习把全局语义前置
+
+    - 训练时对 register tokens 做 nested dropout：随机保留前 $k$ 个 token（$k$ 从 1 到 256 均匀采样），丢弃后面的 token
+    - 这迫使编码器将最重要的信息放在靠前的 token 中
+    - 前几个 token 编码高层语义（如"金毛犬"），后面的 token 逐步补充细节（如毛发纹理、背景）
+    - **为什么这样设计**：Nested dropout 是实现 token 排序的最简洁方式——无需显式定义"重要性"，模型自动学习把全局语义前置
 
 3. **Rectified Flow 解码器**:
-   - 解码器不是简单的 deterministic decoder，而是一个 **rectified flow 模型**
-   - 输入：噪声化的 VAE latent patches + （被随机 mask 的）register tokens
-   - 预测：从噪声到干净 latent 的 flow
-   - 使用 AdaLN-zero 分别对 patches 和 registers 做时间步条件化
-   - 额外应用 **REPA 归纳偏置损失**（使用 DINOv2-L）加速收敛
-   - **为什么用生成式解码器**：确定性解码器在极少 token（如 1-8 个）时只能输出模糊的平均图像；rectified flow 可以"想象"缺失细节，在任何 token 数量下都生成清晰且合理的图像
+
+    - 解码器不是简单的 deterministic decoder，而是一个 **rectified flow 模型**
+    - 输入：噪声化的 VAE latent patches + （被随机 mask 的）register tokens
+    - 预测：从噪声到干净 latent 的 flow
+    - 使用 AdaLN-zero 分别对 patches 和 registers 做时间步条件化
+    - 额外应用 **REPA 归纳偏置损失**（使用 DINOv2-L）加速收敛
+    - **为什么用生成式解码器**：确定性解码器在极少 token（如 1-8 个）时只能输出模糊的平均图像；rectified flow 可以"想象"缺失细节，在任何 token 数量下都生成清晰且合理的图像
 
 ### 损失函数 / 训练策略
 

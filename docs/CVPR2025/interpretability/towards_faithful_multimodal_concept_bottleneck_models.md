@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: Concept Bottleneck Models (CBMs) 通过将预测路由到人类可解释的概念层来实现可解释性，在视觉领域已有广泛研究（Label-free CBM、CT-CBM 等），但在多模态场景下几乎未被探索。
-2. **现有痛点**: 标准 CBM 面临两大忠实性问题：(1) 概念检测不准确——CBL 可能未正确检测概念；(2) Leakage——概念表示中编码了非预期的额外信息（task leakage：概念编码了超出其语义的任务相关信号；inter-concept leakage：概念间编码了超过自然相关性的互信息）。
-3. **核心矛盾**: 现有方法将概念检测和 leakage 缓解作为独立问题处理，改善一个往往牺牲另一个或任务精度（如 Independent-CBM 降低 leakage 但削弱任务精度；CT-CBM 用残差连接吸收 leakage 但降低可解释性）。
-4. **本文要解决什么**: 同时实现准确的概念检测、低 leakage 和高任务精度的多模态 CBM。
-5. **切入角度**: 通过初步分析发现概念检测准确度与 task leakage 负相关、task leakage 与 inter-concept leakage 正相关，据此设计联合优化策略。
-6. **核心 idea 一句话**: 用可微分的 leakage 损失显式减少泄漏 + KAN 预测头提升表达力改善概念检测，形成正反馈闭环。
+**领域现状**: Concept Bottleneck Models (CBMs) 通过将预测路由到人类可解释的概念层来实现可解释性，在视觉领域已有广泛研究（Label-free CBM、CT-CBM 等），但在多模态场景下几乎未被探索。
+**现有痛点**: 标准 CBM 面临两大忠实性问题：(1) 概念检测不准确——CBL 可能未正确检测概念；(2) Leakage——概念表示中编码了非预期的额外信息（task leakage：概念编码了超出其语义的任务相关信号；inter-concept leakage：概念间编码了超过自然相关性的互信息）。
+**核心矛盾**: 现有方法将概念检测和 leakage 缓解作为独立问题处理，改善一个往往牺牲另一个或任务精度（如 Independent-CBM 降低 leakage 但削弱任务精度；CT-CBM 用残差连接吸收 leakage 但降低可解释性）。
+**本文要解决什么**: 同时实现准确的概念检测、低 leakage 和高任务精度的多模态 CBM。
+**切入角度**: 通过初步分析发现概念检测准确度与 task leakage 负相关、task leakage 与 inter-concept leakage 正相关，据此设计联合优化策略。
+**核心 idea 一句话**: 用可微分的 leakage 损失显式减少泄漏 + KAN 预测头提升表达力改善概念检测，形成正反馈闭环。
 
 ## 方法详解
 

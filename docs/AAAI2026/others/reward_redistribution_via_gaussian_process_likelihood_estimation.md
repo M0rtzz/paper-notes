@@ -30,10 +30,10 @@ tags:
 
 **现有方法的局限**：
 
-1. **RUDDER**：使用 LSTM 预测逐步回报并通过反向传播重分配信用，但长序列 BPTT 不稳定且计算成本高。
-2. **IRCR**：将 episode 回报均匀分配到每个时间步，计算简单但完全忽略了时间结构。
-3. **RRD**：采样随机轨迹子序列近似最优分解，但仍忽略 state-action 对之间的依赖关系。
-4. **GRD**：学习因果生成模型，产生可解释的代理奖励，但结构复杂。
+**RUDDER**：使用 LSTM 预测逐步回报并通过反向传播重分配信用，但长序列 BPTT 不稳定且计算成本高。
+**IRCR**：将 episode 回报均匀分配到每个时间步，计算简单但完全忽略了时间结构。
+**RRD**：采样随机轨迹子序列近似最优分解，但仍忽略 state-action 对之间的依赖关系。
+**GRD**：学习因果生成模型，产生可解释的代理奖励，但结构复杂。
 
 **核心问题**：所有上述方法都**假设每步奖励是独立的**，忽视了 state-action 对之间的相互依赖性。然而，作者通过实验观察到多个环境中存在显著的**滞后-1 自相关**（如 HalfCheetah-v4 中相邻步奖励 $(r_t, r_{t+1})$ 高度相关），表明连续步之间的奖励由于 state-action 对的相关性而具有时间依赖性。忽略这种依赖会导致无效的奖励重分配，遗漏重要的动作交互，最终损害学习效率。
 
@@ -54,31 +54,32 @@ GP-LRR 框架的核心思路：
 
 1. **高斯过程奖励建模**：将每步的真实奖励函数 $R_b(s,a)$ 建模为 GP 的样本：
 
-   $$R_b(s,a) \sim \mathcal{GP}(\mu_{\boldsymbol{\theta}}(s,a), k_{\boldsymbol{\phi}}((s,a),(s',a')))$$
+    $R_b(s,a) \sim \mathcal{GP}(\mu_{\boldsymbol{\theta}}(s,a), k_{\boldsymbol{\phi}}((s,a),(s',a')))$
 
    其中 $\mu_{\boldsymbol{\theta}}(s,a)$ 是参数化均值函数（用神经网络表示），$k_{\boldsymbol{\phi}}$ 是核函数。对于一条轨迹 $\tau$，真实奖励向量服从多元高斯分布：$\mathbf{r}_b \sim \mathcal{N}(\boldsymbol{\mu}_{\boldsymbol{\theta}}, \mathbf{K}_{\boldsymbol{\phi}})$。
 
    核函数的作用是**衡量不同 state-action 对之间的奖励相关性**。核心假设是：**相似的 state-action 对应该产生相似的奖励**。默认使用 RBF 核：
 
-   $$k_{\boldsymbol{\phi}}((s,a),(s',a')) = \sigma_f^2 \exp\left(-\frac{\|(s,a)-(s',a')\|^2}{2\ell_{\text{rbf}}^2}\right)$$
+    $k_{\boldsymbol{\phi}}((s,a),(s',a')) = \sigma_f^2 \exp\left(-\frac{\|(s,a)-(s',a')\|^2}{2\ell_{\text{rbf}}^2}\right)$
 
 2. **Leave-One-Out 目标构造**：在只有 episode 总回报 $R_{ep}(\tau)$ 而无逐步奖励的环境中，对每个时间步 $i$ 构造 LOO 目标：
 
-   $$\tilde{r}(s_i, a_i) = R_{ep}(\tau) - \sum_{t=0, t \neq i}^{T-1} \mu_{\boldsymbol{\theta}}(s_t, a_t)$$
+    $\tilde{r}(s_i, a_i) = R_{ep}(\tau) - \sum_{t=0, t \neq i}^{T-1} \mu_{\boldsymbol{\theta}}(s_t, a_t)$
 
    含义是：将总回报减去其他所有步的当前估计奖励，作为当前步奖励的代理目标。这些 LOO 目标作为"含噪观测"用于构造似然函数。
 
 3. **边际似然最大化**：给定 LOO 目标，优化如下对数边际似然：
 
-   $$\log p(\tilde{\mathbf{r}} \mid \boldsymbol{\theta}, \boldsymbol{\phi}, \sigma_\epsilon) = \underbrace{-\frac{1}{2}(\tilde{\mathbf{r}}-\boldsymbol{\mu}_{\boldsymbol{\theta}})^\top \mathbf{K}_\sigma^{-1}(\tilde{\mathbf{r}}-\boldsymbol{\mu}_{\boldsymbol{\theta}})}_{\text{数据拟合项}} \underbrace{- \frac{1}{2}\log\det(\mathbf{K}_\sigma)}_{\text{奥卡姆因子}} - \frac{|\tau|}{2}\log(2\pi)$$
+    $\log p(\tilde{\mathbf{r}} \mid \boldsymbol{\theta}, \boldsymbol{\phi}, \sigma_\epsilon) = \underbrace{-\frac{1}{2}(\tilde{\mathbf{r}}-\boldsymbol{\mu}_{\boldsymbol{\theta}})^\top \mathbf{K}_\sigma^{-1}(\tilde{\mathbf{r}}-\boldsymbol{\mu}_{\boldsymbol{\theta}})}_{\text{数据拟合项}} \underbrace{- \frac{1}{2}\log\det(\mathbf{K}_\sigma)}_{\text{奥卡姆因子}} - \frac{|\tau|}{2}\log(2\pi)$
 
    其中 $\mathbf{K}_\sigma = \mathbf{K}_{\boldsymbol{\phi}} + \sigma_\epsilon^2 \mathbf{I}$。数据拟合项衡量模型对数据的解释能力，奥卡姆因子惩罚模型过拟合。
 
 4. **与 SAC 的集成**（Algorithm 2）：
-   - 维护两个缓冲区：transition buffer $\mathcal{D}$（用于 SAC 更新）和完整轨迹 buffer $\mathcal{D}_\tau$（用于 GP 训练）
-   - 每 $n_{\text{update}}$ 个 episode 更新一次 GP 模型
-   - SAC 更新时用学到的均值函数 $\mu_{\boldsymbol{\theta}}(s,a)$ 作为稠密奖励信号替代稀疏的 episode 奖励
-   - GP 训练通过 Cholesky 分解保证数值稳定性
+
+    - 维护两个缓冲区：transition buffer $\mathcal{D}$（用于 SAC 更新）和完整轨迹 buffer $\mathcal{D}_\tau$（用于 GP 训练）
+    - 每 $n_{\text{update}}$ 个 episode 更新一次 GP 模型
+    - SAC 更新时用学到的均值函数 $\mu_{\boldsymbol{\theta}}(s,a)$ 作为稠密奖励信号替代稀疏的 episode 奖励
+    - GP 训练通过 Cholesky 分解保证数值稳定性
 
 ### 理论分析
 

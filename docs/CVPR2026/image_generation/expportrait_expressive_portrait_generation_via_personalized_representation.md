@@ -29,9 +29,9 @@ tags:
 
 人像视频生成的核心挑战是在精细表情控制和身份一致性之间取得平衡。现有中间信号存在根本性缺陷：
 
-1. **2D 关键点**：信号稀疏，缺乏几何细节，大姿态下不稳定
-2. **3D 参数化模型（SMPL-X/FLAME）**：低秩线性近似，预定义 blendshape 无法建模高频非线性动态（如皱纹），导致身份与表情严重混淆
-3. **隐式运动特征**：弱可控、解耦不足，容易发生身份泄露
+**2D 关键点**：信号稀疏，缺乏几何细节，大姿态下不稳定
+**3D 参数化模型（SMPL-X/FLAME）**：低秩线性近似，预定义 blendshape 无法建模高频非线性动态（如皱纹），导致身份与表情严重混淆
+**隐式运动特征**：弱可控、解耦不足，容易发生身份泄露
 
 核心矛盾：参数化模型的低维模板子空间限制了表达力，无法捕捉个体特异性解剖结构和动态皱纹，导致身份保持与表达丰富性难以兼得。
 
@@ -45,33 +45,34 @@ tags:
 
 1. **个性化头部表征**：在 SMPL-X 粗基础上叠加两个互补的偏移场：
 
-   - **静态全局偏移 $\Delta_g^s \in \mathbb{R}^{N_s \times 3}$**：捕捉表情无关的个性化几何细节（如脸型、发际线、肩部轮廓），约束在非面部区域
-   - **动态逐帧偏移 $\Delta_f^s(i) \in \mathbb{R}^{N_s \times 3}$**：捕捉每帧的表情相关动态（如皱纹、微表情），约束在面部区域
+    - **静态全局偏移 $\Delta_g^s \in \mathbb{R}^{N_s \times 3}$**：捕捉表情无关的个性化几何细节（如脸型、发际线、肩部轮廓），约束在非面部区域
+    - **动态逐帧偏移 $\Delta_f^s(i) \in \mathbb{R}^{N_s \times 3}$**：捕捉每帧的表情相关动态（如皱纹、微表情），约束在面部区域
 
    详细规范网格为：$\widetilde{V}^s(i) = V^s + \Delta_g^s + \Delta_f^s(i)$
 
    其中 $V^s = \mathcal{B}(V) \in \mathbb{R}^{N_s \times 3}$ 是经重心插值上采样的高分辨率网格（$N_s \gg N$）。通过空间约束（面部 vs 非面部）和时间正则化（最小幅值惩罚 + Laplacian 平滑）实现解耦。
 
    **优化目标**包括：
-   - 稀疏关键点损失：$\mathcal{L}_{\text{ldmk}} = \|\Pi(L_{\text{3D}}(i), \mathbf{c}) - L_{\text{2D}}(i)\|_2^2$
-   - 稠密法线/深度监督：$\mathcal{L}_{\text{normal}} = \|\hat{N}_i - N_i\|_1, \mathcal{L}_{\text{depth}} = \|\hat{D}_i - D_i\|_1$
-   - 表情系数正则化 + 位移幅值惩罚 + Laplacian 平滑
+    - 稀疏关键点损失：$\mathcal{L}_{\text{ldmk}} = \|\Pi(L_{\text{3D}}(i), \mathbf{c}) - L_{\text{2D}}(i)\|_2^2$
+    - 稠密法线/深度监督：$\mathcal{L}_{\text{normal}} = \|\hat{N}_i - N_i\|_1, \mathcal{L}_{\text{depth}} = \|\hat{D}_i - D_i\|_1$
+    - 表情系数正则化 + 位移幅值惩罚 + Laplacian 平滑
 
 2. **身份自适应表情迁移模块**：解决跨身份表情偏移不兼容问题（如儿童不应继承老人的深皱纹模式）：
 
-   - **驱动信号编码器**：将表情系数 $\boldsymbol{\psi} \in \mathbb{R}^{F \times 100}$ 和下颌姿态 $\boldsymbol{\omega} \in \mathbb{R}^{F \times 3}$ 编码为每帧条件码 $Q = \mathcal{E}(\boldsymbol{\psi}, \boldsymbol{\omega}) \in \mathbb{R}^{F \times D}$
-   - **顶点级 MLP**：以目标身份的中性网格 $V_{\text{neutral}} = V^s + \Delta_g^s$ 和驱动码 $q_i$ 为条件，预测个性化动态偏移：
+    - **驱动信号编码器**：将表情系数 $\boldsymbol{\psi} \in \mathbb{R}^{F \times 100}$ 和下颌姿态 $\boldsymbol{\omega} \in \mathbb{R}^{F \times 3}$ 编码为每帧条件码 $Q = \mathcal{E}(\boldsymbol{\psi}, \boldsymbol{\omega}) \in \mathbb{R}^{F \times D}$
+    - **顶点级 MLP**：以目标身份的中性网格 $V_{\text{neutral}} = V^s + \Delta_g^s$ 和驱动码 $q_i$ 为条件，预测个性化动态偏移：
 
-   $$\Delta_f^s(i) = \mathcal{G}(V_{\text{neutral}}, q_i) \in \mathbb{R}^{N_s \times 3}$$
+    $\Delta_f^s(i) = \mathcal{G}(V_{\text{neutral}}, q_i) \in \mathbb{R}^{N_s \times 3}$
 
    条件化设计确保在迁移表情的同时适配目标身份的解剖结构。
 
 3. **DiT 视频生成器**：微调预训练视频生成模型（基于 LDM 框架的 DiT）：
-   - **控制信号**：参考帧法线图 $N^R$ + 驱动序列法线图 $N_{1:F}^D$
-   - 3D 卷积 pose encoder 提取时空特征，2D 卷积 reference encoder 提取外观线索
-   - 标准噪声预测损失：
 
-   $$\mathcal{L}_{\text{ldm}} = \mathbb{E}_{z_0, \epsilon, t}[\|\epsilon - \epsilon_\theta(z_t, t, c)\|_2^2]$$
+    - **控制信号**：参考帧法线图 $N^R$ + 驱动序列法线图 $N_{1:F}^D$
+    - 3D 卷积 pose encoder 提取时空特征，2D 卷积 reference encoder 提取外观线索
+    - 标准噪声预测损失：
+
+    $\mathcal{L}_{\text{ldm}} = \mathbb{E}_{z_0, \epsilon, t}[\|\epsilon - \epsilon_\theta(z_t, t, c)\|_2^2]$
 
 ### 损失函数 / 训练策略
 

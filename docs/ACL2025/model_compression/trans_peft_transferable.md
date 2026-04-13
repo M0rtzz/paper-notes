@@ -26,12 +26,12 @@ Trans-PEFT 发现基座模型更新（如 Qwen2→Qwen2.5）主要改变 FFN 层
 
 ## 研究背景与动机
 
-1. **领域现状**：PEFT（如 LoRA、Adapter）已成为大模型微调的主流方法，允许一个基座模型通过动态切换 PEFT 模块服务多个用户。基座模型需要周期性更新（如 Qwen2→Qwen2.5、InternLM2→InternLM2.5）以更新知识和提升能力。
-2. **现有痛点**：基座模型更新后，基于旧版本微调的 PEFT 模块会出现严重性能下降（直接迁移失败）。对于大规模部署中的大量 PEFT 模块，重新微调不仅计算开销巨大，还涉及用户数据的长期存储和隐私问题。
-3. **核心矛盾**：PEFT 模块与基座模型的 FFN 层形成了紧密耦合——PEFT 学会了利用特定的知识存储模式，而模型更新恰恰改变了这些模式。
-4. **本文要解决什么？** 让 PEFT 模块在旧版本上训练后能直接迁移到新版本，无需重新微调。
-5. **切入角度**：分析模型更新前后的内部激活分布变化，发现 Attention 层的任务模式跨版本稳定，而 FFN 层的知识存储发生了显著变化。因此让 PEFT 减少对 FFN 知识的依赖，转而捕获 Attention 中不变的任务模式。
-6. **核心idea一句话**：通过训练时随机掩码 FFN 层输出，强迫 PEFT 捕获跨版本不变的 Attention 任务模式而非版本相关的 FFN 知识。
+**领域现状**：PEFT（如 LoRA、Adapter）已成为大模型微调的主流方法，允许一个基座模型通过动态切换 PEFT 模块服务多个用户。基座模型需要周期性更新（如 Qwen2→Qwen2.5、InternLM2→InternLM2.5）以更新知识和提升能力。
+**现有痛点**：基座模型更新后，基于旧版本微调的 PEFT 模块会出现严重性能下降（直接迁移失败）。对于大规模部署中的大量 PEFT 模块，重新微调不仅计算开销巨大，还涉及用户数据的长期存储和隐私问题。
+**核心矛盾**：PEFT 模块与基座模型的 FFN 层形成了紧密耦合——PEFT 学会了利用特定的知识存储模式，而模型更新恰恰改变了这些模式。
+**本文要解决什么？** 让 PEFT 模块在旧版本上训练后能直接迁移到新版本，无需重新微调。
+**切入角度**：分析模型更新前后的内部激活分布变化，发现 Attention 层的任务模式跨版本稳定，而 FFN 层的知识存储发生了显著变化。因此让 PEFT 减少对 FFN 知识的依赖，转而捕获 Attention 中不变的任务模式。
+**核心idea一句话**：通过训练时随机掩码 FFN 层输出，强迫 PEFT 捕获跨版本不变的 Attention 任务模式而非版本相关的 FFN 知识。
 
 ## 方法详解
 
@@ -42,18 +42,21 @@ Trans-PEFT 发现基座模型更新（如 Qwen2→Qwen2.5）主要改变 FFN 层
 ### 关键设计
 
 1. **层内知识掩码 (Intra-layer Knowledge Masking)**:
-   - 做什么：在 FFN 激活函数输出后随机掩码中间维度
-   - 核心思路：对每个 FFN 层引入 Bernoulli 掩码 $m \sim \text{Bernoulli}(1-p_i)$，逐元素与激活值相乘：$\text{FFN}(\mathbf{X}) = \sigma(\mathbf{X}(\mathbf{W}_{fc1}+\Delta\mathbf{W}_{fc1})) \odot m \cdot (\mathbf{W}_{fc2}+\Delta\mathbf{W}_{fc2})$
-   - 设计动机：由于更新后 FFN 内部的知识存储分布会变化（实验观察），掩码引入的随机性使 PEFT 不再依赖特定维度的知识
+
+    - 做什么：在 FFN 激活函数输出后随机掩码中间维度
+    - 核心思路：对每个 FFN 层引入 Bernoulli 掩码 $m \sim \text{Bernoulli}(1-p_i)$，逐元素与激活值相乘：$\text{FFN}(\mathbf{X}) = \sigma(\mathbf{X}(\mathbf{W}_{fc1}+\Delta\mathbf{W}_{fc1})) \odot m \cdot (\mathbf{W}_{fc2}+\Delta\mathbf{W}_{fc2})$
+    - 设计动机：由于更新后 FFN 内部的知识存储分布会变化（实验观察），掩码引入的随机性使 PEFT 不再依赖特定维度的知识
 
 2. **跨层知识丢弃 (Cross-layer Knowledge Dropping)**:
-   - 做什么：以概率 $p_c$ 随机丢弃整个 FFN 层的输出
-   - 核心思路：$\widetilde{\text{FFN}}(\mathbf{X}) = z \cdot \text{FFN}(\mathbf{X})$，其中 $z \sim \text{Bernoulli}(1-p_c)$
-   - 设计动机：实验发现更新后不同 FFN 层对激活值大小的影响也会改变（甚至呈现相反效果），因此需要从跨层视角减少依赖
+
+    - 做什么：以概率 $p_c$ 随机丢弃整个 FFN 层的输出
+    - 核心思路：$\widetilde{\text{FFN}}(\mathbf{X}) = z \cdot \text{FFN}(\mathbf{X})$，其中 $z \sim \text{Bernoulli}(1-p_c)$
+    - 设计动机：实验发现更新后不同 FFN 层对激活值大小的影响也会改变（甚至呈现相反效果），因此需要从跨层视角减少依赖
 
 3. **理论保证**:
-   - 提供了损失差异上界：$|\mathcal{L}(\theta; \mathcal{M}_1) - \mathcal{L}(\theta; \mathcal{M}_0)|$ 受 FFN 扰动幅度 $\rho$ 和 PEFT 对 FFN 的梯度范数约束
-   - Trans-PEFT 通过减小 $\|\nabla_{\theta_{ffn}} \mathcal{L}\|$ 来降低迁移损失上界
+
+    - 提供了损失差异上界：$|\mathcal{L}(\theta; \mathcal{M}_1) - \mathcal{L}(\theta; \mathcal{M}_0)|$ 受 FFN 扰动幅度 $\rho$ 和 PEFT 对 FFN 的梯度范数约束
+    - Trans-PEFT 通过减小 $\|\nabla_{\theta_{ffn}} \mathcal{L}\|$ 来降低迁移损失上界
 
 ### 损失函数 / 训练策略
 标准任务损失（如交叉熵），仅在训练时施加掩码和丢弃，推理时不需要。掩码率 $p_i$ 和丢弃率 $p_c$ 是超参数。方法与 LoRA 和 Adapter 都兼容，不需要修改模型架构。

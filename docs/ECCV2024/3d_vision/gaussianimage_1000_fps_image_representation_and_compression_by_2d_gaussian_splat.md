@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 隐式神经表示（INR）在图像表示和压缩方面取得了很大成功，能以紧凑网络实现高质量图像重建。但存在两大类方法各有局限：MLP-based INR（SIREN, WIRE）训练慢、渲染慢；Feature grid-based INR（I-NGP, NeuRBF）加速了训练推理但需大量GPU显存。
-2. **现有痛点**: INR方法在低端设备上部署困难——要么显存需求大（feature grid方法需1500-2900 MiB），要么渲染速度慢（WIRE仅11 FPS）。这严重限制了神经图像编解码器的实际应用。
-3. **核心矛盾**: 高质量图像表示需要大量参数/计算，但实际部署要求低显存、快速解码——如何用显式表示打破INR的隐式瓶颈？
-4. **本文要解决什么？**: 开发一种训练高效、显存友好、解码超快的图像表示和压缩技术。
-5. **切入角度**: 3D Gaussian Splatting在3D场景重建中已展示了显式表示+并行光栅化带来的速度优势。能否将其适配到2D图像表示任务？直接适配面临三大挑战：3D高斯参数过多（59个/点）、α-blending需要深度排序（2D图像无深度）、提前截断导致高斯利用不足。
-6. **核心idea一句话**: 用仅8个参数的2D高斯替代59参数的3D高斯，用无序的累积求和替代需排序的α-blending，实现超快图像表示。
+**领域现状**: 隐式神经表示（INR）在图像表示和压缩方面取得了很大成功，能以紧凑网络实现高质量图像重建。但存在两大类方法各有局限：MLP-based INR（SIREN, WIRE）训练慢、渲染慢；Feature grid-based INR（I-NGP, NeuRBF）加速了训练推理但需大量GPU显存。
+**现有痛点**: INR方法在低端设备上部署困难——要么显存需求大（feature grid方法需1500-2900 MiB），要么渲染速度慢（WIRE仅11 FPS）。这严重限制了神经图像编解码器的实际应用。
+**核心矛盾**: 高质量图像表示需要大量参数/计算，但实际部署要求低显存、快速解码——如何用显式表示打破INR的隐式瓶颈？
+**本文要解决什么？**: 开发一种训练高效、显存友好、解码超快的图像表示和压缩技术。
+**切入角度**: 3D Gaussian Splatting在3D场景重建中已展示了显式表示+并行光栅化带来的速度优势。能否将其适配到2D图像表示任务？直接适配面临三大挑战：3D高斯参数过多（59个/点）、α-blending需要深度排序（2D图像无深度）、提前截断导致高斯利用不足。
+**核心idea一句话**: 用仅8个参数的2D高斯替代59参数的3D高斯，用无序的累积求和替代需排序的α-blending，实现超快图像表示。
 
 ## 方法详解
 
@@ -46,7 +46,7 @@ GaussianImage包含两个阶段：
 
 1. **紧凑的2D高斯表示**: 每个2D高斯由位置$\boldsymbol{\mu} \in \mathbb{R}^2$、协方差矩阵$\boldsymbol{\Sigma} \in \mathbb{R}^{2 \times 2}$、颜色$\boldsymbol{c} \in \mathbb{R}^3$和不透明度$o \in \mathbb{R}$组成。协方差矩阵通过Cholesky分解保证正定性：
 
-   $$\boldsymbol{\Sigma} = \boldsymbol{L}\boldsymbol{L}^T$$
+    $\boldsymbol{\Sigma} = \boldsymbol{L}\boldsymbol{L}^T$
 
    用Cholesky向量$\boldsymbol{l} = \{l_1, l_2, l_3\}$表示下三角元素，基础2D高斯共9参数——相比3D高斯的59参数压缩了$6.5\times$。
 
@@ -54,27 +54,28 @@ GaussianImage包含两个阶段：
 
 2. **累积求和光栅化**: 3D GS的α-blending需要按深度排序高斯并计算累积透明度$T_n$，这对于无深度信息的2D图像不适用。本文提出直接加权求和：
 
-   $$\boldsymbol{C}_i = \sum_{n \in \mathcal{N}} \boldsymbol{c}_n \cdot o_n \cdot \exp(-\sigma_n), \quad \sigma_n = \frac{1}{2}\boldsymbol{d}_n^T \boldsymbol{\Sigma}^{-1} \boldsymbol{d}_n$$
+    $\boldsymbol{C}_i = \sum_{n \in \mathcal{N}} \boldsymbol{c}_n \cdot o_n \cdot \exp(-\sigma_n), \quad \sigma_n = \frac{1}{2}\boldsymbol{d}_n^T \boldsymbol{\Sigma}^{-1} \boldsymbol{d}_n$
 
    进一步将颜色$\boldsymbol{c}_n$和不透明度$o_n$合并为加权颜色系数$\boldsymbol{c}_n' \in \mathbb{R}^3$（不再限制在$[0,1]$范围）：
 
-   $$\boldsymbol{C}_i = \sum_{n \in \mathcal{N}} \boldsymbol{c}_n' \cdot \exp(-\sigma_n)$$
+    $\boldsymbol{C}_i = \sum_{n \in \mathcal{N}} \boldsymbol{c}_n' \cdot \exp(-\sigma_n)$
 
    最终2D高斯仅需**8个参数**（位置2 + 协方差3 + 加权颜色3），压缩比达$7.375\times$。
 
    三大优势：(a) 对高斯顺序不敏感，无需排序；(b) 跳过累积透明度$T_n$的顺序计算，加速训练和推理；(c) 所有覆盖该像素的高斯都参与渲染，充分利用信息。
 
 3. **图像压缩流水线**: 对不同属性采用不同量化策略：
-   - **位置参数**: 16-bit float精度（对量化敏感）
-   - **协方差参数**: $b$-bit（默认6-bit）非对称量化，学习缩放因子$\gamma_i$和偏移$\beta_i$：
+
+    - **位置参数**: 16-bit float精度（对量化敏感）
+    - **协方差参数**: $b$-bit（默认6-bit）非对称量化，学习缩放因子$\gamma_i$和偏移$\beta_i$：
    
-   $$\hat{l}_i^n = \lfloor \text{clamp}(\frac{l_i^n - \beta_i}{\gamma_i}, 0, 2^b - 1) \rceil$$
+    $\hat{l}_i^n = \lfloor \text{clamp}(\frac{l_i^n - \beta_i}{\gamma_i}, 0, 2^b - 1) \rceil$
    
-   - **加权颜色系数**: 残差向量量化（RVQ），级联$M=2$阶段、码本大小$B=8$：
+    - **加权颜色系数**: 残差向量量化（RVQ），级联$M=2$阶段、码本大小$B=8$：
    
-   $$\hat{\boldsymbol{c}}_n^{\prime m} = \sum_{k=1}^{m} \mathcal{C}^k[i^k]$$
+    $\hat{\boldsymbol{c}}_n^{\prime m} = \sum_{k=1}^{m} \mathcal{C}^k[i^k]$
    
-   - **可选Partial Bits-back Coding**: 利用高斯点集合的置换不变性，先用普通熵编码编码前$K$个高斯作为初始比特，剩余$N-K$个高斯用bits-back coding编码，可节省$\log(N-K)! - \log(N-K)$比特。
+    - **可选Partial Bits-back Coding**: 利用高斯点集合的置换不变性，先用普通熵编码编码前$K$个高斯作为初始比特，剩余$N-K$个高斯用bits-back coding编码，可节省$\log(N-K)! - \log(N-K)$比特。
 
 ### 损失函数 / 训练策略
 

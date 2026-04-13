@@ -29,8 +29,8 @@ tags:
 
 开放集 3D 物体检索 (Open-set 3DOR) 要求从仓库中检索训练时 **未见过的类别** 的 3D 物体，面临两大挑战：
 
-1. **域外泛化困难**: 现有方法假设训练与测试共享相同类别/域，在开放集场景中性能急剧下降
-2. **3D 数据稀缺导致过拟合**: 训练数据有限，模型容易对已知类别过拟合，无法泛化到未见类别
+**域外泛化困难**: 现有方法假设训练与测试共享相同类别/域，在开放集场景中性能急剧下降
+**3D 数据稀缺导致过拟合**: 训练数据有限，模型容易对已知类别过拟合，无法泛化到未见类别
 
 此前 SOTA 方法 HGM2R 需要使用所有模态（点云、体素、多视图图像）并引入测试数据参与训练，复杂且不实际。
 
@@ -52,30 +52,34 @@ DAC = Describe + Adapt + Combine，三步流程：
 ### 关键设计
 
 1. **Describe — MLLM 双重用途**:
-   - **训练时**: 用 MLLM 为每个已知类别生成丰富描述（prompt: "Describe in one sentence what [cls] should look like"），替代简单的 "a photo of [cls]" 模板，更好对齐 CLIP 的对比学习目标
-   - **推理时**: 将多视图图像输入 MLLM，生成外观和语义描述（prompt: "There are images of an object from different angles. Describe this object in one sentence."），为未知类别物体提供 out-of-box 文本知识
-   - 任何现成 MLLM 均可使用，主要采用 InternVL-4B
+
+    - **训练时**: 用 MLLM 为每个已知类别生成丰富描述（prompt: "Describe in one sentence what [cls] should look like"），替代简单的 "a photo of [cls]" 模板，更好对齐 CLIP 的对比学习目标
+    - **推理时**: 将多视图图像输入 MLLM，生成外观和语义描述（prompt: "There are images of an object from different angles. Describe this object in one sentence."），为未知类别物体提供 out-of-box 文本知识
+    - 任何现成 MLLM 均可使用，主要采用 InternVL-4B
 
 2. **Adapt — Additive-Bias LoRA (AB-LoRA)**:
-   - CLIP 预训练于自然图像，与多视图投影图像存在域差距，需要微调适配
-   - 标准 LoRA 的权重更新 $\Delta\mathbf{W}\mathbf{z}$ 直接累积来自已知类别的输入 $\mathbf{z}$，容易过拟合
-   - **核心创新**: 在 LoRA 中添加可学习偏置项 $\mathbf{\Phi}$:
-     $$\mathbf{o} = \mathbf{W}_o\mathbf{z} + \gamma\mathbf{BA}\mathbf{z} + \mathbf{\Phi}$$
-   - 偏置项打破了权重更新与输入的紧密耦合，起到正则化作用，减缓过拟合
-   - $\mathbf{A}$ 用标准正态初始化，$\mathbf{B}$ 和 $\mathbf{\Phi}$ 初始化为零，确保起始不扰动原始权重
-   - 应用于 CLIP 视觉和文本编码器的 self-attention（$W_q, W_k, W_v$）
+
+    - CLIP 预训练于自然图像，与多视图投影图像存在域差距，需要微调适配
+    - 标准 LoRA 的权重更新 $\Delta\mathbf{W}\mathbf{z}$ 直接累积来自已知类别的输入 $\mathbf{z}$，容易过拟合
+    - **核心创新**: 在 LoRA 中添加可学习偏置项 $\mathbf{\Phi}$:
+    $\mathbf{o} = \mathbf{W}_o\mathbf{z} + \gamma\mathbf{BA}\mathbf{z} + \mathbf{\Phi}$
+    - 偏置项打破了权重更新与输入的紧密耦合，起到正则化作用，减缓过拟合
+    - $\mathbf{A}$ 用标准正态初始化，$\mathbf{B}$ 和 $\mathbf{\Phi}$ 初始化为零，确保起始不扰动原始权重
+    - 应用于 CLIP 视觉和文本编码器的 self-attention（$W_q, W_k, W_v$）
 
 3. **训练目标**:
-   - 类别描述经 CLIP 文本编码器生成分类权重 $\mathbf{c}_i = \mathcal{T}(t_i)$
-   - 多视图图像经 CLIP 视觉编码器 + 均值池化得全局特征 $\mathbf{g}_k = \frac{1}{M}\sum\mathbf{f}_{k,m}$
-   - 交叉熵损失:
-     $$\mathcal{L}_{CE} = -\frac{1}{N_t}\sum_{k=1}^{N_t}\log\frac{\exp(\mathbf{g}_k \cdot \mathbf{c}_y / \tau)}{\sum_{i=1}^{L}\exp(\mathbf{g}_k \cdot \mathbf{c}_i / \tau)}$$
+
+    - 类别描述经 CLIP 文本编码器生成分类权重 $\mathbf{c}_i = \mathcal{T}(t_i)$
+    - 多视图图像经 CLIP 视觉编码器 + 均值池化得全局特征 $\mathbf{g}_k = \frac{1}{M}\sum\mathbf{f}_{k,m}$
+    - 交叉熵损失:
+    $\mathcal{L}_{CE} = -\frac{1}{N_t}\sum_{k=1}^{N_t}\log\frac{\exp(\mathbf{g}_k \cdot \mathbf{c}_y / \tau)}{\sum_{i=1}^{L}\exp(\mathbf{g}_k \cdot \mathbf{c}_i / \tau)}$
 
 4. **Combine — 特征融合**:
-   - 将适配后的视觉全局特征 $\mathbf{g}$ 与文本特征 $\mathbf{f}_t$ 加权融合：
-     $$\mathbf{h} = \tanh(\mathbf{g} + \alpha\mathbf{f}_t)$$
-   - 使用 cosine 相似度进行检索
-   - 简单的加法融合效果优于拼接（使 R的融合优于拼接 (+7.1% mAP)
+
+    - 将适配后的视觉全局特征 $\mathbf{g}$ 与文本特征 $\mathbf{f}_t$ 加权融合：
+    $\mathbf{h} = \tanh(\mathbf{g} + \alpha\mathbf{f}_t)$
+    - 使用 cosine 相似度进行检索
+    - 简单的加法融合效果优于拼接（使 R的融合优于拼接 (+7.1% mAP)
 
 ### 损失函数 / 训练策略
 

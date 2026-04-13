@@ -49,30 +49,31 @@ LiREC-Net是一个双路径架构：
 ### 关键设计
 
 1. **共享LiDAR表示（Point+Depth融合）**: LiDAR特征通过**两个互补编码器**并行提取：
-   - **点编码器**：使用Point-Transformer-V3 (PTV3)直接处理无序3D点，通过空间填充曲线序列化实现高效局部注意力，捕获**细粒度几何结构**
-   - **深度编码器**：将点云投影到图像平面生成单通道深度图，用MViTV2提取**密集空间上下文**
+
+    - **点编码器**：使用Point-Transformer-V3 (PTV3)直接处理无序3D点，通过空间填充曲线序列化实现高效局部注意力，捕获**细粒度几何结构**
+    - **深度编码器**：将点云投影到图像平面生成单通道深度图，用MViTV2提取**密集空间上下文**
 
    两者特征通过**缩放特征投影(SFP)**对齐到相同分辨率后拼接融合：
 
-   $$\mathbf{F}^{\text{Li}} = \text{Concat}(\text{SFP}(\mathbf{F}^{\text{point}}), \mathbf{F}^{\text{depth}})$$
+    $\mathbf{F}^{\text{Li}} = \text{Concat}(\text{SFP}(\mathbf{F}^{\text{point}}), \mathbf{F}^{\text{depth}})$
 
    消融实验证明这两种特征缺一不可——仅用点特征时LiDAR-RGB平移误差从2.51cm暴增至14.43cm。
 
 2. **缩放深度投影 (SDP) 和缩放特征投影 (SFP)**: 关键的工程细节。投影点云到图像平面时，传统做法是先用原始内参投影，再resize。但resize会引入**模糊伪影**，破坏精细的特征对齐。SDP通过先缩放内参矩阵再投影来避免此问题：
 
-   $$R' = \text{diag}\left(\frac{W'}{W}, \frac{H'}{H}, 1\right), \quad \mathbf{K'}_{\text{Cam}} = R' \mathbf{K}_{\text{Cam}}$$
+    $R' = \text{diag}\left(\frac{W'}{W}, \frac{H'}{H}, 1\right), \quad \mathbf{K'}_{\text{Cam}} = R' \mathbf{K}_{\text{Cam}}$
 
    消融显示移除SDP和SFP后LiDAR-Event误差从1.18cm/0.07°恶化到3.35cm/0.30°。
 
 3. **成对代价体积**: 借鉴PWC-Net和LCCNet，计算LiDAR特征与相机特征之间逐像素的局部相关性。对像素 $\mathbf{p}=(x,y)$ 和位移 $(\Delta x, \Delta y)$：
 
-   $$\mathcal{C}(y,x,\Delta x,\Delta y) = \frac{1}{C}\sum_{c=1}^{C} \mathbf{F}^{\text{Li}}_{c,y,x} \cdot \mathbf{F}^{\text{Cam}}_{c,y+\Delta y,x+\Delta x}$$
+    $\mathcal{C}(y,x,\Delta x,\Delta y) = \frac{1}{C}\sum_{c=1}^{C} \mathbf{F}^{\text{Li}}_{c,y,x} \cdot \mathbf{F}^{\text{Cam}}_{c,y+\Delta y,x+\Delta x}$
 
    代价体积维度为 $H'' \times W'' \times (2d+1)^2$，通过滑动窗口内的逐通道内积衡量跨模态局部相似性。
 
 4. **迭代细化**: 训练多个独立模型，每个针对不同的误差范围（从大到小：±20°/150cm → ±1°/10cm），评估时级联应用：
 
-   $$\hat{\mathbf{T}}^{v,(k)} = \Delta\hat{\mathbf{T}}^{v,(k)} \hat{\mathbf{T}}^{v,(k-1)}$$
+    $\hat{\mathbf{T}}^{v,(k)} = \Delta\hat{\mathbf{T}}^{v,(k)} \hat{\mathbf{T}}^{v,(k-1)}$
 
    这种粗到精的策略让每个stage专注于特定精度范围的校正。
 

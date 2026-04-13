@@ -45,27 +45,32 @@ tags:
 ### 关键设计
 
 1. **源代码收集**：
-   - 从 BigCodeBench 获取涉及 2+ 个库的 Python 编程任务
-   - 使用 GPT-4o 生成 1038 个多库代码片段
-   - 通过执行测试用例自动识别出 609 个含 bug 的代码
+
+    - 从 BigCodeBench 获取涉及 2+ 个库的 Python 编程任务
+    - 使用 GPT-4o 生成 1038 个多库代码片段
+    - 通过执行测试用例自动识别出 609 个含 bug 的代码
 
 2. **7 种 Bug 分类体系**（从三个视角出发）：
-   - **变量传递视角**：Type Mismatch (TM) / Data Transfer Issues (DTI)
-   - **库函数参数视角**：Function Parameter Errors (FPE) / Parameter Configuration Errors (PCE) / Function Misuse (FM)
-   - **功能理解视角**：Requirement Misunderstanding (RM) / Import Errors (IE)
+
+    - **变量传递视角**：Type Mismatch (TM) / Data Transfer Issues (DTI)
+    - **库函数参数视角**：Function Parameter Errors (FPE) / Parameter Configuration Errors (PCE) / Function Misuse (FM)
+    - **功能理解视角**：Requirement Misunderstanding (RM) / Import Errors (IE)
 
 3. **LLM 辅助注解和调试**：
-   - 使用 GPT-4o、DeepSeek-V3、Claude-3.5-sonnet 三个 LLM 分类 bug 并生成修复代码
-   - 对失败修复最多重试 5 次（受 test-time scaling 启发）
+
+    - 使用 GPT-4o、DeepSeek-V3、Claude-3.5-sonnet 三个 LLM 分类 bug 并生成修复代码
+    - 对失败修复最多重试 5 次（受 test-time scaling 启发）
 
 4. **Bug 类别平衡**：
-   - 使用 AST 捕获多库代码结构
-   - 从不平衡类别中等比例采样生成新 bug，最终每类约 200 个
-   - 成功注入 566 个额外 bug
+
+    - 使用 AST 捕获多库代码结构
+    - 从不平衡类别中等比例采样生成新 bug，最终每类约 200 个
+    - 成功注入 566 个额外 bug
 
 5. **质量控制**：
-   - 4 名经验丰富的程序员交叉检查
-   - 修正 119 个 bug 描述、340 个分类错误、手动修复 185 个样本、移除 356 个不合理样本
+
+    - 4 名经验丰富的程序员交叉检查
+    - 修正 119 个 bug 描述、340 个分类错误、手动修复 185 个样本、移除 356 个不合理样本
 
 ### 数据分布验证
 

@@ -44,24 +44,28 @@ tags:
 ### 关键设计
 
 1. **低分辨率流（LR Stream）**:
-   - 做什么：252px 低分辨率上处理全部帧，提取全局一致特征并估计位姿
-   - 核心思路：DINOv2 tokenizer + 交替 Frame/Global Attention。用 Pi3 教师模型做特征蒸馏补偿低分辨率信息损失
-   - 设计动机：全局 attention 在低分辨率下可控，位姿不需要高频细节
+
+    - 做什么：252px 低分辨率上处理全部帧，提取全局一致特征并估计位姿
+    - 核心思路：DINOv2 tokenizer + 交替 Frame/Global Attention。用 Pi3 教师模型做特征蒸馏补偿低分辨率信息损失
+    - 设计动机：全局 attention 在低分辨率下可控，位姿不需要高频细节
 
 2. **高分辨率流（HR Stream）**:
-   - 做什么：原始分辨率（可达 2K）逐帧独立处理
-   - 核心思路：冻结 MoGe2 的 24 层 ViT 编码器，每帧独立编码。计算量随分辨率线性增长
-   - 设计动机：冻结权重保持零样本泛化能力，避免小数据集过拟合
+
+    - 做什么：原始分辨率（可达 2K）逐帧独立处理
+    - 核心思路：冻结 MoGe2 的 24 层 ViT 编码器，每帧独立编码。计算量随分辨率线性增长
+    - 设计动机：冻结权重保持零样本泛化能力，避免小数据集过拟合
 
 3. **轻量 Adapter**:
-   - 做什么：将 LR 流全局一致信息注入 HR 流
-   - 核心思路：Cross-Attention（HR 作 Q，LR 作 K/V）+ Self-Attention 恢复帧内空间连贯性，堆叠 5 个块
-   - 设计动机：Cross-Attention 天然支持任意 token 数量比
+
+    - 做什么：将 LR 流全局一致信息注入 HR 流
+    - 核心思路：Cross-Attention（HR 作 Q，LR 作 K/V）+ Self-Attention 恢复帧内空间连贯性，堆叠 5 个块
+    - 设计动机：Cross-Attention 天然支持任意 token 数量比
 
 4. **RoPE 位置编码策略**:
-   - Self-Attention：插值 RoPE 使位置谱在高分辨率下稳定
-   - Cross-Attention：snap-to-grid 将 HR token 映射到最近 LR 网格单元
-   - 设计动机：标准 RoPE 在训练分辨率之外严重退化
+
+    - Self-Attention：插值 RoPE 使位置谱在高分辨率下稳定
+    - Cross-Attention：snap-to-grid 将 HR token 映射到最近 LR 网格单元
+    - 设计动机：标准 RoPE 在训练分辨率之外严重退化
 
 ### 损失函数 / 训练策略
 

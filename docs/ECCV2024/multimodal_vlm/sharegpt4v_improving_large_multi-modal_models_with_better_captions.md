@@ -27,12 +27,12 @@ ShareGPT4V 构建了一个120万条高质量描述性caption数据集（由GPT4-
 
 ## 研究背景与动机
 
-1. **领域现状**：当前大型多模态模型（LMM）遵循"预训练对齐 + SFT微调"的双阶段范式，在多模态理解方面取得了显著进展。
-2. **现有痛点**：主流image-text数据集中的caption普遍简短、只聚焦于显著目标（如COCO-Caption平均仅52字符），导致视觉中丰富的细粒度语义信息被大量压缩丢失。
-3. **核心矛盾**：视觉模态天然包含丰富信息（世界知识、物体属性、空间关系、美学评价等），但现有caption的信息量远不足以支撑有效的模态对齐。LLaVA-Instruct虽使用GPT4但模型并未"看到"图像，依赖人工标注+想象，不可避免导致幻觉。
-4. **本文解决的问题**：如何大规模、低成本地获取高质量图像描述来改善LMM各训练阶段的模态对齐效果。
-5. **切入角度**：先用GPT4-Vision直接对图像生成100K高质量caption（平均942字符），再训练一个caption模型（Share-Captioner）扩展至1.2M规模。
-6. **核心idea**：高质量caption是多模态对齐的银弹——即使不改架构，仅替换3.5%的SFT数据为高质量caption就能显著提升性能。
+**领域现状**：当前大型多模态模型（LMM）遵循"预训练对齐 + SFT微调"的双阶段范式，在多模态理解方面取得了显著进展。
+**现有痛点**：主流image-text数据集中的caption普遍简短、只聚焦于显著目标（如COCO-Caption平均仅52字符），导致视觉中丰富的细粒度语义信息被大量压缩丢失。
+**核心矛盾**：视觉模态天然包含丰富信息（世界知识、物体属性、空间关系、美学评价等），但现有caption的信息量远不足以支撑有效的模态对齐。LLaVA-Instruct虽使用GPT4但模型并未"看到"图像，依赖人工标注+想象，不可避免导致幻觉。
+**本文解决的问题**：如何大规模、低成本地获取高质量图像描述来改善LMM各训练阶段的模态对齐效果。
+**切入角度**：先用GPT4-Vision直接对图像生成100K高质量caption（平均942字符），再训练一个caption模型（Share-Captioner）扩展至1.2M规模。
+**核心idea**：高质量caption是多模态对齐的银弹——即使不改架构，仅替换3.5%的SFT数据为高质量caption就能显著提升性能。
 
 ## 方法详解
 
@@ -45,21 +45,24 @@ Pipeline: 多来源图像 → 数据特定prompt设计 → GPT4-Vision生成100K
 ### 关键设计
 
 1. **数据特定的Prompt工程**:
-   - 做什么：为不同数据来源设计专用prompt，引导GPT4-Vision生成高内容关联性描述
-   - 核心思路：基础prompt（物体属性、外观、空间关系）+ 数据源专用prompt（如地标图→地理位置和名称，名人图→身份信息）+ 美学评价prompt
-   - 设计动机：不同来源的图像关注点不同，通用prompt无法捕获domain-specific知识（如埃菲尔铁塔不应只被描述为"高铁塔"）
+
+    - 做什么：为不同数据来源设计专用prompt，引导GPT4-Vision生成高内容关联性描述
+    - 核心思路：基础prompt（物体属性、外观、空间关系）+ 数据源专用prompt（如地标图→地理位置和名称，名人图→身份信息）+ 美学评价prompt
+    - 设计动机：不同来源的图像关注点不同，通用prompt无法捕获domain-specific知识（如埃菲尔铁塔不应只被描述为"高铁塔"）
 
 2. **Share-Captioner（caption模型训练与数据扩展）**:
-   - 做什么：用100K GPT4-Vision caption微调一个caption模型，替代昂贵的GPT4-Vision进行大规模caption生成
-   - 核心思路：在100K多样化高质量caption上微调后，Share-Captioner可以用统一instruction生成高质量caption，不再需要数据源特定prompt
-   - 设计动机：GPT4-Vision成本高昂，需要一个本地化的caption模型实现规模化扩展。人工评估表明Share-Captioner与GPT4-Vision质量相当（38.2% vs 35.3%偏好，26.5%持平）
-   - 扩展规模：1.2M图像，约44 A100 GPU天
+
+    - 做什么：用100K GPT4-Vision caption微调一个caption模型，替代昂贵的GPT4-Vision进行大规模caption生成
+    - 核心思路：在100K多样化高质量caption上微调后，Share-Captioner可以用统一instruction生成高质量caption，不再需要数据源特定prompt
+    - 设计动机：GPT4-Vision成本高昂，需要一个本地化的caption模型实现规模化扩展。人工评估表明Share-Captioner与GPT4-Vision质量相当（38.2% vs 35.3%偏好，26.5%持平）
+    - 扩展规模：1.2M图像，约44 A100 GPU天
 
 3. **预训练阶段的Vision Encoder解冻策略**:
-   - 做什么：在预训练阶段同时微调vision encoder、projector和LLM
-   - 核心思路：由于caption质量足够高，解冻vision encoder后半部分（从block 12开始）能让encoder学习生成与caption细节对应的视觉embedding，实现双向对齐
-   - 设计动机：之前的LMM工作不会在预训练阶段微调vision encoder，因为低质量caption可能导致视觉知识退化。但高质量caption下解冻更有利。
-   - 关键发现：解冻后半（12层起）效果最优，MME提升52.2分，MMB提升2.2%
+
+    - 做什么：在预训练阶段同时微调vision encoder、projector和LLM
+    - 核心思路：由于caption质量足够高，解冻vision encoder后半部分（从block 12开始）能让encoder学习生成与caption细节对应的视觉embedding，实现双向对齐
+    - 设计动机：之前的LMM工作不会在预训练阶段微调vision encoder，因为低质量caption可能导致视觉知识退化。但高质量caption下解冻更有利。
+    - 关键发现：解冻后半（12层起）效果最优，MME提升52.2分，MMB提升2.2%
 
 ### 损失函数 / 训练策略
 

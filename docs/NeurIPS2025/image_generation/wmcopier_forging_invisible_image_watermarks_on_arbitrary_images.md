@@ -48,18 +48,19 @@ WMCopier 包含三个阶段：
 ### 关键设计
 
 1. **基于扩散模型的水印分布估计**：在辅助数据集 $\mathcal{D}_{\text{aux}} = \{x^w | x^w \sim p_w(x)\}$（5000 张水印图像）上训练无条件扩散模型 $\mathcal{M}_\theta$。核心理论分析：对于水印图 $x^w = x + w$，前向扩散后 $x_t^w = x_t + \sqrt{\alpha_t} w$，噪声预测器的输出：
-   $$\epsilon_\theta(x_t^w, t) = \hat{\epsilon}(x_t + \sqrt{\alpha_t} w) \approx \hat{\epsilon}(x_t) + \delta_t(w)$$
+    $\epsilon_\theta(x_t^w, t) = \hat{\epsilon}(x_t + \sqrt{\alpha_t} w) \approx \hat{\epsilon}(x_t) + \delta_t(w)$
    水印信号 $w$ 引入的预测偏差 $\delta_t(w)$ 在每步去噪中累积，将模型输出分布引向 $p_w(x)$。这意味着模型"学会"了水印的统计特征。
 
 2. **浅层反演注入**：直接使用完整反演（$T_S = T$）会导致严重质量退化，因为 OOD 图像的反演在深层步骤累积大量重建误差。实验发现水印信号主要在浅层步骤（$t \leq 400, T=1000$）中被破坏/恢复。因此只执行浅层反演至 $T_S < T$（默认 $T_S=40, T=100$）：
-   - 跳过对水印注入贡献小但严重损害语义的深层扩散步
-   - 保留原始图像的视觉保真度
-   - 去噪时水印偏差 $\delta_t(w)$ 仍能有效引导生成
+
+    - 跳过对水印注入贡献小但严重损害语义的深层扩散步
+    - 保留原始图像的视觉保真度
+    - 去噪时水印偏差 $\delta_t(w)$ 仍能有效引导生成
 
 3. **迭代精炼**：浅层反演后可能残留轻微伪影。通过梯度上升同时优化水印分布似然和语义保真度：
-   $$x^{f(i+1)} = x^{f(i)} + \eta \nabla_{x^{f(i)}} \left[\log p_w(x^{f(i)}) - \lambda \|x^{f(i)} - x\|^2 \right]$$
+    $x^{f(i+1)} = x^{f(i)} + \eta \nabla_{x^{f(i)}} \left[\log p_w(x^{f(i)}) - \lambda \|x^{f(i)} - x\|^2 \right]$
    其中 $\log p_w(x^f)$ 用训练好的扩散模型的分数函数近似：
-   $$\nabla_{x^f} \log p_w(x^f) \approx -\frac{1}{\sqrt{1-\alpha_{t_l}}} \epsilon_\theta(x_{t_l}^f, t_l)$$
+    $\nabla_{x^f} \log p_w(x^f) \approx -\frac{1}{\sqrt{1-\alpha_{t_l}}} \epsilon_\theta(x_{t_l}^f, t_l)$
    $\lambda=100$ 控制语义保持和水印注入的权衡，迭代 $L=100$ 步。
 
 ### 损失函数 / 训练策略

@@ -51,26 +51,29 @@ SEAL 基于 SimGCD 基线，引入三个关键组件：
 ### 关键设计
 
 1. **语义感知层级学习**：
-   - 定义 $H$ 个语义层级，对应标签 $\mathbf{y}_1, \ldots, \mathbf{y}_H$（从粗到细）
-   - 共享图像编码器 $\mathcal{F}$，后接投影层 $\phi$ 将特征解耦为各粒度的子表示：$\mathbf{z} = \phi(\mathcal{F}(\mathbf{x})) = [\mathbf{z}_1; \mathbf{z}_2; \ldots; \mathbf{z}_H]$
-   - 粗粒度分支复用细粒度特征但阻断梯度：$\hat{\mathbf{z}}_i = [\mathbf{z}_1; \cdots; \mathbf{z}_h; \Gamma(\mathbf{z}_{h+1}); \cdots; \Gamma(\mathbf{z}_H)]$
-   - 语义层级来自自然分类系统（如生物学中的科-属-种），不需要手工设计
-   - 每个层级独立训练 GCD 分类器
+
+    - 定义 $H$ 个语义层级，对应标签 $\mathbf{y}_1, \ldots, \mathbf{y}_H$（从粗到细）
+    - 共享图像编码器 $\mathcal{F}$，后接投影层 $\phi$ 将特征解耦为各粒度的子表示：$\mathbf{z} = \phi(\mathcal{F}(\mathbf{x})) = [\mathbf{z}_1; \mathbf{z}_2; \ldots; \mathbf{z}_H]$
+    - 粗粒度分支复用细粒度特征但阻断梯度：$\hat{\mathbf{z}}_i = [\mathbf{z}_1; \cdots; \mathbf{z}_h; \Gamma(\mathbf{z}_{h+1}); \cdots; \Gamma(\mathbf{z}_H)]$
+    - 语义层级来自自然分类系统（如生物学中的科-属-种），不需要手工设计
+    - 每个层级独立训练 GCD 分类器
 
 2. **跨粒度一致性自蒸馏（CGC）**：
-   - 解决多层级分类中的不一致问题（如同一实例被标为"柴犬"但粗粒度却标为"猫"）
-   - 定义动态转移矩阵 $M_h \in \mathbb{R}^{n_H \times n_h}$：编码细粒度类到粗粒度类的映射
-   - 已知类：固定的 one-hot 向量；未知类：均匀初始化，训练中动量更新
-   - 一致性损失：$\mathcal{L}_{cgc} = \sum_{h=1}^{H-1} D_{KL}(p(\mathbf{x}_i|\boldsymbol{\theta}_h) | p(\mathbf{x}_i|\boldsymbol{\theta}_H) \times M_h)$
-   - 核心思想：细粒度预测经转移矩阵映射后应与粗粒度预测一致
+
+    - 解决多层级分类中的不一致问题（如同一实例被标为"柴犬"但粗粒度却标为"猫"）
+    - 定义动态转移矩阵 $M_h \in \mathbb{R}^{n_H \times n_h}$：编码细粒度类到粗粒度类的映射
+    - 已知类：固定的 one-hot 向量；未知类：均匀初始化，训练中动量更新
+    - 一致性损失：$\mathcal{L}_{cgc} = \sum_{h=1}^{H-1} D_{KL}(p(\mathbf{x}_i|\boldsymbol{\theta}_h) | p(\mathbf{x}_i|\boldsymbol{\theta}_H) \times M_h)$
+    - 核心思想：细粒度预测经转移矩阵映射后应与粗粒度预测一致
 
 3. **层级语义引导的软对比学习**：
-   - 动机：标准对比学习将所有非正样本视为等价负样本，忽略了语义相关性
-   - 在每个语义层级计算 batch 内的成对相似度矩阵 $S_h$，逐层融合得到层级相似度 $\tilde{S}_h$
-   - 生成语义感知软标签：$\tilde{Y}_{\text{soft}_h} = (1-\lambda_s) \cdot \mathbf{I} + \lambda_s \cdot \tilde{S}_h$
-   - 对比损失中用软标签替代硬 0/1 标签，语义近的样本获得更小的负权重
-   - 相似度度量采用混合度量：$\text{sim}(\mathbf{z}_i, \mathbf{z}_k') = \lambda_c \mathbf{z}_i \cdot \mathbf{z}_k'^{\top} - (1-\lambda_c)\|\frac{\mathbf{z}_i}{\|\mathbf{z}_i\|} - \frac{\mathbf{z}_k'}{\|\mathbf{z}_k'\|}\|_2$
-   - $\lambda_c$ 训练中线性衰减：先用角度度量（简单），后加入距离度量（精细）——课程学习策略
+
+    - 动机：标准对比学习将所有非正样本视为等价负样本，忽略了语义相关性
+    - 在每个语义层级计算 batch 内的成对相似度矩阵 $S_h$，逐层融合得到层级相似度 $\tilde{S}_h$
+    - 生成语义感知软标签：$\tilde{Y}_{\text{soft}_h} = (1-\lambda_s) \cdot \mathbf{I} + \lambda_s \cdot \tilde{S}_h$
+    - 对比损失中用软标签替代硬 0/1 标签，语义近的样本获得更小的负权重
+    - 相似度度量采用混合度量：$\text{sim}(\mathbf{z}_i, \mathbf{z}_k') = \lambda_c \mathbf{z}_i \cdot \mathbf{z}_k'^{\top} - (1-\lambda_c)\|\frac{\mathbf{z}_i}{\|\mathbf{z}_i\|} - \frac{\mathbf{z}_k'}{\|\mathbf{z}_k'\|}\|_2$
+    - $\lambda_c$ 训练中线性衰减：先用角度度量（简单），后加入距离度量（精细）——课程学习策略
 
 ### 损失函数 / 训练策略
 

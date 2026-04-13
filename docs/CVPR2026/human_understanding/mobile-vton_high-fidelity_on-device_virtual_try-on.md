@@ -38,19 +38,21 @@ Mobile-VTON 采用模块化 TGT 架构：**TeacherNet**（基于 SD 3.5 Large，
 ### 关键设计
 
 1. **特征引导对抗蒸馏（FGA Distillation）**: 结合两个互补目标：
-   - **特征级蒸馏**: 对齐教师和学生在每个扩散步的 score function 估计，而非回归像素值。给定噪声隐变量 $\tilde{\mathbf{z}}^{(t)}$，分别通过冻结教师 $D_t$ 和学生 $D_s$ 得到 $s_{\text{true}}$ 和 $s_{\text{fake}}$，最小化 $\ell_2$ 距离：
-   $$\mathcal{L}_{\text{feature}} = \mathbb{E}_t \| s_{\text{true}}(\tilde{\mathbf{z}}^{(t)}, t) - s_{\text{fake}}(\tilde{\mathbf{z}}^{(t)}, t) \|_2^2$$
-   - **对抗增强**: 轻量判别器 $D$ 区分真实/生成图像，TryonNet 通过欺骗判别器提升真实感：
-   $$\mathcal{L}_{\text{GAN}} = \mathbb{E}_{X \sim \mathcal{R}}[\log D(X)] + \mathbb{E}_{\hat{X} \sim \mathcal{G}}[\log(1 - D(\hat{X}))]$$
+
+    - **特征级蒸馏**: 对齐教师和学生在每个扩散步的 score function 估计，而非回归像素值。给定噪声隐变量 $\tilde{\mathbf{z}}^{(t)}$，分别通过冻结教师 $D_t$ 和学生 $D_s$ 得到 $s_{\text{true}}$ 和 $s_{\text{fake}}$，最小化 $\ell_2$ 距离：
+    $\mathcal{L}_{\text{feature}} = \mathbb{E}_t \| s_{\text{true}}(\tilde{\mathbf{z}}^{(t)}, t) - s_{\text{fake}}(\tilde{\mathbf{z}}^{(t)}, t) \|_2^2$
+    - **对抗增强**: 轻量判别器 $D$ 区分真实/生成图像，TryonNet 通过欺骗判别器提升真实感：
+    $\mathcal{L}_{\text{GAN}} = \mathbb{E}_{X \sim \mathcal{R}}[\log D(X)] + \mathbb{E}_{\hat{X} \sim \mathcal{G}}[\log(1 - D(\hat{X}))]$
 
 2. **轨迹一致 GarmentNet（TCG）**: 解决服装特征在扩散步间的语义漂移问题。对每个时间步 $t$ 确定性地应用扩散过程，要求模型在所有步上一致重建原始服装图像：
-   $$\mathcal{L}_{\text{cons}} = \mathbb{E}_{t \sim [1,T]} [\| \hat{X}_g^{(t)} - X_g \|_2^2]$$
+    $\mathcal{L}_{\text{cons}} = \mathbb{E}_{t \sim [1,T]} [\| \hat{X}_g^{(t)} - X_g \|_2^2]$
    这种时间正则化使服装语义在扩散轨迹上保持稳定，避免纹理失真和形状扭曲。
 
 3. **服装感知 TryonNet**: 无需大规模预训练，直接在试穿任务上从零训练：
-   - **隐变量拼接（Latent Concatenation）**: 将人像和服装图像沿高度维度拼接编码为 $\mathbf{z}_{\text{concat}}$，同时构建参考输入 $X_{\text{condi}} = \text{Concat}_{\text{height}}(X_t, X_g)$ 引导保持身份和服装外观。
-   - **多层级特征融合**: 每个自注意力层将 GarmentNet 的多尺度服装特征 $\mathbf{F}_g^{(i)}$ 与 TryonNet 的隐藏状态拼接，双分支交叉注意力同时融合文本条件和 Light-Adapter 的视觉服装语义。
-   - **Light-Adapter**: 用 DINOv2-base（替代大型 CLIP 视觉编码器）提取服装视觉特征，通过 IP-Adapter 式解耦交叉注意力注入。
+
+    - **隐变量拼接（Latent Concatenation）**: 将人像和服装图像沿高度维度拼接编码为 $\mathbf{z}_{\text{concat}}$，同时构建参考输入 $X_{\text{condi}} = \text{Concat}_{\text{height}}(X_t, X_g)$ 引导保持身份和服装外观。
+    - **多层级特征融合**: 每个自注意力层将 GarmentNet 的多尺度服装特征 $\mathbf{F}_g^{(i)}$ 与 TryonNet 的隐藏状态拼接，双分支交叉注意力同时融合文本条件和 Light-Adapter 的视觉服装语义。
+    - **Light-Adapter**: 用 DINOv2-base（替代大型 CLIP 视觉编码器）提取服装视觉特征，通过 IP-Adapter 式解耦交叉注意力注入。
 
 ### 损失函数 / 训练策略
 

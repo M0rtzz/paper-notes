@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：ICU 住院时长预测对医院资源配置至关重要。现有方法分为时序模型（LSTM、Transformer）和图模型（GCN、GAT），分别捕捉患者时序轨迹和群体间关联。
-2. **现有痛点**：纯时序模型忽略患者间的临床相似性；纯图模型使用单视图静态图，无法建模多模态异构临床特征；Transformer 类图骨干（如 GraphGPS）的二次复杂度在大规模临床数据上难以扩展。
-3. **核心矛盾**：ICU 数据同时具有长程不规则时序依赖和多模态患者间关系，但缺乏统一建模框架。
-4. **本文要解决什么**：如何在一个端到端框架中同时捕获时序动态和群体级关系结构，并保持计算效率和可解释性。
-5. **切入角度**：Mamba SSM 在线性时间内处理长序列，与多视图 GraphGPS 互补——前者建模时间轴上的患者状态演化，后者建模诊断、语义和管理维度上的患者相似性。
-6. **核心 idea**：双路架构 + 多视图图构建 + 用 SSM 替换 GraphGPS 中的 Transformer 全局层。
+**领域现状**：ICU 住院时长预测对医院资源配置至关重要。现有方法分为时序模型（LSTM、Transformer）和图模型（GCN、GAT），分别捕捉患者时序轨迹和群体间关联。
+**现有痛点**：纯时序模型忽略患者间的临床相似性；纯图模型使用单视图静态图，无法建模多模态异构临床特征；Transformer 类图骨干（如 GraphGPS）的二次复杂度在大规模临床数据上难以扩展。
+**核心矛盾**：ICU 数据同时具有长程不规则时序依赖和多模态患者间关系，但缺乏统一建模框架。
+**本文要解决什么**：如何在一个端到端框架中同时捕获时序动态和群体级关系结构，并保持计算效率和可解释性。
+**切入角度**：Mamba SSM 在线性时间内处理长序列，与多视图 GraphGPS 互补——前者建模时间轴上的患者状态演化，后者建模诊断、语义和管理维度上的患者相似性。
+**核心 idea**：双路架构 + 多视图图构建 + 用 SSM 替换 GraphGPS 中的 Transformer 全局层。
 
 ## 方法详解
 
@@ -41,24 +41,28 @@ S2G-Net 包含三个分支：(1) 时序编码器（Mamba SSM）处理 48 小时 
 ### 关键设计
 
 1. **多视图患者相似图构建**:
-   - 做什么：从诊断码（ICD-9/10）和 BERT 语义嵌入两个视图构建患者相似图
-   - 核心思路：诊断码视图用 TF-IDF 余弦相似度 / FAISS 近似 KNN / 惩罚共现三种策略计算相似度，取 top-k 邻居构建 $\mathcal{G}_{diag}$；语义视图用 DistilBERT 编码诊断描述，通过高斯核距离 $w_{ij}^{bert} = \exp(-\|\mathbf{b}_i - \mathbf{b}_j\|_2^2 / 2\sigma^2)$ 构建 $\mathcal{G}_{bert}$
-   - 设计动机：单视图图无法捕获诊断码之间的语义近似性（如不同编码但含义相近的疾病），多视图融合可覆盖结构化和非结构化两种临床关系
+
+    - 做什么：从诊断码（ICD-9/10）和 BERT 语义嵌入两个视图构建患者相似图
+    - 核心思路：诊断码视图用 TF-IDF 余弦相似度 / FAISS 近似 KNN / 惩罚共现三种策略计算相似度，取 top-k 邻居构建 $\mathcal{G}_{diag}$；语义视图用 DistilBERT 编码诊断描述，通过高斯核距离 $w_{ij}^{bert} = \exp(-\|\mathbf{b}_i - \mathbf{b}_j\|_2^2 / 2\sigma^2)$ 构建 $\mathcal{G}_{bert}$
+    - 设计动机：单视图图无法捕获诊断码之间的语义近似性（如不同编码但含义相近的疾病），多视图融合可覆盖结构化和非结构化两种临床关系
 
 2. **时序编码器（Mamba SSM）**:
-   - 做什么：从 48 小时多变量时序数据中提取患者状态表征
-   - 核心思路：先线性投影 + RMSNorm + GELU 得到 $\mathbf{H}_i^{(0)}$，然后经 $L$ 层堆叠的 Mamba 块，最后用掩码感知池化 $\mathbf{z}_i^{TS} = \text{MaskPool}(\mathbf{H}_i^{(L)}, \mathbf{m}_i)$ 处理缺失值
-   - 设计动机：Mamba 的输入依赖递归在线性时间内捕获长程依赖，比 LSTM 和 Transformer 更适合不规则、长序列 ICU 数据
+
+    - 做什么：从 48 小时多变量时序数据中提取患者状态表征
+    - 核心思路：先线性投影 + RMSNorm + GELU 得到 $\mathbf{H}_i^{(0)}$，然后经 $L$ 层堆叠的 Mamba 块，最后用掩码感知池化 $\mathbf{z}_i^{TS} = \text{MaskPool}(\mathbf{H}_i^{(L)}, \mathbf{m}_i)$ 处理缺失值
+    - 设计动机：Mamba 的输入依赖递归在线性时间内捕获长程依赖，比 LSTM 和 Transformer 更适合不规则、长序列 ICU 数据
 
 3. **图编码器（local GENConv + global Mamba）**:
-   - 做什么：在多视图图上融合局部邻域聚合与全局上下文建模
-   - 核心思路：堆叠 $L_g$ 个 GraphGPS 块，每块包含 GENConv（利用类型化加权边属性做局部消息传递）和 Mamba 全局编码器（对按度排序的节点序列建模全局依赖），然后 BN + 残差连接：$\mathbf{x}_i^{(\ell+1)} = \mathbf{x}_i^{(\ell)} + \tilde{\mathbf{u}}_i^{(\ell)}$
-   - 设计动机：用 Mamba 替换原 GraphGPS 中的 Transformer 层，将全局注意力从 $O(N^2)$ 降至 $O(N)$，同时保持全局上下文建模能力
+
+    - 做什么：在多视图图上融合局部邻域聚合与全局上下文建模
+    - 核心思路：堆叠 $L_g$ 个 GraphGPS 块，每块包含 GENConv（利用类型化加权边属性做局部消息传递）和 Mamba 全局编码器（对按度排序的节点序列建模全局依赖），然后 BN + 残差连接：$\mathbf{x}_i^{(\ell+1)} = \mathbf{x}_i^{(\ell)} + \tilde{\mathbf{u}}_i^{(\ell)}$
+    - 设计动机：用 Mamba 替换原 GraphGPS 中的 Transformer 层，将全局注意力从 $O(N^2)$ 降至 $O(N)$，同时保持全局上下文建模能力
 
 4. **加权融合与辅助监督**:
-   - 三路特征通过 softmax 归一化权重 $\boldsymbol{\lambda}$ 拼接：$\mathbf{z}_i^{fused} = \text{Concat}(\lambda_{Graph}\mathbf{z}_i^{Graph}, \lambda_{TS}\mathbf{z}_i^{TS}, \lambda_{Flat}\mathbf{z}_i^{Flat})$
-   - 在 log 域 $\tilde{y}_i = \log(1+y_i)$ 上用 Huber loss 监督，辅以时序分支辅助 loss 促进梯度流动
-   - 样本重加权 $w(y_i) = 1 + \gamma \mathbb{I}(y_i > \tau)$ 增加极端 LOS 值的权重
+
+    - 三路特征通过 softmax 归一化权重 $\boldsymbol{\lambda}$ 拼接：$\mathbf{z}_i^{fused} = \text{Concat}(\lambda_{Graph}\mathbf{z}_i^{Graph}, \lambda_{TS}\mathbf{z}_i^{TS}, \lambda_{Flat}\mathbf{z}_i^{Flat})$
+    - 在 log 域 $\tilde{y}_i = \log(1+y_i)$ 上用 Huber loss 监督，辅以时序分支辅助 loss 促进梯度流动
+    - 样本重加权 $w(y_i) = 1 + \gamma \mathbb{I}(y_i > \tau)$ 增加极端 LOS 值的权重
 
 ### 损失函数 / 训练策略
 $$\mathcal{L}_i = (1-\alpha)\mathcal{L}_{Huber}(\tilde{\hat{y}}_i^{Main}, \tilde{y}_i) + \alpha \mathcal{L}_{Huber}(\tilde{\hat{y}}_i^{TS}, \tilde{y}_i)$$

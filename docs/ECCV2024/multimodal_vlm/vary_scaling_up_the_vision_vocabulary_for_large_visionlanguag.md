@@ -49,15 +49,17 @@ Vary 的流程分为两个阶段：
 1. **新视觉词汇表网络**：采用 SAM 预训练的 ViTDet（base 规模）作为主干。输入分辨率 1024×1024，输出步长 16，最后层特征为 64×64×256。在其后添加两个卷积层进行 token 合并：第一个 conv（kernel=3）将特征转为 32×32×512，第二个 conv 进一步转为 16×16×1024，展平后得到 256×1024，与 CLIP-ViT 的输出形状对齐。
 
 2. **自回归式词汇表训练（Vary-tiny）**：用 vocabulary network + OPT-125M 小模型组成 Vary-tiny。训练数据包括：
-   - **正样本**：文档数据（1M 中文 + 1M 英文页面，从 arXiv 和 CC-MAIN PDF 提取）；图表数据（matplotlib 渲染 250k×2 + pyecharts 渲染 500k×2，中英文各半，标注为 python-dict 格式）
-   - **负样本**：COCO 120k 自然图像，文本标注为固定简单句（如"It's an image of nature"），确保新词汇表在自然图像上不产生噪声
+
+    - **正样本**：文档数据（1M 中文 + 1M 英文页面，从 arXiv 和 CC-MAIN PDF 提取）；图表数据（matplotlib 渲染 250k×2 + pyecharts 渲染 500k×2，中英文各半，标注为 python-dict 格式）
+    - **负样本**：COCO 120k 自然图像，文本标注为固定简单句（如"It's an image of nature"），确保新词汇表在自然图像上不产生噪声
 
 3. **双词汇表并行融合（Vary-base）**：新旧两个视觉词汇表各配独立的 linear 输入嵌入层（输入 1024 → 输出 2048），两路 token 拼接后通道为 4096，与 LLM（Qwen-7B 或 Vicuna-7B）的输入维度对齐。融合阶段**冻结**两个视觉词汇表网络，仅训练输入嵌入层和 LLM。
 
 4. **高质量合成数据**：为 Vary-base 额外制作了：
-   - LaTeX 渲染文档（0.5M 英文 + 0.4M 中文，支持公式/表格，标注为 Mathpix markdown 格式）
-   - 语义关联图表（用 GPT-4 生成有语义关联的图表内容，额外渲染 200k）
-   - 通用数据：4M LAION-COCO 图文对（预训练）+ LLaVA-80k/665k + DocVQA/ChartQA 训练集（SFT）
+
+    - LaTeX 渲染文档（0.5M 英文 + 0.4M 中文，支持公式/表格，标注为 Mathpix markdown 格式）
+    - 语义关联图表（用 GPT-4 生成有语义关联的图表内容，额外渲染 200k）
+    - 通用数据：4M LAION-COCO 图文对（预训练）+ LLaVA-80k/665k + DocVQA/ChartQA 训练集（SFT）
 
 ### 损失函数 / 训练策略
 - **Vary-tiny 训练**：标准自回归 next-token prediction loss。batch size 512，训练 3 epochs，AdamW 优化器 + cosine annealing，lr=5e-5

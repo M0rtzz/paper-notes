@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Kaplan et al. (2020) 提出的 scaling laws 能准确预测模型扩大后的 loss，但本质上只是经验拟合，没有解释 scaling *如何* 改善 loss（即训练动力学层面的机制）。
+**领域现状**：Kaplan et al. (2020) 提出的 scaling laws 能准确预测模型扩大后的 loss，但本质上只是经验拟合，没有解释 scaling *如何* 改善 loss（即训练动力学层面的机制）。
 
-2. **现有痛点**：(a) 理论解释多从数据分布属性（Michaud et al., 2023）或内在模型容量（Sharma & Kaplan, 2022）出发，对训练过程中具体发生了什么变化着墨甚少；(b) 已知存在 loss plateau、saturation 等现象，但没有统一框架将它们与 scaling 改善关联起来；(c) 缺乏可操作的机制——如果只知道"越大越好"，就无法在不增大规模的情况下改善模型。
+**现有痛点**：(a) 理论解释多从数据分布属性（Michaud et al., 2023）或内在模型容量（Sharma & Kaplan, 2022）出发，对训练过程中具体发生了什么变化着墨甚少；(b) 已知存在 loss plateau、saturation 等现象，但没有统一框架将它们与 scaling 改善关联起来；(c) 缺乏可操作的机制——如果只知道"越大越好"，就无法在不增大规模的情况下改善模型。
 
-3. **核心矛盾**：scaling law 的幂律形式暗示训练动力学是平滑的，但作者发现实际损失曲线在 log-log 空间有一个突变的斜率变化（deceleration），这意味着存在一个质变的训练动力学转折点。
+**核心矛盾**：scaling law 的幂律形式暗示训练动力学是平滑的，但作者发现实际损失曲线在 log-log 空间有一个突变的斜率变化（deceleration），这意味着存在一个质变的训练动力学转折点。
 
-4. **本文要解决什么？** 识别并形式化 loss deceleration 现象，提出其背后的机制（zero-sum learning），并展示 scaling 如何缓解该机制——为未来"不靠规模也能改善模型"的方法奠定基础。
+**本文要解决什么？** 识别并形式化 loss deceleration 现象，提出其背后的机制（zero-sum learning），并展示 scaling 如何缓解该机制——为未来"不靠规模也能改善模型"的方法奠定基础。
 
-5. **切入角度**：从 per-example（per-token）梯度和损失变化的微观视角出发，分析宏观 loss 减速的根因。
+**切入角度**：从 per-example（per-token）梯度和损失变化的微观视角出发，分析宏观 loss 减速的根因。
 
-6. **核心idea一句话**：loss 减速的根因是 per-token 梯度对立（ZSL），scaling up 通过缓解 ZSL 来改善最终 loss。
+**核心idea一句话**：loss 减速的根因是 per-token 梯度对立（ZSL），scaling up 通过缓解 ZSL 来改善最终 loss。
 
 ## 方法详解
 
@@ -47,25 +47,29 @@ tags:
 ### 关键设计
 
 1. **BNSL 拟合与可解释参数化（Eqn. 2）**:
-   - Loss 估计：$\hat{L}_T = L_d \cdot (t_d / T)^{r_d}$
-   - $L_d$：减速发生时的 loss 值，越小越好
-   - $t_d$：减速发生的步数，越小表示越早减速
-   - $r_d$：减速后 log-log 空间的斜率，越大 loss 下降越快
-   - 三个参数完全描述了 scaling 带来的 loss 改善
+
+    - Loss 估计：$\hat{L}_T = L_d \cdot (t_d / T)^{r_d}$
+    - $L_d$：减速发生时的 loss 值，越小越好
+    - $t_d$：减速发生的步数，越小表示越早减速
+    - $r_d$：减速后 log-log 空间的斜率，越大 loss 下降越快
+    - 三个参数完全描述了 scaling 带来的 loss 改善
 
 2. **零和学习（ZSL）的形式化**:
-   - 破坏性干涉度量 $D(\Delta\ell) = 1 - \frac{|\sum_i \Delta\ell_i|}{\sum_i |\Delta\ell_i|}$，取值 0→1，越大表示 token 间损失变化越抵消
-   - 梯度破坏性干涉 $\vec{D}(\nabla_\theta \ell) = 1 - \frac{|\sum_i \nabla_\theta \ell_i|}{\sum_i |\nabla_\theta \ell_i|}$，per-parameter 平均
-   - 关键分解：$|\Delta L| = M(\Delta\ell) \cdot (1 - D(\Delta\ell))$，其中 $M$ 是 token 级损失变化的平均幅度
+
+    - 破坏性干涉度量 $D(\Delta\ell) = 1 - \frac{|\sum_i \Delta\ell_i|}{\sum_i |\Delta\ell_i|}$，取值 0→1，越大表示 token 间损失变化越抵消
+    - 梯度破坏性干涉 $\vec{D}(\nabla_\theta \ell) = 1 - \frac{|\sum_i \nabla_\theta \ell_i|}{\sum_i |\nabla_\theta \ell_i|}$，per-parameter 平均
+    - 关键分解：$|\Delta L| = M(\Delta\ell) \cdot (1 - D(\Delta\ell))$，其中 $M$ 是 token 级损失变化的平均幅度
 
 3. **ZSL 对 deceleration 的贡献量化**:
-   - $D(\Delta\ell)$ 从 0.5 增到 0.95 → loss 改善减少 10 倍
-   - $M(\Delta\ell)$ 从 0.75 降到 0.5 → loss 改善仅减少 1.5 倍
-   - 结论：ZSL（$D$ 项）主导了 deceleration，而非 token 级损失幅度减小（$M$ 项）
+
+    - $D(\Delta\ell)$ 从 0.5 增到 0.95 → loss 改善减少 10 倍
+    - $M(\Delta\ell)$ 从 0.75 降到 0.5 → loss 改善仅减少 1.5 倍
+    - 结论：ZSL（$D$ 项）主导了 deceleration，而非 token 级损失幅度减小（$M$ 项）
 
 4. **梯度对立是 ZSL 的根因**:
-   - 在一阶训练动力学假设下，$D(\tilde{\Delta}\ell)$ 来自 per-token 梯度在更新方向上的投影对立
-   - 实验验证：梯度干涉度在 deceleration 前夕急剧上升到接近 1.0
+
+    - 在一阶训练动力学假设下，$D(\tilde{\Delta}\ell)$ 来自 per-token 梯度在更新方向上的投影对立
+    - 实验验证：梯度干涉度在 deceleration 前夕急剧上升到接近 1.0
 
 ## 实验关键数据
 

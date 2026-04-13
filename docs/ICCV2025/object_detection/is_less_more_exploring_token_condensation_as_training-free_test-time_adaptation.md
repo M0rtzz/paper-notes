@@ -29,13 +29,13 @@ tags:
 
 视觉-语言模型（VLM）如 CLIP 在零样本推理中表现出色，但在特定下游数据集上往往性能下降。现有的测试时自适应（TTA）方法存在以下问题：
 
-1. **传统 TTA 计算昂贵**：如 Tent、SAR 等方法需要更新模型参数（如批归一化层），依赖大 batch size（如 256）来稳定自适应过程，在 VLM 的庞大参数集上应用不切实际。
+**传统 TTA 计算昂贵**：如 Tent、SAR 等方法需要更新模型参数（如批归一化层），依赖大 batch size（如 256）来稳定自适应过程，在 VLM 的庞大参数集上应用不切实际。
 
-2. **测试时 prompt 调优（TPT）也有局限**：TPT 通过学习小规模任务特定的上下文 prompt 来对齐文本和视觉特征，但它主要关注文本输入的精细化，忽视了视觉分布偏移。同时依赖外部源数据或大量数据增强（如 60 倍 AugMix），导致 GFLOPs 从 17.59 飙升至 1108.61。
+**测试时 prompt 调优（TPT）也有局限**：TPT 通过学习小规模任务特定的上下文 prompt 来对齐文本和视觉特征，但它主要关注文本输入的精细化，忽视了视觉分布偏移。同时依赖外部源数据或大量数据增强（如 60 倍 AugMix），导致 GFLOPs 从 17.59 飙升至 1108.61。
 
-3. **一个关键观察**：作者发现，选择性地精简低注意力 token 不仅能保持性能，还能在某些未见数据集上增强性能。这是因为两类 token 引入了视觉-文本误对齐：（1）与类别无关的背景 token 误导模型关注非必要区域；（2）类别模糊的目标 token（如动物毛发纹理）跨类别重叠，分散视觉嵌入。
+**一个关键观察**：作者发现，选择性地精简低注意力 token 不仅能保持性能，还能在某些未见数据集上增强性能。这是因为两类 token 引入了视觉-文本误对齐：（1）与类别无关的背景 token 误导模型关注非必要区域；（2）类别模糊的目标 token（如动物毛发纹理）跨类别重叠，分散视觉嵌入。
 
-4. **现有 token 精简方法的问题**：EViT、ToME 等方法虽然能提高效率，但在减少 token 时往往牺牲分布内（如 ImageNet-1K）性能，无法实现"免费午餐"式自适应。
+**现有 token 精简方法的问题**：EViT、ToME 等方法虽然能提高效率，但在减少 token 时往往牺牲分布内（如 ImageNet-1K）性能，无法实现"免费午餐"式自适应。
 
 ## 方法详解
 
@@ -50,22 +50,25 @@ TCA 是一个免训练的在线自适应框架，由三个核心组件构成：
 ### 关键设计
 
 1. **Domain-aware Token Reservoir（DTR）**:
-   - 做什么：维护一个按类别组织的优先队列 $\mathfrak{R} = \{\mathfrak{R}_c\}_{c=1}^C$，存储来自所有 $L$ 层的域锚 token（CLIP 中为 \<cls\> token，SigLIP 中为池化向量）
-   - 核心思路：每个类别缓冲区 $\mathfrak{R}_c$ 保留 $M$ 个最可靠的域锚 token，按熵分数排序：$\mathbf{H}_c(\mathbf{z}_t, \mathbf{t}_c) = -\mathbf{p}_{t,c} \log \mathbf{p}_{t,c}$。只有当 $\arg\max(\mathbf{p}_{t,c}) = c$ 时才更新，确保仅保留语义最一致的样本。当缓冲区满时，替换熵最高的样本
-   - 设计动机：随着时间推移，低熵的 \<cls\> token 与文本嵌入的对齐度持续提高（实验验证），可作为域级别的适应参考点
+
+    - 做什么：维护一个按类别组织的优先队列 $\mathfrak{R} = \{\mathfrak{R}_c\}_{c=1}^C$，存储来自所有 $L$ 层的域锚 token（CLIP 中为 \<cls\> token，SigLIP 中为池化向量）
+    - 核心思路：每个类别缓冲区 $\mathfrak{R}_c$ 保留 $M$ 个最可靠的域锚 token，按熵分数排序：$\mathbf{H}_c(\mathbf{z}_t, \mathbf{t}_c) = -\mathbf{p}_{t,c} \log \mathbf{p}_{t,c}$。只有当 $\arg\max(\mathbf{p}_{t,c}) = c$ 时才更新，确保仅保留语义最一致的样本。当缓冲区满时，替换熵最高的样本
+    - 设计动机：随着时间推移，低熵的 \<cls\> token 与文本嵌入的对齐度持续提高（实验验证），可作为域级别的适应参考点
 
 2. **Domain-aware Cross-head Token Reduction**:
-   - 做什么：在多头自注意力和前馈层之间执行 token 裁剪与合并
-   - 核心思路：
-     - **域感知 Token 评估**：从 DTR 中采样最匹配的域锚 token $\mathbf{A}_{c^*}^{l-1}$，将其与当前 \<cls\> token 拼接后计算注意力：$\text{Attention}([\mathbf{v}_{\text{cls}}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_Q^h, [\mathbf{V}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_K^h)$
-     - **跨头评分**：对每个 token 计算跨头平均排名分数 $\mathbf{S}_i^{\text{head}} = \frac{1}{H}\sum_{h=1}^H \text{rank}_h(i)$，而非简单平均注意力分数，避免异常值头的不当影响
-     - **两阶段精简**：先裁剪低排名 token（与类别无关的背景），再对中间排名 token（类别模糊）进行核心集合并
-   - 设计动机：（1）原始 \<cls\> token 是通用的，可能捕获与目标类别无关的语义，拼接域锚 token 提供历史上下文对齐；（2）逐头平均注意力分数容易被异常值头主导，跨头排名更鲁棒
+
+    - 做什么：在多头自注意力和前馈层之间执行 token 裁剪与合并
+    - 核心思路：
+      - **域感知 Token 评估**：从 DTR 中采样最匹配的域锚 token $\mathbf{A}_{c^*}^{l-1}$，将其与当前 \<cls\> token 拼接后计算注意力：$\text{Attention}([\mathbf{v}_{\text{cls}}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_Q^h, [\mathbf{V}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_K^h)$
+      - **跨头评分**：对每个 token 计算跨头平均排名分数 $\mathbf{S}_i^{\text{head}} = \frac{1}{H}\sum_{h=1}^H \text{rank}_h(i)$，而非简单平均注意力分数，避免异常值头的不当影响
+      - **两阶段精简**：先裁剪低排名 token（与类别无关的背景），再对中间排名 token（类别模糊）进行核心集合并
+    - 设计动机：（1）原始 \<cls\> token 是通用的，可能捕获与目标类别无关的语义，拼接域锚 token 提供历史上下文对齐；（2）逐头平均注意力分数容易被异常值头主导，跨头排名更鲁棒
 
 3. **Logits Self-correction**:
-   - 做什么：在 token 精简后补偿语义偏移，精细化分类预测
-   - 核心思路：将当前样本的视觉 \<cls\> token 与 DTR 中存储的域锚 token 计算跨层余弦相似度，作为 token 级分类器校正原始预测：$\tilde{\mathbf{p}}_{t,c} = \mathbf{p}_{t,c} + \lambda\mathbf{p}_{t,c}^{\text{token}}$，其中 $\mathbf{p}_{t,c}^{\text{token}} = \frac{1}{M}\sum_{i=1}^M \cos(\mathbf{V}_t^{\text{cls}}, \mathbf{A}_{i,c}^{\text{cls}}) \cdot \mathbf{P} \cdot \mathbb{1}_c$，$\mathbf{P} = [\exp(\frac{l}{\beta})]_{l=1}^L$ 是层级指数缩放系数
-   - 设计动机：token 精简后可能引入语义偏移，利用 DTR 中积累的域知识从纯视觉角度校正预测，无需修改模型参数
+
+    - 做什么：在 token 精简后补偿语义偏移，精细化分类预测
+    - 核心思路：将当前样本的视觉 \<cls\> token 与 DTR 中存储的域锚 token 计算跨层余弦相似度，作为 token 级分类器校正原始预测：$\tilde{\mathbf{p}}_{t,c} = \mathbf{p}_{t,c} + \lambda\mathbf{p}_{t,c}^{\text{token}}$，其中 $\mathbf{p}_{t,c}^{\text{token}} = \frac{1}{M}\sum_{i=1}^M \cos(\mathbf{V}_t^{\text{cls}}, \mathbf{A}_{i,c}^{\text{cls}}) \cdot \mathbf{P} \cdot \mathbb{1}_c$，$\mathbf{P} = [\exp(\frac{l}{\beta})]_{l=1}^L$ 是层级指数缩放系数
+    - 设计动机：token 精简后可能引入语义偏移，利用 DTR 中积累的域知识从纯视觉角度校正预测，无需修改模型参数
 
 ### 损失函数 / 训练策略
 

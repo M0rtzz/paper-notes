@@ -41,10 +41,11 @@ Reason-SVG 采用"先规划后绘制"的范式，给定文本提示 $\mathcal{T}
 1. **Drawing-with-Thought (DwT) 推理机制**：模拟人类设计师的工作流程，将 SVG 生成分解为六个顺序阶段：(a) 概念草图——识别关键视觉组件和整体轮廓；(b) 画布规划——建立 viewBox 和空间布局；(c) 形状分解——将组合拆分为几何基元（圆、曲线等）；(d) 坐标计算——确定各组件的近似空间位置；(e) 风格与着色——分配颜色调色板和一致的样式属性；(f) 最终组装——将所有元素整合为连贯的设计。SFT 阶段在 SVGX-DwT-10k 数据集上训练模型自回归地生成完整的 DwT + SVG 序列。
 
 2. **混合奖励函数 (Hybrid Reward)**：RL 阶段的核心创新，对每个候选生成 $(C_k, O_k)$ 评估四个维度的加权奖励：
-   - **思维过程奖励** $\mathcal{R}_{\text{think}}$（$\lambda_t=0.1$）：检测 DwT 序列是否包含预期的 `<think>` 标签，确保推理结构完整
-   - **SVG 结构有效性奖励** $\mathcal{R}_{\text{render}}$（$\lambda_r=0.1$）：通过 CairoSVG 验证渲染成功为 1，否则为 0
-   - **语义对齐奖励** $\mathcal{R}_{\text{semantic}}$（$\lambda_s=0.6$）：用 CLIP ViT-L/14 计算渲染图像与文本的余弦相似度
-   - **视觉美学奖励** $\mathcal{R}_{\text{aesthetic}}$（$\lambda_a=0.2$）：用 HPSv2 预测人类感知的美学偏好
+
+    - **思维过程奖励** $\mathcal{R}_{\text{think}}$（$\lambda_t=0.1$）：检测 DwT 序列是否包含预期的 `<think>` 标签，确保推理结构完整
+    - **SVG 结构有效性奖励** $\mathcal{R}_{\text{render}}$（$\lambda_r=0.1$）：通过 CairoSVG 验证渲染成功为 1，否则为 0
+    - **语义对齐奖励** $\mathcal{R}_{\text{semantic}}$（$\lambda_s=0.6$）：用 CLIP ViT-L/14 计算渲染图像与文本的余弦相似度
+    - **视觉美学奖励** $\mathcal{R}_{\text{aesthetic}}$（$\lambda_a=0.2$）：用 HPSv2 预测人类感知的美学偏好
    
    总奖励：$R_{\text{hybrid}}^{(k)} = \lambda_t \mathcal{R}_{\text{think}} + \lambda_r \mathcal{R}_{\text{render}} + \lambda_s \mathcal{R}_{\text{semantic}} + \lambda_a \mathcal{R}_{\text{aesthetic}}$
 

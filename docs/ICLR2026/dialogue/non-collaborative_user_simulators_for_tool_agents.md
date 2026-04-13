@@ -36,10 +36,11 @@ tags:
 ### 关键设计
 
 1. **四类非协作行为**：
-   - Unavailable Service：请求超出API能力的服务（如"预订靠窗座位"但API无此参数）
-   - Tangential：插入无关闲聊，被忽略时还会抱怨
-   - Impatience：因延迟或失败表现出越来越强的愤怒（belligerent abuse/threat/urge三级升级）
-   - Incomplete Utterances：极简表述("Book train, 2")或意外截断("I want to res")
+
+    - Unavailable Service：请求超出API能力的服务（如"预订靠窗座位"但API无此参数）
+    - Tangential：插入无关闲聊，被忽略时还会抱怨
+    - Impatience：因延迟或失败表现出越来越强的愤怒（belligerent abuse/threat/urge三级升级）
+    - Incomplete Utterances：极简表述("Book train, 2")或意外截断("I want to res")
 
 2. **Goal-Aligned Simulation**：在非协作行为下仍须传达所有必要intent和信息。通过 dialogue state tracker 监控已传达信息 + ending verifier 防止过早终止。
 

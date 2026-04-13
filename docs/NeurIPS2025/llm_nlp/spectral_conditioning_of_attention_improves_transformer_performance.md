@@ -29,9 +29,9 @@ tags:
 
 Transformer 的核心是注意力机制，但其 Jacobian 的条件性（conditioning）——即最大/最小奇异值之比——对梯度优化至关重要：
 
-1. **条件数高**（ill-conditioning）会阻碍梯度优化器的性能
-2. **前馈网络**中已有研究表明改善 Jacobian 条件数可提升优化和泛化
-3. **注意力层的条件性研究空白**：尽管注意力是 Transformer 的核心，其 Jacobian 条件性却未被系统研究
+**条件数高**（ill-conditioning）会阻碍梯度优化器的性能
+**前馈网络**中已有研究表明改善 Jacobian 条件数可提升优化和泛化
+**注意力层的条件性研究空白**：尽管注意力是 Transformer 的核心，其 Jacobian 条件性却未被系统研究
 
 核心问题：注意力 Jacobian 的条件数由什么控制？如何在不增加训练开销的情况下改善它？
 

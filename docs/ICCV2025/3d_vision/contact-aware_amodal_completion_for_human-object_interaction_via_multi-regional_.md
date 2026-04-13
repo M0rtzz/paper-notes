@@ -29,9 +29,9 @@ tags:
 
 非模态补全（Amodal Completion）是推断被部分遮挡物体完整外观的任务，对理解复杂人物交互场景至关重要。现有方法的主要问题：
 
-1. **修复区域不准确**：直接将遮挡者（如人体）的mask作为修复区域，通常远大于实际遮挡区域，导致扩散模型生成过度扩展或不准确的补全
-2. **缺乏HOI先验**：现有方法未利用人物交互的独特特征——可见区域呈凹形、人体拓扑可获取、接触点提供关键空间关系
-3. **单区域修复局限**：传统方法只能处理单个mask区域，无法对不同遮挡概率的区域施加差异化策略
+**修复区域不准确**：直接将遮挡者（如人体）的mask作为修复区域，通常远大于实际遮挡区域，导致扩散模型生成过度扩展或不准确的补全
+**缺乏HOI先验**：现有方法未利用人物交互的独特特征——可见区域呈凹形、人体拓扑可获取、接触点提供关键空间关系
+**单区域修复局限**：传统方法只能处理单个mask区域，无法对不同遮挡概率的区域施加差异化策略
 
 ## 方法详解
 
@@ -44,28 +44,31 @@ tags:
 ### 关键设计
 
 1. **接触感知凸包（Contact-aware Convex Hull）**：
-   - 对人体mask $M_{human}$和物体mask $M_{object}$做膨胀操作，得到遮挡边界mask $M_{boundary}$
-   - 将$M_{boundary}$与接触图$M_{contact}$合并：$C = M_{boundary} \cup M_{contact}$
-   - 对点集$C$计算凸包$H = \text{ConvexHull}(C)$
-   - 主区域mask：$M_p = M_{in} \cap M_{hull}$，即凸包内与遮挡者重叠的区域
-   - 次区域mask：$M_s = M_{in} \setminus M_p$，即遮挡者mask内凸包外的区域
-   - 设计动机：HOI中物体被遮挡的部分通常在接触点附近，凸包操作能精确定位关键修复区域
+
+    - 对人体mask $M_{human}$和物体mask $M_{object}$做膨胀操作，得到遮挡边界mask $M_{boundary}$
+    - 将$M_{boundary}$与接触图$M_{contact}$合并：$C = M_{boundary} \cup M_{contact}$
+    - 对点集$C$计算凸包$H = \text{ConvexHull}(C)$
+    - 主区域mask：$M_p = M_{in} \cap M_{hull}$，即凸包内与遮挡者重叠的区域
+    - 次区域mask：$M_s = M_{in} \setminus M_p$，即遮挡者mask内凸包外的区域
+    - 设计动机：HOI中物体被遮挡的部分通常在接触点附近，凸包操作能精确定位关键修复区域
 
 2. **多区域修复策略**：
-   - 扩展标准SD-inpaint流程以处理多区域mask：
-   $$I_{out} = F_{T \to T'}(I_{in}, M_p, \mathcal{P}) \,|\, F_{T' \to 0}(I_{in}, M_p \cup M_s, \mathcal{P})$$
-   - 其中$T' = \lfloor T \cdot r \rfloor$，$r$为强度参数（默认0.5）
-   - 第一阶段（$T \to T'$）：仅在主区域$M_p$做去噪，建立粗略结构
-   - 第二阶段（$T' \to 0$）：在$M_p \cup M_s$上做去噪，基于主区域的初始结构逐步细化
-   - 无需额外训练，完全基于预训练SD-inpaint模型
-   - 设计动机：利用扩散模型"先建结构后加细节"的特性，确保主区域先获得合理补全，次区域在此基础上自然衔接
+
+    - 扩展标准SD-inpaint流程以处理多区域mask：
+    $I_{out} = F_{T \to T'}(I_{in}, M_p, \mathcal{P}) \,|\, F_{T' \to 0}(I_{in}, M_p \cup M_s, \mathcal{P})$
+    - 其中$T' = \lfloor T \cdot r \rfloor$，$r$为强度参数（默认0.5）
+    - 第一阶段（$T \to T'$）：仅在主区域$M_p$做去噪，建立粗略结构
+    - 第二阶段（$T' \to 0$）：在$M_p \cup M_s$上做去噪，基于主区域的初始结构逐步细化
+    - 无需额外训练，完全基于预训练SD-inpaint模型
+    - 设计动机：利用扩散模型"先建结构后加细节"的特性，确保主区域先获得合理补全，次区域在此基础上自然衔接
 
 3. **野外数据处理流水线（In-the-Wild Pipeline）**：
-   - 使用SAM生成人体和物体mask（替代ground-truth分割）
-   - 使用HMR模型估计SMPL参数获取人体关节3D坐标
-   - 使用VLM生成交互描述（如"a man is holding an object with both hands"）并提取相关SMPL关节ID
-   - 将3D关节坐标投影到2D空间生成接触mask
-   - 设计动机：消除对ground-truth标注的依赖，使方法可用于真实场景
+
+    - 使用SAM生成人体和物体mask（替代ground-truth分割）
+    - 使用HMR模型估计SMPL参数获取人体关节3D坐标
+    - 使用VLM生成交互描述（如"a man is holding an object with both hands"）并提取相关SMPL关节ID
+    - 将3D关节坐标投影到2D空间生成接触mask
+    - 设计动机：消除对ground-truth标注的依赖，使方法可用于真实场景
 
 ### 损失函数 / 训练策略
 

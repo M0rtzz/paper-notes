@@ -44,29 +44,31 @@ AI系统经常表现出并放大社会偏见（如性别偏见），在法律、
 ### 关键设计
 
 1. **事实/反事实梯度构造**：对于模板句子如"Alice explained the vision as best [MASK] could"，分别以正确代词（"she"）和反事实代词（"he"）为目标计算MLM梯度：
-   - 事实梯度 $\nabla^+ W_m$：以正确性别代词为目标
-   - 反事实梯度 $\nabla^- W_m$：以相反性别代词为目标
-   - 梯度差 $\nabla^{\pm}W_m := \nabla^+ W_m - \nabla^- W_m$
+
+    - 事实梯度 $\nabla^+ W_m$：以正确性别代词为目标
+    - 反事实梯度 $\nabla^- W_m$：以相反性别代词为目标
+    - 梯度差 $\nabla^{\pm}W_m := \nabla^+ W_m - \nabla^- W_m$
    
    梯度差消除了非性别相关的共同更新成分，仅保留性别相关的方向。
 
 2. **GRADIEND编码器-解码器**：极简架构，仅使用单个隐藏神经元作为瓶颈：
    
-   $$\text{enc}(\nabla^+ W_m) = \tanh(W_e^T \cdot \nabla^+ W_m + b_e) =: h \in \mathbb{R}$$
-   $$\text{dec}(h) = h \cdot W_d + b_d \approx \nabla^{\pm} W_m$$
+    $\text{enc}(\nabla^+ W_m) = \tanh(W_e^T \cdot \nabla^+ W_m + b_e) =: h \in \mathbb{R}$
+    $\text{dec}(h) = h \cdot W_d + b_d \approx \nabla^{\pm} W_m$
    
    其中$W_e, W_d, b_d \in \mathbb{R}^n$，$b_e \in \mathbb{R}$，总参数量仅为$3n+1$。编码器将事实梯度映射到一个标量$h$（性别因子），解码器从$h$重建梯度差。目标函数为MSE损失。
 
 3. **性别去偏应用**：选定性别因子$h$和学习率$\alpha$后，直接修改模型权重：
    
-   $$\tilde{W}_m := W_m + \alpha \cdot \text{dec}(h)$$
+    $\tilde{W}_m := W_m + \alpha \cdot \text{dec}(h)$
    
    当$h$和$\alpha$符号相同时模型偏向男性，符号不同时偏向女性。$h=0$附近对应去偏方向（利用偏置$b_e$学到的去偏方向）。
 
 4. **三个综合指标设计**：
-   - **BPI**（Balanced Prediction Index）：衡量去偏程度，同时考虑语言建模能力、性别预测平衡性和预测合理性
-   - **FPI**（Female Prediction Index）：衡量女性偏向程度
-   - **MPI**（Male Prediction Index）：衡量男性偏向程度
+
+    - **BPI**（Balanced Prediction Index）：衡量去偏程度，同时考虑语言建模能力、性别预测平衡性和预测合理性
+    - **FPI**（Female Prediction Index）：衡量女性偏向程度
+    - **MPI**（Male Prediction Index）：衡量男性偏向程度
 
 ### 损失函数 / 训练策略
 - 优化器：Adam，学习率1e-5，权重衰减1e-2

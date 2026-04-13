@@ -46,22 +46,25 @@ MALA 修改 Linear Attention 的归一化方式：将除法归一化改为加法
 ### 关键设计
 
 1. **幅值忽略问题的形式化证明**：
-   - 将 $\phi(Q_i) = \|\phi(Q_i)\| \vec{\alpha_i}$ 代入 Linear Attention 公式，幅值项在分子分母中消掉
-   - 实验验证：在 DeiT-T 的 Softmax Attention 中用 $Q/\|Q\|$ 替代 $Q$（丢弃幅值），精度从 72.2% 降至 70.0%，接近 Linear Attention 的 69.8%
-   - 注意力分数可视化也收敛到 Linear Attention 的平滑分布
+
+    - 将 $\phi(Q_i) = \|\phi(Q_i)\| \vec{\alpha_i}$ 代入 Linear Attention 公式，幅值项在分子分母中消掉
+    - 实验验证：在 DeiT-T 的 Softmax Attention 中用 $Q/\|Q\|$ 替代 $Q$（丢弃幅值），精度从 72.2% 降至 70.0%，接近 Linear Attention 的 69.8%
+    - 注意力分数可视化也收敛到 Linear Attention 的平滑分布
 
 2. **MALA 公式设计**：
-   - 注意力分数：$\text{Attn}(Q_i, K_j) = \beta \cdot \phi(Q_i)\phi(K_j)^T - \gamma$
-   - 缩放因子：$\beta = 1 + \frac{1}{\phi(Q_i)\sum_m \phi(K_m)^T}$（与 Query 幅值负相关）
-   - 偏移项：$\gamma = \frac{\phi(Q_i)\sum_m \phi(K_m)^T}{N}$（与 Query 幅值正相关）
-   - 保持归一化：$\sum_j \text{Attn}(Q_i, K_j) = 1$
-   - **核心性质**：当 $\|\phi(Q_i)\|$ 增大 $a$ 倍时，高分 Key 与低分 Key 的注意力比值增大（$p_m > p$），与 Softmax Attention 趋势一致
+
+    - 注意力分数：$\text{Attn}(Q_i, K_j) = \beta \cdot \phi(Q_i)\phi(K_j)^T - \gamma$
+    - 缩放因子：$\beta = 1 + \frac{1}{\phi(Q_i)\sum_m \phi(K_m)^T}$（与 Query 幅值负相关）
+    - 偏移项：$\gamma = \frac{\phi(Q_i)\sum_m \phi(K_m)^T}{N}$（与 Query 幅值正相关）
+    - 保持归一化：$\sum_j \text{Attn}(Q_i, K_j) = 1$
+    - **核心性质**：当 $\|\phi(Q_i)\|$ 增大 $a$ 倍时，高分 Key 与低分 Key 的注意力比值增大（$p_m > p$），与 Softmax Attention 趋势一致
 
 3. **幅值变化速率的差异（关键洞察）**：
-   - Softmax Attention 中比值 $p$ 随缩放因子 $a$ **指数增长**（$p^a$）→ 注意力过于尖锐
-   - MALA 中比值 $p$ 随 $a$ **分数增长**（更温和）→ 分布更平衡
-   - 可视化证实：Softmax 过于聚焦局部、Linear 过于平滑、MALA 取得良好平衡
-   - **线性复杂度保持**：$Y_i = \beta \phi(Q_i)\sum_j \phi(K_j)^T V_j - \gamma \sum_j V_j$，仍可先算 $K^TV$ 再与 $Q$ 交互
+
+    - Softmax Attention 中比值 $p$ 随缩放因子 $a$ **指数增长**（$p^a$）→ 注意力过于尖锐
+    - MALA 中比值 $p$ 随 $a$ **分数增长**（更温和）→ 分布更平衡
+    - 可视化证实：Softmax 过于聚焦局部、Linear 过于平滑、MALA 取得良好平衡
+    - **线性复杂度保持**：$Y_i = \beta \phi(Q_i)\sum_j \phi(K_j)^T V_j - \gamma \sum_j V_j$，仍可先算 $K^TV$ 再与 $Q$ 交互
 
 ### 损失函数 / 训练策略
 

@@ -31,9 +31,9 @@ tags:
 
 **现有方法的局限**：
 
-1. **基于优化的方法**（如4Dfy、Dream-in-4D）：用SDS从预训练模型蒸馏，需要数小时且偏向object-centric/非写实输出。
-2. **直接4D训练方法**（如SV4D、Diffusion4D）：在有限的4D数据（如Objaverse动画）上训练，泛化能力受限于训练数据分布。
-3. **顺序交错方法**（如CVD）：交替执行视角注意力和时间注意力更新，但不能充分考虑两者的相互依赖；视角更新的输出对时间更新来说是out-of-distribution的，导致伪影。
+**基于优化的方法**（如4Dfy、Dream-in-4D）：用SDS从预训练模型蒸馏，需要数小时且偏向object-centric/非写实输出。
+**直接4D训练方法**（如SV4D、Diffusion4D）：在有限的4D数据（如Objaverse动画）上训练，泛化能力受限于训练数据分布。
+**顺序交错方法**（如CVD）：交替执行视角注意力和时间注意力更新，但不能充分考虑两者的相互依赖；视角更新的输出对时间更新来说是out-of-distribution的，导致伪影。
 
 **核心矛盾**：①高质量4D数据极度稀缺；②顺序交错架构破坏预训练视频模型的分布导致质量退化；③这些方法要么太慢（SDS需数小时）要么质量差。
 
@@ -49,30 +49,34 @@ tags:
 ### 关键设计
 
 1. **双流架构（Two-Stream Architecture）**:
-   - 做什么：将视频帧网格的token分成两个独立流并行处理——视角流处理行（freeze-time视频），时间流处理列（fixed-view视频）
-   - 核心思路：将帧网格的token复制为 $\mathbf{x}_l^{\text{v}}$ 和 $\mathbf{x}_l^{\text{t}}$ 两份。每层中，视角流用预训练DiT做 $T$ 个并行行更新，时间流做 $V$ 个并行列更新：
-   $$\mathbf{y}_l^{\text{v}} = \mathbf{x}_l^{\text{v}} + \varphi_l^{\text{v}}(\mathbf{x}_l^{\text{v}}; \mathbf{c}^{\text{v}}); \quad \mathbf{y}_l^{\text{t}} = \mathbf{x}_l^{\text{t}} + \varphi_l^{\text{t}}(\mathbf{x}_l^{\text{t}}; \mathbf{c}^{\text{t}})$$
+
+    - 做什么：将视频帧网格的token分成两个独立流并行处理——视角流处理行（freeze-time视频），时间流处理列（fixed-view视频）
+    - 核心思路：将帧网格的token复制为 $\mathbf{x}_l^{\text{v}}$ 和 $\mathbf{x}_l^{\text{t}}$ 两份。每层中，视角流用预训练DiT做 $T$ 个并行行更新，时间流做 $V$ 个并行列更新：
+    $\mathbf{y}_l^{\text{v}} = \mathbf{x}_l^{\text{v}} + \varphi_l^{\text{v}}(\mathbf{x}_l^{\text{v}}; \mathbf{c}^{\text{v}}); \quad \mathbf{y}_l^{\text{t}} = \mathbf{x}_l^{\text{t}} + \varphi_l^{\text{t}}(\mathbf{x}_l^{\text{t}}; \mathbf{c}^{\text{t}})$
    两流独立计算后通过同步层交换信息。
-   - 设计动机：与顺序交错相比，并行双流避免了一个流的输出成为另一个流的out-of-distribution输入。预训练DiT层不微调，仅训练新增的同步层参数，避免破坏预训练视频模型的生成质量。
+    - 设计动机：与顺序交错相比，并行双流避免了一个流的输出成为另一个流的out-of-distribution输入。预训练DiT层不微调，仅训练新增的同步层参数，避免破坏预训练视频模型的生成质量。
 
 2. **同步层——Hard Synchronization**:
-   - 做什么：在每层DiT后严格合并两流token
-   - 核心思路：通过可学习加权合并两流以满足约束 $\mathbf{x}^{\text{v}} = \mathbf{x}^{\text{t}}$：
-   $$\mathbf{x}_{l+1} = \mathbf{W}_l^{\text{v}} \mathbf{y}_l^{\text{v}} + \mathbf{W}_l^{\text{t}} \mathbf{y}_l^{\text{t}}$$
+
+    - 做什么：在每层DiT后严格合并两流token
+    - 核心思路：通过可学习加权合并两流以满足约束 $\mathbf{x}^{\text{v}} = \mathbf{x}^{\text{t}}$：
+    $\mathbf{x}_{l+1} = \mathbf{W}_l^{\text{v}} \mathbf{y}_l^{\text{v}} + \mathbf{W}_l^{\text{t}} \mathbf{y}_l^{\text{t}}$
    权重初始化为 $\frac{1}{2}\mathbf{I}$，并由扩散时间步 $\sigma$ 调制以适应不同去噪阶段。
-   - 设计动机：类比优化中的投影梯度下降——每步将两个变量投影到等式约束流形上。但实验发现在大视角变化时会产生拉伸伪影，因为合并后的token偏离了base model的分布。
+    - 设计动机：类比优化中的投影梯度下降——每步将两个变量投影到等式约束流形上。但实验发现在大视角变化时会产生拉伸伪影，因为合并后的token偏离了base model的分布。
 
 3. **同步层——Soft Synchronization**:
-   - 做什么：保持两流token独立的同时通过软更新使其趋近一致
-   - 核心思路：用时间步调制的线性层预测非对称token增量：
-   $$(\Delta\mathbf{y}_l^{\text{v}}, \Delta\mathbf{y}_l^{\text{t}}) = \text{Mod\_Linear}(\mathbf{y}_l^{\text{v}}, \mathbf{y}_l^{\text{t}}; \sigma)$$
-   $$\mathbf{x}_{l+1}^{\text{v}} = \mathbf{y}_l^{\text{v}} + \Delta\mathbf{y}_l^{\text{v}}, \quad \mathbf{x}_{l+1}^{\text{t}} = \mathbf{y}_l^{\text{t}} + \Delta\mathbf{y}_l^{\text{t}}$$
-   - 设计动机：类比ADMM等不严格满足约束但逐步趋近的优化算法。给模型更多灵活性，让不同层可以自适应调整同步强度。实验观察到更深层的同步强度自动增大，浅层允许两流一定程度的分歧。
+
+    - 做什么：保持两流token独立的同时通过软更新使其趋近一致
+    - 核心思路：用时间步调制的线性层预测非对称token增量：
+    $(\Delta\mathbf{y}_l^{\text{v}}, \Delta\mathbf{y}_l^{\text{t}}) = \text{Mod\_Linear}(\mathbf{y}_l^{\text{v}}, \mathbf{y}_l^{\text{t}}; \sigma)$
+    $\mathbf{x}_{l+1}^{\text{v}} = \mathbf{y}_l^{\text{v}} + \Delta\mathbf{y}_l^{\text{v}}, \quad \mathbf{x}_{l+1}^{\text{t}} = \mathbf{y}_l^{\text{t}} + \Delta\mathbf{y}_l^{\text{t}}$
+    - 设计动机：类比ADMM等不严格满足约束但逐步趋近的优化算法。给模型更多灵活性，让不同层可以自适应调整同步强度。实验观察到更深层的同步强度自动增大，浅层允许两流一定程度的分歧。
 
 4. **Base视频模型训练**:
-   - 做什么：训练支持freeze-time和dynamic两种生成模式的base视频模型
-   - 核心思路：将训练数据分为动态视频和静态场景视频两类，用不同的context embedding控制生成模式。采用随机遮蔽训练策略，使模型能基于任意帧子集预测未见帧，支持自回归扩展。
-   - 设计动机：为4D模型提供高质量的单维度视频生成基础；遮蔽训练使模型能灵活接受不同条件输入。
+
+    - 做什么：训练支持freeze-time和dynamic两种生成模式的base视频模型
+    - 核心思路：将训练数据分为动态视频和静态场景视频两类，用不同的context embedding控制生成模式。采用随机遮蔽训练策略，使模型能基于任意帧子集预测未见帧，支持自回归扩展。
+    - 设计动机：为4D模型提供高质量的单维度视频生成基础；遮蔽训练使模型能灵活接受不同条件输入。
 
 ### 损失函数 / 训练策略
 - **Base model**：像素空间扩散（非latent），渐进式分辨率训练（36×64 → 72×128），24×A100训练12天

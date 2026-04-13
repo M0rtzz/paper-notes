@@ -40,9 +40,9 @@ $$\tilde{h}_i^{(\ell)}(\mathbf{x}) = h_i^{(\ell)}(\mathbf{x}) + \lambda \cdot v_
 
 然而，**现有方法的核心缺陷**在于：
 
-1. **固定 $\lambda$ 导致under/oversteering**：$\lambda$ 过小则修正不足（understeering），过大则引入不必要甚至有害的干预（oversteering）
-2. **超参搜索代价高**：$\lambda$ 通常通过模型特定的暴力搜索确定，缺乏理论保证
-3. **错误并非单一概念**：与毒性/安全等二元对齐目标不同，"错误"表现形式多样，更难用线性方向捕获
+**固定 $\lambda$ 导致under/oversteering**：$\lambda$ 过小则修正不足（understeering），过大则引入不必要甚至有害的干预（oversteering）
+**超参搜索代价高**：$\lambda$ 通常通过模型特定的暴力搜索确定，缺乏理论保证
+**错误并非单一概念**：与毒性/安全等二元对齐目标不同，"错误"表现形式多样，更难用线性方向捕获
 
 ### 本文核心问题
 

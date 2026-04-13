@@ -47,23 +47,26 @@ tags:
 ### 关键设计
 
 1. **Vector Quantization 增强表示**：
-   - 维护可学习码本 𝒵 = {z_k}_{k=1}^K（K=4096 个 slot，维度 1024）
-   - 编码特征 f^e 通过最近邻量化映射到码本得到 f^q，与 f^e 逐元素求和得到 f^i
-   - 通过 Task-Agnostic Enhancement (TAE) Loss 训练码本：让 f^i 经卷积解码器重建输入图像，用 Smooth L1 损失
-   - 目的：在部分标注下扩展共享特征空间，使各任务线索都能被保留
+
+    - 维护可学习码本 𝒵 = {z_k}_{k=1}^K（K=4096 个 slot，维度 1024）
+    - 编码特征 f^e 通过最近邻量化映射到码本得到 f^q，与 f^e 逐元素求和得到 f^i
+    - 通过 Task-Agnostic Enhancement (TAE) Loss 训练码本：让 f^i 经卷积解码器重建输入图像，用 Smooth L1 损失
+    - 目的：在部分标注下扩展共享特征空间，使各任务线索都能被保留
 
 2. **Task Prototype 𝒱**：
-   - 包含 T 个可学习 slot（T=任务数，PASCAL-Context T=5，NYUD-v2 T=3），每个 v_τ ∈ R^{1×d}（d=1024）
-   - 计算 task-similarity：S(f̂^t, 𝒱) = cosine_similarity(f̂^t, v_τ) 对各任务 τ
-   - **Task Knowledge Embedding (TKE) Loss**：对 softmax 后的 affinity score 做交叉熵，目标是 one-hot 向量 Y_t
-   - **Task Consistency (TC) Loss**：批内聚合同一任务的特征 x̃^t，用 triplet loss 确保同任务特征高相似、异任务特征低相似
-   - Association Knowledge Generating (AKG) Loss = ℒ_tke + ℒ_tc
+
+    - 包含 T 个可学习 slot（T=任务数，PASCAL-Context T=5，NYUD-v2 T=3），每个 v_τ ∈ R^{1×d}（d=1024）
+    - 计算 task-similarity：S(f̂^t, 𝒱) = cosine_similarity(f̂^t, v_τ) 对各任务 τ
+    - **Task Knowledge Embedding (TKE) Loss**：对 softmax 后的 affinity score 做交叉熵，目标是 one-hot 向量 Y_t
+    - **Task Consistency (TC) Loss**：批内聚合同一任务的特征 x̃^t，用 triplet loss 确保同任务特征高相似、异任务特征低相似
+    - Association Knowledge Generating (AKG) Loss = ℒ_tke + ℒ_tc
 
 3. **Knowledge Retrieval Transformer**：
-   - 输入：任务特征 f̂^t 和 task-affinity feature f^{ta} = 𝒜(f̂^t, 𝒱) · 𝒱
-   - 多个 knowledge-retrieval block：Self-Attention → Cross-Attention (query=f^t, key/value=f^{ta}) → FFN
-   - Cross-Attention 中 f^{ta} 编码了"当前任务需要从哪些其他任务获取多少增强"的信息
-   - 输出：任务精炼特征 f^{tr}，送入各任务预测头
+
+    - 输入：任务特征 f̂^t 和 task-affinity feature f^{ta} = 𝒜(f̂^t, 𝒱) · 𝒱
+    - 多个 knowledge-retrieval block：Self-Attention → Cross-Attention (query=f^t, key/value=f^{ta}) → FFN
+    - Cross-Attention 中 f^{ta} 编码了"当前任务需要从哪些其他任务获取多少增强"的信息
+    - 输出：任务精炼特征 f^{tr}，送入各任务预测头
 
 ### 损失函数
 

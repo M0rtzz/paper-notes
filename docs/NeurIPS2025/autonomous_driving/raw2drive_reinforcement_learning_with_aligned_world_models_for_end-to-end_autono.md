@@ -47,30 +47,32 @@ Raw2Drive 是双流 MBRL 框架：
 ### 关键设计
 
 1. **特权流 (Privileged Stream)**：
-   - 输入：时序 BEV 语义掩码（标准 MBRL 输入）
-   - 世界模型：Encoder + RSSM + 三个 Head（Reward/Decoder/Continue），与 DreamerV3 架构相同
-   - 策略：Actor-Critic 网络通过世界模型 rollout 训练
-   - 目的：(I) 训练特权策略；(II) 为原始传感器流提供指导
+
+    - 输入：时序 BEV 语义掩码（标准 MBRL 输入）
+    - 世界模型：Encoder + RSSM + 三个 Head（Reward/Decoder/Continue），与 DreamerV3 架构相同
+    - 策略：Actor-Critic 网络通过世界模型 rollout 训练
+    - 目的：(I) 训练特权策略；(II) 为原始传感器流提供指导
 
 2. **原始传感器流 (Raw Sensor Stream)**：
-   - 编码器：使用 BEVFormer 将多视角图像编码为 BEV 特征
-   - 世界模型：架构与特权流类似，但**仅使用 Decoder Head**——奖励和继续标志从特权流获取
-   - 关键发现：直接训练 reward/continue head 会导致收敛失败，因为相邻帧极相似但奖励值可能剧烈波动，网络无法学到稳定模式
-   - RSSM 参数从特权世界模型初始化
+
+    - 编码器：使用 BEVFormer 将多视角图像编码为 BEV 特征
+    - 世界模型：架构与特权流类似，但**仅使用 Decoder Head**——奖励和继续标志从特权流获取
+    - 关键发现：直接训练 reward/continue head 会导致收敛失败，因为相邻帧极相似但奖励值可能剧烈波动，网络无法学到稳定模式
+    - RSSM 参数从特权世界模型初始化
 
 3. **引导机制 (Guidance Mechanism)**——双流框架的核心：
    
    **Rollout Guidance**：确保两个世界模型在 rollout 过程中预测一致
-   - **时空对齐 (Spatial-Temporal Alignment)**：对 Encoder State 施加 MSE loss，确保每个时间步的空间一致性
-   - **抽象状态对齐 (Abstract-State Alignment)**：
-     - 确定性状态 $h$：L2 loss 保持预测一致（建模自车状态）
-     - 随机状态 $s$：KL 散度约束分布一致（建模其他交通参与者行为）
-   - **消除累积误差**：只从原始传感器流的分布采样一次随机状态，同时输入两个流，避免采样随机性导致的累积偏差
+    - **时空对齐 (Spatial-Temporal Alignment)**：对 Encoder State 施加 MSE loss，确保每个时间步的空间一致性
+    - **抽象状态对齐 (Abstract-State Alignment)**：
+      - 确定性状态 $h$：L2 loss 保持预测一致（建模自车状态）
+      - 随机状态 $s$：KL 散度约束分布一致（建模其他交通参与者行为）
+    - **消除累积误差**：只从原始传感器流的分布采样一次随机状态，同时输入两个流，避免采样随机性导致的累积偏差
    
    **Head Guidance**：原始传感器策略训练时，reward 和 continue flag 直接从特权世界模型获取（而非自己的 head），确保监督信号准确稳定。
 
    总 Rollout Loss：
-   $$\mathcal{L}_{Rollout} = \beta_e \sum_t \sum_{i} \text{MSE}(e_t^i, \hat{e}_t^i) + \sum_t (\beta_s \text{KL}(s_t, \hat{s}_t) + \beta_h \text{MSE}(h_t, \hat{h}_t))$$
+    $\mathcal{L}_{Rollout} = \beta_e \sum_t \sum_{i} \text{MSE}(e_t^i, \hat{e}_t^i) + \sum_t (\beta_s \text{KL}(s_t, \hat{s}_t) + \beta_h \text{MSE}(h_t, \hat{h}_t))$
 
 ### 损失函数 / 训练策略
 

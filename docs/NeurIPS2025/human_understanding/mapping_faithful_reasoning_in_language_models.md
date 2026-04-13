@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：推理型LLM（如OpenAI o1、Gemini思考模式、Qwen 3）通过CoT（思维链）提供推理过程的可见性，被视为增强AI透明度和可信度的重要途径。实践者依赖检查CoT来验证决策是否基于合理推理。
-2. **现有痛点**：越来越多的证据表明CoT并不总是忠实地反映内部计算——它可能只是事后合理化（post-hoc rationalisation），即模型已确定答案后才生成看似合理的推理过程。这使得通过检查CoT来进行安全监督变得不可靠。
-3. **核心矛盾**：表面文本无法区分两种模式——"CoT作为计算"（推理过程真正影响输出）和"CoT作为合理化"（推理过程是装饰性的）。现有的过滤方法（如截断/扰动CoT观察输出变化）只能判断输出是否改变，不能揭示内部概念表示如何随推理演化。
-4. **本文要解决什么**：如何在激活空间中追踪特定概念（如安全性）在多步推理中的动态演化，从而区分忠实推理和装饰性推理？
-5. **切入角度**：结合表示工程（representation engineering）的概念方向提取与机械可解释性的时序分析，在推理步骤维度上追踪概念激活。
-6. **核心idea**：通过对比安全/不安全提示学习一个"安全方向"向量，然后将推理模型每一步的激活投影到此方向上，得到"Concept Walk"轨迹——如果扰动CoT后轨迹持续偏移说明推理是计算性的，如果迅速恢复说明是装饰性的。
+**领域现状**：推理型LLM（如OpenAI o1、Gemini思考模式、Qwen 3）通过CoT（思维链）提供推理过程的可见性，被视为增强AI透明度和可信度的重要途径。实践者依赖检查CoT来验证决策是否基于合理推理。
+**现有痛点**：越来越多的证据表明CoT并不总是忠实地反映内部计算——它可能只是事后合理化（post-hoc rationalisation），即模型已确定答案后才生成看似合理的推理过程。这使得通过检查CoT来进行安全监督变得不可靠。
+**核心矛盾**：表面文本无法区分两种模式——"CoT作为计算"（推理过程真正影响输出）和"CoT作为合理化"（推理过程是装饰性的）。现有的过滤方法（如截断/扰动CoT观察输出变化）只能判断输出是否改变，不能揭示内部概念表示如何随推理演化。
+**本文要解决什么**：如何在激活空间中追踪特定概念（如安全性）在多步推理中的动态演化，从而区分忠实推理和装饰性推理？
+**切入角度**：结合表示工程（representation engineering）的概念方向提取与机械可解释性的时序分析，在推理步骤维度上追踪概念激活。
+**核心idea**：通过对比安全/不安全提示学习一个"安全方向"向量，然后将推理模型每一步的激活投影到此方向上，得到"Concept Walk"轨迹——如果扰动CoT后轨迹持续偏移说明推理是计算性的，如果迅速恢复说明是装饰性的。
 
 ## 方法详解
 
@@ -41,28 +41,31 @@ tags:
 ### 关键设计
 
 1. **CoT计算性过滤 (Filtering for CoT-as-computation)**:
-   - 做什么：将样本分为"困难"和"容易"两类，以区分CoT是否在功能上参与了决策
-   - 核心思路：受Lanham et al.和Emmons et al.启发，对每个样本在CoT中间注入有缺陷的推理步骤（扰动），观察是否导致模型最终输出显著降级。保留输出变化大的"困难"样本（CoT被整合到计算中），过滤掉输出不变的"容易"样本（CoT仅为合理化）
-   - 设计动机：如果不过滤，分析装饰性CoT的内部动态所得结论可能是误导性的——我们只关注那些推理确实影响输出的案例
+
+    - 做什么：将样本分为"困难"和"容易"两类，以区分CoT是否在功能上参与了决策
+    - 核心思路：受Lanham et al.和Emmons et al.启发，对每个样本在CoT中间注入有缺陷的推理步骤（扰动），观察是否导致模型最终输出显著降级。保留输出变化大的"困难"样本（CoT被整合到计算中），过滤掉输出不变的"容易"样本（CoT仅为合理化）
+    - 设计动机：如果不过滤，分析装饰性CoT的内部动态所得结论可能是误导性的——我们只关注那些推理确实影响输出的案例
 
 2. **安全方向计算 (Computing the Safety Vector)**:
-   - 做什么：在激活空间中找到编码"安全性"概念的方向
-   - 核心思路：构建不安全提示集 $\mathcal{D}_{\text{unsafe}}$ 和安全提示集 $\mathcal{D}_{\text{safe}}$（配对的反事实对），计算各自在第 $\ell$ 层、第 $t$ 个token位置的平均激活：
-   $$\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} = \frac{1}{|\mathcal{D}_{\text{unsafe}}|} \sum_{i \in \mathcal{D}_{\text{unsafe}}} \boldsymbol{x}_\ell^i[t], \quad \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)} = \frac{1}{|\mathcal{D}_{\text{safe}}|} \sum_{i \in \mathcal{D}_{\text{safe}}} \boldsymbol{x}_\ell^i[t]$$
+
+    - 做什么：在激活空间中找到编码"安全性"概念的方向
+    - 核心思路：构建不安全提示集 $\mathcal{D}_{\text{unsafe}}$ 和安全提示集 $\mathcal{D}_{\text{safe}}$（配对的反事实对），计算各自在第 $\ell$ 层、第 $t$ 个token位置的平均激活：
+    $\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} = \frac{1}{|\mathcal{D}_{\text{unsafe}}|} \sum_{i \in \mathcal{D}_{\text{unsafe}}} \boldsymbol{x}_\ell^i[t], \quad \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)} = \frac{1}{|\mathcal{D}_{\text{safe}}|} \sum_{i \in \mathcal{D}_{\text{safe}}} \boldsymbol{x}_\ell^i[t]$
    安全方向为归一化差值：
-   $$\hat{\boldsymbol{v}}^{(\ell,t)} = \frac{\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} - \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)}}{\|\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} - \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)}\|_2}$$
-   - 方向选择：在验证集上评估每个候选 $(\ell, t)$ 的bypass score（消融后拒绝抑制效果）、induce score（添加后拒绝诱导效果）和KL散度（对良性提示的影响最小化），选择最优方向
-   - 设计动机：Difference of Means是表示工程中成熟的方向提取方法，可以捕获模型内部对安全性的编码而非表层文本特征
+    $\hat{\boldsymbol{v}}^{(\ell,t)} = \frac{\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} - \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)}}{\|\boldsymbol{\mu}_{\text{unsafe}}^{(\ell,t)} - \boldsymbol{\mu}_{\text{safe}}^{(\ell,t)}\|_2}$
+    - 方向选择：在验证集上评估每个候选 $(\ell, t)$ 的bypass score（消融后拒绝抑制效果）、induce score（添加后拒绝诱导效果）和KL散度（对良性提示的影响最小化），选择最优方向
+    - 设计动机：Difference of Means是表示工程中成熟的方向提取方法，可以捕获模型内部对安全性的编码而非表层文本特征
 
 3. **Concept Walk**:
-   - 做什么：追踪安全概念在推理步骤间的时序演化
-   - 核心思路：在thinking模式下运行模型，对每个CoT步骤 $s$，提取该步骤所有token的残差流激活并取平均，得到步骤级激活向量：
-   $$\boldsymbol{h}_s = \frac{1}{|T_s|} \sum_{t \in \mathcal{T}_s} \boldsymbol{x}[t]$$
+
+    - 做什么：追踪安全概念在推理步骤间的时序演化
+    - 核心思路：在thinking模式下运行模型，对每个CoT步骤 $s$，提取该步骤所有token的残差流激活并取平均，得到步骤级激活向量：
+    $\boldsymbol{h}_s = \frac{1}{|T_s|} \sum_{t \in \mathcal{T}_s} \boldsymbol{x}[t]$
    然后计算与安全方向的余弦相似度：
-   $$\alpha_s = \cos(\boldsymbol{h}_s, \boldsymbol{v}^{(\ell^*)})$$
+    $\alpha_s = \cos(\boldsymbol{h}_s, \boldsymbol{v}^{(\ell^*)})$
    $\alpha_s$ 量化了模型在第 $s$ 步的内部状态与安全方向的对齐程度，独立于表层文本是否提到安全相关词汇
-   - 对扰动后的CoT执行相同分析，比较原始和扰动轨迹的差异
-   - 设计动机：现有方法只能判断"CoT是否影响输出"，不能揭示"内部概念表示如何随推理演化"
+    - 对扰动后的CoT执行相同分析，比较原始和扰动轨迹的差异
+    - 设计动机：现有方法只能判断"CoT是否影响输出"，不能揭示"内部概念表示如何随推理演化"
 
 ### 实验模型与数据
 - 分析对象：Qwen 3-4B（36层Transformer decoder，支持可控thinking模式）

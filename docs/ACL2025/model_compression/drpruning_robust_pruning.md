@@ -25,15 +25,15 @@ tags:
 DRPruning 将分布稳健优化（DRO）引入 LLM 结构化剪枝，通过 scaling law 预测各领域最终 loss 作为参考、动态调整训练数据分布来平衡剪枝后各领域性能，在单语和多语设置下分别以 -5.59% PPL 和 +2.95% 下游任务的提升超越 Sheared LLaMA。
 
 ## 研究背景与动机
-1. **领域现状**：结构化剪枝（如 Sheared LLaMA）可以将大模型压缩为小模型，但剪枝后通常需要 continued pretraining 恢复能力
-2. **现有痛点**：
+**领域现状**：结构化剪枝（如 Sheared LLaMA）可以将大模型压缩为小模型，但剪枝后通常需要 continued pretraining 恢复能力
+**现有痛点**：
    - 剪枝后不同领域的性能退化不均匀——某些领域恢复快，某些领域严重受损，导致偏差
    - 标准 DRO 需要手动设置关键超参数（reference loss 和 reference data ratio），设置不当效果很差
    - Sheared LLaMA 的动态调度策略参照大模型各领域 loss 比例，但在多语言等分布偏移大的场景下失效
-3. **核心矛盾**：如何在剪枝后的持续预训练中自动平衡各领域性能，无需大量超参调优？
-4. **本文要解决什么？** 自动化确定 DRO 的 reference loss 和 reference data ratio
-5. **切入角度**：用 scaling law 预测训练结束时的 loss 作为 reference loss，用 DRO 权重的 EMA 更新 reference data ratio
-6. **核心idea一句话**：用 scaling law 自动预测各领域可达到的最优 loss，结合渐进式数据比例调整，实现剪枝后的全领域均衡恢复
+**核心矛盾**：如何在剪枝后的持续预训练中自动平衡各领域性能，无需大量超参调优？
+**本文要解决什么？** 自动化确定 DRO 的 reference loss 和 reference data ratio
+**切入角度**：用 scaling law 预测训练结束时的 loss 作为 reference loss，用 DRO 权重的 EMA 更新 reference data ratio
+**核心idea一句话**：用 scaling law 自动预测各领域可达到的最优 loss，结合渐进式数据比例调整，实现剪枝后的全领域均衡恢复
 
 ## 方法详解
 
@@ -43,20 +43,23 @@ DRPruning 在 Sheared LLaMA 的结构化剪枝 + continued pretraining 框架上
 ### 关键设计
 
 1. **基于 Scaling Law 的动态 Reference Loss**:
-   - 做什么：预测模型在训练结束时各领域能达到的最低 loss，作为 DRO 的参考基准
-   - 核心思路：利用 $\hat{\ell}(P, T) = A \cdot P^{-\alpha} \cdot T^{-\beta} + E$ 拟合各领域的 loss 曲线，用拟合曲线在总训练步数处的预测值作为 reference loss。每次评估后重新拟合
-   - 设计动机：手动设置 reference loss 困难且不可靠。Scaling law 提供了数据驱动的预测，避免了人工调参。在训练完成 20% 后开始预测（需足够数据点）
+
+    - 做什么：预测模型在训练结束时各领域能达到的最低 loss，作为 DRO 的参考基准
+    - 核心思路：利用 $\hat{\ell}(P, T) = A \cdot P^{-\alpha} \cdot T^{-\beta} + E$ 拟合各领域的 loss 曲线，用拟合曲线在总训练步数处的预测值作为 reference loss。每次评估后重新拟合
+    - 设计动机：手动设置 reference loss 困难且不可靠。Scaling law 提供了数据驱动的预测，避免了人工调参。在训练完成 20% 后开始预测（需足够数据点）
 
 2. **渐进式 Reference Data Ratio 更新**:
-   - 做什么：让数据分布的约束中心逐渐向高 loss 领域移动
-   - 核心思路：$\mathbf{p}_R^{t+1} = \delta \cdot \mathbf{q}^t + (1-\delta) \cdot \mathbf{p}_R^t$，其中 $\mathbf{q}^t$ 是 DRO 计算的最优权重。用 EMA 平滑更新，避免剧烈波动
-   - 设计动机：固定 reference ratio 过于保守（Zhou et al., 2021），限制了 DRO 对困难领域的关注。渐进更新允许逐步扩大对困难分布的覆盖
-   - 安全约束：各领域比例限制在初始比例的 $[1/n, n]$ 倍之间，防止退化为只训练最差领域
+
+    - 做什么：让数据分布的约束中心逐渐向高 loss 领域移动
+    - 核心思路：$\mathbf{p}_R^{t+1} = \delta \cdot \mathbf{q}^t + (1-\delta) \cdot \mathbf{p}_R^t$，其中 $\mathbf{q}^t$ 是 DRO 计算的最优权重。用 EMA 平滑更新，避免剧烈波动
+    - 设计动机：固定 reference ratio 过于保守（Zhou et al., 2021），限制了 DRO 对困难领域的关注。渐进更新允许逐步扩大对困难分布的覆盖
+    - 安全约束：各领域比例限制在初始比例的 $[1/n, n]$ 倍之间，防止退化为只训练最差领域
 
 3. **DRO 权重更新**:
-   - 做什么：根据各领域的"excess loss"（当前 loss - reference loss）调整数据采样权重
-   - 核心思路：对 loss 偏离 reference 更多的领域分配更高权重，在 $\chi^2$-divergence ball 约束下求解最大化问题
-   - 与 Sheared LLaMA 的区别：Sheared LLaMA 参照大模型的绝对 loss 值排序来分配权重，DRPruning 参照模型自身的可达最优值
+
+    - 做什么：根据各领域的"excess loss"（当前 loss - reference loss）调整数据采样权重
+    - 核心思路：对 loss 偏离 reference 更多的领域分配更高权重，在 $\chi^2$-divergence ball 约束下求解最大化问题
+    - 与 Sheared LLaMA 的区别：Sheared LLaMA 参照大模型的绝对 loss 值排序来分配权重，DRPruning 参照模型自身的可达最优值
 
 ### 训练策略
 - 先剪枝 0.4B tokens（学习剪枝 mask），后续 50B tokens 做 continued pretraining

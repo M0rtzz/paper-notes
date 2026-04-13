@@ -39,17 +39,19 @@ RAIN-Merging（Reasoning-Aware Instruction-attention guided Null-space projectio
 ### 关键设计
 
 1. **Stage 1: 推理感知零空间投影（Reasoning-aware Null-space Projection）**
-   - **做什么**：将 ITM 任务向量投影到 thinking 特殊 token 前向特征的零空间中
-   - **为什么**：确保合并后模型在 thinking token 位置的中间表示和最终 logits 与原始 LRM 保持一致，从而保护 `<think>...</think>` 结构化格式
-   - **怎么做**：对每个子模块 k，用少量推理校准数据（150 条）构建 thinking token 位置的前向特征算子 Φ，计算正交投影矩阵 P^⊥(Φ) = I − Φ^T(ΦΦ^T)^+Φ，然后将 ITM 任务向量投影：vec(Δ_I^{⊥,k}) = P^⊥(Φ) vec(Δ_I^k)
-   - **理论保证**：通过 softmax-KL 散度的二阶展开证明，投影后的任务向量满足 L_think ≈ 0（Proposition 1），即合并后在 thinking token 上的分布偏移可忽略
-   - **区别**：传统合并方法（如 Task Arithmetic）忽略输出分布不匹配，导致 6.4% 的生成缺失 `</think>` 标记；本方法将缺失率降到 0%
+
+    - **做什么**：将 ITM 任务向量投影到 thinking 特殊 token 前向特征的零空间中
+    - **为什么**：确保合并后模型在 thinking token 位置的中间表示和最终 logits 与原始 LRM 保持一致，从而保护 `<think>...</think>` 结构化格式
+    - **怎么做**：对每个子模块 k，用少量推理校准数据（150 条）构建 thinking token 位置的前向特征算子 Φ，计算正交投影矩阵 P^⊥(Φ) = I − Φ^T(ΦΦ^T)^+Φ，然后将 ITM 任务向量投影：vec(Δ_I^{⊥,k}) = P^⊥(Φ) vec(Δ_I^k)
+    - **理论保证**：通过 softmax-KL 散度的二阶展开证明，投影后的任务向量满足 L_think ≈ 0（Proposition 1），即合并后在 thinking token 上的分布偏移可忽略
+    - **区别**：传统合并方法（如 Task Arithmetic）忽略输出分布不匹配，导致 6.4% 的生成缺失 `</think>` 标记；本方法将缺失率降到 0%
 
 2. **Stage 2: 指令注意力引导的合并系数（Instruction-attention Guided Merging Coefficients）**
-   - **做什么**：为每个子模块计算自适应缩放系数 α，放大指令相关组件、抑制泄漏
-   - **为什么**：指令遵循失败常源于解码时对指令 span 注意力不足，不同层和头对指令的响应具有异质性
-   - **怎么做**：用 365 条指令校准数据，计算每个注意力头的对齐度（alignment）和泄漏度（leakage）；定义指令注意力得分 J = alignment − ρ·leakage，通过二阶 Taylor 展开得到闭式解：α*_k = clip(g^k / H^k)
-   - **区别**：现有 activation-based 合并方法（如 ACM、LEWIS）缺乏对输出结构不匹配的显式处理，而本方法通过 alignment/leakage 分解提供了可解释的指令增强机制
+
+    - **做什么**：为每个子模块计算自适应缩放系数 α，放大指令相关组件、抑制泄漏
+    - **为什么**：指令遵循失败常源于解码时对指令 span 注意力不足，不同层和头对指令的响应具有异质性
+    - **怎么做**：用 365 条指令校准数据，计算每个注意力头的对齐度（alignment）和泄漏度（leakage）；定义指令注意力得分 J = alignment − ρ·leakage，通过二阶 Taylor 展开得到闭式解：α*_k = clip(g^k / H^k)
+    - **区别**：现有 activation-based 合并方法（如 ACM、LEWIS）缺乏对输出结构不匹配的显式处理，而本方法通过 alignment/leakage 分解提供了可解释的指令增强机制
 
 ### 损失函数 / 训练策略
 本方法完全无梯度（gradient-free），无需训练。仅需两个小规模校准集：

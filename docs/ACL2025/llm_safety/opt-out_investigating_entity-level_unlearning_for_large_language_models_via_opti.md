@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GDPR 的"被遗忘权"要求 LLM 能按用户请求删除个人数据，但完全重训成本不可承受，近似遗忘方法成为研究焦点。
-2. **现有痛点**：已有方法（GA、NPO、DPO）主要在实例级（instance-level）小规模随机子集上评估，未考虑真实场景中需删除某人全部数据的需求。
-3. **核心矛盾**：梯度反转（GA）虽能遗忘但极易导致模型崩溃（RQ 降至 0），加入 retain set 训练后遗忘-保留平衡仍不理想。
-4. **本文要解决什么？** 定义实体级遗忘任务 + 构建大规模评估数据集 + 提出基于最优传输的精细遗忘方法。
-5. **切入角度**：用 Wasserstein 距离度量当前参数与初始参数间的"运输成本"，让对遗忘重要的参数大幅偏移、对保留重要的参数保持不变。
-6. **核心 idea 一句话**：最优传输框架下的参数分布距离正则化，实现比 L2/Cosine 更精细的参数级遗忘控制。
+**领域现状**：GDPR 的"被遗忘权"要求 LLM 能按用户请求删除个人数据，但完全重训成本不可承受，近似遗忘方法成为研究焦点。
+**现有痛点**：已有方法（GA、NPO、DPO）主要在实例级（instance-level）小规模随机子集上评估，未考虑真实场景中需删除某人全部数据的需求。
+**核心矛盾**：梯度反转（GA）虽能遗忘但极易导致模型崩溃（RQ 降至 0），加入 retain set 训练后遗忘-保留平衡仍不理想。
+**本文要解决什么？** 定义实体级遗忘任务 + 构建大规模评估数据集 + 提出基于最优传输的精细遗忘方法。
+**切入角度**：用 Wasserstein 距离度量当前参数与初始参数间的"运输成本"，让对遗忘重要的参数大幅偏移、对保留重要的参数保持不变。
+**核心 idea 一句话**：最优传输框架下的参数分布距离正则化，实现比 L2/Cosine 更精细的参数级遗忘控制。
 
 ## 方法详解
 
@@ -44,20 +44,23 @@ tags:
 ### 关键设计
 
 1. **ELUDe 数据集**
-   - 20 目标实体 + 144 唯一邻居实体（有重叠）
-   - 15,651 forget QA + 90,954 retain QA
-   - 邻居选择标准：双向 Wikipedia 链接 + 近 3 年页面浏览量 top-10 + 人物类型
-   - 相比 TOFU/RWKU 数据量更大（每实体覆盖全部知识）
+
+    - 20 目标实体 + 144 唯一邻居实体（有重叠）
+    - 15,651 forget QA + 90,954 retain QA
+    - 邻居选择标准：双向 Wikipedia 链接 + 近 3 年页面浏览量 top-10 + 人物类型
+    - 相比 TOFU/RWKU 数据量更大（每实体覆盖全部知识）
 
 2. **NPO 遗忘损失**
-   - 比 GA 更稳定：在高温极限下简化为 GA，但本身有下界，显著延缓模型崩溃
-   - 公式：$\mathcal{L}_{\text{NPO}} = -\mathbb{E}_{\mathcal{D}_f}[\log\sigma(-\eta\log\frac{\phi_\theta(y|x)}{\phi_{\text{ref}}(y|x)})]$
+
+    - 比 GA 更稳定：在高温极限下简化为 GA，但本身有下界，显著延缓模型崩溃
+    - 公式：$\mathcal{L}_{\text{NPO}} = -\mathbb{E}_{\mathcal{D}_f}[\log\sigma(-\eta\log\frac{\phi_\theta(y|x)}{\phi_{\text{ref}}(y|x)})]$
 
 3. **Sliced Wasserstein 正则化**
-   - 直接计算 Wasserstein 距离复杂度 $O(n^3\log n)$，不可行
-   - 改用 Sliced Wasserstein Distance (SWD)：随机投影到低维后计算一维 Wasserstein 距离
-   - 总损失：$\mathcal{L} = \mathcal{L}_{\text{NPO}} + \mathcal{L}_{\text{RT}} + \lambda \cdot SW_p(\theta, \theta_0)$
-   - 关键优势：考虑参数分布的结构信息，比 L2（Euclidean）、Cosine 等逐点距离更精细
+
+    - 直接计算 Wasserstein 距离复杂度 $O(n^3\log n)$，不可行
+    - 改用 Sliced Wasserstein Distance (SWD)：随机投影到低维后计算一维 Wasserstein 距离
+    - 总损失：$\mathcal{L} = \mathcal{L}_{\text{NPO}} + \mathcal{L}_{\text{RT}} + \lambda \cdot SW_p(\theta, \theta_0)$
+    - 关键优势：考虑参数分布的结构信息，比 L2（Euclidean）、Cosine 等逐点距离更精细
 
 ## 实验关键数据
 

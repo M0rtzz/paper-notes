@@ -29,9 +29,9 @@ tags:
 
 互信息（Mutual Information, MI）是衡量随机变量间关系最通用的度量，但从样本估计 MI 是一个核心挑战：
 
-1. **传统方法局限**：基于 KDE 或 k-NN 的方法在高维数据上受维度诅咒影响严重
-2. **变分方法的样本复杂度问题**：MINE、InfoNCE 等基于变分下界的方法，其样本复杂度或方差随真实 MI 指数增长，且受批大小限制
-3. **分数匹配的中间步骤困难**：MINDE 方法虽然利用了扩散模型，但依赖准确逼近对数密度梯度（score function），这是一个具有挑战性的中间步骤
+**传统方法局限**：基于 KDE 或 k-NN 的方法在高维数据上受维度诅咒影响严重
+**变分方法的样本复杂度问题**：MINE、InfoNCE 等基于变分下界的方法，其样本复杂度或方差随真实 MI 指数增长，且受批大小限制
+**分数匹配的中间步骤困难**：MINDE 方法虽然利用了扩散模型，但依赖准确逼近对数密度梯度（score function），这是一个具有挑战性的中间步骤
 
 核心动机：扩散模型近年来在密度估计上取得了巨大进展，能否绕过 score matching，直接利用去噪目标本身来估计 MI？
 
@@ -47,31 +47,32 @@ tags:
 
    给定高斯噪声通道 $z_\gamma = \sqrt{\gamma/(1+\gamma)} x + \sqrt{1/(1+\gamma)} \epsilon$，信噪比为 $\gamma$。从 ITD（Information-Theoretic Diffusion）的结果出发：
 
-   $$-\log p(x) = \frac{d}{2}\log(2\pi e) - \frac{1}{2}\int_0^\infty d\gamma \left(\frac{d}{1+\gamma} - \text{mmse}(x|\gamma)\right)$$
+    $-\log p(x) = \frac{d}{2}\log(2\pi e) - \frac{1}{2}\int_0^\infty d\gamma \left(\frac{d}{1+\gamma} - \text{mmse}(x|\gamma)\right)$
 
    对条件分布 $p(x|y)$ 写同样的等式，相减得到逐点互信息：
 
-   $$\log p(x|y) - \log p(x) = \frac{1}{2}\int_0^\infty d\gamma \left(\text{mmse}(x|\gamma) - \text{mmse}(x|\gamma, y)\right)$$
+    $\log p(x|y) - \log p(x) = \frac{1}{2}\int_0^\infty d\gamma \left(\text{mmse}(x|\gamma) - \text{mmse}(x|\gamma, y)\right)$
 
    取期望得到 MI 的精确表达：
 
-   $$I(x;y) = \frac{1}{2}\int_0^\infty d\gamma \left(\text{mmse}_x(\gamma) - \text{mmse}_{x|y}(\gamma)\right)$$
+    $I(x;y) = \frac{1}{2}\int_0^\infty d\gamma \left(\text{mmse}_x(\gamma) - \text{mmse}_{x|y}(\gamma)\right)$
 
    即 **MI = 条件与无条件 MMSE 曲线之间面积的一半**。
 
 2. **模型训练**：训练单个去噪网络 $\hat{x}_\theta(z_\gamma, \gamma, y)$，训练时以50%概率用空值替换 $y$（类似 classifier-free guidance），使同一网络同时学习条件和无条件去噪。损失为标准 MSE 去噪损失。
 
 3. **自适应重要性采样**：
-   - SNR 空间的积分用蒙特卡洛估计，采样分布 $q(\gamma)$ 为 logistic 分布
-   - 先训练初步模型，分析条件 MMSE 曲线的过渡区域
-   - 定位参数 $\mu$ 设为 MMSE 曲线穿过 $d/2$ 误差阈值的 log-SNR
-   - 尺度参数 $\sigma$ 由 $d/4$ 阈值位置推导
-   - 这使采样集中在去噪器从无效到有效的关键过渡区域
+
+    - SNR 空间的积分用蒙特卡洛估计，采样分布 $q(\gamma)$ 为 logistic 分布
+    - 先训练初步模型，分析条件 MMSE 曲线的过渡区域
+    - 定位参数 $\mu$ 设为 MMSE 曲线穿过 $d/2$ 误差阈值的 log-SNR
+    - 尺度参数 $\sigma$ 由 $d/4$ 阈值位置推导
+    - 这使采样集中在去噪器从无效到有效的关键过渡区域
 
 4. **正交原理**：
    基于 MMSE 估计的正交性质，MMSE gap 可以等价表示为条件和无条件去噪器输出之差的二范数：
 
-   $$\text{MMSE Gap} = \mathbb{E}[\|\hat{x}(z_\gamma, y) - \hat{x}(z_\gamma)\|^2]$$
+    $\text{MMSE Gap} = \mathbb{E}[\|\hat{x}(z_\gamma, y) - \hat{x}(z_\gamma)\|^2]$
 
    优点：(a) 永远非负（单个平方项），避免两个大数相减的数值不稳定；(b) 积分被积函数更平滑，方差更低
 

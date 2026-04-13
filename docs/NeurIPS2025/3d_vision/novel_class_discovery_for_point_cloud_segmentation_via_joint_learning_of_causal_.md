@@ -30,8 +30,8 @@ tags:
 传统点云语义分割采用"封闭世界"假设——只能分割训练集中出现过的类别。**3D新类发现（3D-NCD）** 旨在仅利用已标注的基类监督，学习一个能分割未标注新类的模型。这对自动驾驶和机器人等需要应对未知类别的场景至关重要。
 
 该任务的关键在于：
-1. **准确建立点表示与基类标签的关联**
-2. **建立基类与新类之间的表示关联**
+**准确建立点表示与基类标签的关联**
+**建立基类与新类之间的表示关联**
 
 现有方法面临两个核心问题：
 
@@ -59,8 +59,9 @@ $$\min_\theta \max_\phi \mathcal{L}_{ADV} = \mathcal{L}_{cls}(f_\theta(X_B), Y_B
 特征提取器 $f_\theta$ 尝试提取去除 $U$ 的因果特征，对抗网络 $g_\phi$ 尝试从 $Z$ 恢复 $U$（如果恢复成功则说明 $Z$ 仍含混杂信息）。$\mathcal{L}_{cls}$ 为交叉熵分类损失，$\mathcal{L}_{adv}$ 为二元交叉熵对抗损失。训练后，基于软分配权重 $W_{ij} = \frac{\exp(\text{sim}(Z_j, C_i))}{\sum_k \exp(\text{sim}(Z_j, C_k))}$ 迭代更新原型 $C_i^{(t+1)} = \frac{\sum_j W_{ij} \cdot Z_j}{\sum_j W_{ij}}$。原型匹配损失为：$\mathcal{L}_{PRO} = -\sum_i \sum_j W_{ij} \cdot \text{sim}(Z_j, C_i) + \lambda \|C_i\|_2^2$。
 
 2. **因果推理图构建（CRG）**：受因果贝叶斯网络（CBN）和因果马尔可夫原则启发，构建有向图来建模 $B \to N$ 的因果路径。图节点包括$M$个基类因果原型 $C$ 和 $K$ 个新类原型 $N$。引入**因果自适应邻接矩阵** $A = [A_{ij}]_{M \times K}$，权重通过自注意力机制动态调整：$w_{ij} = \text{softmax}(\text{Attention}(c_i, n_j)/\tau)$。两个关键约束保证因果有效性：
-   - **推理方向一致性约束**：确保信息沿因果方向（基→新）流动：$\mathcal{L}_{direction} = \sum_{(c_i, n_j) \in E} (w_{ij} \cdot (1 - \mathbb{I}(c_i \to n_j)))^2$
-   - **因果剪枝约束**：移除因果权重低于可学习阈值 $\theta$ 的边：$\mathcal{L}_{pruning}(\theta) = \sum_{(c_i, n_j) \in E} \mathbb{I}(w_{ij} < \theta) \cdot w_{ij}^2$
+
+    - **推理方向一致性约束**：确保信息沿因果方向（基→新）流动：$\mathcal{L}_{direction} = \sum_{(c_i, n_j) \in E} (w_{ij} \cdot (1 - \mathbb{I}(c_i \to n_j)))^2$
+    - **因果剪枝约束**：移除因果权重低于可学习阈值 $\theta$ 的边：$\mathcal{L}_{pruning}(\theta) = \sum_{(c_i, n_j) \in E} \mathbb{I}(w_{ij} < \theta) \cdot w_{ij}^2$
 
 3. **基于GCN的伪标签生成**：现有方法直接用相似度匹配生成伪标签，忽略了类间的高阶依赖关系。本文使用图卷积网络聚合邻居信息：
 

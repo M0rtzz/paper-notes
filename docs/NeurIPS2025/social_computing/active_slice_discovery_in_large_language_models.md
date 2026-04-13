@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **LLM 存在系统性错误模式**：LLM 在特定数据子集（error slices）上会表现出一致性的失败，例如在毒性分类中对某些人口统计群体的评论识别不佳。发现这些 error slices 对模型审计和改进至关重要。
-2. **传统 slice discovery 完全无监督**：现有方法（Domino、Spotlight 等）在无任何切片标注的情况下对错误样本进行聚类，但无监督设定本身难度很大，效果有限。
-3. **人工逐个标注成本极高**：完整标注数据集中每个样本属于哪个 slice 需要大量人力，实际场景中不可行。
-4. **主动学习可降低标注需求**：通过有策略地选择最有价值的样本请求人工判断其 slice 归属，可以用极少标注达到较好效果。
-5. **LLM 内部表征可能蕴含 slice 信息**：模型隐层 embedding 以及 Sparse Autoencoder（SAE）激活值可能编码了足够的语义信息，帮助区分不同 error slices。
-6. **缺乏系统性研究**：尽管 active learning 和 slice discovery 分别有大量工作，但将二者结合的 active slice discovery 尚未被正式研究过。
+**LLM 存在系统性错误模式**：LLM 在特定数据子集（error slices）上会表现出一致性的失败，例如在毒性分类中对某些人口统计群体的评论识别不佳。发现这些 error slices 对模型审计和改进至关重要。
+**传统 slice discovery 完全无监督**：现有方法（Domino、Spotlight 等）在无任何切片标注的情况下对错误样本进行聚类，但无监督设定本身难度很大，效果有限。
+**人工逐个标注成本极高**：完整标注数据集中每个样本属于哪个 slice 需要大量人力，实际场景中不可行。
+**主动学习可降低标注需求**：通过有策略地选择最有价值的样本请求人工判断其 slice 归属，可以用极少标注达到较好效果。
+**LLM 内部表征可能蕴含 slice 信息**：模型隐层 embedding 以及 Sparse Autoencoder（SAE）激活值可能编码了足够的语义信息，帮助区分不同 error slices。
+**缺乏系统性研究**：尽管 active learning 和 slice discovery 分别有大量工作，但将二者结合的 active slice discovery 尚未被正式研究过。
 
 ## 方法详解
 

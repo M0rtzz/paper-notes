@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：DUSt3R开创了像素对齐(pixel-aligned)的前馈3D重建范式——每个像素沿光线预测一个3D点。后续方法(MASt3R、CUT3R、VGGT)扩展到多视角但仍是像素对齐的。另一条路线是latent 3D生成(TripoSG/TRELLIS)，但主要限于物体级且需高质量网格监督。
+**领域现状**：DUSt3R开创了像素对齐(pixel-aligned)的前馈3D重建范式——每个像素沿光线预测一个3D点。后续方法(MASt3R、CUT3R、VGGT)扩展到多视角但仍是像素对齐的。另一条路线是latent 3D生成(TripoSG/TRELLIS)，但主要限于物体级且需高质量网格监督。
 
-2. **现有痛点**：像素对齐方法的两个根本缺陷：(1) 只能重建可见表面，遮挡区域完全没有几何，留下空洞；(2) 多视角重叠区域，同一物理3D点被多条光线分别预测，产生冗余重叠点层，物理上不合理。
+**现有痛点**：像素对齐方法的两个根本缺陷：(1) 只能重建可见表面，遮挡区域完全没有几何，留下空洞；(2) 多视角重叠区域，同一物理3D点被多条光线分别预测，产生冗余重叠点层，物理上不合理。
 
-3. **核心矛盾**：现实世界中一个场景由固定数量的物理点组成，与观测视角数量无关。如果一个3D点被多张图像观测到，正确的表示应该只包含一个点而不是每个观测各产生一个。像素对齐范式从根本上违背了这一物理事实。
+**核心矛盾**：现实世界中一个场景由固定数量的物理点组成，与观测视角数量无关。如果一个3D点被多张图像观测到，正确的表示应该只包含一个点而不是每个观测各产生一个。像素对齐范式从根本上违背了这一物理事实。
 
-4. **本文要解决什么**：(a) 如何从无位姿图像中学习全局的、与视角无关的场景表示？(b) 如何解码为完整的(visible + occluded)非像素对齐点云？(c) 如何处理无序点集的监督问题(L2 loss无法直接用于无序点)？
+**本文要解决什么**：(a) 如何从无位姿图像中学习全局的、与视角无关的场景表示？(b) 如何解码为完整的(visible + occluded)非像素对齐点云？(c) 如何处理无序点集的监督问题(L2 loss无法直接用于无序点)？
 
-5. **切入角度**：将问题分解为两阶段——先训练一个3D点云自编码器学习把完整点云压缩到latent tokens并用flow-matching解码回来，再训练一个图像编码器把图像映射到同一个latent空间。两阶段解耦避免了端到端训练的不稳定性。
+**切入角度**：将问题分解为两阶段——先训练一个3D点云自编码器学习把完整点云压缩到latent tokens并用flow-matching解码回来，再训练一个图像编码器把图像映射到同一个latent空间。两阶段解耦避免了端到端训练的不稳定性。
 
-6. **核心idea一句话**：用可学习场景token替代像素对齐的逐光线预测，结合flow-matching解码器实现从无位姿图像到完整非像素对齐3D点云的前馈重建。
+**核心idea一句话**：用可学习场景token替代像素对齐的逐光线预测，结合flow-matching解码器实现从无位姿图像到完整非像素对齐3D点云的前馈重建。
 
 ## 方法详解
 
@@ -50,20 +50,23 @@ tags:
 ### 关键设计
 
 1. **完整点云的定义与构造**：
-   - 做什么：定义训练监督所需的"完整点云"——包含可见+遮挡区域的所有点
-   - 核心思路：优先使用GT mesh均匀采样；当无mesh时，聚合密集视角的深度图反投影点云，voxel-grid滤波去重，裁剪到输入视角的frustum内，FPS采样N个点用于训练
-   - 设计动机：解决了非像素对齐方法的监督数据来源问题——不需要水密网格，只需深度图就能近似完整点云。所有点定义在第一个视角坐标系下，保持视角无关性
+
+    - 做什么：定义训练监督所需的"完整点云"——包含可见+遮挡区域的所有点
+    - 核心思路：优先使用GT mesh均匀采样；当无mesh时，聚合密集视角的深度图反投影点云，voxel-grid滤波去重，裁剪到输入视角的frustum内，FPS采样N个点用于训练
+    - 设计动机：解决了非像素对齐方法的监督数据来源问题——不需要水密网格，只需深度图就能近似完整点云。所有点定义在第一个视角坐标系下，保持视角无关性
 
 2. **基于Flow-matching的3D Latent自编码器 (Stage 1)**：
-   - 做什么：将完整点云压缩为M个latent tokens并能解码恢复
-   - 核心思路：编码器用FPS从P中采样M个query点 + 可学习token拼接，经cross+self attention得到 $Z \in \mathbb{R}^{M \times C}$。解码器是扩散模型：输入N个噪声点 $x_t$、latent Z和时间步t，预测速度场。训练loss: $\mathcal{L}_{flow}^{AE} = \mathbb{E}[\|\Phi_{dec}(x_t, Z, t) - (\epsilon - x_0)\|_2^2]$
-   - 设计动机：传统3D VAE用occupancy/SDF解码需要canonical空间和水密网格，场景级数据无法满足。直接预测坐标又因点云无序无法用L2 loss。Flow-matching优雅解决了无序匹配问题——解码器学习从噪声到目标点云的确定性ODE轨迹，无需建立一一对应关系
-   - **Joint decoder架构**：cross-attention之间加入self-attention，让点之间能交换空间关联信息，比independent decoder更精确(Table 5验证)
+
+    - 做什么：将完整点云压缩为M个latent tokens并能解码恢复
+    - 核心思路：编码器用FPS从P中采样M个query点 + 可学习token拼接，经cross+self attention得到 $Z \in \mathbb{R}^{M \times C}$。解码器是扩散模型：输入N个噪声点 $x_t$、latent Z和时间步t，预测速度场。训练loss: $\mathcal{L}_{flow}^{AE} = \mathbb{E}[\|\Phi_{dec}(x_t, Z, t) - (\epsilon - x_0)\|_2^2]$
+    - 设计动机：传统3D VAE用occupancy/SDF解码需要canonical空间和水密网格，场景级数据无法满足。直接预测坐标又因点云无序无法用L2 loss。Flow-matching优雅解决了无序匹配问题——解码器学习从噪声到目标点云的确定性ODE轨迹，无需建立一一对应关系
+    - **Joint decoder架构**：cross-attention之间加入self-attention，让点之间能交换空间关联信息，比independent decoder更精确(Table 5验证)
 
 3. **可学习场景Token的图像编码 (Stage 2)**：
-   - 做什么：从K张无位姿图像提取全局场景表示 $\hat{Z} \in \mathbb{R}^{M \times C}$
-   - 核心思路：在VGGT的图像token之外引入M个可学习场景token $t_S$。所有token一起送入Transformer，经过frame-level和global-level self-attention交替处理。场景token被视为第一视角坐标系下的全局帧，共享第一视角的相机token
-   - 设计动机：像素对齐方法token数 = K*H*W 随视角线性增长且绑定到像素。场景token数量固定为M与输入视角数无关，自然避免重叠区域冗余，支持任意数量输入
+
+    - 做什么：从K张无位姿图像提取全局场景表示 $\hat{Z} \in \mathbb{R}^{M \times C}$
+    - 核心思路：在VGGT的图像token之外引入M个可学习场景token $t_S$。所有token一起送入Transformer，经过frame-level和global-level self-attention交替处理。场景token被视为第一视角坐标系下的全局帧，共享第一视角的相机token
+    - 设计动机：像素对齐方法token数 = K*H*W 随视角线性增长且绑定到像素。场景token数量固定为M与输入视角数无关，自然避免重叠区域冗余，支持任意数量输入
 
 ### 损失函数 / 训练策略
 - Stage 1: flow-matching loss端到端训练自编码器，50 epochs

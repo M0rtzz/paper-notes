@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：随着 LLM 逼近超人能力，人类监督变得"弱"，Weak-to-Strong Generalization (Burns et al., 2023) 提出用弱模型监督强模型，已成为 superalignment 的重要范式。
-2. **现有痛点**：W2SG 使用标准 cross-entropy (forward KL) 训练，其 mass-covering 行为会迫使强模型拟合弱监督的**整个分布**——包括弱模型在非目标类上的噪声/误导信号，导致强模型过拟合弱监督的缺陷。
-3. **核心矛盾**：Forward KL 在知识蒸馏中有效（强 teacher → 弱 student，soft label 可靠），但 W2SG 方向相反（弱 teacher → 强 student，soft label 不可靠）——同一损失函数的优势在场景反转后变成劣势。
-4. **本文要解决什么**：W2SG 中应该用什么损失函数？forward KL vs reverse KL 的理论比较与实践验证。
-5. **切入角度**：Reverse KL 的 zero-forcing / mode-seeking 特性——聚焦弱模型高置信预测区域，忽略低概率噪声区域——恰好适合从不可靠弱监督中提取可靠信号。
-6. **核心 idea**：将 W2SG 损失从 $\min_f L(F_w, f \circ h_s)$ 改为 $\min_f L(f \circ h_s, F_w)$（反转 KL/CE 方向），理论保证更紧的泛化界。
+**领域现状**：随着 LLM 逼近超人能力，人类监督变得"弱"，Weak-to-Strong Generalization (Burns et al., 2023) 提出用弱模型监督强模型，已成为 superalignment 的重要范式。
+**现有痛点**：W2SG 使用标准 cross-entropy (forward KL) 训练，其 mass-covering 行为会迫使强模型拟合弱监督的**整个分布**——包括弱模型在非目标类上的噪声/误导信号，导致强模型过拟合弱监督的缺陷。
+**核心矛盾**：Forward KL 在知识蒸馏中有效（强 teacher → 弱 student，soft label 可靠），但 W2SG 方向相反（弱 teacher → 强 student，soft label 不可靠）——同一损失函数的优势在场景反转后变成劣势。
+**本文要解决什么**：W2SG 中应该用什么损失函数？forward KL vs reverse KL 的理论比较与实践验证。
+**切入角度**：Reverse KL 的 zero-forcing / mode-seeking 特性——聚焦弱模型高置信预测区域，忽略低概率噪声区域——恰好适合从不可靠弱监督中提取可靠信号。
+**核心 idea**：将 W2SG 损失从 $\min_f L(F_w, f \circ h_s)$ 改为 $\min_f L(f \circ h_s, F_w)$（反转 KL/CE 方向），理论保证更紧的泛化界。
 
 ## 方法详解
 
@@ -42,22 +42,26 @@ W2SG 设置：弱模型 $F_w$ 提供 soft label 监督强模型 $F_{sw} = f \cir
 ### 关键设计
 
 1. **泛化上下界分析 (Lemma 1)**
-   - 做什么：为 forward 和 reverse KL/CE 建立统一的泛化界
-   - 核心思路：$|L(F^*, F_w) - L(F^*, F_{sw})| \leq C_1 \sqrt{d(F_w, F_{sw})}$，其中 $d$ 可以是 forward 或 reverse KL 的分歧度。说明两种 loss 都给出可比的泛化保证
-   - 设计动机：证明 reverse loss "至少不比" forward loss 差
+
+    - 做什么：为 forward 和 reverse KL/CE 建立统一的泛化界
+    - 核心思路：$|L(F^*, F_w) - L(F^*, F_{sw})| \leq C_1 \sqrt{d(F_w, F_{sw})}$，其中 $d$ 可以是 forward 或 reverse KL 的分歧度。说明两种 loss 都给出可比的泛化保证
+    - 设计动机：证明 reverse loss "至少不比" forward loss 差
 
 2. **Reverse KL 的独特优势 (Theorem 2)**
-   - 做什么：证明 reverse KL 在 last-layer fine-tuning 下保证强模型超越弱模型
-   - 核心思路：当充分预训练的强模型只微调最后线性层时，reverse KL 保证 $L(F^*, F_{sw}^r) \leq L(F^*, F_w) - \text{disagreement}(F_w, F_{sw}^r)$。即强模型性能 ≥ 弱模型性能 + 分歧量
-   - 设计动机：Forward KL 没有这个保证——mass-covering 行为可能让强模型"退化"到弱模型水平
+
+    - 做什么：证明 reverse KL 在 last-layer fine-tuning 下保证强模型超越弱模型
+    - 核心思路：当充分预训练的强模型只微调最后线性层时，reverse KL 保证 $L(F^*, F_{sw}^r) \leq L(F^*, F_w) - \text{disagreement}(F_w, F_{sw}^r)$。即强模型性能 ≥ 弱模型性能 + 分歧量
+    - 设计动机：Forward KL 没有这个保证——mass-covering 行为可能让强模型"退化"到弱模型水平
 
 3. **更紧的下界 (改进 Yao et al., 2025)**
-   - 做什么：为 forward loss 推导更紧下界 $C_2 \leq C_1$
-   - 核心思路：利用 $\gamma = 10^{-3} \ll 1/e$ 条件，得到 reverse loss 的常数因子 $C_2$ 更小，意味着泛化界更紧
+
+    - 做什么：为 forward loss 推导更紧下界 $C_2 \leq C_1$
+    - 核心思路：利用 $\gamma = 10^{-3} \ll 1/e$ 条件，得到 reverse loss 的常数因子 $C_2$ 更小，意味着泛化界更紧
 
 4. **噪声鲁棒性**
-   - Forward KL mass-covering: 噪声标签的低概率区域也会被学到
-   - Reverse KL zero-forcing: 强模型只关注弱模型置信度高的预测，噪声被自动过滤
+
+    - Forward KL mass-covering: 噪声标签的低概率区域也会被学到
+    - Reverse KL zero-forcing: 强模型只关注弱模型置信度高的预测，噪声被自动过滤
 
 ### 训练策略
 - 单 epoch 训练以减少过拟合，batch size 16，lr $10^{-5}$

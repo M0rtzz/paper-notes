@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 的后训练主要有两大路线——prompt 优化（如 OPRO、RLPrompt、BPO）通过寻找合适的输入上下文激活模型已有能力；微调（如 SFT、RLHF、DPO）通过更新参数适配目标数据分布。二者通常被独立研究和使用。
-2. **现有痛点**：prompt 优化虽可引导模型行为，但无法适配大规模任务数据中的复杂模式，尤其当 prompt 信息和参数内编码的知识冲突时效果打折。微调虽可适配数据，但通常使用人工设计的 prompt 作为输入，而 prompt 的选择对微调效果影响极大——使用次优 prompt 甚至可能比纯 prompt 优化还差。
-3. **核心矛盾**：prompt 是离散优化空间（文本 token），参数是连续优化空间（浮点权重），二者的优化目标和执行流程本质不同。如何在一个统一框架中同时优化两个互补维度，并解决混合离散-连续优化的不可微分问题？
-4. **本文要解决什么？** (a) 如何设计框架让 prompt 和参数互相增强？(b) 如何在离散-连续混合空间中进行有效梯度优化？(c) 最优的 prompt-参数组合能否超越单独优化的上界？
-5. **切入角度**：通过预实验发现微调方法对 prompt 选择极其敏感——使用不同 prompt 的 SFT 性能差异巨大，甚至可低于 prompt 优化方法。这证实了联合优化的必要性。
-6. **核心idea一句话**：将 prompt 视为"特殊参数"，通过共享编码器同时生成 prompt 和模型参数，实现互补增强。
+**领域现状**：LLM 的后训练主要有两大路线——prompt 优化（如 OPRO、RLPrompt、BPO）通过寻找合适的输入上下文激活模型已有能力；微调（如 SFT、RLHF、DPO）通过更新参数适配目标数据分布。二者通常被独立研究和使用。
+**现有痛点**：prompt 优化虽可引导模型行为，但无法适配大规模任务数据中的复杂模式，尤其当 prompt 信息和参数内编码的知识冲突时效果打折。微调虽可适配数据，但通常使用人工设计的 prompt 作为输入，而 prompt 的选择对微调效果影响极大——使用次优 prompt 甚至可能比纯 prompt 优化还差。
+**核心矛盾**：prompt 是离散优化空间（文本 token），参数是连续优化空间（浮点权重），二者的优化目标和执行流程本质不同。如何在一个统一框架中同时优化两个互补维度，并解决混合离散-连续优化的不可微分问题？
+**本文要解决什么？** (a) 如何设计框架让 prompt 和参数互相增强？(b) 如何在离散-连续混合空间中进行有效梯度优化？(c) 最优的 prompt-参数组合能否超越单独优化的上界？
+**切入角度**：通过预实验发现微调方法对 prompt 选择极其敏感——使用不同 prompt 的 SFT 性能差异巨大，甚至可低于 prompt 优化方法。这证实了联合优化的必要性。
+**核心idea一句话**：将 prompt 视为"特殊参数"，通过共享编码器同时生成 prompt 和模型参数，实现互补增强。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ MetaTuner 的 pipeline：输入 query $x_i$ → Meta Encoder（共享底层 $\ph
 ### 关键设计
 
 1. **Prompt Generator $\mathcal{G}$（连续化离散优化）**:
-   - 做什么：用一个 LLM 将离散 prompt 优化转化为连续参数优化
-   - 核心思路：给定一个初始 prompt $\tilde{p}$，用可学习的 LLM $\mathcal{G}_\phi$ 对每条 query 重写得到定制化 prompt：$p_i = \mathcal{G}_\phi(\tilde{p}, x_i)$。这样优化目标从不可微的离散 token 搜索变为对 $\phi$ 的连续优化
-   - 设计动机：从零生成完整 prompt 太困难，rewrite 策略大幅简化了搜索空间。同时所有 query 共享初始 prompt，减少了人工标注负担
+
+    - 做什么：用一个 LLM 将离散 prompt 优化转化为连续参数优化
+    - 核心思路：给定一个初始 prompt $\tilde{p}$，用可学习的 LLM $\mathcal{G}_\phi$ 对每条 query 重写得到定制化 prompt：$p_i = \mathcal{G}_\phi(\tilde{p}, x_i)$。这样优化目标从不可微的离散 token 搜索变为对 $\phi$ 的连续优化
+    - 设计动机：从零生成完整 prompt 太困难，rewrite 策略大幅简化了搜索空间。同时所有 query 共享初始 prompt，减少了人工标注负担
 
 2. **Shared-Private 参数生成架构**:
-   - 做什么：通过共享 meta encoder 让 prompt 和参数互相传递知识
-   - 核心思路：将 $\mathcal{G}$ 的参数拆为 $\phi = \{\phi_s, \phi_p\}$，其中 $\phi_s$ 是共享的底层编码层（前 $k$ 层 Transformer decoder），$\phi_p$ 是 prompt 专用上层；Parameter Decoder $\mathcal{F}$ 使用同样的 $\phi_s$ 加上自己的私有参数 $\phi_q$。统一目标：$\min_{\phi_s, \phi_p, \phi_q} \sum_{i=1}^N \mathcal{L}(\mathcal{M}_{\mathcal{F}_{(\phi_s,\phi_q)}(\tilde{p},x_i)}(\mathcal{G}_{(\phi_s,\phi_p)}(\tilde{p},x_i), x_i), y_i)$
-   - 设计动机：共享参数 $\phi_s$ 使两条分支可以互相正则化——任何一方的次优解可以被另一方在统一损失下纠正。私有参数 $\phi_p$、$\phi_q$ 保留各分支独立探索最优解的灵活性
+
+    - 做什么：通过共享 meta encoder 让 prompt 和参数互相传递知识
+    - 核心思路：将 $\mathcal{G}$ 的参数拆为 $\phi = \{\phi_s, \phi_p\}$，其中 $\phi_s$ 是共享的底层编码层（前 $k$ 层 Transformer decoder），$\phi_p$ 是 prompt 专用上层；Parameter Decoder $\mathcal{F}$ 使用同样的 $\phi_s$ 加上自己的私有参数 $\phi_q$。统一目标：$\min_{\phi_s, \phi_p, \phi_q} \sum_{i=1}^N \mathcal{L}(\mathcal{M}_{\mathcal{F}_{(\phi_s,\phi_q)}(\tilde{p},x_i)}(\mathcal{G}_{(\phi_s,\phi_p)}(\tilde{p},x_i), x_i), y_i)$
+    - 设计动机：共享参数 $\phi_s$ 使两条分支可以互相正则化——任何一方的次优解可以被另一方在统一损失下纠正。私有参数 $\phi_p$、$\phi_q$ 保留各分支独立探索最优解的灵活性
 
 3. **Parameter Decoder 的具体实现**:
-   - 做什么：从共享编码器输出的隐状态 $h_i$ 生成 query-specific 的 LoRA 权重
-   - 核心思路：采用 LoRA 更新 $\Delta W = \theta_i^b \cdot \theta_i^a$，通过两层矩阵乘法+ReLU 从隐状态生成：$\theta_i^b = \text{MM}(\text{ReLU}(\text{MM}(W_d^b, h_i)), W_u^b)$。参数 decoder $\phi_q = \{W_d^b, W_u^b, W_d^a, W_u^a\}$，并用缩放因子 $\lambda$ 控制生成的 LoRA 加权强度
-   - 设计动机：使用 LoRA 而非全参数微调保证训练效率，同时每个 query 生成不同的 LoRA 参数实现了针对性的适配
+
+    - 做什么：从共享编码器输出的隐状态 $h_i$ 生成 query-specific 的 LoRA 权重
+    - 核心思路：采用 LoRA 更新 $\Delta W = \theta_i^b \cdot \theta_i^a$，通过两层矩阵乘法+ReLU 从隐状态生成：$\theta_i^b = \text{MM}(\text{ReLU}(\text{MM}(W_d^b, h_i)), W_u^b)$。参数 decoder $\phi_q = \{W_d^b, W_u^b, W_d^a, W_u^a\}$，并用缩放因子 $\lambda$ 控制生成的 LoRA 加权强度
+    - 设计动机：使用 LoRA 而非全参数微调保证训练效率，同时每个 query 生成不同的 LoRA 参数实现了针对性的适配
 
 ### 损失函数 / 训练策略
 

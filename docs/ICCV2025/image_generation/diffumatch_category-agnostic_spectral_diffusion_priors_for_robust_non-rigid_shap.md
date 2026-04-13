@@ -29,8 +29,8 @@ tags:
 
 深度功能映射（Deep Functional Maps）在非刚性形状对应任务中表现出色，但存在两个核心局限：
 
-1. **过度依赖公理化建模**：现有方法将学习部分限制在特征函数提取上，对于功能映射的正则化和训练损失仍依赖手工设计的公理化约束（如近等距假设、面积保持等），当这些假设不成立时（如跨类别匹配），方法的泛化性急剧下降。
-2. **类别特异性**：学习型方法（如 3D-CODED、Neural Jacobian Fields）在特定类别上训练后难以泛化到新类别——在人体上训练的模型无法良好匹配动物形状。
+**过度依赖公理化建模**：现有方法将学习部分限制在特征函数提取上，对于功能映射的正则化和训练损失仍依赖手工设计的公理化约束（如近等距假设、面积保持等），当这些假设不成立时（如跨类别匹配），方法的泛化性急剧下降。
+**类别特异性**：学习型方法（如 3D-CODED、Neural Jacobian Fields）在特定类别上训练后难以泛化到新类别——在人体上训练的模型无法良好匹配动物形状。
 
 **核心洞察**：功能映射矩阵 $C \in \mathbb{R}^{k \times k}$ 在谱域中具有类似图像的结构特性（近似对角等），可以用生成模型学习其分布。如果能从大量高质量功能映射中学到结构先验，就能用数据驱动的方式替代公理化正则。
 
@@ -43,22 +43,25 @@ tags:
 ### 关键设计
 
 1. **谱扩散模型训练**：
-   - 利用 D-FAUST 数据集中 ~40,000 个模板到形状的功能映射（$30 \times 30$），以绝对值 $|C_{gt}|$ 作为训练输入（符号无关性处理）。
-   - 架构采用 DiT-S（Diffusion Transformer），patch size 为 5，以 EDM 框架训练 1000 epoch。
-   - 去噪器 $D(C_\sigma, \sigma)$ 学习功能映射在不同噪声水平下的结构分布。
+
+    - 利用 D-FAUST 数据集中 ~40,000 个模板到形状的功能映射（$30 \times 30$），以绝对值 $|C_{gt}|$ 作为训练输入（符号无关性处理）。
+    - 架构采用 DiT-S（Diffusion Transformer），patch size 为 5，以 EDM 框架训练 1000 epoch。
+    - 去噪器 $D(C_\sigma, \sigma)$ 学习功能映射在不同噪声水平下的结构分布。
 
 2. **掩码蒸馏（核心创新）**：
-   - 传统方法用拉普拉斯交换性推导稀疏掩码 $M_{reg}$；本文直接从扩散模型的 score 函数蒸馏掩码。
-   - 假设功能映射似然为 $p(C_\sigma;\sigma) \propto \exp(-\|M_\sigma \cdot C_\sigma\|^2)$，其 score 为 $s(C_\sigma;\sigma) = -2M_\sigma^2 \cdot C_\sigma$。
-   - 结合扩散模型的 score 估计公式 $(D(C_\sigma;\sigma) - C_\sigma)/\sigma^2$，推导出掩码计算公式：
-   $$M_\sigma^2 = \mathbb{E}_{n_\sigma \sim \mathcal{N}(0,\sigma^2 I), n_\sigma > 0}\left[\frac{|C|_\sigma - D(|C|_\sigma;\sigma)}{2\sigma^2 |C|_\sigma}\right]$$
-   - 仅采样正噪声 $n_\sigma > 0$ 避免除零不稳定性。
+
+    - 传统方法用拉普拉斯交换性推导稀疏掩码 $M_{reg}$；本文直接从扩散模型的 score 函数蒸馏掩码。
+    - 假设功能映射似然为 $p(C_\sigma;\sigma) \propto \exp(-\|M_\sigma \cdot C_\sigma\|^2)$，其 score 为 $s(C_\sigma;\sigma) = -2M_\sigma^2 \cdot C_\sigma$。
+    - 结合扩散模型的 score 估计公式 $(D(C_\sigma;\sigma) - C_\sigma)/\sigma^2$，推导出掩码计算公式：
+    $M_\sigma^2 = \mathbb{E}_{n_\sigma \sim \mathcal{N}(0,\sigma^2 I), n_\sigma > 0}\left[\frac{|C|_\sigma - D(|C|_\sigma;\sigma)}{2\sigma^2 |C|_\sigma}\right]$
+    - 仅采样正噪声 $n_\sigma > 0$ 避免除零不稳定性。
 
 3. **零样本匹配管线**：
-   - 给定新形状对，用 DiffusionNet 提取点特征；
-   - 通过 FMReg 层（$\alpha=0$）估计 "raw" 功能映射 $C_{raw}$；
-   - 用扩散模型从 $C_{raw}$ 蒸馏掩码 $M_\sigma$（$\sigma=1$，100 个噪声样本）；
-   - 以 $M_\sigma$ 正则化重新求解得到 $C_{reg}$，再经 Zoomout 获得 proper map。
+
+    - 给定新形状对，用 DiffusionNet 提取点特征；
+    - 通过 FMReg 层（$\alpha=0$）估计 "raw" 功能映射 $C_{raw}$；
+    - 用扩散模型从 $C_{raw}$ 蒸馏掩码 $M_\sigma$（$\sigma=1$，100 个噪声样本）；
+    - 以 $M_\sigma$ 正则化重新求解得到 $C_{reg}$，再经 Zoomout 获得 proper map。
 
 ### 损失函数 / 训练策略
 

@@ -42,20 +42,23 @@ tags:
 
 ### 关键设计
 1. **Multimodal LayerDrop（Stage 1）**: 
-   - 先在 MAE 预训练阶段引入 LayerDrop（率0.2），使ViT backbone对缺失层具有鲁棒性
-   - 再在多模态任务微调时保持 LayerDrop，使融合层和输出层适应各种backbone层配置
-   - **全backbone Dropout**：10%概率丢弃某模态backbone的全部层——模拟该模态完全不可用的极端情况
-   - 结果：单套权重可在任意层预算下工作
+
+    - 先在 MAE 预训练阶段引入 LayerDrop（率0.2），使ViT backbone对缺失层具有鲁棒性
+    - 再在多模态任务微调时保持 LayerDrop，使融合层和输出层适应各种backbone层配置
+    - **全backbone Dropout**：10%概率丢弃某模态backbone的全部层——模拟该模态完全不可用的极端情况
+    - 结果：单套权重可在任意层预算下工作
 
 2. **QoI感知控制器（Stage 2）**:
-   - 轻量级架构：下采样输入→模态特定卷积→Transformer融合→MLP输出层分配logits
-   - **腐蚀感知监督（ADMN）**：用额外的腐蚀预测loss $\mathcal{L}_{corr}$ 显式教控制器注意模态QoI
-   - **自编码器初始化（ADMN_AE）**：无腐蚀标注时，先用AE预训练控制器的感知层——重建目标迫使latent space按QoI聚类（t-SNE可视化验证）
-   - 消融证明：纯task loss无法学到QoI感知分配
+
+    - 轻量级架构：下采样输入→模态特定卷积→Transformer融合→MLP输出层分配logits
+    - **腐蚀感知监督（ADMN）**：用额外的腐蚀预测loss $\mathcal{L}_{corr}$ 显式教控制器注意模态QoI
+    - **自编码器初始化（ADMN_AE）**：无腐蚀标注时，先用AE预训练控制器的感知层——重建目标迫使latent space按QoI聚类（t-SNE可视化验证）
+    - 消融证明：纯task loss无法学到QoI感知分配
 
 3. **可微分层选择**:
-   - Gumbel-Softmax采样（温度1）+ Top-L离散化 + Straight-through estimator
-   - 实现在总预算L层约束下对C个backbone层的可微分选择
+
+    - Gumbel-Softmax采样（温度1）+ Top-L离散化 + Straight-through estimator
+    - 实现在总预算L层约束下对C个backbone层的可微分选择
 
 ### 损失函数 / 训练策略
 Stage 1: Task loss + LayerDrop(0.2) + Full-backbone dropout(10%)。Stage 2: $\mathcal{L}_{total} = \mathcal{L}_{model} + \mathcal{L}_{corr}$（或AE初始化+$\mathcal{L}_{model}$）。

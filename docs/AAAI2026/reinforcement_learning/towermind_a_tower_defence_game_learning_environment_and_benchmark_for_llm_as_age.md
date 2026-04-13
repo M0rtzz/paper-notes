@@ -30,8 +30,8 @@ tags:
 
 **RTS 游戏是理想的测试平台**：实时策略游戏同时需要宏观战略规划和微观战术适应，天然适合评估这两项能力。然而现有 RTS 游戏环境存在问题：
 
-1. **计算需求过高**：基于 StarCraft II 的 TextStarCraft II、LLM-PySC2 等需要约 30GB 磁盘空间、2GB 内存和专用 GPU
-2. **缺乏文本观测支持**：轻量级 RTS 环境如 ELF、DeepRTS、Gym-μRTS 不支持文本观测和动作接口，与 LLM 不兼容
+**计算需求过高**：基于 StarCraft II 的 TextStarCraft II、LLM-PySC2 等需要约 30GB 磁盘空间、2GB 内存和专用 GPU
+**缺乏文本观测支持**：轻量级 RTS 环境如 ELF、DeepRTS、Gym-μRTS 不支持文本观测和动作接口，与 LLM 不兼容
 
 **塔防游戏的优势**：共享 RTS 核心机制但仅防守预定义敌人波次，避免对手不可预测性的干扰，支持更孤立地评估 LLM 的规划与决策能力。固定的塔位选项和预定义路线便于分析 LLM 的策略选择。
 

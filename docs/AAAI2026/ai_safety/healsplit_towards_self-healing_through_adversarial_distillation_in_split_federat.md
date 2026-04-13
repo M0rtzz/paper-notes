@@ -29,14 +29,14 @@ tags:
 
 **分割联邦学习（SFL）** 结合了联邦学习（FL）和分割学习（SL）的优势，每个客户端执行本地前向传播并将中间表示（smashed data）传输到服务器。然而 SFL 存在多个攻击面：
 
-1. **多种投毒攻击类型**：
+**多种投毒攻击类型**：
    - 标签投毒（LP）：修改标签 $y_j' = (y_j + \delta_y) \mod C$
    - 数据投毒（DP）：修改输入 $x_j' = x_j + \delta_x$
    - Smashed data 投毒（SP）：修改中间表示 $z_j' = g_\phi(x_j) + \delta_z$
    - 权重投毒（WP）：修改模型参数 $\theta' = \theta + \Delta_\theta$
    - 多向量组合攻击（DP+SP、WP+SP 等）
 
-2. **现有防御的不足**：
+**现有防御的不足**：
    - Krum、Trimmed Mean、Bulyan 等统计聚合方法 → 假设能访问完整模型更新或原始梯度，在 SFL 的分割架构下假设不成立
    - FLTrust、DnC 等高级防御 → 主要针对单一攻击向量，泛化性差
    - ShieldFL 使用加密余弦相似度 → 在组合攻击下仍然脆弱

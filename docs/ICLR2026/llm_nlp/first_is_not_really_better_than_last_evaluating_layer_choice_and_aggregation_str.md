@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Influence function 是评估训练数据对模型决策影响的重要工具（TracIn、DataInf、Cosine 等）。由于现代 LLM 参数量巨大，通常只在部分层上计算 influence 以保证可行性。
-2. **现有痛点**：Yeh et al. (2022) 基于"cancellation effect"假设得出结论认为第一层（word embedding）最适合做 influence estimation。然而这一结论只在小规模模型（RoBERTa）和单一方法（TracIn）上验证过，且 cancellation effect 本身的可靠性从未被严格检验。
-3. **核心矛盾**：cancellation effect 指标 $C(W)$ 通过参数子集的 norm 聚合来衡量梯度抵消，但这种聚合会掩盖个别参数上的极端抵消，导致指标无法可靠预测层的实际 influence 性能。同时，标准的均值聚合策略也可能因对冲效应而降低判别能力。
-4. **本文要解决什么？** (RQ1) cancellation effect 是否可靠；(RQ2) 哪些层最适合 influence estimation；(RQ3) 如何更好地跨层聚合 influence 分数；(RQ4) 是否存在不需要重训练就能评估 influence 方法效果的 proxy 指标。
-5. **切入角度**：从理论证明 cancellation effect 的反例出发，然后在多模型多数据集上做大规模实验，系统评估层选择和聚合策略。
-6. **核心 idea 一句话**：中间 attention 层比 embedding 层更适合影响力估计，Vote 聚合比均值聚合显著更好，NDR 可作为无需重训练的可靠 proxy 指标。
+**领域现状**：Influence function 是评估训练数据对模型决策影响的重要工具（TracIn、DataInf、Cosine 等）。由于现代 LLM 参数量巨大，通常只在部分层上计算 influence 以保证可行性。
+**现有痛点**：Yeh et al. (2022) 基于"cancellation effect"假设得出结论认为第一层（word embedding）最适合做 influence estimation。然而这一结论只在小规模模型（RoBERTa）和单一方法（TracIn）上验证过，且 cancellation effect 本身的可靠性从未被严格检验。
+**核心矛盾**：cancellation effect 指标 $C(W)$ 通过参数子集的 norm 聚合来衡量梯度抵消，但这种聚合会掩盖个别参数上的极端抵消，导致指标无法可靠预测层的实际 influence 性能。同时，标准的均值聚合策略也可能因对冲效应而降低判别能力。
+**本文要解决什么？** (RQ1) cancellation effect 是否可靠；(RQ2) 哪些层最适合 influence estimation；(RQ3) 如何更好地跨层聚合 influence 分数；(RQ4) 是否存在不需要重训练就能评估 influence 方法效果的 proxy 指标。
+**切入角度**：从理论证明 cancellation effect 的反例出发，然后在多模型多数据集上做大规模实验，系统评估层选择和聚合策略。
+**核心 idea 一句话**：中间 attention 层比 embedding 层更适合影响力估计，Vote 聚合比均值聚合显著更好，NDR 可作为无需重训练的可靠 proxy 指标。
 
 ## 方法详解
 
@@ -42,24 +42,28 @@ tags:
 ### 关键设计
 
 1. **Cancellation Effect 的理论反驳**
-   - 做什么：证明 Yeh et al. 的 cancellation effect 作为层选择指标是不可靠的。
-   - 核心思路：Theorem 5.1 构造了一个反例：存在验证点 $\bar{x}_3$ 使得包含高 cancellation 权重 $\omega$ 的 influence 分数 $\Delta I_{\theta,\omega}$ 比只用低 cancellation 权重 $\theta$ 的 $\Delta I_{\theta}$ 对噪声/干净样本的区分度更大。Spearman 相关性分析也显示 $C$ 与下游性能几乎无关（$\rho$ 接近 0）。
-   - 设计动机：直接挑战该领域的基础假设，为重新评估层选择打开大门。
+
+    - 做什么：证明 Yeh et al. 的 cancellation effect 作为层选择指标是不可靠的。
+    - 核心思路：Theorem 5.1 构造了一个反例：存在验证点 $\bar{x}_3$ 使得包含高 cancellation 权重 $\omega$ 的 influence 分数 $\Delta I_{\theta,\omega}$ 比只用低 cancellation 权重 $\theta$ 的 $\Delta I_{\theta}$ 对噪声/干净样本的区分度更大。Spearman 相关性分析也显示 $C$ 与下游性能几乎无关（$\rho$ 接近 0）。
+    - 设计动机：直接挑战该领域的基础假设，为重新评估层选择打开大门。
 
 2. **Rank 聚合策略**
-   - 做什么：用排名代替原始 influence 分数来跨层聚合，消除极端值的支配效应。
-   - 核心思路：每个验证样本和每个层对训练样本按 influence 分数排序，将排名求和（$\operatorname{Rank}(I') = \sum_{x',l} \sum_{y} \mathbb{I}(I'(y,...) < I'(\cdot,...))$），且只考虑被正确预测的验证样本。
-   - 设计动机：标准均值聚合中，不同层的 influence 量纲差异大，少数极端值可能主导结果。排名消除了量纲影响。
+
+    - 做什么：用排名代替原始 influence 分数来跨层聚合，消除极端值的支配效应。
+    - 核心思路：每个验证样本和每个层对训练样本按 influence 分数排序，将排名求和（$\operatorname{Rank}(I') = \sum_{x',l} \sum_{y} \mathbb{I}(I'(y,...) < I'(\cdot,...))$），且只考虑被正确预测的验证样本。
+    - 设计动机：标准均值聚合中，不同层的 influence 量纲差异大，少数极端值可能主导结果。排名消除了量纲影响。
 
 3. **Vote（位置投票）聚合策略**
-   - 做什么：每个验证样本/层对排名最低的 $k$ 个训练样本投票，投票数按排名递减。
-   - 核心思路：$\operatorname{Vote}_k(I') = -\sum_{x',l} \max(k - \operatorname{rank}, 0)$，选择 $k$ 等于要过滤的训练样本数。只有排在最底部的样本获得投票，避免中间排名的噪声影响。
-   - 设计动机：Rank 方法仍受极低/极高排名的影响，Vote 通过截断只关注最有害的样本。实验表明 $k \in [10, 50]$ 效果最好。
+
+    - 做什么：每个验证样本/层对排名最低的 $k$ 个训练样本投票，投票数按排名递减。
+    - 核心思路：$\operatorname{Vote}_k(I') = -\sum_{x',l} \max(k - \operatorname{rank}, 0)$，选择 $k$ 等于要过滤的训练样本数。只有排在最底部的样本获得投票，避免中间排名的噪声影响。
+    - 设计动机：Rank 方法仍受极低/极高排名的影响，Vote 通过截断只关注最有害的样本。实验表明 $k \in [10, 50]$ 效果最好。
 
 4. **Noise Detection Rate (NDR) proxy 指标**
-   - 做什么：提出一个不需要重训练就能评估 influence 方法的 proxy 指标。
-   - 核心思路：NDR 衡量在 influence 排名末尾 $k\%$ 的样本中噪声样本占比。AUC 衡量噪声在整个排名中的分布偏斜度。与 cancellation effect 的相关性几乎为零不同，NDR 与实际下游性能有 0.5-0.9 的 Spearman 相关性。
-   - 设计动机：避免每次评估新 influence 方法都需要昂贵的重训练实验。
+
+    - 做什么：提出一个不需要重训练就能评估 influence 方法的 proxy 指标。
+    - 核心思路：NDR 衡量在 influence 排名末尾 $k\%$ 的样本中噪声样本占比。AUC 衡量噪声在整个排名中的分布偏斜度。与 cancellation effect 的相关性几乎为零不同，NDR 与实际下游性能有 0.5-0.9 的 Spearman 相关性。
+    - 设计动机：避免每次评估新 influence 方法都需要昂贵的重训练实验。
 
 ### 损失函数 / 训练策略
 

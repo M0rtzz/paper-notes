@@ -27,12 +27,12 @@ tags:
 提出 Task Preference Optimization（TPO），通过可学习的任务 token 将视觉任务专用头（区域定位/时序定位/分割）接入 MLLM，利用视觉任务标注作为"任务偏好"反向优化 MLLM，在不损害对话能力的前提下大幅提升细粒度视觉理解，VideoChat 基线上平均提升 14.6%。
 
 ## 研究背景与动机
-1. **领域现状**：当前 MLLM（如 LLaVA、VideoChat）在通用视觉对话上表现出色，但在细粒度视觉任务（如跟踪、时序定位、分割）上能力不足，存在精确感知的短板。
-2. **现有痛点**：已有方案要么把视觉任务文本化后自回归预测（P2S 方式，如 Shikra、TimeChat），要么接外部工具（P2E 方式，如 LISA）。但文本化方案会因离散化丢失精度，同时多任务混训常导致原有对话能力下降——这与视觉基础模型中"多任务互利"的经验矛盾。
-3. **核心矛盾**：作者观察到冲突根源在于离散文本 token 与密集视觉预测之间的学习差异——用自回归文本 loss 去学 bounding box 坐标或 timestamp 本身就不匹配。解耦二者的表征即可解决。
-4. **本文要解决的问题**：如何在不损害 MLLM 对话能力的前提下，端到端地引入多种细粒度视觉任务的精确监督，且不同任务之间能相互促进？
-5. **切入角度**：借鉴 DPO 中用偏好信号引导 LLM 的思路——视觉任务的标注可以看作人类对"精确感知"的偏好，通过专用头的可微损失反传来优化 MLLM。
-6. **核心idea**：引入可学习的任务 token 作为 MLLM 和视觉任务头之间的桥梁，任务头接受密集视觉监督并将梯度传回 MLLM，实现"用视觉任务监督优化语言模型"。
+**领域现状**：当前 MLLM（如 LLaVA、VideoChat）在通用视觉对话上表现出色，但在细粒度视觉任务（如跟踪、时序定位、分割）上能力不足，存在精确感知的短板。
+**现有痛点**：已有方案要么把视觉任务文本化后自回归预测（P2S 方式，如 Shikra、TimeChat），要么接外部工具（P2E 方式，如 LISA）。但文本化方案会因离散化丢失精度，同时多任务混训常导致原有对话能力下降——这与视觉基础模型中"多任务互利"的经验矛盾。
+**核心矛盾**：作者观察到冲突根源在于离散文本 token 与密集视觉预测之间的学习差异——用自回归文本 loss 去学 bounding box 坐标或 timestamp 本身就不匹配。解耦二者的表征即可解决。
+**本文要解决的问题**：如何在不损害 MLLM 对话能力的前提下，端到端地引入多种细粒度视觉任务的精确监督，且不同任务之间能相互促进？
+**切入角度**：借鉴 DPO 中用偏好信号引导 LLM 的思路——视觉任务的标注可以看作人类对"精确感知"的偏好，通过专用头的可微损失反传来优化 MLLM。
+**核心idea**：引入可学习的任务 token 作为 MLLM 和视觉任务头之间的桥梁，任务头接受密集视觉监督并将梯度传回 MLLM，实现"用视觉任务监督优化语言模型"。
 
 ## 方法详解
 
@@ -48,22 +48,25 @@ MLLM-TPO 由两部分构成：标准 MLLM $M$（视觉编码器 $E$ + 连接器 
 ### 关键设计
 
 1. **三种视觉任务头（Task Preference Model）**：
-   - 做什么：分别处理空间定位、时序定位和像素级分割三类核心视觉感知任务
-   - **Region Head**：2 层 MLP + ReLU，将 LLM embedding 回归到 bounding box 坐标，用于空间定位（referring expression grounding）
-   - **Temporal Head**：基于 CG-DETR 架构，包含视频编码器和文本编码器，接受 temporal task embedding 后预测 moment 的起止时间和 highlight 分数，用于时序定位
-   - **Mask Head**：复用 SAM2 的图像编码器和 mask decoder，替换 prompt encoder 为单层 MLP（mask adapter），实现 referring segmentation 和跟踪
-   - 设计动机：这三类头覆盖了大部分判别式视觉任务，且各自有成熟的专家模型架构可复用
+
+    - 做什么：分别处理空间定位、时序定位和像素级分割三类核心视觉感知任务
+    - **Region Head**：2 层 MLP + ReLU，将 LLM embedding 回归到 bounding box 坐标，用于空间定位（referring expression grounding）
+    - **Temporal Head**：基于 CG-DETR 架构，包含视频编码器和文本编码器，接受 temporal task embedding 后预测 moment 的起止时间和 highlight 分数，用于时序定位
+    - **Mask Head**：复用 SAM2 的图像编码器和 mask decoder，替换 prompt encoder 为单层 MLP（mask adapter），实现 referring segmentation 和跟踪
+    - 设计动机：这三类头覆盖了大部分判别式视觉任务，且各自有成熟的专家模型架构可复用
 
 2. **可学习任务 Token 作为桥梁**：
-   - 做什么：解耦视觉任务表征与 MLLM 文本表征
-   - 核心思路：每种任务对应一个可学习 token $\mathbf{v}_i \in \mathbb{R}^{1 \times C}$，输入 LLM 后输出 task embedding $\mathbf{e}_i = G(\mathbf{v}_i)$，再送入对应任务头。这样任务的密集视觉监督通过梯度反传从头 → embedding → LLM，间接增强 MLLM 的视觉理解能力
-   - 设计动机：避免将视觉任务硬转成文本（导致信息丢失），同时让任务梯度能流回 LLM
+
+    - 做什么：解耦视觉任务表征与 MLLM 文本表征
+    - 核心思路：每种任务对应一个可学习 token $\mathbf{v}_i \in \mathbb{R}^{1 \times C}$，输入 LLM 后输出 task embedding $\mathbf{e}_i = G(\mathbf{v}_i)$，再送入对应任务头。这样任务的密集视觉监督通过梯度反传从头 → embedding → LLM，间接增强 MLLM 的视觉理解能力
+    - 设计动机：避免将视觉任务硬转成文本（导致信息丢失），同时让任务梯度能流回 LLM
 
 3. **三阶段 Local-to-Global 训练**：
-   - **Stage 1 (Task Assignment)**：用 LoRA 微调 LLM，学会根据用户指令识别任务类型并生成对应特殊 token（每任务 50k 样本）
-   - **Stage 2 (Vision Task Training)**：分别训练各任务头和对应任务 token，使头具备初步功能，冻结视觉编码器和连接器
-   - **Stage 3 (Multi-task Training)**：解冻所有模块，混合多任务数据和对话数据联合训练，任务头的梯度反传到整个 MLLM
-   - 设计动机：local-to-global 策略避免了一步到位的联合训练导致 MLLM 对话能力退化。分阶段让模型逐步适应
+
+    - **Stage 1 (Task Assignment)**：用 LoRA 微调 LLM，学会根据用户指令识别任务类型并生成对应特殊 token（每任务 50k 样本）
+    - **Stage 2 (Vision Task Training)**：分别训练各任务头和对应任务 token，使头具备初步功能，冻结视觉编码器和连接器
+    - **Stage 3 (Multi-task Training)**：解冻所有模块，混合多任务数据和对话数据联合训练，任务头的梯度反传到整个 MLLM
+    - 设计动机：local-to-global 策略避免了一步到位的联合训练导致 MLLM 对话能力退化。分阶段让模型逐步适应
 
 ### 损失函数 / 训练策略
 - Region Head：MSE loss（回归坐标）

@@ -57,33 +57,37 @@ PartField 的核心 idea：**不预定义部件模板或文本，而是学习一
 ### 关键设计
 
 1. **混合 2D/3D 部件提案训练**：
-   - 做什么：从两个来源收集部件提案作为训练信号，不要求提案语义一致
-   - 2D 提案：对 Objaverse 约 34 万形状渲染 RGB/法线图，用 SAM2 密集采样点 prompt 生成 2D mask，反投影到 3D。不同 mask 自然覆盖不同粒度
-   - 3D 提案：利用 PartNet（约 3 万形状，24 类）的层级部件标注。将 mesh 转为四面体网格以采样内部点
-   - 设计动机：2D 提案提供开放世界能力和大规模数据，3D 提案提供完整的内部结构监督和人工语义标注。二者互补
+
+    - 做什么：从两个来源收集部件提案作为训练信号，不要求提案语义一致
+    - 2D 提案：对 Objaverse 约 34 万形状渲染 RGB/法线图，用 SAM2 密集采样点 prompt 生成 2D mask，反投影到 3D。不同 mask 自然覆盖不同粒度
+    - 3D 提案：利用 PartNet（约 3 万形状，24 类）的层级部件标注。将 mesh 转为四面体网格以采样内部点
+    - 设计动机：2D 提案提供开放世界能力和大规模数据，3D 提案提供完整的内部结构监督和人工语义标注。二者互补
 
 2. **Triplet 对比学习**：
-   - 做什么：对每个部件提案 $P$，采样三元组 $(\mathbf{p}_a, \mathbf{p}_b, \mathbf{p}_c)$，其中 $\mathbf{p}_a, \mathbf{p}_b \in P$（正样本对），$\mathbf{p}_c \in S \setminus P$（负样本）
-   - 核心损失函数（相对式对比损失）：
-     - $\mathcal{L} = -\frac{1}{2} \left( \log \frac{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b))}{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b)) + \text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_c))} + \log \frac{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a))}{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a)) + \text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_c))} \right)$
-     - 其中 $\text{sim}(u, v) = \exp(\cos(u, v) / \tau)$，$\tau$ 是可学习温度
-   - 与先前方法的关键区别：不直接最小化/最大化特征距离（pull/push loss），而只约束相对关系（$\mathbf{p}_a$ 更接近 $\mathbf{p}_b$ 而非 $\mathbf{p}_c$）。这自然支持多尺度部件而无需额外的缩放条件
-   - 设计动机（图 3）：一个点可能同时属于多个不同尺度的部件（如手指 ⊂ 手 ⊂ 手臂）。直接 push/pull 在不同尺度提案间会产生冲突，而 triplet 的相对约束允许特征场隐式编码层级关系
+
+    - 做什么：对每个部件提案 $P$，采样三元组 $(\mathbf{p}_a, \mathbf{p}_b, \mathbf{p}_c)$，其中 $\mathbf{p}_a, \mathbf{p}_b \in P$（正样本对），$\mathbf{p}_c \in S \setminus P$（负样本）
+    - 核心损失函数（相对式对比损失）：
+      - $\mathcal{L} = -\frac{1}{2} \left( \log \frac{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b))}{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b)) + \text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_c))} + \log \frac{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a))}{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a)) + \text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_c))} \right)$
+      - 其中 $\text{sim}(u, v) = \exp(\cos(u, v) / \tau)$，$\tau$ 是可学习温度
+    - 与先前方法的关键区别：不直接最小化/最大化特征距离（pull/push loss），而只约束相对关系（$\mathbf{p}_a$ 更接近 $\mathbf{p}_b$ 而非 $\mathbf{p}_c$）。这自然支持多尺度部件而无需额外的缩放条件
+    - 设计动机（图 3）：一个点可能同时属于多个不同尺度的部件（如手指 ⊂ 手 ⊂ 手臂）。直接 push/pull 在不同尺度提案间会产生冲突，而 triplet 的相对约束允许特征场隐式编码层级关系
 
 3. **Hard Negative Mining（困难负样本挖掘）**：
-   - 做什么：混合三种负样本采样策略提升训练效率
-   - 三种策略：
-     - **均匀负样本**：从提案互补区域均匀采样
-     - **3D 困难**：偏好在欧氏空间中靠近 $\mathbf{p}_a$ 的负样本（部件边界附近）
-     - **特征困难**：偏好在特征空间中靠近 $\mathbf{p}_a$ 的负样本
-   - 对多个负样本并行计算损失（在分母中累加 $\text{sim}(\mathbf{p}_a, \mathbf{p}_c)$），提升效率
-   - 设计动机：消融实验（图 9）显示困难负样本挖掘显著锐化部件边界
+
+    - 做什么：混合三种负样本采样策略提升训练效率
+    - 三种策略：
+      - **均匀负样本**：从提案互补区域均匀采样
+      - **3D 困难**：偏好在欧氏空间中靠近 $\mathbf{p}_a$ 的负样本（部件边界附近）
+      - **特征困难**：偏好在特征空间中靠近 $\mathbf{p}_a$ 的负样本
+    - 对多个负样本并行计算损失（在分母中累加 $\text{sim}(\mathbf{p}_a, \mathbf{p}_c)$），提升效率
+    - 设计动机：消融实验（图 9）显示困难负样本挖掘显著锐化部件边界
 
 4. **前馈架构（PVCNN + Triplane + Transformer）**：
-   - 做什么：将点云输入编码为 triplane 特征场
-   - 架构细节：特征场 448 维，triplane 分辨率 $512^2$，128 通道，Transformer 6 层。输入 10 万点/形状
-   - 训练：8 块 A100 GPU，2 周
-   - 优势：(a) 快速推理（<10 秒 vs 分钟~小时）；(b) 对噪声和不一致标签鲁棒（大规模训练的平均效应）；(c) 跨形状特征空间自然一致
+
+    - 做什么：将点云输入编码为 triplane 特征场
+    - 架构细节：特征场 448 维，triplane 分辨率 $512^2$，128 通道，Transformer 6 层。输入 10 万点/形状
+    - 训练：8 块 A100 GPU，2 周
+    - 优势：(a) 快速推理（<10 秒 vs 分钟~小时）；(b) 对噪声和不一致标签鲁棒（大规模训练的平均效应）；(c) 跨形状特征空间自然一致
 
 ### 损失函数 / 训练策略
 

@@ -37,21 +37,24 @@ tags:
 ### 关键设计
 
 1. **多语言基准构建**
-   - 从RewardBench中精选偏好实例，覆盖四种能力维度：Chat（对话质量）、Safety（安全性）、Reasoning（推理能力）、Translation（翻译能力，此维度为新增）
-   - 23种typologically多样的语言，覆盖不同语系、文字系统和资源水平
-   - 总计2.87K偏好实例（chosen/rejected对）
-   - 翻译流程注重质量控制
+
+    - 从RewardBench中精选偏好实例，覆盖四种能力维度：Chat（对话质量）、Safety（安全性）、Reasoning（推理能力）、Translation（翻译能力，此维度为新增）
+    - 23种typologically多样的语言，覆盖不同语系、文字系统和资源水平
+    - 总计2.87K偏好实例（chosen/rejected对）
+    - 翻译流程注重质量控制
 
 2. **系统化评估框架**
-   - 评估多种RM架构：classifier-based RM、generative RM (LLM-as-a-judge)、implicit RM (DPO-trained models)
-   - 每种RM在23种语言上的逐语言表现分析
-   - 跨语言偏好一致性分析（同一偏好实例在不同语言下RM的判断是否一致）
+
+    - 评估多种RM架构：classifier-based RM、generative RM (LLM-as-a-judge)、implicit RM (DPO-trained models)
+    - 每种RM在23种语言上的逐语言表现分析
+    - 跨语言偏好一致性分析（同一偏好实例在不同语言下RM的判断是否一致）
 
 3. **多维度分析**
-   - 英语vs非英语性能差距
-   - 翻译质量对RM性能的影响
-   - 高资源vs低资源语言的表现差异
-   - RM跨语言偏好漂移（preference shift）
+
+    - 英语vs非英语性能差距
+    - 翻译质量对RM性能的影响
+    - 高资源vs低资源语言的表现差异
+    - RM跨语言偏好漂移（preference shift）
 
 ## 实验关键数据
 

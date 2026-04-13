@@ -33,10 +33,10 @@ tags:
 
 现有近似策略的局限：
 
-1. **SubgraphX**：使用 Monte Carlo Tree Search (MCTS) 和采样来近似 Shapley 值，对大规模稠密图不可行。
-2. **GraphSVX**：构建代理模型在扰动数据集上采样联盟，对中等规模联盟欠采样，降低解释保真度。
-3. **GNNShap**：利用 GPU 并行和批处理加速估计，但本质仍是依赖采样的近似技术。
-4. **GraphSHAP-IQ**：利用消息传递 GNN 的结构特性计算精确的任意阶 Shapley 交互，但对深层架构、稠密图或非线性 readout 函数的 GNN 不适用。
+**SubgraphX**：使用 Monte Carlo Tree Search (MCTS) 和采样来近似 Shapley 值，对大规模稠密图不可行。
+**GraphSVX**：构建代理模型在扰动数据集上采样联盟，对中等规模联盟欠采样，降低解释保真度。
+**GNNShap**：利用 GPU 并行和批处理加速估计，但本质仍是依赖采样的近似技术。
+**GraphSHAP-IQ**：利用消息传递 GNN 的结构特性计算精确的任意阶 Shapley 交互，但对深层架构、稠密图或非线性 readout 函数的 GNN 不适用。
 
 核心矛盾在于：**保真度（fidelity）和效率不可兼得**——精确方法太慢，快速方法牺牲精度。量子计算的振幅放大技术提供了一条新路径：达到 $\mathcal{O}(1/\epsilon)$ 的查询复杂度，相比经典 MC 的 $\mathcal{O}(1/\epsilon^2)$ 实现二次加速，同时保持精确计算。
 
@@ -54,9 +54,10 @@ QGShap 的流程如下：
 ### 关键设计
 
 1. **三寄存器量子电路**：
-   - **分区寄存器 $Q_{pt}$**（$\ell$ 个量子比特）：通过 beta 函数旋转编码 Shapley 权重系数 $w_{|S|,|V|}$ 的振幅分布，其中 $\ell = \mathcal{O}(\log \frac{(U_{max} - U_{min})n}{\varepsilon})$。
-   - **播放器寄存器 $Q_{pl}$**（$|V|$ 个量子比特）：存储所有不含节点 $p_j$ 的联盟 $S \subseteq V \setminus \{p_j\}$ 的叠加态。
-   - **效用寄存器 $Q_{ut}$**（1 个量子比特）：存储每个联盟的归一化合作博弈值。
+
+    - **分区寄存器 $Q_{pt}$**（$\ell$ 个量子比特）：通过 beta 函数旋转编码 Shapley 权重系数 $w_{|S|,|V|}$ 的振幅分布，其中 $\ell = \mathcal{O}(\log \frac{(U_{max} - U_{min})n}{\varepsilon})$。
+    - **播放器寄存器 $Q_{pl}$**（$|V|$ 个量子比特）：存储所有不含节点 $p_j$ 的联盟 $S \subseteq V \setminus \{p_j\}$ 的叠加态。
+    - **效用寄存器 $Q_{ut}$**（1 个量子比特）：存储每个联盟的归一化合作博弈值。
    设计动机：通过受控旋转使每个基态 $|S\rangle$ 的振幅正比于 $\sqrt{w_{|S|,|V|}}$，精确编码 Shapley 权重。
 
 2. **归一化合作博弈值**：将原始值映射到 $[0,1]$：$\hat{v}(S) = \frac{v(S) - \min_{S'} v(S')}{\max_{S'} v(S') - \min_{S'} v(S')}$。这是量子态编码的必要步骤，确保效用值可以通过量子比特的振幅旋转来表示。

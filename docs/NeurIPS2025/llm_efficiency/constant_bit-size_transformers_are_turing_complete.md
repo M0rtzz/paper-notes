@@ -25,12 +25,12 @@ tags:
 首次证明常数 bit 精度、固定参数数量的 Transformer（仅允许上下文窗口增长）是图灵完备的，并建立了精确的复杂度等价关系 WINDOW[s(n)] = SPACE[s(n)]，表明扩展上下文窗口——而非模型尺寸——已足以实现通用计算。
 
 ## 研究背景与动机
-1. **领域现状**：基于 CoT 的 Transformer 已被证明是图灵完备的，但之前所有的证明都要求模型的 bit-size 随输入长度增长——要么精度需要 $O(\log t(n))$ 位，要么嵌入维度需要 $O(\log t(n))$。
-2. **现有痛点**：bit-size 随输入增长意味着处理更长输入需要更大的模型，这对追求终身学习的 AGI 系统形成了原则性障碍——系统与不断增长的环境交互时，输入长度无界增长。
-3. **核心矛盾**：扩大模型精度/参数是否是处理更长输入的必要条件？
-4. **本文要解决什么？** 证明模型 bit-size 无需增长，仅扩展 context window 即可实现任意图灵机的模拟。
-5. **切入角度**：Post Machine（一种基于队列的图灵等价模型）的行为与 Transformer 的 autoregressive decoding 具有天然的结构相似性——context window 可以被视为队列。
-6. **核心idea一句话**：通过模拟 Post Machine（队列自动机）而非传统图灵机，构造常数精度单层 Transformer 来实现图灵完备性。
+**领域现状**：基于 CoT 的 Transformer 已被证明是图灵完备的，但之前所有的证明都要求模型的 bit-size 随输入长度增长——要么精度需要 $O(\log t(n))$ 位，要么嵌入维度需要 $O(\log t(n))$。
+**现有痛点**：bit-size 随输入增长意味着处理更长输入需要更大的模型，这对追求终身学习的 AGI 系统形成了原则性障碍——系统与不断增长的环境交互时，输入长度无界增长。
+**核心矛盾**：扩大模型精度/参数是否是处理更长输入的必要条件？
+**本文要解决什么？** 证明模型 bit-size 无需增长，仅扩展 context window 即可实现任意图灵机的模拟。
+**切入角度**：Post Machine（一种基于队列的图灵等价模型）的行为与 Transformer 的 autoregressive decoding 具有天然的结构相似性——context window 可以被视为队列。
+**核心idea一句话**：通过模拟 Post Machine（队列自动机）而非传统图灵机，构造常数精度单层 Transformer 来实现图灵完备性。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **Post Machine 作为中间桥梁**:
-   - 做什么：将图灵机先转化为等价的 Post Machine（PM），PM 是配备队列的有限自动机
-   - 核心思路：PM 的队列将 TM 磁带以循环方式存储——TM 头右移时，队列前端删除、尾端追加；TM 头左移时，队列循环旋转。使用"延迟追加"技巧避免预读下一个队列元素
-   - 设计动机：PM 的行为（从队列前端读取、向尾端写入）天然对应 Transformer 的 autoregressive decoding（旧 token 滑出窗口、新 token 追加），这种对齐使模拟构造简洁
+
+    - 做什么：将图灵机先转化为等价的 Post Machine（PM），PM 是配备队列的有限自动机
+    - 核心思路：PM 的队列将 TM 磁带以循环方式存储——TM 头右移时，队列前端删除、尾端追加；TM 头左移时，队列循环旋转。使用"延迟追加"技巧避免预读下一个队列元素
+    - 设计动机：PM 的行为（从队列前端读取、向尾端写入）天然对应 Transformer 的 autoregressive decoding（旧 token 滑出窗口、新 token 追加），这种对齐使模拟构造简洁
 
 2. **常数精度单层 Transformer 构造**:
-   - 做什么：用 s(n) 大小的 context window 作为 PM 的队列，构造一个单层、单头、hardmax attention 的 Transformer
-   - 核心思路：词表 $\mathcal{V} = \Sigma \times Q$（每个 token 同时编码 tape symbol 和状态）；相对位置编码仅区分三种位置（当前位置、窗口最旧位置、中间位置）；attention 通过 hardmax 精确检索窗口中最旧的 token（队列前端）；FFN 实现 PM 的转移函数 $\delta$
-   - 设计动机：hardmax + 位置编码使 attention 退化为精确的"查找最旧 token"操作，FFN 作为有限状态查找表即可实现转移——整个构造只需要常数精度和常数参数
+
+    - 做什么：用 s(n) 大小的 context window 作为 PM 的队列，构造一个单层、单头、hardmax attention 的 Transformer
+    - 核心思路：词表 $\mathcal{V} = \Sigma \times Q$（每个 token 同时编码 tape symbol 和状态）；相对位置编码仅区分三种位置（当前位置、窗口最旧位置、中间位置）；attention 通过 hardmax 精确检索窗口中最旧的 token（队列前端）；FFN 实现 PM 的转移函数 $\delta$
+    - 设计动机：hardmax + 位置编码使 attention 退化为精确的"查找最旧 token"操作，FFN 作为有限状态查找表即可实现转移——整个构造只需要常数精度和常数参数
 
 3. **队列大小固定化**:
-   - 做什么：将 PM 调整为队列大小始终等于 s(n)，确保 context window 大小固定
-   - 核心思路：在输入右侧填充 # 符号至 s(n) 长度，每步前后两个头都向右移动一格
-   - 设计动机：确保 Transformer 的 context window 大小与 PM 的队列大小精确匹配
+
+    - 做什么：将 PM 调整为队列大小始终等于 s(n)，确保 context window 大小固定
+    - 核心思路：在输入右侧填充 # 符号至 s(n) 长度，每步前后两个头都向右移动一格
+    - 设计动机：确保 Transformer 的 context window 大小与 PM 的队列大小精确匹配
 
 ### 复杂度分析
 - 模拟 s(n) 空间的 TM 需要 s(n) 大小的 context window

@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：线性 Transformer（如 RetNet、Mamba-2、GLA）在因果序列建模中已成为 softmax Transformer 的高效替代，支持矩阵乘法并行训练和 RNN 推理。但在双向任务（如 BERT、ViT）中，线性 Transformer 几乎没有被系统研究。
+**领域现状**：线性 Transformer（如 RetNet、Mamba-2、GLA）在因果序列建模中已成为 softmax Transformer 的高效替代，支持矩阵乘法并行训练和 RNN 推理。但在双向任务（如 BERT、ViT）中，线性 Transformer 几乎没有被系统研究。
 
-2. **现有痛点**：
+**现有痛点**：
    - 现有双向 SSM（如 Vim、Hydra）主要基于 Mamba，简单地将因果扫描在前向和后向各执行一次
    - 这种"双扫描"方法未利用双向建模的天然先验：训练和推理时整个序列都可用
    - 结果是训练速度严重落后于 softmax Transformer（Vim 比 DeiT 慢 14.95 倍）
 
-3. **核心矛盾**：SSM 在因果任务中的效率优势（RNN 推理）在双向任务中因为需要 chunking 而大打折扣，但如果直接用全注意力矩阵则又退回了 $\mathcal{O}(L^2)$ 复杂度。
+**核心矛盾**：SSM 在因果任务中的效率优势（RNN 推理）在双向任务中因为需要 chunking 而大打折扣，但如果直接用全注意力矩阵则又退回了 $\mathcal{O}(L^2)$ 复杂度。
 
-4. **本文要解决什么**：为线性 Transformer 提供系统的双向扩展框架，使其在训练速度、推理效率和模型性能上同时达到最优。
+**本文要解决什么**：为线性 Transformer 提供系统的双向扩展框架，使其在训练速度、推理效率和模型性能上同时达到最优。
 
-5. **切入角度**：基于因果线性 Transformer 的 mask 结构，从因果 mask $\mathbf{M}^C$（下三角）推广到双向 mask $\mathbf{M}$（满矩阵），其中 $\mathbf{M}_{ij}$ 等于位置 $i$ 和 $j$ 之间所有衰减因子的乘积。
+**切入角度**：基于因果线性 Transformer 的 mask 结构，从因果 mask $\mathbf{M}^C$（下三角）推广到双向 mask $\mathbf{M}$（满矩阵），其中 $\mathbf{M}_{ij}$ 等于位置 $i$ 和 $j$ 之间所有衰减因子的乘积。
 
-6. **核心idea一句话**：定义双向 mask = 下三角因果 mask + 上三角反向 mask - 单位阵（避免对角线重复计数），从而将任意因果线性 Transformer 转化为双向版本。
+**核心idea一句话**：定义双向 mask = 下三角因果 mask + 上三角反向 mask - 单位阵（避免对角线重复计数），从而将任意因果线性 Transformer 转化为双向版本。
 
 ## 方法详解
 

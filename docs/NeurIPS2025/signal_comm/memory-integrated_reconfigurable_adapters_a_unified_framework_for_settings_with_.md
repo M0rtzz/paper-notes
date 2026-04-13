@@ -24,9 +24,9 @@ tags:
 提出 MIRA，将 Hopfield 联想记忆与 LoRA adapter 结合，在共享 backbone 的每个 ViT 层上存储 adapter 权重更新为 value、事后学习的 key 检索，统一处理域泛化、类增量学习和域增量学习，在多个设置下达到 SoTA。
 
 ## 研究背景与动机
-1. **领域现状**：DG/CIL/DIL 三个范式独立研究，但大脑能无缝切换任务且不遗忘。
-2. **核心矛盾**：现有方法缺乏生物启发的显式记忆机制。
-3. **解决方案**：用 Hopfield 网络存储 adapter 参数，用学习的 key 根据输入上下文检索合适的 adapter 组合。
+**领域现状**：DG/CIL/DIL 三个范式独立研究，但大脑能无缝切换任务且不遗忘。
+**核心矛盾**：现有方法缺乏生物启发的显式记忆机制。
+**解决方案**：用 Hopfield 网络存储 adapter 参数，用学习的 key 根据输入上下文检索合适的 adapter 组合。
 
 ## 方法详解
 
@@ -35,12 +35,14 @@ tags:
 
 ### 关键设计
 1. **记忆单元**：每层附加UHN记忆，存储LoRA adapter权重向量 $\theta_\ell^{(t)} \in \mathbb{R}^{d_v}$ 为value
-   - 读操作：$\mathsf{R}(\mathcal{M}_\ell, q) \equiv \mathbf{\Theta}_\ell \mathsf{sep}(\mathsf{sim}(\mathbf{K}_\ell^\top, q))$
-   - 使用仿射分离函数计算组合权重，允许多记忆的超叠加检索
+
+    - 读操作：$\mathsf{R}(\mathcal{M}_\ell, q) \equiv \mathbf{\Theta}_\ell \mathsf{sep}(\mathsf{sim}(\mathbf{K}_\ell^\top, q))$
+    - 使用仿射分离函数计算组合权重，允许多记忆的超叠加检索
 2. **Post-hoc key学习**：
-   - Adaptation阶段：标准LoRA训练，用随机高斯key $k_\ell \sim \mathcal{N}(0, \sigma^2 I)$ 写入记忆
-   - Consolidation阶段：冻结adapter值，仅微调key，使检索到的adapter组合在对应任务上表现最优
-   - key与前一层激活对齐，实现输入自适应检索
+
+    - Adaptation阶段：标准LoRA训练，用随机高斯key $k_\ell \sim \mathcal{N}(0, \sigma^2 I)$ 写入记忆
+    - Consolidation阶段：冻结adapter值，仅微调key，使检索到的adapter组合在对应任务上表现最优
+    - key与前一层激活对齐，实现输入自适应检索
 3. **DG/CIL/DIL统一**：仅通过调整哪些数据送入两个阶段来切换设置
 
 ### 理论支撑

@@ -25,11 +25,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Mamba等选择性SSM在多种序列任务上与Transformer竞争，但缺乏理论泛化分析。
-2. **现有痛点**：LTI SSM 的泛化理论依赖控制论工具（脉冲响应 ℓ1 范数、传递函数 H2 范数），但选择性 SSM 的非线性输入依赖动力学使这些工具不适用。Transformer 的覆盖数理论已较成熟，但无法直接应用于 SSM 的递归结构。
-3. **核心矛盾**：选择性 SSM 既有 RNN 的递归结构（需要控制状态矩阵增长），又有注意力的输入依赖投影（$W_B, W_C$ 类似 key-query），需要一个统一的分析框架
-4. **切入角度**：将选择性 SSM 递归展开为类注意力形式，构建两层覆盖——状态矩阵用 RNN 工具覆盖，输入投影用 Transformer 工具覆盖
-5. **核心idea一句话**：连续时间状态矩阵的频谱横断面 $s_A$ 决定了泛化界是否与序列长度无关
+**领域现状**：Mamba等选择性SSM在多种序列任务上与Transformer竞争，但缺乏理论泛化分析。
+**现有痛点**：LTI SSM 的泛化理论依赖控制论工具（脉冲响应 ℓ1 范数、传递函数 H2 范数），但选择性 SSM 的非线性输入依赖动力学使这些工具不适用。Transformer 的覆盖数理论已较成熟，但无法直接应用于 SSM 的递归结构。
+**核心矛盾**：选择性 SSM 既有 RNN 的递归结构（需要控制状态矩阵增长），又有注意力的输入依赖投影（$W_B, W_C$ 类似 key-query），需要一个统一的分析框架
+**切入角度**：将选择性 SSM 递归展开为类注意力形式，构建两层覆盖——状态矩阵用 RNN 工具覆盖，输入投影用 Transformer 工具覆盖
+**核心idea一句话**：连续时间状态矩阵的频谱横断面 $s_A$ 决定了泛化界是否与序列长度无关
 
 ## 方法详解
 
@@ -39,24 +39,28 @@ tags:
 ### 关键设计
 
 1. **SSM→注意力展开**：
-   - 做什么：将 Mamba 的递归计算 $y[t'] = C[t'] \sum_{t=0}^{t'-1} A^t \Delta[t'-1-t] B[t'-1-t] u[t'-1-t]$ 展开为类注意力形式
-   - 核心思路：$W_C$ 对应 Query 投影，$W_B$ 对应 Key 投影，$u$ 本身作为 Value。$$z = w^\top \sum_{t=0}^{T-1} \underbrace{(I_d \otimes u[T]^\top W_C^\top)}_{\text{Query}} \underbrace{(I_d \otimes W_B u[T-1-t])}_{\text{Key}} \underbrace{u[T-1-t]}_{\text{Value}}$$
-   - 设计动机：这种展开使得 $W_B, W_C$ 可以复用 Transformer 泛化理论中的线性函数类覆盖技术
+
+    - 做什么：将 Mamba 的递归计算 $y[t'] = C[t'] \sum_{t=0}^{t'-1} A^t \Delta[t'-1-t] B[t'-1-t] u[t'-1-t]$ 展开为类注意力形式
+    - 核心思路：$W_C$ 对应 Query 投影，$W_B$ 对应 Key 投影，$u$ 本身作为 Value。$$z = w^\top \sum_{t=0}^{T-1} \underbrace{(I_d \otimes u[T]^\top W_C^\top)}_{\text{Query}} \underbrace{(I_d \otimes W_B u[T-1-t])}_{\text{Key}} \underbrace{u[T-1-t]}_{\text{Value}}$$
+    - 设计动机：这种展开使得 $W_B, W_C$ 可以复用 Transformer 泛化理论中的线性函数类覆盖技术
 
 2. **两层覆盖构造（核心技术贡献）**：
-   - 第一层（状态矩阵 $A_c$）：用 Gelfand 公式控制 $\|A^t\|_2 \leq \rho_A^t$，其中 $\rho_A = (1+e^{p-\mathfrak{B}_q\mathfrak{B}_u})^{s_A+\eta}$。当 $s_A < 0$ 时 $\rho_A < 1$，几何级数收敛保证长度无关
-   - 第二层（输入投影 $W_B, W_C, q, w$）：作为有界 $\|\cdot\|_{1,1}$ 范数的线性函数类，直接应用 Transformer 理论中的覆盖引理
-   - Cartesian 乘积组合各参数的覆盖，最优化分配覆盖半径
+
+    - 第一层（状态矩阵 $A_c$）：用 Gelfand 公式控制 $\|A^t\|_2 \leq \rho_A^t$，其中 $\rho_A = (1+e^{p-\mathfrak{B}_q\mathfrak{B}_u})^{s_A+\eta}$。当 $s_A < 0$ 时 $\rho_A < 1$，几何级数收敛保证长度无关
+    - 第二层（输入投影 $W_B, W_C, q, w$）：作为有界 $\|\cdot\|_{1,1}$ 范数的线性函数类，直接应用 Transformer 理论中的覆盖引理
+    - Cartesian 乘积组合各参数的覆盖，最优化分配覆盖半径
 
 3. **主定理 (Thm 3.3)**：
-   - 泛化界中容量项 $\mathcal{C}_{\mathcal{F}_{SSM}} = \tilde{O}(\mathfrak{M}_\Delta \mathfrak{B}_w \mathfrak{B}_u^3 \mathfrak{B}_B \mathfrak{B}_C \mathfrak{B}_A S_2 (\cdot)^{3/2})$
-   - 关键量 $S_2 = \frac{\rho_A(1-\rho_A^T)}{(1-\rho_A)^2} - \frac{T\rho_A^T}{\rho_A - 1}$
-   - 当 $s_A < 0$: $\rho_A < 1$, $S_2$ 有界，泛化界**与序列长度 T 无关**
-   - 当 $s_A > 0$: $\rho_A > 1$, $S_2 \sim T\rho_A^T$，泛化界**指数增长**
+
+    - 泛化界中容量项 $\mathcal{C}_{\mathcal{F}_{SSM}} = \tilde{O}(\mathfrak{M}_\Delta \mathfrak{B}_w \mathfrak{B}_u^3 \mathfrak{B}_B \mathfrak{B}_C \mathfrak{B}_A S_2 (\cdot)^{3/2})$
+    - 关键量 $S_2 = \frac{\rho_A(1-\rho_A^T)}{(1-\rho_A)^2} - \frac{T\rho_A^T}{\rho_A - 1}$
+    - 当 $s_A < 0$: $\rho_A < 1$, $S_2$ 有界，泛化界**与序列长度 T 无关**
+    - 当 $s_A > 0$: $\rho_A > 1$, $S_2 \sim T\rho_A^T$，泛化界**指数增长**
 
 4. **下界 (Thm 4.1)**：
-   - $s_A > 0$ 时 Rademacher 复杂度下界 $\geq \mathfrak{B}_w \frac{(1+s_A)^T - 1}{s_A}\sqrt{\frac{2}{\pi m}}$
-   - 证明 T 依赖性不可通过更紧的上界消除——这是本质性的
+
+    - $s_A > 0$ 时 Rademacher 复杂度下界 $\geq \mathfrak{B}_w \frac{(1+s_A)^T - 1}{s_A}\sqrt{\frac{2}{\pi m}}$
+    - 证明 T 依赖性不可通过更紧的上界消除——这是本质性的
 
 ### 与其他架构的泛化界对比
 

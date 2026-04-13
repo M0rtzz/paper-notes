@@ -31,9 +31,9 @@ tags:
 
 对于大尺度异构模型间的知识迁移，现有方法面临三大难题：
 
-1. **全参数微调的灾难性遗忘**：知识蒸馏+全参微调在获取源模型能力的同时，会覆盖目标模型的固有能力
-2. **PEFT方法的能力不足**：LoRA等参数高效方法虽能避免大规模遗忘，但适配器容量有限，难以充分吸收源LLM的复杂知识，特别在DPO等复杂训练场景下表现严重下降
-3. **参数冲突问题**：直接融合多个模型的参数增量会导致任务间干扰和性能退化
+**全参数微调的灾难性遗忘**：知识蒸馏+全参微调在获取源模型能力的同时，会覆盖目标模型的固有能力
+**PEFT方法的能力不足**：LoRA等参数高效方法虽能避免大规模遗忘，但适配器容量有限，难以充分吸收源LLM的复杂知识，特别在DPO等复杂训练场景下表现严重下降
+**参数冲突问题**：直接融合多个模型的参数增量会导致任务间干扰和性能退化
 
 核心问题：如何在保持目标模型通用能力的前提下，高效、可组合地迁移异构源模型的专长？
 
@@ -50,23 +50,25 @@ GraftLLM的核心思想是将能力以"**目标模型 + SkillPack**"的形式存
 ### 关键设计
 
 1. **两阶段跨能力迁移**：
-   - **SFT阶段**：在源模型生成的高质量数据$\mathcal{D}_{SFT}$上最小化负对数似然$\mathcal{L}_{SFT}(\theta) = -\mathbb{E}[\log p_\theta(y_i, x_i)]$，弥合源-目标模型的分布差异
-   - **DPO阶段**：构建偏好数据对$(y_w, y_l)$（同一源模型的最优和最差回复），通过DPO损失进一步对齐：$\mathcal{L}_{DPO} = -\mathbb{E}[\log\sigma(\beta \log\frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log\frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)})]$
+
+    - **SFT阶段**：在源模型生成的高质量数据$\mathcal{D}_{SFT}$上最小化负对数似然$\mathcal{L}_{SFT}(\theta) = -\mathbb{E}[\log p_\theta(y_i, x_i)]$，弥合源-目标模型的分布差异
+    - **DPO阶段**：构建偏好数据对$(y_w, y_l)$（同一源模型的最优和最差回复），通过DPO损失进一步对齐：$\mathcal{L}_{DPO} = -\mathbb{E}[\log\sigma(\beta \log\frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log\frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)})]$
 
 2. **模块感知自适应压缩（Module-Aware Adaptive Compression）**：
    针对不同类型的参数模块采用差异化压缩策略：
-   - **Embedding和Output Head**：幅度剪枝，保留绝对值最大的$\alpha$比例权重。这些层对词表对齐和任务适配高度敏感
-   - **MLP模块**：SVD分解 $\Delta\theta_{attn} = \mathbf{U}\Sigma\mathbf{V}^\top$，利用其参数冗余特性
-   - **Attention模块**：低秩SVD分解，仅保留前$r$个奇异值对应的分量
-   - **混合精度量化**：对SVD分解后的各分量根据重要性自适应分配bit精度$k$，使用GPTQ进行分组量化：$\hat{\mathbf{V}}_{[r]}^\top = \text{Quant}_k(\mathbf{V}_{[r]}^\top, \mathbf{x})$
+    - **Embedding和Output Head**：幅度剪枝，保留绝对值最大的$\alpha$比例权重。这些层对词表对齐和任务适配高度敏感
+    - **MLP模块**：SVD分解 $\Delta\theta_{attn} = \mathbf{U}\Sigma\mathbf{V}^\top$，利用其参数冗余特性
+    - **Attention模块**：低秩SVD分解，仅保留前$r$个奇异值对应的分量
+    - **混合精度量化**：对SVD分解后的各分量根据重要性自适应分配bit精度$k$，使用GPTQ进行分组量化：$\hat{\mathbf{V}}_{[r]}^\top = \text{Quant}_k(\mathbf{V}_{[r]}^\top, \mathbf{x})$
 
 3. **SkillPack的生成**：
    最终的SkillPack $\Delta\hat{\theta} = \{C_m(\Delta\theta_m)\}_{m \in \mathcal{M}}$ 是一个紧凑的、可迁移的知识载体，每个模块$m$使用最适合其结构特性的压缩算子$C_m$。
 
 4. **知识融合与持续学习**：
-   - **多SkillPack融合**：$\theta_{fused} = \theta_{tgt} + \sum_{i=1}^{n} \mathcal{R}(\Delta\hat{\theta}_i)$，其中路由函数$\mathcal{R}$根据源模型或任务类型动态分配SkillPack到对应子模块
-   - **持续学习**：任务自适应激活机制，每个任务$t$仅激活对应子集$\mathcal{S}_t$：$\theta_t = \theta_{tgt} + \sum_{\Delta\hat{\theta}_i \in \mathcal{S}_t} \mathcal{R}(\Delta\hat{\theta}_i)$
-   - 即插即用范式：可随时卸载SkillPack实现"反学习"或去毒化
+
+    - **多SkillPack融合**：$\theta_{fused} = \theta_{tgt} + \sum_{i=1}^{n} \mathcal{R}(\Delta\hat{\theta}_i)$，其中路由函数$\mathcal{R}$根据源模型或任务类型动态分配SkillPack到对应子模块
+    - **持续学习**：任务自适应激活机制，每个任务$t$仅激活对应子集$\mathcal{S}_t$：$\theta_t = \theta_{tgt} + \sum_{\Delta\hat{\theta}_i \in \mathcal{S}_t} \mathcal{R}(\Delta\hat{\theta}_i)$
+    - 即插即用范式：可随时卸载SkillPack实现"反学习"或去毒化
 
 ### 训练策略
 

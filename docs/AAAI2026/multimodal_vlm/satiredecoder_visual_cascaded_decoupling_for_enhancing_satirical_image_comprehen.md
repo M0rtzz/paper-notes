@@ -34,9 +34,9 @@ tags:
 **已有工作仅做二分类**：现有方法（MMOE、TFCD、MoBa、SarcNet）仅聚焦于简单的讽刺检测（判断是否讽刺），完全忽略了更具挑战性的**讽刺理解**任务——即理解和解释图像中深层的讽刺语义。
 
 **MLLM的三大失败模式**：
-1. **幻觉问题**：倾向于忽略或捏造图像中的局部实体和关键细节
-2. **表面理解**：只能理解图像的表面含义，无法透过表面看到深层讽刺
-3. **缺乏分步推理**：没有从局部实体到全局语境的逐步推理过程，难以把握视觉元素间的关系
+**幻觉问题**：倾向于忽略或捏造图像中的局部实体和关键细节
+**表面理解**：只能理解图像的表面含义，无法透过表面看到深层讽刺
+**缺乏分步推理**：没有从局部实体到全局语境的逐步推理过程，难以把握视觉元素间的关系
 
 **高成本问题**：现有方法依赖大规模数据集和高训练成本，缺乏可移植性。
 
@@ -54,26 +54,29 @@ SatireDecoder包含三个核心模块：
 ### 关键设计
 
 1. **多智能体视觉级联解耦**:
-   - **Local Entities Extraction Agent (LE)**：模拟IT皮层，使用**RAM**（Recognize Anything Model）进行图像标注，提取每个场景中的局部实体标签 $LE_y = LE(I_y)$, $LE_b = LE(I_b)$
-   - **Global Semantics Extraction Agent (GS)**：模拟PPC和PFC，使用**BLIP**进行图像描述，获取每个场景的全局语义 $GS_y = GS(I_y)$, $GS_b = GS(I_b)$
-   - **Discrepancy Analysis Agent (DA)**：模拟Broca和Wernicke区，使用**Qwen2**分析两个场景间的差异 $D_l = DA(LE_y, LE_b)$, $D_g = DA(GS_y, GS_b)$
-   - 设计动机：YesBut讽刺图像由"Yes"（正常场景）和"But"（矛盾场景）两半组成，需分别提取再对比
+
+    - **Local Entities Extraction Agent (LE)**：模拟IT皮层，使用**RAM**（Recognize Anything Model）进行图像标注，提取每个场景中的局部实体标签 $LE_y = LE(I_y)$, $LE_b = LE(I_b)$
+    - **Global Semantics Extraction Agent (GS)**：模拟PPC和PFC，使用**BLIP**进行图像描述，获取每个场景的全局语义 $GS_y = GS(I_y)$, $GS_b = GS(I_b)$
+    - **Discrepancy Analysis Agent (DA)**：模拟Broca和Wernicke区，使用**Qwen2**分析两个场景间的差异 $D_l = DA(LE_y, LE_b)$, $D_g = DA(GS_y, GS_b)$
+    - 设计动机：YesBut讽刺图像由"Yes"（正常场景）和"But"（矛盾场景）两半组成，需分别提取再对比
 
 2. **CoT提示构建与分步推理**:
-   - 将解耦结果 $\{LE_y, LE_b, GS_y, GS_b, D_l, D_g\}$ 组织为结构化提示
-   - 引导MLLM执行三个子任务：
-     - **子任务1**：识别局部实体→结果 $R_1$
-     - **子任务2**：理解全局语义→结果 $R_2$
-     - **子任务3**：推断讽刺意图→结果 $R_3$
-   - 设计动机：从局部到全局的推理路径模拟人类理解讽刺的认知过程
+
+    - 将解耦结果 $\{LE_y, LE_b, GS_y, GS_b, D_l, D_g\}$ 组织为结构化提示
+    - 引导MLLM执行三个子任务：
+      - **子任务1**：识别局部实体→结果 $R_1$
+      - **子任务2**：理解全局语义→结果 $R_2$
+      - **子任务3**：推断讽刺意图→结果 $R_3$
+    - 设计动机：从局部到全局的推理路径模拟人类理解讽刺的认知过程
 
 3. **不确定性引导的推理优化**:
-   - **子任务1的不确定性**：用Jaccard相似系数衡量MLLM检测的实体与LE agent的重叠度
-     $U_1 = \min\{Temp(-\frac{|LE\_R_1 \cap R_1|}{|LE\_R_1 \cup R_1|})\}$
-   - **子任务2的不确定性**：用BERTScore衡量MLLM描述与GS agent描述的语义相似度
-     $U_2 = \min\{Temp(-BERTScore(GS\_R_2, R_2))\}$
-   - 通过在不同温度（0.2到1.0）下多次推理，选择不确定性最低的结果
-   - 设计动机：温度越高创造性越强但幻觉风险也越高，通过最小化与"标准答案"（agent输出）的差距来控制推理质量
+
+    - **子任务1的不确定性**：用Jaccard相似系数衡量MLLM检测的实体与LE agent的重叠度
+      $U_1 = \min\{Temp(-\frac{|LE\_R_1 \cap R_1|}{|LE\_R_1 \cup R_1|})\}$
+    - **子任务2的不确定性**：用BERTScore衡量MLLM描述与GS agent描述的语义相似度
+      $U_2 = \min\{Temp(-BERTScore(GS\_R_2, R_2))\}$
+    - 通过在不同温度（0.2到1.0）下多次推理，选择不确定性最低的结果
+    - 设计动机：温度越高创造性越强但幻觉风险也越高，通过最小化与"标准答案"（agent输出）的差距来控制推理质量
 
 ### 训练策略
 SatireDecoder是完全**无需训练**的推理时框架。使用RAM、BLIP和Qwen2作为固定的外部智能体，通过温度控制MLLM的生成过程。

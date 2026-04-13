@@ -25,12 +25,12 @@ tags:
 通过 first-principles 推导揭示 group-relative REINFORCE（如 GRPO）天然具有 off-policy 解释，无需假设数据采样分布。发现 clipping 而非 importance sampling 是稳定性的关键，提出 REC 系列算法统一解释 GRPO、Kimi OPMD 和 Meta AsymRE。
 
 ## 研究背景与动机
-1. **领域现状**：GRPO 及其变体（GiGPO、DAPO）在 LLM RL 训练中取得成功，但理论理解不足。
-2. **现有痛点**：GRPO 的成功被归因于多种因素（group-relative advantage、IS、clipping），但各因素的真实贡献不清楚。
-3. **核心矛盾**：直觉上 GRPO 是 on-policy 的，但实践中常在 off-policy 数据上使用，理论上缺乏 justification。
-4. **本文要解决**：从第一原理出发推导 GRPO，揭示其 off-policy 本质并隔离各组件的作用。
-5. **切入角度**：定义 KL 正则化代理目标，推导响应对间的 pairwise consistency condition。
-6. **核心idea**：GRPO 是 off-policy 算法；clipping 是稳定性的真正来源；IS 可以去掉。
+**领域现状**：GRPO 及其变体（GiGPO、DAPO）在 LLM RL 训练中取得成功，但理论理解不足。
+**现有痛点**：GRPO 的成功被归因于多种因素（group-relative advantage、IS、clipping），但各因素的真实贡献不清楚。
+**核心矛盾**：直觉上 GRPO 是 on-policy 的，但实践中常在 off-policy 数据上使用，理论上缺乏 justification。
+**本文要解决**：从第一原理出发推导 GRPO，揭示其 off-policy 本质并隔离各组件的作用。
+**切入角度**：定义 KL 正则化代理目标，推导响应对间的 pairwise consistency condition。
+**核心idea**：GRPO 是 off-policy 算法；clipping 是稳定性的真正来源；IS 可以去掉。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **Off-Policy 解释**:
-   - 证明 GRPO 的损失函数在 off-policy 数据上仍然有效
-   - GRPO 的梯度可以重写为包含 importance weights 的形式
-   - Kimi OPMD 和 Meta AsymRE 也可以在此框架下统一解释
+
+    - 证明 GRPO 的损失函数在 off-policy 数据上仍然有效
+    - GRPO 的梯度可以重写为包含 importance weights 的形式
+    - Kimi OPMD 和 Meta AsymRE 也可以在此框架下统一解释
 
 2. **组件隔离——Clipping vs IS**:
-   - REC-OneSide-NoIS：去除 IS 后与 GRPO 性能几乎相同——IS 非必要
-   - 去除 clipping 的 REINFORCE 会崩溃——clipping 是稳定性的关键
-   - 这是本文最重要的实验发现
+
+    - REC-OneSide-NoIS：去除 IS 后与 GRPO 性能几乎相同——IS 非必要
+    - 去除 clipping 的 REINFORCE 会崩溃——clipping 是稳定性的关键
+    - 这是本文最重要的实验发现
 
 3. **Clipping 范围优化**:
-   - 将 clipping 范围从 (0.2, 0.2) 扩大到 (0.6, 2.0) 可加速训练而不损失稳定性
-   - 更宽的范围允许更大的策略更新步长，加速 off-policy 学习
-   - 纯 offline 设置下存在速率-稳定性权衡
+
+    - 将 clipping 范围从 (0.2, 0.2) 扩大到 (0.6, 2.0) 可加速训练而不损失稳定性
+    - 更宽的范围允许更大的策略更新步长，加速 off-policy 学习
+    - 纯 offline 设置下存在速率-稳定性权衡
 
 ## 实验关键数据
 

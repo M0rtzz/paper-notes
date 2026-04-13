@@ -32,24 +32,24 @@ tags:
 
 ### 为何需要证明日志（Proof Logging）
 
-1. **形式化验证**求解器本身代价过高，且影响性能
-2. **认证算法**（Certifying Algorithms）：求解器不仅输出答案，还输出正确性证明，由独立的证明检查器验证
+**形式化验证**求解器本身代价过高，且影响性能
+**认证算法**（Certifying Algorithms）：求解器不仅输出答案，还输出正确性证明，由独立的证明检查器验证
 3. 在 SAT 领域，证明日志已成为竞赛的强制要求
 
 ### MaxSAT 的认证现状
 
 MaxSAT（SAT 的优化变体）的主要求解范式：
-1. **解改进搜索**（Solution-Improving）：已有认证方法 ✅
-2. **核引导搜索**（Core-Guided）：已有认证方法 ✅
-3. **隐式打击集**（Implicit Hitting Set）：同期论文处理 ✅
-4. **分支定界**（Branch-and-Bound）：**本文填补的空白** ❌→✅
+**解改进搜索**（Solution-Improving）：已有认证方法 ✅
+**核引导搜索**（Core-Guided）：已有认证方法 ✅
+**隐式打击集**（Implicit Hitting Set）：同期论文处理 ✅
+**分支定界**（Branch-and-Bound）：**本文填补的空白** ❌→✅
 
 ### MaxCDCL 的挑战
 
 MaxCDCL（当前 SOTA 的分支定界求解器，赢得 2023/2024 MaxSAT 评测冠军）结合了 CDCL 搜索和复杂的边界函数。认证的主要难点在于：
 
-1. **Look-ahead 方法**产生条件不可满足核（local cores），需要证明这些核的正确性
-2. **MDD 编码**将伪布尔约束编码为 CNF，由于 BDD/MDD 的规约性，一个变量可能表示多个等价约束——需要在证明中展示它们确实等价
+**Look-ahead 方法**产生条件不可满足核（local cores），需要证明这些核的正确性
+**MDD 编码**将伪布尔约束编码为 CNF，由于 BDD/MDD 的规约性，一个变量可能表示多个等价约束——需要在证明中展示它们确实等价
 
 ## 方法详解
 

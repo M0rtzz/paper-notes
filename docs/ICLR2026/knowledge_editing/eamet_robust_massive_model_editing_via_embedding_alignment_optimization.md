@@ -29,17 +29,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：模型编辑旨在不重训的前提下修改 LLM 的特定知识。MEMIT 等方法通过修改 FFN 权重实现批量编辑，但编辑量 >1000 时性能急降。
+**领域现状**：模型编辑旨在不重训的前提下修改 LLM 的特定知识。MEMIT 等方法通过修改 FFN 权重实现批量编辑，但编辑量 >1000 时性能急降。
 
-2. **现有痛点**：(a) 编辑前加长前缀导致准确率从 98.5% 降至 ~77%；(b) 同主语多事实编辑相互干扰。
+**现有痛点**：(a) 编辑前加长前缀导致准确率从 98.5% 降至 ~77%；(b) 同主语多事实编辑相互干扰。
 
-3. **核心矛盾**：大规模编辑时，残差 embedding 与 key embedding 的空间分布逐渐偏离，导致检索失败。
+**核心矛盾**：大规模编辑时，残差 embedding 与 key embedding 的空间分布逐渐偏离，导致检索失败。
 
-4. **本文要解决什么？** 保持大规模编辑时 embedding 空间的结构一致性。
+**本文要解决什么？** 保持大规模编辑时 embedding 空间的结构一致性。
 
-5. **切入角度**：用 KL 散度量化 cosine 相似度分布的不一致程度，发现 misalignment 与编辑失败高度相关。
+**切入角度**：用 KL 散度量化 cosine 相似度分布的不一致程度，发现 misalignment 与编辑失败高度相关。
 
-6. **核心idea一句话**：用 KL+MSE 双损失将 residual embedding 的邻居结构对齐到 key embedding 空间。
+**核心idea一句话**：用 KL+MSE 双损失将 residual embedding 的邻居结构对齐到 key embedding 空间。
 
 ## 方法详解
 
@@ -50,13 +50,15 @@ tags:
 ### 关键设计
 
 1. **Embedding Misalignment 形式化**：
-   - Misalignment 分数 $\mathcal{A}(i) = KL(P_r^{(i)} \| P_k^{(i)})$
-   - Theorem 1：重构误差上界与 misalignment 正相关
-   - 实证：LLaMA2-7B 编辑 200→1000 条，misalignment 79→554，准确率 98.5%→86.8%
+
+    - Misalignment 分数 $\mathcal{A}(i) = KL(P_r^{(i)} \| P_k^{(i)})$
+    - Theorem 1：重构误差上界与 misalignment 正相关
+    - 实证：LLaMA2-7B 编辑 200→1000 条，misalignment 79→554，准确率 98.5%→86.8%
 
 2. **双损失对齐**：
-   - $L_{KL}$：分布级对齐 + $L_{MSE}$：top-M 相似度精确匹配
-   - 总损失含 NLL + 对齐正则
+
+    - $L_{KL}$：分布级对齐 + $L_{MSE}$：top-M 相似度精确匹配
+    - 总损失含 NLL + 对齐正则
 
 ## 实验关键数据
 

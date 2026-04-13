@@ -42,21 +42,24 @@ MIP攻击流程：
 ### 关键设计
 
 1. **形式化约束处理**：OS Agent有多组件pipeline（screen parser→VLM→APIs），攻击需满足：
-   - 扰动限制在图像patch区域ℛ内（约1/7屏幕面积）
-   - ε=25/255的∞范数约束确保人眼不可察觉
-   - 不得改变screen parser的SOM检测结果
-   - 离散整数像素约束
-   - 需适配VLM的图像resize操作
+
+    - 扰动限制在图像patch区域ℛ内（约1/7屏幕面积）
+    - ε=25/255的∞范数约束确保人眼不可察觉
+    - 不得改变screen parser的SOM检测结果
+    - 离散整数像素约束
+    - 需适配VLM的图像resize操作
 
 2. **Universal MIPs**：从targeted（单一prompt+截图对优化）扩展到universal（对多个prompt×多个截图联合优化）。方法：每步随机batch采样8对(prompt, screenshot)做PGD更新，直到所有对上的malicious target token概率超99%。
 
 3. **两种攻击载体**：
-   - Desktop setting：MIP嵌入桌面壁纸，1000×1000 pixels，边角衰减减少视觉伪影
-   - Social media setting：MIP嵌入社交媒体帖子图片，900×900 pixels
+
+    - Desktop setting：MIP嵌入桌面壁纸，1000×1000 pixels，边角衰减减少视觉伪影
+    - Social media setting：MIP嵌入社交媒体帖子图片，900×900 pixels
    
 4. **两种恶意行为**：
-   - ym：33-token程序，打开终端造成内存溢出
-   - yw：52-token程序，打开浏览器导航到恶意网站
+
+    - ym：33-token程序，打开终端造成内存溢出
+    - yw：52-token程序，打开浏览器导航到恶意网站
 
 5. **OS Agent蠕虫概念**：如果恶意行为包括分享/转发含MIP的帖子，MIP可自传播——首次提出"OS Agent计算机蠕虫"概念
 

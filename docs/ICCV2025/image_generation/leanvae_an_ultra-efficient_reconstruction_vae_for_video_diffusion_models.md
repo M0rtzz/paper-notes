@@ -27,9 +27,9 @@ tags:
 
 潜在视频扩散模型 (LVDM) 如 Open-Sora、CogVideoX、HunyuanVideo 等依赖 Video VAE 将高维视频压缩到紧凑的潜在空间。然而：
 
-1. **计算瓶颈**：现有 Video VAE（如 OD-VAE）处理 5 帧 1080p 视频就需要 ~32GB 显存，在 LVDM 训练中成为主要计算瓶颈
-2. **继承问题**：多数方法直接从 Stable Diffusion 的图像 VAE 膨胀而来（2D→3D 卷积），架构冗余严重
-3. **效率-质量权衡**：轻量化尝试（如 ViT-based）虽参数更少但有二次复杂度问题
+**计算瓶颈**：现有 Video VAE（如 OD-VAE）处理 5 帧 1080p 视频就需要 ~32GB 显存，在 LVDM 训练中成为主要计算瓶颈
+**继承问题**：多数方法直接从 Stable Diffusion 的图像 VAE 膨胀而来（2D→3D 卷积），架构冗余严重
+**效率-质量权衡**：轻量化尝试（如 ViT-based）虽参数更少但有二次复杂度问题
 
 ### 设计理念
 

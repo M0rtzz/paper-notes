@@ -29,8 +29,8 @@ tags:
 
 类别级物体位姿估计需预测 9DoF 位姿（旋转、平移、尺寸），RGBD 方法虽然效果好但受限于深度传感器的可用性。RGB-only 方法面临两个核心挑战：
 
-1. **形状不确定性**：缺少深度信息使得预测物体3D形状更加困难，尤其在类内形状变化大的区域（如相机镜头长度从正面无法确定），增加了 NOCS 坐标预测的不确定性
-2. **尺度歧义**：仅凭 RGB 图像无法区分"大物体远离相机"和"小物体靠近相机"，使得绝对尺度预测成为病态问题
+**形状不确定性**：缺少深度信息使得预测物体3D形状更加困难，尤其在类内形状变化大的区域（如相机镜头长度从正面无法确定），增加了 NOCS 坐标预测的不确定性
+**尺度歧义**：仅凭 RGB 图像无法区分"大物体远离相机"和"小物体靠近相机"，使得绝对尺度预测成为病态问题
 
 现有 RGB 方法（MSOS、OLD-Net、DMSR）的局限：将所有像素的 NOCS 预测等权对待、依赖 RANSAC 过滤异常值（慢且不鲁棒），对尺度歧义处理不足。
 
@@ -49,20 +49,22 @@ LaPose 的整体流程：
 ### 关键设计
 
 1. **拉普拉斯混合模型 (LMM)**：核心创新。将每个像素的 NOCS 坐标建模为概率分布而非确定性值，显式量化形状不确定性。选择 Laplacian 分布而非 Gaussian 的原因是其更强的异常值鲁棒性（L1 距离 vs L2 距离）。两流分别预测 $\text{Laplace}(\mu_{dino}, \sigma^2_{dino})$ 和 $\text{Laplace}(\mu_{conv}, \sigma^2_{conv})$，通过 Laplacian aleatoric uncertainty loss 同时学习均值和方差：
-   $$\mathcal{L}_{3D} = \frac{\lambda}{\sigma^2} \| \mathbf{M}_{vis} \cdot (\mathbf{C}^{3D}_{gt} - \mu) \|_1 + \mathbf{M}_{vis} \cdot \log(\sigma^2)$$
+    $\mathcal{L}_{3D} = \frac{\lambda}{\sigma^2} \| \mathbf{M}_{vis} \cdot (\mathbf{C}^{3D}_{gt} - \mu) \|_1 + \mathbf{M}_{vis} \cdot \log(\sigma^2)$
    当坐标误差大时 $\sigma^2$ 被迫增大以减小第一项，误差小时 $\sigma^2$ 被鼓励减小以降低对数项——实现自监督的不确定性学习。PnP 模块据此动态聚合双流信息并过滤高方差区域的错误对应。
 
 2. **双流特征架构**：
-   - **通用3D信息流 (DINOv2)**：提取类别无关的、SE(3)-一致的局部特征，与 NOCS 坐标的 SE(3)-不变性天然契合。但 DINOv2 缺乏类别特定知识
-   - **专用特征流 (ConvNet)**：训练卷积网络提取类别特定特征，补充 DINOv2 的不足
-   - 消融显示：仅用 DINOv2 或仅用 ConvNet 性能均不如双流组合，双流互补带来 6.7% 的 $10°0.5d$ 提升
+
+    - **通用3D信息流 (DINOv2)**：提取类别无关的、SE(3)-一致的局部特征，与 NOCS 坐标的 SE(3)-不变性天然契合。但 DINOv2 缺乏类别特定知识
+    - **专用特征流 (ConvNet)**：训练卷积网络提取类别特定特征，补充 DINOv2 的不足
+    - 消融显示：仅用 DINOv2 或仅用 ConvNet 性能均不如双流组合，双流互补带来 6.7% 的 $10°0.5d$ 提升
 
 3. **尺度无关位姿表示 (SAP)**：解决 RGB-only 的固有尺度歧义。将物体归一化到紧致包围盒对角线长度为1：
-   - 归一化尺寸：$\mathbf{s}_{norm} = \{s_x/d, s_y/d, s_z/d\}$，其中 $d = \sqrt{s_x^2 + s_y^2 + s_z^2}$
-   - 归一化平移：$\mathbf{t}_{norm} = \{t_x/d, t_y/d, t_z/d\}$
-   - 预测归一化 size 的残差 $\mathbf{s}_{out} = \mathbf{s}_{norm} - \mathbf{s}_{avg}$，降低预测难度
-   - 绝对尺度 $d$ 由独立的 MobileNet 预测，解耦尺度与位姿，阻止尺度预测误差向位姿传播
-   - 对应提出归一化 IoU (NIoU) 和 $10°0.2d$ 等尺度无关评估指标
+
+    - 归一化尺寸：$\mathbf{s}_{norm} = \{s_x/d, s_y/d, s_z/d\}$，其中 $d = \sqrt{s_x^2 + s_y^2 + s_z^2}$
+    - 归一化平移：$\mathbf{t}_{norm} = \{t_x/d, t_y/d, t_z/d\}$
+    - 预测归一化 size 的残差 $\mathbf{s}_{out} = \mathbf{s}_{norm} - \mathbf{s}_{avg}$，降低预测难度
+    - 绝对尺度 $d$ 由独立的 MobileNet 预测，解耦尺度与位姿，阻止尺度预测误差向位姿传播
+    - 对应提出归一化 IoU (NIoU) 和 $10°0.2d$ 等尺度无关评估指标
 
 ### 损失函数 / 训练策略
 

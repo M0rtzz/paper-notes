@@ -38,20 +38,23 @@ tags:
 
 ### 关键设计
 1. **模拟数据**：
-   - DarkGridV1 N-body 模拟套件生成收敛场
-   - 采用 DES-Y3 红移分布的 4 个层析 bin
-   - 三种测试设置：无噪声单通道、LSST-Y1 单通道、LSST-Y1 四通道（完整层析）
-   - 共 13680 张 512×512 收敛场map
+
+    - DarkGridV1 N-body 模拟套件生成收敛场
+    - 采用 DES-Y3 红移分布的 4 个层析 bin
+    - 三种测试设置：无噪声单通道、LSST-Y1 单通道、LSST-Y1 四通道（完整层析）
+    - 共 13680 张 512×512 收敛场map
 
 2. **模型架构覆盖**：
-   - CNN 系列：Baseline CNN(500K)、ResNet-18/34/50/101(11M-44M)
-   - ViT 系列：ViT-B(86M)、ViT-L(307M)、ViT-H(632M)
-   - Swin 系列：Swin-T(29M)、Swin-S(50M)、Swin-B(88M)、Swin-L(197M)
+
+    - CNN 系列：Baseline CNN(500K)、ResNet-18/34/50/101(11M-44M)
+    - ViT 系列：ViT-B(86M)、ViT-L(307M)、ViT-H(632M)
+    - Swin 系列：Swin-T(29M)、Swin-S(50M)、Swin-B(88M)、Swin-L(197M)
 
 3. **预训练策略**：
-   - 使用解析模型快速生成与弱引力透镜场统计特性相似的合成数据
-   - 在合成数据上预训练，然后在真实模拟数据上微调
-   - 对 Transformer 架构的提升显著，对 CNN 影响较小
+
+    - 使用解析模型快速生成与弱引力透镜场统计特性相似的合成数据
+    - 在合成数据上预训练，然后在真实模拟数据上微调
+    - 对 Transformer 架构的提升显著，对 CNN 影响较小
 
 ### 损失函数 / 训练策略
 - L2 损失（RMSE）用于模型训练

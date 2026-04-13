@@ -50,30 +50,34 @@ DiffSim 提出两种实现方式：
 ### 关键设计
 
 1. **Aligned Attention Score (AAS)**：
-   - 传统方法假设特征像素对齐，但实际中风格/姿态差异使这一假设失效
-   - AAS 利用注意力机制实现隐式对齐：
-     $$\text{AAS}(L_A, L_B) = \cos(\text{attn}(Q_A, K_A, V_A), \text{attn}(Q_A, K_B, V_B))$$
-   - 即：用图像A的 Query 对图像B的 Key/Value 做注意力，再与图像A自注意力的输出计算余弦相似度
-   - 双向对称计算：$\text{Similarity}(L_A, L_B) = \text{AAS}(L_A, L_B) + \text{AAS}(L_B, L_A)$
-   - 每张图像都既作为 query 又作为 key，保证了度量的完整性
+
+    - 传统方法假设特征像素对齐，但实际中风格/姿态差异使这一假设失效
+    - AAS 利用注意力机制实现隐式对齐：
+    $\text{AAS}(L_A, L_B) = \cos(\text{attn}(Q_A, K_A, V_A), \text{attn}(Q_A, K_B, V_B))$
+    - 即：用图像A的 Query 对图像B的 Key/Value 做注意力，再与图像A自注意力的输出计算余弦相似度
+    - 双向对称计算：$\text{Similarity}(L_A, L_B) = \text{AAS}(L_A, L_B) + \text{AAS}(L_B, L_A)$
+    - 每张图像都既作为 query 又作为 key，保证了度量的完整性
 
 2. **DiffSim-S（Self-Attention 版本）**：
-   - 将两张图像加噪至时间步 $t$，送入 U-Net 的第 $n$ 个 self-attention 层
-   - 提取两个图像的潜表示 $z_{t,\text{self},n}^A$ 和 $z_{t,\text{self},n}^B$
-   - 在该层的 self-attention 中计算 AAS
-   - **浅层+高噪声时间步**适合评估低级/风格相似度，**深层+低噪声时间步**适合评估语义相似度
-   - 通过简单调整 layer 和 timestep 即可实现不同粒度的相似度度量
+
+    - 将两张图像加噪至时间步 $t$，送入 U-Net 的第 $n$ 个 self-attention 层
+    - 提取两个图像的潜表示 $z_{t,\text{self},n}^A$ 和 $z_{t,\text{self},n}^B$
+    - 在该层的 self-attention 中计算 AAS
+    - **浅层+高噪声时间步**适合评估低级/风格相似度，**深层+低噪声时间步**适合评估语义相似度
+    - 通过简单调整 layer 和 timestep 即可实现不同粒度的相似度度量
 
 3. **DiffSim-C（Cross-Attention 版本）**：
-   - 使用 IP-Adapter Plus 从 CLIP 图像编码器提取 patch 级特征，注入 U-Net cross-attention
-   - 交换两张图像在 IP-Adapter 和 U-Net 中的角色
-   - 在 cross-attention 层计算 AAS
-   - 特别适合实例级相似度评估（如 CUTE 数据集）
+
+    - 使用 IP-Adapter Plus 从 CLIP 图像编码器提取 patch 级特征，注入 U-Net cross-attention
+    - 交换两张图像在 IP-Adapter 和 U-Net 中的角色
+    - 在 cross-attention 层计算 AAS
+    - 特别适合实例级相似度评估（如 CUTE 数据集）
 
 4. **AAS 对 CLIP / DINO 的扩展**：
-   - AAS 不限于扩散模型，也可应用于 CLIP 和 DINOv2 的 self-attention 层
-   - 衍生出 **CLIP AAS** 和 **DINO v2 AAS**，在部分任务上显著提升原始模型性能
-   - 尤其在低级相似度（TID2013）和风格相似度（Sref）上提升明显
+
+    - AAS 不限于扩散模型，也可应用于 CLIP 和 DINOv2 的 self-attention 层
+    - 衍生出 **CLIP AAS** 和 **DINO v2 AAS**，在部分任务上显著提升原始模型性能
+    - 尤其在低级相似度（TID2013）和风格相似度（Sref）上提升明显
 
 ### 损失函数 / 训练策略
 

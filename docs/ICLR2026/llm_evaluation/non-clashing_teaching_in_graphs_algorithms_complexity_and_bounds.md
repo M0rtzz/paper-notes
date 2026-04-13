@@ -27,22 +27,22 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：非冲突教学（Non-Clashing Teaching）是目前已知最高效的满足 Goldman-Mathias 反共谋基准的批量机器教学模型。给定概念类 $\mathcal{C}$，教师为每个概念 $C \in \mathcal{C}$ 分配教学集 $T(C)$，要求：对任意两个不同概念 $C, C'$，$T(C) \cup T(C')$ 中至少有一个样本仅与其中一个概念一致（即"区分"它们）。非冲突教学维度 $\text{NCTD}(\mathcal{C})$ 为满足此条件的最小教学集大小。
+**领域现状**：非冲突教学（Non-Clashing Teaching）是目前已知最高效的满足 Goldman-Mathias 反共谋基准的批量机器教学模型。给定概念类 $\mathcal{C}$，教师为每个概念 $C \in \mathcal{C}$ 分配教学集 $T(C)$，要求：对任意两个不同概念 $C, C'$，$T(C) \cup T(C')$ 中至少有一个样本仅与其中一个概念一致（即"区分"它们）。非冲突教学维度 $\text{NCTD}(\mathcal{C})$ 为满足此条件的最小教学集大小。
 
-2. **现有痛点**：
+**现有痛点**：
    - 此前对"图中球"概念类的 FPT 算法仅对 vertex integrity 参数化成立，而 treedepth 等更通用参数下的可解性未知
    - 允许负面标签（负例）参与教学时，**无任何 FPT 结果存在**——这是一个显著的理论空白
    - 先前 NCTD 的算法下界仅为 $2^{o(\sqrt{|V|})}$（来自 [KSZ19] 对开邻域的归约），与已知上界 $2^{\mathcal{O}(|V| \cdot k \cdot \log|V|)}$ 之间差距巨大
 
-3. **切入角度**：选择闭邻域（closed neighborhoods，即 radius-1 球）作为概念类——任何有限二值概念类 $\mathcal{C} \subseteq 2^V$ 都可等价地表示为某个图 $G$ 中的一组闭邻域 $\{N[x_C] \mid C \in \mathcal{C}\}$（通过构造 $V(G) = V \cup \{x_C\}$，概念顶点构成团，$x_C$ 与 $v \in C$ 相邻），因此结果具有**最大通用性**。
+**切入角度**：选择闭邻域（closed neighborhoods，即 radius-1 球）作为概念类——任何有限二值概念类 $\mathcal{C} \subseteq 2^V$ 都可等价地表示为某个图 $G$ 中的一组闭邻域 $\{N[x_C] \mid C \in \mathcal{C}\}$（通过构造 $V(G) = V \cup \{x_C\}$，概念顶点构成团，$x_C$ 与 $v \in C$ 相邻），因此结果具有**最大通用性**。
 
-4. **关键问题定义**：
+**关键问题定义**：
    - **N-NCTD**: 给定图 $G$、闭邻域集合 $\mathcal{B}$、整数 $k$，判断 $\text{NCTD}(\mathcal{B}) \leq k$？
    - **N-NCTD⁺**: 同上但限制教学集只用正面标签，判断 $\text{NCTD}^+(\mathcal{B}) \leq k$？
 
-5. **理论意义**：VC 维与 NCTD 的关系是核心开放问题（是否存在 $\text{NCTD}(\mathcal{C}) > \text{VCD}(\mathcal{C})$？），闭邻域的研究可能为回答此问题提供关键线索。
+**理论意义**：VC 维与 NCTD 的关系是核心开放问题（是否存在 $\text{NCTD}(\mathcal{C}) > \text{VCD}(\mathcal{C})$？），闭邻域的研究可能为回答此问题提供关键线索。
 
-6. **广泛应用**：机器教学在样本压缩、逆强化学习、训练数据安全、人机交互等领域均有应用，理论基础的推进对这些方向都有潜在影响。
+**广泛应用**：机器教学在样本压缩、逆强化学习、训练数据安全、人机交互等领域均有应用，理论基础的推进对这些方向都有潜在影响。
 
 ## 方法详解
 

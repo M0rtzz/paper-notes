@@ -21,12 +21,12 @@ tags:
 > 基于摘要：Polynomial Lyapunov function \mathcal V (x) provides mathematically rigorous that converts stability analysis into efficiently solvable optimization problem. Traditional numerical methods rely on user-defined templates, while emerging neural \mathcal V (x) offer flexibility but exhibit poor generali
 
 ## 研究背景与动机
-1. **领域现状**：本文研究的问题属于 LLM推理 方向。Polynomial Lyapunov function \mathcal V (x) provides mathematically rigorous that converts stability analysis into efficiently solvable optimization problem. Traditional numerical methods rely on user-defined templates, while emerging neural \mathcal V (x) offer flexibility but exhibit poor generalization yield from naive Square polynomial networks.
-2. **现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
-3. **核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
-4. **本文要解决什么？** 针对上述问题，作者提出了新方法。
-5. **切入角度**：从新的技术视角或观察出发。
-6. **核心idea一句话**：In this paper, we propose a novel learning-enabled polynomial \mathcal V (x) synthesis approach, where a data-driven machine learning process guided by target-based sampling to fit candidate \mathcal 
+**领域现状**：本文研究的问题属于 LLM推理 方向。Polynomial Lyapunov function \mathcal V (x) provides mathematically rigorous that converts stability analysis into efficiently solvable optimization problem. Traditional numerical methods rely on user-defined templates, while emerging neural \mathcal V (x) offer flexibility but exhibit poor generalization yield from naive Square polynomial networks.
+**现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+**核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+**本文要解决什么？** 针对上述问题，作者提出了新方法。
+**切入角度**：从新的技术视角或观察出发。
+**核心idea一句话**：In this paper, we propose a novel learning-enabled polynomial \mathcal V (x) synthesis approach, where a data-driven machine learning process guided by target-based sampling to fit candidate \mathcal 
 
 ## 方法详解
 
@@ -38,15 +38,17 @@ In this paper, we propose a novel learning-enabled polynomial \mathcal V (x) syn
 ### 关键设计
 
 1. **核心模块**:
-   - 做什么：解决上述痛点的关键技术组件
-   - 核心思路：详见论文方法部分
-   - 设计动机：提升性能或效率
+
+    - 做什么：解决上述痛点的关键技术组件
+    - 核心思路：详见论文方法部分
+    - 设计动机：提升性能或效率
 
 
 3. **优化策略**
-   - 做什么：提升训练稳定性和收敛速度
-   - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-   - 设计动机：确保模型在大规模数据上的训练效率
+
+    - 做什么：提升训练稳定性和收敛速度
+    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
+    - 设计动机：确保模型在大规模数据上的训练效率
 
 ### 实现细节
 - 框架基于 PyTorch 实现

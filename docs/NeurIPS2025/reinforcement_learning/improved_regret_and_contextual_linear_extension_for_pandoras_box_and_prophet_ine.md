@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Pandora's Box——$n$ 个盒子各有成本和未知奖励分布，需决定开启顺序和停止时机。Weitzman (1978) 给出已知分布下的最优策略。
-2. **现有痛点**：在线设定中 Agarwal et al. (2024) 达到 $\widetilde{O}(Un\sqrt{T})$（$U$ 可达 $n$），下界 $\Omega(\sqrt{nT})$，差距达 $n$ 倍。
-3. **核心矛盾**：先前方法以固定量移动概率质量，TV 距离界太松；$\text{Term}_{t,i}$ 被粗糙地用 $U \cdot \text{TV}$ 约束。
-4. **本文要解决什么？** 闭合 non-contextual 的 $n$ 差距；建立 contextual linear 模型获得 $\sqrt{T}$ 型 regret。
-5. **切入角度**：Bernstein 型 DKW 不等式自适应调整概率质量 + 效用函数导数精细分析。
-6. **核心idea一句话**：自适应乐观分布 + 两区域导数分析 = minimax 最优 regret。
+**领域现状**：Pandora's Box——$n$ 个盒子各有成本和未知奖励分布，需决定开启顺序和停止时机。Weitzman (1978) 给出已知分布下的最优策略。
+**现有痛点**：在线设定中 Agarwal et al. (2024) 达到 $\widetilde{O}(Un\sqrt{T})$（$U$ 可达 $n$），下界 $\Omega(\sqrt{nT})$，差距达 $n$ 倍。
+**核心矛盾**：先前方法以固定量移动概率质量，TV 距离界太松；$\text{Term}_{t,i}$ 被粗糙地用 $U \cdot \text{TV}$ 约束。
+**本文要解决什么？** 闭合 non-contextual 的 $n$ 差距；建立 contextual linear 模型获得 $\sqrt{T}$ 型 regret。
+**切入角度**：Bernstein 型 DKW 不等式自适应调整概率质量 + 效用函数导数精细分析。
+**核心idea一句话**：自适应乐观分布 + 两区域导数分析 = minimax 最优 regret。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **自适应乐观分布（Bernstein-type）**:
-   - 经验 CDF 加 Bernstein 置信区间向下移动：$F_{\hat{\mathcal{E}}}(x) = \max\{0, F_\mathcal{E}(x) - \sqrt{2F_\mathcal{E}(x)(1-F_\mathcal{E}(x))L/m} - L/m\}$
-   - 与固定移动 $\sim 1/\sqrt{m}$ 不同，尾部区域自动少移动
+
+    - 经验 CDF 加 Bernstein 置信区间向下移动：$F_{\hat{\mathcal{E}}}(x) = \max\{0, F_\mathcal{E}(x) - \sqrt{2F_\mathcal{E}(x)(1-F_\mathcal{E}(x))L/m} - L/m\}$
+    - 与固定移动 $\sim 1/\sqrt{m}$ 不同，尾部区域自动少移动
 
 2. **效用函数导数两区域分析**:
-   - $\widetilde{R}_i(\sigma_t; z)$ 关于 $z$ 是 1-Lipschitz 且单调的
-   - 大 $z$ 区域：$\sqrt{F(1-F)}$ 在 $z$ 大时自动收缩
-   - 小 $z$ 区域：导数约束 $\partial_z \widetilde{R}_i \leq \prod_{j<i} F_{D_j}(z)/Q_{t,i}$
-   - Cauchy-Schwarz + telescoping sum 得到 $\widetilde{O}(\sqrt{\sum_i Q_{t,i}/m_{t,i}})$ per-round regret
+
+    - $\widetilde{R}_i(\sigma_t; z)$ 关于 $z$ 是 1-Lipschitz 且单调的
+    - 大 $z$ 区域：$\sqrt{F(1-F)}$ 在 $z$ 大时自动收缩
+    - 小 $z$ 区域：导数约束 $\partial_z \widetilde{R}_i \leq \prod_{j<i} F_{D_j}(z)/Q_{t,i}$
+    - Cauchy-Schwarz + telescoping sum 得到 $\widetilde{O}(\sqrt{\sum_i Q_{t,i}/m_{t,i}})$ per-round regret
 
 3. **Contextual Linear 扩展**:
-   - 期望奖励 $\mu_{t,i} = \theta_i^\top x_{t,i}$，噪声固定
-   - Ridge regression + value-optimistic 经验分布：$\hat{z} = \min\{1, v - \text{LCB} + \text{UCB}\}$
-   - Regret 分解为乐观重加权 + value shift + 经验 vs 真实分布三项
+
+    - 期望奖励 $\mu_{t,i} = \theta_i^\top x_{t,i}$，噪声固定
+    - Ridge regression + value-optimistic 经验分布：$\hat{z} = \min\{1, v - \text{LCB} + \text{UCB}\}$
+    - Regret 分解为乐观重加权 + value shift + 经验 vs 真实分布三项
 
 ### 核心结果
 

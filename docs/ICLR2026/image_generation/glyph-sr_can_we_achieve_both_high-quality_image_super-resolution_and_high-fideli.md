@@ -34,19 +34,22 @@ GLYPH-SR基于预训练LDM（Juggernaut-XL），在其上添加Text-SR融合Cont
 
 ### 关键设计
 1. **条件分解(Condition Decomposition)**:
-   - 做什么：将引导信号显式分离为图像导向和文本导向
-   - 核心思路：场景级标题 $\mathcal{S}_{\text{IMG}}$ 概括全局属性（光照、构图等）；OCR模块检测 $K$ 个文本实例返回位置-文本对 $\{(\mathcal{S}_{\text{text}}^k, \mathcal{S}_{\text{pos}}^k)\}_{k=1}^K$，转为结构化自然语言提示（如"HSBC显示在图像中心"）
-   - 设计动机：当引导仅以整体形式提供时，小文本区域仍被视为通用高频纹理
+
+    - 做什么：将引导信号显式分离为图像导向和文本导向
+    - 核心思路：场景级标题 $\mathcal{S}_{\text{IMG}}$ 概括全局属性（光照、构图等）；OCR模块检测 $K$ 个文本实例返回位置-文本对 $\{(\mathcal{S}_{\text{text}}^k, \mathcal{S}_{\text{pos}}^k)\}_{k=1}^K$，转为结构化自然语言提示（如"HSBC显示在图像中心"）
+    - 设计动机：当引导仅以整体形式提供时，小文本区域仍被视为通用高频纹理
 
 2. **Text-SR融合ControlNet(TS-ControlNet)**:
-   - 做什么：在保持生成先验的同时平衡图像质量和文本可读性
-   - 核心思路：双分支架构——SR分支冻结保持整体图像质量，文本分支可训练专注字形恢复。残差混合注入：$c = \frac{1}{2} s_{\text{ctrl}} [\mathcal{C}_{\text{SR}}(z_t; \phi_{\text{img}}(\mathcal{S}_{\text{IMG}}+P)) + \mathcal{C}_{\text{TXT}}(z_t; \phi_{\text{txt}}(\mathcal{S}_{\text{TXT}}+P))]$
-   - 设计动机：直接分离两种引导虽改善文字但损害非文字区域
+
+    - 做什么：在保持生成先验的同时平衡图像质量和文本可读性
+    - 核心思路：双分支架构——SR分支冻结保持整体图像质量，文本分支可训练专注字形恢复。残差混合注入：$c = \frac{1}{2} s_{\text{ctrl}} [\mathcal{C}_{\text{SR}}(z_t; \phi_{\text{img}}(\mathcal{S}_{\text{IMG}}+P)) + \mathcal{C}_{\text{TXT}}(z_t; \phi_{\text{txt}}(\mathcal{S}_{\text{TXT}}+P))]$
+    - 设计动机：直接分离两种引导虽改善文字但损害非文字区域
 
 3. **Ping-Pong调度器**:
-   - 做什么：沿去噪轨迹动态重新加权文本和图像引导
-   - 核心思路：时间依赖系数 $\lambda_t$ 同时调制嵌入融合和残差注入。采用二值方波策略交替 $\lambda_t=0$（文本中心）和 $\lambda_t=1$（图像中心），切换周期 $\tau=1$：$\lambda_t = 0$ 若 $\lfloor \frac{t-t_0}{\tau} \rfloor \bmod 2 = 0$，否则 $\lambda_t = 1$
-   - 设计动机：连续渐变不如方波有效；文本阶段注入精确字形线索，图像阶段稳定全局结构
+
+    - 做什么：沿去噪轨迹动态重新加权文本和图像引导
+    - 核心思路：时间依赖系数 $\lambda_t$ 同时调制嵌入融合和残差注入。采用二值方波策略交替 $\lambda_t=0$（文本中心）和 $\lambda_t=1$（图像中心），切换周期 $\tau=1$：$\lambda_t = 0$ 若 $\lfloor \frac{t-t_0}{\tau} \rfloor \bmod 2 = 0$，否则 $\lambda_t = 1$
+    - 设计动机：连续渐变不如方波有效；文本阶段注入精确字形线索，图像阶段稳定全局结构
 
 ### 损失函数 / 训练策略
 - 使用标准 $\varepsilon$-预测目标训练：$\mathcal{L}_{\text{text}} = \mathbb{E}_{z_0, t, \varepsilon} \| \varepsilon - \mathcal{D}_\theta(z_t, t, c) \|_2^2$

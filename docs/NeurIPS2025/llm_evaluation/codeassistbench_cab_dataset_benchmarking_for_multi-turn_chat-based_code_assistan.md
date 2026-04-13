@@ -28,17 +28,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 编程助手评估已从孤立代码合成（HumanEval、MBPP）进化到仓库级维护（SWE-Bench、BigCodeBench），但现有 benchmark 要么是单轮的（InfiBench、StackEval），要么局限于代码合成的多轮对话（ConvCodeWorld、MINT、TICODER），缺少对真实多轮编程求助场景的系统评估。
+**领域现状**：LLM 编程助手评估已从孤立代码合成（HumanEval、MBPP）进化到仓库级维护（SWE-Bench、BigCodeBench），但现有 benchmark 要么是单轮的（InfiBench、StackEval），要么局限于代码合成的多轮对话（ConvCodeWorld、MINT、TICODER），缺少对真实多轮编程求助场景的系统评估。
 
-2. **开发者真实需求被忽视**：2024 年 Stack Overflow 调查（34,168 名开发者）显示——77.9% 需要 AI "搜索答案"、77.3% 需要"调试排错"、73.6% 需要"理解陌生代码库"，这些任务需要迭代澄清、环境感知推理、项目特定细节整合，远超当前 benchmark 的覆盖范围。
+**开发者真实需求被忽视**：2024 年 Stack Overflow 调查（34,168 名开发者）显示——77.9% 需要 AI "搜索答案"、77.3% 需要"调试排错"、73.6% 需要"理解陌生代码库"，这些任务需要迭代澄清、环境感知推理、项目特定细节整合，远超当前 benchmark 的覆盖范围。
 
-3. **单轮评估的根本局限**：真实编程求助是多轮交互的。例如一个 Docker 端口映射问题，助手需要 (1) 理解仓库网络结构，(2) 解释代理端口是内部硬编码的，(3) 向用户保证无需额外映射——每一步回答都影响下一个问题。单轮正确性评估无法捕捉这种推理轨迹。
+**单轮评估的根本局限**：真实编程求助是多轮交互的。例如一个 Docker 端口映射问题，助手需要 (1) 理解仓库网络结构，(2) 解释代理端口是内部硬编码的，(3) 向用户保证无需额外映射——每一步回答都影响下一个问题。单轮正确性评估无法捕捉这种推理轨迹。
 
-4. **手动策展不可扩展**：InfiBench/StackEval 依赖人工策展 StackOverflow 数据，不仅成本高昂，且随 LLM 训练数据更新会逐渐失去区分度。需要一种可自动、持续扩展的 benchmark 构建范式。
+**手动策展不可扩展**：InfiBench/StackEval 依赖人工策展 StackOverflow 数据，不仅成本高昂，且随 LLM 训练数据更新会逐渐失去区分度。需要一种可自动、持续扩展的 benchmark 构建范式。
 
-5. **核心矛盾**：现有 benchmark 衡量的是"给定明确 spec 生成代码的能力"，而开发者真正需要的是"在模糊问题描述、具体项目上下文中解决实际问题的能力"。
+**核心矛盾**：现有 benchmark 衡量的是"给定明确 spec 生成代码的能力"，而开发者真正需要的是"在模糊问题描述、具体项目上下文中解决实际问题的能力"。
 
-6. **本文切入点**：利用 GitHub 上标记为 question/help-wanted 的 closed issue 及其多轮解决对话，自动构建可执行、可评判的多轮编程辅助 benchmark，用 User-Maintainer-Judge 三 agent 框架模拟并评估 LLM 的真实辅助能力。
+**本文切入点**：利用 GitHub 上标记为 question/help-wanted 的 closed issue 及其多轮解决对话，自动构建可执行、可评判的多轮编程辅助 benchmark，用 User-Maintainer-Judge 三 agent 框架模拟并评估 LLM 的真实辅助能力。
 
 ## 方法详解
 

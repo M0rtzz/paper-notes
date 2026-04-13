@@ -40,22 +40,25 @@ tags:
 ### 关键设计
 
 1. **李群构造 (Lie Group Construction)**:
-   - 将卷积核参数集合 $G = \{\mathcal{W} \in \mathbb{R}^{C_{in} \times C_{out} \times k \times k} | W_{c,i,j,l} \neq 0\}$ 视为李群
-   - 群运算定义为逐元素乘法（Hadamard 积）$\odot$
-   - 单位元为全 1 张量 $\mathcal{I}$，逆元为逐元素取倒数
-   - $G \cong \prod_{c,i,j,l} (\mathbb{R} \setminus \{0\})$，是一维李群的笛卡尔积，天然具有光滑流形结构
-   - 对应李代数 $\mathfrak{g}$ 同构于 $\mathbb{R}^{C_{out} \times C_{in} \times k \times k}$，是线性向量空间
+
+    - 将卷积核参数集合 $G = \{\mathcal{W} \in \mathbb{R}^{C_{in} \times C_{out} \times k \times k} | W_{c,i,j,l} \neq 0\}$ 视为李群
+    - 群运算定义为逐元素乘法（Hadamard 积）$\odot$
+    - 单位元为全 1 张量 $\mathcal{I}$，逆元为逐元素取倒数
+    - $G \cong \prod_{c,i,j,l} (\mathbb{R} \setminus \{0\})$，是一维李群的笛卡尔积，天然具有光滑流形结构
+    - 对应李代数 $\mathfrak{g}$ 同构于 $\mathbb{R}^{C_{out} \times C_{in} \times k \times k}$，是线性向量空间
 
 2. **乘法式参数更新 (Multiplicative Update)**:
-   - 传统加法更新：$\mathcal{W} \rightarrow \mathcal{W} + \Delta\mathcal{W}$（不保结构）
-   - LieRA 乘法更新：$\mathcal{W} \rightarrow \mathcal{W} \odot \exp(\Delta\mathcal{W})$
-   - 乘法更新按比例缩放每个元素，保持核内相对结构和空间局部性
-   - 由于 $G$ 在群运算下封闭，更新后参数仍在 $G$ 中，保持流形结构
+
+    - 传统加法更新：$\mathcal{W} \rightarrow \mathcal{W} + \Delta\mathcal{W}$（不保结构）
+    - LieRA 乘法更新：$\mathcal{W} \rightarrow \mathcal{W} \odot \exp(\Delta\mathcal{W})$
+    - 乘法更新按比例缩放每个元素，保持核内相对结构和空间局部性
+    - 由于 $G$ 在群运算下封闭，更新后参数仍在 $G$ 中，保持流形结构
 
 3. **一阶 Taylor 近似 (First-Order Taylor Approximation)**:
-   - 由于 $\Delta\mathcal{W}$ 很小，$\exp(\Delta\mathcal{W}) \approx \mathcal{I} + \Delta\mathcal{W}$
-   - 更新规则简化为：$\mathcal{W} \odot \exp(\Delta\mathcal{W}) \approx \mathcal{W} + \mathcal{W} \odot \Delta\mathcal{W}$
-   - 该近似大幅降低计算开销，同时性能损失可忽略
+
+    - 由于 $\Delta\mathcal{W}$ 很小，$\exp(\Delta\mathcal{W}) \approx \mathcal{I} + \Delta\mathcal{W}$
+    - 更新规则简化为：$\mathcal{W} \odot \exp(\Delta\mathcal{W}) \approx \mathcal{W} + \mathcal{W} \odot \Delta\mathcal{W}$
+    - 该近似大幅降低计算开销，同时性能损失可忽略
 
 ### 理论分析：秩容量
 

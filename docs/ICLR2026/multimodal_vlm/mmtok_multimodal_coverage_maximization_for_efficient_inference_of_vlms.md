@@ -48,29 +48,33 @@ MMTok将视觉token选择形式化为**最大覆盖问题**，通过子模函数
 ### 关键设计
 
 1. **覆盖函数定义**：
-   $$f(\mathcal{S}; M) = \frac{1}{m} \sum_{i=1}^{m} \max M_{i,\mathcal{S}}$$
+    $f(\mathcal{S}; M) = \frac{1}{m} \sum_{i=1}^{m} \max M_{i,\mathcal{S}}$
    即对每个目标token，取其与被选token子集中最大相似度的平均值。该函数被证明是**子模函数**（Proposition 1），保证贪心算法可获得$(1-1/e) \approx 63.2\%$最优解的理论保证。
 
 2. **文本-视觉覆盖（T-V Coverage）**：
-   - 相似度矩阵 $M_{i,j}^{tv} = \mathbf{t}_i^\top \mathbf{v}_j$，使用投影后的视觉token（与文本对齐）
-   - 目的：选出与文本查询语义最相关的视觉token
-   - 局限：文本可能模糊（如"请描述图像"），语义引导不足
+
+    - 相似度矩阵 $M_{i,j}^{tv} = \mathbf{t}_i^\top \mathbf{v}_j$，使用投影后的视觉token（与文本对齐）
+    - 目的：选出与文本查询语义最相关的视觉token
+    - 局限：文本可能模糊（如"请描述图像"），语义引导不足
 
 3. **视觉-视觉覆盖（V-V Coverage）**：
-   - 相似度矩阵 $M_{i,j}^{vv} = \mathbf{v}_i^{\prime\top} \mathbf{v}_j'$，使用投影前的视觉特征（捕获纯视觉相似性）
-   - 目的：选出能代表整幅图像信息的视觉token子集
-   - 与T-V覆盖互补
+
+    - 相似度矩阵 $M_{i,j}^{vv} = \mathbf{v}_i^{\prime\top} \mathbf{v}_j'$，使用投影前的视觉特征（捕获纯视觉相似性）
+    - 目的：选出能代表整幅图像信息的视觉token子集
+    - 与T-V覆盖互补
 
 4. **多模态覆盖融合**：
-   - 先用softmax进行校准：$M_{i,j}^{tv'} = \frac{\exp(M_{i,j}^{tv}/\tau_t)}{\sum_j \exp(M_{i,j}^{tv}/\tau_t)}$
-   - 联合目标：$f(\mathcal{S}; M^{tv'}, M^{vv'}) = f(\mathcal{S}; M^{tv'}) + \alpha \cdot f(\mathcal{S}; M^{vv'})$
-   - **Corollary 1**：两个子模函数之和仍为子模函数，贪心算法仍然有效
-   - 默认参数：$\tau_t=0.02$, $\tau_v=0.2$, $\alpha=0.5$
+
+    - 先用softmax进行校准：$M_{i,j}^{tv'} = \frac{\exp(M_{i,j}^{tv}/\tau_t)}{\sum_j \exp(M_{i,j}^{tv}/\tau_t)}$
+    - 联合目标：$f(\mathcal{S}; M^{tv'}, M^{vv'}) = f(\mathcal{S}; M^{tv'}) + \alpha \cdot f(\mathcal{S}; M^{vv'})$
+    - **Corollary 1**：两个子模函数之和仍为子模函数，贪心算法仍然有效
+    - 默认参数：$\tau_t=0.02$, $\tau_v=0.2$, $\alpha=0.5$
 
 5. **可选的Agent增强文本**：
-   - 使用轻量级VLM（SmolVLM2-256M）生成初步回答
-   - 将回答token拼接到原始文本token后增强T-V覆盖的引导
-   - 适用于文本查询信息不足的场景
+
+    - 使用轻量级VLM（SmolVLM2-256M）生成初步回答
+    - 将回答token拼接到原始文本token后增强T-V覆盖的引导
+    - 适用于文本查询信息不足的场景
 
 ### 算法复杂度
 

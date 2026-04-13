@@ -29,8 +29,8 @@ tags:
 
 自动化胸部X光（CXR）报告生成是一项重要的医学NLG任务，能够减轻放射科医生的工作负担。目前主要的两个数据集MIMIC-CXR和CheXpert Plus均由自由文本报告组成，报告风格高度可变且缺乏结构化，这带来了两方面的挑战：
 
-1. **生成困难**：自由文本报告的多样性使模型难以产生一致、临床有意义的报告
-2. **评估困难**：现有评估指标（BLEU、ROUGE等NLG指标和F1-RadGraph等临床指标）难以准确捕捉放射学解读的细微差异，因为同一发现可能有多种不同的表述方式
+**生成困难**：自由文本报告的多样性使模型难以产生一致、临床有意义的报告
+**评估困难**：现有评估指标（BLEU、ROUGE等NLG指标和F1-RadGraph等临床指标）难以准确捕捉放射学解读的细微差异，因为同一发现可能有多种不同的表述方式
 
 与此同时，临床上也一直有呼吁使用更一致、结构化的放射学报告。这一现实需求和技术困境共同促使作者提出SRRG任务——将自由文本报告重构为标准化格式，并配套更精确的评估方法。
 
@@ -43,30 +43,34 @@ SRRG的工作包含三个核心贡献：(1) 定义结构化报告规范并利用
 ### 关键设计
 
 1. **结构化报告规范（Desiderata）**: 定义了严格的报告格式标准：
-   - 报告由Exam Type、History、Technique、Comparison、Findings、Impression六个部分组成
-   - Findings部分按预定义解剖学标题组织：Lungs and Airways、Pleura、Cardiovascular、Hila and Mediastinum、Tubes/Catheters/Support Devices、Musculoskeletal and Chest Wall、Abdominal、Other
-   - Impression部分按临床重要性从高到低编号列出关键发现
-   - 严格排除历史比较、可识别信息（日期、姓名、机构等），仅保留患者性别和年龄
+
+    - 报告由Exam Type、History、Technique、Comparison、Findings、Impression六个部分组成
+    - Findings部分按预定义解剖学标题组织：Lungs and Airways、Pleura、Cardiovascular、Hila and Mediastinum、Tubes/Catheters/Support Devices、Musculoskeletal and Chest Wall、Abdominal、Other
+    - Impression部分按临床重要性从高到低编号列出关键发现
+    - 严格排除历史比较、可识别信息（日期、姓名、机构等），仅保留患者性别和年龄
 
 2. **数据集构建**: 
-   - 利用GPT-4 Turbo将MIMIC-CXR和CheXpert Plus的自由文本报告重构为结构化格式
-   - SRRG-Findings包含184,542条（训练集181,874）
-   - SRRG-Impression包含409,927条（训练集405,972）
-   - 由5位执业放射科医生对464份报告进行人工审阅验证
-   - 两个数据集的映射分别是：X光→Findings 和 X光→Impression
+
+    - 利用GPT-4 Turbo将MIMIC-CXR和CheXpert Plus的自由文本报告重构为结构化格式
+    - SRRG-Findings包含184,542条（训练集181,874）
+    - SRRG-Impression包含409,927条（训练集405,972）
+    - 由5位执业放射科医生对464份报告进行人工审阅验证
+    - 两个数据集的映射分别是：X光→Findings 和 X光→Impression
 
 3. **SRR-BERT疾病分类模型（55标签）**:
-   - 在CheXbert的14标签基础上扩展到55个疾病标签，覆盖更精细的肺部、胸膜、心脏、纵隔、肌骨及腹部发现
-   - 每个发现映射到0个、1个或多个疾病标签
-   - 每个疾病赋予三种状态：Present（存在）、Absent（不存在）、Uncertain（不确定）
-   - 数据标注采用三模型投票：GPT-4 Turbo、GPT-4 Turbo 1106 Preview和GPT-4o分别标注，取至少两个模型一致的结果
-   - 基于CXR-BERT微调，共标注1,506,158条有效语句
+
+    - 在CheXbert的14标签基础上扩展到55个疾病标签，覆盖更精细的肺部、胸膜、心脏、纵隔、肌骨及腹部发现
+    - 每个发现映射到0个、1个或多个疾病标签
+    - 每个疾病赋予三种状态：Present（存在）、Absent（不存在）、Uncertain（不确定）
+    - 数据标注采用三模型投票：GPT-4 Turbo、GPT-4 Turbo 1106 Preview和GPT-4o分别标注，取至少两个模型一致的结果
+    - 基于CXR-BERT微调，共标注1,506,158条有效语句
 
 4. **F1-SRR-BERT评估指标**: 
-   - 利用SRR-BERT对生成报告和参考报告分别进行疾病预测，计算F1分数
-   - 提供两个粒度：leaves级（55标签最细粒度）和upper级（25个更粗的类别）
-   - 支持aligned（按顺序对齐评估）和unaligned（按集合方式评估）两种模式
-   - aligned模式可评估模型是否按临床重要性排序
+
+    - 利用SRR-BERT对生成报告和参考报告分别进行疾病预测，计算F1分数
+    - 提供两个粒度：leaves级（55标签最细粒度）和upper级（25个更粗的类别）
+    - 支持aligned（按顺序对齐评估）和unaligned（按集合方式评估）两种模式
+    - aligned模式可评估模型是否按临床重要性排序
 
 ### 损失函数 / 训练策略
 

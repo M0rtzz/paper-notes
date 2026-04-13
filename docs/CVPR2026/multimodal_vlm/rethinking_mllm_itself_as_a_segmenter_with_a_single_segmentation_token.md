@@ -25,15 +25,15 @@ tags:
 提出 SELF1E，首次实现不依赖专用 mask 解码器且仅用单个 [SEG] token 的 MLLM 分割方法，通过 Residual Features Refilling (RFR) 和 Residual Features Amplifier (RFA) 恢复 pixel-shuffle 压缩造成的分辨率损失，在多个分割任务上达到与解码器方法竞争力相当的性能。
 
 ## 研究背景与动机
-1. **领域现状**：MLLM 分割方法（LISA、GSVA、OMG-LLaVA 等）主要通过在 MLLM 上挂载专用 mask 解码器（SAM / Mask2Former）来生成分割掩码。
-2. **现有痛点**：
+**领域现状**：MLLM 分割方法（LISA、GSVA、OMG-LLaVA 等）主要通过在 MLLM 上挂载专用 mask 解码器（SAM / Mask2Former）来生成分割掩码。
+**现有痛点**：
    - 专用解码器引入额外参数和复杂结构，破坏方法的简洁性且依赖外部基础模型
    - UFO 尝试无解码器方案，但需要 16 个 [SEG] token 来补偿分辨率损失，增加计算成本
    - 问题根源：现代 MLLM 的 pixel-shuffle 下采样使视觉特征分辨率大幅降低（如 4 倍压缩），丢失了分割所需的细粒度空间信息
-3. **核心矛盾**：pixel-shuffle 压缩是 MLLM 高效处理的必要手段，但压缩导致的空间信息丢失是无解码器分割的根本瓶颈。
-4. **本文要解决什么**：证明单个 [SEG] token 足以实现高质量分割，瓶颈不在 token 数量而在特征分辨率。
-5. **切入角度**：压缩前的图像编码器特征保有完整分辨率，可以作为"预压缩特征"保留；LLM 处理后的特征带有更精细的语义区分度；两者互补。
-6. **核心idea**：保留编码器输出的未压缩特征+收集 LLM 各层的残差特征并上采样融合+用 Pixel-Unshuffle 进一步放大分辨率。
+**核心矛盾**：pixel-shuffle 压缩是 MLLM 高效处理的必要手段，但压缩导致的空间信息丢失是无解码器分割的根本瓶颈。
+**本文要解决什么**：证明单个 [SEG] token 足以实现高质量分割，瓶颈不在 token 数量而在特征分辨率。
+**切入角度**：压缩前的图像编码器特征保有完整分辨率，可以作为"预压缩特征"保留；LLM 处理后的特征带有更精细的语义区分度；两者互补。
+**核心idea**：保留编码器输出的未压缩特征+收集 LLM 各层的残差特征并上采样融合+用 Pixel-Unshuffle 进一步放大分辨率。
 
 ## 方法详解
 
@@ -43,22 +43,25 @@ tags:
 ### 关键设计
 
 1. **Residual Features Refilling (RFR)**:
-   - 保留编码器输出的未压缩特征 $F_{V_1}^{HQ} \in \mathbb{R}^{N_0 \times d}$（通过将每个 pixel 自复制 $\alpha$ 次后过同一 MLP 实现）
-   - 收集 LLM 处理前后的残差：$F_R = F_{IMG} - F_{V_1}$
-   - 上采样残差并融合：$F_{IMG}' = F_{V_1}^{HQ} + \mathcal{I}(F_R)$
-   - 效果：将 LLM 学到的细粒度语义区分度注入到高分辨率特征中
+
+    - 保留编码器输出的未压缩特征 $F_{V_1}^{HQ} \in \mathbb{R}^{N_0 \times d}$（通过将每个 pixel 自复制 $\alpha$ 次后过同一 MLP 实现）
+    - 收集 LLM 处理前后的残差：$F_R = F_{IMG} - F_{V_1}$
+    - 上采样残差并融合：$F_{IMG}' = F_{V_1}^{HQ} + \mathcal{I}(F_R)$
+    - 效果：将 LLM 学到的细粒度语义区分度注入到高分辨率特征中
 
 2. **Residual Features Amplifier (RFA)**:
-   - 对 $F_{V_1}$（LLM前）和 $F_{IMG}$（LLM后）分别施加 MLP + Pixel-Unshuffle 操作
-   - 放大后残差 $F_{RFA} = f_{PUS}'(F_{IMG}) - f_{PUS}(F_{V_1})$
-   - 最终融合 $F_{IMG}' = f_{PUS}(F_{V_1}^{HQ}) + \mathcal{I}(F_{RFA})$，分辨率达到 $\alpha N_0 \times d$
-   - 设计动机：压缩特征的每个 embedding 隐含了 $\alpha$ 个像素的信息，Pixel-Unshuffle 可以恢复这些隐含信息
-   - [SEG] token 也同样过 Pixel-Unshuffle 后取平均：$F_{SEG}' = \text{mean}(f_{PUS}'(F_{SEG}))$
+
+    - 对 $F_{V_1}$（LLM前）和 $F_{IMG}$（LLM后）分别施加 MLP + Pixel-Unshuffle 操作
+    - 放大后残差 $F_{RFA} = f_{PUS}'(F_{IMG}) - f_{PUS}(F_{V_1})$
+    - 最终融合 $F_{IMG}' = f_{PUS}(F_{V_1}^{HQ}) + \mathcal{I}(F_{RFA})$，分辨率达到 $\alpha N_0 \times d$
+    - 设计动机：压缩特征的每个 embedding 隐含了 $\alpha$ 个像素的信息，Pixel-Unshuffle 可以恢复这些隐含信息
+    - [SEG] token 也同样过 Pixel-Unshuffle 后取平均：$F_{SEG}' = \text{mean}(f_{PUS}'(F_{SEG}))$
 
 3. **分割专用注意力掩码**:
-   - 设计双感知路径：image-to-image（图像 token 间双向注意力）+ image-to-segmentation（图像 token 与 [SEG] token 双向交互）
-   - 比标准因果注意力提供更丰富的像素间和像素-语义交互
-   - 确保 [SEG] token 能充分感知所有图像位置的信息
+
+    - 设计双感知路径：image-to-image（图像 token 间双向注意力）+ image-to-segmentation（图像 token 与 [SEG] token 双向交互）
+    - 比标准因果注意力提供更丰富的像素间和像素-语义交互
+    - 确保 [SEG] token 能充分感知所有图像位置的信息
 
 ### 损失函数 / 训练策略
 基于 InternVL 系列训练。RFA 中的两个 Pixel-Unshuffle MLP 需要训练。

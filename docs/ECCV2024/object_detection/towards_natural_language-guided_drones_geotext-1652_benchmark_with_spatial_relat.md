@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：无人机导航主要依赖图像匹配（跨视角地理定位），如 University-1652 等数据集提供无人机-卫星图像对。然而实际场景中，用户更自然的输入方式是自然语言描述而非查询图像。
-2. **现有痛点**：(1) 缺乏公开的自然语言引导无人机导航数据集——现有地理定位数据集仅有 GPS 标签而无文本描述。(2) 无人机视角的航拍场景中，建筑物外观高度相似（相邻区域可能有多栋相似建筑），仅靠视觉特征和物体描述难以区分，需要空间关系信息。
-3. **核心矛盾**：传统跨模态匹配方法（如 CLIP、ALBEF）不建模区域间的空间关系，而航拍场景中空间位置（"左上角"、"右下方"）是区分相似目标的关键信息。
-4. **本文要解决什么**：建立语言引导无人机导航的基础——数据集和方法。
-5. **切入角度**：(1) 利用 VLM + 人机交互标注流程半自动构建高质量 image-text-bbox 数据集；(2) 在跨模态匹配框架中引入 grounding + spatial relation 两个优化目标。
-6. **核心 idea 一句话**：通过区域级空间关系描述和匹配，使自然语言能够精确引导无人机定位到目标建筑。
+**领域现状**：无人机导航主要依赖图像匹配（跨视角地理定位），如 University-1652 等数据集提供无人机-卫星图像对。然而实际场景中，用户更自然的输入方式是自然语言描述而非查询图像。
+**现有痛点**：(1) 缺乏公开的自然语言引导无人机导航数据集——现有地理定位数据集仅有 GPS 标签而无文本描述。(2) 无人机视角的航拍场景中，建筑物外观高度相似（相邻区域可能有多栋相似建筑），仅靠视觉特征和物体描述难以区分，需要空间关系信息。
+**核心矛盾**：传统跨模态匹配方法（如 CLIP、ALBEF）不建模区域间的空间关系，而航拍场景中空间位置（"左上角"、"右下方"）是区分相似目标的关键信息。
+**本文要解决什么**：建立语言引导无人机导航的基础——数据集和方法。
+**切入角度**：(1) 利用 VLM + 人机交互标注流程半自动构建高质量 image-text-bbox 数据集；(2) 在跨模态匹配框架中引入 grounding + spatial relation 两个优化目标。
+**核心 idea 一句话**：通过区域级空间关系描述和匹配，使自然语言能够精确引导无人机定位到目标建筑。
 
 ## 方法详解
 
@@ -41,43 +41,49 @@ tags:
 ### 关键设计
 
 1. **GeoText-1652 数据集构建**
-   - 做什么：扩展 University-1652 图像数据集，添加细粒度的文本-bbox 标注
-   - 核心思路：两阶段人机交互标注流程：
-     - **模态扩展阶段**：使用 Visual-LLM 生成图像级和区域级描述，配合 referee 模型自动过滤（正样本关键词检查 + 负样本排除主观表述），人工仅需审核关键词列表
-     - **空间精炼阶段**：用预训练 visual grounding 模型根据区域描述生成 bbox，设置空间规则过滤错误位置，5 轮人工评估迭代优化，最终 >90% 标注为优秀
-   - 设计动机：纯人工标注成本过高，Visual-LLM 存在幻觉问题，需要 referee 模型 + 人工验证的混合方案
-   - 数据规模：训练集 37,854 张无人机图 + 701 张卫星图 + 11,663 张地面图；每张图平均 3 个全局描述、2.62 个 bbox-text 对；全局描述平均 70.23 词
+
+    - 做什么：扩展 University-1652 图像数据集，添加细粒度的文本-bbox 标注
+    - 核心思路：两阶段人机交互标注流程：
+      - **模态扩展阶段**：使用 Visual-LLM 生成图像级和区域级描述，配合 referee 模型自动过滤（正样本关键词检查 + 负样本排除主观表述），人工仅需审核关键词列表
+      - **空间精炼阶段**：用预训练 visual grounding 模型根据区域描述生成 bbox，设置空间规则过滤错误位置，5 轮人工评估迭代优化，最终 >90% 标注为优秀
+    - 设计动机：纯人工标注成本过高，Visual-LLM 存在幻觉问题，需要 referee 模型 + 人工验证的混合方案
+    - 数据规模：训练集 37,854 张无人机图 + 701 张卫星图 + 11,663 张地面图；每张图平均 3 个全局描述、2.62 个 bbox-text 对；全局描述平均 70.23 词
 
 2. **Image-Text Contrastive Learning (ITC)**
-   - 做什么：全局图像-文本对齐
-   - 核心思路：标准的 batch 内对比学习：
-     $$\mathcal{L}_{\text{itc}} = -\frac{1}{2}\mathbb{E}[\log(\boldsymbol{p}_{\text{t2v}}) + \log(\boldsymbol{p}_{\text{v2t}})]$$
-     其中 $\boldsymbol{p}_{\text{v2t}} = \frac{\exp(s(V,T)/\tau)}{\sum_i \exp(s(V,T^i)/\tau)}$
-   - 设计动机：建立图像与文本描述的全局语义对齐基础
+
+    - 做什么：全局图像-文本对齐
+    - 核心思路：标准的 batch 内对比学习：
+    $\mathcal{L}_{\text{itc}} = -\frac{1}{2}\mathbb{E}[\log(\boldsymbol{p}_{\text{t2v}}) + \log(\boldsymbol{p}_{\text{v2t}})]$
+      其中 $\boldsymbol{p}_{\text{v2t}} = \frac{\exp(s(V,T)/\tau)}{\sum_i \exp(s(V,T^i)/\tau)}$
+    - 设计动机：建立图像与文本描述的全局语义对齐基础
 
 3. **Image-Text Matching (ITM)**
-   - 做什么：判断图像-文本对是否匹配
-   - 核心思路：对每个视觉概念采样 batch 内最高相似度的难负例文本，用跨模态编码器预测匹配概率：
-     $$\mathcal{L}_{\text{itm}} = -\mathbb{E}[\boldsymbol{y_m}\log(\boldsymbol{p}_{\text{match}}) + (1-\boldsymbol{y_m})\log(1-\boldsymbol{p}_{\text{match}})]$$
-   - 设计动机：补充 ITC 的粗粒度对齐，提供细粒度的匹配判别能力
+
+    - 做什么：判断图像-文本对是否匹配
+    - 核心思路：对每个视觉概念采样 batch 内最高相似度的难负例文本，用跨模态编码器预测匹配概率：
+    $\mathcal{L}_{\text{itm}} = -\mathbb{E}[\boldsymbol{y_m}\log(\boldsymbol{p}_{\text{match}}) + (1-\boldsymbol{y_m})\log(1-\boldsymbol{p}_{\text{match}})]$
+    - 设计动机：补充 ITC 的粗粒度对齐，提供细粒度的匹配判别能力
 
 4. **Grounding Prediction Loss**
-   - 做什么：根据区域级文本描述预测对应 bounding box
-   - 核心思路：用 6 层 Transformer + MLP 预测归一化 bbox $\hat{\boldsymbol{b}}_j = (c_x, c_y, w, h)$，训练损失：
-     $$\mathcal{L}_{\text{grounding}} = \mathbb{E}[\mathcal{L}_{\text{iou}}(\boldsymbol{b}_j, \hat{\boldsymbol{b}}_j) + \|\boldsymbol{b}_j - \hat{\boldsymbol{b}}_j\|_1]$$
-   - 设计动机：建模文本描述与图像区域的精确空间对应关系，是空间关系匹配的基础
+
+    - 做什么：根据区域级文本描述预测对应 bounding box
+    - 核心思路：用 6 层 Transformer + MLP 预测归一化 bbox $\hat{\boldsymbol{b}}_j = (c_x, c_y, w, h)$，训练损失：
+    $\mathcal{L}_{\text{grounding}} = \mathbb{E}[\mathcal{L}_{\text{iou}}(\boldsymbol{b}_j, \hat{\boldsymbol{b}}_j) + \|\boldsymbol{b}_j - \hat{\boldsymbol{b}}_j\|_1]$
+    - 设计动机：建模文本描述与图像区域的精确空间对应关系，是空间关系匹配的基础
 
 5. **Spatial Relation Matching Loss**
-   - 做什么：预测多个 ROI 之间的相对空间关系
-   - 核心思路：给定多个 bbox（如 $b_1, b_2, b_3$），通过 ROI Pooling 提取区域特征 $R_i$，拼接成对特征 $R_{ij}$（$i \neq j$），用 MLP 预测 9 类空间关系（3 水平 × 3 垂直：left/middle/right × top/middle/bottom）：
-     $$\mathcal{L}_{\text{spatial}} = \mathbb{E}[-\boldsymbol{y_r}^{ij}\log(\hat{\boldsymbol{p_r}}^{ij})]$$
-     水平关系判定：$|\Delta x| < w/2$ → middle；$\Delta x > w/2$ → left；$\Delta x < -w/2$ → right
-   - 设计动机：单独的 grounding loss 只关注单个区域的绝对定位，无法建模区域间的相对位置关系。而航拍场景中，"主楼在左边"这类相对位置描述是区分相似建筑的关键
+
+    - 做什么：预测多个 ROI 之间的相对空间关系
+    - 核心思路：给定多个 bbox（如 $b_1, b_2, b_3$），通过 ROI Pooling 提取区域特征 $R_i$，拼接成对特征 $R_{ij}$（$i \neq j$），用 MLP 预测 9 类空间关系（3 水平 × 3 垂直：left/middle/right × top/middle/bottom）：
+    $\mathcal{L}_{\text{spatial}} = \mathbb{E}[-\boldsymbol{y_r}^{ij}\log(\hat{\boldsymbol{p_r}}^{ij})]$
+      水平关系判定：$|\Delta x| < w/2$ → middle；$\Delta x > w/2$ → left；$\Delta x < -w/2$ → right
+    - 设计动机：单独的 grounding loss 只关注单个区域的绝对定位，无法建模区域间的相对位置关系。而航拍场景中，"主楼在左边"这类相对位置描述是区分相似建筑的关键
 
 6. **总体优化目标**
-   - 做什么：整合所有损失
-   - 核心思路：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{itc}} + \mathcal{L}_{\text{itm}} + \lambda(\mathcal{L}_{\text{grounding}} + \mathcal{L}_{\text{spatial}})$，其中 $\lambda = 0.1$
-   - 设计动机：blending spatial matching（混合空间匹配）权重较小，作为语义匹配的补充而非替代
+
+    - 做什么：整合所有损失
+    - 核心思路：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{itc}} + \mathcal{L}_{\text{itm}} + \lambda(\mathcal{L}_{\text{grounding}} + \mathcal{L}_{\text{spatial}})$，其中 $\lambda = 0.1$
+    - 设计动机：blending spatial matching（混合空间匹配）权重较小，作为语义匹配的补充而非替代
 
 ### 训练策略
 - Backbone：XVLM 预训练在 16M 图像

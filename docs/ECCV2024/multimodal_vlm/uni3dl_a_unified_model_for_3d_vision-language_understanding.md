@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：3D 感知技术是机器人导航、自动驾驶、虚拟现实等应用的基础。当前 3D 感知领域存在大量任务专用模型（semantic segmentation、instance segmentation、visual grounding、captioning 等），每个任务独立设计架构和训练。
+**领域现状**：3D 感知技术是机器人导航、自动驾驶、虚拟现实等应用的基础。当前 3D 感知领域存在大量任务专用模型（semantic segmentation、instance segmentation、visual grounding、captioning 等），每个任务独立设计架构和训练。
 
-2. **现有痛点**：
+**现有痛点**：
    - **任务覆盖不全**：现有 3D 视觉-语言统一模型（如 PointCLIP v2、ULIP、3D-VisTA）支持的任务种类有限，特别是密集预测任务（语义/实例分割）关注较少
    - **依赖多视图图像**：大多数方法需要将点云投影为多视图 2D 图像再处理，导致 3D 几何信息丢失，且增加模型复杂度
    - **需要任务特定微调**：如 3D-VisTA 虽然做了视觉-语言预训练，但下游每个任务仍需独立的 task head
 
-3. **核心矛盾**：2D 领域的统一模型（如 CLIP、X-Decoder、Mask2Former）已取得巨大成功，但 2D→3D 的迁移面临两大障碍——2D/3D 架构差异大 + 3D 大规模预训练数据稀缺。现有 3D 统一模型要么任务有限，要么依赖 2D 投影。
+**核心矛盾**：2D 领域的统一模型（如 CLIP、X-Decoder、Mask2Former）已取得巨大成功，但 2D→3D 的迁移面临两大障碍——2D/3D 架构差异大 + 3D 大规模预训练数据稀缺。现有 3D 统一模型要么任务有限，要么依赖 2D 投影。
 
-4. **本文要解决什么**：设计一个直接在点云上操作、支持尽可能多的 3D 视觉和视觉-语言任务的统一模型，实现跨任务的参数共享和无缝任务分解。
+**本文要解决什么**：设计一个直接在点云上操作、支持尽可能多的 3D 视觉和视觉-语言任务的统一模型，实现跨任务的参数共享和无缝任务分解。
 
-5. **切入角度**：借鉴 2D 领域的"功能统一"（functional unification）范式，而非 I/O 统一的 seq2seq 方式。通过 query-based transformer 生成通用的语义/掩码表示，再通过组合不同功能头来适配不同任务。
+**切入角度**：借鉴 2D 领域的"功能统一"（functional unification）范式，而非 I/O 统一的 seq2seq 方式。通过 query-based transformer 生成通用的语义/掩码表示，再通过组合不同功能头来适配不同任务。
 
-6. **核心 idea 一句话**：用 Query Transformer + Task Router 的功能统一架构，在点云上直接实现六类 3D 视觉-语言任务的统一建模。
+**核心 idea 一句话**：用 Query Transformer + Task Router 的功能统一架构，在点云上直接实现六类 3D 视觉-语言任务的统一建模。
 
 ## 方法详解
 
@@ -58,35 +58,39 @@ Uni3DL 包含四个核心模块：
 ### 关键设计
 
 1. **Point Cloud Encoder（3D U-Net）**：
-   - 做什么：从带颜色的点云中提取多尺度体素特征
-   - 核心思路：输入点云量化为 $N_0$ 个体素，经过 $S$ 阶段的卷积-下采样-反卷积-上采样，得到不同分辨率的特征图 $\{\mathbf{V}_s \in \mathbb{R}^{N_s \times C}\}_{s=1}^{S}$。最后一层特征 $\mathbf{V}_S$ 用作逐点掩码计算的点嵌入，其余层 $\{\mathbf{V}_s\}_{s=1}^{S-1}$ 被送入 Query Transformer 增强 queries
-   - 设计动机：U-Net 结构保留多尺度信息，有利于同时处理需要全局语义（如分类）和局部精度（如实例分割）的任务。使用预训练的 Mask3D 权重初始化，加速收敛
+
+    - 做什么：从带颜色的点云中提取多尺度体素特征
+    - 核心思路：输入点云量化为 $N_0$ 个体素，经过 $S$ 阶段的卷积-下采样-反卷积-上采样，得到不同分辨率的特征图 $\{\mathbf{V}_s \in \mathbb{R}^{N_s \times C}\}_{s=1}^{S}$。最后一层特征 $\mathbf{V}_S$ 用作逐点掩码计算的点嵌入，其余层 $\{\mathbf{V}_s\}_{s=1}^{S-1}$ 被送入 Query Transformer 增强 queries
+    - 设计动机：U-Net 结构保留多尺度信息，有利于同时处理需要全局语义（如分类）和局部精度（如实例分割）的任务。使用预训练的 Mask3D 权重初始化，加速收敛
 
 2. **Query Transformer Module（核心创新）**：
-   - 做什么：融合 latent queries、text queries 和 3D 视觉特征，生成统一的语义和掩码表示
-   - 核心思路：$L=15$ 层 transformer decoder，每层包含：
-     - **Masked Cross-Attention**：queries 与体素特征交叉注意力，采用 Mask2Former 的 masked attention 策略，每个 query 只关注上一层预测的掩码区域对应的体素：$\langle \hat{\mathbf{F}}_Q^l, \hat{\mathbf{F}}_T^l \rangle = \text{Cross-Att}(\langle \mathbf{F}_Q^{l-1}, \mathbf{F}_T^{l-1} \rangle, \mathbf{V}_s)$
-     - **Self-Attention**：query 间的交互，让 latent queries 和 text queries 相互增强
-     - **FFN**：标准前馈层
-   - **Voxel Sampling**：由于不同场景点数不同，训练时对每个特征层采样固定数量体素，实现高效 batch 训练
-   - 设计动机：masked attention 提升目标定位能力（只关注相关区域），latent queries 捕获对象级信息，text queries 捕获文本语义——两者在同一个 decoder 中联合优化
+
+    - 做什么：融合 latent queries、text queries 和 3D 视觉特征，生成统一的语义和掩码表示
+    - 核心思路：$L=15$ 层 transformer decoder，每层包含：
+      - **Masked Cross-Attention**：queries 与体素特征交叉注意力，采用 Mask2Former 的 masked attention 策略，每个 query 只关注上一层预测的掩码区域对应的体素：$\langle \hat{\mathbf{F}}_Q^l, \hat{\mathbf{F}}_T^l \rangle = \text{Cross-Att}(\langle \mathbf{F}_Q^{l-1}, \mathbf{F}_T^{l-1} \rangle, \mathbf{V}_s)$
+      - **Self-Attention**：query 间的交互，让 latent queries 和 text queries 相互增强
+      - **FFN**：标准前馈层
+    - **Voxel Sampling**：由于不同场景点数不同，训练时对每个特征层采样固定数量体素，实现高效 batch 训练
+    - 设计动机：masked attention 提升目标定位能力（只关注相关区域），latent queries 捕获对象级信息，text queries 捕获文本语义——两者在同一个 decoder 中联合优化
 
 3. **Task Router（功能统一的关键）**：
-   - 做什么：通过组合不同功能头，从统一的语义/掩码输出中导出任务特定结果
-   - 组合策略（Table 2）：
-     - 语义分割 = 分类头 + 掩码头
-     - 实例分割 = 分类头 + 掩码头
-     - Grounded 分割 = 掩码头 + 定位头
-     - 3D 描述生成 = 文本生成头
-     - 文本-3D 检索 = 文本-3D 匹配头
-   - 设计动机：不同任务共享底层 encoder 和 decoder 参数，仅在最后的 routing 策略上不同，实现了真正的参数共享和任务分解
+
+    - 做什么：通过组合不同功能头，从统一的语义/掩码输出中导出任务特定结果
+    - 组合策略（Table 2）：
+      - 语义分割 = 分类头 + 掩码头
+      - 实例分割 = 分类头 + 掩码头
+      - Grounded 分割 = 掩码头 + 定位头
+      - 3D 描述生成 = 文本生成头
+      - 文本-3D 检索 = 文本-3D 匹配头
+    - 设计动机：不同任务共享底层 encoder 和 decoder 参数，仅在最后的 routing 策略上不同，实现了真正的参数共享和任务分解
 
 4. **各功能头细节**：
-   - **Object Classification Head**：取前 $Q$ 个语义输出 $\mathbf{O}_s$，将所有 $K+1$ 类名送入文本编码器得到类嵌入 $\mathbf{C}_{emb}$，分类概率 $\mathbf{O}_c = \mathbf{O}_s \cdot \mathbf{C}_{emb}^T$（开放词汇分类）
-   - **Mask Head**：掩码输出与全分辨率体素特征做点积 $\mathbf{O}_m = \mathbf{O}_m \cdot \mathbf{V}_S^T$，得到每个 query 的逐点掩码
-   - **Grounding Head**：计算文本嵌入与对象嵌入的相似度 $\mathbf{S}_t = \text{Softmax}(e^\eta \cdot \mathbf{T}_{emb} \cdot \mathbf{O}_s^T)$，$\eta$ 为可学习缩放参数；用 Hungarian matching 进行匹配。额外的轻量 MLP 网络预测文本描述中提及的物体类别
-   - **Text Generation Head**：取最后 $L_T$ 个语义输出与词表 token 嵌入计算亲和矩阵 $\mathbf{S}_{cap} \in \mathbb{R}^{L_T \times V}$，训练时用 causal masking，推理时自回归生成
-   - **Text-3D Matching Head**：取最后一个语义 token 作为形状嵌入，计算与文本嵌入的对比学习损失
+
+    - **Object Classification Head**：取前 $Q$ 个语义输出 $\mathbf{O}_s$，将所有 $K+1$ 类名送入文本编码器得到类嵌入 $\mathbf{C}_{emb}$，分类概率 $\mathbf{O}_c = \mathbf{O}_s \cdot \mathbf{C}_{emb}^T$（开放词汇分类）
+    - **Mask Head**：掩码输出与全分辨率体素特征做点积 $\mathbf{O}_m = \mathbf{O}_m \cdot \mathbf{V}_S^T$，得到每个 query 的逐点掩码
+    - **Grounding Head**：计算文本嵌入与对象嵌入的相似度 $\mathbf{S}_t = \text{Softmax}(e^\eta \cdot \mathbf{T}_{emb} \cdot \mathbf{O}_s^T)$，$\eta$ 为可学习缩放参数；用 Hungarian matching 进行匹配。额外的轻量 MLP 网络预测文本描述中提及的物体类别
+    - **Text Generation Head**：取最后 $L_T$ 个语义输出与词表 token 嵌入计算亲和矩阵 $\mathbf{S}_{cap} \in \mathbb{R}^{L_T \times V}$，训练时用 causal masking，推理时自回归生成
+    - **Text-3D Matching Head**：取最后一个语义 token 作为形状嵌入，计算与文本嵌入的对比学习损失
 
 ### 损失函数 / 训练策略
 

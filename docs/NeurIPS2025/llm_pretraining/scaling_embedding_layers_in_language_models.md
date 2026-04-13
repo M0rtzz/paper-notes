@@ -24,12 +24,12 @@ tags:
 提出Scone方法，通过为高频n-gram学习上下文化的嵌入（用独立Transformer模型训练），在推理时将这些嵌入卸载到主存/SSD，实现"训练时用更多计算但推理时不增加加速器资源"的新缩放范式，1B参数模型超越1.9B基线。
 
 ## 研究背景与动机
-1. **领域现状**：传统缩放方式是增大模型参数——但这同时增加推理时的FLOPS和加速器内存。
-2. **现有痛点**：增大词汇量来扩展embedding有两个问题：(1) 同时增大output layer导致解码成本暴涨；(2) 尾部token训练不充分。
-3. **核心矛盾**：推理成本往往远超训练成本（模型被查询数十亿次），传统缩放方式将推理成本和训练计算绑定。
-4. **本文要解决什么**：找到一种"训练时可以用更多计算，但推理时加速器资源不变"的新缩放方式。
-5. **切入角度**：embedding lookup本质上是内存取操作（无计算），可以卸载到主存/SSD而几乎不影响延迟。高频n-gram的上下文化embedding可以预计算并缓存。
-6. **核心idea一句话**：用独立Transformer为高频n-gram学习上下文化embedding，推理时预计算并offload，解耦训练缩放和推理成本。
+**领域现状**：传统缩放方式是增大模型参数——但这同时增加推理时的FLOPS和加速器内存。
+**现有痛点**：增大词汇量来扩展embedding有两个问题：(1) 同时增大output layer导致解码成本暴涨；(2) 尾部token训练不充分。
+**核心矛盾**：推理成本往往远超训练成本（模型被查询数十亿次），传统缩放方式将推理成本和训练计算绑定。
+**本文要解决什么**：找到一种"训练时可以用更多计算，但推理时加速器资源不变"的新缩放方式。
+**切入角度**：embedding lookup本质上是内存取操作（无计算），可以卸载到主存/SSD而几乎不影响延迟。高频n-gram的上下文化embedding可以预计算并缓存。
+**核心idea一句话**：用独立Transformer为高频n-gram学习上下文化embedding，推理时预计算并offload，解耦训练缩放和推理成本。
 
 ## 方法详解
 
@@ -39,19 +39,22 @@ tags:
 ### 关键设计
 
 1. **F-gram选择**:
-   - 做什么：从训练语料中选择最频繁的n-gram（n=2到K）
-   - 核心思路：类似BPE的贪心合并策略，K-1次线性扫描语料，选频率最高的
-   - 设计动机：高频n-gram覆盖大部分token出现，低频的训练不充分不值得
+
+    - 做什么：从训练语料中选择最频繁的n-gram（n=2到K）
+    - 核心思路：类似BPE的贪心合并策略，K-1次线性扫描语料，选频率最高的
+    - 设计动机：高频n-gram覆盖大部分token出现，低频的训练不充分不值得
 
 2. **F-gram Transformer模型**:
-   - 做什么：独立的小Transformer，输入n-gram的token embedding序列，输出一个上下文化的embedding向量
-   - 核心思路：$e_i = \mathcal{A}_{f\text{-}gram}(\mathcal{T}(\sigma_j), ..., \mathcal{T}(\sigma_i))$，训练时与主模型端到端联合训练
-   - 设计动机：比查表更灵活——可以组合性地捕捉n-gram语义，且f-gram模型可以独立缩放
+
+    - 做什么：独立的小Transformer，输入n-gram的token embedding序列，输出一个上下文化的embedding向量
+    - 核心思路：$e_i = \mathcal{A}_{f\text{-}gram}(\mathcal{T}(\sigma_j), ..., \mathcal{T}(\sigma_i))$，训练时与主模型端到端联合训练
+    - 设计动机：比查表更灵活——可以组合性地捕捉n-gram语义，且f-gram模型可以独立缩放
 
 3. **推理时卸载**:
-   - 做什么：训练完成后预计算所有f-gram embedding，存入主存或NVMe SSD
-   - 核心思路：推理时embedding lookup从主存/SSD取，不占用加速器资源。主存延迟可忽略，NVMe有微小开销但不成瓶颈
-   - 设计动机：embedding lookup是O(1)内存读操作，天然适合卸载
+
+    - 做什么：训练完成后预计算所有f-gram embedding，存入主存或NVMe SSD
+    - 核心思路：推理时embedding lookup从主存/SSD取，不占用加速器资源。主存延迟可忽略，NVMe有微小开销但不成瓶颈
+    - 设计动机：embedding lookup是O(1)内存读操作，天然适合卸载
 
 ### 两种新缩放方式
 1. **增加f-gram数量**：更多n-gram → 更多上下文化embedding → 更好的输入表示（只需更多主存）

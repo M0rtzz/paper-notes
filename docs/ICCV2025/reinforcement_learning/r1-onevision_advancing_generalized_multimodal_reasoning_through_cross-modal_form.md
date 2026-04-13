@@ -28,10 +28,10 @@ tags:
 
 大语言模型在文本推理方面取得了显著进展（如 DeepSeek-R1），但多模态推理仍面临重大挑战。现有视觉语言模型在处理复杂推理任务时存在以下问题：
 
-1. **感知错误**：如 DeepSeek-R1 依赖 GPT-4o 的不完整图像描述，导致推理基础错误
-2. **推理深度不足**：如 Qwen2.5-VL 虽有强多模态能力但缺乏深层推理，最终无法解题
-3. **模板化推理的局限**：LLaVA-CoT 等使用预定义思维结构，限制了灵活性和创造性
-4. **直接模仿的泛化问题**：MAmmoTH-VL 等直接模仿标准答案，缺乏试错过程
+**感知错误**：如 DeepSeek-R1 依赖 GPT-4o 的不完整图像描述，导致推理基础错误
+**推理深度不足**：如 Qwen2.5-VL 虽有强多模态能力但缺乏深层推理，最终无法解题
+**模板化推理的局限**：LLaVA-CoT 等使用预定义思维结构，限制了灵活性和创造性
+**直接模仿的泛化问题**：MAmmoTH-VL 等直接模仿标准答案，缺乏试错过程
 
 此外，现有多模态推理基准（如 MathVision、MathVista）主要聚焦数学问题，缺乏覆盖多学科、多难度级别的综合评估。
 
@@ -44,21 +44,23 @@ R1-Onevision 框架包含三个部分：(1) 跨模态推理管线构建数据集
 ### 关键设计
 
 1. **跨模态推理管线（Cross-Modal Reasoning Pipeline）**: 将图像内容转换为形式化文本表示，使语言推理模型能精确处理视觉信息。针对不同图像类型采用差异化策略：
-   - **图表/流程图**：GPT-4o 生成结构化表示（SPICE 电路、PlantUML 流程图、HTML 布局、CSV/JSON 表格）
-   - **自然场景**：Grounding DINO 提取边界框 + GPT-4o 生成描述性 caption
-   - **纯文本图像**：EasyOCR 提取文字+位置 + GPT-4o 重建文档
-   - **数学图像**：GPT-4o 提供推理策略
-   - **推理过程生成**：采用角色扮演（Role-Playing）策略，迭代回顾图像、精炼理解，使用 DeepSeek R1 在 LLaVA-OneVision 上生成推理过程
-   - **质量保证**：GPT-4o 过滤不准确/不一致的 CoT 步骤
+
+    - **图表/流程图**：GPT-4o 生成结构化表示（SPICE 电路、PlantUML 流程图、HTML 布局、CSV/JSON 表格）
+    - **自然场景**：Grounding DINO 提取边界框 + GPT-4o 生成描述性 caption
+    - **纯文本图像**：EasyOCR 提取文字+位置 + GPT-4o 重建文档
+    - **数学图像**：GPT-4o 提供推理策略
+    - **推理过程生成**：采用角色扮演（Role-Playing）策略，迭代回顾图像、精炼理解，使用 DeepSeek R1 在 LLaVA-OneVision 上生成推理过程
+    - **质量保证**：GPT-4o 过滤不准确/不一致的 CoT 步骤
 
 2. **R1-Onevision 数据集**: 共 155K 精心策划的样本，涵盖科学、数学、图表、通用场景。每个样本包含详细的分步推理标注。
 
 3. **两阶段后训练策略**:
-   - **SFT 阶段**：在 R1-Onevision 数据集上微调 Qwen2.5-VL，培养连贯的推理模式和规范的输出格式（`<think>...</think>` 结构）
-   - **RL 阶段**：使用 GRPO（Group Relative Policy Optimization）在 CLEVR 数据集上进行强化学习，定义两种奖励：
-     - **准确性奖励**：通过正则表达式提取最终答案并与标准答案比对
-     - **格式奖励**：确保推理过程被正确包裹在 `<think>` 标签中
-   - GRPO 损失函数：$\mathcal{L}_{\text{GRPO}}(\theta) = -\mathbb{E}[\min(\text{ratio}_t \cdot \text{Adv}_t, \text{clipped\_ratio}_t \cdot \text{Adv}_t) - \beta \cdot \text{KL}(\pi_\theta(y|x), \pi_{\text{ref}}(y|x))]$
+
+    - **SFT 阶段**：在 R1-Onevision 数据集上微调 Qwen2.5-VL，培养连贯的推理模式和规范的输出格式（`<think>...</think>` 结构）
+    - **RL 阶段**：使用 GRPO（Group Relative Policy Optimization）在 CLEVR 数据集上进行强化学习，定义两种奖励：
+      - **准确性奖励**：通过正则表达式提取最终答案并与标准答案比对
+      - **格式奖励**：确保推理过程被正确包裹在 `<think>` 标签中
+    - GRPO 损失函数：$\mathcal{L}_{\text{GRPO}}(\theta) = -\mathbb{E}[\min(\text{ratio}_t \cdot \text{Adv}_t, \text{clipped\_ratio}_t \cdot \text{Adv}_t) - \beta \cdot \text{KL}(\pi_\theta(y|x), \pi_{\text{ref}}(y|x))]$
 
 ### 损失函数 / 训练策略
 

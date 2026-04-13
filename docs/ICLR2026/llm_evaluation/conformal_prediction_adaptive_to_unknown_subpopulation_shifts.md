@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Conformal prediction (CP) 为黑盒 ML 模型提供不确定性量化，保证在可交换数据下的边际覆盖率 $\Pr(Y_{\text{test}} \in C_\alpha(X_{\text{test}})) \geq 1-\alpha$。
-2. **现有痛点**：实际中测试环境的子群体混合比例常与校准数据不同（subpopulation shift），导致标准 CP 在某些测试环境下严重欠覆盖或过覆盖。现有解决方案要么需要已知的分布偏移（Tibshirani et al.），要么使用 worst-case 阈值（max CP，严重过覆盖），要么需要完美的 group 标签（group-conditional CP）。
-3. **核心矛盾**：Group-conditional CP 在理论上能解决子群体偏移问题，但它需要精确的 group 成员信息。Theorem 2.1 证明不完美的 domain classifier 会导致覆盖保证严重退化——如果 classifier 准确率为 $\gamma$，覆盖可以低至 $\max(0, \gamma - \alpha)$。
-4. **本文要解决什么**：在 domain 标签未知或不完美的情况下，设计有理论保证的自适应 CP 算法。
-5. **切入角度**：不要求完美 domain classifier，而是利用 multicalibration / multiaccuracy 等更弱的假设来保证覆盖率；甚至完全不需要 domain classifier，仅用嵌入相似度加权。
-6. **核心 idea 一句话**：用不完美的 domain classifier 或嵌入相似度来自适应加权校准数据，在未知子群体偏移下保持 conformal prediction 的覆盖保证。
+**领域现状**：Conformal prediction (CP) 为黑盒 ML 模型提供不确定性量化，保证在可交换数据下的边际覆盖率 $\Pr(Y_{\text{test}} \in C_\alpha(X_{\text{test}})) \geq 1-\alpha$。
+**现有痛点**：实际中测试环境的子群体混合比例常与校准数据不同（subpopulation shift），导致标准 CP 在某些测试环境下严重欠覆盖或过覆盖。现有解决方案要么需要已知的分布偏移（Tibshirani et al.），要么使用 worst-case 阈值（max CP，严重过覆盖），要么需要完美的 group 标签（group-conditional CP）。
+**核心矛盾**：Group-conditional CP 在理论上能解决子群体偏移问题，但它需要精确的 group 成员信息。Theorem 2.1 证明不完美的 domain classifier 会导致覆盖保证严重退化——如果 classifier 准确率为 $\gamma$，覆盖可以低至 $\max(0, \gamma - \alpha)$。
+**本文要解决什么**：在 domain 标签未知或不完美的情况下，设计有理论保证的自适应 CP 算法。
+**切入角度**：不要求完美 domain classifier，而是利用 multicalibration / multiaccuracy 等更弱的假设来保证覆盖率；甚至完全不需要 domain classifier，仅用嵌入相似度加权。
+**核心 idea 一句话**：用不完美的 domain classifier 或嵌入相似度来自适应加权校准数据，在未知子群体偏移下保持 conformal prediction 的覆盖保证。
 
 ## 方法详解
 
@@ -46,29 +46,33 @@ tags:
 ### 关键设计
 
 1. **Algorithm 1: Weighted CP with domain classifier (逐点)**:
-   - 做什么：对每个测试点 $X_{\text{test}}$，用 domain classifier $c(X_{\text{test}})$ 预测其属于各 domain 的概率 $\hat{\lambda}$
-   - 核心思路：$\hat{q}_\alpha \leftarrow \min_{\hat{q}} \sum_{k=1}^K \frac{\hat{\lambda}_k m_k(\hat{q}_\alpha)}{n_k + 1} \geq (1-\alpha)$，其中 $m_k(\hat{q})$ 是 domain $k$ 中分数不超过 $\hat{q}$ 的校准样本数
-   - 理论保证（Theorem 3.1）：若 $c$ 是贝叶斯最优分类器，则保证 $\Pr(Y_{\text{test}} \in C_\alpha(X_{\text{test}})) \geq 1-\alpha$
-   - Theorem 3.3 放松到 multicalibrated classifier 仍成立
+
+    - 做什么：对每个测试点 $X_{\text{test}}$，用 domain classifier $c(X_{\text{test}})$ 预测其属于各 domain 的概率 $\hat{\lambda}$
+    - 核心思路：$\hat{q}_\alpha \leftarrow \min_{\hat{q}} \sum_{k=1}^K \frac{\hat{\lambda}_k m_k(\hat{q}_\alpha)}{n_k + 1} \geq (1-\alpha)$，其中 $m_k(\hat{q})$ 是 domain $k$ 中分数不超过 $\hat{q}$ 的校准样本数
+    - 理论保证（Theorem 3.1）：若 $c$ 是贝叶斯最优分类器，则保证 $\Pr(Y_{\text{test}} \in C_\alpha(X_{\text{test}})) \geq 1-\alpha$
+    - Theorem 3.3 放松到 multicalibrated classifier 仍成立
 
 2. **Algorithm 2: Weighted CP with batch averaging**:
-   - 做什么：用测试集上 domain 预测概率的平均值替代逐点估计
-   - 核心思路：$\hat{\lambda} = \text{mean}_{i=1}^{n_{\text{test}}} c(X_{\text{test}}^i)$，然后同样计算加权阈值
-   - 理论保证（Theorem 3.5）：仅需 multiaccurate classifier（比 multicalibrated 更弱的条件）即可保证覆盖率
-   - 设计动机：Multiaccuracy 比 multicalibration 计算和样本复杂度更低，更容易满足
+
+    - 做什么：用测试集上 domain 预测概率的平均值替代逐点估计
+    - 核心思路：$\hat{\lambda} = \text{mean}_{i=1}^{n_{\text{test}}} c(X_{\text{test}}^i)$，然后同样计算加权阈值
+    - 理论保证（Theorem 3.5）：仅需 multiaccurate classifier（比 multicalibrated 更弱的条件）即可保证覆盖率
+    - 设计动机：Multiaccuracy 比 multicalibration 计算和样本复杂度更低，更容易满足
 
 3. **Algorithm 3: Similarity-weighted CP (无 domain classifier)**:
-   - 做什么：完全不需要 domain 标签或 domain classifier，用嵌入空间的相似度加权校准数据
-   - 核心思路：
-     - 按与测试点的嵌入相似度排序，保留 top $\beta$ 比例的校准数据
-     - 用 softmax 加权：$\gamma_i = h(z(X_{\text{test}}), z(X_i'))$，$m = \text{Softmax}(\{\gamma_i/\sigma\})$
-     - 计算加权分位数作为阈值
-   - 设计动机：语义相似的数据更可能来自相同 domain，用相似度近似 domain 归属
+
+    - 做什么：完全不需要 domain 标签或 domain classifier，用嵌入空间的相似度加权校准数据
+    - 核心思路：
+      - 按与测试点的嵌入相似度排序，保留 top $\beta$ 比例的校准数据
+      - 用 softmax 加权：$\gamma_i = h(z(X_{\text{test}}), z(X_i'))$，$m = \text{Softmax}(\{\gamma_i/\sigma\})$
+      - 计算加权分位数作为阈值
+    - 设计动机：语义相似的数据更可能来自相同 domain，用相似度近似 domain 归属
 
 4. **Theorem 2.1 (关键理论贡献)**:
-   - 做什么：证明 group-conditional CP 在 domain classifier 不完美时的覆盖退化
-   - 核心结论：存在某些分布使得覆盖率退化至 $\max(0, \gamma - \alpha)$，其中 $\gamma$ 是 classifier 的条件准确率
-   - 这从根本上说明为什么不能简单地把不完美 classifier 插入 group-conditional CP
+
+    - 做什么：证明 group-conditional CP 在 domain classifier 不完美时的覆盖退化
+    - 核心结论：存在某些分布使得覆盖率退化至 $\max(0, \gamma - \alpha)$，其中 $\gamma$ 是 classifier 的条件准确率
+    - 这从根本上说明为什么不能简单地把不完美 classifier 插入 group-conditional CP
 
 ### 损失函数 / 训练策略
 

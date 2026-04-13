@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 光束法平差（Bundle Adjustment, BA）是 SfM 和三维重建的核心组件。传统 BA 依赖 Levenberg-Marquardt (LM) 算法配合 Schur complement trick，需要良好的初始化。近年来 PoBA 通过幂级数展开逆 Schur complement 显著提升了传统 BA 的速度和精度。
-2. **现有痛点**: 无初始化 BA——仅从图像观测出发恢复相机位姿和路标点——是一个几乎未被探索的领域。现有方法（pOSE 等）使用分层 BA 策略，但都依赖直接分解（Cholesky/QR），只能处理几十个相机的小规模问题。VarPro 算法有宽收敛域的优势，但其可扩展性一直是盲点。
-3. **核心矛盾**: VarPro 适合无初始化 BA（收敛域宽），但缺乏高效求解器；直接分解不可扩展，预条件共轭梯度（PCG）的收敛性对 VarPro 的无阻尼结构不友好。
-4. **本文要解决什么**: 让无初始化 BA 能够扩展到数千个相机的大规模场景。
-5. **切入角度**: 将幂级数求逆方法分别扩展到 VarPro（第一阶段）和黎曼流形优化（第二阶段），为分层 BA 的两个阶段都提供高效求解器。
-6. **核心 idea**: VarPro 的 Schur complement 虽然与传统 BA 结构相似但因无阻尼 landmark 而收敛行为不同，可以证明幂级数展开仍然成立，并进一步推广到齐次坐标下的黎曼流形优化。
+**领域现状**: 光束法平差（Bundle Adjustment, BA）是 SfM 和三维重建的核心组件。传统 BA 依赖 Levenberg-Marquardt (LM) 算法配合 Schur complement trick，需要良好的初始化。近年来 PoBA 通过幂级数展开逆 Schur complement 显著提升了传统 BA 的速度和精度。
+**现有痛点**: 无初始化 BA——仅从图像观测出发恢复相机位姿和路标点——是一个几乎未被探索的领域。现有方法（pOSE 等）使用分层 BA 策略，但都依赖直接分解（Cholesky/QR），只能处理几十个相机的小规模问题。VarPro 算法有宽收敛域的优势，但其可扩展性一直是盲点。
+**核心矛盾**: VarPro 适合无初始化 BA（收敛域宽），但缺乏高效求解器；直接分解不可扩展，预条件共轭梯度（PCG）的收敛性对 VarPro 的无阻尼结构不友好。
+**本文要解决什么**: 让无初始化 BA 能够扩展到数千个相机的大规模场景。
+**切入角度**: 将幂级数求逆方法分别扩展到 VarPro（第一阶段）和黎曼流形优化（第二阶段），为分层 BA 的两个阶段都提供高效求解器。
+**核心 idea**: VarPro 的 Schur complement 虽然与传统 BA 结构相似但因无阻尼 landmark 而收敛行为不同，可以证明幂级数展开仍然成立，并进一步推广到齐次坐标下的黎曼流形优化。
 
 ## 方法详解
 
@@ -45,18 +45,20 @@ tags:
 ### 关键设计
 
 1. **Power Variable Projection (PoVar)**: VarPro 的幂级数求解器
-   - VarPro 核心思想：将最小二乘问题 $\min_{x_p, \tilde{x}_l} \|G(x_p)\tilde{x}_l - z(x_p)\|_2^2$ 中的路标变量 $\tilde{x}_l$ 用解析解 $\tilde{x}_l^*(x_p) = G(x_p)^\dagger z(x_p)$ 替换，仅对相机参数 $x_p$ 优化。
-   - VarPro 的 Schur complement 为 $S^V = U_\lambda - WV_0^{-1}W^\top$，关键区别在于路标 Hessian $V_0$ 无阻尼（仅保证半正定）。
-   - **核心定理**: 证明 $U_\lambda^{-1}WV_0^\dagger W^\top$ 的特征值满足 $0 \leq \mu < 1$，因此幂级数展开收敛：
-   $$x(m) = -\sum_{i=0}^{m}(U_\lambda^{-1}WV_0^{-1}W^\top)^i U_\lambda^{-1}(b_p - WV_0^{-1}b_l)$$
-   - **设计动机**: 虽然 PoVar 与 PoBA 的算法结构相似，但由于 VarPro 只阻尼相机参数，收敛行为完全不同——PoVar 收敛更平滑，尤其在高精度要求下表现更优。
+
+    - VarPro 核心思想：将最小二乘问题 $\min_{x_p, \tilde{x}_l} \|G(x_p)\tilde{x}_l - z(x_p)\|_2^2$ 中的路标变量 $\tilde{x}_l$ 用解析解 $\tilde{x}_l^*(x_p) = G(x_p)^\dagger z(x_p)$ 替换，仅对相机参数 $x_p$ 优化。
+    - VarPro 的 Schur complement 为 $S^V = U_\lambda - WV_0^{-1}W^\top$，关键区别在于路标 Hessian $V_0$ 无阻尼（仅保证半正定）。
+    - **核心定理**: 证明 $U_\lambda^{-1}WV_0^\dagger W^\top$ 的特征值满足 $0 \leq \mu < 1$，因此幂级数展开收敛：
+    $x(m) = -\sum_{i=0}^{m}(U_\lambda^{-1}WV_0^{-1}W^\top)^i U_\lambda^{-1}(b_p - WV_0^{-1}b_l)$
+    - **设计动机**: 虽然 PoVar 与 PoBA 的算法结构相似，但由于 VarPro 只阻尼相机参数，收敛行为完全不同——PoVar 收敛更平滑，尤其在高精度要求下表现更优。
 
 2. **Riemannian Power BA (RiPoBA)**: 将幂级数扩展到黎曼流形优化
-   - 第二阶段在齐次坐标下优化（相机 $\text{vec}(\tilde{x}_p^i) \in S^{12}$，路标 $\tilde{x}_l^j \in S^4$），存在局部尺度自由度，需要黎曼流形优化。
-   - 将 Jacobian 和阻尼参数投影到切空间：$\tilde{J}_p = J_p \tilde{x}_p^\perp$, $\tilde{J}_l = J_l \tilde{x}_l^\perp$
-   - 统一记号后 normal equation 结构与标准 BA 形式一致，证明黎曼 Schur complement 的幂级数展开同样成立：
-   $$\tilde{S}^{-1} \approx \sum_{i=0}^{m}(\tilde{U}_{\tilde{\lambda}}^{-1}\tilde{W}\tilde{V}_{\tilde{\lambda}}^{-1}\tilde{W}^\top)^i \tilde{U}_{\tilde{\lambda}}^{-1}$$
-   - **设计动机**: 直接分解在大规模问题上不可行，PCG 在黎曼框架下收敛不稳定。利用矩阵的块对角结构实现内存高效的切空间投影和存储。
+
+    - 第二阶段在齐次坐标下优化（相机 $\text{vec}(\tilde{x}_p^i) \in S^{12}$，路标 $\tilde{x}_l^j \in S^4$），存在局部尺度自由度，需要黎曼流形优化。
+    - 将 Jacobian 和阻尼参数投影到切空间：$\tilde{J}_p = J_p \tilde{x}_p^\perp$, $\tilde{J}_l = J_l \tilde{x}_l^\perp$
+    - 统一记号后 normal equation 结构与标准 BA 形式一致，证明黎曼 Schur complement 的幂级数展开同样成立：
+    $\tilde{S}^{-1} \approx \sum_{i=0}^{m}(\tilde{U}_{\tilde{\lambda}}^{-1}\tilde{W}\tilde{V}_{\tilde{\lambda}}^{-1}\tilde{W}^\top)^i \tilde{U}_{\tilde{\lambda}}^{-1}$
+    - **设计动机**: 直接分解在大规模问题上不可行，PCG 在黎曼框架下收敛不稳定。利用矩阵的块对角结构实现内存高效的切空间投影和存储。
 
 3. **高效存储策略**: 利用 BA 问题的稀疏结构，将 landmark 组织为 dense block，对每个 block 中的 pose Jacobian 和 landmark Jacobian 分别应用切空间投影矩阵，保持内存效率（如 pose Jacobian 从 $\mathbb{R}^{2 \times 12}$ 投影为 $\mathbb{R}^{2 \times 11}$，landmark 从 $\mathbb{R}^{2 \times 4}$ 投影为 $\mathbb{R}^{2 \times 3}$）。
 

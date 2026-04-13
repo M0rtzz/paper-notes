@@ -27,21 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: KG 驱动的 RAG 是解决 LLM 幻觉和知识过时问题的重要方向。核心挑战在于如何将自然语言查询与知识图谱的结构化知识有效对齐。
+**领域现状**: KG 驱动的 RAG 是解决 LLM 幻觉和知识过时问题的重要方向。核心挑战在于如何将自然语言查询与知识图谱的结构化知识有效对齐。
 
-2. **现有痛点**: 
+**现有痛点**: 
    - **KAPING**: 用查询嵌入直接检索孤立三元组，多跳查询时嵌入捕获过多信息导致检索不准
    - **G-Retriever**: 先检索相似实体/关系再构建连通子图，无法保证检索子图的精简性
    - **KG-GPT**: 让 LLM 对每条查询判断匹配的关系，候选关系数增多时可扩展性差
    - **KELP**: 训练路径选择模型，仅限 1-2 跳路径，且不具备即插即用能力
 
-3. **核心矛盾**: 查询文本是非结构化的，KG 知识是结构化的，如何在两者之间建立既精确又高效的对齐。
+**核心矛盾**: 查询文本是非结构化的，KG 知识是结构化的，如何在两者之间建立既精确又高效的对齐。
 
-4. **本文要解决什么**: 设计一个无需训练、即插即用且可扩展到千万级 KG 的 RAG 方法。
+**本文要解决什么**: 设计一个无需训练、即插即用且可扩展到千万级 KG 的 RAG 方法。
 
-5. **切入角度**: 两步分解——先让 LLM 把查询转化为一个小的"模式图"（结构化中间表示），再用图同构 + 语义距离找到 KG 中最匹配的子图。
+**切入角度**: 两步分解——先让 LLM 把查询转化为一个小的"模式图"（结构化中间表示），再用图同构 + 语义距离找到 KG 中最匹配的子图。
 
-6. **核心idea一句话**: 用 LLM 将查询转为模式图，再用图语义距离在 KG 中检索同构子图，统一了结构匹配与语义匹配。
+**核心idea一句话**: 用 LLM 将查询转为模式图，再用图语义距离在 KG 中检索同构子图，统一了结构匹配与语义匹配。
 
 ## 方法详解
 
@@ -55,29 +55,33 @@ SimGRAG 分三步：
 ### 关键设计
 
 1. **Query-to-Pattern 对齐**: 
-   - 用 12-shot 示例引导 LLM（如 Llama 3 70B）将查询转化为三元组集合 $\{(h_1, r_1, t_1), (h_2, r_2, t_2), \ldots\}$
-   - 先让 LLM 分解查询短语，再生成三元组
-   - 支持未知实体（用 "UNKNOWN director 1" 标识），在 GSD 计算中跳过未知节点
-   - 在 MetaQA 3-hop 和 FactKG 上，Llama 3 70B 的模式生成准确率达 98% 和 93%
+
+    - 用 12-shot 示例引导 LLM（如 Llama 3 70B）将查询转化为三元组集合 $\{(h_1, r_1, t_1), (h_2, r_2, t_2), \ldots\}$
+    - 先让 LLM 分解查询短语，再生成三元组
+    - 支持未知实体（用 "UNKNOWN director 1" 标识），在 GSD 计算中跳过未知节点
+    - 在 MetaQA 3-hop 和 FactKG 上，Llama 3 70B 的模式生成准确率达 98% 和 93%
 
 2. **图语义距离（GSD）**: 
-   - 定义在同构映射 $f: V_\mathcal{P} \rightarrow V_\mathcal{S}$ 之上
-   - 用 Nomic 嵌入模型生成 768 维语义向量 $z_v = EM(v)$, $z_r = EM(r)$
-   - GSD 即节点对和关系对的 L2 距离之和：
-     $$GSD(\mathcal{P}, \mathcal{S}) = \sum_{\text{node } v \in \mathcal{P}} \|z_v - z_{f(v)}\|_2 + \sum_{\text{edge } \langle u,v \rangle \in \mathcal{P}} \|z_{r_{\langle u,v \rangle}} - z_{r_{\langle f(u), f(v) \rangle}}\|_2$$
-   - 对未知实体/关系，从 GSD 中排除对应项
+
+    - 定义在同构映射 $f: V_\mathcal{P} \rightarrow V_\mathcal{S}$ 之上
+    - 用 Nomic 嵌入模型生成 768 维语义向量 $z_v = EM(v)$, $z_r = EM(r)$
+    - GSD 即节点对和关系对的 L2 距离之和：
+    $GSD(\mathcal{P}, \mathcal{S}) = \sum_{\text{node } v \in \mathcal{P}} \|z_v - z_{f(v)}\|_2 + \sum_{\text{edge } \langle u,v \rangle \in \mathcal{P}} \|z_{r_{\langle u,v \rangle}} - z_{r_{\langle f(u), f(v) \rangle}}\|_2$
+    - 对未知实体/关系，从 GSD 中排除对应项
 
 3. **优化检索算法**: 
-   - 基于 filtering-ordering-enumerating 范式
-   - 先用向量搜索获取每个模式节点的候选实体集 $C^{(n)}[v_\mathcal{P}]$ 和候选关系集 $C^{(r)}[r_\mathcal{P}]$
-   - DFS 遍历顺序展开同构映射
-   - **剪枝优化**: 计算 GSD 下界 $B = \Delta_{mapped}^{(n)} + \Delta_{mapped}^{(r)} + X + Y$，当 $B$ 超过当前 top-k 中最大 GSD 时剪枝
-   - **贪心策略**: 优先展开距离更小的候选节点，使下界尽早收紧
-   - 在千万级 DBpedia 上平均检索时间 < 1 秒
+
+    - 基于 filtering-ordering-enumerating 范式
+    - 先用向量搜索获取每个模式节点的候选实体集 $C^{(n)}[v_\mathcal{P}]$ 和候选关系集 $C^{(r)}[r_\mathcal{P}]$
+    - DFS 遍历顺序展开同构映射
+    - **剪枝优化**: 计算 GSD 下界 $B = \Delta_{mapped}^{(n)} + \Delta_{mapped}^{(r)} + X + Y$，当 $B$ 超过当前 top-k 中最大 GSD 时剪枝
+    - **贪心策略**: 优先展开距离更小的候选节点，使下界尽早收紧
+    - 在千万级 DBpedia 上平均检索时间 < 1 秒
 
 4. **子图文本化生成**: 
-   - 将 top-k 子图序列化为三元组集合，附加到 prompt 中
-   - 用 12-shot in-context learning 引导 LLM 基于子图证据回答
+
+    - 将 top-k 子图序列化为三元组集合，附加到 prompt 中
+    - 用 12-shot in-context learning 引导 LLM 基于子图证据回答
 
 ### 损失函数/训练策略
 

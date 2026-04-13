@@ -30,9 +30,9 @@ REP 通过轻量代理模型的快速提示选择、自适应 Token 合并（ATo
 持续学习（Continual Learning）在多个顺序任务上训练模型，核心挑战是灾难性遗忘。基于提示（prompt）的无排练方法（如 L2P、DualPrompt、CODA-Prompt）在冻结的预训练 ViT 上通过学习少量提示参数来适配新任务，避免存储旧数据，适合边缘设备部署。
 
 **现有痛点**：
-1. **提示选择开销大**：通常需要用主干网络（如 ViT-L）的前向传播来计算查询特征进行提示检索，增加高达 28% 的计算时间
-2. **提示更新代价高**：尽管主干网络冻结，但每个 mini-batch 仍需完整的前向和反向传播来优化提示和分类头，需要存储所有中间激活
-3. **边缘设备限制严格**：设备内存通常 1-8GB，计算效率直接影响能耗和设备寿命
+**提示选择开销大**：通常需要用主干网络（如 ViT-L）的前向传播来计算查询特征进行提示检索，增加高达 28% 的计算时间
+**提示更新代价高**：尽管主干网络冻结，但每个 mini-batch 仍需完整的前向和反向传播来优化提示和分类头，需要存储所有中间激活
+**边缘设备限制严格**：设备内存通常 1-8GB，计算效率直接影响能耗和设备寿命
 
 **核心洞察**：
 - 提示选择阶段容许较大近似误差——无需使用全尺寸主干网络
@@ -52,17 +52,18 @@ REP 框架包含三个互补技术：
 ### 关键设计
 
 1. **轻量代理模型的提示选择**：用紧凑的 ViT-Ti（5.8M 参数）替代 ViT-L（307M 参数）计算查询特征。由于 ViT-Ti 的特征维度 d < D，应用固定随机投影 ϕ 将低维特征映射回原始 D 维空间进行提示匹配：
-   $$p^*_{\text{efficient}} = \underset{p_k \in P}{\text{argmax}} \frac{\langle \phi(q_{\text{efficient}}(x_i^j)), p_k \rangle}{\|\phi(q_{\text{efficient}}(x_i^j))\| \|p_k\|}$$
+    $p^*_{\text{efficient}} = \underset{p_k \in P}{\text{argmax}} \frac{\langle \phi(q_{\text{efficient}}(x_i^j)), p_k \rangle}{\|\phi(q_{\text{efficient}}(x_i^j))\| \|p_k\|}$
    经验证该策略保留了约 97% 的表征相似性（CKA 度量）。
 
 2. **自适应Token合并（AToM）**：与传统 ToMe（Token Merging）的两个关键区别：
-   - **保护提示Token**：ToMe 不区分提示和非提示 token，导致提示的任务特定信息被稀释，甚至引起梯度爆炸。AToM 在合并时排除提示 token。
-   - **渐进式调度器**：传统 ToMe 每层均匀合并 n 个 token。AToM 使用渐进调度：
-     $$r'(l) = \min(\delta \times (l-1), r_{\max})$$
-     其中 $\delta = r_{\max}/(L-1)$。浅层少合并（保留重要的局部/任务特定信息），深层多合并（信息已全局化、冗余度高）。默认 $r_{\max} = 2n$。
+
+    - **保护提示Token**：ToMe 不区分提示和非提示 token，导致提示的任务特定信息被稀释，甚至引起梯度爆炸。AToM 在合并时排除提示 token。
+    - **渐进式调度器**：传统 ToMe 每层均匀合并 n 个 token。AToM 使用渐进调度：
+    $r'(l) = \min(\delta \times (l-1), r_{\max})$
+      其中 $\delta = r_{\max}/(L-1)$。浅层少合并（保留重要的局部/任务特定信息），深层多合并（信息已全局化、冗余度高）。默认 $r_{\max} = 2n$。
 
 3. **自适应层丢弃（ALD）**：不同于均匀随机丢弃（Progressive Layer Dropping, PLD），ALD 同时考虑时间和空间维度，利用 AToM 的反馈来指导层丢弃。层保留概率：
-   $$\theta_{t,l} = \alpha(l) \times ((1-\bar{\theta})\exp(-\gamma \cdot t) + \bar{\theta})$$
+    $\theta_{t,l} = \alpha(l) \times ((1-\bar{\theta})\exp(-\gamma \cdot t) + \bar{\theta})$
    其中 $\alpha(l)$ 根据该层的 token 合并量调整：当已合并 token 数超过阈值 τ 时（通常在深层），$\alpha(l) = 0.9$（更容易丢弃），否则 $\alpha(l) = 1$（保留）。这确保浅层优先保留，深层更积极丢弃。
 
 ### 损失函数 / 训练策略

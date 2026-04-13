@@ -49,9 +49,10 @@ tags:
 2. **VLM驱动的操控生成**: 采用解耦架构——CLIPort感知模块从RGB-D和指令推断目标轨迹 $\mathcal{T}_{\text{tar}}$，Point-SAM分割目标物体点云 $\mathcal{P}_{\text{obj}}$。以Qwen3-0.6B为基座模型，将初始手姿态编码、目标轨迹、物体点云和文本token拼接输入VLM生成操控token序列。采用渐进遮蔽训练课程：从完全教师强制逐步增大遮蔽比例到纯自回归。
 
 3. **Physics-guided Dynamic Refinement**: 逐帧Gauss-Newton优化，包含三项能量：
-   - **接触能量** $\mathcal{E}_{\text{contact}}$：基于指尖到物体表面的有符号点到面距离，使用非对称平滑惩罚
-   - **生成先验** $\mathcal{E}_{\text{gen}}$：惩罚偏离VLM生成配置，保持语义意图
-   - **时序先验** $\mathcal{E}_{\text{time}}$：正则化一阶（速度）和二阶（加速度）时序差分，确保平滑连贯
+
+    - **接触能量** $\mathcal{E}_{\text{contact}}$：基于指尖到物体表面的有符号点到面距离，使用非对称平滑惩罚
+    - **生成先验** $\mathcal{E}_{\text{gen}}$：惩罚偏离VLM生成配置，保持语义意图
+    - **时序先验** $\mathcal{E}_{\text{time}}$：正则化一阶（速度）和二阶（加速度）时序差分，确保平滑连贯
 
 ### 损失函数 / 训练策略
 

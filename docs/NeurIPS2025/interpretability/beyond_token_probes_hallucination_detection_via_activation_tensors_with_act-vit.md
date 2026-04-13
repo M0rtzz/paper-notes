@@ -25,16 +25,16 @@ tags:
 将LLM的全部隐层激活组织为"激活张量"（层×token×隐维度），类比图像用ViT处理，设计ACT-ViT架构支持跨LLM联合训练，在15个LLM-数据集组合上一致超越传统probing方法，并展现出对未见数据集和未见LLM的强零样本/少样本迁移能力。
 
 ## 研究背景与动机
-1. **领域现状**：检测LLM幻觉的方法中，probing分类器（在隐层表征上训练线性分类器）是高效的白盒方法。但传统probing在孤立的单层-单token位置上操作，需要预先确定最佳层和token位置。
+**领域现状**：检测LLM幻觉的方法中，probing分类器（在隐层表征上训练线性分类器）是高效的白盒方法。但传统probing在孤立的单层-单token位置上操作，需要预先确定最佳层和token位置。
 
-2. **现有痛点**：
+**现有痛点**：
    - **信号位置不固定**：最佳probing位置在不同样本、不同数据集、不同LLM之间变化很大——Mistral的最佳位置是(第14层, token 0)，而Qwen的最佳位置在最后几层的末尾token
    - **LLM特异性**：每个LLM都需要单独训练探针，无法跨模型共享数据集或迁移学习
    - **不完整利用**：只用一个层-token位置的激活，浪费了大量信息
 
-3. **核心洞察**：激活张量 $\mathbf{A} \in \mathbb{R}^{L \times N \times D}$（层数×token数×隐维度）在结构上类似于图像（高×宽×通道），可以借用视觉模型的方法来处理。
+**核心洞察**：激活张量 $\mathbf{A} \in \mathbb{R}^{L \times N \times D}$（层数×token数×隐维度）在结构上类似于图像（高×宽×通道），可以借用视觉模型的方法来处理。
 
-4. **核心idea一句话**：把LLM的全部隐层激活当作"图像"，用ViT自适应地attend到最有信息量的层-token组合，实现跨LLM的高效幻觉检测。
+**核心idea一句话**：把LLM的全部隐层激活当作"图像"，用ViT自适应地attend到最有信息量的层-token组合，实现跨LLM的高效幻觉检测。
 
 ## 方法详解
 
@@ -44,19 +44,22 @@ tags:
 ### 关键设计
 
 1. **激活张量（Activation Tensor）**：
-   - 定义：$\mathbf{A} \in \mathbb{R}^{L_M \times N \times D_M}$，包含LLM所有层在所有输出token上的隐层状态
-   - 与图像的类比：层→垂直空间维度，token→水平空间维度，隐维度→通道
-   - 包含了完整的内部状态信息，避免了选择特定层/token的信息损失
+
+    - 定义：$\mathbf{A} \in \mathbb{R}^{L_M \times N \times D_M}$，包含LLM所有层在所有输出token上的隐层状态
+    - 与图像的类比：层→垂直空间维度，token→水平空间维度，隐维度→通道
+    - 包含了完整的内部状态信息，避免了选择特定层/token的信息损失
 
 2. **Pooling + Linear Adapter**：
-   - Pooling：对"空间"维度（层和token）做max-pooling，统一为固定大小 $(L_p, N_p) = (8, 100)$，解决不同LLM层数不同、不同输入token数不同的问题
-   - Linear Adapter：每个LLM $M$ 有独立的线性变换 $\mathbf{W}_M \in \mathbb{R}^{D_M \times D'}$，将不同隐维度映射到共享维度 $D'$
-   - 设计动机：受"不同LLM学习了近似线性可转换的真实世界表征"这一假设驱动。单个线性层足以对齐不同LLM的特征空间
+
+    - Pooling：对"空间"维度（层和token）做max-pooling，统一为固定大小 $(L_p, N_p) = (8, 100)$，解决不同LLM层数不同、不同输入token数不同的问题
+    - Linear Adapter：每个LLM $M$ 有独立的线性变换 $\mathbf{W}_M \in \mathbb{R}^{D_M \times D'}$，将不同隐维度映射到共享维度 $D'$
+    - 设计动机：受"不同LLM学习了近似线性可转换的真实世界表征"这一假设驱动。单个线性层足以对齐不同LLM的特征空间
 
 3. **ViT-Based Backbone**：
-   - 将pooled+adapted的张量切成不重叠的patch，添加patch内位置编码+全局位置编码
-   - 展平patch后通过标准Transformer编码器
-   - 自注意力机制让模型自适应地attend到最有幻觉信号的层-token位置，无需预先指定
+
+    - 将pooled+adapted的张量切成不重叠的patch，添加patch内位置编码+全局位置编码
+    - 展平patch后通过标准Transformer编码器
+    - 自注意力机制让模型自适应地attend到最有幻觉信号的层-token位置，无需预先指定
 
 ### 训练策略
 - 联合训练：在所有可用LLM和数据集上同时训练，共享ViT backbone，各LLM独立LA

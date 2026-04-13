@@ -43,23 +43,26 @@ tags:
 ### 关键设计
 
 1. **STRUCTURE 正则化**：保持多尺度邻域几何
-   - 对预训练空间 $\mathcal{X}$ 和对齐空间 $\mathcal{A}$ 中的样本，先 $\ell_2$ 归一化再中心化
-   - 计算带温度的相似度矩阵 $S_X, S_A$，按行 softmax 得概率分布 $P_X, P_A$
-   - 通过矩阵幂运算捕获 $l$-hop 关系：$P_X^{(l)} = (P_X)^l$（类比随机游走）
-   - 用 Jensen-Shannon 散度度量各层级的结构差异
-   - 最终正则化器为加权平均（低层级权重更大以对抗集中分布）：
-     $$\mathcal{R}_S^{(L)}(X,A) = \frac{1}{L}\sum_{l=1}^L \frac{\text{JS}(P_X^{(l)}, P_A^{(l)})}{l}$$
-   - 总损失：$\mathcal{L} = \mathcal{L}_A + \lambda(\mathcal{R}_S(X_1, f_1(X_1)) + \mathcal{R}_S(X_2, f_2(X_2)))$
+
+    - 对预训练空间 $\mathcal{X}$ 和对齐空间 $\mathcal{A}$ 中的样本，先 $\ell_2$ 归一化再中心化
+    - 计算带温度的相似度矩阵 $S_X, S_A$，按行 softmax 得概率分布 $P_X, P_A$
+    - 通过矩阵幂运算捕获 $l$-hop 关系：$P_X^{(l)} = (P_X)^l$（类比随机游走）
+    - 用 Jensen-Shannon 散度度量各层级的结构差异
+    - 最终正则化器为加权平均（低层级权重更大以对抗集中分布）：
+    $\mathcal{R}_S^{(L)}(X,A) = \frac{1}{L}\sum_{l=1}^L \frac{\text{JS}(P_X^{(l)}, P_A^{(l)})}{l}$
+    - 总损失：$\mathcal{L} = \mathcal{L}_A + \lambda(\mathcal{R}_S(X_1, f_1(X_1)) + \mathcal{R}_S(X_2, f_2(X_2)))$
 
 2. **基于相似度的层选择**：
-   - 先前工作默认对齐最后一层，但中间层可能具有更高的跨模态相似度
-   - 用mutual kNN 度量不同层对之间的表示相似度（在小规模配对数据上计算）
-   - 实验发现层相似度与下游性能高度相关（Spearman 秩相关系数 $\rho$ 很高）
-   - 选择最高相似度的层对进行对齐
+
+    - 先前工作默认对齐最后一层，但中间层可能具有更高的跨模态相似度
+    - 用mutual kNN 度量不同层对之间的表示相似度（在小规模配对数据上计算）
+    - 实验发现层相似度与下游性能高度相关（Spearman 秩相关系数 $\rho$ 很高）
+    - 选择最高相似度的层对进行对齐
 
 3. **理论保证**：
-   - 泛化界：$|\hat{\mathcal{R}}_N - \mathcal{R}^*| \leq \mathcal{O}(1/\sqrt{N})$
-   - STRUCTURE 对全局缩放、平移和正交旋转不变，仅依赖内在层级关系结构
+
+    - 泛化界：$|\hat{\mathcal{R}}_N - \mathcal{R}^*| \leq \mathcal{O}(1/\sqrt{N})$
+    - STRUCTURE 对全局缩放、平移和正交旋转不变，仅依赖内在层级关系结构
 
 ### 损失函数 / 训练策略
 - 对齐目标：对称对比损失 $\mathcal{L}_C$（CLIP 风格）+ STRUCTURE 正则化

@@ -42,24 +42,27 @@ TeFF在EG3D的基础上进行了关键扩展：生成器不仅生成辐射场（
 ### 关键设计
 
 1. **生成辐射与特征场**:
-   - 生成器 $G_\psi$ 将随机噪声 $\mathbf{z}$ 映射为辐射场和特征场：$G_\psi: \mathbb{R}^3 \times \mathbb{R}^M \to \mathbb{R}^3 \times \mathbb{R}^F \times \mathbb{R}^+$，即每个3D点 $\mathbf{x}$ 输出颜色 $\mathbf{c}$、语义特征 $\mathbf{f}$ 和密度 $\sigma$
-   - 实践中通过两组tri-plane实现，一组用于颜色和密度，一组用于特征
-   - 体渲染公式：$\mathbf{c}_r = \sum_{i=1}^N T_i \alpha_i \mathbf{c}_i$，$\mathbf{f}_r = \sum_{i=1}^N T_i \alpha_i \mathbf{f}_i$，颜色和特征**共享密度**
-   - 设计动机：共享密度确保语义特征场与辐射场几何一致，而语义特征的跨实例对齐性使位姿估计成为可能
+
+    - 生成器 $G_\psi$ 将随机噪声 $\mathbf{z}$ 映射为辐射场和特征场：$G_\psi: \mathbb{R}^3 \times \mathbb{R}^M \to \mathbb{R}^3 \times \mathbb{R}^F \times \mathbb{R}^+$，即每个3D点 $\mathbf{x}$ 输出颜色 $\mathbf{c}$、语义特征 $\mathbf{f}$ 和密度 $\sigma$
+    - 实践中通过两组tri-plane实现，一组用于颜色和密度，一组用于特征
+    - 体渲染公式：$\mathbf{c}_r = \sum_{i=1}^N T_i \alpha_i \mathbf{c}_i$，$\mathbf{f}_r = \sum_{i=1}^N T_i \alpha_i \mathbf{f}_i$，颜色和特征**共享密度**
+    - 设计动机：共享密度确保语义特征场与辐射场几何一致，而语义特征的跨实例对齐性使位姿估计成为可能
 
 2. **模板特征场(Template Feature Field)**:
-   - 通过对生成器做EMA得到 $\overline{G}_\psi$，输入均值噪声 $\mathbf{z}_0$ 即可获得类别级模板特征场
-   - 模板自动利用了生成模型发现的数据集均值形状
-   - 使用DINO作为2D语义特征提取器，PCA降维到3个主成分
-   - 设计动机：均值噪声天然对应类别的"平均外观"，避免了单一实例的特征偏差；DINO特征在不同实例间语义对齐，使2D-3D匹配具备可行性
+
+    - 通过对生成器做EMA得到 $\overline{G}_\psi$，输入均值噪声 $\mathbf{z}_0$ 即可获得类别级模板特征场
+    - 模板自动利用了生成模型发现的数据集均值形状
+    - 使用DINO作为2D语义特征提取器，PCA降维到3个主成分
+    - 设计动机：均值噪声天然对应类别的"平均外观"，避免了单一实例的特征偏差；DINO特征在不同实例间语义对齐，使2D-3D匹配具备可行性
 
 3. **在线相机位姿估计**:
-   - 相机模型参数化为 $\boldsymbol{\xi} = (\theta, \phi, \gamma, r)$，即方位角、仰角、面内旋转和球面半径
-   - **方位角-仰角离散化**：将 $\theta$ 和 $\phi$ 分别离散为 $N_\theta$ 和 $N_\phi$ 个值（如36×18），从模板渲染出一组2D特征图 $\{\overline{\mathbf{F}}_k\}$
-   - **相位相关估计scale和面内旋转**：利用频域方法高效估计 $r$ 和 $\gamma$，避免暴力搜索4维空间
-   - **位姿采样**：计算每个变换后模板 $\tilde{\mathbf{F}}_k$ 与真实特征 $\mathbf{F}$ 的MSE，通过softmax温度 $\tau$ 构建位姿概率分布：$p(k) = \text{softmax}(-e_k \cdot \tau)$
-   - 训练早期温度低（探索更多位姿），后期温度升高（锁定最佳位姿）
-   - 设计动机：相比建立2D-3D对应点（易混淆左右腿等），全局网格搜索+相位相关更鲁棒高效
+
+    - 相机模型参数化为 $\boldsymbol{\xi} = (\theta, \phi, \gamma, r)$，即方位角、仰角、面内旋转和球面半径
+    - **方位角-仰角离散化**：将 $\theta$ 和 $\phi$ 分别离散为 $N_\theta$ 和 $N_\phi$ 个值（如36×18），从模板渲染出一组2D特征图 $\{\overline{\mathbf{F}}_k\}$
+    - **相位相关估计scale和面内旋转**：利用频域方法高效估计 $r$ 和 $\gamma$，避免暴力搜索4维空间
+    - **位姿采样**：计算每个变换后模板 $\tilde{\mathbf{F}}_k$ 与真实特征 $\mathbf{F}$ 的MSE，通过softmax温度 $\tau$ 构建位姿概率分布：$p(k) = \text{softmax}(-e_k \cdot \tau)$
+    - 训练早期温度低（探索更多位姿），后期温度升高（锁定最佳位姿）
+    - 设计动机：相比建立2D-3D对应点（易混淆左右腿等），全局网格搜索+相位相关更鲁棒高效
 
 ### 损失函数 / 训练策略
 

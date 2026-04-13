@@ -46,33 +46,37 @@ D2-Align 是一个两阶段解耦框架：Stage 1 在冻结生成器的条件下
 ### 关键设计
 
 1. **方向性修正向量 $\bm{b}_v$（Stage 1）**：
-   - **核心思路**：在奖励模型（HPS-v2.1，CLIP-based）的文本嵌入空间中引入可学习向量 $\bm{b}_v \in \mathbb{R}^d$，通过类似 classifier-free guidance 的机制构造修正后的奖励信号
-   - **动机来源**：作者观察到，当给一张油腻过渡渲染的图片对应的 prompt 后附加 "realistic" 等描述词时，奖励分数会被压低，更接近人类真实判断。这说明通过 prompt 扰动可以抵消奖励模型的偏差。但离散词汇空间有限且需手动选择，因此转向在连续嵌入空间学习最优修正方向
-   - **具体实现**：从原始文本嵌入 $\bm{e}_{\text{text}} = \Phi_{\text{text}}(c)$ 出发，构造正/负扰动嵌入：
-     $$\bm{e}_+ = \text{normalize}(\bm{e}_{\text{text}} + \bm{b}_v), \quad \bm{e}_- = \text{normalize}(\bm{e}_{\text{text}} - \bm{b}_v)$$
-     通过引导尺度 $\omega > 1$ 构造修正后的文本嵌入（外推而非内插）：
-     $$\tilde{\bm{e}}_{\text{text}} = \bm{e}_- + \omega \cdot (\bm{e}_+ - \bm{e}_-)$$
-     修正后的奖励信号：$R_{\text{guided}}(\bm{x}_0, c; \bm{b}_v) = \text{score}(\bm{e}_{\text{img}}, \tilde{\bm{e}}_{\text{text}})$
-   - **训练**：冻结生成器 $G_\theta$，最小化 $\mathcal{L}_{\text{stage1}}(\bm{b}_v) = \mathbb{E}[-R_{\text{guided}}]$，约 2000 步收敛
+
+    - **核心思路**：在奖励模型（HPS-v2.1，CLIP-based）的文本嵌入空间中引入可学习向量 $\bm{b}_v \in \mathbb{R}^d$，通过类似 classifier-free guidance 的机制构造修正后的奖励信号
+    - **动机来源**：作者观察到，当给一张油腻过渡渲染的图片对应的 prompt 后附加 "realistic" 等描述词时，奖励分数会被压低，更接近人类真实判断。这说明通过 prompt 扰动可以抵消奖励模型的偏差。但离散词汇空间有限且需手动选择，因此转向在连续嵌入空间学习最优修正方向
+    - **具体实现**：从原始文本嵌入 $\bm{e}_{\text{text}} = \Phi_{\text{text}}(c)$ 出发，构造正/负扰动嵌入：
+    $\bm{e}_+ = \text{normalize}(\bm{e}_{\text{text}} + \bm{b}_v), \quad \bm{e}_- = \text{normalize}(\bm{e}_{\text{text}} - \bm{b}_v)$
+      通过引导尺度 $\omega > 1$ 构造修正后的文本嵌入（外推而非内插）：
+    $\tilde{\bm{e}}_{\text{text}} = \bm{e}_- + \omega \cdot (\bm{e}_+ - \bm{e}_-)$
+      修正后的奖励信号：$R_{\text{guided}}(\bm{x}_0, c; \bm{b}_v) = \text{score}(\bm{e}_{\text{img}}, \tilde{\bm{e}}_{\text{text}})$
+    - **训练**：冻结生成器 $G_\theta$，最小化 $\mathcal{L}_{\text{stage1}}(\bm{b}_v) = \mathbb{E}[-R_{\text{guided}}]$，约 2000 步收敛
 
 2. **引导式生成器优化（Stage 2）**：
-   - **核心思路**：冻结 Stage 1 学到的 $\bm{b}_v^*$，用修正后的奖励信号优化生成器参数 $\theta$
-   - **设计动机**：修正后的奖励信号抑制了奖励模型的偏好膨胀效应（如给油腻图片虚高评分），迫使生成器无法通过迎合奖励模型的单一偏好获得高分，从而被迫探索更广泛的生成模式
-   - **优化目标**：
-     $$\mathcal{L}_{\text{stage2}}(\theta) = \mathbb{E}_{c \sim \mathcal{D}, \bm{x}_0 \sim G_\theta(c)}[-R_{\text{guided}}(\bm{x}_0, c; \bm{b}_v^*)]$$
-   - 两阶段解耦的好处：避免 $\bm{b}_v$ 和 $\theta$ 同时优化导致的不稳定性和方向漂移
+
+    - **核心思路**：冻结 Stage 1 学到的 $\bm{b}_v^*$，用修正后的奖励信号优化生成器参数 $\theta$
+    - **设计动机**：修正后的奖励信号抑制了奖励模型的偏好膨胀效应（如给油腻图片虚高评分），迫使生成器无法通过迎合奖励模型的单一偏好获得高分，从而被迫探索更广泛的生成模式
+    - **优化目标**：
+    $\mathcal{L}_{\text{stage2}}(\theta) = \mathbb{E}_{c \sim \mathcal{D}, \bm{x}_0 \sim G_\theta(c)}[-R_{\text{guided}}(\bm{x}_0, c; \bm{b}_v^*)]$
+    - 两阶段解耦的好处：避免 $\bm{b}_v$ 和 $\theta$ 同时优化导致的不稳定性和方向漂移
 
 3. **Ground-Truth Noise Prior 技术**：
-   - **核心思路**：解决奖励评估需要干净图像但优化在噪声潜变量上进行的矛盾
-   - **设计动机**：标准的一步去噪预测 $\hat{\bm{x}}_0$ 在高噪声时间步（大 $t$）不准确，导致奖励信号不稳定。使用已知的 ground-truth 噪声可以获得可靠的重建
-   - **实现**：从干净图像 $\bm{x}_0$ 和已知噪声 $\bm{\epsilon}_{\text{gt}}$ 构造 $\bm{x}_t = \alpha_t \bm{x}_0 + \sigma_t \bm{\epsilon}_{\text{gt}}$，再通过一步去噪恢复：$\hat{\bm{x}}_0 = (\bm{x}_t - \sigma_t \bm{\epsilon}_\theta(\bm{x}_t, t)) / \alpha_t$，使时间步 $t$ 可在 $[0,1]$ 均匀采样
+
+    - **核心思路**：解决奖励评估需要干净图像但优化在噪声潜变量上进行的矛盾
+    - **设计动机**：标准的一步去噪预测 $\hat{\bm{x}}_0$ 在高噪声时间步（大 $t$）不准确，导致奖励信号不稳定。使用已知的 ground-truth 噪声可以获得可靠的重建
+    - **实现**：从干净图像 $\bm{x}_0$ 和已知噪声 $\bm{\epsilon}_{\text{gt}}$ 构造 $\bm{x}_t = \alpha_t \bm{x}_0 + \sigma_t \bm{\epsilon}_{\text{gt}}$，再通过一步去噪恢复：$\hat{\bm{x}}_0 = (\bm{x}_t - \sigma_t \bm{\epsilon}_\theta(\bm{x}_t, t)) / \alpha_t$，使时间步 $t$ 可在 $[0,1]$ 均匀采样
 
 4. **DivGenBench 多样性基准**：
-   - **核心思路**：填补 T2I 对齐中多样性量化评估的空白
-   - **Prompt 设计**：关键词驱动，主动探测模型的生成边界，而非依赖模糊 prompt 的输出方差
-   - **四个维度**：ID（高层语义，如人脸身份）、Style（中层美学，如画风）、Layout（结构关系，如空间布局）、Tonal（低层物理，如色调明暗）
-   - **规模**：共 3200 个 prompt，每个维度 800 个
-   - **四个定制指标**：IDS（身份发散分数）、ASC（风格覆盖度）、SDI（空间分散指数）、PVS（摄影方差分数），分别结合 ArcFace 等领域特定提取器计算
+
+    - **核心思路**：填补 T2I 对齐中多样性量化评估的空白
+    - **Prompt 设计**：关键词驱动，主动探测模型的生成边界，而非依赖模糊 prompt 的输出方差
+    - **四个维度**：ID（高层语义，如人脸身份）、Style（中层美学，如画风）、Layout（结构关系，如空间布局）、Tonal（低层物理，如色调明暗）
+    - **规模**：共 3200 个 prompt，每个维度 800 个
+    - **四个定制指标**：IDS（身份发散分数）、ASC（风格覆盖度）、SDI（空间分散指数）、PVS（摄影方差分数），分别结合 ArcFace 等领域特定提取器计算
 
 ### 损失函数/训练策略
 

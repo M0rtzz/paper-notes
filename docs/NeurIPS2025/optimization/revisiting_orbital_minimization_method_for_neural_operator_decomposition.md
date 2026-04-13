@@ -52,8 +52,9 @@ $$\mathcal{L}_{\text{omm}}(V) = \text{tr}((I_d - VV^\top)^2 A) - \text{tr}(A)$$
 1. **OMM-p高阶推广**: 将上述形式自然推广为 $\mathcal{L}_{\text{omm}}^{(p)}(V) = \text{tr}((I_d - VV^\top)^{2p} A) - \text{tr}(A)$。作者证明（Theorem 1）对任意 $p \geq 1$，全局最小值等于前 $k$ 个特征值之和的负数，且最优解恢复top-$k$特征子空间。证明的关键是目标仅依赖 $VV^\top$，可通过SVD重参数化。OMM没有伪局部极小值。
 
 2. **嵌套（Nesting）技术**: 为学习有序特征向量，提出两种嵌套方式：
-   - **联合嵌套（OMMjnt）**: 最小化加权目标 $\sum_{i=1}^k \alpha_i \mathcal{L}_{\text{omm}}^{(p)}(V_{1:i})$，可通过矩阵掩码高效实现
-   - **顺序嵌套（OMMseq）**: 利用stop-gradient定义代理目标，使得 $\partial_{v_i} \mathcal{L}_{\text{omm}}^{\text{seq}} = \partial_{v_i} \mathcal{L}_{\text{omm}}^{(1)}(V_{1:i})$
+
+    - **联合嵌套（OMMjnt）**: 最小化加权目标 $\sum_{i=1}^k \alpha_i \mathcal{L}_{\text{omm}}^{(p)}(V_{1:i})$，可通过矩阵掩码高效实现
+    - **顺序嵌套（OMMseq）**: 利用stop-gradient定义代理目标，使得 $\partial_{v_i} \mathcal{L}_{\text{omm}}^{\text{seq}} = \partial_{v_i} \mathcal{L}_{\text{omm}}^{(1)}(V_{1:i})$
 
 3. **与Sanger规则的联系**: OMM的顺序嵌套梯度是Sanger更新的对称化版本。Sanger更新 $(I - V_{1:i}V_{1:i}^\top)A v_i$ 本身不是任何函数的梯度，而OMM从良定义的目标出发自然得到这一形式。这一联系让人惊讶——一个来自计算化学的经典方法与流式PCA的核心算法有如此深层关联。
 

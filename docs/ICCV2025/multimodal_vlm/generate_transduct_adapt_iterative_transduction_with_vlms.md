@@ -49,23 +49,26 @@ $$\mathcal{L} = -\frac{1}{N}\sum_i \mathbf{z}_i^\top \log(\mathbf{p}_i) - \sum_{
 ### 关键设计
 
 1. **Generate — 基于混淆驱动的属性生成**:
-   - 初始属性由 LLM 生成每个类别的描述性文本（如 "A bird with a small, round body shape"）
-   - 运行传导推理后，找到最容易混淆的类别对——选择 $\mathbf{z}$ 中 top-2 概率差 ≤ α=0.1 的样本对应类别对
-   - 用 LLM（Llama-3.1 或 GPT-4o）针对混淆类别对生成判别属性，如提示 "Provide additional attributes for [class1] which can help distinguish it from [class2]"
-   - 仅对高频混淆对生成属性（出现 > β 次），保证计算可行性
-   - 设计动机：模仿计算机视觉中经典的成对判别性属性发现；属性空间逐步增长而非一次性固定
+
+    - 初始属性由 LLM 生成每个类别的描述性文本（如 "A bird with a small, round body shape"）
+    - 运行传导推理后，找到最容易混淆的类别对——选择 $\mathbf{z}$ 中 top-2 概率差 ≤ α=0.1 的样本对应类别对
+    - 用 LLM（Llama-3.1 或 GPT-4o）针对混淆类别对生成判别属性，如提示 "Provide additional attributes for [class1] which can help distinguish it from [class2]"
+    - 仅对高频混淆对生成属性（出现 > β 次），保证计算可行性
+    - 设计动机：模仿计算机视觉中经典的成对判别性属性发现；属性空间逐步增长而非一次性固定
 
 2. **Transduct — 属性增强的传导推理**:
-   - 文本预测 $\hat{\mathbf{y}}_i$ 通过计算图像与所有属性嵌入的平均相似度得到：$\bar{s}_{i,j} = \frac{1}{n_j}\sum_k \theta(\mathbf{x}_i)\phi(\mathbf{a}_{j,k})$
-   - 采用 TransCLIP 的 Block Majorize-Minimization 算法优化 $\mathbf{z}, \mu, \Sigma$
-   - 图像间亲和度 $w_{i,j} = \max(0, \mathbf{f}_i^\top \mathbf{f}_j)$，保证半正定和快速优化
-   - 设计动机：属性增强使 KL 项更准确地反映类别区分信息
+
+    - 文本预测 $\hat{\mathbf{y}}_i$ 通过计算图像与所有属性嵌入的平均相似度得到：$\bar{s}_{i,j} = \frac{1}{n_j}\sum_k \theta(\mathbf{x}_i)\phi(\mathbf{a}_{j,k})$
+    - 采用 TransCLIP 的 Block Majorize-Minimization 算法优化 $\mathbf{z}, \mu, \Sigma$
+    - 图像间亲和度 $w_{i,j} = \max(0, \mathbf{f}_i^\top \mathbf{f}_j)$，保证半正定和快速优化
+    - 设计动机：属性增强使 KL 项更准确地反映类别区分信息
 
 3. **Adapt — 基于伪标签的 CLIP 微调**:
-   - 对每个类别 j，取 $\mathbf{z}_{\cdot,j}$ 中 top-k=8 的图像作为该类的高置信样本
-   - 使用 AdaptCLIPZS 的目标函数做 CLIP 编码器（θ, ϕ）端到端微调
-   - 考虑了 class-level supervision 和 false negative（同一 mini-batch 中可能有多个正确图文对）
-   - 设计动机：传导推理得到的伪标签 + 属性构成弱监督信号，可在无人工标注情况下适配 CLIP
+
+    - 对每个类别 j，取 $\mathbf{z}_{\cdot,j}$ 中 top-k=8 的图像作为该类的高置信样本
+    - 使用 AdaptCLIPZS 的目标函数做 CLIP 编码器（θ, ϕ）端到端微调
+    - 考虑了 class-level supervision 和 false negative（同一 mini-batch 中可能有多个正确图文对）
+    - 设计动机：传导推理得到的伪标签 + 属性构成弱监督信号，可在无人工标注情况下适配 CLIP
 
 ### 损失函数 / 训练策略
 

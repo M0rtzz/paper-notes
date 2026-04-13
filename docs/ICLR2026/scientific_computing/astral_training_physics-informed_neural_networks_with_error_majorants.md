@@ -25,15 +25,15 @@ tags:
 提出 Astral 损失函数（基于函数型后验误差上界/error majorant），替代传统 PiNN 中的残差损失来训练物理信息神经网络，实现训练过程中可靠的误差估计，并在扩散方程、Maxwell 方程等多种 PDE 上取得了更好或相当的精度。
 
 ## 研究背景与动机
-1. **领域现状**：PiNN 是用神经网络近似 PDE 解的方法，最常用的训练目标是最小化 PDE 残差（在随机采样点上的 $L_2$ 范数）
-2. **现有痛点**：
+**领域现状**：PiNN 是用神经网络近似 PDE 解的方法，最常用的训练目标是最小化 PDE 残差（在随机采样点上的 $L_2$ 范数）
+**现有痛点**：
    - 残差与真实误差的相关性极差——作者用简单 BVP 展示：可以构造残差任意大但误差任意小的例子，也可以构造残差为零但误差任意大的例子
    - 在实际 PiNN 训练中，对 100 个扩散方程的统计实验表明残差与能量范数误差的平均空间相关性仅 $0.22 \pm 0.09$
    - 无法通过残差可靠判断近似解的精度，不知道何时该停止训练
-3. **核心矛盾**：残差最多是误差的间接度量，而不是直接上界，导致 PiNN 缺乏可靠的后验误差控制
-4. **本文要解决什么**：设计一个新损失函数，既能高效训练 PiNN，又能同时提供误差的严格上界估计
-5. **切入角度**：利用经典数值分析中的函数型后验误差估计（functional a posteriori error estimate），这类估计与近似方法无关（approximation-agnostic），天然适合神经网络
-6. **核心 idea 一句话**：用 PDE 的 error majorant（误差上界泛函）直接作为 PiNN 的训练损失，同时获得高质量近似解和可靠的误差估计
+**核心矛盾**：残差最多是误差的间接度量，而不是直接上界，导致 PiNN 缺乏可靠的后验误差控制
+**本文要解决什么**：设计一个新损失函数，既能高效训练 PiNN，又能同时提供误差的严格上界估计
+**切入角度**：利用经典数值分析中的函数型后验误差估计（functional a posteriori error estimate），这类估计与近似方法无关（approximation-agnostic），天然适合神经网络
+**核心 idea 一句话**：用 PDE 的 error majorant（误差上界泛函）直接作为 PiNN 的训练损失，同时获得高质量近似解和可靠的误差估计
 
 ## 方法详解
 
@@ -43,25 +43,29 @@ tags:
 ### 关键设计
 
 1. **Astral 损失函数**:
-   - 做什么：将 error majorant 作为 PiNN 的损失函数
-   - 核心思路：以扩散方程为例，引入辅助变量 $\tilde{F}(x,y) \simeq \sigma(x,y) \text{grad} \phi(x,y)$ 近似精确通量。损失函数形式为 $U = \alpha \int (f + \text{div}\tilde{F})^2 + \beta \int \|\sigma \text{grad}\tilde{\phi} - \tilde{F}\|^2 / \sigma$，其中 $\alpha, \beta$ 是依赖 PDE 参数的常数
-   - 设计动机：$U$ 是误差能量范数的严格上界，当且仅当 $\tilde{\phi} \to \phi$ 且 $\tilde{F} \to \sigma \text{grad}\phi$ 时上界饱和——这意味着最小化 $U$ 同时驱动近似解趋近精确解和辅助场趋近精确通量
-   - 与之前方法的区别：残差损失只保证残差小但不保证误差小；变分损失需要问题具有变分形式；Astral 损失提供严格上界+高精度
+
+    - 做什么：将 error majorant 作为 PiNN 的损失函数
+    - 核心思路：以扩散方程为例，引入辅助变量 $\tilde{F}(x,y) \simeq \sigma(x,y) \text{grad} \phi(x,y)$ 近似精确通量。损失函数形式为 $U = \alpha \int (f + \text{div}\tilde{F})^2 + \beta \int \|\sigma \text{grad}\tilde{\phi} - \tilde{F}\|^2 / \sigma$，其中 $\alpha, \beta$ 是依赖 PDE 参数的常数
+    - 设计动机：$U$ 是误差能量范数的严格上界，当且仅当 $\tilde{\phi} \to \phi$ 且 $\tilde{F} \to \sigma \text{grad}\phi$ 时上界饱和——这意味着最小化 $U$ 同时驱动近似解趋近精确解和辅助场趋近精确通量
+    - 与之前方法的区别：残差损失只保证残差小但不保证误差小；变分损失需要问题具有变分形式；Astral 损失提供严格上界+高精度
 
 2. **辅助场参数化**:
-   - 做什么：用独立的 Siren 网络参数化辅助场 $w$
-   - 核心思路：$w$ 的维度和含义取决于具体 PDE——扩散方程中是通量向量场，Maxwell 方程中是标量场。每个场用独立的 Siren 网络
-   - 设计动机：辅助场是 error majorant 中的自由变量，优化它可以收紧上界
+
+    - 做什么：用独立的 Siren 网络参数化辅助场 $w$
+    - 核心思路：$w$ 的维度和含义取决于具体 PDE——扩散方程中是通量向量场，Maxwell 方程中是标量场。每个场用独立的 Siren 网络
+    - 设计动机：辅助场是 error majorant 中的自由变量，优化它可以收紧上界
 
 3. **多类 PDE 的 Error Majorant 推导**:
-   - 做什么：为 7 种 PDE 推导了具体的 error majorant 表达式
-   - 包括：各向同性/各向异性扩散方程、大混合导数扩散、L 型域扩散、Maxwell 方程（$\alpha > 0$ 和 $\alpha = 0$）、对流扩散方程、非线性弹塑性
-   - 核心思路：利用 Cauchy-Schwarz 不等式、Friedrichs 不等式等工具从积分恒等式推导严格上界
+
+    - 做什么：为 7 种 PDE 推导了具体的 error majorant 表达式
+    - 包括：各向同性/各向异性扩散方程、大混合导数扩散、L 型域扩散、Maxwell 方程（$\alpha > 0$ 和 $\alpha = 0$）、对流扩散方程、非线性弹塑性
+    - 核心思路：利用 Cauchy-Schwarz 不等式、Friedrichs 不等式等工具从积分恒等式推导严格上界
 
 4. **误差指示器（Error Indicator）**:
-   - 做什么：从 Astral 损失中提取逐点的误差空间分布估计
-   - 核心思路：误差指示器 $\|\sigma^{-1/2}(\tilde{F} - \sigma \text{grad}\tilde{\phi})\|^2$ 给出误差密度的估计
-   - 关键优势：与误差的空间相关性达 $0.82 \pm 0.04$（残差仅 $0.22 \pm 0.09$）
+
+    - 做什么：从 Astral 损失中提取逐点的误差空间分布估计
+    - 核心思路：误差指示器 $\|\sigma^{-1/2}(\tilde{F} - \sigma \text{grad}\tilde{\phi})\|^2$ 给出误差密度的估计
+    - 关键优势：与误差的空间相关性达 $0.82 \pm 0.04$（残差仅 $0.22 \pm 0.09$）
 
 ### 损失函数 / 训练策略
 - 用 Monte Carlo 方法在 $64 \times 64$ 均匀网格的随机子集上近似积分

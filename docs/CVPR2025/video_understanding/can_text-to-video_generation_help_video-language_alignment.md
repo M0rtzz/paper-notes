@@ -38,21 +38,24 @@ SynViTA建立在标准的VLA学习框架之上。给定真实视频 $V^r$ 与正
 
 ### 关键设计
 1. **基于对齐质量的动态加权（Alignment-based Weighting）**:
-   - 做什么：为每个合成视频动态计算权重，降低质量差的合成视频的影响
-   - 核心思路：使用VQAScore集成模型 $\bar{f}$ 评估合成视频与目标文本的对齐程度，权重定义为 $\omega_i^\phi = \max(0, \bar{f}(V^s_i, t^s_i) - \bar{f}(V^s_i, t^r_i))$
-   - 设计动机：分析发现部分合成视频（尤其是Flip和Hallucination类型的负样本对应视频）实际上与正样本文本更匹配，导致噪声监督信号。该加权策略确保仅当合成视频确实与目标文本（而非正样本文本）更对齐时才有较高权重
-   - 加权后的合成视频损失为 $\mathcal{L}_{\text{syn}}^\phi = -\sum_i \omega_i^\phi \cdot (\log f(V^s_i, t^s_i) + \log(1 - f(V^s_i, t^r_i)))$
+
+    - 做什么：为每个合成视频动态计算权重，降低质量差的合成视频的影响
+    - 核心思路：使用VQAScore集成模型 $\bar{f}$ 评估合成视频与目标文本的对齐程度，权重定义为 $\omega_i^\phi = \max(0, \bar{f}(V^s_i, t^s_i) - \bar{f}(V^s_i, t^r_i))$
+    - 设计动机：分析发现部分合成视频（尤其是Flip和Hallucination类型的负样本对应视频）实际上与正样本文本更匹配，导致噪声监督信号。该加权策略确保仅当合成视频确实与目标文本（而非正样本文本）更对齐时才有较高权重
+    - 加权后的合成视频损失为 $\mathcal{L}_{\text{syn}}^\phi = -\sum_i \omega_i^\phi \cdot (\log f(V^s_i, t^s_i) + \log(1 - f(V^s_i, t^r_i)))$
 
 2. **语义一致性正则化（Semantic Consistency Regularization）**:
-   - 做什么：引导模型关注真实与合成视频之间的语义差异，而非外观差异
-   - 核心思路：通过最长公共子序列（LCS）提取正负文本的共享语义 $t' = \text{LCS}(t^r, t^s)$，然后施加三元组损失强制对齐关系：对于任意视频，其正样本文本的对齐度 > 共享文本 $t'$ > 负样本文本
-   - 实现细节：实际通过attention-level masking实现而非token删除，triplet loss的margin $\gamma = 0.2$
-   - 设计动机：合成视频的外观（artifacts、分辨率等）与真实视频差异很大，如果模型学到区分合成和真实视频的视觉特征，则无法迁移到真实场景
+
+    - 做什么：引导模型关注真实与合成视频之间的语义差异，而非外观差异
+    - 核心思路：通过最长公共子序列（LCS）提取正负文本的共享语义 $t' = \text{LCS}(t^r, t^s)$，然后施加三元组损失强制对齐关系：对于任意视频，其正样本文本的对齐度 > 共享文本 $t'$ > 负样本文本
+    - 实现细节：实际通过attention-level masking实现而非token删除，triplet loss的margin $\gamma = 0.2$
+    - 设计动机：合成视频的外观（artifacts、分辨率等）与真实视频差异很大，如果模型学到区分合成和真实视频的视觉特征，则无法迁移到真实场景
 
 3. **多生成器策略**:
-   - 做什么：同时使用多个文本到视频生成器（CogVideoX、LaVie、VideoCrafter2）生成合成视频
-   - 核心思路：不同生成器在不同类型的负样本上表现不同，综合利用可以取长补短
-   - 设计动机：初步分析显示没有单一生成器在所有任务上一致优于其他生成器
+
+    - 做什么：同时使用多个文本到视频生成器（CogVideoX、LaVie、VideoCrafter2）生成合成视频
+    - 核心思路：不同生成器在不同类型的负样本上表现不同，综合利用可以取长补短
+    - 设计动机：初步分析显示没有单一生成器在所有任务上一致优于其他生成器
 
 ### 损失函数 / 训练策略
 最终训练目标为：$\mathcal{L} = \mathcal{L}_{\text{real}} + \mathcal{L}_{\text{syn}}^\phi + \lambda_{\text{scr}} \cdot \mathcal{L}_{\text{scr}}^\phi$

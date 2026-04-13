@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: RAG 系统通过检索外部知识增强 LLM 的生成能力，现代 RAG 系统由多个组件组成——查询重写、文档检索、文档筛选和答案生成。
-2. **现有痛点**: 各组件通常通过 SFT 独立优化，导致模块目标与最终生成准确答案的全局目标不一致。例如，检索器按照 nDCG 优化的"高相关性"文档不一定有助于生成正确答案。
-3. **核心矛盾**: 现有端到端优化方法（如用 PPO 或 DPO 优化单个 RAG 组件）仅关注两组件的简单 pipeline 或孤立优化单个模块，无法充分建模多组件间的协作关系。
-4. **本文要解决什么**: 如何联合优化 RAG 系统中多个组件的参数，使各模块的优化目标与最终答案质量对齐。
-5. **切入角度**: 将 RAG 建模为协作多智能体强化学习（Co-MARL）问题，用 MAPPO 实现多智能体联合优化。
-6. **核心idea一句话**: 把 RAG 看成合作博弈——各组件是 agent，共享"最终答案F1"作为全局奖励，用 MAPPO 同步优化所有 agent。
+**领域现状**: RAG 系统通过检索外部知识增强 LLM 的生成能力，现代 RAG 系统由多个组件组成——查询重写、文档检索、文档筛选和答案生成。
+**现有痛点**: 各组件通常通过 SFT 独立优化，导致模块目标与最终生成准确答案的全局目标不一致。例如，检索器按照 nDCG 优化的"高相关性"文档不一定有助于生成正确答案。
+**核心矛盾**: 现有端到端优化方法（如用 PPO 或 DPO 优化单个 RAG 组件）仅关注两组件的简单 pipeline 或孤立优化单个模块，无法充分建模多组件间的协作关系。
+**本文要解决什么**: 如何联合优化 RAG 系统中多个组件的参数，使各模块的优化目标与最终答案质量对齐。
+**切入角度**: 将 RAG 建模为协作多智能体强化学习（Co-MARL）问题，用 MAPPO 实现多智能体联合优化。
+**核心idea一句话**: 把 RAG 看成合作博弈——各组件是 agent，共享"最终答案F1"作为全局奖励，用 MAPPO 同步优化所有 agent。
 
 ## 方法详解
 
@@ -42,29 +42,32 @@ MMOA-RAG 将 RAG 建模为 $\langle \mathcal{G}, \mathcal{O}, \mathcal{A}, \math
 ### 关键设计
 
 1. **多智能体建模（Co-MARL）**:
-   - **做什么**: 将 RAG 的各组件视为 RL agent，共享全局奖励
-   - **为什么**: 单独优化各模块会导致目标不一致；多智能体框架自然建模了组件间的协作关系
-   - **怎么做**: 定义三个 agent：Query Rewriter（QR）接收问题 $q$，输出子问题 $subq$；Selector（S）接收 $q$ 和候选文档 $D$，输出选中的文档 ID 子集 $D_{\text{selected}}$；Generator（G）接收 $q$ 和 $D_{\text{selected}}$，生成最终答案
-   - **区别**: 相比 Rewrite-Retrieve-Read（仅优化 rewriter）或 BGM（仅优化 bridge 模块），MMOA-RAG 同时优化三个组件
+
+    - **做什么**: 将 RAG 的各组件视为 RL agent，共享全局奖励
+    - **为什么**: 单独优化各模块会导致目标不一致；多智能体框架自然建模了组件间的协作关系
+    - **怎么做**: 定义三个 agent：Query Rewriter（QR）接收问题 $q$，输出子问题 $subq$；Selector（S）接收 $q$ 和候选文档 $D$，输出选中的文档 ID 子集 $D_{\text{selected}}$；Generator（G）接收 $q$ 和 $D_{\text{selected}}$，生成最终答案
+    - **区别**: 相比 Rewrite-Retrieve-Read（仅优化 rewriter）或 BGM（仅优化 bridge 模块），MMOA-RAG 同时优化三个组件
 
 2. **智能体的观测/动作/奖励设计**:
-   - **做什么**: 为每个 agent 定义精确的 MDP 元素
-   - **为什么**: 不同 agent 的角色差异要求差异化的动作空间和惩罚项设计
-   - **怎么做**: 
-     - QR 的动作空间为完整词表 $\mathcal{V}$，奖励 $R_{QR} = R_{\text{shared}} + P_{QR}$，当子问题数 > 4 时惩罚 -0.5
-     - Selector 的动作空间限制为 $\{$"0", "1", ..., "K-1", "Document", ","$\}$，大幅缩小探索空间；格式错误或重复 ID 时惩罚 -1
-     - Generator 的动作空间为 $\mathcal{V}$，生成答案过长时惩罚 -0.5
-     - 共享奖励 $R_{\text{shared}}$ 为预测答案的 F1 分数
-   - **区别**: Selector 的受限动作空间设计巧妙——将自由文本生成约束为结构化 ID 选择，显著提升训练稳定性
+
+    - **做什么**: 为每个 agent 定义精确的 MDP 元素
+    - **为什么**: 不同 agent 的角色差异要求差异化的动作空间和惩罚项设计
+    - **怎么做**: 
+      - QR 的动作空间为完整词表 $\mathcal{V}$，奖励 $R_{QR} = R_{\text{shared}} + P_{QR}$，当子问题数 > 4 时惩罚 -0.5
+      - Selector 的动作空间限制为 $\{$"0", "1", ..., "K-1", "Document", ","$\}$，大幅缩小探索空间；格式错误或重复 ID 时惩罚 -1
+      - Generator 的动作空间为 $\mathcal{V}$，生成答案过长时惩罚 -0.5
+      - 共享奖励 $R_{\text{shared}}$ 为预测答案的 F1 分数
+    - **区别**: Selector 的受限动作空间设计巧妙——将自由文本生成约束为结构化 ID 选择，显著提升训练稳定性
 
 3. **MAPPO 联合优化**:
-   - **做什么**: 使用 Multi-Agent PPO 算法联合更新所有 agent
-   - **为什么**: MAPPO 在全合作环境中使用共享全局奖励促进agent间协作，比独立 PPO 更适合此场景
-   - **怎么做**: Actor 损失采用标准 PPO 的 clip objective，扩展到多 agent：
-   $$\mathcal{L}_{\text{Actor}}(\theta) = \sum_i \sum_t \min(r_t^i \hat{A}_{\pi_\theta}^{i,t},\ \text{clip}(r_t^i, 1-\epsilon, 1+\epsilon) \hat{A}_{\pi_\theta}^{i,t})$$
+
+    - **做什么**: 使用 Multi-Agent PPO 算法联合更新所有 agent
+    - **为什么**: MAPPO 在全合作环境中使用共享全局奖励促进agent间协作，比独立 PPO 更适合此场景
+    - **怎么做**: Actor 损失采用标准 PPO 的 clip objective，扩展到多 agent：
+    $\mathcal{L}_{\text{Actor}}(\theta) = \sum_i \sum_t \min(r_t^i \hat{A}_{\pi_\theta}^{i,t},\ \text{clip}(r_t^i, 1-\epsilon, 1+\epsilon) \hat{A}_{\pi_\theta}^{i,t})$
    最终奖励包含 KL 惩罚以防止偏离 SFT 基线：
-   $$R(s_t^i, a_t^i) = R_i - \beta \log \frac{\pi_\theta(Answer_i | O_i)}{\pi_{\theta_{\text{SFT}}}(Answer_i | O_i)}$$
-   - **区别**: 三个 agent 共享同一 LLM 参数（参数共享机制），训练效率高
+    $R(s_t^i, a_t^i) = R_i - \beta \log \frac{\pi_\theta(Answer_i | O_i)}{\pi_{\theta_{\text{SFT}}}(Answer_i | O_i)}$
+    - **区别**: 三个 agent 共享同一 LLM 参数（参数共享机制），训练效率高
 
 ### 训练策略
 

@@ -29,8 +29,8 @@ tags:
 
 扩散模型虽然生成质量优秀，但推理时通常需要数百到数千次函数评估(NFE)来生成一张图，严重限制了实际应用。现有加速方案主要分两类：
 
-1. **快速采样器**（DPM-Solver、UniPC等）：在NFE<10时性能急剧下降，因为数值求解器在极少步下精度不够。
-2. **蒸馏方法**（一致性模型、对抗蒸馏等）：虽然能实现少步生成，但往往引入复杂训练流程、训练不稳定、模型坍缩或过度平滑等问题。
+**快速采样器**（DPM-Solver、UniPC等）：在NFE<10时性能急剧下降，因为数值求解器在极少步下精度不够。
+**蒸馏方法**（一致性模型、对抗蒸馏等）：虽然能实现少步生成，但往往引入复杂训练流程、训练不稳定、模型坍缩或过度平滑等问题。
 
 **核心矛盾**：快速采样器步数太少不行，蒸馏方法又太复杂不稳定。两者之间缺少一个简单、稳定且有效的中间方案。
 
@@ -53,14 +53,15 @@ $$\boldsymbol{x}_s = \boldsymbol{x}_t + (s-t) \boldsymbol{f}_\theta(\boldsymbol{
 
 2. **Picard迭代估计**：
    受Picard迭代启发，用模型自身估计缺失的那个点。有两种方式：
-   - **估计内点 (EI)**：采样 $\boldsymbol{x}_t$，用 $\hat{\boldsymbol{x}}_r = \boldsymbol{x}_t + (r-t)\boldsymbol{f}_{\theta^-}(\boldsymbol{x}_t, t, r)$ 估计内部点，然后用教师模型评估 $\boldsymbol{v}(\hat{\boldsymbol{x}}_r, r)$ 作为目标。
-   - **估计端点 (EE)**：采样 $\boldsymbol{x}_r$，用模型反推 $\hat{\boldsymbol{x}}_t$，直接用真实的 $\alpha_r'\boldsymbol{x}_0 + \sigma_r'\boldsymbol{z}$ 作为目标。
+    - **估计内点 (EI)**：采样 $\boldsymbol{x}_t$，用 $\hat{\boldsymbol{x}}_r = \boldsymbol{x}_t + (r-t)\boldsymbol{f}_{\theta^-}(\boldsymbol{x}_t, t, r)$ 估计内部点，然后用教师模型评估 $\boldsymbol{v}(\hat{\boldsymbol{x}}_r, r)$ 作为目标。
+    - **估计端点 (EE)**：采样 $\boldsymbol{x}_r$，用模型反推 $\hat{\boldsymbol{x}}_t$，直接用真实的 $\alpha_r'\boldsymbol{x}_0 + \sigma_r'\boldsymbol{z}$ 作为目标。
 
 3. **四种变体**：
-   - **SDEI**（蒸馏+估计内点）：需要教师模型，3次前向+1次反向
-   - **STEI**（训练+估计内点）：不需教师，加入扩散损失正则，4次前向+2次反向
-   - **SDEE**（蒸馏+估计端点）：需要教师，3次前向+1次反向
-   - **STEE**（训练+估计端点）：不需教师，最轻量，仅2次前向+1次反向
+
+    - **SDEI**（蒸馏+估计内点）：需要教师模型，3次前向+1次反向
+    - **STEI**（训练+估计内点）：不需教师，加入扩散损失正则，4次前向+2次反向
+    - **SDEE**（蒸馏+估计端点）：需要教师，3次前向+1次反向
+    - **STEE**（训练+估计端点）：不需教师，最轻量，仅2次前向+1次反向
 
 4. **目标稳定性优势**：
    与一致性模型相比，割线损失的目标要么与扩散损失相同（$\alpha_t'\boldsymbol{x}_0 + \sigma_t'\boldsymbol{z}$），要么就是扩散模型本身 $\boldsymbol{v}(\boldsymbol{x}_t, t)$，不涉及模型依赖的导数项 $\frac{d}{dt}\boldsymbol{f}_{\theta^-}$，因此训练稳定性远优于一致性模型。

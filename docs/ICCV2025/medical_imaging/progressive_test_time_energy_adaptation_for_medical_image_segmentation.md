@@ -33,11 +33,11 @@ tags:
 - 导致在源域训练的模型在目标域性能显著下降
 
 **现有方法的局限**：
-1. **域适应方法**：需要多次遍历目标数据，在临床场景中不实际（无法预知患者数据）
-2. **测试时训练（TTT）**：需要额外的自监督任务与主任务联合训练
-3. **基于熵的 TTA**（TENT/EATA/SAR）：通用正则化方法，未利用分割任务的形状先验
-4. **CoTTA/MEMO**：基于伪标签或增广一致性，但不够精细
-5. **TEA**：使用能量模型进行分类 TTA，但只输出全局单一能量值，粒度不足
+**域适应方法**：需要多次遍历目标数据，在临床场景中不实际（无法预知患者数据）
+**测试时训练（TTT）**：需要额外的自监督任务与主任务联合训练
+**基于熵的 TTA**（TENT/EATA/SAR）：通用正则化方法，未利用分割任务的形状先验
+**CoTTA/MEMO**：基于伪标签或增广一致性，但不够精细
+**TEA**：使用能量模型进行分类 TTA，但只输出全局单一能量值，粒度不足
 
 **核心动机**：分割任务有强形状先验（如心脏的解剖结构），可以判断预测形状是否合理。利用能量模型作为形状分类器，在 patch 级别判别预测质量，引导分割模型修正错误区域。
 
@@ -52,33 +52,36 @@ tags:
 ### 关键设计
 
 1. **区域能量模型（Region-based Energy Model）**：
-   - 使用全卷积网络将分割图 $\hat{S}$ 映射到 $K \times K$ 能量图：$g_\phi(\hat{S}): \mathbb{R}^{H\times W} \mapsto \mathbb{R}^{K\times K}$
-   - 每个 patch（大小 $h \times w$，其中 $h=H/K, w=W/K$）对应一个能量值
-   - 低能量 = 分布内（正确形状），高能量 = 分布外（错误预测）
-   - 建模为二分类任务，训练目标为 patchwise BCE 损失：
 
-   $$\mathcal{L}_\phi = \frac{1}{N_p}\sum_{i=1}^{N_p} \left(-y_s^i\log\sigma(-g_\phi(s_s^i)) - (1-y_s^i)\log(1-\sigma(-g_\phi(s_s^i)))\right)$$
+    - 使用全卷积网络将分割图 $\hat{S}$ 映射到 $K \times K$ 能量图：$g_\phi(\hat{S}): \mathbb{R}^{H\times W} \mapsto \mathbb{R}^{K\times K}$
+    - 每个 patch（大小 $h \times w$，其中 $h=H/K, w=W/K$）对应一个能量值
+    - 低能量 = 分布内（正确形状），高能量 = 分布外（错误预测）
+    - 建模为二分类任务，训练目标为 patchwise BCE 损失：
 
-   - 设计动机：全局单一能量值不够精细，patch 级能量可以定位具体的错误区域
+    $\mathcal{L}_\phi = \frac{1}{N_p}\sum_{i=1}^{N_p} \left(-y_s^i\log\sigma(-g_\phi(s_s^i)) - (1-y_s^i)\log(1-\sigma(-g_\phi(s_s^i)))\right)$
+
+    - 设计动机：全局单一能量值不够精细，patch 级能量可以定位具体的错误区域
 
 2. **对抗扰动生成负样本**：
-   - 源域只有正确的分割结果，缺少分布外（错误）样本
-   - 使用 FGSM 对输入图像施加对抗扰动：$\epsilon = \delta \cdot \text{sign}(\nabla_{I_s}\mathcal{L}(f_\theta(I_s), S_s))$
-   - 扰动后的输入通过分割网络产生错误分割 $\tilde{S}_s = f_\theta(I_s + \epsilon)$
-   - 额外施加空间仿射变换和像素噪声增加多样性
-   - 通过比较扰动分割和 ground truth 生成分类标签：$y_s = 1 - \mathbf{1}(d(\tilde{s}_s, s_s) < \tau)$
-   - 设计动机：对抗扰动将数据推向低密度区域（自然的 OOD 区域），且通过分割网络的约束产生合理的错误形状
+
+    - 源域只有正确的分割结果，缺少分布外（错误）样本
+    - 使用 FGSM 对输入图像施加对抗扰动：$\epsilon = \delta \cdot \text{sign}(\nabla_{I_s}\mathcal{L}(f_\theta(I_s), S_s))$
+    - 扰动后的输入通过分割网络产生错误分割 $\tilde{S}_s = f_\theta(I_s + \epsilon)$
+    - 额外施加空间仿射变换和像素噪声增加多样性
+    - 通过比较扰动分割和 ground truth 生成分类标签：$y_s = 1 - \mathbf{1}(d(\tilde{s}_s, s_s) < \tau)$
+    - 设计动机：对抗扰动将数据推向低密度区域（自然的 OOD 区域），且通过分割网络的约束产生合理的错误形状
 
 3. **渐进式能量适应**：
-   - 测试时，冻结能量模型 $g_\phi$，仅更新分割模型 $f_\theta$ 的 BatchNorm 参数
-   - 目标：将预测的能量值对齐到参考低能量（全零矩阵 $\mathbf{0}_{K\times K}$）
-   - 适应目标：
 
-   $$\theta^* = \arg\min_\theta -\sum_{i=1}^{B_t}\log(1-\sigma(-g_\phi(\hat{s}_t^i)))$$
+    - 测试时，冻结能量模型 $g_\phi$，仅更新分割模型 $f_\theta$ 的 BatchNorm 参数
+    - 目标：将预测的能量值对齐到参考低能量（全零矩阵 $\mathbf{0}_{K\times K}$）
+    - 适应目标：
 
-   - 使用 Adam 优化器，每个样本迭代 10 次
-   - 每批处理后恢复模型权重
-   - 设计动机：通过最小化能量值，鼓励分割模型产生与自然解剖结构一致的预测形状
+    $\theta^* = \arg\min_\theta -\sum_{i=1}^{B_t}\log(1-\sigma(-g_\phi(\hat{s}_t^i)))$
+
+    - 使用 Adam 优化器，每个样本迭代 10 次
+    - 每批处理后恢复模型权重
+    - 设计动机：通过最小化能量值，鼓励分割模型产生与自然解剖结构一致的预测形状
 
 ### 损失函数 / 训练策略
 

@@ -25,14 +25,14 @@ tags:
 Graph Counselor 提出了一个多智能体协作的 GraphRAG 推理框架，通过 Planning/Thought/Execution 三个 Agent 自适应提取图结构信息，并引入多视角自反思机制纠正推理偏差，在多个图推理任务上超越现有方法。
 
 ## 研究背景与动机
-1. **领域现状**：GraphRAG 通过建模知识关系提升 LLM 的事实准确性，但现有方法存在两大缺陷
-2. **现有痛点**：
+**领域现状**：GraphRAG 通过建模知识关系提升 LLM 的事实准确性，但现有方法存在两大缺陷
+**现有痛点**：
    - **信息聚合低效**：依赖单 Agent + 固定迭代模式，无法自适应捕获图数据中的多层次信息（文本/结构/度数）
    - **推理机制僵化**：预设推理方案无法根据任务复杂度动态调整推理深度，也缺乏语义纠正能力
-3. **核心矛盾**：图结构的非线性本质与 LLM 线性文本理解之间存在天然鸿沟，导致语义理解偏差
-4. **本文要解决什么**：设计灵活的图信息提取和自纠正推理框架
-5. **切入角度**：将图推理分解为规划→思考→执行三步，让不同 Agent 各司其职
-6. **核心idea一句话**：三个专用 Agent 自适应提取图信息 + 多视角自反思纠正推理偏差
+**核心矛盾**：图结构的非线性本质与 LLM 线性文本理解之间存在天然鸿沟，导致语义理解偏差
+**本文要解决什么**：设计灵活的图信息提取和自纠正推理框架
+**切入角度**：将图推理分解为规划→思考→执行三步，让不同 Agent 各司其职
+**核心idea一句话**：三个专用 Agent 自适应提取图信息 + 多视角自反思纠正推理偏差
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ Graph Counselor 提出了一个多智能体协作的 GraphRAG 推理框架，通
 
 ### 关键设计
 1. **Adaptive Graph Information Extraction Module (AGIEM)**:
-   - **Planning Agent**：分析问题语义，制定后续推理路径或判断已有信息是否足够推断答案
-   - **Thought Agent**：基于规划结果确定当前推理步骤需要什么具体图信息
-   - **Execution Agent**：调用四种图操作组件（Retrieve/Feature/Neighbor/Degree），支持串行组合和并行执行。如 $\text{Retrieve}(t) \circ \text{Feature}(I_v, \mathcal{T}_v)$ 先检索再取特征
-   - 设计动机：三 Agent 各司其职，避免单 Agent 在规划/信息需求判断/实际操作之间角色混淆
+
+    - **Planning Agent**：分析问题语义，制定后续推理路径或判断已有信息是否足够推断答案
+    - **Thought Agent**：基于规划结果确定当前推理步骤需要什么具体图信息
+    - **Execution Agent**：调用四种图操作组件（Retrieve/Feature/Neighbor/Degree），支持串行组合和并行执行。如 $\text{Retrieve}(t) \circ \text{Feature}(I_v, \mathcal{T}_v)$ 先检索再取特征
+    - 设计动机：三 Agent 各司其职，避免单 Agent 在规划/信息需求判断/实际操作之间角色混淆
 
 2. **Self-Reflection with Multiple Perspectives (SR)**:
-   - 做什么：检查推理结果的逻辑一致性，纠正语义和图结构之间的对齐偏差
-   - 核心思路：三阶段反思——(1) Recap & Understanding 回顾推理目标 (2) Analysis & Adjustment 发现遗漏/冗余/不一致 (3) Refinement & Update 优化推理策略。结合反向推理和多视角分析
-   - 设计动机：对抗 LLM 在图推理中的语义漂移问题，通过发散思维从多角度纠错
+
+    - 做什么：检查推理结果的逻辑一致性，纠正语义和图结构之间的对齐偏差
+    - 核心思路：三阶段反思——(1) Recap & Understanding 回顾推理目标 (2) Analysis & Adjustment 发现遗漏/冗余/不一致 (3) Refinement & Update 优化推理策略。结合反向推理和多视角分析
+    - 设计动机：对抗 LLM 在图推理中的语义漂移问题，通过发散思维从多角度纠错
 
 3. **LLM 状态转换机制**:
-   - 单个 LLM 通过上下文切换在三种 Agent 角色间转换，实现多Agent效果
-   - 外层 judgment module 判断推理正确性，不正确则触发 SR 反思循环
+
+    - 单个 LLM 通过上下文切换在三种 Agent 角色间转换，实现多Agent效果
+    - 外层 judgment module 判断推理正确性，不正确则触发 SR 反思循环
 
 ### 损失函数 / 训练策略
 无需训练/微调。纯基于提示的方法，在推理时使用。

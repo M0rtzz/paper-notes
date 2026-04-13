@@ -25,12 +25,12 @@ tags:
 通过representation-level和token-level两种消融实验，发现LLM在ICL中直接依赖的"性能关键token"是模板和停用词token（如"Answer:"），而非人类会关注的内容token（如实际文本），并揭示了LLM通过将内容信息聚合到这些关键token的表示中来间接利用内容。
 
 ## 研究背景与动机
-1. **领域现状**：ICL已成为LLM的主流few-shot学习方法，但对LLM如何从demonstration中学习和泛化仍理解不足。已有研究表明ICL对prompt的微小变化（如demo顺序）非常敏感。
-2. **现有痛点**：之前的研究要么只关注最后一个token（function vector），要么只关注label word，缺乏对prompt中**所有token角色**的系统性研究。
-3. **核心矛盾**：人类在学习analogy时关注"内容words"（如名词/形容词），但LLM是否也如此？
-4. **本文要解决什么？** 系统性地识别ICL prompt中哪些token的表示直接影响性能（性能关键token），并分析其特征
-5. **切入角度**：将ICL prompt的token分为三类（content/stopword/template），通过消融各类token的表示来测量对性能的影响
-6. **核心idea一句话**：LLM并不直接依赖内容token的表示，而是依赖模板和停用词token——后者聚合了前者的信息
+**领域现状**：ICL已成为LLM的主流few-shot学习方法，但对LLM如何从demonstration中学习和泛化仍理解不足。已有研究表明ICL对prompt的微小变化（如demo顺序）非常敏感。
+**现有痛点**：之前的研究要么只关注最后一个token（function vector），要么只关注label word，缺乏对prompt中**所有token角色**的系统性研究。
+**核心矛盾**：人类在学习analogy时关注"内容words"（如名词/形容词），但LLM是否也如此？
+**本文要解决什么？** 系统性地识别ICL prompt中哪些token的表示直接影响性能（性能关键token），并分析其特征
+**切入角度**：将ICL prompt的token分为三类（content/stopword/template），通过消融各类token的表示来测量对性能的影响
+**核心idea一句话**：LLM并不直接依赖内容token的表示，而是依赖模板和停用词token——后者聚合了前者的信息
 
 ## 方法详解
 
@@ -43,19 +43,22 @@ tags:
 ### 关键设计
 
 1. **Representation-level消融**:
-   - 做什么：测试哪类token的表示被test example直接依赖
-   - 核心思路：修改attention mask，使test example只能attend到特定类型的token表示，然后测量分类准确率变化。如果只保留template+stopword的表示就能维持性能，说明这些才是性能关键token
-   - 关键发现：**masking content tokens几乎不影响性能**，但masking template/stopword tokens导致性能大幅下降。这说明LLM直接从template/stopword的表示中获取任务信息
+
+    - 做什么：测试哪类token的表示被test example直接依赖
+    - 核心思路：修改attention mask，使test example只能attend到特定类型的token表示，然后测量分类准确率变化。如果只保留template+stopword的表示就能维持性能，说明这些才是性能关键token
+    - 关键发现：**masking content tokens几乎不影响性能**，但masking template/stopword tokens导致性能大幅下降。这说明LLM直接从template/stopword的表示中获取任务信息
 
 2. **Token-level消融**:
-   - 做什么：测试哪类token的信息对整个prompt的信息流至关重要
-   - 核心思路：直接从prompt中删除特定类型token。如果删除content token导致性能大幅下降（即使representation-level消融显示它不是直接依赖），说明content token的信息被间接传递了
-   - 关键发现：**删除content token确实大幅降低性能**——这与representation-level消融的结果看似矛盾。解释：content token的信息被LLM聚合到了template/stopword token的表示中
+
+    - 做什么：测试哪类token的信息对整个prompt的信息流至关重要
+    - 核心思路：直接从prompt中删除特定类型token。如果删除content token导致性能大幅下降（即使representation-level消融显示它不是直接依赖），说明content token的信息被间接传递了
+    - 关键发现：**删除content token确实大幅降低性能**——这与representation-level消融的结果看似矛盾。解释：content token的信息被LLM聚合到了template/stopword token的表示中
 
 3. **性能关键token的三个特征**:
-   - **词汇含义**：与任务相关的词（如分类任务中的"Answer:"）更可能是性能关键token
-   - **重复性**：在prompt中反复出现的token更可能是性能关键的（如每个demo都有的template）
-   - **结构线索**：标记demo边界的token（如换行符、分隔符）提供关键的结构信息
+
+    - **词汇含义**：与任务相关的词（如分类任务中的"Answer:"）更可能是性能关键token
+    - **重复性**：在prompt中反复出现的token更可能是性能关键的（如每个demo都有的template）
+    - **结构线索**：标记demo边界的token（如换行符、分隔符）提供关键的结构信息
 
 ### 损失函数 / 训练策略
 纯分析工作，无训练。使用Llama 3B-33B、Llama 2、Mistral 7B、Gemma 3 4B。6个分类数据集，每个15 seeds × 500 test examples。

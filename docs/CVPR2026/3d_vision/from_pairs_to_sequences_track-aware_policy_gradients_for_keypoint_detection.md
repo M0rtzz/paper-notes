@@ -42,9 +42,10 @@ TraqPoint 采用「先描述后检测」的双分支架构（继承自 RDD）：
 1. **混合采样策略 (Hybrid Sampling)**：为避免关键点在高概率区域聚集，将采样分为两部分——全局采样从全局分布 $P_\theta$ 直接抽取 $N_g$ 个点，网格采样将图像划分为 $G \times G$ 网格，每个格子内根据局部 softmax 分布采一个点，确保空间覆盖。最终所有点的概率统一由全局分布 $P_\theta(\mathbf{x}_i)$ 定义，用于策略梯度计算。
 
 2. **可追踪性奖励 (Trackability Reward)**：对每个关键点 $\mathbf{x}_i$，利用已知位姿和深度投影到序列中所有目标帧，在可见帧集合 $\mathcal{V}_i$ 上计算复合奖励：
-   - **排名奖励 $R_{\text{rank}}$**：衡量跨视图显著性一致性，在目标帧的 $K \times K$ 局部区域中计算该点 logit 值的百分位排名，线性缩放：$R_{\text{rank},i}^t = \max(0, \frac{\text{rank\_prop} - \tau_{\text{rank}}}{1.0 - \tau_{\text{rank}}})$，$\tau_{\text{rank}} = 0.2$
-   - **独特性奖励 $R_{\text{dist}}$**：受 Lowe 比率测试启发，用冻结描述子计算最近邻和次近邻距离比 $\text{ratio} = d_1/d_2$，奖励 ratio 低于阈值的点：$R_{\text{dist},i}^t = \max(0, \frac{\tau_{\text{dist}} - \text{ratio}}{\tau_{\text{dist}}})$，$\tau_{\text{dist}} = 0.85$
-   - 最终轨迹奖励：$R_i = \frac{1}{|\mathcal{V}_i|} \sum_{t \in \mathcal{V}_i} R_i^t$
+
+    - **排名奖励 $R_{\text{rank}}$**：衡量跨视图显著性一致性，在目标帧的 $K \times K$ 局部区域中计算该点 logit 值的百分位排名，线性缩放：$R_{\text{rank},i}^t = \max(0, \frac{\text{rank\_prop} - \tau_{\text{rank}}}{1.0 - \tau_{\text{rank}}})$，$\tau_{\text{rank}} = 0.2$
+    - **独特性奖励 $R_{\text{dist}}$**：受 Lowe 比率测试启发，用冻结描述子计算最近邻和次近邻距离比 $\text{ratio} = d_1/d_2$，奖励 ratio 低于阈值的点：$R_{\text{dist},i}^t = \max(0, \frac{\tau_{\text{dist}} - \text{ratio}}{\tau_{\text{dist}}})$，$\tau_{\text{dist}} = 0.85$
+    - 最终轨迹奖励：$R_i = \frac{1}{|\mathcal{V}_i|} \sum_{t \in \mathcal{V}_i} R_i^t$
 
 3. **DINOv3-ConvNeXt 骨干网络**：将 RDD 中的 ResNet-50 替换为 DINOv3-ConvNeXt (base)，提供多尺度特征和强语义表征能力。描述子分支使用多尺度可变形 Transformer 聚合四个尺度的特征，输出 256 维稠密描述子图。
 

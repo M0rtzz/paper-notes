@@ -44,9 +44,10 @@ tags:
 2. **Filter 分类器**：基于 LoRA 微调的轻量级 LLM，用两个分类 head 联合预测 subject area（multi-label, BCE）和 certification level（multi-class, CE），损失为 $\mathcal{L} = w_{sub} \cdot \text{BCE}(p_i^{sub}, y_i^{sub}) + w_{lvl} \cdot \text{CE}(p_i^{lvl}, y_i^{lvl})$
 3. **Expert-CoT**：将预测的 subject area $\hat{s}_i$ 和 certification level $\hat{l}_i$ 注入 prompt，引导模型从特定领域视角进行 step-by-step 推理
 4. **ExpertRAG**：三种检索策略
-   - **Global**：从全部 KB/PR 检索（baseline）
-   - **Filter then Retrieve (FTR)**：先按 subject area 过滤，再检索
-   - **Retrieve then Filter (RTF)**：先检索大候选集，再按 subject area 过滤
+
+    - **Global**：从全部 KB/PR 检索（baseline）
+    - **Filter then Retrieve (FTR)**：先按 subject area 过滤，再检索
+    - **Retrieve then Filter (RTF)**：先检索大候选集，再按 subject area 过滤
 
 ## 实验关键数据
 

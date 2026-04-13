@@ -31,9 +31,9 @@ tags:
 
 然而 SPIN 存在两个关键问题：
 
-1. **优化不稳定**：SPIN 优化标注响应相对于合成响应的"当前优势"。随着模型改进，合成响应质量趋近标注数据，当前优势趋于零，目标函数退化为与策略无关的常数，任意策略都是最优解，导致性能波动甚至下降。
+**优化不稳定**：SPIN 优化标注响应相对于合成响应的"当前优势"。随着模型改进，合成响应质量趋近标注数据，当前优势趋于零，目标函数退化为与策略无关的常数，任意策略都是最优解，导致性能波动甚至下降。
 
-2. **训练-生成不对齐**：SPIN 的奖励函数 $r(\mathbf{x}, \hat{\mathbf{y}}) = \lambda \log \frac{\pi_\theta(\hat{\mathbf{y}}|\mathbf{x})}{\pi_{\theta_t}(\hat{\mathbf{y}}|\mathbf{x})}$ 包含参考策略 $\pi_{\theta_t}$，与生成时使用的 $\log \pi_\theta(\hat{\mathbf{y}}|\mathbf{x})$ 不一致。实验验证：在 SPIN 中，标注数据虽然奖励更高，但 log-likelihood 反而低于合成数据——高奖励不等于高生成概率。
+**训练-生成不对齐**：SPIN 的奖励函数 $r(\mathbf{x}, \hat{\mathbf{y}}) = \lambda \log \frac{\pi_\theta(\hat{\mathbf{y}}|\mathbf{x})}{\pi_{\theta_t}(\hat{\mathbf{y}}|\mathbf{x})}$ 包含参考策略 $\pi_{\theta_t}$，与生成时使用的 $\log \pi_\theta(\hat{\mathbf{y}}|\mathbf{x})$ 不一致。实验验证：在 SPIN 中，标注数据虽然奖励更高，但 log-likelihood 反而低于合成数据——高奖励不等于高生成概率。
 
 ## 方法详解
 

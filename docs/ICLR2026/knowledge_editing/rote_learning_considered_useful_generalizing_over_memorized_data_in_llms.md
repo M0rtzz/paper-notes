@@ -44,14 +44,16 @@ tags:
 
 ### 关键设计
 1. **合成无语义 key token**：
-   - 每个关系对应一个唯一的合成 token `[X]`，刻意不携带任何语义信息
-   - 作用：排除语言理解的干扰，隔离纯粹的记忆行为
-   - 验证：无 key token 时模型无法泛化（消融实验 Figure 9）
+
+    - 每个关系对应一个唯一的合成 token `[X]`，刻意不携带任何语义信息
+    - 作用：排除语言理解的干扰，隔离纯粹的记忆行为
+    - 验证：无 key token 时模型无法泛化（消融实验 Figure 9）
 
 2. **三层泛化评估**：
-   - **(a) Unseen associations**：Phase-2 未见过的事实对能否用训练提示检索？
-   - **(b) Unseen prompts**：能否泛化到语义等价但措辞不同的新提示？
-   - **(c) Unseen languages**：能否跨语言（德/西/中/日）泛化？
+
+    - **(a) Unseen associations**：Phase-2 未见过的事实对能否用训练提示检索？
+    - **(b) Unseen prompts**：能否泛化到语义等价但措辞不同的新提示？
+    - **(c) Unseen languages**：能否跨语言（德/西/中/日）泛化？
 
 3. **全合成数据集**：使用 GPT-4 生成 5 个 T-REx 关系（author, capital, educated at, genre, mother），每个关系 100 个虚构事实对 + 100 个多选干扰项 + 20 个提示变体 + 4 种语言翻译，避免预训练知识污染。
 

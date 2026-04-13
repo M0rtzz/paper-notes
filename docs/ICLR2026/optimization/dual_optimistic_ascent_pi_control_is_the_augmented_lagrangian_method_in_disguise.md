@@ -28,17 +28,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **约束深度学习的主流范式**：大量 DL 应用（公平性、安全性、RLHF 对齐等）需要在训练中施加约束。标准做法是对拉格朗日函数 $\mathcal{L}(\boldsymbol{x},\boldsymbol{\lambda},\boldsymbol{\mu}) = f(\boldsymbol{x}) + \boldsymbol{\lambda}^\top \boldsymbol{g}(\boldsymbol{x}) + \boldsymbol{\mu}^\top \boldsymbol{h}(\boldsymbol{x})$ 执行一阶梯度下降-上升（GDA），因其扩展性好、与 Adam 等优化器兼容。
+**约束深度学习的主流范式**：大量 DL 应用（公平性、安全性、RLHF 对齐等）需要在训练中施加约束。标准做法是对拉格朗日函数 $\mathcal{L}(\boldsymbol{x},\boldsymbol{\lambda},\boldsymbol{\mu}) = f(\boldsymbol{x}) + \boldsymbol{\lambda}^\top \boldsymbol{g}(\boldsymbol{x}) + \boldsymbol{\mu}^\top \boldsymbol{h}(\boldsymbol{x})$ 执行一阶梯度下降-上升（GDA），因其扩展性好、与 Adam 等优化器兼容。
 
-2. **GDA 的两大固有缺陷**：(1) 在非凸设定下无法收敛到所有局部约束最优解——仅保证收敛到拉格朗日函数的局部 min-max 点；(2) 乘子与约束值出现振荡（oscillation），迭代交替进出可行域，收敛缓慢且在安全关键场景不可接受。
+**GDA 的两大固有缺陷**：(1) 在非凸设定下无法收敛到所有局部约束最优解——仅保证收敛到拉格朗日函数的局部 min-max 点；(2) 乘子与约束值出现振荡（oscillation），迭代交替进出可行域，收敛缓慢且在安全关键场景不可接受。
 
-3. **ALM 能解决但不常用**：增广拉格朗日方法通过添加二次惩罚项 $\frac{c}{2}\|\boldsymbol{h}(\boldsymbol{x})\|^2$ 使增广拉格朗日在所有严格正则局部解处严格凸，保证收敛到所有局部解并抑制振荡。但实践中社区更偏好直接在标准拉格朗日上使用 dual optimistic ascent。
+**ALM 能解决但不常用**：增广拉格朗日方法通过添加二次惩罚项 $\frac{c}{2}\|\boldsymbol{h}(\boldsymbol{x})\|^2$ 使增广拉格朗日在所有严格正则局部解处严格凸，保证收敛到所有局部解并抑制振荡。但实践中社区更偏好直接在标准拉格朗日上使用 dual optimistic ascent。
 
-4. **PI 控制 / dual optimistic ascent 缺少理论**：PI 控制（stooke2020responsive; sohrabi2024nupi）在 RL、无监督学习、监督学习中实证有效地抑制振荡，但其收敛性质几乎未被形式化。已有 OGDA 结果要么假设太强（强凸-强凹），要么算法结构不匹配（对两个玩家都施加 optimism）。
+**PI 控制 / dual optimistic ascent 缺少理论**：PI 控制（stooke2020responsive; sohrabi2024nupi）在 RL、无监督学习、监督学习中实证有效地抑制振荡，但其收敛性质几乎未被形式化。已有 OGDA 结果要么假设太强（强凸-强凹），要么算法结构不匹配（对两个玩家都施加 optimism）。
 
-5. **等价关系的预兆**：两种方法都有"稳定对偶动态"的效果；作者受 Gallego-Posada 和 Mitliagkas 观察启发，探索它们是否有更深层联系。
+**等价关系的预兆**：两种方法都有"稳定对偶动态"的效果；作者受 Gallego-Posada 和 Mitliagkas 观察启发，探索它们是否有更深层联系。
 
-6. **本文核心发现**：在单步一阶更新体制下，dual optimistic ascent 与 ALM 的 GDA 在等式约束下产生完全相同的原始迭代（Theorem 1），在不等式约束下收敛到完全相同的局部稳定驻点集合（Theorem 2），从而实现理论保证的完整转移。
+**本文核心发现**：在单步一阶更新体制下，dual optimistic ascent 与 ALM 的 GDA 在等式约束下产生完全相同的原始迭代（Theorem 1），在不等式约束下收敛到完全相同的局部稳定驻点集合（Theorem 2），从而实现理论保证的完整转移。
 
 ## 方法详解
 

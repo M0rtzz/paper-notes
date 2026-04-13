@@ -25,12 +25,12 @@ tags:
 VarSplat 在 3DGS-SLAM 框架中为每个 Gaussian splat 学习外观方差 $\sigma^2$，通过全方差定律推导出可微分的逐像素不确定性图 $V$，并将其用于 tracking、loop detection 和 registration，在 Replica/TUM/ScanNet/ScanNet++ 四个数据集上取得了更鲁棒的位姿估计和有竞争力的重建质量。
 
 ## 研究背景与动机
-1. **领域现状**：3DGS-SLAM 系统（SplaTAM, Gaussian-SLAM, LoopSplat）通过光栅化各向异性高斯进行快速可微渲染，已在密集 RGB-D SLAM 中取得了很好的效果。
-2. **现有痛点**：现有方法对测量可靠性的建模是隐式的——对所有像素使用均匀的光度损失权重。这导致在低纹理区域、反射表面、深度不连续处等场景下，位姿估计容易漂移。
-3. **核心矛盾**：几何侧的不确定性（深度方差、概率滤波器）已有研究，但外观不确定性——直接反映 3DGS 渲染不稳定性的量——从未在在线密集 SLAM 中被当作一等公民对待。
-4. **本文要解决什么？** 如何在 3DGS-SLAM 中显式量化外观不确定性，并利用它改善位姿估计（tracking + loop + registration）的鲁棒性？
-5. **切入角度**：为每个 splat 增加一个可学习的外观方差参数 $\sigma_i^2$，通过全方差定律（law of total variance）在 alpha compositing 中传播，得到逐像素不确定性图。
-6. **核心idea一句话**：学习 per-splat 外观方差并通过 alpha compositing 传播为 per-pixel 不确定性，作为 tracking/loop/registration 的置信度权重。
+**领域现状**：3DGS-SLAM 系统（SplaTAM, Gaussian-SLAM, LoopSplat）通过光栅化各向异性高斯进行快速可微渲染，已在密集 RGB-D SLAM 中取得了很好的效果。
+**现有痛点**：现有方法对测量可靠性的建模是隐式的——对所有像素使用均匀的光度损失权重。这导致在低纹理区域、反射表面、深度不连续处等场景下，位姿估计容易漂移。
+**核心矛盾**：几何侧的不确定性（深度方差、概率滤波器）已有研究，但外观不确定性——直接反映 3DGS 渲染不稳定性的量——从未在在线密集 SLAM 中被当作一等公民对待。
+**本文要解决什么？** 如何在 3DGS-SLAM 中显式量化外观不确定性，并利用它改善位姿估计（tracking + loop + registration）的鲁棒性？
+**切入角度**：为每个 splat 增加一个可学习的外观方差参数 $\sigma_i^2$，通过全方差定律（law of total variance）在 alpha compositing 中传播，得到逐像素不确定性图。
+**核心idea一句话**：学习 per-splat 外观方差并通过 alpha compositing 传播为 per-pixel 不确定性，作为 tracking/loop/registration 的置信度权重。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ VarSplat 在 3DGS-SLAM 框架中为每个 Gaussian splat 学习外观方差 $\si
 ### 关键设计
 
 1. **Per-splat 外观方差 $\sigma_i^2$**:
-   - 做什么：为每个 Gaussian splat 新增一个 3 维参数 $\sigma_i^2 \in \mathbb{R}^3$，表示该 splat 颜色均值周围的方差
-   - 核心思路：与位置 $\mu_i$、协方差 $\Sigma_i$、SH 颜色 $c_i$ 等一起端到端优化。$\sigma_i^2$ 不同于几何协方差 $\Sigma_i$（定义空间范围），也不同于 SH 系数（定义均值颜色），而是建模"该 splat 的颜色在不同视角下的波动幅度"
-   - 设计动机：在深度不连续处、遮挡边界、反射/透明表面上，由于 alpha 权重随视角剧烈变化，splat 贡献不稳定，$\sigma^2$ 自然会学到较大值
+
+    - 做什么：为每个 Gaussian splat 新增一个 3 维参数 $\sigma_i^2 \in \mathbb{R}^3$，表示该 splat 颜色均值周围的方差
+    - 核心思路：与位置 $\mu_i$、协方差 $\Sigma_i$、SH 颜色 $c_i$ 等一起端到端优化。$\sigma_i^2$ 不同于几何协方差 $\Sigma_i$（定义空间范围），也不同于 SH 系数（定义均值颜色），而是建模"该 splat 的颜色在不同视角下的波动幅度"
+    - 设计动机：在深度不连续处、遮挡边界、反射/透明表面上，由于 alpha 权重随视角剧烈变化，splat 贡献不稳定，$\sigma^2$ 自然会学到较大值
 
 2. **Per-pixel 不确定性渲染（全方差定律）**:
-   - 做什么：将 per-splat 方差传播为 per-pixel 方差 $V$
-   - 核心思路：利用全方差定律 $\text{Var}[X] = \mathbb{E}[\text{Var}[X|Z]] + \text{Var}(\mathbb{E}[X|Z])$，令 $X$ 为像素颜色，$Z$ 为 Gaussian 索引。经 alpha compositing 推导得到：$V = \sum_i w_i(\sigma_i^2 + c_i^2) - (\sum_i w_i c_i)^2$
-   - 设计动机：方差渲染与颜色/深度共享同一次光栅化 pass，无需额外解码器或预训练模型，保持实时性
+
+    - 做什么：将 per-splat 方差传播为 per-pixel 方差 $V$
+    - 核心思路：利用全方差定律 $\text{Var}[X] = \mathbb{E}[\text{Var}[X|Z]] + \text{Var}(\mathbb{E}[X|Z])$，令 $X$ 为像素颜色，$Z$ 为 Gaussian 索引。经 alpha compositing 推导得到：$V = \sum_i w_i(\sigma_i^2 + c_i^2) - (\sum_i w_i c_i)^2$
+    - 设计动机：方差渲染与颜色/深度共享同一次光栅化 pass，无需额外解码器或预训练模型，保持实时性
 
 3. **端到端方差学习（Gaussian NLL）**:
-   - 做什么：通过高斯负对数似然损失 $\mathcal{L}_{\text{var}}$ 训练方差
-   - 核心思路：$\mathcal{L}_{\text{var}} = \frac{1}{2V}(\|\hat{I}-I\|_2^2 + \|\hat{D}-D\|_2^2) + \log(V)$。选用 MSE 而非 L1 与高斯假设一致，方差梯度 $\frac{\partial \mathcal{L}}{\partial \sigma_i^2} = \frac{\partial \mathcal{L}}{\partial V} \cdot w_i$，通过 alpha 权重自然传播
-   - 设计动机：不依赖预训练模型（如 DINOv2），从头学习方差使其与当前场景匹配
+
+    - 做什么：通过高斯负对数似然损失 $\mathcal{L}_{\text{var}}$ 训练方差
+    - 核心思路：$\mathcal{L}_{\text{var}} = \frac{1}{2V}(\|\hat{I}-I\|_2^2 + \|\hat{D}-D\|_2^2) + \log(V)$。选用 MSE 而非 L1 与高斯假设一致，方差梯度 $\frac{\partial \mathcal{L}}{\partial \sigma_i^2} = \frac{\partial \mathcal{L}}{\partial V} \cdot w_i$，通过 alpha 权重自然传播
+    - 设计动机：不依赖预训练模型（如 DINOv2），从头学习方差使其与当前场景匹配
 
 ### 下游使用
 

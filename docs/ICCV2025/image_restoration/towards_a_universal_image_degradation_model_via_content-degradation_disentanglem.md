@@ -29,10 +29,10 @@ tags:
 
 图像退化合成在图像恢复、艺术效果模拟等领域有重要应用。现有退化模型的根本局限在于：
 
-1. **只针对特定退化类型**：噪声、降采样、雨、雾等各有专用模型，无法通用化
-2. **需要用户提供退化参数**：如噪声级别、模糊核等，在盲恢复场景下不实际
-3. **无法处理非均匀退化**：真实世界退化通常空间变化（如局部雾、雨滴等），现有模型假设退化是全局均匀的
-4. **无法组合多种退化**：复杂退化（如同时有噪声+模糊+压缩+非均匀退化）难以建模
+**只针对特定退化类型**：噪声、降采样、雨、雾等各有专用模型，无法通用化
+**需要用户提供退化参数**：如噪声级别、模糊核等，在盲恢复场景下不实际
+**无法处理非均匀退化**：真实世界退化通常空间变化（如局部雾、雨滴等），现有模型假设退化是全局均匀的
+**无法组合多种退化**：复杂退化（如同时有噪声+模糊+压缩+非均匀退化）难以建模
 
 唯一尝试非退化特定建模的 Chen et al. 仍需为每种退化训练单独模型，且不支持非均匀退化和随机性。
 
@@ -45,27 +45,30 @@ tags:
 ### 关键设计
 
 1. **均匀/非均匀退化编码（HDEN & IDEN）**：
-   - **HDEN（均匀退化编码网络）**：双分支架构，短程分支在原始分辨率操作（捕获噪声等小感受野退化），长程分支在降采样分辨率操作（捕获模糊等大感受野退化）。输出经 MLP 融合为全局退化向量 $\mathbf{e}_g$
-   - **IDEN（非均匀退化编码网络）**：关键创新——修改长程分支并用 CNN 替换 MLP 尾部，保留空间结构信息。输出 $\mathbf{e}_l$ 是一个保持空间维度的退化图，能表示空间变化的退化
-   - 设计动机：不同退化需要不同感受野，双分支设计灵活适应；IDEN 保留空间信息是处理非均匀退化的前提
+
+    - **HDEN（均匀退化编码网络）**：双分支架构，短程分支在原始分辨率操作（捕获噪声等小感受野退化），长程分支在降采样分辨率操作（捕获模糊等大感受野退化）。输出经 MLP 融合为全局退化向量 $\mathbf{e}_g$
+    - **IDEN（非均匀退化编码网络）**：关键创新——修改长程分支并用 CNN 替换 MLP 尾部，保留空间结构信息。输出 $\mathbf{e}_l$ 是一个保持空间维度的退化图，能表示空间变化的退化
+    - 设计动机：不同退化需要不同感受野，双分支设计灵活适应；IDEN 保留空间信息是处理非均匀退化的前提
 
 2. **IDA-SFT 退化合成层**：
-   - **IDA（Inhomogeneous Degradation-Aware）层**：一种高效的空间变化卷积近似方案。理想情况下应使用空间变化核，但计算复杂度过高。IDA 通过深度卷积+下采样+逐元素乘法+反卷积实现：
-   $$\text{IDA}(\mathbf{F}_{in}, \mathbf{e}) = \text{DConv}(\text{DS}(\text{DConv}(\mathbf{e})) \odot \text{DS}(\mathbf{F}_{in}))$$
-   - 论文证明单个 IDA 层比四个深度可分离卷积层更有表达力
-   - **IDA-SFT 复合层**：IDA 与 SFT（Spatial Feature Transform）并行组合：
-   $$\text{IDA-SFT}(\mathbf{F}_{in}, \mathbf{e}, \mathbf{n}) = \text{IDA}(\mathbf{F}_{in}, \mathbf{e}) + \alpha(\mathbf{e}) \odot \mathbf{F}_{in} + \beta(\mathbf{e}, \mathbf{n})$$
+
+    - **IDA（Inhomogeneous Degradation-Aware）层**：一种高效的空间变化卷积近似方案。理想情况下应使用空间变化核，但计算复杂度过高。IDA 通过深度卷积+下采样+逐元素乘法+反卷积实现：
+    $\text{IDA}(\mathbf{F}_{in}, \mathbf{e}) = \text{DConv}(\text{DS}(\text{DConv}(\mathbf{e})) \odot \text{DS}(\mathbf{F}_{in}))$
+    - 论文证明单个 IDA 层比四个深度可分离卷积层更有表达力
+    - **IDA-SFT 复合层**：IDA 与 SFT（Spatial Feature Transform）并行组合：
+    $\text{IDA-SFT}(\mathbf{F}_{in}, \mathbf{e}, \mathbf{n}) = \text{IDA}(\mathbf{F}_{in}, \mathbf{e}) + \alpha(\mathbf{e}) \odot \mathbf{F}_{in} + \beta(\mathbf{e}, \mathbf{n})$
    SFT 擅长引入随机状态和均匀退化，IDA 擅长非均匀退化，互补组合
-   - 合成网络采用 U-Net 结构，包含多个 IDA-SFT block
+    - 合成网络采用 U-Net 结构，包含多个 IDA-SFT block
 
 3. **压缩解纠缠（Disentangle-by-Compression）**：
-   - 核心创新：通过最小化退化嵌入的**边际熵之和**来实现三重解纠缠：
-   $$\mathcal{L}_{rate\_g} = \sum_i H(e_g^{(i)}), \quad \mathcal{L}_{rate\_l} = \sum_{i,j} H(e_l^{(i,j)})$$
-   - 信息论证明：$\sum_i H(e^{(i)}) = H(\mathbf{e}) + D_{KL}(p(\mathbf{e}) \| q(\mathbf{e}))$
-     - 最小化 $H(\mathbf{e})$：由于 $H(\mathbf{e}) = I(\mathbf{e}; \mathbf{x}) + H(\mathbf{d})$，最小化嵌入熵等价于减少嵌入与图像内容的互信息 → **分离退化与内容**
-     - 最小化 $D_{KL}$：使嵌入各维度独立 → **各退化分量解耦**
-   - 均匀/非均匀同理分别约束 → **分离均匀与非均匀退化**
-   - 概率密度用学习方法估计（分别用不同的密度估计器处理 $e_g$ 和 $e_l$）
+
+    - 核心创新：通过最小化退化嵌入的**边际熵之和**来实现三重解纠缠：
+    $\mathcal{L}_{rate\_g} = \sum_i H(e_g^{(i)}), \quad \mathcal{L}_{rate\_l} = \sum_{i,j} H(e_l^{(i,j)})$
+    - 信息论证明：$\sum_i H(e^{(i)}) = H(\mathbf{e}) + D_{KL}(p(\mathbf{e}) \| q(\mathbf{e}))$
+      - 最小化 $H(\mathbf{e})$：由于 $H(\mathbf{e}) = I(\mathbf{e}; \mathbf{x}) + H(\mathbf{d})$，最小化嵌入熵等价于减少嵌入与图像内容的互信息 → **分离退化与内容**
+      - 最小化 $D_{KL}$：使嵌入各维度独立 → **各退化分量解耦**
+    - 均匀/非均匀同理分别约束 → **分离均匀与非均匀退化**
+    - 概率密度用学习方法估计（分别用不同的密度估计器处理 $e_g$ 和 $e_l$）
 
 ### 损失函数 / 训练策略
 

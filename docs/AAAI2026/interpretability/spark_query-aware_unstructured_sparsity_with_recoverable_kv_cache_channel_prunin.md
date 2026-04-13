@@ -24,15 +24,15 @@ tags:
 提出SparK——一种training-free的KV cache通道级非结构化剪枝方法，通过query-aware的saliency评估选择关键通道+recovery机制恢复被剪枝通道的贡献，在80%剪枝率下性能损失<5%，与token eviction方法正交互补，可额外减少30%+ KV cache存储。
 
 ## 研究背景与动机
-1. **领域现状**：LLM长上下文推理的主要瓶颈是KV cache——100K token在LLaMA3.1-8B中需要>50GB存储，且attention计算量随序列长度二次增长。现有压缩方法主要在三个维度操作：时间轴（token eviction/merging）、空间轴（layer/head sharing）、通道轴（低秩分解/结构化剪枝）。
-2. **现有痛点**：
+**领域现状**：LLM长上下文推理的主要瓶颈是KV cache——100K token在LLaMA3.1-8B中需要>50GB存储，且attention计算量随序列长度二次增长。现有压缩方法主要在三个维度操作：时间轴（token eviction/merging）、空间轴（layer/head sharing）、通道轴（低秩分解/结构化剪枝）。
+**现有痛点**：
    - **Token eviction**（SnapKV/PyramidKV等）只减少序列长度S，不触及head dimension D
    - **结构化通道剪枝**（ThinK）对所有token应用相同的剪枝mask，假设通道重要性全局一致——但实际观察显示通道重要性是token-dependent的
    - 结构化剪枝在高剪枝率（≥70%）下性能严重退化（ThinK在80%剪枝时性能损失47.6%）
-3. **核心矛盾**：通道重要性高度token-specific（CV>1.1），但现有方法用固定mask做structuredpruning，无法捕捉这种动态性
-4. **本文要解决什么？** 在KV cache的通道维度做fine-grained、token-aware的非结构化稀疏，同时保持/恢复被剪枝通道的信息
-5. **切入角度**：两个关键观察——(1) 通道重要性在不同token间差异巨大，非结构化剪枝远优于结构化；(2) 用小常数替代被剪枝通道（而非直接置零）能大幅减少信息损失
-6. **核心idea一句话**：对KV cache做token-wise的非结构化通道剪枝（保留最重要通道）+轻量recovery函数恢复被剪通道贡献
+**核心矛盾**：通道重要性高度token-specific（CV>1.1），但现有方法用固定mask做structuredpruning，无法捕捉这种动态性
+**本文要解决什么？** 在KV cache的通道维度做fine-grained、token-aware的非结构化稀疏，同时保持/恢复被剪枝通道的信息
+**切入角度**：两个关键观察——(1) 通道重要性在不同token间差异巨大，非结构化剪枝远优于结构化；(2) 用小常数替代被剪枝通道（而非直接置零）能大幅减少信息损失
+**核心idea一句话**：对KV cache做token-wise的非结构化通道剪枝（保留最重要通道）+轻量recovery函数恢复被剪通道贡献
 
 ## 方法详解
 
@@ -44,18 +44,21 @@ SparK在推理的两个阶段工作：
 ### 关键设计
 
 1. **非结构化通道剪枝（Saliency-based Selection）**:
-   - 做什么：为每个head的每个token选择最重要的T个通道
-   - 核心思路：将通道剪枝形式化为最大化保留通道saliency的选择问题。目标是最小化剪枝后attention score的Frobenius norm误差：$\min_{\mathcal{S}_{i,t}} \|\mathbf{q}_{i,t}\mathbf{k}_{i,t}^\top - (\mathbf{q}_{i,t}\mathcal{S}_{i,t})(\mathbf{k}_{i,t}\mathcal{S}_{i,t})^\top\|_F$。展开后发现当通道间近似不相关时，可简化为独立的通道贡献求和。定义saliency score $w_{i,t}^j = \|q_{i,t}^j\|_2 \|k_{i,t}^j\|_2$，贪心选择top-T个最高分通道。实际中用observation window内的mean query代替per-token query以降低计算量
-   - 设计动机：非结构化→每个token有自己的剪枝mask，完美适配token-dependent的通道重要性。saliency度量同时考虑query和key的通道强度，比只看key的方法更准确
+
+    - 做什么：为每个head的每个token选择最重要的T个通道
+    - 核心思路：将通道剪枝形式化为最大化保留通道saliency的选择问题。目标是最小化剪枝后attention score的Frobenius norm误差：$\min_{\mathcal{S}_{i,t}} \|\mathbf{q}_{i,t}\mathbf{k}_{i,t}^\top - (\mathbf{q}_{i,t}\mathcal{S}_{i,t})(\mathbf{k}_{i,t}\mathcal{S}_{i,t})^\top\|_F$。展开后发现当通道间近似不相关时，可简化为独立的通道贡献求和。定义saliency score $w_{i,t}^j = \|q_{i,t}^j\|_2 \|k_{i,t}^j\|_2$，贪心选择top-T个最高分通道。实际中用observation window内的mean query代替per-token query以降低计算量
+    - 设计动机：非结构化→每个token有自己的剪枝mask，完美适配token-dependent的通道重要性。saliency度量同时考虑query和key的通道强度，比只看key的方法更准确
 
 2. **Recovery机制**:
-   - 做什么：在attention计算时恢复被剪枝通道的贡献
-   - 核心思路：不直接丢弃被剪通道，而是用recovery函数 $\mathcal{F}$ 从被剪通道的统计信息（分布参数）中采样近似值。保存被剪通道的均值和方差，在decode时用这些统计量重建通道值并参与attention score计算
-   - 设计动机：观察到即使用粗糙的常数（0.01）替代被剪通道也能大幅减少性能损失（平均减少32.4%的accuracy loss）。用分布采样代替常数可以更好地保持attention score的分布特性
+
+    - 做什么：在attention计算时恢复被剪枝通道的贡献
+    - 核心思路：不直接丢弃被剪通道，而是用recovery函数 $\mathcal{F}$ 从被剪通道的统计信息（分布参数）中采样近似值。保存被剪通道的均值和方差，在decode时用这些统计量重建通道值并参与attention score计算
+    - 设计动机：观察到即使用粗糙的常数（0.01）替代被剪通道也能大幅减少性能损失（平均减少32.4%的accuracy loss）。用分布采样代替常数可以更好地保持attention score的分布特性
 
 3. **Ratio-free变体**:
-   - **SparK-g（Group-based）**：将通道分组，每组内独立选top通道，不需要预设全局剪枝率
-   - **SparK-p（Top-p）**：类似top-p采样，累积saliency达到阈值p后停止保留通道
+
+    - **SparK-g（Group-based）**：将通道分组，每组内独立选top通道，不需要预设全局剪枝率
+    - **SparK-p（Top-p）**：类似top-p采样，累积saliency达到阈值p后停止保留通道
 
 ### 损失函数 / 训练策略
 - **完全Training-free**：无需修改模型参数，即插即用

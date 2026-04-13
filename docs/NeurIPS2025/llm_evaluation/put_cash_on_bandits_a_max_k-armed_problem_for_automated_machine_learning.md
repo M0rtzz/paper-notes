@@ -30,8 +30,8 @@ CASH（Combined Algorithm Selection and Hyperparameter Optimization）是 AutoML
 
 **现有方法的两条路线**：
 
-1. **联合搜索**（combined search）：将所有模型的超参数空间合并为一个层次化空间，直接用 BO 搜索。问题：高维条件空间导致 HPO 效率低下。
-2. **分解搜索**（two-level CASH）：上层用 Bandit 选择模型，下层对选中模型运行 HPO。问题：上层 Bandit 的目标函数定义和分布假设不明确。
+**联合搜索**（combined search）：将所有模型的超参数空间合并为一个层次化空间，直接用 BO 搜索。问题：高维条件空间导致 HPO 效率低下。
+**分解搜索**（two-level CASH）：上层用 Bandit 选择模型，下层对选中模型运行 HPO。问题：上层 Bandit 的目标函数定义和分布假设不明确。
 
 **核心矛盾**：现有的 Max K-Armed Bandit（MKB）算法假设奖励是重尾分布（如 Pareto），但 CASH 中 HPO 产生的奖励分布实际上是**有界、左偏、短尾**的。这个分布假设的错配导致现有极端 Bandit 算法在 CASH 上表现不佳。
 
@@ -46,22 +46,23 @@ MaxUCB 是一个两层优化框架：上层是 Max K-Armed Bandit（选择要运
 ### 关键设计
 
 1. **数据驱动的分布分析（Section 3）**：作者在四个 AutoML 基准上分析了 HPO 奖励分布的生存函数，发现三个关键特性：
-   - **有界性**：奖励（模型性能指标）本身有界，每个 arm 有不同的最大值
-   - **短尾左偏**：奖励集中在最大值附近，极端事件不是离群值（与 MKB 常用的重尾假设相反）
-   - **近似平稳**：最优 arm 不随时间改变
+
+    - **有界性**：奖励（模型性能指标）本身有界，每个 arm 有不同的最大值
+    - **短尾左偏**：奖励集中在最大值附近，极端事件不是离群值（与 MKB 常用的重尾假设相反）
+    - **近似平稳**：最优 arm 不随时间改变
 
    基于这些观察，引入 Lemma 3.3 用两个分布相关常数 $L$ 和 $U$ 来刻画有界分布在最大值附近的形状：$L\epsilon \leq G(b-\epsilon) \leq U\epsilon$。实证表明 $L$ 值多数大于 1（而重尾分布的 $L$ 接近 0），这解开了先前文献中认为极端 Bandit 不可行的理论困境。
 
 2. **MaxUCB 算法（Algorithm 1）**：核心创新在于探索 bonus 的设计。经典 UCB 用 $\sqrt{\frac{\alpha\log t}{n}}$ 作为 bonus，MaxUCB 改为 $\left(\frac{\alpha\log t}{n}\right)^2$。
 
    策略更新公式为：
-   $$U_i = \max(r_{i,1}, \ldots, r_{i,n_i}) + \left(\frac{\alpha\log(t)}{n_i}\right)^2$$
+    $U_i = \max(r_{i,1}, \ldots, r_{i,n_i}) + \left(\frac{\alpha\log(t)}{n_i}\right)^2$
 
    这个更快的浓度速率来源于有界分布中最大值的特殊集中性质。不好事件的概率可写为 $P(\text{Bad}) \leq O(e^{-n\sqrt{C(n)}} + nC(n))$，取 $C(n) = 1/n^2$ 可最小化该概率。
 
 3. **理论分析（Theorem 4.2）**：对任意次优 arm $i$，MaxUCB 的次优拉取次数满足：
 
-   $$N_i(T) \leq \frac{T^{1-2L_{i^*}\alpha\sqrt{\Delta_i}}}{1-2L_{i^*}\alpha\sqrt{\Delta_i}} + 2\alpha\sqrt{U_i T}\log(T)$$
+    $N_i(T) \leq \frac{T^{1-2L_{i^*}\alpha\sqrt{\Delta_i}}}{1-2L_{i^*}\alpha\sqrt{\Delta_i}} + 2\alpha\sqrt{U_i T}\log(T)$
 
    性能受次优间隔 $\Delta_i$、最优 arm 的左尾参数 $L_{i^*}$ 和次优 arm 的右尾参数 $U_i$ 控制。当 $L_{i^*}$ 较大（最优 arm 的极端值容易被采样到）且 $\Delta_i$ 较大时，次优拉取次数迅速衰减。
 

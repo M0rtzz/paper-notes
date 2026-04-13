@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GNN 在图表示学习中表现出色，但对抗鲁棒性研究主要集中在**节点分类**，对**图分类**场景关注不足。现有防御方法（GNNGuard、Jaccard 预处理、GCORN 等）主要针对 message-passing 阶段。
+**领域现状**：GNN 在图表示学习中表现出色，但对抗鲁棒性研究主要集中在**节点分类**，对**图分类**场景关注不足。现有防御方法（GNNGuard、Jaccard 预处理、GCORN 等）主要针对 message-passing 阶段。
 
-2. **现有痛点**：图分类需要将节点特征聚合为图级表示（pooling），但 pooling 操作对鲁棒性的影响几乎未被研究。不同 pooling 策略（Sum/Avg/Max）在对抗攻击下表现差异巨大，且与图结构和攻击类型强相关。
+**现有痛点**：图分类需要将节点特征聚合为图级表示（pooling），但 pooling 操作对鲁棒性的影响几乎未被研究。不同 pooling 策略（Sum/Avg/Max）在对抗攻击下表现差异巨大，且与图结构和攻击类型强相关。
 
-3. **核心矛盾**：图分类的图通常较小，节点级防御（如删除节点）可能破坏信息传播、损害 clean accuracy。需要一种在 pooling 阶段就能抵御扰动、同时保持表达力的方案。
+**核心矛盾**：图分类的图通常较小，节点级防御（如删除节点）可能破坏信息传播、损害 clean accuracy。需要一种在 pooling 阶段就能抵御扰动、同时保持表达力的方案。
 
-4. **本文要解决什么**：(1) 量化不同 pooling 对图分类鲁棒性的影响；(2) 设计一种兼顾鲁棒性和 clean accuracy 的 pooling 方法。
+**本文要解决什么**：(1) 量化不同 pooling 对图分类鲁棒性的影响；(2) 设计一种兼顾鲁棒性和 clean accuracy 的 pooling 方法。
 
-5. **切入角度**：矩阵扰动理论（Davis-Kahan / Wedin 定理）表明，当谱间隙充分大时，主奇异向量在有界扰动下保持稳定——这正好可以用来构建鲁棒的图级表示。
+**切入角度**：矩阵扰动理论（Davis-Kahan / Wedin 定理）表明，当谱间隙充分大时，主奇异向量在有界扰动下保持稳定——这正好可以用来构建鲁棒的图级表示。
 
-6. **核心idea一句话**：用节点嵌入矩阵 $H$ 的主右奇异向量作为图级表示，天然过滤对抗噪声中的不稳定分量。
+**核心idea一句话**：用节点嵌入矩阵 $H$ 的主右奇异向量作为图级表示，天然过滤对抗噪声中的不稳定分量。
 
 ## 方法详解
 
@@ -49,28 +49,31 @@ tags:
 ### 关键设计
 
 1. **Flat Pooling 鲁棒性理论分析**:
-   - 做什么：对 GCN 下的 Sum/Avg/Max pooling 推导对抗风险上界
-   - 核心思路（Theorem 4.2）：设 $L$ 层 GCN，权重矩阵 $W^{(\ell)}$，扰动预算 $\epsilon$，$\hat{w}_u$ 为节点 $u$ 出发的长度 $L-1$ 归一化游走总和：
-     - Sum pooling: $\gamma = (\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
-     - Average pooling: $\gamma = \frac{1}{n}(\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
-     - Max pooling: $\gamma = \sqrt{\min\{n,d_L\}}(\prod_\ell \|W^{(\ell)}\|) \max_{u} \hat{w}_u \epsilon$
-   - 设计动机：Sum 的上界随图密度线性增长（脆弱），Avg 除以 $n$ 缓解，Max 只依赖单个最大节点（攻击目标明确时脆弱，随机攻击时可能更强）
+
+    - 做什么：对 GCN 下的 Sum/Avg/Max pooling 推导对抗风险上界
+    - 核心思路（Theorem 4.2）：设 $L$ 层 GCN，权重矩阵 $W^{(\ell)}$，扰动预算 $\epsilon$，$\hat{w}_u$ 为节点 $u$ 出发的长度 $L-1$ 归一化游走总和：
+      - Sum pooling: $\gamma = (\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
+      - Average pooling: $\gamma = \frac{1}{n}(\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
+      - Max pooling: $\gamma = \sqrt{\min\{n,d_L\}}(\prod_\ell \|W^{(\ell)}\|) \max_{u} \hat{w}_u \epsilon$
+    - 设计动机：Sum 的上界随图密度线性增长（脆弱），Avg 除以 $n$ 缓解，Max 只依赖单个最大节点（攻击目标明确时脆弱，随机攻击时可能更强）
 
 2. **RS-Pool (Robust Singular Pooling)**:
-   - 做什么：用 $H$ 的主右奇异向量 $v_1$ 生成图级表示 $\tau v_1(H)$
-   - 核心思路：$H = U\Sigma V^\top$，RS-Pool 映射 $H \mapsto \tau v_1(H)$，其中 $\tau > 0$ 为缩放因子
-   - 鲁棒性保证（Theorem 5.1）：
 
-   $$\gamma = \frac{\tau\sqrt{2}\epsilon}{\sigma_1 - \sigma_2} \left(\prod_{\ell=1}^L \|W^{(\ell)}\|\right) \sum_{u=1}^n (\hat{w}_u)^2$$
+    - 做什么：用 $H$ 的主右奇异向量 $v_1$ 生成图级表示 $\tau v_1(H)$
+    - 核心思路：$H = U\Sigma V^\top$，RS-Pool 映射 $H \mapsto \tau v_1(H)$，其中 $\tau > 0$ 为缩放因子
+    - 鲁棒性保证（Theorem 5.1）：
+
+    $\gamma = \frac{\tau\sqrt{2}\epsilon}{\sigma_1 - \sigma_2} \left(\prod_{\ell=1}^L \|W^{(\ell)}\|\right) \sum_{u=1}^n (\hat{w}_u)^2$
 
    关键：分母 $\sigma_1 - \sigma_2$（谱间隙）越大，上界越紧，鲁棒性越强
-   - 设计动机：对抗扰动通常是低秩和局部的，主奇异方向最稳定，次要分量更容易被噪声污染
+    - 设计动机：对抗扰动通常是低秩和局部的，主奇异方向最稳定，次要分量更容易被噪声污染
 
 3. **Power Iteration 高效实现**:
-   - 做什么：避免计算完整 SVD，用幂迭代法近似主奇异向量
-   - 核心思路：先计算 $S = H^\top H$，随机初始化 $v$，迭代 $v \leftarrow Sv/\|Sv\|_2$，$K$ 次后返回 $\tau Hv$
-   - 复杂度 $O(K \times n \times d)$，$K$ 通常 2-5 次即收敛（GNN 嵌入的谱间隙通常较大）
-   - 收敛速率 $\sigma_2/\sigma_1$ 越小越快，与鲁棒性上界形成**双重优势**：谱间隙大 → 既鲁棒又快
+
+    - 做什么：避免计算完整 SVD，用幂迭代法近似主奇异向量
+    - 核心思路：先计算 $S = H^\top H$，随机初始化 $v$，迭代 $v \leftarrow Sv/\|Sv\|_2$，$K$ 次后返回 $\tau Hv$
+    - 复杂度 $O(K \times n \times d)$，$K$ 通常 2-5 次即收敛（GNN 嵌入的谱间隙通常较大）
+    - 收敛速率 $\sigma_2/\sigma_1$ 越小越快，与鲁棒性上界形成**双重优势**：谱间隙大 → 既鲁棒又快
 
 ### 缩放因子 $\tau$ 的控制
 - 参数化为 $\tau = \sigma_1(X)/\alpha$，$\alpha$ 可调

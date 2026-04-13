@@ -31,9 +31,9 @@ tags:
 
 直接减少采样步数会严重放大两类误差：
 
-1. **复合解码误差（Compounding Decoding Error）**：DDMs为计算效率采用因式化参数化，独立预测每个token的去噪状态，忽略了token间的固有依赖。步数减少使这种近似质量下降。
+**复合解码误差（Compounding Decoding Error）**：DDMs为计算效率采用因式化参数化，独立预测每个token的去噪状态，忽略了token间的固有依赖。步数减少使这种近似质量下降。
 
-2. **离散化误差（Discretization Error）**：Euler或τ-leaping等数值方法在大步长下无法准确逼近逆向动态。
+**离散化误差（Discretization Error）**：Euler或τ-leaping等数值方法在大步长下无法准确逼近逆向动态。
 
 这两类误差沿采样轨迹累积，在低NFEs时严重降低生成质量。
 

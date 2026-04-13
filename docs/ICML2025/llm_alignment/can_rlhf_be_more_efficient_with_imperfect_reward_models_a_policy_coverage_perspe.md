@@ -38,9 +38,9 @@ tags:
 ### 不完美 reward model 的来源
 
 在实际场景中，多种类型的不完美 reward 可用：
-1. **跨语言 reward 迁移**：一种语言的 reward model 可用于另一种
-2. **LLM-as-judge**：GPT/LLaMA/Gemini 的评估与人类偏好部分一致
-3. **启发式 reward**：ROUGE、BERTScore 等基于规则的评价指标，成本极低
+**跨语言 reward 迁移**：一种语言的 reward model 可用于另一种
+**LLM-as-judge**：GPT/LLaMA/Gemini 的评估与人类偏好部分一致
+**启发式 reward**：ROUGE、BERTScore 等基于规则的评价指标，成本极低
 
 ### 核心问题
 

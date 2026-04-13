@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大 batch 训练是 LLM 预训练的标配（GPT-3、LLaMA-3、DeepSeek-V3 等均使用 batch size scheduling），大 batch 提升硬件利用率但牺牲样本效率。实践中普遍采用分阶段增大 batch size 的策略，但理论基础薄弱。
+**领域现状**：大 batch 训练是 LLM 预训练的标配（GPT-3、LLaMA-3、DeepSeek-V3 等均使用 batch size scheduling），大 batch 提升硬件利用率但牺牲样本效率。实践中普遍采用分阶段增大 batch size 的策略，但理论基础薄弱。
 
-2. **现有痛点**：(a) 现有分析要么只研究恒定 batch size（critical batch size 理论），要么依赖启发式（Smith et al. 2018）；(b) BSS 设计依赖昂贵的大规模实验调参；(c) 缺少理论解释为什么"先小后大"的 batch schedule 在实践中有效。
+**现有痛点**：(a) 现有分析要么只研究恒定 batch size（critical batch size 理论），要么依赖启发式（Smith et al. 2018）；(b) BSS 设计依赖昂贵的大规模实验调参；(c) 缺少理论解释为什么"先小后大"的 batch schedule 在实践中有效。
 
-3. **核心矛盾**：训练早期信号主导，大 batch 的降噪收益不大但消耗更多数据；训练后期梯度噪声增大，需要大 batch 降噪。但何时切换、如何切换缺乏理论指导。
+**核心矛盾**：训练早期信号主导，大 batch 的降噪收益不大但消耗更多数据；训练后期梯度噪声增大，需要大 batch 降噪。但何时切换、如何切换缺乏理论指导。
 
-4. **本文要解决什么？** (a) 推导固定数据预算下的最优 BSS；(b) 解释为什么 late switching 有效；(c) 在大规模 LLM 预训练中验证理论预测。
+**本文要解决什么？** (a) 推导固定数据预算下的最优 BSS；(b) 解释为什么 late switching 有效；(c) 在大规模 LLM 预训练中验证理论预测。
 
-5. **切入角度**：利用 Functional Scaling Law（FSL）框架将 BSS 优化问题转化为可解析求解的变分问题。
+**切入角度**：利用 Functional Scaling Law（FSL）框架将 BSS 优化问题转化为可解析求解的变分问题。
 
-6. **核心 idea 一句话**：FSL 证明最优 BSS 取决于任务难度——困难任务应大部分时间用小 batch（多做 step 学信号）、最后切大 batch（快速降噪），因为 fast catch-up 效应保证切换后 loss 迅速追平。
+**核心 idea 一句话**：FSL 证明最优 BSS 取决于任务难度——困难任务应大部分时间用小 batch（多做 step 学信号）、最后切大 batch（快速降噪），因为 fast catch-up 效应保证切换后 loss 迅速追平。
 
 ## 方法详解
 
@@ -46,21 +46,24 @@ tags:
 ### 关键设计
 
 1. **FSL 框架下的最优 BSS（Theorem 3.1）**:
-   - 做什么：求解固定数据预算 $D$ 下的最优 batch size 函数 $b^*(t)$
-   - 核心结果：
-     - **简单任务**（$s > 1-1/\beta$）：$b^*(t) \propto (T^*-t+1)^{1/(2\beta)-1}$，全程单调递增
-     - **困难任务**（$s \leq 1-1/\beta$）：分两阶段——先保持 $B_{\min}$ 直到 $T_1^*$，然后增长。增长阶段仅占总训练时间的极小比例 $(T^* - T_1^*)/T^* = o_D(1)$
-   - 设计动机：困难任务需要更多 step 学习信号（$t^{-s}$ 项衰减慢），小 batch 在固定数据下允许更多 step；大 batch 阶段仅用于最后的降噪
+
+    - 做什么：求解固定数据预算 $D$ 下的最优 batch size 函数 $b^*(t)$
+    - 核心结果：
+      - **简单任务**（$s > 1-1/\beta$）：$b^*(t) \propto (T^*-t+1)^{1/(2\beta)-1}$，全程单调递增
+      - **困难任务**（$s \leq 1-1/\beta$）：分两阶段——先保持 $B_{\min}$ 直到 $T_1^*$，然后增长。增长阶段仅占总训练时间的极小比例 $(T^* - T_1^*)/T^* = o_D(1)$
+    - 设计动机：困难任务需要更多 step 学习信号（$t^{-s}$ 项衰减慢），小 batch 在固定数据下允许更多 step；大 batch 阶段仅用于最后的降噪
 
 2. **两阶段最优切换（Theorem 3.2）**:
-   - 做什么：在实际的两阶段 BSS（$B_1 \to B_2$）下，求最优切换点 $P_D^*$
-   - 核心结果：简单任务全程用大 batch（$P_D^* = 0$）；困难任务大 batch 阶段数据占比 $(D-P_D^*)/D \eqsim D^{-\gamma}$ 随数据增长趋于零——即越大规模训练越应该延迟切换
-   - 设计动机：提供可操作的 scaling law 关系，通过小规模实验估计指数后可外推到大规模
+
+    - 做什么：在实际的两阶段 BSS（$B_1 \to B_2$）下，求最优切换点 $P_D^*$
+    - 核心结果：简单任务全程用大 batch（$P_D^* = 0$）；困难任务大 batch 阶段数据占比 $(D-P_D^*)/D \eqsim D^{-\gamma}$ 随数据增长趋于零——即越大规模训练越应该延迟切换
+    - 设计动机：提供可操作的 scaling law 关系，通过小规模实验估计指数后可外推到大规模
 
 3. **Fast Catch-Up 效应（核心发现）**:
-   - 做什么：解释为什么 late switching 不会降低性能
-   - 核心思路：从小 batch 切换到大 batch 后，loss 迅速追上全程大 batch 的轨迹。理论解释：噪声项 $\int_0^t \mathcal{K}(t-\tau)/b(\tau)d\tau$ 中，遗忘核 $\mathcal{K}$ 使早期小 batch 积累的多余噪声快速被遗忘；追赶速度由任务难度参数 $(s, \beta)$ 决定
-   - 设计动机：这是 late switching 有效性的动力学解释——不是"大 batch 阶段追回了落后的进度"，而是"小 batch 阶段积累的噪声被快速遗忘，信号学习进度反而更优"
+
+    - 做什么：解释为什么 late switching 不会降低性能
+    - 核心思路：从小 batch 切换到大 batch 后，loss 迅速追上全程大 batch 的轨迹。理论解释：噪声项 $\int_0^t \mathcal{K}(t-\tau)/b(\tau)d\tau$ 中，遗忘核 $\mathcal{K}$ 使早期小 batch 积累的多余噪声快速被遗忘；追赶速度由任务难度参数 $(s, \beta)$ 决定
+    - 设计动机：这是 late switching 有效性的动力学解释——不是"大 batch 阶段追回了落后的进度"，而是"小 batch 阶段积累的噪声被快速遗忘，信号学习进度反而更优"
 
 ### 损失函数 / 训练策略
 - 理论框架：一次遍历 SGD + 恒定学习率 + BSS = 可达最优速率（与精细调参的 learning rate schedule 等效）

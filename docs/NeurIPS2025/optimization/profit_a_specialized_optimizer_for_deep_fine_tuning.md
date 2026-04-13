@@ -56,9 +56,10 @@ PROFIT（PROximal FIne Tuning）是一个优化器包装器，接受两个标准
 2. **参考步骤机制**: 参考优化器 $\mathbf{O}^{(\text{ref})}$（推荐 SGD）用小学习率探索损失曲面，$n_{\text{ref}}$ 步的累积位移 $\Delta$ 编码了局部曲面形状信息。$\lambda_{\text{ref}}$ 控制探索速度，通常设在 $\lambda_{\text{main}}/10$ 到 $\lambda_{\text{main}}/10000$ 之间。实验中所有设置使用 $n_{\text{ref}}=1$。
 
 3. **理论保证**:
-   - **定理 3.1（旧数据正确性）**: 在收敛点附近，损失曲面 $L(\mathbf{x}) \approx L(\mathbf{x}_0) + 0.5(\mathbf{x}-\mathbf{x}_0)^T \mathbf{H}_0 (\mathbf{x}-\mathbf{x}_0)$，因此 $-\Delta$ 是有效的梯度下降方向，PROFIT 的一步能降低旧数据损失。
-   - **定理 3.2（稳定点）**: PROFIT 仅在损失曲面在 $\theta$ 和 $\theta'$ 之间完全线性时产生零更新——这在高维深度网络中几乎不可能发生。
-   - **定理 3.4（收敛性）**: PROFIT 收敛到主优化器 $\mathbf{O}$ 的收敛点或定理 3.2 描述的稳定点。
+
+    - **定理 3.1（旧数据正确性）**: 在收敛点附近，损失曲面 $L(\mathbf{x}) \approx L(\mathbf{x}_0) + 0.5(\mathbf{x}-\mathbf{x}_0)^T \mathbf{H}_0 (\mathbf{x}-\mathbf{x}_0)$，因此 $-\Delta$ 是有效的梯度下降方向，PROFIT 的一步能降低旧数据损失。
+    - **定理 3.2（稳定点）**: PROFIT 仅在损失曲面在 $\theta$ 和 $\theta'$ 之间完全线性时产生零更新——这在高维深度网络中几乎不可能发生。
+    - **定理 3.4（收敛性）**: PROFIT 收敛到主优化器 $\mathbf{O}$ 的收敛点或定理 3.2 描述的稳定点。
 
 ### 损失函数 / 训练策略
 

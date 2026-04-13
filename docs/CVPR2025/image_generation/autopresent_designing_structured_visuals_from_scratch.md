@@ -52,44 +52,49 @@ AutoPresent的pipeline：
 ### 关键设计
 
 1. **SlidesBench基准构建**:
-   - 从10个领域（艺术、商业、技术等）收集310个公开幻灯片集
-   - 7k训练样本 + 585测试样本
-   - 三种难度级别的指令设计：
-     - **详细指令+图像**：提供完整内容和布局规格及图像路径（最简单）
-     - **仅详细指令**：提供布局规格但图像替换为自然语言描述（中等）
-     - **高级概要指令**：仅提供主题性描述如"为Airbnb创建标题页"（最难）
-   - 指令生成流程：每个幻灯片集先人工写3个示例，再用gpt-4o-mini批量生成，测试集人工审核修正
+
+    - 从10个领域（艺术、商业、技术等）收集310个公开幻灯片集
+    - 7k训练样本 + 585测试样本
+    - 三种难度级别的指令设计：
+      - **详细指令+图像**：提供完整内容和布局规格及图像路径（最简单）
+      - **仅详细指令**：提供布局规格但图像替换为自然语言描述（中等）
+      - **高级概要指令**：仅提供主题性描述如"为Airbnb创建标题页"（最难）
+    - 指令生成流程：每个幻灯片集先人工写3个示例，再用gpt-4o-mini批量生成，测试集人工审核修正
 
 2. **评估指标体系**:
-   - **基于参考的指标（Reference-Based）**：
-     - Element Matching：匹配元素总面积比例（文本框/图像/形状）
-     - Content Similarity：匹配元素对的内容相似度（文本用sentence-transformer，图像用CLIP）
-     - Color Similarity：使用CIEDE2000公式计算字体颜色和背景颜色差异
-     - Position Similarity：归一化坐标后计算曼哈顿距离
-   - **无参考指标（Reference-Free）**：基于幻灯片设计原则，使用GPT-4o打分（0-5分）
-     - Text：标题简洁、内容精炼、字体可读
-     - Image：高质量图片、合理比例
-     - Layout：元素对齐、无重叠、有足够边距
-     - Color：高对比度、避免刺眼颜色
-   - ICC验证：模型评分与两位人类标注者的ICC为73.8%-85.3%，属于"高度一致"
+
+    - **基于参考的指标（Reference-Based）**：
+      - Element Matching：匹配元素总面积比例（文本框/图像/形状）
+      - Content Similarity：匹配元素对的内容相似度（文本用sentence-transformer，图像用CLIP）
+      - Color Similarity：使用CIEDE2000公式计算字体颜色和背景颜色差异
+      - Position Similarity：归一化坐标后计算曼哈顿距离
+    - **无参考指标（Reference-Free）**：基于幻灯片设计原则，使用GPT-4o打分（0-5分）
+      - Text：标题简洁、内容精炼、字体可读
+      - Image：高质量图片、合理比例
+      - Layout：元素对齐、无重叠、有足够边距
+      - Color：高对比度、避免刺眼颜色
+    - ICC验证：模型评分与两位人类标注者的ICC为73.8%-85.3%，属于"高度一致"
 
 3. **SlidesLib工具库**:
-   - 将平均170行的python-pptx代码简化为平均13行的高级函数调用
-   - 基础函数4个：add_title、add_text、add_bullet_points、add_image
-   - 图像相关3个：generate_image（调用DALL-E 3）、search_image（Bing搜索）、search_screenshot
-   - 通过提供函数文档和2个in-context示例让模型学会使用
-   - 显著提升了小型模型的代码执行成功率
+
+    - 将平均170行的python-pptx代码简化为平均13行的高级函数调用
+    - 基础函数4个：add_title、add_text、add_bullet_points、add_image
+    - 图像相关3个：generate_image（调用DALL-E 3）、search_image（Bing搜索）、search_screenshot
+    - 通过提供函数文档和2个in-context示例让模型学会使用
+    - 显著提升了小型模型的代码执行成功率
 
 4. **AutoPresent模型训练**:
-   - 基于LlaMa-3.1-8B-Instruct用LoRA微调（rank=128）
-   - 训练数据：为每个幻灯片提取规范程序（rule-based提取元素→生成python-pptx代码）
-   - 两种程序版本：原始python-pptx + SlidesLib版本
-   - 四种训练集组合（3种指令×2种程序版本中选4种），每种7k样本
+
+    - 基于LlaMa-3.1-8B-Instruct用LoRA微调（rank=128）
+    - 训练数据：为每个幻灯片提取规范程序（rule-based提取元素→生成python-pptx代码）
+    - 两种程序版本：原始python-pptx + SlidesLib版本
+    - 四种训练集组合（3种指令×2种程序版本中选4种），每种7k样本
 
 5. **迭代优化（Iterative Refinement）**:
-   - 将原始指令、第一轮代码、渲染后的幻灯片截图一起输入GPT-4o
-   - 要求模型调整颜色、间距等方面生成改进代码
-   - 第一轮改进提升最大，后续改进边际递减
+
+    - 将原始指令、第一轮代码、渲染后的幻灯片截图一起输入GPT-4o
+    - 要求模型调整颜色、间距等方面生成改进代码
+    - 第一轮改进提升最大，后续改进边际递减
 
 ### 损失函数 / 训练策略
 

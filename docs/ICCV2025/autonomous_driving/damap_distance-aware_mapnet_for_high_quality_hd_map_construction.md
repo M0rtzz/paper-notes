@@ -33,8 +33,8 @@ tags:
 
 作者分析了两大根本原因：
 
-1. **分类标签不恰当**：one-to-many匹配中，每个GT实例对应多个候选样本（MapTRv2中7个），但它们共享相同的分类标签"1"。定位质量差的候选也获得标签"1"→模型学会输出"高分类+低定位"的预测
-2. **任务特征次优**：分类和定位共用交叉注意力提取的实例特征。分类需要实例内部显著区域的语义信息，定位需要实例边界的精确位置→共用特征导致两个任务都达不到最优
+**分类标签不恰当**：one-to-many匹配中，每个GT实例对应多个候选样本（MapTRv2中7个），但它们共享相同的分类标签"1"。定位质量差的候选也获得标签"1"→模型学会输出"高分类+低定位"的预测
+**任务特征次优**：分类和定位共用交叉注意力提取的实例特征。分类需要实例内部显著区域的语义信息，定位需要实例边界的精确位置→共用特征导致两个任务都达不到最优
 
 ## 方法详解
 
@@ -45,31 +45,34 @@ tags:
 ### 关键设计
 
 1. **Distance-aware Focal Loss (DAFL)**：
-   - 核心思想：用定位质量作为分类标签，而非二值标签
-   - 定位损失 $\mathcal{L}_{dist}$ 通过最大似然估计转为概率：$P_{dist}^i = e^{-\lambda \mathcal{L}_{dist}^i}$
-     - 当 $\mathcal{L}_{dist} = 0$ 时，$P_{dist} = 1$（完美定位→高标签）
-     - 当 $\mathcal{L}_{dist} \to \infty$ 时，$P_{dist} \to 0$（差定位→低标签）
-   - 用连续标签替代二值标签得到DAFL：
-     $$\text{DAFL}(p, y) = -(y-p)^\gamma (y\log(p) + (1-y)\log(1-p))$$
-   - $y \in [0,1]$ 为定位置信度，使分类得分能反映定位质量
-   - 负样本 $(y=0)$ 时与标准Focal Loss完全一致
+
+    - 核心思想：用定位质量作为分类标签，而非二值标签
+    - 定位损失 $\mathcal{L}_{dist}$ 通过最大似然估计转为概率：$P_{dist}^i = e^{-\lambda \mathcal{L}_{dist}^i}$
+      - 当 $\mathcal{L}_{dist} = 0$ 时，$P_{dist} = 1$（完美定位→高标签）
+      - 当 $\mathcal{L}_{dist} \to \infty$ 时，$P_{dist} \to 0$（差定位→低标签）
+    - 用连续标签替代二值标签得到DAFL：
+    $\text{DAFL}(p, y) = -(y-p)^\gamma (y\log(p) + (1-y)\log(1-p))$
+    - $y \in [0,1]$ 为定位置信度，使分类得分能反映定位质量
+    - 负样本 $(y=0)$ 时与标准Focal Loss完全一致
 
 2. **Hybrid Loss Scheme (HLS)**：
-   - 问题：decoder早期query随机初始化导致定位质量差，影响DAFL的训练信号
-   - 解决：前 $L_1$ 层decoder用标准Focal Loss，后 $L_2$ 层用DAFL
-   - 利用decoder级联特性——后面层的预测定位精度更高，更适合DAFL
-   - 总分类损失：$\mathcal{L}_{cls} = \sum_{l=1}^{L_1} \text{FL}(p,y) + \sum_{l=1}^{L_2} \text{DAFL}(p,y)$
-   - HLS+DAFL是纯损失函数改进，**推理时零额外参数和计算量**
+
+    - 问题：decoder早期query随机初始化导致定位质量差，影响DAFL的训练信号
+    - 解决：前 $L_1$ 层decoder用标准Focal Loss，后 $L_2$ 层用DAFL
+    - 利用decoder级联特性——后面层的预测定位精度更高，更适合DAFL
+    - 总分类损失：$\mathcal{L}_{cls} = \sum_{l=1}^{L_1} \text{FL}(p,y) + \sum_{l=1}^{L_2} \text{DAFL}(p,y)$
+    - HLS+DAFL是纯损失函数改进，**推理时零额外参数和计算量**
 
 3. **Task Modulated Deformable Attention (TMDA)**：
-   - 将query通道翻倍，一半负责分类、一半负责定位
-   - 经自注意力后split为 $\mathbf{Q}_{cls}$ 和 $\mathbf{Q}_{loc}$
-   - 关键设计选择：
-     - 任务特定的注意力权重：$\mathbf{A}_{cls} = W_a \mathbf{Q}_{cls}$, $\mathbf{A}_{loc} = W_a' \mathbf{Q}_{loc}$
-     - 任务共享的采样偏移：$\Delta r = W_p \text{Cat}(\mathbf{Q}_{cls}, \mathbf{Q}_{loc})$
-   - 设计理由：(1) 同时学习特定权重和偏移的变量太多优化困难；(2) 偏移量优化目标无界，本身更难
-   - 输出：$\hat{\mathbf{Q}}_{cls} = \text{Softmax}(\mathbf{A}_{cls})\mathbf{V}$, $\hat{\mathbf{Q}}_{loc} = \text{Softmax}(\mathbf{A}_{loc})\mathbf{V}$
-   - 各自经独立FFN增强后送入对应任务头
+
+    - 将query通道翻倍，一半负责分类、一半负责定位
+    - 经自注意力后split为 $\mathbf{Q}_{cls}$ 和 $\mathbf{Q}_{loc}$
+    - 关键设计选择：
+      - 任务特定的注意力权重：$\mathbf{A}_{cls} = W_a \mathbf{Q}_{cls}$, $\mathbf{A}_{loc} = W_a' \mathbf{Q}_{loc}$
+      - 任务共享的采样偏移：$\Delta r = W_p \text{Cat}(\mathbf{Q}_{cls}, \mathbf{Q}_{loc})$
+    - 设计理由：(1) 同时学习特定权重和偏移的变量太多优化困难；(2) 偏移量优化目标无界，本身更难
+    - 输出：$\hat{\mathbf{Q}}_{cls} = \text{Softmax}(\mathbf{A}_{cls})\mathbf{V}$, $\hat{\mathbf{Q}}_{loc} = \text{Softmax}(\mathbf{A}_{loc})\mathbf{V}$
+    - 各自经独立FFN增强后送入对应任务头
 
 ### 损失函数 / 训练策略
 

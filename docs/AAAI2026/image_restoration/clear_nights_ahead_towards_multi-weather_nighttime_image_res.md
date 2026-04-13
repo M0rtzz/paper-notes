@@ -45,21 +45,24 @@ ClearNight 采用基于 DehazeFormer 的编码器-解码器架构，集成两大
 ### 关键设计
 
 1. **AllWeatherNight 数据集构建**
-   - 从 BDD100K 和 ExDark 筛选 2000 张高质量夜间图像作为 GT（亮度/梯度/方差三重过滤 + 人工二次筛选）
-   - **光照感知退化生成**：先通过大气点扩散函数 (APSF) 卷积模拟 flare（$X^\text{flare} = \alpha X + \beta(L * K^\text{APSF})$，$\beta$ 根据光源像素比自适应设定），再叠加光照感知的天气退化（$X^d = X^\text{flare} + \sum_{e \in \mathcal{E}} \omega_e \cdot \mathcal{F}_e^G(X^\text{flare})$）
-   - 关键创新：权重图 $\omega_e$ 使用 Retinex 分解的光照图，使天气退化强度与光照自然耦合（雨滴例外，$\omega_\text{RD}=1$，因雨滴受局部背景影响）
-   - t-SNE 验证：光照感知合成数据分布比传统均匀合成更接近真实数据
+
+    - 从 BDD100K 和 ExDark 筛选 2000 张高质量夜间图像作为 GT（亮度/梯度/方差三重过滤 + 人工二次筛选）
+    - **光照感知退化生成**：先通过大气点扩散函数 (APSF) 卷积模拟 flare（$X^\text{flare} = \alpha X + \beta(L * K^\text{APSF})$，$\beta$ 根据光源像素比自适应设定），再叠加光照感知的天气退化（$X^d = X^\text{flare} + \sum_{e \in \mathcal{E}} \omega_e \cdot \mathcal{F}_e^G(X^\text{flare})$）
+    - 关键创新：权重图 $\omega_e$ 使用 Retinex 分解的光照图，使天气退化强度与光照自然耦合（雨滴例外，$\omega_\text{RD}=1$，因雨滴受局部背景影响）
+    - t-SNE 验证：光照感知合成数据分布比传统均匀合成更接近真实数据
 
 2. **Retinex 双先验引导**
-   - 将退化图像 Retinex 分解为反射分量 $R^d$ 和光照分量 $I^d$（$X^d = R^d \cdot I^d$）
-   - **光照先验** $i_n$：注入前三阶段 Transformer 块（TFB），引导网络聚焦非均匀光照区域
-   - **反射先验** $r_n$：注入 WDS 块增强纹理表示，帮助区分天气退化类型和恢复背景细节
-   - 共享权重多尺度先验提取单元（MPE）通过膨胀卷积提取三尺度先验
+
+    - 将退化图像 Retinex 分解为反射分量 $R^d$ 和光照分量 $I^d$（$X^d = R^d \cdot I^d$）
+    - **光照先验** $i_n$：注入前三阶段 Transformer 块（TFB），引导网络聚焦非均匀光照区域
+    - **反射先验** $r_n$：注入 WDS 块增强纹理表示，帮助区分天气退化类型和恢复背景细节
+    - 共享权重多尺度先验提取单元（MPE）通过膨胀卷积提取三尺度先验
 
 3. **天气感知动态专一性-共性协作**
-   - **共性分支**：顺序 Transformer Feature Blocks (TFBs)，捕获所有天气退化的共享特征
-   - **专一性分支 (WDS)**：从 25 个候选单元中 Top-10 动态选择组合，输入自适应构建子网络
-   - **天气指导器**：执行多标签分类（BCE loss），学习天气特定原型，将不同天气类型自动关联到不同候选单元组合
+
+    - **共性分支**：顺序 Transformer Feature Blocks (TFBs)，捕获所有天气退化的共享特征
+    - **专一性分支 (WDS)**：从 25 个候选单元中 Top-10 动态选择组合，输入自适应构建子网络
+    - **天气指导器**：执行多标签分类（BCE loss），学习天气特定原型，将不同天气类型自动关联到不同候选单元组合
 
 ### 损失函数
 

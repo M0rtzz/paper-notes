@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：文本到3D方法利用预训练2D扩散模型的先验知识，通过分数蒸馏（Score Distillation）优化3D表示。Prompt-specific方法（SDS、VSD）每个提示需单独优化数小时；Prompt-amortized方法训练一个文本到3D生成网络后可在秒级推理，但依赖高效的分数蒸馏。
+**领域现状**：文本到3D方法利用预训练2D扩散模型的先验知识，通过分数蒸馏（Score Distillation）优化3D表示。Prompt-specific方法（SDS、VSD）每个提示需单独优化数小时；Prompt-amortized方法训练一个文本到3D生成网络后可在秒级推理，但依赖高效的分数蒸馏。
 
-2. **现有痛点**：
+**现有痛点**：
    - **SDS**：假设渲染图像是Dirac分布，导致梯度极大（需CFG=100），训练数值不稳定，3DConv-Net等深层网络几千步就崩溃
    - **CSD**：用无条件扩散项替代，但无条件项不依赖文本，无法为不同提示提供有效梯度
    - **VSD**：微调扩散模型来对齐渲染图像分布，但微调**破坏了预训练模型对文本的理解能力**，在大规模提示下导致模式坍塌
 
-3. **核心矛盾**：VSD的核心目标是降低噪声预测误差来对齐分布，但它通过微调扩散模型来实现这一目标，形成了一个双层优化问题（类似GAN的交替训练），在大量提示下不稳定且损害文本理解。
+**核心矛盾**：VSD的核心目标是降低噪声预测误差来对齐分布，但它通过微调扩散模型来实现这一目标，形成了一个双层优化问题（类似GAN的交替训练），在大量提示下不稳定且损害文本理解。
 
-4. **本文要解决什么？** 能否**不改变扩散模型权重**就降低噪声预测误差？
+**本文要解决什么？** 能否**不改变扩散模型权重**就降低噪声预测误差？
 
-5. **切入角度**：作者发现扩散模型在**更早的时间步**（t更大，更接近纯噪声）上天然有更低的噪声预测误差。这是因为当 $t \to T_{max}$ 时，$\mathbf{x}_t \to \boldsymbol{\epsilon}$，模型可以"复制输入作为输出"来准确预测噪声。
+**切入角度**：作者发现扩散模型在**更早的时间步**（t更大，更接近纯噪声）上天然有更低的噪声预测误差。这是因为当 $t \to T_{max}$ 时，$\mathbf{x}_t \to \boldsymbol{\epsilon}$，模型可以"复制输入作为输出"来准确预测噪声。
 
-6. **核心idea一句话**：通过将扩散时间步前移 $\Delta t$ 来近似VSD微调的效果——不需改变扩散模型权重，保持其强大的文本理解能力，即可实现分布对齐。
+**核心idea一句话**：通过将扩散时间步前移 $\Delta t$ 来近似VSD微调的效果——不需改变扩散模型权重，保持其强大的文本理解能力，即可实现分布对齐。
 
 ## 方法详解
 
@@ -49,22 +49,25 @@ ASD与SDS/VSD共享相同的文本到3D流程：文本→3D生成器→渲染图
 ### 关键设计
 
 1. **异步分数蒸馏目标函数**:
-   - 做什么：用时间步前移替代VSD的扩散模型微调
-   - 核心思路：$\nabla_\theta \mathcal{L}_{ASD} = \mathbb{E}_{t, \boldsymbol{\epsilon}} [\omega(t)(\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t, y) - \boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)) \frac{\partial \mathbf{x}}{\partial \theta}]$
-   - 对比：SDS用 $\boldsymbol{\epsilon}$（真实噪声），CSD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t)$（无条件预测），VSD用 $\boldsymbol{\epsilon}_{\phi'}$（微调模型预测），ASD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)$（前移时间步的预测）
-   - 优势：冻结扩散模型权重，无双层优化，保持文本理解能力
+
+    - 做什么：用时间步前移替代VSD的扩散模型微调
+    - 核心思路：$\nabla_\theta \mathcal{L}_{ASD} = \mathbb{E}_{t, \boldsymbol{\epsilon}} [\omega(t)(\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t, y) - \boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)) \frac{\partial \mathbf{x}}{\partial \theta}]$
+    - 对比：SDS用 $\boldsymbol{\epsilon}$（真实噪声），CSD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t)$（无条件预测），VSD用 $\boldsymbol{\epsilon}_{\phi'}$（微调模型预测），ASD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)$（前移时间步的预测）
+    - 优势：冻结扩散模型权重，无双层优化，保持文本理解能力
 
 2. **时间步偏移 $\Delta t$ 的设置**:
-   - 做什么：为不同时间步动态设置前移量
-   - 核心思路：$\Delta t \sim \mathcal{U}[0, \eta(t - T_{min})]$，均匀随机采样
-   - 设计动机：(a) $\Delta t$ 随 $t$ 增大而增大——因为越接近 $T_{max}$ 误差曲线越平坦，需要更大偏移才能匹配微调模型的误差；(b) 随机采样而非确定性——因为不同训练迭代、不同图像、不同提示下最优偏移不同
-   - 超参数 $\eta = 0.1$：$\eta$ 过大会退化为SDS，过小则没有充分利用前移带来的降噪效果
+
+    - 做什么：为不同时间步动态设置前移量
+    - 核心思路：$\Delta t \sim \mathcal{U}[0, \eta(t - T_{min})]$，均匀随机采样
+    - 设计动机：(a) $\Delta t$ 随 $t$ 增大而增大——因为越接近 $T_{max}$ 误差曲线越平坦，需要更大偏移才能匹配微调模型的误差；(b) 随机采样而非确定性——因为不同训练迭代、不同图像、不同提示下最优偏移不同
+    - 超参数 $\eta = 0.1$：$\eta$ 过大会退化为SDS，过小则没有充分利用前移带来的降噪效果
 
 3. **与多种3D生成器的兼容性**:
-   - 做什么：验证ASD作为通用分数蒸馏方法可与不同3D架构配合
-   - 三种生成器：Hyper-iNGP（超网络+哈希编码）、3DConv-Net（3D卷积体素）、Triplane-Transformer（三平面+Transformer）
-   - 两种扩散模型：Stable Diffusion 和 MVDream（多视角扩散）
-   - 设计动机：证明ASD不依赖特定架构，是真正通用的分数蒸馏方法
+
+    - 做什么：验证ASD作为通用分数蒸馏方法可与不同3D架构配合
+    - 三种生成器：Hyper-iNGP（超网络+哈希编码）、3DConv-Net（3D卷积体素）、Triplane-Transformer（三平面+Transformer）
+    - 两种扩散模型：Stable Diffusion 和 MVDream（多视角扩散）
+    - 设计动机：证明ASD不依赖特定架构，是真正通用的分数蒸馏方法
 
 ### 损失函数
 无额外损失，核心就是ASD梯度。CFG设为7.5（SDS需要100），梯度范围与VSD相当。

@@ -27,17 +27,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RLHF（基于人类反馈的强化学习）已成为LLM对齐的核心范式。在离线设定下，利用预收集的人类成对偏好数据训练奖励模型是InstructGPT等系统的关键步骤。理论研究方面，Zhu et al.（2023）建立了Pessimistic MLE的minimax最优性，Zhan et al.（2024）扩展到一般奖励函数。
+**领域现状**：RLHF（基于人类反馈的强化学习）已成为LLM对齐的核心范式。在离线设定下，利用预收集的人类成对偏好数据训练奖励模型是InstructGPT等系统的关键步骤。理论研究方面，Zhu et al.（2023）建立了Pessimistic MLE的minimax最优性，Zhan et al.（2024）扩展到一般奖励函数。
 
-2. **现有痛点**：现有理论分析（包括Zhu et al. 2023, Zhan et al. 2024, Cen et al. 2024, Liu et al. 2024）全部聚焦于worst-case（最坏情况）regret bound，得到的上界形式为 $\tilde{O}(n^{-1/2})$，即inverse polynomial收敛速率。这种worst-case分析无法揭示问题实例的内在结构如何影响算法性能。
+**现有痛点**：现有理论分析（包括Zhu et al. 2023, Zhan et al. 2024, Cen et al. 2024, Liu et al. 2024）全部聚焦于worst-case（最坏情况）regret bound，得到的上界形式为 $\tilde{O}(n^{-1/2})$，即inverse polynomial收敛速率。这种worst-case分析无法揭示问题实例的内在结构如何影响算法性能。
 
-3. **核心矛盾**：worst-case bound不依赖于具体问题实例的参数（如各动作的次优性间隙），无法区分"容易"和"困难"的问题实例，对理解算法的真实能力和限制缺乏深入洞察。
+**核心矛盾**：worst-case bound不依赖于具体问题实例的参数（如各动作的次优性间隙），无法区分"容易"和"困难"的问题实例，对理解算法的真实能力和限制缺乏深入洞察。
 
-4. **本文要解决什么**：建立离线RLHF成对比较问题的instance-dependent分析框架，回答两个核心问题：(1)最快能以多快的速率收敛？(2)该速率是否本质不可改进？
+**本文要解决什么**：建立离线RLHF成对比较问题的instance-dependent分析框架，回答两个核心问题：(1)最快能以多快的速率收敛？(2)该速率是否本质不可改进？
 
-5. **切入角度**：借鉴赌博机（bandit）和假设检验领域中的instance-dependent optimal analysis方法，针对线性奖励+BTL偏好模型的结构进行精细分析。
+**切入角度**：借鉴赌博机（bandit）和假设检验领域中的instance-dependent optimal analysis方法，针对线性奖励+BTL偏好模型的结构进行精细分析。
 
-6. **核心idea**：设计"局部最优权重"（locally optimal weights）来最小化各状态-动作对的相对奖励估计方差代理量，从而实现对每个实例最紧的指数收敛。
+**核心idea**：设计"局部最优权重"（locally optimal weights）来最小化各状态-动作对的相对奖励估计方差代理量，从而实现对每个实例最紧的指数收敛。
 
 ## 方法详解
 

@@ -50,8 +50,9 @@ $$\mathcal{L} = \sum_{\mathbf{q},\mathbf{q^+}} -\log \frac{\exp(D_\Phi(\mathbf{q
 其中温度参数 $\tau=0.2$，无需密集标注数据。
 
 3. **粗到细映射估计**：将场景映射分解为仿射变换+局部位移：$F(\mathbf{x}) := \mathbf{A}\mathbf{x} + \mathbf{b} + d_w(\mathbf{x};P_{\text{RoI}})$。
-   - **粗估计**：组合物体对生成候选仿射映射池（$N_{\text{ortho}}=16$ 个旋转/反射），按描述子场对齐代价选择 $K_{\text{coarse}}=5$ 个最优映射并梯度优化。
-   - **细估计**：通过薄板样条（Thin Plate Spline）径向基函数学习局部位移权重 $w_k$，带正则化项 $\lambda=0.5$ 确保平滑性。
+
+    - **粗估计**：组合物体对生成候选仿射映射池（$N_{\text{ortho}}=16$ 个旋转/反射），按描述子场对齐代价选择 $K_{\text{coarse}}=5$ 个最优映射并梯度优化。
+    - **细估计**：通过薄板样条（Thin Plate Spline）径向基函数学习局部位移权重 $w_k$，带正则化项 $\lambda=0.5$ 确保平滑性。
 
 ### 损失函数 / 训练策略
 

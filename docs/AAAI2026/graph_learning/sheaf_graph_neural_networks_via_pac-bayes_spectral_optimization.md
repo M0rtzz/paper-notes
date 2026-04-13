@@ -47,16 +47,18 @@ SGPC 包含三大模块：(1) OT + WE Lift 学习 sheaf 限制映射；(2) SVR-A
 1. **Wasserstein-Entropic Lift**：用 Sinkhorn OT 初始化传输计划 $P_0$，通过 JKO 梯度流步骤精炼为全局 KL 稳定配置 $P_\star$，然后生成限制映射 $R_{ij} = P_{\star,ij} W_\theta$。这些映射构成 sheaf Laplacian：$L_\mathcal{F} = (B \otimes I_{d_0})^\top R^\top R (B \otimes I_{d_0})$。
 
 2. **SVR-AFM 层**：
-   - 随机方差缩减（SVR）扩散：$H^{svr} \approx (I + \Delta t L_\mathcal{F})^{-1} H$
-   - 自适应频率混合（AFM）：使用 Chebyshev 多项式 $H^{afm} = \sum_{q=0}^Q \alpha_q T_q(\tilde{L}) H$，可学习系数 $\alpha_q$ 在异质图上自动偏向高频
-   - 分支融合：$H' = F_{mix}([H^{svr} \| H^{afm}])$
+
+    - 随机方差缩减（SVR）扩散：$H^{svr} \approx (I + \Delta t L_\mathcal{F})^{-1} H$
+    - 自适应频率混合（AFM）：使用 Chebyshev 多项式 $H^{afm} = \sum_{q=0}^Q \alpha_q T_q(\tilde{L}) H$，可学习系数 $\alpha_q$ 在异质图上自动偏向高频
+    - 分支融合：$H' = F_{mix}([H^{svr} \| H^{afm}])$
 
 3. **PAC-Bayes 谱优化**：
-   - $\beta$-Dirichlet 先验建模每条边的消息一致率 $\kappa_{ij}$
-   - 固定点求解器迭代更新后验
-   - 谱间隙正则化：$\mathcal{L}_{spec} = c_{het} / \lambda_2(L_\mathcal{F})$
-   - 总损失：$\mathcal{L} = \mathcal{L}(y, \hat{y}) + \lambda_{KL}\mathcal{L}_{KL} + \lambda_{spec}\mathcal{L}_{spec}$
-   - 定理保证 $\lambda_2$ 单调递增（每轮至少增长 $c_w/4$），PAC-Bayes 界几何级收缩
+
+    - $\beta$-Dirichlet 先验建模每条边的消息一致率 $\kappa_{ij}$
+    - 固定点求解器迭代更新后验
+    - 谱间隙正则化：$\mathcal{L}_{spec} = c_{het} / \lambda_2(L_\mathcal{F})$
+    - 总损失：$\mathcal{L} = \mathcal{L}(y, \hat{y}) + \lambda_{KL}\mathcal{L}_{KL} + \lambda_{spec}\mathcal{L}_{spec}$
+    - 定理保证 $\lambda_2$ 单调递增（每轮至少增长 $c_w/4$），PAC-Bayes 界几何级收缩
 
 ## 实验关键数据
 

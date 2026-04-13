@@ -25,12 +25,12 @@ tags:
 通过f-NCE框架的两个变体（alpha-CentNCE和f-CondNCE）统一了学习非归一化分布的多种方法（MLE/MC-MLE/pseudo-likelihood/ISO等），发现f-CondNCE与score matching的真实关系，并为指数族建立首个有限样本收敛保证。
 
 ## 研究背景与动机
-1. **领域现状**: 非归一化分布（能量模型）广泛用于生成建模。由于归一化常数不可计算，有NCE、score matching、MC-MLE等多种替代方法。
-2. **现有痛点**: 这些方法在不同社区独立提出，联系不清。有些联系甚至误导（如f-CondNCE与score matching）。
-3. **核心矛盾**: 多种看似不同的估计器实为同一原理特例，但文献缺系统化视角。
-4. **本文要解决什么**: 通过NCE镜头统一方法并建立收敛保证。
-5. **切入角度**: f-NCE基于Bregman散度密度比估计——不同f和噪声分布得到不同估计器。
-6. **核心idea**: alpha-CentNCE统一MLE/MC-MLE/GlobalGISO；f-CondNCE纠正与score matching的错误联系。
+**领域现状**: 非归一化分布（能量模型）广泛用于生成建模。由于归一化常数不可计算，有NCE、score matching、MC-MLE等多种替代方法。
+**现有痛点**: 这些方法在不同社区独立提出，联系不清。有些联系甚至误导（如f-CondNCE与score matching）。
+**核心矛盾**: 多种看似不同的估计器实为同一原理特例，但文献缺系统化视角。
+**本文要解决什么**: 通过NCE镜头统一方法并建立收敛保证。
+**切入角度**: f-NCE基于Bregman散度密度比估计——不同f和噪声分布得到不同估计器。
+**核心idea**: alpha-CentNCE统一MLE/MC-MLE/GlobalGISO；f-CondNCE纠正与score matching的错误联系。
 
 ## 方法详解
 

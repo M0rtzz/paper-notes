@@ -26,21 +26,21 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：离散扩散模型（如 MDLM、SEDD）已在文本生成上展现潜力，但性能持续落后于自回归（AR）模型。目前主要有两类离散扩散：Masked Diffusion Models（MDM，使用 [MASK] token）和 Uniform-state Diffusion Models（USDM，token 可转换为词汇表中任意 token）。
+**领域现状**：离散扩散模型（如 MDLM、SEDD）已在文本生成上展现潜力，但性能持续落后于自回归（AR）模型。目前主要有两类离散扩散：Masked Diffusion Models（MDM，使用 [MASK] token）和 Uniform-state Diffusion Models（USDM，token 可转换为词汇表中任意 token）。
 
-2. **现有痛点**：
+**现有痛点**：
    - **USDM 性能差**：虽然 USDM 天然具有自纠错能力（token 在任何步都可修改），但历史上一直表现不如 MDM
    - **训练方差高**：离散扩散的 ELBO 训练方差远大于高斯扩散，导致收敛慢
    - **无法少步生成**：MDM 缺少 Probability Flow ODE（因为 prior 是确定性的 mask），无法使用一致性蒸馏等技术；USDM 也没有开发过类似技术
    - **与高斯扩散的技术鸿沟**：高斯扩散有丰富的加速技术（高效参数化、快速采样器、蒸馏），但这些技术无法直接迁移到离散扩散
 
-3. **核心矛盾**：离散扩散模型的设计空间仍然原始——仍在使用均值参数化和慢速祖先采样——而高斯扩散已有 15+ 年的方法论积累。
+**核心矛盾**：离散扩散模型的设计空间仍然原始——仍在使用均值参数化和慢速祖先采样——而高斯扩散已有 15+ 年的方法论积累。
 
-4. **本文要解决什么**：(1) 建立离散扩散与高斯扩散的理论联系，(2) 借此迁移高斯扩散的高效训练和采样技术到离散设置。
+**本文要解决什么**：(1) 建立离散扩散与高斯扩散的理论联系，(2) 借此迁移高斯扩散的高效训练和采样技术到离散设置。
 
-5. **切入角度**：数学上发现 argmax 操作将高斯扩散过程变换为 Uniform-state 离散扩散过程——这不是近似，而是精确的数学关系。
+**切入角度**：数学上发现 argmax 操作将高斯扩散过程变换为 Uniform-state 离散扩散过程——这不是近似，而是精确的数学关系。
 
-6. **核心 idea**：离散扩散是高斯扩散的"涌现现象"（Diffusion Duality），利用这个对偶性可以自由借用高斯扩散的工具箱。
+**核心 idea**：离散扩散是高斯扩散的"涌现现象"（Diffusion Duality），利用这个对偶性可以自由借用高斯扩散的工具箱。
 
 ## 方法详解
 
@@ -57,30 +57,33 @@ $$\mathbf{z}_t \sim \text{Cat}(\cdot; \mathcal{T}(\tilde{\alpha}_t)\mathbf{x} + 
 ### 关键设计
 
 1. **扩散对偶性的数学建立**:
-   - **边际分布对应**：argmax 将高斯边际映射为分类分布，参数通过 $\mathcal{T}$ 算子关联 
-   $$\mathcal{T}(\tilde{\alpha}_t) = \frac{K}{K-1}\left[\int_{-\infty}^{\infty} \phi\left(\frac{z-\tilde{\alpha}_t}{\sqrt{1-\tilde{\alpha}_t^2}}\right)\Phi^{K-1}(z)dz - \frac{1}{K}\right]$$
-   - **转移动力学对应**：离散边际的时间演化满足 Uniform-state 扩散的两两转移矩阵 $Q_t$
-   - **ELBO 关系**（Theorem 3.1）：离散扩散的 ELBO **严格紧于**底层高斯扩散的 ELBO
-   - **为什么重要**：这意味着离散空间比连续空间更适合建模——在离散空间训练可以获得更紧的似然下界
+
+    - **边际分布对应**：argmax 将高斯边际映射为分类分布，参数通过 $\mathcal{T}$ 算子关联 
+    $\mathcal{T}(\tilde{\alpha}_t) = \frac{K}{K-1}\left[\int_{-\infty}^{\infty} \phi\left(\frac{z-\tilde{\alpha}_t}{\sqrt{1-\tilde{\alpha}_t^2}}\right)\Phi^{K-1}(z)dz - \frac{1}{K}\right]$
+    - **转移动力学对应**：离散边际的时间演化满足 Uniform-state 扩散的两两转移矩阵 $Q_t$
+    - **ELBO 关系**（Theorem 3.1）：离散扩散的 ELBO **严格紧于**底层高斯扩散的 ELBO
+    - **为什么重要**：这意味着离散空间比连续空间更适合建模——在离散空间训练可以获得更紧的似然下界
 
 2. **课程学习加速训练**:
-   - 核心思想：用 tempered softmax（$\tau > 0$）替代 argmax（$\tau \to 0$）来松弛离散化
-   - 训练损失：
-   $$\mathcal{L}_{train} = \mathbb{E}_{t, \tilde{q}_t} \sum_{\ell} f_{Duo}(\mathbf{z}_t^\ell := \arg\max(\mathbf{w}_t^\ell), \mathbf{x}_\theta([\text{softmax}(\mathbf{w}_t^{\ell'}/\tau)]^L_{\ell'=1}, t), \alpha_t; \mathbf{x}^\ell)$$
-   - 课程策略：$\tau = 0.001$（前 500K 步）→ $\tau = 0$（后 500K 步）
-   - 同时限制训练时间窗口 $t \in [\beta, \gamma]$，避免梯度信号极弱的区域
-   - **为什么有效**：argmax 对小扰动极度敏感——微小的高斯噪声导致 token 剧烈变化。Tempered softmax 保留了更多连续信号，降低去噪难度 → 降低梯度方差（实测降低一个数量级）→ 训练收敛快 2×
-   - 额外优化：**Rao-Blackwellized ELBO** 避免材料化 one-hot 向量，减少内存开销并进一步降方差
+
+    - 核心思想：用 tempered softmax（$\tau > 0$）替代 argmax（$\tau \to 0$）来松弛离散化
+    - 训练损失：
+    $\mathcal{L}_{train} = \mathbb{E}_{t, \tilde{q}_t} \sum_{\ell} f_{Duo}(\mathbf{z}_t^\ell := \arg\max(\mathbf{w}_t^\ell), \mathbf{x}_\theta([\text{softmax}(\mathbf{w}_t^{\ell'}/\tau)]^L_{\ell'=1}, t), \alpha_t; \mathbf{x}^\ell)$
+    - 课程策略：$\tau = 0.001$（前 500K 步）→ $\tau = 0$（后 500K 步）
+    - 同时限制训练时间窗口 $t \in [\beta, \gamma]$，避免梯度信号极弱的区域
+    - **为什么有效**：argmax 对小扰动极度敏感——微小的高斯噪声导致 token 剧烈变化。Tempered softmax 保留了更多连续信号，降低去噪难度 → 降低梯度方差（实测降低一个数量级）→ 训练收敛快 2×
+    - 额外优化：**Rao-Blackwellized ELBO** 避免材料化 one-hot 向量，减少内存开销并进一步降方差
 
 3. **离散一致性蒸馏（DCD）**:
-   - 挑战：离散空间没有 Probability Flow ODE，无法直接用一致性蒸馏
-   - 解决方案：利用对偶性，在**高斯空间**中用最优去噪器构建确定性轨迹（Deterministic Discrete Trajectories, DDT）：
-   $$\mathcal{P}_{DDT}(\mathbf{x}^{1:L}, \epsilon^{1:L}) = \{[\arg\max(\tilde{\alpha}_t \mathbf{x}^\ell + \sqrt{1-\tilde{\alpha}_t^2}\epsilon^\ell)]^L_{\ell=1}\}_{t \in [0,1]}$$
-   - 蒸馏损失：学生模型 $\mathbf{x}_\theta$ 匹配教师模型 $\mathbf{x}_{\theta^-}$ 在 DDT 相邻点上的预测
-   $$\mathcal{L}_{DCD} = D_{KL}(\mathbf{x}_\theta(\mathbf{z}_t^{1:L}, t) \| \mathbf{x}_{\theta^-}(\mathbf{z}_s^{1:L}, s))$$
-   - 蒸馏过程：$N=5$ 轮，每轮 $M=10K$ 步，步长 $\delta$ 每轮翻倍
-   - **Greedy-Tail Sampler**：在最后一步用 greedy decoding 替代采样，进一步降低 NFE（1024→8步）
-   - **为什么 DDT 有效**：虽然离散空间没有确定的 ODE 轨迹，但通过高斯空间的 ODE + argmax 投影，可以构建一个"伪确定性"轨迹，其中 token 基本只翻转一次，行为类似 MDM 的 carry-over
+
+    - 挑战：离散空间没有 Probability Flow ODE，无法直接用一致性蒸馏
+    - 解决方案：利用对偶性，在**高斯空间**中用最优去噪器构建确定性轨迹（Deterministic Discrete Trajectories, DDT）：
+    $\mathcal{P}_{DDT}(\mathbf{x}^{1:L}, \epsilon^{1:L}) = \{[\arg\max(\tilde{\alpha}_t \mathbf{x}^\ell + \sqrt{1-\tilde{\alpha}_t^2}\epsilon^\ell)]^L_{\ell=1}\}_{t \in [0,1]}$
+    - 蒸馏损失：学生模型 $\mathbf{x}_\theta$ 匹配教师模型 $\mathbf{x}_{\theta^-}$ 在 DDT 相邻点上的预测
+    $\mathcal{L}_{DCD} = D_{KL}(\mathbf{x}_\theta(\mathbf{z}_t^{1:L}, t) \| \mathbf{x}_{\theta^-}(\mathbf{z}_s^{1:L}, s))$
+    - 蒸馏过程：$N=5$ 轮，每轮 $M=10K$ 步，步长 $\delta$ 每轮翻倍
+    - **Greedy-Tail Sampler**：在最后一步用 greedy decoding 替代采样，进一步降低 NFE（1024→8步）
+    - **为什么 DDT 有效**：虽然离散空间没有确定的 ODE 轨迹，但通过高斯空间的 ODE + argmax 投影，可以构建一个"伪确定性"轨迹，其中 token 基本只翻转一次，行为类似 MDM 的 carry-over
 
 ### 损失函数 / 训练策略
 

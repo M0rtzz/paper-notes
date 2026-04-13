@@ -45,8 +45,9 @@ Radar 框架包含以下核心组件：
 1. **离散化与配置路由**: 将每个 RLM $m \in \mathcal{M}$ 按推理预算 $u \in \mathcal{U}_m$ 离散化为配置 $g = (m, u)$。对开源 RLM，通过计数思考 token 并在超出预算时附加中断消息来强制执行预算。设计动机：统一模型选择和预算选择为单一配置路由问题，使得可以在配置空间上进行优化。
 
 2. **多目标优化路由**: 对每个查询 $q$，求解 $g^* = \arg\max_{g \in \mathcal{G}} f(p_q(g), c_q(g))$，其中 $p_q(g)$ 是性能预测函数，$c_q(g)$ 是成本预测函数。本文探索两种标量化技术：
-   - **线性标量化**: $\text{LSP}_q^{w_1} = \arg\max_{g \in \mathcal{G}} w_1 p_q(g) - (1-w_1) c_q(g)$
-   - **切比雪夫标量化**: $\text{CSP}_q^{w_1} = \arg\min_{g \in \mathcal{G}} \max\{w_1|1-p_q(g)|, (1-w_1)c_q(g)\}$
+
+    - **线性标量化**: $\text{LSP}_q^{w_1} = \arg\max_{g \in \mathcal{G}} w_1 p_q(g) - (1-w_1) c_q(g)$
+    - **切比雪夫标量化**: $\text{CSP}_q^{w_1} = \arg\min_{g \in \mathcal{G}} \max\{w_1|1-p_q(g)|, (1-w_1)c_q(g)\}$
    设计动机：切比雪夫标量化可以发现 Pareto 前沿的非凸部分，而线性标量化仅能覆盖凸部分。这是首次在 LLM 路由中引入线性标量化之外的 MOO 技术。
 
 3. **2PL IRT 模型**: 使用二参数逻辑斯蒂模型参数化性能预测函数。为实现 OOD 泛化，将查询难度 $b_j = \mathbf{w}_b^\top \mathbf{e}_j$ 和区分度 $a_j = \mathbf{w}_a^\top \mathbf{e}_j$ 参数化为查询嵌入 $\mathbf{e}_j$ 的线性变换，每个配置 $g_i$ 有标量能力参数 $\theta_i$。正确回答概率为 $p_{ij} = \sigma(a_j(\theta_i - b_j))$。设计动机：标量能力值可捕获模型配置间的可解释排序，参数量少于多维 IRT（MIRT），且通过嵌入泛化到未见查询。

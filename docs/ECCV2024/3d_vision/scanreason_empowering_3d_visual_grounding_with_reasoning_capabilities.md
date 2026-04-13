@@ -25,12 +25,12 @@ tags:
 提出 3D reasoning grounding 新任务和 ScanReason 基准（10K+ QA-location pairs，5种推理类型），设计 ReGround3D 框架将 MLLM 推理与 3D grounding 模块通过 Chain-of-Grounding 机制协同，在隐式指令下实现准确的 3D 目标定位。
 
 ## 研究背景与动机
-1. **领域现状**：3D visual grounding 已取得很大进展，但现有模型（ScanRefer、BUTD-DETR 等）依赖显式的文本描述来定位，如"靠近窗户的红色椅子"——通过物体类别、属性、空间关系的直接对齐来实现。
-2. **现有痛点**：真实场景中人的指令往往是隐式的——"我渴了，有什么可以喝的吗？"（需要推理"渴→饮料→冰箱/桌上的杯子"）。现有模型无法处理这种需要推理的间接指令。
-3. **核心矛盾**：3D 场景理解需要同时具备推理能力（理解隐式意图）和定位能力（精确3D坐标）。现有 MLLM（如3D-LLM）有推理能力但定位精度差；专用 grounding 模型定位准但缺乏推理能力。
-4. **本文要解决什么？** (a) 定义 3D reasoning grounding 新任务；(b) 构建包含多种推理类型的基准数据集；(c) 设计能同时推理和精确定位的模型架构。
-5. **切入角度**：将推理和定位拆分为两个协作模块——先推理"要找什么"，再回头看3D场景精确定位。
-6. **核心idea一句话**：用 MLLM 做视觉中心的推理生成 grounding query，再通过几何增强的 look-back 机制在 3D 点云中精确定位目标。
+**领域现状**：3D visual grounding 已取得很大进展，但现有模型（ScanRefer、BUTD-DETR 等）依赖显式的文本描述来定位，如"靠近窗户的红色椅子"——通过物体类别、属性、空间关系的直接对齐来实现。
+**现有痛点**：真实场景中人的指令往往是隐式的——"我渴了，有什么可以喝的吗？"（需要推理"渴→饮料→冰箱/桌上的杯子"）。现有模型无法处理这种需要推理的间接指令。
+**核心矛盾**：3D 场景理解需要同时具备推理能力（理解隐式意图）和定位能力（精确3D坐标）。现有 MLLM（如3D-LLM）有推理能力但定位精度差；专用 grounding 模型定位准但缺乏推理能力。
+**本文要解决什么？** (a) 定义 3D reasoning grounding 新任务；(b) 构建包含多种推理类型的基准数据集；(c) 设计能同时推理和精确定位的模型架构。
+**切入角度**：将推理和定位拆分为两个协作模块——先推理"要找什么"，再回头看3D场景精确定位。
+**核心idea一句话**：用 MLLM 做视觉中心的推理生成 grounding query，再通过几何增强的 look-back 机制在 3D 点云中精确定位目标。
 
 ## 方法详解
 
@@ -40,24 +40,28 @@ tags:
 ### 关键设计
 
 1. **ScanReason 基准数据集**:
-   - 做什么：定义 5 种推理类型的 3D reasoning grounding 基准
-   - 核心思路：空间推理（理解物体间3D关系）、功能推理（理解物体用途/功能）、逻辑推理（目标导向的多步推理）、情感推理（理解人类情绪需求）、安全推理（识别风险和安全决策）。使用 GPT-4 结合 EmbodiedScan 标注自动生成 12,929 个 QA-location pairs
-   - 设计动机：从基础能力（空间+功能）到高层应用（逻辑+情感+安全），构建层次化推理体系
+
+    - 做什么：定义 5 种推理类型的 3D reasoning grounding 基准
+    - 核心思路：空间推理（理解物体间3D关系）、功能推理（理解物体用途/功能）、逻辑推理（目标导向的多步推理）、情感推理（理解人类情绪需求）、安全推理（识别风险和安全决策）。使用 GPT-4 结合 EmbodiedScan 标注自动生成 12,929 个 QA-location pairs
+    - 设计动机：从基础能力（空间+功能）到高层应用（逻辑+情感+安全），构建层次化推理体系
 
 2. **视觉中心推理模块（Visual-Centric Reasoning）**:
-   - 做什么：联合推理 3D 场景和语言指令，生成蕴含 grounding 意图的特征
-   - 核心思路：基于 3D-LLM（BLIP2 架构），用多视角 2D 特征反投影到 3D 空间，通过 Q-Former 编码为 32 个视觉 token。扩展词汇表添加 `<LOC>` token，其 last-layer embedding $h_{loc}$ 编码了目标物体的语义和位置信息
-   - 设计动机：不直接让 MLLM 预测 bounding box 坐标（精度差），而是让它输出一个特征级的"定位意图"，留给专门的定位模块来精确执行
+
+    - 做什么：联合推理 3D 场景和语言指令，生成蕴含 grounding 意图的特征
+    - 核心思路：基于 3D-LLM（BLIP2 架构），用多视角 2D 特征反投影到 3D 空间，通过 Q-Former 编码为 32 个视觉 token。扩展词汇表添加 `<LOC>` token，其 last-layer embedding $h_{loc}$ 编码了目标物体的语义和位置信息
+    - 设计动机：不直接让 MLLM 预测 bounding box 坐标（精度差），而是让它输出一个特征级的"定位意图"，留给专门的定位模块来精确执行
 
 3. **3D Grounding with Geometry-Enhanced Look-Back**:
-   - 做什么：利用3D点云编码器回看原始场景，实现精确3D定位
-   - 核心思路：用 3D 点云编码器提取细粒度几何特征 $f_{scene}$。Query Selection Module 用交叉注意力（$f_{scene}$ 作 Q，$h_{loc}$ 作 K/V）生成激活热图，选择 top-k 最相关特征作为 object query。最后通过 Transformer decoder 预测 3D bounding box
-   - 设计动机：3D-LLM 的视觉 token 基于 2D 图像特征，缺乏精确的3D几何信息；通过"回看"原始点云补充细粒度空间结构
+
+    - 做什么：利用3D点云编码器回看原始场景，实现精确3D定位
+    - 核心思路：用 3D 点云编码器提取细粒度几何特征 $f_{scene}$。Query Selection Module 用交叉注意力（$f_{scene}$ 作 Q，$h_{loc}$ 作 K/V）生成激活热图，选择 top-k 最相关特征作为 object query。最后通过 Transformer decoder 预测 3D bounding box
+    - 设计动机：3D-LLM 的视觉 token 基于 2D 图像特征，缺乏精确的3D几何信息；通过"回看"原始点云补充细粒度空间结构
 
 4. **Chain-of-Grounding (CoG) 机制**:
-   - 做什么：推理和定位交替执行多轮，逐步精化定位结果
-   - 核心思路：将原始隐式问题先转化为定位显式提到的物体 → 获取这些物体的3D位置和置信度 → 将定位结果插入更新问题 → 再次推理和定位 → 输出最终目标。类似于 chain-of-thought 但交替的是推理和定位步骤
-   - 设计动机：复杂问题中，定位结果可以反向辅助推理——知道了"厨房"在哪，才能推理出"最近的垃圾桶"
+
+    - 做什么：推理和定位交替执行多轮，逐步精化定位结果
+    - 核心思路：将原始隐式问题先转化为定位显式提到的物体 → 获取这些物体的3D位置和置信度 → 将定位结果插入更新问题 → 再次推理和定位 → 输出最终目标。类似于 chain-of-thought 但交替的是推理和定位步骤
+    - 设计动机：复杂问题中，定位结果可以反向辅助推理——知道了"厨房"在哪，才能推理出"最近的垃圾桶"
 
 ### 损失函数
 $\mathcal{L} = \lambda_{text}\mathcal{L}_{text} + \lambda_{det}\mathcal{L}_{det}$，其中 $\mathcal{L}_{det} = \lambda_{IOU}\mathcal{L}_{IOU} + \lambda_{contrast}\mathcal{L}_{contrast}$。文本损失来自 next token prediction，检测损失来自 3D bounding box 回归。

@@ -25,20 +25,20 @@ tags:
 提出 AnyControl，通过 Multi-Control Encoder（fusion + alignment 交替块结构）支持任意组合的多种空间控制信号（深度、边缘、分割、姿态），在 COCO 多控制基准上 FID 44.28 全面超越现有方法。
 
 ## 研究背景与动机
-1. **领域现状**：ControlNet 等方法实现了单条件可控 T2I 生成。但实际应用中往往需要同时使用多种控制信号（如深度图+分割图+姿态），现有多控制方法（Multi-ControlNet、Uni-ControlNet）存在显著局限。
+**领域现状**：ControlNet 等方法实现了单条件可控 T2I 生成。但实际应用中往往需要同时使用多种控制信号（如深度图+分割图+姿态），现有多控制方法（Multi-ControlNet、Uni-ControlNet）存在显著局限。
 
-2. **现有痛点**：
+**现有痛点**：
    - **输入灵活性不足**：多数方法不能自由组合任意类型/数量的控制信号
    - **空间兼容性差**：多条件简单加权求和会导致遮挡区域混合伪影
    - **文本兼容性差**：空间条件过于强势，抑制了文本语义（如指定"Transformers Robot"但姿态条件迫使生成普通人形）
 
-3. **核心矛盾**：需要同时处理多种异构空间条件并与文本对齐，但简单的拼接/加权无法建模条件间的复杂关系（遮挡、冲突等）
+**核心矛盾**：需要同时处理多种异构空间条件并与文本对齐，但简单的拼接/加权无法建模条件间的复杂关系（遮挡、冲突等）
 
-4. **本文要解决什么？** (a) 支持任意组合的多控制输入；(b) 建模空间条件间的兼容性；(c) 保持文本语义的忠实度
+**本文要解决什么？** (a) 支持任意组合的多控制输入；(b) 建模空间条件间的兼容性；(c) 保持文本语义的忠实度
 
-5. **切入角度**：用 learnable query tokens 通过交叉注意力从多个空间条件中提取兼容信息，再通过自注意力与文本 token 对齐
+**切入角度**：用 learnable query tokens 通过交叉注意力从多个空间条件中提取兼容信息，再通过自注意力与文本 token 对齐
 
-6. **核心 idea 一句话**：Multi-Control Encoder 用 query tokens 做信息枢纽——先通过 cross-attention 融合多空间条件（fusion），再通过 self-attention 与文本 token 对齐（alignment），交替堆叠
+**核心 idea 一句话**：Multi-Control Encoder 用 query tokens 做信息枢纽——先通过 cross-attention 融合多空间条件（fusion），再通过 self-attention 与文本 token 对齐（alignment），交替堆叠
 
 ## 方法详解
 
@@ -48,24 +48,28 @@ tags:
 ### 关键设计
 
 1. **Multi-Control Fusion Block**:
-   - 做什么：从所有空间条件中提取兼容信息到 query tokens
-   - 核心思路：query tokens 做 Q，所有条件的视觉 tokens 拼接后做 KV：$\mathcal{Q}_j = CrossAttn(\mathcal{Q}_j, [\mathcal{V}_{1,j}+P, \mathcal{V}_{2,j}+P, ..., \mathcal{V}_{n,j}+P])$
-   - 共享 positional embedding P 跨条件——让模型学会空间对齐
-   - 设计动机：Cross-attention 天然适应可变数量的 KV 输入（不需要固定通道数），且能通过注意力权重自动处理遮挡/冲突
+
+    - 做什么：从所有空间条件中提取兼容信息到 query tokens
+    - 核心思路：query tokens 做 Q，所有条件的视觉 tokens 拼接后做 KV：$\mathcal{Q}_j = CrossAttn(\mathcal{Q}_j, [\mathcal{V}_{1,j}+P, \mathcal{V}_{2,j}+P, ..., \mathcal{V}_{n,j}+P])$
+    - 共享 positional embedding P 跨条件——让模型学会空间对齐
+    - 设计动机：Cross-attention 天然适应可变数量的 KV 输入（不需要固定通道数），且能通过注意力权重自动处理遮挡/冲突
 
 2. **Multi-Control Alignment Block**:
-   - 做什么：将 query tokens 中的空间信息与文本 tokens 的语义信息对齐
-   - 核心思路：$[\mathcal{Q}_{j+1}, \mathcal{T}_{j+1}] = SelfAttn([\mathcal{Q}_j, \mathcal{T}_j])$
-   - 额外的 textual task prompt（如"depth + segmentation"）附加到用户文本中，解决模态差异
-   - 设计动机：防止空间条件压制文本语义——通过自注意力让两者协商，确保文本描述也被尊重
+
+    - 做什么：将 query tokens 中的空间信息与文本 tokens 的语义信息对齐
+    - 核心思路：$[\mathcal{Q}_{j+1}, \mathcal{T}_{j+1}] = SelfAttn([\mathcal{Q}_j, \mathcal{T}_j])$
+    - 额外的 textual task prompt（如"depth + segmentation"）附加到用户文本中，解决模态差异
+    - 设计动机：防止空间条件压制文本语义——通过自注意力让两者协商，确保文本描述也被尊重
 
 3. **Multi-Level Visual Tokens**:
-   - 做什么：从 CLIP 的多层提取视觉特征，提供不同粒度的控制
-   - 消融显示 4 层最优（FID 43.67），过多层反而略降
+
+    - 做什么：从 CLIP 的多层提取视觉特征，提供不同粒度的控制
+    - 消融显示 4 层最优（FID 43.67），过多层反而略降
 
 4. **Unaligned Training Data**:
-   - 做什么：合成前景+背景不对齐的训练数据，弥合训练（完美对齐）和测试（任意组合）的差距
-   - FID 从 52.10 降到 44.28，提升巨大
+
+    - 做什么：合成前景+背景不对齐的训练数据，弥合训练（完美对齐）和测试（任意组合）的差距
+    - FID 从 52.10 降到 44.28，提升巨大
 
 ### 损失函数 / 训练策略
 - MultiGen 数据集 2.8M 对齐图 + 0.44M 合成不对齐图

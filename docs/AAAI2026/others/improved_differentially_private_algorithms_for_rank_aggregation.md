@@ -44,25 +44,29 @@ tags:
 ### 关键设计
 
 1. **改进的二叉树机制（Modified Binary Tree Mechanism）**:
-   - 做什么：高效回答差分隐私下的近似中位数（ApxMed）查询，即对每个候选位置 $j$ 估计 $\gamma_j(\mathbf{x}) = \frac{1}{n}\sum_{i=1}^n |x_i - j|$
-   - 核心思路：在经典二叉树机制的基础上进行扩展。原始机制用于回答区间频率查询，本文将每个节点 $t$ 存储两个聚合值：$v_t^{agg} = \frac{1}{n}\sum_{x_i \in I(t)}|x_i - r(t)|$（位置偏差之和）和 $u_t^{agg} = \frac{1}{n}\sum_{x_i \in I(t)} 2^{\ell(t)}$（计数缩放量）。通过兄弟节点的信息可以重建 $\gamma_j$ 的估计
-   - 设计动机：朴素方法中每个数据点 $\pi_i(q)$ 影响最多 $m$ 个输出值，导致隐私预算被过度分割、噪声过大。二叉树结构确保每个数据点仅出现在 $O(\log m)$ 个区间中，大幅降低噪声。此外引入权重因子 $\kappa^{d-\ell(t)}$ 进一步减少对数因子的误差
-   - 精度保证：$\varepsilon$-DP下 $\beta = O(m\log m / \varepsilon n)$，$(ε,δ)$-DP下 $\beta = O(m\sqrt{\log m \log(1/\delta)} / \varepsilon n)$
+
+    - 做什么：高效回答差分隐私下的近似中位数（ApxMed）查询，即对每个候选位置 $j$ 估计 $\gamma_j(\mathbf{x}) = \frac{1}{n}\sum_{i=1}^n |x_i - j|$
+    - 核心思路：在经典二叉树机制的基础上进行扩展。原始机制用于回答区间频率查询，本文将每个节点 $t$ 存储两个聚合值：$v_t^{agg} = \frac{1}{n}\sum_{x_i \in I(t)}|x_i - r(t)|$（位置偏差之和）和 $u_t^{agg} = \frac{1}{n}\sum_{x_i \in I(t)} 2^{\ell(t)}$（计数缩放量）。通过兄弟节点的信息可以重建 $\gamma_j$ 的估计
+    - 设计动机：朴素方法中每个数据点 $\pi_i(q)$ 影响最多 $m$ 个输出值，导致隐私预算被过度分割、噪声过大。二叉树结构确保每个数据点仅出现在 $O(\log m)$ 个区间中，大幅降低噪声。此外引入权重因子 $\kappa^{d-\ell(t)}$ 进一步减少对数因子的误差
+    - 精度保证：$\varepsilon$-DP下 $\beta = O(m\log m / \varepsilon n)$，$(ε,δ)$-DP下 $\beta = O(m\sqrt{\log m \log(1/\delta)} / \varepsilon n)$
 
 2. **从ApxMed到Footrule排名聚合（Algorithm 2）**:
-   - 做什么：利用并行ApxMed解决footrule排名聚合
-   - 核心思路：将footrule排名聚合建模为最小权二部匹配。对每对候选 $q$ 和位置 $j$，分配代价 $\gamma_q^j = \frac{1}{n}\sum_{i=1}^n |\pi_i(q) - j|$。先用 $m$-并行ApxMed私有地估计所有权重，再求解最小权二部匹配
-   - 设计动机：由于Spearman footrule距离介于Kendall tau距离的1倍到2倍之间，footrule的 $(1,\beta)$-近似直接给出Kemeny的 $(2,\beta)$-近似，将乘法因子从5降至2
+
+    - 做什么：利用并行ApxMed解决footrule排名聚合
+    - 核心思路：将footrule排名聚合建模为最小权二部匹配。对每对候选 $q$ 和位置 $j$，分配代价 $\gamma_q^j = \frac{1}{n}\sum_{i=1}^n |\pi_i(q) - j|$。先用 $m$-并行ApxMed私有地估计所有权重，再求解最小权二部匹配
+    - 设计动机：由于Spearman footrule距离介于Kendall tau距离的1倍到2倍之间，footrule的 $(1,\beta)$-近似直接给出Kemeny的 $(2,\beta)$-近似，将乘法因子从5降至2
 
 3. **改进的Kemeny PTAS——大$n$情况（Leveraging Unbiasedness）**:
-   - 做什么：当 $n = \Omega_{\varepsilon,\delta}(m\log m)$ 时，通过无偏高斯噪声扰动权重矩阵
-   - 核心思路：对权重矩阵 $\mathbf{w}^\Pi$ 加独立高斯噪声 $\mathcal{N}(0, \sigma^2)$ 得到私有化矩阵 $\tilde{\mathbf{w}}$。关键发现是：对于 $w_{uv} < w_{vu}$ 的情况，可以将 $w_{uv}$ 替换为0、$w_{vu}$ 替换为 $w_{vu} - w_{uv}$，只对后者加噪声即可避免截断偏差，同时保证高概率下的非负性
-   - 设计动机：直接加噪声可能产生负值，非私有PTAS无法处理；截断修复会引入 $O(m^3)$ 的偏差。本文的无偏化处理在 $\sigma = O(1/\log m)$ 下即可保证非负性
+
+    - 做什么：当 $n = \Omega_{\varepsilon,\delta}(m\log m)$ 时，通过无偏高斯噪声扰动权重矩阵
+    - 核心思路：对权重矩阵 $\mathbf{w}^\Pi$ 加独立高斯噪声 $\mathcal{N}(0, \sigma^2)$ 得到私有化矩阵 $\tilde{\mathbf{w}}$。关键发现是：对于 $w_{uv} < w_{vu}$ 的情况，可以将 $w_{uv}$ 替换为0、$w_{vu}$ 替换为 $w_{vu} - w_{uv}$，只对后者加噪声即可避免截断偏差，同时保证高概率下的非负性
+    - 设计动机：直接加噪声可能产生负值，非私有PTAS无法处理；截断修复会引入 $O(m^3)$ 的偏差。本文的无偏化处理在 $\sigma = O(1/\log m)$ 下即可保证非负性
 
 4. **改进的Kemeny PTAS——小$n$情况（Reduction to 2-Way Marginals, Algorithm 3）**:
-   - 做什么：当 $n$ 较小时，通过分桶将Kemeny排名编码为二路边际查询
-   - 核心思路：将排名值域 $[m]$ 分为 $B$ 个桶。对同桶内的比较用标准Laplace/Gaussian机制处理（灵敏度降低），对跨桶比较编码为二路边际查询 $t_{uv} = \frac{1}{n}\sum_{i} \mathbf{1}[\iota(\pi_i(u)) < \iota(\pi_i(v))]$，利用DP二路边际算法的优越精度保证
-   - 设计动机：DP二路边际算法在小 $n$ 时的误差 $O_{\varepsilon,\delta}(m^{1/4}/\sqrt{n})$ 远优于标准噪声添加。通过优化桶数 $B$，最终在 $(ε,δ)$-DP下将PTAS加性误差从 $m^3$ 降至 $m^{65/22} \approx m^{2.955}$
+
+    - 做什么：当 $n$ 较小时，通过分桶将Kemeny排名编码为二路边际查询
+    - 核心思路：将排名值域 $[m]$ 分为 $B$ 个桶。对同桶内的比较用标准Laplace/Gaussian机制处理（灵敏度降低），对跨桶比较编码为二路边际查询 $t_{uv} = \frac{1}{n}\sum_{i} \mathbf{1}[\iota(\pi_i(u)) < \iota(\pi_i(v))]$，利用DP二路边际算法的优越精度保证
+    - 设计动机：DP二路边际算法在小 $n$ 时的误差 $O_{\varepsilon,\delta}(m^{1/4}/\sqrt{n})$ 远优于标准噪声添加。通过优化桶数 $B$，最终在 $(ε,δ)$-DP下将PTAS加性误差从 $m^3$ 降至 $m^{65/22} \approx m^{2.955}$
 
 ### 理论结果汇总
 

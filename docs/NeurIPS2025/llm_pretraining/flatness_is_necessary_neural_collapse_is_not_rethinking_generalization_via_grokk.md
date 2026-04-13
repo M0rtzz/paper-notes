@@ -34,8 +34,8 @@ tags:
 
 深度过参数化网络能记忆任意标签（Zhang et al., 2017），却在自然数据上良好泛化。两个被广泛讨论的泛化几何特征是：
 
-1. **Neural Collapse (NC)**：训练后期，倒数第二层特征按类坍缩为均值（NC1），均值形成 simplex ETF（NC2），分类器权重与均值对齐（NC3），分类器退化为最近邻（NC4）。已在多种架构中被观察到并被视为泛化指标。
-2. **Loss landscape flatness**：loss 对参数扰动不敏感。经典 Hessian 度量有 reparameterization sensitivity 问题（Dinh et al., 2017），Petzka et al. (2021) 提出的 **relative flatness** 解决了该问题，具有重参数化不变性。
+**Neural Collapse (NC)**：训练后期，倒数第二层特征按类坍缩为均值（NC1），均值形成 simplex ETF（NC2），分类器权重与均值对齐（NC3），分类器退化为最近邻（NC4）。已在多种架构中被观察到并被视为泛化指标。
+**Loss landscape flatness**：loss 对参数扰动不敏感。经典 Hessian 度量有 reparameterization sensitivity 问题（Dinh et al., 2017），Petzka et al. (2021) 提出的 **relative flatness** 解决了该问题，具有重参数化不变性。
 
 两者在训练后期**同时**出现并与泛化相关，但核心问题是：**它们是泛化的原因还是副产品？谁才是更根本的驱动因素？**
 

@@ -28,12 +28,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 遗忘研究集中在遗忘方法设计（GA、DPO、NPO 等），对 retain set 的构成和选择缺少深入分析。
-2. **现有痛点**：现有邻居集（Domain Neighbor、Entity Neighbor）基于领域或实体关系构建，但这些方法是否真正捕捉了遗忘过程中最脆弱的知识区域尚未验证。
-3. **核心矛盾**：遗忘过程会连带损害 retain set 中的知识，但具体哪些知识最易受损？现有假设（领域/实体相似性最关键）是否正确？
-4. **本文要解决什么？** 回答两个研究问题：(RQ1) 遗忘对不同邻居集的性能影响有何差异？(RQ2) 哪种邻居集做正则化效果最优？
-5. **切入角度**：从句法结构（syntactic structure）而非语义/领域角度重新审视遗忘的传播模式。
-6. **核心 idea 一句话**：遗忘主要沿句法模式传播——结构相似的问题最易被连带遗忘，也最适合用于保留正则化。
+**领域现状**：LLM 遗忘研究集中在遗忘方法设计（GA、DPO、NPO 等），对 retain set 的构成和选择缺少深入分析。
+**现有痛点**：现有邻居集（Domain Neighbor、Entity Neighbor）基于领域或实体关系构建，但这些方法是否真正捕捉了遗忘过程中最脆弱的知识区域尚未验证。
+**核心矛盾**：遗忘过程会连带损害 retain set 中的知识，但具体哪些知识最易受损？现有假设（领域/实体相似性最关键）是否正确？
+**本文要解决什么？** 回答两个研究问题：(RQ1) 遗忘对不同邻居集的性能影响有何差异？(RQ2) 哪种邻居集做正则化效果最优？
+**切入角度**：从句法结构（syntactic structure）而非语义/领域角度重新审视遗忘的传播模式。
+**核心 idea 一句话**：遗忘主要沿句法模式传播——结构相似的问题最易被连带遗忘，也最适合用于保留正则化。
 
 ## 方法详解
 
@@ -46,21 +46,24 @@ tags:
 ### 关键设计
 
 1. **Syntactically Similar Neighbor Set 构建**
-   - 第一步：GPT-4o 实体掩码（mask 人名、日期、组织名），聚焦句法结构
-   - 第二步：计算掩码后问题的 Levenshtein 相似度，聚类（阈值 $\theta_{high}$，簇大小 ≥ 3）
-   - 第三步：从 retain set 中选不在其他邻居集的实体，按聚类的句法模式生成新 QA 对
-   - 第四步：模型探测验证（只保留模型能正确回答的 QA 对）
+
+    - 第一步：GPT-4o 实体掩码（mask 人名、日期、组织名），聚焦句法结构
+    - 第二步：计算掩码后问题的 Levenshtein 相似度，聚类（阈值 $\theta_{high}$，簇大小 ≥ 3）
+    - 第三步：从 retain set 中选不在其他邻居集的实体，按聚类的句法模式生成新 QA 对
+    - 第四步：模型探测验证（只保留模型能正确回答的 QA 对）
 
 2. **评估指标**
-   - Model Utility (MU)：ROUGE + BERT Cosine Sim + Probability + Entailment 的算术平均
-   - Forget Efficacy (FE)：同指标集在 forget set 上的聚合
-   - Relative Utility Drop (RUD)：$(MU_{after} - MU_{before}) / MU_{before} \times 100$
-   - 所有遗忘方法的 Forget Efficacy 统一调到 0.65–0.75 区间（公平比较）
+
+    - Model Utility (MU)：ROUGE + BERT Cosine Sim + Probability + Entailment 的算术平均
+    - Forget Efficacy (FE)：同指标集在 forget set 上的聚合
+    - Relative Utility Drop (RUD)：$(MU_{after} - MU_{before}) / MU_{before} \times 100$
+    - 所有遗忘方法的 Forget Efficacy 统一调到 0.65–0.75 区间（公平比较）
 
 3. **正则化实验设计**
-   - 两种正则化 loss：GD（标准梯度下降保留）和 KL（KL 散度保留）
-   - 3×3 矩阵：train retain set（Domain / Entity / Syntactically Similar）× test retain set
-   - 每格取 4 种遗忘方法的 RUD 平均
+
+    - 两种正则化 loss：GD（标准梯度下降保留）和 KL（KL 散度保留）
+    - 3×3 矩阵：train retain set（Domain / Entity / Syntactically Similar）× test retain set
+    - 每格取 4 种遗忘方法的 RUD 平均
 
 ## 实验关键数据
 

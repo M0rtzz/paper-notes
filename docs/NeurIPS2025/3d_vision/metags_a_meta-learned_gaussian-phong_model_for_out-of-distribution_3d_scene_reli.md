@@ -33,9 +33,9 @@ tags:
 
 现有OLAT方法假设训练和测试时的光源分布一致，但真实场景中光源位置是随机的，测试光源可能位于训练未覆盖的区域。实验表明（如图1），当测试光照位于训练光照的对侧半球时，NRHints和GS3等先进方法严重退化——产生混乱的高光、阴影甚至颜色偏移，根本原因在于：
 
-1. **过拟合特定光照模式**：标准3DGS/NeRF损失函数只优化训练样本的重建精度，不鼓励跨光照条件的泛化
-2. **隐式光照建模不可外推**：用SH系数或MLP隐式编码光照效果无法推广到未见光照方向
-3. **几何与光照纠缠**：在OLAT设定下，每帧的颜色受光照影响剧烈变化，增加了学习真实几何和反射属性的模糊性
+**过拟合特定光照模式**：标准3DGS/NeRF损失函数只优化训练样本的重建精度，不鼓励跨光照条件的泛化
+**隐式光照建模不可外推**：用SH系数或MLP隐式编码光照效果无法推广到未见光照方向
+**几何与光照纠缠**：在OLAT设定下，每帧的颜色受光照影响剧烈变化，增加了学习真实几何和反射属性的模糊性
 
 **本文的切入角度**：从两个维度解决OOD重光照——（1）用物理先验（Phong模型）显式解耦漫反射、镜面反射和环境光，使模型理解光照交互的物理原理；（2）用元学习策略在训练中模拟OOD测试条件，迫使模型学习光照无关的几何和反射属性。
 
@@ -48,15 +48,17 @@ MetaGS在标准3DGS基础上扩展，每个高斯点额外关联法线 $\mathbf{
 ### 关键设计
 
 1. **可微Phong反射模型**：将每个高斯点的颜色显式分解为三个分量：
-   - **环境光** $L_a$：用零阶球谐系数 $f_0$ 表示恒定环境照明
-   - **漫反射** $L_d = k_d I_d$，其中 $I_d = \frac{I}{r^2}\max(0, \mathbf{n} \cdot \mathbf{l})$（Lambert定律）
-   - **镜面反射** $L_s = k_s I_s$，其中 $I_s = \frac{I}{r^2}\max(0, \mathbf{n} \cdot \mathbf{h})^p$（Blinn-Phong模型）
+
+    - **环境光** $L_a$：用零阶球谐系数 $f_0$ 表示恒定环境照明
+    - **漫反射** $L_d = k_d I_d$，其中 $I_d = \frac{I}{r^2}\max(0, \mathbf{n} \cdot \mathbf{l})$（Lambert定律）
+    - **镜面反射** $L_s = k_s I_s$，其中 $I_s = \frac{I}{r^2}\max(0, \mathbf{n} \cdot \mathbf{h})^p$（Blinn-Phong模型）
    
    $\mathbf{l}$ 是点到光源方向，$\mathbf{h}$ 是观察方向 $\mathbf{v}$ 和光源方向 $\mathbf{l}$ 的中间向量。总颜色为 $L_p = L_a + T_i^{\text{light}} \sum(k_d I_d + k_s I_s)$，其中 $T_i^{\text{light}}$ 是基于BVH光线追踪的阴影可见性因子。设计动机：显式物理公式使模型能根据法线和光源方向计算高光位置，而非记忆特定视角下的颜色，从而可泛化到未见方向。
 
 2. **元学习双层优化（Meta-Learning Bilevel Optimization）**：将不同光照条件下的渲染视为独立"任务"，核心直觉是在每次梯度更新中模拟OOD测试条件：
-   - **内循环**：在每个支持集样本（特定光照）上独立训练，产生 $m$ 个子模型假设 $\theta_i' \leftarrow \theta - \alpha\nabla_\theta\mathcal{L}(\theta; \mathcal{D}_i^{\text{sup}})$
-   - **外循环**：在查询集（不同光照）上评估这些子模型，聚合损失更新全局参数 $\theta \leftarrow \theta - \beta\sum_{i=1}^m\nabla_\theta\mathcal{L}(\theta_i'; \mathcal{D}_i^{\text{query}})$
+
+    - **内循环**：在每个支持集样本（特定光照）上独立训练，产生 $m$ 个子模型假设 $\theta_i' \leftarrow \theta - \alpha\nabla_\theta\mathcal{L}(\theta; \mathcal{D}_i^{\text{sup}})$
+    - **外循环**：在查询集（不同光照）上评估这些子模型，聚合损失更新全局参数 $\theta \leftarrow \theta - \beta\sum_{i=1}^m\nabla_\theta\mathcal{L}(\theta_i'; \mathcal{D}_i^{\text{query}})$
    
    产生的二阶梯度显式鼓励高斯点的光照属性（$f_0, k_d, k_s$）和几何属性（$\mathbf{x}, \mathbf{n}, R, S, \alpha$）在不同光照条件间一致收敛，而非过拟合到特定训练样本。
 

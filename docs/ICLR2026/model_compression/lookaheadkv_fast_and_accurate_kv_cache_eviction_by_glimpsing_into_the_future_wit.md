@@ -28,8 +28,8 @@ tags:
 KV缓存大小随序列长度线性增长，成为长上下文推理的瓶颈。例如LLaMA3.1-70B处理128K token需要40GB内存。KV缓存淘汰方法通过保留重要token的KV缓存来压缩内存。
 
 现有方法面临准确性-开销权衡：
-1. **基于提示的方法**（SnapKV）：用输入后缀估计重要性，开销小但在低预算下性能急剧下降
-2. **基于草稿的方法**（LAQ, SpecKV）：先生成近似响应再用其估计重要性，准确但草稿生成代价高
+**基于提示的方法**（SnapKV）：用输入后缀估计重要性，开销小但在低预算下性能急剧下降
+**基于草稿的方法**（LAQ, SpecKV）：先生成近似响应再用其估计重要性，准确但草稿生成代价高
 
 核心矛盾是：利用未来响应信息可以大幅提升淘汰质量，但生成响应本身就很昂贵。LookaheadKV 的核心idea是：训练一组特殊的前瞻token来"隐式预测"未来注意力模式，完全跳过草稿生成步骤。
 
@@ -40,19 +40,22 @@ LookaheadKV 在预填充阶段追加可学习的前瞻token，它们的注意力
 
 ### 关键设计
 1. **可学习前瞻Token**:
-   - 做什么：在输入序列末尾追加 $n_{\text{lookahead}}$ 个可训练软token（默认32个）
-   - 核心思路：这些token的查询向量被训练为压缩真实响应的注意力模式。重要性估计为 $\tilde{s}_j = \frac{1}{n_{\text{lookahead}}}\sum_i \mathbf{A}_{\text{LKV}_{i,j}}$
-   - 设计动机：前瞻token仅在预填充阶段使用，解码阶段无额外开销
+
+    - 做什么：在输入序列末尾追加 $n_{\text{lookahead}}$ 个可训练软token（默认32个）
+    - 核心思路：这些token的查询向量被训练为压缩真实响应的注意力模式。重要性估计为 $\tilde{s}_j = \frac{1}{n_{\text{lookahead}}}\sum_i \mathbf{A}_{\text{LKV}_{i,j}}$
+    - 设计动机：前瞻token仅在预填充阶段使用，解码阶段无额外开销
 
 2. **Lookahead LoRA（选择性激活）**:
-   - 做什么：为前瞻token引入专用的低秩适配器
-   - 核心思路：查询和键的计算为 $\mathbf{Q}_{\text{LKV}} = [\mathbf{X}; \mathbf{P}]\mathbf{W}_q + [\mathbf{0}; \mathbf{P}]\Delta\mathbf{W}_q$，其中 $\Delta\mathbf{W}$ 仅对前瞻token激活。正常输入token的表示完全不变
-   - 设计动机：选择性激活保证原始模型行为不被修改，可即插即用
+
+    - 做什么：为前瞻token引入专用的低秩适配器
+    - 核心思路：查询和键的计算为 $\mathbf{Q}_{\text{LKV}} = [\mathbf{X}; \mathbf{P}]\mathbf{W}_q + [\mathbf{0}; \mathbf{P}]\Delta\mathbf{W}_q$，其中 $\Delta\mathbf{W}$ 仅对前瞻token激活。正常输入token的表示完全不变
+    - 设计动机：选择性激活保证原始模型行为不被修改，可即插即用
 
 3. **KL散度训练**:
-   - 做什么：训练前瞻模块预测真实重要性分数
-   - 核心思路：损失函数 $\mathcal{L}_{\text{LKV}} = \frac{1}{LH}\sum_l\sum_h D_{\text{KL}}(\hat{\mathbf{s}}_{\text{GT}}^{l,h} \| \hat{\mathbf{s}}_{\text{LKV}}^{l,h})$，其中GT分数从模型真实响应获取
-   - 设计动机：等价于ListNet排序损失，关注排序而非绝对值
+
+    - 做什么：训练前瞻模块预测真实重要性分数
+    - 核心思路：损失函数 $\mathcal{L}_{\text{LKV}} = \frac{1}{LH}\sum_l\sum_h D_{\text{KL}}(\hat{\mathbf{s}}_{\text{GT}}^{l,h} \| \hat{\mathbf{s}}_{\text{LKV}}^{l,h})$，其中GT分数从模型真实响应获取
+    - 设计动机：等价于ListNet排序损失，关注排序而非绝对值
 
 ### 损失函数 / 训练策略
 - 训练数据：50K ChatQA2 + 20K Tulu + 7K Stack + 9K few-shot合成

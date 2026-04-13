@@ -46,27 +46,30 @@ ConformalSAM采用两阶段训练：
 ### 关键设计
 
 1. **CP校准的基础模型推理（Stage I）**：
-   - **校准过程**：用标注数据 $D_l$ 作为校准集
-     - 对每张标注图用SEEM生成概率图 $P_i \in \mathbb{R}^{K \times H \times W}$
-     - 计算非一致性分数：$\hat{P}_i^j(a,b) = 1 - P_i^j(a,b)$（仅对真实类别的像素）
-     - 汇总所有图像的非一致性分数，计算 $(1-\alpha)$ 分位数阈值 $\hat{q}_\alpha$
-   - **校准推理**：对未标注图 $x_i$，像素 $(a,b)$ 的预测集为 $\mathcal{C}_i(a,b) = \{j: \hat{P}_i^j(a,b) \leq \hat{q}_\alpha(a,b)\}$
-   - **类别条件过滤**：由于背景像素占主导地位，当背景类和非背景类同时在预测集中时，优先选择非背景类：
-     $$M_i(a,b) = \begin{cases} \arg\min_j \mathcal{C}_i[j], & |\mathcal{C}_i| > 0 \land 0 \notin \mathcal{C}_i \\ \arg\min_{j \neq 0} \mathcal{C}_i[j], & |\mathcal{C}_i| > 0 \land 0 \in \mathcal{C}_i \\ \text{NaN}, & |\mathcal{C}_i| = 0 \end{cases}$$
-   - 当预测集为空时，该像素标签设为NaN（忽略），有效滤除低置信度预测
-   - 误覆盖率 $\alpha = 0.05$
+
+    - **校准过程**：用标注数据 $D_l$ 作为校准集
+      - 对每张标注图用SEEM生成概率图 $P_i \in \mathbb{R}^{K \times H \times W}$
+      - 计算非一致性分数：$\hat{P}_i^j(a,b) = 1 - P_i^j(a,b)$（仅对真实类别的像素）
+      - 汇总所有图像的非一致性分数，计算 $(1-\alpha)$ 分位数阈值 $\hat{q}_\alpha$
+    - **校准推理**：对未标注图 $x_i$，像素 $(a,b)$ 的预测集为 $\mathcal{C}_i(a,b) = \{j: \hat{P}_i^j(a,b) \leq \hat{q}_\alpha(a,b)\}$
+    - **类别条件过滤**：由于背景像素占主导地位，当背景类和非背景类同时在预测集中时，优先选择非背景类：
+    $M_i(a,b) = \begin{cases} \arg\min_j \mathcal{C}_i[j], & |\mathcal{C}_i| > 0 \land 0 \notin \mathcal{C}_i \\ \arg\min_{j \neq 0} \mathcal{C}_i[j], & |\mathcal{C}_i| > 0 \land 0 \in \mathcal{C}_i \\ \text{NaN}, & |\mathcal{C}_i| = 0 \end{cases}$
+    - 当预测集为空时，该像素标签设为NaN（忽略），有效滤除低置信度预测
+    - 误覆盖率 $\alpha = 0.05$
 
 2. **自依赖训练策略（Stage II）**：
-   - 放弃SEEM生成的mask，使用模型自身的伪标签
-   - 动态权重衰减策略：$\mathcal{L} = (1 - \lambda(t)) \times \mathcal{L}_s + \lambda(t) \times \mathcal{L}_u$
-   - $\lambda(t)$ 指数衰减，使模型后期越来越依赖真实标签监督
-   - PASCAL VOC: Stage I 60 epochs, Stage II 20 epochs
-   - ADE20K: Stage I 30 epochs, Stage II 10 epochs
+
+    - 放弃SEEM生成的mask，使用模型自身的伪标签
+    - 动态权重衰减策略：$\mathcal{L} = (1 - \lambda(t)) \times \mathcal{L}_s + \lambda(t) \times \mathcal{L}_u$
+    - $\lambda(t)$ 指数衰减，使模型后期越来越依赖真实标签监督
+    - PASCAL VOC: Stage I 60 epochs, Stage II 20 epochs
+    - ADE20K: Stage I 30 epochs, Stage II 10 epochs
 
 3. **灵活的插件式设计**：
-   - 可替换Stage II的自训练框架为其他方法如AllSpark
-   - ConformalSAM(AllSpark)：Stage I用CP校准伪标签，Stage II切换到AllSpark
-   - 体现了框架的通用性和可组合性
+
+    - 可替换Stage II的自训练框架为其他方法如AllSpark
+    - ConformalSAM(AllSpark)：Stage I用CP校准伪标签，Stage II切换到AllSpark
+    - 体现了框架的通用性和可组合性
 
 ### 损失函数 / 训练策略
 

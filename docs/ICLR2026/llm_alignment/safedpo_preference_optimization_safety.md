@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 部署需要同时保证有用性（helpfulness）和安全性（safety），主流做法是将安全约束引入 RLHF，如 SafeRLHF 使用拉格朗日方法约束代价函数。
+**领域现状**：LLM 部署需要同时保证有用性（helpfulness）和安全性（safety），主流做法是将安全约束引入 RLHF，如 SafeRLHF 使用拉格朗日方法约束代价函数。
 
-2. **现有痛点**：(a) SafeRLHF 需要训练奖励模型+代价模型+两个 value 网络+在线采样，共 6 个网络，复杂度极高（训练 35,200 秒 vs DPO 的 1,388 秒）；(b) SACPO 等方法依赖近似放松，无法保证收敛到原始安全约束问题的解；(c) 直接在 DPO 上分别训练有用性/无害性数据效果不佳——DPO-HELPFUL 有用但不安全，DPO-HARMLESS 安全但不有用。
+**现有痛点**：(a) SafeRLHF 需要训练奖励模型+代价模型+两个 value 网络+在线采样，共 6 个网络，复杂度极高（训练 35,200 秒 vs DPO 的 1,388 秒）；(b) SACPO 等方法依赖近似放松，无法保证收敛到原始安全约束问题的解；(c) 直接在 DPO 上分别训练有用性/无害性数据效果不佳——DPO-HELPFUL 有用但不安全，DPO-HARMLESS 安全但不有用。
 
-3. **核心矛盾**：有用性和安全性之间存在天然张力——模型越"配合"用户请求越有用，但也越容易生成有害内容。如何在单阶段训练中同时兼顾？
+**核心矛盾**：有用性和安全性之间存在天然张力——模型越"配合"用户请求越有用，但也越容易生成有害内容。如何在单阶段训练中同时兼顾？
 
-4. **本文要解决什么？** 能否找到安全约束优化问题的闭式解，从而像 DPO 一样用监督学习直接训练，避免复杂的多阶段管线？
+**本文要解决什么？** 能否找到安全约束优化问题的闭式解，从而像 DPO 一样用监督学习直接训练，避免复杂的多阶段管线？
 
-5. **切入角度**：将安全约束转化为代价增强奖励 $r_c(x,y) = r(x,y)$ if safe, $-\infty$ if unsafe，这使得不安全响应在最优策略中概率为零，且该问题有闭式最优策略。
+**切入角度**：将安全约束转化为代价增强奖励 $r_c(x,y) = r(x,y)$ if safe, $-\infty$ if unsafe，这使得不安全响应在最优策略中概率为零，且该问题有闭式最优策略。
 
-6. **核心idea一句话**：通过安全感知的数据变换（交换不安全 winner）+ 安全 margin 项，将安全约束精确编码进 DPO 损失中，无需额外模型。
+**核心idea一句话**：通过安全感知的数据变换（交换不安全 winner）+ 安全 margin 项，将安全约束精确编码进 DPO 损失中，无需额外模型。
 
 ## 方法详解
 
@@ -46,19 +46,22 @@ SafeDPO 在标准 DPO pipeline 上做两个修改：(1) 安全感知数据变换
 ### 关键设计
 
 1. **代价增强奖励与闭式最优策略**
-   - 做什么：将硬安全约束转化为显式的奖励修改
-   - 核心思路：$r_c(x,y) = r(x,y)$ if $c(x,y) \leq 0$（安全），$-\infty$ otherwise（不安全）。由此闭式最优策略为 $\pi^*(y|x) = \frac{1}{Z(x)} \pi_{\text{ref}}(y|x) \exp(\frac{1}{\beta} r_c(x,y))$，不安全响应自动获得零概率
-   - 设计动机：将看似不可处理的硬约束问题转化为标准的 KL 正则化框架，允许 DPO 式重参数化
+
+    - 做什么：将硬安全约束转化为显式的奖励修改
+    - 核心思路：$r_c(x,y) = r(x,y)$ if $c(x,y) \leq 0$（安全），$-\infty$ otherwise（不安全）。由此闭式最优策略为 $\pi^*(y|x) = \frac{1}{Z(x)} \pi_{\text{ref}}(y|x) \exp(\frac{1}{\beta} r_c(x,y))$，不安全响应自动获得零概率
+    - 设计动机：将看似不可处理的硬约束问题转化为标准的 KL 正则化框架，允许 DPO 式重参数化
 
 2. **安全感知数据变换 $T$**
-   - 做什么：根据安全标签重新整理偏好对
-   - 核心思路：给定 $(x, y_w, y_l, h_w, h_l)$，$h=1$ 表示不安全：(a) $h_w=0$: 保持不变；(b) $h_w=1, h_l=0$: **交换** winner 和 loser；(c) $h_w=1, h_l=1$: **丢弃**
-   - 设计动机：消融实验证明这一步是最关键的——仅给其他 DPO 变体加 margin 效果有限，但安全感知变换可显著提升安全性
+
+    - 做什么：根据安全标签重新整理偏好对
+    - 核心思路：给定 $(x, y_w, y_l, h_w, h_l)$，$h=1$ 表示不安全：(a) $h_w=0$: 保持不变；(b) $h_w=1, h_l=0$: **交换** winner 和 loser；(c) $h_w=1, h_l=1$: **丢弃**
+    - 设计动机：消融实验证明这一步是最关键的——仅给其他 DPO 变体加 margin 效果有限，但安全感知变换可显著提升安全性
 
 3. **SafeDPO 损失与安全 Margin**
-   - 做什么：在标准 DPO loss 中增加安全 margin 项
-   - 核心思路：$\mathcal{L}(\theta; \Delta) = -\mathbb{E}[\log \sigma(\beta \log \frac{\pi_\theta(\tilde{y}_w|x)}{\pi_{\text{ref}}(\tilde{y}_w|x)} - \beta \log \frac{\pi_\theta(\tilde{y}_l|x)}{\pi_{\text{ref}}(\tilde{y}_l|x)} - (\tilde{h}_l - \tilde{h}_w)\Delta)]$。Margin $\Delta \geq 0$ 仅在安全-不安全对上激活（$\tilde{h}_l - \tilde{h}_w = 1$），增大安全响应的优势
-   - 设计动机：**Proposition 4.4** 证明 $\Delta$ 不改变最优解集（optimality invariance），但改善优化动态——加速远离不安全区域
+
+    - 做什么：在标准 DPO loss 中增加安全 margin 项
+    - 核心思路：$\mathcal{L}(\theta; \Delta) = -\mathbb{E}[\log \sigma(\beta \log \frac{\pi_\theta(\tilde{y}_w|x)}{\pi_{\text{ref}}(\tilde{y}_w|x)} - \beta \log \frac{\pi_\theta(\tilde{y}_l|x)}{\pi_{\text{ref}}(\tilde{y}_l|x)} - (\tilde{h}_l - \tilde{h}_w)\Delta)]$。Margin $\Delta \geq 0$ 仅在安全-不安全对上激活（$\tilde{h}_l - \tilde{h}_w = 1$），增大安全响应的优势
+    - 设计动机：**Proposition 4.4** 证明 $\Delta$ 不改变最优解集（optimality invariance），但改善优化动态——加速远离不安全区域
 
 ### 损失函数 / 训练策略
 基于标准 DPO 训练框架，$\beta=0.1$, $\Delta=10$（默认），3 epochs, lr=1e-6, cosine schedule。仅需偏好数据 + 二值安全标签（$h \in \{0,1\}$），不需要有害性偏好标签。

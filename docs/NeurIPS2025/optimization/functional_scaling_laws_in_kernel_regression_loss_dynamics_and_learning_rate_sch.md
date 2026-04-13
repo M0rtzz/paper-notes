@@ -26,14 +26,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Kaplan 等人发现 LLM 预训练 loss 服从 $L(M,D) = L_0 + C_M M^{-\alpha_M} + C_D D^{-\alpha_D}$ 的幂律关系，scaling law 已成为指导 LLM 开发的基础原则。理论解释工作主要在核回归/线性回归代理模型上进行。
-2. **现有痛点**：
+**领域现状**：Kaplan 等人发现 LLM 预训练 loss 服从 $L(M,D) = L_0 + C_M M^{-\alpha_M} + C_D D^{-\alpha_D}$ 的幂律关系，scaling law 已成为指导 LLM 开发的基础原则。理论解释工作主要在核回归/线性回归代理模型上进行。
+**现有痛点**：
    - 现有理论仅针对终止 loss，未解释完整 loss 轨迹是否也遵循 scaling law
    - 学习率调度(LRS)的作用未被系统刻画——gradient flow、常数 LR SGD、指数衰减已分别研究，但缺乏统一理论
    - WSD (Warmup-Stable-Decay) 调度在实践中（DeepSeek-V3, Kimi-K2）表现优异，但其优势机制不清
-3. **核心矛盾**：LRS 同时影响信号学习和噪声注入/消散，不同调度策略在这两个效应间的权衡不同，需要统一框架
-4. **切入角度**：引入"内在时间"$t = \int_0^\tau \varphi(r) dr$（学习率累积），将 LRS 的影响从 SDE 的漂移项解耦，仅保留在扩散项中
-5. **核心idea**：FSL 将 loss 分解为不可约误差 + 近似误差 + 信号学习项 + 噪声卷积项，其中 LRS 仅通过卷积泛函进入最后一项
+**核心矛盾**：LRS 同时影响信号学习和噪声注入/消散，不同调度策略在这两个效应间的权衡不同，需要统一框架
+**切入角度**：引入"内在时间"$t = \int_0^\tau \varphi(r) dr$（学习率累积），将 LRS 的影响从 SDE 的漂移项解耦，仅保留在扩散项中
+**核心idea**：FSL 将 loss 分解为不可约误差 + 近似误差 + 信号学习项 + 噪声卷积项，其中 LRS 仅通过卷积泛函进入最后一项
 
 ## 方法详解
 
@@ -43,26 +43,30 @@ tags:
 ### 关键设计
 
 1. **内在时间重参数化**:
-   - 做什么：将物理时间 $\tau$ 按 LRS 重缩放为内在时间 $t$
-   - 核心思路：定义 $t = T(\tau) = \int_0^\tau \varphi(r) dr$，变量替换后原始 SDE $d\bar{\mathbf{v}}_\tau = -\varphi(\tau)\nabla\mathcal{R} d\tau + \varphi\sqrt{h/b \cdot \Sigma} d\mathbf{B}_\tau$ 变为 $d\boldsymbol{\nu}_t = -\nabla\mathcal{R} dt + \sqrt{\gamma(t)\Sigma} d\mathbf{B}_t$，其中 $\gamma(t) = h/(\varphi \cdot b)$ 在内在时间下。LRS 从漂移项完全消失
-   - 设计动机：内在时间比迭代步数更忠实地反映训练进度，使得信号学习部分与 LRS 无关
+
+    - 做什么：将物理时间 $\tau$ 按 LRS 重缩放为内在时间 $t$
+    - 核心思路：定义 $t = T(\tau) = \int_0^\tau \varphi(r) dr$，变量替换后原始 SDE $d\bar{\mathbf{v}}_\tau = -\varphi(\tau)\nabla\mathcal{R} d\tau + \varphi\sqrt{h/b \cdot \Sigma} d\mathbf{B}_\tau$ 变为 $d\boldsymbol{\nu}_t = -\nabla\mathcal{R} dt + \sqrt{\gamma(t)\Sigma} d\mathbf{B}_t$，其中 $\gamma(t) = h/(\varphi \cdot b)$ 在内在时间下。LRS 从漂移项完全消失
+    - 设计动机：内在时间比迭代步数更忠实地反映训练进度，使得信号学习部分与 LRS 无关
 
 2. **Functional Scaling Law (FSL)**:
-   - 做什么：刻画完整 loss 轨迹而非仅终止 loss
-   - 核心思路：
-   $$\mathbb{E}[\mathcal{R}(\boldsymbol{\nu}_t)] - \frac{\sigma^2}{2} \asymp M^{-s\beta} + e(t) + \int_0^t \mathcal{K}(t-z)[e(z)+\sigma^2]\gamma(z) dz$$
+
+    - 做什么：刻画完整 loss 轨迹而非仅终止 loss
+    - 核心思路：
+    $\mathbb{E}[\mathcal{R}(\boldsymbol{\nu}_t)] - \frac{\sigma^2}{2} \asymp M^{-s\beta} + e(t) + \int_0^t \mathcal{K}(t-z)[e(z)+\sigma^2]\gamma(z) dz$
    其中 $e(t) = (1+t)^{-s}$ 为信号学习项，$\mathcal{K}(t) = (1+t)^{-(2-1/\beta)}$ 为遗忘核
-   - 设计动机：四项分别对应不可约误差、近似误差、信号学习、噪声积累/消散。LRS 仅通过卷积进入最后一项
+    - 设计动机：四项分别对应不可约误差、近似误差、信号学习、噪声积累/消散。LRS 仅通过卷积进入最后一项
 
 3. **噪声结构分析 (Lemma 4.8)**:
-   - 做什么：精确刻画梯度噪声的各向异性结构
-   - 核心思路：$(2\rho_- \mathcal{E}(\mathbf{v}) + \sigma^2)\nabla^2\mathcal{R} \preceq \Sigma(\mathbf{v}) \preceq (2\rho_+ \mathcal{E}(\mathbf{v}) + \sigma^2)\nabla^2\mathcal{R}$，噪声沿各方向的能量正比于 risk × 该方向曲率
-   - 设计动机：这一结构使得噪声项可以用 loss 本身来界定，形成自洽的分析
+
+    - 做什么：精确刻画梯度噪声的各向异性结构
+    - 核心思路：$(2\rho_- \mathcal{E}(\mathbf{v}) + \sigma^2)\nabla^2\mathcal{R} \preceq \Sigma(\mathbf{v}) \preceq (2\rho_+ \mathcal{E}(\mathbf{v}) + \sigma^2)\nabla^2\mathcal{R}$，噪声沿各方向的能量正比于 risk × 该方向曲率
+    - 设计动机：这一结构使得噪声项可以用 loss 本身来界定，形成自洽的分析
 
 4. **三种 LRS 的显式 scaling**:
-   - 做什么：对 constant/exponential-decay/WSD 三种调度推导闭式 scaling 关系
-   - 核心思路：将 LRS 代入 FSL 的卷积项，分别计算数据受限（固定 $M$）和计算受限（$M$ 与 $D$ 联合优化）的最优分配
-   - 设计动机：量化不同 LRS 的 scaling 效率差异，解释 WSD 的经验优势
+
+    - 做什么：对 constant/exponential-decay/WSD 三种调度推导闭式 scaling 关系
+    - 核心思路：将 LRS 代入 FSL 的卷积项，分别计算数据受限（固定 $M$）和计算受限（$M$ 与 $D$ 联合优化）的最优分配
+    - 设计动机：量化不同 LRS 的 scaling 效率差异，解释 WSD 的经验优势
 
 ### 训练策略
 - 模型容量 $\beta > 1$，任务难度 $s > 0$，相对难度区分 easy ($s \geq 1-1/\beta$) vs hard ($s < 1-1/\beta$)

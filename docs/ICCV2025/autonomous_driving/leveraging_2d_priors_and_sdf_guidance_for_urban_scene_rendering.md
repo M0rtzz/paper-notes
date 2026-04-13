@@ -29,9 +29,9 @@ tags:
 
 动态城市场景的重建和渲染是自动驾驶仿真的核心需求，对 3D 检测、运动规划和安全场景仿真至关重要。当前方法存在以下局限：
 
-1. **过度依赖 3D 标注**：场景图方法（如 OmniRe）需要 3D bounding box tracklets、LiDAR 数据甚至 SMPL 人体模板，获取成本高昂
-2. **NeRF vs 3DGS vs SDF 各有短板**：NeRF/3DGS 视觉质量好但几何精度有限，SDF 几何精确但需要密集表示才能达到相当的视觉保真度
-3. **动态分解方法受限**：场景分解方法（如 S3Gaussians）只用单一动态场建模所有物体，缺乏精细控制
+**过度依赖 3D 标注**：场景图方法（如 OmniRe）需要 3D bounding box tracklets、LiDAR 数据甚至 SMPL 人体模板，获取成本高昂
+**NeRF vs 3DGS vs SDF 各有短板**：NeRF/3DGS 视觉质量好但几何精度有限，SDF 几何精确但需要密集表示才能达到相当的视觉保真度
+**动态分解方法受限**：场景分解方法（如 S3Gaussians）只用单一动态场建模所有物体，缺乏精细控制
 
 作者的核心洞察是：2D 目标无关先验（深度估计+点跟踪）结合 SDF+3DGS 的双重表示，可以在不需要任何 3D 标注的情况下，实现甚至超越使用 3D 标注方法的渲染质量。
 
@@ -54,12 +54,13 @@ $$\mathbf{x}_i = \mathbf{D}_t^c(\boldsymbol{p}) \times (\mathbf{K}^c)^{-1} \tild
 2. **SDF 变形网络**：建模动态物体的几何。网络包含三个子模块：变形网络 $\varphi_{def}$ 将观测点映射到规范空间，拓扑感知网络 $\varphi_{hyp}$ 处理拓扑变化（如行人运动），多分辨率特征网格 $\mathcal{V}$ 编码几何细节。SDF 值通过 $S_i = \varphi_{sdf}(\mathbf{v}_i, \mathbf{w}_{i,t})$ 获得。引入可学习变形码 $\mathbf{z}_t$ 使网络适应不同时间步的形变。
 
 3. **SDF-Gaussian 双向引导**：这是方法的核心创新。
-   - **SDF → Gaussian 增密**：将物体周围空间划分为 $N^3$ 立方网格，查询每个网格中心的 SDF 值。SDF 值低于阈值 $\tau_s$ 表明靠近表面，若该网格内 Gaussian 数量不足 $\tau_n$，则从深度图反投影采样新 Gaussian 进行增密。
-   - **SDF → Gaussian 剪枝**：通过多时间步 SDF 值累积判断 Gaussian 是否远离表面：
+
+    - **SDF → Gaussian 增密**：将物体周围空间划分为 $N^3$ 立方网格，查询每个网格中心的 SDF 值。SDF 值低于阈值 $\tau_s$ 表明靠近表面，若该网格内 Gaussian 数量不足 $\tau_n$，则从深度图反投影采样新 Gaussian 进行增密。
+    - **SDF → Gaussian 剪枝**：通过多时间步 SDF 值累积判断 Gaussian 是否远离表面：
 
 $$\sum_{t} \exp\left(\frac{-S_i(t) + \sum_{j \in \text{NN}(i)} S_j(t)}{\gamma}\right) < \tau_{pr}$$
 
-   - **Gaussian → SDF 射线采样**：利用 Gaussian 渲染的深度图 $\hat{\mathbf{D}}_t$ 缩小 SDF 射线采样范围，提升表面重建精度。
+    - **Gaussian → SDF 射线采样**：利用 Gaussian 渲染的深度图 $\hat{\mathbf{D}}_t$ 缩小 SDF 射线采样范围，提升表面重建精度。
 
 4. **Gaussian 运动表示**：采用可学习基轨迹的线性组合建模运动，位置和旋转分别由共享运动系数加权：
 

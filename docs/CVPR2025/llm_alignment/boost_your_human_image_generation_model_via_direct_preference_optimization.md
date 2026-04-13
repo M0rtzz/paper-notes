@@ -25,12 +25,12 @@ tags:
 提出 HG-DPO，以真实人像作为 DPO 的 winning image（而非生成图像对）+ 三阶段课程学习（Easy/Normal/Hard）渐进弥合生成-真实图像分布 gap + 统计匹配损失解决色偏，FID 从 37.34 降至 29.41（-21.4%），CI-Q 0.906→0.934，win-rate 超越 Diffusion-DPO 达 99.97%。
 
 ## 研究背景与动机
-1. **领域现状**：人像生成是图像合成的重点，DPO 已被用于对齐扩散模型，但现有方法使用 AI 生成的 winning/losing 图像对。
-2. **现有痛点**：(a) 生成图像作 winning image 有天花板；(b) 直接用真实图像会导致色偏和训练不稳定。
-3. **核心矛盾**：真实图像是更好的对齐目标，但生成-真实图像分布 gap 导致直接使用时训练崩溃（Naive DPO FID 暴涨到 112.67）。
-4. **本文要解决什么？** 弥合分布鸿沟，让 DPO 能以真实人像为优化目标。
-5. **切入角度**：课程学习逐步缩小 gap + 统计匹配消色偏。
-6. **核心idea一句话**：三阶段课程 DPO（Easy→Normal→Hard 渐进引入真实图像）+ 统计匹配损失。
+**领域现状**：人像生成是图像合成的重点，DPO 已被用于对齐扩散模型，但现有方法使用 AI 生成的 winning/losing 图像对。
+**现有痛点**：(a) 生成图像作 winning image 有天花板；(b) 直接用真实图像会导致色偏和训练不稳定。
+**核心矛盾**：真实图像是更好的对齐目标，但生成-真实图像分布 gap 导致直接使用时训练崩溃（Naive DPO FID 暴涨到 112.67）。
+**本文要解决什么？** 弥合分布鸿沟，让 DPO 能以真实人像为优化目标。
+**切入角度**：课程学习逐步缩小 gap + 统计匹配消色偏。
+**核心idea一句话**：三阶段课程 DPO（Easy→Normal→Hard 渐进引入真实图像）+ 统计匹配损失。
 
 ## 方法详解
 
@@ -44,9 +44,10 @@ $$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\left[\log \sigma\left(\beta \left(r(x_w
 
 ### 关键设计
 1. **三阶段课程学习**：Easy（300K steps，生成图像间 DPO，N>2 图像池选优劣）→ Normal（20K，中间域过渡）→ Hard（20K，真实图像为 winning image）。Naive 直接用真实图像 FID 暴涨至 112.67，课程学习有效避免崩溃
-   - Easy 阶段：对每个 prompt 生成 N=8 张图像，用 PickScore/HPSv2 打分，选最高和最低分构成偏好对。该阶段使模型学会区分好坏生成，为后续引入真实图像奠定基础
-   - Normal 阶段：winning image 为 Easy 阶段最优生成与真实图像的插值混合（α=0.5 加权），losing image 仍为低分生成。渐进缩小生成域与真实域的分布距离
-   - Hard 阶段：直接使用真实人像作为 winning image，losing image 为当前模型生成。此时模型已经适应了分布偏移，可以稳定训练
+
+    - Easy 阶段：对每个 prompt 生成 N=8 张图像，用 PickScore/HPSv2 打分，选最高和最低分构成偏好对。该阶段使模型学会区分好坏生成，为后续引入真实图像奠定基础
+    - Normal 阶段：winning image 为 Easy 阶段最优生成与真实图像的插值混合（α=0.5 加权），losing image 仍为低分生成。渐进缩小生成域与真实域的分布距离
+    - Hard 阶段：直接使用真实人像作为 winning image，losing image 为当前模型生成。此时模型已经适应了分布偏移，可以稳定训练
 2. **统计匹配损失 $\mathcal{L}_{stat}$**：匹配生成与真实图像的 channel-wise 均值和标准差，消除色偏。公式为 $\mathcal{L}_{stat} = \sum_c \left|\mu_c^{gen} - \mu_c^{real}\right| + \left|\sigma_c^{gen} - \sigma_c^{real}\right|$，仅在 Hard 阶段启用。加入后 CI-Q 从 0.888→0.906
 3. **偏好评估器**：Easy 阶段用奖励模型对每个 prompt 的多个生成图像排序，选最好/最差组成偏好对
 4. **LoRA 配置**：U-Net rank=8（注意力层），text encoder rank=64（CLIP text encoder）。Text encoder LoRA 在 Hard 阶段尤为关键——它帮助模型适应真实图像的语义分布，去掉后 FID 从 29.41 升至 32.18

@@ -30,10 +30,10 @@ tags:
 数据集蒸馏（Dataset Condensation, DC）通过将大数据集的知识浓缩为小数据集来加速训练和减少存储。现有方法（梯度匹配、分布匹配、轨迹匹配）主要关注生成质量，但忽略了存储效率——每个合成样本仍需全精度存储。参数化 DC（PDC）方法如 IDC（空间降采样）、AutoPalette（颜色缩减）、DDiF（神经场）虽提升了压缩率，但仍依赖 32-bit 表示。
 
 ### 现有痛点
-1. **存储冗余**：合成图像按 32-bit 浮点存储，浪费大量空间
-2. **现有 PDC 方法计算成本高**：AutoPalette 需要训练调色板编码器，DDiF 需要神经场网络，推理时需解码
-3. **位级冗余未被利用**：在同等存储预算下，降低比特宽度可以存储更多样本，但全图量化在极低比特下会严重退化
-4. **从未探索 PTQ 用于 DC**：尽管 PTQ 在模型压缩中已广泛应用，但其在合成数据压缩中的潜力完全未被开发
+**存储冗余**：合成图像按 32-bit 浮点存储，浪费大量空间
+**现有 PDC 方法计算成本高**：AutoPalette 需要训练调色板编码器，DDiF 需要神经场网络，推理时需解码
+**位级冗余未被利用**：在同等存储预算下，降低比特宽度可以存储更多样本，但全图量化在极低比特下会严重退化
+**从未探索 PTQ 用于 DC**：尽管 PTQ 在模型压缩中已广泛应用，但其在合成数据压缩中的潜力完全未被开发
 
 ### 核心矛盾
 如何在极低比特宽度（如 2-bit）下量化合成图像，同时保持其对下游模型训练的有效性？
@@ -49,37 +49,41 @@ Pipeline：(I) 合成图像 → 量化感知精炼 → (II) 补丁提取 → k-m
 ### 关键设计
 
 1. **补丁级非对称量化（PAQ）**:
-   - 将图像 x 分为 P 个非重叠补丁 $\{x_i\}_{i=1}^P$，每个补丁 $x_i \in \mathbb{R}^{h \times w \times C}$
-   - 每个补丁独立量化：$x_i^q = Q(x_i, \theta_i)$，其中 $\theta_i = (\alpha_i, z_i)$
-   - 非对称量化公式：
-     - 缩放因子：$\alpha = \frac{\max(x) - \min(x)}{Q_{max} - Q_{min}}$
-     - 零点：$z = \lfloor Q_{min} - \frac{\min(x)}{\alpha} \rceil$
-     - 量化/反量化：$x^q = \lfloor \frac{x}{\alpha} + z \rceil$，$x^{deq} = (x^q - z) \cdot \alpha$
-   - 相比全图量化：2-bit 下 PAQ 达到 47.5% vs 全精度 48.9%，几乎无损
-   - 设计动机：全图量化用单一参数覆盖整张图，无法适应空间上纹理和细节的变化
+
+    - 将图像 x 分为 P 个非重叠补丁 $\{x_i\}_{i=1}^P$，每个补丁 $x_i \in \mathbb{R}^{h \times w \times C}$
+    - 每个补丁独立量化：$x_i^q = Q(x_i, \theta_i)$，其中 $\theta_i = (\alpha_i, z_i)$
+    - 非对称量化公式：
+      - 缩放因子：$\alpha = \frac{\max(x) - \min(x)}{Q_{max} - Q_{min}}$
+      - 零点：$z = \lfloor Q_{min} - \frac{\min(x)}{\alpha} \rceil$
+      - 量化/反量化：$x^q = \lfloor \frac{x}{\alpha} + z \rceil$，$x^{deq} = (x^q - z) \cdot \alpha$
+    - 相比全图量化：2-bit 下 PAQ 达到 47.5% vs 全精度 48.9%，几乎无损
+    - 设计动机：全图量化用单一参数覆盖整张图，无法适应空间上纹理和细节的变化
 
 2. **量化感知补丁分组（GAQ）**:
-   - PAQ 为每个补丁存储独立参数，增加存储开销
-   - 在量化参数空间 $(\alpha_i, z_i)$ 上执行 k-means 聚类
-   - 目标：最小化组内量化参数方差
-   - $\{\mathcal{C}_g^*, \theta_g^*\}_{g=1}^G = \arg\min \sum_{g=1}^G \sum_{\theta_i \in \mathcal{C}_g} \|\theta_i - \hat{\theta}_g\|^2$
-   - **组内重校准**：不直接用聚类中心作为量化参数，而是拼接组内所有补丁重新计算
-   - $x_g = \text{concat}(\{x_i\}_{i \in \mathcal{C}_g})$，在展平的 $x_g^{flat}$ 上校准 $\theta_g$
-   - 设计动机：在存储开销和量化质量之间平衡——相似补丁共享参数
+
+    - PAQ 为每个补丁存储独立参数，增加存储开销
+    - 在量化参数空间 $(\alpha_i, z_i)$ 上执行 k-means 聚类
+    - 目标：最小化组内量化参数方差
+    - $\{\mathcal{C}_g^*, \theta_g^*\}_{g=1}^G = \arg\min \sum_{g=1}^G \sum_{\theta_i \in \mathcal{C}_g} \|\theta_i - \hat{\theta}_g\|^2$
+    - **组内重校准**：不直接用聚类中心作为量化参数，而是拼接组内所有补丁重新计算
+    - $x_g = \text{concat}(\{x_i\}_{i \in \mathcal{C}_g})$，在展平的 $x_g^{flat}$ 上校准 $\theta_g$
+    - 设计动机：在存储开销和量化质量之间平衡——相似补丁共享参数
 
 3. **量化感知精炼模块**:
-   - 优化精炼图像 $x^{ft}$ 使其量化后的特征与原始图像对齐
-   - 提取特征：$\mathbf{f} = f(x)$，$\tilde{\mathbf{f}} = f((x^{ft})^{deq})$
-   - 最小化特征空间 MSE：$\mathcal{L}_{quant} = \mathbb{E}_{x \sim S}[\|\mathbf{f} - \tilde{\mathbf{f}}\|_2^2]$
-   - 三种策略：(1) 仅分组前精炼，(2) 仅分组后精炼，(3) 前后都精炼
-   - 实验发现分组前精炼效果最好（因为分组依据更准确的量化参数）
-   - 设计动机：直接补偿量化噪声导致的特征漂移
+
+    - 优化精炼图像 $x^{ft}$ 使其量化后的特征与原始图像对齐
+    - 提取特征：$\mathbf{f} = f(x)$，$\tilde{\mathbf{f}} = f((x^{ft})^{deq})$
+    - 最小化特征空间 MSE：$\mathcal{L}_{quant} = \mathbb{E}_{x \sim S}[\|\mathbf{f} - \tilde{\mathbf{f}}\|_2^2]$
+    - 三种策略：(1) 仅分组前精炼，(2) 仅分组后精炼，(3) 前后都精炼
+    - 实验发现分组前精炼效果最好（因为分组依据更准确的量化参数）
+    - 设计动机：直接补偿量化噪声导致的特征漂移
 
 4. **存储测量与熵编码**:
-   - 总存储 = 组索引 $\mathcal{G}$ + 量化参数 $\mathcal{Q}$ + 量化图像 $\mathcal{X}^q$
-   - 对 $\mathcal{X}^q$ 额外应用熵编码（EC）利用统计冗余
-   - 约束：$size(\mathcal{G}) + size(\mathcal{Q}) + size(EC(\mathcal{X}^q)) \leq size(\text{IPC})$
-   - 在同等预算下可存储更多量化样本，提高数据集的表征密度
+
+    - 总存储 = 组索引 $\mathcal{G}$ + 量化参数 $\mathcal{Q}$ + 量化图像 $\mathcal{X}^q$
+    - 对 $\mathcal{X}^q$ 额外应用熵编码（EC）利用统计冗余
+    - 约束：$size(\mathcal{G}) + size(\mathcal{Q}) + size(EC(\mathcal{X}^q)) \leq size(\text{IPC})$
+    - 在同等预算下可存储更多量化样本，提高数据集的表征密度
 
 ### 训练策略
 - 默认 2-bit 量化，5×5 非重叠补丁

@@ -27,17 +27,17 @@ AoE 提出让 MoE 中的 expert 基于自身内部激活范数自主决定是否
 
 ## 研究背景与动机
 
-1. **领域现状**：Mixture-of-Experts (MoE) 是当前大语言模型的核心架构之一（Mixtral、DeepSeek-MoE、Qwen-MoE 等）。MoE 将大型 FFN 分解为多个小型 FFN（expert），通过 router 为每个 token 选择 Top-K 个 expert 进行处理，实现稀疏激活以提升效率。Router 通常是一个简单的 MLP 分类器，根据输入 hidden state 输出 expert 选择概率。
+**领域现状**：Mixture-of-Experts (MoE) 是当前大语言模型的核心架构之一（Mixtral、DeepSeek-MoE、Qwen-MoE 等）。MoE 将大型 FFN 分解为多个小型 FFN（expert），通过 router 为每个 token 选择 Top-K 个 expert 进行处理，实现稀疏激活以提升效率。Router 通常是一个简单的 MLP 分类器，根据输入 hidden state 输出 expert 选择概率。
 
-2. **现有痛点**：传统 MoE 存在一个被广泛忽视的关键问题——**router 的决策和 expert 的执行之间的分离**。具体来说：(a) Router 无法直接评估 expert 的能力，它的选择本质上是一个"没有标签的预测"；(b) 如果 router 做了错误预测，被选中的 expert 可能难以有效处理 token，导致训练 loss 增加；(c) expert 可能被迫调整参数去处理不擅长的 token，与其原有专长冲突；(d) router 只能通过试错来学习更好的决策，浪费大量训练 step。
+**现有痛点**：传统 MoE 存在一个被广泛忽视的关键问题——**router 的决策和 expert 的执行之间的分离**。具体来说：(a) Router 无法直接评估 expert 的能力，它的选择本质上是一个"没有标签的预测"；(b) 如果 router 做了错误预测，被选中的 expert 可能难以有效处理 token，导致训练 loss 增加；(c) expert 可能被迫调整参数去处理不擅长的 token，与其原有专长冲突；(d) router 只能通过试错来学习更好的决策，浪费大量训练 step。
 
-3. **核心矛盾**：在传统 MoE 中，"谁来处理这个 token"的决策权在 router 手中，但 router 对 expert 的实际能力一无所知。这种决策-执行分离导致了**次优的 expert 选择**和**低效的训练**。同时，MoE 中的 load balancing 辅助损失虽然缓解了 expert 负载不均的问题，但没有从根本上解决选择质量的问题。
+**核心矛盾**：在传统 MoE 中，"谁来处理这个 token"的决策权在 router 手中，但 router 对 expert 的实际能力一无所知。这种决策-执行分离导致了**次优的 expert 选择**和**低效的训练**。同时，MoE 中的 load balancing 辅助损失虽然缓解了 expert 负载不均的问题，但没有从根本上解决选择质量的问题。
 
-4. **本文要解决什么**：(a) 如何让 expert 选择更准确——基于 expert 自身的能力判断而非外部 router 的猜测？(b) 如何在消除 router 的同时保持计算效率？
+**本文要解决什么**：(a) 如何让 expert 选择更准确——基于 expert 自身的能力判断而非外部 router 的猜测？(b) 如何在消除 router 的同时保持计算效率？
 
-5. **切入角度**：作者从 FFN-as-key-value-memory 的视角（Geva et al., 2021）出发，提出一个关键洞察：**expert 的内部激活范数反映了其处理输入的能力**。如果 expert 能有效处理某个输入，其"key"向量（内部激活）应该被高度激活。验证实验表明，在预训练的 Mixtral 8×7B 上删除 router、仅按 expert 内部激活范数选择 Top-K，无需任何参数更新就能保留高达 95% 的原始性能。
+**切入角度**：作者从 FFN-as-key-value-memory 的视角（Geva et al., 2021）出发，提出一个关键洞察：**expert 的内部激活范数反映了其处理输入的能力**。如果 expert 能有效处理某个输入，其"key"向量（内部激活）应该被高度激活。验证实验表明，在预训练的 Mixtral 8×7B 上删除 router、仅按 expert 内部激活范数选择 Top-K，无需任何参数更新就能保留高达 95% 的原始性能。
 
-6. **核心idea一句话**：移除 router，让每个 expert 先对输入做低秩预计算得到内部激活，按激活范数排名选 Top-K 继续前向传递，实现 expert 自主选择。
+**核心idea一句话**：移除 router，让每个 expert 先对输入做低秩预计算得到内部激活，按激活范数排名选 Top-K 继续前向传递，实现 expert 自主选择。
 
 ## 方法详解
 
@@ -53,22 +53,26 @@ AoE 修改了 MoE 层的工作流程：
 ### 关键设计
 
 1. **Expert 自主选择机制**：
-   - 做什么：每个 expert 对输入做预计算，产生内部激活，按 $L^2$ 范数排名决定是否继续处理。
-   - 核心思路：传统 expert 的计算公式为 $E_i(\mathbf{x}) = (\text{SiLU}(\mathbf{x}\mathbf{W}_g^i) \odot (\mathbf{x}\mathbf{W}_p^i))\mathbf{W}_o^i$。AoE 的关键观察是 $\mathbf{x}\mathbf{W}_g^i$ 的范数能反映 expert $i$ 处理 $\mathbf{x}$ 的能力。范数大表示 expert 的"key"被高度激活，意味着它擅长处理这个输入；范数小则表示不匹配。
-   - 设计动机：FFN 可以被理解为 key-value 记忆网络。如果 expert 能有效处理输入，对应的"key"（$\mathbf{x}\mathbf{W}_g$）应该被高度激活，从而通过与"value"（$\mathbf{W}_o$）的匹配实现有效的知识检索。这个self-evaluation 机制让 expert 基于自身对输入的"理解"来决策，消除了 router 决策和 expert 执行之间的信息鸿沟。
+
+    - 做什么：每个 expert 对输入做预计算，产生内部激活，按 $L^2$ 范数排名决定是否继续处理。
+    - 核心思路：传统 expert 的计算公式为 $E_i(\mathbf{x}) = (\text{SiLU}(\mathbf{x}\mathbf{W}_g^i) \odot (\mathbf{x}\mathbf{W}_p^i))\mathbf{W}_o^i$。AoE 的关键观察是 $\mathbf{x}\mathbf{W}_g^i$ 的范数能反映 expert $i$ 处理 $\mathbf{x}$ 的能力。范数大表示 expert 的"key"被高度激活，意味着它擅长处理这个输入；范数小则表示不匹配。
+    - 设计动机：FFN 可以被理解为 key-value 记忆网络。如果 expert 能有效处理输入，对应的"key"（$\mathbf{x}\mathbf{W}_g$）应该被高度激活，从而通过与"value"（$\mathbf{W}_o$）的匹配实现有效的知识检索。这个self-evaluation 机制让 expert 基于自身对输入的"理解"来决策，消除了 router 决策和 expert 执行之间的信息鸿沟。
 
 2. **低秩权重分解（Low-Rank Weight Factorization）**：
-   - 做什么：将 $\mathbf{W}_g$ 分解为 $\mathbf{W}_{down} \in \mathbb{R}^{d_{model} \times d_{low}}$ 和 $\mathbf{W}_{up} \in \mathbb{R}^{d_{low} \times d_{wide}}$，AoE expert 公式变为 $E_i(\mathbf{x}) = (\text{SiLU}(\mathbf{x}\mathbf{W}_{down}^i \mathbf{W}_{up}^i) \odot (\mathbf{x}\mathbf{W}_p^i))\mathbf{W}_o^i$。
-   - 核心思路：有两个关键好处：(a) 所有 expert 的 $\mathbf{W}_{down}^i$ 可以拼接成一个大矩阵 $\hat{\mathbf{W}}_{down} = [\mathbf{W}_{down}^1, \cdots, \mathbf{W}_{down}^n] \in \mathbb{R}^{d_{model} \times (n \cdot d_{low})}$，通过单次矩阵乘法 $\mathbf{C} = \mathbf{x}\hat{\mathbf{W}}_{down}$ 同时得到所有 expert 的低维激活缓存；(b) 未被选中的 expert 只做了低维投影（$d_{low} \ll d_{model}$），计算和缓存开销都很小。
-   - 设计动机：如果不做分解，所有 expert 都要计算完整的 $\mathbf{x}\mathbf{W}_g^i \in \mathbb{R}^{d_{ffn}}$（如 Mixtral 中 $d_{ffn}=14336$），缓存和计算开销巨大。LLM 的权重本身就是低秩的（LoRA 等工作已验证），因此这种分解不损害表达能力。最优的 $d_{low}$ 约为 $d_{model}/3$。
+
+    - 做什么：将 $\mathbf{W}_g$ 分解为 $\mathbf{W}_{down} \in \mathbb{R}^{d_{model} \times d_{low}}$ 和 $\mathbf{W}_{up} \in \mathbb{R}^{d_{low} \times d_{wide}}$，AoE expert 公式变为 $E_i(\mathbf{x}) = (\text{SiLU}(\mathbf{x}\mathbf{W}_{down}^i \mathbf{W}_{up}^i) \odot (\mathbf{x}\mathbf{W}_p^i))\mathbf{W}_o^i$。
+    - 核心思路：有两个关键好处：(a) 所有 expert 的 $\mathbf{W}_{down}^i$ 可以拼接成一个大矩阵 $\hat{\mathbf{W}}_{down} = [\mathbf{W}_{down}^1, \cdots, \mathbf{W}_{down}^n] \in \mathbb{R}^{d_{model} \times (n \cdot d_{low})}$，通过单次矩阵乘法 $\mathbf{C} = \mathbf{x}\hat{\mathbf{W}}_{down}$ 同时得到所有 expert 的低维激活缓存；(b) 未被选中的 expert 只做了低维投影（$d_{low} \ll d_{model}$），计算和缓存开销都很小。
+    - 设计动机：如果不做分解，所有 expert 都要计算完整的 $\mathbf{x}\mathbf{W}_g^i \in \mathbb{R}^{d_{ffn}}$（如 Mixtral 中 $d_{ffn}=14336$），缓存和计算开销巨大。LLM 的权重本身就是低秩的（LoRA 等工作已验证），因此这种分解不损害表达能力。最优的 $d_{low}$ 约为 $d_{model}/3$。
 
 3. **$d_{low}$ 与 $d_{wide}$ 的参数预算约束**：
-   - 做什么：在总参数量与传统 MoE 对齐的前提下，根据 $d_{low}$ 自动计算 $d_{wide}$。
-   - 核心思路：$d_{wide} = \frac{3 \cdot d_{model} \cdot d_{ffn} - d_{low} \cdot d_{model}}{d_{low} + 2 \cdot d_{model}}$，确保 AoE 和 MoE 在总参数量上可比。
-   - 设计动机：公平比较需要控制参数量。$d_{low}$ 减小会使 $d_{wide}$ 增大，反之亦然。
+
+    - 做什么：在总参数量与传统 MoE 对齐的前提下，根据 $d_{low}$ 自动计算 $d_{wide}$。
+    - 核心思路：$d_{wide} = \frac{3 \cdot d_{model} \cdot d_{ffn} - d_{low} \cdot d_{model}}{d_{low} + 2 \cdot d_{model}}$，确保 AoE 和 MoE 在总参数量上可比。
+    - 设计动机：公平比较需要控制参数量。$d_{low}$ 减小会使 $d_{wide}$ 增大，反之亦然。
 
 4. **可选的辅助 load-balancing loss**：
-   - AoE 可以兼容传统 MoE 的 $\mathcal{L}_{aux}$，只需将 router 输出替换为 $L^2$-Norm($\mathbf{x}\mathbf{W}_{down}^i$) 的 softmax。实验表明 AoE 即使不用 $\mathcal{L}_{aux}$ 也比传统 MoE 更均衡，但加上后效果更好。
+
+    - AoE 可以兼容传统 MoE 的 $\mathcal{L}_{aux}$，只需将 router 输出替换为 $L^2$-Norm($\mathbf{x}\mathbf{W}_{down}^i$) 的 softmax。实验表明 AoE 即使不用 $\mathcal{L}_{aux}$ 也比传统 MoE 更均衡，但加上后效果更好。
 
 ### 损失函数/训练策略
 

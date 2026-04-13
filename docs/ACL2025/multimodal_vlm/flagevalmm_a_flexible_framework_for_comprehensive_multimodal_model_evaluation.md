@@ -29,9 +29,9 @@ tags:
 
 随着多模态模型的快速发展，业界需要一个能够全面、高效、便捷地评估各类多模态能力的统一框架。然而现有方案存在明显不足：
 
-1. **任务覆盖不全**：VLMEvalKit 和 Lmms-Eval 主要面向 VLM 理解任务；VBench 专注视频生成评估。没有一个框架能同时覆盖理解和生成任务。
-2. **推理与评估耦合**：现有框架在同一运行环境中执行模型推理和评估，导致环境冲突（如模型推理和 LLM-as-Judge 评估的依赖冲突）、资源利用效率低。
-3. **扩展性差**：VLMEvalKit 需要侵入式代码修改来添加新 benchmark；VHELM 基于 HELM 架构复杂、主要依赖 API 调用；Lmms-Eval 仅支持 Transformers 和 vLLM 推理框架。
+**任务覆盖不全**：VLMEvalKit 和 Lmms-Eval 主要面向 VLM 理解任务；VBench 专注视频生成评估。没有一个框架能同时覆盖理解和生成任务。
+**推理与评估耦合**：现有框架在同一运行环境中执行模型推理和评估，导致环境冲突（如模型推理和 LLM-as-Judge 评估的依赖冲突）、资源利用效率低。
+**扩展性差**：VLMEvalKit 需要侵入式代码修改来添加新 benchmark；VHELM 基于 HELM 架构复杂、主要依赖 API 调用；Lmms-Eval 仅支持 Transformers 和 vLLM 推理框架。
 
 FlagEvalMM 的动机在于通过解耦架构和模块化设计解决上述问题，提供一站式多模态评估体验。
 

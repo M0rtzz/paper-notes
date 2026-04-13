@@ -26,20 +26,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM推理时KV cache随序列长度线性增长，在长上下文场景（>10K token）成为内存瓶颈。现有KV cache剪枝方法（H2O、SnapKV、PyramidKV等）在prefill阶段通过计算注意力分数来评估KV pair重要性，只保留top-k重要的KV pair。
+**领域现状**：LLM推理时KV cache随序列长度线性增长，在长上下文场景（>10K token）成为内存瓶颈。现有KV cache剪枝方法（H2O、SnapKV、PyramidKV等）在prefill阶段通过计算注意力分数来评估KV pair重要性，只保留top-k重要的KV pair。
 
-2. **现有痛点**：
+**现有痛点**：
    - **过度依赖局部窗口**：现有方法用最后一个窗口的token作为query来计算KV重要性分数。这假设问题出现在输入末尾，但如果问题不在末尾，性能会显著下降
    - **忽略全局信息**：局部窗口只能看到序列末端，无法充分评估序列中远距离位置的KV pair对生成的重要性
    - **理论上界未被逼近**：作者发现直接用真实解码token的注意力来选择KV pair效果最好（理论上界），但prefill阶段还不知道解码token是什么
 
-3. **核心矛盾**：KV cache剪枝的理想目标是保留对未来解码最重要的KV pair，但prefill时无法预知解码内容，而局部窗口是不充分的代理(proxy)。
+**核心矛盾**：KV cache剪枝的理想目标是保留对未来解码最重要的KV pair，但prefill时无法预知解码内容，而局部窗口是不充分的代理(proxy)。
 
-4. **本文要解决什么？** 设计一种能在prefill阶段近似"用真实解码token选KV"这个理论上界的方法，同时保持低训练成本。
+**本文要解决什么？** 设计一种能在prefill阶段近似"用真实解码token选KV"这个理论上界的方法，同时保持低训练成本。
 
-5. **切入角度**：既然理论上界是用解码token的注意力图来选KV，那就训练一组soft token让它们的注意力图逼近解码token的注意力图，作为解码token的代理。
+**切入角度**：既然理论上界是用解码token的注意力图来选KV，那就训练一组soft token让它们的注意力图逼近解码token的注意力图，作为解码token的代理。
 
-6. **核心idea一句话**：用可训练soft token模拟解码token的注意力分布来指导KV cache剪枝，只训练embedding层参数，开销极低。
+**核心idea一句话**：用可训练soft token模拟解码token的注意力分布来指导KV cache剪枝，只训练embedding层参数，开销极低。
 
 ## 方法详解
 
@@ -49,20 +49,23 @@ Judge Q在模型词表末尾添加 $n$ 个soft token（默认 $n=32$），训练
 ### 关键设计
 
 1. **Soft Token注意力蒸馏**:
-   - 做什么：训练soft token使其"看"prompt时的注意力分布与真实解码token"看"prompt时的分布一致
-   - 核心思路：分别将soft token和response token拼接到prompt后，计算各自对prompt的注意力图，然后在token维度取平均得到 $\mathbf{A}_{\text{soft}}$ 和 $\mathbf{A}_{\text{resp}}$，训练损失为两者的MSE：$\mathcal{L} = \text{MSE}(\mathbf{A}_{\text{soft}}, \mathbf{A}_{\text{resp}})$
-   - 设计动机：解码token的注意力天然指向对生成最关键的KV pair，如果soft token能学会相同的注意力模式，就能在prefill阶段代替解码token做出同样好的KV重要性判断
-   - 与prompt tuning的区别：传统prompt tuning优化生成质量，Judge Q优化注意力模式对齐，目标完全不同
+
+    - 做什么：训练soft token使其"看"prompt时的注意力分布与真实解码token"看"prompt时的分布一致
+    - 核心思路：分别将soft token和response token拼接到prompt后，计算各自对prompt的注意力图，然后在token维度取平均得到 $\mathbf{A}_{\text{soft}}$ 和 $\mathbf{A}_{\text{resp}}$，训练损失为两者的MSE：$\mathcal{L} = \text{MSE}(\mathbf{A}_{\text{soft}}, \mathbf{A}_{\text{resp}})$
+    - 设计动机：解码token的注意力天然指向对生成最关键的KV pair，如果soft token能学会相同的注意力模式，就能在prefill阶段代替解码token做出同样好的KV重要性判断
+    - 与prompt tuning的区别：传统prompt tuning优化生成质量，Judge Q优化注意力模式对齐，目标完全不同
 
 2. **极低训练成本**:
-   - 做什么：只微调embedding层中soft token对应的参数
-   - 核心思路：模型所有权重冻结，仅训练新增的32个token的embedding向量。训练数据为ShareGPT的50K样本（45K通用+5K代码），用模型自身生成response（而非用原始数据的response）
-   - 设计动机：最小化训练开销，使方法可以轻量适配任何开源模型。用自身生成response是因为注意力图需要与模型自身的解码行为一致
+
+    - 做什么：只微调embedding层中soft token对应的参数
+    - 核心思路：模型所有权重冻结，仅训练新增的32个token的embedding向量。训练数据为ShareGPT的50K样本（45K通用+5K代码），用模型自身生成response（而非用原始数据的response）
+    - 设计动机：最小化训练开销，使方法可以轻量适配任何开源模型。用自身生成response是因为注意力图需要与模型自身的解码行为一致
 
 3. **推理时KV Cache剪枝**:
-   - 做什么：在prefill阶段用soft token的注意力指导KV剪枝
-   - 核心思路：输入末尾追加32个soft token → prefill → 计算soft token对整个输入的注意力图 → 按注意力分数对KV pair排序 → 保留top-k → 移除soft token → 正常解码
-   - 设计动机：soft token充当"探针"角色，通过训练获得了全局感知能力，比局部窗口能更好地识别全局关键信息
+
+    - 做什么：在prefill阶段用soft token的注意力指导KV剪枝
+    - 核心思路：输入末尾追加32个soft token → prefill → 计算soft token对整个输入的注意力图 → 按注意力分数对KV pair排序 → 保留top-k → 移除soft token → 正常解码
+    - 设计动机：soft token充当"探针"角色，通过训练获得了全局感知能力，比局部窗口能更好地识别全局关键信息
 
 ### 损失函数 / 训练策略
 - 损失函数：$\mathcal{L} = \frac{1}{d}\|\mathbf{A}_{\text{soft}} - \mathbf{A}_{\text{resp}}\|_2^2$

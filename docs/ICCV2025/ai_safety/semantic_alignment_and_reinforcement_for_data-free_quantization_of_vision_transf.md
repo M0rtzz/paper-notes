@@ -47,26 +47,29 @@ SARDFQ 分为两个阶段：
 ### 关键设计
 
 1. **注意力先验对齐（APA）**：
-   - **动机**：现有方法忽视了 ViT 中自注意力编码语义相关性的内在属性，导致合成图像注意力模式混乱/不自然
-   - 使用**高斯混合模型（GMM）** 随机生成结构化注意力先验 $\tilde{\mathbf{A}}_{l,h}$
-   - 对 DeiT：提取分类 token 对其他 token 的注意力 $\mathbf{A}^c_{l,h}$；对 Swin：使用所有 token 的平均注意力
-   - 通过 MSE 损失对齐：$\mathcal{L}_{l,h} = \text{MSE}(\mathbf{A}^c_{l,h} - \tilde{\mathbf{A}}_{l,h})$
-   - **深度加权**：仅在后半部分的块上应用（$S = L/2$），因为浅层聚焦低级信息，深层聚焦语义
-   - 总损失带深度缩放因子 $l/L$：$\mathcal{L}^{\text{APA}} = \sum_{l=S}^{L}\sum_{h=1}^{H}\frac{l}{L}\mathcal{L}_{l,h}$
-   - 每个 head 使用不同的 GMM，模拟不同头捕获不同模式的特性
+
+    - **动机**：现有方法忽视了 ViT 中自注意力编码语义相关性的内在属性，导致合成图像注意力模式混乱/不自然
+    - 使用**高斯混合模型（GMM）** 随机生成结构化注意力先验 $\tilde{\mathbf{A}}_{l,h}$
+    - 对 DeiT：提取分类 token 对其他 token 的注意力 $\mathbf{A}^c_{l,h}$；对 Swin：使用所有 token 的平均注意力
+    - 通过 MSE 损失对齐：$\mathcal{L}_{l,h} = \text{MSE}(\mathbf{A}^c_{l,h} - \tilde{\mathbf{A}}_{l,h})$
+    - **深度加权**：仅在后半部分的块上应用（$S = L/2$），因为浅层聚焦低级信息，深层聚焦语义
+    - 总损失带深度缩放因子 $l/L$：$\mathcal{L}^{\text{APA}} = \sum_{l=S}^{L}\sum_{h=1}^{H}\frac{l}{L}\mathcal{L}_{l,h}$
+    - 每个 head 使用不同的 GMM，模拟不同头捕获不同模式的特性
 
 2. **多语义增强（MSR）**：
-   - **动机**：全局优化使合成图像受低秩结构正则性影响，相邻像素高度相似，产生暗淡区域；ViT 的 patch 化机制进一步恶化问题
-   - 从合成图像中随机选取 $m$（$m \in \{1,...,K_{MSR}\}$, $K_{MSR}=4$）个不重叠 patch
-   - 每个 patch 裁剪并 resize 到模型输入尺寸，当作新图像用不同语义标签优化
-   - 梯度仅回传到原图中对应的 patch 区域
-   - 效果：每个 patch 学习不同语义，消除暗淡区域，生成内容和纹理更多样的合成图像
+
+    - **动机**：全局优化使合成图像受低秩结构正则性影响，相邻像素高度相似，产生暗淡区域；ViT 的 patch 化机制进一步恶化问题
+    - 从合成图像中随机选取 $m$（$m \in \{1,...,K_{MSR}\}$, $K_{MSR}=4$）个不重叠 patch
+    - 每个 patch 裁剪并 resize 到模型输入尺寸，当作新图像用不同语义标签优化
+    - 梯度仅回传到原图中对应的 patch 区域
+    - 效果：每个 patch 学习不同语义，消除暗淡区域，生成内容和纹理更多样的合成图像
 
 3. **软标签学习（SL）**：
-   - **动机**：MSR 令一张合成图像包含多个不同语义的 patch，传统 one-hot 损失不适用
-   - 对每个 patch 和整体图像生成软标签：$T_s = \text{softmax}(Z)$，其中相关类别位置的值从 $U(\epsilon_1, \epsilon_2)$（$\epsilon_1=5, \epsilon_2=10$）上采样
-   - 使用 soft cross entropy 替代 one-hot cross entropy
-   - 确保 MSR 增强的多语义图像获得一致的监督而非冲突的监督
+
+    - **动机**：MSR 令一张合成图像包含多个不同语义的 patch，传统 one-hot 损失不适用
+    - 对每个 patch 和整体图像生成软标签：$T_s = \text{softmax}(Z)$，其中相关类别位置的值从 $U(\epsilon_1, \epsilon_2)$（$\epsilon_1=5, \epsilon_2=10$）上采样
+    - 使用 soft cross entropy 替代 one-hot cross entropy
+    - 确保 MSR 增强的多语义图像获得一致的监督而非冲突的监督
 
 ### 损失函数 / 训练策略
 

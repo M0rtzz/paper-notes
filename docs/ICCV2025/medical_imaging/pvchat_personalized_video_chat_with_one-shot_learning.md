@@ -44,17 +44,19 @@ PVChat 基于 Mistral-7B-Instruct-v0.3，包含视觉编码器、ReMoH 增强的
 ### 关键设计
 
 1. **系统化数据增强管道**: 解决个性化视频数据匮乏问题。
-   - **正样本生成**: DeepFaceLab 面部提取 → FaceNet + DBSCAN 多人区分 → 面部质量评估（EAR、朝向、清晰度）→ InternVideo2 性别/年龄分类 → ConsisID 生成不同场景视频（丰富但 ID 一致性较差）+ PhotoMaker → LivePortrait 动画化（ID 一致性强但内容简单），两种方式互补。
-   - **负样本检索**: 从 Laion-Face-5B 中通过 CLIP 检索 top-k 视觉相似面孔 → LivePortrait 动画化作为硬负样本，加上 CelebV-HQ 中随机采样的 30 个视频补充丰富内容的负样本。
-   - **QA 生成**: InternVideo2 生成四类问答（存在性、外貌、动作、位置）→ ChatGPT-4o 润色将通用人称替换为主体名称。每个输入视频扩展为 81 个视频 + 1455 个 QA 对。
+
+    - **正样本生成**: DeepFaceLab 面部提取 → FaceNet + DBSCAN 多人区分 → 面部质量评估（EAR、朝向、清晰度）→ InternVideo2 性别/年龄分类 → ConsisID 生成不同场景视频（丰富但 ID 一致性较差）+ PhotoMaker → LivePortrait 动画化（ID 一致性强但内容简单），两种方式互补。
+    - **负样本检索**: 从 Laion-Face-5B 中通过 CLIP 检索 top-k 视觉相似面孔 → LivePortrait 动画化作为硬负样本，加上 CelebV-HQ 中随机采样的 30 个视频补充丰富内容的负样本。
+    - **QA 生成**: InternVideo2 生成四类问答（存在性、外貌、动作、位置）→ ChatGPT-4o 润色将通用人称替换为主体名称。每个输入视频扩展为 81 个视频 + 1455 个 QA 对。
 
 2. **ReLU 路由混合注意力头（ReMoH）**: 将注意力头分为共享头（始终激活）和路由头（按需激活）。相比 MoH 的 Top-k 选择（非完全可微、不灵活），ReMoH 使用 ReLU 路由实现完全可微的动态选择：
-   $$s_i = \begin{cases} \alpha_1, & 1 \leq i \leq n \\ \alpha_2 \text{ReLU}(\mathbf{W}_r \mathbf{x}_t)_i, & n < i \leq n+m \end{cases}$$
+    $s_i = \begin{cases} \alpha_1, & 1 \leq i \leq n \\ \alpha_2 \text{ReLU}(\mathbf{W}_r \mathbf{x}_t)_i, & n < i \leq n+m \end{cases}$
    其中 $[\alpha_1, \alpha_2] = \text{Softmax}(\mathbf{W}_h \mathbf{x}_t)$ 平衡共享和路由头贡献。ReLU 输出的稀疏性自然实现了选择性激活，仅增加 2 个 MLP 参数。可视化表明 ReMoH 能有效分配特定头学习目标人物特征——有/无目标人物时头激活模式显著不同。
 
 3. **稀疏性控制策略**: 
-   - **平滑邻近正则化（SPR）**: $\mathcal{L}_{SPR} = \beta_p \cdot \|\frac{1}{n}(\mathbf{W}_r \mathbf{x}_t)\|$，其中 $\beta_{p+1} = \beta_p \cdot e^{k \cdot (T_s - R_s)}$ 步进式自适应权重调整，按指数距离缩放实现平滑训练
-   - **头激活增强（HAE）**: $\mathcal{L}_{HAE} = e^{2 \cdot (R_s - T_s)} - 1$（当 $R_s > T_s$ 时），防止所有专家头趋向零激活
+
+    - **平滑邻近正则化（SPR）**: $\mathcal{L}_{SPR} = \beta_p \cdot \|\frac{1}{n}(\mathbf{W}_r \mathbf{x}_t)\|$，其中 $\beta_{p+1} = \beta_p \cdot e^{k \cdot (T_s - R_s)}$ 步进式自适应权重调整，按指数距离缩放实现平滑训练
+    - **头激活增强（HAE）**: $\mathcal{L}_{HAE} = e^{2 \cdot (R_s - T_s)} - 1$（当 $R_s > T_s$ 时），防止所有专家头趋向零激活
 
 ### 损失函数 / 训练策略
 

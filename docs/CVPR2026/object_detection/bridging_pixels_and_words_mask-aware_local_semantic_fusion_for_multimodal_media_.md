@@ -25,12 +25,12 @@ tags:
 提出 MaLSF 框架，利用掩码-标签对作为语义锚点，通过双向跨模态验证（BCV）和层级语义聚合（HSA）模块实现主动式局部语义冲突检测，在 DGM4 和假新闻检测任务上取得 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**: 高级生成模型（DALL·E、Stable Diffusion 等）使多模态深度伪造日益逼真；DGM4 任务要求同时检测和定位图文操纵。
-2. **现有痛点**: 现有方法（HAMMER、UFAFormer、EMSF 等）依赖"被动式"整体融合——将整张图像和全文编码为高维向量然后融合，导致**特征稀释**：一个致命的单词替换（如"recovered"→"failed"）在全局文本特征中几乎不可察觉，细微冲突信号被全局语义对齐淹没。
-3. **核心矛盾**: 最隐蔽的虚假信息恰恰存在于细微的**局部语义不一致**中（如运动员拿香槟庆祝的图片配"未能参加冲刺"的文字），全局融合无法捕捉这种冲突。
-4. **本文要解决**: 如何像人类一样进行主动的双向交叉验证——读到"failed"时主动在图像中搜索失败证据，看到"香槟"时主动在文本中搜索胜利语义？
-5. **切入角度**: 用掩码-标签对将像素区域与文本描述建立精确对应，实现细粒度局部推理。
-6. **核心idea**: 将多模态验证从"被动融合"转变为"主动审讯"——BCV 模块充当审讯者，HSA 模块充当推理引擎，层级化聚合多粒度冲突信号。
+**领域现状**: 高级生成模型（DALL·E、Stable Diffusion 等）使多模态深度伪造日益逼真；DGM4 任务要求同时检测和定位图文操纵。
+**现有痛点**: 现有方法（HAMMER、UFAFormer、EMSF 等）依赖"被动式"整体融合——将整张图像和全文编码为高维向量然后融合，导致**特征稀释**：一个致命的单词替换（如"recovered"→"failed"）在全局文本特征中几乎不可察觉，细微冲突信号被全局语义对齐淹没。
+**核心矛盾**: 最隐蔽的虚假信息恰恰存在于细微的**局部语义不一致**中（如运动员拿香槟庆祝的图片配"未能参加冲刺"的文字），全局融合无法捕捉这种冲突。
+**本文要解决**: 如何像人类一样进行主动的双向交叉验证——读到"failed"时主动在图像中搜索失败证据，看到"香槟"时主动在文本中搜索胜利语义？
+**切入角度**: 用掩码-标签对将像素区域与文本描述建立精确对应，实现细粒度局部推理。
+**核心idea**: 将多模态验证从"被动融合"转变为"主动审讯"——BCV 模块充当审讯者，HSA 模块充当推理引擎，层级化聚合多粒度冲突信号。
 
 ## 方法详解
 
@@ -40,30 +40,33 @@ tags:
 ### 关键设计
 
 1. **Mask-Label Pair Parsers（掩码-标签对提取器）**:
-   - **Open Vocabulary Parser**: 用 OMG-LLaVA 端到端生成描述和掩码-标签对，标签由模型自主决定
-   - **Caption-Anchored Parser**: 两阶段——GLIP 从图像+原始标题提取物体边界框 → SAM2 生成精细掩码
-   - 两种 Parser 产生本质不同的标签集（开放 vs 受限于原文），互补评估
-   - **设计动机**: 掩码-标签对是连接"像素"与"语词"的基础验证单元
+
+    - **Open Vocabulary Parser**: 用 OMG-LLaVA 端到端生成描述和掩码-标签对，标签由模型自主决定
+    - **Caption-Anchored Parser**: 两阶段——GLIP 从图像+原始标题提取物体边界框 → SAM2 生成精细掩码
+    - 两种 Parser 产生本质不同的标签集（开放 vs 受限于原文），互补评估
+    - **设计动机**: 掩码-标签对是连接"像素"与"语词"的基础验证单元
 
 2. **Bidirectional Cross-modal Verification (BCV)**:
-   - **Image-as-Query 验证**: 全局图像特征查询文本标签，检测图像与文本标签的矛盾
-     $$\{\mathbf{F}_{\text{img}}^{\text{cap}}, \mathbf{F}_{\text{img}}^1, ..., \mathbf{F}_{\text{img}}^N\} = \mathcal{T}_V(\mathbf{V}_{\text{img}}, [\mathbf{l}_{\text{cap}}, \{w_j^l \mathbf{l}_j\}])$$
-   - **Text-as-Query 验证**: 标题文本查询视觉区域，检测文字与掩码区域的不匹配
-     $$\{\mathbf{F}_{\text{cap}}^{\text{img}}, \mathbf{F}_{\text{cap}}^1, ..., \mathbf{F}_{\text{cap}}^N\} = \mathcal{T}_L(\mathbf{l}_{\text{cap}}, [\mathbf{V}_{\text{img}}, \{w_i^v \mathbf{V}_i\}])$$
-   - 门控机制: $w_i^v = \sigma(\phi_l(\mathbf{l}_{\text{cap}}^{cls})^\top \phi_v(\mathbf{v}_i^{cls}))$ 自动选择信息量大的局部语义
-   - 解决三层冲突: 全局不一致、局部不一致、跨模态不一致
-   - **设计动机**: 模拟人类的"审讯"认知——从两个方向交叉验证，单向验证可能遗漏冲突
+
+    - **Image-as-Query 验证**: 全局图像特征查询文本标签，检测图像与文本标签的矛盾
+    $\{\mathbf{F}_{\text{img}}^{\text{cap}}, \mathbf{F}_{\text{img}}^1, ..., \mathbf{F}_{\text{img}}^N\} = \mathcal{T}_V(\mathbf{V}_{\text{img}}, [\mathbf{l}_{\text{cap}}, \{w_j^l \mathbf{l}_j\}])$
+    - **Text-as-Query 验证**: 标题文本查询视觉区域，检测文字与掩码区域的不匹配
+    $\{\mathbf{F}_{\text{cap}}^{\text{img}}, \mathbf{F}_{\text{cap}}^1, ..., \mathbf{F}_{\text{cap}}^N\} = \mathcal{T}_L(\mathbf{l}_{\text{cap}}, [\mathbf{V}_{\text{img}}, \{w_i^v \mathbf{V}_i\}])$
+    - 门控机制: $w_i^v = \sigma(\phi_l(\mathbf{l}_{\text{cap}}^{cls})^\top \phi_v(\mathbf{v}_i^{cls}))$ 自动选择信息量大的局部语义
+    - 解决三层冲突: 全局不一致、局部不一致、跨模态不一致
+    - **设计动机**: 模拟人类的"审讯"认知——从两个方向交叉验证，单向验证可能遗漏冲突
 
 3. **Hierarchical Semantic Aggregation (HSA)**:
-   - **浅层融合**: 将验证输出的 [CLS] token 和序列 token 分开聚合
-     - $a_{\text{img}}, a_{\text{cap}}$: 聚合 [CLS]，捕获全局共识
-     - $s_{\text{img}}, s_{\text{cap}}$: 聚合序列，保留细粒度上下文
-   - **深层融合**: 任务特定解耦
-     - 二分类: 聚合两个模态的 cls 特征
-     - 操纵类型: 可学习 token $p_v, p_l$ 分别查询图像/文本序列
-     - 图像定位: 可学习 token $p_{\text{bbox}}$ 查询视觉序列 → 线性层输出 bbox
-     - 文本定位: 直接用文本序列 → 逐位置二分类
-   - **设计动机**: 融合到解耦的设计让模型学习任务特定表示同时保持语义连贯
+
+    - **浅层融合**: 将验证输出的 [CLS] token 和序列 token 分开聚合
+      - $a_{\text{img}}, a_{\text{cap}}$: 聚合 [CLS]，捕获全局共识
+      - $s_{\text{img}}, s_{\text{cap}}$: 聚合序列，保留细粒度上下文
+    - **深层融合**: 任务特定解耦
+      - 二分类: 聚合两个模态的 cls 特征
+      - 操纵类型: 可学习 token $p_v, p_l$ 分别查询图像/文本序列
+      - 图像定位: 可学习 token $p_{\text{bbox}}$ 查询视觉序列 → 线性层输出 bbox
+      - 文本定位: 直接用文本序列 → 逐位置二分类
+    - **设计动机**: 融合到解耦的设计让模型学习任务特定表示同时保持语义连贯
 
 ### 损失函数 / 训练策略
 $$\mathcal{L} = \mathcal{L}_{bcls} + \alpha \mathcal{L}_{mcls} + \beta \mathcal{L}_{ig} + \gamma \mathcal{L}_{tg}$$

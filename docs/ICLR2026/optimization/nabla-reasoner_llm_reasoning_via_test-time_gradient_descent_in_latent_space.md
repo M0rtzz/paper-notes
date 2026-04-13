@@ -25,12 +25,12 @@ tags:
 提出 ∇-Reasoner，将推理时的搜索从零阶（采样+评估）升级为一阶（梯度下降），在 token logits 空间上通过可微文本优化（DTO）结合 reward 梯度和 LLM 似然来迭代改进解码策略，在数学推理任务上提升 10-40% 准确率的同时减少 10-40% 的模型调用次数。
 
 ## 研究背景与动机
-1. **领域现状**：推理时计算缩放（inference-time scaling）已成为提升 LLM 推理能力的重要途径。现有方法包括 Best-of-N、Self-Consistency、Tree-of-Thought、RAP 等，通过多次采样和评估来寻找高质量答案。
-2. **现有痛点**：这些方法本质上都是**零阶搜索**——仅利用 reward 的标量值来筛选候选，没有利用 reward 的梯度方向信息。当搜索空间随序列长度指数增长时，无方向的搜索变得低效，性能随计算预算增加而饱和。
-3. **核心矛盾**：reward model 本身是可微的（基于 transformer 的分类器），梯度信息唾手可得却被完全浪费。零阶方法无法有效利用 reward landscape 的结构信息。
-4. **本文要解决什么？** 如何在推理时利用 reward 梯度来高效地引导 LLM 输出向高 reward 区域移动，同时保持生成的流畅性？
-5. **切入角度**：将 LLM 推理重新表述为连续优化问题——在 token logits 空间上做梯度下降，用 straight-through estimator 桥接离散与连续空间。
-6. **核心idea一句话**：用一阶梯度下降代替零阶搜索来做推理时策略优化，在 logits 空间上同时最大化 reward 和 LLM 似然。
+**领域现状**：推理时计算缩放（inference-time scaling）已成为提升 LLM 推理能力的重要途径。现有方法包括 Best-of-N、Self-Consistency、Tree-of-Thought、RAP 等，通过多次采样和评估来寻找高质量答案。
+**现有痛点**：这些方法本质上都是**零阶搜索**——仅利用 reward 的标量值来筛选候选，没有利用 reward 的梯度方向信息。当搜索空间随序列长度指数增长时，无方向的搜索变得低效，性能随计算预算增加而饱和。
+**核心矛盾**：reward model 本身是可微的（基于 transformer 的分类器），梯度信息唾手可得却被完全浪费。零阶方法无法有效利用 reward landscape 的结构信息。
+**本文要解决什么？** 如何在推理时利用 reward 梯度来高效地引导 LLM 输出向高 reward 区域移动，同时保持生成的流畅性？
+**切入角度**：将 LLM 推理重新表述为连续优化问题——在 token logits 空间上做梯度下降，用 straight-through estimator 桥接离散与连续空间。
+**核心idea一句话**：用一阶梯度下降代替零阶搜索来做推理时策略优化，在 logits 空间上同时最大化 reward 和 LLM 似然。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ tags:
 ### 关键设计
 
 1. **Differentiable Textual Optimization (DTO)**:
-   - 做什么：在 token logits 空间上进行梯度下降，同时优化 reward 和 LLM 似然
-   - 核心思路：优化目标 $\mathcal{L}(\mathbf{y}) = -\lambda r(\mathbf{y}|\mathbf{x}) - \log \pi_{LLM}(\mathbf{y}|\mathbf{x})$，其中 reward 项提供方向引导，NLL 项防止偏离 LLM 分布（避免 reward hacking）。用 Gumbel-softmax straight-through estimator 将离散 token 参数化为连续 logits，使梯度可以流过
-   - 设计动机：梯度同时**双向传播**——前缀 token 通过 NLL 正则化约束后续 token 保持一致性，后续 token 通过 attention 将 reward 信号反传给前面的 token，实现了类似 look-ahead 的全局优化效果
+
+    - 做什么：在 token logits 空间上进行梯度下降，同时优化 reward 和 LLM 似然
+    - 核心思路：优化目标 $\mathcal{L}(\mathbf{y}) = -\lambda r(\mathbf{y}|\mathbf{x}) - \log \pi_{LLM}(\mathbf{y}|\mathbf{x})$，其中 reward 项提供方向引导，NLL 项防止偏离 LLM 分布（避免 reward hacking）。用 Gumbel-softmax straight-through estimator 将离散 token 参数化为连续 logits，使梯度可以流过
+    - 设计动机：梯度同时**双向传播**——前缀 token 通过 NLL 正则化约束后续 token 保持一致性，后续 token 通过 attention 将 reward 信号反传给前面的 token，实现了类似 look-ahead 的全局优化效果
 
 2. **迭代解码 + Rejection Sampling**:
-   - 做什么：将 DTO 嵌入逐 token 解码循环，每步只采纳能提升 reward 的 token 修改
-   - 核心思路：DTO 优化后从 $\text{softmax}(\tilde{\mathbf{z}}_1/\tau)$ 重新采样第一个 token $\tilde{y}_1$。若 $\tilde{y}_1 \neq y_1$，则生成新续写并比较 reward：仅当新续写的 reward 更高时才接受新 token
-   - 设计动机：rejection sampling 保证每次修改都是有益的，避免梯度优化的噪声干扰。实验显示 DTO 将 rejection rate 从 ~66% 降到 ~29-40%
+
+    - 做什么：将 DTO 嵌入逐 token 解码循环，每步只采纳能提升 reward 的 token 修改
+    - 核心思路：DTO 优化后从 $\text{softmax}(\tilde{\mathbf{z}}_1/\tau)$ 重新采样第一个 token $\tilde{y}_1$。若 $\tilde{y}_1 \neq y_1$，则生成新续写并比较 reward：仅当新续写的 reward 更高时才接受新 token
+    - 设计动机：rejection sampling 保证每次修改都是有益的，避免梯度优化的噪声干扰。实验显示 DTO 将 rejection rate 从 ~66% 降到 ~29-40%
 
 3. **加速策略（三项）**:
-   - **梯度缓存**：one-hot token 在优化过程中不频繁变化，缓存 $\partial\mathcal{L}/\partial\mathbf{y}$ 并复用，仅在 token 翻转时重新计算
-   - **Rollout 复用**：前一步被拒绝后，其 rollout 轨迹可直接作为下一步的 rollout
-   - **置信度+梯度引导的 token 选择**：仅对高熵且高梯度的 token 运行 DTO，跳过高置信度或低梯度的 token
+
+    - **梯度缓存**：one-hot token 在优化过程中不频繁变化，缓存 $\partial\mathcal{L}/\partial\mathbf{y}$ 并复用，仅在 token 翻转时重新计算
+    - **Rollout 复用**：前一步被拒绝后，其 rollout 轨迹可直接作为下一步的 rollout
+    - **置信度+梯度引导的 token 选择**：仅对高熵且高梯度的 token 运行 DTO，跳过高置信度或低梯度的 token
 
 ### 损失函数 / 训练策略
 无需训练（纯推理时方法）。DTO 的优化目标：$\mathcal{L} = -\log \pi_{LLM}(\mathbf{y}|\mathbf{x}) - \lambda \cdot r(\mathbf{y}|\mathbf{x})$，其中 $\lambda$ 平衡 reward 和 NLL 正则化。理论证明 DTO 的 sample-space 梯度下降等价于 PPO 的 Wasserstein gradient flow（Theorem 4.1），统一了预训练缩放和推理时缩放的理论框架。

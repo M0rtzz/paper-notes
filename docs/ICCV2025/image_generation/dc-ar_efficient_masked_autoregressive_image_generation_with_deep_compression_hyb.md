@@ -29,9 +29,9 @@ tags:
 
 自回归（AR）图像生成正快速追赶扩散模型，其中掩码自回归模型（MaskGIT 范式）通过并行解码实现高效生成。然而 AR 模型的效率瓶颈在于**图像标记器的压缩率**：
 
-1. **当前标准是 8×/16× 空间压缩**：256×256 图像仍需 1024/256 个 token，高分辨率时计算量骤增
-2. **连续标记器已实现 32× 压缩（DC-AE）**，但**离散标记器无法直接用**——实验发现直接对 DC-AE 做向量量化，重建质量极差
-3. **1D 标记器（TiTok 等）** 虽可实现高压缩，但丧失了 2D 空间对应关系，无法跨分辨率泛化，不同分辨率需重新训练，costs expensive
+**当前标准是 8×/16× 空间压缩**：256×256 图像仍需 1024/256 个 token，高分辨率时计算量骤增
+**连续标记器已实现 32× 压缩（DC-AE）**，但**离散标记器无法直接用**——实验发现直接对 DC-AE 做向量量化，重建质量极差
+**1D 标记器（TiTok 等）** 虽可实现高压缩，但丧失了 2D 空间对应关系，无法跨分辨率泛化，不同分辨率需重新训练，costs expensive
 
 核心矛盾：如何在保持 2D 空间结构（支持跨分辨率泛化）的前提下，为 AR 模型构建高压缩率标记器？
 
@@ -47,26 +47,29 @@ DC-AR = DC-HT（标记器）+ 混合掩码自回归生成器
 ### 关键设计
 
 1. **DC-HT（深度压缩混合标记器）**：
-   - 基于 DC-AE-f32c32 架构（CNN encoder + decoder），32× 空间压缩，latent channel=32
-   - **混合标记化**：同时支持离散路径（$\mathbf{Z}_q = \text{Quant}(\text{Enc}(\mathbf{I}))$）和连续路径（$\mathbf{Z} = \text{Enc}(\mathbf{I})$），保证 decoder 能有效解码两种 token
-   - 残差 token 定义为 $\mathbf{Z}_r = \mathbf{Z} - \mathbf{Z}_q$，弥补量化损失
-   - **三阶段适配训练策略**（关键创新）：
-     - **Stage 1 - 连续热身**：仅训练连续路径（短期），初始化 encoder 权重
-     - **Stage 2 - 离散学习**：仅训练离散路径，学习稳定的 VQ codebook（N=16384）
-     - **Stage 3 - 交替微调**：冻结 encoder 和 quantizer，50% 概率选连续/离散路径微调 decoder
-   - 效果：rFID 从 1.92→1.60，discrete-rFID 从 6.18→5.13
-   - 关键优势：保持 2D 空间结构，支持跨分辨率泛化（256→512 无需重训标记器）
+
+    - 基于 DC-AE-f32c32 架构（CNN encoder + decoder），32× 空间压缩，latent channel=32
+    - **混合标记化**：同时支持离散路径（$\mathbf{Z}_q = \text{Quant}(\text{Enc}(\mathbf{I}))$）和连续路径（$\mathbf{Z} = \text{Enc}(\mathbf{I})$），保证 decoder 能有效解码两种 token
+    - 残差 token 定义为 $\mathbf{Z}_r = \mathbf{Z} - \mathbf{Z}_q$，弥补量化损失
+    - **三阶段适配训练策略**（关键创新）：
+      - **Stage 1 - 连续热身**：仅训练连续路径（短期），初始化 encoder 权重
+      - **Stage 2 - 离散学习**：仅训练离散路径，学习稳定的 VQ codebook（N=16384）
+      - **Stage 3 - 交替微调**：冻结 encoder 和 quantizer，50% 概率选连续/离散路径微调 decoder
+    - 效果：rFID 从 1.92→1.60，discrete-rFID 从 6.18→5.13
+    - 关键优势：保持 2D 空间结构，支持跨分辨率泛化（256→512 无需重训标记器）
 
 2. **混合掩码自回归生成**：
-   - **Transformer 主体**：PixArt-α 架构（28层，width=1152，634M 参数），文本通过 cross-attention 注入
-   - **训练时**：随机 mask 离散 token，用交叉熵损失预测；同时 Transformer hidden states 作为 MLP diffusion head 的条件，用扩散损失预测残差 token
-   - **推理时**：从全 mask 开始，12步 progressive unmasking 生成所有离散 token → 最终 hidden states 条件化 diffusion head 通过去噪生成残差 token → 相加 → 解码
-   - **关键设计决策**：只有离散 token 参与 Transformer 前向过程。因为 MaskGIT 仅需 8 步即可接近最优，而 MAR（连续 token）需 64 步。残差 token 仅用于精化，不改变整体结构
+
+    - **Transformer 主体**：PixArt-α 架构（28层，width=1152，634M 参数），文本通过 cross-attention 注入
+    - **训练时**：随机 mask 离散 token，用交叉熵损失预测；同时 Transformer hidden states 作为 MLP diffusion head 的条件，用扩散损失预测残差 token
+    - **推理时**：从全 mask 开始，12步 progressive unmasking 生成所有离散 token → 最终 hidden states 条件化 diffusion head 通过去噪生成残差 token → 相加 → 解码
+    - **关键设计决策**：只有离散 token 参与 Transformer 前向过程。因为 MaskGIT 仅需 8 步即可接近最优，而 MAR（连续 token）需 64 步。残差 token 仅用于精化，不改变整体结构
 
 3. **跨分辨率训练策略**：
-   - 2D 标记器的分辨率泛化特性支持"低分辨率预训练 + 高分辨率微调"策略
-   - 256×256 预训练 200K steps + 512×512 微调 50K steps
-   - 比 512×512 从头训练节省 1.9× GPU 小时（760 vs 1440），且质量更好（gFID 5.50 vs 6.64）
+
+    - 2D 标记器的分辨率泛化特性支持"低分辨率预训练 + 高分辨率微调"策略
+    - 256×256 预训练 200K steps + 512×512 微调 50K steps
+    - 比 512×512 从头训练节省 1.9× GPU 小时（760 vs 1440），且质量更好（gFID 5.50 vs 6.64）
 
 ### 损失函数 / 训练策略
 

@@ -30,10 +30,10 @@ tags:
 
 评价 LDP 协议的四个关键维度构成一个**多约束体制**：
 
-1. **效用（Utility）**：估计精度，以 MSE 衡量
-2. **通信（Communication）**：每用户传输比特数
-3. **服务器运行时间**：解码复杂度
-4. **可攻击性（Attackability）**：对抗者从单条消息重建原始输入的成功率
+**效用（Utility）**：估计精度，以 MSE 衡量
+**通信（Communication）**：每用户传输比特数
+**服务器运行时间**：解码复杂度
+**可攻击性（Attackability）**：对抗者从单条消息重建原始输入的成功率
 
 现有协议在这四个维度上各有取舍：
 - **RandomizedResponse (GRR)**：通信低（$\lceil\log_2 k\rceil$ 比特），但 MSE 有 $\Theta(k/e^\varepsilon)$ 的差距，且可攻击性最高

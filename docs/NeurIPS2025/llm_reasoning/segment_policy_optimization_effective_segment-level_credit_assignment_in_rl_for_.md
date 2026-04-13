@@ -25,10 +25,10 @@ tags:
 提出SPO框架，采用段级（而非令牌级或轨迹级）的advantage估计，通过新颖的蒙特卡洛方法和树形采样，在短CoT和长CoT场景下分别超越PPO和GRPO 6-12和7-11个百分点。
 
 ## 研究背景与动机
-1. **PPO的局限**: Token级advantage需要不稳定的critic模型，估计不准确
-2. **GRPO的局限**: 轨迹级advantage过粗糙，所有token共享一个reward（缺乏细粒度反馈）
-3. **信用分配挑战**: 长序列的稀疏、延迟奖励难以精确分配
-4. **研究机会**: 在token和轨迹之间找到平衡，利用MC估计避免critic
+**PPO的局限**: Token级advantage需要不稳定的critic模型，估计不准确
+**GRPO的局限**: 轨迹级advantage过粗糙，所有token共享一个reward（缺乏细粒度反馈）
+**信用分配挑战**: 长序列的稀疏、延迟奖励难以精确分配
+**研究机会**: 在token和轨迹之间找到平衡，利用MC估计避免critic
 
 ## 方法详解
 
@@ -44,33 +44,38 @@ SPO采用三层架构，每层支持多种实现：
 **SPO-Chain (短CoT场景)**:
 
 1. **自适应cutpoint划分**: 
-   - 识别低概率token（p_θ(y_t|s_t) < ρ）作为cutpoint
-   - 优化问题：min ∑_k |U_θ ∩ [t_k, t_{k+1})|^2
-   - 解：各段包含相同数目的cutpoint
+
+    - 识别低概率token（p_θ(y_t|s_t) < ρ）作为cutpoint
+    - 优化问题：min ∑_k |U_θ ∩ [t_k, t_{k+1})|^2
+    - 解：各段包含相同数目的cutpoint
 
 2. **链式MC advantage估计**:
-   - 在每个段边界采样N条轨迹
-   - V̂(s_{t_k}) = (1/N)∑_j R(x, [y_<t_k, τ_{t_k}^(j)])
-   - Â_k^seg = V̂(s_{t_{k+1}}) - V̂(s_{t_k})
+
+    - 在每个段边界采样N条轨迹
+    - V̂(s_{t_k}) = (1/N)∑_j R(x, [y_<t_k, τ_{t_k}^(j)])
+    - Â_k^seg = V̂(s_{t_{k+1}}) - V̂(s_{t_k})
 
 3. **概率掩码优化**:
-   - 只在低概率token处分配advantage（M_t = 1 if π(y_t) < ρ）
-   - 保证Z = ∑ M_t作为归一化
+
+    - 只在低概率token处分配advantage（M_t = 1 if π(y_t) < ρ）
+    - 保证Z = ∑ M_t作为归一化
 
 **SPO-Tree (长CoT场景)**:
 
 1. **固定令牌计数划分**: 每K个令牌为一个段
 
 2. **树形MC advantage估计**:
-   - 构造树形结构，公共前缀共享
-   - 叶子节点：v = R(x, hist)
-   - 内部节点：v = (1/|Ch|)∑ v(child)
-   - Advantage：相对于siblings的标准化差异
+
+    - 构造树形结构，公共前缀共享
+    - 叶子节点：v = R(x, hist)
+    - 内部节点：v = (1/|Ch|)∑ v(child)
+    - Advantage：相对于siblings的标准化差异
 
 3. **样本高效**: 
-   - 树形结构实现多层次采样复用
-   - 每个节点可作为训练样本
-   - 显著降低采样成本
+
+    - 树形结构实现多层次采样复用
+    - 每个节点可作为训练样本
+    - 显著降低采样成本
 
 ## 实验关键数据
 

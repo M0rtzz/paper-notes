@@ -26,17 +26,17 @@ VFScale提出无需外部验证器的测试时可缩放扩散模型，通过MRNC
 
 ## 研究背景与动机
 
-1. **领域现状**：受人类System 2思维启发，LLM通过Chain-of-Thought在复杂推理中表现优秀。扩散模型通过迭代细化也适合推理任务，但在问题难度超出训练分布时性能急剧下降。
+**领域现状**：受人类System 2思维启发，LLM通过Chain-of-Thought在复杂推理中表现优秀。扩散模型通过迭代细化也适合推理任务，但在问题难度超出训练分布时性能急剧下降。
 
-2. **现有痛点**：(1) 简单增加采样步数很快饱和（Du et al. 2024）；(2) 通过增加样本数量的测试时缩放依赖外部验证器提供密集评分信号，但推理任务的验证器难以获取；(3) 人类能进行无外部反馈的内省推理，现有方法与此有明显差距。
+**现有痛点**：(1) 简单增加采样步数很快饱和（Du et al. 2024）；(2) 通过增加样本数量的测试时缩放依赖外部验证器提供密集评分信号，但推理任务的验证器难以获取；(3) 人类能进行无外部反馈的内省推理，现有方法与此有明显差距。
 
-3. **核心矛盾**：扩散模型的能量函数本身可以作为验证器（因为score function是能量梯度的负数），但现有能量景观质量不足，低能量不一定对应高质量解（performance-energy consistency差）。
+**核心矛盾**：扩散模型的能量函数本身可以作为验证器（因为score function是能量梯度的负数），但现有能量景观质量不足，低能量不一定对应高质量解（performance-energy consistency差）。
 
-4. **本文要解决什么**：如何利用扩散模型的内在能量函数替代外部验证器，实现无验证器的测试时缩放？
+**本文要解决什么**：如何利用扩散模型的内在能量函数替代外部验证器，实现无验证器的测试时缩放？
 
-5. **切入角度**：双管齐下——训练侧改善能量景观，推理侧改善搜索效率。
+**切入角度**：双管齐下——训练侧改善能量景观，推理侧改善搜索效率。
 
-6. **核心idea一句话**：通过MRNCL损失对齐能量值与样本质量的单调关系，通过hMCTS在去噪过程中平衡探索与利用。
+**核心idea一句话**：通过MRNCL损失对齐能量值与样本质量的单调关系，通过hMCTS在去噪过程中平衡探索与利用。
 
 ## 方法详解
 
@@ -46,24 +46,27 @@ VFScale提出无需外部验证器的测试时可缩放扩散模型，通过MRNC
 ### 关键设计
 
 1. **MRNCL损失（Monotonic-Regression Negative Contrastive Learning）**:
-   - 做什么：确保离ground truth越远的样本能量越高（performance-energy consistency）
-   - 核心思路：对每个正样本 $x_0$，生成两个负样本 $x_0^-$ 和 $x_0^{--}$（后者距正样本更远）。在加噪后获取三点能量值 $(0, E_t^+), (l_{2,0}^-, E_t^-), (l_{2,0}^{--}, E_t^{--})$，做线性回归求斜率 $k_t$ 和截距 $b_t$
-   - 损失：$\mathcal{L}_{\text{MRNCL}} = \mathbb{E}[\max(0, \gamma - k_t) + \sum \|E - \hat{E}\|_2^2]$
-   - 设计动机：原始对比损失仅要求正样本为局部能量最小值，不约束负样本间的能量序关系
+
+    - 做什么：确保离ground truth越远的样本能量越高（performance-energy consistency）
+    - 核心思路：对每个正样本 $x_0$，生成两个负样本 $x_0^-$ 和 $x_0^{--}$（后者距正样本更远）。在加噪后获取三点能量值 $(0, E_t^+), (l_{2,0}^-, E_t^-), (l_{2,0}^{--}, E_t^{--})$，做线性回归求斜率 $k_t$ 和截距 $b_t$
+    - 损失：$\mathcal{L}_{\text{MRNCL}} = \mathbb{E}[\max(0, \gamma - k_t) + \sum \|E - \hat{E}\|_2^2]$
+    - 设计动机：原始对比损失仅要求正样本为局部能量最小值，不约束负样本间的能量序关系
 
 2. **KL正则化**:
-   - $\mathcal{L}_{\text{KL}} = \mathbb{E}_{t, p_{\theta,t}}[E_{\text{stop-grad}(\theta)}(x)] + \mathbb{E}_{t, p_{\theta,t}}[\log p_{\theta,t}(x)]$
-   - 第一项鼓励样本低能量，第二项最大化采样多样性（熵最大化）
-   - 在每个去噪步 $t$ 上应用（区别于Du et al. 2021仅在终端）
+
+    - $\mathcal{L}_{\text{KL}} = \mathbb{E}_{t, p_{\theta,t}}[E_{\text{stop-grad}(\theta)}(x)] + \mathbb{E}_{t, p_{\theta,t}}[\log p_{\theta,t}(x)]$
+    - 第一项鼓励样本低能量，第二项最大化采样多样性（熵最大化）
+    - 在每个去噪步 $t$ 上应用（区别于Du et al. 2021仅在终端）
 
 3. **混合MCTS去噪（hMCTS）**:
-   - 早期（噪声大时）用BoN：$L$ 个初始噪声并行去噪，防止过早淘汰有前景的路径
-   - 后期（噪声小时）用MCTS：
-     - Selection：UCB公式 $\text{UCB}(x_t, a_t) = Q(x_t, a_t) + c\sqrt{\frac{\ln N_i}{n_i}}$
-     - Expansion：单步去噪+不同高斯噪声→$K$个分支
-     - Simulation：用DDIM快速采样到 $x_0$，用 $E_\theta(\hat{x}_0)$ 作为reward（无需外部验证器）
-     - Backpropagation：更新路径上所有节点的值
-   - DDIM的子序列采样特性使simulation高效
+
+    - 早期（噪声大时）用BoN：$L$ 个初始噪声并行去噪，防止过早淘汰有前景的路径
+    - 后期（噪声小时）用MCTS：
+      - Selection：UCB公式 $\text{UCB}(x_t, a_t) = Q(x_t, a_t) + c\sqrt{\frac{\ln N_i}{n_i}}$
+      - Expansion：单步去噪+不同高斯噪声→$K$个分支
+      - Simulation：用DDIM快速采样到 $x_0$，用 $E_\theta(\hat{x}_0)$ 作为reward（无需外部验证器）
+      - Backpropagation：更新路径上所有节点的值
+    - DDIM的子序列采样特性使simulation高效
 
 ### 完整训练目标
 $\mathcal{L} = \mathcal{L}_{\text{MSE}} + \mathcal{L}_{\text{Contrast}} + \mathcal{L}_{\text{MRNCL}} + \mathcal{L}_{\text{KL}}$

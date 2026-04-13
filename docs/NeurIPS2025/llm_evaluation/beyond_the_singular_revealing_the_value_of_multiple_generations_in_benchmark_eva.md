@@ -27,9 +27,9 @@ tags:
 ## 研究背景与动机
 当前LLM基准评测存在三个核心问题：
 
-1. **生成策略不一致**：部分benchmark（LiveBench、WildBench、OpenLLM Leaderboard）使用贪心解码，另一些（TrustLLM、MT Bench、Alpaca Eval）使用随机采样，两者评估结果存在显著差异
-2. **单次生成方差大**：无论贪心还是随机采样，当前评测仅用一次生成来代表模型表现，导致benchmark分数估计带有较大采样方差，尤其在小数据集上不可靠
-3. **无法量化prompt difficulty**：单次生成无法回答"哪个prompt更难"这类问题，限制了对benchmark数据组成的理解
+**生成策略不一致**：部分benchmark（LiveBench、WildBench、OpenLLM Leaderboard）使用贪心解码，另一些（TrustLLM、MT Bench、Alpaca Eval）使用随机采样，两者评估结果存在显著差异
+**单次生成方差大**：无论贪心还是随机采样，当前评测仅用一次生成来代表模型表现，导致benchmark分数估计带有较大采样方差，尤其在小数据集上不可靠
+**无法量化prompt difficulty**：单次生成无法回答"哪个prompt更难"这类问题，限制了对benchmark数据组成的理解
 
 本文的核心洞察：benchmark评测本质上是一个**参数估计问题**，可以通过层级统计模型来形式化，而多次生成是降低估计方差、获取更细粒度信息的关键。
 

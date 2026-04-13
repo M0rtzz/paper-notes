@@ -49,22 +49,25 @@ tags:
 ### 关键设计
 
 1. **RCC 微调**（Section 3.1）：
-   - 保持编码器 $E$、量化器 $Q_C$、码本 $C$ 不变（避免重训自回归模型）
-   - 仅微调解码器 $D$ 和编码器副本 $E'$（$E'$ 仅用于检测）
-   - **RCC 损失**：$\mathcal{L}_{RCC}(s) = \mathbb{E}_{a \sim \mathcal{A}} \| \hat{z} - E'(a(D(\hat{z}))) \|_2^2$，目标是让解码-编码循环后的 soft latents 逼近原始 hard latents $\hat{z} = C_s$
-   - 训练时随机采样数据增强（JPEG、亮度、微小旋转等），使 RCC 对 valuemetric 变换也鲁棒
-   - **正则化**：$\mathcal{L}_{reg} = \|D(\hat{z}) - D_0(\hat{z})\|_2^2 + \mathcal{L}_{LPIPS}$，保持解码质量不退化
-   - 总损失：$\mathcal{L} = \mathcal{L}_{RCC} + \lambda \cdot \mathcal{L}_{reg}$
+
+    - 保持编码器 $E$、量化器 $Q_C$、码本 $C$ 不变（避免重训自回归模型）
+    - 仅微调解码器 $D$ 和编码器副本 $E'$（$E'$ 仅用于检测）
+    - **RCC 损失**：$\mathcal{L}_{RCC}(s) = \mathbb{E}_{a \sim \mathcal{A}} \| \hat{z} - E'(a(D(\hat{z}))) \|_2^2$，目标是让解码-编码循环后的 soft latents 逼近原始 hard latents $\hat{z} = C_s$
+    - 训练时随机采样数据增强（JPEG、亮度、微小旋转等），使 RCC 对 valuemetric 变换也鲁棒
+    - **正则化**：$\mathcal{L}_{reg} = \|D(\hat{z}) - D_0(\hat{z})\|_2^2 + \mathcal{L}_{LPIPS}$，保持解码质量不退化
+    - 总损失：$\mathcal{L} = \mathcal{L}_{RCC} + \lambda \cdot \mathcal{L}_{reg}$
 
 2. **水印同步层**（Section 3.2）：
-   - 几何变换（翻转、旋转）会彻底打乱 token 对应关系，RCC 微调无法解决
-   - 方案：利用 localized watermark [Sander et al.] 在图像四象限嵌入 4 个固定 32-bit 同步消息
-   - 检测时：遍历旋转角度网格，找到最佳分离四个消息的正交线对，由此估计并反转几何变换
-   - 反转后再运行原始 token 级水印检测器获取 p-value
+
+    - 几何变换（翻转、旋转）会彻底打乱 token 对应关系，RCC 微调无法解决
+    - 方案：利用 localized watermark [Sander et al.] 在图像四象限嵌入 4 个固定 32-bit 同步消息
+    - 检测时：遍历旋转角度网格，找到最佳分离四个消息的正交线对，由此估计并反转几何变换
+    - 反转后再运行原始 token 级水印检测器获取 p-value
 
 3. **跨模态联合检测**：
-   - 对混合模态输出（如 Chameleon 的图文交织），对各 sample 的 score $S^{(i)}$, $T^{(i)}$, $h^{(i)}$ 求和，去重后统一计算 p-value
-   - 跨文本和图像 token 的联合检测进一步提升检测置信度
+
+    - 对混合模态输出（如 Chameleon 的图文交织），对各 sample 的 score $S^{(i)}$, $T^{(i)}$, $h^{(i)}$ 求和，去重后统一计算 p-value
+    - 跨文本和图像 token 的联合检测进一步提升检测置信度
 
 ### 损失函数 / 训练策略
 

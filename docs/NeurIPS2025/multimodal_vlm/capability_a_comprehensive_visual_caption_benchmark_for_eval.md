@@ -42,31 +42,33 @@ CAPability的设计借鉴了视觉生成基准（如GenEval、VBench、T2VCompBe
 ### 关键设计
 
 1. **6大视角12个维度的分类体系**：将视觉描述分解为如下维度，每个维度独立收集约1000个样本并独立评估：
-   - **物体相关**（Object-Related）：物体类别、物体颜色、物体数量、空间关系
-   - **全局相关**（Global-Related）：场景、风格
-   - **文本相关**（Text-Related）：OCR
-   - **相机相关**（Camera-Related）：相机角度、相机运动
-   - **时序相关**（Temporal-Related）：动作、事件
-   - **知识相关**（Knowledge-Related）：角色识别
+
+    - **物体相关**（Object-Related）：物体类别、物体颜色、物体数量、空间关系
+    - **全局相关**（Global-Related）：场景、风格
+    - **文本相关**（Text-Related）：OCR
+    - **相机相关**（Camera-Related）：相机角度、相机运动
+    - **时序相关**（Temporal-Related）：动作、事件
+    - **知识相关**（Knowledge-Related）：角色识别
 
    其中9个静态维度适用于图像和视频，4个动态维度仅适用于视频。物体数量同时涵盖静态和动态。设计动机：单帧可获取的信息为静态，需要完整视频的信息为动态。
 
 2. **"以一代全"（One Represents All）标注策略**：对于可能包含多个物体/动作的样本，不追求标注所有元素，而是**随机选择一个**进行标注。核心原理是基于大数定律——大量样本的随机选择可以近似覆盖不同粒度的期望分布。为避免人类选择偏见，使用三个SOTA MLLM（GPT-4o、Gemini-1.5-pro、Qwen-VL-Max）列出所有候选元素，再由Qwen2.5-Max合并结果后随机选择一个作为预标注。
 
 3. **三态评估与双指标体系**：将每个样本的描述评判为三种状态，然后计算两个核心指标：
-   - **MIS**（Missing）：描述中未提及该维度内容
-   - **COR**（Correct）：描述中提及且正确  
-   - **INC**（Incorrect）：描述中提及但错误
 
-   $$\text{Precision} = \frac{|S(\text{COR})|}{|S(\text{COR}) \cup S(\text{INC})|}$$
+    - **MIS**（Missing）：描述中未提及该维度内容
+    - **COR**（Correct）：描述中提及且正确  
+    - **INC**（Incorrect）：描述中提及但错误
 
-   $$\text{Hit} = \frac{|S(\text{COR})|}{|S(\text{ALL})|}$$
+    $\text{Precision} = \frac{|S(\text{COR})|}{|S(\text{COR}) \cup S(\text{INC})|}$
+
+    $\text{Hit} = \frac{|S(\text{COR})|}{|S(\text{ALL})|}$
 
    Precision仅衡量正确性（描述了的内容有多准），Hit同时衡量正确性和全面性（所有应描述的内容中说对了多少）。
 
 4. **$K\bar{T}$（知道但说不出）指标**：将标注转换为QA对格式，对比模型在QA和Caption两种任务上的表现差异：
 
-   $$K\bar{T} = \frac{|S_{qa}(\text{COR}) \cap [S(\text{INC}) \cup S(\text{MIS})]|}{|S_{qa}(\text{COR})|}$$
+    $K\bar{T} = \frac{|S_{qa}(\text{COR}) \cap [S(\text{INC}) \cup S(\text{MIS})]|}{|S_{qa}(\text{COR})|}$
 
    该指标衡量"模型在被提问时能答对，但在主动描述时却没有表达"的比例，揭示了MLLM"被动知识"与"主动表达"之间的差距。这是之前工作完全没有量化过的维度。
 

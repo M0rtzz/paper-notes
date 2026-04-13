@@ -43,25 +43,28 @@ UpIT包含四个阶段：
 
 ### 关键设计
 1. **基于中间Checkpoint的专家准备**
-   - 关键观察：不同训练epoch的checkpoint在不同benchmark上表现出交错的最佳性能
-   - 例如：epoch 2的模型HellaSwag最好，epoch 0.25的模型MMLU最好
-   - 无需精心设计领域数据，只需保存checkpoint即可获得多样化专家
-   - 动机：大幅降低专家获取成本，从"百亿级领域数据"降至"免费的中间产物"
+
+    - 关键观察：不同训练epoch的checkpoint在不同benchmark上表现出交错的最佳性能
+    - 例如：epoch 2的模型HellaSwag最好，epoch 0.25的模型MMLU最好
+    - 无需精心设计领域数据，只需保存checkpoint即可获得多样化专家
+    - 动机：大幅降低专家获取成本，从"百亿级领域数据"降至"免费的中间产物"
 
 2. **遗传算法驱动的专家扩展**
-   - 问题：checkpoint数量固定，可能不满足目标专家数
-   - 方案：每轮选择差异最大的两个专家作为"父母"
-   - 随机分配权重 $\alpha, \beta$（$\alpha + \beta = 1$）
-   - 使用DARE（Drop And REscale）在合并前引入"突变"
-   - 新专家：$\mathbf{E}_{new} = \text{DARE}(\alpha \mathbf{E}_{j^*}, \beta \mathbf{E}_{k^*})$
-   - 关键：选择差异最大而非随机的两个专家 → 保证新专家多样性
+
+    - 问题：checkpoint数量固定，可能不满足目标专家数
+    - 方案：每轮选择差异最大的两个专家作为"父母"
+    - 随机分配权重 $\alpha, \beta$（$\alpha + \beta = 1$）
+    - 使用DARE（Drop And REscale）在合并前引入"突变"
+    - 新专家：$\mathbf{E}_{new} = \text{DARE}(\alpha \mathbf{E}_{j^*}, \beta \mathbf{E}_{k^*})$
+    - 关键：选择差异最大而非随机的两个专家 → 保证新专家多样性
 
 3. **基于种子数据的路由预优化**
-   - 问题：随机初始化的router导致token被派发到错误专家，削弱之前建立的专家差异性
-   - 数据选择（Algorithm 3）：随机抽取训练集的1%（约500-5000样本），计算每个样本在每个专家上的PPL，将样本分配给PPL最低的专家
-   - 辅助损失：$\mathcal{O}_i = \min_{\mathbf{E}_i}(\alpha \mathcal{L}_{lm} + (1-\alpha)\mathcal{L}_{aux})$
-   - $\mathcal{L}_{aux} = \text{CrossEntropy}(\text{Sigmoid}(\mathbf{h}_{\mathbf{r}_i}), \mathbf{I})$：最大化路由向量对专长数据的输出概率
-   - 仅需1%数据、4个epoch → 极低成本预优化
+
+    - 问题：随机初始化的router导致token被派发到错误专家，削弱之前建立的专家差异性
+    - 数据选择（Algorithm 3）：随机抽取训练集的1%（约500-5000样本），计算每个样本在每个专家上的PPL，将样本分配给PPL最低的专家
+    - 辅助损失：$\mathcal{O}_i = \min_{\mathbf{E}_i}(\alpha \mathcal{L}_{lm} + (1-\alpha)\mathcal{L}_{aux})$
+    - $\mathcal{L}_{aux} = \text{CrossEntropy}(\text{Sigmoid}(\mathbf{h}_{\mathbf{r}_i}), \mathbf{I})$：最大化路由向量对专长数据的输出概率
+    - 仅需1%数据、4个epoch → 极低成本预优化
 
 ### 损失函数 / 训练策略
 - **Router初始化阶段**：$\alpha \mathcal{L}_{lm} + (1-\alpha)\mathcal{L}_{aux}$，$\alpha=0.5$

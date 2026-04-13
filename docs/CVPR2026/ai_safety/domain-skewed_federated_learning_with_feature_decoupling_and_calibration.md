@@ -27,10 +27,10 @@ tags:
 
 ## 研究背景与动机
 
-1. **联邦学习中的域偏移问题**：与标签偏移（label skew）不同，域偏移（domain skew）场景中各客户端数据来自不同域（如不同天气下的驾驶数据），类别分布相似但特征分布差异大：$\mathbb{P}_{k_1}(x|y) \neq \mathbb{P}_{k_2}(x|y)$。
-2. **维度坍塌现象**：域偏移导致局部模型的表征坍缩到狭窄低维子空间——特征协方差矩阵的大量奇异值趋近于零，意味着每个客户端仅拟合其专属域的特征而忽略其他子空间。
-3. **"消除式"方法的局限**：FDSE 等方法试图消除域特定偏差，但域相关特征中纠缠了有价值的类别信息（如 sketch 域中笔触构成的物体轮廓），直接消除导致信息丧失——Grad-CAM 显示 FDSE 在 cartoon/sketch 域中遗漏了长颈鹿的鹿角和头部。
-4. **核心 idea**：通过校准而非消除域相关特征，挽救其中纠缠的类别相关线索，从而促进更一致的跨域决策。
+**联邦学习中的域偏移问题**：与标签偏移（label skew）不同，域偏移（domain skew）场景中各客户端数据来自不同域（如不同天气下的驾驶数据），类别分布相似但特征分布差异大：$\mathbb{P}_{k_1}(x|y) \neq \mathbb{P}_{k_2}(x|y)$。
+**维度坍塌现象**：域偏移导致局部模型的表征坍缩到狭窄低维子空间——特征协方差矩阵的大量奇异值趋近于零，意味着每个客户端仅拟合其专属域的特征而忽略其他子空间。
+**"消除式"方法的局限**：FDSE 等方法试图消除域特定偏差，但域相关特征中纠缠了有价值的类别信息（如 sketch 域中笔触构成的物体轮廓），直接消除导致信息丧失——Grad-CAM 显示 FDSE 在 cartoon/sketch 域中遗漏了长颈鹿的鹿角和头部。
+**核心 idea**：通过校准而非消除域相关特征，挽救其中纠缠的类别相关线索，从而促进更一致的跨域决策。
 
 ## 方法详解
 
@@ -46,22 +46,25 @@ F²DC 包含两个核心模块和一个聚合策略，嵌入标准 FedAvg 框架
 ### 关键设计
 
 1. **Domain Feature Decoupler (DFD)**
-   - **做什么**：为特征图中每个单元确定跨域鲁棒性得分，分离为域鲁棒和域相关两部分
-   - **为什么**：直接处理原始特征会过拟合域偏差；需先分离出域上下文以便后续校准
-   - **怎么做**：使用两层 CNN（含 BN + ReLU）构建属性映射 $\mathcal{S}_i = \mathcal{A}_D(f_i) \in \mathbb{R}^{C \times H \times W}$；通过 **Gumbel Concrete 分布** 生成伪二值掩码 $\mathcal{M}_i$（解决硬离散化的不可微问题），$\sigma \to 0$ 时趋近硬二值；解耦：$f_i^+ = \mathcal{M}_i \odot f_i$，$f_i^- = (1 - \mathcal{M}_i) \odot f_i$
-   - **损失**（可分性 + 判别性）：可分性项最小化 $f^+$ 和 $f^-$ 的余弦相似度；判别性项让 $f^+$ 正确分类（ground truth）、$f^-$ 倾向错误分类（highest-confidence wrong label），由辅助 MLP $\mathbf{m}$ 预测 logits
-   - **区别**：FDSE 直接消除域特征，DFD 是"分而不弃"，保留域相关特征供后续校准
+
+    - **做什么**：为特征图中每个单元确定跨域鲁棒性得分，分离为域鲁棒和域相关两部分
+    - **为什么**：直接处理原始特征会过拟合域偏差；需先分离出域上下文以便后续校准
+    - **怎么做**：使用两层 CNN（含 BN + ReLU）构建属性映射 $\mathcal{S}_i = \mathcal{A}_D(f_i) \in \mathbb{R}^{C \times H \times W}$；通过 **Gumbel Concrete 分布** 生成伪二值掩码 $\mathcal{M}_i$（解决硬离散化的不可微问题），$\sigma \to 0$ 时趋近硬二值；解耦：$f_i^+ = \mathcal{M}_i \odot f_i$，$f_i^- = (1 - \mathcal{M}_i) \odot f_i$
+    - **损失**（可分性 + 判别性）：可分性项最小化 $f^+$ 和 $f^-$ 的余弦相似度；判别性项让 $f^+$ 正确分类（ground truth）、$f^-$ 倾向错误分类（highest-confidence wrong label），由辅助 MLP $\mathbf{m}$ 预测 logits
+    - **区别**：FDSE 直接消除域特征，DFD 是"分而不弃"，保留域相关特征供后续校准
 
 2. **Domain Feature Corrector (DFC)**
-   - **做什么**：从域相关特征 $f^-$ 中提取可补充 $f^+$ 的额外类别线索
-   - **为什么**：$f^-$ 中纠缠着域偏差和类别信息，直接丢弃损失有价值信号
-   - **怎么做**：与 DFD 同架构的两层 CNN $\mathcal{A}_C$，学习残差：$f_i^\star = f_i^- + (1 - \mathcal{M}_i) \odot \mathcal{A}_C(f_i^-)$
-   - **损失**：标准交叉熵 $\mathcal{L}_{DFC} = -y_i \cdot \log(\delta(\mathbf{m}(l_i^\star)))$，注入正确判别信号
+
+    - **做什么**：从域相关特征 $f^-$ 中提取可补充 $f^+$ 的额外类别线索
+    - **为什么**：$f^-$ 中纠缠着域偏差和类别信息，直接丢弃损失有价值信号
+    - **怎么做**：与 DFD 同架构的两层 CNN $\mathcal{A}_C$，学习残差：$f_i^\star = f_i^- + (1 - \mathcal{M}_i) \odot \mathcal{A}_C(f_i^-)$
+    - **损失**：标准交叉熵 $\mathcal{L}_{DFC} = -y_i \cdot \log(\delta(\mathbf{m}(l_i^\star)))$，注入正确判别信号
 
 3. **Domain-Aware Aggregation (DaA)**
-   - **做什么**：全局聚合中考虑各客户端域差异度
-   - **为什么**：朴素 FedAvg 忽视域多样性，等权重聚合导致偏差
-   - **怎么做**：定义均匀全局域分布 $\mathcal{G} = [1/Q,...,1/Q]$（Q=域数量），计算客户端 k 的域差异度 $\mathbf{d}_k$；权重 $\mathbf{p}_k = \sigma(\alpha \cdot n_k/N - \beta \cdot \mathbf{d}_k)$ 归一化后聚合
+
+    - **做什么**：全局聚合中考虑各客户端域差异度
+    - **为什么**：朴素 FedAvg 忽视域多样性，等权重聚合导致偏差
+    - **怎么做**：定义均匀全局域分布 $\mathcal{G} = [1/Q,...,1/Q]$（Q=域数量），计算客户端 k 的域差异度 $\mathbf{d}_k$；权重 $\mathbf{p}_k = \sigma(\alpha \cdot n_k/N - \beta \cdot \mathbf{d}_k)$ 归一化后聚合
 
 ### 损失函数 / 训练策略
 

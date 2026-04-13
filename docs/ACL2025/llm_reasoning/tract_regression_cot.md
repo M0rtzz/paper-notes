@@ -27,29 +27,29 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**:
+**领域现状**:
    - LLM-as-a-Judge 已成为自动化文本评估的主流范式，模型根据细粒度评分标准对文本输出打分（如1-5分）
    - 现有方法通常使用交叉熵（CE）损失微调 LLM，让其先生成 CoT 分析再输出分数
    - RAFT（Regression-Aware Fine-Tuning）已被证明可改善数值回归任务性能，但未考虑 CoT 推理
 
-2. **现有痛点**:
+**现有痛点**:
    - **CE 损失忽视数值距离**: 给定真实分数 1，预测 5 和预测 2 受到的惩罚相同，但它们的数值误差差异巨大
    - **RAFT 缺少 CoT**: 虽然 RAFT 引入平方误差损失改善了回归预测，但没有利用 CoT 推理，而 CoT 对 LLM-as-a-Judge 至关重要
    - **CoT 来源的分布偏移**: 训练时 CoT 来自 GPT-4 注释，推理时 CoT 来自模型自身生成，两者分布不一致
 
-3. **核心矛盾**:
+**核心矛盾**:
    - CoT 推理和回归感知训练各有优势，但如何有效地将两者结合是一个开放问题
    - GPT-4 生成的 CoT 与微调后模型自生成的 CoT 之间存在显著分布差异
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 如何在 LLM-as-a-Judge 微调中同时利用 CoT 推理能力和回归感知损失
    - 如何缓解训练与推理阶段 CoT 来源的分布偏移问题
 
-5. **切入角度**:
+**切入角度**:
    - 将 CE 损失用于 CoT 学习，RAFT 损失用于分数预测，组合形成 CoT-RAFT 目标
    - 采用两阶段训练策略，第二阶段使用模型自生成的 CoT 替代外部注释
 
-6. **核心idea一句话**:
+**核心idea一句话**:
    - 通过两阶段自生成 CoT + 回归感知微调，实现 CoT 推理与数值预测的最佳结合
 
 ## 方法详解
@@ -63,19 +63,22 @@ TRACT（Two-stage Regression-Aware fine-tuning with CoT）包含两个阶段：
 ### 关键设计
 
 1. **CoT-RAIL 推理器（CR Predictor）**:
-   - 做什么: 推理时先生成 CoT，再对可能的分数进行加权求和而非 argmax 解码
-   - 核心思路: $\hat{y}_{CR}(x) = \sum_{y \in \mathcal{Y}} p(\text{str}(y) | [x, \hat{s}]) \cdot y$，其中 $\hat{s} \sim p(\cdot|x)$
-   - 设计动机: RAIL 加权平均优于 argmax 解码，CoT 提供更好的上下文条件，两者结合效果叠加
+
+    - 做什么: 推理时先生成 CoT，再对可能的分数进行加权求和而非 argmax 解码
+    - 核心思路: $\hat{y}_{CR}(x) = \sum_{y \in \mathcal{Y}} p(\text{str}(y) | [x, \hat{s}]) \cdot y$，其中 $\hat{s} \sim p(\cdot|x)$
+    - 设计动机: RAIL 加权平均优于 argmax 解码，CoT 提供更好的上下文条件，两者结合效果叠加
 
 2. **CoT-RAFT 训练目标**:
-   - 做什么: 将 CE 损失（学 CoT）和 RAFT 损失（学分数预测）加权组合
-   - 核心思路: $\ell_{\text{CoT-RAFT}}^{\lambda} = \lambda(\sum_y p(\text{str}(y)|[x,\hat{s}]) \cdot y - y^*)^2 - \log p([\hat{s}, y^*] | x)$
-   - 设计动机: CE 保证 CoT 生成质量，RAFT 确保分数预测对数值距离敏感
+
+    - 做什么: 将 CE 损失（学 CoT）和 RAFT 损失（学分数预测）加权组合
+    - 核心思路: $\ell_{\text{CoT-RAFT}}^{\lambda} = \lambda(\sum_y p(\text{str}(y)|[x,\hat{s}]) \cdot y - y^*)^2 - \log p([\hat{s}, y^*] | x)$
+    - 设计动机: CE 保证 CoT 生成质量，RAFT 确保分数预测对数值距离敏感
 
 3. **两阶段自生成 CoT 策略**:
-   - 做什么: 阶段一用外部 CoT 训练，阶段二用阶段一模型生成的 CoT 重新训练
-   - 核心思路: 将 GPT-4 CoT 替换为自身分布下的 CoT，消除训练-推理分布偏移
-   - 设计动机: 推理时 CoT 由模型自己生成，训练时也用自生成 CoT 可以保持分布一致
+
+    - 做什么: 阶段一用外部 CoT 训练，阶段二用阶段一模型生成的 CoT 重新训练
+    - 核心思路: 将 GPT-4 CoT 替换为自身分布下的 CoT，消除训练-推理分布偏移
+    - 设计动机: 推理时 CoT 由模型自己生成，训练时也用自生成 CoT 可以保持分布一致
 
 ### 损失函数 / 训练策略
 

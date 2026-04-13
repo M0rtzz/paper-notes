@@ -44,23 +44,26 @@ BLiM基于预训练视频MLLM（VideoChat-Flash 7B），由UMT视频编码器、
 ### 关键设计
 
 1. **双向似然估计训练**:
-   - **视频到文本生成** $P(\mathbf{t}|\mathbf{v})$：标准MLLM预训练范式，给定视频特征自回归生成文本
-   $$\mathcal{L}_{t|v} = -\sum_{i=1}^{L_t} \log P(t_i | t_{<i}, \mathbf{v})$$
-   - **文本到视频特征生成** $P(\mathbf{v}|\mathbf{t})$：给定文本，自回归预测下一个视频clip特征，使用对比softmax
-   $$\mathcal{L}_{v|t} = -\sum_{i=1}^{L_v} \log \frac{\exp(\tilde{v}_{i-1}^\top v_i)}{\sum_{n=1}^{N} \exp(\tilde{v}_{i-1}^\top v_i^{(n)})}$$
-   - 总训练目标：$\mathcal{L}_{BLiM} = \mathcal{L}_{t|v} + \mathcal{L}_{v|t}$
-   - 两个方向的输入模态顺序互换，使用不同的prompt
+
+    - **视频到文本生成** $P(\mathbf{t}|\mathbf{v})$：标准MLLM预训练范式，给定视频特征自回归生成文本
+    $\mathcal{L}_{t|v} = -\sum_{i=1}^{L_t} \log P(t_i | t_{<i}, \mathbf{v})$
+    - **文本到视频特征生成** $P(\mathbf{v}|\mathbf{t})$：给定文本，自回归预测下一个视频clip特征，使用对比softmax
+    $\mathcal{L}_{v|t} = -\sum_{i=1}^{L_v} \log \frac{\exp(\tilde{v}_{i-1}^\top v_i)}{\sum_{n=1}^{N} \exp(\tilde{v}_{i-1}^\top v_i^{(n)})}$
+    - 总训练目标：$\mathcal{L}_{BLiM} = \mathcal{L}_{t|v} + \mathcal{L}_{v|t}$
+    - 两个方向的输入模态顺序互换，使用不同的prompt
 
 2. **候选先验归一化（CPN）**:
-   - 免训练的分数校准模块，通过对输入模态应用attention mask来估计候选先验概率
-   - 在计算候选似然时，使用attention mask遮蔽所有查询token，使模型在无查询条件下生成候选，得到先验估计
-   - 用估计的候选先验对候选似然进行归一化，消除先验偏差
-   - CPN的通用性：不仅适用于检索，还能增强VQA、captioning等多模态任务中模型对视觉信息的利用
+
+    - 免训练的分数校准模块，通过对输入模态应用attention mask来估计候选先验概率
+    - 在计算候选似然时，使用attention mask遮蔽所有查询token，使模型在无查询条件下生成候选，得到先验估计
+    - 用估计的候选先验对候选似然进行归一化，消除先验偏差
+    - CPN的通用性：不仅适用于检索，还能增强VQA、captioning等多模态任务中模型对视觉信息的利用
 
 3. **推理流程**:
-   - 视频到文本检索：$n^* = \arg\max_n P(\mathbf{t}^{(n)}|\mathbf{v}) + P(\mathbf{v}|\mathbf{t}^{(n)})$
-   - 文本到视频检索：$n^* = \arg\max_n P(\mathbf{t}|\mathbf{v}^{(n)}) + P(\mathbf{v}^{(n)}|\mathbf{t})$
-   - 双向似然联合考虑，候选似然找最可能生成的候选，查询似然找最可能生成查询的候选
+
+    - 视频到文本检索：$n^* = \arg\max_n P(\mathbf{t}^{(n)}|\mathbf{v}) + P(\mathbf{v}|\mathbf{t}^{(n)})$
+    - 文本到视频检索：$n^* = \arg\max_n P(\mathbf{t}|\mathbf{v}^{(n)}) + P(\mathbf{v}^{(n)}|\mathbf{t})$
+    - 双向似然联合考虑，候选似然找最可能生成的候选，查询似然找最可能生成查询的候选
 
 ### 损失函数 / 训练策略
 

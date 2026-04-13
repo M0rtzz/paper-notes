@@ -50,8 +50,9 @@ Vist（Vision-centric Token Compression）采用慢-快双路径设计：
 2. **Perceiver Resampler 压缩**：冻结 ViT-L/14 提取图像特征 $F \in \mathbb{R}^{M \times L \times D}$，通过可学习的 Perceiver Resampler 将每张图像压缩为 N+1 个视觉 token（含 CLS token），默认 N=64。训练时 4096 个text token 渲染为 28 张图像，压缩为 64×28=1792 个视觉 token，压缩比 Δ=2.3。
 
 3. **概率引导的视觉增强（PVE）**：核心训练目标，包含两个关键组件：
-   - **文本锚定语义一致性**：对比学习损失，拉近 Resampler 输出的视觉特征 $\hat{F}'$ 与 LLM tokenizer 产生的 text token embedding $\hat{F}^t$ 之间的距离。
-   - **基于频率的遮蔽（FM）**：借鉴 Shannon 信息论（$I(y) = -\log_2 P(y)$），利用语料级 token 频率作为语义重要性的代理。高频 token（如 "the"、"with"）承载的信息量少，被优先遮蔽；低频 token（领域特定或语境关键词）被保留。重要性分数 $s_w = \log \frac{|S|}{1+\text{count}(w)}$，遮蔽率 50%，低重要性 token 被遮蔽的概率更高。
+
+    - **文本锚定语义一致性**：对比学习损失，拉近 Resampler 输出的视觉特征 $\hat{F}'$ 与 LLM tokenizer 产生的 text token embedding $\hat{F}^t$ 之间的距离。
+    - **基于频率的遮蔽（FM）**：借鉴 Shannon 信息论（$I(y) = -\log_2 P(y)$），利用语料级 token 频率作为语义重要性的代理。高频 token（如 "the"、"with"）承载的信息量少，被优先遮蔽；低频 token（领域特定或语境关键词）被保留。重要性分数 $s_w = \log \frac{|S|}{1+\text{count}(w)}$，遮蔽率 50%，低重要性 token 被遮蔽的概率更高。
 
 ### 损失函数 / 训练策略
 

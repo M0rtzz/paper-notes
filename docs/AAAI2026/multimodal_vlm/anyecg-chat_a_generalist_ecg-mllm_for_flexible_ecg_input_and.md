@@ -42,16 +42,18 @@ anyECG-chat = ECG编码器(ViT-base, 对比预训练) + MLP连接器 + LLaMA-3-8
 ### 关键设计
 
 1. **动态ECG输入机制**: 
-   - **变长ECG**: 短于10s则零填充；长于10s则填充到10s整数倍后切分为10s片段，分别编码后拼接，[CLS]取平均
-   - **少导联ECG**: 缺失导联零填充。导联嵌入(lead embedding)使编码器能捕获跨导联关系
-   - **多ECG输入**: 用 `<ECG_start>` 和 `<ECG_end>` 特殊token标记每个ECG的嵌入边界，让LLM区分不同ECG
+
+    - **变长ECG**: 短于10s则零填充；长于10s则填充到10s整数倍后切分为10s片段，分别编码后拼接，[CLS]取平均
+    - **少导联ECG**: 缺失导联零填充。导联嵌入(lead embedding)使编码器能捕获跨导联关系
+    - **多ECG输入**: 用 `<ECG_start>` 和 `<ECG_end>` 特殊token标记每个ECG的嵌入边界，让LLM区分不同ECG
 
 2. **ECG编码器设计**: ViT-base架构，patch大小(1,200)——每个导联每200采样点一个patch。12导联10s(100Hz)ECG产生60个patch + 1个[CLS]。引入导联嵌入 $E = E_{signal} + E_{pos} + E_{lead}$，先在MIMIC-ECG上做ECG-报告对比预训练。
 
 3. **anyECG数据集**: 三个子集：
-   - **ReportGen**: 773K QA对（MIMIC-ECG，12导联10s）
-   - **Localization**: 150K QA对（European ST-T、MIT-BIH等，2导联，10-60s，秒级定位标注）
-   - **MultiECG**: 168K QA对（MIMIC+PTB-XL，2-6个ECG，LLM生成的开放QA）
+
+    - **ReportGen**: 773K QA对（MIMIC-ECG，12导联10s）
+    - **Localization**: 150K QA对（European ST-T、MIT-BIH等，2导联，10-60s，秒级定位标注）
+    - **MultiECG**: 168K QA对（MIMIC+PTB-XL，2-6个ECG，LLM生成的开放QA）
 
 ### 损失函数 / 训练策略
 三阶段课程学习：

@@ -39,11 +39,12 @@ tags:
 1. **归因实体（Attribution Entity）**: 以PPO rollout buffer中的单条记录 $z_i = (s_i, a_i, r_i, \log\pi_i, v_i, \hat{A}_i)$ 作为归因的原子单位，这与PPO训练的自然粒度一致。
 
 2. **双目标函数设计**:
-   - **Agent Action目标** $f_{\text{action}}(\theta) = \log\pi_\theta(a|s)$：用于诊断智能体为何在特定状态采取特定动作，主要服务于可解释性分析。
-   - **Cumulative Return目标** $f_{\text{return}}(\theta) = \mathbb{E}_{\tau\sim\pi_{\text{ref}}} [\log\pi_\theta(a|s) \hat{A}_{\text{ref}}(s,a)]$：评估每条记录对整体回报的贡献。这里巧妙地用当前轮的策略 $\pi_{\theta^{(k)}}$ 作为参考策略，用rollout buffer自身作为验证集，避免了策略依赖的数据分布问题和高方差问题。这个目标函数在结构上等价于带baseline的REINFORCE目标。
+
+    - **Agent Action目标** $f_{\text{action}}(\theta) = \log\pi_\theta(a|s)$：用于诊断智能体为何在特定状态采取特定动作，主要服务于可解释性分析。
+    - **Cumulative Return目标** $f_{\text{return}}(\theta) = \mathbb{E}_{\tau\sim\pi_{\text{ref}}} [\log\pi_\theta(a|s) \hat{A}_{\text{ref}}(s,a)]$：评估每条记录对整体回报的贡献。这里巧妙地用当前轮的策略 $\pi_{\theta^{(k)}}$ 作为参考策略，用rollout buffer自身作为验证集，避免了策略依赖的数据分布问题和高方差问题。这个目标函数在结构上等价于带baseline的REINFORCE目标。
 
 3. **基于TracIn的归因方法**: 对buffer中每条记录 $z_i$，计算影响力分数：
-   $$I_i = \sum_{j: z_i \in \mathcal{B}_j^{(k)}} \langle \nabla_\theta f(\theta_j^{(k)}), \nabla_\theta \mathcal{L}_{\text{PPO}}(\theta_j^{(k)}, z_i) \rangle$$
+    $I_i = \sum_{j: z_i \in \mathcal{B}_j^{(k)}} \langle \nabla_\theta f(\theta_j^{(k)}), \nabla_\theta \mathcal{L}_{\text{PPO}}(\theta_j^{(k)}, z_i) \rangle$
    即目标函数梯度与训练损失梯度的内积之和。正分数表示有益记录（top records），负分数表示有害记录（bottom records）。
 
 ### 三大应用

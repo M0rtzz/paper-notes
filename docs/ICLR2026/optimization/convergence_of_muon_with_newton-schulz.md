@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Muon 优化器通过正交化动量矩阵（而非像 Adam 那样向量化处理）来更新矩阵参数，在 LLM 训练中表现优异。实际使用 Newton-Schulz (NS) 迭代近似极坐标分解，避免昂贵的 SVD。
-2. **现有痛点**：现有 Muon 理论分析（Shen et al., Li & Hong）都将 NS 替换为精确 SVD——但实际中从不用 SVD。NS 近似误差如何影响收敛？几步 NS 就够吗？why？
-3. **核心矛盾**：实践中 Muon 用少量 NS 步就达到了 SVD 级别效果（更快的 wall-clock），但理论空白——实践远超理论。
-4. **切入角度**：直接分析 NS 近似的极坐标误差 $\varepsilon_q$，证明它随步数双指数衰减。
-5. **核心idea一句话**：NS 近似误差 $\varepsilon_q$ 双指数衰减→几步 NS 就将 Muon 收敛率拉到 SVD 级别→每步计算远低于 SVD→wall-clock 更快。
+**领域现状**：Muon 优化器通过正交化动量矩阵（而非像 Adam 那样向量化处理）来更新矩阵参数，在 LLM 训练中表现优异。实际使用 Newton-Schulz (NS) 迭代近似极坐标分解，避免昂贵的 SVD。
+**现有痛点**：现有 Muon 理论分析（Shen et al., Li & Hong）都将 NS 替换为精确 SVD——但实际中从不用 SVD。NS 近似误差如何影响收敛？几步 NS 就够吗？why？
+**核心矛盾**：实践中 Muon 用少量 NS 步就达到了 SVD 级别效果（更快的 wall-clock），但理论空白——实践远超理论。
+**切入角度**：直接分析 NS 近似的极坐标误差 $\varepsilon_q$，证明它随步数双指数衰减。
+**核心idea一句话**：NS 近似误差 $\varepsilon_q$ 双指数衰减→几步 NS 就将 Muon 收敛率拉到 SVD 级别→每步计算远低于 SVD→wall-clock 更快。
 
 ## 方法详解
 

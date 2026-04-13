@@ -45,20 +45,21 @@ tags:
 
 1. **极小极大下界 (Theorem 1)**：对于 $q$ 阶零尊重算法，在 $p$-BCM 噪声（$p \in (1,2]$）下，找到 $\varepsilon$-稳定点所需的最小 oracle 查询次数为：
 
-   $$\Omega\left(\frac{\Delta \sigma_h}{\varepsilon^2} \left(\frac{\sigma}{\varepsilon}\right)^{\frac{1}{p-1}}\right)$$
+    $\Omega\left(\frac{\Delta \sigma_h}{\varepsilon^2} \left(\frac{\sigma}{\varepsilon}\right)^{\frac{1}{p-1}}\right)$
    
    这比一阶方法的最优复杂度优了 $1/\varepsilon$ 倍（均匀地对所有 $p \in (1,2]$ 成立），证明即便在重尾情况下二阶信息仍能提供可证明的加速。关键技巧是利用"零链"性质的最坏情况函数构造，将 $p$-BCM 噪声模型推广到高阶导数。
 
 2. **归一化 SGD with Hessian 修正 (NSGDHess, Algorithm 1)**：核心更新规则：
-   - 在连续迭代间均匀随机插值：$\hat{x}_t = q_t x_t + (1-q_t) x_{t-1}$
-   - 构建 Hessian 修正的递归动量：$g_t = (1-\alpha)(g_{t-1} + \nabla^2 f(\hat{x}_t, \hat{\xi}_t)(x_t - x_{t-1})) + \alpha \nabla f(x_t, \xi_t)$
-   - 归一化步长：$x_{t+1} = x_t - \gamma \frac{g_t}{\|g_t\|}$
+
+    - 在连续迭代间均匀随机插值：$\hat{x}_t = q_t x_t + (1-q_t) x_{t-1}$
+    - 构建 Hessian 修正的递归动量：$g_t = (1-\alpha)(g_{t-1} + \nabla^2 f(\hat{x}_t, \hat{\xi}_t)(x_t - x_{t-1})) + \alpha \nabla f(x_t, \xi_t)$
+    - 归一化步长：$x_{t+1} = x_t - \gamma \frac{g_t}{\|g_t\|}$
    
    设计动机：随机插值点使得 $\mathbb{E}[\nabla^2 f(\hat{x}_t)(x_t - x_{t-1})] = \nabla F(x_t) - \nabla F(x_{t-1})$，即精确的梯度差，这是 Hessian 修正动量有效的理论基础。归一化步长保证每步更新量有界（$\|x_{t+1} - x_t\| = \gamma$），对重尾噪声至关重要。
 
 3. **Hessian 裁剪 (Clip NSGDHess, Algorithm 2)**：在 Algorithm 1 基础上引入梯度和 Hessian-向量积的双重裁剪：
    
-   $$g_t = (1-\alpha)(g_{t-1} + \gamma \cdot \text{clip}(\gamma^{-1}\nabla^2 f \cdot (x_t - x_{t-1}), \bar{\lambda}_h)) + \alpha \cdot \text{clip}(\nabla f, \lambda)$$
+    $g_t = (1-\alpha)(g_{t-1} + \gamma \cdot \text{clip}(\gamma^{-1}\nabla^2 f \cdot (x_t - x_{t-1}), \bar{\lambda}_h)) + \alpha \cdot \text{clip}(\nabla f, \lambda)$
    
    其中 $\text{clip}(v, \lambda) = \min\{1, \lambda/\|v\|\} \cdot v$。**关键洞察**：直接裁剪 Hessian 矩阵需要 $O(d^2)$ 计算量（需估算算子范数），而裁剪 Hessian-向量积只需 $O(d)$ 操作，且保持了反向传播兼容性。
 

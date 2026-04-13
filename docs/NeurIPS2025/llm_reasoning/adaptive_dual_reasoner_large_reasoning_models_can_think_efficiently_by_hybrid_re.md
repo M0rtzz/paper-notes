@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大型推理模型 (LRM) 如 DeepSeek-R1、Qwen3 通过长 Chain-of-Thought 推理取得显著效果，但存在严重的"过度思考"问题——对简单子问题也生成冗长的推理步骤。
-2. **现有痛点**：(a) 长度驱动的压缩方法可能不足以探索复杂步骤；(b) 粗粒度的快/慢模式切换无法适应推理轨迹内子问题复杂度的变化；(c) 静态 rollout 策略限制了难题的深入探索。
-3. **核心矛盾**：减少推理长度（提效）vs 保持推理深度（保准确率）——需要根据每个推理步骤的复杂度自适应分配"认知资源"。
-4. **切入角度**：将推理轨迹分解为推理单元 (reasoning unit)，按熵值标注为 easy/hard，easy 单元压缩，hard 单元保留。
-5. **核心 idea 一句话**：熵引导的动态分支——在从 easy 切换到 hard 模式时展开多个探索分支，增加推理广度弥补深度的减少。
+**领域现状**：大型推理模型 (LRM) 如 DeepSeek-R1、Qwen3 通过长 Chain-of-Thought 推理取得显著效果，但存在严重的"过度思考"问题——对简单子问题也生成冗长的推理步骤。
+**现有痛点**：(a) 长度驱动的压缩方法可能不足以探索复杂步骤；(b) 粗粒度的快/慢模式切换无法适应推理轨迹内子问题复杂度的变化；(c) 静态 rollout 策略限制了难题的深入探索。
+**核心矛盾**：减少推理长度（提效）vs 保持推理深度（保准确率）——需要根据每个推理步骤的复杂度自适应分配"认知资源"。
+**切入角度**：将推理轨迹分解为推理单元 (reasoning unit)，按熵值标注为 easy/hard，easy 单元压缩，hard 单元保留。
+**核心 idea 一句话**：熵引导的动态分支——在从 easy 切换到 hard 模式时展开多个探索分支，增加推理广度弥补深度的减少。
 
 ## 方法详解
 
@@ -40,25 +40,28 @@ tags:
 ### 关键设计
 
 1. **混合推理数据构建**:
-   - 做什么：自动将长推理轨迹改造为 easy/hard 混合格式
-   - 核心思路：(a) 将 CoT 分解为推理单元；(b) 按 token 熵值标注——含反思/验证关键词（"Wait", "However", "Alternatively"）的高熵单元标为 hard，其余标为 easy；(c) easy 单元用 CoD-style 压缩，hard 单元保留原始深度
-   - 输出格式：`<think> <easy> u1 </easy> <hard> u2 </hard> ... </think> a`
-   - 构建了 300K 训练样本（来自 OpenMathReasoning）
+
+    - 做什么：自动将长推理轨迹改造为 easy/hard 混合格式
+    - 核心思路：(a) 将 CoT 分解为推理单元；(b) 按 token 熵值标注——含反思/验证关键词（"Wait", "However", "Alternatively"）的高熵单元标为 hard，其余标为 easy；(c) easy 单元用 CoD-style 压缩，hard 单元保留原始深度
+    - 输出格式：`<think> <easy> u1 </easy> <hard> u2 </hard> ... </think> a`
+    - 构建了 300K 训练样本（来自 OpenMathReasoning）
 
 2. **EHPO 奖励设计**:
-   - 做什么：联合优化推理准确性和效率
-   - 总奖励：$R = \mathcal{R}_{format} \times \mathcal{R}_{accuracy} \times \mathcal{R}_{unit} \times \mathcal{R}_{mode}$
-   - **单元语义奖励** $\mathcal{R}_{unit}$：确保 easy 单元无反思关键词、hard 单元含反思关键词，维持两种模式的语义一致性
-   - **模式控制奖励** $\mathcal{R}_{mode}$：难度感知——简单题鼓励多用 easy 模式，难题允许多用 hard 模式
-     - $\mathcal{R}_{mode} = \beta + (1-\beta)(N_{pass}/N \cdot p_{easy} + (1-N_{pass}/N) \cdot p_{hard})$
-     - 通过 $N_{pass}/N$（正确样本比例）估计问题难度
+
+    - 做什么：联合优化推理准确性和效率
+    - 总奖励：$R = \mathcal{R}_{format} \times \mathcal{R}_{accuracy} \times \mathcal{R}_{unit} \times \mathcal{R}_{mode}$
+    - **单元语义奖励** $\mathcal{R}_{unit}$：确保 easy 单元无反思关键词、hard 单元含反思关键词，维持两种模式的语义一致性
+    - **模式控制奖励** $\mathcal{R}_{mode}$：难度感知——简单题鼓励多用 easy 模式，难题允许多用 hard 模式
+      - $\mathcal{R}_{mode} = \beta + (1-\beta)(N_{pass}/N \cdot p_{easy} + (1-N_{pass}/N) \cdot p_{hard})$
+      - 通过 $N_{pass}/N$（正确样本比例）估计问题难度
 
 3. **熵引导动态 Rollout (EDR)**:
-   - 做什么：在关键转换点（easy → hard）展开多个推理分支
-   - 核心观察：easy 单元的末端熵通常比初始熵高（越推越不确定），hard 单元反之（越推越确定）→ easy→hard 转换处是高不确定性点
-   - 核心思路：在 easy→hard 转换时，以概率 $SP = \alpha + \Delta H$ 生成分支（$\alpha=0.5$ 为基础概率，$\Delta H$ 为归一化熵差）
-   - 设计动机：mode control reward 压缩了探索空间，EDR 通过增加广度（多分支）弥补深度的减少
-   - 效果：EDR 将平均 AES 从 0.51 提升到 0.70
+
+    - 做什么：在关键转换点（easy → hard）展开多个推理分支
+    - 核心观察：easy 单元的末端熵通常比初始熵高（越推越不确定），hard 单元反之（越推越确定）→ easy→hard 转换处是高不确定性点
+    - 核心思路：在 easy→hard 转换时，以概率 $SP = \alpha + \Delta H$ 生成分支（$\alpha=0.5$ 为基础概率，$\Delta H$ 为归一化熵差）
+    - 设计动机：mode control reward 压缩了探索空间，EDR 通过增加广度（多分支）弥补深度的减少
+    - 效果：EDR 将平均 AES 从 0.51 提升到 0.70
 
 ### 训练策略
 - 基座模型：DeepSeek-R1-Distill-Qwen-1.5B

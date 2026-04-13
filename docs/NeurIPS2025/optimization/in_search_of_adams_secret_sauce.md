@@ -26,10 +26,10 @@ tags:
 本文通过训练 1500+ 语言模型的大规模实验发现：(1) Signum 虽能缩小 96% 的 SGD-Adam 差距，但仍比 Adam 慢 25%；(2) 设 $\beta_1 = \beta_2$ 是 Adam 的近最优简化；(3) 在 $\beta_1 = \beta_2 = \beta$ 下 Adam 可被重新解读为基于在线高斯变分推断估计梯度均值和方差的信噪比自适应 Signum。
 
 ## 研究背景与动机
-1. **Adam 的不可替代性**：尽管 Muon、Scion、SOAP 等新优化器在特定场景下超越 Adam，但它们仍然依赖 Adam 来更新嵌入层、LM head 和归一化层参数。Adam 的核心优势尚未被完全理解。
-2. **Adam ≈ Signum？**：近期研究指出 Adam 与 SignSGD with momentum (Signum) 有密切联系。但在 160M 参数规模上，精心调优的 Signum 仍导致 **25% 的有效减速**——相同困惑度需要多 25% 的训练 budget。
-3. **核心问题**：Adam 相比 Signum、RMSprop、SGD 等简化变体的"secret sauce"究竟是什么？
-4. **方法论**：投入约 10,000 A100 GPU 小时，系统地消融所有超参数（包括为每个学习率独立调优动量参数），提供可复现的全面基准。
+**Adam 的不可替代性**：尽管 Muon、Scion、SOAP 等新优化器在特定场景下超越 Adam，但它们仍然依赖 Adam 来更新嵌入层、LM head 和归一化层参数。Adam 的核心优势尚未被完全理解。
+**Adam ≈ Signum？**：近期研究指出 Adam 与 SignSGD with momentum (Signum) 有密切联系。但在 160M 参数规模上，精心调优的 Signum 仍导致 **25% 的有效减速**——相同困惑度需要多 25% 的训练 budget。
+**核心问题**：Adam 相比 Signum、RMSprop、SGD 等简化变体的"secret sauce"究竟是什么？
+**方法论**：投入约 10,000 A100 GPU 小时，系统地消融所有超参数（包括为每个学习率独立调优动量参数），提供可复现的全面基准。
 
 ## 方法详解
 

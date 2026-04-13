@@ -46,31 +46,35 @@ tags:
 ### 关键设计
 
 1. **离散化SDF与SDF-to-Opacity变换**:
-   - 做什么：在每个高斯基元上编码一个SDF采样值，通过变换函数将其映射为opacity
-   - 核心思路：SDF-to-opacity变换是一个钟形函数：
-   $$o_i = \mathcal{T}_\gamma(s_i) = \frac{4 \cdot e^{-\gamma s_i}}{(1 + e^{-\gamma s_i})^2}$$
+
+    - 做什么：在每个高斯基元上编码一个SDF采样值，通过变换函数将其映射为opacity
+    - 核心思路：SDF-to-opacity变换是一个钟形函数：
+    $o_i = \mathcal{T}_\gamma(s_i) = \frac{4 \cdot e^{-\gamma s_i}}{(1 + e^{-\gamma s_i})^2}$
    其中 $s_i$ 是第 $i$ 个高斯的SDF值，$\gamma$ 是全局可学习参数控制变换的方差。SDF值为0时opacity最大（=1），离表面越远opacity越小
-   - 设计动机：这个变换将SDF和高斯渲染无缝连接——SDF定义了表面位置（零水平集），opacity的分布自然地使高斯聚集在表面附近。无需额外网络，仅用高斯基元就编码了SDF信息
+    - 设计动机：这个变换将SDF和高斯渲染无缝连接——SDF定义了表面位置（零水平集），opacity的分布自然地使高斯聚集在表面附近。无需额外网络，仅用高斯基元就编码了SDF信息
 
 2. **中位数损失（Median Loss）**:
-   - 做什么：解决SDF值 $s_i$ 和变换参数 $\gamma$ 联合优化的收敛困难
-   - 核心思路：发现所有高斯无符号距离的中位数 $|s|_m$ 是收敛的良好指标。当中位数距离处的opacity过高时，变换需要变窄。推导 $\gamma_m$ 使得 $\mathcal{T}_{\gamma_m}(|s|_m) = 0.5$：
-   $$\gamma_m = -\frac{\log(3 - 2\sqrt{2})}{|s|_m}$$
+
+    - 做什么：解决SDF值 $s_i$ 和变换参数 $\gamma$ 联合优化的收敛困难
+    - 核心思路：发现所有高斯无符号距离的中位数 $|s|_m$ 是收敛的良好指标。当中位数距离处的opacity过高时，变换需要变窄。推导 $\gamma_m$ 使得 $\mathcal{T}_{\gamma_m}(|s|_m) = 0.5$：
+    $\gamma_m = -\frac{\log(3 - 2\sqrt{2})}{|s|_m}$
    中位数损失引导 $\gamma$ 快速逼近 $\gamma_m$：$\mathcal{L}_\gamma = \max(\gamma_m - \gamma, 0)$
-   - 设计动机：没有这个损失，$\gamma$ 和 $s_i$ 的搜索空间太大，收敛极慢。中位数提供了全局统计信息来指导变换参数
+    - 设计动机：没有这个损失，$\gamma$ 和 $s_i$ 的搜索空间太大，收敛极慢。中位数提供了全局统计信息来指导变换参数
 
 3. **投影一致性损失（Projection-based Consistency Loss）**:
-   - 做什么：在离散化表示下正则化SDF，替代无法使用的Eikonal损失
-   - 核心问题：连续SDF可以用Eikonal损失（$|\nabla f|=1$）正则化，但离散化的SDF只能获取梯度方向（即法线），无法计算梯度幅值，因此经典Eikonal损失不可用
-   - 核心思路：将每个高斯投影到SDF的零水平集上得到投影点 $\mu_{proj} = \mu_i - s_i \frac{\nabla f_i}{|\nabla f_i|}$，要求投影点的深度与alpha-blended表面的深度一致：
-   $$\mathcal{L}_p = \frac{1}{N}\sum_{i \in N} \begin{cases} \epsilon_{proj}^i, & \epsilon_{proj}^i \leq \varepsilon \\ 0, & \epsilon_{proj}^i > \varepsilon \end{cases}$$
+
+    - 做什么：在离散化表示下正则化SDF，替代无法使用的Eikonal损失
+    - 核心问题：连续SDF可以用Eikonal损失（$|\nabla f|=1$）正则化，但离散化的SDF只能获取梯度方向（即法线），无法计算梯度幅值，因此经典Eikonal损失不可用
+    - 核心思路：将每个高斯投影到SDF的零水平集上得到投影点 $\mu_{proj} = \mu_i - s_i \frac{\nabla f_i}{|\nabla f_i|}$，要求投影点的深度与alpha-blended表面的深度一致：
+    $\mathcal{L}_p = \frac{1}{N}\sum_{i \in N} \begin{cases} \epsilon_{proj}^i, & \epsilon_{proj}^i \leq \varepsilon \\ 0, & \epsilon_{proj}^i > \varepsilon \end{cases}$
    其中使用阈值 $\varepsilon$ 过滤被遮挡面或自交叉导致的异常高斯
-   - 设计动机：作者证明了该损失是Eikonal条件的近似，能在离散表示下有效正则化SDF。1K迭代后启用，此时粗糙几何已稳定
+    - 设计动机：作者证明了该损失是Eikonal条件的近似，能在离散表示下有效正则化SDF。1K迭代后启用，此时粗糙几何已稳定
 
 4. **球面初始化（Spherical Initialization）**:
-   - 做什么：用单位球面上均匀采样的点初始化前景物体的高斯
-   - 核心思路：借鉴NeuS等体积渲染SDF方法中球面初始化的成功经验
-   - 设计动机：避免错误的早期几何陷入局部最优。普通初始化容易导致早期出现错误几何（如破碎表面），且难以恢复
+
+    - 做什么：用单位球面上均匀采样的点初始化前景物体的高斯
+    - 核心思路：借鉴NeuS等体积渲染SDF方法中球面初始化的成功经验
+    - 设计动机：避免错误的早期几何陷入局部最优。普通初始化容易导致早期出现错误几何（如破碎表面），且难以恢复
 
 ### 损失函数 / 训练策略
 

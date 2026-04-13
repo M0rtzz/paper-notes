@@ -25,12 +25,12 @@ tags:
 提出 RGNet 将长视频时序定位的片段检索和时序定位两个阶段深度统一到单一网络中，通过 RG-Encoder 的稀疏注意力和对比片段采样实现端到端优化，在 MAD 和 Ego4D 上取得 SOTA。
 
 ## 研究背景与动机
-1. **领域现状**：长视频时序定位（LVTG）需要从 20-120 分钟视频中根据文本查询定位特定时刻（通常仅几秒），如同大海捞针。现有方法分为两阶段：先检索相关片段，再在片段内做精确定位。
-2. **现有痛点**：两阶段是割裂的——检索模块通常采用文本-视频检索技术（如 CLIP），仅需理解视频的高层主题，缺乏细粒度事件理解能力。检索失败后定位网络无法挽回。
-3. **核心矛盾**：LVTG 的检索需要细粒度事件理解（"找到妈妈在农舍外晾衣服的时刻"），但通用视频检索模型是为粗粒度主题匹配设计的（"一部关于农场家庭的电影"）。
-4. **本文要解决什么**：如何统一片段检索和时序定位，让检索模块具备细粒度事件理解能力。
-5. **切入角度**：设计统一的 Transformer 编码器同时在 clip 级和帧级建模，通过稀疏注意力和端到端优化让检索直接受益于定位目标。
-6. **核心 idea 一句话**：用 RG-Encoder 统一检索和定位，共享特征互相优化，检索模块通过定位标注直接学习细粒度事件理解。
+**领域现状**：长视频时序定位（LVTG）需要从 20-120 分钟视频中根据文本查询定位特定时刻（通常仅几秒），如同大海捞针。现有方法分为两阶段：先检索相关片段，再在片段内做精确定位。
+**现有痛点**：两阶段是割裂的——检索模块通常采用文本-视频检索技术（如 CLIP），仅需理解视频的高层主题，缺乏细粒度事件理解能力。检索失败后定位网络无法挽回。
+**核心矛盾**：LVTG 的检索需要细粒度事件理解（"找到妈妈在农舍外晾衣服的时刻"），但通用视频检索模型是为粗粒度主题匹配设计的（"一部关于农场家庭的电影"）。
+**本文要解决什么**：如何统一片段检索和时序定位，让检索模块具备细粒度事件理解能力。
+**切入角度**：设计统一的 Transformer 编码器同时在 clip 级和帧级建模，通过稀疏注意力和端到端优化让检索直接受益于定位目标。
+**核心 idea 一句话**：用 RG-Encoder 统一检索和定位，共享特征互相优化，检索模块通过定位标注直接学习细粒度事件理解。
 
 ## 方法详解
 
@@ -40,27 +40,30 @@ tags:
 ### 关键设计
 
 1. **RG-Encoder（统一检索-定位编码器）**
-   - 做什么：将检索和定位统一到单一编码器，同时在 clip 级（上下文）和帧级（内容）建模
-   - 核心组件包含四部分：
-     - **Cross Attention**：帧特征作为 query，文本特征作为 key/value，生成文本条件帧特征：$F^i = \text{softmax}(Q^i K^T) V + Q^i$
-     - **Sparsifier**：用 Gumbel-softmax 计算每帧的相关性 $G^j \in [0,1]$，分类帧为相关/不相关，生成注意力掩码 $M(j,k) = \begin{cases} 0 & \text{if } G^j > 0.5 \text{ or } j=k \\ -\infty & \text{otherwise} \end{cases}$
-     - **Retrieval Attention**：引入可学习检索 token $R^i$ 与帧特征拼接做自注意力，基于稀疏掩码聚合：$\tilde{Q}^i = \text{softmax}(Q^i K^T + M) V + Q^i$。输出 clip 级上下文 $R^i$ 和帧级内容 $F_c^{i,j}$
-     - **特征融合**：检索 clip 特征 = 内容 + 上下文 × 相关性：$P^{i,j} = F_c^{i,j} + R^i \times G^j$
-   - 设计动机：稀疏注意力让检索关注事件相关帧，而非整个片段，与定位任务更协同
+
+    - 做什么：将检索和定位统一到单一编码器，同时在 clip 级（上下文）和帧级（内容）建模
+    - 核心组件包含四部分：
+      - **Cross Attention**：帧特征作为 query，文本特征作为 key/value，生成文本条件帧特征：$F^i = \text{softmax}(Q^i K^T) V + Q^i$
+      - **Sparsifier**：用 Gumbel-softmax 计算每帧的相关性 $G^j \in [0,1]$，分类帧为相关/不相关，生成注意力掩码 $M(j,k) = \begin{cases} 0 & \text{if } G^j > 0.5 \text{ or } j=k \\ -\infty & \text{otherwise} \end{cases}$
+      - **Retrieval Attention**：引入可学习检索 token $R^i$ 与帧特征拼接做自注意力，基于稀疏掩码聚合：$\tilde{Q}^i = \text{softmax}(Q^i K^T + M) V + Q^i$。输出 clip 级上下文 $R^i$ 和帧级内容 $F_c^{i,j}$
+      - **特征融合**：检索 clip 特征 = 内容 + 上下文 × 相关性：$P^{i,j} = F_c^{i,j} + R^i \times G^j$
+    - 设计动机：稀疏注意力让检索关注事件相关帧，而非整个片段，与定位任务更协同
 
 2. **对比负样本片段挖掘（Contrastive Clip Sampling）**
-   - 做什么：在训练时模拟长视频的片段检索场景
-   - 核心思路：同一视频的多个片段构成一个 batch，使用 InfoNCE 损失对比正确片段和负样本片段：
-   $$\mathcal{L}_{\text{cont}} = -\sum_i \log \frac{\exp(l_{\text{cont}}(R^{i,i}))}{\sum_j \exp(l_{\text{cont}}(R^{i,j}))}$$
-   - 大 batch 的负样本（来自同一场景的不同片段）模拟真实推理时从长视频中检索的挑战
-   - 设计动机：训练和测试阶段的差距是 LVTG 的关键问题。之前方法训练时仅见少量片段，测试时需在数百个片段中检索
+
+    - 做什么：在训练时模拟长视频的片段检索场景
+    - 核心思路：同一视频的多个片段构成一个 batch，使用 InfoNCE 损失对比正确片段和负样本片段：
+    $\mathcal{L}_{\text{cont}} = -\sum_i \log \frac{\exp(l_{\text{cont}}(R^{i,i}))}{\sum_j \exp(l_{\text{cont}}(R^{i,j}))}$
+    - 大 batch 的负样本（来自同一场景的不同片段）模拟真实推理时从长视频中检索的挑战
+    - 设计动机：训练和测试阶段的差距是 LVTG 的关键问题。之前方法训练时仅见少量片段，测试时需在数百个片段中检索
 
 3. **Intra-Clip Attention Loss（帧内注意力损失）**
-   - 做什么：指导稀疏化器区分时间边界内外的帧
-   - 核心思路：margin-based ranking loss，要求属于 ground truth 时刻的帧具有更高相关性分数：
-   $$\mathcal{L}_{\text{attn}} = \max(0, \Delta + S_c(i, j_{\text{out}}) - S_c(i, j_{\text{in}}))$$
-   - 其中 $S_c(i,j) = R^i_{\text{proj}} \cdot P^{i,j}_{\text{proj}}$，$\Delta=0.2$
-   - 设计动机：让检索注意力聚焦于与查询事件对齐的帧
+
+    - 做什么：指导稀疏化器区分时间边界内外的帧
+    - 核心思路：margin-based ranking loss，要求属于 ground truth 时刻的帧具有更高相关性分数：
+    $\mathcal{L}_{\text{attn}} = \max(0, \Delta + S_c(i, j_{\text{out}}) - S_c(i, j_{\text{in}}))$
+    - 其中 $S_c(i,j) = R^i_{\text{proj}} \cdot P^{i,j}_{\text{proj}}$，$\Delta=0.2$
+    - 设计动机：让检索注意力聚焦于与查询事件对齐的帧
 
 ### 损失函数 / 训练策略
 - 总损失：$\mathcal{L}_{\text{total}} = \lambda_{\text{attn}} \mathcal{L}_{\text{attn}} + \lambda_{\text{cont}} \mathcal{L}_{\text{cont}} + \mathcal{L}_g$

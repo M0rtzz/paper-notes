@@ -31,10 +31,10 @@ tags:
 
 Hopfield 网络与 Transformer 的关系是近年来的热门研究方向：
 
-1. **已有对应关系**：Ramsauer et al. 和 Krotov & Hopfield 证明了现代连续 Hopfield 网络（MCHN）在**绝热极限**（$\tau_h \approx 0$）下的状态更新规则恰好等价于 Transformer 的自注意力机制
-2. **绝热近似的局限**：绝热极限消除了隐状态 $\bm{h}$ 的动力学（直接令 $\bm{h}_n = \bm{x}_n \bm{W}_2$），但一般 MCHN 同时包含可见状态 $\bm{x}$ 和隐状态 $\bm{h}$ 两个动态变量，后者的物理意义和对 Transformer 的启示尚未被探索
-3. **Transformer 的 rank collapse 困境**：随着 Transformer 深度增加，token 表征趋同（余弦相似度趋近 1），导致信息多样性丧失。Dong et al. 证明纯注意力网络的 rank 以双指数速度衰减
-4. **核心问题**：如果不做绝热近似，MHN 的隐状态对应 Transformer 中的什么结构？这个结构能否改善 Transformer 的性能？
+**已有对应关系**：Ramsauer et al. 和 Krotov & Hopfield 证明了现代连续 Hopfield 网络（MCHN）在**绝热极限**（$\tau_h \approx 0$）下的状态更新规则恰好等价于 Transformer 的自注意力机制
+**绝热近似的局限**：绝热极限消除了隐状态 $\bm{h}$ 的动力学（直接令 $\bm{h}_n = \bm{x}_n \bm{W}_2$），但一般 MCHN 同时包含可见状态 $\bm{x}$ 和隐状态 $\bm{h}$ 两个动态变量，后者的物理意义和对 Transformer 的启示尚未被探索
+**Transformer 的 rank collapse 困境**：随着 Transformer 深度增加，token 表征趋同（余弦相似度趋近 1），导致信息多样性丧失。Dong et al. 证明纯注意力网络的 rank 以双指数速度衰减
+**核心问题**：如果不做绝热近似，MHN 的隐状态对应 Transformer 中的什么结构？这个结构能否改善 Transformer 的性能？
 
 ## 方法详解
 

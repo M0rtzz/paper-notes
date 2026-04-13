@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：多模态联邦学习（MMFL）中，多个客户端观测不同子集的模态并协作训练共同模型。近年来涌现了 FedMSplit、MIFL、FedInMM、FedMAC 等方法。
-2. **现有痛点**：现实中存在两类数据缺失事件——(1) 客户端仅拥有部分模态（如一台设备采集音频、另一台采集生理信号）；(2) 每个模态内部特征部分缺失（如传感器故障）。现有方法仅单独处理其中一类，无法同时应对两类缺失。
-3. **核心矛盾**：当本地模型在不同特征子集上优化时，产生不兼容的表示空间。不加对齐地聚合会导致信息坍塌或退化。而服务器无法观测训练数据，客户端也无法完全解释全局聚合表示。
-4. **本文要解决什么**：设计一种机制来捕获和传递每个客户端本地数据的缺失模式特征，使共享模型能够适应各客户端的特定缺失情况。
-5. **切入角度**：将缺失模式特征编码为一组可学习的嵌入控制，作为重配置信号来对齐全局表示与本地上下文。
-6. **核心 idea**：学习数据缺失画像（data-missing profile），包含多个嵌入控制，用于将偏差表示重新配置为数据完整的特征——相似缺失模式的客户端可共享聚合的嵌入控制。
+**领域现状**：多模态联邦学习（MMFL）中，多个客户端观测不同子集的模态并协作训练共同模型。近年来涌现了 FedMSplit、MIFL、FedInMM、FedMAC 等方法。
+**现有痛点**：现实中存在两类数据缺失事件——(1) 客户端仅拥有部分模态（如一台设备采集音频、另一台采集生理信号）；(2) 每个模态内部特征部分缺失（如传感器故障）。现有方法仅单独处理其中一类，无法同时应对两类缺失。
+**核心矛盾**：当本地模型在不同特征子集上优化时，产生不兼容的表示空间。不加对齐地聚合会导致信息坍塌或退化。而服务器无法观测训练数据，客户端也无法完全解释全局聚合表示。
+**本文要解决什么**：设计一种机制来捕获和传递每个客户端本地数据的缺失模式特征，使共享模型能够适应各客户端的特定缺失情况。
+**切入角度**：将缺失模式特征编码为一组可学习的嵌入控制，作为重配置信号来对齐全局表示与本地上下文。
+**核心 idea**：学习数据缺失画像（data-missing profile），包含多个嵌入控制，用于将偏差表示重新配置为数据完整的特征——相似缺失模式的客户端可共享聚合的嵌入控制。
 
 ## 方法详解
 
@@ -43,12 +43,13 @@ PEPSY 在客户端-服务器之间进行多轮通信。**客户端侧**：提取
 ### 关键设计
 
 1. **数据缺失表示（Data-Missing Representations）**：将多模态实例信息分解为三个组件：
-   - **模态特定特征** $\mathbf{w}_{di}^{\text{mod}}$：可学习嵌入 $W^{\text{mod}} = \{\mathbf{w}_i^{\text{mod}}\}_{i=1}^{|\mathcal{M}|}$，跨数据不变，编码模态身份
-   - **数据特定特征** $\mathbf{w}_{di}^{\text{ins}}$：将每个观测模态映射为表示 $\mathbf{h}_{di}$，缺失模态用其他可用模态特征的均值替代：$\mathbf{w}_{di}^{\text{ins}} = \mathbf{I}(i \notin \mathcal{S}_d)\mathbf{h}_{di} + \mathbf{I}(i \in \mathcal{S}_d) \frac{1}{|\mathcal{M}|-|\mathcal{S}_d|}\sum_{j \notin \mathcal{S}_d}\mathbf{h}_{dj}$
-   - **数据特定对比损失** $\mathcal{L}_{ds}$：使同一实例不同模态的特征更接近，不同实例的特征更远
+
+    - **模态特定特征** $\mathbf{w}_{di}^{\text{mod}}$：可学习嵌入 $W^{\text{mod}} = \{\mathbf{w}_i^{\text{mod}}\}_{i=1}^{|\mathcal{M}|}$，跨数据不变，编码模态身份
+    - **数据特定特征** $\mathbf{w}_{di}^{\text{ins}}$：将每个观测模态映射为表示 $\mathbf{h}_{di}$，缺失模态用其他可用模态特征的均值替代：$\mathbf{w}_{di}^{\text{ins}} = \mathbf{I}(i \notin \mathcal{S}_d)\mathbf{h}_{di} + \mathbf{I}(i \in \mathcal{S}_d) \frac{1}{|\mathcal{M}|-|\mathcal{S}_d|}\sum_{j \notin \mathcal{S}_d}\mathbf{h}_{dj}$
+    - **数据特定对比损失** $\mathcal{L}_{ds}$：使同一实例不同模态的特征更接近，不同实例的特征更远
 
 2. **嵌入控制选择（Embedding Controls Selection）**：通过查询-键匹配机制，将数据缺失特征与嵌入控制进行交互。相关性定义为：
-   $$\gamma(\mathbf{x}_{di}, \boldsymbol{\psi}_p) = e(\mathbf{q}(\mathbf{x}_{di}), \mathbf{k}(\boldsymbol{\psi}_p))$$
+    $\gamma(\mathbf{x}_{di}, \boldsymbol{\psi}_p) = e(\mathbf{q}(\mathbf{x}_{di}), \mathbf{k}(\boldsymbol{\psi}_p))$
    每个实例仅选取 $\kappa$ 个最相关的嵌入控制（$\kappa \ll |\Psi|$），并通过正则化项 $\mathcal{R}$ 鼓励稀疏选择。最终缺失模式表示 $\mathbf{w}_{di}^{\text{mis}}$ 为所选嵌入的均值。
 
 3. **重配置正则化（Reconfiguration Regularization）**：对比损失 $\mathcal{L}_{rc}$ 确保拼接了缺失模式信息的最终表示 $\mathbf{w}_{di} = [\mathbf{w}_{di}^{\text{mod}} \circ \mathbf{w}_{di}^{\text{ins}} \circ \mathbf{w}_{di}^{\text{mis}}]$ 忠实反映完整模态信息。

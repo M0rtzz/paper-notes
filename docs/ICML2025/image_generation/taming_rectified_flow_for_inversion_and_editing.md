@@ -27,17 +27,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：基于 Rectified Flow (RF) 的扩散 Transformer 模型（如 FLUX、OpenSora）在图像和视频生成领域取得了卓越表现。与传统 Stable Diffusion 相比，这些模型使用 DiT 架构结合直线运动系统（straight-line motion），生成质量更高。
+**领域现状**：基于 Rectified Flow (RF) 的扩散 Transformer 模型（如 FLUX、OpenSora）在图像和视频生成领域取得了卓越表现。与传统 Stable Diffusion 相比，这些模型使用 DiT 架构结合直线运动系统（straight-line motion），生成质量更高。
 
-2. **现有痛点**：尽管生成能力强大，RF 模型在反演（inversion）任务上表现不佳。直接用 vanilla RF 做反演时，重建图像中的物体位置和人物外观会发生显著偏移；视频反演更差，存在明显的失真。反演精度不足严重制约了编辑等下游任务的效果。
+**现有痛点**：尽管生成能力强大，RF 模型在反演（inversion）任务上表现不佳。直接用 vanilla RF 做反演时，重建图像中的物体位置和人物外观会发生显著偏移；视频反演更差，存在明显的失真。反演精度不足严重制约了编辑等下游任务的效果。
 
-3. **核心矛盾**：RF 的反演和生成过程本质上是求解 RF ODE。由于 ODE 中包含复杂神经网络项，只能用采样器粗略近似。作者通过追踪反演-重建过程中每个时间步的 latent MSE，发现现有采样器在每步引入的误差不断累积，最终导致重建质量严重退化。
+**核心矛盾**：RF 的反演和生成过程本质上是求解 RF ODE。由于 ODE 中包含复杂神经网络项，只能用采样器粗略近似。作者通过追踪反演-重建过程中每个时间步的 latent MSE，发现现有采样器在每步引入的误差不断累积，最终导致重建质量严重退化。
 
-4. **本文要解决什么？** (a) 如何在不增加额外训练的情况下提高 RF 的 ODE 求解精度？(b) 如何基于精确反演实现高保真的图像/视频编辑？
+**本文要解决什么？** (a) 如何在不增加额外训练的情况下提高 RF 的 ODE 求解精度？(b) 如何基于精确反演实现高保真的图像/视频编辑？
 
-5. **切入角度**：作者推导了 RF ODE 的精确形式，发现关键在于 ODE 中的非线性分量（neural network velocity field）近似误差。若能更精确地估计该非线性项，就能显著减少每步误差的累积。
+**切入角度**：作者推导了 RF ODE 的精确形式，发现关键在于 ODE 中的非线性分量（neural network velocity field）近似误差。若能更精确地估计该非线性项，就能显著减少每步误差的累积。
 
-6. **核心idea一句话**：用高阶 Taylor 展开替代 Euler 一阶近似来估计 RF ODE 的非线性分量，从而实现近乎无误差的反演，并在此基础上通过自注意力特征注入完成编辑。
+**核心idea一句话**：用高阶 Taylor 展开替代 Euler 一阶近似来估计 RF ODE 的非线性分量，从而实现近乎无误差的反演，并在此基础上通过自注意力特征注入完成编辑。
 
 ## 方法详解
 
@@ -53,21 +53,24 @@ Pipeline：源图像 → VAE 编码 → RF-Solver 反演（加噪至纯噪声）
 ### 关键设计
 
 1. **RF ODE 的精确推导与误差分析**:
-   - 做什么：推导 Rectified Flow ODE 的封闭形式，明确指出误差来源
-   - 核心思路：Rectified Flow 定义了一条从数据分布 $x_0$ 到噪声分布 $x_1$ 的直线插值路径 $x_t = (1-t)x_0 + t\epsilon$，其中速度场 $v_\theta(x_t, t)$ 由神经网络建模。ODE 为 $\frac{dx_t}{dt} = v_\theta(x_t, t)$。现有方法用 Euler 法 $x_{t+h} = x_t + h \cdot v_\theta(x_t, t)$ 求解，这等价于假设速度场在 $[t, t+h]$ 内保持不变——而实际上 $v_\theta$ 随 $t$ 和 $x_t$ 变化显著，一阶近似在步长较大时误差严重
-   - 设计动机：只有理清误差的数学来源，才能有针对性地设计更精确的求解器
+
+    - 做什么：推导 Rectified Flow ODE 的封闭形式，明确指出误差来源
+    - 核心思路：Rectified Flow 定义了一条从数据分布 $x_0$ 到噪声分布 $x_1$ 的直线插值路径 $x_t = (1-t)x_0 + t\epsilon$，其中速度场 $v_\theta(x_t, t)$ 由神经网络建模。ODE 为 $\frac{dx_t}{dt} = v_\theta(x_t, t)$。现有方法用 Euler 法 $x_{t+h} = x_t + h \cdot v_\theta(x_t, t)$ 求解，这等价于假设速度场在 $[t, t+h]$ 内保持不变——而实际上 $v_\theta$ 随 $t$ 和 $x_t$ 变化显著，一阶近似在步长较大时误差严重
+    - 设计动机：只有理清误差的数学来源，才能有针对性地设计更精确的求解器
 
 2. **高阶 Taylor 展开求解器 (RF-Solver)**:
-   - 做什么：用 Taylor 展开近似速度场的变化，实现高精度 ODE 求解
-   - 核心思路：将 $v_\theta(x_t, t)$ 在当前时间步 $t_n$ 做 Taylor 展开：$v_\theta(x_{t_{n+1}}, t_{n+1}) \approx v_\theta(x_{t_n}, t_n) + \frac{dv_\theta}{dt}\bigg|_{t_n} \cdot h + \frac{1}{2}\frac{d^2v_\theta}{dt^2}\bigg|_{t_n} \cdot h^2 + ...$。其中一阶导数可以通过相邻时间步的差分来近似 $\frac{dv}{dt} \approx \frac{v_\theta(x_{t_n}, t_n) - v_\theta(x_{t_{n-1}}, t_{n-1})}{t_n - t_{n-1}}$。这种方法利用了已有的历史 function evaluation，无需额外的神经网络前向传播
-   - 设计动机：相比 Euler 法（0阶），Taylor 展开利用速度场的变化率信息，大幅降低截断误差。关键在于"免费"利用历史采样点的信息——前一步已经计算过的 $v_\theta(x_{t_{n-1}}, t_{n-1})$ 可以复用来估计导数，不增加计算量
-   - 与之前方法的区别：类似思路在传统 DDPM/DDIM 的 DPM-Solver 中有使用，但 RF 的 ODE 结构与 DDPM 不同（直线 vs 曲线），需要重新推导。RF-Solver 是专门为 Rectified Flow 设计的
+
+    - 做什么：用 Taylor 展开近似速度场的变化，实现高精度 ODE 求解
+    - 核心思路：将 $v_\theta(x_t, t)$ 在当前时间步 $t_n$ 做 Taylor 展开：$v_\theta(x_{t_{n+1}}, t_{n+1}) \approx v_\theta(x_{t_n}, t_n) + \frac{dv_\theta}{dt}\bigg|_{t_n} \cdot h + \frac{1}{2}\frac{d^2v_\theta}{dt^2}\bigg|_{t_n} \cdot h^2 + ...$。其中一阶导数可以通过相邻时间步的差分来近似 $\frac{dv}{dt} \approx \frac{v_\theta(x_{t_n}, t_n) - v_\theta(x_{t_{n-1}}, t_{n-1})}{t_n - t_{n-1}}$。这种方法利用了已有的历史 function evaluation，无需额外的神经网络前向传播
+    - 设计动机：相比 Euler 法（0阶），Taylor 展开利用速度场的变化率信息，大幅降低截断误差。关键在于"免费"利用历史采样点的信息——前一步已经计算过的 $v_\theta(x_{t_{n-1}}, t_{n-1})$ 可以复用来估计导数，不增加计算量
+    - 与之前方法的区别：类似思路在传统 DDPM/DDIM 的 DPM-Solver 中有使用，但 RF 的 ODE 结构与 DDPM 不同（直线 vs 曲线），需要重新推导。RF-Solver 是专门为 Rectified Flow 设计的
 
 3. **特征共享编辑框架 (RF-Edit)**:
-   - 做什么：在编辑过程中注入反演阶段的自注意力特征，保持源图像/视频的结构信息
-   - 核心思路：在 RF-Solver 反演过程中，缓存每个时间步 DiT 中特定层的 self-attention key/value（即 $K_{inv}^l, V_{inv}^l$）。在编辑去噪过程中，将对应时间步的 self-attention 替换为反演阶段的 key/value：$\text{Attn}(Q_{edit}, K_{inv}, V_{inv})$。这确保了编辑后的图像在空间布局上与源图像保持一致，而语义内容则由新的 text prompt 驱动
-   - 设计动机：图像编辑的核心挑战在于"保结构 + 改内容"。自注意力的 K/V 编码了空间位置和结构信息，而 Q 决定了"关注什么"。通过注入源图像的 K/V，可以让编辑过程"看到"原图的结构信息。这个思路灵感来自 Prompt-to-Prompt 和 PnP 等方法，但本文首次将其扩展到 RF+DiT 架构
-   - 视频扩展：对于视频编辑，同样的特征注入策略天然支持时序一致性。因为反演阶段的 attention 特征本身就包含了帧间的时序关系，注入后可以保持编辑视频的时序连贯性
+
+    - 做什么：在编辑过程中注入反演阶段的自注意力特征，保持源图像/视频的结构信息
+    - 核心思路：在 RF-Solver 反演过程中，缓存每个时间步 DiT 中特定层的 self-attention key/value（即 $K_{inv}^l, V_{inv}^l$）。在编辑去噪过程中，将对应时间步的 self-attention 替换为反演阶段的 key/value：$\text{Attn}(Q_{edit}, K_{inv}, V_{inv})$。这确保了编辑后的图像在空间布局上与源图像保持一致，而语义内容则由新的 text prompt 驱动
+    - 设计动机：图像编辑的核心挑战在于"保结构 + 改内容"。自注意力的 K/V 编码了空间位置和结构信息，而 Q 决定了"关注什么"。通过注入源图像的 K/V，可以让编辑过程"看到"原图的结构信息。这个思路灵感来自 Prompt-to-Prompt 和 PnP 等方法，但本文首次将其扩展到 RF+DiT 架构
+    - 视频扩展：对于视频编辑，同样的特征注入策略天然支持时序一致性。因为反演阶段的 attention 特征本身就包含了帧间的时序关系，注入后可以保持编辑视频的时序连贯性
 
 ### 训练策略
 

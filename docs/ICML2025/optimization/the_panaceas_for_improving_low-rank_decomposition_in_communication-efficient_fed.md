@@ -30,9 +30,9 @@ tags:
 
 联邦学习（FL）需要多轮通信来训练全局模型，通信开销是核心瓶颈。低秩分解是一种有效的参数压缩技术，已被广泛用于 FL 中的双向通信压缩（如 FedHM、FedLMT、FedPara）。然而，现有方法面临三个关键问题：
 
-1. **分解什么（What to decompose）**: 现有方法（如 FedLMT）直接对整个模型参数进行低秩分解，但模型参数本身可能是满秩的，强制降秩会导致严重的信息丢失。实际上 FL 中通信传递的是模型更新（model update），而非完整参数。
-2. **怎么分解（How to decompose）**: 标准低秩分解 $W = UV^\top$ 的秩上界为 $\text{rank}(W) \leq r \ll \min\{m, n\}$，参数量为 $(m+n)r$，表达能力受限。FedPara 通过 Hadamard 乘积提升秩，但参数量加倍。
-3. **怎么聚合（How to aggregate）**: 如果直接聚合子矩阵 $\bar{U}$ 和 $\bar{V}$，恢复出的矩阵 $\bar{U}\bar{V}^\top$ 与真实聚合矩阵 $\bar{W}$ 存在隐式偏差。FedHM 通过 SVD 重分解引入显式误差，FedLMT 直接聚合子矩阵则引入隐式误差。
+**分解什么（What to decompose）**: 现有方法（如 FedLMT）直接对整个模型参数进行低秩分解，但模型参数本身可能是满秩的，强制降秩会导致严重的信息丢失。实际上 FL 中通信传递的是模型更新（model update），而非完整参数。
+**怎么分解（How to decompose）**: 标准低秩分解 $W = UV^\top$ 的秩上界为 $\text{rank}(W) \leq r \ll \min\{m, n\}$，参数量为 $(m+n)r$，表达能力受限。FedPara 通过 Hadamard 乘积提升秩，但参数量加倍。
+**怎么聚合（How to aggregate）**: 如果直接聚合子矩阵 $\bar{U}$ 和 $\bar{V}$，恢复出的矩阵 $\bar{U}\bar{V}^\top$ 与真实聚合矩阵 $\bar{W}$ 存在隐式偏差。FedHM 通过 SVD 重分解引入显式误差，FedLMT 直接聚合子矩阵则引入隐式误差。
 
 这三个问题相互独立，本文分别提出对应的解决方案。
 

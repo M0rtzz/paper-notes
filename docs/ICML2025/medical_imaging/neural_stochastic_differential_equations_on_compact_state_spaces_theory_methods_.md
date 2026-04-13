@@ -25,11 +25,11 @@ tags:
 本文提出基于随机生存理论的神经 SDE 参数化方法 (WSP)，确保 SDE 轨迹可证明地约束在紧多面体空间内，具有连续动力学和良好归纳偏置，克服了 chain-rule 方法和反射 SDE 的缺陷。
 
 ## 研究背景与动机
-1. **领域现状**: SDE 是强大的概率建模工具，支撑连续时间时间序列、扩散模型、无限深网络等。然而 SDE 在非线性动力学下训练不稳定。
-2. **现有痛点**: (a) 简化动力学 + 训练技巧 (KL annealing) 降低了实用性和可解释性；(b) Reflected SDE (RSDE) 虽将轨迹约束在紧空间，但动力学不连续，缺乏高阶求解器；(c) Chain-rule 方法 (Ito引理/sigmoid变换) 导致数值不稳定或边界粘滞。
-3. **核心矛盾**: 紧空间上的 SDE 需要边界处特殊处理——RSDE 用不连续反射，sigmoid 变换导致边界处动力学消失。
-4. **本文切入**: 利用随机生存理论 (Milian 1995) 的定理，推导 drift 和 diffusion 在多面体边界上需满足的充要条件。
-5. **核心 idea**: 提出 Weighted Sums Parameterization (WSP)：在内部使用任意神经网络动力学，在边界附近平滑过渡到满足约束的简单函数。
+**领域现状**: SDE 是强大的概率建模工具，支撑连续时间时间序列、扩散模型、无限深网络等。然而 SDE 在非线性动力学下训练不稳定。
+**现有痛点**: (a) 简化动力学 + 训练技巧 (KL annealing) 降低了实用性和可解释性；(b) Reflected SDE (RSDE) 虽将轨迹约束在紧空间，但动力学不连续，缺乏高阶求解器；(c) Chain-rule 方法 (Ito引理/sigmoid变换) 导致数值不稳定或边界粘滞。
+**核心矛盾**: 紧空间上的 SDE 需要边界处特殊处理——RSDE 用不连续反射，sigmoid 变换导致边界处动力学消失。
+**本文切入**: 利用随机生存理论 (Milian 1995) 的定理，推导 drift 和 diffusion 在多面体边界上需满足的充要条件。
+**核心 idea**: 提出 Weighted Sums Parameterization (WSP)：在内部使用任意神经网络动力学，在边界附近平滑过渡到满足约束的简单函数。
 
 ## 方法详解
 
@@ -39,23 +39,26 @@ tags:
 ### 关键设计
 
 1. **多面体空间上的生存性条件 (Theorem 3.2)**:
-   - 条件 (a)：边界上 drift 必须指向内部 $\langle h(t,z_t), v_s \rangle \geq 0$
-   - 条件 (b)：边界上 diffusion 必须为零 $\langle g(t,z_t) \odot e_d, v_s \rangle = 0$
-   - 加上 Lipschitz 连续和线性有界条件
-   - 设计动机：这是 SDE 生存在 $K$ 中的充要条件
+
+    - 条件 (a)：边界上 drift 必须指向内部 $\langle h(t,z_t), v_s \rangle \geq 0$
+    - 条件 (b)：边界上 diffusion 必须为零 $\langle g(t,z_t) \odot e_d, v_s \rangle = 0$
+    - 加上 Lipschitz 连续和线性有界条件
+    - 设计动机：这是 SDE 生存在 $K$ 中的充要条件
 
 2. **Weighted Sums Parameterization (WSP)**:
-   - $\text{WSP}(f, c, t, z) = w(z) \cdot f(t,z) + (1-w(z)) \cdot c(z)$
-   - $w(z) \in [0,1]$：边界处 → 0（使用约束函数 $c$），内部 → 1（使用自由函数 $f$）
-   - $w(z)$ 通过到各边界的距离构造：$w(z) = \tanh(\beta \prod_s \frac{e^{-d(u_s,v_s,z)}}{\sum_{s'} e^{-d(u_{s'},v_{s'},z)}} \cdot \tanh(\alpha \cdot d(u_s,v_s,z)))$
-   - Drift 约束：$c_h(z) = \gamma \cdot \frac{z^* - z}{\|z^* - z\| + \epsilon}$（推向 Chebyshev 中心）
-   - Diffusion 约束：$c_g(z) = 0$（边界处噪声消失）
-   - 设计动机：平滑过渡避免了 RSDE 的不连续性和 sigmoid 的边界粘滞
+
+    - $\text{WSP}(f, c, t, z) = w(z) \cdot f(t,z) + (1-w(z)) \cdot c(z)$
+    - $w(z) \in [0,1]$：边界处 → 0（使用约束函数 $c$），内部 → 1（使用自由函数 $f$）
+    - $w(z)$ 通过到各边界的距离构造：$w(z) = \tanh(\beta \prod_s \frac{e^{-d(u_s,v_s,z)}}{\sum_{s'} e^{-d(u_{s'},v_{s'},z)}} \cdot \tanh(\alpha \cdot d(u_s,v_s,z)))$
+    - Drift 约束：$c_h(z) = \gamma \cdot \frac{z^* - z}{\|z^* - z\| + \epsilon}$（推向 Chebyshev 中心）
+    - Diffusion 约束：$c_g(z) = 0$（边界处噪声消失）
+    - 设计动机：平滑过渡避免了 RSDE 的不连续性和 sigmoid 的边界粘滞
 
 3. **平稳 SDE (Theorem 3.3)**:
-   - 给定 diffusion $g$ 和目标分布 $\tilde{p}$，drift 的闭式解：$h(z_t) = \frac{1}{2} \text{diag}(\nabla_{z_t}[g(z_t)^2]) + \frac{1}{2} g(z_t)^2 \odot \nabla_{z_t} \log \tilde{p}(z_t)$
-   - 证明此 drift 满足 Theorem 3.2 的所有条件
-   - 设计动机：自动推导使 SDE 收敛到指定分布的动力学
+
+    - 给定 diffusion $g$ 和目标分布 $\tilde{p}$，drift 的闭式解：$h(z_t) = \frac{1}{2} \text{diag}(\nabla_{z_t}[g(z_t)^2]) + \frac{1}{2} g(z_t)^2 \odot \nabla_{z_t} \log \tilde{p}(z_t)$
+    - 证明此 drift 满足 Theorem 3.2 的所有条件
+    - 设计动机：自动推导使 SDE 收敛到指定分布的动力学
 
 ### 损失函数 / 训练策略
 - 与标准 SDE 推断框架兼容（变分推断、score matching 等）

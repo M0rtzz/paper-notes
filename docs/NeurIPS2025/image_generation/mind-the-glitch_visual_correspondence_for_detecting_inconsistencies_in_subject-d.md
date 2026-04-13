@@ -29,9 +29,9 @@ tags:
 
 主体驱动图像生成（Subject-Driven Generation）旨在给定参考图像后，在不同场景中生成保持视觉一致性的主体。但当前面临一个核心评估瓶颈：
 
-1. **传统像素级指标失效**：LPIPS、SSIM 假设图像空间对齐，但主体驱动生成中主体的姿态、位置和上下文均不同
-2. **全局特征指标过于粗糙**：CLIP-Image 和 DINO 仅计算全局特征相似度，无法捕捉细粒度的外观细节差异
-3. **VLM 评估不透明**：基于 ChatGPT 的评估虽然可以给出分数，但判断依据不清楚，且无法定位不一致的具体区域
+**传统像素级指标失效**：LPIPS、SSIM 假设图像空间对齐，但主体驱动生成中主体的姿态、位置和上下文均不同
+**全局特征指标过于粗糙**：CLIP-Image 和 DINO 仅计算全局特征相似度，无法捕捉细粒度的外观细节差异
+**VLM 评估不透明**：基于 ChatGPT 的评估虽然可以给出分数，但判断依据不清楚，且无法定位不一致的具体区域
 
 核心洞察：扩散模型既然能生成高质量图像，其内部特征必然同时编码了**语义信息和视觉外观信息**。现有工作（如 CleanDIFT）只利用了语义特征用于语义对应，而视觉特征尚未被充分挖掘。
 
@@ -44,30 +44,34 @@ tags:
 ### 关键设计
 
 1. **自动化数据集生成管线**：
-   - 从 Subjects200k 数据集取一致图像对 $(I_1, I_2)$
-   - 用 Grounded-SAM 分割主体区域
-   - 用 CleanDIFT 计算语义对应点 $C_1, C_2$
-   - 选择高相似度匹配点，用 SAM 分割局部区域
-   - 对选定区域用 SDXL 进行局部 inpainting，制造已知的视觉不一致
-   - **偏度过滤**：用匹配分数分布的偏度（skewness）区分明确匹配（高偏度，纹理区域）和模糊匹配（低偏度，平坦表面），丢弃偏度 < 1.3 的样本
-   - 最终数据集：5000对训练 + 500对验证
+
+    - 从 Subjects200k 数据集取一致图像对 $(I_1, I_2)$
+    - 用 Grounded-SAM 分割主体区域
+    - 用 CleanDIFT 计算语义对应点 $C_1, C_2$
+    - 选择高相似度匹配点，用 SAM 分割局部区域
+    - 对选定区域用 SDXL 进行局部 inpainting，制造已知的视觉不一致
+    - **偏度过滤**：用匹配分数分布的偏度（skewness）区分明确匹配（高偏度，纹理区域）和模糊匹配（低偏度，平坦表面），丢弃偏度 < 1.3 的样本
+    - 最终数据集：5000对训练 + 500对验证
 
 2. **双分支解耦架构**：
-   - 冻结的扩散模型骨干 $\Phi$ 提取多层特征 $F_i^l$
-   - **语义分支** $\Psi_s^l$：对所有对应点（无论是否被 inpaint）鼓励特征一致
-   - **视觉分支** $\Psi_v^l$：在 inpaint 区域外鼓励特征一致，在 inpaint 区域内推开特征
-   - 每层使用 ResNet 块 + 可训练标量权重 $w^l$ 聚合
+
+    - 冻结的扩散模型骨干 $\Phi$ 提取多层特征 $F_i^l$
+    - **语义分支** $\Psi_s^l$：对所有对应点（无论是否被 inpaint）鼓励特征一致
+    - **视觉分支** $\Psi_v^l$：在 inpaint 区域外鼓励特征一致，在 inpaint 区域内推开特征
+    - 每层使用 ResNet 块 + 可训练标量权重 $w^l$ 聚合
 
 3. **对比损失设计**：
-   - 语义损失：$\mathcal{L}_s = \text{CrossEntropy}(\mathcal{D}_{12}^s(P_1), P_2)$，在所有对应点上
-   - 视觉一致损失：$\mathcal{L}_v^{\text{out}} = \text{CrossEntropy}(\mathcal{D}_{12}^v(P_1^{\text{out}}), P_2^{\text{out}})$
-   - 视觉不一致损失：$\mathcal{L}_v^{\text{in}} = \text{CrossEntropy}(-\mathcal{D}_{12}^v(P_1^{\text{in}}), P_2^{\text{in}})$（取负相似度）
-   - 总损失：$\mathcal{L} = \mathcal{L}_s + \alpha(\mathcal{L}_v^{\text{in}} + \mathcal{L}_v^{\text{out}})$，$\alpha = 10$ 优先视觉分支
+
+    - 语义损失：$\mathcal{L}_s = \text{CrossEntropy}(\mathcal{D}_{12}^s(P_1), P_2)$，在所有对应点上
+    - 视觉一致损失：$\mathcal{L}_v^{\text{out}} = \text{CrossEntropy}(\mathcal{D}_{12}^v(P_1^{\text{out}}), P_2^{\text{out}})$
+    - 视觉不一致损失：$\mathcal{L}_v^{\text{in}} = \text{CrossEntropy}(-\mathcal{D}_{12}^v(P_1^{\text{in}}), P_2^{\text{in}})$（取负相似度）
+    - 总损失：$\mathcal{L} = \mathcal{L}_s + \alpha(\mathcal{L}_v^{\text{in}} + \mathcal{L}_v^{\text{out}})$，$\alpha = 10$ 优先视觉分支
 
 4. **VSM 度量**：
-   - 先通过语义匹配找到可靠对应点集 $\mathcal{J}_s$（语义相似度 > $\mathcal{T}_s = 0.7$）
-   - 在这些语义匹配点上检查视觉一致性：$\text{VSM}(\mathcal{T}_v) = \frac{1}{|\mathcal{J}_s|}\sum_{j \in \mathcal{J}_s} \delta[\hat{\mathcal{D}}_j^v > \mathcal{T}_v]$
-   - 不一致区域 = 语义匹配但视觉不匹配的位置
+
+    - 先通过语义匹配找到可靠对应点集 $\mathcal{J}_s$（语义相似度 > $\mathcal{T}_s = 0.7$）
+    - 在这些语义匹配点上检查视觉一致性：$\text{VSM}(\mathcal{T}_v) = \frac{1}{|\mathcal{J}_s|}\sum_{j \in \mathcal{J}_s} \delta[\hat{\mathcal{D}}_j^v > \mathcal{T}_v]$
+    - 不一致区域 = 语义匹配但视觉不匹配的位置
 
 ### 训练细节
 

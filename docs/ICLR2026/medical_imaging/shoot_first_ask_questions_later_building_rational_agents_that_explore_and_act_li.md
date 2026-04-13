@@ -41,23 +41,26 @@ tags:
 ### 关键设计
 
 1. **贝叶斯信念更新框架**:
-   - 隐藏棋盘 $S \in \mathcal{S}$，信念 $\pi_t(s) = \Pr(S=s | x, \mathcal{H}_{1:t})$
-   - 噪声观测模型：Spotter 建模为二元对称信道 $\text{BSC}(\varepsilon)$，$\varepsilon=0.1$
-   - 贝叶斯更新：$\pi_{t+1}(s) \propto \pi_t(s)[(1-\varepsilon)\mathbf{1}\{\tilde{a}_t = f_{q_t}(s)\} + \varepsilon\mathbf{1}\{\tilde{a}_t \neq f_{q_t}(s)\}]$
-   - 使用序贯蒙特卡洛（SMC）近似实现
-   - **动机**：精确求和不可行，粒子近似既高效又能处理 Spotter 噪声
+
+    - 隐藏棋盘 $S \in \mathcal{S}$，信念 $\pi_t(s) = \Pr(S=s | x, \mathcal{H}_{1:t})$
+    - 噪声观测模型：Spotter 建模为二元对称信道 $\text{BSC}(\varepsilon)$，$\varepsilon=0.1$
+    - 贝叶斯更新：$\pi_{t+1}(s) \propto \pi_t(s)[(1-\varepsilon)\mathbf{1}\{\tilde{a}_t = f_{q_t}(s)\} + \varepsilon\mathbf{1}\{\tilde{a}_t \neq f_{q_t}(s)\}]$
+    - 使用序贯蒙特卡洛（SMC）近似实现
+    - **动机**：精确求和不可行，粒子近似既高效又能处理 Spotter 噪声
 
 2. **三种贝叶斯策略**:
-   - **Bayes-Q（提问）**：从 LM 采样候选问题集 $\mathcal{Q}$，选 EIG 最高的：$q_t^* = \arg\max_{q \in \mathcal{Q}} \text{EIG}_\varepsilon(q | x, \mathcal{H}_{1:t})$
-   - EIG 闭式解：$\text{EIG}_\varepsilon = H_b(\varepsilon + (1-2\varepsilon)p_t) - H_b(\varepsilon)$，最大化当 $p_t \approx 1/2$ 时
-   - **Bayes-M（行动）**：选击中概率最大的格子：$u_t^* = \arg\max_u p_t^{\text{hit}}(u | x, \mathcal{H}_{1:t})$
-   - **Bayes-D（决策）**：一步前瞻决策——若 $\gamma \cdot \widehat{p_{t+1}^{\text{hit}}}(q_t^*) > p_t^{\text{hit}}(u_t^*)$ 则提问，否则射击
-   - **动机**：将 LM 的自然语言能力与贝叶斯最优推断结合，各取所长
+
+    - **Bayes-Q（提问）**：从 LM 采样候选问题集 $\mathcal{Q}$，选 EIG 最高的：$q_t^* = \arg\max_{q \in \mathcal{Q}} \text{EIG}_\varepsilon(q | x, \mathcal{H}_{1:t})$
+    - EIG 闭式解：$\text{EIG}_\varepsilon = H_b(\varepsilon + (1-2\varepsilon)p_t) - H_b(\varepsilon)$，最大化当 $p_t \approx 1/2$ 时
+    - **Bayes-M（行动）**：选击中概率最大的格子：$u_t^* = \arg\max_u p_t^{\text{hit}}(u | x, \mathcal{H}_{1:t})$
+    - **Bayes-D（决策）**：一步前瞻决策——若 $\gamma \cdot \widehat{p_{t+1}^{\text{hit}}}(q_t^*) > p_t^{\text{hit}}(u_t^*)$ 则提问，否则射击
+    - **动机**：将 LM 的自然语言能力与贝叶斯最优推断结合，各取所长
 
 3. **代码生成增强回答 (SpotterQA)**:
-   - 将自然语言问题翻译为 Python 程序，在假设空间上执行
-   - 比直接回答和 CoT 基线提高 14.7% 准确率
-   - **动机**：代码生成提供精确的形式化接地（grounding）
+
+    - 将自然语言问题翻译为 Python 程序，在假设空间上执行
+    - 比直接回答和 CoT 基线提高 14.7% 准确率
+    - **动机**：代码生成提供精确的形式化接地（grounding）
 
 ### 损失函数 / 训练策略
 - 无训练过程——所有策略都是推断时方法

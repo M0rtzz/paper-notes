@@ -31,10 +31,10 @@ tags:
 
 **现有痛点**：
 
-1. **投影步骤过多**：DPS 等方法在每个扩散步交替进行无条件去噪和约束投影，但每步投影都需要一次网络前向传播，导致推理极慢（>70 秒）
-2. **加速采样下约束失效**：直接将 DPS 与 DDIM 加速采样结合，由于步长大导致投影不充分，产出模糊或发散的结果
-3. **无法精确满足约束**：DPS 使用固定的小步长投影，在无噪声情况下也无法保证 $\mathbf{A}\hat{\mathbf{x}}_0 = \mathbf{y}$
-4. **步长选择困难**：投影步长太大导致发散或拉出分布，太小收敛不充分
+**投影步骤过多**：DPS 等方法在每个扩散步交替进行无条件去噪和约束投影，但每步投影都需要一次网络前向传播，导致推理极慢（>70 秒）
+**加速采样下约束失效**：直接将 DPS 与 DDIM 加速采样结合，由于步长大导致投影不充分，产出模糊或发散的结果
+**无法精确满足约束**：DPS 使用固定的小步长投影，在无噪声情况下也无法保证 $\mathbf{A}\hat{\mathbf{x}}_0 = \mathbf{y}$
+**步长选择困难**：投影步长太大导致发散或拉出分布，太小收敛不充分
 
 **核心矛盾**：如何在大幅减少投影步数的同时，既不过度投影（拉出分布）也不欠投影（无法满足约束）？
 
@@ -54,28 +54,32 @@ CDIM 的推理流程（Algorithm 1）：
 ### 关键设计
 
 1. **代理残差与 $\chi^2$ 分布**：
-   - **做什么**：为投影提供解析可计算的停止准则
-   - **核心思路**：真实目标 $L_t = \|\mathbf{A}\hat{\mathbf{x}}_0(\mathbf{x}_t) - \mathbf{y}\|^2$ 的分布难以计算（依赖数据分布）。但代理残差 $R_t = \|\mathbf{A}\mathbf{x}_t - \mathbf{y}\|^2$ 在前向过程中服从非中心广义 $\chi^2$ 分布，其均值和方差有解析公式：
-     - $\mu_t(\mathbf{y}) = (\sqrt{\bar\alpha_t} - 1)^2 \|\mathbf{y}\|^2 + (1 - \bar\alpha_t) \text{tr}(\mathbf{A}\mathbf{A}^\top)$
-     - $\sigma_t^2(\mathbf{y})$ 类似可解析计算
-   - **Proposition 1**：当 $|R_t - \mathbb{E}[R_t|\mathbf{y}]| \leq \gamma$ 时，$|L_t - \mathbb{E}[L_t|\mathbf{y}]| \leq \gamma/\bar\alpha_t + O(\sqrt{1-\bar\alpha_t}/\bar\alpha_t)$。即控制代理残差就能控制真实目标
-   - **设计动机**：$R_t$ 的计算不需要网络评估（仅矩阵乘法），因此可以做步长搜索而不增加 NFE（Neural Function Evaluations）
+
+    - **做什么**：为投影提供解析可计算的停止准则
+    - **核心思路**：真实目标 $L_t = \|\mathbf{A}\hat{\mathbf{x}}_0(\mathbf{x}_t) - \mathbf{y}\|^2$ 的分布难以计算（依赖数据分布）。但代理残差 $R_t = \|\mathbf{A}\mathbf{x}_t - \mathbf{y}\|^2$ 在前向过程中服从非中心广义 $\chi^2$ 分布，其均值和方差有解析公式：
+      - $\mu_t(\mathbf{y}) = (\sqrt{\bar\alpha_t} - 1)^2 \|\mathbf{y}\|^2 + (1 - \bar\alpha_t) \text{tr}(\mathbf{A}\mathbf{A}^\top)$
+      - $\sigma_t^2(\mathbf{y})$ 类似可解析计算
+    - **Proposition 1**：当 $|R_t - \mathbb{E}[R_t|\mathbf{y}]| \leq \gamma$ 时，$|L_t - \mathbb{E}[L_t|\mathbf{y}]| \leq \gamma/\bar\alpha_t + O(\sqrt{1-\bar\alpha_t}/\bar\alpha_t)$。即控制代理残差就能控制真实目标
+    - **设计动机**：$R_t$ 的计算不需要网络评估（仅矩阵乘法），因此可以做步长搜索而不增加 NFE（Neural Function Evaluations）
 
 2. **自适应步长选择**：
-   - **做什么**：在不增加 NFE 的情况下找到最优投影步长
-   - **核心思路**：预计算梯度 $\mathbf{g} = \nabla_{\mathbf{x}_{t-\delta}} \|\mathbf{A}\hat{\mathbf{x}}_0 - \mathbf{y}\|^2$，然后一维搜索 $\eta^* = \arg\min_\eta |\rho_{t-\delta}(\mathbf{y}) - \|\mathbf{A}(\mathbf{x}_{t-\delta} - \eta\mathbf{g}) - \mathbf{y}\|^2|$
-   - 目标函数是 $\eta$ 的二次函数，搜索高效且稳定
-   - **设计动机**：将残差拉回合理区域边界（而非中心）效果更好
+
+    - **做什么**：在不增加 NFE 的情况下找到最优投影步长
+    - **核心思路**：预计算梯度 $\mathbf{g} = \nabla_{\mathbf{x}_{t-\delta}} \|\mathbf{A}\hat{\mathbf{x}}_0 - \mathbf{y}\|^2$，然后一维搜索 $\eta^* = \arg\min_\eta |\rho_{t-\delta}(\mathbf{y}) - \|\mathbf{A}(\mathbf{x}_{t-\delta} - \eta\mathbf{g}) - \mathbf{y}\|^2|$
+    - 目标函数是 $\eta$ 的二次函数，搜索高效且稳定
+    - **设计动机**：将残差拉回合理区域边界（而非中心）效果更好
 
 3. **停止准则与超参数 $c$**：
-   - **做什么**：决定何时停止投影
-   - **核心思路**：当 $\|\mathbf{A}\mathbf{x}_{t-\delta} - \mathbf{y}\|^2 \leq \rho_{t-\delta}(\mathbf{y})$ 时停止
-   - $c$ 越小（合理区域越窄），结果越好但投影步数越多。实验中使用 $c = 0.1$
-   - 高噪声时合理区域很大，几乎不需要投影；低噪声时合理区域收窄，投影增加
+
+    - **做什么**：决定何时停止投影
+    - **核心思路**：当 $\|\mathbf{A}\mathbf{x}_{t-\delta} - \mathbf{y}\|^2 \leq \rho_{t-\delta}(\mathbf{y})$ 时停止
+    - $c$ 越小（合理区域越窄），结果越好但投影步数越多。实验中使用 $c = 0.1$
+    - 高噪声时合理区域很大，几乎不需要投影；低噪声时合理区域收窄，投影增加
 
 4. **泊松噪声处理**：
-   - **做什么**：将方法扩展到非高斯噪声
-   - **核心思路**：通过 Pearson 残差 $R(\mathbf{A}\hat{\mathbf{x}}_0, \mathbf{y}) = \frac{\lambda(\mathbf{y} - \mathbf{A}\hat{\mathbf{x}}_0)}{\sqrt{\lambda\hat{\mathbf{x}}_0}}$ 将泊松噪声转化为近似标准正态噪声，然后使用相同框架处理
+
+    - **做什么**：将方法扩展到非高斯噪声
+    - **核心思路**：通过 Pearson 残差 $R(\mathbf{A}\hat{\mathbf{x}}_0, \mathbf{y}) = \frac{\lambda(\mathbf{y} - \mathbf{A}\hat{\mathbf{x}}_0)}{\sqrt{\lambda\hat{\mathbf{x}}_0}}$ 将泊松噪声转化为近似标准正态噪声，然后使用相同框架处理
 
 ### 损失函数 / 训练策略
 

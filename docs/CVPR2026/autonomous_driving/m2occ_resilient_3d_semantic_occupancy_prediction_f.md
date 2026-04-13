@@ -37,15 +37,17 @@ tags:
 
 ### 关键设计
 1. **多视角掩码重建（MMR）**: 利用相邻相机的物理重叠视场来恢复缺失视角特征。三步流程：
-   - **视角关系建模**：将6个相机建模为循环图，每个视角$v_i$的邻域为左右相邻相机$\mathcal{N}(v_i) = \{v_{(i-1)\text{mod}N}, v_{(i+1)\text{mod}N}\}$
-   - **重叠区域特征聚合**：从左右邻居的特征图中裁剪重叠边界区域（宽度$w_{ov}$对应物理重叠），与可学习mask token拼接：$\mathbf{f}_{ref} = \text{Concat}(\mathbf{f}_{left}[:,-w_{ov}:], \mathbf{e}_{mask}, \mathbf{f}_{right}[:,:w_{ov}])$
-   - **Transformer解码重建**：6层Transformer blocks（8头注意力，MLP ratio=4），加可学习位置编码，从粗糙结构先验重建缺失特征 $\hat{\mathbf{f}}_i = \mathcal{D}(\mathbf{f}_{ref} + \mathbf{p}_{pos})$
-   - MMR损失仅在被mask的视角上计算MSE：$\mathcal{L}_{MMR} = \frac{1}{|\mathcal{M}|}\sum_{i \in \mathcal{M}} \|\hat{\mathbf{f}}_i - \mathbf{f}_i^{gt}\|^2$
+
+    - **视角关系建模**：将6个相机建模为循环图，每个视角$v_i$的邻域为左右相邻相机$\mathcal{N}(v_i) = \{v_{(i-1)\text{mod}N}, v_{(i+1)\text{mod}N}\}$
+    - **重叠区域特征聚合**：从左右邻居的特征图中裁剪重叠边界区域（宽度$w_{ov}$对应物理重叠），与可学习mask token拼接：$\mathbf{f}_{ref} = \text{Concat}(\mathbf{f}_{left}[:,-w_{ov}:], \mathbf{e}_{mask}, \mathbf{f}_{right}[:,:w_{ov}])$
+    - **Transformer解码重建**：6层Transformer blocks（8头注意力，MLP ratio=4），加可学习位置编码，从粗糙结构先验重建缺失特征 $\hat{\mathbf{f}}_i = \mathcal{D}(\mathbf{f}_{ref} + \mathbf{p}_{pos})$
+    - MMR损失仅在被mask的视角上计算MSE：$\mathcal{L}_{MMR} = \frac{1}{|\mathcal{M}|}\sum_{i \in \mathcal{M}} \|\hat{\mathbf{f}}_i - \mathbf{f}_i^{gt}\|^2$
 
 2. **特征记忆模块（FMM）**: MMR恢复的特征可能模糊或语义模糊，FMM用全局语义原型作为"长期记忆"来精化。两种策略：
-   - **Single-Proto策略**：每个语义类维护一个全局质心$\mathbf{m}_k$，用动量移动平均更新：$\mathbf{m}_k^{(t)} = (1-\lambda)\mathbf{m}_k^{(t-1)} + \lambda \cdot \bar{\mathbf{f}}_k$，$\lambda=0.1$。稳定但无法捕捉类内多样性
-   - **Multi-Proto策略**：每个类维护$N_p$个子原型$\mathbf{m}_{k,j}$，通过余弦相似度+softmax温度$\tau$计算检索权重$\alpha_{k,j}$。能建模类内差异（如不同车型），但在严重缺失情况下可能因噪声路由导致过度碎片化
-   - **记忆增强特征**：用预测的类概率$P(k)$作为门控，聚合加权原型作为残差修正：$\mathbf{x}' = \mathbf{x} + \sum_{k=1}^{K}(P(k)\sum_{j=1}^{N_p}\alpha_{k,j}\mathbf{m}_{k,j})$
+
+    - **Single-Proto策略**：每个语义类维护一个全局质心$\mathbf{m}_k$，用动量移动平均更新：$\mathbf{m}_k^{(t)} = (1-\lambda)\mathbf{m}_k^{(t-1)} + \lambda \cdot \bar{\mathbf{f}}_k$，$\lambda=0.1$。稳定但无法捕捉类内多样性
+    - **Multi-Proto策略**：每个类维护$N_p$个子原型$\mathbf{m}_{k,j}$，通过余弦相似度+softmax温度$\tau$计算检索权重$\alpha_{k,j}$。能建模类内差异（如不同车型），但在严重缺失情况下可能因噪声路由导致过度碎片化
+    - **记忆增强特征**：用预测的类概率$P(k)$作为门控，聚合加权原型作为残差修正：$\mathbf{x}' = \mathbf{x} + \sum_{k=1}^{K}(P(k)\sum_{j=1}^{N_p}\alpha_{k,j}\mathbf{m}_{k,j})$
 
 ### 损失函数 / 训练策略
 - 主损失：标准语义占据交叉熵损失 + $\mathcal{L}_{MMR}$

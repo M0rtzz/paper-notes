@@ -26,10 +26,10 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 扩散模型backbone经历了从卷积-注意力混合架构（DDPM、ADM、LDM）到全Transformer架构（DiT、SiT、FLUX）的演进。Transformer的可扩展性推动了FLUX、SD3等大规模模型的成功，但也带来了对GPU集群资源的强依赖。
-2. **现有痛点**: DiT-XL/2需要7M步训练才能达到最佳FID，训练吞吐量仅80.5 it/s。Transformer的 $O(n^2)$ 计算复杂度在高分辨率下尤为严重——分辨率翻倍时DiT吞吐量下降约4×。这使得扩散模型的训练和推理成本成为主要瓶颈。
-3. **核心矛盾**: 业界普遍认为"scaling Transformer = 更好的生成质量"，但ConvNet的局部性偏置、参数效率和硬件友好性在现代生成建模中几乎未被充分探索。ConvNeXt在分类任务上已展示与ViT匹配的性能，但在生成领域完全缺席。
-4. **本文切入角度**: 将ConvNeXt改造为条件扩散模型的backbone，保持其核心设计（depthwise conv、inverted bottleneck、GRN），仅添加条件注入（AdaLN）和U-shaped布局，验证全卷积架构能否同时兼顾生成质量和计算效率。
+**领域现状**: 扩散模型backbone经历了从卷积-注意力混合架构（DDPM、ADM、LDM）到全Transformer架构（DiT、SiT、FLUX）的演进。Transformer的可扩展性推动了FLUX、SD3等大规模模型的成功，但也带来了对GPU集群资源的强依赖。
+**现有痛点**: DiT-XL/2需要7M步训练才能达到最佳FID，训练吞吐量仅80.5 it/s。Transformer的 $O(n^2)$ 计算复杂度在高分辨率下尤为严重——分辨率翻倍时DiT吞吐量下降约4×。这使得扩散模型的训练和推理成本成为主要瓶颈。
+**核心矛盾**: 业界普遍认为"scaling Transformer = 更好的生成质量"，但ConvNet的局部性偏置、参数效率和硬件友好性在现代生成建模中几乎未被充分探索。ConvNeXt在分类任务上已展示与ViT匹配的性能，但在生成领域完全缺席。
+**本文切入角度**: 将ConvNeXt改造为条件扩散模型的backbone，保持其核心设计（depthwise conv、inverted bottleneck、GRN），仅添加条件注入（AdaLN）和U-shaped布局，验证全卷积架构能否同时兼顾生成质量和计算效率。
 
 ## 方法详解
 

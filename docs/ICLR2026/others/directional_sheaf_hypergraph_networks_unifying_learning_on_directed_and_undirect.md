@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **超图的高阶交互建模**：许多真实系统存在多实体间的高阶关系，传统图只能表达成对关系。超图通过超边连接多个节点来建模多路交互。
-2. **无向超图的局限**：大多数 HGNN 仅处理无向超图，忽略了超边中可能存在的方向性（化学反应中反应物→产物、因果交互的发起方→接收方）。
-3. **Sheaf 理论缓解异质性**：通过为节点和边分配向量空间及可学习的 restriction map，能有效缓解过平滑和异质性问题。但已有 Sheaf 超图方法不支持有向超图。
-4. **已有 SHN 的谱性质缺陷**：Duta et al. (2023) 的 Sheaf Hypergraph Laplacian 不满足正半定性，无法作为合格卷积算子。
-5. **有向图方法的成功经验**：Magnetic Laplacian 用复数相位编码方向，但未推广到超图。
+**超图的高阶交互建模**：许多真实系统存在多实体间的高阶关系，传统图只能表达成对关系。超图通过超边连接多个节点来建模多路交互。
+**无向超图的局限**：大多数 HGNN 仅处理无向超图，忽略了超边中可能存在的方向性（化学反应中反应物→产物、因果交互的发起方→接收方）。
+**Sheaf 理论缓解异质性**：通过为节点和边分配向量空间及可学习的 restriction map，能有效缓解过平滑和异质性问题。但已有 Sheaf 超图方法不支持有向超图。
+**已有 SHN 的谱性质缺陷**：Duta et al. (2023) 的 Sheaf Hypergraph Laplacian 不满足正半定性，无法作为合格卷积算子。
+**有向图方法的成功经验**：Magnetic Laplacian 用复数相位编码方向，但未推广到超图。
 
 ## 方法详解
 
@@ -41,27 +41,32 @@ DSHN 三步走：(1) 定义 Directed Hypergraph Cellular Sheaf（复值 restrict
 ### 关键设计
 
 1. **方向性矩阵 $\mathcal{S}^{(q)}$（Definition 1）**
-   - **做什么**：为节点-超边对分配复值系数编码方向角色
-   - **核心思路**：头节点系数 1，尾节点系数 $e^{-2\pi i q}$，参数 $q$ 控制方向信息强度
-   - **设计动机**：$q=0$ 退化为无向；$q=1/4$ 时方向编码在虚部，与 Magnetic Laplacian 对齐
+
+    - **做什么**：为节点-超边对分配复值系数编码方向角色
+    - **核心思路**：头节点系数 1，尾节点系数 $e^{-2\pi i q}$，参数 $q$ 控制方向信息强度
+    - **设计动机**：$q=0$ 退化为无向；$q=1/4$ 时方向编码在虚部，与 Magnetic Laplacian 对齐
 
 2. **Directed Sheaf Hypergraph Laplacian**
-   - **做什么**：$\mathbf{L}^{\vec{\mathcal{F}}} = \mathbf{D}_V - \mathbf{B}^{(q)\dagger} \mathbf{D}_E^{-1} \mathbf{B}^{(q)}$
-   - **核心思路**：对角块实值（自身信息），非对角块有向时为复值，修正了 Duta et al. 的对角项系数
-   - **设计动机**：确保正半定性等所有谱卷积所需性质
+
+    - **做什么**：$\mathbf{L}^{\vec{\mathcal{F}}} = \mathbf{D}_V - \mathbf{B}^{(q)\dagger} \mathbf{D}_E^{-1} \mathbf{B}^{(q)}$
+    - **核心思路**：对角块实值（自身信息），非对角块有向时为复值，修正了 Duta et al. 的对角项系数
+    - **设计动机**：确保正半定性等所有谱卷积所需性质
 
 3. **谱性质保证**
-   - **做什么**：证明可对角化、实非负特征值、正半定、谱上界 1
-   - **核心思路**：通过 Dirichlet 能量非负性证明正半定
-   - **设计动机**：保证 Fourier 变换良定义和多项式滤波器稳定
+
+    - **做什么**：证明可对角化、实非负特征值、正半定、谱上界 1
+    - **核心思路**：通过 Dirichlet 能量非负性证明正半定
+    - **设计动机**：保证 Fourier 变换良定义和多项式滤波器稳定
 
 4. **统一泛化**
-   - **做什么**：证明在特殊情况下退化为 Graph Sheaf Laplacian、Magnetic Laplacian、Zhou 超图 Laplacian、GeDi Laplacian 等
-   - **设计动机**：一个框架统一所有已有算子
+
+    - **做什么**：证明在特殊情况下退化为 Graph Sheaf Laplacian、Magnetic Laplacian、Zhou 超图 Laplacian、GeDi Laplacian 等
+    - **设计动机**：一个框架统一所有已有算子
 
 5. **DSHNLight**
-   - **做什么**：detach Laplacian 构建的梯度，固定 restriction map 参数
-   - **设计动机**：大幅降低计算成本，多个数据集上性能相当甚至更好
+
+    - **做什么**：detach Laplacian 构建的梯度，固定 restriction map 参数
+    - **设计动机**：大幅降低计算成本，多个数据集上性能相当甚至更好
 
 ### 损失函数 / 训练策略
 

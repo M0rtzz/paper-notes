@@ -25,11 +25,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：色彩调色（toning/grading）对图像风格和情感至关重要。现有方法要么依赖预定义滤镜库的权重组合，要么用CNN逐patch重着色。参考图风格迁移和文本指令调色两个任务使用不兼容的模型。
-2. **现有痛点**：(1) 现有方法表达能力或效率不足；(2) 对抗损失（GAN）训练不稳定、模式崩溃；(3) 缺乏与人类审美偏好的对齐机制；(4) 参考迁移和文本调色需要独立模型。
-3. **核心矛盾**：色彩调色既需要精确的色彩控制（LUT的优势），又需要理解复杂的语义指令（VLM的优势），但两者未被有效结合。
-4. **切入角度**：将LUT作为色彩变换的原子操作token化，让VLM来生成这些token。
-5. **核心idea**：(1) VQ-VAE tokenizer把 $3 \times 32^3$ 的LUT压缩为64个离散token；(2) VLM预测LUT token序列；(3) GRPO用色彩相似度+美学评分做奖励对齐。
+**领域现状**：色彩调色（toning/grading）对图像风格和情感至关重要。现有方法要么依赖预定义滤镜库的权重组合，要么用CNN逐patch重着色。参考图风格迁移和文本指令调色两个任务使用不兼容的模型。
+**现有痛点**：(1) 现有方法表达能力或效率不足；(2) 对抗损失（GAN）训练不稳定、模式崩溃；(3) 缺乏与人类审美偏好的对齐机制；(4) 参考迁移和文本调色需要独立模型。
+**核心矛盾**：色彩调色既需要精确的色彩控制（LUT的优势），又需要理解复杂的语义指令（VLM的优势），但两者未被有效结合。
+**切入角度**：将LUT作为色彩变换的原子操作token化，让VLM来生成这些token。
+**核心idea**：(1) VQ-VAE tokenizer把 $3 \times 32^3$ 的LUT压缩为64个离散token；(2) VLM预测LUT token序列；(3) GRPO用色彩相似度+美学评分做奖励对齐。
 
 ## 方法详解
 
@@ -39,29 +39,33 @@ tags:
 ### 关键设计
 
 1. **3D LUT Tokenizer (VQ-VAE)**:
-   - 做什么：将连续的 $3 \times 32 \times 32 \times 32$ LUT压缩为64个离散token
-   - 核心思路：3D卷积编码器逐步下采样到 $4 \times 4 \times 4 \times D$→向量量化层(K=256个码字)→3D卷积解码器。损失 $\mathcal{L} = \mathcal{L}_{rec} + \beta \mathcal{L}_{commit}$
-   - 保真度：$\Delta E < 2$（人眼几乎不可感知的色差）
-   - 设计动机：LUT本质是3D颜色映射体积，VQ-VAE能有效压缩并保持高保真
+
+    - 做什么：将连续的 $3 \times 32 \times 32 \times 32$ LUT压缩为64个离散token
+    - 核心思路：3D卷积编码器逐步下采样到 $4 \times 4 \times 4 \times D$→向量量化层(K=256个码字)→3D卷积解码器。损失 $\mathcal{L} = \mathcal{L}_{rec} + \beta \mathcal{L}_{commit}$
+    - 保真度：$\Delta E < 2$（人眼几乎不可感知的色差）
+    - 设计动机：LUT本质是3D颜色映射体积，VQ-VAE能有效压缩并保持高保真
 
 2. **VLM的LUT Token预测**:
-   - 做什么：让VLM学会从视觉-文本输入自回归预测LUT token序列
-   - **生成预训练**：大量(图像, LUT, prompt)三元组，$\mathcal{L}_{gen} = -\sum \log p_\theta(z_t | z_{<t}, I, L(I), c)$
-   - **SFT**：分别为风格迁移(PST)和指令调色(IGG)设计训练数据。PST提供参考图和查询图；IGG用Qwen2.5-VL-32B为(图像, LUT)对生成编辑指令
-   - 设计动机：将色彩变换形式化为token序列生成问题，统一了参考和文本两种条件
+
+    - 做什么：让VLM学会从视觉-文本输入自回归预测LUT token序列
+    - **生成预训练**：大量(图像, LUT, prompt)三元组，$\mathcal{L}_{gen} = -\sum \log p_\theta(z_t | z_{<t}, I, L(I), c)$
+    - **SFT**：分别为风格迁移(PST)和指令调色(IGG)设计训练数据。PST提供参考图和查询图；IGG用Qwen2.5-VL-32B为(图像, LUT)对生成编辑指令
+    - 设计动机：将色彩变换形式化为token序列生成问题，统一了参考和文本两种条件
 
 3. **GRPO强化学习对齐**:
-   - 做什么：让模型输出的色彩调色对齐人类美学偏好
-   - 两个奖励函数：
-     - $r_{color}$：色彩相似度，$\frac{1}{\max(2, \Delta E) - 1}$（$\Delta E < 2$ 时最大奖励）
-     - $r_{aes}$：美学评分，用预训练DeQA模型评估视觉愉悦度
-   - 标准GRPO训练：采样G个候选LUT→计算奖励→组内归一化优势→策略更新
-   - 设计动机：避免GAN的不稳定性，先建立稳定的似然生成模型，再用RL对齐偏好
+
+    - 做什么：让模型输出的色彩调色对齐人类美学偏好
+    - 两个奖励函数：
+      - $r_{color}$：色彩相似度，$\frac{1}{\max(2, \Delta E) - 1}$（$\Delta E < 2$ 时最大奖励）
+      - $r_{aes}$：美学评分，用预训练DeQA模型评估视觉愉悦度
+    - 标准GRPO训练：采样G个候选LUT→计算奖励→组内归一化优势→策略更新
+    - 设计动机：避免GAN的不稳定性，先建立稳定的似然生成模型，再用RL对齐偏好
 
 4. **AceTone-800K数据集**:
-   - ~10K许可LUT滤镜库 + PPR-10K专家调色 + PCA聚类后的8192个核心LUT
-   - 800K自动标注的(图像, LUT, 指令)元组
-   - 两个基准：AceTone-Bench[Transfer](1024样本)和AceTone-Bench[Instruct](128样本)
+
+    - ~10K许可LUT滤镜库 + PPR-10K专家调色 + PCA聚类后的8192个核心LUT
+    - 800K自动标注的(图像, LUT, 指令)元组
+    - 两个基准：AceTone-Bench[Transfer](1024样本)和AceTone-Bench[Instruct](128样本)
 
 ### 损失函数 / 训练策略
 Tokenizer：MSE+commitment loss。预训练/SFT：交叉熵。RL：GRPO目标+KL正则。

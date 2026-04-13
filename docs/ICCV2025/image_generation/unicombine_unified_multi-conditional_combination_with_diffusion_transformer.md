@@ -26,17 +26,17 @@ UniCombine 提出基于 DiT 的多条件可控生成框架，通过 Conditional 
 
 ## 研究背景与动机
 
-1. **领域现状**：现有可控生成框架（ControlNet、IP-Adapter、OminiControl）在单条件控制上表现出色，但都是针对单一条件设计。用户真实需求往往是多条件联合控制，如同时指定主体外观、空间布局和文本描述。
+**领域现状**：现有可控生成框架（ControlNet、IP-Adapter、OminiControl）在单条件控制上表现出色，但都是针对单一条件设计。用户真实需求往往是多条件联合控制，如同时指定主体外观、空间布局和文本描述。
 
-2. **现有痛点**：(a) UniControl、UniControlNet 等多条件方法只支持空间条件组合（Canny+Depth），不能引入主体条件；(b) Ctrl-X 虽然同时控制结构和外观，但性能不理想且不兼容 DiT 架构；(c) 缺乏公开的多条件生成训练/测试数据集。
+**现有痛点**：(a) UniControl、UniControlNet 等多条件方法只支持空间条件组合（Canny+Depth），不能引入主体条件；(b) Ctrl-X 虽然同时控制结构和外观，但性能不理想且不兼容 DiT 架构；(c) 缺乏公开的多条件生成训练/测试数据集。
 
-3. **核心矛盾**：多个条件嵌入在 attention 中直接拼接会导致：(1) 计算复杂度随条件数平方增长 $O(N^2)$；(2) 不同条件信号在 attention 计算中相互干扰，难以有效利用预训练的单条件 LoRA 权重。
+**核心矛盾**：多个条件嵌入在 attention 中直接拼接会导致：(1) 计算复杂度随条件数平方增长 $O(N^2)$；(2) 不同条件信号在 attention 计算中相互干扰，难以有效利用预训练的单条件 LoRA 权重。
 
-4. **本文要解决什么？** (1) 设计统一框架处理任意条件组合；(2) 实现高效可扩展的多条件 attention 机制；(3) 构建多条件生成数据集。
+**本文要解决什么？** (1) 设计统一框架处理任意条件组合；(2) 实现高效可扩展的多条件 attention 机制；(3) 构建多条件生成数据集。
 
-5. **切入角度**：OminiControl 已经证明在 MMDiT 中通过 Condition-LoRA 可以处理单条件控制。关键观察是：OminiControl 是 UniCombine 在单条件设置下的特例——只需设计合适的多条件 attention 和 LoRA 管理机制就能扩展到多条件。
+**切入角度**：OminiControl 已经证明在 MMDiT 中通过 Condition-LoRA 可以处理单条件控制。关键观察是：OminiControl 是 UniCombine 在单条件设置下的特例——只需设计合适的多条件 attention 和 LoRA 管理机制就能扩展到多条件。
 
-6. **核心 idea 一句话**：通过 LoRA Switching 模块动态激活对应条件的预训练 LoRA 权重，并用 Conditional MMDiT Attention 限制条件分支间的信息交换（只允许 denoising/text 分支看到所有条件），实现高效且去耦的多条件融合。
+**核心 idea 一句话**：通过 LoRA Switching 模块动态激活对应条件的预训练 LoRA 权重，并用 Conditional MMDiT Attention 限制条件分支间的信息交换（只允许 denoising/text 分支看到所有条件），实现高效且去耦的多条件融合。
 
 ## 方法详解
 
@@ -46,32 +46,37 @@ UniCombine 提出基于 DiT 的多条件可控生成框架，通过 Conditional 
 ### 关键设计
 
 1. **LoRA Switching 模块**:
-   - 做什么：动态管理多个 Condition-LoRA 的激活
-   - 核心思路：维护预训练的 Condition-LoRA 列表 $[\text{CondLoRA}_1, \text{CondLoRA}_2, ...]$，每个对应一种条件类型。Denoising branch 的权重上加载这些 LoRA，通过 one-hot 门控机制 $[0,1,0,...,0]$ 根据当前条件类型激活对应的 LoRA
-   - 设计动机：不同条件类型需要不同的特征投影，通过切换 LoRA 而非引入独立网络，最小化额外参数量（仅 29M vs ControlNet/IP-Adapter 的 744M/918M）
+
+    - 做什么：动态管理多个 Condition-LoRA 的激活
+    - 核心思路：维护预训练的 Condition-LoRA 列表 $[\text{CondLoRA}_1, \text{CondLoRA}_2, ...]$，每个对应一种条件类型。Denoising branch 的权重上加载这些 LoRA，通过 one-hot 门控机制 $[0,1,0,...,0]$ 根据当前条件类型激活对应的 LoRA
+    - 设计动机：不同条件类型需要不同的特征投影，通过切换 LoRA 而非引入独立网络，最小化额外参数量（仅 29M vs ControlNet/IP-Adapter 的 744M/918M）
 
 2. **Conditional MMDiT Attention (CMMDiT)**:
-   - 做什么：为多条件序列设计高效且去耦的注意力计算
-   - 核心思路：根据 query 来源采用不同的 KV 范围：
-     - 当 $X$ 或 $T$ 作 query 时：KV 范围为完整序列 $S = [T; X; C_1; ...; C_N]$，具有全局感受野
-     - 当 $C_i$ 作 query 时：KV 范围限制为 $S_i = [T; X; C_i]$，不包含其他条件分支
-   - 复杂度从 $O(N^2)$ 降到 $O(N)$
-   - 设计动机：条件分支间的交叉注意力既浪费计算又导致信息纠缠。限制条件分支只看自身子序列，保持了与单条件设置一致的计算范式（Eq.4），使预训练 LoRA 权重可直接复用
+
+    - 做什么：为多条件序列设计高效且去耦的注意力计算
+    - 核心思路：根据 query 来源采用不同的 KV 范围：
+      - 当 $X$ 或 $T$ 作 query 时：KV 范围为完整序列 $S = [T; X; C_1; ...; C_N]$，具有全局感受野
+      - 当 $C_i$ 作 query 时：KV 范围限制为 $S_i = [T; X; C_i]$，不包含其他条件分支
+    - 复杂度从 $O(N^2)$ 降到 $O(N)$
+    - 设计动机：条件分支间的交叉注意力既浪费计算又导致信息纠缠。限制条件分支只看自身子序列，保持了与单条件设置一致的计算范式（Eq.4），使预训练 LoRA 权重可直接复用
 
 3. **Training-free 策略**:
-   - 条件分支 $C_i$ 作 query 时，CMMDiT 等价于单条件 MMDiT → 预训练 LoRA 的特征提取能力完全保留
-   - Denoising 分支 $X$ 作 query 时，通过 softmax 自动平衡多条件的注意力分数分布 → 实现条件融合
-   - 无需任何训练即可工作
+
+    - 条件分支 $C_i$ 作 query 时，CMMDiT 等价于单条件 MMDiT → 预训练 LoRA 的特征提取能力完全保留
+    - Denoising 分支 $X$ 作 query 时，通过 softmax 自动平衡多条件的注意力分数分布 → 实现条件融合
+    - 无需任何训练即可工作
 
 4. **Training-based 策略（可选增强）**:
-   - 做什么：引入 Denoising-LoRA 模块进一步优化多条件融合
-   - 核心思路：冻结所有 Condition-LoRA，只训练新增的 Denoising-LoRA (rank=4)。该模块学习更好地分配 $X$ 对多个条件嵌入的注意力分数
-   - 训练 30K 步，16 块 V100，512×512 分辨率
-   - 设计动机：training-free 模式下 softmax 可能不能最优地平衡多条件，Denoising-LoRA 以极低成本（仅 15M 额外参数）显著改善融合效果
+
+    - 做什么：引入 Denoising-LoRA 模块进一步优化多条件融合
+    - 核心思路：冻结所有 Condition-LoRA，只训练新增的 Denoising-LoRA (rank=4)。该模块学习更好地分配 $X$ 对多个条件嵌入的注意力分数
+    - 训练 30K 步，16 块 V100，512×512 分辨率
+    - 设计动机：training-free 模式下 softmax 可能不能最优地平衡多条件，Denoising-LoRA 以极低成本（仅 15M 额外参数）显著改善融合效果
 
 5. **SubjectSpatial200K 数据集**:
-   - 基于 Subjects200K 扩展，增加主体 grounding 标注（Mamba-YOLO-World 检测 + mask 提取）和空间图标注（Depth-Anything + OpenCV Canny）
-   - 首个同时包含主体驱动和空间对齐条件的公开数据集
+
+    - 基于 Subjects200K 扩展，增加主体 grounding 标注（Mamba-YOLO-World 检测 + mask 提取）和空间图标注（Depth-Anything + OpenCV Canny）
+    - 首个同时包含主体驱动和空间对齐条件的公开数据集
 
 ### 训练策略
 使用 FLUX.1-schnell 作为基础模型，OminiControl 提供的预训练 Condition-LoRA 权重。Denoising-LoRA rank=4，Adam 优化器 LR=$1e^{-4}$，weight decay 0.01。

@@ -26,17 +26,17 @@ ASR提出自适应选择性重置方案，通过预测集中度 $\mathcal{C}_t$ 
 
 ## 研究背景与动机
 
-1. **领域现状**：持续测试时适应（TTA）在非平稳域流上更新模型，但长期适应导致错误累积→模型崩溃（model collapse）：模型对所有输入只预测少数几个类别。
+**领域现状**：持续测试时适应（TTA）在非平稳域流上更新模型，但长期适应导致错误累积→模型崩溃（model collapse）：模型对所有输入只预测少数几个类别。
 
-2. **现有痛点**：(1) RDumb等方法用固定周期全量重置→周期与实际崩溃风险无关，要么太早（浪费适应知识）要么太晚（错误深度累积）；(2) 全量重置灾难性地丢弃所有时间积累的知识；(3) 每次重置后都有显著的性能骤降和恢复延迟。
+**现有痛点**：(1) RDumb等方法用固定周期全量重置→周期与实际崩溃风险无关，要么太早（浪费适应知识）要么太晚（错误深度累积）；(2) 全量重置灾难性地丢弃所有时间积累的知识；(3) 每次重置后都有显著的性能骤降和恢复延迟。
 
-3. **核心矛盾**：重置太频繁→适应不充分；重置太稀→崩溃不可逆。全量重置→知识丢失；不重置→错误累积。
+**核心矛盾**：重置太频繁→适应不充分；重置太稀→崩溃不可逆。全量重置→知识丢失；不重置→错误累积。
 
-4. **本文要解决什么**：(1) When: 如何动态判断何时有崩溃风险？(2) Where: 如何选择重置哪些层以最小化知识损失？(3) 如何恢复被重置但仍然重要的知识？
+**本文要解决什么**：(1) When: 如何动态判断何时有崩溃风险？(2) Where: 如何选择重置哪些层以最小化知识损失？(3) 如何恢复被重置但仍然重要的知识？
 
-5. **切入角度**：利用预测集中度（prediction concentration）作为崩溃风险的proxy，利用深度网络的层次结构（靠近output的层先被label noise corruption）决定重置范围。
+**切入角度**：利用预测集中度（prediction concentration）作为崩溃风险的proxy，利用深度网络的层次结构（靠近output的层先被label noise corruption）决定重置范围。
 
-6. **核心idea一句话**：用预测集中度偏离长期基线来触发重置，按崩溃严重度从output层向input层渐进重置，用Fisher信息加权正则化恢复被重置的关键知识。
+**核心idea一句话**：用预测集中度偏离长期基线来触发重置，按崩溃严重度从output层向input层渐进重置，用Fisher信息加权正则化恢复被重置的关键知识。
 
 ## 方法详解
 
@@ -46,31 +46,35 @@ ASR由3个组件构成：(1) 自适应选择性重置（基于 $\mathcal{C}_t$ v
 ### 关键设计
 
 1. **自适应重置——When**:
-   - 预测集中度：$\mathcal{C}_t = \sum_{c=1}^C \hat{p}_{t_c} \log(\hat{p}_{t_c})$，其中 $\hat{p}_t = \sigma(\frac{1}{|\mathcal{B}_t|}\sum_i f_{\theta_{t-1}}(x_t^i))$
-   - 大 $\mathcal{C}_t$ → 低预测多样性 → 高崩溃风险
-   - 累积集中度（EMA）：$\bar{\mathcal{C}}_t = \mu_\mathcal{C} \cdot \bar{\mathcal{C}}_{t-1} + (1-\mu_\mathcal{C}) \cdot \mathcal{C}_t$
-   - 触发条件：$\mathcal{C}_t > \bar{\mathcal{C}}_{t-1}$ 时立即重置
-   - 初始化 $\bar{\mathcal{C}}_0 = -\log(\alpha_0 \cdot C)$，选择 $\alpha_0$ 使初始值足够大避免过早重置
-   - 实验验证：$\mathcal{C}_t$ 与准确率的Pearson相关系数高达 **0.88**
+
+    - 预测集中度：$\mathcal{C}_t = \sum_{c=1}^C \hat{p}_{t_c} \log(\hat{p}_{t_c})$，其中 $\hat{p}_t = \sigma(\frac{1}{|\mathcal{B}_t|}\sum_i f_{\theta_{t-1}}(x_t^i))$
+    - 大 $\mathcal{C}_t$ → 低预测多样性 → 高崩溃风险
+    - 累积集中度（EMA）：$\bar{\mathcal{C}}_t = \mu_\mathcal{C} \cdot \bar{\mathcal{C}}_{t-1} + (1-\mu_\mathcal{C}) \cdot \mathcal{C}_t$
+    - 触发条件：$\mathcal{C}_t > \bar{\mathcal{C}}_{t-1}$ 时立即重置
+    - 初始化 $\bar{\mathcal{C}}_0 = -\log(\alpha_0 \cdot C)$，选择 $\alpha_0$ 使初始值足够大避免过早重置
+    - 实验验证：$\mathcal{C}_t$ 与准确率的Pearson相关系数高达 **0.88**
 
 2. **选择性重置——Where**:
-   - 动机：label noise corruption从网络末端开始（Bai et al., 2021; Yang et al., 2024），靠近input的层更鲁棒
-   - 重置比例：$r_t = r_0 + \lambda_r \cdot (\mathcal{C}_t - \bar{\mathcal{C}}_{t-1})$
-   - 从output端开始重置 $r_t$ 比例的层，其余保留
-   - $r_t$ 上限1.0，$r_0$ 为最小重置比例
-   - 设计动机：崩溃越严重→corruption越深入→需要重置更多层
+
+    - 动机：label noise corruption从网络末端开始（Bai et al., 2021; Yang et al., 2024），靠近input的层更鲁棒
+    - 重置比例：$r_t = r_0 + \lambda_r \cdot (\mathcal{C}_t - \bar{\mathcal{C}}_{t-1})$
+    - 从output端开始重置 $r_t$ 比例的层，其余保留
+    - $r_t$ 上限1.0，$r_0$ 为最小重置比例
+    - 设计动机：崩溃越严重→corruption越深入→需要重置更多层
 
 3. **Importance-Aware知识恢复**:
-   - 损失：$\mathcal{L} = \mathcal{L}_u + \lambda_\mathcal{F}\sum_i \bar{\mathcal{F}}^i(\theta_{t-1}^i - \bar{\theta}^i)^2$
-   - $\bar{\mathcal{F}}^i$：累积Fisher信息矩阵，$\bar{\theta}^i$：累积参数
-   - 对先前任务重要的参数（高Fisher值）被引导与累积状态对齐
-   - **混合累积方案**：CMA在每次重置间等权累积参数和Fisher矩阵；EMA在重置触发点聚合CMA值
-   - 解决的困境：接近重置时参数更接近当前域但也更容易被corruption，EMA的近因偏好不适合直接用
+
+    - 损失：$\mathcal{L} = \mathcal{L}_u + \lambda_\mathcal{F}\sum_i \bar{\mathcal{F}}^i(\theta_{t-1}^i - \bar{\theta}^i)^2$
+    - $\bar{\mathcal{F}}^i$：累积Fisher信息矩阵，$\bar{\theta}^i$：累积参数
+    - 对先前任务重要的参数（高Fisher值）被引导与累积状态对齐
+    - **混合累积方案**：CMA在每次重置间等权累积参数和Fisher矩阵；EMA在重置触发点聚合CMA值
+    - 解决的困境：接近重置时参数更接近当前域但也更容易被corruption，EMA的近因偏好不适合直接用
 
 4. **On-the-fly适应调整**:
-   - 预测不一致性：$\phi_t = \frac{1}{|\mathcal{B}_t|}\sum_i \mathbb{I}(\arg\max(\breve{y}_t^i) \neq \arg\max(\hat{y}_t^i))$
-   - 大 $\phi_t$（源模型与当前模型预测不一致）→ 大域差异
-   - 自适应调参：$\lambda_\mathcal{F} = \lambda_0 \cdot \phi_t^2$（域差异大→正则化强），$\mu_\mathcal{C} = \mu_0 \cdot \phi_t + 1 - \mu_0$（域差异大→减少集中度更新）
+
+    - 预测不一致性：$\phi_t = \frac{1}{|\mathcal{B}_t|}\sum_i \mathbb{I}(\arg\max(\breve{y}_t^i) \neq \arg\max(\hat{y}_t^i))$
+    - 大 $\phi_t$（源模型与当前模型预测不一致）→ 大域差异
+    - 自适应调参：$\lambda_\mathcal{F} = \lambda_0 \cdot \phi_t^2$（域差异大→正则化强），$\mu_\mathcal{C} = \mu_0 \cdot \phi_t + 1 - \mu_0$（域差异大→减少集中度更新）
 
 ## 实验关键数据
 

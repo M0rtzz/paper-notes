@@ -25,9 +25,9 @@ code: "https://github.com/ruohaoguo/avis"
 | **AVIS (本文)** | **实例掩码+ID** | **实例级** | **全视频** |
 
 现有方法的局限性：
-1. **Sound Source Localization** 仅提供粗糙的区域级定位，无法生成精确的像素级分割
-2. **Audio-Visual Segmentation** 进行语义级分割但不区分同类不同个体
-3. **没有方法**在视频级别同时进行实例级分割和跨帧追踪
+**Sound Source Localization** 仅提供粗糙的区域级定位，无法生成精确的像素级分割
+**Audio-Visual Segmentation** 进行语义级分割但不区分同类不同个体
+**没有方法**在视频级别同时进行实例级分割和跨帧追踪
 
 本文提出 **Audio-Visual Instance Segmentation (AVIS)** 这一新任务：给定视频和对应音频，对所有发声物体进行实例级分割并跨帧追踪。同时构建了 AVISeg 基准数据集和 AVISM 基线方法。
 
@@ -67,7 +67,8 @@ FLSL 负责在每一帧中定位发声物体：
 - **视觉特征提取**：使用 ResNet-50 / Swin-T 提取视觉特征图 $\mathbf{V}_t \in \mathbb{R}^{d 	imes H 	imes W}$
 - **跨模态注意力**：
 
-$$\mathbf{A}_{t} = 	ext{softmax}\left(rac{\mathbf{a}_t \mathbf{V}_t^T}{\sqrt{d}}ight) \mathbf{V}_t$$
+$$\mathbf{A}_{t} = 	ext{softmax}\left(rac{\mathbf{a}_t \mathbf{V}_t^T}{\sqrt{d}}
+ight) \mathbf{V}_t$$
 
 - **实例预测**：基于注意力增强的特征，使用 Mask2Former 风格的解码器预测实例掩码和类别
 

@@ -27,15 +27,15 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 3D资产创建在机器人、游戏、建筑等领域需求旺盛。基于优化的3D生成方法（如SDS）质量高但耗时数小时；前馈式方法速度快但多依赖triplane-NeRF表示，受限于体渲染效率和分辨率。
-2. **现有痛点**: 
+**领域现状**: 3D资产创建在机器人、游戏、建筑等领域需求旺盛。基于优化的3D生成方法（如SDS）质量高但耗时数小时；前馈式方法速度快但多依赖triplane-NeRF表示，受限于体渲染效率和分辨率。
+**现有痛点**: 
    - 优化方法（SDS-based）: 单个3D资产需要数小时优化
    - 前馈方法（如LRM）: 依赖triplane表示+体渲染，效率低、分辨率受限
    - 并发工作（LGM, Splatter Image）: 使用卷积U-Net架构，生成的高斯数量有限
-3. **核心矛盾**: 如何在保持快速推理的同时，生成足够数量的高质量3D高斯以实现高保真重建？
-4. **本文要解决什么？**: 设计一种可扩展的前馈框架，能从稀疏视图高效生成大量像素对齐的3D高斯，实现高质量快速3D重建和生成。
-5. **切入角度**: 用3D高斯替代triplane-NeRF，用纯Transformer架构替代CNN-based模型，利用窗口注意力进行高效上采样。
-6. **核心idea一句话**: Transformer编码器聚合多视图信息 + Transformer上采样器生成高分辨率特征 + pixel-aligned Gaussians沿视线射线约束高斯位置。
+**核心矛盾**: 如何在保持快速推理的同时，生成足够数量的高质量3D高斯以实现高保真重建？
+**本文要解决什么？**: 设计一种可扩展的前馈框架，能从稀疏视图高效生成大量像素对齐的3D高斯，实现高质量快速3D重建和生成。
+**切入角度**: 用3D高斯替代triplane-NeRF，用纯Transformer架构替代CNN-based模型，利用窗口注意力进行高效上采样。
+**核心idea一句话**: Transformer编码器聚合多视图信息 + Transformer上采样器生成高分辨率特征 + pixel-aligned Gaussians沿视线射线约束高斯位置。
 
 ## 方法详解
 
@@ -52,32 +52,35 @@ GRM的pipeline：
 ### 关键设计
 
 1. **Pixel-aligned Gaussians（像素对齐高斯）**:
-   - **做什么**: 将3D高斯的位置约束在输入视线射线上，而非自由预测3D坐标
-   - **核心思路**: 每个高斯的3D位置由相机中心和射线方向确定:
-   $$\boldsymbol{\mu} = \mathbf{c}_o + \tau \mathbf{r}$$
+
+    - **做什么**: 将3D高斯的位置约束在输入视线射线上，而非自由预测3D坐标
+    - **核心思路**: 每个高斯的3D位置由相机中心和射线方向确定:
+    $\boldsymbol{\mu} = \mathbf{c}_o + \tau \mathbf{r}$
    其中 $\mathbf{c}_o$ 是相机中心，$\mathbf{r}$ 是射线方向，$\tau$ 是预测的深度值。每个视图预测一个 $H \times W \times 12$ 的高斯属性图（深度+旋转+缩放+透明度+SH DC项），总共生成 $V \times H \times W$ 个3D高斯
-   - **设计动机**: 直接预测无结构的3D坐标使优化困难（多种配置可产生相同视觉结果），射线约束建立了像素到3D空间的直接联系，降低了学习难度
+    - **设计动机**: 直接预测无结构的3D坐标使优化困难（多种配置可产生相同视觉结果），射线约束建立了像素到3D空间的直接联系，降低了学习难度
 
 2. **Transformer编码器**:
-   - **做什么**: 从多视图图像提取并融合全局特征，实现跨视图信息交换
-   - **核心思路**: 
-     - 用Plücker embedding注入相机信息到每个像素
-     - 卷积tokenizer（kernel/stride=16）提取 $H/16 \times W/16$ 局部特征
-     - 所有视图特征拼接为长度 $(V \times H/16 \times W/16)$ 的序列
-     - 经过24层自注意力层实现跨视图信息交换:
-   $$\mathbf{F} = E_{\theta, \phi}(\mathcal{I}, \mathcal{C})$$
-   - **设计动机**: 全局自注意力等效于跨视图特征匹配，确保不同视图对同一3D点的预测一致
+
+    - **做什么**: 从多视图图像提取并融合全局特征，实现跨视图信息交换
+    - **核心思路**: 
+      - 用Plücker embedding注入相机信息到每个像素
+      - 卷积tokenizer（kernel/stride=16）提取 $H/16 \times W/16$ 局部特征
+      - 所有视图特征拼接为长度 $(V \times H/16 \times W/16)$ 的序列
+      - 经过24层自注意力层实现跨视图信息交换:
+    $\mathbf{F} = E_{\theta, \phi}(\mathcal{I}, \mathcal{C})$
+    - **设计动机**: 全局自注意力等效于跨视图特征匹配，确保不同视图对同一3D点的预测一致
 
 3. **Transformer上采样器**:
-   - **做什么**: 渐进式将低分辨率特征图上采样到原始输入分辨率，恢复高频细节
-   - **核心思路**: 每个上采样块包含:
-     - Linear层4倍扩展通道维度
-     - PixelShuffle 2倍空间上采样
-     - 窗口自注意力 + 移位窗口自注意力（类Swin Transformer）:
-   $$\mathbf{F} = \text{PixelShuffle}(\text{Linear}(\mathbf{F}), 2)$$
-   $$\mathbf{F} = \text{SelfAttn}(\mathbf{F}, W)$$
-   $$\mathbf{F} = \text{Shift}(\text{SelfAttn}(\text{Shift}(\mathbf{F}, W/2), W), -W/2)$$
-   - **设计动机**: 编码器的patch化操作丢失了高频细节；CNN上采样器无法捕获多视图对应关系；窗口注意力平衡了计算效率和非局部信息传递
+
+    - **做什么**: 渐进式将低分辨率特征图上采样到原始输入分辨率，恢复高频细节
+    - **核心思路**: 每个上采样块包含:
+      - Linear层4倍扩展通道维度
+      - PixelShuffle 2倍空间上采样
+      - 窗口自注意力 + 移位窗口自注意力（类Swin Transformer）:
+    $\mathbf{F} = \text{PixelShuffle}(\text{Linear}(\mathbf{F}), 2)$
+    $\mathbf{F} = \text{SelfAttn}(\mathbf{F}, W)$
+    $\mathbf{F} = \text{Shift}(\text{SelfAttn}(\text{Shift}(\mathbf{F}, W/2), W), -W/2)$
+    - **设计动机**: 编码器的patch化操作丢失了高频细节；CNN上采样器无法捕获多视图对应关系；窗口注意力平衡了计算效率和非局部信息传递
 
 ### 损失函数 / 训练策略
 

@@ -36,8 +36,8 @@ tags:
 
 作者提出**深层解析（Deep Parsing）** 概念，这是一个双重推理挑战：
 
-1. **动态知识接地（Dynamic Knowledge Grounding）**：NOTAM不是自包含的，需要将文本引用关联到外部的、不断更新的航空基础设施知识库。例如，机场代码ZBAA需要检索该机场的跑道配置（如RWY 09L）
-2. **基于模式的推理（Schema-Based Inference）**：推导NOTAM的真实含义需要超越原始文本提取的模式推理。例如，"...REDUCED LENGTH OF 300M" 提供的是原始参数，需要应用ICAO规则推断 300 米系统构成"基本进近灯光系统（BALS）"
+**动态知识接地（Dynamic Knowledge Grounding）**：NOTAM不是自包含的，需要将文本引用关联到外部的、不断更新的航空基础设施知识库。例如，机场代码ZBAA需要检索该机场的跑道配置（如RWY 09L）
+**基于模式的推理（Schema-Based Inference）**：推导NOTAM的真实含义需要超越原始文本提取的模式推理。例如，"...REDUCED LENGTH OF 300M" 提供的是原始参数，需要应用ICAO规则推断 300 米系统构成"基本进近灯光系统（BALS）"
 
 ### 核心动机
 - 浅层解析无法满足运营安全需求

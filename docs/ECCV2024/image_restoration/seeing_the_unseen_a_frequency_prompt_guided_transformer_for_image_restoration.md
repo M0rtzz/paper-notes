@@ -52,27 +52,30 @@ FPro 包含两个分支：(1) 上方的 Restoration Branch——标准 encoder-d
 ### 关键设计
 
 1. **Gated Dynamic Decoupler (GDD)**:
-   - 做什么：将输入特征动态解耦为低频和高频分量
-   - 核心思路：对输入特征 $\mathbf{F}_s$ 通过 GAP + Conv 生成通道描述子，经 gating 机制（sigmoid 门控）抑制不重要元素后，通过 Softmax 归一化保证生成的是低通滤波器 $\mathbf{F}^L$。将 $\mathbf{F}^L$ 应用于分组输入特征得到低频分量：
-     $$\mathbf{F}^{lo}_{i,c,h,w} = \sum_{p,q} \mathbf{F}^L_{i,p,q} \mathbf{F}_{i,c,h+p,w+q}$$
-   - 高通滤波器通过从 identity kernel 减去低通滤波器获得，得到高频分量 $\mathbf{F}_{hi}$
-   - 设计动机：不同退化影响不同频带，需要自适应地分离频率成分。Softmax 保证滤波器为低通，gating 抑制冗余元素。每个空间位置和通道组动态学习滤波器
+
+    - 做什么：将输入特征动态解耦为低频和高频分量
+    - 核心思路：对输入特征 $\mathbf{F}_s$ 通过 GAP + Conv 生成通道描述子，经 gating 机制（sigmoid 门控）抑制不重要元素后，通过 Softmax 归一化保证生成的是低通滤波器 $\mathbf{F}^L$。将 $\mathbf{F}^L$ 应用于分组输入特征得到低频分量：
+    $\mathbf{F}^{lo}_{i,c,h,w} = \sum_{p,q} \mathbf{F}^L_{i,p,q} \mathbf{F}_{i,c,h+p,w+q}$
+    - 高通滤波器通过从 identity kernel 减去低通滤波器获得，得到高频分量 $\mathbf{F}_{hi}$
+    - 设计动机：不同退化影响不同频带，需要自适应地分离频率成分。Softmax 保证滤波器为低通，gating 抑制冗余元素。每个空间位置和通道组动态学习滤波器
 
 2. **High-frequency Prompt Modulator (HPM)**:
-   - 做什么：对高频特征注入 prompt 组件并与 decoder 特征进行局部交叉注意力
-   - 核心思路：(a) Generation：用深度卷积 + GELU 门控增强高频特征 $\hat{\mathbf{F}}_{hi} = \tilde{\mathbf{F}}_{hi} \odot \sigma(\text{DConv}_{3\times3}(\tilde{\mathbf{F}}_{hi}))$，然后与可学习 prompt $\mathbf{P}_{hi}$ 逐元素相乘 $\mathbf{F}^{prompt}_{hi} = \hat{\mathbf{F}}_{hi} \odot \mathbf{P}_{hi}$
-   - (b) Modulation：depth-wise conv 进一步增强高频成分，然后通过局部窗口交叉注意力（window size $M=8$）与 decoder 特征交互
-     $$\mathbf{F}^{out}_{hi} = \mathbf{V}_{hi} \cdot \text{Softmax}(\mathbf{K}_{hi} \cdot \mathbf{Q}_{hi} / \sqrt{d})$$
-   - 设计动机：高频信息对应局部细节，用窗口注意力捕获足够且节省计算。Depth-wise conv 天然充当高通滤波器
+
+    - 做什么：对高频特征注入 prompt 组件并与 decoder 特征进行局部交叉注意力
+    - 核心思路：(a) Generation：用深度卷积 + GELU 门控增强高频特征 $\hat{\mathbf{F}}_{hi} = \tilde{\mathbf{F}}_{hi} \odot \sigma(\text{DConv}_{3\times3}(\tilde{\mathbf{F}}_{hi}))$，然后与可学习 prompt $\mathbf{P}_{hi}$ 逐元素相乘 $\mathbf{F}^{prompt}_{hi} = \hat{\mathbf{F}}_{hi} \odot \mathbf{P}_{hi}$
+    - (b) Modulation：depth-wise conv 进一步增强高频成分，然后通过局部窗口交叉注意力（window size $M=8$）与 decoder 特征交互
+    $\mathbf{F}^{out}_{hi} = \mathbf{V}_{hi} \cdot \text{Softmax}(\mathbf{K}_{hi} \cdot \mathbf{Q}_{hi} / \sqrt{d})$
+    - 设计动机：高频信息对应局部细节，用窗口注意力捕获足够且节省计算。Depth-wise conv 天然充当高通滤波器
 
 3. **Low-frequency Prompt Modulator (LPM)**:
-   - 做什么：对低频特征在傅里叶域注入 prompt 并与 decoder 特征进行全局交叉注意力
-   - 核心思路：(a) Generation：将低频特征 FFT 到频域，gating 筛选有用成分 $\hat{\mathbf{F}}_{lo} = \mathcal{F}(\tilde{\mathbf{F}}_{lo}) \odot \sigma(\text{Conv}_{1\times1}(\mathcal{F}(\tilde{\mathbf{F}}_{lo})))$，然后与可学习频域 prompt $\mathbf{P}_{lo}$ 逐元素相乘后 IFFT 回空域
-     $$\mathbf{F}^{prompt}_{lo} = \mathcal{F}^{-1}(\hat{\mathbf{F}}_{lo} \odot \mathbf{P}_{lo})$$
-   - (b) Modulation：adaptive average pooling 增强低频后，通过全局交叉注意力（Q 来自 decoder feature，K/V 来自 pooled prompt feature）调制
-     $$\mathbf{F}^{out}_{lo} = \mathbf{V}_{lo} \cdot \text{Softmax}(\mathbf{K}_{lo} \cdot \mathbf{Q}_{lo} / \alpha)$$
-   - **关键理论洞察**：根据卷积定理，频域 Hadamard product 等价于空域卷积——Eq.(8) 证明整个 LPM 等价于一个动态大核深度卷积，但在频域实现计算效率更高
-   - 设计动机：低频信息对应全局结构，需要全局（非窗口）注意力。在频域操作天然实现全局感受野
+
+    - 做什么：对低频特征在傅里叶域注入 prompt 并与 decoder 特征进行全局交叉注意力
+    - 核心思路：(a) Generation：将低频特征 FFT 到频域，gating 筛选有用成分 $\hat{\mathbf{F}}_{lo} = \mathcal{F}(\tilde{\mathbf{F}}_{lo}) \odot \sigma(\text{Conv}_{1\times1}(\mathcal{F}(\tilde{\mathbf{F}}_{lo})))$，然后与可学习频域 prompt $\mathbf{P}_{lo}$ 逐元素相乘后 IFFT 回空域
+    $\mathbf{F}^{prompt}_{lo} = \mathcal{F}^{-1}(\hat{\mathbf{F}}_{lo} \odot \mathbf{P}_{lo})$
+    - (b) Modulation：adaptive average pooling 增强低频后，通过全局交叉注意力（Q 来自 decoder feature，K/V 来自 pooled prompt feature）调制
+    $\mathbf{F}^{out}_{lo} = \mathbf{V}_{lo} \cdot \text{Softmax}(\mathbf{K}_{lo} \cdot \mathbf{Q}_{lo} / \alpha)$
+    - **关键理论洞察**：根据卷积定理，频域 Hadamard product 等价于空域卷积——Eq.(8) 证明整个 LPM 等价于一个动态大核深度卷积，但在频域实现计算效率更高
+    - 设计动机：低频信息对应全局结构，需要全局（非窗口）注意力。在频域操作天然实现全局感受野
 
 ### 损失函数 / 训练策略
 

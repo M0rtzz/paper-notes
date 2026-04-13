@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：激活转向（activation steering）可在推理时控制 LLM 行为而无需重训练，分为两类——对比方法（DiffMean/CAA）用正负对的激活差异构造方向向量，参数调优方法（ReFT/BiPO）端到端训练转向参数。
-2. **现有痛点**：对比方法样本效率高但只利用激活层面的信号（不用损失函数），转向精度有限；参数调优方法（ReFT）需要 250-1000 个示例训练，成本高且需多 epoch 调参。
-3. **核心矛盾**：样本效率与转向精度之间存在根本性 trade-off——如何用少量示例、不训练参数，就获得等同于微调的转向效果？
-4. **本文要解决什么**：设计一个 training-free 框架，仅用 10-50 个示例就能高效转向 LLM 行为。
-5. **切入角度**：作者观察到微调时模型表征的变化遵循可分析的模式（学习动力学）。核心洞察是：可以在推理时**模拟**梯度下降对表征的影响，而无需实际更新参数。
-6. **核心 idea 一句话**：将激活转向重新定义为"模拟单步梯度下降的学习动力学"——计算上下文示例的梯度会如何改变目标表征，直接将该变化作为转向向量。
+**领域现状**：激活转向（activation steering）可在推理时控制 LLM 行为而无需重训练，分为两类——对比方法（DiffMean/CAA）用正负对的激活差异构造方向向量，参数调优方法（ReFT/BiPO）端到端训练转向参数。
+**现有痛点**：对比方法样本效率高但只利用激活层面的信号（不用损失函数），转向精度有限；参数调优方法（ReFT）需要 250-1000 个示例训练，成本高且需多 epoch 调参。
+**核心矛盾**：样本效率与转向精度之间存在根本性 trade-off——如何用少量示例、不训练参数，就获得等同于微调的转向效果？
+**本文要解决什么**：设计一个 training-free 框架，仅用 10-50 个示例就能高效转向 LLM 行为。
+**切入角度**：作者观察到微调时模型表征的变化遵循可分析的模式（学习动力学）。核心洞察是：可以在推理时**模拟**梯度下降对表征的影响，而无需实际更新参数。
+**核心 idea 一句话**：将激活转向重新定义为"模拟单步梯度下降的学习动力学"——计算上下文示例的梯度会如何改变目标表征，直接将该变化作为转向向量。
 
 ## 方法详解
 
@@ -41,18 +41,21 @@ tags:
 ### 关键设计
 
 1. **COLD-Kernel-Steer（核近似）**:
-   - 做什么：用核函数近似 eNTK，避免对新输入做反向传播
-   - 核心思路：展开梯度的链式法则，引入核函数 $\kappa$：$\Delta\mathbf{Z}^{(\kappa)}(\mathbf{x}) = -\frac{\eta}{N} \sum_i \kappa(\mathbf{Z}(\mathbf{x}), \mathbf{Z}(\tilde{\mathbf{x}}_i)) \nabla_{\mathbf{Z}} \mathcal{L}|_{\mathbf{Z}(\tilde{\mathbf{x}}_i)}$。使用单位核 $\kappa = 1$ 作为近似，利用线性表征假说——同一概念的梯度由共享方向主导
-   - 设计动机：对新输入只需 1 次前向传播 + $O(N \cdot d)$ 核相似度计算，极其高效
+
+    - 做什么：用核函数近似 eNTK，避免对新输入做反向传播
+    - 核心思路：展开梯度的链式法则，引入核函数 $\kappa$：$\Delta\mathbf{Z}^{(\kappa)}(\mathbf{x}) = -\frac{\eta}{N} \sum_i \kappa(\mathbf{Z}(\mathbf{x}), \mathbf{Z}(\tilde{\mathbf{x}}_i)) \nabla_{\mathbf{Z}} \mathcal{L}|_{\mathbf{Z}(\tilde{\mathbf{x}}_i)}$。使用单位核 $\kappa = 1$ 作为近似，利用线性表征假说——同一概念的梯度由共享方向主导
+    - 设计动机：对新输入只需 1 次前向传播 + $O(N \cdot d)$ 核相似度计算，极其高效
 
 2. **COLD-FD-Steer（有限差分近似）**:
-   - 做什么：用有限差分绕过雅可比计算
-   - 核心思路：$\Delta\mathbf{Z}^{(fd)} = -\frac{\eta}{\varepsilon N} [\mathbf{Z}(\mathbf{x}; \theta + \varepsilon \sum_i \nabla_\theta \mathcal{L}_i) - \mathbf{Z}(\mathbf{x}; \theta)]$，$\varepsilon = 10^{-6}$。只需 2 次前向传播（原参数 + 微扰参数），但需存储梯度 $O(|\theta|)$
-   - 设计动机：完全避免对新输入反向传播，计算成本固定为 2 次前向
+
+    - 做什么：用有限差分绕过雅可比计算
+    - 核心思路：$\Delta\mathbf{Z}^{(fd)} = -\frac{\eta}{\varepsilon N} [\mathbf{Z}(\mathbf{x}; \theta + \varepsilon \sum_i \nabla_\theta \mathcal{L}_i) - \mathbf{Z}(\mathbf{x}; \theta)]$，$\varepsilon = 10^{-6}$。只需 2 次前向传播（原参数 + 微扰参数），但需存储梯度 $O(|\theta|)$
+    - 设计动机：完全避免对新输入反向传播，计算成本固定为 2 次前向
 
 3. **统一视角——对比方法是特例**:
-   - DiffMean 等价于 COLD-Kernel 使用特定损失函数 $\mathcal{L} = -\sum_i \|\mathbf{Z}(\tilde{\mathbf{x}}_i \oplus \tilde{\mathbf{y}}_i^+) - \mathbf{Z}(\tilde{\mathbf{x}}_i \oplus \tilde{\mathbf{y}}_i^-)\|^2$ 和单位核
-   - RepE/ICV 是 COLD-Kernel 的 PCA 降维近似
+
+    - DiffMean 等价于 COLD-Kernel 使用特定损失函数 $\mathcal{L} = -\sum_i \|\mathbf{Z}(\tilde{\mathbf{x}}_i \oplus \tilde{\mathbf{y}}_i^+) - \mathbf{Z}(\tilde{\mathbf{x}}_i \oplus \tilde{\mathbf{y}}_i^-)\|^2$ 和单位核
+    - RepE/ICV 是 COLD-Kernel 的 PCA 降维近似
 
 ### 损失函数 / 训练策略
 - 配对设置用 DPO 损失，正样本设置用交叉熵损失

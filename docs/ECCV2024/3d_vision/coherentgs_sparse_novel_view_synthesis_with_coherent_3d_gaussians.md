@@ -30,9 +30,9 @@ tags:
 3D高斯分裂(3DGS)在训练速度和渲染质量上相比NeRF有显著优势，但在极稀疏输入（如2-4张图像）下严重过拟合，从新视角看呈现出"针状杂乱"的观感。
 
 现有稀疏视图方法的局限：
-1. **NeRF类方法**：RegNeRF、FreeNeRF、SparseNeRF等虽提出了各种正则化，但其正则化不够充分，结果仍有明显模糊和伪影
-2. **3DGS难以直接应用NeRF的正则化**：NeRF方法依赖MLP的隐式连续性来传播稀疏约束，而3DGS是离散、非结构化的显式表示，约束无法自然传播
-3. **同期3DGS方法（FSGS、SparseGS、DNGaussian）**：未能强制邻近高斯之间的一致性，产生浮动伪影
+**NeRF类方法**：RegNeRF、FreeNeRF、SparseNeRF等虽提出了各种正则化，但其正则化不够充分，结果仍有明显模糊和伪影
+**3DGS难以直接应用NeRF的正则化**：NeRF方法依赖MLP的隐式连续性来传播稀疏约束，而3DGS是离散、非结构化的显式表示，约束无法自然传播
+**同期3DGS方法（FSGS、SparseGS、DNGaussian）**：未能强制邻近高斯之间的一致性，产生浮动伪影
 
 核心矛盾：3DGS的非结构化特性使得在稀疏输入下难以引入有效的正则化约束。
 
@@ -49,37 +49,42 @@ tags:
 ### 关键设计
 
 1. **结构化高斯表示（Structured Gaussian Representation）**：
-   - 为每个输入图像的**每个像素**分配一个高斯，共N×H×W个高斯
-   - 每个高斯的位置被约束在连接相机中心和对应像素的射线上，通过标量深度值控制
-   - 位置更新采用残差深度：$\mathbf{x} = g(D_n^{\text{init}}[\mathbf{p}] + \Delta D_n[\mathbf{p}], \mathbf{p})$
-   - **设计动机**：将高斯运动限制在射线方向上，大幅降低了优化的自由度，使正则化成为可能
+
+    - 为每个输入图像的**每个像素**分配一个高斯，共N×H×W个高斯
+    - 每个高斯的位置被约束在连接相机中心和对应像素的射线上，通过标量深度值控制
+    - 位置更新采用残差深度：$\mathbf{x} = g(D_n^{\text{init}}[\mathbf{p}] + \Delta D_n[\mathbf{p}], \mathbf{p})$
+    - **设计动机**：将高斯运动限制在射线方向上，大幅降低了优化的自由度，使正则化成为可能
 
 2. **单视图约束——隐式卷积解码器（Implicit Convolutional Decoder）**：
-   - 不直接优化每个像素的残差深度，而是通过隐式解码器预测整幅图像的残差深度
-   - 输入为归一化视图索引n，输出为残差深度图：$\Delta D_n = f_\phi(n)$
-   - 优化解码器参数 $\phi$ 而非逐像素深度，确保残差深度平滑、表面协同变形
-   - **处理深度不连续性**：利用单目深度将图像分为C=5个区域（基于深度值），解码器输出C通道残差深度，通过分割mask选择性地允许不同区域独立变形
-   - 同样对全局不透明度 $\alpha$ 施加类似约束
+
+    - 不直接优化每个像素的残差深度，而是通过隐式解码器预测整幅图像的残差深度
+    - 输入为归一化视图索引n，输出为残差深度图：$\Delta D_n = f_\phi(n)$
+    - 优化解码器参数 $\phi$ 而非逐像素深度，确保残差深度平滑、表面协同变形
+    - **处理深度不连续性**：利用单目深度将图像分为C=5个区域（基于深度值），解码器输出C通道残差深度，通过分割mask选择性地允许不同区域独立变形
+    - 同样对全局不透明度 $\alpha$ 施加类似约束
 
 3. **多视图约束——全变差(TV)正则化**：
-   - 对所有高斯渲染的深度图施加TV损失，确保跨视角的几何平滑
-   $$\mathcal{L}_{\text{TV}} = \left\|\nabla\left(\frac{1}{1+R_{\Sigma,\alpha,\mathbf{x},d}}\right)\right\|_1$$
-   - 分区域TV损失 $\mathcal{L}_{\text{MTV}}$ 保留结构细节
-   - 采用渐进策略：先最小化全局 $\mathcal{L}_{\text{TV}}$ 获得全局平滑连续几何，再逐步增大 $\mathcal{L}_{\text{MTV}}$ 恢复细节
-   $$\mathcal{L}_{\text{multi}} = (1-\lambda_s)\mathcal{L}_{\text{TV}} + \lambda_s\mathcal{L}_{\text{MTV}}$$
+
+    - 对所有高斯渲染的深度图施加TV损失，确保跨视角的几何平滑
+    $\mathcal{L}_{\text{TV}} = \left\|\nabla\left(\frac{1}{1+R_{\Sigma,\alpha,\mathbf{x},d}}\right)\right\|_1$
+    - 分区域TV损失 $\mathcal{L}_{\text{MTV}}$ 保留结构细节
+    - 采用渐进策略：先最小化全局 $\mathcal{L}_{\text{TV}}$ 获得全局平滑连续几何，再逐步增大 $\mathcal{L}_{\text{MTV}}$ 恢复细节
+    $\mathcal{L}_{\text{multi}} = (1-\lambda_s)\mathcal{L}_{\text{TV}} + \lambda_s\mathcal{L}_{\text{MTV}}$
    其中 $\lambda_s$ 从0渐增到1
 
 4. **光流正则化（Flow-based Regularization）**：
-   - 核心思想：两幅输入图像中的对应点来自同一3D点，因此对应像素的高斯位置应相似
-   $$\mathcal{L}_{\text{flow}} = \sum_{(i,j)}\sum_\mathbf{p} \|M_{i\to j} \odot (g(D_i[\mathbf{p}],\mathbf{p}) - g(D_j[\mathbf{q}],\mathbf{q}))\|_1$$
-   - 使用FlowFormer++计算对应关系，前向-后向一致性检查获取可靠mask
+
+    - 核心思想：两幅输入图像中的对应点来自同一3D点，因此对应像素的高斯位置应相似
+    $\mathcal{L}_{\text{flow}} = \sum_{(i,j)}\sum_\mathbf{p} \|M_{i\to j} \odot (g(D_i[\mathbf{p}],\mathbf{p}) - g(D_j[\mathbf{q}],\mathbf{q}))\|_1$
+    - 使用FlowFormer++计算对应关系，前向-后向一致性检查获取可靠mask
 
 5. **基于单目深度的初始化**：
-   - 使用Depth Anything获取高质量但跨视角不一致的相对深度
-   - 通过光流损失仅优化每幅深度图的全局scale和offset进行粗对齐
-   $$\mathbf{s}^*, \mathbf{o}^* = \arg\min_{\mathbf{s},\mathbf{o}} \sum_{(i,j)} \|M_{i\to j} \odot (g(s_i \cdot D_i^m + o_i, \mathbf{p}) - g(s_j \cdot D_j^m + o_j, \mathbf{q}))\|_1$$
-   - 高斯缩放因子根据深度计算：$r = f \cdot D^{\text{init}} / H$，使每个高斯恰好覆盖其对应像素
-   - 初始不透明度随输入视图数递减：2张=0.6，3张=0.5，4张=0.35
+
+    - 使用Depth Anything获取高质量但跨视角不一致的相对深度
+    - 通过光流损失仅优化每幅深度图的全局scale和offset进行粗对齐
+    $\mathbf{s}^*, \mathbf{o}^* = \arg\min_{\mathbf{s},\mathbf{o}} \sum_{(i,j)} \|M_{i\to j} \odot (g(s_i \cdot D_i^m + o_i, \mathbf{p}) - g(s_j \cdot D_j^m + o_j, \mathbf{q}))\|_1$
+    - 高斯缩放因子根据深度计算：$r = f \cdot D^{\text{init}} / H$，使每个高斯恰好覆盖其对应像素
+    - 初始不透明度随输入视图数递减：2张=0.6，3张=0.5，4张=0.35
 
 ### 损失函数 / 训练策略
 

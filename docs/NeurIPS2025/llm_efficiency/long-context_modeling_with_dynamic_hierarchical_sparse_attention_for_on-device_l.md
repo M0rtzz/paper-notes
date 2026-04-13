@@ -29,14 +29,14 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：长上下文建模是 LLM 的核心需求，但注意力机制的 $O(L^2)$ 复杂度使得端侧设备难以处理长序列。稀疏注意力是主流优化方向。
-2. **现有痛点**：
+**领域现状**：长上下文建模是 LLM 的核心需求，但注意力机制的 $O(L^2)$ 复杂度使得端侧设备难以处理长序列。稀疏注意力是主流优化方向。
+**现有痛点**：
    - **静态稀疏方法**（Longformer 的滑动窗口、BigBird 的全局 token）使用固定稀疏模式，无法适应不同输入的注意力分布变化
    - **已有动态方法**（MInference、LM-Infinite、H2O、Scissorhands）依赖预定义模板或启发式 KV cache 淘汰规则，缺乏通用性，会丢弃仍然重要的上下文 token
-3. **核心矛盾**：高效性要求减少注意力计算，但精度要求保留关键 token 对交互。直接预测 $L \times L$ token 级稀疏掩码本身就是 $O(L^2)$，无法降低复杂度。
-4. **本文要解决什么**：设计一种无需重训的 plug-in 模块，动态预测注意力稀疏模式，同时适用于 prefill 和 decode 阶段。
-5. **切入角度**：分层预测——先在 chunk 级 ($N_c \times N_c$, $N_c \ll L$) 做粗粒度相似度估计，再上采样到 token 级做细粒度选择。
-6. **核心idea**：chunk 级相似度可以用很低成本计算，且能有效代理 token 级重要性；配合自适应 chunk 边界预测和长度归一化，实现数据驱动的动态稀疏注意力。
+**核心矛盾**：高效性要求减少注意力计算，但精度要求保留关键 token 对交互。直接预测 $L \times L$ token 级稀疏掩码本身就是 $O(L^2)$，无法降低复杂度。
+**本文要解决什么**：设计一种无需重训的 plug-in 模块，动态预测注意力稀疏模式，同时适用于 prefill 和 decode 阶段。
+**切入角度**：分层预测——先在 chunk 级 ($N_c \times N_c$, $N_c \ll L$) 做粗粒度相似度估计，再上采样到 token 级做细粒度选择。
+**核心idea**：chunk 级相似度可以用很低成本计算，且能有效代理 token 级重要性；配合自适应 chunk 边界预测和长度归一化，实现数据驱动的动态稀疏注意力。
 
 ## 方法详解
 
@@ -47,26 +47,30 @@ DHSA 作为 plug-in 模块嵌入 Transformer 每一层。输入当前层的 toke
 ### 关键设计
 
 1. **分层稀疏预测 (Hierarchical Sparsity Prediction)**
-   - **做什么**：将序列分为 $N_c$ 个不重叠的 chunk，计算 chunk 级相似度矩阵 $\mathbf{S}_c \in \mathbb{R}^{N_c \times N_c}$，上采样为 token 级相似度矩阵 $\mathbf{S}_t \in \mathbb{R}^{L \times L}$，对每个 query token 做 TopK 选择（预算 $N_b$）
-   - **核心思路**：$N_c \ll L$ 使得 chunk 级计算代价极低（$O(N_c^2)$ 替代 $O(L^2)$）；同一 chunk 对内的 token 对共享同一重要性分数
-   - **设计动机**：直接预测 $L \times L$ 掩码的代价等价于密集注意力，分层预测将复杂度降为 $O(N_c^2 + L \cdot N_b)$
+
+    - **做什么**：将序列分为 $N_c$ 个不重叠的 chunk，计算 chunk 级相似度矩阵 $\mathbf{S}_c \in \mathbb{R}^{N_c \times N_c}$，上采样为 token 级相似度矩阵 $\mathbf{S}_t \in \mathbb{R}^{L \times L}$，对每个 query token 做 TopK 选择（预算 $N_b$）
+    - **核心思路**：$N_c \ll L$ 使得 chunk 级计算代价极低（$O(N_c^2)$ 替代 $O(L^2)$）；同一 chunk 对内的 token 对共享同一重要性分数
+    - **设计动机**：直接预测 $L \times L$ 掩码的代价等价于密集注意力，分层预测将复杂度降为 $O(N_c^2 + L \cdot N_b)$
 
 2. **动态边界检测 (Dynamic Boundary Detection)**
-   - **做什么**：用轻量神经网络预测每个 token 位置是否为 chunk 边界。编码器用 MHA 聚合左右窗口的 key 向量，特征融合拼接 $[\mathbf{k}_{\text{left}}, \mathbf{k}_{\text{right}}, |\mathbf{k}_{\text{left}} - \mathbf{k}_{\text{right}}|, \mathbf{k}_{\text{left}} \odot \mathbf{k}_{\text{right}}, \text{sim}(\mathbf{k}_{\text{left}}, \mathbf{k}_{\text{right}})]$，MLP 输出二分类概率
-   - **核心思路**：内容变化大的位置应成为 chunk 边界（语义分段），用左右窗口差异来检测
-   - **设计动机**：固定大小 chunk 太死板，一刀切无法适应文档内部的语义段落结构变化。自适应分割让每个 chunk 内部语义更一致，chunk 级相似度对 token 级重要性的代理更准确
+
+    - **做什么**：用轻量神经网络预测每个 token 位置是否为 chunk 边界。编码器用 MHA 聚合左右窗口的 key 向量，特征融合拼接 $[\mathbf{k}_{\text{left}}, \mathbf{k}_{\text{right}}, |\mathbf{k}_{\text{left}} - \mathbf{k}_{\text{right}}|, \mathbf{k}_{\text{left}} \odot \mathbf{k}_{\text{right}}, \text{sim}(\mathbf{k}_{\text{left}}, \mathbf{k}_{\text{right}})]$，MLP 输出二分类概率
+    - **核心思路**：内容变化大的位置应成为 chunk 边界（语义分段），用左右窗口差异来检测
+    - **设计动机**：固定大小 chunk 太死板，一刀切无法适应文档内部的语义段落结构变化。自适应分割让每个 chunk 内部语义更一致，chunk 级相似度对 token 级重要性的代理更准确
 
 3. **鲁棒 Chunk 表示 (Robust Chunk Representation)**
-   - **做什么**：对 chunk 内 token 嵌入做平均池化，然后乘以 $\sqrt{|\mathbf{C}|}$ 进行长度归一化
-   - **核心思路**：$\mathbf{q}_c = \sqrt{|\mathbf{C}|} \cdot \bar{\mathbf{q}}$，$\mathbf{k}_c = \sqrt{|\mathbf{C}|} \cdot \bar{\mathbf{k}}$。chunk 级相似度 $\mathbf{S}_c = \mathbf{Q}_c \mathbf{K}_c^{\top}$
-   - **设计动机**：
-     - 直接 padding 后平均会被零值稀释表示质量
-     - 不同长度 chunk 的平均向量范数不同，导致相似度分数偏差。$\sqrt{|\mathbf{C}|}$ 归一化消除长度对点积的影响
+
+    - **做什么**：对 chunk 内 token 嵌入做平均池化，然后乘以 $\sqrt{|\mathbf{C}|}$ 进行长度归一化
+    - **核心思路**：$\mathbf{q}_c = \sqrt{|\mathbf{C}|} \cdot \bar{\mathbf{q}}$，$\mathbf{k}_c = \sqrt{|\mathbf{C}|} \cdot \bar{\mathbf{k}}$。chunk 级相似度 $\mathbf{S}_c = \mathbf{Q}_c \mathbf{K}_c^{\top}$
+    - **设计动机**：
+      - 直接 padding 后平均会被零值稀释表示质量
+      - 不同长度 chunk 的平均向量范数不同，导致相似度分数偏差。$\sqrt{|\mathbf{C}|}$ 归一化消除长度对点积的影响
 
 4. **Prefill 与 Decode 阶段适配**
-   - **做什么**：Prefill 阶段一次性预测全部边界并计算完整 $\mathbf{S}_c$；Decode 阶段增量扩展边界并只计算新增行
-   - **核心思路**：Decode 时将之前生成的 token 作为一个额外 chunk，当前 token 单独作为一个 chunk，只需计算最后一行的 chunk 相似度
-   - **设计动机**：避免 decode 时重复计算已有 chunk 的相似度
+
+    - **做什么**：Prefill 阶段一次性预测全部边界并计算完整 $\mathbf{S}_c$；Decode 阶段增量扩展边界并只计算新增行
+    - **核心思路**：Decode 时将之前生成的 token 作为一个额外 chunk，当前 token 单独作为一个 chunk，只需计算最后一行的 chunk 相似度
+    - **设计动机**：避免 decode 时重复计算已有 chunk 的相似度
 
 ### 损失函数 / 训练策略
 

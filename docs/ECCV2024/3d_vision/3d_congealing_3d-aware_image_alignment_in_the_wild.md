@@ -45,9 +45,10 @@ tags:
 2. **语义特征距离函数**: 不用像素级photometric loss（对光照/外观变化不鲁棒），而是用DINO-V2 ViT-G/14提取的语义特征计算图像相似度。语义特征对物体身份变化容忍度高，使得不同实例间也能建立对应关系。辅以IoU mask损失保证轮廓对齐。
 
 3. **Forward/Reverse Canonical Coordinate Mapping**: 建立了完整的2D↔3D双向映射：
-   - Forward: 2D像素→(DINO特征匹配warp到渲染图)→(NOCS渲染查3D坐标)→3D canonical坐标
-   - Reverse: 3D坐标→(最近邻找2D投影)→(反向warp到真实图像)→2D像素
-   - 两张图像间的2D对应 = image1的Forward映射 + image2的Reverse映射
+
+    - Forward: 2D像素→(DINO特征匹配warp到渲染图)→(NOCS渲染查3D坐标)→3D canonical坐标
+    - Reverse: 3D坐标→(最近邻找2D投影)→(反向warp到真实图像)→2D像素
+    - 两张图像间的2D对应 = image1的Forward映射 + image2的Reverse映射
 
 4. **位姿初始化策略**: 不用梯度下降初始化（易陷入局部最优），而是exhaustive search：3个FoV×16方位角×16仰角 = 768个候选位姿，选语义距离最小的。
 

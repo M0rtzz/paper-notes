@@ -29,9 +29,9 @@ tags:
 
 参数化点云采样自 CAD 模型，广泛应用于工业制造场景。现有 CAD 专用深度学习方法存在三个核心问题：
 
-1. **仅关注几何特征，忽略约束**：大多数方法（如 ParSeNet、HPNet）关注 primitive 的规则性（平面、圆柱等），但忽略 primitive 之间的**约束关系**（同轴、平行、距离等）。这导致它们无法区分外观相似但功能不同的 CAD 零件——例如偏心轮和飞轮看起来相似，但约束完全不同（偏心 vs 同轴）
-2. **依赖专用标签**：许多方法需要 primitive 类型、参数、法向量等额外标注，但实际点云通常只有坐标信息
-3. **约束学习挑战**：约束描述的是 primitive 对之间的关系，如何将其编码为深度学习可用的表示是未解难题
+**仅关注几何特征，忽略约束**：大多数方法（如 ParSeNet、HPNet）关注 primitive 的规则性（平面、圆柱等），但忽略 primitive 之间的**约束关系**（同轴、平行、距离等）。这导致它们无法区分外观相似但功能不同的 CAD 零件——例如偏心轮和飞轮看起来相似，但约束完全不同（偏心 vs 同轴）
+**依赖专用标签**：许多方法需要 primitive 类型、参数、法向量等额外标注，但实际点云通常只有坐标信息
+**约束学习挑战**：约束描述的是 primitive 对之间的关系，如何将其编码为深度学习可用的表示是未解难题
 
 ## 方法详解
 
@@ -44,26 +44,29 @@ CstNet 包含两个阶段：
 ### 关键设计
 
 1. **MAD-Adj-PT 约束表示（深度学习友好的约束编码）**:
-   - 将传统 CAD 约束转换为三个点级别分量：
-     - **MAD（Main Axis Direction）**：点所附着 primitive 的主轴方向（平面→法向量，圆柱/圆锥→旋转轴）
-     - **Adj（Adjacency）**：点是否靠近边缘（用 one-hot 编码），指示 primitive 间的连接关系
-     - **PT（Primitive Type）**：点所附着 primitive 的类型（plane/cylinder/cone，one-hot 编码）
-   - 每个点的完整表示为 $(x, y, z, MAD, Adj, PT)$
-   - 设计动机：将 primitive 对间关系转化为 primitive 与公共参考之间的关系，大幅降低数据量；MAD+Adj 组合可推导出平行、垂直、距离等大多数常见约束
+
+    - 将传统 CAD 约束转换为三个点级别分量：
+      - **MAD（Main Axis Direction）**：点所附着 primitive 的主轴方向（平面→法向量，圆柱/圆锥→旋转轴）
+      - **Adj（Adjacency）**：点是否靠近边缘（用 one-hot 编码），指示 primitive 间的连接关系
+      - **PT（Primitive Type）**：点所附着 primitive 的类型（plane/cylinder/cone，one-hot 编码）
+    - 每个点的完整表示为 $(x, y, z, MAD, Adj, PT)$
+    - 设计动机：将 primitive 对间关系转化为 primitive 与公共参考之间的关系，大幅降低数据量；MAD+Adj 组合可推导出平行、垂直、距离等大多数常见约束
 
 2. **CstPnt 模块（从纯点云预测约束）**:
-   - 模拟人工约束提取的四步流程：搜索邻域点→识别同一 primitive 的点→拟合形状→计算 MAD/Adj/PT
-   - 提出 **SurfaceKNN**：沿形状表面搜索邻域（非传统球形 KNN），更适合 CAD 形状的特性
-   - 使用 Q-K-V 注意力机制为邻域点分配不同权重：$\mathbf{f}'_i = \sum_{f_j \in \mathcal{N}_i} \rho(\text{MLP}(\text{Q}(\mathbf{f}_i) - \text{K}(\mathbf{f}_j))) \odot \text{V}(\mathbf{f}_i)$
-   - 仅使用**局部特征**，因此在 ABC 数据集预训练后可泛化到未见过的数据集
-   - 设计动机：解除对 BRep 数据的依赖；CAD 形状的 primitive 种类有限（平面+圆柱+圆锥覆盖 ~94%），局部模式可跨数据集迁移
+
+    - 模拟人工约束提取的四步流程：搜索邻域点→识别同一 primitive 的点→拟合形状→计算 MAD/Adj/PT
+    - 提出 **SurfaceKNN**：沿形状表面搜索邻域（非传统球形 KNN），更适合 CAD 形状的特性
+    - 使用 Q-K-V 注意力机制为邻域点分配不同权重：$\mathbf{f}'_i = \sum_{f_j \in \mathcal{N}_i} \rho(\text{MLP}(\text{Q}(\mathbf{f}_i) - \text{K}(\mathbf{f}_j))) \odot \text{V}(\mathbf{f}_i)$
+    - 仅使用**局部特征**，因此在 ABC 数据集预训练后可泛化到未见过的数据集
+    - 设计动机：解除对 BRep 数据的依赖；CAD 形状的 primitive 种类有限（平面+圆柱+圆锥覆盖 ~94%），局部模式可跨数据集迁移
 
 3. **Stage 2 约束特征学习网络**:
-   - **Triple MLP**：将 xyz 分别与 MAD、Adj、PT 拼接，生成 Axis Feature、Adjacency Feature、Primitive Feature
-   - **C-MLP**：将 xyz 与完整 MAD-Adj-PT 拼接，生成初始 Constraint Feature
-   - **Quartic SSA**：四路并行处理四种特征，每路独立做 FPS + SurfaceKNN + 点级别注意力
-   - **Fea Attention**：特征级别注意力，自适应调整不同特征的权重——靠近边缘的点更关注 Adjacency Feature，其他点可能更关注 Primitive Feature
-   - 设计动机：不同约束分量对不同区域的点重要性不同，需要自适应加权
+
+    - **Triple MLP**：将 xyz 分别与 MAD、Adj、PT 拼接，生成 Axis Feature、Adjacency Feature、Primitive Feature
+    - **C-MLP**：将 xyz 与完整 MAD-Adj-PT 拼接，生成初始 Constraint Feature
+    - **Quartic SSA**：四路并行处理四种特征，每路独立做 FPS + SurfaceKNN + 点级别注意力
+    - **Fea Attention**：特征级别注意力，自适应调整不同特征的权重——靠近边缘的点更关注 Adjacency Feature，其他点可能更关注 Primitive Feature
+    - 设计动机：不同约束分量对不同区域的点重要性不同，需要自适应加权
 
 ### 损失函数 / 训练策略
 

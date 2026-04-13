@@ -42,19 +42,22 @@ OneDC由两部分组成：(1) **潜变量压缩模块**：分析变换 $g_a$ 将
 ### 关键设计
 
 1. **Hyperprior替代文本作语义引导（From Text to Hyperprior）**: 
-   - 做什么：用分类式hyperprior取代文本嵌入作为一步扩散模型cross-attention层的输入
-   - 核心思路：采用FSQ（有限标量量化）学习分类分布的 $\hat{z}$，7个通道×4个量化级别等效码本大小16,384。在64倍空间下采样下仅需0.0034 bpp。引入语义解码器 $h_{sem}$ 将 $\hat{z}$ 转换为语义上下文 $c \in \mathbb{R}^{B \times N \times D}$，注入cross-attention层：$f_{out} = \text{Softmax}(\frac{QK^\top}{\sqrt{d_k}})V$，其中 $Q = W_Q f_{in}$，$K = W_k c$，$V = W_v c$
-   - 设计动机：64倍下采样的hyperprior兼具大感受野和空间局部性，比纯全局的文本嵌入能提供更精确的空间对齐语义引导；且支持端到端联合优化，无需额外的文本编码器
+
+    - 做什么：用分类式hyperprior取代文本嵌入作为一步扩散模型cross-attention层的输入
+    - 核心思路：采用FSQ（有限标量量化）学习分类分布的 $\hat{z}$，7个通道×4个量化级别等效码本大小16,384。在64倍空间下采样下仅需0.0034 bpp。引入语义解码器 $h_{sem}$ 将 $\hat{z}$ 转换为语义上下文 $c \in \mathbb{R}^{B \times N \times D}$，注入cross-attention层：$f_{out} = \text{Softmax}(\frac{QK^\top}{\sqrt{d_k}})V$，其中 $Q = W_Q f_{in}$，$K = W_k c$，$V = W_v c$
+    - 设计动机：64倍下采样的hyperprior兼具大感受野和空间局部性，比纯全局的文本嵌入能提供更精确的空间对齐语义引导；且支持端到端联合优化，无需额外的文本编码器
 
 2. **Hyperprior语义蒸馏**: 
-   - 做什么：将预训练生成式tokenizer（MaskGIT）的语义知识迁移到hyperprior编解码器
-   - 核心思路：引入Transformer预测器 $P_{aux}$，从hyperprior语义上下文 $c$ 预测预训练tokenizer编码器 $E_{aux}$ 产生的离散token标签 $I_{gt} = VQ(E_{aux}(x))$。使用交叉熵损失监督：$L_{aux} = CE(I_{gt}, P_{aux}(c))$。$P_{aux}$ 和 $E_{aux}$ 仅在训练时使用，不增加推理开销。
-   - 设计动机：生成式tokenizer的码本编码了丰富的语义内容，hyperprior的小信息瓶颈天然过滤冗余信息只保留最显著语义。二者结构相似性使得蒸馏高效有效。
+
+    - 做什么：将预训练生成式tokenizer（MaskGIT）的语义知识迁移到hyperprior编解码器
+    - 核心思路：引入Transformer预测器 $P_{aux}$，从hyperprior语义上下文 $c$ 预测预训练tokenizer编码器 $E_{aux}$ 产生的离散token标签 $I_{gt} = VQ(E_{aux}(x))$。使用交叉熵损失监督：$L_{aux} = CE(I_{gt}, P_{aux}(c))$。$P_{aux}$ 和 $E_{aux}$ 仅在训练时使用，不增加推理开销。
+    - 设计动机：生成式tokenizer的码本编码了丰富的语义内容，hyperprior的小信息瓶颈天然过滤冗余信息只保留最显著语义。二者结构相似性使得蒸馏高效有效。
 
 3. **两阶段混合域训练策略**: 
-   - **Stage I（像素域压缩学习）**：训练压缩模块、嵌入语义信息、初步适配扩散模型。$L_{stageI} = L_{recon} + \lambda R + \alpha L_{aux}$，其中 $L_{recon} = L_1(x, \hat{x}) + L_{perceptual}(x, \hat{x})$
-   - **Stage II（混合域感知学习）**：固定压缩模块，微调扩散模型。结合扩散蒸馏损失、像素域重建损失和对抗损失：$L_{stageII} = L_{distill} + \beta L_{recon} + \gamma L_{adv}$
-   - 设计动机：纯像素域训练不足以保证感知质量（会出现网格伪影），纯潜变量域训练则导致色偏。混合域训练兼顾保真度和感知真实感。
+
+    - **Stage I（像素域压缩学习）**：训练压缩模块、嵌入语义信息、初步适配扩散模型。$L_{stageI} = L_{recon} + \lambda R + \alpha L_{aux}$，其中 $L_{recon} = L_1(x, \hat{x}) + L_{perceptual}(x, \hat{x})$
+    - **Stage II（混合域感知学习）**：固定压缩模块，微调扩散模型。结合扩散蒸馏损失、像素域重建损失和对抗损失：$L_{stageII} = L_{distill} + \beta L_{recon} + \gamma L_{adv}$
+    - 设计动机：纯像素域训练不足以保证感知质量（会出现网格伪影），纯潜变量域训练则导致色偏。混合域训练兼顾保真度和感知真实感。
 
 ### 损失函数 / 训练策略
 扩散生成器基于SD1.5的U-Net，用DMD2预训练的一步文生图模型初始化。通过LoRA层适配，保留生成先验的同时快速收敛。训练随机裁剪512或1024尺寸patch，使用AdamW优化器。Stage I中的蒸馏使用MaskGIT作为teacher，Stage II中的扩散蒸馏使用多步SD1.5模型作为teacher。

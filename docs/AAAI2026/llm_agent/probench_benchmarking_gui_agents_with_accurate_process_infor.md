@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GUI Agent benchmark（AndroidWorld、AndroidLab 等）已能在真实设备上评估 Agent 执行 GUI 操作任务，但几乎所有评估都只检查"最终屏幕状态"来判断任务是否完成。
-2. **现有痛点**：仅看最终状态会产生"虚假成功"——例如"买最便宜的无线鼠标"任务，如果 Agent 没有排序就随便选了一个，虽然最终屏幕显示购买确认也会判为成功。中间关键步骤（如"按价格排序"）的信息在最终页面上根本不可见。
-3. **核心矛盾**：GUI 任务本质是多步链式操作，不是所有关键信息都展示在最后几个页面上。少数尝试引入过程评估的工作（SPA-BENCH、A3）要么需要手工标注中间状态（不可扩展），要么依赖 LLM 分解（不够准确）。
-4. **本文要解决什么**：如何自动、准确地捕获操作过程信息，使 GUI Agent 评估既考虑最终结果又考虑关键中间步骤？
-5. **切入角度**：设计 Process Provider 自动提供过程信息，两种可选方案——(a) 解析页面层级结构 获取操作描述；(b) 用 MLLM 比较操作前后截图识别操作变化。
-6. **核心 idea 一句话**：区分 State-related Task（仅看最终状态）和 Process-related Task（需要检查关键中间操作），用 Process Provider 自动提供精确过程信息。
+**领域现状**：GUI Agent benchmark（AndroidWorld、AndroidLab 等）已能在真实设备上评估 Agent 执行 GUI 操作任务，但几乎所有评估都只检查"最终屏幕状态"来判断任务是否完成。
+**现有痛点**：仅看最终状态会产生"虚假成功"——例如"买最便宜的无线鼠标"任务，如果 Agent 没有排序就随便选了一个，虽然最终屏幕显示购买确认也会判为成功。中间关键步骤（如"按价格排序"）的信息在最终页面上根本不可见。
+**核心矛盾**：GUI 任务本质是多步链式操作，不是所有关键信息都展示在最后几个页面上。少数尝试引入过程评估的工作（SPA-BENCH、A3）要么需要手工标注中间状态（不可扩展），要么依赖 LLM 分解（不够准确）。
+**本文要解决什么**：如何自动、准确地捕获操作过程信息，使 GUI Agent 评估既考虑最终结果又考虑关键中间步骤？
+**切入角度**：设计 Process Provider 自动提供过程信息，两种可选方案——(a) 解析页面层级结构 获取操作描述；(b) 用 MLLM 比较操作前后截图识别操作变化。
+**核心 idea 一句话**：区分 State-related Task（仅看最终状态）和 Process-related Task（需要检查关键中间操作），用 Process Provider 自动提供精确过程信息。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ ProBench 包含三个模块：(1) Task Curation（任务构建）；(2) Dynamic 
 ### 关键设计
 
 1. **两类任务划分**:
-   - **State-related Task**：所有必要信息在最终截图上可见（如"查看支付宝余额"），仅检查最终状态即可
-   - **Process-related Task**：需要特定中间操作但最终状态无法完全反映（如"找评分最高的寿司店并查看完整菜单"——需要排序+筛选+选择，这些操作在最终页面不可见）
-   - 设计动机：真实世界大量任务需要正确的操作过程，仅看结果不够
+
+    - **State-related Task**：所有必要信息在最终截图上可见（如"查看支付宝余额"），仅检查最终状态即可
+    - **Process-related Task**：需要特定中间操作但最终状态无法完全反映（如"找评分最高的寿司店并查看完整菜单"——需要排序+筛选+选择，这些操作在最终页面不可见）
+    - 设计动机：真实世界大量任务需要正确的操作过程，仅看结果不够
 
 2. **Process Provider — 两个可选组件**:
-   - **Structure Description Converter**：每次 click 后解析 a11y tree（无障碍树），定位最小可点击节点，提取其 text/content_desc/resource_id 属性，生成人可读的操作描述
-   - **MLLM-based Summarizer**：将操作前后两张截图拼接+标注点击坐标，让 MLLM 比较差异并生成操作摘要（如"点击了 Airbnb 首页的搜索框"）
-   - 设计动机：Structure Description Converter 快速准确但依赖 a11y tree 质量；MLLM Summarizer 更灵活但需要 MLLM 推理。两者互补，用户可选
+
+    - **Structure Description Converter**：每次 click 后解析 a11y tree（无障碍树），定位最小可点击节点，提取其 text/content_desc/resource_id 属性，生成人可读的操作描述
+    - **MLLM-based Summarizer**：将操作前后两张截图拼接+标注点击坐标，让 MLLM 比较差异并生成操作摘要（如"点击了 Airbnb 首页的搜索框"）
+    - 设计动机：Structure Description Converter 快速准确但依赖 a11y tree 质量；MLLM Summarizer 更灵活但需要 MLLM 推理。两者互补，用户可选
 
 3. **评估准确性验证**:
-   - State-related Task：Evaluator 准确率 96.0%
-   - Process-related Task + Structure Description Converter：89.7%
-   - Process-related Task + MLLM Summarizer：94.1%
+
+    - State-related Task：Evaluator 准确率 96.0%
+    - Process-related Task + Structure Description Converter：89.7%
+    - Process-related Task + MLLM Summarizer：94.1%
 
 ### Benchmark 规模
 34 个主流应用（14 英文 + 20 中文），200+ 任务，覆盖媒体/新闻/社交/购物/生活等场景。每个任务最多 15 步交互。

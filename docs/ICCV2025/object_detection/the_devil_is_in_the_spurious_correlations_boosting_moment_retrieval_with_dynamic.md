@@ -45,18 +45,21 @@ TD-DETR（Temporal Dynamics DETR）包含三个核心模块：
 ### 关键设计
 
 1. **视频合成器（Video Synthesizer for Dynamic Context）**：
-   - **虚假对选择**：在训练 batch 中，为每个视频 $V_i$ 选择余弦相似度最高的视频 $V_k$ 构成虚假对 $p_i = \{V_i, V_k\}$，确保合成视频足够具有挑战性
-   - **动态上下文合成**：保留目标片段的完整性（选择概率设为 1），以采样比例 $\alpha$ 从 $V_i$ 的非目标帧中采样，以 $1-\alpha$ 从 $V_k$ 中采样，拼接成新视频 $\tilde{V}_i$，同步更新 ground truth 标注
-   - 设计动机：让模型在不同的背景上下文中学习识别目标片段，减少对特定背景的依赖
+
+    - **虚假对选择**：在训练 batch 中，为每个视频 $V_i$ 选择余弦相似度最高的视频 $V_k$ 构成虚假对 $p_i = \{V_i, V_k\}$，确保合成视频足够具有挑战性
+    - **动态上下文合成**：保留目标片段的完整性（选择概率设为 1），以采样比例 $\alpha$ 从 $V_i$ 的非目标帧中采样，以 $1-\alpha$ 从 $V_k$ 中采样，拼接成新视频 $\tilde{V}_i$，同步更新 ground truth 标注
+    - 设计动机：让模型在不同的背景上下文中学习识别目标片段，减少对特定背景的依赖
 
 2. **时序动态增强（Dynamics Enhancement）**：
-   - **Dynamic Tokenizer**：在视频序列前拼接可学习起始 token $st$，通过逐帧差分 $T = \{\tilde{v}_1 - st, \tilde{v}_2 - \tilde{v}_1, \ldots\}$ 提取时序动态表征，几乎无额外计算开销
-   - **Text-Dynamics Interaction**：使用交叉注意力分别计算视频-文本和动态-文本的交互表征，通过加权融合 $\tilde{V}_i' = \beta \cdot \tilde{V}_i + (1-\beta) \cdot T'$ 将动态信息注入视频表征
-   - 设计动机：让模型不仅关注静态的视觉帧语义，也关注背景无关的时序变化信息，建立文本与目标片段之间的稳健关联
+
+    - **Dynamic Tokenizer**：在视频序列前拼接可学习起始 token $st$，通过逐帧差分 $T = \{\tilde{v}_1 - st, \tilde{v}_2 - \tilde{v}_1, \ldots\}$ 提取时序动态表征，几乎无额外计算开销
+    - **Text-Dynamics Interaction**：使用交叉注意力分别计算视频-文本和动态-文本的交互表征，通过加权融合 $\tilde{V}_i' = \beta \cdot \tilde{V}_i + (1-\beta) \cdot T'$ 将动态信息注入视频表征
+    - 设计动机：让模型不仅关注静态的视觉帧语义，也关注背景无关的时序变化信息，建立文本与目标片段之间的稳健关联
 
 3. **匈牙利匹配与预测**：
-   - 对合成对中的两个视频分别进行预测，与对应 ground truth 匹配
-   - 显著性得分也同步预测，用于 Highlight Detection
+
+    - 对合成对中的两个视频分别进行预测，与对应 ground truth 匹配
+    - 显著性得分也同步预测，用于 Highlight Detection
 
 ### 损失函数 / 训练策略
 

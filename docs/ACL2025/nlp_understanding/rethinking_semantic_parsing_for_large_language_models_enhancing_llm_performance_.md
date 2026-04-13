@@ -42,21 +42,24 @@ SENSE是一种零样本提示方法，在任务prompt中加入简短的语义提
 ### 关键设计
 
 1. **语义提示注入（SENSE的核心）**：
-   - 在标准任务prompt中插入一句提示，类似："please use semantic parsing result which can enhance comprehension of the sentence's structure and semantics"
-   - 不同任务的具体措辞略有调整，但核心信息一致：引导模型关注语义结构
-   - 设计动机：LLM经过大规模预训练已经内化了语义解析能力，SENSE通过提示"唤醒"这种能力，避免了外部解析的噪声和格式不兼容问题
-   - 与CoT的区别：CoT说"let's think step by step"引导推理链，SENSE说"use semantic parsing"引导语义理解——前者适合推理任务，后者适合理解和生成任务
+
+    - 在标准任务prompt中插入一句提示，类似："please use semantic parsing result which can enhance comprehension of the sentence's structure and semantics"
+    - 不同任务的具体措辞略有调整，但核心信息一致：引导模型关注语义结构
+    - 设计动机：LLM经过大规模预训练已经内化了语义解析能力，SENSE通过提示"唤醒"这种能力，避免了外部解析的噪声和格式不兼容问题
+    - 与CoT的区别：CoT说"let's think step by step"引导推理链，SENSE说"use semantic parsing"引导语义理解——前者适合推理任务，后者适合理解和生成任务
 
 2. **与其他范式的对比**：
-   - **SP-Input**（图1b）：先用外部工具生成解析结果，拼接到输入中 → 性能下降（引入噪声和陌生符号）
-   - **SP-Output**（图1c）：让LLM先输出解析结果再做任务 → 性能不稳定（解析质量不一致）
-   - **SENSE**（图1d）：仅给语义提示，不产生/消费任何解析结果 → 稳定提升
-   - 关键洞察：LLM处理不了显式语义结构，但可以被提示去"内在地"利用语义信息
+
+    - **SP-Input**（图1b）：先用外部工具生成解析结果，拼接到输入中 → 性能下降（引入噪声和陌生符号）
+    - **SP-Output**（图1c）：让LLM先输出解析结果再做任务 → 性能不稳定（解析质量不一致）
+    - **SENSE**（图1d）：仅给语义提示，不产生/消费任何解析结果 → 稳定提升
+    - 关键洞察：LLM处理不了显式语义结构，但可以被提示去"内在地"利用语义信息
 
 3. **注意力机制分析**：
-   - 通过可视化LLaMA3-70B的注意力分数分布，发现SENSE使模型在复述任务中更集中地关注**关键语义元素**（核心词汇单元和句子主要成分）
-   - 相比vanilla prompt，SENSE的注意力分布更加聚焦，而非均匀散布
-   - 这从机制层面验证了SENSE确实引导模型进行了更有针对性的语义处理
+
+    - 通过可视化LLaMA3-70B的注意力分数分布，发现SENSE使模型在复述任务中更集中地关注**关键语义元素**（核心词汇单元和句子主要成分）
+    - 相比vanilla prompt，SENSE的注意力分布更加聚焦，而非均匀散布
+    - 这从机制层面验证了SENSE确实引导模型进行了更有针对性的语义处理
 
 ### 损失函数 / 训练策略
 SENSE是纯推理时的prompt方法，不涉及任何训练或微调。在GPT-3.5-turbo、GPT-4o-mini和LLaMA3-70B上均以零样本方式使用，温度设为0。

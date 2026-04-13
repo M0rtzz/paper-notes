@@ -46,10 +46,11 @@ $$L(E_i, E_c) = \text{CrossEntropy}(S, I)$$
 ### 关键设计
 
 1. **四种数据配置的对比实验**:
-   - **Eng-only**: 纯英语 MS-COCO 图像-标题对（118k）
-   - **Eng-Pivot**: 英语标题 + 轮换的西/日/印语翻译标题（文本-文本对齐，类似 LaBSE）
-   - **Multilingual**: 每张图像轮换配英/西/日/印一种语言的标题（文本-图像对齐）
-   - **Multilingual+Quechua**: 在 Multilingual 基础上加入 Quechua（编码器预训练中未见的语言）
+
+    - **Eng-only**: 纯英语 MS-COCO 图像-标题对（118k）
+    - **Eng-Pivot**: 英语标题 + 轮换的西/日/印语翻译标题（文本-文本对齐，类似 LaBSE）
+    - **Multilingual**: 每张图像轮换配英/西/日/印一种语言的标题（文本-图像对齐）
+    - **Multilingual+Quechua**: 在 Multilingual 基础上加入 Quechua（编码器预训练中未见的语言）
 
 2. **编码器架构处理**: 由于 XLM-R 和 ViT 的隐藏维度不同，在各自输出后加线性层映射到 512 维匹配空间。前半个 epoch 仅训练线性层（warm up），之后解冻编码器进行全参数微调。
 

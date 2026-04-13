@@ -27,22 +27,22 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Deepfake 检测主流做法是在 FF++ 上训练，在 DFDC、CelebDF 等数据集上测试跨域泛化能力。近期也有基于 MLLM 的方法（如 FFAA、M2F2-Det、FakeVLM）尝试引入可解释性，但最终分类决策仍依赖小型视觉模型（如 CLIP），MLLM 仅作为"后验解释器"。
+**领域现状**：Deepfake 检测主流做法是在 FF++ 上训练，在 DFDC、CelebDF 等数据集上测试跨域泛化能力。近期也有基于 MLLM 的方法（如 FFAA、M2F2-Det、FakeVLM）尝试引入可解释性，但最终分类决策仍依赖小型视觉模型（如 CLIP），MLLM 仅作为"后验解释器"。
 
-2. **现有痛点**：
+**现有痛点**：
    - **Benchmark 与工业实践脱节**：现有基准训练源单一（仅 FF++）、测试图像质量低，无法模拟实际场景中训练数据丰富但测试分布多变的挑战
    - **跨伪造类型泛化差**：已有检测器在 Cross-Model 场景表现尚可（>90%），但在 Cross-Forgery（face restoration、personalization 等新型伪造）和 Cross-Domain（社交媒体真实 deepfake）场景严重退化，多数低于 85%
    - **MLLM 推理能力未被真正利用**：基于 MLLM 的方法大多是"先判断真假再生成解释"的后验范式，推理过程并未参与决策
 
-3. **核心矛盾**：现有检测器学到的是特定伪造类型的 artifact 模式，缺乏类人的层次化推理能力来应对 OOD 伪造。直接让通用 MLLM 做 deepfake 检测效果极差（InternVL3-8B 仅 58.3%，GPT-4o 仅 60.8%），因为缺乏针对性的推理训练数据和训练策略。
+**核心矛盾**：现有检测器学到的是特定伪造类型的 artifact 模式，缺乏类人的层次化推理能力来应对 OOD 伪造。直接让通用 MLLM 做 deepfake 检测效果极差（InternVL3-8B 仅 58.3%，GPT-4o 仅 60.8%），因为缺乏针对性的推理训练数据和训练策略。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - Q1：什么样的推理过程对 deepfake 检测最有效？→ 答：模式感知推理（pattern-aware reasoning）
    - Q2：如何让模型真正"学会推理"而非"记忆模式"？→ 答：MiPO + P-GRPO 两阶段训练
 
-5. **切入角度**：借鉴人类鉴伪思维——先快速判断（fast judgement），再定位关键 artifact（reasoning），对困难样本做分层分析（planning），可能进行深入反思推翻初始判断（self-reflection），最终综合结论（conclusion）。将这 5 种思维模式形式化并通过 SFT 注入 + 偏好对齐 + 强化学习逐步内化到 MLLM 中。
+**切入角度**：借鉴人类鉴伪思维——先快速判断（fast judgement），再定位关键 artifact（reasoning），对困难样本做分层分析（planning），可能进行深入反思推翻初始判断（self-reflection），最终综合结论（conclusion）。将这 5 种思维模式形式化并通过 SFT 注入 + 偏好对齐 + 强化学习逐步内化到 MLLM 中。
 
-6. **核心 idea 一句话**：将人类鉴伪的结构化思维模式显式注入 MLLM，通过 pattern-aware 的奖励机制激励模型在合适时机使用合适的推理深度，实现端到端的透明决策。
+**核心 idea 一句话**：将人类鉴伪的结构化思维模式显式注入 MLLM，通过 pattern-aware 的奖励机制激励模型在合适时机使用合适的推理深度，实现端到端的透明决策。
 
 ## 方法详解
 
@@ -58,29 +58,33 @@ Veritas 基于 InternVL3-8B 构建，采用两阶段训练流程：
 ### 关键设计
 
 1. **HydraFake 数据集与四级评估协议**:
-   - 做什么：构建贴近工业场景的大规模 deepfake 检测 benchmark
-   - 核心思路：50K 真实（来自 88 个数据集）+ 50K 伪造（36 种生成模型），涵盖 face swapping、reenactment、全脸合成、face restoration、relighting、personalization 等。训练集仅含 3 种基础伪造类型（FS/FR/EFG，48K 图像），评估分四级——In-Domain (14K)、Cross-Model (11K, FLUX/StarryAI/MAGI-1 等未见模型)、Cross-Forgery (12K, 属性编辑/生成式换脸/个性化等未见伪造)、Cross-Domain (15K, 未见数据域+社交媒体野生 deepfake 如 GPT-4o/Dreamina/HailuoAI)
-   - 设计动机：模拟真实场景中训练数据充足但测试分布多变的挑战，精确定位检测器在不同 OOD 层级的弱点
-   - 质量控制：排除低质量数据集（DFDC、WDF），对自构建数据用 Qwen2.5-VL-72B 生成 sample-specific prompt，人工筛选高质量样本
+
+    - 做什么：构建贴近工业场景的大规模 deepfake 检测 benchmark
+    - 核心思路：50K 真实（来自 88 个数据集）+ 50K 伪造（36 种生成模型），涵盖 face swapping、reenactment、全脸合成、face restoration、relighting、personalization 等。训练集仅含 3 种基础伪造类型（FS/FR/EFG，48K 图像），评估分四级——In-Domain (14K)、Cross-Model (11K, FLUX/StarryAI/MAGI-1 等未见模型)、Cross-Forgery (12K, 属性编辑/生成式换脸/个性化等未见伪造)、Cross-Domain (15K, 未见数据域+社交媒体野生 deepfake 如 GPT-4o/Dreamina/HailuoAI)
+    - 设计动机：模拟真实场景中训练数据充足但测试分布多变的挑战，精确定位检测器在不同 OOD 层级的弱点
+    - 质量控制：排除低质量数据集（DFDC、WDF），对自构建数据用 Qwen2.5-VL-72B 生成 sample-specific prompt，人工筛选高质量样本
 
 2. **Pattern-Aware Reasoning 框架**:
-   - 做什么：定义 5 种推理模式来模拟人类鉴伪思维流程
-   - 核心思路：`<fast>` 快速直觉判断 → `<reasoning>` 定位 1-2 个显著 artifact → `<planning>` 对困难样本做分层分析 → `<reflection>` 自我反思推翻或支持初始判断 → `<conclusion>` 综合所有证据得出最终结论。模型在推理过程中自适应使用这些 pattern，简单样本可能只用 fast+reasoning+conclusion，困难样本才调用 planning 和 reflection
-   - 设计动机：vanilla CoT 缺乏结构化的思维引导，模型容易产生表面化推理。实验证明 pattern-aware reasoning 相比 flexible reasoning 在 Cross-Forgery 上提升 6.2%，在 Cross-Domain 上提升 3.3%
-   - 与 Post-hoc Explanation 的关键区别：后者先确定答案再找理由，推理不参与决策（准确率低 8.4%）；Veritas 的推理过程直接驱动最终判断
+
+    - 做什么：定义 5 种推理模式来模拟人类鉴伪思维流程
+    - 核心思路：`<fast>` 快速直觉判断 → `<reasoning>` 定位 1-2 个显著 artifact → `<planning>` 对困难样本做分层分析 → `<reflection>` 自我反思推翻或支持初始判断 → `<conclusion>` 综合所有证据得出最终结论。模型在推理过程中自适应使用这些 pattern，简单样本可能只用 fast+reasoning+conclusion，困难样本才调用 planning 和 reflection
+    - 设计动机：vanilla CoT 缺乏结构化的思维引导，模型容易产生表面化推理。实验证明 pattern-aware reasoning 相比 flexible reasoning 在 Cross-Forgery 上提升 6.2%，在 Cross-Domain 上提升 3.3%
+    - 与 Post-hoc Explanation 的关键区别：后者先确定答案再找理由，推理不参与决策（准确率低 8.4%）；Veritas 的推理过程直接驱动最终判断
 
 3. **Mixed Preference Optimization (MiPO)**:
-   - 做什么：在 SFT 之后对齐推理质量，防止模型"记忆"而非"推理"
-   - 核心思路：构建混合非偏好数据集 $\mathcal{D}_2$，包含两类负样本——$s_l^\phi$（答案正确但推理粗糙/不够详细）和 $s_l^\psi$（答案错误）。正样本 $s_w$ 由人工专家精标。训练目标采用 DPO 风格损失：$\mathcal{L}_2 = -\mathbb{E}[\log\sigma(\beta\log\frac{\pi_\theta(s_w|q)}{\pi_{\text{SFT}}(s_w|q)} - \beta\log\frac{\pi_\theta(s_l|q)}{\pi_{\text{SFT}}(s_l|q)})]$
-   - 设计动机：纯 SFT 模型容易产生"答案正确但推理浅薄"的输出。$s_l^\phi$ 这类"答对但理由不充分"的负样本迫使模型学会精细化推理。实验验证：去掉 $s_l^\phi$ 后 CF -1.1%、CD -0.8%；去掉 $s_l^\psi$ 模型崩溃至 60.8%
-   - 与标准 DPO 的区别：引入了"答案正确但推理不够好"这一新类别的非偏好数据，传统 DPO 通常只用答案错误作为负样本
+
+    - 做什么：在 SFT 之后对齐推理质量，防止模型"记忆"而非"推理"
+    - 核心思路：构建混合非偏好数据集 $\mathcal{D}_2$，包含两类负样本——$s_l^\phi$（答案正确但推理粗糙/不够详细）和 $s_l^\psi$（答案错误）。正样本 $s_w$ 由人工专家精标。训练目标采用 DPO 风格损失：$\mathcal{L}_2 = -\mathbb{E}[\log\sigma(\beta\log\frac{\pi_\theta(s_w|q)}{\pi_{\text{SFT}}(s_w|q)} - \beta\log\frac{\pi_\theta(s_l|q)}{\pi_{\text{SFT}}(s_l|q)})]$
+    - 设计动机：纯 SFT 模型容易产生"答案正确但推理浅薄"的输出。$s_l^\phi$ 这类"答对但理由不充分"的负样本迫使模型学会精细化推理。实验验证：去掉 $s_l^\phi$ 后 CF -1.1%、CD -0.8%；去掉 $s_l^\psi$ 模型崩溃至 60.8%
+    - 与标准 DPO 的区别：引入了"答案正确但推理不够好"这一新类别的非偏好数据，传统 DPO 通常只用答案错误作为负样本
 
 4. **Pattern-Aware GRPO (P-GRPO)**:
-   - 做什么：通过强化学习激励自适应推理深度，让模型在需要时主动使用 planning 和 reflection
-   - 核心思路：对每个 query 采样 $G=4$ 个 response，通过 pattern-aware reward 评估质量。最终奖励 $R = R_{\text{pattern}} + \lambda_1 R_{\text{ref}} \cdot \mathbb{I}(\mathcal{C}=1) + \lambda_2 R_{\text{fmt}}$
-   - **$R_{\text{pattern}}$ 的精妙设计**：答对且使用了 planning/reflection → +2.0；答对但没用高级 pattern → +1.0；答错无高级 pattern → 0.0；答错且用了 planning → -0.5；答错且用了 reflection → **-1.0**（最重惩罚，因为 reflection 是最强的 pattern，用了还错代价最大）
-   - **$R_{\text{ref}}$（反思质量奖励）**：用外部奖励模型（UnifiedReward-Qwen-3B）评估 reflection 是否引入了新视角（而非重复已有发现），仅在答案正确时给予
-   - 设计动机：与用长度奖励鼓励更长推理的方法不同，作者认为绝对推理长度不重要，重要的是"在合适的时机使用合适的思维模式"。对 overthinking 施加惩罚防止模型滥用 reflection
+
+    - 做什么：通过强化学习激励自适应推理深度，让模型在需要时主动使用 planning 和 reflection
+    - 核心思路：对每个 query 采样 $G=4$ 个 response，通过 pattern-aware reward 评估质量。最终奖励 $R = R_{\text{pattern}} + \lambda_1 R_{\text{ref}} \cdot \mathbb{I}(\mathcal{C}=1) + \lambda_2 R_{\text{fmt}}$
+    - **$R_{\text{pattern}}$ 的精妙设计**：答对且使用了 planning/reflection → +2.0；答对但没用高级 pattern → +1.0；答错无高级 pattern → 0.0；答错且用了 planning → -0.5；答错且用了 reflection → **-1.0**（最重惩罚，因为 reflection 是最强的 pattern，用了还错代价最大）
+    - **$R_{\text{ref}}$（反思质量奖励）**：用外部奖励模型（UnifiedReward-Qwen-3B）评估 reflection 是否引入了新视角（而非重复已有发现），仅在答案正确时给予
+    - 设计动机：与用长度奖励鼓励更长推理的方法不同，作者认为绝对推理长度不重要，重要的是"在合适的时机使用合适的思维模式"。对 overthinking 施加惩罚防止模型滥用 reflection
 
 ### 训练策略
 

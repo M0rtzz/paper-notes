@@ -29,8 +29,8 @@ tags:
 LLM 安全对齐面临的核心挑战在于：现有防御方法本质上都是"shallow alignment"——通过强化拒绝 token 来阻止有害输出，而不是让模型真正理解为什么某个请求是有害的。
 
 **两类攻击的不对称防御现状**：
-1. **Token 级攻击**（prefix 注入、suffix 扰动）：通过操纵概率分布压制拒绝 token → 现有方法（如 Circuit Breaker）能较好应对
-2. **Prompt 级推理攻击**（逻辑说服、角色扮演、混淆技术）：利用推理漏洞引导模型合规 → 现有方法力不从心
+**Token 级攻击**（prefix 注入、suffix 扰动）：通过操纵概率分布压制拒绝 token → 现有方法（如 Circuit Breaker）能较好应对
+**Prompt 级推理攻击**（逻辑说服、角色扮演、混淆技术）：利用推理漏洞引导模型合规 → 现有方法力不从心
 
 **Circuit Breaker 的局限性**：作为 SOTA 方法，它通过将有害表征随机重映射来阻止不安全输出。但这导致在敏感场景下输出不连贯——如图 1 所示，用户表达自杀倾向时，Circuit Breaker 虽然阻止了有害输出，但无法给出有建设性的支持性回应。
 
@@ -50,13 +50,15 @@ Rational 是一个三阶段框架：
 ### 关键设计
 
 1. **Self-Check Reasoning (SCR) 框架**：做什么→为对抗性和良性提示分别设计系统提示，引导模型生成显式推理再做决策；核心思路→两种 self-check：
-   - **Rejection Self-Check** $\mathcal{S}_{rej}$：对对抗性提示 $p \in \mathcal{P}_{adv}$，引导模型识别底层风险、评估意图、给出有理有据的拒绝
-   - **Compliance Self-Check** $\mathcal{S}_{comp}$：对良性提示 $p \in \mathcal{P}_{benign}$，引导模型确认安全性后正常回答，防止过度拒绝  
+
+    - **Rejection Self-Check** $\mathcal{S}_{rej}$：对对抗性提示 $p \in \mathcal{P}_{adv}$，引导模型识别底层风险、评估意图、给出有理有据的拒绝
+    - **Compliance Self-Check** $\mathcal{S}_{comp}$：对良性提示 $p \in \mathcal{P}_{benign}$，引导模型确认安全性后正常回答，防止过度拒绝  
    设计动机→打破 harmful/non-harmful 二分法，让模型通过推理过程而非模式匹配来做安全判断
 
 2. **Rationale 数据集的精心构建**：做什么→融合对抗性攻击和容易被误拒绝的良性查询；核心思路→
-   - 对抗集 $\mathcal{P}_{adv}$：来自 SorryBench 的 11 种需要深度推理的攻击策略（专家背书、逻辑诉求、错误表述、角色扮演、错别字、方言、提问框架等），共 3,465 条 Rejection Rationale
-   - 良性集 $\mathcal{P}_{benign}$：来自 XSTest 的 250 条含敏感词但语境合理的查询 + 200 条不安全对比样本  
+
+    - 对抗集 $\mathcal{P}_{adv}$：来自 SorryBench 的 11 种需要深度推理的攻击策略（专家背书、逻辑诉求、错误表述、角色扮演、错别字、方言、提问框架等），共 3,465 条 Rejection Rationale
+    - 良性集 $\mathcal{P}_{benign}$：来自 XSTest 的 250 条含敏感词但语境合理的查询 + 200 条不安全对比样本  
    设计动机→仅含 250 条良性推理就能显著提升合规率，证明推理数据的质量比数量更重要
 
 3. **推理一致性假设**：做什么→假设推理过程一旦确定，最终响应是确定性的；核心思路→$P_\theta(r_{rej}^{(F)} | r_{rej}^{(R)}) \approx P_\theta(r_{comp}^{(F)} | r_{comp}^{(R)}) \approx 1$，即推理链正确则最终响应正确；设计动机→将微调目标聚焦在对齐推理能力上，而非直接对齐输出。

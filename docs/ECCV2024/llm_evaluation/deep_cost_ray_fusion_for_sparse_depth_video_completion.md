@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 深度传感器（LiDAR、RealSense 等）已广泛部署于移动设备和自动驾驶场景，但其采集的深度图往往稀疏或存在大面积缺失。
-2. **现有痛点**: 主流深度补全方法仅利用单帧 RGB-D 图像，专注于提取多模态特征，忽略了视频序列中丰富的时序信息。少数利用多帧的方法（如 ConvLSTM、时空卷积）需要将前一帧特征图 warp 到当前帧对齐，但这种对齐依赖前一帧的深度预测，一旦预测有误就会引入误差传播。
-3. **核心矛盾**: 直接在 2D 特征图上做时序融合受深度预测误差影响；而如果在 3D cost volume 上做全局 attention 融合，内存占用为 $D^2H^2W^2$，完全不可行。
-4. **切入角度**: 观察到 cost volume 中沿每条射线的特征是关于深度假设平面的概率分布信息，这些分布本身蕴含可利用的内在属性（如熵），因此可以沿射线方向做 attention，将复杂度从 $D^2H^2W^2$ 降至 $D^2HW$。
-5. **核心 idea**: 在 3D cost volume 的射线维度上施加 self-attention（利用概率分布的内在特征）和 cross-attention（跨帧融合），实现高效且精确的时序 cost volume 融合。
+**领域现状**: 深度传感器（LiDAR、RealSense 等）已广泛部署于移动设备和自动驾驶场景，但其采集的深度图往往稀疏或存在大面积缺失。
+**现有痛点**: 主流深度补全方法仅利用单帧 RGB-D 图像，专注于提取多模态特征，忽略了视频序列中丰富的时序信息。少数利用多帧的方法（如 ConvLSTM、时空卷积）需要将前一帧特征图 warp 到当前帧对齐，但这种对齐依赖前一帧的深度预测，一旦预测有误就会引入误差传播。
+**核心矛盾**: 直接在 2D 特征图上做时序融合受深度预测误差影响；而如果在 3D cost volume 上做全局 attention 融合，内存占用为 $D^2H^2W^2$，完全不可行。
+**切入角度**: 观察到 cost volume 中沿每条射线的特征是关于深度假设平面的概率分布信息，这些分布本身蕴含可利用的内在属性（如熵），因此可以沿射线方向做 attention，将复杂度从 $D^2H^2W^2$ 降至 $D^2HW$。
+**核心 idea**: 在 3D cost volume 的射线维度上施加 self-attention（利用概率分布的内在特征）和 cross-attention（跨帧融合），实现高效且精确的时序 cost volume 融合。
 
 ## 方法详解
 
@@ -41,27 +41,30 @@ tags:
 ### 关键设计
 
 1. **Cost Volume Creation ($C_\theta$)**:
-   - 做什么：从单帧 RGB-D 图像构建 3D cost volume
-   - 核心思路：构建三种特征体——occupancy volume $\mathbf{V}_o$、residual volume $\mathbf{V}_r$（来自稀疏深度）和 RGB feature volume $\mathbf{V}_i$（来自多尺度图像特征），拼接后送入 3D 卷积 U-Net 推断 cost volume。体素建立在 $D$ 个均匀采样的深度假设平面上，$\mathbf{V} \in \mathbb{R}^{D \times C \times H \times W}$
-   - 设计动机：基于 CostDCNet 的改进版本，去掉独立几何特征提取器，增加多尺度图像特征，使得 cost volume 能同时编码 RGB 外观和稀疏深度先验
+
+    - 做什么：从单帧 RGB-D 图像构建 3D cost volume
+    - 核心思路：构建三种特征体——occupancy volume $\mathbf{V}_o$、residual volume $\mathbf{V}_r$（来自稀疏深度）和 RGB feature volume $\mathbf{V}_i$（来自多尺度图像特征），拼接后送入 3D 卷积 U-Net 推断 cost volume。体素建立在 $D$ 个均匀采样的深度假设平面上，$\mathbf{V} \in \mathbb{R}^{D \times C \times H \times W}$
+    - 设计动机：基于 CostDCNet 的改进版本，去掉独立几何特征提取器，增加多尺度图像特征，使得 cost volume 能同时编码 RGB 外观和稀疏深度先验
 
 2. **Ray-based Fusion ($F_\theta$)**:
-   - 做什么：融合当前帧和前一帧的 cost volumes
-   - 核心思路：
-     - 首先通过相对位姿逆映射将 $\mathbf{V}'_{t-1}$ 对齐到当前视角坐标系
-     - 对每个像素位置 $(h,w)$，提取射线特征 $\mathbf{F}_t = \mathbf{V}_t(:,:,h,w) \in \mathbb{R}^{D \times C}$，视 $D$ 个深度假设为 $D$ 个 token
-     - 先经 2 层 3D 卷积聚合局部空间信息
-     - 对每条射线分别做 **self-attention**: $\mathbf{SA}_t = \text{Attn}(\mathbf{F}_t, \mathbf{F}_t, \mathbf{F}_t)$，利用概率分布的内在属性（如熵/不确定性）精炼当前帧的深度假设
-     - 再做 **cross-attention**: $\mathbf{CA}_t = \text{Attn}(\mathbf{SA}_t, \mathbf{SA}_{t-1}, \mathbf{SA}_{t-1})$，实现跨帧融合
-     - 添加正弦位置编码注入深度平面索引的相对位置信息
-   - 设计动机：射线方向的 attention 只需 $D^2HW$ 注意力条目，比全 volume attention 的 $D^2H^2W^2$ 高效得多；self-attention 能感知概率分布熵等内在属性，cross-attention 利用前帧积累的时序信息
+
+    - 做什么：融合当前帧和前一帧的 cost volumes
+    - 核心思路：
+      - 首先通过相对位姿逆映射将 $\mathbf{V}'_{t-1}$ 对齐到当前视角坐标系
+      - 对每个像素位置 $(h,w)$，提取射线特征 $\mathbf{F}_t = \mathbf{V}_t(:,:,h,w) \in \mathbb{R}^{D \times C}$，视 $D$ 个深度假设为 $D$ 个 token
+      - 先经 2 层 3D 卷积聚合局部空间信息
+      - 对每条射线分别做 **self-attention**: $\mathbf{SA}_t = \text{Attn}(\mathbf{F}_t, \mathbf{F}_t, \mathbf{F}_t)$，利用概率分布的内在属性（如熵/不确定性）精炼当前帧的深度假设
+      - 再做 **cross-attention**: $\mathbf{CA}_t = \text{Attn}(\mathbf{SA}_t, \mathbf{SA}_{t-1}, \mathbf{SA}_{t-1})$，实现跨帧融合
+      - 添加正弦位置编码注入深度平面索引的相对位置信息
+    - 设计动机：射线方向的 attention 只需 $D^2HW$ 注意力条目，比全 volume attention 的 $D^2H^2W^2$ 高效得多；self-attention 能感知概率分布熵等内在属性，cross-attention 利用前帧积累的时序信息
 
 3. **Depth Regression & Refinement ($R_\theta, H_\theta$)**:
-   - 做什么：从融合后的 cost volume 回归密集深度图
-   - 核心思路：融合 cost volume 经 3D 卷积 + pixel shuffle 转为概率体 $\mathbf{P}'_t$，softmax 归一化后加权求和得深度：
-     $$\mathbf{D}_t(h,w) = \sum_{i=1}^{D} d_i \times \mathbf{p}^i_{h,w}$$
-   - 最后通过 NLSPN（非局部空间传播网络）在图像域精细化深度
-   - 设计动机：概率体回归的方式允许同时输出深度和置信度，为后续精细化提供额外指导
+
+    - 做什么：从融合后的 cost volume 回归密集深度图
+    - 核心思路：融合 cost volume 经 3D 卷积 + pixel shuffle 转为概率体 $\mathbf{P}'_t$，softmax 归一化后加权求和得深度：
+    $\mathbf{D}_t(h,w) = \sum_{i=1}^{D} d_i \times \mathbf{p}^i_{h,w}$
+    - 最后通过 NLSPN（非局部空间传播网络）在图像域精细化深度
+    - 设计动机：概率体回归的方式允许同时输出深度和置信度，为后续精细化提供额外指导
 
 ### 损失函数 / 训练策略
 

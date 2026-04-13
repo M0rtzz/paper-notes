@@ -44,18 +44,20 @@ PT2-LLM 包含两个核心组件：非对称三值量化器（ATQ）和结构相
 ### 关键设计
 
 1. **非对称三值量化器 (ATQ)**：
-   - 引入行级偏移 $\mu$：$\hat{\mathbf{W}} = \alpha \mathbf{T} + \mu$，适配非零均值权重分布
-   - **迭代三值拟合 (ITF)**：交替优化三值网格和三值矩阵
-     - 最优网格（闭式解）：$\alpha^* = \frac{m \cdot (\mathbf{W} \circ \mathbf{T})\mathbf{1} - (\mathbf{T}\mathbf{1}) \circ (\mathbf{W}\mathbf{1})}{m \cdot (\mathbf{T} \circ \mathbf{T})\mathbf{1} - (\mathbf{T}\mathbf{1})^2}$
-     - 灵活取整：$\mathbf{T}_{ij}^* = \arg\min_{t \in \{-1,0,1\}} |Z_{ij} - t|$，其中 $Z_{ij} = (W_{ij} - \mu_i^*) / \alpha_i^*$
-     - 约 10 次迭代收敛
-   - **激活感知网格对齐 (AGA)**：用校准数据优化输出误差 $\mathcal{E}_x = \|\mathbf{WX} - \hat{\mathbf{W}}\mathbf{X}\|_F^2$
+
+    - 引入行级偏移 $\mu$：$\hat{\mathbf{W}} = \alpha \mathbf{T} + \mu$，适配非零均值权重分布
+    - **迭代三值拟合 (ITF)**：交替优化三值网格和三值矩阵
+      - 最优网格（闭式解）：$\alpha^* = \frac{m \cdot (\mathbf{W} \circ \mathbf{T})\mathbf{1} - (\mathbf{T}\mathbf{1}) \circ (\mathbf{W}\mathbf{1})}{m \cdot (\mathbf{T} \circ \mathbf{T})\mathbf{1} - (\mathbf{T}\mathbf{1})^2}$
+      - 灵活取整：$\mathbf{T}_{ij}^* = \arg\min_{t \in \{-1,0,1\}} |Z_{ij} - t|$，其中 $Z_{ij} = (W_{ij} - \mu_i^*) / \alpha_i^*$
+      - 约 10 次迭代收敛
+    - **激活感知网格对齐 (AGA)**：用校准数据优化输出误差 $\mathcal{E}_x = \|\mathbf{WX} - \hat{\mathbf{W}}\mathbf{X}\|_F^2$
 
 2. **结构相似性重排序 (SSR)**：
-   - 动机：朴素分块三值化中，同一块内权重方差大且存在异常值列
-   - 计算列间余弦相似度：$S_{ij} = \frac{\mathbf{W}_{:,i}^\top \mathbf{W}_{:,j}}{\|\mathbf{W}_{:,i}\|_2 \|\mathbf{W}_{:,j}\|_2}$
-   - 将结构相似的列聚在同一块内，使块内分布更紧凑
-   - 轻量化策略：每步选取与均值参考最相似的 top-k 列组成下一个量化块
+
+    - 动机：朴素分块三值化中，同一块内权重方差大且存在异常值列
+    - 计算列间余弦相似度：$S_{ij} = \frac{\mathbf{W}_{:,i}^\top \mathbf{W}_{:,j}}{\|\mathbf{W}_{:,i}\|_2 \|\mathbf{W}_{:,j}\|_2}$
+    - 将结构相似的列聚在同一块内，使块内分布更紧凑
+    - 轻量化策略：每步选取与均值参考最相似的 top-k 列组成下一个量化块
 
 ### 损失函数 / 训练策略
 

@@ -29,8 +29,8 @@ tags:
 
 有害冲突体现为两种形式：
 
-1. **方向不一致（Directional Inconsistency）** → 安全错位退化（Safety Misalignment Degradation）：不同类别的安全方向指向不兼容甚至相反的方向。例如对色情提示词施加"仇恨"方向的安全引导，有害率反而从 67.2% 升至 72.4%，远高于正确使用"色情"方向的 3.2%。
-2. **方向衰减（Directional Attenuation）** → 安全平均退化（Safety Averaging Degradation）：多类别聚合导致异质方向部分抵消，削弱净安全信号。"色情"方向单独应用有害率为 3.2%，加入"仇恨"后升至 5.8%，聚合全部类别后升至 48.8%。
+**方向不一致（Directional Inconsistency）** → 安全错位退化（Safety Misalignment Degradation）：不同类别的安全方向指向不兼容甚至相反的方向。例如对色情提示词施加"仇恨"方向的安全引导，有害率反而从 67.2% 升至 72.4%，远高于正确使用"色情"方向的 3.2%。
+**方向衰减（Directional Attenuation）** → 安全平均退化（Safety Averaging Degradation）：多类别聚合导致异质方向部分抵消，削弱净安全信号。"色情"方向单独应用有害率为 3.2%，加入"仇恨"后升至 5.8%，聚合全部类别后升至 48.8%。
 
 ## 方法详解
 

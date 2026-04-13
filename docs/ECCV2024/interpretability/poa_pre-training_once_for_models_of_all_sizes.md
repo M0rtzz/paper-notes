@@ -50,21 +50,24 @@ POA 是一个**三分支自蒸馏框架**：Teacher、Intact Student（完整学
 ### 关键设计
 
 1. **弹性学生（Elastic Student）**:
-   - 做什么：在每个训练 iteration 随机采样 width 和 depth，构造一个子网络参与训练
-   - 核心思路：通过参数切片实现弹性。对于 ViT，弹性宽度通过减少注意力头数实现，弹性深度通过等间距选取 block 实现。定义 $M+1$ 种弹性宽度：$D_i = (N_h - i) \cdot D_h$，以及 $N+1$ 种弹性深度：$L_i = L_{max} - i$。总共可生成 $(M+1) \times (N+1)$ 个子网络。
-   - 参数提取方式：对于弹性 MSA，输入投影权重 $w_i^{a1} = w^{a1}[:, :D_i] \cdot \alpha_i$，其中缩放因子 $\alpha_i = D_{max}/D_i$ 补偿维度缩减带来的尺度变化。MLP 和 LN 类似处理。
-   - 深度弹性：对深度 $L_i$，按等间距选取 block ID：$BID_j^{L_i} = \lfloor (L_{max}-1) \cdot j / (L_i - 1) \rfloor$
-   - 设计动机：小模型天然是大模型的子网络，通过参数共享使子网络在训练过程中被充分优化；弹性分支还起到**模型集成**的效果（每步不同子网络参与 teacher 的 EMA）和**训练正则化**的作用（稳定训练、防止 loss 发散）
+
+    - 做什么：在每个训练 iteration 随机采样 width 和 depth，构造一个子网络参与训练
+    - 核心思路：通过参数切片实现弹性。对于 ViT，弹性宽度通过减少注意力头数实现，弹性深度通过等间距选取 block 实现。定义 $M+1$ 种弹性宽度：$D_i = (N_h - i) \cdot D_h$，以及 $N+1$ 种弹性深度：$L_i = L_{max} - i$。总共可生成 $(M+1) \times (N+1)$ 个子网络。
+    - 参数提取方式：对于弹性 MSA，输入投影权重 $w_i^{a1} = w^{a1}[:, :D_i] \cdot \alpha_i$，其中缩放因子 $\alpha_i = D_{max}/D_i$ 补偿维度缩减带来的尺度变化。MLP 和 LN 类似处理。
+    - 深度弹性：对深度 $L_i$，按等间距选取 block ID：$BID_j^{L_i} = \lfloor (L_{max}-1) \cdot j / (L_i - 1) \rfloor$
+    - 设计动机：小模型天然是大模型的子网络，通过参数共享使子网络在训练过程中被充分优化；弹性分支还起到**模型集成**的效果（每步不同子网络参与 teacher 的 EMA）和**训练正则化**的作用（稳定训练、防止 loss 发散）
 
 2. **同视图蒸馏（Same-view Distillation）**:
-   - 做什么：让 Elastic Student 在相同视图上模仿 Intact Student 的输出
-   - 核心思路：这是标准的知识蒸馏，将 Intact Student 已学到的更好表征传递给弹性子网络。损失为 $\mathcal{L}_{ES2}^g = -p_{b1} \log(p_{b2})$
-   - 设计动机：消融实验表明，同视图蒸馏对子网络质量的贡献**远大于**跨视图蒸馏。因为跨视图蒸馏是表征学习，而同视图蒸馏是从已有的好表征直接蒸馏，对小网络更高效。去掉 $\mathcal{L}_{ES2}$ 导致 ViT-S 的 k-NN 下降 3.4%。
+
+    - 做什么：让 Elastic Student 在相同视图上模仿 Intact Student 的输出
+    - 核心思路：这是标准的知识蒸馏，将 Intact Student 已学到的更好表征传递给弹性子网络。损失为 $\mathcal{L}_{ES2}^g = -p_{b1} \log(p_{b2})$
+    - 设计动机：消融实验表明，同视图蒸馏对子网络质量的贡献**远大于**跨视图蒸馏。因为跨视图蒸馏是表征学习，而同视图蒸馏是从已有的好表征直接蒸馏，对小网络更高效。去掉 $\mathcal{L}_{ES2}$ 导致 ViT-S 的 k-NN 下降 3.4%。
 
 3. **多投影头（Multiple Projection Heads, MPH）**:
-   - 做什么：在 backbone 后接多个结构相同但 prototype 数量不同的投影头
-   - 核心思路：对每个投影头独立计算蒸馏损失，最终取平均：$\mathcal{L} = \frac{1}{H} \sum_{i=1}^H \mathcal{L}_{S_i}$
-   - 设计动机：由于每步只随机选一个子网络，单个子网络的训练不够充分。MPH 引入不同语义空间（不同 prototype 数量），使 teacher 能从多个角度蒸馏知识到子网络中，对小网络的提升尤其明显。
+
+    - 做什么：在 backbone 后接多个结构相同但 prototype 数量不同的投影头
+    - 核心思路：对每个投影头独立计算蒸馏损失，最终取平均：$\mathcal{L} = \frac{1}{H} \sum_{i=1}^H \mathcal{L}_{S_i}$
+    - 设计动机：由于每步只随机选一个子网络，单个子网络的训练不够充分。MPH 引入不同语义空间（不同 prototype 数量），使 teacher 能从多个角度蒸馏知识到子网络中，对小网络的提升尤其明显。
 
 ### 损失函数 / 训练策略
 

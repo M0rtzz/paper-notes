@@ -48,8 +48,9 @@ $$Z_i^{(m)} = A_i'^{(m)} V_i'^{(m)} + Y_i^{(m)}$$
 2. **1D RoPE**：时序注意力使用 1D RoPE（vs. 空间的 2D RoPE）编码时间位置
 3. **零初始化**：输出投影层初始化为零，初始状态等价于原始模型
 4. **两阶段训练**：
-   - Stage 1：冻结所有参数，仅训练时序注意力块 + LayerNorm
-   - Stage 2：加入 LoRA adapter 联合训练整个模型
+
+    - Stage 1：冻结所有参数，仅训练时序注意力块 + LayerNorm
+    - Stage 2：加入 LoRA adapter 联合训练整个模型
 5. **全层部署**：所有 32 个 transformer block 都加入 STA 效果最好
 
 ## 实验关键数据

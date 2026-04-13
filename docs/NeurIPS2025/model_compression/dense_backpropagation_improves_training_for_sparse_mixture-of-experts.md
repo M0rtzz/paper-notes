@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：稀疏 MoE 架构已被 DeepSeek-V2/V3、Mixtral、DBRX 等广泛采用。TopK routing 只激活 K 个 expert 处理每个 token，使得参数量可以大幅扩展而计算量不变。
-2. **现有痛点**：TopK routing 意味着 router 只能接收被激活 expert 的梯度反馈——未激活的 expert 对 router 的梯度贡献为零。这导致 router 无法获得"全局视野"来做最优路由决策，拖慢学习速度并可能导致次优收敛。
-3. **核心矛盾**：要让 router 获得完整（稠密）梯度就需要激活所有 expert（即变成 dense 模型），但这会破坏 MoE 的稀疏计算优势。稠密梯度和稀疏计算之间存在根本矛盾。
-4. **本文要解决什么**：在保持稀疏前向传播效率的同时，让 router 获得近似稠密梯度更新。
-5. **切入角度**：straight-through estimator 可以绕过 TopK 的不可微操作提供稠密梯度，但需要所有 expert 的输出。关键洞察：非激活 expert 的输出可以用其历史输出的均值来近似——这个均值已经在正常前向传播中免费计算了。
-6. **核心 idea**：用 EMA 维护每个 expert 的"默认输出向量"，在反向传播时替代非激活 expert 的输出，实现 $O(1)$ 额外内存的稠密 router 梯度。
+**领域现状**：稀疏 MoE 架构已被 DeepSeek-V2/V3、Mixtral、DBRX 等广泛采用。TopK routing 只激活 K 个 expert 处理每个 token，使得参数量可以大幅扩展而计算量不变。
+**现有痛点**：TopK routing 意味着 router 只能接收被激活 expert 的梯度反馈——未激活的 expert 对 router 的梯度贡献为零。这导致 router 无法获得"全局视野"来做最优路由决策，拖慢学习速度并可能导致次优收敛。
+**核心矛盾**：要让 router 获得完整（稠密）梯度就需要激活所有 expert（即变成 dense 模型），但这会破坏 MoE 的稀疏计算优势。稠密梯度和稀疏计算之间存在根本矛盾。
+**本文要解决什么**：在保持稀疏前向传播效率的同时，让 router 获得近似稠密梯度更新。
+**切入角度**：straight-through estimator 可以绕过 TopK 的不可微操作提供稠密梯度，但需要所有 expert 的输出。关键洞察：非激活 expert 的输出可以用其历史输出的均值来近似——这个均值已经在正常前向传播中免费计算了。
+**核心 idea**：用 EMA 维护每个 expert 的"默认输出向量"，在反向传播时替代非激活 expert 的输出，实现 $O(1)$ 额外内存的稠密 router 梯度。
 
 ## 方法详解
 
@@ -41,22 +41,25 @@ tags:
 ### 关键设计
 
 1. **Dense Gradient via Default Vectors**:
-   - 做什么：让 router 的梯度项 $\frac{\partial y}{\partial \pi_i}$ 对所有 expert（而非仅被激活的）都非零。
-   - 标准 TopK 的梯度：$\frac{\partial y}{\partial \pi_i} = E_i(x)$ (若 $i \in \mathcal{A}$) 或 $0$ (若 $i \notin \mathcal{A}$)
-   - Default MoE 的梯度：$\frac{\partial y}{\partial \pi_i} = E_i(x)$ (若 $i \in \mathcal{A}$) 或 $\hat{E}_i$ (若 $i \notin \mathcal{A}$)
-   - 梯度误差分析：标准 TopK 的误差 $\epsilon_{\text{TopK}} \propto \sum_{i' \notin \mathcal{A}} E_{i'}(x)$；Default MoE 的误差 $\epsilon_{\text{default}} \propto \sum_{i \notin \mathcal{A}} (E_i(x) - \mathbb{E}[E_i(x)])$，期望为零。
-   - 设计动机：默认向量是对缺失 expert 输出的无偏估计，期望误差为零意味着平均而言能完美修正稠密梯度。
+
+    - 做什么：让 router 的梯度项 $\frac{\partial y}{\partial \pi_i}$ 对所有 expert（而非仅被激活的）都非零。
+    - 标准 TopK 的梯度：$\frac{\partial y}{\partial \pi_i} = E_i(x)$ (若 $i \in \mathcal{A}$) 或 $0$ (若 $i \notin \mathcal{A}$)
+    - Default MoE 的梯度：$\frac{\partial y}{\partial \pi_i} = E_i(x)$ (若 $i \in \mathcal{A}$) 或 $\hat{E}_i$ (若 $i \notin \mathcal{A}$)
+    - 梯度误差分析：标准 TopK 的误差 $\epsilon_{\text{TopK}} \propto \sum_{i' \notin \mathcal{A}} E_{i'}(x)$；Default MoE 的误差 $\epsilon_{\text{default}} \propto \sum_{i \notin \mathcal{A}} (E_i(x) - \mathbb{E}[E_i(x)])$，期望为零。
+    - 设计动机：默认向量是对缺失 expert 输出的无偏估计，期望误差为零意味着平均而言能完美修正稠密梯度。
 
 2. **EMA 更新默认向量**:
-   - 做什么：用指数移动平均跟踪每个 expert 的历史平均输出。
-   - 核心公式：$\hat{E}_i^{(t)} = \beta \hat{E}_i^{(t-1)} + (1 - \beta) \overline{E_i(x)}$
-   - 其中 $\overline{E_i(x)}$ 是当前 batch 中所有激活了 expert $i$ 的 token 的输出平均值——这些输出在标准前向传播中已经计算好了，无需额外开销。
-   - 前向传播公式：$y = \sum_{i=1}^N \pi_i \cdot \begin{cases} E_i(x) & \text{if } i \in \text{TopK}(\pi) \\ \hat{E}_i^{(t)} & \text{otherwise} \end{cases}$
-   - 设计动机：EMA 相比简单平均能更好地跟踪训练过程中 expert 参数的变化；每个 expert 只需额外存储一个 hidden_dim 大小的向量（$O(1)$ 额外内存）。
+
+    - 做什么：用指数移动平均跟踪每个 expert 的历史平均输出。
+    - 核心公式：$\hat{E}_i^{(t)} = \beta \hat{E}_i^{(t-1)} + (1 - \beta) \overline{E_i(x)}$
+    - 其中 $\overline{E_i(x)}$ 是当前 batch 中所有激活了 expert $i$ 的 token 的输出平均值——这些输出在标准前向传播中已经计算好了，无需额外开销。
+    - 前向传播公式：$y = \sum_{i=1}^N \pi_i \cdot \begin{cases} E_i(x) & \text{if } i \in \text{TopK}(\pi) \\ \hat{E}_i^{(t)} & \text{otherwise} \end{cases}$
+    - 设计动机：EMA 相比简单平均能更好地跟踪训练过程中 expert 参数的变化；每个 expert 只需额外存储一个 hidden_dim 大小的向量（$O(1)$ 额外内存）。
 
 3. **Router-logit 加权的 EMA 更新**:
-   - 做什么：用 router 的 softmax 概率对 EMA 更新进行加权，自动适应不同稀疏度配置。
-   - 设计动机：不同稀疏度（1/8 vs 1/32）下最优 $\beta$ 不同。加权后，$\beta$ 的选择变得不敏感，所有配置都收敛到相同的良好性能。
+
+    - 做什么：用 router 的 softmax 概率对 EMA 更新进行加权，自动适应不同稀疏度配置。
+    - 设计动机：不同稀疏度（1/8 vs 1/32）下最优 $\beta$ 不同。加权后，$\beta$ 的选择变得不敏感，所有配置都收敛到相同的良好性能。
 
 ### 训练策略
 - 所有模型 1.96B 总参数，训练 160B tokens

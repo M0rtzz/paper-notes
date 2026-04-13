@@ -30,10 +30,10 @@ tags:
 HOT（Human-Object conTact）检测源自 HOI（Human-Object Interaction），旨在识别人体**具体哪些部位**与物体接触，将人体分为 18 个类别（17 个部位 + 背景）。该任务对人机交互、VR、手势识别等领域具有重要价值。
 
 现有方法（DHOT、PIHOT）的不足：
-1. **单一模态**：仅用图像特征，忽视文本引导的语义信息
-2. **区域类别不一致**：交叉熵损失无法约束区域内类别一致性，导致在某类别区域内出现其他类别（如手掌区域内出现小块"头部"预测）
-3. **无交互区域干扰**：在交互较少的区域过度分割
-4. **评估指标缺陷**：C-Acc. 指标有缺陷——若将整张图预测为某接触类，C-Acc. 可达 100%
+**单一模态**：仅用图像特征，忽视文本引导的语义信息
+**区域类别不一致**：交叉熵损失无法约束区域内类别一致性，导致在某类别区域内出现其他类别（如手掌区域内出现小块"头部"预测）
+**无交互区域干扰**：在交互较少的区域过度分割
+**评估指标缺陷**：C-Acc. 指标有缺陷——若将整张图预测为某接触类，C-Acc. 可达 100%
 
 核心动机：引入多模态信息（文本 prompt + 深度伪 3D 信息）提升 HOT 检测能力，并设计专门的损失函数确保分割的区域一致性。
 
@@ -54,15 +54,16 @@ $$\mathbf{S} = \frac{\mathbf{F}_{IE} \cdot \mathbf{F}_{TE}^T}{\|\mathbf{F}_{IE}\
 相似度 $\mathbf{S}$ 按通道乘以解码器输出，增强文本所关注部位的响应。**核心思想**：利用图文匹配度动态调整各身体部位通道的权重。
 
 2. **人体近端感知 (HPP) 模块**: 解决2D视角下人体与物体重叠的不确定性问题：
-   - 使用 SAM（text prompt "person"）生成人体掩码 $\mathbf{M}$
-   - 使用 ZoeDepth 提取深度图 $\mathbf{D}$，归一化到 $[0,1]$
-   - 计算每个人体的平均深度 $\mathbf{m}_i^{da}$
-   - 通过可学习参数 $\tau$ 确定深度范围 $[\mathbf{m}_i^{da} - \tau, \mathbf{m}_i^{da} + \tau]$
-   - 生成过滤掩码保留人体及其周围物体，排除无关背景
+
+    - 使用 SAM（text prompt "person"）生成人体掩码 $\mathbf{M}$
+    - 使用 ZoeDepth 提取深度图 $\mathbf{D}$，归一化到 $[0,1]$
+    - 计算每个人体的平均深度 $\mathbf{m}_i^{da}$
+    - 通过可学习参数 $\tau$ 确定深度范围 $[\mathbf{m}_i^{da} - \tau, \mathbf{m}_i^{da} + \tau]$
+    - 生成过滤掩码保留人体及其周围物体，排除无关背景
    
    为使 $\tau$ 可反向传播，用 ReLU 替代硬阈值比较：
-   $$\Theta_i = (D_{Norm} - (\mathbf{m}_i^{da} - \tau)) \otimes ((\mathbf{m}_i^{da} + \tau) - D_{Norm})$$
-   $$FM = FM + \sum_{i=1}^N \text{ReLU}(\Theta_i)$$
+    $\Theta_i = (D_{Norm} - (\mathbf{m}_i^{da} - \tau)) \otimes ((\mathbf{m}_i^{da} + \tau) - D_{Norm})$
+    $FM = FM + \sum_{i=1}^N \text{ReLU}(\Theta_i)$
 
 3. **多尺度特征融合解码器**: 将编码器四个 block 的输出（$S_i = \{4, 8, 16, 32\}$ 下采样率）逐级上采样并拼接：
 $$\mathbf{x}_{i-1} = \text{DoubleConv}(\text{Up}(\mathbf{x}_i) \text{ⓒ} \mathbf{F}_{i-1})$$

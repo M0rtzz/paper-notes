@@ -32,8 +32,8 @@ tags:
 
 ### 两大训练范式
 
-1. **值基方法（Value-based）**：引入流函数 $F(s)$，通过流平衡条件（如Sub-TB）来隐式最小化分布差异。优点是支持off-policy采样，但流平衡不直接反映奖励的真实信息
-2. **策略基方法（Policy-based）**：借鉴RL的Actor-Critic框架，引入评价函数 $V(s)$ 来估计策略在状态 $s$ 处的KL散度，然后用策略梯度更新 $\pi_F$。优点是on-policy训练更高效
+**值基方法（Value-based）**：引入流函数 $F(s)$，通过流平衡条件（如Sub-TB）来隐式最小化分布差异。优点是支持off-policy采样，但流平衡不直接反映奖励的真实信息
+**策略基方法（Policy-based）**：借鉴RL的Actor-Critic框架，引入评价函数 $V(s)$ 来估计策略在状态 $s$ 处的KL散度，然后用策略梯度更新 $\pi_F$。优点是on-policy训练更高效
 
 ### 核心挑战
 

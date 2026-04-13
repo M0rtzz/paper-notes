@@ -38,27 +38,31 @@ DenseLoRA的适配过程分为三阶段流水线：(1) Encoder压缩隐藏表示
 
 ### 关键设计
 1. **Encoder压缩模块**:
-   - 使用全连接网络 $W_e \in \mathbb{R}^{r \times k}$ 将隐藏表示 $h \in \mathbb{R}^k$ 压缩为低维表示 $h' \in \mathbb{R}^r$
-   - 后接激活函数 $\sigma(\cdot)$
-   - 用Kaiming初始化
-   - 跨所有适配层共享，减少参数冗余
+
+    - 使用全连接网络 $W_e \in \mathbb{R}^{r \times k}$ 将隐藏表示 $h \in \mathbb{R}^k$ 压缩为低维表示 $h' \in \mathbb{R}^r$
+    - 后接激活函数 $\sigma(\cdot)$
+    - 用Kaiming初始化
+    - 跨所有适配层共享，减少参数冗余
 
 2. **稠密低秩适配矩阵**:
-   - 每层使用独立的方阵 $M \in \mathbb{R}^{r \times r}$ 进行适配
-   - 与LoRA的 $B \times A$（两个矩阵乘积）不同，DenseLoRA使用一个小的稠密方阵
-   - 虽然是 $r \times r$ 的小矩阵，但由于共享了Encoder-Decoder的压缩和重建功能，实际学到的是更有效的适配
-   - Kaiming初始化
+
+    - 每层使用独立的方阵 $M \in \mathbb{R}^{r \times r}$ 进行适配
+    - 与LoRA的 $B \times A$（两个矩阵乘积）不同，DenseLoRA使用一个小的稠密方阵
+    - 虽然是 $r \times r$ 的小矩阵，但由于共享了Encoder-Decoder的压缩和重建功能，实际学到的是更有效的适配
+    - Kaiming初始化
 
 3. **Decoder重建模块**:
-   - 使用 $W_d \in \mathbb{R}^{d \times r}$ 将适配后的表示重建回原始维度
-   - 后接激活函数
-   - 零初始化（确保初始时不干扰前向传播）
-   - 与Encoder共享，跨层共享
+
+    - 使用 $W_d \in \mathbb{R}^{d \times r}$ 将适配后的表示重建回原始维度
+    - 后接激活函数
+    - 零初始化（确保初始时不干扰前向传播）
+    - 与Encoder共享，跨层共享
 
 4. **参数量分析**:
-   - LoRA: $|\Theta| = l \times (d+k) \times r$（l为适配层数）
-   - DenseLoRA: $|\Theta| = (d+k+l \times r) \times r$
-   - 实际对比：LLaMA2-7B, r=16时，LoRA需28M参数，DenseLoRA仅需0.9M，30倍压缩
+
+    - LoRA: $|\Theta| = l \times (d+k) \times r$（l为适配层数）
+    - DenseLoRA: $|\Theta| = (d+k+l \times r) \times r$
+    - 实际对比：LLaMA2-7B, r=16时，LoRA需28M参数，DenseLoRA仅需0.9M，30倍压缩
 
 ### 损失函数 / 训练策略
 整体适配公式：$\hat{h} = W_0 h + Decoder(M \cdot Encoder(h))$

@@ -56,9 +56,10 @@ $$\dot{\theta}_j(t) = \frac{1}{s_j(t)} \mathbf{P}_{\theta_j(t)} A_j^t(\Theta(t))
 2. **渐近聚类定理（Theorem 3.1）**：证明了在 $Q=K=V=I_d$ 简化设定下，Post-LN、nGPT、sqrt-scaling 的 token 方向几乎必然同步到一个聚类；Pre-LN、Mix-LN、Peri-LN 则在幅值增长停止时也会聚类。利用 Łojasiewicz 不等式的推广建立收敛性。
 
 3. **初始速度与终端速度分析（Theorems 4.1-4.3）**：
-   - **初始速度**：Peri-LN 和 nGPT 在早期层的角位移为 $O(1)$，而 Post-LN 和 Pre-LN 仅为 $O(\log n / d)$，相差 $\Omega(\min(d/\log n, \sqrt{n/\log n}))$ 倍
-   - **终端速度**：Post-LN 聚类速率为指数衰减 $Ce^{-2t}$；Pre-LN、Peri-LN、Mix-LN 为多项式衰减 $C/t^3$；nGPT 取决于 $\alpha_t$ 的选择
-   - 多项式衰减意味着 token 在深层仍能有意义地演化，更好地利用中间层，抵抗表示坍缩
+
+    - **初始速度**：Peri-LN 和 nGPT 在早期层的角位移为 $O(1)$，而 Post-LN 和 Pre-LN 仅为 $O(\log n / d)$，相差 $\Omega(\min(d/\log n, \sqrt{n/\log n}))$ 倍
+    - **终端速度**：Post-LN 聚类速率为指数衰减 $Ce^{-2t}$；Pre-LN、Peri-LN、Mix-LN 为多项式衰减 $C/t^3$；nGPT 取决于 $\alpha_t$ 的选择
+    - 多项式衰减意味着 token 在深层仍能有意义地演化，更好地利用中间层，抵抗表示坍缩
 
 ### 理论工具
 

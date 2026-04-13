@@ -25,12 +25,12 @@ tags:
 本文提出 Ladder Residual，一种简单的架构修改——将每个模块的输入从上一层的输出改为上上层的输出（错位残差），使模块计算与 AllReduce 通信解耦，从而实现通信与计算的重叠，在 70B 模型 8 卡 TP 推理中实现 29% 的端到端加速，且模型性能与标准 Transformer 持平。
 
 ## 研究背景与动机
-1. **领域现状**：随着 LLM 规模增长，张量并行 (Tensor Parallelism, TP) 是跨 GPU 推理的关键技术，将权重和激活分区到多个设备上并行计算。
-2. **现有痛点**：TP 需要在每层进行 AllReduce 同步操作，这是阻塞式的——在 70B 模型 TP=8 的设置下，AllReduce 通信占推理延迟的 38%，P2P 禁用时甚至超过 50%。
-3. **核心矛盾**：现有通信优化方案（如 Flux、CoCoNet）依赖底层 kernel 融合或自定义编译器，难以跨硬件迁移，且受限于模型架构的固有顺序依赖（h_{i+1} 依赖 x_i 的通信结果）。
-4. **本文要解决什么**：通过模型架构层面的修改（而非底层系统优化）来解耦通信和计算，实现通信延迟的隐藏。
-5. **切入角度**：基于 Transformer 中激活变化缓慢的观察（每层更新 h_i(x) 的范数相对残差 x 较小），用"陈旧"输入代替最新输入不会显著影响质量。
-6. **核心 idea**：将标准残差连接 x_{i+1} = h_{i+1}(x_i) + x_i 改为 x_{i+1} = h_{i+1}(x_{i-1}) + x_i，使 h_{i+1} 的计算不依赖 x_i 的 AllReduce 结果，从而可以并行执行。
+**领域现状**：随着 LLM 规模增长，张量并行 (Tensor Parallelism, TP) 是跨 GPU 推理的关键技术，将权重和激活分区到多个设备上并行计算。
+**现有痛点**：TP 需要在每层进行 AllReduce 同步操作，这是阻塞式的——在 70B 模型 TP=8 的设置下，AllReduce 通信占推理延迟的 38%，P2P 禁用时甚至超过 50%。
+**核心矛盾**：现有通信优化方案（如 Flux、CoCoNet）依赖底层 kernel 融合或自定义编译器，难以跨硬件迁移，且受限于模型架构的固有顺序依赖（h_{i+1} 依赖 x_i 的通信结果）。
+**本文要解决什么**：通过模型架构层面的修改（而非底层系统优化）来解耦通信和计算，实现通信延迟的隐藏。
+**切入角度**：基于 Transformer 中激活变化缓慢的观察（每层更新 h_i(x) 的范数相对残差 x 较小），用"陈旧"输入代替最新输入不会显著影响质量。
+**核心 idea**：将标准残差连接 x_{i+1} = h_{i+1}(x_i) + x_i 改为 x_{i+1} = h_{i+1}(x_{i-1}) + x_i，使 h_{i+1} 的计算不依赖 x_i 的 AllReduce 结果，从而可以并行执行。
 
 ## 方法详解
 
@@ -40,20 +40,23 @@ Ladder Residual 修改 Transformer 的残差连接方式：每个模块（Attent
 ### 关键设计
 
 1. **错位残差连接（Ladder Residual）**:
-   - 做什么：将标准 Transformer 的 x_{i+1} = h_{i+1}(x_i) + x_i 修改为 x_{i+1} = h_{i+1}(x_{i-1}) + x_i
-   - 核心思路：模块 h_{i+1} 使用的是 x_{i-1}（已经在上一步完成了 AllReduce），而不需要等待 x_i 的 AllReduce 完成。AllReduce(x_i*) 可以与 h_{i+1}(x_{i-1}) 并行执行
-   - 设计动机：Transformer 中每层更新的范数相对残差流较小，用"陈旧一步"的输入对最终表示的影响有限
-   - 与标准 Transformer 的区别：残差流仍正常累加（保证 block i 可以处理前 i-2 个 block 的所有信息），仅模块输入使用陈旧值
+
+    - 做什么：将标准 Transformer 的 x_{i+1} = h_{i+1}(x_i) + x_i 修改为 x_{i+1} = h_{i+1}(x_{i-1}) + x_i
+    - 核心思路：模块 h_{i+1} 使用的是 x_{i-1}（已经在上一步完成了 AllReduce），而不需要等待 x_i 的 AllReduce 完成。AllReduce(x_i*) 可以与 h_{i+1}(x_{i-1}) 并行执行
+    - 设计动机：Transformer 中每层更新的范数相对残差流较小，用"陈旧一步"的输入对最终表示的影响有限
+    - 与标准 Transformer 的区别：残差流仍正常累加（保证 block i 可以处理前 i-2 个 block 的所有信息），仅模块输入使用陈旧值
 
 2. **异步 AllReduce 实现**:
-   - 做什么：利用 NCCL 异步通信 + handle 传递实现非阻塞 AllReduce
-   - 核心思路：Attention 计算完成后立即启动异步 AllReduce 并返回 handle；接着用上一层 MLP 的 handle 同步并执行当前 MLP 计算
-   - 实现在 PyTorch 中非常简洁，无需自定义 kernel
+
+    - 做什么：利用 NCCL 异步通信 + handle 传递实现非阻塞 AllReduce
+    - 核心思路：Attention 计算完成后立即启动异步 AllReduce 并返回 handle；接着用上一层 MLP 的 handle 同步并执行当前 MLP 计算
+    - 实现在 PyTorch 中非常简洁，无需自定义 kernel
 
 3. **混合 Ladder 适配（Post-training Adaptation）**:
-   - 做什么：将预训练好的 Llama-3.1-8B-Instruct 的上半层转换为 Ladder Residual，仅用 3B token 轻量微调
-   - 核心思路：下半层保持不变（避免破坏难以恢复的底层知识），仅修改上半层（16-32层）
-   - 3B token 微调即可恢复到与原始模型相当的性能
+
+    - 做什么：将预训练好的 Llama-3.1-8B-Instruct 的上半层转换为 Ladder Residual，仅用 3B token 轻量微调
+    - 核心思路：下半层保持不变（避免破坏难以恢复的底层知识），仅修改上半层（16-32层）
+    - 3B token 微调即可恢复到与原始模型相当的性能
 
 ### 损失函数 / 训练策略
 - 从头训练：标准语言建模损失，cosine scheduler，peak LR 3e-4，warmup 8B tokens

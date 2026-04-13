@@ -41,27 +41,30 @@ tags:
 ### 关键设计
 
 1. **结构化推理步骤设计**：每个推理步包含三个组件：
-   - **Name**：步骤概要（如"识别几何形状"）
-   - **Thought**：详细推理内容
-   - **Reflection**：与视觉内容和前序步骤的关联，缓解幻觉
+
+    - **Name**：步骤概要（如"识别几何形状"）
+    - **Thought**：详细推理内容
+    - **Reflection**：与视觉内容和前序步骤的关联，缓解幻觉
    
    用11个特殊token标记步骤边界，确保输出格式稳定可解析。步骤数量和长度由模型自主决定。
 
 2. **ShareGPT-Step-300K数据集**：用GPT-4o从17个数据集的QA pairs生成结构化推理链。覆盖数学、科学、图表、文档、知识问答等多样任务。"从结果推理"——给GPT-4o答案参考可大幅降低生成难度、提高质量。
 
 3. **Process Reward Model (PRM)**：
-   - 训练数据：用Math-Shepherd (MC估计, N=16)和GPT-4o-as-Judge两种方法各标注100K步骤级数据
-   - 标注粒度：每步标注Good/Neutral/Bad
-   - 基座：InternVL-2.5-MPO-38B，BCE loss训练2 epochs
-   - Step accuracy 87.3% on unseen data
+
+    - 训练数据：用Math-Shepherd (MC估计, N=16)和GPT-4o-as-Judge两种方法各标注100K步骤级数据
+    - 标注粒度：每步标注Good/Neutral/Bad
+    - 基座：InternVL-2.5-MPO-38B，BCE loss训练2 epochs
+    - Step accuracy 87.3% on unseen data
 
 4. **Iterative DPO**：每轮对每个问题生成16条推理路径，用PRM评估（step score 20% + answer score 80%加权），选择分差超过阈值t的正负对做DPO。3轮迭代，每轮20K preference pairs。
 
 5. **Step-level Beam Search**（推理时）：
-   - 对每一步采样N个候选
-   - 用PRM打分选最佳步骤
-   - 基于最佳步骤继续采样下一步
-   - 与Best-of-N sampling成本相同但效果更好
+
+    - 对每一步采样N个候选
+    - 用PRM打分选最佳步骤
+    - 基于最佳步骤继续采样下一步
+    - 与Best-of-N sampling成本相同但效果更好
 
 ## 实验关键数据
 

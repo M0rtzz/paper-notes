@@ -29,8 +29,8 @@ tags:
 
 现有医学 VQA 数据集存在两个关键缺陷：
 
-1. **缺乏可解释性**：仅给出答案但不提供视觉和文本解释，难以帮助患者和初级医生理解诊断依据
-2. **问题类型单一**：通常仅包含开放式和封闭式问题，不包括选择题，无法反映实际临床场景的多样需求
+**缺乏可解释性**：仅给出答案但不提供视觉和文本解释，难以帮助患者和初级医生理解诊断依据
+**问题类型单一**：通常仅包含开放式和封闭式问题，不包括选择题，无法反映实际临床场景的多样需求
 
 现有数据集如 VQA-RAD (3.5K QA)、SLAKE (14K QA)、MIMIC-CXR-VQA (377K QA) 等，规模有限且均缺乏多模态可解释性。
 
@@ -47,23 +47,26 @@ GEMeX 的核心创新是**同时提供文本推理和视觉定位（bounding box
 ### 关键设计
 
 1. **报告重定位 (Re-grounding)**:
-   - **问题**：Chest ImaGenome 中一个句子可对应多个解剖区域（如"右肋膈角钝化"对应"右肺"和"右下肺区"），导致模糊性
-   - **解决方案**：与放射科医生合作，将 29 个区域精简/合并为 30 个核心病理区域，确保每句话对应单一精确区域
-   - 使用 OpenBioLLM-70B 进行自动重定位，通过放射科医生反馈的迭代 prompt 精炼，最终准确率达 98.4%
-   - 对涉及多区域的句子进行拆分重写（如 "cardiomediastinal silhouette is normal" → 分别对应 cardiac silhouette 和 mediastinum）
+
+    - **问题**：Chest ImaGenome 中一个句子可对应多个解剖区域（如"右肋膈角钝化"对应"右肺"和"右下肺区"），导致模糊性
+    - **解决方案**：与放射科医生合作，将 29 个区域精简/合并为 30 个核心病理区域，确保每句话对应单一精确区域
+    - 使用 OpenBioLLM-70B 进行自动重定位，通过放射科医生反馈的迭代 prompt 精炼，最终准确率达 98.4%
+    - 对涉及多区域的句子进行拆分重写（如 "cardiomediastinal silhouette is normal" → 分别对应 cardiac silhouette 和 mediastinum）
 
 2. **VQA 生成与质量控制**:
-   - 使用 GPT-4o (2024-08-06) 作为生成器
-   - 每张图像生成 11 个问题：3 开放式 + 2 封闭式 + 3 单选 + 3 多选
-   - 每个 QA 对附带：答案 + 文本推理 + 视觉区域标注
-   - 问题内容覆盖 7 类：abnormality、disease、location、cause、size、severity、implication
-   - 质量控制：手工标注 30 张图像作为 few-shot demo，50 样本预审 prompt 效果
-   - 测试集由放射科医生逐一审核：仅修正 10 个错误答案和 3 个不准确定位
+
+    - 使用 GPT-4o (2024-08-06) 作为生成器
+    - 每张图像生成 11 个问题：3 开放式 + 2 封闭式 + 3 单选 + 3 多选
+    - 每个 QA 对附带：答案 + 文本推理 + 视觉区域标注
+    - 问题内容覆盖 7 类：abnormality、disease、location、cause、size、severity、implication
+    - 质量控制：手工标注 30 张图像作为 few-shot demo，50 样本预审 prompt 效果
+    - 测试集由放射科医生逐一审核：仅修正 10 个错误答案和 3 个不准确定位
 
 3. **LLaVA-Med-GEMeX 基线模型**:
-   - 基于 LLaVA-Med-v1-7B 的 question-type-aware instruction tuning
-   - 对每个样本添加类型提示 (Type prompt) + 答案 + 文本推理 + 视觉位置
-   - 四种类型分别设置不同的 Supplement 格式（如封闭式为 "yes or no"）
+
+    - 基于 LLaVA-Med-v1-7B 的 question-type-aware instruction tuning
+    - 对每个样本添加类型提示 (Type prompt) + 答案 + 文本推理 + 视觉位置
+    - 四种类型分别设置不同的 Supplement 格式（如封闭式为 "yes or no"）
 
 ### 损失函数 / 训练策略
 

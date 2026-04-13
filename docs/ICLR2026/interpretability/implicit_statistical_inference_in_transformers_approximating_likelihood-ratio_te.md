@@ -53,16 +53,18 @@ tags:
 ### 关键设计
 
 1. **Task A: 平移均值判别（线性域）**：
-   - 采样方向 $\mu \sim \text{Unif}(\mathbb{S}^{d-1})$ 和偏移 $k \sim \mathcal{N}(0,\sigma_k^2 I)$
-   - $H_0: x \sim \mathcal{N}(-\mu+k, I)$，$H_1: x \sim \mathcal{N}(\mu+k, I)$
-   - 最优充分统计量 $S(x) = \mu^\top(x-k)$：模型必须从上下文推断 $\mu$ 和 $k$
-   - 设计动机：测试模型是否能动态估计局部重心并执行线性判别
+
+    - 采样方向 $\mu \sim \text{Unif}(\mathbb{S}^{d-1})$ 和偏移 $k \sim \mathcal{N}(0,\sigma_k^2 I)$
+    - $H_0: x \sim \mathcal{N}(-\mu+k, I)$，$H_1: x \sim \mathcal{N}(\mu+k, I)$
+    - 最优充分统计量 $S(x) = \mu^\top(x-k)$：模型必须从上下文推断 $\mu$ 和 $k$
+    - 设计动机：测试模型是否能动态估计局部重心并执行线性判别
 
 2. **Task B: 方差判别（非线性域）**：
-   - 采样 $\sigma_0, \sigma_1 \sim \text{Unif}[0.5, 3.0]$，均值固定为零
-   - $H_0: x \sim \mathcal{N}(0, \sigma_0^2 I)$，$H_1: x \sim \mathcal{N}(0, \sigma_1^2 I)$
-   - 类均值相同→点积相似度**无信息**，最优统计量依赖二次能量 $\|x\|^2$
-   - 设计动机：测试模型是否能将内部几何从线性投影切换到基于范数的估计
+
+    - 采样 $\sigma_0, \sigma_1 \sim \text{Unif}[0.5, 3.0]$，均值固定为零
+    - $H_0: x \sim \mathcal{N}(0, \sigma_0^2 I)$，$H_1: x \sim \mathcal{N}(0, \sigma_1^2 I)$
+    - 类均值相同→点积相似度**无信息**，最优统计量依赖二次能量 $\|x\|^2$
+    - 设计动机：测试模型是否能将内部几何从线性投影切换到基于范数的估计
 
 3. **LLR 恢复验证**：将输出 logit 与解析 LLR 做回归，检验 Pearson $r$（线性相关）和 Spearman $\rho$（秩相关）
 

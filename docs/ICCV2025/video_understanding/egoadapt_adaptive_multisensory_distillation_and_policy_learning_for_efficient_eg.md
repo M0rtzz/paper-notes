@@ -40,14 +40,16 @@ EgoAdapt 包含两个核心模块：**跨模态特征蒸馏（CFD）** 模块 Φ
 ### 关键设计
 
 1. **跨模态特征蒸馏（CFD）**：使用轻量学生模型 Φ 逼近重型教师模型 Ω 的性能。从视觉帧 I、音频 A 和行为数据 B 中分别提取特征 $z_I, z_A, z_B$，通过融合网络 ξ 得到融合特征 $z_\phi$，使 $\Phi(I, A, B) \approx \Omega(V)$。训练损失包含三项：
-   - L1 特征匹配损失：$\mathcal{L}_1 = \sum \| z_{\Omega_i} - z_{\phi_i} \|_1$
-   - KL 散度知识蒸馏损失：$\mathcal{L}_{KD} = \sum D_{KL}(\sigma(\Omega(V)/\tau), \sigma(\Phi(I,A,B)/\tau))$
-   - 交叉熵预测损失：$\mathcal{L}_{GT} = \sum \mathcal{L}_{CE}(c_i, \sigma(\Phi(I,A,B)))$
-   - 综合损失：$\mathcal{L}_\Phi = \alpha \mathcal{L}_{KD} + (1-\alpha)\mathcal{L}_{GT} + \beta \mathcal{L}_1$
+
+    - L1 特征匹配损失：$\mathcal{L}_1 = \sum \| z_{\Omega_i} - z_{\phi_i} \|_1$
+    - KL 散度知识蒸馏损失：$\mathcal{L}_{KD} = \sum D_{KL}(\sigma(\Omega(V)/\tau), \sigma(\Phi(I,A,B)/\tau))$
+    - 交叉熵预测损失：$\mathcal{L}_{GT} = \sum \mathcal{L}_{CE}(c_i, \sigma(\Phi(I,A,B)))$
+    - 综合损失：$\mathcal{L}_\Phi = \alpha \mathcal{L}_{KD} + (1-\alpha)\mathcal{L}_{GT} + \beta \mathcal{L}_1$
 
 2. **任务感知多感官策略学习（TeMPLe）**：设计策略网络包含轻量模态特征提取器和 LSTM 模块，通过 **Gumbel-Softmax 采样**实现离散策略的可微训练。在每个时间步 t，LSTM 接收联合特征和历史隐藏状态，输出二值策略决策 $u_{t,k}$，决定是否启用模态 k。
-   - 对 ASL 和 BA 任务：学习模态切换策略（选择哪些模态、哪些音频通道）
-   - 对 AR 任务：采用**音频预览**策略——先分析音频检测兴趣区域，再从中选择最具信息量的单帧进行识别
+
+    - 对 ASL 和 BA 任务：学习模态切换策略（选择哪些模态、哪些音频通道）
+    - 对 AR 任务：采用**音频预览**策略——先分析音频检测兴趣区域，再从中选择最具信息量的单帧进行识别
 
 3. **音频引导帧选择（AR 特有）**：通过多头注意力与递归 CNN 的"握手"机制提取时间感知音频特征，使用 LSTM 检测潜在事件区域，每个区域仅选一帧进行动作识别，实现极致的帧效率。握手公式为 $z_{l+1}^{RCNN} = z_l^{RCNN} + \rho z_l^{MH}$，其中 ρ 为可学习参数。
 

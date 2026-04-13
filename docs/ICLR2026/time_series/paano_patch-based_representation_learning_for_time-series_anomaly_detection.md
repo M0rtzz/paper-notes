@@ -31,9 +31,9 @@ tags:
 
 **现有方法的问题**：
 
-1. **幻象式进步（illusion of progress）**：Sarfraz et al. 和 Liu & Paparrizos 揭示——在严格评估协议下（去除 point adjustment、避免阈值调优），复杂大模型并未显著超越简单方法
-2. **计算成本高**：Transformer 和 Foundation Model 参数量大（0.5M-210M），运行时间长（几十秒到上千秒），不适合实时和资源受限场景
-3. **局部性稀释**：全局自注意力机制对局部上下文不敏感，而异常检测恰恰依赖短区间内的局部时间模式
+**幻象式进步（illusion of progress）**：Sarfraz et al. 和 Liu & Paparrizos 揭示——在严格评估协议下（去除 point adjustment、避免阈值调优），复杂大模型并未显著超越简单方法
+**计算成本高**：Transformer 和 Foundation Model 参数量大（0.5M-210M），运行时间长（几十秒到上千秒），不适合实时和资源受限场景
+**局部性稀释**：全局自注意力机制对局部上下文不敏感，而异常检测恰恰依赖短区间内的局部时间模式
 
 **PaAno 的定位**：
 

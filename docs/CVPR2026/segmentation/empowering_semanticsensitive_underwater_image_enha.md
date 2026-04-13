@@ -38,25 +38,28 @@ tags:
 ### 关键设计
 
 1. **语义引导图生成**：
-   - 用 LLaVA 自动生成退化图像中关键物体的文本描述 T
-   - 用 BLIP 的视觉编码器 Φ_v 提取 patch 特征 F_v = {f_v1,...,f_vN}，文本编码器 Φ_t 提取全局文本特征 f_t
-   - 计算每个 patch 与文本的余弦相似度 s_i = v̂_i^T · t̂
-   - 语义锐化函数 Ψ_sharp：先 min-max 归一化，减去阈值 δ 过滤低相关噪声，再取 γ 次幂（γ>1）非线性放大差异
-   - 上采样至原图分辨率得到单通道引导图 M_sem
-   - 对比了 ViT class attention、CLIP、BLIP 三种方案，BLIP 效果最优（干净、边界清晰、无背景噪声）
+
+    - 用 LLaVA 自动生成退化图像中关键物体的文本描述 T
+    - 用 BLIP 的视觉编码器 Φ_v 提取 patch 特征 F_v = {f_v1,...,f_vN}，文本编码器 Φ_t 提取全局文本特征 f_t
+    - 计算每个 patch 与文本的余弦相似度 s_i = v̂_i^T · t̂
+    - 语义锐化函数 Ψ_sharp：先 min-max 归一化，减去阈值 δ 过滤低相关噪声，再取 γ 次幂（γ>1）非线性放大差异
+    - 上采样至原图分辨率得到单通道引导图 M_sem
+    - 对比了 ViT class attention、CLIP、BLIP 三种方案，BLIP 效果最优（干净、边界清晰、无背景噪声）
 
 2. **Cross-Attention 注入机制**：
-   - 在 decoder 各阶段 l，decoder 特征 d_l 作为 Query
-   - encoder skip-connection 特征 e_l 经 M_sem 加权后生成 Key 和 Value
-   - M_sem 下采样至对应分辨率 M̃(l)，e_l 乘以 M̃(l) 后投影
-   - d_l' = softmax(Q_l · K_l^T / √d_k) · V_l
-   - 使 decoder 优先从语义"高亮"区域提取编码器特征
+
+    - 在 decoder 各阶段 l，decoder 特征 d_l 作为 Query
+    - encoder skip-connection 特征 e_l 经 M_sem 加权后生成 Key 和 Value
+    - M_sem 下采样至对应分辨率 M̃(l)，e_l 乘以 M̃(l) 后投影
+    - d_l' = softmax(Q_l · K_l^T / √d_k) · V_l
+    - 使 decoder 优先从语义"高亮"区域提取编码器特征
 
 3. **显式语义对齐损失 L_align**：
-   - 对 decoder 第 l 阶段特征图 F(l) 施加双项约束：
-   - 背景抑制项：‖F(l) ⊙ (1 - M̃(l))‖²_F → 惩罚非关键区域的过强激活
-   - 前景增强项：-η⟨F(l), M̃(l)⟩ → 奖励关键物体区域的强响应
-   - η 是平衡超参
+
+    - 对 decoder 第 l 阶段特征图 F(l) 施加双项约束：
+    - 背景抑制项：‖F(l) ⊙ (1 - M̃(l))‖²_F → 惩罚非关键区域的过强激活
+    - 前景增强项：-η⟨F(l), M̃(l)⟩ → 奖励关键物体区域的强响应
+    - η 是平衡超参
 
 ### 损失函数 / 训练策略
 - 总损失：L_total = L_recon + λ_align · Σ_l L_align(l)

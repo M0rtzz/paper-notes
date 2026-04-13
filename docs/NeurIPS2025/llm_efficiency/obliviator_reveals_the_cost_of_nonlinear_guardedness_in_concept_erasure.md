@@ -25,15 +25,15 @@ tags:
 提出Obliviator——一种基于RKHS中HSIC最小化的后处理概念擦除方法，通过两步迭代优化逐步变形特征空间，首次实现对非线性对抗者的完全防护，同时量化了非线性防护的效用-擦除代价（utility-erasure trade-off），在多个PLM和数据集上显著优于现有方法。
 
 ## 研究背景与动机
-1. **领域现状**: 预训练语言模型（PLM）广泛编码了人口统计等敏感属性信息，导致偏见和不公平预测。概念擦除（concept erasure）旨在从表示中移除此类信息，同时保留任务相关效用。
-2. **现有痛点**: 
+**领域现状**: 预训练语言模型（PLM）广泛编码了人口统计等敏感属性信息，导致偏见和不公平预测。概念擦除（concept erasure）旨在从表示中移除此类信息，同时保留任务相关效用。
+**现有痛点**: 
    - **线性方法**（INLP、R-LACE、LEACE、SAL）仅能防护线性对抗者，非线性分类器仍可恢复敏感属性
    - **现有非线性方法**（kSAL、KCE、AdS、FaRM、KRaM）虽试图处理非线性依赖，但未能完全捕获非线性统计依赖关系，仍对非线性对抗者脆弱
    - 即使对PLM做代价高昂的微调（如AdS、FaRM），擦除也不完整
-3. **核心矛盾**: 概念擦除的两个目标（移除敏感属性 vs 保留任务效用）本质上竞争。现有方法要么无法完全擦除（对非线性对抗者不免疫），要么擦除时丢失过多效用。更关键的是，**效用-擦除代价的动态过程**从未被研究过。
-4. **本文要解决什么？**: (1) 实现对非线性对抗者的完全防护（即真正的统计独立）；(2) 揭示并量化擦除过程中效用与防护之间的trade-off动态。
-5. **切入角度**: 从**函数论视角**出发，利用RKHS中的HSIC作为非线性统计依赖的度量，将擦除问题形式化为级联核优化问题，并用迭代方法求解。
-6. **核心idea一句话**: 用HSIC衡量非线性统计依赖，通过编码器HSIC最小化+RKHS特征值分解的两步迭代逐步变形特征空间，在保效用的同时实现完全非线性概念擦除。
+**核心矛盾**: 概念擦除的两个目标（移除敏感属性 vs 保留任务效用）本质上竞争。现有方法要么无法完全擦除（对非线性对抗者不免疫），要么擦除时丢失过多效用。更关键的是，**效用-擦除代价的动态过程**从未被研究过。
+**本文要解决什么？**: (1) 实现对非线性对抗者的完全防护（即真正的统计独立）；(2) 揭示并量化擦除过程中效用与防护之间的trade-off动态。
+**切入角度**: 从**函数论视角**出发，利用RKHS中的HSIC作为非线性统计依赖的度量，将擦除问题形式化为级联核优化问题，并用迭代方法求解。
+**核心idea一句话**: 用HSIC衡量非线性统计依赖，通过编码器HSIC最小化+RKHS特征值分解的两步迭代逐步变形特征空间，在保效用的同时实现完全非线性概念擦除。
 
 ## 方法详解
 
@@ -45,18 +45,19 @@ Obliviator是一个**后处理、迭代式**的概念擦除方法，分两步交
 
 ### 关键设计
 1. **级联核问题（与kSAL/KCE的本质区别）**: 
-   - kSAL/KCE假设将表示映射到RKHS后做线性擦除就足以实现非线性防护——但这仅防护该RKHS内的线性对抗者，对同一空间内的非线性对抗者仍脆弱
-   - Obliviator寻找表示 $\varepsilon(X)$ 使得**即使经过后续对抗性特征映射** $\phi(\cdot)$，敏感属性 $S$ 仍不可检测。这导致级联核问题：$\inf_\theta \sup_g \sup_f \mathbb{E}[\bar{g}(S) \bar{f}(\varepsilon(\theta; X))]$
-   - 当HSIC $\to 0$ 时，等价于 $Z_\theta \perp\!\!\perp S$（真正的统计独立）
+
+    - kSAL/KCE假设将表示映射到RKHS后做线性擦除就足以实现非线性防护——但这仅防护该RKHS内的线性对抗者，对同一空间内的非线性对抗者仍脆弱
+    - Obliviator寻找表示 $\varepsilon(X)$ 使得**即使经过后续对抗性特征映射** $\phi(\cdot)$，敏感属性 $S$ 仍不可检测。这导致级联核问题：$\inf_\theta \sup_g \sup_f \mathbb{E}[\bar{g}(S) \bar{f}(\varepsilon(\theta; X))]$
+    - 当HSIC $\to 0$ 时，等价于 $Z_\theta \perp\!\!\perp S$（真正的统计独立）
 
 2. **Step 1: 编码器——通过RKHS施加独立性**: 
    第 $i$ 轮迭代训练编码器 $\varepsilon^i$，损失函数为：
-   $$\inf_{\theta^i} \frac{1}{n^2} \text{trace}\Big(\mathbf{K}_{z^i} \mathbf{H} (\mathbf{K}_s - \tau_x \mathbf{K}_x - \tau_{x^i} \mathbf{K}_{x^i} - \tau_y \mathbf{K}_y) \mathbf{H}\Big)$$
+    $\inf_{\theta^i} \frac{1}{n^2} \text{trace}\Big(\mathbf{K}_{z^i} \mathbf{H} (\mathbf{K}_s - \tau_x \mathbf{K}_x - \tau_{x^i} \mathbf{K}_{x^i} - \tau_y \mathbf{K}_y) \mathbf{H}\Big)$
    其中 $\mathbf{K}_\bullet$ 是对应变量的核矩阵，$\tau$ 是平衡权重。关键创新：不仅用 $Y$ 显式保护任务信息，还用 $X$（原始表示）和 $X^i$（当前迭代输入）作为隐式代理，因为HSIC聚合的不同"可见性模式"在不同参考变量下权重不同。
 
 3. **Step 2: RKHS解纠缠——特征值问题**: 
    求解受约束优化，找到最大化 $Z^i$ 与 $(X^i, X, Y)$ 相关性的RKHS函数，同时约束与 $S$ 的相关性为零：
-   $$\mathbf{Q}^T \Big(\hat{\mathbf{C}}_{x^i z^i}^T \hat{\mathbf{C}}_{x^i z^i} + \tau_y \hat{\mathbf{C}}_{y z^i}^T \hat{\mathbf{C}}_{y z^i} + \tau_x \hat{\mathbf{C}}_{x z^i}^T \hat{\mathbf{C}}_{x z^i}\Big) \mathbf{Q} \mathbf{v} = \lambda \mathbf{v}$$
+    $\mathbf{Q}^T \Big(\hat{\mathbf{C}}_{x^i z^i}^T \hat{\mathbf{C}}_{x^i z^i} + \tau_y \hat{\mathbf{C}}_{y z^i}^T \hat{\mathbf{C}}_{y z^i} + \tau_x \hat{\mathbf{C}}_{x z^i}^T \hat{\mathbf{C}}_{x z^i}\Big) \mathbf{Q} \mathbf{v} = \lambda \mathbf{v}$
    其中 $\mathbf{Q}$ 是 $\hat{\mathbf{C}}_{sz^i}$ 零空间的正交基。选择前 $m$ 个特征向量投影表示，作为下一轮编码器的输入。
 
 ### 损失函数 / 训练策略

@@ -29,9 +29,9 @@ tags:
 **领域现状**：场景文字分割旨在像素级区分前景文字与背景，广泛应用于文本擦除、文档分析、场景理解等下游任务。近年来基于深度学习的方法不断涌现，如TexRNet引入字符级监督、TextFormer加入识别头，性能持续提升。
 
 **现有痛点**：
-1. **忽视文字边缘**：现有方法虽提升了整体分割精度，但忽略了文字边缘区域的准确性。边缘不精确的文字掩码在文本擦除等下游任务中会导致残留/误删像素
-2. **边缘信息引入困难**：传统边缘检测（Canny）能精确捕捉边缘，但无法区分文字与非文字区域，直接使用全图边缘会引入大量干扰
-3. **评估数据集标注粗糙**：COCO_TS和MLT_S等数据集的标注基于bounding box生成，标注质量差（缺失标注、边缘不精确），影响了方法评估的公平性
+**忽视文字边缘**：现有方法虽提升了整体分割精度，但忽略了文字边缘区域的准确性。边缘不精确的文字掩码在文本擦除等下游任务中会导致残留/误删像素
+**边缘信息引入困难**：传统边缘检测（Canny）能精确捕捉边缘，但无法区分文字与非文字区域，直接使用全图边缘会引入大量干扰
+**评估数据集标注粗糙**：COCO_TS和MLT_S等数据集的标注基于bounding box生成，标注质量差（缺失标注、边缘不精确），影响了方法评估的公平性
 
 **核心矛盾**：如何有效利用传统边缘检测的精确边缘信息来增强文字分割，同时避免非文字区域边缘带来的负面干扰？
 
@@ -52,23 +52,26 @@ EAFormer由三个模块组成：
 ### 关键设计
 
 1. **文本边缘提取器（Text Edge Extractor）**：
-   - 用Canny算法提取全图边缘 $\mathbf{E}_w$（阈值100/200）
-   - 用轻量ResNet backbone提取多尺度特征 $\{\mathbf{F}_1^d, ..., \mathbf{F}_4^d\}$，经1×1卷积预测文本区域掩码：
-     $$\mathbf{M}_a = \text{Conv}_{1\times 1}(\text{Concat}(\{\mathbf{F}_1^d, \mathbf{F}_2^d, \mathbf{F}_3^d, \mathbf{F}_4^d\}))$$
-   - 通过逐像素乘法过滤非文字边缘：$\mathbf{E}_t = \mathbf{M}_a \odot \text{SoftArgmax}(\mathbf{E}_w)$
-   - 使用SoftArgmax使文本检测和分割分支可以联合端到端优化
+
+    - 用Canny算法提取全图边缘 $\mathbf{E}_w$（阈值100/200）
+    - 用轻量ResNet backbone提取多尺度特征 $\{\mathbf{F}_1^d, ..., \mathbf{F}_4^d\}$，经1×1卷积预测文本区域掩码：
+    $\mathbf{M}_a = \text{Conv}_{1\times 1}(\text{Concat}(\{\mathbf{F}_1^d, \mathbf{F}_2^d, \mathbf{F}_3^d, \mathbf{F}_4^d\}))$
+    - 通过逐像素乘法过滤非文字边缘：$\mathbf{E}_t = \mathbf{M}_a \odot \text{SoftArgmax}(\mathbf{E}_w)$
+    - 使用SoftArgmax使文本检测和分割分支可以联合端到端优化
 
 2. **边缘引导编码器（Edge-Guided Encoder）**：
-   - 基于SegFormer的4阶段层级Transformer编码器
-   - 在**第一阶段**后引入**对称交叉注意力（Symmetric Cross-Attention）**：
-     - 边缘作为Query、视觉特征作为Key/Value → 提取边缘感知视觉信息 $\mathbf{F}^{ev}$
-     - 视觉特征作为Query、边缘作为Key/Value → 提取文字边缘信息 $\mathbf{F}^{te}$
-     $$\hat{\mathbf{F}}_1^s = \mathbf{F}^{ev} \oplus \mathbf{F}^{te} \oplus \mathbf{F}_1^s$$
-   - **仅在第一阶段融合边缘**的设计动机：K-Means聚类可视化显示只有第一阶段特征关注边缘信息，高层特征已不包含边缘细节。实验也验证在更高阶段引入边缘信息反而损害性能
+
+    - 基于SegFormer的4阶段层级Transformer编码器
+    - 在**第一阶段**后引入**对称交叉注意力（Symmetric Cross-Attention）**：
+      - 边缘作为Query、视觉特征作为Key/Value → 提取边缘感知视觉信息 $\mathbf{F}^{ev}$
+      - 视觉特征作为Query、边缘作为Key/Value → 提取文字边缘信息 $\mathbf{F}^{te}$
+    $\hat{\mathbf{F}}_1^s = \mathbf{F}^{ev} \oplus \mathbf{F}^{te} \oplus \mathbf{F}_1^s$
+    - **仅在第一阶段融合边缘**的设计动机：K-Means聚类可视化显示只有第一阶段特征关注边缘信息，高层特征已不包含边缘细节。实验也验证在更高阶段引入边缘信息反而损害性能
 
 3. **MLP文字分割解码器**：
-   - 各阶段特征通过MLP统一通道维度并上采样到相同分辨率
-   - 拼接后再经MLP融合，最终预测二分类文字掩码
+
+    - 各阶段特征通过MLP统一通道维度并上采样到相同分辨率
+    - 拼接后再经MLP融合，最终预测二分类文字掩码
 
 ### 损失函数 / 训练策略
 仅使用两个交叉熵损失，避免复杂超参调节：

@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：模仿学习（IL）是构建类人 AI agent 的有前途范式，行为克隆（BC）通过监督学习从演示中学习策略，近期扩散策略和 Transformer 架构大幅提升了性能。
-2. **现有痛点**：现有 BC 方法 ① 难以捕获人类行为的多模态分布（不同动机和技能水平导致的行为多样性）；② 缺乏推理时的行为可控性——要么完全不可控，要么仅支持目标条件生成；③ 忽略了行为的非马尔可夫特性（人类决策受历史和内在动机影响）。
-3. **核心矛盾**：传统 BC 直接学习 $s_t \mapsto a_t$ 的映射，但认知科学研究表明人类决策通过内心语言中介 $s_t \to m_t \to a_t$——相同环境刺激可因不同内心独白产生不同行为响应。
-4. **本文要解决什么**：构建能生成多样行为、支持细粒度行为引导且无需额外演示的模仿学习框架。
-5. **切入角度**：将维果茨基的内心语言理论形式化为计算框架——语言不仅是通信工具，更是组织行为的内部认知机制。
-6. **核心 idea**：$P_\mathcal{H}(a|s) = \int p_\mathcal{H}(a|s,m) p_\mathcal{H}(m|s) dm$——将动作视为状态和内心语言的联合条件分布，内心语言由 CVAE 自主生成，且可被设计者用文本描述覆盖以实现可控生成。
+**领域现状**：模仿学习（IL）是构建类人 AI agent 的有前途范式，行为克隆（BC）通过监督学习从演示中学习策略，近期扩散策略和 Transformer 架构大幅提升了性能。
+**现有痛点**：现有 BC 方法 ① 难以捕获人类行为的多模态分布（不同动机和技能水平导致的行为多样性）；② 缺乏推理时的行为可控性——要么完全不可控，要么仅支持目标条件生成；③ 忽略了行为的非马尔可夫特性（人类决策受历史和内在动机影响）。
+**核心矛盾**：传统 BC 直接学习 $s_t \mapsto a_t$ 的映射，但认知科学研究表明人类决策通过内心语言中介 $s_t \to m_t \to a_t$——相同环境刺激可因不同内心独白产生不同行为响应。
+**本文要解决什么**：构建能生成多样行为、支持细粒度行为引导且无需额外演示的模仿学习框架。
+**切入角度**：将维果茨基的内心语言理论形式化为计算框架——语言不仅是通信工具，更是组织行为的内部认知机制。
+**核心 idea**：$P_\mathcal{H}(a|s) = \int p_\mathcal{H}(a|s,m) p_\mathcal{H}(m|s) dm$——将动作视为状态和内心语言的联合条件分布，内心语言由 CVAE 自主生成，且可被设计者用文本描述覆盖以实现可控生成。
 
 ## 方法详解
 
@@ -42,31 +42,35 @@ MIMIC 由三个组件构成：① VLM 语言脚手架（训练时生成行为描
 ### 关键设计
 
 1. **内心语言条件化行为克隆器（Inner Speech-conditioned Behavior Cloner）**：
-   - 做什么：以观测 $s$ 和内心语言 $m$ 为条件，通过扩散过程生成动作
-   - 为什么：条件化于内心语言使相同状态可产生不同行为模式，实现多样性
-   - 怎么做：采用 DDPM-T（扩散策略+Transformer 架构），训练去噪网络 $\hat{\epsilon}_\theta(\hat{\mathbf{a}}_\tau, s, m, \tau)$，损失函数为：
-     $$\mathcal{L}_{\text{diff}}(\mathcal{D}_M) = \mathbb{E}_{(s,\mathbf{a}_0,m)\sim\mathcal{D}_M, \tau\sim[1,T_D]} \|\hat{\epsilon}(\mathbf{a}_\tau, s, m, \tau) - \epsilon\|_2^2$$
-   - 使用 classifier-free guidance：训练时以概率 $p$ 随机将 $m$ 置零
-   - 输入编码：状态用领域特定编码器（CNN/特征），$m$ 用 2 层 MLP，动作用线性编码，时间步用余弦编码，拼接后送入 Transformer
-   - 区别：不同于直接 $s \to a$ 的 BC，引入语言中介变量
+
+    - 做什么：以观测 $s$ 和内心语言 $m$ 为条件，通过扩散过程生成动作
+    - 为什么：条件化于内心语言使相同状态可产生不同行为模式，实现多样性
+    - 怎么做：采用 DDPM-T（扩散策略+Transformer 架构），训练去噪网络 $\hat{\epsilon}_\theta(\hat{\mathbf{a}}_\tau, s, m, \tau)$，损失函数为：
+    $\mathcal{L}_{\text{diff}}(\mathcal{D}_M) = \mathbb{E}_{(s,\mathbf{a}_0,m)\sim\mathcal{D}_M, \tau\sim[1,T_D]} \|\hat{\epsilon}(\mathbf{a}_\tau, s, m, \tau) - \epsilon\|_2^2$
+    - 使用 classifier-free guidance：训练时以概率 $p$ 随机将 $m$ 置零
+    - 输入编码：状态用领域特定编码器（CNN/特征），$m$ 用 2 层 MLP，动作用线性编码，时间步用余弦编码，拼接后送入 Transformer
+    - 区别：不同于直接 $s \to a$ 的 BC，引入语言中介变量
 
 2. **行为条件化内心语言生成器（Behavior-Conditioned Inner Speech Generator）**：
-   - 做什么：从行为历史自主生成内心语言嵌入
-   - 为什么：推理时无法访问 VLM，agent 需要自行生成行为引导
-   - 怎么做：使用 CVAE，编码器和解码器都条件化于过去图像序列（通过卷积表征池化）。CVAE 生成 CLIP 编码的内心语言，训练目标：
-     $$\mathcal{L}_{\text{is}}(\mathcal{D}_M) = \sum_{i=1}^{n}\sum_{t=W}^{T} \|m^{(i)} - \Psi_{\text{dec}}(\Psi_{\text{enc}}(m^{(i)}, \mathbf{I}_{t-W:t}^{(i)}), \mathbf{I}_{t-W:t}^{(i)})\|_2^2 + \beta \Delta_{KL}(\Psi_{\text{enc}}(m^{(i)}), \mathcal{N}(\mathbf{0}, \mathbf{I}))$$
-   - $\beta$ 在训练过程中退火，模拟从外部详细语言到压缩自主内心语言的过渡
-   - 周期更新：每 $W$ 步生成新内心语言，$m_t = \Psi_{\text{dec}}(\Psi_{\text{enc}}(\mathcal{H}_t), \mathcal{H}_t)$ if $t \bmod W = 0$，否则 $m_t = m_{t-1}$
+
+    - 做什么：从行为历史自主生成内心语言嵌入
+    - 为什么：推理时无法访问 VLM，agent 需要自行生成行为引导
+    - 怎么做：使用 CVAE，编码器和解码器都条件化于过去图像序列（通过卷积表征池化）。CVAE 生成 CLIP 编码的内心语言，训练目标：
+    $\mathcal{L}_{\text{is}}(\mathcal{D}_M) = \sum_{i=1}^{n}\sum_{t=W}^{T} \|m^{(i)} - \Psi_{\text{dec}}(\Psi_{\text{enc}}(m^{(i)}, \mathbf{I}_{t-W:t}^{(i)}), \mathbf{I}_{t-W:t}^{(i)})\|_2^2 + \beta \Delta_{KL}(\Psi_{\text{enc}}(m^{(i)}), \mathcal{N}(\mathbf{0}, \mathbf{I}))$
+    - $\beta$ 在训练过程中退火，模拟从外部详细语言到压缩自主内心语言的过渡
+    - 周期更新：每 $W$ 步生成新内心语言，$m_t = \Psi_{\text{dec}}(\Psi_{\text{enc}}(\mathcal{H}_t), \mathcal{H}_t)$ if $t \bmod W = 0$，否则 $m_t = m_{t-1}$
 
 3. **VLM 语言脚手架（Vision-Language Model Scaffolding）**：
-   - 做什么：为每条演示轨迹生成行为描述作为内心语言的训练目标
-   - 为什么：演示数据中不包含人类思维注释，需要外部模型补充语言标签
-   - 怎么做：将演示图像序列转为 GIF，发送给 VLM（GPT-4o），用精心设计的 prompt 让 VLM 生成区分不同行为的描述，然后用 CLIP 编码为嵌入 $m^{(i)}$
-   - 区别：不需要 Thought Cloning 那样的逐步人类思维注释，仅需轨迹级描述，更可扩展
+
+    - 做什么：为每条演示轨迹生成行为描述作为内心语言的训练目标
+    - 为什么：演示数据中不包含人类思维注释，需要外部模型补充语言标签
+    - 怎么做：将演示图像序列转为 GIF，发送给 VLM（GPT-4o），用精心设计的 prompt 让 VLM 生成区分不同行为的描述，然后用 CLIP 编码为嵌入 $m^{(i)}$
+    - 区别：不需要 Thought Cloning 那样的逐步人类思维注释，仅需轨迹级描述，更可扩展
 
 4. **可控行为引导**：
-   - 推理时通过两种机制控制行为：① 设计者提供文本描述作为初始内心语言 $m \leftarrow \mathcal{B}$；② 设置轮询窗口 $W$ 控制内心语言更新频率
-   - 可在不训练额外演示的情况下实现行为风格切换
+
+    - 推理时通过两种机制控制行为：① 设计者提供文本描述作为初始内心语言 $m \leftarrow \mathcal{B}$；② 设置轮询窗口 $W$ 控制内心语言更新频率
+    - 可在不训练额外演示的情况下实现行为风格切换
 
 ### 理论基础
 

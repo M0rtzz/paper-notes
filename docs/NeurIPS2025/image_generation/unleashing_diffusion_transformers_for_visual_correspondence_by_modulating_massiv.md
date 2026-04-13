@@ -38,19 +38,22 @@ tags:
 
 ### 关键设计
 1. **Massive Activations 分析**：
-   - 空间分布：出现在所有图像 patch token 中（不同于 LLM 中集中在特殊 token）
-   - 维度分布：集中在极少数固定维度（SD3-5 模型中仅维度 676）
-   - 信息量低：massive activation 维度方差显著低于非 massive 维度，携带极少局部信息
+
+    - 空间分布：出现在所有图像 patch token 中（不同于 LLM 中集中在特殊 token）
+    - 维度分布：集中在极少数固定维度（SD3-5 模型中仅维度 676）
+    - 信息量低：massive activation 维度方差显著低于非 massive 维度，携带极少局部信息
 
 2. **AdaLN 与 Massive Activations 的联系**：
-   - 残差缩放因子 $\alpha_k$ 的高值维度与 massive activations 精确对应
-   - AdaLN 可以自适应定位 massive activations 并通过通道调制抑制它们
-   - Post-AdaLN 特征在语义一致性和空间判别性上显著优于 pre-AdaLN 特征
+
+    - 残差缩放因子 $\alpha_k$ 的高值维度与 massive activations 精确对应
+    - AdaLN 可以自适应定位 massive activations 并通过通道调制抑制它们
+    - Post-AdaLN 特征在语义一致性和空间判别性上显著优于 pre-AdaLN 特征
 
 3. **通道丢弃策略**：
-   - Post-AdaLN 特征中仍存在少量弱 massive activations
-   - 将这些维度置零以进一步消除其负面影响
-   - 简单有效，无需任何训练
+
+    - Post-AdaLN 特征中仍存在少量弱 massive activations
+    - 将这些维度置零以进一步消除其负面影响
+    - 简单有效，无需任何训练
 
 ### 损失函数 / 训练策略
 - 完全无需训练（training-free）

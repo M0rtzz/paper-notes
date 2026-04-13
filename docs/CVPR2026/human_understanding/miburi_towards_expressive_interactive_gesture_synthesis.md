@@ -40,14 +40,16 @@ Miburi 构建在 Moshi（语音-文本基础模型）之上，直接利用其内
 1. **身体部位感知手势编解码器（Body-part Gesture Codecs）**: 将全身动作分解为三个区域：上身+手 $\mathbf{x}^u$、下身+全局位移 $\mathbf{x}^l$、面部表情（FLAME 参数）$\mathbf{x}^f$。每个区域独立使用 **Residual VQ-VAE** 编码，编码器含下采样 1D 卷积 + 因果自注意力 Transformer，输出经残差向量量化为多层级 token $\mathbf{g}^b \in \mathbb{R}^{T \times K^b}$（$K^u=K^l=8, K^f=4$ 层级）。每个 token 代表 2 帧（0.08 秒）动作，与 Moshi 的 token 率对齐。RVQ 相比普通 VQ-VAE 更好地保留精细运动学细节。
 
 2. **二维因果 Transformer**: 解耦时间维度和运动学维度的预测：
-   - **时间 Transformer** $\mathcal{T}_{\text{temporal}}$: 4 层 2 头，因果自注意力（上下文 25 tokens）+ 双因果交叉注意力（speech/text，上下文 50 tokens），自回归预测每帧的第一层级 token $\mathbf{g}_{(t,1)}$。$K$ 个层级的嵌入求和为单一输入。
-   - **运动学 Transformer** $\mathcal{T}_{\text{kinematic}}$: 2 层 1 头，在固定时间步 $t$ 内自回归预测后续层级 $\mathbf{g}_{(t,k)}$，以时间上下文 $\mathbf{h}_t$ 和 speech/text 嵌入为条件。
+
+    - **时间 Transformer** $\mathcal{T}_{\text{temporal}}$: 4 层 2 头，因果自注意力（上下文 25 tokens）+ 双因果交叉注意力（speech/text，上下文 50 tokens），自回归预测每帧的第一层级 token $\mathbf{g}_{(t,1)}$。$K$ 个层级的嵌入求和为单一输入。
+    - **运动学 Transformer** $\mathcal{T}_{\text{kinematic}}$: 2 层 1 头，在固定时间步 $t$ 内自回归预测后续层级 $\mathbf{g}_{(t,k)}$，以时间上下文 $\mathbf{h}_t$ 和 speech/text 嵌入为条件。
    
    相比朴素单流处理 $T \cdot K$ 个 token，二维分解大幅降低注意力上下文长度和推理延迟。
 
 3. **表达性增强目标**: 
-   - **对比 InfoNCE 损失**: 对预测 token 通过 Gumbel-Softmax 重参数化获取可微分潜在表示 $\mathbf{z} = \sum_k \text{GumbelSoftmax}(\tilde{\mathbf{o}}_k) \mathbf{C}_k$，在时间片段上施加 InfoNCE 损失，推高匹配 GT-预测对相似度、推低不匹配对。
-   - **语音激活损失**: 对 $\mathbf{h}_t$ 附加二分类头区分聆听/说话状态（BCE 损失），防止聆听时产生幽灵手势，强制说话时生成语音对齐的表达性手势。
+
+    - **对比 InfoNCE 损失**: 对预测 token 通过 Gumbel-Softmax 重参数化获取可微分潜在表示 $\mathbf{z} = \sum_k \text{GumbelSoftmax}(\tilde{\mathbf{o}}_k) \mathbf{C}_k$，在时间片段上施加 InfoNCE 损失，推高匹配 GT-预测对相似度、推低不匹配对。
+    - **语音激活损失**: 对 $\mathbf{h}_t$ 附加二分类头区分聆听/说话状态（BCE 损失），防止聆听时产生幽灵手势，强制说话时生成语音对齐的表达性手势。
 
 ### 损失函数 / 训练策略
 

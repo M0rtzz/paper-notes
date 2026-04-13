@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：RL 微调扩散模型通常固定单一奖励函数和 KL 正则化权重 $\alpha$。微调完成后，模型锁定在特定的 $(r, \alpha)$ 配置上，无法适应不同用户偏好。
+**领域现状**：RL 微调扩散模型通常固定单一奖励函数和 KL 正则化权重 $\alpha$。微调完成后，模型锁定在特定的 $(r, \alpha)$ 配置上，无法适应不同用户偏好。
 
-2. **现有痛点**：(a) 用户可能要求不同的美学/语义一致性/人类偏好权衡，需要为每个偏好组合都微调一个模型（开销巨大）；(b) KL 正则化太弱导致 reward hacking，太强导致对齐不足，最优值需要 grid search；(c) Rewarded Soup（权重空间线性组合）过于粗糙，guidance 方法需要可微奖励且计算量大。
+**现有痛点**：(a) 用户可能要求不同的美学/语义一致性/人类偏好权衡，需要为每个偏好组合都微调一个模型（开销巨大）；(b) KL 正则化太弱导致 reward hacking，太强导致对齐不足，最优值需要 grid search；(c) Rewarded Soup（权重空间线性组合）过于粗糙，guidance 方法需要可微奖励且计算量大。
 
-3. **核心矛盾**：部署后偏好的灵活性 vs 微调的固定性。如何在不重新训练的情况下在推理时适应任意偏好组合？
+**核心矛盾**：部署后偏好的灵活性 vs 微调的固定性。如何在不重新训练的情况下在推理时适应任意偏好组合？
 
-4. **本文要解决什么？** 给定 $m$ 个基础奖励函数各自微调的模型，在推理时按用户指定权重 $w$ 生成 $r(w) = \sum w_i r_i$ 对齐的图像，且支持动态调整 KL 强度。
+**本文要解决什么？** 给定 $m$ 个基础奖励函数各自微调的模型，在推理时按用户指定权重 $w$ 生成 $r(w) = \sum w_i r_i$ 对齐的图像，且支持动态调整 KL 强度。
 
-5. **切入角度**：从扩散模型的反向 SDE 角度出发，证明对齐模型的漂移项 $f^{(r,\alpha)}$ 可以表示为预训练漂移 + 控制项，通过 Jensen gap 近似将控制项线性化，从而实现反向 SDE 的线性混合。
+**切入角度**：从扩散模型的反向 SDE 角度出发，证明对齐模型的漂移项 $f^{(r,\alpha)}$ 可以表示为预训练漂移 + 控制项，通过 Jensen gap 近似将控制项线性化，从而实现反向 SDE 的线性混合。
 
-6. **核心 idea 一句话**：奖励对齐的扩散模型的反向 SDE 漂移项可以线性组合近似任意奖励线性组合的对齐效果。
+**核心 idea 一句话**：奖励对齐的扩散模型的反向 SDE 漂移项可以线性组合近似任意奖励线性组合的对齐效果。
 
 ## 方法详解
 
@@ -49,27 +49,32 @@ tags:
 ### 关键设计
 
 1. **Proposition 1: 对齐模型的 SDE 分解**:
-   - 做什么：将对齐模型的反向漂移分解为预训练漂移 + 控制项
-   - 核心思路：$f^{(r,\alpha)}(x_t, t) = f^{\text{pre}}(x_t, t) - \beta(t) u^{(r,\alpha)}(x_t, t)$，其中 $u^{(r,\alpha)} = \nabla_{x_t} \log \mathbb{E}_{x_0 \sim p_{0|t}^{\text{pre}}}[\exp(r(x_0)/\alpha)]$
-   - 设计动机：将对齐效果隔离到控制项 $u^{(r,\alpha)}$ 中，为后续线性组合奠定基础
+
+    - 做什么：将对齐模型的反向漂移分解为预训练漂移 + 控制项
+    - 核心思路：$f^{(r,\alpha)}(x_t, t) = f^{\text{pre}}(x_t, t) - \beta(t) u^{(r,\alpha)}(x_t, t)$，其中 $u^{(r,\alpha)} = \nabla_{x_t} \log \mathbb{E}_{x_0 \sim p_{0|t}^{\text{pre}}}[\exp(r(x_0)/\alpha)]$
+    - 设计动机：将对齐效果隔离到控制项 $u^{(r,\alpha)}$ 中，为后续线性组合奠定基础
 
 2. **Jensen Gap 近似 + 线性化 (Lemma 2)**:
-   - 做什么：将 $\log \mathbb{E}[\exp(\cdot)]$ 近似为 $\mathbb{E}[\cdot]$（交换 log-exp 和 expectation 的顺序）
-   - 核心思路：$u^{(r,\alpha)} \approx \bar{u}^{(r,\alpha)} = \nabla_x \mathbb{E}[r(x_0)/\alpha]$。利用期望的线性性，对线性奖励 $r(w) = \sum w_i r_i$，有 $f^{(r(w),\alpha)} \approx \sum w_i f^{(r_i, \alpha)}$
-   - 设计动机：Jensen gap 在扩散模型中被广泛使用（如 DPS/RGG），近似误差在 $t \to 0$ 时趋近于 0
+
+    - 做什么：将 $\log \mathbb{E}[\exp(\cdot)]$ 近似为 $\mathbb{E}[\cdot]$（交换 log-exp 和 expectation 的顺序）
+    - 核心思路：$u^{(r,\alpha)} \approx \bar{u}^{(r,\alpha)} = \nabla_x \mathbb{E}[r(x_0)/\alpha]$。利用期望的线性性，对线性奖励 $r(w) = \sum w_i r_i$，有 $f^{(r(w),\alpha)} \approx \sum w_i f^{(r_i, \alpha)}$
+    - 设计动机：Jensen gap 在扩散模型中被广泛使用（如 DPS/RGG），近似误差在 $t \to 0$ 时趋近于 0
 
 3. **DB-MPA（多偏好对齐）**:
-   - 做什么：推理时按用户权重 $w$ 混合各奖励微调模型的反向 SDE
-   - 核心思路：每步去噪时计算 $\hat{\epsilon}_t = \sum w_i \epsilon_{\theta_i^{\text{rl}}}(x_t, t)$
+
+    - 做什么：推理时按用户权重 $w$ 混合各奖励微调模型的反向 SDE
+    - 核心思路：每步去噪时计算 $\hat{\epsilon}_t = \sum w_i \epsilon_{\theta_i^{\text{rl}}}(x_t, t)$
 
 4. **DB-KLA（KL 对齐控制）**:
-   - 做什么：推理时调整 KL 正则化强度
-   - 核心思路：$f^{(r, \alpha/\lambda)} \approx (1-\lambda) f^{\text{pre}} + \lambda f^{(r,\alpha)}$，混合预训练和微调模型
+
+    - 做什么：推理时调整 KL 正则化强度
+    - 核心思路：$f^{(r, \alpha/\lambda)} \approx (1-\lambda) f^{\text{pre}} + \lambda f^{(r,\alpha)}$，混合预训练和微调模型
 
 5. **DB-MPA-LS（无额外开销的近似）**:
-   - 做什么：消除 DB-MPA 的 $m \times$ 推理开销
-   - 核心思路：每个去噪步按权重 $w$ 随机采样一个 LoRA adapter（Bernoulli/Categorical 采样），而非全部评估。理论证明（Proposition 2）混合 SDE 和随机采样 SDE 具有相同的边际分布
-   - 设计动机：利用扩散过程的随机性——噪声注入使得逐步采样的统计效果等价于加权平均
+
+    - 做什么：消除 DB-MPA 的 $m \times$ 推理开销
+    - 核心思路：每个去噪步按权重 $w$ 随机采样一个 LoRA adapter（Bernoulli/Categorical 采样），而非全部评估。理论证明（Proposition 2）混合 SDE 和随机采样 SDE 具有相同的边际分布
+    - 设计动机：利用扩散过程的随机性——噪声注入使得逐步采样的统计效果等价于加权平均
 
 ### 损失函数 / 训练策略
 

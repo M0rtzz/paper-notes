@@ -26,31 +26,31 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**:
+**领域现状**:
    - Transformer 在算术推理、符号推理、定理证明等任务上展现了强大的推理能力
    - 知识图谱查询回答（KGQA）是一阶逻辑蕴涵的重要应用，已有 BetaE、ConE、CQD 等多种专用方法
    - 之前的工作研究了 Transformer 的 in-context 推理能力，但对参数化知识下的推理和 OOD 泛化研究不足
 
-2. **现有痛点**:
+**现有痛点**:
    - 现有分析局限于 in-context 知识推理，未覆盖参数化知识场景
    - 缺乏将 OOD 泛化的两种分布偏移（concept shift 和 covariate shift）与 KGQA 任务明确关联的研究
    - 现有基准数据集的查询类型和特征覆盖不全（最多 10 种 unseen query types）
    - 先前的归纳偏置设计仅在绝对位置编码（APE）下有效，在更优的相对位置编码（RPE）下反而失效
 
-3. **核心矛盾**:
+**核心矛盾**:
    - 现有研究未充分理解 Transformer 在一阶逻辑蕴涵中的设计空间
    - RPE 明显优于 APE，但已有的架构改进都针对 APE，在 RPE 下无效果
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 建立全面基准来评估 Transformer 在一阶逻辑蕴涵中的泛化能力
    - 系统研究查询语法、嵌入、架构等设计选择对推理的影响
    - 在 RPE 设定下提出有效的归纳偏置
 
-5. **切入角度**:
+**切入角度**:
    - 将 KGQA 视为一阶逻辑蕴涵的实例，将 OOD 泛化分解为知识维度（concept shift）和查询类型维度（covariate shift）
    - 通过大规模消融实验确定最优设计选择，再针对性提出架构改进
 
-6. **核心idea一句话**:
+**核心idea一句话**:
    - 通过系统实验揭示 RPE 在逻辑推理中的优势，提出 TEGA 架构在 RPE 下引入逻辑感知引导注意力来提升泛化能力
 
 ## 方法详解
@@ -65,19 +65,22 @@ tags:
 ### 关键设计
 
 1. **两类分布偏移的形式化**:
-   - 做什么: 将 KGQA 中的 OOD 问题分解为 concept shift（未观测知识 $\mathcal{G}_o \to \mathcal{G}$）和 covariate shift（未见查询类型）
-   - 核心思路: $P_{\text{train}}(Y|X) \cdot P_{\text{train}}(X) \neq P_{\text{test}}(Y|X) \cdot P_{\text{test}}(X)$
-   - 设计动机: 为 Transformer 的泛化能力评估提供清晰的理论框架
+
+    - 做什么: 将 KGQA 中的 OOD 问题分解为 concept shift（未观测知识 $\mathcal{G}_o \to \mathcal{G}$）和 covariate shift（未见查询类型）
+    - 核心思路: $P_{\text{train}}(Y|X) \cdot P_{\text{train}}(X) \neq P_{\text{test}}(Y|X) \cdot P_{\text{test}}(X)$
+    - 设计动机: 为 Transformer 的泛化能力评估提供清晰的理论框架
 
 2. **全面基准数据集**:
-   - 做什么: 构建包含 55 种查询类型（23 seen + 32 unseen）的基准，覆盖 projection、intersection、union、negation、existential、multi-hop、cyclic 等所有特征
-   - 核心思路: 在 FB15k、FB15k-237、NELL995 三个知识图谱上采样
-   - 设计动机: 现有基准覆盖不全（BetaE 仅 4 种 unseen 类型，SQE 仅 29 种）
+
+    - 做什么: 构建包含 55 种查询类型（23 seen + 32 unseen）的基准，覆盖 projection、intersection、union、negation、existential、multi-hop、cyclic 等所有特征
+    - 核心思路: 在 FB15k、FB15k-237、NELL995 三个知识图谱上采样
+    - 设计动机: 现有基准覆盖不全（BetaE 仅 4 种 unseen 类型，SQE 仅 29 种）
 
 3. **TEGA（Transformer Encoder with Guided Attention）**:
-   - 做什么: 在 RPE 设定下，通过逻辑感知的引导注意力引入归纳偏置
-   - 核心思路: 根据查询中 token 之间的逻辑关系（如同属一个原子公式、共享变量等）引导 self-attention 的注意力模式
-   - 设计动机: 先前的归纳偏置（如 SQE 的结构化编码）在 APE 下有效但在 RPE 下无效，需要专门为 RPE 设计新方法
+
+    - 做什么: 在 RPE 设定下，通过逻辑感知的引导注意力引入归纳偏置
+    - 核心思路: 根据查询中 token 之间的逻辑关系（如同属一个原子公式、共享变量等）引导 self-attention 的注意力模式
+    - 设计动机: 先前的归纳偏置（如 SQE 的结构化编码）在 APE 下有效但在 RPE 下无效，需要专门为 RPE 设计新方法
 
 ### 损失函数 / 训练策略
 

@@ -29,9 +29,9 @@ tags:
 
 推测解码通过草稿模型生成候选 token 树、由目标模型并行验证来加速 LLM 推理。现有树解码验证方法（如 SpecInfer 的 RRS）继承了 vanilla 推测解码的逐 token 验证机制，存在两个关键缺陷：
 
-1. **序列概率 vs. 单 token 概率不一致**：vanilla 推测解码基于单个 token 的概率比 $\min(1, p(y_i)/q(y_i))$ 决定接受。但序列的联合接受概率应当考虑整条路径的联合分布，逐 token 决策牺牲了全局最优性。例如，父节点 $X_1$ 接受率为 0.5，子节点 $X_3$ 的比率为 $4/3$，token 级接受概率为 $0.5 \times 1 = 0.5$，而序列级概率为 $\min(0.5 \times 4/3, 1) \approx 0.667$——序列级更高。
+**序列概率 vs. 单 token 概率不一致**：vanilla 推测解码基于单个 token 的概率比 $\min(1, p(y_i)/q(y_i))$ 决定接受。但序列的联合接受概率应当考虑整条路径的联合分布，逐 token 决策牺牲了全局最优性。例如，父节点 $X_1$ 接受率为 0.5，子节点 $X_3$ 的比率为 $4/3$，token 级接受概率为 $0.5 \times 1 = 0.5$，而序列级概率为 $\min(0.5 \times 4/3, 1) \approx 0.667$——序列级更高。
 
-2. **自顶向下验证浪费候选**：现有方法从根节点逐层向下验证，一旦父节点被拒绝，所有子节点全部丢弃，即使子节点可能形成更好的序列。
+**自顶向下验证浪费候选**：现有方法从根节点逐层向下验证，一旦父节点被拒绝，所有子节点全部丢弃，即使子节点可能形成更好的序列。
 
 **核心矛盾**：单 token 验证是局部最优的，但在树结构中并非全局最优。
 
@@ -47,19 +47,20 @@ Traversal Verification 是一个即插即用的验证模块，替换现有推测
 
 1. **序列级接受率初始化**：对树 $T$ 中的每条链 $\alpha = (X_0, X_1, \ldots, X_{\gamma_\alpha})$，递归计算每个节点的序列级接受率：
 
-   $$p_\alpha^{ini}(X_i) = \min\left\{p_\alpha^{ini}(X_{i-1}) \cdot \frac{\mathcal{M}_b(X_i | X^{i-1})}{\mathcal{M}_s(X_i | X^{i-1})}, 1\right\}$$
+    $p_\alpha^{ini}(X_i) = \min\left\{p_\alpha^{ini}(X_{i-1}) \cdot \frac{\mathcal{M}_b(X_i | X^{i-1})}{\mathcal{M}_s(X_i | X^{i-1})}, 1\right\}$
 
    其中 $p_\alpha^{ini}(X_0) = 1$。这意味着接受率不仅取决于当前 token，还取决于从根到当前节点整条路径的累积概率比。设计动机：序列级概率 $\prod p_i/q_i$ 可能超过单 token 截断后的乘积 $\prod \min(p_i/q_i, 1)$，因为高概率子节点可以"补偿"低概率父节点。
 
 2. **自底向上遍历顺序**：从第一个叶节点开始验证（即最深层最左侧），采样 $\eta \sim U(0,1)$：
-   - 若 $\eta < p_\alpha(X_{\gamma_\alpha})$：接受整条路径 $(X_0, \ldots, X_{\gamma_\alpha})$
-   - 若拒绝：删除当前叶节点，更新残差分布和草稿分布，转到兄弟节点或回溯到父节点
+
+    - 若 $\eta < p_\alpha(X_{\gamma_\alpha})$：接受整条路径 $(X_0, \ldots, X_{\gamma_\alpha})$
+    - 若拒绝：删除当前叶节点，更新残差分布和草稿分布，转到兄弟节点或回溯到父节点
 
    遍历顺序示例（图 1 的树）：$X_3 \to X_4 \to X_1 \to X_5 \to X_2$。关键特性：父节点仅在所有子节点都被拒绝后才被验证，最大化了候选利用率。
 
 3. **残差分布更新**：当节点 $X_{\gamma_\alpha}$ 被拒绝时：
 
-   $$\mathcal{M}_b'(x | X^{\gamma_\alpha - 1}) = \text{norm}([p_\alpha(X_{\gamma_\alpha-1}) \cdot \mathcal{M}_b(x | X^{\gamma_\alpha-1}) - \mathcal{M}_s(x | X^{\gamma_\alpha-1})]_+)$$
+    $\mathcal{M}_b'(x | X^{\gamma_\alpha - 1}) = \text{norm}([p_\alpha(X_{\gamma_\alpha-1}) \cdot \mathcal{M}_b(x | X^{\gamma_\alpha-1}) - \mathcal{M}_s(x | X^{\gamma_\alpha-1})]_+)$
 
    并更新父节点的残余接受率 $p'_\alpha(X_{\gamma_\alpha-1})$，传播到所有共享前缀的兄弟链。这确保了概率质量的正确重分配。
 

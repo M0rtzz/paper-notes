@@ -25,19 +25,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：相机光谱灵敏度（spectral sensitivity）描述相机对不同波长入射光的响应，是颜色校正、光照估计和材质分析等计算机视觉任务的基础。准确标定光谱灵敏度对色彩准确的成像至关重要。
+**领域现状**：相机光谱灵敏度（spectral sensitivity）描述相机对不同波长入射光的响应，是颜色校正、光照估计和材质分析等计算机视觉任务的基础。准确标定光谱灵敏度对色彩准确的成像至关重要。
 
-2. **现有痛点**：
+**现有痛点**：
    - **传统设备法**：使用窄带滤光片或单色仪等精密设备，成本高昂且耗时
    - **色卡法**：使用已知光谱反射率的参考目标（如ColorChecker），但自然物体光谱反射率为低频信号，各色块间高度相关，波长分辨率有限
    - **已有衍射光栅法**：需要额外拍摄已标定的参考目标来校准光栅效率（grating efficiency），需要多次场景变换和多种光源，流程复杂
    - **Exif元数据法**：仅利用相机元数据，无法考虑镜头滤镜等外部因素，且存在白平衡二义性
 
-3. **核心矛盾**：衍射光栅可以将不同波长的光分离到不同空间位置，理论上可提供高波长分辨率的灵敏度估计。但关键难题是光栅效率（不同波长的非均匀衰减）未知，以往方法需要额外参考目标来标定光栅效率。
+**核心矛盾**：衍射光栅可以将不同波长的光分离到不同空间位置，理论上可提供高波长分辨率的灵敏度估计。但关键难题是光栅效率（不同波长的非均匀衰减）未知，以往方法需要额外参考目标来标定光栅效率。
 
-4. **本文要解决什么**：能否在光栅效率未知的情况下，仅通过拍摄已知光谱的光源（经过衍射光栅），同时估计相机光谱灵敏度和光栅效率？
+**本文要解决什么**：能否在光栅效率未知的情况下，仅通过拍摄已知光谱的光源（经过衍射光栅），同时估计相机光谱灵敏度和光栅效率？
 
-5. **切入角度**：利用基函数表示，将原本的双线性问题（灵敏度×光栅效率）转化为可求闭式解的线性问题。
+**切入角度**：利用基函数表示，将原本的双线性问题（灵敏度×光栅效率）转化为可求闭式解的线性问题。
 
 ## 方法详解
 
@@ -47,29 +47,31 @@ tags:
 ### 关键设计
 
 1. **基函数表示与线性化**：
-   - 将光谱灵敏度和光栅效率的逆用基函数线性组合表示：
-   $$\mathbf{s} = \mathbf{B}_s \mathbf{c}_s \in \mathbb{R}_+^f, \quad \boldsymbol{\eta}^{-1} = \mathbf{B}_\eta \mathbf{c}_\eta \in \mathbb{R}_+^f$$
-   - 灵敏度基 $\mathbf{B}_s$：对44台相机的灵敏度数据做SVD获得，每通道7个基
-   - 光栅效率基 $\mathbf{B}_\eta$：使用Fourier基（光栅效率为低频函数），7个基
-   - 波长采样 $f=31$（400nm-700nm，间隔10nm）
+
+    - 将光谱灵敏度和光栅效率的逆用基函数线性组合表示：
+    $\mathbf{s} = \mathbf{B}_s \mathbf{c}_s \in \mathbb{R}_+^f, \quad \boldsymbol{\eta}^{-1} = \mathbf{B}_\eta \mathbf{c}_\eta \in \mathbb{R}_+^f$
+    - 灵敏度基 $\mathbf{B}_s$：对44台相机的灵敏度数据做SVD获得，每通道7个基
+    - 光栅效率基 $\mathbf{B}_\eta$：使用Fourier基（光栅效率为低频函数），7个基
+    - 波长采样 $f=31$（400nm-700nm，间隔10nm）
 
 2. **直射光约束（线性约束）**：
-   $$m_{\text{dir}} = \mathbf{e}^{\top}\mathbf{B}_s\mathbf{c}_s$$
+    $m_{\text{dir}} = \mathbf{e}^{\top}\mathbf{B}_s\mathbf{c}_s$
    直射光观测等于入射光谱与灵敏度的内积，提供3个线性方程（RGB三通道）
 
 3. **衍射光约束（齐次线性方程组）**：
    通过数学推导将双线性关系转化为齐次线性方程组：
-   $$\begin{bmatrix}\text{diag}(\mathbf{a})\mathbf{B}_\eta & -\mathbf{B}_s\end{bmatrix}\begin{bmatrix}\mathbf{c}_\eta \\ \mathbf{c}_s\end{bmatrix} = \mathbf{0}$$
+    $\begin{bmatrix}\text{diag}(\mathbf{a})\mathbf{B}_\eta & -\mathbf{B}_s\end{bmatrix}\begin{bmatrix}\mathbf{c}_\eta \\ \mathbf{c}_s\end{bmatrix} = \mathbf{0}$
    其中 $\mathbf{a} = \text{diag}(\mathbf{e}^{-1})\mathbf{W}^{\dagger}\mathbf{m}_{\text{dif}}$ 是已知量，$\mathbf{W}$ 是权重矩阵（像素-波长映射）
 
 4. **闭式求解**：
    联合直射光和衍射光约束，求解约束优化问题：
-   $$\mathbf{x}^* = \arg\min_{\mathbf{x}} \|\mathbf{A}_{\text{dif}}\mathbf{x}\|_2^2 \quad \text{s.t.} \quad [\mathbf{0} ~ \mathbf{A}_{\text{dir}}]\mathbf{x} = \mathbf{m}_{\text{dir}}$$
+    $\mathbf{x}^* = \arg\min_{\mathbf{x}} \|\mathbf{A}_{\text{dif}}\mathbf{x}\|_2^2 \quad \text{s.t.} \quad [\mathbf{0} ~ \mathbf{A}_{\text{dir}}]\mathbf{x} = \mathbf{m}_{\text{dir}}$
    通过拉格朗日乘子法获得闭式解
 
 5. **像素-波长映射估计**：
-   - **荧光灯+LED**方案：利用荧光灯的尖峰光谱定位波长-像素对应关系，然后用LED拍摄获得直射/衍射观测
-   - **纯LED**方案：使用point-to-plane ICP算法，最小化衍射观测与预期灵敏度曲线之间的距离来估计二次映射函数 $\lambda = ap^2 + bp + c$
+
+    - **荧光灯+LED**方案：利用荧光灯的尖峰光谱定位波长-像素对应关系，然后用LED拍摄获得直射/衍射观测
+    - **纯LED**方案：使用point-to-plane ICP算法，最小化衍射观测与预期灵敏度曲线之间的距离来估计二次映射函数 $\lambda = ap^2 + bp + c$
 
 ## 实验
 

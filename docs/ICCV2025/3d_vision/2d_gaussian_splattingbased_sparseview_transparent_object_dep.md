@@ -53,31 +53,35 @@ TRAN-D包含三个模块：
 ### 关键设计
 
 1. **透明物体分割（Fine-tuned Grounded SAM）**：
-   - 使用不在词典中的特定类别文本提示"786dvpteg"来表示"透明物体"，避免"glass"/"transparent"等通用词导致的误分割
-   - 仅fine-tune图像骨干（GroundedDINO），冻结文本骨干（BERT），在合成TRansPose数据上训练1个epoch
-   - 所有透明物体统一为一个类别，分配唯一标识符作为类别特定prompt
-   - 确保多视角间一致的实例分割mask
+
+    - 使用不在词典中的特定类别文本提示"786dvpteg"来表示"透明物体"，避免"glass"/"transparent"等通用词导致的误分割
+    - 仅fine-tune图像骨干（GroundedDINO），冻结文本骨干（BERT），在合成TRansPose数据上训练1个epoch
+    - 所有透明物体统一为一个类别，分配唯一标识符作为类别特定prompt
+    - 确保多视角间一致的实例分割mask
 
 2. **分割Mask渲染与Object Index One-Hot渲染**：
-   - 每个Gaussian $\mathcal{G}_i$ 被赋予颜色向量 $\mathbf{m}_i \in \mathbb{R}^3$ 表示其所属物体
-   - 渲染方程与颜色渲染类似：$m(x) = \sum_i m_i \alpha_i \hat{\mathcal{G}}_i(u(x)) \prod_{j=1}^{i-1}(1-\alpha_j \hat{\mathcal{G}}_j(u(x)))$
-   - 同时维护object index one-hot向量 $\mathbf{o}_i \in \mathbb{R}^{N+1}$（N个物体+1个背景），通过softmax归一化后用dice loss优化
-   - 分割mask的联合优化防止透明物体的Gaussian不透明度在训练中塌缩为零
+
+    - 每个Gaussian $\mathcal{G}_i$ 被赋予颜色向量 $\mathbf{m}_i \in \mathbb{R}^3$ 表示其所属物体
+    - 渲染方程与颜色渲染类似：$m(x) = \sum_i m_i \alpha_i \hat{\mathcal{G}}_i(u(x)) \prod_{j=1}^{i-1}(1-\alpha_j \hat{\mathcal{G}}_j(u(x)))$
+    - 同时维护object index one-hot向量 $\mathbf{o}_i \in \mathbb{R}^{N+1}$（N个物体+1个背景），通过softmax归一化后用dice loss优化
+    - 分割mask的联合优化防止透明物体的Gaussian不透明度在训练中塌缩为零
 
 3. **Object-aware 3D Loss（核心创新）**：
-   - **问题**：稀疏视角+遮挡导致部分区域梯度极弱，仅靠视角空间位置梯度无法优化这些Gaussian
-   - **解决方案**：基于3D距离的层级化损失
-   - 选取 $n_g$ 个最远的Gaussian作为组中心，每组包含 $n_n$ 个最近邻Gaussian
-   - **距离方差损失** $\mathcal{L}_d = \text{Var}(d_1, ..., d_{n_g})$：促使组中心间距均匀，将遮挡区域波动较大的距离拉向可见区域稳定的距离
-   - **局部密度损失** $\mathcal{L}_S = \text{Var}(S_1, ..., S_{n_g})$：促使各组内部密度一致，吸引Gaussian到稀疏区域
-   - **三级层级分组策略**：$(n_g, n_n) = (16,16), (32,16), (64,32)$，适应不同优化阶段Gaussian数量的变化
+
+    - **问题**：稀疏视角+遮挡导致部分区域梯度极弱，仅靠视角空间位置梯度无法优化这些Gaussian
+    - **解决方案**：基于3D距离的层级化损失
+    - 选取 $n_g$ 个最远的Gaussian作为组中心，每组包含 $n_n$ 个最近邻Gaussian
+    - **距离方差损失** $\mathcal{L}_d = \text{Var}(d_1, ..., d_{n_g})$：促使组中心间距均匀，将遮挡区域波动较大的距离拉向可见区域稳定的距离
+    - **局部密度损失** $\mathcal{L}_S = \text{Var}(S_1, ..., S_{n_g})$：促使各组内部密度一致，吸引Gaussian到稀疏区域
+    - **三级层级分组策略**：$(n_g, n_n) = (16,16), (32,16), (64,32)$，适应不同优化阶段Gaussian数量的变化
 
 4. **基于物理仿真的场景更新（MPM）**：
-   - 物体移除后通过object index one-hot向量识别并删除对应Gaussian
-   - 从2D Gaussian渲染深度图生成mesh，用于物理仿真
-   - 使用Taichi实现的MPM模拟物体移除后的连锁运动（100个时间步）
-   - 材料参数：杨氏模量 $5 \times 10^4$ Pa，泊松比0.4
-   - 仿真后进行100次迭代的Gaussian重优化（省略object-aware损失），仅需单张鸟瞰图
+
+    - 物体移除后通过object index one-hot向量识别并删除对应Gaussian
+    - 从2D Gaussian渲染深度图生成mesh，用于物理仿真
+    - 使用Taichi实现的MPM模拟物体移除后的连锁运动（100个时间步）
+    - 材料参数：杨氏模量 $5 \times 10^4$ Pa，泊松比0.4
+    - 仿真后进行100次迭代的Gaussian重优化（省略object-aware损失），仅需单张鸟瞰图
 
 ### 损失函数 / 训练策略
 

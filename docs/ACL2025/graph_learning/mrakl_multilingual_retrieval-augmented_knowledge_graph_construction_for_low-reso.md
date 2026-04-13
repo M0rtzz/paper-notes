@@ -27,20 +27,20 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 知识图谱（KG）在问答、信息检索、语言模型增强等下游应用中至关重要，但大多数 KG 是不完整的，低资源语言中缺失信息更为严重。Wikidata 中仅 0.2% 的实体有 Amharic 标签。
+**领域现状**: 知识图谱（KG）在问答、信息检索、语言模型增强等下游应用中至关重要，但大多数 KG 是不完整的，低资源语言中缺失信息更为严重。Wikidata 中仅 0.2% 的实体有 Amharic 标签。
 
-2. **现有痛点**: 
+**现有痛点**: 
    - 现有 mKGC 方法（如 KGT5）依赖大量结构化数据训练（如 52M 三元组），低资源语言根本不具备此条件
    - 基于 KG 嵌入的跨语言方法假设封闭世界，无法利用开放域自然语言知识
    - 预训练语言模型对低资源语言的参数化知识极度匮乏（GPT-4 在 Amharic 上 zero-shot H@1 仅 5.83%）
 
-3. **核心矛盾**: 低资源语言缺乏结构化标注数据，但拥有相对更多的非结构化单语文本（如 Wikipedia 文章），如何利用这些非结构化数据来构建 KG。
+**核心矛盾**: 低资源语言缺乏结构化标注数据，但拥有相对更多的非结构化单语文本（如 Wikipedia 文章），如何利用这些非结构化数据来构建 KG。
 
-4. **本文要解决什么**: 为 Tigrinya（3.5k 三元组）和 Amharic（34k 三元组）这样的极低资源语言构建和补全知识图谱。
+**本文要解决什么**: 为 Tigrinya（3.5k 三元组）和 Amharic（34k 三元组）这样的极低资源语言构建和补全知识图谱。
 
-5. **切入角度**: 将 KG 三元组转换为 QA 对（head + relation → question, tail → answer），用 RAG 方式从 Wikipedia 检索相关段落辅助生成。
+**切入角度**: 将 KG 三元组转换为 QA 对（head + relation → question, tail → answer），用 RAG 方式从 Wikipedia 检索相关段落辅助生成。
 
-6. **核心idea一句话**: 用 RAG + 跨语言 QA 将非结构化单语数据转化为 KG 补全能力，弥补低资源语言结构化数据的不足。
+**核心idea一句话**: 用 RAG + 跨语言 QA 将非结构化单语数据转化为 KG 补全能力，弥补低资源语言结构化数据的不足。
 
 ## 方法详解
 
@@ -53,24 +53,28 @@ mRAKL 由两个核心组件构成：
 ### 关键设计
 
 1. **KG 到 QA 的转换**: 
-   - 为 120 个关系手动准备四种语言的问题模板
-   - 对每个三元组 $(h, r, t)$，将 head entity 填入关系模板得到问题，tail entity 作为答案
-   - 例：三元组 (Surafel Dagnachew, place of birth, Ethiopia) → 问题"What is Surafel Dagnachew's place of birth?"
+
+    - 为 120 个关系手动准备四种语言的问题模板
+    - 对每个三元组 $(h, r, t)$，将 head entity 填入关系模板得到问题，tail entity 作为答案
+    - 例：三元组 (Surafel Dagnachew, place of birth, Ethiopia) → 问题"What is Surafel Dagnachew's place of birth?"
 
 2. **跨语言实体对齐**: 
-   - 在输入序列中使用语言标记 [C-LAN], [Q-LAN], [A-LAN] 指示上下文、问题和答案的语言
-   - 支持跨语言链接预测：给定一种语言的 head + relation，预测另一种语言的 tail
-   - 格式：`[C-LANt]C | [Q-LANt]Q? [A-LANt']`（上下文/问题语言 t，答案语言 t'可以不同）
+
+    - 在输入序列中使用语言标记 [C-LAN], [Q-LAN], [A-LAN] 指示上下文、问题和答案的语言
+    - 支持跨语言链接预测：给定一种语言的 head + relation，预测另一种语言的 tail
+    - 格式：`[C-LANt]C | [Q-LANt]Q? [A-LANt']`（上下文/问题语言 t，答案语言 t'可以不同）
 
 3. **检索器设计**: 
-   - **BM25**: 对四种语言分别建立单语 Wikipedia 索引
-   - **LaBSE**: 多语言句嵌入模型，用对比损失微调（LaBSE 不包含 Tigrinya）
-   - **(Im)perfect Retriever**: 上界实验——直接在 head entity 的 Wikipedia 文章中搜索包含 tail entity 的句子
+
+    - **BM25**: 对四种语言分别建立单语 Wikipedia 索引
+    - **LaBSE**: 多语言句嵌入模型，用对比损失微调（LaBSE 不包含 Tigrinya）
+    - **(Im)perfect Retriever**: 上界实验——直接在 head entity 的 Wikipedia 文章中搜索包含 tail entity 的句子
 
 4. **生成器训练**: 
-   - 基础模型：AfriTeVa-base（包含 Tigrinya 和 Amharic 的预训练 T5 模型）
-   - 用 LoRA 微调，交叉熵损失，beam search 解码，beam size=10
-   - 四种训练设置：No-Context / Monolingual Self-Context / Multilingual Self-Context / Cross-Lingual Context
+
+    - 基础模型：AfriTeVa-base（包含 Tigrinya 和 Amharic 的预训练 T5 模型）
+    - 用 LoRA 微调，交叉熵损失，beam search 解码，beam size=10
+    - 四种训练设置：No-Context / Monolingual Self-Context / Multilingual Self-Context / Cross-Lingual Context
 
 ### 损失函数/训练策略
 

@@ -28,11 +28,11 @@ tags:
 
 表格是科学文档的核心组件，从表格图像自动生成可编译的高质量LaTeX代码对文档数字化至关重要。然而，现有工作主要集中在生成HTML表示，缺乏LaTeX所需的结构表达力和排版精度。这一任务面临三大核心挑战：
 
-1. **复杂表格的处理难度**：大尺寸、深层嵌套结构（多行/多列合并）和语义丰富的单元格内容（数学公式等）对视觉编码器和语言解码器都构成挑战。视觉编码器需提取细粒度的视觉和结构线索，语言解码器需生成长且语法敏感的LaTeX序列。任一环节出错都可能导致幻觉输出甚至编译失败。
+**复杂表格的处理难度**：大尺寸、深层嵌套结构（多行/多列合并）和语义丰富的单元格内容（数学公式等）对视觉编码器和语言解码器都构成挑战。视觉编码器需提取细粒度的视觉和结构线索，语言解码器需生成长且语法敏感的LaTeX序列。任一环节出错都可能导致幻觉输出甚至编译失败。
 
-2. **SFT的固有局限**：监督微调使用teacher forcing，训练信号是token级的next prediction。但LaTeX本身有语法歧义——不同的语法形式可能产生完全相同的视觉输出。这导致训练目标和评估目标之间存在不匹配，尤其对复杂表格影响严重。
+**SFT的固有局限**：监督微调使用teacher forcing，训练信号是token级的next prediction。但LaTeX本身有语法歧义——不同的语法形式可能产生完全相同的视觉输出。这导致训练目标和评估目标之间存在不匹配，尤其对复杂表格影响严重。
 
-3. **评估指标不完善**：TEDS对细粒度错误不敏感且在HTML和LaTeX之间存在适配问题；像素级指标聚焦局部视觉相似度但忽略全局结构正确性。需要一种混合评估策略。
+**评估指标不完善**：TEDS对细粒度错误不敏感且在HTML和LaTeX之间存在适配问题；像素级指标聚焦局部视觉相似度但忽略全局结构正确性。需要一种混合评估策略。
 
 这些挑战驱动了VSGRPO的设计——通过将渲染后的视觉反馈引入RL优化，直接优化最终视觉输出质量，绕过LaTeX语法歧义问题。
 
@@ -45,27 +45,29 @@ tags:
 ### 关键设计
 
 1. **大规模Table2LaTeX数据集构建**：从2017年10月至2023年4月的arXiv论文中爬取LaTeX源码，用正则表达式提取tabular环境，清理引用、颜色设置等控制命令后获得**1,209,986**个表格-LaTeX对。按复杂度分为三级：
-   - Simple：基础结构（94%）
-   - Medium：含2+个\multirow或\multicolumn且100-160个单元格（3%）
-   - Complex：超过160个单元格（3%）
+
+    - Simple：基础结构（94%）
+    - Medium：含2+个\multirow或\multicolumn且100-160个单元格（3%）
+    - Complex：超过160个单元格（3%）
    
    这种分级使得评估更加细粒度，能准确反映模型在不同复杂度上的真实能力。
 
 2. **VSGRPO双奖励强化学习策略**：核心创新在于将LaTeX渲染（不可微操作）引入RL优化环路。对每个表格图像输入，模型采样一组LaTeX输出 $\{o_1, ..., o_N\}$，分别计算两种奖励：
 
-   - **视觉奖励（Visual Reward）**：将生成的LaTeX编译渲染为图像，与ground truth渲染图计算CW-SSIM。超过阈值（0.6）奖励为1，否则为0。CW-SSIM针对黑白表格图像做了专门适配：转灰度→统一尺寸→行列对齐→2×2 Haar小波分解为4个子带→各子带独立计算SSIM→取平均。
+    - **视觉奖励（Visual Reward）**：将生成的LaTeX编译渲染为图像，与ground truth渲染图计算CW-SSIM。超过阈值（0.6）奖励为1，否则为0。CW-SSIM针对黑白表格图像做了专门适配：转灰度→统一尺寸→行列对齐→2×2 Haar小波分解为4个子带→各子带独立计算SSIM→取平均。
    
-   - **结构奖励（Structure Reward）**：将生成和ground truth的LaTeX转换为HTML，计算TEDS-Structure。超过阈值（0.9）奖励为1，否则为0。TEDS-Structure通过最小树编辑距离衡量表格结构对齐度。
+    - **结构奖励（Structure Reward）**：将生成和ground truth的LaTeX转换为HTML，计算TEDS-Structure。超过阈值（0.9）奖励为1，否则为0。TEDS-Structure通过最小树编辑距离衡量表格结构对齐度。
 
    优化目标基于GRPO框架：
-   $$J_{\text{RFT}}(\theta) = \mathbb{E}\left[\frac{1}{N}\sum_{i=1}^N \min\left(\frac{\pi_\theta(o_i|q)}{\pi_{\theta_{old}}(o_i|q)}A_i, \text{clip}(\cdot, 1-\varepsilon, 1+\varepsilon)A_i\right) - \beta D_{KL}(\pi_\theta \| \pi_{ref})\right]$$
+    $J_{\text{RFT}}(\theta) = \mathbb{E}\left[\frac{1}{N}\sum_{i=1}^N \min\left(\frac{\pi_\theta(o_i|q)}{\pi_{\theta_{old}}(o_i|q)}A_i, \text{clip}(\cdot, 1-\varepsilon, 1+\varepsilon)A_i\right) - \beta D_{KL}(\pi_\theta \| \pi_{ref})\right]$
    
    其中优势函数 $A_i = \frac{r_i - \text{mean}(\{r_j\})}{\text{std}(\{r_j\})}$，$\varepsilon=0.2$，$\beta=0.02$。
 
 3. **训练策略的精心设计**：
-   - VSGRPO仅在**5,936个复杂表格**上训练（ground truth LaTeX<3000字符），平衡复杂度和计算可行性
-   - SFT是必要前置步骤——不经SFT直接做RL效果极差（消融验证）
-   - 编译失败的输出自动获得0奖励
+
+    - VSGRPO仅在**5,936个复杂表格**上训练（ground truth LaTeX<3000字符），平衡复杂度和计算可行性
+    - SFT是必要前置步骤——不经SFT直接做RL效果极差（消融验证）
+    - 编译失败的输出自动获得0奖励
 
 ### 损失函数 / 训练策略
 

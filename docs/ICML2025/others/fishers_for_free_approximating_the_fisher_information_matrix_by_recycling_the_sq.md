@@ -24,11 +24,11 @@ tags:
 本文系统分析了 Adam 优化器的平方梯度累积器（Squisher）与 Fisher 信息矩阵对角线之间的理论联系，证明 Squisher 可以作为 Fisher 对角线的免费近似，在模型合并、持续学习、稀疏化等五大应用中表现与 Fisher 相当。
 
 ## 研究背景与动机
-1. **领域现状**：Fisher 信息矩阵对角线广泛用于衡量参数敏感性，但计算需要逐样本梯度平方再求和，代价不低。
-2. **现有痛点**：Fisher 对角线需要额外计算，需要访问训练数据，且高效实现非平凡，阻碍了 Fisher 方法（如 Fisher Merging）的广泛采用。
-3. **核心矛盾**：Adam 优化器已经在训练过程中维护了一个平方梯度的指数移动平均，这与 Fisher 对角线在表面上相似但细节不同。
-4. **切入角度**：严格分析两者的关系，明确差异并量化影响。
-5. **核心idea**：Adam 的 $v^{(t)}$ 可直接"回收"作为 Fisher 对角线的近似（命名为 Squisher），无需额外计算。
+**领域现状**：Fisher 信息矩阵对角线广泛用于衡量参数敏感性，但计算需要逐样本梯度平方再求和，代价不低。
+**现有痛点**：Fisher 对角线需要额外计算，需要访问训练数据，且高效实现非平凡，阻碍了 Fisher 方法（如 Fisher Merging）的广泛采用。
+**核心矛盾**：Adam 优化器已经在训练过程中维护了一个平方梯度的指数移动平均，这与 Fisher 对角线在表面上相似但细节不同。
+**切入角度**：严格分析两者的关系，明确差异并量化影响。
+**核心idea**：Adam 的 $v^{(t)}$ 可直接"回收"作为 Fisher 对角线的近似（命名为 Squisher），无需额外计算。
 
 ## 方法详解
 
@@ -38,19 +38,22 @@ tags:
 ### 关键设计
 
 1. **Standard vs Joint Fisher**:
-   - 标准 Fisher: $\text{diag}(F_{\text{std}}^{\text{emp}}) = \sum_n g_n^2$（先平方再求和）
-   - Joint Fisher: $\text{diag}(F_{\text{joint}}^{\text{emp}}) = (\sum_n g_n)^2$（先求和再平方）
-   - Squisher 更接近 Joint Fisher 而非 Standard Fisher
+
+    - 标准 Fisher: $\text{diag}(F_{\text{std}}^{\text{emp}}) = \sum_n g_n^2$（先平方再求和）
+    - Joint Fisher: $\text{diag}(F_{\text{joint}}^{\text{emp}}) = (\sum_n g_n)^2$（先求和再平方）
+    - Squisher 更接近 Joint Fisher 而非 Standard Fisher
 
 2. **Squisher 的三个近似源**:
-   - 先聚合后平方 vs 先平方后聚合（$\sum g_n^2$ vs $(\sum g_n)^2$），引入 batch 级别的差异
-   - EMA 带来的时间加权，非均匀加权历史梯度
-   - 使用 mean reduction 损失时的 $1/N$ 缩放因子
-   - 关键观察：许多应用对 Fisher 的缩放不变（如 Fisher Merging），因此缩放差异无影响
+
+    - 先聚合后平方 vs 先平方后聚合（$\sum g_n^2$ vs $(\sum g_n)^2$），引入 batch 级别的差异
+    - EMA 带来的时间加权，非均匀加权历史梯度
+    - 使用 mean reduction 损失时的 $1/N$ 缩放因子
+    - 关键观察：许多应用对 Fisher 的缩放不变（如 Fisher Merging），因此缩放差异无影响
 
 3. **实验验证**:
-   - 覆盖五大应用：模型合并、持续学习、稀疏训练、任务相似度、模型稀疏化、稀疏微调
-   - 每个应用都与使用真实 Fisher 和无 Fisher 基线对比
+
+    - 覆盖五大应用：模型合并、持续学习、稀疏训练、任务相似度、模型稀疏化、稀疏微调
+    - 每个应用都与使用真实 Fisher 和无 Fisher 基线对比
 
 ## 实验关键数据
 

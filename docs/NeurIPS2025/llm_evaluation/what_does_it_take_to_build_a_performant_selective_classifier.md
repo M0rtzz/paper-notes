@@ -55,16 +55,17 @@ $$\Delta(c) = \overline{\mathrm{acc}}(a_{\text{full}}, c) - \mathrm{acc}_c(h, g)
 $$\hat{\Delta}(c) \leq \underbrace{\varepsilon_{\text{Bayes}}(c)}_{\text{不可约}} + \underbrace{\varepsilon_{\text{approx}}(c)}_{\text{容量}} + \underbrace{\varepsilon_{\text{rank}}(c)}_{\text{排序}} + \underbrace{\varepsilon_{\text{stat}}(c)}_{\text{统计}} + \underbrace{\varepsilon_{\text{misc}}(c)}_{\text{优化与偏移}}$$
 
    各项定义：
-   - $\varepsilon_{\text{Bayes}}(c) = \mathbb{E}[1-\max\{\eta(X), 1-\eta(X)\} \mid X \in A_c]$：接受区域内数据固有的标签不确定性
-   - $\varepsilon_{\text{approx}}(c) = \mathbb{E}[|\eta_h(X) - \eta(X)| \mid X \in A_c]$：模型假设类无法逼近贝叶斯最优的程度
-   - $\varepsilon_{\text{rank}}(c) = \mathbb{E}[\eta_h \mid A_c^*] - \mathbb{E}[\eta_h \mid A_c]$：置信度分数排序与真实正确性排序的偏差
-   - $\varepsilon_{\text{stat}}(c) = C\sqrt{\log(1/\delta)/n}$：有限验证集的采样波动
-   - $\varepsilon_{\text{misc}}(c)$：优化误差 + 分布偏移
+    - $\varepsilon_{\text{Bayes}}(c) = \mathbb{E}[1-\max\{\eta(X), 1-\eta(X)\} \mid X \in A_c]$：接受区域内数据固有的标签不确定性
+    - $\varepsilon_{\text{approx}}(c) = \mathbb{E}[|\eta_h(X) - \eta(X)| \mid X \in A_c]$：模型假设类无法逼近贝叶斯最优的程度
+    - $\varepsilon_{\text{rank}}(c) = \mathbb{E}[\eta_h \mid A_c^*] - \mathbb{E}[\eta_h \mid A_c]$：置信度分数排序与真实正确性排序的偏差
+    - $\varepsilon_{\text{stat}}(c) = C\sqrt{\log(1/\delta)/n}$：有限验证集的采样波动
+    - $\varepsilon_{\text{misc}}(c)$：优化误差 + 分布偏移
 
 2. **单调校准的有限效果（Section 3.4）**：关键洞察——单调后处理校准（如等序回归、温度缩放中的单调部分）保持分数排序不变，因此 $A_c$ 集合不变，$\Delta(c)$ 不变。虽然温度缩放通过 softmax 的非线性可能产生**微弱**的非单调重排效应，但本质上受限。真正减小差距需要能改变排序的方法：
-   - Deep Ensembles：通过多模型聚合改变排序
-   - SAT：通过重标记改变排序
-   - 特征感知校准头：利用隐层特征直接预测正确性
+
+    - Deep Ensembles：通过多模型聚合改变排序
+    - SAT：通过重标记改变排序
+    - 特征感知校准头：利用隐层特征直接预测正确性
 
 3. **排序距离的刻画（Remark）**：定义 mis-ordered mass：
 

@@ -25,10 +25,10 @@ tags:
 HSEmotion 团队在 ABAW-10 竞赛中提出了一个轻量级 pipeline：用预训练 EfficientNet 提取面部 embedding，结合 MLP + GLA（Generalized Logit Adjustment）+ 滑窗平滑，在四项任务（EXPR/VA/AU/VD）上均大幅超过官方 baseline，其中暴力检测任务使用 ConvNeXt-T + TCN 达到 0.783 macro F1。
 
 ## 研究背景与动机
-1. **领域现状**：ABAW（Affective Behavior Analysis in-the-Wild）竞赛是情感计算的主流 benchmark，第10届包含四项任务：面部表情分类（EXPR）、Valence-Arousal 连续估计（VA）、Action Unit 检测（AU）、细粒度暴力检测（VD）。
-2. **核心挑战**：真实场景数据面临遮挡、姿态/光照变化、域偏移、标签噪声、类别不平衡等问题。现有方法通常需要复杂的时序建模（Transformer/TCN）和多模态融合，计算成本高。
-3. **本文切入角度**：不追求架构复杂度，而是用高质量预训练 encoder + 简单 MLP + 后处理技巧（GLA、置信度过滤、滑窗平滑）实现 "简单但有效" 的 pipeline。
-4. **核心思路**：预训练模型已具有很强特征提取能力，关键在于如何高效利用这些特征并处理类别不平衡和帧间噪声问题。
+**领域现状**：ABAW（Affective Behavior Analysis in-the-Wild）竞赛是情感计算的主流 benchmark，第10届包含四项任务：面部表情分类（EXPR）、Valence-Arousal 连续估计（VA）、Action Unit 检测（AU）、细粒度暴力检测（VD）。
+**核心挑战**：真实场景数据面临遮挡、姿态/光照变化、域偏移、标签噪声、类别不平衡等问题。现有方法通常需要复杂的时序建模（Transformer/TCN）和多模态融合，计算成本高。
+**本文切入角度**：不追求架构复杂度，而是用高质量预训练 encoder + 简单 MLP + 后处理技巧（GLA、置信度过滤、滑窗平滑）实现 "简单但有效" 的 pipeline。
+**核心思路**：预训练模型已具有很强特征提取能力，关键在于如何高效利用这些特征并处理类别不平衡和帧间噪声问题。
 
 ## 方法详解
 

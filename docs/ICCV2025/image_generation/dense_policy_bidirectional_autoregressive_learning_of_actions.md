@@ -50,24 +50,27 @@ $$P(A|O) = \prod_{i=1}^{n} P(A^i | A^{i-1}, A^{i-2}, ..., A^0, O)$$
 ### 关键设计
 
 1. **Bidirectional Expansion（双向扩展）**: 核心是 Dense Process 机制。给定上一级的稀疏关键帧动作 $A^n$（含 $2^n$ 个动作点），通过线性上采样扩展到 $2^{n+1}$ 个点：
-   - 已有位置保持原值
-   - 新位置取两邻居的线性插值：$\tilde{a}_{t+j}^n = \frac{1}{2}(a_{t+j-T/2^{n+1}} + a_{t+j+T/2^{n+1}})$
-   - 边界位置复制最近的原始点
+
+    - 已有位置保持原值
+    - 新位置取两邻居的线性插值：$\tilde{a}_{t+j}^n = \frac{1}{2}(a_{t+j-T/2^{n+1}} + a_{t+j+T/2^{n+1}})$
+    - 边界位置复制最近的原始点
    
    然后通过 4 层 BERT Encoder 进行交叉注意力得到下一级 $A^{n+1} = \text{Enc}(A_{up}^n, O)$。
 
    与 next-token 和 next-chunk 的关键区别：双向扩展能同时捕获前后方向的时序依赖，生成更连贯的动作序列。推理复杂度为 $O(\log T)$ 而非 $O(T)$。
 
 2. **Encoder-Only 架构**: 使用共享的 BERT Encoder 处理所有层级，利用交叉注意力将视觉观测特征融入动作表示。好处：
-   - 参数量小（对比Diffusion Head和CVAE Head）
-   - 推理速度快（接近ACT，比Diffusion Policy快约10倍）
-   - 训练稳定（无需VAE的变分推理或扩散模型的多步去噪）
+
+    - 参数量小（对比Diffusion Head和CVAE Head）
+    - 推理速度快（接近ACT，比Diffusion Policy快约10倍）
+    - 训练稳定（无需VAE的变分推理或扩散模型的多步去噪）
 
 3. **灵活的视觉输入**: 
-   - 2D: ResNet18 + GroupNorm（RGB 图像）
-   - 3D: Sparse Convolutional Network（点云）
-   - 可无缝替换其他视觉backbone（如 RISE 的稀疏卷积网络）
-   - 训练时随机mask部分本体感知信息避免位置记忆偏差
+
+    - 2D: ResNet18 + GroupNorm（RGB 图像）
+    - 3D: Sparse Convolutional Network（点云）
+    - 可无缝替换其他视觉backbone（如 RISE 的稀疏卷积网络）
+    - 训练时随机mask部分本体感知信息避免位置记忆偏差
 
 ### 损失函数 / 训练策略
 

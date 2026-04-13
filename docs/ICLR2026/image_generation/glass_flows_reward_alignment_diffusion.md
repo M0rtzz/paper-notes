@@ -10,9 +10,9 @@
 提出 GLASS (Gaussian Latent Sufficient Statistic) Flows——一种在流/扩散模型的去噪过程中实现高效随机转移的新采样范式，通过充分统计量重参数化将随机转移重铸为内部 ODE 求解问题，在无需重训的条件下结合 ODE 效率和 SDE 随机性，使 Feynman-Kac Steering 在 FLUX 文生图模型上一致超越 Best-of-N 基线。
 
 ## 研究背景与动机
-1. **领域现状**：奖励对齐扩散/流模型的推理方法（如 SMC、Feynman-Kac Steering）需要随机转移（SDE）来探索分布，但 SDE 采样远慢于 ODE 且降低生成质量。
-2. **现有痛点**：标准 FKS 使用 SDE 转移时甚至无法超越简单的 Best-of-N ODE 基线——效率与随机性之间存在根本矛盾。
-3. **核心idea一句话**：将随机转移 $p_{t'|t}$ 重铸为内部流匹配问题并用 ODE 求解，通过充分统计量 $S(\mathbf{x}) = \frac{\mu^\top \Sigma^{-1}}{\mu^\top \Sigma^{-1}\mu}\mathbf{x}$ 复用预训练模型，实现"ODE 速度 + SDE 多样性"。
+**领域现状**：奖励对齐扩散/流模型的推理方法（如 SMC、Feynman-Kac Steering）需要随机转移（SDE）来探索分布，但 SDE 采样远慢于 ODE 且降低生成质量。
+**现有痛点**：标准 FKS 使用 SDE 转移时甚至无法超越简单的 Best-of-N ODE 基线——效率与随机性之间存在根本矛盾。
+**核心idea一句话**：将随机转移 $p_{t'|t}$ 重铸为内部流匹配问题并用 ODE 求解，通过充分统计量 $S(\mathbf{x}) = \frac{\mu^\top \Sigma^{-1}}{\mu^\top \Sigma^{-1}\mu}\mathbf{x}$ 复用预训练模型，实现"ODE 速度 + SDE 多样性"。
 
 ## 方法详解
 

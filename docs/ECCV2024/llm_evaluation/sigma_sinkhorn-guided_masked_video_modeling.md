@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**: 视频自监督学习正经历从 pretext task →contrast learning → masked modeling 的演进。VideoMAE 等 masked video modeling (MVM) 方法通过重建被掩码的时空管（space-time tubes）的像素值来预训练 ViT，展现了很好的可扩展性。
-2. **现有痛点**: 像素级重建目标本质上是低级的——因为单个 patch 或时空管不代表独立的语义单元（不像 NLP 中的词/子词），因此模型倾向于学习低级纹理特征而非高级语义。实验证据：VideoMAE 在 frozen linear probing 下性能很弱（K400 仅 20.7%）。
-3. **核心矛盾**: 如果将重建目标换成可学习的深层特征，投影网络和视频模型联合优化时会坍缩到 trivial solution（所有输入映射到同一特征向量），L2 loss 无法防止这一点。
-4. **切入角度**: 将特征空间约束为有限数量的可学习聚类中心，通过最优传输的等分约束（equipartition constraint）强制所有聚类被均匀使用，形成高熵瓶颈，既避免坍缩又为特征注入语义信息。
-5. **核心 idea**: Sinkhorn 算法求解最优传输 → 生成伪标签 → 视频模型和投影网络对称预测彼此的聚类分配 → 联合学习语义丰富的特征空间。
+**领域现状**: 视频自监督学习正经历从 pretext task →contrast learning → masked modeling 的演进。VideoMAE 等 masked video modeling (MVM) 方法通过重建被掩码的时空管（space-time tubes）的像素值来预训练 ViT，展现了很好的可扩展性。
+**现有痛点**: 像素级重建目标本质上是低级的——因为单个 patch 或时空管不代表独立的语义单元（不像 NLP 中的词/子词），因此模型倾向于学习低级纹理特征而非高级语义。实验证据：VideoMAE 在 frozen linear probing 下性能很弱（K400 仅 20.7%）。
+**核心矛盾**: 如果将重建目标换成可学习的深层特征，投影网络和视频模型联合优化时会坍缩到 trivial solution（所有输入映射到同一特征向量），L2 loss 无法防止这一点。
+**切入角度**: 将特征空间约束为有限数量的可学习聚类中心，通过最优传输的等分约束（equipartition constraint）强制所有聚类被均匀使用，形成高熵瓶颈，既避免坍缩又为特征注入语义信息。
+**核心 idea**: Sinkhorn 算法求解最优传输 → 生成伪标签 → 视频模型和投影网络对称预测彼此的聚类分配 → 联合学习语义丰富的特征空间。
 
 ## 方法详解
 
@@ -41,25 +41,28 @@ tags:
 ### 关键设计
 
 1. **从像素重建到特征重建**:
-   - 做什么：用深层特征替代像素值作为 MVM 的重建目标
-   - 核心思路：引入投影网络 $\varphi$ 嵌入所有 space-time tubes，选取被掩码管的特征作为目标。将 L2 重建损失改为在特征空间中：
-     $$\mathcal{L}_2^F = \frac{1}{N}\sum_{i=1}^N \|\mathbf{x}_i^\varphi - \mathbf{x}_i^\Psi\|_2^2$$
-   - 设计动机：像素级目标导致低级特征学习；深层特征目标可以捕获更抽象的语义信息
-   - **问题**：联合优化两个网络会导致 trivial solution（所有空间时间管映射到同一特征向量）
+
+    - 做什么：用深层特征替代像素值作为 MVM 的重建目标
+    - 核心思路：引入投影网络 $\varphi$ 嵌入所有 space-time tubes，选取被掩码管的特征作为目标。将 L2 重建损失改为在特征空间中：
+    $\mathcal{L}_2^F = \frac{1}{N}\sum_{i=1}^N \|\mathbf{x}_i^\varphi - \mathbf{x}_i^\Psi\|_2^2$
+    - 设计动机：像素级目标导致低级特征学习；深层特征目标可以捕获更抽象的语义信息
+    - **问题**：联合优化两个网络会导致 trivial solution（所有空间时间管映射到同一特征向量）
 
 2. **Sinkhorn-Guided Clustering Bottleneck**:
-   - 做什么：将特征空间约束为有限聚类，防止坍缩
-   - 核心思路：定义 $K$ 个可学习 prototypes $\mathbf{C} = \{\mathbf{c}_1, ..., \mathbf{c}_K\}$，将特征到 prototypes 的映射建模为基于熵正则化的最优传输问题：
-     $$\min_{\mathbf{Q}} \langle \mathbf{Q}, -\log \mathbf{X} \rangle + \frac{1}{\lambda} \text{KL}(\mathbf{Q} \| rc^\top)$$
-     其中等分约束 $r = \frac{1}{K} \cdot \mathbb{1}, c = \frac{1}{B} \cdot \mathbb{1}$ 强制所有 prototype 被均匀使用。使用快速 Sinkhorn-Knopp 算法在 GPU 上求解，生成软伪标签 $\mathbf{q}$。
-   - 设计动机：(1) 有限数量的聚类中心迫使相似的时空管共享同一 prototype，注入语义信息；(2) 等分约束防止所有点坍缩到单一聚类；(3) 可以在 mini-batch 内在线计算，训练高效
+
+    - 做什么：将特征空间约束为有限聚类，防止坍缩
+    - 核心思路：定义 $K$ 个可学习 prototypes $\mathbf{C} = \{\mathbf{c}_1, ..., \mathbf{c}_K\}$，将特征到 prototypes 的映射建模为基于熵正则化的最优传输问题：
+    $\min_{\mathbf{Q}} \langle \mathbf{Q}, -\log \mathbf{X} \rangle + \frac{1}{\lambda} \text{KL}(\mathbf{Q} \| rc^\top)$
+      其中等分约束 $r = \frac{1}{K} \cdot \mathbb{1}, c = \frac{1}{B} \cdot \mathbb{1}$ 强制所有 prototype 被均匀使用。使用快速 Sinkhorn-Knopp 算法在 GPU 上求解，生成软伪标签 $\mathbf{q}$。
+    - 设计动机：(1) 有限数量的聚类中心迫使相似的时空管共享同一 prototype，注入语义信息；(2) 等分约束防止所有点坍缩到单一聚类；(3) 可以在 mini-batch 内在线计算，训练高效
 
 3. **Symmetric Prediction Loss**:
-   - 做什么：用伪标签构建自监督预测任务
-   - 核心思路：视频模型预测投影网络的聚类分配，同时投影网络预测视频模型的聚类分配：
-     $$\mathcal{L} = \frac{1}{B}\sum_{i=1}^B [\mathcal{L}_{CE}(\tilde{\mathbf{x}}_i^\varphi, \mathbf{q}_i^\Psi) + \mathcal{L}_{CE}(\tilde{\mathbf{x}}_i^\Psi, \mathbf{q}_i^\varphi)]$$
-     其中 $\tilde{\mathbf{x}} = \mathbf{x}^\top \mathbf{c}$ 是特征与 prototype 的内积得分
-   - 设计动机：(1) 对称预测避免了单向依赖；(2) 不需要动量编码器（EMA），简化了训练管线；(3) 不需要数据增强来生成不同视图
+
+    - 做什么：用伪标签构建自监督预测任务
+    - 核心思路：视频模型预测投影网络的聚类分配，同时投影网络预测视频模型的聚类分配：
+    $\mathcal{L} = \frac{1}{B}\sum_{i=1}^B [\mathcal{L}_{CE}(\tilde{\mathbf{x}}_i^\varphi, \mathbf{q}_i^\Psi) + \mathcal{L}_{CE}(\tilde{\mathbf{x}}_i^\Psi, \mathbf{q}_i^\varphi)]$
+      其中 $\tilde{\mathbf{x}} = \mathbf{x}^\top \mathbf{c}$ 是特征与 prototype 的内积得分
+    - 设计动机：(1) 对称预测避免了单向依赖；(2) 不需要动量编码器（EMA），简化了训练管线；(3) 不需要数据增强来生成不同视图
 
 ### 损失函数 / 训练策略
 

@@ -45,10 +45,11 @@ tags:
 1. **ResFormer 核心公式**：$\mathbf{V}_n = \lambda_{n,1}\mathbf{V}_1 + \lambda_{n,2}\mathbf{H}_{n-1}\mathbf{W}_n^V$。其中 $\lambda$ 可以是固定常数（Constant-ResFormer）、统一值（Identity-ResFormer）、可学习参数（Learnable-ResFormer）或稀疏应用（Sparse-ResFormer）。设计动机是让深层网络能直接访问未被注意力平滑稀释的原始 token 级信息
 
 2. **多种变体设计**：
-   - **Identity-ResFormer**：$\lambda_{n,1} = \lambda_{n,2} = 0.5$，最简单的变体
-   - **Constant-ResFormer**：手动调优常数，最优为 $\lambda = 2$
-   - **Sparse-ResFormer**：仅在后几层应用 Value 残差，实验表明最后 3 层（6-8 层中的 8 层模型）受益最大
-   - **Learnable-ResFormer Plus**：深层给予 $\mathbf{V}_1$ 更大权重的自适应初始化
+
+    - **Identity-ResFormer**：$\lambda_{n,1} = \lambda_{n,2} = 0.5$，最简单的变体
+    - **Constant-ResFormer**：手动调优常数，最优为 $\lambda = 2$
+    - **Sparse-ResFormer**：仅在后几层应用 Value 残差，实验表明最后 3 层（6-8 层中的 8 层模型）受益最大
+    - **Learnable-ResFormer Plus**：深层给予 $\mathbf{V}_1$ 更大权重的自适应初始化
 
 3. **SVFormer**：将 Value 与注意力操作解耦，所有层共享第一层的 Value：$\mathbf{U}_n = \mathbf{A}_n\mathbf{V}_1$。主要优势是仅需计算和存储第一层的 Value 向量，**将 KV 缓存减少近一半**。实验表明共享 Value 的负面影响远小于共享 Key
 

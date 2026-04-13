@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：大型视觉语言模型(LVLMs)借鉴LLM的思维链(CoT)方法，先生成中间推理过程(rationale)，再基于图像+rationale+问题生成最终答案。人们普遍认为CoT能增强多模态推理的接地性和准确性。
-2. **现有痛点**：作者通过两个关键实验揭示了一个令人惊讶的事实——LVLM在CoT推理中**实际上忽略了rationale的内容**。(1) 注意力贡献分析：当图像和rationale同时输入时，rationale的注意力贡献显著下降，图像token主导预测；(2) rationale替换实验：将正确rationale替换为完全无关的rationale后，模型性能几乎不变，说明模型根本没有利用rationale的语义信息。
-3. **核心矛盾**：$p_\theta(y_i|\mathbf{y}_{<i}, x, r, q)$ 这一联合条件概率在实践中无法有效利用$r$的信息——图像token的"吸引力"远大于rationale token。但去掉图像仅用 $p_\theta(y_i|\mathbf{y}_{<i}, r, q)$ 又会丢失视觉信息。
-4. **本文要解决什么？** 设计一种无需额外训练的解码策略，使LVLM在CoT推理时**真正**同时利用图像和rationale信息。
-5. **切入角度**：将图像条件和rationale条件**解耦**为两个独立分布，在logit层面合成，避免联合条件下rationale被忽略的问题。
-6. **核心idea一句话**：通过将CoT推理重新形式化为以rationale条件对数似然为奖励的KL约束最大化问题，得到最优解码策略——图像条件概率 × rationale条件概率的$\lambda$次方。
+**领域现状**：大型视觉语言模型(LVLMs)借鉴LLM的思维链(CoT)方法，先生成中间推理过程(rationale)，再基于图像+rationale+问题生成最终答案。人们普遍认为CoT能增强多模态推理的接地性和准确性。
+**现有痛点**：作者通过两个关键实验揭示了一个令人惊讶的事实——LVLM在CoT推理中**实际上忽略了rationale的内容**。(1) 注意力贡献分析：当图像和rationale同时输入时，rationale的注意力贡献显著下降，图像token主导预测；(2) rationale替换实验：将正确rationale替换为完全无关的rationale后，模型性能几乎不变，说明模型根本没有利用rationale的语义信息。
+**核心矛盾**：$p_\theta(y_i|\mathbf{y}_{<i}, x, r, q)$ 这一联合条件概率在实践中无法有效利用$r$的信息——图像token的"吸引力"远大于rationale token。但去掉图像仅用 $p_\theta(y_i|\mathbf{y}_{<i}, r, q)$ 又会丢失视觉信息。
+**本文要解决什么？** 设计一种无需额外训练的解码策略，使LVLM在CoT推理时**真正**同时利用图像和rationale信息。
+**切入角度**：将图像条件和rationale条件**解耦**为两个独立分布，在logit层面合成，避免联合条件下rationale被忽略的问题。
+**核心idea一句话**：通过将CoT推理重新形式化为以rationale条件对数似然为奖励的KL约束最大化问题，得到最优解码策略——图像条件概率 × rationale条件概率的$\lambda$次方。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ tags:
 ### 关键设计
 
 1. **KL约束奖励最大化形式化**:
-   - 做什么：将CoT解码重新形式化为有理论保障的优化问题
-   - 核心思路：引入新的next-token分布$\pi$，最大化：$\max_\pi \mathbb{E}_\pi[R] - \beta \mathbb{D}_{\text{KL}}[\pi || \pi_{\text{ref}}]$，其中奖励函数 $R = \log p_\theta(y_i | \mathbf{y}_{<i}, r, q)$（rationale-grounding reward），参考策略 $\pi_{\text{ref}} = p_\theta(y_i | \mathbf{y}_{<i}, x, q)$（图像条件概率）
-   - 设计动机：最大化rationale条件对数似然确保模型利用rationale信息；KL约束防止偏离图像条件分布太远从而保留视觉信息。这避免了直接使用$p(y|x,r,q)$时rationale被忽略的问题
+
+    - 做什么：将CoT解码重新形式化为有理论保障的优化问题
+    - 核心思路：引入新的next-token分布$\pi$，最大化：$\max_\pi \mathbb{E}_\pi[R] - \beta \mathbb{D}_{\text{KL}}[\pi || \pi_{\text{ref}}]$，其中奖励函数 $R = \log p_\theta(y_i | \mathbf{y}_{<i}, r, q)$（rationale-grounding reward），参考策略 $\pi_{\text{ref}} = p_\theta(y_i | \mathbf{y}_{<i}, x, q)$（图像条件概率）
+    - 设计动机：最大化rationale条件对数似然确保模型利用rationale信息；KL约束防止偏离图像条件分布太远从而保留视觉信息。这避免了直接使用$p(y|x,r,q)$时rationale被忽略的问题
 
 2. **RED 最优解码公式**:
-   - 做什么：提供闭式最优解，无需训练
-   - 核心思路：根据KL约束奖励最大化的已知最优策略形式，代入具体设定得到 $\hat{p}_\theta(y_i) = \frac{1}{Z_\theta} p_\theta(y_i|\mathbf{y}_{<i}, x, q) \times p_\theta(y_i|\mathbf{y}_{<i}, r, q)^\lambda$。这是一个power-of-experts分布，强调图像条件和rationale条件概率的交集区域
-   - 设计动机：Theorem 4.1严格证明了这一公式是Eq.(7)的最优解。$\lambda = 1/\beta$ 控制rationale信息的影响权重
+
+    - 做什么：提供闭式最优解，无需训练
+    - 核心思路：根据KL约束奖励最大化的已知最优策略形式，代入具体设定得到 $\hat{p}_\theta(y_i) = \frac{1}{Z_\theta} p_\theta(y_i|\mathbf{y}_{<i}, x, q) \times p_\theta(y_i|\mathbf{y}_{<i}, r, q)^\lambda$。这是一个power-of-experts分布，强调图像条件和rationale条件概率的交集区域
+    - 设计动机：Theorem 4.1严格证明了这一公式是Eq.(7)的最优解。$\lambda = 1/\beta$ 控制rationale信息的影响权重
 
 3. **实际实现（logit层面加权求和）**:
-   - 做什么：将RED转化为简单的logit运算
-   - 核心思路：$\widehat{\text{logits}}_\theta(y_i) = \log\text{softmax}(\text{logits}_\theta(y_i|\mathbf{y}_{<i}, x, q)) + \lambda \cdot \log\text{softmax}(\text{logits}_\theta(y_i|\mathbf{y}_{<i}, r, q))$，然后 $\hat{p}_\theta(y_i) = \text{softmax}(\widehat{\text{logits}}_\theta(y_i))$。两个logits可以批并行推理，避免额外延迟
-   - 设计动机：log-softmax加权求和是乘法在对数空间的等价操作，实现简单且高效
+
+    - 做什么：将RED转化为简单的logit运算
+    - 核心思路：$\widehat{\text{logits}}_\theta(y_i) = \log\text{softmax}(\text{logits}_\theta(y_i|\mathbf{y}_{<i}, x, q)) + \lambda \cdot \log\text{softmax}(\text{logits}_\theta(y_i|\mathbf{y}_{<i}, r, q))$，然后 $\hat{p}_\theta(y_i) = \text{softmax}(\widehat{\text{logits}}_\theta(y_i))$。两个logits可以批并行推理，避免额外延迟
+    - 设计动机：log-softmax加权求和是乘法在对数空间的等价操作，实现简单且高效
 
 ### 损失函数 / 训练策略
 RED是纯推理时方法，**零训练**。只需要对现有LVLM做两次前向传播（一次图像条件、一次rationale条件），然后在logit层面合成。唯一超参数是$\lambda$，控制rationale的影响程度。

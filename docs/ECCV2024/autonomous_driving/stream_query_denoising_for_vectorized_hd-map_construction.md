@@ -29,9 +29,9 @@ tags:
 
 矢量化 HD 地图构建正在从单帧检测向时序流式推理演进，StreamMapNet 是其代表性工作。然而，直接将流式 query 传播范式从目标检测迁移到地图构建面临独特挑战：
 
-1. **曲线不同于框**：目标检测中物体在帧间主要做刚性运动（平移+旋转），box 的时序预测相对简单。但道路线在帧间会部分增长、部分截断，线上每个点需要学习不同的偏移量，这种复杂变化难以显式建模。
-2. **流式训练困难**：实验表明直接加入 streaming 策略反而使性能下降 0.7 mAP——网络难以学会应对曲线在不同帧间的持续变化。
-3. **Query Denoising 不能直接用于曲线**：DN-DETR 针对 bounding box 设计，曲线的噪声策略尚未被探索。
+**曲线不同于框**：目标检测中物体在帧间主要做刚性运动（平移+旋转），box 的时序预测相对简单。但道路线在帧间会部分增长、部分截断，线上每个点需要学习不同的偏移量，这种复杂变化难以显式建模。
+**流式训练困难**：实验表明直接加入 streaming 策略反而使性能下降 0.7 mAP——网络难以学会应对曲线在不同帧间的持续变化。
+**Query Denoising 不能直接用于曲线**：DN-DETR 针对 bounding box 设计，曲线的噪声策略尚未被探索。
 
 核心观察：如果在前一帧 GT 上加噪声来模拟 stream query 的预测行为，让网络学会从噪声中恢复当前帧 GT，就能有效学习时序一致性。
 
@@ -51,16 +51,17 @@ SQD 在推理时移除，不增加推理开销。
 ### 关键设计
 
 1. **Normal Query Denoising — 曲线噪声策略**：首次将曲线统一为最小外接矩形表示 $(x, y, w, h)$，在此基础上设计三种噪声：
-   - **Box Shifting（线平移）**：对矩形中心加偏移 $(\Delta x, \Delta y)$，约束 $|\Delta x| < \frac{\lambda_1 w}{2}$，曲线内各点相对矩形位置不变
-   - **Box Scaling（角度旋转+尺度变换）**：对矩形宽高进行缩放，$h' \in [(1-\lambda_3)h, (1+\lambda_3)h]$，同时实现旋转和长度变化
-   - 噪声 query 生成：类别 → 可学习 embedding $C_q$；点坐标 → 位置编码 → MLP 融合为位置 embedding $Pos_q$；最终 $Q_{denoise} = \text{MLP}^{(fuse)}(\text{Concat}(C_q, Pos_q))$
+
+    - **Box Shifting（线平移）**：对矩形中心加偏移 $(\Delta x, \Delta y)$，约束 $|\Delta x| < \frac{\lambda_1 w}{2}$，曲线内各点相对矩形位置不变
+    - **Box Scaling（角度旋转+尺度变换）**：对矩形宽高进行缩放，$h' \in [(1-\lambda_3)h, (1+\lambda_3)h]$，同时实现旋转和长度变化
+    - 噪声 query 生成：类别 → 可学习 embedding $C_q$；点坐标 → 位置编码 → MLP 融合为位置 embedding $Pos_q$；最终 $Q_{denoise} = \text{MLP}^{(fuse)}(\text{Concat}(C_q, Pos_q))$
 
 2. **Adaptive Temporal Matching (ATM)**：建立前一帧 GT 与当前帧 GT 的一对一对应关系。方法是用 ego-motion 矩阵将前帧 GT 变换到当前帧坐标系，然后计算双向 Chamfer Distance。根据每条曲线自身的尺度设定自适应阈值：
-   $$\delta = \alpha \frac{w + h}{2}$$
+    $\delta = \alpha \frac{w + h}{2}$
    只有 CD 小于阈值的才建立匹配。这样避免了固定阈值忽略曲线尺度差异的问题。
 
 3. **Dynamic Query Noising**：匹配后的曲线已有因 ego-motion 产生的自然偏差，再添加等量随机噪声不合理。因此根据 Chamfer Distance 动态衰减噪声：
-   $$R_{decay} = 1 - \frac{D}{\gamma \cdot \frac{\delta}{\alpha}}$$
+    $R_{decay} = 1 - \frac{D}{\gamma \cdot \frac{\delta}{\alpha}}$
    自然偏差越大（D 越大），额外添加的随机噪声越小。最终噪声实例：$B_{ins} = \{x,y,w,h\} + \eta \cdot R_{decay}$
 
 ### 损失函数 / 训练策略

@@ -28,9 +28,9 @@ tags:
 ## 研究背景与动机
 
 多模态大模型正在经历架构范式的演进：
-1. **纯自回归（AR）**：如 Emu3、Janus，用 next-token prediction 统一所有模态，架构简单但视觉生成质量受限
-2. **AR + 扩散（两个模型）**：如 DreamLLM，文本用 AR、视觉用连续扩散，需要两个独立模型
-3. **AR + 扩散（一个模型）**：如 Show-o、Transfusion，在单模型中混合 AR 和扩散目标，引入复杂的混合机制
+**纯自回归（AR）**：如 Emu3、Janus，用 next-token prediction 统一所有模态，架构简单但视觉生成质量受限
+**AR + 扩散（两个模型）**：如 DreamLLM，文本用 AR、视觉用连续扩散，需要两个独立模型
+**AR + 扩散（一个模型）**：如 Show-o、Transfusion，在单模型中混合 AR 和扩散目标，引入复杂的混合机制
 
 然而现有统一多模态模型**严重缺乏对后训练的探索**——预训练后直接部署，没有经历 CoT 微调或强化学习。这在非自回归架构中尤为突出，因为将 AR 范式的 GRPO 直接搬到扩散模型面临三大技术障碍：
 1. Token 级 log-likelihood 仅在掩码区域有效
@@ -51,22 +51,24 @@ MMaDA 的训练流程包含三个阶段：
 ### 关键设计
 
 1. **统一离散扩散架构**：以 LLaDA-8B 为骨干，将文本和图像都处理为离散 token 的掩码预测任务。图像用 MAGVIT-v2 量化为 $32 \times 32 = 1024$ 个离散 token（codebook 大小 8192）。统一训练目标：
-   $$\mathcal{L}_{\text{unify}}(\theta) = -\mathbb{E}_{t,x_0,x_t}\left[\frac{1}{t}\sum_{i=1}^L \mathbf{I}[x_t^i=\texttt{[MASK]}] \log p_\theta(x_0^i | x_t)\right]$$
+    $\mathcal{L}_{\text{unify}}(\theta) = -\mathbb{E}_{t,x_0,x_t}\left[\frac{1}{t}\sum_{i=1}^L \mathbf{I}[x_t^i=\texttt{[MASK]}] \log p_\theta(x_0^i | x_t)\right]$
    核心优势：语言和视觉共享完全相同的概率公式和架构，无需模态特定组件。
 
 2. **混合长 CoT 微调**：设计统一 CoT 格式 `|<special_token>|<reasoning_process>|<special_token>|<result>`，跨任务对齐推理过程。数据来源包括：
-   - 文本推理：ReasonFlux、LIMO、OpenThoughts 等
-   - 多模态推理：LMM-R1 在 GeoQA/CLEVR 上的正确响应
-   - 知识感知图像生成：GPT-4.1 合成的科学/文化/地标描述对
+
+    - 文本推理：ReasonFlux、LIMO、OpenThoughts 等
+    - 多模态推理：LMM-R1 在 GeoQA/CLEVR 上的正确响应
+    - 知识感知图像生成：GPT-4.1 合成的科学/文化/地标描述对
    
    关键设计是**让文本推理能力迁移到视觉生成**——模型先进行文本推理（分析物体特征、空间关系），再生成图像。
 
 3. **UniGRPO**：专为扩散模型设计的策略梯度 RL 算法，解决三大挑战：
-   - **结构化噪声策略**：对每个响应 $o_i$ 均匀采样掩码率 $p_i \in [0,1]$，跨梯度步变化随机种子。使模型暴露在从几乎全掩码到几乎全清晰的各种去噪阶段
-   - **高效 log-likelihood 近似**：
-     $$\pi'_\theta = \frac{1}{M}\sum_{o_{i,t} \in M} \log p_\theta(o_{i,t} | q)$$
-     对掩码 token 取平均，避免了 LLaDA 的 128 次 Monte Carlo 采样
-   - **均匀随机掩码**：先随机采样起始步，然后均匀分布剩余去噪步（而非完全随机），近似 Monte Carlo 平均，训练更稳定
+
+    - **结构化噪声策略**：对每个响应 $o_i$ 均匀采样掩码率 $p_i \in [0,1]$，跨梯度步变化随机种子。使模型暴露在从几乎全掩码到几乎全清晰的各种去噪阶段
+    - **高效 log-likelihood 近似**：
+    $\pi'_\theta = \frac{1}{M}\sum_{o_{i,t} \in M} \log p_\theta(o_{i,t} | q)$
+      对掩码 token 取平均，避免了 LLaDA 的 128 次 Monte Carlo 采样
+    - **均匀随机掩码**：先随机采样起始步，然后均匀分布剩余去噪步（而非完全随机），近似 Monte Carlo 平均，训练更稳定
 
 ### 损失函数 / 训练策略
 

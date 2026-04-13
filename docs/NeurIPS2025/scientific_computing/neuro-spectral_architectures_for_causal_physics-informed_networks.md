@@ -26,12 +26,12 @@ NeuSA 将经典谱方法与 Neural ODE 结合，先将 PDE 投影到谱基（Fou
 
 ## 研究背景与动机
 
-1. **领域现状**：物理信息神经网络（PINN）通过在损失函数中嵌入物理定律来求解 PDE，灵活且无网格。主流 PINN 基于标准 MLP 或其增强变体（QRes、FLS、PINNsFormer）。
-2. **现有痛点**：标准 MLP-PINN 存在三大问题：(a) **谱偏差**——sigmoid/ReLU 激活函数偏好低频分量，难以表示高频细节；(b) **因果性违反**——在整个时空域上同时优化导致时间不一致性，可能收敛到平凡平衡解；(c) **外推能力差**——训练域外预测迅速退化。
-3. **核心矛盾**：传统 PINN 将时空坐标作为网络输入，时间和空间没有区分，违反了 PDE 的因果结构（初值 → 时间演化）。同时全局优化使得初始条件和边界条件需要用损失项软约束，常导致冲突梯度和训练不稳。
-4. **本文要解决什么？** 设计一种从架构层面保证因果性、克服谱偏差、自动满足初始/边界条件的 PINN 架构。
-5. **切入角度**：经典数值方法中谱方法天然提供高频表达能力，method-of-lines 将 PDE 离散为 ODE 系统保证因果结构。将二者与 Neural ODE 结合，让网络学习谱系数的时间演化而非直接拟合解。
-6. **核心 idea 一句话**：将 PDE 投影到 Fourier 谱基上将空间离散为 ODE 系统，用 Neural ODE 学习谱系数的时间演化，从架构上保证因果性 + 谱保真度 + 自动满足初始/边界条件。
+**领域现状**：物理信息神经网络（PINN）通过在损失函数中嵌入物理定律来求解 PDE，灵活且无网格。主流 PINN 基于标准 MLP 或其增强变体（QRes、FLS、PINNsFormer）。
+**现有痛点**：标准 MLP-PINN 存在三大问题：(a) **谱偏差**——sigmoid/ReLU 激活函数偏好低频分量，难以表示高频细节；(b) **因果性违反**——在整个时空域上同时优化导致时间不一致性，可能收敛到平凡平衡解；(c) **外推能力差**——训练域外预测迅速退化。
+**核心矛盾**：传统 PINN 将时空坐标作为网络输入，时间和空间没有区分，违反了 PDE 的因果结构（初值 → 时间演化）。同时全局优化使得初始条件和边界条件需要用损失项软约束，常导致冲突梯度和训练不稳。
+**本文要解决什么？** 设计一种从架构层面保证因果性、克服谱偏差、自动满足初始/边界条件的 PINN 架构。
+**切入角度**：经典数值方法中谱方法天然提供高频表达能力，method-of-lines 将 PDE 离散为 ODE 系统保证因果结构。将二者与 Neural ODE 结合，让网络学习谱系数的时间演化而非直接拟合解。
+**核心 idea 一句话**：将 PDE 投影到 Fourier 谱基上将空间离散为 ODE 系统，用 Neural ODE 学习谱系数的时间演化，从架构上保证因果性 + 谱保真度 + 自动满足初始/边界条件。
 
 ## 方法详解
 
@@ -41,19 +41,22 @@ NeuSA 将经典谱方法与 Neural ODE 结合，先将 PDE 投影到谱基（Fou
 ### 关键设计
 
 1. **谱分解 + 解析初始化**:
-   - 做什么：将解 $\mathbf{u}(t, \mathbf{x})$ 表示为 $\sum_k \hat{\mathbf{u}}_k(t) \mathbf{b}_k(\mathbf{x})$，初始化 NODE 向量场为线性齐次问题的解析解
-   - 核心思路：选 Fourier 基（或 sine/cosine 扩展）→ PDE 变为谱系数的 ODE：$\frac{d}{dt}\hat{\mathbf{u}} = \hat{\mathbf{F}}(\hat{\mathbf{u}})$。对于线性平移不变部分可得 Fourier 乘子 $M$，则 $\hat{\mathbf{F}}_\theta(\hat{\mathbf{u}}) = M \odot \hat{\mathbf{u}} + \epsilon \mathcal{F}_\theta(\hat{\mathbf{u}})$，$\epsilon$ 初始化为小值
-   - 设计动机：Fourier 基克服谱偏差（高频分量有显式表达），解析初始化让网络从线性近似解出发，$\mathcal{F}_\theta$ 只需学习非线性/非齐次的残差修正，大幅降低学习难度
+
+    - 做什么：将解 $\mathbf{u}(t, \mathbf{x})$ 表示为 $\sum_k \hat{\mathbf{u}}_k(t) \mathbf{b}_k(\mathbf{x})$，初始化 NODE 向量场为线性齐次问题的解析解
+    - 核心思路：选 Fourier 基（或 sine/cosine 扩展）→ PDE 变为谱系数的 ODE：$\frac{d}{dt}\hat{\mathbf{u}} = \hat{\mathbf{F}}(\hat{\mathbf{u}})$。对于线性平移不变部分可得 Fourier 乘子 $M$，则 $\hat{\mathbf{F}}_\theta(\hat{\mathbf{u}}) = M \odot \hat{\mathbf{u}} + \epsilon \mathcal{F}_\theta(\hat{\mathbf{u}})$，$\epsilon$ 初始化为小值
+    - 设计动机：Fourier 基克服谱偏差（高频分量有显式表达），解析初始化让网络从线性近似解出发，$\mathcal{F}_\theta$ 只需学习非线性/非齐次的残差修正，大幅降低学习难度
 
 2. **Neural ODE 因果时间积分**:
-   - 做什么：用 4 阶 Runge-Kutta 对谱系数做时间积分，天然保证因果结构
-   - 核心思路：NODE 将时间维度编码为积分步骤而非输入坐标，初始条件通过积分起点精确满足（而非软约束），后续时间点依赖前序状态
-   - 设计动机：理论保证——对带限初始条件和全局 Lipschitz 向量场，NeuSA 的解自动满足初始条件且具有唯一性（Theorem 1）。不需要 $\mathcal{L}_{IC}$ 和 $\mathcal{L}_{BC}$ 损失项，避免了多目标优化的梯度冲突
+
+    - 做什么：用 4 阶 Runge-Kutta 对谱系数做时间积分，天然保证因果结构
+    - 核心思路：NODE 将时间维度编码为积分步骤而非输入坐标，初始条件通过积分起点精确满足（而非软约束），后续时间点依赖前序状态
+    - 设计动机：理论保证——对带限初始条件和全局 Lipschitz 向量场，NeuSA 的解自动满足初始条件且具有唯一性（Theorem 1）。不需要 $\mathcal{L}_{IC}$ 和 $\mathcal{L}_{BC}$ 损失项，避免了多目标优化的梯度冲突
 
 3. **维度分离层（Dimension-wise Layers）**:
-   - 做什么：替代全连接层处理高维谱系数，避免参数爆炸
-   - 核心思路：对 2D 谱系数矩阵 $\hat{\mathbf{u}} \in \mathbb{R}^{m \times n}$，先做 Hadamard 缩放，再分别沿行和列做线性变换（$O(mn)$ 参数 vs 全连接的 $O(m^2n^2)$）
-   - 设计动机：100 个频率 × 100 个频率 = 10K 维度，全连接需 $10^8$ 参数。维度分离层保持全局连接性（谱表征需要），同时参数量可控
+
+    - 做什么：替代全连接层处理高维谱系数，避免参数爆炸
+    - 核心思路：对 2D 谱系数矩阵 $\hat{\mathbf{u}} \in \mathbb{R}^{m \times n}$，先做 Hadamard 缩放，再分别沿行和列做线性变换（$O(mn)$ 参数 vs 全连接的 $O(m^2n^2)$）
+    - 设计动机：100 个频率 × 100 个频率 = 10K 维度，全连接需 $10^8$ 参数。维度分离层保持全局连接性（谱表征需要），同时参数量可控
 
 ### 损失函数 / 训练策略
 - 只需 PDE 残差损失 $\mathcal{L}_{PDE} = \sum_{t_i, \mathbf{x}_j} \|\frac{d}{dt}\mathbf{u}_\theta - \mathbf{F}(\mathbf{u}_\theta, \nabla\mathbf{u}_\theta, ...)\|^2$

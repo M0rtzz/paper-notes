@@ -1,7 +1,9 @@
-/* ── Hide sidebar drawer button on homepage ── */
-.md-content--home ~ .md-header label[for="__drawer"],
-body:has(.hero) .md-header__button.md-icon[for="__drawer"] {
-  display: none;
+/* ── Hide sidebar drawer button on homepage (desktop only) ── */
+@media (min-width: 76.25em) {
+  .md-content--home ~ .md-header label[for="__drawer"],
+  body:has(.hero) .md-header__button.md-icon[for="__drawer"] {
+    display: none;
+  }
 }
 
 /* ── Hide logo icon in header ── */
@@ -211,5 +213,10 @@ body:has(.hero) .md-header__button.md-icon[for="__drawer"] {
   /* Hide MkDocs search results on mobile (using Google site search instead) */
   .md-search__output {
     display: none !important;
+  }
+  /* Shrink article h1 on mobile to save space for long English titles */
+  .md-content h1 {
+    font-size: 1.4rem !important;
+    line-height: 1.3;
   }
 }

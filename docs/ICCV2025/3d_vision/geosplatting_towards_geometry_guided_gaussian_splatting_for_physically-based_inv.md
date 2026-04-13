@@ -31,9 +31,9 @@ tags:
 
 现有方法的问题可按表示方法分类：
 
-1. **隐式场方法**（TensoIR, NeRO）：通过SDF梯度获得精确法线，适合逆渲染，但体渲染中的密集采样导致训练耗时数小时
-2. **网格方法**（NVdiffrec, NVdiffrecmc）：天然支持PBR流程和射线追踪，但可微渲染仅在三角形边缘产生梯度，优化困难
-3. **3DGS方法**（R3DG, GS-IR, GS-Shader）：渲染效率高，但存在两个根本性缺陷：
+**隐式场方法**（TensoIR, NeRO）：通过SDF梯度获得精确法线，适合逆渲染，但体渲染中的密集采样导致训练耗时数小时
+**网格方法**（NVdiffrec, NVdiffrecmc）：天然支持PBR流程和射线追踪，但可微渲染仅在三角形边缘产生梯度，优化困难
+**3DGS方法**（R3DG, GS-IR, GS-Shader）：渲染效率高，但存在两个根本性缺陷：
    - **法线不精确**：通过隐式几何约束（如深度-法线正则化）近似高斯点法线，精度不足
    - **表面不不透明**：高斯点本质上是半透明的，无法定义准确的光-表面交点
 
@@ -48,23 +48,26 @@ GeoSplatting 的流程：标量场 $\boldsymbol{\zeta}$ → FlexiCubes 提取三
 ### 关键设计
 
 1. **Mesh-to-Gaussian Adapter (MGadapter)**:
-   - 做什么：从三角网格的每个面可微分地生成结构化的高斯点
-   - 核心思路：对每个三角面片 $\mathbf{P}$，生成 $K=6$ 个高斯点，按重心坐标空间中的预定义模式放置。位置 $\boldsymbol{\mu}_i$ 和法线 $\mathbf{n}_i$ 通过重心插值计算，尺度 $\mathbf{S}_i$ 和旋转 $\mathbf{R}_i$ 由三角面片的方向和形状决定。不透明度固定为1（因为网格表面不透明）。
-   $$\{(\boldsymbol{\mu}_i, \mathbf{S}_i, \mathbf{R}_i, \mathbf{n}_i) | i=1,...,K\} = \mathcal{T}(\mathbf{P})$$
-   - 设计动机：高斯点的形状参数完全由三角面片决定，保证了mesh与3DGS之间的形状一致性。这意味着mesh法线 = 高斯法线，不需要额外的法线学习或正则化。
+
+    - 做什么：从三角网格的每个面可微分地生成结构化的高斯点
+    - 核心思路：对每个三角面片 $\mathbf{P}$，生成 $K=6$ 个高斯点，按重心坐标空间中的预定义模式放置。位置 $\boldsymbol{\mu}_i$ 和法线 $\mathbf{n}_i$ 通过重心插值计算，尺度 $\mathbf{S}_i$ 和旋转 $\mathbf{R}_i$ 由三角面片的方向和形状决定。不透明度固定为1（因为网格表面不透明）。
+    $\{(\boldsymbol{\mu}_i, \mathbf{S}_i, \mathbf{R}_i, \mathbf{n}_i) | i=1,...,K\} = \mathcal{T}(\mathbf{P})$
+    - 设计动机：高斯点的形状参数完全由三角面片决定，保证了mesh与3DGS之间的形状一致性。这意味着mesh法线 = 高斯法线，不需要额外的法线学习或正则化。
 
 2. **基于物理的高斯渲染**:
-   - 做什么：为每个高斯点计算物理可解释的PBR颜色
-   - 核心思路：替代原始3DGS的球谐函数，使用GGX微表面模型的PBR渲染方程：
-   $$\mathbf{L}_o(\mathbf{x}, \boldsymbol{\omega}_o) = \int_{\mathcal{H}^2} \mathbf{f}_r(\mathbf{x}, \boldsymbol{\omega}_i, \boldsymbol{\omega}_o) \mathbf{L}_i(\mathbf{x}, \boldsymbol{\omega}_i) |\mathbf{n} \cdot \boldsymbol{\omega}_i| \mathrm{d}\boldsymbol{\omega}_i$$
+
+    - 做什么：为每个高斯点计算物理可解释的PBR颜色
+    - 核心思路：替代原始3DGS的球谐函数，使用GGX微表面模型的PBR渲染方程：
+    $\mathbf{L}_o(\mathbf{x}, \boldsymbol{\omega}_o) = \int_{\mathcal{H}^2} \mathbf{f}_r(\mathbf{x}, \boldsymbol{\omega}_i, \boldsymbol{\omega}_o) \mathbf{L}_i(\mathbf{x}, \boldsymbol{\omega}_i) |\mathbf{n} \cdot \boldsymbol{\omega}_i| \mathrm{d}\boldsymbol{\omega}_i$
    材质属性（albedo $\mathbf{a}$, roughness $\rho$, metalness $m$）通过多分辨率哈希网格 $\mathcal{E}_d, \mathcal{E}_s$ 查询。用蒙特卡罗采样评估渲染方程积分。
-   - 设计动机：物理可解释的材质表示支持真实的重光照（relighting），球谐函数无法做到这一点。
+    - 设计动机：物理可解释的材质表示支持真实的重光照（relighting），球谐函数无法做到这一点。
 
 3. **基于网格的高效光传输建模**:
-   - 做什么：利用显式网格进行高效的自遮挡评估和间接光照建模
-   - 核心思路：将入射光分解为直接光 $\mathbf{L}_{\text{dir}}$ 和间接光 $\mathbf{L}_{\text{ind}}$，通过遮挡因子 $O(\mathbf{x}, \boldsymbol{\omega}_i)$ 加权。关键创新：用网格上的二值遮挡 $O_{\text{mesh}} \in \{0,1\}$ 替代高斯点上的连续遮挡 $O_{\text{3dgs}} \in [0,1]$，利用BVH加速的网格射线追踪进行高效遮挡评估。
-   $$\mathbf{L}_i(\mathbf{x}, \boldsymbol{\omega}_i) = (1-O)\mathbf{L}_{\text{dir}}(\boldsymbol{\omega}_i) + O \cdot \mathbf{L}_{\text{ind}}(\mathbf{x}, \boldsymbol{\omega}_i)$$
-   - 设计动机：MGadapter 保证了mesh与3DGS的形状一致性，因此 $O_{\text{mesh}} \approx O_{\text{3dgs}}$，替换不引入明显误差。BVH加速的网格射线追踪远比在3D高斯点上累积不透明度更高效。
+
+    - 做什么：利用显式网格进行高效的自遮挡评估和间接光照建模
+    - 核心思路：将入射光分解为直接光 $\mathbf{L}_{\text{dir}}$ 和间接光 $\mathbf{L}_{\text{ind}}$，通过遮挡因子 $O(\mathbf{x}, \boldsymbol{\omega}_i)$ 加权。关键创新：用网格上的二值遮挡 $O_{\text{mesh}} \in \{0,1\}$ 替代高斯点上的连续遮挡 $O_{\text{3dgs}} \in [0,1]$，利用BVH加速的网格射线追踪进行高效遮挡评估。
+    $\mathbf{L}_i(\mathbf{x}, \boldsymbol{\omega}_i) = (1-O)\mathbf{L}_{\text{dir}}(\boldsymbol{\omega}_i) + O \cdot \mathbf{L}_{\text{ind}}(\mathbf{x}, \boldsymbol{\omega}_i)$
+    - 设计动机：MGadapter 保证了mesh与3DGS的形状一致性，因此 $O_{\text{mesh}} \approx O_{\text{3dgs}}$，替换不引入明显误差。BVH加速的网格射线追踪远比在3D高斯点上累积不透明度更高效。
 
 ### 损失函数 / 训练策略
 

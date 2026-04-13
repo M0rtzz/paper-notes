@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：序列标注是 NLP 核心任务（POS 标注、NER、分词），主流结构化模型是 CRF（条件随机场）。CRF 推理依赖 Viterbi（MAP 推断）和 Forward（边际推断）算法。
-2. **现有痛点**：Viterbi/Forward 是动态规划算法，时间复杂度 $O(n|T|^2)$，但本质上是**顺序**的——每个位置的计算依赖前一位置（stage 之间有依赖），无法充分利用 GPU 并行。虽然同一 stage 内可并行（wavefront parallelization），但 stage 间的 $n$ 步必须串行执行。
-3. **核心矛盾**：现代深度学习全靠 GPU 并行加速（Transformer、SSM 等），但 CRF 层成为训练/推理的瓶颈。
-4. **本文要解决什么**：设计一个与标准 CRF 性能等价但推理可并行化的替代模型。
-5. **切入角度**：受 entropic optimal transport（Cuturi, 2013）和 SparseMAP（Niculae et al., 2018）启发，使用**均值正则化**（mean regularization）替代标准 CRF 的分布正则化，使推理可分解为可并行的 KL 投影子问题。
-6. **核心 idea**：将 CRF 推理从顺序动态规划改为迭代 Bregman 投影——将 marginal polytope 分解为偶数/奇数约束集的交集，交替投影，每步内的子问题完全可并行。
+**领域现状**：序列标注是 NLP 核心任务（POS 标注、NER、分词），主流结构化模型是 CRF（条件随机场）。CRF 推理依赖 Viterbi（MAP 推断）和 Forward（边际推断）算法。
+**现有痛点**：Viterbi/Forward 是动态规划算法，时间复杂度 $O(n|T|^2)$，但本质上是**顺序**的——每个位置的计算依赖前一位置（stage 之间有依赖），无法充分利用 GPU 并行。虽然同一 stage 内可并行（wavefront parallelization），但 stage 间的 $n$ 步必须串行执行。
+**核心矛盾**：现代深度学习全靠 GPU 并行加速（Transformer、SSM 等），但 CRF 层成为训练/推理的瓶颈。
+**本文要解决什么**：设计一个与标准 CRF 性能等价但推理可并行化的替代模型。
+**切入角度**：受 entropic optimal transport（Cuturi, 2013）和 SparseMAP（Niculae et al., 2018）启发，使用**均值正则化**（mean regularization）替代标准 CRF 的分布正则化，使推理可分解为可并行的 KL 投影子问题。
+**核心 idea**：将 CRF 推理从顺序动态规划改为迭代 Bregman 投影——将 marginal polytope 分解为偶数/奇数约束集的交集，交替投影，每步内的子问题完全可并行。
 
 ## 方法详解
 
@@ -40,26 +40,30 @@ Bcrf 用 $B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf
 ### 关键设计
 
 1. **均值正则化 vs 分布正则化**
-   - 标准 CRF：$A_Y(\mathbf{w}) = \max_{\mathbf{p} \in \Delta(Y)} \langle \mathbf{p}, \mathbf{M}^\top\mathbf{w} \rangle + H(\mathbf{p})$，$\mathbf{p}$ 是指数级维度的分布
-   - Bcrf：$B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf{q}, \mathbf{w} \rangle + H(\mathbf{q})$，$\mathbf{q}$ 是多项式级维度的边际向量
-   - 设计动机：在边际空间上优化使正则化项有简单解析形式，为高效求解器铺路
+
+    - 标准 CRF：$A_Y(\mathbf{w}) = \max_{\mathbf{p} \in \Delta(Y)} \langle \mathbf{p}, \mathbf{M}^\top\mathbf{w} \rangle + H(\mathbf{p})$，$\mathbf{p}$ 是指数级维度的分布
+    - Bcrf：$B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf{q}, \mathbf{w} \rangle + H(\mathbf{q})$，$\mathbf{q}$ 是多项式级维度的边际向量
+    - 设计动机：在边际空间上优化使正则化项有简单解析形式，为高效求解器铺路
 
 2. **Marginal Polytope 的图论刻画**
-   - 将序列标注建模为有向图中的路径选择问题：每个位置一个 cluster $V_i$，tag 是 cluster 内节点，边是相邻位置的转移
-   - conv(Y) 等价于满足流量守恒约束（entering cluster = 1，flow conservation at each node）的非负向量集
-   - 通过奇偶分解将 conv(Y) = $\mathcal{C}_{\text{even}} \cap \mathcal{C}_{\text{odd}}$
+
+    - 将序列标注建模为有向图中的路径选择问题：每个位置一个 cluster $V_i$，tag 是 cluster 内节点，边是相邻位置的转移
+    - conv(Y) 等价于满足流量守恒约束（entering cluster = 1，flow conservation at each node）的非负向量集
+    - 通过奇偶分解将 conv(Y) = $\mathcal{C}_{\text{even}} \cap \mathcal{C}_{\text{odd}}$
 
 3. **迭代 Bregman 投影 (IBP) 推理**
-   - 做什么：通过交替投影到 $\mathcal{C}_{\text{even}}$ 和 $\mathcal{C}_{\text{odd}}$ 来求解 $\nabla B_Y(\mathbf{w})$
-   - 核心思路：投影到 $\mathcal{C}_{\text{even}}$ 分解为 $\lceil n/2 \rceil - 1$ 个独立的小规模 KL 投影（每个只涉及一个 cluster 的入/出弧），**可完全并行**
-   - 设计动机：两个凸集的交集上的 KL 投影可通过交替投影保证收敛（Bregman, 1967）
-   - 复杂度：每步 $O(n/2)$ 个独立子问题，每个 $O(|T|^2)$；$k$ 步迭代总计 $O(k \cdot n/2 \cdot |T|^2)$ 但内部高度并行
+
+    - 做什么：通过交替投影到 $\mathcal{C}_{\text{even}}$ 和 $\mathcal{C}_{\text{odd}}$ 来求解 $\nabla B_Y(\mathbf{w})$
+    - 核心思路：投影到 $\mathcal{C}_{\text{even}}$ 分解为 $\lceil n/2 \rceil - 1$ 个独立的小规模 KL 投影（每个只涉及一个 cluster 的入/出弧），**可完全并行**
+    - 设计动机：两个凸集的交集上的 KL 投影可通过交替投影保证收敛（Bregman, 1967）
+    - 复杂度：每步 $O(n/2)$ 个独立子问题，每个 $O(|T|^2)$；$k$ 步迭代总计 $O(k \cdot n/2 \cdot |T|^2)$ 但内部高度并行
 
 4. **Fenchel-Young 损失 + Partial Label 学习**
-   - 做什么：定义 Bcrf 的监督和弱监督损失函数
-   - 核心思路：FY 损失 $\ell_{-H}(\mathbf{w}; \mathbf{y}) = -\langle \mathbf{w}, \mathbf{y} \rangle - H(\mathbf{y}) + B_Y(\mathbf{w})$，梯度 = $-\mathbf{y} + \nabla B_Y(\mathbf{w})$，只需调用 IBP 算法
-   - Partial labels：$\tilde{\ell}_{-H}(\mathbf{w}; \tilde{Y}) = B_Y(\mathbf{w}) - B_{\tilde{Y}}(\mathbf{w})$，需两次 IBP 调用
-   - 设计动机：统一框架下同时支持完整标注和部分标注场景
+
+    - 做什么：定义 Bcrf 的监督和弱监督损失函数
+    - 核心思路：FY 损失 $\ell_{-H}(\mathbf{w}; \mathbf{y}) = -\langle \mathbf{w}, \mathbf{y} \rangle - H(\mathbf{y}) + B_Y(\mathbf{w})$，梯度 = $-\mathbf{y} + \nabla B_Y(\mathbf{w})$，只需调用 IBP 算法
+    - Partial labels：$\tilde{\ell}_{-H}(\mathbf{w}; \tilde{Y}) = B_Y(\mathbf{w}) - B_{\tilde{Y}}(\mathbf{w})$，需两次 IBP 调用
+    - 设计动机：统一框架下同时支持完整标注和部分标注场景
 
 ## 实验关键数据
 

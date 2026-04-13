@@ -44,8 +44,9 @@ $$\mathcal{L}_{\text{rCM}}(\theta) = \mathcal{L}_{\text{sCM}}(\theta) + \lambda 
    $\lambda=0.01$ 跨模型和任务通用。sCM 提供 mode-covering（高多样性），DMD 提供 mode-seeking（高质量）。
 
 3. **稳定时间导数计算**: 针对大模型 JVP 训练不稳定问题，提出两种方案：
-   - 半连续时间：空间部分用 JVP，时间部分用有限差分近似（$\Delta t = 10^{-4}$）
-   - 高精度时间：对时间嵌入层强制 FP32 精度
+
+    - 半连续时间：空间部分用 JVP，时间部分用有限差分近似（$\Delta t = 10^{-4}$）
+    - 高精度时间：对时间嵌入层强制 FP32 精度
 
 4. **Rollout 策略**: 学生可做任意步采样，随机选择步数 $N \in [1, N_{\max}]$，仅对最后一步反传 DMD loss，使用随机时间步确保覆盖整个时间范围。
 

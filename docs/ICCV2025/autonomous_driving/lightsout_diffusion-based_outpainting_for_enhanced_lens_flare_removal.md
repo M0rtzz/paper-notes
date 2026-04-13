@@ -43,28 +43,32 @@ LightsOut 采用**三阶段流水线**：
 ### 关键设计
 
 1. **多任务回归模块 (Multitask Regression Module)**：
-   - 预测画面外光源的参数化表示，将光源建模为圆形实体 $(x, y, r)$
-   - 同时预测 $N$ 组光源物理参数 $\mathbf{P} \in \mathbb{R}^{N \times 3}$ 和置信度分数 $\mathbf{c} \in [0,1]^{N \times 1}$
-   - 采用 CNN 特征提取器 + 双 MLP 头架构（一个预测位置参数，一个预测置信度）
-   - 使用二分匹配策略处理预测与真值的排列不变性
-   - 渲染函数通过 Sigmoid 激活和置信度阈值生成最终光源掩码 $M_L$：
-     $$M_L(x,y) = \sum_{i=1}^{N} \tilde{c}_i \cdot \sigma(r_i - \sqrt{(x-x_i)^2 + (y-y_i)^2})$$
+
+    - 预测画面外光源的参数化表示，将光源建模为圆形实体 $(x, y, r)$
+    - 同时预测 $N$ 组光源物理参数 $\mathbf{P} \in \mathbb{R}^{N \times 3}$ 和置信度分数 $\mathbf{c} \in [0,1]^{N \times 1}$
+    - 采用 CNN 特征提取器 + 双 MLP 头架构（一个预测位置参数，一个预测置信度）
+    - 使用二分匹配策略处理预测与真值的排列不变性
+    - 渲染函数通过 Sigmoid 激活和置信度阈值生成最终光源掩码 $M_L$：
+    $M_L(x,y) = \sum_{i=1}^{N} \tilde{c}_i \cdot \sigma(r_i - \sqrt{(x-x_i)^2 + (y-y_i)^2})$
 
 2. **LoRA 微调扩散外推模型**：
-   - 基于 Stable Diffusion v2 Inpainting 模型，注入 LoRA 权重进行高效微调
-   - 训练损失：$\mathcal{L} = \mathbb{E}_{x,t,\epsilon,m} \|\epsilon_\theta(x_t, t, p, M, I_M) - \epsilon\|_2^2$
-   - 使用 BLIP-2 自动生成文本提示作为条件信号
-   - 推理时在 RGB 空间进行 Alpha 合成（而非隐空间混合），避免保留区域失真
+
+    - 基于 Stable Diffusion v2 Inpainting 模型，注入 LoRA 权重进行高效微调
+    - 训练损失：$\mathcal{L} = \mathbb{E}_{x,t,\epsilon,m} \|\epsilon_\theta(x_t, t, p, M, I_M) - \epsilon\|_2^2$
+    - 使用 BLIP-2 自动生成文本提示作为条件信号
+    - 推理时在 RGB 空间进行 Alpha 合成（而非隐空间混合），避免保留区域失真
 
 3. **噪声重注入 (Noise Reinjection)**：
-   - 解决去噪过程中遮蔽/非遮蔽区域独立处理导致的不一致问题
-   - 在中间步骤重新引入噪声，让模型重新去噪以更好地对齐分布
-   - 重复 $R$ 次噪声重注入操作，确保生成区域与原始区域的视觉连贯性
+
+    - 解决去噪过程中遮蔽/非遮蔽区域独立处理导致的不一致问题
+    - 在中间步骤重新引入噪声，让模型重新去噪以更好地对齐分布
+    - 重复 $R$ 次噪声重注入操作，确保生成区域与原始区域的视觉连贯性
 
 4. **光源条件模块 (Light Source Condition Module)**：
-   - 利用预测的光源掩码 $M_L$ 指导外推过程
-   - 通过可学习机制条件化生成过程，确保光源在物理合理的位置生成
-   - 使用 L2 损失约束：$\mathcal{L}_{\text{light}} = \|\tilde{M}_L - M_L\|_2^2$
+
+    - 利用预测的光源掩码 $M_L$ 指导外推过程
+    - 通过可学习机制条件化生成过程，确保光源在物理合理的位置生成
+    - 使用 L2 损失约束：$\mathcal{L}_{\text{light}} = \|\tilde{M}_L - M_L\|_2^2$
 
 ### 损失函数 / 训练策略
 

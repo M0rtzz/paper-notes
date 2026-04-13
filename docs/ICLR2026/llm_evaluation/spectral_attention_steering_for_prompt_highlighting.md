@@ -26,12 +26,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **Prompt Highlighting 的实际需求**：在高风险场景中，需要精确引导 LLM 关注 prompt 中用户指定的关键文本（如事实冲突中的新知识、指令跟随中的核心约束），即 attention steering。
-2. **现有方法的效率瓶颈**：PASTA 等 SOTA 方法在注意力矩阵计算完成后对其进行后处理修改（post-hoc），必须存储完整的 $T \times T$ 注意力矩阵，与 FlashAttention 等 IO-aware 高效实现不兼容。
-3. **额外开销巨大**：PASTA 导致推理延迟增加 +1.03s/sample，内存增加 +23.12 GB；SPA 基于 logit 分布操作，不支持 batch 处理，速度最慢（+5.32s）。
-4. **需要昂贵的 head search**：PASTA 还需要针对不同任务做 attention head 搜索来确定应该 steer 哪些 head，增加了部署成本。
-5. **Key embedding 的结构化信号**：作者通过对比实验发现，当 prompt 中问题从不相关变为相关时，特定 layer/head 的 key embedding 呈现出一致的方向性偏移（如 PCA 可视化所示），说明"相关性"被编码在 key 表示的结构化子空间中。
-6. **Pre-attention 干预的可行性**：注意力分数 $\text{Attn}(i,j) = \frac{\boldsymbol{q}_i^\top \boldsymbol{k}_j}{\sqrt{d_k}}$ 取决于 query-key 内积，等价的控制可通过编辑 key 端实现，且 key 按 token position 索引，天然适合控制单个 token 被关注的程度。
+**Prompt Highlighting 的实际需求**：在高风险场景中，需要精确引导 LLM 关注 prompt 中用户指定的关键文本（如事实冲突中的新知识、指令跟随中的核心约束），即 attention steering。
+**现有方法的效率瓶颈**：PASTA 等 SOTA 方法在注意力矩阵计算完成后对其进行后处理修改（post-hoc），必须存储完整的 $T \times T$ 注意力矩阵，与 FlashAttention 等 IO-aware 高效实现不兼容。
+**额外开销巨大**：PASTA 导致推理延迟增加 +1.03s/sample，内存增加 +23.12 GB；SPA 基于 logit 分布操作，不支持 batch 处理，速度最慢（+5.32s）。
+**需要昂贵的 head search**：PASTA 还需要针对不同任务做 attention head 搜索来确定应该 steer 哪些 head，增加了部署成本。
+**Key embedding 的结构化信号**：作者通过对比实验发现，当 prompt 中问题从不相关变为相关时，特定 layer/head 的 key embedding 呈现出一致的方向性偏移（如 PCA 可视化所示），说明"相关性"被编码在 key 表示的结构化子空间中。
+**Pre-attention 干预的可行性**：注意力分数 $\text{Attn}(i,j) = \frac{\boldsymbol{q}_i^\top \boldsymbol{k}_j}{\sqrt{d_k}}$ 取决于 query-key 内积，等价的控制可通过编辑 key 端实现，且 key 按 token position 索引，天然适合控制单个 token 被关注的程度。
 
 ## 方法详解
 

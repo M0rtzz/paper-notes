@@ -24,15 +24,15 @@ tags:
 提出 OneRestore，一种基于 Transformer 的通用图像复原框架，通过场景描述符引导的交叉注意力机制和复合退化复原损失，能在单一模型中自适应地处理低光照、雾、雨、雪及其任意组合的复合退化场景，并支持文本/视觉双模式的可控复原。
 
 ## 研究背景与动机
-1. **领域现状**: 图像复原研究已在单一退化场景（去雾、去雨、低光增强等）取得显著进展，但这些方法都是 One-to-One 模型，只能处理特定退化类型。
-2. **现有痛点**:
+**领域现状**: 图像复原研究已在单一退化场景（去雾、去雨、低光增强等）取得显著进展，但这些方法都是 One-to-One 模型，只能处理特定退化类型。
+**现有痛点**:
    - 现实场景中多种退化因素常同时出现（如夜间雾中下雨），One-to-One 模型无法应对；
    - One-to-Many 部分参数共享方法（如 All-weather Net）需要为每种退化设置独立编码器，模型随退化种类线性增长；
    - One-to-Many 全参数共享方法（如 AirNet、TransWeather）直接混合训练，无法感知具体退化类型，可能去雾时反而增加噪声。
-3. **核心矛盾**: 如何让单一模型既能识别复合退化的具体构成，又能按用户意图进行可控复原？
-4. **本文解决什么**: 构建统一的复合退化成像模型 + 场景描述符引导的可控复原框架。
-5. **切入角度**: 受人类标注流程启发——标注员需先了解退化类型才能评估质量，模型也应先"理解"退化场景再做复原。
-6. **核心 idea**: 用场景描述嵌入作为退化"开关"，通过 cross-attention 引导 Transformer 对目标退化因素精准复原。
+**核心矛盾**: 如何让单一模型既能识别复合退化的具体构成，又能按用户意图进行可控复原？
+**本文解决什么**: 构建统一的复合退化成像模型 + 场景描述符引导的可控复原框架。
+**切入角度**: 受人类标注流程启发——标注员需先了解退化类型才能评估质量，模型也应先"理解"退化场景再做复原。
+**核心 idea**: 用场景描述嵌入作为退化"开关"，通过 cross-attention 引导 Transformer 对目标退化因素精准复原。
 
 ## 方法详解
 
@@ -44,34 +44,38 @@ tags:
 ### 关键设计
 
 1. **复合退化成像模型（Composite Degradation Formulation）**:
-   - 做什么：统一建模 4 类物理退化（低光照、雨、雪、雾）的级联过程
-   - 核心思路：
-     - 低光照：基于 Retinex 理论，$I_l(x) = \frac{J(x)}{L(x)} L(x)^\gamma + \varepsilon$，$\gamma \in [2,3]$
-     - 雨：$I_{rs}(x) = I_l(x) + \mathcal{R}$
-     - 雪：$I_{rs}(x) = I_l(x)(1-\mathcal{S}) + M(x)\mathcal{S}$
-     - 雾：$I(x) = I_{rs}(x) \cdot t + A(1-t)$，$t = e^{-\beta d(x)}$
-   - 设计动机：真实场景中退化是叠加的，需按物理规律建模级联关系。基于此构建了 CDD-11 数据集（11 类退化 + 清晰图），1383 张高分辨率图生成 13,013 训练对 + 2,200 测试对。
+
+    - 做什么：统一建模 4 类物理退化（低光照、雨、雪、雾）的级联过程
+    - 核心思路：
+      - 低光照：基于 Retinex 理论，$I_l(x) = \frac{J(x)}{L(x)} L(x)^\gamma + \varepsilon$，$\gamma \in [2,3]$
+      - 雨：$I_{rs}(x) = I_l(x) + \mathcal{R}$
+      - 雪：$I_{rs}(x) = I_l(x)(1-\mathcal{S}) + M(x)\mathcal{S}$
+      - 雾：$I(x) = I_{rs}(x) \cdot t + A(1-t)$，$t = e^{-\beta d(x)}$
+    - 设计动机：真实场景中退化是叠加的，需按物理规律建模级联关系。基于此构建了 CDD-11 数据集（11 类退化 + 清晰图），1383 张高分辨率图生成 13,013 训练对 + 2,200 测试对。
 
 2. **场景描述符引导的 Transformer 块（SDTB）**:
-   - 做什么：在每个 Transformer 块中融入场景退化信息，引导特征提取方向
-   - 核心思路：包含 SDCA + SA + FFN 三个子模块。SDCA 使用场景描述嵌入生成 query，图像特征生成 key/value：
-     $$\text{SDCA}(\mathbf{Q}_t, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left(\frac{\mathbf{Q}_t \cdot \mathbf{K}^\top}{\lambda}\right) \mathbf{V}$$
-   - 设计动机：传统 self-attention 只在图像特征内部交互，无法利用退化类型先验。用场景描述生成 query 相当于"告诉"模型该关注哪种退化，实现从被动检测到主动引导的转变。
+
+    - 做什么：在每个 Transformer 块中融入场景退化信息，引导特征提取方向
+    - 核心思路：包含 SDCA + SA + FFN 三个子模块。SDCA 使用场景描述嵌入生成 query，图像特征生成 key/value：
+    $\text{SDCA}(\mathbf{Q}_t, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left(\frac{\mathbf{Q}_t \cdot \mathbf{K}^\top}{\lambda}\right) \mathbf{V}$
+    - 设计动机：传统 self-attention 只在图像特征内部交互，无法利用退化类型先验。用场景描述生成 query 相当于"告诉"模型该关注哪种退化，实现从被动检测到主动引导的转变。
 
 3. **场景描述符生成（Scene Descriptor Generation）**:
-   - 做什么：提供两种模式生成场景描述嵌入——手动输入文本 vs 自动视觉属性提取
-   - 核心思路：
-     - 文本嵌入器：5 种基本场景文本经 GloVe → 12 种文本嵌入（含 7 种组合退化，由对应单退化嵌入取平均生成）→ MLP 精化
-     - 视觉嵌入器：ResNet-18 提取视觉特征 → conv + dropout + linear → 视觉嵌入 → cosine similarity 匹配最相似文本嵌入
-     - 训练用 cosine cross-entropy loss：$S(e_v, e_t) = \frac{e^{\cos(e_v, e_t)}}{\sum_{t_i=1}^{N_t} e^{\cos(e_v, e_{t_i})}}$
-   - 设计动机：文本嵌入提供精确可控的场景描述（精度更高），视觉嵌入提供自动化能力（97.55% 准确率），两者互补。
+
+    - 做什么：提供两种模式生成场景描述嵌入——手动输入文本 vs 自动视觉属性提取
+    - 核心思路：
+      - 文本嵌入器：5 种基本场景文本经 GloVe → 12 种文本嵌入（含 7 种组合退化，由对应单退化嵌入取平均生成）→ MLP 精化
+      - 视觉嵌入器：ResNet-18 提取视觉特征 → conv + dropout + linear → 视觉嵌入 → cosine similarity 匹配最相似文本嵌入
+      - 训练用 cosine cross-entropy loss：$S(e_v, e_t) = \frac{e^{\cos(e_v, e_t)}}{\sum_{t_i=1}^{N_t} e^{\cos(e_v, e_{t_i})}}$
+    - 设计动机：文本嵌入提供精确可控的场景描述（精度更高），视觉嵌入提供自动化能力（97.55% 准确率），两者互补。
 
 4. **复合退化复原损失（CDRL）**:
-   - 做什么：在传统对比损失基础上引入多个退化负样本，增强模型区分能力
-   - 核心思路：
-     $$\mathcal{L}_c = \sum_{k=1}^{K} \xi_k \frac{\mathcal{L}_1(V_k(J), V_k(\hat{J}))}{\xi_c \mathcal{L}_1(V_k(\hat{J}), V_k(I)) + \sum_{o=1}^{O} \xi_o \mathcal{L}_1(V_k(I_o), V_k(\hat{J}))}$$
-     使用 VGG-16 的 3、8、15 层特征，$O=10$ 个其他退化负样本
-   - 设计动机：传统对比损失只用输入退化图作负样本，可能把复原结果推向其他退化形式。CDRL 同时远离所有退化类型。
+
+    - 做什么：在传统对比损失基础上引入多个退化负样本，增强模型区分能力
+    - 核心思路：
+    $\mathcal{L}_c = \sum_{k=1}^{K} \xi_k \frac{\mathcal{L}_1(V_k(J), V_k(\hat{J}))}{\xi_c \mathcal{L}_1(V_k(\hat{J}), V_k(I)) + \sum_{o=1}^{O} \xi_o \mathcal{L}_1(V_k(I_o), V_k(\hat{J}))}$
+      使用 VGG-16 的 3、8、15 层特征，$O=10$ 个其他退化负样本
+    - 设计动机：传统对比损失只用输入退化图作负样本，可能把复原结果推向其他退化形式。CDRL 同时远离所有退化类型。
 
 ### 损失函数 / 训练策略
 - 总损失：$\mathcal{L} = \alpha_1 \mathcal{L}_1^s + \alpha_2 \mathcal{L}_M + \alpha_3 \mathcal{L}_c$（smooth $l_1$ + MS-SSIM + CDRL）

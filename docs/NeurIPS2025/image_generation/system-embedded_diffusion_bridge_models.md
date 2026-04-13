@@ -43,17 +43,18 @@ SDB构建了一个从伪逆重建（pseudoinverse reconstruction, PR）到干净
 
 1. **测量系统嵌入**: SDB的核心贡献是设计了特定的均值矩阵 $\mathbf{H}_t$ 和协方差矩阵 $\boldsymbol{\Sigma}_t$：
 
-   $$\mathbf{H}_t = \mathbf{A}^+\mathbf{A} + \alpha_t(\mathbf{I} - \mathbf{A}^+\mathbf{A})$$
-   $$\boldsymbol{\Sigma}_t = \gamma_t\mathbf{A}^+\boldsymbol{\Sigma}\mathbf{A}^{+\top} + \beta_t(\mathbf{I} - \mathbf{A}^+\mathbf{A})$$
+    $\mathbf{H}_t = \mathbf{A}^+\mathbf{A} + \alpha_t(\mathbf{I} - \mathbf{A}^+\mathbf{A})$
+    $\boldsymbol{\Sigma}_t = \gamma_t\mathbf{A}^+\boldsymbol{\Sigma}\mathbf{A}^{+\top} + \beta_t(\mathbf{I} - \mathbf{A}^+\mathbf{A})$
 
    其中 $\alpha_t, \beta_t, \gamma_t$ 分别控制零空间漂移、零空间扩散和值域空间扩散。这一设计使得中间状态 $\mathbf{x}_t$ 的值域和零空间分量独立演化：值域部分直接建模测量噪声（无噪声时完美保持），零空间部分进行信息合成。
 
 2. **SDE视角与理论保证**: 利用Theorem 1（Tivnan et al., 2025）的映射关系，从 $\mathbf{H}_t, \boldsymbol{\Sigma}_t$ 推导出对应的漂移和扩散系数 $\mathbf{F}_t, \mathbf{G}_t$。进一步证明（Theorem 2）当 $\alpha_t, \beta_t$ 取特定形式时，零空间部分退化为最优传输ODE，建立了与Schrödinger Bridge的联系。Theorem 3证明在满足 $\lim_{t\to 1}\gamma_t=1, \lim_{t\to 1}\alpha_t^2/\beta_t=0$ 的条件下，SDB能生成渐近精确的贝叶斯后验样本。
 
 3. **三种变体**: 
-   - **SDB (SB)**: 基于Schrödinger Bridge，$\alpha_t = \bar{\sigma}_t^2 / (\bar{\sigma}_t^2 + \sigma_t^2)$，具有最优传输性质
-   - **SDB (VP)**: 重新诠释VP扩散，$\alpha_t = 1-t$，零空间中进行凸插值
-   - **SDB (VE)**: 重新诠释VE扩散，$\alpha_t = 1$，零空间收敛到各向同性高斯
+
+    - **SDB (SB)**: 基于Schrödinger Bridge，$\alpha_t = \bar{\sigma}_t^2 / (\bar{\sigma}_t^2 + \sigma_t^2)$，具有最优传输性质
+    - **SDB (VP)**: 重新诠释VP扩散，$\alpha_t = 1-t$，零空间中进行凸插值
+    - **SDB (VE)**: 重新诠释VE扩散，$\alpha_t = 1$，零空间收敛到各向同性高斯
 
 ### 损失函数 / 训练策略
 

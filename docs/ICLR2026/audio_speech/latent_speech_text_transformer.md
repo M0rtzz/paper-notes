@@ -27,14 +27,14 @@ tags:
 提出 Latent Speech-Text Transformer (LST)，将离散语音 token 聚合为更高层级的"潜在语音 patch"作为自回归单元（类似 BLT 对 bytes 的处理），对齐语音和文本的序列建模粒度（从 20× 缩小到 ~1:1），在 speech HellaSwag 上获得 +6.5% 绝对提升且增益从 420M→7B 持续增长，同时降低 ASR/TTS 推理计算成本。
 
 ## 研究背景与动机
-1. **领域现状**：语音离散 token（如 HuBERT 25Hz，501 码本）使得自回归语音 LM 成为可能。但语音 token 序列远长于对应文本（10-20×），导致训练和推理效率远低于文本 LLM——据估计需要比文本多三个数量级的数据才能达到同等能力。
-2. **现有痛点**：
+**领域现状**：语音离散 token（如 HuBERT 25Hz，501 码本）使得自回归语音 LM 成为可能。但语音 token 序列远长于对应文本（10-20×），导致训练和推理效率远低于文本 LLM——据估计需要比文本多三个数量级的数据才能达到同等能力。
+**现有痛点**：
    - **信息密度不匹配**：语音 token 序列与文本 token 在序列长度上严重不对称，阻碍跨模态知识迁移
    - **计算分配不均**：预训练和推理时大部分计算花在长语音序列上，而非有意义的语义建模
    - **现有对齐尝试不足**：warm initialization（从文本 LLM 初始化）、交错训练虽有帮助，但 speech→speech 和 text→text 性能仍有显著差距
    - BPE 在语音 token 上失效（Cuervo & Marxer 2024 报告）——简单的子词切分不适用于语音
-3. **核心矛盾**：语音建模需要细粒度 token（25Hz），但自回归建模在长序列上效率低且跨模态对齐差
-4. **核心 idea**：借鉴 Byte Latent Transformer (BLT) 的思想——将语音 token 聚合为"潜在 patch"（高层自回归单元），全局 Transformer 在 patch 级别建模，轻量解码器展开 patch 为语音 token。Patch 粒度与文本 token 对齐
+**核心矛盾**：语音建模需要细粒度 token（25Hz），但自回归建模在长序列上效率低且跨模态对齐差
+**核心 idea**：借鉴 Byte Latent Transformer (BLT) 的思想——将语音 token 聚合为"潜在 patch"（高层自回归单元），全局 Transformer 在 patch 级别建模，轻量解码器展开 patch 为语音 token。Patch 粒度与文本 token 对齐
 
 ## 方法详解
 
@@ -44,20 +44,23 @@ tags:
 ### 关键设计
 
 1. **三种 Patching 策略**
-   - **Static Patching**：固定大小 $p$ 的非重叠切分（如 $p=3$，每 3 个语音 token 一个 patch）。简单高效，推理时无需辅助模型
-   - **Alignment Patching**：用 Wav2Vec2+CTC 强制对齐获取语音-文本时间戳，每个文本单元（词/BPE）对应一个 patch，静默段单独成 patch。精确对齐语音和文本粒度
-   - **Curriculum Patching**（最终方案）：训练时从 alignment → static 逐步过渡。概率 $P(u) = 1 \to 0$ 在训练步 $[\tau_1, \tau_2]$ 区间线性衰减。早期享受对齐带来的语义对应，后期切换到静态策略以消除推理时对对齐模型的依赖
-   - 设计动机：alignment patching 提供最好的跨模态对齐但需要辅助模型；curriculum 保留了好处但消除了推理依赖
+
+    - **Static Patching**：固定大小 $p$ 的非重叠切分（如 $p=3$，每 3 个语音 token 一个 patch）。简单高效，推理时无需辅助模型
+    - **Alignment Patching**：用 Wav2Vec2+CTC 强制对齐获取语音-文本时间戳，每个文本单元（词/BPE）对应一个 patch，静默段单独成 patch。精确对齐语音和文本粒度
+    - **Curriculum Patching**（最终方案）：训练时从 alignment → static 逐步过渡。概率 $P(u) = 1 \to 0$ 在训练步 $[\tau_1, \tau_2]$ 区间线性衰减。早期享受对齐带来的语义对应，后期切换到静态策略以消除推理时对对齐模型的依赖
+    - 设计动机：alignment patching 提供最好的跨模态对齐但需要辅助模型；curriculum 保留了好处但消除了推理依赖
 
 2. **Patch Encoder 和 Patch Decoder**
-   - Encoder：滑动窗口自注意力 + 交叉注意力层，将 token 嵌入聚合为 patch 嵌入
-   - Decoder：轻量 Transformer，每层插入交叉注意力以接收 patch 级信息，自注意力窗口 512 token
-   - 计算分配：全局 Transformer 是主要 FLOPs 消耗者，Encoder/Decoder 轻量——通过在 patch 级而非 token 级做全局建模，显著减少计算
+
+    - Encoder：滑动窗口自注意力 + 交叉注意力层，将 token 嵌入聚合为 patch 嵌入
+    - Decoder：轻量 Transformer，每层插入交叉注意力以接收 patch 级信息，自注意力窗口 512 token
+    - 计算分配：全局 Transformer 是主要 FLOPs 消耗者，Encoder/Decoder 轻量——通过在 patch 级而非 token 级做全局建模，显著减少计算
 
 3. **跨模态对齐机制**
-   - Patch 级建模使语音和文本在同一序列中以相近的粒度出现
-   - 交错数据训练：同一语料的文本和语音交替出现，部分语音段被替换为对应文本
-   - 效果：patch 自动学习到与音节/单词的对应，促进 S↔T 知识迁移
+
+    - Patch 级建模使语音和文本在同一序列中以相近的粒度出现
+    - 交错数据训练：同一语料的文本和语音交替出现，部分语音段被替换为对应文本
+    - 效果：patch 自动学习到与音节/单词的对应，促进 S↔T 知识迁移
 
 ### 损失函数 / 训练策略
 - 标准 NTP 损失（token 级别），应用于 patch decoder 的输出

@@ -26,17 +26,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：Multi-Agent Debate (MAD) 已成为提升 LLM 推理的流行范式，多个 LLM 通过结构化讨论协作解题，近年出现了各种变体（去中心化、稀疏、中心化等拓扑结构、角色分配等）。
+**领域现状**：Multi-Agent Debate (MAD) 已成为提升 LLM 推理的流行范式，多个 LLM 通过结构化讨论协作解题，近年出现了各种变体（去中心化、稀疏、中心化等拓扑结构、角色分配等）。
 
-2. **现有痛点**：MAD 变得越来越复杂，但其有效性的根源始终不清楚——到底是"多个 agent 的集成效应"还是"agent 间交互讨论"带来了性能提升？
+**现有痛点**：MAD 变得越来越复杂，但其有效性的根源始终不清楚——到底是"多个 agent 的集成效应"还是"agent 间交互讨论"带来了性能提升？
 
-3. **核心矛盾**：如果大部分性能提升来自简单集成（majority voting），那 MAD 中额外的辩论、通信、架构设计等复杂性就不值得。
+**核心矛盾**：如果大部分性能提升来自简单集成（majority voting），那 MAD 中额外的辩论、通信、架构设计等复杂性就不值得。
 
-4. **本文要解决什么？** 严格分离 MAD 中"集成"和"辩论"的贡献，从理论上解释为什么辩论本身不能系统性提升性能。
+**本文要解决什么？** 严格分离 MAD 中"集成"和"辩论"的贡献，从理论上解释为什么辩论本身不能系统性提升性能。
 
-5. **切入角度**：将 MAD 形式化为贝叶斯信念更新过程，用 Dirichlet-Compound-Multinomial (DCM) 模型刻画 agent 行为，证明辩论构成 martingale。
+**切入角度**：将 MAD 形式化为贝叶斯信念更新过程，用 Dirichlet-Compound-Multinomial (DCM) 模型刻画 agent 行为，证明辩论构成 martingale。
 
-6. **核心idea一句话**：辩论在期望意义上不改善正确率（martingale），大部分性能来自多数投票的集成效应。
+**核心idea一句话**：辩论在期望意义上不改善正确率（martingale），大部分性能来自多数投票的集成效应。
 
 ## 方法详解
 
@@ -46,26 +46,30 @@ tags:
 ### 关键设计
 
 1. **DCM 生成模型**:
-   - 做什么：形式化 agent 的回答生成过程
-   - 核心思路：每个 agent 在第 $t$ 轮持有信念向量 $\boldsymbol{\alpha}_{i,t}$（Dirichlet 参数），先采样 $\boldsymbol{\theta}_{i,t} \sim \text{Dirichlet}(\boldsymbol{\alpha}_{i,t})$，再从 $\text{Categorical}(\boldsymbol{\theta}_{i,t})$ 生成回答。边际概率 $P(y_{i,t}=k) = \alpha_{i,t}^{(k)} / \sum_j \alpha_{i,t}^{(j)}$
-   - 设计动机：DCM 自然捕捉了 LLM 的内部不确定性（Dirichlet prior）和输出随机性（采样），且具有贝叶斯共轭性便于分析
+
+    - 做什么：形式化 agent 的回答生成过程
+    - 核心思路：每个 agent 在第 $t$ 轮持有信念向量 $\boldsymbol{\alpha}_{i,t}$（Dirichlet 参数），先采样 $\boldsymbol{\theta}_{i,t} \sim \text{Dirichlet}(\boldsymbol{\alpha}_{i,t})$，再从 $\text{Categorical}(\boldsymbol{\theta}_{i,t})$ 生成回答。边际概率 $P(y_{i,t}=k) = \alpha_{i,t}^{(k)} / \sum_j \alpha_{i,t}^{(j)}$
+    - 设计动机：DCM 自然捕捉了 LLM 的内部不确定性（Dirichlet prior）和输出随机性（采样），且具有贝叶斯共轭性便于分析
 
 2. **Majority Voting 成功概率定理 (Theorem 1)**:
-   - 核心结论：即使正确答案仅略胜于其他选项（$\theta_1 \ll 1/2$），随着 agent 数 $N$ 增加，投票正确概率趋近 1
-   - 下界：$\mathbb{P}(y_{mv}=1) \geq 1 - \exp(-N(\Delta/\sqrt{K} - 1/\sqrt{N})^2)$
-   - 关键洞察：投票本身就有"放大效应"，不需要辩论
+
+    - 核心结论：即使正确答案仅略胜于其他选项（$\theta_1 \ll 1/2$），随着 agent 数 $N$ 增加，投票正确概率趋近 1
+    - 下界：$\mathbb{P}(y_{mv}=1) \geq 1 - \exp(-N(\Delta/\sqrt{K} - 1/\sqrt{N})^2)$
+    - 关键洞察：投票本身就有"放大效应"，不需要辩论
 
 3. **Martingale 定理 (Theorem 2 - 核心贡献)**:
-   - 做什么：证明辩论过程中 agent 对正确答案的信念构成 martingale
-   - 核心结论：$\mathbb{E}[p_{i,t} | \boldsymbol{\alpha}_{t-1}] = p_{i,t-1}$，即辩论不改变对正确答案的期望信念
-   - 前提条件：邻居平均信念等于自身信念（同质 agent + 全连接时自然满足）
-   - 深刻含义：辩论的每一轮都是随机游走——有时 agent 被纠正（好），有时被误导（坏），**期望上互相抵消**。这解释了为什么 MAD 往往不显著优于 majority voting
+
+    - 做什么：证明辩论过程中 agent 对正确答案的信念构成 martingale
+    - 核心结论：$\mathbb{E}[p_{i,t} | \boldsymbol{\alpha}_{t-1}] = p_{i,t-1}$，即辩论不改变对正确答案的期望信念
+    - 前提条件：邻居平均信念等于自身信念（同质 agent + 全连接时自然满足）
+    - 深刻含义：辩论的每一轮都是随机游走——有时 agent 被纠正（好），有时被误导（坏），**期望上互相抵消**。这解释了为什么 MAD 往往不显著优于 majority voting
 
 4. **MAD-oracle 改进策略**:
-   - 做什么：打破 martingale 的零均值漂移，偏向正确信号
-   - 核心思路：一旦 agent 生成正确答案，就"锁定"其状态不再被后续辩论影响（oracle 方式，需要 ground truth）
-   - 实用变体：MAD-confidence——高置信度的回答不易被改变
-   - 设计动机：Martingale 意味着需要人为引入"正确方向的漂移"才能让辩论有用
+
+    - 做什么：打破 martingale 的零均值漂移，偏向正确信号
+    - 核心思路：一旦 agent 生成正确答案，就"锁定"其状态不再被后续辩论影响（oracle 方式，需要 ground truth）
+    - 实用变体：MAD-confidence——高置信度的回答不易被改变
+    - 设计动机：Martingale 意味着需要人为引入"正确方向的漂移"才能让辩论有用
 
 ## 实验关键数据
 

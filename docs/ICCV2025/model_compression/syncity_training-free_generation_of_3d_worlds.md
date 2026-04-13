@@ -46,28 +46,32 @@ SynCity 将世界组织为 $W \times H$ 的正方形瓦片（tile）网格，逐
 ### 关键设计
 
 1. **语言模型提示（LLM Prompting）**：
-   - 将高层世界描述 $p_0$ 送入 ChatGPT o3-mini-high，生成网格式世界布局
-   - 输出包括每个tile的独立文本提示 $p_{xy}$ 和全局风格提示 $p_\star$
-   - 支持手动控制和自动生成两种模式
+
+    - 将高层世界描述 $p_0$ 送入 ChatGPT o3-mini-high，生成网格式世界布局
+    - 输出包括每个tile的独立文本提示 $p_{xy}$ 和全局风格提示 $p_\star$
+    - 支持手动控制和自动生成两种模式
 
 2. **2D生成器提示策略（Isometric Tile Inpainting）**：
-   - 核心思路：用灰色等距方形底板 $B$ 和立方体遮罩 $M$ 作为条件，引导 Flux ControlNet 生成规则的等距视角tile图像
-   - 对于后续tile（$x,y > 0$），将已生成的3D世界渲染为上下文图像，用 inpainting 方式在已有场景上下文中生成新tile
-   - 为避免遮挡，会裁剪掉可能遮挡新tile的高大结构（trimming）
-   - **这是纯粹的 prompt engineering，无需微调任何模型**
+
+    - 核心思路：用灰色等距方形底板 $B$ 和立方体遮罩 $M$ 作为条件，引导 Flux ControlNet 生成规则的等距视角tile图像
+    - 对于后续tile（$x,y > 0$），将已生成的3D世界渲染为上下文图像，用 inpainting 方式在已有场景上下文中生成新tile
+    - 为避免遮挡，会裁剪掉可能遮挡新tile的高大结构（trimming）
+    - **这是纯粹的 prompt engineering，无需微调任何模型**
 
 3. **3D生成器提示（Rebasing + TRELLIS）**：
-   - 从2D图像中提取新tile区域（使用 rembg + alpha matting 去背景）
-   - **Rebasing**：在提取的tile图像下方放置略大的灰色底板，为3D生成器提供"框架"，确保重建的几何形状规则、方形，且底部完整
-   - 将处理后的图像送入 TRELLIS 获取 3D Gaussian Splats
-   - 进行几何验证（检查底部是否方形、完整），不合格则换随机种子重试
-   - 后处理：裁掉底板、缩放到单位大小、重新定向
+
+    - 从2D图像中提取新tile区域（使用 rembg + alpha matting 去背景）
+    - **Rebasing**：在提取的tile图像下方放置略大的灰色底板，为3D生成器提供"框架"，确保重建的几何形状规则、方形，且底部完整
+    - 将处理后的图像送入 TRELLIS 获取 3D Gaussian Splats
+    - 进行几何验证（检查底部是否方形、完整），不合格则换随机种子重试
+    - 后处理：裁掉底板、缩放到单位大小、重新定向
 
 4. **3D融合（Latent Space Blending）**：
-   - 将相邻两个tile的3D潜表示 $\gamma^1, \gamma^2$ 拼接成联合体积 $\gamma$
-   - 在TRELLIS的第二阶段（$R=64$）对边界区域 $|x - R/2| \leq r$ 进行重新去噪，其余区域保持固定
-   - 2D层面：渲染相邻tile的正面视图，用inpainting模型填补边界区域生成融合参考图像
-   - 提出稀疏潜表示的上采样方案：先上采样占用体积，再从多视角条件去噪新潜表示（避免朴素插值导致的伪影）
+
+    - 将相邻两个tile的3D潜表示 $\gamma^1, \gamma^2$ 拼接成联合体积 $\gamma$
+    - 在TRELLIS的第二阶段（$R=64$）对边界区域 $|x - R/2| \leq r$ 进行重新去噪，其余区域保持固定
+    - 2D层面：渲染相邻tile的正面视图，用inpainting模型填补边界区域生成融合参考图像
+    - 提出稀疏潜表示的上采样方案：先上采样占用体积，再从多视角条件去噪新潜表示（避免朴素插值导致的伪影）
 
 ### 损失函数 / 训练策略
 

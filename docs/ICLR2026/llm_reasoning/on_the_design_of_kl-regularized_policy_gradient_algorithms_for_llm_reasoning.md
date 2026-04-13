@@ -45,37 +45,43 @@ RPG 是一个迭代训练框架：每次迭代中，参考模型 $\pi_{\text{old
 ### 关键设计
 
 1. **Forward KL 正则化 (FKL)**：
-   - 目标函数：$J_{\text{FKL}}(\theta) = \mathbb{E}_{\pi_\theta}[R(x)] - \beta \text{KL}(\pi_{\text{old}} \| \pi_\theta)$
-   - 梯度：$\nabla_\theta J = \mathbb{E}_{x \sim \pi_{\text{old}}}[(w(x)R(x) + \beta) \nabla_\theta \log \pi_\theta(x)]$
-   - 代理损失：$\mathcal{L}_{\text{FKL}} = \mathbb{E}[-w(x)R(x) - \beta \log \pi_\theta(x)]$
-   - 当 $R=0$ 时退化为 MLE，与 SFT 训练目标一致
-   - **设计动机**：Forward KL 鼓励 $\pi_\theta$ 覆盖 $\pi_{\text{old}}$ 的支撑集（zero-forcing），避免遗漏高概率区域
+
+    - 目标函数：$J_{\text{FKL}}(\theta) = \mathbb{E}_{\pi_\theta}[R(x)] - \beta \text{KL}(\pi_{\text{old}} \| \pi_\theta)$
+    - 梯度：$\nabla_\theta J = \mathbb{E}_{x \sim \pi_{\text{old}}}[(w(x)R(x) + \beta) \nabla_\theta \log \pi_\theta(x)]$
+    - 代理损失：$\mathcal{L}_{\text{FKL}} = \mathbb{E}[-w(x)R(x) - \beta \log \pi_\theta(x)]$
+    - 当 $R=0$ 时退化为 MLE，与 SFT 训练目标一致
+    - **设计动机**：Forward KL 鼓励 $\pi_\theta$ 覆盖 $\pi_{\text{old}}$ 的支撑集（zero-forcing），避免遗漏高概率区域
 
 2. **Reverse KL 正则化 (RKL)**：
-   - 目标函数：$J_{\text{RKL}}(\theta) = \mathbb{E}_{\pi_\theta}[R(x)] - \beta \text{KL}(\pi_\theta \| \pi_{\text{old}})$
-   - 代理损失：$\mathcal{L}_{\text{RKL}} = \mathbb{E}[w(x)(-R(x) + \beta \log w(x))]$
-   - **设计动机**：Reverse KL 鼓励 $\pi_\theta$ 集中在 $\pi_{\text{old}}$ 高概率区域（mode-seeking），适合聚焦已知好策略
+
+    - 目标函数：$J_{\text{RKL}}(\theta) = \mathbb{E}_{\pi_\theta}[R(x)] - \beta \text{KL}(\pi_\theta \| \pi_{\text{old}})$
+    - 代理损失：$\mathcal{L}_{\text{RKL}} = \mathbb{E}[w(x)(-R(x) + \beta \log w(x))]$
+    - **设计动机**：Reverse KL 鼓励 $\pi_\theta$ 集中在 $\pi_{\text{old}}$ 高概率区域（mode-seeking），适合聚焦已知好策略
 
 3. **非归一化 Forward KL (UFKL)**：
-   - 引入非归一化 KL 散度，包含质量修正项（mass correction）
-   - 代理损失：$\mathcal{L}_{\text{UFKL}} = Z_{\text{old}} \mathbb{E}[-w(x)R(x) + \beta(w(x) - \log w(x) - 1)]$
-   - 正则化项 $w(x) - \log w(x) - 1$ 正是 $k_3$ 估计器的形式
-   - **设计动机**：处理分布可能非归一化的场景，并建立与 GRPO 使用的 $k_3$ 估计器之间的联系
+
+    - 引入非归一化 KL 散度，包含质量修正项（mass correction）
+    - 代理损失：$\mathcal{L}_{\text{UFKL}} = Z_{\text{old}} \mathbb{E}[-w(x)R(x) + \beta(w(x) - \log w(x) - 1)]$
+    - 正则化项 $w(x) - \log w(x) - 1$ 正是 $k_3$ 估计器的形式
+    - **设计动机**：处理分布可能非归一化的场景，并建立与 GRPO 使用的 $k_3$ 估计器之间的联系
 
 4. **非归一化 Reverse KL (URKL)**：
-   - 证明 $k_3(\pi_{\text{old}}/\pi_\theta)$ 的期望等价于 $\text{UKL}(\pi_\theta \| \pi_{\text{old}})$
-   - 代理损失：$\mathcal{L}_{\text{URKL}} = Z_{\text{old}} \mathbb{E}[-w(x)R(x) + \beta(w(x)\log w(x) - w(x))]$
-   - **设计动机**：梯度中有效奖励缩放因子更简洁（$R(x) - \beta \log w(x)$），且与 $k_3$ 估计器等价
+
+    - 证明 $k_3(\pi_{\text{old}}/\pi_\theta)$ 的期望等价于 $\text{UKL}(\pi_\theta \| \pi_{\text{old}})$
+    - 代理损失：$\mathcal{L}_{\text{URKL}} = Z_{\text{old}} \mathbb{E}[-w(x)R(x) + \beta(w(x)\log w(x) - w(x))]$
+    - **设计动机**：梯度中有效奖励缩放因子更简洁（$R(x) - \beta \log w(x)$），且与 $k_3$ 估计器等价
 
 5. **REINFORCE 风格变体**：
-   - 对所有四种 KL 形式提供 REINFORCE 风格的代理损失，使用 $\text{SG}(\cdot)$（stop-gradient）算子
-   - 一般形式：$\mathcal{L}^{\text{REINFORCE}} = -\mathbb{E}[\text{SG}(\text{Weight}(x, \theta)) \log \pi_\theta(x)]$
-   - 提供了实现灵活性，可适配不同框架需求
+
+    - 对所有四种 KL 形式提供 REINFORCE 风格的代理损失，使用 $\text{SG}(\cdot)$（stop-gradient）算子
+    - 一般形式：$\mathcal{L}^{\text{REINFORCE}} = -\mathbb{E}[\text{SG}(\text{Weight}(x, \theta)) \log \pi_\theta(x)]$
+    - 提供了实现灵活性，可适配不同框架需求
 
 6. **GRPO 理论不一致性分析**：
-   - GRPO 使用 $k_3$ 估计器作为 KL 惩罚，但在 off-policy 设置下直接减去该项，缺少重要性权重 $w_{i,t}$
-   - 这导致 GRPO 目标函数的梯度无法精确对应 $J_{\text{Clip}} - \beta \text{UKL}(\pi_\theta \| \pi_{\text{ref}})$ 的梯度
-   - RPG 框架通过显式引入重要性权重修正了这一问题
+
+    - GRPO 使用 $k_3$ 估计器作为 KL 惩罚，但在 off-policy 设置下直接减去该项，缺少重要性权重 $w_{i,t}$
+    - 这导致 GRPO 目标函数的梯度无法精确对应 $J_{\text{Clip}} - \beta \text{UKL}(\pi_\theta \| \pi_{\text{ref}})$ 的梯度
+    - RPG 框架通过显式引入重要性权重修正了这一问题
 
 ### 损失函数 / 训练策略
 

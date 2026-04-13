@@ -51,13 +51,14 @@ $$\max_{\|\epsilon_{sh}\|_2 \leq \rho_{sh}} \left[\max_{\|\epsilon_{ns}^i\|_2 \l
 通过一阶 Taylor 展开和放松求解，得到近似的 SAM 梯度。
 
 2. **梯度分解策略**：这是本文最关键的设计。对每个任务 $i$ 的共享部分梯度进行分解：
-   - **损失梯度** $\boldsymbol{g}_{sh}^{i,loss}$：在当前参数处的常规梯度，方向指向低损失
-   - **SAM 梯度** $\boldsymbol{g}_{sh}^{i,SAM}$：在扰动后参数处的梯度
-   - **平坦梯度** $\boldsymbol{g}_{sh}^{i,flat} = \boldsymbol{g}_{sh}^{i,SAM} - \boldsymbol{g}_{sh}^{i,loss}$：方向指向平坦区域
+
+    - **损失梯度** $\boldsymbol{g}_{sh}^{i,loss}$：在当前参数处的常规梯度，方向指向低损失
+    - **SAM 梯度** $\boldsymbol{g}_{sh}^{i,SAM}$：在扰动后参数处的梯度
+    - **平坦梯度** $\boldsymbol{g}_{sh}^{i,flat} = \boldsymbol{g}_{sh}^{i,SAM} - \boldsymbol{g}_{sh}^{i,loss}$：方向指向平坦区域
 
    然后分别对所有任务的损失梯度和平坦梯度进行聚合：
-   $$\boldsymbol{g}_{sh}^{loss} = \text{gradient\_aggregate}(\boldsymbol{g}_{sh}^{1,loss}, ..., \boldsymbol{g}_{sh}^{m,loss})$$
-   $$\boldsymbol{g}_{sh}^{flat} = \text{gradient\_aggregate}(\boldsymbol{g}_{sh}^{1,flat}, ..., \boldsymbol{g}_{sh}^{m,flat})$$
+    $\boldsymbol{g}_{sh}^{loss} = \text{gradient\_aggregate}(\boldsymbol{g}_{sh}^{1,loss}, ..., \boldsymbol{g}_{sh}^{m,loss})$
+    $\boldsymbol{g}_{sh}^{flat} = \text{gradient\_aggregate}(\boldsymbol{g}_{sh}^{1,flat}, ..., \boldsymbol{g}_{sh}^{m,flat})$
 
    最终更新：$\boldsymbol{g}_{sh}^{SAM} = \boldsymbol{g}_{sh}^{loss} + \boldsymbol{g}_{sh}^{flat}$
 

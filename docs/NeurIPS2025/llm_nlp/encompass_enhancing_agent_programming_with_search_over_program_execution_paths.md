@@ -26,19 +26,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：推理时计算扩展（inference-time compute scaling）已成为提升 LLM agent 性能的关键手段，包括 best-of-N 采样、refinement (Reflexion)、tree search (ToT, LATS) 等策略。
+**领域现状**：推理时计算扩展（inference-time compute scaling）已成为提升 LLM agent 性能的关键手段，包括 best-of-N 采样、refinement (Reflexion)、tree search (ToT, LATS) 等策略。
 
-2. **现有痛点**：
+**现有痛点**：
    - 程序员通常将推理时策略**硬编码到 agent 工作流中**，搜索逻辑和业务逻辑深度耦合
    - 切换搜索策略（如从 best-of-N 切换到 beam search）需要大量结构性代码重构
    - 不同 agent 对相同搜索策略需要各自实现，无法复用
    - 复杂的搜索策略因实现难度大而被放弃，导致错过更好的 scaling law
 
-3. **核心矛盾**：agent 工作流（做什么）与推理时策略（怎么搜索）的耦合既降低了可读性，又限制了策略探索空间。
+**核心矛盾**：agent 工作流（做什么）与推理时策略（怎么搜索）的耦合既降低了可读性，又限制了策略探索空间。
 
-4. **切入角度**：从概率编程的"模型与推理分离"范式获得灵感——概率编程将模型定义和推理算法分离，类似地，agent 编程也应将工作流和搜索策略分离。
+**切入角度**：从概率编程的"模型与推理分离"范式获得灵感——概率编程将模型定义和推理算法分离，类似地，agent 编程也应将工作流和搜索策略分离。
 
-5. **核心idea一句话**：推理时策略本质是对非确定性程序执行路径的搜索，用 `branchpoint()` 标记不确定点，让框架自动构建搜索树。
+**核心idea一句话**：推理时策略本质是对非确定性程序执行路径的搜索，用 `branchpoint()` 标记不确定点，让框架自动构建搜索树。
 
 ## 方法详解
 
@@ -48,21 +48,24 @@ EnCompass 是一个 Python 框架，实现 PAN 编程模型。程序员用 `@enc
 ### 关键设计
 
 1. **PAN 编程模型**:
-   - 做什么：将程序的不确定执行建模为马尔可夫链，`branchpoint()` 是标记位置，程序状态 = (位置, 变量值)
-   - 核心思路：Angelic nondeterminism（天使非确定性）——程序员写代码时假设不可靠操作总是产生好输出，运行时由搜索负责找到真正好的执行路径
-   - 与经典搜索的区别：不能枚举所有子节点，只能随机采样——通过指定 branching factor 来适配经典图搜索算法
+
+    - 做什么：将程序的不确定执行建模为马尔可夫链，`branchpoint()` 是标记位置，程序状态 = (位置, 变量值)
+    - 核心思路：Angelic nondeterminism（天使非确定性）——程序员写代码时假设不可靠操作总是产生好输出，运行时由搜索负责找到真正好的执行路径
+    - 与经典搜索的区别：不能枚举所有子节点，只能随机采样——通过指定 branching factor 来适配经典图搜索算法
 
 2. **统一推理时策略**:
-   - **Best-of-N → 深度1搜索树**：开头加一个 `branchpoint()`，采样 N 次取最高分
-   - **Beam Search → 多层搜索树**：每步前加 `branchpoint()`，beam width 和 branching factor 控制搜索广度
-   - **Refinement → 带记忆的回溯**：用 `NoCopy` 共享反馈列表，不同执行路径共享历史尝试信息
-   - **Self-Consistency → 组评估**：`record_score()` 支持组评估函数（如 majority vote）
-   - 关键insight：Global BoN（beam width=N, branching=1）和 Local BoN（beam width=1, branching=N）是 beam search 的两个极端，beam search 在两者间插值
+
+    - **Best-of-N → 深度1搜索树**：开头加一个 `branchpoint()`，采样 N 次取最高分
+    - **Beam Search → 多层搜索树**：每步前加 `branchpoint()`，beam width 和 branching factor 控制搜索广度
+    - **Refinement → 带记忆的回溯**：用 `NoCopy` 共享反馈列表，不同执行路径共享历史尝试信息
+    - **Self-Consistency → 组评估**：`record_score()` 支持组评估函数（如 majority vote）
+    - 关键insight：Global BoN（beam width=N, branching=1）和 Local BoN（beam width=1, branching=N）是 beam search 的两个极端，beam search 在两者间插值
 
 3. **EnCompass 编译器**:
-   - 做什么：将 Python 函数编译为可被搜索算法操控的搜索空间对象
-   - 核心思路：`@encompass.compile` 装饰器将函数转为状态机，`branchpoint()` 成为状态转移点
-   - vs 手写状态机：EnCompass 代码修改量比手写 plain Python 少 3-6x，且不破坏代码可读性
+
+    - 做什么：将 Python 函数编译为可被搜索算法操控的搜索空间对象
+    - 核心思路：`@encompass.compile` 装饰器将函数转为状态机，`branchpoint()` 成为状态转移点
+    - vs 手写状态机：EnCompass 代码修改量比手写 plain Python 少 3-6x，且不破坏代码可读性
 
 ## 实验关键数据
 

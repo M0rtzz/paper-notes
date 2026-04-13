@@ -29,11 +29,11 @@ tags:
 
 图像超分辨率（SR）任务中 Transformer 已展现出优于 CNN 的性能，但面临严峻的实际部署问题：
 
-1. **内存访问瓶颈**：自注意力需要物化 score 矩阵 $S = QK^T$，加上 tensor reshape 和 window masking 等内存密集操作，导致极高的延迟和内存占用。SwinIR-light 比相同 FLOPs 的 CNN 慢 4.7倍、内存高 2倍。
+**内存访问瓶颈**：自注意力需要物化 score 矩阵 $S = QK^T$，加上 tensor reshape 和 window masking 等内存密集操作，导致极高的延迟和内存占用。SwinIR-light 比相同 FLOPs 的 CNN 慢 4.7倍、内存高 2倍。
 
-2. **效率指标的误导**：现有方法主要关注降低 FLOPs 和参数量，但忽视了实际延迟和内存占用——这些才是部署中真正的瓶颈。
+**效率指标的误导**：现有方法主要关注降低 FLOPs 和参数量，但忽视了实际延迟和内存占用——这些才是部署中真正的瓶颈。
 
-3. **关键发现**：论文通过实验分析了 SwinIR-light 中自注意力的**层间相似性**，发现：
+**关键发现**：论文通过实验分析了 SwinIR-light 中自注意力的**层间相似性**，发现：
    - 自注意力提取的特征 $F$ 在相邻层间的 CKA 相似度高达 **87%**
    - 注意力图 $A^{avg}$ 在相邻层间的余弦相似度高达 **89%**
    这说明自注意力在多层中提取了**大量重复特征**，存在显著的冗余。
@@ -53,31 +53,35 @@ ESC 网络的整体结构包含四个主要部分：
 ### 关键设计
 
 1. **ConvAttn 模块（卷积注意力）**:
-   - **做什么**：用卷积模拟自注意力的两大优势——远程依赖建模和实例依赖加权。
-   - **核心思路**：将特征按通道分为两部分：$F^{att} \in \mathbb{R}^{H \times W \times 16}$（前 16 个通道）和 $F^{idt} \in \mathbb{R}^{H \times W \times (C-16)}$（剩余通道）。仅对 $F^{att}$ 应用两种卷积：
-     - **共享大核 $LK \in \mathbb{R}^{13 \times 13 \times 16 \times 16}$**：在整个网络中共享，捕捉长程交互（模拟注意力的远程依赖）
-     - **动态核 $DK \in \mathbb{R}^{3 \times 3 \times 1 \times 16}$**：通过 GAP + MLP 从输入生成，实现实例依赖加权（模拟注意力的自适应性）
-     $$F^{res} = (F^{att} \circledast DK) + (F^{att} \circledast LK)$$
-     然后与 $F^{idt}$ 拼接后通过 $1 \times 1$ 卷积融合。
-   - **设计动机**：基于层间特征高度相似的观察，远程交互模式在各层中不需要每次重新计算。共享 $LK$ 减少参数增长和优化难度，$DK$ 提供逐层的输入自适应性。仅对 16 个通道操作大大降低了内存访问开销。
+
+    - **做什么**：用卷积模拟自注意力的两大优势——远程依赖建模和实例依赖加权。
+    - **核心思路**：将特征按通道分为两部分：$F^{att} \in \mathbb{R}^{H \times W \times 16}$（前 16 个通道）和 $F^{idt} \in \mathbb{R}^{H \times W \times (C-16)}$（剩余通道）。仅对 $F^{att}$ 应用两种卷积：
+      - **共享大核 $LK \in \mathbb{R}^{13 \times 13 \times 16 \times 16}$**：在整个网络中共享，捕捉长程交互（模拟注意力的远程依赖）
+      - **动态核 $DK \in \mathbb{R}^{3 \times 3 \times 1 \times 16}$**：通过 GAP + MLP 从输入生成，实现实例依赖加权（模拟注意力的自适应性）
+    $F^{res} = (F^{att} \circledast DK) + (F^{att} \circledast LK)$
+      然后与 $F^{idt}$ 拼接后通过 $1 \times 1$ 卷积融合。
+    - **设计动机**：基于层间特征高度相似的观察，远程交互模式在各层中不需要每次重新计算。共享 $LK$ 减少参数增长和优化难度，$DK$ 提供逐层的输入自适应性。仅对 16 个通道操作大大降低了内存访问开销。
 
 2. **ESCBlock 结构**:
-   - **做什么**：每个 block 中仅使用一层自注意力，其余 $M$ 层使用 ConvAttn。
-   - **核心思路**：
-     $$F_{i,0} = F_i^{in} + \text{SelfAttn}(\text{LN}(F_i^{in}))$$
-     $$F_{i,j} = F_{i,j-1} + \text{ConvAttn}_j(\text{ConvFFN}_j(F_{i,j-1}), LK), \quad j=1,...,M$$
-     关键地，ConvFFN 放在自注意力**之前**，这样自注意力在提取特征时已考虑了局部信息，无需复杂的 QKV 投影。ConvAttn 层位于自注意力之后，负责提取窗口间特征（类似 shifted window 的功能）。
-   - **设计动机**：既然自注意力特征在层间高度相似，只需一层自注意力建立全局关系，其余层用轻量级卷积维护即可。
+
+    - **做什么**：每个 block 中仅使用一层自注意力，其余 $M$ 层使用 ConvAttn。
+    - **核心思路**：
+    $F_{i,0} = F_i^{in} + \text{SelfAttn}(\text{LN}(F_i^{in}))$
+    $F_{i,j} = F_{i,j-1} + \text{ConvAttn}_j(\text{ConvFFN}_j(F_{i,j-1}), LK), \quad j=1,...,M$
+      关键地，ConvFFN 放在自注意力**之前**，这样自注意力在提取特征时已考虑了局部信息，无需复杂的 QKV 投影。ConvAttn 层位于自注意力之后，负责提取窗口间特征（类似 shifted window 的功能）。
+    - **设计动机**：既然自注意力特征在层间高度相似，只需一层自注意力建立全局关系，其余层用轻量级卷积维护即可。
 
 3. **Flash Attention 集成**:
-   - **做什么**：首次在轻量级 SR 任务中成功引入 Flash Attention，将窗口大小扩展到 $32 \times 32$。
-   - **核心思路**：Flash Attention 通过避免物化完整的 score 矩阵来减少内存占用。在 $32 \times 32$ 窗口下，相比普通实现可达 **16倍** 延迟降低和 **12.2倍** 内存节省。
-   - **设计动机**：大窗口虽然只增加少量 FLOPs，却能显著提升性能。但传统实现中大窗口导致的 score 矩阵过大，Flash Attention 完美解决了这一问题。由于大部分自注意力已被 ConvAttn 替代，剩余的一层自注意力使用大窗口的开销可控。
+
+    - **做什么**：首次在轻量级 SR 任务中成功引入 Flash Attention，将窗口大小扩展到 $32 \times 32$。
+    - **核心思路**：Flash Attention 通过避免物化完整的 score 矩阵来减少内存占用。在 $32 \times 32$ 窗口下，相比普通实现可达 **16倍** 延迟降低和 **12.2倍** 内存节省。
+    - **设计动机**：大窗口虽然只增加少量 FLOPs，却能显著提升性能。但传统实现中大窗口导致的 score 矩阵过大，Flash Attention 完美解决了这一问题。由于大部分自注意力已被 ConvAttn 替代，剩余的一层自注意力使用大窗口的开销可控。
 
 4. **ESC-FP 变体（FLOPs 优先）**:
-   - **做什么**：在需要压缩 FLOPs 和参数量的场景下，对大核进行深度可分离分解。
-   - **核心思路**：将 $LK$ 分解为逐点核 $LK^c \in \mathbb{R}^{1 \times 1 \times 16 \times 16}$ 和深度核 $LK^s \in \mathbb{R}^{13 \times 13 \times 1 \times 16}$，动态核可通过零填充与 $LK^s$ 合并：
-     $$F^{res} = (F^{att} \circledast LK^c) \circledast (ZP(DK) + LK^s)$$
+
+    - **做什么**：在需要压缩 FLOPs 和参数量的场景下，对大核进行深度可分离分解。
+    - **核心思路**：将 $LK$ 分解为逐点核 $LK^c \in \mathbb{R}^{1 \times 1 \times 16 \times 16}$ 和深度核 $LK^s \in \mathbb{R}^{13 \times 13 \times 1 \times 16}$，动态核可通过零填充与 $LK^s$ 合并：
+    $F^{res} = (F^{att} \circledast LK^c) \circledast (ZP(DK) + LK^s)$
 
 ### 损失函数 / 训练策略
 

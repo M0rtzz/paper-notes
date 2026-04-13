@@ -29,11 +29,11 @@ tags:
 
 类增量学习（CIL）需要模型在持续接收新类别数据时不遗忘旧知识。基于预训练 CLIP 的 CIL 方法利用了 CLIP 的强大零样本能力，通过匹配视觉嵌入和类名文本嵌入进行分类。然而现有方法存在三个核心问题：
 
-1. **模板文本信息不足**：CLIP 默认使用 "a photo of a [CLASS]" 作为文本匹配目标，忽略了丰富的细粒度视觉特征。例如，"cat" 可以被分解为 "long thin tail"、"soft fur"、"round face with large eyes" 等特征，这些特征作为匹配目标能提供更准确的分类信号。
+**模板文本信息不足**：CLIP 默认使用 "a photo of a [CLASS]" 作为文本匹配目标，忽略了丰富的细粒度视觉特征。例如，"cat" 可以被分解为 "long thin tail"、"soft fur"、"round face with large eyes" 等特征，这些特征作为匹配目标能提供更准确的分类信号。
 
-2. **视觉 Prompt 的局限**：L2P、DualPrompt 等方法通过学习视觉 Prompt 适配下游任务，但无法利用文本侧信息，且模型需要将类名自动分解为细粒度概念去匹配视觉特征——这种分解能力在增量更新中会退化。
+**视觉 Prompt 的局限**：L2P、DualPrompt 等方法通过学习视觉 Prompt 适配下游任务，但无法利用文本侧信息，且模型需要将类名自动分解为细粒度概念去匹配视觉特征——这种分解能力在增量更新中会退化。
 
-3. **文本 Prompt 的过拟合**：CoOp 等方法学习可训练的文本 Prompt，但容易对训练实例的特定分布过拟合，在测试分布变化时表现不佳。
+**文本 Prompt 的过拟合**：CoOp 等方法学习可训练的文本 Prompt，但容易对训练实例的特定分布过拟合，在测试分布变化时表现不佳。
 
 本文的核心思想是：利用 GPT-4 等大语言模型作为外部知识源，为每个类别提供通用、全面的视觉特征描述，并通过轻量级注入单元将这些知识编码到 CLIP 中，避免了 Prompt 学习的过拟合问题。
 
@@ -48,33 +48,37 @@ Engine 包含两个阶段的知识注入：
 ### 关键设计
 
 1. **文本知识注入单元**:
-   - 做什么：利用 GPT-4 生成每个类别的判别性视觉特征描述，将这些外部知识编码到线性注入单元中
-   - 核心思路：用 GPT-4 问每个类别的独特视觉特征（如 "What are unique visual features of [CLASS] in a photo?"），得到描述集合 $\mathbf{d}_i$。在冻结的文本编码器 $\bar{g_t}$ 后添加线性层 $u_t(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，通过最大化相似度损失注入知识：
-     $$\mathcal{L}_t = -\text{Sim}\left(u_t\left(\bar{g_t}(\mathbf{t}_i)\right), \bar{g_t}(\mathbf{d}_i)\right)$$
-     使得经过注入单元处理的模板文本特征 $u_t(\bar{g_t}(\mathbf{t}_i))$ 接近 GPT-4 生成的详细描述特征 $\bar{g_t}(\mathbf{d}_i)$。
-   - 设计动机：通过这种方式，即使推理时使用简单的类名模板，注入单元也能自动将其映射到包含 "long thin tail" 等细粒度特征的嵌入空间，比直接学习可训练 Prompt 更通用且不易过拟合。
+
+    - 做什么：利用 GPT-4 生成每个类别的判别性视觉特征描述，将这些外部知识编码到线性注入单元中
+    - 核心思路：用 GPT-4 问每个类别的独特视觉特征（如 "What are unique visual features of [CLASS] in a photo?"），得到描述集合 $\mathbf{d}_i$。在冻结的文本编码器 $\bar{g_t}$ 后添加线性层 $u_t(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，通过最大化相似度损失注入知识：
+    $\mathcal{L}_t = -\text{Sim}\left(u_t\left(\bar{g_t}(\mathbf{t}_i)\right), \bar{g_t}(\mathbf{d}_i)\right)$
+      使得经过注入单元处理的模板文本特征 $u_t(\bar{g_t}(\mathbf{t}_i))$ 接近 GPT-4 生成的详细描述特征 $\bar{g_t}(\mathbf{d}_i)$。
+    - 设计动机：通过这种方式，即使推理时使用简单的类名模板，注入单元也能自动将其映射到包含 "long thin tail" 等细粒度特征的嵌入空间，比直接学习可训练 Prompt 更通用且不易过拟合。
 
 2. **视觉知识注入单元**:
-   - 做什么：通过数据增强增强视觉特征的多样性
-   - 核心思路：在冻结的视觉编码器 $\bar{g_i}$ 后添加线性层 $u_i(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，最大化原始图像与增强图像的特征相似度：
-     $$\mathcal{L}_i = -\text{Sim}\left(u_i\left(\bar{g_i}(\mathbf{x})\right), \bar{g_i}(\mathcal{A}(\mathbf{x}))\right)$$
-     其中 $\mathcal{A}$ 是 AutoAugment 数据增强策略。
-   - 设计动机：视觉注入单元学习将原始特征映射到对增强变换不变的空间，使得视觉嵌入包含更丰富、更鲁棒的视觉信息。
+
+    - 做什么：通过数据增强增强视觉特征的多样性
+    - 核心思路：在冻结的视觉编码器 $\bar{g_i}$ 后添加线性层 $u_i(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，最大化原始图像与增强图像的特征相似度：
+    $\mathcal{L}_i = -\text{Sim}\left(u_i\left(\bar{g_i}(\mathbf{x})\right), \bar{g_i}(\mathcal{A}(\mathbf{x}))\right)$
+      其中 $\mathcal{A}$ 是 AutoAugment 数据增强策略。
+    - 设计动机：视觉注入单元学习将原始特征映射到对增强变换不变的空间，使得视觉嵌入包含更丰富、更鲁棒的视觉信息。
 
 3. **任务特定注入单元扩展 + 原型重放**:
-   - 做什么：为每个增量任务创建独立的注入单元，防止遗忘
-   - 核心思路：学习第 $b$ 个任务时，初始化新的 $u_t^b, u_i^b$，冻结所有之前的注入单元。最终表示是所有注入单元的求和：
-     $$G_i(\mathbf{x}) = \sum_{p=1}^{b-1} \bar{u}_i^p(\bar{g_i}(\mathbf{x})) + u_i^b(\bar{g_i}(\mathbf{x}))$$
-     同时利用每个类别的视觉原型 $\mathbf{p}_k$（类别平均嵌入）作为旧类代理参与训练，并添加高斯噪声 $\epsilon \sim \mathcal{N}(0, \alpha^2 \mathbf{I})$ 增强多样性。
-     注入单元是线性层，可重参数化为单个等效层 $\sum_p u_i^p$，不增加推理复杂度。
-   - 设计动机：由于 CLIP 图像编码器全程冻结，视觉原型在不同阶段是一致的，可以作为历史类别的可靠替代，无需存储原始数据。
+
+    - 做什么：为每个增量任务创建独立的注入单元，防止遗忘
+    - 核心思路：学习第 $b$ 个任务时，初始化新的 $u_t^b, u_i^b$，冻结所有之前的注入单元。最终表示是所有注入单元的求和：
+    $G_i(\mathbf{x}) = \sum_{p=1}^{b-1} \bar{u}_i^p(\bar{g_i}(\mathbf{x})) + u_i^b(\bar{g_i}(\mathbf{x}))$
+      同时利用每个类别的视觉原型 $\mathbf{p}_k$（类别平均嵌入）作为旧类代理参与训练，并添加高斯噪声 $\epsilon \sim \mathcal{N}(0, \alpha^2 \mathbf{I})$ 增强多样性。
+      注入单元是线性层，可重参数化为单个等效层 $\sum_p u_i^p$，不增加推理复杂度。
+    - 设计动机：由于 CLIP 图像编码器全程冻结，视觉原型在不同阶段是一致的，可以作为历史类别的可靠替代，无需存储原始数据。
 
 4. **Post-tuning 知识注入（推理时重排序）**:
-   - 做什么：利用 GPT-4 生成的成对判别特征对 top-k 预测进行局部精炼
-   - 核心思路：提取模型 top-k 预测的类别集合 $\{y_{i_1}, \ldots, y_{i_k}\}$，对每对类使用 GPT-4 生成判别性差异描述（如 "cat 有 long thin tail, 而 lion 有 stockier tail with tuft"），构建判别矩阵 $\mathbf{D} = [\mathbf{d}_{ij}]$。用零样本 CLIP 匹配查询图像到这些成对描述：
-     $$f_{\text{pt}, y_i}(\mathbf{x}) = \frac{1}{k-1} \sum_{j=1}^{j \neq i} f_{y_i}(\mathbf{x}, \mathbf{d}_{ij})$$
-     最终预测是注入特征匹配和后调优匹配的和：$f(\mathbf{x}) = f_{\text{inj}}(\mathbf{x}) + f_{\text{pt}}(\mathbf{x})$
-   - 设计动机：后调优使用零样本 CLIP（不随增量更新），提供了对预测的局部精细化能力，尤其擅长区分视觉相似的类别（如 cat vs lion）。
+
+    - 做什么：利用 GPT-4 生成的成对判别特征对 top-k 预测进行局部精炼
+    - 核心思路：提取模型 top-k 预测的类别集合 $\{y_{i_1}, \ldots, y_{i_k}\}$，对每对类使用 GPT-4 生成判别性差异描述（如 "cat 有 long thin tail, 而 lion 有 stockier tail with tuft"），构建判别矩阵 $\mathbf{D} = [\mathbf{d}_{ij}]$。用零样本 CLIP 匹配查询图像到这些成对描述：
+    $f_{\text{pt}, y_i}(\mathbf{x}) = \frac{1}{k-1} \sum_{j=1}^{j \neq i} f_{y_i}(\mathbf{x}, \mathbf{d}_{ij})$
+      最终预测是注入特征匹配和后调优匹配的和：$f(\mathbf{x}) = f_{\text{inj}}(\mathbf{x}) + f_{\text{pt}}(\mathbf{x})$
+    - 设计动机：后调优使用零样本 CLIP（不随增量更新），提供了对预测的局部精细化能力，尤其擅长区分视觉相似的类别（如 cat vs lion）。
 
 ### 损失函数 / 训练策略
 

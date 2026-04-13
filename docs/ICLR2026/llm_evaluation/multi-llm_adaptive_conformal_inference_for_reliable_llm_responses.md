@@ -27,12 +27,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **LLM 幻觉问题**：LLM 在医疗、法律等高风险领域被广泛使用，但回复中可能包含虚假信息（hallucination），亟需提供统计保证。
-2. **Conformal Inference (CI) 的引入**：CI 提供无分布假设的有限样本保证，已有工作（BCI, Mohri & Hashimoto 2024）将其用于 LLM 回复的虚假声明过滤——将回复分解为原子声明，基于 factuality score 设阈值过滤。
-3. **BCI 过于保守**：BCI 使用单一全局阈值，仅提供边际覆盖（marginal coverage），在子群体间可能出现严重的过覆盖/欠覆盖；其 conformity score 仅依赖单个最差声明的分数，对估计误差极其敏感，导致大量真实声明被误删。
-4. **CCI 保证松弛**：CCI（Cherian et al., 2024）引入自适应阈值函数以实现条件保证，但依赖自适应错误率 $\alpha$，在高风险场景中不适用；其线性特征空间难以捕捉 LLM 回复的复杂语义分组结构。
-5. **Conformity score 设计缺陷**：既有方法均基于单个极端声明分数构造 conformity score，忽视了其余声明的集体置信信息。
-6. **核心目标**：在严格控制组条件覆盖率（group-conditional coverage）的前提下，最大化真实声明的保留率（retention ratio）。
+**LLM 幻觉问题**：LLM 在医疗、法律等高风险领域被广泛使用，但回复中可能包含虚假信息（hallucination），亟需提供统计保证。
+**Conformal Inference (CI) 的引入**：CI 提供无分布假设的有限样本保证，已有工作（BCI, Mohri & Hashimoto 2024）将其用于 LLM 回复的虚假声明过滤——将回复分解为原子声明，基于 factuality score 设阈值过滤。
+**BCI 过于保守**：BCI 使用单一全局阈值，仅提供边际覆盖（marginal coverage），在子群体间可能出现严重的过覆盖/欠覆盖；其 conformity score 仅依赖单个最差声明的分数，对估计误差极其敏感，导致大量真实声明被误删。
+**CCI 保证松弛**：CCI（Cherian et al., 2024）引入自适应阈值函数以实现条件保证，但依赖自适应错误率 $\alpha$，在高风险场景中不适用；其线性特征空间难以捕捉 LLM 回复的复杂语义分组结构。
+**Conformity score 设计缺陷**：既有方法均基于单个极端声明分数构造 conformity score，忽视了其余声明的集体置信信息。
+**核心目标**：在严格控制组条件覆盖率（group-conditional coverage）的前提下，最大化真实声明的保留率（retention ratio）。
 
 ## 方法详解
 

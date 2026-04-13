@@ -42,10 +42,11 @@ tags:
 ### 关键设计
 
 1. **Video Interface Network (VIN)**: VIN 由三个组件构成：
-   - **Global Tokens**: 大小固定的可学习嵌入 $Z_{init} \in \mathbb{R}^{N_{global} \times d}$（512 个 token，维度 4096），与输入无关
-   - **VIN Encoder**: 对输入视频每 $T_s=1.0$ 秒采样关键帧，通过交叉注意力（global tokens 作为 query，视频 token 作为 key-value）将视频信息编码到 global tokens 中
-   - **VIN Processor**: 4 个自注意力块（32头），迭代精炼 global tokens，同时融合文本 prompt 嵌入
-   - 核心优势：global tokens 大小固定不随视频长度增长，计算与输入解耦，可扩展到任意长视频
+
+    - **Global Tokens**: 大小固定的可学习嵌入 $Z_{init} \in \mathbb{R}^{N_{global} \times d}$（512 个 token，维度 4096），与输入无关
+    - **VIN Encoder**: 对输入视频每 $T_s=1.0$ 秒采样关键帧，通过交叉注意力（global tokens 作为 query，视频 token 作为 key-value）将视频信息编码到 global tokens 中
+    - **VIN Processor**: 4 个自注意力块（32头），迭代精炼 global tokens，同时融合文本 prompt 嵌入
+    - 核心优势：global tokens 大小固定不随视频长度增长，计算与输入解耦，可扩展到任意长视频
 
 2. **端到端联合训练目标**: 将噪声分布分解为各 chunk 的条件分布的乘积：$P_\theta(\epsilon_t|X_t,t,Z_t) = \prod_i P_\theta(\epsilon_t^i | X_t^i, t, Z_t)$。损失函数 $\mathcal{L}_{\alpha,\theta} = \mathbb{E}[\sum_i \|\epsilon_\theta([X_t^i, Z_t], t) - \epsilon_t^i\|^2]$。每个 chunk 还接收前一个 chunk 最后 $F_{local}=8$ 帧的 local context（stop gradient 防止 chunk 间梯度干扰）。
 

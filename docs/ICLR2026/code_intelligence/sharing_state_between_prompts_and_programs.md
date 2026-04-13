@@ -25,17 +25,17 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：LLM 催生了自然语言编程——用 prompt 指示模型执行任务。现有系统（LangChain、DSPy、SGLang 等）支持 prompt 与程序的互操作，但采用隔离状态设计（isolated program state）：prompt 在独立环境中执行，开发者需要手动序列化/反序列化数据以传递程序状态。
+**领域现状**：LLM 催生了自然语言编程——用 prompt 指示模型执行任务。现有系统（LangChain、DSPy、SGLang 等）支持 prompt 与程序的互操作，但采用隔离状态设计（isolated program state）：prompt 在独立环境中执行，开发者需要手动序列化/反序列化数据以传递程序状态。
 
-2. **现有痛点**：隔离状态设计导致大量样板代码——需要定义 schema 类、序列化函数、反序列化函数来在 prompt 和程序之间传递数据。这增加了开发复杂度，也容易引入错误。
+**现有痛点**：隔离状态设计导致大量样板代码——需要定义 schema 类、序列化函数、反序列化函数来在 prompt 和程序之间传递数据。这增加了开发复杂度，也容易引入错误。
 
-3. **核心矛盾**：prompt 本质上需要访问程序上下文才能做出合理决策（读取变量值、修改对象状态、控制分支/循环），但现有系统将 prompt 执行与程序状态严格隔离，开发者必须手写桥接代码。
+**核心矛盾**：prompt 本质上需要访问程序上下文才能做出合理决策（读取变量值、修改对象状态、控制分支/循环），但现有系统将 prompt 执行与程序状态严格隔离，开发者必须手写桥接代码。
 
-4. **本文要解决什么？**：(a) 定义共享程序状态的编程抽象；(b) 设计 natural function interface 的形式化 schema；(c) 实现 Nightjar 系统验证其可行性和效益。
+**本文要解决什么？**：(a) 定义共享程序状态的编程抽象；(b) 设计 natural function interface 的形式化 schema；(c) 实现 Nightjar 系统验证其可行性和效益。
 
-5. **切入角度**：借鉴编程语言中的 effects & handlers 范式，将 prompt 对程序状态的操作形式化为效应（effects），由宿主语言的处理器（handlers）实现。
+**切入角度**：借鉴编程语言中的 effects & handlers 范式，将 prompt 对程序状态的操作形式化为效应（effects），由宿主语言的处理器（handlers）实现。
 
-6. **核心idea一句话**：让 prompt 像函数一样直接访问程序变量作用域、堆和控制流，消除手动状态传递的开发负担。
+**核心idea一句话**：让 prompt 像函数一样直接访问程序变量作用域、堆和控制流，消除手动状态传递的开发负担。
 
 ## 方法详解
 
@@ -45,24 +45,28 @@ Nightjar 将 prompt 作为 Python 程序中的一等代码。开发者用 `@nigh
 ### 关键设计
 
 1. **共享作用域（Shared Scopes）**:
-   - 做什么：prompt 可以读取和写入 Python 变量
-   - 核心思路：prompt 中的 `<graph>` 引用当前作用域中的 `graph` 变量，LLM 输出中的 `<:response>` 将值绑定到 `response` 变量。系统在 prompt 执行前捕获作用域快照，执行后更新变量
-   - 设计动机：消除了手动传入/传出数据的 schema 定义和序列化代码，使 prompt 真正成为程序的一部分
+
+    - 做什么：prompt 可以读取和写入 Python 变量
+    - 核心思路：prompt 中的 `<graph>` 引用当前作用域中的 `graph` 变量，LLM 输出中的 `<:response>` 将值绑定到 `response` 变量。系统在 prompt 执行前捕获作用域快照，执行后更新变量
+    - 设计动机：消除了手动传入/传出数据的 schema 定义和序列化代码，使 prompt 真正成为程序的一部分
 
 2. **共享堆（Shared Heap）**:
-   - 做什么：prompt 可以操作 Python 对象（修改属性、调用方法、就地更新可变对象）
-   - 核心思路：LLM 不直接操作堆，而是通过 reference/dereference 效应间接操作。系统维护对象引用表，将 LLM 的操作指令转化为对 Python 对象的实际操作
-   - 设计动机：让 prompt 能够修改复杂的程序数据结构（如图、列表），而不是只返回序列化的新版本
+
+    - 做什么：prompt 可以操作 Python 对象（修改属性、调用方法、就地更新可变对象）
+    - 核心思路：LLM 不直接操作堆，而是通过 reference/dereference 效应间接操作。系统维护对象引用表，将 LLM 的操作指令转化为对 Python 对象的实际操作
+    - 设计动机：让 prompt 能够修改复杂的程序数据结构（如图、列表），而不是只返回序列化的新版本
 
 3. **共享控制流（Shared Control State）**:
-   - 做什么：prompt 可以触发 break、continue 等控制流操作
-   - 核心思路：prompt 通过标签（labels）引用程序中的控制流结构。LLM 输出 break 效应时，Nightjar 的 handler 在宿主 Python 程序中执行对应的 break
-   - 设计动机：使 prompt 能够根据对话语义决定何时终止循环或跳过迭代，避免额外的条件判断代码
+
+    - 做什么：prompt 可以触发 break、continue 等控制流操作
+    - 核心思路：prompt 通过标签（labels）引用程序中的控制流结构。LLM 输出 break 效应时，Nightjar 的 handler 在宿主 Python 程序中执行对应的 break
+    - 设计动机：使 prompt 能够根据对话语义决定何时终止循环或跳过迭代，避免额外的条件判断代码
 
 4. **Natural Function Interface Schema**:
-   - 做什么：形式化 prompt 与程序的交互接口
-   - 核心思路：基于 effects & handlers 范式。Effects 定义 prompt 可以执行的操作类型（读变量、写变量、引用对象、break等），handlers 定义这些操作在宿主语言中的实现
-   - 设计动机：提供语言无关的规范，使共享程序状态可以在任何编程语言上实现
+
+    - 做什么：形式化 prompt 与程序的交互接口
+    - 核心思路：基于 effects & handlers 范式。Effects 定义 prompt 可以执行的操作类型（读变量、写变量、引用对象、break等），handlers 定义这些操作在宿主语言中的实现
+    - 设计动机：提供语言无关的规范，使共享程序状态可以在任何编程语言上实现
 
 ### 损失函数 / 训练策略
 Nightjar 不涉及模型训练，是编程系统层面的贡献。核心技术挑战在于如何将 LLM 的自然语言输出映射到正确的程序操作。

@@ -42,17 +42,18 @@ WPR 将标准 RLHF 目标中的 KL 正则化项替换为熵正则化 Wasserstein
 
 ### 关键设计
 1. **Wasserstein 策略正则化目标**: 将 RLHF 目标中的 token 级 KL 正则化替换为 Wasserstein 正则化：
-   $$\max_{\pi_\theta} \mathbb{E}[\sum_n R(\mathbf{x}, \mathbf{y}_{1:n}) - \beta \sum_n D_{\tilde{W}}(\pi_\theta(y_n|\cdot) || \pi_{ref}(y_n|\cdot))]$$
+    $\max_{\pi_\theta} \mathbb{E}[\sum_n R(\mathbf{x}, \mathbf{y}_{1:n}) - \beta \sum_n D_{\tilde{W}}(\pi_\theta(y_n|\cdot) || \pi_{ref}(y_n|\cdot))]$
    其中 $D_{\tilde{W}}$ 是熵正则化 Wasserstein 距离。代价矩阵 $C$ 定义为参考策略 token embedding 空间中的欧氏距离，编码了 token 间的语义相似度。
 
 2. **对偶公式与可行优化**: 直接计算 Wasserstein 距离需要解线性规划（$O(d^3)$），对大词表不可行。论文使用熵正则化得到 Sinkhorn 距离的对偶形式，证明最优对偶变量 $\phi^*$ 可以直接作为 token 级的奖励惩罚项（Theorem 2）：
-   $$\mathcal{J}_{\tilde{W}}(\pi_\theta) = \mathbb{E}[\sum_n \mathbb{E}_{y_n}[R(\mathbf{x}, \mathbf{y}_{1:n}) - \beta \phi^*_{y_n}]] + \mathcal{C}$$
+    $\mathcal{J}_{\tilde{W}}(\pi_\theta) = \mathbb{E}[\sum_n \mathbb{E}_{y_n}[R(\mathbf{x}, \mathbf{y}_{1:n}) - \beta \phi^*_{y_n}]] + \mathcal{C}$
    这让 WPR 与标准 PPO 完全兼容——只需把 KL 惩罚替换为 Wasserstein 对偶变量。
 
 3. **高效计算策略**: 为避免对整个词表（$d \sim$ 256K）的 $O(d^2)$ 计算：
-   - **Nearest-$k_1$ 截断**：代价矩阵 $K = \exp(-\lambda C)$ 仅保留每个 token 的 $k_1=512$ 近邻，稀疏化存储
-   - **Top-$k_2$ 截断**：将策略分布截断到 top-$k_2=128$ 个 token，将有效支持大小从 $d$ 降到 $2k_2+2$
-   - 两项截断使计算开销仅增加 2.5%（相比 KL 正则化）
+
+    - **Nearest-$k_1$ 截断**：代价矩阵 $K = \exp(-\lambda C)$ 仅保留每个 token 的 $k_1=512$ 近邻，稀疏化存储
+    - **Top-$k_2$ 截断**：将策略分布截断到 top-$k_2=128$ 个 token，将有效支持大小从 $d$ 降到 $2k_2+2$
+    - 两项截断使计算开销仅增加 2.5%（相比 KL 正则化）
 
 4. **Sinkhorn-Knopp 算法求解**: 用 Sinkhorn 迭代高效求解对偶变量 $\phi^*$。10次迭代通常足以收敛，tolerance 设为 $10^{-4}$。
 

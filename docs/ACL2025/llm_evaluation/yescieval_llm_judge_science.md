@@ -24,12 +24,12 @@ tags:
 提出YESciEval框架，结合九维细粒度评估准则和SFT+RL对齐策略来缓解LLM评估者的乐观偏差(optimism bias)，在科学问答场景下构建鲁棒的开源LLM-as-a-Judge系统，无需人类标注和闭源模型。
 
 ## 研究背景与动机
-1. **领域现状**：科学搜索引擎（Elicit、ORKG Ask等）日益依赖LLM做科学问答(scienceQ&A)，但生成答案的质量评估仍缺乏系统方案。
-2. **现有痛点**：(a) n-gram指标（BLEU/ROUGE）无法捕捉领域特定推理质量；(b) 人工评估成本高难以规模化；(c) LLM-as-a-Judge存在严重的乐观偏差——倾向于给出高分而非批判性评价。
-3. **核心矛盾**：需要可靠的自动评估来支撑科学问答的迭代优化，但现有LLM评估者在面对启发式对抗攻击时表现出令人意外的脆弱性。
-4. **本文要解决什么？** (a) 如何定义全面的科学问答评估维度？(b) 如何缓解LLM评估者的乐观偏差？(c) 如何用零人工标注成本构建可靠评估系统？
-5. **切入角度**：设计九维评估准则 + 构建对抗数据集（subtle/extreme两级）作为偏差检测信号 + 用CPO强化学习对齐评估行为。
-6. **核心idea一句话**：用对抗样本暴露LLM评估者的乐观偏差，再用SFT+RL让8B开源模型学会批判性评价科学问答。
+**领域现状**：科学搜索引擎（Elicit、ORKG Ask等）日益依赖LLM做科学问答(scienceQ&A)，但生成答案的质量评估仍缺乏系统方案。
+**现有痛点**：(a) n-gram指标（BLEU/ROUGE）无法捕捉领域特定推理质量；(b) 人工评估成本高难以规模化；(c) LLM-as-a-Judge存在严重的乐观偏差——倾向于给出高分而非批判性评价。
+**核心矛盾**：需要可靠的自动评估来支撑科学问答的迭代优化，但现有LLM评估者在面对启发式对抗攻击时表现出令人意外的脆弱性。
+**本文要解决什么？** (a) 如何定义全面的科学问答评估维度？(b) 如何缓解LLM评估者的乐观偏差？(c) 如何用零人工标注成本构建可靠评估系统？
+**切入角度**：设计九维评估准则 + 构建对抗数据集（subtle/extreme两级）作为偏差检测信号 + 用CPO强化学习对齐评估行为。
+**核心idea一句话**：用对抗样本暴露LLM评估者的乐观偏差，再用SFT+RL让8B开源模型学会批判性评价科学问答。
 
 ## 方法详解
 
@@ -39,19 +39,22 @@ tags:
 ### 关键设计
 
 1. **九维评估准则体系**:
-   - 做什么：定义科学问答评估的完整维度空间
-   - 核心思路：三大类九个维度——语言与风格质量（连贯性Cohesion、简洁性Conciseness、可读性Readability）、逻辑与结构完整性（一致性Coherence、整合性Integration、相关性Relevancy）、内容准确性与信息量（正确性Correctness、完整性Completeness、信息性Informativeness）。每个维度有1-5分的标准化评分指南
-   - 设计动机：现有评估工作（G-Eval、FLASK等）各自只覆盖部分维度且定义不一致，需要一个统一的全面框架
+
+    - 做什么：定义科学问答评估的完整维度空间
+    - 核心思路：三大类九个维度——语言与风格质量（连贯性Cohesion、简洁性Conciseness、可读性Readability）、逻辑与结构完整性（一致性Coherence、整合性Integration、相关性Relevancy）、内容准确性与信息量（正确性Correctness、完整性Completeness、信息性Informativeness）。每个维度有1-5分的标准化评分指南
+    - 设计动机：现有评估工作（G-Eval、FLASK等）各自只覆盖部分维度且定义不一致，需要一个统一的全面框架
 
 2. **双级对抗数据集构建**:
-   - 做什么：为每个评估维度设计特定的启发式文本扰动来检测评估者偏差
-   - 核心思路：对每篇良性回答，分别生成subtle和extreme两种对抗变体。每个维度有对应的扰动策略——如Relevancy的subtle版附加相关领域句子、extreme版注入不相关体育新闻；Cohesion的subtle版交换最后两句、extreme版随机打乱所有句子；Conciseness的subtle版在最后一句后加LLM生成的冗余版本、extreme版每句话后都插入冗余
-   - 设计动机：如果LLM评估者无法区分良性和对抗样本的质量差异（不降分），说明其评估不可靠。对抗测试间接衡量评估可靠性，无需人工标注
+
+    - 做什么：为每个评估维度设计特定的启发式文本扰动来检测评估者偏差
+    - 核心思路：对每篇良性回答，分别生成subtle和extreme两种对抗变体。每个维度有对应的扰动策略——如Relevancy的subtle版附加相关领域句子、extreme版注入不相关体育新闻；Cohesion的subtle版交换最后两句、extreme版随机打乱所有句子；Conciseness的subtle版在最后一句后加LLM生成的冗余版本、extreme版每句话后都插入冗余
+    - 设计动机：如果LLM评估者无法区分良性和对抗样本的质量差异（不降分），说明其评估不可靠。对抗测试间接衡量评估可靠性，无需人工标注
 
 3. **SFT + CPO强化学习对齐**:
-   - 做什么：将LLaMA 3.1 8B训练为鲁棒的LLM-as-a-Judge
-   - 核心思路：两步对齐——(i) SFT：用4个LLM的良性评估数据做QLoRA微调，学习基本评估格式和维度理解；(ii) RL：构建偏好数据对$(x, y_{good}, y_{bad})$，用Contrastive Preference Optimization (CPO)对齐。CPO loss：$\min_\theta \mathcal{L}_{prefer} - \mathbb{E}_{(x,y_{good})\sim D}[\log \pi_\theta(y_{good}|x)]$，其中$\mathcal{L}_{prefer}$是偏好对齐项，$\mathcal{L}_{NLL}$惩罚生成低质量评估
-   - 设计动机：单纯SFT只能模仿，无法学会"什么是差的评估"。通过对抗样本中"该给低分但给了高分"的案例作为$y_{bad}$，让模型学会批判性评估
+
+    - 做什么：将LLaMA 3.1 8B训练为鲁棒的LLM-as-a-Judge
+    - 核心思路：两步对齐——(i) SFT：用4个LLM的良性评估数据做QLoRA微调，学习基本评估格式和维度理解；(ii) RL：构建偏好数据对$(x, y_{good}, y_{bad})$，用Contrastive Preference Optimization (CPO)对齐。CPO loss：$\min_\theta \mathcal{L}_{prefer} - \mathbb{E}_{(x,y_{good})\sim D}[\log \pi_\theta(y_{good}|x)]$，其中$\mathcal{L}_{prefer}$是偏好对齐项，$\mathcal{L}_{NLL}$惩罚生成低质量评估
+    - 设计动机：单纯SFT只能模仿，无法学会"什么是差的评估"。通过对抗样本中"该给低分但给了高分"的案例作为$y_{bad}$，让模型学会批判性评估
 
 ### 损失函数 / 训练策略
 SFT阶段用QLoRA（高效微调），RL阶段用CPO（DPO扩展）进行偏好对齐。全过程零人工标注成本——良性评估由多个LLM互评生成，对抗评估中的good/bad标签由规则判定（extreme应得1分、subtle应≤3分）。

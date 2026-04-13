@@ -28,10 +28,10 @@ tags:
 
 LLM 对齐评估（alignment evaluation）是衡量模型是否遵循人类偏好、指令和价值观的核心任务。当前评估范式面临以下挑战：
 
-1. **人工评估代价高昂**：ChatBot Arena 虽是金标准，但众包标注成本大、速度慢、难以扩展
-2. **LLM-as-Judge 成本不低**：AlpacaEval、Arena-Hard 等自动基准依赖 GPT-4 作为评判者，每评估一个新模型需要数十美元 API 调用，且每次评估新模型都需要重新调用
-3. **生成与评估能力的关系未被充分研究**：已有工作（Generative AI Paradox、GV-consistency）研究了单个 LLM 内部的生成-验证不一致，但多个 LLM 之间的生成能力排名与评估能力排名是否一致（GE-consistency）尚未系统探索
-4. **评估效率需求**：如果 GE-consistency 成立，就可以构建一个一次标注、多次复用的评估基准，大幅降低评估成本
+**人工评估代价高昂**：ChatBot Arena 虽是金标准，但众包标注成本大、速度慢、难以扩展
+**LLM-as-Judge 成本不低**：AlpacaEval、Arena-Hard 等自动基准依赖 GPT-4 作为评判者，每评估一个新模型需要数十美元 API 调用，且每次评估新模型都需要重新调用
+**生成与评估能力的关系未被充分研究**：已有工作（Generative AI Paradox、GV-consistency）研究了单个 LLM 内部的生成-验证不一致，但多个 LLM 之间的生成能力排名与评估能力排名是否一致（GE-consistency）尚未系统探索
+**评估效率需求**：如果 GE-consistency 成立，就可以构建一个一次标注、多次复用的评估基准，大幅降低评估成本
 
 核心洞察：如果一个 LLM 越擅长判断回答是否对齐人类偏好，那它生成的回答也越可能对齐——这意味着可以通过评估 LLM 的"评判能力"来间接衡量其"生成质量"。
 

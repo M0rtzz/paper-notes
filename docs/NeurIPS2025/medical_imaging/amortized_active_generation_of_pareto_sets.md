@@ -26,19 +26,19 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：多目标黑箱优化（MOO）广泛存在于蛋白质工程、药物设计等领域——需要优化多个冲突目标（如稳定性 vs 活性）。传统多目标贝叶斯优化（MOBO）依赖期望超体积改善（EHVI）等获取函数，计算复杂且随目标数扩展性差；随机标量化简单但难捕获复杂 Pareto 前沿几何。
+**领域现状**：多目标黑箱优化（MOO）广泛存在于蛋白质工程、药物设计等领域——需要优化多个冲突目标（如稳定性 vs 活性）。传统多目标贝叶斯优化（MOBO）依赖期望超体积改善（EHVI）等获取函数，计算复杂且随目标数扩展性差；随机标量化简单但难捕获复杂 Pareto 前沿几何。
 
-2. **现有痛点**：(a) EHVI 需要复杂数值积分，随目标数指数增长；(b) 标量化方法每个新的偏好权重需要重新训练；(c) 现有方法不支持后验偏好条件化——用户必须在优化前指定偏好。
+**现有痛点**：(a) EHVI 需要复杂数值积分，随目标数指数增长；(b) 标量化方法每个新的偏好权重需要重新训练；(c) 现有方法不支持后验偏好条件化——用户必须在优化前指定偏好。
 
-3. **核心矛盾**：需要一种能高效近似 Pareto 集、避免显式超体积计算、且支持灵活偏好条件化的方法。
+**核心矛盾**：需要一种能高效近似 Pareto 集、避免显式超体积计算、且支持灵活偏好条件化的方法。
 
-4. **本文要解决什么？**
+**本文要解决什么？**
    - 如何用生成模型直接建模 Pareto 集？
    - 如何在不重新训练的情况下支持后验偏好指定？
 
-5. **切入角度**：将 MOO 重新表述为学习 Pareto 集的条件生成模型——非支配性标签 $z$ 指导生成模型聚焦高性能区域，偏好方向向量 $\mathbf{u}$ 支持摊还式条件化。
+**切入角度**：将 MOO 重新表述为学习 Pareto 集的条件生成模型——非支配性标签 $z$ 指导生成模型聚焦高性能区域，偏好方向向量 $\mathbf{u}$ 支持摊还式条件化。
 
-6. **核心 idea 一句话**：用 CPE 预测非支配性（隐式估计 PHVI）+ 用偏好方向向量条件化生成模型 $q_\phi(\mathbf{x}|\mathbf{u})$，实现一次训练多偏好采样的 Pareto 集生成。
+**核心 idea 一句话**：用 CPE 预测非支配性（隐式估计 PHVI）+ 用偏好方向向量条件化生成模型 $q_\phi(\mathbf{x}|\mathbf{u})$，实现一次训练多偏好采样的 Pareto 集生成。
 
 ## 方法详解
 
@@ -48,19 +48,22 @@ A-GPS 在每轮迭代中执行：(1) 用观测数据构建非支配标签 $z_n$ 
 ### 关键设计
 
 1. **非支配 CPE 隐式估计 PHVI**
-   - 做什么：训练分类器预测设计是否属于 Pareto 集。
-   - 核心思路：Theorem 1 证明超体积改善指示器与非支配指示器等价：$\mathbb{1}[\text{HVI}(\mathbf{x}) > 0] = z(\mathbf{x})$。因此用 proper loss 训练的 CPE 自动估计 PHVI：$\pi_\theta^z(\mathbf{x}) \approx \mathbb{P}(\text{HVI}(\mathbf{x}) > 0 | \mathbf{x})$。
-   - 设计动机：避免显式超体积计算（随目标数指数增长），用简单的分类器替代。CPE 引导生成模型聚焦于非支配区域。
+
+    - 做什么：训练分类器预测设计是否属于 Pareto 集。
+    - 核心思路：Theorem 1 证明超体积改善指示器与非支配指示器等价：$\mathbb{1}[\text{HVI}(\mathbf{x}) > 0] = z(\mathbf{x})$。因此用 proper loss 训练的 CPE 自动估计 PHVI：$\pi_\theta^z(\mathbf{x}) \approx \mathbb{P}(\text{HVI}(\mathbf{x}) > 0 | \mathbf{x})$。
+    - 设计动机：避免显式超体积计算（随目标数指数增长），用简单的分类器替代。CPE 引导生成模型聚焦于非支配区域。
 
 2. **偏好方向向量 + 对齐指示器**
-   - 做什么：支持后验偏好条件化，无需重新训练。
-   - 核心思路：定义偏好方向 $\mathbf{u}_n = \frac{\mathbf{y}_n - \mathbf{r}}{\|\mathbf{y}_n - \mathbf{r}\|}$（单位向量，$\mathbf{r}$ 是参考点），捕获目标间的相对权重。定义对齐指示器 $a$：当 $(\mathbf{x}, \mathbf{u})$ 对"对齐"时 $a=1$，通过对比真实配对和随机排列配对训练。学习的条件生成模型 $q_\phi(\mathbf{x}|\mathbf{u}) \approx p(\mathbf{x}|\mathbf{u}, z=1, a=1)$ 在推理时可接受任意用户偏好 $\mathbf{u}_\star$。
-   - 设计动机：相比标量化 $\boldsymbol{\lambda}$，偏好方向向量更灵活——每个新 $\boldsymbol{\lambda}$ 需要重训，我们的方法**一次训练适用所有偏好**（摊还 amortization）。
+
+    - 做什么：支持后验偏好条件化，无需重新训练。
+    - 核心思路：定义偏好方向 $\mathbf{u}_n = \frac{\mathbf{y}_n - \mathbf{r}}{\|\mathbf{y}_n - \mathbf{r}\|}$（单位向量，$\mathbf{r}$ 是参考点），捕获目标间的相对权重。定义对齐指示器 $a$：当 $(\mathbf{x}, \mathbf{u})$ 对"对齐"时 $a=1$，通过对比真实配对和随机排列配对训练。学习的条件生成模型 $q_\phi(\mathbf{x}|\mathbf{u}) \approx p(\mathbf{x}|\mathbf{u}, z=1, a=1)$ 在推理时可接受任意用户偏好 $\mathbf{u}_\star$。
+    - 设计动机：相比标量化 $\boldsymbol{\lambda}$，偏好方向向量更灵活——每个新 $\boldsymbol{\lambda}$ 需要重训，我们的方法**一次训练适用所有偏好**（摊还 amortization）。
 
 3. **摊还式 ELBO 优化**
-   - 做什么：联合优化 CPE 和条件生成模型。
-   - 核心思路：最小化 $\mathbb{E}_{p(\mathbf{u}|z)}[D_{\text{KL}}[q_\phi(\mathbf{x}|\mathbf{u}) \| p(\mathbf{x}|\mathbf{u},z,a)]]$，通过 ELBO 分解为：非支配 CPE 项（聚焦 Pareto 集）+ 对齐 CPE 项（尊重偏好）+ KL 先验项。
-   - 设计动机：摊还 VI 允许在单个模型中捕获 Pareto 前沿的全部多样性，通过条件化 $\mathbf{u}$ 实现按需采样。
+
+    - 做什么：联合优化 CPE 和条件生成模型。
+    - 核心思路：最小化 $\mathbb{E}_{p(\mathbf{u}|z)}[D_{\text{KL}}[q_\phi(\mathbf{x}|\mathbf{u}) \| p(\mathbf{x}|\mathbf{u},z,a)]]$，通过 ELBO 分解为：非支配 CPE 项（聚焦 Pareto 集）+ 对齐 CPE 项（尊重偏好）+ KL 先验项。
+    - 设计动机：摊还 VI 允许在单个模型中捕获 Pareto 前沿的全部多样性，通过条件化 $\mathbf{u}$ 实现按需采样。
 
 ### 损失函数 / 训练策略
 - CPE：proper scoring loss（对数损失）

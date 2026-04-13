@@ -30,9 +30,9 @@ tags:
 
 现有工作的关键不足：
 
-1. **缺乏综合评估方法论**：现有研究（FreshDiskANN、MN-RU、IPGM）各自使用不同的实验设置和指标，无法横向比较
-2. **实验设置不切实际**：如 FreshDiskANN 和 MN-RU 在实验中重新插入已删除的数据，这在实际场景中不会发生
-3. **评估指标不全面**：现有研究通常只关注搜索精度，忽略了删除速度、插入速度、内存占用等同等重要的指标
+**缺乏综合评估方法论**：现有研究（FreshDiskANN、MN-RU、IPGM）各自使用不同的实验设置和指标，无法横向比较
+**实验设置不切实际**：如 FreshDiskANN 和 MN-RU 在实验中重新插入已删除的数据，这在实际场景中不会发生
+**评估指标不全面**：现有研究通常只关注搜索精度，忽略了删除速度、插入速度、内存占用等同等重要的指标
 
 本文的目标是统一、规范化数据删除的评估方法，为实际部署场景提供可靠的决策依据。
 
@@ -45,19 +45,22 @@ tags:
 ### 关键设计
 
 1. **逻辑删除（Logical Deletion）**：不修改图结构，仅为被删除节点添加标志位 $\mathcal{F} \subseteq \{1, 2, \ldots, n\}$。搜索时先正常搜索再从结果中过滤被标记节点。
-   - **优势**：删除速度极快（仅设置 flag），$O(1)$ 操作
-   - **劣势**：内存持续增长（删除数据仍在内存中）；搜索精度随删除量增加而下降；搜索速度因额外过滤操作而变慢
-   - **形式化**：$\mathcal{F} \leftarrow \mathcal{F} \cup \mathcal{D}$，搜索返回 $\mathcal{R} \leftarrow \text{SEARCH}(\mathbf{q}, \mathcal{P}, \mathcal{N}) \setminus \mathcal{F}$
+
+    - **优势**：删除速度极快（仅设置 flag），$O(1)$ 操作
+    - **劣势**：内存持续增长（删除数据仍在内存中）；搜索精度随删除量增加而下降；搜索速度因额外过滤操作而变慢
+    - **形式化**：$\mathcal{F} \leftarrow \mathcal{F} \cup \mathcal{D}$，搜索返回 $\mathcal{R} \leftarrow \text{SEARCH}(\mathbf{q}, \mathcal{P}, \mathcal{N}) \setminus \mathcal{F}$
 
 2. **物理删除（Physical Deletion）**：从图中移除被删除节点及其所有连接边，同时更新邻居节点的邻接表。
-   - **优势**：释放内存，保持合理精度
-   - **劣势**：删除边可能破坏图连通性，影响搜索精度
-   - **形式化**：对 $\mathbf{p}_i \in \mathcal{D}$，$\mathcal{P} \leftarrow \mathcal{P} \setminus \{\mathbf{p}_i\}$；对其余节点 $j \neq i$，$\mathcal{N}_j \leftarrow \mathcal{N}_j \setminus \mathcal{D}$
+
+    - **优势**：释放内存，保持合理精度
+    - **劣势**：删除边可能破坏图连通性，影响搜索精度
+    - **形式化**：对 $\mathbf{p}_i \in \mathcal{D}$，$\mathcal{P} \leftarrow \mathcal{P} \setminus \{\mathbf{p}_i\}$；对其余节点 $j \neq i$，$\mathcal{N}_j \leftarrow \mathcal{N}_j \setminus \mathcal{D}$
 
 3. **重建（Rebuilding）**：删除数据后，用剩余数据完全重新构建索引。
-   - **优势**：保证最优搜索精度
-   - **劣势**：计算代价极高
-   - **形式化**：$\mathcal{P} \leftarrow \{\mathbf{p}_i \in \mathcal{P} \mid i \notin \mathcal{D}\}$，$\mathcal{N} \leftarrow \text{CONSTRUCT}(\mathcal{P})$
+
+    - **优势**：保证最优搜索精度
+    - **劣势**：计算代价极高
+    - **形式化**：$\mathcal{P} \leftarrow \{\mathbf{p}_i \in \mathcal{P} \mid i \notin \mathcal{D}\}$，$\mathcal{N} \leftarrow \text{CONSTRUCT}(\mathcal{P})$
 
 ### 评估指标体系
 

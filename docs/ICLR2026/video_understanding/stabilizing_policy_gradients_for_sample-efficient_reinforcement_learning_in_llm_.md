@@ -26,11 +26,11 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：GRPO、PPO 等策略梯度方法是 LLM 推理后训练（如 DeepSeek-R1）的核心技术。当前实践中需要使用极为保守的超参数——学习率低至 $3 \times 10^{-6}$、batch size 达数千——才能确保训练稳定。
-2. **现有痛点**：保守设置意味着巨大的样本需求和计算开销。然而一旦提高学习率或减小 batch size，策略梯度估计方差急剧增大，导致灾难性参数更新和策略崩溃——模型性能跌至基线以下且无法恢复。
-3. **核心矛盾**：策略梯度仅使用一阶信息，在非凸 RL 目标上无法感知曲率——可能沿着看似改进的方向走一大步却跌入性能悬崖；而 Hessian 矩阵在 LLM 尺度（数十亿参数）下无法直接计算或近似。
-4. **切入角度**：作者观察到 LLM 的 logit 输出仅由最后一层线性变换 $W \in \mathbb{R}^{K \times d_i}$ 产生，且 top-k 采样导致梯度天然稀疏（仅 $k < 100$ 个 token 有非零概率）。因此可以在最后一层高效近似 Hessian 和 Fisher 信息矩阵。
-5. **核心 idea**：构建 last-layer 曲率计算模型，追踪每个 token 更新对目标函数和策略分布的影响，过滤掉不满足信赖域约束的样本。
+**领域现状**：GRPO、PPO 等策略梯度方法是 LLM 推理后训练（如 DeepSeek-R1）的核心技术。当前实践中需要使用极为保守的超参数——学习率低至 $3 \times 10^{-6}$、batch size 达数千——才能确保训练稳定。
+**现有痛点**：保守设置意味着巨大的样本需求和计算开销。然而一旦提高学习率或减小 batch size，策略梯度估计方差急剧增大，导致灾难性参数更新和策略崩溃——模型性能跌至基线以下且无法恢复。
+**核心矛盾**：策略梯度仅使用一阶信息，在非凸 RL 目标上无法感知曲率——可能沿着看似改进的方向走一大步却跌入性能悬崖；而 Hessian 矩阵在 LLM 尺度（数十亿参数）下无法直接计算或近似。
+**切入角度**：作者观察到 LLM 的 logit 输出仅由最后一层线性变换 $W \in \mathbb{R}^{K \times d_i}$ 产生，且 top-k 采样导致梯度天然稀疏（仅 $k < 100$ 个 token 有非零概率）。因此可以在最后一层高效近似 Hessian 和 Fisher 信息矩阵。
+**核心 idea**：构建 last-layer 曲率计算模型，追踪每个 token 更新对目标函数和策略分布的影响，过滤掉不满足信赖域约束的样本。
 
 ## 方法详解
 
@@ -40,19 +40,22 @@ CAPO 在 GRPO 的基础上增加一个轻量级数据筛选层：每次梯度更
 ### 关键设计
 
 1. **Last-Layer 曲率模型**：
-   - 将 LLM 参数分为 $\bm{\theta} = (\bar{\bm{\theta}}, \bm{\psi})$，其中 $\bm{\psi} = \text{vec}(W)$ 仅为 LM head
-   - 在此子空间上推导出目标 Hessian $\tilde{H}(\bm{\psi})$ 和 Fisher 信息矩阵 $\tilde{F}(\bm{\psi})$ 的解析表达式
-   - 利用 top-k 采样的稀疏性（通常 $k < 100$），内存复杂度从 $\mathcal{O}((Kd_i)^2)$ 降至 $\mathcal{O}(\tilde{k} \cdot d_i)$
+
+    - 将 LLM 参数分为 $\bm{\theta} = (\bar{\bm{\theta}}, \bm{\psi})$，其中 $\bm{\psi} = \text{vec}(W)$ 仅为 LM head
+    - 在此子空间上推导出目标 Hessian $\tilde{H}(\bm{\psi})$ 和 Fisher 信息矩阵 $\tilde{F}(\bm{\psi})$ 的解析表达式
+    - 利用 top-k 采样的稀疏性（通常 $k < 100$），内存复杂度从 $\mathcal{O}((Kd_i)^2)$ 降至 $\mathcal{O}(\tilde{k} \cdot d_i)$
 
 2. **方向曲率计算**：
-   - 目标偏移：$m_H(\Delta\bm{\psi}) = \tilde{g}(\bm{\psi})^\top \Delta\bm{\psi} + \frac{1}{2} \Delta\bm{\psi}^\top \tilde{H}(\bm{\psi}) \Delta\bm{\psi}$
-   - 策略偏移：$m_F(\Delta\bm{\psi}) = \frac{1}{2} \Delta\bm{\psi}^\top \tilde{F}(\bm{\psi}) \Delta\bm{\psi}$
-   - 无需构造大张量，仅需稀疏向量点积
+
+    - 目标偏移：$m_H(\Delta\bm{\psi}) = \tilde{g}(\bm{\psi})^\top \Delta\bm{\psi} + \frac{1}{2} \Delta\bm{\psi}^\top \tilde{H}(\bm{\psi}) \Delta\bm{\psi}$
+    - 策略偏移：$m_F(\Delta\bm{\psi}) = \frac{1}{2} \Delta\bm{\psi}^\top \tilde{F}(\bm{\psi}) \Delta\bm{\psi}$
+    - 无需构造大张量，仅需稀疏向量点积
 
 3. **Token 级信赖域筛选**：
-   - 将 batch 分为 token 级子集，对每个子集计算 $m_H$ 和 $m_F$
-   - 接受条件：$\delta_H \leq m_H(\Delta\psi_i) \leq \delta_H^{high}$ 且 $m_F(\Delta\psi_i) \leq \delta_F$
-   - 拒绝的 token 不参与实际策略梯度计算
+
+    - 将 batch 分为 token 级子集，对每个子集计算 $m_H$ 和 $m_F$
+    - 接受条件：$\delta_H \leq m_H(\Delta\psi_i) \leq \delta_H^{high}$ 且 $m_F(\Delta\psi_i) \leq \delta_F$
+    - 拒绝的 token 不参与实际策略梯度计算
 
 4. **优化器建模**：用 Adam 的一阶/二阶矩估计模拟实际更新步 $\Delta\bm{\psi}$，而非简单 SGD
 

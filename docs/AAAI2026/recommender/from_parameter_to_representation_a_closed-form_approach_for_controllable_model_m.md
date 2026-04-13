@@ -25,12 +25,12 @@ tags:
 
 ## 研究背景与动机
 
-1. **领域现状**：模型合并（Model Merging）通过将多个任务专用模型合并为一个通用模型来避免昂贵的多任务重训练。现有方法包括权重平均、Task Arithmetic、TIES-Merging、AdaMerging 等。
-2. **现有痛点**：传统方法产出静态的"one-size-fits-all"模型，无法让用户控制不同任务间的性能权衡。Pareto Merging (PM) 和 MAP 虽实现了可控合并，但依赖 compile-then-query 范式——PM 需要复杂的迭代训练，MAP 使用进化搜索且复杂度随任务数指数增长。
-3. **核心矛盾**：可控合并方法在参数空间中进行昂贵的多目标优化，每次任务集变化都需从头重做，实际部署代价极高。
-4. **本文要解决什么？** 如何以极低计算成本实现灵活的偏好感知模型生成？
-5. **切入角度**：作者发现模型合并后的性能退化本质上源于表征空间的**全局线性畸变**（旋转+缩放），而非复杂的非线性变形。
-6. **核心 idea 一句话**：在表征空间构建线性校正映射，推导闭式 Pareto 最优解，绕过一切迭代优化。
+**领域现状**：模型合并（Model Merging）通过将多个任务专用模型合并为一个通用模型来避免昂贵的多任务重训练。现有方法包括权重平均、Task Arithmetic、TIES-Merging、AdaMerging 等。
+**现有痛点**：传统方法产出静态的"one-size-fits-all"模型，无法让用户控制不同任务间的性能权衡。Pareto Merging (PM) 和 MAP 虽实现了可控合并，但依赖 compile-then-query 范式——PM 需要复杂的迭代训练，MAP 使用进化搜索且复杂度随任务数指数增长。
+**核心矛盾**：可控合并方法在参数空间中进行昂贵的多目标优化，每次任务集变化都需从头重做，实际部署代价极高。
+**本文要解决什么？** 如何以极低计算成本实现灵活的偏好感知模型生成？
+**切入角度**：作者发现模型合并后的性能退化本质上源于表征空间的**全局线性畸变**（旋转+缩放），而非复杂的非线性变形。
+**核心 idea 一句话**：在表征空间构建线性校正映射，推导闭式 Pareto 最优解，绕过一切迭代优化。
 
 ## 方法详解
 
@@ -43,19 +43,22 @@ ReACT 分为两个阶段：
 ### 关键设计
 
 1. **线性表征校正（Linear Representation Correction）**
-   - 做什么：用线性变换矩阵 $W_t$ 将合并模型的表征映射回任务专家的表征空间
-   - 核心思路：对每个任务 $t$，求解 $\min_{W_t} \|W_t \mathcal{Z}_t^{\text{mtl}} - \mathcal{Z}_t^{\text{ind}}\|_F^2$，即最小化校正后表征与专家表征之间的 Frobenius 范数
-   - 设计动机：t-SNE 可视化显示合并模型表征与专家表征的偏差主要是全局旋转和缩放（线性畸变），不需要非线性方法
+
+    - 做什么：用线性变换矩阵 $W_t$ 将合并模型的表征映射回任务专家的表征空间
+    - 核心思路：对每个任务 $t$，求解 $\min_{W_t} \|W_t \mathcal{Z}_t^{\text{mtl}} - \mathcal{Z}_t^{\text{ind}}\|_F^2$，即最小化校正后表征与专家表征之间的 Frobenius 范数
+    - 设计动机：t-SNE 可视化显示合并模型表征与专家表征的偏差主要是全局旋转和缩放（线性畸变），不需要非线性方法
 
 2. **最优正交正则化（Optimal Orthogonal Regularization）**
-   - 做什么：用正交 Procrustes 解作为正则化先验，防止校正矩阵过拟合
-   - 核心思路：正则化目标为 $\min_{W_t} \|W_t \mathcal{Z}_t^{\text{mtl}} - \mathcal{Z}_t^{\text{ind}}\|_F^2 + \beta\|W_t - W_t^{\text{orth}}\|_F^2$，其中 $W_t^{\text{orth}}$ 通过 SVD 的 Procrustes 解获得。闭式解为 $\hat{W}_t = (\mathcal{Z}_t^{\text{ind}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta W_t^{\text{orth}})(\mathcal{Z}_t^{\text{mtl}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta I)^{-1}$
-   - 设计动机：校准数据通常很少（测试时无标签数据），纯最小二乘易过拟合。正交约束保持表征空间几何结构不被扭曲。
+
+    - 做什么：用正交 Procrustes 解作为正则化先验，防止校正矩阵过拟合
+    - 核心思路：正则化目标为 $\min_{W_t} \|W_t \mathcal{Z}_t^{\text{mtl}} - \mathcal{Z}_t^{\text{ind}}\|_F^2 + \beta\|W_t - W_t^{\text{orth}}\|_F^2$，其中 $W_t^{\text{orth}}$ 通过 SVD 的 Procrustes 解获得。闭式解为 $\hat{W}_t = (\mathcal{Z}_t^{\text{ind}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta W_t^{\text{orth}})(\mathcal{Z}_t^{\text{mtl}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta I)^{-1}$
+    - 设计动机：校准数据通常很少（测试时无标签数据），纯最小二乘易过拟合。正交约束保持表征空间几何结构不被扭曲。
 
 3. **Pareto 最优表征校正（Pareto-Optimal Representation Correction）**
-   - 做什么：给定用户偏好 $\mathbf{p}$，生成全局最优的校正矩阵
-   - 核心思路：通过线性标量化将多目标问题转化为单目标：$\min_W \sum_{t=1}^T p_t L_t(W)$。由于每个 $L_t(W)$ 都是凸二次函数，闭式解为 $W_\mathbf{p} = (\sum_t p_t \hat{W}_t C_t)(\sum_t p_t C_t)^{-1}$，其中 $C_t = \mathcal{Z}_t^{\text{mtl}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta I$
-   - 设计动机：不是简单的加权平均 $\sum p_t \hat{W}_t$，而是通过数据感知权重矩阵 $C_t$ 让特征结构更显著的任务获得更大影响力
+
+    - 做什么：给定用户偏好 $\mathbf{p}$，生成全局最优的校正矩阵
+    - 核心思路：通过线性标量化将多目标问题转化为单目标：$\min_W \sum_{t=1}^T p_t L_t(W)$。由于每个 $L_t(W)$ 都是凸二次函数，闭式解为 $W_\mathbf{p} = (\sum_t p_t \hat{W}_t C_t)(\sum_t p_t C_t)^{-1}$，其中 $C_t = \mathcal{Z}_t^{\text{mtl}} {\mathcal{Z}_t^{\text{mtl}}}^\top + \beta I$
+    - 设计动机：不是简单的加权平均 $\sum p_t \hat{W}_t$，而是通过数据感知权重矩阵 $C_t$ 让特征结构更显著的任务获得更大影响力
 
 ### 损失函数 / 训练策略
 

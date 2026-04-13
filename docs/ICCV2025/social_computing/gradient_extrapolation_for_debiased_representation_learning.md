@@ -30,9 +30,9 @@ tags:
 
 **现有方法的局限**：
 
-1. **需要完整属性标注的方法**（如 Group DRO）：直接最小化最差组损失，但标注成本高昂
-2. **仅在验证集使用属性的方法**（如 DFR、JTT）：用 ERM 预训练模型推断伪属性，但精度受限
-3. **重采样/重加权方法**：虽然简单有效，但性能受限——在虚假相关强烈时，模型仍然优先学习"捷径特征"
+**需要完整属性标注的方法**（如 Group DRO）：直接最小化最差组损失，但标注成本高昂
+**仅在验证集使用属性的方法**（如 DFR、JTT）：用 ERM 预训练模型推断伪属性，但精度受限
+**重采样/重加权方法**：虽然简单有效，但性能受限——在虚假相关强烈时，模型仍然优先学习"捷径特征"
 
 **核心矛盾**：ERM 优化的是平均性能，天然偏向学习对多数样本有预测力的捷径特征。即使通过平衡采样（Resampling），模型依然倾向于先学习容易的虚假特征。
 
@@ -50,29 +50,34 @@ tags:
 ### 关键设计
 
 1. **Batch 采样策略**：
-   - 偏差 batch：$p_b(a|y) = \alpha_{ya} = \frac{|\mathcal{X}_{y,a}|}{|\mathcal{X}_y|}$，反映数据固有偏差
-   - 较少偏差 batch：$p_{lb}(a|y) = \alpha_{ya} + c \cdot (\frac{1}{A} - \alpha_{ya})$，参数 $c \in (0,1]$ 控制偏差减少程度
-   - 两类 batch 都保证类间均匀采样且组内均匀采样
+
+    - 偏差 batch：$p_b(a|y) = \alpha_{ya} = \frac{|\mathcal{X}_{y,a}|}{|\mathcal{X}_y|}$，反映数据固有偏差
+    - 较少偏差 batch：$p_{lb}(a|y) = \alpha_{ya} + c \cdot (\frac{1}{A} - \alpha_{ya})$，参数 $c \in (0,1]$ 控制偏差减少程度
+    - 两类 batch 都保证类间均匀采样且组内均匀采样
 
 2. **梯度外推**：
-   - 目标损失：$\mathcal{L}_{ext} = \mathcal{L}_{lb} + \beta \cdot (\mathcal{L}_{lb} - \mathcal{L}_b)$
-   - 目标梯度：$\nabla_\theta \mathcal{L}_{ext} = \nabla_\theta \mathcal{L}_{lb} + \beta \cdot (\nabla_\theta \mathcal{L}_{lb} - \nabla_\theta \mathcal{L}_b)$
-   - 等价于模拟条件属性分布为 $p_{ext}(a|y) = \alpha_{ya} + c \cdot (\beta + 1) \cdot (\frac{1}{A} - \alpha_{ya})$ 的采样
+
+    - 目标损失：$\mathcal{L}_{ext} = \mathcal{L}_{lb} + \beta \cdot (\mathcal{L}_{lb} - \mathcal{L}_b)$
+    - 目标梯度：$\nabla_\theta \mathcal{L}_{ext} = \nabla_\theta \mathcal{L}_{lb} + \beta \cdot (\nabla_\theta \mathcal{L}_{lb} - \nabla_\theta \mathcal{L}_b)$
+    - 等价于模拟条件属性分布为 $p_{ext}(a|y) = \alpha_{ya} + c \cdot (\beta + 1) \cdot (\frac{1}{A} - \alpha_{ya})$ 的采样
 
 3. **GERNE 作为通用框架**：
-   - $\beta = -1$：退化为 ERM
-   - $c = 1, \beta = 0$：等价于 Resampling
-   - $c \cdot (\beta + 1) = 1$：期望等价于均衡采样，但损失方差不同
-   - $c \cdot (\beta + 1) > 1$：**过采样少数组**，更强的去偏效果
+
+    - $\beta = -1$：退化为 ERM
+    - $c = 1, \beta = 0$：等价于 Resampling
+    - $c \cdot (\beta + 1) = 1$：期望等价于均衡采样，但损失方差不同
+    - $c \cdot (\beta + 1) > 1$：**过采样少数组**，更强的去偏效果
 
 4. **$\beta$ 的理论上下界**：
-   - 下界 $\beta_{\min} = -1$（退化为 ERM）
-   - 上界 $\beta_{\max}$ 由最大组比例 $\alpha_{y''a''}$ 和 $c$ 决定
-   - 增大 $\beta$ 超过 $\frac{1}{c} - 1$ 会赋予少数组更高权重，从而优化最差组风险
+
+    - 下界 $\beta_{\min} = -1$（退化为 ERM）
+    - 上界 $\beta_{\max}$ 由最大组比例 $\alpha_{y''a''}$ 和 $c$ 决定
+    - 增大 $\beta$ 超过 $\frac{1}{c} - 1$ 会赋予少数组更高权重，从而优化最差组风险
 
 5. **未知属性情况**：
-   - 先训练 ERM 模型 $\tilde{f}$，根据预测置信度划分易/难样本生成伪属性
-   - 通过梯度外推可以模拟超出伪组分布范围的条件属性分布（Proposition 1）
+
+    - 先训练 ERM 模型 $\tilde{f}$，根据预测置信度划分易/难样本生成伪属性
+    - 通过梯度外推可以模拟超出伪组分布范围的条件属性分布（Proposition 1）
 
 ### 损失函数 / 训练策略
 
