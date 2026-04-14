@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.13761](https://arxiv.org/abs/2509.13761)  
 **代码**: [GitHub](https://github.com/JingMog/THOR)  
 **领域**: LLM Reasoning / Mathematical Reasoning  
-**关键词**: tool-integrated reasoning, hierarchical RL, GRPO, code generation, self-correction, mathematical reasoning  
+**关键词**: tool-integrated reasoning, hierarchical RL, GRPO, code generation, self-correction, mathematical reasoning
 
 ## 一句话总结
 提出 THOR（Tool-Integrated Hierarchical Optimization via RL），通过三个互补组件系统性解决 LLM 工具集成数学推理中的核心挑战：TIRGen 数据构建管线生成策略对齐的 TIR 训练数据、层次化强化学习（episode 级解题+step 级代码修正）缓解稀疏奖励、自修正推理机制利用工具反馈在线纠错。在 MATH500、AIME 等多个数学基准上达到同规模 SOTA，同时在代码生成基准上也有提升。
@@ -28,9 +28,9 @@ tags:
 ## 背景与动机
 1. LLM 作为概率 next-token 预测器在高精度任务（数值计算、方程求解、符号操作、形式证明）上天然不足——概率采样导致的误差在多步计算中会累积
 2. 工具集成推理（TIR）是克服此瓶颈的有力范式，但面临三大挑战：
-   - **数据构建**: 用外部大模型（如 GPT-4o）prompt 合成数据存在风格不匹配，对推理模型（如 DeepSeek-R1）效果差；START 等规则注入方法位置选择不精准导致冗余
-   - **细粒度优化**: 现有 RL 方法（Agent-R、ToRL、ReTool）仅做 episode 级优化，忽略中间代码步骤的细粒度更新——在长推理链中导致严重的稀疏奖励问题
-   - **推理增强**: 单 pass 推理忽略了工具即时反馈的修正作用——代码执行失败时应该回溯修正而非继续
+    - **数据构建**: 用外部大模型（如 GPT-4o）prompt 合成数据存在风格不匹配，对推理模型（如 DeepSeek-R1）效果差；START 等规则注入方法位置选择不精准导致冗余
+    - **细粒度优化**: 现有 RL 方法（Agent-R、ToRL、ReTool）仅做 episode 级优化，忽略中间代码步骤的细粒度更新——在长推理链中导致严重的稀疏奖励问题
+    - **推理增强**: 单 pass 推理忽略了工具即时反馈的修正作用——代码执行失败时应该回溯修正而非继续
 3. SFT 方法（Toolformer、AIMO-2）需大量高质量示范数据且泛化差
 4. **关键洞察**：中间工具调用的执行成功是最终答案正确性的强预测因子——这为 step 级优化提供了天然的奖励信号
 

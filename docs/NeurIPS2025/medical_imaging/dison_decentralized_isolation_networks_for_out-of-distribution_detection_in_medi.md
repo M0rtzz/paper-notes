@@ -27,12 +27,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：ML 模型在医学影像中的安全部署需要 OOD 检测能力。现有方法分为 post-hoc（MSP、Energy、Mahalanobis 距离等）和训练时正则化（CIDER、PALM 等）两大类。
+
 **现有痛点**：
    - 大多数 OOD 检测方法在部署后**不使用训练数据**，只依赖模型输出或潜在空间的间接表示
    - 少数利用训练数据的方法（KNN、密度估计）需要将训练数据/嵌入存储在部署端，因隐私、法规和存储限制而不可行
    - 间接表示（如 summary statistics、prototypes、合成样本）无法忠实捕捉原始训练数据的全部特性
+
 **核心矛盾**：直接与训练数据比较对 OOD 检测最有效，但数据共享在医疗场景中通常不可行
+
 **切入角度**：借鉴 Isolation Forest 的"隔离"思想 + 联邦学习的参数交换机制，用收敛速度作为 OOD 分数
+
 **核心idea一句话**：训练一个二分类器分离单个测试样本和训练数据，OOD 样本容易分离（收敛快），ID 样本难以分离（收敛慢）；通过去中心化训练实现不共享数据
 
 ## 方法详解
@@ -44,7 +48,7 @@ tags:
 
 1. **Isolation Network（集中式版本）**
 
-    - 做什么：训练二分类器将单个测试样本 $\mathbf{x}_t$（标签 1）与训练数据 $\mathcal{D}_s$（标签 0）分离
+    - 功能：训练二分类器将单个测试样本 $\mathbf{x}_t$（标签 1）与训练数据 $\mathcal{D}_s$（标签 0）分离
     - 核心思路：构建 mini-batch $B = B_s \cup \{\mathbf{x}_t^{(1)}, ..., \mathbf{x}_t^{(N)}\}$，通过过采样 $\mathbf{x}_t$ 平衡类不均衡。损失函数：
       $\mathcal{L}_c(\theta; B_s, \mathbf{x}_t, N) = \frac{1}{|B_s|+N}\left(\sum_{\mathbf{x}_s \in B_s} L(\theta; \mathbf{x}_s, 0) + N \cdot L(\theta; \mathbf{x}_t, 1)\right)$
     - OOD 分数 = 收敛时间 $K$（分类器连续 $E_{\text{stab}}=5$ 步正确分类 $\mathbf{x}_t$ 且在 $\mathcal{D}_s$ 上精度 ≥ $\tau=0.85$）
@@ -52,7 +56,7 @@ tags:
 
 2. **Decentralized Isolation Networks (DIsoN)**
 
-    - 做什么：在不共享数据的情况下近似集中式 Isolation Network 的训练
+    - 功能：在不共享数据的情况下近似集中式 Isolation Network 的训练
     - 核心思路：采用类联邦学习的多轮通信协议
       - 初始化：Source Node 用预训练模型 $M_{pre}$ 的特征提取器初始化 + 随机二分类头
       - 每轮：两端各自做 $E$ 步本地更新（SN 在 $\mathcal{D}_s$ 上训练 $m=0$，TN 在 $\mathbf{x}_t$ 上训练 $m=1$）
@@ -62,7 +66,7 @@ tags:
 
 3. **Class-Conditional DIsoN (CC-DIsoN)**
 
-    - 做什么：先用预训练模型预测 $\mathbf{x}_t$ 的类别 $\hat{y}$，SN 仅从预测类的训练数据中采样
+    - 功能：先用预训练模型预测 $\mathbf{x}_t$ 的类别 $\hat{y}$，SN 仅从预测类的训练数据中采样
     - 设计动机：ID 样本与同类训练数据更相似，更难隔离；缩小比较范围增大 ID/OOD 分离度
     - 实现极简：仅需 TN 向 SN 发送预测标签，SN 过滤 mini-batch
 

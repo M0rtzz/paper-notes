@@ -60,25 +60,25 @@ tags:
 
 1. **ODR的MLE形式化**:
 
-    - 做什么：将ODR重新表述为结构化的最大似然估计问题
+    - 功能：将ODR重新表述为结构化的最大似然估计问题
     - 核心思路：定义经验对数似然$L_N(\phi) = \frac{1}{N}\sum_{i=1}^N \log q_\phi(s_i' | s_i, a_i)$，其中$q_\phi(s'|s,a) = \int p_\xi(s'|s,a) p_\phi(\xi) d\xi$是混合转移核。通过KL散度分解，证明总体对数似然$L(\phi)$的唯一最大化点为$\phi^* = (\xi^*, 0)$（即退化到真实参数）
     - 设计动机：将ODR纳入经典MLE框架，使得可以直接使用统计学中已有的一致性工具
 
 2. **弱一致性证明（Theorem 1）**:
 
-    - 做什么：证明任意可测最大化点$\hat{\phi}_N$依概率收敛到$\phi^*$
+    - 功能：证明任意可测最大化点$\hat{\phi}_N$依概率收敛到$\phi^*$
     - 核心思路：分三步——(a) 利用Glivenko-Cantelli类的一致大数定律(ULLN)证明$\sup_\phi |L_N(\phi) - L(\phi)| \to 0$（Lemma 2）；(b) 利用唯一最大化点的分离性质证明偏离$\phi^*$的参数有均匀的似然损失下界$\eta(\epsilon)$（Lemma 3）；(c) 结合两者，$\hat{\phi}_N$落在$\phi^*$的$\epsilon$-邻域外的概率被$P(\sup |L_N - L| \geq \eta/3)$控制住
     - 所需假设：Assumption 1（仿真器正则性：密度有界且连续）、Assumption 2（参数空间紧致）、Assumption 3（混合正性：$q_\phi \geq c > 0$）、Assumption 4（可辨识性）
 
 3. **强一致性证明（Theorem 2）**:
 
-    - 做什么：将弱一致性升级为几乎必然收敛
+    - 功能：将弱一致性升级为几乎必然收敛
     - 核心思路：额外引入均匀Lipschitz假设（Assumption 5）：$|a(x,\phi) - a(x,\psi)| \leq L\|\phi - \psi\|$。利用参数空间的紧致性构建$\epsilon/L$-网覆盖，结合Hoeffding不等式给出每个网点的指数概率界$P(|L_N(\phi_i) - L(\phi_i)| > \epsilon) \leq 2\exp(-N\epsilon^2 / 2\tilde{M}^2)$，再由Borel-Cantelli引理得到$\sum_N P(\sup|L_N - L| > 2\epsilon) < \infty$，即几乎必然收敛
     - 与弱一致性的区别：弱一致性只需ULLN（收敛的概率→1），强一致性需要概率的可和性（Borel-Cantelli），Lipschitz条件恰好提供了从点到全局的定量控制
 
 4. **$\alpha$-信息性定义**:
 
-    - 做什么：定义ODR算法的"信息浓缩"能力
+    - 功能：定义ODR算法的"信息浓缩"能力
     - 核心思路：称算法$\mathcal{A}$为$(\alpha, \epsilon)$-informative，若存在$N_0$使得$N \geq N_0$时学到的分布$\hat{\phi}_N$将至少$\alpha$概率质量分配在真实参数$\xi^*$的$\epsilon$-球内。由强一致性知，高斯ODR对任意$\alpha < 1$都是$\alpha$-informative
     - 意义：提供了一个模型无关的度量标准，可用于评估和比较不同ODR算法
 

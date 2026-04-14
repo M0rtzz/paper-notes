@@ -6,9 +6,9 @@ description: >-
 tags:
   - ACL2025
   - quality estimation
-  - gender bias
-  - machine translation
-  - fairness
+  - 性别偏差
+  - 机器翻译
+  - 公平性
   - MT metrics
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.10995](https://arxiv.org/abs/2410.10995)  
 **代码**: [deep-spin/gender-bias-qe-metrics](https://github.com/deep-spin/gender-bias-qe-metrics)  
 **领域**: nlp_generation  
-**关键词**: quality estimation, gender bias, machine translation, fairness, MT metrics
+**关键词**: quality estimation, 性别偏差, 机器翻译, 公平性, MT metrics
 
 ## 一句话总结
 

@@ -28,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：基于 Stable Diffusion (SD) 的真实世界图像超分辨率方法取得显著成功（StableSR、DiffBIR、SeeSR 等），但多步推理阻碍实际部署。近期一步网络（OSEDiff、S3Diff）缓解了时延问题，但仍因依赖大型预训练 SD 模型而计算开销巨大。
+
 **现有痛点**：
    - 多步扩散方法（StableSR 等）推理极慢（几十步迭代）
    - 一步扩散方法（OSEDiff）仍需完整 SD 模型：VAE 编码器、提示提取器、文本编码器、完整 UNet，参数量 1311M，单帧 0.07s
    - 没有方法同时解决"保质"和"提速"
+
 **核心矛盾**：直接裁剪或移除 SD 模块会严重退化生成能力，但保留完整模型无法满足实时需求。
+
 **切入角度**：系统分析 OSEDiff 各模块，将其分为可移除型（VAE 编码器、提示提取器、文本编码器等）和可剪枝型（UNet、VAE 解码器），设计两阶段方案逐步压缩。
+
 **核心 idea 一句话**：模块移除 + 通道剪枝 + 分阶段对抗蒸馏 = 实时扩散超分。
 
 ## 方法详解
@@ -59,16 +63,16 @@ tags:
 ### 关键技术细节
 
 1. **时序方向对齐（Temporal Direction Alignment, TDA）**
-   - 移除文本编码器和时间步嵌入后，固定时间步 $t=1$ 并设噪声 $\epsilon = 0$
-   - 使用直通估计器（Straight-through Estimator）处理不可微分的 clipping 操作
+    - 移除文本编码器和时间步嵌入后，固定时间步 $t=1$ 并设噪声 $\epsilon = 0$
+    - 使用直通估计器（Straight-through Estimator）处理不可微分的 clipping 操作
 
 2. **UNet-VAE 连接优化**
-   - 将 UNet 输出直接连接到 VAE 解码器最小分辨率的首层块
-   - PixelUnshuffle 层（缩放因子 2）对齐潜空间与 LR 图像空间大小
+    - 将 UNet 输出直接连接到 VAE 解码器最小分辨率的首层块
+    - PixelUnshuffle 层（缩放因子 2）对齐潜空间与 LR 图像空间大小
 
 3. **判别器设计**
-   - 基于 LoRA 的轻量判别器，LoRA rank=4
-   - 学习率 1e-6
+    - 基于 LoRA 的轻量判别器，LoRA rank=4
+    - 学习率 1e-6
 
 ## 实验关键数据
 

@@ -1,8 +1,10 @@
 ---
+title: >-
+  [论文解读] Universal Retrieval for Multimodal Trajectory Modeling
 description: >-
-  首次提出多模态轨迹检索任务，构建UATD统一数据集和GAE-Bench基准(714K正样本对)，提出GAE-Retriever在5个环境上平均提升10.22点Recall。
+  [ICML 2025][多模态][trajectory retrieval] 首次系统定义多模态轨迹检索任务，构建统一代理轨迹数据集 UATD（7,747 个演示、82,793 个状态）和 GAE-Bench 基准（714,628 正样本对），提出基于 VLM2Vec 的 GAE-Retriever 框架，在 5 个 GUI 环境上相比最强基线 VLM2Vec-V2.2 平均提升 10.22 个百分点。
 tags:
-  - ICML2025
+  - ICML 2025
   - 多模态
   - trajectory retrieval
   - GUI agents
@@ -42,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **UATD 统一轨迹表示**:
-    - 做什么：将 5 个异构 GUI 数据源（Mind2Web、AutoWebGLM、WebArena、WebLINX、GUIAct）统一为标准轨迹格式
+    - 功能：将 5 个异构 GUI 数据源（Mind2Web、AutoWebGLM、WebArena、WebLINX、GUIAct）统一为标准轨迹格式
     - 核心思路：将轨迹建模为确定性 MDP $\mathcal{E}=(\mathcal{S}, \mathcal{A}, \mathcal{O}, \mathcal{T})$，统一表示为 $\tau = (s_1, a_1, s_2, a_2, \ldots, s_n, a_n)$。状态用原始截图+文本描述表示，动作用操作/目标/值三元组（JSON格式），每个轨迹附带自定义动作空间定义。对缺少截图的数据源（AutoWebGLM）用 gpt-4o-mini 补全 HTML 再用 Playwright 渲染
     - 设计动机：消除平台特定文本表示的依赖，统一格式促进跨环境泛化
 
 2. **GAE-Bench 12 种提取模式**:
-    - 做什么：从单条轨迹系统性地提取 6 类检索对，形成完整的多模态轨迹检索基准
+    - 功能：从单条轨迹系统性地提取 6 类检索对，形成完整的多模态轨迹检索基准
     - 核心思路：定义时序检索（给前半段检索后半段及其逆、跨粒度的轨迹-状态检索）和语义检索（q→gold trajectory、q→silver trajectory、q→state）。Silver trajectory 通过三步生成：NER 识别实体→生成替代表达→重写查询。总计 714,628 个正样本对，GAE-Bench-lite 限制轨迹长度 ≤10 步含 563,900 对
     - 设计动机：时序检索捕捉轨迹内序列关系，语义检索捕捉跨轨迹功能相似性，12 种模式全面覆盖不同粒度（状态/轨迹/子轨迹）和方向
 
 3. **GAE-Retriever 高效多模态检索**:
-    - 做什么：基于 VLM2Vec + Qwen2-VL 构建轨迹检索模型，解决多高分辨率截图序列的内存和计算瓶颈
+    - 功能：基于 VLM2Vec + Qwen2-VL 构建轨迹检索模型，解决多高分辨率截图序列的内存和计算瓶颈
     - 核心思路：**Token Selection**——在 RGB 空间构建 UI 连接图，按相似性聚类后跳过冗余视觉 token，训练时 mask ratio=0.5；**GradCache**——梯度缓存将编码器反传和对比损失反传解耦，支持 sub-batch=1 + 累积 batch=2,048 的大规模对比学习。使用 InfoNCE loss：$\mathcal{L} = -\log \frac{\exp(f(\mathbf{k})^T f(\mathbf{v}^+) / t)}{\sum_{\mathbf{v} \in \mathcal{B}} \exp(f(\mathbf{k})^T f(\mathbf{v}) / t)}$
     - 设计动机：轨迹数据包含多张高分辨率截图，直接编码会 token 数爆炸；对比学习依赖大 batch 的 in-batch negatives，GradCache 突破 GPU 内存限制
 

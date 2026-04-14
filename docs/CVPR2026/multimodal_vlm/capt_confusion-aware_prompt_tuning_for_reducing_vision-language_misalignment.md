@@ -10,7 +10,7 @@ tags:
   - 视觉语言对齐
   - 混淆感知
   - CLIP
-  - few-shot
+  - 小样本
   - 细粒度分类
 ---
 
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2603.02557](https://arxiv.org/abs/2603.02557)  
 **代码**: [github.com/greatest-gourmet/CAPT](https://github.com/greatest-gourmet/CAPT)  
 **领域**: 多模态VLM  
-**关键词**: prompt tuning, 视觉语言对齐, 混淆感知, CLIP, few-shot, 细粒度分类
+**关键词**: prompt tuning, 视觉语言对齐, 混淆感知, CLIP, 小样本, 细粒度分类
 
 ## 一句话总结
 提出 CAPT 混淆感知 prompt tuning 框架，通过语义混淆挖掘器（SEM）和样本混淆挖掘器（SAM）显式建模 VLM 的系统性误对齐模式，配合多粒度差异专家（MGDE）融合不同层次的混淆信息，在 11 个基准上取得 HM 83.90% 的最优表现。

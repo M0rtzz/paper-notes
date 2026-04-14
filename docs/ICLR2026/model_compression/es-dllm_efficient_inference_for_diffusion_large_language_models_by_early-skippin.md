@@ -10,7 +10,7 @@ tags:
   - Inference Acceleration
   - Token Skipping
   - KV Cache
-  - Training-free
+  - training-free
 ---
 
 # ES-dLLM: Efficient Inference for Diffusion Large Language Models by Early-Skipping
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.10088](https://arxiv.org/abs/2603.10088)  
 **代码**: [zhuzj19/ES-dLLM](https://github.com/zhuzj19/ES-dLLM)  
 **领域**: model_compression  
-**关键词**: Diffusion LLM, Inference Acceleration, Token Skipping, KV Cache, Training-free  
+**关键词**: Diffusion LLM, Inference Acceleration, Token Skipping, KV Cache, training-free
 
 ## 一句话总结
 

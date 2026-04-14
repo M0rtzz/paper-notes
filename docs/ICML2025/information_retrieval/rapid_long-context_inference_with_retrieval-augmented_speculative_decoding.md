@@ -2,10 +2,10 @@
 title: >-
   [论文解读] RAPID: Long-Context Inference with Retrieval-Augmented Speculative Decoding
 description: >-
-  [ICML 2025][Speculative Decoding] 提出 RAPID，将 RAG 与 Speculative Decoding 结合：用 RAG drafter（在短检索上下文上运行的 LLM）为长上下文目标 LLM 生成候选 token，并通过推理时知识迁移增强目标分布，在长上下文推理中同时实现 >2× 加速和生成质量提升。
+  [ICML 2025][推测解码] 提出 RAPID，将 RAG 与 Speculative Decoding 结合：用 RAG drafter（在短检索上下文上运行的 LLM）为长上下文目标 LLM 生成候选 token，并通过推理时知识迁移增强目标分布，在长上下文推理中同时实现 >2× 加速和生成质量提升。
 tags:
   - ICML 2025
-  - Speculative Decoding
+  - 推测解码
   - 长上下文推理
   - 检索增强生成
   - 知识蒸馏
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.20330](https://arxiv.org/abs/2502.20330)  
 **代码**: [https://github.com/NUS-TRAIL/RAPID](https://github.com/NUS-TRAIL/RAPID)  
 **领域**: LLM效率  
-**关键词**: Speculative Decoding, 长上下文推理, 检索增强生成, 知识蒸馏, KV Cache
+**关键词**: 推测解码, 长上下文推理, 检索增强生成, 知识蒸馏, KV Cache
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 传统 Speculative Decoding (SD) 通过小模型草稿+大模型验证来加速推理，但在**长上下文场景下效果大幅下降**。核心原因：
 
 **KV Cache 瓶颈**：长上下文下 KV Cache 操作变为内存受限（memory-bound），小模型相对大模型的速度优势急剧缩小。例如 LLaMA-3.1-8B 相比 70B 的吞吐量优势从 1K 上下文的 23.6× 降至 128K 的 9.4×。
+
 **RAG 与长上下文各有优劣**：RAG 在检索相关片段上表现优异（如多选题），但在需要全局理解的任务上（如问答）不及长上下文 LLM。两者存在互补性，但此前没有好的方式在推理时融合。
+
 **SD 的严格拒绝问题**：传统 SD 以目标 LLM 分布为"真值"做拒绝采样，当 RAG drafter 生成质量实际更优时，好的候选会被不必要地拒绝，浪费计算。
 
 **关键观察**：在 128K 上下文下，LLaMA-3.1-8B 用 RAG 处理 4K~16K 检索上下文就能恢复大部分长上下文性能——这意味着 RAG drafter 能高效生成高质量候选 token。

@@ -47,7 +47,7 @@ tags:
 
 1. **Separate Coordinate Decoding (SCD)**
 
-    - 做什么：将姿态估计和全局定位解耦
+    - 功能：将姿态估计和全局定位解耦
     - RGB 特征提取：ViT backbone → 图像特征
     - 点云特征提取：PointNet++ → 几何特征
     - 相机坐标解码器：迭代优化 SMPL 参数 $(\theta, \beta, \Delta c)$，3 层 SIREN 估计器，隐藏维度 64

@@ -97,7 +97,7 @@ MMInference 的策略是：
 - 2D-Boundary: 在 query/key 双维处理跨模态割裂问题，目标是恢复可连续建模的稀疏区域。
 
 ### 模块 1：Grid Head（论文 Algo 1）
-- 做什么：针对视觉主导头，动态抓取网格注意力。
+- 功能：针对视觉主导头，动态抓取网格注意力。
 - 怎么做：
 	- 用最后若干 query（文中示例 last_q=64）构造近似注意力。
 	- 在候选 stride 集中搜索最优 stride/phase。
@@ -107,7 +107,7 @@ MMInference 的策略是：
 	- 用少量 query 近似可把索引开销压低到可接受范围。
 
 ### 模块 2：Hybrid Modality Sparse Attention
-- 做什么：统一处理模态边界导致的不连续稀疏。
+- 功能：统一处理模态边界导致的不连续稀疏。
 - 怎么做：
 	- No/K-Boundary 走全局模态内稀疏模式。
 	- Q-Boundary 用行置换聚合同模态 query，再做模态内稀疏近似。
@@ -117,7 +117,7 @@ MMInference 的策略是：
 	- 不先边界感知，动态稀疏会在“该连处断开、该断处连上”。
 
 ### 模块 3：Modality-Aware Sparse Attention Search
-- 做什么：离线为每个头选模式，在线只做轻量动态索引。
+- 功能：离线为每个头选模式，在线只做轻量动态索引。
 - 怎么做：
 	- 离线搜索 inter-modality 与 intra-modality 稀疏模式组合。
 	- 在线按输入构建索引，减少跨请求复用导致的失配。

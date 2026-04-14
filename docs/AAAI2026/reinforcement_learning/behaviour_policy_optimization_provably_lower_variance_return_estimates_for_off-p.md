@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Behaviour Policy Optimization: Provably Lower Variance Return Estimates for Off-Policy Reinforcement Learning
 description: >-
-  [AAAI2026][off-policy RL] 提出 Behaviour Policy Optimization (BPO)，通过优化一个专用行为策略来采集离策略数据，使得回报估计的方差可证明低于在策略采集，从而提升 REINFORCE 和 PPO 的样本效率与稳定性。
+  [AAAI2026][离策略强化学习] 提出 Behaviour Policy Optimization (BPO)，通过优化一个专用行为策略来采集离策略数据，使得回报估计的方差可证明低于在策略采集，从而提升 REINFORCE 和 PPO 的样本效率与稳定性。
 tags:
   - AAAI2026
-  - off-policy RL
+  - 离策略强化学习
   - variance reduction
-  - importance sampling
+  - 重要性采样
   - behaviour policy
-  - policy gradient
+  - 策略梯度
 ---
 
 # Behaviour Policy Optimization: Provably Lower Variance Return Estimates for Off-Policy Reinforcement Learning
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.10843](https://arxiv.org/abs/2511.10843)  
 **代码**: [sacktock/BPO](https://github.com/sacktock/BPO)  
 **领域**: reinforcement_learning  
-**关键词**: off-policy RL, variance reduction, importance sampling, behaviour policy, policy gradient  
+**关键词**: 离策略强化学习, variance reduction, 重要性采样, behaviour policy, 策略梯度
 
 ## 一句话总结
 

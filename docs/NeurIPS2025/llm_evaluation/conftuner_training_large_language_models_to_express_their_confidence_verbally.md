@@ -25,10 +25,15 @@ ConfTuner 提出 tokenized Brier score 损失函数（理论证明为 proper sco
 
 ## 研究背景与动机
 **领域现状**：LLM 在高风险领域（医疗、法律、科学）的可靠部署需要知道"模型有多确定"。现有方法包括 logit-based 校准（但不适用于 API 模型）和 verbalized confidence（让模型说出置信度）。
+
 **现有痛点**：LLM 严重过度自信——经常说"我100%确定"即使答案是错的。SaySelf 等方法需要大规模数据（900万样本），LACIE 需要10万样本且训练时间长。关键理论问题：什么样的损失函数能保证置信度校准？
+
 **核心矛盾**：语言化置信度是离散的 token（"80%"是一个 token 而非概率值），经典的 Brier score 定义在连续概率上。如何将 proper scoring rule 理论扩展到 token 空间？
+
 **本文要解决什么**：(1) 设计理论上有保证的置信度校准损失；(2) 以极低成本（2000样本/4分钟）实现校准。
+
 **切入角度**：将 Brier score 从对概率值的评分推广到对"置信度 token 上的概率分布"的评分——如果模型在"80%"上放了更多概率质量，而真实正确率确实接近80%，则损失低。
+
 **核心idea一句话**：Tokenized Brier score = 对置信度 token 的 proper scoring rule，迫使模型在最接近真实正确率的 token 上放最多概率。
 
 ## 方法详解
@@ -40,14 +45,14 @@ ConfTuner 提出 tokenized Brier score 损失函数（理论证明为 proper sco
 
 1. **Tokenized Brier Score（核心贡献）**:
 
-    - 做什么：对置信度 token 集 $\mathcal{T}_N = \{0\%, 10\%, ..., 100\%\}$ 上的 softmax 分布 $\mathbf{q}$ 定义损失
+    - 功能：对置信度 token 集 $\mathcal{T}_N = \{0\%, 10\%, ..., 100\%\}$ 上的 softmax 分布 $\mathbf{q}$ 定义损失
     - 公式：$\ell(\mathbf{q}, y) = \sum_{i=0}^{N} q_i (y - i/N)^2$
     - 理论保证（Theorem 1）：这是 proper scoring rule——模型最小化损失的最优策略是将概率集中在最接近真实条件正确率 $\eta(x)$ 的 token 上
     - 设计动机：经典 Brier score 对单个概率值评分，但 LLM 输出的是 token 上的分布——需要推广
 
 2. **极简 LoRA 微调**:
 
-    - 做什么：rank-8 LoRA 仅在 query/value 投影上微调
+    - 功能：rank-8 LoRA 仅在 query/value 投影上微调
     - 仅需 2000 个样本，4 分钟训练（单 GPU）
     - 对比：SaySelf 需 900万样本/120分钟，LACIE 需 10万/26分钟
     - 设计动机：最小改动保留模型原有能力

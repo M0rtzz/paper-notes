@@ -8,9 +8,9 @@ tags:
   - 人体理解
   - model alignment
   - mixture of agents
-  - synthetic data
-  - preference optimization
-  - self-improvement
+  - 合成数据
+  - 偏好优化
+  - 自我改进
 ---
 
 # Improving Model Alignment through Collective Intelligence of Open-Source LLMs
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.03059](https://arxiv.org/abs/2505.03059)  
 **代码**: 即将发布  
 **领域**: Human Understanding  
-**关键词**: model alignment, mixture of agents, synthetic data, preference optimization, self-improvement
+**关键词**: model alignment, mixture of agents, 合成数据, 偏好优化, 自我改进
 
 ## 一句话总结
 本文提出 Mixture of Agents Alignment（MoAA），利用多个开源 LLM 的集体智慧生成高质量的对齐数据（SFT 数据和偏好数据），显著提升目标模型在 Arena-Hard 和 AlpacaEval2 上的表现，并展示了无需外部强监督的自我提升能力。
@@ -52,25 +52,25 @@ Pipeline:
 
 1. **MoA 响应生成（MoA Response Generation）**:
 
-    - 做什么：对每个指令 prompt，让多个 LLM 各自生成回答，然后用聚合模型综合为最终回答
+    - 功能：对每个指令 prompt，让多个 LLM 各自生成回答，然后用聚合模型综合为最终回答
     - 核心思路：第一层——$K$ 个 LLM 各自生成回答 $\{r_1, \ldots, r_K\}$；第二层——聚合器模型收到所有回答和原始指令，生成综合回答 $r^*$
     - 设计动机：不同模型有不同的知识和"个性"（如有的擅长推理，有的擅长写作），MoA 可以集成这些互补优势
 
 2. **MoA-SFT 数据构造**:
 
-    - 做什么：用 MoA 生成的高质量回答作为 SFT 训练目标
+    - 功能：用 MoA 生成的高质量回答作为 SFT 训练目标
     - 核心思路：$(prompt, r^*_{\text{MoA}})$ 作为训练对。MoA 回答质量优于任何单一模型，因此微调后的模型可以超越其训练数据来源
     - 设计动机：替代 GPT-4 标注，同时提供更高的多样性
 
 3. **MoA-DPO 偏好数据构造**:
 
-    - 做什么：利用多模型输出的质量差异构造偏好对
+    - 功能：利用多模型输出的质量差异构造偏好对
     - 核心思路：MoA 综合回答 $r^*$ 作为 chosen（正样本），各单模型的回答中较差的 $r_{\text{worst}}$ 作为 rejected（负样本）
     - 设计动机：不需要外部评估器（如人类或 GPT-4），偏好信号来自模型集合的内部比较
 
 4. **自我提升 Pipeline（Self-Improvement Pipeline）**:
 
-    - 做什么：用 MoAA 微调后的模型作为下一轮的 MoA 参与者
+    - 功能：用 MoAA 微调后的模型作为下一轮的 MoA 参与者
     - 核心思路：迭代 $t$: 用当前模型参与 MoA → 生成更好的训练数据 → 微调 → 新模型再参与 MoA
     - 设计动机：这形成了一个正反馈循环——模型能力提升 → 生成更好数据 → 进一步提升
 

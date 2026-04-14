@@ -4,7 +4,7 @@
 **arXiv**: [2603.14297](https://arxiv.org/abs/2603.14297)  
 **代码**: 无  
 **领域**: 模型压缩  
-**关键词**: 360 image quality, reinforcement learning, scanpath, blind IQA, PPO, active perception  
+**关键词**: 360 image quality, reinforcement-learning, scanpath, blind IQA, PPO, active perception
 
 ## 总结
 

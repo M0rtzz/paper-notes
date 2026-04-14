@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.17489](https://arxiv.org/abs/2510.17489)  
 **代码**: [heyongxin233/DETree](https://github.com/heyongxin233/DETree)  
 **领域**: object_detection  
-**关键词**: AI text detection, human-AI collaborative text, hierarchical representation learning, contrastive learning, out-of-distribution generalization  
+**关键词**: AI text detection, human-AI collaborative text, hierarchical representation learning, contrastive learning, out-of-distribution generalization
 
 ## 一句话总结
 

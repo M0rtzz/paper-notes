@@ -1,15 +1,15 @@
 ---
+title: >-
+  [论文解读] Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale
 description: >-
-  在Transformer/Mamba/RWKV三种架构、不同数据集和14M-12B参数规模上分析1400+检查点，发现预训练中的行为阶段一致：词级预测最多98%方差可由unigram频率、n-gram概率和语义相似度解释
+  [NeurIPS 2025][behavioral phases] 在 Transformer、Mamba、RWKV 三种架构，OpenWebText 和 The Pile 两种数据集，14M-12B 参数规模上系统分析 1400+ 检查点，发现所有自回归语言模型在预训练中展现高度一致的行为阶段——词级预测最多 98% 方差可由 unigram 频率、n-gram 概率和语义相似度三类简单启发式解释。
 tags:
   - NeurIPS 2025
-  - 语言模型
-  - 预训练动态
+  - behavioral phases
   - n-gram
-  - 行为阶段
-  - Transformer
-  - Mamba
-  - RWKV
+  - semantic similarity
+  - pretraining dynamics
+  - cross-architecture
 ---
 
 # Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale
@@ -44,19 +44,19 @@ tags:
 
 1.    **大规模 checkpoint 行为分析**：
 
-    -    做什么：覆盖 1418 个模型实例（含所有 seed、架构、步数），在 NaWoCo 数据集（>150K 词）上计算每个 checkpoint 的词级 log-probability
+    -    功能：覆盖 1418 个模型实例（含所有 seed、架构、步数），在 NaWoCo 数据集（>150K 词）上计算每个 checkpoint 的词级 log-probability
     -    核心思路：训练 Parc 模型（6 seed × 3 架构 × 73 checkpoints），与 Pythia 系列（14M-12B）和 Open-GPT2 对齐分析
     -    设计动机：跨架构（Transformer/Mamba/RWKV）训练在完全相同的数据上，严格控制变量
 
 2.    **三类行为解释变量**：
 
-    -    做什么：用 unigram 概率（词频）、n-gram 概率（1-5阶）和上下文语义相似度（fastText 余弦相似度）解释模型 log-probability
+    -    功能：用 unigram 概率（词频）、n-gram 概率（1-5阶）和上下文语义相似度（fastText 余弦相似度）解释模型 log-probability
     -    核心思路：通过 z-标准化后的多元线性回归分离各变量的独立贡献
     -    设计动机：这些启发式是自回归任务的自然统计量——高频词本就更可能出现，n-gram 概率反映局部上下文统计，语义相似度反映主题连贯性
 
 3.    **Behavioral Phases 发现**：
 
-    -    做什么：识别三个一致的行为阶段
+    -    功能：识别三个一致的行为阶段
     -    **Phase 1**：unigram coefficient 急剧上升至峰值，语义相似度 coefficient 同步上升，5-gram coefficient 微弱或为负——模型首先学会词频偏好
     -    **Phase 2**：unigram coefficient 下降，5-gram coefficient 急剧上升——模型从依赖词频转向依赖上下文
     -    **Phase 3**：各 coefficient 趋于稳定——行为成熟

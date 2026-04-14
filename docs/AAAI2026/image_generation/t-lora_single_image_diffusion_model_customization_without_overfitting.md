@@ -51,7 +51,9 @@ tags:
 ### 核心 Idea
 
 T-LoRA框架包含两个创新：
+
 **Vanilla T-LoRA**：基于时步的秩掩码策略——随时步增大逐渐减小LoRA有效秩
+
 **Ortho-LoRA**：基于随机矩阵SVD的正交初始化——确保LoRA组件间的信息独立性
 
 ## 方法详解

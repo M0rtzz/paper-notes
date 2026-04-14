@@ -2,12 +2,12 @@
 title: >-
   [论文解读] Talk2Event: 基于事件相机的动态场景语言定位
 description: >-
-  [NeurIPS 2025][机器人][event camera] Talk2Event 提出首个大规模事件相机视觉定位基准（30,690 条标注表达式 + 四种定位属性），并设计 EventRefer 框架通过混合事件-属性专家（MoEE）动态融合外观/状态/观察者关系/物体间关系特征，在纯事件、纯帧和融合三种设置下均超越现有方法。
+  [NeurIPS 2025][机器人][事件相机] Talk2Event 提出首个大规模事件相机视觉定位基准（30,690 条标注表达式 + 四种定位属性），并设计 EventRefer 框架通过混合事件-属性专家（MoEE）动态融合外观/状态/观察者关系/物体间关系特征，在纯事件、纯帧和融合三种设置下均超越现有方法。
 tags:
   - NeurIPS 2025
   - 机器人
-  - event camera
-  - visual grounding
+  - 事件相机
+  - 视觉定位
   - 多模态
   - mixture of experts
   - 自动驾驶
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.17664](https://arxiv.org/abs/2507.17664)  
 **代码**: 无  
 **领域**: 机器人  
-**关键词**: event camera, visual grounding, multimodal, mixture of experts, autonomous driving, benchmark  
+**关键词**: 事件相机, 视觉定位, multimodal, mixture of experts, 自动驾驶, benchmark
 # Talk2Event: 基于事件相机的动态场景语言定位
 
 ## 一句话总结

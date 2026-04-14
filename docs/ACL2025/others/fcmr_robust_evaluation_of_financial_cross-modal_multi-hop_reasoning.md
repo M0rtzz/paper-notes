@@ -8,7 +8,7 @@ tags:
   - 跨模态
   - Multi-Hop QA
   - Financial NLP
-  - Benchmark
+  - benchmark
   - MLLM Evaluation
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.12567](https://arxiv.org/abs/2412.12567)  
 **代码**: [HYU-NLP/FCMR](https://github.com/HYU-NLP/FCMR)  
 **领域**: NLP / 多模态推理评估  
-**关键词**: Cross-Modal Reasoning, Multi-Hop QA, Financial NLP, Benchmark, MLLM Evaluation
+**关键词**: Cross-Modal Reasoning, Multi-Hop QA, Financial NLP, benchmark, MLLM Evaluation
 
 ## 一句话总结
 

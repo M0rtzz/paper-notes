@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.08029](https://arxiv.org/abs/2511.08029)  
 **代码**: [bisect-group/BiCA](https://github.com/bisect-group/BiCA)  
 **领域**: medical_imaging  
-**关键词**: dense retrieval, hard negative mining, citation graph, biomedical IR, PubMed  
+**关键词**: dense retrieval, hard negative mining, citation graph, biomedical IR, PubMed
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **生物医学文献爆炸式增长**：PubMed 收录量持续攀升，传统关键词检索难以在高度专业化且术语密集的文献中精准定位相关文档。
+
 **Hard negative 挖掘困难**：生物医学领域中语义高度相似的论文极多，基于 cross-encoder 或静态 embedding 余弦距离的传统 hard negative 采样方法难以有效区分正负样本。
+
 **引文关系的天然信号**：被引论文与源文档共享上下文相关性但并非重复品，天然适合作为 hard negative；然而此前缺少系统性利用引文结构来挖掘负样本的工作。
+
 **大模型部署成本高**：GTR-xxl（4.8B）等大参数检索模型虽性能较优，但推理延迟高、部署成本大，不适用于实时场景和资源受限环境。
+
 **Zero-shot 泛化需求**：生物医学检索往往缺少标注数据，模型需要在 zero-shot 条件下对域内和域外任务都有良好表现。
+
 **数据效率低下**：大多数检索模型依赖大规模标注或伪标注数据，如何用极少量高质量数据实现高效领域适配是一个待解决的问题。
 
 ## 方法详解

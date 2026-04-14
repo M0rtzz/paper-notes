@@ -2,16 +2,15 @@
 title: >-
   [论文解读] Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning
 description: >-
-  [CVPR 2026][医学图像][公平性诊断] 在 ConvNeXt 骨干上构建注意力 MIL 模型，并通过梯度反转层（GRL）对抗性地消除扫描表征中的性别信息，再配合 focal loss、子群过采样和 5-fold 集成，实现胸部 CT 四类肺疾病的公平诊断。
+  [CVPR 2026 (PHAROS-AIF-MIH Workshop)][医学图像][公平性诊断] 在 ConvNeXt-Base 骨干上构建注意力 MIL 模型，用 GRL 对抗性消除扫描表示中的性别信息，配合 focal loss（$\gamma=2$）+ 标签平滑（$\varepsilon=0.1$）、子群过采样和 5-fold 集成，在 889 例胸部 CT 四类诊断中实现均值竞赛分数 0.685±0.030，女性 macro-F1（0.691）略高于男性（0.679），验证了 GRL 能有效闭合公平性差距。
 tags:
-  - CVPR 2026
+  - CVPR 2026 (PHAROS-AIF-MIH Workshop)
   - 医学图像
   - 公平性诊断
   - 胸部CT
   - 多示例学习
-  - 性别对抗正则化
-  - 肺疾病分类
   - 梯度反转层
+  - 肺疾病分类
 ---
 
 # Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning
@@ -50,19 +49,19 @@ tags:
 
 1. **注意力 MIL 聚合**
 
-    - 做什么：从可变长度 CT 切片序列中学习哪些切片含诊断信息，加权聚合为扫描级表示
+    - 功能：从可变长度 CT 切片序列中学习哪些切片含诊断信息，加权聚合为扫描级表示
     - 核心思路：ConvNeXt-Base（去分类头）提取每张切片嵌入 $h_i = f_\text{enc}(x_i) \in \mathbb{R}^D$，两层 MLP 产生重要性分数 $s_i = a(h_i; \theta_a)$，softmax 归一化后加权 $H = \sum_i w_i h_i$。零填充位置施加 attention mask 屏蔽。训练时 $N>M$ 的体积随机采样，推理均匀采样保持空间覆盖
     - 设计动机：Mean pooling 被健康切片稀释信号，Max pooling 对伪影敏感。注意力机制作为两者的学习型折中，且不需要切片级标注
 
 2. **GRL 对抗性别去偏**
 
-    - 做什么：从扫描表示中擦除性别预测信息，阻止模型利用性别作为诊断捷径
+    - 功能：从扫描表示中擦除性别预测信息，阻止模型利用性别作为诊断捷径
     - 核心思路：在 $H$ 上挂接 GRL + 两层 MLP 二分类器 $z_\text{gen} = c(\mathcal{R}_\lambda(H))$。前向恒等，反向梯度取反并缩放 $\lambda_\text{adv}$。总损失 $\mathcal{L} = \mathcal{L}_\text{disease} + \lambda_\text{adv} \cdot \mathcal{L}_\text{gender}$，性别头训练预测性别，反转梯度强迫骨干丢弃性别信息
     - 设计动机：骨干可从体型/采集参数等隐式编码性别特征。GRL 是最小侵入性的公平性约束——不改变主任务架构，仅增加对抗分支
 
 3. **公平性训练协议**
 
-    - 做什么：多管齐下确保极端不平衡子群（女性鳞癌仅 18 例）不被忽略
+    - 功能：多管齐下确保极端不平衡子群（女性鳞癌仅 18 例）不被忽略
     - 核心思路：(a) 按 (class, gender) 8 子群分层的 5-fold CV，保证每折含所有子群；(b) WeightedRandomSampler 大幅提升女性鳞癌采样权重，几乎每个 batch 均包含该子群；(c) 两阶段微调——前 5 epoch 冻结骨干只训练注意力和两个头（LR=1e-3），之后解冻骨干（骨干 LR=1e-5，头 LR=1e-4，cosine 退火）
     - 设计动机：单一策略在极端不平衡场景不够——过采样防崩塌，分层折保公平评估，两阶段让注意力先稳定
 

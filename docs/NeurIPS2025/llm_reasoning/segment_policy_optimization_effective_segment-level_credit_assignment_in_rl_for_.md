@@ -26,8 +26,11 @@ tags:
 
 ## 研究背景与动机
 **PPO的局限**: Token级advantage需要不稳定的critic模型，估计不准确
+
 **GRPO的局限**: 轨迹级advantage过粗糙，所有token共享一个reward（缺乏细粒度反馈）
+
 **信用分配挑战**: 长序列的稀疏、延迟奖励难以精确分配
+
 **研究机会**: 在token和轨迹之间找到平衡，利用MC估计避免critic
 
 ## 方法详解

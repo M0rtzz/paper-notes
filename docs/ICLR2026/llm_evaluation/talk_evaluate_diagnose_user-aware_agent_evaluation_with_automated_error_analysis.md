@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] TED: Talk, Evaluate, Diagnose - User-aware Agent Evaluation"
-description: "[ICLR 2026][LLM评估][Agent评估] 提出TED框架统一评估LLM Agent，包含用户感知的动态对话(expert/non-expert persona)、基于grading notes的LLM-as-judge评估+新效率指标、自动化错误分析诊断三大模块。"
+title: >-
+  [论文解读] Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis
+description: >-
+   提出TED(Talk, Evaluate, Diagnose)框架，通过通用可复用的expert/non-expert persona模板实现用户感知的动态Agent评估、grading notes+LLM-as-judge+MaxProgressRate@k等新指标进行细粒度效率评估、自动化错误发现和聚类提供可操作的改进反馈，在τ²-bench和ToolSandbox上揭示新的Agent性能洞察。
 tags:
-  - ICLR 2026
-  - LLM评估
-  - Agent评估
-  - 用户感知
+
 ---
 
 # Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis

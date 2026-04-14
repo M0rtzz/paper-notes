@@ -46,23 +46,23 @@ tags:
 
 1. **激活漂移分析**：
 
-    - 做什么：计算原始输入和padding变体在每层的隐层表示余弦相似度，以及有害/无害提示的聚类Silhouette分数
+    - 功能：计算原始输入和padding变体在每层的隐层表示余弦相似度，以及有害/无害提示的聚类Silhouette分数
     - 核心发现：Llama-2-7B/13B和Qwen-1.8B在少量padding下就出现显著的激活漂移（相似度急剧下降）。有害/无害提示的聚类边界随padding增多而模糊——这直接威胁基于激活空间的安全检测方法
     - PCA可视化清晰展示：128个padding后，有害提示和无害提示的表示空间几乎完全混杂
 
 2. **生成质量退化**：
 
-    - 做什么：在TruthfulQA上用BLEU和BERTScore评估padding对生成质量的影响
+    - 功能：在TruthfulQA上用BLEU和BERTScore评估padding对生成质量的影响
     - 核心发现：老模型（Llama-2）和小模型（Qwen-1.8B）在4+个padding后生成质量剧烈下降。Gemma系列表现出最强的抗padding能力，甚至在某些情况下性能略有提升
 
 3. **社会偏见变化**：
 
-    - 做什么：在BBQ偏见基准上测试padding对人口统计学偏见的影响
+    - 功能：在BBQ偏见基准上测试padding对人口统计学偏见的影响
     - 核心发现：偏见变化是**不可预测且类别依赖的**——年龄偏见随padding减少，但外貌偏见先增后减。同一个模型在不同偏见类别和上下文类型（歧义/非歧义）上的反应完全不同
 
 4. **安全性突破**：
 
-    - 做什么：用HarmBench的200个有害提示测试攻击成功率（ASR），用Llama-Guard-3-8B做回复分类
+    - 功能：用HarmBench的200个有害提示测试攻击成功率（ASR），用Llama-Guard-3-8B做回复分类
     - 核心发现：Llama-3.1-8B在0个padding时ASR仅8%，32个padding时12%，但**128个padding时飙升至77.5%**——padding实质上成为了一种jailbreak方法
     - 这与Yu et al.的发现一致：在有害提示附近添加多个特殊token可以将提示沿"拒绝方向"的反方向推移
 

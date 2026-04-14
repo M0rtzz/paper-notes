@@ -46,7 +46,7 @@ tags:
 给定视频动捕结果（参考动作）及原始视频，整体pipeline为：
 1. **MCM（Mask-conditioned Correction Module）**：检测并修正瑕疵动作帧
 2. **PTM（Physics-based Motion Transfer Module）**：对修正后的动作进行物理仿真恢复
-   - 若PTM初次失败，启动测试时适应（TTA）更新网络参数，直到成功或达到阈值
+    - 若PTM初次失败，启动测试时适应（TTA）更新网络参数，直到成功或达到阈值
 
 整个方法设计为即插即用模块，可直接集成到任何视频动捕方法之后。
 

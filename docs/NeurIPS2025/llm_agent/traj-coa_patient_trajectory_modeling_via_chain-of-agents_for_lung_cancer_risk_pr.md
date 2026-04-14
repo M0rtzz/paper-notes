@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2510.10454](https://arxiv.org/abs/2510.10454)  
 **代码**: 无  
 **领域**: llm_agent  
-**关键词**: multi-agent system, EHR, patient trajectory, temporal reasoning, lung cancer prediction  
+**关键词**: multi-agent system, EHR, patient trajectory, temporal reasoning, lung cancer prediction
 
 ## 一句话总结
 提出Traj-CoA多agent框架，通过chain-of-agents架构配合EHRMem长期记忆模块对长且噪声的纵向EHR进行时序推理，在零样本肺癌风险预测任务中（5年EHR数据，最高160k tokens）超越ML/DL/BERT/LLM等多类基线。
 
 ## 研究背景与动机
 **领域现状**: 纵向电子健康记录（EHR）包含丰富的时序数据，可用于患者轨迹建模和临床结局预测。LLM在零样本临床预测方面展现出潜力，有望替代需要复杂特征工程和任务专用训练的传统方法。
+
 **现有痛点**: EHR数据面临两大核心挑战——(1) **极长上下文**: 患者历史跨越数年，token数常超过128k，超出LLM有效处理范围，且存在"lost-in-the-middle"问题；(2) **固有噪声**: EHR本身为临床护理而非研究设计，包含格式不一致、录入错误、缺失数据、不规则采样，大量无关信息掩盖关键预测信号。
+
 **核心矛盾**: 现有LLM方法局限于短EHR（<16k tokens）或ICU数据，对>32k甚至128k tokens的长纵向EHR的时序推理仍是未解难题。直接扩大上下文窗口反而会降低性能。
+
 **本文要解决什么？**: 如何在不进行额外训练的情况下（零样本），对极长且噪声的纵向EHR数据进行有效时序推理？
+
 **切入角度**: 借鉴chain-of-agents多agent协作架构，结合专为EHR设计的外部长期记忆模块，将长上下文推理分解为多agent协作的短上下文推理链。
+
 **核心idea一句话**: Worker agent链逐chunk处理时间感知分段的EHR + EHRMem记忆关键临床事件 + Manager agent综合摘要和记忆做预测。
 
 ## 方法详解

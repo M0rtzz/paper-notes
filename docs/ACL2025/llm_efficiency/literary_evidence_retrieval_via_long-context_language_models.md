@@ -8,7 +8,7 @@ tags:
   - LLM效率
   - 长上下文理解
   - 文学证据检索
-  - Benchmark
+  - benchmark
   - 推理模型评测
   - 开源vs闭源
   - 文学分析
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.03090](https://arxiv.org/abs/2506.03090)  
 **代码**: [katherinethai/long_context_relic](https://github.com/katherinethai/long_context_relic)  
 **领域**: LLM效率  
-**关键词**: 长上下文理解, 文学证据检索, Benchmark, 推理模型评测, 开源vs闭源, 文学分析
+**关键词**: 长上下文理解, 文学证据检索, benchmark, 推理模型评测, 开源vs闭源, 文学分析
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 ## 研究背景与动机
 
 **长上下文评测的不足**：现有长上下文 benchmark（如 Needle-in-Haystack）主要测试简单信息检索，无法衡量模型对长文本的深度理解和推理能力。
+
 **文学分析的独特需求**：文学证据检索要求模型同时具备对叙事的全局理解（global narrative reasoning）和对具体段落的精细阅读能力（close textual examination），是检验长上下文真正理解能力的理想测试场景。
+
 **RELiC 数据集的局限**：原始 RELiC 数据集（Thai et al., 2022）包含 78k 条文学分析摘录，但数据较嘈杂，存在 OCR 错误、引用泄露、数据污染等问题，不适合直接用于 LLM 评测。
+
 **核心动机**：在长上下文 LLM 能处理百万 token 的今天，探索它们对文学小说的理解到底达到了什么水平。
 
 ## 方法详解

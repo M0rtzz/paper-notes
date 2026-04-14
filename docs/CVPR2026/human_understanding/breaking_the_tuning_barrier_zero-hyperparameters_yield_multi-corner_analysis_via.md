@@ -29,11 +29,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：集成电路设计中，良率多角分析（Yield Multi-Corner Analysis, YMCA）需要在 25+ 个 PVT（Process-Voltage-Temperature）角上验证电路性能，每个角需要大量 SPICE 仿真，总成本为 $O(K \times N)$，K 为角数，N 为每角仿真次数。
+
 **现有方法的两极分化**：
    - **简单模型**（如 MNIS）：自动化程度高，开箱即用，但模型容量不足，对复杂非线性电路行为拟合能力差
    - **高级模型**（如 GP、normalizing flows）：表达能力强，精度高，但需要数小时人工超参调优（kernel 选择、学习率、网络结构等）
+
 **核心痛点——Tuning Barrier**：高级模型对超参极度敏感。实验表明 ±20% 的超参扰动会导致 MRE 从 19% 剧变到 111%，这使得工程师必须为每个新设计反复试错调参，严重阻碍实际部署
+
 **本文切入点**：能否用 Learned Priors 替代 Engineered Priors，让模型自动从数据中学习先验知识，从而彻底消除超参调优的需求？
+
 **核心 idea**：将 TabPFN（在百万级回归任务上预训练的 Transformer 基础模型）引入 YMCA，利用其 attention 机制作为 learned kernel 实现零超参的 in-context Bayesian 推断
 
 ## 核心问题
@@ -48,26 +52,26 @@ tags:
 
 1. **TabPFN 基础模型——Learned Kernel 替代 Engineered Kernel**:
 
-    - 做什么：用预训练的 Transformer 替代传统 GP/normalizing flow 做 surrogate modeling
+    - 功能：用预训练的 Transformer 替代传统 GP/normalizing flow 做 surrogate modeling
     - 核心思路：TabPFN 在百万个合成回归任务上预训练，学习了广泛的函数先验。推断时将训练数据和测试输入拼接为一个序列，通过单次前向传播完成 in-context Bayesian 推断（Eq.5），attention 机制隐式地作为 learned kernel
     - 设计动机：传统 GP 需要手动选择 kernel（RBF/Matérn/周期）并为每个任务做 MLE 超参优化；TabPFN 的 attention 权重自动适配数据，完全免调参
     - 关键优势：零超参、单前向传播推断（毫秒级）、自带不确定性估计
 
 2. **自动特征选择——从 1152D 到 48D**:
 
-    - 做什么：自动从高维 process 参数空间中筛选最相关特征
+    - 功能：自动从高维 process 参数空间中筛选最相关特征
     - 核心思路：原始 PVT 参数空间高达 1152 维，直接建模 curse of dimensionality 严重。通过基于重要性评分的自动特征选择将维度降至 ~48D
     - 设计动机：降维后 TabPFN 的 attention 机制能更有效地捕获参数间交互，同时减少仿真需求
 
 3. **Cross-Corner Knowledge Transfer——全局 surrogate**:
 
-    - 做什么：跨 PVT 角共享电路物理知识，构建统一 surrogate 模型
+    - 功能：跨 PVT 角共享电路物理知识，构建统一 surrogate 模型
     - 核心思路：将 process 参数 $x_S$ 与 corner 编码 $c$ 拼接为 $[x_S; c]$，所有角的数据统一输入同一个 TabPFN 模型。全局 surrogate 同时学习：(1) 每个角的 process-performance 关系；(2) 不同角之间共享的电路物理规律
     - 设计动机：25+ 个角单独建模需要大量数据且忽略了角间相关性。例如不同温度角下晶体管阈值电压的漂移趋势是共享的物理规律，联合建模可以显著提升数据效率
 
 4. **不确定性驱动主动学习——聚焦决策边界**:
 
-    - 做什么：利用 TabPFN 的不确定性估计指导仿真点选取
+    - 功能：利用 TabPFN 的不确定性估计指导仿真点选取
     - 核心思路：在每轮主动学习中，计算模型预测的不确定性（后验方差），优先对不确定性最高的区域（通常是良率决策边界附近）进行仿真
     - 设计动机：良率分析最关心的是 pass/fail 边界，将有限的仿真预算集中在边界区域可以最大化信息增益
 

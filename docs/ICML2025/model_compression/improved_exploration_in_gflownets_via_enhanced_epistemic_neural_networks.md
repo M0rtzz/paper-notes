@@ -26,9 +26,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: GFlowNets 是一类生成式模型，通过序列化构建对象来采样与奖励成正比的样本，在分子设计等科学发现中有重要应用。
+
 **现有痛点**: (a) GFlowNets 训练中容易发生模式坍塌 (mode collapse)，被早期发现的模式吸引；(b) 探索策略 (on-policy, ε-noisy) 不够高效；(c) 现有 Thompson Sampling (TS-GFN) 用 ensemble 近似后验，计算开销大且联合预测质量有限。
+
 **核心矛盾**: GFlowNets 的性能高度依赖采样轨迹的质量，但有效探索需要感知认知不确定性 (epistemic uncertainty)——即"知道自己不知道什么"。
+
 **本文切入**: 用 ENN (epinet) 替代 ensemble 来获得更高效的联合预测和不确定性量化。
+
 **核心 idea**: 在 GFlowNet 的策略网络上附加轻量级 epinet 模块，通过 epistemic index 采样实现隐式 Thompson Sampling。
 
 ## 方法详解

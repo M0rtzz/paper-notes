@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.19264](https://arxiv.org/abs/2507.19264)  
 **代码**: https://github.com/LezJ/SimMLM  
 **领域**: medical_imaging  
-**关键词**: multimodal learning, missing modality, mixture of experts, ranking loss, brain tumor segmentation
+**关键词**: multi-modal learning, missing modality, mixture of experts, ranking loss, brain tumor segmentation
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 多模态学习虽然能利用互补信息提升性能，但实际部署中经常遇到**测试时模态缺失**问题（硬件故障、环境限制、数据采集约束等）。现有解决方案存在以下不足：
 
 **数据填补方法**（用生成模型合成缺失模态）：合成数据质量难以保证，存在幻觉、对抗脆弱性等问题，且计算开销大
+
 **复杂架构方法**（mmFormer、ShaSpec 等）：需要特殊的网络设计来对齐/共享跨模态特征，参数量大、灵活性差，且共享编码器要求所有模态维度一致
+
 **现有 MoE 方法**（MoMKE）：每个模态需通过所有专家，计算复杂度随模态数量平方增长
 
 SimMLM 的核心理念是**简单即有效**：每个模态只需对应一个专家网络，通过动态门控网络自适应调整贡献权重，再用 MoFe 排序损失确保"模态越多性能越好"的直觉性质。

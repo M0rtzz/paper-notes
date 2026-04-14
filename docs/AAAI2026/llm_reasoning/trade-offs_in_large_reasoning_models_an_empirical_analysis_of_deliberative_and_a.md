@@ -26,13 +26,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：以OpenAI o1/o3和DeepSeek-R1为代表的Large Reasoning Models (LRMs) 通过长链思维推理在数学、编程等专业推理任务上取得显著进步。社区对LRM的关注主要集中在推理任务的性能、效率和鲁棒性上。
+
 **现有痛点**：LRM在获取deliberative reasoning能力的同时，对其基础能力（general task性能、instruction-following、safety）的影响几乎未被系统研究。认知科学表明人类推理能力与整体认知功能紧密关联，类比到LRM也应如此。
+
 **核心矛盾**：通过蒸馏或强化学习获取推理能力的过程，可能以牺牲模型原有的helpfulness和harmlessness为代价——这种trade-off在实际部署中至关重要但尚未被量化。
+
 **本文要解决什么？**
    - RQ1: LRM获取推理能力后，哪些基础能力受损最严重？
    - RQ2: 推理时的inference-time compute如何影响LRM在通用任务上的表现？
    - 能否通过控制推理模式来缓解基础能力下降？
+
 **切入角度**：通过在LRM的thinking过程中插入特殊token（如`<think></think>`），手动控制推理深度，实现Zero/Less/Summary三种自适应推理模式
+
 **核心idea一句话**：LRM的deliberative reasoning在提升专业推理的同时显著损害基础能力，而自适应推理模式（动态分配inference-time compute）是未来LRM发展的关键方向
 
 ## 方法详解
@@ -47,13 +52,13 @@ tags:
 
 1. **基础能力评估框架**:
 
-    - 做什么：全面评估LRM在获取推理能力后的基础性能变化
+    - 功能：全面评估LRM在获取推理能力后的基础性能变化
     - 核心思路：将每个蒸馏得到的LRM与其source chat model直接对比（如OpenThinker-7B vs Qwen2.5-7B-Instruct），在6个benchmark上测量性能差异。对RL训练的LRM（如QwQ-32B）则通过修改推理模式间接推断能力变化
     - 设计动机：之前无人系统对比LRM和chat model在非推理任务上的差异——只看推理任务会得到"LRM全面更强"的错误结论
 
 2. **自适应推理模式**:
 
-    - 做什么：通过控制LRM的思考过程长度/内容来调节inference-time compute
+    - 功能：通过控制LRM的思考过程长度/内容来调节inference-time compute
     - 核心思路：
       - **Zero-Thinking**：在输入后直接追加`</think>`，强制跳过推理过程
       - **Less-Thinking**：在推理过程的$p\%$处插入`</think>`，提前终止思考（$p$ = 10%, 20%, 50%, 60%, 80%, 90%）
@@ -63,7 +68,7 @@ tags:
 
 3. **Thought安全性分析**:
 
-    - 做什么：分析LRM的thinking过程本身是否安全
+    - 功能：分析LRM的thinking过程本身是否安全
     - 核心思路：将LRM的输出按2×2矩阵分类——thought安全/不安全 × response安全/不安全，用GPT-4o做安全判断
     - 设计动机：发现LRM在面对恶意查询时，即使最终response拒绝了请求，其thinking过程中仍可能包含大量不安全内容。这是一个被忽视的安全风险
 

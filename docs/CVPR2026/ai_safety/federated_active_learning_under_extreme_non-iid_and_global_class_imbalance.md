@@ -9,7 +9,7 @@ tags:
   - Federated Active Learning
   - Non-IID
   - Class Imbalance
-  - Active Learning
+  - active learning
   - Long-Tailed Distribution
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.10341](https://arxiv.org/abs/2603.10341)  
 **代码**: [chenchenzong/FairFAL](https://github.com/chenchenzong/FairFAL)  
 **领域**: AI安全 / 联邦学习  
-**关键词**: Federated Active Learning, Non-IID, Class Imbalance, Active Learning, Long-Tailed Distribution
+**关键词**: Federated Active Learning, Non-IID, Class Imbalance, active learning, Long-Tailed Distribution
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 联邦主动学习（FAL）结合了联邦学习的隐私保护和主动学习的标签效率，但在现实场景中面临两个被忽视的严峻挑战：
 
 **全局类别严重不平衡**：真实联邦系统通常呈现长尾全局分布，稀有但关键的类别在各客户端中稀疏出现
+
 **客户端高度异构**：不同客户端的数据分布差异极大（极端 Non-IID）
 
 现有 FAL 方法（如 LoGo、KAFAL、IFAL）虽然开始考虑 Non-IID 场景，但通常将异构性仅视为数据分区问题，隐含假设全局标签分布相对平衡。在长尾全局分布下，现有采集策略难以捕获少数类样本，导致标注预算浪费。

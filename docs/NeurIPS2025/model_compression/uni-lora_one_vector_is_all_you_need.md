@@ -30,7 +30,9 @@ tags:
 LoRA 通过低秩分解 $\Delta W = BA$ 实现参数高效微调，后续工作（Tied-LoRA、VeRA、LoRA-XS、VB-LoRA）进一步压缩可训练参数量。然而这些方法各自设计了不同的架构修改，缺乏统一视角。现有方法存在三个共同问题：
 
 **局部投影**：大多数方法（Tied-LoRA、VeRA、LoRA-XS）按层独立投影每个 LoRA 模块的参数，无法跨层共享参数冗余。
+
 **非均匀投影**：Tied-LoRA 和 VeRA 的 $B$ 矩阵和 $A$ 矩阵被投影到不同维度的子空间（$m$ vs. $r$），信息分配不均。
+
 **非等距投影**：Tied-LoRA、VeRA、VB-LoRA 的隐式投影矩阵不保持距离，扭曲了优化landscape的几何结构。
 
 **核心洞察**：借鉴内在维度（intrinsic dimension）研究——神经网络微调实际上只在一个远低于原参数空间的子空间中进行。如果将所有层所有模块的 LoRA 参数展平为一个 $D$ 维向量 $\theta_D$，那么不同 LoRA 方法的本质区别就是选择了不同的投影矩阵 $P \in \mathbb{R}^{D \times d}$ 使得 $\theta_D = P \theta_d$。

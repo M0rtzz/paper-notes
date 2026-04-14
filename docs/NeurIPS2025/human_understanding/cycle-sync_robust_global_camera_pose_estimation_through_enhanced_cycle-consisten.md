@@ -47,25 +47,25 @@ tags:
 
 1. **Welsch 型目标函数**:
 
-    - 做什么：替代 LUD 的 $\ell_1$ 和 BATA 的 $\sin\theta$
+    - 功能：替代 LUD 的 $\ell_1$ 和 BATA 的 $\sin\theta$
     - 核心思路：$\min \sum_{ij\in E} \rho(\|t_i - t_j - \alpha_{ij}\gamma_{ij}\|)$，$\rho(x) = 1 - e^{-a|x|}$（$a=4$）。在 $x=0$ 保留非光滑性（不同于标准 Welsch $1-e^{-ax^2}$）
     - 设计动机：$\ell_1$ 对长腐蚀边敏感，BATA 忽略边长丢失长干净边信息。Welsch 抑制大残差同时保留原点非光滑性使精确恢复理论可行
 
 2. **环一致性消息传递 (Cycle-MPLS)**:
 
-    - 做什么：用环不一致性加权平均替代单边残差估计腐蚀水平
+    - 功能：用环不一致性加权平均替代单边残差估计腐蚀水平
     - 核心思路：$s_{ij,t} = \frac{1}{Z_{ij,t}}\sum_{k\in N_{ij}} e^{-\beta(r_{ik,t}+r_{jk,t})} d_{ijk,t}$，$d_{ijk,t} = \|\|t_i-t_j\|\gamma_{ij} + \|t_j-t_k\|\gamma_{jk} + \|t_k-t_i\|\gamma_{ki}\|$
     - 设计动机：单边残差高腐蚀下不可靠，环聚合全局一致性信号更稳定
 
 3. **自适应权重融合**:
 
-    - 做什么：IRLS 残差权重和环权重渐进融合
+    - 功能：IRLS 残差权重和环权重渐进融合
     - 核心思路：$h_{ij,t} = (1-\lambda_t)r_{ij,t} + \lambda_t s_{ij,t}$，$\lambda_t = t/(t+10)$，权重 $w_{ij,t+1} = \exp(-4h_{ij,t})/(h_{ij,t}+\delta)$
     - 设计动机：早期依赖残差，后期转向环信息，双向信息传播
 
 4. **MPLS-cycle 旋转同步**:
 
-    - 做什么：固定 $\lambda_t=1$ 完全使用环一致性
+    - 功能：固定 $\lambda_t=1$ 完全使用环一致性
     - 设计动机：旋转同步中环信息已足够可靠
 
 ### 精确恢复理论

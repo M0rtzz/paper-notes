@@ -47,25 +47,25 @@ Data-Juicer 2.0 是面向基础模型的云规模多模态数据处理系统，1
 
 1. **150+ 多模态算子体系**:
 
-    - 做什么：覆盖文本/图像/视频/音频的清洗、分析、合成、标注
+    - 功能：覆盖文本/图像/视频/音频的清洗、分析、合成、标注
     - 核心思路：原有 5 种原子算子 + 5 种组合型算子（Grouper/Aggregator/FusedOP/ScriptOP/HumanOP）。HumanOP 基于 Label Studio 支持 RLHF 人在回路
     - 设计动机：模型驱动算子（SDXL/GPT/Qwen）占多数，反映语义感知处理趋势
 
 2. **统一 Data-Juicer-Dataset 抽象**:
 
-    - 做什么：屏蔽底层引擎差异（HF Dataset / Ray / MaxFrame）
+    - 功能：屏蔽底层引擎差异（HF Dataset / Ray / MaxFrame）
     - 核心思路：Facade 模式，Token 对齐中间 Schema（`<__dj__image>` 等特殊 token 表示多模态数据）
     - 设计动机：同一 pipeline 可在单机/Ray/MaxCompute 间无缝切换
 
 3. **自适应运行时优化**:
 
-    - 做什么：自动配置资源、批次、执行顺序
+    - 功能：自动配置资源、批次、执行顺序
     - 核心思路：Adapter 类 probe_small_batch() 探测算子速度，快算子前置。GPU 算子自动配置量化，I/O 算子用多层并行。自适应分片对 Ray 提供 2-3x 加速
     - 设计动机：统一并行粒度导致 OOM 或浪费，自适应同时优化效率和稳定性
 
 4. **容错与恢复**:
 
-    - 做什么：算子级检查点和细粒度恢复
+    - 功能：算子级检查点和细粒度恢复
     - 核心思路：LLM 输出预验证+自动重试，算子级断点续传替代 Ray 粗粒度全重启
     - 设计动机：大规模后期错误可致 TB 计算浪费
 

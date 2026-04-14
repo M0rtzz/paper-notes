@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.25924](https://arxiv.org/abs/2510.25924)  
 **代码**: [manueligal/proxy-intervention](https://github.com/manueligal/proxy-intervention)  
 **领域**: causal_inference  
-**关键词**: proximal causal inference, domain adaptation, unobserved confounders, proxy variables, interventional distribution  
+**关键词**: proximal causal inference, domain adaptation, unobserved confounders, proxy variables, interventional distribution
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **核心问题**：估计处理变量 X 对结果 Y 的因果效应是科学研究的核心目标，但未观测混淆因子 U 的存在使得从观测数据中进行因果推断极其困难
+
 **现有方案局限**：随机对照试验（RCT）是因果推断的金标准，但常因伦理或实际约束不可行；现有代理变量方法（proximal causal inference）通常假设因果效应在不同域间不变，无法处理域间分布偏移
+
 **多域设置的独特挑战**：当隐藏混淆因子 U 的分布随域改变时（latent shift），X 对 Y 的因果效应在不同域中是不同的，传统的单域代理方法无法直接应用
+
 **目标域数据稀缺**：在目标域中可能只能观测到代理变量 W，无法直接观测 X 和 Y，需要从源域迁移因果信息
+
 **与已有工作的关键区别**：Tsai et al. [2024] 的工作需要在目标域观测 W 和 X，且目标是条件均值预测而非干预分布；本文仅需在目标域观测 W，目标是估计干预分布 Q(Y|do(x))
+
 **实际应用场景**：例如研究网站排名对消费者选择的因果效应——酒店特征（U）影响排名（X）和点击（Y），价格（W）是 U 的代理，不同酒店构成不同域
 
 ## 方法详解

@@ -27,12 +27,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：放疗规划是复杂的临床流程，不同机构和规划师之间存在显著差异。深度学习方法已在剂量预测、fluence map 生成、MLC 叶片排序等环节取得进展。
+
 **现有痛点**：
    - RapidPlan 等知识驱动系统依赖 DVH 预测，无法捕捉空间剂量细节；基于 PCA 回归的 pipeline 仅用数十个计划训练，泛化能力有限
    - 现有深度学习剂量预测模型忽略了用户偏好交互——不同规划师对 OAR 保护与 PTV 覆盖的权衡有不同需求
    - 剂量预测本身不是可交付计划，与临床 TPS 系统的集成研究仍然不足
+
 **核心矛盾**：单一模型无法适配多样化的规划风格，且训练过程容易被参考计划的特定风格所偏倚
+
 **切入角度**：借鉴生成式 AI 的条件控制思路，通过"preference flavors"滑块让用户实时自定义 OAR-PTV 权衡
+
 **核心idea一句话**：用 VQ-VAE 预训练稳定剂量解码器 + 用户偏好编码作为条件输入，实现可交互的个性化剂量预测
 
 ## 方法详解
@@ -44,14 +48,14 @@ tags:
 
 1. **Stage I: VQ-VAE 基础剂量解码器预训练**
 
-    - 做什么：用 31K 剂量数据预训练 VQ-VAE，学习真实剂量分布的潜在表示
+    - 功能：用 31K 剂量数据预训练 VQ-VAE，学习真实剂量分布的潜在表示
     - 核心思路：不同于 latent diffusion 用 VAE 做压缩加速，本文用预训练来**稳定 Stage II 训练**。损失函数为：
       $\mathcal{L}_{\text{stage1}} = \underbrace{\mathbb{E}_i[\|x_i - \hat{x}_i\|]}_{\text{Reconstruction}} + \beta L_{vq} + L_{adv}(x, \hat{x}) + \underbrace{\lambda \cdot \log(\mathbb{E}_{i<j}[\exp(-t\|\hat{z}_i - \hat{z}_j\|^2)])}_{\text{Uniformity}}$
     - 设计动机：引入均匀性损失（uniformity loss）正则化潜在空间，避免模式坍塌；对抗损失保证生成剂量的真实性。没有预训练时，Stage II 在复杂条件下训练不稳定，会出现 PTV/OAR 边界伪影
 
 2. **Stage II: 多条件灵活剂量预测**
 
-    - 做什么：以 CT+RT 结构为图像输入，用户偏好+beam plates 为条件输入，预测个性化 3D 剂量
+    - 功能：以 CT+RT 结构为图像输入，用户偏好+beam plates 为条件输入，预测个性化 3D 剂量
     - 核心思路：图像编码器采用 MedNeXt 架构处理多通道输入；用户偏好和 beam/angle 通过 AdaIN（Adaptive Instance Normalization）编码注入。损失函数：
       $\mathcal{L}_{\text{stage2}}^{(i)} = \|x_i - \hat{x}_i\| + \|z_i - \hat{z}_i\| + L_{adv}(x_i, \hat{x}_i) + \mathcal{L}_{\text{obj}}^{(i)}$
     - 目标一致性损失 $\mathcal{L}_{\text{obj}}$ 确保预测与用户偏好对齐：
@@ -60,7 +64,7 @@ tags:
 
 3. **训练时偏好随机采样**
 
-    - 做什么：训练时滑块值 $\{\tilde{h}, \tilde{w}\}$ 在预定义范围内随机采样
+    - 功能：训练时滑块值 $\{\tilde{h}, \tilde{w}\}$ 在预定义范围内随机采样
     - 设计动机：让模型学会响应不同偏好组合，而非过拟合到单一规划风格
 
 4. **临床集成**

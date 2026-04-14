@@ -7,9 +7,9 @@ tags:
   - ICLR2026
   - 图像生成
   - 扩散模型
-  - data attribution
+  - 数据归因
   - concept attribution
-  - influence function
+  - 影响函数
   - copyright
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.06547](https://arxiv.org/abs/2507.06547)  
 **代码**: 待确认  
 **领域**: 图像生成  
-**关键词**: diffusion model, data attribution, concept attribution, influence function, copyright
+**关键词**: 扩散模型, 数据归因, concept attribution, 影响函数, copyright
 
 ## 一句话总结
 提出 Concept-TRAK，通过设计概念特异的训练损失（DPS reward）和效用损失（CFG guidance），将影响函数从全图归因扩展到概念级归因，在合成、CelebA-HQ 和 AbC benchmark 上大幅超越 TRAK/D-TRAK/DAS 等方法，特别是在 OOD 组合新概念场景下优势显著。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：数据归因方法（TRAK、D-TRAK、DAS）通过影响函数估计训练样本对生成图像的贡献，用于版权检测、数据估值和模型调试。但现有方法都在全图级别归因——找到影响整张生成图像的训练样本。
+
 **现有痛点**：实际需求是概念级归因——例如生成"铅笔画风格的皮卡丘"时，版权方（任天堂）关心的是"皮卡丘"这个概念的训练来源，不关心"铅笔画"风格。全图归因倾向于返回风格相似但概念无关的图像。
+
 **核心矛盾**：影响函数的效用损失（utility loss）和训练损失（training loss）都基于标准去噪目标——捕获的是整体重建质量的方向，不是概念特异方向。需要新的损失函数设计来隔离概念特异的影响。
+
 **本文要解决什么？** 定义并实现概念级数据归因——量化每个训练样本对扩散模型学习特定概念（风格、物体、属性）能力的贡献。
+
 **切入角度**：几何动机——概念相关方向是扩散模型潜空间数据流形的切向量。reward optimization 的梯度 $\nabla_{x_t} R(x_t)$ 作为概念特异的引导方向，精确指向切空间中的概念增强区域。
+
 **核心idea一句话**：用 DPS reward 梯度作为训练损失（捕获训练样本的影响方向）+ CFG guidance 作为效用损失（捕获目标概念方向），二者在影响函数框架下的内积度量训练数据对概念学习的贡献。
 
 ## 方法详解
@@ -42,14 +47,14 @@ tags:
 
 1. **训练损失（DPS Reward-based）**:
 
-    - 做什么：捕获训练样本 $x_0^i$ 对模型生成能力的特异影响方向
+    - 功能：捕获训练样本 $x_0^i$ 对模型生成能力的特异影响方向
     - 核心思路：定义 reward $R_{\text{train}}(x_t) = \log p(x_0^i | \hat{x}_0)$，其中 $\hat{x}_0 = \mathbb{E}[x_0|x_t]$（后验均值）。假设高斯分布后 reward 梯度为 $\nabla_{x_t} \|{\hat{x}_0 - x_0^i}\|^2$——这个梯度在数据流形的切空间中操作（DPS 理论保证）
     - 最终训练损失：$\mathcal{L}_{\text{train}} = \mathbb{E}_{x_t}[\|\text{sg}[\epsilon_\theta(x_t;c) + \lambda_t \nabla_{x_t}\|\hat{x}_0 - x_0^i\|^2] - \epsilon_\theta(x_t;c)\|^2]$
     - 设计动机：标准 DSM 损失提供重建驱动的信号，而 DPS reward 梯度提供切空间引导向量——对概念归因更稳定
 
 2. **效用损失（CFG-based Concept Loss）**:
 
-    - 做什么：度量模型对目标概念 $c_{\text{target}}$ 的生成能力
+    - 功能：度量模型对目标概念 $c_{\text{target}}$ 的生成能力
     - 核心思路：概念 reward $R_{\text{concept}}(x_t) = \log p(c_{\text{target}} | x_t)$。当 $c_{\text{target}}$ 可作为条件输入时，reward 梯度化简为 classifier-free guidance 向量：$\epsilon_\theta(x_t; c_{\text{target}}) - \epsilon_\theta(x_t)$
     - 对嵌入在复合条件中的概念：用 concept slider guidance $\epsilon_\theta(x_t; c) - \epsilon_\theta(x_t; c_{-})$，其中 $c_{-}$ 是去掉目标概念的条件
     - 设计动机：CFG 向量已被证明在数据流形切空间中编码概念信息——与我们的几何框架一致

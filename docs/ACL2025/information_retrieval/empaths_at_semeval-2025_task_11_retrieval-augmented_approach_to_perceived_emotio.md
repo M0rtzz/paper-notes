@@ -29,8 +29,11 @@ tags:
 SemEval-2025 Task 11 聚焦**感知情感检测**（perceived emotion detection）：判断大多数读者会从给定文本中推断说话者正在经历哪些情感（joy, sadness, fear, anger, surprise, disgust, neutral）。这不是分析读者被唤起的情感，也不是推断说话者的真实情感，而是关注情感的**社会共识性理解**。
 
 **核心挑战**：
+
 **多语言覆盖**：涵盖 28 种语言，包括大量低资源语言（Hausa、Kinyarwanda、Emakhuwa、isiZulu 等）
+
 **多标签任务**：每段文本可能同时包含多种情感
+
 **文化差异**：不同文化背景下的情感表达和解读存在显著差异
 
 **传统方法**（微调预训练 Transformer + 线性分类头）在单语场景表现好，但跨语言泛化面临语言变异性和文化差异的额外挑战。

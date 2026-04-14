@@ -57,13 +57,13 @@ $$\mathcal{L}(\theta, \phi, \omega) = \mathcal{L}_{\text{DIFF}}(\theta) + \lambd
 
 1. **Batch-Norm 层做潜空间归一化**:
 
-    - 做什么：在 VAE 和扩散模型之间插入一个 Batch-Norm 层
+    - 功能：在 VAE 和扩散模型之间插入一个 Batch-Norm 层
     - 核心思路：标准 LDM 训练需要用预计算的统计量归一化 VAE 输出（如 SD-VAE 的 std = 1/0.1825）。端到端训练时 VAE 不断更新，每次都要重新计算全数据集统计量太昂贵。Batch-Norm 的指数移动平均可以作为全局统计量的代理，实现可微的归一化而无需反复计算
     - 设计动机：禁用 BN 的仿射变换（不学 scale/bias），只用 running mean 和 std，确保归一化的纯粹性
 
 2. **端到端表示对齐损失**:
 
-    - 做什么：将 REPA 损失反传到 VAE 编码器
+    - 功能：将 REPA 损失反传到 VAE 编码器
     - 核心思路：利用预训练视觉模型（如 DINOv2）的特征作为目标，对齐扩散 Transformer 中间层的隐状态：
     $\mathcal{L}_{\text{REPA}}(\theta, \phi, \omega) = -\mathbb{E}_{\mathbf{x}, \epsilon, t}\left[\frac{1}{N}\sum_{n=1}^{N}\text{sim}(\mathbf{y}^{[n]}, h_\omega(\mathbf{h}_t^{[n]}))\right]$
       其中 $\mathbf{y} = f(\mathbf{x})$ 是 DINOv2 特征，$\mathbf{h}_t$ 是扩散 Transformer 第 8 层的隐状态
@@ -71,13 +71,13 @@ $$\mathcal{L}(\theta, \phi, \omega) = \mathcal{L}_{\text{DIFF}}(\theta) + \lambd
 
 3. **扩散损失的 Stop-Gradient**:
 
-    - 做什么：扩散损失 $\mathcal{L}_{\text{DIFF}}$ 仅更新扩散模型参数 $\theta$，不反传到 VAE
+    - 功能：扩散损失 $\mathcal{L}_{\text{DIFF}}$ 仅更新扩散模型参数 $\theta$，不反传到 VAE
     - 核心思路：在 VAE 输出端插入 stop-gradient 算子，让扩散损失的梯度不流向 VAE
     - 设计动机：实验证明直接反传扩散损失会让 VAE 学到更简单但更差的潜空间（空间方差降低，去噪变容易但生成质量下降）。没有 stop-gradient 时 gFID 从 16.3 劣化到 444.1
 
 4. **VAE 正则化损失**:
 
-    - 做什么：防止端到端训练损害 VAE 的重建能力
+    - 功能：防止端到端训练损害 VAE 的重建能力
     - 核心思路：$\mathcal{L}_{\text{REG}} = \mathcal{L}_{\text{KL}} + \mathcal{L}_{\text{MSE}} + \mathcal{L}_{\text{LPIPS}} + \mathcal{L}_{\text{GAN}}$
     - 设计动机：端到端训练如果不加约束，VAE 可能过度适配扩散模型而丧失重建能力
 

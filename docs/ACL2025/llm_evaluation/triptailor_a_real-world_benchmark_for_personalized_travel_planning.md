@@ -8,7 +8,7 @@ tags:
   - Travel Planning
   - 个性化行程规划
   - LLM Agent
-  - Benchmark
+  - benchmark
   - 真实世界评估
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2508.01432](https://arxiv.org/abs/2508.01432)  
 **代码**: 有 (https://github.com/swxkfm/TripTailor)  
 **领域**: NLP / LLM Agent / 旅行规划  
-**关键词**: Travel Planning, 个性化行程规划, LLM Agent, Benchmark, 真实世界评估
+**关键词**: Travel Planning, 个性化行程规划, LLM Agent, benchmark, 真实世界评估
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 LLM 在旅行规划中展示了巨大潜力，但现有 benchmark 存在明显不足：
 
 **数据不真实**：TravelPlanner 主要依赖模拟数据评估，难以反映实际条件
+
 **规模有限**：ChinaTravel 仅覆盖 10 个城市和约 1200 POI/城市，无法捕捉真实旅行需求的复杂性
+
 **评估维度单一**：现有框架过度关注硬约束（如预算、时间），无法评估行程的整体质量
+
 **缺少真实对照**：没有与人类制定的旅行计划进行系统性对比
 
 核心问题：满足所有硬约束的行程是否就是好的行程？答案是否定的——仍可能存在不合理的绕行、时间分配不当、缺乏个性化等问题。

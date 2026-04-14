@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.03707](https://arxiv.org/abs/2507.03707)  
 **代码**: [GitHub](https://github.com/TeresaHuang/CosmoBench)  
 **领域**: 3d_vision  
-**关键词**: geometric deep learning, cosmology benchmark, point cloud, graph neural network, merger tree  
+**关键词**: geometric deep learning, cosmology benchmark, point cloud, graph neural network, merger tree
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **宇宙学模拟数据丰富但缺乏统一基准**：宇宙学模拟产生的点云和 merger tree 数据极为丰富，但社区缺少像 ShapeNet/ModelNet 那样统一的基准来系统评估机器学习方法，导致方法间难以公平比较。
+
 **几何深度学习在宇宙学中的突破远未到来**：GDL 已在计算机视觉、结构生物学、气候科学等领域取得显著进展，但宇宙学尚未观察到类似突破，需要大规模基准来催化方法创新。
+
 **现有基准规模与多样性不足**：Balla et al. 提出的基准仅包含 3,560 个 Quijote 点云，在数据规模、物理尺度、数据模态和任务多样性上均有限。
+
 **从模拟到观测的鸿沟需要弥合**：推断宇宙学参数、预测星系速度、重建 merger tree 等任务具有直接的科学价值（如推断宇宙膨胀率、补偿硬件限制等），但现有方法尚不成熟。
+
 **简单方法 vs 复杂模型的权衡未被充分探索**：社区倾向于使用越来越复杂的深度学习模型，但在宇宙学任务上，简单物理驱动方法可能同样有效甚至更优，需要系统比较。
+
 **多尺度行为差异待揭示**：宇宙学中的线性（大尺度）和非线性（小尺度）物理行为差异显著，不同方法在不同尺度上的表现规律尚不清楚。
 
 ## 方法详解

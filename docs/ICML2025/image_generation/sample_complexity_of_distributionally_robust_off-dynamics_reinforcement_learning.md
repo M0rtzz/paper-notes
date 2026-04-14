@@ -9,7 +9,7 @@ tags:
   - Robust MDP
   - Off-dynamics RL
   - Sample Complexity
-  - Online Learning
+  - online learning
   - f-divergence
   - Regret Bounds
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.05396](https://arxiv.org/abs/2511.05396)  
 **代码**: [panxulab/Online-Robust-Bellman-Iteration](https://github.com/panxulab/Online-Robust-Bellman-Iteration)  
 **领域**: 分布鲁棒强化学习  
-**关键词**: Robust MDP, Off-dynamics RL, Sample Complexity, Online Learning, f-divergence, Regret Bounds
+**关键词**: Robust MDP, Off-dynamics RL, Sample Complexity, online learning, f-divergence, Regret Bounds
 
 ## 一句话总结
 
@@ -31,6 +31,7 @@ tags:
 Off-dynamics RL 处理训练环境与部署环境转移动力学不同的问题，通常建模为鲁棒马尔可夫决策过程（RMDP）。现有工作主要依赖两类设定：
 
 **生成模型设定**：允许对任意 $(s,a)$ 查询转移，回避了探索困难
+
 **离线数据集设定**：假设预采集数据对部署环境有良好覆盖
 
 这两类设定在实际中都过于理想。更现实的场景是智能体只能与训练环境**在线交互**，但需要学到在部署环境（可能发生分布偏移）下也表现良好的策略。

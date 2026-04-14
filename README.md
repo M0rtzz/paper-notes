@@ -2,7 +2,7 @@
 
 - 📖 **10,000+** 篇 AI · LLM · NLP · CV 顶会论文解读，每篇 5 分钟读懂核心思想
 - 🏛️ 覆盖 ICLR · CVPR · ACL · NeurIPS · ICML · AAAI · ICCV · ECCV 等顶会
-- 🔬 横跨 LLM Reasoning · 多模态 VLM · Agent · RLHF · RAG · 代码智能 · 强化学习 · 图像生成 · 模型压缩 · 3D 视觉 · 机器人 · 自动驾驶等 **44** 研究方向
+- 🔬 横跨 LLM Reasoning · 多模态 VLM · Agent · RLHF · RAG · 代码智能 · 强化学习 · 图像生成 · 模型压缩 · 3D 视觉 · 机器人 · 自动驾驶等44个研究方向
 - 🔄 持续更新中
 
 ## 🌐 在线阅读

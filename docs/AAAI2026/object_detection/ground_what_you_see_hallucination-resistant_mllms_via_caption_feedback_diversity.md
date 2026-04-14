@@ -7,7 +7,7 @@ tags:
   - AAAI2026
   - 目标检测
   - MLLM hallucination
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - caption reward
   - NTK similarity
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.06224](https://arxiv.org/abs/2601.06224)  
 **代码**: [ZJU-OmniAI/OMNEX-VL](https://github.com/ZJU-OmniAI/OMNEX-VL)  
 **领域**: multimodal_vlm  
-**关键词**: MLLM hallucination, reinforcement learning, GRPO, caption reward, NTK similarity, InfoNCE  
+**关键词**: MLLM hallucination, reinforcement-learning, GRPO, caption reward, NTK similarity, InfoNCE
 
 ## 一句话总结
 

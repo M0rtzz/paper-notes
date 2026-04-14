@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.07022](https://arxiv.org/abs/2602.07022)  
 **代码**: 无  
 **领域**: 扩散模型 / 自回归图像生成  
-**关键词**: autoregressive generation, diffusion loss, condition refinement, optimal transport, Wasserstein gradient flow  
+**关键词**: autoregressive generation, diffusion loss, condition refinement, optimal transport, Wasserstein gradient flow
 
 ## 一句话总结
 理论分析了自回归扩散损失模型相比条件扩散模型在条件误差修正上的优势（梯度范数指数衰减），并提出基于最优传输（Wasserstein Gradient Flow）的条件精炼方法来解决自回归过程中的"条件不一致性"问题，在 ImageNet 上达到 FID 1.31（基于 MAR）。
@@ -52,25 +52,25 @@ tags:
 
 1. **条件误差理论分析**:
 
-    - 做什么：证明条件得分匹配损失是无条件得分匹配损失的上界（Theorem 1），且自回归过程的条件梯度范数指数衰减（Theorem 2）
+    - 功能：证明条件得分匹配损失是无条件得分匹配损失的上界（Theorem 1），且自回归过程的条件梯度范数指数衰减（Theorem 2）
     - 核心思路：在标准的马尔可夫性和高斯噪声假设下，定义条件误差项 $\epsilon_c$，量化条件化对得分函数的影响。关键结论是 $\|\nabla_{x_t} \log p_t(x_t|c_i)\| \leq M\beta^i + m$，其中 $\beta \in (0,1)$，说明随着自回归迭代进行，条件的影响指数衰减到一个平稳值 $m$
     - 设计动机：为自回归 diffusion loss 方法提供理论支撑——逐 patch 生成本身就在做条件精炼，这是它们优于全局条件扩散模型的根本原因
 
 2. **条件不一致性分析 (Lemma 6)**:
 
-    - 做什么：形式化定义自回归条件生成中的信息冗余问题
+    - 功能：形式化定义自回归条件生成中的信息冗余问题
     - 核心思路：每个条件 $c_i$ 可以分解为理想条件 $c_i^* = \pi_{\mathcal{I}_i^*}(c_i)$（投影到最小充分信息子空间）和冗余分量 $\eta_i = c_i - c_i^*$。冗余分量的能量 $\mathbb{E}[\|\eta_i\|_2^2]$ 由两部分组成：前序条件的传播 + 新注入的噪声
     - 设计动机：揭示了自回归条件精炼虽然有效但不完美——冗余信息会持续累积，需要额外的修正手段
 
 3. **Wasserstein Gradient Flow 条件精炼 (Proposition 2 + Theorem 3)**:
 
-    - 做什么：将条件精炼建模为 Wasserstein 空间上的梯度流优化问题
+    - 功能：将条件精炼建模为 Wasserstein 空间上的梯度流优化问题
     - 核心思路：最小化能量泛函 $\mathcal{F}(P_c) = W_2^2(P_c, P_{c^*}) + \lambda \mathbb{E}_{c \sim P_c}[\|c - \mathcal{T}^{-1}(x)\|^2]$，通过 JKO 迭代实现离散化。第一项将条件推向理想分布，第二项是逆过程正则化（抵消信息累积）
     - 设计动机：OT 度量的优势在于它衡量分布之间的"搬运代价"而非重叠度（如 KL 散度），能更好地处理支撑集不同的分布。理论保证 $W_2(P_c^{(k)}, P_{c^*}) \leq \rho^k W_2(P_c^{(0)}, P_{c^*})$，即指数收敛
 
 4. **Sinkhorn 算法实现**:
 
-    - 做什么：实际计算正则化最优传输问题
+    - 功能：实际计算正则化最优传输问题
     - 核心思路：求解 $\inf_\gamma \mathbb{E}_{(c,c')}[\|c - c'\|^2] + \epsilon \text{KL}(\gamma|\pi)$，用 Sinkhorn 迭代高效求解
     - 设计动机：直接求解 OT 问题是 NP-hard 的，Sinkhorn 引入熵正则化后可以在 $O(n^2)$ 内求解
 

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance
 description: >-
-  [CVPR 2026][图像分割][多任务学习] 提出高效RGB-D多任务场景理解网络，通过部分通道融合编码器(FLOPs降至1/16)、NFCL/CFIL跨维度特征引导和batch级自适应多任务损失，NYUv2上达49.82 mIoU同时速度提升24%(20.33 FPS)
+  [CVPR 2026][图像分割][multi-task learning] 提出高效RGB-D多任务场景理解网络，通过部分通道卷积融合编码器将FLOPs降至常规卷积的1/16、归一化焦点通道层(NFCL)和上下文特征交互层(CFIL)实现跨维度特征引导、batch级多任务自适应损失动态平衡五个任务，在NYUv2上以20.33 FPS（比EMSAFormer快24%）达到49.82 mIoU。
 tags:
   - CVPR 2026
   - 图像分割
-  - 多任务学习
-  - RGB-D融合
-  - 自适应损失
-  - 全景分割
+  - multi-task learning
+  - RGB-D fusion
+  - adaptive loss
+  - cross-dimensional guidance
 ---
 
 # Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance
@@ -43,17 +43,17 @@ tags:
 
 ### 关键设计
 1. **部分通道融合编码器**:
-    - 做什么：高效融合RGB和深度特征
+    - 功能：高效融合RGB和深度特征
     - 核心思路：基于不同通道特征的高度相似性，每个融合块仅取1/4通道做Conv2D特征提取，其余3/4直接拼接：$F = \text{Cat}(\text{Conv2d}(I_1), I_2)$。由于 $C'=C/4$，部分卷积FLOPs降至全卷积的1/16。再通过两个pointwise conv提取通道关系并加残差连接。深度权重初始化为 $D=(R+G+B)/2$ 复用ImageNet预训练
     - 设计动机：频繁内存访问是传统depthwise separable conv的瓶颈；部分通道卷积减少内存访问的同时利用了通道冗余性
 
 2. **归一化焦点通道层(NFCL) + 上下文特征交互层(CFIL)**:
-    - 做什么：NFCL过滤浅层噪声信息，CFIL弥补MLP decoder的局部-全局融合不足
+    - 功能：NFCL过滤浅层噪声信息，CFIL弥补MLP decoder的局部-全局融合不足
     - 核心思路：NFCL复用BN的可学习缩放因子γ作为通道重要性度量，通道权重 $W_i = |\gamma_i| / \sum_j |\gamma_j|$，经sigmoid门控过滤浅层噪声。CFIL做1×1和5×5两尺度自适应平均池化，通道压缩至C/2，上采样后与原始特征拼接再恢复通道数
     - 设计动机：MLP decoder依赖编码器特征质量——NFCL消除浅层误导，CFIL补充多尺度上下文，两者互补
 
 3. **多任务自适应损失**:
-    - 做什么：batch级实时动态调整各任务学习权重
+    - 功能：batch级实时动态调整各任务学习权重
     - 核心思路：每batch计算各任务相对损失 $RL_k = L_k / \sum_t L_t$，维护历史均值 $\text{Avg}RL_k$，更新权重 $W_k = \max(\bar{W}_k \times (\text{Avg}RL_k)^\alpha, W_{min})$，α=0.01控制敏感度，$W_{min}$=0.1防止任务被忽略
     - 设计动机：比epoch级方法响应更快，能适应batch间数据分布变化；比随机权重（Lin等）更稳定
 

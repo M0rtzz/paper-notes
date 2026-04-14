@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：3D语言场是视觉语言模型与3D环境建模的交叉领域，LangSplat通过3D高斯溅射嵌入CLIP特征取得重要进展（比LERF快199倍）。
+
 **现有痛点**：LangSplat仍未达到实时推理（8.2 FPS），重量级MLP解码器占总推理时间的97.1%，严重限制AR、机器人等应用。
+
 **核心矛盾**：CLIP特征是512维高维向量，直接溅射开销巨大（1536维比3维慢15倍）；但通过编码器压缩到低维再解码引入了沉重的MLP瓶颈。
+
 **本文要解决什么**：消除解码器瓶颈，实现高维特征的实时溅射。
+
 **切入角度**：观察到场景中百万级高斯点实际只包含有限数量的独特语义，可用稀疏编码高效表示。
+
 **核心idea一句话**：每个高斯的语言特征是全局码本上K个基向量的稀疏线性组合，渲染稀疏系数而非高维特征。
 
 ## 方法详解
@@ -44,7 +49,7 @@ tags:
 
 1. **3D稀疏系数场（3D Sparse Coefficient Field）**：
 
-    - 做什么：用稀疏系数+全局码本替代每个高斯的高维语言特征
+    - 功能：用稀疏系数+全局码本替代每个高斯的高维语言特征
     - 为什么：百万高斯点仅对应有限语义，天然适合稀疏表示
     - 怎么做：每个高斯的特征 $\mathbf{f}_i = \mathbf{w}_i \mathcal{S} = \sum_{l=1}^{L} w_{i,l} \mathbf{s}_l$，其中 $\mathbf{w}_i \in \mathbb{R}^{L}$ 仅K个非零值
     - 关键推导：$\mathbf{S} = \sum_{i \in \mathcal{N}} \mathbf{w}_i \mathcal{S} e_i = (\sum_{i \in \mathcal{N}} e_i \mathbf{w}_i) \mathcal{S}$
@@ -52,7 +57,7 @@ tags:
 
 2. **高效稀疏系数溅射（Efficient Sparse Coefficient Splatting）**：
 
-    - 做什么：利用稀疏性加速CUDA alpha-blending
+    - 功能：利用稀疏性加速CUDA alpha-blending
     - 为什么：标准溅射复杂度 $O(|\mathcal{N}| \cdot L)$，L大时成为瓶颈
     - 怎么做：每个高斯仅存储top-K索引和系数值，alpha-blending仅对K个非零元素操作
     - 复杂度从 $O(|\mathcal{N}| \cdot L)$ 降到 $O(|\mathcal{N}| \cdot K)$
@@ -61,7 +66,7 @@ tags:
 
 3. **全局码本学习**：
 
-    - 做什么：为整个场景学习L个D维基向量
+    - 功能：为整个场景学习L个D维基向量
     - 为什么：捕获场景中所有独特语义的紧凑表示
     - 怎么做：L维稀疏系数先softmax归一化，保留top-K后重归一化，与码本联合端到端学习
     - 参数设置：L=64, K=4, D=512（CLIP特征维度）

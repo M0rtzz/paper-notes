@@ -56,26 +56,26 @@ tags:
 
 1. **OM 作用泛函的构建与物理解释**:
 
-    - 做什么：将路径概率的负对数定义为 OM 作用泛函 $S[\mathbf{X}]$，最大化路径概率等价于最小化 $S$
+    - 功能：将路径概率的负对数定义为 OM 作用泛函 $S[\mathbf{X}]$，最大化路径概率等价于最小化 $S$
     - 核心思路：离散化 OM 作用包含三个项——**项 A** $\frac{1}{2\Delta t}\|\mathbf{x}^{(i+1)} - \mathbf{x}^{(i)}\|^2$ 鼓励相邻点平滑过渡；**项 B** $\frac{\Delta t}{2\zeta^2}\|\mathbf{\Phi}(\mathbf{x}^{(i)})\|^2$ 鼓励路径经过低漂移区域（能量极值或鞍点）；**项 C** $\frac{D\Delta t}{\zeta}\nabla \cdot \mathbf{\Phi}(\mathbf{x}^{(i)})$ 鼓励路径经过凸区域（动力学更稳定的区域）
     - 设计动机：物理参数 $\Delta t$（时间步长）、$\zeta$（阻尼系数）、$D$（扩散系数）控制三项的相对贡献，提供直观的物理调控手段。对于玻尔兹曼分布数据，学到的 score 直接对应原子力场 $\mathbf{s}_{\theta^*} \propto -\nabla U(\mathbf{x}) = \mathbf{F}(\mathbf{x})$
 
 2. **从生成模型提取 score 函数构建随机动力学**:
 
-    - 做什么：从预训练的 DDPM 或流匹配模型中提取 score 函数，构建等价的 SDE
+    - 功能：从预训练的 DDPM 或流匹配模型中提取 score 函数，构建等价的 SDE
     - 核心思路（DDPM）：通过在固定时间边际 $\tau$ 进行迭代"去噪-加噪"过程，推导出等价的 SDE：$d\mathbf{x} = \mathbf{s}_\theta(\mathbf{x}, \tau) dt + \sqrt{2} d\mathbf{W}_t$，其中 $\mathbf{s}_\theta$ 直接从去噪模型获得
     - 核心思路（Flow Matching）：证明了流匹配的速度场 $u_\theta$ 可通过解析公式转换为 score：$\mathbf{s}_\theta^{\text{FM}} = \frac{\alpha_\tau}{\dot{\sigma}_\tau \sigma_\tau \alpha_\tau - \dot{\alpha}_\tau \sigma_\tau^2}(\frac{\dot{\alpha}_\tau}{\alpha_\tau}\mathbf{x} - u_{\theta^*}(\mathbf{x}, \tau))$
     - 设计动机：这使得 OM 框架不局限于 DDPM，可扩展到流匹配等更广泛的生成模型类别
 
 3. **潜在空间线性插值初始化**:
 
-    - 做什么：在生成模型的低噪声潜在空间 $\tau_{\text{initial}}$ 进行端点插值，生成初始路径
+    - 功能：在生成模型的低噪声潜在空间 $\tau_{\text{initial}}$ 进行端点插值，生成初始路径
     - 核心思路：直接在构型空间线性插值会产生非物理路径（原子构型流形高度非凸），而在潜在空间插值生成的样本更接近数据流形
     - 设计动机：高质量的初始路径对优化结果至关重要，潜在空间的平滑性提供了更好的起点
 
 4. **基于 Hutchinson 估计器的散度加速**:
 
-    - 做什么：使用 Hutchinson 随机迹估计器来加速 OM 作用中散度项 $\nabla \cdot \mathbf{s}_{\theta^*}$ 的计算
+    - 功能：使用 Hutchinson 随机迹估计器来加速 OM 作用中散度项 $\nabla \cdot \mathbf{s}_{\theta^*}$ 的计算
     - 设计动机：精确计算高维 score 的散度代价过高，随机估计器将计算复杂度降至可接受范围，使得方法可扩展到大规模蛋白质系统
 
 ### 训练策略

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.10040](https://arxiv.org/abs/2501.10040)  
 **代码**: [GitHub](https://github.com/AeroVILab-AHU/LWGANet)  
 **领域**: 遥感轻量化骨干网络  
-**关键词**: lightweight backbone, remote sensing, grouped attention, spatial redundancy, channel redundancy  
+**关键词**: lightweight backbone, remote sensing, grouped attention, spatial redundancy, channel redundancy
 
 ## 一句话总结
 针对遥感图像中的空间冗余（大面积均质背景）和通道冗余（极端尺度变化导致单一特征空间低效）问题，提出 LWGANet 轻量化骨干，通过 Top-K 稀疏全局特征交互（TGFI）和异构分组注意力（LWGA）模块实现高效多尺度特征表示，在 12 个数据集 4 类遥感任务上达到 SOTA。

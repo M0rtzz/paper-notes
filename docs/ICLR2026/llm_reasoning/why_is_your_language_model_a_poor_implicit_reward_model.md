@@ -53,25 +53,25 @@ tags:
 
 1. **反驳"生成-验证差距"假说**
 
-    - 做什么：证明IM-RM可以成为完美的验证器，即使底层语言模型完全无法生成正确答案
+    - 功能：证明IM-RM可以成为完美的验证器，即使底层语言模型完全无法生成正确答案
     - 核心思路：Theorem 1 构造了一个分布 $\pi$，使得其诱导的IM-RM以margin $\delta$ 验证正确性，但 $\pi$ 生成正确回答的概率相比参考分布 $\pi_{\text{ref}}$ 最多增长一个常数因子 $\exp(\delta/\beta)$。也就是说，如果 $\pi_{\text{ref}}$ 本身无法高效生成，$\pi$ 也不需要能高效生成就能成为好的验证器
     - 实验验证：在NP-hard的哈密顿回路验证任务上，IM-RM（基于Pythia-1B）在测试集上达到 0.993 准确率，却无法生成任何一条正确的哈密顿回路
 
 2. **EX-RM学习动力学分析**
 
-    - 做什么：刻画梯度更新后，未见样本 $(\bar{\mathbf{x}}, \bar{\mathbf{y}})$ 的奖励变化
+    - 功能：刻画梯度更新后，未见样本 $(\bar{\mathbf{x}}, \bar{\mathbf{y}})$ 的奖励变化
     - 核心思路：在固定隐藏表示的假设下（Assumption 1），EX-RM的奖励变化为 $\Delta r_{\theta_{\text{EX}}}(\bar{\mathbf{x}}, \bar{\mathbf{y}}) = \langle \mathbf{h}_{\bar{\mathbf{x}},\bar{\mathbf{y}}}, \mathbf{h}_{\mathbf{x},\mathbf{y}^+} - \mathbf{h}_{\mathbf{x},\mathbf{y}^-} \rangle \cdot \eta g(\theta_{\text{EX}})$。奖励变化完全取决于隐藏表示之间的相似度——如果 $\bar{\mathbf{y}}$ 和 $\mathbf{y}^+$ 语义相近（隐藏表示对齐），奖励就会增加，与具体token无关
     - 设计动机：由于预训练表示编码了语义，EX-RM天然能泛化到使用不同token但语义相同的回答
 
 3. **IM-RM学习动力学分析**
 
-    - 做什么：揭示IM-RM为何过度依赖token级线索
+    - 功能：揭示IM-RM为何过度依赖token级线索
     - 核心思路：IM-RM的奖励变化包含系数 $\rho_{k,l}(\mathbf{v})$，当 $\bar{\mathbf{y}}_k = \mathbf{v}_l$（token匹配）时系数为正，起到类似EX-RM的作用；但当 $\bar{\mathbf{y}}_k \neq \mathbf{v}_l$（token不匹配）时系数可能为负，此时即使隐藏表示语义对齐，也可能**反向**降低奖励。关键点在于：语义相似但token不同的response，可能被IM-RM赋予相反的奖励方向
     - 设计动机：这解释了为什么对回答做paraphrase后IM-RM的准确率可以从1.0暴跌到0.02
 
 4. **理论泛化差距证明（Theorem 2）**
 
-    - 做什么：在简化设定下（单token回答），严格证明IM-RM无法泛化到未见token
+    - 功能：在简化设定下（单token回答），严格证明IM-RM无法泛化到未见token
     - 核心思路：训练到收敛后，IM-RM对任何不在训练集中出现的token对的奖励差恒为常数（等于初始值），因此准确率恒为0.5（随机水平）。而EX-RM的线性头方向收敛到最大间隔分离超平面 $\mathbf{u}^*$，能正确排序所有 $\mathbf{u}^*$ 能分对的样本
     - 设计动机：虽然假设较强（单token、固定表示），但实验证明结论在全参数训练、任意长度回答时依然成立
 

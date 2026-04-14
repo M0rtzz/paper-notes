@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.17268](https://arxiv.org/abs/2507.17268)  
 **代码**: [项目主页](https://flzt11.github.io/PA_project/)  
 **领域**: 3D视觉 / 偏振成像  
-**关键词**: 偏振图像合成, 扩散模型, AoLP, DoLP, Shape from Polarization, Stable Diffusion
+**关键词**: 偏振图像合成, diffusion model, AoLP, DoLP, Shape from Polarization, Stable Diffusion
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 **偏振成像的价值与痛点**：偏振图像为 shape-from-polarization（SfP）、去雾、反射去除等任务提供了独特的物理线索（AoLP 编码表面法线信息，DoLP 反映材质属性）。然而偏振相机价格昂贵、普及度极低，导致：
 
 **数据集稀缺**：现有真实偏振数据集要么量极小（Morimatsu 仅 40 组，Qiu 仅 38 组），要么场景单一（HAMMER/HouseCat6D 专注于室内 6D 位姿）
+
 **模拟器局限**：Mitsuba 等基于物理的渲染器需要完整的 3D 资产（mesh + PBR 材质 + 环境光照），且参数化 pBRDF 模型与真实偏振属性存在 gap，无法大规模生成逼真偏振图像
+
 **学习方法受限**：DeepSfP 等学习方法训练数据仅 236 张，严重制约泛化性
 
 **核心洞察**：RGB 图像容易获取且天然覆盖多样场景；预训练扩散模型（Stable Diffusion）从大规模数据中学到了强大的图像先验，可零样本迁移到判别任务。能否利用扩散先验，从单张 RGB 直接生成偏振属性？

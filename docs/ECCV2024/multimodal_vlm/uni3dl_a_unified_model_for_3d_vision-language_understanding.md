@@ -59,13 +59,13 @@ Uni3DL 包含四个核心模块：
 
 1. **Point Cloud Encoder（3D U-Net）**：
 
-    - 做什么：从带颜色的点云中提取多尺度体素特征
+    - 功能：从带颜色的点云中提取多尺度体素特征
     - 核心思路：输入点云量化为 $N_0$ 个体素，经过 $S$ 阶段的卷积-下采样-反卷积-上采样，得到不同分辨率的特征图 $\{\mathbf{V}_s \in \mathbb{R}^{N_s \times C}\}_{s=1}^{S}$。最后一层特征 $\mathbf{V}_S$ 用作逐点掩码计算的点嵌入，其余层 $\{\mathbf{V}_s\}_{s=1}^{S-1}$ 被送入 Query Transformer 增强 queries
     - 设计动机：U-Net 结构保留多尺度信息，有利于同时处理需要全局语义（如分类）和局部精度（如实例分割）的任务。使用预训练的 Mask3D 权重初始化，加速收敛
 
 2. **Query Transformer Module（核心创新）**：
 
-    - 做什么：融合 latent queries、text queries 和 3D 视觉特征，生成统一的语义和掩码表示
+    - 功能：融合 latent queries、text queries 和 3D 视觉特征，生成统一的语义和掩码表示
     - 核心思路：$L=15$ 层 transformer decoder，每层包含：
       - **Masked Cross-Attention**：queries 与体素特征交叉注意力，采用 Mask2Former 的 masked attention 策略，每个 query 只关注上一层预测的掩码区域对应的体素：$\langle \hat{\mathbf{F}}_Q^l, \hat{\mathbf{F}}_T^l \rangle = \text{Cross-Att}(\langle \mathbf{F}_Q^{l-1}, \mathbf{F}_T^{l-1} \rangle, \mathbf{V}_s)$
       - **Self-Attention**：query 间的交互，让 latent queries 和 text queries 相互增强
@@ -75,7 +75,7 @@ Uni3DL 包含四个核心模块：
 
 3. **Task Router（功能统一的关键）**：
 
-    - 做什么：通过组合不同功能头，从统一的语义/掩码输出中导出任务特定结果
+    - 功能：通过组合不同功能头，从统一的语义/掩码输出中导出任务特定结果
     - 组合策略（Table 2）：
       - 语义分割 = 分类头 + 掩码头
       - 实例分割 = 分类头 + 掩码头

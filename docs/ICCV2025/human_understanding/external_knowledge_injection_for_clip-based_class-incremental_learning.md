@@ -49,7 +49,7 @@ Engine 包含两个阶段的知识注入：
 
 1. **文本知识注入单元**:
 
-    - 做什么：利用 GPT-4 生成每个类别的判别性视觉特征描述，将这些外部知识编码到线性注入单元中
+    - 功能：利用 GPT-4 生成每个类别的判别性视觉特征描述，将这些外部知识编码到线性注入单元中
     - 核心思路：用 GPT-4 问每个类别的独特视觉特征（如 "What are unique visual features of [CLASS] in a photo?"），得到描述集合 $\mathbf{d}_i$。在冻结的文本编码器 $\bar{g_t}$ 后添加线性层 $u_t(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，通过最大化相似度损失注入知识：
     $\mathcal{L}_t = -\text{Sim}\left(u_t\left(\bar{g_t}(\mathbf{t}_i)\right), \bar{g_t}(\mathbf{d}_i)\right)$
       使得经过注入单元处理的模板文本特征 $u_t(\bar{g_t}(\mathbf{t}_i))$ 接近 GPT-4 生成的详细描述特征 $\bar{g_t}(\mathbf{d}_i)$。
@@ -57,7 +57,7 @@ Engine 包含两个阶段的知识注入：
 
 2. **视觉知识注入单元**:
 
-    - 做什么：通过数据增强增强视觉特征的多样性
+    - 功能：通过数据增强增强视觉特征的多样性
     - 核心思路：在冻结的视觉编码器 $\bar{g_i}$ 后添加线性层 $u_i(\cdot): \mathbb{R}^d \to \mathbb{R}^d$，最大化原始图像与增强图像的特征相似度：
     $\mathcal{L}_i = -\text{Sim}\left(u_i\left(\bar{g_i}(\mathbf{x})\right), \bar{g_i}(\mathcal{A}(\mathbf{x}))\right)$
       其中 $\mathcal{A}$ 是 AutoAugment 数据增强策略。
@@ -65,7 +65,7 @@ Engine 包含两个阶段的知识注入：
 
 3. **任务特定注入单元扩展 + 原型重放**:
 
-    - 做什么：为每个增量任务创建独立的注入单元，防止遗忘
+    - 功能：为每个增量任务创建独立的注入单元，防止遗忘
     - 核心思路：学习第 $b$ 个任务时，初始化新的 $u_t^b, u_i^b$，冻结所有之前的注入单元。最终表示是所有注入单元的求和：
     $G_i(\mathbf{x}) = \sum_{p=1}^{b-1} \bar{u}_i^p(\bar{g_i}(\mathbf{x})) + u_i^b(\bar{g_i}(\mathbf{x}))$
       同时利用每个类别的视觉原型 $\mathbf{p}_k$（类别平均嵌入）作为旧类代理参与训练，并添加高斯噪声 $\epsilon \sim \mathcal{N}(0, \alpha^2 \mathbf{I})$ 增强多样性。
@@ -74,7 +74,7 @@ Engine 包含两个阶段的知识注入：
 
 4. **Post-tuning 知识注入（推理时重排序）**:
 
-    - 做什么：利用 GPT-4 生成的成对判别特征对 top-k 预测进行局部精炼
+    - 功能：利用 GPT-4 生成的成对判别特征对 top-k 预测进行局部精炼
     - 核心思路：提取模型 top-k 预测的类别集合 $\{y_{i_1}, \ldots, y_{i_k}\}$，对每对类使用 GPT-4 生成判别性差异描述（如 "cat 有 long thin tail, 而 lion 有 stockier tail with tuft"），构建判别矩阵 $\mathbf{D} = [\mathbf{d}_{ij}]$。用零样本 CLIP 匹配查询图像到这些成对描述：
     $f_{\text{pt}, y_i}(\mathbf{x}) = \frac{1}{k-1} \sum_{j=1}^{j \neq i} f_{y_i}(\mathbf{x}, \mathbf{d}_{ij})$
       最终预测是注入特征匹配和后调优匹配的和：$f(\mathbf{x}) = f_{\text{inj}}(\mathbf{x}) + f_{\text{pt}}(\mathbf{x})$

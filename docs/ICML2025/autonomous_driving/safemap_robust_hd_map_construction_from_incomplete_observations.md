@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.00861](https://arxiv.org/abs/2507.00861)  
 **代码**: 无  
 **领域**: 自动驾驶  
-**关键词**: HD Map Construction, BEV Perception, Sensor Failure Robustness, View Reconstruction, Knowledge Distillation
+**关键词**: HD Map Construction, BEV Perception, Sensor Failure Robustness, View Reconstruction, knowledge distillation
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ SafeMap 提出了一个即插即用的鲁棒高精地图构建框架，通过高
 现有方法存在以下问题：
 
 **脆弱性暴露**：MapBench 评测表明传感器故障会严重影响 HD Map 模型性能，威胁交通安全
+
 **已有方案局限**：MetaBEV、UniBEV 等方法针对 3D 目标检测的传感器失效问题，仍依赖完整多视角图像；M-BEV 仅利用相邻视角局部裁剪进行恢复，需要预设裁剪比例且未充分利用所有可用视角信息
+
 **领域空白**：面向 HD Map 构建的不完整观测鲁棒方法尚未被充分探索，而地图构建高度依赖周围相机捕获的静态环境数据
 
 SafeMap 是**首个**专门针对不完整多视角相机数据进行 HD Map 构建的鲁棒框架。

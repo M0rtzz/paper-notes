@@ -26,9 +26,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Mamba等选择性SSM在多种序列任务上与Transformer竞争，但缺乏理论泛化分析。
+
 **现有痛点**：LTI SSM 的泛化理论依赖控制论工具（脉冲响应 ℓ1 范数、传递函数 H2 范数），但选择性 SSM 的非线性输入依赖动力学使这些工具不适用。Transformer 的覆盖数理论已较成熟，但无法直接应用于 SSM 的递归结构。
+
 **核心矛盾**：选择性 SSM 既有 RNN 的递归结构（需要控制状态矩阵增长），又有注意力的输入依赖投影（$W_B, W_C$ 类似 key-query），需要一个统一的分析框架
+
 **切入角度**：将选择性 SSM 递归展开为类注意力形式，构建两层覆盖——状态矩阵用 RNN 工具覆盖，输入投影用 Transformer 工具覆盖
+
 **核心idea一句话**：连续时间状态矩阵的频谱横断面 $s_A$ 决定了泛化界是否与序列长度无关
 
 ## 方法详解
@@ -40,7 +44,7 @@ tags:
 
 1. **SSM→注意力展开**：
 
-    - 做什么：将 Mamba 的递归计算 $y[t'] = C[t'] \sum_{t=0}^{t'-1} A^t \Delta[t'-1-t] B[t'-1-t] u[t'-1-t]$ 展开为类注意力形式
+    - 功能：将 Mamba 的递归计算 $y[t'] = C[t'] \sum_{t=0}^{t'-1} A^t \Delta[t'-1-t] B[t'-1-t] u[t'-1-t]$ 展开为类注意力形式
     - 核心思路：$W_C$ 对应 Query 投影，$W_B$ 对应 Key 投影，$u$ 本身作为 Value。$$z = w^\top \sum_{t=0}^{T-1} \underbrace{(I_d \otimes u[T]^\top W_C^\top)}_{\text{Query}} \underbrace{(I_d \otimes W_B u[T-1-t])}_{\text{Key}} \underbrace{u[T-1-t]}_{\text{Value}}$$
     - 设计动机：这种展开使得 $W_B, W_C$ 可以复用 Transformer 泛化理论中的线性函数类覆盖技术
 

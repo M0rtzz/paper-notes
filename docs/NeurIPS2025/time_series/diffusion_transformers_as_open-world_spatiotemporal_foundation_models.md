@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.12164](https://arxiv.org/abs/2411.12164)  
 **代码**: [tsinghua-fib-lab/UrbanDiT](https://github.com/tsinghua-fib-lab/UrbanDiT)  
 **领域**: time_series  
-**关键词**: Diffusion Transformer, Spatiotemporal Foundation Model, Urban Computing, Prompt Learning, Zero-shot  
+**关键词**: Diffusion Transformer, Spatiotemporal Foundation Model, Urban Computing, Prompt Learning, Zero-shot
 
 ## 一句话总结
 提出 UrbanDiT，首个基于 Diffusion Transformer 的开放世界城市时空基础模型，通过统一的 prompt learning 框架整合异构数据类型（grid/graph）和多种任务（预测/插值/外推/填补），在多城市多场景下实现 SOTA 性能并展现强大的 zero-shot 泛化能力。

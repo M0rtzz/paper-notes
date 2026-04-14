@@ -6,9 +6,9 @@ description: >-
 tags:
   - ICML2025
   - LLM self-correction
-  - test-time scaling
-  - preference learning
-  - curriculum learning
+  - 测试时缩放
+  - 偏好学习
+  - 课程学习
   - self-verification
 ---
 
@@ -20,7 +20,7 @@ tags:
 **代码**: [github.com/seunghyukoh/revise](https://github.com/seunghyukoh/revise)  
 **作者**: Hyunseok Lee, Seunghyuk Oh, Jaehyung Kim, Jinwoo Shin, Jihoon Tack (KAIST)
 **领域**: reinforcement_learning  
-**关键词**: LLM self-correction, test-time scaling, preference learning, curriculum learning, self-verification
+**关键词**: LLM self-correction, 测试时缩放, 偏好学习, 课程学习, self-verification
 
 ## 一句话总结
 
@@ -33,7 +33,9 @@ tags:
 **现有方案的不足**：
 
 **外部验证器方法**（如 Luo et al., 2024）：依赖大规模外部模型做验证并触发重新生成，计算开销大
+
 **RL 方法**（如 SCoRe, Kumar et al., 2024）：训练不稳定、计算量巨大（约 150 万次生成/3000步），且不显式建模中间推理步骤的验证
+
 **Self-Refine 类方法**（Madaan et al., 2023）：在复杂任务上实际性能下降，且 LLM 本身缺乏自纠错能力（Huang et al., 2024 已论证）
 
 **关键问题**：能否让 LLM 拥有一个内部机制，显式验证自身推理过程并据此纠正错误？

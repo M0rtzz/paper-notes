@@ -9,7 +9,7 @@ tags:
   - benchmark
   - verification
   - LLM
-  - 强化学习
+  - reinforcement-learning
 ---
 
 # VerifyBench: Benchmarking Reference-based Reward Systems for Large Language Models
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.15801](https://arxiv.org/abs/2505.15801)  
 **代码**: [GitHub](https://github.com/ZJU-REAL/VerifyBench)  
 **领域**: human_understanding / LLM 评估与奖励模型  
-**关键词**: reward model, benchmark, verification, LLM, reinforcement learning
+**关键词**: reward model, benchmark, verification, LLM, reinforcement-learning
 
 ## 一句话总结
 
@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **LRM 训练依赖参考答案奖励**：OpenAI o1、DeepSeek-R1 等推理模型在 RL 训练中使用基于参考答案的奖励系统（reference-based reward），即根据模型输出与标准答案的一致性来给予奖励。
+
 **现有 benchmark 聚焦偏好比较**：现有奖励模型评测（如 RewardBench）主要评估成对偏好判断——在两个回答中选择更好的一个，而非判断单个回答是否正确。
+
 **评测与实际使用场景脱节**：LRM 训练中的奖励系统需要判断回答与参考答案是否一致（绝对正确性），而非比较两个回答的优劣（相对偏好），存在本质区别。
+
 **规则方法的局限**：SimpleRL 中使用的 math-verify 等规则方法在数学表达式匹配上存在明显缺陷，但缺乏标准化评测来量化这些不足。
+
 **困难样本的需求**：模型在简单验证任务上表现良好（约 95%），但在真正有歧义的困难样本上差距显著（约 70-88%），需要专门的困难基准来推动进步。
 
 ## 方法详解

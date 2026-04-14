@@ -55,9 +55,9 @@ $$\mathbf{p}_k = d_{i,k} \mathbf{T}_i^{-1} \mathbf{K}_i^{-1} \tilde{\mathbf{u}}_
 
 2. **双注意力特征混合器（Dual-Attention Based Feature Mixer）**：这是 MixRI 的核心创新。它包含三个模块交替迭代：
 
-   - **SAP（点间自注意力）**：在同一参考图的 $N$ 个采样点之间做注意力，整合空间位置信息
-   - **SAF（帧间自注意力）**：在 $S$ 个参考帧之间做注意力，并与可学习的融合 token $\bar{\mathbf{F}}$ 交互，实现跨视角信息聚合
-   - **MARQ（参考-查询混合注意力）**：在融合后的参考 token 和查询图特征之间做交叉注意力，增强查询图特征
+    - **SAP（点间自注意力）**：在同一参考图的 $N$ 个采样点之间做注意力，整合空间位置信息
+    - **SAF（帧间自注意力）**：在 $S$ 个参考帧之间做注意力，并与可学习的融合 token $\bar{\mathbf{F}}$ 交互，实现跨视角信息聚合
+    - **MARQ（参考-查询混合注意力）**：在融合后的参考 token 和查询图特征之间做交叉注意力，增强查询图特征
 
    整体用公式表示为：
    $$\hat{\mathbf{F}} = \text{Self}_N(g_N(\hat{\mathbf{F}}), \mathbf{O}), \quad \hat{\mathbf{F}}, \bar{\mathbf{F}} = \text{Self}_S(g_S(\hat{\mathbf{F}}), \bar{\mathbf{F}}, \mathbf{O}), \quad \bar{\mathbf{F}}, \mathbf{F}_0 = \text{Mix}(\bar{\mathbf{F}}, \mathbf{F}_0, \mathbf{O})$$

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.10978](https://arxiv.org/abs/2506.10978)  
 **代码**: [项目页面](https://cvlab-kaist.github.io/HeadHunter/)  
 **领域**: 扩散模型 / 图像生成  
-**关键词**: 注意力扰动引导, 注意力头, Diffusion Transformer, 细粒度控制, 风格迁移
+**关键词**: 注意力扰动引导, 注意力头, 扩散 Transformer, 细粒度控制, 风格迁移
 
 ## 一句话总结
 

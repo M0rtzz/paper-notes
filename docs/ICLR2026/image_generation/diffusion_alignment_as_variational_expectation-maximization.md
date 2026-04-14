@@ -50,19 +50,19 @@ DAV 在训练中交替执行：
 
 1. **变分 EM 形式化**:
 
-    - 做什么：将 reward 优化转化为最优性变量的边际似然最大化
+    - 功能：将 reward 优化转化为最优性变量的边际似然最大化
     - 核心思路：定义 $p(\mathcal{O}=1|\tau) \propto \exp(\sum r_t/\alpha)$，轨迹 $\tau$ 是潜变量。ELBO 为 $\mathcal{J}_{\alpha,\gamma}(\eta, p_\theta)$，引入折扣因子 $\gamma$ 衰减远离终端的时间步的信用
     - 设计动机：EM 框架天然将探索（E-step）和利用（M-step）解耦，且 M-step 的 forward-KL 是 mode-covering 的，防止坍缩
 
 2. **E-step: Test-time search**:
 
-    - 做什么：近似采样最优变分后验 $\eta_k^*(x_{t-1}|x_t) \propto p_{\theta_k}(x_{t-1}|x_t) \exp(Q_{\text{soft}}^*/\alpha)$
+    - 功能：近似采样最优变分后验 $\eta_k^*(x_{t-1}|x_t) \propto p_{\theta_k}(x_{t-1}|x_t) \exp(Q_{\text{soft}}^*/\alpha)$
     - 核心思路：两阶段——先用梯度引导（$Q_{\text{soft}}$ 近似为 $\gamma^{t-1} r(\hat{x}_0(x_{t-1}))$，Tweedie's formula）采样 $M$ 个候选粒子，再用重要性采样精炼
     - 设计动机：单纯 on-policy 重加权（传统 EM-RL）在策略偏离后验时严重偏差。Test-time search 主动探索，发现策略分布外的高奖励区域
 
 3. **M-step: Forward-KL 蒸馏**:
 
-    - 做什么：将 E-step 的搜索轨迹蒸馏到模型参数
+    - 功能：将 E-step 的搜索轨迹蒸馏到模型参数
     - 核心思路：$\mathcal{L}_{\text{DAV}} = -\mathbb{E}_{\tau \sim \eta_k^*}[\log p_\theta(\tau)]$。可选加 KL 正则化 $\mathcal{L}_{\text{DAV-KL}} = \mathcal{L}_{\text{DAV}} + \lambda D_{\text{KL}}(p_\theta || p_{\theta^0})$ 约束对预训练模型的偏离
     - 设计动机：Forward-KL 最小化 = 最大化搜索样本的似然 = mode-covering。与 RL 的 reverse-KL (mode-seeking) 相反，自然保持多样性
 

@@ -59,14 +59,14 @@ SPIN 并非提出新分割方法，其贡献由三部分组成：
 
 2. **空间一致性分数 SpCS（Spatial Consistency Score）**：
 
-    - 做什么：评估子区域预测是否被正确空间包含在父区域中
+    - 功能：评估子区域预测是否被正确空间包含在父区域中
     - 公式：$SpCS = \frac{1}{|\mathcal{R}|} \sum_{(\text{child}, \text{parent})} \frac{|\text{child} \cap \text{parent}|}{|\text{child}|}$
     - 范围 [0,1]，1 表示完美包含（眼睛预测完全在头内）
     - 设计动机：传统 IoU 独立评估各层级，即使模型把子部件预测到父区域之外也不会惩罚
 
 3. **语义一致性分数 SeCS（Semantic Consistency Score）**：
 
-    - 做什么：评估像素级预测的跨层级语义蕴含是否合理
+    - 功能：评估像素级预测的跨层级语义蕴含是否合理
     - 核心思路：对每个同时有三层预测的前景像素 x，检查 subpart→part→object 的语义蕴含链是否在 ground truth 关系中成立
     - 例如"eye→head→quadruped"正确，"windshield→head→bottle"错误
     - SeCS = 所有前景像素语义正确比例的均值

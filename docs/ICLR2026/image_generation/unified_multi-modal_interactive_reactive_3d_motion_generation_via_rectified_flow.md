@@ -47,19 +47,19 @@ DualFlow提出首个统一框架，通过Rectified Flow和检索增强生成（R
 
 1. **多模态运动检索（RAG）**:
 
-    - 做什么：为双人运动生成提供语义锚点
+    - 功能：为双人运动生成提供语义锚点
     - 核心思路：使用GPT-4o将文本描述分解为三个维度——空间关系、身体动作、节奏。分别构建CLIP检索库 $(D^S, D^B, D^R)$ 和音乐检索库 $D^M$（Jukebox特征）。相似度评分 $s_i^q = \langle f_i^q, f_p^q \rangle \cdot e^{-\lambda \cdot \frac{|l_i - l_p|}{\max\{l_i, l_p\}}}$，兼顾语义相似和时间兼容
     - 设计动机：直接从原始文本检索忽略交互运动的细微维度，LLM分解可提高检索质量
 
 2. **对比Rectified Flow**:
 
-    - 做什么：在流匹配框架中增强语义对齐
+    - 功能：在流匹配框架中增强语义对齐
     - 核心思路：标准流损失 $\mathcal{L}_{\text{flow}} = \mathbb{E}[\|\mathbf{v}_\theta(\mathbf{x}_t, t, c) - (\mathbf{x}_0 - \epsilon)\|_2^2]$ 加上三元组对比损失 $\mathcal{L}_{\text{triplet}} = \mathbb{E}[\max(0, d(\hat{\mathbf{v}}, \mathbf{v}^+) - d(\hat{\mathbf{v}}, \mathbf{v}^-) + m)]$
     - 对比样本构建：利用RAG的层次结构，正样本为相同风格/相似文本描述的运动，负样本为风格差异大或文本相似度低（>0.6）的运动
 
 3. **同步损失**:
 
-    - 做什么：强化双人间的空间关系一致性
+    - 功能：强化双人间的空间关系一致性
     - 核心思路：加权双人关节距离损失 $\mathcal{L}_{\text{sync}} = \sum_{j_1,j_2} w_d(j_1,j_2) w_j(j_1,j_2) \|d_p(j_1,j_2) - d_{gt}(j_1,j_2)\|^2$
     - 距离权重 $w_d$ 对自然更近的关节对赋予更高重要性；解剖权重 $w_j$ 区分手部、上肢、下肢等部位
 

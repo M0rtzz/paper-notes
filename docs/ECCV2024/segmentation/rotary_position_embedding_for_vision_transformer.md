@@ -52,14 +52,14 @@ $$\mathbf{A}'_{(n,m)} = \mathrm{Re}[\mathbf{q}_n \mathbf{k}_m^* e^{i(n-m)\theta}
 
 1. **2D Axial RoPE (基线方案)**:
 
-    - 做什么：将 1D RoPE 的 token 索引替换为 2D 坐标 $(p_n^x, p_n^y)$，将 head 维度一分为二，偶数通道编码 x 轴、奇数通道编码 y 轴
+    - 功能：将 1D RoPE 的 token 索引替换为 2D 坐标 $(p_n^x, p_n^y)$，将 head 维度一分为二，偶数通道编码 x 轴、奇数通道编码 y 轴
     - 核心公式：$\mathbf{R}(n, 2t) = e^{i\theta_t p_n^x}$, $\mathbf{R}(n, 2t+1) = e^{i\theta_t p_n^y}$
     - 频率基数从 $10000$ 降为 $100$（$\sqrt{10000}$），因为 2D 图像的位置索引范围比 1D 序列短
     - 局限：每个频率通道只看一个轴，无法表示对角方向的空间关系
 
 2. **RoPE-Mixed（本文核心贡献）**:
 
-    - 做什么：让每个频率通道同时使用 x 和 y 两个轴的频率参数，能表示任意2D方向
+    - 功能：让每个频率通道同时使用 x 和 y 两个轴的频率参数，能表示任意2D方向
     - 核心公式：$\mathbf{R}(n, t) = e^{i(\theta_t^x p_n^x + \theta_t^y p_n^y)}$
     - 注意力矩阵变为：$\mathbf{A}'_{(n,m)} = \mathrm{Re}[\mathbf{q}_n \mathbf{k}_m^* e^{i(\theta_t^x(p_n^x - p_m^x) + \theta_t^y(p_n^y - p_m^y))}]$
     - $(\theta_t^x, \theta_t^y)$ 作为**可学习参数**端到端优化，每个 head、每层有独立的频率参数集合

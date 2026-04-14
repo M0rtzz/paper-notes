@@ -20,7 +20,7 @@ tags:
 **作者**: Jabin Koo, Minwoo Jang, Jungseul Ok (POSTECH, 韩国)
 **代码**: 无公开  
 **领域**: 联邦学习 / 参数高效微调 / 大语言模型  
-**关键词**: Federated Learning, LoRA, Aggregation Discordance, Alternating Freeze, Adaptive Rank Selection, Communication Efficiency  
+**关键词**: federated learning, LoRA, Aggregation Discordance, Alternating Freeze, Adaptive Rank Selection, Communication Efficiency
 
 ## 一句话总结
 提出 LoRA-A²（Low Rank Adaptation with Alternating freeze and Adaptive rank selection），通过交替冻结 A/B 矩阵解决联邦 LoRA 聚合不一致问题，并结合自适应秩选择机制在大幅压缩上传参数量（最高减少 99.8%）的同时保持鲁棒性，尤其在低秩+高数据异构场景下显著优于现有方法。

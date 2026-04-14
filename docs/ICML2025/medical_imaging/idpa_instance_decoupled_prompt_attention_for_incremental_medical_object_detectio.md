@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.00406](https://arxiv.org/abs/2506.00406)  
 **代码**: [https://github.com/HarveyYi/iDPA](https://github.com/HarveyYi/iDPA)  
 **领域**: 医学图像  
-**关键词**: 增量目标检测, 持续学习, Prompt Tuning, 多模态融合, 医学目标检测
+**关键词**: 增量目标检测, 持续学习, prompt tuning, 多模态融合, 医学目标检测
 
 ## 一句话总结
 

@@ -11,7 +11,7 @@ tags:
   - Transformer
   - Gaussian Mixture Model
   - 自监督学习
-  - robot manipulation
+  - robotic manipulation
 ---
 
 # Knolling Bot: Teaching Robots the Human Notion of Tidiness
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2310.04566](https://arxiv.org/abs/2310.04566)  
 **代码**: [开源数据集与基准](https://www.youtube.com/watch?v=jCxykR4iP0I)（视频演示）  
 **领域**: 机器人 / 物体整理  
-**关键词**: knolling, object rearrangement, transformer, Gaussian Mixture Model, self-supervised learning, robot manipulation
+**关键词**: knolling, object rearrangement, transformer, Gaussian Mixture Model, self-supervised learning, robotic manipulation
 
 ## 一句话总结
 提出基于 Transformer + GMM 的自监督学习框架，让机器人从 240 万组整理示范中学习"整洁"的抽象概念，以自回归方式预测物体目标位置，实现桌面物体的美观且紧凑的自动整理（knolling），并支持基于用户偏好（颜色/类别/大小）生成多样化整理方案。
@@ -28,10 +28,12 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：家庭机器人需要完成各种整理任务，但现有工作多聚焦于基于明确指令的物体重排（object rearrangement），或依赖 LLM 提供常识。缺少对"整洁"这一抽象概念的通用建模。
+
 **核心挑战**：
    - "整洁"是高度主观的概念——同一组物体存在多种合理的整理方式（按颜色、按类别、按大小等）
    - 家庭环境物体种类多变，数量不固定，无法为每个场景预设目标位置
    - 简单的回归模型会对多个合理目标取平均，导致物体重叠等不合理结果（如图 2A 所示）
+
 **切入角度**：将 knolling（将散乱物品排列为整齐、紧凑布局的行为）类比为 NLP 中的序列预测问题——物体是"词"，整理结果是"句子"，用 Transformer 自回归生成每个物体的目标位置。
 
 ## 核心问题

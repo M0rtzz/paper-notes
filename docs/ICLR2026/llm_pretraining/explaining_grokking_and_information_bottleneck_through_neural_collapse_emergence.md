@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR2026
   - Grokking
-  - Information Bottleneck
+  - 信息瓶颈
   - Neural Collapse
   - 训练动态
   - 类内方差
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.20829](https://arxiv.org/abs/2509.20829)  
 **代码**: [keitaroskmt/collapse-dynamics](https://github.com/keitaroskmt/collapse-dynamics)  
 **领域**: others  
-**关键词**: Grokking, Information Bottleneck, Neural Collapse, 训练动态, 类内方差, 泛化理论, Lyapunov 时间尺度  
+**关键词**: Grokking, 信息瓶颈, Neural Collapse, 训练动态, 类内方差, 泛化理论, Lyapunov 时间尺度
 
 ## 一句话总结
 通过 Neural Collapse 的视角统一解释 Grokking（延迟泛化）和 Information Bottleneck（压缩阶段）两大训练后期现象，证明群体类内方差的收缩是两者的共同关键因素，并揭示训练损失收敛与 Neural Collapse 发生存在由 weight decay 控制的不同时间尺度。

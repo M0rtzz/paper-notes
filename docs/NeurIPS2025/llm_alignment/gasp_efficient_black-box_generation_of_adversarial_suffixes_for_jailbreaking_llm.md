@@ -48,21 +48,21 @@ GASP包含四个模块：(A) 在AdvSuffixes数据集上预训练SuffixLLM；(B) 
 
 1. **潜在贝叶斯优化（LBO）搜索**：
 
-    - 做什么：在SuffixLLM的嵌入空间（而非离散token空间）中搜索有效的对抗后缀
+    - 功能：在SuffixLLM的嵌入空间（而非离散token空间）中搜索有效的对抗后缀
     - 核心流程：SuffixLLM生成候选后缀集 → 编码为潜在向量 → 高斯过程拟合(向量, 攻击分数)对 → acquisition function选择下一个最有前景的向量 → 解码为最近邻后缀 → 评估 → 更新GP
     - 设计动机：连续空间比离散token空间平滑得多，GP可以有效建模攻击效果的landscape，acquisition function自动平衡探索与利用。相比GCG的梯度离散搜索，搜索效率大幅提升
     - 解码用最近邻搜索保证输出是已有候选中的真实后缀，天然满足可读性约束
 
 2. **GASPEval评估器**：
 
-    - 做什么：用21个二值标准评估TargetLLM回复的有害程度（涵盖仇恨言论、非法指令、虚假信息、威胁等）
+    - 功能：用21个二值标准评估TargetLLM回复的有害程度（涵盖仇恨言论、非法指令、虚假信息、威胁等）
     - 核心思路：由辅助LLM打分，每个标准0-2分，总分反映后缀的对抗质量
     - 设计动机：比简单的关键词匹配（"Sorry, I can't..."）更精细，比StrongREJECT更全面
     - 采用懒评估（lazy evaluation）：只评估LBO选中的后缀，避免浪费
 
 3. **ORPO迭代微调**：
 
-    - 做什么：根据LBO发现的后缀质量排序，用偏好优化微调SuffixLLM
+    - 功能：根据LBO发现的后缀质量排序，用偏好优化微调SuffixLLM
     - 核心公式：$L_{\text{ORPO}} = \ell_{\text{SFT}}(\phi; x, y_+) + \lambda \cdot \ell_{\text{OR}}(\phi; x, y_+, y_-)$
     - 将GASPEval分数最高的后缀作为 $y_+$，较差的作为 $y_-$
     - 设计动机：SFT部分学习模仿好后缀，OR部分学习区分好坏后缀，双重信号加速收敛。比纯SFT更高效，比DPO更轻量（不需要参考策略）

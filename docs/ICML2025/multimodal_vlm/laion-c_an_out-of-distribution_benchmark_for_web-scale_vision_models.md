@@ -1,8 +1,16 @@
 ---
-title: "LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models"
-conference: "ICML2025"
-domain: "multimodal_vlm"
-arxiv: "2506.16950"
+title: >-
+  [论文解读] LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models
+description: >-
+  [ICML 2025][多模态][OOD鲁棒性] 本文指出经典的 ImageNet-C 分布外鲁棒性基准对于在 LAION 等网络规模数据集上训练的模型已不再是真正的 OOD，为此设计了6种全新的高度合成化图像畸变构建 LAION-C 基准，配合19名被试的心理物理学实验，揭示了 OOD 泛化的范式转变——最优模型已追平甚至超越人类。
+tags:
+  - ICML 2025
+  - 多模态
+  - OOD鲁棒性
+  - benchmark
+  - ImageNet-C
+  - LAION
+  - 人机对比
 ---
 
 # LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models
@@ -11,7 +19,7 @@ arxiv: "2506.16950"
 **arXiv**: [2506.16950](https://arxiv.org/abs/2506.16950)  
 **代码**: [GitHub](https://github.com/FanfeiLi/LAION-C)  
 **领域**: 多模态VLM / 鲁棒性评估  
-**关键词**: OOD鲁棒性, Benchmark, ImageNet-C, LAION, 人机对比
+**关键词**: OOD鲁棒性, benchmark, ImageNet-C, LAION, 人机对比
 
 ## 一句话总结
 
@@ -41,7 +49,7 @@ arxiv: "2506.16950"
 
 1. **6种高度合成化畸变**:
 
-    - 做什么：设计在网络规模数据集中也不存在的图像畸变
+    - 功能：设计在网络规模数据集中也不存在的图像畸变
     - 各畸变详解：
         - **Mosaic（马赛克拼图）**：将图像拆成小块，每块替换为颜色相似的其他图片，破坏边缘和纹理同时引入上下文无关信息，测试模型的整体整合能力
         - **Glitched（故障效果）**：带水平条纹叠加的位移图像段和颜色通道偏移，打乱全局上下文结构
@@ -53,13 +61,13 @@ arxiv: "2506.16950"
 
 2. **16超类分类体系**:
 
-    - 做什么：将 ImageNet 的285个类别映射到16个人类可评估的超类
+    - 功能：将 ImageNet 的285个类别映射到16个人类可评估的超类
     - 核心思路：ball, bird, boat, bottle, butterfly, car&truck, cat, chair, dog, fish, fruit, instrument, primate, snake, timekeeping, tool——每个超类包含多个 ImageNet 子类
     - 设计动机：人类无法高效地在数百个类别间做选择，16类使得心理物理学实验可行；手动过滤确保无跨超类歧义和文化依赖性
 
 3. **心理物理学人类基线实验**:
 
-    - 做什么：在严格控制的实验室环境中收集人类分类性能作为参照
+    - 功能：在严格控制的实验室环境中收集人类分类性能作为参照
     - 核心思路：19名被试在暗室中使用校准显示器，每张图像呈现2.5秒 + 2秒反应窗口，通过图标点击分类。设有热身block和金钱激励以保证高质量表现。共收集11,400个试次
     - 设计动机：提供实验室级别的人类鲁棒性数据，使得人机对比具有科学严谨性
 

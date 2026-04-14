@@ -50,7 +50,7 @@ tags:
 
 1. **Flat Pooling 鲁棒性理论分析**:
 
-    - 做什么：对 GCN 下的 Sum/Avg/Max pooling 推导对抗风险上界
+    - 功能：对 GCN 下的 Sum/Avg/Max pooling 推导对抗风险上界
     - 核心思路（Theorem 4.2）：设 $L$ 层 GCN，权重矩阵 $W^{(\ell)}$，扰动预算 $\epsilon$，$\hat{w}_u$ 为节点 $u$ 出发的长度 $L-1$ 归一化游走总和：
       - Sum pooling: $\gamma = (\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
       - Average pooling: $\gamma = \frac{1}{n}(\prod_\ell \|W^{(\ell)}\|) \sum_{u} \hat{w}_u \epsilon$
@@ -59,7 +59,7 @@ tags:
 
 2. **RS-Pool (Robust Singular Pooling)**:
 
-    - 做什么：用 $H$ 的主右奇异向量 $v_1$ 生成图级表示 $\tau v_1(H)$
+    - 功能：用 $H$ 的主右奇异向量 $v_1$ 生成图级表示 $\tau v_1(H)$
     - 核心思路：$H = U\Sigma V^\top$，RS-Pool 映射 $H \mapsto \tau v_1(H)$，其中 $\tau > 0$ 为缩放因子
     - 鲁棒性保证（Theorem 5.1）：
 
@@ -70,7 +70,7 @@ tags:
 
 3. **Power Iteration 高效实现**:
 
-    - 做什么：避免计算完整 SVD，用幂迭代法近似主奇异向量
+    - 功能：避免计算完整 SVD，用幂迭代法近似主奇异向量
     - 核心思路：先计算 $S = H^\top H$，随机初始化 $v$，迭代 $v \leftarrow Sv/\|Sv\|_2$，$K$ 次后返回 $\tau Hv$
     - 复杂度 $O(K \times n \times d)$，$K$ 通常 2-5 次即收敛（GNN 嵌入的谱间隙通常较大）
     - 收敛速率 $\sigma_2/\sigma_1$ 越小越快，与鲁棒性上界形成**双重优势**：谱间隙大 → 既鲁棒又快

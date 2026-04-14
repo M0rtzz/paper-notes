@@ -59,7 +59,7 @@ tags:
 
 3. **FABO 加速正则化**:
 
-    - 做什么：惩罚流轨迹的加速度（二阶导），鼓励直线轨迹
+    - 功能：惩罚流轨迹的加速度（二阶导），鼓励直线轨迹
     - 问题：边际流轨迹未知，无法直接计算加速度
     - 解决：证明用条件轨迹上的点对计算得到的是边际加速度的上界：$\text{FABO} = \mathbb{E}\|u_\theta(t, \tilde{x}_t) - u_\theta(t+\Delta t, \tilde{x}_{t+\Delta t})\|^2 \geq \text{true acceleration}$
     - 时间加权：$\lambda(t) = (1-t)^2$，早期多惩罚（鼓励平滑），后期少惩罚（保精度）

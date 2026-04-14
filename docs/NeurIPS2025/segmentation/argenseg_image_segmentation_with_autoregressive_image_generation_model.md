@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：将图像分割集成到MLLM中是当前热点。两类主流方案：（a）边界点序列表示（PolyFormer等）——将mask离散化为多边形点序列，但无法处理复杂形状；（b）专用分割解码器（LISA、PSALM等）——用special token或hidden states驱动SAM/Mask2Former解码，但模型架构复杂且LLM本身不学习像素级理解。
+
 **现有痛点**：（a）点序列表示导致分割不完整和边界不自然；（b）专用解码器使LLM依赖外部模块而非自身学习fine-grained视觉理解；（c）推理速度慢（HiMTok等方法）。
+
 **核心矛盾**：分割需要密集像素级输出，但LLM原生只做token级预测——如何让LLM"生成"分割mask而不依赖外部decoder？
+
 **本文要解决什么**：让MLLM通过自回归图像生成直接产生分割mask，不需要任何额外分割头。
+
 **切入角度**：将分割视为一种特殊的图像生成——生成的"图像"就是目标物体的mask。
+
 **核心idea**：MLLM输出VQ-VAE的visual tokens → VQ-VAE解码器重建为mask图像 → 无外部分割解码器，分割能力完全来自MLLM的像素级理解。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **统一的Visual Token预测**
 
-    - 做什么：让MLLM直接预测VQ-VAE codebook中的visual token IDs。
+    - 功能：让MLLM直接预测VQ-VAE codebook中的visual token IDs。
     - 核心思路：将VQ-VAE codebook（size=4096）中的tokens作为新"词汇"加入LLM词表。生成分割mask时，模型在遇到`<gen_start>`标记后，开始预测visual tokens。统一的classification head同时处理文本和visual token的预测，用cross-entropy loss监督（训练时GT visual tokens由VQ-VAE encoder获得）。
     - 设计动机：不用special token+外部decoder的方案，让LLM必须自己学习理解像素级信息才能预测正确的visual tokens。实验证明这是获得高精度的关键。
 
 2. **Next-Scale Prediction加速**
 
-    - 做什么：采用VAR的多尺度生成策略，每步并行生成整个scale的所有tokens。
+    - 功能：采用VAR的多尺度生成策略，每步并行生成整个scale的所有tokens。
     - 核心思路：使用VAR tokenizer将特征量化为K=10个尺度的token maps $(r_1, \ldots, r_{10})$。每一步生成当前尺度所有$h_k \times w_k$个tokens（并行），上一步的token map上采样后作为当前步的query。最终256×256图像用680个visual tokens表示，仅需10步自回归。
     - 设计动机：（a）粗到细的多尺度生成与分割的"先定位后细化"直觉一致；（b）比逐token生成快4×以上。
 
 3. **训练策略：单阶段联合训练**
 
-    - 做什么：在分割数据（402K）和理解数据（1.25M）上联合SFT。
+    - 功能：在分割数据（402K）和理解数据（1.25M）上联合SFT。
     - 核心思路：Vision encoder和VQ-VAE全程冻结，只训练LLM和projector。利用预训练的多模态理解能力快速收敛。分割数据仅402K，远少于HiMTok的2.91M。
     - 设计动机：冻结tokenizer确保LLM必须自己学习像素级信息，而非依赖可学习的decoder。
 

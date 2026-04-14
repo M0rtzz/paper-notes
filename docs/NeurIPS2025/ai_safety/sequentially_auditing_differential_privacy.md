@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Sequentially Auditing Differential Privacy
 description: >-
-  [NeurIPS 2025][AI安全][Differential Privacy] 提出基于序贯假设检验和核 MMD 统计量的差分隐私审计框架，可以在流式处理机制输出时随时有效地检测隐私违规，将所需样本量从现有方法的 50K 降低到数百个，并能在不到一次完整训练的过程中识别 DP-SGD 的隐私违规。
+  [NeurIPS 2025][AI安全][differential privacy] 提出基于序贯假设检验和核 MMD 统计量的差分隐私审计框架，可以在流式处理机制输出时随时有效地检测隐私违规，将所需样本量从现有方法的 50K 降低到数百个，并能在不到一次完整训练的过程中识别 DP-SGD 的隐私违规。
 tags:
   - NeurIPS 2025
   - AI安全
-  - Differential Privacy
+  - differential privacy
   - Sequential Testing
   - MMD
   - E-values
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.07055](https://arxiv.org/abs/2509.07055)  
 **代码**: [有](https://github.com/google-research/google-research/tree/master/dp_sequential_test)  
 **领域**: AI Safety  
-**关键词**: Differential Privacy, Sequential Testing, MMD, E-values, DP-SGD Auditing
+**关键词**: differential privacy, Sequential Testing, MMD, E-values, DP-SGD Auditing
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 差分隐私（DP）已被工业界和政府机构广泛采用，但理论保证的实现依赖于正确的算法设计和正确的实现。微妙的代码 bug（如缺失常数、错误采样、固定种子）可能完全破坏隐私保障。此外，理论隐私参数 $\varepsilon$ 和 $\delta$ 通常是最坏情况上界，经验审计对于评估实际隐私泄露至关重要。
 
 现有隐私审计方法有两大局限：
+
 **参数化检验**：统计功效高但依赖强假设（如需要知道机制内部信息和输出分布）
+
 **黑盒检验**：假设少但需要大量样本（通常 50K+），对于计算昂贵的算法如 DP-SGD 不可行——每个样本可能需要完整训练一个模型
 
 核心问题在于现有方法都是**批处理**的：需要预先确定样本数量 $n$，$n$ 太大浪费计算、$n$ 太小结论不确定，且样本通常不能重用。

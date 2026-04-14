@@ -51,19 +51,19 @@ PLA 包含三个核心组件：(1) 敏感知识引导编码（Sensitive Knowledg
 
 1. **敏感知识提取模块（SKE）**:
 
-    - 做什么：从目标 prompt 中提取敏感语义信息，生成敏感嵌入 $e_{sen}$
+    - 功能：从目标 prompt 中提取敏感语义信息，生成敏感嵌入 $e_{sen}$
     - 核心思路：使用预训练文本编码器 $\mathcal{T}_\theta$ 将 $p_{tar}$ 编码为文本嵌入 $e_{tar} \in \mathbb{R}^d$，然后通过两层投影（低维投影 $W_l \in \mathbb{R}^{d \times d_l}$ + 高维投影 $W_h \in \mathbb{R}^{d_l \times d_s}$）映射为敏感嵌入 $e_{sen} \in \mathbb{R}^{M \times d_s}$
     - 设计动机：利用文本嵌入的高维特征保留目标 prompt 的敏感语义意图，使生成的对抗 prompt 能隐式携带敏感信息而不触发关键词过滤
 
 2. **Prompt 编码器**:
 
-    - 做什么：将敏感嵌入融入随机 prompt 的编码过程，生成可学习嵌入 $e_{pe}$
+    - 功能：将敏感嵌入融入随机 prompt 的编码过程，生成可学习嵌入 $e_{pe}$
     - 核心思路：给定随机 prompt $p_{ran}$，在编码器的第 $l$ 层注入敏感嵌入：$\hat{e}_l = e_l + \omega \cdot e_{sen}$，其中 $\omega$ 控制敏感信息的融合程度。最终将 $e_{pe}$ 与 $p_{tar}$ 拼接后输入 PLM（如 BERT 或 T5）生成对抗 prompt：$p_{adv} = \mathcal{PLM}([e_{pe}; p_{tar}])$
     - 设计动机：通过中间层注入而非简单拼接，使敏感信息与随机文本特征深度融合，增强对抗 prompt 的隐蔽性
 
 3. **辅助模型生成目标图像**:
 
-    - 做什么：使用一个无安全机制的辅助 T2I 模型（如 SDv1.4）生成目标图像 $I_{tar} = \mathcal{M}_s(p_{tar})$
+    - 功能：使用一个无安全机制的辅助 T2I 模型（如 SDv1.4）生成目标图像 $I_{tar} = \mathcal{M}_s(p_{tar})$
     - 核心思路：由于黑盒模型的安全机制会返回黑图，无法直接获得目标图像，因此借助辅助模型来提供图像层面的监督信号
     - 设计动机：解决黑盒设置下缺乏目标图像参考的问题，为多模态损失提供 image-image 对比信号
 

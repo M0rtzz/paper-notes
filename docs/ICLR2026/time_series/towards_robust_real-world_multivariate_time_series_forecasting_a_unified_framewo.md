@@ -2,13 +2,14 @@
 title: >-
   [论文解读] Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework
 description: >-
-  [ICLR2026][时间序列] 提出ChannelTokenFormer统一框架同时解决多变量时序的三大真实挑战——通道间依赖/异步采样/块缺失，通过channel token聚合+掩码引导注意力+频域动态patching，在6个数据集（含真实工业LNG数据）上实现SOTA
+  [ICLR 2026][时间序列][multivariate time series] 提出ChannelTokenFormer（CTF），一个统一的Transformer框架同时解决真实世界多变量时序预测的三大挑战：(1) 通道间复杂依赖——channel token跨通道注意力；(2) 各通道异步采样——频域动态patching保持原始分辨率；(3) 测试时块缺失——训练时patch masking模拟+推理时直接移除全缺失patch，在ETT/SolarWind/Weather/EPA/CHS等6个数据集上全面SOTA。
 tags:
-  - ICLR2026
+  - ICLR 2026
   - 时间序列
-  - 多变量时序
-  - 异步采样
-  - 块缺失
+  - multivariate time series
+  - asynchronous sampling
+  - block-wise missingness
+  - channel dependency
   - ChannelTokenFormer
 ---
 
@@ -51,17 +52,17 @@ tags:
 ### 关键设计
 
 1. **频域动态Patching与Tokenization**:
-    - 做什么：为每个通道根据其频率特性自适应确定patch长度，处理异步采样
+    - 功能：为每个通道根据其频率特性自适应确定patch长度，处理异步采样
     - 核心思路：对每通道做FFT估计主导周期 $T_i$，以 $T_i$ 为patch长度进行非重叠切分。采样周期为 $s_i$ 的通道在输入长度 $L$ 下有 $L_i = \lfloor L/s_i \rfloor$ 个有效采样点。损失函数为Channel-aggregated MSE：$\mathcal{L}_\text{total} = \frac{1}{N}\sum_{i=1}^{N}\frac{1}{H_i}\sum_{j=1}^{H_i}(y_j^{(i)} - \hat{y}_j^{(i)})^2$，其中 $H_i = \lfloor H/s_i \rfloor$ 为通道 $i$ 的预测点数
     - 设计动机：保持原始采样分辨率→不上采样/不下采样→不引入插值假数据；不同通道可有不同数量的local token→channel token统一聚合
 
 2. **Mask-Guided Unified Attention**:
-    - 做什么：通过精心设计的注意力掩码在单次attention操作中统一处理intra-channel时序建模和cross-channel依赖捕获
+    - 功能：通过精心设计的注意力掩码在单次attention操作中统一处理intra-channel时序建模和cross-channel依赖捕获
     - 核心思路：将所有通道的local token和channel token拼接为统一序列 $\mathbf{X} = [\mathbf{T}^{(1)};\mathbf{C}^{(1)};\dots;\mathbf{T}^{(N)};\mathbf{C}^{(N)}] \in \mathbb{R}^{\mathcal{T} \times d}$，应用masked self-attention $\mathbf{X}_\text{out} = \mathbf{X} + \text{softmax}(\frac{QK^\top}{\sqrt{d}} + \mathbf{M})V$，掩码 $\mathbf{M}$ 定义三条规则：(1) local token只能attend同通道的其他local token（intra-temporal）；(2) channel token可attend自己通道的local token和其他通道的channel token（信息聚合+跨通道交互）；(3) channel token不自我attend（避免自我强化）
     - 设计动机：读写分离——channel token是read-only聚合器，local token不能看到channel token→防止信息泄漏；这种结构使channel token成为通道间的信息中继站
 
 3. **训练时Patch Masking（模拟测试时缺失）**:
-    - 做什么：在训练时随机mask通道的patch子集，作为测试时块缺失的代理训练策略
+    - 功能：在训练时随机mask通道的patch子集，作为测试时块缺失的代理训练策略
     - 核心思路：受PatchDropout启发，训练时随机移除部分通道的patch（全部为零的patch直接删除对应local token），attention自然跳过对应位置。测试时遇到真实缺失block→移除全缺失patch→模型依靠可用通道的channel token推断缺失通道
     - 设计动机：传统做法是zero-fill或插值→传播无效信号；本方法直接不输入缺失patch→不引入错误信息；同时作为隐式正则化防止过拟合
 

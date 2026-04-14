@@ -9,7 +9,7 @@ tags:
   - Disentangled Embedding
   - 对比学习
   - Prototype Learning
-  - Text-to-Speech
+  - text-to-speech
 ---
 
 # ParaMETA: Towards Learning Disentangled Paralinguistic Speaking Styles Representations
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2601.12289](https://arxiv.org/abs/2601.12289)  
 **代码**: [GitHub](https://github.com/haoweilou/ParaMETA)  
 **领域**: 语音表示学习 / 副语言学 / 语音合成  
-**关键词**: Speaking Style Representation, Disentangled Embedding, Contrastive Learning, Prototype Learning, Text-to-Speech
+**关键词**: Speaking Style Representation, Disentangled Embedding, Contrastive Learning, Prototype Learning, text-to-speech
 
 ## 一句话总结
 

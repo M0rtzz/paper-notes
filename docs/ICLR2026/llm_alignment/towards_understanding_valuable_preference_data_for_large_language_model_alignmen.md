@@ -49,25 +49,25 @@ tags:
 
 1. **截断影响函数(TIF)**：
 
-    - 做什么：修正传统IF在偏好对齐中的过拟合问题
+    - 功能：修正传统IF在偏好对齐中的过拟合问题
     - 核心思路：将IF按百分位分为small/medium/large三组。实验发现：small-IF数据=噪声/歧义(训练后eval loss上升，reward margin降为负)；large-IF数据=过拟合(eval loss先降后升，少数pair overfit到极大margin)；**medium-IF数据**=最优(eval loss稳定下降，margin稳定上升)。TIF定义：$\text{TIF}(d) = \mathbb{I}[\delta_{small} < \text{IF}(d) < \delta_{large}]$
     - 设计动机：偏好对齐是开放式任务，验证梯度是不完美的人类偏好代理。极端IF值(过小过大)都反映低质量数据。这与分类任务中"高IF=好数据"截然不同——counter-intuitive但合理
 
 2. **Loss Difference (LossDiff) - 验证依赖的代理**：
 
-    - 做什么：用前向pass近似IF避免梯度计算
+    - 功能：用前向pass近似IF避免梯度计算
     - 核心思路：训练一个在验证集上对齐的辅助模型 $\pi_{\theta_{val}}$，计算 $\text{LossDiff}(d) = \ell(\theta; d) - \ell(\theta_{val}; d)$。直觉：LossDiff大→从 $\theta$ 移向 $\theta_{val}$ 能降低该样本loss→该样本与验证目标一致
     - 设计动机：数学上证明LossDiff与IF正相关(Pearson r=0.77)。只需两次前向pass，无需反向传播
 
 3. **Implicit Reward Margin (IRM) - 无验证的代理**：
 
-    - 做什么：只用当前模型的内部信号评估数据质量
+    - 功能：只用当前模型的内部信号评估数据质量
     - 核心思路：$\text{IRM}(d) = \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)}$——即DPO loss中sigmoid内的项
     - 设计动机：IRM衡量模型对chosen vs rejected的偏好强度。与IF正相关(r=0.67)但弱于LossDiff(因不使用验证信息)。优势是完全无需验证集
 
 4. **LossDiff-IRM组合选择器**：
 
-    - 做什么：组合两个代理的中间区间交集
+    - 功能：组合两个代理的中间区间交集
     - 核心思路：选择同时满足LossDiff和IRM都在中间百分位范围内的数据。两者误差来源不同(一个依赖验证一个不依赖)，取交集可以互相抵消错误
     - 设计动机：单一指标的TIF近似精度有限(Overlap ~0.67-0.70)。组合后Overlap提升到0.73-0.78
 

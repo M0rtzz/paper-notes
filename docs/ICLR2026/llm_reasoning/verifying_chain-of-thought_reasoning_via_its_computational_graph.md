@@ -1,7 +1,18 @@
 ---
-description: "CRV：一种白盒方法，通过分析LLM归因图的结构指纹来验证CoT推理的正确性，利用transcoder构建可解释计算图并训练分类器检测错误。"
-tags: [chain-of-thought, mechanistic-interpretability, reasoning-verification, attribution-graph, transcoder, white-box]
+title: >-
+  [论文解读] Verifying Chain-of-Thought Reasoning via Its Computational Graph
+description: >-
+  [ICLR 2026][LLM推理][Chain-of-Thought] 提出 CRV（Circuit-based Reasoning Verification），通过将 LLM 的 MLP 替换为 transcoder 构建可解释归因图，从图的结构特征中提取推理错误的"指纹"，实现白盒 CoT 推理验证，并可通过因果干预修正错误推理。
+tags:
+  - ICLR 2026
+  - LLM推理
+  - Chain-of-Thought
+  - 归因图
+  - Transcoder
+  - 推理验证
+  - 因果干预
 ---
+
 # Verifying Chain-of-Thought Reasoning via Its Computational Graph
 
 **会议**: ICLR 2026  
@@ -38,7 +49,7 @@ CRV 是一个四阶段流水线：
 
 1. **Transcoder 可解释化改造**
 
-    做什么：将目标模型每层的 MLP 替换为训练好的 transcoder，使前向传播通过稀疏、可解释的瓶颈层。
+    功能：将目标模型每层的 MLP 替换为训练好的 transcoder，使前向传播通过稀疏、可解释的瓶颈层。
 
     核心思路：Transcoder 的训练目标是 $f(x) \approx \text{MLP}(x)$，即用稀疏过完备基来拟合 MLP 的输入-输出函数，而非自编码器式的自重构。输出的特征向量维度 $D \gg d$，但大部分为零，每个非零元素对应一个可解释概念。
 
@@ -46,7 +57,7 @@ CRV 是一个四阶段流水线：
 
 2. **三层次结构指纹提取**
 
-    做什么：从修剪后的归因图（保留贡献前 80% 影响力的节点/边）中提取三个层次的特征。
+    功能：从修剪后的归因图（保留贡献前 80% 影响力的节点/边）中提取三个层次的特征。
 
     核心思路：
     - **全局图统计**：活跃特征节点数、logit 概率与熵——衡量计算复杂度和不确定性
@@ -57,7 +68,7 @@ CRV 是一个四阶段流水线：
 
 3. **因果干预验证**
 
-    做什么：利用 CRV 发现的错误特征指导针对性的模型修复——抑制或放大特定 transcoder 特征以纠正推理错误。
+    功能：利用 CRV 发现的错误特征指导针对性的模型修复——抑制或放大特定 transcoder 特征以纠正推理错误。
 
     核心思路：当 CRV 检测到某推理步骤错误时，追溯到高重要性的 transcoder 特征（如"乘法"概念的特征），通过 forward hook 将其激活值钳制为零，从而改变模型的计算路径。
 

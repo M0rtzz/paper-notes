@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.22712](https://arxiv.org/abs/2506.22712)  
 **代码**: 有（论文中提供链接）  
 **领域**: 模型融合 / Transformer 理论  
-**关键词**: linear mode connectivity, model merging, permutation symmetry, orthogonal symmetry, ViT, GPT-2  
+**关键词**: linear mode connectivity, model merging, permutation symmetry, orthogonal symmetry, ViT, GPT-2
 **作者**: Alexander Theus, Alessandro Cabodi, Sotiris Anagnostidis, Antonio Orvieto, Sidak Pal Singh, Valentina Boeva (ETH Zürich, MPI 等)
 
 ## 一句话总结

@@ -9,7 +9,7 @@ tags:
   - LLM工具学习
   - 用户画像
   - 环境因素
-  - Benchmark
+  - benchmark
 ---
 
 # ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.13176](https://arxiv.org/abs/2505.13176)  
 **代码**: https://github.com/BUAA-IRIP-LLM/ToolSpectrum (有)  
 **领域**: LLM Agent / Tool Learning  
-**关键词**: 个性化工具使用, LLM工具学习, 用户画像, 环境因素, Benchmark
+**关键词**: 个性化工具使用, LLM工具学习, 用户画像, 环境因素, benchmark
 
 ## 一句话总结
 提出 ToolSpectrum benchmark，首次评估 LLM 在用户画像和环境因素双维度下的个性化工具选择能力，发现现有 SOTA 模型在联合推理两个维度时表现显著下降。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 工具使用研究快速发展，已有 ToolBench、API-Bank、AppBench 等基准评估 LLM 的工具规划、调用和鲁棒性。但这些基准都假设"给定指令→选择功能正确的工具"即可。
+
 **现有痛点**：现实中存在大量功能重叠的工具（如 Amazon vs Temu、携程 vs 飞猪），用户应该根据自己的偏好（预算敏感?品质优先?）和环境（天气、网络状况、政策限制）选择最合适的工具。现有 benchmark 完全忽略了这种个性化需求。
+
 **核心矛盾**：工具选择不仅是"能用什么"，更是"该用什么"——需要结合用户画像（demographics/personality/preference）和环境上下文（天气/时间/设备/政策）做综合推理。
+
 **本文要解决什么**：如何评估 LLM 的个性化工具选择能力？现有模型在这方面表现如何？
+
 **切入角度**：定义个性化工具使用的形式化框架（用户画像 P、环境 E、工具集 T），构建包含 Profile-only、Environment-only、Both 三种设置的评估基准。
+
 **核心 idea**：个性化是工具使用中被忽视但至关重要的维度，当前 LLM 在单一维度个性化上还行，但联合推理两个维度时性能大幅下降。
 
 ## 方法详解
@@ -41,7 +46,7 @@ ToolSpectrum 是一个 benchmark（非模型），评估 $t = \text{Model}(I, \m
 
 1. **个性化的双维度定义**:
 
-    - 做什么：将影响工具选择的因素形式化为用户画像 $\mathcal{P}$ 和环境 $\mathcal{E}$ 两个维度
+    - 功能：将影响工具选择的因素形式化为用户画像 $\mathcal{P}$ 和环境 $\mathcal{E}$ 两个维度
     - 核心思路：
       - **用户画像**分 3 层：Demographics（年龄/收入/职业等 key-value）、Personality（兴趣描述，自然语言）、Preference（历史偏好，如"常用 Amazon"）
       - **环境**分 3 类：Natural（天气/日期/位置）、Digital（网络/设备状态）、App Domain Policy（如"未成年人不能购买万元商品"）
@@ -49,13 +54,13 @@ ToolSpectrum 是一个 benchmark（非模型），评估 $t = \text{Model}(I, \m
 
 2. **三阶段数据构建流程**:
 
-    - 做什么：系统化地生成高质量的个性化工具使用评测数据
+    - 功能：系统化地生成高质量的个性化工具使用评测数据
     - 核心思路：(1) 收集 9 个领域（购物/旅行/娱乐/外卖/健康等）的 23 个 APP、42 个 API，手工引入功能重叠的替代工具；(2) 用 GPT-4o + 种子数据 + 人工审核生成 158 个用户画像和 87 个环境设定；(3) 将指令×画像/环境组合输入 GPT-4o 生成工具调用结果，人工 + GPT-4o 双重质量把控（平均分 <8 的丢弃，移除 21.8% 数据）
     - 设计动机：三种数据设置（Profile-only 450条、Environment-only 220条、Both 330条）分离各因素影响
 
 3. **评估维度**:
 
-    - 做什么：四层级评估——APP 选择准确率、API 选择准确率、RP（必需参数）F1、OP（可选参数）F1
+    - 功能：四层级评估——APP 选择准确率、API 选择准确率、RP（必需参数）F1、OP（可选参数）F1
     - 核心思路：APP 和 API 是集合匹配（Jaccard），RP 和 OP 用 key 匹配 + value 语义相似度（GPT-4o 评分）
     - 设计动机：OP（Optional Parameters）直接反映个性化能力——能否根据画像/环境填入合适的偏好参数
 

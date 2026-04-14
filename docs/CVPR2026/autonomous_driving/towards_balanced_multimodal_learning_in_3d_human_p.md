@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation
 description: >-
-  [CVPR 2026][自动驾驶][位姿估计] 提出基于Shapley值的模态贡献评估+Fisher信息矩阵引导的自适应权重约束(AWC)正则化方法，解决RGB/LiDAR/mmWave/WiFi四模态融合中的模态不平衡问题，在MM-Fi数据集上MPJPE比naive fusion降低2.71mm，比最佳balancing方法降低约5mm，且不引入额外可学参数。
+  [CVPR 2026][自动驾驶][位姿估计] 提出基于 Shapley 值+Pearson 相关系数的模态贡献评估算法和 Fisher 信息矩阵引导的自适应权重约束（AWC）正则化方法，解决 RGB/LiDAR/mmWave/WiFi 四模态端到端融合中的模态不平衡问题，在 MM-Fi 数据集上 MPJPE 降低 2.71mm 且不引入额外可学参数。
 tags:
   - CVPR 2026
   - 自动驾驶
@@ -47,19 +47,19 @@ tags:
 
 1. **Shapley 值 + Pearson 相关的模态贡献评估**:
 
-    - 做什么：在回归任务中准确量化每个模态对融合模型的贡献度
+    - 功能：在回归任务中准确量化每个模态对融合模型的贡献度
     - 核心思路：Shapley 值通过枚举所有模态子集组合计算各模态的边际贡献 $\phi^m(\mathcal{M}) = \sum_{S \subseteq \mathcal{M} \setminus \{m\}} \frac{|S|!(|\mathcal{M}|-|S|-1)!}{|\mathcal{M}|!} V(S,m)$。关键创新在于利润函数 $s(\cdot,\cdot)$——传统方法用 cross-entropy（分类），本文用 Pearson 相关系数 $s(y, \hat{y}) = \sum_{i=1}^{j \times 3} \rho(y_i, \hat{y}_i)$，沿 batch 维度计算每个关节坐标值的线性相关性
     - 设计动机：弱模态（mmWave/WiFi）在回归中产生近常值预测（标准差趋近于零），如果用 MSE 评估，距离小反而被误判为"可靠"。Pearson 相关不受预测幅度影响，能准确识别出无信息量的常值预测。实验证实 RGB 和 LiDAR 一致获得高贡献分，mmWave/WiFi 分数低且随训练下降
 
 2. **AWC（自适应权重约束）正则化**:
 
-    - 做什么：根据模态贡献差异化地约束各模态编码器的参数更新速率
+    - 功能：根据模态贡献差异化地约束各模态编码器的参数更新速率
     - 核心思路：先用 K-Means 将 4 个模态按 Shapley 分聚类为优势组 $\mathcal{M}_\mathcal{S}$ 和劣势组 $\mathcal{M}_\mathcal{I}$。对每个模态编码器施加参数偏移正则：$\mathcal{L}_{\text{AWC}} = \sum_m [\alpha_\mathcal{S} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{S}\}} + \alpha_\mathcal{I} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{I}\}}] \cdot \sum_i \frac{[\mathcal{I}_\mathcal{D}]_{ii} (\theta_{t,i}^m - \theta_{0,i}^{m,*})^2}{2}$。FIM 对角近似 $[\mathcal{I}]_{ii}$ 衡量参数重要性——强模态早期梯度大→FIM 高→正则化更强（抑制过快学习）；弱模态 FIM 低→正则化弱（允许继续学）。$\alpha_\mathcal{S} > \alpha_\mathcal{I}$ 确保对强模态约束更大
     - 设计动机：既约束方向又约束幅度。FIM 提供了数据驱动的参数灵敏度估计，自然地将"重要参数"（对损失影响大的）与"不重要参数"区分开。无需额外可学参数
 
 3. **Learning Window 机制**:
 
-    - 做什么：AWC 仅在前 K 个 epoch 施加，之后关闭
+    - 功能：AWC 仅在前 K 个 epoch 施加，之后关闭
     - 核心思路：基于先验研究发现，与模态相关的关键信息在训练早期获取。实验验证 K=20 最优（总共 50 epochs），过短或过长都会降低性能
     - 设计动机：后期正则化反而干扰收敛。前期约束给弱模态留出学习空间后，后期自由优化才能充分利用所有模态
 

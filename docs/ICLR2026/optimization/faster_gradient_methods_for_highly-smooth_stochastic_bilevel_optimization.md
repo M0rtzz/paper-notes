@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.02937](https://arxiv.org/abs/2509.02937)  
 **代码**: [GitHub](https://github.com/TrueNobility303/F2BA)  
 **领域**: optimization  
-**关键词**: bilevel optimization, stochastic optimization, finite difference, hyper-gradient estimation, complexity lower bound  
+**关键词**: bilevel optimization, stochastic optimization, finite difference, hyper-gradient estimation, complexity lower bound
 
 ## 一句话总结
 通过将 F2SA 方法重新解释为前向差分近似 hyper-gradient，提出利用高阶有限差分的 F2SA-p 方法族，在高阶光滑条件下将随机双层优化的 SFO 复杂度从 $\tilde{\mathcal{O}}(\epsilon^{-6})$ 改进至 $\tilde{\mathcal{O}}(p\epsilon^{-4-2/p})$，并证明了 $\Omega(\epsilon^{-4})$ 下界表明该方法在 $p$ 足够大时近乎最优。

@@ -135,9 +135,9 @@ tags:
 1. **概念突破**：首次明确提出"Align Humans with AI"作为对齐研究的对等方向，打破了传统单向对齐的思维定势
 2. **系统性极强**：覆盖400+篇论文的跨领域综述（HCI/NLP/ML），分类体系细致完整，定量分析言之有据
 3. **三大长期挑战定义精准**：
-   - **Specification Game**：如何完整指定复杂的人类价值？
-   - **Dynamic Co-evolution**：人类、AI、社会如何共同演化？
-   - **Safeguarding Co-adaptation**：如何确保共适应过程安全？
+    - **Specification Game**：如何完整指定复杂的人类价值？
+    - **Dynamic Co-evolution**：人类、AI、社会如何共同演化？
+    - **Safeguarding Co-adaptation**：如何确保共适应过程安全？
 4. **Schwartz价值理论的引入**为AI对齐提供了心理学和社会学的理论锚点
 5. **实用路线图**：每个研究缺口都附带具体的未来研究方向建议
 

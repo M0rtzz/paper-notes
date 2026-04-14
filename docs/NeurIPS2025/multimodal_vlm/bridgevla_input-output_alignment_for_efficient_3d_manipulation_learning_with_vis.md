@@ -10,7 +10,7 @@ tags:
   - 3D Manipulation
   - Heatmap Prediction
   - Robot Learning
-  - Sample Efficiency
+  - sample efficiency
 ---
 
 # BridgeVLA: Input-Output Alignment for Efficient 3D Manipulation Learning with Vision-Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.07961](https://arxiv.org/abs/2506.07961)  
 **代码**: [项目主页](https://bridgevla.github.io/)  
 **领域**: multimodal_vlm  
-**关键词**: Vision-Language-Action, 3D Manipulation, Heatmap Prediction, Robot Learning, Sample Efficiency  
+**关键词**: Vision-Language-Action, 3D Manipulation, Heatmap Prediction, Robot Learning, sample efficiency
 
 ## 一句话总结
 提出 BridgeVLA，通过将 3D 点云投影为多视角 2D 图像并以 2D 热力图作为中间表示来对齐输入输出空间，实现了高效且有效的 3D 机器人操作学习。

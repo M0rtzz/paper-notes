@@ -46,7 +46,7 @@ DPA 由确定性编码器 $e: \mathbb{R}^p \to \mathbb{R}^k$ 和随机解码器 
 
 1. **Score-Geometry Identity (定理 2.6)**:
 
-    - 做什么：建立最优编码器等值面与数据 score 之间的逐点平衡方程
+    - 功能：建立最优编码器等值面与数据 score 之间的逐点平衡方程
     - 核心思路：当 $\beta=2$ 时，对等值面上几乎所有点 $y$，有：
     $\frac{2(y - c(X))}{V(X)/Z(X) - \|y - c(X)\|^2} D_{e^*}^\top(y) = s_{\text{data}}(y) D_{e^*}^\top(y)$
       其中 $c(X)$ 是等值面的加权质心，$V(X)$ 是等值面方差，$Z(X)$ 是等值面质量，$s_{\text{data}}(y) = \nabla_y \log P_{\text{data}}(y)$ 是 Stein score
@@ -55,7 +55,7 @@ DPA 由确定性编码器 $e: \mathbb{R}^p \to \mathbb{R}^k$ 和随机解码器 
 
 2. **Extraneous Latents 条件独立性 (定理 3.4)**:
 
-    - 做什么：证明超出流形维度 $K'$ 的潜在坐标不携带额外信息
+    - 功能：证明超出流形维度 $K'$ 的潜在坐标不携带额外信息
     - 核心思路：如果数据支撑在 $K$ 维流形上且流形是 $K'$-可参数化的，那么 $K'$-最优近似编码器满足：
     $X \perp\!\!\!\perp e^*_{K'+i}(X) \mid e^*_{1:K'}(X), \quad \forall i \in [1, \ldots, p-K']$
       即多余维度与数据条件独立，互信息为零：$I(X; e^*_{K'+i}(X) \mid e^*_{1:K'}(X)) = 0$
@@ -64,7 +64,7 @@ DPA 由确定性编码器 $e: \mathbb{R}^p \to \mathbb{R}^k$ 和随机解码器 
 
 3. **Boltzmann 分布与 MFEP 恢复**:
 
-    - 做什么：当数据服从 Boltzmann 分布 $P_{\text{data}}(x;T) \propto \exp(-U(x)/k_B T)$ 时，利用 score-geometry identity 单次拟合恢复最小自由能路径
+    - 功能：当数据服从 Boltzmann 分布 $P_{\text{data}}(x;T) \propto \exp(-U(x)/k_B T)$ 时，利用 score-geometry identity 单次拟合恢复最小自由能路径
     - 核心思路：将定理 2.6 代入 Boltzmann 分布得 $\vec{F}(y) D_{e^*}^\top = -\nabla_y U(y) D_{e^*}^\top(y) = 2k_B T \frac{y - c(X)}{V(X)/Z(X) - \|y - c(X)\|^2} D_{e^*}^\top(y)$，等值面法向量与力场对齐
     - 应用价值：传统方法（如 VAMPnets）需要轨迹信息或迭代偏置模拟，DPA 从 i.i.d. 样本单次拟合直接逼近 MFEP
 

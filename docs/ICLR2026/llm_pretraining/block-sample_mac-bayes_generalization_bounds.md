@@ -29,8 +29,11 @@ tags:
 PAC-Bayes框架是统计学习理论中界定泛化误差的重要工具，通过学习算法后验 $P_{W|S}$ 与先验 $Q_W$ 之间的KL散度来界定经验损失与总体损失的差距。近年来PAC-Bayes界因能为深度神经网络提供非平凡的泛化界而重获关注。MAC-Bayes界（mean approximately correct）是PAC-Bayes的期望版本，界定的是期望泛化误差而非高概率泛化误差。
 
 ### 现有痛点
+
 **确定性算法下PAC-Bayes界失效**：当学习算法 $P_{W|S}$ 是确定性的（如 $W = \frac{1}{n}\sum_i Z_i$），$P_{W|S}$ 为Dirac分布，对任何先验 $Q_W$ 的KL散度都是无穷大，导致PAC-Bayes界和对应的MAC-Bayes界都为空（vacuous）
+
 **单一KL散度项过于粗糙**：整体的 $D(P_{W|S} \| Q_W)$ 用一个标量概括了训练集的所有信息对假设的影响，当这种影响过强（如确定性算法），界就会爆炸
+
 **信息论界的类似局限**：基于互信息 $I(W;S)$ 的泛化界也存在类似问题
 
 ### 核心矛盾
@@ -56,25 +59,25 @@ $$\mathbb{E}_{P_S} d(\mathbb{E}_{P_{W|S}} \hat{L}(W,S), \mathbb{E}_{P_{W|S}} L(W
 
 1. **核心定理（Theorem 1）——块样本MAC-Bayes界**：
 
-    - 做什么：给出一般性的块样本泛化界，对距离函数 $d$ 和矩母函数条件 $\Phi_m$ 参数化
+    - 功能：给出一般性的块样本泛化界，对距离函数 $d$ 和矩母函数条件 $\Phi_m$ 参数化
     - 核心思路：利用Jensen不等式（$d$ 的联合凸性）将期望拉入 $d$ 内部，再利用Fubini定理按块分离，然后对每块应用Donsker-Varadhan变分表示实现从后验到先验的测度变换。关键是每块的KL散度 $D(P_{W|S_j} \| Q_W)$ 只依赖于 $P_{W|S_j}$ 这个边际化分布，当 $m \ll n$ 时这个量可以远小于全数据的 $D(P_{W|S} \| Q_W)$
     - 设计动机：对确定性算法，$D(P_{W|S} \| Q_W) = \infty$，但 $D(P_{W|S_j} \| Q_W)$ 有限（因为 $P_{W|S_j}$ 是对其他块取期望后的"模糊化"分布，不再是Dirac delta）
 
 2. **Catoni函数特化（Corollary 1）**：
 
-    - 做什么：对有界损失 $\ell(w,z) \in [0,1]$，用Catoni函数作为比较器函数
+    - 功能：对有界损失 $\ell(w,z) \in [0,1]$，用Catoni函数作为比较器函数
     - 核心结果：$\mathbb{E}_{P_S} C_\beta(\mathbb{E}_{P_{W|S}} \hat{L}, \mathbb{E}_{P_{W|S}} L) \leq \frac{1}{n} \sum_j \mathbb{E}_{P_{S_j}} D(P_{W|S_j} \| Q_W)$，矩母函数项完全消除！可进一步推出泛化误差界 $\text{gen} \leq \sqrt{\frac{1}{4n} \sum_j \mathbb{E}_{P_{S_j}} D(P_{W|S_j} \| Q_W)}$
     - 这是最紧的版本，对应的binary KL和差函数特化都不如它
 
 3. **次高斯损失扩展（Corollary 2）**：
 
-    - 做什么：将界从有界损失扩展到 $\sigma^2$-次高斯损失
+    - 功能：将界从有界损失扩展到 $\sigma^2$-次高斯损失
     - 核心结果：$\text{gen} \leq \sqrt{\frac{2\sigma^2}{n} \sum_j \mathbb{E}_{P_{S_j}} D(P_{W|S_j} \| Q_W)}$
     - 适用范围更广但界稍松
 
 4. **高概率版本的不可能性（Theorem 2）**：
 
-    - 做什么：证明块样本PAC-Bayes界（高概率版本）在一般情况下不可行
+    - 功能：证明块样本PAC-Bayes界（高概率版本）在一般情况下不可行
     - 核心思路：构造一个反例学习场景——以小概率算法剧烈过拟合训练集，以大概率输出零损失假设。在此场景下MAC-Bayes界以 $\mathcal{O}(n^{-1/2})$ 收敛，但任何形如 $P_S(\text{gen} > A_n + B_n f(1/\delta)) \leq \delta$ 的PAC-Bayes界，要么 $f$ 增长很快（不是对数级），要么 $B_n$ 收敛很慢
     - 意义：划清了MAC-Bayes与PAC-Bayes在块样本设置下的本质区别
 

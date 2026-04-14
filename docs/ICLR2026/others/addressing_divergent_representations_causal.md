@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.04638](https://arxiv.org/abs/2511.04638)  
 **代码**: [GitHub](https://github.com/grantsrb/rep_divergence)  
 **领域**: 机械可解释性  
-**关键词**: causal intervention, mechanistic interpretability, representational divergence, Counterfactual Latent loss, DAS  
+**关键词**: causal intervention, mechanistic interpretability, representational divergence, Counterfactual Latent loss, DAS
 
 ## 一句话总结
 

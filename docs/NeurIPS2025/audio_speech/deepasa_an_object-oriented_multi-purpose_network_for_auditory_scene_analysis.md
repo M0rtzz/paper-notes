@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.17247](https://arxiv.org/abs/2509.17247)  
 **代码**: [HuggingFace Demo](https://huggingface.co/spaces/donghoney22/DeepASA)  
 **领域**: audio_speech  
-**关键词**: auditory scene analysis, source separation, sound event detection, direction-of-arrival estimation, multi-task learning  
+**关键词**: auditory scene analysis, source separation, sound event detection, direction-of-arrival estimation, multi-task learning
 
 ## 一句话总结
 

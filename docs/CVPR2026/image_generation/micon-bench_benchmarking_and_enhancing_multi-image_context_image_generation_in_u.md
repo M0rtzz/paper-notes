@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 多图上下文生成
   - 统一多模态模型
-  - 基准测试
+  - benchmark
   - 动态注意力重平衡
   - 检查点评估
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.19497](https://arxiv.org/abs/2602.19497)  
 **代码**: https://github.com/Angusliuuu/MICON-Bench  
 **领域**: 图像生成 / 多模态评估  
-**关键词**: 多图上下文生成, 统一多模态模型, 基准测试, 动态注意力重平衡, 检查点评估
+**关键词**: 多图上下文生成, 统一多模态模型, benchmark, 动态注意力重平衡, 检查点评估
 
 ## 一句话总结
 提出 MICON-Bench，覆盖 6 项任务（1043 案例）的多图上下文生成基准，配合 MLLM 驱动的 Evaluation-by-Checkpoint 自动评估框架；同时提出 DAR（Dynamic Attention Rebalancing）训练无关机制，通过动态调整推理时注意力权重提升 UMM 的多图生成一致性和质量。
@@ -27,8 +27,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：UMM 已能处理多图输入并生成上下文一致的视觉输出，代表模型有 Nano-Banana、GPT-Image、BAGEL、OmniGen2。但多图上下文生成能力缺乏系统评估。
+
 **评估空白**：现有基准（GenEval、T2ICompBench、ImgEdit-Bench）主要评文生图或单图编辑，不涉及跨图一致性和复杂视觉关系推理。OmniContext 虽有多图但仅限简单主体组合。
+
 **技术痛点**：UMM 在多图输入时倾向于**均匀分配注意力**到所有参考图所有区域，包括无关区域，导致幻觉和不一致。
+
 **核心idea**：(a) 6 项标准化任务 + 可验证检查点评估系统；(b) 注意力重平衡在推理时调整焦点。
 
 ## 方法详解
@@ -57,14 +60,14 @@ tags:
 1. **问题诊断**：UMM 注意力常不加区分地关注参考图中无关区域，导致幻觉
 
 2. **高效注意力分析**:
-   - 均匀采样 $m \ll L_q$ 个查询 token（默认 m=64），计算与参考图 key token 的注意力图
-   - 总注意力分数：$r_k = \sum_{i=1}^{m}\sum_{h=1}^{H} \tilde{A}_{i,h,k}$
-   - Min-max 归一化得 $\hat{r}_k$
+    - 均匀采样 $m \ll L_q$ 个查询 token（默认 m=64），计算与参考图 key token 的注意力图
+    - 总注意力分数：$r_k = \sum_{i=1}^{m}\sum_{h=1}^{H} \tilde{A}_{i,h,k}$
+    - Min-max 归一化得 $\hat{r}_k$
 
 3. **动态权重调整**:
-   - 双阈值三类划分：$w_k = 1+\gamma$ (若 $\hat{r}_k \geq \tau_{high}$)，$w_k = 1-\gamma$ (若 $\hat{r}_k \leq \tau_{low}$)，否则 $w_k = 1$
-   - 调整后注意力：$A = \text{softmax}\left(\frac{Q(w \odot K_{ref})^\top}{\sqrt{d}}\right)$
-   - 默认 $\gamma=0.15$, $\tau_{high}=0.7$, $\tau_{low}=0.3$
+    - 双阈值三类划分：$w_k = 1+\gamma$ (若 $\hat{r}_k \geq \tau_{high}$)，$w_k = 1-\gamma$ (若 $\hat{r}_k \leq \tau_{low}$)，否则 $w_k = 1$
+    - 调整后注意力：$A = \text{softmax}\left(\frac{Q(w \odot K_{ref})^\top}{\sqrt{d}}\right)$
+    - 默认 $\gamma=0.15$, $\tau_{high}=0.7$, $\tau_{low}=0.3$
 
 4. **设计优势**：训练无关、即插即用、计算开销极小（仅采样 64 个 query）
 

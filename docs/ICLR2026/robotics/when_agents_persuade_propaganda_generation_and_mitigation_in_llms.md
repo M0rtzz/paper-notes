@@ -2,14 +2,15 @@
 title: >-
   [论文解读] When Agents Persuade: Propaganda Generation and Mitigation in LLMs
 description: >-
-  [ICLR2026][AI安全] 系统研究LLM的宣传生成能力与修辞技术使用，训练宣传检测器(F1=0.98)和修辞技术检测器(F1=0.82)分析GPT-4o/Llama-3.1/Mistral的输出，发现LLM频繁使用Loaded Language/Flag-Waving/Appeal to Fear等技术，ORPO微调最有效地将宣传率从77%降至10%
+  [ICLR 2026][机器人][GAN] 系统研究LLM的宣传生成行为，训练专用检测器量化3个LLM使用的6种修辞技术，发现所有LLM均能生成宣传且大量使用Loaded Language和Flag-Waving，通过SFT/DPO/ORPO三种微调方法缓解，ORPO将宣传分类率从77%降至10%、修辞技术使用减少13.4倍。
 tags:
-  - ICLR2026
-  - AI安全
-  - 宣传检测
-  - LLM对齐
+  - ICLR 2026
+  - 机器人
+  - GAN
+  - rhetorical techniques
   - ORPO
-  - 修辞分析
+  - LLM safety
+  - content moderation
 ---
 
 # When Agents Persuade: Propaganda Generation and Mitigation in LLMs
@@ -50,19 +51,19 @@ tags:
 ### 关键设计
 
 1. **二元宣传检测器（Binary Propaganda Detector）**:
-    - 做什么：判断一篇文章是否为宣传
+    - 功能：判断一篇文章是否为宣传
     - 核心思路：基于RoBERTa-large微调，混合QProp（远程监督标注，5700+宣传/45600+非宣传新闻）和PTC（350宣传/13非宣传）数据，人工重标注QProp中500篇文章（Cohen's $\kappa = 0.86$），最终485宣传+359非宣传训练集
     - 设计动机：QProp的远程监督标签有噪声，需人工清洗；混合多数据源提升泛化性
     - 性能：$F_1 = 0.98$，$\text{precision} = 0.98$，$\text{recall} = 0.98$
 
 2. **修辞技术检测器（Rhetorical Techniques Detector）**:
-    - 做什么：检测文本中使用的6种宣传修辞技术（Name-Calling、Loaded Language、Doubt、Appeal to Fear、Flag-Waving、Exaggeration/Minimization）
+    - 功能：检测文本中使用的6种宣传修辞技术（Name-Calling、Loaded Language、Doubt、Appeal to Fear、Flag-Waving、Exaggeration/Minimization）
     - 核心思路：将PTC的短语级标注重构为句子级二分类问题（$F_1$ 从0.30提升到0.82），训练6个独立的RoBERTa-large二分类器（每种技术一个），比单一多标签多分类模型显著更好
     - 设计动机：6种技术覆盖PTC中75%的标注实例；独立分类器避免多标签干扰；欠采样+数据增强（随机词替换、同义词替换、回译）提升$F_1$约3%
     - 性能：平均 $F_1 = 0.82$，$\text{precision} = 0.82$，$\text{recall} = 0.81$
 
 3. **ORPO偏好对齐微调**:
-    - 做什么：在模型权重中注入"不生成宣传"的约束
+    - 功能：在模型权重中注入"不生成宣传"的约束
     - 核心思路：ORPO在语言建模目标中添加odds ratio项，同时奖励非宣传（preferred）输出和惩罚宣传（non-preferred）输出：$\mathcal{L}_{\text{ORPO}} = \mathcal{L}_{\text{NLL}} + \lambda \cdot \log \frac{P(\text{preferred})}{P(\text{non-preferred})}$，在单次训练中同时完成SFT和偏好对齐
     - 设计动机：(1) 纯prompt-level guardrails无效（系统指令+宣传user prompt → 99%仍被分类为宣传）；(2) SFT可能产生不理想输出；(3) ORPO跳过reward model，比DPO更高效
 

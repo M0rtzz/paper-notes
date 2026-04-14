@@ -41,7 +41,7 @@ tags:
 
 1. **Condition Calculator（条件计算器）**:
 
-    - 做什么：对每条描述自动量化三个属性为标量值
+    - 功能：对每条描述自动量化三个属性为标量值
     - 核心思路：
       - **长度（L）**: 直接使用LLaMA tokenizer的token数量 $L_c$
       - **描述性（D）**: 描述中形容词+名词占总词数的比例 $D_c = \frac{1}{T_c}\sum_{t=1}^{T_c}\mathbb{I}[w_t \in \text{ADJ} \cup \text{NOUN} \setminus \mathcal{V}_{excl}]$，排除"image"等非描述性名词
@@ -50,13 +50,13 @@ tags:
 
 2. **Decorrelation + Normalization（去相关与归一化）**:
 
-    - 做什么：对三个属性值进行去相关处理和归一化到[0,1]
+    - 功能：对三个属性值进行去相关处理和归一化到[0,1]
     - 核心思路：以长度为主属性不变，先对独特性做关于长度的线性回归残差，再对描述性做关于前两者的残差，最终按最大值归一化
     - 设计动机：虽然实测相关性较小（最大-0.11），但去相关可确保调控一个属性时不会无意影响其他属性
 
 3. **Condition Encoding（条件编码）**:
 
-    - 做什么：将[0,1]标量编码为语言模型的token embedding
+    - 功能：将[0,1]标量编码为语言模型的token embedding
     - 核心思路：为每个属性学习两个端点向量 $E_0$ 和 $E_1$（各为d维），通过标量线性插值生成条件embedding：$E_c^L = \bar{L}_c \cdot E_1^L + (1-\bar{L}_c) \cdot E_0^L$
     - 设计动机：
       - 等价于单层线性层（$w \cdot x + b$），但解释性更强

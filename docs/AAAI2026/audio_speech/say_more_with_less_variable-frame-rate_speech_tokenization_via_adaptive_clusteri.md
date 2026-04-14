@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.04685](https://arxiv.org/abs/2509.04685)  
 **代码**: [VARSTok](https://zhengrachel.github.io/VARSTok)  
 **领域**: audio_speech  
-**关键词**: speech tokenization, variable frame rate, density peak clustering, implicit duration coding, speech language model  
+**关键词**: speech tokenization, variable frame rate, density peak clustering, implicit duration coding, speech language model
 
 ## 一句话总结
 

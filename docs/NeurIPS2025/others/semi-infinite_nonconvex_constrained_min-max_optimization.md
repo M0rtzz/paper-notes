@@ -35,8 +35,11 @@ tags:
 $$\min_{x \in \mathbb{R}^n} \max_{y \in Y} \phi(x, y), \quad \text{s.t.} \quad \psi(x, w) \leq 0, \quad \forall w \in W$$
 
 其中 $Y, W$ 是连续紧集，$\phi$ 和 $\psi$ 均可以在 $x$ 上非凸。这同时涉及三大挑战：
+
 **非凸性**：目标和约束在 $x$ 上非凸，无法求全局解
+
 **无穷约束**：$w \in W$ 是连续集，约束数量无穷
+
 **嵌套 max 结构**：目标和约束中都有内层最大化
 
 现有方法的不足：

@@ -19,19 +19,24 @@ tags:
 **arXiv**: [2503.03499](https://arxiv.org/abs/2503.03499)  
 **代码**: [https://github.com/furiosa-ai/ssm-state-tuning](https://github.com/furiosa-ai/ssm-state-tuning)  
 **领域**: LLM效率  
-**关键词**: state space model, Mamba, PEFT, state-based tuning, parameter-efficient fine-tuning  
+**关键词**: state space model, Mamba, PEFT, state-based tuning, parameter-efficient fine-tuning
 
 ## 一句话总结
 针对 SSM（如 Mamba）提出 State-offset Tuning，一种新的"状态基"PEFT 方法家族，通过在每个时间步直接注入可训练的状态偏移量 $h'$ 替代 Prefix-Tuning 的虚拟 token，解决了 prompt-based 方法在 SSM 上表达能力受限的问题，在更少参数量下持续优于 LoRA 和 Prefix-Tuning。
 
 ## 研究背景与动机
 **领域现状**：SSM（Mamba）作为 Transformer 的亚二次替代正在崛起，但 PEFT 方法在 SSM 上的研究很少
+
 **现有痛点**：
    - Prompt Tuning 和 Prefix-Tuning 在 Transformer 上有效，但在 SSM 上表现差——因为虚拟 token 只能影响初始状态 $h_0$，其效果随时间步 $t$ 的增大而指数衰减（$\bar{A}^t h_0$）
    - LoRA 虽然有效但不利用 SSM 的独特结构特性
+
 **核心矛盾**：SSM 的循环结构使得 prompt-based 方法的影响随时间衰减，而 Transformer 的 Prefix-Tuning 在每层每步都有直接影响
+
 **本文要解决什么？** 为 SSM 设计利用其架构特性的 PEFT 方法
+
 **切入角度**：直接修改 SSM 的隐藏状态（state），而非通过外部 prompt 间接影响
+
 **核心idea一句话**：在每个时间步直接给隐状态加一个可训练偏移 $h'$，消除了 Prefix-Tuning 的时间衰减问题
 
 ## 方法详解
@@ -43,20 +48,20 @@ tags:
 
 1. **Prefix-Tuning 在 SSM 上的局限性分析**:
 
-    - 做什么：数学证明 Prefix-Tuning 等价于 Initial State Tuning
+    - 功能：数学证明 Prefix-Tuning 等价于 Initial State Tuning
     - 核心推导：虚拟 token 的效果 = $\bar{A}^t h_{\text{prefix}}$，随 $t$ 指数衰减，只能影响初始状态
     - 设计动机：解释了为什么 prompt-based PEFT 在 SSM 上效果差——影响力衰减太快
 
 2. **State-offset Tuning (h-offset)**:
 
-    - 做什么：在每个时间步的 SSM 输出上加一个与位置无关的可训练偏移
+    - 功能：在每个时间步的 SSM 输出上加一个与位置无关的可训练偏移
     - 核心思路：$\hat{y}_t = y_t + C_t h'$，其中 $h' \in \mathbb{R}^H$ 是可训练参数（每通道共享）
     - 设计动机：消除了 $\bar{A}^t$ 的时间衰减——偏移量在每个时间步都有均匀影响。参数量仅 $D \cdot H$
     - 与 Initial State Tuning 的区别：Initial State 的效果 $= C_t (\prod \bar{A}_i) h'$，有衰减；State-offset 的效果 $= C_t h'$，无衰减
 
 3. **State-offset Tuning (y-offset)**:
 
-    - 做什么：直接在 SSM 的输出标量上加偏移
+    - 功能：直接在 SSM 的输出标量上加偏移
     - 核心思路：$\hat{y}_t = y_t + y'$，参数量仅 $D$（每通道一个标量）
     - 更极端地参数高效，但表达能力稍弱
 

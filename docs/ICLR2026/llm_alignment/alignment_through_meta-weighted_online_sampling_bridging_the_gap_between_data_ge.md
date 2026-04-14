@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：DPO等离线偏好优化方法简单高效，但offline数据与模型动态演化策略之间的分布不匹配（OOD问题）限制了对齐效果；Online DPO等在线方法通过on-policy采样缓解不匹配，但忽略了高质量offline数据的价值。
+
 **现有痛点**：(a) 离线方法受限于固定数据分布；(b) 在线方法成本高且多样性不足（依赖当前策略能力）；(c) 混合方法用启发式/静态阈值做数据选择，忽视了数据采样与优化过程的交互。
+
 **核心矛盾**：offline数据高效多样但分布不对齐，online数据分布对齐但缺多样性和质量——需要根据模型当前状态动态平衡两者。
+
 **本文要解决什么**：设计一个将数据生成与偏好优化紧密耦合的自适应框架——让模型自己决定"哪些样本需要在线重新采样"以及"offline/online各占多少权重"。
+
 **切入角度**：用元学习器将每个样本的DPO偏好得分映射为权重，低权重触发在线重采样，高权重保留offline数据——weight既控制采样又控制训练。
+
 **核心idea一句话**：一个meta-learner同时担任"对齐差距估计器"和"样本权重指派器"，将在线采样和偏好优化紧密耦合。
 
 ## 方法详解
@@ -42,19 +47,19 @@ MetaAPO在训练epoch内迭代进行：(1) 对每个offline样本，meta-learner
 
 1. **Meta-Weighted Adaptive Online Sampling**
 
-    - 做什么：根据meta-weight决定哪些prompt需要在线生成新response
+    - 功能：根据meta-weight决定哪些prompt需要在线生成新response
     - 核心思路：对每个offline样本 $(x, y_w^{\text{off}}, y_l^{\text{off}})$，计算DPO偏好得分 $\ell^{\text{off}}$，meta-learner $h_\phi$ 将其映射为权重 $w \in [0,1]$。采样 $u \sim U(0,1)$，若 $u > w$（即offline数据与模型不对齐），则让当前策略生成K=8个response，用reward model排序得到在线偏好对
     - 设计动机：不是一刀切地对所有样本做在线采样，而是只在模型真正需要的prompt上采样——对齐好的样本直接用offline数据，对齐差的补充online数据。实验减少42%在线标注量
 
 2. **Meta-Weighted Preference Optimization**
 
-    - 做什么：用meta-weight动态平衡offline和online损失
+    - 功能：用meta-weight动态平衡offline和online损失
     - 核心思路：混合损失 $\mathcal{L}(\theta) = -\mathbb{E}[w \cdot \ell_\theta(\text{offline}) + (1-w) \cdot \ell_\theta(\text{online})]$，其中 $w = h_\phi(\ell^{\text{off}})$。对齐好的样本w高→更依赖可靠的offline人工标注；对齐差的样本w低→更依赖online校正
     - 设计动机：不同样本在不同训练阶段的offline/online最优比例不同，用学习出的w做sample-wise自适应平衡比固定比例/阈值更灵活
 
 3. **Meta-Learner更新机制**
 
-    - 做什么：交替训练策略模型和meta-learner
+    - 功能：交替训练策略模型和meta-learner
     - 核心思路：每 $T_{\text{meta}}=8$ 步，冻结策略模型 $\pi_\theta$，用累积的meta buffer $\mathcal{B}_{\text{meta}}$ 训练 $h_\phi$。梯度分析（Eq.7）表明：当 $\ell^{\text{on}} > \ell^{\text{off}}$（online得分更高）时，meta-learner自动降低offline权重；反之提高
     - 设计动机：meta-learner的梯度天然指向在online更好时减少offline权重的方向——无需人工设计规则。Theorem 1证明了meta风险随buffer增大收敛到oracle风险
 

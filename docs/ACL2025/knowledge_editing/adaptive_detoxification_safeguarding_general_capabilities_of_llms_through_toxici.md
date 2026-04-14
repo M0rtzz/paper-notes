@@ -2,15 +2,14 @@
 title: >-
   [论文解读] ToxEdit: Adaptive Detoxification Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing
 description: >-
-  [ACL 2025][LLM去毒] 提出 ToxEdit——毒性感知的知识编辑方法，在前向传播中动态检测毒性激活模式（SVM 二分类器检测有害隐藏状态），将计算路由到原始 FFN 或编辑后的 FFN，实现自适应去毒而不过度编辑。增强 SafeEdit 基准加入指令遵从评估，在多个 LLM 上去毒能力和通用能力保留均 SOTA。
+  [ACL 2025][LLM去毒] 提出 ToxEdit——毒性感知的知识编辑方法，在 LLM 前向传播早期层用 SVM 分类器检测有害隐藏状态，通过路由机制将有害输入导向编辑后的 FFN 副本、无害输入走原始 FFN，在 LLaMA3-8B/LLaMA2-7B/Mistral-7B 上同时实现了近 98% 去毒成功率和 95% 指令遵从保留（DL 指标），解决了知识编辑去毒中"去毒 vs 过度编辑"的核心矛盾。
 tags:
   - ACL 2025
   - LLM去毒
   - 知识编辑
   - 过度编辑
-  - 毒性检测
   - 自适应路由
-  - FFN编辑
+  - 毒性检测
 ---
 
 # ToxEdit: Adaptive Detoxification Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing
@@ -49,7 +48,7 @@ ToxEdit 由两个模块组成：(1) 语义画像毒性检测模块——在 LLM 
 
 1. **语义画像毒性检测模块（Semantic Profiling for Toxicity Detection）**:
 
-    - 做什么：在 LLM 前向传播中实时判断输入是否有害
+    - 功能：在 LLM 前向传播中实时判断输入是否有害
     - 核心思路：将毒性判断抽象为二分类问题。提取第 $l$ 层最后位置的隐藏状态 $h_l^{(n)}$，输入线性 SVM 分类器，输出 +1（有害）或 -1（无害）：$R_l = classifier_\sigma(h_l^{(n)})$
     - 训练数据：4000 有害提示（恶意单问 + 构造的越狱提示） + 2000 无害提示，从 SafeEdit 训练集构建。每条提示加上系统安全前缀 $S$
     - 最优层选择：遍历所有层训练分类器，选 F1 最高的层 $l'$。实验发现第 10-15 层效果最好（F1 接近 1），推测中间层最好关联毒性内容与拒绝意图
@@ -57,7 +56,7 @@ ToxEdit 由两个模块组成：(1) 语义画像毒性检测模块——在 LLM 
 
 2. **抗毒 FFN 模块（Anti-Toxic Feed-Forward Module）**:
 
-    - 做什么：构建去毒专用的 FFN 副本，通过路由实现自适应去毒
+    - 功能：构建去毒专用的 FFN 副本，通过路由实现自适应去毒
     - 核心思路：
       - 复制目标层的 $W_{l'}^V$（FFN 第二层 MLP）作为编辑副本
       - 用有害提示 $P$ + 安全回复 $Y_{safe}$ 对副本进行 $T$ 步编辑，损失函数为：$\mathcal{L} = -\log P_{\mathcal{W}^t}(Y_{safe}|[S;P])$
@@ -67,7 +66,7 @@ ToxEdit 由两个模块组成：(1) 语义画像毒性检测模块——在 LLM 
 
 3. **SafeEdit 基准增强**:
 
-    - 做什么：增加指令遵从评估维度
+    - 功能：增加指令遵从评估维度
     - 核心思路：新增 DL（Defense Locality）指标：$DL = \mathbb{E}_{q_n \sim Q_n}\{Sim(f_{W'}([S;q_n]), f_W([S;q_n]))\}$，测量编辑前后模型对无害指令的响应一致性。同时调整 Fluency 指标用 n-gram 评估安全请求的回复流畅度
     - 设计动机：原 SafeEdit 仅用 QA 和摘要评估通用能力保留，但指令遵从任务与编辑任务最相似，最能暴露过度编辑
 

@@ -32,10 +32,12 @@ tags:
 AI of Things（AIoT）推动将深度神经网络部署到微控制器（MCU）上，但 MCU 的资源极为受限：
 
 **内存瓶颈巨大**：典型 IoT 设备 RAM < 50 KiB，Flash < 250 KiB（RFC7228），而量化 ResNet-34 单个卷积层就需约 414.72 KiB RAM
+
 **Patch-based 融合的潜力**：融合技术可节省高达 95% 的 RAM，并将输入大小与内存使用解耦。但现有方案存在以下问题：
    - 融合块内部的重计算开销高
    - 输入尺寸限制影响医学影像、音频等应用
    - 实现高度绑定特定硬件（如 ARM Cortex-M7）和特定模型（如 MobileNetV2 的 inverted block）
+
 **搜索空间未充分探索**：MCUNetV2 仅启发式地融合头部层，StreamNet 用暴力搜索但搜索空间有限，均未探索多融合块的潜力
 
 ## 方法详解

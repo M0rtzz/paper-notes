@@ -2,13 +2,16 @@
 title: >-
   [论文解读] Exchangeability of GNN Representations with Applications to Graph Retrieval
 description: >-
-  [ICLR2026][GNN][图检索] 发现GNN节点嵌入沿特征维度具有可交换性，利用此性质将传输距离近似为欧氏距离，构建高效的LSH图检索框架GraphHash
+  [ICLR 2026 Oral][图神经网络] 发现训练好的 GNN 节点嵌入沿特征维度是可交换随机变量（即 $p(\mathbf{X}) = p(\mathbf{X}\pi)$ 对任意维度排列 $\pi$ 成立），利用此性质通过维度排序将基于传输距离（EMD/Wasserstein）的图相似度近似为欧氏距离，构建统一的局部敏感哈希（LSH）框架 GraphHash，在子图匹配和图编辑距离（GED）检索任务上以 AUC 指标一致超越 FourierHashNet、DiskANN、IVF、CORGII、SWWL 等基线，可扩展到 100 万图语料库。
 tags:
-  - ICLR2026
-  - GNN
-  - 图检索
-  - 局部敏感哈希
-  - 可交换性
+  - ICLR 2026 Oral
+  - 图神经网络
+  - exchangeability
+  - graph retrieval
+  - LSH
+  - GraphHash
+  - transportation distance
+  - Wasserstein distance
 ---
 
 # Exchangeability of GNN Representations with Applications to Graph Retrieval
@@ -42,17 +45,17 @@ Pipeline: GNN 编码器 → 节点嵌入矩阵 $\mathbf{X} \in \mathbb{R}^{n \ti
 
 ### 关键设计
 1. **可交换性发现与证明**:
-    - 做什么：证明在标准训练条件下（i.i.d. 初始化 + 置换不变损失 + 等变优化器），GNN 节点嵌入矩阵 $\mathbf{X}$ 的特征维度是可交换随机变量
+    - 功能：证明在标准训练条件下（i.i.d. 初始化 + 置换不变损失 + 等变优化器），GNN 节点嵌入矩阵 $\mathbf{X}$ 的特征维度是可交换随机变量
     - 核心思路：如果初始参数 $\theta_0$ 的各维度是 i.i.d. 的，则由 Lemma 2（置换诱导变换 $\Gamma_\pi$），SGD 更新保持等变性 $\theta_t(\pi) = \Gamma_\pi(\theta_t)$，最终 $p(\mathbf{X}) = p(\mathbf{X}\pi)$。关键引理链：初始化可交换 → 梯度等变 → 更新等变 → 嵌入可交换（Theorem 5）
     - 设计动机：这不是对 GNN 的新约束，而是发现现有 GNN 在标准训练下自然具有的对称性。且该性质在 BatchNorm、LayerNorm、Dropout、Adam/Adagrad 等现代组件下仍然成立（作者在 rebuttal 中补充了详细证明）
 
 2. **维度排序近似传输距离**:
-    - 做什么：利用可交换性，将 $D$ 维传输距离 $\text{sim}(\mathbf{G}_c, \mathbf{G}_q)$ 分解为 $D$ 个一维排序问题的和：$\text{sim}(\mathbf{G}_c, \mathbf{G}_q) \approx \frac{1}{D}\sum_{d=1}^D \text{sim}_d(\mathbf{G}_c, \mathbf{G}_q)$
+    - 功能：利用可交换性，将 $D$ 维传输距离 $\text{sim}(\mathbf{G}_c, \mathbf{G}_q)$ 分解为 $D$ 个一维排序问题的和：$\text{sim}(\mathbf{G}_c, \mathbf{G}_q) \approx \frac{1}{D}\sum_{d=1}^D \text{sim}_d(\mathbf{G}_c, \mathbf{G}_q)$
     - 核心思路：由可交换性，每个维度 $d$ 的边际分布相同。在每个维度内独立排序后计算欧氏距离，等价于求解一维最优传输（一维 Wasserstein 距离 = 排序后的 L1 距离）。近似误差由 Proposition 7 给出，$\Pr(|\frac{\text{sim}}{D} - \text{sim}_d| \geq \epsilon)$ 以 $O(1/D)$ 速率收敛。即使维度间存在依赖，因嵌入 $L_2$-有界，仍保持 $O(1/D)$ 收敛
     - 设计动机：将 $D$ 维组合优化问题拆解为 $D$ 个可并行化的一维排序问题，计算量从 $O(n^3 D)$ 降至 $O(nD \log n)$
 
 3. **GraphHash: LSH 框架**:
-    - 做什么：对排序后的嵌入做 Fourier 特征映射 + 随机超平面 LSH，实现子线性查询
+    - 功能：对排序后的嵌入做 Fourier 特征映射 + 随机超平面 LSH，实现子线性查询
     - 核心思路：对每维 $d$ 的排序嵌入 $\mathbf{v}_d$，计算随机 Fourier 特征 $\mathbf{t}_d = [\cos(\omega_j^T \mathbf{v}_d + b_j)]_{j=1}^M$（$M=10$），哈希码 $\mathbf{h}_d = \text{sign}(\mathbf{W}\mathbf{t}_d)$。查询时间 $O(|C|^\gamma)$，其中 $\gamma = \frac{\log(1/p)}{\log(1/p')} < 1$
     - 设计动机：Fourier 特征将排序嵌入映射到希尔伯特空间使欧氏距离有意义，随机超平面 LSH 理论保证在高相似度区域有更高碰撞概率。空间复杂度仅 $O(D|C|)$，100K 图仅需 3.5MB
 

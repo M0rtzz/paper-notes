@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR2026
   - fine-grained recognition
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - visual reasoning
   - multiple-choice question
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.18305](https://arxiv.org/abs/2511.18305)  
 **代码**: [raja-kumar/DiVE-k](https://github.com/raja-kumar/DiVE-k)  
 **领域**: multimodal_vlm  
-**关键词**: fine-grained recognition, reinforcement learning, GRPO, visual reasoning, multiple-choice question, LVLM  
+**关键词**: fine-grained recognition, reinforcement-learning, GRPO, visual reasoning, multiple-choice question, LVLM
 
 ## 一句话总结
 

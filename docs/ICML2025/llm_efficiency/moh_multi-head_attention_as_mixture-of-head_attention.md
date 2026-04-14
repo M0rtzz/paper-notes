@@ -49,31 +49,31 @@ MoH 在标准 Transformer 架构中替换 MHA 层。输入仍是 token 序列 $\
 
 1. **求和形式的 MHA 重写**
 
-    - 做什么：将标准 MHA 从拼接形式转为等价的求和形式
+    - 功能：将标准 MHA 从拼接形式转为等价的求和形式
     - 核心思路：将输出投影矩阵 $\mathbf{W}_O \in \mathbb{R}^{d_v \times d_{out}}$ 按行分解为 $h$ 个子矩阵 $\mathbf{W}_O^i$，则 $\text{MultiHead}(\mathbf{X}, \mathbf{X}') = \sum_{i=1}^{h} \mathbf{H}^i \mathbf{W}_O^i$
     - 设计动机：求和形式揭示了各头的独立性——既然输出是各头贡献的简单加法，就可以自然地对部分项置零（稀疏化）或重新加权，为引入 MoE 路由机制提供了理论基础
 
 2. **Heads as Experts（头即专家）**
 
-    - 做什么：将 $h$ 个注意力头视为 MoE 中的 $h$ 个专家，用 router 动态激活 Top-K 个
+    - 功能：将 $h$ 个注意力头视为 MoE 中的 $h$ 个专家，用 router 动态激活 Top-K 个
     - 核心思路：MoH 输出为 $\text{MoH}(\mathbf{X}, \mathbf{X}') = \sum_{i=1}^{h} g_i \mathbf{H}^i \mathbf{W}_O^i$，其中 $g_i$ 是路由得分，非激活头的 $g_i = 0$。与标准 MoE 不同的是，MoH 不增加头的数量，总参数量与 MHA 基本相同
     - 设计动机：不同于 MoE 追求参数扩展，MoH 的核心目标是减少冗余头的激活以提升推理效率。加权求和取代等权求和增加了灵活性，释放了额外的性能潜力
 
 3. **Shared Heads（共享头）**
 
-    - 做什么：指定 $h_s$ 个头为共享头，对所有 token 始终激活
+    - 功能：指定 $h_s$ 个头为共享头，对所有 token 始终激活
     - 核心思路：共享头捕获跨上下文的通用知识（如语法规则），其路由得分由独立的投影矩阵 $\mathbf{W}_s \in \mathbb{R}^{h_s \times d_{in}}$ 通过 Softmax 计算。实验表明共享头比例在 13.9%~74.0% 范围内模型性能稳定
     - 设计动机：灵感来自 DeepSeekMoE。共享头集中处理共性知识，使得路由头可以更专注于领域/任务特定信息，减少路由头之间的冗余。共享头也可视为 Soft MoE 的一种形式，作者建议共享头比例 > 40%
 
 4. **Two-Stage Routing（两阶段路由）**
 
-    - 做什么：分两级计算路由得分——先在各类型内部 Softmax 归一化，再用可学习系数 $\alpha_1, \alpha_2$ 平衡 shared 与 routed 头的贡献
+    - 功能：分两级计算路由得分——先在各类型内部 Softmax 归一化，再用可学习系数 $\alpha_1, \alpha_2$ 平衡 shared 与 routed 头的贡献
     - 核心思路：路由得分定义为分段函数。对 shared 头 $i$：$g_i = \alpha_1 \cdot \text{Softmax}(\mathbf{W}_s \mathbf{x}_t)_i$；对激活的 routed 头：$g_i = \alpha_2 \cdot \text{Softmax}(\mathbf{W}_r \mathbf{x}_t)_{i-h_s}$。平衡系数 $[\alpha_1, \alpha_2] = \text{Softmax}(\mathbf{W}_h \mathbf{x}_t)$，其中 $\mathbf{W}_h \in \mathbb{R}^{2 \times d_{in}}$ 可学习
     - 设计动机：单级路由无法动态调节 shared 头和 routed 头的整体重要性。两阶段设计让模型根据输入自适应分配两类头的贡献权重
 
 5. **Continue-Tuning 策略（预训练模型转换）**
 
-    - 做什么：将已有预训练 MHA 模型（如 LLaMA3-8B）转换为 MoH 模型
+    - 功能：将已有预训练 MHA 模型（如 LLaMA3-8B）转换为 MoH 模型
     - 核心思路：解决三个挑战——(a) 共享头选择：直接取每层前 16 个头作为 shared heads；(b) 无参数路由器初始化：用每个头的 query 的 $\ell_2$ 范数作为路由得分，无需随机初始化；(c) 路由得分量化：用 straight-through estimator 处理量化 $g_i^q = \mathbb{1}(\text{Token } \mathbf{x} \text{ selects Head } i)$，避免加权和对输出分布的剧烈改变
     - 设计动机：从头训练成本巨大。通过巧妙的初始化和两阶段训练（先 300B tokens 适配数据分布，再 100B tokens 转化为 MoH），仅用约 3% 的原始预训练数据量即可完成转换
 

@@ -9,7 +9,7 @@ tags:
   - Distributionally Robust
   - Multi-Agent RL
   - Markov Games
-  - Online Learning
+  - online learning
   - Regret Bounds
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.02948](https://arxiv.org/abs/2508.02948)  
 **代码**: 无  
 **领域**: AI安全 / 多智能体强化学习  
-**关键词**: Distributionally Robust, Multi-Agent RL, Markov Games, Online Learning, Regret Bounds
+**关键词**: Distributionally Robust, Multi-Agent RL, Markov Games, online learning, Regret Bounds
 
 ## 一句话总结
 
@@ -34,7 +34,9 @@ tags:
 然而，现有 DRMGs 的研究方法存在严重局限：
 
 **依赖模拟器**: 大量方法假设能反复查询环境模型（即拥有生成式模拟器），这在真实系统中往往不可得
+
 **依赖离线数据集**: 另一些方法需要预先收集的大规模离线经验数据，但在新环境中这些数据不存在
+
 **缺乏在线学习保证**: 没有方法对"智能体直接与环境交互并实时学习鲁棒策略"的场景提供理论保证
 
 总结来说，DRMGs 的在线学习（online learning）——即智能体在没有任何先验数据的情况下，通过直接与环境交互来学习鲁棒策略——是一个完全未被探索的问题。

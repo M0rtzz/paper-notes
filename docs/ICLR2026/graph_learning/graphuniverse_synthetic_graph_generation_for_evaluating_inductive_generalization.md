@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.21097](https://arxiv.org/abs/2509.21097)  
 **代码**: [GitHub](https://github.com/LouisVanLangendonck/GraphUniverse)  
 **领域**: graph_learning  
-**关键词**: synthetic graph generation, inductive generalization, graph benchmarking, stochastic block model, distribution shift  
+**关键词**: synthetic graph generation, inductive generalization, graph benchmarking, stochastic block model, distribution shift
 
 ## 一句话总结
 提出 GraphUniverse 框架，通过分层生成具有持久语义社区的图族（graph families），首次实现对图学习模型归纳泛化能力的系统性评估，揭示了 transductive 性能无法可靠预测 inductive 泛化能力这一关键发现。

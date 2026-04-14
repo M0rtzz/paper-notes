@@ -26,8 +26,11 @@ tags:
 In-context learning（ICL）是当前 NLP 中的变革性技术，仅通过在 LLM 的上下文中提供示例（demonstrations）就可以完成各种任务，无需微调模型参数。然而，ICL 存在几个关键限制：
 
 **上下文长度受限**：Transformer 的最大上下文长度限制了可使用的 demonstration 数量，而更多的 demonstration 通常能带来更好的性能。
+
 **二次复杂度**：随着 demonstration 数量增加，self-attention 的计算和内存开销呈二次增长。
+
 **对 demonstration 选择敏感**：ICL 的效果高度依赖于选择了哪些 demonstration，不同选择可能导致截然不同的结果。
+
 **缺乏质量区分**：传统 ICL 将所有 demonstration 等权重对待，无法区分高质量和低质量（甚至噪声）示例。
 
 现有的 demonstration 选择方法大多基于启发式规则，无法量化每个示例对泛化性能的贡献。这些问题共同促使作者提出了一种更具表达力的学习方法来组合多组 demonstration 的输出。

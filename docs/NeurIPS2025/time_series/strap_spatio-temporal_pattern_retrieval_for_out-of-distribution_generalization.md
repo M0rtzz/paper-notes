@@ -1,12 +1,18 @@
 ---
-description: 检索增强的时空模式学习框架，通过构建多维模式库并自适应融合历史模式来应对时空分布偏移
+title: >-
+  [论文解读] StRap: Spatio-Temporal Pattern Retrieval for Out-of-Distribution Generalization
+description: >-
+  [NeurIPS 2025][时间序列][时空图神经网络] 提出 StRap 框架，通过构建包含空间、时间和时空三维键值对的模式库，在推理时检索与当前输入最相似的历史模式并自适应融合，有效应对流式时空数据中的分布偏移（STOOD）问题。
 tags:
-- spatio-temporal
-- OOD-generalization
-- retrieval-augmented
-- continual-learning
-- GNN
+  - NeurIPS 2025
+  - 时间序列
+  - 时空图神经网络
+  - OOD 泛化
+  - 检索增强学习
+  - 持续学习
+  - 模式库
 ---
+
 # StRap: Spatio-Temporal Pattern Retrieval for Out-of-Distribution Generalization
 
 **会议**: NeurIPS 2025  
@@ -43,7 +49,7 @@ StRap 遵循"显式存储 + 检索融合"的范式：
 ### 关键设计
 
 1. **多维模式键生成**:
-    - 做什么：为空间、时间、时空三类子图分别设计特征化的键
+    - 功能：为空间、时间、时空三类子图分别设计特征化的键
     - 核心思路：
         - 空间键 $\mathbf{k}_S$：节点度统计 + 聚类系数 + 最短路径统计 + Forman-Ricci 曲率
         - 时间键 $\mathbf{k}_T$：统计矩 + 频谱成分 + 小波变换 + 自相关 + 熵
@@ -51,7 +57,7 @@ StRap 遵循"显式存储 + 检索融合"的范式：
     - 设计动机：键需要足够判别性且对分布偏移鲁棒，几何/拓扑特征比学习特征更稳定
 
 2. **自适应融合与知识平衡训练**:
-    - 做什么：检索到的模式值通过 plug-and-play 的 prompting 机制注入模型
+    - 功能：检索到的模式值通过 plug-and-play 的 prompting 机制注入模型
     - 核心思路：引入知识平衡目标，动态校准历史模式与当前观测的影响权重
     - 设计动机：过度依赖历史模式会导致过拟合历史案例；过度依赖当前观测则失去历史信息增益
 

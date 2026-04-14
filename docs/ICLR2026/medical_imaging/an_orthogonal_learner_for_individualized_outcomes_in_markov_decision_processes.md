@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2509.26429](https://arxiv.org/abs/2509.26429)  
 **代码**: [EmilJavurek/Orthogonal-Q-in-MDPs](https://github.com/EmilJavurek/Orthogonal-Q-in-MDPs)  
 **领域**: 因果推断 / 强化学习  
-**关键词**: Q-function estimation, doubly robust, Neyman orthogonality, causal inference, off-policy evaluation, plug-in bias, efficient influence function  
+**关键词**: Q-function estimation, doubly robust, Neyman orthogonality, causal inference, off-policy evaluation, plug-in bias, efficient influence function
 
 ## 一句话总结
 

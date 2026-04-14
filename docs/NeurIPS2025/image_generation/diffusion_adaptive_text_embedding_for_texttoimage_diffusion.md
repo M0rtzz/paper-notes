@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.23974](https://arxiv.org/abs/2510.23974)  
 **代码**: [https://github.com/aailab-kaist/DATE](https://github.com/aailab-kaist/DATE)  
 **领域**: 图像生成 / 扩散模型 / 文本-图像对齐  
-**关键词**: text embedding, diffusion sampling, adaptive conditioning, training-free, text-to-image alignment  
+**关键词**: text embedding, diffusion sampling, adaptive conditioning, training-free, text-to-image alignment
 
 ## 一句话总结
 发现T2I扩散模型中固定的text embedding在不同时间步是次优的，提出DATE——在推理时动态更新text embedding以最大化mean predicted image与文本的对齐评分（如CLIP Score/ImageReward），无需训练，可即插即用到任何扩散模型和采样器中，在多概念生成和图像编辑中一致提升text-image对齐。

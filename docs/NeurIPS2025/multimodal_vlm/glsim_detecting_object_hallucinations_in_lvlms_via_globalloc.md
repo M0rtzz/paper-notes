@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.19972](https://arxiv.org/abs/2508.19972)  
 **代码**: 未提及  
 **领域**: 多模态VLM  
-**关键词**: object hallucination, hallucination detection, global-local similarity, vision-language model, training-free  
+**关键词**: object hallucination, hallucination detection, global-local similarity, vision-language model, training-free
 
 ## 一句话总结
 提出 GLSim，一种无训练的物体幻觉检测框架，结合图像-文本间的全局和局部嵌入相似度信号来判断 LVLM 生成的物体是否为幻觉，显著超越仅使用全局或局部信号的方法。

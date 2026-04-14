@@ -47,19 +47,19 @@ tags:
 
 1. **线性化逆问题求解**:
 
-    - 做什么：将非线性 PDE 残差最小化转为线性系统
+    - 功能：将非线性 PDE 残差最小化转为线性系统
     - 核心思路：对残差做一阶 Taylor 展开 $L(\hat{u}+u^c) \approx L(\hat{u}) + \frac{\partial L}{\partial \hat{u}} u^c$，令其为零得到 $Au^c = -r$，其中 $A = \frac{\partial L}{\partial \hat{u}}$ 是 Jacobian
     - 设计动机：避免迭代优化，单步线性求解足够（小误差假设下线性化准确）
 
 2. **Jacobian/伪逆缓存策略**:
 
-    - 做什么：将校正的计算从 $O(n^3)$ 降为 $O(n^2)$ 矩阵乘法
+    - 功能：将校正的计算从 $O(n^3)$ 降为 $O(n^2)$ 矩阵乘法
     - 核心思路：对半隐式离散化（线性项隐式、非线性项显式），Jacobian $A = \frac{I}{\Delta t} - \mathcal{L}$ 不依赖状态。离线一次性计算 $A^\dagger$，在线时每步只需 $u^c = A^\dagger \cdot (-r)$
     - 设计动机：实测缓存策略使开销从 113s 降到 0.9s（163× 加速），总推理开销 <5%
 
 3. **半隐式离散化方案**:
 
-    - 做什么：为不同 PDE 设计保证 Jacobian 常数性的离散化
+    - 功能：为不同 PDE 设计保证 Jacobian 常数性的离散化
     - 核心思路：Navier-Stokes 用 Crank-Nicolson（扩散隐式+对流显式）；波动方程用中心差分二阶格式；KS 方程用谱方法+半隐式
     - 设计动机：非线性项若隐式处理会使 Jacobian 依赖状态，破坏缓存策略
 

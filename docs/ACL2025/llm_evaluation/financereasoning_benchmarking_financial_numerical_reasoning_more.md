@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - 金融数值推理
-  - Benchmark
+  - benchmark
   - 大推理模型
   - 知识增强
   - 函数库
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.05828](https://arxiv.org/abs/2506.05828)  
 **代码**: [https://github.com/BUPT-Reasoning-Lab/FinanceReasoning](https://github.com/BUPT-Reasoning-Lab/FinanceReasoning)  
 **领域**: 金融推理 / Benchmark  
-**关键词**: 金融数值推理, Benchmark, 大推理模型, 知识增强, 函数库
+**关键词**: 金融数值推理, benchmark, 大推理模型, 知识增强, 函数库
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: LRM（大推理模型）如 OpenAI o1、DeepSeek-R1 在通用推理任务上取得突破，但在金融等领域专用数值推理任务上仍面临挑战。
+
 **现有痛点**: 现有金融推理 benchmark（如 CodeFinQA、FinanceMath）存在三大问题——(1) 标注质量差（9.72%-30% 的题目有错误或歧义）；(2) 评估标准宽松（允许 1% 误差、忽略单位和符号）；(3) 简单题过多，LRM 已饱和（>90% 准确率），难以客观评估推理能力。
+
 **核心矛盾**: 现有 benchmark 无法如实反映 LRM 的真实推理改进——例如 DeepSeek-R1 在原始 CodeFinQA 上仅比 V3 低 0.88%，但在重标注版本上高 2.01%。
+
 **本文要解决什么**: 构建一个可信、全面、有挑战性的金融数值推理 benchmark。
+
 **切入角度**: 三管齐下——修正已有数据、构建金融函数知识库、专家标注高难度新题。
+
 **核心idea一句话**: 通过"修旧题+造知识库+出难题"三步策略，打造高质量金融数值推理评估基准。
 
 ## 方法详解

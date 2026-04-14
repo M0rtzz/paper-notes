@@ -58,14 +58,14 @@ PartField 的核心 idea：**不预定义部件模板或文本，而是学习一
 
 1. **混合 2D/3D 部件提案训练**：
 
-    - 做什么：从两个来源收集部件提案作为训练信号，不要求提案语义一致
+    - 功能：从两个来源收集部件提案作为训练信号，不要求提案语义一致
     - 2D 提案：对 Objaverse 约 34 万形状渲染 RGB/法线图，用 SAM2 密集采样点 prompt 生成 2D mask，反投影到 3D。不同 mask 自然覆盖不同粒度
     - 3D 提案：利用 PartNet（约 3 万形状，24 类）的层级部件标注。将 mesh 转为四面体网格以采样内部点
     - 设计动机：2D 提案提供开放世界能力和大规模数据，3D 提案提供完整的内部结构监督和人工语义标注。二者互补
 
 2. **Triplet 对比学习**：
 
-    - 做什么：对每个部件提案 $P$，采样三元组 $(\mathbf{p}_a, \mathbf{p}_b, \mathbf{p}_c)$，其中 $\mathbf{p}_a, \mathbf{p}_b \in P$（正样本对），$\mathbf{p}_c \in S \setminus P$（负样本）
+    - 功能：对每个部件提案 $P$，采样三元组 $(\mathbf{p}_a, \mathbf{p}_b, \mathbf{p}_c)$，其中 $\mathbf{p}_a, \mathbf{p}_b \in P$（正样本对），$\mathbf{p}_c \in S \setminus P$（负样本）
     - 核心损失函数（相对式对比损失）：
       - $\mathcal{L} = -\frac{1}{2} \left( \log \frac{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b))}{\text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_b)) + \text{sim}(f(\mathbf{p}_a), f(\mathbf{p}_c))} + \log \frac{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a))}{\text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_a)) + \text{sim}(f(\mathbf{p}_b), f(\mathbf{p}_c))} \right)$
       - 其中 $\text{sim}(u, v) = \exp(\cos(u, v) / \tau)$，$\tau$ 是可学习温度
@@ -74,7 +74,7 @@ PartField 的核心 idea：**不预定义部件模板或文本，而是学习一
 
 3. **Hard Negative Mining（困难负样本挖掘）**：
 
-    - 做什么：混合三种负样本采样策略提升训练效率
+    - 功能：混合三种负样本采样策略提升训练效率
     - 三种策略：
       - **均匀负样本**：从提案互补区域均匀采样
       - **3D 困难**：偏好在欧氏空间中靠近 $\mathbf{p}_a$ 的负样本（部件边界附近）
@@ -84,7 +84,7 @@ PartField 的核心 idea：**不预定义部件模板或文本，而是学习一
 
 4. **前馈架构（PVCNN + Triplane + Transformer）**：
 
-    - 做什么：将点云输入编码为 triplane 特征场
+    - 功能：将点云输入编码为 triplane 特征场
     - 架构细节：特征场 448 维，triplane 分辨率 $512^2$，128 通道，Transformer 6 层。输入 10 万点/形状
     - 训练：8 块 A100 GPU，2 周
     - 优势：(a) 快速推理（<10 秒 vs 分钟~小时）；(b) 对噪声和不一致标签鲁棒（大规模训练的平均效应）；(c) 跨形状特征空间自然一致

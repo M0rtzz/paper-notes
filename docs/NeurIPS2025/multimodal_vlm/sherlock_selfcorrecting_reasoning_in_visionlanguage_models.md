@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Sherlock: Self-Correcting Reasoning in Vision-Language Models
 description: >-
-  [NeurIPS 2025][多模态][self-correction] 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。
+  [NeurIPS 2025][多模态][自我纠正] 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。
 tags:
   - NeurIPS 2025
   - 多模态
-  - self-correction
-  - preference learning
+  - 自我纠正
+  - 偏好学习
   - trajectory-level
   - VLM reasoning
-  - self-improvement
+  - 自我改进
 ---
 
 # Sherlock: Self-Correcting Reasoning in Vision-Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.22651](https://arxiv.org/abs/2505.22651)  
 **代码**: [https://dripnowhy.github.io/Sherlock/](https://dripnowhy.github.io/Sherlock/)  
 **领域**: 多模态VLM / 自我纠正 / 视觉推理  
-**关键词**: self-correction, preference learning, trajectory-level, VLM reasoning, self-improvement  
+**关键词**: 自我纠正, 偏好学习, trajectory-level, VLM reasoning, 自我改进
 
 ## 一句话总结
 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。

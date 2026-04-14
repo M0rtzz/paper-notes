@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：CLIP 等 VLM 在大量下游任务中表现优异，但从大规模网络爬取数据中继承了性别、种族等社会偏见（如 "nurse" 与 "female" 相似度异常高）。
+
 **现有痛点**：现有去偏方法各有缺陷 — 有的需要训练额外网络（DeAR、FairerCLIP）、有的需要带敏感属性标注的数据（SFID、CLIP-clip）、有的只处理单模态（BiasedPrompt、SANER）、有的只针对单任务（PRISM 仅做分类），而且几乎所有方法都没有效用保持的理论保证。
+
 **核心矛盾**：去偏（fairness）和效用保持（utility）是一对天然矛盾 — 去掉偏见信息不可避免地损失语义信息。之前的方法要么牺牲效用，要么需要大量调参来平衡，且无法提供性能损失的理论上界。
+
 **本文要解决什么？** 如何在零训练、零数据的条件下，同时对视觉和文本两个模态去偏，且提供可证明的效用损失上界？如何统一处理多个下游任务？
+
 **切入角度**：将去偏问题转化为跨模态单位超球面上的优化问题，通过正交分解将 embedding 拆分为"属性泄露"和"中性内容"两个分量，然后在 Pareto 前沿中找最优点。
+
 **核心idea一句话**：将 VLM 去偏建模为超球面上的 Chebyshev scalarisation 问题，推导出闭式最优解 $\alpha^\star$，实现 Pareto-optimal 的公平-效用权衡。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **LLM-Guided Group Prototype Construction**:
 
-    - 做什么：为每个敏感属性组（如 male/female）构建代表性 embedding
+    - 功能：为每个敏感属性组（如 male/female）构建代表性 embedding
     - 核心思路：用 LLM（GPT-5）将输入 prompt 注入属性词并生成多种措辞变体（如 "male doctor" → "man doctor", "masculine doctor"），然后取球面均值 $\vec{p}_g$ 作为 group prototype。由 prototype 差向量 $\vec{a}_i = \vec{p}_{g_i} - \vec{p}_{g_1}$ 张成属性子空间 $\mathcal{A}$
     - 设计动机：之前方法直接用单一 prompt 定义属性方向，忽略了同一属性的多种语言表达（"man"/"gentleman"/"boy" 都是 male），导致属性子空间不准确
 
 2. **闭式去偏求解**:
 
-    - 做什么：在超球面 $\mathbb{S}^{d-1}$ 上找去偏 embedding $\vec{u}^\star$
+    - 功能：在超球面 $\mathbb{S}^{d-1}$ 上找去偏 embedding $\vec{u}^\star$
     - 核心思路：将 embedding 正交分解为 $\vec{e} = \vec{e}_{\mathcal{A}_\parallel} + \vec{e}_{\mathcal{A}_\perp}$（属性泄露 + 中性内容）。定义双目标：最小化属性泄露 $L(\alpha) = \alpha$ 和效用损失 $V(\alpha) = 1 - \alpha\|\vec{e}_{\mathcal{A}_\parallel}\| - \sqrt{1-\alpha^2}\|\vec{e}_{\mathcal{A}_\perp}\|$。通过 Lemma 1-2 将高维搜索降到 1D，再用 Chebyshev scalarisation 解 minimax 问题，得到闭式解：$\alpha^\star = \frac{E - \|\vec{e}_{\mathcal{A}_\perp}\|\sqrt{E^2 - \|\vec{e}_{\mathcal{A}_\parallel}\|^2}}{E^2 + \|\vec{e}_{\mathcal{A}_\perp}\|^2}$
     - 设计动机：之前方法（Orth-Proj）直接正交投影相当于 $\alpha=0$（完美公平但效用最差），本文找到 Pareto 前沿中间的最优点，在公平和效用间取得最佳平衡
 
 3. **效用上界保证**:
 
-    - 做什么：提供可证明的 cross-utility 损失上界
+    - 功能：提供可证明的 cross-utility 损失上界
     - 核心思路：Proposition 1 证明 $\ell_{cross} \leq \sqrt{2\ell_{self}^{(I)}} + \sqrt{2\ell_{self}^{(T)}}$，因此只需约束 self-utility loss 即可同时保证跨模态对齐。Theorem 1 进一步给出精确的上界表达式
     - 设计动机：之前方法声称保持效用但无理论保证，只能靠经验调参
 

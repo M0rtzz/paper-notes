@@ -52,13 +52,13 @@ tags:
 
 1. **任务形式化（Open-World Classification）**:
 
-    - 做什么：定义 LMM 作为函数 $f_{\text{LMM}}: \mathcal{X} \times \mathcal{T} \rightarrow \mathcal{T}$，输入图像和查询文本，输出文本预测
+    - 功能：定义 LMM 作为函数 $f_{\text{LMM}}: \mathcal{X} \times \mathcal{T} \rightarrow \mathcal{T}$，输入图像和查询文本，输出文本预测
     - 核心思路：闭合世界在查询中提供候选集 $\mathcal{C}$，开放世界不限制输出空间，模型从所有可能语义概念 $\mathcal{Y}$ 中自由预测，其中 $|\mathcal{C}| \ll |\mathcal{Y}|$
     - 设计动机：LMM 的生成能力不应被预定义类别列表所限制，开放世界设定更符合真实应用场景
 
 2. **四种评估指标**:
 
-    - 做什么：从不同角度衡量预测与真值的对齐程度
+    - 功能：从不同角度衡量预测与真值的对齐程度
     - 核心思路：
       - **文本包含（TI）**：检查真值标签是否为预测文本的子串，$\text{TI}(y, \hat{y}) = \mathbf{1}[y \subseteq \hat{y}]$。简单但过于严格，语义等价但文字不同会被判错
       - **Llama 包含（LI）**：使用 Llama 3.2 3B 作为判官，判断预测是否与真值语义一致。LLM-as-judge 范式的分类任务特化版本
@@ -68,7 +68,7 @@ tags:
 
 3. **错误分析框架**:
 
-    - 做什么：利用指标间的差异定位模型错误类型
+    - 功能：利用指标间的差异定位模型错误类型
     - 核心思路：
       - CS 高而 LI 低 → 粒度错误（correct but too generic，如预测"动物"而非"拉布拉多"）
       - LI 高而 CS 低 → 标注歧义或多标签问题

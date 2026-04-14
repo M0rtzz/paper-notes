@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：条件流匹配（CFM）是训练基于流的生成模型的高效方法，通过回归条件向量场来学习从噪声到数据的映射，无需模拟。
+
 **现有痛点**：CFM 只确保学习的向量场 $\boldsymbol{v}_t$ 接近真实向量场 $\boldsymbol{u}_t$，但两者的散度（divergence）差距 $|\nabla \cdot \boldsymbol{v}_t - \nabla \cdot \boldsymbol{u}_t|$ 可能很大，导致学习到的概率路径与真实概率路径存在显著偏差。
+
 **核心矛盾**：CFM loss 是 FM loss 加常数，最小化它能学好向量场本身，但无法保证概率路径（密度函数）的准确性——向量场的散度决定了密度的变化。
+
 **本文要解决什么？** 如何在 FM 训练中同时控制向量场及其散度的精度，以获得更准确的概率路径？
+
 **切入角度**：从连续性方程出发，推导精确与学习概率路径之间误差满足的 PDE ，用 Duhamel 原理求解得到误差的 TV 距离上界。
+
 **核心idea一句话**：FM 的概率路径误差由向量场差异和散度差异共同决定，提出 FDM = CFM loss + 条件散度 loss 来同时优化两者。
 
 ## 方法详解
@@ -42,19 +47,19 @@ $$\mathcal{L}_{\text{FDM}} = \lambda_1 \mathcal{L}_{\text{CFM}} + \lambda_2 \mat
 
 1. **概率路径误差 PDE (Proposition 3.1)**:
 
-    - 做什么：刻画真实路径 $p_t$ 和学习路径 $\hat{p}_t$ 之间的误差 $\epsilon_t = p_t - \hat{p}_t$
+    - 功能：刻画真实路径 $p_t$ 和学习路径 $\hat{p}_t$ 之间的误差 $\epsilon_t = p_t - \hat{p}_t$
     - 核心思路：误差满足 $\partial_t \epsilon_t + \nabla \cdot (\epsilon_t \boldsymbol{v}_t) = L_t$，其中强迫项 $L_t = -p_t[\nabla \cdot (\boldsymbol{u}_t - \boldsymbol{v}_t) + (\boldsymbol{u}_t - \boldsymbol{v}_t) \cdot \nabla \log p_t]$
     - 设计动机：强迫项同时包含向量场差异和散度差异，说明仅匹配向量场不够
 
 2. **TV 距离上界 (Theorem 3.3)**:
 
-    - 做什么：将概率路径误差量化为可优化的目标
+    - 功能：将概率路径误差量化为可优化的目标
     - 核心思路：$\text{TV}(p_t, \hat{p}_t) \leq \frac{1}{2}\mathcal{L}_{\text{DM}}$，其中 $\mathcal{L}_{\text{DM}} = \mathbb{E}_{t, p_t}[|\nabla \cdot (\boldsymbol{u}_t - \boldsymbol{v}_t) + (\boldsymbol{u}_t - \boldsymbol{v}_t) \cdot \nabla \log p_t|]$
     - 设计动机：建立了可优化损失与分布精度之间的理论桥梁
 
 3. **条件散度匹配 (Theorem 4.1 → FDM)**:
 
-    - 做什么：因 $\mathcal{L}_{\text{DM}}$ 不可直接计算（依赖 marginal 向量场），推导其条件版本 $\mathcal{L}_{\text{CDM}}$ 作为上界
+    - 功能：因 $\mathcal{L}_{\text{DM}}$ 不可直接计算（依赖 marginal 向量场），推导其条件版本 $\mathcal{L}_{\text{CDM}}$ 作为上界
     - 核心思路：利用与 CFM 类似的条件化技巧，将 unconditional 散度差替换为 conditional 散度差，得到可高效计算的 $\mathcal{L}_{\text{CDM}}$，并用 Hutchinson 迹估计器提高效率
     - 设计动机：单独最小化 $\mathcal{L}_{\text{CDM}}$ 因正负项抵消无法保证好结果，需与 $\mathcal{L}_{\text{CFM}}$ 联合优化
 

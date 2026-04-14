@@ -2,16 +2,15 @@
 title: >-
   [论文解读] Seeing Across Views: Benchmarking Spatial Reasoning of Vision-Language Models in Robotic Scenes
 description: >-
-  [ICLR2026][多模态][空间推理] 提出 MV-RoboBench，首个面向多视角机器人操作场景的空间推理基准，包含 1.7K 人工标注的多选题，涵盖空间理解和机器人执行两大类八个子任务，揭示当前 SOTA VLM 与人类表现之间仍存在巨大差距。
+  [ICLR2026][多模态][multi-view spatial reasoning] 提出 MV-RoboBench，首个整合多视角空间推理与机器人操作执行评测的 benchmark，包含 1.7K 人工标注 QA，揭示当前最强 VLM（GPT-5 仅 56.4%）与人类（91.0%）之间存在巨大差距。
 tags:
   - ICLR2026
   - 多模态
-  - 空间推理
-  - multi-view reasoning
-  - benchmark
-  - embodied AI
-  - VLM evaluation
-  - robotic manipulation
+  - multi-view spatial reasoning
+  - 机器人操作
+  - VLM 基准
+  - 具身智能
+  - MV-RoboBench
 ---
 
 # Seeing Across Views: Benchmarking Spatial Reasoning of Vision-Language Models in Robotic Scenes
@@ -20,7 +19,7 @@ tags:
 **arXiv**: [2510.19400](https://arxiv.org/abs/2510.19400)  
 **代码**: [项目页面](https://github.com/) (已开源)  
 **领域**: multimodal_vlm  
-**关键词**: multi-view spatial reasoning, benchmark, embodied AI, VLM evaluation, robotic manipulation  
+**关键词**: multi-view spatial reasoning, benchmark, embodied AI, VLM evaluation, robotic manipulation
 
 ## 一句话总结
 提出 MV-RoboBench，首个结合多视角空间推理与机器人操作任务的基准，系统评估了 40+ 个 VLM（开源+闭源+推理增强），发现最强模型 GPT-5 仅达 56.4% 准确率，远低于人类的 91.0%，并揭示空间与机器人推理正相关、单视角基准表现无法可靠迁移至多视角场景。
@@ -137,7 +136,7 @@ tags:
 **arXiv**: [2510.19400](https://arxiv.org/abs/2510.19400)  
 **代码**: [GitHub](https://github.com/) (项目页面已发布)  
 **领域**: multimodal_vlm  
-**关键词**: multi-view spatial reasoning, robotic manipulation, VLM benchmark, embodied AI, MV-RoboBench  
+**关键词**: multi-view spatial reasoning, 机器人操作, VLM 基准, 具身智能, MV-RoboBench
 
 ## 一句话总结
 提出 MV-RoboBench，首个整合多视角空间推理与机器人操作执行评测的 benchmark，包含 1.7K 人工标注 QA，揭示当前最强 VLM（GPT-5 仅 56.4%）与人类（91.0%）之间存在巨大差距。

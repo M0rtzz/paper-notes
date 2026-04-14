@@ -8,7 +8,7 @@ tags:
   - 视频理解
   - humanoid control
   - motion imitation
-  - 强化学习
+  - reinforcement-learning
   - adaptive tracking
   - sim-to-real
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.12851](https://arxiv.org/abs/2506.12851)  
 **代码**: [项目主页](https://kungfu-bot.github.io)  
 **领域**: video_understanding  
-**关键词**: humanoid control, motion imitation, reinforcement learning, adaptive tracking, sim-to-real  
+**关键词**: humanoid control, motion imitation, reinforcement-learning, adaptive tracking, sim-to-real
 
 ## 一句话总结
 

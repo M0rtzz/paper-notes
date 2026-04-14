@@ -10,7 +10,7 @@ tags:
   - LVLM评估
   - 注意力机制
   - 低层特征感知
-  - Benchmark
+  - benchmark
 ---
 
 # Vision-Language Models Can't See the Obvious
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.04741](https://arxiv.org/abs/2507.04741)  
 **代码**: [SalBench](https://salbench.github.io)  
 **领域**: 多模态VLM  
-**关键词**: 视觉显著性, LVLM评估, 注意力机制, 低层特征感知, Benchmark
+**关键词**: 视觉显著性, LVLM评估, 注意力机制, 低层特征感知, benchmark
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 当前 LVLM 在高层语义理解任务（如 VQA、MMMU 等）上表现出色，但一个关键问题被忽视了：
 
 **Moravec 悖论**：AI 系统在高层推理上表现出色，反而在人类轻松完成的低层感知任务上可能表现不佳。例如，在一组小圆中识别一个明显的大圆，或在一排相同颜色的物体中找出不同颜色的那个
+
 **现有 benchmark 的盲区**：MMBench、MMMU、MathVista 等都测试高层复杂任务，但没有 benchmark 系统性地评估 LVLM 的低层视觉感知能力（颜色、方向、大小等基本视觉特征）
+
 **与人类视觉注意力机制的对齐**：人类的视觉搜索依赖于特征整合理论（Feature Integration Theory, FIT），大脑能平行处理在某个特征维度上显著不同的区域。LVLM 是否也具有这种能力？
 
 作者想通过一个简单却精心设计的 benchmark 来量化 LVLM 与人类在底层视觉感知上的差距，从而指明改进方向。

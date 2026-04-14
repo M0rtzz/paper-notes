@@ -2,11 +2,11 @@
 title: >-
   [论文解读] One-Prompt Strikes Back: Sparse Mixture of Experts for Prompt-based Continual Learning
 description: >-
-  [ICLR 2026][LLM效率][Continual Learning] 提出 SMoPE 框架，将单个共享 prompt 组织为稀疏 MoE 结构中的多个 prompt expert，通过 prompt-attention score aggregation 实现动态稀疏激活，在保持高参数效率的同时显著缓解知识干扰，在多个持续学习 benchmark 上达到 SOTA。
+  [ICLR 2026][LLM效率][continual learning] 提出 SMoPE 框架，将单个共享 prompt 组织为稀疏 MoE 结构中的多个 prompt expert，通过 prompt-attention score aggregation 实现动态稀疏激活，在保持高参数效率的同时显著缓解知识干扰，在多个持续学习 benchmark 上达到 SOTA。
 tags:
   - ICLR 2026
   - LLM效率
-  - Continual Learning
+  - continual learning
   - 提示学习
   - Mixture of Experts
   - Sparse MoE
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.24483](https://arxiv.org/abs/2509.24483)  
 **代码**: https://github.com/Minhchuyentoancbn/SMoPE  
 **领域**: LLM效率  
-**关键词**: Continual Learning, Prompt Tuning, Mixture of Experts, Sparse MoE, Prefix Tuning
+**关键词**: continual learning, prompt tuning, Mixture of Experts, Sparse MoE, Prefix Tuning
 
 ## 一句话总结
 提出 SMoPE 框架，将单个共享 prompt 组织为稀疏 MoE 结构中的多个 prompt expert，通过 prompt-attention score aggregation 实现动态稀疏激活，在保持高参数效率的同时显著缓解知识干扰，在多个持续学习 benchmark 上达到 SOTA。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：基于 Prompt 的持续学习（CL）方法通过在冻结的预训练 ViT 上添加可学习 prompt 来适配新任务，已成为缓解灾难性遗忘的主流范式。代表方法包括 DualPrompt、HiDe-Prompt、NoRGa 等。
+
 **现有痛点**：主流方法为每个 task 分配独立的 prompt 子集（task-specific prompting），带来两个问题：(a) 推理时需通过完整预训练模型做前向传播来选择 prompt，计算开销大；(b) prompt 参数随 task 数线性增长，可扩展性差且阻碍跨 task 知识共享。
+
 **核心矛盾**：OVOR 等方法用单个共享 prompt 来解决效率问题，但因所有 prompt 参数被持续更新，导致严重的知识干扰（knowledge interference），性能不如 task-specific 方法。效率与性能之间存在根本冲突。
+
 **本文要解决什么？** 如何在保持单 prompt 的参数效率优势的同时，避免共享 prompt 带来的知识干扰？具体包括：(a) 如何在多门控 MoE 的 attention head 中做稀疏选择；(b) 如何平衡 expert 利用率；(c) 如何在没有旧数据的情况下保持 expert 的专门化。
+
 **切入角度**：基于 Le et al. (2024a) 的洞察——每个 attention head 可以视为多个 MoE 模型的组合，prefix tuning 本质上是往这些 MoE 中添加新的 prompt expert。既然已经是 MoE，那就自然可以引入稀疏选择。
+
 **核心 idea 一句话**：将共享 prompt 中的每个 prefix token 视为独立 expert，通过 prompt-attention score aggregation 计算统一代理分数实现 Top-K 稀疏激活，从而在单 prompt 上获得隐式参数分区效果。
 
 ## 方法详解
@@ -43,25 +48,25 @@ SMoPE 的输入是 ViT 的 patch token 序列 $\mathbf{X} \in \mathbb{R}^{N \tim
 
 1. **Prompt-Attention Score Aggregation**
 
-    - 做什么：为每个 prompt expert 计算一个统一的代理分数，取代原始 multi-gate MoE 中每个 token 分别计算的 $N$ 个分数。
+    - 功能：为每个 prompt expert 计算一个统一的代理分数，取代原始 multi-gate MoE 中每个 token 分别计算的 $N$ 个分数。
     - 核心思路：将所有 token 对某个 prompt expert 的 attention 分数取平均，得到 $\tilde{s}_{j'}(\mathbf{X}) = \frac{\tilde{\mathbf{x}}^\top W_l^Q {W_l^K}^\top \mathbf{p}_{j'}^K}{\sqrt{d_v}}$，其中 $\tilde{\mathbf{x}} = \frac{1}{N}\sum_{i=1}^N \mathbf{x}_i$ 是所有 token 的均值表示。只需计算一次 $\tilde{\mathbf{x}}$ 即可得到所有 expert 的代理分数。
     - 设计动机：原始 prefix tuning 中每个 prompt expert 有 $N$ 个 score function（对应 $N$ 个 output token），直接做标准 SMoE 的 Top-K 选择是 intractable 的。Score aggregation 将复杂度从 $\mathcal{O}(N d_k)$ 降到 $\mathcal{O}(d_k)$，同时保持与标准 MoE 相同的 $\mathcal{O}(\tau^{-4})$ 样本复杂度。
 
 2. **Sparse Expert Selection + 实现**
 
-    - 做什么：基于代理分数做 Top-K 选择，只激活最相关的 $K$ 个 prompt expert。
+    - 功能：基于代理分数做 Top-K 选择，只激活最相关的 $K$ 个 prompt expert。
     - 核心思路：SMoPE-adjusted attention matrix 为 $\tilde{A}_l = [\tilde{A}_l^{\text{prompt}}, A_l^{\text{pre-trained}}]$，其中 prompt 部分 $\tilde{A}_l^{\text{prompt}} = \text{TopK}(\tilde{\mathbf{x}}^\top W_l^Q {W_l^K}^\top \mathbf{P}^K / \sqrt{d_v}).\text{expand}(N, -1)$。选中的 $K$ 个 expert 的分数被 expand 到所有 $N$ 个 query token，未选中的 expert 分数置零。
     - 设计动机：与 OVOR 全部更新所有 prompt 不同，稀疏激活引入隐式参数分区，显著减少 task 间干扰。且 expert 选择仅依赖当前层输入，不需要像 task-specific 方法那样做额外的前向传播。
 
 3. **Adaptive Noise Mechanism**
 
-    - 做什么：在训练时对频繁激活的 expert 添加自适应噪声惩罚，鼓励利用不活跃的 expert。
+    - 功能：在训练时对频繁激活的 expert 添加自适应噪声惩罚，鼓励利用不活跃的 expert。
     - 核心思路：定义 expert 激活频率 $F_{j'}$，对频率高于平均值的 expert 施加噪声惩罚 $\epsilon_{j'} = \epsilon \cdot (\max_j \tilde{s}_j - \min_j \tilde{s}_j)$（$\epsilon \in [0,1]$ 为超参），降低其被选中的概率。频率低于平均值的 expert 不受惩罚。
     - 设计动机：标准 SMoE 容易出现 expert 利用率不均（少数 expert 垄断路由）。在 CL 场景下，持续使用同一批 expert 会加剧知识干扰。Adaptive noise 通过按 score 动态范围缩放避免噪声过大，且只影响训练不影响推理。
 
 4. **Prototype-based Loss for Expert Specialization**
 
-    - 做什么：利用 prefix key 作为旧 task 的原型记忆，在训练新 task 时保持 expert 的专门化。
+    - 功能：利用 prefix key 作为旧 task 的原型记忆，在训练新 task 时保持 expert 的专门化。
     - 核心思路：包含两个 loss：(a) $\mathcal{L}_{\text{router}}$ 鼓励被选 expert 的分数高于未被选 expert；(b) $\mathcal{L}_{\text{proto}}$ 用上一轮训练结束时的 prefix key 作为 prototype，维持旧 expert 的路由一致性。Prototype 集合只保留频繁被激活的 expert 以避免噪声。
     - 设计动机：$\mathcal{L}_{\text{router}}$ 用当前 task 数据促进 expert 差异化，$\mathcal{L}_{\text{proto}}$ 在无旧数据的情况下保持旧 task 学到的 specialization，两者互补缓解遗忘。
 

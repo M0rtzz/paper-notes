@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.03493](https://arxiv.org/abs/2411.03493)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: 注意力机制, 梯度消失, Log-Sum-Exp, Softmax, Transformer
+**关键词**: attention mechanism, 梯度消失, Log-Sum-Exp, Softmax, Transformer
 
 ## 一句话总结
 

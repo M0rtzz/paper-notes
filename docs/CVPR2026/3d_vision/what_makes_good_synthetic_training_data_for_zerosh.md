@@ -2,14 +2,14 @@
 title: >-
   [论文解读] WMGStereo: What Makes Good Synthetic Training Data for Zero-Shot Stereo Matching?
 description: >-
-  [CVPR 2026][3D视觉][stereo matching] 系统研究合成立体数据集的设计空间——变换Infinigen过程化生成参数(浮动物体密度/背景/材质/相机baseline/光照等)分析其对零样本立体匹配的影响，发现"真实室内场景+浮动物体"的组合最有效；据此构建WMGStereo-150k数据集，仅用此单一数据集训练超越SceneFlow+CREStereo+TartanAir+IRS四合一(Middlebury降28%，Booster降25%)，与FoundationStereo竞争力相当。
+  [CVPR 2026][3D视觉][立体匹配] 系统研究合成立体数据集的设计空间——变换Infinigen过程化生成参数(浮动物体密度/背景/材质/相机baseline/光照等)分析其对零样本立体匹配的影响，发现"真实室内场景+浮动物体"的组合最有效；据此构建WMGStereo-150k数据集，仅用此单一数据集训练超越SceneFlow+CREStereo+TartanAir+IRS四合一(Middlebury降28%，Booster降25%)，与FoundationStereo竞争力相当。
 tags:
   - CVPR 2026
   - 3D视觉
-  - stereo matching
-  - synthetic data
+  - 立体匹配
+  - 合成数据
   - procedural generation
-  - zero-shot
+  - 零样本
   - dataset design
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.16930](https://arxiv.org/abs/2504.16930)  
 **代码**: [GitHub](https://github.com/princeton-vl/InfinigenStereo)  
 **领域**: 3D视觉 / 立体匹配  
-**关键词**: stereo matching, synthetic data, procedural generation, zero-shot, dataset design  
+**关键词**: 立体匹配, 合成数据, procedural generation, 零样本, dataset design
 
 ## 一句话总结
 系统研究合成立体数据集的设计空间——变换Infinigen过程化生成参数(浮动物体密度/背景/材质/相机baseline/光照等)分析其对零样本立体匹配的影响，发现"真实室内场景+浮动物体"的组合最有效；据此构建WMGStereo-150k数据集，仅用此单一数据集训练超越SceneFlow+CREStereo+TartanAir+IRS四合一(Middlebury降28%，Booster降25%)，与FoundationStereo竞争力相当。

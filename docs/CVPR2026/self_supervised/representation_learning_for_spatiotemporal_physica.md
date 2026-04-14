@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Representation Learning for Spatiotemporal Physical Systems
 description: >-
-  [CVPR 2026][自监督学习][JEPA] 通过在三个PDE物理系统（活性物质、剪切流、Rayleigh-Bénard对流）上对比JEPA、VideoMAE、MPP和DISCO，发现隐空间预测方法(JEPA)在物理参数估计任务上全面优于像素级预测方法(MAE/自回归模型)，MSE平均改善30-50%。
+  [CVPR 2026][自监督学习][JEPA] 在三个 PDE 物理系统（活性物质、剪切流、Rayleigh-Bénard 对流）上系统比较四种自监督/物理建模方法，发现隐空间预测（JEPA）在物理参数估计任务上全面优于像素级预测（VideoMAE）——MSE 相对改善 28%~51%，且 10% 微调数据即可超越 VideoMAE 的 100% 数据表现。同时，专为物理建模设计的方法并非总是最优选择。
 tags:
   - CVPR 2026
   - 自监督学习
@@ -10,6 +10,7 @@ tags:
   - 物理系统
   - 表示学习
   - 参数估计
+  - VICReg
 ---
 
 # Representation Learning for Spatiotemporal Physical Systems
@@ -48,19 +49,19 @@ tags:
 
 1. **JEPA 动力学版本（隐空间时序预测）**:
 
-    - 做什么：给定 $k$ 帧上下文 $x_{t:t+k}$，学习预测下 $k$ 帧 $x_{t+k:t+2k}$ 在隐空间中的表示
+    - 功能：给定 $k$ 帧上下文 $x_{t:t+k}$，学习预测下 $k$ 帧 $x_{t+k:t+2k}$ 在隐空间中的表示
     - 核心思路：encoder $f: \mathcal{X} \to \mathcal{Z}$（ConvNeXt 架构）和 predictor $g: \mathcal{Z} \to \mathcal{Z}$（逆瓶颈 CNN），最小化 VICReg 损失 $\ell_{VICReg}(g(f(x_i)), f(x_{i+1})) = \lambda s + \mu[v(z_i)+v(z_{i+1})] + \nu[c(z_i)+c(z_{i+1})]$。不变性项 $s$ 对齐预测和目标、方差项 $v$ 保持各维度方差（防止坍塌）、协方差项 $c$ 去除维度间冗余相关。超参数 $\lambda=2, \mu=40, \nu=2$
     - 设计动机：不重建像素，而是在表示空间中预测未来。这迫使 encoder 只保留对动力学预测有用的高级信息，自然过滤掉与物理无关的低级视觉纹理
 
 2. **VideoMAE 对比（像素级 masked 重建）**:
 
-    - 做什么：随机 mask 时空块，从未 mask 的部分重建被 mask 的像素
+    - 功能：随机 mask 时空块，从未 mask 的部分重建被 mask 的像素
     - 核心思路：ViT-small/16 架构，时间 tube masking（所有帧共享同一空间 mask），优化像素级 MSE 重建损失
     - 设计动机：作为像素级自监督学习的代表，测试像素重建是否也能捕获物理信息
 
 3. **物理建模基线（DISCO 和 MPP）**:
 
-    - 做什么：DISCO 是基于算子学习的上下文推理方法，从短上下文窗口推断轨迹特定的演化算子；MPP 是自回归物理基础模型，逐帧预测像素值
+    - 功能：DISCO 是基于算子学习的上下文推理方法，从短上下文窗口推断轨迹特定的演化算子；MPP 是自回归物理基础模型，逐帧预测像素值
     - 核心思路：DISCO 结合 Transformer 的上下文学习能力和神经算子的物理归纳偏置，推断出的算子用于积分求解；MPP 训练在大量物理数据上学习通用的空间-时间-物理场预测
     - 设计动机：代表"专为物理设计"的两条技术路线——算子学习（隐空间）和自回归基础模型（像素级）
 

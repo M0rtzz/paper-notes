@@ -2,13 +2,13 @@
 title: >-
   [论文解读] CrossHOI-Bench: A Unified Benchmark for HOI Evaluation across Vision-Language Models and HOI-Specific Methods
 description: >-
-  [CVPR 2026][多模态VLM][人-物交互检测] 提出 CrossHOI-Bench，首个统一评估VLM和HOI专用模型的多选题基准，揭示大型VLM零样本可比肩SOTA HOI方法但在多动作识别和跨人归因上各有优劣
+  [CVPR 2026][多模态][HOI检测] 提出 CrossHOI-Bench，首个统一评估 VLM 和 HOI 专用模型的多选题 HOI 基准，通过精心策划的正负例避免不完整标注的错误惩罚，揭示大型 VLM 零样本在 Instance-F1 上超越 SOTA HOI 方法 +5.18%，但在多动作识别和跨人归因上仍存在系统性弱点。
 tags:
   - CVPR 2026
-  - 多模态VLM
-  - 人-物交互检测
+  - 多模态
+  - HOI检测
   - VLM评估
-  - HOI基准
+  - 多选题基准
   - 跨范式比较
 ---
 

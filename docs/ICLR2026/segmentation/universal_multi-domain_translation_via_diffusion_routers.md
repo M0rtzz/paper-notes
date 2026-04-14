@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.03252](https://arxiv.org/abs/2510.03252)  
 **代码**: 未公开  
 **领域**: image translation / diffusion（被分到 segmentation 分区）  
-**关键词**: multi-domain translation, diffusion model, routing, Tweedie refinement, cross-domain, variational bound  
+**关键词**: multi-domain translation, diffusion model, routing, Tweedie refinement, cross-domain, variational bound
 
 ## 一句话总结
 提出 Diffusion Router (DR)，一个统一的扩散模型框架，仅用 $K-1$ 个与中心域配对的数据集，通过单个噪声预测网络配合源域/目标域标签条件化，实现任意 $K$ 个域之间的间接和直接翻译，并提出 Tweedie 精炼采样降低计算成本。

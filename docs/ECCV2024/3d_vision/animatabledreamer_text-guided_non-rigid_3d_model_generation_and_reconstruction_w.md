@@ -49,19 +49,19 @@ tags:
 
 1. **Implicit Articulate Model**:
 
-    - 做什么：用 NeuS（SDF + 颜色 + 特征描述子）表示 canonical 模型，blend skinning 做变形
+    - 功能：用 NeuS（SDF + 颜色 + 特征描述子）表示 canonical 模型，blend skinning 做变形
     - 核心思路：B 根骨骼用高斯分布建模蒙皮权重，通过 Mahalanobis 距离计算。骨骼变换用 MLP + Fourier 时间嵌入学习
     - 设计动机：canonical space 保证时序一致性，骨骼蒙皮提供可控的动画能力
 
 2. **Skeleton Construction**:
 
-    - 做什么：从学到的骨骼模型构建结构化骨架，约束生成过程
+    - 功能：从学到的骨骼模型构建结构化骨架，约束生成过程
     - 核心思路：用 DINOv2 特征计算骨骼间的语义关联 + 蒙皮权重计算形态关联，综合得到骨骼连接强度 $\mathcal{T}_{j,k}$。施加平移/角度约束防止不合理变形
     - 设计动机：骨架约束确保生成的新物体保持合理的运动模式
 
 3. **Canonical Score Distillation (CSD)** ← 核心贡献:
 
-    - 做什么：让扩散模型的监督信号通过 warp 机制传回 canonical 模型
+    - 功能：让扩散模型的监督信号通过 warp 机制传回 canonical 模型
     - 核心思路：$\nabla_\phi \mathcal{L}_{CSD} = \mathbb{E}[\underbrace{(\epsilon_\theta - \epsilon)}_{\text{扩散先验}} \cdot \underbrace{\frac{\partial \mathcal{R}(\mathbf{X}_*)}{\partial \mathbf{X}_*}}_{\text{Canonical 渲染}} \cdot \underbrace{\frac{\partial W(\mathbf{X}^t)}{\partial \phi_w}}_{\text{Warp 精化}}]$
     - 三个梯度项：扩散先验提供外观指导 → canonical 渲染保证一致性 → warp 精化优化变形参数
     - 使用 MVDream（多视角扩散模型）同时渲染 4 个正交视角，保证 3D 一致性

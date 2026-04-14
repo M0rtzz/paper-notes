@@ -42,19 +42,19 @@ ATPrompt 将传统的"软 prompt + 类别 token"格式改造为"属性软 prompt
 
 1. **属性锚定文本 Prompt（浅层版本）**:
 
-    - 做什么：在文本编码器的输入层嵌入固定的属性 token 和对应的可学习软 token
+    - 功能：在文本编码器的输入层嵌入固定的属性 token 和对应的可学习软 token
     - 核心思路：以两个通用属性 A 和 B 为例，文本 prompt 变为：$P_T = [T_{a_1}]\ldots[T_{a_m}][\text{A}][T_{b_1}]\ldots[T_{b_m}][\text{B}][T_1]\ldots[T_M][\text{CLS}]$，其中属性 token 是固定的硬 token，属性相关软 token 和类别相关软 token 均为可学习参数
     - 设计动机：属性 token 的锚定作用引导软 token 学习不仅包含类别特定的表征，还包含属性相关的通用表征。当遇到未知类别时，这些属性相关 token 提供额外信息促进更好的图文对齐
 
 2. **深层版本**:
 
-    - 做什么：在 Transformer 深层也引入软 token，但选择性地仅丢弃和重新添加类别相关软 token，保留属性相关硬 token 和软 token
+    - 功能：在 Transformer 深层也引入软 token，但选择性地仅丢弃和重新添加类别相关软 token，保留属性相关硬 token 和软 token
     - 核心思路：第 $i$ 层的计算为 $[\text{F}_i, \_, \text{CLS}_i] = L_i([\text{F}_{i-1}, \text{T}_{i-1}, \text{CLS}_{i-1}])$，其中 $\text{F}$ 为属性特征，跨层保持不丢弃，$\text{T}$ 为类别软 token，按传统方式丢弃重添加
     - 设计动机：完全丢弃属性 token 会破坏属性表征的跨层连续性，导致引入的新低层 token 与已有高层 token 之间产生"间隙"
 
 3. **可微属性搜索**:
 
-    - 做什么：自动为下游任务选择最合适的属性组合及数量
+    - 功能：自动为下游任务选择最合适的属性组合及数量
     - 核心思路：（a）利用 LLM（GPT-4o）先为每个已知类别生成描述，再基于描述总结出独立的属性基（如 color, shape, size, habitat, behavior），所有组合形成搜索空间（$N$ 个基产生 $2^N - 1$ 种组合）。（b）受 DARTS 启发，将离散选择松弛为 softmax 加权和：$f(x, v; \alpha, \theta) = \sum_{i \in \mathcal{V}} \frac{\exp(\alpha_i)}{\sum_{i'} \exp(\alpha_{i'})} f(x, v_i; \theta)$。通过交替优化属性权重 $\alpha$（最小化验证损失）和软 prompt 参数 $\theta$（最小化训练损失）来找到最佳组合
     - 设计动机：直接向 LLM 询问属性无法确定最优数量，且单纯按类别名查询可能引入语义偏差。可微搜索在 token 级别操作，比传统 NAS 方法高效得多，约 5 epoch（不到 5 分钟）即可收敛
 

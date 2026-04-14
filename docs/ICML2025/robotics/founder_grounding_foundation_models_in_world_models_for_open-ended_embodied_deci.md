@@ -2,12 +2,12 @@
 title: >-
   [论文解读] FOUNDER: Grounding Foundation Models in World Models for Open-Ended Embodied Decision Making
 description: >-
-  [ICML 2025][机器人][Foundation Model] 提出 FOUNDER 框架，通过学习映射函数将 Foundation Model (FM) 的多模态任务表示对齐到 World Model (WM) 的状态空间，结合时间距离预测器生成奖励信号，实现无需环境奖励的开放式多任务具身决策。
+  [ICML 2025][机器人][foundation model] 提出 FOUNDER 框架，通过学习映射函数将 Foundation Model (FM) 的多模态任务表示对齐到 World Model (WM) 的状态空间，结合时间距离预测器生成奖励信号，实现无需环境奖励的开放式多任务具身决策。
 tags:
   - ICML 2025
   - 机器人
-  - Foundation Model
-  - World Model
+  - foundation model
+  - world model
   - Goal-Conditioned RL
   - Embodied Decision Making
   - Temporal Distance
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.12496](https://arxiv.org/abs/2507.12496)  
 **代码**: [项目主页](https://sites.google.com/view/founder-rl)  
 **领域**: 机器人  
-**关键词**: Foundation Model, World Model, Goal-Conditioned RL, Embodied Decision Making, Temporal Distance
+**关键词**: foundation model, world model, Goal-Conditioned RL, Embodied Decision Making, Temporal Distance
 
 ## 一句话总结
 

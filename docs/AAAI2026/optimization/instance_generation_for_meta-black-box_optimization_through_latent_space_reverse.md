@@ -10,7 +10,7 @@ tags:
   - 实例生成
   - 遗传编程
   - 潜在空间
-  - 基准测试
+  - benchmark
 ---
 
 # Instance Generation for Meta-Black-Box Optimization through Latent Space Reverse Engineering
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.15810](https://arxiv.org/abs/2509.15810)  
 **代码**: [https://github.com/MetaEvo/Diverse-BBO](https://github.com/MetaEvo/Diverse-BBO)  
 **领域**: 优化  
-**关键词**: Meta-Black-Box Optimization, 实例生成, 遗传编程, 潜在空间, 基准测试
+**关键词**: Meta-Black-Box Optimization, 实例生成, 遗传编程, 潜在空间, benchmark
 
 ## 一句话总结
 
@@ -34,7 +34,9 @@ Meta-Black-Box Optimization (MetaBBO) 利用元学习范式训练神经网络策
 然而，现有 MetaBBO 方法普遍依赖 CoCo-BBOB 等经典基准函数集作为训练数据。这些基准函数存在以下局限：
 
 **设计偏差**：这些函数本质上是为区分传统优化算法的性能而手工设计的，而非为训练 MetaBBO 的泛化策略量身定制
+
 **多样性不足**：24 个基础函数的覆盖范围有限，容易导致 MetaBBO 过拟合，在未见问题上泛化性差
+
 **现有替代方案不理想**：
    - 收集真实问题需要深厚专业知识且仿真成本高昂
    - 随机函数生成器缺乏对生成问题特征和多样性的控制

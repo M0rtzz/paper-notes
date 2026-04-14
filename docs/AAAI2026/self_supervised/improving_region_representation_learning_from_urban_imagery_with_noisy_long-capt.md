@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.07062](https://arxiv.org/abs/2511.07062)  
 **代码**: 待确认  
 **领域**: self_supervised  
-**关键词**: urban computing, region representation, cross-modal pre-training, CLIP, noise suppression, self-distillation  
+**关键词**: urban computing, region representation, cross-modal pre-training, CLIP, noise suppression, self-distillation
 
 ## 一句话总结
 提出 UrbanLN 框架，通过长文本感知的位置编码插值策略和数据-模型双层噪声抑制机制，改善基于 LLM 生成描述的城市区域表征学习。

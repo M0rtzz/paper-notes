@@ -22,10 +22,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：本文研究的问题属于 对齐RLHF 方向。Multimodal Large Language Models (MLLMs) excel in various tasks, yet often struggle with modality bias, tending to rely heavily on a single modality or prior knowledge when generating responses.
+
 **现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+
 **核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+
 **本文要解决什么？** 针对上述问题，作者提出了新方法。
+
 **切入角度**：从新的技术视角或观察出发。
+
 **核心idea一句话**：In this paper, we propose a debiased preference optimization dataset, RLAIF-V-Bias, and introduce a Noise-Aware Preference Optimization (NAPO) algorithm.
 
 ## 方法详解
@@ -39,14 +44,14 @@ In this paper, we propose a debiased preference optimization dataset, RLAIF-V-Bi
 
 1. **核心模块**:
 
-    - 做什么：解决上述痛点的关键技术组件
+    - 功能：解决上述痛点的关键技术组件
     - 核心思路：详见论文方法部分
     - 设计动机：提升性能或效率
 
 
 3. **优化策略**
 
-    - 做什么：提升训练稳定性和收敛速度
+    - 功能：提升训练稳定性和收敛速度
     - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
     - 设计动机：确保模型在大规模数据上的训练效率
 

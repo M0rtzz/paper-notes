@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - Layer Normalization
   - 记忆化
-  - 泛化
+  - generalization
   - Pre-LN
   - Post-LN
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.10566](https://arxiv.org/abs/2511.10566)  
 **代码**: [GitHub](https://github.com/JEKimLab/NeurIPS2025_LayernormMemorization)  
 **领域**: Transformer架构分析 / 深度学习理论  
-**关键词**: Layer Normalization, 记忆化, 泛化, Pre-LN, Post-LN  
+**关键词**: Layer Normalization, 记忆化, generalization, Pre-LN, Post-LN
 **作者**: Rishi Singhal, Jung-Eun Kim  
 **机构**: North Carolina State University
 

@@ -51,13 +51,13 @@ tags:
 
 1. **参数化赋值映射**:
 
-    - 做什么：用混合模型的后验概率作为软赋值映射
+    - 功能：用混合模型的后验概率作为软赋值映射
     - 核心思路：$\psi_k(x_i; \Theta) = \frac{\pi_k f(x_i; \theta_k)}{\sum_l \pi_l f(x_i; \theta_l)}$
     - 设计动机：赋值映射由模型参数 $\Theta$ 完全决定，参数量（$K$ 个均值+协方差+混合权重）与 $N$ 无关
 
 2. **Gap 公平约束**:
 
-    - 做什么：确保每个簇中各敏感群体的比例接近
+    - 功能：确保每个簇中各敏感群体的比例接近
     - 核心思路：定义 $\Delta(\Theta) = \max_k |\frac{\sum_{x_i \in \mathcal{D}^{(1)}} \psi_k(x_i; \Theta)}{N_1} - \frac{\sum_{x_j \in \mathcal{D}^{(2)}} \psi_k(x_j; \Theta)}{N_2}|$，优化目标为 $\max_\Theta \ell(\Theta | \mathcal{D}) - \lambda \Delta(\Theta)$
     - 设计动机：Gap 比 Balance 指标数值更稳定，适合梯度优化
 
@@ -69,7 +69,7 @@ tags:
 
 4. **小批量学习与子采样 $\Delta$**:
 
-    - 做什么：解决大规模数据上的计算瓶颈
+    - 功能：解决大规模数据上的计算瓶颈
     - 核心思路：对似然部分用小批量，对 $\Delta$ 用子采样——理论证明子采样 $\Delta$ 的近似误差为 $O(\sqrt{d/n'})$（Proposition 1）
     - 设计动机：现有方法无法小批量学习（公平性依赖完整赋值），本文的参数化赋值映射使这一切成为可能
 

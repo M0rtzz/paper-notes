@@ -58,26 +58,26 @@ tags:
 
 1. **自注意力的病态性分析（Proposition 4.1）**:
 
-    - 做什么：理论推导 SAB 输出嵌入（无 skip connection）的条件数上界
+    - 功能：理论推导 SAB 输出嵌入（无 skip connection）的条件数上界
     - 核心思路：对于线性注意力（无 softmax），SAB 的输出 $\mathbf{XW_QW_K^TX^TXW_V}$ 的条件数满足 $\kappa(\text{output}) \leq C \cdot (\sigma_{max}/\sigma_{min})^3$，即输入矩阵条件数的**立方**
     - 设计动机：这解释了为什么 SAB 的输出嵌入在实验中条件数高达 $e^6$，而 FFN 的输出只有 $e^3$。对比 FFN 的乘法结构 $\mathbf{W_{down}W_{up}X}$，其条件数上界仅为输入条件数的**一次方**
     - 虽然理论证明基于线性注意力，但实验表明 softmax 注意力也有相同的病态化问题
 
 2. **Skip Connection 的正则化作用（Proposition 4.2）**:
 
-    - 做什么：理论证明 skip connection 显著改善 SAB 输出的条件
+    - 功能：理论证明 skip connection 显著改善 SAB 输出的条件
     - 核心思路：$\kappa(\mathbf{XM + X}) \ll \kappa(\mathbf{XM})$，添加恒等映射后条件数大幅降低
     - 这为"skip connection 为什么对 SAB 不可或缺"提供了清晰的数学解释：它不仅仅是梯度流的通道，更是条件数的正则化器
 
 3. **Token Graying (TG) — SVD 版本**:
 
-    - 做什么：通过 SVD 分解重构输入 token，放大小奇异值以改善条件数
+    - 功能：通过 SVD 分解重构输入 token，放大小奇异值以改善条件数
     - 核心思路：对 token 矩阵做 SVD $\mathbf{X = U\Sigma V^T}$，归一化奇异值后用幂指数 $\epsilon \in (0,1]$ 放大（$\tilde{\Sigma} = (\Sigma/\max(\Sigma))^\epsilon$），再重构 $\tilde{\mathbf{X}} = \mathbf{U\tilde{\Sigma}V^T}$
     - 问题：SVD 计算成本过高（训练慢约 6 倍），实用性差
 
 4. **Token Graying (TG) — DCT 版本**:
 
-    - 做什么：用离散余弦变换（DCT）近似 SVD 的效果
+    - 功能：用离散余弦变换（DCT）近似 SVD 的效果
     - 核心思路：自然图像中 SVD 的主奇异向量通常对应低频内容，而 DCT 本质上也是频域变换——$\hat{\mathbf{X}} = D\mathbf{X}D^T$，在频域放大后 IDCT 重构
     - 计算复杂度 $O(nd\log(nd))$ vs SVD 的 $O(nd\min(n,d))$，训练时间几乎无增加（0.732天 vs 0.723天 基准 vs 4.552天 SVD）
 

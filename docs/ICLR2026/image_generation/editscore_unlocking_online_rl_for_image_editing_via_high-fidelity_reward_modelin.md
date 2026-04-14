@@ -2,13 +2,13 @@
 title: >-
   [论文解读] EditScore: Unlocking Online RL for Image Editing via High-Fidelity Reward Modeling
 description: >-
-  [ICLR 2026][图像生成][Reward Model] 提出首个系统性的"基准评测→奖励模型→强化学习训练"图像编辑 RL 管线：构建 EditReward-Bench 基准，训练 EditScore 系列奖励模型（7B-72B，超过 GPT-5），并成功将其用于 Online RL 训练显著提升编辑模型性能。
+  [ICLR 2026][图像生成][reward model] 提出首个系统性的"基准评测→奖励模型→强化学习训练"图像编辑 RL 管线：构建 EditReward-Bench 基准，训练 EditScore 系列奖励模型（7B-72B，超过 GPT-5），并成功将其用于 Online RL 训练显著提升编辑模型性能。
 tags:
   - ICLR 2026
   - 图像生成
-  - Reward Model
+  - reward model
   - 强化学习
-  - Image Editing
+  - image editing
   - Online RL
   - Flow-GRPO
 ---
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2509.23909](https://arxiv.org/abs/2509.23909)  
 **代码**: [GitHub](https://github.com/VectorSpaceLab/EditScore)  
 **领域**: 扩散模型 / 图像编辑  
-**关键词**: Reward Model, Reinforcement Learning, Image Editing, Online RL, Flow-GRPO  
+**关键词**: reward model, Reinforcement Learning, image editing, Online RL, Flow-GRPO
 
 ## 一句话总结
 提出首个系统性的"基准评测→奖励模型→强化学习训练"图像编辑 RL 管线：构建 EditReward-Bench 基准，训练 EditScore 系列奖励模型（7B-72B，超过 GPT-5），并成功将其用于 Online RL 训练显著提升编辑模型性能。
 
 ## 研究背景与动机
 **领域现状**：强化学习在 LLM 和 T2I 领域已展现巨大价值（如 FlowGRPO），但在图像编辑领域的应用几乎空白。RL 理论上可通过试错-反馈过程发现超越静态数据集的编辑策略。
+
 **现有痛点**：Online RL 的核心瓶颈在于缺乏高保真、高效、可扩展的奖励信号。GPT-5 等大 VLM 成本过高无法大规模查询；开源 VLM（即使 Qwen2.5-VL-72B）作为奖励信号也不够准确，导致训练不稳定或策略崩溃。
+
 **核心矛盾**：参数规模无法替代领域对齐的准确性——通用 VLM 评估精细编辑质量时表现不佳（一致性判断甚至不如随机），特别是在一致性（Consistency）维度。
+
 **本文要解决什么？** 构建一个高保真、领域专用的奖励模型来解锁图像编辑的在线 RL。
+
 **切入角度**：全栈系统——benchmark 驱动奖励模型开发，奖励模型驱动 RL 训练。
+
 **核心idea一句话**：高保真的领域专用奖励模型是解锁图像编辑在线 RL 的关键。
 
 ## 方法详解

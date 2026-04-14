@@ -7,7 +7,7 @@ tags:
   - ICCV 2025
   - 图像分割
   - 半监督分割
-  - Conformal Prediction
+  - 共形预测
   - SAM/SEEM
   - 不确定性校准
   - 伪标签
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.15803](https://arxiv.org/abs/2507.15803)  
 **代码**: 无  
 **领域**: Segmentation / 半监督语义分割  
-**关键词**: 半监督分割, Conformal Prediction, SAM/SEEM, 不确定性校准, 伪标签
+**关键词**: 半监督分割, 共形预测, SAM/SEEM, 不确定性校准, 伪标签
 
 ## 一句话总结
 

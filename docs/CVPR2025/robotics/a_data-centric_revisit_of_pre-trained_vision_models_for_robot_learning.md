@@ -45,19 +45,19 @@ tags:
 
 1. **语义瓶颈（Representation Bottleneck）**：
 
-    - 做什么：大幅减少聚类原型数量
+    - 功能：大幅减少聚类原型数量
     - 核心发现：iBOT用8192原型捕获细粒度模式但缺乏语义，减少到512后objectness自然涌现（Fig.4a：从纹理级聚类变为物体级聚类）
     - 设计动机：信息瓶颈迫使模型学习组合性的物体概念而非低级模式
 
 2. **跨视图一致性（Cross-view Consistency）**：
 
-    - 做什么：强制同一图像不同增强视图的对应patch共享相同原型
+    - 功能：强制同一图像不同增强视图的对应patch共享相同原型
     - 核心思路：用ROIAlign对齐两个视图的重叠区域，对匹配的patch对计算跨视图交叉熵：$\mathcal{L}_{patch}^{cross}$
     - 设计动机：iBOT的within-view MIM损失不提供视图不变性引导，导致原型缺乏语义一致性
 
 3. **Slot级对比学习**：
 
-    - 做什么：将patch按原型分配pooling为object-level slot特征，在slot间做MoCo对比
+    - 功能：将patch按原型分配pooling为object-level slot特征，在slot间做MoCo对比
     - 核心思路：$\mathbf{s}_{\theta,i} = h_\theta(\sum_j p_\theta(\mathbf{v}_j)_i \mathbf{z}_{\theta,j})$，同一原型的slot在两个视图中形成正对
     - 设计动机：patch级学习不足以区分物体，slot级对比学习提升物体级区分性
 

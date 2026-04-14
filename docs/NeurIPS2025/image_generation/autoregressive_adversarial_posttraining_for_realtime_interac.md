@@ -2,17 +2,19 @@
 title: >-
   [论文解读] Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation
 description: >-
-  [NeurIPS 2025][图像生成][video generation] 提出 AAPT（Autoregressive Adversarial Post-Training），将预训练的潜在视频扩散模型转化为实时交互式视频生成器——每帧仅需单次神经网络前向传播（1NFE），自回归逐帧生成，8B 模型在单张 H100 上以 24fps 流式生成 736×416 视频，最长可达一分钟（1440帧）。
+  [NeurIPS 2025][图像生成][视频生成] 提出 AAPT（Autoregressive Adversarial Post-Training），通过三阶段后训练流程（扩散适配→一致性蒸馏→对抗训练）将预训练的 8B 视频扩散 Transformer 转化为单步自回归实时视频生成器，利用 student-forcing 训练策略有效抑制误差累积，在单张 H100 上以 24fps/736×416 流式生成长达一分钟（1440帧）的视频，同时支持姿态控制和相机控制等实时交互应用。
 tags:
   - NeurIPS 2025
   - 图像生成
-  - video generation
-  - real-time
-  - adversarial training
-  - autoregressive
-  - one-step generation
+  - 视频生成
+  - 实时
+  - 对抗训练
+  - 自回归
+  - 一步生成
   - interactive
   - streaming
+  - KV cache
+  - student-forcing
 ---
 
 # Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation
@@ -22,7 +24,7 @@ tags:
 **代码**: [https://seaweed-apt.com/2](https://seaweed-apt.com/2)  
 **作者**: Shanchuan Lin, Ceyuan Yang, Hao He, Jianwen Jiang, Yuxi Ren, Xin Xia, Yang Zhao, Xuefeng Xiao, Lu Jiang（ByteDance Seed）  
 **领域**: 视频生成 / 图像生成  
-**关键词**: video generation, real-time, adversarial training, autoregressive, one-step generation, interactive, streaming, KV cache, student-forcing  
+**关键词**: 视频生成, 实时, 对抗训练, 自回归, 一步生成, interactive, streaming, KV cache, student-forcing
 
 ## 一句话总结
 

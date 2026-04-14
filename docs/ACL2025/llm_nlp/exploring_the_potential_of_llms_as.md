@@ -2,13 +2,15 @@
 title: >-
   [论文解读] HiCUPID: Exploring the Potential of LLMs as Personalized Assistants
 description: >-
-  [ACL 2025][个性化助手] 提出HiCUPID基准，首个全面满足个性化AI助手五大需求的数据集，含1500用户×25人格×10日程+Llama-3.2自动评估模型。
+  [ACL 2025][LLM/NLP][个性化助手] 提出HiCUPID——首个全面满足个性化AI助手五大需求（用户信息遵循/隐含信息理解/多信息推理/长上下文建模/主动性回复）的开源基准，含1500用户×40个对话+QA对+Llama-3.2自动评估模型。
 tags:
   - ACL 2025
-  - personalized assistant
+  - LLM/NLP
+  - 个性化助手
   - benchmark
-  - long-context
-  - evaluation
+  - 长上下文
+  - 用户信息
+  - 自动评估
 ---
 
 # HiCUPID: Exploring the Potential of LLMs as Personalized Assistants
@@ -36,17 +38,17 @@ GPT-4o合成数据：每用户25个人格+5个profile+10个日程→自然嵌入
 ### 关键设计
 
 1. **五维需求定义**:
-    - 做什么：定义个性化助手必须满足的5个desiderata
+    - 功能：定义个性化助手必须满足的5个desiderata
     - 核心思路：AUI（遵循用户信息）、UII（理解隐含信息）、MI（多信息推理）、LC（长上下文建模）、PR（主动性回复）——每个维度对应数据集的特定设计
     - 设计动机：此前无统一标准定义"什么是好的个性化助手"——5维定义填补空白
 
 2. **对话+QA数据构建**:
-    - 做什么：为每用户生成~40个对话（25 persona + 5 profile + 10 schedule）和40个QA对
+    - 功能：为每用户生成~40个对话（25 persona + 5 profile + 10 schedule）和40个QA对
     - 核心思路：persona对话10轮暗示用户偏好；profile/schedule对话单轮；单信息QA测单一信息；多信息QA=persona+profile的组合推理。对话历史~17K tokens测LC
     - 设计动机：信息自然嵌入对话而非显式提供——测UII能力；多信息QA=跨对话组合——测MI能力
 
 3. **Llama-3.2代理评估器**:
-    - 做什么：蒸馏GPT-4o人类偏好到Llama-3.2-3B，提供低成本自动评估
+    - 功能：蒸馏GPT-4o人类偏好到Llama-3.2-3B，提供低成本自动评估
     - 核心思路：400K GPT-4o评估样本SFT训练Llama-3.2-3B，Cohen kappa与GPT-4o达0.70-0.75
     - 设计动机：GPT-4o评估虽准确但成本高（$26/模型），Llama-3.2几乎零成本
 

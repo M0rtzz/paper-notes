@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Towards Generalizable AI-Generated Image Detection via Image-Adaptive Prompt Learning
 description: >-
-  [CVPR 2026][AI生成图像检测][自适应prompt] 提出IAPL方法，通过条件信息学习器提取伪造线索+测试时token调优两条路径动态调整CLIP的输入prompt，在推理时基于单张测试图像自适应调整，在UniversalFakeDetect和GenImage上分别达到95.61%和96.7% mAcc
+  [CVPR 2026][模型压缩][IAPL] 提出IAPL（Image-Adaptive Prompt Learning），在CLIP编码器输入端引入动态prompt——由条件信息学习器（从纹理丰富区域提取伪造特异和通用线索）和测试时token调优（通过多视角一致性最小化熵）两条路径生成，使模型能在推理时根据每张测试图像自适应调整，在未见过的生成器上显著提升检测泛化性。
 tags:
   - CVPR 2026
-  - AI生成图像检测
-  - prompt learning
+  - 模型压缩
+  - IAPL
+  - 提示学习
+  - test-time adaptation
   - CLIP
-  - 测试时适应
-  - 伪造检测
+  - forgery detection
 ---
 
 # Towards Generalizable AI-Generated Image Detection via Image-Adaptive Prompt Learning
@@ -18,7 +19,7 @@ tags:
 **arXiv**: [2508.01603](https://arxiv.org/abs/2508.01603)  
 **代码**: 有  
 **领域**: AI生成图像检测  
-**关键词**: IAPL, image-adaptive prompt, test-time adaptation, CLIP, forgery detection  
+**关键词**: IAPL, image-adaptive prompt, test-time adaptation, CLIP, forgery detection
 
 ## 一句话总结
 
@@ -42,19 +43,19 @@ tags:
 
 1. **条件信息学习器（Conditional Information Learner）**:
 
-    - 做什么：从每张输入图像中提取instance-specific的伪造线索
+    - 功能：从每张输入图像中提取instance-specific的伪造线索
     - 核心思路：将输入图像分成 $N_p=192$ 个小patch，用DCT分数选取纹理最丰富的patch。经高通滤波器提取高频模式后，送入两个独立CNN提取**伪造特异条件** $C_f$（有辅助监督分支引导）和**通用条件** $C_g$（无监督分支学习）
     - 设计动机：CLIP的高层语义特征可能遗漏低层伪造痕迹（如频域异常、纹理不一致），通过高通滤波+DCT选择纹理丰富区域来补充底层伪造信号。条件信息是per-instance的，为每张图像提供不同的检测引导
 
 2. **测试时Token调优（Test-Time Token Tuning）**:
 
-    - 做什么：在推理时根据单张测试图像动态调整token参数
+    - 功能：在推理时根据单张测试图像动态调整token参数
     - 核心思路：对测试图像生成 $N_v=32$ 个多视角view（1个全局resize + 31个随机裁剪），选取置信度最高的 $m=6$ 个view，最小化**平均熵损失** $L_{avg} = -(\bar{p} \log \bar{p} + (1-\bar{p})\log(1-\bar{p}))$ 来调优test-time adaptive token（仅2步，学习率 $5\times10^{-3}$）
     - 设计动机：域偏移使训练时学到的prompt在未见数据上不最优，测试时通过多视角预测一致性约束来适配当前图像。熵最小化不需要标签，是test-time adaptation的标准做法
 
 3. **可学习缩放因子融合**:
 
-    - 做什么：融合条件信息和测试时token生成最终的image-adaptive prompt
+    - 功能：融合条件信息和测试时token生成最终的image-adaptive prompt
     - 核心思路：$P = \{\alpha_f \cdot C_f + A[0,:], \alpha_g \cdot C_g + A[1,:]\}$，其中 $\alpha_f, \alpha_g$ 是channel-wise可学习系数，控制两种信息的贡献权重。在后续block中，上一层prompt通过类似的缩放因子与learnable token融合
     - 设计动机：条件信息和调优token各有优势（前者提供instance-specific低层线索，后者通过优化提供高层对齐），缩放因子让模型自适应决定两者的贡献比例
 

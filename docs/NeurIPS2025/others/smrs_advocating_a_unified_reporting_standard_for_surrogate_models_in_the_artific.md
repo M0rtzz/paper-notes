@@ -2,14 +2,14 @@
 title: >-
   [论文解读] SMRS: Advocating a Unified Reporting Standard for Surrogate Models in the Artificial Intelligence Era
 description: >-
-  [NeurIPS 2025][代理模型标准] 本文提出 Surrogate Model Reporting Standard (SMRS)，一套轻量级、模块化的代理模型报告标准框架，涵盖数据来源、采样设计、模型选择、训练策略、评估指标和不确定性量化六大维度，旨在解决AI时代代理模型领域方法碎片化、可复现性差、跨领域知识迁移困难等问题。
+  [NeurIPS 2025][Surrogate Model] 本文针对AI驱动的代理模型（Surrogate Model）领域缺乏标准化报告规范的痛点，提出了一套轻量级、模块化、与模型无关的报告标准SMRS，覆盖数据采集、模型选择、训练方法、评估指标等完整建模流水线的六大维度，通过对17篇已发表论文的案例研究验证了框架的可操作性，旨在提升代理模型的可复现性、可比较性和跨领域迁移能力。
 tags:
   - NeurIPS 2025
-  - 代理模型
-  - 报告标准
+  - Surrogate Model
+  - Reporting Standard
   - 可复现性
   - 不确定性量化
-  - 科学建模
+  - 跨领域标准化
 ---
 
 # SMRS: Advocating a Unified Reporting Standard for Surrogate Models in the Artificial Intelligence Era

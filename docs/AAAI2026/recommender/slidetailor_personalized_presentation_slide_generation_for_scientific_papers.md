@@ -2,15 +2,14 @@
 title: >-
   [论文解读] SlideTailor: Personalized Presentation Slide Generation for Scientific Papers
 description: >-
-  [AAAI 2026][推荐系统][演示文稿生成] 首个偏好引导的论文到演示文稿生成任务，提出SlideTailor框架通过隐式偏好蒸馏、chain-of-speech叙事对齐和模板感知布局选择，从用户提供的样例对和模板中提取偏好并生成个性化可编辑幻灯片。
+  [AAAI 2026][个性化幻灯片生成] 定义了偏好引导的论文到幻灯片生成新任务，提出 SlideTailor 框架：从用户提供的论文-幻灯片样例对中蒸馏内容偏好、从 .pptx 模板蒸馏美学偏好，通过 chain-of-speech 机制将幻灯片内容与预期口述叙事对齐，在自建 PSP 基准上以 75.8% 的综合得分和 81.63% 的人评胜率显著超越现有方法。
 tags:
   - AAAI 2026
-  - 推荐系统
-  - 演示文稿生成
-  - 个性化
+  - 个性化幻灯片生成
   - 偏好蒸馏
+  - chain-of-speech
   - Agent框架
-  - LLM应用
+  - 学术论文演示
 ---
 
 # SlideTailor: Personalized Presentation Slide Generation for Scientific Papers

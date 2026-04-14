@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2412.14164](https://arxiv.org/abs/2412.14164)  
 **代码**: [https://tsb0601.github.io/metamorph](https://tsb0601.github.io/metamorph)  
 **领域**: 多模态VLM / 统一理解与生成  
-**关键词**: VPiT, unified model, visual instruction tuning, autoregressive, understanding+generation, LLM prior  
+**关键词**: VPiT, unified model, visual instruction tuning, autoregressive, understanding+generation, LLM prior
 
 ## 一句话总结
 提出Visual-Predictive Instruction Tuning (VPiT)——一种简单有效的视觉指令微调扩展，让预训练LLM同时预测离散文本token和连续视觉token，发现视觉生成能力是视觉理解能力提升的自然副产物，少量生成数据即可解锁，LLM的预训练知识可以迁移到视觉生成中克服常见失败模式。

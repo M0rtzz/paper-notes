@@ -9,7 +9,7 @@ tags:
   - implicit differentiation
   - policy gradient
   - model predictive control
-  - bi-level optimization
+  - bilevel optimization
 ---
 
 # DiffOP: Reinforcement Learning of Optimization-Based Control Policies via Implicit Policy Gradients
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2411.07484](https://arxiv.org/abs/2411.07484)  
 **代码**: [alwaysbyx/DiffOP](https://github.com/alwaysbyx/DiffOP)  
 **领域**: reinforcement_learning  
-**关键词**: optimization-based control, implicit differentiation, policy gradient, model predictive control, bi-level optimization  
+**关键词**: optimization-based control, implicit differentiation, policy gradient, model predictive control, bilevel optimization
 
 ## 一句话总结
 

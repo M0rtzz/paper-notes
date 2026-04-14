@@ -11,7 +11,7 @@ tags:
   - coronary angiography
   - SAM3
   - 光流
-  - uncertainty
+  - 不确定性
 ---
 
 # Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.00881](https://arxiv.org/abs/2603.00881)  
 **代码**: [GitHub](https://github.com/qimingfan10/SMART)  
 **领域**: medical_imaging  
-**关键词**: semi-supervised learning, video segmentation, coronary angiography, SAM3, optical flow, uncertainty
+**关键词**: 半监督学习, video segmentation, coronary angiography, SAM3, 光流, 不确定性
 
 ## 一句话总结
 
@@ -31,9 +31,13 @@ tags:
 冠状动脉疾病（CAD）是全球最主要的死亡原因，X 光冠状动脉造影（XCA）是临床金标准。精确分割冠脉是自动诊断的基础，但标注成本极高（逐帧像素级标注）。
 
 现有方法的不足：
+
 **SAM 系列直接应用困难**：SAM/SAM2 依赖几何提示（点、框），跨机构泛化能力有限
+
 **忽略时序信息**：静态图像方法无法利用 XCA 视频的时序动态
+
 **伪标签不可靠**：冠脉图像低对比度、低信噪比，教师模型输出噪声大
+
 **SAM3 的优势**：SAM3 引入概念提示（语义文本描述），可避免对几何先验的依赖
 
 ## 方法详解

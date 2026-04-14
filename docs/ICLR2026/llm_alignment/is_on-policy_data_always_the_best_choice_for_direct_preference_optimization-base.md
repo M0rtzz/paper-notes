@@ -27,11 +27,14 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：DPO及其变体是LLM偏好对齐的主流方法。近期研究趋势认为on-policy数据（训练中由当前策略生成的偏好候选）优于off-policy数据（预定义数据集）。
+
 **现有痛点**：
    - 实际表现与"on-policy总是更好"矛盾：Llama-3上on-policy确实好3倍，但Zephyr上on-policy反而差0.4倍，Phi-2上off-policy一致更优
    - 缺乏对"何时用on/off-policy"的系统理解
    - on-policy数据采集计算成本高，如果不需要就浪费资源
+
 **核心矛盾**：on-policy vs off-policy的效果差异是模型相关的，但缺乏解释和预测机制
+
 **核心idea一句话**：对齐 = 偏好注入(探索,需多样性) → 偏好微调(利用,需质量)，边界可量化判定
 
 ## 方法详解
@@ -49,7 +52,7 @@ tags:
 
 2. **边界判定算法**:
 
-    - 做什么：判断当前模型处于注入还是微调阶段
+    - 功能：判断当前模型处于注入还是微调阶段
     - 核心思路：在2000个prompt上分别生成on-policy和off-policy候选对，用偏好模型 $\mathbb{P}$ 交叉评估。计算 $BS = V_{\text{off}} / (V_{\text{off}} + V_{\text{on}})$
     - 决策：BS < 0.5 → 注入阶段(用off-policy)；BS ≥ 0.5 → 微调阶段(用on-policy)
     - 计算开销：仅为一个训练epoch的3.2%

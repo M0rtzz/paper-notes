@@ -43,19 +43,19 @@ tags:
 
 1. **物体感知3D重建**:
 
-    - 做什么：前馈Transformer从多视角RGB构建3D高斯，SAM2分割为独立物体
+    - 功能：前馈Transformer从多视角RGB构建3D高斯，SAM2分割为独立物体
     - 核心思路：DINOv2特征→交替注意力Transformer→预测相机位姿+高斯参数。DiffSplat补全遮挡部分。
     - 设计动机：物理仿真需要物体级别的分解表示
 
 2. **神经高斯力场 (NGFF)**:
 
-    - 做什么：用神经算子预测物体间的全局变换力和局部应力场
+    - 功能：用神经算子预测物体间的全局变换力和局部应力场
     - 核心思路：全局力 $\mathbf{F}^{\text{global}}(\mathbf{z}^q(t)) = \sum_{i \in \mathcal{N}(q)} \mathbf{W}(f_\eta(\mathbf{z}^i) \odot f_\phi(\mathbf{z}^q)) + \mathbf{b}$，局部应力 $\mathbf{F}^{\text{local}} = \Phi(\mathbf{F}^{\text{latent}}, \text{CAM}, \mathbf{x}^q, \dot{\mathbf{x}}^q)$，CAM是接触区域掩码
     - 设计动机：全局力处理刚体平移/旋转，局部力处理软体变形。关系图编码物体间接触。
 
 3. **ODE积分轨迹解码**:
 
-    - 做什么：用二阶ODE求解器从力场积分得到物体轨迹
+    - 功能：用二阶ODE求解器从力场积分得到物体轨迹
     - 核心思路：$\mathbf{z}^q(t) = \text{ODESolve}(\mathbf{z}^q(0), \mathbf{F}, 0, t)$，$\dot{\mathbf{s}}(t) = \dot{\mathbf{s}}(0) + \int_0^t \mathbf{F}(\mathbf{z}^q(t)) dt$
     - 设计动机：全可微的桥梁连接力场预测和动力学模拟
 

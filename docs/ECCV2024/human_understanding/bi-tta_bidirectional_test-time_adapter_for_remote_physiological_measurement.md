@@ -7,7 +7,7 @@ tags:
   - ECCV2024
   - 人体理解
   - rPPG
-  - Test-Time Adaptation
+  - 测试时自适应
   - 远程生理信号测量
   - 自监督先验
   - 域适应
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2409.17316](https://arxiv.org/abs/2409.17316)  
 **代码**: [bi-tta.github.io](https://bi-tta.github.io)  
 **领域**: human_understanding  
-**关键词**: rPPG, Test-Time Adaptation, 远程生理信号测量, 自监督先验, 域适应
+**关键词**: rPPG, 测试时自适应, 远程生理信号测量, 自监督先验, 域适应
 
 ## 一句话总结
 

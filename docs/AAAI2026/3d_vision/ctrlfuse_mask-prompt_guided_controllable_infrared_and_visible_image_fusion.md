@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.08619](https://arxiv.org/abs/2601.08619)  
 **代码**: [Sevryy/CtrlFuse](https://github.com/Sevryy/CtrlFuse)  
 **领域**: 3d_vision  
-**关键词**: infrared-visible image fusion, controllable fusion, mask prompt, SAM, semantic segmentation  
+**关键词**: infrared-visible image fusion, controllable fusion, mask prompt, SAM, semantic segmentation
 
 ## 一句话总结
 

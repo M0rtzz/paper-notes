@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.11557](https://arxiv.org/abs/2505.11557)  
 **代码**: 无  
 **领域**: AI安全 / LLM系统 / 访问控制  
-**关键词**: access control, LoRA adapter, information isolation, corporate LLM, multi-modal  
+**关键词**: access control, LoRA adapter, information isolation, corporate LLM, multi-modal
 
 ## 一句话总结
 设计AC-LoRA系统，通过为不同权限数据集维护独立的LoRA适配器，并基于查询相似度和用户权限进行检索+无训练合并，实现企业级LLM聊天机器人的强信息隔离保证。

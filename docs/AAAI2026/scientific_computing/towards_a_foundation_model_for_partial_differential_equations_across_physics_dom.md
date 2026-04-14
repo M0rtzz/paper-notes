@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2511.21861](https://arxiv.org/abs/2511.21861)  
 **代码**: 待确认  
 **领域**: scientific_computing  
-**关键词**: PDE, foundation model, neural operator, Mamba, FNO, multi-physics, The Well benchmark  
+**关键词**: PDE, foundation model, neural operator, Mamba, FNO, multi-physics, The Well benchmark
 
 ## 一句话总结
 

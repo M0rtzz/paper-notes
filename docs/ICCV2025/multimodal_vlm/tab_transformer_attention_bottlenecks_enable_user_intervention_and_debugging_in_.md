@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.18675](https://arxiv.org/abs/2412.18675)  
 **代码**: [GitHub](https://github.com/visual-xai-for-vlm/TAB)  
 **领域**: 多模态VLM / 可解释性 / 注意力干预  
-**关键词**: attention bottleneck, interpretability, change captioning, co-attention, user intervention, debugging  
+**关键词**: attention bottleneck, interpretability, change captioning, co-attention, user intervention, debugging
 
 ## 一句话总结
 提出TAB（Transformer Attention Bottleneck），一个插入标准MHSA之后的单头co-attention瓶颈层，通过移除skip connection并将注意力约束到[0,1]区间，实现VLM注意力的精确可视化、真值监督训练、以及测试时用户编辑干预，在变化描述任务上首次建立了注意力值与VLM输出之间的因果关系。
@@ -27,11 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：VLM广泛用于图像比较任务（如变化描述、监控），但在对比两张图像时常产生错误的描述。理解VLM"在看哪里"对于调试和建立信任至关重要。
+
 **ViT注意力可视化的困境**：
    - 现有ViT的多头自注意力（MHSA）有多层多头，注意力模式分散或弥散，难以归因每个patch对输出的贡献
    - 后处理归因方法（如梯度权重聚合、Rollout）不可靠，且修改MHSA的注意力图可能根本不会改变模型输出——即"注意力"与"输出"之间缺乏因果关系
+
 **关键痛点**：现有方法中，修改ViT内部的注意力值不会影响输出（如图1所示CLIP4IDC的注意力失效），说明注意力图仅是相关性而非因果性的。用户无法通过编辑注意力来调试或修正模型错误。
+
 **本文要解决什么**：构建一个注意力瓶颈，使得(1)注意力图精确反映每个patch的贡献，(2)可用真值框监督注意力，(3)用户可在测试时编辑注意力值并直接影响VLM输出。
+
 **核心insight**：通过移除skip connection并使用单头注意力，TAB层成为视觉信息流向语言模型的"阀门"——注意力全零时不传递任何视觉信息（模型默认输出"无变化"），注意力非零时精确控制哪些patch的信息传递。
 
 ## 方法详解

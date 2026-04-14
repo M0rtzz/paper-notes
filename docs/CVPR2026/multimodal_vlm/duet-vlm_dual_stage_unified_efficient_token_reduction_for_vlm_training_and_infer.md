@@ -42,19 +42,19 @@ DUET-VLM 包含两个阶段：(1) V2V（Vision-to-Vision）阶段在视觉编码
 
 1. **V2V 阶段——视觉编码器内 token 压缩**:
 
-    - 做什么：在视觉编码器最后一层，利用 V2V self-attention 将 $N$ 个视觉 tokens 压缩为 $k_1 + k_2$ 个
+    - 功能：在视觉编码器最后一层，利用 V2V self-attention 将 $N$ 个视觉 tokens 压缩为 $k_1 + k_2$ 个
     - 核心思路：(a) 计算所有视觉 tokens 的 self-attention score（对列求和得到每个 token 的"被关注度"），选 top-$k_1$ 个作为 **dominant tokens**——这些是全局语义最重要的 tokens；(b) 剩余 $N - k_1$ 个 tokens 通过 **attention-guided local cluster aggregation** 合并为 $k_2$ 个 **contextual tokens**——以每个 contextual token 为中心，在固定窗口宽度 $w$ 内选择 attention score 最高的邻居做加权平均
     - 设计动机：全局平均池化（如 VisionZip 的 contextual tokens）会稀释信息，因为语义差异大的 tokens 被混在一起。局部聚类（固定宽度 $w$）保证合并的 tokens 在空间上相近、语义相似，避免信息丢失
 
 2. **T2V 阶段——LLM 内层级视觉 token 裁剪**:
 
-    - 做什么：在 LLM 的多个中间层逐步裁剪不重要的视觉 tokens
+    - 功能：在 LLM 的多个中间层逐步裁剪不重要的视觉 tokens
     - 核心思路：(a) 首先选择 **salient text tokens** 集合 $S$——包含 last token（作为 attention sink）和 attention score 最高的若干文本 tokens；(b) 在每个 pruning stage，计算 $S$ 中文本 tokens 对视觉 tokens 的 T2V cross-attention scores，按分数排序丢弃最低 $\lambda$ 比例的视觉 tokens；(c) 多 stage 执行（如在 LLM 的第 $l_1, l_2, \ldots$ 层），逐步压缩
     - 设计动机：文本 tokens 知道"当前问题需要什么信息"，T2V attention 天然反映了视觉 tokens 对回答的相关性。层级裁剪比一次性裁剪更安全，因为浅层 attention 不够成熟，需要渐进式决策
 
 3. **训练时双阶段压缩**:
 
-    - 做什么：将双阶段压缩同时应用于训练过程，减少训练资源消耗
+    - 功能：将双阶段压缩同时应用于训练过程，减少训练资源消耗
     - 核心思路：训练时使用与推理相同的压缩策略，通过减少送入 LLM 的 token 数量降低 FLOPs 和显存。Dominant/contextual token 的选择和 T2V pruning 都用 straight-through estimator 保持梯度流
     - 设计动机：大多数现有方法（FastV、PyramidDrop）只压缩推理不压缩训练，训练成本依然很高。DUET-VLM 统一训练和推理的压缩策略，实现训练加速
 

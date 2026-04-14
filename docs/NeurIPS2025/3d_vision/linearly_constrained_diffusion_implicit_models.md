@@ -32,8 +32,11 @@ tags:
 **现有痛点**：
 
 **投影步骤过多**：DPS 等方法在每个扩散步交替进行无条件去噪和约束投影，但每步投影都需要一次网络前向传播，导致推理极慢（>70 秒）
+
 **加速采样下约束失效**：直接将 DPS 与 DDIM 加速采样结合，由于步长大导致投影不充分，产出模糊或发散的结果
+
 **无法精确满足约束**：DPS 使用固定的小步长投影，在无噪声情况下也无法保证 $\mathbf{A}\hat{\mathbf{x}}_0 = \mathbf{y}$
+
 **步长选择困难**：投影步长太大导致发散或拉出分布，太小收敛不充分
 
 **核心矛盾**：如何在大幅减少投影步数的同时，既不过度投影（拉出分布）也不欠投影（无法满足约束）？
@@ -47,9 +50,9 @@ tags:
 CDIM 的推理流程（Algorithm 1）：
 1. 初始化 $\mathbf{x}_T \sim \mathcal{N}(0, \mathbf{I})$
 2. 对每个时间步 $t = T, T-\delta, ..., 1$：
-   - 做一步无条件 DDIM 去噪得到 $\mathbf{x}_{t-\delta}$
-   - 计算合理区域边界 $\rho_t(\mathbf{y}) = \mu_{t-\delta}(\mathbf{y}) + c \cdot \sigma_{t-\delta}(\mathbf{y})$
-   - 当 $\|\mathbf{A}\mathbf{x}_{t-\delta} - \mathbf{y}\|^2 > \rho_t$ 时：计算 Tweedie 估计 $\hat{\mathbf{x}}_0$，求梯度 $\mathbf{g}$，通过一维搜索找最优步长 $\eta^*$，更新 $\mathbf{x}_{t-\delta}$
+    - 做一步无条件 DDIM 去噪得到 $\mathbf{x}_{t-\delta}$
+    - 计算合理区域边界 $\rho_t(\mathbf{y}) = \mu_{t-\delta}(\mathbf{y}) + c \cdot \sigma_{t-\delta}(\mathbf{y})$
+    - 当 $\|\mathbf{A}\mathbf{x}_{t-\delta} - \mathbf{y}\|^2 > \rho_t$ 时：计算 Tweedie 估计 $\hat{\mathbf{x}}_0$，求梯度 $\mathbf{g}$，通过一维搜索找最优步长 $\eta^*$，更新 $\mathbf{x}_{t-\delta}$
 
 ### 关键设计
 

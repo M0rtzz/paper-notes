@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.03144](https://arxiv.org/abs/2506.03144)  
 **代码**: [https://github.com/weichow23/merit](https://github.com/weichow23/merit)  
 **领域**: 多模态VLM / 语义检索 / 多条件检索  
-**关键词**: interleaved retrieval, multilingual, multi-condition query, contrastive learning, embedding reconstruction  
+**关键词**: interleaved retrieval, multilingual, multi-condition query, contrastive learning, embedding reconstruction
 
 ## 一句话总结
 提出首个多语言交错多条件语义检索数据集 MERIT（320K queries, 135K products, 5种语言, 7大品类），揭示现有检索模型仅关注全局语义而忽略条件细节的瓶颈，并设计 Coral 微调框架通过嵌入重建+对比学习将检索性能提升 45.9%。
@@ -26,8 +26,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：语义检索在产品搜索、RAG 等场景中至关重要，但现有数据集局限于单语言、单图像、单检索条件，远未覆盖真实场景的复杂性。
+
 **现有痛点**：大量已有工作（Fashion-IQ、CIRR、Magiclens 等）在图像被替换为对应 caption 后性能不受影响，说明这些数据集没有真正利用图像的表达能力（Vision Unnecessarity）。
+
 **核心矛盾**：真实产品检索经常涉及交错的多条件查询（如特定花纹+特定材质），其中许多属性必须通过图像表达，现有数据集无法评估这类能力。
+
 **本文要回答的两个问题**：(1) 如何全面衡量现有模型在交错多条件检索任务上的能力？(2) 限制性能的关键因素是什么、如何改善？
 
 ## 方法详解
@@ -51,12 +54,12 @@ tags:
    标准 InfoNCE Loss，拉近 query 与正样本、推远负样本。
 
 2. **视觉重建损失** $\mathcal{L}_{mse}$：
-   - 对多模态嵌入 $E=[e_{img};e_{txt}]$ 中的视觉部分进行随机掩码（比率 $\delta=0.5$），使用随机初始化的 BERT 解码层 $\mathcal{F}_{\theta}^{v}$ 重建
+    - 对多模态嵌入 $E=[e_{img};e_{txt}]$ 中的视觉部分进行随机掩码（比率 $\delta=0.5$），使用随机初始化的 BERT 解码层 $\mathcal{F}_{\theta}^{v}$ 重建
    $$\mathcal{L}_{mse} = -\frac{1}{N}\sum_{i=1}^{N}\|\hat{E} - E\|_2^2, \quad \hat{E} = \mathcal{F}_{\theta}^{v}[\mathcal{MASK}_v(E); h_{eos}]$$
    - 设计动机：仅靠 [EOS] token 的对比学习会过度压缩全局语义，掩码重建迫使模型在 [EOS] 中保留细粒度视觉信息
 
 3. **掩码语言建模损失** $\mathcal{L}_{mlm}$：
-   - 对文本部分掩码后重建，解码器 $\mathcal{F}_{\theta}^{l}$ 与 MLLM 的 LM head 共享参数
+    - 对文本部分掩码后重建，解码器 $\mathcal{F}_{\theta}^{l}$ 与 MLLM 的 LM head 共享参数
    $$\mathcal{L}_{mlm} = -\frac{1}{N}\sum_{i=1}^{N}\log P(\hat{x}_i \mid X)$$
 
 4. **总损失**：

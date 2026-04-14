@@ -27,12 +27,17 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 参数量增长使得第三方推理服务日益流行，但用户数据隐私面临风险。安全多方计算（SMPC）提供可证安全性，但在非线性操作上有极大的计算和通信开销。
+
 **现有痛点**：
    - SMPC 方案（MPCFormer、Puma、SecFormer）在 GELU/Softmax 上用多项式近似，性能降低且仍然很慢
    - 统计方案（PermLLM、STIP、Cenatur）用隐藏状态置换实现隐私，但被 Thomas et al. 的 vocab-matching 攻击轻松破解（通过逐 token 匹配词表候选到隐藏状态来还原输入）
+
 **核心矛盾**：密码学方案安全但不可扩展到大型 LLM；置换方案快但不安全。
+
 **本文要解决什么**：如何在安全性和效率之间找到新的平衡点？
+
 **切入角度**：不在 token 置换层面做文章，而是在 token 维度做分片——每个计算节点只看到部分 token 的隐藏状态，且相邻 token 之间保持足够大的间隔。
+
 **核心 idea**：vocab-matching 攻击的计算复杂度随隐藏状态之间的 token 间隔呈指数增长（$V^g$，其中 $g$ 是间隔），只要间隔足够大（≥3），攻击就变得不可行。
 
 ## 方法详解
@@ -48,19 +53,19 @@ Cascade 将推理计算分配给两类节点：
 
 1. **Token 维度分片策略**:
 
-    - 做什么：将 $N$ 个 token 的隐藏状态分成 $\alpha$ 个不重叠子集，分发给不同 CompNodes
+    - 功能：将 $N$ 个 token 的隐藏状态分成 $\alpha$ 个不重叠子集，分发给不同 CompNodes
     - 核心思路：确保每个节点看到的 token 之间的最小间隔 $g \geq \rho$（vocab-matching 阈值），使广义 vocab-matching 攻击需要 $V^g$ 次前向推断，计算不可行
     - 设计动机：对于典型词表大小 $V \sim 10^5$，$g \geq 3$ 时搜索空间 $V^3 \sim 10^{15}$ 即超出可行范围
 
 2. **CompNode-AttnNode 分工**:
 
-    - 做什么：将 Transformer 计算解耦为 token-independent 和 token-interactive 部分
+    - 功能：将 Transformer 计算解耦为 token-independent 和 token-interactive 部分
     - 核心思路：CompNodes 执行 embedding/FFN/LayerNorm（这些在 batch 维度独立），AttnNodes 执行注意力（需要 token 间交互）
     - 设计动机：注意力是唯一需要 token 间信息交互的操作，只在这里做受控的信息交换
 
 3. **广义 Vocab-Matching 攻击分析**:
 
-    - 做什么：将 Thomas et al. 的 vocab-matching 攻击推广到分片场景
+    - 功能：将 Thomas et al. 的 vocab-matching 攻击推广到分片场景
     - 核心思路：攻击者只持有部分 token 的隐藏状态 $h_{i_1}, \dots, h_{i_k}$，恢复所有 token 的搜索成本为 $V^{i_1} + V^{i_2-i_1} + \dots + V^{i_k-i_{k-1}}$，由最大间隔 $g = \max_j(i_{j+1}-i_j)$ 主导
     - 设计动机：为 Cascade 的安全性分析提供量化基础
 

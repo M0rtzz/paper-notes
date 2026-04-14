@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.21448](https://arxiv.org/abs/2505.21448)  
 **代码**: [https://ziqiaopeng.github.io/OmniSync/](https://ziqiaopeng.github.io/OmniSync/) (项目页面)  
 **领域**: 视频理解 / 唇形同步 / 扩散模型  
-**关键词**: 唇形同步, Diffusion Transformer, Flow Matching, Classifier-Free Guidance, AIGC视频  
+**关键词**: 唇形同步, 扩散 Transformer, Flow Matching, Classifier-Free Guidance, AIGC视频
 
 ## 一句话总结
 

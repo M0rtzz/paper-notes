@@ -57,25 +57,25 @@ GDT 基于标准 Transformer 编码器层，支持两种 token 化：
 
 1. **带偏置的标准注意力**:
 
-    - 做什么：在不修改 softmax 注意力的前提下融入图结构
+    - 功能：在不修改 softmax 注意力的前提下融入图结构
     - 核心思路：注意力公式为 softmax(QK^T/sqrt(d) + B)V，偏置 B_ij = rho(edge_embed(i,j)) + U_ij * W_U，边特征通过 MLP 映射到 h 个注意力头的偏置，相对 PE 通过线性投影叠加
     - 设计动机：保持与 FlashAttention、Memory Efficient Attention 的兼容性。框架统一了局部 GT（偏置为负无穷若无边）、因果 LLM、ALiBi 等
 
 2. **GD-WL 等价性证明 (Theorem 1)**:
 
-    - 做什么：证明标准 softmax 注意力足以模拟 GD-WL 算法
+    - 功能：证明标准 softmax 注意力足以模拟 GD-WL 算法
     - 核心思路：GD-WL 要求对多重集做单射编码，但 softmax 计算加权均值而非求和。关键突破是利用 Lindemann-Weierstrass 定理——不同指数数的和在代数数上线性独立——证明 softmax 的归一化指数加权在至少两个不同 token 嵌入时（[CLS] 保证）实现单射
     - 设计动机：首次用*真实* softmax（非饱和/hardmax 近似）证明 GD-WL 等价性
 
 3. **PE 表达力层次结构**:
 
-    - 做什么：建立不同 PE 的严格表达力偏序
+    - 功能：建立不同 PE 的严格表达力偏序
     - 核心思路：四种 PE 的理论层次——RRWP 严格强于 RWSE、LPE 严格强于 RWSE、SPE 与 RWSE 不可比、RRWP 与 LPE 不可比。NoPE 等价 1-WL
     - 设计动机：为 PE 选择提供理论指导而非凭经验
 
 4. **Few-shot 迁移**:
 
-    - 做什么：验证 GDT 表示的可迁移性
+    - 功能：验证 GDT 表示的可迁移性
     - 核心思路：上游训练后直接用 k-NN 分类，零微调
     - 设计动机：可迁移表示是通用图基础模型的前提
 

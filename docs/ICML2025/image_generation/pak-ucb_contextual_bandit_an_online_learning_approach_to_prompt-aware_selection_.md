@@ -61,8 +61,8 @@ $$\text{Regret}(T) = \sum_{t=1}^{T} \left( s_\star(y_t) - s_{g_t}(y_t) \right)$$
 
 1. 对每个模型 $g$ 维护**独立**的观测集 $\Psi_g$（仅包含选中模型 $g$ 的轮次）
 2. 使用核岭回归（KRR）估计均值 $\hat{\mu}_g$ 和不确定性 $\hat{\sigma}_g$：
-   - $\hat{\mu}_g = k_y^\top (K + \alpha I)^{-1} v$
-   - $\hat{\sigma}_g = \alpha^{-1/2} \sqrt{k(y,y) - k_y^\top (K + \alpha I)^{-1} k_y}$
+    - $\hat{\mu}_g = k_y^\top (K + \alpha I)^{-1} v$
+    - $\hat{\sigma}_g = \alpha^{-1/2} \sqrt{k(y,y) - k_y^\top (K + \alpha I)^{-1} k_y}$
 3. 计算 UCB 分数：$\hat{s}_g = \hat{\mu}_g + \eta \hat{\sigma}_g$
 4. 选择 UCB 分数最高的模型：$g_t = \arg\max_g \hat{s}_g$
 

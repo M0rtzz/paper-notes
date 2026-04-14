@@ -19,7 +19,7 @@ tags:
 **作者**: Lucas Bandarkar, Chenyuan Yang, Mohsen Fayyaz, Junlin Hu, Nanyun Peng (UCLA, Fudan University)  
 **代码**: 未开源  
 **领域**: LLM Efficiency / MoE可解释性与多语言  
-**关键词**: mixture-of-experts, multilingual routing, cross-lingual transfer, expert steering, interpretability  
+**关键词**: mixture-of-experts, multilingual routing, cross-lingual transfer, expert steering, interpretability
 
 ## 一句话总结
 

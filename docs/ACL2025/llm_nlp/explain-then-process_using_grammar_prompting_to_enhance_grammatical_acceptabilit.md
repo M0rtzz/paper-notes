@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Explain-then-Process: Using Grammar Prompting to Enhance Grammatical Acceptability Judgments
 description: >-
-  [ACL 2025][语法判断] 提出 grammar prompting（先让LLM解释语法规则，再用该解释辅助判断句子可接受性）的 explain-then-process 范式，在英语 BLiMP、中文 SLING、俄语 RuBLiMP 三个基准上显著提升语法判断准确率，SLM+GP+CoT 将 LLM-SLM 差距缩小 56%。
+  [ACL 2025][LLM/NLP][提示学习] 提出 grammar prompting 的 explain-then-process 范式——先让 LLM 生成目标语法现象的解释，再将该解释作为上下文反馈给目标模型（LLM 或 SLM）辅助最小对语法判断。在英语 BLiMP、中文 SLING、俄语 RuBLiMP 三个跨语言基准上显著提升准确率，SLM 搭配 GP+CoT 将 LLM-SLM 平均差距从 13.0pp 缩小到 5.8pp（缩小 56%）。
 tags:
   - ACL 2025
-  - 语法判断
-  - grammar prompting
-  - explain-then-process
+  - LLM/NLP
+  - 提示学习
+  - 语法可接受性
   - 最小对
-  - 多语言语言学
+  - explain-then-process
+  - 多语言
 ---
 
 # Explain-then-Process: Using Grammar Prompting to Enhance Grammatical Acceptability Judgments
@@ -48,14 +49,14 @@ tags:
 
 1. **语法解释生成（Explain）**:
 
-    - 做什么：设计指令模板引导 LLM 生成特定语法范式的解释
+    - 功能：设计指令模板引导 LLM 生成特定语法范式的解释
     - 核心思路：模板包含语法范式名称（如"NPI licensing"）、示例最小对和指令（要求避免完整例句、指定目标受众），生成面向"初学者"或"专家"的解释
     - 设计动机：(1) 规避完整示例可防止模型做表面模式匹配而非真正推理；(2) 初学者解释强调实用识别方法（如"用 who/what 检查"），专家解释使用技术术语（如"长距离依赖"、"选择限制"）
     - 发现：初学者解释在宏观分析中以小但显著的优势优于专家解释（-1.9% ± 5.7%, p=0.002）
 
 2. **提示策略组合（Process）**:
 
-    - 做什么：测试多种提示策略及其组合
+    - 功能：测试多种提示策略及其组合
     - 核心思路：
       - **Base**: 直接问"哪个句子更语法正确"
       - **CoT**: 要求逐步推理后回答
@@ -66,7 +67,7 @@ tags:
 
 3. **多语言最小对评估**:
 
-    - 做什么：在英语 BLiMP（67 范式取困难子集 8 类）、中文 SLING（38 范式取 6 类）、俄语 RuBLiMP（45 范式取 7 类）上评估，每范式取前 50 对
+    - 功能：在英语 BLiMP（67 范式取困难子集 8 类）、中文 SLING（38 范式取 6 类）、俄语 RuBLiMP（45 范式取 7 类）上评估，每范式取前 50 对
     - 核心思路：三次 A/B 呈现实验（正序+反序+随机）取平均消除位置偏见；使用 prompt-based 方法而非 perplexity
     - 设计动机：多语言设计验证方法的语言不可知性；取困难子集聚焦于模型真正薄弱的语法现象
 

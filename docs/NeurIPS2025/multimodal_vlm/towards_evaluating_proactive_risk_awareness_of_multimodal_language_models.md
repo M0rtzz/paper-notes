@@ -9,7 +9,7 @@ tags:
   - 主动安全
   - 风险检测
   - LLM评测
-  - Benchmark
+  - benchmark
   - 前瞻性推理
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.17455](https://arxiv.org/abs/2505.17455)  
 **代码**: [HuggingFace](https://huggingface.co/datasets/Youliang/PaSBench)  
 **领域**: 多模态VLM  
-**关键词**: 主动安全, 风险检测, LLM评测, Benchmark, 前瞻性推理
+**关键词**: 主动安全, 风险检测, LLM评测, benchmark, 前瞻性推理
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 现有AI安全研究存在根本性的范式局限：
 
 **被动范式（Reactive）**：现有安全benchmark（SafeText、HealthBench、LabSafetyBench等）都假设用户已经意识到风险并主动提问，本质上是问答模式
+
 **关注AI自身安全**：大量工作研究LLM是否会产生有害输出（毒性、偏见），而非LLM是否能保护人类安全
+
 **缺乏主动能力评估**：没有benchmark专门评估模型的主动风险检测能力
 
 本文定义了一个全新的任务——**主动风险检测**：给定一系列观察（文本日志或图像序列），模型需要在无用户询问的情况下，判断当事人是否正处于或即将面临不安全状况，并主动发出警告。这比传统安全评测远更贴近真实场景。

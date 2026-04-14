@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：PEFT（特别是LoRA）已成为部署LLM到多任务场景的主流范式。为缓解多任务间梯度冲突导致的负迁移问题，MoE-LoRA方法（如MOELoRA、HydraLoRA、MoRE）通过门控机制将token路由到不同的低秩expert。
+
 **现有痛点**：这些MoE-LoRA方法几乎都采用结构完全相同的expert——相同的rank、相同的capacity。但不同任务的复杂度差异很大：简单任务（如情感分类SST-2）只需高层语义抽象，复杂任务（如语言可接受性判断CoLA）需要精细的句法分析。作者用实验验证了这一观察：T5-base在不同GLUE任务上，最优rank差异显著（如MRPC最优rank=1，RTE最优rank=4，CoLA最优rank=8）。
+
 **核心矛盾**：均匀架构的expert无法捕获多样化的特征粒度。低rank expert缺乏对复杂任务的表达力，高rank expert在简单任务上过参数化导致泛化差。而且每个expert独立学习各自的LoRA矩阵，参数间缺乏知识共享，导致参数冗余。
+
 **本文要解决什么**：(a) 如何让不同expert捕获不同粒度的特征？(b) 如何在expert间共享通用语言知识的同时保留任务特异性？(c) 如何准确路由token到合适的expert？
+
 **切入角度**：借鉴CV中Feature Pyramid Network的多尺度思想——识别不同大小目标需要不同分辨率特征，类似地，处理不同复杂度的NLP任务需要不同粒度的参数适配。
+
 **核心idea一句话**：用不同kernel size的反卷积算子从共享低维meta-knowledge子空间投影出多尺度参数金字塔，替代MoE-LoRA中各自独立的均匀expert。
 
 ## 方法详解
@@ -41,27 +46,27 @@ EPT替换Transformer中线性层的LoRA模块。输入token经过router选择top
 
 1. **共享Meta-Knowledge子空间**:
 
-    - 做什么：编码跨任务通用的语言模式，作为所有expert的共同知识基础
+    - 功能：编码跨任务通用的语言模式，作为所有expert的共同知识基础
     - 核心思路：定义 $\mathbf{Z}_{meta} = \mathbf{B} \cdot \mathbf{A}$，其中 $\mathbf{A} \in \mathbb{R}^{R \times W_{max}}$，$\mathbf{B} \in \mathbb{R}^{H_{max} \times R}$，$h, w \ll d_{model}$。关键点是 $\mathbf{A}$ 和 $\mathbf{B}$ 都用随机高斯分布初始化（而非标准LoRA的零初始化），确保训练伊始 $\mathbf{Z}_{meta}$ 就包含非退化的、丰富的隐表示
     - 设计动机：传统MoE-LoRA每个expert各自维护独立的LoRA矩阵，参数冗余且缺乏知识共享。EPT让所有expert共享同一个低维基础，不同expert只是从不同角度"解读"这个基础——类似于多个观察者从不同分辨率观察同一张图
 
 2. **Pyramid Projection Mechanism（金字塔投影）**:
 
-    - 做什么：将低维的 $\mathbf{Z}_{meta}$ 投影为不同尺度的高维权重矩阵
+    - 功能：将低维的 $\mathbf{Z}_{meta}$ 投影为不同尺度的高维权重矩阵
     - 核心思路：定义 $N$ 个反卷积expert，第 $i$ 个expert的kernel tensor $\mathcal{K}_i$ 具有不同的kernel size $s_i$（stride也设为 $s_i$）。投影过程为 $\mathbf{W}_i = \text{Deconv}(\mathbf{Z}_{meta}; \mathcal{K}_i)$。kernel size小的expert捕获局部细粒度模式，kernel size大的expert捕获全局长程语义依赖。实现中使用8个expert，配置为 $\{2,2,4,4,6,6,8,8\}$
     - 设计动机：这是核心创新。标准MoE-LoRA的所有expert具有相同rank，相当于同一分辨率的多个副本。EPT通过不同kernel size的反卷积创造出真正的"多尺度"——小kernel expert参数少但聚焦局部模式，大kernel expert参数多但覆盖全局语义。kernel $\mathcal{K}_i$ 零初始化确保训练初期不扰动预训练权重
     - 与FPN的类比：FPN用不同层的特征图捕获不同尺度目标；EPT用不同kernel size的反卷积从同一meta-knowledge中提取不同粒度的参数适配
 
 3. **Adaptive LoRA Pruner（自适应裁剪器）**:
 
-    - 做什么：确保不同尺度expert输出的权重矩阵维度与目标层的预训练权重严格一致
+    - 功能：确保不同尺度expert输出的权重矩阵维度与目标层的预训练权重严格一致
     - 核心思路：对于目标粒度 $(h_t, w_t)$，从完整的 $\mathbf{B}$ 和 $\mathbf{A}$ 中切片取前 $h_t$ 行和前 $w_t$ 列：$\mathbf{Z}_{meta}^{(t)} = \mathbf{B}_{:h_t,:} \cdot \mathbf{A}_{:,:w_t}$，得到 $h_t \times w_t$ 的scale-specific meta-seed
     - 频率补偿：均匀任务采样下，shared参数每一步都更新（频率=1），task-specific参数仅在对应任务被采样时更新（频率=1/T）。引入维度感知缩放因子 $d_t / T$，最终前向传播为 $\mathbf{L} = \mathbf{W}_0 \mathbf{x} + \sum_{i \in \mathcal{P}} G(x)_i \cdot \frac{d_t}{T} \cdot (\mathbf{W}_i \mathbf{x})$，平衡梯度能量防止shared维度被高频振荡覆盖
     - 设计动机：不同Transformer层的维度不同（如attention投影和FFN维度差异大），pruner确保meta-knowledge能灵活适配到任意目标维度，同时频率补偿解决了多任务采样不均衡带来的优化不稳定
 
 4. **Top-k路由 + 对比学习Task Embedding**:
 
-    - 做什么：为每个token动态选择最合适的expert组合，同时通过task embedding增强路由判别力
+    - 功能：为每个token动态选择最合适的expert组合，同时通过task embedding增强路由判别力
     - 核心思路：门控分数 $G(x)_i = \text{softmax}(\mathbf{W}_r \cdot x / \tau)$，选top-k（k=2）个expert。同时为每个任务学习embedding $\mathbf{e}_t$，用对比损失 $\mathcal{L}_{con} = -\frac{1}{M}\sum_i \log \frac{e^{s_{i,t_i}}}{\sum_k e^{s_{i,k}}}$ 拉近同任务样本与其task embedding、推远不同任务embedding
     - 总损失：$\mathcal{L}_{total} = \mathcal{L}_{gen} + \lambda \mathcal{L}_{con}$，$\lambda = 0.1$
     - 设计动机：标准MoE路由仅依赖token特征，对任务间关系建模不足。task embedding通过对比学习显式编码任务间相关性和差异性——实验中PCA可视化显示QNLI和MNLI（同为NLI任务）embedding聚集在一起，而CoLA和STS-B（任务性质迥异）的embedding明显分开

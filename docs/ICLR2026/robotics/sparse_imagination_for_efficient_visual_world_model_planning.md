@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2506.01392](https://arxiv.org/abs/2506.01392)  
 **代码**: 无（基于 DINO-WM 框架）  
 **领域**: Robotics / World Model / Planning  
-**关键词**: world model, sparse tokens, MPC, DINO, VLA, token dropout, planning efficiency  
+**关键词**: world model, sparse tokens, MPC, DINO, VLA, token dropout, planning efficiency
 
 ## 一句话总结
 提出 Sparse Imagination，在基于 ViT patch token 的世界模型规划中通过随机丢弃 token 和随机分组注意力训练实现大幅推理加速（50% 丢弃率可减少约 50% 规划时间），同时保持甚至在某些任务上超越全量 token 的规划性能。关键发现是简单随机丢弃优于复杂的 token 选择方法，原因是静态重要性排序在动态规划场景中存在"盲点问题"。

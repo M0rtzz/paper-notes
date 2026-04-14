@@ -46,7 +46,7 @@ tags:
 
 1. **Forl 条件扩散模型**:
 
-    - 做什么：从 episode 内的动作-效果历史生成多模态候选真实状态
+    - 功能：从 episode 内的动作-效果历史生成多模态候选真实状态
     - 核心思路：定义轨迹子序列 $\boldsymbol{\tau}_{(t,w)} = [(\Delta o_{t-w+1}, a_{t-w}), \cdots, (\Delta o_t, a_{t-1})]$，训练噪声预测网络 $\boldsymbol{\epsilon}_\theta(\boldsymbol{s}_t^{(n)}, \boldsymbol{\tau}_{(t,w)}, n)$，损失函数为 $\mathcal{L}_p(\theta) = \mathbb{E}_{n, \boldsymbol{\tau}, \boldsymbol{s_t}, \boldsymbol{\epsilon}}\left[\|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta(\boldsymbol{s}^{(n)}, \boldsymbol{\tau}_{(t,w)}, n)\|^2\right]$
     - 正向扩散在真实状态 $s_t$ 上加噪：$s_t^{(n)} = \sqrt{\bar{\alpha}(n)} s_t + \sqrt{1-\bar{\alpha}(n)} \boldsymbol{\epsilon}$
     - 推理时并行生成 $k$ 个候选状态 $\{s_t^{(0)}\}_k$
@@ -55,13 +55,13 @@ tags:
 
 2. **零样本时序基础模型预测**:
 
-    - 做什么：从历史偏移序列预测未来 $P$ 个 episode 的偏移量
+    - 功能：从历史偏移序列预测未来 $P$ 个 episode 的偏移量
     - 核心思路：使用 Lag-Llama 等概率性零样本时序模型，以过去 $C$ 个偏移值 $(b^{j-C}, \dots, b^{j-1})$ 为上下文，生成 $l$ 个偏移样本。各维度独立预测（因 Lag-Llama 是单变量模型）
     - 设计动机：偏移遵循任意的真实世界时序模式（可能是非马尔可夫的），零样本模型无需针对特定模式训练
 
 3. **维度最近匹配 DCM（Dimension-wise Closest Match）**:
 
-    - 做什么：融合多模态扩散候选和单模态时序预测
+    - 功能：融合多模态扩散候选和单模态时序预测
     - 核心思路：设 $\mathcal{D}_{\text{diffusion}} = \{\mathbf{x}_1, \dots, \mathbf{x}_k\}$, $\mathcal{D}_{\text{timeseries}} = \{\mathbf{y}_1, \dots, \mathbf{y}_l\}$，构造估计 $z_d = y_{j^*(d), d}$，其中 $j^*(d) = \arg\min_j (\min_i |x_{i,d} - y_{j,d}|)$——每个维度选择在扩散候选中有最近匹配的时序预测样本
     - 设计动机：直接用扩散模型的样本可能错选不正确的模态；直接用时序预测可能偏差大。DCM 利用扩散模型提供的约束来筛选时序预测中最可信的估计，非参数、轻量级、无需调参
 

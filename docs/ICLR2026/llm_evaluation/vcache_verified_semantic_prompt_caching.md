@@ -8,7 +8,7 @@ tags:
   - Semantic Caching
   - LLM Inference Optimization
   - Error-Rate Guarantee
-  - Online Learning
+  - online learning
   - Per-Embedding Threshold
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.03771](https://arxiv.org/abs/2502.03771)  
 **代码**: [GitHub](https://github.com/vcache-project/vCache) | [Benchmarks](https://huggingface.co/vCache)  
 **领域**: llm_nlp  
-**关键词**: Semantic Caching, LLM Inference Optimization, Error-Rate Guarantee, Online Learning, Per-Embedding Threshold  
+**关键词**: Semantic Caching, LLM Inference Optimization, Error-Rate Guarantee, online learning, Per-Embedding Threshold
 **作者**: Luis Gaspar Schroeder, Aditya Desai, Alejandro Cuadron, Kyle Chu, Shu Liu, Mark Zhao, Stephan Krusche, Alfons Kemper, Matei Zaharia, Joseph E. Gonzalez（UC Berkeley, TU Munich, ETH Zurich, Stanford）
 
 ## 一句话总结
@@ -28,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **LLM 推理成本高**：每次 prompt 需要多次前向传播，部署昂贵且延迟大。
+
 **语义缓存的价值**：对"加拿大首都是哪里？"已有缓存时，"Which city is Canada's capital?" 应复用同一回复，最高可降低 100× 延迟。
+
 **静态阈值的根本缺陷**：
    - 现有系统（GPTCache、Azure、AWS 等）使用**全局固定阈值** $t$，对所有 prompt 一视同仁
    - 但实验发现（Figure 3）：正确和错误缓存命中的相似度分布**高度重叠**
    - **每个嵌入的最优阈值差异极大**，单一阈值不可能同时兼顾低错误率和高命中率
+
 **无错误率保证**：现有系统无法保证返回的缓存回复的正确性，在生产环境中难以被信任
+
 **嵌入微调的局限**：需要监督训练、仅限开源模型、对 OOD 数据泛化差
 
 ## 核心贡献

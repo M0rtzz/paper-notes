@@ -8,7 +8,7 @@ tags:
   - 图学习
   - 知识图谱问答
   - LLM推理
-  - beam search
+  - 束搜索
   - 演绎验证
   - Path-RAG
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2405.13873](https://arxiv.org/abs/2405.13873)  
 **代码**: https://github.com/Y-Sui/FiDeLiS (有)  
 **领域**: graph_learning  
-**关键词**: 知识图谱问答, LLM推理, beam search, 演绎验证, Path-RAG
+**关键词**: 知识图谱问答, LLM推理, 束搜索, 演绎验证, Path-RAG
 
 ## 一句话总结
 

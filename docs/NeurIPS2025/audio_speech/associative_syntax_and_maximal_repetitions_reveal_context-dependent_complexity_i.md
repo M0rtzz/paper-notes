@@ -1,11 +1,16 @@
 ---
-description: "[NeurIPS2025] 提出基于关联句法和最大重复的无监督方法分析果蝠发声的上下文依赖复杂度，发现冲突行为中通信复杂度更高"
+title: >-
+  [论文解读] Associative Syntax and Maximal Repetitions Reveal Context-Dependent Complexity in Animal Vocalizations
+description: >-
+  [NeurIPS 2025 (Workshop on AI for Non-Human Animal Communication)][语音][动物发声] 提出无监督方法分析果蝠这一渐变发声系统的声学单元、句法类型与时间结构，首次将最大重复（Maximal Repetitions）应用于动物通信领域，发现冲突相关行为中的通信复杂度显著高于合作行为，推测这反映了"分歧信息的低压缩性"。
 tags:
-  - NeurIPS2025
-  - Animal Communication
-  - Bioacoustics
-  - Information Theory
-  - Maximal Repetitions
+  - NeurIPS 2025 (Workshop on AI for Non-Human Animal Communication)
+  - 语音
+  - 动物发声
+  - 句法复杂度
+  - 最大重复
+  - 关联句法
+  - 果蝠通信
 ---
 
 # Associative Syntax and Maximal Repetitions Reveal Context-Dependent Complexity in Animal Vocalizations
@@ -39,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **改进的无监督声学单元标注**:
-    - 做什么：从 Mel 频谱图出发，通过流形学习（UMAP）+ 密度聚类（HDBSCAN）识别发声类型
+    - 功能：从 Mel 频谱图出发，通过流形学习（UMAP）+ 密度聚类（HDBSCAN）识别发声类型
     - 核心思路：系统性探索频谱图维度对聚类的影响——发现**压缩时间维度**（粗粒化）对渐变发声系统效果最好，将基线的 2 类识别提升到 7 类
     - 设计动机：渐变系统中信息编码在连续声学调制中，时间压缩有助于分离频率特征
 
 2. **句法类型判定（关联 vs 组合）**:
-    - 做什么：通过排列测试判断音节顺序是否影响行为分类
+    - 功能：通过排列测试判断音节顺序是否影响行为分类
     - 核心思路：训练随机森林分类器基于音节序列特征预测行为上下文，对比原始序列和随机排列序列的 F1 分数——若排列后分类性能不下降，则为关联句法
     - 设计动机：关联句法意味着"用了什么音节"比"音节的顺序"更重要
 
 3. **最大重复（MR）分析**:
-    - 做什么：提取发声序列中的最大重复子串，分析其长度分布
+    - 功能：提取发声序列中的最大重复子串，分析其长度分布
     - 核心思路：使用前缀-后缀树算法提取 MR；通过似然比检验比较指数分布 vs 幂律分布——幂律（重尾）分布表明存在长程依赖和组合复杂度
     - 设计动机：指数分布对应无记忆过程（简单马尔可夫），幂律分布对应高组合容量——与 Hilberg 猜想一致
 

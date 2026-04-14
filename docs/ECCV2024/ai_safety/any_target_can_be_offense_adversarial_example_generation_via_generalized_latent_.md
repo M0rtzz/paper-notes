@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection
 description: >-
-  [ECCV 2024][AI安全][Adversarial Attack] 提出 GAKer，首个可泛化到未知目标类别的定向对抗攻击生成器，通过在 UNet 中间层注入目标特征（latent infection）+ 余弦距离损失替代交叉熵实现类别无关训练，在未知类上的攻击成功率比 HGN 高 14.13%。
+  [ECCV 2024][AI安全][adversarial attack] 提出 GAKer，首个可泛化到未知目标类别的定向对抗攻击生成器，通过在 UNet 中间层注入目标特征（latent infection）+ 余弦距离损失替代交叉熵实现类别无关训练，在未知类上的攻击成功率比 HGN 高 14.13%。
 tags:
   - ECCV 2024
   - AI安全
-  - Adversarial Attack
+  - adversarial attack
   - Targeted Attack
   - Generalization
   - Unknown Classes
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.12292](https://arxiv.org/abs/2407.12292)  
 **代码**: https://github.com/VL-Group/GAKer (有)  
 **领域**: AI安全 / 对抗攻击  
-**关键词**: Adversarial Attack, Targeted Attack, Generalization, Unknown Classes, Feature Infection
+**关键词**: adversarial attack, Targeted Attack, Generalization, Unknown Classes, Feature Infection
 
 ## 一句话总结
 提出 GAKer，首个可泛化到未知目标类别的定向对抗攻击生成器，通过在 UNet 中间层注入目标特征（latent infection）+ 余弦距离损失替代交叉熵实现类别无关训练，在未知类上的攻击成功率比 HGN 高 14.13%。
@@ -49,19 +49,19 @@ GAKer 包含冻结的特征提取器 $\mathcal{F}_\psi$ 和 UNet 生成器 $\mat
 
 1. **Latent Infection 机制**:
 
-    - 做什么：将目标图像的特征注入到 UNet 生成器的中间表示中
+    - 功能：将目标图像的特征注入到 UNet 生成器的中间表示中
     - 核心思路：Feature Transform Module (FTM, Linear-GELU-Linear) 增强目标特征 → Dimension Matching Module (DMM, Linear-GELU) 对齐维度 → 注入每个 ResBlock
     - 设计动机：中间层特征融合比简单拼接输入能更好地引导攻击方向，让生成器学到"如何向目标特征空间移动"而非"如何生成特定类别"
 
 2. **类别无关的损失函数**:
 
-    - 做什么：用余弦距离替代交叉熵损失
+    - 功能：用余弦距离替代交叉熵损失
     - 核心思路：$\mathcal{L} = D_{cos}(\mathcal{F}(\mathcal{G}(x_s, x_t)), \mathcal{F}(x_t)) + 0.5 \cdot D_{cos}(\mathcal{F}(\delta), \mathcal{F}(x_t))$
     - 设计动机：交叉熵需要类别标签（限于已知类），余弦距离只比较特征方向（类别无关）。第二项鼓励扰动本身也携带目标特征
 
 3. **Known Class Selection Strategy**:
 
-    - 做什么：智能选择训练用的 200 个已知类
+    - 功能：智能选择训练用的 200 个已知类
     - 核心思路：贪心算法选择特征空间中差异最大的类，确保覆盖特征空间
     - 设计动机：类别选择对未知类攻击泛化有显著影响——随机选 vs 贪心选差 16.52%
 

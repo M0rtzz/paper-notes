@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：结构无关因果推断中，DML (Chernozhukov et al.) 是估计处理效应的标准方法。其核心优势是对 nuisance 参数估计误差具有二阶不敏感性（Neyman orthogonality）。
+
 **现有痛点**：DML 的收敛速率 $O(\epsilon^2 + n^{-1/2})$ 对 nuisance 误差 $\epsilon$ 只有二次抑制。在高维设置中 $\epsilon$ 衰减慢时，这可能成为瓶颈。但是否能做得更好？取决于什么条件？完全未知。
+
 **核心矛盾**：DML 的二阶不敏感性是最优的吗？还是可以通过利用处理噪声的分布信息来进一步提升？
+
 **本文要解决什么**：完整刻画处理噪声分布对结构无关因果估计的影响——什么时候 DML 最优（不可逾越），什么时候可以更好？
+
 **切入角度**：Robinson (1988) 的部分线性模型 $Y = \theta T + g(X) + \epsilon$——最经典的因果推断设置。处理变量 $T$ 的噪声分布（高斯 vs 非高斯）决定了可达到的最优速率。
+
 **核心idea一句话**：高斯噪声是不可逾越的障碍（DML 最优），非高斯噪声可以用累积量估计器实现任意高阶不敏感性。
 
 ## 方法详解
@@ -41,21 +46,21 @@ tags:
 
 1. **高斯处理障碍（Gaussian Treatment Barrier）**:
 
-    - 做什么：证明当 $V \sim \mathcal{N}(0, \sigma^2)$ 时，DML 的 $O(\epsilon^2 + n^{-1/2})$ 是极小极大最优的
+    - 功能：证明当 $V \sim \mathcal{N}(0, \sigma^2)$ 时，DML 的 $O(\epsilon^2 + n^{-1/2})$ 是极小极大最优的
     - 核心思路：构造了一个信息论下界，证明任何结构无关估计器在高斯噪声下都不能超过二阶不敏感性
     - 设计动机：给出了 DML 的精确极限——高斯性是一个不可逾越的基本障碍
     - 意义：终结了"能否普遍改进 DML"的争论——在高斯下不行
 
 2. **ACE（Agnostic Cumulant-based Estimation）**:
 
-    - 做什么：对非高斯处理噪声 $V$，构造具有 $r$ 阶不敏感性的 moment function
+    - 功能：对非高斯处理噪声 $V$，构造具有 $r$ 阶不敏感性的 moment function
     - 核心思路：利用 $V$ 的高阶累积量（cumulants）构造递归的矩函数。高斯分布的 $r \geq 3$ 阶累积量为零（因此无法利用），但非高斯分布有非零高阶累积量
     - 误差速率：$O(\epsilon^r + n^{-1/2})$，其中 $r$ 可以任意大（只要 $V$ 有足够多的有限矩）
     - 当 $V$ 独立于协变量 $X$ 时，进一步改进为 $O(\epsilon_1^r \cdot \epsilon_2 + n^{-1/2})$
 
 3. **累积量矩函数的递归构造**:
 
-    - 做什么：通过随机插值（stochastic interpolants）递归构造高阶 moment function
+    - 功能：通过随机插值（stochastic interpolants）递归构造高阶 moment function
     - 核心思路：$r$ 阶 ACE 的 moment function 由 $(r-1)$ 阶构造递归得到，每一步利用 $V$ 的更高阶累积量
     - 实现：实际中可以预先估计 $V$ 的累积量，然后插入 moment function
 

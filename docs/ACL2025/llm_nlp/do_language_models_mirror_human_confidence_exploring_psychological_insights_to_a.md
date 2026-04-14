@@ -49,19 +49,19 @@ AFCE 的核心在于将传统的"边答边估信心"拆分为两个独立的 pro
 
 1. **AFCE（Answer-Free Confidence Estimation）**:
 
-    - 做什么：将置信度估计与答案生成解耦为两个独立的 prompting 步骤
+    - 功能：将置信度估计与答案生成解耦为两个独立的 prompting 步骤
     - 核心思路：先用"Read the questions and estimate how many you can answer correctly (0-10)"获取置信度，再另外用"Please answer the following 10 questions by selecting only the option letter"获取答案。两步使用不同的 prompt，互不影响
     - 设计动机：假设答案生成和置信度估计由不同的内部机制驱动，答案生成过程（生成事实性信息的"认知负荷"）会主导推理过程，使模型默认输出高置信度而忽视任务难度的真实差异。分离后模型可以专注于评估自身能力
 
 2. **任务难度敏感性实验**:
 
-    - 做什么：在 MMLU（高中/大学难度）和 GPQA（博士级专家难度）的物理、化学、生物三科上，比较 LLM 置信度对难度梯度的响应
+    - 功能：在 MMLU（高中/大学难度）和 GPQA（博士级专家难度）的物理、化学、生物三科上，比较 LLM 置信度对难度梯度的响应
     - 核心思路：对比 AFCE 与 5 种基线方法（Vanilla Verbalized、Top-K、Quiz-Like、Sampling-based、Probability-based）在三个难度级别上的 ECE 表现
     - 关键发现：LLM 的置信度对任务难度的敏感性显著弱于人类（回归斜率更平），AFCE 能让 GPT-4o 的回归斜率更陡（更接近理想校准线）
 
 3. **Overplacement 与人口偏见实验**:
 
-    - 做什么：让 LLM 扮演不同角色（专家/普通人/外行）和不同人口属性（种族/性别/年龄），测量置信度变化
+    - 功能：让 LLM 扮演不同角色（专家/普通人/外行）和不同人口属性（种族/性别/年龄），测量置信度变化
     - 核心思路：用 AFCE 框架为不同角色收集置信度和准确率，计算 overplacement 分数 = (估计他人信心-他人准确率) - (自我信心-自我准确率)
     - 关键发现：所有模型都对专家角色过度自信、对外行角色低估，但实际准确率几乎不变——说明 verbalized confidence 受角色偏见驱动而非反映真实能力
 

@@ -26,13 +26,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：DPO 是最流行的直接偏好优化方法，将 RLHF 简化为偏好数据上的逻辑回归。后续工作（f-DPO、f-PO）扩展了 DPO 的损失函数，但各有不足。
+
 **现有痛点**：
    - **f-DPO**：扩展了损失函数形式但**丧失了目标最优性保证**——最小化 f-DPO 不一定收敛到 DPO 定义的最优策略
    - **f-PO**：保留最优性但**需要额外训练奖励模型+Monte Carlo 估计配分函数**，增加了大量计算开销
    - 没有方法能同时满足：(O) 最优性保证、(S) 简洁性（无额外训练开销）、(G) 通用性（多种目标函数）
+
 **核心矛盾**：扩展 DPO 损失时，最优性和简洁性似乎不可兼得——f-PO 保优但不简洁，f-DPO 简洁但不保优。
+
 **本文要解决什么？** 找到一种既保持目标最优性、又不需要额外计算开销、同时支持多种损失函数实例的通用偏好优化框架。
+
 **切入角度**：从似然比估计的视角重新理解 DPO——最优策略可以通过其**似然比**来唯一确定（无需奖励模型或配分函数），因此问题转化为用 Bregman 散度做比率匹配。
+
 **核心idea一句话**：DPO 本质上在匹配模型比率 $R_\theta$ 到数据比率 $R_{\text{data}}$，选择不同的 Bregman 散度 $h$ 就得到不同的损失函数，所有实例都保最优性且无额外开销。
 
 ## 方法详解
@@ -44,26 +49,26 @@ tags:
 
 1. **Proposition 1：最优策略的似然比表示**：
 
-    - 做什么：证明最优策略可以仅通过参考模型和偏好数据分布来刻画（不需要奖励模型和配分函数）
+    - 功能：证明最优策略可以仅通过参考模型和偏好数据分布来刻画（不需要奖励模型和配分函数）
     - 核心公式：$\frac{\pi_{\theta^*}(\mathbf{y}_w|\mathbf{x})}{\pi_{\theta^*}(\mathbf{y}_l|\mathbf{x})} = \frac{\pi_{\text{ref}}(\mathbf{y}_w|\mathbf{x})}{\pi_{\text{ref}}(\mathbf{y}_l|\mathbf{x})} \times \left(\frac{p_{\text{data}}(\mathbf{y}_w \succ \mathbf{y}_l|\mathbf{x})}{p_{\text{data}}(\mathbf{y}_w \prec \mathbf{y}_l|\mathbf{x})}\right)^{1/\beta}$
     - 设计动机：似然比（concrete score）具有完备性——能唯一确定分布，因此匹配似然比就足以恢复目标策略
 
 2. **BPO 目标函数（Theorem 2 & 3）**：
 
-    - 做什么：构造可计算的广义损失函数
+    - 功能：构造可计算的广义损失函数
     - 核心公式：$\mathcal{L}^h_{\text{BPO}}(R_\theta; p_{\text{data}}) = \mathbb{E}_{p_{\text{data}}}[h'(R_\theta)R_\theta - h(R_\theta) - h'(R_\theta^{-1})]$
     - Theorem 2 证明任意严格凸 $h$ 下最优解都是 $\pi_{\theta^*}$（保最优性）；Theorem 3 证明 $\mathcal{L}^h_{\text{BPO}}$ 与不可计算的 $D_h(R_{\text{data}} || R_\theta)$ 仅差常数（保可计算性）
     - 当 $h(R) = \frac{R\log R - (1+R)\log(1+R)}{2}$ 时恢复标准 DPO
 
 3. **梯度分析（Proposition 4）**：
 
-    - 做什么：分析不同 $h$ 的学习动态差异
+    - 功能：分析不同 $h$ 的学习动态差异
     - 核心发现：$\nabla_\theta \mathcal{L} = \mathbb{E}[G_h(R_\theta) \nabla_\theta R_\theta]$——所有 BPO 实例的梯度方向相同（由 $\nabla_\theta R_\theta$ 决定），只有梯度大小 $G_h(R_\theta)$ 不同。$h$ 控制的是不同置信度样本的权重分配
     - 设计动机：解释了为什么不同 $h$ 都能收敛到最优解但实际训练表现不同——关键在于样本加权
 
 4. **SBA（Scaled Basu's Power Divergence）**：
 
-    - 做什么：提出一种新的 BPO 实例，解决 BA 散度的梯度尺度问题
+    - 功能：提出一种新的 BPO 实例，解决 BA 散度的梯度尺度问题
     - 核心思路：$G_{\text{SBA}_\lambda}(R_\theta) = (R_\theta^\lambda + R_\theta^{-\lambda-1})/s$，设 $s=4$ 使初始化时梯度尺度与 DPO 一致。超参 $\lambda$ 控制对高/低置信度样本的敏感度
     - 设计动机：BA 散度的梯度大小随 $\lambda$ 线性放大（$(\lambda+1)$ 倍），导致需要重新调整超参。SBA 消除了这个问题
 

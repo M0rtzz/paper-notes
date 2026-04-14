@@ -26,11 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：零样本立体匹配近年受到越来越多关注。得益于 Depth Anything V2 等单目深度基础模型的强泛化能力，最新方法通过适配预训练特征来提升泛化性能。
+
 **现有痛点**：
    - 现有方法（MonSter、DEFOM-Stereo、BridgeDepth）主要利用单目模型提取鲁棒特征构建代价体积和初始化视差，但**迭代精炼阶段**仍依赖传统 GRU，这一阶段对零样本泛化同样至关重要却被忽视
    - GRU 的三个根本局限：(a) 独立于视觉基础模型训练，无法继承强先验；(b) 隐状态被限制在窄范围内（tanh/sigmoid），难以处理极端视差变化；(c) 通过直接卷积融合输入和隐状态，既扭曲原始状态信息又压缩外部输入
+
 **核心矛盾**：如何让迭代精炼模块也能继承单目深度基础模型的强先验，同时有效融合立体匹配特有的运动线索
+
 **切入角度**：注意到 DPT 解码器也是多尺度的精炼结构，与 GRU 的粗到细更新有结构相似性。可以直接用预训练的 DPT 解码器作为迭代单元
+
 **核心idea一句话**：用预训练 DPT 解码器替代 GRU 作为迭代精炼单元，通过 prompt（残差加法）注入立体匹配特有的结构和运动线索，不修改解码器架构即可继承单目先验
 
 ## 方法详解
@@ -42,26 +46,26 @@ tags:
 
 1. **仿射不变融合（Affine-Invariant Fusion, AIF）**
 
-    - 做什么：将初始视差 $\mathbf{d}_0$ 和单目相对深度 $\mathbf{d}_M$ 在归一化尺度下融合
+    - 功能：将初始视差 $\mathbf{d}_0$ 和单目相对深度 $\mathbf{d}_M$ 在归一化尺度下融合
     - 核心思路：对两个深度/视差分别做仿射不变归一化 $\hat{\mathbf{d}} = (\mathbf{d} - t(\mathbf{d})) / s(\mathbf{d})$，其中 $t = \text{median}$，$s = \text{MAD}$。将归一化后的单目深度投影到视差空间：$\mathbf{d}_M' = s(\mathbf{d}_0) \cdot \hat{\mathbf{d}}_M + t(\mathbf{d}_0)$。用 $\mathbf{d}_0$ warp 右特征，与左特征拼接后预测逐像素置信图 $\mathbf{c}$：$\mathbf{d}_F = \mathbf{c} \odot \mathbf{d}_0 + (1-\mathbf{c}) \odot \mathbf{d}_M'$
     - 设计动机：代价体积初始视差有局部匹配精度但缺乏全局一致性；单目深度有全局结构但存在仿射歧义。归一化后融合可以互补各自优势
 
 2. **Prompt Recurrent Unit (PRU)**
 
-    - 做什么：替代 GRU 作为迭代精炼的核心单元
+    - 功能：替代 GRU 作为迭代精炼的核心单元
     - 核心思路：采用 Depth Anything V2 的 DPT 精炼层作为多分辨率架构（4级），用预训练权重初始化，直接继承单目深度先验。隐状态初始化为左右特征的拼接（经 $\mathbf{d}_0$ warp 右特征），比传统 GRU 仅用左特征初始化更早学习立体对应
     - 更新策略：去掉 GRU 的 reset gate，仅保留 update gate $\mathbf{z}_k = \sigma(\text{ConvBlock}([\cdot]))$。隐状态更新 $\mathbf{h}_{k+1}^i = (1-\mathbf{z}_k) \odot \mathbf{h}_k^i + \mathbf{z}_k \odot \hat{\mathbf{h}}_k^i$，**不限制隐状态的值域范围**
     - 设计动机：GRU 的 tanh 限制了隐状态范围，在极端视差场景下表达力不足。PRU 的 DPT 架构天然支持多分辨率，且预训练权重提供了强初始化
 
 3. **Structure Prompt (SP)**
 
-    - 做什么：将冻结的单目深度特征 $\mathbf{F}_M$ 和结构差异信息以 prompt 方式注入 PRU
+    - 功能：将冻结的单目深度特征 $\mathbf{F}_M$ 和结构差异信息以 prompt 方式注入 PRU
     - 核心思路：计算当前视差与单目深度的仿射不变差异 $\mathbf{D} = |\hat{\mathbf{d}}_k - \hat{\mathbf{d}}_M|$，与 $\mathbf{F}_M$ 一起编码为结构 prompt $\mathbf{P}_S$，以残差加法注入隐状态：$\mathbf{h} = \mathbf{h} + \text{ConvBlock}(\mathbf{P}_S)$
     - 设计动机：直接卷积融合会扭曲 DPT 继承的单目先验。残差加法作为 feature-level prompt 引导隐状态而不破坏已有表示
 
 4. **Motion Prompt (MP)**
 
-    - 做什么：将立体匹配特有的运动线索（局部代价体积和当前视差）注入 PRU
+    - 功能：将立体匹配特有的运动线索（局部代价体积和当前视差）注入 PRU
     - 核心思路：$\mathbf{P}_M^k = \text{Encoder}(\mathbf{V}_k, \mathbf{d}_k)$，同样以残差加法注入：$\mathbf{h} = \mathbf{h} + \text{ConvBlock}(\mathbf{P}_M^k)$
     - 设计动机：DPT 解码器只有单目先验，缺乏立体匹配的运动信息。Motion Prompt 自适应补充立体对应关系
 

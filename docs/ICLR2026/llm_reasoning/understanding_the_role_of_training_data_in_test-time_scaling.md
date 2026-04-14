@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Understanding the Role of Training Data in Test-Time Scaling
 description: >-
-  [ICLR2026][LLM推理][test-time scaling] 从理论上分析训练数据属性如何影响 test-time scaling 的效果，证明 CoT 推理等价于伪牛顿法迭代，提出基于特征协方差最小特征值的任务难度度量，揭示"更多思考不一定更好"的 overthinking 现象机制，并给出多任务训练中最优任务选择策略——训练集应多样、相关且困难。
+  [ICLR2026][LLM推理][测试时缩放] 从理论上分析训练数据属性如何影响 test-time scaling 的效果，证明 CoT 推理等价于伪牛顿法迭代，提出基于特征协方差最小特征值的任务难度度量，揭示"更多思考不一定更好"的 overthinking 现象机制，并给出多任务训练中最优任务选择策略——训练集应多样、相关且困难。
 tags:
   - ICLR2026
   - LLM推理
-  - test-time scaling
+  - 测试时缩放
   - chain-of-thought
-  - in-context learning
+  - 上下文学习
   - task hardness
-  - overthinking
+  - 过度思考
   - training data selection
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.03605](https://arxiv.org/abs/2510.03605)  
 **代码**: 无  
 **领域**: llm_reasoning  
-**关键词**: test-time scaling, chain-of-thought, in-context learning, task hardness, overthinking, training data selection
+**关键词**: 测试时缩放, chain-of-thought, 上下文学习, task hardness, 过度思考, training data selection
 
 ## 一句话总结
 从理论上分析训练数据属性如何影响 test-time scaling 的效果，证明 CoT 推理等价于伪牛顿法迭代，提出基于特征协方差最小特征值的任务难度度量，揭示"更多思考不一定更好"的 overthinking 现象机制，并给出多任务训练中最优任务选择策略——训练集应多样、相关且困难。
@@ -28,11 +28,14 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Test-time scaling（如 OpenAI o1、DeepSeek R1）通过在推理时分配更多计算资源生成更长的 CoT 来提升推理能力，已在数学竞赛、编程等任务上取得显著成功。
+
 **核心问题**：尽管实践效果显著，训练数据在什么条件下支持 test-time scaling 仍不清楚——具体地：
    - 增加 test-time 计算是否**总是**能提升下游推理表现？
    - 增加 test-time 计算能否降低训练时的计算需求？
    - 什么是"困难"训练样本？它们为何对 test-time scaling 有益？
+
 **现有工作不足**：先前关于训练数据多样性和难度的研究大多是经验性的，缺乏严格的理论框架解释 test-time scaling 的机制。
+
 **本文切入角度**：在 linear regression 的 in-context learning 框架下，从理论和实验两个维度回答上述三个问题。
 
 ## 方法详解

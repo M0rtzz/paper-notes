@@ -1,12 +1,16 @@
 ---
+title: >-
+  [论文解读] Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration
 description: >-
-  提出生成式点云配准新范式，通过DepthMatch/LiDARMatch-ControlNet从点云生成跨视图一致RGB图像对，融合颜色信息即插即用提升3D配准精度。
+  [ICML 2025][自动驾驶][点云配准] 提出 Generative Point Cloud Registration 新范式，设计 DepthMatch-ControlNet 和 LiDARMatch-ControlNet 两个配准专用可控 2D 生成模型，从纯几何点云对生成跨视图一致的 RGB 图像对，通过几何-颜色特征融合即插即用地提升现有 3D 配准方法，在 3DMatch/ScanNet/Dur360BEV 上验证有效。
 tags:
-  - ICML2025
+  - ICML 2025
+  - 自动驾驶
   - 点云配准
-  - 生成模型
+  - 生成式配准
   - ControlNet
-  - 3D视觉
+  - 跨视图一致性
+  - 几何-颜色融合
 ---
 
 # Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration
@@ -38,17 +42,17 @@ tags:
 ### 关键设计
 
 1. **耦合条件去噪（Coupled Conditional Denoising）**:
-    - 做什么：将源/目标图像的去噪扩散过程合并为一个联合去噪过程
+    - 功能：将源/目标图像的去噪扩散过程合并为一个联合去噪过程
     - 核心思路：将两个噪声潜在表示 $\mathbf{x}_t^{\mathcal{P}} \in \mathbb{R}^{H' \times W' \times d}$ 纵向拼接为 $\mathbf{x}_t^{\mathcal{PQ}} \in \mathbb{R}^{2H' \times W' \times d}$，深度条件图也相应拼接为 $\mathbf{d}_{\mathcal{PQ}} \in \mathbb{R}^{2H' \times W' \times d}$。原始 ControlNet 去噪器可直接处理拼接输入：$\tilde{\epsilon}_\theta(\mathbf{x}_t^{\mathcal{PQ}}; t, \mathbf{c}, \mathbf{d}_{\mathcal{PQ}}) \rightarrow \mathbf{x}_{t-1}^{\mathcal{PQ}}$。UNet 中的自注意力 $\text{softmax}(\frac{QK^\top}{\sqrt{d}})V$ 自然覆盖了源和目标的所有特征元素，实现了跨视图的远程依赖建模
     - 设计动机：独立去噪时两个图像互不知晓对方的颜色，导致纹理不一致。耦合方法无需修改架构或微调参数（zero-shot），仅通过改变输入组织方式让已有自注意力机制自然服务于跨视图交互
 
 2. **耦合提示引导（Coupled Prompt Guidance）**:
-    - 做什么：设计特定文本提示引导去噪器生成一致的垂直堆叠图像对
+    - 功能：设计特定文本提示引导去噪器生成一致的垂直堆叠图像对
     - 核心思路：使用精心设计的 coupled prompt："Generate two vertically stacked images that are captured from different viewpoints in a same scene. The images should feature the same environment... with very subtle differences between them. Overall, the layout and key elements remain the same."
     - 设计动机：即使有了耦合去噪机制，去噪器仍不知道"用户期望什么"。通过提示告知模型需生成空间一致的图像对，ControlNet 可利用其预训练语义知识自然恢复一致纹理。这是首次发现并利用预训练 ControlNet 的这一零样本能力
 
 3. **LiDARMatch-ControlNet（LiDAR 全景扩展）**:
-    - 做什么：将框架扩展到 360° LiDAR 点云，生成全景 RGB 图像对
+    - 功能：将框架扩展到 360° LiDAR 点云，生成全景 RGB 图像对
     - 核心思路：将 LiDAR 点云投影为等距圆柱范围图 $\mathbf{D}^{\text{equi}} \in \mathbb{R}^{H \times W \times 1}$，作为 ControlNet 的条件输入生成全景 RGB 图像。使用 Dur360BEV 数据集（唯一提供完整 360°×180° 球面相机图像的数据集）进行少量微调
     - 设计动机：首次实现 LiDAR 点云到全景图像的生成。由于没有现成的范围图条件 ControlNet，需要 few-shot 微调（约 10K 全景对即可）
 

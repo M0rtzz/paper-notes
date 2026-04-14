@@ -28,14 +28,19 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: 神经场(Neural Fields)在3D场景表示中广泛应用；欧氏空间中的参数化特征网格（如Instant NGP的哈希网格）通过解耦空间信息和MLP解码大幅提升推理速度
+
 **现有痛点**: 
    - mesh上的神经场编码方法（如Texture Fields、Intrinsic Neural Fields）都使用频率编码(positional encoding/Fourier features/LBO特征函数)
    - 频率编码将所有信息存储在MLP权重中，需要大MLP(6层×128宽度)，推理慢
    - Intrinsic Neural Fields(INF)需要计算Laplace-Beltrami算子特征函数，预处理可能需要数小时；存储每个顶点的大量特征函数，模型size大
    - 欧氏空间中直接使用Euclidean embedding做编码会导致bleeding artifacts（当欧氏距离和测地线距离差异大时）
+
 **核心矛盾**: 欧氏空间中参数化特征网格已实现实时推理，但mesh上仍停留在频率编码+大MLP的范式，推理效率低下
+
 **本文要解决什么**: 将参数化多分辨率特征网格的思想从欧氏空间迁移到mesh上，实现小MLP、快推理
+
 **切入角度**: 利用mesh自身的顶点拓扑作为特征存储位置（代替规则体素网格），用mesh简化算法（而非八叉树/哈希表）构建多分辨率
+
 **核心idea一句话**: 网格简化 = mesh上的多分辨率特征网格，实现小MLP快推理
 
 ## 方法详解

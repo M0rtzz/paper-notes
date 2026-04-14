@@ -27,16 +27,21 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Chain-of-Thought (CoT) 推理通过生成中间推理步骤提升 LLM 在复杂任务上的表现。传统 CoT 在离散 token 空间生成推理链，受限于词表空间。近期有 Coconut、CCoT 等方法探索连续空间推理，用潜在表示替代离散 token 序列。
+
 **现有痛点**：
    - Coconut/CCoT 需要全模型微调（语言建模目标），在 GPT-2 上有效，但在 LLaMA-3.1-8B-Instruct 等已对齐的强模型上会导致灾难性遗忘——LoRA 微调后的表现甚至低于 zero-shot CoT
    - 离散 CoT 的 token 空间受限，可能不是最优的推理表示
    - 多路径采样（self-consistency、Tree-of-Thought）计算开销大
+
 **核心矛盾**：连续空间推理有表达力优势，但现有方法需要修改 LLM 参数，导致强大的指令调优模型丧失已学到的推理能力。如何在不修改 LLM 的前提下引入连续空间推理？
+
 **本文要解决什么？**
    - 如何在冻结主 LLM 的条件下实现连续空间 CoT 推理
    - 如何弥合辅助模型与主 LLM 之间的表示空间差异
    - 如何通过参数高效训练获得优于 zero-shot CoT 的性能
+
 **切入角度**：受 prompt tuning 和 speculative decoding 的启发——用一个小型冻结辅助模型生成与实例相关的软提示（连续思维 token），代替 CoT 中的离散推理前缀。主 LLM 完全冻结，只训练一个投影模块。
+
 **核心 idea 一句话**：不修改 LLM，而是用辅助小模型的连续隐状态作为实例自适应的"软思维"前缀，通过投影层送入冻结的主 LLM 来增强推理。
 
 ## 方法详解
@@ -48,7 +53,7 @@ tags:
 
 1. **软思维 token 生成**:
 
-    - 做什么：用辅助小模型为每个问题生成实例特定的连续推理前缀
+    - 功能：用辅助小模型为每个问题生成实例特定的连续推理前缀
     - 核心思路：
       - 输入构造：$\mathbf{x}_{\text{assist}} = \text{concat}[\mathcal{I}_{\text{assist}}, \mathcal{Q}, \text{[UNK]}_{1:N}]$
       - 辅助模型前向传播后，提取 N 个 [UNK] 位置的最后层隐状态作为 $\mathbf{t}_{\text{assist}} \in \mathbb{R}^{N \times d_{\text{assist}}}$
@@ -57,14 +62,14 @@ tags:
 
 2. **投影模块**:
 
-    - 做什么：弥合辅助模型和主 LLM 之间的表示空间&维度差距
+    - 功能：弥合辅助模型和主 LLM 之间的表示空间&维度差距
     - 核心思路：$\mathcal{T}_{\text{soft}} = \text{Linear}_\theta(\mathbf{t}_{\text{assist}})$，将 $\mathbb{R}^{d_{\text{assist}}}$ 映射到 $\mathbb{R}^{d_{\text{LLM}}}$
     - 这是**唯一的可训练组件**——一个线性层，参数量极小
     - 设计动机：类似 LLaVA 中视觉编码器到 LLM 的投影，用最小的训练开销桥接两个模型空间
 
 3. **冻结主 LLM 的推理**:
 
-    - 做什么：利用软思维增强主 LLM 的 CoT 推理
+    - 功能：利用软思维增强主 LLM 的 CoT 推理
     - 输入：$\mathbf{x}_{\text{LLM}} = \text{concat}[\mathcal{I}_{\text{LLM}}, \mathcal{Q}, \mathcal{T}_{\text{soft}}]$
     - 主 LLM 完全冻结，根据指令+问题+软思维自回归生成推理链和答案
     - 训练时：用 NLL 损失监督推理步骤 $\mathcal{R}$ 和答案 $\mathcal{A}$，梯度仅回传到投影层

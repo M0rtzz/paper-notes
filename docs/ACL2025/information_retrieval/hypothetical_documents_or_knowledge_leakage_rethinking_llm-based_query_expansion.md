@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: 零样本检索（zero-shot retrieval）是知识密集型应用的核心组件。近年来，HyDE 和 Query2doc 等 LLM-based 查询扩展（QE）方法在多个 benchmark 上取得了显著性能提升，被广泛采用。
+
 **现有痛点**: 这些方法的核心假设是"LLM 生成的假设性文档虽然可能不准确，但能拉近 query 与目标文档的语义距离"——但该假设从未被严格验证。
+
 **核心矛盾**: LLM 在海量语料上预训练，其中很可能包含 benchmark 的知识源（如 Wikipedia），那么 LLM 生成的到底是"假设性文档"还是"已记忆知识的复述"？如果是后者，检索任务退化为近乎精确匹配的 trivial task。
+
 **本文要解决什么**: 调查 LLM-based QE 方法的性能提升中有多少可归因于知识泄露（knowledge leakage），而非真正的假设性推理能力。
+
 **切入角度**: 选择事实验证（fact verification）作为测试平台——该任务有明确的 gold evidence 可供比对，且是分类任务，便于清晰评估 QE 对端任务的影响。
+
 **核心 idea 一句话**: 用 NLI 检测 LLM 生成文档中是否"蕴含"了 gold evidence 句子，将样本分为 matched/unmatched 两组对比性能，发现 QE 的效果仅在 matched 组上成立。
 
 ## 方法详解

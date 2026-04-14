@@ -2,14 +2,14 @@
 title: >-
   [论文解读] InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory
 description: >-
-  [ICML2025][自动驾驶][点云解释] 提出InfoCons框架，用信息论原理将点云分解为3D概念，通过可学习先验检验每个概念对模型预测的因果效应，生成既忠实（保留因果影响点）又概念连贯（语义有意义）的解释。
+  [ICML 2025][自动驾驶][点云解释] 提出 InfoCons 框架，将信息瓶颈（IB）原理应用于点云模型解释——通过学习一个注意力瓶颈网络来分解点云为不同重要性的 3D 概念，引入可学习的无偏先验替代固定先验，在保证对模型预测忠实（faithfulness）的同时生成概念连贯（conceptual cohesion）的解释。
 tags:
-  - ICML2025
+  - ICML 2025
   - 自动驾驶
   - 点云解释
   - 信息瓶颈
-  - 3D概念
-  - 可解释性
+  - 关键概念
+  - 可解释 AI
 ---
 
 # InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory
@@ -48,19 +48,19 @@ tags:
 
 1. **IB 目标的点云特化（Selective Critical Points → Deep InfoCons）**:
 
-    - 做什么：将信息瓶颈目标适配到点云的逐点重要性打分
+    - 功能：将信息瓶颈目标适配到点云的逐点重要性打分
     - 核心思路：基本 IB 目标为 $\max_\theta I(\mathcal{C}, y) - \beta I(x, \mathcal{C})$。对于点云，$I(\mathcal{C}, y)$ 用分类交叉熵损失 $\mathcal{L}_{CE}$ 近似下界，$I(x, \mathcal{C})$ 用 $D_{KL}(\hat{z} \| q(\hat{z}))$ 近似上界。关键改进：将先验 $q(\hat{z})$ 设为 $\mathcal{N}(\mu_z, \sigma_z^2)$，参数由点特征 $z$ 的统计量决定（而非固定均匀分布），同时对"不重要"的点用从该高斯采样的噪声替换（而非简单置零），以恢复邻域的粗粒度信息
     - 设计动机：简单的 Selective CP 在非层次化模型（如 PointNet）上有效，但在层次化模型（PointNet++）和注意力模型（PCT）上失效——因为特征提取中的分组/下采样操作使邻近点特征高度纠缠。用高斯噪声替换可以保留邻域的统计信息，只移除目标点自身的信息
 
 2. **注意力瓶颈网络**:
 
-    - 做什么：学习逐点的重要性掩码
+    - 功能：学习逐点的重要性掩码
     - 核心思路：输入中间层特征 $z \in \mathbb{R}^{D \times N'}$，通过 query-key-value 注意力机制计算通道级交互：$q_z = W_q^T z$, $v_z = \sigma(W_v^T z)$，然后 $\text{Att}(q_z, z, v_z) = \text{softmax}(q_z^T z / \sqrt{D}) \cdot v_z$，最后通过 MLP + sigmoid 扩展回原维度 $D$，得到掩码 $\hat{m} \in (0,1)^{D \times N'}$。对层次化模型（$N' < N$），用距离加权的空间插值将掩码传播回原始 $N$ 个点
     - 设计动机：通道级注意力（而非空间级）适配不同大小 $N'$ 的中间特征；非线性注意力块比线性掩码更能学习复杂的点间关系
 
 3. **可学习无偏先验**:
 
-    - 做什么：避免 PCSAM 的空间偏置（质心奇异性先验）
+    - 功能：避免 PCSAM 的空间偏置（质心奇异性先验）
     - 核心思路：先验分布 $q(\hat{z}) = \mathcal{N}(\mu_z, \sigma_z^2)$ 的参数从当前点特征的均值和方差计算得到，而非预设。KL 散度项 $D_{KL}(\hat{z} \| q(\hat{z}))$ 鼓励重要性分数分布接近由数据决定的自然分布，而非人为偏向特定空间位置。stop-gradient 操作防止梯度通过噪声分支回传
     - 设计动机：PCSAM 的梯度方向始终指向质心，导致角落点被偏好——这是先验的偏置而非模型的行为。可学习先验让重要性分数完全由"对预测的贡献"决定
 

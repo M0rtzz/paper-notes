@@ -44,7 +44,9 @@ $$\Pi^{\star} = \arg\min_{X \in \mathcal{P}_n} \|AX - XB\|_F^2$$
 图对齐在网络去匿名化、计算生物学、模式识别等领域有广泛应用。现有凸松弛方法包括：
 
 **GRAMPA**（Fan et al., 2023）：进一步松弛 Birkhoff 约束并添加二次正则化项，理论上在 $\sigma = O(1/\log n)$ 时成功，但需要调参 $\eta$，且实证表现不如 Birkhoff 松弛
+
 **Simplex 松弛**（Araya & Tyagi, 2024）：保留非负约束但放松行/列和约束，仅在 $\sigma = 0$（无噪声）时有理论保证
+
 **谱方法 EIG1**（Ganassali et al., 2022）：噪声阈值仅为 $\sigma = \Theta(n^{-7/6})$
 
 ### 核心动机
@@ -228,9 +230,9 @@ $$X^\star = \arg\min_{X \in \mathcal{B}_n} \|AX - XB\|_F^2$$
 1. **简化版本**：先考虑 $\sigma = 0$ 的情况，此时 $X = I$ 是最优解且 $AX - XA = 0$
 2. **对偶问题**：引入对偶变量 $(R, \mu, \tilde{\mu}, M)$，构造近似可行对偶解
 3. **关键构造**：
-   - 设 $R = J - I$（对角为 $-1$，非对角为 $1$）
-   - 利用 GOE 矩阵的特征向量 $\{u_i\}$ 构造 $M = \sum_{i \neq j} \frac{\tilde{w}_{ij}}{\lambda_i - \lambda_j} u_i u_j^T$
-   - $\mu$ 也基于特征向量构造，确保 $\langle \mu, \mathbf{1} \rangle = 0$（强对偶性）
+    - 设 $R = J - I$（对角为 $-1$，非对角为 $1$）
+    - 利用 GOE 矩阵的特征向量 $\{u_i\}$ 构造 $M = \sum_{i \neq j} \frac{\tilde{w}_{ij}}{\lambda_i - \lambda_j} u_i u_j^T$
+    - $\mu$ 也基于特征向量构造，确保 $\langle \mu, \mathbf{1} \rangle = 0$（强对偶性）
 4. **核心不等式 (Lemma 6)**：对任意 $X \in \mathcal{B}_n$：
    $$\sum_{j \neq i} X_{ij} \leq 2n^{3/2 + 7\epsilon/8} \|AX - XA\|_F + 4n^{1 - \epsilon/32}$$
 5. **辅助界 (Lemma 7)**：$\|AX^\star - X^\star A\|_F \leq c\sigma\sqrt{n}$

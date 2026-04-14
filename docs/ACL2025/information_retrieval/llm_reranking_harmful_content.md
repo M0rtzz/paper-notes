@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Re-ranking Using Large Language Models for Mitigating Exposure to Harmful Content on Social Media Platforms
 description: >-
-  [ACL 2025][content moderation] 提出基于 LLM 的成对偏好重排序方法，在零样本和少样本设置下对社交媒体推荐序列中的有害内容进行降级排序，显著优于 Perspective API 和 OpenAI Moderation API 等工业级分类器，同时引入 PP-k 和 EWN 两个新评估指标。
+  [ACL 2025][内容审核] 提出基于 LLM 的成对偏好重排序方法，在零样本和少样本设置下对社交媒体推荐序列中的有害内容进行降级排序，显著优于 Perspective API 和 OpenAI Moderation API 等工业级分类器，同时引入 PP-k 和 EWN 两个新评估指标。
 tags:
   - ACL 2025
-  - content moderation
+  - 内容审核
   - LLM re-ranking
   - harmful content
-  - social media
-  - pairwise comparison
+  - 社交媒体
+  - 成对比较
 ---
 
 # Re-ranking Using Large Language Models for Mitigating Exposure to Harmful Content on Social Media Platforms
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2501.13977](https://arxiv.org/abs/2501.13977)  
 **代码**: 无  
 **领域**: ai_safety  
-**关键词**: content moderation, LLM re-ranking, harmful content, social media, pairwise comparison  
+**关键词**: 内容审核, LLM re-ranking, harmful content, 社交媒体, 成对比较
 
 ## 一句话总结
 提出基于 LLM 的成对偏好重排序方法，在零样本和少样本设置下对社交媒体推荐序列中的有害内容进行降级排序，显著优于 Perspective API 和 OpenAI Moderation API 等工业级分类器，同时引入 PP-k 和 EWN 两个新评估指标。
 
 ## 研究背景与动机
 **领域现状**：社交媒体平台使用推荐算法最大化用户参与度，但这可能导致用户暴露于有害内容（虚假信息、仇恨言论、成瘾内容等）。现有审核依赖大量人工标注数据训练的分类器。
+
 **现有痛点**：(a) 分类器需要大量标注数据，扩展性差；(b) 有害内容形式动态变化（concept drift），分类器无法自动泛化到新型有害内容。
+
 **核心矛盾**：既需要大规模处理能力，又需要适应不断变化的有害内容定义，传统分类器难以兼顾。
+
 **本文要解决什么？** 能否利用 LLM 的推理能力，在零样本/少样本设置下通过重排序降低有害内容曝光？
+
 **切入角度**：不做绝对的有害/无害分类，而是通过成对比较判断相对有害性，据此重排序推荐序列，将有害内容推到序列末尾（降级而非删除，保留自由表达）。
+
 **核心 idea 一句话**：用 LLM 做成对有害性比较并重排序，比训练过的专用分类器更能有效降低有害内容曝光。
 
 ## 方法详解
@@ -39,7 +44,7 @@ tags:
 ### 关键设计
 1. **Preferential Pairwise Ranking（偏好成对排序）**:
 
-    - 做什么：对序列中所有内容对让 LLM 判断哪个更有害
+    - 功能：对序列中所有内容对让 LLM 判断哪个更有害
     - 核心思路：改进 Qin et al. (2024) 的评分函数——被判为有害的内容得分+1，如果 LLM 认为两个都无害则跳过（不加分），避免无害内容被误降级。最终按得分升序排序。
     - 设计动机：成对比较利用了 LLM 上下文窗口的优势，比独立分类更准确；降级而非删除保障表达自由。
 

@@ -7,10 +7,10 @@ tags:
   - ICML 2025
   - AI安全
   - 联邦学习
-  - in-context learning
-  - question answering
-  - iterative refinement
-  - communication efficiency
+  - 上下文学习
+  - 问答
+  - 迭代优化
+  - 通信效率
 ---
 
 # Federated In-Context Learning: Iterative Refinement for Improved Answer Quality
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.07440](https://arxiv.org/abs/2506.07440)  
 **代码**: 无  
 **领域**: AI Safety  
-**关键词**: federated learning, in-context learning, question answering, iterative refinement, communication efficiency
+**关键词**: 联邦学习, 上下文学习, 问答, 迭代优化, 通信效率
 
 ## 一句话总结
 本文提出 Fed-ICL，一种联邦 In-Context Learning 框架，通过客户端与服务端之间的多轮迭代协作，在不传输模型参数的情况下利用分散在各客户端的高质量示例逐步改善回答质量，并建立了收敛保证。
@@ -53,19 +53,19 @@ tags:
 
 1. **迭代改进机制（Iterative Refinement Mechanism）**:
 
-    - 做什么：多轮交互逐步提升回答质量
+    - 功能：多轮交互逐步提升回答质量
     - 核心思路：prompt 构造为：$[\text{Question}: q, \text{Current Answer}: a^t, \text{Examples}: \{(q_i, a_i)\}, \text{Instruction}: \text{Improve the answer}]$
     - 设计动机：单轮 ICL 受限于单个客户端的示例质量，迭代机制允许多个客户端的知识逐步融合。每轮迭代相当于在"回答空间"中做一步优化
 
 2. **回答聚合策略（Answer Aggregation Strategy）**:
 
-    - 做什么：在服务端将多个客户端的改进回答合并为一个更好的回答
+    - 功能：在服务端将多个客户端的改进回答合并为一个更好的回答
     - 核心思路：支持多种聚合方式——(i) 投票聚合：多数投票选最佳回答，(ii) LLM 聚合：用 LLM 综合多个回答生成最终答案，(iii) 评分聚合：用 LLM 对每个回答评分后加权平均
     - 设计动机：不同聚合策略适用于不同任务——分类任务适合投票，开放式 QA 适合 LLM 聚合
 
 3. **收敛性理论保证（Convergence Guarantee）**:
 
-    - 做什么：证明 Fed-ICL 的迭代改进过程在一定条件下收敛
+    - 功能：证明 Fed-ICL 的迭代改进过程在一定条件下收敛
     - 核心思路：将回答质量建模为一个潜在函数，证明每轮迭代的改进量满足递减条件：$V(a^{t+1}) - V(a^t) \geq -c \cdot \|a^t - a^*\|^2$
     - 设计动机：理论保证使得 Fed-ICL 不仅是经验有效的 heuristic，而是有理论支撑的算法
 

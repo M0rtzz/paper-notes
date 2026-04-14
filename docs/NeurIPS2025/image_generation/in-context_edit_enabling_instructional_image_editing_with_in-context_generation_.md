@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 指令图像编辑
   - Transformer
-  - In-Context Learning
+  - 上下文学习
   - LoRA-MoE
   - 推理时缩放
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2504.20690](https://arxiv.org/abs/2504.20690)  
 **代码**: [项目主页](https://river-zhang.github.io/ICEdit-gh-pages)  
 **领域**: image_generation  
-**关键词**: 指令图像编辑, Diffusion Transformer, In-Context Learning, LoRA-MoE, 推理时缩放  
+**关键词**: 指令图像编辑, 扩散 Transformer, 上下文学习, LoRA-MoE, 推理时缩放
 
 ## 一句话总结
 

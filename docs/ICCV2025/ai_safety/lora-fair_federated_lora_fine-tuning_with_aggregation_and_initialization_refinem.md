@@ -42,19 +42,19 @@ tags:
 ### 关键设计
 1. **残差校正优化（Residual Correction）**:
 
-    - 做什么：在服务器端求解残差 $\Delta\mathbf{B}$，修正聚合偏差
+    - 功能：在服务器端求解残差 $\Delta\mathbf{B}$，修正聚合偏差
     - 核心思路：$\arg\min_{\Delta\mathbf{B}} \underbrace{\mathcal{S}(\Delta\mathbf{W}, (\bar{\mathbf{B}} + \Delta\mathbf{B})\bar{\mathbf{A}})}_{\text{校正项}} + \underbrace{\lambda \|\Delta\mathbf{B}\|}_{\text{正则化项}}$，其中 $\mathcal{S}$ 为余弦相似度，$\Delta\mathbf{W} = \sum p_k \mathbf{B}_k \mathbf{A}_k$ 为理想更新
     - 设计动机：校正项解决挑战1（使聚合更新逼近理想值），正则化项解决挑战2（约束 $\bar{\mathbf{B}}' \approx \bar{\mathbf{B}}$ 保持平均信息，提供稳定初始化）
 
 2. **Avg-Initial客户端初始化策略**:
 
-    - 做什么：客户端直接使用服务器下发的平均LoRA模块作为下轮初始化
+    - 功能：客户端直接使用服务器下发的平均LoRA模块作为下轮初始化
     - 核心思路：$\mathbf{A}_k \leftarrow \bar{\mathbf{A}}$，$\mathbf{B}_k \leftarrow \bar{\mathbf{B}} + \Delta\mathbf{B}$，预训练权重 $\mathbf{W}_0$ 不变
     - 设计动机：对比Re-Initial（重新随机初始化）和Local-Initial（用某客户端的本地模块），Avg-Initial兼顾训练连续性和全局信息融合
 
 3. **残差位置选择**:
 
-    - 做什么：确定将 $\Delta$ 应用到 $\mathbf{A}$ 还是 $\mathbf{B}$
+    - 功能：确定将 $\Delta$ 应用到 $\mathbf{A}$ 还是 $\mathbf{B}$
     - 核心思路：消融实验表明修正 $\mathbf{B}$ 优于修正 $\mathbf{A}$
     - 设计动机：$\mathbf{A}$ 主要捕获通用信息，保持稳定的平均更新更有利；$\mathbf{B}$ 更适合承载校正信号
 

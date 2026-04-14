@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.13425](https://arxiv.org/abs/2507.13425)  
 **代码**: [srwang0506/CaTFormer](https://github.com/srwang0506/CaTFormer)  
 **领域**: autonomous_driving  
-**关键词**: driving intention prediction, causal inference, Transformer, dual-stream fusion, counterfactual reasoning  
+**关键词**: driving intention prediction, causal inference, Transformer, dual-stream fusion, counterfactual reasoning
 
 ## 一句话总结
 

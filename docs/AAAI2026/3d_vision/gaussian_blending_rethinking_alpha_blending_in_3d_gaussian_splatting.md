@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：3DGS通过Gaussian splat显式表示3D场景，比NeRF渲染速度快数个量级，已成为Novel View Synthesis (NVS) 的主流方法。Mip-Splatting、Analytic-Splatting等方法通过预滤波改善了多尺度抗锯齿。
+
 **现有痛点**：所有现有NVS方法在训练时未见过的采样率下仍有明显伪影——放大时出现边缘erosion（模糊），缩小时出现dilation（阶梯状伪影）。即使Analytic-Splatting做了解析积分，问题依然存在。
+
 **核心矛盾**：所有方法都使用标量alpha blending——将alpha和transmittance作为标量（每像素一个值）计算。这导致前景splat会完全遮挡本不应被遮挡的背景splat，因为忽略了像素内的空间遮挡关系。当采样率变化时，这种误差被放大。
+
 **本文要解决什么？** 在不牺牲实时性能的前提下，将像素内的空间变化纳入alpha blending过程，消除erosion和dilation伪影。
+
 **切入角度**：观察到Gaussian splat在2D screen space上形成连续表面，其合并后的transmittance可以用简单的2D uniform distribution近似。通过动态追踪这个distribution的window范围，就能高效建模空间遮挡。
+
 **核心idea一句话**：将标量alpha blending替换为空间分布alpha blending——transmittance不再是一个数，而是像素内的一个spatial window
 
 ## 方法详解
@@ -44,19 +49,19 @@ Gaussian Blending在3DGS原始pipeline中替换渲染kernel：
 
 1. **空间Transmittance Distribution**:
 
-    - 做什么：用2D uniform window追踪像素内transmittance的空间分布
+    - 功能：用2D uniform window追踪像素内transmittance的空间分布
     - 核心思路：传统方法中 $T_i = \prod_{j=1}^{i-1}(1-\alpha_j(p))$ 是标量；Gaussian Blending将其表示为window $(x_i, l_i, t_i)$，初始为整个像素区域（$x_1=p, l_1=[1,1]^\top, t_1=1$）。每渲染一个splat后，window会根据该splat的空间覆盖而收缩——被遮挡区域的transmittance降低，未被遮挡区域保持高transmittance
     - 设计动机：物理上正确的渲染需要对像素区域积分 $C_p^p = \int_p \sum_i T_i^p(x)\alpha_i(x)c_i dx$，但直接计算是指数复杂度。观察到Gaussian splat聚集形成连续表面，合并后的transmittance近似uniform分布，因此用window近似即可
 
 2. **Weight计算（Splat响应积分）**:
 
-    - 做什么：计算当前splat在transmittance window内的积分响应
+    - 功能：计算当前splat在transmittance window内的积分响应
     - 核心思路：对2D Gaussian做特征值分解找到主轴，将window旋转对齐主轴，然后分解为两个独立的1D Gaussian积分：$\int w_i(x)dx = t_i \cdot o_i \cdot I^0_{\sigma_1}(u_1,u_2) \cdot I^0_{\sigma_2}(v_1,v_2)$，其中 $I^k_\sigma(a,b)$ 是1D Gaussian的 $k$ 阶矩
     - 设计动机：直接2D积分无closed-form，利用特征值分解+旋转对齐可分解为可解析计算的1D积分
 
 3. **Window更新（Transmittance分布演化）**:
 
-    - 做什么：渲染每个splat后更新spatial window
+    - 功能：渲染每个splat后更新spatial window
     - 核心思路：利用1阶和2阶矩来匹配更新后的transmittance分布。新window的中心和大小通过矩匹配计算，确保remaining transmittance的空间分布被准确追踪。window会逐渐收缩到尚未被遮挡的区域
     - 设计动机：高transmittance区域应保持对背景splat的可见性，低transmittance区域应抑制重复渲染
 

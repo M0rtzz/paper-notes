@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.03608](https://arxiv.org/abs/2510.03608)  
 **代码**: 待确认  
 **领域**: few-shot learning / incremental learning  
-**关键词**: Few-Shot Class-Incremental Learning, Diffusion Model, Reward-Aligned Generation, Mutual Boosting Loop, Data Augmentation  
+**关键词**: Few-Shot Class-Incremental Learning, diffusion model, Reward-Aligned Generation, Mutual Boosting Loop, data augmentation
 
 ## 一句话总结
 提出 Diffusion-Classifier Synergy (DCS) 框架，通过在扩散模型和分类器之间建立互相增强的闭环，利用多层次奖励函数（特征级+logits级）引导扩散模型生成对分类器最有益的图像，在 FSCIL 基准上取得 SOTA。

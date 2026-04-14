@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Enhancing Demand-Oriented Regionalization with Agentic AI and Local Heterogeneous Data for Adaptation Planning
 description: >-
-  [NeurIPS 2025 (UrbanAI Workshop)][LLM Agent][Agentic AI] 本文提出一个基于 Agentic AI 的规划支持系统，通过 LLM 智能体引导非技术用户进行数据驱动的需求导向区域化（demand-oriented regionalization），核心算法为 RepSC-SOM（带代表性初始化的空间约束自组织映射），支持人机协作迭代优化区域划分，用于灾害风险管理和气候适应规划。
+  [NeurIPS 2025 (UrbanAI Workshop)][LLM Agent][智能体 AI] 本文提出一个基于 Agentic AI 的规划支持系统，通过 LLM 智能体引导非技术用户进行数据驱动的需求导向区域化（demand-oriented regionalization），核心算法为 RepSC-SOM（带代表性初始化的空间约束自组织映射），支持人机协作迭代优化区域划分，用于灾害风险管理和气候适应规划。
 tags:
   - NeurIPS 2025 (UrbanAI Workshop)
   - LLM Agent
-  - Agentic AI
+  - 智能体 AI
   - 区域化
   - 城市规划
   - SOM
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.10857](https://arxiv.org/abs/2511.10857)  
 **代码**: 待确认  
 **领域**: llm_agent  
-**关键词**: Agentic AI, 区域化, 城市规划, SOM, 人机协作, 灾害适应规划  
+**关键词**: 智能体 AI, 区域化, 城市规划, SOM, 人机协作, 灾害适应规划
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 当前城市治理依赖规划单元（planning units）来设计和实施增长、管理和适应政策。然而现有的规划单元存在严重缺陷：
 
 **传统边界与实际需求不匹配**：人口普查区、邮编区、行政区等是为特定目的（如加速邮件投递）设计的，往往无法反映灾害暴露度或社会脆弱性的真实空间分布
+
 **刚性边界缺乏灵活性**：传统单元无法捕捉气候风险的空间异质性，难以针对特定灾害或适应目标设计定制化区域
+
 **细粒度数据利用不足**：虽然存在丰富的本地社会经济和环境数据，但缺乏有效工具将其整合到区域划分中
+
 **技术门槛高**：数据驱动的区域化需要地理空间分析和编程能力，对缺乏相关训练的城市规划师而言门槛过高
 
 数据驱动区域化可以通过整合多维本地数据生成与规划目标对齐的同质空间连续区域，但实施面临约束复杂性、可解释性需求和决策迭代性等挑战。LLM 和 Agentic AI 的进展为支持规划师克服这些挑战提供了新机遇。

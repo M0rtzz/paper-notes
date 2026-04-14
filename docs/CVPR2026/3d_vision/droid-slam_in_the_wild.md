@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.19076](https://arxiv.org/abs/2603.19076)  
 **代码**: [MoyangLi00/DROID-W](https://github.com/MoyangLi00/DROID-W.git)  
 **领域**: 3d_vision  
-**关键词**: SLAM, dynamic scenes, uncertainty estimation, bundle adjustment, DINOv2  
+**关键词**: SLAM, dynamic scenes, uncertainty estimation, bundle adjustment, DINOv2
 
 ## 一句话总结
 

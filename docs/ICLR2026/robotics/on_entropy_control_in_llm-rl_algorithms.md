@@ -39,24 +39,24 @@ tags:
 ### 理论分析
 
 1. **Proposition 1 (无熵控制)**:
-   - 策略熵是策略梯度的上界：$\|\nabla V^{\pi_\theta}\| \leq 2\mathcal{H}(\pi_\theta)$→熵崩溃=学习停滞
-   - 性能界：$V^{\pi^*} - V^{\pi_\theta} \leq \frac{\epsilon}{C^{\pi_\theta}(s_0)}$
+    - 策略熵是策略梯度的上界：$\|\nabla V^{\pi_\theta}\| \leq 2\mathcal{H}(\pi_\theta)$→熵崩溃=学习停滞
+    - 性能界：$V^{\pi^*} - V^{\pi_\theta} \leq \frac{\epsilon}{C^{\pi_\theta}(s_0)}$
 
 2. **Proposition 2 (传统熵正则化)**:
-   - 性能界：$V^{\pi^*} - V^{\pi_\theta} \leq \frac{\epsilon^2}{2\lambda C_\lambda} + \lambda H\log\frac{|\mathcal{A}|}{|\mathcal{A}_H^*|^{1/H}}$
-   - 优化项改善($\epsilon^2/2\lambda$)但偏差项 $\lambda H\log|\mathcal{A}|/|\mathcal{A}_H^*|^{1/H}$ 在LLM中主导
+    - 性能界：$V^{\pi^*} - V^{\pi_\theta} \leq \frac{\epsilon^2}{2\lambda C_\lambda} + \lambda H\log\frac{|\mathcal{A}|}{|\mathcal{A}_H^*|^{1/H}}$
+    - 优化项改善($\epsilon^2/2\lambda$)但偏差项 $\lambda H\log|\mathcal{A}|/|\mathcal{A}_H^*|^{1/H}$ 在LLM中主导
 
 ### AEnt方法
 
 1. **截断熵 (Clamped Entropy)**:
-   - 做什么：不在全词汇表上算熵，而在top-k token上重归一化后计算
-   - 核心思路：定义子空间 $\mathcal{A}_k(s) = \text{top-k tokens}$，重归一化策略 $\tilde{\pi}(a|s) = \pi(a|s)/\sum_{a' \in \mathcal{A}_k} \pi(a'|s)$，用 $\tilde{\pi}$ 算熵
-   - 设计动机：只在合理候选中鼓励探索→偏差从 $\log|\mathcal{A}|$ 降为 $\log k$（$k \ll |\mathcal{A}|$）
+    - 功能：不在全词汇表上算熵，而在top-k token上重归一化后计算
+    - 核心思路：定义子空间 $\mathcal{A}_k(s) = \text{top-k tokens}$，重归一化策略 $\tilde{\pi}(a|s) = \pi(a|s)/\sum_{a' \in \mathcal{A}_k} \pi(a'|s)$，用 $\tilde{\pi}$ 算熵
+    - 设计动机：只在合理候选中鼓励探索→偏差从 $\log|\mathcal{A}|$ 降为 $\log k$（$k \ll |\mathcal{A}|$）
 
 2. **自适应系数**:
-   - 做什么：根据当前截断熵值自动调节系数 $\lambda$
-   - 核心思路：截断熵高→$\lambda$小（已经足够随机），截断熵低→$\lambda$大（需要更多探索）
-   - 设计动机：固定 $\lambda$ 无法适应训练过程中熵的动态变化
+    - 功能：根据当前截断熵值自动调节系数 $\lambda$
+    - 核心思路：截断熵高→$\lambda$小（已经足够随机），截断熵低→$\lambda$大（需要更多探索）
+    - 设计动机：固定 $\lambda$ 无法适应训练过程中熵的动态变化
 
 ### 损失函数
 - $\mathcal{L} = \mathcal{L}_{\text{PO}}(\theta) + \lambda \cdot \min(\mathcal{H}_k(\pi_\theta), H_{\text{target}})$

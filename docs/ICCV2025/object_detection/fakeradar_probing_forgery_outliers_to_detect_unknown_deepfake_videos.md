@@ -39,7 +39,7 @@ FakeRadar基于CLIP ViT-B/16冻结骨干网络，插入ST-Adapter进行参数高
 ### 关键设计
 1. **Forgery Outlier Probing (FOP)**:
 
-    - 做什么：对训练样本的特征空间分布进行精细建模，在子簇边界处生成异常值样本模拟未知伪造
+    - 功能：对训练样本的特征空间分布进行精细建模，在子簇边界处生成异常值样本模拟未知伪造
     - 核心思路：
       - **动态子簇建模**：将真实类和4种伪造类分别视为独立类别，用主聚簇网络学习GMM分布的软分配，通过KL散度损失 $\mathcal{L}_{main} = \sum_i KL(\mathbf{r}_i \| \mathbf{r}_i^E)$ 对齐聚簇分配与GMM责任。子聚簇网络尝试将每个簇进一步分裂为两个子簇，使用Hastings比 $H_s$ 决定分裂/合并
       - **聚簇条件异常值生成**：从子簇分布的ε-似然区域采样，生成位于簇边界附近的异常值 $\mathcal{V}_k$，条件为其在子簇高斯分布下的概率密度小于阈值ε
@@ -47,7 +47,7 @@ FakeRadar基于CLIP ViT-B/16冻结骨干网络，插入ST-Adapter进行参数高
 
 2. **Outlier-Guided Tri-Training (OGTT)**:
 
-    - 做什么：联合优化骨干网络和三分类器，显式区分Real、Fake和Outlier三类
+    - 功能：联合优化骨干网络和三分类器，显式区分Real、Fake和Outlier三类
     - 核心思路：
       - **Outlier-Driven Contrastive Loss**：基于InfoNCE的对比损失 $\mathcal{L}_{con}$，最大化样本与所属子簇中心的相似度，同时最小化与其他子簇中心及异常值的相似度
       - **Outlier-Conditioned Cross-Entropy Loss**：三分类交叉熵 $\mathcal{L}_{cls} = -\sum_{c} y_c \log p_c$，确保模型对三类（特别是Outlier不误判为Real）有清晰决策边界
@@ -56,7 +56,7 @@ FakeRadar基于CLIP ViT-B/16冻结骨干网络，插入ST-Adapter进行参数高
 
 3. **模型适配与推理**:
 
-    - 做什么：在冻结CLIP骨干上插入ST-Adapter进行参数高效微调
+    - 功能：在冻结CLIP骨干上插入ST-Adapter进行参数高效微调
     - 核心思路：$\text{ST-Adapter}(x) = x + \text{ReLU}(\text{Conv3D}(xW_{down}))W_{up}$，3D卷积捕获时空特征，仅引入少量额外参数
     - 设计动机：保留CLIP预训练的丰富语义特征，同时适配深度伪造检测的时空模式
 

@@ -7,9 +7,9 @@ tags:
   - NeurIPS 2025
   - 优化
   - out-of-context reasoning
-  - hallucination
-  - generalization
-  - implicit bias
+  - 幻觉
+  - 泛化
+  - 隐式偏差
   - nuclear norm
   - matrix factorization
 ---
@@ -20,15 +20,18 @@ tags:
 **arXiv**: [2506.10887](https://arxiv.org/abs/2506.10887)  
 **代码**: 无  
 **领域**: optimization / 学习理论  
-**关键词**: out-of-context reasoning, hallucination, generalization, implicit bias, nuclear norm, matrix factorization
+**关键词**: out-of-context reasoning, 幻觉, 泛化, 隐式偏差, nuclear norm, matrix factorization
 
 ## 一句话总结
 本文论证 LLM 的泛化能力和幻觉产生源于同一机制——脱语境推理（OCR），并在单层注意力模型上理论证明：分解参数化 $(W_O, W_V)$ 因梯度下降的核范数隐式偏差而能执行 OCR，而合并参数化 $W_{OV}$ 因 Frobenius 范数偏差而不能，且 OCR 是样本高效的（仅需 $m_{\text{train}}>0$）。
 
 ## 研究背景与动机
 **领域现状**：LLM 通过微调注入新知识后，可从学到的事实推导蕴含——如学到"Alice 住在巴黎"后能推出"Alice 说法语"。这被称为脱语境推理（OCR），也被称为"涟漪效应"。
+
 **现有痛点**：同一种推理机制也会导致幻觉——如从"Raul 住在巴黎"错误推出"Raul 用 Java 编程"（当 city-code 关联无因果关系时）。此前对泛化与幻觉是否源自同一机制缺乏理论解释。
+
 **核心矛盾**：LLMs 仅需极少训练样本（如每组 4 个样本）就能学到关联——无论关联是因果的还是虚假的。为何泛化和幻觉如此高效？
+
 **切入角度**：将 OCR 形式化为符号化事实回忆任务，在单层线性注意力模型上分析分解参数化与非分解参数化的差异，通过隐式偏差理论揭示 OCR 能力的根源。
 
 ## 方法详解

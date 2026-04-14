@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.04457](https://arxiv.org/abs/2602.04457)  
 **代码**: [GitHub](https://github.com/Cqyiiii/AMII-Harnessing-Interior-Nodes-for-Network-Experiments)  
 **领域**: causal_inference  
-**关键词**: A/B testing, network interference, causal inference, cluster randomization, GATE estimation  
+**关键词**: A/B testing, network interference, causal inference, cluster randomization, GATE estimation
 
 ## 一句话总结
 

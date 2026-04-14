@@ -1,13 +1,15 @@
 ---
+title: >-
+  [论文解读] Retrosynthesis Planning via Worst-path Policy Optimisation in Tree-structured MDPs
 description: >-
-  NeurIPS 2025，将逆合成规划重新定义为树结构MDP中的最差路径优化问题，提出InterRetro通过加权自模仿学习优化合成树最弱路径，在Retro*-190上达到100%成功率且无需推理时搜索，路径长度缩短4.9%。
+  [NeurIPS 2025][逆合成规划] 将逆合成规划重构为树结构MDP中的最差路径(worst-path)优化问题——合成树的价值由最弱路径决定（任何一条死胡同路径将导致整棵树无效），提出InterRetro通过加权自模仿学习优化这一最差路径目标，在Retro*-190上达到100%成功率，路径长度缩短4.9%，仅需10%训练数据即达92%完整性能。
 tags:
   - NeurIPS 2025
-  - 强化学习
   - 逆合成规划
   - 树结构MDP
   - 最差路径优化
   - 自模仿学习
+  - 无搜索推理
 ---
 
 # Retrosynthesis Planning via Worst-path Policy Optimisation in Tree-structured MDPs
@@ -45,17 +47,17 @@ InterRetro作为Agent与树结构MDP交互：(1) **探索**——用当前策略
 ### 关键设计
 
 1. **最差路径目标函数**:
-    - 做什么：定义合成树的价值为其所有根到叶路径中最差的回报
+    - 功能：定义合成树的价值为其所有根到叶路径中最差的回报
     - 核心思路：奖励函数 $r(s) = 1$ 如果分子 $s$ 是可购买构建块，否则为0。路径回报 $\gamma^T r(s_T)$，其中折扣因子 $\gamma \in (0,1)$ 惩罚更长路径。合成树目标 $J(\pi) = \mathbb{E}_{\tau \sim \pi}[\min_{p \in P(\tau)} \sum_{t=0}^T \gamma^t r(s_t)]$。单条失败路径使整棵树价值为0
     - 设计动机：USB-50k中98.6%的反应涉及≤3个反应物，故合成树质量主要由深度（最差路径长度）而非宽度决定
 
 2. **树MDP中的Bellman最优方程**:
-    - 做什么：为最差路径目标推导价值函数的递归关系和最优性条件
+    - 功能：为最差路径目标推导价值函数的递归关系和最优性条件
     - 核心思路：Q函数递推 $Q^\pi(s,a) = r(s) + \gamma(1-r(s))\min_{s' \in \mathcal{T}(s,a)} V^\pi(s')$——关键差异在于使用$\min$而非$\sum$聚合子节点。证明Bellman最优算子是压缩映射→$V^*$唯一存在且值迭代收敛
     - 设计动机：标准MDP聚合用求和/期望，但化学反应产生多个子状态(分子)，需要用$\min$捕获"木桶效应"
 
 3. **加权自模仿学习**:
-    - 做什么：基于优势权重模仿过去的成功决策，确保化学可行性
+    - 功能：基于优势权重模仿过去的成功决策，确保化学可行性
     - 核心思路：策略约束在预训练单步模型$\pi^0$的支持集内：$\Pi = \{\pi | \pi(a|s)=0 \text{ whenever } \pi^0(a|s)=0\}$。更新目标 $\mathcal{L}(\theta) = -\mathbb{E}[\exp_{clip}(\beta A_\phi(s,a))\log\pi_\theta(a|s)]$，高优势反应获更高权重。理论证明 $V^{\pi^{i+1}}(s) \geq V^{\pi^i}(s)$（单调改进保证）
     - 设计动机：支持集约束保证提出的反应始终化学合理；优势加权避免盲目模仿，重点学习高质量决策
 

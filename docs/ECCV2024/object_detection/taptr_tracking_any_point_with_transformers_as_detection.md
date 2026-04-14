@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.13042](https://arxiv.org/abs/2403.13042)  
 **代码**: [https://taptr.github.io](https://taptr.github.io)  
 **领域**: 目标检测  
-**关键词**: 点跟踪, Transformer, DETR, 光流, TAP
+**关键词**: 点跟踪, Transformer, DETR, optical flow, TAP
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ TAPTR 将 Tracking Any Point (TAP) 任务重新建模为类 DETR 的检测问题
 ## 研究背景与动机
 
 **领域现状**: 理解视频中每个像素的运动是计算机视觉的基础任务。光流估计 (Optical Flow) 是主流方法但仅处理连续两帧间的对应关系，无法应对遮挡。语义关键点跟踪可以处理遮挡但目标语义类别受限（如人体关节）。近期 TAP (Tracking Any Point) 任务被提出，要求在整个视频中跟踪任意用户指定的点，其代表性方法包括 PIPs、TAP-Net、TAPIR 和 CoTracker。
+
 **现有痛点**: 现有 TAP 方法（PIPs、TAPIR、CoTracker）对跟踪点的建模方式不够清晰——将 flow vector、flow embedding、visibility、content feature、cost volume 等多种特征简单拼接成一个"黑箱"向量，送入 MLP 或 Transformer 期望模型自行解读和利用。这种方式缺乏结构化设计，不利于理解和优化。
+
 **核心矛盾**: TAP 任务需要同时处理长距离时序建模（遮挡恢复）和精细的低层特征匹配（精确定位），需要一个既简洁又强大的统一框架。大多数先前方法独立处理每个跟踪点，忽略了属于同一物体的点之间可提供的上下文信息。
+
 **本文要解决什么?** 设计一个概念简洁、含义清晰的点跟踪框架，使每个组件都有明确的物理意义，同时在性能和速度上超越现有方法。
+
 **切入角度**: 观察到点跟踪与目标检测/跟踪具有高度相似性——在每一帧中，跟踪点本质上是需要检测的目标。因此可以直接借用 DETR 系列算法的成熟设计。
+
 **核心idea一句话**: 将每个跟踪点建模为 DETR-like 的 point query（位置部分 + 内容部分），通过 Transformer 解码器逐层优化，自然地复用检测任务中已被充分验证的自注意力、交叉注意力和迭代优化机制。
 
 ## 方法详解

@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach
 description: >-
-  [CVPR 2026 (ABAW Workshop)][人体理解][效价-唤醒估计] 提出三模态连续VA估计方法，首次将VLM(Qwen3-VL-4B)生成的情感行为描述嵌入作为独立模态，与GRADA人脸编码器和WavLM音频特征通过两种融合策略(DCMMOE和RAAV)组合，在Aff-Wild2上达到CCC 0.658(dev)/0.62(test)。
+  [CVPR 2026 (ABAW Workshop)][人体理解][效价-唤醒估计] 首次将 VLM（Qwen3-VL-4B-Instruct）提取的情感行为描述嵌入作为独立第三模态，与 GRADA 人脸编码器和 WavLM 音频特征通过 DCMMOE 和 RAAV 两种融合策略组合，在 Aff-Wild2 上达到连续 VA 估计 CCC 0.658（dev）/ 0.62（test），验证了 VLM 行为语义对连续情感识别的价值。
 tags:
   - CVPR 2026 (ABAW Workshop)
   - 人体理解
@@ -49,31 +49,31 @@ tags:
 
 1. **GRADA 人脸模型 + Transformer 时序回归**
 
-    - 做什么：提取帧级情感表示并建模短/中期时序动态
+    - 功能：提取帧级情感表示并建模短/中期时序动态
     - 核心思路：EfficientNet-B1 在 10 个情感数据集上多任务微调（7.9M 参数），输出 256 维帧级情感嵌入。YOLO 人脸检测 + 手动身份标注确保单一目标。Transformer 回归模型在长度 $L=400$、步长 $S=150$ 的滑动窗口上处理，含投影块（FC+LN+Dropout）、多层 Transformer（$N=5, H=16$）和回归头（FC+LN+GELU+Dropout+FC）
     - 设计动机：EfficientNet-B1 在多架构评比中展现最佳泛化/效率平衡。Transformer 滑动窗口保持时序连续性同时增加训练样本
 
 2. **Qwen3-VL 行为描述模型 + Mamba 时序编码**
 
-    - 做什么：利用 VLM 捕捉传统特征提取器无法编码的行为级语义
+    - 功能：利用 VLM 捕捉传统特征提取器无法编码的行为级语义
     - 核心思路：Qwen3-VL-4B-Instruct 处理 16 帧视频段 + 情感导向 prompt（引导关注面部表情、头部动作、手势、姿态和场景），提取最后隐藏层 token 作为段级嵌入 $e \in \mathbb{R}^d$。两种设置：纯视觉嵌入（仅视觉 token）和多模态嵌入（视频+文本联合）。段级嵌入经 Mamba 编码器建模时序（视觉版 4 层 hidden=128 state=8 kernel=3；多模态版 12 层 hidden=256 state=8 kernel=5），帧级预测通过段到帧展开+重叠平均
     - 设计动机：多模态嵌入（CCC 0.539）大幅优于纯视觉（0.401），证明 prompt 引导文本上下文对行为理解至关重要
 
 3. **WavLM 音频模型 + 跨模态可靠性过滤**
 
-    - 做什么：从音频提取情感线索，同时过滤噪声严重的非语音段
+    - 功能：从音频提取情感线索，同时过滤噪声严重的非语音段
     - 核心思路：4 秒段 2 秒重叠，用 MediaPipe 检测嘴部开合做跨模态过滤——仅保留张嘴时长和标注覆盖率超阈值的段。微调 WavLM-Large 顶部 4 层（基于 MSP-Podcast 预训练），4 秒段分 4 个时间块，每块用注意力统计池化（加权均值+加权标准差）聚合，回归头输出 VA
     - 设计动机：Aff-Wild2 野外音频噪声极大，嘴部开合检测是简单有效的语音存在近似指标
 
 4. **DCMMOE 融合策略**
 
-    - 做什么：建模所有模态有向交互对，自适应加权融合
+    - 功能：建模所有模态有向交互对，自适应加权融合
     - 核心思路：各模态投影到共享 $d_h$ 维空间，所有有序对 $(q,k)$ 构成交叉注意力专家（$|\mathcal{E}|=M(M-1)$ 个），每专家 $N$ 层 $H$ 头交叉注意力（query=模态 $q$，key/value=模态 $k$）。门控网络从平均多模态状态计算专家权重 $\mathbf{g}_l = \mathbf{W}_g \bar{\mathbf{h}}_l + \mathbf{b}_g$，融合 $\mathbf{z}_l = \sum_{(q,k)} \text{softmax}(\mathbf{g}_{(q,k),l}) \mathbf{Z}_{(q,k),l}$
     - 设计动机：显式建模有向跨模态交互（query 和 context 不对称）+ 数据依赖的专家加权
 
 5. **RAAV 融合策略**
 
-    - 做什么：帧中心的非对称融合——视觉模态确定时间分辨率，音频提供补充上下文
+    - 功能：帧中心的非对称融合——视觉模态确定时间分辨率，音频提供补充上下文
     - 核心思路：面部和行为特征在每帧通过 masked 可靠性感知门控融合 $\mathbf{z}_{\text{vis},l} = \sum_m \alpha_l^{(m)} \mathbf{h}_l^{(m)}$，其中 $\alpha$ 由学习的评分函数 + 模态先验决定。融合视觉序列再通过 bottleneck 交叉注意力从音频 $\mathbf{B}_a$ 提取上下文 $\mathbf{Z}_0 = \text{LN}(\mathbf{Z}_\text{vis} + \text{CrossAttn}(\mathbf{Z}_\text{vis}, \mathbf{B}_a, \mathbf{B}_a))$
     - 设计动机：反映 VA 估计中视觉主导、音频辅助的任务特性
 

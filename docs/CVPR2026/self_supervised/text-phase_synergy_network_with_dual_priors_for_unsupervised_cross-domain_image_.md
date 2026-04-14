@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval
 description: >-
-  [CVPR 2026][跨域检索][双先验] 提出TPSNet，用CLIP域提示作为文本先验提供精确语义监督、用相位谱特征作为相位先验桥接域分布差异，双先验协同显著提升无监督跨域图像检索性能
+  [CVPR 2026][自监督学习][UCDIR] 提出TPSNet，将CLIP学习的域提示（domain prompt）作为文本先验提供精细语义监督，同时引入相位谱特征作为相位先验来桥接域分布差异并保持语义完整性，通过文本-相位双先验的协同实现无监督跨域图像检索的显著提升。
 tags:
   - CVPR 2026
-  - 跨域检索
-  - 无监督学习
-  - CLIP
-  - 频域分析
-  - 域适应
+  - 自监督学习
+  - UCDIR
+  - 提示学习
+  - phase spectrum
+  - text-phase dual priors
+  - cross-domain alignment
 ---
 
 # Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval
@@ -42,19 +43,19 @@ TPSNet分两模块：Domain Prompt Generation (DPG) 用CLIP对比学习优化每
 
 1. **Domain Prompt Generation（域提示生成）**:
 
-    - 做什么：为每个域学习C个类别特定的可学习text prompt，作为后续的语义监督信号
+    - 功能：为每个域学习C个类别特定的可学习text prompt，作为后续的语义监督信号
     - 核心思路：K-means聚类产生伪标签后，初始化C个可学习prompt模板（"An image of a [X]¹...[X]^M"）。用冻结CLIP做图文对比学习 $\mathcal{L}_{prompt} = \mathcal{L}_{i2t} + \mathcal{L}_{t2i}$，仅优化[X] token。对比学习中基于cosine similarity重新配对图文，部分修正不准确的伪标签
     - 设计动机：CLIP的文本表示比离散伪标签提供更丰富的语义先验，通过对比学习优化后domain prompt编码了精确的类别语义信息
 
 2. **Phase-Prior域不变特征提取**:
 
-    - 做什么：利用相位谱的域不变性来桥接域差异
+    - 功能：利用相位谱的域不变性来桥接域差异
     - 核心思路：灰度图做FFT得 $F(u,v)=|A(u,v)|e^{j\phi(u,v)}$。保留相位、用常数R替换幅度：$F'(u,v) = Re^{j\phi(u,v)}$，IFFT重建相位图像。轻量CNN提取相位特征 $I^{phase}$，与RGB特征通过LayerNorm+SelfAttention融合为 $I^f$
     - 设计动机：相位谱编码结构和边缘，对域偏移比幅度谱更鲁棒。丢弃幅度天然消除了部分域特定因素（如风格、颜色分布）
 
 3. **Text-Phase双先验协同融合**:
 
-    - 做什么：通过cross-attention让文本先验和相位先验协同指导域不变表征学习
+    - 功能：通过cross-attention让文本先验和相位先验协同指导域不变表征学习
     - 核心思路：域提示文本特征 $T'$ 做Query，融合视觉特征 $I^f$ 做Key/Value，$I' = \text{CrossAttention}(T'; I^f)$。用prototype交叉熵 $\mathcal{L}_{pce}$ 和图文对比 $\mathcal{L}_{i2tce}$（带标签平滑）联合训练。Prototype动量更新 $\mathcal{P} \leftarrow m\mathcal{P} + (1-m)I'$
     - 设计动机：文本先验提供语义引导方向，相位先验消除域偏移，cross-attention让两者在特征空间中互补增强
 

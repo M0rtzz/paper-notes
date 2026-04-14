@@ -41,13 +41,13 @@ All-in-One Slider 包含两个阶段：
 ### 关键设计
 1. **Embedding Extraction（嵌入提取）**:
 
-    - 做什么：从 SDXL 双文本编码器的中间层提取隐藏状态
+    - 功能：从 SDXL 双文本编码器的中间层提取隐藏状态
     - 核心思路：从第一个编码器的第 11 层和第二个编码器的第 29 层提取特征，拼接形成联合表示 $x \in \mathcal{D}$
     - 设计动机：中间层同时保留语义信息和身份特征，浅层太底层、深层太语义化
 
 2. **Attribute Sparse Autoencoder（属性稀疏自编码器）**:
 
-    - 做什么：将文本嵌入映射到高维稀疏潜在空间（Attribute Latent Space），实现属性解耦
+    - 功能：将文本嵌入映射到高维稀疏潜在空间（Attribute Latent Space），实现属性解耦
     - 核心思路：编码器使用 top-k 稀疏激活：
     $z_{\text{ALS}} = \text{Top-}k(\text{ReLU}(W_{\text{enc}}(x - b_{\text{pre}}) + b_{\text{enc}}))$
       解码器重建原始嵌入：$\hat{x} = W_{\text{dec}} z_{\text{ALS}} + b_{\text{pre}}$
@@ -58,7 +58,7 @@ All-in-One Slider 包含两个阶段：
 
 3. **Attribute Manipulation（属性操控）**:
 
-    - 做什么：推理时通过修改文本嵌入实现连续、细粒度的属性控制
+    - 功能：推理时通过修改文本嵌入实现连续、细粒度的属性控制
     - 核心思路：对目标属性 $A$ 编码后在潜在空间得到方向，按标量 $\lambda$ 缩放添加到原始嵌入：
     $x_{\text{manipulated}} = x + W_{\text{dec}}(\lambda \times \text{ENC}(x_A))$
       $\lambda$ 控制操控强度，正值增强、负值减弱

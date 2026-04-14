@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.16947](https://arxiv.org/abs/2508.16947)  
 **代码**: 待确认  
 **领域**: autonomous_driving  
-**关键词**: Autonomous Driving, Diffusion Model, GRPO, Motion Planning, Driving Preferences  
+**关键词**: autonomous driving, diffusion model, GRPO, Motion Planning, Driving Preferences
 
 ## 一句话总结
 
@@ -43,16 +43,16 @@ tags:
 M-Diffusion Planner 包含三个核心组件：
 
 1. **编码器**：MLP-Mixer + Transformer
-   - MLP-Mixer 对车道线、导航路线、动态物体、静态障碍等异构输入在 token 和 channel 维度交替混合，生成紧凑定长嵌入
-   - Transformer 通过自注意力建模交通参与者之间的时空依赖关系
+    - MLP-Mixer 对车道线、导航路线、动态物体、静态障碍等异构输入在 token 和 channel 维度交替混合，生成紧凑定长嵌入
+    - Transformer 通过自注意力建模交通参与者之间的时空依赖关系
 
 2. **多头扩散解码器**：基于 DiT（Diffusion Transformer）架构
-   - 多个输出头对应不同驾驶策略（base/aggressive/conservative/comfortable）
-   - 基于场景编码和高层策略标识符条件生成轨迹
+    - 多个输出头对应不同驾驶策略（base/aggressive/conservative/comfortable）
+    - 基于场景编码和高层策略标识符条件生成轨迹
 
 3. **LLM 语义解释器**：作为用户与规划器之间的桥梁
-   - 将自然语言指令（如"请开快一点"、"注意安全"）解析为结构化策略标识符
-   - 策略在执行期间持续生效，除非用户显式修改
+    - 将自然语言指令（如"请开快一点"、"注意安全"）解析为结构化策略标识符
+    - 策略在执行期间持续生效，除非用户显式修改
 
 ### 训练阶段
 

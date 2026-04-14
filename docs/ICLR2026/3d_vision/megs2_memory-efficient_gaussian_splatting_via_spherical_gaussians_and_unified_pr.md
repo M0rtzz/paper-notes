@@ -47,19 +47,19 @@ tags:
 
 1. **任意方向可剪枝球面高斯(SG)替代SH**：
 
-    - 做什么：用SG完全替代SH作为视角依赖颜色的表示
+    - 功能：用SG完全替代SH作为视角依赖颜色的表示
     - 核心思路：每个primitive的颜色 $c(\mathbf{v}) = c_0 + \sum_{i=1}^n G(\mathbf{v}; \mu_i, s_i, a_i)$，其中 $c_0$ 是漫反射分量，每个SG lobe由方向轴 $\mu_i$、锐度 $s_i$、RGB幅度 $a_i$ 定义。关键是lobe方向不约束为正交——任意方向提供更高自由度
     - 设计动机：3阶SH需48个参数(16系数x3通道)，3-lobe SG只需约一半参数且能更好捕捉局部高频细节。固定正交轴的SG(SG-Splatting)会导致0.6dB PSNR下降，任意方向SG避免了这个问题。SG的lobe数量可变——natural fit for pruning
 
 2. **统一软剪枝框架(ADMM-inspired)**：
 
-    - 做什么：将primitive数量裁剪和每个primitive的lobe数量裁剪统一为单一内存约束优化问题
+    - 功能：将primitive数量裁剪和每个primitive的lobe数量裁剪统一为单一内存约束优化问题
     - 核心思路：优化目标 $\min \mathcal{L}(\mathbf{o}, \mathbf{s}, \Theta)$，约束 $\rho_o \|\mathbf{o}\|_0 + \rho_s \|\mathbf{s}\|_0 \leq \kappa$，其中 $\rho_o=11$(每个primitive的基础参数), $\rho_s=7$(每个SG lobe的参数), $\kappa$ 是总参数预算。由于L0范数不可微，引入ADMM代理变量分解为可解的子问题：梯度步+近端投影步+对偶更新
     - 设计动机：顺序剪枝(先减primitive再减lobe)会陷入次优——因为两者的最优分配是耦合的。统一框架在总预算约束下自动找到primitive数量和lobe数量的最优权衡。实验证明统一优于顺序
 
 3. **后处理：颜色补偿**：
 
-    - 做什么：移除低sharpness的lobe时补偿其对漫反射颜色的贡献
+    - 功能：移除低sharpness的lobe时补偿其对漫反射颜色的贡献
     - 核心思路：移除lobe $i$ 后，计算补偿项 $\Delta c_0 = a_i \cdot \frac{1 - e^{-2s_i}}{2s_i}$，更新漫反射颜色 $c_0' = c_0 + \Delta c_0$。这是通过最小化球面上颜色差异的积分推导出的解析解
     - 设计动机：直接移除低shaprness lobe会丢失其对平均颜色的贡献，导致整体色偏。解析补偿几乎无额外开销地恢复能量
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.12245](https://arxiv.org/abs/2603.12245)  
 **代码**: [https://snap-research.github.io/elit](https://snap-research.github.io/elit) (有)  
 **领域**: 图像生成 / 模型压缩 / 扩散模型  
-**关键词**: Diffusion Transformer, 弹性推理, 潜在接口, 可变计算预算, 自适应计算分配  
+**关键词**: 扩散 Transformer, 弹性推理, 潜在接口, 可变计算预算, 自适应计算分配
 
 ## 一句话总结
 提出ELIT（Elastic Latent Interface Transformer），通过在DiT中插入可变长度的潜在token接口和轻量级Read/Write交叉注意力层，将计算量与输入分辨率解耦，使单一模型支持多种推理预算，在ImageNet-1K 512px上FID和FDD分别提升35.3%和39.6%。

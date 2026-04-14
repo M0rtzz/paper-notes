@@ -47,19 +47,19 @@ tags:
 
 1. **长度控制的数据集构建**:
 
-    - 做什么：从 CANDELA 语料库（Reddit r/ChangeMyView）重建并精炼出 150 对高质量论点-反驳论证对，每个反驳限制为 3 句话
+    - 功能：从 CANDELA 语料库（Reddit r/ChangeMyView）重建并精炼出 150 对高质量论点-反驳论证对，每个反驳限制为 3 句话
     - 核心思路：原始数据平均 30 句/921 词的反驳被压缩为 3 句/72 词。使用 Llama-3.1-70B（非实验模型）进行摘要生成，再经人工校验和结构化处理
     - 设计动机：过长的反驳难以准确评估，过短的又不足以体现论证复杂性。3 句话在简洁性和表达力之间取得平衡
 
 2. **动态网络知识检索**:
 
-    - 做什么：通过 Cohere API 的网络搜索工具自动检索与论点相关的最新事实证据
+    - 功能：通过 Cohere API 的网络搜索工具自动检索与论点相关的最新事实证据
     - 核心思路：自动生成 5 个挑战性查询，专门质疑原论点的关键主张和前提，检索结果作为上下文信息纳入最终提示
     - 设计动机：静态数据库（如 Wikipedia）无法覆盖最新事件，且内容可能与动态论证话题不匹配。网络搜索不受特定来源限制
 
 3. **LLM-as-a-Judge 评估方法**:
 
-    - 做什么：使用 Prometheus、JudgeLM 和 Claude 3.5 Sonnet 三个模型作为自动评估器，按五个维度（Opposition/Relatedness/Specificity/Factuality/Persuasiveness）进行 3 点 Likert 量表评分
+    - 功能：使用 Prometheus、JudgeLM 和 Claude 3.5 Sonnet 三个模型作为自动评估器，按五个维度（Opposition/Relatedness/Specificity/Factuality/Persuasiveness）进行 3 点 Likert 量表评分
     - 核心思路：通过 Spearman 秩相关系数验证 LLM-as-a-Judge 与人类判断的对齐度。Claude 3.5 Sonnet 达到 ρ=0.82（强相关），远超参考度量
     - 设计动机：手动评估昂贵且主观，而 BLEU/METEOR/BERTScore 与人类偏好相关性极低
 

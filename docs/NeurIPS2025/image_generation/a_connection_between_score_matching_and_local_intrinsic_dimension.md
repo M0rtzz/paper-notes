@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.12975](https://arxiv.org/abs/2510.12975)  
 **代码**: 无  
 **领域**: 扩散模型 / 生成模型理论  
-**关键词**: score matching, local intrinsic dimension, diffusion model, LID estimation, denoising loss  
+**关键词**: score matching, local intrinsic dimension, diffusion model, LID estimation, denoising loss
 
 ## 一句话总结
 证明去噪得分匹配损失（denoising score matching loss）的下界恰好是数据流形的局部固有维度（LID），从而将 DSM loss 本身作为一个高效的 LID 估计器——无需梯度计算或多次前向传播，在 Stable Diffusion 3.5 上内存占用仅为 FLIPD 的 60%，且量化后估计更稳定。
@@ -49,19 +49,19 @@ tags:
 
 1. **Theorem 3.1: DSM Loss 下界**
 
-    - 做什么：证明 $\mathbb{E}_x[\mathcal{L}_{\text{DSM}}(x, \sigma, \theta)] \geq d$，其中 $d$ 是流形的固有维度。
+    - 功能：证明 $\mathbb{E}_x[\mathcal{L}_{\text{DSM}}(x, \sigma, \theta)] \geq d$，其中 $d$ 是流形的固有维度。
     - 核心思路：将噪声 $\epsilon$ 分解到 $d$ 维切空间和 $(n-d)$ 维法空间。法空间方向上，扩散模型可以完美去噪（因为流形在法方向是 Dirac delta），条件熵 $h(\epsilon_i | \tilde{x}) = -\infty$，MSE 下界为 0。切空间方向上，$\epsilon_i$ 给定 $\tilde{x}$ 后的条件分布仍然接近标准高斯（因为流形在切方向有连续分布），条件熵约为 $\frac{1}{2}\log 2\pi e$，通过熵功率不等式得到 MSE 下界为 1。总共 $d$ 个切方向，每个贡献至少 1，所以总 DSM loss ≥ $d$。
     - 设计动机：这个下界在最优得分模型参数下取等号，因此 DSM loss 直接估计 LID。直觉上，扩散模型"知道"数据住在什么维度的流形上——它能去掉法方向的噪声但去不掉切方向的。
 
 2. **Theorem 3.3: ISM Loss 下界**
 
-    - 做什么：证明 ISM loss $\geq -(n-d)$，即下界是负的法空间维度。
+    - 功能：证明 ISM loss $\geq -(n-d)$，即下界是负的法空间维度。
     - 核心思路：利用最优得分函数 $s_{\theta^*} = \nabla \log p$ 的性质，在法方向上散度为 $-\sigma^{-2}$（因为分布在法方向是高斯），在切方向上散度为 0（因为分布在切方向局部均匀）。
     - 设计动机：揭示了 FLIPD（当前 SOTA LID 估计器）与 ISM loss 的密切关系——FLIPD = ISM loss + score 范数 + n，因此 FLIPD 也以 LID 为下界。
 
 3. **Error Bundle (EB) 方法与 Normal Bundle 的联系**
 
-    - 做什么：将 DSM loss 与 Normal Bundle 方法在谱分析层面统一。
+    - 功能：将 DSM loss 与 Normal Bundle 方法在谱分析层面统一。
     - 核心思路：Normal Bundle 方法对噪声预测矩阵做 SVD 数非零奇异值来估计法空间维度。作者提出 Error Bundle 变体——对误差矩阵 $B$ 的 Gram 矩阵 $C' = B^TB/m$ 做分析，其迹 trace$(C')$ 就等于 DSM loss，而非零特征值个数不超过 $d$。关键优势是 DSM loss（迹）在样本量 $m$ 很小时就准确（如 $m=8$），而 NB/EB 计数方法需要 $m$ 至少等于 LID/法空间维度。
 
 ### 损失函数 / 训练策略

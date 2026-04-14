@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Transformer-based LLM 在各种 NLP 任务上表现卓越，但数学推理仍是短板。各种策略（CoT prompting、inference-time search）虽有改善，但对 LLM 数学能力的内在限制理解不足。
+
 **现有痛点**：(a) 已有理论分析（Feng et al., 2023; Yang et al., 2024）假设每个整数是一个独立 token，与实际 LLM 的 tokenization 不符（现代 LLM 将数字切成最多 3 位一组的 token）；(b) 实践中低精度量化（int4, float8）导致数学能力显著下降，但缺乏理论解释。
+
 **核心矛盾**：数值精度如何影响 Transformer 的算术表达能力？低精度模型在算术任务上为什么会失败？
+
 **本文要解决什么**：为三类基本算术任务（整数加法、迭代加法、整数乘法）提供严格的表达能力界——低精度下的不可能性结果 + 标准精度下的可解性证明。
+
 **切入角度**：将 Transformer 建模为计算电路，利用电路复杂度类 $\mathsf{AC}^0$ 和 $\mathsf{TC}^0$ 的分离结果分析精度对表达能力的影响。
+
 **核心 idea**：低精度 Transformer（常数位宽）的表达能力被限制在 $\mathsf{AC}^0$，而迭代加法/乘法超出 $\mathsf{AC}^0$；标准精度（$O(\log n)$ 位）使 Transformer 升级到 $\mathsf{TC}^0$，足以高效求解所有算术任务。
 
 ## 方法详解
@@ -47,14 +52,14 @@ tags:
 
 1. **低精度不可能性结果（Theorems 4.2, 4.3）**
 
-    - 做什么：证明常数精度（每个神经元 $c$ bit）bounded-depth Transformer 需要超多项式规模才能求解迭代加法和乘法
+    - 功能：证明常数精度（每个神经元 $c$ bit）bounded-depth Transformer 需要超多项式规模才能求解迭代加法和乘法
     - 核心思路：将常数精度 Transformer 建模为 $\mathsf{AC}^0$ 电路（多项式大小、常数深度、无界扇入 AND/OR 门）。利用经典结果——Majority 函数不在 $\mathsf{AC}^0$ 中（Razborov, 1987）——通过归约证明 $\text{IterADD}$ 和 $\text{MUL}$ 也不在 $\mathsf{AC}^0$ 中
     - 设计动机：低精度下单个神经元无法存储中间计算结果（如进位链的累积），需要超多项式数量的神经元来分布式存储，导致模型规模爆炸
     - 特殊情况：简单的两整数加法 $\text{ADD}$ 可以在 $\mathsf{AC}^0$ 中求解（Theorem 4.1），只需 $O(n^2)$ 宽度
 
 2. **标准精度可解性证明（Theorems 5.1-5.3）**
 
-    - 做什么：构造性证明 $O(\log n)$ 精度 Transformer 可高效求解全部三类任务
+    - 功能：构造性证明 $O(\log n)$ 精度 Transformer 可高效求解全部三类任务
     - 核心思路：对数精度 Transformer 的表达能力对应 $\mathsf{TC}^0$（包含 Majority 门）。具体构造方案：
       - $\text{ADD}_p(n)$：常数深度 + 常数宽度（独立于 $n$）
       - $\text{IterADD}_p(n,k)$：常数深度 + 常数宽度（独立于 $n$ 和 $k$）
@@ -63,7 +68,7 @@ tags:
 
 3. **从 $\mathsf{AC}^0$ 到 $\mathsf{TC}^0$ 的关键跃迁**
 
-    - 做什么：解释精度提升的本质
+    - 功能：解释精度提升的本质
     - 核心思路：常数精度 → $\mathsf{AC}^0$（无 Majority），对数精度 → $\mathsf{TC}^0$（含 Majority）。这不是渐进改进而是复杂度类的质变——即使精度只从 8 bit 提到 32 bit（常数 → 对数），也能跨越 $\mathsf{AC}^0/\mathsf{TC}^0$ 分界
     - 实际含义：float32 对数学推理不是"奢侈"而是"必需"
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2410.03600](https://arxiv.org/abs/2410.03600)  
 **代码**: [https://github.com/XuandongZhao/llm-watermark-location](https://github.com/XuandongZhao/llm-watermark-location)  
 **领域**: AI 安全 / 文本水印检测  
-**关键词**: watermark detection, mixed-source text, geometric cover, online learning, watermark localization  
+**关键词**: watermark detection, mixed-source text, geometric cover, online learning, watermark localization
 
 ## 一句话总结
 提出两种高效方法（Geometric Cover Detector 和 Adaptive Online Locator）用于在长文混合来源文本中检测和精确定位水印片段，时间复杂度从 O(n²) 降至 O(n log n)，在三种主流水印技术上均显著优于 baseline。

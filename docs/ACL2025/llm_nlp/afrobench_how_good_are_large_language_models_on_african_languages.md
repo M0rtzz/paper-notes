@@ -2,14 +2,15 @@
 title: >-
   [论文解读] AfroBench: How Good are Large Language Models on African Languages?
 description: >-
-  [ACL 2025][多语言NLP][非洲语言] 提出AfroBench——一个覆盖64种非洲语言、15个任务、22个数据集的综合基准，系统评估12个开闭源LLM在非洲语言上的表现，发现GPT-4o和Gemini-1.5 pro领先开源模型12分以上，但仍远落后于英语表现和微调模型。
+  [ACL 2025][LLM/NLP][非洲语言] 提出AfroBench——覆盖64种非洲语言、15个NLP任务、22个数据集的综合评测基准，评估12个LLM发现闭源模型(GPT-4o)领先最佳开源模型(Gemma 2 27B)约12分，但所有LLM仍落后于微调基线，与英语的差距在开源模型上超过40分。
 tags:
   - ACL 2025
-  - 多语言NLP
+  - LLM/NLP
   - 非洲语言
-  - LLM评测
   - 低资源语言
-  - 基准测试
+  - 多语言基准
+  - LLM评测
+  - 公平性
 ---
 
 # AfroBench: How Good are Large Language Models on African Languages?
@@ -49,12 +50,12 @@ AfroBench聚合22个数据集，覆盖15个任务(9个NLU + 6个NLG + 6个知识
     - 推理：数学推理(AfriMGSM)
 
 2. **AfroBench-Lite**:
-    - 做什么：提供含14种代表性语言和7个任务的轻量版本
+    - 功能：提供含14种代表性语言和7个任务的轻量版本
     - 核心思路：语言选择涵盖不同资源水平和类型学多样性(Swahili, Hausa, Amharic, Igbo, Yorùbá等)
     - 设计动机：降低评估成本，方便新模型快速上榜
 
 3. **AfriADR新数据集**:
-    - 做什么：自动变音符号还原任务，覆盖5种语言(Ghomálá', Fon, Igbo, Wolof, Yorùbá)
+    - 功能：自动变音符号还原任务，覆盖5种语言(Ghomálá', Fon, Igbo, Wolof, Yorùbá)
     - 核心思路：去除句子中所有变音符号作为输入，要求模型恢复正确变音
     - 设计动机：变音符号对非洲语言的语义至关重要，且此任务LLM不熟悉
 

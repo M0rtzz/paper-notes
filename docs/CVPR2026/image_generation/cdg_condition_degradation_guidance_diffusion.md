@@ -9,7 +9,7 @@ tags:
   - CFG替代
   - 条件退化引导
   - 组合语义
-  - text-to-image
+  - 文生图
   - 语义控制
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.10780]([https://arxiv.org/abs/2603.10780](https://arxiv.org/abs/2603.10780))  
 **代码**: 有 ([https://github.com/Ming-321/Classifier-Degradation-Guidance](https://github.com/Ming-321/Classifier-Degradation-Guidance))  
 **领域**: 扩散模型 / 图像生成 / 组合生成  
-**关键词**: CFG替代, 条件退化引导, 组合语义, text-to-image, 语义控制  
+**关键词**: CFG替代, 条件退化引导, 组合语义, 文生图, 语义控制
 
 ## 一句话总结
 提出CDG替代CFG——用语义退化条件替代空null prompt作为负面引导，将引导信号从粗粒度"好vs空"变为精细"好vs差一点"，在SD3/FLUX/Qwen-Image上显著提升组合精度，零额外计算。

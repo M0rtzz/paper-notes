@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.09664](https://arxiv.org/abs/2505.09664)  
 **代码**: 待确认  
 **领域**: model_compression  
-**关键词**: Gene Regulatory Network, Knowledge Distillation, Prior-Free Inference, Temporal Attention, Single-Cell RNA-seq  
+**关键词**: Gene Regulatory Network, knowledge distillation, Prior-Free Inference, Temporal Attention, Single-Cell RNA-seq
 
 ## 一句话总结
 
@@ -31,8 +31,8 @@ tags:
 
 1. **搜索空间巨大**：对于全基因组约 30,000 个基因，潜在的 TF-TG 交互对约有 10 亿个，仅依赖表达数据的方法性能受限
 2. **先验依赖的局限性**：当前主流方法依赖 scATAC-seq、Hi-C 等外部先验来缩小搜索空间，但存在两大问题：
-   - 算法性能高度依赖先验与真实网络的重叠程度，先验不准则性能崩塌
-   - 限制在已知交互中搜索，无法发现新的调控关系，严重制约科学发现的潜力
+    - 算法性能高度依赖先验与真实网络的重叠程度，先验不准则性能崩塌
+    - 限制在已知交互中搜索，无法发现新的调控关系，严重制约科学发现的潜力
 3. **实际需求**：非模式生物、新兴病理状态等场景中，可靠的先验网络往往不可得
 
 作者受 **privileged information learning**（特权信息学习）范式启发，提出了一种全新的策略：训练阶段利用先验辅助教师模型学习，然后通过知识蒸馏将调控知识迁移到完全不需要先验的学生模型。
@@ -108,12 +108,12 @@ $$\hat{\mathbf{A}} = \frac{1}{H}\sum_{g=1}^{H}\mathbf{A}^{(g)}$$
 ### 生物学验证
 
 1. **关键 TF 识别（mESC）**：KINDLE 成功识别 25 个关键 TF，其中 18 个（72%）在已有文献中被证实参与 mESC 分化。层级聚类揭示了两组反相激活模式：
-   - 早期调控因子（Nanog、Sox2、Nr0b1 等）：在分化初期高度活跃，之后逐渐衰减，与维持干细胞多能性的已知功能一致
-   - 晚期调控因子（Gata4、Sox17、Kdm5b 等）：初期沉默，从第三阶段开始显著激活，符合谱系特化机制
+    - 早期调控因子（Nanog、Sox2、Nr0b1 等）：在分化初期高度活跃，之后逐渐衰减，与维持干细胞多能性的已知功能一致
+    - 晚期调控因子（Gata4、Sox17、Kdm5b 等）：初期沉默，从第三阶段开始显著激活，符合谱系特化机制
 
 2. **体外扰动预测（mHSC）**：
-   - 敲除 **Gata1**：红系细胞（CMP、MEP）的扰动向量与分化方向相反，表明分化受抑制 → 与实验一致
-   - 敲除 **Spi1**：CMP 向红系方向分化被促进，LMPP/GMP 分化受抑制 → 与实验一致
+    - 敲除 **Gata1**：红系细胞（CMP、MEP）的扰动向量与分化方向相反，表明分化受抑制 → 与实验一致
+    - 敲除 **Spi1**：CMP 向红系方向分化被促进，LMPP/GMP 分化受抑制 → 与实验一致
 
 ## 亮点
 

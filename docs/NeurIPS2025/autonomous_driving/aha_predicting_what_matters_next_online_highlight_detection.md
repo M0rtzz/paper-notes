@@ -1,7 +1,18 @@
 ---
-description: "Aha提出首个面向在线高亮检测的自回归框架，利用多目标预测头和Dynamic SinkCache，在严格无未来帧约束下在TVSum和Mr.Hisum上超越离线方法5.9%和8.3%。"
-tags: [online-highlight-detection, video-understanding, streaming, VLM, autoregressive]
+title: >-
+  [论文解读] Aha: Predicting What Matters Next — Online Highlight Detection Without Looking Ahead
+description: >-
+  [NeurIPS 2025][自动驾驶][在线高亮检测] Aha提出首个面向在线高亮检测（OHD）的自回归框架，通过解耦的多目标预测头（相关性/信息量/不确定性）和新颖的Dynamic SinkCache内存机制，在严格不使用未来帧的约束下，于TVSum和Mr.Hisum基准上分别以+5.9%和+8.3% mAP超越此前离线方法。
+tags:
+  - NeurIPS 2025
+  - 自动驾驶
+  - 在线高亮检测
+  - 流式视频
+  - 自回归
+  - 视频语言模型
+  - 不确定性建模
 ---
+
 # Aha: Predicting What Matters Next — Online Highlight Detection Without Looking Ahead
 
 **会议**: NeurIPS 2025  
@@ -35,17 +46,17 @@ Aha包含四个组件：(1) 冻结的SigLIP视觉编码器提取帧特征；(2) 
 ### 关键设计
 
 1. **多目标解耦预测头**:
-    - 做什么：从解码器隐状态 $h_t$ 预测三个互补信号——相关性、信息量和不确定性
+    - 功能：从解码器隐状态 $h_t$ 预测三个互补信号——相关性、信息量和不确定性
     - 核心思路：相关性头 $\hat{r}_t = W_r h_t$ 用Smooth L1 + TV正则化监督（$\mathcal{L}_{rel-total} = \mathcal{L}_{rel} + \lambda_{TV}\mathcal{L}_{TV}$）；信息量头预测帧是否引入新信息（BCE监督）；不确定性头预测高斯方差（NLL + 方差多样性惩罚防止模式坍缩）
     - 设计动机：HD不仅需要"与任务相关"，还需要"信息新颖"且"预测可靠"。解耦设计允许各头独立优化互补目标
 
 2. **Dynamic SinkCache**:
-    - 做什么：实现恒定内存开销的无限长流式推理
+    - 功能：实现恒定内存开销的无限长流式推理
     - 核心思路：改进SinkCache，将sink区域专门用于任务描述文本token（~45 tokens），滑动窗口（2048 tokens）用于近期视觉上下文。形式化为 $\mathcal{K}_t = \{\mathcal{Q}, k_{t-n:t}\}$，仅需标准缓存17%的内存
     - 设计动机：标准KV缓存随序列线性增长会导致OOM；静态SinkCache用通用初始token作sink缺乏针对性；Dynamic SinkCache保留任务目标实现长程语义对齐
 
 3. **不确定性感知融合评分**:
-    - 做什么：将三个头的输出融合为最终高亮分数
+    - 功能：将三个头的输出融合为最终高亮分数
     - 核心思路：分段线性函数 $\hat{y}_t = \alpha\hat{i}_t + \beta\hat{r}_t - \epsilon(\hat{u}_t - \tau_u)\mathbf{1}[\hat{u}_t > \tau_u]$，低不确定性时直接加权融合，高不确定性时抑制分数
     - 设计动机：不确定性高意味着模型对当前帧判断不可靠，应降低其影响
 

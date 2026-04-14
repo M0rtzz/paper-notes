@@ -52,9 +52,9 @@ DropAnSH-GS 在 3DGS 训练流程中加入两个正则化策略：
 
 1. **Anchor-based Dropout**：分三步执行：
 
-   - **锚点选择**：以采样率 $p_a$ 从全部 $N$ 个 Gaussian $\mathcal{G}$ 中随机选取锚点子集 $\mathcal{A}$
-   - **邻域构建**：对每个锚点，在欧氏空间中找到 $k$ 个最近邻 Gaussian
-   - **结构化丢弃**：将所有锚点及其邻域收集到丢弃集 $\mathcal{D}$，通过二值 mask $m_i$ 将其不透明度设为 0：
+    - **锚点选择**：以采样率 $p_a$ 从全部 $N$ 个 Gaussian $\mathcal{G}$ 中随机选取锚点子集 $\mathcal{A}$
+    - **邻域构建**：对每个锚点，在欧氏空间中找到 $k$ 个最近邻 Gaussian
+    - **结构化丢弃**：将所有锚点及其邻域收集到丢弃集 $\mathcal{D}$，通过二值 mask $m_i$ 将其不透明度设为 0：
 
    $$\hat{\alpha}_i = \alpha_i \cdot m_i, \quad m_i = \begin{cases} 0 & G_i \in \mathcal{D} \\ 1 & \text{otherwise} \end{cases}$$
 

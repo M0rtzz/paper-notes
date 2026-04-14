@@ -176,9 +176,9 @@ OLA句法依赖预测（UAS/LAS %）：
 1. **Order-Level Attention (OLA) 分解**: 从 Attention Rollout 出发，将信息流分解为多条路径。一个 N 层模型有 $2^N$ 条可能路径。Attention Rollout $\hat{A} = \prod_{i=1}^N (A^{(i)} + I)$ 可展开为：$\hat{A} = I + \sum_{i}A^{(i)} + \sum_{i<j}A^{(j)}A^{(i)} + \cdots$。第 k 阶 OLA 为 $\hat{A}^{(k)}$，即经过 k 次注意力聚合的路径效果的归一化。例如一阶 OLA 为 $\hat{A}^{(1)} = \frac{1}{N}\sum_{i=1}^N A^{(i)}$。这种分解消除了不同模型因层数差异导致的不可比性，赋予相同阶次的注意力以统一语义。
 
 2. **OLAS 现象验证**: 
-   - **定性分析**：可视化不同 LM（如 Qwen2-1.5b 和 Llama3.2-3b）对相同文本的 OLA，发现同阶 OLA 高度相似，而不同文本的 OLA 有明显区分度。高阶 OLA 的 attention sink 现象更严重，说明低阶 OLA 包含更有效的聚合信息。
-   - **基于视觉分类模型的定量分析**：训练 ResNet-18 将源 LM 的 OLA 图分类为对应文本，然后在目标 LM 的 OLA 上测试。一阶 OLA 在 CLM 上超过 90% 的分类准确率。
-   - **基于图像检索的定量分析**：使用 SSIM 度量 OLA 图之间的相似度。一阶 OLA 的 Hits@5 在 CLM 上最低 89%，最高超过 97%。
+    - **定性分析**：可视化不同 LM（如 Qwen2-1.5b 和 Llama3.2-3b）对相同文本的 OLA，发现同阶 OLA 高度相似，而不同文本的 OLA 有明显区分度。高阶 OLA 的 attention sink 现象更严重，说明低阶 OLA 包含更有效的聚合信息。
+    - **基于视觉分类模型的定量分析**：训练 ResNet-18 将源 LM 的 OLA 图分类为对应文本，然后在目标 LM 的 OLA 上测试。一阶 OLA 在 CLM 上超过 90% 的分类准确率。
+    - **基于图像检索的定量分析**：使用 SSIM 度量 OLA 图之间的相似度。一阶 OLA 的 Hits@5 在 CLM 上最低 89%，最高超过 97%。
 
 3. **OLA 与句法知识的隐式映射**: 实验表明仅使用 OLA 表示就能预测句法依存关系（Universal Dependencies），说明 OLA 内在编码了输入文本的句法知识。
 

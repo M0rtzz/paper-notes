@@ -6,10 +6,10 @@ description: >-
 tags:
   - ICLR 2026
   - 离线 RL
-  - model-based RL
+  - 基于模型的强化学习
   - Bayes Adaptive MDP
   - MCTS
-  - uncertainty quantification
+  - 不确定性量化
   - deep ensemble
 ---
 
@@ -19,18 +19,21 @@ tags:
 **arXiv**: [2410.11234](https://arxiv.org/abs/2410.11234)  
 **代码**: 无  
 **领域**: 强化学习 / 离线 RL / 模型基方法  
-**关键词**: 离线 RL, model-based RL, Bayes Adaptive MDP, MCTS, uncertainty quantification, deep ensemble
+**关键词**: 离线 RL, 基于模型的强化学习, Bayes Adaptive MDP, MCTS, 不确定性量化, deep ensemble
 
 ## 一句话总结
 首次将贝叶斯自适应 MDP（BAMDP）引入离线模型基 RL，提出 Continuous BAMCP 解决连续状态/动作空间的贝叶斯规划，结合悲观奖励惩罚和搜索基策略迭代（"RL + Search"范式），在 D4RL 12 个任务上显著超越 19 个基线（Cohen's $d > 1.8$），并成功应用于核聚变 tokamak 控制。
 
 ## 研究背景与动机
 **领域现状**：离线 MBRL 从静态数据集学习 ensemble 世界模型，用模型 rollout 优化策略。MOBILE、CBOP、RAMBO 等是 SOTA 方法。
+
 **现有痛点**：
    - 多个 MDP 在离线数据集上行为相同但在 OOD 区域不同——需要处理模型不确定性
    - 现有方法**统一对待** ensemble 成员（如均匀采样一个模型做预测），未利用动态信念更新
    - 不同 ensemble 成员在不同状态-动作区域的准确度不同，但缺乏机制让 agent 适应性地信任更精确的成员
+
 **核心矛盾**：BAMDP 提供了原理化的不确定性处理框架（通过贝叶斯后验动态更新模型信念），但现有 BAMCP 算法仅适用于离散空间且需要真实世界模型
+
 **核心 idea**：将离线 MBRL 建模为 BAMDP + 提出连续空间 BAMCP + 悲观奖励惩罚 + 搜索结果蒸馏到策略网络——实现 "RL + Search"（类似 AlphaZero）的离线 MBRL 范式
 
 ## 方法详解
@@ -42,7 +45,7 @@ tags:
 
 1. **BAMDP 建模与信念更新**
 
-    - 做什么：将 ensemble 模型的不确定性显式建模为 BAMDP——信息状态 $(s, b)$ 包含物理状态和当前模型信念
+    - 功能：将 ensemble 模型的不确定性显式建模为 BAMDP——信息状态 $(s, b)$ 包含物理状态和当前模型信念
     - 信念更新（Eq. 4）：$b'(\theta)(i) \propto b(\theta)(i) \cdot \mathcal{P}_\theta^i(s'|s,a) \cdot \mathcal{R}_\theta^i(r|s,a)$
     - 初始先验：$b_0 = [1/K, \ldots, 1/K]$（均匀分布，因 ensemble 是 IID 采样）
     - 随规划深入，信念动态调整——准确预测转移的模型被赋予更高权重
@@ -50,7 +53,7 @@ tags:
 
 2. **Continuous BAMCP（连续空间贝叶斯规划）**
 
-    - 做什么：扩展 BAMCP 到连续状态/动作空间 + 随机转移
+    - 功能：扩展 BAMCP 到连续状态/动作空间 + 随机转移
     - 核心技术：Double Progressive Widening (DPW) + PUCT 搜索规则
       - DPW：维护有限子节点列表，基于访问计数 $\lfloor N^{\alpha} \rfloor$ 控制扩展速率——新动作/新状态只在访问足够后添加
       - 原始 BAMCP 的 root sampling 在 DPW 下不成立（Lemma A.1 的等式不再成立），需要改为 PUCT 方式
@@ -59,14 +62,14 @@ tags:
 
 3. **悲观 BAMDP（P-BAMDP）**
 
-    - 做什么：在 BAMDP 之上添加悲观奖励惩罚，防止在高不确定性区域过度乐观
+    - 功能：在 BAMDP 之上添加悲观奖励惩罚，防止在高不确定性区域过度乐观
     - 惩罚项（Eq. 5）：$\tilde{r} = r - \lambda \cdot \text{std}[r^i + \gamma \mathbb{E}_{s'^i, a'} Q_{\psi^-}(s'^i, a')]_{i=1}^K$
     - 不同于仅惩罚 next-state 预测的分歧（如 MOPO/MOReL），这里惩罚的是**一步前瞻 Q 值目标**的标准差——更准确地反映 agent 在该状态-动作对上的不确定性
     - 设计动机：即使 BAMDP 能适应性地信任模型，仍可能存在所有模型都不准的区域。悲观惩罚提供安全保障
 
 4. **搜索基策略迭代（"RL + Search"）**
 
-    - 做什么：将 Continuous BAMCP 搜索结果蒸馏到 actor-critic 网络
+    - 功能：将 Continuous BAMCP 搜索结果蒸馏到 actor-critic 网络
     - Actor 更新：对每个采样状态 $s$，BAMCP 搜索返回改进策略 $\pi_{ret}(a|s)$（按访问计数分布），用 KL 散度 $D_{KL}(\pi_{ret} \| \pi)$ 做策略蒸馏
     - Critic 更新：搜索返回的值估计 $v_{ret}$ 用于更新 Q 网络（SAC 风格）
     - 设计动机：类似 AlphaZero——搜索提供更强的策略评估/改进信号，蒸馏到网络后可实时部署。纯搜索（无蒸馏）只能给出单状态决策，无法泛化

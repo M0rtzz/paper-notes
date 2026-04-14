@@ -10,7 +10,7 @@ tags:
   - Abnormality Detection
   - Visual Localization
   - 强化学习
-  - Instruction Tuning
+  - instruction tuning
   - Abnormal-Aware Reward
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2501.01377](https://arxiv.org/abs/2501.01377)  
 **代码**: 未公开  
 **领域**: Multimodal VLM / 医学图像分析  
-**关键词**: Medical LVLM, Abnormality Detection, Visual Localization, Reinforcement Learning, Instruction Tuning, Abnormal-Aware Reward
+**关键词**: Medical LVLM, Abnormality Detection, Visual Localization, Reinforcement Learning, instruction tuning, Abnormal-Aware Reward
 
 ## 一句话总结
 
@@ -29,10 +29,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: Med-LVLMs（如 LLaVA-Med、MedVInt、Med-Flamingo）已能理解医学图像并回答问题，但在**视觉定位**（尤其是异常区域定位）方面存在显著缺陷。即使 GPT-4V 在医学图像的模态识别和解剖结构辨认上表现良好，在疾病诊断和精确定位方面仍有困难。
+
 **视觉定位的关键性**:
    - 定位偏差导致诊断不可靠，损害 Med-LVLM 的可信度和可解释性
    - 增强视觉定位能力可反向提升视觉理解能力（已在自然场景 LVLM 中验证）
+
 **不能用通用检测器的原因**: 自然场景可借助通用检测器（如 YOLO）辅助视觉定位，但医学异常检测缺乏足够数据训练专用检测器，尤其对罕见疾病
+
 **本文方案**: 增强 Med-LVLM 的**内在**视觉定位能力（无需外部检测器），通过异常感知的训练策略使模型在生成诊断时关注异常区域
 
 ## 方法详解

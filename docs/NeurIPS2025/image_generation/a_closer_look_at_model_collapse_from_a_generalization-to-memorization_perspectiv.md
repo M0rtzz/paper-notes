@@ -2,16 +2,16 @@
 title: >-
   [论文解读] A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective
 description: >-
-  [NeurIPS 2025][图像生成][model collapse] 发现扩散模型在自消耗循环（用生成数据训练下一代模型）中存在从"泛化"到"记忆"的转变过程，揭示训练集熵与模型泛化能力的强线性相关性（Pearson r=0.91），并提出基于熵的数据选择策略（Greedy Selection / Threshold Decay Filter）有效减缓该转变，在 CIFAR-10 accumulate 范式下第 8 轮 FID 从 75.7 降至 44.7。
+  [NeurIPS 2025][图像生成][模型崩溃] 发现扩散模型在自消耗循环（用生成数据训练下一代模型）中存在从"泛化"到"记忆"的转变过程，揭示训练集熵与模型泛化能力的强线性相关性（Pearson r=0.91），并提出基于熵的数据选择策略（Greedy Selection / Threshold Decay Filter）有效减缓该转变，在 CIFAR-10 accumulate 范式下第 8 轮 FID 从 75.7 降至 44.7。
 tags:
   - NeurIPS 2025
   - 图像生成
-  - model collapse
+  - 模型崩溃
   - self-consuming loop
-  - generalization
-  - memorization
+  - 泛化
+  - 记忆
   - entropy
-  - data selection
+  - 数据选择
 ---
 
 # A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.16499](https://arxiv.org/abs/2509.16499)  
 **代码**: 无  
 **领域**: 扩散模型 / 生成模型理论  
-**关键词**: model collapse, self-consuming loop, generalization, memorization, entropy, data selection  
+**关键词**: 模型崩溃, self-consuming loop, 泛化, 记忆, entropy, 数据选择
 
 ## 一句话总结
 发现扩散模型在自消耗循环（用生成数据训练下一代模型）中存在从"泛化"到"记忆"的转变过程，揭示训练集熵与模型泛化能力的强线性相关性（Pearson r=0.91），并提出基于熵的数据选择策略（Greedy Selection / Threshold Decay Filter）有效减缓该转变，在 CIFAR-10 accumulate 范式下第 8 轮 FID 从 75.7 降至 44.7。
@@ -51,25 +51,25 @@ tags:
 
 1. **泛化得分（Generalization Score）**
 
-    - 做什么：量化模型是在"生成新样本"还是"复制训练样本"。
+    - 功能：量化模型是在"生成新样本"还是"复制训练样本"。
     - 核心思路：$\text{GS}(n) = \frac{1}{|\mathcal{G}_n|} \sum_{x \in \mathcal{G}_n} \min_{z \in \mathcal{D}_n} \kappa(x, z)$，计算每个生成样本与训练集中最近邻的平均距离。GS 高说明在泛化（生成新颖样本），GS 低说明在记忆（复制训练样本）。
     - 设计动机：直接可操作的指标，与人眼对多样性的感知一致。实验观察到 GS 随迭代**近指数衰减**，提供了泛化→记忆转变的定量证据。
 
 2. **微分熵估计（KL Estimator）**
 
-    - 做什么：量化训练数据集的信息含量。
+    - 功能：量化训练数据集的信息含量。
     - 核心思路：使用 Kozachenko-Leonenko 估计器，基于 k 近邻距离估计连续分布的微分熵：$\hat{H}_\gamma(\mathcal{D}) = \psi(|\mathcal{D}|) - \psi(\gamma) + \log c_d + \frac{d}{|\mathcal{D}|} \sum_{x \in \mathcal{D}} \log \varepsilon_\gamma(x)$。数据集大小固定时，唯一变化的项是最近邻距离之和——距离越小说明数据越聚集，熵越低。
     - 关键发现：熵与 log(GS) 呈线性关系，Pearson 相关系数 0.91（p≈0），且跨不同数据集大小点都近似落在同一条线上，说明这是一个**普遍规律**。
 
 3. **Greedy Selection（贪心选择）**
 
-    - 做什么：从候选池中选出高熵（高多样性）的训练子集。
+    - 功能：从候选池中选出高熵（高多样性）的训练子集。
     - 核心思路：最远点采样——迭代地选择与已选集合距离最大的点：$x_{\text{select}} = \arg\max_{x \in S \setminus \mathcal{D}} \min_{y \in \mathcal{D}} \kappa(x, y)$。用 DINOv2 提取特征，在特征空间计算 L2 距离。
     - 设计动机：直接近似最大化训练子集的 KL 熵估计。贪心策略虽是近似但高效，能有效打散聚集的数据簇。
 
 4. **Threshold Decay Filter（阈值衰减过滤器）**
 
-    - 做什么：提供可调节选择强度的软变体。
+    - 功能：提供可调节选择强度的软变体。
     - 核心思路：设定初始距离阈值 $\tau$，遍历候选样本，只选择与已选集合中所有点距离都大于 $\tau$ 的样本。如果选得不够，将 $\tau$ 乘以衰减因子 $\alpha$（如 0.95），重复选择。
     - 设计动机：避免 Greedy Selection 的过度优化风险——贪心可能过于扩展分布导致方差过大。Threshold Decay Filter 通过阈值控制选择强度，$\alpha \to 1$ 时近似贪心，$\alpha = 0$ 时退化为无选择的基线。
 

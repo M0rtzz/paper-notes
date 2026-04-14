@@ -8,7 +8,7 @@ tags:
   - 3D视觉
   - 视觉基础模型评估
   - 原子视觉能力
-  - Benchmark
+  - benchmark
   - VFM
   - 多模态评测
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.09082](https://arxiv.org/abs/2506.09082)  
 **代码**: [项目主页](https://zheda-mai.github.io/AVA-Bench/)  
 **领域**: 3D视觉  
-**关键词**: 视觉基础模型评估, 原子视觉能力, Benchmark, VFM, 多模态评测
+**关键词**: 视觉基础模型评估, 原子视觉能力, benchmark, VFM, 多模态评测
 
 ## 一句话总结
 
@@ -47,6 +47,7 @@ tags:
 受组合式文本生成图像 benchmark 和 VQA 问题分析的启发，将复杂视觉推理分解为 14 种"原子视觉能力"（AVA），每种能力独立测试、独立训练，用 bounding box 等辅助手段隔离目标能力。
 
 ### 6. 核心 idea
+
 **Atomic Visual Ability (AVA) 解耦评测**：定义 14 种不可再分的基础视觉能力，为每种能力构建分布一致的训练/测试集，通过 LLaVA-style 管线逐一微调和评测 VFM，生成 VFM 的"能力指纹"。
 
 ## 方法详解

@@ -9,7 +9,7 @@ tags:
   - 3D Gaussian Splatting
   - Motion Deblurring
   - Bundle Adjustment
-  - Novel View Synthesis
+  - novel view synthesis
   - Camera Pose Optimization
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.11831](https://arxiv.org/abs/2403.11831)  
 **代码**: [lingzhezhao/BAD-Gaussians](https://github.com/WU-CVGL/BAD-Gaussians)  
 **领域**: 3d_vision  
-**关键词**: 3D Gaussian Splatting, Motion Deblurring, Bundle Adjustment, Novel View Synthesis, Camera Pose Optimization
+**关键词**: 3D Gaussian Splatting, Motion Deblurring, Bundle Adjustment, novel view synthesis, Camera Pose Optimization
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **NeRF 和 3D-GS 依赖清晰图像**：现有神经渲染方法（NeRF、3D-GS）假设输入为高质量清晰图像，但现实中低光照或长曝光条件下运动模糊图像非常常见，直接使用模糊图像训练会导致重建质量严重下降。
+
 **模糊图像导致位姿估计不准确**：COLMAP 从模糊图像中恢复的相机位姿精度较差，多视角间特征匹配困难，进一步加剧了 3D-GS 的初始化和优化问题。
+
 **3D-GS 的初始化依赖稀疏点云**：模糊图像导致 COLMAP 产生更少的匹配点，使 3D-GS 的高斯初始化质量下降。
+
 **已有去模糊 NeRF 方法存在局限**：Deblur-NeRF 和 DP-NeRF 使用固定的不准确位姿训练，且基于隐式 MLP 表征，难以恢复精细细节，无法实时渲染。BAD-NeRF 虽建模了物理模糊过程，但受限于 NeRF 的隐式表征，渲染速度低于 1 FPS。
+
 **显式表征的优势尚未被利用**：3D-GS 的显式点云表征天然有利于可微光栅化和高效渲染，但此前没有工作将其与运动去模糊结合。
+
 **联合优化位姿与场景的需求**：需要一个端到端框架，能同时优化相机曝光轨迹和场景表征，从而在不依赖准确位姿的前提下实现高质量重建。
 
 ## 方法详解

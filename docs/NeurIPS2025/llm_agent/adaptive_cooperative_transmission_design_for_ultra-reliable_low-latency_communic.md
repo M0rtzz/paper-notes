@@ -1,11 +1,18 @@
 ---
-description: 提出DRL-CoLA双智能体强化学习算法，为两跳中继URLLC系统自适应配置传输参数以最大化严格时延约束下的可靠性
+title: >-
+  [论文解读] Adaptive Cooperative Transmission Design for Ultra-Reliable Low-Latency Communications via Deep Reinforcement Learning
+description: >-
+  [NeurIPS 2025][LLM Agent][URLLC] 提出DRL-CoLA双智能体DQN算法，为两跳解码转发中继系统中的每次（重）传输自适应选择5G NR的numerology、mini-slot和MCS参数，仅用本地CSI在严格时延约束下实现近最优可靠性。
 tags:
-- URLLC
-- reinforcement-learning
-- cooperative-communication
-- 5G-NR
+  - NeurIPS 2025
+  - LLM Agent
+  - URLLC
+  - 两跳中继
+  - 深度强化学习
+  - 5G NR
+  - 有限块长度
 ---
+
 # Adaptive Cooperative Transmission Design for Ultra-Reliable Low-Latency Communications via Deep Reinforcement Learning
 
 **会议**: NeurIPS 2025  
@@ -37,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **双智能体分布式MDP建模**:
-    - 做什么：将两跳自适应传输建模为MDP，S和R作为独立智能体
+    - 功能：将两跳自适应传输建模为MDP，S和R作为独立智能体
     - 核心思路：状态 $s_n^{(i)} = (\gamma_i, \bar{\gamma}_{i+1}, H, \tau_n)$ 包含本地SNR、下一跳平均SNR、包大小和剩余时延。动作 $a = (\mu, N_\text{sym}, I_\text{MCS})$ 共 $5 \times 4 \times 15 = 300$ 种组合
     - 设计动机：全局CSI交换开销过大，分布式决策符合URLLC实际约束
 
 2. **时延感知奖励设计**:
-    - 做什么：基于延迟中断率（DOR）设计差异化奖励
+    - 功能：基于延迟中断率（DOR）设计差异化奖励
     - 核心思路：成功传输的奖励为 $1 - \mathcal{P}_\text{DOR}(\bar{\gamma}_{i+1}, \tau_{n+1})$，惩罚为S消耗过多时延导致R预算不足。失败状态给 $-1$，未决状态给 $-0.1$ 鼓励减少不必要重传
     - 设计动机：S无法观测R的传输结果，DOR提供了估计下一跳成功概率的代理指标
 
 3. **DQN逐跳训练**:
-    - 做什么：S和R各维护独立的DQN网络，从各自的经验回放缓冲中学习
+    - 功能：S和R各维护独立的DQN网络，从各自的经验回放缓冲中学习
     - 核心思路：连续状态空间 + 离散动作空间天然适合DQN。每 $E'$ 回合同步目标网络参数。训练完成后各智能体独立执行贪心策略
     - 设计动机：DQN适合处理连续状态和离散动作组合，且不需要智能体间通信
 

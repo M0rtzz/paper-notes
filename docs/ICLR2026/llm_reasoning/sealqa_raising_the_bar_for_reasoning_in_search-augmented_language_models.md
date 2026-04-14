@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.01062](https://arxiv.org/abs/2506.01062)  
 **代码**: [HuggingFace](https://huggingface.co/datasets/vtllms/sealqa)  
 **领域**: llm_reasoning  
-**关键词**: benchmark, search-augmented LLM, RAG, noisy retrieval, test-time scaling  
+**关键词**: benchmark, search-augmented LLM, RAG, noisy retrieval, test-time scaling
 
 ## 一句话总结
 提出SealQA挑战基准，包含111道使前沿非推理模型准确率为0的事实性问题，专门评估搜索增强LLM在噪声/冲突/误导性检索结果下的推理能力。

@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2504.10483](https://arxiv.org/abs/2504.10483)  
 **代码**: [https://end2end-diffusion.github.io/](https://end2end-diffusion.github.io/)  
 **领域**: 图像生成 / 扩散模型 / 表示学习  
-**关键词**: end-to-end training, VAE, latent diffusion, representation alignment, REPA, 训练效率  
+**关键词**: end-to-end training, VAE, latent diffusion, representation alignment, REPA, 训练效率
 
 ## 一句话总结
 回答了"潜空间扩散模型能否与VAE端到端联合训练"的基础问题——发现标准扩散loss无法端到端训练但表示对齐（REPA）loss可以，提出REPA-E实现VAE+DiT联合训练，训练速度比REPA快17倍、比vanilla快45倍，在ImageNet 256×256上达到1.12 FID（w/ CFG）的新SOTA。

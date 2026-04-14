@@ -52,13 +52,13 @@ tags:
 
 1. **双摄像头视频采集系统**:
 
-    - 做什么：同时采集同一场景的 UDC 退化视频和干净参考视频
+    - 功能：同时采集同一场景的 UDC 退化视频和干净参考视频
     - 核心思路：使用非偏振立方分光器（Thorlabs CCM1-BS013）将入射光以 50:50 比例分成两路，分别送入两个 Arducam Hawk-Eye（IMX686）摄像头模块。其中一路前方放置从 Samsung Galaxy Z-Fold 5 切割的 UDC 区域显示面板，产生退化。两个摄像头通过 Raspberry Pi 5 的双四通道 MIPI 接口连接，使用 MPI barrier 实现帧同步，精度达到 8ms 以内。每个摄像头安装在 Thorlabs K6XS 六轴精动光学支架上，可进行平移、旋转和倾斜调整以对齐视场。
     - 设计动机：使用与 Galaxy Z-Fold 5 相同的 Quad Bayer Coding（QBC）传感器，确保退化特性一致。分光器方案比双摄像头方案（如 Pseudo-real 数据集）具有更好的几何对齐基础。
 
 2. **基于 DFT 的帧对齐**:
 
-    - 做什么：修正采集过程中不可避免的像素位置偏差
+    - 功能：修正采集过程中不可避免的像素位置偏差
     - 核心思路：利用离散傅里叶变换（DFT）进行退化鲁棒的对齐。GT 帧中心裁剪至 1900×1060，退化帧通过迭代平移和旋转最小化对齐损失：
     $\mathcal{L} = \lambda_1 \sum_{x,y} (\mathcal{D}(x,y) - \mathcal{G}(x,y))^2 + \lambda_2 \sum_{u,v} \Delta\mathcal{F}_{amp}(u,v) + \lambda_3 \sum_{u,v} \Delta\phi(u,v)$
       其中第一项是空域 MSE，后两项分别是频域振幅和相位的 L1 距离，$\lambda_1 = \lambda_3 = 1, \lambda_2 = 0$
@@ -66,7 +66,7 @@ tags:
 
 3. **数据集特性与真实退化分析**:
 
-    - 做什么：系统对比 UDC-VIT 与现有数据集在噪声、透射率、flare 等方面的差异
+    - 功能：系统对比 UDC-VIT 与现有数据集在噪声、透射率、flare 等方面的差异
     - 核心发现：
       - **噪声和透射率**：VidUDC33K 中退化帧的噪声水平反而低于 GT（不合理），而 UDC-VIT 正确呈现了 UDC 区域低透射率导致的信号放大和噪声增加
       - **空间变化 flare**：UDC 退化从镜头中心向外逐渐加重，导致 flare 具有空间变化性。VidUDC33K 对整个图像使用相同 PSF 卷积，无法呈现此特性

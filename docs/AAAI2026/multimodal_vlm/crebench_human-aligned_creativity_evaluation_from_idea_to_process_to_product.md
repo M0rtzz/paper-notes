@@ -10,7 +10,7 @@ tags:
   - 多模态大模型
   - 人类对齐
   - 指令微调
-  - 基准测试
+  - benchmark
 ---
 
 # CreBench: Human-Aligned Creativity Evaluation from Idea to Process to Product
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.13626](https://arxiv.org/abs/2511.13626)  
 **代码**: [项目主页](https://kaixuewen.github.io/Crebench)  
 **领域**: 多模态VLM  
-**关键词**: 创造力评估, Benchmark, 多模态指令微调, 人类对齐, LLaVA
+**关键词**: 创造力评估, benchmark, 多模态指令微调, 人类对齐, LLaVA
 
 ## 一句话总结
 提出 CreBench，一个覆盖创意想法→创作过程→创意产品三个维度、12个细粒度指标的多模态创造力评估基准，配套构建 CreMIT（2.2K样本、79.2K人工评价、4.7M指令）并微调出 CreExpert，在创造力评估上显著优于 GPT-4V 和 Gemini-Pro-Vision。
@@ -104,7 +104,7 @@ CreExpert 在 12 个创造力维度上均显著优于 GPT-4V 和 Gemini-Pro-Visi
 - 写作质量: ⭐⭐⭐⭐ 框架设计系统化，但文章很长
 - 价值: ⭐⭐⭐⭐⭐ 对创造力研究和 MLLM 评估体系都有重要贡献
 **领域**: 多模态VLM  
-**关键词**: 创造力评估, 多模态大模型, 人类对齐, 指令微调, 基准测试
+**关键词**: 创造力评估, 多模态大模型, 人类对齐, 指令微调, benchmark
 
 ## 一句话总结
 

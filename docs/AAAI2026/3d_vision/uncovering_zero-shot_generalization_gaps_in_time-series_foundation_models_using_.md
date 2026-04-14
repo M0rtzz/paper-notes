@@ -10,7 +10,7 @@ tags:
   - 零样本泛化
   - 光流
   - 视频数据
-  - Benchmark
+  - benchmark
 ---
 
 # Uncovering Zero-Shot Generalization Gaps in Time-Series Foundation Models Using Real-World Videos
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.26347](https://arxiv.org/abs/2509.26347)  
 **代码**: [github.com/DobricLilujun/benchmarking_nature_tsfm](https://github.com/DobricLilujun/benchmarking_nature_tsfm)  
 **领域**: 3D视觉  
-**关键词**: 时间序列基础模型, 零样本泛化, 光流, 视频数据, Benchmark
+**关键词**: 时间序列基础模型, 零样本泛化, 光流, 视频数据, benchmark
 
 ## 一句话总结
 
@@ -34,7 +34,9 @@ tags:
 ### 已有方法的不足
 
 **训练数据过度依赖合成增强**：例如 Chronos 使用 KernelSynth 和 TSMixup 生成合成训练数据，这些合成数据能否覆盖真实世界的时序动态存疑
+
 **评估数据集多样性不足**：现有 benchmark 多来自金融、能源、交通等传统领域，分布单一。M4 数据集仅 5% 的序列是平稳的，多样性有限
+
 **传感器数据和股价数据已被广泛研究**：缺乏来自全新来源的时间序列数据来测试模型的真正泛化能力
 
 ### 核心动机

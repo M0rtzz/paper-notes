@@ -48,19 +48,19 @@ tags:
 
 1. **自蒸馏偏好数据生成**:
 
-    - 做什么：通过 GRPO-zero 自蒸馏生成 chosen/rejected 对，其中两者答案都正确但格式不同
+    - 功能：通过 GRPO-zero 自蒸馏生成 chosen/rejected 对，其中两者答案都正确但格式不同
     - 核心思路：(1) 对 base model 做简短 GRPO 得到 $\pi_{\text{GRPO-zero}}$（格式准确率 96.74% vs base 41.62%）; (2) 用 $\pi_{\text{GRPO-zero}}$ 生成 chosen response，经 Gemini-2.5-flash 评估推理路径一致性过滤; (3) rejected response 通过5种格式破坏（去标签、移位标签等）人工构造
     - 设计动机：避免依赖外部大模型 teacher（实验表明 72B teacher 蒸馏不如自蒸馏）；chosen/rejected 仅在格式上不同确保 DPO 学的是格式规范而非推理内容
 
 2. **DPO-based 格式预对齐冷启动**:
 
-    - 做什么：用 DPO + SFT 混合损失在自蒸馏偏好数据上训练，作为 RL 的冷启动
+    - 功能：用 DPO + SFT 混合损失在自蒸馏偏好数据上训练，作为 RL 的冷启动
     - 核心思路：$\mathcal{L}_{\text{hybrid}} = \mathcal{L}_{\text{DPO}} + \lambda \mathcal{L}_{\text{SFT}}$。DPO 损失 $\mathcal{L}_{\text{DPO}} = -\mathbb{E}[\log \sigma(\beta \log \frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)})]$ 学习格式偏好；SFT 损失在 chosen response 上正则化防止偏移
     - 设计动机：DPO 优化隐式奖励模型，与后续 GRPO 的奖励驱动目标更对齐，训练更稳定。实验量化发现 DPO 的 GF (泛化因子) 始终高于 SFT
 
 3. **Generalization Factor (GF) 度量**:
 
-    - 做什么：量化不同冷启动方法的泛化能力
+    - 功能：量化不同冷启动方法的泛化能力
     - 核心思路：$\Gamma(n) = (1+\beta^2) \frac{G_{\text{ID}}(n) \cdot G_{\text{OOD}}(n)}{\beta^2 \cdot G_{\text{ID}}(n) + G_{\text{OOD}}(n)}$，其中 $G_{\text{ID}}$ 和 $G_{\text{OOD}}$ 分别是 ID 和 OOD 性能增益。采用 $F_\beta$-score 形式，$\beta=2$ 偏重 OOD 泛化
     - 设计动机：$F_\beta$-score 的特性使得 ID 或 OOD 任一维度很差时总分都很低，完美契合泛化能力评估需求
 

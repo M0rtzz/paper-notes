@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Rethinking VLMs for Image Forgery Detection and Localization
 description: >-
-  [CVPR 2026][AI安全][图像伪造检测] 揭示VLM的语义合理性偏差会阻碍伪造检测，提出IFDL-VLM两阶段解耦框架，先ViT+SAM做检测定位再将mask反馈给VLM增强可解释性，9个基准全面SOTA
+  [CVPR 2026][AI安全][图像伪造检测] 揭示VLM天然偏向语义合理性而非真实性（CLIP对伪造图像余弦相似度达96-99%），提出IFDL-VLM将检测定位与语言解释解耦为两阶段，先用ViT+SAM做检测定位再将mask作为VLM辅助输入增强可解释性，在9个基准上全面达到SOTA。
 tags:
   - CVPR 2026
   - AI安全
   - 图像伪造检测
-  - VLM
-  - 可解释性
+  - VLM语义偏差
   - 解耦优化
+  - SAM定位
+  - 可解释性
 ---
 
 # Rethinking VLMs for Image Forgery Detection and Localization
@@ -43,17 +44,17 @@ tags:
 
 ### 关键设计
 1. **VLM语义合理性偏差的发现与验证**:
-    - 做什么：系统验证VLM先验对IFDL的负面影响
+    - 功能：系统验证VLM先验对IFDL的负面影响
     - 核心思路：CLIP对伪造图像和原图的视觉特征余弦相似度高达96.3%~98.5%，表明CLIP将高级场景一致性而非视觉真实性作为优化目标，导致伪造与真实图像的表示不可区分
     - 设计动机：这一发现驱动了解耦设计——既然CLIP不关心真实性，就不应让其参与检测定位
 
 2. **定位mask编码伪造概念的反向信息流**:
-    - 做什么：将Stage-1的检测定位结果作为Stage-2 VLM的显式输入
+    - 功能：将Stage-1的检测定位结果作为Stage-2 VLM的显式输入
     - 核心思路：定位mask $M$ 显式指出"哪里被改了"，VLM无需从数据中隐式学习伪造概念。通过 $T_{vis} = \alpha \cdot \text{CLIP}(x) + (1-\alpha) \cdot \text{CLIP}(x \odot M)$（α=0.5），同时保留全局语义和局部伪造区域的低层线索
     - 设计动机：将VLM从"自己发现伪造在哪里"的困难任务中解放出来，聚焦于"解释给定区域为什么是伪造的"——这正是VLM的强项
 
 3. **Stage-1的ViT+SAM专用检测定位**:
-    - 做什么：绕开VLM偏差，用专用模型做检测和定位
+    - 功能：绕开VLM偏差，用专用模型做检测和定位
     - 核心思路：可训练ViT backbone产出CLS token做三分类和SEG token给frozen SAM生成mask，损失为 $\mathcal{L}_{st-1} = \mathcal{L}_{bce}(\hat{M},M) + \mathcal{L}_{dice}(\hat{M},M) + \mathcal{L}_{ce}(\hat{D},D)$
     - 设计动机：专用模型不受CLIP语义偏差影响，能更好地学习低层伪造痕迹
 

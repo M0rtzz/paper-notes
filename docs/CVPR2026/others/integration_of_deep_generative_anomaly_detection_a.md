@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Integration of deep generative Anomaly Detection algorithm in high-speed industrial line
 description: >-
-  [CVPR 2026][工业异常检测][GAN/残差自编码器] 基于GRD-Net改进的GAN+密集瓶颈残差自编码器（DRAE），在制药BFS产线上实现500ms时间约束内的半监督异常检测，达到97.62%平衡准确率。
+  [CVPR 2026][anomaly detection] 基于GRD-Net改进的GAN+密集瓶颈残差自编码器（DRAE），在制药BFS生产线上实现半监督异常检测，用281万训练patch在500ms时间约束内完成推理（0.17ms/patch），达到97.62%平衡准确率。
 tags:
   - CVPR 2026
-  - 工业异常检测
+  - anomaly detection
   - GAN
-  - 残差自编码器
-  - 高速产线部署
-  - 制药视觉检测
+  - residual autoencoder
+  - high-speed deployment
+  - BFS inspection
 ---
 
 # Integration of deep generative Anomaly Detection algorithm in high-speed industrial line
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.07577](https://arxiv.org/abs/2603.07577)  
 **代码**: 无（NDA约束）  
 **领域**: 工业异常检测 / 视觉质量控制  
-**关键词**: anomaly detection, GAN, residual autoencoder, high-speed deployment, BFS inspection  
+**关键词**: anomaly detection, GAN, residual autoencoder, high-speed deployment, BFS inspection
 
 ## 一句话总结
 

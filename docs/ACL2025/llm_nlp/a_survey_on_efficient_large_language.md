@@ -7,9 +7,9 @@ tags:
   - ACL 2025
   - LLM/NLP
   - data-efficient training
-  - survey
-  - data selection
-  - synthetic data
+  - 综述
+  - 数据选择
+  - 合成数据
   - self-evolving
   - post-training
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.25817](https://arxiv.org/abs/2510.25817)  
 **代码**: https://github.com/luo-junyu/Awesome-Data-Efficient-LLM  
 **领域**: LLM效率  
-**关键词**: data-efficient training, survey, data selection, synthetic data, self-evolving, post-training
+**关键词**: data-efficient training, 综述, 数据选择, 合成数据, self-evolving, post-training
 
 ## 一句话总结
 首个系统性的数据高效 LLM 后训练综述，提出"数据价值飞轮"分类法，将方法分为五大类（数据选择、质量增强、合成生成、蒸馏压缩、自演进生态），覆盖 100+ 篇代表性工作并展望未来方向。
@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 后训练（SFT、RLHF 等）是释放模型能力的关键阶段。DeepSeek-R1 通过强化学习实现数据高效后训练，进一步验证了数据效率的重要性。
+
 **现有痛点**：(1) 人工标注高质量数据成本飞速增长。(2) 数据规模线性增长带来的回报递减。(3) 静态数据集无法适应不断演进的真实知识。(4) 研究碎片化——各方法分散在不同子领域，缺乏统一视角。
+
 **核心矛盾**：传统后训练范式中性能与数据量的线性依赖，根源在于数据利用效率低下。
+
 **本文要解决什么？** 首次从数据中心视角系统综述数据高效 LLM 后训练方法。
+
 **切入角度**：提出"数据价值飞轮"概念——数据选择 → 质量增强 → 合成生成 → 蒸馏压缩 → 自演进生态，五个环节形成正反馈循环。
 
 ## 方法详解

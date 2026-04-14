@@ -50,13 +50,13 @@ AMoPO的训练流程：
 
 1. **维度感知的Prompt注入（Dimension-Aware Prompting）**:
 
-    - 做什么：为每个偏好维度构造专门的系统提示，引导模型理解当前优化方向
+    - 功能：为每个偏好维度构造专门的系统提示，引导模型理解当前优化方向
     - 核心思路：对于"无特定维度"的通用版本，使用综合性prompt；对于特定维度（如helpfulness），注入评估标准描述（1-5分量表），并将该维度的评分值嵌入prompt中：`"focus on the {dimension} dimension... based on the evaluation value of {score}"`
     - 设计动机：通过prompt让模型在生成时意识到当前需要优化的维度，实现隐式的维度感知，无需额外的奖励模型来评估各维度质量
 
 2. **基于ORPO/SimPO的无参考模型损失函数**:
 
-    - 做什么：在不依赖参考模型的情况下计算偏好损失
+    - 功能：在不依赖参考模型的情况下计算偏好损失
     - 核心思路：ORPO损失结合了SFT损失和odds ratio损失：
     $\mathcal{L}_{ORPO} = -\log p_{chosen} + \beta \cdot (-\log\sigma(\log\frac{p_{chosen}/(1-p_{chosen})}{p_{rejected}/(1-p_{rejected})}))$
       SimPO的单维度损失：
@@ -65,7 +65,7 @@ AMoPO的训练流程：
 
 3. **高斯分布自适应权重分配（Gaussian Adaptive Weighting）**:
 
-    - 做什么：根据当前batch中每个维度的生成质量动态分配损失权重
+    - 功能：根据当前batch中每个维度的生成质量动态分配损失权重
     - 核心思路：
       1. 提取每个维度下chosen和rejected序列的逐token概率
       2. 对每个序列的非零token概率计算均值 $\mu$ 和标准差 $\sigma$

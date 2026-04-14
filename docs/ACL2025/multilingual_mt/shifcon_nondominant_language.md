@@ -63,7 +63,7 @@ ShifCon 包含两个核心模块：
 
 1. **Shift-toward Projection (前向映射)**:
 
-    - 做什么：在第 L_to 层，将非优势语言 l 的表示映射到优势语言（英语）子空间
+    - 功能：在第 L_to 层，将非优势语言 l 的表示映射到优势语言（英语）子空间
     - 核心公式：h̃_l^{L_to} = h_l^{L_to} - v_l^{L_to} + v_d^{L_to}
     - 即：减去原语言向量，加上优势语言向量
     - 语言向量 v_l^i 通过在模型第 i 层对该语言的句子表示取均值获得
@@ -71,13 +71,13 @@ ShifCon 包含两个核心模块：
 
 2. **Shift-backward Projection (后向映射)**:
 
-    - 做什么：在第 L_bk 层，将 dominant-like 表示映射回原语言子空间
+    - 功能：在第 L_bk 层，将 dominant-like 表示映射回原语言子空间
     - 核心公式：h'_l^{L_bk} = h̃_l^{L_bk} - v_d^{L_bk} + v_l^{L_bk}
     - 设计动机：语言特定信息对生成目标语言的输出至关重要，必须在生成前恢复
 
 3. **Language Subspace Distance (子空间距离度量)**:
 
-    - 做什么：自动确定 shift-toward 和 shift-backward 的最优层位置
+    - 功能：自动确定 shift-toward 和 shift-backward 的最优层位置
     - 核心思路：使用基于 Riemannian 距离的度量方法衡量 dominant-like 子空间与优势语言子空间的对齐程度
     - 公式：Dist(S^{D'}, S^D) = sqrt(Σ log²(λᵢ)) + ||μ_{D'} - μ_D||₂
     - 通过 SVD 获取各语言子空间的主方向，选取距离最小的连续层区域（低子空间距离区域）
@@ -85,7 +85,7 @@ ShifCon 包含两个核心模块：
 
 4. **Multilingual Contrastive Learning (MCL)**:
 
-    - 做什么：进一步对齐 dominant-like 表示与优势语言对应表示
+    - 功能：进一步对齐 dominant-like 表示与优势语言对应表示
     - 核心思路：使用多语言翻译对作为正样本，推近非优势语言的 dominant-like 表示与优势语言表示，推远其他表示
     - 设计动机：仅靠 shift projection 不足以完全对齐表示空间，MCL 提供更强的对齐信号
 

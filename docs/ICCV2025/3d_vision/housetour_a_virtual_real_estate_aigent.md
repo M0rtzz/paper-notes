@@ -64,9 +64,9 @@ $$\mathcal{L}_\theta = \mathbb{E}_{t,\tau,\epsilon}\left[\|\epsilon_{pos} - \eps
 **两阶段训练**：
 1. **LoRA微调**：在96帧多图像输入上微调Qwen2-VL，学习房地产描述的语言风格和建筑术语
 2. **空间特征集成**：
-   - 添加特殊token `<|traj_start|>`, `<|traj_pad|>`, `<|traj_end|>`
-   - 将Residual Diffuser的去噪位姿 $p_0^i$ 和瓶颈层特征 $f_0^i$ 拼接后通过线性层映射到VLM的语言嵌入空间
-   - 每帧使用单个token编码空间信息
+    - 添加特殊token `<|traj_start|>`, `<|traj_pad|>`, `<|traj_end|>`
+    - 将Residual Diffuser的去噪位姿 $p_0^i$ 和瓶颈层特征 $f_0^i$ 拼接后通过线性层映射到VLM的语言嵌入空间
+    - 每帧使用单个token编码空间信息
 
 ### HouseTour数据集
 - 1639个导览视频，涵盖从公寓到多层别墅的多样房产

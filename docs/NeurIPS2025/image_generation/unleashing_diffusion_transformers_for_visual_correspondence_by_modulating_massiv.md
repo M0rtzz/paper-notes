@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18584](https://arxiv.org/abs/2505.18584)  
 **代码**: [GitHub](https://github.com/ganchaofan0000/DiTF)  
 **领域**: 视觉对应, 扩散模型, 特征提取  
-**关键词**: Diffusion Transformer, Massive Activations, AdaLN, 视觉对应, 特征提取
+**关键词**: 扩散 Transformer, Massive Activations, AdaLN, 视觉对应, 特征提取
 
 ## 一句话总结
 发现 Diffusion Transformers (DiTs) 中存在 massive activations 现象导致特征不可区分，揭示其与 AdaLN 的内在联系，提出无需训练的 DiTF 框架来提取语义判别性特征，在视觉对应任务上超越 DINO 和 SD 模型。

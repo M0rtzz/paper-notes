@@ -1,23 +1,36 @@
 ---
-title: "[论文解读] Selective Learning for Deep Time Series Forecasting"
-description: "[NeurIPS 2025][时间序列] 提出选择性学习策略，通过双掩码机制过滤不可泛化时间步，显著降低深度预测模型的MSE"
-tags: [NeurIPS 2025, 时间序列, 预测, 选择性学习, 过拟合]
+title: >-
+  [论文解读] Selective Learning for Deep Time Series Forecasting
+description: >-
+  [NeurIPS 2025][时间序列][时间序列预测] 提出选择性学习（Selective Learning）策略，通过不确定性掩码和异常掩码组成的双掩码机制筛选可泛化时间步计算 MSE 损失，在 8 个数据集上为 Informer 降低 37.4% MSE、TimesNet 降低 8.4%、iTransformer 降低 6.5%。
+tags:
+  - NeurIPS 2025
+  - 时间序列
+  - 时间序列预测
+  - selective learning
+  - overfitting
+  - 不确定性
+  - 异常检测
 ---
+
 # Selective Learning for Deep Time Series Forecasting
 
 **会议**: NeurIPS 2025  
 **arXiv**: [2510.25207](https://arxiv.org/abs/2510.25207)  
 **代码**: 无  
 **领域**: 时间序列预测  
-**关键词**: time series forecasting, selective learning, overfitting, uncertainty, anomaly detection
+**关键词**: 时间序列预测, selective learning, overfitting, 不确定性, 异常检测
 
 ## 一句话总结
 提出选择性学习（Selective Learning）策略，通过不确定性掩码和异常掩码组成的双掩码机制筛选可泛化时间步计算 MSE 损失，在 8 个数据集上为 Informer 降低 37.4% MSE、TimesNet 降低 8.4%、iTransformer 降低 6.5%。
 
 ## 研究背景与动机
 **领域现状**：深度学习在时间序列预测（TSF）中通过捕获复杂时序模式取得显著进展。
+
 **现有痛点**：深度模型易受时间序列中噪声和异常的影响，导致严重过拟合。主流 DL 范式对所有时间步统一用 MSE 损失优化，无差别地学习不确定和异常时间步。
+
 **核心矛盾**：模型需要从所有时间步学习→但部分时间步是噪声/异常→强制学习这些时间步导致过拟合。
+
 **切入角度**：不是所有时间步都值得学习，选择性地屏蔽不可泛化的时间步。
 
 ## 方法详解
@@ -28,14 +41,14 @@ tags: [NeurIPS 2025, 时间序列, 预测, 选择性学习, 过拟合]
 ### 关键设计
 1. **不确定性掩码（Uncertainty Mask）**
 
-    - 做什么：过滤高不确定性的时间步
+    - 功能：过滤高不确定性的时间步
     - 核心思路：利用残差熵（residual entropy）衡量预测的不确定性
     - 公式：$M_u(t) = \mathbb{1}[H(r_t) < \tau_u]$，其中$H(r_t)$为残差的熵估计
     - 设计动机：高不确定性时间步可能是噪声，强制拟合会过拟合
 
 2. **异常掩码（Anomaly Mask）**
 
-    - 做什么：排除异常时间步
+    - 功能：排除异常时间步
     - 核心思路：通过残差下界估计（residual lower bound estimation）判断异常
     - 公式：$M_a(t) = \mathbb{1}[|r_t| < \text{LB}(r)]$
     - 设计动机：异常值会拉偏梯度方向

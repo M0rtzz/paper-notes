@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] Expert-Guided Prompting and Retrieval-Augmented Generation for Emergency Medical Service Question Answering
 description: >-
-  AAAI2026论文提出EMSQA数据集(24.3K题)与Expert-CoT+ExpertRAG框架，通过LoRA微调的Filter分类器推断问题的临床主题和认证等级，将领域专业属性显式注入CoT提示和RAG检索流程，在EMS急救问答上比标准RAG提升4.59%准确率，32B模型通过全部NREMT认证模拟考试。
+  [AAAI2026][医学图像][RAG] 构建首个EMS急救领域多选QA数据集EMSQA（24.3K题、10个临床主题、4个认证等级），提出Expert-CoT和ExpertRAG框架将领域专业属性注入LLM推理与检索，比标准RAG最高提升4.59%准确率。
 tags:
   - AAAI2026
+  - 医学图像
   - RAG
   - chain-of-thought
-  - emergency medical services
-  - question answering
+  - EMS
   - domain expertise
-  - medical QA
+  - MCQA
 ---
 
 # Expert-Guided Prompting and Retrieval-Augmented Generation for Emergency Medical Service Question Answering
@@ -42,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **Filter分类器（专业属性推断）**:
-    - 做什么：从输入问题和选项中自动推断subject area（10类，multi-label）和certification level（4类，single-label）
+    - 功能：从输入问题和选项中自动推断subject area（10类，multi-label）和certification level（4类，single-label）
     - 核心思路：在LLM末尾追加`<classify>` token，提取最后一层hidden state $h_i$，通过两个分类head $W_{sub}$ 和 $W_{lvl}$ 分别输出预测。联合损失 $\mathcal{L} = w_{sub} \cdot \text{BCE}(p_i^{sub}, y_i^{sub}) + w_{lvl} \cdot \text{CE}(p_i^{lvl}, y_i^{lvl})$，用DWA动态调整两个任务的权重。推理时subject area用阈值0.5二值化，certification level取argmax
     - 设计动机：需要一个轻量模块在推理前快速判断问题的专业属性，LoRA fine-tuning仅需少量参数（rank=8），且multi-task训练让两个属性互相增强
 
 2. **Expert-CoT（专业引导提示）**:
-    - 做什么：将Filter预测的subject area $\hat{s}_i$ 和certification level $\hat{l}_i$ 嵌入CoT提示模板，引导LLM从特定领域视角推理
+    - 功能：将Filter预测的subject area $\hat{s}_i$ 和certification level $\hat{l}_i$ 嵌入CoT提示模板，引导LLM从特定领域视角推理
     - 核心思路：标准CoT鼓励"step-by-step"但不指定起点，Expert-CoT显式提供领域起点。最终答案 $\hat{A}_i = f^{\text{CoT-Expert}}(q_i, \mathcal{O}_i, \hat{l}_i, \hat{s}_i)$，模板中包含"You are an expert in {subject area} at {certification level}"等引导语
     - 设计动机：模拟真实医疗专业人员的思维流程——先定位学科领域，再从对应知识体系出发推理，而非无差别地通用推理
 
 3. **ExpertRAG（专业引导检索）**:
-    - 做什么：利用Filter预测的subject area过滤知识库和患者记录，实现领域对齐的检索增强生成
+    - 功能：利用Filter预测的subject area过滤知识库和患者记录，实现领域对齐的检索增强生成
     - 核心思路：三种策略——Global（全库检索，baseline）、FTR（Filter-then-Retrieve，先按 $\hat{s}_i$ 过滤KB/PR再检索top-M/N）、RTF（Retrieve-then-Filter，先检索10倍候选再过滤）。最终 $\hat{A}_i = f^{\text{RAG}}(q_i, \mathcal{O}_i, \mathcal{R}(q_i, \hat{s}_i), \hat{l}_i, \hat{s}_i)$，使用MedCPT作为检索器，KB取top-32、PR取top-8
     - 设计动机：通用RAG检索全库会引入大量无关文档稀释相关性，按subject area分区检索相当于给检索器加上了领域先验，显著提高文档相关率
 

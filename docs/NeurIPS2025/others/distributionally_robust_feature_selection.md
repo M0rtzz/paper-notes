@@ -46,20 +46,20 @@ tags:
 
 1. **噪声注入连续松弛**:
 
-    - 做什么：将离散的二值掩码 $\alpha \in \{0,1\}^m$ 松弛为连续噪声参数 $\alpha \in \mathbb{R}_{\geq 0}^m$
+    - 功能：将离散的二值掩码 $\alpha \in \{0,1\}^m$ 松弛为连续噪声参数 $\alpha \in \mathbb{R}_{\geq 0}^m$
     - 核心思路：不是直接缩放特征（$\alpha \odot X$，可被模型逆向补偿），而是注入高斯噪声 $S_i(\alpha)|X \sim \mathcal{N}(X_i, \alpha_i)$。$\alpha_i=0$ 表示完全保留信息，$\alpha_i \to \infty$ 表示丢弃该特征
     - 设计动机：确定性缩放不改变信息量（模型可学 $w_i/\alpha_i$ 补偿），随机噪声才真正降低信噪比
     - 与 Lasso 的区别：Lasso 的 $\ell_1$ 正则化只在线性模型中有效，且假设单一分布
 
 2. **Bayes 最优预测器方差优化**:
 
-    - 做什么：用 Bayes 最优损失替代具体模型的损失，规避内层优化
+    - 功能：用 Bayes 最优损失替代具体模型的损失，规避内层优化
     - 核心思路（定理1）：在 MSE 损失下，问题等价于 $\min_\alpha \max_{P_i} -\mathbb{E}_{S(\alpha)}[\mathbb{E}_X[\mu_i(X)|S(\alpha)]^2] + \lambda \text{Reg}(\alpha)$，其中 $\mu_i(X) = \mathbb{E}_{P_i}[Y|X]$
     - 设计动机：(a) 不需要对每个 $\alpha$ 重新训练模型；(b) 与下游模型架构无关；(c) 只需在开始时对每个群体拟合一次 $\mu_i$
 
 3. **核形式闭式解（定理2）**:
 
-    - 做什么：将条件期望的经验估计转化为高斯核加权和
+    - 功能：将条件期望的经验估计转化为高斯核加权和
     - 闭式权重：$w_i^j(S,\alpha) = \frac{\exp(-\frac{1}{2}(X_i^j - S)^T \text{diag}(\alpha)^{-1}(X_i^j - S))}{\sum_k \exp(-\frac{1}{2}(X_i^k - S)^T \text{diag}(\alpha)^{-1}(X_i^k - S))}$
     - 设计动机：$\alpha$ 直接控制核带宽——$\alpha_i$ 小则该维度核窄（保留信息），$\alpha_i$ 大则该维度核宽（忽略信息）
 

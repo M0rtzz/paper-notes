@@ -17,7 +17,7 @@ tags:
 **arXiv**: [2602.12769](https://arxiv.org/abs/2602.12769)  
 **代码**: 无  
 **领域**: 图像生成  
-**关键词**: high-resolution image generation, training-free, diffusion models, few-step diffusion, patch-based inference  
+**关键词**: high-resolution image generation, training-free, diffusion models, few-step diffusion, patch-based inference
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 现有的无训练高分辨率生成方法分为两类：
 
 **直接推理方法**（如 ScaleCrafter、FreeScale）：在完整高分辨率 latent 上操作，通过修改卷积膨胀率或频域干预来缓解物体重复问题。但频域操作会引入不自然纹理，且内存占用随 latent 尺寸增长，通常限制在 8K 以下。
+
 **Patch-based 方法**（如 DemoFusion、MultiDiffusion）：将高分辨率 latent 切分为与模型原生分辨率匹配的重叠 patch 分别处理，突破了内存瓶颈。但与直接推理方法一样，它们都依赖完整的多步反向扩散（如 50 步），导致生成一张 4K 图像需要数分钟、8K 则超过一小时。
 
 已有加速尝试效果有限：CutDiffusion 通过减少 patch 数量获得微小加速但牺牲质量；LSNR 需要额外训练插件模块，且仅能将步数从 50 降到 30。**核心矛盾在于：现有方法与快速少步采样不兼容**，这是实用化的最大障碍。

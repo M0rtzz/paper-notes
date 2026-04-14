@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: Shuffling方法（RR/SS/IG）是实践最常用的有限和优化算法。在光滑凸情况下已证明last-iterate收敛优于GD/SGD。
+
 **现有痛点**: Liu & Zhou (2024b)建立了首个last-iterate结果，但非光滑情况下仅与Proximal GD相当（O(1/sqrt(K))），无法体现随机性优势。
+
 **核心矛盾**: 非光滑性使标准分析技术（基于梯度Lipschitz性）失效。
+
 **本文要解决什么**: 证明shuffling方法在非光滑情况下也严格快于Proximal GD。
+
 **切入角度**: 利用RR/SS的排列结构结合新递推分析技巧。
+
 **核心idea**: RR达到O(GD/(n^{1/4}sqrt(K)))的last-iterate速率，SS达到O(GD/(n^{1/4}K^{1/4}))，均优于O(GD/sqrt(K))。
 
 ## 方法详解

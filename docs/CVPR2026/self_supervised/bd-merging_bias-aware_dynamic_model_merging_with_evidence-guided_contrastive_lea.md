@@ -11,7 +11,7 @@ tags:
   - Evidential Deep Learning
   - Distribution Shift
   - 对比学习
-  - Uncertainty Estimation
+  - uncertainty estimation
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2603.03920](https://arxiv.org/abs/2603.03920)  
 **代码**: 暂无  
 **领域**: self_supervised  
-**关键词**: Model Merging, Multi-Task Learning, Evidential Deep Learning, Distribution Shift, Contrastive Learning, Uncertainty Estimation
+**关键词**: Model Merging, Multi-Task Learning, Evidential Deep Learning, Distribution Shift, Contrastive Learning, uncertainty estimation
 
 ## 一句话总结
 

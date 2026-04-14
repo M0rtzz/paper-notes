@@ -9,7 +9,7 @@ tags:
   - 离散扩散模型
   - 信息论
   - 似然估计
-  - score matching
+  - 分数匹配
   - 扩散模型
   - I-MMSE
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.24088](https://arxiv.org/abs/2510.24088)  
 **代码**: [github.com/Dongjae0324/infodis](https://github.com/Dongjae0324/infodis)  
 **领域**: 生成模型理论/离散扩散  
-**关键词**: 离散扩散模型, 信息论, 似然估计, score matching, masked diffusion, I-MMSE
+**关键词**: 离散扩散模型, 信息论, 似然估计, 分数匹配, masked diffusion, I-MMSE
 
 ## 一句话总结
 将连续扩散中经典的 I-MMSE 恒等式推广到离散域，建立 I-MDSE 和 I-MDCE 关系——证明 DSE/DCE 损失不仅是变分上界而是对数似然的**精确分解**，并由此推导出 time-free 公式、条件似然估计和耦合似然比估计器，在 LLaDA 等大模型上验证了低方差和 OOD 检测能力。

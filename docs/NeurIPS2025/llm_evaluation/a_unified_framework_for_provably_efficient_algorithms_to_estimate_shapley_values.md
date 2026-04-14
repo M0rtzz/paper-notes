@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.05216](https://arxiv.org/abs/2506.05216)  
 **代码**: 待确认  
 **领域**: others  
-**关键词**: Shapley Values, KernelSHAP, LeverageSHAP, Explainable AI, Randomized Numerical Linear Algebra  
+**关键词**: Shapley Values, KernelSHAP, LeverageSHAP, Explainable AI, Randomized Numerical Linear Algebra
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **可解释 AI 核心地位**：Shapley 值已成为解释黑盒模型特征贡献的主导方法，在金融、医疗、法律等安全敏感场景中至关重要。
+
 **精确计算不可行**：计算精确 Shapley 值需要对 $2^d$ 个子集求值，随特征维度 $d$ 指数增长，对任意模型不可行。
+
 **KernelSHAP 缺乏理论保证**：KernelSHAP 是 SHAP 库中使用最广泛的估计器，但其理论收敛性一直缺乏严格证明。已有理论保证的方法（unbiased KernelSHAP、LeverageSHAP）在实践中表现反而不如 KernelSHAP。
+
 **高维扩展瓶颈**：现有有理论保证的方法面临组合数溢出和大支撑二项式采样两大瓶颈，无法扩展到 $d > 100$ 的真实场景。
+
 **估计器间缺乏统一比较**：不同估计器（回归型 vs 矩阵向量乘型）和不同采样策略（有放回 vs 无放回）的理论性能权衡尚不清楚。
+
 **核心科学问题**：能否建立一个统一框架，同时涵盖 KernelSHAP 和相关估计器，并为所有方法提供可证明的样本复杂度保证？
 
 ## 方法详解

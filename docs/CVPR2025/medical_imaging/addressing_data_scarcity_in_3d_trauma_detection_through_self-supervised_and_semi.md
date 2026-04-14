@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.12514](https://arxiv.org/abs/2603.12514)  
 **代码**: [github.com/shivasmic/3d-trauma-detection-ssl](https://github.com/shivasmic/3d-trauma-detection-ssl)  
 **领域**: medical_imaging  
-**关键词**: 3D Object Detection, Self-Supervised Learning, Semi-Supervised Learning, Trauma Detection, VDETR
+**关键词**: 3D object detection, Self-Supervised Learning, Semi-Supervised Learning, Trauma Detection, VDETR
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **腹部创伤检测的临床紧迫性**：急诊中 CT 扫描的人工逐层分析耗时且存在观察者间差异，自动化检测能加速临床决策
+
 **标注极度匮乏**：RSNA 腹部创伤数据集 4711 例中仅 206 例（4.4%）有分割标注，传统全监督方法不可行
+
 **3D 检测的特殊挑战**：腹腔器官形状不规则，2D 中心点距离不足以描述 3D 包围盒关系；通用 3D 特征提取器迁移效果差
+
 **自监督+半监督的互补潜力**：自监督预训练可从无标注数据学习解剖先验，半监督学习可利用大量未标注数据稳定训练
+
 **VDETR 的局部性优势**：V-DETR 的 Vertex RPE 通过计算 8 个顶点相对位置编码，提供明确的几何内外关系
+
 **现有方法不足**：2D 检测适配 3D 效果差，VoteNet/FCAF3D 依赖大量标注
 
 ## 方法详解

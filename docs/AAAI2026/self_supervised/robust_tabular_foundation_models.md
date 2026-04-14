@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.03307](https://arxiv.org/abs/2512.03307)  
 **代码**: 待确认  
 **领域**: 自监督 / 表格基础模型  
-**关键词**: tabular foundation model, adversarial training, synthetic data, distributionally robust optimization  
+**关键词**: tabular foundation model, adversarial training, synthetic data, distributionally robust optimization
 
 ## 一句话总结
 

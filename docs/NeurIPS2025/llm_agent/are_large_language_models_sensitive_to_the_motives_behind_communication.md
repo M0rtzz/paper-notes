@@ -1,13 +1,16 @@
 ---
+title: >-
+  [论文解读] Are Large Language Models Sensitive to the Motives Behind Communication?
 description: >-
-  NeurIPS 2025，系统评估LLM对沟通动机的警觉性(motivational vigilance)——在控制实验中前沿LLM展现类人的动机识别能力(r>0.9)，但在真实YouTube赞助广告场景中警觉性大幅下降(r<0.2)，简单的prompt引导可部分恢复理性推理。
+  [NeurIPS 2025][LLM Agent][motivational vigilance] 通过三个递进实验系统评估LLM是否具备"动机警觉性"——识别信息源的意图和激励并相应调整信任度的能力：在控制实验中前沿非推理LLM表现接近理性模型(Pearson's $r>0.9$)且比理性模型更像人类，但在真实YouTube赞助广告场景中警觉性大幅下降($r<0.2$)，简单的prompt steering可部分恢复($r$提升至0.31)。
 tags:
   - NeurIPS 2025
   - LLM Agent
+  - motivational vigilance
   - 动机警觉
-  - 社会认知
-  - 认知科学
+  - 策略沟通
   - 信息可信度
+  - 理性模型
 ---
 
 # Are Large Language Models Sensitive to the Motives Behind Communication?
@@ -45,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **实验1：故意沟通 vs 偶然观察的区分**:
-    - 做什么：测试LLM能否因信息来源的不同（来自有动机的"建议"vs偶然"窥见"）调整自身判断
+    - 功能：测试LLM能否因信息来源的不同（来自有动机的"建议"vs偶然"窥见"）调整自身判断
     - 核心思路：改编自Watson & Morgan (2024)的两人判断任务——Player 2收到Player 1的刻意建议或偷看到的真实答案。合作/竞争支付结构影响信息可信度。LLM作为Player 2判断是否及多大程度上更新自己的答案
     - 设计动机：这是动机警觉的最基本前提——能否区分信息是否带有strategic intent
 
 2. **实验2：基于理性模型的精细警觉校准**:
-    - 做什么：测试LLM能否根据两个关键因素（善意度λ和激励$R_S$）精确调整对推荐的信任
+    - 功能：测试LLM能否根据两个关键因素（善意度λ和激励$R_S$）精确调整对推荐的信任
     - 核心思路：使用Oktar et al.的理性贝叶斯模型作为规范基准：说话者选择utterance的概率 $P_S(u) \propto \exp\{\beta_S \cdot \sum R_{Joint} \pi_L(a|u)\}$，其中$R_{Joint} = \lambda R_L + (1-\lambda)R_S$。警觉听者推断产品质量 $P_L(R_L|u) \propto P_S(u|...) P(R_S) P(R_L) P(\lambda)$。在金融/房地产/医疗三领域测16种说话者-激励组合
     - 设计动机：提供定量基准——不仅看LLM是否警觉，还测其警觉程度是否理性
 
 3. **实验3：YouTube赞助广告中的生态有效性**:
-    - 做什么：在300个真实YouTube赞助片段上测试LLM警觉性能否泛化
+    - 功能：在300个真实YouTube赞助片段上测试LLM警觉性能否泛化
     - 核心思路：从SponsorBlock获取赞助时间戳，抓取视频元数据和字幕，遮盖品牌名避免先验知识干扰。让LLM分别估计产品质量($P(R_L|u)$)、赞助收益($R_S$)和频道可信度(λ)。对比LLM推断与理性模型预测的相关性。并测试"警觉性prompt steering"——在prompt中提醒关注说话者的激励和意图
     - 设计动机：控制实验无法代表真实部署场景——真实赞助广告包含大量干扰信息，是真正的试金石
 

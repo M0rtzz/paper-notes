@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning
 description: >-
-  [CVPR2025][医学图像][continual learning] 针对无任务 ID 和无数据回放的领域增量学习（DIL），提出 Residual SODAP 框架，通过 α-entmax 稀疏 prompt 选择与残差聚合、基于特征统计的伪回放蓏馏、prompt 使用模式漂移检测和不确定性加权，同时解决表示适配和分类器遗忘问题。在 DR、皮肤癌和 CORe50 上均达 SOTA。
+  [CVPR2025][医学图像][持续学习] 针对无任务 ID 和无数据回放的领域增量学习（DIL），提出 Residual SODAP 框架，通过 α-entmax 稀疏 prompt 选择与残差聚合、基于特征统计的伪回放蓏馏、prompt 使用模式漂移检测和不确定性加权，同时解决表示适配和分类器遗忘问题。在 DR、皮肤癌和 CORe50 上均达 SOTA。
 tags:
   - CVPR2025
   - 医学图像
-  - continual learning
+  - 持续学习
   - domain-incremental learning
   - 提示学习
-  - catastrophic forgetting
+  - 灾难性遗忘
   - 知识蒸馏
   - sparse selection
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.12816](https://arxiv.org/abs/2603.12816)  
 **代码**: 待确认  
 **领域**: medical_imaging  
-**关键词**: continual learning, domain-incremental learning, prompt-based learning, catastrophic forgetting, knowledge distillation, sparse selection
+**关键词**: 持续学习, domain-incremental learning, prompt-based learning, 灾难性遗忘, 知识蒸馏, sparse selection
 
 ## 一句话总结
 

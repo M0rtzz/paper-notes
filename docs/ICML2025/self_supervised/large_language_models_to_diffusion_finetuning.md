@@ -2,14 +2,15 @@
 title: >-
   [论文解读] L2D: Large Language Models to Diffusion Finetuning
 description: >-
-  [ICML 2025][LLM][测试时计算] 提出L2D微调方法，为预训练LLM引入扩散框架的推理时缩放能力，通过并行扩散路径+交叉注意力+LoRA实现多步推理，Llama-1B数学/编码/推理平均提升7分
+  [ICML 2025][自监督学习][LLM微调] 提出L2D微调方法，将预训练LLM视为单步扩散模型，引入并行扩散路径实现多步推理缩放，不修改原始权重即可随推理步数增加获得单调递增的准确率，在4个LLM上的数学/编码/推理任务上取得一致提升。
 tags:
   - ICML 2025
+  - 自监督学习
   - LLM微调
-  - 扩散模型
-  - 测试时计算缩放
+  - 扩散框架
+  - 测试时缩放
   - LoRA
-  - Rectified Flow
+  - Classifier-free Guidance
 ---
 
 # L2D: Large Language Models to Diffusion Finetuning
@@ -41,17 +42,17 @@ L2D在冻结的LLM主路径旁引入一条并行"扩散路径"。训练时，对
 
 ### 关键设计
 1. **并行扩散路径架构**:
-    - 做什么：在冻结LLM旁构建一条完全并行的轻量级Transformer路径
+    - 功能：在冻结LLM旁构建一条完全并行的轻量级Transformer路径
     - 核心思路：扩散路径 $f_{\theta_d}$ 与主路径 $f_{\theta_l}$ 同层数，每层包含MLP（复用主路径权重+LoRA）和交叉注意力（query来自扩散token，key/value来自主路径自注意力的KV缓存）。仅在最终层通过加权和 $f_{\theta_l} + w_d(t) f_{\theta_d}$ 融合，其中 $w_d(t) = w_{\theta_d}(t) - w_{\theta_d}(0)$ 确保 $t=0$ 时不影响原始LLM输出
     - 设计动机：(1) 冻结主路径保护原始能力；(2) 共享KV缓存使推理时主路径只需计算一次；(3) 独立timestep采样使训练可跨序列并行化
 
 2. **交叉熵扩散训练**:
-    - 做什么：用标准CE损失（而非MSE）训练语言扩散模型
+    - 功能：用标准CE损失（而非MSE）训练语言扩散模型
     - 核心思路：损失 $L^{CE}(\theta) = -\mathbb{E}_{x_0, x_1, t}[\log(f_\theta(x_t, t, c)_y)]$，其中 $x_t = t \cdot V_y + (1-t) \cdot x_0$。扩散路径仍输出vocabulary logits，但额外接收含有目标token部分信息的 $x_t$（$t=0$为纯噪声，$t=1$为完美信息）。采用rectified flow调度 $\alpha_t = t, \beta_t = 1-t$
     - 设计动机：CE损失与标准LM训练直接对接——$t=0$时等价于标准next-token prediction，使L2D成为LM的自然扩展
 
 3. **Classifier-Free Guidance + 自适应ODE求解**:
-    - 做什么：引入扩散领域的强力引导技术和自适应计算分配
+    - 功能：引入扩散领域的强力引导技术和自适应计算分配
     - 核心思路：训练时以概率dropout类别embedding $g_j$，推理时构造引导预测 $\hat{x}_g = w_g f_\theta(x_t,t,g_j,c) - (1-w_g) f_\theta(x_t,t,g_0,c)$。自适应ODE求解器（二阶Runge-Kutta）根据扩散误差自动调节每个token的推理步数
     - 设计动机：guidance使LLM获得面向特定任务的专家级生成能力；自适应求解器让模型自主决定难题多花计算
 

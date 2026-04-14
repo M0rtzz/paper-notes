@@ -52,26 +52,26 @@ VQ-VLA 的 pipeline 分为两阶段：
 
 1. **卷积残差 VQ-VAE 架构**:
 
-    - 做什么：将连续动作序列编码为离散 token，解码时恢复动作序列
+    - 功能：将连续动作序列编码为离散 token，解码时恢复动作序列
     - 核心思路：编码器和解码器使用 2D 时序卷积层（而非 MLP），能更好捕捉局部时序关系和层级时序依赖。残差向量量化（RVQ）将隐变量分解为多层量化：$\mathbf{q}(\mathbf{x}) = \sum_{i=1}^{N_q} \mathbf{q}_i(\mathbf{r}_i)$，每层修正前一层的残差
     - 训练损失：$\mathcal{L} = \|\mathbf{a} - \hat{\mathbf{a}}\|_2^2 + \lambda(\|\text{sg}(\mathbf{x}) - \mathbf{q}(\mathbf{x})\|_2^2 + \|\mathbf{x} - \text{sg}(\mathbf{q}(\mathbf{x}))\|_2^2)$，$\lambda=4$
     - 设计动机：2D 时序卷积相比 MLP 在 LIBERO 上成功率从 53.4% 提升到 60%，说明局部时序建模至关重要
 
 2. **时间嵌入 + 动作类型嵌入**:
 
-    - 做什么：在动作序列输入编码器前添加两种嵌入
+    - 功能：在动作序列输入编码器前添加两种嵌入
     - 核心思路：正弦时间嵌入（sinusoidal）编码不同频率的时序信息；可学习的动作类型嵌入区分 7 个维度（XYZ、欧拉角、夹爪）的不同语义角色
     - 设计动机：动作向量的 7 个维度含义各异，需要先验信息帮助模型区分处理
 
 3. **渐进式训练策略 + 合成数据缩放**:
 
-    - 做什么：从真实数据到合成数据逐步扩大训练规模
+    - 功能：从真实数据到合成数据逐步扩大训练规模
     - 核心思路：首先在 Open X-Embodiment（真实但噪声大）上训练，然后逐步加入 LIBERO 和 ManiSkill 的仿真数据（更干净平滑）。三个版本：VQ_O（仅 OpenX）、VQ_{O+L}（+LIBERO）、VQ_{O+L+M}（+ManiSkill）
     - 设计动机：作者发现动作轨迹在 sim-real 之间的 domain gap 极小（VQ_L 纯仿真训练的性能与 VQ_{O+L} 相当），因此可以放心使用大量合成数据
 
 4. **VQ-VAE 与 VLA 的集成**:
 
-    - 做什么：用 VQ-VAE 的离散 token 替换 OpenVLA 的 binning token
+    - 功能：用 VQ-VAE 的离散 token 替换 OpenVLA 的 binning token
     - 核心思路：不同 RVQ 层的 token ID 使用不重叠的范围——第 $i$ 层的 token $z_q^i \in [256(i-1), 256i-1]$，避免不同层之间的语义混淆。VLM 直接预测这些 token，损失为标准的 next-token cross-entropy
     - 设计动机：用压缩比为 5 的 action chunking（一步预测 5 个动作），大幅减少推理步数
 

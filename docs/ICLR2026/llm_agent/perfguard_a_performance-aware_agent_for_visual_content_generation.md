@@ -11,9 +11,9 @@ tags:
   - tool selection
   - performance-aware
   - AIGC
-  - preference optimization
+  - 偏好优化
   - 图像生成
-  - image editing
+  - 图像编辑
 ---
 
 # PerfGuard: A Performance-Aware Agent for Visual Content Generation
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2601.22571](https://arxiv.org/abs/2601.22571)  
 **代码**: [GitHub](https://github.com/FelixChan9527/PerfGuard)  
 **领域**: llm_agent  
-**关键词**: visual content generation, agent, tool selection, performance-aware, AIGC, preference optimization, image generation, image editing
+**关键词**: visual content generation, agent, tool selection, performance-aware, AIGC, 偏好优化, 图像生成, 图像编辑
 
 ## 一句话总结
 
@@ -33,8 +33,11 @@ tags:
 LLM agent 在自动化任务处理中展现出强大潜力，但在视觉内容生成（AIGC）领域存在关键缺陷：
 
 **工具能力描述模糊**：现有系统依赖通用文本描述（如"能生成与文本语义对齐的图像"），无法区分不同模型在不同维度上的性能差异
+
 **理想化假设**：多数框架假设"工具调用总是成功的"，缺乏对工具实际成功率的系统评估
+
 **静态工具选择**：基准测试分数可能偏离实际任务表现，且无法适应工具更新
+
 **规划与执行脱节**：任务规划过程未考虑工具性能边界，导致生成子任务超出工具能力
 
 CompAgent、GenArtist 等系统虽能通过多模型调度增强生成效果，但工具描述粗粒度、无性能意识。

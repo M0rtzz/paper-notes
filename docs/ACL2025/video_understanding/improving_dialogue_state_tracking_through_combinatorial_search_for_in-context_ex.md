@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - 视频理解
   - 对话状态追踪
-  - In-Context Learning
+  - 上下文学习
   - 组合搜索
   - 检索器训练
   - 少样本学习
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.00622](https://arxiv.org/abs/2506.00622)  
 **代码**: [GitHub](https://github.com/holi-lab/combisearch) (有)  
 **领域**: video_understanding  
-**关键词**: 对话状态追踪, In-Context Learning, 组合搜索, 检索器训练, 少样本学习
+**关键词**: 对话状态追踪, 上下文学习, 组合搜索, 检索器训练, 少样本学习
 
 ## 一句话总结
 

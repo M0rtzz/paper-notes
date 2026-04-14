@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.21635](https://arxiv.org/abs/2510.21635)  
 **代码**: https://github.com/CVI-SZU/DAP-MAE  
 **领域**: 3D视觉 / 点云分析 / 自监督学习  
-**关键词**: masked autoencoder, cross-domain learning, point cloud, domain adaptation, self-supervised learning
+**关键词**: masked autoencoder, cross-domain learning, 点云, 域适应, 自监督学习
 
 ## 一句话总结
 

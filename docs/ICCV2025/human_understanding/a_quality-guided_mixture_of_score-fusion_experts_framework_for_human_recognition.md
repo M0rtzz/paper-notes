@@ -43,20 +43,20 @@ QME 包含三个阶段的 pipeline：(1) 各模态预训练骨干网络提取特
 ### 关键设计
 1. **质量估计器（Quality Estimator, QE）**:
 
-    - 做什么：从预训练模型 $M_n$ 的中间激活特征 $\mathcal{I}_n \in \mathbb{R}^{L \times U \times P_n \times d_n}$ 中预测模态质量权重 $w_n \in \mathbb{R}$
+    - 功能：从预训练模型 $M_n$ 的中间激活特征 $\mathcal{I}_n \in \mathbb{R}^{L \times U \times P_n \times d_n}$ 中预测模态质量权重 $w_n \in \mathbb{R}$
     - 核心思路：提取多层 block 的均值和标准差特征，压缩为 $\mathbb{R}^{L \times 2d_n}$ 表示，输入编码器预测质量。
     - 训练使用伪质量损失 $\mathcal{L}_{rank}$：$$\mathcal{L}_{rank} = \sum_{i \in L} \text{MSELoss}(w_i, \text{ReLU}(\frac{\delta - r_i}{\delta - 1}))$$ 其中 $r_i$ 是查询特征 $q_i$ 在 gallery 中的排名结果，$\delta$ 是排名阈值超参数。排名越靠前意味着质量越高。
     - 设计动机：无需人工标注质量——排名结果作为代理标签。QE 可以泛化到任何预训练模型（不限于人脸），且可在域内或域外数据上训练。
 
 2. **Mixture of Score-Fusion Experts (MoE)**:
 
-    - 做什么：将来自 $N$ 个模型的拼接分数矩阵 $\mathcal{S} \in \mathbb{R}^{T \times N}$ 经过多个融合专家 $\{\varepsilon_1, ..., \varepsilon_Z\}$（3 层 MLP），每个专家输出一个融合分数矩阵 $\mathcal{S}_z \in \mathbb{R}^{1 \times T}$
+    - 功能：将来自 $N$ 个模型的拼接分数矩阵 $\mathcal{S} \in \mathbb{R}^{T \times N}$ 经过多个融合专家 $\{\varepsilon_1, ..., \varepsilon_Z\}$（3 层 MLP），每个专家输出一个融合分数矩阵 $\mathcal{S}_z \in \mathbb{R}^{1 \times T}$
     - 核心思路：路由器 $\mathcal{N}_r$ 以 QE 预测的质量权重 $w_n$ 为输入，生成各专家的贡献权重 $\{p_1, ..., p_Z\}$。最终融合分数为加权和：$\mathcal{S}' = \sum_{z \in Z} p_z \mathcal{S}_z$。实验中 $Z=2$，$p_1 = w_n$，$p_2 = 1 - p_1$
     - 设计动机：与传统 MoE 从输入特征预测路由不同，相似度分数是高层语义特征，缺少细粒度质量线索。因此本文用独立的 QE 提供质量信息来指导路由，使得高质量模态对应的专家获得更大权重。
 
 3. **分数三元组损失（Score Triplet Loss）**:
 
-    - 做什么：在分数域上施加约束，直接优化验证/开放集搜索等评估指标
+    - 功能：在分数域上施加约束，直接优化验证/开放集搜索等评估指标
     - 核心思路：$$\mathcal{L}_{score} = \text{ReLU}(\mathcal{S}'_{nm}) + \text{ReLU}(m - \mathcal{S}'_{mat})$$ 两项分别压低非匹配分数（使其趋向 0 以下）和保证匹配分数至少高于非匹配分数 $m$ 的间距
     - 设计动机：传统三元组损失只约束相对距离，不直接约束分数的绝对值。而 TAR@FAR 等指标依赖阈值判断，需要将非匹配分数的绝对值压低。本损失直接aligned训练目标与评估指标。
 

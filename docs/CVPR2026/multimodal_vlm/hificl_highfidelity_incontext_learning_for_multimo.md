@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.12760](https://arxiv.org/abs/2603.12760)  
 **代码**: [github.com/bbbandari/HiFICL](https://github.com/bbbandari/HiFICL)  
 **领域**: 多模态 / VLM / 参数高效微调  
-**关键词**: in-context learning, ICL approximation, virtual key-value pairs, low-rank, PEFT, 多模态大模型  
+**关键词**: in-context learning, ICL approximation, virtual key-value pairs, low-rank, PEFT, 多模态大模型
 
 ## 一句话总结
 通过严格的注意力公式分解揭示ICL的shift effect本质上是注意力机制的解析结果，据此提出HiFICL——用可学习低秩虚拟KV对直接参数化ICL的来源而非近似其效果，在多模态基准上以极少参数量全面超越现有ICL近似方法和LoRA。

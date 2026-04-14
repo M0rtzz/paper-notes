@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.19245](https://arxiv.org/abs/2509.19245)  
 **代码**: [GitHub](https://github.com/benedettaliberatori/convisbench)  
 **领域**: video_understanding  
-**关键词**: video similarity, benchmark, semantic concepts, Large Multimodal Models, video retrieval  
+**关键词**: video similarity, benchmark, semantic concepts, Large Multimodal Models, video retrieval
 
 ## 一句话总结
 

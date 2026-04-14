@@ -55,19 +55,19 @@ Rel-Zero包含三个阶段：（1）稳定patch对识别——通过VAE模拟编
 
 1. **稳定Patch对识别（训练目标构建）**:
 
-    - 做什么：构建训练用的ground-truth稳定patch对集合 $\mathcal{E}_g$
+    - 功能：构建训练用的ground-truth稳定patch对集合 $\mathcal{E}_g$
     - 核心思路：用预训练VAE模拟生成式编辑（受VINE启发），将原始图像和VAE重建图像分别通过ViT提取patch-level特征 $\mathcal{F} = \phi_{\text{vit}}(\mathbf{I})$，计算patch对在编辑前后的L2距离差异 $s_{ij} = \exp(-|d_{ij} - \hat{d}_{ij}|)$，选择稳定性分数最高的top-K对作为ground-truth
     - 设计动机：VAE重建对patch关系的影响与扩散编辑类似（受VINE工作启发），但计算代价小得多——不需要运行完整的扩散编辑pipeline。使用ViT高维特征而非RGB向量进行距离计算，能捕获更丰富的语义关系。注意发现阶段用RGB均值做分析，但方法阶段升级到ViT特征，这增强了表达能力
 
 2. **Patch关系学习（Edge Predictor）**:
 
-    - 做什么：训练一个轻量级预测器，从单张图像预测哪些patch对是稳定的
+    - 功能：训练一个轻量级预测器，从单张图像预测哪些patch对是稳定的
     - 核心思路：对ViT提取的N个patch特征构建全连接pair集合 $\mathcal{E}$，每个pair $(i,j)$ 的特征为 $\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2$（拼接+距离），通过MLP $\psi$ 和sigmoid $\sigma$ 输出预测分数 $p_{ij} = \sigma(\psi(\mathbf{f}_i \oplus \mathbf{f}_j \oplus \|\mathbf{f}_i - \mathbf{f}_j\|_2))$
     - 设计动机：简单的MLP就足够——消融实验证明Transformer或GAT反而会模糊patch间的精细距离差异（Transformer降至92.11%，GAT至94.45%，而MLP达97.43%）。关键信息在于patch对的**局部距离特征**，注意力机制会混合patch表征，反而损害精确的距离判别能力。这是一个"less is more"的设计哲学
 
 3. **水印生成与验证**:
 
-    - 做什么：基于预测器输出生成/验证零水印
+    - 功能：基于预测器输出生成/验证零水印
     - 核心思路：生成时取top-K最自信的预测对 $\mathcal{E}_p = \text{Top-K}(\Phi(\phi_{\text{vit}}(\mathbf{I})))$ 作为水印索引存储；验证时对嫌疑图像提取同样的top-K对 $\mathcal{E}_p'$，计算Jaccard重叠率 $\eta = |\mathcal{E}_p \cap \mathcal{E}_p'| / K$ 作为认证依据
     - 设计动机：将水印编码为patch对索引而非数值特征，天然适应仿射变换不变性——因为关系保序性而非绝对数值。索引集合可以哈希加密存储在外部数据库中（论文附录有安全存储方案）。验证阈值基于目标误报率（FPR=0.1%）校准，确保高置信度认证
 

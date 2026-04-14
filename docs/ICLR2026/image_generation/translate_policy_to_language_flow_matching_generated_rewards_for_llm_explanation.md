@@ -47,7 +47,7 @@ tags:
 
 1. **Rectified Flow奖励模型架构**:
 
-    - 做什么：将Rectified Flow嵌入LLM中，使其能理解语言上下文来生成奖励分布
+    - 功能：将Rectified Flow嵌入LLM中，使其能理解语言上下文来生成奖励分布
     - 核心思路：设计flow token（由 $\mathbf{z}_t$ 和 $PE(t)$ 经MLP投影得到），通过交叉注意力机制与决策上下文和解释的LLM隐藏状态交互。使用Explanation LLM的最后一层权重矩阵 $(W_Q, W_K, W_V)$ 计算交叉注意力
     - 训练损失：$\mathcal{L}_{\text{Flow}}(\theta_\varphi) = \mathbb{E}[\|(\mathbf{z}_1 - \mathbf{z}_0) - \varphi(t, \mathbf{z}_t | c_j, y_j^e; \theta_\varphi)\|^2]$
     - 设计动机：标准全连接网络或U-Net无法理解语言线索，嵌入LLM可利用其语言理解能力
@@ -60,7 +60,7 @@ tags:
 
 3. **句子级密集奖励**:
 
-    - 做什么：为解释的每个句子提供奖励信号，而非仅在末尾给稀疏奖励
+    - 功能：为解释的每个句子提供奖励信号，而非仅在末尾给稀疏奖励
     - 核心思路：逐句添加解释内容，观察真实决策logit的变化量作为该句的奖励
     - 设计动机：密集奖励加速PPO训练收敛，且更细粒度地指导解释质量
 

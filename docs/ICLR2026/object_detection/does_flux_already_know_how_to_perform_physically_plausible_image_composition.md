@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.21278](https://arxiv.org/abs/2509.21278)  
 **代码**: [GitHub](https://github.com/ZhumingLian/SHINE)  
 **领域**: object_detection  
-**关键词**: image composition, training-free, diffusion model, FLUX, physically plausible  
+**关键词**: image composition, training-free, diffusion model, FLUX, physically plausible
 
 ## 一句话总结
 提出 SHINE，一个无需训练的图像合成框架，通过 Manifold-Steered Anchor Loss、Degradation-Suppression Guidance 和 Adaptive Background Blending 三个组件，利用预训练 T2I 模型（如 FLUX）内在的物理先验，实现在复杂光照条件下（阴影、水面反射等）的高质量物体插入。

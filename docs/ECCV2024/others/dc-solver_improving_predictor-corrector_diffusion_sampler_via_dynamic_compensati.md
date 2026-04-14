@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2409.03755](https://arxiv.org/abs/2409.03755)  
 **代码**: [wl-zhao/DC-Solver](https://github.com/wl-zhao/DC-Solver)  
 **领域**: others  
-**关键词**: Diffusion Model, Fast Sampling, ODE Solver, Predictor-Corrector, Dynamic Compensation
+**关键词**: diffusion model, Fast Sampling, ODE Solver, Predictor-Corrector, Dynamic Compensation
 
 ## 一句话总结
 

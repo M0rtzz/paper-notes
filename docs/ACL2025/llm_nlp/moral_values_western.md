@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.19674](https://arxiv.org/abs/2505.19674)  
 **代码**: [https://github.com/ChunhuaLiu596/Word_Association_Generation](https://github.com/ChunhuaLiu596/Word_Association_Generation)  
 **领域**: AI Safety / Moral Alignment  
-**关键词**: moral values, word association, Moral Foundation Theory, mental lexicon, LLM alignment  
+**关键词**: moral values, word association, Moral Foundation Theory, mental lexicon, LLM alignment
 
 ## 一句话总结
 
@@ -36,8 +36,8 @@ tags:
 两阶段框架：
 
 1. **词语联想图构建**：从人类和 LLM 分别收集 12K cue 词的联想响应，构建两个独立的联想图。
-   - 人类联想图（wa-h）：来自 Small World of Words 数据集
-   - LLM 联想图（wa-l）：通过提示 Llama 生成
+    - 人类联想图（wa-h）：来自 Small World of Words 数据集
+    - LLM 联想图（wa-l）：通过提示 Llama 生成
 2. **道德信息传播**：基于 Moral Foundation Theory (MFT) 的 626 个种子词，通过随机游走在联想图中传播 5 维道德值，得到两个 Global Moral Network（gmn-h 和 gmn-l），然后进行系统性对比分析。
 
 ### 关键设计

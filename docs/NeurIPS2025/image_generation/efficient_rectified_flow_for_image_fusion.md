@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.16549](https://arxiv.org/abs/2509.16549)  
 **代码**: [zirui0625/RFfusion](https://github.com/zirui0625/RFfusion)  
 **领域**: image_generation  
-**关键词**: Image Fusion, Rectified Flow, Diffusion Model, VAE, One-Step Sampling  
+**关键词**: Image Fusion, Rectified Flow, diffusion model, VAE, One-Step Sampling
 
 ## 一句话总结
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.15871](https://arxiv.org/abs/2506.15871)  
 **代码**: 有（将开源数据集、分析和干预代码）  
 **领域**: 多模态VLM / 可解释性  
-**关键词**: visual binding, position IDs, mechanistic interpretability, causal mediation, VLM  
+**关键词**: visual binding, position IDs, mechanistic interpretability, causal mediation, VLM
 
 ## 一句话总结
 发现 VLM 内部涌现了一套三阶段符号处理机制（ID retrieval → ID selection → feature retrieval），利用内容无关的空间位置索引（position IDs）来解决视觉绑定问题，并证明绑定错误可直接追溯到这些机制的失败。
@@ -47,7 +47,7 @@ tags:
 
 1. **三阶段 Position ID 架构**
 
-    - 做什么：描述 VLM 解决绑定问题的完整处理流程
+    - 功能：描述 VLM 解决绑定问题的完整处理流程
     - 核心思路：
       - **Stage 1 - ID Retrieval**（~Layer 12-16）：给定 prompt 中描述的物体（如"红色方形"），ID retrieval heads 从对应的图像 token 中检索该物体的空间位置索引。输出是抽象的空间指针，不是物体特征
       - **Stage 2 - ID Selection**（~Layer 18-21）：基于已检索到的 position IDs，计算目标物体（需要被描述的缺失物体）的 position ID。通过排除已知物体的位置来推断目标位置
@@ -56,7 +56,7 @@ tags:
 
 2. **因果中介分析（CMA）定位注意力头**
 
-    - 做什么：因果性地识别执行每个阶段的具体注意力头
+    - 功能：因果性地识别执行每个阶段的具体注意力头
     - 核心思路：设计三个 CMA 条件，每个针对一种头：
       - ID retrieval 条件：clean 和 modified 图片中物体位置交换，patch prompt token 处的注意力头输出
       - ID selection 条件：同样交换位置，但 patch 最后一个 token 处的输出
@@ -66,7 +66,7 @@ tags:
 
 3. **Position ID 干预实验**
 
-    - 做什么：验证 position IDs 的功能性、泛化性和可迁移性
+    - 功能：验证 position IDs 的功能性、泛化性和可迁移性
     - 核心思路：通过加性干预 $\tilde{o}_h(x) = o_h(x) + \alpha \cdot (d_t - d_o)$ 编辑 position ID，其中 $d_t$ 和 $d_o$ 是目标和原始 ID 的估计。在逼真图像（PUG 环境）、真实图像（COCO）、跨任务（场景描述→空间推理）等设置下测试
     - 设计动机：如果 position IDs 真的是通用的索引机制，那么编辑它们就应该系统性地改变模型输出——在合成图像和真实图像上都有效，在不同任务间可迁移
 

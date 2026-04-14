@@ -1,13 +1,16 @@
 ---
-title: "[论文解读] Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification"
-description: "[CVPR 2026][医学图像][对抗鲁棒性] NNMF特征提取+统计筛选+扩散特征空间净化，AutoAttack下鲁棒精度从0.5%提升至59.5%"
+title: >-
+  [论文解读] Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification
+description: >-
+  [CVPR 2026][医学图像][脑肿瘤分类] 提出 NNMF 特征提取→统计特征筛选→轻量 CNN 分类→特征空间扩散净化的四阶段流水线，在干净数据上保持 85.1% 分类精度的同时，将 AutoAttack ($L_\infty$, $\epsilon=0.10$) 下的鲁棒精度从基线 0.47% 大幅提升至 59.5%。
 tags:
   - CVPR 2026
   - 医学图像
   - 脑肿瘤分类
   - NNMF
   - 扩散防御
-  - 对抗鲁棒性
+  - AutoAttack
+  - 特征空间去噪
 ---
 
 # Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification
@@ -45,12 +48,12 @@ tags:
 ### 关键设计
 
 1. **NNMF 特征提取与统计筛选**:
-    - 做什么：将 MRI 图像转灰度、resize 到 128×128、归一化后向量化构成非负矩阵 $V \in \mathbb{R}^{K \times N}_+$，分解为 $V \approx WH$（rank=15）
+    - 功能：将 MRI 图像转灰度、resize 到 128×128、归一化后向量化构成非负矩阵 $V \in \mathbb{R}^{K \times N}_+$，分解为 $V \approx WH$（rank=15）
     - 核心思路：使用 KL 散度目标函数配合乘法更新规则优化分解。基矩阵 $W$ 在训练集上学习，验证/测试集通过非负最小二乘投影到固定 $W$ 上获取特征向量，最终进行 L2 归一化确保特征尺度一致。随后对 15 个分量逐一评估三个互补统计指标：AUC（区分能力）、Cohen's d（效应量大小）、Welch's t-test p 值（统计显著性），选取综合排名靠前的 Top-M 特征子集
     - 设计动机：NNMF 的非负约束产生 parts-based 可解释表示——每个基分量对应可识别的解剖模式（如颅骨边界、组织分布等）；多标准统计筛选兼顾判别力、效应大小和统计可靠性
 
 2. **特征空间扩散净化**:
-    - 做什么：在 NNMF 特征空间（而非像素空间）执行前向扩散加噪 + 学习去噪器还原的防御流程
+    - 功能：在 NNMF 特征空间（而非像素空间）执行前向扩散加噪 + 学习去噪器还原的防御流程
     - 核心思路：定义线性噪声时间表，对干净特征 $x_0$ 逐步添加高斯噪声生成 $x_t$。训练回归去噪网络，输入为噪声特征 $x_t$ 拼接正弦位置编码的 timestep $t$，输出去噪后的 $\hat{x}_0$，使用 MSE 损失监督。推理时选定 timestep（如 $t=41$）加噪后通过去噪器还原。由于加噪过程的随机性，采用 Expectation over Transformation（EOT, K=8 次采样取均值）来稳定防御效果
     - 设计动机：对抗扰动主要作用于像素空间，经 NNMF 降维后扰动被压缩到低秩空间；在此空间再执行扩散净化可进一步消除残余扰动效果，而且计算开销远低于像素空间去噪
 

@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：深度学习中的特征学习有两个视角——表征质量视角（特征对下游任务有多好）和动态视角（rich vs lazy 训练）。Rich 训练指的是特征发生非线性动态变换，而 lazy 训练则接近线性模型行为。
+
 **现有痛点**：现有的 richness 度量方法各有缺陷——NTK 变化度量计算代价太大（与参数量的平方成正比）；初始核相似度 $\mathcal{S}_{init}$ 依赖初始核、有时会误判（如 weight decay 导致核变化但并非真正的 rich 训练）；参数范数 $\|\theta\|_F^2$ 只是相关性而非因果关系；neural collapse 的 NC1 指标无界且对输出缩放敏感。
+
 **核心矛盾**：Rich dynamics（动态丰富度）和 better representation（更好表征）经常被混为一谈，用准确率作为 richness 的代理指标。但实际上 rich dynamics 并不总意味着更好的泛化——作者在 MNIST 上展示 rich 训练模型测试准确率仅 10%，而 lazy 模型却达 74.4%。
+
 **本文要解决什么？** (1) 独立于性能的 richness 度量；(2) 计算效率高；(3) 能统一解释 neural collapse 等已知现象。
+
 **切入角度**：从 rich 训练的低秩偏差出发——rich 动态下，最后一层之前的特征应该只学到表达学到函数所需的最少维度（低秩结构）。
+
 **核心idea一句话**：定义最小投影算子 $\mathcal{T}_{MP}$，用 CKA 衡量实际特征核与理想低秩投影之间的距离，値越小说明训练越 rich。
 
 ## 方法详解
@@ -41,25 +46,25 @@ tags:
 
 1. **特征核算子 $\mathcal{T}$**:
 
-    - 做什么：将特征映射转化为函数空间的核算子
+    - 功能：将特征映射转化为函数空间的核算子
     - 核心思路：$\mathcal{T} = \sum_{k=1}^{p} |\Phi_k\rangle\langle\Phi_k|$，即对所有特征维度的外积求和。通过 Mercer 定理分解得到特征值 $\rho_k$ 和特征函数 $e_k$
     - 设计动机：在函数空间而非向量空间操作，使度量不依赖于具体训练样本
 
 2. **最小投影算子 $\mathcal{T}_{MP}$（Definition 1）**:
 
-    - 做什么：定义 rich 训练的理想状态
+    - 功能：定义 rich 训练的理想状态
     - 核心思路：$\mathcal{T}_{MP}[u] = a_1\langle \mathbf{1}|u\rangle\mathbf{1} + a_2 P_{\hat{\mathcal{H}}}(u)$，其中 $P_{\hat{\mathcal{H}}}$ 是到学到函数空间 $\hat{\mathcal{H}} = \text{span}\{\hat{f}_1, \ldots, \hat{f}_C\}$ 的正交投影。如果实际的 $\mathcal{T}$ 就是 $\mathcal{T}_{MP}$，意味着特征只跨越了 $C$ 维空间（与输出维度相同），完美体现了 rich 训练的低秩偏差
     - 设计动机：在理想的 rich 动态下，只有最少数量的特征被学习和使用，最后一层不需要做额外处理
 
 3. **低秩度量 $\mathcal{D}_{LR}$**:
 
-    - 做什么：量化训练的 richness 程度
+    - 功能：量化训练的 richness 程度
     - 核心思路：$\mathcal{D}_{LR} = 1 - \text{CKA}(\mathcal{T}, \mathcal{T}_{MP})$，值域 $[0,1]$，0 表示最 rich，1 表示最 lazy
     - 与 neural collapse 的联系：当 $\mathcal{T}$ 是 $\mathcal{T}_{MP}$ 时，NC1（类内变异性坍缩）和 NC2（特征收敛到单纯形等角紧框架）自动成立
 
 4. **特征分解可视化（Eq. 5）**:
 
-    - 做什么：提供比单一标量更丰富的诊断信息
+    - 功能：提供比单一标量更丰富的诊断信息
     - 三个互补视角：(i) 累积质量 $\Pi^*(k)$——前 $k$ 个特征能多好地表达目标函数；(ii) 累积利用率 $\hat{\Pi}(k)$——前 $k$ 个特征被最后一层用了多少；(iii) 相对特征值 $\rho_k/\rho_1$——各特征的相对重要性
     - 通过 Nyström 方法从有限样本近似特征函数，计算复杂度仅为 $\mathcal{O}(p^2 C)$
 

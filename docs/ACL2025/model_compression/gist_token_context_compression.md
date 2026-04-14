@@ -47,9 +47,9 @@ Gist Token方法将长上下文压缩为少量特殊token来替代完整KV Cache
 2. **任务差异**: Fine-KV在RAG、LongQA、摘要上近无损；但在合成召回（Synthetic Recall）和重排（Reranking）上有显著差距。
 
 3. **三种失败模式**:
-   - **Lost by the Boundary（边界丢失）**: 段首token的信息最容易在压缩中丢失——因为它们在上一段的gist token覆盖范围之外
-   - **Lost if Surprise（意外丢失）**: 低概率、出乎意料的token更容易被忽略——gist token倾向于压缩"常见"信息
-   - **Lost Along the Way（中途丢失）**: 在需要精确逐步召回的任务中，错误在中间步骤累积
+    - **Lost by the Boundary（边界丢失）**: 段首token的信息最容易在压缩中丢失——因为它们在上一段的gist token覆盖范围之外
+    - **Lost if Surprise（意外丢失）**: 低概率、出乎意料的token更容易被忽略——gist token倾向于压缩"常见"信息
+    - **Lost Along the Way（中途丢失）**: 在需要精确逐步召回的任务中，错误在中间步骤累积
 
 ### 改进策略
 

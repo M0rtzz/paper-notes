@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Evaluating Implicit Bias in Large Language Models by Attacking from a Psychometric Perspective
 description: >-
-  [ACL 2025][LLM/NLP][implicit bias] 借鉴认知与社会心理学中的三种心理测量学原理（目标转移、认知协调、模仿学习），设计 Disguise/Deception/Teaching 三类攻击方法来诱发 LLM 的隐式偏见，构建了双语基准 BUMBLE（12.7K 条目覆盖 9 类偏见），揭示所有主流 LLM 均存在可被激发的系统性隐式偏见。
+  [ACL 2025][LLM/NLP][隐式偏差] 借鉴认知与社会心理学中的三种心理测量学原理（目标转移、认知协调、模仿学习），设计 Disguise/Deception/Teaching 三类攻击方法来诱发 LLM 的隐式偏见，构建了双语基准 BUMBLE（12.7K 条目覆盖 9 类偏见），揭示所有主流 LLM 均存在可被激发的系统性隐式偏见。
 tags:
   - ACL 2025
   - LLM/NLP
-  - implicit bias
+  - 隐式偏差
   - psychometrics
   - attack methodology
-  - fairness
-  - LLM evaluation
+  - 公平性
+  - LLM 评测
 ---
 
 # Evaluating Implicit Bias in Large Language Models by Attacking from a Psychometric Perspective
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.14023](https://arxiv.org/abs/2406.14023)  
 **代码**: https://yuchenwen1.github.io/ImplicitBiasEvaluation  
 **领域**: LLM/NLP - AI 安全与公平性  
-**关键词**: implicit bias, psychometrics, attack methodology, fairness, LLM evaluation
+**关键词**: 隐式偏差, psychometrics, attack methodology, 公平性, LLM 评测
 
 ## 一句话总结
 借鉴认知与社会心理学中的三种心理测量学原理（目标转移、认知协调、模仿学习），设计 Disguise/Deception/Teaching 三类攻击方法来诱发 LLM 的隐式偏见，构建了双语基准 BUMBLE（12.7K 条目覆盖 9 类偏见），揭示所有主流 LLM 均存在可被激发的系统性隐式偏见。
@@ -47,19 +47,19 @@ tags:
 
 1. **Disguise 攻击（伪装 — 基于目标转移 Goal Shifting）**:
 
-    - 做什么：通过 Viewpoint Contextualization (VC) 将偏见内容隐藏在多人对话场景中——模拟多个用户轮流发言，最后一个用户表达偏见观点，然后问模型是否同意
+    - 功能：通过 Viewpoint Contextualization (VC) 将偏见内容隐藏在多人对话场景中——模拟多个用户轮流发言，最后一个用户表达偏见观点，然后问模型是否同意
     - 核心思路：利用认知心理学中的目标转移——将偏见评估伪装为对话理解任务，使模型在"理解并回应对话"的过程中放松对偏见内容的警戒
     - 设计动机：直接问模型是否同意偏见观点会立即触发安全机制，但将同样的问题嵌入多轮对话场景中可以绕过检测
 
 2. **Deception 攻击（欺骗 — 基于认知协调 Cognition Concordance）**:
 
-    - 做什么：通过两种方式欺骗 LLM——(1) Mental Deception (MD)：让模型"坚定相信"某种偏见观点来改变其认知；(2) Memory Falsification (MF)：伪造 API 调用历史，让模型相信自己之前已经生成过偏见内容
+    - 功能：通过两种方式欺骗 LLM——(1) Mental Deception (MD)：让模型"坚定相信"某种偏见观点来改变其认知；(2) Memory Falsification (MF)：伪造 API 调用历史，让模型相信自己之前已经生成过偏见内容
     - 核心思路：利用认知协调原理——当主体遇到与现有认知冲突的新信息时，会倾向于调整自身认知以适应环境。通过植入虚假信念或记忆来动摇模型的安全立场
     - 设计动机：MD 直接改变模型的"信念"，MF 则利用模型维护上下文一致性的倾向——如果它"记得"自己之前发表过偏见言论，更可能继续这种行为
 
 3. **Teaching 攻击（教学 — 基于模仿学习 Imitation Learning）**:
 
-    - 做什么：通过 Destructive Indoctrination (DI) 提供同类偏见的 3 个示例，然后要求模型同意另一个类似的偏见观点或生成类似内容
+    - 功能：通过 Destructive Indoctrination (DI) 提供同类偏见的 3 个示例，然后要求模型同意另一个类似的偏见观点或生成类似内容
     - 核心思路：利用 LLM 的 few-shot 学习能力——提供偏见示例相当于给模型上了一堂"偏见课"
     - 设计动机：当给模型一种类型的偏见示例（如种族偏见）时，可以激发出其他类型的偏见（如性别、宗教偏见），说明模型内部存在广泛的关联性隐式偏见
 

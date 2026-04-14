@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.10487](https://arxiv.org/abs/2504.10487)  
 **代码**: [https://github.com/yasserben/FLOSS](https://github.com/yasserben/FLOSS)  
 **领域**: 分割 / 开放词汇 / 文本提示  
-**关键词**: open-vocabulary segmentation, template selection, class-expert, entropy, plug-and-play, training-free  
+**关键词**: open-vocabulary segmentation, template selection, class-expert, entropy, plug-and-play, training-free
 
 ## 一句话总结
 挑战OVSS中"平均80个模板"的默认做法，发现每个类别存在特定的"专家模板"（class-expert）远优于平均分类器，提出用预测熵无监督选择专家模板+融合专家预测的FLOSS方法，在不需要标签和训练的情况下一致提升现有OVSS方法。

@@ -8,7 +8,7 @@ tags:
   - 图像分割
   - multi-round reasoning
   - region grounding
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - VLM
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.03733](https://arxiv.org/abs/2602.03733)  
 **代码**: [RegionReasoner](https://github.com/wenfangsun/RegionReasoner)  
 **领域**: segmentation / visual reasoning  
-**关键词**: multi-round reasoning, region grounding, reinforcement learning, GRPO, VLM, referring segmentation  
+**关键词**: multi-round reasoning, region grounding, reinforcement-learning, GRPO, VLM, referring segmentation
 
 ## 一句话总结
 提出 RegionReasoner，一个基于强化学习的多轮视觉推理框架，通过引用标注奖励和全局-局部一致性奖励，使推理轨迹必须显式引用参考区域坐标并保持语义连贯，在新构建的 RegionDial-Bench 上显著提升多轮定位和分割精度。

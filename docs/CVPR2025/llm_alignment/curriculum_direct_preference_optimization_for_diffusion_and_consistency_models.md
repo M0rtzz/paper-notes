@@ -7,10 +7,10 @@ tags:
   - CVPR 2025
   - LLM对齐
   - DPO
-  - curriculum learning
+  - 课程学习
   - 扩散模型
   - consistency model
-  - preference optimization
+  - 偏好优化
 ---
 
 # Curriculum Direct Preference Optimization for Diffusion and Consistency Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2405.13637](https://arxiv.org/abs/2405.13637)  
 **代码**: https://github.com/CroitoruAlin/Curriculum-DPO  
 **领域**: LLM对齐/RLHF  
-**关键词**: DPO, curriculum learning, diffusion model, consistency model, preference optimization
+**关键词**: DPO, 课程学习, 扩散模型, consistency model, 偏好优化
 
 ## 一句话总结
 首次将课程学习引入 DPO 并首次将 DPO 适配到一致性模型，通过从"容易区分的偏好对"到"难以区分的偏好对"渐进训练，在文本对齐、美学和人类偏好上全面超越标准 DPO 和 DDPO，且仅需 1/10 训练数据量。
@@ -47,19 +47,19 @@ tags:
 
 1. **排序与课程划分**
 
-    - 做什么：将 M 张图像按 reward 排序，按排名差距构建不同难度的偏好对
+    - 功能：将 M 张图像按 reward 排序，按排名差距构建不同难度的偏好对
     - 核心思路：对 prompt $c$ 生成 M 张图像，用 reward model $r_\phi$ 降序排列。创建偏好对 $(x_0^w, x_0^l)$，按排名差距分为 B 个批次：$L_k = (M-1)(B-k)/B$, $R_k = (M-1)(B-(k-1))/B$
     - 设计动机：批次 1 包含排名差距最大的"容易"对，批次 B 包含差距最小的"困难"对
 
 2. **累积训练策略**
 
-    - 做什么：每加入新批次时保留所有之前的简单批次
+    - 功能：每加入新批次时保留所有之前的简单批次
     - 核心思路：第 k 阶段使用 $P = \bigcup_{i=1}^k S_i$ 训练
     - 设计动机：防止遗忘简单模式，困难样本在已有简单知识基础上学习
 
 3. **Consistency-DPO 损失函数（首创）**
 
-    - 做什么：将 DPO 损失从扩散模型适配到一致性模型
+    - 功能：将 DPO 损失从扩散模型适配到一致性模型
     - 核心思路：$\mathcal{L}_{\text{Con-DPO}}(\phi) = -\mathbb{E}[\log \sigma(-\beta(d^w - d^l))]$，其中 $d^*$ 基于一致性函数的距离度量
     - 设计动机：一致性模型不使用噪声预测，无法直接用 Diffusion-DPO 的 $\epsilon$ 损失
 

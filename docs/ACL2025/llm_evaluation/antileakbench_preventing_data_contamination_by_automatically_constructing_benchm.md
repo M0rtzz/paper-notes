@@ -2,15 +2,14 @@
 title: >-
   [论文解读] AntiLeakBench: Preventing Data Contamination by Automatically Constructing Benchmarks with Updated Real-World Knowledge
 description: >-
-  [ACL 2025][数据污染] 提出 AntiLeakBench——自动化反泄露基准框架，通过识别 LLM 知识截止后更新的真实世界新知识自动构建 QA 测试样本（而非简单收集新发布数据），确保测试知识严格不在训练集中，全自动流程无需人工标注，实验证实截止后性能普遍下降验证了数据污染的普遍存在。
+  [ACL 2025][数据污染] 提出 AntiLeakBench 自动化反泄露基准框架，通过追踪 Wikidata 知识更新历史识别 LLM 截止时间后的新知识，自动构建单跳/多跳 QA 测试样本（附真实 Wikipedia 支撑文档），确保知识级严格无污染，12 个 LLM 的大规模实验证实截止后性能普遍下降（EM 跌幅显著）验证了框架有效性。
 tags:
   - ACL 2025
   - 数据污染
-  - 基准更新
-  - 反泄露
-  - 知识截止
-  - 自动构建
-  - 真实世界知识
+  - 基准构建
+  - 知识更新
+  - Wikidata
+  - 自动化评测
 ---
 
 # AntiLeakBench: Preventing Data Contamination by Automatically Constructing Benchmarks with Updated Real-World Knowledge
@@ -49,26 +48,26 @@ tags:
 
 1. **知识数据准备（Data Preparation）**:
 
-    - 做什么：从 Wikidata 获取实体-关系-实体三元组及其时间限定符
+    - 功能：从 Wikidata 获取实体-关系-实体三元组及其时间限定符
     - 核心思路：提取物理实体相关关系（如 member of sports team），排除虚拟实体的关系（如坐标）。每个三元组附带 start_time 和 end_time 限定符，标示知识的有效时间段
     - 设计动机：Wikidata 提供结构化、时间标注的知识，是追踪知识变化的理想数据源
 
 2. **新知识识别（Identifying Updated Knowledge）**:
 
-    - 做什么：找出 LLM 截止时间 $t_1$ 之后、当前时间 $t_2$ 之前发生变化的知识
+    - 功能：找出 LLM 截止时间 $t_1$ 之后、当前时间 $t_2$ 之前发生变化的知识
     - 核心思路：按主体和关系分组所有三元组，按 start_time 时序排列。若某三元组的新值出现在 $t_1$ 之后（即 object 发生了变化），则标记为更新知识。例如：(Messi, member of sports team) 从 PSG → Inter Miami，发生在截止后
     - 关键细节：排除"变回原值"的情况（如球员回归老东家），确认新值与旧值确实不同
     - 设计动机：这是框架的核心洞察——只有知识本身在截止后更新，才能严格保证 LLM 训练集中不存在该知识
 
 3. **支撑文档构建（Building Supporting Documents）**:
 
-    - 做什么：为每条新知识提供真实世界上下文
+    - 功能：为每条新知识提供真实世界上下文
     - 核心思路：检索 Wikipedia 页面修订历史，找到新知识 start_time 之后的修订版本，提取包含主体和客体（或别名）的文章摘要作为支撑文档
     - 设计动机：不用 LLM 生成文档（避免幻觉），而用 Wikipedia 这一维护良好的真实数据源。且修订后文档同样是截止后产生，也不在训练集中
 
 4. **构建无污染 QA 样本（Constructing Contamination-Free Samples）**:
 
-    - 做什么：基于新知识和支撑文档构建测试样本
+    - 功能：基于新知识和支撑文档构建测试样本
     - 核心思路：支持四种任务格式——
       - **Single-Hop Gold**：直接提问新知识，上下文仅含支撑文档（如"Messi 属于哪支球队？"上下文为其 Wikipedia 页面）
       - **Single-Hop $N_d$**：增加 $N_d$ 个干扰文档，测试长上下文定位能力

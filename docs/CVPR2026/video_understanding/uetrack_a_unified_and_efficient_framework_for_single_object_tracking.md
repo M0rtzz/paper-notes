@@ -4,7 +4,7 @@
 **arXiv**: [2603.01412](https://arxiv.org/abs/2603.01412)  
 **代码**: https://github.com/kangben258/UETrack  
 **领域**: 视频理解  
-**关键词**: single object tracking, multi-modal tracking, mixture of experts, knowledge distillation, efficient inference  
+**关键词**: single object tracking, multi-modal tracking, mixture of experts, knowledge distillation, efficient inference
 
 ## 总结
 

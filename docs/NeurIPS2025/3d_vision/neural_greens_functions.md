@@ -27,12 +27,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：学习型 PDE 求解器（PINN、FNO、GNO、Transolver 等）显著提升了效率，但在**同时泛化**到不同域几何、源函数和边界条件方面存在根本困难
+
 **现有痛点**：
    - PINN 对每个问题实例需独立训练，任何变化都需重训
    - 神经算子（FNO、Transolver）将输入网格与采样的函数值**耦合**——换函数后泛化差
    - 学习 Green 函数的前人方法（Boullé et al., Teng et al.）限于单一域且只处理简单几何
+
 **核心矛盾**：现有方法把函数值作为网络输入→换函数就要有更多训练样本
+
 **切入角度**：Green 函数 $G_D(x,y)$ **只依赖于域几何 D**，与源函数 f 和边界条件 h 无关。一旦学到 $G_D$，解 = 积分 $u(x) = \int G_D(x,y) f(y) dy + \text{边界项}$
+
 **核心 idea**：用点云上的神经网络**仅从域几何**预测 Green 函数的特征分解 $G \approx \Phi \Lambda^{-1} \Phi^T$，同时预测积分所需的质量矩阵 M——设计上**与函数无关**
 
 ## 方法详解
@@ -44,13 +48,13 @@ tags:
 
 1. **基于特征分解的解算子**：
 
-    - 做什么：将 Green 函数矩阵 $\mathbf{G} = (\mathbf{KLK}^T)^{-1}$ 分解为 $\mathbf{G} = \mathbf{\Phi} \mathbf{\Lambda}^{-1} \mathbf{\Phi}^T$
+    - 功能：将 Green 函数矩阵 $\mathbf{G} = (\mathbf{KLK}^T)^{-1}$ 分解为 $\mathbf{G} = \mathbf{\Phi} \mathbf{\Lambda}^{-1} \mathbf{\Phi}^T$
     - 核心思路：网络预测特征向量 $\Phi \in \mathbb{R}^{N_{int} \times K}$ 和特征值 $\Lambda$，$K$ 远小于内部顶点数 $N_{int}$——低秩近似
     - 设计动机：直接预测 $N_{int} \times N_{int}$ 的 Green 函数矩阵不可行（太大），低秩特征分解将参数量从 $O(N^2)$ 压缩到 $O(NK)$
 
 2. **纯几何特征提取**：
 
-    - 做什么：从输入点云中提取逐点特征，不使用任何函数值信息
+    - 功能：从输入点云中提取逐点特征，不使用任何函数值信息
     - 核心思路：用 Transolver 骨干网络处理体积点云，通过交叉注意力与 latent Token 交互
     - 设计动机：**强制网络只看几何**——这是与 Green 函数"只依赖域几何"的数学性质对齐的关键设计
 

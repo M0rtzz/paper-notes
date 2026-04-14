@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Towards a Principled Evaluation of Knowledge Editors
 description: >-
-  [ACL 2025][Knowledge Editing] 本文系统性地揭示了知识编辑评估中不同评分方法（argmax、多选、生成匹配）和不同编辑批量大小会导致知识编辑器排名发生逆转的问题，并通过人工评估发现基于字符串匹配的评估方法存在假阳性倾向。
+  [ACL 2025][知识编辑] 本文系统性地揭示了知识编辑评估中不同评分方法（argmax、多选、生成匹配）和不同编辑批量大小会导致知识编辑器排名发生逆转的问题，并通过人工评估发现基于字符串匹配的评估方法存在假阳性倾向。
 tags:
   - ACL 2025
-  - Knowledge Editing
+  - 知识编辑
   - Model Editing
   - 评估方法论
   - MEMIT
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2507.05937](https://arxiv.org/abs/2507.05937)  
 **代码**: 有 (开源评估框架)  
 **领域**: NLP / 知识编辑  
-**关键词**: Knowledge Editing, Model Editing, Evaluation Methodology, Edit Batch Size, LM Evaluation Harness
+**关键词**: knowledge editing, Model Editing, Evaluation Methodology, Edit Batch Size, LM Evaluation Harness
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 知识编辑（Knowledge Editing）是近年来模型编辑中最受关注的方向，目标是将新知识（通常以三元组形式）注入预训练语言模型中。现有的四个主流评估数据集（zsRE、CounterFact、MQuAKE、RippleEdits）分别使用了不同的评估方法来衡量编辑器的成功率，但这些方法之间的差异和鲁棒性尚未被充分研究。更重要的是，编辑器对模型整体语言理解能力的破坏性影响一直是一个盲区。
 
 具体而言，现有评估方法存在两大研究空白：
+
 **评估方法不统一**：zsRE用逐token的greedy decoding判断，CounterFact用序列对数似然的排名，MQuAKE和RippleEdits用生成文本中的字符串匹配。不同方法是否会导致不同的编辑器排名？
+
 **批量编辑的副作用**：随着编辑数量的增加，编辑器如何影响模型在通用任务上的表现？这需要一个系统性的研究框架。
 
 ## 方法详解
@@ -127,7 +129,7 @@ LLM-as-a-judge（Qwen-32B）在人工评估真值上略优于精确匹配。
 **arXiv**: [2507.05937](https://arxiv.org/abs/2507.05937)  
 **代码**: 有 (开源评估框架)  
 **领域**: NLP / 知识编辑  
-**关键词**: Knowledge Editing, Model Editing, 评估方法论, MEMIT, 编辑批量大小
+**关键词**: 知识编辑, Model Editing, 评估方法论, MEMIT, 编辑批量大小
 
 ## 一句话总结
 
@@ -152,16 +154,16 @@ LLM-as-a-judge（Qwen-32B）在人工评估真值上略优于精确匹配。
 ### 关键设计
 
 1. **三种评分方法的对比**：
-   - **Argmax**：逐 token 检查目标字符串是否为最高概率预测，计算准确率
-   - **MC（多选）**：比较原始目标和编辑后目标的序列对数似然
-   - **Generate（生成匹配）**：生成固定长度文本后检查目标字符串是否出现
-   - 设计动机：不同方法可能隐含地偏向某些特定编辑器
+    - **Argmax**：逐 token 检查目标字符串是否为最高概率预测，计算准确率
+    - **MC（多选）**：比较原始目标和编辑后目标的序列对数似然
+    - **Generate（生成匹配）**：生成固定长度文本后检查目标字符串是否出现
+    - 设计动机：不同方法可能隐含地偏向某些特定编辑器
 
 2. **四种编辑器的选择**：
-   - **MEMIT**：通过因果追踪显式计算参数更新，专为批量编辑设计
-   - **LoRA**：参数高效微调方法
-   - **In-Context**：将编辑事实以自然语言形式拼接到输入中
-   - **Context-Retriever**：结合 RAG 系统检索最相关的 4-NN 编辑
+    - **MEMIT**：通过因果追踪显式计算参数更新，专为批量编辑设计
+    - **LoRA**：参数高效微调方法
+    - **In-Context**：将编辑事实以自然语言形式拼接到输入中
+    - **Context-Retriever**：结合 RAG 系统检索最相关的 4-NN 编辑
 
 3. **生成长度的影响分析**：生成文本越长，假阳性率越高；通过人工标注 200 个样本验证匹配算法的可靠性
 

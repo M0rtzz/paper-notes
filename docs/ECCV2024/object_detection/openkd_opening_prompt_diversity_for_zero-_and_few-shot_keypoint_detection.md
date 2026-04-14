@@ -7,7 +7,7 @@ tags:
   - ECCV 2024
   - 目标检测
   - Zero-shot Keypoint Detection
-  - Few-shot Learning
+  - few-shot learning
   - CLIP
   - 提示学习
   - LLM Parsing
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2409.19899](https://arxiv.org/abs/2409.19899)  
 **代码**: https://github.com/AlanLuSun/OpenKD (有)  
 **领域**: 关键点检测 / 目标检测  
-**关键词**: Zero-shot Keypoint Detection, Few-shot Learning, CLIP, Multimodal Prompting, LLM Parsing
+**关键词**: Zero-shot Keypoint Detection, few-shot learning, CLIP, Multimodal Prompting, LLM Parsing
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 关键点检测是计算机视觉的基础任务（姿态估计、动作识别、细粒度分类等），但现有全监督方法只能预测固定物种的固定关键点集合，泛化到新物种/新关键点需要重新标注大量数据。Few-shot keypoint detection (FSKD) 通过视觉 prompt（带标注的支持图像）实现少样本检测；Zero-shot keypoint detection (ZSKD) 借助 CLIP 等 VLM 通过文本 prompt 实现零样本检测。
 
 **现有痛点**：
+
 **模态单一**：大多数方法只支持视觉 prompt 或文本 prompt，不能同时利用两种模态的互补优势
+
 **语义封闭**：模型无法处理未见过的文本 prompt（如训练时见过 "eye" 但测试时遇到 "knee"），novel keypoint 检测性能极差
+
 **语言刻板**：现有 ZSKD 仅支持模板化的简单文本（如 "the nose of a cat"），无法处理自然语言风格多样的提问（如 "Can you detect the nose and ears of a cat?"）
 
 **核心 idea**：OpenKD 从三个维度"开放 prompt 多样性"——用多模态 prototype set 支持模态多样性，用 LLM 推理辅助关键点文本插值支持语义多样性，用 LLM 文本解析支持语言多样性。
@@ -46,26 +49,26 @@ OpenKD 基于 episodic training，每个 episode 包含 support set（视觉/文
 
 1. **基于 CLIP 的多模态特征提取与投影**:
 
-    - 做什么：使用 CLIP RN50 作为共享 backbone，提取支持/查询图像特征和文本特征
+    - 功能：使用 CLIP RN50 作为共享 backbone，提取支持/查询图像特征和文本特征
     - 核心思路：原始 CLIP 图像编码器通过 attention pooling 只保留 classification token，丢弃了空间信息。作者通过 $\mathbf{X}' = \mathbf{X}\mathbf{W}_v\mathbf{W}_o$ 复用 CLIP attention pooling 的 V/O 投影矩阵来获取 projected image tokens，保留空间位置信息
     - 设计动机：关键点检测需要精确的空间定位，不能只用全局特征；同时复用 CLIP 的投影矩阵可以拉近图像 token 与文本特征的模态间距
 
 2. **残差特征适配（Residual Feature Adaptation）**:
 
-    - 做什么：使用两个轻量适配网络 $\mathcal{A}_v$ 和 $\mathcal{A}_t$ 以残差方式分别微调图像和文本特征
+    - 功能：使用两个轻量适配网络 $\mathcal{A}_v$ 和 $\mathcal{A}_t$ 以残差方式分别微调图像和文本特征
     - 核心思路：$\mathbf{X}^s := \mathbf{X}^s + \mathcal{A}_v(\mathbf{X}^s)$，$\mathbf{t}_n := \mathbf{t}_n + \mathcal{A}_t(\mathbf{t}_n)$
     - 设计动机：CLIP 的预训练特征是 image-level 对齐而非 keypoint-level 对齐，需要适配到关键点检测的细粒度任务空间
 
 3. **多模态关键点 Prototype Set**:
 
-    - 做什么：将视觉和文本 prompt 统一转换为 keypoint prototype，构建 prototype set $\mathcal{T} = \mathcal{T}^v \cup \mathcal{T}^t$
+    - 功能：将视觉和文本 prompt 统一转换为 keypoint prototype，构建 prototype set $\mathcal{T} = \mathcal{T}^v \cup \mathcal{T}^t$
     - 视觉 prototype (VKP)：对支持图像特征图 $\mathbf{X}^s$ 以关键点位置为中心用高斯加权求和，得到 $\mathbf{\Phi}_n \in \mathbb{R}^d$；K-shot 时取同类关键点平均 $\mathbf{\Psi}_n^v = \frac{1}{K}\sum_k \mathbf{\Phi}_{k,n}$
     - 文本 prototype (TKP)：直接用 CLIP 文本编码器编码关键点文本得到 $\mathbf{\Psi}_n^t$
     - 设计动机：将不同模态的 prompt 统一到共享 $d$ 维特征空间，使模型能灵活处理视觉 prompt、文本 prompt 或两者组合
 
 4. **辅助关键点与文本插值（Auxiliary Keypoints & Texts Interpolation）**:
 
-    - 做什么：在视觉和文本两个域中生成辅助训练样本，大幅提升 novel keypoint 检测能力
+    - 功能：在视觉和文本两个域中生成辅助训练样本，大幅提升 novel keypoint 检测能力
     - **视觉插值**：在两个已知关键点之间按 $z=0.5$ 线性插值生成辅助关键点位置 $\hat{\mathbf{p}}$，用显著性检测过滤前景外的点
     - **文本插值**：利用 LLM（GPT-3.5）推理两个已知关键点之间可能存在的身体部位。使用 Chain of Thought (CoT) prompt 提升推理质量。重复 $R$ 次每次返回 3 个答案，构建候选文本池 $\{{\hat{t}_i}\}_{i=1}^{3R}$
     - **False Text Control (FTC) 选择策略**：从候选文本池中采样 top-$\eta$ 结果，但若辅助关键点的视觉特征 $\hat{\mathbf{\Phi}}$ 与候选文本特征 $\hat{\mathbf{t}}_i$ 的 cosine similarity 低于阈值 $\alpha$，则拒绝该文本
@@ -73,14 +76,14 @@ OpenKD 基于 episodic training，每个 episode 包含 support set（视觉/文
 
 5. **模态内/模态间对比学习**:
 
-    - 做什么：引入两个对比损失提升 prototype 的判别性
+    - 功能：引入两个对比损失提升 prototype 的判别性
     - $\mathcal{L}_{tt}$（文本间对比）：随机采样两个物种的 TKP set，构建相似度矩阵 $\mathbf{J}$，优化相同类型关键点跨物种的不变性和不同类型关键点的区分度
     - $\mathcal{L}_{vt}$（视觉-文本对比）：将 VKP 对齐向 TKP，对 TKP 施加 stop gradient 避免质量更好的文本表征被拖低
     - 设计动机：实验发现文本 prototype 天然具有更好的聚类效果和更低方差，因此将视觉对齐向文本而非反向
 
 6. **LLM 作为语言解析器**:
 
-    - 做什么：用 LLM 解析多样化自然语言文本 prompt，提取 keypoint 和 object 关键词，合成标准 prompt 格式
+    - 功能：用 LLM 解析多样化自然语言文本 prompt，提取 keypoint 和 object 关键词，合成标准 prompt 格式
     - 例如输入 "Can you localize the left eye and nose of cat?"，LLM 解析出 "left eye", "nose", "cat"
     - GPT-3.5 解析准确率达 96%+，Vicuna 达 93%+
 

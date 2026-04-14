@@ -29,7 +29,9 @@ tags:
 LLM 的价值对齐评估面临一个核心挑战——**评估时效性效应**（evaluation chronoeffect）：
 
 **数据泄漏**：静态基准（如 RealToxicityPrompts、ETHICS）可能被泄漏到训练语料中，导致虚高的安全得分。实验显示 GPT 各版本在 RealToxicityPrompts 上毒性不断下降，但在新数据集上仍暴露大量有害输出。
+
 **难度饱和**：随着 LLM 快速迭代，静态测试集难度不足以区分不同模型的能力差异，产生天花板效应。
+
 **心理测量学类比**：类似于人类考试中的"教考分离"问题——测试一旦成为学习目标，其区分度就会降低。
 
 现有方案的局限：
@@ -51,15 +53,15 @@ GETA（Generative Evolving Testing of vAlues）包含三个核心组件，联合
 
 1. **变分 IRT（VIRT）估计器**
 
-   - **价值估计器** $q_\theta(a_i | \mathbf{y}_i, \mathbf{d})$：基于两层 Transformer 编码器，根据考生 LLM 在历史题目上的对错序列和对应难度参数，推断其价值一致性（value conformity）$\hat{a}_i^t$。
-   - **题目参数估计器** $q_\phi(d_j | \mathbf{y}_{\cdot,j})$：根据所有考生 LLM 对同一题目的回答，推断题目的实际难度 $b_j$ 和区分度 $c_j$。
-   - 采用 IRT-2PL 模型建模正确回答概率：$p(y_{i,j}=1|a_i, b_j, c_j) = \frac{1}{1+\exp(-c_j(a_i - b_j))}$
-   - 与 MLE 相比，变分推断在数据有限时表现更稳定，且能与生成器统一到联合训练框架中。
+    - **价值估计器** $q_\theta(a_i | \mathbf{y}_i, \mathbf{d})$：基于两层 Transformer 编码器，根据考生 LLM 在历史题目上的对错序列和对应难度参数，推断其价值一致性（value conformity）$\hat{a}_i^t$。
+    - **题目参数估计器** $q_\phi(d_j | \mathbf{y}_{\cdot,j})$：根据所有考生 LLM 对同一题目的回答，推断题目的实际难度 $b_j$ 和区分度 $c_j$。
+    - 采用 IRT-2PL 模型建模正确回答概率：$p(y_{i,j}=1|a_i, b_j, c_j) = \frac{1}{1+\exp(-c_j(a_i - b_j))}$
+    - 与 MLE 相比，变分推断在数据有限时表现更稳定，且能与生成器统一到联合训练框架中。
 
 2. **LLM 题目生成器与联合训练**
 
-   - 生成器 $p_\omega(x|d)$ 基于 LLaMA-3-8B，通过 Prefix Adapter + LoRA 微调，输入难度参数 $d=(b,c)$，输出对应难度的测试题目。
-   - 联合训练目标统一为建模 $p(\mathbf{x}, \mathbf{y})$ 的 ELBO：
+    - 生成器 $p_\omega(x|d)$ 基于 LLaMA-3-8B，通过 Prefix Adapter + LoRA 微调，输入难度参数 $d=(b,c)$，输出对应难度的测试题目。
+    - 联合训练目标统一为建模 $p(\mathbf{x}, \mathbf{y})$ 的 ELBO：
      - 第一项：IRT 似然——根据能力和难度预测答对概率
      - 第二项：生成器损失——学习从难度参数映射到题目文本
      - 后两项：KL 散度正则——对能力和难度参数施加标准正态先验

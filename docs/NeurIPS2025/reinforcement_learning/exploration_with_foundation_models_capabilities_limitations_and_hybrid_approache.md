@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - foundation models
   - exploration
-  - 强化学习
+  - reinforcement-learning
   - VLM
   - knowing-doing gap
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2509.19924](https://arxiv.org/abs/2509.19924)  
 **代码**: 无  
 **领域**: 强化学习  
-**关键词**: foundation models, exploration, reinforcement learning, VLM, knowing-doing gap
+**关键词**: foundation models, exploration, reinforcement-learning, VLM, knowing-doing gap
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 RL 中的探索问题在稀疏奖励环境下极具挑战性。基础模型（LLM/VLM）具备强大的语义先验和推理能力，能否用于改善探索效率？
 
 现有研究的不足：
+
 **评测范围窄**：MAB 实验仅关注复杂 prompt 技巧，未研究简单指令措辞的影响
+
 **环境层次不全**：缺乏从简单（bandit）到复杂（Atari）的系统性渐进评测
+
 **失败模式不明**：VLM 在视觉环境中为何失败？是理解问题还是执行问题？
 
 本文通过**三级递进评测**（MAB → Gridworld → Atari）系统化回答这些问题，并通过定性分析揭示失败的根本原因。
@@ -116,9 +119,9 @@ RL 中的探索问题在稀疏奖励环境下极具挑战性。基础模型（LL
 1. **显式 prompt 显著改善探索**：LLM 不会自行推断探索需求，需要明确指示
 2. **Knowing-doing gap**：VLM 在 Freeway 识别"向上走"，在 Gravitar 识别敌人并开火（+250分），但在需要精确时序控制的游戏中完全失败
 3. **失败模式分类**：
-   - **精确控制失败**：Montezuma（正确推理"拿钥匙"但无法执行跳跃）
-   - **自我识别失败**：Venture（无法识别粉色方块是玩家角色）
-   - **时序推理失败**：Pitfall（理解"跳过坑"但时机把握不对）
+    - **精确控制失败**：Montezuma（正确推理"拿钥匙"但无法执行跳跃）
+    - **自我识别失败**：Venture（无法识别粉色方块是玩家角色）
+    - **时序推理失败**：Pitfall（理解"跳过坑"但时机把握不对）
 4. **混合框架在理想条件下有效**：在 VLM 策略正确且控制简单的 Freeway 中，显著超越 PPO+RND
 
 ## 亮点与洞察

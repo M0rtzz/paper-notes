@@ -48,13 +48,13 @@ tags:
 
 1. **可重复的多Agent工作流模式**
 
-    - 做什么：定义论证生成的基本构建块
+    - 功能：定义论证生成的基本构建块
     - 核心思路：每个工作流包含专门化Agent协作——Generator生成论证草稿、Retriever检索并排序证据（每个论点常检索上百张卡片后选最优）、Critic评审质量并提出修改建议。循环迭代直到Reviewer Agent满意或达到设定次数。通过Pydantic模型强制结构化输出，确保Agent消息格式机器可读
     - 设计动机：策略辩论的每个论证组件（Advantage的Link/Impact/Uniqueness、DA的各Stock Issue等）都需要独立的证据支撑和逻辑构建。Agent角色分离让每个任务可被专门化处理，Critic机制防止低质量输出
 
 2. **辩论生成流水线**
 
-    - 做什么：按策略辩论的八轮结构顺序生成完整辩论
+    - 功能：按策略辩论的八轮结构顺序生成完整辩论
     - 核心思路：
         **1AC（第一正方建设性发言）**：分三阶段——Plantext生成（研究可行方案）→ Stock Issue工作流（Harms/Inherency/Solvency各有独立Agent团队）→ Advantage生成（每个含Uniqueness/Link/Internal Link/Impact证据链）
         **1NC（第一反方建设性发言）**：战略组合生成 → Off-Case工作流（Topicality/Theory、Disadvantage含完整证据链、Counterplan含替代方案、Kritik含哲学/伦理挑战+Alternative）→ On-Case反驳（直接攻击1AC的证据）
@@ -65,7 +65,7 @@ tags:
 
 3. **端到端呈现 + 人机协作**
 
-    - 做什么：将文本辩论转化为有声有形的互动体验
+    - 功能：将文本辩论转化为有声有形的互动体验
     - 核心思路：GPT-4o mini TTS将发言稿合成语音 → EchoMimic V1将语音与静态肖像图驱动为唇形同步的数字人视频。同时保留屏幕文字转录以匹配辩论"flow"实践。支持三种模式：AI vs AI全自动、AI+Human混合队伍、AI vs Human对抗
     - 设计动机：策略辩论的本质是现场互动——裁判需要听到发言、观察表达。数字人呈现使AI辩手具有"在场感"。人机协作设计允许人类在任何环节介入，既是研究工具也增加趣味性
 

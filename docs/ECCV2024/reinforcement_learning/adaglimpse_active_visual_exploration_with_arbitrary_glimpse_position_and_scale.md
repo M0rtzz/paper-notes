@@ -9,7 +9,7 @@ tags:
   - Soft Actor-Critic
   - 可变尺度glimpse
   - Transformer
-  - 强化学习
+  - reinforcement-learning
 ---
 
 # AdaGlimpse: Active Visual Exploration with Arbitrary Glimpse Position and Scale
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2404.03482](https://arxiv.org/abs/2404.03482)  
 **代码**: [https://github.com/apardyl/AdaGlimpse](https://github.com/apardyl/AdaGlimpse) (有)  
 **领域**: 主动视觉探索 / 高效视觉推理 / 强化学习  
-**关键词**: Active Visual Exploration, Soft Actor-Critic, 可变尺度glimpse, Vision Transformer, 强化学习  
+**关键词**: Active Visual Exploration, Soft Actor-Critic, 可变尺度glimpse, Vision Transformer, reinforcement-learning
 
 ## 一句话总结
 提出AdaGlimpse，利用Soft Actor-Critic强化学习从连续动作空间中选择任意位置和尺度的glimpse，结合弹性位置编码的ViT编码器实现多任务（重建/分类/分割）的主动视觉探索，以仅6%像素超越了使用18%像素的SOTA方法。

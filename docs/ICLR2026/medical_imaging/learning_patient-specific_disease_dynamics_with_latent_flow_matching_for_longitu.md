@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation
 description: >-
-  [ICLR2026][医学影像] 提出Δ-LFM框架：ArcRank损失强制患者潜在轨迹角度一致+幅度单调递增构建语义化潜在空间，流匹配从[0,1]扩展到[0,T]实际时间间隔实现任意未来时间推断，在ADNI/AIBL/OASIS三个纵向MRI基准上全面超越8种基线。
+  [ICLR 2026][医学图像][disease progression] 提出 Δ-LFM 框架：用 ArcRank 损失在潜在空间构建患者特异性时间对齐轨迹（角度一致 + 幅度单调递增），将流匹配时间范围从 [0,1] 扩展到 [0,T] 实际时间间隔实现任意时间点预测，在三个阿尔茨海默纵向 MRI 基准上全面超越 8 种基线方法，并提出进展专用指标 Δ-RMAE。
 tags:
-  - ICLR2026
-  - medical_imaging
-  - disease_progression
-  - flow_matching
-  - longitudinal_MRI
-  - ArcRank_loss
+  - ICLR 2026
+  - 医学图像
+  - disease progression
+  - flow matching
+  - patient-specific
+  - longitudinal MRI
+  - ArcRank loss
 ---
 
 # Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation
@@ -45,19 +46,19 @@ tags:
 ### 关键设计
 
 1. **ArcRank 损失——患者轨迹潜在对齐**
-    - 做什么：强制同一患者不同时间点的潜在表示沿特定方向排列，幅度随时间单调递增
+    - 功能：强制同一患者不同时间点的潜在表示沿特定方向排列，幅度随时间单调递增
     - 核心思路：对潜在向量 $\mathbf{z}$ 做 SVD 分解 $U\Sigma V^\top = \text{SVD}(\mathbf{z})$，其中 $U$ 编码方向（角度），$\Sigma$ 编码幅度（严重度）。ArcRank 损失：
       $$\mathcal{L}_{\text{ArcRank}} = \lambda_{\text{arc}} \sum_{i<j} |U_i - U_j| + \lambda_{\text{rank}} \sum_{i<j} \max(0, m - (\Sigma_j - \Sigma_i)), \quad t_i < t_j$$
       外加 pull 项 $\mathcal{L}_{\text{Pull}} = |\Sigma_j - \Sigma_i|$ 防止相邻时间点过度分离
     - 设计动机：SVD 统一处理方向和幅度，比 cosine similarity + 绝对值分开处理更稳定；stop-gradient 稳定训练
 
 2. **Δ-LFM——时间语义化的流匹配**
-    - 做什么：学习潜在空间中患者特异性的连续时间速度场，支持任意未来时间点预测
+    - 功能：学习潜在空间中患者特异性的连续时间速度场，支持任意未来时间点预测
     - 核心思路：将标准流匹配的 [0,1] 时间范围扩展到 [0,T]，$T = t_j - t_i$ 为实际年数。目标速度 $v^*(i,j) = (\mathbf{z}_j - \mathbf{z}_i)/(t_j - t_i)$，推理时以步长 $\text{d}t = 0.01$ 逐步积分：$\mathbf{z}_{i+\text{d}t} = \mathbf{z}_i + \text{d}t \cdot v_\theta(\mathbf{z}_i, t_i)$
     - 设计动机：[0,1] 范围归一化丢失了实际时间语义；[0,T] 让"预测 3 年后的 MRI"直接可行
 
 3. **Δ-RMAE 评估指标**
-    - 做什么：评估生成影像的进展方向准确度而非绝对图像质量
+    - 功能：评估生成影像的进展方向准确度而非绝对图像质量
     - 核心思路：残差指标 $\Delta\text{-RMAE} = \frac{|\Delta_{\text{gt}} - \Delta_{\text{gen}}|}{(\frac{1}{2}(|\Delta_{\text{gt}}| + |\Delta_{\text{gen}}|))} \in [0, 2]$，其中 $\Delta = \mathbf{x}_T - \mathbf{x}_0$
     - 设计动机：传统 PSNR/SSIM 在纵向场景虚高（同一患者天然高相似度），Δ-RMAE 专聚焦于疾病引起的变化
 

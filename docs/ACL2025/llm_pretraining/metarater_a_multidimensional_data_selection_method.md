@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models
 description: >-
-  [ACL 2025][data selection] 提出Meta-rater多维数据选择框架，定义PRRC四个质量维度（专业性/可读性/推理性/清洁度），通过proxy模型回归学习多个质量分数的最优加权组合，使1.3B模型训练收敛速度翻倍、下游任务提升3.23%。
+  [ACL 2025][数据选择] 提出Meta-rater多维数据选择框架，定义PRRC四个质量维度（专业性/可读性/推理性/清洁度），通过proxy模型回归学习多个质量分数的最优加权组合，使1.3B模型训练收敛速度翻倍、下游任务提升3.23%。
 tags:
   - ACL 2025
-  - data selection
-  - pre-training
+  - 数据选择
+  - 预训练
   - multi-dimensional quality
   - proxy model
-  - data curation
+  - 数据整理
 ---
 
 # Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2504.14194](https://arxiv.org/abs/2504.14194)  
 **代码**: [https://github.com/opendatalab/Meta-rater](https://github.com/opendatalab/Meta-rater)  
 **领域**: LLM 预训练数据 / 数据质量  
-**关键词**: data selection, pre-training, multi-dimensional quality, proxy model, data curation
+**关键词**: 数据选择, 预训练, multi-dimensional quality, proxy model, 数据整理
 
 ## 一句话总结
 
@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: 预训练数据质量是LLM性能的关键驱动因素，数据选择已成为核心研究方向。
+
 **现有痛点**: 现有方法局限于单一维度评估——自然语言质量方法关注表面特征，多样性方法侧重去重，分类器方法使用单维过滤器。
+
 **核心矛盾**: 如何系统性地整合互补的质量维度以实现全局最优数据选择？
+
 **本文要解决什么**: 提出多维数据质量评估体系及其最优融合方法。
+
 **切入角度**: 通过训练proxy模型搜索多维质量分数的最优权重组合。
+
 **核心idea一句话**: 训练多个proxy模型来拟合"质量权重→验证损失"的映射，找到最优的多维质量分数加权方案。
 
 ## 方法详解

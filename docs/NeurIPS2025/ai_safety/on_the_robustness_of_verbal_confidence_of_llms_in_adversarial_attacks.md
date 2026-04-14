@@ -7,10 +7,10 @@ tags:
   - NeurIPS 2025
   - AI安全
   - verbal confidence
-  - adversarial attack
+  - 对抗攻击
   - LLM robustness
-  - confidence calibration
-  - jailbreak
+  - 置信度校准
+  - 越狱攻击
 ---
 
 # On the Robustness of Verbal Confidence of LLMs in Adversarial Attacks
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.06489](https://arxiv.org/abs/2507.06489)  
 **代码**: 无  
 **领域**: ai_safety  
-**关键词**: verbal confidence, adversarial attack, LLM robustness, confidence calibration, jailbreak
+**关键词**: verbal confidence, 对抗攻击, LLM robustness, 置信度校准, 越狱攻击
 
 ## 一句话总结
 首次系统研究 LLM 语言化置信度（verbal confidence）在对抗攻击下的鲁棒性，提出基于扰动和越狱的攻击框架，揭示攻击可导致置信度下降最高 30%、答案翻转率高达 100%，且现有防御策略基本无效。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：随着 LLM 广泛部署，获取模型对自身预测的置信度估计变得至关重要。由于大多数 SOTA LLM 不开放 logit 访问，verbal confidence（让模型用自然语言输出一个数值置信度）成为最实用的置信度获取方式，已被工业界多个系统采用（如 TLM、云故障根因分析、客户对话评分等）。
+
 **现有痛点**：已有大量工作研究 verbal confidence 的校准和机制，但几乎没有工作关注其在对抗攻击下的鲁棒性——即攻击者是否能通过微小输入修改来操纵模型输出的置信度分数。
+
 **核心矛盾**：verbal confidence 的易获取性（任何黑盒用户都能拿到）恰好成为攻击者的利器：攻击者可以利用这些分数作为优化信号来制造对抗样本，不需要任何模型内部信息。这与传统需要 logit 的对抗攻击形成鲜明对比。
+
 **本文要解决**：(i) verbal confidence 在各类对抗攻击下有多脆弱？ (ii) 如何有效地制造针对置信度的攻击？ (iii) 现有防御手段能否缓解这类攻击？
+
 **切入角度**：作者观察到即使语义保持不变的微小扰动（如错别字、同义词替换）就能显著改变模型输出的置信度数值，这说明 LLM 的 verbal confidence 并不稳健。
+
 **核心 idea**：设计专门以 verbal confidence 为优化目标的攻击框架（VCA），包括扰动式和越狱式两大类，全面评估 LLM 置信度表达的安全隐患。
 
 ## 方法详解

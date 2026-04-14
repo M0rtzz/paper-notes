@@ -50,27 +50,27 @@ tags:
 
 1. **面向对象代码架构（Module/Unit/Room/Utils）**：
 
-    - 做什么：定义四个核心类，封装模块化建筑的层次结构和操作
+    - 功能：定义四个核心类，封装模块化建筑的层次结构和操作
     - 核心思路：`Module` 支持绝对坐标和相对位置创建、分割和合并；`Unit` 由一组 Module 组合而成；`Room` 可基于模块/单元、方向、角落、相对位置等多种方式分配；`Utils` 提供门窗创建、分割合并等静态方法
     - 设计动机：将复杂的几何推理（碰撞检测、凹多边形处理等）封装在底层，LLM 只需调用高层接口。例如"在模块1南侧创建厨房"只需一行 `Room kitchen = new Room(name: "Kitchen", module: m1, direction: "south", dimension: 1800)`
     - 关键优势：**相对定位**替代绝对坐标——新模块相对于已有模块定义位置，避免了 LLM 进行绝对坐标计算
 
 2. **概念形式化**：
 
-    - 做什么：将 MBL 定义为六元组 $L = \langle \mathcal{M}, \mathcal{U}, \mathcal{R}, \mathcal{E}, \mathcal{A}, \mathcal{C} \rangle$
+    - 功能：将 MBL 定义为六元组 $L = \langle \mathcal{M}, \mathcal{U}, \mathcal{R}, \mathcal{E}, \mathcal{A}, \mathcal{C} \rangle$
     - 核心思路：模块、单元、房间三层层次必须满足嵌套约束：每个单元完全包含在模块的并集中，每个房间嵌套在某个单元内。除了邻接和连通关系，还引入 **conjoint** 关系表示同一模块内的房间共存
     - 设计动机：为代码架构提供数学基础，确保生成的布局满足模块化建筑的物理约束
 
 3. **数据收集与合成数据增强**：
 
-    - 做什么：从香港建筑署收集 198 个真实模块化建筑设计，每个标注可执行 BIM 代码 + 两种文本描述
+    - 功能：从香港建筑署收集 198 个真实模块化建筑设计，每个标注可执行 BIM 代码 + 两种文本描述
     - 核心思路：采用三种数据增强策略：(a) 部分合成——用模板或 GPT 从已有代码反向生成描述；(b) 全合成——按语法规则生成新代码再生成描述。混合原始数据训练比单独用合成数据效果好
     - 两种代码风格：named arguments（显式参数名）和 positional arguments（按位置传参），构成 $\mathcal{D} = \{(d_i^a, d_i^b, c_i^{\text{name}}, c_i^{\text{pos}})\}$
     - 设计动机：MBL 领域数据极度匮乏（仅 198 个样本），合成增强是必要手段
 
 4. **LLM微调**：
 
-    - 做什么：微调 Qwen2.5 系列模型（0.5B-7B，含 vanilla/Coder/Math 变体）
+    - 功能：微调 Qwen2.5 系列模型（0.5B-7B，含 vanilla/Coder/Math 变体）
     - 核心思路：将任务建模为条件代码生成 $\hat{c} = \arg\max_c p_\theta(c | d)$，用 LoRA 微调
     - 评估三维度：**可执行有效性**（compile rate + pass rate）、**语义保真度**（instance F1 + argument F1）、**几何一致性**（IoU）
 

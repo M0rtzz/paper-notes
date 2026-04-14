@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.08040](https://arxiv.org/abs/2602.08040)  
 **代码**: 有  
 **领域**: 持续学习 / 强化学习  
-**关键词**: stability-plasticity, reinitialization, orthogonal Procrustes, continual learning, plasticity loss  
+**关键词**: stability-plasticity, reinitialization, orthogonal Procrustes, continual learning, plasticity loss
 
 ## 一句话总结
 将持续学习中的稳定性-可塑性平衡形式化为约束优化问题——最小化权重偏差（稳定性）同时约束权重正交性（可塑性），得到正交 Procrustes 问题的闭式解 $\tilde{W}^* = W(W^\top W)^{-1/2}$（极分解），通过 Newton-Schulz 迭代高效实现（<1% 额外时间），在视觉持续学习、LLM 持续预训练和 RL 上全面超越 S&P 等基线。
@@ -46,13 +46,13 @@ tags:
 
 1. **稳定性度量：Squared Frobenius Error (SFE)**
 
-    - 做什么：量化重初始化前后权重的偏差
+    - 功能：量化重初始化前后权重的偏差
     - 核心思路：$\text{SFE}(W, \tilde{W}) = \|W - \tilde{W}\|_F^2$。Theorem 1 证明 SFE 约束了两个网络的归一化特征协方差之间的差异
     - 设计动机：直接度量"改变了多少"，保证有用知识不被破坏
 
 2. **可塑性度量：Deviation from Isometry (DfI)**
 
-    - 做什么：量化权重矩阵偏离正交性的程度
+    - 功能：量化权重矩阵偏离正交性的程度
     - 核心思路：$\text{DfI}(W) = \|W^\top W - I\|_F^2$。三个定理证明其同时关联：
       - **Theorem 2**：Hessian 谱范数 ≤ layerwise DfI 的函数（损失面曲率）
       - **Theorem 3**：DfI 低→特征秩高（有效利用所有维度）
@@ -61,7 +61,7 @@ tags:
 
 3. **闭式解与高效实现**
 
-    - 做什么：精确求解约束优化问题
+    - 功能：精确求解约束优化问题
     - 核心思路：$\min_{\tilde{W}} \|W - \tilde{W}\|_F^2 \text{ s.t. } \tilde{W}^\top \tilde{W} = I$ 是正交 Procrustes 问题，解为极分解 $\tilde{W}^* = W(W^\top W)^{-1/2}$。用 5 步 Newton-Schulz 迭代近似：`X = X/||X||; for _ in range(5): A = X.T @ X; X = 1.5*X - 0.5*X@A`
     - 设计动机：SVD 计算成本 $O(d^3)$，Newton-Schulz 仅需矩阵乘法，额外时间 <1%；且只需 5 次迭代即收敛，无需调迭代数
 

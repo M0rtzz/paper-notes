@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.07328](https://arxiv.org/abs/2511.07328)  
 **代码**: 有  
 **领域**: LLM / 检索增强生成  
-**关键词**: multi-step retrieval, value-based RL, embedder training, long context, RAG  
+**关键词**: multi-step retrieval, value-based RL, embedder training, long context, RAG
 
 ## 一句话总结
 将多步检索建模为 MDP，用基于值的 RL（soft Q-learning）微调 **embedder 而非 LLM**，Q 函数设计为状态嵌入和动作嵌入的内积（理论证明为万能近似器），结合 RoPE 相对位置编码实现时序推理，在单卡 A100 上训练 12 小时，4K 训练泛化到 1M+ token 上下文，RULER 基准达到近乎完美的 NIAH 性能。
@@ -47,19 +47,19 @@ tags:
 
 1. **Q 函数即内积**
 
-    - 做什么：将 Q 函数参数化为两个 embedder 的内积
+    - 功能：将 Q 函数参数化为两个 embedder 的内积
     - 核心思路：$Q_\theta(s, a_i) = \langle E_s(s; \theta_1), E_a(a_i, i; \theta_2) \rangle$，状态 embedder 编码已检索内容，动作 embedder 编码候选 chunk 及其文档位置
     - 设计动机：(a) **Theorem 1** 证明此形式是万能近似器（Stone-Weierstrass 定理）；(b) 推理时只需一次 dot product 而非 transformer forward pass，比 Beam-Retriever 快数量级
 
 2. **RoPE 相对位置编码实现时序推理**
 
-    - 做什么：用旋转位置编码表达候选 chunk 相对于已检索事实的位置关系
+    - 功能：用旋转位置编码表达候选 chunk 相对于已检索事实的位置关系
     - 核心思路：定义相对位置映射 $\rho_t(i) = j \cdot \delta + \ell \cdot \frac{i - b_j}{b_{j+1} - b_j}$，已检索事实将文档划分为区间，每个候选 chunk 获得相对于最近区间的位置编码。动作 embedder 使用 $E_a(a_i, \rho_t(i); \theta_2)$
     - 设计动机：绝对位置编码在长上下文外推时失败，相对位置编码使模型关注"候选在已知事实前/后/之间"的关系，实现时序推理且泛化到任意长度
 
 3. **PQN + Soft Q-Learning**
 
-    - 做什么：无 replay buffer 的在线值基 RL 训练
+    - 功能：无 replay buffer 的在线值基 RL 训练
     - 核心思路：使用 PQN (Periodic Q-Network) 避免 replay buffer 需要重新嵌入所有 chunks 的开销；加入 soft value function $V_{\theta'}(s_t) = \alpha \log \sum_{a} \exp(Q_{\theta'}(s_t, a)/\alpha)$ 和 target network；用 $\lambda$-return 替代单步 TD target 减少偏差
     - 设计动机：检索场景中 chunk 数量可达数千，replay buffer 每次采样都需重计算所有 chunk 的 Q 值，PQN 的在线特性避免了这一瓶头
 

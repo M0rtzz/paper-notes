@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.20505](https://arxiv.org/abs/2508.20505)  
 **代码**: 无  
 **领域**: Image Generation / Image Editing  
-**关键词**: 语义图像编辑, 描述式编辑, Cross-Attentive UNet, LoRA, Diffusion Model
+**关键词**: 语义图像编辑, 描述式编辑, Cross-Attentive UNet, LoRA, 扩散模型
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 现有语义图像编辑方法存在两大技术路线的困境：
 
 **基于反演（Inversion-based）**: 将输入图像反演到噪声潜空间再重新生成，但反演过程不可避免引入重建误差且效率低。
+
 **基于指令（Instruction-based）**: 如 InstructPix2Pix，修改 T2I 模型架构并在指令数据集上训练，但受限于指令数据集规模小（UltraEdit ~4M vs LAION-5B）且质量参差不齐，修改架构还导致与 ControlNet 等生态工具不兼容。
 
 作者提出关键洞察："指令式编辑"等价于"指令 → 编辑描述 → 编辑图像"的两阶段过程。如果直接让模型接受**描述性 prompt**（描述最终期望效果而非编辑动作），就能将编辑问题统一为条件 T2I 生成问题，天然利用预训练 T2I 模型的生成能力，同时解决数据规模和兼容性问题。

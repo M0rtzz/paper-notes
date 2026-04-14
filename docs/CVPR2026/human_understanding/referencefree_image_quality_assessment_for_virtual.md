@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback
 description: >-
-  [CVPR 2026][人体理解][虚拟试穿] 构建了大规模人工标注虚拟试穿质量数据集VTON-QBench（62,688张图像，431,800条标注），并提出VTON-IQA无参考质量评估框架，通过交错交叉注意力模块实现与人类感知高度对齐的图像级质量预测。
+  [CVPR 2026][人体理解][虚拟试穿] 构建 VTON-QBench（62,688 张试穿图像、13,838 名合格标注者、431,800 条标注）并提出 VTON-IQA 无参考质量评估框架，通过非对称交错交叉注意力（ICA）模块联合建模服装保真度和人物保持度，实现与人类感知高度对齐的图像级质量预测。
 tags:
   - CVPR 2026
   - 人体理解
   - 虚拟试穿
-  - 图像质量评估
-  - 人类反馈
-  - 无参考评估
-  - 交叉注意力
+  - 无参考质量评估
+  - 人类反馈对齐
+  - 交错交叉注意力
+  - VTON-QBench
 ---
 
 # Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback

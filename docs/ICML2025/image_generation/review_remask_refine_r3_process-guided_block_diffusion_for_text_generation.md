@@ -7,11 +7,11 @@ tags:
   - ICML2025 (MOSS Workshop)
   - 图像生成
   - 扩散模型
-  - process reward model
-  - iterative refinement
+  - 过程奖励模型
+  - 迭代优化
   - remasking
-  - text generation
-  - inference-time scaling
+  - 文本生成
+  - 推理时缩放
 ---
 
 # Review, Remask, Refine (R3): Process-Guided Block Diffusion for Text Generation
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.08018](https://arxiv.org/abs/2507.08018)  
 **作者**: Nikita Mounier, Parsa Ideahpour (University of Pennsylvania)
 **领域**: nlp_generation  
-**关键词**: masked diffusion model, process reward model, iterative refinement, remasking, text generation, inference-time scaling
+**关键词**: masked diffusion model, 过程奖励模型, 迭代优化, remasking, 文本生成, 推理时缩放
 
 ## 一句话总结
 

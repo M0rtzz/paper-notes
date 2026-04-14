@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Enhancing Vision-Language Model Reliability with Uncertainty-Guided Dropout Decoding
 description: >-
-  [NeurIPS 2025][多模态][VLM幻觉] 提出Dropout Decoding——量化视觉token的认知不确定性(epistemic uncertainty)，选择性遮掩高不确定性token，通过集成多个遮掩后的解码结果做多数投票，无需训练即在InstructBLIP上CHAIR_I降低16%、CHAIR_S降低12%。
+  [NeurIPS 2025][多模态][VLM幻觉] 提出Dropout Decoding——将视觉token投影到文本空间后量化其认知不确定性，选择性遮掩高不确定性视觉token并通过多组遮掩结果的集成投票增强输出可靠性，无需额外训练即可显著减少LVLM的对象幻觉。
 tags:
   - NeurIPS 2025
   - 多模态
   - VLM幻觉
   - 不确定性量化
-  - 视觉token
-  - Dropout解码
+  - 视觉token dropout
   - 认知不确定性
+  - 集成解码
 ---
 
 # Enhancing Vision-Language Model Reliability with Uncertainty-Guided Dropout Decoding
@@ -43,19 +43,19 @@ Dropout Decoding包含两个阶段：(1) **解码前**——对所有视觉token
 
 1. **视觉token的文本空间投影（Textual Interpretation）**:
 
-    - 做什么：将每个视觉token映射到文本词表空间，获得其"文本化"概率分布，揭示模型对该视觉patch的语义解读
+    - 功能：将每个视觉token映射到文本词表空间，获得其"文本化"概率分布，揭示模型对该视觉patch的语义解读
     - 核心思路：利用LVLM解码器的logit lens方法，对第$i$个视觉token $x_i^v$获取其顶层隐表示$h_i^v = f_\theta(x_{\leq i}^v)$，然后通过文本词表投影矩阵得到文本化分布$q_i^{\text{proj}} = \text{softmax}(W_\mathcal{V} h_i^v)$。信息丰富的patch会投影出具体的词（如"Berlin"、"computer"），而无信息的背景patch投影出高频词（如"a"、"the"）
     - 设计动机：LVLM的解码器顶层隐表示天然接近文本词表投影，即使在视觉token位置上（模型并非被训练在此生成文本），这种投影仍能有效捕获语义信息。这提供了一种免监督的、基于模型自身能力的视觉token信息量评估手段
 
 2. **不确定性分解与认知不确定性度量**:
 
-    - 做什么：将每个视觉token的总不确定性分解为偶然不确定性（数据固有）和认知不确定性（模型知识不足），发现认知不确定性是识别关键但易被误解视觉token的最佳指标
+    - 功能：将每个视觉token的总不确定性分解为偶然不确定性（数据固有）和认知不确定性（模型知识不足），发现认知不确定性是识别关键但易被误解视觉token的最佳指标
     - 核心思路：首先定义所有视觉token的平均文本化分布$q^{\text{proj}} = \frac{1}{N}\sum_{i}^{N} q_i^{\text{proj}}$作为基线。偶然不确定性$U_{\text{ale}}(i) = \mathbb{H}[q_i^{\text{proj}}]$为单个token分布的熵；认知不确定性$U_{\text{epi}}(i) = D_{\text{KL}}(q_i^{\text{proj}} \| q^{\text{proj}})$为单个token分布与全局平均分布的KL散度。总不确定性分解为$U_{\text{total}} = \mathbb{E}_i[U_{\text{ale}}(i) + U_{\text{epi}}(i)]$
     - 设计动机：直觉上，高认知不确定性意味着某个视觉token的文本化解读与整体图像的平均解读差异很大——它携带独特的、"令人惊讶的"信息。这恰恰是容易被模型误解但又至关重要的区域。实验证实，认知不确定性与视觉token的信息量正相关，而偶然不确定性和总不确定性则缺乏这种关联
 
 3. **不确定性引导的Token Dropout + 集成投票**:
 
-    - 做什么：基于认知不确定性生成多组dropout掩码，对视觉token施加选择性遮掩，通过集成多组遮掩后的解码结果做多数投票，得到最终输出
+    - 功能：基于认知不确定性生成多组dropout掩码，对视觉token施加选择性遮掩，通过集成多组遮掩后的解码结果做多数投票，得到最终输出
     - 核心思路：根据归一化的认知不确定性构建dropout概率分布$P_{\text{dropout}}^{(k)}(x_i^v) = \gamma^{(k)} \frac{U_{\text{epi}}(i) - U_{\text{epi}}^{\min}}{U_{\text{epi}}^{\max} - U_{\text{epi}}^{\min}} + \delta^{(k)}$，其中$\gamma^{(k)}$和$\delta^{(k)}$控制dropout强度。独立采样$K$个二值掩码$M^{(k)}$，用每个掩码遮掩后的视觉上下文分别解码得到候选token $y_j^{(k)}$，最终通过多数投票选出最终输出token。可选地，在每步解码前先做一次初步前向传播产生初始预测$y_j^{\text{init}}$，保留与初始预测相关的视觉token不被dropout
     - 设计动机：单次解码可能因对某些误解读的视觉token过度依赖而产生幻觉；通过多组不同遮掩方案的集成，多样化了模型对视觉内容的视角，减少了单一误解的影响，类似于模型集成（ensemble）的降方差效果
 

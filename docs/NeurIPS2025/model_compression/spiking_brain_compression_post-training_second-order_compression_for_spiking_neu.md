@@ -32,7 +32,9 @@ tags:
 **现有方法的痛点**：
 
 **训练中剪枝（如 LTH、UPF、STDS）**需要多轮迭代的压缩-训练循环，对大型预训练 SNN（如 SEW-ResNet152、Spiking Transformer）计算成本过高。
+
 **ANN 后训练压缩方法直接移植到 SNN 效果差**：Optimal Brain Compression（OBC）等方法的损失函数基于电流域（current-based），而 SNN 的实际输出是脉冲序列（spike train），两者存在根本性的"目标函数断裂"。
+
 **SNN 的量化后训练（PTQ）发展滞后**，不像 ANN 领域已有 GPTQ 等成熟方法。
 
 核心动机：需要一种**一次性后训练**压缩方法，既利用二阶优化的精度优势，又正确反映 SNN 的脉冲动态特性。

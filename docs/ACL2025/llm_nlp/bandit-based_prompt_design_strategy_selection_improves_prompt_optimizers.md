@@ -2,14 +2,13 @@
 title: >-
   [论文解读] OPTS: Bandit-Based Prompt Design Strategy Selection Improves Prompt Optimizers
 description: >-
-  [ACL 2025][LLM/NLP][提示学习] 首次提出 Prompt 设计策略的显式选择机制 OPTS——将 CoT/角色提示/少样本等多种策略视为多臂老虎机的"臂"，用 Thompson 采样动态选择要应用的策略，集成到 EvoPrompt 后在 BIG-Bench Hard 上将 GPT-4o mini 性能提升最高 50%，超越隐式策略选择（APET）和均匀采样。
+  [ACL 2025][LLM/NLP][提示学习] 首次提出 prompt 设计策略的显式选择机制 OPTS，将 11 种策略（CoT、角色提示、情感提示等）建模为多臂老虎机的臂，用 Thompson 采样自动选择最合适的策略并集成到 EvoPrompt 优化器中，在 BIG-Bench Hard 的 23 个任务上用 GPT-4o mini 实现最高 50% 的性能提升。
 tags:
   - ACL 2025
   - LLM/NLP
   - 提示学习
   - Thompson采样
   - 多臂老虎机
-  - 策略选择
   - BIG-Bench Hard
 ---
 
@@ -42,17 +41,17 @@ OPTS 作为模块插入到现有 prompt 优化器（EvoPrompt）的突变/交叉
 ### 关键设计
 
 1. **多臂老虎机建模**:
-    - 做什么：将 K=11 种 prompt 设计策略 + 1 个"不使用策略"的 inaction arm 建模为 K+1=12 个臂
+    - 功能：将 K=11 种 prompt 设计策略 + 1 个"不使用策略"的 inaction arm 建模为 K+1=12 个臂
     - 核心思路：每种策略的价值不确定且可能随任务变化，用 bandit 框架在线学习最优策略。Inaction arm 确保不强制使用任何策略——可能所有策略都无益
     - 设计动机：显式选择比隐式选择可控且可优化
 
 2. **Thompson 采样选择 (OPTS-TS)**:
-    - 做什么：用 Beta 分布先验和后验更新实现高效的探索-利用平衡
+    - 功能：用 Beta 分布先验和后验更新实现高效的探索-利用平衡
     - 核心思路：每个臂维护 $\text{Beta}(\alpha_k, \beta_k)$ 分布，每次从各臂分布中采样，选择采样值最大的臂。奖励定义为 $r = \mathbf{1}[s > \max \tilde{S}]$，即新 prompt 得分是否超过父 prompt 的最高分
     - 设计动机：Thompson 采样有理论保证的渐近最优性，在 bandit 文献中实践效果最优
 
 3. **策略应用机制**:
-    - 做什么：将选中策略的文字描述传给 prompt 设计 LLM，让其修改候选 prompt
+    - 功能：将选中策略的文字描述传给 prompt 设计 LLM，让其修改候选 prompt
     - 核心思路：选中前 K 个臂之一时，将对应策略描述和待修改 prompt 一起输入 LLM；选中 inaction arm 时不做任何修改。使用与 APET 相同的 meta-prompt 格式
     - 设计动机：策略以自然语言描述传递，LLM 自然理解如何应用
 

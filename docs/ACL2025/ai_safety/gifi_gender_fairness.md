@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.15568](https://arxiv.org/abs/2506.15568)  
 **代码**: [https://github.com/ZhengyangShan/GIFI](https://github.com/ZhengyangShan/GIFI)  
 **领域**: AI 安全 / 公平性评估  
-**关键词**: gender fairness, non-binary pronouns, LLM evaluation, inclusivity index, neopronouns  
+**关键词**: gender fairness, non-binary pronouns, LLM evaluation, inclusivity index, neopronouns
 
 ## 一句话总结
 提出 GIFI（Gender Inclusivity Fairness Index），一个多层次综合评估框架，涵盖代词识别、情感中立性、毒性、反事实公平性、刻板印象关联、职业公平性和推理性能一致性七个维度，在 22 个 LLM 上系统评估二元与非二元性别的公平性。

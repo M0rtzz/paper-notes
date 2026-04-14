@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.19149](https://arxiv.org/abs/2411.19149)  
 **代码**: [https://corentindumery.github.io/projects/stacks.html](https://corentindumery.github.io/projects/stacks.html)  
 **领域**: 3D视觉  
-**关键词**: 3D object counting, occupancy estimation, multi-view reconstruction, 3D Gaussian Splatting, depth estimation  
+**关键词**: 3D object counting, occupancy estimation, multi-view reconstruction, 3D Gaussian Splatting, depth estimation
 
 ## 一句话总结
 

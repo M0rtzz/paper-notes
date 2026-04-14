@@ -46,7 +46,7 @@ AltGDA算法：$\mathbf{x}^{t+1} = \Pi_\mathcal{X}(\mathbf{x}^t - \eta A^\top \m
 
 1. **能量函数与"碰撞耗散"机制**
 
-    - 做什么：构造能量函数 $\mathcal{E}(\mathbf{x}^t, \mathbf{y}^t) = \|\mathbf{x}^t - \mathbf{x}^*\|^2 + \|\mathbf{y}^t - \mathbf{y}^*\|^2 - \eta(\mathbf{y}^t)^\top A \mathbf{x}^t$
+    - 功能：构造能量函数 $\mathcal{E}(\mathbf{x}^t, \mathbf{y}^t) = \|\mathbf{x}^t - \mathbf{x}^*\|^2 + \|\mathbf{y}^t - \mathbf{y}^*\|^2 - \eta(\mathbf{y}^t)^\top A \mathbf{x}^t$
     - 核心发现：无约束时残差 $r_t \equiv 0$（已知结论）；有约束时投影的一阶最优条件保证 $r_t \geq 0$，但关键是证明 $r_t \leq \mathcal{E}^t - \mathcal{E}^{t+1}$
     - 物理直觉：轨迹碰撞simplex边界→投影产生能量损失→能量单调递减→ $\sum r_t$ 有界→ $O(1/T)$ 收敛
 
@@ -59,14 +59,14 @@ AltGDA算法：$\mathbf{x}^{t+1} = \Pi_\mathcal{X}(\mathbf{x}^t - \eta A^\top \m
 
 3. **局部 $O(1/T)$ 收敛（Theorem 2）**
 
-    - 做什么：在无内部NE时证明局部收敛
+    - 功能：在无内部NE时证明局部收敛
     - 核心思路：定义NE邻域 $S_0$，在此区域内轨迹不再触碰非支撑面的边界，能量虽可能局部增加但累计增量有界（$\leq \delta^2/128$）
     - 步长：$\eta \leq \frac{1}{2\|A\|_2}$，与博弈参数**无关**
     - 收敛界：$\frac{9 + 7\eta\|A\|_2 + \delta^2/128}{\eta T}$
 
 4. **性能估计编程（PEP）框架**
 
-    - 做什么：数值计算AltGDA的最紧收敛界并优化步长
+    - 功能：数值计算AltGDA的最紧收敛界并优化步长
     - 核心思路：将最坏情况性能问题转化为SDP，对步长做网格搜索
     - 关键发现：优化步长呈周期性衰减模式（$O(1/(\log T)^\alpha)$），对应的duality gap确认趋向 $O(1/T)$；SimGDA即使优化步长仍为 $O(1/\sqrt{T})$
 

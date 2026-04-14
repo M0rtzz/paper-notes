@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Amortized Active Generation of Pareto Sets
 description: >-
-  [NeurIPS 2025][医学图像][multi-objective optimization] 提出 A-GPS 框架，通过学习 Pareto 集的条件生成模型实现在线离散黑箱多目标优化——用非支配类概率估计器（CPE）作为 PHVI 的隐式估计替代显式超体积计算，并通过偏好方向向量实现摊还式后验偏好条件化（无需重新训练），在合成基准和蛋白质设计任务上展示了优越的样本效率。
+  [NeurIPS 2025][医学图像][多目标优化] 提出 A-GPS 框架，通过学习 Pareto 集的条件生成模型实现在线离散黑箱多目标优化——用非支配类概率估计器（CPE）作为 PHVI 的隐式估计替代显式超体积计算，并通过偏好方向向量实现摊还式后验偏好条件化（无需重新训练），在合成基准和蛋白质设计任务上展示了优越的样本效率。
 tags:
   - NeurIPS 2025
   - 医学图像
-  - multi-objective optimization
+  - 多目标优化
   - Pareto set
-  - generative model
-  - active learning
+  - 生成模型
+  - 主动学习
   - preference conditioning
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.21052](https://arxiv.org/abs/2510.21052)  
 **代码**: 无  
 **领域**: 多目标优化 / 生成模型  
-**关键词**: multi-objective optimization, Pareto set, generative model, active learning, preference conditioning  
+**关键词**: 多目标优化, Pareto set, 生成模型, 主动学习, preference conditioning
 
 ## 一句话总结
 提出 A-GPS 框架，通过学习 Pareto 集的条件生成模型实现在线离散黑箱多目标优化——用非支配类概率估计器（CPE）作为 PHVI 的隐式估计替代显式超体积计算，并通过偏好方向向量实现摊还式后验偏好条件化（无需重新训练），在合成基准和蛋白质设计任务上展示了优越的样本效率。
@@ -49,19 +49,19 @@ A-GPS 在每轮迭代中执行：(1) 用观测数据构建非支配标签 $z_n$ 
 
 1. **非支配 CPE 隐式估计 PHVI**
 
-    - 做什么：训练分类器预测设计是否属于 Pareto 集。
+    - 功能：训练分类器预测设计是否属于 Pareto 集。
     - 核心思路：Theorem 1 证明超体积改善指示器与非支配指示器等价：$\mathbb{1}[\text{HVI}(\mathbf{x}) > 0] = z(\mathbf{x})$。因此用 proper loss 训练的 CPE 自动估计 PHVI：$\pi_\theta^z(\mathbf{x}) \approx \mathbb{P}(\text{HVI}(\mathbf{x}) > 0 | \mathbf{x})$。
     - 设计动机：避免显式超体积计算（随目标数指数增长），用简单的分类器替代。CPE 引导生成模型聚焦于非支配区域。
 
 2. **偏好方向向量 + 对齐指示器**
 
-    - 做什么：支持后验偏好条件化，无需重新训练。
+    - 功能：支持后验偏好条件化，无需重新训练。
     - 核心思路：定义偏好方向 $\mathbf{u}_n = \frac{\mathbf{y}_n - \mathbf{r}}{\|\mathbf{y}_n - \mathbf{r}\|}$（单位向量，$\mathbf{r}$ 是参考点），捕获目标间的相对权重。定义对齐指示器 $a$：当 $(\mathbf{x}, \mathbf{u})$ 对"对齐"时 $a=1$，通过对比真实配对和随机排列配对训练。学习的条件生成模型 $q_\phi(\mathbf{x}|\mathbf{u}) \approx p(\mathbf{x}|\mathbf{u}, z=1, a=1)$ 在推理时可接受任意用户偏好 $\mathbf{u}_\star$。
     - 设计动机：相比标量化 $\boldsymbol{\lambda}$，偏好方向向量更灵活——每个新 $\boldsymbol{\lambda}$ 需要重训，我们的方法**一次训练适用所有偏好**（摊还 amortization）。
 
 3. **摊还式 ELBO 优化**
 
-    - 做什么：联合优化 CPE 和条件生成模型。
+    - 功能：联合优化 CPE 和条件生成模型。
     - 核心思路：最小化 $\mathbb{E}_{p(\mathbf{u}|z)}[D_{\text{KL}}[q_\phi(\mathbf{x}|\mathbf{u}) \| p(\mathbf{x}|\mathbf{u},z,a)]]$，通过 ELBO 分解为：非支配 CPE 项（聚焦 Pareto 集）+ 对齐 CPE 项（尊重偏好）+ KL 先验项。
     - 设计动机：摊还 VI 允许在单个模型中捕获 Pareto 前沿的全部多样性，通过条件化 $\mathbf{u}$ 实现按需采样。
 

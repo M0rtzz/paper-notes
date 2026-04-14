@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：联邦持续学习（FCL）需要分布式客户端在隐私保护下从持续到达的任务数据中学习。基于prompt的方法（如CODAPrompt + FedAvg）通过维护任务特定的prompt并冻结预训练backbone，在FCL中表现较好。
+
 **现有痛点**：现有prompt-based FCL方法在服务器端聚合prompt时忽略了**类级知识一致性**问题：(a) 不同客户端对同一类别的数据分布不同（intra-class分布差距），导致学到的语义不一致；(b) 不同prompt之间的类级关联性（inter-prompt class-wise relevance）未被利用，导致聚合时无关甚至冲突的知识被融合。
+
 **核心矛盾**：prompt通信中缺乏类级一致性 → 新prompt之间产生知识冲突 → 还干扰旧prompt → 同时加剧空间遗忘（跨客户端）和时间遗忘（跨任务）。
+
 **本文要解决什么？** (a) 如何在客户端本地弥补非IID带来的类内分布偏差？(b) 如何在服务器端根据类级相关性精确聚合prompt？
+
 **切入角度**：从类级knowledge coherence的角度切入——既在数据输入层面做分布补偿（LCDC），又在参数聚合层面做类感知加权（CPA）。
+
 **核心idea一句话**：通过估计全局类分布来补偿本地分布偏差 + 通过prompt-类亲和度矩阵实现类感知聚合，双管齐下解决FCL中的知识冲突。
 
 ## 方法详解
@@ -47,25 +52,25 @@ C²Prompt基于CODAPrompt架构，在冻结的ViT-B/16上学习两类prompt：
 
 1. **全局类分布估计（Global Distribution Estimation）**:
 
-    - 做什么：在服务器端聚合各客户端的类别分布统计量，估计每个类的全局分布
+    - 功能：在服务器端聚合各客户端的类别分布统计量，估计每个类的全局分布
     - 核心思路：假设每个客户端k上类i的特征服从高斯分布 $\mathcal{N}(\mu^t_{i,k}, (\sigma^t_{i,k})^2)$，利用混合高斯的矩估计得到全局均值 $\mu^g_i = \sum_k \mu^t_{i,k} p^t_{k,i}$ 和方差 $(\sigma^g_i)^2 = \sum_k ((\mu^t_{i,k})^2 + (\sigma^t_{i,k})^2) p^t_{k,i} - (\mu^g_i)^2$
     - 设计动机：只传输均值和方差（不传数据），保护隐私的同时获得全局分布视角。通信开销极小（稀疏分布参数）
 
 2. **局部类分布补偿（LCDC）**:
 
-    - 做什么：学习类特定补偿prompt，使本地特征对齐到全局分布
+    - 功能：学习类特定补偿prompt，使本地特征对齐到全局分布
     - 核心思路：对每个类i学习一个补偿prompt $\mathbf{p}^c_i \in \mathbb{R}^{L_c \times d}$，拼接到输入token后送入冻结的ViT。使用分布对齐损失 $\mathcal{L}_c = -\frac{1}{2}(f_{x,p} - \mu^g_i)^\top (\Sigma^g_i)^{-1} (f_{x,p} - \mu^g_i)$ 最大化输出特征在全局高斯分布下的似然
     - 设计动机：不需要生成数据或共享原始数据，仅通过prompt调节特征表示来弥补本地非IID偏差。训练后冻结，作为后续判别性学习的"分布校正器"
 
 3. **类感知prompt聚合（CPA）**:
 
-    - 做什么：在服务器端根据prompt与类别的亲和度进行加权聚合，而非简单平均
+    - 功能：在服务器端根据prompt与类别的亲和度进行加权聚合，而非简单平均
     - 核心思路：训练时在线记录每个prompt与每个类的累积匹配分数（client histogram $H^i_k$），上传到服务器后构成矩阵 $\mathbf{H}^t_g \in \mathbb{R}^{KN \times |\mathcal{C}_t|}$。计算inter-prompt相关性矩阵 $W^t_g = \text{softmax}(\mathbf{H}^t_g (\mathbf{H}^t_g)^\top / \tau)$，用 $\mathbf{P}^{t*}_g = W^t_g \mathbf{P}^t_g$ 做加权聚合
     - 设计动机：类别亲和度相似的prompt应该获得更大的聚合权重，减少不相关类别知识的干扰。histogram在在线学习中几乎零额外开销
 
 4. **判别性学习 + 知识蒸馏**:
 
-    - 做什么：标准的分类学习 + 跨轮次知识保留
+    - 功能：标准的分类学习 + 跨轮次知识保留
     - 总损失 $\mathcal{L}_d = \mathcal{L}_{ce} + \beta \mathcal{L}_{kd}$，其中 $\mathcal{L}_{kd}$ 是来自Powder的蒸馏损失
     - 补偿prompt以50%概率使用（p=0.5），兼顾原始数据和补偿后数据信息
 

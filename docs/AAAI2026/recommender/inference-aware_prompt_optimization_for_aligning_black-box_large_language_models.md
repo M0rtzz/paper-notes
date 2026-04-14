@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：黑盒 LLM 的对齐主要依赖两类方法——prompt 优化（通过改写/追加指令来引导输出）和推理扩展策略（Best-of-N 采样、Majority Voting 生成多候选选最优）。两者分别取得了显著成功。
+
 **现有痛点**：现有 prompt 优化方法完全不考虑部署时的推理策略，即在单次生成（$N=1$）下优化 prompt，然后在部署时直接套用 BoN 或 MV。这种脱耦会导致次优甚至错误的 prompt 选择。
+
 **核心矛盾**：最优 prompt 会随推理策略和预算而变化。作者发现在 MATH 上，Prompt A 在 $N=1$ 准确率 65% 优于 Prompt B 的 62%，但 MV 下 $N=10$ 时 Prompt B 升至 ~77% 而 Prompt A 降至 ~63%。这是因为 MV 放大了单查询正确率分布的非线性效应。
+
 **本文要解决什么？** 如何在有限计算预算下，联合优化 prompt 和推理规模，同时考虑用户对多目标的偏好权衡？
+
 **切入角度**：将问题建模为上下文最优臂识别（contextual best-arm identification），其中每个"臂"是 (prompt, 推理规模 $N$) 的组合，"上下文"编码用户偏好和预算约束。
+
 **核心idea一句话**：推理感知的 prompt 优化——让训练阶段模拟推理策略（BoN/MV）的非线性聚合效应，从而选出在实际部署配置下最优的 prompt-规模组合。
 
 ## 方法详解
@@ -40,19 +45,19 @@ IAPO（Inference-Aware Prompt Optimization）框架定义臂 $a = (p, N) \in \ma
 ### 关键设计
 1. **推理策略感知的效用函数**
 
-    - 做什么：将 BoN 和 MV 的聚合逻辑显式建模到效用函数中。
+    - 功能：将 BoN 和 MV 的聚合逻辑显式建模到效用函数中。
     - 核心思路：BoN 效用 $R_x^{\text{BoN}} = \max_{i \leq N} \sum_k w_k O_k + w_{K+1} \sum_i O_{K+1}$（最大化加权任务奖励减推理成本），MV 效用基于投票计数和正确答案概率。两者都是 inference-agnostic 效用的非仿射变换。
     - 设计动机：Proposition 2 证明仅在仿射变换下推理无关策略才是最优的；BoN/MV 不满足此条件，因此必须推理感知优化。
 
 2. **PSST 算法（Prompt Scaling via Sequential Trimming）**
 
-    - 做什么：固定预算下的臂淘汰算法，学习最优 IAPO 策略。
+    - 功能：固定预算下的臂淘汰算法，学习最优 IAPO 策略。
     - 核心思路：进行 $R = \lceil \log_2 |\mathcal{A}| \rceil$ 轮，每轮均匀分配预算。利用三种结构特性加速：(1) 跨上下文信息共享——一次拉臂的结果可用于估计所有上下文的 $Q$ 值；(2) 跨规模嵌套复用——拉 $(p, N_i)$ 可自动生成 $\lfloor N_i/N_j \rfloor$ 个 $(p, N_j)$ 的样本；(3) 非对称成本感知——只为每个 prompt 的最大存活规模分配预算。每轮按估计 $Q$ 值排序，淘汰各上下文中最差一半臂。
     - 设计动机：直接用 Sequential Halving 不利用 IAPO 结构，样本复杂度多 $O(|\mathcal{C}| N_{\max})$ 倍。PSST 的结构感知分配使误差概率以指数速率衰减。
 
 3. **Top-K Screening 启发式**
 
-    - 做什么：在 PSST 前用小部分预算（$\rho T$）在 $N=1$ 下快速筛选 prompt，保留 $K$ 个最优 prompt 再跑完整 PSST。
+    - 功能：在 PSST 前用小部分预算（$\rho T$）在 $N=1$ 下快速筛选 prompt，保留 $K$ 个最优 prompt 再跑完整 PSST。
     - 核心思路：分配 $T_0 = \lfloor \rho T \rfloor$（$\rho=0.2$）均匀采样评估所有 prompt 在单次生成下的表现，每个上下文保留前 $K$ 个，剩余预算 $T' = T - T_0$ 在缩小的臂空间上运行 PSST。
     - 设计动机：低预算下全空间搜索效率低；但过激剪枝（小 $K$）可能丢弃在大 $N$ 下才优秀的 prompt（可构造反例），因此适合预算受限场景而非关键高频部署。
 

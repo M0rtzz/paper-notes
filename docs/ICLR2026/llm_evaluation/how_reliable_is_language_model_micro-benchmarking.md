@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **效率需求**：完整 benchmark（如 MMLU-Pro 12K 样例、BBH 5.7K 样例）的评估成本高昂，micro-benchmarking 方法试图用极少样本（10~100 个）预测模型在完整 benchmark 上的排名。
+
 **现有方法**：Anchor Points 基于 source model confidence 的聚类中心选点；tinyBenchmarks 利用 Item Response Theory (IRT) 嵌入空间聚类选点；还有 stratified sampling by confidence 和 diversity-based sampling 等方法。
+
 **现有元评估不足**：此前衡量 micro-benchmark 质量仅依赖 (i) 单模型 mean estimation error 和 (ii) 全局 Kendall's $\tau$ rank correlation。这些指标都无法回答："当两个模型在完整 benchmark 上仅差 2~3 个准确率点时，micro-benchmark 还能正确排序吗？"
+
 **核心洞察**：高 Kendall's $\tau$ 不代表所有 pairwise comparison 都可靠——它可能只反映了"差距很大的模型对容易区分"这一事实，掩盖了差距小的模型对被错误排序的问题。
+
 **实际场景痛点**：当比较同量级模型（如一组 8B instruction-tuned 模型），它们的性能普遍接近，micro-benchmark 的可靠性成为关键问题。
+
 **随机采样被忽视**：现有工作没有充分研究 micro-benchmark 方法在何种条件下真正优于简单的 uniform random sampling。
 
 ## 方法详解

@@ -26,16 +26,21 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：LLM agent已在多种任务上展现强大能力，但agent的设计仍然高度依赖人工——从workflow组织到memory、planning、tool use等功能组件的选择与配置，都需要大量expert knowledge和反复调参。
+
 **现有痛点**：已有的自动化agent设计方法存在三个主要问题：
    - **搜索空间受限**：AFlow、ADAS等方法只优化agentic workflow结构，不涉及memory/planning/tool use等功能组件，无法发现完整的agent架构
    - **评估成本过高**：每评估一个新agent都需要在benchmark上完整运行（如ALFWorld上一个CoT agent评估需~$60），大量低质量candidate浪费资源
    - **搜索效率低下**：面对巨大设计空间，现有搜索策略（如AFlow的局部优化）容易陷入局部最优
+
 **核心矛盾**：设计空间的组合爆炸性（workflow × memory × tool × planning）与单次评估的高成本之间的根本矛盾，使得穷举式搜索不可行，而局部搜索又容易遗漏优质设计
+
 **本文要解决什么？**
    - 如何构建一个同时包含workflow和功能组件的统一搜索空间？
    - 如何用低成本替代昂贵的真实评估？
    - 如何高效地在巨大搜索空间中导航？
+
 **切入角度**：借鉴NAS（神经架构搜索）中performance predictor的思路——在NAS中，训练一个性能预测模型来替代完整训练评估已被证明非常有效，agent设计问题与NAS高度类似
+
 **核心idea一句话**：将agent设计形式化为workflow+功能组件的层次搜索问题，用轻量value model做低成本评估，用不确定性引导的MCTS做高效搜索
 
 ## 方法详解
@@ -52,19 +57,19 @@ AgentSwift的pipeline分三个核心模块：
 
 1. **层次化搜索空间**:
 
-    - 做什么：统一定义workflow和功能组件的联合搜索空间
+    - 功能：统一定义workflow和功能组件的联合搜索空间
     - 核心思路：Agentic workflow $\mathbf{W}=(N,E)$ 由节点（LLM调用步骤，含model/prompt/temperature/format）和边（执行顺序）组成。在此基础上，三个功能组件以plug-and-play方式挂载——Memory $\mathbf{M}=(m,\tau,d)$ 负责检索/存储上下文，Tool Use $\mathbf{T}=(t,\tau,u)$ 连接外部API，Planning $\mathbf{P}=(p,\tau)$ 做子目标分解。完整agent定义为 $\mathbf{A}=(\mathbf{W},\mathbf{M},\mathbf{T},\mathbf{P})$
     - 设计动机：之前AFlow只搜索workflow，AgentSquare虽然引入组件但在固定workflow模板下搜索、且仍以prompt优化为主。本文的层次空间真正实现了workflow和组件的联合优化，搜索空间更具表达力
 
 2. **Value Model（性能预测模型）**:
 
-    - 做什么：给定candidate agent和任务描述，预测其性能得分 $\hat{v} = f_\theta(\mathbf{A}, d)$
+    - 功能：给定candidate agent和任务描述，预测其性能得分 $\hat{v} = f_\theta(\mathbf{A}, d)$
     - 核心思路：基于7B预训练语言模型（Mistral-7B或Qwen2.5-7B）+ 轻量adapter，用MSE损失端到端微调。关键创新在数据集构建：先用 $t=2$ 的covering array确保所有成对组件交互至少出现一次（保证覆盖度），再用Balanced Bayesian Sampling同时探索高性能区域（UCB）和低性能区域（LCB），公式为 $a_{\text{UCB}}(\mathbf{A}) = \mu(\mathbf{A}) + \kappa \cdot \sigma(\mathbf{A})$ 和 $a_{\text{LCB}}(\mathbf{A}) = -\mu(\mathbf{A}) + \kappa \cdot \sigma(\mathbf{A})$，总共收集220个有标注样本
     - 设计动机：GPT-4o做in-context预测虽然可行但成本高（每次搜索都要调用大模型），且精度不够（Spearman仅0.77 vs 本方法0.90）。蒸馏到7B模型后推理快、成本低，且因为structured agent表示的组合性质，7B模型能学到好的component→performance映射
 
 3. **不确定性引导的MCTS**:
 
-    - 做什么：高效搜索最优agent设计
+    - 功能：高效搜索最优agent设计
     - 核心思路：
       - **Selection**：采用soft mixed probability策略，结合实际性能 $s_i$ 和不确定性 $u_i$，公式 $P_{\text{mixed}}(i) = \lambda \cdot \frac{1}{n} + (1-\lambda) \cdot \frac{\exp(E(s_i, u_i))}{\sum_j \exp(E(s_j, u_j))}$，其中 $E(s_j, u_j) = \alpha((1-\beta) s_j + \beta u_j - s_{\max})$
       - **Expansion**：从parent agent出发，依次执行三步操作：(1) Recombination——从组件池中替换一个子系统；(2) Mutation——LLM根据任务和历史性能生成新组件实现；(3) Refinement——基于失败案例微调prompt/temperature/控制流。每步都用value model评分筛选最佳candidate

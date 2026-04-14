@@ -17,7 +17,7 @@ tags:
 **arXiv**: [2404.00288](https://arxiv.org/abs/2404.00288)  
 **代码**: https://github.com/joshyZhou/FPro (有)  
 **领域**: 图像复原 / Low-level Vision  
-**关键词**: Image Restoration, Frequency Prompt, Dual Prompt Block, Gated Dynamic Decoupler, Transformer
+**关键词**: image restoration, Frequency Prompt, Dual Prompt Block, Gated Dynamic Decoupler, Transformer
 
 ## 一句话总结
 
@@ -53,7 +53,7 @@ FPro 包含两个分支：(1) 上方的 Restoration Branch——标准 encoder-d
 
 1. **Gated Dynamic Decoupler (GDD)**:
 
-    - 做什么：将输入特征动态解耦为低频和高频分量
+    - 功能：将输入特征动态解耦为低频和高频分量
     - 核心思路：对输入特征 $\mathbf{F}_s$ 通过 GAP + Conv 生成通道描述子，经 gating 机制（sigmoid 门控）抑制不重要元素后，通过 Softmax 归一化保证生成的是低通滤波器 $\mathbf{F}^L$。将 $\mathbf{F}^L$ 应用于分组输入特征得到低频分量：
     $\mathbf{F}^{lo}_{i,c,h,w} = \sum_{p,q} \mathbf{F}^L_{i,p,q} \mathbf{F}_{i,c,h+p,w+q}$
     - 高通滤波器通过从 identity kernel 减去低通滤波器获得，得到高频分量 $\mathbf{F}_{hi}$
@@ -61,7 +61,7 @@ FPro 包含两个分支：(1) 上方的 Restoration Branch——标准 encoder-d
 
 2. **High-frequency Prompt Modulator (HPM)**:
 
-    - 做什么：对高频特征注入 prompt 组件并与 decoder 特征进行局部交叉注意力
+    - 功能：对高频特征注入 prompt 组件并与 decoder 特征进行局部交叉注意力
     - 核心思路：(a) Generation：用深度卷积 + GELU 门控增强高频特征 $\hat{\mathbf{F}}_{hi} = \tilde{\mathbf{F}}_{hi} \odot \sigma(\text{DConv}_{3\times3}(\tilde{\mathbf{F}}_{hi}))$，然后与可学习 prompt $\mathbf{P}_{hi}$ 逐元素相乘 $\mathbf{F}^{prompt}_{hi} = \hat{\mathbf{F}}_{hi} \odot \mathbf{P}_{hi}$
     - (b) Modulation：depth-wise conv 进一步增强高频成分，然后通过局部窗口交叉注意力（window size $M=8$）与 decoder 特征交互
     $\mathbf{F}^{out}_{hi} = \mathbf{V}_{hi} \cdot \text{Softmax}(\mathbf{K}_{hi} \cdot \mathbf{Q}_{hi} / \sqrt{d})$
@@ -69,7 +69,7 @@ FPro 包含两个分支：(1) 上方的 Restoration Branch——标准 encoder-d
 
 3. **Low-frequency Prompt Modulator (LPM)**:
 
-    - 做什么：对低频特征在傅里叶域注入 prompt 并与 decoder 特征进行全局交叉注意力
+    - 功能：对低频特征在傅里叶域注入 prompt 并与 decoder 特征进行全局交叉注意力
     - 核心思路：(a) Generation：将低频特征 FFT 到频域，gating 筛选有用成分 $\hat{\mathbf{F}}_{lo} = \mathcal{F}(\tilde{\mathbf{F}}_{lo}) \odot \sigma(\text{Conv}_{1\times1}(\mathcal{F}(\tilde{\mathbf{F}}_{lo})))$，然后与可学习频域 prompt $\mathbf{P}_{lo}$ 逐元素相乘后 IFFT 回空域
     $\mathbf{F}^{prompt}_{lo} = \mathcal{F}^{-1}(\hat{\mathbf{F}}_{lo} \odot \mathbf{P}_{lo})$
     - (b) Modulation：adaptive average pooling 增强低频后，通过全局交叉注意力（Q 来自 decoder feature，K/V 来自 pooled prompt feature）调制

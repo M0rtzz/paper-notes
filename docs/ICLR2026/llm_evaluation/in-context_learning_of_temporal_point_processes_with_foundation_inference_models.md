@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.24762](https://arxiv.org/abs/2509.24762)  
 **代码**: [OpenFIM](https://fim4science.github.io/OpenFIM/intro.html)  
 **领域**: llm_nlp  
-**关键词**: temporal point process, foundation model, in-context learning, Hawkes process, amortized inference, conditional intensity  
+**关键词**: temporal point process, foundation model, in-context learning, Hawkes process, amortized inference, conditional intensity
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 标记时间点过程（MTPP）是建模异步、不规则事件序列的标准框架。现有神经 MTPP 方法存在根本限制：
 
 **缺乏迁移性**：每个新数据集需从头训练，无法跨系统复用。
+
 **基础模型缺位**：NLP/ODE/SDE 已有基础模型，但事件序列至今没有。
+
 **可解释性需求**：基于条件强度函数的方法保留激发/抑制关系可读性。
 
 ## 方法详解

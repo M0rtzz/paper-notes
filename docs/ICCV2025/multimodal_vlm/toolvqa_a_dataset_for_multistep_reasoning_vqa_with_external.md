@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2508.03284](https://arxiv.org/abs/2508.03284)  
 **代码**: [https://github.com/Fugtemypt123/ToolVQA-release](https://github.com/Fugtemypt123/ToolVQA-release)  
 **领域**: 多模态VLM / 工具使用 / 多步推理  
-**关键词**: tool-augmented VQA, multi-step reasoning, dataset, DFS trajectory, LCS matching  
+**关键词**: tool-augmented VQA, multi-step reasoning, dataset, DFS trajectory, LCS matching
 
 ## 一句话总结
 提出ToolVQA，一个23K样本的多模态工具使用VQA数据集，通过ToolEngine数据生成pipeline（图像引导DFS + LCS示例匹配）从真实图像中构造隐式多步推理问题（平均2.78步），在该数据上微调LLaVA-7B后在5个OOD benchmark上超过GPT-3.5-Turbo，并揭示了当前LFM在参数预测和答案总结方面的瓶颈。
 
 ## 研究背景与动机
 **领域现状**：工具增强VQA是提升LFM能力的重要方向。已有数据集如GTA (200样本)、M&m's (1.6K)规模小，ToolBench (126K)是纯文本不涉及视觉，MM-Traj (20K)用合成PDF而非真实图像。
+
 **现有痛点**：(1) 现有数据集使用合成场景而非真实图像，导致与真实世界需求脱节；(2) 查询中显式提示使用哪个工具（如"using the YouTube API tool"），没有隐式多步推理；(3) 成本高难以规模化——GTA和GAIA依赖昂贵的人工标注。
+
 **核心矛盾**：真实用户使用工具时不会指定具体调用哪个API，而是提出隐式需要多步推理的自然问题。但自动生成这种高质量多步推理数据很困难——直接让LFM生成往往产生不合理的工具调用链。
+
 **本文要解决什么**：构建一个大规模、真实场景、隐式多步推理的工具使用VQA数据集，并验证在其上微调小模型的泛化能力。
+
 **切入角度**：用DFS在工具图上搜索生成推理轨迹（真实调用工具获取结果），再用LCS动态匹配不同示例指导每步决策，最后基于轨迹反向构造问题。
+
 **核心idea一句话**：用图像引导DFS生成工具使用轨迹+LCS动态示例匹配+反向问题生成，构建首个大规模真实场景多步推理工具使用VQA数据集。
 
 ## 方法详解
@@ -41,13 +46,13 @@ tags:
 
 1. **图像引导DFS轨迹构建**:
 
-    - 做什么：在工具图上进行深度优先搜索，逐步选择下一个工具并真实调用它获取结果。
+    - 功能：在工具图上进行深度优先搜索，逐步选择下一个工具并真实调用它获取结果。
     - 核心思路：每步由GPT-4o controller选择工具$t_i$和参数$a_i$，输入包括图像$\mathcal{I}$、当前轨迹$\mathcal{P}_{i-1}$和LCS匹配的示例。每次工具调用获得真实结果（如OCR得到实际文字、GoogleSearch得到实际搜索结果），确保推理链与真实世界一致。
     - 设计动机：与"先想问题再找答案"相反，ToolEngine "先探索信息再造问题"。这种$\mathcal{I} \rightarrow \mathcal{P} \rightarrow \mathcal{Q,A}$的方式确保了轨迹的合理性——每步都基于真实工具输出做判断。有趣的是，GPT-4o生成的问题连自己都答不对（准确率<40%），说明ToolEngine成功地将简单步骤组合成了困难问题。
 
 2. **LCS动态示例匹配**:
 
-    - 做什么：在DFS每步中，用Longest Common Subsequence算法为当前轨迹匹配最相关的人工构造示例。
+    - 功能：在DFS每步中，用Longest Common Subsequence算法为当前轨迹匹配最相关的人工构造示例。
     - 核心思路：计算当前工具序列$\mathcal{P}_i$与示例集$\mathcal{P}_e$中每个示例的LCS长度，选top-k最匹配的作为in-context example。随着轨迹延长，匹配的示例也动态变化。
     - 效果：LCS匹配vs无匹配：准确率从27.3%提升到90.8%，平均推理步数从1.1提升到2.38。LCS vs 固定示例：准确率从41.6%提升到90.8%。
     - 设计动机：固定示例无法适应不同图像的不同推理路径。LCS根据当前轨迹动态选择最相似的示例，让controller在每步都有最相关的参考。

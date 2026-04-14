@@ -33,8 +33,11 @@ tags:
 ### 现有方法的不足
 
 **几何嵌入方法**（PCA、t-SNE、UMAP、Diffusion Maps）：专注保留拓扑/几何关系，但**忽略时间结构**，不同时间点的细胞群可能在嵌入空间中重叠
+
 **RNA 速度方法**（CellPath、VeloViz、Ocelli）：依赖 RNA 速度估计，在低 unspliced counts 数据集上不可靠，且不显式考虑跨时间点分析
+
 **深度生成模型**（scVI、GeneFormer、TarDis）：基于 VAE/Transformer，在动态建模的可解释性方面存在挑战
+
 **动态 OT 方法**（TIGON、CytoBridge）：需要**预计算嵌入**作为输入（如 PCA/UMAP），嵌入构建与轨迹推断**解耦**，无法利用时间结构
 
 ### 核心动机

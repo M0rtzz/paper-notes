@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.04745](https://arxiv.org/abs/2603.04745)  
 **代码**: 无  
 **领域**: 图像恢复  
-**关键词**: infrared-super-resolution, autoregressive, codebook, thermal-guidance, benchmark  
+**关键词**: infrared-super-resolution, autoregressive, codebook, thermal-guidance, benchmark
 
 ## 一句话总结
 

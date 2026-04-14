@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.16827](https://arxiv.org/abs/2505.16827)  
 **代码**: [https://github.com/JiuTian-VL/GUI-explorer](https://github.com/JiuTian-VL/GUI-explorer)  
 **领域**: LLM Agent  
-**关键词**: GUI agent, autonomous exploration, transition-aware knowledge, training-free, knowledge extraction  
+**关键词**: GUI agent, autonomous exploration, transition-aware knowledge, training-free, knowledge extraction
 
 ## 一句话总结
 提出 GUI-explorer，一个无需训练的 GUI agent，通过自主探索收集功能感知的交互轨迹，并以无监督方式从状态转换三元组中挖掘 transition-aware 知识，在 SPA-Bench 和 AndroidWorld 上分别达到 53.7% 和 47.4% 的任务成功率。

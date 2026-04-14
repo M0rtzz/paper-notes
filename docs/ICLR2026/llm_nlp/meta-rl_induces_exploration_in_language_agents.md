@@ -35,7 +35,9 @@ tags:
 ### 现有方法的不足
 
 **Prompting 方法**（Zero-shot、ReAct、Reflexion）：依赖冻结的 LLM，探索行为有限，性能天花板低
+
 **标准 RL 训练**（PPO、GRPO、GiGPO）：每个 episode 独立采样，策略固定，无法在测试时通过试错进行适应
+
 **离线蒸馏方法**：依赖离线数据，只能模仿而非主动探索；多聚焦于单轮推理而非多轮 agent 任务
 
 ### 核心洞察

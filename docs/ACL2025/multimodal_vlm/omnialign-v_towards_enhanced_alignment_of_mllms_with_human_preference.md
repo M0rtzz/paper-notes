@@ -81,9 +81,9 @@ tags:
 1. **Instruction Augmented Knowledge QAs**：为知识问答加入复杂指令和限制条件
 2. **Enriched Inferential QAs**：用知识丰富的 LLM 补充详细解释和推理逻辑
 3. **Quality Improved Infographic QAs**：
-   - GPT-4o 擅长背景知识解释但 OCR 不准
-   - 开源 MLLM OCR 准但解释不够
-   - **融合**两者的回答 + 人工审核
+    - GPT-4o 擅长背景知识解释但 OCR 不准
+    - 开源 MLLM OCR 准但解释不够
+    - **融合**两者的回答 + 人工审核
 
 #### 数据规模
 

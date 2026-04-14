@@ -1,8 +1,16 @@
 ---
-title: "HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction"
-conference: "ICLR2026"
-domain: "medical_imaging"
-arxiv: "2601.21560"
+title: >-
+  [论文解读] HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction
+description: >-
+  [ICLR 2026][医学图像][空间转录组学] 本文提出 HistoPrism，一个高效的 Transformer 架构，通过交叉注意力注入癌症类型条件来从 H&E 病理图像预测泛癌基因表达，并提出基于 Hallmark/GO 通路的 Gene Pathway Coherence (GPC) 评估框架，在通路级别预测上大幅超越 STPath，尤其在低方差核心生物通路上优势显著。
+tags:
+  - ICLR 2026
+  - 医学图像
+  - 空间转录组学
+  - 基因表达预测
+  - Pan-Cancer
+  - Pathway分析
+  - Transformer
 ---
 
 # HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction
@@ -41,19 +49,19 @@ arxiv: "2601.21560"
 
 1. **泛癌条件化交叉注意力模块**:
 
-    - 做什么：将全局癌症类型信息注入局部 patch 表示
+    - 功能：将全局癌症类型信息注入局部 patch 表示
     - 核心思路：one-hot 癌症类型向量通过线性层映射为 $\mathbf{c}_{\text{emb}} \in \mathbb{R}^{D_{img}}$，作为 Key 和 Value；patch 特征作为 Query，通过标准交叉注意力计算条件化后的 patch 特征 $\mathbf{X}_{\text{cond}}$
     - 设计动机：使模型能根据癌症类型调制 patch 表示，学习泛癌共享模式和癌种特异性模式。消融实验证实去掉交叉注意力后所有癌种性能一致下降
 
 2. **Transformer 编码器上下文聚合**:
 
-    - 做什么：捕获 patch 间的短程和长程空间依赖
+    - 功能：捕获 patch 间的短程和长程空间依赖
     - 核心思路：条件化后的 patch 特征先投影到隐层维度 $D_{hidden}=256$，然后经2层8头 Transformer 编码器处理，输出 $\mathbf{H}_{\text{latent}} \in \mathbb{R}^{N \times D_{hidden}}$
     - 设计动机：建模高层组织结构（如肿瘤边界、免疫浸润模式）。有趣的是，消融实验发现**不加位置编码反而更好**——可能因为 UNI PFM 特征已包含形态信息，Transformer 作为置换不变的集合函数利用全局组成结构而非固定位置
 
 3. **Gene Pathway Coherence (GPC) 评估框架**:
 
-    - 做什么：从功能通路层面评估预测的生物学保真度
+    - 功能：从功能通路层面评估预测的生物学保真度
     - 核心思路：从 MSigDB Hallmark（50条通路）和 GO 数据库筛选87条非冗余通路（50-100基因/条，Jaccard 相似度 < 0.1 去冗余），对每条通路内所有成员基因计算跨 patch 的 Pearson 相关系数再平均：$s_m = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{|P_m|} \sum_{g \in P_m} r_{i,g}$
     - 设计动机：HVG 指标只关注高方差基因，忽略了低方差但生物学上重要的核心通路。GPC 评估协调表达模式的恢复能力，更贴近临床需求
 

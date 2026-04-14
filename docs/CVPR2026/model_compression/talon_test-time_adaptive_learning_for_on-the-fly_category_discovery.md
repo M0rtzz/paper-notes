@@ -7,7 +7,7 @@ tags:
   - CVPR2026
   - 模型压缩
   - On-the-Fly Category Discovery
-  - Test-Time Adaptation
+  - 测试时自适应
   - 原型学习
   - 类别爆炸
   - 语义偏移
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.08075](https://arxiv.org/abs/2603.08075)  
 **代码**: [ynanwu/TALON](https://github.com/ynanwu/TALON)  
 **领域**: 模型压缩 / 开放世界学习  
-**关键词**: On-the-Fly Category Discovery, Test-Time Adaptation, 原型学习, 类别爆炸, 语义偏移
+**关键词**: On-the-Fly Category Discovery, 测试时自适应, 原型学习, 类别爆炸, 语义偏移
 
 ## 一句话总结
 

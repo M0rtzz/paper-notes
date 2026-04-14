@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2509.23594](https://arxiv.org/abs/2509.23594)  
 **代码**: 待确认  
 **领域**: 模型安全 / 模型提取攻击 / LoRA / 参数高效微调  
-**关键词**: LoRA extraction, model extraction attack, PEFT, synthetic data, Stable Diffusion, disagreement-based semi-supervised learning, LLM-driven prompting  
+**关键词**: LoRA extraction, model extraction attack, PEFT, synthetic data, Stable Diffusion, disagreement-based semi-supervised learning, LLM-driven prompting
 
 ## 一句话总结
 StolenLoRA 首次提出针对 LoRA 自适应模型的模型提取攻击方向，利用 LLM 驱动的 Stable Diffusion 生成高质量合成数据替代真实数据集搜索，并设计基于分歧的半监督学习（DSL）策略通过选择性查询最大化信息增益，仅需 10k 次查询即可达到高达 96.60% 的攻击成功率，揭示了 LoRA 适配模型的严重安全漏洞。
@@ -31,10 +31,13 @@ StolenLoRA 首次提出针对 LoRA 自适应模型的模型提取攻击方向，
 LoRA（Low-Rank Adaptation）已成为大规模预训练模型高效微调的主流方法，但其轻量和紧凑的特性带来了新的安全隐患：
 
 **LoRA 参数的脆弱性**：LoRA 仅微调少量低秩矩阵，模型的核心知识依赖公开的预训练基础模型。这意味着攻击者只需复制 LoRA 适配部分即可获得完整模型功能，门槛远低于传统全模型提取。
+
 **现有提取方法的局限**：
    - **样本选择方法**（KnockoffNets/ActiveThief）：需要搜索庞大数据集寻找域内样本，对 LoRA 模型推理速度慢的情况计算开销巨大，且难以找到领域特定的合适样本。
    - **GAN 生成方法**（DFME）：GAN 在生成高维数据（如 224×224 图像）时困难重重，需要数百万次查询，且易遭遇 mode collapse。
+
 **预训练模型公开可得**：大量预训练 ViT 模型公开发布在 Hugging Face 等平台，攻击者可轻松获取与受害者相同或相似的 base model，进一步降低了攻击门槛。
+
 **研究空白**：传统模型提取研究关注整个模型的功能复制，但 LoRA 场景下只需提取紧凑的适配参数，这一新方向尚未被充分探索。
 
 ## 方法详解
@@ -52,14 +55,14 @@ LoRA（Low-Rank Adaptation）已成为大规模预训练模型高效微调的主
 攻击者通常可获取模型的部署上下文信息（功能描述、目标类别名），以此为起点合成训练数据：
 
 1. **LLM 驱动提示生成**：
-   - 给定目标类名集合 C = {c_1, ..., c_n}，用 GPT-4o mini 生成多样化的图像描述。
-   - 提示模板 T = [Subject, Background, Angle/Pose, Lighting, Style]。
-   - 每个类别生成 m 个不同的提示变体：p_{i,j} = LLM(c_i, T, ω_j)。
+    - 给定目标类名集合 C = {c_1, ..., c_n}，用 GPT-4o mini 生成多样化的图像描述。
+    - 提示模板 T = [Subject, Background, Angle/Pose, Lighting, Style]。
+    - 每个类别生成 m 个不同的提示变体：p_{i,j} = LLM(c_i, T, ω_j)。
 
 2. **图像合成**：
-   - 用 SDXL-Turbo 模型（仅需 4 步采样）对每个提示生成一张图像。
-   - 完整合成数据集：X = ∪_i {SD(p_{i,j})}。
-   - 合成图像自带类别伪标签（来自生成提示的类别信息）。
+    - 用 SDXL-Turbo 模型（仅需 4 步采样）对每个提示生成一张图像。
+    - 完整合成数据集：X = ∪_i {SD(p_{i,j})}。
+    - 合成图像自带类别伪标签（来自生成提示的类别信息）。
 
 ### 阶段二：高效查询与训练
 
@@ -73,15 +76,15 @@ DSL 通过选择性查询和标签精炼迭代提升攻击效率：
 
 1. **初始化**：生成初始合成数据集 X_0，用伪标签（来自生成提示）训练初始替代模型 F'_0。
 2. **迭代过程（每轮 t）**：
-   - 生成 β·b_t 个新候选样本 X_cand^t。
-   - **分歧过滤**：用当前替代模型 F'_t 对每个候选预测类别 ĉ 和置信度 p̂：
+    - 生成 β·b_t 个新候选样本 X_cand^t。
+    - **分歧过滤**：用当前替代模型 F'_t 对每个候选预测类别 ĉ 和置信度 p̂：
      - 若 ĉ = 伪标签 c(x) 且 p̂ ≥ τ（阈值 0.95）：样本置信度高，加入 X_conf^t，使用伪标签直接训练，无需查询。
      - 否则：样本不确定，加入 X_uncer^t。
    - **选择性查询**：从 X_uncer^t 中选取置信度最低的 b_t 个样本查询受害模型获取真实标签。
    - **训练**：合并 X_conf^t（伪标签）和 X_query^t（真实标签）训练更新替代模型。
 3. **标签精炼 (Label Refining)**：
-   - 用 EMA 更新软标签：q^(i+1) = μ·q^(i) + (1-μ)·p^(i+1)。
-   - 用软标签的交叉熵损失训练，缓解伪标签噪声和分布偏移。
+    - 用 EMA 更新软标签：q^(i+1) = μ·q^(i) + (1-μ)·p^(i+1)。
+    - 用软标签的交叉熵损失训练，缓解伪标签噪声和分布偏移。
 4. 循环直到查询预算耗尽。
 
 ### 关键设计思想

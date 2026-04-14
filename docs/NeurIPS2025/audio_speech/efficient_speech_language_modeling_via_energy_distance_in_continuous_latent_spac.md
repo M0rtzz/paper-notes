@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.13181](https://arxiv.org/abs/2505.13181)  
 **代码**: [ictnlp/SLED-TTS](https://github.com/ictnlp/SLED-TTS)  
 **领域**: audio_speech  
-**关键词**: speech language model, continuous latent space, energy distance, zero-shot TTS, streaming synthesis  
+**关键词**: speech language model, continuous latent space, energy distance, zero-shot TTS, streaming synthesis
 
 ## 一句话总结
 

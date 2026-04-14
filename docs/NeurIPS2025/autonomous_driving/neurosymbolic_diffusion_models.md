@@ -8,7 +8,7 @@ tags:
   - 自动驾驶
   - neurosymbolic
   - 扩散模型
-  - visual reasoning
+  - 视觉推理
 ---
 
 # Neurosymbolic Diffusion Models
@@ -17,7 +17,7 @@ tags:
 **arXiv**: [2505.13138](https://arxiv.org/abs/2505.13138)  
 **代码**: 无  
 **领域**: 自动驾驶  
-**关键词**: neurosymbolic, diffusion model, discrete diffusion, visual reasoning, autonomous driving  
+**关键词**: neurosymbolic, 扩散模型, discrete diffusion, 视觉推理, 自动驾驶
 
 ## 一句话总结
 

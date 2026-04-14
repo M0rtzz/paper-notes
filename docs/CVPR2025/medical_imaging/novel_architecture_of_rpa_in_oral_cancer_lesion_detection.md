@@ -52,9 +52,9 @@ tags:
 ### RPA 实现对比
 1. **OC-RPAv1**：基于 Python 的顺序 RPA 风格处理，每次加载模型预测一张图像
 2. **OC-RPAv2**：引入 Singleton + Batch Processing 设计模式
-   - Singleton：模型仅加载一次并保持在内存中，避免重复加载
-   - Batch Processing：批量处理图像，利用 GPU 并行推理
-   - UiPath 管理自动化管道，调用 Python 函数执行推理
+    - Singleton：模型仅加载一次并保持在内存中，避免重复加载
+    - Batch Processing：批量处理图像，利用 GPU 并行推理
+    - UiPath 管理自动化管道，调用 Python 函数执行推理
 
 ### 工作流同步与安全
 - 顺序处理图像批次，逐文件分类和记录后才处理下一个，避免数据碰撞

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.19568](https://arxiv.org/abs/2406.19568)  
 **代码**: 未公开  
 **领域**: 3D视觉 / 视频生成评估 / 3D一致性  
-**关键词**: Video Evaluation, 3D Coherence, Monocular 3D Cues, Contrastive Learning, Deepfake Detection  
+**关键词**: Video Evaluation, 3D Coherence, Monocular 3D Cues, Contrastive Learning, Deepfake Detection
 
 ## 一句话总结
 提出 Learned 3D Evaluation (L3DE)，一种基于单目3D线索（运动、深度、外观）和对比学习的客观可量化评估方法，用于衡量AI生成视频在3D视觉一致性方面与真实视频的差距，无需人工标注缺陷或质量标签。

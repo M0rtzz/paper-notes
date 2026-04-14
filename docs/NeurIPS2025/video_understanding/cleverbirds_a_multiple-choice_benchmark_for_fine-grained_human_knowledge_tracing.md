@@ -2,7 +2,7 @@
 title: >-
   [论文解读] CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
 description: >-
-  [NeurIPS 2025][视频理解][知识追踪] 提出CleverBirds大规模视觉知识追踪基准，包含40000+参与者完成的1700万+多选鸟类物种识别问答，涵盖10000+物种。通过系统性评估多种知识追踪方法揭示了细粒度视觉知识建模的核心挑战，特别是预测学习者错误选择的困难性。
+  [NeurIPS 2025][视频理解][知识追踪] 提出CleverBirds——迄今最大规模的视觉知识追踪基准，通过eBird公民科学平台收集了40000+参与者完成的1700万+多选鸟类物种识别问答（涵盖10000+物种），系统性评估了多种知识追踪与分类方法，揭示了细粒度视觉知识建模特别是预测学习者错误选择方面的核心挑战。
 tags:
   - NeurIPS 2025
   - 视频理解
@@ -11,6 +11,7 @@ tags:
   - 基准数据集
   - 视觉学习
   - 人类认知建模
+  - 鸟类识别
 ---
 
 # CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing
@@ -178,8 +179,8 @@ $$\hat{r}_t = \arg\max_{c \in \mathbf{c}_t} \phi(c \mid \mathbf{x}_t, \mathbf{c}
 #### 多选分类器
 
 1. **启发式方法**：
-   - **Always Correct**：假设全知学习者，总选正确答案
-   - **Random**：随机猜测
+    - **Always Correct**：假设全知学习者，总选正确答案
+    - **Random**：随机猜测
 
 2. **混淆先验分类器（Conf Prior）**：通过训练集中正确物种和干扰项之间的混淆概率来估计每个选项的概率，然后重新归一化形成有效分布。还有一个约束版本（Conf Prior Inc），限制始终预测错误选择
 
@@ -199,8 +200,8 @@ $$\hat{r}_t = \arg\max_{c \in \mathbf{c}_t} \phi(c \mid \mathbf{x}_t, \mathbf{c}
    | DKVMN | 键值记忆网络 | 外部化知识到键值记忆 |
 
 5. **语言建模范式**：
-   - **LM-Seq2seq**：微调T5风格编码器-解码器transformer，基于交互历史和当前问题生成正确物种token。训练时使用token级交叉熵损失，NOTA通过聚合可见选项之外的所有概率来处理
-   - **LM-MCC**：微调BERT风格编码器transformer，为每个问题-选项对打分，使用二元标签（每个问题恰好一个正确答案）进行监督
+    - **LM-Seq2seq**：微调T5风格编码器-解码器transformer，基于交互历史和当前问题生成正确物种token。训练时使用token级交叉熵损失，NOTA通过聚合可见选项之外的所有概率来处理
+    - **LM-MCC**：微调BERT风格编码器transformer，为每个问题-选项对打分，使用二元标签（每个问题恰好一个正确答案）进行监督
 
    两个模型使用自定义分词器（仅包含11142个物种token加上填充、段分隔和类型标记等特殊token），每个问题占据恰好8个token。设 $W=50$（历史窗口长度），其他模型则使用完整历史。这种紧凑的token化设计避免了使用自然语言描述物种名称时可能产生的歧义问题。
 

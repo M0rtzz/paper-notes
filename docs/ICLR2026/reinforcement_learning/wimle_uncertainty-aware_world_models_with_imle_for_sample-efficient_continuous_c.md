@@ -2,10 +2,10 @@
 title: >-
   [论文解读] WIMLE: Uncertainty-Aware World Models with IMLE for Sample-Efficient Continuous Control
 description: >-
-  [ICLR 2026][model-based RL] WIMLE将隐式最大似然估计（IMLE）扩展到model-based RL，学习能捕获多模态转移动力学的随机世界模型，通过ensemble+latent采样估计预测不确定性，用不确定性加权合成数据的RL目标，在40个连续控制任务上实现超越模型-free和model-based强基线的样本效率和渐近性能。
+  [ICLR 2026][基于模型的强化学习] WIMLE将隐式最大似然估计（IMLE）扩展到model-based RL，学习能捕获多模态转移动力学的随机世界模型，通过ensemble+latent采样估计预测不确定性，用不确定性加权合成数据的RL目标，在40个连续控制任务上实现超越模型-free和model-based强基线的样本效率和渐近性能。
 tags:
   - ICLR 2026
-  - model-based RL
+  - 基于模型的强化学习
   - IMLE
   - 不确定性估计
   - 多模态世界模型
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.14351](https://arxiv.org/abs/2602.14351)  
 **代码**: 无（Apex Lab, SFU）  
 **领域**: 强化学习  
-**关键词**: model-based RL, IMLE, 不确定性估计, 多模态世界模型, 样本效率, 连续控制
+**关键词**: 基于模型的强化学习, IMLE, 不确定性估计, 多模态世界模型, 样本效率, 连续控制
 
 ## 一句话总结
 WIMLE将隐式最大似然估计（IMLE）扩展到model-based RL，学习能捕获多模态转移动力学的随机世界模型，通过ensemble+latent采样估计预测不确定性，用不确定性加权合成数据的RL目标，在40个连续控制任务上实现超越模型-free和model-based强基线的样本效率和渐近性能。

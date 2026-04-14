@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.01215](https://arxiv.org/abs/2506.01215)  
 **代码**: 待确认  
 **领域**: model_compression  
-**关键词**: KV cache compression, long-context inference, token retrieval, early exit, on-demand recomputation  
+**关键词**: KV cache compression, long-context inference, token retrieval, early exit, on-demand recomputation
 
 ## 一句话总结
 

@@ -9,7 +9,7 @@ tags:
   - Bias-Diversity Decomposition
   - Inference Scaling Laws
   - 集成学习
-  - 信息论
+  - information theory
 ---
 
 # Diversity Explains Inference Scaling Laws: Through a Case Study of Minimum Bayes Risk Decoding
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.15021](https://arxiv.org/abs/2410.15021)  
 **代码**: https://github.com/naist-nlp/mbr-bias-diversity  
 **领域**: LLM NLP  
-**关键词**: MBR Decoding, Bias-Diversity Decomposition, Inference Scaling Laws, 集成学习, 信息论
+**关键词**: MBR Decoding, Bias-Diversity Decomposition, Inference Scaling Laws, 集成学习, information theory
 
 ## 一句话总结
 从 bias-diversity 分解的理论视角重新解释 MBR 解码：质量估计误差 MSE = Bias - Diversity，增加 diversity（伪参考的多样性）是提升 MBR 性能的关键；进一步通过信息论扩展到一般推理方法，揭示 diversity 是推理 scaling law（增加采样提升性能但边际递减）的理论根源，并在机器翻译、摘要、图像描述任务上实证验证。
@@ -84,17 +84,17 @@ tags:
 ### 主要实证发现
 
 1. **Bias-Diversity 验证**：
-   - 机器翻译中，高采样温度增加 Diversity（高 diversity 采样如 ancestral）同时增加 Bias
-   - COMET 作为 utility 时 Bias 低、Diversity 也低；MetricX 的 Bias 稍高但 Diversity 也高
-   - 最终性能取决于 Bias - Diversity 的净效应
+    - 机器翻译中，高采样温度增加 Diversity（高 diversity 采样如 ancestral）同时增加 Bias
+    - COMET 作为 utility 时 Bias 低、Diversity 也低；MetricX 的 Bias 稍高但 Diversity 也高
+    - 最终性能取决于 Bias - Diversity 的净效应
 
 2. **Inference Scaling Law 验证**：
-   - 增加样本数单调提升 COMET/MetricX 分数但边际递减（对数收敛）
-   - 与 Theorem 7-8 的次模性/超模性预测一致
+    - 增加样本数单调提升 COMET/MetricX 分数但边际递减（对数收敛）
+    - 与 Theorem 7-8 的次模性/超模性预测一致
 
 3. **Diversity 模型扰动实验（Section 5.5）**：
-   - 除了改变伪参考，还可以通过扰动评估模型参数 $\theta$ 增加 diversity
-   - 参数扰动比增加伪参考更高效地提升 diversity
+    - 除了改变伪参考，还可以通过扰动评估模型参数 $\theta$ 增加 diversity
+    - 参数扰动比增加伪参考更高效地提升 diversity
 
 ### 关键发现
 - Diversity 是推理 scaling 的核心驱动力——不是样本"数量"本身，而是样本"多样性"

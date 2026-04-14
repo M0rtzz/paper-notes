@@ -1,6 +1,8 @@
 ---
+title: >-
+  [论文解读] A Unified View on Learning Unnormalized Distributions via Noise-Contrastive Estimation
 description: >-
-  ICML2025论文解读：通过f-NCE框架的两个变体（alpha-CentNCE和f-CondNCE）统一了学习非归一化分布的多种方法（MLE/MC-MLE/GlobalGISO/pseudo-likelihood/ISO），纠正了f-CondNCE与score matching的误导性联系，并为有界指数族建立首个有限样本收敛保证。
+  [ICML 2025][优化][noise-contrastive estimation] 以f-NCE为基础提出alpha-CentNCE和f-CondNCE两个估计器家族，统一了MLE、MC-MLE、GlobalGISO、pseudo-likelihood、ISO等学习非归一化分布的方法，纠正了CondNCE与score matching的误导性联系，并为有界指数族首次建立有限样本收敛保证。
 tags:
   - ICML 2025
   - 优化
@@ -10,6 +12,7 @@ tags:
   - 指数族
   - 收敛率
 ---
+
 # A Unified View on Learning Unnormalized Distributions via Noise-Contrastive Estimation
 
 **会议**: ICML 2025  
@@ -33,17 +36,17 @@ tags:
 ### 关键设计
 
 1. **alpha-CentNCE（alpha-中心化NCE）**:
-    - 做什么：通过alpha-依赖的归一化方式将NCE转化为统一不同估计器的框架
+    - 功能：通过alpha-依赖的归一化方式将NCE转化为统一不同估计器的框架
     - 核心思路：定义alpha-中心化模型 $\tilde{\phi}_{\theta;\alpha}(x) = \phi_\theta(x)/Z_\alpha(\theta)$，其中 $Z_\alpha(\theta) = (\mathbb{E}_{q_n}[(\phi_\theta/q_n)^\alpha])^{1/\alpha}$。将其代入 $f_\alpha$-NCE目标得到 $\mathcal{L}_\alpha^{\text{cent}} = \mathbb{E}_{q_d}[\rho_\theta^{\alpha-1}]\cdot(\mathbb{E}_{q_n}[\rho_\theta^\alpha])^{(1-\alpha)/\alpha}/(1-\alpha)$
     - 设计动机：alpha=1时 $Z_1(\theta)=\int\phi_\theta dx$ 即标准归一化→MLE；alpha=0时对几何平均归一化→GlobalGISO；中间alpha值提供偏差-方差的连续trade-off
 
 2. **f-CondNCE（条件NCE）**:
-    - 做什么：用条件噪声分布 $\pi(y|x)$ 替代全局噪声 $q_n$，避免噪声分布选择的困难
+    - 功能：用条件噪声分布 $\pi(y|x)$ 替代全局噪声 $q_n$，避免噪声分布选择的困难
     - 核心思路：对比联合分布 $q_d(x)\pi(y|x)$ vs $q_d(y)\pi(x|y)$，密度比简化为 $\rho_\theta(x,y) = \phi_\theta(x)/\phi_\theta(y)$（对称channel下）。**关键纠正**：population目标在 $\epsilon\to 0$ 下确实趋近score matching（Theorem 3.3），但empirical目标中 $O(\epsilon)$ 项主导——方差以 $1/\epsilon$ 速率发散（Theorem 3.4），除非条件样本数以 $1/\epsilon^2$ 增长
     - 设计动机：纠正文献中的误导性联系——f-CondNCE在有限样本下不等价于score matching
 
 3. **有限样本收敛保证（指数族）**:
-    - 做什么：为alpha-CentNCE和f-CondNCE建立首个有限样本收敛率
+    - 功能：为alpha-CentNCE和f-CondNCE建立首个有限样本收敛率
     - 核心思路：利用GlobalGISO (Shah et al., 2023)的分析框架，通过Theorem 3.2证明 $f_\alpha$-NCE与alpha-CentNCE估计器等价（共享全局最优），将所有变体的分析统一到一个框架下。对有界指数族 $\phi_\theta(x) = \exp(\langle\theta,\psi(x)\rangle)$，样本复杂度 $n = O(p^2\log p/\epsilon^2)$ 确保参数估计误差 $\leq\epsilon$
     - 设计动机：此前几乎所有NCE变体都缺乏有限样本保证，统一分析框架使得一次证明覆盖所有变体
 

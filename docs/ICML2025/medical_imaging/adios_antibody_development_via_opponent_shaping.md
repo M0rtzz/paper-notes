@@ -74,9 +74,9 @@ $$R_a(v, a) = B(v, a) - B(t_a^-, a) - B(v, t_v^+)$$
 **Algorithm 1 — 内层循环：**
 1. 初始化 $\hat{v}_0 = \hat{v}$
 2. 对每一代 $i = 0, ..., H-1$：
-   - 生成种群：复制 $\hat{v}_i$ 共 $P=15$ 份，每份随机施加约 1 个氨基酸突变
-   - 计算每个突变体的适应度 $R_v(v_k^i, a)$
-   - 按 Boltzmann 分布采样下一代：$\mathbb{P}(\hat{v}_{i+1} = v_k^i) \propto \exp(\beta \cdot R_v(v_k^i, a))$
+    - 生成种群：复制 $\hat{v}_i$ 共 $P=15$ 份，每份随机施加约 1 个氨基酸突变
+    - 计算每个突变体的适应度 $R_v(v_k^i, a)$
+    - 按 Boltzmann 分布采样下一代：$\mathbb{P}(\hat{v}_{i+1} = v_k^i) \propto \exp(\beta \cdot R_v(v_k^i, a))$
 3. 输出逃逸轨迹 $\hat{\mathbf{v}} = [\hat{v}_0, \hat{v}_1, ..., \hat{v}_H]$
 
 温度参数 $\beta$ 控制选择随机性：$\beta \to \infty$ 为确定性最优适应度选择。
@@ -92,9 +92,9 @@ $$F_{\hat{v}}^H(a) = \mathbb{E}_{\hat{\mathbf{v}} \sim \text{Ev}(\hat{v}, a)} \l
 **Algorithm 2 — 外层循环：**
 1. 从随机抗体 $\hat{a}_0$ 出发
 2. 对每一步 $i = 0, ..., N-1$（$N=30$）：
-   - 生成种群：$P_a = 40$ 个抗体（原始 + 39 个单点突变体）
-   - 对每个候选抗体，用 $\eta = 5$ 条蒙特卡洛逃逸轨迹估计 $F_{\hat{v}}^H(a_k^i)$
-   - 贪心选择：$\hat{a}_{i+1} = \arg\max_k \mathbb{E}[F_{\hat{v}}^H(a_k^i)]$
+    - 生成种群：$P_a = 40$ 个抗体（原始 + 39 个单点突变体）
+    - 对每个候选抗体，用 $\eta = 5$ 条蒙特卡洛逃逸轨迹估计 $F_{\hat{v}}^H(a_k^i)$
+    - 贪心选择：$\hat{a}_{i+1} = \arg\max_k \mathbb{E}[F_{\hat{v}}^H(a_k^i)]$
 3. 输出最优抗体 $\hat{a}_N$
 
 #### 4. GPU 加速绑定模拟器

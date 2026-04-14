@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification
 description: >-
-  [NeurIPS 2025][人体理解][后门攻击] 提出 DPSBA，一种面向图分类的 clean-label 后门攻击框架，通过对抗训练生成分布内（in-distribution）触发子图，同时抑制结构异常和语义异常，在保持高攻击成功率的同时显著提升隐蔽性。
+  [NeurIPS 2025][人体理解][backdoor attack] 提出 DPSBA，一种面向图分类的 clean-label 后门攻击框架，通过对抗训练生成分布内（in-distribution）触发子图，同时抑制结构异常和语义异常，在保持高攻击成功率的同时显著提升隐蔽性。
 tags:
   - NeurIPS 2025
   - 人体理解
-  - 后门攻击
+  - backdoor attack
   - 图分类
   - 分布保持
   - 对抗训练
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.26032](https://arxiv.org/abs/2509.26032)  
 **代码**: [有](https://github.com/TheCoderOfs/DPSBA)  
 **领域**: AI Safety / 图学习安全  
-**关键词**: 后门攻击, 图分类, 分布保持, 对抗训练, GNN安全
+**关键词**: backdoor attack, 图分类, 分布保持, 对抗训练, GNN安全
 
 ## 一句话总结
 

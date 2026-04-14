@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels
 description: >-
-  [CVPR 2026][计算成像][高光谱视频] 提出Lumosaic主动高光谱视频系统，将12个窄带LED与编码曝光像素(CEP)相机同步，在每帧内联合编码空间-时间-光谱信息，实现30fps VGA分辨率31通道(400-700nm)运动鲁棒高光谱视频，PSNR比被动系统高10+dB。
+  [CVPR 2026][遥感][hyperspectral video] 提出Lumosaic主动高光谱视频系统，将12个窄带LED阵列与编码曝光像素（CEP）相机在微秒级同步，在每帧158个子帧内联合编码空间-时间-光谱信息，实现30fps VGA分辨率31通道（400–700nm）运动鲁棒高光谱视频重建，PSNR比被动快照系统高10+dB。
 tags:
   - CVPR 2026
-  - 计算成像
-  - 高光谱视频
-  - 主动照明
-  - 编码曝光像素
-  - 运动鲁棒
+  - 遥感
+  - hyperspectral video
+  - coded-exposure pixel
+  - active illumination
+  - motion-robust
+  - spectral reconstruction
 ---
 
 # Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels
@@ -52,19 +53,19 @@ tags:
 
 1. **联合照明-曝光编码方案**
 
-    - 做什么：在每帧内创建密集的空间-光谱-时间编码
+    - 功能：在每帧内创建密集的空间-光谱-时间编码
     - 核心思路：像素分为T=16个tile（4×4马赛克），每tile有独特的曝光码 $\mathbf{C}_{\text{tile}} \in \{0,1\}^{T \times S}$ 和照明码 $\mathbf{I}_{\text{tile}} \in \{0,1\}^{T \times S \times L}$。每子帧激活一个LED，相邻像素在不同时间观测不同波段。前向模型：$Y_p = \sum_{s=1}^{S} C_{p,s} \cdot \mathbf{a}_{p,s}^\top \mathbf{r}_p + \eta_p$，其中 $\mathbf{a}_{p,s} = \mathcal{S} \odot \boldsymbol{\mathcal{I}}_{p,s}$ 为有效光谱感知向量
     - 设计动机：主动照明使每个LED的窄带输出完全贡献到有效信号（不被滤波衰减），CEP逐像素控制提供密集空间编码
 
 2. **CEP相机逐像素编码曝光**
 
-    - 做什么：每像素帧内按二值控制码在两个电荷桶间高速切换
+    - 功能：每像素帧内按二值控制码在两个电荷桶间高速切换
     - 核心思路：每像素含1-bit可写内存，控制每子帧的活跃桶。帧级别两桶分别读出互补的积分信号。调制率超39kHz，VGA分辨率
     - 设计动机：打破传统相机所有像素共享同一曝光的限制，使每个像素成为独立的光谱-时间采样点
 
 3. **时间对齐与学习重建**
 
-    - 做什么：补偿各LED子图像间的亚毫秒运动差异，然后神经网络重建高光谱
+    - 功能：补偿各LED子图像间的亚毫秒运动差异，然后神经网络重建高光谱
     - 核心思路：选lime-LED子图像为时间参考（中心波长+中间曝光时间），用RIFE网络估计同LED相邻帧间光流，将各子图像warp到参考时间。HAN网络（18残差块，10残差组，128通道）输入12通道LED子图像，输出33通道，取中间31通道（400–700nm）
     - 设计动机：不同LED子图像对应帧内不同时间段，直接融合会引入光谱-空间混叠；同LED子图像保持光度一致性，适合光流估计
 

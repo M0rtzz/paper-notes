@@ -20,7 +20,7 @@ tags:
 **代码**: 待确认  
 **领域**: LLM NLP / 可解释性  
 
-**关键词**: in-context learning, likelihood-ratio test, mechanistic interpretability, sufficient statistic, Neyman-Pearson  
+**关键词**: in-context learning, likelihood-ratio test, mechanistic interpretability, sufficient statistic, Neyman-Pearson
 
 ## 一句话总结
 

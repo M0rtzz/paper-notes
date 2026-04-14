@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：推理时干预（ITI）通过在模型中间层加入 steering vector 来调整 LLM 行为，无需更新参数，成本低且避免灾难性遗忘。
+
 **现有痛点**：现有 ITI 方法（如 Li et al. 2024, LITO）对所有 token 均匀施加同一干预向量，在多属性场景下会产生属性间冲突——例如同时提升 helpfulness 和降低 bias 时，一个方向的干预可能恶化另一个属性。
+
 **核心矛盾**：多属性 steering vector 之间存在方向冲突，均匀干预导致过度校正（overcorrection），且无法区分哪些 token 与哪个属性相关。
+
 **本文要解决什么**：(1) 如何在 token 级别精确判断对哪些 token 施加哪个属性的干预？(2) 如何避免多个 steering vector 之间的冲突？
+
 **切入角度**：观察到不同 token 与不同属性的相关性差异很大（如 "harmed" 与 bias 相关，"the" 与任何属性都无关），因此应该选择性地、按需干预。
+
 **核心 idea 一句话**：用属性特定的 gating function 实现 token 级选择性干预，配合 MMD 表示对齐 + 稀疏性 + 正交性约束，解决多属性 steering 的冲突问题。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **属性感知 Gating Function**:
 
-    - 做什么：为每个属性 $t$ 学习一个 gating function $G_t(a_i) = \sigma(w_t a_i + b_t)$，输出 0-1 标量表示对该 token 激活的干预强度
+    - 功能：为每个属性 $t$ 学习一个 gating function $G_t(a_i) = \sigma(w_t a_i + b_t)$，输出 0-1 标量表示对该 token 激活的干预强度
     - 核心思路：整体 steering function 为 $f(a_i | \theta_1,...,\theta_T) = a_i + \sum_{t=1}^T G_t(a_i) \theta_t$，每个属性的 steering vector $\theta_t$ 乘以其 gating 权重后叠加
     - 设计动机：不同于均匀干预，gating 让模型只在相关 token 上施加干预，避免对已对齐的 token 过度校正。例如毒性相关词 gating weight 高，中性词 gating weight 接近 0
 
 2. **MMD 表示对齐 (Representation Alignment)**:
 
-    - 做什么：通过 Maximum Mean Discrepancy (MMD) loss 将编辑后的负样本激活分布对齐到正样本激活分布
+    - 功能：通过 Maximum Mean Discrepancy (MMD) loss 将编辑后的负样本激活分布对齐到正样本激活分布
     - 核心思路：$\mathcal{L}_{MMD} = \sum_{t=1}^T \| \frac{1}{|\mathcal{A}_t^p|}\sum \phi(a_i^p) - \frac{1}{|\mathcal{A}_t^n|}\sum \phi(f(a_i^n)) \|_{\mathcal{H}}^2$，使用 RKHS 映射捕获高阶分布差异
     - 设计动机：相比之前 ITI 工作只匹配均值，MMD 能捕获方差等高阶矩信息，且不需要配对数据（可以处理非配对的正负样本）
 
 3. **冲突避免正则化 (Conflict Avoidance)**:
 
-    - 做什么：三项正则化确保多属性干预不冲突
+    - 功能：三项正则化确保多属性干预不冲突
     - 核心思路：
       - 正样本保护 $\mathcal{L}_{pos}$：对正样本激活的 gating 权重施加 L2 惩罚，确保已对齐样本不被干预
       - 稀疏性约束 $\mathcal{L}_{sparse}$：对负样本激活的 gating 权重施加 L1 惩罚，确保只有最相关的属性向量被激活

@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 需要适应全球多元文化背景下的社会规范判断（如礼仪、习俗）。现有方法主要依赖单个 LLM 的单轮生成方式，通过训练数据选择或 prompt 设计来改善文化对齐。
+
 **现有痛点**：单个 LLM 受训练数据分布限制，无法均匀覆盖所有文化群体；不同 LLM 因训练数据和对齐过程差异，对不同文化的最佳表现模型各不相同。
+
 **核心矛盾**：没有单一模型能在所有文化上都表现最优（oracle 实验显示两模型组合的上界比单模型高 22.5%），但如何有效利用多模型的互补性是个开放问题。
+
 **本文要解决什么？** 如何通过多 LLM 协作（而非单 LLM）提升跨文化社会规范判断的准确性和各文化群体间的公平性。
+
 **切入角度**：不同开源 LLM 具有互补的文化知识，受人类辩论启发，让两个 LLM 围绕文化场景展开辩论，通过交换反馈来纠正各自的偏差。
+
 **核心 idea 一句话**：用多 agent 辩论机制来激发不同 LLM 的互补文化知识，实现更公平的文化对齐。
 
 ## 方法详解
@@ -42,25 +47,25 @@ tags:
 
 1. **Single-LLM + Self-Reflection**:
 
-    - 做什么：单个 LLM 先生成初始判断 $\hat{y}_0^{\mathcal{M}}$，然后对自己的输出生成反思理由 $f^{\mathcal{M}}$，最后结合反思做最终决策 $\hat{y}_f^{\mathcal{M}}$。
+    - 功能：单个 LLM 先生成初始判断 $\hat{y}_0^{\mathcal{M}}$，然后对自己的输出生成反思理由 $f^{\mathcal{M}}$，最后结合反思做最终决策 $\hat{y}_f^{\mathcal{M}}$。
     - 核心思路：利用文化语境化（在 prompt 中加入 rule-of-thumb 信息），再通过 self-reflection 进一步纠错。加入 rule-of-thumb 后准确率平均提升 39.1%。
     - 设计动机：作为基线，验证单模型多轮交互的提升上限。
 
 2. **Debate-Only (双 Agent 辩论)**:
 
-    - 做什么：两个不同的 LLM $\mathcal{M}_1$ 和 $\mathcal{M}_2$ 各自独立生成初始决策，然后交换反馈 $f^{\mathcal{M}_1}$, $f^{\mathcal{M}_2}$，各自结合对方反馈做最终决策。若最终决策不一致，由 judge LLM 根据辩论历史仲裁。
+    - 功能：两个不同的 LLM $\mathcal{M}_1$ 和 $\mathcal{M}_2$ 各自独立生成初始决策，然后交换反馈 $f^{\mathcal{M}_1}$, $f^{\mathcal{M}_2}$，各自结合对方反馈做最终决策。若最终决策不一致，由 judge LLM 根据辩论历史仲裁。
     - 核心思路：$\hat{y}_f^{\mathcal{M}_i} = \mathcal{M}_i(\hat{y}_0^{\mathcal{M}_i}, \hat{y}_0^{\mathcal{M}_j}, f^{\mathcal{M}_i}, f^{\mathcal{M}_j})$。当两个 agent 最终决策不同时，judge LLM 综合所有辩论历史做出仲裁。
     - 设计动机：利用不同 LLM 因训练数据差异产生的互补文化知识，通过辩论交换视角来纠正各自的文化盲区。
 
 3. **Self-Reflect+Debate (混合模式)**:
 
-    - 做什么：在辩论的每轮中，每个 agent 可以动态选择 (A) self-reflect 或 (B) debate，即选择反思自己的输出还是对讨论对手的观点提供反馈。
+    - 功能：在辩论的每轮中，每个 agent 可以动态选择 (A) self-reflect 或 (B) debate，即选择反思自己的输出还是对讨论对手的观点提供反馈。
     - 核心思路：$\hat{y}_f^{\mathcal{M}_i} = \mathcal{M}_i(\hat{y}_0^{\mathcal{M}_i}, \hat{y}_0^{\mathcal{M}_j}, r^{\mathcal{M}_1}, f^{\mathcal{M}_2})$（若 $\mathcal{M}_1$ 选择 self-reflect，$\mathcal{M}_2$ 选择 debate）。
     - 设计动机：不同 LLM 对反馈的偏好不同（有些更擅长自省，有些更擅长辩论），让 agent 自主选择最适合自己的策略。
 
 4. **Cultural Group Parity 评估指标**:
 
-    - 做什么：衡量方法在不同文化群体间的公平性。
+    - 功能：衡量方法在不同文化群体间的公平性。
     - 核心思路：$\text{Parity}(g) = \frac{\text{Acc}_g}{\text{Acc}_b}$，其中 $b$ 为最高准确率的文化群体，值越接近 1 表示越公平。
     - 设计动机：文化对齐不仅要提升整体准确率，更要确保对弱势/少数文化群体的公平覆盖。
 

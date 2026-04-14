@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.17079](https://arxiv.org/abs/2511.17079)  
 **代码**: 待确认  
 **领域**: object_detection  
-**关键词**: robotic manipulation, goal-conditioned planning, observation-action interaction, diffusion policy, coarse-to-fine refinement  
+**关键词**: robotic manipulation, goal-conditioned planning, observation-action interaction, diffusion policy, coarse-to-fine refinement
 
 ## 一句话总结
 

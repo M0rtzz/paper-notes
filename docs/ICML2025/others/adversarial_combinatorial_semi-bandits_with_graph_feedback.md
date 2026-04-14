@@ -37,7 +37,9 @@ tags:
 - **半臂反馈（semi-bandit）**：每轮仅观察被选 $S$ 个臂的奖励，最优 regret 为 $\widetilde{\Theta}(\sqrt{KST})$
 
 但实际问题中存在丰富的中间信息结构。例如：
+
 **在线广告竞拍**：平台公布中标价，学习者可推算比自己出价高的所有出价的反事实收益
+
 **在线推荐**：语义相似的物品（如两款纸巾）之间存在信息关联——用户点击一个很可能也会点击另一个
 
 这些额外信息在经典 semi-bandit 反馈中被完全忽略，亟需一个通用框架来刻画。
@@ -58,11 +60,11 @@ tags:
 
 1. **初始化**：$x^1 = \arg\min_{x \in \text{Conv}_\epsilon(\mathcal{A})} F(x)$
 2. **每轮 $t = 1, \ldots, T$**：
-   - 通过随机化轮换舍入（Algorithm 2）从 $x^t$ 采样决策 $v^t \in \mathcal{A}$，满足 $\mathbb{E}[v^t] = x^t$ 且负相关
-   - 执行 $v^t$，观察图反馈 $\{r_i^t : i \in N_{\text{out}}(v^t)\}$
-   - 构造无偏奖励估计量 $\tilde{r}_a^t$
-   - 镜像下降更新：$w^{t+1} = \nabla F^*(\nabla F(x^t) + \eta \tilde{r}^t)$
-   - 投影回约束集：$x^{t+1} = \arg\min_{x \in \text{Conv}_\epsilon(\mathcal{A})} D_F(x, w^{t+1})$
+    - 通过随机化轮换舍入（Algorithm 2）从 $x^t$ 采样决策 $v^t \in \mathcal{A}$，满足 $\mathbb{E}[v^t] = x^t$ 且负相关
+    - 执行 $v^t$，观察图反馈 $\{r_i^t : i \in N_{\text{out}}(v^t)\}$
+    - 构造无偏奖励估计量 $\tilde{r}_a^t$
+    - 镜像下降更新：$w^{t+1} = \nabla F^*(\nabla F(x^t) + \eta \tilde{r}^t)$
+    - 投影回约束集：$x^{t+1} = \arg\min_{x \in \text{Conv}_\epsilon(\mathcal{A})} D_F(x, w^{t+1})$
 
 ### 关键设计
 

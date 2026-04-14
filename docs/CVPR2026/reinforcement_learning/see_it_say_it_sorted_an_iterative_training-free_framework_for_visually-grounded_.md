@@ -2,14 +2,14 @@
 title: >-
   [论文解读] See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs
 description: >-
-  [CVPR 2026][多模态推理][免训练] 提出ECRD框架，在解码时维护文本证据池并通过分布协商重加权候选token，不确定时动态调用视觉决策器提取微证据，无需训练即可在多个LVLM上将TreeBench提升16.5%-29.5%
+  [CVPR 2026][ECRD] 提出Evidence-Constrained Reweighting Decoding（ECRD）框架：在LVLM解码时维护动态文本证据池，通过分布协商重加权候选token，不确定时自动调用轻量视觉决策器提取微证据，无需训练即可在多个LVLM上显著减少视觉幻觉、提升推理准确率。
 tags:
   - CVPR 2026
-  - 多模态推理
-  - 视觉幻觉
-  - 免训练
-  - LVLM
-  - 解码策略
+  - ECRD
+  - visual grounding
+  - hallucination mitigation
+  - training-free
+  - evidence pool
 ---
 
 # See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.21497](https://arxiv.org/abs/2602.21497)  
 **代码**: [GitHub](https://github.com/uuuuZYC/See-It-Say-It-Sorted)  
 **领域**: 多模态推理  
-**关键词**: ECRD, visual grounding, hallucination mitigation, training-free, evidence pool  
+**关键词**: ECRD, visual grounding, hallucination mitigation, training-free, evidence pool
 
 ## 一句话总结
 
@@ -42,19 +42,19 @@ ECRD在冻结的LVLM外层包一个轻量级监督框架：每步解码时，（
 
 1. **Distribution Supervisor（分布监督器）**:
 
-    - 做什么：在每步解码时，利用当前证据池对候选token进行evidence-induced重加权，与base模型的分布协商出最终选择
+    - 功能：在每步解码时，利用当前证据池对候选token进行evidence-induced重加权，与base模型的分布协商出最终选择
     - 核心思路：对证据池中每条证据 $\mathcal{E}$，计算候选token $w$ 在证据前缀各位置上的平均概率 $q_\mathcal{E}(w) = \frac{1}{L}\sum_{j=1}^{L}p_{\text{VLM}}(w|e_{<j})$，跨证据平均后做softmax得到evidence-induced分布 $r_i$。然后与base分布按 $\alpha_i = p_{(1)}$（base分布最大概率）做自适应混合：$p_i^{\text{mix}} = \alpha_i p_i + (1-\alpha_i)\tilde{r}_i$
     - 设计动机：当base分布sharp时（$p_{(1)}$大），说明模型自信，应保留原始行为；当base分布diffuse时（$p_{(1)}$小），说明可能出现幻觉，应让证据获得更大权重。这种自适应混合无需超参数调节
 
 2. **Visual Decider（视觉决策器）**:
 
-    - 做什么：当分布协商后仍不确定时，从图像中提取与当前推理上下文相关的微证据
+    - 功能：当分布协商后仍不确定时，从图像中提取与当前推理上下文相关的微证据
     - 核心思路：触发条件为 $k^* > 1$ 且混合后top-2 margin $\Delta_i \leq \delta$。决策器用GRIT（基于Qwen2.5-VL-3B）接收图像、文本前缀尾部和候选集，输出（1）选择的token $w^*$（2）一条人类可读的微证据句子 $\mathcal{E}_i$，追加到证据池中
     - 设计动机：证据以文本而非像素形式存储，后续token可直接引用先前微观察而无需重新编码图像裁剪。这使得干预轻量且可验证，同时避免了RL方法中反复编码裁剪区域的开销
 
 3. **Dynamic Evidence Pool（动态证据池）**:
 
-    - 做什么：累积式维护与推理链相关的视觉微证据集合
+    - 功能：累积式维护与推理链相关的视觉微证据集合
     - 核心思路：初始化为一条全局图像描述 $d_{\text{global}}$，之后仅在不确定性触发时按需增长——$E_{i+1} \leftarrow E_i \cup \{\mathcal{E}_i\}$。每条证据语义上对应图像的某个子视图，但以文本形式存储
     - 设计动机：全局描述提供广覆盖但不是唯一证据源，后续微证据按推理需求精确积累。证据在token空间中组合复用，使后续步骤受益于早期视觉消歧而无需重新处理像素
 

@@ -8,7 +8,7 @@ tags:
   - 模型压缩
   - Generalized Continual Category Discovery
   - 知识蒸馏
-  - Continual Learning
+  - continual learning
   - Category Adaptation
   - Projected Distillation
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2308.12112](https://arxiv.org/abs/2308.12112)  
 **代码**: [GitHub](https://github.com/grypesc/CAMP)  
 **领域**: model_compression  
-**关键词**: Generalized Continual Category Discovery, Knowledge Distillation, Continual Learning, Category Adaptation, Projected Distillation
+**关键词**: Generalized Continual Category Discovery, knowledge distillation, continual learning, Category Adaptation, Projected Distillation
 
 ## 一句话总结
 

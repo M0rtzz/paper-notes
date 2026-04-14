@@ -43,13 +43,13 @@ PLoRA: $\Delta W = \sum_{j=1}^{R} B_{(j)}A_{(j)}$，等价于标准LoRA但模块
 
 1. **PLoRA (Parallel One-Rank Adaptation)**:
 
-    - 做什么：将秩-R的LoRA分解为R个并行的秩-1模块
+    - 功能：将秩-R的LoRA分解为R个并行的秩-1模块
     - 核心思路：$\Delta W_{\text{PLoRA}} = \sum_{j=1}^R B_{(j)}A_{(j)} = \sum_{j=1}^R B_{[:,j]}A_{[j,:]} = BA = \Delta W_{\text{LoRA}}$
     - 设计动机：数学等价但模块独立→自然支持子集选择
 
 2. **Select-N-Fold策略**:
 
-    - 做什么：客户端随机选 $r_i$ 个PLoRA模块训练，其余折叠到冻结权重
+    - 功能：客户端随机选 $r_i$ 个PLoRA模块训练，其余折叠到冻结权重
     - 核心思路：$\mathcal{W}_i^t = \mathcal{W}^0 + \sum_{j \notin \mathcal{K}_i^t} B_{(j)}^{t-1}A_{(j)}^{t-1}$，训练在 $\mathcal{W}_i^t$ 上进行
     - 设计动机：折叠保留了未训练模块的信息→零初始化噪声。随机选择确保所有模块在期望下被更新。
 

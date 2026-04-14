@@ -7,7 +7,7 @@ tags:
   - ICML2025
   - 模型压缩
   - Agent Tuning
-  - Parameter-Efficient Fine-Tuning
+  - parameter-efficient fine-tuning
   - LoRA
   - Mixture-of-Experts
   - Function Calling
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2512.21708](https://arxiv.org/abs/2512.21708)  
 **代码**: [https://mor-agent.github.io/](https://mor-agent.github.io/)  
 **领域**: model_compression  
-**关键词**: Agent Tuning, Parameter-Efficient Fine-Tuning, LoRA, Mixture-of-Experts, Function Calling
+**关键词**: Agent Tuning, parameter-efficient fine-tuning, LoRA, Mixture-of-Experts, Function Calling
 
 ## 一句话总结
 

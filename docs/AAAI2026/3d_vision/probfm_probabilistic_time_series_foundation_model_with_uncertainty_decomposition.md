@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.10591](https://arxiv.org/abs/2601.10591)  
 **代码**: 待确认  
 **领域**: 3d_vision  
-**关键词**: time series, foundation model, uncertainty quantification, deep evidential regression, financial forecasting  
+**关键词**: time series, foundation model, uncertainty quantification, deep evidential regression, financial forecasting
 
 ## 一句话总结
 首次将 Deep Evidential Regression (DER) 与 Normal-Inverse-Gamma 先验引入时序基础模型架构，实现单次前向传播即可进行 epistemic-aleatoric 不确定性分解，并在加密货币预测中验证了不确定性感知交易策略的实用价值。

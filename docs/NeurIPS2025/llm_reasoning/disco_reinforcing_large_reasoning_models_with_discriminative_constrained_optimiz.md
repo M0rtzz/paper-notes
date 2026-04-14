@@ -28,13 +28,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：DeepSeek-R1 的成功使 GRPO 成为大型推理模型（LRM）RL 训练的核心算法。社区涌现了大量基于 GRPO 的改进工作——DAPO（解耦裁剪）、Dr. GRPO（去方差归一化）、GPG（简化 REINFORCE）等。
+
 **现有痛点**：
    - **难度偏差**：GRPO 的 group relative advantage 函数对每个问题引入权重 $\omega(q) = \sqrt{p(q)(1-p(q))}$，当 $p(q) \approx 0$（太难）或 $p(q) \approx 1$（太易）时权重趋近于零，导致模型忽略这些问题。Dr. GRPO 的修正只将权重变为 $p(q)(1-p(q))$，改善但未根除
    - **熵不稳定**：GRPO 的裁剪操作导致熵崩溃（策略过快坍缩为确定性输出），DAPO 的解耦裁剪又导致熵过度增长（输出高度随机）
    - **数据不平衡**：对于难题 $p(q) \ll 1$，负样本远多于正样本，基于 AUC 的简单优化忽略了 top-ranked 负样本的重要性
+
 **核心矛盾**：现有 GRPO 变体都是在原框架上打补丁（修改裁剪参数、去归一化等），缺乏原则性的重新设计。
+
 **本文要解决什么？** 从头设计一个不继承 GRPO 局限性的优化框架，同时解决难度偏差、熵不稳定和数据不平衡三个问题。
+
 **切入角度**：将 GRPO 目标函数在二元奖励设定下分解，发现其本质是一个带有难度偏差权重的判别目标——提升正确答案分数、降低错误答案分数——与 AUC 最大化的经典判别学习框架高度相似。
+
 **核心 idea 一句话**：用无裁剪的判别学习目标取代 GRPO 的 group relative objective，用约束优化替代 KL 正则化来保证训练稳定，用 DRO 处理 rollout 中正负样本的不平衡。
 
 ## 方法详解
@@ -47,13 +52,13 @@ tags:
 
 1. **GRPO 目标函数的判别分解（理论贡献）**
 
-    - 做什么：证明 GRPO 目标等价于带权重的判别目标
+    - 功能：证明 GRPO 目标等价于带权重的判别目标
     - 核心思路：通过 Proposition 1 证明 $\mathcal{J}_{\text{GRPO}}(\theta) = \mathbb{E}_q \sqrt{p(q)(1-p(q))} \cdot \mathbb{E}_{o \sim \pi^+, o' \sim \pi^-}[s^+(o,q) - s^-(o',q)]$，其中 $\sqrt{p(q)(1-p(q))}$ 是难度偏差权重，$s^+, s^-$ 分别是正/负样本的裁剪评分函数
     - 设计动机：这个分解同时揭示了 GRPO 的两个问题根源——权重 $\omega(q)$ 导致难度偏差，裁剪评分函数导致熵不稳定
 
 2. **无裁剪评分函数**
 
-    - 做什么：用 log-likelihood 或 likelihood ratio 取代 GRPO 的裁剪评分函数
+    - 功能：用 log-likelihood 或 likelihood ratio 取代 GRPO 的裁剪评分函数
     - 核心思路：
       - Log-likelihood: $s_\theta(o,q) = \frac{1}{|o|} \sum_t \log \pi_\theta(o_t|q, o_{<t})$
       - Likelihood ratio: $s_\theta(o,q) = \frac{1}{|o|} \sum_t \frac{\pi_\theta(o_t|q, o_{<t})}{\pi_{\text{old}}(o_t|q, o_{<t})}$
@@ -61,13 +66,13 @@ tags:
 
 3. **平方铰链约束优化（替代 KL 正则化）**
 
-    - 做什么：用 $[\mathbb{D}_{\text{KL}}(\pi_{\text{old}}||\pi_\theta) - \delta]_+^2$ 的约束惩罚取代常规 KL 正则化 $\beta \cdot \mathbb{D}_{\text{KL}}$
+    - 功能：用 $[\mathbb{D}_{\text{KL}}(\pi_{\text{old}}||\pi_\theta) - \delta]_+^2$ 的约束惩罚取代常规 KL 正则化 $\beta \cdot \mathbb{D}_{\text{KL}}$
     - 核心思路：当 KL 约束满足时（$\mathbb{D}_{\text{KL}} \leq \delta$），惩罚项梯度为零，不干扰学习；仅在约束被违反时才施加惩罚力，且力度与违反程度的平方成正比
     - 设计动机：常规 KL 正则化总是在拉拽模型，不管是否需要，且其超参 $\beta$ 在训练过程中难以适配（训练初期和后期的特征变化剧烈）。平方铰链惩罚自适应——只在需要时纠正，并且惩罚力度与偏离程度成正比
 
 4. **基于 DRO 的不平衡 Rollout 处理（DisCO 的"改进版"）**
 
-    - 做什么：对于每个正样本，不均匀地对待所有负样本，而是关注"最危险"的负样本（得分最高的错误答案）
+    - 功能：对于每个正样本，不均匀地对待所有负样本，而是关注"最危险"的负样本（得分最高的错误答案）
     - 核心思路：将 partial AUC 最大化用 DRO 形式表达：$\mathcal{J}_2(\theta) = -\mathbb{E}_q \mathbb{E}_{o \sim \pi^+} \tau \log(\mathbb{E}_{o' \sim \pi^-} \exp(\frac{s_\theta(o',q) - s_\theta(o,q)}{\tau}))$。这通过 LogSumExp 自动聚焦于得分高（最具混淆性）的负样本
     - 设计动机：当 1 个正样本 vs 100 个负样本时，AUC 可能达到 0.99 但模型仍然倾向于生成某个特定错误答案（得分 0.9 > 正确答案得分 0.5）。DRO 通过重新加权负样本分布来聚焦这些"最难区分"的负样本
 

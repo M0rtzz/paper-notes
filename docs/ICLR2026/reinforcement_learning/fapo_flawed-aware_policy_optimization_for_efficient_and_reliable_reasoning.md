@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.22543](https://arxiv.org/abs/2510.22543)  
 **代码**: [fapo-rl.github.io](https://fapo-rl.github.io)  
 **领域**: reinforcement_learning  
-**关键词**: RLVR, flawed positives, reward shaping, generative reward model, process reward, GRPO  
+**关键词**: RLVR, flawed positives, reward shaping, generative reward model, process reward, GRPO
 
 ## 一句话总结
 针对 RLVR 训练中"答案正确但推理有缺陷"的 flawed-positive rollout 问题，提出 FAPO 算法：用 GenRM 检测缺陷推理，通过无参数奖励惩罚机制实现"先利用后抑制"的自然学习轨迹，同时提升结果正确性、过程可靠性和训练稳定性。

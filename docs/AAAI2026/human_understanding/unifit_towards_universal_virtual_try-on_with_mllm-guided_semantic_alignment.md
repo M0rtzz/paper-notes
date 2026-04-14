@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.15831](https://arxiv.org/abs/2511.15831)  
 **代码**: [github.com/zwplus/UniFit](https://github.com/zwplus/UniFit)  
 **领域**: 人体理解  
-**关键词**: 虚拟试穿, MLLM, 语义对齐, Diffusion Transformer, 自合成训练
+**关键词**: 虚拟试穿, MLLM, 语义对齐, 扩散 Transformer, 自合成训练
 
 ## 一句话总结
 
@@ -36,6 +36,7 @@ tags:
 现有文本指令引导的 VTON 方法面临两个关键限制：
 
 **语义鸿沟**：文本编码器（如 CLIP 或 T5）提取的抽象文本表示难以精确对应图像中的具体视觉细节（纹理、logo 形状等），导致生成结果保真度低、可控性弱
+
 **数据稀缺**：公开数据集（如 VITON-HD、DressCode）仅提供单件服装-试穿结果对，缺乏多服装试穿、模特到模特试穿等复杂场景的训练数据
 
 ### 现有方法的功能对比

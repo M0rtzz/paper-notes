@@ -46,7 +46,7 @@ KnowSelf 的 pipeline 分为三个阶段：
 
 1. **三种思维情境与特殊 Token（Situation Classification）**:
 
-    - 做什么：将 agent 的每个决策步骤分类为三种思维模式
+    - 功能：将 agent 的每个决策步骤分类为三种思维模式
     - 核心思路：定义三种情境及对应的特殊 token：
       - **快速思考（Fast Thinking）** `[FAST]`：当前步骤简单，模型可直接凭已有能力快速决策，不需要额外停顿或知识
       - **慢速思考（Slow Thinking）** `[SLOW]`：当前步骤较难，模型需要仔细反思后再行动（类似 System 2 思维），但不需要外部知识
@@ -55,7 +55,7 @@ KnowSelf 的 pipeline 分为三个阶段：
 
 2. **启发式情境判断准则（Heuristic Situation Judgement）**:
 
-    - 做什么：自动标注训练数据中每一步应使用哪种思维模式
+    - 功能：自动标注训练数据中每一步应使用哪种思维模式
     - 核心思路：让模型先自主探索任务生成轨迹，构造"步级轨迹对"——同一任务状态下的成功/失败动作对。标注逻辑如下：
       - 如果模型自主决策成功 → 标注为 `[FAST]`
       - 如果模型决策失败，但经过反思（reflection）后能自行纠正 → 标注为 `[SLOW]`
@@ -64,13 +64,13 @@ KnowSelf 的 pipeline 分为三个阶段：
 
 3. **知识系统构建（Knowledge System Construction）**:
 
-    - 做什么：为 agent 构建可查询的领域知识库
+    - 功能：为 agent 构建可查询的领域知识库
     - 核心思路：参考 AutoManual 方法，使用 GPT-4o（2024-08-06）通过步级轨迹对比分析生成知识条目，然后进行知识整合去重。ALFWorld 限制为 24 条知识，WebShop 限制为 10 条
     - 设计动机：精炼的知识库确保每条知识都是高价值的，避免知识冗余导致的检索噪声。知识条目限制也鼓励模型更依赖自身能力而非外部知识
 
 4. **两阶段训练（Two-Stage Training）**:
 
-    - 做什么：分阶段让模型学会生成特殊 token 并优化行为
+    - 功能：分阶段让模型学会生成特殊 token 并优化行为
     - 核心思路：
       - **Stage 1 — SFT（监督微调）**：在标注了特殊 token 的混合数据上进行标准因果语言建模训练。数据包含三种思维模式的样本，模型学会在适当时机生成 `[FAST]`/`[SLOW]`/`[KNOW]`。训练参数：Llama-3.1-8B 为例，lr=2e-5, batch_size=8, 3 epochs, max_seq_len=3072
       - **Stage 2 — RPO（Rejection-sampling Policy Optimization）**：收集 Stage 1 模型的失败轨迹作为负样本，配对对应的黄金轨迹作为正样本，进行偏好优化。$\beta=0.5$, lr=5e-7, 1 epoch

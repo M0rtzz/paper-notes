@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.21333](https://arxiv.org/abs/2505.21333)  
 **代码**: [https://mme-videoocr.github.io/](https://mme-videoocr.github.io/)  
 **领域**: 多模态VLM / 视频理解 / OCR评估  
-**关键词**: video OCR, benchmark, cross-frame understanding, language prior bias, multimodal LLM evaluation  
+**关键词**: video OCR, benchmark, cross-frame understanding, language prior bias, multimodal LLM evaluation
 
 ## 一句话总结
 提出 MME-VideoOCR，一个包含 25 个任务、44 个场景、1464 个视频和 2000 个人工标注 QA 对的视频 OCR 综合评估基准，涵盖文本识别、理解和推理三个层次。评估 18 个 SOTA MLLM 揭示最强模型（Gemini-2.5 Pro）仅达 73.7%，跨帧理解任务低至 25% 以下。
@@ -26,10 +26,12 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：MLLM 在静态图像 OCR 上已取得不错效果，但视频 OCR 面临运动模糊、时序变化、视觉特效等独特挑战，性能显著下降。
+
 **现有 benchmark 局限**：
    - OCR Benchmark：仅 25 个视频、1 种任务类型，缺乏多样性
    - FG Bench：1028 个视频但使用自动+人工混合标注，仅 6 种任务
    - 两者都偏重文字感知，忽视基于文字的理解和推理
+
 **视频 OCR 的三大挑战**：
    - (1) 文字以多种形式出现（前景、背景、弹幕、水印等），需建立时空视觉-文本关联
    - (2) 关键文字信息分布在多帧中，需跨帧聚合和时序理解

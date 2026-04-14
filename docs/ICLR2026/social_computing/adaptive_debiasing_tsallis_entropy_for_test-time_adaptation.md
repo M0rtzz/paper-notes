@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation
 description: >-
-  [ICLR 2026][test-time adaptation] 提出将 Tsallis 熵（SE 的广义形式）引入 VLM 的 Test-Time Adaptation，并进一步发展为自适应去偏 Tsallis 熵（ADTE），为每个类别定制去偏参数 $q^l$，在不引入分布特定超参数的情况下比 Shannon 熵选择更可靠的高置信视图，在 ImageNet 及其 5 个变体和 10 个跨域 benchmark 上均超越 SOTA。
+  [ICLR 2026][测试时自适应] 提出将 Tsallis 熵（SE 的广义形式）引入 VLM 的 Test-Time Adaptation，并进一步发展为自适应去偏 Tsallis 熵（ADTE），为每个类别定制去偏参数 $q^l$，在不引入分布特定超参数的情况下比 Shannon 熵选择更可靠的高置信视图，在 ImageNet 及其 5 个变体和 10 个跨域 benchmark 上均超越 SOTA。
 tags:
   - ICLR 2026
-  - test-time adaptation
+  - 测试时自适应
   - Tsallis entropy
   - CLIP
-  - debiasing
-  - uncertainty estimation
+  - 去偏
+  - 不确定性估计
 ---
 
 # Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2602.11743](https://arxiv.org/abs/2602.11743)  
 **代码**: [https://github.com/Jinx630/ADTE](https://github.com/Jinx630/ADTE)  
 **领域**: 多模态VLM  
-**关键词**: test-time adaptation, Tsallis entropy, CLIP, debiasing, uncertainty estimation  
+**关键词**: 测试时自适应, Tsallis entropy, CLIP, 去偏, 不确定性估计
 
 ## 一句话总结
 提出将 Tsallis 熵（SE 的广义形式）引入 VLM 的 Test-Time Adaptation，并进一步发展为自适应去偏 Tsallis 熵（ADTE），为每个类别定制去偏参数 $q^l$，在不引入分布特定超参数的情况下比 Shannon 熵选择更可靠的高置信视图，在 ImageNet 及其 5 个变体和 10 个跨域 benchmark 上均超越 SOTA。
 
 ## 研究背景与动机
 **领域现状**：TTA（Test-Time Adaptation）方法通过选择高置信增强视图来提升 CLIP 等 VLM 在分布外数据上的表现。代表方法如 TPT、Zero 等都使用 Shannon 熵来度量不确定性并筛选低熵视图。
+
 **现有痛点**：CLIP 在不平衡的网络爬取数据上预训练，导致对头部类别过度自信、对尾部类别自信度不足。Shannon 熵对所有类别使用统一公式 $-p\log p$，无法区分不同类别的偏差程度，导致熵估计本身就是有偏的，进而影响高置信视图的选择质量。
+
 **核心矛盾**：SE 假设概率分布是无偏的（广延性假设），但 CLIP 的预测分布存在系统性偏差（非广延性），SE 无法刻画这种偏差结构。
+
 **本文要解决什么？** 如何在 TTA 过程中纠正 VLM 预测偏差对熵估计的影响？
+
 **切入角度**：Tsallis 熵是 Shannon 熵的推广，通过非广延参数 $q$ 可以刻画概率分布间的统计依赖性。当 $q<1$ 时，TE 倾向于选择更可靠的高置信视图。
+
 **核心idea一句话**：用 Tsallis 熵替代 Shannon 熵做高置信视图选择，并为每个类别自适应计算去偏参数 $q^l$。
 
 ## 方法详解
@@ -40,13 +45,13 @@ ADTE 是 Zero/TPT 等 TTA 方法中 Shannon 熵的即插即用替代品。流程
 
 1. **Tsallis 熵替代 Shannon 熵**:
 
-    - 做什么：用 TE $\mathbf{H}_{TE} = \frac{\sum_l P_l^q - 1}{1-q}$ 替代 SE $\mathbf{H}_{SE} = -\sum_l P_l \log P_l$
+    - 功能：用 TE $\mathbf{H}_{TE} = \frac{\sum_l P_l^q - 1}{1-q}$ 替代 SE $\mathbf{H}_{SE} = -\sum_l P_l \log P_l$
     - 核心思路：理论证明当 $q \to 1$ 时 TE 退化为 SE（下界性质）；当 $q < 1$ 时，TE 选择的高置信视图有更高的 Top-K 累积可靠性（TcrK）；当 $0 < q < 1$ 时，TE 能自然缓解 VLM 偏差的影响
     - 设计动机：SE 对尾部类别（概率接近 0）的偏差敏感，TE 通过 $p^q$ 替代 $p\log p$ 改变了对小概率的处理方式
 
 2. **Adaptive Debiasing Tsallis Entropy (ADTE)**:
 
-    - 做什么：为每个类别 $l$ 定制特定参数 $q^l$，无需手动调优
+    - 功能：为每个类别 $l$ 定制特定参数 $q^l$，无需手动调优
     - 核心思路：(1) 通过维护 memory bank 估计类别先验概率 $\tilde{p}_l$（Jacobi 迭代求解，用伪标签近似）；(2) 将估计的偏差通过 min-max 归一化映射到 $[\alpha, \beta] = [0.01, 0.9]$ 区间作为 $q^l$——偏差越大的类别 $q^l$ 越小，纠正力度越大
     - 设计动机：手动调 $q$ 对不同测试分布不可行，且不同类别受偏差影响程度不同（头部 vs 尾部）
 

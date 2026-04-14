@@ -7,7 +7,7 @@ tags:
   - ICML2025
   - 人体理解
   - 线性注意力
-  - In-Context Learning
+  - 上下文学习
   - TabPFN
   - 表格分类
   - 可扩展性
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.05584](https://arxiv.org/abs/2506.05584)  
 **代码**: [microsoft/ticl](https://github.com/microsoft/ticl)  
 **领域**: 表格学习 / Tabular Learning  
-**关键词**: 线性注意力, In-Context Learning, TabPFN, 表格分类, 可扩展性
+**关键词**: 线性注意力, 上下文学习, TabPFN, 表格分类, 可扩展性
 
 ## 一句话总结
 

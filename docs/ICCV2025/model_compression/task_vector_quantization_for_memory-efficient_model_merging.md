@@ -41,14 +41,14 @@ tags:
 ### 关键设计
 1. **Task Vector Quantization (TVQ)**
 
-    - 做什么：将存储的对象从微调权重 $\theta_{ft}^t$ 替换为任务向量 $\tau_t = \theta_{ft}^t - \theta_{pre}$，然后量化 $\tau_t$
+    - 功能：将存储的对象从微调权重 $\theta_{ft}^t$ 替换为任务向量 $\tau_t = \theta_{ft}^t - \theta_{pre}$，然后量化 $\tau_t$
     - 核心思路：利用非对称量化 $\tau^q = \text{Round}(\tau / \Delta) + z$，其中 $\Delta = \frac{\tau_{max} - \tau_{min}}{2^b - 1}$。由于 $\tau$ 的动态范围远小于 $\theta_{ft}$，相同比特下 $\Delta$ 更小，量化误差更低
     - 设计动机：实验验证了任务向量的 L2 量化误差在各精度下都显著低于直接量化微调权重，特别是在 4-bit 以下差距更为明显
     - 关键优势：方法仅修改检查点存储格式，可无缝集成到所有现有的任务向量合并框架中
 
 2. **Residual Task Vector Quantization (RTVQ)**
 
-    - 做什么：解决 TVQ 在超低精度（2-bit）下性能急剧下降的问题
+    - 功能：解决 TVQ 在超低精度（2-bit）下性能急剧下降的问题
     - 核心思路：将任务向量分解为两部分：
     $\tau_t = \underbrace{(\theta_{ft}^t - \theta_{ft\_avg})}_{\text{Offset Vector}} + \underbrace{(\theta_{ft\_avg} - \theta_{pre})}_{\text{Base Vector}}$
       其中 $\theta_{ft\_avg} = \frac{1}{T}\sum_t \theta_{ft}^t$ 是所有微调权重的均值。基向量使用较高精度（如 3-bit），偏移量使用超低精度（如 2-bit），等效精度约为 $2 + 4/8 = 2.5$ bits/task
@@ -57,7 +57,7 @@ tags:
 
 3. **量化正则化效应**
 
-    - 做什么：论文发现 3-bit 量化有时反而提升了合并性能
+    - 功能：论文发现 3-bit 量化有时反而提升了合并性能
     - 核心思路：量化引入的噪声起到了正则化作用，减少了过拟合，类似于 dropout 的效果
     - 在 Task Arithmetic、Ties Merging 等方法上均观察到 3-bit TVQ 性能超过 FP32 的现象
 

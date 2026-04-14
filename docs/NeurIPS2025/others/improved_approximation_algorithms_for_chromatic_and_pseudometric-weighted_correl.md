@@ -1,11 +1,15 @@
 ---
-description: "[NeurIPS2025] 针对Chromatic CC和pseudometric-weighted CC两个推广，基于LP relaxation与rounding function设计，取得2.15和tight 10/3近似比"
+title: >-
+  [论文解读] Improved Approximation Algorithms for Chromatic and Pseudometric-Weighted Correlation Clustering
+description: >-
+  [NeurIPS 2025][Correlation Clustering] 针对 Correlation Clustering 的两个重要推广——Chromatic CC 和 pseudometric-weighted CC，基于 LP relaxation 与精心设计的 rounding function，分别取得 2.15-approximation 和 tight 10/3-approximation，显著改进了先前最佳结果（2.5 和 6）。
 tags:
-  - NeurIPS2025
+  - NeurIPS 2025
   - Correlation Clustering
-  - Approximation Algorithm
+  - 近似算法
   - LP Rounding
-  - Chromatic Correlation Clustering
+  - Chromatic CC
+  - Pseudometric
 ---
 
 # Improved Approximation Algorithms for Chromatic and Pseudometric-Weighted Correlation Clustering
@@ -38,17 +42,17 @@ tags:
 ### 关键设计
 
 1. **Pseudometric-weighted CC 的 Rounding Function**:
-    - 做什么：设计分段常数/线性函数将 LP 解 $x \in [0,1]$ 映射为聚类概率
+    - 功能：设计分段常数/线性函数将 LP 解 $x \in [0,1]$ 映射为聚类概率
     - 核心思路：$f^+(x) = f^-(x) = \begin{cases} 0 & x < 0.4 \\ 5/3 \cdot x & 0.4 \leq x < 0.6 \\ 1 & x \geq 0.6 \end{cases}$，在 $[0.4, 0.6)$ 区间使用线性映射
     - 设计动机：通过分析配置 $(x, 1-x, 1)$ 和 $(x, x, 2x)$ 的上下界约束，确定唯一最优的分段函数形式
 
 2. **CCC 的颜色-聚类解耦与多类型 Rounding**:
-    - 做什么：将颜色分配与聚类决策解耦，引入三种 rounding function（$f^+$、$f^-$、$f^\circ$）分别处理同色边、对抗色边和中性边
+    - 功能：将颜色分配与聚类决策解耦，引入三种 rounding function（$f^+$、$f^-$、$f^\circ$）分别处理同色边、对抗色边和中性边
     - 核心思路：两阶段方法——先按 LP 解分配颜色（多数投票），再在每个颜色类内运行 LP-Pivot；$f^\circ(x) = 1.7x\ (x < 0.5)$ 或 $0.3x + 0.7\ (x \geq 0.5)$ 专为控制 neutral edge 代价
     - 设计动机：CCC 中边类型多样（同色、对抗色、中性），需要分别控制每类边的代价并确保整体不超过 2.15
 
 3. **Tight Lower Bound 构造**:
-    - 做什么：在 LP-Pivot 框架内证明近似比的不可能性
+    - 功能：在 LP-Pivot 框架内证明近似比的不可能性
     - 核心思路：通过分析 $f^\circ(1/2)$ 的上下界矛盾证明 CCC 下界 2.11；通过极端配置分析证明 pseudometric-weighted CC 下界 10/3
     - 设计动机：上下界匹配（或接近匹配）证明算法在该框架内的最优性
 

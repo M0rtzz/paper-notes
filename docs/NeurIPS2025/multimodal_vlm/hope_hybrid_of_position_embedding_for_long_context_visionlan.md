@@ -1,12 +1,18 @@
 ---
-description: 提出HoPE混合位置编码方法，通过零频率时间编码和动态时间缩放机制显著提升VLM长上下文视频理解和检索能力
+title: >-
+  [论文解读] HoPE: Hybrid of Position Embedding for Long Context Vision-Language Models
+description: >-
+  [NeurIPS 2025][多模态][旋转位置编码] 首次从理论上分析多模态RoPE的频率分配策略对长上下文VLM的影响，提出HoPE，将最低频率设为零用于时间建模以保证语义偏好性质，配合动态时间缩放机制，在长视频理解任务上提升8.35%、检索任务上提升22.23%。
 tags:
-- position-embedding
-- RoPE
-- long-context
-- vision-language-model
-- video-understanding
+  - NeurIPS 2025
+  - 多模态
+  - 旋转位置编码
+  - 长上下文
+  - 频率分配
+  - 视觉语言模型
+  - 视频理解
 ---
+
 # HoPE: Hybrid of Position Embedding for Long Context Vision-Language Models
 
 **会议**: NeurIPS 2025  
@@ -38,13 +44,13 @@ HoPE包含两个组件：（1）混合频率分配（HFA）策略——高频率
 ### 关键设计
 
 1. **混合频率分配（HFA）**:
-    - 做什么：将128维旋转编码分为96维空间编码和32维时间编码，时间维频率设为零（退化为NoPE）
+    - 功能：将128维旋转编码分为96维空间编码和32维时间编码，时间维频率设为零（退化为NoPE）
     - 核心思路：利用 $\cos(0 \cdot \Delta t) = 1$ 恒成立，消除时间距离对注意力分数的负面影响
     - 设计动机：理论证明（Theorem 3.1）任何非零频率在足够长的上下文中都会破坏语义偏好性质，零频率提供最强保证
     - 关键定理：$\sum_{i \in i_t} 2\sigma^2 \cdot 1 \geq \sum_{i \in i_t} 2\sigma^2 \cos(\Delta t \cdot \theta_i)$，零频率方案优于任何其他频率选择
 
 2. **动态时间缩放（DTS）**:
-    - 做什么：训练时从集合 $\Gamma = \{0.5, 0.75, 1, 1.25, 1.5\}$ 随机选择缩放因子
+    - 功能：训练时从集合 $\Gamma = \{0.5, 0.75, 1, 1.25, 1.5\}$ 随机选择缩放因子
     - 核心思路：拉伸（$\gamma > 1$）保留空间细节，压缩（$\gamma < 1$）增强语义偏好，双向缩放让模型学习多尺度时间关系
     - 设计动机：真实视频速度各异，固定缩放无法适配；推理时可根据任务需求灵活选择
 

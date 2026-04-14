@@ -48,19 +48,19 @@ tags:
 
 1. **EDA 网络（Encoder-Decoder Attractor）**:
 
-    - 做什么：自回归生成声源吸引子，同时推断声源数量
+    - 功能：自回归生成声源吸引子，同时推断声源数量
     - 核心思路：LSTM 编码器处理帧级嵌入→LSTM 解码器逐步生成吸引子 $\mathbf{a}_s$。每个吸引子有存在概率 $p_{\text{exi}} = \sigma(\mathbf{w}^\top \mathbf{a}_s + b)$，阈值 0.5 判断声源是否存在
     - 设计动机：解决未知声源数量问题——自回归生成直到存在概率低于阈值
 
 2. **多模态线索网络**:
 
-    - 做什么：融合文本（DistilBERT）、视频（Swin Transformer）、声音标签（one-hot 嵌入）
+    - 功能：融合文本（DistilBERT）、视频（Swin Transformer）、声音标签（one-hot 嵌入）
     - 核心思路：各模态编码后沿时间维拼接，通过多头注意力（分离器特征做 Query）融合
     - 设计动机：多模态冗余——即使某个线索缺失/质量差，其他模态可补偿
 
 3. **跨任务对齐损失**:
 
-    - 做什么：将 EDA 吸引子和用户线索映射到共享语义空间
+    - 功能：将 EDA 吸引子和用户线索映射到共享语义空间
     - 核心思路：$\mathcal{L}_{\text{align}} = \mathcal{L}_{\text{MSE}} + \mathcal{L}_{\text{InfoNCE}}$，用 PIT 确定的最优排列对齐吸引子和线索
     - 设计动机：使 SS 学到的声学表示与 TSE 的语义查询对齐，实现统一
 

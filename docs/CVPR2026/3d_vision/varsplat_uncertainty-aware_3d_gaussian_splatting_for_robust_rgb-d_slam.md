@@ -8,7 +8,7 @@ tags:
   - 3D视觉
   - 3D Gaussian Splatting
   - SLAM
-  - 不确定性建模
+  - uncertainty modeling
   - RGB-D
   - alpha合成
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.09673](https://arxiv.org/abs/2603.09673)  
 **代码**: [项目主页](https://anhthuan1999.github.io/varsplat/)  
 **领域**: 3d_vision  
-**关键词**: 3D Gaussian Splatting, SLAM, 不确定性建模, RGB-D, alpha合成
+**关键词**: 3D Gaussian Splatting, SLAM, uncertainty modeling, RGB-D, alpha合成
 
 ## 一句话总结
 

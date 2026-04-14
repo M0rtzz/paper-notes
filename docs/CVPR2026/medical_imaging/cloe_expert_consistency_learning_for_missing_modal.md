@@ -2,15 +2,15 @@
 title: >-
   [论文解读] CLoE: Expert Consistency Learning for Missing Modality Segmentation
 description: >-
-  [CVPR 2026][医学图像][缺失模态分割] 将缺失模态鲁棒性重定义为决策级专家一致性控制，提出双分支一致性学习（MEC+REC）和轻量门网络动态融合，在BraTS2020和MSD Prostate上超越SOTA。
+  [CVPR 2026][医学图像][missing modality] 将缺失模态下的鲁棒性问题重新定义为决策级专家一致性控制，提出双分支一致性学习（全局MEC+区域REC）配合轻量门网络将一致性分数转化为模态可靠性权重，在BraTS 2020上15种缺失组合平均WT Dice达88.09%超越所有SOTA。
 tags:
   - CVPR 2026
   - 医学图像
-  - 缺失模态
-  - 一致性学习
-  - 多模态分割
-  - 可靠性融合
-  - 脑肿瘤
+  - missing modality
+  - consistency learning
+  - expert fusion
+  - reliability gating
+  - brain tumor
 ---
 
 # CLoE: Expert Consistency Learning for Missing Modality Segmentation
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.09316](https://arxiv.org/abs/2603.09316)  
 **代码**: 无  
 **领域**: 医学图像分割 / 多模态学习  
-**关键词**: missing modality, consistency learning, expert fusion, reliability gating, brain tumor  
+**关键词**: missing modality, consistency learning, expert fusion, reliability gating, brain tumor
 
 ## 一句话总结
 

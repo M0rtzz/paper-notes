@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.13659](https://arxiv.org/abs/2507.13659)  
 **代码**: [Event-AHU/Neuromorphic_ReID](https://github.com/Event-AHU/Neuromorphic_ReID)  
 **领域**: autonomous_driving  
-**关键词**: person re-identification, event camera, RGB-Event fusion, pedestrian attributes, benchmark dataset  
+**关键词**: person re-identification, event camera, RGB-Event fusion, pedestrian attributes, benchmark dataset
 
 ## 一句话总结
 构建首个大规模 RGB-Event 行人重识别数据集 EvReID（1200 ID / 118,988 图像对），并提出基于行人属性引导的三阶段对比学习框架 TriPro-ReID，通过正负属性 prompt 和跨模态 prompt 融合 RGB 与 Event 两种模态特征，mAP 达 69.3%。

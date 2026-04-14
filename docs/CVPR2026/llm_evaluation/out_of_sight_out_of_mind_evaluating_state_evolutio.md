@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.13215](https://arxiv.org/abs/2603.13215)  
 **代码**: [https://glab-caltech.github.io/STEVOBench/](https://glab-caltech.github.io/STEVOBench/) (有项目主页和代码)  
 **领域**: 视频理解 / 世界模型 / 基准评测  
-**关键词**: 视频世界模型, 状态演化, 观测解耦, 自动评估, benchmark  
+**关键词**: 视频世界模型, 状态演化, 观测解耦, 自动评估, benchmark
 
 ## 一句话总结
 

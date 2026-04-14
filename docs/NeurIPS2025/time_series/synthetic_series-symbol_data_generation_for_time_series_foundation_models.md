@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.08445](https://arxiv.org/abs/2510.08445)  
 **代码**: [GitHub](https://github.com/wwhenxuan/SymTime)  
 **领域**: time_series  
-**关键词**: time series foundation model, synthetic data generation, symbolic expressions, contrastive learning, pre-training  
+**关键词**: time series foundation model, synthetic data generation, symbolic expressions, contrastive learning, pre-training
 
 ## 一句话总结
 提出 Series-Symbol (S²) 数据生成机制和 SymTime 基础模型，通过符号表达式与时序数据的双模态对比学习预训练，在纯合成数据上训练即可在 5 大时序分析任务上与真实数据预训练的基础模型竞争。
@@ -36,15 +36,15 @@ tags:
 
 ## 方法详解
 1. **S² 数据生成**：
-   - 随机采样构建多变量符号表达式 f(·)（二叉树结构：二元运算符 → 变量/常数叶节点 → 一元运算符 → 仿射变换）
-   - 输入采样：混合分布 + ARMA 过程，生成 X∈R^{M×L}
-   - 前向传播 Y=f(X) 得到输出序列，形成序列-符号配对
-   - 总计生成 40M 对，50B token 规模
+    - 随机采样构建多变量符号表达式 f(·)（二叉树结构：二元运算符 → 变量/常数叶节点 → 一元运算符 → 仿射变换）
+    - 输入采样：混合分布 + ARMA 过程，生成 X∈R^{M×L}
+    - 前向传播 Y=f(X) 得到输出序列，形成序列-符号配对
+    - 总计生成 40M 对，50B token 规模
 2. **SymTime 架构**：
-   - 时序编码器：6 层 Transformer + Masked Time Series Modeling (MTM)
-   - 符号编码器：6 层 DistilBERT + Masked Language Modeling (MLM)
-   - 序列-符号对比学习：MoCo 风格的动量编码器 + 跨模态对比损失
-   - 动量蒸馏：对齐掩码数据的输出表示与动量编码器的输出
+    - 时序编码器：6 层 Transformer + Masked Time Series Modeling (MTM)
+    - 符号编码器：6 层 DistilBERT + Masked Language Modeling (MLM)
+    - 序列-符号对比学习：MoCo 风格的动量编码器 + 跨模态对比损失
+    - 动量蒸馏：对齐掩码数据的输出表示与动量编码器的输出
 3. **下游微调**：分类任务用线性头；重建类任务（预测/填补/异常检测）先分解趋势+周期分量
 
 ## 实验关键数据

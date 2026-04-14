@@ -8,7 +8,7 @@ tags:
   - 自动驾驶
   - 目标检测
   - 去噪
-  - uncertainty estimation
+  - 不确定性估计
   - DETR
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.13195](https://arxiv.org/abs/2511.13195)  
 **代码**: [lsy010857/MonoDLGD](https://github.com/lsy010857/MonoDLGD)  
 **领域**: autonomous_driving  
-**关键词**: monocular 3D object detection, denoising, uncertainty estimation, DETR, autonomous driving  
+**关键词**: monocular 3D object detection, 去噪, 不确定性估计, DETR, 自动驾驶
 
 ## 一句话总结
 

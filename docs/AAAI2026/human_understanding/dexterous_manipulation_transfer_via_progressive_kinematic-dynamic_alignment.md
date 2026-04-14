@@ -8,7 +8,7 @@ tags:
   - 人体理解
   - dexterous manipulation
   - motion retargeting
-  - 强化学习
+  - reinforcement-learning
   - hand-object interaction
   - sim-to-real transfer
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.10987](https://arxiv.org/abs/2511.10987)  
 **代码**: 待确认  
 **领域**: human_understanding  
-**关键词**: dexterous manipulation, motion retargeting, reinforcement learning, hand-object interaction, sim-to-real transfer  
+**关键词**: dexterous manipulation, motion retargeting, reinforcement-learning, hand-object interaction, sim-to-real transfer
 
 ## 一句话总结
 

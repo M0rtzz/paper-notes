@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.14202](https://arxiv.org/abs/2506.14202)  
 **代码**: [SakanaAI/DiffusionBlocks](https://github.com/SakanaAI/DiffusionBlocks)  
 **领域**: image_restoration  
-**关键词**: block-wise training, diffusion models, score matching, memory efficiency, residual networks  
+**关键词**: block-wise training, diffusion models, score matching, memory efficiency, residual networks
 
 ## 一句话总结
 

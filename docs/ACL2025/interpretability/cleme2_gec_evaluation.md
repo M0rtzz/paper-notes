@@ -6,8 +6,8 @@ description: >-
 tags:
   - ACL 2025 (Long Paper)
   - Grammatical Error Correction
-  - 评估指标
-  - 可解释性
+  - evaluation metric
+  - interpretability
   - Edit Disentangling
   - Reference-based Metric
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2407.00934](https://arxiv.org/abs/2407.00934)  
 **代码**: [https://github.com/THUKElab/CLEME](https://github.com/THUKElab/CLEME)  
 **领域**: 自然语言处理 / 语法纠错评估  
-**关键词**: Grammatical Error Correction, 评估指标, 可解释性, Edit Disentangling, Reference-based Metric  
+**关键词**: Grammatical Error Correction, evaluation metric, interpretability, Edit Disentangling, Reference-based Metric
 
 ## 一句话总结
 本文提出 CLEME2.0，一种可解释的 GEC 参考评估指标，通过将编辑解耦为四类（正确纠正 TP、错误纠正 FPne、欠纠正 FN、过纠正 FPun）并结合编辑加权技术，在 GJG15 和 SEEDA 两个人工评判数据集上达到了与人工判断最高相关性的 SOTA 结果。

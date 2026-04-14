@@ -48,13 +48,13 @@ tags:
 
 1. **结构化偏好分布**：
 
-    - 做什么：将多元价值的偏好数据建模为嵌入空间中的聚类结构
+    - 功能：将多元价值的偏好数据建模为嵌入空间中的聚类结构
     - 核心思路：每种价值 $i$ 对应一对聚类 $C_{i,+}$（对齐）和 $C_{i,-}$（不对齐），分布为 $\mathcal{N}(\pm c_i + b, v^2 I_d)$。$c_i$ 是该价值的方向向量（unit vector），$b$ 是所有价值共享的分量（norm $l_b$），不同价值的 $c_i$ 近似正交
     - 设计动机：基于 linear representation hypothesis（Park et al. 2023）——LLM 中概念沿线性方向编码，因果可分离的概念沿正交方向编码。Figure 3 用 Anthropic Persona 数据集验证了这一假设
 
 2. **Reward Margin 动态分析**：
 
-    - 做什么：追踪 DPO 训练过程中每个样本的 reward margin 如何演变
+    - 功能：追踪 DPO 训练过程中每个样本的 reward margin 如何演变
     - 核心思路：Lemma 4.1 给出 reward margin 的梯度流动态：$\tau \dot{r}_j = \frac{1}{N} \sum_{i=1}^{N} \beta^2 \sigma(-r_i) (\mathbf{y}_{w,j} - \mathbf{y}_{l,j})^\top (\mathbf{y}_{w,i} - \mathbf{y}_{l,i}) \Sigma_{ij}$。两个因子决定样本间影响——(1) 偏好共享因子（是否共享同一 preferred/rejected token），(2) 嵌入相关性 $\Sigma_{ij}$
     - 设计动机：通过对梯度流的 ODE 求解而非渐近分析，可以精确刻画有限步训练后的性能
 

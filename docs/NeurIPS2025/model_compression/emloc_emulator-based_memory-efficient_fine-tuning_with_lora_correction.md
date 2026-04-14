@@ -26,10 +26,15 @@ EMLoC 通过对原始模型做 activation-aware SVD 构建轻量级 emulator 进
 ## 研究背景与动机
 
 **领域现状**：大型基础模型（如 InternVL2.5-8B/26B/38B）在零样本能力上表现优异，但在领域适配场景下仍需微调。现有的微调方法中，LoRA 等 PEFT 方法减少了可训练参数，梯度 checkpointing 降低了激活内存，但这些优化都无法真正消除模型参数本身带来的内存占用。
+
 **现有痛点**：微调时需同时加载模型权重、优化器状态和中间激活，导致微调的内存开销远大于推理。例如微调 8B 模型需要约 40GB 内存，而推理只需约 20GB。这迫使用户要么选择小模型（牺牲能力），要么放弃微调。
+
 **核心矛盾**：LoRA/梯度 checkpointing 虽然减少了优化器和激活的内存，但模型参数本身的加载仍然存在，无法弥合微调与推理之间的内存差距。
+
 **本文要解决什么**：能否设计一种微调策略，让用户在和推理相同的内存预算下完成大模型微调？
+
 **切入角度**：既然微调内存 = 模型参数 + 优化器 + 激活，那如果在微调时用一个压缩的低秩模型（emulator）替代原始模型，就能同时减少三个组件的内存。关键问题变为：如何保证在 emulator 上训练的 LoRA 能成功迁移回原模型？
+
 **核心idea一句话**：用 activation-aware SVD 压缩模型构建 emulator 做 LoRA 微调，再通过 LoRA 校正算法补偿压缩引入的不对齐。
 
 ## 方法详解
@@ -44,19 +49,19 @@ EMLoC 包含三个阶段：
 
 1. **Downstream-aware Emulator 构建**:
 
-    - 做什么：将每个权重矩阵 $W$ 替换为低秩近似 $W^{\mathcal{E}} = W_U W_V = \text{SVD-LLM}(W, n)$
+    - 功能：将每个权重矩阵 $W$ 替换为低秩近似 $W^{\mathcal{E}} = W_U W_V = \text{SVD-LLM}(W, n)$
     - 核心思路：使用 SVD-LLM 最小化输出重建误差 $\|X^\top W - X^\top W^{\mathcal{E}}\|_F$，其中 $X$ 是用下游 calibration 数据计算的中间激活
     - 设计动机：满足三个标准——(1) 参数少于原模型以减少内存；(2) 支持灵活放置 LoRA，任何权重都可训练；(3) 保留下游任务相关知识。相比 LORAM 的行剪枝需要全模型继续预训练（214 GPU-hours），SVD 方法仅需 0.3 GPU-hours 且无需额外数据
 
 2. **标准 LoRA 微调**:
 
-    - 做什么：在 emulator 上用 LoRA 进行微调
+    - 功能：在 emulator 上用 LoRA 进行微调
     - 核心思路：由于 $W^{\mathcal{E}}$ 和 $W$ 维度一致（仅秩不同），LoRA 模块可直接插入 emulator 任意位置
     - 设计动机：emulator 参数量更小（如 50% 或 25%），使得整体微调内存与推理持平
 
 3. **LoRA 校正算法** (Algorithm 1):
 
-    - 做什么：将 emulator 上训练的 LoRA 校正后迁移到原始模型
+    - 功能：将 emulator 上训练的 LoRA 校正后迁移到原始模型
     - 核心思路：目标是让校正后的 $\Lambda^c$ 满足 $x^\top(W + \Lambda^c) = x^\top(W^{\mathcal{E}} + \Lambda)$，即在 LoRA 活跃的子空间 $\mathcal{V}_\Lambda$ 上保持一致。具体步骤：
       - 对 $W_A$ 做 SVD 得到 $W_A = U\Sigma V^\top$，重参数化为 $W_A' = U$, $W_B' = \Sigma V^\top W_B$
       - 计算校正项 $\Delta = W_A'^\top (W - W^{\mathcal{E}})$

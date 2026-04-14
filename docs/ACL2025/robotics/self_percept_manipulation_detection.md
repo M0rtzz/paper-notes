@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.20679](https://arxiv.org/abs/2505.20679)  
 **代码**: [https://github.com/danushkhanna/self-percept](https://github.com/danushkhanna/self-percept)  
 **领域**: LLM/NLP  
-**关键词**: mental manipulation detection, multi-turn dialogue, multi-person conversation, prompting framework, Self-Perception Theory  
+**关键词**: mental manipulation detection, multi-turn dialogue, multi-person conversation, prompting framework, Self-Perception Theory
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **心理操纵检测的重要性**：心理操纵（mental manipulation）是一种隐蔽的人际交往中的滥用行为，通过欺骗性手段控制他人思想和情感以谋取私利，对受害者心理健康构成严重威胁。
+
 **现有数据集的局限**：此前代表性数据集 MentalManip 基于电影台本（Cornell Movie Corpus），仅覆盖**两人对话**，且分布不均衡，难以反映真实世界中多人博弈的复杂操纵场景。
+
 **多人多轮场景的挑战**：现实中操纵行为往往发生在群体协商中（如团队会议、社交场合），涉及多参与者和多轮交互，LLM 在此类场景下的检测性能严重不足。
+
 **传统 prompting 方法的缺陷**：Zero-shot、Few-shot、CoT 等方法聚焦于逐步推理，难以捕捉言行不一致等隐性操纵信号，尤其在区分善意说服与恶意操纵时表现不佳。
+
 **心理学理论的启发**：自我知觉理论（SPT）提出个体通过观察自身行为来推断内在态度，这一认知机制可迁移至 LLM，使其具备"先观察行为、再推断意图"的分析能力。
+
 **研究目标**：构建更贴近真实场景的多人操纵检测数据集，并设计受心理学启发的 prompting 框架，提升 LLM 对复杂对话中操纵行为的识别精度。
 
 ## 方法详解

@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models
 description: >-
-  [ACL 2025 (Long Paper)][多模态][机器遗忘] 提出MANU框架解决MLLM中的多模态遗忘不平衡问题：通过四种重要性函数（绝对/频率/方差/RMS）识别跨模态知识纠缠的神经元，选择性剪枝实现多模态输入和纯文本输入下的均衡知识遗忘，同时保持模型通用能力。
+  [ACL 2025 (Long Paper)][多模态][机器遗忘] 提出 MANU——首个模态感知的 MLLM 遗忘框架，通过四种互补的神经元重要性函数（绝对/频率/方差/RMS）识别跨模态纠缠的知识载体神经元，选择性剪枝 top-α% 神经元实现多模态和纯文本输入下的均衡遗忘，无需任何梯度更新。
 tags:
   - ACL 2025 (Long Paper)
   - 多模态
@@ -44,7 +44,7 @@ MANU 分两阶段：**阶段一（重要神经元选择）**——将 forget set
 ### 关键设计
 
 1. **四种模态感知神经元重要性函数**:
-    - 做什么：从四个互补角度评估每个神经元在不同模态下的行为差异
+    - 功能：从四个互补角度评估每个神经元在不同模态下的行为差异
     - 核心思路：
         - **绝对重要性** $I_{\text{abs}} = \frac{|\bar{Z}_{\text{multi}} - \bar{Z}_{\text{text}}|}{\bar{Z}_{\text{multi}} + \bar{Z}_{\text{text}} + \epsilon}$——衡量激活幅度的模态差异（归一化），捕获哪些神经元在不同模态下有截然不同的激活强度
         - **频率重要性** $I_{\text{freq}} = \frac{|N_{\text{multi}} - N_{\text{text}}|}{N_{\text{multi}} + N_{\text{text}} + \epsilon}$——衡量神经元在不同模态下被激活（超过阈值 $\tau$）的频率差异，捕获一致性而非幅度
@@ -53,12 +53,12 @@ MANU 分两阶段：**阶段一（重要神经元选择）**——将 forget set
     - 设计动机：单一指标不足以全面捕获模态特异性——幅度、频率、多样性、持续强度四个维度互补。四种函数的加和 $\mathcal{I}(\mathcal{D}, n) = \sum_{k \in \mathcal{K}} I_k(\mathcal{D}, n)$ 构成综合重要性度量
 
 2. **相对重要性评分（Forget vs Retain）**:
-    - 做什么：确保剪枝的神经元主要服务于遗忘知识而非保留知识
+    - 功能：确保剪枝的神经元主要服务于遗忘知识而非保留知识
     - 核心思路：评分函数取 forget 和 retain 重要性的比值：$S_n = \frac{\mathcal{I}(\mathcal{D}_f, n)}{\mathcal{I}(\mathcal{D}_r, n) + \epsilon}$。高分意味着该神经元对遗忘数据远比对保留数据重要
     - 设计动机：如果仅看绝对重要性，可能误剪与通用知识相关的神经元。比值设计确保"精准手术"——只移除服务于特定遗忘目标的神经元
 
 3. **选择性剪枝——权重置零**:
-    - 做什么：将 top-α% 评分最高的神经元权重设为零，应用于语言和视觉 MLP 层
+    - 功能：将 top-α% 评分最高的神经元权重设为零，应用于语言和视觉 MLP 层
     - 核心思路：选择集合 $\mathcal{N} = \{n : S_n \text{ is among top } \alpha\%\}$，设置 $\theta' = 0$ if $n \in \mathcal{N}$
     - 设计动机：权重置零是最简单的剪枝方式，无需梯度更新——整个过程仅需一次前向传播收集激活统计
 

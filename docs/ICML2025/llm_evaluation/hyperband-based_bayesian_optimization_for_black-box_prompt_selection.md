@@ -31,7 +31,9 @@ tags:
 LLM 对输入 prompt 高度敏感，最优 prompt 选择对下游任务性能至关重要。在黑盒设定下（仅通过 API 访问 LLM，无法获取参数、梯度或 token 概率），prompt 选择面临三大挑战：
 
 **搜索空间巨大**：instruction 和 few-shot exemplar 的组合爆炸（如 5 条 instruction × 50 个 exemplar = 250 个候选）
+
 **无梯度信息**：无法通过反向传播优化
+
 **评估成本高昂**：每次评估需在整个验证集上查询 LLM
 
 现有方法的关键局限：

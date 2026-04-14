@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - personality profiling
-  - 强化学习
+  - reinforcement-learning
   - relevance filtering
   - 提示学习
   - Big Five
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2409.04122](https://arxiv.org/abs/2409.04122)  
 **代码**: [GitHub](https://github.com/bluzukk/rl-profiler) (有)  
 **领域**: 作者画像/人格预测  
-**关键词**: personality profiling, reinforcement learning, relevance filtering, LLM prompting, Big Five
+**关键词**: personality profiling, reinforcement-learning, relevance filtering, LLM prompting, Big Five
 
 ## 一句话总结
 提出RL-Profiler方法，用强化学习训练一个帖子相关性过滤器（SelNet），从用户Profile的大量帖子中筛选出与人格特征相关的少量帖子，再交给LLM零样本预测人格，在大幅减少上下文长度的同时保持接近使用全部帖子的预测效果。
 
 ## 研究背景与动机
 **领域现状**: 作者画像（Author Profiling）旨在从用户发布的内容中推断其特征（年龄、性别、人格等），通常用监督学习方法，但深度学习方法在该任务上表现不佳。
+
 **现有痛点**: 一个用户Profile可能包含数百条帖子，远超Transformer的输入长度限制；即使能处理，全量输入也导致API调用成本高昂且存在"大海捞针"问题——不是所有帖子都与特定人格维度相关，无关帖子反而引入噪声。
+
 **核心矛盾**: 需要筛选相关帖子但缺乏帖子级别的相关性标注数据；RAG等检索方法是通用的ad-hoc检索，不针对特定任务优化。
+
 **本文要解决什么**: 在无帖子级相关性标注的情况下，学习一个任务相关的帖子过滤器来提升人格预测效率和准确性。
+
 **切入角度**: 用RL训练过滤器，以LLM零样本预测的正确性作为奖励信号。
+
 **核心idea一句话**: 用强化学习让模型学会"选帖子"，使少量精选帖子的LLM预测结果比用全部帖子更好或相当。
 
 ## 方法详解

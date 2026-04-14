@@ -8,7 +8,7 @@ tags:
   - LLM Agent
   - Language Agents
   - ML Research
-  - Benchmark
+  - benchmark
   - Innovation Assessment
   - Repository-Level Code
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.09702](https://arxiv.org/abs/2504.09702)  
 **代码**: https://huggingface.co/spaces/launch/MLRC_Bench  
 **领域**: Agent  
-**关键词**: Language Agents, ML Research, Benchmark, Innovation Assessment, Repository-Level Code
+**关键词**: Language Agents, ML Research, benchmark, Innovation Assessment, Repository-Level Code
 
 ## 一句话总结
 基于真实 ML 会议竞赛构建动态基准 MLRC-Bench，评估 LLM Agent 提出和实现新颖研究方法的能力，发现最强 Agent（Gemini）仅达人类顶级方案 9.3% 的相对改进，且提供 AI/人类想法并不能一致改善实现质量。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：对 LLM 研究 Agent 的评估分两类——端到端发现（AI Scientist，依赖 LLM-as-judge）和 Kaggle 竞赛（缺创新要求），都无法同时衡量新颖性和有效性。
+
 **现有痛点**：评估主观、仅处理单脚本、缺计算约束、无法动态更新。
+
 **核心矛盾**：LLM-judged 新颖性与实际性能存在明显错位。
+
 **本文要解决什么**：用 ML 竞赛排行榜分数客观评估 Agent 研究创新能力。
+
 **切入角度**：ML 竞赛天然有未解决问题、公开排行榜、可与人类比较。
+
 **核心 idea 一句话**：用竞赛客观分数替代 LLM-as-judge 评估 AI 研究能力。
 
 ## 方法详解

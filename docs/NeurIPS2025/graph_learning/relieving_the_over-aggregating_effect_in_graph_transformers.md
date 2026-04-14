@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Graph Transformer 通过全局注意力机制学习节点间的长距离依赖，克服了传统 GNN 的 over-smoothing 和 over-squashing 问题。为了处理大规模图，主要有 sparse attention 和 linear attention 两条路线。
+
 **现有痛点**：Linear attention 方法（如 Performer、SGFormer、Polynormer）保持全局感受野但产生严重的信息稀释——当所有节点参与聚合时，注意力分数趋于均匀（高 attention entropy），目标节点无法区分哪些消息是重要的。
+
 **核心矛盾**：全局注意力计算中，节点数越多，注意力分数越均匀（Theorem 3.1 证明 entropy 下界随 $n$ 单调递增），关键消息被稀释（over-aggregating）。而 sparse attention 虽然缓解了此问题，却缩小了感受野。
+
 **本文要解决什么？**：在保持全局感受野的同时缓解 over-aggregating。
+
 **切入角度**：不减少输入节点数，而是将聚合分成多个并行子过程（cluster-wise aggregation），增加输出维度来保留更多信息。
+
 **核心 idea 一句话**：将全局注意力的 all-to-one 聚合拆分为 cluster-to-one 的多路并行聚合，再通过引导机制让目标节点聚焦信息量最大的子集。
 
 ## 方法详解
@@ -46,19 +51,19 @@ Wideformer 是一个即插即用模块，包含两步：
 
 1. **Cluster Center Selection (基于 K-Means++ 的变体)**:
 
-    - 做什么：在 query 空间中选择 $m$ 个代表性的 cluster center
+    - 功能：在 query 空间中选择 $m$ 个代表性的 cluster center
     - 核心思路：用 Algorithm 1，初始选 query 特征和最大的节点为第一个 center，然后贪心选择与已有 center 最不相似的节点作为新 center
     - 设计动机：选出的 center 之间差异最大化，使 cluster 分割有意义
 
 2. **Source Node Assignment**:
 
-    - 做什么：将源节点分配到最相似的 cluster $\mathbf{k}_i = \arg\max_j [(\mathbf{KC}^\top)_{i,j}]$
+    - 功能：将源节点分配到最相似的 cluster $\mathbf{k}_i = \arg\max_j [(\mathbf{KC}^\top)_{i,j}]$
     - 核心思路：用 key 和 center 的相似度做 hard assignment
     - 设计动机：高相似度节点聚在一起，每个 cluster 内的节点语义更一致，聚合更有区分度
 
 3. **Cluster-wise Aggregation + Guiding**:
 
-    - 做什么：每个 cluster 独立做 attention 聚合，得到 $m$ 个输出向量；按 cluster 与目标节点的注意力分数排序加权
+    - 功能：每个 cluster 独立做 attention 聚合，得到 $m$ 个输出向量；按 cluster 与目标节点的注意力分数排序加权
     - 核心思路：聚合输入量从 $n$ 减到 $n/m$，attention entropy 自然降低；再对 $m$ 个输出做二级注意力，保留全局信息
     - 设计动机：小输入量聚合 + 二级排序 = 信息保留与区分度兼得
 

@@ -26,13 +26,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：LLM 对输入上下文的微小变化极为敏感——格式微调可导致准确率波动 76%，示例顺序调整可使准确率从 54% 到 93%
+
 **现有痛点**：
    - 准确率只给出聚合视图，无法评估单个预测的稳定性
    - Perplexity 混淆概率分布，忽略了内部状态几何结构
    - Softmax 归一化可导致高概率但不稳定的预测——高概率可能来自相对归一化而非鲁棒的内部状态
+
 **核心矛盾**：一个高概率、高置信度的预测可能对应一个不稳定的内部状态平衡——现有指标无法区分"真正稳定的高置信"和"脆弱的高置信"
+
 **本文要解决什么**：量化 LLM 在特定上下文下产生的内部状态 $\mathbf{h}$ 对小扰动的鲁棒性
+
 **切入角度**：利用 Jacobian 矩阵分析 softmax 输出对隐状态的一阶敏感性
+
 **核心 idea 一句话**：预测的鲁棒性 = 隐状态周围能保持输出分布不变的最大扰动半径，由输出嵌入的几何分散度决定
 
 ## 方法详解
@@ -44,13 +49,13 @@ LLM 最后一层隐状态 $\mathbf{h} \in \mathbb{R}^d$ 经输出权重矩阵 $\
 
 1. **Token Constraint Bound ($\delta_{\text{TCB}}$) 定义**:
 
-    - 做什么：度量 LLM 预测对内部状态扰动的鲁棒性
+    - 功能：度量 LLM 预测对内部状态扰动的鲁棒性
     - 核心思路：利用一阶线性近似 $\Delta\mathbf{o} \approx \mathbf{J}_\mathbf{W}(\mathbf{h}) \Delta\mathbf{h}$，从 $\|\Delta\mathbf{o}\|_2 \leq \epsilon$ 推导出 $\|\Delta\mathbf{h}\|_2 \leq \epsilon / \|\mathbf{J}_\mathbf{W}(\mathbf{h})\|_F$，定义 $\delta_{\text{TCB}}(\mathbf{h}) = \epsilon / \|\mathbf{J}_\mathbf{W}(\mathbf{h})\|_F$
     - 设计动机：$\delta_{\text{TCB}}$ 越大说明模型的预测在更大范围的隐状态扰动下保持稳定
 
 2. **与输出嵌入几何的精确联系**:
 
-    - 做什么：推导 Jacobian 范数的解析表达式
+    - 功能：推导 Jacobian 范数的解析表达式
     - 核心思路：证明 $\|\mathbf{J}_\mathbf{W}(\mathbf{h})\|_F^2 = \sum_{i=1}^{\mathcal{V}} o_i^2 \|\mathbf{w}_i - \boldsymbol{\mu}_\mathbf{w}(\mathbf{h})\|_2^2$，其中 $\boldsymbol{\mu}_\mathbf{w}(\mathbf{h}) = \sum_j o_j \mathbf{w}_j$ 是概率加权平均嵌入
     - 几何含义：敏感性由 token 嵌入相对于加权中心的分散度决定，且被 $o_i^2$ 加权——高概率 token 的嵌入位置影响最大
 

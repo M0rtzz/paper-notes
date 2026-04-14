@@ -49,19 +49,19 @@ ViXML 是一个通用的多模态 XMC 框架，支持 encoder 和 decoder 架构
 
 1. **双解码器学习(Dual-Decoder Learning)**:
 
-    - 做什么：将解码器型 LLM 适配为 XMC 的 Siamese 编码器
+    - 功能：将解码器型 LLM 适配为 XMC 的 Siamese 编码器
     - 核心思路：为每个查询 $q_i$ 构建结构化提示 $\mathcal{E}'_i = \mathcal{T} \oplus \mathcal{E}_i \oplus \mathbf{e}_{EOS}$，其中 $\mathcal{T}$ 是文本前缀（如"This product text"），$\mathbf{e}_{EOS}$ 是序列结束标记。保持单向注意力（与预训练一致），通过 mean pooling 提取句子 embedding，用 triplet loss 进行对比学习。训练时使用 LoRA 微调以控制开销，并将训练轮次从 encoder 的 300 epochs 大幅减少到 30 epochs（LLM 样本效率更高）
     - 设计动机：简洁的提示模板提供任务上下文但不增加序列长度；保持单向注意力避免偏离预训练分布；大幅减少训练轮次使得 0.5B 解码器和 66M DistilBERT 训练时间相当
 
 2. **ViXML 视觉融合框架**:
 
-    - 做什么：在不显著增加计算开销的前提下，将图像信息注入 XMC 模型
+    - 功能：在不显著增加计算开销的前提下，将图像信息注入 XMC 模型
     - 核心思路：使用冻结的基础视觉模型（如 SigLIPv2-1.14B）将每张图像压缩为**单个** embedding $\mathbf{v}$，通过可学习线性层适配到文本 embedding 空间。对 encoder 模型，直接拼接图像和文本 embedding $\mathcal{E}'_i = \mathcal{V}_i \oplus \mathcal{E}_i$；对 decoder 模型，放入结构化提示 $\mathcal{E}'_i = \mathcal{T} \oplus \mathcal{E}_i \oplus \mathcal{I} \oplus \mathcal{V}_i \oplus \mathbf{e}_{EOS}$，图像 embedding 放在文本后、EOS 前
     - 设计动机：每张图仅用单个 embedding 保持低序列长度；冻结视觉编码器使 embedding 可预计算为特征库，训练时几乎无额外显存开销；选择早期融合（early-fusion）让文本和视觉表征通过注意力机制相互增强。实验证明图像 token 放在文本后才有效——因为 LLM 预训练使第一个 token 形成 attention sink，提前放图像 token 会破坏这一动态
 
 3. **提示模板设计策略**:
 
-    - 做什么：为解码器模型找到最优的输入组织方式
+    - 功能：为解码器模型找到最优的输入组织方式
     - 核心思路：实验验证了多种提示组合，发现文本前缀 + EOS token 的组合能提供结构性线索帮助利用预训练知识，图像放在文本之后且使用前缀标记效果最佳
     - 设计动机：性能提升来自结构性线索而非注入额外信息，LLM 的预训练注意力模式（attention sink）需要被尊重
 

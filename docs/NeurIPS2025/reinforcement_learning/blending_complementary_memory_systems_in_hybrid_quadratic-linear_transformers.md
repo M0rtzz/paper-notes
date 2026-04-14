@@ -28,10 +28,15 @@ tags:
 **领域现状**：现代 Transformer 分为两类——二次 Transformer（QT，standard softmax attention）和线性 Transformer（LT，如 DeltaNet）。两者的计算特性互补但各有硬伤：
    - QT 通过 softmax 实现精确检索，但序列长度受二次复杂度限制，必须预设最大上下文窗口
    - LT 通过快权重矩阵实现线性复杂度、支持任意长序列，且 DeltaNet 变体具备状态追踪等 QT 无法完成的计算能力，但牺牲了检索精度
+
 **现有痛点**：单一系统无法同时满足精确检索、长上下文、高表达力三个需求。已有混合尝试（Arora et al.、Munkhdalai et al.）使用过时的 LT（vanilla LA），未利用 DeltaNet 的表达力优势
+
 **生物学启发**：大脑通过互补学习系统（Complementary Learning Systems）整合多种记忆机制——海马体负责情景记忆（精确但容量有限），皮层负责语义记忆（抽象但持久）。类似地，KV-memory 对应精确短期记忆，FW-memory 对应压缩长期记忆
+
 **核心矛盾**：精确检索需要显式存储所有 key-value（二次增长），而长上下文处理需要固定大小的压缩状态（线性复杂度），两者在单一系统中不可兼得
+
 **切入角度**：不是在两类 Transformer 中二选一，而是设计混合架构让两个记忆系统各司其职——关键问题是信息何时、如何分配到两个系统
+
 **核心idea一句话**：用 DeltaNet 的 FW-memory 和 softmax 的 KV-memory 构建互补记忆系统，通过同步输入策略实现两者优势的最大化整合
 
 ## 方法详解

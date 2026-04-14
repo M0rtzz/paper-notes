@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.21250](https://arxiv.org/abs/2505.21250)  
 **代码**: [项目页](https://leeds1219.github.io/ReSCORE)  
 **领域**: 信息检索 / 多跳问答  
-**关键词**: multi-hop QA, dense retriever training, label-free supervision, iterative RAG, LLM distillation  
+**关键词**: multi-hop QA, dense retriever training, label-free supervision, iterative RAG, LLM distillation
 
 ## 一句话总结
 

@@ -55,9 +55,9 @@ MARS 采用两层架构：
 
 1. **异构智能体集成（HAE）**：集成 $\mathcal{E} = \{\mathcal{A}_1, ..., \mathcal{A}_N\}$ 由 $N$ 个独立的 Safety-Critic 智能体组成。每个智能体 $\mathcal{A}_i$ 由唯一的风险参数对 $(\theta_i, \lambda_i)$ 定义——$\theta_i$ 是风险容忍阈值，$\lambda_i$ 是风险厌恶惩罚权重。这些智能体的风险偏好从"超保守"到"高激进"均匀分布，创造了一个行为多样的"专家"池。每个智能体基于 DDPG 架构，包含三个网络：
 
-   - **Actor 网络**：策略梯度包含条件安全惩罚（CSP）：$\nabla_{\phi_i} J(\phi_i) \approx \mathbb{E}[\nabla_{\phi_i} Q_{\psi_i}(s_t, \pi_{\phi_i}(s_t)) - \lambda_i \cdot \nabla_{\phi_i} \text{ReLU}(C_{\xi_i}(s_t, \pi_{\phi_i}(s_t)) - \theta_i)]$。CSP 项仅在预测风险超过特定阈值 $\theta_i$ 时才惩罚策略。
-   - **Critic 网络**：标准 TD 误差训练，估计状态-动作价值函数。
-   - **Safety-Critic 网络**：预测动作的外部风险分数。训练目标是环境风险函数 $\mathcal{C}_{env}$，该函数从三个维度综合计算 $[0,1]$ 的风险分数——投资组合集中度（30%）、杠杆率（30%）和模拟波动率（40%），通过 MSE 损失训练。
+    - **Actor 网络**：策略梯度包含条件安全惩罚（CSP）：$\nabla_{\phi_i} J(\phi_i) \approx \mathbb{E}[\nabla_{\phi_i} Q_{\psi_i}(s_t, \pi_{\phi_i}(s_t)) - \lambda_i \cdot \nabla_{\phi_i} \text{ReLU}(C_{\xi_i}(s_t, \pi_{\phi_i}(s_t)) - \theta_i)]$。CSP 项仅在预测风险超过特定阈值 $\theta_i$ 时才惩罚策略。
+    - **Critic 网络**：标准 TD 误差训练，估计状态-动作价值函数。
+    - **Safety-Critic 网络**：预测动作的外部风险分数。训练目标是环境风险函数 $\mathcal{C}_{env}$，该函数从三个维度综合计算 $[0,1]$ 的风险分数——投资组合集中度（30%）、杠杆率（30%）和模拟波动率（40%），通过 MSE 损失训练。
 
 2. **元自适应控制器（MAC）**：MAC 是一个神经网络 $M_\omega$，学习元策略 $\pi_\omega(w_t | s_t)$，根据当前市场状态动态分配智能体权重。输出权重分布通过 softmax 生成：$w_t = \text{softmax}(M_\omega(s_t))$。最终动作为加权平均：$A_t = \sum_{i=1}^{N} w_t^i \cdot \pi_{\phi_i}(s_t)$。
 

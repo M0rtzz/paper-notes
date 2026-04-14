@@ -2,14 +2,15 @@
 title: >-
   [论文解读] INST-IT: Boosting Instance Understanding via Explicit Visual Prompt Instruction Tuning
 description: >-
-  [NeurIPS 2025][视频理解][实例理解] 提出Inst-IT方案，通过GPT-4o辅助的自动标注管线生成实例级视觉提示数据，构建包含1000+图像/视频QA的Inst-IT Bench和335K QA对的指令微调数据集，以持续微调范式提升LMM的时空实例理解能力，LLaVA-Next-Inst-IT在通用视频理解基准上也获得显著提升。
+  [NeurIPS 2025][视频理解][实例级理解] 提出Inst-IT完整方案：通过GPT-4o辅助的自动标注管线生成实例级细粒度数据，构建Inst-IT Bench评测基准和335K QA对的指令微调数据集，以持续微调范式有效提升LMM的实例级理解能力，同时增强通用图像/视频理解。
 tags:
   - NeurIPS 2025
   - 视频理解
-  - 实例理解
+  - 实例级理解
+  - 视觉提示
   - 指令微调
   - 多模态大模型
-  - 视觉提示
+  - 时空理解
 ---
 
 # INST-IT: Boosting Instance Understanding via Explicit Visual Prompt Instruction Tuning
@@ -29,7 +30,9 @@ tags:
 大型多模态模型（LMM）在图像和视频的整体理解方面取得了显著突破，但在**实例级理解**（Instance-level Understanding）方面仍然力不从心：
 
 **什么是实例级理解**：识别图像/视频中特定实例（如某个人、某个物体）的属性、行为、关系和时序变化
+
 **现实需求强烈**：用户通常关注的是画面中的特定目标而非整体场景——"那个穿红衣服的人在做什么？"
+
 **现有模型的困境**：当前LMM在整体描述上表现良好，但当需要聚焦到某个特定实例时经常混淆或遗漏
 
 一个有趣的现象推动了本文工作：**SOTA的LMM在给定显式视觉线索（explicit visual cues，如边框、箭头、标号）时，实例理解能力会大幅提升**。这说明模型具备实例理解的"潜力"，只是缺乏相应的训练数据来激活这种能力。

@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - Optimal Control
   - Reward-Guided
-  - Training-Free
+  - training-free
   - Adjoint State
   - Pontryagin's Maximum Principle
 ---
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2509.25845](https://arxiv.org/abs/2509.25845)  
 **代码**: 无  
 **领域**: 扩散模型 / 图像编辑  
-**关键词**: Optimal Control, Reward-Guided, Training-Free, Adjoint State, Pontryagin's Maximum Principle  
+**关键词**: Optimal Control, Reward-Guided, training-free, Adjoint State, Pontryagin's Maximum Principle
 
 ## 一句话总结
 将 reward-guided 图像编辑重新建模为轨迹最优控制问题，将扩散/Flow模型的反向过程视为可控轨迹，通过基于 Pontryagin 最大值原理（PMP）的伴随状态迭代优化整条轨迹，在无需训练的情况下实现有效的奖励引导编辑且不发生 reward hacking。
 
 ## 研究背景与动机
 **领域现状**：Reward-guided 采样在 T2I 生成中已取得成功（DPS、FreeDoM、TFG），通过利用可微分奖励函数在推理时引导生成过程。但这些方法都设计用于采样，未专门针对编辑。
+
 **现有痛点**：Reward-guided 编辑比生成更难——既要最大化奖励又要保持源图像核心身份。朴素方法（反演+引导采样）效果差：对复杂非线性奖励函数，基于中间噪声图像或单步近似的引导会降低结构忠实度。直接梯度上升虽方向正确但不考虑图像先验，产生对抗性样本。
+
 **核心矛盾**：现有 guidance 方法在编辑场景中面临两难——引导过强则破坏结构，引导过弱则奖励提升不足。且它们缺乏对 guidance scale 选择的理论支撑，需要大量超参调整。
+
 **本文要解决什么？** 如何在不训练模型的情况下，利用任意可微分奖励函数引导编辑，同时保持与源图的结构一致性？
+
 **切入角度**：最优控制理论——将问题从"单步引导"提升为"全轨迹优化"。
+
 **核心idea一句话**：优化整条生成轨迹（而非单步引导中间状态）来同时最大化终端奖励和保持与源图的一致性。
 
 ## 方法详解

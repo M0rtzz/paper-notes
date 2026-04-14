@@ -30,6 +30,7 @@ tags:
 文本到图像（T2I）扩散模型（如Stable Diffusion）常从训练数据中捕获虚假相关性，导致生成结果带有性别、种族等偏见。现有去偏研究的关键盲点：
 
 **仅关注单物体提示**：如"a headshot of an assistant"，现有去偏方法对此类简单提示有效
+
 **忽视组合语义绑定**：当提示变为"a headshot of an assistant wearing a pink hat"时，"pink hat"这个上下文本身携带女性偏见倾向，现有方法无法有效处理
 
 作者的核心发现非常有趣：

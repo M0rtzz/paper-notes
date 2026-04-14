@@ -9,7 +9,7 @@ tags:
   - 泛化评估
   - 基准环境
   - 迷宫导航
-  - Benchmark
+  - benchmark
 ---
 
 # Quantifying Generalisation in Imitation Learning
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2509.24784](https://arxiv.org/abs/2509.24784)  
 **代码**: [https://github.com/NathanGavenski/Labyrinth](https://github.com/NathanGavenski/Labyrinth)  
 **领域**: 强化学习  
-**关键词**: 模仿学习, 泛化评估, 基准环境, 迷宫导航, Benchmark
+**关键词**: 模仿学习, 泛化评估, 基准环境, 迷宫导航, benchmark
 
 ## 一句话总结
 本文提出 Labyrinth 基准环境，通过可控的迷宫结构变化实现训练与评估数据的严格分离，揭示了当前模仿学习方法在结构泛化上的严重不足（最佳方法在测试集仅 5% 成功率），为模仿学习的泛化评估提供了系统性工具。
@@ -27,8 +27,11 @@ tags:
 模仿学习位于强化学习与监督学习的交汇处：训练时像监督学习一样利用观测数据，评估时像 RL 一样通过环境交互。然而，当前广泛使用的模仿学习 benchmark 存在根本性缺陷——**训练和评估数据之间缺乏足够的差异化**，无法有效测试泛化能力。
 
 具体问题表现在：
+
 **经典控制任务（CartPole, MountainCar）过于简单**：状态空间低维，动作离散有限。作者发现在 MountainCar 中，仅复制一条专家轨迹的动作序列就能在 100 个不同初始化上达到"解决"标准
+
 **连续控制任务（Hopper, HalfCheetah）缺乏状态抽象和行为可解释性**：不可能知道任意状态下的最优动作；100K 初始化之间的曼哈顿距离极小（如 Hopper 仅 0.22），导致训练和测试几乎无差异
+
 **Atari 游戏训练和测试环境完全相同**，无法分离训练与测试数据
 
 核心矛盾：现有 benchmark 上的高性能可能只是记忆（memorisation）而非泛化（generalisation）的体现。作者认为，一个合格的泛化测试环境需要：（1）任务足够有挑战性；（2）训练和评估之间有显著变化；（3）对这些变化有精确控制；（4）支持行为调试和检查。

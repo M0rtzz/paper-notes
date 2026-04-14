@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：In-Context Learning (ICL) 是 LMM 的核心能力——给几个示例就能适应新任务。但多模态 ICL 面临两个严重问题：视觉 token 成本高（限制示例数量）、性能对示例选择和排序高度敏感。
+
 **现有痛点**：主流 ICL 近似方法（Task Vector, LIVE, MimIC）学习一个"shift vector"来近似 ICL 效果，但这些方法基于一个理论上不精确的假设——将 ICL 效果建模为对隐状态的线性加法偏移。
+
 **核心矛盾**：线性 shift 假设 vs ICL 的非线性本质。机制可解释性研究表明 ICL 由 induction heads 等专用电路实现，是高度非线性的过程。线性近似成为性能瓶颈。
+
 **本文要解决什么？** 如何更忠实地模拟 ICL 的内在机制，而非粗略近似其外在效果？
+
 **切入角度**：回到 attention 公式本身做精确数学分解，发现 ICL 效果的精确形式已经嵌入在原始方程中——问题从"近似效果"转变为"参数化来源"。
+
 **核心 idea 一句话**：ICL 的 shift effect 不是需要近似的目标，而是 attention 公式的直接解析推论；直接参数化其来源（KD, VD）比近似其结果更合理。
 
 ## 方法详解
@@ -44,14 +49,14 @@ tags:
 
 1. **精确数学分解（理论基础）**：
 
-    - 做什么：推导出当 ICL 示例存在时，attention 输出的精确闭合式
+    - 功能：推导出当 ICL 示例存在时，attention 输出的精确闭合式
     - 核心公式：$\text{Attn}_{out} = \alpha(q) \cdot SA(q,K,V) + \beta(q) \cdot V_D$
     - 其中 $\alpha(q)$ 是 query-dependent 标量权重（自注意力 vs 上下文的分配），$\beta(q)$ 是 query-dependent 向量权重（对每个示例 value 的加权）
     - 意义：ICL 效果不是外部加上的 shift，而是 attention 公式内的解析推论。这是一个动态的、query-dependent 的、非线性的混合过程
 
 2. **虚拟 KV 对 + 双重低秩分解**：
 
-    - 做什么：用可学习参数代替未知的示例 KV 对
+    - 功能：用可学习参数代替未知的示例 KV 对
     - 核心思路：每个 head $h$ 配备 $n$ 个虚拟对，$K_{learn}^{(h)} = K_A^{(h)} K_B^{(h)}$，$V_{learn}^{(h)} = V_A^{(h)} V_B^{(h)}$，rank $r \ll d_h$
     - 初始化策略：$V_B$ 初始化为 0，保证训练开始时 contextual shift 为零，平滑训练起点
     - $K$ 的低秩分解起到信息瓶颈作用，防止过拟合
@@ -59,7 +64,7 @@ tags:
 
 3. **End-to-End Teacher-Free 训练**：
 
-    - 做什么：直接用任务 loss 优化所有虚拟参数，不需要 teacher model
+    - 功能：直接用任务 loss 优化所有虚拟参数，不需要 teacher model
     - 核心思路：与 MimIC 的 teacher-student 范式不同，不做中间层隐状态的对齐
     - 设计动机：teacher model 引入额外前向传播（14.3x FLOPs 开销），且 teacher 性能上限会限制 student。直接 end-to-end 训练让模型自主学习最优配置
 

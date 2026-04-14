@@ -47,20 +47,20 @@ DRPO 借鉴因果推断中的双重稳健估计方法，提出一种偏好优化
 
 1. **总偏好定义与基线估计器**:
 
-    - 做什么：定义目标策略相对参考策略的总偏好 $p^*(\pi) = \mathbb{P}(\pi \succ \pi_\text{ref})$
+    - 功能：定义目标策略相对参考策略的总偏好 $p^*(\pi) = \mathbb{P}(\pi \succ \pi_\text{ref})$
     - 核心思路：DM 估计器直接用偏好模型估计 $\hat{g}$ 插入计算，依赖 $\hat{g}$ 的正确性；IS 估计器用重要性采样比 $w(y,x) = \pi(y|x)/\pi_\text{ref}(y|x)$ 转换期望，依赖 $\hat{\pi}_\text{ref}$ 的正确性
     - 设计动机：两种估计器各依赖一个模型的正确性，都不够鲁棒
 
 2. **双重稳健（DR）偏好估计器**:
 
-    - 做什么：结合 DM 和 IS 构建对两者误指定都鲁棒的估计器
+    - 功能：结合 DM 和 IS 构建对两者误指定都鲁棒的估计器
     - 核心思路：估计函数为 $\psi = \frac{1}{2}\sum_{a=1}^2 \mathbb{E}_{y \sim \pi}[\hat{g}(X,y,Y^{(a)})] + \frac{1}{2}\sum_{a=1}^2 (-1)^{a-1} \frac{\pi(Y^{(a)}|X)}{\hat{\pi}_\text{ref}(Y^{(a)}|X)}[Z - \hat{g}(X,Y^{(1)},Y^{(2)})]$。第一项是 DM，第二项是增广项，用偏好残差 $Z - \hat{g}$ 校正 DM 偏差
     - 设计动机：当 $\hat{g} = g^*$ 时增广项期望为零（DM 已正确）；当 $\hat{\pi}_\text{ref} = \pi_\text{ref}$ 时增广项自动达到 IS 估计的效果。任一正确即保证一致性
     - 与 bandit DR 的区别：配对比较中每个数据元组被使用两次（正反），有效降低方差
 
 3. **DRPO 偏好优化**:
 
-    - 做什么：利用 DR 估计器求解最优策略
+    - 功能：利用 DR 估计器求解最优策略
     - 核心思路：$\hat{\pi} = \arg\max_{\pi \in \Pi} \{\hat{p}_\text{DR}(\pi) - \beta \mathbb{E}_X D_\text{KL}[\pi(\cdot|X) \| \hat{\pi}_\text{ref}(\cdot|X)]\}$
     - 实现细节：(a) IS 比率裁剪防止极大值；(b) 设计伪目标函数支持目标策略 Monte Carlo 采样；(c) 采用 GRPO 的 KL 散度方差缩减
 

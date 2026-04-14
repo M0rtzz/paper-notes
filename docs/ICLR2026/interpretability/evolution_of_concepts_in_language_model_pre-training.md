@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Evolution of Concepts in Language Model Pre-Training
 description: >-
-  [ICLR 2026][mechanistic interpretability] 首次将 crosscoders（跨快照稀疏字典学习）应用于追踪语言模型预训练过程中特征的涌现和演化，发现预训练存在"统计学习→特征学习"两阶段相变，并通过归因分析将微观特征演化与宏观下游任务指标因果关联。
+  [ICLR 2026][机制可解释性] 首次将 crosscoders（跨快照稀疏字典学习）应用于追踪语言模型预训练过程中特征的涌现和演化，发现预训练存在"统计学习→特征学习"两阶段相变，并通过归因分析将微观特征演化与宏观下游任务指标因果关联。
 tags:
   - ICLR 2026
-  - mechanistic interpretability
+  - 机制可解释性
   - crosscoders
   - sparse autoencoders
-  - training dynamics
+  - 训练动态
   - feature evolution
-  - pre-training
+  - 预训练
   - Pythia
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.17196](https://arxiv.org/abs/2509.17196)  
 **代码**: [GitHub](https://github.com/OpenMOSS/Language-Model-SAEs)  
 **领域**: llm_nlp  
-**关键词**: mechanistic interpretability, crosscoders, sparse autoencoders, training dynamics, feature evolution, pre-training, Pythia
+**关键词**: 机制可解释性, crosscoders, sparse autoencoders, 训练动态, feature evolution, 预训练, Pythia
 
 ## 一句话总结
 

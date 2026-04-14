@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Show, Don't Tell: Detecting Novel Objects by Watching Human Videos
 description: >-
-  [CVPR 2026][目标检测][新颖物体检测] 提出 "Show, Don't Tell" 范式：通过观看人类演示视频自动创建标注训练数据（SODC管线），训练定制化物体检测器（MOD）来识别新颖物体，完全绕过语言描述和提示工程，在真实机器人分拣任务中显著优于 VLM 检测方法。
+  [CVPR 2026][目标检测][新颖物体检测] 提出 "Show, Don't Tell" 范式：通过 SODC 管线（HOIST-Former 检测抓取物体 → SAMURAI 跟踪 → DBSCAN 时空聚类）从人类演示视频自动创建标注数据集，训练轻量化 F-RCNN 定制检测器（MOD），在无需任何语言提示的情况下实现新颖物体的实例级检测，在 Meccano 和自采数据集上 mAP 和 precision 超越 GroundingDINO/RexOmni/YoloWorld 等 VLM 基线，端到端集成到真实机器人分拣系统中。
 tags:
   - CVPR 2026
   - 目标检测
-  - human demonstration
-  - 自监督学习
-  - bespoke detector
-  - robot manipulation
-  - automatic dataset creation
+  - 新颖物体检测
+  - 人类演示
+  - 自动数据集创建
+  - 定制化检测器
+  - 机器人分拣
 ---
 
 # Show, Don't Tell: Detecting Novel Objects by Watching Human Videos
@@ -49,25 +49,25 @@ tags:
 
 1. **SODC 管线：检测抓取实体**
 
-    - 做什么：从视频中识别人类正在操作的物体
+    - 功能：从视频中识别人类正在操作的物体
     - 核心思路：使用 HOIST-Former 作为手-物交互检测器，对每帧输出人抓取物体的分割 mask。每帧独立处理，不依赖帧间关联（因 HOIST-Former 的标签持久性噪声过大）。该步骤只在人手抓取物体的帧中产生 mask，物体被遮挡或不在手中时无输出
     - 设计动机：通过手-物交互定义"任务相关物体"——人抓取的就是需要检测的，避免了任何语言定义
 
 2. **SODC 管线：跟踪 + 时空聚类整合**
 
-    - 做什么：将零散的抓取 mask 扩展为全视频的完整物体跟踪，并聚类为每个物体的标注数据集
+    - 功能：将零散的抓取 mask 扩展为全视频的完整物体跟踪，并聚类为每个物体的标注数据集
     - 核心思路：**跟踪**——以 HOIST-Former 输出的每个 mask 为种子，用 SAMURAI 跟踪器前后双向跟踪整个视频，获得大量 tracks（远多于实际物体数，因每个物体在多帧被检测）。**空间聚类**——对每帧用 DBSCAN（IoU 距离函数）聚类重叠的 bounding box。**时间聚类**——对每条 track 生成"cluster track"（该 track 在各帧所属空间簇的序列），计算 tracks 间的 Jaccard 相似度聚合到同一物体，丢弃 track 数不足的噪声簇
     - 设计动机：纯空间聚类在物体重叠时会错误合并不同物体（如图 3 中 t=30 五个 box 重叠但属于两个物体），时间维度利用 tracks 的运动轨迹差异来区分。组合空间+时间聚类对噪声和短暂遮挡鲁棒
 
 3. **MOD：定制化物体检测器**
 
-    - 做什么：在 SODC 自动创建的数据集上训练轻量检测器
+    - 功能：在 SODC 自动创建的数据集上训练轻量检测器
     - 核心思路：微调预训练 F-RCNN（ResNet50 backbone），标准 RCNN 损失（分类+objectness）。训练 ~3-4 分钟 on 4×T4 GPU。大量数据增强（翻转、形变、亮度、对比度、色彩、裁剪、缩放、模糊、仿射变换）
     - 设计动机：不追求通用检测器而为每个任务训练小型专用检测器。虽牺牲通用性，但在特定任务上精度远超通用 VLM，且训练极快
 
 4. **端到端机器人集成**
 
-    - 做什么：将 SODC+MOD 集成到真实机器人分拣任务
+    - 功能：将 SODC+MOD 集成到真实机器人分拣任务
     - 核心思路：(1) 录制人类分拣演示视频；(2) GPT-4o 从视频生成计划骨架（pick/place 序列）；(3) SODC 创建数据集 + MOD 训练检测器；(4) MOD 检测操作物体，VLM 检测放置目标（如 basket），场景图聚合点云，按计划骨架执行 pick-and-place
     - 设计动机：操作物体用 MOD（新颖、需实例级区分），放置目标用 VLM（语义级即可，如"basket"）——两类检测器各司其职
 

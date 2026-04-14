@@ -2,16 +2,16 @@
 title: >-
   [论文解读] Visual-ERM: Reward Modeling for Visual Equivalence
 description: >-
-  [CVPR2025][图像生成][reward model] 提出 Visual-ERM，一个多模态生成式奖励模型，在视觉空间中直接评估 vision-to-code 任务的渲染质量，提供细粒度、可解释、任务无关的奖励信号，用于 RL 训练和测试时缩放。
+  [CVPR2025][图像生成][奖励模型] 提出 Visual-ERM，一个多模态生成式奖励模型，在视觉空间中直接评估 vision-to-code 任务的渲染质量，提供细粒度、可解释、任务无关的奖励信号，用于 RL 训练和测试时缩放。
 tags:
   - CVPR2025
   - 图像生成
-  - reward model
+  - 奖励模型
   - vision-to-code
   - 强化学习
   - visual equivalence
   - chart-to-code
-  - test-time scaling
+  - 测试时缩放
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -21,17 +21,22 @@ tags:
 **arXiv**: [2603.13224](https://arxiv.org/abs/2603.13224)  
 **代码**: [GitHub](https://github.com/InternLM/Visual-ERM)  
 **领域**: image_generation  
-**关键词**: reward model, vision-to-code, reinforcement learning, visual equivalence, chart-to-code, test-time scaling
+**关键词**: 奖励模型, vision-to-code, 强化学习, visual equivalence, chart-to-code, 测试时缩放
 
 ## 一句话总结
 提出 Visual-ERM，一个多模态生成式奖励模型，在视觉空间中直接评估 vision-to-code 任务的渲染质量，提供细粒度、可解释、任务无关的奖励信号，用于 RL 训练和测试时缩放。
 
 ## 研究背景与动机
 **Vision-to-code 的重要性**：将结构化视觉输入（图表、表格、SVG）转为可执行代码/标记语言，是 AI 辅助开发、科学论文解析等下游应用的关键原语
+
 **SFT 的局限**：监督微调需要大量标注数据，且跨域泛化能力弱
+
 **RL 奖励信号失配**：现有奖励要么基于文本规则（如编辑距离、TEDS），忽视视觉线索；要么基于粗粒度视觉嵌入相似度（如 DINO），对细粒度差异不敏感
+
 **奖励黑客问题**：DINO 相似度 0.99 的输出仍可能包含大量解析错误，文本指标也无法捕获布局、间距等视觉问题
+
 **缺乏统一评估基准**：现有奖励基准聚焦于视觉-语言对齐，缺少细粒度图像-图像差异判别的基准
+
 **跨模态评估需求**：理想的奖励模型需要同时感知视觉细节、阅读嵌入文本、推理结构保真度
 
 ## 方法详解

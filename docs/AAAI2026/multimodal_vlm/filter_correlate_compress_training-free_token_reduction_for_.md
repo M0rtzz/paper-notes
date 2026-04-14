@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.17686](https://arxiv.org/abs/2411.17686)  
 **代码**: [https://github.com/kawhiiiileo/FiCoCo](https://github.com/kawhiiiileo/FiCoCo)  
 **领域**: 多模态VLM / 模型压缩  
-**关键词**: 视觉token压缩, MLLM加速, training-free, 信息回收, 冗余度量  
+**关键词**: 视觉token压缩, MLLM加速, training-free, 信息回收, 冗余度量
 
 ## 一句话总结
 提出FiCoCo三阶段框架（Filter-Correlate-Compress），通过集成视觉感知+语义感知冗余度量筛选丢弃token，利用token间相关性自适应回收信息，实现training-free的MLLM加速。在LLaVA-NeXT上达14.7×FLOPs压缩同时保留93.6%性能，在5种MLLM架构上全面超越FastV、SparseVLM等SOTA。

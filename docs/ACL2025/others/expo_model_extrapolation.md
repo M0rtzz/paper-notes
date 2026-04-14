@@ -25,10 +25,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：LLM的偏好对齐训练（RLHF/DPO）计算成本高，特别是对70B级模型。
+
 **现有痛点**：对齐训练仍需大量GPU资源，探索高效方法具有重要意义。
+
 **核心矛盾**：对齐训练实际上不注入新知识，只是微调模型行为——参数变化极小（normalized Frobenius distance仅$6.348 \times 10^{-6}$），却要花费大量计算。能否利用这一特性加速？
+
 **本文要解决什么？** 在不增加训练成本的情况下，提升部分训练的DPO模型的对齐性能，甚至提升已完整训练的开源模型。
+
 **切入角度**：既然参数变化小，对齐性能$\omega(\theta)$在参数空间可用一阶Taylor展开近似，从而外推到更优的参数点。
+
 **核心idea一句话**：对齐训练的参数变化方向就是对齐改善的方向，沿这个方向继续走（外推）就能进一步提升。
 
 ## 方法详解
@@ -40,13 +45,13 @@ tags:
 
 1. **一阶近似理论支撑**:
 
-    - 做什么：证明对齐性能函数$\omega(\theta)$在SFT检查点附近可一阶近似
+    - 功能：证明对齐性能函数$\omega(\theta)$在SFT检查点附近可一阶近似
     - 核心思路：$\omega(\theta_0 + \gamma\Delta\theta) \approx \omega(\theta_0) + \gamma \nabla\omega(\theta_0) \cdot \Delta\theta$。因为$\nabla\omega(\theta_0) \cdot \Delta\theta > 0$（DPO确实改善了对齐），所以$\gamma > 1$（外推）应进一步改善
     - 验证：插值（$\gamma \in [0,1]$）实验显示对齐性能随$\gamma$单调递增，支持一阶近似的有效性
 
 2. **ExPO操作**:
 
-    - 做什么：$\theta_2 = \theta_0 + (1+\alpha)\Delta\theta = \theta_1 + \alpha\Delta\theta$
+    - 功能：$\theta_2 = \theta_0 + (1+\alpha)\Delta\theta = \theta_1 + \alpha\Delta\theta$
     - 核心思路：本质上是模型插值的推广——把权重从$[0,1]$扩展到$(1, +\infty)$
     - 设计动机：零训练开销，仅需推理级资源做超参数$\alpha$搜索（7B模型只需单张A10 GPU）
 

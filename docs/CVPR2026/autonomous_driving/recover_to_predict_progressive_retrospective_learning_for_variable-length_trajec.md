@@ -50,8 +50,8 @@ RDM 采用**残差蒸馏策略**，将缺失时步特征建模为可学习残差
 
 1. **场景上下文注入**：通过 cross-attention 将 agent 特征与 HD Map 特征 $\mathbf{F}_m$ 融合
 2. **双分支结构**：
-   - **Logit 分支**：self-attention → MLP → Sigmoid 生成逐元素门控向量 $\mathbf{g}^v$
-   - **Residual 分支**：self-attention → MLP → ReLU 学习残差特征 $\mathbf{F}_r^v$
+    - **Logit 分支**：self-attention → MLP → Sigmoid 生成逐元素门控向量 $\mathbf{g}^v$
+    - **Residual 分支**：self-attention → MLP → ReLU 学习残差特征 $\mathbf{F}_r^v$
 3. **门控融合**：$\tilde{\mathbf{F}}^{v-1} = \mathbf{g}^v \odot \mathbf{F}^v + \mathbf{F}_r^v$，保留可靠分量并补充缺失信息
 
 ### 回溯预测模块 (Retrospective Prediction Module, RPM)

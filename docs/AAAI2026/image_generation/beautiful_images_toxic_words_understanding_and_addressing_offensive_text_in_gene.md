@@ -10,7 +10,7 @@ tags:
   - NSFW Safety
   - Text-in-Image
   - Safety Fine-tuning
-  - Benchmark
+  - benchmark
 ---
 
 # Beautiful Images, Toxic Words: Understanding and Addressing Offensive Text in Generated Images
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.05066](https://arxiv.org/abs/2502.05066)  
 **代码**: [sprintml/ToxicBench](https://github.com/sprintml/ToxicBench) / [sprintml/SafeTextGen](https://github.com/sprintml/SafeTextGen)  
 **领域**: image_generation  
-**关键词**: Diffusion Models, NSFW Safety, Text-in-Image, Safety Fine-tuning, Benchmark  
+**关键词**: Diffusion Models, NSFW Safety, Text-in-Image, Safety Fine-tuning, benchmark
 
 ## 一句话总结
 揭示扩散模型在生成图像中嵌入 NSFW 文字的新威胁，提出基于文本生成层定向 LoRA 微调的 NSFW-Intervention 方法，并发布 ToxicBench 基准。
@@ -33,8 +33,8 @@ tags:
 ## 核心问题
 1. **新威胁识别**：所有主流扩散模型都能在生成图像中嵌入 NSFW 文字，现有安全机制对此束手无策
 2. **朴素方案失败**：
-   - 输入端文本过滤：缺乏视觉上下文，同一词汇（如 "Penetrating"）在不同场景下含义不同；且无法应对开源模型的白盒场景
-   - 输出端 OCR 检测：模型经常生成带拼写错误的文字，人类仍可识别但 OCR+毒性检测器失效（SDXL 检出率不足 50%）
+    - 输入端文本过滤：缺乏视觉上下文，同一词汇（如 "Penetrating"）在不同场景下含义不同；且无法应对开源模型的白盒场景
+    - 输出端 OCR 检测：模型经常生成带拼写错误的文字，人类仍可识别但 OCR+毒性检测器失效（SDXL 检出率不足 50%）
 3. **现有方法不足**：AURA、ESD、Safe-CLIP 等方法在抑制 NSFW 文字时会**同等程度地**损害良性文字生成能力，缺乏定向性
 
 ## 方法详解

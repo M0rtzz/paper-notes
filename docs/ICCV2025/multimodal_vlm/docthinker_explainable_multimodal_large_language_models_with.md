@@ -9,7 +9,7 @@ tags:
   - rule-based RL
   - GRPO
   - document understanding
-  - explainability
+  - interpretability
   - chain-of-thought
 ---
 
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2508.08589](https://arxiv.org/abs/2508.08589)  
 **代码**: [https://github.com/wenwenyu/DocThinker](https://github.com/wenwenyu/DocThinker)  
 **领域**: 多模态VLM / 文档理解 / 强化学习推理  
-**关键词**: rule-based RL, GRPO, document understanding, explainability, chain-of-thought  
+**关键词**: rule-based RL, GRPO, document understanding, interpretability, chain-of-thought
 
 ## 一句话总结
 提出DocThinker，首个将GRPO（Group Relative Policy Optimization）强化学习应用于文档理解的框架，通过四目标规则奖励（格式、答案准确度、RoI IoU、问题改写质量）训练MLLM自主生成可解释的推理过程，仅用4K训练数据在DocVQA上将Qwen2.5-VL-7B从0.355提升到0.579（RL vs SFT: 0.579 vs 0.355），并在视觉定位任务上达到82.4%精度。
 
 ## 研究背景与动机
 **领域现状**：MLLM在文档理解上表现出色，但推理过程是黑盒的，在法律/金融/医疗等高风险领域缺乏可信度。现有方法主要用固定的CoT模板进行推理，如ReFocus用外部工具编辑图像、Visual CoT做多轮处理、MVoT生成交错的视觉-文本推理链。
+
 **现有痛点**：(1) 固定CoT模板不够灵活，跨任务泛化差；(2) SFT训练容易遗忘（catastrophic forgetting），在新文档类型上表现下降；(3) 现有方法只输出最终答案，缺少中间推理过程的可解释性。
+
 **核心矛盾**：SFT让模型记住训练数据中的推理模式，但无法自主探索更好的推理策略。DeepSeek-R1等工作已证明纯RL可以激发模型的涌现推理能力，但RL在文档理解领域几乎未被探索。
+
 **本文要解决什么**：用RL替代SFT来训练文档理解MLLM，让模型自主学习灵活的推理策略，同时生成可解释的中间步骤（推理过程、改写问题、感兴趣区域、最终答案）。
+
 **切入角度**：受DeepSeek-R1和MedVLM-R1启发，将GRPO应用于多模态文档理解，设计四个可验证的规则奖励函数来引导模型学习。
+
 **核心idea一句话**：用GRPO强化学习+四目标规则奖励替代SFT来训练文档理解MLLM，实现自适应推理和可解释输出。
 
 ## 方法详解
@@ -50,13 +55,13 @@ tags:
 
 2. **GRPO训练策略（替代PPO）**:
 
-    - 做什么：对每个问题采样G=6个候选输出，用规则奖励评估后归一化为组内相对优势$A_i = (r_i - \text{mean}) / \text{std}$，优化策略使高优势回复的概率增大。
+    - 功能：对每个问题采样G=6个候选输出，用规则奖励评估后归一化为组内相对优势$A_i = (r_i - \text{mean}) / \text{std}$，优化策略使高优势回复的概率增大。
     - 核心思路：不需要额外的critic网络（PPO需要），直接用组内相对比较来估计优势。KL散度正则化$\beta=0.04$防止策略偏离参考模型太远，缓解灾难性遗忘。
     - 设计动机：GRPO计算效率高，不需要训练value network，且已在DeepSeek-R1中被验证能激发涌现推理能力。
 
 3. **结构化可解释输出**:
 
-    - 做什么：模型输出包含四个部分——`<think>`中的自由推理过程 + `rephrase_question`（改写后的清晰问题）+ `bbox_2d`（支持答案的文档区域坐标）+ `final_answer`。
+    - 功能：模型输出包含四个部分——`<think>`中的自由推理过程 + `rephrase_question`（改写后的清晰问题）+ `bbox_2d`（支持答案的文档区域坐标）+ `final_answer`。
     - 核心思路：推理过程让人了解模型"怎么想"，改写问题让人了解模型"怎么理解问题"，bbox让人看到模型"看的是哪里"——三个维度的可解释性。
     - 设计动机：比单纯输出答案有更丰富的可解释信息，且RL训练中推理过程会不断优化（模型自我反思和修正），这是VoT等方法无法做到的。
 

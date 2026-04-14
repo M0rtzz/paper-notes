@@ -7,9 +7,9 @@ tags:
   - AAAI2026
   - 3D视觉
   - 半监督学习
-  - remote sensing
-  - foundation model
-  - 图像分割
+  - 遥感
+  - 基础模型
+  - 语义分割
   - mixture-of-experts
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2508.12409](https://arxiv.org/abs/2508.12409)  
 **代码**: [S5](https://github.com/RS-S5/S5)  
 **领域**: 3d_vision  
-**关键词**: semi-supervised learning, remote sensing, foundation model, semantic segmentation, mixture-of-experts  
+**关键词**: 半监督学习, 遥感, 基础模型, 语义分割, mixture-of-experts
 
 ## 一句话总结
 提出 S5 框架，首次将半监督语义分割 (S4) 从小规模数据扩展为大规模预训练范式 (S4P)，构建百万级 RS4P-1M 数据集预训练遥感基础模型，并通过 MoE-based 多数据集微调实现 SOTA 性能。

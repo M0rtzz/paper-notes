@@ -8,7 +8,7 @@ tags:
   - 视频理解
   - Video Generation
   - Physics-Conditioned Goals
-  - World Model
+  - world model
   - 提示学习
   - Causal Reasoning
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.05848](https://arxiv.org/abs/2601.05848)  
 **代码**: [goal-force.github.io](https://goal-force.github.io/)  
 **领域**: Video Understanding  
-**关键词**: Video Generation, Physics-Conditioned Goals, World Model, Force Prompting, Causal Reasoning
+**关键词**: Video Generation, Physics-Conditioned Goals, world model, Force Prompting, Causal Reasoning
 
 ## 一句话总结
 

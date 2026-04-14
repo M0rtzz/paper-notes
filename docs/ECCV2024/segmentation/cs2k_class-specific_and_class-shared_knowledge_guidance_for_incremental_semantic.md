@@ -9,7 +9,7 @@ tags:
   - Class-specific Knowledge
   - Class-shared Knowledge
   - Prototype
-  - Catastrophic Forgetting
+  - catastrophic forgetting
 ---
 
 # Cs2K: Class-Specific and Class-Shared Knowledge Guidance for Incremental Semantic Segmentation
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2407.09047](https://arxiv.org/abs/2407.09047)  
 **代码**: 待确认  
 **领域**: segmentation  
-**关键词**: Incremental Semantic Segmentation, Class-specific Knowledge, Class-shared Knowledge, Prototype, Catastrophic Forgetting
+**关键词**: Incremental Semantic Segmentation, Class-specific Knowledge, Class-shared Knowledge, Prototype, catastrophic forgetting
 
 ## 一句话总结
 提出 Cs2K 框架，从类别特有知识（原型引导伪标签 + 原型引导类别适应）和类别共享知识（权重引导选择性整合）两个方面协同缓解增量语义分割中的灾难性遗忘与新类欠拟合问题。

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing
 description: >-
-  [CVPR 2026][3D运动生成][多人运动编辑] 首次定义多人3D运动编辑(TMME)任务，构建InterEdit3D数据集(5161三元组)，提出条件扩散模型InterEdit，通过语义规划Token对齐和频域交互Token对齐，g2t R@1达30.82%超越最强基线5.85%
+  [CVPR 2026][图像生成][多人运动编辑] 首次定义文本引导的多人3D运动编辑(TMME)任务，构建含5161个源-目标-指令三元组的InterEdit3D数据集，提出InterEdit条件扩散模型——通过语义感知规划Token对齐捕捉高层编辑意图、交互感知频域Token对齐建模周期性交互动态，在指令跟随(g2t R@1 30.82%)和源保持(g2s R@1 17.08%)上全面超越4个基线。
 tags:
   - CVPR 2026
-  - 3D运动生成
+  - 图像生成
   - 多人运动编辑
   - 文本引导扩散模型
-  - 频域对齐
+  - 交互感知频域对齐
   - 语义规划Token
+  - TMME
 ---
 
 # InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing
@@ -43,17 +44,17 @@ tags:
 
 ### 关键设计
 1. **语义感知规划Token对齐 (Semantic-Aware Plan Token Alignment)**:
-    - 做什么：为去噪器提供高层语义编辑引导，指示"应该改成什么"
+    - 功能：为去噪器提供高层语义编辑引导，指示"应该改成什么"
     - 核心思路：附加 $N_M=16$ 个可学习规划Token到去噪器序列，通过自注意力与运动Token交互。在第3层Transformer提取后投影到语义空间，使用冻结的TMR运动教师编码器提取目标运动语义嵌入作为正样本，以InfoNCE对比损失对齐：$\mathcal{L}_{plan} = -\frac{1}{N_M}\sum_k \log \frac{\exp(\tilde{z}^{(k)\top}\tilde{z}_{tgt}/\tau)}{\sum_n \exp(\tilde{z}^{(k)\top}\tilde{z}_{tgt}^{(n)}/\tau)}$
     - 设计动机：InfoNCE保持潜在空间的判别结构优于MSE/Cosine；规划Token间接引导运动Token而非直接约束，给模型更大灵活度
 
 2. **交互感知频域Token对齐 (Interaction-Aware Frequency Token Alignment)**:
-    - 做什么：捕捉并保持双人交互的节奏、同步和周期性动态
+    - 功能：捕捉并保持双人交互的节奏、同步和周期性动态
     - 核心思路：将双人运动分解为均值信号 $z_S=(x^A+x^B)/2$（同步分量）和差值信号 $z_D=x^A-x^B$（对抗分量），沿时间轴做DCT变换，按低/中/高频带（cutoff $r_l$=0.08, $r_m$=0.25, $r_h$=0.35）计算能量描述子 $E(C;b) = \sqrt{\frac{1}{|b|}\sum_{k \in b}C[k]^2 + \epsilon}$，共6个频带能量→投影为6个频率控制Token参与自注意力。在第5层回归目标运动的频带能量
     - 设计动机：频域天然适合描述交互的周期性特征（节拍、同步vs交替、相位对齐等）；高频权重降至0.25减少噪声敏感性；4%概率随机丢弃频率Token做正则化防止过度依赖
 
 3. **同步无分类器引导 (SCFG)**:
-    - 做什么：平衡条件生成质量和多样性
+    - 功能：平衡条件生成质量和多样性
     - 核心思路：训练时以10%概率同步丢弃文本和源两个条件（同步丢弃避免单侧泄露），推理时以γ=3.5合并条件/无条件预测
     - 设计动机：两分支与三分支CFG性能相当但推理成本更低
 

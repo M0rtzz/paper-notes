@@ -11,7 +11,7 @@ tags:
   - Anti-UAV
   - 点云
   - Spatiotemporal Correlation
-  - Benchmark
+  - benchmark
 ---
 
 # Event-based Tiny Object Detection: A Benchmark Dataset and Baseline
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.23575](https://arxiv.org/abs/2506.23575)  
 **代码**: [https://github.com/ChenYichen9527/Ev-UAV](https://github.com/ChenYichen9527/Ev-UAV)  
 **领域**: 3D视觉 / 事件相机 / 小目标检测  
-**关键词**: Event Camera, Small Object Detection, Anti-UAV, Sparse Point Cloud, Spatiotemporal Correlation, Benchmark  
+**关键词**: Event Camera, Small Object Detection, Anti-UAV, Sparse Point Cloud, Spatiotemporal Correlation, benchmark
 
 ## 一句话总结
 提出首个大规模事件相机反无人机小目标检测基准EV-UAV数据集（147序列/230万事件级标注/平均目标仅6.8×5.4像素），并设计EV-SpSegNet——基于稀疏3D点云分割的检测框架，利用小目标在时空事件点云中形成连续曲线的特征，配合时空相关性损失(STC loss)引导网络保留目标事件，在IoU/ACC/检测概率上全面超越13种SOTA方法，推理速度快10-100倍。
@@ -70,18 +70,18 @@ EV-SpSegNet是基于U型稀疏卷积架构的事件点云分割网络：
 GDSCA模块包含三个组件：
 
 1. **Grouped Dilated Sparse Convolution (GDSC) Block**：
-   - 将输入特征沿通道维度分组（默认4组）
-   - 每组使用不同膨胀率(1,2,3,4)的稀疏卷积
-   - 提取多尺度局部时间特征——适应不同运动速度的目标曲线
+    - 将输入特征沿通道维度分组（默认4组）
+    - 每组使用不同膨胀率(1,2,3,4)的稀疏卷积
+    - 提取多尺度局部时间特征——适应不同运动速度的目标曲线
 
 2. **Sp-SE Block**（Sparse Squeeze-and-Excitation）：
-   - 融合来自不同膨胀率分组的特征
-   - 通道注意力重新加权
+    - 融合来自不同膨胀率分组的特征
+    - 通道注意力重新加权
 
 3. **Patch Attention Block**：
-   - 将点云划分为较大子区域
-   - 子区域间自注意力实现全局上下文交互
-   - 先下采样再注意力，降低二次复杂度
+    - 将点云划分为较大子区域
+    - 子区域间自注意力实现全局上下文交互
+    - 先下采样再注意力，降低二次复杂度
 
 设计逻辑：GDSC先捕获局部多尺度特征 → Patch Attention再全局交互。实验证明单用Patch Attention反而降低性能——因为没有充足局部特征时全局注意力会导致特征混淆。
 

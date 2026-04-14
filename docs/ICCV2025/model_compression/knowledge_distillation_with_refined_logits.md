@@ -59,7 +59,7 @@ $$L_{RLD} = L_{CE} + \alpha \cdot L_{SCD} + \beta \cdot L_{MCD}$$
 
 1. **Sample Confidence Distillation (SCD)**：
 
-    - 做什么：将教师和学生的 logit 分布压缩为二元分布，传递"教师对当前样本有多确信"这一信息
+    - 功能：将教师和学生的 logit 分布压缩为二元分布，传递"教师对当前样本有多确信"这一信息
     - 核心思路：
       - 教师二元分布：$b^T = \{\hat{p}_{max}^T, 1 - \hat{p}_{max}^T\}$（最大预测概率 vs 其余）
       - 学生二元分布：$b^S = \{\hat{p}_{true}^S, 1 - \hat{p}_{true}^S\}$（真实类概率 vs 其余）
@@ -70,7 +70,7 @@ $$L_{RLD} = L_{CE} + \alpha \cdot L_{SCD} + \beta \cdot L_{MCD}$$
 
 2. **Masked Correlation Distillation (MCD)**：
 
-    - 做什么：动态掩蔽教师 logit 中排名高于真实类的所有类别，仅对剩余类别做 KL 对齐
+    - 功能：动态掩蔽教师 logit 中排名高于真实类的所有类别，仅对剩余类别做 KL 对齐
     - 核心思路：
       - 掩码集合：$M_{ge} = \{i | z_i^T \geq z_{true}^T, 1 \leq i \leq C\}$
       - 掩蔽后的分布：$\tilde{p}_i = \frac{\exp(z_i/\tau)}{\sum_{c \notin M_{ge}} \exp(z_c/\tau)}$，仅对 $i \notin M_{ge}$ 的类计算

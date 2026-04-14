@@ -9,7 +9,7 @@ tags:
   - AI Agent
   - 可复现性评估
   - 社会科学
-  - Benchmark
+  - benchmark
   - 代码执行
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.18901](https://arxiv.org/abs/2507.18901)  
 **代码**: [GitHub](https://github.com/uiuc-kang-lab/REPRO-Bench)  
 **领域**: llm_agent  
-**关键词**: AI Agent, 可复现性评估, 社会科学, Benchmark, 代码执行
+**关键词**: AI Agent, 可复现性评估, 社会科学, benchmark, 代码执行
 
 ## 一句话总结
 提出 REPRO-Bench，包含 112 个社会科学论文的可复现性评估任务，发现现有 AI Agent（最高准确率仅 21.4%）远不足以自动化该流程，并据此开发 REPRO-Agent 将准确率提升至 36.6%。

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs
 description: >-
-  [CVPR 2026][视频时间定位] 系统调查构建MLLM视频时间定位能力的关键因素，揭示现有VTG基准严重质量问题并发布TimeLens-Bench和TimeLens-100K，通过交错文本时间编码和thinking-free RLVR训练范式，使开源7B/8B模型超越GPT-5和Gemini-2.5-Flash。
+  [CVPR 2026][多模态][video temporal grounding] 系统调查构建MLLM视频时间定位（VTG）能力的关键因素，从数据质量和算法设计两个维度出发，发布高质量基准TimeLens-Bench和训练集TimeLens-100K，并通过交错文本时间编码+thinking-free RLVR训练范式构建TimeLens系列模型，在开源模型中达到SOTA并超越GPT-5和Gemini-2.5-Flash。
 tags:
   - CVPR 2026
-  - 视频时间定位
-  - 数据质量
+  - 多模态
+  - video temporal grounding
+  - data quality
   - RLVR
-  - 时间编码
-  - 基准修复
+  - timestamp encoding
+  - benchmark refinement
 ---
 
 # TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs

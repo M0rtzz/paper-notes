@@ -9,7 +9,7 @@ tags:
   - 语音指令遵循
   - 交错预训练
   - 语音-文本对齐
-  - Benchmark
+  - benchmark
 ---
 
 # InSerter: Speech Instruction Following with Unsupervised Interleaved Pre-training
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.02769](https://arxiv.org/abs/2503.02769)  
 **代码**: [SpeechInstructBench](https://huggingface.co/datasets/ddwang2000/SpeechInstructBench)  
 **领域**: LLM/NLP  
-**关键词**: SpeechLLM, 语音指令遵循, 交错预训练, 语音-文本对齐, Benchmark  
+**关键词**: SpeechLLM, 语音指令遵循, 交错预训练, 语音-文本对齐, benchmark
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **语音指令遵循的语义鸿沟**：当前 SpeechLLM 处理语音输入时，智能水平显著低于处理文本输入，语音-文本模态间的语义不一致是核心瓶颈。
+
 **表征对齐的局限**：直接对齐连续语音帧与离散文本 token 的表征会损失语调、能量、音高等关键声学特征，因为两者粒度天然不匹配。
+
 **行为对齐的扩展性差**：通过后训练阶段让模型对语音/文本输入产生一致输出的方法，依赖高质量配对数据，数据构造复杂且难以大规模扩展。
+
 **缺乏专用评测**：现有 Benchmark（如 VoiceBench）主要评估通用对话能力，缺少对语音指令遵循（含口音、噪声、语流不畅等）的系统性评测。
+
 **预训练阶段的启发**：文本智能的涌现来自预训练阶段的无监督 next-token prediction，作者希望将这一机制迁移到语音模态。
+
 **训练效率低**：已有行为对齐方法每个样本仅优化一条语音序列的文本续写，InSerter 通过交错格式实现多段对齐，显著提升训练效率。
 
 ## 方法详解

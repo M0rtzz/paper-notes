@@ -9,7 +9,7 @@ tags:
   - 运动迁移
   - 时序核
   - 轨迹跟踪
-  - 基准测试
+  - benchmark
 ---
 
 # Decouple and Track: Benchmarking and Improving Video Diffusion Transformers for Motion Transfer
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.17350](https://arxiv.org/abs/2503.17350)  
 **代码**: [项目页面](https://shi-qingyu.github.io/DeT.github.io)  
 **领域**: Video Generation / Motion Transfer  
-**关键词**: Diffusion Transformer, 运动迁移, 时序核, 轨迹跟踪, 基准测试
+**关键词**: 扩散 Transformer, 运动迁移, 时序核, 轨迹跟踪, benchmark
 
 ## 一句话总结
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.12751](https://arxiv.org/abs/2603.12751)  
 **代码**: 无  
 **领域**: 目标检测 / 机器人视觉  
-**关键词**: novel object detection, self-supervised, robot learning, human demonstration, object manipulation  
+**关键词**: novel object detection, self-supervised, robot learning, human demonstration, object manipulation
 
 ## 一句话总结
 提出"Show, Don't Tell"范式：通过观看人类演示视频，自动构建新物体标注数据集（SODC），训练轻量级定制检测器（MOD），完全绕过语言描述和prompt engineering，在真实机器人分拣任务上成功部署。

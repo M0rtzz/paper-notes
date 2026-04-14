@@ -1,13 +1,16 @@
 ---
-title: "[论文解读] Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning"
-description: "[CVPR 2026][视频理解][密集视频描述] ROS-DVC通过角色专用查询分离定位和描述+跨任务对比对齐+重叠抑制损失，无需LLM即在YouCook2上CIDEr达39.18超越GPT-2方法"
+title: >-
+  [论文解读] Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning
+description: >-
+  [CVPR 2026][视频理解][密集视频描述] ROS-DVC为DETR-based密集视频描述设计角色专用查询（定位和描述独立初始化）、跨任务对比对齐损失和重叠抑制损失三个互补组件，无需预训练或LLM即在YouCook2上CIDEr达39.18，超越使用GPT-2的DDVC。
 tags:
   - CVPR 2026
   - 视频理解
   - 密集视频描述
-  - DETR
   - 角色专用查询
   - 重叠抑制
+  - DETR
+  - 跨任务对比对齐
 ---
 
 # Stay in your Lane: Role Specific Queries with Overlap Suppression Loss for Dense Video Captioning
@@ -45,17 +48,17 @@ ROS-DVC为DETR-based密集视频描述设计角色专用查询（定位和描述
 ### 关键设计
 
 1. **角色专用查询初始化（Role-Specific Query Initialization）**:
-    - 做什么：将标准DETR的单一查询集分为定位查询 $\{q_{\text{loc}}^j\}_{j=1}^K$ 和描述查询 $\{q_{\text{cap}}^j\}_{j=1}^K$，各自从独立的嵌入空间初始化
+    - 功能：将标准DETR的单一查询集分为定位查询 $\{q_{\text{loc}}^j\}_{j=1}^K$ 和描述查询 $\{q_{\text{cap}}^j\}_{j=1}^K$，各自从独立的嵌入空间初始化
     - 核心思路：两组查询在解码器cross-attention层中共享视觉定位（引用相同视觉位置的reference point），但保持各自表示空间的独立性。定位查询学习广泛关注时间上下文以预测边界，描述查询学习密集关注关键帧以捕获语义。与DDVC不同（用MLP从定位查询派生描述查询），本文是真正的物理分离
     - 设计动机：完全独立的嵌入空间允许每组查询被各自的目标函数独立优化，避免梯度方向冲突。Figure 1b可视化证实分离后的注意力分布确实呈现差异化模式
 
 2. **跨任务对比对齐损失（CTCA Loss）**:
-    - 做什么：确保对应位置的定位查询和描述查询指向同一事件的语义内容
+    - 功能：确保对应位置的定位查询和描述查询指向同一事件的语义内容
     - 核心思路：Hungarian匹配后，对于匹配到GT的索引集 $\mathcal{M}$，将 $(q_{\text{cap}}^j, q_{\text{loc}}^j)$ 视为正对，$(q_{\text{cap}}^j, q_{\text{loc}}^{j'})$ 为负对。损失函数 $\mathcal{L}_{\text{CTCA}}=-\sum_{j\in\mathcal{M}}\log\frac{\exp(\text{sim}(\tilde{q}_{\text{cap}}^j,\tilde{q}_{\text{loc}}^j)/\tau)}{\sum_{j'}\exp(\text{sim}(\tilde{q}_{\text{cap}}^j,\tilde{q}_{\text{loc}}^{j'})/\tau)}$
     - 设计动机：查询空间分离后语义一致性不再自动保证，CTCA通过对比学习显式桥接定位和描述查询，使定位查询也获得语义感知能力
 
 3. **重叠抑制损失（Overlap Suppression Loss, OSL）**:
-    - 做什么：惩罚预测事件之间的过度时间重叠，减少冗余预测
+    - 功能：惩罚预测事件之间的过度时间重叠，减少冗余预测
     - 核心思路：基于预测边界 $B_i,B_j$ 的成对时间IoU $P_o(i,j)$，引入GT对齐权重 $\alpha=\gamma\cdot P_g+(1-\gamma)\cdot(1-P_g)$（$\gamma\leq0.5$），最终损失 $L_{\text{OSL}}=-\alpha\cdot\log(\beta-P_o)$。与GT高度匹配的预测受较小惩罚（$P_g$ 大 → $\alpha$ 小），避免误抑制真正的连续事件
     - 设计动机：直接在训练时优化比NMS后处理更有效；GT调制惩罚区分了"与GT对应的合理重叠"和"冗余的无效重叠"
 

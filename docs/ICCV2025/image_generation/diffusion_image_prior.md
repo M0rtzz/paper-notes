@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.21410](https://arxiv.org/abs/2503.21410)  
 **代码**: 无  
 **领域**: 图像生成 / 图像复原  
-**关键词**: Diffusion Model, Blind Image Restoration, Deep Image Prior, Early Stopping, Zero-shot
+**关键词**: diffusion model, Blind Image Restoration, Deep Image Prior, Early Stopping, Zero-shot
 
 ## 一句话总结
 
@@ -28,8 +28,11 @@ tags:
 ## 研究背景与动机
 
 图像复原（IR）的目标是从退化图像 $y$ 恢复干净图像 $x$。现有方法的退化模型假设从强到弱分为三级：
+
 **非盲方法**（DDRM, DDNM, DPS）：需完全已知退化模型（如已知模糊核）
+
 **部分盲方法**（BlindDPS, BIRD）：需已知退化的参数形式
+
 **完全盲方法**（DIP, DreamClean）：无需任何退化模型知识
 
 Deep Image Prior (DIP) 是经典的完全盲方法，利用 CNN 的隐式先验，通过优化网络参数拟合退化图像，在中间迭代阶段产出干净图像。但 DIP 的核心局限在于：**这种"先干净后过拟合"的性质仅对高频退化（如噪声）有效，对低频退化（如模糊）无效**。

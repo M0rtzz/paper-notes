@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] InstanceAssemble: Layout-Aware Image Generation via Instance Assembling Attention
 description: >-
-  提出InstanceAssemble，通过实例组装注意力机制在DiT模型中实现精确的Layout-to-Image生成控制，支持bbox位置和多模态内容控制，并构建DenseLayout基准和LGS评估指标
+  [NeurIPS 2025][目标检测][layout-to-image] 提出 InstanceAssemble，在 DiT-based T2I 模型（SD3 和 Flux）的 Transformer 块中注入"实例组装注意力"机制，通过将每个 bounding box 区域的 image token 独立与对应的 layout hidden state 做 cross-attention 来实现精确的实例级空间控制，同时以 LoRA 轻量适配方式保持与现有风格 LoRA 的兼容性，并提出包含 5K 图像/90K 实例的 DenseLayout 基准和多维度的 Layout Grounding Score（LGS）评估指标。
 tags:
   - NeurIPS 2025
+  - 目标检测
   - layout-to-image
-  - DiT
   - 注意力机制
+  - DiT
   - LoRA
-  - bounding box
-  - 图像生成
+  - DenseLayout benchmark
 ---
 
 # InstanceAssemble: Layout-Aware Image Generation via Instance Assembling Attention
@@ -55,19 +57,19 @@ InstanceAssemble 的整体架构是在已有 DiT-based T2I 模型（SD3 或 Flux
 
 1. **TextBoundingboxProjection（Layout Encoder）**:
 
-    - 做什么：将每个实例的 bounding box 坐标和文本描述编码为统一的 layout hidden state 向量
+    - 功能：将每个实例的 bounding box 坐标和文本描述编码为统一的 layout hidden state 向量
     - 核心思路：该模块首先对 bbox 坐标进行**密集采样**——每个 bbox 不只用 $(x_1, y_1, x_2, y_2)$ 四个角点表示，而是在 bbox 内部均匀采样 $6 \times 6 = 36$ 个网格点，生成 72 维的坐标向量（36 个点的 xy 坐标），这使得位置信息更加精细地覆盖了实例的空间范围。然后对这 72 维坐标向量进行 **Fourier 位置编码**：用 8 个不同频率（$100^{k/8}$, $k=0,...,7$）分别对每个坐标值做 sin/cos 变换，生成 $72 \times 8 \times 2 = 1152$ 维的 position embedding。文本描述通过 CLIP text encoder 编码后，再经一个 `PixArtAlphaTextProjection`（两层 MLP + SiLU 激活）投影到与 DiT 内部维度一致的 positive embedding。最后将 text embedding 和 position embedding 拼接（维度为 $d_{inner} + 1152$），通过另一个 MLP 映射到 $d_{inner}$ 维，得到最终的 layout hidden state。所有操作都乘以一个二值 mask $m_i \in \{0, 1\}$，标记该 slot 是否有实例存在
     - 设计动机：使用密集采样的 Fourier 编码而非简单的四角坐标，能更精确地表达不同尺寸/长宽比的 bbox 在隐空间中的空间位置。同时，将文本信息和空间信息在 embedding 层就融合，使得后续 attention 操作时每个实例的 layout hidden state 同时携带"是什么"和"在哪里"两类信息
 
 2. **Instance-Assembling Attention（核心贡献）**:
 
-    - 做什么：在 DiT 的 Transformer 块中，对每个有效实例独立执行局部 cross-attention，使每个 bbox 区域的 image token 仅受其对应 layout 描述控制
+    - 功能：在 DiT 的 Transformer 块中，对每个有效实例独立执行局部 cross-attention，使每个 bbox 区域的 image token 仅受其对应 layout 描述控制
     - 核心思路：具体来说，在每个 Layout Transformer Block 的前向传播中，当 `attention_type == "layout"` 且 `layout_scale != 0` 时，会执行以下步骤：(a) 对 layout hidden states 和 image hidden states 分别做 AdaLayerNorm（使用与原始 attention 相同的时间步条件 temb），得到 normalized 的表示；(b) 找出所有有效实例的索引 `valid_mask = (layout_masks == 1)`；(c) 对每个有效实例 $(i, j)$（batch $i$，实例 $j$），提取该 bbox 覆盖区域的 image token 索引 `img_idxs = img_idxs_list_list[i][j]`，从 `norm_hidden_states[i, img_idxs]` 中取出局部 image token，与 `norm_layout_hidden_states[i, j]` 做 cross-attention——image token 做 Q，layout token 做 KV；(d) attention 输出通过一个**零初始化的线性层** `layout_forward`（即 `zero_module(nn.Linear(dim, dim))`）投影后，乘以 `layout_scale` 进行缩放；(e) 所有实例的输出通过 **scatter-add** 聚合到一个全局大小的 tensor 上，对于有多个实例 bbox 重叠的 image token 位置，取平均值（除以计数 `img_add_cnt`）；(f) 将聚合后的结果加回到原始 hidden states 上
     - 设计动机：这一设计从根本上解决了多实例特征串扰问题——每个实例的 attention 操作完全独立，不存在跨实例的 key-value 交互。零初始化的线性层确保训练开始时 layout 控制对原始生成过程无影响（即"渐进式"注入），避免初始化不当导致生成崩溃。scatter-add + 平均的聚合策略允许处理任意数量的实例和 bbox 重叠的情况。整个过程包裹在 `enable_lora()` 上下文管理器中，确保仅 LoRA 参数被更新
 
 3. **LoRA 轻量适配与风格兼容**:
 
-    - 做什么：以 LoRA 模块的形式插入 DiT 的 attention 层和 norm 层，只训练低秩增量参数，冻结原始 DiT 权重
+    - 功能：以 LoRA 模块的形式插入 DiT 的 attention 层和 norm 层，只训练低秩增量参数，冻结原始 DiT 权重
     - 核心思路：InstanceAssemble 的权重文件由两部分组成——`pytorch_lora_weights.safetensors`（LoRA 增量权重）和 `layout.pth`（Layout Encoder 和 zero-init linear 的参数）。推理时，先从预训练的 DiT 模型初始化一个 `LayoutTransformer`（从原始 transformer 的 config 创建，但将 `attention_type` 设为 `"layout"`），加载原始权重（`strict=False`），然后依次加载 LoRA 权重和 layout 权重。关键的一步是加载后立即**将 LoRA scales 清零** (`_zero_out_lora_scales`)——这使得用户可以叠加自定义的 style LoRA 而不会与 layout LoRA 冲突。LoRA 在需要时通过 `enable_lora()` 上下文管理器临时激活，仅在执行 layout 相关计算时生效
     - 设计动机：全量微调不仅计算成本高，更致命的是会破坏 DiT 的原始能力以及与社区风格 LoRA 的兼容性。通过 LoRA 适配，用户可以同时使用"布局控制 LoRA + 风格 LoRA"实现"在指定位置、以指定风格生成指定内容"的组合控制。代码中可以看到，Flux 版本的 layout attention 仅注入到每 3 个 joint transformer block 的第 1 个（`i % 3 == 0`）和 single transformer block 的第 1 个（`i == 0`），进一步减少了 LoRA 参数量
 

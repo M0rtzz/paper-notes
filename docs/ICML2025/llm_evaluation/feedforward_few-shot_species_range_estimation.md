@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Feedforward Few-shot Species Range Estimation
 description: >-
-  [ICML2025][物种分布建模] 提出前馈式少样本物种分布估计方法 FS-SINR：基于 Transformer 编码器，输入少量观测位置及可选文本/图像元数据，一次前传输出物种编码用于预测未见物种的空间分布，比迭代优化方法快 orders of magnitude 且在 IUCN 和 S&T 基准上达到 SOTA。
+  [ICML 2025][物种分布建模] 提出 FS-SINR（Few-shot Spatial Implicit Neural Representations），一种基于 Transformer 的前馈式少样本物种分布估计模型，无需针对新物种重新训练即可从少量观测位置（甚至零个）一次前传预测空间分布，在 IUCN 和 S&T 基准上以 2-6% 的计算时间超越 LE-SINR 等需要重新训练的方法。
 tags:
-  - ICML2025
+  - ICML 2025
   - 物种分布建模
   - 少样本学习
-  - 空间神经表示
-  - 生态保护
-  - 前馈推理
+  - Transformer
+  - 空间隐式神经表示
+  - 多模态融合
 ---
 
 # Feedforward Few-shot Species Range Estimation
@@ -48,19 +48,19 @@ tags:
 
 1. **位置编码器 + Transformer 架构**:
 
-    - 做什么：将变长的观测位置集合映射为固定维度的物种嵌入向量
+    - 功能：将变长的观测位置集合映射为固定维度的物种嵌入向量
     - 核心思路：位置编码器采用 SINR 中的多层全连接网络（带残差连接），先在大规模数据上按 SINR 方式预训练，然后丢弃分类头。Transformer 包含 4 层编码器，不使用位置编码（因为输入集合无序），而是为每种 token 添加学习的 "embedding type" 向量以区分位置/文本/图像/CLS/REG token
     - 设计动机：集合输入天然需要排列不变性（permutation invariance），Transformer 的自注意力机制恰好满足这一点。CLS token 充当全局汇聚器，将变长序列压缩为固定维度的物种表示
 
 2. **多模态上下文融合（文本 + 图像）**:
 
-    - 做什么：在位置观测之外，可选地提供文本描述（如"该物种分布在热带雨林"）或物种图像作为额外上下文
+    - 功能：在位置观测之外，可选地提供文本描述（如"该物种分布在热带雨林"）或物种图像作为额外上下文
     - 核心思路：文本通过冻结的 GritLM 提取嵌入，图像通过冻结的 EVA-02 ViT（在 iNat 上预训练）提取嵌入，再各自经过 2 层 MLP 映射到与位置 token 相同的空间。训练时以 0.5 概率随机 dropout 文本/图像 token、0.1 概率 dropout 位置 token，确保模型在各种输入组合下都鲁棒
     - 设计动机：对于极度稀缺观测的物种，文本中的栖息地描述（如"高海拔山地"或"沙漠"）可以提供位置数据无法给予的生态先验，显著缩小搜索空间。图像提供物种外观线索但信息量有限
 
 3. **Batch 内损失函数 $\mathcal{L}_{\text{AN-full-b}}$**:
 
-    - 做什么：将 SINR 的全物种 assume-negative 损失适配到前馈架构
+    - 功能：将 SINR 的全物种 assume-negative 损失适配到前馈架构
     - 核心思路：由于 FS-SINR 没有 per-species 权重矩阵 $W$，无法一次对所有物种计算损失。改为在 batch 内的 $s^b$ 个物种上计算：$\mathcal{L}_{\text{AN-full-b}}(\hat{y}, z^b) = -\frac{1}{s^b}\sum_{j=1}^{s^b}[\mathbb{1}_{[z^b=j]}\lambda\log(\hat{y}_j) + \mathbb{1}_{[z^b \neq j]}\log(1-\hat{y}_j) + \log(1-\hat{y}'_j)]$，其中 $\hat{y}'_j$ 为随机伪缺失位置的预测
     - 设计动机：保留了 presence + pseudo-absence 对比的核心结构，同时适配了前馈架构的特点。batch size 2048 确保每批包含足够多物种形成有意义的负样本
 

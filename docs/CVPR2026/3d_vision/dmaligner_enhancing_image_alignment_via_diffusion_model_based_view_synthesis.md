@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.23022](https://arxiv.org/abs/2602.23022)  
 **代码**: [boomluo02/DMAligner](https://github.com/boomluo02/DMAligner)  
 **领域**: 3d_vision  
-**关键词**: image alignment, diffusion model, view synthesis, dynamic scenes, occlusion handling  
+**关键词**: image alignment, diffusion model, view synthesis, dynamic scenes, occlusion handling
 
 ## 一句话总结
 

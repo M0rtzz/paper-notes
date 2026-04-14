@@ -1,14 +1,18 @@
 ---
+title: >-
+  [论文解读] Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning
 description: >-
-  ICML2025论文解读：提出LoMAP方法——在扩散规划器的反向去噪过程中，通过从离线数据近邻构建局部低秩子空间并投影引导后样本，防止流形偏离导致的不可行轨迹生成。理论推导引导误差下界为O(sqrt(d))，在AntMaze长horizon任务上显著提升规划可靠性。
+  [ICML 2025][图像生成][扩散规划] 提出LoMAP——训练无关的扩散规划修正方法，在每个反向扩散步将引导后样本投影到由离线数据近邻构建的局部低秩子空间上，防止不可行轨迹生成，理论证明引导误差随维度以 $O(\sqrt{d})$ 增长。
 tags:
   - ICML 2025
+  - 图像生成
   - 扩散规划
   - 流形偏离
   - 低秩投影
   - 离线RL
   - 轨迹优化
 ---
+
 # Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning
 
 **会议**: ICML 2025  
@@ -32,17 +36,17 @@ tags:
 ### 关键设计
 
 1. **引导误差的理论下界（Proposition 3.2）**:
-    - 做什么：证明MSE引导与真实引导之间的差距不可避免地随维度增长
+    - 功能：证明MSE引导与真实引导之间的差距不可避免地随维度增长
     - 核心思路：利用Jensen不等式将差距分解为 $\delta(\tau^0) = e^{\mathcal{J}(\tau^0)}/\mathbb{E}[e^{\mathcal{J}(\tau^0)}] - \mathcal{J}(\tau^0)$ 与前向噪声 $\epsilon$ 的关联。高维中 $\|\epsilon\|_2 \approx \sqrt{d}$，且 $\delta$ 与 $\epsilon$ 对齐时引导误差下界为 $c\sqrt{d}/\sqrt{1-\alpha_i}$
     - 设计动机：理论证明了修正的必要性——不是模型能力不足，而是MSE目标本身的固有限制
 
 2. **局部流形近似与投影（LoMAP核心）**:
-    - 做什么：在每个去噪步构建数据流形的局部线性近似并投影
+    - 功能：在每个去噪步构建数据流形的局部线性近似并投影
     - 核心思路：(1) 用Tweedie公式得到去噪估计 $\hat{\tau}^{0|i-1}$；(2) 从离线数据检索 $k$ 个最近邻轨迹 $\{\tau_{(n_j)}^0\}$；(3) 将这些近邻前向扩散到时间步 $i{-}1$：$\tau_{(n_j)}^{i-1} = \sqrt{\alpha_{i-1}}\tau_{(n_j)}^0 + \sqrt{1-\alpha_{i-1}}\epsilon_{(n_j)}$；(4) 对 $\{\tau_{(n_j)}^{i-1}\}$ 做PCA得到正交基 $U\in\mathbb{R}^{d\times r}$；(5) 投影 $\tau^{i-1} \leftarrow UU^\top\tau^{i-1}$
     - 设计动机：前向扩散的近邻天然位于时间步 $i{-}1$ 的流形附近（低维流形假设），PCA提取主方向去除正交于流形的偏离分量
 
 3. **与层次化扩散规划器的兼容（HD + LoMAP）**:
-    - 做什么：将LoMAP作为即插即用模块集成到更复杂的规划架构中
+    - 功能：将LoMAP作为即插即用模块集成到更复杂的规划架构中
     - 核心思路：LoMAP只在引导更新后添加一步投影操作，不改变任何前置模块——可直接嵌入Hierarchical Diffuser等层次化规划器
     - 设计动机：AntMaze等复杂任务需要层次化分解（先规划子目标再规划底层动作），LoMAP在两个层级都可独立应用
 

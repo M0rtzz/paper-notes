@@ -47,25 +47,25 @@ GiGPO 采用两级 advantage 估计：(1) Episode-level macro advantage $A_E$—
 
 1. **Episode Relative Advantage $A_E$**：
 
-    - 做什么：捕获轨迹整体质量
+    - 功能：捕获轨迹整体质量
     - 核心思路：对 N 条轨迹的总 return $R(\tau_i) = \sum_t r_t^{(i)}$ 做标准化 $A_E(\tau_i) = \frac{R(\tau_i) - \text{mean}}{F_{\text{norm}}}$
     - 设计动机：提供稳定的全局训练信号，鼓励策略发展出连贯的轨迹级行为
 
 2. **Anchor State Grouping**：
 
-    - 做什么：免费构建 step 级对比组
+    - 功能：免费构建 step 级对比组
     - 核心思路：找出所有轨迹中出现过的唯一环境状态集合 $\mathcal{U}$，对每个状态 $\tilde{s}$ 收集所有从该状态出发的 (action, return) 对形成 step 级 group $G_S(\tilde{s})$。实现上只需基于轻量级 hashmap key 匹配，不触发任何额外 LLM 推理
     - 设计动机：Agent 在探索中经常回到相同状态（重访网页、重回房间、重复搜索），这些自然重复提供了 step 级对比的免费数据
 
 3. **Step Relative Advantage $A_S$**：
 
-    - 做什么：评估同一状态下不同 action 的相对优劣
+    - 功能：评估同一状态下不同 action 的相对优劣
     - 核心思路：对 step 级 group 内每个 action 计算 discounted return $R_t^{(i)} = \sum_{k=t}^{T} \gamma^{k-t} r_k^{(i)}$，然后做组内标准化。例如在 WebShop 中，从相同搜索结果页点击不同商品，成功购买正确商品的 action 获得最高 $A_S$
     - 设计动机：相比只用即时 reward $r_t$，discounted return 能捕获 action 的长期影响
 
 4. **Similarity-based Grouping（扩展）**：
 
-    - 做什么：对环境状态无法精确匹配的场景（如 QA 任务中搜索结果略有不同），用最长匹配子序列相似度 >0.9 进行近似分组
+    - 功能：对环境状态无法精确匹配的场景（如 QA 任务中搜索结果略有不同），用最长匹配子序列相似度 >0.9 进行近似分组
 
 ### 损失函数 / 训练策略
 - 标准 PPO-clip + KL 正则的目标函数，advantage 替换为 $A = A_E + \omega \cdot A_S$

@@ -26,13 +26,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Speech Language Model (SLM) 成为统一处理 TTS/ASR/SE 等语音任务的范式，但在歌声合成上的泛化能力未被探索
+
 **现有痛点**：
    - SVS 公开数据集极少（版权限制+标注昂贵），无法从头训练大模型
    - SVS 输入是结构化乐谱（音素+音高+时值），比 TTS 的文本输入复杂得多
    - 预训练在语音上的 codec 解码器无法忠实重合成歌声，设置了性能上限
+
 **核心矛盾**：大规模 SLM 的泛化潜力 vs SVS 数据稀缺
+
 **本文要解决什么？** 探索 TTS 预训练 SLM 能否低成本适配到 SVS
+
 **切入角度**：将乐谱条件 tokenize 后加入 SLM 词表，微调后用 flow matching 精修
+
 **核心idea一句话**：用 TTS 预训练 SLM + flow matching 精修解决歌声合成的低资源问题
 
 ## 方法详解
@@ -44,19 +49,19 @@ tags:
 
 1. **乐谱 Tokenization (svs_lb)**:
 
-    - 做什么：将音素、MIDI 音高和持续时间编码为帧级离散 token
+    - 功能：将音素、MIDI 音高和持续时间编码为帧级离散 token
     - 核心思路：每帧由 (phoneme_token, pitch_token) 元组表示，通过重复次数隐式编码持续时值：repeat = (end - start) × fps。新增 svs_lb 模态扩展 TTS 词表
     - 设计动机：与 SLM 的 token 预测范式一致，复用 TTS 预训练编码器
 
 2. **Multi-stream LM Token 预测**:
 
-    - 做什么：用 1.7B SLM 预测拼接的 SSL + 8层 codec token
+    - 功能：用 1.7B SLM 预测拼接的 SSL + 8层 codec token
     - 核心思路：基于 ESPNet-SpeechLM，输入乐谱条件 + 说话人提示，目标是帧级 SSL+codec token 的交叉熵损失
     - 设计动机：SSL token 编码高层语义，codec token 编码声学细节，拼接融合两者优势
 
 3. **Flow Matching 精修**:
 
-    - 做什么：将 LM 预测的嘈杂 codec token 精修为干净的 mel 频谱
+    - 功能：将 LM 预测的嘈杂 codec token 精修为干净的 mel 频谱
     - 核心思路：Conditional Flow Matching (CFM) 从高斯噪声出发，以 codec token 和 pitch 信号为条件，学习速度场将样本传输到目标 mel 分布。线性插值路径 ψ_t(x|x_1) = (1-t)x + tx_1
     - 设计动机：LM 直接预测的 token 有噪声导致时域不连续和感知毛刺；codec 解码器在语音上预训练、无法忠实重合成歌声。Flow matching 绕过了这两个瓶颈
 

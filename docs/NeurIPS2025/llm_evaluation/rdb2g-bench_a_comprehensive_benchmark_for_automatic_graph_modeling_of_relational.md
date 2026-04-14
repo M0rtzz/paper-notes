@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 关系数据库
   - 图建模
-  - 基准测试
+  - benchmark
   - 图神经网络
   - 自动建模
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.01360](https://arxiv.org/abs/2506.01360)  
 **代码**: [github.com/chlehdwon/RDB2G-Bench](https://github.com/chlehdwon/RDB2G-Bench)  
 **领域**: 图学习 / 关系数据库  
-**关键词**: 关系数据库, 图建模, 基准测试, 图神经网络, 自动建模
+**关键词**: 关系数据库, 图建模, benchmark, 图神经网络, 自动建模
 
 ## 一句话总结
 

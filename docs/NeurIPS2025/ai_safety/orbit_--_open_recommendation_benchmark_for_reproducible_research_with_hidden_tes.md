@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - AI安全
   - 推荐系统
-  - 基准测试
+  - benchmark
   - 隐私保护数据集
   - 网页推荐
   - LLM推荐
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.26095](https://arxiv.org/abs/2510.26095)  
 **代码**: [官网](https://www.open-reco-bench.ai)  
 **领域**: AI安全  
-**关键词**: 推荐系统, 基准测试, 隐私保护数据集, 网页推荐, LLM推荐
+**关键词**: 推荐系统, benchmark, 隐私保护数据集, 网页推荐, LLM推荐
 
 ## 一句话总结
 

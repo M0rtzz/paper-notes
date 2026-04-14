@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2601.19768](https://arxiv.org/abs/2601.19768)  
 **代码**: 开源（待发布）  
 **领域**: AI安全 / 激活监控  
-**关键词**: activation monitoring, cognitive elements, rule-based safety, interpretable AI governance, LLM safety  
+**关键词**: activation monitoring, cognitive elements, rule-based safety, interpretable AI governance, LLM safety
 
 ## 一句话总结
 提出 GAVEL 框架，将 LLM 安全从"粗粒度误用数据集训练分类器"范式转向"可组合认知元素 (CE) + 布尔规则"范式：定义可解释的激活级原语（如"发出威胁"、"处理支付"），组合为精确的策略规则，实现高精度、可定制、可审计的实时安全监控。
 
 ## 研究背景与动机
 **领域现状**：基于激活的 LLM 安全监控正在兴起——通过分析模型内部表示来检测有害行为，比表面文本分析更难绕过。主流方法是在误用数据集上训练线性探针/分类器。
+
 **现有痛点**：(a) 精度差——"网络犯罪"等粗粒度类别导致大量误报；(b) 灵活性差——新政策需构建新数据集并重新训练；(c) 不可解释——检测器触发时不知道哪些因素导致。
+
 **核心矛盾**：安全需要精确+可定制+可解释，但当前激活安全方法是粗粒度+固定+黑盒。
+
 **本文要解决什么？** 如何将激活安全从"训练分类器"升级为"编写规则"？
+
 **切入角度**：借鉴网络安全的规则共享生态（Snort/YARA/Sigma），AI 安全也需要可组合、可共享、可审计的规则体系。
+
 **核心idea一句话**：将 LLM 行为分解为独立的认知元素（CE），用布尔逻辑组合规则精确定义违规状态。
 
 ## 方法详解
@@ -40,13 +45,13 @@ tags:
 
 1. **认知元素 (Cognitive Elements)**：
 
-    - 做什么：可解释的激活级行为原语，分三类：Directive to User、LLM Behavior、Topic。
+    - 功能：可解释的激活级行为原语，分三类：Directive to User、LLM Behavior、Topic。
     - 共 23 个 CE，如"发出威胁"、"伪装人类"、"处理支付"、"情感操控"等。
     - 核心优势：CE 正交且可组合——"处理支付"本身无害，但"处理支付 ∧ 伪装人类 ∧ 建立信任"就是诈骗。
 
 2. **ERI 数据集构建**：
 
-    - 做什么：让 CE 激活更纯净。
+    - 功能：让 CE 激活更纯净。
     - 核心思路：指示模型"以 [CE名] 的方式改写此文本"，让内部计算集中于目标 CE。
     - 效果：ERI 方法的 CE 检测精度显著高于 naive prefilling。
 

@@ -38,18 +38,18 @@ tags:
 ### 三步流程
 
 1. **模态特异聚类**:
-   - 用CLIP编码器提取图文嵌入→过滤低相似度对→分别对图像和文本嵌入做mini-batch k-means聚类
-   - 聚类数=目标蒸馏集大小M
+    - 用CLIP编码器提取图文嵌入→过滤低相似度对→分别对图像和文本嵌入做mini-batch k-means聚类
+    - 聚类数=目标蒸馏集大小M
 
 2. **跨模态原型匹配**:
-   - 构建代价矩阵 $K_{ij} = -|\{(x_n,y_n) | z_n^{\text{img}} \in C_i^{\text{img}}, z_n^{\text{txt}} \in C_j^{\text{txt}}\}|$
-   - 匈牙利算法做线性分配→一一匹配图文聚类
-   - 保留共享对的嵌入均值为原型 $(\\tilde{z}_i^{\text{img}}, \tilde{z}_j^{\text{txt}})$
+    - 构建代价矩阵 $K_{ij} = -|\{(x_n,y_n) | z_n^{\text{img}} \in C_i^{\text{img}}, z_n^{\text{txt}} \in C_j^{\text{txt}}\}|$
+    - 匈牙利算法做线性分配→一一匹配图文聚类
+    - 保留共享对的嵌入均值为原型 $(\\tilde{z}_i^{\text{img}}, \tilde{z}_j^{\text{txt}})$
 
 3. **unCLIP图像合成**:
-   - 用unCLIP解码器从CLIP图像嵌入直接生成图像（标准Stable Diffusion不支持→需要unCLIP架构）
-   - 图像原型 + 检索到的最相似caption共同引导生成
-   - 生成图像比选择真实图像更好保持语义多样性
+    - 用unCLIP解码器从CLIP图像嵌入直接生成图像（标准Stable Diffusion不支持→需要unCLIP架构）
+    - 图像原型 + 检索到的最相似caption共同引导生成
+    - 生成图像比选择真实图像更好保持语义多样性
 
 ### 设计动机
 - 为什么用CLIP而非VAE？VAE嵌入与文本编码器不对齐→跨模态匹配失效

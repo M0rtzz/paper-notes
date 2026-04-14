@@ -1,14 +1,17 @@
 ---
 title: >-
-    [论文解读] CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration
+  [论文解读] CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration
 description: >-
-    [CVPR 2026][3D视觉] 提出CMHANet跨模态混合注意力网络，通过三阶段注意力融合2D图像纹理与3D点云几何信息实现室内点云配准SOTA
+  [CVPR 2026][3D视觉][点云配准] 提出CMHANet，设计三阶段混合注意力（几何自注意力→图像聚合注意力→源-目标交叉注意力）融合2D图像纹理语义与3D点云几何信息，并引入跨模态对比损失，在3DMatch/3DLoMatch上达到最优配准召回率(92.4%/75.5%)，TUM RGB-D零样本RMSE仅0.76×10⁻²。
 tags:
-    - CVPR 2026
-    - 3D视觉
-    - 点云配准
-    - 跨模态融合
-    - 注意力机制
+  - CVPR 2026
+  - 3D视觉
+  - 点云配准
+  - 跨模态融合
+  - 混合注意力
+  - RGB-D
+  - 对比学习
+  - KPConv
 ---
 
 # CMHANet: A Cross-Modal Hybrid Attention Network for Point Cloud Registration

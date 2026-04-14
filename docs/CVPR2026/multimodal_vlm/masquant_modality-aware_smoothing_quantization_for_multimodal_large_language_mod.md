@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：后训练量化（PTQ）是部署大模型的关键技术。基于计算不变性的通道平滑方法（SmoothQuant、AWQ 等）在纯文本 LLM 上表现优异，通过通道缩放因子重分配激活离群值。
+
 **现有痛点**：直接将通道平滑应用于 MLLM 时，视觉 token 的激活幅度通常比文本 token 大 10-100 倍。统一的平滑因子由主导模态（通常是视觉）决定，导致非主导模态（文本、音频）被过度平滑，信号被压缩，产生严重量化误差——即"平滑失配"（Smoothing Misalignment）。
+
 **核心矛盾**：为每个模态学习独立平滑因子解决了失配问题，但需要为每个模态存储独立的量化权重，完全违背了量化压缩的初衷。
+
 **本文要解决什么**：能否在保持单一量化权重的前提下，实现模态感知的平滑量化？
+
 **切入角度**：观察到不同模态平滑后的权重差异是低秩的（可数学证明），因此可用轻量低秩矩阵补偿。
+
 **核心 idea**：学习模态特异平滑因子 + 以文本模态为基准存储一套量化权重 + 用 SVD 白化低秩补偿其他模态。
 
 ## 方法详解
@@ -42,14 +47,14 @@ MASQuant 包括两个核心模块：(1) Modality-Aware Smoothing (MAS) 为每个
 
 1. **Modality-Aware Smoothing (MAS)**：
 
-    - 做什么：为每个模态 $m$ 学习独立的优化平滑因子 $\mathbf{S}_m$
+    - 功能：为每个模态 $m$ 学习独立的优化平滑因子 $\mathbf{S}_m$
     - 核心思路：初始化 $s_i^m = \sqrt{\max_t|x_{t,i}^m| / \max_j|w_{j,i}|}$，然后通过最小化模态特定的 MAE 损失 $\sum_{m} \lambda_m \cdot \mathcal{L}_{MAE}(\mathbf{S}_m, \mathbf{X}_m, \mathbf{W})$ 直接优化平滑因子
     - SQNR 理论分析：证明了统一平滑导致非主导模态 SQNR 退化 $\Delta = 10\log_{10}(\frac{d(\min_i \alpha_i^2)}{\sum_i 1/\alpha_i^2})$，其中 $\alpha_i$ 为模态间激活范围比
     - 设计动机：不再搜索超参 $\beta$，而是直接优化平滑因子本身，达到通道平滑的优化极限
 
 2. **Cross-Modal Compensation (CMC)**：
 
-    - 做什么：使用单一量化权重的同时补偿非文本模态的量化误差
+    - 功能：使用单一量化权重的同时补偿非文本模态的量化误差
     - 核心思路：以文本模态平滑权重 $Q(\mathbf{S}_t \mathbf{W})$ 为基准，视觉模态产生残差 $\Delta\mathbf{W} = \mathbf{S}_v \mathbf{W} - Q(\mathbf{S}_t \mathbf{W})$。直接对 $\Delta\mathbf{W}$ 做 SVD 效果差（缺乏低秩结构），但通过白化变换 $\mathbf{T} = (\mathbf{P}\Lambda^{1/2})^\top$ 后，$\mathbf{T}(\Delta\mathbf{W})$ 呈现强低秩特性
     - 截断 SVD 后得到 $\Delta\mathbf{W} \approx \mathbf{L}_1 \mathbf{L}_2$，其中 $\mathbf{L}_1 = \mathbf{T}^{-1}\mathbf{U}_r$，$\mathbf{L}_2 = \Sigma_r \mathbf{V}_r^\top$
     - 理论保证：证明了该方案最小化输出重建误差 $\|\mathbf{X}_v \mathbf{S}_v^{-1}(\Delta\mathbf{W} - \mathbf{L})\|_F^2$

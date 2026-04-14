@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Prompt-based learning 是主流的参数高效微调方法（PEFT），通过在输入前添加可学习的 soft prompts 来引导 LLM 适配下游任务。现有方法需要网格搜索最优 prompt 长度，通常需要大量 prompts。
+
 **现有痛点**：(1) 现有 soft prompts 是 task-aware 的（对所有实例相同），缺乏 instance-aware 信息，限制了对多样化输入的适应能力；(2) 作者的先驱发现：task-specific soft prompts 实际上未能与输入 tokens 产生强交互——它们主要关注彼此，对输入中的关键 tokens 关注极少。
+
 **核心矛盾**：Soft prompts 被设计为引导生成的"指令"，但在 attention 层面它们实际上形成了一个自闭的小团体，未能有效地与输入内容交互。
+
 **本文要解决什么？** 如何让 prompt 真正与输入交互？能否用单个 prompt 实现更好的效果？
+
 **切入角度**：发现"attention anchor"现象——将 instance-aware tokens 放在序列最前面可以保持对关键结构信息的强 attention，并与所有输入 tokens 产生活跃交互。
+
 **核心 idea 一句话**：用单个包含 instance-aware + task-aware 信息的 capsule prompt 替代多个纯 task-aware prompts，作为 attention anchor 驱动输入交互。
 
 ## 方法详解
@@ -41,13 +46,13 @@ tags:
 
 1. **Attention Anchor 发现**:
 
-    - 做什么：揭示 instance-aware tokens 在序列起始位置的特殊作用。
+    - 功能：揭示 instance-aware tokens 在序列起始位置的特殊作用。
     - 核心思路：将 instance-aware tokens 放在最早位置可以保持对关键结构信息的强 attention，所有后续 tokens 都会高度关注这个 anchor。
     - 设计动机：解释了为什么纯 task-aware prompts 效果有限——它们缺乏与具体输入实例的信息连接。
 
 2. **Capsule Prompt 设计**:
 
-    - 做什么：将 instance-aware 和 task-aware 信息融合到单个向量中。
+    - 功能：将 instance-aware 和 task-aware 信息融合到单个向量中。
     - 核心思路：利用现成的 instance 语义表示（如 encoder 的 CLS token），与一个可学习的 task-aware 向量融合。整个方法几乎是 parameter-free 的（只有一个向量需要学习）。
     - 设计动机：实现最极端的参数效率——一个 prompt 就够了。
 

@@ -1,15 +1,16 @@
 ---
 title: >-
-  [论文解读] Which of These Best Describes Multiple Choice Evaluation with LLMs? A) Forced B) Flawed C) Fixable D) All of the Above
+  [论文解读] Which of These Best Describes Multiple Choice Evaluation with LLMs?
 description: >-
-  [ACL 2025][LLM评估][立场论文] 系统论证 MCQA 作为 LLM 标准评估存在格式缺陷、数据集质量问题和模型行为问题三大类不足，从教育测试学借鉴解法，倡导 Constructed Response 和 Explanation MCQA 等生成式替代方案。
+  [ACL 2025][LLM/NLP][多选题评估] 系统论证 MCQA 作为 LLM 标准评估格式存在三大类问题：(1) 格式缺陷——无法测试生成/主观性、不匹配 LLM 真实使用场景、不能充分测试知识深度；(2) 数据集缺陷——泄露、不可回答、捷径和饱和；(3) 模型行为问题——鲁棒性差、选项偏置和不忠实解释。借鉴教育测试学提出 Constructed Response、Explanation MCQA、IRT 分析等系统化修复方案。
 tags:
   - ACL 2025
-  - LLM评估
-  - 多选题
-  - 基准设计
+  - LLM/NLP
+  - 多选题评估
+  - MCQA 缺陷
   - 教育测试学
-  - 立场论文
+  - Constructed Response
+  - Item Response Theory
 ---
 
 # Which of These Best Describes Multiple Choice Evaluation with LLMs?

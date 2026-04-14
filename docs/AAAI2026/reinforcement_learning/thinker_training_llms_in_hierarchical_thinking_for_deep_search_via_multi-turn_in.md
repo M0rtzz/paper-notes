@@ -58,8 +58,8 @@ LLM 在复杂多跳推理任务中面临知识不足和幻觉问题。现有 dee
 
 1. LLM 先尝试用内部知识直接回答子问题
 2. 双重置信度评估：
-   - **Prompt-based**：自省式验证，输出 True/False
-   - **Likelihood-based**：取答案 token 序列的最小生成概率 $C = \min_t p(y_t|\boldsymbol{x}, y_{<t})$，与阈值 $\tau$ 比较
+    - **Prompt-based**：自省式验证，输出 True/False
+    - **Likelihood-based**：取答案 token 序列的最小生成概率 $C = \min_t p(y_t|\boldsymbol{x}, y_{<t})$，与阈值 $\tau$ 比较
 3. 两者均为 True 时才跳过检索
 
 ### 训练方式

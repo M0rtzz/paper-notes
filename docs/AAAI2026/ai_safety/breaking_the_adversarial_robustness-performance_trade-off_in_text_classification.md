@@ -58,7 +58,7 @@ MC²F 包含两个核心模块：(1) SR-CNF 进行对抗样本检测；(2) Geode
 
 1. **分层黎曼连续正则化流 (SR-CNF)**
 
-    - 做什么：学习干净数据嵌入的概率密度 $p_{clean}(z)$，用于检测OOD对抗样本
+    - 功能：学习干净数据嵌入的概率密度 $p_{clean}(z)$，用于检测OOD对抗样本
     - 核心思路：不假设固定几何，而是用 Mixture-of-Experts (MoE) 网络学习位置相关的黎曼度量张量 $G(z) = \sum_{k=1}^{K} \alpha_k(z) E_{\psi_k}(z)$
     - 门控网络 $g_\phi(z)$ 输出权重，$K$ 个专家网络各自专精于特定层 stratum 的局部几何
     - 确保正定性：每个专家输出 $L_k(z)L_k(z)^T + \epsilon I$
@@ -68,7 +68,7 @@ MC²F 包含两个核心模块：(1) SR-CNF 进行对抗样本检测；(2) Geode
 
 2. **测地线净化求解器 (Geodesic Purification Solver)**
 
-    - 做什么：将检测为对抗的嵌入沿测地线（流形上最短路径）投影回干净流形
+    - 功能：将检测为对抗的嵌入沿测地线（流形上最短路径）投影回干净流形
     - 形式化：最小化路径能量泛函 $\mathcal{L}[\gamma] = \int_0^1 \langle \gamma'(t), \gamma'(t) \rangle_{G(\gamma(t))} dt$
     - 边界条件：$\gamma(0) = z_{adv}$，$\gamma(1) = z_{corr} \in \mathcal{M}_{clean}$
     - 求解方式：离散化路径，对路径点用梯度下降最小化能量泛函，约束 $\log p(z_{corr}) \geq \tau$ 通过软惩罚实现

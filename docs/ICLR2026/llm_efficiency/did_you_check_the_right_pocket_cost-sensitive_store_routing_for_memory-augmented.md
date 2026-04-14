@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：记忆增强 Agent（如 MemGPT）通常维护多个专用存储——短期记忆（STM, 当前对话）、摘要存储（Summary, 压缩用户事实）、长期记忆（LTM, 历史对话摘要）、情景记忆（Episodic, 原始转录）。但大多数系统对每个查询都从所有存储中检索。
+
 **现有痛点**：全量检索带来两个代价——① 计算浪费（查询不可能包含答案的存储）；② 准确率下降（无关/噪声上下文降低信噪比，尤其在长上下文下模型需要在大量无关文本中寻找答案）。
+
 **核心矛盾**：更多上下文 ≠ 更好性能。在长上下文设置中，无关存储引入的干扰信息实际上会误导模型——例如 LTM 中过时信息可能与 Summary 中最新信息冲突，模型有时会错误选择旧信息。
+
 **本文要解决**：在检索之前决定"查哪个口袋"（which stores to search），将存储选择与存储内排序解耦，使 accuracy-cost tradeoff 显式化。
+
 **切入角度**：从信息检索领域的联邦搜索（federated search）和认知科学的记忆分类（episodic vs semantic memory）获得启发，将查询路由到语义角色不同的存储。
+
 **核心idea**：路由决策是记忆增强 Agent 设计的一等公民（first-class component），而非事后问题。形式化为 $\pi^*(q) = \arg\max_{G \subseteq \mathcal{S}} [\mathbb{E}[\text{Acc}(q,G)] - \lambda \sum_{s \in G} c_s]$。
 
 ## 方法详解
@@ -41,7 +46,7 @@ tags:
 
 1. **路由评估指标体系**:
 
-    - 做什么：量化存储选择的质量
+    - 功能：量化存储选择的质量
     - Coverage = $\frac{1}{N}\sum_i \mathbf{1}[G_i \subseteq \hat{G}_i]$：是否包含了所有必要存储（漏存储 = 不可回答）
     - Exact Match = $\frac{1}{N}\sum_i \mathbf{1}[G_i = \hat{G}_i]$：是否精确选择了恰好必要的存储
     - Waste = $\frac{1}{N}\sum_i |\hat{G}_i \setminus G_i|$：多检索了多少不必要的存储
@@ -49,7 +54,7 @@ tags:
 
 2. **混合启发式路由器（Hybrid Heuristic）**:
 
-    - 做什么：基于查询语义信号选择目标存储
+    - 功能：基于查询语义信号选择目标存储
     - 核心规则：数量信号（"list all"） → {LTM, Epi}；时间信号（"before", "changed"） → {LTM, Epi}；多跳信号（"compare", "relate"） → {Sum, LTM}；当前会话（"just said", "today"） → {STM}；事实查找（"what is my"） → {Sum}
     - 无匹配时 fallback 到 {Sum, LTM}（六种两存储组合中覆盖率最高 89%）
     - 额外使用 query-store embedding similarity 作为 tiebreaker，贡献 +4% coverage
@@ -57,7 +62,7 @@ tags:
 
 3. **代价敏感决策理论框架**:
 
-    - 做什么：为存储路由提供数学基础
+    - 功能：为存储路由提供数学基础
     - 核心公式：$\pi^*(q) = \arg\max_{G \subseteq \mathcal{S}} [\mathbb{E}[\text{Acc}(q,G)] - \lambda \sum_{s \in G} c_s]$
     - $\lambda = 0$ 退化为全量检索（Uniform）；Oracle routing 是 $\pi^*$ 的近似上界
     - 解释力：当无关存储被检索时，有效检索代价增加而正确抽取概率可能下降（因上下文噪声），因此选择性检索在两端都有收益

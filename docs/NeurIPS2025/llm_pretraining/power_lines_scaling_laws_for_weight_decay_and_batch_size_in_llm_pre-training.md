@@ -33,6 +33,7 @@ tags:
 - **Wang et al.** 提出 AdamW 时间尺度 $\tau_{\text{epoch}}$ 在图像任务上保持稳定
 
 但存在几个核心缺口：
+
 **权重衰减 $\lambda$ 的缩放几乎无人研究** — 实践中通常直接设 $\lambda=0.1$
 2. 依赖唯一最优 $B_{\text{opt}}$ 缺乏灵活性 — 无法适应硬件约束和时间/计算的 trade-off
 3. 尚不清楚 $B_{\text{opt}}$ 和 $B_{\text{crit}}$ 究竟应该用 $C$、$L$、$N$ 还是 $D$ 来解释

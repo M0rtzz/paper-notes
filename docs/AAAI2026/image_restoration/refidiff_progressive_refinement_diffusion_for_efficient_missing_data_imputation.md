@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.14451](https://arxiv.org/abs/2505.14451)  
 **代码**: [GitHub](https://github.com/Atik-Ahamed/RefiDiff)  
 **领域**: Data Imputation / Tabular Data  
-**关键词**: missing data imputation, diffusion model, Mamba, tabular data, MNAR  
+**关键词**: missing data imputation, diffusion model, Mamba, tabular data, MNAR
 
 ## 一句话总结
 

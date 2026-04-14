@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2505.16620](https://arxiv.org/abs/2505.16620)  
 **代码**: [kausable/CausalDynamics](https://github.com/kausable/CausalDynamics)  
 **领域**: time_series / causal_discovery  
-**关键词**: causal discovery, dynamical systems, benchmark, time series, ODE/SDE, causal graph  
+**关键词**: causal discovery, dynamical systems, benchmark, time series, ODE/SDE, causal graph
 
 ## 一句话总结
 

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] What's the Plan? Metrics for Implicit Planning in LLMs and Their Application to Rhyme Generation and Question Answering
 description: >-
-  [ICLR2026][LLM可解释性] 提出简单的mean activation difference steering方法定量评估LLM隐式规划——在韵律诗和问答两案例中证明规划表示可在序列早期被定位和操纵，隐式规划从1B模型即出现，是universal mechanism。
+  [ICLR 2026][机器人][implicit planning] 提出 mean activation difference steering 方法和配套定量指标，在韵律诗生成和问答两个案例上跨 23 个开放模型（1B-32B）系统性证明：目标 token（韵脚/答案）的表示在序列早期位置已形成（前向规划），且因果性地影响中间 token 生成（后向规划）——隐式规划从 1B 模型即出现，是普遍机制而非大模型专属。
 tags:
-  - ICLR2026
-  - LLM_interpretability
-  - implicit_planning
-  - activation_steering
-  - rhyme_generation
-  - mechanistic_interpretability
+  - ICLR 2026
+  - 机器人
+  - implicit planning
+  - forward planning
+  - backward planning
+  - activation steering
+  - rhyme generation
 ---
 
 # What's the Plan? Metrics for Implicit Planning in LLMs and Their Application to Rhyme Generation and Question Answering
@@ -45,17 +46,17 @@ tags:
 ### 关键设计
 
 1. **Mean Activation Difference Steering**
-    - 做什么：提取、操纵隐藏激活中的规划表示
+    - 功能：提取、操纵隐藏激活中的规划表示
     - 核心思路：对两类 prompt 的特定位置（末尾词/换行符/问号）取隐藏激活均值差作为 steering vector $\mathbf{s}_{C_1 \to C_2}^{(l,i)} = m \cdot (\overline{\mathbf{x}_i^{(l)}}_{C_1} - \overline{\mathbf{x}_i^{(l)}}_{C_2})$，$m=1.5$。在生成时仅对单个 token 位置的 residual stream 加上 steering vector
     - 设计动机：比 CLT 简单几个数量级，且可扩展到任意模型——只需前向传播提取激活 + 均值差，无需训练
 
 2. **前向规划验证——Fraction of Correct Rhyme Family (Steered)**
-    - 做什么：量化 steering 能否将韵脚从韵族1切换到韵族2
+    - 功能：量化 steering 能否将韵脚从韵族1切换到韵族2
     - 核心思路：对 1000 个偶句（50 样本 × 20 test prompt），统计 steered 生成中属于目标韵族的比例。若 steering 有效 → 早期位置确实有可操纵的前向规划表示
     - 设计动机：如果规划表示不在干预位置→干预不会影响韵脚→steering 成功 = 前向规划存在
 
 3. **后向规划验证——Regeneration Metric + 概率指标**
-    - 做什么：验证 steering 不仅改变最终韵脚，还改变通向韵脚的中间 token
+    - 功能：验证 steering 不仅改变最终韵脚，还改变通向韵脚的中间 token
     - 核心思路：Regeneration——去掉韵律上下文后重新生成第二行最后一个词，如果中间词仍"通向"目标韵脚 → 后向规划在中间词生成时起了作用。概率指标——比较 steered vs unsteered 的中间 token 概率分布（KL divergence > 1 的位置占比 + 首次 top-1 差异位置）
     - 设计动机：Regeneration 成功率接近 baseline → steering 确实改变了整条路径而非只替换最后一个词
 

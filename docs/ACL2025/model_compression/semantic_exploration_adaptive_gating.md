@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.05752](https://arxiv.org/abs/2501.05752)  
 **代码**: [https://github.com/ml-postech/SEAG-semantic-exploration-with-adaptive-gating](https://github.com/ml-postech/SEAG-semantic-exploration-with-adaptive-gating)  
 **领域**: LLM推理 / 树搜索优化  
-**关键词**: tree search, MCTS, semantic clustering, adaptive gating, reasoning efficiency  
+**关键词**: tree search, MCTS, semantic clustering, adaptive gating, reasoning efficiency
 
 ## 一句话总结
 针对 LLM 树搜索推理中"简单题也做复杂搜索"和"语义重复路径反复扩展"两大浪费问题，提出 SEAG 框架：先用 entropy 门控决定是否启动树搜索，再用语义聚类合并等价推理步骤，最终在准确率平均提升 4.3% 的同时仅需 RAP 31% 的推理开销。

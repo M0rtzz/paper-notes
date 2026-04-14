@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2407.11062](https://arxiv.org/abs/2407.11062)  
 **代码**: [https://github.com/OpenGVLab/EfficientQAT](https://github.com/OpenGVLab/EfficientQAT)  
 **领域**: 模型压缩 / LLM效率  
-**关键词**: quantization-aware training, LLM compression, block-wise training, low-bit quantization, step size  
+**关键词**: quantization-aware training, LLM compression, block-wise training, low-bit quantization, step size
 
 ## 一句话总结
 EfficientQAT 提出两阶段 QAT 框架——先逐块训练所有参数（Block-AP）提供良好初始化，再端到端训练量化参数（E2E-QP）捕获跨块交互，在单张 A100 上 41 小时完成 Llama-2-70B 的 2-bit 量化，精度仅降 3 点。
@@ -26,10 +26,15 @@ EfficientQAT 提出两阶段 QAT 框架——先逐块训练所有参数（Block
 ## 研究背景与动机
 
 **领域现状**：LLM 量化方法分三类：(1) PTQ（GPTQ/AWQ/OmniQuant）通过逐块重构快速量化，但低比特下精度损失大；(2) QAT（BitNet b1.58）端到端训练所有参数，精度最好但资源需求极高（需从头训练）；(3) Q-PEFT（QLoRA/PEQA）冻结量化权重只训练少量参数，低比特下恢复不了精度损失。
+
 **现有痛点**：(1) PTQ 限制了优化空间——只训练 rounding/clipping 参数，且忽略跨块交互；(2) 原生 QAT 需要完整训练数据和多卡 GPU，对 70B 模型不可行；(3) Q-PEFT 可训练参数太少（step size 仅占 ~1.6%），低比特场景下恢复不了量化损失。
+
 **核心矛盾**：全参数训练（精度好但开销大）vs 有限参数训练（效率高但精度差）的矛盾；逐块训练（内存友好但忽略跨块交互）vs 端到端训练（能捕获交互但内存爆炸）的矛盾。
+
 **本文要解决什么？** 在单 GPU 上实现接近原生 QAT 的量化精度，特别是 2-bit/3-bit 极低比特场景。
+
 **切入角度**：将 QAT 分解为两个互补阶段——块级全参数训练提供好的初始化 + 端到端只训练 step size 捕获跨块交互。
+
 **核心idea一句话**：通过将 QAT 分为逐块全参数训练（Block-AP）和端到端量化参数微调（E2E-QP）两阶段，兼顾优化空间充足和内存高效。
 
 ## 方法详解
@@ -41,14 +46,14 @@ EfficientQAT 提出两阶段 QAT 框架——先逐块训练所有参数（Block
 
 1. **Block-AP（逐块全参数训练）**:
 
-    - 做什么：在每个 transformer block 内同时训练权重、step size 和 zero point
+    - 功能：在每个 transformer block 内同时训练权重、step size 和 zero point
     - 核心思路：标准均匀量化 $W_{int} = \text{clamp}(\lfloor W/s \rceil + z, 0, 2^N-1)$，反量化 $\hat{W} = (W_{int} - z) \cdot s$。将量化/反量化嵌入计算图，用 STE 通过梯度下降优化所有参数
     - 设计动机：之前逐块方法（OmniQuant/BRECQ/AutoRound）只训练部分参数（clipping/rounding/LoRA），限制了优化空间。Block-AP 直接训练所有参数，无需复杂设计，在 2-bit 场景优势尤其明显
     - 与之前方法的区别：首个在逐块重构范式中训练所有参数的方法；之前方法限制更新范围到 $(-1, +1)$ 防止过拟合，Block-AP 无此限制
 
 2. **E2E-QP（端到端量化参数训练）**:
 
-    - 做什么：固定 Block-AP 输出的量化权重 $W_q$，仅端到端训练 step size $s$
+    - 功能：固定 Block-AP 输出的量化权重 $W_q$，仅端到端训练 step size $s$
     - 核心思路：只做反量化（Eq.2），不做量化（Eq.1），梯度 $\partial\hat{w}/\partial s = w_q - z$ 计算简单；可训练参数仅约 1.6%（group size=64 时），内存需求极低
     - 设计动机：Block-AP 忽略了跨块交互，E2E-QP 通过端到端目标函数让所有 block 的 step size 协同优化。同时内存极低——70B 模型 2-bit E2E-QP 仅需 34.2GB
     - 灵活性：可直接在目标数据集上训练（continual pre-training 或 instruction-tuning）

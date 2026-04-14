@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.10086](https://arxiv.org/abs/2411.10086)  
 **代码**: [https://github.com/zdk258/CorrCLIP](https://github.com/zdk258/CorrCLIP)  
 **领域**: 语义分割 / 开放词汇  
-**关键词**: open-vocabulary segmentation, CLIP, patch correlation, SAM, training-free, inter-class correlation  
+**关键词**: open-vocabulary segmentation, CLIP, patch correlation, SAM, training-free, inter-class correlation
 
 ## 一句话总结
 揭示CLIP用于分割时patch间"类间相关性"是性能瓶颈的根本原因，提出CorrCLIP通过SAM限制patch交互范围（scope reconstruction）+DINO计算更一致的相似度值（value reconstruction）+空间/语义特征增强+SAM mask后处理，在8个benchmark上training-free方法平均mIoU从48.6%提升到53.6%。

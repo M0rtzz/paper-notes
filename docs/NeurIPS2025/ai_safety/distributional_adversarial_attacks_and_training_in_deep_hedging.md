@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Deep Hedging（Buehler+ 2019）用神经网络参数化对冲策略并通过最小化风险度量来训练，已在业界广泛采用。训练数据来自随机模型模拟或历史数据。
+
 **现有痛点**：训练分布与实际部署分布之间存在模型误设（model misspecification），小的分布偏移即可导致对冲策略性能严重退化。已有鲁棒方法仅扰动终端分布或随机化模型参数，缺乏系统的分布级鲁棒性分析。
+
 **核心矛盾**：深度对冲的损失函数（含神经网络策略 + 风险度量）是高度非凸的，标准 Wasserstein DRO 的可计算性结果依赖凸性假设，不适用于此场景。
+
 **本文要解决什么？** (a) 量化 deep hedging 对分布偏移的脆弱程度 (b) 设计可计算的分布对抗攻击方法 (c) 通过对抗训练提升鲁棒性
+
 **切入角度**：将逐点对抗攻击（FGSM/PGD）推广到分布层面，利用 Wasserstein DRO 的灵敏度分析（Bartl+ 2021）获得可计算的一阶近似。
+
 **核心idea一句话**：通过 Wasserstein 球上的投影梯度下降实现分布对抗攻击，并将对抗样本融入训练循环提升 deep hedging 的鲁棒性。
 
 ## 方法详解
@@ -42,27 +47,27 @@ tags:
 
 1. **分布对抗攻击的可计算重构（Theorem 3.3）**
 
-    - 做什么：将 Wasserstein 球上的无穷维优化问题近似为有限维样本扰动问题
+    - 功能：将 Wasserstein 球上的无穷维优化问题近似为有限维样本扰动问题
     - 核心思路：基于 DRO 灵敏度分析，当 $\delta \to 0$ 时，最优扰动分布 $\eta_\delta$ 可表示为对每个样本 $X_n$ 的逐点扰动：$\hat{X}_n = X_n + \delta \cdot h(\nabla_x l(\theta; X_n)) \|\nabla_x l(\theta; X_n)\|_*^{q-1} \Upsilon^{1-q}$
     - 其中 $\Upsilon = (N^{-1} \sum_{n=1}^N \|\nabla_x l(\theta; X_n)\|_*^q)^{1/q}$，$h(x) = \text{sign}(x)|x|^{q-1}$ 对应 $\ell_p$ 范数下的对偶
     - 设计动机：将分布扰动分解为样本级扰动，每个样本的扰动量与其梯度大小成正比，梯度大的路径获得更多扰动预算
 
 2. **WPGD（Wasserstein PGD，Algorithm 1）**
 
-    - 做什么：分布版本的 PGD 攻击
+    - 功能：分布版本的 PGD 攻击
     - 核心思路：迭代执行 (a) 按灵敏度公式更新每条路径 $\hat{S}_n \leftarrow \hat{S}_n + \beta \cdot \text{sign}(\nabla_x l_{\text{DH}}(\theta; \hat{S}_n)) \|\nabla_x l(\theta; \hat{S}_n)\|_*^{q-1} \hat{\Upsilon}^{1-q}$，(b) 投影回 Wasserstein 约束集 $\hat{B}_\delta(\mu)$
     - 投影方式：$\hat{S}_n \leftarrow S_n + \max(1, \delta/\text{dist})(\hat{S}_n - S_n)$，整体缩放保证约束满足
 
 3. **WBPGD（Wasserstein Budget PGD，Algorithm 2）**
 
-    - 做什么：将扰动分解为预算和方向两个变量独立优化
+    - 功能：将扰动分解为预算和方向两个变量独立优化
     - 核心思路：令 $\hat{S}_n = S_n + \text{budget}_n \times \text{direction}_n$，其中 $\text{budget}_n \in \mathbb{R}_{\ge 0}$ 控制扰动幅度，$\text{direction}_n \in [-1,1]^{T+1}$ 控制方向
     - 更新规则（Lemma 4.1）：$\text{budget}_n \leftarrow \text{budget}_n + \beta \cdot (g_n^b)^{q-1} \hat{\Upsilon}^{1-q}$，$\text{direction}_n \leftarrow \text{direction}_n + (\beta/\delta) \cdot \text{sign}(g_n^d)$
     - 优势：预算分配和方向优化解耦，更充分地探索对抗空间
 
 4. **Heston 模型扩展（Corollary 4.2）**
 
-    - 做什么：处理价格+波动率双序列输入
+    - 功能：处理价格+波动率双序列输入
     - 核心思路：定义加权距离 $d((S,v),(\hat{S},\hat{v})) = (\|S-\hat{S}\|_\infty^p + (\lambda \|v-\hat{v}\|_\infty)^p)^{1/p}$，通过 $\lambda$ 平衡不同量纲
     - 等价于对 $S$ 和 $\lambda v$ 分别独立施加 $\ell_\infty$ 扰动
 

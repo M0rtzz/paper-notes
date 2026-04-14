@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] Scaling Can Lead to Compositional Generalization
 description: >-
-  NeurIPS2025论文通过Hyperteacher合成任务族系统研究组合泛化，证明标准MLP仅需扩大数据量和模型规模即可实现组合泛化（无需模块化架构），理论证明泛化解仅需O(M)个神经元（线性于模块数）而记忆解需指数级，发现组合泛化成功时任务成分可从隐层激活线性解码，并将此指标应用于诊断扩散模型的图像组合能力。
+  [NeurIPS 2025][图像生成][compositional generalization] 通过理论证明和大规模实验表明，标准MLP仅需扩大数据量和模型规模即可实现组合泛化，无需显式模块化架构设计，且组合泛化成功时任务成分可从隐层激活线性解码——该指标与扩散模型的图像组合成功率正相关。
 tags:
   - NeurIPS 2025
+  - 图像生成
   - compositional generalization
-  - scaling laws
+  - scaling
   - linear decodability
+  - hyperteacher
   - MLP
-  - diffusion models
-  - theoretical ML
 ---
 
 # Scaling Can Lead to Compositional Generalization
@@ -42,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **组合任务族与Hyperteacher（实验平台）**:
-    - 做什么：构建一个可精确控制的合成任务族，作为研究组合泛化的实验平台
+    - 功能：构建一个可精确控制的合成任务族，作为研究组合泛化的实验平台
     - 核心思路：Hyperteacher定义为线性超网络：$C(\mathbf{z}) = \mathbf{x} \mapsto \mathbf{\Omega} \text{ReLU}(\sum_{k:z_k \neq 0} z_k \mathbf{\Theta}_k \mathbf{x})$，其中 $\{\mathbf{\Theta}_m\}_{m=1}^M$ 是M组权重矩阵，$\mathbf{\Omega}$ 是共享读出投影。每个任务由选择K个模块的组合向量 $\mathbf{z}$ 指定，任务函数 $f_{\mathbf{z}}$ 是单隐层ReLU网络。组合算子C满足单射性（每种组合产生不同任务）和低复杂度（实现C的程序长度亚指数于K）
     - 设计动机：神经网络的灵活性使Hyperteacher覆盖广泛的函数行为，同时保持组合结构的可控性。补充实验在Compositional Preference任务族（网格世界+组合奖励）上复现了所有发现
 
 2. **泛化解的理论保证（Theorem 3.1）**:
-    - 做什么：证明ReLU MLP可以用线性于模块数M的神经元数量逼近Hyperteacher，而记忆所有任务需要指数级容量
+    - 功能：证明ReLU MLP可以用线性于模块数M的神经元数量逼近Hyperteacher，而记忆所有任务需要指数级容量
     - 核心思路：对任意 $M, \varepsilon > 0$，在紧输入集上存在ReLU MLP用 $\mathcal{O}(\frac{1}{\sqrt{\varepsilon}} + M)$ 个神经元逼近Hyperteacher到 $\varepsilon$ 精度（$\|\cdot\|_\infty$ 范数）。关键在于泛化解的复杂度**线性于M**，而记忆 $\mathcal{O}(M^K)$ 个任务需要指数级容量，因此M增大时泛化解的效率优势呈指数级放大
     - 设计动机：为"规模增大→泛化解被发现"提供理论支撑：SGD倾向于找到低复杂度解（simplicity bias），而泛化解恰好比记忆解简单得多
 
 3. **线性可解码性指标（Theorem 4.1 + 实验验证）**:
-    - 做什么：证明成功组合泛化的模型中，任务成分必然可从模型表示中解码，实验发现更强的结论——可从隐层激活**线性**解码
+    - 功能：证明成功组合泛化的模型中，任务成分必然可从模型表示中解码，实验发现更强的结论——可从隐层激活**线性**解码
     - 核心思路：Theorem 4.1证明若模型在 $1-\delta$ 概率上正确预测，则存在解码器以 $1-\sqrt{\delta}$ 概率从任务编码恢复任务成分。实验训练线性探针发现：(a) 组合泛化 $R^2$ 与线性可解码 $R^2$ 之间高度正相关（$R^2 > 0.95$）；(b) 即使给模型直接提供任务成分（identity编码），不能组合泛化的网络也会在深层丢失这些信息——拥有解纠缠表示**不等于**能组合泛化
     - 设计动机：提供一个可操作的诊断工具——通过检查模型隐层是否能线性解码任务成分来预测其组合泛化能力。应用于扩散模型验证：线性可解码性与图像生成的组合成功率正相关
 

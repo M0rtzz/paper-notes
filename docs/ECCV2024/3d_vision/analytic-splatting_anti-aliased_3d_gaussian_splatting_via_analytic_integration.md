@@ -9,7 +9,7 @@ tags:
   - 3D Gaussian Splatting
   - Anti-Aliasing
   - Analytic Integration
-  - Novel View Synthesis
+  - novel view synthesis
   - Multi-Scale
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.11056](https://arxiv.org/abs/2403.11056)  
 **代码**: https://lzhnb.github.io/project-pages/analytic-splatting/ (有)  
 **领域**: 3D视觉 / 新视角合成  
-**关键词**: 3D Gaussian Splatting, Anti-Aliasing, Analytic Integration, Novel View Synthesis, Multi-Scale
+**关键词**: 3D Gaussian Splatting, Anti-Aliasing, Analytic Integration, novel view synthesis, Multi-Scale
 
 ## 一句话总结
 通过使用条件 logistic 函数解析近似高斯信号在像素窗口上的积分，替代 3DGS 的像素中心点采样，实现无混叠的 3D 高斯泼溅，在多尺度渲染上超越 Mip-Splatting。
@@ -49,19 +49,19 @@ tags:
 
 1. **条件 Logistic 函数近似高斯 CDF**:
 
-    - 做什么：用 $S(x) = \frac{1}{1+\exp(-1.6x - 0.07x^3)}$ 近似标准正态分布的 CDF
+    - 功能：用 $S(x) = \frac{1}{1+\exp(-1.6x - 0.07x^3)}$ 近似标准正态分布的 CDF
     - 核心思路：窗口积分 = CDF 之差：$\mathcal{I}_g(u) = S_\sigma(u+1/2) - S_\sigma(u-1/2)$，其中 $S_\sigma(x) = S(x/\sigma)$
     - 设计动机：误差仅 $10^{-4}$ 量级，可微分友好（适合反向传播），不像高斯滤波那样会过度平滑高频成分
 
 2. **2D 窗口积分的分解**:
 
-    - 做什么：将 2D 高斯在矩形像素窗口上的积分转化为两个独立 1D 积分的乘积
+    - 功能：将 2D 高斯在矩形像素窗口上的积分转化为两个独立 1D 积分的乘积
     - 核心思路：对 2D 协方差矩阵 $\hat{\Sigma}$ 做特征分解得到特征值 $\{\lambda_1, \lambda_2\}$ 和特征向量 $\{v_1, v_2\}$，将积分域旋转到特征向量方向使协方差对角化，然后分解：$\mathcal{I}_g^{2D}(\mathbf{u}) \approx 2\pi\sigma_1\sigma_2 [S_{\sigma_1}(\tilde{u}_x+1/2) - S_{\sigma_1}(\tilde{u}_x-1/2)][S_{\sigma_2}(\tilde{u}_y+1/2) - S_{\sigma_2}(\tilde{u}_y-1/2)]$
     - 设计动机：直接做 2D 高斯积分无解析形式。旋转+分解引入微小误差但换来可解析计算
 
 3. **替换体渲染公式**:
 
-    - 做什么：将 3DGS 的体渲染中的 $g_i^{2D}(\mathbf{u})$ 替换为 $\mathcal{I}_{g_i}^{2D}(\mathbf{u})$
+    - 功能：将 3DGS 的体渲染中的 $g_i^{2D}(\mathbf{u})$ 替换为 $\mathcal{I}_{g_i}^{2D}(\mathbf{u})$
     - 公式：$\mathbf{C}(\mathbf{u}) = \sum_{i} T_i \mathcal{I}_{g_i}^{2D}(\mathbf{u}|\hat{\mu}_i, \hat{\Sigma}_i) \alpha_i \mathbf{c}_i$
     - 设计动机：完全兼容 3DGS 的 CUDA 光栅化 pipeline，只需修改着色器
 

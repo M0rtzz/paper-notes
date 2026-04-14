@@ -41,15 +41,15 @@ tags:
 6DOPE-GS包含四个核心模块，以流水线方式处理RGB-D视频流：
 
 1. **粗位姿初始化**（Coarse Pose Initialization）：
-   - 使用SAM2对目标物体进行分割与跟踪
-   - 用LoFTR（基于Transformer的密集特征匹配器）获取相邻帧的特征点对应关系
-   - 通过RANSAC+非线性最小二乘优化得到帧间粗略位姿
-   - 建立关键帧内存池，根据空间多样性决定是否将新帧加入
+    - 使用SAM2对目标物体进行分割与跟踪
+    - 用LoFTR（基于Transformer的密集特征匹配器）获取相邻帧的特征点对应关系
+    - 通过RANSAC+非线性最小二乘优化得到帧间粗略位姿
+    - 建立关键帧内存池，根据空间多样性决定是否将新帧加入
 
 2. **高斯物体场**（Gaussian Object Field）：
-   - 基于2D Gaussian Splatting (2DGS)构建物体的视觉-几何模型
-   - 联合优化2D高斯参数和关键帧位姿
-   - 通过可微渲染的反向传播梯度同时更新高斯parameters和camera poses
+    - 基于2D Gaussian Splatting (2DGS)构建物体的视觉-几何模型
+    - 联合优化2D高斯参数和关键帧位姿
+    - 通过可微渲染的反向传播梯度同时更新高斯parameters和camera poses
 
 3. **动态关键帧选择**（Dynamic Keyframe Selection）：基于空间覆盖度和重建置信度的关键帧过滤
 

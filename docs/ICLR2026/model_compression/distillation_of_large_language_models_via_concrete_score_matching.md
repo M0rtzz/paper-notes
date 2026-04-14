@@ -8,7 +8,7 @@ tags:
   - 模型压缩
   - 知识蒸馏
   - LLM压缩
-  - score matching
+  - 分数匹配
   - logit蒸馏
   - 离散分数匹配
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.25837](https://arxiv.org/abs/2509.25837)  
 **代码**: [GitHub](https://github.com/aailab-kaist/CSD)  
 **领域**: 模型压缩 / 知识蒸馏  
-**关键词**: 知识蒸馏, LLM压缩, score matching, logit蒸馏, 离散分数匹配
+**关键词**: 知识蒸馏, LLM压缩, 分数匹配, logit蒸馏, 离散分数匹配
 
 ## 一句话总结
 

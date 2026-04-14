@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 已被证明能解决图推理任务——即使图结构嵌入在文本描述中，LLM 仍能识别节点连接、检测模式、比较子图。但 Transformer 本质上是序列模型，不具备原生的图结构理解能力。
+
 **现有痛点**：现有对 Transformer 图推理能力的理解集中在**最短路径**任务上（如 SLN 的谱导航或 ALPINE 的路径组合），但这些都是线性结构。真实图包含大量非线性子结构（环、树、motif），现有理论无法解释 Transformer 如何处理这些。
+
 **核心矛盾**：Transformer 是序列处理架构，但需要理解非欧几何结构（图），从路径推广到一般子结构的理论空白。
+
 **本文要解决什么**：(a) Transformer 如何逐层识别子结构？(b) 输入格式（邻接表 vs 边列表）和查询提示如何影响识别？(c) 这些发现在 LLM 中是否一致？(d) 能否扩展到更复杂的图推理？
+
 **切入角度**：从子结构提取任务入手（比路径更一般），通过可视化 + 理论分析揭示 Transformer 的内部机制。
+
 **核心idea一句话**：Transformer 通过逐层的"诱导子图过滤"（ISF）过程渐进式识别子结构，且这一机制在从头训练的 Transformer 和 LLM 中一致存在。
 
 ## 方法详解
@@ -45,7 +50,7 @@ tags:
 
 1. **诱导子图过滤（Induced Substructure Filtration, ISF）**:
 
-    - 做什么：解释 Transformer 如何跨层逐步识别子结构。
+    - 功能：解释 Transformer 如何跨层逐步识别子结构。
     - 核心思路：定义 $k$-Node $m$-Filtration $\mathcal{F}(V')=(V'_1,\dots,V'_m)$，其中 $\emptyset\neq V'_1\subseteq\cdots\subseteq V'_m=V'$，对应诱导子图序列 $(G'_1,\dots,G'_m)$。每个 Transformer 层对应一步过滤——从空集开始，逐步聚合节点直到识别完整子结构。
     - 理论支撑：**Theorem 3.3**（渐进识别表达力）证明具有 $m+2$ 层、$O(n^k)$ 隐藏维度的 log-precision Transformer 可在第 $i+2$ 层输出第 $i$ 步过滤的子图同构指示张量 $\mathcal{T}(G,G'[V'_i])$。**Theorem 3.5** 证明在唯一子结构假设下，常数深度 Transformer 可输出正确的 $k$-tuple 匹配。
     - 可视化验证：t-SNE 投影显示——在 layer 2 中共享部分节点的子结构开始聚类，layer 3 中共享更多节点的进一步靠近，最终层完全分离。答案在生成步骤前就已确定。
@@ -67,7 +72,7 @@ tags:
 
 5. **Thinking-in-Substructures (Tins, Section 5.1)**:
 
-    - 做什么：将复杂子结构分解为更简单的组成部分进行推理。
+    - 功能：将复杂子结构分解为更简单的组成部分进行推理。
     - 核心思路：输出重新格式化为 $\text{ANS}_{\text{Tins}}=(\{P_1\},\{P_2\},\dots,\{P_t\},\text{<ANS>},\text{ANS}(\hat{G}))$，其中 $\{P_i\}$ 是分解后的子结构。
     - 效果：将表达力需求从 $O(n^k)$ 降到 $O(n^q)$（$q<k$），100K 训练样本下性能提升 ~10%，diagonal 结构在 3 层时提升 46%。
 

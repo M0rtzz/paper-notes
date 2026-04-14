@@ -7,10 +7,10 @@ tags:
   - ICML2025
   - 人体理解
   - Sparse Autoencoder
-  - Benchmark
-  - Interpretability
+  - benchmark
+  - interpretability
   - Feature Disentanglement
-  - Mechanistic Interpretability
+  - mechanistic interpretability
 ---
 
 # SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.09532](https://arxiv.org/abs/2503.09532)  
 **代码**: [github.com/adamkarvonen/SAEBench](https://github.com/adamkarvonen/SAEBench)  
 **领域**: SAE基准 / 可解释性评估  
-**关键词**: Sparse Autoencoder, Benchmark, Interpretability, Feature Disentanglement, Mechanistic Interpretability
+**关键词**: Sparse Autoencoder, benchmark, interpretability, Feature Disentanglement, mechanistic interpretability
 
 ## 一句话总结
 

@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2409.00113](https://arxiv.org/abs/2409.00113)  
 **代码**: [GitHub](https://github.com/GracjanGoral/When-All-Options-Are-Wrong)  
 **领域**: ai_safety  
-**关键词**: reflective judgment, LLM alignment, multiple-choice, instruction following, critical reasoning  
+**关键词**: reflective judgment, LLM alignment, multiple-choice, instruction following, critical reasoning
 
 ## 一句话总结
 提出"反思判断力"（Reflective Judgment）概念来衡量 LLM 在所有选项都错误的选择题中拒绝选择的能力，发现对齐后的模型（GPT-4o 等）往往盲目服从指令选择错误选项，而基座模型反而表现更好，且该能力随模型规模增大而涌现。
 
 ## 研究背景与动机
 **领域现状**：RLHF/DPO 等对齐技术旨在让 LLM 更"有帮助"（helpful），遵从用户指令。
+
 **现有痛点**：过度优化"有帮助性"可能导致模型盲目服从错误指令——当所有选项都是错的时候，模型仍然会强行选一个而不是指出问题。
+
 **核心矛盾**：有帮助性（按指令选择）与批判性推理（拒绝错误选项）之间存在根本张力，对齐技术意外地削弱了后者。
+
 **本文要解决什么？** 量化评估 LLM 的"反思判断力"——在无正确选项时识别并拒绝选择的能力。
+
 **切入角度**：设计所有选项都错误的选择题，在三种难度条件下测试（Easy: 明确告知可能无正确答案；Standard: 无提示；Hard: 强制要求选一个）。
+
 **核心 idea 一句话**：对齐训练让模型变得更"听话"但更不会"说不"，反思判断力是比帮助性更基础的能力。
 
 ## 方法详解
@@ -47,12 +52,12 @@ tags:
 
 2. **Reflective Judgment Score（RJ Score）**:
 
-    - 做什么：衡量模型拒绝选择错误答案或自行给出正确答案的比例
+    - 功能：衡量模型拒绝选择错误答案或自行给出正确答案的比例
     - 核心思路：RJ = 反思行为次数 / 总题数，反思行为包括指出无正确答案或给出未在选项中的正确答案
 
 3. **无理选项实验**:
 
-    - 做什么：将选项替换为完全无关的名词（如"椅子""苹果"），测试极端情况下模型是否仍服从指令
+    - 功能：将选项替换为完全无关的名词（如"椅子""苹果"），测试极端情况下模型是否仍服从指令
     - 结果：GPT-4o-mini 和 Claude 3 Haiku 仍然选择无理选项，Llama-405B 和 Qwen2-Math-7B 100% 拒绝
 
 ## 实验关键数据

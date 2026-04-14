@@ -46,7 +46,7 @@ VisionTrap 由四个主要模块组成：
 
 1. **Per-agent State Encoder（状态编码器）**:
 
-    - 做什么：编码每个 agent 的时空状态和交互关系
+    - 功能：编码每个 agent 的时空状态和交互关系
     - 核心思路：用相对位移（而非绝对位置）表示历史轨迹，结合 agent 类型和时间位置编码
     - 关键公式：$s_i^t = f_{\text{geometric}}(p_i^t - p_i^{t-1}) + f_{\text{type}}(a_i) + f_{\text{PE}}(e^t)$
     - 三级编码：(1) MLP 编码几何位移，(2) Temporal Transformer 编码时序信息，(3) Cross-attention 编码 agent 间交互关系
@@ -54,7 +54,7 @@ VisionTrap 由四个主要模块组成：
 
 2. **Visual Semantic Encoder（视觉语义编码器）**:
 
-    - 做什么：将环视图像转为 BEV 特征，并与 agent 状态嵌入融合
+    - 功能：将环视图像转为 BEV 特征，并与 agent 状态嵌入融合
     - 核心思路：用 BEVDepth 架构将多视图图像编码为 BEV 图像特征 $B_I \in \mathbb{R}^{h \times w \times d_{\text{bev}}}$，与光栅化地图特征 $B_{\text{map}}$ 拼接得到复合 BEV 场景特征 $B = [B_I; B_{\text{map}}]$
     - 场景-agent 交互：使用 **Deformable Cross-Attention** 从 BEV 特征中提取与每个 agent 相关的区域信息。引入 Recurrent Trajectory Prediction 模块，用辅助轨迹预测器的预测位置作为 deformable attention 的参考点
     - 关键公式：$z_i^{\text{scene}} = z_i^{\text{interact}} + \sum_{h=1}^{H} W_h \left[\sum_{o=1}^{O} \alpha_{hio} W'_h \mathbf{B}_{(u_i^{\text{aux}} + \triangle u_{hio}^{\text{aux}})}\right]$
@@ -62,7 +62,7 @@ VisionTrap 由四个主要模块组成：
 
 3. **Text-driven Guidance Module（文本引导模块）**:
 
-    - 做什么：训练时用文本描述作为监督，引导 agent 状态嵌入学习细粒度的视觉语义
+    - 功能：训练时用文本描述作为监督，引导 agent 状态嵌入学习细粒度的视觉语义
     - 核心思路：通过跨模态对比学习将 agent 状态嵌入 $z_i^{\text{scene}}$ 与其文本描述嵌入 $\mathcal{T}_i$ 对齐
     - 去偏设计：驾驶场景中多个 agent 可能有相似行为，简单对比学习会产生 false negatives。解决方案：(1) 用 BERT 提取 sentence-level 嵌入 $\mathcal{T}_i$，(2) 过滤余弦相似度 > $\theta_{th}=0.8$ 的样本（潜在 false negatives），(3) 取 top-k 最不相似的作为负样本保证数量稳定
     - 关键公式：$\mathcal{L}_{\text{cl}} = -\log\frac{e^{\text{sim}_{\text{cos}}(z_i^{\text{scene}}, \mathcal{T}_i)/\tau}}{\sum_{j=1}^{k} e^{\text{sim}_{\text{cos}}(z_i^{\text{scene}}, \mathcal{T}_j)/\tau}}$
@@ -71,7 +71,7 @@ VisionTrap 由四个主要模块组成：
 
 4. **Transformation Module + Trajectory Decoder**:
 
-    - 做什么：标准化 agent 朝向后进行多模态轨迹预测
+    - 功能：标准化 agent 朝向后进行多模态轨迹预测
     - 核心思路：ego-centric 方法的缺点是相似行为的 agent 特征未标准化；在预测前用旋转矩阵 $\mathcal{R}$ 标准化每个 agent 的朝向
     - Trajectory Decoder 用 GMM 建模未来轨迹分布：$p(u) = \sum_{m=1}^{M}\rho_m \prod_{t=1}^{T_f} \mathcal{N}(u_t - \mu_m^t, \Sigma_m^t)$
 

@@ -8,7 +8,7 @@ tags:
   - principal-agent
   - multi-armed bandits
   - incentive design
-  - regret bounds
+  - regret bound
   - exploration
 ---
 
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2412.16318](https://arxiv.org/abs/2412.16318)  
 **代码**: 无  
 **领域**: 强化学习 / 博弈论  
-**关键词**: principal-agent, multi-armed bandits, incentive design, regret bounds, exploration
+**关键词**: principal-agent, multi-armed bandits, incentive design, regret bound, exploration
 
 ## 一句话总结
 本文研究重复委托-代理赌臂博弈中，代理基于经验均值做决策（而非已知真实均值）且可能随机探索时，如何设计委托人的激励算法使后悔界达到 $\tilde{O}(\sqrt{T})$ 或 $\tilde{O}(T^{2/3})$，显著优于先前 $\tilde{O}(T^{11/12})$ 的结果。
 
 ## 研究背景与动机
 **领域现状**: 委托-代理赌臂博弈建模在线市场场景——委托人（如电商平台）通过激励引导代理（用户）选择特定行为，以间接探索未知环境。现有工作普遍假设代理完全知道各臂真实期望奖励（oracle假设）。
+
 **现有痛点**: 在真实场景中，代理也在学习——只能基于历史经验估计奖励。Dogan et al. (2023a) 放松了假设允许探索，但仍假设不探索时选真实最优臂，且后悔界高达 $\tilde{O}(T^{11/12})$。
+
 **核心矛盾**: 代理经验均值不断更新导致最优激励随时间变化，委托人在不知代理经验均值时必须同时应对双方不确定性。
+
 **本文要解决什么**: (1) 更一般化的代理学习行为建模；(2) 更优后悔界的算法。
+
 **切入角度**: 自利学习代理选"经验最优臂"而非"真实最优臂"，探索概率 $p_t \leq c_0\sqrt{t^{-1}\log(2t)}$。
+
 **核心idea**: 新消除框架+不对称二分搜索适应经验均值波动+对坏臂适度采样稳定估计。
 
 ## 方法详解
@@ -40,7 +45,7 @@ tags:
 
 1. **不对称二分搜索 (Algorithm 3)**:
 
-    - 做什么：为目标臂 $a$ 搜索近最优激励 $b_{m,a}$
+    - 功能：为目标臂 $a$ 搜索近最优激励 $b_{m,a}$
     - 核心思路：跟踪最近成功激励 $y^{\text{upper}}$，失败时立即复验；若复验也失败则停止搜索。每轮仅需 $O(\log T)$ 步
     - 估计误差：$b_{m,a} - \pi_a^\star(t) \in (0, \frac{4}{T} + \frac{\lceil\log_2 T\rceil}{N_a(t)} + \frac{2}{\min_i N_i(t)}]$
     - 设计动机：传统对称检查需 $\log T$ 倍放大；不对称检查省去该对数因子

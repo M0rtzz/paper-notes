@@ -2,10 +2,9 @@
 title: >-
   [论文解读] RebuttalAgent: Strategic Persuasion in Academic Rebuttal via Theory of Mind
 description: >-
-  [ICLR2026][强化学习][学术写作] 提出 RebuttalAgent，首个将心智理论（Theory of Mind）融入学术 rebuttal 的框架，通过 ToM-Strategy-Response 三阶段推理范式和自奖励强化学习，在自动化和人类评估中均超越 GPT-4.1 等大模型，并开发了专用评估器 Rebuttal-RM。
+  [ICLR2026][academic rebuttal] 首次将心智理论（ToM）引入学术 rebuttal，提出 ToM-Strategy-Response 三阶段框架：先建模审稿人心理状态，再制定说服策略，最后生成证据支撑的回复，结合自奖励 RL 训练和专用 Rebuttal-RM 评估器，平均指标超越基座模型 18.3%。
 tags:
   - ICLR2026
-  - 强化学习
   - academic rebuttal
   - Theory of Mind
   - strategic persuasion
@@ -20,7 +19,7 @@ tags:
 **arXiv**: [2601.15715](https://arxiv.org/abs/2601.15715)  
 **代码**: [GitHub](https://github.com/Zhitao-He/RebuttalAgent)  
 **领域**: reinforcement_learning  
-**关键词**: academic rebuttal, Theory of Mind, strategic persuasion, GRPO, self-reward, reward model  
+**关键词**: academic rebuttal, Theory of Mind, strategic persuasion, GRPO, self-reward, reward model
 
 ## 一句话总结
 首次将心智理论（ToM）引入学术 rebuttal，提出 ToM-Strategy-Response 三阶段框架：先建模审稿人心理状态，再制定说服策略，最后生成证据支撑的回复，结合自奖励 RL 训练和专用 Rebuttal-RM 评估器，平均指标超越基座模型 18.3%。
@@ -65,11 +64,11 @@ tags:
 **两阶段训练**：
 1. **SFT 冷启动**：Qwen3-8B 基座，学习 TSR 结构化推理
 2. **GRPO 强化学习 + 自奖励**：
-   - 四维奖励函数：$R(o) = w_1 R_{format} + w_2 R_{think} + w_3 R_{resp} + w_4 R_{div}$
-   - $R_{format}$：格式正确性（二值）
-   - $R_{think}$：推理质量（模型自评 Analysis + Strategy）
-   - $R_{resp}$：回复质量（模型自评说服力、清晰度、证据使用）
-   - $R_{div}$：回复多样性（与预设负样本的语义差异，抗 reward hacking）
+    - 四维奖励函数：$R(o) = w_1 R_{format} + w_2 R_{think} + w_3 R_{resp} + w_4 R_{div}$
+    - $R_{format}$：格式正确性（二值）
+    - $R_{think}$：推理质量（模型自评 Analysis + Strategy）
+    - $R_{resp}$：回复质量（模型自评说服力、清晰度、证据使用）
+    - $R_{div}$：回复多样性（与预设负样本的语义差异，抗 reward hacking）
 
 ### 评估器：Rebuttal-RM
 - 基于 Qwen3-8B 微调，训练数据 102K 样本（三源：原始作者回复、GPT-4.1 精修回复、多模型生成回复）

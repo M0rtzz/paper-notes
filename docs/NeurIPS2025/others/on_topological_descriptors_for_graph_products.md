@@ -1,8 +1,17 @@
 ---
-title: "[论文解读] On Topological Descriptors for Graph Products"
-description: "[NeurIPS 2025][图学习] 系统研究图积上拓扑描述子(EC/PH)的表达能力，证明持续同调在图积上严格强于欧拉特征"
-tags: [NeurIPS 2025, 图学习, 拓扑数据分析, 持续同调, 图分类]
+title: >-
+  [论文解读] On Topological Descriptors for Graph Products
+description: >-
+  [NeurIPS 2025][topological descriptors] 系统研究在图的（box）积上施加各种滤过时拓扑描述子（欧拉特征 EC 和持续同调 PH）的表达能力，证明 PH 图积描述子严格强于对单图的计算，而 EC 不具备此性质，并给出高效 PH 计算算法。
+tags:
+  - NeurIPS 2025
+  - topological descriptors
+  - graph products
+  - Euler characteristic
+  - persistent homology
+  - graph classification
 ---
+
 # On Topological Descriptors for Graph Products
 
 **会议**: NeurIPS 2025  
@@ -16,9 +25,13 @@ tags: [NeurIPS 2025, 图学习, 拓扑数据分析, 持续同调, 图分类]
 
 ## 研究背景与动机
 **领域现状**：拓扑数据分析（TDA）中的持续同调（Persistent Homology, PH）和欧拉特征（Euler Characteristic, EC）已广泛用于捕获关系数据的多尺度结构信息，尤其在图神经网络表达能力受限时提供互补视角。
+
 **现有痛点**：对单图施加滤过计算 PH/EC 已有研究，但如何通过**图积**（graph product）增强拓扑描述子的表达能力缺乏理论分析。
+
 **核心矛盾**：EC 计算高效但表达力弱，PH 表达力强但计算开销大。图积是否能同时提升两者的判别力？
+
 **切入角度**：从理论角度完整刻画 EC 在通用色基滤过下的表达力上界，并证明 PH 通过图积获得严格更强的信息。
+
 **核心idea一句话**：利用图的 box 积构造丰富的滤过空间，使 PH 描述子获得严格更强于单图上计算的判别能力。
 
 ## 方法详解
@@ -30,13 +43,13 @@ tags: [NeurIPS 2025, 图学习, 拓扑数据分析, 持续同调, 图分类]
 
 1. **EC 表达力的完整刻画**
 
-    - 做什么：证明 EC 在色基滤过（color-based filtration）下的表达力等价性
+    - 功能：证明 EC 在色基滤过（color-based filtration）下的表达力等价性
     - 核心结论：对于一般色基滤过，EC 的判别力可被完全刻画——它等价于对图的色直方图（color histogram）的某种聚合，无法区分某些非同构图
     - 推论：EC 在图积上**不能**获得额外的判别力
 
 2. **PH 图积严格增强**
 
-    - 做什么：证明（虚拟）图积的 PH 描述子包含严格多于单图 PH 的信息
+    - 功能：证明（虚拟）图积的 PH 描述子包含严格多于单图 PH 的信息
     - 核心定理：存在图对 $(G_1, G_2)$ 和 $(G_1', G_2')$，它们单独的 PH 完全相同，但其积图的 PH 不同
     - 意义：PH 通过积运算捕获图间的"交互拓扑"
 

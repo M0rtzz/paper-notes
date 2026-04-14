@@ -39,18 +39,18 @@ tags:
 ### 两阶段预训练
 
 1. **Stage 1: 空间感知基因编码器预训练**:
-   - 数据：SpaVis-6M (575万ST条目，35器官，1982切片)
-   - 基因分词：异常表达排序策略（按偏离均值程度降序排列基因ID）
-   - 两个训练目标：
+    - 数据：SpaVis-6M (575万ST条目，35器官，1982切片)
+    - 基因分词：异常表达排序策略（按偏离均值程度降序排列基因ID）
+    - 两个训练目标：
      - IGR（内在基因重建）：掩码15%基因token→同spot内重建→学习基因共表达
      - CGR（上下文基因重建）：用邻居spot的信息重建中心spot→学习空间依赖
    - 空间一致mini-batch：基于KNN图采样空间连续的邻域
 
 2. **Stage 2: 层次多尺度对比对齐**:
-   - 跨尺度定位(CSP)：patch作为3×3网格中的子区域→预测位置→模拟病理医生缩放
-   - 跨模态对齐：InfoNCE对比学习对齐patch-基因和region-基因
-   - 模态内对齐：patch-region对比→扩展视觉编码器感受野
-   - 统一损失：$\mathcal{L}_{Align} = \mathcal{L}_{CSP} + \mathcal{L}_{P-S} + \mathcal{L}_{R-S} + \mathcal{L}_{P-R}$
+    - 跨尺度定位(CSP)：patch作为3×3网格中的子区域→预测位置→模拟病理医生缩放
+    - 跨模态对齐：InfoNCE对比学习对齐patch-基因和region-基因
+    - 模态内对齐：patch-region对比→扩展视觉编码器感受野
+    - 统一损失：$\mathcal{L}_{Align} = \mathcal{L}_{CSP} + \mathcal{L}_{P-S} + \mathcal{L}_{R-S} + \mathcal{L}_{P-R}$
 
 ### 关键设计
 

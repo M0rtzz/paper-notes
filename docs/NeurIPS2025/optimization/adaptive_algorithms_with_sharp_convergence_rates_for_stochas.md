@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.15399](https://arxiv.org/abs/2509.15399)  
 **代码**: 无  
 **领域**: 优化理论 / 层次化优化  
-**关键词**: minimax optimization, bilevel optimization, adaptive algorithm, convergence rate, stochastic gradient noise  
+**关键词**: minimax optimization, bilevel optimization, adaptive algorithm, convergence rate, stochastic gradient noise
 
 ## 一句话总结
 首次为随机层次化优化（极小极大和双层优化）提供自适应且sharp的收敛保证，通过动量归一化技术和新型自适应参数选择，在无需事先知道噪声大小的情况下实现最优收敛率Õ(1/√T + √σ̄/T^{1/4})。

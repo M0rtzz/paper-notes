@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Adaptive Evidential Learning for Temporal-Semantic Robustness in Moment Retrieval
 description: >-
-  [AAAI 2026][Moment Retrieval] 提出 DEMR 框架，将深度证据回归（DER）引入视频时刻检索任务，通过 Reflective Flipped Fusion 模块缓解模态不平衡、通过 Geom-regularizer 修复原始 DER 中不确定性估计的反直觉偏差，在标准和去偏数据集上均取得了显著提升。
+  [AAAI 2026][时刻检索] 提出 DEMR 框架，将深度证据回归（DER）引入视频时刻检索任务，通过 Reflective Flipped Fusion 模块缓解模态不平衡、通过 Geom-regularizer 修复原始 DER 中不确定性估计的反直觉偏差，在标准和去偏数据集上均取得了显著提升。
 tags:
   - AAAI 2026
-  - Moment Retrieval
+  - 时刻检索
   - Evidential Learning
   - 不确定性估计
   - 跨模态对齐
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.00953v1](https://arxiv.org/abs/2512.00953v1)  
 **代码**: [https://github.com/KaijingOfficial/DEMR](https://github.com/KaijingOfficial/DEMR) (有)  
 **领域**: 视频理解 / 时刻检索 / 不确定性估计  
-**关键词**: Moment Retrieval, Evidential Learning, 不确定性估计, 跨模态对齐, 去偏  
+**关键词**: 时刻检索, Evidential Learning, 不确定性估计, 跨模态对齐, 去偏
 
 ## 一句话总结
 提出 DEMR 框架，将深度证据回归（DER）引入视频时刻检索任务，通过 Reflective Flipped Fusion 模块缓解模态不平衡、通过 Geom-regularizer 修复原始 DER 中不确定性估计的反直觉偏差，在标准和去偏数据集上均取得了显著提升。

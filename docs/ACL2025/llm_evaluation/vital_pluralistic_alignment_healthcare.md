@@ -2,14 +2,14 @@
 title: >-
   [论文解读] VITAL: A New Dataset for Benchmarking Pluralistic Alignment in Healthcare
 description: >-
-  [ACL 2025][pluralistic alignment] 本文构建了首个面向医疗健康领域的多元化对齐（pluralistic alignment）基准数据集 VITAL，包含 13.1K 价值观情境和 5.4K 多选题，并通过对 8 个 LLM 的广泛评估表明，现有多元化对齐技术（尤其是 ModPlural）在医疗场景下表现不佳，简单的 prompting 反而效果更好。
+  [ACL 2025][多元对齐] 本文构建了首个面向医疗健康领域的多元化对齐（pluralistic alignment）基准数据集 VITAL，包含 13.1K 价值观情境和 5.4K 多选题，并通过对 8 个 LLM 的广泛评估表明，现有多元化对齐技术（尤其是 ModPlural）在医疗场景下表现不佳，简单的 prompting 反而效果更好。
 tags:
   - ACL 2025
-  - pluralistic alignment
+  - 多元对齐
   - healthcare
-  - LLM benchmark
+  - LLM 基准
   - value diversity
-  - dataset
+  - 数据集
 ---
 
 # VITAL: A New Dataset for Benchmarking Pluralistic Alignment in Healthcare
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.13775](https://arxiv.org/abs/2502.13775)  
 **代码**: [https://github.com/anudeex/VITAL.git](https://github.com/anudeex/VITAL.git)  
 **领域**: 医学图像 / LLM 对齐  
-**关键词**: pluralistic alignment, healthcare, LLM benchmark, value diversity, dataset  
+**关键词**: 多元对齐, healthcare, LLM 基准, value diversity, 数据集
 
 ## 一句话总结
 本文构建了首个面向医疗健康领域的多元化对齐（pluralistic alignment）基准数据集 VITAL，包含 13.1K 价值观情境和 5.4K 多选题，并通过对 8 个 LLM 的广泛评估表明，现有多元化对齐技术（尤其是 ModPlural）在医疗场景下表现不佳，简单的 prompting 反而效果更好。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 对齐技术（如 RLHF、DPO）日益成熟，但通常建模的是"平均"偏好，忽略了不同文化、人口、社区之间价值观的多样性。Sorensen et al. (2024) 提出了多元化对齐框架，定义三种模式：Overton（覆盖所有多样视角）、Steerable（按用户指定属性调控）、Distributional（匹配现实世界分布）。Feng et al. (2024) 提出了 ModPlular 多 LLM 协作方案。
+
 **现有痛点**：(1) 现有对齐数据集（OpinionQA、GlobalOpinionQA 等）没有专注于医疗健康领域；(2) 医疗场景中的多元性尤为关键——文化、宗教、个人价值观都会影响健康决策；(3) 不知道现有多元对齐技术在医疗领域是否有效。
+
 **核心矛盾**：通用多元化对齐技术可能无法迁移到特定领域。医疗场景的错误对齐可能导致有害的健康建议或信念同质化。
+
 **本文要解决什么？** (1) 构建首个医疗健康多元化对齐基准；(2) 系统评估现有技术在该基准上的表现；(3) 探索改进方向。
+
 **切入角度**：从医疗健康这个高敏感多争议领域入手，利用调查、民意测验和道德困境场景构建多元化数据集。
+
 **核心idea一句话**：医疗健康领域需要专门的多元化对齐评估基准和方法，现有通用方案在此领域效果有限。
 
 ## 方法详解
@@ -41,7 +46,7 @@ tags:
 
 1. **数据集构建（VITAL）**:
 
-    - 做什么：构建涵盖 13.1K 价值观情境 + 5.4K 多选题的医疗健康多元化对齐基准
+    - 功能：构建涵盖 13.1K 价值观情境 + 5.4K 多选题的医疗健康多元化对齐基准
     - 核心思路：从多个调查和道德数据集（OpinionQA、GlobalOpinionQA、MoralChoice 等）中收集多选题，使用 FLAN-T5 的 few-shot 分类过滤出与健康相关、具有多元观点、需要行动的样本
     - 数据分布：Overton 模式 1,649 文本样本，Steerable 模式 15,340 样本（文本+QA），Distributional 模式 1,857 QA 样本
     - 质量验证：人工标注验证 10% 样本，80% 被确认为健康相关（Fleiss' Kappa: 0.49）

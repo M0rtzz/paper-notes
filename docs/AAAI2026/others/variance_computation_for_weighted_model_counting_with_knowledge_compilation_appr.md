@@ -55,13 +55,13 @@ tags:
 
 1. **WMC 方差的形式化定义 (VC/CVC 查询)**:
 
-    - 做什么：将每个变量的权重 $(P_x, N_x)$ 视为随机变量，定义方差计算查询 VC 为计算 $\mathrm{V}[W_f^\mathcal{V}]$，协方差计算查询 CVC 为计算 $\mathrm{Cov}[W_f^\mathcal{V}, W_g^\mathcal{V}]$
+    - 功能：将每个变量的权重 $(P_x, N_x)$ 视为随机变量，定义方差计算查询 VC 为计算 $\mathrm{V}[W_f^\mathcal{V}]$，协方差计算查询 CVC 为计算 $\mathrm{Cov}[W_f^\mathcal{V}, W_g^\mathcal{V}]$
     - 核心思路：假设不同变量的权重对 $(P_x, N_x)$ 与 $(P_y, N_y)$（$x \neq y$）互相独立，但同一变量的 $P_x$ 与 $N_x$ 可以相关。这使得期望 $\mathrm{E}[W_f]$ 等价于普通 WMC，方差则是需要新算法来计算的新查询
     - 设计动机：独立性假设对贝叶斯网络的参数独立性自然成立（parameter independence assumption），且使分解公式可推导
 
 2. **基于 vtree 的协方差递归分解 (Algorithm 1)**:
 
-    - 做什么：递归计算任意两个 st-d-DNNF 节点 $\alpha, \beta$ 的 WMC 协方差
+    - 功能：递归计算任意两个 st-d-DNNF 节点 $\alpha, \beta$ 的 WMC 协方差
     - 核心思路：根据 $\mathsf{d}(\alpha)$ 和 $\mathsf{d}(\beta)$ 在 vtree 中的关系，分三种情况分解：
       - **Case I**（无祖先-后代关系）：利用乘积独立性公式 $\mathrm{Cov}[AX, BY] = \mathrm{Cov}[A,B]\mathrm{Cov}[X,Y] + \mathrm{Cov}[A,B]\mathrm{E}[X]\mathrm{E}[Y] + \mathrm{E}[A]\mathrm{E}[B]\mathrm{Cov}[X,Y]$，将协方差分解到 vtree 的左右子树
       - **Case II**（$\alpha$ 是 $\vee$-节点）：利用确定性(determinism)保证，按协方差的可加性 $\mathrm{Cov}[A+B, C] = \mathrm{Cov}[A,C] + \mathrm{Cov}[B,C]$ 分解到子节点
@@ -71,7 +71,7 @@ tags:
 
 3. **辅助函数 ADJEXP 和 ADJCOV（变量集调整）**:
 
-    - 做什么：在递归过程中调整 WMC 的变量集，使不同子问题的变量集一致
+    - 功能：在递归过程中调整 WMC 的变量集，使不同子问题的变量集一致
     - 核心思路：由于 $W_f^\mathcal{V}$ 的值随 $\mathcal{V}$ 变化而变化，当节点的作用域小于当前 vtree 节点的作用域时，需要用 true 函数"补全"缺失变量的贡献。预处理阶段计算 $\prod_{x \in S}(\mu_{P_x} + \mu_{N_x})$ 等辅助量，使调整操作在 $O(1)$ 时间内完成
     - 设计动机：这是将算法从 OBDD 推广到 st-d-DNNF 的核心困难——OBDD 的变量次序是线性的，而 vtree 是树形的，变量集管理更加复杂
 

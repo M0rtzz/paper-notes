@@ -8,7 +8,7 @@ tags:
   - 3D视觉
   - Visual-Inertial SLAM
   - 第一人称视觉
-  - Benchmark
+  - benchmark
   - 城市尺度定位
   - 可穿戴设备
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.26639](https://arxiv.org/abs/2509.26639)  
 **代码**: [lamaria.ethz.ch](https://www.lamaria.ethz.ch/)（数据集与评测平台）  
 **领域**: 3D视觉 / SLAM  
-**关键词**: Visual-Inertial SLAM, 第一人称视觉, Benchmark, 城市尺度定位, 可穿戴设备  
+**关键词**: Visual-Inertial SLAM, 第一人称视觉, benchmark, 城市尺度定位, 可穿戴设备
 
 ## 一句话总结
 

@@ -42,7 +42,7 @@ QUANN: $\hat{F}(X) = \rho(\psi^{-1}(\frac{1}{|P_k(X)|}\sum_{\pi} \psi(\phi(\pi))
 
 1. **Neuralized Kolmogorov Mean (NKM)**:
 
-    - 做什么：用可逆神经网络 $\psi$ 实现Kolmogorov均值的生成函数
+    - 功能：用可逆神经网络 $\psi$ 实现Kolmogorov均值的生成函数
     - 核心思路：$M_\psi(X) = \psi^{-1}(\frac{1}{n}\sum_{i=1}^n \psi(x_i))$，用RevNet做 $\psi$
     - 设计动机：NKM是首个可学习的Kolmogorov均值实现——$\psi$ 的形式决定了均值类型（线性=算术平均，log=几何平均，幂=幂均值），可逆网络足够表达
 

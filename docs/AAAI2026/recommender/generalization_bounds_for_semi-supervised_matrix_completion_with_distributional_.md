@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information
 description: >-
-  [AAAI 2026][推荐系统][矩阵补全] 提出半监督矩阵补全的泛化界理论，假设采样分布与真实矩阵共享低秩子空间，证明了标注数据和未标注数据的误差可加性分解，为推荐系统隐式-显式反馈联合建模提供理论基础。
+  [AAAI 2026][半监督矩阵补全] 提出首个半监督矩阵补全学习范式：假设采样分布 $P$ 和真实矩阵 $G$ 共享低秩子空间，给定大量未标注数据 $M$ 和少量标注数据 $N$，证明泛化误差可分解为 $\tilde{O}(\sqrt{nd/M}) + \tilde{O}(\sqrt{dr/N})$ 两个独立项，在 Douban 和 MovieLens 数据集上显著优于仅用显式反馈的基线。
 tags:
   - AAAI 2026
-  - 推荐系统
-  - 矩阵补全
+  - 半监督矩阵补全
   - 泛化界
-  - 半监督学习
+  - 低秩子空间
   - 隐式反馈
+  - 显式反馈
+  - 核范数约束
 ---
 
 # Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information

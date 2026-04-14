@@ -10,7 +10,7 @@ tags:
   - breast ultrasound
   - BI-RADS
   - VLM
-  - 强化学习
+  - reinforcement-learning
   - evidence-chain
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.10852](https://arxiv.org/abs/2603.10852)  
 **代码**: 待确认  
 **领域**: medical_imaging  
-**关键词**: multi-agent, breast ultrasound, BI-RADS, VLM, reinforcement learning, evidence-chain
+**关键词**: multi-agent, breast ultrasound, BI-RADS, VLM, reinforcement-learning, evidence-chain
 
 ## 一句话总结
 
@@ -31,7 +31,9 @@ tags:
 乳腺超声（BUS）是乳腺癌筛查的重要工具。临床医生遵循从粗到精的阅片流程：定位病灶→评估细粒度征象（形态、回声模式等）→综合证据给出 BI-RADS 分级和良恶性判断。现有方法存在以下不足：
 
 **端到端预测缺乏可解释性**：无法给出中间证据链，限制临床可审计性
+
 **弱显式证据**：多阶段方法虽有可解释设计，但证据与最终诊断的因果关系不清晰
+
 **VLM 推理不稳定**：SFT 依赖模板数据，RL 面临定位误差传播和信用分配困难
 
 核心挑战：如何在单一策略中同时学习定位、细粒度感知和高级诊断推理——定位错误会改变下游观测分布，增加非稳态性。层次化多智能体通过分离证据采集与证据整合提供了解决方案。
@@ -90,12 +92,12 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 ## 亮点
 
 1. **首个超声诊断 Agent 框架**：将 VLM 多智能体与临床 BUS 工作流对齐
-   - ROI→属性→诊断的证据链可追溯
-   - 提供可审计的中间结果
+    - ROI→属性→诊断的证据链可追溯
+    - 提供可审计的中间结果
 2. **Oracle 课程 RL 训练策略**：解耦推理学习与感知噪声，解决层次化训练的非稳态问题，设计巧妙且通用性强
 3. **纠正性轨迹自蒸馏**：将 RL 探索的稀疏奖励转化为密集监督信号
-   - 兼顾定位和推理两个维度
-   - 解决了 RL 攝录的噪声问题
+    - 兼顾定位和推理两个维度
+    - 解决了 RL 攝录的噪声问题
 4. **Think-with-Image 对比说明**：单纯 crop-and-zoom 不保证提升（接近随机），关键在于层次化劳动分工和结构化证据传递
 5. **RL 训练策略的通用性**：Oracle 课程 RL + 轨迹自蒸馏的范式可迁移到其他层次化多智能体任务
 6. **域外 AUC 提升显著**：BrEaST 上 AUC 0.685 vs CoT-SFT 0.586，得益于 crop-and-zoom 减少背景干扰

@@ -2,11 +2,11 @@
 title: >-
   [论文解读] FALCON: Fine-grained Activation Manipulation by Contrastive Orthogonal Unalignment for Large Language Model
 description: >-
-  [NeurIPS 2025][机器人][Machine Unlearning] 提出 FALCON——基于表示引导的 LLM 遗忘框架，利用互信息进行参数选择、对比机制实现精细知识分离、梯度正交投影解决遗忘-保留冲突，在有害知识/版权/实体遗忘任务上全面超越现有方法。
+  [NeurIPS 2025][机器人][machine unlearning] 提出 FALCON——基于表示引导的 LLM 遗忘框架，利用互信息进行参数选择、对比机制实现精细知识分离、梯度正交投影解决遗忘-保留冲突，在有害知识/版权/实体遗忘任务上全面超越现有方法。
 tags:
   - NeurIPS 2025
   - 机器人
-  - Machine Unlearning
+  - machine unlearning
   - 对比学习
   - 梯度正交投影
   - 互信息
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.01472](https://arxiv.org/abs/2502.01472)  
 **代码**: [FALCON](https://github.com/CharlesJW222/FALCON) (有)  
 **领域**: AI 安全 / 机器遗忘 / LLM 对齐  
-**关键词**: Machine Unlearning, 对比学习, 梯度正交投影, 互信息, 知识解纠缠
+**关键词**: machine unlearning, 对比学习, 梯度正交投影, 互信息, 知识解纠缠
 
 ## 一句话总结
 提出 FALCON——基于表示引导的 LLM 遗忘框架，利用互信息进行参数选择、对比机制实现精细知识分离、梯度正交投影解决遗忘-保留冲突，在有害知识/版权/实体遗忘任务上全面超越现有方法。
@@ -28,9 +28,9 @@ tags:
 
 1. **LLM 安全风险**：大模型可能编码有害、偏见或敏感信息，导致伦理违规和合规问题。
 2. **现有方法不足**：
-   - 护栏方法计算昂贵且不能抵抗对抗攻击
-   - 全量重训不现实
-   - 现有遗忘方法依赖粗粒度损失组合，难以精确分离知识并平衡遗忘效果与模型效用
+    - 护栏方法计算昂贵且不能抵抗对抗攻击
+    - 全量重训不现实
+    - 现有遗忘方法依赖粗粒度损失组合，难以精确分离知识并平衡遗忘效果与模型效用
 3. **三大核心挑战**：(I1) 缺乏高效可解释的参数选择指导；(I2) 粗粒度操纵导致表示随机分散、梯度动态不可控；(I3) 遗忘后的知识可被越狱攻击恢复。
 
 ## 核心问题

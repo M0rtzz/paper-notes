@@ -51,7 +51,7 @@ RETA在解耦DD基础上操作。输入为大规模训练集 $\mathcal{D}$，输
 
 1. **Dynamic Retrieval Connection (DRC)**
 
-    - 做什么：每阶段为每个类的每个合成图像动态检索最优real patch作为残差anchor
+    - 功能：每阶段为每个类的每个合成图像动态检索最优real patch作为残差anchor
     - 核心思路：为每个类 $c$ 构建pool $p_c$（每张真实图像的 $1 \times 1$ patch）。冻结teacher $\phi(\cdot)$ 编码合成图像和所有候选patch，定义fit-complexity score：
     $J(o|\tilde{x}_t) = (1-\lambda)\|q(\tilde{x}_t) - z(o)\|_2^2 + \lambda \cdot c(o)$
       其中 $q(\tilde{x}_t) = \text{Norm}(\phi(\tilde{x}_t))$，$z(o) = \text{Norm}(\phi(o))$。第一项是fit gap（teacher空间中合成特征与候选patch的距离），第二项 $c(o) = \text{Var}_{u \in \Omega_{D_t}}(\|\nabla(G_\sigma * o)(u)\|_2^2)$ 是complexity score——高斯平滑后梯度幅度的空间方差，值大说明patch含有剧烈的高频空间波动。$\lambda$ 权衡fit和complexity。
@@ -60,7 +60,7 @@ RETA在解耦DD基础上操作。输入为大规模训练集 $\mathcal{D}$，输
 
 2. **Persistent Topology Alignment (PTA)**
 
-    - 做什么：构建可微的持久同调正则化，对齐real和synthetic特征集的拓扑结构（连通分量和环），对抗pull-to-anchor导致的类内多样性坍塌
+    - 功能：构建可微的持久同调正则化，对齐real和synthetic特征集的拓扑结构（连通分量和环），对抗pull-to-anchor导致的类内多样性坍塌
     - 核心思路：对每个类 $c$，取合成特征 $Z_c^{syn} = \{\phi(\tilde{x}_i)\}$ 和真实特征 $Z_c^{real} = \{\phi(x): x \in p_c\}$ 的并集 $Z_c$。构建class-balanced mutual $k$-NN图，运行persistent homology得到persistence diagrams $\mathcal{D}_c^{(q)}$（$q=0$：连通分量，$q=1$：环/loops）。将每个diagram映射为persistence image (PI)：
     $I^{(q)}(Z_c)[m] = \sum_{(b_j, p_j) \in \mathcal{D}_c^{(q)}} w_q(p_j) \exp\left(-\frac{\|u_m - (b_j, p_j)\|_2^2}{2\sigma^2}\right)$
       对齐loss为：

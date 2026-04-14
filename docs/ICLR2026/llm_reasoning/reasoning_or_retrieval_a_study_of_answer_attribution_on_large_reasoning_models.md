@@ -10,7 +10,7 @@ tags:
   - CoT reasoning
   - memory retrieval
   - answer attribution
-  - 强化学习
+  - reinforcement-learning
   - unlearning
   - GRPO
 ---
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2509.24156](https://arxiv.org/abs/2509.24156)  
 **代码**: [ZJUWYH/FARL](https://github.com/ZJUWYH/FARL)  
 **领域**: llm_reasoning  
-**关键词**: large reasoning models, CoT reasoning, memory retrieval, answer attribution, reinforcement learning, unlearning, GRPO
+**关键词**: large reasoning models, CoT reasoning, memory retrieval, answer attribution, reinforcement-learning, unlearning, GRPO
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 大型推理模型（如 DeepSeek-R1、GPT o-series）通过链式思维（CoT）推理展示了强大的问题解决能力。然而，越来越多的证据表明这些模型的最终答案与其推理过程经常不一致：
 
 **推理-答案断连**：最终答案并不总是由 CoT 推理过程直接产生，上下文偏差可以在 CoT 未承认的情况下影响输出
+
 **双重机制假说**：模型可能同时通过"审慎推理"和"直接从内部记忆检索"两条路径生成答案
+
 **训练方法影响不明**：蒸馏和强化学习对这两种机制的影响尚未被系统研究
 
 核心研究问题：

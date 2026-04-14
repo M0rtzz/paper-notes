@@ -47,7 +47,7 @@ TRACED沿用ACCEL的UED循环，唯一改变是用Task Priority（结合Task Dif
 
 1. **基于转移预测损失的Regret近似**:
 
-    - 做什么：增强regret估计的精确度
+    - 功能：增强regret估计的精确度
     - 理论基础：将one-step regret分解为 $\text{Regret}(s,a) = \underbrace{V^*(s) - \hat{V}^*(s)}_{\text{(i) value error}} + \underbrace{r(s,a^*) - r(s,a)}_{\text{(ii) reward gap}} + \gamma \underbrace{(\mathbb{E}[\hat{V}^*(s'')] - \mathbb{E}[V^\pi(s')])}_{\text{(iii) future value gap}}$
     - PVL仅对应(i)，而(iii)受学习的转移模型 $\hat{P}$ 与真实转移 $P$ 的失配影响
     - 定义ATPL：$\text{ATPL}(\tau) = \frac{1}{T}\sum_{t=0}^T L_{\text{trans}}(s_t, a_t)$
@@ -56,7 +56,7 @@ TRACED沿用ACCEL的UED循环，唯一改变是用Task Priority（结合Task Dif
 
 2. **Co-Learnability度量**:
 
-    - 做什么：量化训练一个任务对其他任务的迁移效益
+    - 功能：量化训练一个任务对其他任务的迁移效益
     - 定义：$\text{CoLearnability}_i(k) = \frac{1}{|\mathcal{T}_{k+1}|}\sum_{j \in \mathcal{T}_{k+1}}[\text{TaskDifficulty}(j,k) - \text{TaskDifficulty}(j,k+1)]$
     - 正值表示训练任务 $i$ 后其他被replay的任务难度下降
     - 类比：西班牙语-英语有高CL（共享词根），日语-英语有低CL

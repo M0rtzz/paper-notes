@@ -1,8 +1,16 @@
 ---
-title: "Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition"
-conference: "ICML2025"
-domain: "audio_speech"
-arxiv: "2511.20534"
+title: >-
+  [论文解读] Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition
+description: >-
+  [ICML 2025][语音][ASR] 本文提出 LatentVoiceMix，在语音转换模型 Diff-HierVC 的说话人风格编码器潜在空间中进行 mixup 插值，生成具有新颖声音特征的合成语音数据用于增强 ASR 训练，在低资源语言 Wolof 上取得了优于波形增强、频谱增强和标准语音转换的 WER 改善效果。
+tags:
+  - ICML 2025
+  - 语音
+  - ASR
+  - 低资源语言
+  - Mixup
+  - 语音转换
+  - 公平性
 ---
 
 # Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition
@@ -41,19 +49,19 @@ LatentVoiceMix 的 pipeline：输入是低资源语言的音频数据集 → 去
 
 1. **说话人音色提取与存储**:
 
-    - 做什么：为语料库中每个音频提取固定长度的说话人音色表示
+    - 功能：为语料库中每个音频提取固定长度的说话人音色表示
     - 核心思路：使用 Diff-HierVC 的风格编码器将每段音频编码为255维向量，该向量捕获与语言内容无关的、时间不变的声音特征（音高、音色、说话风格等），系统性地存储在文件系统中供后续复用
     - 设计动机：将音色提取与合成过程解耦，使得 mixup 操作可以在高效的向量空间而非原始波形上进行
 
 2. **潜在空间 Mixup 策略**:
 
-    - 做什么：在风格编码器的潜在空间中生成新的说话人音色
+    - 功能：在风格编码器的潜在空间中生成新的说话人音色
     - 核心思路：随机选择两个不同于源说话人的音色向量 $\mathbf{t}_{\text{target}}$ 和 $\mathbf{t}_{\text{mixup}}$，计算凸组合 $\mathbf{t}_{\text{mixed}} = \lambda \mathbf{t}_{\text{target}} + (1-\lambda) \mathbf{t}_{\text{mixup}}$，其中 $\lambda \sim \text{Beta}(0.5, 0.5)$
     - 设计动机：Beta(0.5, 0.5) 分布是 U 型的，倾向于接近0或1的极端值，使得混合音色更接近某一个源说话人，从而在增加多样性的同时保持自然度。在凸包内插值确保生成的音色不会偏离真实说话人分布太远
 
 3. **后处理去噪**:
 
-    - 做什么：对合成音频进行去噪
+    - 功能：对合成音频进行去噪
     - 核心思路：使用 noisereduce 包对生成的合成音频进行最终去噪，去除语音转换过程中引入的残余伪影
     - 设计动机：消融实验表明去掉后去噪步骤会使 WER 从0.202上升到0.214，说明后处理对最终性能有显著贡献
 

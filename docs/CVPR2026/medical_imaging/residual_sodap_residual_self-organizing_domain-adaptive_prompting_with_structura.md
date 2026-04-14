@@ -45,9 +45,9 @@ Residual SODAP 包含四个核心模块：(1) α-entmax 残差提示选择；(2)
 
 1. **α-Entmax 残差提示选择**：
 
-   - **查询增强**：在每层 Transformer $l$，用当前 CLS token $\mathbf{q}^{(l)}$、全局初始 CLS $\mathbf{g}$、以及通过 MHA 从可学习记忆库 $(\mathbf{M}_K, \mathbf{M}_V)$ 检索的信号 $\mathbf{r}^{(l)}$，经拼接+瓶颈适配器得到增强查询 $\tilde{\mathbf{q}}^{(l)}$。记忆库通过 EMA 梯度无关更新（write），保持训练稳定。
+    - **查询增强**：在每层 Transformer $l$，用当前 CLS token $\mathbf{q}^{(l)}$、全局初始 CLS $\mathbf{g}$、以及通过 MHA 从可学习记忆库 $(\mathbf{M}_K, \mathbf{M}_V)$ 检索的信号 $\mathbf{r}^{(l)}$，经拼接+瓶颈适配器得到增强查询 $\tilde{\mathbf{q}}^{(l)}$。记忆库通过 EMA 梯度无关更新（write），保持训练稳定。
 
-   - **稀疏选择**：增强查询投影到瓶颈空间后与提示键余弦相似度计算 logit，用 **α-entmax**（$\alpha=1.5$）替代 softmax 做归一化：
+    - **稀疏选择**：增强查询投影到瓶颈空间后与提示键余弦相似度计算 logit，用 **α-entmax**（$\alpha=1.5$）替代 softmax 做归一化：
    $$[\alpha\text{-entmax}(\boldsymbol{\ell})]_j = \left[\frac{\alpha-1}{\alpha}(\ell_j - \tau(\boldsymbol{\ell}))\right]_+^{\frac{1}{\alpha-1}}$$
    α-entmax 可为低分提示赋予精确零权重，消除无关提示噪声，同时保持全池可微。
 
@@ -57,18 +57,18 @@ Residual SODAP 包含四个核心模块：(1) α-entmax 残差提示选择；(2)
 
 2. **统计知识保持（Statistical Knowledge Preservation）**：
 
-   - **阶段转换时保存知识资产**：冻结当前分类头为 teacher；用 Welford 在线算法计算类别级特征统计量 $(\boldsymbol{\mu}_c, \boldsymbol{\sigma}_c^2)$，单次遍历、内存高效、数值稳定。
+    - **阶段转换时保存知识资产**：冻结当前分类头为 teacher；用 Welford 在线算法计算类别级特征统计量 $(\boldsymbol{\mu}_c, \boldsymbol{\sigma}_c^2)$，单次遍历、内存高效、数值稳定。
 
-   - **实特征蒸馏**：将当前批次实特征分别过 teacher 和 student 头，用 KL 散度对齐：
+    - **实特征蒸馏**：将当前批次实特征分别过 teacher 和 student 头，用 KL 散度对齐：
    $$\mathcal{L}_{\text{real}} = \text{KL}\left(\text{softmax}(\mathbf{z}_t/T) \| \text{softmax}(\mathbf{z}_s/T)\right) \cdot T^2$$
 
    - **伪特征回放**：从存储的类别统计中采样 $K$ 个伪特征 $\tilde{\mathbf{f}}_k \sim \mathcal{N}(\boldsymbol{\mu}_{c_k}, \text{diag}(\boldsymbol{\sigma}_{c_k}^2))$（均匀采样类别索引避免少数类欠表示），stop-gradient 后过 teacher/student 头计算蒸馏损失 $\mathcal{L}_{\text{pseudo}}$。无需存储任何原始数据即可保持分类器决策边界。
 
 3. **提示使用模式漂移检测（PUDD）**：
 
-   - 提取两个漂移信号：(i) 选择熵 $H_t$（域变化时分布重调，短期波动增大）；(ii) 使用集合 IoU（$\text{IoU}_t = |\mathcal{S}_t \cap \mathcal{S}_t^{\text{ref}}| / |\mathcal{S}_t \cup \mathcal{S}_t^{\text{ref}}|$，低 IoU 表示使用了不同提示）。
+    - 提取两个漂移信号：(i) 选择熵 $H_t$（域变化时分布重调，短期波动增大）；(ii) 使用集合 IoU（$\text{IoU}_t = |\mathcal{S}_t \cap \mathcal{S}_t^{\text{ref}}| / |\mathcal{S}_t \cup \mathcal{S}_t^{\text{ref}}|$，低 IoU 表示使用了不同提示）。
 
-   - 融合漂移评分：
+    - 融合漂移评分：
    $$D_t = \alpha \cdot \frac{|H_t - \bar{H}_t|}{\sigma_{H,t} + \epsilon} + \beta \cdot \left(\frac{1}{\max(\text{IoU}_t, \eta)} - 1\right)$$
 
    - **漂移比例池扩展**：新增提示数 $E = \text{clamp}\left(\lfloor|\mathcal{A}| \cdot \bar{D}/D_{\max}\rfloor, E_{\min}, E_{\max}\right)$，弱漂移少扩展、强漂移多扩展。

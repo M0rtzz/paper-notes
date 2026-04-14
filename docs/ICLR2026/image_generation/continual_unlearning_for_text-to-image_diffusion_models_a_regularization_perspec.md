@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.07970](https://arxiv.org/abs/2511.07970)  
 **代码**: [https://justinhylee135.github.io/CUIG_Project_Page/](https://justinhylee135.github.io/CUIG_Project_Page/)  
 **领域**: 扩散模型 / 机器遗忘  
-**关键词**: continual unlearning, diffusion models, regularization, gradient projection, concept erasure  
+**关键词**: continual unlearning, diffusion models, regularization, gradient projection, concept erasure
 
 ## 一句话总结
 首次系统研究 T2I 扩散模型的持续遗忘（continual unlearning）问题，发现现有遗忘方法在序列请求下因累积参数漂移导致"效用崩溃"，提出一组附加正则化策略（L1/L2 范数、选择性微调、模型合并）和语义感知的梯度投影方法来缓解该问题。
@@ -51,25 +51,25 @@ tags:
 
 1. **更新范数正则化 (L1/L2)**:
 
-    - 做什么：直接惩罚参数更新幅度
+    - 功能：直接惩罚参数更新幅度
     - 核心思路：$\mathcal{L}_{\text{unlearn}}(\theta, \{c_n^*\}) + \lambda \|\theta - \theta_{n-1}^*\|_p^p$，L1 鼓励稀疏更新，L2 防止单个权重过度漂移
     - 设计动机：最直接的约束累积漫移方式，简单有效
 
 2. **选择性微调 (SelFT)**:
 
-    - 做什么：只更新对目标概念最重要的 top-k% 参数，冻结其余
+    - 功能：只更新对目标概念最重要的 top-k% 参数，冻结其余
     - 核心思路：用一阶 Taylor 近似估计参数重要性 $|\nabla_{\theta[d]} \mathcal{L}_{\text{unlearn}} \cdot \theta_{n-1}^*[d]|$，只更新最重要的参数
     - 设计动机：相比 L1 正则化的各向同性稀疏，SelFT 利用任务相关的稀疏性更有针对性
 
 3. **模型合并 (Model Merge)**:
 
-    - 做什么：对每个概念独立从预训练权重出发遗忘，然后用 TIES-Merging 合并所有独立遗忘的模型
+    - 功能：对每个概念独立从预训练权重出发遗忘，然后用 TIES-Merging 合并所有独立遗忘的模型
     - 核心思路：每个独立遗忘模型都靠近预训练权重，合并后仍在同一损失盆地内，保留效用
     - 设计动机：独立遗忘避免了累积漂移，合并可以在保持接近预训练权重的同时聚合所有遗忘效果
 
 4. **梯度投影 (GradProj) — 语义感知正则化**:
 
-    - 做什么：将遗忘梯度投影到与语义相近概念正交的子空间，防止对相近概念的干扰
+    - 功能：将遗忘梯度投影到与语义相近概念正交的子空间，防止对相近概念的干扰
     - 核心思路：遗忘主要通过修改 cross-attention 的 $W_K$, $W_V$ 实现。由于线性投影保持邻域结构，修改 $W_K, W_V$ 以擦除 $c^*$ 时不可避免地扰动语义相近的概念 $c$。GradProj 选择 top-K 个语义相近概念（按 text embedding 余弦相似度），将 $W_K, W_V$ 的梯度在这些概念的嵌入方向上的分量去除
     - 设计动机：跨域保留（如遗忘风格时保留物体）通过通用正则化即可解决，但域内保留（如遗忘一种风格时保留其他风格）极具挑战。实验表明保留准确率与 text embedding 相似度呈强负相关，必须进行语义感知的约束
 

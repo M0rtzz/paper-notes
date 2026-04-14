@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.22862](https://arxiv.org/abs/2511.22862)  
 **代码**: [https://github.com/Luchicken/BriMPR](https://github.com/Luchicken/BriMPR)  
 **领域**: 多模态VLM  
-**关键词**: 多模态测试时自适应, 跨模态对齐, Prompt Tuning, 对比学习, 分布校准  
+**关键词**: 多模态测试时自适应, 跨模态对齐, prompt tuning, 对比学习, 分布校准
 
 ## 一句话总结
 

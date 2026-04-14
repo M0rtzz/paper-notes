@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR 2026
   - abstract reasoning
-  - 强化学习
+  - reinforcement-learning
   - GSM robustness
   - symbolic reasoning
   - distribution shift
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2506.07751](https://arxiv.org/abs/2506.07751)  
 **代码**: 有  
 **领域**: LLM推理  
-**关键词**: abstract reasoning, reinforcement learning, GSM robustness, symbolic reasoning, distribution shift  
+**关键词**: abstract reasoning, reinforcement-learning, GSM robustness, symbolic reasoning, distribution shift
 
 ## 一句话总结
 提出 AbstRaL，通过强化学习教 LLM 学习推理问题的数学抽象（将具体数字/名称替换为符号变量、提取通用公式），然后用符号求解器推导答案，在 GSM 扰动 benchmark 上几乎完全消除了分布偏移导致的性能下降，并在 OOD 数学/通用推理任务上也有隐式提升。
 
 ## 研究背景与动机
 **领域现状**：LLM 在 GSM 等小学数学上表现不错，但面对分布偏移（改变数字、改变人名、插入干扰条件）时性能显著下降，暴露了推理的脆弱性。
+
 **现有痛点**：改善鲁棒性的常见方法是合成更多实例化变体来扩充训练数据——但计算成本高且效果有限。另一种方法是抽象推理（CoA、AoT），但现有方法要么依赖 in-context learning（效果差），要么用 SFT 训练（产生的抽象不忠实）。
+
 **核心矛盾**：SFT 的自回归目标迫使模型也学习每个训练样本的具体上下文，阻碍了学习跨实例通用的抽象思维。需要一种训练方式让模型聚焦于抽象结构而非表面上下文。
+
 **本文要解决什么？** 如何让 LLM 学会构建忠实的数学抽象，使推理对输入的上下文变化不变？
+
 **切入角度**：不扩充数据，而是直接教 LLM 学习"抽象化"技能——将问题变量化→用符号推理→用求解器算答案。用 RL 而非仅 SFT 来保证抽象的忠实性。
+
 **核心idea一句话**：用 RL + 细粒度抽象奖励教 LLM "抽象思考"——将具体推理问题转化为符号公式再求解。
 
 ## 方法详解
@@ -40,13 +45,13 @@ AbstRaL 四步流水线：(1) 条件识别——用 LLM 解析出问题中的数
 
 1. **GranulAR 训练数据**:
 
-    - 做什么：构建细粒度抽象推理训练数据
+    - 功能：构建细粒度抽象推理训练数据
     - 核心思路：将已有 socratic CoT 数据中的具体值替换为抽象符号（如 `in0`, `out0`），保留推理结构。用 Llama-3.3-70B 改写，然后用 SymPy 验证改写后的公式是否能推导出正确答案
     - 设计动机：将抽象推理嵌入 LLM 已经熟悉的 CoT+分步分解格式中（接近预训练分布），降低学习难度
 
 2. **RL 抽象奖励设计**:
 
-    - 做什么：用两个无需训练 reward model 的奖励来强化抽象推理
+    - 功能：用两个无需训练 reward model 的奖励来强化抽象推理
     - **答案正确性奖励 $r_{answer}$**：用 SymPy 验证模型生成的抽象 $\tilde{\mathcal{A}}$ + 原条件 $\mathcal{C}$ 能否推导出正确答案，正确给正奖励，否则 0
     - **符号距离奖励 $r_{symbolic}$**：计算生成抽象 $\tilde{\mathcal{A}}$ 与金标准抽象 $\mathcal{A}$ 之间的 token 级编辑距离，归一化到 [0,1]，提供更细粒度的学习信号
     - 设计动机：SFT 的自回归目标让模型也学上下文，RL 的奖励只关注抽象的正确性和忠实性

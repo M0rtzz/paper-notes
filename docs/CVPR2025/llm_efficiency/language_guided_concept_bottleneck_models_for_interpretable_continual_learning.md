@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Language Guided Concept Bottleneck Models for Interpretable Continual Learning
 description: >-
-  [CVPR 2025][LLM效率][concept bottleneck model] 将语言引导的概念瓶颈模型 (CBM) 整合到持续学习中，通过 ChatGPT 生成类别概念、CLIP 编码的概念对齐模块和语义引导的原型增强策略，在 ImageNet-subset 上实现最终准确率 +3.06% 的提升，同时提供透明可解释的决策过程。
+  [CVPR 2025][LLM效率][概念瓶颈模型] 将语言引导的概念瓶颈模型 (CBM) 整合到持续学习中，通过 ChatGPT 生成类别概念、CLIP 编码的概念对齐模块和语义引导的原型增强策略，在 ImageNet-subset 上实现最终准确率 +3.06% 的提升，同时提供透明可解释的决策过程。
 tags:
   - CVPR 2025
   - LLM效率
-  - concept bottleneck model
-  - continual learning
-  - interpretability
+  - 概念瓶颈模型
+  - 持续学习
+  - 可解释性
   - CLIP
   - prototype augmentation
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.23283](https://arxiv.org/abs/2503.23283)  
 **代码**: https://github.com/FisherCats/CLG-CBM  
 **领域**: LLM效率  
-**关键词**: concept bottleneck model, continual learning, interpretability, CLIP, prototype augmentation
+**关键词**: 概念瓶颈模型, 持续学习, 可解释性, CLIP, prototype augmentation
 
 ## 一句话总结
 将语言引导的概念瓶颈模型 (CBM) 整合到持续学习中，通过 ChatGPT 生成类别概念、CLIP 编码的概念对齐模块和语义引导的原型增强策略，在 ImageNet-subset 上实现最终准确率 +3.06% 的提升，同时提供透明可解释的决策过程。
@@ -47,20 +47,20 @@ tags:
 
 1. **Concept Bottleneck Layer (CBL)**
 
-    - 做什么：建立人类可理解概念到分类决策的桥梁
+    - 功能：建立人类可理解概念到分类决策的桥梁
     - 核心思路：ChatGPT 为每个类生成概念描述（外观、颜色、大小、形状、环境），T5 提取概念，CLIP text encoder 编码。Learning-to-search 算法选择每个任务最有信息量的 100 个概念
     - 设计动机：概念空间随任务累积增长，选择机制确保概念池保持精简且相关
 
 2. **Concept Alignment Module**
 
-    - 做什么：对齐学习到的概念分数与 CLIP 概念激活分数
+    - 功能：对齐学习到的概念分数与 CLIP 概念激活分数
     - 核心思路：$\mathcal{L}_{sim} = -\frac{1}{|C_{1:t}|} \sum \cos(\hat{E}^i, \hat{E}_{clip}^i)$，其中 $\hat{E} = E^3$（立方化增强锐度）
     - 弹性网络稀疏惩罚：$\mathcal{L}_{sparse} = \varphi||W_l||_1 + (1-\varphi)||W_l||_F$，$\varphi=0.99$
     - 设计动机：无概念对齐时模型可能学到负面概念（如"不是猫"），对齐确保模型聚焦正面相关概念
 
 3. **Semantic-Guided Prototype Augmentation**
 
-    - 做什么：为旧类别生成伪特征防止遗忘
+    - 功能：为旧类别生成伪特征防止遗忘
     - 核心思路：找到语义最相似的当前任务类别 $h = \arg\max_i \cos(f_T(y^j), p^i)$，生成伪特征 $\tilde{V}^j = p^j + (V^h - p^h)$
     - 设计动机：假设语义相似的类别有相似的特征漂移模式，用当前任务的漂移信息来补偿旧类别
 

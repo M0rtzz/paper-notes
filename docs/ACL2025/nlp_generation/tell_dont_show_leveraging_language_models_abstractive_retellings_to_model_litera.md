@@ -97,9 +97,9 @@ for a literary scholar analyzing narrative content."
 
 1. **Default LDA**：直接在原始段落上运行 LDA
 2. **TopicGPT-lite**：改编自 TopicGPT 的两阶段方案
-   - 阶段一（主题生成）：LM 在 N=1000 采样文档上逐文档提出一个主题
-   - 阶段二（主题分配）：LM 为所有文档分配主题标签
-   - 限制单标签生成以缓解小型 LM 的主题数爆炸问题
+    - 阶段一（主题生成）：LM 在 N=1000 采样文档上逐文档提出一个主题
+    - 阶段二（主题分配）：LM 为所有文档分配主题标签
+    - 限制单标签生成以缓解小型 LM 的主题数爆炸问题
 
 ### Retell 的实际优势
 

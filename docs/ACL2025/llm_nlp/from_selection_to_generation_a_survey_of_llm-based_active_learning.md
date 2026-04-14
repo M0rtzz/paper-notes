@@ -2,16 +2,16 @@
 title: >-
   [论文解读] From Selection to Generation: A Survey of LLM-based Active Learning
 description: >-
-  [ACL2025][LLM/NLP][active learning] 首篇系统梳理 LLM 时代主动学习的综述，提出以 Querying（从传统选择到 LLM 生成）和 Annotation（从人工标注到 LLM 标注）为双轴的统一分类体系，覆盖查询策略、标注方案、停止准则、AL 范式和应用领域。
+  [ACL2025][LLM/NLP][主动学习] 首篇系统梳理 LLM 时代主动学习的综述，提出以 Querying（从传统选择到 LLM 生成）和 Annotation（从人工标注到 LLM 标注）为双轴的统一分类体系，覆盖查询策略、标注方案、停止准则、AL 范式和应用领域。
 tags:
   - ACL2025
   - LLM/NLP
-  - active learning
+  - 主动学习
   - LLM
-  - data selection
+  - 数据选择
   - data generation
   - annotation
-  - survey
+  - 综述
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2502.11767](https://arxiv.org/abs/2502.11767)  
 **代码**: 无（综述论文）  
 **领域**: llm_nlp  
-**关键词**: active learning, LLM, data selection, data generation, annotation, survey
+**关键词**: 主动学习, LLM, 数据选择, data generation, annotation, 综述
 
 ## 一句话总结
 
@@ -30,10 +30,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：主动学习（Active Learning, AL）是通过选择最具信息量的数据进行标注来降低标注成本、提高模型性能的经典范式，已有数十年研究积累。
+
 **现有痛点**：传统 AL 方法（如不确定性采样、多样性采样）仅能从固定的无标签池中选择样本，且完全依赖人工标注，在 LLM 时代已显不足。
+
 **核心矛盾**：LLM 的出现从根本上改变了 AL 的能力边界——LLM 不仅能做选择器（selector），还能做生成器（generator）和标注器（annotator），但现有综述仍聚焦于传统 AL 技术，缺乏对 LLM-based AL 的系统回顾。
+
 **本文要解决什么**：填补 LLM-based AL 综述空白，提供统一的分类体系和系统化的文献梳理。
+
 **切入角度**：围绕 AL 循环的两大核心环节——Querying（数据获取）和 Annotation（标注）——构建双轴分类，系统化地将 LLM 在 AL 中的角色映射到各子类。
+
 **核心 idea 一句话**：LLM 将 AL 从"从池中选数据"拓展为"选择+生成+自动标注"的全新范式。
 
 ## 方法详解

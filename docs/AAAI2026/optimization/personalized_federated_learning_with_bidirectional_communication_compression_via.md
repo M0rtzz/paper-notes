@@ -7,8 +7,8 @@ tags:
   - AAAI 2026
   - 优化
   - 联邦学习
-  - communication efficiency
-  - personalization
+  - 通信效率
+  - 个性化
   - one-bit compression
   - random sketching
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.13144](https://arxiv.org/abs/2511.13144)  
 **代码**: 待确认  
 **领域**: 优化 / 联邦学习  
-**关键词**: federated learning, communication efficiency, personalization, one-bit compression, random sketching
+**关键词**: 联邦学习, 通信效率, 个性化, one-bit compression, random sketching
 
 ## 一句话总结
 

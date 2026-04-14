@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.17910](https://arxiv.org/abs/2511.17910)  
 **代码**: 无  
 **领域**: 多模态VLM / 推理增强  
-**关键词**: CoT推理迁移, 激活工程, 频域分析, LLM到VLM, training-free  
+**关键词**: CoT推理迁移, 激活工程, 频域分析, LLM到VLM, training-free
 
 ## 一句话总结
 通过 LAT 分析发现 LLM 和 VLM 的低频 CoT 方向表示具有相似分布，提出 L2V-CoT：从 LLM 提取 CoT 方向表示 → 低通滤波 → 频域重采样匹配维度 → 注入 VLM 隐藏层，training-free 地将 LLM 的推理能力迁移到 VLM，平均提升 3.7%，最高 8.6%。

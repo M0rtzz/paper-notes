@@ -9,7 +9,7 @@ tags:
   - 注意力机制
   - RNN
   - Mamba
-  - long-context
+  - long context
   - length generalization
   - chunk selection
   - hardware-aligned kernel
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2504.16795](https://arxiv.org/abs/2504.16795)  
 **代码**: [ant-research/long-context-modeling](https://github.com/ant-research/long-context-modeling)  
 **领域**: llm_efficiency  
-**关键词**: sparse attention, RNN, Mamba, long-context, length generalization, chunk selection, hardware-aligned kernel  
+**关键词**: sparse attention, RNN, Mamba, long context, length generalization, chunk selection, hardware-aligned kernel
 
 ## 一句话总结
 提出层次化稀疏注意力（HSA）及 RAMba 架构，通过两阶段 token-to-chunk 相关性学习与硬件对齐 kernel 设计，让 Mamba 获得高效长程随机访问能力，仅在 4K 上下文预训练即可在 64M passkey retrieval 上达到 100% 准确率。

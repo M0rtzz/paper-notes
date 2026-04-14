@@ -2,14 +2,16 @@
 title: >-
   [论文解读] Pragmatics in the Era of Large Language Models: A Survey on Datasets, Evaluation, Opportunities and Challenges
 description: >-
-  [ACL 2025][NLP综述][语用学] 系统综述 NLP 中评估语用能力的数据集与方法，涵盖隐含义、预设、言语行为、话语连贯和社会语用等现象，分析 LLM 时代的评估趋势、差距和未来方向。
+  [ACL 2025][LLM/NLP][语用学] 系统综述 58 篇文献中评估 NLP 模型语用能力的资源，按语用现象（上下文/指示语、隐含义/预设、言语行为、话语连贯、社会语用）分类，梳理任务设计（MCQ/QA/NLI/参照游戏等）和数据构建方法（自底向上/自顶向下），揭示当前评估的核心差距（英语中心偏置、单模态局限、细粒度评估不足），为 LLM 时代的语用评估提供路线图。
 tags:
   - ACL 2025
-  - NLP
+  - LLM/NLP
   - 语用学
-  - 综述
-  - 大语言模型
-  - 评估基准
+  - LLM 评估
+  - 隐含义
+  - 言语行为
+  - 话语连贯
+  - 数据集综述
 ---
 
 # Pragmatics in the Era of Large Language Models: A Survey on Datasets, Evaluation, Opportunities and Challenges

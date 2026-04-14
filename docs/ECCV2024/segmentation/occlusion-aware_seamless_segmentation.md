@@ -27,13 +27,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: 全景图像理解（panoramic scene understanding）和遮挡感知的 Amodal 分割各自均有进展，但两个方向长期独立发展。全景分割方法（Trans4PASS、DATR）能处理 360° 图像畸变但无法推理被遮挡物体；Amodal 方法（ORCNN、SLN）能预测完整遮挡轮廓但无法泛化到全景图像。
+
 **现有痛点**:
    - 全景图像存在严重的畸变（distortion），直接使用传统分割模型性能大幅下降；
    - 现有语义/实例分割只能预测可见区域，无法推理被遮挡部分的完整形状；
    - 全景图像标注极其昂贵（每张约 210 分钟），导致标注稀缺，需要无监督域适应（UDA）从标签丰富的针孔域迁移。
+
 **核心矛盾**: 视场遮挡（FoV occlusion）、场景内物体遮挡（in-field occlusion）和跨域差距（domain gap）三者交织，现有方法只能分别解决其中一个，无法实现"无缝"（seamless）的全面理解。
+
 **本文要解决什么?** 统一解决三大"遮罩"问题：(1) 解锁窄视场 $\rightarrow$ 全景 360°；(2) 解锁物体遮挡 $\rightarrow$ amodal 完整分割；(3) 解锁域差距 $\rightarrow$ 从针孔到全景的 UDA。
+
 **切入角度**: 定义全新任务 OASS，构建专用数据集 BlendPASS，设计统一框架 UnmaskFormer 一次性解决畸变处理、遮挡推理和域适应。
+
 **核心idea一句话**: 通过 Unmasking Attention 处理畸变与遮挡、Amodal-oriented Mix 增强跨域适应和遮挡重建能力，在一个 transformer 框架中无缝完成五类分割任务。
 
 ## 方法详解

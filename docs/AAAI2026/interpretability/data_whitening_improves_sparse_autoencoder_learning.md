@@ -7,7 +7,7 @@ tags:
   - AAAI 2026
   - Sparse Autoencoder
   - PCA Whitening
-  - Mechanistic Interpretability
+  - mechanistic interpretability
   - Feature Disentanglement
   - SAEBench
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.13981](https://arxiv.org/abs/2511.13981)  
 **代码**: 无  
 **领域**: Model Compression / Mechanistic Interpretability  
-**关键词**: Sparse Autoencoder, PCA Whitening, Mechanistic Interpretability, Feature Disentanglement, SAEBench
+**关键词**: Sparse Autoencoder, PCA Whitening, mechanistic interpretability, Feature Disentanglement, SAEBench
 
 ## 一句话总结
 本文将经典稀疏编码中的 PCA 白化（whitening）引入现代稀疏自编码器（SAE）训练，通过理论分析和仿真证明白化能使优化景观更凸更各向同性，在 SAEBench 上的实验表明白化显著提升可解释性指标（Sparse Probing +7.3%、SCR +54%、TPP +372%），尽管重构质量略有下降。
@@ -43,19 +43,19 @@ tags:
 
 1. **PCA 白化变换**:
 
-    - 做什么：将激活数据变换为零均值、单位协方差的白化空间
+    - 功能：将激活数据变换为零均值、单位协方差的白化空间
     - 核心思路：对激活矩阵 X 先中心化，计算协方差矩阵 Σ，做特征分解 Σ=EDE^T，白化矩阵 W=D^{-1/2}E^T，反白化矩阵 W^{-1}=ED^{1/2}
     - 设计动机：去除激活间的相关性，均衡各维度方差，使优化景观各向同性
 
 2. **白化空间中的 SAE 训练**:
 
-    - 做什么：在白化后的激活上学习编码器/解码器
+    - 功能：在白化后的激活上学习编码器/解码器
     - 核心思路：编码器在白化空间学稀疏表示，稀疏惩罚在白化空间计算，解码器重构后反白化再算重构损失
     - 设计动机：确保重构质量相对原始激活分布评估，同时利用白化空间的优化优势
 
 3. **评估包装器**:
 
-    - 做什么：评估时自动处理白化/反白化
+    - 功能：评估时自动处理白化/反白化
     - 核心思路：训练好的 SAE 用白化接口包装，输入自动白化、输出自动反白化，保持训练-评估一致性
     - 设计动机：确保预处理在评估中一致应用
 

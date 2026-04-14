@@ -55,19 +55,19 @@ PNG由两个核心组件组成，分两阶段训练：
 
 1. **Global Prompt Block (GPB)**:
 
-    - 做什么：捕获与ISO/增益相关的全局噪声统计特征
+    - 功能：捕获与ISO/增益相关的全局噪声统计特征
     - 核心思路：定义可学习参数 $\mathbf{P}_{Global}^{\ell} \in \mathbb{R}^{\frac{H}{2^\ell} \times \frac{W}{2^\ell} \times C_{Global}^\ell}$。从输入特征 $\mathbf{F}_{In}^\ell$ 计算通道均值 $\mu$ 和标准差 $\Sigma$（反映全局噪声强度），通过 $1 \times 1$ 卷积+softmax生成调制系数 $\mathbf{w}_{Global}^\ell = \text{Softmax}(\text{Conv}_{1 \times 1}[\mu(\mathbf{F}_{In}^\ell), \Sigma(\mathbf{F}_{In}^\ell)])$，然后与prompt组件逐元素相乘并经 $3 \times 3$ 卷积输出 $\mathbf{F}_{Global}^\ell = \text{Conv}_{3 \times 3}(\mathbf{w}_{Global}^\ell \odot \mathbf{P}_{Global}^\ell)$
     - 设计动机：ISO设置直接影响传感器增益，高ISO放大噪声。通道均值/标准差恰好能反映这种全局噪声水平，无需ISO数值即可隐式编码
 
 2. **Local Prompt Block (LPB)**:
 
-    - 做什么：捕获相机ISP管线引入的局部空间噪声相关性（与具体相机型号相关的噪声模式）
+    - 功能：捕获相机ISP管线引入的局部空间噪声相关性（与具体相机型号相关的噪声模式）
     - 核心思路：在每个像素位置提取 $\rho \times \rho$ patch，计算邻域像素与中心像素的Pearson相关系数 → 得到相关系数图 $\mathbf{F}_\rho \in \mathbb{R}^{H \times W \times \rho^2}$。分别计算行均值和列均值（捕获ISP非线性操作引起的方向性噪声模式），经CoMB（$1 \times 1$ 卷积→双线性上采样→$3 \times 3$ 卷积）+ softmax得到 $\mathbf{w}_{Local} = \text{Softmax}(\text{CoMB}([\text{Avg}_{row}(\mathbf{F}_\rho), \text{Avg}_{col}(\mathbf{F}_\rho)]))$，再调制prompt组件得到 $\mathbf{F}_{Local} = \text{Conv}_{3 \times 3}(\mathbf{w}_{Local} \odot \mathbf{P}_{Local})$
     - 设计动机：真实sRGB噪声不是i.i.d.的——ISP管线中的去马赛克、非线性映射、空间自适应处理等操作会引入空间相关噪声。这种local correlation pattern是区分不同相机型号的关键特征，纯全局统计无法捕获
 
 3. **Prompt DiT (P-DiT)**:
 
-    - 做什么：在PAE的latent space上训练一致性模型，一步生成embedding了噪声特征的latent code
+    - 功能：在PAE的latent space上训练一致性模型，一步生成embedding了噪声特征的latent code
     - 核心思路：基于DiT-S架构（$B=8$ blocks，patch size=1保留精细信息）。条件输入包括timestep embedding、clean image和prompt features。将clean image与 $\mathbf{F}_{Local}$、$\mathbf{F}_{Global}$ 分别pixel downsample后通过 $3 \times 3$ 卷积提取浅层特征并拼接为 $\mathbf{F}_{Cond}$，global average pooling后加到timestep embedding上。在P-DiT block中还引入Prompt Attention——将条件特征生成Q/K/V注入attention层，捕获prompt features的空间信息
     - 设计动机：一致性模型的一步生成能力大幅提升推理速度（256×256分辨率下57张/秒）。Prompt Attention让模型充分利用空间维度的条件信息，相比仅通过AdaLN注入全局条件效果更好（消融中KLD从0.0287降到0.0261）
 

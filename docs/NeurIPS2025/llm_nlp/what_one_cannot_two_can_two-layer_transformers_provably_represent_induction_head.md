@@ -26,13 +26,17 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：In-context learning (ICL) 是 Transformer 的核心能力，通过输入上下文中的 induction head 电路实现"复制-匹配"机制。理论上，ICL 可建模为在马尔可夫序列上学习条件 $k$-gram
+
 **现有痛点**：
    - 一层单头 Transformer 无法高效表示一阶 induction head（除非隐藏维度指数级大）[Sanford et al.]
    - 两层单头可处理一阶 [Bietti, Edelman, Nichani]，但高阶需要头数随 $k$ 线性增长 [Nichani]
    - 已知最佳结果：三层单头可处理任意 $k$ 阶 [Rajaraman et al.]
    - **遗留问题**：两层单头能否处理任意 $k$ 阶？
+
 **核心矛盾**：三层构造用三个注意力层分别处理"当前上下文"、"前移上下文"和"匹配"三步操作；减到两层时，一个注意力层要同时完成两步操作，信息量不够
+
 **切入角度**：注意到 MLP（含 ReLU + LayerNorm）可以从注意力输出中反向提取缺失的信息——让 MLP 承担第二个注意力头的角色
+
 **核心idea一句话**：用 MLP 的非线性（ReLU 过滤 + LayerNorm 归一化）从第一层注意力输出中分离关键 token 嵌入，替代三层构造中的第二个注意力操作
 
 ## 方法详解
@@ -44,13 +48,13 @@ tags:
 
 1. **第一层注意力：提取前移上下文 $\mathbf{v}_n$**
 
-    - 做什么：对位置 $n$，注意力集中在 $\{n-1, n-2, \ldots, n-k\}$，计算前移上下文表征
+    - 功能：对位置 $n$，注意力集中在 $\{n-1, n-2, \ldots, n-k\}$，计算前移上下文表征
     - 核心思路：注意力权重 $\operatorname{attn}_{n,i} = 3^i / \sum_{j=1}^k 3^j$，得到 $\mathbf{v}_n = \frac{\sum_{i=1}^{k} 3^i \cdot e_{x_{n-i}}^S}{\sum_{i=1}^{k} 3^i}$
     - 设计动机：$3^i$ 的指数加权让不同位置的 one-hot 编码可以被唯一分离（类似进制编码）
 
 2. **MLP 非线性重构：提取当前上下文 $\mathbf{u}_n$**
 
-    - 做什么：从 $\mathbf{v}_n$ 中分离出 $e_{x_{n-k}}^S$（最远位置的 token），结合跳跃连接中的当前 token $e_{x_n}^S$，重构当前上下文
+    - 功能：从 $\mathbf{v}_n$ 中分离出 $e_{x_{n-k}}^S$（最远位置的 token），结合跳跃连接中的当前 token $e_{x_n}^S$，重构当前上下文
     - 核心思路：
       - 将完整词表的 one-hot 编码嵌入 MLP 权重矩阵
       - ReLU + 适当 bias 过滤，只保留与 $x_{n-k}$ 对齐的分量
@@ -60,7 +64,7 @@ tags:
 
 3. **第二层注意力：$k$ 阶 Induction Head**
 
-    - 做什么：在位置 $T$，通过余弦相似度 $\langle \mathbf{u}_T, \mathbf{v}_n \rangle / (\|\mathbf{u}_T\| \|\mathbf{v}_n\|)$ 匹配历史中上下文相同的位置
+    - 功能：在位置 $T$，通过余弦相似度 $\langle \mathbf{u}_T, \mathbf{v}_n \rangle / (\|\mathbf{u}_T\| \|\mathbf{v}_n\|)$ 匹配历史中上下文相同的位置
     - 核心思路：当 $\mathbf{u}_T = \mathbf{v}_n$ 时相似度为 1（意味着位置 $n$ 之前的 $k$ 个 token 与当前位置完全匹配），softmax 温度趋于无穷时逼近条件 $k$-gram
     - 设计动机：与三层构造的第三层相同，只是输入的 $\mathbf{u}_n$ 和 $\mathbf{v}_n$ 来源不同
 

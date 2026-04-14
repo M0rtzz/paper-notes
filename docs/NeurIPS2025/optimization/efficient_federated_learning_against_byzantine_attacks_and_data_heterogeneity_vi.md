@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.09539](https://arxiv.org/abs/2408.09539)  
 **代码**: 未提供  
 **领域**: optimization  
-**关键词**: Federated Learning, Byzantine Robustness, Gradient Normalization, Non-IID Data, Non-Convex Optimization  
+**关键词**: federated learning, Byzantine Robustness, Gradient Normalization, Non-IID Data, Non-Convex Optimization
 
 ## 一句话总结
 

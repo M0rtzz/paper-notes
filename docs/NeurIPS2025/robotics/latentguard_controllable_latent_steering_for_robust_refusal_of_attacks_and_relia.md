@@ -2,11 +2,11 @@
 title: >-
   [论文解读] LatentGuard: Controllable Latent Steering for Robust Refusal of Attacks and Reliable Response Generation
 description: >-
-  [NEURIPS2025][机器人][LLM Safety] 提出 LatentGuard 三阶段框架，通过行为级对齐微调 + 结构化 VAE 监督潜空间 + 潜空间维度操控，实现对 LLM 拒绝行为的可解释、可控制调节，在抵御对抗攻击的同时保持对正常查询的响应能力。
+  [NEURIPS2025][机器人][LLM safety] 提出 LatentGuard 三阶段框架，通过行为级对齐微调 + 结构化 VAE 监督潜空间 + 潜空间维度操控，实现对 LLM 拒绝行为的可解释、可控制调节，在抵御对抗攻击的同时保持对正常查询的响应能力。
 tags:
   - NEURIPS2025
   - 机器人
-  - LLM Safety
+  - LLM safety
   - Latent Space Steering
   - VAE
   - Refusal Alignment
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.19839](https://arxiv.org/abs/2509.19839)  
 **代码**: 未公开  
 **领域**: llm_alignment  
-**关键词**: LLM Safety, Latent Space Steering, VAE, Refusal Alignment, Jailbreak Defense  
+**关键词**: LLM safety, Latent Space Steering, VAE, Refusal Alignment, Jailbreak Defense
 
 ## 一句话总结
 

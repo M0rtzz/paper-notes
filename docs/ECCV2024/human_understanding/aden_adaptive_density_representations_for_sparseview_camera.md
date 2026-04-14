@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation"
-description: "[ECCV 2024][3D视觉][相机位姿估计] 提出ADen统一回归和概率分布两种位姿估计范式，通过生成器+判别器框架以500个自适应sample实现比500K均匀采样更高精度更快速度的稀疏视图相机位姿估计。"
+title: >-
+  [论文解读] ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation
+description: >-
+  [人体理解] 提出ADen框架，通过生成器输出多个位姿假设+判别器评分选择最佳的方式，统一了位姿回归和概率估计范式，仅需500个自适应样本即超越需要500K均匀采样的方法，同时实现实时推理。
 tags:
-  - ECCV 2024
-  - 3D视觉
-  - 相机位姿估计
-  - 稀疏视图
+  - 人体理解
 ---
 
 # ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation

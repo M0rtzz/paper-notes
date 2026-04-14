@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.13151](https://arxiv.org/abs/2504.13151)  
 **代码**: [有](https://github.com/)  
 **领域**: 模型压缩  
-**关键词**: 机械可解释性, benchmark, 电路定位, 因果变量, SAE, attribution patching  
+**关键词**: 机械可解释性, benchmark, 电路定位, 因果变量, SAE, attribution patching
 
 ## 一句话总结
 

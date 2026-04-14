@@ -2,15 +2,15 @@
 title: >-
   [论文解读] ACT as Human: Multimodal Large Language Model Data Annotation with Critical Thinking
 description: >-
-  [NeurIPS 2025][多模态][数据标注] 提出ACT流水线，MLLM批量标注+MLLM批评者估计错误概率+预算感知人工审核，配合修改的ACT损失函数（指数加权/阈值化采样），节省70-90%人工成本的同时将下游性能差距控制在<2%
+  [NeurIPS 2025][多模态][data annotation] 提出ACT（Annotation with Critical Thinking）数据流水线，MLLM批量标注全部数据后由另一个MLLM作为批评者估计每条标注的错误概率，仅将高可疑样本交给人类审核，配合理论推导的ACT损失函数，在6个跨模态数据集上节省70-90%人工成本且下游性能差距<2%。
 tags:
   - NeurIPS 2025
   - 多模态
-  - 数据标注
+  - data annotation
+  - critical thinking
   - MLLM
-  - 人机协作
-  - 错误检测
-  - 损失函数设计
+  - error estimation
+  - human-in-the-loop
 ---
 
 # ACT as Human: Multimodal Large Language Model Data Annotation with Critical Thinking
@@ -40,17 +40,17 @@ ACT是一个三阶段training-free流水线：(1) **标注阶段**：MLLM $f^{(m
 
 ### 关键设计
 1. **MLLM批评策略体系（Criticizer Strategies）**:
-    - 做什么：设计黑盒/白盒两类共7种批评策略，让MLLM估计标注的错误概率
+    - 功能：设计黑盒/白盒两类共7种批评策略，让MLLM估计标注的错误概率
     - 核心思路：黑盒策略包括Naïve直接估计、CoT推理后估计、多选题分级(MC)、Devil's Advocate（先审视标注者CoT再评判）；白盒策略利用logit概率 $\hat{\epsilon} = \mathbb{P}(\text{"yes"}) / (\mathbb{P}(\text{"yes"}) + \mathbb{P}(\text{"no"}))$ 或CoT困惑度(PPL)间接度量错误。实验发现CoT策略在批评中ABS提升最高达22.46%，交叉批评（用不同模型标注和批评）通常优于自我批评
     - 设计动机：不同任务和模型组合适合不同策略，系统探索为实际部署提供选择依据；训练无关设计使流水线可直接使用任何MLLM
 
 2. **预算感知采样规则（Budget-Aware Sampling）**:
-    - 做什么：在有限人工预算$B$下决定哪些样本交给人类审核
+    - 功能：在有限人工预算$B$下决定哪些样本交给人类审核
     - 核心思路：提出三种采样规则——归一化 $\pi_B(\hat{\epsilon}_i) = B \cdot \hat{\epsilon}_i / \sum \hat{\epsilon}_i$、指数加权 $\pi_B(\hat{\epsilon}_i) = 1/(1 + e^{-\beta(\hat{\epsilon}_i - \alpha)})$、阈值化 $\pi_B(\hat{\epsilon}_i) = \mathbf{1}(\hat{\epsilon}_i \geq \tau)$。通过Theorem 5.2证明：ACT损失与真实损失的参数差距上界取决于$q$（被选样本转换后的错误概率下界），指数加权和阈值化将$q$推向1，而归一化在低预算时$q \to 0$导致崩塌
     - 设计动机：归一化采样（prior work使用）在人工预算受限时损失函数高度不稳定——Cars数据集上与全监督差距76.34%，而指数加权/阈值化仅1.69%
 
 3. **ACT损失函数（Modified Loss for Downstream Training）**:
-    - 做什么：设计理论有保证的损失函数，使ACT数据训练的模型性能逼近全人工标注数据训练的模型
+    - 功能：设计理论有保证的损失函数，使ACT数据训练的模型性能逼近全人工标注数据训练的模型
     - 核心思路：$\mathcal{L}_\theta^{(ACT)} = \frac{1}{N}\sum_{i=1}^{N}\left(\ell_{\theta,i}^{(m)} + (\ell_{\theta,i} - \ell_{\theta,i}^{(m)}) \frac{\delta_i(B)}{\pi_B(\hat{\epsilon}_i)}\right)$，其中$\ell_{\theta,i}^{(m)}$为机器标注损失，$\ell_{\theta,i}$为真实标签损失（用人工标注估计）。Proposition 5.1证明ACT损失是真实损失的无偏估计，方差在两种情况下最小化：完美标注器或精准批评者
     - 设计动机：直接混合人工+机器标注数据会引入标签噪声；仅用人工标注数据则浪费大量已标注样本。ACT损失通过重要性加权实现无偏估计，指数加权/阈值化确保权重不会爆炸
 

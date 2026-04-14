@@ -9,7 +9,7 @@ tags:
   - Error Detection
   - Error Correction
   - Error Guidance
-  - Benchmark
+  - benchmark
   - SFT
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.00064](https://arxiv.org/abs/2506.00064)  
 **代码**: 未公开（数据集将公开）  
 **领域**: LLM NLP / 错误处理与评估  
-**关键词**: Proactive Error Handling, Error Detection, Error Correction, Error Guidance, Benchmark, SFT
+**关键词**: Proactive Error Handling, Error Detection, Error Correction, Error Guidance, benchmark, SFT
 
 ## 一句话总结
 
@@ -28,8 +28,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: LLM 在错误处理方面已取得显著进展，包括数学推理纠错 (EIC-Math, ErrorRadar)、语法检查 (GEC)、摘要事实核查 (SummEdits) 等。然而这些工作均为**被动**错误处理——依赖用户在 prompt 中给出**显式的错误处理指令**（如"请判断以下内容是否正确"）。
+
 **核心问题**: 在真实场景中，用户通常**不会**提供显式的错误处理指令。例如用户问"拿破仑在 1815 年的滑铁卢战役中大获全胜后…"，这里隐含了历史错误（拿破仑战败），但用户没有要求 LLM 纠错。
+
 **关键发现**: GPT-4o 面对含错误的用户输入时，无法主动识别错误，而是基于错误信息继续生成，严重损害系统的可信度和可靠性。
+
 **与已有工作的区别**: 现有基准（BIG-Bench Mistake、ReaLMistake、Medec、ProcessBench等）均为被动模式且大多仅覆盖检测+识别，本文首次定义并评估**主动**错误处理，且涵盖检测、识别、纠正、引导四个维度。
 
 ## 方法详解

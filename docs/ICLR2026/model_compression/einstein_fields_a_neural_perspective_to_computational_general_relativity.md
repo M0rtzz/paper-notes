@@ -58,19 +58,19 @@ tags:
 
 1. **畸变分解（Distortion Decomposition）**
 
-    - 做什么：将度量张量分解为平坦背景+畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$
+    - 功能：将度量张量分解为平坦背景+畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$
     - 核心思路：网络只学习非平凡的曲率贡献部分，去除平坦时空的主导数值贡献（如 $g_{tt} \sim 1/r$, $g_{\theta\theta} \sim r^2$）
     - 设计动机：将网络表示能力集中在物理上有意义的偏差上，加速收敛、改善缩放性
 
 2. **Sobolev训练（高阶导数监督）**
 
-    - 做什么：不仅监督度量张量本身，还监督其Jacobian（40个独立分量）和Hessian（100个独立分量）
+    - 功能：不仅监督度量张量本身，还监督其Jacobian（40个独立分量）和Hessian（100个独立分量）
     - 核心公式：$\mathcal{L}^g_{\text{Sob}}(\theta) = \mathbb{E}_x[\lambda_0\|g - \hat{g}\|^2 + \lambda_1\|\partial g - \partial\hat{g}\|^2 + \lambda_2\|\partial^2 g - \partial^2\hat{g}\|^2]$
     - 设计动机：GR的物理量（Christoffel符号、Riemann张量）由度量的1阶和2阶导数定义，仅监督度量本身无法保证导数精度。Sobolev损失将Christoffel符号精度提升2个数量级
 
 3. **自动微分替代有限差分**
 
-    - 做什么：通过JAX的forward-mode AD精确计算微分几何量
+    - 功能：通过JAX的forward-mode AD精确计算微分几何量
     - 实现路径：$g_{\alpha\beta} \xrightarrow{\texttt{jacfwd}} \Gamma^\gamma_{\alpha\beta} \xrightarrow{\nabla} R^\delta_{\alpha\beta\gamma} \xrightarrow{\text{Tr}_g} R_{\alpha\beta} \xrightarrow{\text{Tr}_g} R$
     - 设计动机：FD在FLOAT32下受截断误差限制（$O(h^n)$），AD在单精度下精度提升可达5个数量级
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.12083](https://arxiv.org/abs/2603.12083)  
 **代码**: 无  
 **领域**: 图像恢复  
-**关键词**: aberration-correction, benchmark, optical-degradation, computational-imaging, lens-design  
+**关键词**: aberration-correction, benchmark, optical-degradation, computational-imaging, lens-design
 
 ## 一句话总结
 

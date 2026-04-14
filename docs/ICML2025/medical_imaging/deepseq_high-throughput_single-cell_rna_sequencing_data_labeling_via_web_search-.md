@@ -9,7 +9,7 @@ tags:
   - 单细胞RNA测序
   - 大语言模型
   - 细胞类型标注
-  - Agentic AI
+  - 智能体 AI
   - 基础模型
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.13817](https://arxiv.org/abs/2506.13817)  
 **代码**: [有](https://github.com/saleemaldajani/deepseq)  
 **领域**: 医学影像/生物信息学  
-**关键词**: 单细胞RNA测序, 大语言模型, 细胞类型标注, Agentic AI, 基础模型
+**关键词**: 单细胞RNA测序, 大语言模型, 细胞类型标注, 智能体 AI, 基础模型
 
 ## 一句话总结
 
@@ -90,8 +90,8 @@ $$\text{原始数据} \xrightarrow{\text{过滤}} \text{清洗后数据} \xright
 1. 提取 top 标志基因 $G_i$
 2. 构造结构化提示 $P_i = \text{format}(G_i)$
 3. 根据推理模式：
-   - **Ollama 路径**：$\hat{y}_i = \text{local\_LLM}(P_i)$
-   - **GPT-4o 路径**：先执行网络搜索获取上下文，再 $\hat{y}_i = \text{gpt4o}(P_i, \text{web results})$
+    - **Ollama 路径**：$\hat{y}_i = \text{local\_LLM}(P_i)$
+    - **GPT-4o 路径**：先执行网络搜索获取上下文，再 $\hat{y}_i = \text{gpt4o}(P_i, \text{web results})$
 
 提示工程参考了 Hou & Ji (2024) 的格式设计，并适配到结构化转录组数据。LangChain 负责编排提示和后处理。
 

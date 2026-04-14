@@ -7,8 +7,8 @@ tags:
   - NeurIPS 2025
   - 多模态
   - 对比学习
-  - curriculum learning
-  - hard negatives
+  - 课程学习
+  - 困难负样本
   - boundary-aware sampling
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.08399](https://arxiv.org/abs/2511.08399)  
 **代码**: 未公开  
 **领域**: 多模态VLM  
-**关键词**: multimodal alignment, contrastive learning, curriculum learning, hard negatives, boundary-aware sampling  
+**关键词**: multimodal alignment, 对比学习, 课程学习, 困难负样本, boundary-aware sampling
 
 ## 一句话总结
 提出 BACL（Boundary-Aware Curriculum with Local Attention），通过可学习的边界感知负样本采样器（由易到难课程学习）+ 对比局部注意力损失（定位 token 级 mismatch），在 LAION-400M 上为 CLIP 带来 +32% R@1 提升，并在四个大规模基准上取得 SOTA。

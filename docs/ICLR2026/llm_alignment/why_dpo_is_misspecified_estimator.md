@@ -47,25 +47,25 @@ tags:
 
 1. **DPO 即加权 KL 投影（Proposition 1）**
 
-    - 做什么：给出 DPO 损失最小化的精确几何解释
+    - 功能：给出 DPO 损失最小化的精确几何解释
     - 核心思路：DPO 损失等价于 $r_{\theta_{\text{DPO}}}^\beta = \arg\min_{r \in \mathcal{R}^\beta} \sum_{s,a,a'} n_{s,a,a'} \cdot d_{\text{KL}}(p^{\text{BTL}}(r^*) \| p^{\text{BTL}}(r))$，即将真实奖励通过偏好数据计数 $n_{s,a,a'}$ 加权的 KL 散度投影到隐式奖励流形上
     - 设计动机：揭示了 DPO 的核心弱点——投影结果依赖权重（即数据分布），且当 $r^*$ 不在流形上时，投影可以落到任意位置
 
 2. **局部线性化与失败模式（Proposition 3）**
 
-    - 做什么：构造具体的 3-response、1-d 参数化策略反例，展示 DPO 的三种失败模式
+    - 功能：构造具体的 3-response、1-d 参数化策略反例，展示 DPO 的三种失败模式
     - 核心思路：策略 $\pi_\theta = \frac{1}{Z}[e^\theta, e^{-\theta}, 1]$，真实奖励 $r^* = [1, 2, 0]$（正确偏好序 $a_2 \succ a_1 \succ a_3$）。局部线性化后，隐式奖励流形为 $\text{span}([1, -1, 0])$。当 $n_{3,1} \gg \max\{n_{1,2}, n_{2,3}\}$（比较 $a_3$ 和 $a_1$ 的偏好数据远多于其他），DPO 投影得到 $r_\theta^\beta \approx [\alpha, -\alpha, 0]$，导致：(i) **偏好反转**：$a_1$ 被提升而 $a_2$ 被降低，与真实偏好相反；(ii) **奖励下降**：$\pi_\theta^\top r^* < \pi_{\theta_0}^\top r^*$，策略比初始还差；(iii) **数据敏感性**：改变 $n_{i,j}$ 的相对比例可完全翻转结果
     - 设计动机：这些失败发生在 **population loss**（无限数据）下的 **全局最优解**，不是数据稀缺或优化不充分的问题，而是 DPO 本身的结构性缺陷
 
 3. **RLHF 局部几何与等价类（Section 4.1）**
 
-    - 做什么：分析两阶段 RLHF 在参数化策略下的局部行为
+    - 功能：分析两阶段 RLHF 在参数化策略下的局部行为
     - 核心思路：对 RLHF 目标 $J(\theta; r^*)$ 做局部二次近似，一阶最优性条件给出 $\theta^* = \theta_0 + \frac{1}{\beta} F_{\rho,\theta_0}^\dagger A_{\rho,\theta_0} r^*$，形如自然策略梯度更新。关键发现：所有给出相同 RLHF 最优策略的奖励函数形成等价类 $\mathcal{R}_{\text{eq}}^\beta(\theta) = \{r : A_{\rho,\theta_0} r = \beta F_{\rho,\theta_0}(\theta - \theta_0)\}$，同一等价类中的奖励函数仅差一个零空间元素 $\delta \in \mathcal{N}(A_{\rho,\theta_0})$
     - 设计动机：这揭示了 DPO 和 RLHF 的根本差异——DPO 只在列空间 $\mathcal{C}(A_{\theta_0}^\top)$ 中搜索，而 RLHF 最优解可能需要考虑零空间方向的差异
 
 4. **AuxDPO 算法（Section 4.2）**
 
-    - 做什么：通过引入辅助变量修复 DPO 的误指定问题
+    - 功能：通过引入辅助变量修复 DPO 的误指定问题
     - 核心思路：在 DPO 损失中引入辅助变量 $\delta \in \mathcal{N}(A_{\rho,\theta_0})$，联合优化 $(\theta, \delta)$：$r_{\theta,\delta}^\beta(s,a) = r_\theta^\beta(s,a) + \delta(s,a)$。由秩-零性定理，$\theta$ 遍历列空间、$\delta$ 遍历零空间，两者合在一起可覆盖整个 $\mathbb{R}^m$，消除误指定。实际实现中，辅助变量是 per-example 的 $\delta \in \mathbb{R}^{2n}$（每个 chosen/rejected 一个值），约束通过两种方式实现：(a) 小模型用零空间正交基精确约束 $\delta = \Gamma c$；(b) 大模型用 batchwise 软惩罚 $\lambda_{\text{null}} \|A_{\theta_0,\mathcal{B}} \delta_\mathcal{B}\|^2_2$ 近似约束
     - 设计动机：不改变 DPO 的单阶段监督学习框架，只增加 $O(n)$ 个可训练参数（$n$ 为数据集大小，远小于模型参数 $d$），计算开销极低
 

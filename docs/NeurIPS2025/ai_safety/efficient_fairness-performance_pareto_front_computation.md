@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2409.17643](https://arxiv.org/abs/2409.17643)  
 **代码**: [bp6725/FairPareto](https://github.com/bp6725/FairPareto)  
 **领域**: ai_safety  
-**关键词**: fairness, Pareto front, fair representation, concave optimization, MIFPO  
+**关键词**: fairness, Pareto front, fair representation, concave optimization, MIFPO
 
 ## 一句话总结
 

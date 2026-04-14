@@ -32,7 +32,9 @@ tags:
 **关键动机来源**：
 
 **经典心理学实验**：Condry & Condry (1976) 发现，当观察者看到相同的婴儿情感反应时，倾向于将标记为"男孩"的行为描述为"愤怒"，而标记为"女孩"的行为描述为"恐惧"。这表明人类会将性别刻板印象投射到情感表达上
+
 **LLM 继承偏见**：LLM 在大量人类生成的文本上训练，可能内化这些感知偏见
+
 **先驱工作的局限**：Plaza-del-Arco et al. (2024) 已展示 LLM 在给定情境和性别时会出现偏见，但他们的设置较简单（单标签、让模型描述自己的感受）
 
 **本文创新点**：
@@ -122,17 +124,17 @@ tags:
 ### 关键发现
 
 1. **推理时方法无效甚至有害**：
-   - In-context learning 反而引入了 5 个显著偏见标签（最差）
-   - CoT 在减少 pleasure 偏见的同时引入了 happiness 和 sensitivity 偏见
-   - Prompt engineering 效果微弱
+    - In-context learning 反而引入了 5 个显著偏见标签（最差）
+    - CoT 在减少 pleasure 偏见的同时引入了 happiness 和 sensitivity 偏见
+    - Prompt engineering 效果微弱
 
 2. **微调有效**：Fine-tuning 使所有 26 个情感标签的 $\chi^2$ p 值均 ≥ 0.19，完全消除可检测偏见
 
 3. **非 50:50 训练的影响**（表 4）：
-   - 仅用女性样本微调（FT-W）vs 仅用男性样本微调（FT-M），对同一性别中立输入产出显著不同的预测分布
-   - FT-W 偏向更多预测：suffering, pain, fatigue, doubt/confusion, sympathy
-   - FT-M 偏向更多预测：fear, disquietment, engagement, anticipation
-   - → 训练数据的性别分布直接塑造模型的情感偏见
+    - 仅用女性样本微调（FT-W）vs 仅用男性样本微调（FT-M），对同一性别中立输入产出显著不同的预测分布
+    - FT-W 偏向更多预测：suffering, pain, fatigue, doubt/confusion, sympathy
+    - FT-M 偏向更多预测：fear, disquietment, engagement, anticipation
+    - → 训练数据的性别分布直接塑造模型的情感偏见
 
 4. **预测数量差异**：除 TinyLLaMA 外，其他模型倾向于为 man 描述预测更少的标签
 

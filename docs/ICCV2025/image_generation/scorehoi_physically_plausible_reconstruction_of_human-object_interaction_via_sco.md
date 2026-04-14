@@ -47,13 +47,13 @@ ScoreHOI 利用 score-based 扩散模型作为优化器，结合 DDIM 逆向-正
 
 1. **Affordance-Aware Regressor（可供性感知回归器）**:
 
-    - 做什么：从输入图像和物体模板粗估人体姿态与物体位姿
+    - 功能：从输入图像和物体模板粗估人体姿态与物体位姿
     - 核心思路：利用预训练的 PointNeXt 提取物体的 affordance 特征（即物体"可以怎么被使用"的先验），将其注入图像特征提取过程。这样即使物体形状不在训练集中，模型也能通过 affordance 泛化
     - 设计动机：传统方法用类别 ID 注入物体信息，但无法处理训练集外的物体。Affordance 概念提供了跨类别的通用先验
 
 2. **Score-Guided Physical Optimization（分数引导的物理优化）**:
 
-    - 做什么：在扩散模型的去噪采样中注入物理约束引导
+    - 功能：在扩散模型的去噪采样中注入物理约束引导
     - 核心思路：定义优化目标 $\bm{x} = \{\theta, \beta, R_o, t_o\} \in \mathbb{R}^{331}$。先通过 DDIM inversion 将初始估计 $\bm{x}^{\text{init}}$ 映射到噪声空间 $\bm{x}_\tau$，再在 DDIM 采样过程中将条件 score 修改为：$\nabla_{\bm{x}_t}\log p(\bm{x}_t|\bm{c},\mathcal{P}) = \nabla_{\bm{x}_t}\log p(\bm{x}_t|\bm{c}) + \nabla_{\bm{x}_t}\log p(\mathcal{P}|\bm{c},\hat{\bm{x}_0}(\bm{x}_t))$，其中第二项通过去噪后的 $\hat{\bm{x}_0}$ 近似计算物理约束损失的梯度
     - 修改后的噪声预测：$\epsilon'_\phi = \epsilon_\phi(\bm{x}_t, t, \bm{c}) + \rho\sqrt{1-\alpha_t}\nabla_{\bm{x}_t}L_\mathcal{P}$
     - 设计动机：直接在噪声空间计算物理约束梯度困难，通过 Tweedie 公式用 $\hat{\bm{x}_0}$ 近似使约束可计算
@@ -67,13 +67,13 @@ ScoreHOI 利用 score-based 扩散模型作为优化器，结合 DDIM 逆向-正
 
 4. **Contact-Driven Iterative Refinement（接触驱动迭代细化）**:
 
-    - 做什么：迭代更新接触掩码以提高接触预测精度
+    - 功能：迭代更新接触掩码以提高接触预测精度
     - 核心思路：在每次迭代 $n$ 中：(1) 根据当前参数 $\bm{x}_0^n$ 从图像特征采样人/物特征 $\mathcal{F}_h, \mathcal{F}_o$；(2) 更新接触掩码 $\mathbf{M}_h, \mathbf{M}_o, \mathbf{M}_f$；(3) 执行 DDIM inversion + guided sampling 得到 $\bm{x}_0^{n+1}$。迭代 $N=10$ 次
     - 设计动机：单次前向预测接触掩码容易出错（特别是在严重遮挡下），迭代更新可以让接触预测和姿态优化相互促进
 
 5. **IG-Adapter（图像-几何适配器）**:
 
-    - 做什么：为扩散模型注入图像观察和物体几何先验
+    - 功能：为扩散模型注入图像观察和物体几何先验
     - 核心思路：引入额外的 cross-attention 块和线性融合头，将图像特征条件 $\bm{c}_I$（来自 $\mathcal{F}$ 的平均池化）和几何特征条件 $\bm{c}_G$（来自预训练 PointNeXt）融合
     - 训练目标：$L_{DM} = \mathbb{E}_{\bm{x}_0,\epsilon,t,\bm{c}_I,\bm{c}_G}\|\epsilon - \epsilon_\theta(\bm{x}_t, t, \bm{c}_I, \bm{c}_G)\|^2$
 

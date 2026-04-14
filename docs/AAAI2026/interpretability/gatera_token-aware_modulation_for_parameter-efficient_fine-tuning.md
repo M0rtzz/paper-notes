@@ -46,19 +46,19 @@ tags:
 
 1. **Token 感知门控模块**:
 
-    - 做什么：为每个 token 动态决定适配强度
+    - 功能：为每个 token 动态决定适配强度
     - 核心思路：$g(x) = \sigma(W_g x + b_g)$，$W_g \in \mathbb{R}^{1 \times d}$，参数量仅 $d+1$（如 4097 个参数）。$g(x) \approx 0$ 时输出 $\approx W_0 x$（保留预训练），$g(x) \approx 1$ 时输出完全适配版本
     - 设计动机：实现连续可微的软梯度掩码——理论证明 $\|\partial\mathcal{L}/\partial AB\|_F \leq g(x) \cdot \|W_0\| \cdot \|\partial\mathcal{L}/\partial y\| \cdot \|x\|$，即门控值直接约束适配矩阵的梯度幅度
 
 2. **熵正则化**:
 
-    - 做什么：促进门控值趋向 0 或 1 的近二值分布
+    - 功能：促进门控值趋向 0 或 1 的近二值分布
     - 核心思路：$\mathcal{L}_{\text{ent}} = -\frac{1}{N}\sum [g \log g + (1-g) \log(1-g)]$，将门控值视为 Bernoulli 概率并最小化其熵
     - 设计动机：避免门控值聚集在 0.5 附近（模糊决策），提高可解释性和稀疏性
 
 3. **阶段敏感行为（自动涌现）**:
 
-    - 做什么：门控自动学会区分 prefill 和 decoding 阶段
+    - 功能：门控自动学会区分 prefill 和 decoding 阶段
     - 核心思路：可视化表明 prefill token 的门控值接近 0（保留预训练），decoding 阶段的门控值更高（需要更多适配）
     - 设计动机：未显式设计，是门控+熵正则化的涌现行为
 

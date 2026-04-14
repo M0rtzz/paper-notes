@@ -71,10 +71,10 @@ $$F(W^k) \leq \left(1 - 4\eta \frac{\beta_0^2}{\beta^2} \delta_4 \alpha_0^2\righ
 1. **对齐初始化**：前$L-1$层从标准高斯分布采样后QR分解并非负化，最后一层$W_L^0 = \mathbf{0}$；此时输出$P_T = \mathbf{I}$，等价于标准GD（步长$1/\beta$）
 2. **奇异值增强**：引入扩展系数$e \geq 1$，将初始参数放大为$\{eW_1^0, \ldots, eW_{L-1}^0\}$，使$\alpha_0$放大为$e^{L-1}\alpha_0$
 3. **四条引理**给出$e$的最低要求：
-   - Lemma 5.1: $e = \Omega(T^{1/(L-1)})$
-   - Lemma 5.2: $e = \Omega(T^{(3T+6)/(TL-T-4L+6)})$（最严格，随$T$指数增长）
-   - Lemma 5.3: $e = \Omega(T^{4/(L-1)})$
-   - Lemma 5.4: $e = \Omega(T^{5/(L-1)} L^{1/(L-1)})$
+    - Lemma 5.1: $e = \Omega(T^{1/(L-1)})$
+    - Lemma 5.2: $e = \Omega(T^{(3T+6)/(TL-T-4L+6)})$（最严格，随$T$指数增长）
+    - Lemma 5.3: $e = \Omega(T^{4/(L-1)})$
+    - Lemma 5.4: $e = \Omega(T^{5/(L-1)} L^{1/(L-1)})$
 
 增加网络深度$L$可减轻对$e$的需求。
 

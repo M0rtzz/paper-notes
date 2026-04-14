@@ -1,14 +1,15 @@
 ---
 title: >-
-  [论文解读] EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation
+  [论文解读] EVATok: 自适应长度视频Tokenization用于高效视觉自回归生成
 description: >-
-  [CVPR 2026][视频生成][自适应tokenization] 提出四阶段框架EVATok，通过proxy reward定义最优token分配、轻量路由器一次前向预测、自适应视频tokenizer按内容复杂度分配token，实现24.4%+ token节省同时超越SOTA生成质量
+  [CVPR 2026][图像生成][video tokenizer] 提出EVATok框架——通过最优token分配估计+轻量路由器+自适应tokenizer训练的三步流程，让视频tokenizer按片段复杂度自适应分配token长度，在UCF-101上节省24.4%+ token同时达到SOTA生成质量。
 tags:
   - CVPR 2026
-  - 视频生成
-  - 视频tokenizer
-  - 自适应tokenization
-  - 自回归生成
+  - 图像生成
+  - video tokenizer
+  - adaptive token
+  - autoregressive generation
+  - efficiency
   - VQ-VAE
 ---
 
@@ -18,7 +19,7 @@ tags:
 **arXiv**: [2603.12267](https://arxiv.org/abs/2603.12267)  
 **代码**: [项目页](https://silentview.github.io/EVATok/)  
 **领域**: 视频生成  
-**关键词**: video tokenizer, adaptive tokenization, autoregressive generation, proxy reward, Q-Former  
+**关键词**: video tokenizer, adaptive tokenization, autoregressive generation, proxy reward, Q-Former
 
 ## 一句话总结
 
@@ -44,19 +45,19 @@ EVATok分为四个阶段依次执行：Stage 1 训练proxy tokenizer（能在任
 
 1. **Proxy Reward与最优分配定义**:
 
-    - 做什么：为每个视频的每种token分配方案量化其质量-成本权衡
+    - 功能：为每个视频的每种token分配方案量化其质量-成本权衡
     - 核心思路：定义 $R_{\text{proxy}} = w_q Q(\mathcal{E},x,a) - w_l L(a)$，其中 $Q$ 是重建质量（归一化LPIPS）、$L(a)$ 是归一化token长度、$w_q, w_l$ 是偏好权重。对每个视频遍历所有 $5^4=625$ 种候选分配，选proxy reward最大的作为最优分配 $a^*$
     - 设计动机：之前的方法缺乏对"最优"的明确定义，靠启发式搜索容易陷入局部最优。proxy reward将质量和成本统一到一个标量指标中，使最优分配变得可计算、可比较
 
 2. **轻量级路由器（Router）**:
 
-    - 做什么：一次前向传播预测输入视频的最优token分配，替代暴力搜索
+    - 功能：一次前向传播预测输入视频的最优token分配，替代暴力搜索
     - 核心思路：ViT-S架构（19.9M参数），将视频patchify后加[CLS] token，输出 $m^T$ 个分配类别的概率。在Stage 2构建的100k样本上用交叉熵损失训练为分类任务
     - 设计动机：暴力搜索每个视频需要625次前向，路由器将其压缩为一次前向。实验证明路由器预测接近暴力搜索的帕累托前沿，且能泛化到训练时未见的数据集
 
 3. **Q-Former风格1D可变长度Tokenizer**:
 
-    - 做什么：支持不同时间块使用不同数量token的编码-解码架构
+    - 功能：支持不同时间块使用不同数量token的编码-解码架构
     - 核心思路：输入视频spatio-temporal patchify后，根据分配方案 $a=(k_1,...,k_T)$ 初始化不同数量的1D query，通过Q-Former编码层与3D embeddings交互后VQ量化产生离散token。解码端用第一个1D token初始化3D query来重建
     - 设计动机：避免了tail-token-dropping策略的两个问题——（1）被丢弃的尾部token仍然消耗计算；（2）尾部query在编码时角色模糊（不知道自己会不会被丢弃）。直接在query初始化阶段就确定长度更高效
 
@@ -161,17 +162,17 @@ EVATok分四阶段：(1) 训练proxy tokenizer用于最优分配估计；(2) 用
 ### 关键设计
 
 1. **Proxy Reward与最优分配定义**：
-    - 做什么：定义一个同时度量重建质量和token成本的标量指标，用于评价特定token分配的质量-成本权衡
+    - 功能：定义一个同时度量重建质量和token成本的标量指标，用于评价特定token分配的质量-成本权衡
     - 核心思路：$R_{\text{proxy}} = w_q Q(\mathcal{E}_{\text{proxy}}, x, a) - w_l L(a)$，其中 $Q$ 为归一化LPIPS重建质量，$L(a)$ 为归一化token长度，$w_q, w_l$ 反映用户对质量vs效率的偏好
     - 设计动机：将"最优分配"严格形式化为最大化proxy reward的分配 $a^* = \arg\max_{a \in A} R_{\text{proxy}}$，避免启发式搜索的次优性。通过遍历所有候选分配（$5^4=625$种）找到最优
 
 2. **Q-Former式1D可变长Tokenizer架构**：
-    - 做什么：实现一个能根据指定token分配编解码视频的可变长度tokenizer
+    - 功能：实现一个能根据指定token分配编解码视频的可变长度tokenizer
     - 核心思路：输入视频先patchify为3D嵌入，然后根据分配 $a=(k_1,...,k_T)$ 初始化不同数量的1D query（通过2D池化从对应时间块的3D嵌入衍生），经Q-Former编码器层编码后向量量化为离散token。解码器用每个时间块的第一个1D token初始化3D query进行重建
     - 设计动机：放弃传统tail-token-dropping策略，因为(1)被丢弃的token在编码时仍消耗计算；(2)尾部query在编码时不知道自己是否会被丢弃，角色模糊。直接在query初始化时决定token数量更高效
 
 3. **轻量路由器与最终Tokenizer训练**：
-    - 做什么：用ViT-S级别（19.9M参数）路由器将逐样本brute-force搜索加速为一次前向分类
+    - 功能：用ViT-S级别（19.9M参数）路由器将逐样本brute-force搜索加速为一次前向分类
     - 核心思路：在100k WebVid视频上构建(视频, 最优分配)分类数据集训练路由器，将最优分配预测建模为 $m^T$ 类分类任务。最终tokenizer从零训练并使用路由器预测的分配，而非复用proxy tokenizer
     - 设计动机：proxy tokenizer训练时覆盖所有 $m^T$ 种分配，但推理时每个视频只用一种，存在训练-推理gap。Stage 4的最终tokenizer消除了这一gap，实验证实比直接用proxy tokenizer提升显著
 
@@ -263,7 +264,7 @@ tags:
 **arXiv**: [2603.12267](https://arxiv.org/abs/2603.12267)  
 **代码**: [项目页](https://silentview.github.io/EVATok/)  
 **领域**: 视频理解 / 视频生成 / 模型压缩  
-**关键词**: video tokenizer, adaptive token, autoregressive generation, efficiency, VQ-VAE  
+**关键词**: video tokenizer, adaptive token, autoregressive generation, efficiency, VQ-VAE
 
 ## 一句话总结
 提出EVATok框架——通过最优token分配估计+轻量路由器+自适应tokenizer训练的三步流程，让视频tokenizer按片段复杂度自适应分配token长度，在UCF-101上节省24.4%+ token同时达到SOTA生成质量。

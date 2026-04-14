@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users
 description: >-
-  [CVPR 2026][卫星通信][分布式MIMO] 针对多LEO卫星协同下行链路，提出联合非相干传输WMMSE预编码和流式分布传输策略，通过匈牙利算法做流-卫星关联，在不需相位同步条件下实现高效多流传输
+  [CVPR 2026][遥感][低轨卫星通信] 针对多LEO卫星协同服务多天线地面用户的下行链路，提出联合非相干传输和流式分布传输两种模式，在不需要星间相位同步条件下实现频谱效率最大化与前传开销的灵活权衡。
 tags:
   - CVPR 2026
-  - 卫星通信
+  - 遥感
+  - 低轨卫星通信
   - 分布式MIMO
   - 联合传输
   - 流式传输
   - WMMSE预编码
-  - 匈牙利算法
 ---
 
 # Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users
@@ -43,19 +43,19 @@ tags:
 
 1. **联合非相干传输预编码**:
 
-    - 做什么：所有卫星传输所有用户的所有流，最大化和频谱效率
+    - 功能：所有卫星传输所有用户的所有流，最大化和频谱效率
     - 核心思路：精确遍历SE含期望不可解析，使用矩阵值Jensen近似得到仅依赖sCSI的可处理近似SE $\bar{R}_k$。利用和SE↔加权和MSE等价（WMMSE），推导交替优化：(a) 接收合并 $U_k$ 由MMSE公式；(b) MSE权重 $C_k = E_k^{-1}$；(c) 预编码 $W_{l,k}$ 由Lagrangian+椭球法对偶更新满足一般凸功率约束
     - 设计动机：统一框架支持per-SAT、per-antenna等多种功率约束模型
 
 2. **流式分布传输（Streamwise Transmission）**:
 
-    - 做什么：每个数据流仅由一颗卫星发送，降低前传数据共享需求
+    - 功能：每个数据流仅由一颗卫星发送，降低前传数据共享需求
     - 核心思路：对聚合信道做SVD获取用户空间特征模式，计算每颗卫星对每个模式的参与因子（归一化能量贡献 $p_{l,k,s} = \beta_{l,k}|\mathbf{a}_{l,k}^T\mathbf{w}_{l,k,s}|^2 / \sum_j \beta_{j,k}|\mathbf{a}_{j,k}^T\mathbf{w}_{j,k,s}|^2$），构建最大权重二分匹配问题，用匈牙利算法求解流-卫星关联
     - 设计动机：当UE侧信道正交时，每个特征模式由单颗卫星主导，流式传输自然对齐信道结构，近乎无损
 
 3. **正交性分析与性能-开销权衡**:
 
-    - 做什么：理论分析在何种条件下流式传输可替代联合传输
+    - 功能：理论分析在何种条件下流式传输可替代联合传输
     - 核心思路：当UE阵列响应向量 $\mathbf{b}_{l,k}$ 对不同卫星正交时，信号矩阵分解为对角形式，联合传输退化为per-SAT独立传输，流式传输无需额外协调即可接近最优
     - 设计动机：提供实际部署决策依据——正交条件下直接用流式传输节省前传
 

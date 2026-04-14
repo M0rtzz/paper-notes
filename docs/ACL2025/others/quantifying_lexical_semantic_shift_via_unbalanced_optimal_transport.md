@@ -2,13 +2,14 @@
 title: >-
   [论文解读] Quantifying Lexical Semantic Shift via Unbalanced Optimal Transport
 description: >-
-  [ACL 2025][语义变迁] 将Unbalanced OT应用于上下文化词嵌入量化词义变迁，提出SUS指标统一解决实例级/词级/词义扩展缩小检测。
+  [ACL 2025][语义变迁] 将Unbalanced Optimal Transport（UOT）应用于上下文化词嵌入集合，提出Sense Usage Shift（SUS）指标在每个用法实例级别量化语义变化，统一解决实例级变化检测、词级变化幅度量化和词义扩展/缩小判定三项任务。
 tags:
   - ACL 2025
-  - semantic change detection
-  - optimal transport
-  - contextualized embeddings
-  - lexical semantics
+  - 语义变迁
+  - 最优传输
+  - 上下文化嵌入
+  - SUS指标
+  - 词义扩展/缩小
 ---
 
 # Quantifying Lexical Semantic Shift via Unbalanced Optimal Transport
@@ -36,17 +37,17 @@ tags:
 ### 关键设计
 
 1. **Unbalanced OT的应用**:
-    - 做什么：在两个时期的嵌入集间计算UOT传输方案
+    - 功能：在两个时期的嵌入集间计算UOT传输方案
     - 核心思路：标准OT要求质量守恒（总传输量=1），UOT放松此约束允许$\text{excess}$（质量溢出=义项使用增加）和$\text{deficit}$（质量不足=义项使用减少）。通过KL散度惩罚质量不平衡
     - 设计动机：词义变迁的本质就是"某些义项使用增多、某些减少"——UOT的质量不守恒天然对应这一语言学现象
 
 2. **Sense Usage Shift (SUS) 指标**:
-    - 做什么：为每个用法实例计算一个标量值，量化该义项使用频率的增减
+    - 功能：为每个用法实例计算一个标量值，量化该义项使用频率的增减
     - 核心思路：$\text{SUS}(i) = \text{excess}(i) - \text{deficit}(i)$，正值=该义项使用增加，负值=减少
     - 设计动机：SUS是第一个实例级的语义变化指标——可直接可视化每个用法的变化方向
 
 3. **统一多任务框架**:
-    - 做什么：从SUS出发衍生词级指标
+    - 功能：从SUS出发衍生词级指标
     - 核心思路：词级变化幅度=SUS的方差；词义扩展=excess总量>deficit总量；词义缩小=反之
     - 设计动机：一个UOT计算就能回答三个不同层面的问题
 

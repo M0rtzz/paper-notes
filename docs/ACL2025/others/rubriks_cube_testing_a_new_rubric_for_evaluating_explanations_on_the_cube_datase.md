@@ -26,9 +26,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：LLM 日益用于需要解释的任务（自动评分、问题解决、诊断推理），但 LLM 生成的解释不可靠——存在幻觉、误导、推理不足。
+
 **现有痛点**：(a) 评估解释质量缺乏统一标准——人类评估者通常未经培训，评估标准因人而异；(b) 无法细粒度诊断"解释哪里不好"——是不连贯？不准确？还是太冗长？
+
 **核心矛盾**：如何建立任务无关、细粒度、且有理论基础的解释质量评估标准？
+
 **切入角度**：借鉴教育领域评分量规（rubric）——这是教育学中成熟的复杂/主观任务评估工具（如 IELTS 写作评分），遵循 Dawson (2017) 的最佳实践设计。
+
 **核心 idea**：Rubrik 层次化量规（类型→组件→维度）+ CUBE 多任务多模型解释数据集 = 解释质量的标准化评估框架。
 
 ## 方法详解
@@ -39,21 +43,21 @@ tags:
 ### Rubrik 量规设计
 
 1. **三层嵌套解释类型**：
-   - **Commentary（评论）**：最基础，需包含 Action（做了什么）+ Reason（为什么）
-   - **Justification（论证）**：继承 Commentary 的组件 + Evidence（证据）
-   - **Argument（论辩）**：继承 Justification + Affective appeal & Qualifiers（情感诉求和限定）
-   - 层级关系：Commentary ⊆ Justification ⊆ Argument
-   - 设计动机：认知科学/社会科学/教育学对解释的共识——解释有不同目的（理解、说服），结构复杂度递增
+    - **Commentary（评论）**：最基础，需包含 Action（做了什么）+ Reason（为什么）
+    - **Justification（论证）**：继承 Commentary 的组件 + Evidence（证据）
+    - **Argument（论辩）**：继承 Justification + Affective appeal & Qualifiers（情感诉求和限定）
+    - 层级关系：Commentary ⊆ Justification ⊆ Argument
+    - 设计动机：认知科学/社会科学/教育学对解释的共识——解释有不同目的（理解、说服），结构复杂度递增
 
 2. **8 维质量维度（分语言和内容两类）**：
-   - **语言维度**：Grammaticality（语法）、Word Choice（用词）、Cohesion（连贯）、Conciseness（简洁）
-   - **内容维度**：Appropriateness（适当性）、Coherence（逻辑一致）、Plausibility（合理性）、Stance Clarity（立场清晰）
-   - 设计动机：LLM 有时"表面流畅但实质有误"——需要分别评估语言质量和内容质量
+    - **语言维度**：Grammaticality（语法）、Word Choice（用词）、Cohesion（连贯）、Conciseness（简洁）
+    - **内容维度**：Appropriateness（适当性）、Coherence（逻辑一致）、Plausibility（合理性）、Stance Clarity（立场清晰）
+    - 设计动机：LLM 有时"表面流畅但实质有误"——需要分别评估语言质量和内容质量
 
 3. **评分流程**：
-   - 先判断类型：检查 Commentary 组件 → 检查 Justification 组件 → 检查 Argument 组件
-   - 每个类型再评维度：所有维度通过 = 好（✓），任一不通过 = 差（✗）
-   - 结果为：类型（None/Commentary/Justification/Argument）+ 质量（好/差）
+    - 先判断类型：检查 Commentary 组件 → 检查 Justification 组件 → 检查 Argument 组件
+    - 每个类型再评维度：所有维度通过 = 好（✓），任一不通过 = 差（✗）
+    - 结果为：类型（None/Commentary/Justification/Argument）+ 质量（好/差）
 
 ### CUBE 数据集
 

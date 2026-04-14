@@ -2,14 +2,16 @@
 title: >-
   [论文解读] DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression
 description: >-
-  [CVPR 2026][图像压缩][扩散Transformer] 将预训练文生图DiT适配为高效单步图像压缩解码器，通过方差引导重建流、自蒸馏对齐、潜空间条件引导三种对齐机制，在32×深层潜空间实现SOTA感知压缩质量，BD-rate(DISTS) -87.88%，解码比现有扩散方法快30倍，16GB显存可重建2048×2048图像。
+  [CVPR 2026][图像生成][Transformer] 将预训练文生图DiT（SANA）适配为高效单步图像压缩解码器，通过方差引导重建流（像素级自适应去噪强度）、自蒸馏对齐（编码器潜变量做蒸馏目标）、潜空间条件引导（替代文本编码器）三种对齐机制，在32×下采样的深层潜空间中实现SOTA感知质量（BD-rate DISTS -87.88%），解码快30倍且16GB笔电显存可重建2K图像。
 tags:
   - CVPR 2026
-  - 图像压缩
-  - 扩散Transformer
-  - 单步扩散
+  - 图像生成
+  - Transformer
+  - image compression
+  - 扩散模型
   - flow matching
-  - 潜空间对齐
+  - latent alignment
+  - variance-guided
 ---
 
 # DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression
@@ -52,19 +54,19 @@ tags:
 
 1. **方差引导重建流（Variance-Guided Reconstruction Flow）**
 
-    - 做什么：将多步去噪折叠为空间自适应的单步变换
+    - 功能：将多步去噪折叠为空间自适应的单步变换
     - 核心思路：压缩量化噪声空间异质——平滑区域噪声低（小时间步），纹理区域噪声高（大时间步）。利用编码器预测的方差 $\boldsymbol{\sigma}$ 通过可微映射生成像素级伪时间步 $t = \mathcal{F}(\text{proj}_\theta(\boldsymbol{\sigma})) \in \mathbb{R}^{H \times W}$。单步重建：$\hat{\mathbf{y}} = \tilde{\mathbf{y}} - \mathbf{v}_\theta(\tilde{\mathbf{y}}, t)$
     - 设计动机：全局单一时间步无法适应局部噪声差异（消融验证方差是编码器已有副产物，零额外成本
 
 2. **自蒸馏对齐（Self-Distillation Alignment）**
 
-    - 做什么：在无外部教师的情况下稳定单步学习
+    - 功能：在无外部教师的情况下稳定单步学习
     - 核心思路：冻结编码器，其潜变量输出 $\mathbf{y}_0$ 作为自监督目标。带margin余弦对齐损失：$\mathcal{L}_{\text{distil}} = \mathbb{E}[1 - m - \frac{\langle \hat{\mathbf{y}}, \mathbf{y}_0 \rangle}{|\hat{\mathbf{y}}|_2 |\mathbf{y}_0|_2}]$。冻结编码器 + 联合优化DiT和解码器
     - 设计动机：压缩场景无多步扩散轨迹可蒸馏，但编码器输出已靠近数据流形，天然适合做单步蒸馏目标
 
 3. **潜空间条件引导（Latent-Conditioned Guidance）**
 
-    - 做什么：用压缩潜变量替代文本提示作为DiT条件，推理时免去文本编码器
+    - 功能：用压缩潜变量替代文本提示作为DiT条件，推理时免去文本编码器
     - 核心思路：轻量投影 $c_{\text{lat}} = \text{Proj}_\psi(\hat{y})$ 映射到文本嵌入空间。训练用CLIP风格对比损失 $\mathcal{L}_{\text{cond}}$ 对齐 $c_{\text{lat}}$ 和 InternVL生成的 $c_{\text{text}}$；推理仅用潜变量条件
     - 设计动机：文本prompt在重建任务中低效且引入随机性，潜变量自身已编码丰富语义结构
 

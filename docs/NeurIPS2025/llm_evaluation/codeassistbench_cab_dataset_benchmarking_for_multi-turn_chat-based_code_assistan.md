@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 代码助手
   - 多轮对话
-  - Benchmark
+  - benchmark
   - 编程辅助
   - GitHub Issues
   - 项目级评估
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.10646](https://arxiv.org/abs/2507.10646)  
 **代码**: [amazon-science/CodeAssistBench](https://github.com/amazon-science/CodeAssistBench/)  
 **领域**: LLM/NLP  
-**关键词**: 代码助手, 多轮对话, Benchmark, 编程辅助, GitHub Issues, 项目级评估, LLM Agent
+**关键词**: 代码助手, 多轮对话, benchmark, 编程辅助, GitHub Issues, 项目级评估, LLM Agent
 
 ## 一句话总结
 

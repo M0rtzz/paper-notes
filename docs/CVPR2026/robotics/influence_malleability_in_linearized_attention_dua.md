@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Influence Malleability in Linearized Attention: Dual Implications of Non-Convergent NTK Dynamics
 description: >-
-  [CVPR 2026][深度学习理论][线性化注意力] 通过NTK框架证明线性化注意力不会收敛到无限宽度核极限（需要宽度m=Ω(κ⁶)），并提出"影响可塑性"指标量化其双面效应：注意力比ReLU网络高6-9倍的数据依赖灵活性，既能降低近似误差也增加对抗脆弱性。
+  [CVPR 2026][机器人][线性化注意力] 通过 NTK 框架证明线性化注意力不会收敛到无限宽度核极限（需要宽度 $m = \Omega(\kappa^6)$），并提出"影响可塑性"指标量化其双面效应：注意力比 ReLU 网络高 6–9× 的数据依赖灵活性，既能降低近似误差也增加对抗脆弱性。
 tags:
   - CVPR 2026
-  - 深度学习理论
+  - 机器人
   - 线性化注意力
   - 神经正切核
   - 影响可塑性

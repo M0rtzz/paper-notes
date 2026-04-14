@@ -2,15 +2,17 @@
 title: >-
   [论文解读] 10 Open Challenges Steering the Future of Vision-Language-Action Models
 description: >-
-  [AAAI 2026][人体理解][具身智能] 系统梳理 VLA 模型的 10 大开放挑战及新兴趋势。
+  [AAAI 2026][人体理解][VLA 模型] 系统梳理 VLA 模型面临的 10 大开放挑战——多模态感知、鲁棒推理、高质量训练数据、评估、跨机器人动作泛化、资源效率、全身协调、安全保障、Agent 框架、人机协作——并讨论空间理解、世界动力学建模、后训练和数据合成四大新兴趋势。
 tags:
   - AAAI 2026
-  - 具身智能
-  - VLA模型
-  - 机器人学习
-  - 综述
-  - 多模态
-  - Agentic AI
+  - 人体理解
+  - VLA 模型
+  - 机器人操作
+  - 模仿学习
+  - 多模态感知
+  - 跨机器人泛化
+  - 世界模型
+  - 后训练
 ---
 
 # 10 Open Challenges Steering the Future of Vision-Language-Action Models

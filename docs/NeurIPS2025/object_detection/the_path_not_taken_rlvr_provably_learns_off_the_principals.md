@@ -2,15 +2,15 @@
 title: >-
   [论文解读] The Path Not Taken: RLVR Provably Learns Off the Principals
 description: >-
-  [NeurIPS 2025][LLM训练][RLVR] 本文通过三门理论(Three-Gate Theory)揭示了RLVR的参数级学习动力学：RLVR在权重空间的非主方向上学习，与SFT有本质不同的优化机制，直接移植SFT时代的PEFT方法到RLVR可能是有缺陷的。
+  [NeurIPS 2025 Workshop on Efficient Reasoning (Spotlight)][目标检测][RLVR] 本文提出三门理论 (Three-Gate Theory) 解释 RLVR 的参数更新稀疏性假象，证明 RLVR 在权重空间的非主方向 (off-principal) 上学习，与 SFT 的优化机制本质不同，因此直接移植 SFT 时代的 PEFT 方法到 RLVR 是有缺陷的。
 tags:
-  - NeurIPS 2025
+  - NeurIPS 2025 Workshop on Efficient Reasoning (Spotlight)
+  - 目标检测
   - RLVR
-  - 强化学习
-  - 大语言模型
-  - 参数高效微调
-  - 隐式偏置
   - 训练动力学
+  - 三门理论
+  - 参数高效微调
+  - SFT对比
 ---
 
 # The Path Not Taken: RLVR Provably Learns Off the Principals

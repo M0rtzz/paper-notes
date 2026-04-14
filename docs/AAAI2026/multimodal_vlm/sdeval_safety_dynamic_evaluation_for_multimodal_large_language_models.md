@@ -2,14 +2,15 @@
 title: >-
   [论文解读] SDEval: Safety Dynamic Evaluation for Multimodal Large Language Models
 description: >-
-  [AAAI 2026][多模态VLM][安全评估] 首个多模态大语言模型安全动态评估框架SDEval，通过文本/图像/跨模态三类动态策略可控调节安全基准的分布与复杂度，显著缓解数据泄露问题并暴露MLLM安全短板。
+  [AAAI 2026][多模态][MLLM安全] 提出首个 MLLM 安全动态评估框架 SDEval，通过文本动态（6种策略）、图像动态（2类策略）和跨模态动态（4种策略）从原始安全基准生成可控复杂度的变体样本，在 MLLMGuard 和 VLSBench 上使 InternVL-3-78B 安全率下降近 10%，有效缓解数据泄露并暴露模型安全漏洞。
 tags:
   - AAAI 2026
-  - 多模态VLM
-  - 安全评估
+  - 多模态
+  - MLLM安全
   - 动态评估
   - 数据泄露
   - 越狱攻击
+  - 安全基准
 ---
 
 # SDEval: Safety Dynamic Evaluation for Multimodal Large Language Models

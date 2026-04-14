@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - 多模态
   - GUI Grounding
-  - 视觉定位
+  - visual grounding
   - 多模态大模型
   - GUI Agent
   - Action History
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.16256](https://arxiv.org/abs/2412.16256)  
 **代码**: https://github.com/AriaUI/Aria-UI (有)  
 **领域**: 多模态 / GUI Agent  
-**关键词**: GUI Grounding, 视觉定位, 多模态大模型, GUI Agent, Action History
+**关键词**: GUI Grounding, visual grounding, 多模态大模型, GUI Agent, Action History
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 现有方法面临三大痛点：
 
 **依赖结构化辅助输入（HTML/AXTree）**：大多数方法依赖 DOM 树或可访问性树（AXTree）作为输入，但这些信息在不同平台（web、mobile、desktop）上获取方式不一致，且某些场景下不可用（如原生应用、游戏界面）。更重要的是，这些结构化输入可能非常冗长，处理成本高。
+
 **指令格式多样性不足**：不同的 planning agent 会生成不同格式的 grounding 指令——有的是简短的元素描述（"search button"），有的是包含推理过程的长指令（"To complete the task, I need to click on..."），现有模型难以适应这种异构性。
+
 **缺乏上下文感知能力**：在多步骤任务执行中，当前步骤的 grounding 需要理解之前的操作历史。例如，"点击下一步"这个指令的目标元素取决于之前做了什么，但现有方法大多忽略历史上下文。
 
 核心idea：**用纯视觉方法替代结构化输入依赖，通过合成多样化指令数据和建模动作历史来增强 GUI grounding 能力**。
@@ -51,19 +53,19 @@ Pipeline 分为两阶段：
 
 1. **可扩展的指令合成数据管线 (Scalable Data Pipeline)**:
 
-    - 做什么：从现有 GUI 数据集中自动合成多样化和高质量的 grounding 指令样本
+    - 功能：从现有 GUI 数据集中自动合成多样化和高质量的 grounding 指令样本
     - 核心思路：收集多个来源的 GUI 截图和元素标注数据，然后利用 LLM（如 GPT-4）生成不同格式的指令——包括简短描述型（"the search icon"）、推理型（"To find videos, I should click on the search button"）、和直接坐标型指令。对每个元素生成多种表述，大幅增加训练数据的多样性
     - 设计动机：真实场景中的 planning agent 输出指令格式千差万别，如果训练数据只包含单一格式，模型的泛化能力会受限。通过合成多种格式，Aria-UI 能适配不同上游 agent 的输出
 
 2. **文本-图像交错的动作历史建模 (Action History Modeling)**:
 
-    - 做什么：将历史操作以文本和截图交错的方式编码为上下文，辅助当前步骤的 grounding
+    - 功能：将历史操作以文本和截图交错的方式编码为上下文，辅助当前步骤的 grounding
     - 核心思路：支持两种历史格式：(a) **纯文本历史**——仅用文字描述之前的操作（如 "Step 1: clicked on Settings"）；(b) **文本-图像交错历史**——每一步操作附带当时的 GUI 截图。模型在 SFT 阶段同时在两种格式上训练
     - 设计动机：在动态任务执行中（如 AndroidWorld），当前界面状态是之前操作的结果。不理解历史就无法正确 grounding——例如"点击确认"在不同对话框中的目标完全不同。而图像历史比纯文本提供更丰富的上下文线索
 
 3. **MoE 架构与超分辨率支持**:
 
-    - 做什么：高效处理不同尺寸和宽高比的 GUI 截图
+    - 功能：高效处理不同尺寸和宽高比的 GUI 截图
     - 核心思路：基于 Aria 模型的 Mixture-of-Experts (MoE) 架构，每个 token 仅激活 3.9B 参数（总参数更大），支持将 GUI 截图切分为多个 patch 进行超分辨率编码（split_image=True, max_image_size=980），能处理高达 ~980px 的图像 patch
     - 设计动机：GUI 截图中的文字和小图标需要高分辨率才能准确识别。MoE 架构在保持轻量推理的同时提供了足够的模型容量
 

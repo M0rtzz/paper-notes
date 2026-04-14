@@ -1,11 +1,16 @@
 ---
-title: "[论文解读] Reinforcing the Weakest Links: Modernizing SIENA with Targeted Deep Learning Integration"
-description: "[CVPR 2026][医学图像][脑萎缩] 模块化替换SIENA管线中最薄弱的颅骨剥离和分割步骤为DL方案，扫描顺序误差降低99.1%"
+title: >-
+  [论文解读] Reinforcing the Weakest Links: Modernizing SIENA with Targeted Deep Learning Integration
+description: >-
+  [CVPR 2026][医学图像][SIENA] 将 SIENA 纵向脑萎缩管线中的经典颅骨剥离(BET2)和组织分割(FAST)模块定向替换为深度学习方案(SynthStrip/SynthSeg)，在 ADNI (N=1006) 和 PPMI (N=310) 两个大规模纵向队列上显著增强了 PBVC 与临床疾病进展的关联性(相关系数提升超 100%)，扫描顺序误差降低高达 99.1%。
 tags:
   - CVPR 2026
   - 医学图像
-  - 脑萎缩
   - SIENA
+  - 脑萎缩
+  - 纵向MRI
+  - SynthStrip
+  - SynthSeg
   - 模块化现代化
 ---
 
@@ -44,12 +49,12 @@ tags:
 ### 关键设计
 
 1. **SynthStrip 集成与颅骨 mask 推导**:
-    - 做什么：用 SynthStrip 替代 BET2 进行脑提取，并从 SynthStrip 输出推导 SIENA 所需的颅骨 mask
+    - 功能：用 SynthStrip 替代 BET2 进行脑提取，并从 SynthStrip 输出推导 SIENA 所需的颅骨 mask
     - 核心思路：SynthStrip 仅输出脑 mask 而不输出颅骨 mask。为保持兼容性，设计了推导流程：高斯平滑脑 mask ($\sigma=1.0$) → 从梯度估计表面法线 → 沿法线方向投射射线(最大 30mm) → 用 BET2 的强度梯度启发式检测内颅骨边界 → 聚合检测点构建颅骨 mask
     - 设计动机：SIENA 的颅骨约束配准需要颅骨 mask 作为相对稳定的解剖参考，防止将纵向萎缩错误地归一化
 
 2. **SynthSeg 集成与标签映射**:
-    - 做什么：用 SynthSeg 替代 FAST 进行组织分割，将解剖结构标签映射为 SIENA 所需的三类组织
+    - 功能：用 SynthSeg 替代 FAST 进行组织分割，将解剖结构标签映射为 SIENA 所需的三类组织
     - 核心思路：SynthSeg 输出细粒度解剖结构标签(皮层、丘脑、海马等)而非三类组织。映射规则：脑室(侧脑室、三脑室、四脑室等)→CSF；皮层+皮下灰质(丘脑、尾状核、壳核、海马等)→GM；白质+脑干→WM
     - 设计动机：SIENA 边界检测仅需 CSF/GM/WM 三类分割，SynthSeg 的域随机化训练使其对各种采集协议有更强泛化性
 

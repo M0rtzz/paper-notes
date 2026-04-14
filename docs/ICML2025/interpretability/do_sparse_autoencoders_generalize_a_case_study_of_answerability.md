@@ -164,10 +164,10 @@ $$\mathcal{L} = \|\mathbf{x} - \hat{\mathbf{x}}\|_2^2 + \lambda \|\mathbf{f}\|_1
 3. **1-sparse 探针限制**：仅用单个特征建探针，多特征组合是否能改善泛化未探索
 4. **缺乏特征可视化分析**：未深入研究为何某些特征在特定域泛化良好而在其他域失败
 5. **可行的改进方向**：
-   - 使用少量OOD样本做特征选择（few-shot feature selection）
-   - 训练多特征组合探针（k-sparse, k>1）
-   - 跨模型对比评估 SAE 泛化
-   - 分析 BoolQ 失效的具体机制原因
+    - 使用少量OOD样本做特征选择（few-shot feature selection）
+    - 训练多特征组合探针（k-sparse, k>1）
+    - 跨模型对比评估 SAE 泛化
+    - 分析 BoolQ 失效的具体机制原因
 
 ## 相关工作与启发
 

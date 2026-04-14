@@ -22,7 +22,7 @@ tags:
 **机构**: Google DeepMind
 **代码**: 无  
 **领域**: 图像生成 / 视觉自编码器  
-**关键词**: Diffusion Model, VAE, Image Tokenizer, Rectified Flow, 视觉解码, 迭代重建
+**关键词**: 扩散模型, VAE, Image Tokenizer, Rectified Flow, 视觉解码, 迭代重建
 
 ## 一句话总结
 

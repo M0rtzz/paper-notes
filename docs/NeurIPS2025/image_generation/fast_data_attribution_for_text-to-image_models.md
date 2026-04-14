@@ -2,12 +2,12 @@
 title: >-
   [论文解读] Fast Data Attribution for Text-to-Image Models
 description: >-
-  [NeurIPS 2025][图像生成][data attribution] 将慢而准确的 unlearning-based 数据归因方法蒸馏为一个可快速检索的特征嵌入空间，在 Stable Diffusion 级别模型上实现比现有方法快 2,500× ~ 400,000× 的数据归因。
+  [NeurIPS 2025][图像生成][数据归因] 将慢而准确的 unlearning-based 数据归因方法蒸馏为一个可快速检索的特征嵌入空间，在 Stable Diffusion 级别模型上实现比现有方法快 2,500× ~ 400,000× 的数据归因。
 tags:
   - NeurIPS 2025
   - 图像生成
-  - data attribution
-  - text-to-image
+  - 数据归因
+  - 文生图
   - learning-to-rank
   - 知识蒸馏
   - efficient retrieval
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.10721](https://arxiv.org/abs/2511.10721)  
 **代码**: [FastGDA](https://peterwang512.github.io/FastGDA)  
 **领域**: image_generation  
-**关键词**: data attribution, text-to-image, learning-to-rank, knowledge distillation, efficient retrieval  
+**关键词**: 数据归因, 文生图, learning-to-rank, 知识蒸馏, efficient retrieval
 
 ## 一句话总结
 

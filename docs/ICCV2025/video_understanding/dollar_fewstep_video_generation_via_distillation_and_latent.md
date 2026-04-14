@@ -49,22 +49,22 @@ DOLLAR采用两阶段训练策略：(1) **混合蒸馏阶段**——结合变分
 ### 关键设计
 
 1. **变分分数蒸馏（VSD）**：
-    - 做什么：通过分布匹配将teacher模型的多步采样分布对齐到student模型的少步分布
+    - 功能：通过分布匹配将teacher模型的多步采样分布对齐到student模型的少步分布
     - 核心思路：VSD最小化teacher和student输出分布之间的KL散度。设teacher模型为 $\epsilon_\phi$，student模型为 $\epsilon_\theta$，VSD优化目标为 $\mathcal{L}_{\text{VSD}} = \mathbb{E}_{t,\epsilon}\left[\|\epsilon_\theta(x_t, t) - \epsilon_\phi(x_t, t)\|^2\right]$，其中 $x_t$ 为加噪后的视频latent
     - 设计动机：纯一致性蒸馏可能导致模式坍缩（mode collapse），VSD通过分布匹配保证生成多样性
 
 2. **一致性蒸馏（CD）**：
-    - 做什么：确保student模型在不同步数下输出一致的结果
+    - 功能：确保student模型在不同步数下输出一致的结果
     - 核心思路：对同一噪声输入，要求student在任意中间时间步的预测结果一致，即 $f_\theta(x_t, t) \approx f_\theta(x_{t'}, t')$，其中 $x_t$ 和 $x_{t'}$ 位于同一PF-ODE轨迹上
     - 设计动机：使student不受限于固定步数，可在1-4步之间灵活选择，避免step-specific训练
 
 3. **混合蒸馏策略**：
-    - 做什么：将VSD和CD以加权方式联合训练
+    - 功能：将VSD和CD以加权方式联合训练
     - 核心思路：总损失为 $\mathcal{L} = \lambda_{\text{VSD}} \mathcal{L}_{\text{VSD}} + \lambda_{\text{CD}} \mathcal{L}_{\text{CD}}$
     - 设计动机：VSD保多样性，CD保质量和步数灵活性，两者互补
 
 4. **潜空间奖励模型微调（Latent Reward Fine-tuning）**：
-    - 做什么：利用潜空间奖励模型对蒸馏后的student进一步微调，提升指定质量维度
+    - 功能：利用潜空间奖励模型对蒸馏后的student进一步微调，提升指定质量维度
     - 核心思路：不要求reward model可微，而是在latent空间中操作。通过在潜空间直接计算奖励信号，避免将视频解码到像素空间，大幅降低GPU显存需求。可针对任意奖励指标（美学质量、文本对齐、时间一致性等）进行优化
     - 设计动机：传统奖励微调需要在像素空间计算梯度，对于128帧视频显存开销不可接受；潜空间操作同时解决显存和可微性两个问题
 
@@ -155,7 +155,7 @@ tags:
 **arXiv**: [2412.15689](https://arxiv.org/abs/2412.15689)  
 **代码**: 无（未提及）  
 **领域**: 视频生成 / 扩散模型加速  
-**关键词**: video generation, distillation, consistency distillation, latent reward, few-step, VBench  
+**关键词**: video generation, distillation, consistency distillation, latent reward, few-step, VBench
 
 ## 一句话总结
 结合变分分数蒸馏（VSD）和一致性蒸馏实现few-step视频生成，同时提出潜空间奖励模型微调方法进一步优化生成质量，4步生成的10秒视频（128帧@12FPS）在VBench上达82.57分超越teacher模型和Gen-3/Kling等基线，1步蒸馏实现278.6倍加速。

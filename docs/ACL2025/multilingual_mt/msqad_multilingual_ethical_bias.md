@@ -8,7 +8,7 @@ tags:
   - Multilingual Bias
   - Ethical Bias
   - Statistical Hypothesis Testing
-  - LLM Safety
+  - LLM safety
   - Cross-lingual
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.19121](https://arxiv.org/abs/2505.19121)  
 **代码**: 数据集公开（MSQAD）  
 **领域**: AI安全 / LLM偏见 / 多语言分析  
-**关键词**: Multilingual Bias, Ethical Bias, Statistical Hypothesis Testing, LLM Safety, Cross-lingual  
+**关键词**: Multilingual Bias, Ethical Bias, Statistical Hypothesis Testing, LLM safety, Cross-lingual
 
 ## 一句话总结
 提出多语言敏感问答数据集MSQAD（基于Human Rights Watch 17个人权话题），通过McNemar检验和PERMANOVA检验两种统计假设检验方法，系统验证了LLM在不同语言下对相同敏感问题的回答存在显著伦理偏差——中文和印地语拒绝率最高，西班牙语和德语最容易生成不当回答，且该偏差在7个不同LLM中普遍存在。

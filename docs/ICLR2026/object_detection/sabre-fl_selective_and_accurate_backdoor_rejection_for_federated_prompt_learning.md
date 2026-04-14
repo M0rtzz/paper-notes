@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.22506](https://arxiv.org/abs/2506.22506)  
 **代码**: 待发布  
 **领域**: object_detection  
-**关键词**: Federated Learning, Prompt Learning, Backdoor Attack, CLIP, Anomaly Detection  
+**关键词**: federated learning, Prompt Learning, Backdoor Attack, CLIP, Anomaly Detection
 
 ## 一句话总结
 首次研究联邦 Prompt Learning 场景下的后门攻击威胁，并提出 SABRE-FL——一种基于 embedding 空间异常检测的轻量级服务器端防御方法，无需访问客户端原始数据即可有效过滤中毒 prompt 更新。

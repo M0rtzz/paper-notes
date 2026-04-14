@@ -2,12 +2,12 @@
 title: >-
   [论文解读] Continuous Subspace Optimization for Continual Learning (CoSO)
 description: >-
-  [NeurIPS 2025][自监督学习][Continual Learning] 提出 CoSO 框架，通过从每步梯度的 SVD 动态导出连续子空间（而非 LoRA 的固定子空间），结合历史任务正交投影防止干扰和 Frequent Directions 高效聚合梯度信息，在 ImageNet-R 20 任务上以 78.19% 最终准确率超越最佳 baseline 2.77 个百分点。
+  [NeurIPS 2025][自监督学习][continual learning] 提出 CoSO 框架，通过从每步梯度的 SVD 动态导出连续子空间（而非 LoRA 的固定子空间），结合历史任务正交投影防止干扰和 Frequent Directions 高效聚合梯度信息，在 ImageNet-R 20 任务上以 78.19% 最终准确率超越最佳 baseline 2.77 个百分点。
 tags:
   - NeurIPS 2025
   - 自监督学习
-  - Continual Learning
-  - Catastrophic Forgetting
+  - continual learning
+  - catastrophic forgetting
   - Dynamic Subspace
   - Orthogonal Projection
   - Frequent Directions
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2505.11816](https://arxiv.org/abs/2505.11816)  
 **作者**: Quan Cheng, Yuanyu Wan, Lingyu Wu, Chenping Hou, Lijun Zhang（南京大学、浙江大学、国防科技大学）  
 **领域**: 持续学习 / 参数高效微调  
-**关键词**: Continual Learning, Catastrophic Forgetting, Dynamic Subspace, Orthogonal Projection, Frequent Directions, LoRA, GaLore
+**关键词**: continual learning, catastrophic forgetting, Dynamic Subspace, Orthogonal Projection, Frequent Directions, LoRA, GaLore
 
 ## 一句话总结
 
@@ -56,7 +56,7 @@ tags:
 
 **设计一：连续子空间优化**
 
-- 做什么：动态导出低秩投影矩阵取代 LoRA 的固定矩阵
+- 功能：动态导出低秩投影矩阵取代 LoRA 的固定矩阵
 - 核心思路：每 K 步对当前正交化梯度做截断 SVD 得到 rank-$r_1$ 投影矩阵 $P_{\tau,t}$，在此子空间内用 Adam 优化。与 LoRA 不同，子空间随梯度演化而连续变化，使得最终学到的权重可以是全秩的
 - 具体流程：$R_{\tau,t} = P_{\tau,t}^T G'_{\tau,t}$（前向投影）→ $N_{\tau,t} = \text{Adam}(R_{\tau,t})$（低维优化）→ $\tilde{G}_{\tau,t} = P_{\tau,t} N_{\tau,t}$（反向投影）→ $W_{\tau,t} = W_{\tau,t-1} - \eta \tilde{G}_{\tau,t}$
 - 设计动机：固定子空间无法适应训练过程中梯度方向的变化；通过在多个连续子空间中优化，突破低秩约束的学习容量上界
@@ -64,14 +64,14 @@ tags:
 
 **设计二：历史任务正交投影**
 
-- 做什么：确保新任务的参数更新不干扰旧任务
+- 功能：确保新任务的参数更新不干扰旧任务
 - 核心思路：维护正交基矩阵 $\mathcal{M}_{\tau-1}$，融汇所有历史任务的梯度子空间。每步将当前梯度投影到正交补：$G'_{\tau,t} = G_{\tau,t} - \mathcal{M}_{\tau-1}\mathcal{M}_{\tau-1}^T G_{\tau,t}$
 - 原理：由于 $P_{\tau,t}$ 从 $G'_{\tau,t}$ 导出，所有参数更新都在历史子空间的零空间中进行，对先前任务的线性层输出不产生影响
 - 设计动机：提供对遗忘的原则性保护。消融实验显示移除正交投影导致 20 任务上最终准确率下降 8.52 个百分点
 
 **设计三：Frequent Directions 梯度聚合**
 
-- 做什么：高效维护任务特定的梯度协方差信息
+- 功能：高效维护任务特定的梯度协方差信息
 - 核心思路：用 FD 算法以 $O(mnr_2T)$ 复杂度（而非直接计算协方差矩阵的 $O(m^2nT)$）增量聚合所有训练步的梯度信息，生成 sketch 矩阵 $S_{\tau,T}$
 - 具体流程：先对梯度做 rank-$r_2$ 截断 SVD 得到 $Q_{\tau,t}$，再用 FD 增量更新 $S_{\tau,t} = \text{FD}([S_{\tau,t-1}, Q_{\tau,t}])$
 - 任务结束时：对 $S_{\tau,T}$ 做 SVD，按 $\sum_{i=1}^k \sigma_i^2 / \sum_{j=1}^{r_2} \sigma_j^2 \leq \epsilon_{th}$ 选取 $k$ 个主方向，附加到 $\mathcal{M}_\tau = [\mathcal{M}_{\tau-1}, U_\tau[:, :k]]$

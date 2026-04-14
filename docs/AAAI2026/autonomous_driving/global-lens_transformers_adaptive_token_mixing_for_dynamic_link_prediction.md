@@ -48,7 +48,7 @@ GLFormer 的 pipeline：
 
 1. **自适应令牌聚合模块（Adaptive Token Aggregation）**:
 
-    - 做什么：对每个邻居 $u_i$，从其最近的 $M$ 个邻居中加权聚合信息
+    - 功能：对每个邻居 $u_i$，从其最近的 $M$ 个邻居中加权聚合信息
     - 核心思路：聚合权重 $\alpha_p^i = \beta \mathbf{w}_p + (1 - \beta) \theta_p^i$ 融合两种因素
       - **顺序权重 $\mathbf{w}_p$**：可学习参数，捕捉交互顺序的重要性
       - **时间权重 $\theta_p^i$**：通过对时间间隔应用 softmax 计算，$\theta_p^i = \frac{\exp(-(t_i - t_{i-p}))}{\sum_q \exp(-(t_i - t_{i-q}))}$，时间距离越近权重越大
@@ -57,7 +57,7 @@ GLFormer 的 pipeline：
 
 2. **层次化聚合机制（Hierarchical Aggregation）**:
 
-    - 做什么：受膨胀因果卷积启发，随层数增加逐步扩展聚合的时间跨度
+    - 功能：受膨胀因果卷积启发，随层数增加逐步扩展聚合的时间跨度
     - 核心思路：定义层级偏移集合 $\mathcal{R}_l = \{p \in \mathbb{Z} \mid s^{l-1} \leq p \leq s^l\}$，随着 $l$ 增大，聚合范围覆盖更远的历史交互
     - 第 $l$ 层的聚合：$\mathbf{H}_{i,:}^{(l)} = \sum_{p \in \mathcal{R}_l} (\alpha_p^i)^{(l)} \mathbf{H}_{\text{TA}, i-p}^{(l-1)}$
     - 超出序列边界的位置被因果掩码处理
@@ -65,7 +65,7 @@ GLFormer 的 pipeline：
 
 3. **复杂度优势**:
 
-    - 做什么：将每层复杂度从自注意力的 $O(N^2)$ 降低到 $O(NK_l)$
+    - 功能：将每层复杂度从自注意力的 $O(N^2)$ 降低到 $O(NK_l)$
     - 总复杂度 $O(\sum_{l=1}^L NK_l)$，当 $K_l \ll N$ 时远低于二次方
     - 每层只需 $O(K_l)$ 个核参数，参数效率极高
 

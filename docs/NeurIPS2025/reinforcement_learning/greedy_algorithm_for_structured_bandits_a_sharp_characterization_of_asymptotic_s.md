@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Multi-armed bandit 是序贯决策的基本框架，传统理论强调探索（exploration）是获得低 regret 的必要手段。结构化 bandit 引入已知的奖励结构（如线性、Lipschitz），通过结构约束减少探索需求。
+
 **现有痛点**：尽管探索理论成熟，纯贪心算法（Greedy，仅利用不探索）在实践中被广泛使用——因为探索在人类交互系统中成本高、不公平、可能违反用户激励。但理论上何时贪心可行、何时必败缺乏统一刻画。
+
 **核心矛盾**：先前工作只在少数特定结构上给出贪心的成功/失败例子（如线性 contextual bandit 需上下文多样性），缺乏对任意有限奖励结构的一般性理论。
+
 **本文要解决什么？** 对任意有限奖励结构，给出贪心算法渐近成功（sublinear regret）vs 失败（linear regret）的完整"iff"刻画。
+
 **切入角度**：作者发现"部分可辨识性"——self-identifiability——是关键：若固定次优臂的期望奖励就能识别出它是次优的，则贪心成功；否则存在 decoy 使贪心永久陷入。
+
 **核心idea一句话**：Self-identifiability 是贪心算法在结构化 bandit 中获得 sublinear regret 的充要条件。
 
 ## 方法详解
@@ -44,13 +49,13 @@ $$f_t = \arg\min_{f \in \mathcal{F}} \sum_{s \in [t]} (f(x_s,a_s) - r_s)^2, \qua
 
 1. **Self-Identifiability（自可辨识性）**:
 
-    - 做什么：刻画 Greedy 成功的充分必要条件
+    - 功能：刻画 Greedy 成功的充分必要条件
     - 核心思路：对 $f^*$ 的每个次优臂 $a$，若所有满足 $f(a) = f^*(a)$ 的 $f \in \mathcal{F}$ 都认为 $a$ 是次优的，则称 $a$ 是 self-identifiable 的。若所有次优臂都有此性质，则实例是 self-identifiable 的
     - 设计动机：Greedy 只观察它选择的臂的奖励，若该臂的期望奖励一旦被准确估计就能判断它不是最优的，则 Greedy 自然会"摆脱"它
 
 2. **Decoy（诱饵函数）**:
 
-    - 做什么：刻画 Greedy 失败的机制
+    - 功能：刻画 Greedy 失败的机制
     - 核心思路：$f_{\text{dec}} \in \mathcal{F}$ 是 $f^*$ 的 decoy 若其最优臂 $a_{\text{dec}}$ 对 $f^*$ 是次优的，且 $f_{\text{dec}}(a_{\text{dec}}) = f^*(a_{\text{dec}})$
     - 核心等价：$f^*$ 没有 decoy $\Leftrightarrow$ 问题实例是 self-identifiable 的
 

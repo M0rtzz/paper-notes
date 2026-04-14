@@ -9,7 +9,7 @@ tags:
   - Object Counting
   - Unsupervised
   - 扩散模型
-  - Synthetic Data
+  - synthetic data
   - Density Estimation
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.04943](https://arxiv.org/abs/2403.04943)  
 **代码**: https://github.com/adrian-dalessandro/AFreeCA (有)  
 **领域**: 目标检测 / 计数  
-**关键词**: Object Counting, Unsupervised, Diffusion Model, Synthetic Data, Density Estimation
+**关键词**: Object Counting, Unsupervised, diffusion model, synthetic data, Density Estimation
 
 ## 一句话总结
 利用 Stable Diffusion 生成合成排序/计数数据，通过先学排序再学计数的两阶段策略 + 密度引导的图像分块，实现了首个适用于任意类别物体的无标注计数方法，在人群计数上超越已有无监督方法。
@@ -50,21 +50,21 @@ tags:
 
 1. **合成排序数据生成 + Sorting Network 预训练**:
 
-    - 做什么：从参考图像出发，用 SD 做 image-to-image 减少物体 + outpainting 增加物体，生成排序三元组 $(x^{syn-}, x^{ref}, x^{syn+})$
+    - 功能：从参考图像出发，用 SD 做 image-to-image 减少物体 + outpainting 增加物体，生成排序三元组 $(x^{syn-}, x^{ref}, x^{syn+})$
     - 核心思路：每张参考图生成 4 个增量版本和 4 个减量版本，得到 16 个有序三元组。用 RankSim 风格的排序损失训练 ResNet-50 backbone，同时在特征空间 $\ell_{sort}^z$ 和预测空间 $\ell_{sort}^y$ 对齐排序关系
     - 设计动机：SD 的排序信号（加/减物体后的相对大小关系）比绝对计数准确得多（99% 可靠）。先用这个可靠信号学质量特征，避免直接用有噪声的计数标签从头训练
     - 关键验证：特征图可视化显示 sorting network 能准确聚焦在目标物体区域
 
 2. **合成计数数据 + 计数锚定**:
 
-    - 做什么：用 SD 生成带计数提示的合成图像（如 "20 people"），仅微调一个线性层将排序特征映射为具体计数值
+    - 功能：用 SD 生成带计数提示的合成图像（如 "20 people"），仅微调一个线性层将排序特征映射为具体计数值
     - 核心思路：生成 1-1000 范围内各种计数的合成图像（每类 150 张 + 800 张零物体图）。冻结 backbone 只训练线性层 $g_\Phi$，用 MSE 损失 $\mathcal{L}_{count}$ 训练
     - 噪声过滤：用 CleanNet 思路计算各计数类别的特征原型向量，过滤掉与自身类别原型不一致的样本
     - 设计动机：只微调线性层是刻意的——保护预训练排序特征不被有噪声的合成计数数据破坏。消融显示全网络微调效果反而差很多（MAE 43.9 vs 35.0 on SHB）
 
 3. **Density Classifier Guided Partitioning (DCGP)**:
 
-    - 做什么：推理时将密集图像分块，对每个子块单独计数再汇总
+    - 功能：推理时将密集图像分块，对每个子块单独计数再汇总
     - 核心思路：(a) 用 SD 生成无/稀疏/密集三类密度的合成图像训练密度分类头 $h_\phi$；(b) 推理时生成 count map 和 density map，sparse 区域直接用 count map 求和，dense 区域从原始高分辨率图像中裁切 patch 送入计数网络重新计数
     - 设计动机：计数网络在低计数时更准确（SD 的 label noise 随数量增大而加剧），分块确保每个 patch 的物体数落在可靠范围内。用原始高分辨率 patch 还避免了 resize 导致的特征丢失
     - DCGP vs 简单分块：简单的 3×3 分块比不分块好（MAE 42.1→47.1 on SHB 反而更差，因为稀疏区域的边界噪声），而 DCGP 选择性地只对 dense 区域分块（35.0），显著更优

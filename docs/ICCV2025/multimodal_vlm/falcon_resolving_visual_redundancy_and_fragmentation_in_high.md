@@ -1,7 +1,18 @@
 ---
-description: "FALCON：通过视觉寄存器技术同时解决高分辨率MLLM中的视觉冗余和碎片化问题，实现9倍视觉token压缩并超越多数商用模型。"
-tags: [MLLM, high-resolution, visual-redundancy, visual-register, token-compression, ViT]
+title: >-
+  [论文解读] FALCON: Resolving Visual Redundancy and Fragmentation in High-resolution Multimodal Large Language Models via Visual Registers
+description: >-
+  [ICCV 2025][多模态][视觉寄存器] 提出 FALCON，通过在 ViT 中引入可学习的视觉寄存器（Visual Register），利用 ReCompact 机制在编码阶段直接消除视觉冗余（9 倍 token 压缩），并用 ReAtten 模块通过寄存器间交互解决裁切导致的视觉碎片化问题。
+tags:
+  - ICCV 2025
+  - 多模态
+  - 视觉寄存器
+  - Token压缩
+  - 视觉冗余
+  - 视觉碎片化
+  - 高分辨率MLLM
 ---
+
 # FALCON: Resolving Visual Redundancy and Fragmentation in High-resolution Multimodal Large Language Models via Visual Registers
 
 **会议**: ICCV 2025  
@@ -39,7 +50,7 @@ FALCON 基于 SigLIP-L/16-384px（视觉编码器）+ Llama-3.1-8B-Instruct（LL
 
 1. **ReCompact：基于寄存器的表示压缩**
 
-    做什么：引入 $M \ll N$ 个可学习视觉寄存器，与 image token 一起输入 ViT，通过自注意力让寄存器自适应聚合 image token 中的关键信息，编码完成后仅保留寄存器输出。
+    功能：引入 $M \ll N$ 个可学习视觉寄存器，与 image token 一起输入 ViT，通过自注意力让寄存器自适应聚合 image token 中的关键信息，编码完成后仅保留寄存器输出。
 
     核心思路：ViT 自注意力公式 $\hat{X}_{k,l} = \text{Softmax}(\frac{X_{k,l} X_{k,l}^T}{\sqrt{D_{key}}}) X_{k,l}$，不添加任何注意力掩码，利用预训练 ViT 天然将全局信息汇聚到特定 token 的能力（已有研究观察到这一现象）。
 
@@ -47,7 +58,7 @@ FALCON 基于 SigLIP-L/16-384px（视觉编码器）+ Llama-3.1-8B-Instruct（LL
 
 2. **ReAtten：寄存器交互注意力**
 
-    做什么：在 ViT 每层的自注意力之后，收集所有子图的寄存器隐状态 $\hat{X}_l^R \in \mathbb{R}^{M \cdot N_c \times D}$，通过 Cross-ViT-Attention 进行交互：$\bar{X}_l^R = \hat{X}_l^R + \text{Cross-ViT-Atten}(\hat{X}_l^R)$，然后与各自的 image token 重新拼接送入 FFN。
+    功能：在 ViT 每层的自注意力之后，收集所有子图的寄存器隐状态 $\hat{X}_l^R \in \mathbb{R}^{M \cdot N_c \times D}$，通过 Cross-ViT-Attention 进行交互：$\bar{X}_l^R = \hat{X}_l^R + \text{Cross-ViT-Atten}(\hat{X}_l^R)$，然后与各自的 image token 重新拼接送入 FFN。
 
     核心思路：利用寄存器的紧凑性（$M \cdot N_c \ll N \cdot N_c$）使全图信息交换在计算上可行。Cross-ViT-Atten 参数用同层 ViT 自注意力参数初始化，实现平滑启动。
 

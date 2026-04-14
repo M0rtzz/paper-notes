@@ -45,8 +45,8 @@ $$W_T^{(\tau)} \approx W_S + \Delta_T + \Delta^{(\tau)}$$
 
 1. **初始化**：用 DinoV2 或 MAE 的预训练权重 $W_S$ 初始化 ViT。
 2. **选择性解冻**：将 $L$ 层 ViT block 划分为两组：
-   - $\mathcal{U}$（如 $\{L\}$ 或 $\{1, L\}$）：完全解冻全部参数。
-   - $\mathcal{L} \setminus \mathcal{U}$：冻结主体权重，仅在 Q、V 注意力矩阵上施加 LoRA（秩 $r$），同时解冻所有 block 的归一化层。
+    - $\mathcal{U}$（如 $\{L\}$ 或 $\{1, L\}$）：完全解冻全部参数。
+    - $\mathcal{L} \setminus \mathcal{U}$：冻结主体权重，仅在 Q、V 注意力矩阵上施加 LoRA（秩 $r$），同时解冻所有 block 的归一化层。
 3. **继续自监督预训练**：在目标域无标签数据 $\mathcal{X}_T$ 上，使用与 $W_S$ 相同的无监督损失 $\mathcal{C}_S$（如 DinoV2 损失或 MAE 重建损失）训练所有解冻参数。
 
 ### 优化目标

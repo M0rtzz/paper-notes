@@ -48,7 +48,7 @@ Geminio分为两个阶段：
 ### 关键设计
 1. **VLM引导的Loss Surface重塑**:
 
-    - 做什么：训练恶意全局模型使其loss surface与VLM的文本-图像相似度surface匹配
+    - 功能：训练恶意全局模型使其loss surface与VLM的文本-图像相似度surface匹配
     - 核心思路：对辅助数据集中每个样本 $\boldsymbol{x}$，用VLM计算其与查询 $\mathcal{Q}$ 的相似度 $s(\boldsymbol{x}; \mathcal{Q}) = \mathcal{V}_{\text{image}}(\boldsymbol{x})^{\intercal} \mathcal{V}_{\text{text}}(\mathcal{Q})$，然后batch内softmax归一化：
     $\alpha(\boldsymbol{x}; \mathcal{Q}, \boldsymbol{\mathcal{B}}_{\text{aux}}) = \frac{\exp(s(\boldsymbol{x}; \mathcal{Q}))}{\sum_{\boldsymbol{x}'} \exp(s(\boldsymbol{x}'; \mathcal{Q}))}$
    训练目标为：
@@ -57,7 +57,7 @@ Geminio分为两个阶段：
 
 2. **VLM引导的辅助标签生成**:
 
-    - 做什么：消除辅助数据集需要标注的限制
+    - 功能：消除辅助数据集需要标注的限制
     - 核心思路：用VLM为每个辅助样本生成软标签：
     $y_i = \frac{\mathcal{V}_{\text{image}}(\boldsymbol{x})^{\intercal} \mathcal{V}_{\text{text}}(c_i)}{\sum_{j=1}^{K} \mathcal{V}_{\text{image}}(\boldsymbol{x})^{\intercal} \mathcal{V}_{\text{text}}(c_j)}$
    其中 $c_1, ..., c_K$ 是FL任务的类别名称
@@ -65,7 +65,7 @@ Geminio分为两个阶段：
 
 3. **梯度主导机制**:
 
-    - 做什么：确保受害者提交的梯度被匹配查询的样本主导
+    - 功能：确保受害者提交的梯度被匹配查询的样本主导
     - 核心思路：通过loss surface重塑，对于匹配样本 $\boldsymbol{x}_{\text{target}}$：
     $\|\nabla_{\boldsymbol{\Theta}_{\mathcal{Q}}} \mathcal{L}(F(\boldsymbol{x}); y)\| \ll \|\nabla_{\boldsymbol{\Theta}_{\mathcal{Q}}} \mathcal{L}(F(\boldsymbol{x}_{\text{target}}); y_{\text{target}})\|$
    for all $\boldsymbol{x} \neq \boldsymbol{x}_{\text{target}}$

@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.04726](https://arxiv.org/abs/2507.04726)  
 **代码**: 未公开（出于安全考虑，作者仅提供无害化复现脚本）  
 **领域**: image_generation  
-**关键词**: backdoor attack, ControlNet, diffusion model, data poisoning, supply-chain security, clean fine-tuning  
+**关键词**: backdoor attack, ControlNet, diffusion model, data poisoning, supply-chain security, clean fine-tuning
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **合成数据管线依赖条件扩散**：Text-to-image 扩散模型广泛用于数据增强、领域迁移和隐私保护数据集生成，ControlNet 通过结构化条件（边缘图、深度图、姿态）提供精细控制，是合成数据工作流的核心组件。
+
 **开源生态带来供应链风险**：大量社区微调的 ControlNet checkpoint 在 HuggingFace 等平台无审核分发，用户下载后直接部署，缺乏完整性验证和后门检测。
+
 **现有安全研究的盲区**：先前鲁棒性工作主要针对像素扰动、classifier guidance、prompt 注入等，ControlNet 这一在每个去噪步注入残差的结构化条件路径的安全性几乎未被研究。
+
 **低成本高回报的攻击面**：ControlNet 仅微调辅助分支而非整个扩散主干，参数规模小、训练成本低，使得攻击者可以以极低代价植入后门。
+
 **后门隐蔽性强**：触发信号嵌入在重新计算的 control map 中（如边缘图中的小 patch），在清洁输入下模型表现完全正常，传统数据审查难以发现。
+
 **合成数据的连锁危害**：一旦条件分支被投毒，管线会静默地将有害或违反策略的内容传播到下游合成数据集、审计集或增强语料中，即使 prompt 和基础模型本身是良性的。
 
 ## 方法详解

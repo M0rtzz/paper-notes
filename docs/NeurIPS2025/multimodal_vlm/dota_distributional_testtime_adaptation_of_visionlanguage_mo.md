@@ -1,7 +1,18 @@
 ---
-description: "DOTA提出基于分布估计的视觉语言模型测试时自适应方法，通过在线高斯判别分析持续估计测试数据分布，避免缓存方法的灾难性遗忘问题，在跨域泛化场景下达到SOTA。"
-tags: [test-time-adaptation, VLM, CLIP, distribution-estimation, zero-shot]
+title: >-
+  [论文解读] DOTA: DistributiOnal Test-time Adaptation of Vision-Language Models
+description: >-
+  [NeurIPS 2025][多模态][测试时自适应] DOTA提出将测试时自适应从"缓存样本实例"范式转变为"持续估计测试数据分布"范式，通过在线高斯判别分析结合零样本预测概率估计类别分布，实现无梯度、抗遗忘的高效测试时自适应，在10个跨域基准上平均准确率超越所有基线。
+tags:
+  - NeurIPS 2025
+  - 多模态
+  - 测试时自适应
+  - CLIP
+  - 分布估计
+  - 高斯判别分析
+  - 零样本分类
 ---
+
 # DOTA: DistributiOnal Test-time Adaptation of Vision-Language Models
 
 **会议**: NeurIPS 2025  
@@ -35,17 +46,17 @@ Dota在测试时流式处理样本：对每个新样本先用CLIP零样本分类
 ### 关键设计
 
 1. **基于零样本概率的参数估计（Proposition 3.1）**:
-    - 做什么：在无标签条件下估计各类别的高斯分布参数
+    - 功能：在无标签条件下估计各类别的高斯分布参数
     - 核心思路：将零样本预测概率 $P_k^{zs}(y=k|\mathbf{x}_n)$ 作为EM算法E步的后验权重，M步最大化似然：$\hat{\boldsymbol{\mu}}_k = \frac{\sum_n P_k^{zs} \mathbf{x}_n}{\sum_n P_k^{zs}}$，协方差类似加权估计
     - 设计动机：零样本概率虽不完美但提供了合理的软标签，作为权重可减轻错误预测的影响
 
 2. **在线分布更新**:
-    - 做什么：以流式方式逐样本更新分布参数
+    - 功能：以流式方式逐样本更新分布参数
     - 核心思路：维护每个类的有效样本数 $c_k^t$ 和分布参数，每步通过增量更新：$\hat{\boldsymbol{\mu}}_k^t = \frac{c_k^{t-1}\hat{\boldsymbol{\mu}}_k^{t-1} + \sum P_k^{zs}\mathbf{x}_n}{c_k^{t-1} + \sum P_k^{zs}}$。对协方差矩阵跨类别平均减少矩阵逆运算，并加收缩正则化 $\hat{\Lambda} = [(1-\epsilon)\hat{\Sigma} + \epsilon I]^{-1}$
     - 设计动机：流式设定需增量更新；跨类协方差平均将K次逆运算降为1次，极大提升效率
 
 3. **自适应融合策略**:
-    - 做什么：动态融合零样本分类和测试时分类器
+    - 功能：动态融合零样本分类和测试时分类器
     - 核心思路：最终概率 $P_k = \text{softmax}(\cos(\mathbf{x}, \mathbf{w}_k)/\tau + \lambda f_k(\mathbf{x}))$，其中 $\lambda = \min(\rho c, \eta)$ 随测试样本数增加而增大
     - 设计动机：早期样本少时分布估计不可靠，需依赖零样本分类器；随样本增加逐渐提高测试时分类器权重
 

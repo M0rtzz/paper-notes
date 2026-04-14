@@ -2,15 +2,15 @@
 title: >-
   [论文解读] StreamingTOM: Streaming Token Compression for Efficient Video Understanding
 description: >-
-  [CVPR 2026][视频理解][流式视频VLM] 针对流式视频VLM的因果性和累积性约束，提出免训练两阶段框架，通过因果时序缩减和在线量化记忆实现15.7倍KV-cache压缩和2倍TTFT加速
+  [CVPR 2026][视频理解][流式视频理解] 首个同时解决流式视频VLM中pre-LLM prefill和post-LLM KV-cache两个效率瓶颈的免训练框架，实现15.7倍压缩和有界活跃内存。
 tags:
   - CVPR 2026
   - 视频理解
-  - 流式视频
+  - 流式视频理解
   - token压缩
   - KV-cache优化
   - 因果时序缩减
-  - 量化记忆
+  - 4-bit量化记忆
 ---
 
 # StreamingTOM: Streaming Token Compression for Efficient Video Understanding
@@ -43,19 +43,19 @@ tags:
 
 1. **因果时序缩减（CTR）**:
 
-    - 做什么：在严格因果约束下将每帧视觉token从 $N$ 压缩到固定预算 $G$
+    - 功能：在严格因果约束下将每帧视觉token从 $N$ 压缩到固定预算 $G$
     - 核心思路：只用相邻两帧窗口，通过余弦相似度将token分为静态/动态集合，按比例分配预算。静态token用DPC聚类合并，动态token按注意力显著性选择
     - 设计动机：固定预算 $G$ 保证可预测延迟；自适应分配让静止场景多压缩、运动场景多保留
 
 2. **在线量化记忆（OQM）**:
 
-    - 做什么：将post-LLM的KV-cache以4-bit格式存储，按需检索反量化
+    - 功能：将post-LLM的KV-cache以4-bit格式存储，按需检索反量化
     - 核心思路：保留帧对齐group结构（每组 $G$ 个token对应一帧），查询时检索最相关的 $k$ 个group反量化为FP16参与注意力计算。活跃KV-cache有上界，不随视频长度增长
     - 设计动机：4-bit量化降存储4倍；group级检索保持时序完整性，避免token碎片化
 
 3. **统一压缩比分析**:
 
-    - 做什么：量化端到端压缩效果
+    - 功能：量化端到端压缩效果
     - 核心思路：prefill从 $O(TNLd^2)$ 降到 $O(TGLd^2)$，存储从 $O(TN \cdot d \cdot 16)$ bit降到 $O(TG \cdot d \cdot 4)$ bit，组合压缩比 $4N/G \approx 15.7\times$（$N=196, G=50$）
     - 设计动机：预算 $G$ 同时控制计算和存储，实现双重压缩
 

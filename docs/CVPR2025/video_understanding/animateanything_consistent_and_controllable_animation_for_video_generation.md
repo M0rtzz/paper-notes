@@ -50,19 +50,19 @@ tags:
 
 1. **显式注入（Explicit Injection）——处理可直接转为光流的信号**：
 
-    - 做什么：将用户拖拽标注等转化为稀疏光流，通过Flow Generation Model（FGM）扩展为稠密光流
+    - 功能：将用户拖拽标注等转化为稀疏光流，通过Flow Generation Model（FGM）扩展为稠密光流
     - 核心思路：用户标注的运动轨迹 $\mathcal{M} \in \mathbb{R}^{P \times 2}$ 通过双三次插值提取稀疏控制点，生成逐点稀疏光流 $F_{l-1}^s(x_i, y_i) = \hat{\mathcal{T}}_l(x_i, y_i) - \hat{\mathcal{T}}_0(x_i, y_i)$，用CMP增强后送入FGM（基于SD1.5的U-Net LDM）转为稠密光流
     - 设计动机：任何可转为稀疏光流的信号（音频、视频、关键点等）都可统一接入FGM
 
 2. **隐式注入（Implicit Injection）——处理难以直接转为像素光流的信号**：
 
-    - 做什么：将相机轨迹嵌入到光流生成过程中
+    - 功能：将相机轨迹嵌入到光流生成过程中
     - 核心思路：设计Camera Reference Model（CRM），使用Plücker embedding表示相机轨迹 $\ddot{p}_{f,h,w} = (t_f \times \hat{d}_{f,h,w}, \hat{d}_{f,h,w})$，通过camera motion attention将相机特征与参考图像融合，生成多尺度参考特征，通过reference attention逐步注入FGM的去噪过程
     - 设计动机：相机运动是全局的，影响所有前景和背景像素，难以直接转为稀疏光流，需要隐式地通过多尺度特征引导
 
 3. **频域稳定模块（Frequency Stabilization）**：
 
-    - 做什么：抑制大运动导致的视频闪烁和不稳定
+    - 功能：抑制大运动导致的视频闪烁和不稳定
     - 核心思路：在DiT的attention机制中引入FFT——对权重矩阵做快速傅里叶变换得到频谱特征，乘以可学习权重矩阵 $W$，再做逆FFT恢复时域特征，最后计算dot-product attention
     - 设计动机：时域上的闪烁源于帧间特征不对齐，但频域特征能更直接揭示视频级别的本质信息，通过调节频域分量可有效抑制帧间不一致
 

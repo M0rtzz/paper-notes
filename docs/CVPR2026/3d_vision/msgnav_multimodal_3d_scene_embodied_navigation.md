@@ -1,12 +1,16 @@
 ---
+title: >-
+  [论文解读] MSGNav: Unleashing the Power of Multi-modal 3D Scene Graph for Zero-Shot Embodied Navigation
 description: >-
-  提出多模态3D场景图M3DSG用图像替代文本关系边，构建MSGNav零样本导航系统在GOAT-Bench上SR达52.0%超越SOTA 4.8个百分点
+  [CVPR 2026][3D视觉][多模态3D场景图] 提出多模态3D场景图（M3DSG）用动态分配的图像边替代纯文本关系边，构建零样本导航系统 MSGNav，通过关键子图选择、自适应词汇更新、闭环推理和可见性视角决策四个模块，在 GOAT-Bench 上 SR 达 52.0%、HM3D-ObjNav 上 SR 达 74.1%，均为 SOTA。
 tags:
-  - CVPR2026
+  - CVPR 2026
   - 3D视觉
-  - 具身导航
+  - 多模态3D场景图
   - 零样本导航
-  - 场景图
+  - 开放词汇
+  - 闭环推理
+  - 最后一公里问题
 ---
 
 # MSGNav: Unleashing the Power of Multi-modal 3D Scene Graph for Zero-Shot Embodied Navigation
@@ -43,19 +47,19 @@ MSGNav 是一个零样本具身导航系统，核心流程：(1) 增量构建多
 
 1. **多模态3D场景图 M3DSG**:
 
-    - 做什么：构建场景表示 $\mathbf{S}=(\mathbf{O}, \mathbf{E})$，其中 $\mathbf{O}$ 为物体节点集（含类别、3D坐标、点云、视觉特征、房间位置），$\mathbf{E}$ 为图像边集——每条边存储一组包含对应物体对的 RGB-D 图像
+    - 功能：构建场景表示 $\mathbf{S}=(\mathbf{O}, \mathbf{E})$，其中 $\mathbf{O}$ 为物体节点集（含类别、3D坐标、点云、视觉特征、房间位置），$\mathbf{E}$ 为图像边集——每条边存储一组包含对应物体对的 RGB-D 图像
     - 核心思路：用 YOLO-W 检测物体、SAM 提取 mask、CLIP 计算视觉特征，通过空间+视觉相似度进行跨帧物体匹配与合并；边更新时只需将当前帧追加到共现物体对的图像集合中，完全不需要 MLLM 推断关系，构建效率极高
     - 设计动机：传统文本关系边的三大缺陷（昂贵、丢信息、词汇受限）都源于"需要 MLLM 将视觉转为文本"，直接存储图像从根本上避免了这个瓶颈
 
 2. **关键子图选择 KSS（Compress-Focus-Prune）**:
 
-    - 做什么：从可能包含数百个节点的完整场景图中提取与当前目标最相关的紧凑子图，将 VLM 推理的 token 成本降低超过 95%
+    - 功能：从可能包含数百个节点的完整场景图中提取与当前目标最相关的紧凑子图，将 VLM 推理的 token 成本降低超过 95%
     - 核心思路：**Compress** 阶段将场景图压缩为仅含 ID 和类别的邻接表；**Focus** 阶段将压缩图送入 VLM 选出 top-k 相关物体 $\mathbf{O}^{rel}$；**Prune** 阶段通过贪心动态分配算法（Algorithm 1）选择覆盖最多边的最少图像——平均每次查询仅需约 4 张图像
     - 设计动机：探索过程中场景图持续增长，直接处理全图既低效又超出 VLM 上下文限制，需要一种保留最大信息量同时最小化输入的策略
 
 3. **可见性视角决策 VVD**:
 
-    - 做什么：解决"最后一公里"问题——当 agent 正确定位目标后，选择一个具有良好可见性的最终导航视角，而非简单选最近可达点
+    - 功能：解决"最后一公里"问题——当 agent 正确定位目标后，选择一个具有良好可见性的最终导航视角，而非简单选最近可达点
     - 核心思路：在目标点云 $\mathcal{PC}_{\bar{o}}$ 周围均匀采样候选视角 $\mathbf{V}_c$，对每个候选视角计算可见性评分 $S_{\mathbf{v}_i} = \frac{1}{|\mathcal{PC}_{\bar{o}}|}\sum_{\mathbf{p}} \mathbb{1}_{\mathcal{E}(\mathbf{v}_i, \mathbf{p})}$，其中 $\mathcal{E}$ 检查视线是否被遮挡，选择评分最高的视点 $\mathbf{v}_{best}$
     - 设计动机：实验发现现有方法虽然成功接近目标（0.25m–1.0m），但由于视角不佳（太近、被遮挡）导致大量任务判定失败。VVD 在标准阈值 0.25m 下将 SR 从 33.91% 提升到 51.97%
 

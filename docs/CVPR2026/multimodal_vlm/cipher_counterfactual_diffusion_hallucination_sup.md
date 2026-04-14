@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.10470](https://arxiv.org/abs/2603.10470)  
 **代码**: [项目页](https://hamidreza-dastmalchi.github.io/cipher-cvpr2026/)  
 **领域**: 多模态VLM / 幻觉抑制  
-**关键词**: hallucination, counterfactual, diffusion, LVLM, training-free  
+**关键词**: hallucination, counterfactual, diffusion, LVLM, training-free
 
 ## 一句话总结
 提出CIPHER——通过构建扩散编辑的反事实图像数据集提取视觉幻觉的低秩子空间表示，推理时将隐层状态投影远离该子空间来免训练地抑制LVLM幻觉，首次专门针对视觉诱导的幻觉而非文本诱导的幻觉。

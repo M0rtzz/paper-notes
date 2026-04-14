@@ -27,10 +27,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：现有omni-model（如VITA、EMOVA、Intern-Omni）虽开始探索多模态融合，但语音模态被严重低估——它们的语音评估局限于speech-text ASR指标（如LibriSpeech WER），忽略了语音与视觉等其他模态的交互。
+
 **现有痛点**：(1) 语音token与文本token的语义重叠但长度差异大（Whisper输出token远长于对应文本），导致直接训练效果差；(2) 长语音支持极弱（VITA只支持~1分钟）；(3) 训练大型omni-model需要海量数据（VITA 5M、Intern-Omni 27M），效率低。
+
 **核心矛盾**：在LLM中加入语音模态时，联合训练会损害已有的视觉/语言能力；直接用语音token替代文本instruction会导致显著性能下降（MM-Vet用语音指令比文本指令低8%）。
+
 **本文要解决什么**：高效构建一个真正支持image/video/speech/sound全模态理解和交互的MLLM，重点解决语音与其他模态的深度融合。
+
 **切入角度**：(1) 用DTW对齐语音token和转写文本token减小模态gap；(2) 用模态专属LoRA保护已有能力；(3) 用query-aware token提取器减少长上下文开销。
+
 **核心idea一句话**：以语音为中心，通过DTW跨模态正则化+多模态LoRA+渐进式多模态token提取，用最少数据高效构建全模态MLLM。
 
 ## 方法详解
@@ -42,21 +47,21 @@ tags:
 
 1. **Latent Cross-Modality Regularizer (LCMR)**:
 
-    - 做什么：在训练时对齐语音token和对应的转写文本token的潜在表示。
+    - 功能：在训练时对齐语音token和对应的转写文本token的潜在表示。
     - 核心思路：语音token $X^{[speech]} \in \mathbb{R}^{d \times L}$和STT文本token $X^{[STT]} \in \mathbb{R}^{d \times S}$长度不同（$L \gg S$），用Dynamic Time Warping（DTW）算法找到最优对齐路径，最小化对齐后的余弦距离：$\mathcal{L}_{LCMR} = \frac{1}{L+S} D_{L,S}$。其中DTW的距离矩阵$D_{l,s} = \text{dist}(l,s) + \min\{D_{l,s-1}, D_{l-1,s}, D_{l-1,s-1}\}$。
     - 效果：加入LCMR后，语音指令的MM-Vet从53.1提升到58.1（+5.0），同时文本指令也从61.1提升到62.6，两个模态的性能gap从8%缩小到4.5%。
     - 设计动机：语音和文本在语义上是同一内容的不同表示形式，但长度不同。DTW能处理变长对齐，确保语音token在进入LLM前就携带与文本等价的语义信息。
 
 2. **Multi-Modality LoRA (MLoRA)**:
 
-    - 做什么：为不同模态组合训练不同的LoRA适配器，避免新模态训练损害已有能力。
+    - 功能：为不同模态组合训练不同的LoRA适配器，避免新模态训练损害已有能力。
     - 核心思路：$H = (B^{[M]}A^{[M]} + W)X^{[M]}$，其中$M$是模态组合（text, image, speech等），每种组合对应独立的低秩适配器。
     - 效果：相比full MLoRA的SFT，MLoRA在保持原始视觉能力（TextVQA 82.6 vs 81.3）的同时更好地发展语音能力（MM-VetS 60.0 vs 54.0），且只需50%数据量。
     - 设计动机：Qwen2-VL等预训练模型已经非常强大，全参数微调在有限数据下会导致灾难性遗忘。LoRA冻结原始权重+低秩更新，从根本上减小了模态间干扰。
 
 3. **Latent Multi-Modality Extractor (LMME)**:
 
-    - 做什么：在LLM的每个block末层，根据文本query与多模态token的attention相关性，逐步剔除冗余token。
+    - 功能：在LLM的每个block末层，根据文本query与多模态token的attention相关性，逐步剔除冗余token。
     - 核心思路：将LLM分为$n$个block，每个block末层计算$\text{topk}(\text{softmax}(\frac{Q^{[text]} K^{[\neg text]T}}{\sqrt{d}}))$，只保留$\rho L$个最相关的多模态token。跨block token数量指数衰减。
     - 效果：LMME(4,0.7)将prefill时间减半（0.65s→0.37s @$2^{14}$ tokens），训练时间减少29-54%，GPU内存减少50%以上。性能几乎不降：多个benchmark上平均+0.1%~1.5%。
     - 设计动机：长视频/长语音场景中token数可达数十万，但大部分与当前问题无关。渐进式提取（而非一次性剪枝）让模型在不同深度保留不同粒度的信息。

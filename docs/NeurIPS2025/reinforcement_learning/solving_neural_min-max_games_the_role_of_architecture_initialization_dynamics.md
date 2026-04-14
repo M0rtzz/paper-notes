@@ -51,24 +51,24 @@ $$\min_{\theta} \max_{\phi} \mathcal{L}_{\mathcal{D}}(F_\theta, G_\phi) = I_1^{\
 ### 关键设计
 
 **模块1: AltGDA路径长度控制（Lemma 3.3）**
-- 做什么：证明AltGDA迭代轨迹停留在初始化附近的有界区域内
+- 功能：证明AltGDA迭代轨迹停留在初始化附近的有界区域内
 - 核心工具：Lyapunov势函数 $P_t = (\max_\phi \mathcal{L}(\theta_t, \phi) - \mathcal{L}(\theta^*, \phi^*)) + \lambda(\max_\phi \mathcal{L}(\theta, \phi_t) - \mathcal{L}(\theta_t, \phi_t))$
 - 路径长度上界：$\ell(T) \leq \frac{\sqrt{2\alpha_1}}{1-\sqrt{c}} \cdot \sqrt{P_0}$
 - 设计动机：在最小化问题中路径长度可直接展开GD迭代得到，但min-max的交替结构使这种分析困难，需要势函数方法
 
 **模块2: 初始势函数 $P_0$ 的上界（Lemma 3.3）**
-- 做什么：将 $P_0$ 表示为初始化时梯度范数的函数
+- 功能：将 $P_0$ 表示为初始化时梯度范数的函数
 - 核心公式：$P_0 \leq L_{\mathcal{L}}(C_1 \|\nabla_\theta \mathcal{L}\| + C_2 \|\nabla_\phi \mathcal{L}\|)$，其中 $C_1, C_2 = \Theta(L_{\mathcal{L}}/\mu_\theta^3)$
 - 设计动机：需要控制 $P_0 \leq \kappa R^2$，从而保证迭代不离开良条件区域
 
 **模块3: 输入优化博弈的Jacobian谱分析（Lemma 3.4）**
-- 做什么：对固定随机初始化网络，证明关于输入的Jacobian奇异值界
+- 功能：对固定随机初始化网络，证明关于输入的Jacobian奇异值界
 - 核心结果：使用GeLU激活，当 $d_1^{(F)} \geq 256\max\{d_0^{(F)}, d_2^{(F)}\}$ 时，以概率 $\geq 1 - e^{-\Omega(d_1)}$
   - $\sigma_{\min}(\nabla_\theta F_\theta) = \Omega(\sigma_{1,F} \cdot \sigma_{2,F} \cdot d_1)$
   - $\sigma_{\max}(\nabla_\theta F_\theta) = \mathcal{O}(\sigma_{1,F} \cdot \sigma_{2,F} \cdot d_1)$
 
 **模块4: 网络参数博弈的过参数化条件（Theorem 3.8）**
-- 做什么：给出保证收敛的最小网络宽度
+- 功能：给出保证收敛的最小网络宽度
 - 核心条件：$d_1^{(F)} = \widetilde{\Omega}\left(\mu_\theta^2 \frac{n^3}{d_0^{(F)}}\right)$，$d_1^{(G)} = \widetilde{\Omega}\left(\mu_\phi^2 \frac{n^3}{d_0^{(G)}}\right)$
 - 设计动机：宽度需 $\Omega(n^3)$而非最小化中的 $\Omega(n)$——这是min-max设置的根本代价
 

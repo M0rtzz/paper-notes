@@ -10,7 +10,7 @@ tags:
   - Category-Level
   - Large-Vocabulary Dataset
   - Symmetry-Aware Metric
-  - Benchmark
+  - benchmark
 ---
 
 # Omni6D: Large-Vocabulary 3D Object Dataset for Category-Level 6D Object Pose Estimation
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2409.18261](https://arxiv.org/abs/2409.18261)  
 **代码**: 有（数据集公开）  
 **领域**: 3D视觉  
-**关键词**: 6D Pose Estimation, Category-Level, Large-Vocabulary Dataset, Symmetry-Aware Metric, Benchmark
+**关键词**: 6D Pose Estimation, Category-Level, Large-Vocabulary Dataset, Symmetry-Aware Metric, benchmark
 
 ## 一句话总结
 

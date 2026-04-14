@@ -60,13 +60,13 @@ $$\mathcal{L}_{\text{contrast}} = \alpha \cdot \mathcal{L}_{\text{img→gene}} +
 核心由 **双向交叉注意力（BCA）** 和 **类别正则化变分自编码器（RVAE）** 两部分组成：
 
 1. **双向交叉注意力（BCA）**：
-   - 定义两个独立的多头交叉注意力模块：gene-guided CA 和 H&E-guided CA
-   - 对每个 spot $i$ 及其邻域 spot，分别以图像特征为 query、基因特征为 key/value（和反方向），得到两个视角的跨模态交互表示
-   - 将两方向输出拼接后过 MLP 得到融合表示 $\mathbf{h}_i^*$
+    - 定义两个独立的多头交叉注意力模块：gene-guided CA 和 H&E-guided CA
+    - 对每个 spot $i$ 及其邻域 spot，分别以图像特征为 query、基因特征为 key/value（和反方向），得到两个视角的跨模态交互表示
+    - 将两方向输出拼接后过 MLP 得到融合表示 $\mathbf{h}_i^*$
 
 2. **类别正则化 VAE（RVAE）**：
-   - 将融合表示 $\mathbf{h}_i^*$ 通过编码器映射为隐变量 $\mathbf{z}_i \sim \mathcal{N}(\boldsymbol{\mu}_i, \boldsymbol{\sigma}_i^2)$
-   - 引入可学习的类别特定隐中心 $\boldsymbol{\mu}_{y_i}$，用类别正则化 KL 散度替代标准 KL：
+    - 将融合表示 $\mathbf{h}_i^*$ 通过编码器映射为隐变量 $\mathbf{z}_i \sim \mathcal{N}(\boldsymbol{\mu}_i, \boldsymbol{\sigma}_i^2)$
+    - 引入可学习的类别特定隐中心 $\boldsymbol{\mu}_{y_i}$，用类别正则化 KL 散度替代标准 KL：
    $$\mathcal{D}_{\text{KL}}^{\text{cls}}(q_i \| p_{y_i}) = \frac{1}{2}\sum_j [\sigma_{i,j}^2 + (\mu_{i,j} - \mu_{y_i,j})^2 - \log\sigma_{i,j}^2 - 1]$$
    - 鼓励同类样本聚集、异类样本分离，同时通过重建过滤噪声
 

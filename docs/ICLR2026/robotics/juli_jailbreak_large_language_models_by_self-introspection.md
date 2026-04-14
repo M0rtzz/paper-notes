@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2505.11790](https://arxiv.org/abs/2505.11790)  
 **代码**: 无  
 **领域**: AI安全 / Jailbreak 攻击  
-**关键词**: jailbreak, logit bias, API attack, token log probability, BiasNet  
+**关键词**: jailbreak, logit bias, API attack, token log probability, BiasNet
 
 ## 一句话总结
 揭示对齐 LLM 的 top-k token log probability 中仍包含有害信息的知识泄露问题，提出 JULI——仅用不到目标模型 1% 参数量的 BiasNet 插件操纵 logit bias，在仅访问 top-5 token 概率的 API 场景下成功越狱 Gemini-2.5-Pro（Harmful Info Score 4.19/5），比 LINT 快 140 倍同时 harmfulness 提升约 2 倍。
 
 ## 研究背景与动机
 **领域现状**：LLM 越狱攻击分为需要模型权重的白盒攻击和仅通过 API 的黑盒攻击。API 场景下的攻击极具挑战——无法访问梯度、完整 logits 或生成过程。
+
 **现有痛点**：(a) GCG 等白盒方法需要完整梯度访问，不适用于商用 API；(b) LINT（当前 API 攻击方法）需要 top-500 token 访问（多数 API 仅提供 top-5/20），且推理需 99.7 秒，harmfulness 仅 2.25/5；(c) Weak-to-Strong 和 Emulated Disalignment 需要对齐前后两个版本的模型权重。
+
 **核心矛盾**：对齐训练应该消除有害知识的表达，但 LLM API 返回的 top-k token 概率中是否仍泄露有害信息？
+
 **本文要解决什么？** 能否仅用 API 返回的少量 token 概率（如 top-5）高效越狱主流商用 LLM？
+
 **切入角度**：统计发现 >85% 的有害 response token 出现在 top-5 概率中——对齐只是压低了它们的采样概率而非消除知识。
+
 **核心idea一句话**：用轻量 BiasNet（<1% 目标模型参数）学习 logit bias 来提升有害 token 采样概率，仅需 100 条有害数据训练。
 
 ## 方法详解

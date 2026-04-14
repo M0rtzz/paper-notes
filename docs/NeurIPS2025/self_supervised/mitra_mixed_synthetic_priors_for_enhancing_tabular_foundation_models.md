@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models
 description: >-
-  [NeurIPS 2025][表格基础模型][合成先验] 系统性研究合成先验的关键属性，提出 Mitra——基于多样性、独特性和真实数据表现筛选的混合合成先验训练的表格基础模型，在分类和回归任务上超越 TabPFNv2 和 TabICL。
+  [NeurIPS 2025][自监督学习][表格基础模型] 首次系统研究合成先验的设计原则，发现多样性、独特性和真实数据对齐是关键属性，据此提出 Mitra——一个基于精心筛选的混合合成先验训练的表格基础模型，在分类和回归基准上一致超越 TabPFNv2 和 TabICL。
 tags:
   - NeurIPS 2025
   - 自监督学习
   - 表格基础模型
   - 合成先验
-  - In-Context Learning
+  - 上下文学习
   - TabPFN
+  - 先验混合
 ---
 
 # Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models
@@ -18,7 +19,7 @@ tags:
 **arXiv**: [2510.21204](https://arxiv.org/abs/2510.21204)  
 **代码**: 有（HuggingFace: autogluon/mitra-classifier, autogluon/mitra-regressor）  
 **领域**: 自监督学习 / 表格机器学习  
-**关键词**: 表格基础模型, 合成先验, In-Context Learning, TabPFN, 先验混合
+**关键词**: 表格基础模型, 合成先验, 上下文学习, TabPFN, 先验混合
 
 ## 一句话总结
 
@@ -27,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：自 TabPFN 开创性工作以来，基于 In-Context Learning（ICL）的表格基础模型（Tabular Foundation Models, TFMs）挑战了传统机器学习范式。这些模型完全在合成数据上预训练，却能在多种真实数据集上表现出色。
+
 **范式转变**：表格 ML 的焦点从模型架构设计转向合成数据集（即先验分布）的设计。模型不再需要见过任何真实世界数据，仅用中等规模的上下文样本就能泛化。
+
 **现有痛点**：
    - 先验设计的指导原则仍然不清楚——什么样的合成先验才能让 TFM 泛化得好？
    - 已有方法各自设计不同先验（如 Causal 先验、SCM 先验、MLP 先验等），但缺乏系统性比较
    - 不同先验的贡献和交互效应未被充分探索
+
 **核心问题**：如何定量评估和筛选合成先验，使 TFM 获得最佳泛化能力？
+
 **切入角度**：将先验设计问题系统化——提出评估先验的三个关键维度（多样性、独特性、真实性能），据此筛选并混合最优先验组合。
 
 ## 方法详解

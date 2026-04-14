@@ -9,7 +9,7 @@ tags:
   - Image Quality Assessment
   - NR-IQA
   - Iterative Degradation
-  - Image Editing
+  - image editing
   - Multi-turn
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2604.03400](https://arxiv.org/abs/2604.03400)  
 **代码**: [https://huggingface.co/datasets/kenantang/Banana100](https://huggingface.co/datasets/kenantang/Banana100) (有)  
 **领域**: 图像生成 / 图像质量评估  
-**关键词**: Image Quality Assessment, NR-IQA, Iterative Degradation, Image Editing, Multi-turn
+**关键词**: Image Quality Assessment, NR-IQA, Iterative Degradation, image editing, Multi-turn
 
 ## 一句话总结
 Banana100 通过让 Nano Banana Pro 迭代复制图像 100 次来系统性研究多轮编辑中的质量退化问题，构建了包含 28,000 张退化图像的数据集，并揭示了一个惊人发现：21 种主流无参考图像质量评估（NR-IQA）指标均无法可靠检测迭代退化——大多数指标甚至给噪声图像打出比干净图像更高的分数。
@@ -50,13 +50,13 @@ Banana100 通过让 Nano Banana Pro 迭代复制图像 100 次来系统性研究
 ### 数据集构建
 
 1. **初始图像**：13 张高质量初始图（11 张 Nano Banana Pro 生成 + 2 张 SPICE 生成），至少 2K 分辨率
-   - 覆盖多样内容和纹理：摩天大楼、食物、苔藓、孔雀羽毛、沙丘等
-   - 刻意排除人脸（变形后视觉不适）
+    - 覆盖多样内容和纹理：摩天大楼、食物、苔藓、孔雀羽毛、沙丘等
+    - 刻意排除人脸（变形后视觉不适）
 
 2. **迭代编辑提示**：
-   - **主要设置**（Replication）："Produce an exact replica of the provided image, with no alterations."
-   - 变体测试：不同措辞、镜像翻转、去色+上色、不同超参数（seed/temperature/resolution）
-   - 对象添加测试：在桌上逐步添加苹果 / 100 种不同水果
+    - **主要设置**（Replication）："Produce an exact replica of the provided image, with no alterations."
+    - 变体测试：不同措辞、镜像翻转、去色+上色、不同超参数（seed/temperature/resolution）
+    - 对象添加测试：在桌上逐步添加苹果 / 100 种不同水果
 
 3. **规模**：每种设置 100 步 × 5 次重复 → 总计 28,000 张图像，成本约 $4,000
 
@@ -65,18 +65,18 @@ Banana100 通过让 Nano Banana Pro 迭代复制图像 100 次来系统性研究
 ### 失败模式分类
 
 1. **子对象级失败**：
-   - **简化偏好**：模型在复制角色表情时将 4 种眼色（红橙紫蓝）简化为仅 2 种（红蓝），推理摘要中只捕捉到最显著颜色
+    - **简化偏好**：模型在复制角色表情时将 4 种眼色（红橙紫蓝）简化为仅 2 种（红蓝），推理摘要中只捕捉到最显著颜色
 
 2. **对象级失败**：
-   - **计数失败**：被要求添加 1 个苹果但不执行/多加一排
-   - **替换而非添加**：用新水果替换已有水果而非新增
-   - **背景持续退化**：新添加对象质量较好，但背景噪声持续恶化
+    - **计数失败**：被要求添加 1 个苹果但不执行/多加一排
+    - **替换而非添加**：用新水果替换已有水果而非新增
+    - **背景持续退化**：新添加对象质量较好，但背景噪声持续恶化
 
 3. **图像级失败**：
-   - **宽高比不匹配**：复制时几乎总会裁剪图像
-   - **持久噪声**：即使明确要求去噪也无法消除
-   - **无法利用干净上下文**：即使多轮对话中有早期干净图像，模型仍无法参考
-   - **镜像/旋转失败**：动画风格图像的镜像成功率远低于写实图像；旋转两者都低
+    - **宽高比不匹配**：复制时几乎总会裁剪图像
+    - **持久噪声**：即使明确要求去噪也无法消除
+    - **无法利用干净上下文**：即使多轮对话中有早期干净图像，模型仍无法参考
+    - **镜像/旋转失败**：动画风格图像的镜像成功率远低于写实图像；旋转两者都低
 
 ### NR-IQA 评估
 

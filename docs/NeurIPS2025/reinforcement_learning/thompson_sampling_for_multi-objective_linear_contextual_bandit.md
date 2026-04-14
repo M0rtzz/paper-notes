@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Thompson Sampling for Multi-Objective Linear Contextual Bandit
 description: >-
-  [NeurIPS 2025][Thompson采样] 提出 MOL-TS，首个具有 Pareto regret 保证的多目标线性上下文 Bandit Thompson 采样算法，通过乐观采样策略和新定义的有效 Pareto 最优概念，实现 $\widetilde{O}(d^{3/2}\sqrt{T})$ 的 regret 上界。
+  [NeurIPS 2025][Thompson采样] 提出MOL-TS——首个具有worst-case Pareto regret理论保证的多目标线性上下文Bandit Thompson Sampling算法，通过定义"有效Pareto最优臂"概念和乐观采样策略，实现$\widetilde{O}(d^{3/2}\sqrt{T})$的regret上界，目标数$L$仅增加$O(\log L)$因子。
 tags:
   - NeurIPS 2025
   - Thompson采样
@@ -42,19 +42,19 @@ MOL-TS是一个基于正则化最大似然估计的多目标线性Thompson Sampl
 
 1. **有效Pareto最优臂（Effective Pareto Optimal Arm）**:
 
-    - 做什么：定义一种比标准Pareto最优更严格的最优性概念，确保重复选择某臂的累积奖励也是Pareto最优的
+    - 功能：定义一种比标准Pareto最优更严格的最优性概念，确保重复选择某臂的累积奖励也是Pareto最优的
     - 核心思路：标准Pareto最优要求臂$a^*$的奖励向量$\boldsymbol{\mu}_{a^*}$不被任何**单个**臂支配；有效Pareto最优要求$\boldsymbol{\mu}_{a^*}$不被其他臂的**任意凸组合**支配："$\forall \beta \in \mathcal{S}^{|\mathcal{A}|-1}: \boldsymbol{\mu}_{a^*} \not\prec \sum_{a \neq a^*} \beta_a \boldsymbol{\mu}_a$"。因此有效Pareto前沿$\mathcal{C}^*$是标准Pareto前沿$\mathcal{P}^*$的子集。关键定理建立了对偶关系：有效Pareto最优臂$\Leftrightarrow$存在权重向量$\boldsymbol{w}$使其为线性标量化最优
     - 设计动机：论文通过具体反例展示了标准Pareto regret的不足——两个策略都只选Pareto最优臂获得零regret，但累积奖励相差显著（如[1.3,1.3] vs [1.6,1.7]）。有效Pareto最优保证了长期运行中不会被"混合策略"支配
 
 2. **乐观采样策略（Optimistic Sampling）**:
 
-    - 做什么：通过每目标多次采样并取最大值，解决多目标TS中联合乐观概率指数衰减的核心难题
+    - 功能：通过每目标多次采样并取最大值，解决多目标TS中联合乐观概率指数衰减的核心难题
     - 核心思路：对每个目标$\ell$从高斯后验$\mathcal{N}(\hat{\theta}_t^{(\ell)}, c^2 V_t^{-1})$独立采样$M$个参数$\tilde{\theta}_{t,1}^{(\ell)}, \ldots, \tilde{\theta}_{t,M}^{(\ell)}$，用最大值评估奖励$\tilde{\mu}_{t,a}^{(\ell)} = \max_{m} x_{t,a}^\top \tilde{\theta}_{t,m}^{(\ell)}$。当$M \geq 1 - \frac{\log L}{\log(1-\tilde{p})}$时（即$M = O(\log L)$），所有目标同时乐观的概率保持常数$p \geq 0.15$
     - 设计动机：$M=1$时乐观概率为$\tilde{p}^L$（指数衰减），$M=O(\log L)$时概率为$(1-(1-\tilde{p})^M)^L$（常数）。这是因为每目标$M$次独立采样中至少有一次乐观的概率为$1-(1-\tilde{p})^M$，当$M$足够大时该值趋近1，$L$次方后仍保持常数。这个设计以$O(M \cdot L) = O(L \log L)$的采样代价换取了指数改善的理论保证
 
 3. **有效Pareto前沿的估计与臂选择**:
 
-    - 做什么：基于乐观评估的奖励向量构建经验有效Pareto前沿，并从中均匀随机选择一个臂
+    - 功能：基于乐观评估的奖励向量构建经验有效Pareto前沿，并从中均匀随机选择一个臂
     - 核心思路：用乐观评估奖励$\tilde{\boldsymbol{\mu}}_{t,a}$替代真实奖励，构建估计的有效Pareto前沿$\tilde{\mathcal{C}}_t = \{a \in \mathcal{A} \mid \tilde{\boldsymbol{\mu}}_{t,a} \not\prec \sum_{a'} \beta_{a'} \tilde{\boldsymbol{\mu}}_{t,a'}, \forall \beta \in \mathcal{S}^{|\mathcal{A}|}\}$。不同于UCB方法需要显式计算经验Pareto前沿，MOL-TS只需从前沿中随机选择一个臂，计算效率更高
     - 设计动机：通过Theorem 1的对偶性，从有效Pareto前沿选择等价于对某个随机权重向量$\boldsymbol{w}_t$取线性标量化最优，无需穷举所有权重方向
 

@@ -49,7 +49,7 @@ tags:
 
 1. **Mistake Log（错误日志）**：
 
-    - 做什么：系统记录微调全过程中的三类信息
+    - 功能：系统记录微调全过程中的三类信息
     - 三个组件：
       - **Question** $\tilde{X}_t$：输入表示（encoder 输出或 embedding 层输出）
       - **Rationale** $h_t$：每个 token 在所有 decoder 层的隐藏状态 $\{h_{t,i,l}\}_{l=1}^{L^P}$，反映模型的内部"推理过程"
@@ -58,7 +58,7 @@ tags:
 
 2. **Copilot 模型设计**：
 
-    - 做什么：从 Pilot 的 decoder 初始化，学习预测 Pilot 的 token 级误差
+    - 功能：从 Pilot 的 decoder 初始化，学习预测 Pilot 的 token 级误差
     - **Encoder-Decoder Copilot**：输入是 token 级误差序列 $\ell_{t,<i}$（投影到 hidden dim）。使用修改的 cross-attention：Query 来自 Copilot 自身隐藏状态，Key/Value 来自 Pilot 的输入表示和池化后的隐藏状态的拼接
     - **Decoder-only Copilot**：奇数层用标准 self-attention，偶数层用修改的 cross-attention 关注 Pilot 信息
     - 损失函数：$\mathcal{L}_t^C = \sqrt{\sum_i \|f_{t,i}^C - \ell_t(p_{t,i}, \hat{p}_{t,i})\|^2}$（RMSE 避免梯度过度平滑）

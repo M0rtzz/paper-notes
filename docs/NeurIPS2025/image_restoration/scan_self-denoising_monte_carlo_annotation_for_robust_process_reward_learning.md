@@ -2,11 +2,11 @@
 title: >-
   [论文解读] SCAN: Self-Denoising Monte Carlo Annotation for Robust Process Reward Learning
 description: >-
-  [NeurIPS 2025][图像恢复][Process Reward Model] 提出 SCAN 框架，通过分析 Monte Carlo 注释中的噪声分布，设计自去噪采样策略和鲁棒学习损失，仅用 1.5B 模型生成的 101K 样本训练的 PRM 即超越人工标注数据集 PRM800K 的效果。
+  [NeurIPS 2025][图像恢复][过程奖励模型] 提出 SCAN 框架，通过分析 Monte Carlo 注释中的噪声分布，设计自去噪采样策略和鲁棒学习损失，仅用 1.5B 模型生成的 101K 样本训练的 PRM 即超越人工标注数据集 PRM800K 的效果。
 tags:
   - NeurIPS 2025
   - 图像恢复
-  - Process Reward Model
+  - 过程奖励模型
   - Monte Carlo估计
   - 噪声标签
   - 自去噪
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.16548](https://arxiv.org/abs/2509.16548)  
 **代码**: [有](https://scan-prm.github.io)  
 **领域**: 大语言模型推理 / 过程奖励模型  
-**关键词**: Process Reward Model, Monte Carlo估计, 噪声标签, 自去噪, 数学推理
+**关键词**: 过程奖励模型, Monte Carlo估计, 噪声标签, 自去噪, 数学推理
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 过程奖励模型（PRM）通过步骤级评估来引导 LLM 的推理过程，在数学推理等复杂任务中表现出色。然而 PRM 面临数据标注困境：
 
 **人工标注成本极高**：PRM800K 等数据集虽然质量好但标注代价大，难以规模化。
+
 **Monte Carlo（MC）估计噪声大**：使用模型进行多次 rollout 来估计步骤正确性是有前景的替代方案，但噪声比例高，模型容易过拟合。
+
 **现有去噪方法依赖强模型蒸馏**：如使用 72B 的 critic 模型来过滤数据，本质上是将大模型能力蒸馏到小模型。
 
 本文的问题是：**能否不依赖外部强监督，仅通过挖掘 MC 估计自身的去噪潜力和设计鲁棒学习策略来训练高质量 PRM？**

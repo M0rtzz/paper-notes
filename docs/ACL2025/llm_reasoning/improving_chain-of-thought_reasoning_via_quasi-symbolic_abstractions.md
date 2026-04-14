@@ -9,7 +9,7 @@ tags:
   - Chain-of-Thought
   - 准符号推理
   - 抽象表示
-  - In-Context Learning
+  - 上下文学习
   - 鲁棒性
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.12616](https://arxiv.org/abs/2502.12616)  
 **代码**: 无  
 **领域**: LLM推理  
-**关键词**: Chain-of-Thought, 准符号推理, 抽象表示, In-Context Learning, 鲁棒性
+**关键词**: Chain-of-Thought, 准符号推理, 抽象表示, 上下文学习, 鲁棒性
 
 ## 一句话总结
 本文提出QuaSAR（Quasi-Symbolic Abstract Reasoning），一种CoT变体方法，通过引导LLM先对问题进行符号化抽象（提取变量/谓词）、再用半形式化表示重构问题、最后基于准符号推理链求解，在GPT-4o上相比CoT提高最多8%准确率，并显著增强了对对抗性变体（选项打乱、数值替换）的鲁棒性。
@@ -70,7 +70,7 @@ QuaSAR将推理过程结构化为四元组 $(\mathcal{Q}, \mathcal{S}, \mathcal{
 
 1. **QuaSAR for ICL**：直接作为in-context learning策略指导大模型推理
 2. **QuaSAR for Demonstrations**：用高性能LLM（如GPT-4o）生成QuaSAR格式的demonstration，作为训练数据微调小模型
-   - 质量过滤：先用exact match筛选正确answer，再检验引用精度（约50%被过滤掉）
+    - 质量过滤：先用exact match筛选正确answer，再检验引用精度（约50%被过滤掉）
 
 ### 训练策略
 - 使用标准语言模型目标训练小模型：$\max_\theta \mathbb{E}_{(q, \alpha, y) \sim \mathcal{D}} \log p_\theta(Y \mid \alpha, Q) p_\theta(\alpha \mid Q)$

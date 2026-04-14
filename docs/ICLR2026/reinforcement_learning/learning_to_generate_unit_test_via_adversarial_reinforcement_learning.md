@@ -44,19 +44,19 @@ tags:
 
 1. **判别奖励 (Discrimination Reward)**:
 
-    - 做什么：衡量测试 $\mathcal{T}$ 能区分多少LLM生成代码与正确代码
+    - 功能：衡量测试 $\mathcal{T}$ 能区分多少LLM生成代码与正确代码
     - 核心思路：$R_{\text{disc}}(\mathcal{T}, \mathcal{C}, C^*) = \frac{1}{|\mathcal{C}|}\sum_{C \in \mathcal{C}}[1 - \prod_{T \in \mathcal{T}}(1-\text{Pass}(C,T))^{\text{Pass}(C^*,T)}]$，先过滤无效测试用例（不通过正确代码的），再计算被至少一个有效测试"抓到"的LLM代码比例
     - 设计动机：好的测试应能发现LLM代码中的bug，判别率越高→测试越有区分力
 
 2. **有效性奖励 (Validity Reward)**:
 
-    - 做什么：衡量测试用例的功能正确性（mapping正确）
+    - 功能：衡量测试用例的功能正确性（mapping正确）
     - 核心思路：$R_{\text{valid}}(\mathcal{T}, C^*, \tau) = \frac{\sum_{T} \text{Pass}(C^*, T)}{\max(|\mathcal{T}|, \tau)}$，分母clamp到 $\tau$ 防止极少测试用例获得高分
     - 设计动机：防止生成少量trivial测试用例骗取高有效性分
 
 3. **代码生成器训练**:
 
-    - 做什么：训练代码生成器通过测试生成器产生的测试
+    - 功能：训练代码生成器通过测试生成器产生的测试
     - 核心思路：$R_{\text{code}} = \frac{\sum_T \text{Pass}(C,T) \cdot \text{Pass}(C^*,T)}{\sum_T \text{Pass}(C^*,T)}$，只考虑有效测试用例的通过率
     - 设计动机：随着测试生成器进化，通过这些越来越难的测试→代码生成器也不断进步
 

@@ -50,19 +50,19 @@ tags:
 
 1. **非线性LBFGS投影**：
 
-    - 做什么：直接求解约束投影的无约束松弛形式
+    - 功能：直接求解约束投影的无约束松弛形式
     - 核心思路：将约束投影问题松弛为 $\min_u \|u - \hat{u}\| + \lambda \|h(u) - c\|$，使用L-BFGS算法迭代优化。L-BFGS利用目标函数的梯度和近似Hessian信息进行高效的拟牛顿优化
     - 设计动机：非线性约束没有闭式解，但神经网络的预测已经是不错的初始猜测，因此优化可以快速收敛。L-BFGS不需要构造完整Hessian矩阵，内存友好
 
 2. **线性化约束投影（Constrained）**：
 
-    - 做什么：将非线性约束一阶Taylor展开后求解线性约束投影
+    - 功能：将非线性约束一阶Taylor展开后求解线性约束投影
     - 核心思路：在 $\hat{u}$ 处线性化得到 $J_h u = b$，然后用闭式解 $u = \hat{u} - \mathcal{C}^\top(\mathcal{C}\mathcal{C}^\top)^{-1}(\mathcal{C}\hat{u} - b)$ 进行投影。当系统较大时，不直接求逆，而是用共轭梯度法（CG）或GMRES等迭代求解器，仅需要Jacobian-vector product（JVP）和vector-Jacobian product（VJP），可通过自动微分高效计算
     - 设计动机：线性投影只需一步计算，速度快；JVP/VJP避免了显式构造大规模Jacobian矩阵
 
 3. **线性化松弛投影（Relaxed）**：
 
-    - 做什么：线性化后的软约束版本
+    - 功能：线性化后的软约束版本
     - 核心思路：求解 $u = (I + \lambda \mathcal{C}^\top\mathcal{C})^{-1}(\hat{u} + \lambda \mathcal{C}^\top b)$，通过 $\lambda$ 权衡约束满足度和与原始预测的距离
     - 设计动机：当线性化不够准确时（约束高度非线性），严格投影可能引入伪影，松弛版本提供了更温和的修正
 

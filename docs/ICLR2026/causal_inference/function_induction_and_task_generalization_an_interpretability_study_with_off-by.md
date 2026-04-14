@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.09875](https://arxiv.org/abs/2507.09875)  
 **代码**: [INK-USC/function-induction](https://github.com/INK-USC/function-induction)  
 **领域**: llm_nlp  
-**关键词**: mechanistic interpretability, in-context learning, induction heads, function vectors, task generalization, path patching  
+**关键词**: mechanistic interpretability, in-context learning, induction heads, function vectors, task generalization, path patching
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **任务级泛化的重要性**：随着 LLM 应用场景持续扩展，在部署前将所有任务纳入训练数据已不现实，因此模型在推理时通过 in-context learning (ICL) 完成未见任务的能力至关重要。
+
 **已有理解的局限**：先前工作对 ICL 的机制理解主要集中在 induction heads（token 级别的 copy-paste，即 [A][B]...[A]→[B]）和 function vectors（单步映射任务如国家→首都），对涉及**多步推理**或**新定义概念**的复杂泛化场景理解不足。
+
 **Off-by-one addition 的巧妙设计**：该任务由两步组成——标准加法 + 意外的 +1 操作（即 1+1=3），是一个反事实、多步合成任务。模型要么学会 +1 输出 7（泛化成功），要么遵守算术规则输出 6（泛化失败）。
+
 **实验发现驱动深入分析**：六个主流 LLM（Llama-2/3、Mistral、Gemma-2、Qwen-2.5、Phi-4）均能有效完成该任务，且准确率随 shot 数增加而单调上升，这一普遍现象激发了对内部机制的深入探究。
+
 **从 token induction 到 function induction**：传统 induction heads 归纳的是零阶常函数 $f = \text{output}([B])$，本文希望揭示模型能否归纳一阶函数 $f(x) = x + 1$，从而将理解从 token 级提升到函数级。
+
 **跨任务复用的验证需求**：如果 function induction 是一种通用机制，它应该在结构相似但子步骤截然不同的任务上被复用，这对理解模型的组合性和灵活性具有重要意义。
 
 ## 方法详解

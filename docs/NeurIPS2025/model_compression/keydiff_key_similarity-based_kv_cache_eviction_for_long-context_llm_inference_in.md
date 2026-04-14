@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：KV cache 是 LLM 推理加速的标准技术，但其内存占用随上下文长度线性增长。已有 cache 驱逐方法（H2O、TOVA、SnapKV、StreamingLLM）通过注意力分数评估 token 重要性并驱逐不重要的 KV 对。
+
 **现有痛点**：在资源受限环境（如边缘设备）中，必须采用逐块（block-wise）推理——将 prompt 分成小块依次处理。现有基于注意力分数的驱逐方法在此场景下严重退化，因为每块只能看到局部 token 的注意力权重，无法预知未来块中哪些 token 重要，误驱逐会跨块累积传播。
+
 **核心矛盾**：注意力分数是 query-dependent 的，在逐块推理中只能基于当前块的局部 query 计算，导致驱逐决策短视。
+
 **关键观察**：与其他 key 余弦相似度低（即几何上独特）的 key 倾向于获得高注意力分数——这一性质完全基于 key 自身，与 query 无关，在逐块场景下仍然有效。
+
 **核心 idea**：用 key 之间的余弦相似度代替注意力分数作为驱逐标准——保留最"独特"的 key，驱逐冗余的。
 
 ## 方法详解
@@ -41,13 +45,13 @@ tags:
 
 1. **KeyDiff 基本公式**：
 
-    - 做什么：给每个 cached key 打分，保留最独特的
+    - 功能：给每个 cached key 打分，保留最独特的
     - 核心思路：$S = \text{topk}(-\text{CosSim}(K)\mathbf{1}, N)$，其中 $\text{CosSim}(K) \in \mathbb{R}^{n \times n}$ 是 key 间的成对余弦相似度矩阵，$\mathbf{1}$ 为全 1 向量。分数为负的行和（相似度越低分数越高）
     - 设计动机：与注意力分数不同，key 间相似度不依赖 query，在逐块推理中仍能准确评估全局重要性
 
 2. **高效变体（线性复杂度）**：
 
-    - 做什么：将 $O(n^2)$ 的成对相似度计算降为 $O(n)$
+    - 功能：将 $O(n^2)$ 的成对相似度计算降为 $O(n)$
     - 核心思路：$S = \text{topk}(-\text{CosSim}(\mu(\hat{K}), \hat{k}_i), N)$，其中 anchor 向量 $\mu(\hat{K}) = \frac{1}{n}\sum_i \hat{k}_i$ 是归一化 key 的均值。每个 key 只需与 anchor 算一次余弦相似度
     - 设计动机：在温和条件下与完整版保留相同的 KV 对（Appendix 证明）；实验中甚至可以用非归一化 key 的均值 $\mu(K)$ 而不损失精度
 
@@ -59,7 +63,7 @@ tags:
 
 4. **滑动窗口扩展**：
 
-    - 做什么：分配一部分 cache 预算给最近 token（sliding window）
+    - 功能：分配一部分 cache 预算给最近 token（sliding window）
     - 核心思路：在推理和代码等最近 token 更重要的任务中，将 cache 预算的一部分保留给最近的 token
     - 设计动机：对 DeepSeek-R1 等推理模型效果显著，无额外开销
 

@@ -6,7 +6,7 @@ description: >-
 tags:
   - AAAI2026
   - chart editing
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - rendering reward
   - benchmark
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.15266](https://arxiv.org/abs/2511.15266)  
 **代码**: 待确认  
 **领域**: reinforcement_learning  
-**关键词**: chart editing, reinforcement learning, GRPO, rendering reward, benchmark  
+**关键词**: chart editing, reinforcement-learning, GRPO, rendering reward, benchmark
 
 ## 一句话总结
 

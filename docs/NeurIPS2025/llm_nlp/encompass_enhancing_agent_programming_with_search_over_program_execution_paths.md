@@ -49,7 +49,7 @@ EnCompass 是一个 Python 框架，实现 PAN 编程模型。程序员用 `@enc
 
 1. **PAN 编程模型**:
 
-    - 做什么：将程序的不确定执行建模为马尔可夫链，`branchpoint()` 是标记位置，程序状态 = (位置, 变量值)
+    - 功能：将程序的不确定执行建模为马尔可夫链，`branchpoint()` 是标记位置，程序状态 = (位置, 变量值)
     - 核心思路：Angelic nondeterminism（天使非确定性）——程序员写代码时假设不可靠操作总是产生好输出，运行时由搜索负责找到真正好的执行路径
     - 与经典搜索的区别：不能枚举所有子节点，只能随机采样——通过指定 branching factor 来适配经典图搜索算法
 
@@ -63,7 +63,7 @@ EnCompass 是一个 Python 框架，实现 PAN 编程模型。程序员用 `@enc
 
 3. **EnCompass 编译器**:
 
-    - 做什么：将 Python 函数编译为可被搜索算法操控的搜索空间对象
+    - 功能：将 Python 函数编译为可被搜索算法操控的搜索空间对象
     - 核心思路：`@encompass.compile` 装饰器将函数转为状态机，`branchpoint()` 成为状态转移点
     - vs 手写状态机：EnCompass 代码修改量比手写 plain Python 少 3-6x，且不破坏代码可读性
 

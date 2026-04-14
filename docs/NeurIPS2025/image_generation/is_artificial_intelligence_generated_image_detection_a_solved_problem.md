@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 图像生成
   - AI生成图像检测
-  - Benchmark
+  - benchmark
   - 鲁棒性评估
   - 数据增强
   - 泛化性
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.12335](https://arxiv.org/abs/2505.12335)  
 **代码**: [HorizonTEL/AIGIBench](https://github.com/HorizonTEL/AIGIBench)  
 **领域**: image_generation  
-**关键词**: AI生成图像检测, Benchmark, 鲁棒性评估, 数据增强, 泛化性  
+**关键词**: AI生成图像检测, benchmark, 鲁棒性评估, 数据增强, 泛化性
 
 ## 一句话总结
 

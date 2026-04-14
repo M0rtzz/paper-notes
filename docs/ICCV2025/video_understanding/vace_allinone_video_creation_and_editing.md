@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] VACE: All-in-One Video Creation and Editing"
-description: "[ICCV 2025][视频生成][视频编辑] 提出VACE统一视频创建和编辑框架，通过Video Condition Unit(VCU)接口统一参考生成/编辑/掩码编辑等多任务输入，Context Adapter注入概念到DiT模型，在12个任务上达到与专用模型可比的性能。"
+title: >-
+  [论文解读] VACE: All-in-One Video Creation and Editing
+description: >-
+  [视频理解] 提出VACE统一视频创建和编辑框架，通过Video Condition Unit(VCU)将文本/图像/视频/掩码统一为条件输入，结合Context Adapter注入任务概念到DiT模型，首次在单一视频DiT中同时支持参考生成、视频编辑、掩码编辑及其自由组合。
 tags:
-  - ICCV 2025
-  - 视频生成
-  - 视频编辑
-  - 统一模型
+  - 视频理解
 ---
 
 # VACE: All-in-One Video Creation and Editing

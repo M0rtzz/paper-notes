@@ -2,14 +2,14 @@
 title: >-
   [论文解读] AS-Bridge: A Bidirectional Generative Framework Bridging Next-Generation Astronomical Surveys
 description: >-
-  基于双向 Brownian Bridge 扩散过程建模 LSST 与 Euclid 天文巡天间的随机映射，实现跨巡天概率图像翻译和多采样重建不一致性的稀有事件检测。
+  [CVPR 2026][图像生成][天文巡天] 提出 AS-Bridge，基于双向 Brownian Bridge 扩散过程建模地面 LSST 与空间 Euclid 巡天观测间的条件概率分布，实现跨巡天概率图像翻译和利用重建不一致性的无监督强引力透镜检测。
 tags:
   - CVPR 2026
   - 图像生成
   - 天文巡天
   - Brownian Bridge
-  - 跨域翻译
-  - 异常检测
+  - 双向图像翻译
+  - 稀有事件检测
   - 概率重建
 ---
 
@@ -47,19 +47,19 @@ tags:
 
 1. **Brownian Bridge 扩散过程**
 
-    - 做什么：在两个巡天观测域之间建立随机路径，替代标准扩散的"数据→纯噪声"路径
+    - 功能：在两个巡天观测域之间建立随机路径，替代标准扩散的"数据→纯噪声"路径
     - 核心思路：给定端点 $(x_0, x_T)$，中间状态 $x_t | (x_0, x_T) \sim \mathcal{N}((1-m_t)x_0 + m_t x_T, \delta_t I)$，其中 $m_t = t/T$，$\delta_t = m_t(1-m_t)$。反向转移通过贝叶斯定理推导，保留源-目标的条件依赖关系
     - 设计动机：标准条件扩散（如 Palette）从纯噪声出发，源图像仅作为外部条件信号；BB 直接在两域间插值，避免经过高噪声状态，采样效率更高且更好地保持条件分布
 
 2. **$\epsilon$-prediction 最大似然训练**
 
-    - 做什么：证明 $\epsilon$-prediction 损失是 BB 标准损失乘以温和权重 $\sqrt{\delta_t}$ 的等价形式
+    - 功能：证明 $\epsilon$-prediction 损失是 BB 标准损失乘以温和权重 $\sqrt{\delta_t}$ 的等价形式
     - 核心思路：在方差爆炸扩散下，似然目标要求时间步权重 $\delta_t$，但 BB 中 $\delta_t$ 在端点处趋零导致梯度消失。$\epsilon$-prediction 损失 $\|\epsilon_\theta - \epsilon\|_2^2$ 等价于权重 $\sqrt{\delta_t}$ 的得分匹配，既保留似然导向的高噪声时间步强调又维持端点处梯度稳定
     - 设计动机：直接用 $\delta_t$ 权重在 BB 训练中端点梯度消失，$\epsilon$-prediction 提供温和的中间方案
 
 3. **多采样异常检测**
 
-    - 做什么：利用模型对分布外天体重建失败来发现稀有事件，无需异常标签
+    - 功能：利用模型对分布外天体重建失败来发现稀有事件，无需异常标签
     - 核心思路：对配对观测 $(x_{Euclid}, x_{LSST})$ 通过前向过程融合后多次随机重建，像素级异常图取多次重建的逐像素最小误差 $\mathcal{A}(p) = \min_i \|\hat{x}_0^{(i)}(p) - x_0(p)\|_2^2$，图像级分数按通量归一化消除亮度偏差
     - 设计动机：天文图像低信噪比导致单次重建误差被噪声主导；多次采样取最小值抑制噪声波动，保留系统性重建失败信号
 

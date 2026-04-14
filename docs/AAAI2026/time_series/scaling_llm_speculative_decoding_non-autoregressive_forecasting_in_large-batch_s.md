@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Scaling LLM Speculative Decoding: Non-Autoregressive Forecasting in Large-Batch Scenarios
 description: >-
-  [AAAI 2026][时间序列][Speculative Decoding] 提出 SpecFormer，一种融合单向和双向注意力的非自回归草稿模型架构，在大批次推理场景下通过降低对复杂前缀树的依赖、减少位置相关参数，实现了对 LLM 推理的一致性加速。
+  [AAAI 2026][时间序列][推测解码] 提出 SpecFormer，一种融合单向和双向注意力的非自回归草稿模型架构，在大批次推理场景下通过降低对复杂前缀树的依赖、减少位置相关参数，实现了对 LLM 推理的一致性加速。
 tags:
   - AAAI 2026
   - 时间序列
-  - Speculative Decoding
+  - 推测解码
   - 非自回归生成
   - 大批次推理
   - LLM加速
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.20340](https://arxiv.org/abs/2511.20340)  
 **代码**: [https://github.com/ShiLuohe/SpecFormer](https://github.com/ShiLuohe/SpecFormer)  
 **领域**: 时间序列 / LLM推理加速  
-**关键词**: Speculative Decoding, 非自回归生成, 大批次推理, LLM加速, SpecFormer
+**关键词**: 推测解码, 非自回归生成, 大批次推理, LLM加速, SpecFormer
 
 ## 一句话总结
 
@@ -34,7 +34,9 @@ tags:
 ### 现有方法的痛点
 
 **大批次场景下失效**：连续批处理（continuous batching）已被主流推理框架广泛采用，它本身就会压缩可用的空闲计算资源。当 batch size 增大时，每个参数的计算强度提高，留给草稿 token 的计算预算急剧缩减。现有 SD 方法依赖大规模前缀树（prefix tree），在大批次下无法正常工作。
+
 **位置相关参数过多**：无论是自回归方法（如 EAGLE、HASS）还是非自回归方法（如 Medusa、MTP），它们的参数量都与草稿序列长度线性相关。自回归方法需要为每个位置重复访问参数，非自回归方法为每个位置分配独立参数。这使得这些方法在资源受限时难以扩展。
+
 **草稿质量 vs 草稿数量的矛盾**：在低计算预算下，不能再依赖"广撒网"式的大前缀树，必须提升每个草稿 token 本身的准确率。
 
 ### 核心洞察

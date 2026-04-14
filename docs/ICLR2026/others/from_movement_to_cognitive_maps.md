@@ -2,14 +2,16 @@
 title: >-
   [论文解读] From Movement to Cognitive Maps: RNNs Reveal How Locomotor Development Shapes Hippocampal Spatial Coding
 description: >-
-  [ICLR2026][计算神经科学][海马空间编码] 通过RNN建模首次建立运动发育与海马空间编码涌现的计算机制，证明幼鼠运动统计特征的发育变化驱动位置细胞和方向细胞的序贯涌现
+  [ICLR 2026 Oral][hippocampus] 结合幼鼠运动发育的聚类分析和浅层 RNN 预测学习模型，首次计算性地证明运动统计特征的发育变化（爬行→行走→奔跑→成年）驱动了海马空间调谐神经元（位置细胞、方向细胞、联合编码细胞）的序贯涌现，定量复现大鼠海马记录数据的发育时间线，并预测了联合位置-方向编码细胞在发育中逐渐增多这一现象且在实验数据中得到验证。
 tags:
-  - ICLR2026
-  - 计算神经科学
-  - 海马体
-  - 空间编码
+  - ICLR 2026 Oral
+  - hippocampus
+  - spatial coding
+  - locomotor development
   - RNN
-  - 具身认知
+  - place cells
+  - head direction cells
+  - cognitive maps
 ---
 
 # From Movement to Cognitive Maps: RNNs Reveal How Locomotor Development Shapes Hippocampal Spatial Coding
@@ -43,17 +45,17 @@ tags:
 
 ### 关键设计
 1. **运动发育阶段提取**:
-    - 做什么：从已发表的幼鼠开放场实验数据中提取运动统计特征（速度、加速度、角速度等），使用聚类方法识别发育阶段
+    - 功能：从已发表的幼鼠开放场实验数据中提取运动统计特征（速度、加速度、角速度等），使用聚类方法识别发育阶段
     - 核心思路：K-means 聚类将 P12–P60 的运动数据自动分为三个发育阶段——爬行（crawl, ~P12-P15）、行走（walk, ~P16-P19）、奔跑（run, ~P20+），加上成体阶段
     - 设计动机：避免人为定义发育阶段，让数据驱动的聚类揭示运动模式的自然转折点，确保输入 RNN 的运动统计真实反映生物学
 
 2. **预测学习 RNN 模型**:
-    - 做什么：浅层 RNN 接收当前时刻的全景视觉 $\mathbf{v}_t \in \mathbb{R}^{80}$ 和前庭信号（角速度 $\omega_t$），通过隐藏状态 $\mathbf{h}_t$ 预测下一时刻的视觉输入 $\hat{\mathbf{v}}_{t+1}$
+    - 功能：浅层 RNN 接收当前时刻的全景视觉 $\mathbf{v}_t \in \mathbb{R}^{80}$ 和前庭信号（角速度 $\omega_t$），通过隐藏状态 $\mathbf{h}_t$ 预测下一时刻的视觉输入 $\hat{\mathbf{v}}_{t+1}$
     - 核心思路：$\mathbf{h}_t = f(\mathbf{W}_{vh}\mathbf{v}_t + \mathbf{W}_{hh}\mathbf{h}_{t-1} + \mathbf{W}_{\omega h}\omega_t + \mathbf{b})$，损失函数为 $\mathcal{L} = \|\hat{\mathbf{v}}_{t+1} - \mathbf{v}_{t+1}\|^2$
     - 设计动机：预测学习框架被广泛支持（Eichenbaum et al. 2004; Levy 1989），海马被视为比较传入感觉与记忆预测的系统。使用自我中心视觉而非位置坐标，避免提供特权空间信息
 
 3. **渐进发育暴露训练策略**:
-    - 做什么：RNN 依次暴露于各发育阶段的运动轨迹——先在爬行模式轨迹上训练至收敛，再切换到行走、奔跑、成体阶段
+    - 功能：RNN 依次暴露于各发育阶段的运动轨迹——先在爬行模式轨迹上训练至收敛，再切换到行走、奔跑、成体阶段
     - 核心思路：每个阶段的轨迹由具有该阶段运动统计（速度分布、转弯频率等）的模拟智能体在 0.625×0.625m 环境中运动生成。成体阶段额外引入网格细胞输入 $g(\mathbf{x}) = \sum_k \cos(\mathbf{k}_i \cdot \mathbf{x})$，scale 参数 $\lambda \in \{0.2, 0.4, 0.6\}$ m
     - 设计动机：模拟真实动物的发育过程——幼鼠在不同年龄表现出质性不同的运动模式，这些模式提供了不同统计特征的感觉经验
 

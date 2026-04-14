@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Using Shapley Interactions to Understand How Models Use Structure
 description: >-
-  [ACL 2025][NLP可解释性] 利用Shapley Taylor交互指数分析语言模型和语音模型如何通过非线性交互编码句法结构、非组合语义和语音协同发音。
+  [ACL 2025][Shapley交互] 利用Shapley Taylor交互指数（STII）跨模态（文本+语音）系统分析语言模型如何通过非线性交互编码句法结构、非组合语义和语音协同发音，发现自回归模型在句法编码上显著优于遮蔽模型。
 tags:
   - ACL 2025
   - Shapley交互
@@ -37,17 +37,17 @@ tags:
 ### 关键设计
 
 1. **STII计算与位置控制**:
-    - 做什么：计算成对特征的Shapley Taylor交互指数并控制位置效应
+    - 功能：计算成对特征的Shapley Taylor交互指数并控制位置效应
     - 核心思路：$\text{STII}_{A,B} = \frac{\| \phi(\emptyset) - \phi(A) - \phi(B) + \phi(A,B) \|_2}{\| \phi(\emptyset) \|_2}$，用Monte Carlo排列采样近似。定义交互对距离 $d_i$ 和预测距离 $d_p$ 做分层控制
     - 设计动机：STII测量联合影响超出独立之和的部分——正是非线性结构编码信号。分层控制消除位置效应混淆
 
 2. **三层结构关联分析**:
-    - 做什么：将STII分别与句法结构、非组合语义（MWE）、语音协同发音关联
+    - 功能：将STII分别与句法结构、非组合语义（MWE）、语音协同发音关联
     - 核心思路：(a)句法：spaCy依存树+Spearman相关；(b)语义：AMALGrAM标注强/弱MWE，比较MWE内外STII差异；(c)语音：Wav2Vec 2.0+蒙特利尔对齐器，比较辅音-元音vs辅音-辅音边界STII
     - 设计动机：三层面都验证通过则证明STII作为通用可解释性工具的价值
 
 3. **自回归vs遮蔽模型对比**:
-    - 做什么：GPT-2和BERT-base做相同实验对比
+    - 功能：GPT-2和BERT-base做相同实验对比
     - 核心思路：相同STII分析下对比两种训练目标对句法的敏感性
     - 设计动机：验证训练目标是否导致模型以不同方式编码句法关系
 

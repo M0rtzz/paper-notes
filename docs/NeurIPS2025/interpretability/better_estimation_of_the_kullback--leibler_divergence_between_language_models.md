@@ -46,7 +46,7 @@ tags:
 
 1. **Rao-Blackwell 化 KL 估计器**:
 
-    - 做什么：在每个 token 位置精确计算分布级 KL 而非仅用采样 token
+    - 功能：在每个 token 位置精确计算分布级 KL 而非仅用采样 token
     - 核心思路：将 MC 估计器的每一步 $\log\frac{\vec{p}(Y_n|Y_{<n})}{\vec{q}(Y_n|Y_{<n})}$ 替换为 $KL(\vec{p}(\cdot|Y_{<n}) \| \vec{q}(\cdot|Y_{<n}))$——对整个 vocabulary 求和而非只看采样到的 token
     - 设计动机：Rao-Blackwell 定理保证条件期望的方差不超过原始方差。方差减少来源：不再依赖采样到的特定 token，而是利用完整分布信息
 
@@ -58,7 +58,7 @@ tags:
 
 3. **RB 梯度估计器**:
 
-    - 做什么：将 RB 扩展到 KL 梯度估计（用于 RLHF 训练循环）
+    - 功能：将 RB 扩展到 KL 梯度估计（用于 RLHF 训练循环）
     - 核心思路：通过 Theorem 4 推导 KL 梯度的 local decomposition，然后 RB 化得到 $\delta_{rb}$（Theorem 5 证明 $\mathbb{E}[\|\delta_{rb} - G\|^2] \leq \mathbb{E}[\|\delta_{mc} - G\|^2]$）
     - 设计动机：RLHF 循环中梯度的方差直接影响训练稳定性
 

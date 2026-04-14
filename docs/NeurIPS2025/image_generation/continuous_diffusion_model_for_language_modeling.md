@@ -1,13 +1,18 @@
 ---
+title: >-
+  [论文解读] Continuous Diffusion Model for Language Modeling
 description: >-
-  [NeurIPS2025][连续扩散语言模型] 提出RDLM，在统计流形上构建连续扩散过程建模离散分布，利用径向对称性实现无模拟训练，配合维度分裂处理大词表，在Text8上BPC达1.32超越所有离散扩散模型。
+  [NeurIPS2025][图像生成][扩散模型] 提出 RDLM（Riemannian Diffusion Language Model），在统计流形（超球面）上构建连续扩散过程来建模离散分布，建立了离散扩散与连续流的理论联系，通过径向对称性实现无模拟训练和维度分裂技术处理大词表，在 Text8 上以 1.32 BPC 超越所有离散和连续扩散模型。
 tags:
   - NeurIPS2025
+  - 图像生成
   - 扩散模型
-  - 语言建模
-  - 黎曼流形
-  - 统计流形
+  - statistical manifold
+  - discrete data
+  - sphere
+  - language model
 ---
+
 # Continuous Diffusion Model for Language Modeling
 
 **会议**: NeurIPS2025  
@@ -44,19 +49,19 @@ RDLM 的核心思路是将离散 token 通过 one-hot 编码映射到超球面 $
 
 1. **离散扩散到连续流的统一 (Proposition 3.1)**:
 
-    - 做什么：证明离散扩散过程的转移分布可以由超球面上的连续流建模
+    - 功能：证明离散扩散过程的转移分布可以由超球面上的连续流建模
     - 核心思路：分类分布的参数空间（概率单纯形 $\Delta^{d-1}$）通过 Fisher-Rao 度量形成统计流形 $\mathcal{P}(\mathcal{X})$，微分同胚于 $\mathbb{S}^{d-1}_+$。在此映射下，离散扩散的转移矩阵 $\bar{Q}_t$ 对应的分类分布 $\text{Cat}(x_t; \bar{Q}_t x)$ 可以由超球面上的测地线 ODE $\frac{d\mathbf{Y}_t}{dt} = -\frac{d\log\kappa_t}{dt}\exp^{-1}_{\mathbf{Y}_t}(\mathbf{y}_1)$ 的流精确重现。特别地，$\mathbf{y}_1 = \mathbf{e}_m$ 得到掩码扩散，$\mathbf{y}_1 = \sum \mathbf{e}_i/\sqrt{d}$ 得到均匀扩散
     - 设计动机：建立理论联系后，可以将离散跳跃"平滑化"为连续轨迹，中间状态提供持续修正机会
 
 2. **基于径向对称性的无模拟训练**:
 
-    - 做什么：利用超球面的径向对称性推导出转移分布的可控近似，避免训练时模拟昂贵的 SDE
+    - 功能：利用超球面的径向对称性推导出转移分布的可控近似，避免训练时模拟昂贵的 SDE
     - 核心思路：将 $d$ 维桥过程的转移分布近似为黎曼正态分布 $\mathcal{N}_{\mathbb{S}^{d-1}}(\boldsymbol{\mu}_t, \rho_t^2 \mathbf{I})$。参数 $\alpha_t, \rho_t$ 通过一维投影过程 $z_t^T = \langle \mathbf{X}_t, \mathbf{e}_k \rangle$ 和 $z_t^0 = \langle \mathbf{X}_t, \mathbf{X}_0 \rangle$ 推导，只需预计算一维 SDE 的矩即可。训练目标采用交叉熵损失 $\mathcal{L}^{CE}(\theta) = \mathbb{E}[-\log\langle p_\theta(\mathbf{X}_t, t), \mathbf{e}_k\rangle]$，与离散扩散的训练目标形式一致
     - 设计动机：直接模拟高维超球面上的 SDE 计算成本极高；径向对称性使得所有方向的统计量相同，可从一维投影恢复高维分布参数，实现约 50 倍加速
 
 3. **维度分裂 (Dimension Splitting)**:
 
-    - 做什么：将大词表 token 用 $b$ 进制表示，从 $\mathbb{S}^{d-1}$ 映射到 $(S^b)^m$（$m = \lceil\log_b d\rceil$），降低每个超球面的维度
+    - 功能：将大词表 token 用 $b$ 进制表示，从 $\mathbb{S}^{d-1}$ 映射到 $(S^b)^m$（$m = \lceil\log_b d\rceil$），降低每个超球面的维度
     - 核心思路：高维超球面上的桥过程在终端时间附近表现出"尖锐转变"，神经网络难以学习。将 $d$ 维球面分裂为 $m$ 个 $b$ 维球面后，每个球面上的过程更加平缓。配合掩码扩散和均匀扩散的混合路径（Eq. 9）$\lambda_t \mathbb{Q}_t^{mask} + (1-\lambda_t)\mathbb{Q}_t^{unif}$ 使用效果最佳
     - 设计动机：语言模型的词表通常数万级别，直接在 $\mathbb{S}^{30000}$ 上训练不可行；维度分裂加混合路径是使框架扩展到实际词表的关键技术
 

@@ -34,8 +34,11 @@ tags:
 - **软提示（Soft Prompt）**：如 GIST、AutoCompressor、ICAE，将自然语言 token 压缩为少量特殊 token
 
 现有方法的主要问题：
+
 **压缩比低**：ICAE 最高仅约 15x
+
 **信息损失不清晰**：win rate 等指标无法定量刻画压缩信息损失
+
 **数据泄漏风险**：评估文本来自 Pile 数据集可能与 LLaMA 训练数据重叠，无法确定 LLM 输出来自压缩 token 还是模型记忆
 
 ## 方法详解

@@ -2,16 +2,14 @@
 title: >-
   [论文解读] SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification
 description: >-
-  [ACL 2025][查询分类] 提出电商查询分类的半监督可扩展统一框架 SSUF——三个可插拔模块：知识增强（LLM 世界知识+后验点击）解决短查询信息不足、标签增强（语义编码+半监督信号）打破对后验标签的依赖、结构增强（共现+语义+层级图 GCN）传播长尾标签梯度。已在 JD.COM 部署，离线和在线 A/B 实验均显著超越 SOTA。
+  [ACL 2025][查询分类] 提出电商查询分类统一框架 SSUF，通过三个可插拔模块——标签增强（BERT 语义编码标签）、知识增强（LLM 世界知识 + 后验点击 + 半监督标签生成）、结构增强（共现/语义/层级三图融合 GCN）——解决短查询信息不足和"马太效应"恶性循环问题，在 JD.COM 意图分类和品类分类任务上 Macro F1 分别达到 49.46 和 41.22（均超 SMGCN 等 SOTA），已上线服务带来显著商业价值。
 tags:
   - ACL 2025
   - 查询分类
   - 电商搜索
-  - 半监督
+  - 半监督学习
   - 知识增强
-  - 标签语义
-  - 图学习
-  - 马太效应
+  - 图神经网络
 ---
 
 # SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification
@@ -50,13 +48,13 @@ SSUF 的核心是一个共享 BERT 文本编码器，叠加三个高度可插拔
 
 1. **标签增强模块（Label-Enhanced Module）**:
 
-    - 做什么：用 BERT 编码标签的语义表示，替代传统的标签 index 嵌入
+    - 功能：用 BERT 编码标签的语义表示，替代传统的标签 index 嵌入
     - 核心思路：标签输入 = 标签名 $n$ + 增强侧信息 $m$（产品词、高频搜索词、LLM 知识描述）。通过共享 BERT 编码：$\mathbf{C}_j = \text{BERT}_{\text{CLS}}([n_1,...,n_L, m_1,...,m_{L_m}])$
     - 设计动机：传统 index 嵌入无法捕获标签间语义关系，语义编码使标签可做相似度计算，促进知识迁移
 
 2. **知识增强模块（Knowledge-Enhanced Module）**:
 
-    - 做什么：用外部知识补充短查询的语义信息，并生成半监督训练信号
+    - 功能：用外部知识补充短查询的语义信息，并生成半监督训练信号
     - 核心思路：
       - **知识来源**：(1) 后验知识——用户高频点击/购买的产品标签，(2) 世界知识——将查询和相关产品送入开源 LLM 生成简短描述（含相关查询/品类/产品）
       - **知识融合**：注意力机制融合查询表示和知识嵌入: $\alpha = \text{softmax}(\mathbf{Q}_i \mathbf{K}^T)$, $\mathbf{q}'_i = \mathbf{Q}_i + \sum_j \alpha_j \mathbf{K}_j$
@@ -66,7 +64,7 @@ SSUF 的核心是一个共享 BERT 文本编码器，叠加三个高度可插拔
 
 3. **结构增强模块（Structure-Enhanced Module）**:
 
-    - 做什么：通过标签关系图传播梯度到长尾标签
+    - 功能：通过标签关系图传播梯度到长尾标签
     - 核心思路——三种图构建：
       - **共现图** $\mathbf{A}^{coo}$：标签共现条件概率 $a_{ij} = N(c_i, c_j) / N(c_i)$，阈值 $\alpha$ 过滤低频边
       - **语义相似图** $\mathbf{A}^{sim}$：标签 BERT 嵌入的余弦相似度，阈值 $\beta$ 过滤

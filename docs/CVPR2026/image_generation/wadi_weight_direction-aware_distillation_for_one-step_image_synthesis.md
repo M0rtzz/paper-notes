@@ -26,9 +26,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：扩散蒸馏方法将多步扩散压缩为一步生成器。主流方法分为全参数微调（FT）和 LoRA 微调两类，均基于 VSD（变分分数蒸馏）框架。
+
 **现有痛点**：FT 和 LoRA 都直接更新参数，同时优化权重的范数和方向——但实际上两者变化量级差异巨大：方向变化的均值/标准差分别是范数变化的 22× 和 10×。这种耦合增加了优化难度。
+
 **核心矛盾**：蒸馏信号主要通过方向调整传递，但现有适配器（LoRA/DoRA）的更新方式都没有专门针对方向调整进行优化，导致收敛慢、不稳定、容易过拟合。
+
 **关键验证**：将一步模型的方向替换为教师方向→FID 恶化 241；替换范数→FID 仅变化 0.7。方向残差矩阵保留 30% 的秩即恢复 93% 信息——具有低秩结构。
+
 **核心idea**：既然蒸馏的本质是权重方向旋转，不如直接学习低秩旋转矩阵来调整方向，而非通过 LoRA 间接影响。
 
 ## 方法详解
@@ -40,7 +44,7 @@ WaDi 基于 VSD 框架：教师 $\epsilon_\psi$（冻结的多步扩散模型）
 
 1. **LoRaD（低秩权重方向旋转）**:
 
-    - 做什么：通过可学习的旋转矩阵仅调整预训练权重的方向，不改变其范数
+    - 功能：通过可学习的旋转矩阵仅调整预训练权重的方向，不改变其范数
     - 核心思路：受 RoPE 启发，将每列权重分为 $d/2$ 个奇偶配对子空间，在每个 2D 子空间上施加独立旋转：
     $W_{ro} = R_{AB}W = \begin{bmatrix} \cos AB & -\sin AB \\ \sin AB & \cos AB \end{bmatrix} \begin{bmatrix} W_{\text{odd}} \\ W_{\text{even}} \end{bmatrix}$
       旋转角度矩阵 $\Theta = AB$，其中 $A \in \mathbb{R}^{d/2 \times r}$，$B \in \mathbb{R}^{r \times k}$，实现低秩参数化
@@ -49,7 +53,7 @@ WaDi 基于 VSD 框架：教师 $\epsilon_\psi$（冻结的多步扩散模型）
 
 2. **WaDi 训练框架**:
 
-    - 做什么：将 LoRaD 集成到 VSD 蒸馏框架中
+    - 功能：将 LoRaD 集成到 VSD 蒸馏框架中
     - 核心思路：学生 $G_{\lambda_{\Theta^l}}$ 用高秩 LoRaD（rank=256），伪模型 $\epsilon_{\phi_{\Theta^s}}$ 用低秩 LoRaD（rank=32）。交替优化两者
     - 学生损失：$\nabla_{\lambda_{\Theta^l}} \mathcal{L}_{\text{wadi}} = \mathbb{E}[\omega(t)(\epsilon_\psi - \epsilon_{\phi_{\Theta^s}}) \frac{\partial G_{\lambda_{\Theta^l}}}{\partial \lambda_{\Theta^l}}]$
     - 设计动机：学生需要更大容量适配（rank=256）充分拟合教师分布；伪模型只需追踪学生演化（rank=32）即可

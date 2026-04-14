@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.07884](https://arxiv.org/abs/2512.07884)  
 **代码**: [项目主页](https://whj363636.github.io/GSPN2/)  
 **领域**: image_generation  
-**关键词**: efficient attention, spatial propagation, CUDA optimization, vision transformer, image generation  
+**关键词**: efficient attention, spatial propagation, CUDA optimization, vision transformer, image generation
 
 ## 一句话总结
 

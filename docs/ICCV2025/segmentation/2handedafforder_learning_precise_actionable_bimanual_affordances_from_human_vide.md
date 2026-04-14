@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Affordance grounding（可操作区域识别）是机器人操作的关键能力——机器人需要知道物体的哪些区域可以用于特定任务（如倒水时应抓住瓶身什么位置）。现有方法通常依赖人工标注的数据集，标注质量与物体部件分割相似，缺乏动作导向的精确性。
+
 **现有痛点**：(a) 现有 affordance 数据集（IIT-AFF、AGD20K 等）标注不够精确，往往退化为粗糙的物体部件分割；(b) 多数方法不考虑任务上下文（task-agnostic），只预测通用的"热点"区域；(c) 完全忽视双手协作交互（bimanual affordance）这一重要场景。
+
 **核心矛盾**：手与物体交互时，手本身会遮挡关键的 affordance 区域，导致直接从交互图像中提取精确接触区域非常困难。
+
 **本文要解决什么？** (a) 如何从视频中自动提取精确的、任务导向的双手 affordance 分割 mask；(b) 如何训练一个能根据文本提示预测左右手分别交互区域的模型。
+
 **切入角度**：利用视频级别的手部修复（hand inpainting）技术，先"去掉"遮挡手部获得完整物体视图，再通过 mask 补全得到手与物体接触的精确区域。
+
 **核心idea一句话**：通过视频手部修复+mask补全自动提取精确 affordance mask，结合 VLM 实现文本驱动的双手 affordance 预测。
 
 ## 方法详解
@@ -43,20 +48,20 @@ tags:
 
 1. **Affordance 提取流水线**:
 
-    - 做什么：从人类活动视频中自动提取物体上的精确 affordance 区域
+    - 功能：从人类活动视频中自动提取物体上的精确 affordance 区域
     - 核心思路：(a) 使用 VISOR 标注获取稀疏手-物体 mask，通过视频 mask 传播网络获得稠密全序列 mask；(b) 使用视频手部修复模型 VIDM 将手部区域修复为完整物体（利用 4 帧作为输入，未遮挡帧可提供线索）；(c) 使用 SAM2 将原始物体 mask 传播到修复图像上获得完整物体 mask；(d) 最终 affordance 区域 = 完整物体 mask ∩ 手部 mask
     - 设计动机：手遮挡了关键交互区域，通过修复+补全巧妙绕过遮挡问题，获得比人工标注更精确的 affordance 区域
     - 额外优势：使用视频中任务的叙述文本（narration）作为 affordance 类别标签，自然获得 73 类 affordance 和 163 类物体
 
 2. **VLM-based 2HandedAfforder 网络**:
 
-    - 做什么：根据文本提示预测图像中的双手 affordance mask
+    - 功能：根据文本提示预测图像中的双手 affordance mask
     - 核心思路：输入文本 prompt（如"pour tea from kettle"）和图像，VLM（LLaVa-13b）生成语言 token 和 [SEG] token；SAM 图像编码器提取视觉特征；两个 SAM-style mask decoder 分别生成左手和右手 affordance mask
     - 设计动机：VLM 擅长推理但不擅长像素级任务，SAM 编码器提供强视觉特征，二者互补；双解码器设计自然处理双手场景
 
 3. **双手分类头（Taxonomy Classifier）**:
 
-    - 做什么：预测交互是单手左/单手右/双手操作
+    - 功能：预测交互是单手左/单手右/双手操作
     - 核心思路：从左手 mask decoder 的输出 token 通过 MLP 预测三分类，测试时根据分类结果决定使用哪个 mask 输出
     - 设计动机：避免在单手任务中产生冗余的另一手 mask 预测
 

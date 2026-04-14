@@ -1,11 +1,16 @@
 ---
-description: 提出基于Shapley值贡献评估和Fisher信息矩阵自适应权重约束的多模态平衡学习框架，解决3D人体姿态估计中的模态不平衡问题
+title: >-
+  [论文解读] Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation
+description: >-
+  [CVPR 2026][自动驾驶][多模态融合] 针对多模态3D人体姿态估计中的模态不平衡问题，提出基于Shapley值的模态贡献评估算法和基于Fisher信息矩阵的自适应权重约束（AWC）正则化方法，在不引入额外参数的情况下实现模态间的均衡优化，在MM-Fi数据集上全面超越现有平衡方法。
 tags:
-  - CVPR2026
-  - 3D人体姿态估计
-  - 多模态学习
-  - 模态平衡
+  - CVPR 2026
+  - 自动驾驶
+  - 多模态融合
+  - 模态不平衡
   - Shapley值
+  - Fisher信息矩阵
+  - 3D HPE
 ---
 
 # Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation
@@ -44,19 +49,19 @@ tags:
 
 1. **Shapley值贡献评估算法**:
 
-    - 做什么：量化每个模态在多模态协作中的边际贡献
+    - 功能：量化每个模态在多模态协作中的边际贡献
     - 核心思路：对每个模态 $m$，遍历所有不含 $m$ 的子集 $S$，计算加入 $m$ 后的收益变化。关键创新在于利用Pearson相关系数 $\rho(y_i, \hat{y}_i)$ 替代MSE作为利润函数 $s(\cdot, \cdot)$，因为弱模态在回归任务中的预测趋近于常数（标准差接近零），用MSE会错误地高估其贡献
     - 设计动机：分类任务中弱模态输出接近均匀分布对Softmax影响小，但回归任务中弱模态的恒定输出会被MSE误判为"稳定可靠"。Pearson相关系数只关注预测与真值的相关性趋势，不受输出幅度影响
 
 2. **自适应权重约束（AWC）正则化**:
 
-    - 做什么：基于FIM对各模态编码器施加差异化的参数约束，减缓优势模态的学习速度
+    - 功能：基于FIM对各模态编码器施加差异化的参数约束，减缓优势模态的学习速度
     - 核心思路：将模态通过K-Means聚类分为优势组 $\mathcal{M}_\mathcal{S}$ 和劣势组 $\mathcal{M}_\mathcal{I}$，分别施加不同强度的正则化系数 $\alpha_\mathcal{S}$ 和 $\alpha_\mathcal{I}$。AWC损失为 $\mathcal{L}_{AWC} = \sum_m [\alpha_\mathcal{S} \cdot \mathbf{1}_{m \in \mathcal{M}_\mathcal{S}} + \alpha_\mathcal{I} \cdot \mathbf{1}_{m \in \mathcal{M}_\mathcal{I}}] \cdot \sum_i \frac{[\mathcal{I}]_{ii}(\theta_{t,i}^m - \theta_{0,i}^{m,*})^2}{2}$，其中FIM对角线元素 $[\mathcal{I}]_{ii}$ 衡量参数的经验重要性
     - 设计动机：优势模态在训练初期产生更大梯度导致更高FIM值，通过FIM加权的惩罚项可以自动对强模态施加更强约束、对弱模态施加较弱约束，无需人工指定
 
 3. **学习窗口机制**:
 
-    - 做什么：仅在训练前 $K$ 个epoch内施加AWC约束
+    - 功能：仅在训练前 $K$ 个epoch内施加AWC约束
     - 核心思路：基于"关键学习期"理论，大部分任务相关信息在训练早期被习得。在前 $K$ 个epoch约束优势模态的快速学习，给劣势模态留出学习有用表征的机会
     - 设计动机：过长的正则化会限制模型的最终表达能力，适度的窗口期（实验中 $K=20$ 最优）兼顾平衡与性能
 

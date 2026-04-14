@@ -2,14 +2,14 @@
 title: >-
   [论文解读] FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies
 description: >-
-  [NeurIPS 2025][目标检测][event camera] 提出 FlexEvent 框架，通过自适应事件-图像融合模块 FlexFuse 和频率自适应微调机制 FlexTune，实现事件相机在不同操作频率下的灵活目标检测，在 20Hz 到 180Hz 范围内保持鲁棒性能，显著超越现有方法。
+  [NeurIPS 2025][目标检测][事件相机] 提出 FlexEvent 框架，通过自适应事件-图像融合模块 FlexFuse 和频率自适应微调机制 FlexTune，实现事件相机在不同操作频率下的灵活目标检测，在 20Hz 到 180Hz 范围内保持鲁棒性能，显著超越现有方法。
 tags:
   - NeurIPS 2025
   - 目标检测
-  - event camera
+  - 事件相机
   - event-frame fusion
   - frequency adaptation
-  - self-training
+  - 自训练
 ---
 
 # FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies
@@ -19,7 +19,7 @@ tags:
 **作者**: Dongyue Lu, Lingdong Kong, Gim Hee Lee, Camille Simon Chane, Wei Tsang Ooi (NUS, CNRS, CY Cergy Paris University)
 **代码**: [flexevent.github.io](https://flexevent.github.io)  
 **领域**: 目标检测 / 事件相机 / 多模态融合  
-**关键词**: event camera, object detection, event-frame fusion, frequency adaptation, self-training
+**关键词**: 事件相机, 目标检测, event-frame fusion, frequency adaptation, 自训练
 
 ## 一句话总结
 
@@ -83,9 +83,9 @@ FlexTune 分为两个主要阶段：
 1. **高频引导**（High-Frequency Bootstrapping）：用预训练模型对完整高频事件集生成伪标签 $\tilde{\mathbf{y}}$。
 
 2. **时间一致性校准**（Temporal Consistency Calibration）：
-   - 双向事件增强：正向和反向处理事件流以增强召回
-   - 置信度感知过滤：应用 NMS 和低置信度阈值 $\tau$ 消除重复并保留高潜力检测
-   - 轨迹修剪：通过 IoU 跟踪关联跨帧检测，修剪短轨迹以抑制瞬态噪声
+    - 双向事件增强：正向和反向处理事件流以增强召回
+    - 置信度感知过滤：应用 NMS 和低置信度阈值 $\tau$ 消除重复并保留高潜力检测
+    - 轨迹修剪：通过 IoU 跟踪关联跨帧检测，修剪短轨迹以抑制瞬态噪声
 
 3. **循环自训练**（Cyclic Self-Training）：迭代训练，总损失函数为：
 

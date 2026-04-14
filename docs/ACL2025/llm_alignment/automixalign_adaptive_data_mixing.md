@@ -19,20 +19,25 @@ tags:
 **arXiv**: [2506.00569](https://arxiv.org/abs/2506.00569)  
 **代码**: 无  
 **领域**: 对齐RLHF  
-**关键词**: data mixing, multi-task DPO, minimax optimization, excess loss, preference learning  
+**关键词**: data mixing, multi-task DPO, minimax optimization, excess loss, preference learning
 
 ## 一句话总结
 AutoMixAlign 提出了一种理论驱动的多任务偏好优化数据混合方法：先训练各任务的 specialist model 确定最优 loss 基线，再通过 minimax 优化自适应调整数据混合比例，优先处理 excess loss（与 specialist 的差距）最大的任务，在 helpfulness/harmlessness/reasoning 多任务 DPO 中平均提升 9.42%。
 
 ## 研究背景与动机
 **领域现状**：LLM 对齐训练需要在多个任务（helpfulness、safety、coding、math）上同时表现良好，DPO 训练需要混合多个任务数据集
+
 **现有痛点**：
    - 均匀混合数据会被大数据集主导，小任务被忽视
    - 任务均等加权（按数据集大小归一化）对困难任务和简单任务一视同仁，导致资源浪费
    - 确定最优混合比例通常需要大量消融实验，成本高昂
+
 **核心矛盾**：静态数据混合无法适应训练过程中各任务学习难度的动态变化
+
 **本文要解决什么？** 自动化确定多任务 DPO 的数据混合比例
+
 **切入角度**：以 specialist model 的 loss 为参照基准，通过最大化"最差任务的 excess loss 最小化"来动态调整混合
+
 **核心idea一句话**：先训 specialist 定下各任务的 loss 目标，再通过 minimax 优化让 generalist 追赶所有 specialist
 
 ## 方法详解
@@ -44,19 +49,19 @@ AMA 分两阶段：(1) 分别在各任务数据上用 DPO 训练 specialist mode
 
 1. **Excess Loss（超额损失）**:
 
-    - 做什么：量化 generalist 与 specialist 在每个样本上的 DPO loss 差距
+    - 功能：量化 generalist 与 specialist 在每个样本上的 DPO loss 差距
     - 核心思路：$\mathcal{E}(\theta, \theta_i, z) = \max\{\mathcal{L}(\theta, z) - \mathcal{L}(\theta_i, z), 0\}$，clipped at 0 避免过度优化已学好的任务
     - 设计动机：直接优化 loss 的问题是不知道"多好算好"。Specialist loss 提供了每个任务的可达目标——当 generalist loss 已低于 specialist loss 时停止优化该任务，避免过拟合
 
 2. **AMA-R: Reweighting 算法**:
 
-    - 做什么：自适应调整各任务在目标函数中的权重 $\alpha_i$
+    - 功能：自适应调整各任务在目标函数中的权重 $\alpha_i$
     - 核心思路：将 minimax 问题转为 $\min_\theta \max_{\alpha \in \Delta^k} \sum_i \alpha_i \cdot \text{avg-excess-loss}_i$。交替执行指数梯度上升更新 $\alpha$（增大 excess loss 大的任务权重）和梯度下降更新 $\theta$
     - 收敛性：凸情况下 $O(1/\sqrt{T})$ 收敛率（继承自 Sagawa et al., 2019）
 
 3. **AMA-S: Resampling 算法**:
 
-    - 做什么：自适应调整从各任务数据集采样的概率
+    - 功能：自适应调整从各任务数据集采样的概率
     - 核心思路：用 EXP3 在线学习算法维护采样概率 $\alpha$：$\alpha_i = (1-c)q_i + c/k$。根据各任务的 excess loss 通过指数更新调整 $q_i$，excess loss 大的任务被采样更多
     - 设计动机：AMA-R 中即使权重 $\alpha_i \approx 0$，仍需对任务 $i$ 采样并计算梯度（浪费计算）；AMA-S 直接减少低 excess loss 任务的采样量
     - 收敛性：将其建模为两人零和博弈，利用 EXP3 证明 $O(1/\sqrt{T})$ 收敛率

@@ -20,17 +20,22 @@ tags:
 **arXiv**: [2510.23631](https://arxiv.org/abs/2510.23631)  
 **代码**: 无  
 **领域**: LLM对齐 / 偏好优化  
-**关键词**: preference optimization, ranked choice, DPO, Mallows model, multinomial logit, alignment  
+**关键词**: preference optimization, ranked choice, DPO, Mallows model, multinomial logit, alignment
 
 ## 一句话总结
 提出 RCPO 框架，将 LLM 对齐从成对偏好扩展到排名选择（ranked choice）建模，通过 MLE 统一了效用模型（MNL）和排名模型（Mallows-RMJ），在 single-best 和 top-k 反馈格式下都优于 DPO 及其变体。
 
 ## 研究背景与动机
 **领域现状**：DPO 及其变体（SimPO, R-DPO, AlphaPO 等）已成为 LLM 对齐的主流方法，但它们都基于成对偏好——即每个 prompt 只比较两个 response（preferred vs dispreferred）。
+
 **现有痛点**：实际标注中，偏好反馈远比成对比较丰富——InstructGPT 收集 K 个 response 的排名后却将其拆分为 $\binom{K}{2}$ 对来训练；学术工作通常只保留最高和最低分的两个。这种"成对压缩"丢失了中间排名信息，可能歪曲原始偏好结构。
+
 **核心矛盾**：标注者提供的是多路比较/排名，但训练算法只能消化成对数据——信息浪费和结构扭曲是相互耦合的问题。
+
 **本文要解决什么？** 如何设计一个能直接利用 ranked choice（单选 best、top-k 排名）反馈的对齐框架？
+
 **切入角度**：经济学/运筹学中的离散选择模型（discrete choice models）已有成熟理论来处理多选和排名数据。将 prompt 视为 context、response 视为 item、候选集视为 assortment，LLM 对齐可直接映射为选择模型的 MLE。
+
 **核心idea一句话**：用选择模型理论统一 LLM 偏好优化，DPO 只是 Bradley-Terry 的特例，还有 MNL 和 Mallows 等更强的选择模型可以用。
 
 ## 方法详解
@@ -42,14 +47,14 @@ RCPO 将偏好优化形式化为：给定 prompt $x$、候选集 $S$、标注的
 
 1. **MNL（Multinomial Logit）分支**：
 
-    - 做什么：将 Bradley-Terry（仅 2 选 1）推广为多选 1 和 top-k。
+    - 功能：将 Bradley-Terry（仅 2 选 1）推广为多选 1 和 top-k。
     - Discrete（single-best）：$-\log\sigma(-\log\sum_{y_i \in S \setminus \{y_w\}} \exp(f_\theta(x, y_i, y_w)))$，比 DPO 多了对所有非 preferred response 的 logsumexp。
     - Top-k：连乘 k 个阶段的 softmax，每阶段从剩余候选中选出下一个。
     - DPO 是 $|S|=2, k=1$ 的特例。
 
 2. **Mallows-RMJ 分支**：
 
-    - 做什么：基于排名的选择模型，仅依赖序关系而非基数效用。
+    - 功能：基于排名的选择模型，仅依赖序关系而非基数效用。
     - 核心思路：选择概率 $\propto \phi(x)^{d(y_i, S)}$，其中 $d$ 是 $y_i$ 在 $S$ 中的相对排名位置。ϕ 越小（dispersion 越低），排名越集中。
     - Discrete loss 计算有多少 non-preferred 项的 reward 超过 preferred  项。
     - Top-k loss 扩展为沿排名链的逐对比较 + 未入选项与第 k 名的比较。

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.08373](https://arxiv.org/abs/2602.08373)  
 **代码**: https://github.com/Sn0wm1an/VIRF  
 **领域**: 机器人  
-**关键词**: embodied AI, neuro-symbolic, safe planning, LLM agent, formal verification  
+**关键词**: embodied AI, neuro-symbolic, safe planning, LLM agent, formal verification
 
 ## 一句话总结
 

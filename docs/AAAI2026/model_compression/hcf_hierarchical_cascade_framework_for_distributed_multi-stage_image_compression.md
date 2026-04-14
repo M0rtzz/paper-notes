@@ -36,7 +36,9 @@ tags:
 现有方法存在三个根本性局限：
 
 **渐进压缩框架（PCF）**：通过比特流截断实现质量适配（"编码一次，解码多次"），但中间节点只能被动截断，**无法利用节点的计算资源**进行主动优化
+
 **分布式重压缩框架（DRF）**：在每个节点执行完整的解压-重压缩循环，虽然利用了计算资源，但**在像素域反复编解码导致累积质量退化和计算冗余**
+
 **固定参数模型（SSF）**：在集中式设置下性能最优，但只提供单一操作点，**缺乏编码后的灵活性**
 
 ### 核心矛盾
@@ -112,8 +114,8 @@ $$\eta^{\mathcal{M}}(\boldsymbol{\pi}) = \frac{1}{2}(RQS(\boldsymbol{\pi}, \bold
 **两阶段训练**：
 
 1. **变换模块训练**：从 $k=s$ 到 $k=d+1$ 依次训练变换模块，目标为最小化变换后的潜在表示与目标质量级别分析变换输出之间的L2距离：
-   - 节点内：$\mathcal{L}_{\text{intra}}^{k \to k-1} = \|\phi_{k \to k-1}^{\text{intra}}(\tilde{y}^k) - g_a^{k-1}(x)\|_2^2$
-   - 节点间：$\mathcal{L}_{\text{inter}}^{k \to k-1} = \|\phi_{k \to k-1}^{\text{inter}}(\hat{y}^k) - g_a^{k-1}(x)\|_2^2$
+    - 节点内：$\mathcal{L}_{\text{intra}}^{k \to k-1} = \|\phi_{k \to k-1}^{\text{intra}}(\tilde{y}^k) - g_a^{k-1}(x)\|_2^2$
+    - 节点间：$\mathcal{L}_{\text{inter}}^{k \to k-1} = \|\phi_{k \to k-1}^{\text{inter}}(\hat{y}^k) - g_a^{k-1}(x)\|_2^2$
 
 2. **端到端微调**：使用率失真目标 $\mathcal{L}_{\text{RD}}^k = \lambda_k \cdot \mathcal{D}(x, \hat{x}^k) + \mathcal{R}(\hat{y}^k)$
 

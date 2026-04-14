@@ -47,19 +47,19 @@ tags:
 
 1. **偏差分析（Theorem 4.2）**:
 
-    - 做什么：理论证明 EM 一步损失的偏差不可消除
+    - 功能：理论证明 EM 一步损失的偏差不可消除
     - 核心思路：$\tau^{-2} \cdot \ell_{\text{EM},\tau}(\theta,x,t) = (R[u_\theta])^2 + \frac{1}{2}\text{tr}((H \cdot \nabla^2 u_\theta)^2) + O(\tau^{1/2})$，其中第二项是与 $\tau$ 无关的偏差——即使 $\tau \to 0$ 也无法消除
     - 设计动机：解释了为什么缩小步长也无法改善 EM-BSDE
 
 2. **Stratonovich-Heun BSDE 损失（Theorem 4.4）**:
 
-    - 做什么：提出无偏的损失函数
+    - 功能：提出无偏的损失函数
     - 核心思路：$L_{\text{Heun},\tau}(\theta) = \frac{1}{T}\int_0^T \mathbb{E}[(R[u_\theta])^2]dt + O(\tau^{1/2})$——偏差项仅为 $O(\tau^{1/2})$，可通过减小步长消除
     - 设计动机：Heun 方法是二阶精度的预测-校正格式，自然收敛到 Stratonovich 解
 
 3. **高效子采样实现**:
 
-    - 做什么：加速训练
+    - 功能：加速训练
     - 核心思路：先完整 rollout 前向 SDE 轨迹（stop gradient），然后随机子采样 $B$ 个时间步计算损失，而非使用全部 $N$ 步
     - 设计动机：减少每步计算量，同时保持性能
 

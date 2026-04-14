@@ -55,10 +55,10 @@ tags:
 1. 初始化均匀权重 $q_1(j) = 1/k$，设边缘参数 $\theta = r/(2\log k)$
 2. 设弱学习器误差率 $p = \frac{1}{2}(4k^{2/r})^{-1/(1-\theta)}$
 3. 每轮 $t = 1, \ldots, r$：
-   - 从混合分布 $q_t = \sum_j q_t(j) D_j$ 采 $m = O(d/(\varepsilon p))$ 个样本
-   - 调用PAC学习器 $\mathbb{A}$ 得到假设 $h_t$
-   - 对每个 $D_j$ 采少量样本估计 $\text{err}(h_t, D_j)$
-   - 根据阈值化损失 $\mathbb{1}[\text{err}(h_t, D_j) > \tau/2]$ 按AdaBoost规则更新权重
+    - 从混合分布 $q_t = \sum_j q_t(j) D_j$ 采 $m = O(d/(\varepsilon p))$ 个样本
+    - 调用PAC学习器 $\mathbb{A}$ 得到假设 $h_t$
+    - 对每个 $D_j$ 采少量样本估计 $\text{err}(h_t, D_j)$
+    - 根据阈值化损失 $\mathbb{1}[\text{err}(h_t, D_j) > \tau/2]$ 按AdaBoost规则更新权重
 4. 输出多数投票 $F(x) = \mathbb{1}[\frac{1}{r}\sum_{t=1}^r h_t(x) \geq 1/2]$
 
 **关键性质**：通过 $r$ 轮boosting，对每个分布 $D_j$，至少 $1/2 + \theta/2$ 比例的弱学习器误差 $\leq \tau$，由此保证多数投票在所有分布上误差 $\leq \varepsilon$。

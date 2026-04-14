@@ -9,7 +9,7 @@ tags:
   - 可解释性
   - 时序知识图谱
   - 图结构与文本对齐
-  - Instruction Tuning
+  - 指令微调
 ---
 
 # Towards Explainable Temporal Reasoning in Large Language Models: A Structure-Aware Generative Framework
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.15245](https://arxiv.org/abs/2505.15245)  
 **代码**: [carryTatum/GETER](https://github.com/carryTatum/GETER)  
 **领域**: llm_nlp  
-**关键词**: 时序推理, 可解释性, 时序知识图谱, 图结构与文本对齐, Instruction Tuning
+**关键词**: 时序推理, 可解释性, 时序知识图谱, 图结构与文本对齐, 指令微调
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: 时序推理（Temporal Reasoning）是 NLP 中的核心能力，在搜索推荐、新闻聚合等场景至关重要。近年来 LLM 在时序推理上取得了显著进展，多项工作通过 ICL、CoT、微调等方式提升准确率。
+
 **现有痛点**: 几乎所有已有工作都"只关注性能、忽视可解释性"——LLM 给出预测结果但无法解释其推理过程，缺乏透明度和可信度。
+
 **核心矛盾**: LLM 在仅依赖文本信息时，经常产生幻觉（hallucination），难以生成令人信服的时序推理解释；而传统可解释方法（逻辑规则、强化学习路径）的解释能力有限且泛化性差。
+
 **本文要解决什么**: 如何让 LLM 在复杂时序推理场景中同时做出准确预测并清晰展示推理过程？
+
 **切入角度**: 利用时序知识图谱（TKG）的结构化信息弥补纯文本推理的不足，通过图结构-文本对齐来增强 LLM 的可解释时序推理能力。
+
 **核心 idea 一句话**: 用 temporal encoder 编码 TKG 结构信息为 soft graph token，经轻量 adapter 投射到 LLM 文本空间，与 instruction-tuning prompt 拼接后生成解释文本。
 
 ## 方法详解

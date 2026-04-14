@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 扩散模型
   - Poisson Process
-  - Information Theory
+  - information theory
   - Likelihood Estimation
   - Symbolic Music
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.05082](https://arxiv.org/abs/2505.05082)  
 **代码**: 有（论文中提供链接）  
 **领域**: 图像生成  
-**关键词**: Discrete Diffusion, Poisson Process, Information Theory, Likelihood Estimation, Symbolic Music
+**关键词**: Discrete Diffusion, Poisson Process, information theory, Likelihood Estimation, Symbolic Music
 
 ## 一句话总结
 
@@ -30,13 +30,18 @@ tags:
 **领域现状**：扩散模型在连续域（图像）取得巨大成功，但处理本质离散数据（符号音乐、计数数据）时存在根本性局限：
    - 连续模型需 dequantization 将离散数据映射到连续空间，引入量化间隙和训练-测试不匹配。
    - 现有离散扩散模型（D3PM、LTJ）依赖变分下界（ELBO），非精确似然估计。
+
 **现有痛点**：
    - 连续 DDPM 在双模、偏斜等离散分布上无法准确学习 PMF（如 NYC Taxi 分布中错失第二模态）。
    - LTJ 使用二项稀疏（binomial thinning）和 ELBO 损失——ELBO 非精确似然，且需精心调节去噪步数 $T$。
    - ELBO 引入两层近似：(1) 变分界本身的松弛，(2) Monte Carlo 积分。
+
 **核心矛盾**：离散数据建模需要直接操作概率质量函数（PMF），而非通过概率密度函数（PDF）间接处理。
+
 **本文要解决什么**：为非负离散数据设计信息论上精确的扩散模型，消除 ELBO 近似。
+
 **切入角度**：类比高斯信道上的 I-MMSE 恒等式（互信息导数=最小均方误差），建立泊松信道上的 I-MPRL 恒等式（互信息导数=最小泊松重建损失）。
+
 **核心 idea 一句话**：I-MPRL identity 精确将泊松去噪损失与数据似然联系起来，$-\log P(x) = \int_0^\infty \text{mprl}(x, \gamma) d\gamma$。
 
 ## 方法详解

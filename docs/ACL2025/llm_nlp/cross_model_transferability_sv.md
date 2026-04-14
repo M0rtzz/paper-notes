@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2501.02009](https://arxiv.org/abs/2501.02009)  
 **代码**: 无  
 **领域**: llm_nlp  
-**关键词**: steering vectors, cross-model transfer, representation alignment, linear transformation, LLM interpretability  
+**关键词**: steering vectors, cross-model transfer, representation alignment, linear transformation, LLM interpretability
 
 ## 一句话总结
 提出 L-Cross Modulation 方法，通过简单线性变换将一个 LLM 的概念方向向量（steering vectors）迁移到另一个 LLM 中实现行为控制，发现三个关键结论：(1) 跨模型 SV 迁移有效；(2) 不同概念共享同一变换矩阵；(3) 小模型的 SV 可以控制大模型（弱到强迁移）。
 
 ## 研究背景与动机
 **领域现状**：Steering vectors（SVs）是 LLM 内部概念的方向表示，可用于控制生成行为（如引导生成有害/无害内容），但研究局限于单个 LLM 内部。
+
 **现有痛点**：不同 LLM 有各自的表示空间，SV 不能直接跨模型使用——如从 Llama 提取的 SV 无法直接用于 Qwen。
+
 **核心矛盾**：如果不同 LLM 学到了同一概念的不同表示，跨模型控制就不可行；但 Platonic Representation Hypothesis 认为不同网络会趋向共享的现实统计模型。
+
 **本文要解决什么？** 验证概念表示在不同 LLM 间是否共享一个底层结构，以及能否通过简单变换实现跨模型迁移。
+
 **切入角度**：类比柏拉图洞穴寓言——不同 LLM 是不同"囚徒"，看到的是同一现实的不同"影子"，线性变换是"影子"之间的桥梁。
+
 **核心 idea 一句话**：不同 LLM 的概念表示存在线性可变换的共享结构，支持弱到强的跨模型控制。
 
 ## 方法详解
@@ -40,7 +45,7 @@ tags:
 ### 关键设计
 1. **线性变换矩阵 $\mathbf{T}$ 的学习**:
 
-    - 做什么：用 OLS 最小化 $\|\lambda_\mathcal{D}^{m_t} - \lambda_\mathcal{D}^{m_s} \mathbf{T}'\|$
+    - 功能：用 OLS 最小化 $\|\lambda_\mathcal{D}^{m_t} - \lambda_\mathcal{D}^{m_s} \mathbf{T}'\|$
     - 闭式解：$\mathbf{T} = (\lambda^{m_s\top}\lambda^{m_s})^\dagger \lambda^{m_s\top}\lambda^{m_t}$
     - 设计动机：线性变换保持概念间的基本关系（仅旋转和缩放），有利于验证表示的普遍性
 

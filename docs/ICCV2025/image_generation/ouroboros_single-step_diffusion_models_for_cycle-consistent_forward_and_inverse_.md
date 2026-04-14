@@ -53,13 +53,13 @@ Ouroboros 由两个互补的单步扩散模型组成：(1) 逆渲染模型（RGB
 
 1. **单步预测微调（Single-step Finetuning）**:
 
-    - 做什么：将多步扩散模型微调为单步推理，实现 50× 加速
+    - 功能：将多步扩散模型微调为单步推理，实现 50× 加速
     - 核心思路：固定 timestep $t = T$，强制模型从最大噪声状态一步生成目标。与 E2E 不同，不使用零噪声而是多分辨率噪声初始化，UNet 的 v-prediction 输出通过 $\hat{\mathbf{z}}_0 = \sqrt{\bar\alpha_T} \mathbf{z}_T - \sqrt{1-\bar\alpha_T} \hat{\mathbf{v}}_\theta$ 转换为预测的 latent，再解码比较
     - 设计动机：使用非确定性噪声初始化（而非零噪声）特别适合内在图像分解这种存在多解性的任务——因为同一图像的分解结果不唯一（如 albedo 和 irradiance 的划分本身就有歧义性）
 
 2. **任务特定的损失函数**:
 
-    - 做什么：为不同类型的内在属性设计专门的损失
+    - 功能：为不同类型的内在属性设计专门的损失
     - 法向量：角度损失 $\mathcal{L}_\mathbf{n} = \frac{1}{N}\sum_i \arccos \frac{\mathbf{n}_i \cdot \hat{\mathbf{n}}_i}{||\mathbf{n}_i|| \cdot ||\hat{\mathbf{n}}_i||}$
     - 辐照度：仿射不变损失 $\mathcal{L}_\mathbf{E} = |\mathbf{E} - \mathbf{S}\hat{\mathbf{E}} - \mathbf{T}|_F^2$（通过最小二乘拟合每通道的缩放和偏移参数）
     - 其他属性（albedo、roughness、metallicity、RGB）：MSE 损失
@@ -67,13 +67,13 @@ Ouroboros 由两个互补的单步扩散模型组成：(1) 逆渲染模型（RGB
 
 3. **循环一致性训练（Cycle Training）**:
 
-    - 做什么：确保 RGB→X→RGB' 和 X→RGB→X' 两个循环的输出与输入一致
+    - 功能：确保 RGB→X→RGB' 和 X→RGB→X' 两个循环的输出与输入一致
     - 核心思路：给定 $(X, I)$ 对，先用两个模型分别生成 $(\hat{I}, \hat{X})$，再将生成的结果作为输入做第二轮推理得到 $(\tilde{X}, \tilde{I})$，最小化循环损失：$\mathcal{L}_{cycle} = |\mathbf{X} - \tilde{\mathbf{X}}|^2 + |\mathbf{I} - \tilde{\mathbf{I}}|^2$
     - 设计动机：(a) 改善双向渲染的一致性，(b) 更重要的是通过循环结构引入无标注真实图像数据（MSCOCO、Flickr30k）进行自监督训练，减少对稀缺合成数据的依赖
 
 4. **免训练视频推理**:
 
-    - 做什么：将图像级别的单步模型扩展到视频分解，无需视频数据训练
+    - 功能：将图像级别的单步模型扩展到视频分解，无需视频数据训练
     - 核心思路：将 2D 卷积核 $3 \times 3$ 替换为伪 3D 核 $1 \times 3 \times 3$，展平多帧 patch 在空间-时间维度联合做 attention。使用滑动窗口处理长视频，重叠区域的初始化使用前一窗口的预测结果与噪声的加权混合：$\mathbf{z}_{init} = \gamma \cdot \mathbf{z}_{prev} + (1-\gamma) \cdot \epsilon$（$\gamma=0.1$）
     - 设计动机：训练原生视频扩散模型成本高昂，通过简单的架构扩展利用时空局部性实现时序一致性
 

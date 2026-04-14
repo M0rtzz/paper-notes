@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.13589](https://arxiv.org/abs/2506.13589)  
 **代码**: [https://github.com/xzc-zju/AdaVideoRAG](https://github.com/xzc-zju/AdaVideoRAG)  
 **领域**: 多模态VLM / 视频理解  
-**关键词**: long video understanding, retrieval-augmented generation, adaptive retrieval, knowledge graph, intent classification  
+**关键词**: long video understanding, retrieval-augmented generation, adaptive retrieval, knowledge graph, intent classification
 
 ## 一句话总结
 提出 AdaVideoRAG，通过轻量级意图分类器将查询按难度路由到三级检索路径（无检索/朴素检索/图检索），结合全知识索引模块（caption+ASR+OCR+视觉+知识图谱）实现长视频理解的效率-精度最优平衡，在 MLVU 上为 Qwen2.5-VL-7B 带来 39.8% 提升。

@@ -28,12 +28,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：语音离散 token（如 HuBERT 25Hz，501 码本）使得自回归语音 LM 成为可能。但语音 token 序列远长于对应文本（10-20×），导致训练和推理效率远低于文本 LLM——据估计需要比文本多三个数量级的数据才能达到同等能力。
+
 **现有痛点**：
    - **信息密度不匹配**：语音 token 序列与文本 token 在序列长度上严重不对称，阻碍跨模态知识迁移
    - **计算分配不均**：预训练和推理时大部分计算花在长语音序列上，而非有意义的语义建模
    - **现有对齐尝试不足**：warm initialization（从文本 LLM 初始化）、交错训练虽有帮助，但 speech→speech 和 text→text 性能仍有显著差距
    - BPE 在语音 token 上失效（Cuervo & Marxer 2024 报告）——简单的子词切分不适用于语音
+
 **核心矛盾**：语音建模需要细粒度 token（25Hz），但自回归建模在长序列上效率低且跨模态对齐差
+
 **核心 idea**：借鉴 Byte Latent Transformer (BLT) 的思想——将语音 token 聚合为"潜在 patch"（高层自回归单元），全局 Transformer 在 patch 级别建模，轻量解码器展开 patch 为语音 token。Patch 粒度与文本 token 对齐
 
 ## 方法详解

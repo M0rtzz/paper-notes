@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：3D Gaussian Splatting（3DGS）已成为新视角合成的主流方法，通过3D高斯原语的可微光栅化实现实时渲染和高质量图像合成。当前优化通常使用ADAM优化器，需要30K次迭代、耗时长达1小时。
+
 **现有痛点**：已有加速方法主要从两条路线入手——加速光栅化器实现（如DISTWAR的warp reduction、gsplat的并行模式）或减少高斯数量（如GS-MCMC、Taming-3DGS的新densification方案），但它们都没有触及底层优化器本身，仍依赖ADAM这个一阶优化器逐步收敛。
+
 **核心矛盾**：ADAM作为一阶方法，每步只利用梯度方向信息，收敛需要数千次迭代才能到达局部最优；而二阶方法（如LM）通过求解法方程近似二阶更新，理论上可以用少得多的迭代次数收敛，但在3DGS场景下面临数百万高斯参数×高分辨率图像的Jacobian矩阵过大无法显式存储的挑战。
+
 **本文要解决什么**：如何将LM优化器高效应用于3DGS，在GPU上实现可扩展的Jacobian-向量积计算？
+
 **切入角度**：利用3DGS高斯原语的稀疏性——每个像素只受少量高斯贡献，Jacobian矩阵极度稀疏——设计缓存友好的per-pixel-per-splat并行策略，将中间梯度缓存一次后在PCG迭代中复用。
+
 **核心idea一句话**：通过梯度缓存+per-pixel-per-splat CUDA并行化实现矩阵无关PCG求解，将LM嫁接到3DGS优化的第二阶段，仅需5次LM迭代替代10K次ADAM迭代。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **LM优化器的3DGS适配**:
 
-    - 做什么：将3DGS的渲染损失重构为平方和能量函数以适配LM框架
+    - 功能：将3DGS的渲染损失重构为平方和能量函数以适配LM框架
     - 核心思路：对L1和SSIM损失项分别取平方根得到残差 $r_i^{\text{abs}} = \sqrt{\lambda_1|c_i - C_i|}$ 和 $r_i^{\text{SSIM}} = \sqrt{\lambda_2(1-\text{SSIM}(c_i, C_i))}$，使得目标函数 $E(\mathbf{x}) = \sum r_i^2$ 成为标准最小二乘形式。每步通过求解法方程 $(\mathbf{J}^T\mathbf{J} + \lambda_{\text{reg}}\text{diag}(\mathbf{J}^T\mathbf{J}))\Delta = -\mathbf{J}^T\mathbf{F}$ 获取更新方向，再通过line search找最优步长 $\gamma$。
     - 设计动机：保留了原始L1+SSIM目标（比纯L2质量更好，实验验证），同时使LM能利用曲率信息做更高质量的更新步。
 
 2. **梯度缓存与per-pixel-per-splat并行化**:
 
-    - 做什么：将PCG中反复需要的Jacobian-向量积 $\mathbf{J}\mathbf{p}$ 和 $\mathbf{J}^T\mathbf{u}$ 通过缓存中间梯度加速
+    - 功能：将PCG中反复需要的Jacobian-向量积 $\mathbf{J}\mathbf{p}$ 和 $\mathbf{J}^T\mathbf{u}$ 通过缓存中间梯度加速
     - 核心思路：原3DGS的per-pixel并行每个线程处理一条光线上所有splat，导致 $\alpha$-blending中间状态（$T_s$, $\partial c/\partial \alpha_s$, $\partial c/\partial c_s$）在PCG中被重复计算多达18次。本文改为：buildCache阶段一次性缓存所有中间梯度 $\partial c/\partial s$，之后PCG每步通过per-pixel-per-splat并行（一个线程只处理一条光线的一个splat）直接读缓存完成计算。缓存先按像素排序存储，再通过sortCacheByGaussians重排以保证合并访存。
     - 设计动机：消除PCG迭代中的冗余计算，将计算粒度从per-pixel拆解到per-pixel-per-splat，大幅提升GPU占用率和并行度。
 
 3. **图像子采样方案**:
 
-    - 做什么：控制缓存内存使用，使方法可扩展到高分辨率密集采集场景
+    - 功能：控制缓存内存使用，使方法可扩展到高分辨率密集采集场景
     - 核心思路：将图像分为 $n_b$ 个批次，每批独立求解法方程得到更新向量 $\Delta_i$，最终通过加权平均合并：$\Delta = \sum_i \frac{\mathbf{M}_i \Delta_i}{\sum_k \mathbf{M}_k}$，权重为各批次Jacobi预条件器的对角项 $\mathbf{M}_i = \text{diag}(\mathbf{J}_i^T\mathbf{J}_i)$。实际使用25-70张图片/批，最多4个批次。
     - 设计动机：高分辨率场景下全部图像的缓存会超出GPU显存（完整方案需~53GB），批次化处理将内存使用降低到可控范围，同时加权合并保证了跨批次更新方向的一致性。
 

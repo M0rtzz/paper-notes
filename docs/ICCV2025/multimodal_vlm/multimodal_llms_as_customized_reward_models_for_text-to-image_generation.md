@@ -26,7 +26,9 @@ tags:
 文本到图像生成模型（如 Stable Diffusion）的快速发展催生了对高质量自动评估/奖励模型的强烈需求。现有方法存在以下问题：
 
 **CLIP-based 方法**（CLIPScore、PickScore、HPSv2、ImageReward）：CLIP 表现为词袋模型，对复杂文本-图像关系的建模能力有限，泛化性差
+
 **VQA-based MLLM 方法**（VIEScore、EvalAlign、LlavaGuard）：需要冗长的系统提示和指令微调，推理效率低，评分精度受离散化限制
+
 **Token 概率方法**（Q-ALIGN、VQAScore、LLaVAScore）：依赖特定"golden token"（如 "Yes"/"No"）的概率，难以处理偏好数据中质量差异小的样本
 
 核心问题是：**如何构建一个高效、灵活、多维度的 T2I 评估奖励模型？**

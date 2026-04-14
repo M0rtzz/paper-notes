@@ -20,7 +20,7 @@ tags:
 **作者**: Junqiao Fan, Haocong Rao, Jiarui Zhang, Jianfei Yang, Lihua Xie (南洋理工大学)  
 **代码**: 未公开  
 **领域**: human_understanding  
-**关键词**: 毫米波雷达, 人体运动预测, Diffusion Model, 频域表示, 双域融合  
+**关键词**: 毫米波雷达, 人体运动预测, 扩散模型, 频域表示, 双域融合
 
 ## 一句话总结
 

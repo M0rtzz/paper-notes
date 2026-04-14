@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 图像分割
   - MLLM
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - coarse-to-fine
   - high-resolution
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.21311](https://arxiv.org/abs/2510.21311)  
 **代码**: [https://iiau-zhanglu.github.io/FINERS/](https://iiau-zhanglu.github.io/FINERS/)  
 **领域**: segmentation  
-**关键词**: small object segmentation, MLLM, reinforcement learning, GRPO, coarse-to-fine, high-resolution, UAV
+**关键词**: small object segmentation, MLLM, reinforcement-learning, GRPO, coarse-to-fine, high-resolution, UAV
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 ## 研究背景与动机
 
 **MLLM 分割的现状**：LISA 等方法将 MLLM 与 SAM 结合实现了推理分割，但它们针对标准分辨率和大尺度目标设计，对高分辨率图像中的超小目标（面积占比 <0.1%）严重失效——LISA 7B 在 FineRS-4k 上 gIoU 仅 9.0%。
+
 **高分辨率理解的局限**：现有高分辨率方法（SEAL、DC2、MLLMs-Know）通过分块或注意力操作来感知细节，但多数为 training-free 流程，缺乏精确定位能力，无法输出 pixel-level mask。
+
 **Vision RFT 的不足**：Seg-Zero 将 GRPO 引入分割，但受限于分辨率、不支持多任务（VQA + 分割统一）、奖励设计不够灵活。
+
 **核心动机**：需要一个能处理 4K 图像中超小目标的统一框架，同时支持指令引导分割、开放式 VQA 和选择题 VQA，并通过强化学习实现数据高效训练。
 
 ## 方法详解

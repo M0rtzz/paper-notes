@@ -10,7 +10,7 @@ tags:
   - CT影像
   - 多时相推理
   - 纵向诊断
-  - Benchmark
+  - benchmark
 ---
 
 # 3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.11147](https://arxiv.org/abs/2506.11147)  
 **代码**: [https://github.com/Tang-xiaoxiao/3D-RAD](https://github.com/Tang-xiaoxiao/3D-RAD)  
 **领域**: 医学VQA / 3D医学图像理解 / 多模态  
-**关键词**: 3D Med-VQA, CT影像, 多时相推理, 纵向诊断, Benchmark  
+**关键词**: 3D Med-VQA, CT影像, 多时相推理, 纵向诊断, benchmark
 
 ## 一句话总结
 提出 3D-RAD——首个大规模3D医学VQA基准，包含170K条CT影像问答数据，覆盖六类临床任务（含创新性的多时相诊断任务），并配套136K训练集，揭示了现有VLM在3D时序推理上的严重不足。

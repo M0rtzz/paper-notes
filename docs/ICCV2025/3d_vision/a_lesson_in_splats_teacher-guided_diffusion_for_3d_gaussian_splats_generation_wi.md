@@ -40,26 +40,26 @@ tags:
 
 1. **噪声教师与模态解耦**:
 
-    - 做什么：用预训练的确定性3D重建模型（如Splatter Image或Flash3D）作为"噪声教师" $T_\phi$，其输出 $s_0^{\text{teacher}}$ 虽不完美但可作为3D噪声样本的来源
+    - 功能：用预训练的确定性3D重建模型（如Splatter Image或Flash3D）作为"噪声教师" $T_\phi$，其输出 $s_0^{\text{teacher}}$ 虽不完美但可作为3D噪声样本的来源
     - 核心思路：对教师输出加噪 $s_t = \sqrt{\alpha_t}s_0^{\text{teacher}} + \sqrt{1-\alpha_t}\epsilon$，关键是选择临界时间步 $t^*$，使得 $t \geq t^*$ 时教师噪声分布与真实GT噪声分布足够接近
     - 设计动机：传统扩散训练必须在同一模态中完成噪声添加和监督。这种解耦策略打破了这一限制，使得3D扩散模型可以仅用2D图像训练
 
 2. **多步去噪训练策略**:
 
-    - 做什么：在训练时不再使用单步去噪（只在 $t > t^*$ 采样），而是从 $t > t^*$ 开始进行多步迭代去噪直到 $t=0$，得到最终3D预测
+    - 功能：在训练时不再使用单步去噪（只在 $t > t^*$ 采样），而是从 $t > t^*$ 开始进行多步迭代去噪直到 $t=0$，得到最终3D预测
     - 核心公式：$\hat{s}_0 = D_\theta(\hat{s}_1, 1, x_{\text{src}}) \circ \cdots \circ D_\theta(s_t, t, x_{\text{src}})$
     - 渲染监督损失：$\mathcal{L}_{\text{mlt-stp}} = \mathbb{E}[\lambda_t \|x_{\text{tgt}}^v - \mathcal{R}(\hat{s}_0, v)\|_2^2]$
     - 设计动机：如果只在高噪声级别训练（$t > t^*$），模型无法学习低噪声级别的细节恢复。多步去噪"展开"了整个去噪链，使梯度可以反向传播到所有时间步，让模型在低噪声级别也能产生高质量结果
 
 3. **Bootstrap预热阶段**:
 
-    - 做什么：在多步去噪前先用教师的3D输出进行单步去噪训练，快速初始化模型
+    - 功能：在多步去噪前先用教师的3D输出进行单步去噪训练，快速初始化模型
     - 核心公式：$\mathcal{L}_{\text{bootstrap}} = \mathbb{E}[\ell_{\text{3DGS}} + \ell_{\text{image}}]$，其中 $\ell_{\text{3DGS}} = \|s_0^{\text{teacher}} - D_\theta(s_t,t,x_{\text{src}})\|^2$，$\ell_{\text{image}} = \|x_{\text{tgt}}^v - \mathcal{R}(D_\theta(s_t,t,x_{\text{src}}),v)\|_2^2$
     - 设计动机：直接用多步去噪从头训练代价极高（需维护多步梯度），Bootstrap阶段用单步去噪+教师3D监督高效初始化模型到教师水平
 
 4. **循环一致性正则化**:
 
-    - 做什么：将预测的3DGS渲染到目标视角 $\hat{x}_{\text{tgt}}$，再用这张图像驱动第二次3D预测 $\tilde{s}_0$，然后渲染回源视角对比
+    - 功能：将预测的3DGS渲染到目标视角 $\hat{x}_{\text{tgt}}$，再用这张图像驱动第二次3D预测 $\tilde{s}_0$，然后渲染回源视角对比
     - 核心公式：$\mathcal{L}_{\text{cyc}} = \|x_{\text{src}} - \mathcal{R}(\tilde{s}_0, v_{\text{src}})\|_2^2$
     - 设计动机：受CycleGAN启发，循环一致性约束预测不仅要在外观上匹配目标图像，还要足够可靠以驱动反向重建
 

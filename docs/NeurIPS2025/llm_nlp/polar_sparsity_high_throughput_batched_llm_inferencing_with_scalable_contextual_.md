@@ -32,7 +32,9 @@ tags:
 核心矛盾在于：
 
 **MLP 层稀疏性随 batch 增大快速消失**：batch 中不同序列的活跃神经元取并集后，稀疏性迅速趋近稠密计算
+
 **Attention 层随 batch 和序列长度增加变成瓶颈**：batch 增大后 attention 延迟线性增长，逐渐主导端到端延迟
+
 **现有工作仅优化单 query 推理**：DejaVu、PowerInfer 等方法在大 batch 下收益消失
 
 以 OPT-66B 为例，batch size 从 1 增大到 64 时，MLP 层因 batch 化而变高效，但 attention 层延迟几乎线性增长，成为新的瓶颈。

@@ -7,11 +7,11 @@ tags:
   - CVPR2026
   - 多模态
   - VLA
-  - world model
+  - 世界模型
   - 强化学习
   - post-training
-  - robotic manipulation
-  - few-shot
+  - 机器人操作
+  - 小样本
 ---
 
 # World-Env: Leveraging World Model as a Virtual Environment for VLA Post-Training
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.24948](https://arxiv.org/abs/2509.24948)  
 **代码**: [github.com/amap-cvlab/world-env](https://github.com/amap-cvlab/world-env)  
 **领域**: robotics  
-**关键词**: VLA, world model, reinforcement learning, post-training, robotic manipulation, few-shot
+**关键词**: VLA, 世界模型, 强化学习, post-training, 机器人操作, 小样本
 
 ## 一句话总结
 
@@ -33,6 +33,7 @@ tags:
 VLA (Vision-Language-Action) 模型通过模仿学习从大规模示教数据中学习策略，但面临两大瓶颈：
 
 **数据稀缺**：高质量人工示教收集成本极高，少样本条件下性能急剧退化
+
 **RL post-training 受限**：虽然 RL 能通过交互探索弥补示教不足，但现实环境不可重置（non-resettable），尤其在工业自动化等高风险场景中，交互引发的状态变化代价高昂甚至不可逆
 
 ### 现有方案的不足

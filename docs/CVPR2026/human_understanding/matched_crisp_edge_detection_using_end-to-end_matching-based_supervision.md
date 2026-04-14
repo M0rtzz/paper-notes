@@ -9,7 +9,7 @@ tags:
   - 边缘检测
   - crisp edges
   - 二部匹配
-  - plug-and-play
+  - 即插即用
   - 端到端训练
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.20689](https://arxiv.org/abs/2602.20689)  
 **代码**: [https://cvpr26-matched.github.io](https://cvpr26-matched.github.io)  
 **领域**: 人体理解 / 边缘检测  
-**关键词**: 边缘检测, crisp edges, 二部匹配, plug-and-play, 端到端训练
+**关键词**: 边缘检测, crisp edges, 二部匹配, 即插即用, 端到端训练
 
 ## 一句话总结
 
@@ -49,25 +49,25 @@ MatchED 的 pipeline 非常简洁：给定任意边缘检测器 $f$（CNN/Transf
 
 1. **匹配代价矩阵构建（Alignment Cost）**:
 
-    - 做什么：在每次训练迭代中，计算预测边缘像素和 GT 边缘像素之间的匹配代价
+    - 功能：在每次训练迭代中，计算预测边缘像素和 GT 边缘像素之间的匹配代价
     - 核心思路：代价矩阵综合考虑空间距离和置信度。满足三个条件时（预测置信度达到阈值 $\tau_c$、GT 为边缘、曼哈顿距离在阈值 $\tau_d$ 内），代价为距离减去置信度加权项 $d(\mathbf{p_c}, \mathbf{p_g}) - \alpha \cdot \mathbf{E}_c(\mathbf{p_c})$；否则代价为无穷大
     - 设计动机：三个条件分别确保只考虑高置信预测、只匹配真实 GT 边缘、只允许局部范围内的匹配。$\tau_d$ 与评估协议一致，是训练-测试一致性的关键保障。置信度越高代价越低，鼓励高置信响应
 
 2. **最优二部匹配（One-to-one Bipartite Matching）**:
 
-    - 做什么：在代价矩阵上求解最优一对一分配，确保每个预测像素最多匹配一个 GT 像素
+    - 功能：在代价矩阵上求解最优一对一分配，确保每个预测像素最多匹配一个 GT 像素
     - 核心思路：使用 Hungarian 算法求解最优排列使总代价最小。得到最优分配后构建 matching-based GT。对于在 $\tau_d$ 范围内无预测响应的 GT 边缘像素，直接恢复到匹配 GT 中保证后续迭代可以匹配
     - 设计动机：one-to-one 匹配是消除厚边缘的核心——如果多个预测像素想匹配同一个 GT 像素，最优分配只保留一个，其他会被标记为非边缘。这自然压制了边缘膨胀，迫使模型精确定位
 
 3. **MatchED 轻量 CNN 架构**:
 
-    - 做什么：将 raw edge map 细化为 crisp edge map
+    - 功能：将 raw edge map 细化为 crisp edge map
     - 核心思路：仅由5个标准卷积块组成（Conv2D + ReLU + Normalization），最后接 Sigmoid。总参数量约 21K，附加到 PiDiNet 只增加 3%，对大模型增加不到 0.02%
     - 设计动机：模块必须足够轻量才能作为 plug-and-play 方案。细化功能由匹配式监督驱动
 
 4. **两阶段训练策略**:
 
-    - 做什么：确保 MatchED 在可靠的 raw edge map 基础上工作
+    - 功能：确保 MatchED 在可靠的 raw edge map 基础上工作
     - 核心思路：前 $N/2$ 个 epoch 只训练基础检测器，后 $N/2$ 个 epoch 联合训练检测器和 MatchED
     - 设计动机：MatchED 的匹配只有在基础模型已经能输出合理边缘响应时才有效
 

@@ -31,7 +31,9 @@ tags:
 - 实践者被迫使用 7B-15B 的"代理模型"，开销仍然巨大（单次 7B/500B tokens 训练 >50K USD）
 
 **作者的分析揭示两个根本问题**：
+
 **评估目标错位**：小模型的训练目标是 NTP（next-token prediction），但评估用的是 Acc./Pass@K——与训练目标完全不同的离散指标
+
 **任务对齐缺失**：即使使用 NLL，gold label 的选择也至关重要：如果 gold label 分布外（OOD），NLL 信号同样嘈杂。同时，标准 NLL 对所有 token 等权处理，未区分任务关键 token 和格式化 token
 
 ## 方法详解

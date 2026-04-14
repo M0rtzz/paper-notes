@@ -30,10 +30,12 @@ tags:
 文本到图像（T2I）模型（如 Stable Diffusion、DALL·E、Midjourney）在创意设计中广泛应用，但由于训练数据来自互联网未经严格过滤，存在生成 NSFW（Not Safe for Work）内容的风险。
 
 **现有防御体系**：
+
 **安全过滤器（Safety Filters）**：
    - 文本过滤器：基于关键词黑名单匹配（text-match）或 BERT 分类器（text-classifier）
    - 图像过滤器：检测生成图像中的 NSFW 内容
    - 潜空间过滤器：如 LatentGuard
+
 **概念移除（Concept Removal）**：直接修改模型权重，消除 NSFW 概念（如 ESD、SLD、FMN、SafeGen 等）
 
 **现有攻击的局限**：
@@ -72,8 +74,8 @@ $$\max_j \cos(\text{Embed}(w_i), e_{harm}^j) > \tau$$
 1. 使用 LLM 翻译为 $L=79$ 种语言，生成候选池 $V^{(\lambda_i)}$
 2. 将每个候选插入模板 prompt，生成 10 张图像
 3. 用两个指标评估候选质量：
-   - **有害性分数** $\mathcal{H}$：NSFW 检测器输出的目标类概率
-   - **视觉语义相似度** CLIPSim：候选生成图像与安全 prompt 图像的 CLIP 分数
+    - **有害性分数** $\mathcal{H}$：NSFW 检测器输出的目标类概率
+    - **视觉语义相似度** CLIPSim：候选生成图像与安全 prompt 图像的 CLIP 分数
 4. 按综合分数排名，保留 top-$k$（$k=10$）候选
 
 #### 3. **通心粉替代词构造（核心创新）**

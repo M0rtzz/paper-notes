@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.15752](https://arxiv.org/abs/2602.15752)  
 **代码**: [kishi6/ICLR2026_MRet](https://github.com/kishi6/ICLR2026_MRet)  
 **领域**: ai_safety  
-**关键词**: two-sided matching, user retention, learning-to-rank, online dating, fairness  
+**关键词**: two-sided matching, user retention, learning-to-rank, online dating, fairness
 
 ## 一句话总结
 提出以用户留存率（而非匹配数或公平性）为优化目标的双边匹配推荐算法 MRet，通过学习个性化留存曲线并联合考虑推荐双方的留存增益来动态排序推荐列表。

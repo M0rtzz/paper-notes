@@ -2,15 +2,15 @@
 title: >-
   [论文解读] DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-turn Settings
 description: >-
-  [ACL 2025][LLM/NLP][tool use] 提出 DICE-Bench 基准评估 LLM 在多轮对话中的工具使用能力，涵盖工具发现、调用、错误恢复和组合使用四个维度，发现即使最强模型在复杂多轮场景下也仅达 ~60% 成功率。
+  [ACL 2025][LLM/NLP][工具使用] 提出 DICE-Bench 基准评估 LLM 在多轮对话中的工具使用能力，涵盖工具发现、调用、错误恢复和组合使用四个维度，发现即使最强模型在复杂多轮场景下也仅达 ~60% 成功率。
 tags:
   - ACL 2025
   - LLM/NLP
-  - tool use
+  - 工具使用
   - multi-turn
   - benchmark
-  - LLM evaluation
-  - function calling
+  - LLM 评测
+  - 函数调用
 ---
 
 # DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-turn Settings
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.22853](https://arxiv.org/abs/2506.22853)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: tool use, multi-turn, benchmark, LLM evaluation, function calling
+**关键词**: 工具使用, multi-turn, benchmark, LLM 评测, 函数调用
 
 ## 一句话总结
 提出 DICE-Bench 基准评估 LLM 在多轮对话中的工具使用能力，涵盖工具发现、调用、错误恢复和组合使用四个维度，发现即使最强模型在复杂多轮场景下也仅达 ~60% 成功率。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 的工具使用（function calling）能力评估主要聚焦单轮调用。
+
 **现有痛点**：真实应用中工具使用通常需要多轮交互（发现工具->调用->处理错误->组合），现有基准无法评估这一完整流程。
+
 **核心矛盾**：单轮评估高估了 LLM 的实际工具使用能力。
+
 **本文要解决什么？** 构建覆盖工具使用全流程的多轮评估基准。
+
 **切入角度**：定义四个评估维度 DICE（Discovery, Invocation, Composition, Error-recovery）。
+
 **核心idea一句话**：多轮工具使用远比单轮困难——错误累积和上下文管理是关键挑战。
 
 ## 方法详解

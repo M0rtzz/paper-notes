@@ -27,10 +27,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：训练数据归因（Training Data Attribution, TDA）研究训练数据如何塑造模型行为，是 AI 可解释性和安全性的基础问题。经典影响函数（Influence Functions, IF）通过 Hessian 逆来度量数据点的影响。
+
 **现有痛点**：(a) 深度神经网络的 Hessian 通常是退化的（非可逆），经典 IF 的理论前提不成立；(b) 对大模型直接计算 Hessian 不可行，EK-FAC 等近似方法引入结构性偏差且仅支持 Linear/Conv2D 层；(c) Per-token 级别的细粒度归因在经典方法中需要逐 token 串行计算，不可扩展。
+
 **核心矛盾**：需要一个既理论合理（不依赖 Hessian 可逆性）又计算可行（能扩展到数十亿参数）的数据归因方法。
+
 **本文要解决什么？** 能否用贝叶斯推断框架彻底绕开 Hessian，同时保持或超越经典 IF 的归因质量？
+
 **切入角度**：将经典 IF 的 Hessian 逆替换为局部后验分布上的协方差估计，利用 SGLD 采样实现。
+
 **核心 idea 一句话**：$\text{BIF}(z_i, \phi) = -\text{Cov}_\gamma(\ell_i(\boldsymbol{w}), \phi(\boldsymbol{w}))$——影响就是训练损失与目标可观测量在局部后验下的负协方差。
 
 ## 方法详解

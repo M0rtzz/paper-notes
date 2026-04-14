@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2504.00467](https://arxiv.org/abs/2504.00467)  
 **代码**: [https://github.com/ptorrijos99/BayesFL](https://github.com/ptorrijos99/BayesFL)  
 **领域**: others (贝叶斯网络 / 联邦学习)  
-**关键词**: Bayesian network, structural fusion, consensus, min-cut, max-flow, greedy equivalence search, federated learning, treewidth  
+**关键词**: Bayesian network, structural fusion, consensus, min-cut, max-flow, greedy equivalence search, federated learning, treewidth
 
 ## 一句话总结
 

@@ -1,13 +1,16 @@
 ---
-title: "[论文解读] Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding"
-description: "[CVPR 2026][医学图像][3D创伤检测] MIM预训练+VDETR顶点RPE+半监督一致性正则化，仅144例标注即实现56.57% mAP@0.50"
+title: >-
+  [论文解读] Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding
+description: >-
+  [CVPR 2026][医学图像][腹部创伤检测] 在仅 206 例标注(其中 144 例用于训练)的极端稀缺条件下，通过 patch-based MIM 预训练 3D U-Net + VDETR 顶点 RPE 检测器 + 2000 例未标注数据的半监督一致性正则化，将 3D 腹部创伤检测 mAP@0.50 从 26.36% 提升至 56.57%(验证集,+115%)，冻结编码器的 7 类分类达 94.07% 准确率。
 tags:
   - CVPR 2026
   - 医学图像
-  - 3D创伤检测
-  - 自监督学习
+  - 腹部创伤检测
+  - MIM预训练
   - 半监督学习
   - VDETR
+  - 3D顶点相对位置编码
 ---
 
 # Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding
@@ -45,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **Patch-based MIM 自监督预训练**:
-    - 做什么：从每个 CT 体积中提取 128×128×128 patch，切分为 8×8×8 子块并随机遮蔽 75%，训练 3D U-Net 重建被遮蔽区域
+    - 功能：从每个 CT 体积中提取 128×128×128 patch，切分为 8×8×8 子块并随机遮蔽 75%，训练 3D U-Net 重建被遮蔽区域
     - 核心思路：标准 encoder-decoder U-Net 架构，encoder 通过 3D 卷积+池化逐步下采样，decoder 通过转置卷积重建。用 MSE 损失训练 50 epochs，Adam 优化器。每个 epoch 从每卷中采样多个 patch 确保解剖结构全覆盖。训练完成后冻结 encoder 作为固定特征提取器
     - 设计动机：75% 的高遮蔽率迫使网络学习有意义的解剖模式和空间关系而非简单插值；patch-based 策略避免处理全分辨率体积的内存瓶颈
 
 2. **VDETR + 3D 顶点相对位置编码(3DV-RPE)**:
-    - 做什么：将编码器输出的 32×21×21 特征图(256维)采样 4096 个 token 输入 Transformer 解码器，用 8 角顶点位置编码增强注意力
+    - 功能：将编码器输出的 32×21×21 特征图(256维)采样 4096 个 token 输入 Transformer 解码器，用 8 角顶点位置编码增强注意力
     - 核心思路：对每个 query $q$ 和体素位置 $\mathbf{p}_v$，计算到预测框全部 8 个顶点的偏移向量 $\Delta\mathbf{P}_i \in \mathbb{R}^{K \times N \times 3}$，通过 MLP 转换为注意力偏置 $\mathbf{R} = \sum_{i=1}^{8} \mathbf{P}_i$，叠加到标准 attention：$\mathbf{A} = \text{softmax}(\mathbf{QK}^T + \mathbf{R})$
     - 设计动机：传统中心距离度量无法表征不规则器官——一个体素到框中心距离相同但可能在框内/外/边界上。8 角 RPE 提供完整的几何关系信息，使模型在少量数据下也能学到有效的空间归纳偏置
 
 3. **两阶段训练 + 半监督一致性正则化**:
-    - 做什么：Phase I (epochs 0-20) 冻结编码器训练解码器；Phase II (epochs 20-100) 解冻编码器联合微调，同时引入 2000 例未标注数据的半监督学习
+    - 功能：Phase I (epochs 0-20) 冻结编码器训练解码器；Phase II (epochs 20-100) 解冻编码器联合微调，同时引入 2000 例未标注数据的半监督学习
     - 核心思路：对未标注体积施加弱增强($\sigma=0.01$, $\pm 2\%$)生成教师伪标签和强增强($\sigma=0.05$, $\pm 10\%$, blur, elastic)生成学生预测。一致性损失三组件：$\mathcal{L}_{center}$(MSE) + $\mathcal{L}_{size}$(MSE) + $\mathcal{L}_{cls}$(KL, T=2.0)。权重 $\lambda(t)$ 从 epoch 20→60 线性从 0 升至 0.3
     - 设计动机：Phase I 防止随机初始化的解码器梯度破坏预训练特征；Phase II 编码器用 3-epoch warmup 渐进解冻(lr=1e-5，仅解码器的 1/10)防止灾难性遗忘；半监督在 epoch 20 之后才激活避免训练不稳定
 

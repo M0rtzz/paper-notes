@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Muon 优化器通过正交化动量矩阵（而非像 Adam 那样向量化处理）来更新矩阵参数，在 LLM 训练中表现优异。实际使用 Newton-Schulz (NS) 迭代近似极坐标分解，避免昂贵的 SVD。
+
 **现有痛点**：现有 Muon 理论分析（Shen et al., Li & Hong）都将 NS 替换为精确 SVD——但实际中从不用 SVD。NS 近似误差如何影响收敛？几步 NS 就够吗？why？
+
 **核心矛盾**：实践中 Muon 用少量 NS 步就达到了 SVD 级别效果（更快的 wall-clock），但理论空白——实践远超理论。
+
 **切入角度**：直接分析 NS 近似的极坐标误差 $\varepsilon_q$，证明它随步数双指数衰减。
+
 **核心idea一句话**：NS 近似误差 $\varepsilon_q$ 双指数衰减→几步 NS 就将 Muon 收敛率拉到 SVD 级别→每步计算远低于 SVD→wall-clock 更快。
 
 ## 方法详解
@@ -40,17 +44,17 @@ Muon 每步：(1) 计算随机梯度 $G_t$；(2) 动量更新 $M_t = \beta M_{t-
 ### 关键设计（理论贡献）
 
 1. **Theorem 1: NS-Muon 非凸收敛**:
-   - Muon with $q$ 步 NS 达到 $\epsilon$-平稳点的迭代数：$T = O\left(\frac{C_q \cdot L D}{\epsilon^2}\right)$
-   - $C_q$ 是唯一依赖 NS 近似的常数因子
+    - Muon with $q$ 步 NS 达到 $\epsilon$-平稳点的迭代数：$T = O\left(\frac{C_q \cdot L D}{\epsilon^2}\right)$
+    - $C_q$ 是唯一依赖 NS 近似的常数因子
 
 2. **Theorem 2: 极坐标近似误差双指数衰减**:
-   - $\varepsilon_q \leq \varepsilon_0^{(2\kappa+1)^q}$——随步数 $q$ 双指数衰减，随多项式阶 $\kappa$ 也衰减
-   - 意义：$q = 3-5$ 步，$\kappa = 2-3$ 就足以让 $C_q \approx 1$（匹配 SVD）
-   - Wall-clock 优势：NS 只需矩阵乘法（GPU 高效），SVD 是 $O(mn \min(m,n))$
+    - $\varepsilon_q \leq \varepsilon_0^{(2\kappa+1)^q}$——随步数 $q$ 双指数衰减，随多项式阶 $\kappa$ 也衰减
+    - 意义：$q = 3-5$ 步，$\kappa = 2-3$ 就足以让 $C_q \approx 1$（匹配 SVD）
+    - Wall-clock 优势：NS 只需矩阵乘法（GPU 高效），SVD 是 $O(mn \min(m,n))$
 
 3. **Theorem 3: 比 SGD-M 的秩优势**:
-   - Muon 收敛率比 SGD-M 快 $\sqrt{r}$ 倍（$r = \min(m,n)$，矩阵秩）
-   - 原因：Muon 在 nuclear norm 下工作→利用了矩阵低秩结构→更高效的搜索方向
+    - Muon 收敛率比 SGD-M 快 $\sqrt{r}$ 倍（$r = \min(m,n)$，矩阵秩）
+    - 原因：Muon 在 nuclear norm 下工作→利用了矩阵低秩结构→更高效的搜索方向
 
 ## 实验关键数据
 

@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **长上下文推理瓶颈**：LLM 推理时，解码阶段需要在每一步从 HBM（高带宽内存）向 SRAM 反复传输 KV cache，数据搬运（而非计算）成为长上下文推理的主要延迟来源。
+
 **MLA 的成功与局限**：DeepSeek 提出的 Multi-Head Latent Attention (MLA) 通过将 KV cache 压缩为单一 latent head（每 token 仅需 $4.5 d_h$），显著减少了 KV cache 总量。但其单一 latent head **不可分片**——在张量并行（TP）解码时，每个设备被迫冗余加载完整 KV cache。
+
 **TP 下 MLA 的性能停滞**：无论 TP 程度如何，MLA 的每设备 KV cache 加载量始终固定在 $4.5 d_h$，TP 带来的权重分片优势被完全抵消。
+
 **GLA-2 的部分解决**：GLA-2 将 latent head 二等分为两个较小的 latent head，在 2-way TP 下降低为 $2.5 d_h$，但 TP > 2 时同样无法进一步降低。
+
 **算术强度的重要性**：解码效率的关键指标是算术强度（FLOPs/byte），需要在减少内存加载的同时保持高计算密度，从而将工作负载从内存受限推向计算受限。
+
 **方差不匹配问题**：MLA 中 RoPE key 与 NoPE key 存在显著的方差不匹配（$\text{Var}(K^{\text{RoPE}}) / \text{Var}(K^{\text{NoPE}}) \approx d/d_c$），当 latent 维度远小于隐藏维度时问题尤为突出。
 
 ## 方法详解

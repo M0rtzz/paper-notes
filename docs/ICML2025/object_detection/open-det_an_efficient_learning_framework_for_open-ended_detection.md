@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.20639](https://arxiv.org/abs/2505.20639)  
 **代码**: https://github.com/Med-Process/Open-Det  
 **领域**: 目标检测 / 开放词汇检测 / 多模态VLM  
-**关键词**: Open-Ended Detection, Vision-Language Alignment, Knowledge Distillation, LoRa Head, Masked Alignment Loss
+**关键词**: Open-Ended Detection, Vision-Language Alignment, knowledge distillation, LoRa Head, Masked Alignment Loss
 
 ## 一句话总结
 
@@ -54,27 +54,27 @@ Open-Det 包含四个协作组件：**(1) Object Detector (ODR)** 负责生成 b
 
 1. **Object Detector (ODR) — 解耦 One-to-Many/One-to-One 匹配**:
 
-    - 做什么：加速 box 检测器的训练收敛
+    - 功能：加速 box 检测器的训练收敛
     - 核心思路：前 4 层 decoder 使用 one-to-many 匹配 + cross-attention 增强定位能力，后 2 层使用 one-to-one 匹配 + self-attention 消除重复检测。不需要额外的分支或 head，直接在 decoder 内部解耦
     - 设计动机：借鉴 DINO 的 anchor box 去噪和 one-to-many 加速收敛的思想，但避免了现有方法需要额外分支增加复杂性的问题
     - 此外引入了基于阈值的 query 选择方法：$Q_{id} = \{e_t \in E | \sigma(\text{Linear}(e_t)) > \lambda\}$（$\lambda$ 默认 0.05），实现灵活数量的目标检测
 
 2. **Bidirectional Vision-Language Alignment Module (BVLA-M)**:
 
-    - 做什么：增强视觉 query 和文本嵌入之间的对齐质量
+    - 功能：增强视觉 query 和文本嵌入之间的对齐质量
     - 核心思路：从 V-to-L 和 L-to-V 两个方向计算对齐分数：$S_{align} = \cos(Q_d \times M_{VL}, T_e) + \cos(Q_d, T_e \times M_{LV})$，其中 $M_{VL}$ 和 $M_{LV}$ 分别是两个方向的变换矩阵
     - 设计动机：视觉 query 通道维度（256）远小于文本嵌入（768），直接将低维映射到高维进行单向对齐效果不佳。双向对齐让两个模态在各自的空间中都进行匹配
 
 3. **Vision-to-Language Distillation Module (VLD-M)**:
 
-    - 做什么：将 VLM 的视觉-语言对齐知识蒸馏到 VL-prompts 中，桥接视觉 query 和图像级文本嵌入之间的语义鸿沟
+    - 功能：将 VLM 的视觉-语言对齐知识蒸馏到 VL-prompts 中，桥接视觉 query 和图像级文本嵌入之间的语义鸿沟
     - 核心思路：通过可变形交叉注意力（deformable cross-attention）让 query $Q_d$ 与 backbone 特征 $B$ 和 encoder 特征 $E$ 交互，自适应采样目标周围的背景信息，将区域嵌入转化为类图像表示。再通过 FFN 重新加权、MLP 投影、线性融合生成 VL-prompts $P_{vl}$
     - 设计动机：区别于 RegionCLIP 生成伪标签、DVDet 裁切扩展框，VLD-M 直接在特征层面丰富背景信息并蒸馏知识，更高效
     - 使用 Cosine Similarity Loss 在 $P_{vl}$ 和 $T_e$ 之间进行监督蒸馏
 
 4. **Object Name Generator — LoRa Head + Text Denoising**:
 
-    - 做什么：加速 LLM（T5）的训练并防止噪声对齐破坏预训练权重
+    - 功能：加速 LLM（T5）的训练并防止噪声对齐破坏预训练权重
     - LoRa Head：训练初期冻结 T5 的 heavy-weight head（24.7M 参数），引入 LoRa 适配器作为轻量 head 加速训练，大幅减少可训练参数
     - Text Denoising：在文本嵌入 $T_e$ 上添加高斯噪声 $\mathcal{N}(0, \sigma^2)$（$\sigma$ 为 $T_e$ 的标准差）后送入 T5 重建文本，增强模型对噪声输入的鲁棒性
     - 设计动机：训练初期 query 未充分训练，对齐质量差属于噪声监督，直接训练 LLM 全部权重会破坏预训练

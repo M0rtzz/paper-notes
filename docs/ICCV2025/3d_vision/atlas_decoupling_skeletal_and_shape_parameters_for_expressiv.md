@@ -93,10 +93,10 @@ $$\mathcal{L} = \mathcal{L}_{data} + \mathcal{L}_{shape\_reg} + \mathcal{L}_{ske
 ### 消融实验要点
 
 1. **形状+骨骼解耦的必要性**（Table 4）：
-   - 仅用形状参数：3DBodyTex 6.47mm / Goliath 4.76mm
-   - 仅用骨骼参数：3DBodyTex 3.17mm / Goliath 2.67mm
-   - 两者结合：3DBodyTex **2.48mm** / Goliath **2.34mm**
-   - 结论：形状捕捉软组织，骨骼捕捉结构，二者互补
+    - 仅用形状参数：3DBodyTex 6.47mm / Goliath 4.76mm
+    - 仅用骨骼参数：3DBodyTex 3.17mm / Goliath 2.67mm
+    - 两者结合：3DBodyTex **2.48mm** / Goliath **2.34mm**
+    - 结论：形状捕捉软组织，骨骼捕捉结构，二者互补
 
 2. **非线性vs线性姿态校正**：非线性校正在肩部等复杂关节和极端姿态下的肌肉隆起建模更自然，误差从1.82mm降至1.61mm
 

@@ -36,16 +36,16 @@ tags:
 ### 三类初始化策略
 
 1. **LeCun启发**：保持前向激活方差
-   - $\sigma_r = \sqrt{\frac{\text{Var}(x)}{n_{\text{in}}(G+k+1)\mu_R^{(0)}}}$，$\sigma_b$ 类似但 $\mu_B^{(0)}$ 需数值估计
-   - 变体：LeCun-numerical(数值估计基函数矩) / LeCun-normalized(归一化基函数使矩=1)
+    - $\sigma_r = \sqrt{\frac{\text{Var}(x)}{n_{\text{in}}(G+k+1)\mu_R^{(0)}}}$，$\sigma_b$ 类似但 $\mu_B^{(0)}$ 需数值估计
+    - 变体：LeCun-numerical(数值估计基函数矩) / LeCun-normalized(归一化基函数使矩=1)
 
 2. **Glorot启发**：同时保持前向和反向方差
-   - $\sigma_r = \sqrt{\frac{1}{G+k+1} \cdot \frac{2}{n_{\text{in}}\mu_R^{(0)} + n_{\text{out}}\mu_R^{(1)}}}$
-   - 额外考虑了基函数导数的矩 $\mu_B^{(1)}$
+    - $\sigma_r = \sqrt{\frac{1}{G+k+1} \cdot \frac{2}{n_{\text{in}}\mu_R^{(0)} + n_{\text{out}}\mu_R^{(1)}}}$
+    - 额外考虑了基函数导数的矩 $\mu_B^{(1)}$
 
 3. **Power-law族**：经验可调
-   - $\sigma_r = (n_{\text{in}}(G+k+1))^{-\alpha}$，$\sigma_b = (n_{\text{in}}(G+k+1))^{-\beta}$
-   - 通过网格搜索 $(\alpha,\beta)$ 找最优配置
+    - $\sigma_r = (n_{\text{in}}(G+k+1))^{-\alpha}$，$\sigma_b = (n_{\text{in}}(G+k+1))^{-\beta}$
+    - 通过网格搜索 $(\alpha,\beta)$ 找最优配置
 
 ## 实验关键数据
 

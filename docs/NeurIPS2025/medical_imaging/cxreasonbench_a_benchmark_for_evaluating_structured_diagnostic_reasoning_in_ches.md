@@ -9,7 +9,7 @@ tags:
   - 胸部X光
   - 诊断推理
   - 视觉语言模型
-  - 基准测试
+  - benchmark
   - 结构化评估
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18087](https://arxiv.org/abs/2505.18087)  
 **代码**: [GitHub](https://github.com/ttumyche/CXReasonBench)  
 **领域**: 医学图像  
-**关键词**: 胸部X光, 诊断推理, 视觉语言模型, 基准测试, 结构化评估
+**关键词**: 胸部X光, 诊断推理, 视觉语言模型, benchmark, 结构化评估
 
 ## 一句话总结
 

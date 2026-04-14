@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Multi-head Transformers Provably Learn Symbolic Multi-step Reasoning via Gradient Descent
 description: >-
-  [NeurIPS 2025][理论分析][Transformer推理] 从梯度下降动力学角度严格证明单层多头 Transformer 可学会符号化多步推理任务（树路径查找），揭示不同注意力头的自主分工和协调机制。
+  [NeurIPS 2025][优化][Transformer] 从梯度下降训练动力学出发，严格证明了单层多头 Transformer 通过 CoT 过程可学会树路径查找的前向和后向推理任务，并揭示不同注意力头会自主专业化以协调解决多阶段子任务。
 tags:
   - NeurIPS 2025
-  - 优化理论
+  - 优化
   - Transformer
   - 多步推理
   - Chain-of-Thought
-  - 注意力机制
-  - 理论分析
+  - 梯度下降动力学
+  - 注意力头分工
 ---
 
 # Multi-head Transformers Provably Learn Symbolic Multi-step Reasoning via Gradient Descent
@@ -28,14 +28,17 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Transformer 在多步推理任务中展示了出色能力，Chain-of-Thought（CoT）提示进一步释放了这种能力。但我们对 Transformer "如何通过训练习得推理能力"的理解仍非常有限。
+
 **理论缺口**：
    - 现有关于 Transformer 表达能力的研究主要是构造性的——证明存在某组权重可以完成任务，但不证明梯度下降能找到这些权重
    - 关于 Transformer 训练动力学的理论工作大多限于简单任务（如线性回归的 ICL），不涉及多步推理
    - 多头注意力的分工机制缺乏理论解释
+
 **核心问题**：
    - 梯度下降能否训练浅层 Transformer 学会多步推理？
    - 多个注意力头如何自主分工协调？
    - CoT 中间步骤的结构化设计如何帮助浅层模型解决深层问题？
+
 **切入角度**：选择树路径查找（Tree Path-Finding）作为符号化多步推理的抽象任务模型——结构清晰、可分析、同时捕获推理的关键要素。
 
 ## 方法详解

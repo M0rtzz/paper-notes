@@ -10,7 +10,7 @@ tags:
   - token routing
   - sparsification
   - instruction-driven
-  - robot manipulation
+  - robotic manipulation
 ---
 
 # CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.21046](https://arxiv.org/abs/2508.21046)  
 **代码**: 无（论文中未提及）  
 **领域**: 机器人 / 多模态VLM  
-**关键词**: VLA, token routing, sparsification, instruction-driven, robot manipulation
+**关键词**: VLA, token routing, sparsification, instruction-driven, robotic manipulation
 
 ## 一句话总结
 提出 CogVLA——模仿人类多模态认知的三阶段 VLA 架构：(1) EFA-Routing 将视觉 token 压缩至 25%；(2) LFP-Routing 裁剪 50% 的 LLM 无关 token；(3) V-L-A 耦合注意力保持语义一致性——在 LIBERO 上达 97.4% 成功率，训练成本降 2.5×，推理延迟降 2.8×。
@@ -27,7 +27,9 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：VLA 模型（OpenVLA、π₀）将视觉+语言+动作统一在单一模型中进行机器人控制。但大量视觉 token 和 dense LLM 计算导致训练和推理成本高昂。
+
 **现有痛点**：(a) OpenVLA 等方法所有视觉 token 同等处理，但大多数与任务指令无关；(b) LLM 的所有 token 都参与计算，但许多与动作生成无关；(c) 视觉-语言-动作三模态的注意力模式应不同但被统一处理。
+
 **切入角度**：模仿人类认知——先选择性注意（视觉过滤）→ 重点处理（LLM 稀疏化）→ 协调执行（耦合注意力），三阶段渐进式信息压缩。
 
 ## 方法详解
@@ -35,17 +37,17 @@ tags:
 ### 三阶段架构
 
 1. **Stage 1 - EFA-Routing（Early Feature Aggregation）**:
-   - 做什么：基于指令引导聚合视觉 token，压缩至 25%
-   - 机制：指令 embedding 作为 query，视觉 token 作为 key/value，聚合出最相关的 1/4
+    - 功能：基于指令引导聚合视觉 token，压缩至 25%
+    - 机制：指令 embedding 作为 query，视觉 token 作为 key/value，聚合出最相关的 1/4
 
 2. **Stage 2 - LFP-Routing（LLM Feature Pruning）**:
-   - 做什么：在 LLM 中用指令感知的稀疏模式裁剪 50% 不相关 token
-   - 保留与动作生成最相关的 token 进入深层
+    - 功能：在 LLM 中用指令感知的稀疏模式裁剪 50% 不相关 token
+    - 保留与动作生成最相关的 token 进入深层
 
 3. **Stage 3 - V-L-A Coupled Attention**:
-   - 视觉-语言部分：因果注意力（保持序列一致性）
-   - 动作部分：双向注意力（保持时间连贯性）
-   - 分层注意力确保不同模态用不同模式处理
+    - 视觉-语言部分：因果注意力（保持序列一致性）
+    - 动作部分：双向注意力（保持时间连贯性）
+    - 分层注意力确保不同模态用不同模式处理
 
 ## 实验关键数据
 

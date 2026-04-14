@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：预训练 VLM（如 CLIP）具有极强的域泛化能力，能跨域识别各类物体，但在特定下游任务中，这种全面的泛化能力并非必要，甚至可能带来安全隐患和信息泄露风险。
+
 **现有痛点**：现有的近似遗忘方法聚焦于 class-level unlearning（遗忘特定类别），但在许多实际场景中仅遗忘类别远远不够。例如自动驾驶系统需要识别真实的汽车，但不应将路边广告上的插画汽车误认为真实汽车。
+
 **核心矛盾**：VLM 的强域泛化能力导致不同域的特征分布在隐空间中高度纠缠（entangled），直接套用类遗忘策略（对 forget 域最大化熵 + 对 memorize 域最小化交叉熵）无法有效区分哪些特征属于哪个域，导致遗忘和保留相互干扰。
+
 **本文要解决什么？** 如何让 VLM 在域级别（而非类级别）进行精细的选择性遗忘——降低指定域的识别准确率，同时保持其他域的性能。
+
 **切入角度**：既然域纠缠是核心障碍，那就先把域分布在隐空间中拆开（disentangle），再分别对不同域施加遗忘/保留策略。
+
 **核心idea一句话**：通过域分布解纠缠 + 实例级自适应 prompt 生成，实现 VLM 的精准域级遗忘。
 
 ## 方法详解
@@ -44,13 +49,13 @@ tags:
 
 1. **Approximate Domain Unlearning (ADU) 问题定义**:
 
-    - 做什么：给定训练集 $\{(\mathbf{x}, y, d)\}$，其中 $d \in \mathcal{D}$ 为域标签，定义 $\mathcal{D}_{\text{memorize}}$ 为需保留的域，$\mathcal{D}_{\text{forget}} = \mathcal{D} \setminus \mathcal{D}_{\text{memorize}}$ 为需遗忘的域
+    - 功能：给定训练集 $\{(\mathbf{x}, y, d)\}$，其中 $d \in \mathcal{D}$ 为域标签，定义 $\mathcal{D}_{\text{memorize}}$ 为需保留的域，$\mathcal{D}_{\text{forget}} = \mathcal{D} \setminus \mathcal{D}_{\text{memorize}}$ 为需遗忘的域
     - 核心思路：对 memorize 域最小化交叉熵 $\mathcal{L}_{\text{memorize}}$，对 forget 域最小化到均匀分布的交叉熵 $\mathcal{L}_{\text{forget}}$（等价于最大化熵）
     - 设计动机：直接将类遗忘的两个损失搬到域遗忘上是最直接的 baseline，但由于域分布纠缠严重，单靠这两个损失效果有限
 
 2. **Domain Disentangling Loss (DDL)**:
 
-    - 做什么：在隐空间中显式地将不同域的特征分布推开
+    - 功能：在隐空间中显式地将不同域的特征分布推开
     - 核心思路：由两个互补的损失函数组成。第一个是辅助域分类器的交叉熵损失 $\mathcal{L}_{\text{CE}}$，要求模型能正确预测样本的域标签；第二个是 Maximum Mean Discrepancy (MMD)，在再生核希尔伯特空间中最大化域间距离：
     $\mathcal{L}_{\text{domain}} = \gamma \mathcal{L}_{\text{CE}} - \lambda \text{MMD}^2$
       其中 MMD 前取负号表示最大化域间距离（与传统域适应中最小化 MMD 恰好相反）。$\gamma=30$，$\lambda=10$ 为默认超参。
@@ -58,7 +63,7 @@ tags:
 
 3. **Instance-wise Prompt Generator (InstaPG)**:
 
-    - 做什么：根据每张输入图像的 patch 特征动态生成个性化的 vision prompt
+    - 功能：根据每张输入图像的 patch 特征动态生成个性化的 vision prompt
     - 核心思路：嵌入在 ViT 的中间 Transformer block 中，采用 cross-attention 机制——可学习的 vision prompt 作为 query，图像 patch features 作为 key 和 value，生成实例级别的 prompt 送入后续层
     - 设计动机："域"本身是模糊的概念。例如"插画"风格跨度极大，有的接近写实、有的接近卡通。统一的 prompt 无法捕捉这种实例级的域差异，InstaPG 通过注意力机制让 prompt 自适应于每张图像的特征
 

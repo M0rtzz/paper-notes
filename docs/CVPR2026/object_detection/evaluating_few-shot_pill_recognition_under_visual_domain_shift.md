@@ -52,25 +52,25 @@ tags:
 
 1. **数据集设计与对比**
 
-    - 做什么：刻意选择两个视觉复杂度差异巨大的数据集作为base training来源
+    - 功能：刻意选择两个视觉复杂度差异巨大的数据集作为base training来源
     - 核心思路：CURE（8973图/196类/单药丸受控环境/全图bbox标注）vs MEDISEG（8262图/32类/多药丸真实场景/实例级bbox标注）。两者类别不重叠，都不与novel类别混合
     - 设计动机：通过控制base domain的视觉真实性，隔离"训练数据真实性"这一变量对few-shot泛化的影响。CURE数据量多、类别多但单一简单；MEDISEG数据量少、类别少但视觉复杂度高——这构成了一个自然的"量vs质"实验
 
 2. **Few-shot适应协议**
 
-    - 做什么：在novel deployment dataset上执行5-way K-shot适应
+    - 功能：在novel deployment dataset上执行5-way K-shot适应
     - 核心思路：$K \in \{1, 5, 10\}$，support set从部署数据集采样，query set（516图）和overlap-only set（133图）严格分离。Fine-tuning固定2000 iterations，SGD + momentum 0.9，lr=$1\times10^{-3}$，backbone冻结，仅微调ROI heads和部分RPN
     - 设计动机：固定训练预算消除训练时长混淆；冻结backbone保留base知识；严格数据分离确保观察到的差异归因于base-domain特性而非数据泄露
 
 3. **Classification-centric评估体系**
 
-    - 做什么：用前景分类准确率（FG-Acc）、假阴性率（FN rate）、RPN分类loss、总loss替代传统mAP作为主要指标
+    - 功能：用前景分类准确率（FG-Acc）、假阴性率（FN rate）、RPN分类loss、总loss替代传统mAP作为主要指标
     - 核心思路：$\text{FG-Acc} = \frac{\text{正确前景分类数}}{\text{总前景提议数}}$，$\text{FN} = \frac{\text{漏检GT目标数}}{\text{总GT目标数}}$
     - 设计动机：CURE（全图bbox）和MEDISEG（实例bbox）标注粒度不同导致IoU匹配不一致，AP在跨标注策略时不可比。分类指标和错误指标能隔离语义识别和定位失败，暴露mAP掩盖的失败模式
 
 4. **Overlap-only压力测试**
 
-    - 做什么：从部署数据集中筛选133张严重重叠的药丸场景作为独立测试集
+    - 功能：从部署数据集中筛选133张严重重叠的药丸场景作为独立测试集
     - 核心思路：人工验证每张图片确实存在显著遮挡/边界模糊，提供instance-level bbox + segmentation mask标注。与standard评估共享label space但改变场景结构
     - 设计动机：标准评估可能混淆简单场景和困难场景的表现；overlap-only set隔离最具挑战的视觉条件，直接暴露模型在遮挡下的脆弱性
 

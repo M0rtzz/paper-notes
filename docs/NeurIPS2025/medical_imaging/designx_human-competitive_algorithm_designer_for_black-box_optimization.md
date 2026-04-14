@@ -27,12 +27,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：黑盒优化（BBO）是科学工业核心问题。进化计算（EC）是主流无梯度求解范式，数十年来产生了 GA、DE、PSO、CMA-ES 等大量变体，但每种都需专家手工设计自适应算子和超参控制
+
 **现有痛点**：
    - 为每个新 BBO 问题手动重设计优化器不可扩展
    - MetaBBO（元黑盒优化）虽引入学习范式，但现有方法只学习**单一子任务**——要么做算法选择/工作流生成，要么做超参数控制，二者分离导致次优设计
    - LLM 虽可生成算法代码，但同样只处理单一子任务
+
 **核心矛盾**：算法设计本质包含两个耦合子任务（工作流结构 + 动态超参），分开优化无法联合最优
+
 **切入角度**：构建模块化算法空间 Modular-EC + 双智能体 RL 系统端到端联合学习
+
 **核心idea一句话**：Agent-1 自回归生成合法优化器工作流 + Agent-2 动态调控超参，通过合作训练目标在 10k 问题分布上元学习
 
 ## 方法详解
@@ -44,13 +48,13 @@ tags:
 
 1. **Modular-EC 模块化算法空间**
 
-    - 做什么：将 EC 优化器分解为 10 种模块类型（Initialization, Mutation, Crossover, Selection, Niching, ...），共 116 个模块变体
+    - 功能：将 EC 优化器分解为 10 种模块类型（Initialization, Mutation, Crossover, Selection, Niching, ...），共 116 个模块变体
     - 核心思路：每个模块有唯一 16-bit 编码和拓扑规则（定义合法后继模块），支持自回归生成合法工作流。相比前身 Modular-BBO（主要服务 DE），新增了 ES/GA/PSO 的算子和 Other_Update 模块类型
     - 设计动机：将数十年人类专家设计的算法组件统一编码，为学习代理提供**数百万种可能工作流**的搜索空间
 
 2. **Agent-1: 工作流生成**
 
-    - 做什么：给定问题特征 $\mathcal{F}_p$（13维，含 4 基本属性 + 9 ELA 特征），自回归采样模块序列
+    - 功能：给定问题特征 $\mathcal{F}_p$（13维，含 4 基本属性 + 9 ELA 特征），自回归采样模块序列
     - 核心思路：GPT-2 架构，通过 masked Softmax 采样保证拓扑合法性：
       $P(\mathcal{A}_p^{m+1} | \text{start}, \mathcal{A}_p^1, ..., \mathcal{A}_p^m) \sim \text{Softmax}(\text{mask}(\mathcal{A}_p^m) \odot (\mathcal{W}_\text{sample}^T \cdot H^{(m)}))$
       mask 向量根据当前模块的拓扑规则将非法模块概率置零
@@ -58,7 +62,7 @@ tags:
 
 3. **Agent-2: 动态超参控制**
 
-    - 做什么：在优化过程中每步根据观测 $\mathcal{O}_t$（9维进度特征）为所有可控模块生成超参值
+    - 功能：在优化过程中每步根据观测 $\mathcal{O}_t$（9维进度特征）为所有可控模块生成超参值
     - 核心思路：将模块 ID 和观测拼接后编码，通过另一组 GPT-2 blocks 输出正态分布参数：
       $\mu = \mathcal{W}_\mu^T \cdot H_{dec}, \quad \Sigma = \mathcal{W}_\Sigma^T \cdot H_{dec}$
       超参从预测分布采样：$C_t^m \sim \mathcal{N}(\mu^{(m)}, \Sigma^{(m)})$

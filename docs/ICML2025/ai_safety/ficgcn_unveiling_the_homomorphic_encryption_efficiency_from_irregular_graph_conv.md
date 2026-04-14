@@ -1,7 +1,16 @@
 ---
+title: >-
+  [论文解读] FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks
 description: >-
-  [ICML2025][隐私计算] 提出FicGCN框架利用GCN的稀疏特性在同态加密(HE)下实现高效隐私推理：延迟感知打包方案+稀疏密文内聚合(SpIntra-CA)+区域数据重排，在保护数据隐私的同时比最新方案加速4.10倍。
-tags: [ICML2025, 隐私计算, 同态加密, 图卷积网络, CKKS, 隐私保护推理]
+  [ICML 2025][AI安全][同态加密] 提出FicGCN框架，通过延迟感知的打包策略、稀疏密文内聚合（SpIntra-CA）和基于区域的节点重排三项创新，解决GCN不规则稀疏性与同态加密SIMD计算模式之间的根本矛盾，在Corafull等大规模图上实现最高4.10×的端到端加速。
+tags:
+  - ICML 2025
+  - AI安全
+  - 同态加密
+  - 图卷积网络
+  - CKKS
+  - 稀疏聚合
+  - 隐私保护推理
 ---
 
 # FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks
@@ -40,19 +49,19 @@ FicGCN工作流程包含三个核心模块：(1) **延迟感知打包**：根据
 
 1. **稀疏密文内聚合（SpIntra-CA）**:
 
-    - 做什么：在密文内部通过旋转操作高效构建"邻居密文"实现所有节点的并行聚合
+    - 功能：在密文内部通过旋转操作高效构建"邻居密文"实现所有节点的并行聚合
     - 核心思路：将每个节点到其邻居位置的旋转距离做比特分解，按位从低到高依次执行 $2^0, 2^1, \ldots, 2^{\lfloor\log M\rfloor}$ 步旋转，每步用Mask明文选择需要/不需要旋转的节点。迭代公式：$\{ct\} \leftarrow \{ct\} \otimes Mask_1 \oplus Rot(\{ct\}, 2^{m-1}) \otimes Mask_2$。理想情况下仅需 $\log(M)$ 次旋转
     - 设计动机：朴素方法逐节点提取需 $O(N)$ 次旋转且每次仅对一个节点有效；借鉴密文内部求和的比特分解技术，让每次旋转同时服务于多个节点，效率从 $O(N)$ 降至 $O(\log^2 N)$
 
 2. **节点顺序优化（NOO）**:
 
-    - 做什么：优化密文中节点的排列顺序以最小化SpIntra-CA的旋转距离和冲突次数
+    - 功能：优化密文中节点的排列顺序以最小化SpIntra-CA的旋转距离和冲突次数
     - 核心思路：三步流程——(1) BFS区域划分（阈值TH限制区域大小）；(2) 区域间交错排列使每个区域成为密文的子环，保持旋转一致性；(3) 区域内贪心排列：逐节点选择与已固定节点冲突最少的位置
     - 设计动机：节点在密文中的排列直接决定旋转距离和冲突频率——邻居节点越近旋转越短，区域内冲突越少额外密文越少
 
 3. **延迟感知打包与聚合模式调度**:
 
-    - 做什么：逐层自动选择最优密文打包参数和聚合模式
+    - 功能：逐层自动选择最优密文打包参数和聚合模式
     - 核心思路：当 $M > N \cdot F'$ 时优化目标 $\mathcal{J}(t;F,n) = 2\lceil F \cdot n/t \rceil + 20\lceil\log(t)\rceil$；逐层比较Inter-CA（$2\lceil Fn/t \rceil$ Rot）和SpIntra-CA（$10cn\log^2(N)$ Rot），取延迟更低者
     - 设计动机：Rotation操作延迟是乘法/加法的20倍以上，打包方式直接影响Rot次数——全局优化比固定策略高效
 

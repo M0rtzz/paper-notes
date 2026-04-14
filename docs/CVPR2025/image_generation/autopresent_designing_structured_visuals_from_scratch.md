@@ -10,7 +10,7 @@ tags:
   - 代码生成
   - 大语言模型
   - 视觉设计
-  - Benchmark
+  - benchmark
 ---
 
 # AutoPresent: Designing Structured Visuals from Scratch
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.00912](https://arxiv.org/abs/2501.00912)  
 **代码**: [https://github.com/para-lost/AutoPresent](https://github.com/para-lost/AutoPresent)  
 **领域**: 多模态 / 结构化视觉生成  
-**关键词**: 幻灯片生成, 代码生成, 大语言模型, 视觉设计, Benchmark
+**关键词**: 幻灯片生成, 代码生成, 大语言模型, 视觉设计, benchmark
 
 ## 一句话总结
 

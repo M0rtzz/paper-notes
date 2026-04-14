@@ -33,7 +33,9 @@ tags:
 作者的思路基于三个关键洞察：
 
 **Scaling Law**：更多训练数据通常产生更好的预训练权重(更好的泛化能力)。但大规模数据采集成本高昂，实践中往往受限
+
 **Fine-tuning导致遗忘**：在子集数据上fine-tuning会覆盖模型对子集外数据的知识——这是catastrophic forgetting的经典表现，通常被视为缺陷
+
 **Fine-tuning过程可逆**：已有unlearning研究表明fine-tuning在权重空间的变化具有一定可逆性；loss landscape的平滑性(mode connectivity)使得权重预测在理论上可行
 
 **核心创意**：既然fine-tuning在缩小数据上→遗忘知识→权重退化是一个有结构的过程，那么反转这个过程→恢复知识→权重增强也是可行的。这将"遗忘"从缺陷转化为工具。

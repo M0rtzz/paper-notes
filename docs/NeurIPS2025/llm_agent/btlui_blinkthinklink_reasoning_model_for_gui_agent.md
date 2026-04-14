@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] BTL-UI: Blink-Think-Link Reasoning Model for GUI Agent
 description: >-
-  提出Blink-Think-Link脑启发框架模拟人类GUI交互认知过程，分解为Blink（眼跳式注意力定位）、Think（认知推理）、Link（动作生成）三阶段，配合首个过程+结果复合规则奖励BTL Reward
+  [NeurIPS 2025][LLM Agent][GUI agent] 提出 Blink-Think-Link（BTL）脑启发框架，将 GUI 交互分解为 Blink（快速注意力定位）、Think（认知推理决策）、Link（可执行命令生成）三个生物合理阶段，配合自动化 Blink 数据标注 pipeline 和首个基于规则的过程+结果复合奖励机制 BTL Reward，训练的 BTL-UI 在静态 GUI 理解和动态交互 benchmark 上达到 competitive 性能。
 tags:
   - NeurIPS 2025
+  - LLM Agent
   - GUI agent
-  - 认知科学
-  - 强化学习
-  - GRPO
   - Blink-Think-Link
-  - VLM
+  - cognitive-inspired
+  - GRPO
+  - BTL Reward
 ---
 
 # BTL-UI: Blink-Think-Link Reasoning Model for GUI Agent
@@ -42,19 +44,19 @@ BTL 将 GUI 交互建模为 MDP，策略函数 F({z_t, u, h}) → o_t = {b_t, d_
 
 1.    **Blink 阶段（视觉注意力定位）**：
 
-    -    做什么：快速定位屏幕上与当前任务相关的 ROI 区域，输出封装在 `<blink></blink>` 标签中
+    -    功能：快速定位屏幕上与当前任务相关的 ROI 区域，输出封装在 `<blink></blink>` 标签中
     -    核心思路：模拟人类扫视眼跳（saccadic eye movements），通过两阶段 pipeline 生成 Blink 数据——(1) 解析模型提取所有 UI 元素（bbox/类型/caption）；(2) Qwen2.5-VL-32B 根据任务指令筛选 λ 个最相关元素
     -    设计动机：现有方法直接从截图生成动作，缺乏对任务相关区域的显式注意；Blink 提供了 top-down 注意力引导
 
 2.    **Think 阶段（认知推理）**：
 
-    -    做什么：基于 Blink 定位的区域进行高级推理和决策，输出推理过程在 `<think></think>` 标签中
+    -    功能：基于 Blink 定位的区域进行高级推理和决策，输出推理过程在 `<think></think>` 标签中
     -    核心思路：理解当前状态、分析任务目标、规划下一步操作
     -    设计动机：推理阶段保留了 DeepSeek-R1 风格的 chain-of-thought，但建立在 Blink 提供的聚焦信息之上
 
 3.    **Link 阶段（动作生成）**：
 
-    -    做什么：生成可执行的 GUI 命令（点击坐标、文本输入等），输出在 `<link></link>` 标签中
+    -    功能：生成可执行的 GUI 命令（点击坐标、文本输入等），输出在 `<link></link>` 标签中
     -    核心思路：动作类型 α_t + 参数 δ_t 构成完整命令
     -    设计动机：与 Think 分离确保命令的结构化和可解析性
 

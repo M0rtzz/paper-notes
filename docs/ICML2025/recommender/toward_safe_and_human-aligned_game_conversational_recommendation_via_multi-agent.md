@@ -1,15 +1,15 @@
 ---
 title: >-
-  [论文解读] MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation
+  [论文解读] MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition
 description: >-
-  [ICML2025][游戏推荐] 提出MATCHA多Agent框架解决游戏对话推荐的三大挑战：复杂约束（Intent+Tool Agent）、知识时效（Multi-LLM Ranking+Reflection Agent）、安全风险（Risk Control+Explanation Agent），Hit@5提升20%、流行度偏差降低24%、对抗防御达97.9%。
+  [ICML 2025][对话推荐] 提出 MATCHA 多 Agent 框架，将游戏对话推荐分解为六个专用 Agent（意图解析、工具增强候选生成、多 LLM 排序、反思重排、风险控制、可解释生成），在 Roblox 真实用户数据上 Hit@5 提升 20%、流行度偏差降 24%、对抗防御率 97.9%。
 tags:
-  - ICML2025
-  - 游戏推荐
+  - ICML 2025
   - 对话推荐
-  - 多Agent
+  - 多 Agent
+  - 游戏推荐
   - 安全控制
-  - 长尾覆盖
+  - 可解释推荐
 ---
 
 # MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition
@@ -48,19 +48,19 @@ tags:
 
 1. **风险控制模块（双端安全防护）**:
 
-    - 做什么：在输入端和输出端双重拦截有害内容
+    - 功能：在输入端和输出端双重拦截有害内容
     - 核心思路：Jailbreak Prevention Agent 整合三种互补技术——(1) RA-LLM 随机 token 丢弃法（检测越狱攻击）；(2) Chain-of-thought 意图推理（识别隐晦的对抗语义）；(3) 预定义策略的 fallback 行为。Dangerous Content Detection Agent 作为第二层过滤，对输入查询和输出推荐都做内容审核
     - 设计动机：游戏平台用户群体包含大量未成年人，安全风险更高。单一检测方法容易被绕过，三种互补技术组合提高鲁棒性
 
 2. **多 LLM 协作排序 + 反思重排**:
 
-    - 做什么：克服单一 LLM 的知识局限，提升排序质量
+    - 功能：克服单一 LLM 的知识局限，提升排序质量
     - 核心思路：Ranking Agent 使用两层 LLM 协作——GPT-4o 和 Gemini 分别独立评估候选游戏的五个维度（流行度、用户偏好匹配、历史相似性、类型对齐、年龄适宜性），通过加权平均融合。Reflection Agent 在排好序的候选上加载详细游戏 profile（因文本太长只在此阶段使用），结合上下文线索和用户反馈进行重排。为控制成本，反思只作用于 top-k 候选
     - 设计动机：不同 LLM 在不同维度有互补优势（如一个更擅长理解复杂意图，另一个在类型匹配上更准确）；反思机制利用完整游戏信息修正排序，但限制作用范围以平衡效果和计算成本
 
 3. **四维可解释推荐生成**:
 
-    - 做什么：为每个推荐生成多角度的可读解释
+    - 功能：为每个推荐生成多角度的可读解释
     - 核心思路：Explanation Agent 从四个维度生成解释——(1) 类别偏好（推荐与用户偏好类型的对齐）；(2) 相似性（与用户历史喜欢的游戏的相似之处）；(3) 人口统计（年龄适宜性等）；(4) 流行度与新颖性（评分/奖项/创新特色）。通过查询游戏元数据（ID、描述、标签）构建 profile，针对每个维度用定制 prompt 生成解释，再聚合为连贯摘要
     - 设计动机：多维解释比单一理由更有说服力，虚拟评审打分 4.2/5，人类专家打分 3.97/5，两者高度一致
 

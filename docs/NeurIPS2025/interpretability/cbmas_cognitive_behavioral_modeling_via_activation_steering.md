@@ -1,12 +1,17 @@
 ---
-description: 提出CBMAS诊断框架，通过连续激活引导(activation steering)分析LLM中认知偏差的传播和翻转点
+title: >-
+  [论文解读] CBMAS: Cognitive Behavioral Modeling via Activation Steering
+description: >-
+  [NeurIPS 2025][激活引导] CBMAS提出一个连续激活引导诊断框架，将认知偏差分析从离散的"前/后"比较扩展为沿引导系数α和层深度的连续轨迹，揭示偏差传播的翻转点、衰减模式和层位敏感性。
 tags:
-- NEURIPS2025
-- 可解释性
-- 激活引导
-- 认知偏差
-- 机械可解释性
+  - NeurIPS 2025
+  - 激活引导
+  - 认知偏差
+  - 偏差响应曲线
+  - logit lens
+  - 层敏感性分析
 ---
+
 # CBMAS: Cognitive Behavioral Modeling via Activation Steering
 
 **会议**: NeurIPS 2025  
@@ -40,13 +45,13 @@ CBMAS将激活引导视为可控的连续实验工具：
 ### 关键设计
 
 1. **引导向量构建与多层干预**:
-    - 做什么：从对比prompt对中提取偏差方向向量，在指定层注入并在多个层读取效果
+    - 功能：从对比prompt对中提取偏差方向向量，在指定层注入并在多个层读取效果
     - 核心思路：引导向量 $\mathbf{v}_L^{(S)} = \mathbb{E}[\mathbf{h}_L^{(S)}(p^{(A)}) - \mathbf{h}_L^{(S)}(p^{(B)})]$，其中A/B对应支持/反对方向；注入时修改隐状态 $\mathbf{h} \leftarrow \mathbf{h} + \alpha \mathbf{v}$
     - 设计动机：将注入层和读取层解耦，可以追踪偏差信号从注入点向后续层的传播和衰减
     - 控制组：随机向量和正交向量作为对照，确保观察到的效果来自偏差方向而非随机扰动
 
 2. **偏差响应曲线 (BRC) 协议**:
-    - 做什么：在用户定义的α范围内密集扫描，记录多维度指标构建连续的偏差轨迹
+    - 功能：在用户定义的α范围内密集扫描，记录多维度指标构建连续的偏差轨迹
     - 核心思路：对每个α值记录：logit差异 $\Delta_{logit}(\alpha)$、概率差异、KL散度、逐token困惑度、token排名轨迹
     - 设计动机：离散的前/后比较可能错过翻转点和非线性行为；连续扫描可揭示偏差从萌生到翻转到饱和的完整动态
     - 强制二元输出：prompt以"I choose ("结尾，迫使模型在A/B间选择

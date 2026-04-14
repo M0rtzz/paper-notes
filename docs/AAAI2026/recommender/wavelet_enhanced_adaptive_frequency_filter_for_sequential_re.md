@@ -1,6 +1,8 @@
 ---
+title: >-
+  [论文解读] Wavelet Enhanced Adaptive Frequency Filter for Sequential Recommendation
 description: >-
-  AAAI2026论文提出WEARec序列推荐模型，结合动态频域滤波(DFF)和小波特征增强(WFE)两个模块替代self-attention，DFF通过用户上下文自适应生成个性化滤波器解决静态滤波忽略行为差异的问题，WFE通过Haar小波变换增强非平稳高频信号弥补全局DFT模糊短期波动的缺陷，四个数据集全面超越SOTA，长序列场景HR@10最高提升11.4%且训练速度快39%。
+  [AAAI2026][sequential recommendation] 提出WEARec模型，通过动态频域滤波（DFF）根据用户上下文自适应调整频域滤波器捕获个性化全局偏好，并用小波特征增强（WFE）弥补全局DFT模糊短期波动的缺陷，在四个数据集上超越全部9个基线，长序列场景最高提升11.4%且训练速度快39-45%。
 tags:
   - AAAI2026
   - sequential recommendation
@@ -41,17 +43,17 @@ tags:
 ### 关键设计
 
 1. **动态频域滤波模块（DFF）**:
-    - 做什么：根据每个用户的行为序列上下文，自适应生成个性化的频域滤波器参数，实现用户级别的频率选择
+    - 功能：根据每个用户的行为序列上下文，自适应生成个性化的频域滤波器参数，实现用户级别的频率选择
     - 核心思路：先将嵌入沿维度拆分为 $k$ 个子空间（多头投影），对每个子空间做1D FFT得到频域表示 $\mathbb{F}_i^l \in \mathbb{C}^{M \times d/k}$。同时在时域计算用户上下文均值 $\mathbf{c}^l = \frac{1}{N}\sum_{i=1}^{N}\mathbb{H}_i^l$，通过两个MLP分别生成缩放因子 $\Delta\mathbf{s}^l$ 和偏置 $\Delta\mathbf{b}^l$。用它们调制基础滤波器：$\hat{\mathbb{W}}^l = \mathbb{W}^l \odot (1 + \Delta\mathbf{s}^l)$，$\hat{\mathbf{b}}^l = \mathbf{b}^l + \Delta\mathbf{b}^l$。最后频域线性变换 $\tilde{\mathbb{F}}_i^l = \mathbb{F}_i^l \odot \hat{\mathbb{W}}^l + \hat{\mathbf{b}}^l$ 后IFFT回时域
     - 设计动机：缩放因子 $\Delta\mathbf{s}$ 控制滤波器的整体频率响应形状，偏置 $\Delta\mathbf{b}$ 针对特定频段做微调，两者结合实现"基于用户上下文的条件滤波"。频谱可视化证实WEARec能覆盖全频段，而FMLPRec和SLIME4Rec偏向低频
 
 2. **小波特征增强模块（WFE）**:
-    - 做什么：通过离散小波变换（DWT）分解序列的高频和低频成分，用可学习矩阵自适应增强高频细节信号
+    - 功能：通过离散小波变换（DWT）分解序列的高频和低频成分，用可学习矩阵自适应增强高频细节信号
     - 核心思路：对每个子空间沿item维度做Haar小波分解 $\mathbb{A}_i^l, \mathbb{D}_i^l = \mathcal{W}(\mathbb{B}_i^l)$，其中 $\mathbb{A}$ 为低频近似系数、$\mathbb{D}$ 为高频细节系数。低频不修改（保留序列主要趋势），高频用可学习矩阵增强 $\tilde{\mathbb{D}}_i^l = \mathbb{D}_i^l \odot \mathbb{T}^l$，最后IDWT重构 $\mathbb{Y}_i^l = \mathcal{W}^{-1}(\mathbb{A}_i^l, \tilde{\mathbb{D}}_i^l)$
     - 设计动机：小波变换具有时频局部化特性（DFT不具备），能精准定位短期非平稳事件。选择Haar小波因其结构最简单、计算高效且支持完美重构。只增强高频而不修改低频，避免破坏序列的主要趋势信息
 
 3. **特征融合与预测**:
-    - 做什么：将DFF提取的全局频域特征与WFE增强的局部时频特征按权重融合，输出最终推荐
+    - 功能：将DFF提取的全局频域特征与WFE增强的局部时频特征按权重融合，输出最终推荐
     - 核心思路：加权融合 $\hat{\mathbb{H}}^l = \alpha \odot \mathbb{X}^l + (1-\alpha) \odot \mathbb{Y}^l$（$\alpha \approx 0.3$ 最优），后接残差连接、LayerNorm、FFN（GELU激活）。预测层 $\hat{\mathbf{y}} = \text{softmax}(\mathbf{h}^L (\mathbb{M})^\top)$
     - 设计动机：DFF捕获全局个性化频域分布，WFE增强局部非平稳细节，两者互补。$\alpha < 0.5$ 表明局部高频增强应占较大权重，因为频域方法的主要短板恰恰在局部特征
 

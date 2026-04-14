@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.22262](https://arxiv.org/abs/2511.22262)  
 **代码**: 待确认  
 **领域**: 3d_vision  
-**关键词**: 3D Gaussian Splatting, watermark purification, copyright protection, HDBSCAN clustering  
+**关键词**: 3D Gaussian Splatting, watermark purification, copyright protection, HDBSCAN clustering
 
 ## 一句话总结
 

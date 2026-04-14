@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Knowledge Boundary of Large Language Models: A Survey
 description: >-
-  [ACL 2025][LLM/NLP][知识边界] 提出LLM知识边界的形式化定义框架，将知识分为四种类型（PAK/PSK/MSU/MAU），围绕三个核心问题系统综述。
+  [ACL 2025][LLM/NLP][知识边界] 提出LLM知识边界的形式化定义框架——三层嵌套边界（Outward⊂Parametric⊂Universal）和四类知识分类（PAK/PSK/MSU/MAU），围绕"为何/如何识别/如何缓解"三个问题系统综述相关研究。
 tags:
   - ACL 2025
   - LLM/NLP
@@ -10,6 +10,7 @@ tags:
   - 幻觉
   - 不确定性估计
   - 校准
+  - 知识分类
 ---
 
 # Knowledge Boundary of Large Language Models: A Survey
@@ -37,17 +38,17 @@ tags:
 ### 关键设计
 
 1. **四类知识形式化定义**:
-    - 做什么：将LLM知识形式化分为PAK/PSK/MSU/MAU四类
+    - 功能：将LLM知识形式化分为PAK/PSK/MSU/MAU四类
     - 核心思路：PAK: $K_{PAK}=\{k \in \mathcal{K} | \forall (q,a) \in \hat{Q}_k, P_\theta(a|q)>\epsilon\}$——无论哪种prompt表述都能正确回答。PSK: 参数中存在但对prompt敏感。MSU: 模型不具备但人类已知。MAU: 人类也未知
     - 设计动机：PAK/PSK的区分特别有洞见——同一知识因prompt不同可能"会"或"不会"，直接指导prompt工程
 
 2. **不良行为与知识类型的映射**:
-    - 做什么：将LLM三类不良行为映射到知识类型
+    - 功能：将LLM三类不良行为映射到知识类型
     - 核心思路：PSK→被上下文误导的不真实回复；MSU→事实性幻觉（领域知识不足/知识过时/过度自信）；MAU→对模糊知识随机回答/对争议知识偏见回复
     - 设计动机：为针对性改进提供路线图——知道是哪种知识问题才能选择正确的缓解策略
 
 3. **识别与缓解方法分类**:
-    - 做什么：对识别方法（不确定性估计/校准/探测）和缓解方法（prompt优化/RAG/知识编辑/弃权）进行系统分类
+    - 功能：对识别方法（不确定性估计/校准/探测）和缓解方法（prompt优化/RAG/知识编辑/弃权）进行系统分类
     - 核心思路：识别方法按是否需要内部状态访问分类；缓解方法按知识类型和参数修改程度分类
     - 设计动机：不同知识类型需要不同策略——PSK用prompt优化，MSU用RAG/编辑，MAU用弃权/澄清
 

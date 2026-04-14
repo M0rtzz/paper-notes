@@ -49,19 +49,19 @@ tags:
 
 1. **部分学→拓扑的桥接（正则开集对应）**:
 
-    - 做什么：证明 λ-MM 中的部分学类（m-classes）与正则开集之间存在一一对应
+    - 功能：证明 λ-MM 中的部分学类（m-classes）与正则开集之间存在一一对应
     - 核心思路：部分学的个体名（Individual names）被解释为拓扑的开集，部分-整体关系 $pt$ 对应集合的包含关系 $\subseteq$，部分学的 $b\_sum$/$b\_product$/$compl$ 分别对应拓扑的并/交/补。内部算子定义为 $\eta\;P\;(interior\;Q) \triangleq \eta\;Q\;Q \wedge \eta\;P\;Q$，即一个个体的内部就是它自身（因为个体名都是开集）
     - 设计动机：无需引入外部集合论语义，完全在名目系统（nominalist system）内部实现拓扑构造
 
 2. **Kuratowski 公理的 Coq 形式化证明**:
 
-    - 做什么：在 Coq 中创建 Topological type class，将 Kuratowski 内部公理的四条性质编码为类型类字段，并提供机器验证的证明
+    - 功能：在 Coq 中创建 Topological type class，将 Kuratowski 内部公理的四条性质编码为类型类字段，并提供机器验证的证明
     - 核心思路：四条公理分别是——全空间保持 $int(\mathbb{T}_{MM}) = \mathbb{T}_{MM}$、内包含性 $int(A) \subseteq A$、幂等性 $int(int(A)) = int(A)$、交集保持 $int(A \cap B) = int(A) \cap int(B)$。证明使用 CoqHammer（Vampire 和 Eprover 自动推理器）半自动完成
     - 设计动机：机器验证的证明比手工证明更可靠，且 type class 的泛型性使得更换底层数据不影响结构
 
 3. **Tarski 几何作为拓扑子空间**:
 
-    - 做什么：将内点（saturated interior point）重新定义在球（ball）的子基上，证明 Tarski 的三条公设，并证明 T2（Hausdorff）分离公理
+    - 功能：将内点（saturated interior point）重新定义在球（ball）的子基上，证明 Tarski 的三条公设，并证明 T2（Hausdorff）分离公理
     - 核心思路：Tarski 将"点"定义为共心球的类（内涵类），固体定义为球的部分学和。论文证明这些定义在子空间拓扑中与正则开集一致，从而将 Tarski 的 5 条公理简化为 3 条并补充了 T2 性质
     - 设计动机：T2 性质保证点的唯一分离，是许多空间推理算法的前提条件；公理简化提高了系统的实用性
 

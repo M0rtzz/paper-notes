@@ -8,7 +8,7 @@ tags:
   - 遥感
   - LFMC
   - Wildfire Risk
-  - Foundation Model
+  - foundation model
   - Remote Sensing
   - Galileo
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.20132](https://arxiv.org/abs/2506.20132)  
 **代码**: [github.com/allenai/lfmc](https://github.com/allenai/lfmc)  
 **领域**: 遥感  
-**关键词**: LFMC, Wildfire Risk, Foundation Model, Remote Sensing, Galileo
+**关键词**: LFMC, Wildfire Risk, foundation model, Remote Sensing, Galileo
 
 ## 一句话总结
 

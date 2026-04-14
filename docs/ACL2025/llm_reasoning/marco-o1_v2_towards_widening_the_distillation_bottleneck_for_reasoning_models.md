@@ -33,7 +33,9 @@ tags:
 作者发现蒸馏后的小模型经常出现**形式化长时间思考（Formalistic Long-time Thinking）**——机械模仿大模型的推理模式但未真正内化推理逻辑。具体表现为三类错误：
 
 **内容重复（Content Repetition）**：模型反复生成相同的文本片段，无法推进推理（如 "positions are considered up to consider that the positions are..." 的死循环）
+
 **过度反思（Over-Reflection）**：模型不断用 "Wait, perhaps..."、"Alternatively,..." 等模式自我质疑但无法收敛到答案
+
 **指令失败（Instruction Failure）**：在翻译等简单任务中陷入不必要的长推理，最终无法给出答案
 
 ### 根本原因

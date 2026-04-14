@@ -2,15 +2,15 @@
 title: >-
   [论文解读] EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis
 description: >-
-  [CVPR 2026][医学图像][旋转等变性] 提出EquivAnIA频谱方法，用cake wavelets和ridge filters替代传统angular binning进行图像各向异性分析，实现对数值旋转的鲁棒性，主方向估计误差仅0.03°
+  [CVPR 2026][医学图像][anisotropic analysis] 提出EquivAnIA，用定向滤波器族（cake wavelets和ridge filters）在频域中做带权平均来估计图像的角度分布，替代传统angular binning方法，实现对数值旋转真正鲁棒的各向异性分析，合成图像主方向估计误差仅0.03°，CT配准误差仅0.02°。
 tags:
   - CVPR 2026
   - 医学图像
-  - 各向异性分析
-  - 旋转等变性
-  - 频谱方法
-  - Cake小波
-  - 图像配准
+  - anisotropic analysis
+  - rotation equivariance
+  - cake wavelets
+  - ridge filters
+  - angular registration
 ---
 
 # EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis
@@ -43,19 +43,19 @@ tags:
 
 1. **定向滤波器族替代Angular Binning**:
 
-    - 做什么：用平滑的频域滤波器在每个角度方向做带权平均，替代离散bin的硬分割
+    - 功能：用平滑的频域滤波器在每个角度方向做带权平均，替代离散bin的硬分割
     - 核心思路：从基函数 $\phi$ 通过旋转生成滤波器族 $\phi_{v,\theta}(u) = \phi(R_\theta^{-1}(u-v))$，计算分析系数 $c_{v,\theta}$，角度分布定义为各方向的能量 $\rho(\theta) = \int |c_{v,\theta}|^2 dv$。两种具体滤波器：**Cake wavelets**（扇形覆盖，适合结构图像）和**Ridge filters**（线形，适合纹理图像）
     - 设计动机：滤波器的频域权重是连续平滑的，不存在bin边界的量化误差。旋转输入等价于旋转滤波器族，因此分析结果天然具有旋转等变性
 
 2. **径向对称窗预处理**:
 
-    - 做什么：对非圆盘支撑的矩形图像施加smooth windowing
+    - 功能：对非圆盘支撑的矩形图像施加smooth windowing
     - 核心思路：使用近似圆盘支撑的径向对称窗函数，丢弃图像角落在旋转时可能进出的信息
     - 设计动机：矩形图像旋转时角落区域会变化，导致PSD估计不一致。丢弃角落信息虽然损失了部分数据，但换来了旋转分析的稳定性。实验显示使用周期图估计优于Bartlett/Welch方法——分辨率比降噪更重要
 
 3. **角度图像配准算法**:
 
-    - 做什么：估计同一图像两个旋转副本之间的相对旋转角
+    - 功能：估计同一图像两个旋转副本之间的相对旋转角
     - 核心思路：分别计算两图的主方向 $\hat{\theta}^{(1)}, \hat{\theta}^{(2)}$，由于方法无法区分 $\theta$ 和 $\theta+\pi$，测试两个候选角 $\hat{\gamma}_1 = \hat{\theta}^{(1)} - \hat{\theta}^{(2)}$ 和 $\hat{\gamma}_2 = \hat{\gamma}_1 + \pi$，选MSE最小的
     - 设计动机：180°模糊性是方向分析的固有限制（中心对称滤波器无法区分），但通过简单的两候选比较即可消解
 

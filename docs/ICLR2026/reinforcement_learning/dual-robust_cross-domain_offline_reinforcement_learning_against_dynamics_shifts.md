@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2512.02486](https://arxiv.org/abs/2512.02486)  
 **代码**: 无  
 **领域**: AI安全 / RL鲁棒性  
-**关键词**: offline RL, cross-domain, dynamics shift, robustness, Bellman operator  
+**关键词**: offline RL, cross-domain, dynamics shift, robustness, Bellman operator
 
 ## 一句话总结
 首次同时解决跨域离线 RL 的"训练时鲁棒性"（源域-目标域不匹配）和"测试时鲁棒性"（部署环境动态偏移）：提出 DROCO，通过 Robust Cross-Domain Bellman (RCB) 算子对源域数据施加鲁棒 Bellman 更新、对目标域数据施加标准更新，将动态不确定性映射为可处理的状态扰动。
 
 ## 研究背景与动机
 **领域现状**：跨域离线 RL 用源域丰富数据弥补目标域数据不足，但源域和目标域的动力学可能不同。现有方法（如 H2O、DARA）关注训练时鲁棒性——如何在源-目标 mismatch 下学习好策略。
+
 **现有痛点**：即使训练时处理了域间差异，部署时真实环境的动力学可能进一步偏移（如机器人实际硬件 vs 仿真），现有方法未考虑这一层。
+
 **核心矛盾**：训练时和测试时是两种不同的鲁棒性需求，需要统一框架同时处理。
+
 **本文要解决什么？** 同时保证 train-time（源域使用安全）和 test-time（部署鲁棒）的双重鲁棒性。
+
 **切入角度**：对源域数据使用鲁棒 Bellman 算子（应对部署偏移），对目标域数据使用标准 in-sample 算子（保守估计），统一为 RCB 算子。
+
 **核心idea一句话**：RCB = 源域用鲁棒 Bellman + 目标域用标准 Bellman，将动态不确定性转化为状态扰动实现实用化。
 
 ## 方法详解

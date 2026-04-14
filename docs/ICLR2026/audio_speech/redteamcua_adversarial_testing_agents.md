@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.21936](https://arxiv.org/abs/2505.21936)  
 **代码**: 有（RTC-Bench + RedTeamCUA 框架）  
 **领域**: AI Safety / Agent 安全  
-**关键词**: computer-use agents, red teaming, indirect prompt injection, adversarial testing, CUA safety  
+**关键词**: computer-use agents, red teaming, indirect prompt injection, adversarial testing, CUA safety
 
 ## 一句话总结
 构建首个混合 Web-OS 环境的 CUA 红队测试框架 RedTeamCUA 和 864 个测试用例的 RTC-Bench，系统评估 9+ 前沿 CUA 对间接 prompt injection 的脆弱性，发现所有 CUA 均可被攻击（最高 ASR 83%），且能力越强的模型越危险——攻击尝试率（AR）远高于成功率（ASR）意味着模型能力提升将直接转化为更高的攻击成功率。

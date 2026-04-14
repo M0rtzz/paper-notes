@@ -27,7 +27,9 @@ tags:
 ## 研究背景与动机
 
 语言模型的决策可解释性是重要的研究课题。现有的解释方法主要沿两个方向：
+
 **机制可解释性**（mechanistic interpretability）：关注神经元激活模式和电路
+
 **数据中心可解释性**（data-centric interpretability）：追溯模型决策到训练数据
 
 本文关注后者，核心问题是："当模型决定预测token v时，哪些训练样本贡献最大？"

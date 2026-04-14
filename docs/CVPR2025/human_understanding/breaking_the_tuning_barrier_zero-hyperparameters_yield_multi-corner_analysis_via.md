@@ -10,7 +10,7 @@ tags:
   - TabPFN
   - 零超参数
   - 跨corner迁移
-  - Foundation Model
+  - 基础模型
 ---
 
 # Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.13092](https://arxiv.org/abs/2603.13092)  
 **代码**: 待确认  
 **领域**: EDA / 电路yield分析 / 元学习  
-**关键词**: Yield分析, TabPFN, 零超参数, 跨corner迁移, Foundation Model
+**关键词**: Yield分析, TabPFN, 零超参数, 跨corner迁移, 基础模型
 
 ## 一句话总结
 用预训练的Foundation Model（TabPFN）替代传统手工先验，实现零超参数调优的电路Yield Multi-Corner Analysis：冻结backbone做in-context learning，自动跨corner迁移知识，结合自动特征选择（1152D→48D），在SRAM benchmarks上达到SOTA精度（MRE低至0.11%）且验证成本降低10倍以上。
@@ -50,25 +50,25 @@ tags:
 
 1. **从Engineered Priors到Learned Priors**
 
-    - 做什么：用预训练Transformer替代GP核函数做后验预测分布估计
+    - 功能：用预训练Transformer替代GP核函数做后验预测分布估计
     - 核心思路：传统GP需要对每个电路优化$O(D)$个核超参数（lengthscale等），本文用TabPFN——一个在百万合成回归任务上预训练的Transformer，通过attention机制实现data-dependent kernel。推理时一次前向传播即可输出预测均值$\mu^*$和方差$(\sigma^*)^2$，无需梯度下降或超参数优化
     - 设计动机：TabPFN的attention机制相当于learned nonlinear kernel：$k_{learned}(z^*, z_i) \propto \exp(Q(z^*)^T K(z_i) / \sqrt{d_k})$，与GP的kernel功能相同但无需per-circuit调参
 
 2. **跨Corner知识迁移**
 
-    - 做什么：构建全局代理模型$\hat{f}(x_S, c)$同时建模所有corner
+    - 功能：构建全局代理模型$\hat{f}(x_S, c)$同时建模所有corner
     - 核心思路：将电路参数$x_S$和corner编码$c$（电压/温度）拼接为统一输入$z = [x_S; c]$，输入TabPFN。attention机制自动发现不同corner之间共享的电路物理规律，在稀疏采样的corner上借用密集采样corner的知识
     - 设计动机：各corner间存在强相关性（相同电路不同工况），联合建模比独立建模$K$个模型更高效。消融显示跨corner迁移降低误差70%+
 
 3. **自动特征选择（1152D→~48D）**
 
-    - 做什么：自动识别关键工艺参数子集
+    - 功能：自动识别关键工艺参数子集
     - 核心思路：在初始random samples上一次性训练，通过特征重要性排序选择稀疏、物理可解释的参数子集，压缩到TabPFN可处理的维度
     - 设计动机：TabPFN对输入维度有限制，且高维输入中大部分参数对yield影响很小，稀疏特征选择不仅降维也提升预测质量
 
 4. **不确定性驱动的主动学习**
 
-    - 做什么：将仿真预算集中在决策边界附近
+    - 功能：将仿真预算集中在决策边界附近
     - 核心思路：利用TabPFN输出的预测不确定性$(\sigma^*)^2$指导采样，在yield预测最不确定的区域追加SPICE仿真
     - 设计动机：决策边界（pass/fail boundary）处的精度对yield估计最关键，主动学习避免在确定区域浪费仿真预算
 

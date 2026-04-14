@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Context Tuning for In-Context Optimization
 description: >-
-  [ICML 2025][模型压缩][In-Context Learning] 提出 Context Tuning，用少样本示例初始化可训练的 prompt/KV 前缀，通过梯度优化上下文表示（而非模型参数）来增强 LLM 的 few-shot 适应能力，CT-KV 变体在线性时间复杂度下达到与 TTT 竞争的精度。
+  [ICML 2025][模型压缩][上下文学习] 提出 Context Tuning，用少样本示例初始化可训练的 prompt/KV 前缀，通过梯度优化上下文表示（而非模型参数）来增强 LLM 的 few-shot 适应能力，CT-KV 变体在线性时间复杂度下达到与 TTT 竞争的精度。
 tags:
   - ICML 2025
   - 模型压缩
-  - In-Context Learning
+  - 上下文学习
   - 提示学习
   - Prefix Tuning
   - KV Cache 优化
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.04221](https://arxiv.org/abs/2507.04221)  
 **代码**: [https://agenticlearning.ai/context-tuning](https://agenticlearning.ai/context-tuning)  
 **领域**: 模型压缩  
-**关键词**: In-Context Learning, Prompt Tuning, Prefix Tuning, KV Cache 优化, 参数高效适应
+**关键词**: 上下文学习, prompt tuning, Prefix Tuning, KV Cache 优化, 参数高效适应
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 大语言模型（LLM）通过 In-Context Learning（ICL）可以零参数更新地适应新任务，但 ICL 仅依赖前向传播解读示例，面对复杂推理或领域偏移时表现不佳。现有改进路线有两条：
 
 **Prompt/Prefix Tuning**: 在输入前附加可训练向量，用梯度下降优化。但这些向量通常用随机 token 初始化，完全没有利用 few-shot 示例中的任务相关信息。
+
 **Test-Time Training (TTT)**: 在推理时用 LoRA 微调模型权重，效果好但计算代价是示例数的**二次方**（需要对示例做排列组合）。
 
 核心洞察：ICL 擅长从上下文中提取任务信息，prompt-based 方法擅长梯度优化——能否把二者桥接起来？即**用 few-shot 示例初始化可训练上下文，再用梯度优化这个上下文**？

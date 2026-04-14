@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2411.17762](https://arxiv.org/abs/2411.17762)  
 **代码**: 无  
 **领域**: 多模态VLM / 统一理解与生成  
-**关键词**: unified VLM, visual tokenizer, semantic discrete encoding, autoregressive, image generation  
+**关键词**: unified VLM, visual tokenizer, semantic discrete encoding, autoregressive, image generation
 
 ## 一句话总结
 提出语义离散编码（SDE）视觉tokenizer，在VQGAN基础上加入SigLIP语义特征约束，使离散视觉token与语言token语义对齐，构建统一的自回归VLM（MUSE-VL），在仅用24M数据的条件下理解性能比Emu3提升4.8%，超过LLaVA-NeXT 34B专用理解模型3.7%，同时支持图像生成。
 
 ## 研究背景与动机
 **领域现状**：统一多模态理解和生成是VLM的重要方向。现有统一模型（如Chameleon、Show-o、Emu3）使用VQGAN等视觉tokenizer将图像转为离散token，与文本token一起做next-token prediction。但VQGAN只关注底层像素信息（重建损失），生成的离散token缺乏语义信息。
+
 **现有痛点**：(1) VQGAN token与语言token间有很大的语义鸿沟，导致统一模型的理解性能远低于专用模型；(2) Chameleon等模型需要从零训练LLM，数据需求和计算成本极高；(3) VILA-U尝试同时训练对比损失和重建损失来对齐语义，但存在严重的损失冲突导致收敛困难。
+
 **核心矛盾**：视觉token需要同时满足两个矛盾需求——保留底层像素信息用于图像重建/生成，同时承载高层语义信息用于理解。VQGAN只顾前者，CLIP只顾后者，直接组合（如VILA-U）会冲突。
+
 **本文要解决什么**：设计一种视觉tokenizer，使离散码既保留图像重建能力又包含丰富语义信息，从而降低统一VLM的训练难度。
+
 **切入角度**：不直接对比学习（VILA-U的问题），而是用预训练SigLIP的图像编码器提取语义特征，将其融合到编码过程中，同时用语义解码器（重建SigLIP特征）和图像解码器（重建像素）两个分支约束。
+
 **核心idea一句话**：将SigLIP语义特征融合到视觉量化过程中，用双分支（语义重建+图像重建）训练视觉tokenizer，使离散码自然包含语义信息。
 
 ## 方法详解
@@ -41,14 +46,14 @@ SDE Tokenizer将图像编码为16×16或27×27的离散token序列 → 与文本
 
 1. **语义离散编码（SDE）Tokenizer**:
 
-    - 做什么：将图像离散化为既包含像素信息又包含语义信息的visual tokens。
+    - 功能：将图像离散化为既包含像素信息又包含语义信息的visual tokens。
     - 核心思路：图像先经过初始化自SigLIP的编码器得到特征$z$，同时冻结的SigLIP提取语义特征$T$。将$T$和$z$相加后进行向量量化：$z_q = \text{Quant}(T + z)$。量化后的特征分别送入两个解码器：(1) 语义解码器（Transformer）重建SigLIP特征，损失为$L_{\text{sem}} = 1 - \cos(Dec_s(z_q), T)$；(2) 图像解码器（ConvNet）重建原始像素，损失为$L_{\text{img}} = \ell_2 + L_P + \lambda_G L_G$（像素+感知+对抗）。总损失$L = L_{\text{sem}} + L_{\text{img}} + L_{\text{vq}}$。
     - 设计动机：通过特征融合（而非对比学习）将语义注入量化码，避免了VILA-U的损失冲突。语义解码器确保量化码"记住"语义信息，图像解码器确保保留像素信息。codebook大小32768，维度8。
     - 与VILA-U的关键区别：VILA-U用文本编码器提取语义+对比学习，会冲突；SDE直接用图像编码器（SigLIP）的特征做融合+重建，更稳定。
 
 2. **统一自回归建模**:
 
-    - 做什么：将视觉离散token和文本token在同一个自回归模型中统一处理。
+    - 功能：将视觉离散token和文本token在同一个自回归模型中统一处理。
     - 核心思路：在现有LLM（Qwen2.5/Yi-1.5）的embedding层扩展32768维（codebook大小），用`<soi>`和`<eoi>`标记视觉token的开始和结束。训练目标纯next-token prediction，不需要修改LLM架构。
     - 设计动机：因为SDE token已经与语言对齐，无需额外的适配器或架构修改，可以直接利用预训练LLM的语言能力。这大大降低了训练复杂度。
 

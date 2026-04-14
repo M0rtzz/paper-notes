@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context
 description: >-
-  [ACL 2025][NLP理解][性别包容性语言] 将心理语言学方法从法语适配到英语和德语，研究 LLM 如何处理性别包容性语言——发现英语 LLM 基本保持先行词性别一致但内含男性默认偏见（不愿用 they 单数），德语 LLM 男性偏见更强烈（压倒所有性别中性化策略），但德语性别包容形式确实增加了女性/中性性别的出现概率。
+  [ACL 2025][NLP理解][性别包容性语言] 将 Tibblin et al. (2023) 的心理语言学实验从法语适配到英语和德语 LLM，通过测量共指词概率和生成内容分析发现：英语 LLM 基本保持先行词-共指词性别一致但 they 单数几乎不被使用且存在底层男性偏见；德语 Leo Mistral 7B 的男性偏见更强烈（压倒所有 8 种包容策略），但包容策略仍能增加女性/中性性别的出现概率，与心理语言学人类实验结果一致。
 tags:
   - ACL 2025
   - NLP理解
@@ -11,8 +11,6 @@ tags:
   - LLM偏见
   - 心理语言学
   - 德语
-  - 英语
-  - 性别中性代词
 ---
 
 # Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context
@@ -51,7 +49,7 @@ tags:
 
 1. **数据集构建**:
 
-    - 做什么：基于 Tibblin et al. (2023) 构建句对模板，句1含先行词（性别化/中性），句2含共指词（men/women/people 或 he/she/they）
+    - 功能：基于 Tibblin et al. (2023) 构建句对模板，句1含先行词（性别化/中性），句2含共指词（men/women/people 或 he/she/they）
     - 核心思路——英语：
       - 复数条件(PL)：34 个先行词三元组（如 swordsman/swordswoman/fencer）× 3 个共指词(men/women/people) × 44 模板 = 13,464 实例
       - 单数条件(SG)：37 三元组 × 3 代词(he/she/they) × 44 模板 = 14,652 实例
@@ -60,13 +58,13 @@ tags:
 
 2. **共指词概率测量**:
 
-    - 做什么：测量 LLM 在给定先行词后对特定共指词的预测概率
+    - 功能：测量 LLM 在给定先行词后对特定共指词的预测概率
     - 核心思路：用 LLM 预测句对到共指词位置的联合概率，提取共指词的对数概率 $\log(p)$。对多 token 共指词取首 token 概率（避免后续 token 的自预测膨胀）
     - 统计分析：双因素 ANOVA 检验先行词性别 × 共指词性别的交互效应，Tukey post-hoc 检验具体对比
 
 3. **共指词生成分析**:
 
-    - 做什么：让 LLM 自由生成续写，标注生成内容中出现的性别
+    - 功能：让 LLM 自由生成续写，标注生成内容中出现的性别
     - 核心思路：英语生成 8 个 token、德语生成 10 个 token 的续写，由人工标注生成内容中提及的性别和是否为共指词
     - 英语标注：3 名标注者，Fleiss' $\kappa = 0.757$（性别）/ $0.671$（共指），均在"substantial agreement"范围
     - 德语：作者之一作为母语者标注（试点实验）

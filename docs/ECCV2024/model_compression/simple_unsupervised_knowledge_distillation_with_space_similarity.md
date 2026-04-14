@@ -49,13 +49,13 @@ CoSS 是一个两阶段 UKD 框架：
 
 1. **离线 k-近邻预处理**:
 
-    - 做什么：利用 teacher 编码器为训练集中每个样本计算 $k$ 个最近邻
+    - 功能：利用 teacher 编码器为训练集中每个样本计算 $k$ 个最近邻
     - 核心思路：先用 teacher 产生所有训练样本的 $L_2$ 归一化特征，计算相似度矩阵 $S_{ij} = \hat{f}_t(x_i) \cdot \hat{f}_t(x_j)$，然后取 top-k 作为近邻集合 $\Omega_i^k = \arg\max(S_{i\cdot}, k)$
     - 设计动机：标准随机采样的 mini-batch 中，局部邻域信息缺失。通过在 batch 中追加近邻样本，使 student 能捕获流形的局部结构。这对流形建模至关重要——不仅要匹配全局结构，还要保留局部细节。
 
 2. **特征相似度（Feature Similarity / Cosine Similarity）**:
 
-    - 做什么：对每个样本，最大化 teacher 和 student 归一化特征向量的余弦相似度
+    - 功能：对每个样本，最大化 teacher 和 student 归一化特征向量的余弦相似度
     - 核心思路：
 
     $\mathcal{L}_{co} = -\frac{1}{bk} \sum_{i=0}^{bk} \text{cosine}(\hat{A}_s^i, \hat{A}_t^i)$
@@ -65,7 +65,7 @@ CoSS 是一个两阶段 UKD 框架：
 
 3. **空间相似度（Space Similarity）**:
 
-    - 做什么：将特征矩阵**转置**，然后在**空间维度**（即特征的每个维度对应的样本响应向量）上计算余弦相似度
+    - 功能：将特征矩阵**转置**，然后在**空间维度**（即特征的每个维度对应的样本响应向量）上计算余弦相似度
     - 核心思路：构造转置矩阵 $Z = A^T$（大小 $d \times bk$），归一化后计算：
 
     $\mathcal{L}_{ss} = -\frac{1}{d} \sum_{i=0}^{d} \text{cosine}(\hat{Z}_s^i, \hat{Z}_t^i)$

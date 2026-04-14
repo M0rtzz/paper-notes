@@ -1,11 +1,17 @@
 ---
-description: 提出ACE约束优化框架通过同伦方法渐进施加等变性约束，自动平衡下游性能与对称性利用，支持部分等变数据
+title: >-
+  [论文解读] Learning (Approximately) Equivariant Networks via Constrained Optimization
+description: >-
+  [NeurIPS 2025][等变性] 提出ACE（Adaptive Constrained Equivariance）框架，将等变神经网络训练建模为约束优化问题，通过对偶方法自动从灵活的非等变模型渐进过渡到等变模型，无需手动调参即可适应完全和部分对称数据。
 tags:
-- equivariance
-- constrained-optimization
-- symmetry
-- neural-networks
+  - NeurIPS 2025
+  - 等变性
+  - 约束优化
+  - 同伦方法
+  - 近似对称
+  - 对偶方法
 ---
+
 # Learning (Approximately) Equivariant Networks via Constrained Optimization
 
 **会议**: NeurIPS 2025  
@@ -42,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **等式约束方案（完全对称数据，Algorithm 1）**:
-    - 做什么：约束 $\gamma_i = 0$，通过对偶变量 $\lambda_i$ 自动控制过渡速度
+    - 功能：约束 $\gamma_i = 0$，通过对偶变量 $\lambda_i$ 自动控制过渡速度
     - 核心思路：初始化 $\gamma^{(0)} = 1$（非等变），对偶变量 $\lambda_i$ 在 $\gamma_i > 0$ 时持续增长，逐渐将模型推向等变。关键更新：$\gamma_i^{(t+1)} = \gamma_i^{(t)} - \eta_p(\nabla_{\gamma_i} J_0^{(t)} + \lambda_i^{(t)})$，$\lambda_i^{(t+1)} = \lambda_i^{(t)} + \eta_d \gamma_i^{(t)}$
     - 设计动机：对偶方法等价于自适应退火——根据施加等变性对下游性能的实际影响调节收紧速度
 
 2. **弹性不等式约束方案（部分对称数据，Algorithm 2）**:
-    - 做什么：替换等式约束为 $|\gamma_i| \leq u_i$，松弛变量 $u_i$ 也是优化变量
+    - 功能：替换等式约束为 $|\gamma_i| \leq u_i$，松弛变量 $u_i$ 也是优化变量
     - 核心思路：添加 $\frac{\rho}{2}\|u\|^2$ 到目标函数惩罚大的松弛。$u_i^* = \lambda^*/\rho$，约束越紧的层对应越大的 $\lambda_i$。投影更新 $\lambda_i^{(t+1)} = [\lambda_i^{(t)} + \eta_d(|\gamma_i^{(t)}| - u_i^{(t)})]_+$
     - 设计动机：当数据部分对称时，$\gamma_i$ 在某些层不会消失——通过对偶变量大小自动检测哪些层需要放松等变性
 
 3. **理论保证（Theorem 4.1 & 4.2）**:
-    - 做什么：给出去除 $\gamma$ 后的近似误差和等变违反程度的显式界
+    - 功能：给出去除 $\gamma$ 后的近似误差和等变违反程度的显式界
     - 核心思路：Thm 4.1 — $\|f_{\theta,\gamma}(x) - f_{\theta,0}(x)\| \leq [\sum_{k=0}^{L-1}(1+\bar{\gamma})^k] \bar{\gamma} B M^{L-1} \|x\|$；Thm 4.2 — $\|\rho_Y(g)f_{\theta,\gamma}(x) - f_{\theta,\gamma}(\rho_X(g)x)\| \leq 2\bar{\gamma}(M + C\bar{\gamma})^{L-1}LB^2\|x\|$
     - 设计动机：保证当 $\gamma_i$ 足够小时，截断为等变模型的误差可控
 

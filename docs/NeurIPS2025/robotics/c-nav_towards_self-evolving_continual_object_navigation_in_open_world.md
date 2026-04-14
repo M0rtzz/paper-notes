@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.20685](https://arxiv.org/abs/2510.20685)  
 **代码**: [https://bigtree765.github.io/C-Nav-project](https://bigtree765.github.io/C-Nav-project)  
 **领域**: robotics / embodied AI  
-**关键词**: continual learning, object navigation, catastrophic forgetting, feature distillation, feature replay, LOF  
+**关键词**: continual learning, object navigation, catastrophic forgetting, feature distillation, feature replay, LOF
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：目标导航（ObjectNav）是具身智能核心任务，当前 SOTA 方法（OVRL-V2、PIRLNav、NavID 等）依赖预训练视觉编码器 + 大规模示范轨迹，在固定类别集上表现优异。
+
 **现有痛点**：这些方法假设训练期间所有类别和数据一次性可用，在开放世界中需要不断接纳新物体时，模型参数更新会导致**灾难性遗忘**——新类别学会了，旧类别导航能力急剧下降（约 40% SR 下降）。
+
 **核心矛盾**：直接的数据回放（存储完整轨迹）可以缓解遗忘，但导航轨迹极长（单条可达数百帧）、高度冗余、且涉及隐私（室内场景空间信息泄露），存储开销和隐私成本不可接受。
+
 **本文要解决什么**：如何让导航智能体**增量学习新类别**的同时保持对旧类别的导航技能，且**不需要存储原始轨迹**。
+
 **切入角度**：将遗忘分解为两个独立来源——编码器的**表征漂移**和解码器的**策略退化**，分别施加约束；同时将关键帧选择转化为特征空间的离群点检测问题来压缩存储。
+
 **核心 idea**：双路径抗遗忘（feature distillation 稳定编码器表征 + feature replay 稳定动作解码器策略）+ 基于 LOF 的自适应经验选择（只存语义突变帧的特征而非原始图像）。
 
 ## 方法详解

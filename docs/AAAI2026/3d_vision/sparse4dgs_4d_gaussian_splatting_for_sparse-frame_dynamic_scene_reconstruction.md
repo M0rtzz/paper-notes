@@ -83,8 +83,8 @@ $$L_{tex} = 1 - \text{PCC}(TI_{gt}, TI_{render})$$
 
 **具体方法**：
 1. 使用Sobel算子提取渲染深度 $D_{render}$ 和DPT深度 $D_{dpt}$ 的纹理强度图：
-   - $TI_{render}^{depth} = \text{TE}(D_{render})$
-   - $TI_{gt}^{depth} = \text{TE}(D_{dpt})$
+    - $TI_{render}^{depth} = \text{TE}(D_{render})$
+    - $TI_{gt}^{depth} = \text{TE}(D_{dpt})$
 2. 通过PCC损失对齐两者：
 
 $$L_{tadr} = 1 - \text{PCC}(TI_{gt}^{depth}, TI_{render}^{depth})$$

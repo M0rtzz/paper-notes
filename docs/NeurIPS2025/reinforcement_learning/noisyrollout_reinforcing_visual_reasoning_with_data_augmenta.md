@@ -1,12 +1,17 @@
 ---
-description: 提出NoisyRollout数据增强方法，通过混合干净和扰动图像的rollout增强VLM强化学习中的策略探索和感知鲁棒性
+title: >-
+  [论文解读] NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation
+description: >-
+  [NeurIPS 2025][视觉推理] 提出NoisyRollout，一种零额外训练成本的数据增强方法，在GRPO训练VLM时混合来自干净和适度扰动图像的rollout以增强策略探索多样性，仅用2.1K样本在5个域外基准上达到开源RL微调模型SOTA。
 tags:
-- vision-language-model
-- reinforcement-learning
-- data-augmentation
-- GRPO
-- visual-reasoning
+  - NeurIPS 2025
+  - 视觉推理
+  - 策略探索
+  - 数据增强
+  - GRPO
+  - 噪声退火
 ---
+
 # NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation
 
 **会议**: NeurIPS 2025  
@@ -36,19 +41,19 @@ tags:
 ### 关键设计
 
 1. **混合Rollout策略**:
-    - 做什么：将干净和扰动图像的推理轨迹混合用于GRPO优化
+    - 功能：将干净和扰动图像的推理轨迹混合用于GRPO优化
     - 核心思路：$n_1$ 个clean rollout + $n_2$ 个noisy rollout共同组成一个group，计算统一的奖励均值和标准差作为归一化基准
     - 设计动机：
         - 扰动图像上的成功轨迹提供了替代的、更鲁棒的推理路径
         - 干净/扰动之间的奖励差异暴露感知脆弱性，起到隐式对比学习的作用
 
 2. **噪声退火调度**:
-    - 做什么：训练过程中逐渐降低图像扰动强度
+    - 功能：训练过程中逐渐降低图像扰动强度
     - 核心思路：使用sigmoid形退火 $\alpha_t = \alpha_0 \cdot (1 - \frac{1}{1 + e^{-\lambda(t-\gamma)/t_{max}}})$
     - 设计动机：早期高噪声鼓励探索，后期低噪声减少分布偏移确保稳定收敛
 
 3. **策略更新仅条件于干净输入**:
-    - 做什么：虽然rollout来自扰动图像，但策略梯度计算使用 $\frac{\pi_\theta(\mathbf{o}_i | I, \mathbf{q})}{\pi_{\theta_{old}}(\mathbf{o}_i | I, \mathbf{q})}$
+    - 功能：虽然rollout来自扰动图像，但策略梯度计算使用 $\frac{\pi_\theta(\mathbf{o}_i | I, \mathbf{q})}{\pi_{\theta_{old}}(\mathbf{o}_i | I, \mathbf{q})}$
     - 设计动机：避免让策略学习依赖噪声的行为，确保推理时在干净输入上表现最优
 
 ### 损失函数 / 训练策略

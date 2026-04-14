@@ -33,7 +33,9 @@ tags:
 现有方法存在三大瓶颈：
 
 **独立预测**：将每个 spot 的基因表达独立建模 $p(\boldsymbol{Y}_i|\boldsymbol{I}_i)$，忽略了相邻细胞间基因调控的交互关系
+
 **内存瓶颈**：slide-level 方法对所有 spot 做全局注意力（常超过 10,000 个 spot），导致 O(N²) 的计算/内存开销，在标准硬件上 OOM
+
 **坐标编码脆弱**：将坐标作为位置编码，对数值噪声和批次效应敏感
 
 STFlow 的核心动机：将回归任务重构为**联合分布的生成建模问题**，用 flow matching 的迭代去噪框架显式建模 $p(\boldsymbol{Y}_0,\cdots,\boldsymbol{Y}_N|\boldsymbol{I}_0,\cdots,\boldsymbol{I}_N)$，每一步去噪都以当前基因表达预估作为上下文，从而天然捕获细胞间交互。

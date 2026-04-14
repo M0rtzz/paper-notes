@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory
 description: >-
-  [ACL 2025][LLM推理][test-time scaling] 本文在 6 个 LLM × 8 种 prompting 策略 × 6 个 benchmark 上系统实验发现，随着 majority voting 采样次数增加，简单的 CoT 始终超越复杂 prompting 策略；并从概率论角度给出理论证明，提出 $O(1)$ 复杂度的 scaling 性能预测方法和两种改进策略。
+  [ACL 2025][LLM推理][测试时缩放] 本文在 6 个 LLM × 8 种 prompting 策略 × 6 个 benchmark 上系统实验发现，随着 majority voting 采样次数增加，简单的 CoT 始终超越复杂 prompting 策略；并从概率论角度给出理论证明，提出 $O(1)$ 复杂度的 scaling 性能预测方法和两种改进策略。
 tags:
   - ACL 2025
   - LLM推理
-  - test-time scaling
+  - 测试时缩放
   - majority voting
   - 提示学习
   - Chain-of-Thought
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.10981](https://arxiv.org/abs/2505.10981)  
 **代码**: [GitHub](https://github.com/MraDonkey/rethinking_prompting)  
 **领域**: LLM推理  
-**关键词**: test-time scaling, majority voting, prompting策略, Chain-of-Thought, 概率论分析
+**关键词**: 测试时缩放, majority voting, prompting策略, Chain-of-Thought, 概率论分析
 
 ## 一句话总结
 本文在 6 个 LLM × 8 种 prompting 策略 × 6 个 benchmark 上系统实验发现，随着 majority voting 采样次数增加，简单的 CoT 始终超越复杂 prompting 策略；并从概率论角度给出理论证明，提出 $O(1)$ 复杂度的 scaling 性能预测方法和两种改进策略。
@@ -53,25 +53,25 @@ tags:
 
 1. **问题难度定义（Definition 1）**:
 
-    - 做什么：将问题按对某个 prompting 策略的难度分为三类
+    - 功能：将问题按对某个 prompting 策略的难度分为三类
     - 核心思路：设答案空间 $\mathcal{A} = \{a_1, ..., a_m\}$，$p_{i,j}$ 是策略 $\mathbf{P}_i$ 给出答案 $a_j$ 的概率。若正确答案 $a_1$ 的概率唯一最大，则为**简单题**；若概率并列最大，则为**中等题**；若某个错误答案概率最大，则为**难题**
     - 设计动机：直觉上，简单题 scaling 后趋向 100%，难题趋向 0%
 
 2. **Scaling 收敛定理（Theorem 1-3）**:
 
-    - 做什么：证明三种难度问题在 $N \to \infty$ 时的行为
+    - 功能：证明三种难度问题在 $N \to \infty$ 时的行为
     - 核心思路：**简单题**极限为1；**中等题**极限为 $1/|\mathcal{S}|$；**难题**极限为0
     - 设计动机：CoT 有更多简单题、更少难题（Table 1 验证）
 
 3. **策略翻转定理（Theorem 4）**:
 
-    - 做什么：证明在什么条件下一个初始更差的策略会在大 $N$ 时反超
+    - 功能：证明在什么条件下一个初始更差的策略会在大 $N$ 时反超
     - 核心思路：如果策略的正确答案概率与最大错误答案概率的差距更大，则在大 $N$ 后反超
     - 设计动机：CoT 的错误分布更分散，不会集中在某个错误答案上
 
 4. **$O(1)$ Scaling 性能预测方法**:
 
-    - 做什么：从少量采样估计概率分布，预测任意 $N$ 下的性能
+    - 功能：从少量采样估计概率分布，预测任意 $N$ 下的性能
     - 设计动机：避免大 $N$ 下的高成本实际推理
 
 ### 改进策略

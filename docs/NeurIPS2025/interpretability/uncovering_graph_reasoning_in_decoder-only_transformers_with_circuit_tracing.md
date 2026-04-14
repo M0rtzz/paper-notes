@@ -29,7 +29,9 @@ tags:
 基于 Transformer 的 LLM 在图推理任务（如路径查找、子图提取）上展现出强大能力，但其内部推理机制仍是一个黑箱。现有可解释性工作的不足：
 
 **缺乏统一视角**: 不同图推理任务的机制分析缺乏联系
+
 **方法局限**: 注意力可视化等传统方法难以揭示深层机制
+
 **模型限制**: 多数分析针对 encoder 或 encoder-decoder 架构，对 decoder-only 架构的研究不足
 
 本文使用 circuit tracing 框架，在基础 decoder-only Transformer 上统一分析图推理的内部机制。

@@ -1,12 +1,18 @@
 ---
-description: 提出ECOCSeg，利用纠错输出码(ECOC)替代one-hot编码实现更鲁棒的伪标签语义分割
+title: >-
+  [论文解读] Towards Robust Pseudo-Label Learning in Semantic Segmentation: An Encoding Perspective
+description: >-
+  [NeurIPS 2025][图像分割][伪标签] ECOCSeg从编码形式角度重新审视伪标签噪声问题，用纠错输出码(ECOC)替代argmax one-hot编码，将N类分类分解为K个二分类子任务，利用类间共享属性和bit级去噪机制显著提升伪标签学习的鲁棒性。
 tags:
-- NEURIPS2025
-- 图像分割
-- 伪标签
-- error-correcting-codes
-- domain-adaptation
+  - NeurIPS 2025
+  - 图像分割
+  - 伪标签
+  - 纠错输出码
+  - 语义分割
+  - 无监督域自适应
+  - 半监督学习
 ---
+
 # Towards Robust Pseudo-Label Learning in Semantic Segmentation: An Encoding Perspective
 
 **会议**: NeurIPS 2025  
@@ -39,13 +45,13 @@ ECOCSeg将伪标签学习分解为三个基本组件并分别创新：
 ### 关键设计
 
 1. **ECOC密集分类器**:
-    - 做什么：将N类分割问题分解为K个二分类子任务，每个类用K-bit码字表示
+    - 功能：将N类分割问题分解为K个二分类子任务，每个类用K-bit码字表示
     - 核心思路：用sigmoid预测每个bit概率，通过软汉明距离 $d_{SH}(\mathbf{c}_n, \mathbf{p}^i)$ 在码本中近邻查询确定类别
     - 设计动机：相似类共享更多bit，即使部分bit预测错误也可正确分类；码本设计保证足够的最小汉明距离实现纠错
     - 码本构建：max-min距离编码（最大化类间最小距离）和text-based编码（利用类名语义）
 
 2. **可靠Bit挖掘 (Reliable Bit Mining)**:
-    - 做什么：融合bit-wise和code-wise两种伪标签形式，产生高质量混合伪标签
+    - 功能：融合bit-wise和code-wise两种伪标签形式，产生高质量混合伪标签
     - 核心思路：对每个像素自适应查找C个最近邻候选码字，提取所有候选共享的bit作为可靠bit，与bit-wise预测融合
     - 设计动机：code-wise标签分类正确时可纠正个别bit错误，但分类错误时引入大噪声；bit-wise更软但可能不一致。混合取长补短
     - 融合公式：$\mathbf{c}^i_{hyb} = \mathcal{M}^i \odot \mathbf{c}^i_{code} + (1-\mathcal{M}^i) \odot \mathbf{c}^i_{bit}$

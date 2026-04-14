@@ -9,7 +9,7 @@ tags:
   - LLM评测
   - 空间推理
   - CLIP
-  - 基准测试
+  - benchmark
 ---
 
 # ASCIIBench: Evaluating Language-Model-Based Understanding of Visually-Oriented Text
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.04125](https://arxiv.org/abs/2512.04125)  
 **代码**: https://github.com/ASCIIBench/ASCIIBench  
 **领域**: AIGC检测 / 多模态评测  
-**关键词**: ASCII艺术, LLM评测, 空间推理, CLIP, 基准测试
+**关键词**: ASCII艺术, LLM评测, 空间推理, CLIP, benchmark
 
 ## 一句话总结
 提出 ASCIIBench，首个用于评估 LLM 对 ASCII 艺术的生成和分类能力的基准数据集（5,315 张 ASCII 图像，752 类），发现当前 LLM 在需要空间/位置推理的 ASCII 任务上仍有显著局限，且 CLIP 嵌入在大多数 ASCII 类别上的区分能力接近随机水平。
@@ -44,18 +44,18 @@ tags:
 
 1. **数据集构建**:
 
-    - 做什么：从 ascii.co.uk 收集并清洗 5,315 张 ASCII 图像，752 个类别
+    - 功能：从 ascii.co.uk 收集并清洗 5,315 张 ASCII 图像，752 个类别
     - 核心思路：多阶段清洗流水线去除签名、标签等噪声
     - 设计动机：现有无公开的 ASCII 艺术分类/生成基准
 
 2. **分类评测**:
 
-    - 做什么：测试 LLaMA、GPT-3.5/4o/5-mini、Claude 3.5 Sonnet 在文本/视觉/双模态输入下的分类准确率
+    - 功能：测试 LLaMA、GPT-3.5/4o/5-mini、Claude 3.5 Sonnet 在文本/视觉/双模态输入下的分类准确率
     - 核心思路：四选一格式，报告 micro/macro accuracy
 
 3. **生成评测 + 微调 CLIP**:
 
-    - 做什么：让 LLM 生成 ASCII 图像，用微调 CLIP 的余弦相似度评估
+    - 功能：让 LLM 生成 ASCII 图像，用微调 CLIP 的余弦相似度评估
     - 核心思路：微调 CLIP 使其 alignment 从 5.85 提升到 8.90，改善 ASCII 结构捕获
     - 设计动机：原始 CLIP 对 ASCII 艺术的嵌入质量差，大多数类别的 ROC-AUC 接近 0.5
 

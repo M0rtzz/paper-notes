@@ -1,11 +1,17 @@
 ---
-description: 提出UPFI方法从横截面快照数据中推断含细胞增殖/死亡的随机动力学，通过Lagrangian形式化分离drift、noise与growth
+title: >-
+  [论文解读] Inferring Stochastic Dynamics with Growth from Cross-Sectional Data
+description: >-
+  [NeurIPS 2025][概率流推断] 提出非平衡概率流推断（UPFI），通过Fokker-Planck方程的Lagrangian形式化，从横截面数据中联合推断随机动力学系统的漂移项、扩散项和增长率，首次准确处理含细胞增殖/死亡的场景。
 tags:
-- stochastic-dynamics
-- single-cell
-- optimal-transport
-- score-matching
+  - NeurIPS 2025
+  - 概率流推断
+  - Fokker-Planck方程
+  - 细胞动力学
+  - 最优传输
+  - 分支扩散过程
 ---
+
 # Inferring Stochastic Dynamics with Growth from Cross-Sectional Data
 
 **会议**: NeurIPS 2025  
@@ -45,17 +51,17 @@ UPFI采用两步训练方案：
 ### 关键设计
 
 1. **Lagrangian形式化与质量方程**:
-    - 做什么：将含源项的FPE转化为特征线ODE系统，其中位置演化包含概率流速度（漂移 - 散度修正 - 得分项），质量沿特征线以增长率指数增长
+    - 功能：将含源项的FPE转化为特征线ODE系统，其中位置演化包含概率流速度（漂移 - 散度修正 - 得分项），质量沿特征线以增长率指数增长
     - 核心思路：$\frac{d\mathbf{x}_t}{dt} = \mathbf{v}_t - \nabla \cdot \mathbf{D}_t - \mathbf{D}_t \nabla \log \rho_t$，$\frac{dm_t}{dt} = g_t(\mathbf{x}_t) m_t$
     - 设计动机：Lagrangian视角将PDE降为ODE，得分函数独立于动力学参数，可离线预计算
 
 2. **非平衡Sinkhorn散度作为损失**:
-    - 做什么：选择非平衡Sinkhorn散度 $S_{\varepsilon,\gamma}$ 度量推送分布和观测分布的差异
+    - 功能：选择非平衡Sinkhorn散度 $S_{\varepsilon,\gamma}$ 度量推送分布和观测分布的差异
     - 核心思路：Sinkhorn散度直接作用于离散测度，允许质量不守恒，无需计算密度
     - 设计动机：传统Wasserstein距离要求质量守恒，不适用于含增长系统；Sinkhorn散度有好的几何和计算性质
 
 3. **Wasserstein-Fisher-Rao正则化解决可辨识性**:
-    - 做什么：添加 $\lambda \int (\|\mathbf{v}_t\|^2 + \alpha |g_t|^2) d\rho_t dt$ 正则项
+    - 功能：添加 $\lambda \int (\|\mathbf{v}_t\|^2 + \alpha |g_t|^2) d\rho_t dt$ 正则项
     - 核心思路：对Ornstein-Uhlenbeck过程分析表明，漂移和增长不可唯一辨识（Corollary 2.2），正则化保证唯一解
     - 设计动机：Proposition 2.1证明即使限制为自治漂移，漂移矩阵的对称和反对称部分都可与增长混淆
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.20024](https://arxiv.org/abs/2506.20024)  
 **代码**: [NVlabs/ERDM](https://github.com/NVlabs/ERDM)  
 **领域**: image_generation  
-**关键词**: rolling diffusion, EDM, probabilistic forecasting, weather prediction, Navier-Stokes  
+**关键词**: rolling diffusion, EDM, probabilistic forecasting, weather prediction, Navier-Stokes
 
 ## 一句话总结
 

@@ -9,8 +9,8 @@ tags:
   - 核心知识
   - 多模态大语言模型评测
   - 认知科学
-  - 捷径学习
-  - Benchmark
+  - shortcut learning
+  - benchmark
 ---
 
 # Core Knowledge Deficits in Multi-Modal Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2410.10855](https://arxiv.org/abs/2410.10855)  
 **代码**: 无  
 **领域**: 多模态VLM  
-**关键词**: 核心知识, 多模态大语言模型评测, 认知科学, 捷径学习, Benchmark
+**关键词**: 核心知识, 多模态大语言模型评测, 认知科学, shortcut learning, benchmark
 
 ## 一句话总结
 

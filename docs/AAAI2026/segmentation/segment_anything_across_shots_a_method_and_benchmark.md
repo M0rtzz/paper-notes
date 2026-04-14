@@ -10,7 +10,7 @@ tags:
   - SAM2
   - 数据增强
   - 镜头切换检测
-  - Benchmark
+  - benchmark
 ---
 
 # Segment Anything Across Shots: A Method and Benchmark
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.13715](https://arxiv.org/abs/2511.13715)  
 **代码**: [https://henghuiding.com/SAAS/](https://henghuiding.com/SAAS/)  
 **领域**: 分割  
-**关键词**: 多镜头视频分割, SAM2, 数据增强, 镜头切换检测, Benchmark
+**关键词**: 多镜头视频分割, SAM2, 数据增强, 镜头切换检测, benchmark
 
 ## 一句话总结
 

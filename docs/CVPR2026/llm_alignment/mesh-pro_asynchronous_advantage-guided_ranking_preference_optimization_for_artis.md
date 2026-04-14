@@ -7,7 +7,7 @@ tags:
   - CVPR2026
   - LLM对齐
   - mesh generation
-  - 强化学习
+  - reinforcement-learning
   - preference optimization
   - artist-style mesh
   - quadrilateral mesh
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.00526](https://arxiv.org/abs/2603.00526)  
 **代码**: 待确认  
 **领域**: llm_alignment  
-**关键词**: mesh generation, reinforcement learning, preference optimization, artist-style mesh, quadrilateral mesh, online RL
+**关键词**: mesh generation, reinforcement-learning, preference optimization, artist-style mesh, quadrilateral mesh, online RL
 
 ## 一句话总结
 提出 Mesh-Pro，首个面向3D四边形网格生成的异步在线强化学习框架，核心算法 ARPO（Advantage-guided Ranking Preference Optimization）通过 Plackett-Luce 排名模型与优势函数加权相结合，在效率（较离线 DPO 快 3.75x）和泛化性上同时取得提升，实现 artist-style 和 dense mesh 的 SOTA 生成质量。

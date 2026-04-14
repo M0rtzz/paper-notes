@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.13881](https://arxiv.org/abs/2505.13881)  
 **代码**: 无  
 **领域**: 自动驾驶  
-**关键词**: retransformation bias, regression model, recommender system, target transformation, debiasing  
+**关键词**: retransformation bias, regression model, recommender system, target transformation, debiasing
 # TranSUN: A Preemptive Paradigm to Eradicate Retransformation Bias Intrinsically from Regression Models
 
 ## 一句话总结

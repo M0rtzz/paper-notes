@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Is In-Context Learning Learning?
 description: >-
-  [ICLR2026][LLM推理][ICL] 对 in-context learning (ICL) 进行大规模实证分析，控制记忆、预训练、分布偏移、提示风格等因素后发现，ICL 的泛化能力有限：随着示例增多准确率对分布/模型/风格不敏感，模型主要从 prompt 的结构规律中推演模式，自回归的临时编码机制不足以支撑稳健学习。
+  [ICLR2026][LLM推理][in-context learning] 从理论和实证两个层面系统分析 ICL 是否构成真正的"学习"，发现数学上 ICL 满足学习的定义，但大规模实验表明 ICL 的泛化能力有限——模型主要依赖 prompt 中的结构规律性进行模式推演（deduction），而非从示例中习得新能力。
 tags:
   - ICLR2026
   - LLM推理
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.10414](https://arxiv.org/abs/2509.10414)  
 **代码**: 未开源  
 **领域**: llm_reasoning  
-**关键词**: in-context learning, ICL, memorisation, distributional shift, generalization, autoregressive models  
+**关键词**: in-context learning, ICL, memorisation, distributional shift, generalization, autoregressive models
 
 ## 一句话总结
 从理论和实证两个层面系统分析 ICL 是否构成真正的"学习"，发现数学上 ICL 满足学习的定义，但大规模实验表明 ICL 的泛化能力有限——模型主要依赖 prompt 中的结构规律性进行模式推演（deduction），而非从示例中习得新能力。

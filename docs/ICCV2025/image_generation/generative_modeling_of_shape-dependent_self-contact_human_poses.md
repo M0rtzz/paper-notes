@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.23393](https://arxiv.org/abs/2509.23393)  
 **代码**: [https://tkhkaeio.github.io/projects/25-scgen](https://tkhkaeio.github.io/projects/25-scgen)  
 **领域**: 图像生成 / 人体姿态建模 / 自接触姿态  
-**关键词**: Self-Contact, Body Shape, Diffusion Model, SMPL-X, Pose Generation, Pose Refinement  
+**关键词**: Self-Contact, Body Shape, diffusion model, SMPL-X, Pose Generation, Pose Refinement
 
 ## 一句话总结
 构建首个大规模精确形状标注的自接触姿态数据集Goliath-SC（383K姿态/130个subject），提出形状条件的部件感知潜在扩散模型PAPoseDiff来建模体型依赖的自接触姿态分布，并利用学到的扩散先验进行单视角姿态refinement，在unseen subject上超越BUDDI和SMPLer-X等SOTA方法。
@@ -31,10 +31,12 @@ tags:
 自接触姿态（如摸脸、交叉手臂、手放在身体上）在日常生活中极为常见，且与心理状态表达、手语交流密切相关。关键挑战：自接触姿态本质上受体型约束——同一个"揉肚子"的动作，瘦体型和胖体型的人呈现完全不同的姿态和接触区域。
 
 ### 现有方法的局限
+
 **数据集不足**：
    - HumanSC3D：仅1K自接触姿态/6个subject
    - MTP：1.6K姿态/148个subject，但无配对RGB图像导致annotation不准确
    - InterHand2.6M/Decaf：聚焦于手-手或手-脸的局部交互，忽略全身姿态对接触的影响
+
 **方法局限**：
    - 回归方法（SMPLer-X）：通过ViT直接回归姿态，缺乏接触先验
    - BUDDI：学习两个body的联合分布，但非潜在扩散且无部件感知注意力

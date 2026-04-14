@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Prompt tuning是适配CLIP到下游任务的主流方法，通过学习少量prompt token实现参数高效微调，在基类(base)上提升准确率的同时保持对新类(novel)的零样本泛化能力。
+
 **现有痛点**：现有prompt tuning方法几乎只关注准确率，忽略了置信度校准问题。模型预测的置信度与实际准确率不匹配会导致不可靠的决策，在自动驾驶和医疗影像等安全敏感场景中危害尤大。
+
 **核心矛盾**：prompt tuning导致"双重误校准"——对基类logit margin收缩导致欠自信，对新类margin膨胀导致过自信。现有后处理校准方法（如DAC的温度缩放）无法约束prompt tuning如何改变嵌入空间，可能产生嵌入坍缩或聚类问题。
+
 **本文要解决什么**：在训练时同时解决基类欠自信和新类过自信，且不损失准确率。
+
 **切入角度**：分析发现margin变异性与ECE的相关性模式，基类负相关、新类正相关。
+
 **核心idea一句话**：通过最大化平均margin+最小化margin方差来稳定logit分布，同时通过匹配tuned与frozen文本嵌入的一阶/二阶矩来保持CLIP的语义几何结构。
 
 ## 方法详解
@@ -41,13 +46,13 @@ tags:
 
 1. **均值-方差Margin正则化 (Mean-Variance Margin Regularization)**：
 
-    - 做什么：稳定批次内logit margin的统计特性
+    - 功能：稳定批次内logit margin的统计特性
     - 核心思路：定义per-sample margin $m_i = z_{i,y_i} - \max_{j\neq y_i} z_{i,j}$，损失为 $\mathcal{L}_{\text{Margin}} = -\alpha \cdot \frac{1}{B}\sum_i m_i + \beta \cdot \text{Var}(m_1,...,m_B)$
     - 设计动机：均值项（加权 $\alpha$）促进基类充分分离解决欠自信；方差项（加权 $\beta$）防止margin不一致带来的新类过自信。如果只有均值项，当top-1预测错误时会拉大错误类别的margin，加剧过自信
 
 2. **文本矩匹配损失 (Text Moment-Matching Loss)**：
 
-    - 做什么：保持prompt tuning后文本嵌入的全局统计特性与frozen CLIP一致
+    - 功能：保持prompt tuning后文本嵌入的全局统计特性与frozen CLIP一致
     - 核心思路：对齐tuned和frozen文本嵌入的一阶矩（均值）和二阶矩（协方差）: $\mathcal{L}_{\text{mom}} = \|\mu_{\tilde{c}} - \mu_{c^0}\|_2^2 + \|\Sigma_{\tilde{c}} - \Sigma_{c^0}\|_F^2$
     - 设计动机：margin正则在logit空间操作，不直接约束嵌入空间几何。矩匹配保持语义中心和散度，防止prompt导致的嵌入偏移破坏类间关系。与直接L2对齐不同，矩匹配只约束全局统计量，保留局部任务适配的灵活性
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.24260](https://arxiv.org/abs/2503.24260)  
 **代码**: [https://github.com/IAAR-Shanghai/MaintainCoder](https://github.com/IAAR-Shanghai/MaintainCoder)  
 **领域**: LLM Agent / 代码生成 / 软件工程  
-**关键词**: maintainable code, design patterns, waterfall model, multi-agent, dynamic requirements, MaintainBench  
+**关键词**: maintainable code, design patterns, waterfall model, multi-agent, dynamic requirements, MaintainBench
 
 ## 一句话总结
 首次系统定义并解决 LLM 代码生成的**可维护性**问题，同时贡献基准和方法：MaintainBench 通过 4 种需求变化模式 + 动态指标评测代码在需求演化下的可维护性；MaintainCoder 将 Waterfall 模型、设计模式与 6 个专业化 Agent 结合，动态可维护性指标提升 60%+，且初始代码正确性也一并提高。

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Edit Once, Update Everywhere: A Simple Framework for Cross-Lingual Knowledge Synchronization in LLMs
 description: >-
-  [ACL 2025][knowledge editing] 提出 X-KDE 框架，通过跨语言编辑指令微调（XE-IT）+ 目标语言偏好优化（TL-PO）实现"编辑一种语言、所有语言同步更新"的跨语言知识民主化，在 Bi-ZsRE 和 MzsRE 基准上平均提升 +8.19%，跨语言场景下显著超越所有现有方法。
+  [ACL 2025][知识编辑] 提出 X-KDE 框架，通过跨语言编辑指令微调（XE-IT）+ 目标语言偏好优化（TL-PO）实现"编辑一种语言、所有语言同步更新"的跨语言知识民主化，在 Bi-ZsRE 和 MzsRE 基准上平均提升 +8.19%，跨语言场景下显著超越所有现有方法。
 tags:
   - ACL 2025
-  - knowledge editing
-  - cross-lingual
+  - 知识编辑
+  - 跨语言
   - multilingual synchronization
-  - preference optimization
-  - instruction tuning
+  - 偏好优化
+  - 指令微调
 ---
 
 # Edit Once, Update Everywhere: A Simple Framework for Cross-Lingual Knowledge Synchronization in LLMs
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.14645](https://arxiv.org/abs/2502.14645)  
 **代码**: https://github.com/YukinoshitaKaren/X_KDE  
 **领域**: LLM/NLP - 知识编辑  
-**关键词**: knowledge editing, cross-lingual, multilingual synchronization, preference optimization, instruction tuning
+**关键词**: 知识编辑, 跨语言, multilingual synchronization, 偏好优化, 指令微调
 
 ## 一句话总结
 提出 X-KDE 框架，通过跨语言编辑指令微调（XE-IT）+ 目标语言偏好优化（TL-PO）实现"编辑一种语言、所有语言同步更新"的跨语言知识民主化，在 Bi-ZsRE 和 MzsRE 基准上平均提升 +8.19%，跨语言场景下显著超越所有现有方法。
@@ -46,19 +46,19 @@ tags:
 
 1. **跨语言编辑指令微调（XE-IT）**:
 
-    - 做什么：在构建的平行数据集上微调模型，训练数据包含编辑指令和对应的知识更新示范
+    - 功能：在构建的平行数据集上微调模型，训练数据包含编辑指令和对应的知识更新示范
     - 核心思路：将知识编辑任务格式化为指令跟随任务——给模型展示"旧事实→新事实"的编辑指令，同时包含同一事实在多种语言中的更新示范。训练目标是让模型学会：(a) 在看到编辑指令时修改指定知识，(b) 保持未涉及知识不变（locality），(c) 将编辑效果推广到相关问题（portability）
     - 设计动机：比传统知识编辑方法（直接修改参数）更灵活——不需要定位和修改特定参数，而是让模型自主学习知识更新行为
 
 2. **目标语言偏好优化（TL-PO）**:
 
-    - 做什么：使用 DPO（Direct Preference Optimization）等技术，以目标语言中的正确更新为正样本、旧知识为负样本进行偏好学习
+    - 功能：使用 DPO（Direct Preference Optimization）等技术，以目标语言中的正确更新为正样本、旧知识为负样本进行偏好学习
     - 核心思路：XE-IT 可能在源语言上效果好但在目标语言上不够一致。TL-PO 通过偏好优化进一步强化模型在目标语言中选择新知识而非旧知识的倾向
     - 设计动机：即使模型学会了编辑行为模式，跨语言传播仍需额外的对齐信号——偏好优化提供了这种信号
 
 3. **高质量跨语言数据集**:
 
-    - 做什么：构建专门设计的平行数据集，包含跨语言知识编辑的训练样本
+    - 功能：构建专门设计的平行数据集，包含跨语言知识编辑的训练样本
     - 核心思路：每条数据包含编辑前后的知识、多语言版本的问答对、以及 locality/portability 测试样本
     - 设计动机：现有知识编辑数据集多为单语或简单双语，不足以训练真正的跨语言同步能力
 

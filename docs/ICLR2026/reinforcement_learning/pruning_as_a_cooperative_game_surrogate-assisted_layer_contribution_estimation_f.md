@@ -42,19 +42,19 @@ tags:
 
 1. **分层蒙特卡洛掩码采样（阶段一）**:
 
-    - 做什么：生成具有受控Hamming权重的多样化二元剪枝掩码
+    - 功能：生成具有受控Hamming权重的多样化二元剪枝掩码
     - 核心思路：对保留层数 $k$ 进行分层采样，每层 $k_j$ 采样 $N_{k_j}$ 个掩码 $\mathbf{m}^{(k_j,t)} \sim \text{Uniform}\{\mathbf{m} \in \{0,1\}^L : k(\mathbf{m})=k_j\}$。性能分数为 $s(\mathbf{m}) = \text{PPL}_\text{orig} / \text{PPL}(M(\mathbf{m}))$
     - 设计动机：确保不同剪枝比例的均衡覆盖，防止采样偏向特定压缩率
 
 2. **轻量代理网络（阶段二）**:
 
-    - 做什么：训练两层前馈网络 $f_\theta(\mathbf{m})$ 预测任意掩码的性能分数
+    - 功能：训练两层前馈网络 $f_\theta(\mathbf{m})$ 预测任意掩码的性能分数
     - 核心思路：使用MSE损失 $\mathcal{L}(\theta) = \frac{1}{N}\sum_{n=1}^{N}(f_\theta(\mathbf{m}_n) - s(\mathbf{m}_n))^2$ 训练代理
     - 设计动机：避免对每个掩码组合进行完整模型推理，将Shapley值估计的计算成本降至可接受水平
 
 3. **近似Shapley值估计**:
 
-    - 做什么：利用代理网络高效计算每层的边际贡献
+    - 功能：利用代理网络高效计算每层的边际贡献
     - 核心思路：$\hat{\phi}_i = \frac{1}{Q}\sum_{q=1}^{Q}(f_\theta(\mathbf{m}^{(k_j,q)} \cup \{i\}) - f_\theta(\mathbf{m}^{(k_j,q)}))$
     - 设计动机：精确Shapley值需要遍历 $2^L$ 个子集，计算不可行；代理网络使大规模采样估计成为可能
 

@@ -49,19 +49,19 @@ tags:
 
 1. **Feature Lifting 线性逆问题建模与闭式求解器**:
 
-    - 做什么：将 feature lifting 形式化为 $AX=B$（$A \in \mathbb{R}^{R \times P}$，$R$ 为射线数，$P$ 为 primitive 数），推导 row-sum preconditioner 闭式解
+    - 功能：将 feature lifting 形式化为 $AX=B$（$A \in \mathbb{R}^{R \times P}$，$R$ 为射线数，$P$ 为 primitive 数），推导 row-sum preconditioner 闭式解
     - 核心思路：利用 alpha blending 的行随机性 $\sum_j A_{ij} \approx 1$，通过 Jensen 不等式构造代理损失 $\mathcal{J}(x) = \sum_i \sum_j A_{ij} \|x_j - B_i\| \geq \mathcal{L}(x)$，对代理损失求最优得闭式解。证明 $\mathcal{L}(x') \leq (1+\beta)\mathcal{L}(\hat{x})$，其中 $\beta$ 衡量最优解沿视线的特征离散度
     - 设计动机：SGD 从头训练太慢，已有启发式方法（如 row-sum 加权）被多个工作独立提出但无理论保证，本文统一了理论框架并证明它们是特例
 
 2. **Tikhonov Guidance 正则化**:
 
-    - 做什么：通过调节 opacity 激活函数增强 $A^T A$ 的对角优势性，降低 $\beta$
+    - 功能：通过调节 opacity 激活函数增强 $A^T A$ 的对角优势性，降低 $\beta$
     - 核心思路：根据 $\beta$ 与对角优势度的负相关关系（Property 4），在 feature lifting 阶段对 opacity 值做非线性软极化（趋向0或1），使每条射线上主要由一个 primitive 贡献，从而减小误差上界
     - 设计动机：线性系统 $A$ 可能秩亏或近奇异，传统 Tikhonov 正则 $\|Ax-b\|^2 + \|\lambda I\|^2$ 是线性调整，本方法用非线性引导且不损害 RGB 渲染质量
 
 3. **Post-Lifting Aggregation 噪声过滤**:
 
-    - 做什么：通过特征聚类和 IoU 匹配过滤不一致的 SAM mask
+    - 功能：通过特征聚类和 IoU 匹配过滤不一致的 SAM mask
     - 核心思路：对提升后的特征做聚类 → one-hot 编码渲染回2D → argmax 得到 cluster mask → 计算每个 SAM mask 与 cluster mask 的 IoU → 低于阈值的 mask 被丢弃
     - 设计动机：多视角不一致通常源于 mask 噪声（如一个视角只分割面条，另一个同时包含碗和面条），而非真实的语义差异
 

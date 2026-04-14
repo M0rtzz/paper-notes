@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 多模态
   - Chain-of-Thought
-  - Image Editing
+  - image editing
   - Designer-Painter
   - Data-Centric
 ---
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2509.01986](https://arxiv.org/abs/2509.01986)  
 **代码**: [GitHub](https://github.com/showlab/DIM)  
 **领域**: 扩散模型 / 图像编辑  
-**关键词**: Unified Multimodal Model, Chain-of-Thought, Image Editing, Designer-Painter, Data-Centric  
+**关键词**: Unified Multimodal Model, Chain-of-Thought, image editing, Designer-Painter, Data-Centric
 
 ## 一句话总结
 指出当前统一多模态模型中理解模块仅作翻译器而生成模块被迫同时充当"设计师"和"画家"的职责失衡问题，通过构建 DIM 数据集（14M 长上下文文图对 + 233K CoT 编辑蓝图）将设计责任转移给理解模块，4.6B 参数即超越 5 倍大的模型。
 
 ## 研究背景与动机
 **领域现状**：统一多模态理解与生成的模型（如 Show-o、BAGEL、UniWorld）在 T2I 生成上表现出色，但在指令引导的图像编辑上仍与 GPT-4o-Image 等专有模型有显著差距。
+
 **现有痛点**：现有编辑模型的理解模块仅将用户指令编码为语义条件（充当"翻译器"），而生成模块需同时推断原始布局、定位编辑区域、渲染新内容（同时担任"设计师"和"画家"）。这种职责分配极不合理。
+
 **核心矛盾**：理解模块通常在数倍于生成模块的数据上训练复杂推理任务，却未被充分利用来做设计规划。单纯扩大参数规模（如 Step1X-Edit 的 12.5B 生成参数）并非有效策略。
+
 **本文要解决什么？** 如何重新平衡理解与生成模块的职责分工，让编辑更高效？
+
 **切入角度**：数据驱动——构建包含 CoT 推理蓝图的编辑数据集，让外部设计师（MLLM）在文本空间完成编辑规划，生成模块只需执行"绘画"。
+
 **核心idea一句话**：将"设计"职责从生成模块转移给理解模块，通过 CoT 编辑蓝图显式降低生成模块的认知负担。
 
 ## 方法详解

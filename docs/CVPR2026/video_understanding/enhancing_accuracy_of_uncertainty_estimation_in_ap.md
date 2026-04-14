@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.14894](https://arxiv.org/abs/2501.14894)  
 **代码**: 无  
 **领域**: 人体理解 / 视线追踪  
-**关键词**: gaze tracking, uncertainty estimation, post-hoc calibration, Coverage Probability Error, domain shift  
+**关键词**: gaze tracking, uncertainty estimation, post-hoc calibration, Coverage Probability Error, domain shift
 
 ## 一句话总结
 提出基于等保序回归的后校准(post-hoc calibration)方法，仅用50个标定样本即可修正视线追踪模型在域偏移下的不确定性估计失准，并引入CPE(Coverage Probability Error)指标替代EUC正确评估不确定性质量——校准后CPE从8%-45%降至~5%，95%置信区间覆盖率从16%-67%提升至86%-89%。

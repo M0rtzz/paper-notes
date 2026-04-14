@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2411.00006](https://arxiv.org/abs/2411.00006)  
 **代码**: [GitHub](https://github.com/IanWalls/Persona-Code)  
 **领域**: nlp_generation  
-**关键词**: code generation, personality, MBTI, prompt engineering, role-playing  
+**关键词**: code generation, personality, MBTI, prompt engineering, role-playing
 
 ## 一句话总结
 让 GPT-4o 为每个编程任务生成适配的 MBTI 人格类型和描述，再让 LLM 以该人格角色扮演程序员生成代码，在 28 个 LLM-数据集组合中 23 个取得 pass rate 提升，最高达 12.9%，且可与 CoT 等策略叠加使用。
 
 ## 研究背景与动机
 **领域现状**：LLM 驱动的代码生成是活跃研究方向，常用 prompt 让 LLM 扮演"程序员"角色来生成代码。
+
 **现有痛点**：现有角色扮演只是泛泛地让 LLM 当"程序员"，没有细化到具体的人格特质；而软件工程研究表明，任务与人格的匹配以及团队人格多样性能提升开发质量。
+
 **核心矛盾**：LLM 扮演的"程序员"缺乏针对不同任务特点的人格适配。
+
 **本文要解决什么？** 给 LLM 分配与任务匹配的 MBTI 人格能否提升代码生成准确率？哪些因素影响效果？
+
 **切入角度**：借鉴软件工程中任务-人格匹配和团队人格多样性的经验，对每个编程任务自动生成适配的 MBTI 人格。
+
 **核心 idea 一句话**：为每个编程任务定制 MBTI 人格，让 LLM 以多样化的人格角色生成代码。
 
 ## 方法详解
@@ -39,19 +44,19 @@ tags:
 ### 关键设计
 1. **任务适配的人格生成**:
 
-    - 做什么：GPT-4o 分析编程任务后输出最合适的 MBTI 类型和详细描述
+    - 功能：GPT-4o 分析编程任务后输出最合适的 MBTI 类型和详细描述
     - 核心思路：不同编程任务可能适合不同性格倾向（如逻辑密集型适合 INTJ/INTP，需要创意的适合 ENFP 等）
     - 设计动机：统一的人格不如多样化适配——实验显示任意固定 MBTI 类型效果接近直接 prompt（~68%），而多样化适配可达 80.8%
 
 2. **详细人格描述 prompt（Full Prompt）**:
 
-    - 做什么：在 prompt 中不仅指定 MBTI 类型，还给出针对该任务的详细人格描述
+    - 功能：在 prompt 中不仅指定 MBTI 类型，还给出针对该任务的详细人格描述
     - 核心思路：帮助 LLM 更好地理解和扮演角色
     - 设计动机：实验证明 Full Prompt 比仅标注 MBTI 类型（Short Prompt）平均高 3.94%
 
 3. **与其他策略组合**:
 
-    - 做什么：将人格引导与 CoT、few-shot 等策略叠加
+    - 功能：将人格引导与 CoT、few-shot 等策略叠加
     - 核心思路：CoT + Personality 在 5/7 个 LLM 上优于单独任一策略
     - 设计动机：人格引导是正交于推理策略的维度，可叠加增强
 

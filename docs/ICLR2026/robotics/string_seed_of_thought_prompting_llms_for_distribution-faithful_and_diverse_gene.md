@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.21150](https://arxiv.org/abs/2510.21150)  
 **代码**: 无  
 **领域**: 机器人  
-**关键词**: prompting, probabilistic instruction following, diversity, LLM reasoning, randomness  
+**关键词**: prompting, probabilistic instruction following, diversity, LLM reasoning, randomness
 
 ## 一句话总结
 

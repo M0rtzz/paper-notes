@@ -1,13 +1,18 @@
 ---
+title: >-
+  [论文解读] Head Pursuit: Probing Attention Specialization in Multimodal Transformers
 description: >-
-  [NeurIPS2025][可解释性] 提出基于Matching Pursuit的注意力头专业化分析方法，通过稀疏分解发现LLM/VLM中少量注意力头专注特定语义属性，仅干预1%的头即可可靠地抑制或增强目标概念。
+  [NeurIPS2025][图像生成][注意力机制] 将经典稀疏信号恢复算法（SOMP）重新解释为一种多样本可解释性工具，发现 LLM 和 VLM 中注意力头存在细粒度语义专业化现象，仅通过翻转约 1% 的头即可可靠地抑制或增强特定概念（如国家名、毒性内容、颜色等）的生成。
 tags:
   - NeurIPS2025
-  - 可解释性
-  - 注意力头
+  - 图像生成
+  - 注意力机制
   - Matching Pursuit
-  - 模型编辑
+  - Logit Lens
+  - model editing
+  - 视觉语言
 ---
+
 # Head Pursuit: Probing Attention Specialization in Multimodal Transformers
 
 **会议**: NeurIPS2025  
@@ -44,13 +49,13 @@ tags:
 
 1. **SOMP 稀疏分解作为多样本 Logit Lens**:
 
-    - 做什么：用 SOMP 算法在 unembedding 矩阵 $\mathbf{D} \in \mathbb{R}^{v \times d}$ 上对头激活 $\mathbf{H} \in \mathbb{R}^{n \times d}$ 做稀疏分解，找到最能解释头行为的少量语义方向
+    - 功能：用 SOMP 算法在 unembedding 矩阵 $\mathbf{D} \in \mathbb{R}^{v \times d}$ 上对头激活 $\mathbf{H} \in \mathbb{R}^{n \times d}$ 做稀疏分解，找到最能解释头行为的少量语义方向
     - 核心思路：SOMP 每步选择与所有样本残差最大关联的字典原子 $p^t = \arg\max_j \|\mathbf{D}[j]\mathbf{R}^{tT}\|_1$，加入支撑集后做最小二乘重拟合 $\mathbf{W}^t = \arg\min_{\mathbf{W}} \|\mathbf{H} - \mathbf{W}\mathbf{D}[\mathbb{S}^{t+1}]\|_F$。与 Logit Lens 的联系：LL 等价于在单样本上做单步 Matching Pursuit，SOMP 是它的多样本多步推广
     - 设计动机：单样本 LL 结果噪声大且冗余（Table 6），多样本 SOMP 通过跨数据集聚合获得稳定的头语义特征
 
 2. **基于方差解释比的头选择与干预**:
 
-    - 做什么：给定目标概念（如"颜色"），将字典限制为颜色相关 token 的 unembedding 行，用 SOMP 分解每个头，按方差解释比 $\|\mathbf{H}_r\|_F^2 / \|\mathbf{H}\|_F^2$ 排序，选择 top-$k$ 头进行干预
+    - 功能：给定目标概念（如"颜色"），将字典限制为颜色相关 token 的 unembedding 行，用 SOMP 分解每个头，按方差解释比 $\|\mathbf{H}_r\|_F^2 / \|\mathbf{H}\|_F^2$ 排序，选择 top-$k$ 头进行干预
     - 核心思路：干预方式为缩放头对 residual stream 的贡献——抑制时 $\alpha = -1$（翻转符号），增强时 $\alpha = 5$（放大 5 倍）。关键发现是极少量头（8-32 个，约 0.8%-3%）即可显著影响目标概念
     - 设计动机：如果头的方差在概念限制字典上被 SOMP 解释得很好，说明该头主要输出该概念相关的信号，干预它应当针对性地影响概念生成
 

@@ -10,7 +10,7 @@ tags:
   - Agent框架
   - MCP工具生态
   - 多模态遥感
-  - 基准测试
+  - benchmark
 ---
 
 # Earth-Agent: Unlocking the Full Landscape of Earth Observation with Agents
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.23141](https://arxiv.org/abs/2509.23141)  
 **代码**: [opendatalab/Earth-Agent](https://github.com/opendatalab/Earth-Agent)  
 **领域**: 遥感 / LLM Agent  
-**关键词**: 地球观测, Agent框架, MCP工具生态, 多模态遥感, 基准测试
+**关键词**: 地球观测, Agent框架, MCP工具生态, 多模态遥感, benchmark
 
 ## 一句话总结
 Earth-Agent是首个基于MCP工具生态的地球观测Agent框架，统一了RGB和光谱遥感数据，通过动态调用104个专家工具实现跨模态、多步骤、定量时空推理，配套提出的Earth-Bench基准包含248个专家任务和13,729张图像，实验证明Earth-Agent远超通用Agent和遥感MLLM。

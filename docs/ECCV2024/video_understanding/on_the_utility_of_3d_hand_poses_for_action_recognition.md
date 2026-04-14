@@ -50,25 +50,25 @@ tags:
 
 1. **Micro-action 时序分解**:
 
-    - 做什么：将长序列切分为 $K$ 个固定长度 $N$ 的短窗口，每个窗口称为一个 micro-action，类似于"词"构成"句子"
+    - 功能：将长序列切分为 $K$ 个固定长度 $N$ 的短窗口，每个窗口称为一个 micro-action，类似于"词"构成"句子"
     - 核心思路：pose 序列通过线性插值调整到 $\mathcal{T}'=(K-1)\times R + N$ 帧（默认 $\mathcal{T}'=120$, $N=15$, $K=8$），用滑动窗口（步长 $R$）切出 $K$ 个 micro-action。每个 micro-action $M_k = [I_{h(k)}, \{P'_{g(k)+i}\}_{i=0}^{N-1}]$，即一帧 RGB + $N$ 帧 pose
     - 设计动机：手部关节高度耦合，远程时空注意力（如 CTR-GCN、ISTA-Net）效果有限甚至造成冗余。分解为短窗口后，只在局部建模时空依赖，参数共享效率高。消融显示 $N=15$ 最优，比极端的逐帧（$N=1$）或全序列（$N=120$）好 4-5%。
 
 2. **Trajectory Encoder**:
 
-    - 做什么：将 micro-action 内的密集 pose 序列编码为一个特征向量
+    - 功能：将 micro-action 内的密集 pose 序列编码为一个特征向量
     - 核心思路：采用 Lagrangian 视角——不是按帧处理所有关节，而是将每个关节的 $N$ 帧 3D 坐标看作一条轨迹（$3\times N$ 维向量）。所有关节共享参数的 Single-Joint TCN 将轨迹编码为 $2J$ 个 Local Trajectory Token。另有一个独立的 Wrist-TCN 处理整个动作序列的手腕 6D pose（位置+朝向），生成一个 Global Wrist Token 作为全局运动参考。然后对这些 token 做 self-attention + 时空平均池化
     - 设计动机：手部动作中全骨架运动占主导，关节间关系变化小。轨迹编码自然捕捉每个关节的短期运动模式，而 Global Wrist Token 弥补了手部缺乏静态参考关节的问题（消融显示加入后 verb 准确率从 64.17% 提升到 64.90%）
 
 3. **Multimodal Tokenizer**:
 
-    - 做什么：融合 RGB 特征和 pose 特征，生成增强的多模态 token
+    - 功能：融合 RGB 特征和 pose 特征，生成增强的多模态 token
     - 核心思路：将 frame feature $f_k^{\text{RGB}}$ 和 trajectory encoding $f_k^{\text{Pose}}$ 拼接后通过 MLP 投影到共享空间，得到 PoseRGB 特征，然后 split 为两部分分别加回原始 RGB 和 pose 特征。这种残差式交互让两种模态互相增强
     - Frame Encoder 使用冻结的 DINOv2 ViT（或预训练 ResNet50）处理单帧 RGB，生成手部 1.25× 扩展裁剪和全局场景两种特征
 
 4. **Temporal Transformer**:
 
-    - 做什么：聚合 $K$ 个 micro-action 的多模态 token 进行时序建模
+    - 功能：聚合 $K$ 个 micro-action 的多模态 token 进行时序建模
     - 核心思路：$2K$ 个 token（每 micro-action 一个 RGB token + 一个 pose token）加上正弦位置编码和可学习的模态嵌入，送入标准 Transformer（HandFormer-B: $d=256$, 2 层；HandFormer-L: $d=512$, 4 层），[CLS] token 输出用于分类
 
 ### 损失函数 / 训练策略

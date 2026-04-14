@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Leveraging Robust Optimization for LLM Alignment under Distribution Shifts
 description: >-
-  [NeurIPS 2025][LLM alignment] 提出 DoRA（Distribution-aware optimization for Robust Alignment），通过训练分布分类器为每个样本分配校准权重，结合 KL-DRO 框架最小化最坏情况损失，以模型无关的即插即用方式提升多种对齐算法在分布偏移下的鲁棒性，在 DPO/RRHF/LIRE 等基线上一致提升性能。
+  [NeurIPS 2025][LLM 对齐] 提出 DoRA（Distribution-aware optimization for Robust Alignment），通过训练分布分类器为每个样本分配校准权重，结合 KL-DRO 框架最小化最坏情况损失，以模型无关的即插即用方式提升多种对齐算法在分布偏移下的鲁棒性，在 DPO/RRHF/LIRE 等基线上一致提升性能。
 tags:
   - NeurIPS 2025
-  - LLM alignment
+  - LLM 对齐
   - distributionally robust optimization
-  - distribution shift
-  - synthetic data
-  - preference optimization
-  - calibration
+  - 分布偏移
+  - 合成数据
+  - 偏好优化
+  - 校准
 ---
 
 # Leveraging Robust Optimization for LLM Alignment under Distribution Shifts
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.05831](https://arxiv.org/abs/2504.05831)  
 **代码**: 待确认  
 **领域**: llm_nlp  
-**关键词**: LLM alignment, distributionally robust optimization, distribution shift, synthetic data, preference optimization, calibration
+**关键词**: LLM 对齐, distributionally robust optimization, 分布偏移, 合成数据, 偏好优化, 校准
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 偏好对齐（preference alignment）是引导 LLM 输出符合人类价值观的关键技术。然而随着人工标注成本高昂，业界越来越依赖**合成数据**（LLM 生成的偏好数据），这引入了严重的**分布偏移**问题：
 
 **LLM 生成数据与人类偏好不完全一致**：合成数据可能反映模型自身的偏见而非真正的人类价值观
+
 **奖励模型存在偏差**：用于标注偏好的奖励模型本身有 bias，导致次优标签
+
 **混合分布问题**：实际训练数据是人类标注 + 多源合成数据的混合体
 
 传统的经验风险最小化（ERM）假设训练分布等于目标分布，在上述场景下会学到偏向合成数据伪影的策略。

@@ -1,7 +1,16 @@
 ---
-title: "Proof-of-Perception: Certified Tool-Using Multimodal Reasoning with Compositional Conformal Guarantees"
-description: "提出PoP框架，将多模态推理建模为DAG，每个节点配备保形预测证书提供逐步不确定性量化，控制器基于证书自适应分配计算，在文档/图表QA上超越CoT和ReAct基线。"
-tags: ["保形预测", "多模态推理", "工具使用", "不确定性量化", "DAG"]
+title: >-
+  [论文解读] Proof-of-Perception: Certified Tool-Using Multimodal Reasoning with Compositional Conformal Guarantees
+description: >-
+  [CVPR 2026][多模态][保形预测] 提出 Proof-of-Perception (PoP)，将多模态推理建模为可执行的有向无环图(DAG)，每个感知/逻辑节点输出带有保形预测证书的集合值（提供逐步可靠性保证），并用轻量控制器基于这些证书在计算预算内自适应分配算力，在文档、图表和多图QA基准上超越CoT、ReAct和PoT基线。
+tags:
+  - CVPR 2026
+  - 多模态
+  - 保形预测
+  - 工具使用
+  - 多模态推理
+  - 不确定性量化
+  - 自适应计算
 ---
 
 # Proof-of-Perception: Certified Tool-Using Multimodal Reasoning with Compositional Conformal Guarantees
@@ -38,19 +47,19 @@ tags: ["保形预测", "多模态推理", "工具使用", "不确定性量化", 
 
 1. **节点级保形预测证书（Node-Level Conformal Certificates）**:
 
-    - 做什么：为每种节点类型（OCR/检测/图表解析/逻辑融合）定义非一致性函数和校准阈值，输出集合值预测
+    - 功能：为每种节点类型（OCR/检测/图表解析/逻辑融合）定义非一致性函数和校准阈值，输出集合值预测
     - 核心思路：对第 $t$ 类节点，非一致性函数 $s^{(t)}(x_v, z)$ 度量候选输出 $z$ 的"异常"程度。通过校准集计算阈值 $\tau_\delta^{(t)} = \alpha_{(k)}^{(t)}, k = \lceil(n_t+1)(1-\delta)\rceil$。集合预测 $\Gamma_\delta^{(t)}(x_v) = \{z : s^{(t)}(x_v, z) \leq \tau_\delta^{(t)}\}$，保证覆盖概率 $\geq 1-\delta$
     - 设计动机：单点预测在中间步骤静默传播错误，集合值预测保留多个校准候选直到证据消除歧义，减少错误级联
 
 2. **自适应控制器（Adaptive Controller for Compute Allocation）**:
 
-    - 做什么：轻量策略网络 $\pi_\phi$，基于每个节点的证书状态 $c_v$（阈值、集合大小、节点类型）和全局预算 $b$，输出动作 $a_v \in \{\text{ACCEPT, RETRY, EXPAND, ABORT}\}$
+    - 功能：轻量策略网络 $\pi_\phi$，基于每个节点的证书状态 $c_v$（阈值、集合大小、节点类型）和全局预算 $b$，输出动作 $a_v \in \{\text{ACCEPT, RETRY, EXPAND, ABORT}\}$
     - 核心思路：ACCEPT保留当前集合，RETRY用更高精度重跑（如高分辨率裁剪），EXPAND添加新子节点（如额外OCR调用），ABORT在预算耗尽时提前终止。控制器用策略梯度优化 $R(x) = -C_{err}(x) - \beta C_{comp}(x)$
     - 设计动机：不确定性不该是被动评分，而应主动指导计算分配——集合大时扩展计算，集合小（置信高）时提前停止
 
 3. **自博弈对抗样本挖掘（Self-Play Counterexample Mining）**:
 
-    - 做什么：在训练中由冻结的对手生成扰动输入（裁剪、仿射变换、OCR噪声），筛选导致错误的反例用于增强学生和校准集
+    - 功能：在训练中由冻结的对手生成扰动输入（裁剪、仿射变换、OCR噪声），筛选导致错误的反例用于增强学生和校准集
     - 核心思路：对手执行推理图并对输入做可控扰动，筛选预测错误或非一致性分数大的样本作为反例。反例用于训练学生保持覆盖率，并追加到校准池使阈值反映真实失败模式
     - 设计动机：标准校准假设可交换性，但分布偏移下证书可能失效。自博弈让校准在对抗扰动下仍可靠
 

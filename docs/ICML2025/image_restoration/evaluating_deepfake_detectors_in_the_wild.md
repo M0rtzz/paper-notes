@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Evaluating Deepfake Detectors in the Wild
 description: >-
-  [ICML 2025][Deepfake检测][鲁棒性评估] 系统评估6种开源deepfake检测器在真实场景下的表现，构建50万+高质量deepfake数据集，发现不到一半检测器AUC超60%，JPEG压缩和图像增强等简单操作可显著降低检测性能
+  [ICML 2025][图像恢复][Deepfake检测] 构建包含50万+高质量deepfake图像的新数据集，通过引入JPEG压缩、降分辨率、图像增强等真实场景增强，系统评估6种开源deepfake检测器，揭示不到一半检测器AUC>60%，最低仅约50%（随机水平）。
 tags:
   - ICML 2025
+  - 图像恢复
   - Deepfake检测
-  - 鲁棒性评估
-  - 模型评估
-  - 对抗攻击
-  - 人脸伪造
+  - 鲁棒性
+  - Face Swapping
+  - 真实场景评估
 ---
 
 # Evaluating Deepfake Detectors in the Wild
@@ -39,17 +39,17 @@ tags:
 
 ### 关键设计
 1. **真实场景数据集构建**:
-    - 做什么：用当前主流的face-swapping模型生成高质量deepfake数据集
+    - 功能：用当前主流的face-swapping模型生成高质量deepfake数据集
     - 核心思路：使用SimSwap（$224\times224$和$512\times512$分辨率）和Inswapper（$128$分辨率）对CelebA-HQ/LFW/FairFace三个数据集进行人脸交换，确保性别、年龄、种族匹配。总计生成超过50万张deepfake图像
     - 设计动机：现有DFDC/FaceForensics数据集使用过时生成方法，伪影明显，不能反映当前deepfake技术水平
 
 2. **真实攻击模拟增强**:
-    - 做什么：模拟欺诈者绕过检测的常用手段
+    - 功能：模拟欺诈者绕过检测的常用手段
     - 核心思路：分为人工退化（JPEG压缩、降分辨率至128像素）和人工增强（GPEN面部修复）两类。JPEG压缩改变像素值导致压缩伪影；降分辨率模拟低质量录制；GPEN增强可将低质量生成结果提升至视觉上与真实图像难以区分
     - 设计动机：仅在原始图像上测试不够——实际欺诈场景中，攻击者会对生成图像进行后处理以绕过安全措施
 
 3. **多维度系统评估**:
-    - 做什么：从多个指标和维度全面评估检测器性能
+    - 功能：从多个指标和维度全面评估检测器性能
     - 核心思路：使用ROC-AUC、F1（阈值0.5）、PR-AUC、LogLoss、Accuracy五个指标，分别在三个数据集、两个生成器、四种增强条件下交叉评估6种检测器
     - 设计动机：单一指标和单一条件下的评估容易给出误导性结论
 

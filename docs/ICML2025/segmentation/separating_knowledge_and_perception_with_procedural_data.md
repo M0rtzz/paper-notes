@@ -9,8 +9,9 @@ tags:
   - procedural data
   - visual memory
   - KNN classification
+  - 语义分割
   - data privacy
-  - differential privacy
+  - 差分隐私
   - 自监督学习
 ---
 
@@ -20,7 +21,7 @@ tags:
 **arXiv**: [2508.11697](https://arxiv.org/abs/2508.11697)  
 **代码**: 待确认  
 **领域**: segmentation  
-**关键词**: procedural data, visual memory, KNN classification, semantic segmentation, data privacy, differential privacy, self-supervised learning  
+**关键词**: procedural data, visual memory, KNN classification, 语义分割, data privacy, 差分隐私, 自监督学习
 **作者**: Adrián Rodríguez-Muñoz, Manel Baradad, Phillip Isola, Antonio Torralba (MIT)
 
 ## 一句话总结
@@ -30,8 +31,11 @@ tags:
 ## 研究背景与动机
 
 现代视觉模型通过梯度下降将图像"消化"进权重中，带来三大问题：
+
 **隐私与偏见**：权重以黑盒方式存储知识，难以追踪或删除特定数据（如人脸、敏感医疗图像）；
+
 **数据遗忘困难**：法律要求删除某些数据时，需要重新训练整个模型，代价极高；
+
 **知识编辑不灵活**：添加/删除/更新知识需 fine-tune 或重训。
 
 先前工作提出了 **visual memory** 的思路：用 KNN 检索替代参数化分类器，使知识以数据库形式存储，便于增删。但问题在于——特征提取器本身仍在真实数据上训练，知识与感知并未真正分离。

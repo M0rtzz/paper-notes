@@ -8,8 +8,8 @@ tags:
   - 知识蒸馏
   - multi-teacher
   - task-agnostic
-  - representation learning
-  - mutual information
+  - 表示学习
+  - 互信息
 ---
 
 # Learning Task-Agnostic Representations through Multi-Teacher Distillation
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.18680](https://arxiv.org/abs/2510.18680)  
 **代码**: 无  
 **领域**: 模型压缩  
-**关键词**: knowledge distillation, multi-teacher, task-agnostic, representation learning, mutual information  
+**关键词**: 知识蒸馏, multi-teacher, task-agnostic, 表示学习, 互信息
 
 ## 一句话总结
 

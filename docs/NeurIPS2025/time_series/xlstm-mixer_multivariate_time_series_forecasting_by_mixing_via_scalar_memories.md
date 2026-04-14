@@ -57,9 +57,9 @@ $$\bm{x}^{\text{initial}} = \text{FC}(\bm{x}_{1:T}^{\text{norm}} - x_T^{\text{no
 1. **上投影**：将初始预测 $\bm{x}^{\text{initial}} \in \mathbb{R}^{V \times H}$ 投影到更高隐维度 $D$：$\bm{x}^{\text{up}} = \text{FC}^{\text{up}}(\bm{x}^{\text{initial}}) \in \mathbb{R}^{V \times D}$，同样跨变量共享权重
 
 2. **sLSTM 块堆叠**：$M$ 层 sLSTM 块沿**变量维度**（而非时间维度）递归处理。每个 token 代表单个变量的所有时间步嵌入。关键特性：
-   - **指数门控**：输入门和遗忘门使用指数函数（$\bm{i}_t = \exp(\tilde{\bm{i}}_t - \bm{m}_t)$），增强记忆控制
-   - **多头记忆混合**：循环权重矩阵 $\bm{R}$ 为块对角结构，允许头部专门化
-   - **数值稳定化**：$\bm{m}_t = \max(\tilde{\bm{f}}_t + \bm{m}_{t-1}, \tilde{\bm{i}}_t)$ 防止指数爆炸
+    - **指数门控**：输入门和遗忘门使用指数函数（$\bm{i}_t = \exp(\tilde{\bm{i}}_t - \bm{m}_t)$），增强记忆控制
+    - **多头记忆混合**：循环权重矩阵 $\bm{R}$ 为块对角结构，允许头部专门化
+    - **数值稳定化**：$\bm{m}_t = \max(\tilde{\bm{f}}_t + \bm{m}_{t-1}, \tilde{\bm{i}}_t)$ 防止指数爆炸
 
 3. **可学习初始嵌入 $\bm{\eta}$**：借鉴 LLM 的软提示（soft prompt），学习一个初始 token 预置于序列前端，使 sLSTM 的初始隐状态适应特定数据集特征
 

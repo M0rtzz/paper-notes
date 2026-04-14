@@ -7,7 +7,7 @@ tags:
   - ICLR 2026
   - 多模态
   - reasoning-driven generation
-  - 强化学习
+  - reinforcement-learning
   - MLLM
   - inference-time scaling
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.00405](https://arxiv.org/abs/2511.00405)  
 **代码**: [GitHub](https://github.com/XMUDeepLIT/UME-R1)  
 **领域**: 多模态嵌入 / 推理驱动的生成式表示  
-**关键词**: multimodal embeddings, reasoning-driven generation, reinforcement learning, MLLM, inference-time scaling
+**关键词**: multimodal embeddings, reasoning-driven generation, reinforcement-learning, MLLM, inference-time scaling
 
 ## 一句话总结
 

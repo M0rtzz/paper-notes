@@ -25,11 +25,17 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：MathVista、RealWorldQA 等多模态 benchmark 只看最终答案正确率，无法区分模型是"真正理解"还是"lucky guess"——一个模型可能答对但推理过程完全矛盾。
+
 **现有痛点**：(1) 答案正确率评估让模型可以通过 shortcut 获得高分；(2) 现有 CoT 评估缺乏机器可验证的中间步骤检查点；(3) 理论分析表明，以答案为中心的评估在结构上激励幻觉（penalize uncertainty）。
+
 **核心矛盾**：模型可以通过生成少量高精度步骤来"cherry-pick"，看起来推理正确但实际上跳过了大量关键推理步。答案正确率和推理忠实度是两个不同的维度。
+
 **本文要解决什么？** 如何系统评估 MLLM 的中间推理步质量？如何用步骤级奖励改善模型推理？
+
 **切入角度**：借鉴 Delphi 方法（多专家共识构建），用多个 MLLM 独立生成推理步骤，通过语义聚类和人工验证构建参考步骤集。
+
 **核心idea一句话**：用语义匹配的 F1 评估推理步骤质量，用乘法式 CPR 奖励替代加法式奖励来训练更忠实的推理。
+
 **理论动机**：作者形式化证明了在答案为中心的评估下，对于任何存在不确定性的问题，模型的最优策略是生成最大化答案期望奖励的 CoT（而非忠实反映内部推理），这从结构上激励幻觉。
 
 ## 方法详解
@@ -41,19 +47,19 @@ CRYSTAL 包含评估和训练两个部分：评估端提供 6372 个实例（每
 
 1. **Delphi-Inspired 参考步骤生成 Pipeline**:
 
-    - 做什么：为每个问题生成高质量的参考推理步骤序列
+    - 功能：为每个问题生成高质量的参考推理步骤序列
     - 核心思路：4 个不同架构的 MLLM（Qwen2.5-VL-72B, InternVL3-76B, Gemma3-27B, Llama-4-Maverick）独立生成步骤 → 用 sentence encoder 计算余弦相似度做语义聚类（connected components）→ 选最具代表性的聚类中心 → 第 5 个模型（Molmo-72B）验证逻辑一致性 → 人工质量门控（<5% 需重做）
     - 设计动机：多来源独立生成减少相关错误，语义聚类实现了步骤级的 self-consistency voting
 
 2. **Match F1 & Ordered Match F1**:
 
-    - 做什么：量化预测推理步和参考步的对齐质量
+    - 功能：量化预测推理步和参考步的对齐质量
     - 核心思路：用 all-distilroberta-v1 编码所有步骤，余弦相似度 ≥ τ=0.35 的 greedy 1:1 匹配。Match F1 = harmonic mean(Precision, Recall)。Ordered Match F1 在此基础上乘以 LIS ratio 惩罚乱序：$\text{Ordered-F1} = \text{F1} \cdot ((1-\alpha) + \alpha \cdot \text{LIS-ratio})$
     - 设计动机：Match F1 看"有没有"，Ordered F1 看"对不对顺序"，两者互补。α=0.5 为默认值，作者验证了在 0.3-0.7 范围内结论稳健
 
 3. **Causal Process Reward (CPR) + CPR-Curriculum**:
 
-    - 做什么：用于 GRPO 训练的步骤级奖励函数
+    - 功能：用于 GRPO 训练的步骤级奖励函数
     - 核心思路：乘法式奖励 — 答案正确时 $R = a_w + s_w \cdot \text{F1}_{step}$，答案错误时 $R = s_w \cdot \text{F1}_{step} \cdot \lambda$（$\lambda=0.3$）。CPR-Curriculum 两阶段训练：Phase 1 只用答案奖励建立基础，Phase 2 引入完整 CPR + 渐进增加推理难度
     - 设计动机：加法式奖励允许模型只靠猜答案获得高分并忽略推理质量；乘法式强制两者耦合。PCGrad 防止准确率和推理的梯度冲突
 

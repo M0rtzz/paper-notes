@@ -56,14 +56,14 @@ $$\hat{e}^*, \theta^*, \phi^* = \arg\min_{\hat{e}, \theta, \phi} R_{\hat{e}}(\th
 
 1. **Bias-aware Environment Assignment（偏差感知环境分配）**:
 
-    - 做什么：在第 $r$ 轮，利用上一轮固定的网络参数推断每条轨迹的最优环境标签
+    - 功能：在第 $r$ 轮，利用上一轮固定的网络参数推断每条轨迹的最优环境标签
     - 核心思路：$\hat{e}_i^{(r)} = \arg\min_{e \in [M]} \int_{t \in I} \|dx^i_t/dt - h(x^i_t; \theta^{(r-1)}, \phi_e^{(r-1)})\|_2^2 dt$
     - 每条轨迹被分配到使其预测损失最小的环境——类似 K-means 中将数据点分配到最近质心
     - 设计动机：同一环境的轨迹共享动态方程，用相同网络预测时误差模式一致
 
 2. **Assignment-driven Optimization（分配驱动优化）**:
 
-    - 做什么：基于当前环境分配，优化全局和环境特定参数
+    - 功能：基于当前环境分配，优化全局和环境特定参数
     - 核心思路：$\theta^{(r)}, \phi^{(r)} = \arg\min_{\theta, \phi} R_{\hat{e}^{(r)}}(\theta, \phi)$
     - 类似 K-means 中更新质心为簇内均值
     - 设计动机：以无偏方式更新参数，让每条轨迹等权贡献

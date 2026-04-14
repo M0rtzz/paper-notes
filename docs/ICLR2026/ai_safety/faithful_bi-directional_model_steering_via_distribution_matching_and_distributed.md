@@ -7,10 +7,10 @@ tags:
   - ICLR2026
   - AI安全
   - model steering
-  - distribution matching
+  - 分布匹配
   - interchange intervention
-  - mechanistic interpretability
-  - LLM safety
+  - 机制可解释性
+  - LLM 安全
 ---
 
 # Faithful Bi-Directional Model Steering via Distribution Matching and Distributed Interchange Interventions
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.05234](https://arxiv.org/abs/2602.05234)  
 **代码**: [colored-dye/concept_das](https://github.com/colored-dye/concept_das)  
 **领域**: ai_safety  
-**关键词**: model steering, distribution matching, interchange intervention, mechanistic interpretability, LLM safety  
+**关键词**: model steering, 分布匹配, interchange intervention, 机制可解释性, LLM 安全
 
 ## 一句话总结
 提出 Concept DAS (CDAS)，通过 Jensen-Shannon 散度分布匹配目标和 distributed interchange intervention (DII) 实现双向模型引导，在安全场景（绕过拒绝、消除后门）中实现系统性控制且保持模型通用能力。

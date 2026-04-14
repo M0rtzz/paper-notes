@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2404.12467](https://arxiv.org/abs/2404.12467)  
 **代码**: [imguangyu/FedCola](https://github.com/imguangyu/FedCola)  
 **领域**: ai_safety  
-**关键词**: Federated Learning, Multi-modal Learning, Transformer, Vision-Language, Mixture of Experts
+**关键词**: federated learning, Multi-modal Learning, Transformer, Vision-Language, Mixture of Experts
 
 ## 一句话总结
 

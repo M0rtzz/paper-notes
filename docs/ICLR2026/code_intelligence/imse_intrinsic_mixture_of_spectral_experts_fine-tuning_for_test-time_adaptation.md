@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.07926](https://arxiv.org/abs/2603.07926)  
 **代码**: [github](https://github.com/baek85/IMSE)  
 **领域**: llm_efficiency  
-**关键词**: test-time adaptation, singular value decomposition, mixture of experts, continual adaptation, distribution shift  
+**关键词**: test-time adaptation, singular value decomposition, mixture of experts, continual adaptation, distribution shift
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 测试时适应（TTA）旨在让源域预训练模型在线适应未知目标域，无需访问源数据。现有方法面临三个关键问题：
 
 **预训练特征利用不充分**：大型预训练模型蕴含丰富的表征能力，如何在最少参数更新下充分利用这些表征仍未被充分探索。现有方法要么只调 BN 参数（适应能力有限），要么引入额外模块（增加推理开销）。
+
 **熵最小化导致特征坍缩**：在无标签 TTA 场景中，熵最小化常常驱使模型利用域特定特征而非类别判别特征，反而加剧性能退化。
+
 **连续 TTA 中域知识遗忘**：在 CTTA 设定下，模型不仅需要保持预训练知识，还需保留并复用先前遇到的域知识。现有方法缺乏高效的域知识保存与复用机制。
 
 ## 方法详解

@@ -47,26 +47,26 @@ Stage 1: 各专家独立训练 → Stage 2: 冻结专家参数，训练 Volume-a
 
 1. **Volume-aware Pixel Router**:
 
-    - 做什么：在像素级别自适应分配专家权重，同时感知 3D 体积信息
+    - 功能：在像素级别自适应分配专家权重，同时感知 3D 体积信息
     - 核心思路：为每个高斯学习 per-Gaussian 权重 $\bm{w}_i^{per} = [w_i, w_i^{dir}, (t \cdot w_i^{time})]^T$（编码视角和时间依赖），通过高斯泼溅投射到 2D 像素空间得到 $w_{2D}(u)$，再经轻量 MLP 精修后用 softmax 得到门控权重 $G'_k(u)$
     - 设计动机：Pixel Router（纯 2D MLP）缺乏体积感知，结果过度平滑；Volume Router（直接在 3D 空间调整透明度）优化困难不稳定。Volume-aware Pixel Router 在 2D 空间优化（稳定）但使用 3D 特征（有体积上下文）
     - 对比：PSNR Pixel Router 31.12 < Volume Router 32.05 < **VA Pixel Router 33.23**
 
 2. **单次多专家渲染 (Single-Pass Rendering)**:
 
-    - 做什么：将所有专家的高斯合并为一批，只做一次投影和光栅化
+    - 功能：将所有专家的高斯合并为一批，只做一次投影和光栅化
     - 核心思路：每个高斯附加 one-hot 专家身份 $e_j \in \mathbb{R}^K$，在 alpha blending 时按专家身份分离颜色 $C_k(u) = \sum_j T_j(u) \alpha_j(u) c_j \cdot (e_j)_k$
     - 效果：FPS 从 40 提升到 68（Table 5）
 
 3. **门控感知高斯剪枝 (Gate-Aware Pruning)**:
 
-    - 做什么：移除对 MoE 输出贡献低的高斯
+    - 功能：移除对 MoE 输出贡献低的高斯
     - 核心思路：累积门控权重对逐高斯权重的梯度 $\mathcal{E}_i = \frac{1}{|\mathcal{D}|} \sum_v \|\frac{\partial G'_k(v)}{\partial \bm{w}_i^{per}(v)}\|$，低于阈值的高斯被剪枝
     - 效果：55% 剪枝后 PSNR 仅降 0.02dB，FPS 从 44→83，内存从 878→351MB
 
 4. **知识蒸馏**:
 
-    - 做什么：将 MoE 性能迁移到单个专家，实现轻量部署
+    - 功能：将 MoE 性能迁移到单个专家，实现轻量部署
     - 核心思路：$\mathcal{L}_k^{KD} = \lambda \cdot \mathcal{L}(G'_k \cdot I_{E_k}, G'_k \cdot I_{GT}) + (1-\lambda) \cdot \mathcal{L}((1-G'_k) \cdot I_{E_k}, (1-G'_k) \cdot I_{MoE})$，路由器权重高的区域用 GT 监督，低的区域用 MoE 输出作伪标签
     - 设计动机：当 N≥4 时多专家推理开销大，蒸馏到单专家可保持接近 MoE 的性能
 

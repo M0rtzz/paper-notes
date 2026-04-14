@@ -2,17 +2,17 @@
 title: >-
   [论文解读] C-NAV: Towards Self-Evolving Continual Object Navigation in Open World
 description: >-
-  [NeurIPS 2025][机器人][continual learning] 提出 C-Nav 持续目标导航框架，通过**双路径抗遗忘机制**（特征蒸馏 + 特征回放）和**基于 LOF 的自适应经验选择**，使导航智能体在增量学习新物体类别时有效避免灾难性遗忘，在 4 种主流架构和 2 个数据集上均超越全量数据回放基线。
+  [NeurIPS 2025][机器人][持续学习] 提出 C-Nav 持续目标导航框架，通过**双路径抗遗忘机制**（特征蒸馏 + 特征回放）和**基于 LOF 的自适应经验选择**，使导航智能体在增量学习新物体类别时有效避免灾难性遗忘，在 4 种主流架构和 2 个数据集上均超越全量数据回放基线。
 tags:
   - NeurIPS 2025
   - 机器人
-  - continual learning
+  - 持续学习
   - object navigation
-  - catastrophic forgetting
+  - 灾难性遗忘
   - feature distillation
   - feature replay
   - LOF
-  - embodied agent
+  - 具身智能体
 ---
 
 # C-NAV: Towards Self-Evolving Continual Object Navigation in Open World
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2510.20685](https://arxiv.org/abs/2510.20685)  
 **代码**: [https://bigtree765.github.io/C-Nav-project](https://bigtree765.github.io/C-Nav-project)  
 **领域**: robotics / embodied AI  
-**关键词**: continual learning, object navigation, catastrophic forgetting, feature distillation, feature replay, LOF, embodied agent
+**关键词**: 持续学习, object navigation, 灾难性遗忘, feature distillation, feature replay, LOF, 具身智能体
 
 ## 一句话总结
 
@@ -30,10 +30,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：目标导航（ObjectNav）是具身智能的基础能力，当前 SOTA（OVRL-V2、PIRLNav、NavID 等）依赖预训练视觉编码器 + 大规模示范轨迹，假设所有目标类别在训练期间一次性给定。
+
 **开放世界需求**：实际部署中机器人需持续面对新物体类别和变化环境，要求增量学习能力。然而现有方法在顺序学习新类别时，成功率平均下降约 **40%**，遭受严重的灾难性遗忘。
+
 **数据回放的代价**：朴素数据回放（存储完整轨迹）虽能缓解遗忘，但导航轨迹极长（单条可达数百帧），存在**存储开销大**、帧间高度冗余、以及**隐私风险**（室内场景泄露敏感空间信息）等问题。
+
 **遗忘根源分析**：灾难性遗忘有两个独立来源——多模态编码器的**表征漂移**（输入分布偏移导致特征空间漂移）与动作解码器的**策略退化**（历史特征→动作映射失效），需分别施加约束。
+
 **研究空白**：持续学习在图像分类等单模态任务上已有大量工作，但在需要长时序决策和多模态融合的目标导航任务中**尚未被系统研究**，也缺乏标准化评估基准。
+
 **核心切入点**：将关键帧选择建模为特征空间中的**离群点检测问题**，仅存储语义突变帧的深层特征（而非原始图像），同时用双路径机制分别稳定编码器和解码器，从而以极低存储代价实现持续导航。
 
 ## 方法详解

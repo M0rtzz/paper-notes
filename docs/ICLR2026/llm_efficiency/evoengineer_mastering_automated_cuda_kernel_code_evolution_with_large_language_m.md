@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：CUDA kernel 性能是 AI 训练和推理效率的核心瓶颈。手动优化需要深厚的 GPU 架构专业知识（内存层次、线程调度、Tensor Core 等），而 LLM 已展现出自动化优化的潜力。近期出现了 AI CUDA Engineer、KernelBench 等 kernel-specific 方法以及 EoH、FunSearch 等通用代码演化方法。
+
 **现有痛点**：(a) Kernel-specific 方法将评估过程与优化策略紧耦合，问题形式化不清晰，无法做公平比较；(b) 通用代码演化方法仅在宽松正确性要求的场景下验证过（如数学问题），难以满足 CUDA kernel 的严格正确性约束；(c) 两类方法都缺乏系统框架来理解不同优化策略在不同场景下的有效性。
+
 **核心矛盾**：性能提升与代码正确性之间存在 trade-off。追求高加速比往往导致代码有效率下降，而保守策略又限制了性能提升空间。现有方法要么忽视这个 trade-off（策略盲目），要么通过复杂 prompt 过度消耗 token（资源低效）。
+
 **本文要解决什么？** 如何系统化地选择和设计优化策略，在 LLM-based kernel 优化中同时提升性能和正确性？
+
 **切入角度**：将代码演化分解为两个正交组件（traverse + population management），并在 traverse 内部进一步分离策略层和 prompt 工程层，使得分析和设计优化策略成为可能。
+
 **核心 idea 一句话**：通过两层分解的 traverse technique 设计（解耦"用什么信息指导搜索"和"如何写 prompt"），实现对 LLM-based 代码演化策略的系统化分析和选择。
 
 ## 方法详解
@@ -43,7 +48,7 @@ EvoEngineer 将 LLM-based 代码演化分解为两个正交组件：**Traverse T
 
 1. **Two-Layer Traverse Technique**
 
-    - 做什么：将代码空间导航分为两层——Solution Guiding Layer（决定"给 LLM 什么信息"）和 Prompt Engineering Layer（决定"如何组织 prompt"）。
+    - 功能：将代码空间导航分为两层——Solution Guiding Layer（决定"给 LLM 什么信息"）和 Prompt Engineering Layer（决定"如何组织 prompt"）。
     - 核心思路：Solution Guiding Layer 管理三类 closed-world 信息：(I1) 当前任务上下文（优化目标、约束）；(I2) 历史高质量解；(I3) 优化洞察（设计理由和 LLM 推理过程）。还可选择性引入 open-world 信息（I4: 领域知识）。Prompt Engineering Layer 将上层策略翻译为具体 prompt。
     - 设计动机：现有方法（EoH、FunSearch）将搜索策略和 prompt 工程混在一起，模仿进化算子（crossover/mutation）但无实证表明 LLM 能有效执行这些操作。两层分离使得策略分析和 prompt 优化独立进行。
 
@@ -56,13 +61,13 @@ EvoEngineer 将 LLM-based 代码演化分解为两个正交组件：**Traverse T
 
 3. **Population Management 策略**
 
-    - 做什么：定义候选解的维护、选择和演化方式。
+    - 功能：定义候选解的维护、选择和演化方式。
     - 三种策略：(1) 单解策略：只维护当前最优解；(2) 精英保持策略：保留一小组高性能解；(3) 多样性维护策略：保持解的多样性以探索搜索空间。
     - 设计动机：不同的维护策略影响探索与利用的平衡——单解策略更快但容易陷入局部最优，精英策略在正确性上更有优势。
 
 4. **两阶段评估流程**
 
-    - 做什么：每个生成的 kernel 经过编译检查和功能测试两步验证。
+    - 功能：每个生成的 kernel 经过编译检查和功能测试两步验证。
     - 核心思路：编译检查确保语法有效；功能测试用 5 个 test case 对比 PyTorch 参考实现。通过后测量 100 次运行的平均执行时间。
     - 设计动机：严格的正确性验证是 CUDA kernel 优化的核心约束，区别于一般代码生成任务。
 

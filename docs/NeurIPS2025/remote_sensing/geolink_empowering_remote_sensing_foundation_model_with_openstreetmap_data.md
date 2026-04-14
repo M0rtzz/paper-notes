@@ -1,13 +1,18 @@
 ---
+title: >-
+  [论文解读] GeoLink: Empowering Remote Sensing Foundation Model with OpenStreetMap Data
 description: >-
-  NeurIPS 2025遥感基础模型论文，提出GeoLink框架将OSM矢量数据直接融入遥感自监督预训练，通过异构GNN编码+多粒度跨模态对齐+掩码高效预训练，在127万样本对上预训练后全面SOTA。
+  [NeurIPS 2025][遥感][遥感基础模型] GeoLink将OpenStreetMap矢量数据直接融入遥感基础模型预训练，通过异构GNN编码OSM数据并设计多粒度跨模态学习目标（区域-图像级对比 + 对象-patch级融合），在127万样本对上高效预训练后，7个分类和4个分割/变化检测benchmark全面超越现有RS FM。
 tags:
   - NeurIPS 2025
   - 遥感
   - 遥感基础模型
   - OpenStreetMap
   - 多模态预训练
+  - 异构图神经网络
+  - 跨模态对齐
 ---
+
 # GeoLink: Empowering Remote Sensing Foundation Model with OpenStreetMap Data
 
 **会议**: NeurIPS 2025  
@@ -43,17 +48,17 @@ GeoLink含三个编码器：(1) ViT-L RS图像编码器输出patch编码；(2) G
 ### 关键设计
 
 1. **异构OSM图构建与编码**:
-    - 做什么：将OSM矢量地图建模为异构图，节点为点/折线/多边形，边为拓扑空间关系
+    - 功能：将OSM矢量地图建模为异构图，节点为点/折线/多边形，边为拓扑空间关系
     - 核心思路：用BERT对OSM标签键值对编码，按全局频率加权平均 $\sigma_V = \sum w_i h_i / \sum w_i$；用Delaunay三角化等拓扑关系构建边
     - 设计动机：OSM自由标签系统需语言模型处理未见值；拓扑关系比距离更稳健
 
 2. **区域-图像级对比对齐**:
-    - 做什么：全局层面对齐RS和OSM表示
+    - 功能：全局层面对齐RS和OSM表示
     - 核心思路：Set2Set分别聚合三类节点→类型注意力加权→OSM区域编码 $\varepsilon_G$；RS mean pooling→$\varepsilon_I$；InfoNCE对比损失 $\mathcal{L}_{cont}$
     - 设计动机：对比学习可将OSM结构化语义传递给图像编码器
 
 3. **对象-patch融合 + 空间一致性约束**:
-    - 做什么：细粒度跨模态关联学习
+    - 功能：细粒度跨模态关联学习
     - 核心思路：Two-way Transformer + 正弦位置嵌入解决空间模糊性；一致性损失 $\mathcal{L}_{cst} = \frac{1}{N}\sum\|\varepsilon_{OR}^m - \sigma_V^m\|^2$ 强制掩码节点的融合表示与原始特征一致
     - 设计动机：基于地理学第一定律——空间上下文与掩码对象属性强相关
 

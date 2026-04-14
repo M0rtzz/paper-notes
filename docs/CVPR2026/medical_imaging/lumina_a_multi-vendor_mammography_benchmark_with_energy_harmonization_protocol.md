@@ -10,7 +10,7 @@ tags:
   - 多厂商数据集
   - 能量协调
   - 直方图匹配
-  - 基准测试
+  - benchmark
 ---
 
 # LUMINA: A Multi-Vendor Mammography Benchmark with Energy Harmonization Protocol
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.14644](https://arxiv.org/abs/2603.14644)  
 **代码**: [有](https://github.com/NUBagciLab/LUMINA)  
 **领域**: 医学图像  
-**关键词**: 乳腺X线摄影, 多厂商数据集, 能量协调, 直方图匹配, 基准测试
+**关键词**: 乳腺X线摄影, 多厂商数据集, 能量协调, 直方图匹配, benchmark
 
 ## 一句话总结
 

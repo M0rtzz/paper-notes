@@ -1,8 +1,18 @@
 ---
-title: "[论文解读] Sharper Convergence Rates for Nonconvex Optimisation via Reduction Mappings"
-description: "[NeurIPS 2025 Spotlight][优化] 提出Reduction Mapping框架，利用解流形结构改善非凸优化收敛速率"
-tags: [NeurIPS 2025, 优化, 非凸优化, 收敛分析, 流形结构]
+title: >-
+  [论文解读] Sharper Convergence Rates for Nonconvex Optimisation via Reduction Mappings
+description: >-
+  [NeurIPS 2025 (**Spotlight**)][优化][nonconvex optimization] 提出 Reduction Mapping 框架，利用最优解集的流形结构（由过参数化或对称性产生）重参数化优化问题，证明这能改善曲率性质并理论上加速基于梯度方法的收敛。
+tags:
+  - "NeurIPS 2025 (**Spotlight**)"
+  - 优化
+  - nonconvex optimization
+  - reduction mapping
+  - convergence rate
+  - manifold structure
+  - over-parameterization
 ---
+
 # Sharper Convergence Rates for Nonconvex Optimisation via Reduction Mappings
 
 **会议**: NeurIPS 2025 (**Spotlight**)  
@@ -16,8 +26,11 @@ tags: [NeurIPS 2025, 优化, 非凸优化, 收敛分析, 流形结构]
 
 ## 研究背景与动机
 **领域现状**：高维非凸优化问题（如深度学习训练）的最小值点通常形成光滑流形，源于模型的过参数化或对称性。
+
 **现有痛点**：标准非凸优化分析只关注一般性收敛保证，忽视了解结构带来的加速潜力。
+
 **核心矛盾**：实践中利用结构信息的算法经验上更快收敛，但缺乏统一的理论解释。
+
 **切入角度**：若最优解集的几何结构（至少局部）已知，可通过 reduction mapping 重参数化去除冗余方向。
 
 ## 方法详解
@@ -28,7 +41,7 @@ tags: [NeurIPS 2025, 优化, 非凸优化, 收敛分析, 流形结构]
 ### 关键设计
 1. **Reduction Mapping 定义**
 
-    - 做什么：重参数化使优化变量的一部分自动落在解流形上
+    - 功能：重参数化使优化变量的一部分自动落在解流形上
     - 形式定义：$\phi$ 满足 $\phi(z^*) \in \mathcal{M}^*$ 对理想的 $z^*$
     - 来源：自然产生于内层优化问题（如交替优化中的一步）
     - 设计动机：消除解流形法方向上的退化性

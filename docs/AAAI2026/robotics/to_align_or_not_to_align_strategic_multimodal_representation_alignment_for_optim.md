@@ -1,7 +1,18 @@
 ---
-description: "系统研究显式多模态表征对齐的条件效用，通过可控对比学习和偏信息分解框架揭示对齐效果取决于模态间冗余-独特信息结构"
-tags: [multimodal-learning, representation-alignment, contrastive-learning, PID, information-theory]
+title: >-
+  [论文解读] To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance
+description: >-
+  [AAAI2026][机器人][多模态对齐] 通过引入可控对比学习模块系统调节对齐强度 $\lambda$，结合偏信息分解(PID)框架量化模态间冗余-独特-协同信息结构，揭示显式对齐的效用高度依赖于数据特性：冗余主导时对齐有益，独特主导时有害，混合场景存在最优 $\lambda^*$。
+tags:
+  - AAAI2026
+  - 机器人
+  - 多模态对齐
+  - 对比学习
+  - 偏信息分解
+  - 冗余信息
+  - 单模态编码器
 ---
+
 # To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance
 
 **会议**: AAAI2026  
@@ -38,13 +49,13 @@ tags: [multimodal-learning, representation-alignment, contrastive-learning, PID,
 
 1. **可控对比学习模块**:
 
-    - 做什么：在单模态编码器训练中引入可调强度的跨模态对齐正则项
+    - 功能：在单模态编码器训练中引入可调强度的跨模态对齐正则项
     - 核心思路：给定配对样本 $\{(x_i^A, x_i^B)\}_{i=1}^N$，通过编码器和投影头得到归一化表征 $\mathbf{z}_i^A, \mathbf{z}_i^B$，定义对称InfoNCE损失 $\mathcal{L}_{\text{align}} = \frac{1}{2}(\mathcal{L}_{A \to B} + \mathcal{L}_{B \to A})$，总训练目标为 $\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \lambda \cdot \mathcal{L}_{\text{align}}$，其中 $\lambda \in \{0, 0.1, ..., 4\}$ 控制对齐强度
     - 设计动机：将 $\lambda$ 作为核心实验杠杆，连续扫描从无对齐到强对齐的完整谱，区分对齐的因果效应与相关性
 
 2. **PID信息结构分析**:
 
-    - 做什么：将两个模态 $X_1, X_2$ 对标签 $Y$ 的互信息分解为冗余R、独特U和协同S四个分量
+    - 功能：将两个模态 $X_1, X_2$ 对标签 $Y$ 的互信息分解为冗余R、独特U和协同S四个分量
     - 核心思路：基于偏信息分解框架(Williams & Beer, 2010)，$I(X_1, X_2; Y) = R + U_1 + U_2 + S$，约束关系 $I(X_1; Y) = R + U_1$, $I(X_2; Y) = R + U_2$。在合成数据中精确控制各分量比例，在真实数据中通过估计器计算
     - 设计动机：提供可量化的指标来解释为何对齐在不同数据/模态对上效果截然不同，将定性观察上升为定量规律
 

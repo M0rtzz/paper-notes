@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.09277](https://arxiv.org/abs/2503.09277)  
 **代码**: https://github.com/Xuan-World/UniCombine  
 **领域**: 扩散模型 / 可控生成  
-**关键词**: 多条件生成, Diffusion Transformer, LoRA, 主体驱动生成, 空间控制
+**关键词**: 多条件生成, 扩散 Transformer, LoRA, 主体驱动生成, 空间控制
 
 ## 一句话总结
 UniCombine 提出基于 DiT 的多条件可控生成框架，通过 Conditional MMDiT Attention 机制和 LoRA Switching 模块，实现任意条件组合（文本+空间图+主体图像）的统一生成，支持 training-free 和 training-based 两种模式，并构建了首个多条件生成数据集 SubjectSpatial200K。
@@ -47,13 +47,13 @@ UniCombine 提出基于 DiT 的多条件可控生成框架，通过 Conditional 
 
 1. **LoRA Switching 模块**:
 
-    - 做什么：动态管理多个 Condition-LoRA 的激活
+    - 功能：动态管理多个 Condition-LoRA 的激活
     - 核心思路：维护预训练的 Condition-LoRA 列表 $[\text{CondLoRA}_1, \text{CondLoRA}_2, ...]$，每个对应一种条件类型。Denoising branch 的权重上加载这些 LoRA，通过 one-hot 门控机制 $[0,1,0,...,0]$ 根据当前条件类型激活对应的 LoRA
     - 设计动机：不同条件类型需要不同的特征投影，通过切换 LoRA 而非引入独立网络，最小化额外参数量（仅 29M vs ControlNet/IP-Adapter 的 744M/918M）
 
 2. **Conditional MMDiT Attention (CMMDiT)**:
 
-    - 做什么：为多条件序列设计高效且去耦的注意力计算
+    - 功能：为多条件序列设计高效且去耦的注意力计算
     - 核心思路：根据 query 来源采用不同的 KV 范围：
       - 当 $X$ 或 $T$ 作 query 时：KV 范围为完整序列 $S = [T; X; C_1; ...; C_N]$，具有全局感受野
       - 当 $C_i$ 作 query 时：KV 范围限制为 $S_i = [T; X; C_i]$，不包含其他条件分支
@@ -68,7 +68,7 @@ UniCombine 提出基于 DiT 的多条件可控生成框架，通过 Conditional 
 
 4. **Training-based 策略（可选增强）**:
 
-    - 做什么：引入 Denoising-LoRA 模块进一步优化多条件融合
+    - 功能：引入 Denoising-LoRA 模块进一步优化多条件融合
     - 核心思路：冻结所有 Condition-LoRA，只训练新增的 Denoising-LoRA (rank=4)。该模块学习更好地分配 $X$ 对多个条件嵌入的注意力分数
     - 训练 30K 步，16 块 V100，512×512 分辨率
     - 设计动机：training-free 模式下 softmax 可能不能最优地平衡多条件，Denoising-LoRA 以极低成本（仅 15M 额外参数）显著改善融合效果

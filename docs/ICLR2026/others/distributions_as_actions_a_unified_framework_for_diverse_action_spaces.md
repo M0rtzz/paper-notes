@@ -25,13 +25,18 @@ DA-AC 提出将动作分布的参数（如 softmax 概率或 Gaussian 均值/方
 
 ## 研究背景与动机
 **领域现状**：当前 RL 算法与动作空间类型紧密耦合——离散用 DQN/DSAC，连续用 DDPG/TD3/SAC，混合动作需要 PADDPG 等专用算法。不同估计器架构完全不同，难以设计跨域统一的通用算法。
+
 **现有痛点**：
    - LR（Likelihood Ratio）估计器虽通用，但方差高，需要精心设计 baseline
    - DPG/RP 估计器方差低，但只能用于连续动作空间
    - 混合动作空间（同时含离散和连续维度）需要额外的工程设计
+
 **核心矛盾**：需要低方差的梯度估计器，但低方差的 DPG/RP 又要求连续动作空间——如何在离散动作上也享受 DPG 的低方差优势？
+
 **本文要解决**：设计一个统一的 actor-critic 算法，能在任意类型的动作空间上工作，且理论上保证低方差。
+
 **切入角度**：重新思考 Agent-环境的边界——Agent 的"动作"不一定要是环境定义的原始动作，可以是**分布参数**。策略通常可以分解为 $\bar{\pi}_\theta$ (输出分布参数) + $f$ (从分布中采样)。如果把 $f$ 移到环境侧，Agent 的动作空间就变成了连续的参数空间 $\mathcal{U}$，无论原始动作空间是什么类型。
+
 **核心idea**：Distributions-as-Actions——分布参数就是动作，采样是环境的一部分。
 
 ## 方法详解
@@ -47,7 +52,7 @@ $$\bar{p}(s'|s,u) = \mathbb{E}_{A \sim f(\cdot|u)}[p(s'|s,A)], \quad \bar{r}(s,u
 
 1. **DA-PG 梯度估计器（Theorem 4.2）**:
 
-    - 做什么：在分布参数空间上的确定性策略梯度
+    - 功能：在分布参数空间上的确定性策略梯度
     - 核心公式：$\hat{\nabla}_\theta^{\text{DA-PG}} = \nabla_\theta \bar{\pi}_\theta(S_t)^\top \nabla_U \bar{Q}_w(S_t, U)|_{U=\bar{\pi}_\theta(S_t)}$
     - 与 DPG 的关系：数学形式相同，但 $\bar{\pi}$ 输出分布参数而非单一动作，$\bar{Q}$ 估计分布下的期望回报
     - DPG 是 DA-PG 的特例（Prop 4.3）：当 $f(\cdot|u)$ 退化为 Dirac delta 时两者等价
@@ -62,7 +67,7 @@ $$\bar{p}(s'|s,u) = \mathbb{E}_{A \sim f(\cdot|u)}[p(s'|s,A)], \quad \bar{r}(s,u
 
 3. **ICL（Interpolated Critic Learning）**:
 
-    - 做什么：改善分布参数空间中 critic 的学习质量
+    - 功能：改善分布参数空间中 critic 的学习质量
     - 核心思路：标准 TD 更新只在当前策略的分布参数 $U_t$ 处学习 critic，导致 critic 在参数空间其他位置不准确。ICL 在当前参数 $U_t$ 和采样动作对应的确定性参数 $U_{A_t}$ 之间线性插值：$\hat{U}_t = \omega U_t + (1-\omega) U_{A_t}$, $\omega \sim \text{Uniform}[0,1]$
     - 设计动机：鼓励 critic 在分布参数空间中学到平滑的曲率信息，使策略梯度能指向高价值区域。类似 off-policy 学习，但操作对象是分布而非策略
     - 在 bandit 实验中可视化验证：ICL 学到的 critic 有更丰富的曲率，标准更新的 critic 仅在当前策略附近准确

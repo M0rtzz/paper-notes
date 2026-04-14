@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：MLLM通过投影层将CLIP等视觉编码器的patch嵌入映射到LLM嵌入空间，已在视觉-语言任务上取得显著进展。但视觉token在LLM内部的结构化组织和处理方式仍不清楚。
+
 **现有痛点**：对比预训练鼓励全局图像-文本对齐，而LLM以局部patch级token序列处理输入——这种不一致造成了理解上的关键空白：全局对齐的语义信息如何分布在局部token中？所有patch都携带有意义的语义吗？
+
 **核心矛盾**：现有分析方法（LogitLens用unembedding矩阵）无法区分语义是视觉编码器/投影层固有的，还是语言骨干注入的。
+
 **本文要解决什么？** (a) 视觉token在输入层的语义组织结构；(b) alive token携带多少信息（进入LLM前）；(c) LLM内部视觉计算的必要性和深度位置。
+
 **切入角度**：提出EmbedLens在输入嵌入空间中直接探测token语义，避免被后续层变换混淆。
+
 **核心idea一句话**：视觉token呈sink/dead/alive三分结构，alive token已是"预语言"的，LLM内部视觉计算大多冗余。
 
 ## 方法详解
@@ -41,7 +46,7 @@ tags:
 
 1. **EmbedLens探针工具**:
 
-    - 做什么：在输入嵌入空间中直接探测视觉token的语义内容
+    - 功能：在输入嵌入空间中直接探测视觉token的语义内容
     - 核心思路：计算目标表示 $\mathbf{h}$ 与词汇表中所有token嵌入 $\mathbf{e}_i$ 的余弦相似度，取Top-k：$\text{EmbedLens}(\mathbf{h}) = \text{TopK}_{i \in \mathcal{V}} \frac{\mathbf{h}^\top \mathbf{e}_i}{\|\mathbf{h}\|_2 \|\mathbf{e}_i\|_2}$
     - 设计动机：与LogitLens用unembedding矩阵不同，EmbedLens在输入嵌入空间工作，能区分语义是投影层固有的还是LLM注入的。实验证明在浅层和中层匹配准确率更高
 

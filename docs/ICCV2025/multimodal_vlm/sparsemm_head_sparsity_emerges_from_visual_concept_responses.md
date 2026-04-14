@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2506.05344](https://arxiv.org/abs/2506.05344)  
 **代码**: [https://github.com/CR400AF-A/SparseMM](https://github.com/CR400AF-A/SparseMM)  
 **领域**: 多模态VLM / 高效推理 / Attention分析  
-**关键词**: visual heads, attention sparsity, KV-Cache compression, training-free, OCR-based identification  
+**关键词**: visual heads, attention sparsity, KV-Cache compression, training-free, OCR-based identification
 
 ## 一句话总结
 发现MLLM中仅约5%的attention head主动参与视觉理解（称为"visual heads"），提出基于OCR任务的training-free识别方法量化每个head的视觉相关性，并设计SparseMM——按visual score非对称分配KV-Cache预算的策略，在DocVQA上仅用5.3%的cache（256/4830）即可维持Qwen2-VL的性能，实现1.87×加速和50%内存减少。
 
 ## 研究背景与动机
 **领域现状**：MLLM通过视觉编码器+adapter+LLM的架构实现多模态理解。但LLM是如何"学会看图"的——哪些内部组件负责处理视觉信息——还不清楚。现有KV-Cache压缩方法（SnapKV、PyramidKV、AdaKV）均匀对待所有attention head，忽视了视觉处理的特殊性。
+
 **现有痛点**：均匀压缩KV-Cache在多模态场景下不合理——视觉token占输入的90-99%，如果压缩时不区分"视觉重要head"和"文本专用head"，会不均匀地损失视觉信息。
+
 **核心矛盾**：高效推理需要压缩KV-Cache，但不知道哪些head承载关键视觉信息，盲目压缩可能导致视觉理解崩溃。
+
 **本文要解决什么**：(1) 系统研究MLLM中的视觉head分布；(2) 提出识别方法；(3) 基于发现设计更智能的KV-Cache压缩策略。
+
 **切入角度**：用OCR任务作为"锚"——OCR输出的每个字符都能精确对应到图像的特定patch区域，因此可以直接追踪哪些attention head在关注正确的视觉区域。
+
 **核心idea一句话**：MLLM中<5%的attention head负责视觉理解，按这些head的视觉分数非对称分配KV-Cache预算可以实现更好的效率-精度权衡。
 
 ## 方法详解
@@ -41,14 +46,14 @@ tags:
 
 1. **Visual Head识别（OCR-based）**:
 
-    - 做什么：为每个attention head计算一个visual score，衡量它在多大程度上关注视觉内容。
+    - 功能：为每个attention head计算一个visual score，衡量它在多大程度上关注视觉内容。
     - 核心思路：对每个OCR输出token $y_i$，找到它对应的图像区域的patch indices $I_{y_i}$。检查head $h$的attention矩阵$A_h$中最大attention值是否落在这些patches内。Visual Score = 命中次数 / 图像token数，在1000个Synthdog数据上聚合归一化。
     - 关键发现：(1) **极度稀疏**——仅~5%的head有显著visual score；(2) **跨架构通用**——在MHA (Vicuna)和GQA (Mistral, Qwen2)中都观察到；(3) **任务无关**——用OCR识别的visual heads在物体识别、场景理解等其他任务中同样重要。
     - 设计动机：OCR提供了最精确的text-to-visual对应关系（每个字符→特定图像区域），这比一般VQA中模糊的答案-图像关联更精确可靠。
 
 2. **SparseMM: 三部分KV-Cache分配**:
 
-    - 做什么：根据visual score非对称地给不同head分配不同的KV-Cache预算。
+    - 功能：根据visual score非对称地给不同head分配不同的KV-Cache预算。
     - 三部分组成：
       - **Local Window Cache**：每个head固定保留最近32个token的KV（局部窗口）。
       - **Uniform-Based Cache**：剩余预算的$\rho=10\%$均匀分配给所有head（保底最低额度）。

@@ -8,7 +8,7 @@ tags:
   - LLM推理
   - 过程奖励模型
   - 信用分配
-  - reward hacking
+  - 奖励篡改
   - min-form
   - 强化学习
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.15275](https://arxiv.org/abs/2504.15275)  
 **代码**: [github.com/CJReinforce/PURE](https://github.com/CJReinforce/PURE)  
 **领域**: LLM推理  
-**关键词**: 过程奖励模型, 信用分配, reward hacking, min-form, 强化学习  
+**关键词**: 过程奖励模型, 信用分配, 奖励篡改, min-form, 强化学习
 
 ## 一句话总结
 PURE 发现 PRM 导致 reward hacking 的根本原因是 RL 中标准的 sum-form 信用分配（$V(s) = \sum \gamma^t r_t$），并提出 min-form 替代方案（$V(s) = \min_{t' \geq t} r_{t'}$），通过将价值函数限制为未来奖励的最小值而非累积和，显著缓解 reward hacking——仅用 30% 训练步数就达到与规则奖励方法相当的推理性能。
@@ -27,10 +27,15 @@ PURE 发现 PRM 导致 reward hacking 的根本原因是 RL 中标准的 sum-for
 ## 研究背景与动机
 
 **领域现状**：PRM 在测试时缩放上已证明有效（如 Best-of-N），但将 PRM 用于 RL 微调时频繁出现 reward hacking——模型学会利用 PRM 的高分步骤，而非真正提升推理质量。
+
 **现有痛点**：标准 RL 信用分配定义 $V(s_t) = \sum_{t'=t}^T \gamma^{t'-t} r_{t'}$。当 PRM 对某些步骤给出不准确的高分时，累积求和会放大这些错误，使模型倾向于生成高奖励步骤的序列（无论推理是否正确）→ 训练崩溃。
+
 **核心矛盾**：sum-form 累积使得单个高奖励步骤就能拉高整条轨迹的价值，而 PRM 不可能对每一步都给出完美奖励 → reward hacking 几乎不可避免。
+
 **本文要解决什么？** 如何设计信用分配使 PRM 能安全地用于 RL 微调？
+
 **切入角度**：将价值函数定义为未来奖励的**最小值**而非**累积和**——这意味着模型必须确保每一步都不太差才能获得高价值，而不是只做好几步就够。
+
 **核心idea一句话**：用 $V(s_t) = \min_{t' \geq t} r_{t'}$ 替代 $V(s_t) = \sum \gamma^{t'-t} r_{t'}$，消除单步高奖励对整体价值的过度拉升。
 
 ## 方法详解
@@ -42,13 +47,13 @@ PURE (Process sUpervised Reinforcement lEarning) 保持标准 PPO/GRPO 框架，
 
 1. **Min-form 信用分配**:
 
-    - 做什么：将每个 token 的价值定义为其后续所有步骤奖励的最小值
+    - 功能：将每个 token 的价值定义为其后续所有步骤奖励的最小值
     - 核心思路：$V(s_t) = \min_{t' \geq t} r_{t'}$，优势为 $A_t = V(s_t) - V(s_{t-1})$。木桶效应——价值取决于最差的步骤
     - 设计动机：sum-form 下，模型可以用几个高奖励步骤弥补差的步骤；min-form 下，只要有一步差就会拉低整体价值，迫使模型提升每一步的质量
 
 2. **可选的规则奖励补充（10%）**:
 
-    - 做什么：在 PRM 基础上加入少量 verifiable outcome reward
+    - 功能：在 PRM 基础上加入少量 verifiable outcome reward
     - 核心思路：仅对 10% 的训练样本使用规则验证的正确性奖励作为 anchor，进一步抑制 reward hacking
     - 设计动机：PRM 毕竟不完美，少量规则奖励提供 ground truth 校准
 

@@ -2,18 +2,9 @@
 title: >-
   [论文解读] Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos
 description: >-
-  [ACL 2025][视频理解基准] 提出 Tuna——面向时间密集动态视频的细粒度时序理解评测基准，
-  包含 1000 个精标注视频数据集 Tuna-1K 和两个互补任务（字幕 Tuna-cap + 问答 Tuna-mcq），
-  覆盖相机/场景/动作/属性四维动态元素，揭示当前 LMM 在动作描述、多主体理解和
-  相机运动感知方面的系统性不足。
+  [ACL 2025] Tuna 构建了 1000 个时间密集短视频的细粒度多维标注数据集，配套字幕评测（事件拆分→匹配→关系分类）和时序问答两个任务，系统性地暴露了当前视频 LMM 在动态时序理解上的弱点。
 tags:
   - ACL 2025
-  - 视频理解
-  - 时序理解
-  - 视频问答
-  - Benchmark
-  - 视频字幕
-  - 多模态评估
 ---
 
 # Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos
@@ -42,8 +33,8 @@ Tuna 由两部分组成：
 
 1. **Tuna-1K 数据集**：1000 个高质量短视频（平均 14.5 秒），人工标注层级化时序描述（全局字幕→事件序列→细粒度视觉元素 + 类型/权重）
 2. **Tuna 基准**：
-   - **Tuna-cap**（字幕任务）：自动化评测管线评估时序密集字幕的正确性和完整性
-   - **Tuna-mcq**（问答任务）：1432 道多选题，每题须全视频上下文才能作答
+    - **Tuna-cap**（字幕任务）：自动化评测管线评估时序密集字幕的正确性和完整性
+    - **Tuna-mcq**（问答任务）：1432 道多选题，每题须全视频上下文才能作答
 
 ### 关键设计 1：多维度视觉元素标注体系
 

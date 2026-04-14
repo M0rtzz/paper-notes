@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.15759](https://arxiv.org/abs/2509.15759)  
 **代码**: 无  
 **领域**: 图像生成  
-**关键词**: fairness, optimal-transport, distribution-steering, LLM-representation, Bayes-optimal  
+**关键词**: fairness, optimal-transport, distribution-steering, LLM-representation, Bayes-optimal
 
 ## 一句话总结
 

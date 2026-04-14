@@ -52,7 +52,7 @@ $$x^i = (\Gamma_{\text{gv}}^i, v_{\text{root}}^i, \theta^i, \beta^i, t_{\text{ro
 
 1. **双模式训练范式（Dual-Mode Training）**:
 
-    - 做什么：在单一模型中兼顾估计的精确性和生成的多样性
+    - 功能：在单一模型中兼顾估计的精确性和生成的多样性
     - 核心思路：
       - **估计模式**：将模型输入设为纯高斯噪声 $z \sim \mathcal{N}(\mathbf{0}, I)$，时间步设为最大值 $T$，直接回归清洁运动：
        $$\mathcal{L}_{\text{est}} = \mathbb{E}_{z \sim \mathcal{N}(\mathbf{0}, I)} [\|x_0 - \mathcal{G}(z, T, \mathcal{C}, \mathcal{M})\|^2]$$
@@ -63,7 +63,7 @@ $$x^i = (\Gamma_{\text{gv}}^i, v_{\text{root}}^i, \theta^i, \beta^i, t_{\text{ro
 
 2. **多模态条件处理架构**:
 
-    - 做什么：支持任意组合的视频、音乐、2D 关键点、文本等多模态条件输入
+    - 功能：支持任意组合的视频、音乐、2D 关键点、文本等多模态条件输入
     - 核心思路：
       - **帧对齐条件**（视频、音乐、2D 骨架）：通过加法融合块（Additive Fusion Block）将各模态特征经各自 MLP 投影后求和，再与噪声运动融合生成 token 序列
       - **文本条件**：使用创新的**多文本注入块（Multi-Text Injection Block）**，支持多段文本在不同时间窗口的注入：
@@ -74,7 +74,7 @@ $$x^i = (\Gamma_{\text{gv}}^i, v_{\text{root}}^i, \theta^i, \beta^i, t_{\text{ro
 
 3. **估计引导的 2D 训练（Estimation-Guided Training）**:
 
-    - 做什么：利用仅有 2D 标注的野外视频增强生成模型的多样性
+    - 功能：利用仅有 2D 标注的野外视频增强生成模型的多样性
     - 核心思路：分两步利用 2D 数据：
       1. 先用估计模式从 2D 条件生成伪 3D 运动 $\hat{x}_0 = \mathcal{G}(z, T, \mathcal{C})$
       2. 对伪运动加噪后用生成模式训练，损失函数使用 2D 重投影：

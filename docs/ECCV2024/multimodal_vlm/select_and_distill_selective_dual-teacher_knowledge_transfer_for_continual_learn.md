@@ -28,6 +28,7 @@ tags:
 大规模视觉语言模型（如CLIP）展现了强大的零样本泛化能力，但在对序列下游任务进行适配时面临两大核心挑战：
 
 **灾难性遗忘**：微调到新任务后，模型遗忘了先前任务的知识
+
 **零样本退化**：微调过程会破坏预训练VLM固有的零样本迁移能力
 
 现有方法各有局限：
@@ -49,7 +50,7 @@ tags:
 
 1. **双教师差异度量（Dual-Teacher Discrepancy）**:
 
-    - 做什么：通过衡量 $g_{k-1}$ 和 $g_0$ 对同一参考图片的特征差异来判断教师选择
+    - 功能：通过衡量 $g_{k-1}$ 和 $g_0$ 对同一参考图片的特征差异来判断教师选择
     - 核心思路：如果参考图片与先前微调数据的分布相似，$g_{k-1}$ 的特征会显著偏离 $g_0$ 的特征（因为微调改变了表征），产生大的差异 $d$；如果图片不属于先前数据分布，两个教师的表征应该相似（差异小），因为 $g_{k-1}$ 对这类图片的表征未被微调改变
     - 形式化表达：$\mathbb{E}_{\mathbf{x} \in \mathcal{X}^{1:k-1}}[d(g_{k-1}(\mathbf{x}), g_0(\mathbf{x}))] \geq \mathbb{E}_{\mathbf{x}' \notin \mathcal{X}^{1:k-1}}[d(g_{k-1}(\mathbf{x}'), g_0(\mathbf{x}'))]$
     - 差异度量使用欧氏距离
@@ -57,7 +58,7 @@ tags:
 
 2. **选择评分函数（Selection Scoring Function）**:
 
-    - 做什么：将双教师差异映射为[0,1]的选择分数
+    - 功能：将双教师差异映射为[0,1]的选择分数
     - 核心公式：$\eta(\mathbf{x}) = \sigma\left(\frac{d(g_{k-1}(\mathbf{x}), g_0(\mathbf{x})) - \delta}{\gamma}\right)$
     - 其中 $\sigma$ 是sigmoid函数，$\delta$ 和 $\gamma$ 是归一化超参数
     - $\eta > 0.5$：倾向选择 $g_{k-1}$ 作为教师（缓解灾难性遗忘）
@@ -66,7 +67,7 @@ tags:
 
 3. **选择性双教师知识蒸馏（Selective Dual-Teacher KD）**:
 
-    - 做什么：根据选择分数加权蒸馏两个教师的知识
+    - 功能：根据选择分数加权蒸馏两个教师的知识
     - 蒸馏损失：$\mathcal{L}_{KD}^{dual} = \sum_{\mathbf{x} \sim \mathcal{X}^{ref}} \eta(\mathbf{x}) \cdot \mathcal{L}_{KD}^{k-1} + (1 - \eta(\mathbf{x})) \cdot \mathcal{L}_{KD}^{0}$
     - 其中 $\mathcal{L}_{KD}^{k-1} = d(g_{k-1}(\mathbf{x}), g_k(\mathbf{x}))$ 保留先前任务知识
     - $\mathcal{L}_{KD}^{0} = d(g_0(\mathbf{x}), g_k(\mathbf{x}))$ 保持零样本能力

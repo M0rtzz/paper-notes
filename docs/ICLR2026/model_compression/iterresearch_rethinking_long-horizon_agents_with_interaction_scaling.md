@@ -28,6 +28,7 @@ tags:
 深度研究Agent（如 OpenAI Deep Research、Gemini Deep Research）通过自主推理和信息检索来构建知识，但现有开源方法采用"单上下文范式"（mono-contextual paradigm）——将所有检索信息和推理步骤追加到一个不断膨胀的上下文窗口中。这导致两个根本问题：
 
 **上下文窒息 (Context Suffocation)**：随着上下文填满，可用于模型推理的空间逐渐缩小，迫使回复越来越简短，最终退化为过早或肤浅的结论
+
 **噪声污染 (Noise Contamination)**：不相关的搜索结果和早期探索错误永久嵌入上下文，产生级联干扰
 
 核心idea：有效的长视野研究需要**周期性综合和策略性遗忘**——定期将发现压缩为进化中的报告，然后基于报告而非完整历史继续探索。这将状态维度从 $O(t)$ 降至 $O(1)$。
@@ -41,14 +42,14 @@ IterResearch 将深度研究建模为MDP $\langle\mathcal{S},\mathcal{D},\mathca
 
 1. **迭代工作区重构 (Iterative Workspace Reconstruction)**:
 
-    - 做什么：保持Agent工作区大小恒定而非线性增长
+    - 功能：保持Agent工作区大小恒定而非线性增长
     - 核心思路：状态 $s_t = (q, \mathcal{M}_t, \{a_{t-1}, \text{TR}_{t-1}\})$ 包含三部分——固定的问题 $q$、进化报告 $\mathcal{M}_t$（压缩后的历史发现）、上一步的动作结果。每步决策 $d_t = [\text{Think}_t, \mathcal{M}_{t+1}, a_t]$，转移函数重构工作区：$s_{t+1} = (q, \mathcal{M}_{t+1}, \{a_t, \text{TR}_t\})$。历史轨迹被"策略性遗忘"，仅通过报告保留
     - 对比：单上下文范式 $|s_t| \propto O(t)$，IterResearch $|s_t| \approx O(1)$
     - 设计动机：报告由LLM自然生成，利用其信息压缩和相关性过滤能力，无需额外算法干预
 
 2. **效率感知策略优化 (EAPO)**:
 
-    - 做什么：训练Agent高效探索而非漫无目的地搜索
+    - 功能：训练Agent高效探索而非漫无目的地搜索
     - 核心思路（两个组件）：
       - *几何折扣奖励*：$r_t = \gamma^{T-t} \cdot R_T$，越快得到正确答案，每步获得的奖励越高，创造隐式效率压力
       - *自适应下采样*：由于迭代范式每条轨迹自然分解为多个训练样本（每轮一个），不同问题的样本数量不一致。将总样本数截断为数据并行(DP) size的最大倍数：$|\mathcal{C}_{\text{train}}| = \lfloor|\mathcal{C}|/\text{DP}_{\text{size}}\rfloor \times \text{DP}_{\text{size}}$

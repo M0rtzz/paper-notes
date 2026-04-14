@@ -1,11 +1,15 @@
 ---
-description: "[NeurIPS2025] 提出Helmholtz metrics可微度量ODE是否源于Lagrangian，结合Neural ODE形成Lagrangian Neural ODE，零额外推理开销且改进物理系统学习"
+title: >-
+  [论文解读] Lagrangian neural ODEs: Measuring the existence of a Lagrangian with Helmholtz metrics
+description: >-
+  [NeurIPS 2025][Neural ODE] 提出 Helmholtz metrics——基于 Helmholtz 条件的可微度量，用于量化给定 ODE 与 Euler-Lagrange 方程的接近程度，并将其作为正则化项加入二阶 Neural ODE 训练中，形成 Lagrangian Neural ODE，在零额外推理开销下引导模型收敛到真正的物理定律。
 tags:
-  - NeurIPS2025
+  - NeurIPS 2025
   - Neural ODE
-  - Lagrangian Mechanics
-  - Physics-Informed Learning
-  - Helmholtz Conditions
+  - Lagrangian 力学
+  - Helmholtz 条件
+  - 物理正则化
+  - Euler-Lagrange 方程
 ---
 
 # Lagrangian neural ODEs: Measuring the existence of a Lagrangian with Helmholtz metrics
@@ -37,17 +41,17 @@ Neural ODE 是从数据学习动力学系统的强大工具，可以学到 $\dot
 ### 关键设计
 
 1. **Helmholtz Metrics 的可微化实现**:
-    - 做什么：将 Helmholtz 条件转化为可通过神经网络优化的损失函数
+    - 功能：将 Helmholtz 条件转化为可通过神经网络优化的损失函数
     - 核心思路：定义辅助量 $\Phi$，用神经网络 $g_{\theta_2}$ 参数化 Hessian 矩阵 $g$，最小化三个 Helmholtz 条件残差的 MSE；用最小绝对特征值 $\lambda_{\min}$ 归一化残差，防止网络通过学习小特征值"作弊"
     - 设计动机：需要一个可微、可训练的度量来量化 ODE 是否源于 Lagrangian，同时避免退化解
 
 2. **多目标优化策略**:
-    - 做什么：联合优化回归损失和 Helmholtz metric
+    - 功能：联合优化回归损失和 Helmholtz metric
     - 核心思路：总损失 $\mathcal{L}_{\text{tot}} = \mathcal{L}_R + \mathcal{L}_H$，通过梯度裁剪（$\|\nabla_{\theta_1} \mathcal{L}_H\|$ 裁剪到 $c_1 \approx 0.05$）确保训练初期以数据主导，避免收敛到错误的 Euler-Lagrange 方程
     - 设计动机：如果正则化太强会导致模型收敛到与数据不匹配的物理定律
 
 3. **零额外推理开销设计**:
-    - 做什么：Helmholtz metric 仅在训练时使用，推理时完全不参与
+    - 功能：Helmholtz metric 仅在训练时使用，推理时完全不参与
     - 核心思路：$g_{\theta_2}$ 只在训练阶段计算和优化，推理时仅需要 $f_{\theta_1}$ 计算 ODE 右端
     - 设计动机：与 LNN 相比的核心优势——LNN 推理时需要通过自动微分计算 Euler-Lagrange 方程，开销大
 

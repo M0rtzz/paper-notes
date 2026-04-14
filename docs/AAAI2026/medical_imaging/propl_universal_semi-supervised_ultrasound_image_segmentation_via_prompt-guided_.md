@@ -1,5 +1,19 @@
 ---
-description: "【论文笔记】ProPL 论文解读: 首次实现通用半监督超声图像分割，5个器官8个任务上以1/16标注超越全---监督方法5.18% mDice | ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling | AAAI 2026 | arXiv 2511.15057"
+title: >-
+  [论文解读] ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling
+description: >-
+  [AAAI 2026][医学图像][通用分割] 提出 ProPL 框架，通过共享视觉编码器 + 提示引导双解码器 + 不确定性驱动伪标签校准，首次实现通用半监督超声图像分割，在 5 个器官 8 个任务上以极少标注数据（1/16）超越全监督方法 5.18% mDice。
+tags:
+  - AAAI 2026
+  - 医学图像
+  - 通用分割
+  - 半监督学习
+  - 伪标签
+  - 提示引导
+  - 超声图像
+---
+
+监督方法5.18% mDice | ProPL: Universal Semi-Supervised Ultrasound Image Segmentation via Prompt-Guided Pseudo-Labeling | AAAI 2026 | arXiv 2511.15057"
 tags:
   - AAAI 2026
   - semi-supervised learning
@@ -24,11 +38,14 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：超声图像分割是计算机辅助诊断的关键，但现有方法通常针对特定器官或任务设计，泛化性差。
+
 **现有痛点**：
    - 全监督方法需要大量标注数据，超声图像标注尤其困难（散斑噪声、声影、组织伪影模糊边界）
    - 半监督方法虽减少数据需求，但仍局限于单任务
    - 通用分割框架（如 DoDNet、UniSeg）仅支持全监督，受限于标注数据
+
 **核心问题**：如何构建一个能同时处理多器官多任务、且只需少量标注的通用超声分割框架？
+
 **切入角度**：结合提示学习实现任务自适应 + 双解码器互学习生成可靠伪标签
 
 ## 方法详解
@@ -41,13 +58,13 @@ tags:
 
 1. **Prompting-upon-Decoding (PuD)**:
 
-    - 做什么：将任务特定的文本提示注入解码过程
+    - 功能：将任务特定的文本提示注入解码过程
     - 核心思路：用 BERT 编码任务描述得到 $\bm{t}$，经 1D 卷积+线性映射对齐维度后，通过多头交叉注意力注入解码特征：$\bm{h}_k = \bm{z}_k' + \alpha \cdot \text{MHCA}(Q=\bm{z}_k', K=\bm{\tau}, V=\bm{\tau})$
     - 设计动机：不同于 one-hot 编码或可学习提示，文本提示语义更丰富且可扩展到新任务；$\alpha$ 可学习控制提示影响力度
 
 2. **不确定性驱动伪标签校准 (UPLC)**:
 
-    - 做什么：基于预测不确定性过滤和校准伪标签
+    - 功能：基于预测不确定性过滤和校准伪标签
     - 核心思路：双解码器分别生成预测，预测不一致的区域不确定性高，仅使用高置信度区域的伪标签进行互学习
     - 设计动机：直接使用原始伪标签会引入噪声；不确定性估计利用双解码器的分歧作为信号
 

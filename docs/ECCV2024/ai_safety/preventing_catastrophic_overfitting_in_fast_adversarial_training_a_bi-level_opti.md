@@ -8,7 +8,7 @@ tags:
   - AI安全
   - fast adversarial training
   - catastrophic overfitting
-  - bi-level optimization
+  - bilevel optimization
   - FGSM
   - adversarial examples
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2407.12443](https://arxiv.org/abs/2407.12443)  
 **代码**: [HandingWangXDGroup/FGSM-PCO](https://github.com/HandingWangXDGroup/FGSM-PCO)  
 **领域**: ai_safety  
-**关键词**: fast adversarial training, catastrophic overfitting, bi-level optimization, FGSM, adversarial examples
+**关键词**: fast adversarial training, catastrophic overfitting, bilevel optimization, FGSM, adversarial examples
 
 ## 一句话总结
 从双层优化视角分析快速对抗训练中灾难性过拟合的成因，提出 FGSM-PCO 方法，通过自适应融合历史与当前对抗样本并配合定制正则化损失，有效防止并纠正内层优化崩溃。

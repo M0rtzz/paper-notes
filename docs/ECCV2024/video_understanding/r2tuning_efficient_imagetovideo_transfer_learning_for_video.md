@@ -2,10 +2,15 @@
 title: >-
   [论文解读] R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding
 description: >-
-  [ECCV 2024][视频理解] 提出 R²-Tuning，一种参数和显存高效的迁移学习框架，通过在冻结 CLIP 后几层上递归附加仅占 1.5% 参数量的 R² Block，实现查询调制的空间池化和递归时序精炼，在 6 个 VTG 基准上取得 SOTA，仅 2.7M 可训练参数超越 4 倍参数量的竞争方法。
+  [ECCV 2024][视频理解][Video Temporal Grounding] 提出 R²-Tuning，通过在冻结 CLIP 的后几层反向递归附加轻量 R² Block（仅 1.5% 总参数），实现查询调制的空间池化和粗到细的时序精炼，在 6 个 VTG 基准 3 个任务上以 2.7M 参数超越了需要额外时序骨干网络的 SOTA 方法。
 tags:
   - ECCV 2024
   - 视频理解
+  - Video Temporal Grounding
+  - CLIP
+  - 迁移学习
+  - 参数高效
+  - 时序建模
 ---
 
 # R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding
@@ -44,19 +49,19 @@ tags:
 
 1. **查询调制的空间池化 (Query-Modulated Spatial Pooling)**:
 
-    - 做什么：根据文本查询自适应地将每帧的 patch 级特征池化为单个 token
+    - 功能：根据文本查询自适应地将每帧的 patch 级特征池化为单个 token
     - 核心思路：先用两个 MLP 将视觉特征 $\hat{e}_v^n$ 和查询特征 $\hat{e}_q^n$ 映射到同一空间，然后计算每个 token-patch 对的相似度 $a = \text{softmax}(\frac{(w_q \hat{e}_q^n)^\top w_v \hat{e}_v^n}{\sqrt{C}})$，用此注意力权重将视觉特征池化到每个 token 上，再沿 token 维度做 max pooling 得到 $e_{token}^n$。最终通过零初始化可学习门控 $g^k \in (-1, 1)$ 将 $e_{token}^n$ 与 [CLS] token 组合：$e_{pool}^n = e_v^{n,0} + g^k \cdot e_{token}^n$
     - 设计动机：不同查询关注视频帧中不同区域，通过 cross-attention 机制让空间池化受查询引导，使模型能聚焦于查询相关的空间区域。门控允许负值以去除 [CLS] token 中的无用信息
 
 2. **递归时序精炼 (Recurrent Temporal Refinement)**:
 
-    - 做什么：从 CLIP 的最后一层向前，逐层融合和精炼时序特征
+    - 功能：从 CLIP 的最后一层向前，逐层融合和精炼时序特征
     - 核心思路：每一步 $k$ 中，先用可学习门控 $\varphi^k \in (0,1)$ 将当前层的池化特征 $e_{pool}^n$ 和上一步隐状态 $h^{k-1}$ 融合：$\hat{h}^{k-1} = \varphi^k \cdot e_{pool}^n + (1-\varphi^k) \cdot h^{k-1}$。然后依次经过 multi-head cross-attention（以查询为 key/value）、multi-head self-attention 和 FFN 更新隐状态：$h^k = \text{FFN}(\text{MHSA}(\text{MHCA}(\hat{h}^{k-1}, \hat{e}_q^n)))$
     - 设计动机：反向（从后到前）的融合顺序实现了"粗到细"的时空建模——先获取高层语义轮廓，再逐步融入低层细节。递归共享权重极大减少了参数量
 
 3. **粒度校准 (Granularity Calibration)**:
 
-    - 做什么：对齐 CLIP 视觉和文本编码器各层特征的粒度
+    - 功能：对齐 CLIP 视觉和文本编码器各层特征的粒度
     - 核心思路：设计两个对比损失来校准：视频级对比损失 $\mathcal{L}_{video}$ 在同一 batch 的样本间进行对比并跨 $K$ 层平均，确保不同视频-查询对的特征多样化；层级对比损失 $\mathcal{L}_{layer}$ 在各层之间进行对比，促使不同层蒸馏出差异化的信息
     - 设计动机：CLIP 的视觉和文本编码器在预训练时独立学习，无法保证同一层的视觉和文本特征处于相同粒度水平，需要额外约束来对齐
 

@@ -2,17 +2,15 @@
 title: >-
   [论文解读] OS Agents: A Survey on MLLM-based Agents for Computer, Phone and Browser Use
 description: >-
-  [ACL 2025 (Long Paper)][LLM Agent][OS Agent] 首个系统性综述基于（多模态）大语言模型的操作系统智能体（OS Agents），覆盖基础概念、构建方法（基础模型+Agent框架）、评估基准和商业产品，全面梳理了从CogAgent到Anthropic Computer Use等50+工作的技术演进。
+  [ACL 2025 (Long Paper, Oral)][LLM Agent][OS Agent] 首个系统性综述基于（多模态）大语言模型的操作系统智能体（OS Agents），按"环境-基础能力-构建方法-评估基准-商业产品-挑战"的框架全面梳理了 50+ 学术工作和 4 大商业产品的技术演进，并前瞻性地分析了安全、个性化和自进化等未来方向。
 tags:
-  - ACL 2025 (Long Paper)
+  - ACL 2025 (Long Paper, Oral)
   - LLM Agent
   - OS Agent
   - GUI Agent
   - MLLM
   - 自主操作
   - 计算机使用
-  - 手机控制
-  - 浏览器自动化
 ---
 
 # OS Agents: A Survey on MLLM-based Agents for Computer, Phone and Browser Use

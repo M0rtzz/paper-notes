@@ -46,14 +46,14 @@ tags:
 
 1. **Expected OOD Risk 定义**:
 
-    - 做什么：统一度量分类器在 ID 和 OOD 数据上的置信度表现
+    - 功能：统一度量分类器在 ID 和 OOD 数据上的置信度表现
     - 核心公式：$R_{\text{OOD}}(\hat{f}) = \mathbb{E}_{P}[(\hat{f}(x) - f^{\text{OOD}}(x))^2] + \mathbb{E}_{P^{\text{OOD}}}[(\hat{f}(x) - f^{\text{OOD}}(x))^2]$
     - 其中 $f^{\text{OOD}}(x)$ 在 OOD 样本上接近 0.5（不确定），在 ID 样本上接近 $f^*(x)$（高置信度）
     - 设计动机：低 OOD risk 意味着对 ID 数据高置信度且对 OOD 数据低置信度，正是 OOD 检测的目标
 
 2. **OOD Risk 的 Double Descent 理论（定理1）**:
 
-    - 做什么：证明最小二乘二分类器的 expected OOD risk 在 $p \approx n$ 处发散
+    - 功能：证明最小二乘二分类器的 expected OOD risk 在 $p \approx n$ 处发散
     - 核心结果：存在常数 $c, C > 0$ 使得 $c \cdot c(n,p) \leq \mathbb{E}[R_{\text{OOD}}(\hat{f})] \leq C \cdot c(n,p)$
       - 欠参数化 ($p \leq n-2$)：$c(n,p) = \frac{p}{n-p-1}(\|w^{\text{OOD}}_{\mathcal{T}^c}\|^2 + \sigma^2) + \|w^{\text{OOD}}_{\mathcal{T}^c}\|^2$
       - 插值阈值 ($n-1 \leq p \leq n+1$)：$c(n,p) = +\infty$，风险发散
@@ -62,7 +62,7 @@ tags:
 
 3. **Neural Collapse 判据（NC1 指标）**:
 
-    - 做什么：判断过参数化是否优于欠参数化用于 OOD 检测
+    - 功能：判断过参数化是否优于欠参数化用于 OOD 检测
     - 核心思路：计算 $NC1_{u/o} = NC1_u / NC1_o$，其中 $NC1 = \text{Tr}[\Sigma_W \Sigma_B^+ / C]$ 衡量类内与类间协方差比
     - 判别规则：$NC1_{u/o} > 1$ 意味着过参数化时类分离更好，OOD 检测性能更佳
     - 设计动机：准确率比 $Acc_{o/u}$ 无法稳定预测 OOD 检测趋势，但 $NC1_{u/o}$ 可以——OOD 检测更依赖表征几何质量

@@ -8,7 +8,7 @@ tags:
   - LLM推理
   - 几何推理
   - 程序转几何
-  - Benchmark
+  - benchmark
   - 空间推理
   - Asymptote代码
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.17653](https://arxiv.org/abs/2505.17653)  
 **代码**: [GitHub](https://github.com/LiAuto-DSR/GeoGramBench)  
 **领域**: llm_reasoning  
-**关键词**: 几何推理, 程序转几何, Benchmark, 空间推理, Asymptote代码  
+**关键词**: 几何推理, 程序转几何, benchmark, 空间推理, Asymptote代码
 
 ## 一句话总结
 提出Program-to-Geometry任务和GeoGramBench(500题)，用三级几何复杂度分类法(基元识别/局部组合/全局抽象)评估19个前沿LLM从程序代码构建几何表征并推理的能力，发现所有模型在最高抽象级别准确率均低于50%。

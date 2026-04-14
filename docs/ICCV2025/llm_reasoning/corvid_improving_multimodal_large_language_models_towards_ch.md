@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] Corvid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning"
-description: "[ICCV 2025][LLM推理][多模态CoT] 提出Corvid，通过混合视觉编码器+GateMixer连接器+高质量MCoT-Instruct数据集+自验证推理策略，显著增强MLLM的CoT推理能力，在数学/科学推理上超越同规模o1-like模型。"
+title: >-
+  [论文解读] Corvid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning
+description: >-
+  [LLM推理] 提出Corvid MLLM，通过混合视觉编码器(SigLIP+ConvNeXt)+GateMixer门控连接器+MCoT-Instruct-287K高质量CoT数据+推理时自验证策略，三阶段训练实现超越同规模o1-like模型的CoT推理能力。
 tags:
-  - ICCV 2025
   - LLM推理
-  - 多模态CoT
-  - 推理时计算
 ---
 
 # Corvid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning

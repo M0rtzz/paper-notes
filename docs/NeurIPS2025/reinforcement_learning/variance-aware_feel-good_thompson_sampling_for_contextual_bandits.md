@@ -33,7 +33,9 @@ tags:
 **现有方差感知方法的局限**：
 
 **UCB类方法**已取得最优界$\tilde{\mathcal{O}}(d\sqrt{\sum_t \sigma_t^2} + d)$（如Weighted OFUL+和SAVE），但Thompson采样（TS）类方法严重落后。
+
 **唯一的方差感知TS算法**LinVDTS的后悔界为$\tilde{\mathcal{O}}(d^{1.5}\sqrt{\sum_t \sigma_t^2} + d^{1.5})$，在维度$d$上是次优的——这是TS类算法的通病，源自经典TS分析中对后验分布协方差的粗略处理。
+
 **FGTS**通过加入feel-good探索项修复了标准TS在频率学派后悔界上的次优性，但其现有版本不支持方差感知。
 
 **核心开放问题**：能否设计一个基于FGTS的上下文赌博机算法，使其后悔界同时在维度$d$上最优且方差依赖，类比UCB类算法？

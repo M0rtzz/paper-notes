@@ -2,14 +2,15 @@
 title: >-
   [论文解读] EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis
 description: >-
-  [CVPR 2026][图像分析][旋转等变性] 提出EquivAnIA频谱方法，通过Cake小波和Ridge滤波器在傅里叶域计算角度能量分布，实现对数值旋转鲁棒的各向异性分析，在角度配准任务上误差<0.5°远优于传统angular PSD方法。
+  [CVPR 2026][医学图像][rotation equivariance] 提出EquivAnIA频谱方法，通过Cake小波和Ridge滤波器在傅里叶域计算角度能量分布，实现对数值旋转严格鲁棒的各向异性图像分析，在合成和真实图像上均远优于传统angular PSD的分箱方法。
 tags:
   - CVPR 2026
-  - 旋转等变性
-  - 各向异性分析
-  - 频谱方法
-  - Cake小波
-  - 角度配准
+  - 医学图像
+  - rotation equivariance
+  - anisotropic analysis
+  - spectral method
+  - cake wavelet
+  - angular registration
 ---
 
 # EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis
@@ -39,17 +40,17 @@ tags:
 ### 关键设计
 
 1. **Cake小波方向滤波**：
-    - 做什么：将频域均匀划分为 $K$ 个重叠的"蛋糕片"形扇区滤波器，每个覆盖角度 $2\pi/K$，计算各方向的加权能量
+    - 功能：将频域均匀划分为 $K$ 个重叠的"蛋糕片"形扇区滤波器，每个覆盖角度 $2\pi/K$，计算各方向的加权能量
     - 核心思路：定义方向函数族 $\phi_{v,\theta}(u) = \phi(R_\theta^{-1}(u-v))$，角度能量为 $\rho(\theta) = \int_{\mathbb{R}^2} |c_{v,\theta}|^2 dv$，其中 $c_{v,\theta}$ 是分析系数。Cake小波在频域直接参数化，保证旋转等变性
     - 设计动机：与binning不同，Cake小波对每个角度使用平滑加权平均（而非离散分箱），避免了网格对齐角度的偏差。滤波器形状在旋转下co-rotate，理论上保证等变性
 
 2. **Ridge滤波器**：
-    - 做什么：使用各向异性高斯滤波器沿特定方向增强"脊状"结构响应
+    - 功能：使用各向异性高斯滤波器沿特定方向增强"脊状"结构响应
     - 核心思路：频域中参数化为沿某方向拉长的高斯窗口，对血管、纤维等细长结构有更好的方向选择性
     - 设计动机：Cake小波对通用纹理鲁棒性更好，Ridge对细长结构更敏感。两者互补，用户可根据图像内容类型选择
 
 3. **径向对称窗口预处理**：
-    - 做什么：对非圆形支撑的图像施加近似圆形支撑的平滑窗口，丢弃角落信息
+    - 功能：对非圆形支撑的图像施加近似圆形支撑的平滑窗口，丢弃角落信息
     - 核心思路：图像旋转时，角落区域的信息进出矩形边界会引入非等变误差。径向对称窗口确保参与分析的区域在旋转下保持不变
     - 设计动机：这是实现离散实现等变性的关键——只有在圆形支撑上，旋转才不会改变分析区域
 

@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：连续系统常用离散时间近似，仿真步长 $\delta_t$ 小导致规划 horizon $D$ 需要很长，给 CEM/MPPI 带来计算负担。
+
 **现有痛点**：frame-skip 最优值因环境而异。Model-free RL 有学习 frame-skip 的工作，但无人在规划/MBRL 中解决。长 rollout 导致 compounding error。
+
 **核心矛盾**：小 $\delta_t$ 保证精度但搜索空间大；大 frame-skip 减少搜索但不灵活。
+
 **本文要解决什么？** 让 planner 每步同时优化动作和持续时间 $\delta t_k \in [\delta t_{\min}, \delta t_{\max}]$。
+
 **切入角度**：$\delta t$ 作为连续优化变量 + MAB 自动选择 $\delta t_{\max}$。
+
 **核心idea一句话**：动作持续时间作为 planner 优化变量 + 学习的 TE 动力学模型 + MAB 自动范围选择。
 
 ## 方法详解

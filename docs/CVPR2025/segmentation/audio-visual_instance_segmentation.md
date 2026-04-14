@@ -25,8 +25,11 @@ code: "https://github.com/ruohaoguo/avis"
 | **AVIS (本文)** | **实例掩码+ID** | **实例级** | **全视频** |
 
 现有方法的局限性：
+
 **Sound Source Localization** 仅提供粗糙的区域级定位，无法生成精确的像素级分割
+
 **Audio-Visual Segmentation** 进行语义级分割但不区分同类不同个体
+
 **没有方法**在视频级别同时进行实例级分割和跨帧追踪
 
 本文提出 **Audio-Visual Instance Segmentation (AVIS)** 这一新任务：给定视频和对应音频，对所有发声物体进行实例级分割并跨帧追踪。同时构建了 AVISeg 基准数据集和 AVISM 基线方法。

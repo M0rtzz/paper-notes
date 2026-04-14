@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：扩散模型在逆问题（去模糊、超分、修复、压缩感知等）上表现优异，但需要大量采样步数（100-1000步）才能获得高质量结果。快速 ODE 求解器在无条件生成中有效，但在逆问题中因异构公式和近似误差效果不佳。
+
 **现有痛点**：扩散逆问题的 corrector 步（数据一致性增强）引入额外误差，少步时这些误差累积导致质量显著下降。不同算法（DPS, DDNM, DDRM, MCG 等）各有不同的 corrector 设计，需要一种通用的增强方法。
+
 **核心矛盾**：实际应用需要少步出结果（3-5步推理），但少步暴露了 corrector 误差的累积效应。
+
 **本文要解决什么**：设计一种轻量级、通用的"补丁"，能增强任何扩散逆算法在少步约束下的表现。
+
 **切入角度**：所有扩散逆问题算法都遵循 Sampler → Corrector → Noiser 的范式，可以统一表示并用线性外推增强。
+
 **核心idea一句话**：学习少量线性组合系数，将历史 clean data estimates 与当前估计组合，弥补少步带来的近似误差。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **统一的 Canonical Form**:
 
-    - 做什么：将 DDNM, DPS, DDRM, MCG, PGDM, ReSample, DDPG, DiffPIR, PSLD 等 9+ 算法统一写为 Sampler-Corrector-Noiser 三步范式
+    - 功能：将 DDNM, DPS, DDRM, MCG, PGDM, ReSample, DDPG, DiffPIR, PSLD 等 9+ 算法统一写为 Sampler-Corrector-Noiser 三步范式
     - 设计动机：不同算法的区别在于 Corrector 的设计（数据一致性如何实现），但框架一致，允许通用增强
 
 2. **Learnable Linear Extrapolation (LLE)**:
 
-    - 做什么：在第 $i$ 步，将 corrected 估计 $\hat{\mathbf{x}}_{0,t_i}$ 与之前所有步的估计线性组合
+    - 功能：在第 $i$ 步，将 corrected 估计 $\hat{\mathbf{x}}_{0,t_i}$ 与之前所有步的估计线性组合
     - 核心思路：$\tilde{\mathbf{x}}_{0,t_i} = \gamma_{t_i,S-i}^{\perp}\hat{\mathbf{x}}_{0,t_i} + \sum_{j=0}^{S-i-1}\gamma_{t_i,j}^{\perp}\tilde{\mathbf{x}}_{0,t_{S-j}}$
     - 可学习参数：每步只有几个系数 $\gamma$，总参数量极少
     - 设计动机：历史估计包含之前步的信息，线性组合可以修正当前步的误差
 
 3. **解耦系数（线性逆问题）**:
 
-    - 做什么：对线性逆问题，将系数分为 range space 和 null space 两组
+    - 功能：对线性逆问题，将系数分为 range space 和 null space 两组
     - 核心思路：测量空间中的分量可以被精确约束（数据一致），零空间需要扩散先验补充。两者需要不同的外推策略
     - 效果：inpainting +0.96 PSNR, SR +0.26 PSNR
 

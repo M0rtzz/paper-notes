@@ -9,7 +9,7 @@ tags:
   - 数学推理
   - 不等式证明
   - LLM-as-Judge
-  - 基准测试
+  - benchmark
   - 推理评估
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.07927](https://arxiv.org/abs/2506.07927)  
 **代码**: [IneqMath](https://ineqmath.github.io/)  
 **领域**: llm_nlp  
-**关键词**: 数学推理, 不等式证明, LLM-as-Judge, 基准测试, 推理评估  
+**关键词**: 数学推理, 不等式证明, LLM-as-Judge, benchmark, 推理评估
 
 ## 一句话总结
 
@@ -30,9 +30,13 @@ tags:
 不等式证明是数学推理中的核心挑战，需要发现紧界、战略性应用经典定理（AM-GM、Cauchy-Schwarz 等）以及精确的符号变换。
 
 现有资源不足：
+
 **通用 ATP 数据集**（MiniF2F、ProofNet）：不等式比例极少
+
 **合成数据集**（INT、AIPS）：基于模板生成，缺乏结构多样性
+
 **人工整理集**（ChenNEQ）：规模太小
+
 **格式限制**：多数采用形式化表示（Lean/Isabelle），而 LLM 在自然语言推理上可能更强
 
 核心问题：**仅看最终答案正确率会严重高估 LLM 的数学推理能力**——模型可能猜对答案但推理过程漏洞百出。

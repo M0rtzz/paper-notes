@@ -48,19 +48,19 @@ tags:
 
 1. **程序库学习（Wake-Sleep + LLM）**:
 
-    - 做什么：从 3D-Front 合成数据自动发现房间结构的可复用函数
+    - 功能：从 3D-Front 合成数据自动发现房间结构的可复用函数
     - 核心思路：Wake 阶段 LLM 作识别模型（布局->程序），Sleep 阶段 LLM 提出新抽象函数。从仅 object_instantiation 和 parallel 两个初始函数，学到 align、grid、grid_with_offset、symmetrical、cluster_placement 等函数
     - 设计动机：不需手工设计领域语言；LLM 自动提出适当抽象层次的函数；3D-Front 函数直接迁移到 ScanNet（证明人类设计房间有跨数据集通用结构）
 
 2. **程序条件化层次姿态预测**:
 
-    - 做什么：预测每个物体的朝向角度 $\theta$（离散化为36类，5度/bin）
+    - 功能：预测每个物体的朝向角度 $\theta$（离散化为36类，5度/bin）
     - 核心思路：分两阶段——主物体（如桌子）从bounding box、最近墙壁等编码预测 $\theta$；从属物体（如围桌椅子）额外条件于依赖目标的已预测朝向和程序函数文本嵌入。Multi-head self-attention 处理所有物体
     - 设计动机：真实场景中"椅子朝向跟着桌子转"是层次依赖。去掉依赖条件后从属物体准确率从 44.2% 降至 39.7%
 
 3. **LLM 程序生成 + 库正则化**:
 
-    - 做什么：利用 LLM（GPT-o1）生成多样化场景程序
+    - 功能：利用 LLM（GPT-o1）生成多样化场景程序
     - 核心思路：先将 ScanNet 解析为 few-shot 程序示例，LLM 在库函数约束下生成新程序（可执行 Python）
     - 设计动机：LLM commonsense 决定物体位置，library 约束结构合理性
 

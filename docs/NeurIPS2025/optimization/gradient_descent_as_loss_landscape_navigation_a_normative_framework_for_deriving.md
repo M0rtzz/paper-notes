@@ -1,12 +1,18 @@
 ---
-description: 将学习规则建模为损失景观中的最优导航策略，统一推导出梯度下降、动量、自然梯度和Adam等优化器
+title: >-
+  [论文解读] Gradient Descent as Loss Landscape Navigation: a Normative Framework for Deriving Learning Rules
+description: >-
+  [NeurIPS 2025][优化][学习规则] 提出将学习规则视为在（部分可观测的）损失景观中的最优导航策略，通过变分法求解连续时间最优控制问题，在统一框架下推导出梯度下降、动量、自然梯度、Adam及持续学习策略。
 tags:
-- optimization
-- learning-rules
-- optimal-control
-- momentum
-- Adam
+  - NeurIPS 2025
+  - 优化
+  - 学习规则
+  - 最优控制
+  - 损失景观导航
+  - 动量
+  - 自适应优化器
 ---
+
 # Gradient Descent as Loss Landscape Navigation: a Normative Framework for Deriving Learning Rules
 
 **会议**: NeurIPS 2025  
@@ -43,17 +49,17 @@ $$J(\{\boldsymbol{\theta}_t\}) = \mathbb{E}\left\{\int_0^\infty \left(\frac{1}{2
 ### 关键设计
 
 1. **动量从多步优化自然涌现**:
-    - 做什么：从最简单的多步目标推导 Euler-Lagrange 方程
+    - 功能：从最简单的多步目标推导 Euler-Lagrange 方程
     - 核心思路：最优轨迹满足 $\dot{\boldsymbol{\theta}}_t = \boldsymbol{p}_t$，$\dot{\boldsymbol{p}}_t = \gamma \boldsymbol{p}_t + \eta k \nabla \mathcal{L}$，其中 $\boldsymbol{p}_t$ 即为动量
     - 设计动机：动量不需要额外假设，仅从"考虑多步"就自然产生；时间折扣 $\gamma$ 控制从动量到标准梯度下降的插值
 
 2. **自然梯度来自参数空间几何**:
-    - 做什么：在目标中引入非欧度量 $\boldsymbol{G}(\boldsymbol{\theta})$（如 Fisher 信息矩阵）
+    - 功能：在目标中引入非欧度量 $\boldsymbol{G}(\boldsymbol{\theta})$（如 Fisher 信息矩阵）
     - 核心思路：度量 $\boldsymbol{G}$ 和 Hessian $\boldsymbol{H}$ 扮演根本不同的角色——$\boldsymbol{G}$ 定义环境几何，$\boldsymbol{H}$ 描述损失曲率
     - 设计动机：澄清了自然梯度并非"伪装的二阶方法"这一长久争论
 
 3. **Adam 源于损失景观形状的贝叶斯推断**:
-    - 做什么：假设学习者维护对局部损失景观梯度 $\boldsymbol{m}_t$ 和曲率 $\boldsymbol{V}_t$ 的贝叶斯信念
+    - 功能：假设学习者维护对局部损失景观梯度 $\boldsymbol{m}_t$ 和曲率 $\boldsymbol{V}_t$ 的贝叶斯信念
     - 核心思路：通过 Ornstein-Uhlenbeck 先验建模景观信念的时间演化，推导出的最优更新形式为 $\Delta\boldsymbol{\theta} \propto \boldsymbol{V}_t^{-1/2} \boldsymbol{m}_t$
     - 设计动机：解释了 Adam 中平方根归一化的理论根据——它是弹道限（ballistic regime，即长期规划）的最优结果
 

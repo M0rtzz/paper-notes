@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.09237](https://arxiv.org/abs/2601.09237)  
 **代码**: [Zaiwen/XLinear](https://github.com/Zaiwen/XLinear)  
 **领域**: human_understanding  
-**关键词**: time series forecasting, MLP, exogenous inputs, gating mechanism, lightweight model  
+**关键词**: time series forecasting, MLP, exogenous inputs, gating mechanism, lightweight model
 
 ## 一句话总结
 提出 XLinear，一个基于 MLP + sigmoid gating 的轻量时间序列预测模型，通过 global token 机制高效融合 endogenous 与 exogenous 变量信息，在 12 个数据集上实现精度与效率的最优平衡。

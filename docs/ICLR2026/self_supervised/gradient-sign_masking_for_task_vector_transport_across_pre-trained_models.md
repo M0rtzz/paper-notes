@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Gradient-Sign Masking for Task Vector Transport Across Pre-Trained Models
 description: >-
-  [ICLR 2026][自监督学习][task vector] 提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。
+  [ICLR 2026][自监督学习][任务向量] 提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。
 tags:
   - ICLR 2026
   - 自监督学习
-  - task vector
-  - model merging
+  - 任务向量
+  - 模型合并
   - gradient masking
-  - foundation model
+  - 基础模型
   - 迁移学习
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.09658](https://arxiv.org/abs/2510.09658)  
 **代码**: [GitHub](https://github.com/fillo-rinaldi/GradFix)  
 **领域**: 自监督学习 / 模型合并 / 迁移学习  
-**关键词**: task vector, model merging, gradient masking, foundation model, transfer learning
+**关键词**: 任务向量, 模型合并, gradient masking, 基础模型, 迁移学习
 
 ## 一句话总结
 提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：深度学习范式已转向微调大型预训练模型。Task Arithmetic 表明任务向量可以通过线性操作组合来诱导新能力。
+
 **现有痛点**：当基础模型更新版本时，之前的微调工作无法直接复用。直接将旧模型的任务向量加到新模型上效果差，因为参数空间不对齐。
+
 **核心矛盾**：任务向量包含有价值的任务信息，但跨预训练模型迁移时与目标损失几何不对齐。
+
 **本文要解决什么？** 高效识别并过滤任务向量中对目标模型有害的分量。
+
 **切入角度**：借鉴 SignSGD 的洞察——梯度的符号是下降方向的鲁棒代理。
+
 **核心idea一句话**：用目标模型的梯度符号做掩码，保留任务向量中与目标反梯度方向一致的分量。
 
 ## 方法详解
@@ -42,13 +47,13 @@ tags:
 
 1. **梯度符号掩码**:
 
-    - 做什么：逐坐标过滤任务向量
+    - 功能：逐坐标过滤任务向量
     - 核心思路：$m_i = \mathbb{1}\{\text{sign}(\tau_{A,i}) = \text{sign}(-g_i)\}$
     - 一阶保证：$\mathbf{g}^\top \delta^A = -\alpha \sum_i m_i |g_i||\tau_{A,i}| \leq 0$
 
 2. **少样本梯度估计**:
 
-    - 做什么：用极少量标注样本估计梯度符号
+    - 功能：用极少量标注样本估计梯度符号
     - 核心思路：对每个坐标用多数投票法
     - 理论保证（Hoeffding 不等式）：准确率随样本数指数收敛
 

@@ -7,7 +7,7 @@ tags:
   - ICLR 2026
   - AI安全
   - backdoor attack
-  - 强化学习
+  - reinforcement-learning
   - simulator security
   - reward-free
   - supply chain attack
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2602.05089](https://arxiv.org/abs/2602.05089)  
 **代码**: 无  
 **领域**: AI安全 / RL安全  
-**关键词**: backdoor attack, reinforcement learning, simulator security, reward-free, supply chain attack  
+**关键词**: backdoor attack, reinforcement-learning, simulator security, reward-free, supply chain attack
 
 ## 一句话总结
 提出 Daze 攻击——恶意模拟器开发者无需访问或修改智能体的奖励函数，仅通过操控状态转移来植入后门：智能体在触发状态下不执行目标动作时被迫执行随机动作（"眩晕"），从而在理论上保证攻击成功且隐蔽，并首次在真实机器人硬件上演示了 RL 后门攻击。
 
 ## 研究背景与动机
 **领域现状**：RL 训练严重依赖模拟器（MuJoCo、PyBullet 等），研究者和工程师常使用第三方模拟器或云计算服务。模拟器在 RL 供应链中是一个受信任但未被充分审视的组件。
+
 **现有痛点**：已有 RL 后门攻击（TrojDRL、SleeperNets、Q-Incept）需要对训练流程的深度控制——尤其需要读写智能体的奖励函数。但很多模拟器（如 MuJoCo、PyBullet）只接收动作、返回状态，奖励由外部计算，攻击者无法接触。
+
 **核心矛盾**：所有已知 RL 后门攻击都依赖奖励操控来引导目标动作成为最优——如果攻击者既不能观察也不能修改奖励（模拟器场景），传统方法完全失效。
+
 **本文要解决什么？** 在仅能修改状态返回值（不能碰奖励）的极度受限威胁模型下，如何高效、隐蔽地植入后门？
+
 **切入角度**：在几乎所有有意义的 MDP 中，均匀随机采样动作都是次优的。攻击者可以利用这一普适性质——当智能体在触发状态下不执行目标动作时，强制其执行随机动作，使其收到更低的回报。
+
 **核心idea一句话**：用"不执行目标动作→被迫随机行动→低回报"的因果链替代直接奖励操控，通过 transition manipulation 而非 reward manipulation 实现后门。
 
 ## 方法详解
@@ -41,7 +46,7 @@ Daze 作为模拟器 wrapper 实现。正常情况下，模拟器按原始转移
 
 1. **Daze 机制（无奖励后门）**：
 
-    - 做什么：在不碰奖励的前提下让目标动作成为触发状态下的最优动作。
+    - 功能：在不碰奖励的前提下让目标动作成为触发状态下的最优动作。
     - 核心思路：利用 Assumption 1（随机策略几乎对所有 MDP 都是次优的）。在触发状态中，执行 $a^+$ → 正常转移（无代价）；不执行 $a^+$ → 进入眩晕状态（$k \cdot \mathcal{L}_{adv}(a, a^+)$ 步随机动作），期间奖励由真实物理计算但动作由攻击者随机采样 → 低回报。
     - 设计动机：智能体为最大化回报，自然学会在触发状态执行 $a^+$。奖励完全由外部正常计算，攻击者零接触。
 
@@ -53,7 +58,7 @@ Daze 作为模拟器 wrapper 实现。正常情况下，模拟器按原始转移
 
 3. **连续动作空间适配**：
 
-    - 做什么：将离散域的"精确匹配 $a^+$"推广为连续域的"$\ell_\infty$ 距离小于阈值 $\tau$"。
+    - 功能：将离散域的"精确匹配 $a^+$"推广为连续域的"$\ell_\infty$ 距离小于阈值 $\tau$"。
     - 眩晕时长与误差成比例：$\lceil k \cdot \mathcal{L}_{adv}(a, a^+) \rceil$ 步，提供更密的梯度信号。
 
 ### 实现

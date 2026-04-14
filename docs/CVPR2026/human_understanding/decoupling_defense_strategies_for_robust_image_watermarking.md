@@ -28,14 +28,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：深度学习图像水印（DL watermarking）通过 encoder 将信息嵌入图像、decoder 提取信息，已成为版权保护和内容溯源的核心技术。近年来攻击手段不断升级，形成三重威胁。
+
 **三重威胁**：
    - **对抗攻击（Adversarial Attack）**：如 WEvade，通过微小扰动使 decoder 提取错误信息，攻击后图像视觉上无变化
    - **再生攻击（Regeneration Attack）**：利用扩散模型对水印图像加噪再去噪，有效"洗掉"水印
    - **失真攻击（Distortion Attack）**：如 JPEG 压缩、高斯模糊、裁剪等传统图像处理操作
+
 **联合训练（JAT）的两大问题**：
    - **问题 1**：decoder 对抗训练导致 clean accuracy 下降——为了在对抗样本上也能正确解码，decoder 被迫扩展决策边界，反而在干净图像上精度降低
    - **问题 2**：同时训练三种攻击收敛慢效果差——三种攻击的梯度方向冲突，优化 landscape 复杂，联合训练难以同时满足所有防御需求
+
 **核心洞察**：对抗攻击与失真/再生攻击本质不同。对抗攻击利用模型决策边界的弱点（model-specific），而失真/再生攻击是信号层面的破坏（model-agnostic）。应该解耦防御策略而非联合训练
+
 **核心 idea**：两阶段解耦——先用 EAT 让 encoder 把图像"推入"non-attackable 区域，再用直接图像优化处理失真和再生攻击
 
 ## 核心问题
@@ -50,7 +54,7 @@ AdvMark 采用两阶段解耦设计：Stage 1 EAT 专注对抗鲁棒性，通过
 
 1. **Stage 1: Encoder Adversarial Training (EAT)**:
 
-    - 做什么：构造 defender-tailored 对抗样本，主要微调 encoder 使水印图像远离对抗攻击可达区域
+    - 功能：构造 defender-tailored 对抗样本，主要微调 encoder 使水印图像远离对抗攻击可达区域
     - 核心思路：
       - **对抗样本构造**（Eq.2）：$\min_{\delta} |0.5 - l(\text{clamp}(D(x_w + \delta), 0, 1), m)|$，寻找最容易使 decoder 输出接近 0.5（最大不确定性）的扰动 $\delta$，这些是 defender-tailored 对抗样本
       - **Encoder 为主的更新策略**：将对抗样本反馈给 encoder，让 encoder 学习将水印图像嵌入到远离决策边界的安全区域。Decoder 仅在 bit accuracy $< \tau_1$ 时条件更新一次
@@ -59,7 +63,7 @@ AdvMark 采用两阶段解耦设计：Stage 1 EAT 专注对抗鲁棒性，通过
 
 2. **Stage 2: Direct Image Optimization**:
 
-    - 做什么：对 Stage 1 输出的水印图像 $x_{w1}$ 进一步优化得到 $x_{w2}$，使其同时抵御失真和再生攻击
+    - 功能：对 Stage 1 输出的水印图像 $x_{w1}$ 进一步优化得到 $x_{w2}$，使其同时抵御失真和再生攻击
     - 核心思路：
       - **优化目标**：直接在像素空间优化 $x_{w2}$（不更新网络参数），使 $x_{w2}$ 经过失真/再生攻击后 decoder 仍能正确提取水印
       - **Constrained Image Loss**：约束 $x_{w2}$ 与 $x_{w1}$ 的偏移量，使优化后的图像不偏离 Stage 1 建立的 non-attackable 区域，从而保留对抗鲁棒性。论文提供了理论保证：在 $\|x_{w2} - x_{w1}\| \leq \epsilon$ 约束下，Stage 1 的对抗鲁棒性以高概率保持
@@ -68,7 +72,7 @@ AdvMark 采用两阶段解耦设计：Stage 1 EAT 专注对抗鲁棒性，通过
 
 3. **两阶段解耦的理论保证**:
 
-    - 做什么：证明 Stage 2 优化不会破坏 Stage 1 的对抗鲁棒性
+    - 功能：证明 Stage 2 优化不会破坏 Stage 1 的对抗鲁棒性
     - 核心思路：若 $x_{w1}$ 在对抗攻击半径 $r$ 内是安全的，且 $\|x_{w2} - x_{w1}\| \leq \epsilon$，则 $x_{w2}$ 在半径 $r - \epsilon$ 内仍是安全的
     - 设计动机：解耦两阶段需要保证后一阶段不破坏前一阶段的成果，理论保证使框架可靠
 

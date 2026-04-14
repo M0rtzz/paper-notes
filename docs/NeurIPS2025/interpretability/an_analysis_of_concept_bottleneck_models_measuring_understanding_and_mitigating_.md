@@ -1,12 +1,17 @@
 ---
-description: 系统研究标注噪声对概念瓶颈模型(CBM)的影响，提出SAM训练+不确定性引导干预的缓解策略
+title: >-
+  [论文解读] An Analysis of Concept Bottleneck Models: Measuring, Understanding, and Mitigating the Impact of Noisy Annotations
+description: >-
+  [NeurIPS 2025][概念瓶颈模型] 本文首次系统研究标注噪声对概念瓶颈模型(CBM)在预测性能、可解释性和干预有效性三个维度的影响，发现概念噪声是性能下降的主要驱动力且存在易感概念子集，提出SAM训练+熵引导干预的两阶段缓解框架。
 tags:
-- NEURIPS2025
-- 可解释性
-- 概念瓶颈模型
-- 噪声标注
-- 鲁棒性
+  - NeurIPS 2025
+  - 概念瓶颈模型
+  - 标注噪声
+  - 可解释性
+  - SAM优化
+  - 不确定性干预
 ---
+
 # An Analysis of Concept Bottleneck Models: Measuring, Understanding, and Mitigating the Impact of Noisy Annotations
 
 **会议**: NeurIPS 2025  
@@ -42,13 +47,13 @@ tags:
 ### 关键设计
 
 1. **易感概念子集 (Susceptible Set) 发现**:
-    - 做什么：识别在噪声下准确率下降远超平均水平的概念
+    - 功能：识别在噪声下准确率下降远超平均水平的概念
     - 核心思路：对比每个概念在clean vs noisy条件下的准确率差，发现退化高度不均匀；少数"易感概念"的准确率下降占总体性能损失的主要部分
     - 设计动机：如果所有概念均匀退化，则难以针对性修复；但非均匀退化意味着可以聚焦少数关键概念
     - 发现：易感概念往往具有高预测熵（不确定性），这为推理时的干预策略提供了信号
 
 2. **SAM训练 + 不确定性引导干预**:
-    - 做什么：训练时用Sharpness-Aware Minimization (SAM)增强鲁棒性；推理时按预测熵排序概念、优先纠正最不确定的
+    - 功能：训练时用Sharpness-Aware Minimization (SAM)增强鲁棒性；推理时按预测熵排序概念、优先纠正最不确定的
     - 核心思路：SAM找到损失景观中更平坦的极小值，使模型对噪声更鲁棒（尤其对易感概念）；推理时用熵作为易感性的代理指标
     - 设计动机(SAM)：理论分析表明SAM通过约束概念预测器Jacobian的谱范数来限制噪声传播，等价于对概念预测行为施加Lipschitz约束
     - 设计动机(熵干预)：推理时无法获取clean标签来识别易感概念，但高熵概念与易感概念高度相关，可作为替代信号

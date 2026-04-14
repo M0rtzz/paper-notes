@@ -31,9 +31,9 @@ tags:
 
 1. **采样策略修改方法**（如 Blended Latent Diffusion）：在每一步去噪时将遮罩区域从预训练模型采样、未遮罩区域直接复制粘贴。该方法可适配任意扩散骨干，但由于缺乏对遮罩边界和未遮罩区域上下文的感知，产生的结果语义不连贯。
 2. **专用修复模型**（如 SD Inpainting, PowerPaint）：通过扩展 UNet 输入通道维度来融合遮罩图像和 mask 信息。虽然生成质量更好，但存在三个关键问题：
-   - 在 UNet 首层就将 noisy latent、masked image latent、mask 和 text 混合，导致后续层无法获取纯净的遮罩图像特征
-   - 单分支同时处理条件和生成，增加 UNet 学习负担
-   - 需要针对不同扩散骨干分别微调，迁移性差
+    - 在 UNet 首层就将 noisy latent、masked image latent、mask 和 text 混合，导致后续层无法获取纯净的遮罩图像特征
+    - 单分支同时处理条件和生成，增加 UNet 学习负担
+    - 需要针对不同扩散骨干分别微调，迁移性差
 
 作者发现 ControlNet 虽然引入了额外分支，但其设计面向稀疏结构控制（如骨架），不适用于需要像素级密集约束的修复任务，直接用于 inpainting 效果不佳。
 

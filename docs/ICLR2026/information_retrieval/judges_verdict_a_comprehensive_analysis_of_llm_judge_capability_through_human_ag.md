@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.09738](https://arxiv.org/abs/2510.09738)  
 **代码**: 未公开  
 **领域**: llm_agent  
-**关键词**: LLM-as-a-Judge, Cohen's Kappa, human agreement, benchmark, RAG evaluation, Turing Test for judges  
+**关键词**: LLM-as-a-Judge, Cohen's Kappa, human agreement, benchmark, RAG evaluation, Turing Test for judges
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 LLM-as-a-Judge 日益流行但评估方法有缺陷：
 
 **过度依赖相关性**：Pearson r 只衡量线性关系而非绝对一致性——LLM 可能完美相关但系统性偏严/偏松。
+
 **缺乏标准化基准**：不同研究使用不同数据集和评估。
+
 **忽视一致性模式**：未区分"像人类一样"和"超越人类一致性"两种行为。
 
 ## 方法详解

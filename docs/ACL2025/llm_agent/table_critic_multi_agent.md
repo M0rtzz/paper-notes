@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.11799](https://arxiv.org/abs/2502.11799)  
 **代码**: [https://github.com/Peiying-Yu/Table-Critic](https://github.com/Peiying-Yu/Table-Critic)  
 **领域**: LLM Agent  
-**关键词**: table reasoning, multi-agent framework, self-evolving template tree, collaborative criticism, iterative refinement  
+**关键词**: table reasoning, multi-agent framework, self-evolving template tree, collaborative criticism, iterative refinement
 
 ## 一句话总结
 提出 Table-Critic 多智能体框架，通过 Judge-Critic-Refiner-Curator 四个专门化 Agent 的协作批评与迭代精化，配合自进化模板树累积批评知识，在 WikiTQ 和 TabFact 上分别实现 73.7% 和 91.7% 的准确率，大幅超越现有方法。

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.04168](https://arxiv.org/abs/2506.04168)  
 **代码**: 无  
 **领域**: 强化学习  
-**关键词**: offline RL, scalability, horizon reduction, hierarchical RL, goal-conditioned RL  
+**关键词**: offline RL, scalability, horizon reduction, hierarchical RL, goal-conditioned RL
 
 ## 一句话总结
 

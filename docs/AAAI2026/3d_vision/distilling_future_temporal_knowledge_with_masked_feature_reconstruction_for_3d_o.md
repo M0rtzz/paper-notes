@@ -32,7 +32,9 @@ tags:
 然而现有 KD 方法存在三个关键局限：
 
 **空间蒸馏需要严格帧对齐**：MGD、CWD、FD3D 等方法要求教师和学生输入帧完全相同，无法利用教师的未来帧信息
+
 **时序蒸馏忽视未来帧**：STXD 仅关注帧间关系，DistillBEV 蒸馏融合时空特征，但都未利用未来帧
+
 **忽略背景信息**：GT 中前景框很少，大量预测为背景查询，但现有方法忽略了背景查询中的有价值信息
 
 教师模型选择的关键标准：
@@ -72,8 +74,8 @@ FFR 同时在透视图（PV）和稀疏 BEV 查询特征上进行特征重建。
 
 1. 对学生特征生成随机掩码（mask ratio $\lambda = 0.5$）：$M_{k,i} = \begin{cases} 0, & R_{k,i} < \lambda \\ 1, & \text{otherwise} \end{cases}$
 2. 使用生成层恢复被掩码的特征：$\hat{F}^S = \mathcal{G}(F^S \cdot M)$
-   - PV 特征：$\mathcal{G}$ 由两层 $3 \times 3$ 卷积 + ReLU 组成
-   - BEV 查询特征：$\mathcal{G}$ 由 FFN + LayerNorm 组成
+    - PV 特征：$\mathcal{G}$ 由两层 $3 \times 3$ 卷积 + ReLU 组成
+    - BEV 查询特征：$\mathcal{G}$ 由 FFN + LayerNorm 组成
 3. 以教师的聚合特征为目标进行 MSE 重建
 
 **PV 重建损失**：

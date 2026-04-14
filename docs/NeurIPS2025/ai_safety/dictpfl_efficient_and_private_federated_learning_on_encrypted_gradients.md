@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.21086](https://arxiv.org/abs/2510.21086)  
 **代码**: [UCF-ML-Research/DictPFL](https://github.com/UCF-ML-Research/DictPFL)  
 **领域**: ai_safety  
-**关键词**: Federated Learning, Homomorphic Encryption, Privacy-Preserving, Gradient Pruning, Dictionary Decomposition  
+**关键词**: federated learning, Homomorphic Encryption, Privacy-Preserving, Gradient Pruning, Dictionary Decomposition
 
 ## 一句话总结
 

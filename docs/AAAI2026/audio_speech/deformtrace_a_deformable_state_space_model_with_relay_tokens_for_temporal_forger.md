@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.04882](https://arxiv.org/abs/2603.04882)  
 **代码**: 待确认  
 **领域**: video_understanding  
-**关键词**: Temporal Forgery Localization, State Space Model, Deformable Mechanism, Relay Token, Deepfake Detection  
+**关键词**: Temporal Forgery Localization, State Space Model, Deformable Mechanism, Relay Token, Deepfake Detection
 
 ## 一句话总结
 提出 DeformTrace，将可变形动态感受野和中继令牌机制引入状态空间模型，结合 Transformer 的全局建模与 SSM 的高效推理，实现时序伪造定位的 SOTA 精度与显著效率提升。

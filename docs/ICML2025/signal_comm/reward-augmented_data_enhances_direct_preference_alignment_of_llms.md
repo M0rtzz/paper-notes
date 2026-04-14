@@ -10,7 +10,7 @@ tags:
   - 奖励条件化
   - 数据增强
   - RLHF
-  - LLM alignment
+  - LLM 对齐
 ---
 
 # Reward-Augmented Data Enhances Direct Preference Alignment of LLMs
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2410.08067](https://arxiv.org/abs/2410.08067)  
 **代码**: [shenao-zhang/reward-augmented-preference](https://github.com/shenao-zhang/reward-augmented-preference)  
 **领域**: LLM对齐 / 偏好优化  
-**关键词**: DPO, 偏好对齐, 奖励条件化, 数据增强, RLHF, LLM alignment
+**关键词**: DPO, 偏好对齐, 奖励条件化, 数据增强, RLHF, LLM 对齐
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 现有直接对齐算法（如DPO）仅关注**相对偏好**（chosen vs. rejected），忽略了回复的**绝对质量分数**，导致三大问题：
 
 **高质量rejected被遗忘（Unlearning）**：当chosen与rejected质量差距极小时（如r=9 vs. r=8），DPO仍会最大化隐式奖励差距，导致高质量rejected的概率被不必要地压低
+
 **低质量chosen被盲目学习**：DPO无差别地提升所有chosen回复的概率，即使某些chosen质量很低（如r=1），只要它胜过了更差的rejected（r=0）
+
 **奖励稀疏性（Reward Sparsity）**：最优回复（$r = r_{\max}$）在数据中非常稀疏，DPO无法区分不同质量水平的chosen回复，难以泛化到最优回复
 
 ### 核心洞察

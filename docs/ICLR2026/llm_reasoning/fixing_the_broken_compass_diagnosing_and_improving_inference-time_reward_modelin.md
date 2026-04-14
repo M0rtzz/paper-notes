@@ -1,10 +1,15 @@
 ---
+title: >-
+  [论文解读] Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling
 description: >-
-  [LLM推理] 系统分析推理时奖励模型的三大失效模式（简单题退化、采样增多辨别力下降、高多样性损害），提出 CRISP 算法通过聚类奖励聚合与逐步前缀引导显著提升推理准确率。
+  [ICLR 2026][LLM推理][奖励模型] 系统诊断推理时奖励模型（RM）的三大失效模式——简单题性能退化、采样数增多时辨别力下降、高搜索多样性损害准确率，并提出 CRISP 算法通过答案聚类的奖励聚合与逐步前缀引导来缓解这些问题，准确率提升最高 5%。
 tags:
+  - ICLR 2026
   - LLM推理
   - 奖励模型
-  - 推理时优化
+  - inference-time scaling
+  - CRISP
+  - Best-of-N
   - MCTS
 ---
 
@@ -14,7 +19,7 @@ tags:
 **arXiv**: [2503.05188](https://arxiv.org/abs/2503.05188)  
 **代码**: [GitHub](https://github.com/BugMakerzzz/CRISP)  
 **领域**: LLM 推理 / 推理时优化  
-**关键词**: [奖励模型, 推理时缩放, CRISP, Best-of-N, MCTS]
+**关键词**: [奖励模型, inference-time scaling, CRISP, Best-of-N, MCTS]
 
 ## 一句话总结
 

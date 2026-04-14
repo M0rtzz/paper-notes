@@ -50,19 +50,19 @@ tags:
 
 1. **重建误差分布建模与伪观测生成**:
 
-    - 做什么：将重建误差从"要最小化的损失"转化为"可利用的学习信号"
+    - 功能：将重建误差从"要最小化的损失"转化为"可利用的学习信号"
     - 核心思路：对观测点 $m_t=1$ 计算 $\epsilon_t = x_t - \hat{x}_t$，假设高斯分布估计 $\mu_\epsilon, \sigma_\epsilon$（动量更新 $\rho$）。对未观测点 $m_t=0$：$\tilde{x}_t = \alpha_t \cdot \bar{x} + (1-\alpha_t) \cdot \tilde{\epsilon}_t$，其中 $\tilde{\epsilon}_t \sim \mathcal{N}(\mu_\epsilon^h, (\sigma_\epsilon^h)^2)$
     - 设计动机：伪观测既保留了时间连续性（通过最近观测值 mixup），又包含了噪声感知的不确定性信息（通过误差采样），比简单填补或随机噪声更合理
 
 2. **Wasserstein 误差分布对齐**:
 
-    - 做什么：确保模型在观测和伪观测区域的行为一致
+    - 功能：确保模型在观测和伪观测区域的行为一致
     - 核心思路：$L_W = \|\mu_\epsilon - \mu_p\|^2 + \|\sigma_\epsilon - \sigma_p\|^2$（2-Wasserstein 距离在高斯下的闭式解）
     - 设计动机：如果模型在伪观测区域的重建误差分布与观测区域相似，说明伪观测没有引入结构性偏差
 
 3. **对比学习 + 双重建损失**:
 
-    - 做什么：增强表示的判别性和鲁棒性
+    - 功能：增强表示的判别性和鲁棒性
     - 总损失 $L = \alpha L_W + \beta L_{contrast} + \frac{1}{2}(L_{orig\_rec} + L_{pseudo\_rec})$
 
 ## 实验关键数据

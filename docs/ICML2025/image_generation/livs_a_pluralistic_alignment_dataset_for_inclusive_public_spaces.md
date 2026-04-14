@@ -7,7 +7,7 @@ tags:
   - ICML2025
   - 图像生成
   - Pluralistic Alignment
-  - Text-to-Image
+  - 文生图
   - DPO
   - Intersectionality
   - 城市规划
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2503.01894](https://arxiv.org/abs/2503.01894)  
 **代码**: [mid-space.one](https://mid-space.one)  
 **领域**: 数据集 / 公平性 / 多元对齐  
-**关键词**: Pluralistic Alignment, Text-to-Image, DPO, Intersectionality, 城市规划, 包容性设计, 社区参与
+**关键词**: Pluralistic Alignment, 文生图, DPO, Intersectionality, 城市规划, 包容性设计, 社区参与
 
 ## 一句话总结
 

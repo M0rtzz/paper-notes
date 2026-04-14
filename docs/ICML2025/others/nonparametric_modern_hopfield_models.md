@@ -24,13 +24,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：现代 Hopfield 模型 (Ramsauer et al., 2020) 将经典联想记忆与 Transformer 注意力机制建立了深刻联系——检索动力学等价于 Softmax 注意力。这使 Hopfield 模型成为注意力机制的增强替代品，广泛应用于药物发现、免疫学、表格学习等。
+
 **现有痛点**：
    - **(P1) 缺乏效率**：现有稀疏 Hopfield 模型 (Hu et al., 2023) 的稀疏性仅加速检索步骤，时间复杂度仍为 $\mathcal{O}(n^2)$
    - **(P2) 缺乏严格的稀疏性分析**：无法严格刻画稀疏性如何影响检索误差、分离条件和记忆容量
    - **(P3) 注意力与 Hopfield 的连接不完整**：现有框架只桥接了部分注意力变体
+
 **核心矛盾**：大模型时代对高效 Hopfield 层的迫切需求 vs 缺乏理论基础的高效变体。
+
 **本文要解决什么**：提供统一的非参数框架，同时填补效率、理论分析和注意力连接三个空白。
+
 **切入角度**：将检索动力学 $\mathcal{T}$ 的构建视为一个学习问题——从查询-记忆对数据集中学习函数。
+
 **核心idea**：用软间隔支持向量回归（SVR）来建模 Hopfield 的记忆过程，不同核函数对应不同的注意力变体。
 
 ## 方法详解
@@ -48,7 +53,7 @@ tags:
 
 1. **非参数检索动力学（Theorem 3.1）**:
 
-    - 做什么：将 Hopfield 的记忆检索建模为非参数 SVR
+    - 功能：将 Hopfield 的记忆检索建模为非参数 SVR
     - 核心思路：给定核映射 $\Phi$，检索新模式为：
     $\mathbf{x}_{\text{new}}[i] = \mathcal{T}_{\text{SVR}}(\mathbf{x})[i] = \langle \mathbf{w}_i^\star, \Phi(\mathbf{x}) \rangle$
       其中 $\mathbf{w}_i^\star = \sum_{\mu=1}^{M} (\alpha_\mu[i] - \tilde{\alpha}_\mu[i]) \Phi(\boldsymbol{\xi}_\mu + \delta\boldsymbol{\xi}_\mu)$
@@ -56,7 +61,7 @@ tags:
 
 2. **稀疏结构 Hopfield 模型（Theorem 3.2）**:
 
-    - 做什么：引入稀疏掩码 $\mathcal{M} \subseteq \{1, \ldots, M\}$ 得到首个亚二次复杂度的 Hopfield 模型
+    - 功能：引入稀疏掩码 $\mathcal{M} \subseteq \{1, \ldots, M\}$ 得到首个亚二次复杂度的 Hopfield 模型
     - 核心思路：检索动力学变为 $\mathcal{T}_{\text{Sparse}}(\mathbf{x}) = \sum_{\mu \in \mathcal{M}} [\text{Softmax}(\beta \boldsymbol{\Xi}_\delta^\top \mathbf{x})]_\mu \boldsymbol{\xi}_\mu$
     - 三种高效变体：
       - **随机掩码**：$\mathcal{O}(kL)$ 复杂度，类比 BigBird 注意力

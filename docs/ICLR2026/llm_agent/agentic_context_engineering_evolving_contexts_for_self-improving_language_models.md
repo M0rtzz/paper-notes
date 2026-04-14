@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Context adaptation（通过修改 LLM 输入而非权重来改进性能）已成为构建可伸缩 AI 系统的核心范式。现有方法包括 prompt optimization（GEPA、MIPROv2）、test-time memory（Dynamic Cheatsheet）等。
+
 **现有痛点**：(1) **简洁偏差（brevity bias）**：多数 prompt 优化器追求简洁通用的指令，压缩掉了领域特定的策略、工具使用指南和常见失败模式；(2) **上下文坍塌（context collapse）**：单体重写方式在迭代过程中逐渐退化为更短、信息更少的摘要——实验中观察到 context 从 18282 token 突然坍塌到 122 token，性能随之骤降。
+
 **核心矛盾**：agent 和知识密集应用需要**全面详尽的**领域知识，但现有方法却在压缩知识。LLM 与人不同——人受益于简洁概括，LLM 反而在详尽 context 下表现更好。
+
 **本文要解决什么？** 如何构建一种 context 适配方法，既能持续积累知识又不会坍塌退化？
+
 **切入角度**：将 context 视为"evolving playbook"而非"optimized prompt"，用结构化的增量更新替代整体重写。
+
 **核心idea一句话**：context 应该是持续增长和精炼的策略手册，而非压缩后的简洁指令。
 
 ## 方法详解
@@ -41,19 +46,19 @@ ACE 由三个角色组成：Generator（生成推理轨迹）→ Reflector（从
 
 1. **三角色分工（Generator → Reflector → Curator）**:
 
-    - 做什么：将 context 构建的不同职责解耦到专门的角色
+    - 功能：将 context 构建的不同职责解耦到专门的角色
     - 核心思路：Generator 用当前 context 解决新问题，产生执行轨迹；Reflector 分析轨迹，提取具体的成功策略和失败教训（可多轮迭代精炼洞察）；Curator 将洞察转化为结构化 bullet 并 merge 到 context 中
     - 设计动机：避免把所有职责堆到单一模型上造成瓶颈。消融实验显示单独的 Reflector 角色是性能提升的关键来源
 
 2. **增量式 Delta 更新（替代整体重写）**:
 
-    - 做什么：用局部化的 bullet 增删改替代 context 的整体重写
+    - 功能：用局部化的 bullet 增删改替代 context 的整体重写
     - 核心思路：context 表示为 bullet 集合，每个 bullet 有唯一 ID + 有用/有害计数 + 内容。每次适配只生成小量 delta（新 bullet 或已有 bullet 的修改），通过轻量非 LLM 逻辑确定性 merge，可并行处理
     - 设计动机：彻底解决 context collapse——因为从不执行全文重写，知识只能添加或局部修改，不会被意外压缩掉
 
 3. **Grow-and-Refine 机制**:
 
-    - 做什么：平衡 context 的持续增长和冗余控制
+    - 功能：平衡 context 的持续增长和冗余控制
     - 核心思路：新 bullet 追加到 context，已有 bullet 原地更新（如增加计数器）。通过语义嵌入对比做去重（de-duplication），可以在每次 delta 后主动执行或在超出 context window 时懒惰执行
     - 设计动机：确保 context 的规模是可控的，不会无限增长
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.22139](https://arxiv.org/abs/2510.22139)  
 **代码**: [LiuJinzhe-Keepgoing/NMKE](https://github.com/LiuJinzhe-Keepgoing/NMKE)  
 **领域**: llm_efficiency  
-**关键词**: knowledge editing, lifelong learning, sparse masking, neuron attribution, LLM  
+**关键词**: knowledge editing, lifelong learning, sparse masking, neuron attribution, LLM
 
 ## 一句话总结
 提出 NMKE 框架，通过神经元级归因发现 knowledge-general 和 knowledge-specific 两类知识神经元，并结合熵引导的动态稀疏 mask，实现精准神经元级知识编辑，在 5000 步连续编辑后仍保持高编辑成功率和模型通用能力。

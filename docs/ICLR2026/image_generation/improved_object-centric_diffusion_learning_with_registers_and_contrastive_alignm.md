@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.01224](https://arxiv.org/abs/2601.01224)  
 **代码**: [GitHub](https://github.com/sony/coda)  
 **领域**: 物体中心学习 / 扩散模型  
-**关键词**: Object-Centric Learning, Slot Attention, Register Slots, 对比学习, 组合式生成
+**关键词**: Object-Centric Learning, Slot Attention, Register Slots, contrastive learning, 组合式生成
 
 ## 一句话总结
 

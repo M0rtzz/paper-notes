@@ -8,7 +8,7 @@ tags:
   - LLM推理
   - 长链推理
   - 错误检测
-  - Process Reward Model
+  - 过程奖励模型
   - Critic模型
   - o1-like模型
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.19361](https://arxiv.org/abs/2502.19361)  
 **代码**: [https://github.com/OpenStellarTeam/DeltaBench](https://github.com/OpenStellarTeam/DeltaBench)  
 **领域**: LLM推理  
-**关键词**: 长链推理, 错误检测, Process Reward Model, Critic模型, o1-like模型
+**关键词**: 长链推理, 错误检测, 过程奖励模型, Critic模型, o1-like模型
 
 ## 一句话总结
 本文提出DeltaBench——首个系统评估o1类模型长CoT推理质量和现有LLM/PRM错误检测能力的基准数据集，通过对1,236个样本的精细人工标注，揭示了o1类模型约27%推理冗余、67.8%反思无效，以及最强critic模型GPT-4-turbo-128k也仅达F1=40.8%的令人警醒的现状。

@@ -2,10 +2,10 @@
 title: >-
   [论文解读] How Data Mixing Shapes In-Context Learning: Asymptotic Equivalence for Transformers with MLPs
 description: >-
-  [NeurIPS 2025][In-Context Learning] 在高维渐近框架下证明了带非线性MLP头的Transformer在ICL误差上等价于结构化多项式预测器，揭示了非线性MLP对非线性任务的增益机制，以及多源数据混合中低噪声和结构化协方差是高质量数据源的关键特征。
+  [NeurIPS 2025][上下文学习] 在高维渐近框架下证明了带非线性MLP头的Transformer在ICL误差上等价于结构化多项式预测器，揭示了非线性MLP对非线性任务的增益机制，以及多源数据混合中低噪声和结构化协方差是高质量数据源的关键特征。
 tags:
   - NeurIPS 2025
-  - In-Context Learning
+  - 上下文学习
   - 数据混合
   - 高维渐近
   - 多项式等价
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.25753](https://arxiv.org/abs/2510.25753)  
 **代码**: [GitHub](https://github.com/KU-MLIP/Data-Mixing-Shapes-ICL-by-Transformers)  
 **领域**: NLP理解 / ICL理论  
-**关键词**: In-Context Learning, 数据混合, 高维渐近, 多项式等价, 特征学习
+**关键词**: 上下文学习, 数据混合, 高维渐近, 多项式等价, 特征学习
 
 ## 一句话总结
 在高维渐近框架下证明了带非线性MLP头的Transformer在ICL误差上等价于结构化多项式预测器，揭示了非线性MLP对非线性任务的增益机制，以及多源数据混合中低噪声和结构化协方差是高质量数据源的关键特征。
@@ -49,19 +49,19 @@ tags:
 
 1. **高维比例极限设定**：
 
-    - 做什么：建立渐近分析框架
+    - 功能：建立渐近分析框架
     - 核心思路：令输入维度 $d$、上下文长度 $\ell$、训练样本数 $n$、隐藏维度 $k$ 同时趋向无穷，保持比例 $\ell/d$、$n/d^2$、$k/n$ 为常数。这个缩放关系经过精心选择：$\ell/d$ 和 $n/d^2$ 对线性Transformer的ICL性能至关重要，$k/n$ 确保模型容量与数据量匹配
     - 设计动机：只有在这种比例极限下，高斯普遍性定理才能确保Transformer与多项式模型的精确等价
 
 2. **两阶段训练（特征学习 + 岭回归）**：
 
-    - 做什么：在保持可分析性的同时引入真正的特征学习
+    - 功能：在保持可分析性的同时引入真正的特征学习
     - 核心思路：第一阶段——对MLP第一层 $F$（融合了attention参数和MLP第一层）执行单步梯度下降；第二阶段——在新的独立数据集上，对MLP第二层 $w$ 做岭回归。步长 $\eta$ 的缩放 $\eta = o(d^2)$ 控制特征学习的强度
     - 设计动机：两阶段训练使 $\hat{F}$ 与第二阶段训练集独立，简化理论分析；同时单步梯度更新足以引入非平凡的特征学习
 
 3. **渐近等价定理**：
 
-    - 做什么：证明Transformer+MLP在ICL误差上等价于有限阶多项式模型
+    - 功能：证明Transformer+MLP在ICL误差上等价于有限阶多项式模型
     - 核心思路：利用高斯普遍性，将非线性激活函数 $\sigma$ 展开为Hermite多项式的有限级数：$\sigma(x) \approx \sum_{j=0}^{P} c_j H_j(x)$。在比例极限下，高阶项的贡献消失，Transformer的ICL误差精确等于一个使用相同多项式基函数的线性模型的误差
     - 数学保证：ICL误差的差异以概率趋向零
 

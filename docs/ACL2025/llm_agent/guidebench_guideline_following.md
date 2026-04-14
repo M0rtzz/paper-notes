@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - LLM Agent
   - Guideline Following
-  - Benchmark
+  - benchmark
   - Domain-Oriented Agent
   - Instruction Following
   - Rule Compliance
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.11368](https://arxiv.org/abs/2505.11368)  
 **代码**: [https://github.com/Dlxxx/GuideBench](https://github.com/Dlxxx/GuideBench)  
 **领域**: LLM Agent  
-**关键词**: Guideline Following, Benchmark, Domain-Oriented Agent, Instruction Following, Rule Compliance  
+**关键词**: Guideline Following, benchmark, Domain-Oriented Agent, Instruction Following, Rule Compliance
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 LLM 越来越多地被部署为自主 Agent，在运维、审计、流程优化等领域执行任务。现有的指令遵循（instruction following）基准测试主要聚焦于通用领域，依赖 LLM 内建的常识知识来评估模型能力。然而，**领域导向的 Agent** 面临的核心挑战与此截然不同：
 
 **领域规则（Domain Rules）**：指南包含大量基于领域知识的规则，可能涉及组合、条件或嵌套关系，且可能与 LLM 的常识知识相冲突。例如，在电商场景下，两个产品是否"相同"可能由特定的商业规则定义，而非常识判断。
+
 **频繁更新（Frequent Updates）**：领域指南会随着标准和法规的变化不断更新，LLM Agent 必须能适应这些变化。
 
 如图 1 所示，同一个判断产品是否相同的任务，在指南规则 #1 → #2 的更新后，正确答案可能完全不同。当前缺乏针对这种场景的综合基准测试，阻碍了 LLM Agent 在领域部署中的有效评估和改进。
@@ -121,9 +122,9 @@ GuideBench 是评估基准，不涉及模型训练。评估采用准确率作为
 3. **规则更新的鲁棒性**：规则修改后，模型需要适应新规则而非依赖旧有认知。实验表明当前 LLM 在处理规则更新时普遍存在困难，尤其是当新规则与常识冲突时。
 
 4. **错误分析**：
-   - 规则冲突错误：模型倾向于遵循内部常识而非外部规则
-   - 规则遗漏错误：在大量规则中忽略了某些关键规则
-   - 推理链断裂：在条件嵌套规则上容易出错
+    - 规则冲突错误：模型倾向于遵循内部常识而非外部规则
+    - 规则遗漏错误：在大量规则中忽略了某些关键规则
+    - 推理链断裂：在条件嵌套规则上容易出错
 
 ## 亮点与洞察
 

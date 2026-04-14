@@ -7,9 +7,9 @@ tags:
   - ACL 2025
   - LLM/NLP
   - 扩散模型
-  - synthetic data
+  - 合成数据
   - controllable generation
-  - text generation
+  - 文本生成
   - 数据增强
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.03250](https://arxiv.org/abs/2411.03250)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: diffusion model, synthetic data, controllable generation, text generation, data augmentation
+**关键词**: 扩散模型, 合成数据, controllable generation, 文本生成, 数据增强
 
 ## 一句话总结
 提出 DiffLM，将扩散模型应用于文本合成数据生成，通过引导函数实现对生成文本属性的精细控制，在多个下游任务上生成的合成数据质量超越 GPT-4 和传统增强方法。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：合成数据生成是缓解标注数据不足的重要方法，LLM 是当前主流合成数据生成工具。
+
 **现有痛点**：LLM 生成的合成数据缺乏精细的属性控制（如情感极性、文本长度、风格等），且容易生成低多样性的数据。
+
 **核心矛盾**：如何在保证文本质量的同时，实现对多种属性的独立和联合控制？
+
 **本文要解决什么？** 用扩散模型替代 LLM 做可控合成数据生成。
+
 **切入角度**：扩散模型的去噪过程天然支持引导（guidance），可以在生成过程中注入属性控制信号。
+
 **核心idea一句话**：用文本扩散模型+分类器引导实现多属性可控的高质量合成数据生成。
 
 ## 方法详解

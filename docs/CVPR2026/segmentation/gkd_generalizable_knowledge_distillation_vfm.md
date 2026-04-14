@@ -2,7 +2,7 @@
 title: >-
   [论文解读] GKD: Generalizable Knowledge Distillation from Vision Foundation Models for Semantic Segmentation
 description: >-
-  [CVPR 2026][图像分割][知识蒸馏] 提出GKD框架，通过将表示学习与任务学习解耦的多阶段蒸馏策略和查询式软蒸馏机制，从VFM（如DINOv2）中蒸馏出具有跨域泛化能力的轻量学生模型，在F2L设置下平均mIoU提升+10.6%，F2F设置下+1.9%。
+  [CVPR 2026][图像分割][知识蒸馏] 提出 GKD 框架，通过将表示学习与任务学习解耦的多阶段蒸馏（先学通用特征 → 冻结编码器 → 再训任务头）+ 查询式软蒸馏机制（QSD），从 VFM 中蒸馏出具有跨域泛化能力的轻量学生模型，在 F2L 设置下平均 mIoU 提升 +10.6%，F2F +1.9%。
 tags:
   - CVPR 2026
   - 图像分割
@@ -49,19 +49,19 @@ tags:
 
 1. **多阶段解耦策略**
 
-    - 做什么：将通常耦合在一起的特征蒸馏和任务学习彻底分离
+    - 功能：将通常耦合在一起的特征蒸馏和任务学习彻底分离
     - 核心思路：阶段一分两步——(i) 在 ImageNet（代理数据集）上蒸馏，$\min_{\theta_s} \mathbb{E}_{x_P \sim D_P}[\mathcal{L}_{QSD}(\mathcal{F}_{\theta_t}(x_P), \mathcal{F}_{\theta_s}(x_P))]$，学习任务无关的通用视觉表示；(ii) 在源域上蒸馏，$\min_{\theta_s} \mathbb{E}_{x_S \sim D_S}[\mathcal{L}_{QSD}(\mathcal{F}_{\theta_t}(x_S), \mathcal{F}_{\theta_s}(x_S))]$，学习域无关的任务相关特征。阶段二冻结编码器 $\theta_s$，仅训练解码器 $\theta_h$：$\min_{\theta_h} \mathbb{E}[\mathcal{L}(\mathcal{H}_{\theta_h}(\mathcal{F}_{\theta_s}(x_S)), y_S)]$
     - 设计动机：实验诊断发现任务梯度和蒸馏梯度互相干扰——单阶段 loss 曲线振荡不稳定（Fig.3b），两阶段后 loss 曲线平滑收敛。消融证实：单阶段 MSE 46.4 → 两阶段 MSE 53.1（+6.7 mIoU），效果显著
 
 2. **查询式软蒸馏（QSD）**
 
-    - 做什么：替代传统逐点特征匹配，实现选择性的空间知识检索
+    - 功能：替代传统逐点特征匹配，实现选择性的空间知识检索
     - 核心思路：学生特征 $v_s \in \mathbb{R}^{B \times N \times C_s}$ 作为 query，通过注意力检索教师的全部空间特征 $v_t$——计算注意力 $W = \varphi(v_s) \cdot v_t^\top$，重构学生特征 $v_s' = \sigma(\varphi(v_s) \cdot v_t^\top) \cdot \phi(v_s)$，然后用 MSE 对齐 $\mathcal{L}_{feat} = \|v_s' - v_t\|_2^2$。其中 $\varphi, \phi$ 是线性投影。这使学生不是简单模仿局部激活，而是内化教师的**空间关系结构**——注意力矩阵呈强对角线（保持空间对应）+ 离对角响应（选择性聚合相关语义）
     - 设计动机：VFM 的关键优势在于域不变的空间结构（PCA 可视化证实），逐点 MSE 只对齐局部值忽略全局关系。QSD 让学生通过 attention 选择性获取教师的关系结构而非地学局部激活
 
 3. **三重蒸馏目标**
 
-    - 做什么：从特征、掩码、全局语义三个层面全面蒸馏
+    - 功能：从特征、掩码、全局语义三个层面全面蒸馏
     - 核心思路：$\mathcal{L}_{QSD} = \alpha \mathcal{L}_{feat} + \beta \mathcal{L}_{mask} + \gamma \mathcal{L}_{cls}$。$\mathcal{L}_{feat}$ 是完整输入的空间特征蒸馏；$\mathcal{L}_{mask}$ 是随机掩码输入后重构教师完整特征（揭示 VFM 隐藏知识，类似 DINOv2 的 MIM 思路）；$\mathcal{L}_{cls}$ 是 CLS token 蒸馏传递全局语义。三者权重均默认 1.0
     - 设计动机：多层次蒸馏互补——mask 蒸馏迫使学生学习从部分信息推断全局的能力，CLS 传递全局语义一致性
 

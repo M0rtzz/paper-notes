@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Scaling RL to Long Videos
 description: >-
-  [NeurIPS 2025][视频理解][强化学习] 提出 LongVILA-R1 全栈框架，通过构建 104K 长视频推理数据集、两阶段 CoT-SFT + RL 训练流水线、以及高效的多模态强化学习序列并行 (MR-SP) 系统，将 VLM 的推理能力扩展到长视频（最高支持 8192 帧），在 VideoMME 上达到 65.1%/71.1%。
+  [NeurIPS 2025][视频理解][reinforcement-learning] 提出 LongVILA-R1 全栈框架，通过构建 104K 长视频推理数据集、两阶段 CoT-SFT + RL 训练流水线、以及高效的多模态强化学习序列并行 (MR-SP) 系统，将 VLM 的推理能力扩展到长视频（最高支持 8192 帧），在 VideoMME 上达到 65.1%/71.1%。
 tags:
   - NeurIPS 2025
   - 视频理解
-  - 强化学习
+  - reinforcement-learning
   - long video reasoning
   - sequence parallelism
   - VLM
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.07966](https://arxiv.org/abs/2507.07966)  
 **代码**: [GitHub](https://github.com/NVlabs/Long-RL)  
 **领域**: Video Understanding  
-**关键词**: reinforcement learning, long video reasoning, sequence parallelism, VLM, chain-of-thought
+**关键词**: reinforcement-learning, long video reasoning, sequence parallelism, VLM, chain-of-thought
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 长视频理解需要超越简单识别的推理能力——包括时序推理、空间追踪、目标推理和叙事理解。但目前面临两大瓶颈：
 
 **数据缺口**：不同于数学/代码推理有丰富的结构化数据，长视频推理标注涉及复杂的时空动态、目标和叙事元素，标注成本极高
+
 **训练基础设施瓶颈**：RL 应用于长视频时计算负担极重——数百到数千帧的视频需要巨大的显存和更长的 rollout 时间，现有 RL 框架（如 R1-V、EasyR1）无法处理
 
 ## 方法详解

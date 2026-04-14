@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICML2025
   - Concept Drift
-  - In-Context Learning
+  - in-context learning
   - Learned Database Operations
   - Online Adaptation
   - Bayesian Meta-Training
@@ -20,7 +20,7 @@ tags:
 **机构**: 北京理工大学、新加坡国立大学、上海交通大学、浙江大学
 **代码**: 待确认  
 **领域**: others  
-**关键词**: Concept Drift, In-Context Learning, Learned Database Operations, Online Adaptation, Bayesian Meta-Training
+**关键词**: Concept Drift, in-context learning, Learned Database Operations, Online Adaptation, Bayesian Meta-Training
 
 ## 一句话总结
 

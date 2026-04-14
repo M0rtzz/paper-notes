@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.08987](https://arxiv.org/abs/2512.08987)  
 **代码**: 无  
 **领域**: 3D视觉 / 扩散模型 / 逆向设计  
-**关键词**: 3D inverse design, diffusion model, aerodynamic optimization, physics-geometry representation, topology-preserving refinement  
+**关键词**: 3D inverse design, diffusion model, aerodynamic optimization, physics-geometry representation, topology-preserving refinement
 
 ## 一句话总结
 提出 3DID 框架，通过学习物理-几何统一的三平面隐空间表示 + 目标梯度引导扩散采样 + 拓扑保持精炼的两阶段策略，从随机噪声开始直接在完整 3D 空间中进行逆向设计，在车辆气动外形优化上，模拟阻力（Sim-Drag）相比最优基线降低 13.6%。
@@ -51,20 +51,20 @@ tags:
 
 1. **PG-VAE（物理-几何统一表示）**
 
-    - 做什么：将 3D 几何体和物理场联合编码为紧凑的三平面隐表示 $z \in \mathbb{R}^{(3 \times r \times r) \times d_z}$。
+    - 功能：将 3D 几何体和物理场联合编码为紧凑的三平面隐表示 $z \in \mathbb{R}^{(3 \times r \times r) \times d_z}$。
     - 核心思路：编码器有两个并行分支——几何分支处理均匀采样的点云 $P_{geo} \in \mathbb{R}^{N_g \times C_g}$（包含归一化坐标+法线），物理场分支处理 $P_{phy} \in \mathbb{R}^{N_p \times C_p}$。每个分支用 Fourier 特征编码位置信息，再用可学习 token 通过交叉注意力和自注意力提取特征，最终两分支的 token 拼接后通过 MLP 生成统一隐编码。解码器将隐编码上采样为三正交平面特征图 $T_{xy}, T_{xz}, T_{yz} \in \mathbb{R}^{R \times R \times d_t}$，再用两个并行 MLP 分支分别预测任意查询点的占据场和物理场。
     - 训练损失：$\mathcal{L}_{\text{PG-VAE}} = \lambda_{\text{BCE}} \mathcal{L}_{\text{BCE}} + \lambda_{\text{MSE}} \mathcal{L}_{\text{MSE}} + \lambda_{\text{KL}} \mathcal{L}_{\text{KL}}$，分别对应占据场二分类、物理场回归和隐空间正则化。
     - 设计动机：相比之前基于体素或纯几何的表示，三平面隐空间能以较低维度同时编码精细的形状和物理场信息，使后续优化更高效。关键创新在于**联合编码物理场**，让精炼阶段的代理模型能利用物理信息产生更好的梯度。
 
 2. **目标引导扩散采样（Objective-Guided Diffusion）**
 
-    - 做什么：在 PG-VAE 的隐空间上训练扩散模型，推理时用目标函数梯度引导采样，从纯噪声生成满足设计目标的候选。
+    - 功能：在 PG-VAE 的隐空间上训练扩散模型，推理时用目标函数梯度引导采样，从纯噪声生成满足设计目标的候选。
     - 核心思路：标准扩散去噪的每一步预测噪声 $\epsilon_\phi(z_t, t)$ 对应数据分布的得分函数。为了融入设计目标 $\mathcal{J}$，利用贝叶斯公式将无条件得分替换为条件得分：$\nabla_{z_t} \log p(z_t | \mathcal{J}) \propto \nabla_{z_t} \log p(z_t) + \nabla_{z_t} \log p(\mathcal{J} | z_t)$。目标梯度项通过一步去噪估计 $\hat{z}_0(z_t)$ 近似：$\nabla_{z_t} \log p(\mathcal{J} | z_t) \approx -\nabla_{z_t} \mathcal{J}(\hat{z}_0(z_t))$。最终引导噪声预测为 $\epsilon'_\phi(z_t, t) = \epsilon_\phi(z_t, t) + \gamma \nabla_{z_t} \mathcal{J}$，其中 $\gamma$ 控制引导强度。
     - 设计动机：纯扩散采样只能生成符合训练分布的样本，无法针对性优化设计目标。通过注入目标梯度，引导采样轨迹向高性能区域偏移，同时保持在数据流形上的合理性。这解决了"探索性"问题。
 
 3. **拓扑保持精炼（Topology-Preserving Refinement）**
 
-    - 做什么：对扩散采样生成的初始网格，用自由形变进一步优化气动性能，同时严格保持拓扑结构。
+    - 功能：对扩散采样生成的初始网格，用自由形变进一步优化气动性能，同时严格保持拓扑结构。
     - 核心思路：将初始网格 $M_0$ 包裹在 3D 控制点格 $C = \{c_i\}_{i=1}^K$ 中（本文用 $20 \times 6 \times 6$ 的格子），每个顶点的位移由 Bernstein 基函数加权控制点决定：$v'_j(C) = \sum_{i=1}^K \mathcal{B}_i(v_j) c_i$。用预训练的 MeshGraphNet 代理模型 $f_{\text{GNN}}$ 预测当前设计的阻力，然后对控制点做梯度下降。精炼损失包含三项：代理预测的目标值、控制点位移平滑正则、和单元体积变化惩罚：$\mathcal{L}(C) = \hat{\mathcal{J}}(C) + \lambda_{\text{smooth}} \sum \|\Delta c_i\|^2 + \lambda_{\text{vol}} \sum (V_{\text{def}}/V_{\text{orig}} - 1)^2$。
     - 设计动机：扩散采样生成的设计仍然受训练分布先验偏置，无法突破原有分布边界。FFD 精炼允许在保持网格拓扑完整（水密、无自交）的前提下进一步推动设计超越训练分布，解决"有效性"问题。相比直接在隐空间做梯度优化可能产生对抗性伪影，FFD 操作在几何空间做平滑变形，更加可控。
 

@@ -51,7 +51,7 @@ $\text{输入图像} \xrightarrow{AMG} \text{多粒度掩码} \xrightarrow{MMG} 
 
 1. **Multi-level Mask Generation (MMG)**：
 
-    - 做什么：将 AMG 输出的掩码按面积和置信度分级，应用不同 NMS 策略
+    - 功能：将 AMG 输出的掩码按面积和置信度分级，应用不同 NMS 策略
     - 核心思路：
       - 均匀生成 32 个点提示/边（比 SAM 默认更密集）
       - 根据掩码面积将 SAM 返回的掩码分为 object、part、subpart 三个层级
@@ -61,7 +61,7 @@ $\text{输入图像} \xrightarrow{AMG} \text{多粒度掩码} \xrightarrow{MMG} 
 
 2. **Entity-level Mask Refinement (EMR)**：
 
-    - 做什么：将 object 级掩码精炼为准确的实体级掩码，解决重叠和冗余
+    - 功能：将 object 级掩码精炼为准确的实体级掩码，解决重叠和冗余
     - 步骤：
       - (a) **增加采样密度**：用更多均匀点构建 mask gallery（高置信度掩码候选库）
       - (b) **分离重叠掩码**：识别 object 级掩码中的重叠区域，利用 mask gallery 中的掩码将其分离为独立的相邻掩码
@@ -70,7 +70,7 @@ $\text{输入图像} \xrightarrow{AMG} \text{多粒度掩码} \xrightarrow{MMG} 
 
 3. **Under-Segmentation Refinement (USR)**：
 
-    - 做什么：修复 EMR 输出中的欠分割区域
+    - 功能：修复 EMR 输出中的欠分割区域
     - 核心思路：
       - 使用超像素中心点（superpixel centroids）作为额外 prompt
       - 利用 part/subpart 级掩码的中心点作为补充 prompt

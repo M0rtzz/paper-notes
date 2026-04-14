@@ -43,8 +43,8 @@ CutS3D在CutLER流程基础上引入三个核心组件：（1）LocalCut：在3D
 4. 在点云上构建k-NN图$G^{3D}$，边权为欧氏距离
 5. 用阈值$\tau_\text{knn}$截断图后，用**MinCut**（Dinic算法）在3D空间中切割实例
 6. 源节点$s$和汇节点$t$的选择连接了语义和3D空间：
-   - $s = p_{\lambda_\max}$（NCut最大特征值的点，语义前景）
-   - $t = p_{\lambda_\min}$（NCut最小特征值的点，语义背景）
+    - $s = p_{\lambda_\max}$（NCut最大特征值的点，语义前景）
+    - $t = p_{\lambda_\min}$（NCut最小特征值的点，语义背景）
 7. 最终用CRF精化掩码
 
 ### Spatial Importance Sharpening（空间重要性锐化）

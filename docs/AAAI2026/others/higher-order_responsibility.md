@@ -46,28 +46,28 @@ tags:
 
 1. **决策机制的形式化（Definition 1）**:
 
-    - 做什么：定义顺序决策机制 $(n, \mathbf{v}, \gamma)$
+    - 功能：定义顺序决策机制 $(n, \mathbf{v}, \gamma)$
     - 核心定义：$n$ 是智能体数量，$\mathbf{v} = \{\mathbf{v}_i\}_{1 \leq i \leq n}$ 是每个智能体控制的布尔变量集合（代表其可选行动），$\gamma$ 是义务约束（一个布尔公式，描述哪些行动组合是可接受的）
     - 关键假设：智能体按 $1, 2, \ldots, n$ 的顺序依次行动，且后行动的智能体能观察到先行动者的选择
     - 与博弈论的联系：本质上是一个完全信息的顺序博弈，但关注点是责任归属而非均衡
 
 2. **反事实责任的公式化（Equation 6）**:
 
-    - 做什么：用带量词的布尔公式精确刻画反事实责任
+    - 功能：用带量词的布尔公式精确刻画反事实责任
     - 核心公式：智能体 $i$ 的一阶责任为 $\mathsf{R}_i = \neg\gamma \wedge \exists\mathbf{v}_i \forall\mathbf{v}_{i+1} \ldots \forall\mathbf{v}_n \gamma$
     - 直觉解读：义务约束被违反了（$\neg\gamma$），并且智能体 $i$ 存在某个行动（$\exists\mathbf{v}_i$），使得无论后续智能体怎么做（$\forall\mathbf{v}_{i+1} \ldots$），约束都能被满足（$\gamma$）
     - 关键技术处理：公式中同名变量在量词内外代表不同含义（量词内是假设的替代行动，量词外是实际行动），虽然不合数学常规但使高阶定义更简洁
 
 3. **高阶责任的递归定义（Equation 7）**:
 
-    - 做什么：递归定义 $d$ 阶责任
+    - 功能：递归定义 $d$ 阶责任
     - 核心思路：$d$ 阶责任 = 对 $(d-1)$ 阶间隙的反事实责任。$d$ 阶间隙 = 义务约束被违反、且 1 到 $(d-1)$ 阶都没人负责的行动配置集合
     - 公式：$\mathsf{R}_i^d = (\neg\gamma \wedge \bigwedge_{j \leq n} \neg\mathsf{R}_j \wedge \ldots \wedge \bigwedge_{j \leq n} \neg\mathsf{R}_j^{d-1}) \wedge \exists\mathbf{v}_i \forall\mathbf{v}_{i+1} \ldots \forall\mathbf{v}_n \neg(\ldots)$
     - 设计动机：这个递归定义将责任的追究从"谁直接造成了后果"推广到"谁应该为无人担责这件事负责"，从而逐层收紧责任网
 
 4. **间隙消除与 $d$-gap-free 的定义**:
 
-    - 做什么：定义 $d$ 阶无间隙机制
+    - 功能：定义 $d$ 阶无间隙机制
     - 核心定义（Definition 3）：一个机制是 $d$-gap-free 的，当且仅当对每个违反义务约束的行动配置，都存在某个 $d' \leq d$ 和某个智能体 $i$，使得 $i$ 在该配置下是 $d'$ 阶负责的
     - 记为 $\mathsf{GF}^d$，显然 $\mathsf{GF}^{d_1} \subseteq \mathsf{GF}^{d_2}$（$d_1 \leq d_2$）
 

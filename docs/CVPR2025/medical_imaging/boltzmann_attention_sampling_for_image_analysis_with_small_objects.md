@@ -45,20 +45,20 @@ tags:
 
 1. **Boltzmann注意力采样**：
 
-    - 做什么：每层为每个query生成一个空间概率分布，从中采样稀疏注意力区域
+    - 功能：每层为每个query生成一个空间概率分布，从中采样稀疏注意力区域
     - 核心思路：query $q_\ell^{(i)}$ 通过MLP变换后与语义图做点积得到像素置信度 $U_{xy}$，用Boltzmann分布归一化：$p_{xy}(q_\ell^{(i)}) = \frac{\exp(U_{xy}/\tau_\ell)}{\int \exp(U_{x'y'}/\tau_\ell)}$，然后从分布中采样N个patch形成注意力集合 $\mathcal{A}_\ell^{(i)}$，query仅在采样区域做cross-attention
     - **退火温度调度**：$\tau_\ell = \tau_0 / (1 + \ell)$，第0层温度最高（采样最分散/探索），逐层降温（采样逐渐集中/利用）
     - 设计动机：早期不确定目标在哪需广泛探索，后期锁定区域需精细提取特征。与RL中的探索-利用权衡完全类比
 
 2. **多Query集成**：
 
-    - 做什么：使用m个query独立采样和更新，通过self-attention共享信息
+    - 功能：使用m个query独立采样和更新，通过self-attention共享信息
     - 核心思路：每层Boltzmann采样后，所有query + 文本做self-attention交流。一个query即使初始未命中目标，也可从其他已命中的query获取信息
     - 效果：m=10即足够（vs m=1有明显提升），m>10无显著收益
 
 3. **PiGMA聚合模块**：
 
-    - 做什么：聚合m个query的mask预测为最终高分辨率mask
+    - 功能：聚合m个query的mask预测为最终高分辨率mask
     - 核心思路：两路并行——(1) Query Ensemble Prediction: 平均m个mask；(2) Pixel Grounded Correction: 两层卷积网络将低分辨率预测上采样并用原始图像像素修正细节
     - 设计动机：Boltzmann采样的随机性可能导致单query预测不稳定，集成+像素级修正可提高鲁棒性
 

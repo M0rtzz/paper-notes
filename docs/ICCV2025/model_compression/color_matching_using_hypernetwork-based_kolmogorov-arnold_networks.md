@@ -55,18 +55,18 @@ y_hat_j = sum_i (u_ij·silu(x_i) + v_ij · sum_m c_ijm·B_ijm(x_i))
 ### Generator网络架构
 
 1. **Illumination Estimator (IE)**：
-   - 小型CNN处理输入和通道均值
-   - 1x1 conv → 3x3扩张深度卷积 → 1x1 conv输出光照特征和光照图
-   - 防止过曝/欠曝区域色彩失真
+    - 小型CNN处理输入和通道均值
+    - 1x1 conv → 3x3扩张深度卷积 → 1x1 conv输出光照特征和光照图
+    - 防止过曝/欠曝区域色彩失真
 
 2. **Color Transformer (CT)**：
-   - ViT-inspired架构，处理DWT下采样输入
-   - Multi-Scale Color Attention (MCA)：在通道维度操作，引入anchor作中间桥梁，对Q和K做空间压缩降低计算量；V被光照特征调制
+    - ViT-inspired架构，处理DWT下采样输入
+    - Multi-Scale Color Attention (MCA)：在通道维度操作，引入anchor作中间桥梁，对Q和K做空间压缩降低计算量；V被光照特征调制
 
 3. **Color Feature Modulator (CFM)**：
-   - 处理IE和CT的级联特征
-   - 通过可训练偏置的线性投影调制：X_m = B_i · ReLU(X'' · B_j)
-   - 输出经FFN生成最终KAN参数图
+    - 处理IE和CT的级联特征
+    - 通过可训练偏置的线性投影调制：X_m = B_i · ReLU(X'' · B_j)
+    - 输出经FFN生成最终KAN参数图
 
 ### 三种训练场景
 1. **有监督**：L = L1 + 0.15·(1-SSIM)

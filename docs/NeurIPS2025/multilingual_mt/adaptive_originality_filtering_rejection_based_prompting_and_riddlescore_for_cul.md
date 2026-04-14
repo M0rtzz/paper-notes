@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 在创意性多语言任务（如谜语生成）中表现不足——标准提示（zero-shot、few-shot、CoT）容易生成模板化、重复的输出，尤其在非英语语言中文化适配差。
+
 **现有痛点**：现有评估指标（BLEU、BERTScore、困惑度）无法衡量创意质量的核心维度——新颖性、文化适配、修辞手法的丰富度。谜语需要隐喻、误导和文化共鸣，这些都不在标准指标的捕捉范围内。
+
 **核心矛盾**：LLM 预训练数据偏向高频模式，创意生成需要偏离这些模式（更新颖），但偏离太多又可能牺牲流畅性和答案对齐。
+
 **本文要解决什么？** 如何让 LLM 生成更新颖、多样且文化匹配的多语言谜语？如何评估这种创意生成的质量？
+
 **切入角度**：用语义过滤（拒绝采样）在生成循环中强制新颖性，同时设计复合指标平衡四个维度。
+
 **核心idea一句话**：对 LLM 输出做语义距离检测，拒绝与已有谜语太相似的生成，迫使模型产出更原创的内容。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **语义拒绝采样 (Semantic Rejection Sampling)**:
 
-    - 做什么：对每个候选谜语与参考集（BiRdQA 语料库）计算 MiniLM 余弦相似度，$> 0.75$ 则拒绝
+    - 功能：对每个候选谜语与参考集（BiRdQA 语料库）计算 MiniLM 余弦相似度，$> 0.75$ 则拒绝
     - 核心思路：$\cos(\text{MiniLM}(r_{\text{candidate}}), \text{MiniLM}(r_{\text{reference}})) \leq 0.75$ 才接受。阈值 0.75 经敏感性分析确定为最优（更低允许模板渗透，更高增加 14% 失败率）
     - 设计动机：LLM 倾向于从预训练数据中复制已见谜语，语义过滤在不改变模型参数的前提下强制原创性
 
 2. **RiddleScore 复合指标**:
 
-    - 做什么：四维加权评分 = $\alpha \cdot \text{Novelty} + \beta \cdot \text{Diversity} + \gamma \cdot \text{Fluency} + \delta \cdot \text{Alignment}$
+    - 功能：四维加权评分 = $\alpha \cdot \text{Novelty} + \beta \cdot \text{Diversity} + \gamma \cdot \text{Fluency} + \delta \cdot \text{Alignment}$
     - 核心思路：Novelty = 与 BiRdQA 的余弦距离 (MiniLM)；Diversity = Distinct-2 bigram ratio；Fluency = GPT-2 逆困惑度；Alignment = BERTScore(谜语, 答案)。权重 $\alpha=0.30, \beta=0.20, \gamma=0.30, \delta=0.20$ 经网格搜索最大化与人类评分的 Spearman $\rho$
     - 设计动机：单一指标无法捕捉谜语质量的多面性；加权组合在 120 样本开发集上达到 $\rho=0.83$，优于均匀权重的 0.71
 
 3. **提示级约束 (Prompt-level Constraints)**:
 
-    - 做什么：在系统提示中注入文化元素约束（如要求使用特定语言的修辞手法、隐喻、文化意象）
+    - 功能：在系统提示中注入文化元素约束（如要求使用特定语言的修辞手法、隐喻、文化意象）
     - 核心思路：提示模板包含语言特定的创意约束（如日语要求使用和歌式隐喻），引导 LLM 生成文化匹配的内容
     - 设计动机：仅靠语义过滤不足以保证文化适配，需要在提示层面显式引导
 

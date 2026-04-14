@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.26843](https://arxiv.org/abs/2510.26843)  
 **代码**: 已提交（开源）  
 **领域**: LLM 效率 / 推理加速  
-**关键词**: speculative decoding, self-speculative, cascade, layer sparsity, training-free, DyTC  
+**关键词**: speculative decoding, self-speculative, cascade, layer sparsity, training-free, DyTC
 
 ## 一句话总结
 CAS-Spec 通过 Dynamically Switchable Inference Acceleration (DSIA) 策略（如不同程度的 layer sparsity）从目标模型自身构建多级 draft 模型层级，配合 Dynamic Tree Cascade (DyTC) 算法基于在线 acceptance rate 和延迟预测自适应路由 draft 模型和分配 draft 长度，在完全 training-free 的条件下实现 1.1×-2.3× 的无损推理加速，DyTC 比 cascade 和 tree baseline 分别提升 47% 和 48%。
@@ -48,20 +48,20 @@ CAS-Spec = DSIA（构建 draft 层级）+ DyTC（动态调度）+ PLD（bottom d
 
 1. **Dynamically Switchable Inference Acceleration (DSIA)**：
 
-    - 做什么：从目标模型自身构建多级虚拟 draft 模型
+    - 功能：从目标模型自身构建多级虚拟 draft 模型
     - 核心思路：定义 DSIA 策略为推理时可动态开关的加速技术（layer sparsity、early exiting、activation quantization 等）。不同参数设置形成不同虚拟 draft 模型：$\mathcal{M}_{d1}$（0.4 layer sparsity, 高质量慢速）、$\mathcal{M}_{d2}$（0.6 layer sparsity, 低质量快速）、$\mathcal{M}_{dn}$（PLD, 近零代价）
     - 设计动机：Scaling-DSIA cascade（同策略不同参数）和 Mixing-DSIA cascade（不同策略组合）可以灵活构建任意层级。完全 training-free 因为只需调整推理路径
 
 2. **Dynamic Tree Cascade (DyTC) 算法**：
 
-    - 做什么：自适应选择 draft 模型和 draft 长度，构建最优 draft tree
+    - 功能：自适应选择 draft 模型和 draft 长度，构建最优 draft tree
     - 核心思路：维护每种 draft 配置的 acceptance rate 的 EMA 估计 $\hat{\alpha}_{new} = \lambda \cdot \hat{\alpha}_{prev} + (1-\lambda) \cdot \hat{\alpha}_{recent}$（$\lambda=0.7$，窗口 $H=20$）。每步最大化受 A* 启发的目标函数 $\mathcal{T}_s = \frac{\hat{\alpha}(1-\hat{\alpha}^{k_s})}{1-\hat{\alpha}} + \hat{\alpha}^{k_s} \cdot \hat{\alpha}_{dn} / (\hat{c} \cdot k_s + \hat{c}_{dn})$——不仅考虑当前步 speedup，还加入 bottom draft 作为后续步的 admissible heuristic
     - 设计动机：Greedy 选择不满足 greedy choice property（局部最优 ≠ 全局最优）。A* 式启发项确保考虑后续步的最小收益
     - 实现：已生成但未验证的 token 用 logit/n-gram 匹配长度作为 token 级别接受率估计；硬件延迟用 Bayesian 线性回归的 roofline 模型预测
 
 3. **Tree-based Parallel Draft Generation**：
 
-    - 做什么：并行生成多条 draft 路径
+    - 功能：并行生成多条 draft 路径
     - 核心思路：选择最佳叶节点后，同时为其 TOP-P sibling 节点也生成 draft token（因为 memory-bounded 解码中略增输入长度不影响延迟）
 
 ### 训练策略

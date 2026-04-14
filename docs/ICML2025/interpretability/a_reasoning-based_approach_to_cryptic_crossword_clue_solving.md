@@ -8,7 +8,7 @@ tags:
   - cryptic crossword
   - 推理验证
   - Python DSL
-  - fine-tuning
+  - 微调
   - 形式化推理
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.04824](https://arxiv.org/abs/2506.04824)  
 **代码**: https://github.com/mdda/cryptic-crossword-reasoning-verifier  
 **领域**: LLM推理  
-**关键词**: cryptic crossword, 推理验证, Python DSL, fine-tuning, 形式化推理
+**关键词**: cryptic crossword, 推理验证, Python DSL, 微调, 形式化推理
 
 ## 一句话总结
 
@@ -27,7 +27,9 @@ tags:
 ## 研究背景与动机
 
 **Cryptic crossword（密码填字谜）** 是英国主流报纸（如The Times、The Telegraph）每天发布的智力挑战谜题，与普通填字谜不同，每条线索（clue）包含两个部分：
+
 **Definition**：与普通填字谜类似的答案定义
+
 **Wordplay**：通过文字游戏（字谜、缩写、谐音、隐藏词等）"证明"答案正确
 
 这意味着人类解题者可以通过两条独立路径（定义和wordplay）到达同一答案，形成一种天然的"证明"结构。
@@ -204,11 +206,11 @@ AssertionError: action_type('goes crazy', Action.ANAGRAM):
 1. **候选答案覆盖率瓶颈**：系统准确率受限于候选答案阶段——如果top-20中不包含正确答案（约55%的情况），后续验证无从做起。提升候选生成质量是最直接的改进方向
 
 2. **Verifier的安全漏洞**：
-   - Python代码可能只包含注释（无assert触发）
-   - 条件分支可绕过assert
-   - 重写可能产生`assert XYZ==False`的无效修改
-   - 证明可能逻辑断裂（左侧变量未被右侧支持）
-   - 在RL设定下这些漏洞可能被系统性exploit
+    - Python代码可能只包含注释（无assert触发）
+    - 条件分支可绕过assert
+    - 重写可能产生`assert XYZ==False`的无效修改
+    - 证明可能逻辑断裂（左侧变量未被右侧支持）
+    - 在RL设定下这些漏洞可能被系统性exploit
 
 3. **is_synonym函数的局限**：cryptic clue中定义与答案的语义距离远大于普通crossword（如"damaged"→UNDERMINED），如何设置合适的同义词距离阈值是开放问题
 

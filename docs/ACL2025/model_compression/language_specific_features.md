@@ -9,7 +9,7 @@ tags:
   - Sparse Autoencoders
   - Multilingual LLM
   - Language-Specific Features
-  - Mechanistic Interpretability
+  - mechanistic interpretability
   - Steering Vectors
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.05111](https://arxiv.org/abs/2505.05111)  
 **代码**: [https://github.com/Aatrox103/multilingual-llm-features](https://github.com/Aatrox103/multilingual-llm-features)  
 **领域**: LLM / NLP  
-**关键词**: Sparse Autoencoders, Multilingual LLM, Language-Specific Features, Mechanistic Interpretability, Steering Vectors  
+**关键词**: Sparse Autoencoders, Multilingual LLM, Language-Specific Features, mechanistic interpretability, Steering Vectors
 
 ## 一句话总结
 
@@ -34,6 +34,7 @@ tags:
 ### 现有分析方法的局限性
 
 **Neuron-based 方法**（识别语言特定神经元）：受 "superposition" 问题影响——单个神经元可能编码多个不相关概念，导致分析不可靠
+
 **Internal-activation-based 方法**（使用最终层 unembedding matrix 获取中间层 token 分布）：除最后几层外误差很大，因为不同层的激活分布差异较大
 
 ### SAE 的优势

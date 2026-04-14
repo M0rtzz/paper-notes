@@ -32,7 +32,9 @@ tags:
 作者通过实验发现：
 
 **MLLM 对 CI 的理解远差于自然图像**：在 captioning 和 VQA 任务上，LLaVA-1.5、InstructBLIP 等模型在 CI 上的准确率显著低于自然图像。
+
 **captioning 错误与 VQA 错误高度一致**：模型在描述 CI 时产生的错误信息与直接 VQA 时的错误高度重合，说明问题根源在于视觉-语言对齐不充分。
+
 **训练数据中缺乏高质量 CI 描述**：现有训练数据主要包含自然图像的高质量 caption 和 CI 的指令问答数据（如 ChartQA），但缺少 CI 的详细描述文本。
 
 这些发现表明，仅靠指令数据（instruction data）不足以让 MLLM 全面理解 CI——高质量的 CI-caption 数据对于建立更好的视觉-语言对齐至关重要。

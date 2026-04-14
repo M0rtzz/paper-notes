@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2504.02404](https://arxiv.org/abs/2504.02404)  
 **代码**: [MiliLab/AnesSuite](https://github.com/MiliLab/AnesSuite)  
 **领域**: 医疗AI / 大语言模型  
-**关键词**: anesthesiology, medical reasoning, benchmark, bilingual, System 1/2 reasoning, GRPO, SFT, domain-specific LLM  
+**关键词**: anesthesiology, medical reasoning, benchmark, bilingual, System 1/2 reasoning, GRPO, SFT, domain-specific LLM
 
 ## 一句话总结
 

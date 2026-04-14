@@ -43,13 +43,13 @@ OneDC由两部分组成：(1) **潜变量压缩模块**：分析变换 $g_a$ 将
 
 1. **Hyperprior替代文本作语义引导（From Text to Hyperprior）**: 
 
-    - 做什么：用分类式hyperprior取代文本嵌入作为一步扩散模型cross-attention层的输入
+    - 功能：用分类式hyperprior取代文本嵌入作为一步扩散模型cross-attention层的输入
     - 核心思路：采用FSQ（有限标量量化）学习分类分布的 $\hat{z}$，7个通道×4个量化级别等效码本大小16,384。在64倍空间下采样下仅需0.0034 bpp。引入语义解码器 $h_{sem}$ 将 $\hat{z}$ 转换为语义上下文 $c \in \mathbb{R}^{B \times N \times D}$，注入cross-attention层：$f_{out} = \text{Softmax}(\frac{QK^\top}{\sqrt{d_k}})V$，其中 $Q = W_Q f_{in}$，$K = W_k c$，$V = W_v c$
     - 设计动机：64倍下采样的hyperprior兼具大感受野和空间局部性，比纯全局的文本嵌入能提供更精确的空间对齐语义引导；且支持端到端联合优化，无需额外的文本编码器
 
 2. **Hyperprior语义蒸馏**: 
 
-    - 做什么：将预训练生成式tokenizer（MaskGIT）的语义知识迁移到hyperprior编解码器
+    - 功能：将预训练生成式tokenizer（MaskGIT）的语义知识迁移到hyperprior编解码器
     - 核心思路：引入Transformer预测器 $P_{aux}$，从hyperprior语义上下文 $c$ 预测预训练tokenizer编码器 $E_{aux}$ 产生的离散token标签 $I_{gt} = VQ(E_{aux}(x))$。使用交叉熵损失监督：$L_{aux} = CE(I_{gt}, P_{aux}(c))$。$P_{aux}$ 和 $E_{aux}$ 仅在训练时使用，不增加推理开销。
     - 设计动机：生成式tokenizer的码本编码了丰富的语义内容，hyperprior的小信息瓶颈天然过滤冗余信息只保留最显著语义。二者结构相似性使得蒸馏高效有效。
 

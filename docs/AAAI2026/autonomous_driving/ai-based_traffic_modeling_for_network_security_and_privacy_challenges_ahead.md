@@ -8,11 +8,11 @@ tags:
   - 自动驾驶
   - network traffic analysis
   - network security
-  - privacy
-  - deep learning
-  - foundation model
-  - explainability
-  - anomaly detection
+  - 隐私
+  - 深度学习
+  - 基础模型
+  - 可解释性
+  - 异常检测
   - website fingerprinting
 ---
 
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2503.22161](https://arxiv.org/abs/2503.22161)  
 **代码**: 无（综述/展望论文）  
 **领域**: ai_safety / 网络安全  
-**关键词**: network traffic analysis, network security, privacy, deep learning, foundation model, explainability, anomaly detection, website fingerprinting  
+**关键词**: network traffic analysis, network security, 隐私, 深度学习, 基础模型, 可解释性, 异常检测, website fingerprinting
 
 ## 一句话总结
 
@@ -31,10 +31,15 @@ tags:
 ## 研究背景与动机
 
 **网络攻击日趋复杂**：新技术、新协议（如 DoH/DoT）和 IoT 设备的快速普及使得网络攻击手段不断演变，传统基于签名的检测方法已难以应对加密流量下的安全威胁。
+
 **流量规模急剧增长**：即使仅考虑包头信息，1 Gbps 链路每天可产生数百 GB 数据；企业和电信网络的带宽更是高出数个数量级，给实时分析带来巨大挑战。
+
 **特征空间维度爆炸**：一个简短的浏览会话即可包含 200+ 个数据包，每个包含 10+ 属性，单个样本的特征维度轻松达到 2000+，传统机器学习方法力不从心。
+
 **深度学习取得显著进展**：过去十年间，DL 模型（CNN、LSTM、Transformer、VAE、GAN 等）在多个 NetS&P 任务上展现了从大规模高维数据中学习有用模式的能力。
+
 **隐私攻击威胁凸显**：即使在流量加密的情况下，网站指纹攻击、IoT 设备识别、token 推断攻击等仍能暴露用户敏感信息，privacy 研究亟需与安全研究协同推进。
+
 **从实验室到实际部署存在鸿沟**：当前大多数方案在受控环境下评估，数据集存在标注偏差和伪影，模型的泛化能力、部署可行性和可解释性仍是悬而未决的核心问题。
 
 ## 方法详解

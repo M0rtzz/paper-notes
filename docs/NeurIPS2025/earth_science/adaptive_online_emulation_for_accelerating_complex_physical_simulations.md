@@ -48,13 +48,13 @@ tags:
 
 1. **Extreme Learning Machine (ELM) 作为代理模型**:
 
-    - 做什么：单隐藏层网络，输入权重随机固定，仅学习输出权重 $\boldsymbol{\beta}$
+    - 功能：单隐藏层网络，输入权重随机固定，仅学习输出权重 $\boldsymbol{\beta}$
     - 核心思路：通过正则化最小二乘求解 $\boldsymbol{\beta} = (\mathbf{H}^T\mathbf{H} + \alpha\mathbf{I})^{-1}\mathbf{H}^T\mathbf{Y}$，其中 $\mathbf{H}$ 是隐藏层输出矩阵。闭式解使训练极快
     - 设计动机：相比深度网络，ELM 训练速度极快（毫秒级），适合在模拟循环中在线更新，且只需少量数据就能拟合
 
 2. **数值稳定的 OS-ELM 变体**:
 
-    - 做什么：支持在线增量学习，新数据到来时无需从头重训
+    - 功能：支持在线增量学习，新数据到来时无需从头重训
     - 核心思路：维护累积充分统计量 $\mathbf{S}_t^{HH} = \sum_{j=0}^{t}\mathbf{H}_j^T\mathbf{H}_j$ 和 $\mathbf{S}_t^{Hy} = \sum_{j=0}^{t}\mathbf{H}_j^T\mathbf{Y}_j$，每次新数据到来只需累加，周期性求解 $\boldsymbol{\beta}_t = (\mathbf{S}_t^{HH} + \lambda\mathbf{I})^{-1}\mathbf{S}_t^{Hy}$
     - 设计动机：传统 OS-ELM 通过迭代矩阵逆更新，数值不稳定。本文改用累积统计量+周期性求解，避免了矩阵逆迭代带来的数值误差累积
 

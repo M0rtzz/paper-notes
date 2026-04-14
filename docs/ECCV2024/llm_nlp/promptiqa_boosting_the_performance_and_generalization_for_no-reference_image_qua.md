@@ -26,13 +26,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: NR-IQA 模型在训练完成后，评估标准就固化了。然而不同应用场景（自然图像评估、人脸质量、AI 生成图质量、水下图像质量等）的评估需求差异巨大——同一质量分数在不同数据集中可能代表完全不同的主观感受。
+
 **现有痛点**:
    - 传统 IQA 模型 $S = \mathcal{R}(\mathcal{V}(I))$ 训练后评估准则不变，面对新需求必须重新训练或微调；
    - 构建 IQA 数据集极其耗时耗力（需要大量人工标注）；
    - 混合训练方法（如 UNIQUE、StairIQA）虽可跨数据集训练，但仍需为每个数据集设计独立回归头或复杂数据变换。
+
 **核心矛盾**: 如何让模型以极低数据成本（几张样本）理解新的评估需求，而不需重新训练？
+
 **本文解决什么**: 设计 prompt 机制让 IQA 模型像人类标注员一样——先看几个标准样例理解评估标准，再做质量评分。
+
 **切入角度**: 受人类标注流程启发——标注员工作前需先看"标准示例"来理解评估要求，这本质上就是 few-shot prompting。
+
 **核心 idea**: 用 Image-Score Pairs（ISP）作为 prompt，编码评估需求信息，与待评图像特征融合后输出针对性的质量分数。
 
 ## 方法详解
@@ -46,7 +51,7 @@ ISP Prompt（$n$ 对图像-分数对）→ Visual Encoder + Score Expansion → 
 
 1. **Image-Score Pairs Prompt (ISPP)**:
 
-    - 做什么：用 $n$ 个（默认 10 个）图像-分数对组成 prompt，直观表达评估需求
+    - 功能：用 $n$ 个（默认 10 个）图像-分数对组成 prompt，直观表达评估需求
     - 核心思路：$\mathbf{P} = [\mathcal{ISP}_1, \mathcal{ISP}_2, \ldots, \mathcal{ISP}_n]$，每个 $\mathcal{ISP}_i = (I_i, S_i)$。ISP 采样策略分为：
       - 间隔采样：按分数分布均匀采样，更好反映数据集分布
       - 随机采样：随机选取，更贴近实际应用中的 few-shot 场景
@@ -54,7 +59,7 @@ ISP Prompt（$n$ 对图像-分数对）→ Visual Encoder + Score Expansion → 
 
 2. **Prompt Encoder + Fusion Module**:
 
-    - 做什么：先理解每个 ISP 中图像与分数的关系，再整合所有 ISP 形成评估需求特征，最后与待评图像融合
+    - 功能：先理解每个 ISP 中图像与分数的关系，再整合所有 ISP 形成评估需求特征，最后与待评图像融合
     - 核心思路：
       - 每个 ISP 特征：$\mathcal{F}_{\mathcal{ISP}_i} = \text{CAT}(\mathcal{V}(I_i), \mathcal{E}(S_i)) \in \mathbb{R}^{2 \times N}$
       - Prompt Encoder（3 ViT blocks）：探索图像特征与分数特征的深层注意力关系，得到 $\mathcal{F}_{P_i} \in \mathbb{R}^{1 \times M}$
@@ -64,7 +69,7 @@ ISP Prompt（$n$ 对图像-分数对）→ Visual Encoder + Score Expansion → 
 
 3. **数据增强策略（Random Scaling + Random Flipping）**:
 
-    - 做什么：打破 GT 标签对 prompt 的"捷径依赖"，强制模型从 ISPP 中学习评估需求
+    - 功能：打破 GT 标签对 prompt 的"捷径依赖"，强制模型从 ISPP 中学习评估需求
     - 核心思路：
       - Random Scaling（概率 0.5）：$f_{RS}(\mathbf{S}) = \frac{1}{\max(\mathbf{S})} \cdot \mathbf{S}$，同时缩放 ISPP 和 GT 的分数
       - Random Flipping（概率 0.1）：$f_{RF}(\mathbf{S}) = \alpha - \mathbf{S}$，将 MOS 转变为 DMOS 语义（$\alpha=1$）

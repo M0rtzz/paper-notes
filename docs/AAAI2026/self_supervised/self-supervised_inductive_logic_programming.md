@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2507.16405](https://arxiv.org/abs/2507.16405)  
 **代码**: [GitHub](https://github.com/stassa/aaai_26_experiments/)  
 **领域**: self_supervised  
-**关键词**: Inductive Logic Programming, Meta-Interpretive Learning, self-supervised learning, predicate invention, grammar learning  
+**关键词**: Inductive Logic Programming, Meta-Interpretive Learning, self-supervised learning, predicate invention, grammar learning
 
 ## 一句话总结
 

@@ -26,12 +26,17 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：DeepSeek-R1、LIMO、s1k等工作表明可以将大模型的推理能力蒸馏到小模型中。DeepSeek-R1用800K数据大规模蒸馏，LIMO/s1k用小规模高质量数学数据蒸馏到32B模型。
+
 **现有痛点**：将推理能力压缩到<8B的小模型时，灾难性遗忘问题严重——用LIMO数据finetune后，模型在MMLU、常识推理、安全性等维度上大幅退化。即使在数学数据上训练，简单数学题的性能也会下降。
+
 **核心矛盾**：
    - **数据侧**：现有高质量数据集（LIMO、s1k）以难度为选择标准，忽略了训练数据与模型固有知识的关系，导致模型为学难题而遗忘简单知识
    - **训练侧**：SFT直接让模型模仿大模型response但不约束参数漂移；GRPO虽有reference约束但需要在线采样，资源消耗大
+
 **本文要解决什么？** 在有限资源下，如何提升小模型（<8B）推理能力的同时减少灾难性遗忘？
+
 **切入角度**：引入"元认知知识"(metacognitive knowledge)概念——标注每道题需要的知识技能，根据模型对各技能的掌握程度来选数据；用GDPO替代GRPO，用大模型的离线response group做preference learning
+
 **核心idea一句话**：基于模型技能画像的数据筛选 + 大模型response group的离线preference优化，双管齐下缓解小模型蒸馏中的灾难性遗忘
 
 ## 方法详解
@@ -45,7 +50,7 @@ MetaGDPO分两个阶段：
 
 1. **基于元认知知识的数据构建（MetaKL）**:
 
-    - 做什么：构建5K训练数据集，同时覆盖模型"已会"和"未会"的知识
+    - 功能：构建5K训练数据集，同时覆盖模型"已会"和"未会"的知识
     - 核心思路：
       1. 收集数学推理（NuminaMath-CoT）、常识推理（CommonsenseQA）、逻辑推理（LogiQA）、安全任务等38,838条数据
       2. 用GPT-4o标注每题需要的metacognitive knowledge（如"二次方程求解"、"概率推理"等），聚类得到8,325种知识单元
@@ -56,7 +61,7 @@ MetaGDPO分两个阶段：
 
 2. **Group Direct Preference Optimization (GDPO)**:
 
-    - 做什么：用大模型的离线response group做preference learning，替代GRPO的在线采样
+    - 功能：用大模型的离线response group做preference learning，替代GRPO的在线采样
     - 核心思路：对每个question $q$，从大模型采样一组response $\{r_1, ..., r_G\}$，计算各response的advantage $A_i$。推导最优策略 $\pi_\theta = \frac{1}{Z(q)}\pi_{ref}(y_i|q)\exp(\frac{A_i}{\beta}r(q,y_i))$。基于Bradley-Terry模型建立pairwise preference，但将所有 $O(G^2)$ pair简化为按advantage排序后的相邻pair chain $O(G)$：
     $\tilde{\mathcal{L}}_{\text{approx}}(\theta) = -\frac{1}{G-1}\sum_{i=1}^{G-1}\sigma\left(\frac{\beta}{A_i}\log\frac{\pi_\theta(y_i|q)}{\pi_{ref}(y_i|q)} - \frac{\beta}{A_j}\log\frac{\pi_\theta(y_j|q)}{\pi_{ref}(y_j|q)}\right)$
    证明当 $G \geq 10$ 时梯度估计相对误差 <10%
@@ -64,7 +69,7 @@ MetaGDPO分两个阶段：
 
 3. **从$O(G^2)$到$O(G)$的计算简化**:
 
-    - 做什么：将group内所有pair比较简化为排序后相邻pair的chain comparison
+    - 功能：将group内所有pair比较简化为排序后相邻pair的chain comparison
     - 核心思路：先按advantage排序responses，然后只比较相邻pair而非所有pair。论文证明partition function $f(Z(q))$ 项与 $\pi_\theta$ 无关可以忽略
     - 设计动机：全pair比较计算量大且冗余，相邻pair已经包含了足够的ranking信息
 

@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Probabilistic Token Alignment for Large Language Model Fusion
 description: >-
-  [NeurIPS 2025][Optimal Transport] 将 LLM 融合中的 token 对齐问题重新建模为最优传输（Optimal Transport）问题，用动态 token 配对 + Sinkhorn 算法实现"软"概率对齐取代传统硬映射，在 6 大基准 78 个任务上相比 FuseLLM 平均提升 +1.72%，同时在困难任务上大幅缓解性能退化（从 -13.04% 降至 -4.07%）。
+  [NeurIPS 2025][最优传输] 将 LLM 融合中的 token 对齐问题重新建模为最优传输（Optimal Transport）问题，用动态 token 配对 + Sinkhorn 算法实现"软"概率对齐取代传统硬映射，在 6 大基准 78 个任务上相比 FuseLLM 平均提升 +1.72%，同时在困难任务上大幅缓解性能退化（从 -13.04% 降至 -4.07%）。
 tags:
   - NeurIPS 2025
-  - Optimal Transport
+  - 最优传输
   - Sinkhorn算法
   - 概率Token对齐
   - Logit融合
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.17276](https://arxiv.org/abs/2509.17276)  
 **代码**: [runjia.tech/neurips_pta-llm](https://runjia.tech/neurips_pta-llm)  
 **领域**: LLM 融合 / 知识蒸馏  
-**关键词**: Optimal Transport, Sinkhorn算法, 概率Token对齐, Logit融合, 跨架构模型融合, Knowledge Fusion  
+**关键词**: 最优传输, Sinkhorn算法, 概率Token对齐, Logit融合, 跨架构模型融合, Knowledge Fusion
 
 ## 一句话总结
 将 LLM 融合中的 token 对齐问题重新建模为最优传输（Optimal Transport）问题，用动态 token 配对 + Sinkhorn 算法实现"软"概率对齐取代传统硬映射，在 6 大基准 78 个任务上相比 FuseLLM 平均提升 +1.72%，同时在困难任务上大幅缓解性能退化（从 -13.04% 降至 -4.07%）。
@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：从头训练 LLM 成本高昂，模型融合（Model Fusion）成为构建更强基线的高效替代方案。主流方法包括模型集成（Model Ensemble）、权重合并（Weight Merging）和知识融合（Knowledge Fusion）三大类。
+
 **现有痛点**：FuseLLM 等知识融合方法依赖手工定义的硬 token 映射（基于最小编辑距离），存在两个关键缺陷——❶ 硬映射过于简化，无法捕捉不同上下文中 token 的多样对齐模式，引入偏差降低学习能力；❷ source 和 target 模型的 top-k token 集合独立对齐，未考虑概率值与整体分布，只能达到局部最优。
+
 **核心矛盾**：模型集成需运行多个模型推理开销大；权重合并要求架构一致不具通用性；知识融合虽灵活但 token 对齐方法粗糙导致部分任务性能下降。
+
 **切入角度**：不同 LLM 虽然词表和 token ID 不同，但其 logit 概率分布编码了相似的语义知识——通过在分布层面对齐（而非字符串层面硬匹配）可以实现更连贯的融合。
+
 **核心 idea 一句话**：将 token 对齐重新建模为最优传输问题，用 Sinkhorn 算法求解全局传输计划，实现 logit 分布的软概率对齐。
 
 ## 方法详解
@@ -41,14 +45,14 @@ PTA-LLM 遵循知识融合范式：将多个 source LLM 的概率分布矩阵通
 
 1. **动态 Token 配对（Dynamic Token Pairing）**:
 
-    - 做什么：解决 source 和 target 模型因不同分词器产生的序列长度差异，找到最优 token 配对
+    - 功能：解决 source 和 target 模型因不同分词器产生的序列长度差异，找到最优 token 配对
     - 核心递归：$f(k,j) = \min\{f(k-1,j)+c, f(k,j-1)+c, f(k-1,j-1)+c\}$，其中 $c(\mathcal{B}_k, \mathcal{A}_j)$ 为预定义距离
     - 关键突破：放松传统一对一约束，允许一个 source token 对应多个 target token（反之亦然），适应不同分词方案的粒度差异
     - 计算效率：动态规划算法避免了 $L \times N$ 暴力搜索
 
 2. **概率 Token 对齐（Probabilistic Token Alignment via OT）**:
 
-    - 做什么：在配对好的 token 之间进行 logit 级别的软对齐，解决 token ID 不匹配问题
+    - 功能：在配对好的 token 之间进行 logit 级别的软对齐，解决 token ID 不匹配问题
     - 形式化：对每个 token 对 $(\mathcal{A}_j \in \mathbb{R}^{V_s}, \mathcal{B}_k \in \mathbb{R}^{V_t})$，求解最优传输计划 $\hat{\mathcal{T}} = \arg\min_{\mathcal{T} \geq 0} \sum_{x=1}^n \sum_{y=1}^m c_{xy} \mathcal{G}_{xy}$
     - 边际约束：$\sum_y \mathcal{G}_{xy} = \mathcal{A}_j[x]$，$\sum_x \mathcal{G}_{xy} = \mathcal{B}_k[y]$——保证概率质量守恒
     - 代价矩阵：$c_{xy}$ 定义为解码后文本的最小编辑距离，同时结合 logit 值进行"surface-level + logit-level"双层优化

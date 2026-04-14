@@ -31,6 +31,7 @@ tags:
 当前 Video Large Multimodal Models (Video LMMs) 在细粒度视频时空理解方面仍然面临巨大挑战。实现这一目标需要同时掌握两项核心能力：
 
 **视频引用理解 (Video Referring Understanding)**：捕获视频区域的语义信息
+
 **视频grounding**：根据自然语言描述分割目标区域
 
 然而，现有方法大多将这两个任务独立处理，存在以下关键瓶颈：

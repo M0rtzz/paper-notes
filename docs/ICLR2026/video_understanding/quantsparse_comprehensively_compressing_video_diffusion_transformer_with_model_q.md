@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.23681](https://arxiv.org/abs/2509.23681)  
 **代码**: [GitHub](https://github.com/wlfeng0509/QuantSparse)  
 **领域**: video_understanding  
-**关键词**: video-generation, model-compression, quantization, sparse-attention, diffusion-transformer  
+**关键词**: video-generation, model-compression, quantization, sparse-attention, diffusion-transformer
 
 ## 一句话总结
 

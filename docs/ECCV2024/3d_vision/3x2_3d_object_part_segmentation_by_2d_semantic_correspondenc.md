@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.09648](https://arxiv.org/abs/2407.09648)  
 **代码**: [https://ngailapdi.github.io/projects/3by2/](https://ngailapdi.github.io/projects/3by2/) (项目主页)  
 **领域**: 3D视觉 / 零样本-少样本学习 / 部件分割  
-**关键词**: 3D part segmentation, diffusion features, semantic correspondence, training-free, SAM  
+**关键词**: 3D part segmentation, diffusion features, semantic correspondence, training-free, SAM
 
 ## 一句话总结
 提出了一种无需训练的3D物体部件分割方法3-By-2，利用扩散模型(DIFT)的2D语义对应关系从已标注2D数据集或少量3D标注对象中迁移部件标签到3D，在zero-shot和few-shot设置下均达到SOTA。

@@ -38,7 +38,9 @@ tags:
 作者首次识别了交叉注意力方法中的一个被忽视的关键问题。由于深层backbone（如ResNet50 Block4）的**大感受野**，提取的FG/BG像素特征不可避免地混入了周围的BG/FG特征，尤其在FG与BG的边界区域。这导致：
 
 **FG特征被BG污染**：query的FG像素包含了FG（目标物体）和BG（背景物体）的混合特征。例如，鸟的像素特征中也包含了栅栏的特征。
+
 **BG特征被FG污染**：support的BG像素也可能包含FG信息（如边界处的人），导致它们与query FG产生虚假的高相似度。
+
 **匹配失效**：由于query FG和support FG特征分别混入了不同类别的BG特征，它们之间的相似度变小，交叉注意力分数降低，query FG无法充分聚合support的FG信息。
 
 **直觉验证**：通过可视化先验掩码可以直接观察到问题——FG先验 $M_{Prior}^{FG}$ 中有大量BG区域被错误激活（它们混入了FG特征所以与support FG相似），BG先验 $M_{Prior}^{BG}$ 中support BG也能与query FG匹配。

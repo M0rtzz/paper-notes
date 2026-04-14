@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.11839](https://arxiv.org/abs/2505.11839)  
 **代码**: 待确认  
 **领域**: causal_inference  
-**关键词**: counterfactual reasoning, structural causal model, LLM evaluation, decompositional analysis, tool-augmented learning  
+**关键词**: counterfactual reasoning, structural causal model, LLM evaluation, decompositional analysis, tool-augmented learning
 
 ## 一句话总结
 

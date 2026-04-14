@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Transferable Backdoor Attacks for Code Models via Sharpness-Aware Adversarial Perturbation
 description: >-
-  [AAAI 2026][人体理解][后门攻击] 提出 STAB（Sharpness-aware Transferable Adversarial Backdoor），通过 SAM 训练代理模型使其收敛到损失平面的平坦区域，并使用 Gumbel-Softmax 优化生成上下文感知的对抗触发器，首次实现了同时兼顾跨数据集迁移性和隐蔽性的代码模型后门攻击。
+  [AAAI 2026][人体理解][backdoor attack] 提出 STAB（Sharpness-aware Transferable Adversarial Backdoor），通过 SAM 训练代理模型使其收敛到损失平面的平坦区域，并使用 Gumbel-Softmax 优化生成上下文感知的对抗触发器，首次实现了同时兼顾跨数据集迁移性和隐蔽性的代码模型后门攻击。
 tags:
   - AAAI 2026
   - 人体理解
-  - 后门攻击
+  - backdoor attack
   - 代码模型
   - 迁移性
   - Sharpness-Aware Minimization
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.11213](https://arxiv.org/abs/2602.11213)  
 **代码**: [github.com/ChangShuyu/STAB](https://github.com/ChangShuyu/STAB)  
 **领域**: 人体理解  
-**关键词**: 后门攻击, 代码模型, 迁移性, Sharpness-Aware Minimization, 对抗扰动
+**关键词**: backdoor attack, 代码模型, 迁移性, Sharpness-Aware Minimization, 对抗扰动
 
 ## 一句话总结
 
@@ -43,6 +43,7 @@ tags:
 ### 现有方法的关键限制
 
 **AFRAIDOOR 假设投毒数据与受害者训练数据分布相同**——但实际场景中攻击者投毒公共仓库，受害者从多样来源收集数据，分布必然不同
+
 **AFRAIDOOR 使用贪心搜索**，独立优化每个标识符，导致收敛于次优局部极小值
 3. 贪心扰动发现的是**损失面尖锐区域中的数据集特定模式**，缺点参数微小变化导致性能大幅波动
 

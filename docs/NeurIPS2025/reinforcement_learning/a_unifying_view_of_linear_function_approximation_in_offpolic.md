@@ -2,15 +2,14 @@
 title: >-
   [论文解读] A Unifying View of Linear Function Approximation in Off-Policy RL Through Matrix Splitting and Preconditioning
 description: >-
-  [NeurIPS 2025 Spotlight][强化学习][理论] 首次引入矩阵分裂理论统一TD/FQI/PFQI为求解同一线性系统的不同预条件子迭代方法，给出各算法收敛充要条件，提出rank invariance新概念，揭示target network的预条件子变换本质，纠正文献多处错误
+  [NeurIPS 2025 (Spotlight, top 3%)][temporal difference learning] 首次引入矩阵分裂理论，将线性函数逼近下的TD、FQI和PFQI统一为求解同一目标线性系统 $(\Sigma_{cov} - \gamma\Sigma_{cr})\theta = \theta_{\phi,r}$ 的迭代方法（仅预条件子不同），给出各算法收敛的充要条件，提出rank invariance新概念，并揭示target network的本质是预条件子从常数到数据自适应的连续变换。
 tags:
-  - NeurIPS 2025
-  - 强化学习
-  - 策略评估
-  - 矩阵分裂
-  - 收敛分析
-  - TD学习
-  - FQI
+  - NeurIPS 2025 (Spotlight, top 3%)
+  - temporal difference learning
+  - fitted Q-iteration
+  - matrix splitting
+  - preconditioning
+  - convergence analysis
 ---
 
 # A Unifying View of Linear Function Approximation in Off-Policy RL Through Matrix Splitting and Preconditioning
@@ -40,17 +39,17 @@ tags:
 
 ### 关键设计
 1. **Rank Invariance条件（秩不变性）**:
-    - 做什么：提出一个新的、温和的条件来替代传统的"特征线性独立"假设
+    - 功能：提出一个新的、温和的条件来替代传统的"特征线性独立"假设
     - 核心思路：定义 $\text{Rank}(\Phi) = \text{Rank}(\Phi^\top \mathbf{D}(I - \gamma\mathbf{P}_\pi)\Phi)$，等价于 $\gamma\Sigma_{cov}^\dagger\Sigma_{cr}$ 没有等于1的特征值。证明rank invariance是目标线性系统对任意奖励函数$R$都有解（universal consistency）的充要条件（Proposition 4.2）；rank invariance + 特征线性独立 = 目标线性系统有唯一解（Proposition 4.5）；在on-policy设定下rank invariance自动成立（Proposition 4.7）
     - 设计动机：特征线性独立是过强假设——实际中over-parameterization普遍存在。Rank invariance更温和且几乎总是满足的，作为分析的新基石可以去掉many prior work的冗余假设
 
 2. **预条件子连续变换与Proper Splitting**:
-    - 做什么：揭示TD→PFQI→FQI的预条件子转换链，证明rank invariance下FQI享有proper splitting优势
+    - 功能：揭示TD→PFQI→FQI的预条件子转换链，证明rank invariance下FQI享有proper splitting优势
     - 核心思路：$\alpha I \underset{t=1}{\rightleftharpoons} \alpha\sum_{i=0}^{t-1}(I-\alpha\Sigma_{cov})^i \xrightarrow{t\to\infty} \Sigma_{cov}^{-1}$。当rank invariance成立时，$(Sigma_{cov}, \Sigma_{cr})$ 构成proper splitting（Lemma 5.2），FQI收敛条件放松为 $\rho(\gamma\Sigma_{cov}^\dagger\Sigma_{cr}) < 1$，不动点保证唯一。这解释了FQI为何比TD更robust——FQI的预条件子自适应于数据分布
     - 设计动机：target network（DQN中广泛使用）的本质首次被理论刻画：增加target更新间隔$t$等价于从常数预条件子连续过渡到特征协方差逆的自适应预条件子
 
 3. **TD学习率区间与编码器-解码器视角**:
-    - 做什么：给出TD稳定性的充要条件以及可行学习率的精确刻画
+    - 功能：给出TD稳定性的充要条件以及可行学习率的精确刻画
     - 核心思路：TD稳定当且仅当三个条件同时满足——一致性、$A_{LSTD}$正半稳定、$\text{Index}(A_{LSTD}) \leq 1$（Corollary 6.2）。可行学习率形成区间 $\alpha \in (0, \epsilon)$，其中 $\epsilon = \min_{\lambda \in \sigma(A_{LSTD})\backslash\{0\}} \frac{2\Re(\lambda)}{|\lambda|^2}$（Corollary 6.3）。在on-policy设定下，即使特征不线性独立，TD仍然稳定（Theorem 6.4）——放松了Tsitsiklis & Van Roy 1996的经典条件
     - 设计动机：首次证明"大学习率不行时小学习率可能有效"——可行学习率形成连续区间而非孤立点，为实践调参提供理论依据
 

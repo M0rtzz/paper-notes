@@ -7,7 +7,7 @@ tags:
   - CVPR 2026
   - LLM效率
   - visual storytelling
-  - zero-shot
+  - 零样本
   - multi-subject
   - 扩散模型
   - 注意力机制
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.21273](https://arxiv.org/abs/2602.21273)  
 **代码**: 即将开源  
 **领域**: LLM效率  
-**关键词**: visual storytelling, zero-shot, multi-subject, diffusion model, attention mechanism
+**关键词**: visual storytelling, 零样本, multi-subject, 扩散模型, 注意力机制
 
 ## 一句话总结
 提出StoryTailor零样本视觉叙事生成管线，通过高斯中心注意力（GCA）缓解主体重叠和背景泄漏、动作增强奇异值重加权（AB-SVR）放大动作语义、选择性遗忘缓存（SFC）维护跨帧背景连续性，在单张RTX 4090上实现多主体、动作丰富的图像叙事生成，CLIP-T较基线提升10-15%。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：个人化图像生成分两家：fine-tuning方法（DreamBooth/LoRA/Textual Inversion）需要逐身份训练，adapter方法（IP-Adapter/MS-Diffusion）更轻量但主要单帧。序列级方法（FluxKontext、视频扩散）需GPU集群且在多主体交互时容易纠缠身份。
+
 **现有痛点**：三重张力——(1) 动作文本忠实度差（模型擅长身份但不擅长动作）；(2) 主体身份保真度在重叠/近距离时崩溃；(3) 跨帧背景连续性难以维护。
+
 **核心矛盾**：增强动作响应需要提高文本引导强度，但这会通过交叉注意力漂移破坏身份一致性；跨帧传播背景信息又会限制主体动态变化。
+
 **本文要解决什么**：在单张24GB GPU上实现零训练的多主体、动作丰富、跨帧一致的视觉叙事生成。
+
 **切入角度**：不改backbone（SDXL），而是在注意力机制和文本嵌入空间上做精确干预——分别针对空间定位、语义增强和时间连续性三个问题。
+
 **核心idea一句话**：三个推理时模块分治三个子问题——GCA管空间、AB-SVR管语义、SFC管时间。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **高斯中心注意力（Gaussian-Centered Attention, GCA）**
 
-    - 做什么：解决grounding box重叠时的身份混淆和参考背景泄漏
+    - 功能：解决grounding box重叠时的身份混淆和参考背景泄漏
     - 核心思路：用Voronoi策略计算每个box的质心 $\mu_i^*$，根据文本注意力强度动态调整高斯衰减半径 $s_i^{\text{in}}, s_i^{\text{out}}$。内圆慢衰减保护身份核心，外环快衰减将主体与背景解耦。mask作为logit bias加到IP分支的注意力中：$\alpha^{ip} = \text{softmax}(QK_{ip}^T/\sqrt{d} + B_{ip})$
     - 设计动机：硬box边界限制关节运动且产生边缘伪影，简单软mask仍会紧贴box边缘。两阶段高斯衰减既保护中心身份又给动作自由空间
 
 2. **动作增强奇异值重加权（Action-Boost SVR, AB-SVR）**
 
-    - 做什么：在文本嵌入空间中放大动作语义、抑制跨帧动作泄漏
+    - 功能：在文本嵌入空间中放大动作语义、抑制跨帧动作泄漏
     - 核心思路：对当前帧token $X_{\text{exp}}$ 做thin SVD，通过累积能量阈值 $\tau=0.85$ 选择保留秩 $k$，形成投影矩阵 $P_k = U_k U_k^T$。当前帧保留主干 $\tilde{X}_{\text{exp}} = P_k X_{\text{exp}}$，其他帧切口投影去除重叠分量 $\tilde{X}_{\text{sup}}^{(\text{notch})} = (I - P_k) X_{\text{sup}}$
     - 设计动机：普通SVR只抑制但不归零其他帧语义，残留动作噪声仍干扰。AB-SVR用SVD主干投影做精确的子空间分离——当前帧动作增强、其他帧动作去噪
 
 3. **选择性遗忘缓存（Selective Forgetting Cache, SFC）**
 
-    - 做什么：跨帧传播背景上下文维护连续性，同时不限制主体动态
+    - 功能：跨帧传播背景上下文维护连续性，同时不限制主体动态
     - 核心思路：双模式——(a) KV累积：从历史帧KV cache中top-k选128个相关token拼接到当前帧，历史logit加负偏置 $\delta_h=-0.1$ 促进遗忘，容量上限512；(b) 上下文混合：在低分辨率层按背景mask混入前帧注意力输出 $\tilde{C} = C \odot (1-\alpha M_b') + \bar{C}_{\text{prev}} \odot (\alpha M_b')$，$\alpha=0.6$
     - 设计动机：直接传播完整KV会冻结主体运动和爆内存，三重机制实现"记住背景、忘掉不重要的历史"
 

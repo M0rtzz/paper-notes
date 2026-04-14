@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2512.12445](https://arxiv.org/abs/2512.12445)  
 **代码**: 待确认  
 **领域**: scientific_computing  
-**关键词**: Masked Autoencoder, hyperspectral, LSMM, SAM loss, physics-informed, knowledge-guided ML  
+**关键词**: Masked Autoencoder, hyperspectral, LSMM, SAM loss, physics-informed, knowledge-guided ML
 
 ## 一句话总结
 

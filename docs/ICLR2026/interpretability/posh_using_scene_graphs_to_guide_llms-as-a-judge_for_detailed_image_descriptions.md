@@ -2,14 +2,14 @@
 title: >-
   [论文解读] PoSh: Using Scene Graphs to Guide LLMs-as-a-Judge for Detailed Image Descriptions
 description: >-
-  [ICLR2026][多模态评估] 提出PoSh指标——提取场景图作为结构化rubric引导开源LLM-as-Judge进行细粒度错误定位，配合DOCENT艺术品基准，在人类判断相关性上超越GPT-4o+所有开源指标。
+  [ICLR 2026][detailed image description] 提出PoSh评估指标，通过从生成描述和参考描述中提取场景图 $G(d) = \langle O(d), E(d), K(d) \rangle$ 作为结构化rubric，引导开源14B LLM（Qwen3-14B）进行QA式细粒度错误定位，在DOCENT艺术品基准和CapArena上以+0.05 Spearman ρ超越GPT-4o-as-Judge，且完全可复现。
 tags:
-  - ICLR2026
-  - 图像描述评估
-  - 场景图
+  - ICLR 2026
+  - detailed image description
+  - scene graph
   - LLM-as-Judge
-  - 可解释性评估
-  - 辅助文本
+  - fine-grained evaluation
+  - assistive text
 ---
 
 # PoSh: Using Scene Graphs to Guide LLMs-as-a-Judge for Detailed Image Descriptions
@@ -53,17 +53,17 @@ PoSh三步流程：
 ### 关键设计
 
 1. **保持附着关系的场景图提取**:
-    - 做什么：从描述文本提取结构化表示 $G(d) = \langle O(d), E(d), K(d) \rangle$，其中 $O$ 为实体集合，$E \subseteq O \times A$ 为属性边，$K \subseteq O \times R \times O$ 为关系边
+    - 功能：从描述文本提取结构化表示 $G(d) = \langle O(d), E(d), K(d) \rangle$，其中 $O$ 为实体集合，$E \subseteq O \times A$ 为属性边，$K \subseteq O \times R \times O$ 为关系边
     - 核心思路：句级依存句法分析 → 跨句共指消解合并实体 → 保留每个属性/关系到其宿主实体的附着链接 → 每个组件定位到原文span
     - 设计动机：SPICE忽略附着关系导致"把A的属性算到B头上"不被惩罚；PoSh通过保持附着链确保属性/关系检验时使用正确的实体标识符
 
 2. **基于唯一标识符的三轮QA验证**:
-    - 做什么：为每个场景图组件生成模板化问题，用LLM判断其在对方文本中的存在性（1-5分）
+    - 功能：为每个场景图组件生成模板化问题，用LLM判断其在对方文本中的存在性（1-5分）
     - 核心思路：处理同类实体碰撞（如多个"man"）需唯一标识符。三轮验证：(1) 顶层实体（"man"本身）→ (2) 部分-从属实体（"face of the man"）→ (3) 属性/关系（使用已确认存在的最简标识符）。标识符候选包括类名、表面形式、属性修饰、关系修饰，由LLM重写为自然表达
     - 设计动机：避免强制对齐两个场景图的组件——对方文本可能用完全不同的词指代同一对象（如参考用"trio"，生成分别提到三个人）
 
 3. **可解释的粗粒度聚合**:
-    - 做什么：将细粒度的per-component分数聚合为mistakes、omissions、overall三个维度
+    - 功能：将细粒度的per-component分数聚合为mistakes、omissions、overall三个维度
     - 核心思路：$\text{Mistakes} = \text{mean}_{c \in O(\text{gen})}(\pi(c))$，$\text{Omissions} = \text{mean}_{c \in O(\text{ref})}(\rho(c))$，其中 $\pi(c) = \Psi(c_{\text{gen}}, \text{ref})$，$\rho(c) = \Psi(c_{\text{ref}}, \text{gen})$
     - 设计动机：粗粒度分数直接来自细粒度分数的平均——知道总分后可追溯到哪些实体的哪些属性出了问题，提供诊断能力
 

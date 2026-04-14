@@ -48,14 +48,14 @@ DOOR框架包含三个核心组件，整合为统一的损失函数：
 ### 关键设计
 1. **鲁棒拒绝训练 + 数据增强**:
 
-    - 做什么：训练模型在已生成部分有害内容后仍能切换到拒绝响应
+    - 功能：训练模型在已生成部分有害内容后仍能切换到拒绝响应
     - 核心思路：对每个有害prompt $x$，将已知有害响应 $y^h$ 的前 $k$ 个token拼接到prompt后作为增强输入 $x' = x \oplus y^h_{<k}$（$k$ 从 $\{1,...,C\}$ 均匀采样），标签仍为安全拒绝响应 $y^s$。最小化：
     $\mathbb{E}_{(x,y^h,y^s)\sim\mathcal{D}, k\sim\text{Uniform}[1,C]} \left[-\log\pi_\theta(y^s \mid x \oplus y^h_{<k})\right]$
     - 设计动机：直接模拟prefilling攻击场景，让模型学会在任意位置"刹车"。这比传统SFT只在prompt后训练拒绝要深入得多
 
 2. **NPO定向遗忘**:
 
-    - 做什么：从模型中主动移除有害知识路径，降低有害内容生成概率
+    - 功能：从模型中主动移除有害知识路径，降低有害内容生成概率
     - 核心思路：使用负偏好优化（NPO）相对于参考模型惩罚有害输出：
     $\mathcal{L}_{\text{NPO}} = -\frac{2}{\beta}\mathbb{E}_{(x,y^h)\sim\mathcal{D}}\left[\log\sigma\left(-\beta\log\frac{\pi_\theta(y^h \mid x)}{\pi_{\text{ref}}(y^h \mid x)}\right)\right]$
     - 设计动机：朴素梯度上升会严重损害模型通用能力（实验证实），NPO通过参考模型约束避免了训练不稳定
@@ -63,7 +63,7 @@ DOOR框架包含三个核心组件，整合为统一的损失函数：
 
 3. **Token级加权（W-DOOR）**:
 
-    - 做什么：在SFT拒绝训练中对不同token赋予不同权重，优先强化关键拒绝token
+    - 功能：在SFT拒绝训练中对不同token赋予不同权重，优先强化关键拒绝token
     - 核心思路：基于KL正则化优化原理，定义token级奖励 $r(s_t, a_t) = \log\frac{\pi^*(y_t|x,y_{<t})}{\pi_{\text{ref}}(y_t|x,y_{<t})}$，权重为：
     $\beta_t = \exp\left(\frac{1}{\tau}r(s_t, a_t)\right) = \left(\frac{\pi^*(y_t|x,y_{<t})}{\pi_{\text{ref}}(y_t|x,y_{<t})}\right)^{1/\tau}$
       其中 $\pi^*$ 用DPO对齐模型近似，$\tau$ 为温度参数

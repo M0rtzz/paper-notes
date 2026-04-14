@@ -10,7 +10,7 @@ tags:
   - MLLM评测
   - SpatialMQA
   - 视角替换
-  - 基准测试
+  - benchmark
 ---
 
 # Can Multimodal Large Language Models Understand Spatial Relations?
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.19015](https://arxiv.org/abs/2505.19015)  
 **代码**: [https://github.com/ziyan-xiaoyu/SpatialMQA.git](https://github.com/ziyan-xiaoyu/SpatialMQA.git)  
 **领域**: 多模态VLM  
-**关键词**: 空间关系推理, MLLM评测, SpatialMQA, 视角替换, 基准测试  
+**关键词**: 空间关系推理, MLLM评测, SpatialMQA, 视角替换, benchmark
 
 ## 一句话总结
 提出SpatialMQA基准，通过5,392个基于COCO2017的人工标注多选题样本（无bbox、含视角替换、排除纯知识可答题），评测MLLM的空间关系推理能力，发现最强模型SpaceLLaVA仅达48.14%远低于人类98.40%。

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] On the Role of Label Noise in the Feature Learning Process
 description: >-
-  [ICML 2025][label noise] 从理论和实证角度分析标签噪声在神经网络特征学习中的作用，发现适量的标签噪声可以促进更鲁棒的特征学习（类似正则化效果），但过多噪声会破坏特征质量。
+  [ICML 2025][标签噪声] 从理论和实证角度分析标签噪声在神经网络特征学习中的作用，发现适量的标签噪声可以促进更鲁棒的特征学习（类似正则化效果），但过多噪声会破坏特征质量。
 tags:
   - ICML 2025
-  - label noise
-  - feature learning
-  - neural networks
+  - 标签噪声
+  - 特征学习
+  - 神经网络
   - overparameterization
-  - training dynamics
+  - 训练动态
 ---
 
 # On the Role of Label Noise in the Feature Learning Process
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2505.18909](https://arxiv.org/abs/2505.18909)  
 **代码**: 无  
 **领域**: 学习理论  
-**关键词**: label noise, feature learning, neural networks, overparameterization, training dynamics
+**关键词**: 标签噪声, 特征学习, 神经网络, overparameterization, 训练动态
 
 ## 一句话总结
 从理论和实证角度分析标签噪声在神经网络特征学习中的作用，发现适量的标签噪声可以促进更鲁棒的特征学习（类似正则化效果），但过多噪声会破坏特征质量。
 
 ## 研究背景与动机
 **领域现状**: 标签噪声是实际学习中的常见问题。经典理论关注噪声对泛化误差的影响，但对特征表示层面的影响研究不足。
+
 **现有痛点**: 一些实验观察到适量噪声反而改善泛化（如dropout可视为噪声注入），但理论理解不够。
+
 **核心矛盾**: 直觉认为噪声有害，但实际中发现其可能有正则化作用——需要理论解释。
+
 **本文要解决什么**: 精确刻画标签噪声对特征学习过程的影响。
+
 **切入角度**: 分析两层网络在有/无标签噪声下的训练动态和学到的特征。
+
 **核心idea**: 小噪声促使网络学习更多样的特征（避免过度依赖单一特征），但大噪声破坏信号使学习困难。
 
 ## 方法详解

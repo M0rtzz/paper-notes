@@ -46,14 +46,14 @@ tags:
 
 1. **半范数收缩构造（核心理论贡献）**:
 
-    - 做什么：证明鲁棒 Bellman 算子 $\mathbf{T}_g(V)(s) = \sum_a \pi(a|s)[r(s,a) - g + \sigma_{\mathcal{P}_s^a}(V)]$ 在某半范数下是收缩映射
+    - 功能：证明鲁棒 Bellman 算子 $\mathbf{T}_g(V)(s) = \sum_a \pi(a|s)[r(s,a) - g + \sigma_{\mathcal{P}_s^a}(V)]$ 在某半范数下是收缩映射
     - 核心思路（非鲁棒版本）：对单一转移矩阵 $\mathsf{P}^{\pi}$，利用遍历性得到唯一平稳分布 $d^\pi$，定义波动矩阵 $Q^\pi = \mathsf{P}^\pi - \mathbf{e}^\top d^\pi$，其特征值严格在单位圆内。通过离散 Lyapunov 方程构造范数 $\|\cdot\|_Q$ 使得 $\|Q^\pi x\|_Q \leq \alpha \|x\|_Q$（$\alpha < 1$）。半范数定义为 $\|x\|_{\mathsf{P}} = \|Q^\pi x\|_Q + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_Q$，核为常向量空间
     - 核心思路（鲁棒版本）：对不确定集 $\mathcal{P}$ 中所有 $\mathsf{P}$ 的波动矩阵族 $\{Q_\mathsf{P}^\pi\}$，利用其联合谱半径 $< 1$，通过 Berger-Wang 定理构造极值范数 $\|\cdot\|_{\text{ext}}$ 使得所有 $Q_\mathsf{P}^\pi$ 统一收缩因子 $\alpha$。最终半范数 $\|x\|_{\mathcal{P}} = \sup_{\mathsf{P} \in \mathcal{P}} \|Q_\mathsf{P}^\pi x\|_{\text{ext}} + \epsilon \inf_{c \in \mathbb{R}} \|x - c\mathbf{e}\|_{\text{ext}}$，保证 $\|\mathbf{T}_g(V_1) - \mathbf{T}_g(V_2)\|_{\mathcal{P}} \leq \gamma \|V_1 - V_2\|_{\mathcal{P}}$，$\gamma = \alpha + \epsilon < 1$
     - 设计动机：这是唯一能克服平均奖励缺乏折扣因子收缩的理论路径
 
 2. **截断 MLMC 估计器（技术贡献）**:
 
-    - 做什么：为 TV 和 Wasserstein 不确定集的支撑函数 $\sigma_{\mathcal{P}_s^a}(V)$ 构造有限样本无偏/低偏估计器
+    - 功能：为 TV 和 Wasserstein 不确定集的支撑函数 $\sigma_{\mathcal{P}_s^a}(V)$ 构造有限样本无偏/低偏估计器
     - 核心思路：标准 MLMC 从几何分布 $\text{Geom}(\Psi)$ 采样层数 $N$，需要 $2^{N+1}$ 个样本，当 $\Psi < 0.5$ 时期望样本数为无穷。关键创新是设 $\Psi = 0.5$ 并截断 $N' = \min\{N, N_{\max}\}$，使得期望样本数 $\mathbb{E}[M] = N_{\max} + 2 = \mathcal{O}(N_{\max})$（线性增长而非指数增长）
     - 偏差以 $2^{-N_{\max}/2}$ 指数衰减，方差与 $N_{\max}$ 线性增长
     - 设计动机：之前的 MLMC 方法有无穷期望样本复杂度，只能给出渐近收敛保证

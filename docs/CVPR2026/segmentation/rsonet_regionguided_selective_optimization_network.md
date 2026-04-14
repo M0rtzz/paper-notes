@@ -2,7 +2,7 @@
 title: >-
   [论文解读] RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection
 description: >-
-  [CVPR 2026][图像分割][RGB-T显著性检测] 提出RSONet两阶段RGB-T显著性检测框架：先通过三分支并行编码器生成区域引导图并基于相似度比较选择主导模态，再通过选择性优化模块融合双模态特征，在VT5000/VT1000/VT821上MAE达0.020/0.014/0.021，超越27个SOTA方法。
+  [CVPR 2026][图像分割][RGB-T显著性检测] 提出 RSONet 两阶段 RGB-T 显著性检测框架：先通过三支并行编码器-解码器生成区域引导图并基于相似度选择主导模态，再通过选择性优化模块融合双模态特征，在 VT5000/VT1000/VT821 上 MAE 达 0.020/0.014/0.021，超越 27 个 SOTA 方法。
 tags:
   - CVPR 2026
   - 图像分割

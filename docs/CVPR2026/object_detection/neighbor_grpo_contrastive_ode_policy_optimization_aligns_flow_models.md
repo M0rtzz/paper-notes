@@ -28,6 +28,7 @@ tags:
 GRPO 在对齐图像/视频生成模型与人类偏好上表现出色，但应用于 Flow Matching 模型时存在根本冲突：
 
 **GRPO 需要随机性探索**：策略梯度方法依赖随机性来探索策略空间
+
 **Flow Matching 的优势在于确定性 ODE 采样**：高效、支持高阶求解器
 
 现有方法（Flow-GRPO、DanceGRPO）通过将 ODE 转换为等价 SDE 引入随机性，但牺牲了 ODE 的核心优势：

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Conformal Prediction for Zero-Shot Models
 description: >-
-  [CVPR 2025][人体理解][conformal prediction] 将保形预测（Conformal Prediction）应用于零样本模型，为 CLIP 等模型的预测提供有理论保证的不确定性量化和校准预测集
+  [CVPR 2025][人体理解][共形预测] 将保形预测（Conformal Prediction）应用于零样本模型，为 CLIP 等模型的预测提供有理论保证的不确定性量化和校准预测集
 tags:
   - CVPR 2025
   - 人体理解
-  - conformal prediction
-  - zero-shot
-  - uncertainty
-  - calibration
+  - 共形预测
+  - 零样本
+  - 不确定性
+  - 校准
   - CLIP
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.24693](https://arxiv.org/abs/2505.24693)  
 **代码**: 待确认  
 **领域**: 人体理解  
-**关键词**: conformal prediction, zero-shot, uncertainty, calibration, CLIP
+**关键词**: 共形预测, 零样本, 不确定性, 校准, CLIP
 
 ## 一句话总结
 将保形预测（Conformal Prediction）应用于零样本模型，为 CLIP 等模型的预测提供有理论保证的不确定性量化和校准预测集
@@ -47,20 +47,20 @@ tags:
 
 1. **核心模块**
 
-    - 做什么：实现方法的核心功能
+    - 功能：实现方法的核心功能
     - 核心思路：在零样本设定下构建校准数据集，利用保形预测框架生成预测集合（而非单一预测），保证覆盖率满足预设置信水平
     - 设计动机：解决现有方法的核心局限
 
 2. **辅助模块**
 
-    - 做什么：增强核心模块的效果
+    - 功能：增强核心模块的效果
     - 核心思路：通过额外的约束或信息提升性能
     - 设计动机：弥补核心模块单独使用时的不足
 
 
 3. **优化策略**
 
-    - 做什么：提升训练稳定性和收敛速度
+    - 功能：提升训练稳定性和收敛速度
     - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
     - 设计动机：确保模型在大规模数据上的训练效率
 

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] RIFLEx: A Free Lunch for Length Extrapolation in Video Diffusion Transformers
 description: >-
-  [ICML 2025][视频生成][长度外推] 分析RoPE位置编码中频率分量对视频外推的影响，发现固有频率决定重复模式，提出仅修改该频率的最小化方案RIFLEx，在CogVideoX-5B和HunyuanVideo上实现无训练2×视频长度外推
+  [ICML 2025][视频理解][Transformer] 通过系统分析RoPE位置编码中各频率分量的角色，发现存在一个"固有频率"主导外推时的时间重复行为，提出仅降低该频率使其在外推后保持单周期的最小化方案RIFLEx，在CogVideoX-5B和HunyuanVideo上实现无训练2×高质量视频外推。
 tags:
   - ICML 2025
-  - 视频生成
-  - 扩散Transformer
-  - 长度外推
+  - 视频理解
+  - Transformer
   - RoPE
-  - 位置编码
+  - 频率分析
+  - 长度外推
+  - training-free
 ---
 
 # RIFLEx: A Free Lunch for Length Extrapolation in Video Diffusion Transformers
@@ -41,17 +42,17 @@ RIFLEx分三步：(1) 分析RoPE各频率分量 $\theta_j$ 的周期 $N_j = 2\pi
 
 ### 关键设计
 1. **频率分量角色分析**:
-    - 做什么：通过隔离实验揭示RoPE中不同频率分量对视频生成的影响
+    - 功能：通过隔离实验揭示RoPE中不同频率分量对视频生成的影响
     - 核心思路：将RoPE中除某一频率 $\theta_j$ 外的所有分量置零，微调模型后观察生成行为。发现高频分量（$r_j = L\theta_j/(2\pi) > 1$）捕捉短期依赖和快速运动，导致时间重复；低频分量（$r_j < 1$）编码长期依赖但导致运动减速
     - 设计动机：已有方法（PE/PI/NTK/YaRN）对所有频率统一操作，缺乏对各频率角色的理解
 
 2. **固有频率识别**:
-    - 做什么：找到主导视频外推重复行为的关键频率分量
+    - 功能：找到主导视频外推重复行为的关键频率分量
     - 核心思路：定义固有频率为周期 $N_j$ 最接近首次重复帧 $N$ 的分量：$k = \arg\min_j |N_j - N|$。实验发现对于同一模型，不同视频的固有频率保持一致（CogVideoX-5B为 $k=2$，HunyuanVideo为 $k=4$）
     - 设计动机：并非所有频率都导致重复——只需修改这一个关键频率即可
 
 3. **最小化频率修改**:
-    - 做什么：仅修改固有频率使其在外推后不超过一个周期
+    - 功能：仅修改固有频率使其在外推后不超过一个周期
     - 核心思路：将 $\theta_k$ 降低为 $\theta_k' = 2\pi/(Ls)$，其中 $s$ 是外推倍数。这确保 $N_k' = Ls \geq Ls$，即外推后仍在单周期内。消融实验证实修改更高频分量会破坏快速运动，修改更低频分量则几乎无效
     - 设计动机：最小化修改 = 最小化训练-推理mismatch，使2×外推无需任何微调即可工作
 

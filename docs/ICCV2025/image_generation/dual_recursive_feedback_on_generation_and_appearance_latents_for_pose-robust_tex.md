@@ -11,7 +11,7 @@ tags:
   - 姿态迁移
   - 外观保真
   - Score Distillation
-  - Training-free
+  - training-free
 ---
 
 # Dual Recursive Feedback on Generation and Appearance Latents for Pose-Robust Text-to-Image Diffusion
@@ -20,7 +20,7 @@ tags:
 **arXiv**: 2508.09575  
 **代码**: [GitHub](https://github.com/jwonkm/DRF)  
 **领域**: image_generation  
-**关键词**: T2I 扩散模型, 可控生成, 姿态迁移, 外观保真, Score Distillation, Training-free  
+**关键词**: T2I 扩散模型, 可控生成, 姿态迁移, 外观保真, Score Distillation, training-free
 **作者**: Jiwon Kim, Pureum Kim, SeonHwa Kim 等 (Korea University, Sookmyung Women's University)
 
 ## 一句话总结
@@ -32,7 +32,9 @@ tags:
 可控 T2I 扩散模型的核心目标是根据用户意图生成同时满足**结构控制**（姿态、边缘、深度）和**外观迁移**的图像。现有方法各有局限：
 
 **ControlNet**：需要针对不同空间因素分别微调多个模型，增加训练开销
+
 **FreeControl**：无需额外训练，但依赖梯度优化最小化隐空间损失，计算成本高
+
 **Ctrl-X**：效率较高，通过前馈特征替换保持结构、通过自注意力层对齐外观统计量，但在**跨类别**设定下性能退化严重
 
 关键挑战：当结构图像和外观图像属于不同类别（如将人体运动迁移到老虎形态），简单地分离注意力图中的外观和结构信息远远不够——会出现"外观泄漏"（appearance leakage）和结构保真度下降的问题。

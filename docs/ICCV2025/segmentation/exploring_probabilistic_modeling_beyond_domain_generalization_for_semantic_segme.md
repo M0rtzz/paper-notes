@@ -2,11 +2,12 @@
 title: >-
   [论文解读] Exploring Probabilistic Modeling Beyond Domain Generalization for Semantic Segmentation
 description: >-
-  [ICCV 2025][图像分割][domain generalization] 提出 PDAF（概率扩散对齐框架），通过概率扩散建模显式估计潜在域先验（LDP），为现有分割网络提供域偏移补偿，在不需要目标域配对样本的情况下实现跨域泛化的 SOTA 性能。
+  [ICCV 2025][图像分割][领域泛化] 提出 PDAF（概率扩散对齐框架），通过概率扩散建模显式估计潜在域先验（LDP），为现有分割网络提供域偏移补偿，在不需要目标域配对样本的情况下实现跨域泛化的 SOTA 性能。
 tags:
   - ICCV 2025
   - 图像分割
-  - domain generalization
+  - 领域泛化
+  - 语义分割
   - 扩散模型
   - latent domain prior
   - probabilistic modeling
@@ -18,7 +19,7 @@ tags:
 **arXiv**: [2507.21367](https://arxiv.org/abs/2507.21367)  
 **代码**: [https://pdaf-iccv.github.io](https://pdaf-iccv.github.io)  
 **领域**: segmentation  
-**关键词**: domain generalization, semantic segmentation, diffusion model, latent domain prior, probabilistic modeling
+**关键词**: 领域泛化, 语义分割, 扩散模型, latent domain prior, probabilistic modeling
 
 ## 一句话总结
 
@@ -29,6 +30,7 @@ tags:
 域泛化语义分割（DGSS）面临的核心挑战是训练域与未见目标域之间的分布偏移。现有方法主要分两类：
 
 **数据增强法**：通过合成变化增加训练数据多样性，但严重依赖辅助域或生成模型
+
 **域不变表示学习法**：提取跨域一致特征，但风格与内容的纠缠导致关键语义信息丢失
 
 近期方法（如 SPC、DPCL、BlindNet）通过将特征投影到受限特征空间来实现对齐，但忽略了潜在域先验的内在属性。本文认为应当显式建模域先验本身，而非仅做特征对齐。

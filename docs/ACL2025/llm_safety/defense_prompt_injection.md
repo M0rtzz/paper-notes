@@ -9,7 +9,7 @@ tags:
   - defense
   - attack techniques
   - fake completion
-  - LLM security
+  - LLM safety
 ---
 
 # Defense Against Prompt Injection Attack by Leveraging Attack Techniques
@@ -19,7 +19,7 @@ tags:
 **代码**: [GitHub](https://github.com/LukeChen-go/pia-defense-by-attack)  
 **机构**: NUS & HKUST & HIT-Shenzhen
 **领域**: AI安全  
-**关键词**: prompt injection, defense, attack techniques, shield prompt, fake completion, LLM security
+**关键词**: prompt injection, defense, attack techniques, shield prompt, fake completion, LLM safety
 
 ## 一句话总结
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.07853](https://arxiv.org/abs/2503.07853)  
 **代码**: [https://sites.google.com/iiitd.ac.in/hier-cos](https://sites.google.com/iiitd.ac.in/hier-cos)  
 **领域**: 表征学习 / 层次化分类  
-**关键词**: hierarchical classification, orthogonal subspaces, hierarchy-aware features, evaluation metric, HOPS  
+**关键词**: hierarchical classification, orthogonal subspaces, hierarchy-aware features, evaluation metric, HOPS
 
 ## 一句话总结
 提出Hier-COS框架，为层次标签树中的每个节点分配正交基向量，通过子空间组合（祖先基+自身基+后代基）构建层次感知向量空间（HAVS），理论保证特征空间的距离结构与层次树一致，同时提出HOPS评估指标解决现有层次化评估指标的排列不变性缺陷。

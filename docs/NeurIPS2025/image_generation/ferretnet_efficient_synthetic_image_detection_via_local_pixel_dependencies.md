@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.20890](https://arxiv.org/abs/2509.20890)  
 **代码**: [FerretNet](https://github.com/xigua7105/FerretNet)  
 **领域**: image_generation  
-**关键词**: synthetic image detection, local pixel dependencies, Markov Random Fields, lightweight network, generalization  
+**关键词**: synthetic image detection, local pixel dependencies, Markov Random Fields, lightweight network, generalization
 
 ## 一句话总结
 

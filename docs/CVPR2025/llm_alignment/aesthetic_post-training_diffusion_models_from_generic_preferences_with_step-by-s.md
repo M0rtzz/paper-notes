@@ -24,10 +24,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：However, preference labels provided in existing datasets are blended with layout and aesthetic opinions, which would disagree with aesthetic preference.
+
 **现有痛点**：现有方法在效率或效果方面存在提升空间。
+
 **核心矛盾**：需要在性能与复杂度之间取得更好的平衡。
+
 **本文要解决什么？** To improve aesthetics economically, this paper uses existing generic preference data and introduces step-by-step preference optimization (SPO) that discards the propagation strategy and allows fine-grained image details to be assessed.
+
 **切入角度**：从新的技术视角切入。
+
 **核心idea一句话**：To improve aesthetics economically, this paper uses existing generic preference data and introduces step-by-step preference optimization (SPO) that discards the propagation strategy and allows fine-gr
 
 ## 方法详解
@@ -42,14 +47,14 @@ tags:
 
 1. **核心模块**:
 
-    - 做什么：解决上述研究问题的关键技术组件
+    - 功能：解决上述研究问题的关键技术组件
     - 核心思路：详见论文方法章节
     - 设计动机：针对现有方法的痛点设计
 
 
 3. **优化策略**
 
-    - 做什么：提升训练稳定性和收敛速度
+    - 功能：提升训练稳定性和收敛速度
     - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
     - 设计动机：确保模型在大规模数据上的训练效率
 

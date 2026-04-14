@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Bridging Fairness and Explainability: Can Input-Based Explanations Promote Fairness in Hate Speech Detection?
 description: >-
-  [ICLR 2026][AI安全][fairness] 首次系统性量化分析输入归因解释（input-based explanations）与公平性的关系：发现解释能有效检测有偏预测、可作为训练正则化减少偏见，但不能用于自动选择公平模型。
+  [ICLR 2026][AI安全][公平性] 首次系统性量化分析输入归因解释（input-based explanations）与公平性的关系：发现解释能有效检测有偏预测、可作为训练正则化减少偏见，但不能用于自动选择公平模型。
 tags:
   - ICLR 2026
   - AI安全
-  - fairness
-  - explainability
+  - 公平性
+  - 可解释性
   - hate speech detection
   - input attribution
-  - bias mitigation
+  - 偏差缓解
 ---
 
 # Bridging Fairness and Explainability: Can Input-Based Explanations Promote Fairness in Hate Speech Detection?
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2509.22291](https://arxiv.org/abs/2509.22291)  
 **代码**: [https://github.com/Ewanwong/fairness_x_explainability](https://github.com/Ewanwong/fairness_x_explainability)  
 **领域**: AI安全 / 公平性  
-**关键词**: fairness, explainability, hate speech detection, input attribution, bias mitigation  
+**关键词**: 公平性, 可解释性, hate speech detection, input attribution, 偏差缓解
 
 ## 一句话总结
 首次系统性量化分析输入归因解释（input-based explanations）与公平性的关系：发现解释能有效检测有偏预测、可作为训练正则化减少偏见，但不能用于自动选择公平模型。
 
 ## 研究背景与动机
 **领域现状**：NLP 模型在仇恨言论检测等敏感任务中常复现或放大训练数据中的社会偏见。可解释性被普遍认为是促进公平性的关键——如果能通过解释发现模型依赖了敏感特征（种族、性别词），就能检测偏见并施加约束。
+
 **现有痛点**：(a) 部分研究质疑解释方法的忠实度——它们未必反映真实决策过程 (b) 减少敏感特征依赖可能同时损害性能和公平性 (c) 模型可被刻意训练为在解释中隐藏对敏感特征的使用。现有研究多为定性分析或小规模实验。
+
 **核心矛盾**：可解释性和公平性的关系被过度简化——"解释能发现偏见→就能消除偏见"这一假设缺乏大规模定量验证。
+
 **本文要解决什么？** 三个研究问题：(RQ1) 解释能否检测有偏预测？ (RQ2) 解释能否选择公平模型？ (RQ3) 解释能否在训练中减少偏见？
+
 **切入角度**：在仇恨言论检测上，用 16 种解释方法 × encoder/decoder 模型 × 多种去偏技术 × 两个数据集做大规模实验。
+
 **核心idea一句话**：输入归因解释在偏见检测和训练减偏中有效，但在模型选择中不可靠——可解释性和公平性的关系是 task-specific 且方法选择敏感的。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **敏感 token 依赖分数 (Sensitive Token Reliance)**：
 
-    - 做什么：量化模型对输入中敏感词（如"black", "female", "Muslim"）的依赖程度。
+    - 功能：量化模型对输入中敏感词（如"black", "female", "Muslim"）的依赖程度。
     - 核心思路：对 16 种解释方法生成的 token 级归因分数，取敏感 token 中的最大绝对值作为该样本的依赖分数。
     - 用途：RQ1 中与个体不公平度做相关，RQ2 中作为模型排名指标，RQ3 中作为正则化目标。
 
 2. **个体不公平度 (Individual Unfairness, IU)**：
 
-    - 做什么：衡量模型对同一样本在更换社会群体后预测的变化。
+    - 功能：衡量模型对同一样本在更换社会群体后预测的变化。
     - 核心思路：$IU(\mathbf{x}_i) = |f_{\hat{y}_i}(\mathbf{x}_i) - \frac{1}{|G|-1}\sum_{g'} f_{\hat{y}_i}(\mathbf{x}_i^{(g')})|$，其中 $\mathbf{x}_i^{(g')}$ 是反事实替换版本。
     - 与群体公平的区别：IU 在样本级定义，可以与解释分数做逐样本相关。
 
 3. **解释正则化去偏 (RQ3)**：
 
-    - 做什么：在训练时最小化模型对敏感 token 的依赖。
+    - 功能：在训练时最小化模型对敏感 token 的依赖。
     - 损失：$L = L_{task} + \alpha L_{debias}$，$L_{debias}$ 惩罚敏感 token 的归因分数（L1 或 L2 范数）。
     - 搜索 $\alpha \in \{0.01, 0.1, 1, 10, 100\}$，用公平性平衡指标（accuracy 和 unfairness 的调和平均）选择。
 

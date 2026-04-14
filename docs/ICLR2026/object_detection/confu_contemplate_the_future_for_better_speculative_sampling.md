@@ -29,9 +29,13 @@ tags:
 ## 研究背景与动机
 
 **推测解码范式**：用轻量 draft model 提议候选 token 序列，由 target model 单次前向验证，通过批量接受加速推理。核心指标是 token 接受率和端到端加速比
+
 **EAGLE 系列是当前 SOTA**：EAGLE-1/2/3 逐步改进 draft head 架构（单层 Transformer + target model 隐状态），设置了推测解码的最高基线
+
 **核心问题——误差累积**：现有 draft model 仅基于当前前缀条件生成，随着 draft 步数增加，误差从上游 draft token 传播累积，draft 分布逐渐偏离 target 分布，接受率下降
+
 **关键 insight**：如果 draft model 能获得 target model 当前的"思路方向"——即高层语义意图而非具体 token——就能生成更符合 target 轨迹的候选，减少验证拒绝
+
 **Latent reasoning 启发**：COCONUT 等工作表明 LLM 可生成连续"思考 token"作为中间推理状态，但需多次前向传播代价高。Pause token (Goyal et al.) 可在并行计算中"免费"获得额外计算
 
 ## 方法详解

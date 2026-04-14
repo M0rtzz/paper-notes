@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：MLLM（如 LLaVA）处理视觉 token 的计算开销随 token 数量二次增长。视觉编码器产生的 token 远多于文本（如 576 个 patch token），成为推理和训练的主要瓶颈。
+
 **现有痛点**：已有视觉 token 剪枝方法存在两个核心误解：(a) 错误认为浅层是关键的多模态融合层，必须保留密集视觉 token；实际上浅层对视觉 token 几乎不做处理，只是被动传播。(b) 采用固定比例的金字塔/线性剪枝调度（如 FastV、PDrop），忽略了不同层信息流的非均匀性。
+
 **核心矛盾**：如何让 token 剪枝策略与模型内部层级处理动态真正匹配？
+
 **本文要解决什么**：设计与 MLLM 层级功能对齐的 token 管理策略——浅层不需要处理视觉 token（直接跳过）、中层是融合冗余最高的地方（激进剪枝）、深层已完成融合（直接丢弃）。
+
 **切入角度**：先做系统的层级行为分析（intra-modal similarity + cross-modal influence），用数据驱动发现取代启发式假设。
+
 **核心 idea 一句话**：根据 MLLM 层级功能分工（传播/融合/推理），在正确的位置做正确的事——晚注入、猛剪枝、早退出。
 
 ## 方法详解
@@ -49,13 +54,13 @@ HiDrop 将 LLM 层分为三个阶段：
 
 1. **Late Injection（晚注入）**:
 
-    - 做什么：在第 $L_{inj}=9$ 层才将视觉 token 注入序列
+    - 功能：在第 $L_{inj}=9$ 层才将视觉 token 注入序列
     - 核心思路：分析发现浅层的 intra-modal cosine similarity 极高（视觉 token 几乎不变化），cross-modal influence 近零（文本表示不受图像影响）。既然浅层不处理视觉信息，就不浪费计算在上面
     - 设计动机：不同于"先注入再剪枝"的传统思路，HiDrop 首次提出"延迟注入"——视觉 token 根本不经过浅层，从源头节省计算
 
 2. **Concave Pyramid Pruning + ILVAS**:
 
-    - 做什么：在中间层渐进式剪枝视觉 token，前期剪得猛后期慢
+    - 功能：在中间层渐进式剪枝视觉 token，前期剪得猛后期慢
     - 核心思路：
       - **在哪里剪（ILVAS）**：提出 Inter-Layer Visual Attention Similarity 指标，衡量相邻层之间视觉 token 注意力分布的稳定性。ILVAS 高的层说明注意力分配已稳定，是好的 filtering 层。选择 ILVAS 曲线的局部极大值点（如 layer {10,14,16,18}）
       - **剪谁（DTop-K）**：用 Differentiable Top-K 算子做可微 token 选择。先计算重要性分数的归一化排序 $c'_i$，再用 sigmoid + 可学习阈值 $a$ 生成软掩码 $\text{Mask}(c,a) = \sigma(\lambda(c'_i - a))$，前向时用硬阈值做离散选择，反向时梯度可流通
@@ -63,7 +68,7 @@ HiDrop 将 LLM 层分为三个阶段：
 
 3. **Early Exit（早退出）**:
 
-    - 做什么：在第 $L_{exit}=25$ 层丢弃所有剩余视觉 token
+    - 功能：在第 $L_{exit}=25$ 层丢弃所有剩余视觉 token
     - 核心思路：通过 training-free 实验验证——在不同层移除所有视觉 token，发现 layer 24 之后移除几乎不影响性能
     - 设计动机：深层已完成跨模态融合，进入纯语言推理阶段，视觉 token 此时只消耗计算不贡献信息
 

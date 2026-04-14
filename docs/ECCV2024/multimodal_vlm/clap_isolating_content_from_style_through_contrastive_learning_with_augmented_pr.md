@@ -32,7 +32,9 @@ tags:
 **痛点**：CLIP 学到的特征将 content（内容，如类别语义）和 style（风格，如图像纹理、光照、prompt 措辞）混合在一起。这导致三个关键问题：
 
 **对 prompt 敏感**：不同文本 prompt（如 "a photo of a [class]" vs "[class]"）产生的 zero-shot 性能差异显著
+
 **few-shot 性能受限**：少样本场景下分布偏移使风格信息干扰分类
+
 **对抗脆弱**：对抗攻击本质上改变 style 信息，混合特征容易被攻击误导
 
 **核心矛盾**：理论上（von Kügelgen et al., NeurIPS 2021），通过对所有 style 变量施加 soft intervention 并用对比学习即可实现 content-style 解耦，但实际中图像增强难以充分改变所有 style 因子——例如把照片变成素描在图像空间极难实现，文本空间却只需改几个词。

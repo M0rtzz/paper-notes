@@ -7,10 +7,10 @@ tags:
   - NeurIPS 2025
   - RLCF
   - checklist
-  - reward model
+  - 奖励模型
   - DPO
-  - instruction following
-  - alignment
+  - 指令遵循
+  - 对齐
 ---
 
 # Checklists Are Better Than Reward Models For Aligning Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.18624](https://arxiv.org/abs/2507.18624)  
 **代码**: 已开源（WildChecklists 数据集 + 模型 + 代码）  
 **领域**: LLM 对齐 / 指令跟随  
-**关键词**: RLCF, checklist, reward model, DPO, instruction following, alignment  
+**关键词**: RLCF, checklist, 奖励模型, DPO, 指令遵循, 对齐
 
 ## 一句话总结
 提出 Reinforcement Learning from Checklist Feedback (RLCF)，将指令分解为动态生成的 yes/no checklist，结合 AI judge 和代码验证器逐项评分后做 DPO 训练，在 5 个 benchmark 上一致性提升 Qwen2.5-7B-Instruct，是唯一在所有 benchmark 上都有正收益的方法（FollowBench +4pt, InFoBench +6pt, Arena-Hard +3pt）。
@@ -47,19 +47,19 @@ RLCF Pipeline: (1) 从 130K WildChat 指令生成 candidate-based checklists →
 
 1. **Candidate-Based Checklist 生成**：
 
-    - 做什么：为每条指令生成高质量、细粒度的评估标准
+    - 功能：为每条指令生成高质量、细粒度的评估标准
     - 核心思路：两阶段——先用不同大小的模型（0.5B~7B）生成多个质量各异的候选回复，再让 72B 模型分析这些回复的所有可能失败模式，总结为 checklist。每项附带 0-100 的重要性权重
     - 设计动机：直接从指令提取 checklist 容易产生"复述指令"的问题，覆盖面不够。通过观察不同质量的回复，模型能发现更细微的质量差异（如格式、事实准确性、语气等）。实验证实 candidate-based 方法在客观性（+0.8%）、原子性（+22%）上显著优于直接方法
 
 2. **混合评分：AI Judge + 代码验证器**：
 
-    - 做什么：可靠地评估每个 checklist 项
+    - 功能：可靠地评估每个 checklist 项
     - 核心思路：对每个 checklist 项，(a) 让 72B judge 模型采样 25 个 0-100 分数取平均，(b) 同时让模型判断该项是否能被代码精确验证（如"是否包含3个逗号"），如果能则生成 Python 验证函数，代码评分与 judge 评分取平均
     - 设计动机：LLM 在判断硬约束（如字母出现次数）时不可靠，但代码验证器对此完美。同时代码无法评估软约束（如"是否连贯"），所以需要 AI judge。Table 8 的案例分析清楚展示了两者互补
 
 3. **Universal Requirements（防 Reward Hacking）**：
 
-    - 做什么：防止模型通过堆砌冗余内容来满足 checklist
+    - 功能：防止模型通过堆砌冗余内容来满足 checklist
     - 核心思路：对所有 checklist 附加两条通用要求：(1) 回复是否直接回应请求而无过度/离题信息，(2) 回复是否匹配指令所需的语气/风格
     - 设计动机：初始实验发现模型学会在回复开头生成冗长概述来提高 checklist 得分，类似 reward hacking
 

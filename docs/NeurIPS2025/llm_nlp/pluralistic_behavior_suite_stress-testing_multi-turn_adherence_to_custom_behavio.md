@@ -2,15 +2,15 @@
 title: >-
   [论文解读] PluralisticBehaviorSuite: Stress-Testing Multi-Turn Adherence to Custom Behavioral Policies
 description: >-
-  [NeurIPS 2025][LLM/NLP][pluralistic alignment] 提出 PBSuite，一个包含 300 个行业定制行为策略和动态多轮对抗评估框架的评测套件，揭示了主流 LLM 在单轮设置下合规率高（违规 <4%），但在多轮对抗交互中合规性急剧下降（违规高达 84%）。
+  [NeurIPS 2025][LLM/NLP][多元对齐] 提出 PBSuite，一个包含 300 个行业定制行为策略和动态多轮对抗评估框架的评测套件，揭示了主流 LLM 在单轮设置下合规率高（违规 <4%），但在多轮对抗交互中合规性急剧下降（违规高达 84%）。
 tags:
   - NeurIPS 2025
   - LLM/NLP
-  - pluralistic alignment
+  - 多元对齐
   - behavioral policy
   - multi-turn evaluation
-  - red teaming
-  - LLM safety
+  - 红队测试
+  - LLM 安全
 ---
 
 # PluralisticBehaviorSuite: Stress-Testing Multi-Turn Adherence to Custom Behavioral Policies
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.05018](https://arxiv.org/abs/2511.05018)  
 **代码**: 待确认  
 **领域**: llm_nlp  
-**关键词**: pluralistic alignment, behavioral policy, multi-turn evaluation, red teaming, LLM safety
+**关键词**: 多元对齐, behavioral policy, multi-turn evaluation, 红队测试, LLM 安全
 
 ## 一句话总结
 

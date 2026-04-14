@@ -7,7 +7,7 @@ tags:
   - ECCV 2024
   - 图像生成
   - Multi-Control
-  - Text-to-Image
+  - text-to-image
   - Controllable Generation
   - Spatial Conditions
   - ControlNet
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.18958](https://arxiv.org/abs/2406.18958)  
 **代码**: https://any-control.github.io (有)  
 **领域**: 图像生成 / 可控生成  
-**关键词**: Multi-Control, Text-to-Image, Controllable Generation, Spatial Conditions, ControlNet
+**关键词**: Multi-Control, text-to-image, Controllable Generation, Spatial Conditions, ControlNet
 
 ## 一句话总结
 提出 AnyControl，通过 Multi-Control Encoder（fusion + alignment 交替块结构）支持任意组合的多种空间控制信号（深度、边缘、分割、姿态），在 COCO 多控制基准上 FID 44.28 全面超越现有方法。
@@ -49,26 +49,26 @@ tags:
 
 1. **Multi-Control Fusion Block**:
 
-    - 做什么：从所有空间条件中提取兼容信息到 query tokens
+    - 功能：从所有空间条件中提取兼容信息到 query tokens
     - 核心思路：query tokens 做 Q，所有条件的视觉 tokens 拼接后做 KV：$\mathcal{Q}_j = CrossAttn(\mathcal{Q}_j, [\mathcal{V}_{1,j}+P, \mathcal{V}_{2,j}+P, ..., \mathcal{V}_{n,j}+P])$
     - 共享 positional embedding P 跨条件——让模型学会空间对齐
     - 设计动机：Cross-attention 天然适应可变数量的 KV 输入（不需要固定通道数），且能通过注意力权重自动处理遮挡/冲突
 
 2. **Multi-Control Alignment Block**:
 
-    - 做什么：将 query tokens 中的空间信息与文本 tokens 的语义信息对齐
+    - 功能：将 query tokens 中的空间信息与文本 tokens 的语义信息对齐
     - 核心思路：$[\mathcal{Q}_{j+1}, \mathcal{T}_{j+1}] = SelfAttn([\mathcal{Q}_j, \mathcal{T}_j])$
     - 额外的 textual task prompt（如"depth + segmentation"）附加到用户文本中，解决模态差异
     - 设计动机：防止空间条件压制文本语义——通过自注意力让两者协商，确保文本描述也被尊重
 
 3. **Multi-Level Visual Tokens**:
 
-    - 做什么：从 CLIP 的多层提取视觉特征，提供不同粒度的控制
+    - 功能：从 CLIP 的多层提取视觉特征，提供不同粒度的控制
     - 消融显示 4 层最优（FID 43.67），过多层反而略降
 
 4. **Unaligned Training Data**:
 
-    - 做什么：合成前景+背景不对齐的训练数据，弥合训练（完美对齐）和测试（任意组合）的差距
+    - 功能：合成前景+背景不对齐的训练数据，弥合训练（完美对齐）和测试（任意组合）的差距
     - FID 从 52.10 降到 44.28，提升巨大
 
 ### 损失函数 / 训练策略

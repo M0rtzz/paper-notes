@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Conformal Prediction for Causal Effects of Continuous Treatments
 description: >-
-  [NeurIPS 2025][Conformal Prediction] 首次为连续处理变量（如药物剂量）的因果效应构建共形预测区间，通过倾向性偏移参数化和分位数回归，在已知/未知倾向性两种场景下均提供有限样本 $1-\alpha$ 覆盖保证。
+  [NeurIPS 2025][conformal prediction] 首次为连续处理变量（如药物剂量）的因果效应构建共形预测区间，通过倾向性偏移参数化和分位数回归，在已知/未知倾向性两种场景下均提供有限样本 $1-\alpha$ 覆盖保证。
 tags:
   - NeurIPS 2025
-  - Conformal Prediction
+  - conformal prediction
   - Continuous Treatment
   - Causal Inference
   - Propensity Score
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.03094](https://arxiv.org/abs/2407.03094)  
 **代码**: [GitHub](https://github.com/m-schroder/ContinuousCausalCP)  
 **领域**: 因果推断 / 共形预测  
-**关键词**: Conformal Prediction, Continuous Treatment, Causal Inference, Propensity Score, Uncertainty Quantification, Potential Outcomes
+**关键词**: conformal prediction, Continuous Treatment, Causal Inference, Propensity Score, Uncertainty Quantification, Potential Outcomes
 
 ## 一句话总结
 

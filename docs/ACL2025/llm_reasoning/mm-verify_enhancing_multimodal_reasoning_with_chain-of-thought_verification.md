@@ -55,9 +55,9 @@ tags:
 
 1. 用GPT-4o对每个 $\langle q_i, p_j^i \rangle$ 对进行"逐步验证"，生成验证文本 $v_i$
 2. 数据清洗：用LLaMA-3.2-3B-Instruct提取答案，检查两个条件：
-   - 若提取答案匹配golden label且验证结论为"正确" → 保留
-   - 若提取答案不匹配且验证结论为"不正确" → 保留
-   - 其他情况 → 丢弃
+    - 若提取答案匹配golden label且验证结论为"正确" → 保留
+    - 若提取答案不匹配且验证结论为"不正确" → 保留
+    - 其他情况 → 丢弃
 3. 用清洗后数据 $D_{clean}$ 对Qwen2-VL-7B-Instruct做SFT → 得到MM-Verifier (Stage 1)
 
 ### Stage 2：拒绝采样进一步增强验证

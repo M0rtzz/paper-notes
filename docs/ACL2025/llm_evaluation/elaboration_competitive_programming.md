@@ -2,14 +2,9 @@
 title: >-
   [论文解读] ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming
 description: >-
-  [ACL 2025][代码评估] 提出ELABORATION基准，首次构建覆盖编程全流程（理解→规划→编码→调试）的人类反馈分类体系，配合8320题精标注数据集Elaborationset，系统评估人类-LLM协作竞赛编程效果，发现LLM独立解题在困难题上仅3.4% Pass@1，但教师级反馈可平均提升9.3%，编码阶段反馈收益最大。
+  [ACL 2025] 提出首个全面评估**人类-LLM协作竞赛编程**的基准ELABORATION，通过覆盖编程全流程的人类反馈分类体系和8320题精标注数据集，揭示LLM独立解题能力有限（困难题仅3.4% Pass@1），但人类反馈（尤其编码阶段的专家反馈）可带来平均9.3%的显著提升。
 tags:
   - ACL 2025
-  - 代码评估
-  - 人机协作
-  - 竞赛编程
-  - 基准构建
-  - 人类反馈
 ---
 
 # ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming

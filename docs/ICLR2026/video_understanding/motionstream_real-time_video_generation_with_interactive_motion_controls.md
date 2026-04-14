@@ -2,14 +2,16 @@
 title: >-
   [论文解读] MotionStream: Real-Time Video Generation with Interactive Motion Controls
 description: >-
-  [ICLR2026][视频生成] 首个实时运动控制流式视频生成系统——通过轻量track head+联合文本运动引导训练teacher，Self Forcing+DMD蒸馏因果student，注意力沉降+滚动KV缓存实现无限长度恒速生成，单GPU达29FPS。
+  [ICLR 2026][视频理解][streaming video generation] 提出MotionStream——首个运动控制的实时流式视频生成系统：先训练轻量track head的双向运动控制teacher，再通过Self Forcing + DMD蒸馏为因果student，引入注意力沉降（attention sink）+滚动KV缓存（rolling KV cache）实现训练-推理分布完全匹配，单H100 GPU上480P达17FPS/29FPS（+Tiny VAE），支持无限长度恒速生成。
 tags:
-  - ICLR2026
-  - 视频生成
-  - 实时流式推理
-  - 运动控制
-  - 因果蒸馏
-  - 注意力沉降
+  - ICLR 2026
+  - 视频理解
+  - streaming video generation
+  - motion control
+  - causal distillation
+  - 注意力机制
+  - distribution matching distillation
+  - real-time interaction
 ---
 
 # MotionStream: Real-Time Video Generation with Interactive Motion Controls
@@ -50,17 +52,17 @@ tags:
 ### 关键设计
 
 1. **轻量Track Head与正弦轨迹编码**:
-    - 做什么：高效编码2D轨迹作为运动条件，避免ControlNet的FLOPs翻倍
+    - 功能：高效编码2D轨迹作为运动条件，避免ControlNet的FLOPs翻倍
     - 核心思路：每条轨迹分配唯一 $d$-维正弦位置编码 $\phi_n$，按空间位置放置到输入: $c_m[t, \lfloor y_t^n/s \rfloor, \lfloor x_t^n/s \rfloor] = v[t,n] \cdot \phi_n$。通过4×时间压缩 + 1×1×1卷积后与视频latent通道拼接，仅修改DiT的patchify层输入通道
     - 设计动机：比RGB-VAE编码方式快40×（24.8ms vs 1053ms），且轨迹跟踪更好（EPE: 6.54 vs 8.57）——正弦编码比RGB提供更丰富的标识信号
 
 2. **联合文本-运动引导嵌入蒸馏（Joint Guidance Distillation）**:
-    - 做什么：将teacher的3×NFE联合引导成本"烘焙"进student的1×NFE
+    - 功能：将teacher的3×NFE联合引导成本"烘焙"进student的1×NFE
     - 核心思路：Teacher使用联合引导 $\hat{v} = v_{\text{base}} + w_t(v(c_t,c_m) - v(\emptyset,c_m)) + w_m(v(c_t,c_m) - v(c_t,\emptyset))$，其中 $w_t=3.0, w_m=1.5$。蒸馏时将此联合引导定义为DMD的 $s_{\text{real}}$，而 $s_{\text{fake}}$ 不用CFG（仅 $f_\psi(c_t,c_m)$），使student单次前向即复现teacher的联合引导质量
     - 设计动机：纯运动引导产生僵硬的2D平移运动，文本引导补充自然的次要运动（如大象移动时背景彩虹出现），两者互补且通过蒸馏无额外推理开销
 
 3. **注意力沉降+滚动KV缓存的外推训练（Attention Sink with Rolling KV Cache）**:
-    - 做什么：实现无限长度生成时的恒速推理和防漂移
+    - 功能：实现无限长度生成时的恒速推理和防漂移
     - 核心思路：维护固定大小的KV缓存 = $S$ 个sink chunk（初始帧）+ $W$ 个local window chunk。新token生成时window滚动保持恒定大小。关键创新：**训练时即使用相同的注意力沉降+滚动KV缓存执行self-rollout**，RoPE按缓存位置而非绝对时间分配，完全消除train-test分布差距。推理时latency和throughput恒定，不随视频长度增长
     - 设计动机：注意力分析（Figure 3）发现许多head持续关注初始帧token——类比StreamingLLM的发现。保留初始帧作为全局锚点防止颜色/内容漂移。最优配置c3s1w1（chunk=3, sink=1, window=1）：更大window反而降低质量，因为attending to long-past history导致错误在context中累积
 

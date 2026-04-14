@@ -47,7 +47,7 @@ tags:
 
 1. **DCM 生成模型**:
 
-    - 做什么：形式化 agent 的回答生成过程
+    - 功能：形式化 agent 的回答生成过程
     - 核心思路：每个 agent 在第 $t$ 轮持有信念向量 $\boldsymbol{\alpha}_{i,t}$（Dirichlet 参数），先采样 $\boldsymbol{\theta}_{i,t} \sim \text{Dirichlet}(\boldsymbol{\alpha}_{i,t})$，再从 $\text{Categorical}(\boldsymbol{\theta}_{i,t})$ 生成回答。边际概率 $P(y_{i,t}=k) = \alpha_{i,t}^{(k)} / \sum_j \alpha_{i,t}^{(j)}$
     - 设计动机：DCM 自然捕捉了 LLM 的内部不确定性（Dirichlet prior）和输出随机性（采样），且具有贝叶斯共轭性便于分析
 
@@ -59,14 +59,14 @@ tags:
 
 3. **Martingale 定理 (Theorem 2 - 核心贡献)**:
 
-    - 做什么：证明辩论过程中 agent 对正确答案的信念构成 martingale
+    - 功能：证明辩论过程中 agent 对正确答案的信念构成 martingale
     - 核心结论：$\mathbb{E}[p_{i,t} | \boldsymbol{\alpha}_{t-1}] = p_{i,t-1}$，即辩论不改变对正确答案的期望信念
     - 前提条件：邻居平均信念等于自身信念（同质 agent + 全连接时自然满足）
     - 深刻含义：辩论的每一轮都是随机游走——有时 agent 被纠正（好），有时被误导（坏），**期望上互相抵消**。这解释了为什么 MAD 往往不显著优于 majority voting
 
 4. **MAD-oracle 改进策略**:
 
-    - 做什么：打破 martingale 的零均值漂移，偏向正确信号
+    - 功能：打破 martingale 的零均值漂移，偏向正确信号
     - 核心思路：一旦 agent 生成正确答案，就"锁定"其状态不再被后续辩论影响（oracle 方式，需要 ground truth）
     - 实用变体：MAD-confidence——高置信度的回答不易被改变
     - 设计动机：Martingale 意味着需要人为引入"正确方向的漂移"才能让辩论有用

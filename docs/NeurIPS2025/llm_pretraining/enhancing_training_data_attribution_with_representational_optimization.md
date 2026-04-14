@@ -6,10 +6,10 @@ description: >-
 tags:
   - NeurIPS 2025
   - training data attribution
-  - representation learning
-  - influence function
+  - 表示学习
+  - 影响函数
   - 注意力机制
-  - data selection
+  - 数据选择
 ---
 
 # Enhancing Training Data Attribution with Representational Optimization
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.18513](https://arxiv.org/abs/2505.18513)  
 **代码**: [github.com/sunnweiwei/AirRep](https://github.com/sunnweiwei/AirRep)  
 **领域**: llm_nlp  
-**关键词**: training data attribution, representation learning, influence function, attention pooling, data selection
+**关键词**: training data attribution, 表示学习, 影响函数, attention pooling, 数据选择
 
 ## 一句话总结
 

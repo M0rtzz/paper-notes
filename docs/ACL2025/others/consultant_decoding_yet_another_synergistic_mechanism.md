@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - Consultant Decoding
-  - Speculative Decoding
+  - 推测解码
   - NLL验证
   - 推理加速
   - 大模型推理
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.02391](https://arxiv.org/abs/2506.02391)  
 **代码**: 无  
 **领域**: LLM 推理加速 / Speculative Decoding  
-**关键词**: Consultant Decoding, Speculative Decoding, NLL验证, 推理加速, 大模型推理
+**关键词**: Consultant Decoding, 推测解码, NLL验证, 推理加速, 大模型推理
 
 ## 一句话总结
 

@@ -6,9 +6,9 @@ description: >-
 tags:
   - ICCV 2025
   - 3D Spatial Reasoning
-  - Benchmark
+  - benchmark
   - 多模态
-  - Visual Question Answering
+  - visual question answering
   - Camera Viewpoint Robustness
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.07825](https://arxiv.org/abs/2412.07825)  
 **代码**: [项目主页](https://3dsrbench.github.io/) (有)  
 **领域**: 3D视觉 / 多模态VLM  
-**关键词**: 3D Spatial Reasoning, Benchmark, Large Multimodal Models, Visual Question Answering, Camera Viewpoint Robustness  
+**关键词**: 3D Spatial Reasoning, benchmark, Large Multimodal Models, visual question answering, Camera Viewpoint Robustness
 
 ## 一句话总结
 

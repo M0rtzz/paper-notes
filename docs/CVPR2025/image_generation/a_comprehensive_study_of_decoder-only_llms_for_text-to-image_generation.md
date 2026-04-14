@@ -47,19 +47,19 @@ tags:
 
 1. **Embedding提取策略对比**：
 
-    - 做什么：对比last-layer、single intermediate layer、average、layer-normalized average四种提取方式
+    - 功能：对比last-layer、single intermediate layer、average、layer-normalized average四种提取方式
     - 核心发现：对decoder-only LLM，last-layer embedding效果最差（VQAScore 0.675 for Mistral-7B），远不如T5的0.741；中间层（如15层）略好（0.725）；简单平均（avg）提升至0.731；**层归一化平均（norm avg）效果最佳（0.769）**，因为不同层的embedding范数差异巨大，归一化后再平均才能公平融合各层信息
     - 设计动机：LLM每一层捕获不同的语言特征——底层捕获词法/语法信息，中间层捕获语义，顶层压缩为next-token预测目标。平均所有层可综合利用这些互补信息
 
 2. **LLM微调embedding模型评估**：
 
-    - 做什么：评估MTEB排行榜top的微调embedding模型（bge-Gemma2, sfr-Mistral, gte-Qwen2）
+    - 功能：评估MTEB排行榜top的微调embedding模型（bge-Gemma2, sfr-Mistral, gte-Qwen2）
     - 核心发现：bge-Gemma2（基于Gemma2-9B微调）在norm avg下达到最佳性能（VQAScore 0.789），全面超越T5（0.741）。但gte-Qwen2表现极差（0.482），可能因为其微调目标过于偏向句子级语义，丢失了token级别的细粒度信息
     - 设计动机：embedding模型通过对比学习微调提升语义理解能力，理论上应更好地捕获文本到图像对齐所需的语义信息
 
 3. **模型规模效应**：
 
-    - 做什么：对比Gemma2-2B vs 9B、Qwen2-1.5B vs 7B
+    - 功能：对比Gemma2-2B vs 9B、Qwen2-1.5B vs 7B
     - 核心发现：增大模型规模持续提升性能（Gemma2: 0.757→0.789，Qwen2: 0.740→0.769），但并非所有方面均匀提升——Counting和Comparison技能提升最大，而Scene和Negation提升有限
     - 设计动机：验证LLM的scaling law是否迁移到文本到图像生成
 

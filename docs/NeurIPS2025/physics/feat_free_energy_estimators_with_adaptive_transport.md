@@ -1,12 +1,17 @@
 ---
-description: 基于随机插值的自适应传输自由能估计框架，统一平衡与非平衡方法，提供一致最小方差估计器
+title: >-
+  [论文解读] FEAT: Free Energy Estimators with Adaptive Transport
+description: >-
+  [NeurIPS 2025][自由能估计] 提出 FEAT 框架，利用随机插值学习两个热力学系统之间的传输映射，基于 escorted Jarzynski 等式和 controlled Crooks 定理提供一致、最小方差的自由能差估计器及变分上下界，统一了平衡与非平衡方法。
 tags:
-- free-energy
-- stochastic-interpolants
-- molecular-simulation
-- Jarzynski-equality
-- variational-bounds
+  - NeurIPS 2025
+  - 自由能估计
+  - 随机插值
+  - Jarzynski 等式
+  - Crooks 定理
+  - 变分界
 ---
+
 # FEAT: Free Energy Estimators with Adaptive Transport
 
 **会议**: NeurIPS 2025  
@@ -40,12 +45,12 @@ FEAT 的核心流程：
 ### 关键设计
 
 1. **随机插值学习传输**:
-    - 做什么：用两个神经网络分别学习速度场 $v_t^\psi(x)$ 和得分函数 $\nabla U_t^\theta(x)$
+    - 功能：用两个神经网络分别学习速度场 $v_t^\psi(x)$ 和得分函数 $\nabla U_t^\theta(x)$
     - 核心思路：速度场通过回归损失 $\mathcal{L}_v = \mathbb{E}[|v_t^\psi(I_t) - \dot{I}_t|^2]$ 训练；得分函数通过去噪得分匹配 $\mathcal{L}_U^{\text{DSM}} = \mathbb{E}[|\nabla U_t^\theta(I_t) - \gamma_t^{-1}\epsilon|^2]$ 训练
     - 设计动机：随机插值同时学习传输和能量插值，无需预定义能量路径；训练过程不需要 Langevin 动力学模拟
 
 2. **边界条件校正 + FB RND 估计**:
-    - 做什么：处理学习到的 $U_0^\theta \neq U_a$、$U_1^\theta \neq U_b$ 的情况，用前向-后向 Radon-Nikodym 导数避免散度计算
+    - 功能：处理学习到的 $U_0^\theta \neq U_a$、$U_1^\theta \neq U_b$ 的情况，用前向-后向 Radon-Nikodym 导数避免散度计算
     - 核心思路：校正广义功加入端点能量修正项；FB RND 形式消除了对 $\nabla \cdot v_t$ 的计算需求且对离散化误差鲁棒
     - 设计动机：实际中边界条件难以精确满足；散度计算开销大且引入精度问题
 

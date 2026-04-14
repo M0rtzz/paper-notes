@@ -32,7 +32,9 @@ tags:
 现有方法的局限：
 
 **检测式计数模型**（如 CountGD, DAVE）：通过目标检测后阈值过滤来枚举离散计数，**输出不可微分**，无法直接用于基于梯度的 T2I 生成控制
+
 **密度图回归模型**（如 CLIP-Count, VLCounter）：虽然可微分，但密度图存在固有歧义——高斯核的中心位置和半径选择是任意的，导致大目标容易过计数
+
 **T2I 数量控制方法**（如 BoxDiff）：主要通过交叉注意力调控，但注意力机制擅长区分类别而非区分同类别的多个实例
 
 **理想的 T2I 计数引导模型应具备四个属性**：
@@ -51,7 +53,7 @@ YOLO-Count 基于 YOLO-World 架构，包含三个核心组件：视觉骨干网
 
 1. **基数图回归（Cardinality Map Regression）**:
 
-    - 做什么：替代传统密度图，提供无歧义的计数回归目标
+    - 功能：替代传统密度图，提供无歧义的计数回归目标
     - 核心思路：给定第 $i$ 个目标实例的二值掩码 $M_i$（面积为 $N_i$），将 1 的值均匀分布到目标覆盖的所有像素上：
     $y_{\text{pixel cardinality}} = \sum_{i=1}^{K} \frac{1}{N_i} M_i$
       然后下采样到网格级别：
@@ -61,7 +63,7 @@ YOLO-Count 基于 YOLO-World 架构，包含三个核心组件：视觉骨干网
 
 2. **表示对齐（Representation Alignment）**:
 
-    - 做什么：通过对比学习分支对齐视觉和文本表示，确保模型能有效定位指定类别目标
+    - 功能：通过对比学习分支对齐视觉和文本表示，确保模型能有效定位指定类别目标
     - 核心思路：将问题转化为二元分类任务，每个像素分类为属于或不属于目标类别：
     $\mathcal{L}_{\text{cls}} = \text{BCELoss}(\hat{y}_{\text{cls}}, y_{\text{cls}})$
       预测概率通过视觉特征 $o_{\text{cls}}$ 与 CLIP 文本嵌入 $f_T$ 的内积 + sigmoid 计算，类似 SigLIP
@@ -69,7 +71,7 @@ YOLO-Count 基于 YOLO-World 架构，包含三个核心组件：视觉骨干网
 
 3. **混合强弱监督训练（Hybrid Strong-Weak Training）**:
 
-    - 做什么：利用大规模实例分割数据集和稀疏标注的计数数据集联合训练
+    - 功能：利用大规模实例分割数据集和稀疏标注的计数数据集联合训练
     - 核心思路：
       - **强监督预训练**（LVIS）：利用精确的实例掩码构建基数图和分类掩码
        $$\mathcal{L}_{\text{total}}^{\text{strong}} = \alpha_1 \mathcal{L}_{\text{cnt}}^{\text{strong}} + \beta_1 \mathcal{L}_{\text{cls}}^{\text{strong}}$$

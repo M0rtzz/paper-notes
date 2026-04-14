@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2510.19842](https://arxiv.org/abs/2510.19842)  
 **代码**: [https://github.com/YuanheZ/DAG-MATH](https://github.com/YuanheZ/DAG-MATH)  
 **领域**: LLM推理  
-**关键词**: mathematical reasoning, DAG, chain-of-thought, logical closeness, evaluation metric  
+**关键词**: mathematical reasoning, DAG, chain-of-thought, logical closeness, evaluation metric
 
 ## 一句话总结
 将 LLM 的 CoT 推理形式化为 DAG 上的基于规则的随机过程，提出"逻辑闭合性"（logical closeness）度量来评估模型是否通过搜索还是严格逻辑推理得到答案，构建了 2894 个金标准 DAG-MATH benchmark，发现即使 PASS@k 相近的模型在推理忠实度上也存在显著差异。
 
 ## 研究背景与动机
 **领域现状**：LLM 在数学推理上表现强劲（o1、R1、Gemini-2.5），核心策略是 CoT。但 CoT 的黑盒性质使得难以判断模型是通过逻辑推理还是通过搜索/启发式得到正确答案。
+
 **现有痛点**：(1) PASS@k 只看最终答案，不评估推理过程的逻辑一致性——搜索式探索也能给出正确答案；(2) LEAN 形式化验证虽严格但需要大量专家工作来预先形式化问题；(3) 现有图模型（Dziri 2023）用确定性子图匹配，忽略了多样采样和长程依赖。
+
 **核心矛盾**：PASS@k 可能高估推理能力——模型可能通过"探索性分支"偶然找到正确答案，而非严格逻辑推导。需要一个介于自由 CoT 和形式化证明之间的评估框架。
+
 **本文要解决什么？** 如何严格定义和评估 LLM 的数学推理能力——区分"搜索得到的正确答案"和"逻辑推理得到的正确答案"？
+
 **切入角度**：将 CoT 建模为 DAG 上的随机过程——节点是推导步骤的结论，边是推理规则的应用。定义"逻辑闭合"要求每个中间节点都有后续节点使用它，没有无用的探索分支。
+
 **核心idea一句话**：用 DAG 上的逻辑闭合性来度量 LLM 是否在做真正的逻辑推理，而非仅仅搜索。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **逻辑闭合性（Logical Closeness）**:
 
-    - 做什么：评估 CoT 轨迹中每个节点是否都被后续推理使用（出度≥1）
+    - 功能：评估 CoT 轨迹中每个节点是否都被后续推理使用（出度≥1）
     - 核心思路：如果轨迹中存在"死端"节点（生成了但未被后续步骤引用），说明模型在搜索/探索而非做严格推理。完美推理 = 逻辑闭合 + 最终答案正确
     - 设计动机：PASS@k 只看答案，忽略了过程。Toy example 显示：在双链 DAG 中，PRR 随深度指数衰减 $(1/2)^{L-1}$，即使最终准确率稳定在 50%
 
 2. **Perfect Reasoning Rate (PRR)**:
 
-    - 做什么：定义数学推理能力的形式化度量
+    - 功能：定义数学推理能力的形式化度量
     - 核心思路：$\text{PRR}(\mathbf{x}) = \mathbb{E}[\delta_{\text{close}} \times \delta_{\text{final}}]$——既要逻辑闭合又要答案正确。AUC 变体通过放松闭合比例（0%到100%）提供连续评分
     - 与 PASS@k 的区别：PASS@k 只需要 $\delta_{\text{final}}=1$，PRR 额外要求 $\delta_{\text{close}}=1$
 
 3. **DAG-MATH Benchmark 构建**:
 
-    - 做什么：构建 2894 个金标准 DAG 格式 CoT
+    - 功能：构建 2894 个金标准 DAG 格式 CoT
     - 核心思路：三阶段 prompting——(1) 让 LLM 生成结构化 CoT（每步标注父节点依赖）；(2) GPT-4 级模型验证和修正 DAG 结构；(3) 人工审核
     - 统计发现：更难的问题对应更大、更稀疏、分支更复杂的 DAG
 

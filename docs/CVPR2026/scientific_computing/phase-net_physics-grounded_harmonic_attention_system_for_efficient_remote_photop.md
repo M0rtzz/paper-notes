@@ -2,14 +2,15 @@
 title: >-
   [论文解读] PHASE-Net: Physics-Grounded Harmonic Attention System for Efficient Remote Photoplethysmography Measurement
 description: >-
-  [CVPR 2026][科学计算][远程光电容积脉搏波] 从Navier-Stokes方程推导rPPG信号的二阶阻尼谐振子模型，证明其离散解等价于因果卷积，为TCN架构提供第一性原理依据，设计仅0.29M参数的PHASE-Net在UBFC/PURE上MAE分别达0.15/0.14 bpm。
+  [CVPR 2026][科学计算][rPPG] 从Navier-Stokes方程出发，通过严格数学推导揭示rPPG脉搏信号遵循二阶阻尼谐振子模型，其离散解形式等价于因果卷积算子，从而为TCN架构的选择提供了第一性原理依据，设计出仅0.29M参数的PHASE-Net在多个数据集上达到SOTA。
 tags:
   - CVPR 2026
   - 科学计算
-  - 远程光电容积脉搏波
+  - rPPG
   - 物理信息网络
   - 时间卷积网络
   - 血流动力学
+  - Navier-Stokes
   - 轻量模型
 ---
 

@@ -92,9 +92,9 @@ GloFND 可直接扩展到 CLIP 式的图像-文本对比学习：为每个实例
 
 1. 初始化编码器 $\mathbf{w}$、移动平均 $\mathbf{u}$、阈值 $\boldsymbol{\lambda}$
 2. 每次迭代：采样 batch $\mathcal{B}$，对每个锚点 $\mathbf{x}_i \in \mathcal{B}$
-   - SGD 更新 $\lambda_i$（阈值步）
-   - 用 $\lambda_i$ 过滤假阴性，得到 $\tilde{\mathcal{B}}_i^-$
-   - 更新移动平均 $u_i$
+    - SGD 更新 $\lambda_i$（阈值步）
+    - 用 $\lambda_i$ 过滤假阴性，得到 $\tilde{\mathcal{B}}_i^-$
+    - 更新移动平均 $u_i$
 3. 计算梯度 $\hat{\nabla}_\mathbf{w}$，用 Adam/SGD 更新编码器
 4. 额外开销仅 $O(B^2)$，远小于前向/反向传播
 

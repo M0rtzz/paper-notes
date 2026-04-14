@@ -34,6 +34,7 @@ tags:
 **核心发现——图像 token 的本质差异**：
 
 **冗余性**：视觉 token 来自连续潜空间的向量量化，保留了低频冗余，许多 token 在细微高频细节上不同但视觉效果相似
+
 **多样性**：不受语法约束，多个有效视觉模式均可作为下一步选择。50-95% 的 token 的 top-1 概率低于 5%
 
 **关键实验证据**（Fig. 4）：随机将 50% 的 token 替换为 Top-100 候选，整体图像质量几乎不受影响（CLIP_score=32.089），证实了多 token 有效性。
@@ -88,11 +89,11 @@ $$\left|\sum_{x \in C_i}(p(x)-q(x))\right| \leq \sum_{x \in C_i}|p(x)-q(x)|$$
 ### 算法流程（Algorithm 3, VERIFY_GSD）
 
 1. 对每个待验证 token $\hat{X}_k$：
-   - 按 $p_k$ 排序，找到 $\hat{X}_k$ 在排序中的位置
-   - 取前后各 $G/2$ 个 token 组成簇 $C_{idxs}$
-   - 过滤嵌入距离和概率差异超限的 token
-   - 计算簇概率 $p'_C = \sum p_k[C_{idxs}]$, $q'_C = \sum q_k[C_{idxs}]$
-   - 以 $\min(1, p'_C/q'_C)$ 为接受率进行验证
+    - 按 $p_k$ 排序，找到 $\hat{X}_k$ 在排序中的位置
+    - 取前后各 $G/2$ 个 token 组成簇 $C_{idxs}$
+    - 过滤嵌入距离和概率差异超限的 token
+    - 计算簇概率 $p'_C = \sum p_k[C_{idxs}]$, $q'_C = \sum q_k[C_{idxs}]$
+    - 以 $\min(1, p'_C/q'_C)$ 为接受率进行验证
 2. 拒绝时从 $[p_k - q_k]_+$ 重采样
 
 ## 实验关键数据

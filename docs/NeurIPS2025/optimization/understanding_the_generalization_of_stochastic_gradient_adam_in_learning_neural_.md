@@ -27,9 +27,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Adam 是深度学习中最广泛使用的优化器（GPT、LLaMA、Deepseek 都用 Adam），但理论分析大多限于 full-batch 版本。实践中使用的是 stochastic（mini-batch）Adam。
+
 **现有痛点**：与 SGD 不同，stochastic Adam 在学习率趋于 0 时也不会收敛到 full-batch 版本——这是 Adam 独有的特性。Zou et al. (2023b) 证明 full-batch Adam 即使带正则化也泛化差，但这不代表实践中的 mini-batch Adam 也会如此。
+
 **核心矛盾**：为什么实践中 Adam（小 batch）效果好，但理论分析（full-batch）预测 Adam 泛化差？batch size 如何影响 Adam 的泛化？
+
 **切入角度**：在两层过参数化 CNN + 信号-噪声 patch 数据模型上，分别分析大 batch 和小 batch Adam/AdamW 的收敛和泛化。
+
 **核心 idea**：小 batch 的随机梯度噪声抑制了 Adam 对噪声 patch 的过拟合速度，同时 weight decay 进一步压制残余噪声成分，两者协同确保收敛到以真实特征为主的解。
 
 ## 方法详解

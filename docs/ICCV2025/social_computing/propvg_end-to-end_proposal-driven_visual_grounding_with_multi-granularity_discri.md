@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2509.04833](https://arxiv.org/abs/2509.04833)  
 **代码**: [GitHub](https://github.com/Dmmm1997/PropVG)  
 **领域**: 多模态VLM / 视觉定位 / 指代表达理解  
-**关键词**: visual grounding, proposal-based, contrastive learning, referring expression, target existence discrimination  
+**关键词**: visual grounding, proposal-based, contrastive learning, referring expression, target existence discrimination
 
 ## 一句话总结
 提出PropVG，首个无需预训练检测器的端到端proposal-based视觉定位框架，将视觉定位分解为前景proposal生成+基于对比学习的指代评分两阶段，并引入多粒度目标判别模块（MTD）融合物体级和语义级信息判断目标是否存在，在10个数据集上刷新SOTA且推理速度比传统proposal方法快4倍。
@@ -28,12 +28,15 @@ tags:
 **视觉定位任务演进**：
    - **经典VG**：REC（给框）和RES（给mask），一句话对应一个目标
    - **广义VG（GVG）**：扩展到零个或多个目标，需要判断目标是否存在
+
 **两类主流框架的矛盾**：
    - **传统两阶段proposal方法**（MAttNet等）：依赖预训练检测器生成候选框再匹配表达式。优势是能感知全局前景物体，劣势是性能差、速度慢（320ms/帧）
    - **直接指代方法**（TransVG, SimVG等）：端到端直接预测目标位置。优势是简洁高效，劣势是只关注被指代目标，忽略其他前景物体，削弱了对"参照性"的理解和可解释性
+
 **两个待解决的关键问题**：
    - **(1)** 如何在保持proposal的全局感知优势的同时，消除对预训练检测器的依赖，实现端到端训练？
    - **(2)** 在广义场景中，如何准确判断目标是否存在？现有方法仅用全局或单粒度预测，忽略了多粒度信息的互补
+
 **核心insight**：视觉定位可以自然分解为"哪些是前景物体"（检测问题）+"哪个是被指代的"（匹配问题），两步端到端联合训练可以同时获得全局感知能力和指代理解能力。
 
 ## 方法详解

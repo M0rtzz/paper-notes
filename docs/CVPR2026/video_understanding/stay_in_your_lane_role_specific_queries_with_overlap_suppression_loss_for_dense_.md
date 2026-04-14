@@ -52,13 +52,13 @@ ROS-DVC 基于 DETR-style 的并行编码-解码架构：
 
 1. **Role Specific Query Initialization（角色特定 query 初始化）**:
 
-    - 做什么：将传统 DVC 中的单一 query 集合分离为两组独立 query——$\{q_{\text{loc}}^j\}_{j=1}^K$ 和 $\{q_{\text{cap}}^j\}_{j=1}^K$
+    - 功能：将传统 DVC 中的单一 query 集合分离为两组独立 query——$\{q_{\text{loc}}^j\}_{j=1}^K$ 和 $\{q_{\text{cap}}^j\}_{j=1}^K$
     - 核心思路：两组 query 从**完全独立的可学习嵌入空间**初始化，各自通过 cross-attention 与编码后的帧特征交互。Localization query 在注意力层面 broadly attend to temporal context 以估计事件边界；caption query 则 densely attend on key frames 以捕捉语义细节。两组 query 共享同一个 decoder，在 cross-attention 中引用相同的 visual location（由 localization query 的 reference point 定义），确保视觉定位的一致性
     - 设计动机：区别于 DDVC 通过 MLP 从 localization query 派生 caption query（会产生依赖、限制注意力多样化），本文的完全独立初始化使两组 query 可以各自优化到最适合其任务的注意力模式，从根本上消除多任务干扰
 
 2. **Cross-Task Contrastive Alignment (CTCA) Loss（跨任务对比对齐）**:
 
-    - 做什么：确保分离后的 localization 和 caption query 在语义上保持一致
+    - 功能：确保分离后的 localization 和 caption query 在语义上保持一致
     - 核心思路：通过 Hungarian 匹配确定与 ground truth 对应的 query 索引集合 $\mathcal{M}$。对每个 $j \in \mathcal{M}$，第 $j$ 个 caption query $\tilde{q}_{\text{cap}}^j$ 和对应的 localization query $\tilde{q}_{\text{loc}}^j$ 构成正样本对，其余 localization query 为负样本：
     $\mathcal{L}_{\text{CTCA}} = -\sum_{j \in \mathcal{M}} \log \frac{\exp(\text{sim}(\tilde{q}_{\text{cap}}^j, \tilde{q}_{\text{loc}}^j)/\tau)}{\sum_{j'} \exp(\text{sim}(\tilde{q}_{\text{cap}}^j, \tilde{q}_{\text{loc}}^{j'})/\tau)}$
       其中 $\text{sim}(\cdot)$ 为余弦相似度，$\tau$ 为温度参数
@@ -66,7 +66,7 @@ ROS-DVC 基于 DETR-style 的并行编码-解码架构：
 
 3. **Overlap Suppression Loss (OSL)（重叠抑制损失）**:
 
-    - 做什么：显式惩罚 query 间的时序重叠，鼓励模型学习不重叠的 distinct 事件区域
+    - 功能：显式惩罚 query 间的时序重叠，鼓励模型学习不重叠的 distinct 事件区域
     - 核心思路：定义预测区间 $B_i, B_j$ 之间的重叠度 $P_o(i,j) = \text{IoU}(B_i, B_j)$。同时定义 ground-truth 对齐度 $P_g(i,j) = \text{IoU}(B_i, G_j)$，构建自适应权重：
     $\alpha = \gamma \cdot P_g + (1-\gamma) \cdot (1-P_g), \quad \gamma \leq 0.5$
       当预测与 GT 对齐良好（$P_g$ 高）时，$\alpha$ 小，抑制力度弱；当预测与 GT 不对齐时，$\alpha$ 大，强力惩罚重叠。最终损失：
@@ -76,7 +76,7 @@ ROS-DVC 基于 DETR-style 的并行编码-解码架构：
 
 4. **Concept Guider（概念引导器）**:
 
-    - 做什么：轻量级 MLP 辅助头，输出事件级的 multi-hot 概念向量，增强 caption query 的语义丰富度
+    - 功能：轻量级 MLP 辅助头，输出事件级的 multi-hot 概念向量，增强 caption query 的语义丰富度
     - 核心思路：从训练集 caption 中提取 top-$N_c$ 个名词和动词作为概念词汇，为每个事件构建 multi-hot 标签 $Y^c \in \{0,1\}^{N_c}$。概念头取 caption query 输出 $\tilde{q}_{\text{cap}}$ 输入 MLP + sigmoid 预测概念分布，用交叉熵训练：
     $\hat{y}_c = \text{sigmoid}(\text{MLP}(\tilde{q}_{\text{cap}}))$
       推理时不使用此头，仅在训练时引导 caption query 嵌入高层语义

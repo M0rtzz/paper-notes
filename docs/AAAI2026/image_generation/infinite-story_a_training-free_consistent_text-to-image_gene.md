@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.13002](https://arxiv.org/abs/2511.13002)  
 **代码**: 无  
 **领域**: 图像生成 / 一致性生成  
-**关键词**: 一致性文本到图像生成, 视觉故事, 自回归生成, training-free, 风格一致性  
+**关键词**: 一致性文本到图像生成, 视觉故事, 自回归生成, training-free, 风格一致性
 
 ## 一句话总结
 基于 scale-wise 自回归模型（Infinity），通过三个 training-free 技术——Identity Prompt Replacement（消除文本编码器的上下文偏差）、Adaptive Style Injection（参考图像特征注入）和 Synchronized Guidance Adaptation（同步 CFG 两个分支），实现了身份与风格一致的多图像生成，速度比扩散模型快 6 倍（1.72 秒/张）。

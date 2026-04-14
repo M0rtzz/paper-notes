@@ -9,7 +9,7 @@ tags:
   - VLM推理
   - Chain-of-Thought
   - 多阶段推理
-  - test-time scaling
+  - 测试时缩放
   - 结构化推理
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.10440](https://arxiv.org/abs/2411.10440)  
 **代码**: [https://github.com/PKU-YuanGroup/LLaVA-CoT](https://github.com/PKU-YuanGroup/LLaVA-CoT)  
 **领域**: 多模态VLM / 推理  
-**关键词**: VLM推理, Chain-of-Thought, 多阶段推理, test-time scaling, 结构化推理  
+**关键词**: VLM推理, Chain-of-Thought, 多阶段推理, 测试时缩放, 结构化推理
 
 ## 一句话总结
 通过构建包含结构化推理标注的LLaVA-CoT-100k数据集，训练VLM自主执行"总结→视觉解读→逻辑推理→结论"四阶段推理，配合测试时SWIRES搜索策略，11B模型超越GPT-4o-mini和Gemini-1.5-pro等大模型。

@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Can Editing LLMs Inject Harm?
 description: >-
-  [AAAI2026][AI安全][Knowledge Editing] 本文将知识编辑技术重新定义为一种新型 LLM 安全威胁（Editing Attack），系统性地研究了通过 ROME、FT、ICE 三种编辑方法向 LLM 注入虚假信息和偏见的可行性，发现其效果显著且极具隐蔽性。
+  [AAAI2026][AI安全][knowledge editing] 本文将知识编辑技术重新定义为一种新型 LLM 安全威胁（Editing Attack），系统性地研究了通过 ROME、FT、ICE 三种编辑方法向 LLM 注入虚假信息和偏见的可行性，发现其效果显著且极具隐蔽性。
 tags:
   - AAAI2026
   - AI安全
-  - Knowledge Editing
+  - knowledge editing
   - Editing Attack
   - Misinformation Injection
   - Bias Injection
-  - LLM Safety
+  - LLM safety
 ---
 
 # Can Editing LLMs Inject Harm?
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.20224](https://arxiv.org/abs/2407.20224)  
 **代码**: [llm-editing/editing-attack](https://github.com/llm-editing/editing-attack)  
 **领域**: ai_safety  
-**关键词**: Knowledge Editing, Editing Attack, Misinformation Injection, Bias Injection, LLM Safety  
+**关键词**: knowledge editing, Editing Attack, Misinformation Injection, Bias Injection, LLM safety
 
 ## 一句话总结
 本文将知识编辑技术重新定义为一种新型 LLM 安全威胁（Editing Attack），系统性地研究了通过 ROME、FT、ICE 三种编辑方法向 LLM 注入虚假信息和偏见的可行性，发现其效果显著且极具隐蔽性。

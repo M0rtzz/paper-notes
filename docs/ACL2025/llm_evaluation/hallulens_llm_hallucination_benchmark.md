@@ -9,7 +9,7 @@ tags:
   - 外在幻觉
   - 内在幻觉
   - 动态测试集
-  - 基准测试
+  - benchmark
 ---
 
 # HalluLens: LLM Hallucination Benchmark
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2504.17550](https://arxiv.org/abs/2504.17550)  
 **代码**: [github](https://github.com/facebookresearch/HalluLens)  
 **领域**: LLM/NLP  
-**关键词**: 幻觉评估, 外在幻觉, 内在幻觉, 动态测试集, 基准测试
+**关键词**: 幻觉评估, 外在幻觉, 内在幻觉, 动态测试集, benchmark
 
 ## 一句话总结
 

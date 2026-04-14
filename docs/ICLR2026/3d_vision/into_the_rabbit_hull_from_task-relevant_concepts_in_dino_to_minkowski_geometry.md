@@ -10,7 +10,7 @@ tags:
   - Sparse Autoencoder
   - Linear Representation Hypothesis
   - Minkowski Representation Hypothesis
-  - Interpretability
+  - interpretability
   - Transformer
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.08638](https://arxiv.org/abs/2510.08638)  
 **代码**: [kempnerinstitute.github.io/dinovision](https://kempnerinstitute.github.io/dinovision)  
 **领域**: 3d_vision  
-**关键词**: DINOv2, Sparse Autoencoder, Linear Representation Hypothesis, Minkowski Representation Hypothesis, Interpretability, Vision Transformer  
+**关键词**: DINOv2, Sparse Autoencoder, Linear Representation Hypothesis, Minkowski Representation Hypothesis, interpretability, Vision Transformer
 
 ## 一句话总结
 通过在 DINOv2 上训练 32,000 单元的 Sparse Autoencoder 字典，系统分析了下游任务如何招募不同概念，发现表征几何偏离线性稀疏假说（LRH），进而提出 Minkowski Representation Hypothesis（MRH），认为 token 表征是多个凸多面体的 Minkowski 和，概念由原型点的邻近性而非线性方向定义。

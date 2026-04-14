@@ -6,10 +6,10 @@ description: >-
 tags:
   - ICML2025
   - multicalibration
-  - online learning
-  - fairness
+  - 在线学习
+  - 公平性
   - oracle-efficient
-  - calibration
+  - 校准
   - omniprediction
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2505.17365](https://arxiv.org/abs/2505.17365)  
 **代码**: 待确认  
 **领域**: 公平性/在线学习  
-**关键词**: multicalibration, online learning, fairness, oracle-efficient, calibration, omniprediction
+**关键词**: multicalibration, 在线学习, 公平性, oracle-efficient, 校准, omniprediction
 
 ## 一句话总结
 提出将在线 $\ell_1$-multicalibration 归约为新定义的在线线性乘积优化 (OLPO) 问题，分别达到 $\widetilde{O}(T^{-1/3})$（改进速率）和 $\widetilde{O}(T^{-1/4})$（oracle 高效速率）的多校准误差上界。
@@ -32,8 +32,11 @@ tags:
 - **多校准 (Multicalibration)** 由 Hébert-Johnson et al. (2018) 提出，要求预测不仅在整体上校准，还需在由假设类 $\mathcal{H}$ 定义的多个子群体上都保持校准。这直接关系到算法公平性——避免对特定性别、种族、年龄等亚群体产生歧视性预测。
 
 ### 现有方法的问题
+
 **间接方法导致速率损失**：先前工作 (Gupta et al. 2022; Lee et al. 2022) 先在 $\ell_\infty$ 或 $\ell_2$ 范数下获得多校准保证，再转换到 $\ell_1$，导致额外损失。最好的间接速率仅为 $\widetilde{O}(T^{-1/4})$。
+
 **计算复杂度高**：大多数算法运行时间与 $|\mathcal{H}|$ 成线性，当假设类为指数大小（如 $d$ 维线性函数）时不可行。
+
 **Oracle 高效方法速率差**：Garg et al. (2024) 的 oracle 高效算法速率仅为 $\widetilde{O}(T^{-1/8})$，且需要更强的在线回归 oracle。
 
 ### 核心问题

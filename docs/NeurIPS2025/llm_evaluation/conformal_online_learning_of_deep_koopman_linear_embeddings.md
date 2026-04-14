@@ -6,10 +6,10 @@ description: >-
 tags:
   - NEURIPS2025
   - Koopman operator
-  - online learning
-  - conformal prediction
+  - 在线学习
+  - 共形预测
   - dynamical systems
-  - deep learning
+  - 深度学习
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.12760](https://arxiv.org/abs/2511.12760)  
 **代码**: [ben2022lo/COLoKe](https://github.com/ben2022lo/COLoKe)  
 **领域**: others  
-**关键词**: Koopman operator, online learning, conformal prediction, dynamical systems, deep learning  
+**关键词**: Koopman operator, 在线学习, 共形预测, dynamical systems, 深度学习
 
 ## 一句话总结
 提出 COLoKe 框架，将 conformal prediction 重新解读为模型一致性诊断工具，仅在 Koopman 模型的预测误差超过动态校准阈值时才触发参数更新，从而实现对非线性动力系统的高效在线 Koopman 线性嵌入学习。

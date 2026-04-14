@@ -52,21 +52,21 @@ tags:
 
 1. **RCD 收缩率下界（RCD Contraction Rate Lower Bound）**:
 
-    - 做什么：给出 RCD 在置换不变 Hessian 类上的精确收缩率下界
+    - 功能：给出 RCD 在置换不变 Hessian 类上的精确收缩率下界
     - 核心思路：利用 Hessian 的特征结构，将 $d$ 维问题分解为独立的 1 维问题，从而精确计算每步的期望能量递减
     - 关键公式：$\rho_{RCD} \geq 1 - \frac{2}{d} \cdot \frac{\lambda_{\min}}{\lambda_{\min} + \lambda_{\max}} + \frac{1}{d^2} \cdot g(\lambda_{\min}, \lambda_{\max})$
     - 设计动机：精确的下界是证明差距的必要条件
 
 2. **RPCD 收缩率上界（RPCD Contraction Rate Upper Bound）**:
 
-    - 做什么：给出 RPCD 在同一函数类上的收缩率上界
+    - 功能：给出 RPCD 在同一函数类上的收缩率上界
     - 核心思路：RPCD 一个 epoch 的更新等价于将 $d$ 次坐标更新按随机排列顺序复合。利用矩阵指数和排列群的对称性，得到比 RCD 更紧的上界
     - 关键结论：对于每个问题实例，$\rho_{RPCD} < \rho_{RCD}$（严格小于）
     - 设计动机："不重复"采样特性使得 RPCD 在每个 epoch 内更均匀地覆盖所有坐标
 
 3. **最坏情况猜想（Worst-Case Conjecture）**:
 
-    - 做什么：猜想置换不变 Hessian 类包含了 RPCD 在所有正定二次函数上的最坏情况
+    - 功能：猜想置换不变 Hessian 类包含了 RPCD 在所有正定二次函数上的最坏情况
     - 核心思路：通过数值实验支持此猜想——在大量随机生成的正定矩阵上，RPCD 的收缩率均不超过在置换不变矩阵上的值
     - 设计动机：若猜想成立，则 RPCD 优于 RCD 的结论推广到所有正定二次函数
 

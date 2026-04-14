@@ -1,11 +1,15 @@
 ---
-description: "[NeurIPS2025] 识别Crosscoder中L1训练引入的稀疏性伪影问题，提出Latent Scaling诊断工具和BatchTopK损失替代方案，揭示真正的chat-tuning特有概念"
+title: >-
+  [论文解读] Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning
+description: >-
+  [NeurIPS 2025][Crosscoder] 识别并解决 Crosscoder 中 L1 训练损失引入的两类稀疏性伪影（导致虚假的模型特定潜变量归因），提出 Latent Scaling 诊断方法和 BatchTopK 损失替代方案，成功发现 Gemma 2 2B chat 模型中真正由 chat-tuning 引入的可解释概念。
 tags:
-  - NeurIPS2025
-  - Mechanistic Interpretability
+  - NeurIPS 2025
   - Crosscoder
-  - Sparse Autoencoder
-  - Model Diffing
+  - 稀疏性伪影
+  - BatchTopK
+  - Latent Scaling
+  - chat-tuning
 ---
 
 # Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning
@@ -37,17 +41,17 @@ tags:
 ### 关键设计
 
 1. **稀疏性伪影的识别与分类**:
-    - 做什么：系统性地找出 L1 Crosscoder 中两类导致虚假模型特定潜变量的机制
+    - 功能：系统性地找出 L1 Crosscoder 中两类导致虚假模型特定潜变量的机制
     - 核心思路：第一类伪影是 L1 的缩减偏差将在两个模型中都存在但强度不同的概念错误归为单模型特有；第二类是 L1 在稀疏-密集权衡中选择的分解方式导致某些概念被分为一个共享潜变量+一个虚假的模型特定潜变量
     - 设计动机：如果不解决这些伪影，基于 Crosscoder 的模型差异分析结论将不可信
 
 2. **Latent Scaling 诊断工具**:
-    - 做什么：为每个潜变量精确度量其在基础模型和微调模型中的"存在程度"
+    - 功能：为每个潜变量精确度量其在基础模型和微调模型中的"存在程度"
     - 核心思路：通过重新缩放潜变量的激活来消除 L1 缩减偏差的影响，获得更准确的跨模型存在性度量
     - 设计动机：标准 Crosscoder 的激活值被 L1 系统性偏移，直接使用会导致错误的归因
 
 3. **BatchTopK 损失替代方案**:
-    - 做什么：用 BatchTopK 损失替代 L1 损失训练 Crosscoder
+    - 功能：用 BatchTopK 损失替代 L1 损失训练 Crosscoder
     - 核心思路：BatchTopK 直接限制每个 batch 中激活的潜变量数量（而非用 L1 间接鼓励稀疏），从根本上避免缩减偏差
     - 设计动机：BatchTopK 在稀疏自编码器文献中已被证明能产生更干净的特征分解，本文首次将其引入 Crosscoder
 

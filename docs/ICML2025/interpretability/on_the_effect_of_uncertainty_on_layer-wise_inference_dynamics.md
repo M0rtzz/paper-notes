@@ -2,14 +2,14 @@
 title: >-
   [论文解读] On the Effect of Uncertainty on Layer-wise Inference Dynamics
 description: >-
-  [ICML 2025 (Actionable Interpretability Workshop)][uncertainty] 利用 Tuned Lens 分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的推理动力学高度对齐，挑战了基于简单层间特征检测不确定性的可行性。
+  [ICML 2025 (Actionable Interpretability Workshop)][不确定性] 利用 Tuned Lens 分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的推理动力学高度对齐，挑战了基于简单层间特征检测不确定性的可行性。
 tags:
   - ICML 2025 (Actionable Interpretability Workshop)
-  - uncertainty
+  - 不确定性
   - layer-wise dynamics
   - Tuned Lens
-  - interpretability
-  - hallucination
+  - 可解释性
+  - 幻觉
 ---
 
 # On the Effect of Uncertainty on Layer-wise Inference Dynamics
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2507.06722](https://arxiv.org/abs/2507.06722)  
 **代码**: 无  
 **领域**: LLM / NLP  
-**关键词**: uncertainty, layer-wise dynamics, Tuned Lens, interpretability, hallucination
+**关键词**: 不确定性, layer-wise dynamics, Tuned Lens, 可解释性, 幻觉
 
 ## 一句话总结
 利用 Tuned Lens 分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的推理动力学高度对齐，挑战了基于简单层间特征检测不确定性的可行性。
 
 ## 研究背景与动机
 **领域现状**: 理解 LLM 内部表示和处理预测是检测不确定性和防止幻觉的核心问题。
+
 **现有痛点**: 虽知模型在隐藏状态中编码不确定性，但不确定性如何影响处理过程未被探索。
+
 **核心矛盾**: 如果确定和不确定预测的层间动态相似，那么简单的中间层检测方法可能无效。
+
 **本文解决什么**: 系统研究不确定性对层间推理动态的影响。
+
 **切入角度**: 使用 Tuned Lens 跟踪各层概率轨迹。
+
 **核心 idea**: 确定和不确定预测经历类似的"信心突变"模式，不确定性不影响推理动态结构。
 
 ## 方法详解

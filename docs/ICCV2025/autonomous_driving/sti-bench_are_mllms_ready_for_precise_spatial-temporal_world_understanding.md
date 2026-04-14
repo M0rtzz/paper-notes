@@ -2,14 +2,14 @@
 title: >-
   [论文解读] STI-Bench: Are MLLMs Ready for Precise Spatial-Temporal World Understanding?
 description: >-
-  [ICCV 2025][自动驾驶][MLLM benchmark] 提出 STI-Bench，一个评估多模态大语言模型（MLLM）精确时空理解能力的基准，涵盖桌面/室内/户外三大场景、8类静态+动态任务超 2000 道 QA 对，揭示当前最强 MLLM（Gemini-2.5-Pro）平均准确率仅 41.4%，在精确空间量化和时序动态理解上存在根本性不足。
+  [ICCV 2025][自动驾驶][MLLM 基准] 提出 STI-Bench，一个评估多模态大语言模型（MLLM）精确时空理解能力的基准，涵盖桌面/室内/户外三大场景、8类静态+动态任务超 2000 道 QA 对，揭示当前最强 MLLM（Gemini-2.5-Pro）平均准确率仅 41.4%，在精确空间量化和时序动态理解上存在根本性不足。
 tags:
   - ICCV 2025
   - 自动驾驶
-  - MLLM benchmark
+  - MLLM 基准
   - spatial-temporal understanding
-  - embodied AI
-  - video QA
+  - 具身智能
+  - 视频问答
 ---
 
 # STI-Bench: Are MLLMs Ready for Precise Spatial-Temporal World Understanding?
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.23765](https://arxiv.org/abs/2503.23765)  
 **代码**: [项目主页](https://mint-sjtu.github.io/STI-Bench.io/)  
 **领域**: 自动驾驶  
-**关键词**: MLLM benchmark, spatial-temporal understanding, embodied AI, video QA, autonomous driving
+**关键词**: MLLM 基准, spatial-temporal understanding, 具身智能, 视频问答, 自动驾驶
 
 ## 一句话总结
 
@@ -29,10 +29,12 @@ tags:
 MLLM 越来越多地被用作具身 AI 和自动驾驶的端到端解决方案，但一个关键问题被忽视：
 
 **语义理解 vs 精确时空理解的鸿沟**：现有评估主要聚焦 2D 视觉感知和语义 QA，但具身任务需要精确的 3D 空间度量和物理运动理解
+
 **现有基准的局限**：
    - VSI-Bench 仅涵盖有限场景和任务类型
    - EmbodiedBench 等依赖仿真环境
    - 没有基准同时覆盖静态空间度量和动态运动分析，且使用真实世界数据
+
 **核心追问**：**MLLM 是否真正准备好进行精确的时空世界理解？**
 
 设计理念：使用视频（而非点云）作为输入，因为 (1) GPT-4o/Gemini 等主流模型接受图像/视频输入 (2) 视频在日常中更普遍且包含足够推理时空的信息。

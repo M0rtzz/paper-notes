@@ -1,13 +1,16 @@
 ---
+title: >-
+  [论文解读] Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought
 description: >-
-  NeurIPS 2025，提出统一视角理解多模态链式推理(MCoT)——通过"视觉思维(Visual Thoughts)"概念解释不同MCoT范式的有效性，定义四种视觉思维表达形式（自然语言、结构化语言、编辑图像、生成图像），揭示视觉思维作为输入图像与深层Transformer间的中介角色。
+  [NeurIPS 2025][LLM推理][多模态CoT] 提出"视觉思维(Visual Thoughts)"作为统一框架解释多模态链式推理(MCoT)的有效性——无论是文本MCoT还是交错图文MCoT，其性能提升的核心机制都是将视觉信息缓存并传递到推理过程中，定义了四种视觉思维表达形式并揭示其在Transformer深层中作为图像-推理中介的角色。
 tags:
   - NeurIPS 2025
   - LLM推理
   - 多模态CoT
   - 视觉思维
-  - VLM
-  - 链式推理
+  - T-MCoT
+  - I-MCoT
+  - 视觉信息传递
 ---
 
 # Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought
@@ -45,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **视觉思维的形式化定义与验证**:
-    - 做什么：定义视觉思维并通过消除实验验证其必要性
+    - 功能：定义视觉思维并通过消除实验验证其必要性
     - 核心思路：设计三组对照实验——(1)原始I-MCoT（含视觉思维）；(2) 删除视觉思维缓存，迫使模型重新分析原始图像(w/o VT)；(3) 将图像形式的视觉思维替换为文本描述(text-form VT)。结果：删除VT导致性能下降（甚至比直接从query推理更差）；恢复VT一致性提升推理
     - 设计动机：排除"MCoT只是增加了推理步数"的假设——VT缓存的视觉信息才是核心
 
 2. **四种视觉思维表达形式的系统探索**:
-    - 做什么：定义并比较文本和图像两大类四种视觉思维表达
+    - 功能：定义并比较文本和图像两大类四种视觉思维表达
     - 核心思路：**自然语言(N-LANG)**——提示LVLM生成图像描述作为推理前缀；**结构化语言(S-LANG)**——生成场景图(scene graph)的JSON格式；**编辑图像(E-IMG)**——使用视觉工具(grounding/segmentation/depth)编辑原始图像；**生成图像(G-IMG)**——使用DALL-E 3基于query生成新图像作为推理辅助。不同表达在"清晰度"和"简洁度"上有差异
     - 设计动机：系统覆盖文本和视觉两种模态、自由和结构化两种格式的2×2组合
 
 3. **Transformer内部信息流分析**:
-    - 做什么：揭示视觉思维如何在LVLM内部传递视觉信息
+    - 功能：揭示视觉思维如何在LVLM内部传递视觉信息
     - 核心思路：通过注意力图分析发现：视觉思维token在深层Transformer中成为输入图像信息到推理token的主要中介(intermediary)。普通推理中图像token随层深增加注意力衰减，但有视觉思维时，信息先流到VT token再传到深层推理token——使更高级的视觉理解成为可能
     - 设计动机：从模型内部机制解释VT为什么有效，而不仅仅停留在性能数字
 

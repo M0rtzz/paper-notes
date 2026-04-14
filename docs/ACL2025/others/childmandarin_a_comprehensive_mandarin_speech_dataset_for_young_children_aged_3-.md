@@ -38,9 +38,13 @@ tags:
 | SingaKids | 7-12 | 255 | 75h | 可用 |
 
 **Tong Corpus**：仅单一儿童纵向记录，无法提供 ASR 系统所需的说话人多样性
+
 **CASS CHILD**：虽有 631 小时但仅 80 小时有转录且不公开
+
 **SLT-CSRC**：仅在 SLT 2021 挑战赛期间开放
+
 **SingaKids**：聚焦 7-12 岁，不覆盖幼儿年龄段
+
 **英语数据集丰富但其他语言稀缺**：Providence、MyST、CSLU Kids 等英语资源较好，但非欧洲语言明显不足
 
 ### 动机

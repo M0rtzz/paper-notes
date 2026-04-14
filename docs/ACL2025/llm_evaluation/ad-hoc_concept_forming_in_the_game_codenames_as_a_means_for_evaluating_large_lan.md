@@ -1,15 +1,15 @@
 ---
 title: >-
-  [论文解读] Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating LLMs
+  [论文解读] Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models
 description: >-
-  [ACL 2025][LLM评测] 将桌游Codenames实现为LLM评测基准，测试模型的即兴概念生成、合作推理和语用推理能力，通过13种实验设置比较14个商业和开源模型，发现最佳模型(o3-mini)胜率仅49%，揭示LLM在策略推理上的显著局限。
+  [ACL 2025][Codenames] 将桌游Codenames实现为LLM评测基准，LLM同时扮演线索给出者(Spymaster)和猜测者(Field Operative)，在13种不同难度实验中与确定性对手对战，14个模型中最佳(o3-mini)胜率仅49%，揭示了LLM在词汇关联、策略选择和纠错能力上的显著局限。
 tags:
   - ACL 2025
-  - LLM评测
-  - 游戏基准
+  - Codenames
+  - 游戏评测
+  - 概念生成
   - 语用推理
-  - 合作AI
-  - 词汇关联
+  - 合作博弈
 ---
 
 # Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models
@@ -56,7 +56,7 @@ tags:
     - 错误分类：目标幻觉、猜测幻觉、猜测数量错误、将线索作为猜测
 
 3. **确定性对手设计**:
-    - 做什么：模拟一个每轮翻开n个词的固定策略对手
+    - 功能：模拟一个每轮翻开n个词的固定策略对手
     - 设计动机：消除双方都使用LLM带来的非确定性，确保实验可复现
 
 ## 实验关键数据

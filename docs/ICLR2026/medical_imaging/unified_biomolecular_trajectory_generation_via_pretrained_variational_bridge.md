@@ -51,19 +51,19 @@ PVB 采用编码器-解码器架构。输入为分子构象 $(z, C, x)$（原子
 
 1. **变分编码器（Variational Encoder）**:
 
-    - 做什么：将初始状态 $\mathbf{X}_0$ 映射到隐变量 $\mathbf{Y}_0$
+    - 功能：将初始状态 $\mathbf{X}_0$ 映射到隐变量 $\mathbf{Y}_0$
     - 核心思路：设先验为 $q_e(d\mathbf{Y}_0|\mathbf{X}_0) \coloneqq \mathcal{N}(x_0, \sigma_e^2 I)$，其中 $\sigma_e = \sqrt{0.5}$ Å。通过神经网络 $\varphi_e$ 学习后验分布 $p_e$，最小化KL散度：$\mathcal{L}_{KL} = -\frac{1}{2}\mathbb{E}[1 + \log \mathbf{V} - 2\log\sigma_e - \frac{\mathbf{V}}{\sigma_e^2}]$
     - 设计动机：引入隐变量的关键目的是防止单结构预训练时条件分布退化为Dirac测度。较大的 $\sigma_e$ 确保编码过程保留足够的结构信息，同时避免解码退化为平凡情况
 
 2. **增强桥匹配解码器（Augmented Bridge Matching Decoder）**:
 
-    - 做什么：从隐变量 $\mathbf{Y}_0$ 生成目标状态 $\mathbf{Y}_1$，同时保持 $(\mathbf{Y}_0, \mathbf{Y}_1)$ 之间的耦合
+    - 功能：从隐变量 $\mathbf{Y}_0$ 生成目标状态 $\mathbf{Y}_1$，同时保持 $(\mathbf{Y}_0, \mathbf{Y}_1)$ 之间的耦合
     - 核心思路：定义布朗桥路径测度，训练向量场 $\varphi_d$ 最小化 $\mathcal{L}_{ABM} = \mathbb{E}_{t, (\mathbf{Y}_0, \mathbf{Y}_1)}[\|\varphi_d(t, \mathbf{Y}_0, \mathbf{Y}_t) - \frac{\mathbf{Y}_1 - \mathbf{Y}_t}{1-t}\|^2]$。推理时通过模拟非马尔可夫SDE $d\mathbf{Y}_t = \varphi_d^*(t, \mathbf{Y}_0, \mathbf{Y}_t)dt + \sigma d\mathbf{B}_t$ 生成目标
     - 设计动机：增强桥匹配确保了端点耦合 $\Pi_{0,1}$ 在生成过程中被精确保持，这对于忠实重现MD的动力学性质至关重要。由Proposition 1保证了编码器-解码器组合能无偏地估计目标条件分布
 
 3. **基于伴随匹配的RL微调**:
 
-    - 做什么：引入控制向量场 $u$，调节生成分布使轨迹快速趋向蛋白质-配体的holo态
+    - 功能：引入控制向量场 $u$，调节生成分布使轨迹快速趋向蛋白质-配体的holo态
     - 核心思路：优化KL正则化目标 $\max_u \mathbb{E}[r(\mathbf{Y}_1) - \frac{\beta}{2}\int_0^1 \|u\|^2 dt]$。通过Girsanov定理和伴随匹配（adjoint matching），将SOC问题转化为 $\mathcal{L}_{adj} = \mathbb{E}[\|u(t, \mathbf{Y}_0, \mathbf{Y}_t) + \sigma\tilde{a}(t)\|^2]$，其中精简伴随状态 $\tilde{a}$ 通过ODE反向传播
     - 设计动机：直接从apo态模拟到holo态需要毫秒级时间尺度，计算上不可行。RL微调通过显式奖励函数引导生成分布，绕过低效的局部探索。使用伴随匹配而非直接梯度累积，实现了内存高效的训练
 

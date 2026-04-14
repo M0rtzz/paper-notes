@@ -9,7 +9,7 @@ tags:
   - embodied AI
   - 扩散模型
   - multi-view generation
-  - robot manipulation
+  - robotic manipulation
   - 4D Gaussian Splatting
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.01895](https://arxiv.org/abs/2501.01895)  
 **代码**: 待确认  
 **领域**: 3d_vision  
-**关键词**: embodied AI, video diffusion, multi-view generation, robot manipulation, 4D Gaussian Splatting
+**关键词**: embodied AI, video diffusion, multi-view generation, robotic manipulation, 4D Gaussian Splatting
 
 ## 一句话总结
 

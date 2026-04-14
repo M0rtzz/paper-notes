@@ -7,11 +7,11 @@ tags:
   - CVPR2026
   - 机器人
   - visual jailbreaking
-  - adversarial attack
-  - transferability
+  - 对抗攻击
+  - 可迁移性
   - loss landscape
   - MLLM safety
-  - red-teaming
+  - 红队测试
 ---
 
 # FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.21029](https://arxiv.org/abs/2509.21029)  
 **代码**: [tmllab/2026_CVPR_FORCE](https://github.com/tmllab/2026_CVPR_FORCE)  
 **领域**: robotics  
-**关键词**: visual jailbreaking, adversarial attack, transferability, loss landscape, MLLM safety, red-teaming  
+**关键词**: visual jailbreaking, 对抗攻击, 可迁移性, loss landscape, MLLM safety, 红队测试
 
 ## 一句话总结
 

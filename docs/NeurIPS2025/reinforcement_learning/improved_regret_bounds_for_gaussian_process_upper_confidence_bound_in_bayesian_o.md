@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - Bayesian optimization
   - GP-UCB
-  - regret bounds
+  - regret bound
   - information gain
   - Gaussian process
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.01393](https://arxiv.org/abs/2506.01393)  
 **代码**: 无  
 **领域**: reinforcement_learning  
-**关键词**: Bayesian optimization, GP-UCB, regret bounds, information gain, Gaussian process
+**关键词**: Bayesian optimization, GP-UCB, regret bound, information gain, Gaussian process
 
 ## 一句话总结
 本文证明 GP-UCB 在贝叶斯设定下可达 $\widetilde{O}(\sqrt{T})$ 高概率 regret（Matern 核满足光滑条件时）和 $O(\sqrt{T \ln^2 T})$（SE 核），弥合了 GP-UCB 已有上界与最优上界间的差距。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：BO 中 GP-UCB 广泛使用。Srinivas et al. (2010) 的上界为 $O(\sqrt{\beta_T T \gamma_T(\mathcal{X})})$，其中 $\gamma_T$ 是最大信息增益。
+
 **现有痛点**：Matern 核下 GP-UCB 给出 $\widetilde{O}(T^{(\nu+d)/(2\nu+d)})$，劣于 Scarlett (2018) 的 $O(\sqrt{T\ln T})$。
+
 **核心矛盾**：$I(\mathbf{X}_T) \leq \gamma_T(\mathcal{X})$ 是最坏情况约束。GP-UCB 输入集中在最优点附近，信息增益远小于最大值。
+
 **本文要解决什么？** 利用 GP-UCB 输入集中性给出更紧信息增益上界。
+
 **切入角度**：GP-UCB 因 sublinear regret 导致输入集中在 $\mathbf{x}^*$ 附近，集中输入的信息增益 $\ll \gamma_T(\mathcal{X})$。
+
 **核心idea一句话**：利用算法自身行为导致的输入集中性，在收缩局部区域上分析信息增益。
 
 ## 方法详解

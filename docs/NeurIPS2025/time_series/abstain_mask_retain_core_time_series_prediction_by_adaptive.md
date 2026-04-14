@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.19980](https://arxiv.org/abs/2510.19980)  
 **代码**: [GitHub](https://github.com/MazelTovy/AMRC)  
 **领域**: 时间序列预测 / 信息瓶颈  
-**关键词**: time series forecasting, information bottleneck, adaptive masking, representation consistency, redundant features  
+**关键词**: time series forecasting, information bottleneck, adaptive masking, representation consistency, redundant features
 
 ## 一句话总结
 揭示了时间序列预测中"适当截断历史数据反而提升精度"的反直觉现象（冗余特征学习问题），基于信息瓶颈理论提出AMRC方法，通过自适应掩码损失和表征一致性约束来抑制冗余特征学习，作为模型无关的训练框架在多种架构上显著提升性能。
@@ -44,13 +44,13 @@ AMRC由两个核心组件组成：
 ### 关键设计
 1. **自适应掩码损失 (AML)**：
 
-    - 做什么：在训练时为每个batch动态寻找最优掩码长度，引导模型表征忽略冗余时间段
+    - 功能：在训练时为每个batch动态寻找最优掩码长度，引导模型表征忽略冗余时间段
     - 核心思路：对长度为L的输入，随机采样m个掩码长度 $\{k_s\}_{s=1}^m \sim \text{Uniform}\{1,...,L\}$，计算每种掩码下的预测损失 $\ell_s = \mathcal{L}(f_\theta(\mathcal{M}_{k_s}(X)), Y)$，选择增益最大的 $s^* = \arg\max_s (\ell - \ell_{s})$。然后最小化原始表征Z与最优掩码表征 $\tilde{Z}_{s^*}$ 之间的L2距离：$\mathcal{L}_{AML} = \beta \cdot \frac{1}{D_1 \times D_2} \|Z - \tilde{Z}_{s^*}\|^2$，其中 $\beta = \max(0, (\ell - \ell_{s^*})/\ell)$ 仅在找到更好掩码时激活
     - 设计动机：直接在表征空间引导模型"遗忘"冗余信息，而非简单截断输入
 
 2. **嵌入相似性惩罚 (ESP)**：
 
-    - 做什么：约束embedding空间的几何结构与输出空间保持一致
+    - 功能：约束embedding空间的几何结构与输出空间保持一致
     - 核心思路：对batch内样本对计算嵌入距离 $\Delta^E_{ij}$ 和标签距离 $\Delta^O_{ij}$，惩罚两者不一致：$\mathcal{L}_{ESP} = \frac{1}{n^2} \sum_{i,j} |\Delta^E_{ij} - \Delta^O_{ij}|_+$
     - 设计动机：t-SNE可视化揭示模型embedding异常集中（表征坍缩），与标签分布不匹配，说明编码了任务无关的冗余特征
 

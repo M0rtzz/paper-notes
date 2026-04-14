@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：状态估计（贝叶斯滤波）是机器人、气象、交通等领域的核心问题。传统方法（Kalman Filter、粒子滤波）依赖手工建模。
+
 **现有痛点**：学习型滤波器虽然精度高但针对特定系统训练，切换系统需重新训练。高维非高斯系统中高斯滤波器误差大，粒子滤波计算量大。
+
 **核心矛盾**：高精度需要针对性训练 vs 泛化需要跨系统能力。
+
 **切入角度**：利用 LLM 的预训练知识和上下文学习能力，将状态估计重编程为 token 预测任务，通过 SaP 引导 LLM 理解不同系统。
+
 **核心 idea**：冻结 LLM 核心层，仅训练输入嵌入和输出投影，通过 SaP 文本描述系统信息实现跨系统泛化。
 
 ## 方法详解
@@ -43,19 +47,19 @@ tags:
 
 1. **观测嵌入（Observation Embedding）**
 
-    - 做什么：将滑动窗口内的观测序列 $\boldsymbol{Y}_t \in \mathbb{R}^{T \times N}$ 分段嵌入
+    - 功能：将滑动窗口内的观测序列 $\boldsymbol{Y}_t \in \mathbb{R}^{T \times N}$ 分段嵌入
     - 核心思路：按段长 $L$ 分段保持多维结构，通过 ObsEmbedding 映射到 LLM 的 $D$ 维隐空间
     - 设计动机：避免单序列展平破坏变量间的固有关联（如位置-速度关系）
 
 2. **System-as-Prompt（SaP）**
 
-    - 做什么：用自然语言描述当前系统的任务指令和示例
+    - 功能：用自然语言描述当前系统的任务指令和示例
     - 核心思路：Task Instruction（系统方程、噪声特性）+ Task Examples（示例输入输出对），tokenize 后与观测 token 拼接
     - 设计动机：利用 LLM 的上下文学习能力，无需重训即可适应新系统
 
 3. **状态投影（State Projection）**
 
-    - 做什么：从 LLM 输出 token 投影为状态估计
+    - 功能：从 LLM 输出 token 投影为状态估计
     - 核心思路：去除 LLM 原始 embedding/projection 层，仅用核心 Transformer 层，输出 token 通过 StateProjection 映射到 $\mathbb{R}^{L \times M}$
 
 ### 损失函数 / 训练策略

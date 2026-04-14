@@ -40,19 +40,19 @@ tags:
 ### 关键设计
 1. **表征对齐探测（Alignment Probing）**:
 
-    - 做什么：在不修改原始模型的情况下，训练两个线性变换探测已有模型表征的对齐程度
+    - 功能：在不修改原始模型的情况下，训练两个线性变换探测已有模型表征的对齐程度
     - 核心思路：冻结预训练的 $\mathcal{U}$ 和 $\mathcal{E}$，仅训练 $\mathcal{T}_u$ 和 $\mathcal{T}_e$ 最小化双向InfoNCE损失，用Recall@1衡量对齐度
     - 设计动机：验证两个核心假设——（1）独立训练的模型是否自发产生表征对齐；（2）对齐程度与任务成功率是否相关
 
 2. **镜像神经元对齐模块（Mirror Neuron Alignment）**:
 
-    - 做什么：在联合训练中显式对齐两个模型的中间表征
+    - 功能：在联合训练中显式对齐两个模型的中间表征
     - 核心思路：总损失 $\mathcal{L}_{\text{final}} = \mathcal{L}_{\text{AU}} + \lambda_{\text{EE}} \mathcal{L}_{\text{EE}} + \lambda_{\text{align}} \mathcal{L}_{\text{align}}$，其中对齐损失为双向InfoNCE：$\mathcal{L}_{\text{align}} = -\frac{1}{2B}\sum_{i=1}^{B}[\log\frac{\exp(\text{sim}(\mathbf{z}_u^{(i)}, \mathbf{z}_e^{(i)})/\tau)}{\sum_j \exp(\text{sim}(\mathbf{z}_u^{(i)}, \mathbf{z}_e^{(j)})/\tau)} + \text{对称项}]$
     - 设计动机：从信息论角度，等价于最大化动作理解表征 $\mathbf{u}$ 与具身执行表征 $\mathbf{e}$ 的互信息下界
 
 3. **正样本构建策略**:
 
-    - 做什么：定义哪些观察-执行配对应成为对比学习的正样本
+    - 功能：定义哪些观察-执行配对应成为对比学习的正样本
     - 核心思路：探索三种粒度——按Episode（同一轨迹）、按Instruction（相同指令但不同场景）、按Task（同类任务）
     - 设计动机：按Instruction是最佳平衡点，既保持语义一致性又引入变化，避免过于严格或宽松的对齐
 

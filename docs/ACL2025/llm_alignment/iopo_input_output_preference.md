@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2411.06208](https://arxiv.org/abs/2411.06208)  
 **代码**: [GitHub](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/IOPO)  
 **领域**: LLM对齐 / 指令遵循  
-**关键词**: instruction following, preference optimization, input preference, multi-constraint, DPO, Bradley-Terry  
+**关键词**: instruction following, preference optimization, input preference, multi-constraint, DPO, Bradley-Terry
 
 ## 一句话总结
 
@@ -31,7 +31,9 @@ tags:
 **领域现状**：LLM 的指令遵循（Instruction Following）能力至关重要，尤其随着 Agent 和复杂应用的普及，用户给出的指令越来越复杂——一条指令可能同时包含长度限制、格式要求、语言约束、内容约束等多个细粒度约束条件（multi-constraint）。
 
 **现有痛点**：
+
 **评测不足**：已有基准如 IFEval 仅有约 500 条评测数据，约束维度有限、覆盖不全面，缺乏大规模训练数据支持
+
 **算法缺失**：没有专门为提升复杂指令遵循能力设计的对齐算法——现有 DPO/RLHF 都是"给定同一指令 x，比较不同回复 y 的好坏"
 
 **核心矛盾**：DPO 系列方法只建模输出偏好，相当于只告诉模型"这个回复好/不好"，但不教模型"为什么好/不好"——面对包含多个细粒度约束的复杂指令，仅靠比较回复难以让模型精确感知每个约束是否被满足。

@@ -7,11 +7,11 @@ tags:
   - ICML2025
   - 优化
   - conservation laws
-  - gradient flow
+  - 梯度流
   - ResNet
   - Transformer
-  - training dynamics
-  - implicit bias
+  - 训练动态
+  - 隐式偏差
   - Lie algebra
 ---
 
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2506.06194](https://arxiv.org/abs/2506.06194)  
 **代码**: 待确认  
 **领域**: optimization  
-**关键词**: conservation laws, gradient flow, ResNet, Transformer, training dynamics, implicit bias, Lie algebra
+**关键词**: conservation laws, 梯度流, ResNet, Transformer, 训练动态, 隐式偏差, Lie algebra
 
 ## 一句话总结
 系统推导并证明了卷积 ResNet 和 Transformer 等现代架构在梯度流训练动态下的守恒律，揭示残差连接不改变守恒律、块级守恒律等价于孤立块的守恒律，并证明离散 SGD 下守恒误差为 $O(\text{step-size}^2)$。

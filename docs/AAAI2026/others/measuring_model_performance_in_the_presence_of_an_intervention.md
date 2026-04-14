@@ -52,19 +52,19 @@ tags:
 
 1. **朴素增强 AUROC 的偏差分析**:
 
-    - 做什么：理论推导朴素增强方法的精确偏差
+    - 功能：理论推导朴素增强方法的精确偏差
     - 核心思路：$\text{AUC}_{\text{naïve}}(f) = (1-\pi)\text{AUC}_{\mathbb{D}_0}(f) + \pi\text{AUC}_{\mathbb{D}_1}(f)$，其偏差为 $\text{Bias} = \alpha\delta(f) - \beta\sigma(f)$，其中 $\delta(f)$ 是模型真实 AUROC 相对 0.5 的改进，$\sigma(f)$ 是模型预测 CDF 与条件平均处理效应 CATE 的协方差
     - 设计动机：偏差取决于两个因素的线性组合——模型本身的好坏和模型与干预效应的相关性。当模型与 CATE 高度相关时，朴素方法会选错模型
 
 2. **错误模型选择条件（Theorem 2）**:
 
-    - 做什么：严格刻画朴素增强 AUROC 导致错误模型选择的精确条件
+    - 功能：严格刻画朴素增强 AUROC 导致错误模型选择的精确条件
     - 核心思路：当朴素估计选中的模型与 CATE 的相关性更高，且估计 AUROC 差值小于 $\beta$ 倍的 CATE 相关性差值时，选择必然错误
     - 设计动机：说明朴素方法的风险不可忽视，为无偏方法的必要性提供理论基础
 
 3. **Nuisance Parameter Weighting（NPW）**:
 
-    - 做什么：无偏地利用治疗组数据估计模型在无干预下的 AUROC
+    - 功能：无偏地利用治疗组数据估计模型在无干预下的 AUROC
     - 核心思路：提出两种加权方案恢复无干预分布 $\mathbf{P}(X_0^+)$ 和 $\mathbf{P}(X_0^-)$：
       - **$\omega$-加权**：用对照组学到的 $\hat{\omega}(X)$（无干预下的结局概率）对治疗组重加权：$\mathbf{P}(X_0^-) = \frac{1-\omega(X)}{1-\mu_0}\mathbf{P}(X)$
       - **$\tau$-加权**：用 CATE 估计 $\hat{\tau}(X)$ 校正治疗组分布：$\mathbf{P}(X_0^-) = \frac{1-\mu_1}{1-\mu_0}\mathbf{P}(X_1^-) + \frac{\tau(X)}{1-\mu_0}\mathbf{P}(X)$

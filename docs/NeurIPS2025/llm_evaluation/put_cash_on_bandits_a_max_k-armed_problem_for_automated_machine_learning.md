@@ -31,6 +31,7 @@ CASH（Combined Algorithm Selection and Hyperparameter Optimization）是 AutoML
 **现有方法的两条路线**：
 
 **联合搜索**（combined search）：将所有模型的超参数空间合并为一个层次化空间，直接用 BO 搜索。问题：高维条件空间导致 HPO 效率低下。
+
 **分解搜索**（two-level CASH）：上层用 Bandit 选择模型，下层对选中模型运行 HPO。问题：上层 Bandit 的目标函数定义和分布假设不明确。
 
 **核心矛盾**：现有的 Max K-Armed Bandit（MKB）算法假设奖励是重尾分布（如 Pareto），但 CASH 中 HPO 产生的奖励分布实际上是**有界、左偏、短尾**的。这个分布假设的错配导致现有极端 Bandit 算法在 CASH 上表现不佳。

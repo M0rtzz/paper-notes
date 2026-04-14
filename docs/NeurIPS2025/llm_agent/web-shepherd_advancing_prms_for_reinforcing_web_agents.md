@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Web-Shepherd: Advancing PRMs for Reinforcing Web Agents
 description: >-
-  [NeurIPS 2025][LLM Agent][Process Reward Model] 提出首个针对网页导航的过程奖励模型 Web-Shepherd，通过检查清单分解任务目标为可评估的子目标，3B/8B 模型在轨迹准确率上碾压 GPT-4o（85% vs 10%），同时成本仅为 1/10，使网页 Agent 的强化学习和推理时搜索变得实际可行。
+  [NeurIPS 2025][LLM Agent][process reward model] 提出首个针对网页导航的过程奖励模型 Web-Shepherd，通过检查清单分解任务目标为可评估的子目标，3B/8B 模型在轨迹准确率上碾压 GPT-4o（85% vs 10%），同时成本仅为 1/10，使网页 Agent 的强化学习和推理时搜索变得实际可行。
 tags:
   - NeurIPS 2025
   - LLM Agent
-  - Process Reward Model
+  - process reward model
   - Web Agent
   - Checklist-based Evaluation
   - Step-level Reward
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.15277](https://arxiv.org/abs/2505.15277)  
 **代码**: 有  
 **领域**: Agent  
-**关键词**: Process Reward Model, Web Agent, Checklist-based Evaluation, Step-level Reward, 网页导航
+**关键词**: process reward model, Web Agent, Checklist-based Evaluation, Step-level Reward, 网页导航
 
 ## 一句话总结
 提出首个针对网页导航的过程奖励模型 Web-Shepherd，通过检查清单分解任务目标为可评估的子目标，3B/8B 模型在轨迹准确率上碾压 GPT-4o（85% vs 10%），同时成本仅为 1/10，使网页 Agent 的强化学习和推理时搜索变得实际可行。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：MLLM 驱动的网页导航代理存在可靠性问题，容易陷入重复操作陷阱，难以进行跨多步的目标导向规划。
+
 **现有痛点**：① 二值奖励（成功/失败）信号稀疏，学习效率低；② 用 GPT-4o 作评估器成本高昂（评估 812 个查询需 $14,000，40 小时 A100），不适合实际部署。
+
 **核心矛盾**：数学推理已有成功的 PRM（过程奖励模型），但网页导航完全缺乏专门训练的 PRM。且 ORM 不适用——用户不能在多次预订机票失败后退款。
+
 **本文要解决什么**：① 构建网页导航专用 PRM；② 创建训练数据和评估基准；③ 实现低成本高精度的逐步奖励评估。
+
 **切入角度**：用检查清单（checklist）将高层用户指令分解为结构化子目标，使逐步奖励评估更可靠、更可解释。
+
 **核心 idea 一句话**：检查清单子目标分解 + NTP 训练的逐步奖励模型 = 低成本高精度的网页 Agent PRM。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **检查清单生成（Checklist Generation）**:
 
-    - 做什么：将高层用户指令自动分解为可评估的中间里程碑 $(g_1, g_2, \cdots, g_k)$
+    - 功能：将高层用户指令自动分解为可评估的中间里程碑 $(g_1, g_2, \cdots, g_k)$
     - 核心思路：采用粗粒度子目标（如将"filter A + filter B"抽象为"filtering"），减轻对特定网站的偏见和对动作顺序的敏感性
     - 设计动机：细粒度检查项会导致跨策略泛化差，粗粒度（3-5 项）与任务复杂度对应，能适应不同执行路径
 
 2. **基于检查清单的奖励建模**:
 
-    - 做什么：以 NTP 目标训练模型同时生成反馈 $F$ 和判断 $J$
+    - 功能：以 NTP 目标训练模型同时生成反馈 $F$ 和判断 $J$
     - 核心思路：$r_k(o,a) = \frac{1}{L}\sum_l [P(\text{"Yes"}) + 0.5 \times P(\text{"In Progress"})]$，最终奖励 $r(o,a) = \frac{1}{K}\sum_k r_k(o,a)$。通过 Verbalizer 从 logits 提取软概率
     - 设计动机：连续奖励比二值奖励提供更精细的学习信号；生成反馈提升可解释性
 
 3. **WebPRM Collection 数据构建**:
 
-    - 做什么：构建 40K 逐步偏好对的大规模标注数据集
+    - 功能：构建 40K 逐步偏好对的大规模标注数据集
     - 核心思路：专业标注者收集三个难度级别（易≈5步/中≈9步/难≈20步）的任务，检查清单用 GPT-4o 生成后人工验证，拒绝动作从 5 个策略采样候选中选取
     - 设计动机：同时发布 WebRewardBench——首个网页导航 PRM 元评估基准，加速后续研究
 

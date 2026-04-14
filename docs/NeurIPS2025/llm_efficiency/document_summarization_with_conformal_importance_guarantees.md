@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - LLM效率
   - 文档摘要
-  - Conformal Prediction
+  - 共形预测
   - 重要性覆盖保证
   - 抽取式摘要
   - 分布无关
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.20461](https://arxiv.org/abs/2509.20461)  
 **代码**: [https://github.com/layer6ai-labs/conformal-importance-summarization](https://github.com/layer6ai-labs/conformal-importance-summarization)  
 **领域**: NLP生成 / 可靠AI  
-**关键词**: 文档摘要, Conformal Prediction, 重要性覆盖保证, 抽取式摘要, 分布无关  
+**关键词**: 文档摘要, 共形预测, 重要性覆盖保证, 抽取式摘要, 分布无关
 
 ## 一句话总结
 首次将Conformal Prediction应用于文档摘要，通过校准句子重要性分数的阈值，为抽取式摘要提供用户可控的覆盖率($1-\alpha$)和召回率($\beta$)的严格统计保证，方法模型无关且仅需小规模校准集。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM大幅提升了摘要质量，但在医疗、法律、金融等高风险领域，摘要遗漏关键信息可能造成严重后果。现有摘要方法（无论抽取式还是生成式）无法保证关键内容的覆盖。
+
 **现有痛点**：（a）直接用LLM做生成式摘要可能产生幻觉且无法控制信息覆盖率；（b）抽取式方法虽然更忠实但缺乏理论保证；（c）用户无法指定"我希望至少保留80%的重要信息"这样的需求。
+
 **核心矛盾**：摘要天然需要压缩（shorter is better），但安全关键场景要求不遗漏重要信息（complete is better）——需要在简洁性和完整性之间提供可控的平衡。
+
 **本文要解决什么**：如何为摘要提供形式化的统计保证——以 $\geq 1-\alpha$ 的概率保留 $\geq \beta$ 比例的重要句子？
+
 **切入角度**：Conformal Prediction已在分类/回归/QA中提供分布无关保证，本文将其从"精度保证"（conformal factuality ensuring retained claims are factual）扩展为"召回保证"（ensuring important sentences are retained）。
+
 **核心idea**：在校准集上找到重要性分数阈值 $\hat{q}$，使得按此阈值过滤后的摘要以 $\geq 1-\alpha$ 概率保留 $\geq \beta$ 的重要句子。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **广义覆盖保证**
 
-    - 做什么：放宽经典Conformal Prediction的"全覆盖"要求，允许用户指定可接受的召回率 $\beta$。
+    - 功能：放宽经典Conformal Prediction的"全覆盖"要求，允许用户指定可接受的召回率 $\beta$。
     - 核心思路：定义召回 $B(y;y^*) = |y \cap y^*| / |y^*|$，目标为 $\mathbb{P}[B(y;y^*) \geq \beta] \geq 1-\alpha$。当 $\beta=1$ 退化为完全覆盖。对每个校准样本计算conformal score $S_\beta(x_i, y_i^*) = \max\{q \in \mathbb{R}^+ | B(F_q(x_i); y_i^*) \geq \beta\}$，即保持 $\beta$ 召回的最大阈值。取所有score的 $\lfloor\alpha(n+1)\rfloor/n$ 分位数作为 $\hat{q}$。
     - 设计动机：与conformal factuality的精度保证（$y \subseteq T(x,y^*)$）对称，这里面向召回保证。$\beta$ 参数让用户灵活控制——医疗场景可能需要 $\beta=1$（不漏）而新闻摘要可接受 $\beta=0.8$。
 
 2. **重要性评分函数 $R(c;x)$**
 
-    - 做什么：为文档中每个句子估计重要性分数。
+    - 功能：为文档中每个句子估计重要性分数。
     - 核心思路：提供两类评分方案——(a) LLM评分：用GPT-4o mini/Gemini/Llama等LLM prompt评分0-1；(b) 嵌入相似度：用SBERT计算句子嵌入，通过中心性（Cosine Centrality）、指向性（Sentence Centrality）、GUSUM、LexRank等图算法汇聚为重要性分数。
     - 设计动机：方法是模型无关的——任何能产生分数的方法都可以作为 $R$。LLM评分通常效果最好（AUPRC更高），但图方法不需要API调用。评分质量直接决定摘要在固定覆盖率下的简洁程度。
 
 3. **混合抽取-生成Pipeline**
 
-    - 做什么：先用Conformal Importance提取重要句子（有覆盖保证），再用LLM改写使文本更流畅简洁。
+    - 功能：先用Conformal Importance提取重要句子（有覆盖保证），再用LLM改写使文本更流畅简洁。
     - 核心思路：将摘要分解为两个子任务——信息筛选（抽取式，有保证）+ 润色合成（生成式，无保证但实际能保留大部分信息）。类似RAG把检索和生成分开。
     - 设计动机：纯抽取式摘要可能不通顺，纯生成式无法控制覆盖率。两步pipeline在实际中比直接LLM摘要有更高的信息保留率。
 

@@ -10,7 +10,7 @@ tags:
   - 视角转换
   - 心理旋转
   - 视觉语言模型
-  - 基准测试
+  - benchmark
 ---
 
 # SpinBench: Perspective and Rotation as a Lens on Spatial Reasoning in VLMs
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.25390](https://arxiv.org/abs/2509.25390)  
 **代码**: [https://spinbench25.github.io/](https://spinbench25.github.io/)  
 **领域**: 多模态视觉语言模型 (Multimodal VLM)  
-**关键词**: 空间推理, 视角转换, 心理旋转, 视觉语言模型, 基准测试
+**关键词**: 空间推理, 视角转换, 心理旋转, 视觉语言模型, benchmark
 
 ## 一句话总结
 

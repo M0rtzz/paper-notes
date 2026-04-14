@@ -9,7 +9,7 @@ tags:
   - AI治理
   - 军事AI
   - 人类控制
-  - agentic AI
+  - 智能体 AI
   - 安全框架
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.03515](https://arxiv.org/abs/2603.03515)  
 **代码**: 无  
 **领域**: LLM Agent  
-**关键词**: AI治理, 军事AI, 人类控制, agentic AI, 安全框架
+**关键词**: AI治理, 军事AI, 人类控制, 智能体 AI, 安全框架
 
 ## 一句话总结
 

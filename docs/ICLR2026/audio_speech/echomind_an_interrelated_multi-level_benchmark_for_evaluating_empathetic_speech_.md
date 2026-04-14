@@ -8,7 +8,7 @@ tags:
   - 语音
   - Speech Language Model
   - Empathetic Dialogue
-  - Benchmark
+  - benchmark
   - Vocal Cue
   - Evaluation
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.22758](https://arxiv.org/abs/2510.22758)  
 **代码**: [项目主页](https://hlt-cuhksz.github.io/EchoMind/)  
 **领域**: audio_speech  
-**关键词**: Speech Language Model, Empathetic Dialogue, Benchmark, Vocal Cue, Evaluation  
+**关键词**: Speech Language Model, Empathetic Dialogue, benchmark, Vocal Cue, Evaluation
 
 ## 一句话总结
 

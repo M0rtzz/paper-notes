@@ -7,9 +7,9 @@ tags:
   - CVPR 2026
   - 多模态
   - infrared-visible
-  - temporal consistency
+  - 时序一致性
   - 跨模态
-  - dataset
+  - 数据集
 ---
 
 # VideoFusion: A Spatio-Temporal Collaborative Network for Multi-modal Video Fusion
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.23359](https://arxiv.org/abs/2503.23359)  
 **代码**: [https://github.com/Linfeng-Tang/VideoFusion](https://github.com/Linfeng-Tang/VideoFusion)  
 **领域**: 图像融合 / 视频处理  
-**关键词**: multi-modal video fusion, infrared-visible, temporal consistency, cross-modal, dataset  
+**关键词**: multi-modal video fusion, infrared-visible, 时序一致性, 跨模态, 数据集
 
 ## 一句话总结
 构建M3SVD大规模红外-可见光视频数据集（220视频/15万帧），并提出VideoFusion框架，通过跨模态差分强化模块(CmDRM)+完整模态引导融合(CMGF)+双向时序共注意力(BiCAM)+变分一致性损失，实现时空协同的多模态视频融合，在融合质量和时序一致性上超越现有图像融合和视频融合方法。

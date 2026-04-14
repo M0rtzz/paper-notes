@@ -1,15 +1,15 @@
 ---
 title: >-
-  [论文解读] IDR²: Accelerating Adaptive RAG via Instruction-Driven Representation Reduction
+  [论文解读] Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps
 description: >-
-  [ACL 2025][信息检索][RAG加速] 提出IDR²，一种模型无关的A-RAG加速方法，通过跨迭代缓存共享(CICS)、指令驱动去重引导强化(IDGR)和信息引导并行生成(IGPG)三个模块，在保持生成质量的前提下实现prefilling 2.79倍、decoding 2.33倍、端到端2.0倍的平均加速。
+  [ACL 2025][Adaptive-RAG] 提出 IDR²，一种模型无关的自适应RAG加速框架，通过消除多轮检索间重叠文档的冗余表示并利用检索内容指导并行解码，实现端到端约2倍加速且不损失生成质量。
 tags:
   - ACL 2025
-  - RAG
+  - Adaptive-RAG
+  - KV Cache共享
   - 推理加速
-  - KV Cache
-  - 信息检索
-  - Speculative Decoding
+  - 推测解码
+  - 检索增强生成
 ---
 
 # Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.12731](https://arxiv.org/abs/2505.12731)  
 **代码**: 无  
 **领域**: 信息检索 / RAG加速  
-**关键词**: Adaptive-RAG, KV Cache共享, 推理加速, Speculative Decoding, 检索增强生成
+**关键词**: Adaptive-RAG, KV Cache共享, 推理加速, 推测解码, 检索增强生成
 
 ## 一句话总结
 
@@ -45,17 +45,17 @@ IDR² 将每轮A-RAG的生成过程分为检索、prefilling、decoding三个阶
 ### 关键设计
 
 1. **跨迭代缓存共享 (CICS)**:
-    - 做什么：建立共享缓存空间 $\mathbb{C}$ 存储每轮已处理文档的KV表示
+    - 功能：建立共享缓存空间 $\mathbb{C}$ 存储每轮已处理文档的KV表示
     - 核心思路：在第 $t$ 轮，先检查检索到的文档集 $D_t$ 中哪些已有缓存。对于已缓存的文档 $D_t^o$，直接加载其 $K_t^o, V_t^o$；仅对新文档 $D_t^n = D_t \setminus D_t^o$ 执行prefilling。形式化为 $a_t^1, K_t, V_t = \text{LLM}_P(q_t, D_t^n, A_{<t}, K_t^o, V_t^o)$
     - 设计动机：A-RAG相邻轮次文档重叠率极高（实验中3篇检索设置下达60-80%），缓存复用可大幅减少prefilling计算量
 
 2. **指令驱动去重引导强化 (IDGR)**:
-    - 做什么：通过自然语言指令引导LLM正确处理缓存中的冗余信息
+    - 功能：通过自然语言指令引导LLM正确处理缓存中的冗余信息
     - 核心思路：由于self-attention机制，缓存文档的KV表示中包含了上一轮其他文档的信息（如文档A的表示中融合了文档B的信息）。IDGR自动生成指令 $I_t$ 告诉LLM：(a) 哪些文档与当前轮次相关/无关；(b) 文档的相关性排名。例如："#5881721 ...是相关文档。#10028469 是无关文档。相关性分数为..."
     - 设计动机：直接使用缓存的KV表示会引入旧轮次的无关信息噪声，导致生成质量下降（实验显示EM下降2-3%）。IDGR利用LLM的指令遵循能力过滤噪声，不仅恢复还提升了性能
 
 3. **信息引导并行生成 (IGPG)**:
-    - 做什么：利用检索文档中的内容构建draft token序列，实现并行验证和生成
+    - 功能：利用检索文档中的内容构建draft token序列，实现并行验证和生成
     - 核心思路：RAG生成的内容与检索文档高度相关（2-token组合约70%出现在检索文档中）。IGPG用检索文档 $D_t$ 构建近似N-gram语言模型 $P(x_t|x_{t-N+1},...,x_{t-1})$，在每步自回归前查询匹配的后续短语片段作为draft。LLM一次前向传播验证draft的M个token，验证通过则一次生成多个token
     - 设计动机：不同于传统speculative decoding需要训练小模型，IGPG直接利用RAG场景中现成的检索文档作为draft来源，零训练成本
 

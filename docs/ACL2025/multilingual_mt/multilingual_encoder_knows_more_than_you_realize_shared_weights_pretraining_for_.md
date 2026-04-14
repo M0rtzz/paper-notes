@@ -25,10 +25,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：大语言模型在高资源语言（英文、中文）上取得了显著进展，但对极低资源语言（如藏语 Tibetan、维吾尔语 Uyghur、蒙古语 Mongolian）的支持严重不足。这些语言在预训练语料中占比极低（通常 <0.01%），导致 LLM 在这些语言上的生成能力近乎为零。
+
 **现有痛点**：(a) 直接在低资源语言上预训练 decoder-only LLM 面临数据量不足的根本问题——藏语维基百科仅约 1 万篇文章；(b) 现有多语言 LLM（如 BLOOM、LLaMA-2 多语言版）虽然号称支持多语言，但在极低资源语言上的实际生成质量极差；(c) 有趣的是，多语言编码器（如 XLM-R）在这些语言的理解任务（分类、NER）上表现尚可，但编码器模型天然不支持文本生成。
+
 **核心矛盾**：多语言编码器（如 XLM-R）在极低资源语言上已学到可用的表示，但编码器架构不能直接做生成。同时从零训练 decoder 又缺少数据。如何利用编码器已学到的语言知识来初始化和加速 decoder 的学习？
+
 **本文要解决什么**：提出一种高效的权重复用策略，将多语言编码器的知识转移到编码器-解码器架构的 decoder 部分，使得小模型（457M）在极低资源语言上也能进行高质量的文本生成。
+
 **切入角度**：观察到编码器和 decoder 的 Transformer 层结构有大量共享——self-attention 和 FFN 部分完全同构，区别仅在于 decoder 多了 cross-attention 层。因此可以将编码器权重直接复用到 decoder 的 self-attention 和 FFN，只需随机初始化 cross-attention。
+
 **核心 idea**：通过 CustomDecoderLayer（共享编码器权重的 self-attention + FFN，随机初始化的 cross-attention）和 NormalDecoderLayer（完全随机初始化）的交替插入，以最优频率 X=3 组合，让编码器知识为 decoder 提供初始化——权重共享是最关键组件（去掉后性能下降 33%）。
 
 ## 方法详解
@@ -37,8 +42,8 @@ tags:
 XLM-SWCM (Cross-lingual Language Model with Shared Weight Cross-modal) 的核心思路：
 1. **编码器**：直接使用预训练好的 XLM-R（frozen 或 partially frozen）
 2. **解码器**：混合两种类型的层——
-   - CustomDecoderLayer：self-attention 和 FFN 权重从 XLM-R 编码器复制，cross-attention 随机初始化
-   - NormalDecoderLayer：所有参数随机初始化
+    - CustomDecoderLayer：self-attention 和 FFN 权重从 XLM-R 编码器复制，cross-attention 随机初始化
+    - NormalDecoderLayer：所有参数随机初始化
 3. **交替插入**：每 X 个 NormalDecoderLayer 插入 1 个 CustomDecoderLayer（X=3 为最优频率）
 4. **训练**：在目标低资源语言的少量数据上进行生成任务训练（摘要、翻译等）
 

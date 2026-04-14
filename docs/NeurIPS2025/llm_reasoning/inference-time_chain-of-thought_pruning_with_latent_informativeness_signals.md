@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2511.00699](https://arxiv.org/abs/2511.00699)  
 **代码**: 未开源  
 **领域**: LLM推理  
-**关键词**: inference-time scaling, chain-of-thought pruning, KL divergence, Best-of-N, reasoning efficiency  
+**关键词**: inference-time scaling, chain-of-thought pruning, KL divergence, Best-of-N, reasoning efficiency
 
 ## 一句话总结
 提出 KAPPA (KL-Adjusted Pruned Path Algorithm)，利用 KL 散度、置信度和熵三个无需额外训练的信号对 Best-of-N 采样的推理分支进行渐进式剪枝，在保持准确率的同时实现最高 60% 峰值内存和 90% token 生成量的削减。
 
 ## 研究背景与动机
 **领域现状**: LLM 通过 Chain-of-Thought (CoT) 和 Best-of-N (BoN) 采样提升推理准确率——采样 N 条推理路径并选最优。这是推理时缩放 (inference-time scaling) 的核心范式。
+
 **现有痛点**: 标准 BoN 需要完整生成所有 N 条路径，计算和内存开销随 N 线性增长。已有方法 ST-BoN 通过一致性启发式截断不好的分支，但其一致性准则不直接评估分支质量。DeepConf 使用置信度加权投票但仍需多条路径跑完。
+
 **核心矛盾**: 推理时缩放的效果依赖于采样更多路径（N 越大越好），但完整生成所有路径的开销限制了 N 的实际可用值——如何在不牺牲准确率的前提下大幅减少冗余计算？
+
 **本文解决什么**: 设计一个无需训练的、基于信息论信号的推理分支剪枝算法，在推理过程中渐进式地淘汰低质量分支。
+
 **切入角度**: 将 KL 散度作为分支"信息量"的自监督信号——偏离无条件分布越多的分支越有信息量——结合置信度和熵做综合评分。
+
 **核心idea**: 不需要外部奖励模型，利用模型自身的 logits 分布特征就能判断哪些推理路径值得继续。
 
 ## 方法详解

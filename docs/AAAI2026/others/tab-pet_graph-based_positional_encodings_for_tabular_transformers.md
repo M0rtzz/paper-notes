@@ -27,10 +27,15 @@ Tab-PET 提出从表格特征间关联关系中估计图结构，利用图拉普
 ## 研究背景与动机
 
 **领域现状**：表格数据是机器学习最常见的数据形式之一，GBDTs（XGBoost、CatBoost）长期主导。近年 TabTransformer、SAINT、FT-Transformer 等 Transformer 架构在表格领域取得不错进展，但整体仍未稳定超越 GBDTs。
+
 **现有痛点**：图像有空间局部性、文本有序列顺序，Transformer 在这些模态可利用位置编码（PE）注入归纳偏置。而表格数据**特征顺序任意、缺乏天然结构先验**，现有 Tabular Transformer 一律不使用 PE，学界共识是"表格数据无结构，PE 无用"。
+
 **核心矛盾**：表格数据面临 (a) 样本稀缺、(b) 高维异构特征、(c) 无结构先验三重困难，Self-attention 在无 PE 时将所有特征视为完全等价的无序集合，无法利用特征间潜在的关联结构来简化学习任务。
+
 **本文要解决什么**：能否为表格 Transformer 构造有意义的位置编码？PE 能否真的提升泛化性能？如果能，应该从什么角度构造 PE？
+
 **切入角度**：作者从**有效秩（effective rank）** 的理论分析出发，发现 PE 可以降低 CLS token 输出嵌入的有效秩（内在维度），这相当于降低了学习问题的维度从而提升泛化。当 PE 与数据实际结构对齐时，有效秩下降更显著。
+
 **核心 idea 一句话**：从特征关联图中提取拉普拉斯特征向量作为固定 PE，注入 Tabular Transformer，利用 PE 降低嵌入有效秩的性质来强化泛化。
 
 ## 方法详解
@@ -46,7 +51,7 @@ Tab-PET 的 pipeline 分四步：
 
 1. **图估计（Graph Estimation）**
 
-    - 做什么：在特征维度上构造图，每个特征是节点，边权刻画特征间的统计依赖或因果关系。
+    - 功能：在特征维度上构造图，每个特征是节点，边权刻画特征间的统计依赖或因果关系。
     - 核心思路：探索两类图估计范式——
       - **因果图**：假设线性结构方程模型 $\mathbf{x} = \mathbf{W}\mathbf{x} + \boldsymbol{\epsilon}$，用 LiNGAM（利用非高斯性识别因果方向）或 NOTEARS（连续优化 + 无环约束）学习有向无环图。
       - **关联图**：直接用成对统计量 $w_{ij} = \rho(x_i, x_j)$ 构造边权，$\rho$ 可选 Pearson 相关、Spearman 秩相关或互信息（Chow-Liu 算法保证树结构 DAG）。
@@ -54,13 +59,13 @@ Tab-PET 的 pipeline 分四步：
 
 2. **位置编码构造（PE Creation）**
 
-    - 做什么：从估计出的图的拉普拉斯矩阵中提取特征向量，作为每个特征的位置编码。
+    - 功能：从估计出的图的拉普拉斯矩阵中提取特征向量，作为每个特征的位置编码。
     - 核心思路：先对邻接矩阵做对称化 $\mathbf{A}_{\text{sym}} = \frac{1}{2}(\mathbf{A} + \mathbf{A}^\top)$，计算图拉普拉斯 $\mathbf{L} = \mathbf{D} - \mathbf{A}_{\text{sym}}$，取前 $k$ 个和后 $k$ 个特征向量（排除常值第一个），标准化后拼接为 PE 矩阵 $\mathbf{P} = [\mathbf{e}_2, \dots, \mathbf{e}_{k+1}, \mathbf{e}_{d-k+1}, \dots, \mathbf{e}_d]$，再乘以缩放因子 $\mathbf{P}' = \alpha \cdot \mathbf{P}$。
     - 设计动机：低频特征向量捕获图的全局结构（相似特征获得相似编码），高频特征向量捕获局部差异（区分密切相关节点间的细微差别），两者结合在同质和异质图上均有效。$k$ 通过基于谱间隙的自适应算法自动选择，$\alpha$ 在验证集上从 9 个候选值中贪心搜索。
 
 3. **位置编码集成（PE Integration）**
 
-    - 做什么：将 PE 与 Transformer 的特征 embedding 拼接。
+    - 功能：将 PE 与 Transformer 的特征 embedding 拼接。
     - 核心思路：对每个特征 $x_i$，其原始嵌入 $\mathbf{z}_i$ 与缩放后的 PE $\mathbf{p}_i'$ 做拼接 $\mathbf{z}_i' = [\mathbf{z}_i; \mathbf{p}_i'] \in \mathbb{R}^{n+2k}$，然后送入 self-attention 层。对于类别特征的多个 one-hot 节点，取其 PE 的均值作为该特征的统一编码。
     - 设计动机：拼接而非相加，保留了原始 embedding 信息不被 PE 覆盖，同时让模型可以通过 attention 自行学习如何利用位置信息。
 

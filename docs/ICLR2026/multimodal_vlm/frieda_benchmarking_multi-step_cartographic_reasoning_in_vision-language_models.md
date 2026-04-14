@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.08016](https://arxiv.org/abs/2512.08016)  
 **代码**: [knowledge-computing/FRIEDA](https://github.com/knowledge-computing/FRIEDA)  
 **领域**: multimodal_vlm  
-**关键词**: cartographic reasoning, map VQA, spatial relations, multi-image reasoning, benchmark  
+**关键词**: cartographic reasoning, map VQA, spatial relations, multi-image reasoning, benchmark
 
 ## 一句话总结
 
@@ -43,9 +43,9 @@ tags:
 FRIEDA 围绕四个核心维度设计问题：
 
 1. **空间关系推理**：基于 GIS 文献中的三大类空间关系
-   - 拓扑关系：border（共享边界）、equal（几何重合）、intersect（交叉）、within（包含）
-   - 度量关系：distance（利用比例尺计算实际距离）
-   - 方向关系：orientation（利用指北针判断方位）
+    - 拓扑关系：border（共享边界）、equal（几何重合）、intersect（交叉）、within（包含）
+    - 度量关系：distance（利用比例尺计算实际距离）
+    - 方向关系：orientation（利用指北针判断方位）
 2. **地图元素解读**：要求理解 map text、legend、map scale、compass 的语义
 3. **跨地图推理**：需要对齐多幅地图中的共享符号、标签和比例尺，整合多源证据
 4. **上下文设置（contextual）**：模型需从同一文档的多幅地图中检索出相关地图后再作答

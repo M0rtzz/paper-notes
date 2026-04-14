@@ -53,7 +53,7 @@ UNO 基于 FLUX.1 dev（MM-DiT 架构），包含两大核心系统：(1) 合成
 
 1. **合成数据管线（Synthetic Data Curation Framework）**:
 
-    - 做什么：利用 DiT 模型的 in-context 生成能力，系统化地生成高分辨率（1024×1024）、高一致性的主体配对数据
+    - 功能：利用 DiT 模型的 in-context 生成能力，系统化地生成高分辨率（1024×1024）、高一致性的主体配对数据
     - 核心思路：
       - **单主体阶段**：构建包含 365 个大类和细粒度子类的分类体系，利用 LLM 生成多样化的主体和场景文本，通过精心设计的文本模板让 T2I 模型生成主体一致的图像对。使用 DINOv2 做初步过滤（去掉一致性低的），再用 VLM 从 appearance、details、attributes 多维度评分：$score = \text{Average}(\text{VLM}(I_{ref}, I_{tgt}, c_y))$
       - **多主体阶段**：用 Stage I 训练好的 S2I 模型 + OVD（开放词汇检测器）从目标图像中检测并裁剪额外主体，输入 S2I 模型生成一致的第二参考图像 $I_{ref}^2$。关键：直接用裁剪图像作为 $I_{ref}^2$ 会导致 copy-paste 问题，必须通过 S2I 模型重新生成
@@ -61,7 +61,7 @@ UNO 基于 FLUX.1 dev（MM-DiT 架构），包含两大核心系统：(1) 合成
 
 2. **渐进式跨模态对齐（Progressive Cross-Modal Alignment）**:
 
-    - 做什么：分两阶段逐步让 DiT 学会基于参考图像生成
+    - 功能：分两阶段逐步让 DiT 学会基于参考图像生成
     - 核心思路：
       - Stage I：单参考图像输入。将参考图像通过 VAE 编码后直接拼接到文本 token 和 noisy latent 上：$z_1 = \text{Concatenate}(c, z_t, \mathcal{E}(I_{ref}^1))$。在 FLUX 的 MM-DiT attention 中与其他 token 共同参与计算
       - Stage II：扩展到多参考图像：$z_2 = \text{Concatenate}(c, z_t, z_{ref}^1, z_{ref}^2, \ldots, z_{ref}^N)$，N=2
@@ -69,7 +69,7 @@ UNO 基于 FLUX.1 dev（MM-DiT 架构），包含两大核心系统：(1) 合成
 
 3. **Universal Rotary Position Embedding (UnoPE)**:
 
-    - 做什么：为多参考图像设计合理的位置编码，避免属性混淆
+    - 功能：为多参考图像设计合理的位置编码，避免属性混淆
     - 核心思路：FLUX 使用 RoPE，文本 token 位于 (0,0)，noisy image token 位于 (i,j) 其中 $i \in [0,w-1], j \in [0,h-1]$。参考图像从对角线位置开始：$(i', j') = (i + w^{(N-1)}, j + h^{(N-1)})$，确保不同参考图像之间有足够的位置间隔
     - 设计动机：直接复制目标图像的位置索引（无偏移）会导致模型无法区分参考图像和目标图像，DINO 大幅下降（从 0.730 降至 0.470 单主体，从 0.542 降至 0.386 多主体）。UnoPE 通过对角线偏移打破了参考图像间的空间关联，迫使模型从文本而非位置获取布局信息
 

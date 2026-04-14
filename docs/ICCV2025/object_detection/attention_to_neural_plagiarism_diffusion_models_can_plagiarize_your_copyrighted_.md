@@ -26,14 +26,19 @@ tags:
 
 ## 研究背景与动机
 扩散模型的生成能力日益强大，引发了数据版权侵犯的严重担忧。这种被称为"神经抄袭"的威胁有两种形式：
+
 **伪造攻击（Forgery Attack）**：生成视觉相似的副本同时移除水印，使版权验证失败$\mathcal{V}(x^*) \neq w$
+
 **模糊攻击（Ambiguity Attack）**：替换为新水印制造所有权争议$\mathcal{V}(x^*) = w^*$
 
 现有防护措施包括法律框架（GDPR、版权法）和技术手段（可见/隐形水印）。但现有的水印去除方法（如Regen、Rinse）仅通过简单的加噪-去噪过程去除水印，效果有限且往往引入明显噪声。
 
 直接优化目标函数$\min_{x_T^*} d_{visual}(x_0^w, x_0^*) - \gamma d_{latent}(x_T, x_T^*)$面临三个挑战：
+
 **显存爆炸**：每个时间步需计算梯度$\frac{\partial x_{t-1}^*}{\partial x_t^*}$，10步需>100GB显存
+
 **过度平滑**：跳步估计梯度导致图像模糊
+
 **噪声输出**：高扰动产生噪声而非有意义的语义变化
 
 核心idea：用"锚点"（反转隐变量序列）保持轨迹，用"垫片"（学习的扰动）在特定时间步微调语义，类似安装门时用垫片调整间距——在保持门框对齐的同时调整局部空间。
@@ -49,14 +54,14 @@ tags:
 
 1. **锚点与垫片优化（Anchors and Shims）**:
 
-    - 做什么：解耦隐变量的长链依赖，逐时间步独立优化扰动
+    - 功能：解耦隐变量的长链依赖，逐时间步独立优化扰动
     - 核心思路：保存完整的反转隐变量轨迹作为锚点$\{\hat{x}_t\}$，定义垫片$\delta_t$为搜索变量：$x_t^* = \Delta_{\delta_t \in \mathcal{S}}(x_t, \delta_t)$
     - 范数约束：$\mathcal{L}_{norm}(t) = \max(0, \hat{\varepsilon}_t - \|\delta_t\|)$，确保垫片足够大以偏离锚点（从而破坏水印）
     - 设计动机：通过保存锚点解耦时间步链，每步仅需一步反向传播的显存，解决了>100GB的显存问题
 
 2. **基于注意力的语义搜索（Semantic Search via Attention Perturbation）**:
 
-    - 做什么：在语义空间中进行可控的修改搜索
+    - 功能：在语义空间中进行可控的修改搜索
     - 核心思路：不直接扰动隐变量，而是扰动交叉注意力中的文本嵌入——在空字符串嵌入$\mathbf{e}_\emptyset$上注入垫片$\delta_t$
     - 语义保持损失：$\mathcal{L}_{semantic}(t) = -\frac{\mathbf{e}_\emptyset \cdot (\mathbf{e}_\emptyset + \delta_t)}{\|\mathbf{e}_\emptyset\| \|\mathbf{e}_\emptyset + \delta_t\|}$（最大化余弦相似度）
     - 对齐损失：$\mathcal{L}_{align}(t) = d(x_{t-1}, \hat{x}_{t-1})$，保证扰动后输出接近锚点
@@ -65,7 +70,7 @@ tags:
 
 3. **迭代搜索过程**:
 
-    - 做什么：在选定时间步上联合优化垫片
+    - 功能：在选定时间步上联合优化垫片
     - 联合目标：$\min_{\delta_t} \mathcal{L}_{norm}(t) + \gamma_1 \mathcal{L}_{semantic}(t) + \gamma_2 \mathcal{L}_{align}(t)$
     - 超参数：$\gamma_1 = 10^5, \gamma_2 = 0.1, \hat{\varepsilon}_t = 10$
     - 使用Adam优化器（学习率0.01），权重衰减$10^{-3}$，梯度裁剪（最大范数1.0）

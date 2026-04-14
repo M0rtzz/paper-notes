@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.20652](https://arxiv.org/abs/2509.20652)  
 **代码**: 有 (GitHub)  
 **领域**: 文本生成 / LLM应用  
-**关键词**: product claims, in-context learning, LoRA fine-tuning, MaxDiff, consumer simulation  
+**关键词**: product claims, in-context learning, LoRA fine-tuning, MaxDiff, consumer simulation
 
 ## 一句话总结
 开发 Claim Advisor 平台，利用 LLM 的 in-context learning 和 LoRA 微调加速消费品产品宣称的搜索、生成、优化和排序，通过模仿 MaxDiff 研究方法论让微调的 Phi-3 14B 模型在宣称排序上超越 GPT-4o（仅用 1 个示例 vs GPT 的 100 个示例），三轮迭代后 100% 的生成宣称达到"高吸引力"级别。
@@ -49,19 +49,19 @@ Claim Advisor 是一个 MVP Web 应用，包含三大功能模块：(1) **语义
 
 1. **语义搜索（多模态融合检索）**
 
-    - 做什么：从宣称库中检索与用户查询语义相似的文本宣称和视觉设计。
+    - 功能：从宣称库中检索与用户查询语义相似的文本宣称和视觉设计。
     - 核心思路：文本用 OpenAI TEXT-EMBEDDING-ADA-002 编码，图像用 CLIP 编码到共享空间，支持多模态融合查询：$emb = (1-W) \cdot emb_{txt} + W \cdot emb_{img}$，通过余弦相似度检索。
     - 设计动机：宣称创建的第一步通常是搜索已有资产——已批准的宣称可以直接复用，MaxDiff 高分宣称可以作为新宣称的起点。
 
 2. **In-Context Learning 生成/优化宣称**
 
-    - 做什么：从历史 MaxDiff 研究中构造示例，引导 LLM 生成高吸引力的新宣称。
+    - 功能：从历史 MaxDiff 研究中构造示例，引导 LLM 生成高吸引力的新宣称。
     - 核心思路：两种构造 in-context 示例的方法：(a) **基于性能**——取 MaxDiff 得分第 2-6 名的宣称作为输入，让模型生成一个超越它们的宣称；(b) **基于语义**——取与最优宣称语义最相似的 5 个宣称作为输入。共构造 300 个示例用于 in-context learning。
     - 设计动机：假设 LLM 能从中等表现的宣称中推断消费者偏好，并综合生成更好的宣称。性能方法提供偏好信号，语义方法提供主题方向。
 
 3. **MaxDiff 模拟排序（LoRA 微调 Phi-3）**
 
-    - 做什么：用微调的 LLM 模仿消费者在 MaxDiff 研究中的行为，虚拟筛选候选宣称。
+    - 功能：用微调的 LLM 模仿消费者在 MaxDiff 研究中的行为，虚拟筛选候选宣称。
     - 核心思路：不让 LLM 一次性排序所有宣称（效果差），而是模仿 MaxDiff 范式——每次给 5 个宣称，让模型选出最好和最差的。重复多次后统计每个宣称被选为"最好"和"最差"的频率，计算得分 = best 次数 / worst 次数。用 Phi-3 (7B/14B) + LoRA，100K+ 训练样本微调。
     - 设计动机：直接让 LLM 排序（一次性输出所有排名）缺乏统计意义；模仿 MaxDiff 的两端选择范式（选最好+最差）符合消费者决策心理学，且产生统计上有意义的结果。
 

@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2602.07470](https://arxiv.org/abs/2602.07470)  
 **代码**: 无  
 **领域**: AI安全 / LLM鲁棒性  
-**关键词**: reasoning LLM, chain-of-thought, robustness, self-correction, doubt mechanism  
+**关键词**: reasoning LLM, chain-of-thought, robustness, self-correction, doubt mechanism
 
 ## 一句话总结
 系统评估推理型 LLM 对其 CoT 中各种干预（良性/中性/对抗性）的鲁棒性：发现模型总体鲁棒能从干预中恢复，但改写风格（paraphrasing）会抑制"自我怀疑"表达导致正确率下降，恢复过程有显著计算开销（CoT 膨胀最高 665%）。
 
 ## 研究背景与动机
 **领域现状**：推理型 LLM（如 DeepSeek-R1、QwQ）通过生成 CoT 来逐步推理，提升了复杂任务表现。但在实际部署中 CoT 可能受到噪声工具输出、对抗性注入或自身幻觉的干扰。
+
 **现有痛点**：已知传统（非推理）LLM 的自我纠错能力有限——经常把正确答案改错。但 RLVR 训练的推理模型是否获得了更强的鲁棒性和自纠能力，缺乏系统性研究。
+
 **核心矛盾**：推理鲁棒性和推理效率之间存在 trade-off——模型可能能恢复正确答案，但代价是 CoT 大幅膨胀、推理成本飙升。
+
 **本文要解决什么？**（1）推理 LLM 能否从 CoT 中的干预中恢复？（2）什么因素影响恢复能力？（3）恢复的计算代价是什么？
+
 **切入角度**：设计受控实验框架，在模型自己正确的 CoT 上施加 7 种干预，测量是否仍能得到正确答案。
+
 **核心idea一句话**：推理 LLM 对 CoT 干预总体鲁棒，但其鲁棒性依赖于"自我怀疑"（doubt）这一元认知机制，改写风格会抑制 doubt 并损害性能。
 
 ## 方法详解
@@ -48,13 +53,13 @@ tags:
 
 2. **采样鲁棒性指标**：
 
-    - 做什么：量化不同严格程度下的鲁棒性。
+    - 功能：量化不同严格程度下的鲁棒性。
     - 三个层级：at-least-once-robust（$K \geq 1$）、majority-robust（$K \geq 5/8$）、all-robust（$K = 8$）。
     - 主要关注 majority-robust，兼顾了偶然正确和严格一致性。
 
 3. **Doubt 分析**：
 
-    - 做什么：量化 CoT 中"自我怀疑"表达（如 "Wait", "Let me check"）的频率。
+    - 功能：量化 CoT 中"自我怀疑"表达（如 "Wait", "Let me check"）的频率。
     - 核心思路：用 LLM 分类器对干预后的 20 句进行 doubt/non-doubt 二分类，与未干预基线（doubt 率 0.153）对比。
 
 ### 实验规模

@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2509.07447](https://arxiv.org/abs/2509.07447)  
 **代码**: [项目主页](https://taiyi98.github.io/projects/EgoGazeVQA)  
 **领域**: video_understanding  
-**关键词**: egocentric video, gaze, video QA, MLLM, benchmark, intent understanding  
+**关键词**: egocentric video, gaze, video QA, MLLM, benchmark, intent understanding
 
 ## 一句话总结
 提出 EgoGazeVQA——首个利用注视（gaze）信号评估 MLLM 对第一人称视频中用户意图理解能力的基准，并设计三种 gaze-guided prompting 策略显著提升模型表现。

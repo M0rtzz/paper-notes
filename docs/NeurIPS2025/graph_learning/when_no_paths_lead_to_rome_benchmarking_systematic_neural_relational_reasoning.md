@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 图学习
   - 关系推理
-  - Benchmark
+  - benchmark
   - 非路径推理
   - 系统性泛化
   - 图神经网络
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.23532](https://arxiv.org/abs/2510.23532)  
 **代码**: [GitHub](https://github.com/axd353/WhenNoPathsLeadToRome/)  
 **领域**: 图学习  
-**关键词**: 关系推理, Benchmark, 非路径推理, 系统性泛化, 图神经网络
+**关键词**: 关系推理, benchmark, 非路径推理, 系统性泛化, 图神经网络
 
 ## 一句话总结
 

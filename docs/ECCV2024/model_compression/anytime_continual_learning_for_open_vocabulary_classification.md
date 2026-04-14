@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2409.08518](https://arxiv.org/abs/2409.08518)  
 **代码**: [GitHub](https://github.com/jessemelpolio/AnytimeCL)  
 **领域**: model_compression  
-**关键词**: continual learning, open vocabulary, CLIP, online learning, feature compression  
+**关键词**: continual learning, open vocabulary, CLIP, online learning, feature compression
 **作者**: Zhen Zhu, Yiming Gong, Derek Hoiem (UIUC)
 
 ## 一句话总结

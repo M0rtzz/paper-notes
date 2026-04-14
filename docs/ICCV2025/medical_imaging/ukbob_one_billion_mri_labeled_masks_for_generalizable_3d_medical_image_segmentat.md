@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：大规模标注数据（如ImageNet、LAION）是计算机视觉基础模型成功的基石。但医学影像领域因隐私法规、标注成本高昂和后勤复杂性，缺乏大规模标注数据集。现有数据集如BRATS（1,470样本/3类）、BTCV（50样本/12类）都规模有限。
+
 **现有痛点**：(1) 现有医学数据集要么缺乏多样性，要么规模太小，无法训练泛化性强的基础模型；(2) 自动标注虽能解决规模问题但引入噪声标签；(3) 训练-测试域偏移（不同设备、协议、模态）导致性能退化。
+
 **核心矛盾**：医学影像迫切需要大规模标注数据来训练基础模型，但人工标注17.9M张图像不可行，自动标注又必然引入噪声。
+
 **本文要解决什么？** (a) 构建最大规模的医学影像分割标注数据集；(b) 设计标签质量控制机制；(c) 处理带噪标签训练的模型在测试时的域偏移问题。
+
 **切入角度**：利用UK Biobank的51,761个全身MRI扫描作为数据源，配合TotalVibeSegmentator自动标注，然后设计基于器官几何特性的统计过滤器清洗标签。
+
 **核心idea一句话**：用自动标注+统计过滤构建超大规模医学影像数据集，再通过熵驱动的测试时适应处理残留噪声，训练出高泛化性的3D医学分割基础模型。
 
 ## 方法详解
@@ -44,14 +49,14 @@ Pipeline：UK Biobank MRI数据 → TotalVibeSegmentator自动标注72类器官 
 
 1. **UKBOB数据集构建**:
 
-    - 做什么：从UK Biobank的51,761个颈到膝全身MRI扫描（4序列：fat-only、water-only、in-phase、out-of-phase）中生成72类器官的分割标注
+    - 功能：从UK Biobank的51,761个颈到膝全身MRI扫描（4序列：fat-only、water-only、in-phase、out-of-phase）中生成72类器官的分割标注
     - 核心思路：使用TotalVibeSegmentator自动标注，生成17.9M 2D图像和13.7亿2D分割mask
     - 规模比较：比之前最大的TotalSegmentator（1,204样本/104类/580万mask）大约237倍mask数量
     - 手动验证集UKBOB-manual：300个MRI，11个腹部器官，3000张2D图像，作为自动标注质量验证
 
 2. **Specialized Organ Label Filter (SOLF)**:
 
-    - 做什么：基于器官几何特性的统计过滤器，去除自动标注中的错误标签
+    - 功能：基于器官几何特性的统计过滤器，去除自动标注中的错误标签
     - 核心思路：对每个器官类别c，计算三个特征：
       - **归一化体积**：$v_c = V_c / V_{\text{body}}$（器官体积相对全身体积）
       - **球度(Sphericity)**：$\Phi_c = \pi^{1/3}(6V_c)^{2/3}/A_c$（形状接近球体的程度）
@@ -62,7 +67,7 @@ Pipeline：UK Biobank MRI数据 → TotalVibeSegmentator自动标注72类器官 
 
 3. **Entropy Test-Time Adaptation (ETTA)**:
 
-    - 做什么：测试时优化batch normalization参数以提升分割鲁棒性
+    - 功能：测试时优化batch normalization参数以提升分割鲁棒性
     - 核心思路：给定测试样本 $\mathbf{x}$，计算预测概率的熵损失：
     $\mathcal{L}_{\text{ent}} = -\frac{1}{N}\sum_{i=1}^N \sum_{c=1}^C p_{i,c} \log p_{i,c}$
     - 仅更新BN参数 $\theta_{\text{BN}}$，冻结其他参数：$\theta_{\text{BN}}^* = \arg\min_{\theta_{\text{BN}}} \mathcal{L}_{\text{ent}}(f_{\theta_{\text{fixed}}, \theta_{\text{BN}}}(\mathbf{x}))$
@@ -71,7 +76,7 @@ Pipeline：UK Biobank MRI数据 → TotalVibeSegmentator自动标注72类器官 
 
 4. **Swin-BOB基础模型**:
 
-    - 做什么：在过滤后的UKBOB上预训练Swin-UNetr，作为3D医学分割基础模型
+    - 功能：在过滤后的UKBOB上预训练Swin-UNetr，作为3D医学分割基础模型
     - 训练配置：96³裁剪，batch size 8, AdamW, 3000 epochs, 2×A6000 GPU
     - 损失函数：Binary Cross-Entropy + Dice Similarity Coefficient
     - 下游微调：保持相同配置，减少warm-up到50 epochs，共500 epochs

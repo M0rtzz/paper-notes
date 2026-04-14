@@ -2,11 +2,11 @@
 title: >-
   [论文解读] DreamDissector: Learning Disentangled Text-to-3D Generation from 2D Diffusion Priors
 description: >-
-  [ECCV 2024][3D视觉][Text-to-3D] 提出DreamDissector框架，通过Neural Category Field和Deep Concept Mining将包含多物体交互的text-to-3D NeRF解耦为独立的带纹理网格，实现物体级别的3D编辑控制。
+  [ECCV 2024][3D视觉][文生3D] 提出DreamDissector框架，通过Neural Category Field和Deep Concept Mining将包含多物体交互的text-to-3D NeRF解耦为独立的带纹理网格，实现物体级别的3D编辑控制。
 tags:
   - ECCV 2024
   - 3D视觉
-  - Text-to-3D
+  - 文生3D
   - NeRF解耦
   - 扩散模型
   - Score Distillation Sampling
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.16260](https://arxiv.org/abs/2407.16260)  
 **代码**: 基于 [threestudio](https://github.com/threestudio-project/threestudio)  
 **领域**: 3D视觉  
-**关键词**: Text-to-3D, NeRF解耦, 扩散模型, Score Distillation Sampling, 3D编辑
+**关键词**: 文生3D, NeRF解耦, 扩散模型, Score Distillation Sampling, 3D编辑
 
 ## 一句话总结
 
@@ -28,13 +28,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Text-to-3D生成借助SDS（Score Distillation Sampling）取得显著进展，可从文本描述生成3D NeRF场景。但现有方法生成的多物体场景是整体不可分的表示。
+
 **现有痛点**：
    - 现有方法要么生成不可分离的整体场景，要么生成缺乏空间交互的独立物体
    - CompoNeRF/Comp3D需要3D包围盒输入，只能处理简单空间关系（如桌子旁边放柜子），无法处理复杂交互（如宇航员骑袋鼠）
    - 无法像2D图像编辑的"图层"概念一样，独立操控3D场景中的每个物体
+
 **核心矛盾**：多物体text-to-3D需要物体间的交互关系，但编辑又需要物体的独立表示，两者难以兼得。
+
 **本文要解决什么？** 将已生成的多物体交互NeRF自动解耦为独立的物体网格，保持交互关系和外观。
+
 **切入角度**：不直接生成独立物体，而是先生成完整交互场景再"拆解"——通过学习空间中每个点的类别概率分布来分解密度场。
+
 **核心idea一句话**：用概率分布分解NeRF密度场实现解耦，并通过个性化扩散模型解决概念差距问题。
 
 ## 方法详解

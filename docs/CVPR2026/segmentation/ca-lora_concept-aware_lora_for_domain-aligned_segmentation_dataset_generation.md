@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：语义分割需要大量像素级标注数据，成本高昂。近年来利用T2I生成模型合成训练数据成为缓解数据稀缺的有效策略。
+
 **现有痛点**：分割数据集生成面临两个关键挑战——(1) 生成的样本需与目标域对齐（如驾驶视角、城市风格）；(2) 生成的样本需超越训练数据，具有信息量和多样性。早期方法（仅在目标数据上训练生成模型）能域对齐但缺乏多样性；近期方法（直接用预训练T2I模型）多样但域不对齐。
+
 **核心矛盾**：对T2I模型做LoRA微调可以实现域对齐，但会导致过拟合和记忆训练数据——因为LoRA同时学习了视角、风格、物体形状、布局等所有概念，限制了多样性。
+
 **切入角度**：域对齐通常只需要学习某个特定概念（如视角或风格），不需要学全部概念。
+
 **核心idea**：自动度量每层权重对特定概念的敏感性（concept awareness），仅对最敏感的前k%层施加LoRA，其余冻结保留预训练知识。
 
 ## 方法详解
@@ -41,14 +45,14 @@ tags:
 
 1. **概念感知度量（Concept Awareness）**:
 
-    - 做什么：量化T2I模型中每层权重对特定概念（如风格、视角）的敏感性
+    - 功能：量化T2I模型中每层权重对特定概念（如风格、视角）的敏感性
     - 核心思路：设计概念损失（Concept Loss），用概念增强caption作为伪目标。如原prompt为"Photorealistic first-person urban street view"，风格增强为"Sketch of first-person urban street view"，视角增强为"Photorealistic urban street in top-down view"。概念损失定义为 $\mathcal{L}_{Concept} = \|\epsilon_\theta(x_t, c, t) - \text{sg}[\epsilon_\theta(x_t, c_{Aug}, t)]\|_2^2$。关键创新在于用扩散损失梯度**归一化**概念损失梯度，消除位置偏差：
     $\text{Concept-Awareness}(\theta) = \mathbb{E}_{x_0, \epsilon, c_{Aug}}\left[\frac{\|\nabla_\theta \mathcal{L}_{Concept}\|}{\|\nabla_\theta \mathcal{L}_{Diff}\|}\right]$
     - 设计动机：直接用概念损失梯度的RMS范数有严重的层间位置偏差，归一化后才能公平比较不同层的概念敏感性
 
 2. **CA-LoRA选择性微调**:
 
-    - 做什么：仅对top-k%概念敏感层施加LoRA，其余冻结
+    - 功能：仅对top-k%概念敏感层施加LoRA，其余冻结
     - 核心思路：按concept awareness排序所有attention投影层（Q/K/V/OUT），选择top-k%施加LoRA更新 $W_0 + \Delta W = W_0 + BA$
     - 设计动机：标准LoRA对所有层等权微调导致过拟合不需要的概念。CA-LoRA让模型只学习指定概念（如视角），保留了对其他概念（如风格、物体形状）的可控性。这在域泛化场景中特别重要——可以通过text prompt自由控制天气/光照等风格
     - **Style CA-LoRA**：域内设置，学习训练集的风格（如晴天城市）
@@ -56,7 +60,7 @@ tags:
 
 3. **标签生成器与域差距缩减**:
 
-    - 做什么：从T2I模型的中间特征生成语义标签
+    - 功能：从T2I模型的中间特征生成语义标签
     - 核心思路：去噪过程中提取多尺度生成特征和交叉注意力图，训练Mask2Former形状的标签生成器。关键：用**微调后**的T2I模型训练标签生成器（而非DatasetDM用的预训练模型），大幅缩小训练-推理的域差距
     - 设计动机：预训练T2I模型的生成特征和目标域图片的特征分布不同，微调后统计量更一致，标签质量显著提升
 

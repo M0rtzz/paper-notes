@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.17534](https://arxiv.org/abs/2505.17534)  
 **代码**: [https://github.com/mm-vl/ULM-R1](https://github.com/mm-vl/ULM-R1)  
 **领域**: 多模态VLM / 强化学习 / 图像生成  
-**关键词**: unified multimodal model, GRPO, co-reinforcement learning, vision-language, text-to-image  
+**关键词**: unified multimodal model, GRPO, co-reinforcement learning, vision-language, text-to-image
 
 ## 一句话总结
 提出CoRL框架——通过"统一RL→精细RL"两阶段GRPO训练策略，在不依赖额外监督数据的情况下，让统一多模态模型(ULM)的理解和生成能力协同进化，在Janus-Pro-1.5B上取得生成+7%、理解+23%的平均提升。

@@ -8,7 +8,7 @@ tags:
   - 模型压缩
   - adversarial robustness distillation
   - 知识蒸馏
-  - adversarial training
+  - 对抗训练
   - dual-teacher
   - contrastive push loss
 ---
@@ -20,7 +20,7 @@ tags:
 **代码**: [https://github.com/eminentgu/CIARD](https://github.com/eminentgu/CIARD)  
 **机构**: NJUST, HKUST(GZ), INSAIT Sofia University, Peking University
 **领域**: 模型压缩 / 对抗鲁棒蒸馏 / 知识蒸馏  
-**关键词**: adversarial robustness distillation, knowledge distillation, adversarial training, dual-teacher, contrastive push loss, model compression
+**关键词**: adversarial robustness distillation, 知识蒸馏, 对抗训练, dual-teacher, contrastive push loss, 模型压缩
 
 ## 一句话总结
 提出CIARD，通过对比推离损失（Contrastive Push Loss）解决双教师ARD框架中clean teacher和robust teacher的优化目标冲突，并设计迭代教师训练（ITT）策略持续更新robust teacher以防止性能退化，在CIFAR-10/100和Tiny-ImageNet上同时提升对抗鲁棒性+3.53%和干净准确率+5.87%。

@@ -50,20 +50,20 @@ ChInf 是一个后处理可解释性工具。给定训练好的 MTS 模型，ChI
 
 1. **Channel-wise Influence Function (ChInf)**：
 
-    - 做什么：将 TracIn 分解到通道级
+    - 功能：将 TracIn 分解到通道级
     - 核心思路：经典 TracIn 为 $\text{TracIn}(z', z) = \eta \nabla_\theta L(z'; \theta)^\top \nabla_\theta L(z; \theta)$。对 MTS，$z' = \{c_1', ..., c_N'\}$，利用损失关于通道的可加性，证明 $\text{TracIn}(z', z) = \sum_{i=1}^{N} \sum_{j=1}^{N} \eta \nabla_\theta L(c_i'; \theta)^\top \nabla_\theta L(c_j; \theta)$
     - 定义通道影响矩阵：$M_{CInf} = [a_{i,j}]_{N \times N}$，其中 $a_{i,j} = \eta \nabla_\theta L(c_i'; \theta)^\top \nabla_\theta L(c_j; \theta)$
     - 设计动机：$a_{i,j}$ 表示在通道 $i$ 上训练对通道 $j$ 的损失有多大帮助——相似通道通常有高影响分数
 
 2. **ChInf 异常检测**：
 
-    - 做什么：利用通道自影响（对角线元素）作为异常分数
+    - 功能：利用通道自影响（对角线元素）作为异常分数
     - 核心思路：异常分数 = $\max_i \eta \nabla_\theta L(c_i'; \theta)^\top \nabla_\theta L(c_i'; \theta)$，即各通道自影响的最大值。异常样本因与正常训练数据分布不一致，自影响更大
     - 设计动机：传统整体影响函数无法定位到具体哪个通道异常；ChInf 的通道分解使得可以取各通道最大值而非整体平均
 
 3. **ChInf 通道剪枝**：
 
-    - 做什么：识别最具代表性的通道子集，用更少通道训练模型
+    - 功能：识别最具代表性的通道子集，用更少通道训练模型
     - 核心思路：在验证集上计算各通道的自影响（对角线），按影响排序，等间隔采样选取代表性通道子集 $\hat{D}$
     - 设计动机：iTransformer 表明用部分通道可以有效预测全部通道，说明通道间存在冗余；ChInf 提供了数据中心的方法来识别这些冗余
 

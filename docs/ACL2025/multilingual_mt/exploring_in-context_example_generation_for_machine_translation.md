@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - 机器翻译
-  - In-context Learning
+  - 上下文学习
   - 低资源语言
   - 示例生成
   - Maximal Marginal Relevance
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.00507](https://arxiv.org/abs/2506.00507)  
 **代码**: [GitHub](https://github.com/aiclaudev/DAT)  
 **领域**: 文本生成  
-**关键词**: 机器翻译, In-context Learning, 低资源语言, 示例生成, Maximal Marginal Relevance
+**关键词**: 机器翻译, 上下文学习, 低资源语言, 示例生成, Maximal Marginal Relevance
 
 ## 一句话总结
 

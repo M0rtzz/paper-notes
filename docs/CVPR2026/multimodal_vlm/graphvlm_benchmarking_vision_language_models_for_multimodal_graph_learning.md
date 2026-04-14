@@ -9,7 +9,7 @@ tags:
   - 多模态图学习
   - VLM
   - 图神经网络
-  - Benchmark
+  - benchmark
   - 节点分类
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.13370](https://arxiv.org/abs/2603.13370)  
 **代码**: [https://github.com/oamyjin/GraphVLM](https://github.com/oamyjin/GraphVLM)  
 **领域**: 多模态VLM  
-**关键词**: 多模态图学习, VLM, 图神经网络, Benchmark, 节点分类
+**关键词**: 多模态图学习, VLM, 图神经网络, benchmark, 节点分类
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 VLM 在图像-文本对齐方面表现出色，但现有工作主要聚焦于成对模态对齐，忽略了真实数据中实体间的**关系结构**（社交网络、推荐系统、知识图谱等）。多模态图学习（MMGL）旨在将异构节点属性与关系结构结合，但存在两大空白：
 
 **基线碎片化与浅层融合**：缺乏统一评估pipeline，GNN/LLM/VLM方法无法公平比较；多数GNN方法依赖简单特征拼接
+
 **VLM在结构推理中的潜力未被充分挖掘**：现有评估仅限零样本推理，未探索VLM作为可训练骨干或多模态对齐器的能力
 
 ## 方法详解
@@ -46,9 +47,9 @@ GraphVLM 将 VLM 在 MMGL 中的角色分为三类，构建统一评估协议：
 
 1. **VLM-as-Encoder**：探索三种编码器变体
 
-   - **Pre-trained PVLM**：直接用 CLIP 拼接文本+图像嵌入
-   - **Fine-tuned PVLM (PVLM-F)**：在特定MMG数据集上用对比学习微调CLIP，增强模态对齐
-   - **Structure-aware PVLM (PVLM-F-S)**：在GNN框架内联合优化，引入结构感知对比损失：
+    - **Pre-trained PVLM**：直接用 CLIP 拼接文本+图像嵌入
+    - **Fine-tuned PVLM (PVLM-F)**：在特定MMG数据集上用对比学习微调CLIP，增强模态对齐
+    - **Structure-aware PVLM (PVLM-F-S)**：在GNN框架内联合优化，引入结构感知对比损失：
 
    $$\mathcal{L}_v = -\log \frac{\exp(\text{sim}(\mathcal{E}_{TI}^{v_i}, \mathcal{E}_{TI}^{v_j}) / \tau)}{\sum_{v_k \in \mathcal{B}} \exp(\text{sim}(\mathcal{E}_{TI}^{v_i}, \mathcal{E}_{TI}^{v_k}) / \tau)}$$
 
@@ -56,16 +57,16 @@ GraphVLM 将 VLM 在 MMGL 中的角色分为三类，构建统一评估协议：
 
 2. **VLM-as-Aligner**：双层对齐策略
 
-   - **Latent-Space Aligner**：用CLIP多模态嵌入替换GraphLLM中的单模态节点表示，保持原始架构不变
-   - **Prompt-Level Aligner**：用Qwen-VL将图像描述转文本，构造"视觉增强节点prompt"：
+    - **Latent-Space Aligner**：用CLIP多模态嵌入替换GraphLLM中的单模态节点表示，保持原始架构不变
+    - **Prompt-Level Aligner**：用Qwen-VL将图像描述转文本，构造"视觉增强节点prompt"：
      - Visual-augmented: $\mathcal{T}^I = \text{VLM}(\mathcal{P}_{\text{Gen}}, \mathcal{I}; \theta)$，再用VLM总结为简洁摘要 $\mathcal{T}^S$
      - Structure-aware: 进一步融合邻居节点的视觉描述 $\mathcal{T}^{SS}$
    - 设计动机：分别在特征级和提示级实现跨模态桥接，适配不同GraphLLM架构
 
 3. **VLM-as-Predictor**：直接微调VLM为图学习骨干
 
-   - **Explicit Prompt-Level Fusion**：构建包含锚节点及其top-k最相似邻居属性的prompt
-   - **Implicit Latent-Space Fusion**：将邻居表示聚合为结构感知token注入模型隐空间
+    - **Explicit Prompt-Level Fusion**：构建包含锚节点及其top-k最相似邻居属性的prompt
+    - **Implicit Latent-Space Fusion**：将邻居表示聚合为结构感知token注入模型隐空间
      - 视觉：平均池化邻居图像的patch嵌入
      - 文本：平均final-layer token嵌入作为节点级表示
    - 使用 LLaVA-1.5-7B / Qwen-VL-7B / Qwen2.5-VL-7B 进行LoRA微调

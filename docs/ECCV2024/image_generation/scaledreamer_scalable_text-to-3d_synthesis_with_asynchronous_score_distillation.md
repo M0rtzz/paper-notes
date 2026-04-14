@@ -50,21 +50,21 @@ ASD与SDS/VSD共享相同的文本到3D流程：文本→3D生成器→渲染图
 
 1. **异步分数蒸馏目标函数**:
 
-    - 做什么：用时间步前移替代VSD的扩散模型微调
+    - 功能：用时间步前移替代VSD的扩散模型微调
     - 核心思路：$\nabla_\theta \mathcal{L}_{ASD} = \mathbb{E}_{t, \boldsymbol{\epsilon}} [\omega(t)(\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t, y) - \boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)) \frac{\partial \mathbf{x}}{\partial \theta}]$
     - 对比：SDS用 $\boldsymbol{\epsilon}$（真实噪声），CSD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_t; t)$（无条件预测），VSD用 $\boldsymbol{\epsilon}_{\phi'}$（微调模型预测），ASD用 $\boldsymbol{\epsilon}_\phi(\mathbf{x}_{t+\Delta t}; t+\Delta t, y)$（前移时间步的预测）
     - 优势：冻结扩散模型权重，无双层优化，保持文本理解能力
 
 2. **时间步偏移 $\Delta t$ 的设置**:
 
-    - 做什么：为不同时间步动态设置前移量
+    - 功能：为不同时间步动态设置前移量
     - 核心思路：$\Delta t \sim \mathcal{U}[0, \eta(t - T_{min})]$，均匀随机采样
     - 设计动机：(a) $\Delta t$ 随 $t$ 增大而增大——因为越接近 $T_{max}$ 误差曲线越平坦，需要更大偏移才能匹配微调模型的误差；(b) 随机采样而非确定性——因为不同训练迭代、不同图像、不同提示下最优偏移不同
     - 超参数 $\eta = 0.1$：$\eta$ 过大会退化为SDS，过小则没有充分利用前移带来的降噪效果
 
 3. **与多种3D生成器的兼容性**:
 
-    - 做什么：验证ASD作为通用分数蒸馏方法可与不同3D架构配合
+    - 功能：验证ASD作为通用分数蒸馏方法可与不同3D架构配合
     - 三种生成器：Hyper-iNGP（超网络+哈希编码）、3DConv-Net（3D卷积体素）、Triplane-Transformer（三平面+Transformer）
     - 两种扩散模型：Stable Diffusion 和 MVDream（多视角扩散）
     - 设计动机：证明ASD不依赖特定架构，是真正通用的分数蒸馏方法

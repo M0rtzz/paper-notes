@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2505.17370](https://arxiv.org/abs/2505.17370)  
 **代码**: 待确认  
 **领域**: time_series  
-**关键词**: long-term time series forecasting, optimal transport, Koopman operator, spectral decomposition, chaotic systems, Wasserstein distance  
+**关键词**: long-term time series forecasting, optimal transport, Koopman operator, spectral decomposition, chaotic systems, Wasserstein distance
 
 ## 一句话总结
 

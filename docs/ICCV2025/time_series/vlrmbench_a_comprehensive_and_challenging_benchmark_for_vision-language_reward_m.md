@@ -8,7 +8,7 @@ tags:
   - 时间序列
   - 奖励模型
   - 视觉语言理解
-  - 基准测试
+  - benchmark
   - 过程推理
   - 多模态评估
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.07478](https://arxiv.org/abs/2503.07478)  
 **代码**: [https://github.com/JCruan519/VLRMBench](https://github.com/JCruan519/VLRMBench)  
 **领域**: Time Series / Multimodal Evaluation  
-**关键词**: 奖励模型, 视觉语言理解, 基准测试, 过程推理, 多模态评估
+**关键词**: 奖励模型, 视觉语言理解, benchmark, 过程推理, 多模态评估
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 奖励模型（RM）在大模型的训练和推理阶段扮演重要角色：训练前用于过滤高质量样本、训练中用于偏好优化（如 RLAIF）、推理时用于测试时缩放（TTS）。然而，现有 VLRM 基准存在严重不足：
 
 **评估维度单一**：VLRewardBench 仅包含 Pairwise Comparison（两两比较），无法全面评估 VLRM 能力
+
 **缺乏步骤级标注**：多数基准不包含推理步骤级别的标签
+
 **聚焦语言领域**：现有 RM 基准（如 PRMBench、ProcessBench）主要针对纯文本，不适用于视觉语言场景
+
 **挑战性不足**：简单的基准无法暴露 VLRM 的潜在缺陷
 
 ## 方法详解

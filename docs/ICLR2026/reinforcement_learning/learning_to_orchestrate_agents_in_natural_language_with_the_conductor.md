@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Learning to Orchestrate Agents in Natural Language with the Conductor
 description: >-
-  [ICLR2026][多Agent协调] 用GRPO训练7B Conductor模型通过自然语言输出完整的Agent工作流（子任务+模型分配+通信拓扑），协调GPT-5/Claude/Gemini等frontier模型，在LiveCodeBench和GPQA-Diamond上达SOTA。
+  [ICLR 2026][multi-agent coordination] 用GRPO训练一个7B Qwen2.5模型作为"Conductor"，通过自然语言输出完整的Agent工作流（子任务指令+worker分配+通信拓扑访问列表），协调GPT-5/Claude Sonnet 4/Gemini 2.5 Pro等frontier模型，仅用960题×200迭代训练，在7个推理benchmark上平均77.27%超越所有单模型（GPT-5为74.78%）和多Agent基线。
 tags:
-  - ICLR2026
-  - 多Agent协调
-  - 强化学习
-  - 工作流编排
-  - 推理时扩展
-  - 集体智能
+  - ICLR 2026
+  - multi-agent coordination
+  - reinforcement-learning
+  - workflow orchestration
+  - test-time scaling
+  - collective intelligence
 ---
 
 # Learning to Orchestrate Agents in Natural Language with the Conductor
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.04388](https://arxiv.org/abs/2512.04388)  
 **代码**: 有（随论文提交）  
 **领域**: LLM推理/多Agent系统  
-**关键词**: multi-agent coordination, reinforcement learning, workflow orchestration, test-time scaling, collective intelligence
+**关键词**: multi-agent coordination, reinforcement-learning, workflow orchestration, test-time scaling, collective intelligence
 
 ## 一句话总结
 用GRPO训练一个7B Qwen2.5模型作为"Conductor"，通过自然语言输出完整的Agent工作流（子任务指令+worker分配+通信拓扑访问列表），协调GPT-5/Claude Sonnet 4/Gemini 2.5 Pro等frontier模型，仅用960题×200迭代训练，在7个推理benchmark上平均77.27%超越所有单模型（GPT-5为74.78%）和多Agent基线。
@@ -50,17 +50,17 @@ Conductor接收问题 $q_i$，在 `<think>` 标签内推理后输出三个Python
 ### 关键设计
 
 1. **自然语言工作流规范（NL Workflow Specification）**:
-    - 做什么：Conductor输出的每个步骤包含自然语言子任务指令、worker ID、访问列表，定义完整的协调拓扑
+    - 功能：Conductor输出的每个步骤包含自然语言子任务指令、worker ID、访问列表，定义完整的协调拓扑
     - 核心思路：工作流表示为 $\{(\text{subtask}_i, \text{agent}_i, \text{access}_i)\}_{i=1}^L$，支持从简单的best-of-N、链式拓扑到可并行的树结构（如 access=[[],[],["all"]]）。worker上下文由对话模板组织前序步骤的任务+响应
     - 设计动机：自然语言作为接口的表达力远超分类器——Conductor可以做prompt engineering（写聚焦指令）、任务分解（多步规划）、验证（让另一模型检查）、甚至角色分配（"你是planner"/"你写代码"）
 
 2. **GRPO端到端训练（End-to-End RL Training）**:
-    - 做什么：用纯粹的结果正确性信号训练Conductor学会协调策略
+    - 功能：用纯粹的结果正确性信号训练Conductor学会协调策略
     - 核心思路：GRPO目标函数 $J(\theta) = \mathbb{E}[\frac{1}{G}\sum_{i=1}^{G}(\min(r_i A_i, \text{clip}(r_i, 1-\epsilon, 1+\epsilon)A_i))]$，奖励简洁——格式错误=0，答案正确=1，答案错误=0.5。优势函数 $A_i = (r_i - \text{mean})/\text{std}$。无KL约束（β=0）
     - 设计动机：奖励0.5（而非-1）给格式正确但答案错误的情况，鼓励探索多样的协调策略而非退化为安全但无效的输出。训练仅960题+200迭代即收敛，因为frontier worker提供了强大的执行基础
 
 3. **递归拓扑与自适应Worker池（Recursive Topologies & Adaptive Pools）**:
-    - 做什么：扩展Conductor的能力——(a) 自身作为worker实现递归协调，(b) 适应任意模型子集
+    - 功能：扩展Conductor的能力——(a) 自身作为worker实现递归协调，(b) 适应任意模型子集
     - 核心思路：递归通过允许Conductor在access_list中指定自身ID实现，递归调用时提供父输出+前序worker响应作为上下文，最大递归深度人工限制。自适应池通过对预训练Conductor做微调（每步随机采样k个worker子集）实现
     - 设计动机：递归开启了新的推理时扩展轴——Conductor观察初始策略结果后可自适应修订（如发现GPT-5在BigCodeBench表现不佳，递归轮次转向Claude/Gemini）。自适应池使同一Conductor可用于纯开源或纯闭源场景
 

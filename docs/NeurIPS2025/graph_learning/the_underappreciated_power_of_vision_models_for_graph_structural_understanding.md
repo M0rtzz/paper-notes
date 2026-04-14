@@ -9,7 +9,7 @@ tags:
   - 视觉模型
   - 图神经网络
   - 图结构理解
-  - Benchmark
+  - benchmark
   - 尺度不变性
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.24788](https://arxiv.org/abs/2510.24788)  
 **代码**: [GitHub](https://github.com/LOGO-CUHKSZ/GraphAbstract)  
 **领域**: 图学习  
-**关键词**: 视觉模型, 图神经网络, 图结构理解, Benchmark, 尺度不变性
+**关键词**: 视觉模型, 图神经网络, 图结构理解, benchmark, 尺度不变性
 
 ## 一句话总结
 

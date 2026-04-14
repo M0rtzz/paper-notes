@@ -50,19 +50,19 @@ PURGE (Partitioned Unlearning with Retraining Guarantee for Ensembles) 框架包
 
 1. **Constituent Mapping（教师-学生映射）**:
 
-    - 做什么：将 $M$ 个教师 constituent 划分为 $N$ 个不相交的子集 $\mathscr{T}_k$，每个学生 $S_k$ 只从自己的教师子集学习
+    - 功能：将 $M$ 个教师 constituent 划分为 $N$ 个不相交的子集 $\mathscr{T}_k$，每个学生 $S_k$ 只从自己的教师子集学习
     - 核心思路：$\mathscr{T}_k = \{T_{k,1}, \dots, T_{k,c_k}\}$，满足 $\cap_{k} \mathscr{T}_k = \emptyset$ 且 $\cup_k \mathscr{T}_k = \{T_1, \dots, T_M\}$
     - 设计动机：严格隔离使得教师 $T_{k,i}$ 的遗忘只影响对应学生 $S_k$，不波及其他学生
 
 2. **Incremental Multi-Teacher Distillation（增量式多教师蒸馏）**:
 
-    - 做什么：每个学生分片的数据被进一步分成 $c_k$ 个 chunk，第 $l$ 个 chunk 使用前 $l$ 个教师的子集合生成 soft label
+    - 功能：每个学生分片的数据被进一步分成 $c_k$ 个 chunk，第 $l$ 个 chunk 使用前 $l$ 个教师的子集合生成 soft label
     - 核心思路：$Y_{k,l} = \mathscr{T}_{k,l}(\mathcal{D}^S_{k,l})$，其中 $\mathscr{T}_{k,l} = \cup_{i \in [l]} T_{k,i}$
     - 设计动机：限制每个教师的影响范围——教师 $T_{k,i}$ 仅影响 chunk $i$ 及之后的数据。相比使用单一教师（single-teacher ablation），增量集合平滑了监督信号的跳变，避免训练不稳定
 
 3. **Hierarchical Slicing with Checkpointing（层次化切片与检查点）**:
 
-    - 做什么：每个 chunk 再细分为多个 slice，训练按 chunk→slice 顺序增量进行，每个 slice 训练后存储检查点
+    - 功能：每个 chunk 再细分为多个 slice，训练按 chunk→slice 顺序增量进行，每个 slice 训练后存储检查点
     - 核心思路：学生 $S_k$ 在状态 $S_{k,l,j}$ 上用累积数据 $(\cup_{i=1}^{l-1} \mathcal{D}^\dagger_{k,i}) \cup (\cup_{q=1}^j \mathcal{D}^\dagger_{k,l,q})$ 训练 $e_{l,j}$ 个 epoch
     - 设计动机：分层结构（shard→chunk→slice）提供细粒度检查点，遗忘时只需回退到受影响的最早检查点
 

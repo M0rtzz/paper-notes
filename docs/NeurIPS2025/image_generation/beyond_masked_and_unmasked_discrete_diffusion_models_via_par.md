@@ -1,7 +1,18 @@
 ---
-description: "MDM-Prime通过部分掩码方案为离散扩散模型引入中间状态，利用子token的base-b编码实现细粒度去噪，在OpenWebText上以15.36困惑度首次让MDM超越自回归模型。"
-tags: [discrete-diffusion, masked-diffusion, text-generation, image-generation, partial-masking]
+title: >-
+  [论文解读] Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking
+description: >-
+  [NeurIPS 2025][图像生成][离散扩散模型] Prime（Partial masking scheme）通过将每个token用base-b子token序列表示并在子token级别独立掩码，为掩码扩散模型引入中间状态，实现细粒度去噪过程，在OpenWebText上以15.36困惑度首次让MDM在不使用自回归公式的情况下超越ARM（17.54）。
+tags:
+  - NeurIPS 2025
+  - 图像生成
+  - 离散扩散模型
+  - 掩码扩散
+  - 部分掩码
+  - 子token
+  - 文本生成
 ---
+
 # Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking
 
 **会议**: NeurIPS 2025  
@@ -35,17 +46,17 @@ MDM-Prime包含三步：(1) 用可逆函数 $f$ 将每个token $x_0^i \in \mathc
 ### 关键设计
 
 1. **部分掩码方案（Prime）**:
-    - 做什么：为离散扩散引入中间状态
+    - 功能：为离散扩散引入中间状态
     - 核心思路：将token $x_0^i$ 编码为子token序列 $\mathbf{y}_0^i = f(x_0^i)$，子token独立掩码产生中间状态。例如4类token用2-bit编码，中间状态为"m0"或"1m"，提供部分信息。中间状态数为 $(b+1)^\ell - (C+1)$，始终为正
     - 设计动机：中间状态使模型能基于部分已知的token信息做更精确的预测，减少idle步。理论证明 $\ell$ 增大时idle步单调递减
 
 2. **联合概率参数化**:
-    - 做什么：建模子token间的依赖并防止生成无效样本
+    - 功能：建模子token间的依赖并防止生成无效样本
     - 核心思路：直接参数化联合分布 $p_\theta(\mathbf{y}_0^i|\mathbf{y}_t)$，只对有效的base-$b$编码（$\mathbf{y}_0^i \in f(\mathcal{X})$）分配概率权重，将 $|\mathcal{V}(\mathbf{y}_t^i)|$ 外的logit显式置零。同时满足carry-over约束：已揭示的子token保持不变
     - 设计动机：独立参数化 $\prod_j p_\theta(y_0^{i,j}|\mathbf{y}_t)$ 不仅引入错误独立性假设（导致采样分布退化），还可能生成无效的子token组合（如GPT-2 50257词表映射时）
 
 3. **子token嵌入编码器**:
-    - 做什么：高效处理子token输入
+    - 功能：高效处理子token输入
     - 核心思路：为每个子token创建独立的 $D/\ell$ 维嵌入查表，拼接 $\ell$ 个嵌入得到 $D$ 维token嵌入。查表大小仅需 $(b+1) \times D/\ell$，远小于完整的 $|\tilde{\mathcal{Y}}^\ell|$ 维查表
     - 设计动机：子token空间 $\tilde{\mathcal{Y}}^\ell$ 可能远大于原token空间，直接建查表不可行；拼接策略保持与标准MDM架构兼容
 

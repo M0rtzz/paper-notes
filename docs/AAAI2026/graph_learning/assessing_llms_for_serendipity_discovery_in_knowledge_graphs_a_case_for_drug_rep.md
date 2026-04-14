@@ -10,7 +10,7 @@ tags:
   - Knowledge Graph Question Answering
   - LLM Evaluation
   - Drug Repurposing
-  - Information Theory
+  - information theory
 ---
 
 # Assessing LLMs for Serendipity Discovery in Knowledge Graphs: A Case for Drug Repurposing
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.12472](https://arxiv.org/abs/2511.12472)  
 **代码**: [cwru-db-group/serenQA](https://cwru-db-group.github.io/serenQA)  
 **领域**: graph_learning  
-**关键词**: Serendipity, Knowledge Graph Question Answering, LLM Evaluation, Drug Repurposing, Information Theory  
+**关键词**: Serendipity, Knowledge Graph Question Answering, LLM Evaluation, Drug Repurposing, information theory
 
 ## 一句话总结
 

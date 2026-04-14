@@ -8,7 +8,7 @@ tags:
   - LLM Agent
   - 动态环境
   - 异步交互
-  - Benchmark
+  - benchmark
   - 强化学习
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.11964](https://arxiv.org/abs/2602.11964)  
 **代码**: 基于 Agents Research Environments (ARE) 平台，开源  
 **领域**: LLM Agent 评估  
-**关键词**: LLM Agent, 动态环境, 异步交互, Benchmark, 强化学习
+**关键词**: LLM Agent, 动态环境, 异步交互, benchmark, 强化学习
 
 ## 一句话总结
 

@@ -41,8 +41,8 @@ tags:
 **两阶段算法 OPD-Min-ESTR：**
 
 1. **子空间探索（Stage 1）**：$T_1$轮随机探索 + 核范数正则化最小二乘估计 $\hat{\Theta}$，提取顶特征向量 $\hat{\bm{s}}$
-   - 关键挑战：action集是结构化的forest矩阵（非高斯），需要新的RSC分析
-   - 估计误差界：$\|\hat{\Theta} - \Theta^*\|_F^2 \leq 36\log(2|V|/\delta) / (\kappa^2 T_1)$
+    - 关键挑战：action集是结构化的forest矩阵（非高斯），需要新的RSC分析
+    - 估计误差界：$\|\hat{\Theta} - \Theta^*\|_F^2 \leq 36\log(2|V|/\delta) / (\kappa^2 T_1)$
 2. **降维+线性Bandit（Stage 2）**：用 $\hat{\bm{s}}$ 构造旋转矩阵，将 $|V|^2$ 维降至 $2|V|-1$ 维，运行标准OFUL
 
 ## 实验关键数据

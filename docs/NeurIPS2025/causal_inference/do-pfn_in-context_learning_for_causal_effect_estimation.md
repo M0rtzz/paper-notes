@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - Causal Effect Estimation
   - PFN
-  - In-Context Learning
+  - in-context learning
   - SCM
   - CATE
   - Amortized Inference
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.06039](https://arxiv.org/abs/2506.06039)  
 **代码**: https://github.com/jr2021/Do-PFN (有)  
 **领域**: 因果推断 / 基础模型  
-**关键词**: Causal Effect Estimation, PFN, In-Context Learning, SCM, CATE, Amortized Inference
+**关键词**: Causal Effect Estimation, PFN, in-context learning, SCM, CATE, Amortized Inference
 
 ## 一句话总结
 提出 Do-PFN，将 Prior-data Fitted Networks (PFN) 扩展到因果效应估计，在大量合成 SCM 数据上预训练 Transformer 进行 in-context 因果推理，仅需观测数据即可预测干预分布（CID）和 CATE，无需因果图知识或不混杂假设，在合成和半合成实验中表现出色。
@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：因果效应估计是科学核心任务。RCT 是金标准但常不可行。从观测数据估计因果效应通常需要不混杂假设（unconfoundedness），但该假设难以验证。TabPFN 已在表格 ML 中展示了 in-context learning 的惊人效果。
+
 **现有痛点**：(a) 现有方法依赖因果图知识或不混杂假设；(b) 元学习者（T-/S-/X-learner）在不混杂假设不满足时失效；(c) 深度学习方法（DragonNet/TARNet）同样依赖该假设。
+
 **核心矛盾**：能否通过大规模预训练让模型"meta-learn"出因果推理能力，从而无需显式的因果图或不混杂假设？
+
 **切入角度**：受 TabPFN 启发——如果预训练在合成因果数据上（包括干预），模型可以学到从观测数据预测干预结果的能力。
+
 **核心 idea**：在百万级 SCM 上预训练 Transformer，输入完整观测数据集+干预查询，输出条件干预分布 $p(y|do(t),\mathbf{x})$。
 
 ## 方法详解

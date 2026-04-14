@@ -2,14 +2,15 @@
 title: >-
   [论文解读] ProPerSim: Developing Proactive and Personalized AI Assistants through User-Assistant Simulation
 description: >-
-  [ICLR2026][个性化Agent] 提出ProPerSim模拟框架，在基于大五人格的32种persona驱动的家庭场景中，通过DPO偏好学习开发同时具备主动性和个性化能力的AI助手，14天内满意度从2.2提升至3.3/4。
+  [ICLR 2026][proactive agent] 提出ProPerSim模拟框架，构建基于大五人格的32种用户persona在Smallville家庭环境中的日常行为模拟，AI助手通过每2.5分钟的主动推荐决策和DPO偏好学习，在14天模拟中将用户满意度从2.2/4提升至3.3/4，首次验证了主动性+个性化统一的可行性。
 tags:
-  - ICLR2026
-  - 主动推荐
-  - 个性化助手
-  - 用户模拟
+  - ICLR 2026
+  - proactive agent
+  - personalization
+  - user simulation
   - DPO
-  - 大五人格
+  - Big Five personality
+  - generative agents
 ---
 
 # ProPerSim: Developing Proactive and Personalized AI Assistants through User-Assistant Simulation
@@ -50,17 +51,17 @@ tags:
 ### 关键设计
 
 1. **大五人格驱动的用户Persona系统**:
-    - 做什么：构建32种多样化用户persona，驱动行为生成和推荐评估
+    - 功能：构建32种多样化用户persona，驱动行为生成和推荐评估
     - 核心思路：每个persona由5个大五人格维度（Extraversion/Agreeableness/Openness/Conscientiousness/Neuroticism的High/Low）+ 6个扩展属性（年龄、背景、兴趣、生活方式、日计划需求、长期目标）定义。GPT-4o生成属性，确保与人格特质一致。UMAP+HDBSCAN验证32个persona的分离性和多样性
     - 设计动机：大五人格是心理学中最广泛验证的个性模型，不同人格组合自然导致不同的推荐偏好——低外向性persona偏好独处活动，高尽责性persona偏好结构化推荐
 
 2. **四维个性化评估Rubric**:
-    - 做什么：基于353人AMT调研筛选的4个评估维度，为每个persona生成个性化评估标准
+    - 功能：基于353人AMT调研筛选的4个评估维度，为每个persona生成个性化评估标准
     - 核心思路：从10个候选维度经AMT投票（排除<50%支持的Diversity和Interruption）保留：Personal Preference（内容对齐）、Frequency（推荐频率）、Timing（时机恰当性）、Communication & Safety（沟通风格+安全）。每个维度的具体标准由GPT-4o根据persona定制（如低外向性persona："I prefer receiving recommendations no more than once every two hours"）。评估用Gemini 2.0 Flash，每维度二值评分
     - 设计动机：评估标准必须同时反映任务的通用重要性（来自大规模调研）和个体差异（来自persona定制），两层设计确保既有共识基础又有个性化空间
 
 3. **RAG+DPO偏好对齐的ProPerAssistant**:
-    - 做什么：构建一个能持续从用户反馈中学习的主动推荐助手
+    - 功能：构建一个能持续从用户反馈中学习的主动推荐助手
     - 核心思路：内部状态 $S_t^{(a)}$ 包含结构化日记忆（近10分钟详细+早期压缩为1h/4h摘要）+ OpenAI embedding检索的top-5相似历史交互。每个时间步生成 $n=2$ 候选推荐（含"无推荐"选项），用户评分后形成偏好对，存入replay buffer。每日结束时从buffer随机采样200条做DPO训练：$\mathcal{L}_{\text{DPO}} = -\log\sigma(\beta(\log\frac{\pi_\theta(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \log\frac{\pi_\theta(y_l|x)}{\pi_{\text{ref}}(y_l|x)}))$
     - 设计动机：DPO避免了RLHF的reward model训练复杂性；replay buffer借鉴RL经验回放，防止遗忘早期经验；LoRA微调的LLaMA 3.3 70B（4-bit量化）平衡性能与效率
 

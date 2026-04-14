@@ -2,7 +2,7 @@
 title: >-
   [论文解读] MoVieDrive: Urban Scene Synthesis with Multi-Modal Multi-View Video Diffusion Transformer
 description: >-
-  [CVPR 2026][自动驾驶][多模态多视图视频生成] 提出 MoVieDrive，首个在统一框架下实现多模态（RGB+深度+语义）多视图自动驾驶场景视频生成的扩散 Transformer 方法，通过模态共享层+模态特定层的设计和多样化条件编码，在 nuScenes 上 FVD 达到 46.8（领先 SOTA 22%），同时生成高质量的深度图和语义图。
+  [CVPR 2026][自动驾驶][多模态多视图视频生成] 首个在统一 DiT 框架下同时生成 RGB+深度+语义三模态多视图驾驶场景视频的方法，通过模态共享层（时序+多视图时空注意力）与模态特定层（跨模态交互+投影头）的分解设计+统一布局编码器+多样化条件，在 nuScenes 上 FVD 46.8（较 CogVideoX+SyntheOcc 提升 22%），深度 AbsRel 0.110，语义 mIoU 37.5，均优于独立模型生成+估计的管线。
 tags:
   - CVPR 2026
   - 自动驾驶
@@ -10,6 +10,7 @@ tags:
   - Transformer
   - 城市场景合成
   - 条件控制
+  - CogVideoX
 ---
 
 # MoVieDrive: Urban Scene Synthesis with Multi-Modal Multi-View Video Diffusion Transformer
@@ -48,19 +49,19 @@ tags:
 
 1. **多样化条件编码**
 
-    - 做什么：将文本、布局约束和参考帧编码为统一条件嵌入控制场景生成
+    - 功能：将文本、布局约束和参考帧编码为统一条件嵌入控制场景生成
     - 核心思路：(a) **文本条件**——相机内外参经 Fourier 编码 + MLP 编码器 $E^\text{cam}$，视频描述通过冻结 T5 编码器 $E^\text{text}$，拼接后通过 DiT 交叉注意力注入；(b) **布局条件**——3D box 投影图 $c^b$、道路结构图 $c^r$、3D occupancy 稀疏语义图 $c^o$，通过统一布局编码器（各条件独立因果 ResNet + 共享因果 ResNet）融合 $f^\text{layout} = E_s^l(E_b^l(c^b) \otimes E_r^l(c^r) \otimes E_o^l(c^o))$；(c) **上下文参考**——首帧通过 3D VAE 编码用于未来预测
     - 设计动机：统一布局编码器实现隐式条件嵌入空间对齐，比多个独立编码器更有效
 
 2. **模态共享组件（时序+多视图时空块）**
 
-    - 做什么：学习所有模态共有的时序一致性和多视图空间结构
+    - 功能：学习所有模态共有的时序一致性和多视图空间结构
     - 核心思路：(a) **时序注意力层** $D^\text{tem}$——CogVideoX 的 3D full attention 学帧间一致，文本通过交叉注意力注入，维度 $\mathcal{R}^{V \times (NKW) \times C}$；(b) **多视图时空块** $D^\text{st}$——每 $\alpha_1$ 层插入，含 3D 空间注意力（$\mathcal{R}^{K \times (VHW) \times C}$ 跨视图结构）、Hash grid 3D 空间嵌入、全时空注意力（$\mathcal{R}^{(VKHW) \times C}$ 全局）
     - 设计动机：仅时序注意力无法保证多视图一致（FVD 153.7 → 加时空块后 46.8），多视图时空块显式建模跨视图空间关系
 
 3. **模态特定组件（跨模态交互+投影头）**
 
-    - 做什么：在共享表示基础上学各模态独有内容，保持跨模态对齐
+    - 功能：在共享表示基础上学各模态独有内容，保持跨模态对齐
     - 核心思路：跨模态交互层每 $\alpha_2$ 层插入，含自注意力 + 跨模态交叉注意力（query=当前模态 latent，key/value=其他模态 latent 拼接）+ FFN。模态特定投影头（线性层+自适应归一化）各模态独立预测噪声 $h'_m = D_m^\text{cm}(h, h_m^\text{modal}, t)$
     - 设计动机：跨模态交叉注意力让不同模态交换互补信息，统一生成比独立生成+外部模型更高质量
 

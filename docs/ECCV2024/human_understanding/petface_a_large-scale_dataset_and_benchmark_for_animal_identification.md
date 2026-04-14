@@ -10,7 +10,7 @@ tags:
   - 人脸识别
   - 大规模数据集
   - 重识别
-  - 基准测试
+  - benchmark
 ---
 
 # PetFace: A Large-Scale Dataset and Benchmark for Animal Identification
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.13555](https://arxiv.org/abs/2407.13555)  
 **代码**: 有 (https://dahlian00.github.io/PetFacePage/)  
 **领域**: 人体理解  
-**关键词**: 动物识别, 人脸识别, 大规模数据集, 重识别, 基准测试
+**关键词**: 动物识别, 人脸识别, 大规模数据集, 重识别, benchmark
 
 ## 一句话总结
 

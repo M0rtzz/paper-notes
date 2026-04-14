@@ -52,7 +52,7 @@ PDVAE 包含三个网络：
 
 1. **变分相位流形（核心创新）**:
 
-    - 做什么：用频域相位参数替代传统VAE的高斯潜向量，使潜空间具有时序结构
+    - 功能：用频域相位参数替代传统VAE的高斯潜向量，使潜空间具有时序结构
     - 核心思路：对编码器输出的潜在曲线 $\mathbf{L} \in \mathbb{R}^{D \times T}$ 做FFT，计算功率谱，然后提取四个相位参数的分布均值：
       - 幅度：$\mu_i^A = \sqrt{\frac{2}{T} \sum_j \mathbf{p}_{i,j}}$
       - 频率：$\mu_i^F = \frac{\sum_j \mathbf{f}_j \cdot \mathbf{p}_{i,j}}{\sum_j \mathbf{p}_{i,j}}$（功率谱加权平均频率）
@@ -64,7 +64,7 @@ PDVAE 包含三个网络：
 
 2. **群组一致性损失 $\mathcal{L}_{csc}$**:
 
-    - 做什么：约束同一群组内不同舞者编码到相同的相位流形
+    - 功能：约束同一群组内不同舞者编码到相同的相位流形
     - 核心思路：$\mathcal{L}_{csc} = D_{KL}(q_\phi(\mathbf{z}|\mathbf{x}^m, \mathbf{a}) \| q_\phi(\mathbf{z}|\mathbf{x}^n, \mathbf{a})) + \|\mathbf{P}^m - \mathbf{P}^n\|_2^2$
     - 其中 $\mathbf{P}_{2i-1} = \mathbf{A}_i \sin(2\pi \cdot \mathbf{S}_i)$，$\mathbf{P}_{2i} = \mathbf{A}_i \cos(2\pi \cdot \mathbf{S}_i)$ 是相位流形特征
     - 设计动机：CVAE目标对每个舞者独立计算，无法捕获舞者间关联。该损失确保所有舞者映射到同一个统一流形

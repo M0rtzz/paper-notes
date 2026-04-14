@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.05629](https://arxiv.org/abs/2506.05629)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: 软提示, 参数高效微调, 自注意力, 输入依赖, PEFT, Prompt Tuning  
+**关键词**: 软提示, 参数高效微调, 自注意力, 输入依赖, PEFT, prompt tuning
 
 ## 一句话总结
 

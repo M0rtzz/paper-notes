@@ -41,16 +41,16 @@ tags:
 IRIS 构建了从"应然世界"到"实然世界"再到"可为世界"的完整诊断链：
 
 1. **Ideal Fairness (IFS, 理想公平性)**：评估模型在理想化平等世界中的默认行为
-   - 生成端指标：Representation Disparity (RD) — 中性 prompt 下的表征分布均衡度
-   - 理解端指标：Accuracy Disparity (AD) + Statistical Parity Difference (SPD) — 跨群组准确率和预测一致性
+    - 生成端指标：Representation Disparity (RD) — 中性 prompt 下的表征分布均衡度
+    - 理解端指标：Accuracy Disparity (AD) + Statistical Parity Difference (SPD) — 跨群组准确率和预测一致性
 
 2. **Real-world Fidelity (RFS, 真实世界保真度)**：评估模型认知是否准确反映真实人口统计事实
-   - 生成端指标：Jensen-Shannon Divergence (JSD) — 生成分布与真实人口分布的差异
-   - 理解端指标：JSD (静态知识探测) + Stereotype Drift Score (SDS) — 内部知识是否反映现实
+    - 生成端指标：Jensen-Shannon Divergence (JSD) — 生成分布与真实人口分布的差异
+    - 理解端指标：JSD (静态知识探测) + Stereotype Drift Score (SDS) — 内部知识是否反映现实
 
 3. **Bias Inertia & Steerability (BIS, 偏见惯性与可引导性)**：量化引导模型走向更好状态的可行性
-   - 生成端指标：ΔGSR、Quality Degradation (QPS/FQP)、Semantics Degradation (SIL/SCL) — 反刻板印象指令是否导致质量惩罚
-   - 理解端指标：Answer Consistency Difference (AC_diff)、Differential Hallucination Rate (DHR) — 反刻板印象证据是否扰乱判断
+    - 生成端指标：ΔGSR、Quality Degradation (QPS/FQP)、Semantics Degradation (SIL/SCL) — 反刻板印象指令是否导致质量惩罚
+    - 理解端指标：Answer Consistency Difference (AC_diff)、Differential Hallucination Rate (DHR) — 反刻板印象证据是否扰乱判断
 
 ### 高维公平空间（Scoring Workflow）
 - **归一化**：将各原始指标映射到统一偏差空间，理想状态为原点（"公平奇点"）

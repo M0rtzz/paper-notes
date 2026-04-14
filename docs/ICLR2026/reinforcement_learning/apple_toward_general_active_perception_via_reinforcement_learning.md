@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR 2026
   - active perception
-  - 强化学习
+  - reinforcement-learning
   - POMDP
   - supervised learning
   - off-policy
@@ -19,7 +19,7 @@ tags:
 **会议**: ICLR 2026  
 **arXiv**: [2505.06182](https://arxiv.org/abs/2505.06182)  
 **领域**: 主动感知 / 强化学习  
-**关键词**: active perception, reinforcement learning, POMDP, supervised learning, off-policy, ViViT, CrossQ  
+**关键词**: active perception, reinforcement-learning, POMDP, supervised learning, off-policy, ViViT, CrossQ
 
 ## 一句话总结
 

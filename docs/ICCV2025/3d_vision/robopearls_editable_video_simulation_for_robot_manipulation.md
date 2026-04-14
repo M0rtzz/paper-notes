@@ -10,7 +10,7 @@ tags:
   - 可编辑仿真
   - 机器人操作
   - LLM智能体
-  - sim-to-real
+  - 仿真到现实
 ---
 
 # RoboPearls: Editable Video Simulation for Robot Manipulation
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.22756](https://arxiv.org/abs/2506.22756)  
 **代码**: [Project Page](https://robopearls.github.io/)  
 **领域**: 3D视觉  
-**关键词**: 3D高斯溅射, 可编辑仿真, 机器人操作, LLM智能体, sim-to-real
+**关键词**: 3D高斯溅射, 可编辑仿真, 机器人操作, LLM智能体, 仿真到现实
 
 ## 一句话总结
 

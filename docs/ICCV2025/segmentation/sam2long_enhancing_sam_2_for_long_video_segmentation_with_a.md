@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2410.16268](https://arxiv.org/abs/2410.16268)  
 **代码**: [https://github.com/Mark12Ding/SAM2Long](https://github.com/Mark12Ding/SAM2Long)  
 **领域**: 分割 / 视频目标分割  
-**关键词**: SAM 2, 长视频分割, 记忆树, 错误累积, 遮挡恢复, training-free  
+**关键词**: SAM 2, 长视频分割, 记忆树, 错误累积, 遮挡恢复, training-free
 
 ## 一句话总结
 针对SAM 2在长视频中因贪心选择策略导致的错误累积问题，提出一种training-free的约束树搜索记忆策略，维护多条分割路径并在视频级别选择最优结果，在9个VOS和3个VOT benchmark上平均提升3.7 J&F，长视频场景最高提升5.3。

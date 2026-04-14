@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2510.08303](https://arxiv.org/abs/2510.08303)  
 **代码**: 未公开  
 **领域**: object_detection  
-**关键词**: Adaptive Random Forest, Feature Importance, Explainable AI, Data Stream, 6G Networks, Drift Detection, SHAP, MDI  
+**关键词**: Adaptive Random Forest, Feature Importance, Explainable AI, Data Stream, 6G Networks, Drift Detection, SHAP, MDI
 
 ## 一句话总结
 
@@ -31,10 +31,15 @@ tags:
 ## 研究背景与动机
 
 **6G 网络 AI 原生化需求**：未来通信网络被设想为 AI 原生架构，AI 需嵌入基站和网络节点进行移动模式识别与 KPI 优化，但不同厂商、硬件代际导致各节点暴露的特征集不一致。
+
 **特征异构性挑战**：多厂商部署下，不同基站可能提供不同的 KPI 测量指标，难以训练统一的全局模型，且硬件升级会引入新特征，模型需要动态适应特征空间的变化。
+
 **数据分布漂移问题**：流量模式、用户行为和无线信道条件随时间演变，静态模型无法应对持续漂移，需要增量式/流式学习方案。
+
 **可解释性的关键地位**：AI 控制关键基础设施时，运营商信任、监管合规要求模型具备透明的决策解释能力，Feature Importance（FI）是主要手段。
+
 **SHAP 计算开销过高**：SHAP 是最广泛使用的 FI 方法，但计算代价随特征数和模型规模指数增长，难以满足基站实时、短间隔重复计算的需求。
+
 **MDI 与 SHAP 不一致**：MDI 作为树模型内置的轻量 FI 方法速度极快，但在数据漂移且模型尚未更新时，其排名与 SHAP 显著不一致，可靠性不足。
 
 ## 方法详解

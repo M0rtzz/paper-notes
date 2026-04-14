@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.10938](https://arxiv.org/abs/2505.10938)  
 **代码**: [https://github.com/yisunlp/OTT](https://github.com/yisunlp/OTT)  
 **领域**: Model Compression / LLM Efficiency  
-**关键词**: KV Cache, Quantization, Outlier Tokens, LLM Inference, Memory Efficiency
+**关键词**: KV Cache, quantization, Outlier Tokens, LLM Inference, Memory Efficiency
 
 ## 一句话总结
 

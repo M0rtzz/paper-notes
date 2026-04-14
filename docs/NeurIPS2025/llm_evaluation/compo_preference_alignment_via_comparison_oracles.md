@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：直接偏好对齐方法（DPO及其变体）因简单高效已广泛应用于LLM对齐。DPO通过最大化preferred和dispreferred响应的log-likelihood差值来优化策略。
+
 **现有痛点**：DPO存在两个关键问题——(a) **似然位移（likelihood displacement）**：训练过程中preferred响应的绝对概率反而下降，概率质量被转移到意义相反的响应上（如从"No"转移到"Yes"），甚至导致原本安全的模型变得不安全；(b) **冗长性（verbosity）**：模型倾向生成更长但不一定更好的回复。这两个问题主要由噪声偏好对引起——当preferred和dispreferred响应很相似时，DPO的代理目标函数无法正确提取信息。
+
 **核心矛盾**：噪声偏好对（相似的response pair）确实包含有用信息，但DPO的log-likelihood margin代理目标无法有效提取。直接丢弃噪声数据（如CHES score过滤）是一种浪费。
+
 **本文要解决什么？** 设计一种方法从噪声偏好对中提取有用的对齐信号，而不是通过代理目标函数间接优化。
+
 **切入角度**：借鉴优化理论中的**比较oracle**（只需"A比B好还是差"的二值判断，不需要目标函数值或梯度），将偏好对视为比较oracle的输出，直接用比较信号引导参数更新。
+
 **核心idea一句话**：不定义显式的代理目标函数，而是用偏好对作为比较oracle，通过零阶优化直接引导模型参数向"preferred likelihood更高、dispreferred likelihood更低"的方向移动。
 
 ## 方法详解
@@ -45,20 +50,20 @@ ComPO采用三阶段流程：
 
 1. **偏好比较oracle（Preference Comparison Oracle）**:
 
-    - 做什么：定义一种新的参数比较方式，不依赖显式目标函数
+    - 功能：定义一种新的参数比较方式，不依赖显式目标函数
     - 核心思路：给定参数 $\theta$ 和 $\theta'$，比较oracle $\mathcal{C}_\pi(\theta, \theta')$ 返回-1当且仅当 $\pi_{\theta'}(\mathbf{y}^+|\mathbf{x}) > \pi_\theta(\mathbf{y}^+|\mathbf{x})$ 且 $\pi_{\theta'}(\mathbf{y}^-|\mathbf{x}) < \pi_\theta(\mathbf{y}^-|\mathbf{x})$，即 $\theta'$ 同时满足preferred likelihood更高和dispreferred likelihood更低
     - 设计动机：DPO只优化likelihood margin（差值），可能增大差值但两个likelihood都在下降。比较oracle要求两个likelihood同时朝正确方向移动，严格避免似然位移
 
 2. **基本方案（Algorithm 1）+ 收敛保证**:
 
-    - 做什么：基于比较oracle的零阶优化基本框架
+    - 功能：基于比较oracle的零阶优化基本框架
     - 核心思路：生成m个随机扰动 $\mathbf{z}_i$，查询oracle $y_i = \mathcal{C}_\pi(\theta_t, \theta_t + r\mathbf{z}_i)$，利用1-bit compressed sensing原理恢复归一化稀疏梯度 $\hat{\mathbf{g}}_t = \arg\max_{\|\mathbf{g}\|_1 \leq \sqrt{s}, \|\mathbf{g}\| \leq 1} \sum_i y_i \mathbf{z}_i^\top \mathbf{g}$，然后更新 $\theta_{t+1} = \theta_t - \eta \hat{\mathbf{g}}_t$
     - 在非凸光滑函数假设下提供收敛保证，oracle调用次数为 $O(\frac{\ell \Delta}{\epsilon^2}(s\log(\frac{2d}{s}) + \log(\frac{\ell\Delta}{\Lambda\epsilon^2})))$，依赖梯度稀疏度s而非维度d
     - 设计动机：虽然对齐的真实目标函数未知（无法求值或求梯度），但比较信号足以估计归一化梯度方向
 
 3. **实用方案（Algorithm 2）**:
 
-    - 做什么：将理论方案适配到十亿参数规模
+    - 功能：将理论方案适配到十亿参数规模
     - 三个关键近似：(a) **只扰动输出层权重**——将扰动维度从d（数十亿）降到 $d^o$（输出层维度），大幅减少计算/内存开销；(b) **用归一化+裁剪近似稀疏梯度估计**——先计算 $\hat{\mathbf{g}}^o = \frac{\sum y_i \mathbf{z}_i}{\|\sum y_i \mathbf{z}_i\|}$，然后将幅值小于 $\lambda_g$ 的分量置零；(c) **自适应步长**——按"改进"比例 $\frac{|\{i: y_i=-1\}|}{m}$ 调整步长，信息不足时跳过更新
     - 设计动机：让零阶方法在LLM规模下可行，同时保留核心的比较oracle思想
 

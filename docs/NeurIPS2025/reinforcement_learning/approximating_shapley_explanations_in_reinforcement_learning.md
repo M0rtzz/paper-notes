@@ -1,7 +1,17 @@
 ---
-description: "FastSVERL：一种可扩展的参数化方法，用于近似强化学习中的Shapley值解释，支持离策略学习和持续策略适应。"
-tags: [shapley-values, reinforcement-learning, interpretability, explainability, off-policy, feature-attribution]
+title: >-
+  [论文解读] Approximating Shapley Explanations in Reinforcement Learning
+description: >-
+  [NeurIPS 2025][Shapley值] 提出 FastSVERL，一种可扩展的参数化学习框架，分别近似强化学习中 Shapley 值的两个计算瓶颈（特征函数和 Shapley 求和），支持离策略数据学习和随策略演化持续更新解释。
+tags:
+  - NeurIPS 2025
+  - Shapley值
+  - 强化学习可解释性
+  - 特征归因
+  - 参数化近似
+  - 离策略学习
 ---
+
 # Approximating Shapley Explanations in Reinforcement Learning
 
 **会议**: NeurIPS 2025  
@@ -37,7 +47,7 @@ FastSVERL 将近似问题分解为两个层次：
 
 1. **参数化特征函数近似**
 
-    做什么：训练参数模型 $\hat{\pi}(s, a | \mathcal{C}; \beta)$ 来近似行为特征函数 $\tilde{\pi}_s^a(\mathcal{C})$（给定特征子集 $\mathcal{C}$ 时的条件动作概率）。
+    功能：训练参数模型 $\hat{\pi}(s, a | \mathcal{C}; \beta)$ 来近似行为特征函数 $\tilde{\pi}_s^a(\mathcal{C})$（给定特征子集 $\mathcal{C}$ 时的条件动作概率）。
 
     核心思路：将不在 $\mathcal{C}$ 中的特征替换为支撑集外的值，训练最小化 $\mathcal{L}(\beta) = \mathbb{E}_{p^\pi(s)} \mathbb{E}_{\text{Unif}(a)} \mathbb{E}_{p(\mathcal{C})} |\pi(s,a) - \hat{\pi}(s,a|\mathcal{C};\beta)|^2$。因为不同状态在相同子集 $\mathcal{C}$ 上共享遮蔽表示，模型无法恢复精确目标，而是学习其均值——即特征函数值。结果特征函数在 $p^\pi(s)>0$ 的所有 $(s,a,\mathcal{C})$ 上是精确无偏的。
 
@@ -45,7 +55,7 @@ FastSVERL 将近似问题分解为两个层次：
 
 2. **条件策略 + 参数化价值函数近似结果特征函数**
 
-    做什么：定义条件策略 $\hat{\pi}(a|s; s_e, \mathcal{C})$（在待解释状态 $s_e$ 用特征函数行为，其他状态用原策略），然后训练参数化价值函数 $V(s|s_e, \mathcal{C}; \beta)$ 来估计条件策略下的期望回报。
+    功能：定义条件策略 $\hat{\pi}(a|s; s_e, \mathcal{C})$（在待解释状态 $s_e$ 用特征函数行为，其他状态用原策略），然后训练参数化价值函数 $V(s|s_e, \mathcal{C}; \beta)$ 来估计条件策略下的期望回报。
 
     核心思路：结果特征函数 $\tilde{v}_s^\pi(\mathcal{C})$ 需要在 $2^{|\mathcal{F}|} \times |\mathcal{S}|$ 个不同的 $(s_e, \mathcal{C})$ 对上求解独立RL问题。通过单一条件策略和参数化价值函数将所有这些问题统一，提供在策略（Eq. 14）和离策略（Eq. 15）两种训练方式。
 
@@ -53,7 +63,7 @@ FastSVERL 将近似问题分解为两个层次：
 
 3. **消除特征模型的单样本近似**
 
-    做什么：用单一采样的特征值直接替换预训练的特征函数模型，将特征估计嵌入 Shapley 模型训练中。
+    功能：用单一采样的特征值直接替换预训练的特征函数模型，将特征估计嵌入 Shapley 模型训练中。
 
     核心思路：在 Shapley 损失中将 $\tilde{\pi}_s^a(\mathcal{C})$ 替换为 $\pi(s', a)$（其中 $s' \sim p^\pi(\cdot | s^\mathcal{C})$），得到新损失 $\mathcal{L}(\theta) = \mathbb{E}_{p^\pi(s)} \mathbb{E}_{p(\mathcal{C})} \mathbb{E}_{s' \sim p^\pi(\cdot|s^\mathcal{C})} |\pi(s',a) - \pi_{s,a}(\emptyset) - \sum_{i \in \mathcal{C}} \hat{\phi}^i(s,a;\theta)|^2$。作者证明此损失在全局最优处恢复精确无偏 Shapley 值。
 

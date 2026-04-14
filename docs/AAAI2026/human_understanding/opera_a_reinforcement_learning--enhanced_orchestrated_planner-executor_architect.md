@@ -8,7 +8,7 @@ tags:
   - 人体理解
   - RAG
   - multi-hop retrieval
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - multi-agent
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2508.16438](https://arxiv.org/abs/2508.16438)  
 **代码**: [Ameame1/OPERA](https://github.com/Ameame1/OPERA)  
 **领域**: human_understanding  
-**关键词**: RAG, multi-hop retrieval, reinforcement learning, GRPO, multi-agent  
+**关键词**: RAG, multi-hop retrieval, reinforcement-learning, GRPO, multi-agent
 
 ## 一句话总结
 提出 OPERA 框架，通过 Goal Planning Module 和 Reason-Execute Module 的分层架构，结合专为多 agent 设计的 MAPGRPO 训练算法，大幅提升 reasoning-oriented multi-hop retrieval 性能。

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.08822](https://arxiv.org/abs/2506.08822)  
 **代码**: 未公开  
 **领域**: image_generation  
-**关键词**: flow matching, visuomotor policy, one-step generation, frequency consistency, robotic manipulation  
+**关键词**: flow matching, visuomotor policy, one-step generation, frequency consistency, robotic manipulation
 
 ## 一句话总结
 

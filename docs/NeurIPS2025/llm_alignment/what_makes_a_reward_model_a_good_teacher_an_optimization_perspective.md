@@ -10,7 +10,7 @@ tags:
   - RLHF
   - 奖励方差
   - 优化景观
-  - policy gradient
+  - 策略梯度
 ---
 
 # What Makes a Reward Model a Good Teacher? An Optimization Perspective
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.15477](https://arxiv.org/abs/2503.15477)  
 **代码**: [github](https://github.com/princeton-pli/what-makes-good-rm)  
 **领域**: LLM 对齐 / RLHF  
-**关键词**: 奖励模型, RLHF, 奖励方差, 优化景观, policy gradient
+**关键词**: 奖励模型, RLHF, 奖励方差, 优化景观, 策略梯度
 
 ## 一句话总结
 从优化理论角度证明：奖励模型的准确率（accuracy）不足以衡量其作为 RLHF "教师"的质量——即使完美准确的奖励模型，如果诱导的奖励方差（reward variance）过低，也会导致 RLHF 目标函数景观平坦，使 policy gradient 优化极慢；不同的语言模型需要不同的奖励模型。
@@ -27,12 +27,17 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：RLHF 是对齐 LLM 的标准流程，其核心是训练一个代理奖励模型 $r_{\mathrm{RM}}$ 来替代不可获取的真实奖励 $r_{\mathrm{G}}$，然后通过 PPO/RLOO/GRPO 等 policy gradient 方法最大化代理奖励。当前评估奖励模型的主流指标是**准确率**——在偏好数据上正确排序输出对的比例。
+
 **现有痛点**：
    - 经验上已发现更准确的奖励模型不一定产生更强的对齐效果，但缺乏理论解释
    - 主流 benchmark（RewardBench、RM-Bench 等）纯粹基于准确率评估，且与被对齐的语言模型无关
+
 **核心矛盾**：准确率只衡量"方向是否正确"（排序），但忽略了"信号是否足够强"——即奖励模型是否在策略分布下将不同输出的奖励拉得足够开。
+
 **本文要解决什么？** 形式化地回答"什么使奖励模型成为好的 RLHF 教师"，揭示准确率之外的关键因素。
+
 **切入角度**：从 RLHF 优化景观出发——policy gradient 的梯度范数与策略分布下的奖励方差直接相关。
+
 **核心idea一句话**：奖励方差（reward variance）决定 RLHF 目标函数的平坦程度，是评估奖励模型时必须考虑的、独立于准确率的关键指标。
 
 ## 方法详解

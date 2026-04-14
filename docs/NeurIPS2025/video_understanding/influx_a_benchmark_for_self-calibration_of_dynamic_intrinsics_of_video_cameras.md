@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.23589](https://arxiv.org/abs/2510.23589)  
 **代码**: [项目主页](https://influx.cs.princeton.edu/)  
 **领域**: video_understanding  
-**关键词**: camera intrinsics, dynamic calibration, benchmark, lookup table, video 3D understanding  
+**关键词**: camera intrinsics, dynamic calibration, benchmark, lookup table, video 3D understanding
 
 ## 一句话总结
 

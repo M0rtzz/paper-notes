@@ -2,15 +2,16 @@
 title: >-
   [论文解读] THUNDER: Tile-level Histopathology image UNDERstanding benchmark
 description: >-
-  [NeurIPS 2025][医学影像][基准测试] 提出THUNDER——数字病理学基础模型的tile级基准，全面比较23个基础模型在16个数据集上的下游任务表现、特征空间分析和鲁棒性评估。
+  [NeurIPS 2025 Datasets and Benchmarks Track (Spotlight)][医学图像][数字病理学] 提出 THUNDER，一个面向数字病理学基础模型的 tile 级别综合基准，支持 23 个基础模型在 16 个数据集上的高效比较，覆盖下游任务性能、特征空间分析、鲁棒性和不确定性评估。
 tags:
-  - NeurIPS 2025
-  - 医学影像
+  - NeurIPS 2025 Datasets and Benchmarks Track (Spotlight)
+  - 医学图像
   - 数字病理学
-  - 基准测试
+  - benchmark
   - 基础模型
-  - 鲁棒性评估
+  - 鲁棒性
   - 不确定性
+  - tile级分析
 ---
 
 # THUNDER: Tile-level Histopathology image UNDERstanding benchmark
@@ -19,7 +20,7 @@ tags:
 **arXiv**: [2507.07860](https://arxiv.org/abs/2507.07860)  
 **代码**: 有 (https://github.com/MICS-Lab/thunder)  
 **领域**: 医学影像 / 数字病理学  
-**关键词**: 数字病理学, 基准测试, 基础模型, 鲁棒性, 不确定性, tile级分析  
+**关键词**: 数字病理学, benchmark, 基础模型, 鲁棒性, 不确定性, tile级分析
 
 ## 一句话总结
 

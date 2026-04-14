@@ -50,25 +50,25 @@ DeepBooTS 由双流架构组成：
 
 1. **理论基础——集成降方差**:
 
-    - 做什么：从偏差-方差分解角度为集成抗概念漂移提供理论保证
+    - 功能：从偏差-方差分解角度为集成抗概念漂移提供理论保证
     - 核心思路：Theorem 1 证明简单平均集成 $\bar{Y} = \frac{1}{N}\sum \hat{Y}_t$ 的方差 $\text{Var}(\bar{Y}) \leq \text{Var}(\hat{Y})$ 且偏差不变。Theorem 2 进一步证明加权集成在分布漂移后的 MSE 严格低于单模型。Theorem 3 证明 DeepBooTS 的减法聚合方差上界为 $\frac{4}{L}\alpha^2(\nu + \mu)$，而加法聚合是 $\frac{4}{L}\alpha^2\nu + 3\alpha^2\mu$（远大）
     - 设计动机：提供不仅是实验验证、还有理论保证的方案。方差降低 → 概念漂移缓解 → 测试误差降低
 
 2. **双流残差递减架构**:
 
-    - 做什么：在深度网络内部实现类似 gradient boosting 的残差逐层修正
+    - 功能：在深度网络内部实现类似 gradient boosting 的残差逐层修正
     - 核心思路：每个 block 是 fork 结构——接收 $X_l$，输出两路：（a）残差 $R_l = X_l - \text{Block}_l(X_l)$ 传给下一个 block 继续处理（输入流）；（b）预测 $O_l = \text{Predictor}_l(\hat{X}_l)$ 与前面 block 的预测做交替减法聚合（输出流）。最终预测是奇数和偶数位 learner 预测的加权差
     - 设计动机：减法聚合理论上方差更低（Theorem 3），且对应了输入的隐式分解——每个 block 处理前面 block"漏掉"的信息
 
 3. **可学习门控系数**:
 
-    - 做什么：让每个 learner 自适应调节输入流和输出流的传输速度
+    - 功能：让每个 learner 自适应调节输入流和输出流的传输速度
     - 核心思路：输入流 $X_{l+1} = \varphi(\theta_1(R_{l,2})) \cdot \theta_2(R_{l,2})$，输出流 $O_{l+1} = \varphi(\theta_3([\hat{X}_{l,1}, \hat{X}_{l,2}])) \cdot \theta_4([\hat{X}_{l,1}, \hat{X}_{l,2}])$，其中 $\varphi$ 是 sigmoid 门控
     - 设计动机：不同 block 需要不同的权重来控制信息传递，固定权重不够灵活
 
 4. **灵活的 Learner 设计**:
 
-    - 做什么：基础 learner 可用不同的神经网络结构实现
+    - 功能：基础 learner 可用不同的神经网络结构实现
     - 核心思路：支持注意力层（时域或 FFT 频域）+ FeedForward 层，每层内部也做残差减法 $R_{l,1} = X_{l,1} - \delta\hat{X}_{l,1}$，$\delta$ 控制是否启用注意力层
     - 设计动机：模块化设计让框架适配不同任务，FFT 注意力实现轻量高效
 

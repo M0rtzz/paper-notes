@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.15629](https://arxiv.org/abs/2506.15629)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: 组合泛化, 指令遵循, 生成式常识推理, CommonGen, benchmark  
+**关键词**: 组合泛化, 指令遵循, 生成式常识推理, CommonGen, benchmark
 
 ## 一句话总结
 

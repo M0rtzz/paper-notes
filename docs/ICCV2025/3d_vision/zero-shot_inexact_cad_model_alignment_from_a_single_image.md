@@ -62,9 +62,9 @@ tags:
 
 3. **稠密图像对齐优化（NOC空间）**：将输入图像通过最近邻匹配转为NOC map $\mathbf{N}^\mathbf{I}$（每个像素特征找最近3D体素，该体素位置即为NOC值）。优化三个损失：
 
-   - **NOC对齐损失**：$\mathcal{L}_{\text{NOC-A}} = \frac{1}{m}\|\mathbf{M} \odot (\mathbf{N}^\mathbf{I} - \mathbf{N}^t)\|_1$
-   - **轮廓损失**：$\mathcal{L}_{\text{mask}} = \frac{1}{HW}\|\mathbf{S}^\mathbf{I} - \mathbf{S}^t\|_1$（使用SAM分割+SoftRasterizer可微渲染）
-   - **深度损失**：$\mathcal{L}_{\text{depth}} = \frac{1}{m}\|\mathbf{M} \odot (\mathbf{D}^\mathbf{I} - \mathbf{D}^t)\|_1$（使用DepthAnything预测度量深度）
+    - **NOC对齐损失**：$\mathcal{L}_{\text{NOC-A}} = \frac{1}{m}\|\mathbf{M} \odot (\mathbf{N}^\mathbf{I} - \mathbf{N}^t)\|_1$
+    - **轮廓损失**：$\mathcal{L}_{\text{mask}} = \frac{1}{HW}\|\mathbf{S}^\mathbf{I} - \mathbf{S}^t\|_1$（使用SAM分割+SoftRasterizer可微渲染）
+    - **深度损失**：$\mathcal{L}_{\text{depth}} = \frac{1}{m}\|\mathbf{M} \odot (\mathbf{D}^\mathbf{I} - \mathbf{D}^t)\|_1$（使用DepthAnything预测度量深度）
 
    关键优势：NOC map由最近邻匹配得到，天然对特征空间的全局平移/缩放不变，比直接用神经网络预测NOC更鲁棒地处理域差异。
 

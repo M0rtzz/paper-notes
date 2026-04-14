@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2502.13764](https://arxiv.org/abs/2502.13764)  
 **代码**: [数据集](https://huggingface.co/datasets/xwk25/RiceCC)  
 **领域**: object_detection  
-**关键词**: rice quality evaluation, object detection, YOLO-v5, ConvNeXt-Tiny, K-means, SimAM, ECA  
+**关键词**: rice quality evaluation, object detection, YOLO-v5, ConvNeXt-Tiny, K-means, SimAM, ECA
 
 ## 一句话总结
 

@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：KGE 方法（TransE/RotatE等）通过向量空间编码实体和关系进行链接预测，但缺乏预测不确定性量化。Zhu et al. (2025) 提出 KGCP 将 conformal prediction 应用于 KGE，生成保证覆盖真实答案的预测集。
+
 **现有痛点**：KGCP 只提供**边际覆盖保证**（averaged over all queries），但不同谓词的不确定性差异巨大——如医学KG中"contraindicated_for"（禁忌症）比"has_symptom"（症状）需要更严格的保证。边际覆盖可能导致某些谓词覆盖率远低于目标。
+
 **核心矛盾**：谓词级条件覆盖需要对每个谓词单独做 conformal prediction（Mondrian CP），但 KG 中大多数谓词只有极少三元组→校准集太小→阈值不稳定→预测集过大或覆盖失败。
+
 **本文要解决什么**：在 KGE 中实现谓词条件覆盖保证，同时保持紧凑的预测集。
+
 **切入角度**：合并向量表示相似的谓词扩大校准集 + 引入 rank 信息做双重校准。
+
 **核心 idea**：CondKGCP = 谓词合并（增加校准数据）+ 双重校准（score 阈值 ∩ rank 阈值），理论保证+实验验证。
 
 ## 方法详解
@@ -42,14 +47,14 @@ tags:
 
 1. **谓词合并 (Predicate Merging)**
 
-    - 做什么：将校准数据稀少的谓词合并到向量表示最相似的大谓词所在分区
+    - 功能：将校准数据稀少的谓词合并到向量表示最相似的大谓词所在分区
     - 核心思路：Algorithm 1 将谓词集 $R$ 分为"数据充足"（$|\mathcal{T}_{cal}[\{r\}]| \geq \phi$）和"数据稀少"两组，稀少谓词按曼哈顿距离找最近的充足谓词合并
     - 设计动机：相似向量的谓词有相似的 nonconformity score 分布→合并后校准更稳定
     - 理论：合并后每个分区 $g$ 的校准集 $\mathcal{T}_g$ 足够大以确定可靠阈值
 
 2. **双重校准 (Dual Calibration)**
 
-    - 做什么：同时用 score 阈值和 rank 阈值约束预测集
+    - 功能：同时用 score 阈值和 rank 阈值约束预测集
     - 核心思路：$\hat{C}_{CondKGCP}(q) = \{e \in E_q[S \leq \hat{s}_{\epsilon'}] : \text{rank}(q,e) \leq \hat{k}(g)\}$
       - **Score 校准**：找 nonconformity score 的 $\epsilon'$-分位数作为阈值
       - **Rank 校准**：找最小 $k$ 使 $P(\text{rank} > k | \text{pred} \in g) < \epsilon$

@@ -50,14 +50,14 @@ tags:
 
 1. **预测驱动 Top-K Jaccard 相似度**:
 
-    - 做什么：动态预测每个节点的最优邻居数，提升 Jaccard 计算质量
+    - 功能：动态预测每个节点的最优邻居数，提升 Jaccard 计算质量
     - 核心思路：用 Transformer 替换 Ada-NETS 的 LSTM 预测 Top-K，仅用 Top-K 之前的邻居计算 Jaccard
     - 距离变换改进：$p_{ij} = \frac{1}{1 + e^{\delta d_{ij} + \epsilon}}$（sigmoid 形式，$\delta=7.5, \epsilon=-5$），放大小距离差异
     - 设计动机：FC-ESER 的指数距离变换压缩了相似度差异导致不同身份的 Jaccard 系数过于接近
 
 2. **稀疏差分 Transformer（SDT）**:
 
-    - 做什么：处理 Top-K 边界附近的不确定关系
+    - 功能：处理 Top-K 边界附近的不确定关系
     - 核心思路：基于 Differential Transformer 的差分注意力消噪 + Top-K 稀疏 mask 屏蔽无关节点
     - 差分注意力：计算两个独立 softmax 注意力图的差值来消除噪声注意力
     - 稀疏 mask：只关注 Top-K 之前的相关节点，屏蔽 Top-K 之后的无关节点

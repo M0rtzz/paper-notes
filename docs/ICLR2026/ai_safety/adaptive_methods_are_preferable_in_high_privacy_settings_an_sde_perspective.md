@@ -47,19 +47,19 @@ tags:
 
 1. **DP-SGD 的 SDE 分析（Protocol A）**:
 
-    - 做什么：刻画 DP-SGD 在固定超参数下隐私预算 $\varepsilon$ 的影响
+    - 功能：刻画 DP-SGD 在固定超参数下隐私预算 $\varepsilon$ 的影响
     - 核心思路：在 $\mu$-PL 和 $L$-光滑条件下，证明 DP-SGD 损失满足 $\mathbb{E}[f(X_t)] \lesssim f(X_0)e^{-\mu t} + (1-e^{-\mu t}) \cdot \mathcal{O}(1/\varepsilon^2)$。衰减项（收敛速度）独立于 $\varepsilon$，而渐近邻域（隐私-效用项）以 $1/\varepsilon^2$ 缩放
     - 设计动机：分离收敛速度和渐近邻域，精确揭示 $\varepsilon$ 仅影响后者
 
 2. **DP-SignSGD 的 SDE 分析（Protocol A）**:
 
-    - 做什么：揭示自适应方法在 DP 下的本质不同行为
+    - 功能：揭示自适应方法在 DP 下的本质不同行为
     - 核心思路：证明 DP-SignSGD 损失满足 $\mathbb{E}[f(X_t)] \lesssim f(X_0)e^{-c\varepsilon t} + (1-e^{-c\varepsilon t}) \cdot \mathcal{O}(1/\varepsilon)$。关键差异：衰减项线性依赖 $\varepsilon$（小 $\varepsilon$ 收敛慢），但渐近邻域仅 $\mathcal{O}(1/\varepsilon)$。利用了 sign 操作对 DP 噪声的压缩效应：$\mathbb{E}[\text{sign}(g_k)] \approx \nabla f(x)/(\sigma_\gamma\sqrt{d})$
     - 设计动机：sign 算子天然压缩噪声幅度，使 DP 噪声的影响从平方降为线性
 
 3. **跨隐私预算的超参数迁移（Protocol B）**:
 
-    - 做什么：比较两种方法在最优调参下的渐近性能和超参数敏感性
+    - 功能：比较两种方法在最优调参下的渐近性能和超参数敏感性
     - 核心思路：推导最优学习率——DP-SGD 的 $\eta^\star \propto \varepsilon$（依赖隐私预算），DP-SignSGD 的 $\eta^\star$ 与 $\varepsilon$ 无关。在最优学习率下两者渐近性能相当，但 DP-SignSGD 无需为不同 $\varepsilon$ 重新调参
     - 设计动机：实际中超参数搜索消耗额外隐私预算，对 $\varepsilon$ 不敏感的方法更实用
 

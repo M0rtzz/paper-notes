@@ -2,14 +2,14 @@
 title: >-
   [论文解读] AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning
 description: >-
-  [ACL 2025][数据合成][微调] 提出AIDE框架，从仅10个种子样本出发，通过属性引导的多跳数据扩展生成大量任务相关的高质量训练数据，使Mistral-7B微调后在多个基准上超越基于人工标注数据微调的模型，比Evol-Instruct等SOTA方法高出30%。
+  [ACL 2025][数据扩展] 提出AIDE框架，通过"属性引导+Persona增强+残差连接"的多跳数据扩展机制，从仅10个种子样本生成约3K条高质量任务特定训练数据，微调Mistral-7B后在zero-shot上平均超越人工标注数据微调6%、超越Evol-Instruct等SOTA方法30%。
 tags:
   - ACL 2025
-  - 数据合成
-  - 指令微调
-  - 数据增强
+  - 数据扩展
   - 多跳合成
-  - Few-shot学习
+  - 属性引导
+  - Persona
+  - 残差连接
 ---
 
 # AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning
@@ -43,17 +43,17 @@ tags:
 ### 关键设计
 
 1. **属性引导的多跳合成 (Attribute-Guided Multi-Hop Synthesis)**:
-    - 做什么：从种子数据提取知识三元组 $\langle t, r, a \rangle$（主题、关系、属性），沿三元组路径递归合成新数据
+    - 功能：从种子数据提取知识三元组 $\langle t, r, a \rangle$（主题、关系、属性），沿三元组路径递归合成新数据
     - 核心思路：对种子 $X_i^{(0)}$，LLM提取其主题和关键属性。每个三元组定义一条合成路径，结合任务示范 $\mathcal{D}_T$ 和预定义操作 $Op$（添加约束、推理、具体化）生成新样本 $X^{(K)} = \text{LLM}(X^{(K-1)}, \langle t,r,a \rangle^{(K-1)}, Op, \mathcal{D}_T)$。总数据量 $m = n(m_1 + m_2 + ... + m_K)$
     - 设计动机：三元组作为合成路径的"控制节点"，确保生成数据沿有意义的语义方向扩展，而非随机漂移
 
 2. **Persona引导的多样性增强**:
-    - 做什么：用种子数据的主题embedding从Persona Hub检索top-P个相关人格描述，为合成引入多样化视角
+    - 功能：用种子数据的主题embedding从Persona Hub检索top-P个相关人格描述，为合成引入多样化视角
     - 核心思路：$X^{(K)} = \text{LLM}(X^{(K-1)}, t, p_i, Op, \mathcal{D}_T)$，其中 $p_i$ 如"一位有高海拔生活经验的冒险老人"
     - 设计动机：LLM在相同prompt下倾向生成相似内容，Persona引入不同背景和视角增加多样性
 
 3. **残差连接机制 (Residual Connection)**:
-    - 做什么：在深度 $d \leq L$ 的合成中，将原始种子数据 $X^{(0)}$ 作为额外输入传递给LLM
+    - 功能：在深度 $d \leq L$ 的合成中，将原始种子数据 $X^{(0)}$ 作为额外输入传递给LLM
     - 核心思路：当合成深度增加（如10-hop），生成内容逐渐偏离任务主题。残差连接将原始种子"锚定"合成方向
     - 设计动机：实验表明无残差连接的10-hop合成会引入完全无关内容，但加入残差连接后仍能保持主题相关性
 

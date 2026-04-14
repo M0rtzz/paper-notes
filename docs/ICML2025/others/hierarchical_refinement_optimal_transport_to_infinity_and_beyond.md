@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Hierarchical Refinement: Optimal Transport to Infinity and Beyond
 description: >-
-  [ICML 2025][Optimal Transport] 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
+  [ICML 2025][optimal transport] 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
 tags:
   - ICML 2025
-  - Optimal Transport
+  - optimal transport
   - Monge Map
   - Low-rank OT
   - Hierarchical Algorithm
@@ -18,16 +18,20 @@ tags:
 **arXiv**: [2503.03025](https://arxiv.org/abs/2503.03025)  
 **代码**: 有  
 **领域**: 最优传输  
-**关键词**: Optimal Transport, Monge Map, Low-rank OT, Hierarchical Algorithm, Scalability
+**关键词**: optimal transport, Monge Map, Low-rank OT, Hierarchical Algorithm, Scalability
 
 ## 一句话总结
 提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
 
 ## 研究背景与动机
 **领域现状**：Sinkhorn 算法解决了 OT 的 $O(n^3)$ 问题但仍有 $O(n^2)$ 时空复杂度；低秩 OT 降至线性但无法给出一一对应。
+
 **现有痛点**：现代数据规模达百万级，Sinkhorn 二次复杂度不可行；mini-batch OT 有固有偏差；神经 OT 映射质量不稳定。
+
 **核心矛盾**：如何在保持线性复杂度的同时恢复全秩双射映射？
+
 **切入角度**：证明低秩 OT 的因子矩阵 (Q,R) 会将 Monge 对共聚类（Proposition 3.1），据此递归细化。
+
 **核心idea**：低秩 OT 的最优共聚类保证 $\mathsf{q}^*(x) = \mathsf{r}^*(T^*(x))$，递归到单点即得 Monge 映射。
 
 ## 方法详解

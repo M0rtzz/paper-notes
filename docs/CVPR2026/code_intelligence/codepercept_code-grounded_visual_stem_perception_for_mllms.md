@@ -2,7 +2,7 @@
 title: >-
   [论文解读] CodePercept: Code-Grounded Visual STEM Perception for MLLMs
 description: >-
-  [CVPR 2026][STEM视觉感知] 通过缩放分析发现感知而非推理是MLLM在STEM领域的真正瓶颈，提出以可执行Python代码为锚定媒介的CodePercept范式，构建百万级ICC-1M数据集和STEM2Code-Eval基准，4B模型STEM2Code-Eval上Image Score从24.55提升至47.17。
+  [CVPR 2026][STEM视觉感知] 通过系统性缩放分析发现感知（perception）而非推理（reasoning）是 MLLM 在 STEM 领域的真正瓶颈，提出以可执行 Python 代码为锚定媒介的 CodePercept 范式——构建 100 万级 ICC-1M 数据集和 STEM2Code-Eval 基准，在 SFT+RL 两阶段训练后显著提升 MLLM 的 STEM 视觉感知和下游推理能力。
 tags:
   - CVPR 2026
   - STEM视觉感知
@@ -49,19 +49,19 @@ CodePercept 包含三大模块：(1) 图像-代码对构建引擎（三条互补
 
 1. **图像-代码对构建引擎（三条互补 Pipeline）**:
 
-    - 做什么：从现有 STEM 数据出发，大规模生成高质量 image-code 配对数据
+    - 功能：从现有 STEM 数据出发，大规模生成高质量 image-code 配对数据
     - 核心思路：三条并行管线——(i) Image Reproduction：对种子图像先生成详细描述再基于图像+描述生成 matplotlib 重建代码；(ii) Image Diversity：抽取种子图像的底层科学原理 $G_{\text{principle}}$，基于同一原理生成 K 个不同视觉实例化代码（如从多米诺谜题生成圆形轮盘、三角组合、网格图等变体）；(iii) Solid Geometry：针对 LLM 在立体几何代码上的根本缺陷，构建参数化模板库（立方体展开/折叠、正投影三视图、截面分析、多面体构造共 8 类），通过参数采样批量生成。统一质量控制过滤图像质量 $Q_I$、代码质量 $Q_C$ 和图像-代码一致性 $Q_{IC}$
     - 设计动机：Image Reproduction 受限于源图像多样性；Image Diversity 通过"抽象原理→重新实例化"突破数据多样性瓶颈；Solid Geometry 补齐 LLM 在空间推理代码生成上的能力短板
 
 2. **代码锚定字幕生成（Code-Grounded Caption Generation）**:
 
-    - 做什么：利用 ground-truth 代码消除 MLLM 生成字幕中的幻觉
+    - 功能：利用 ground-truth 代码消除 MLLM 生成字幕中的幻觉
     - 核心思路：三步流程——(1) Native Caption：MLLM 直接从图像生成描述草稿 $t_{\text{draft}}$（语言自然但可能有事实错误）；(2) Code Analysis：利用代码本身 + 执行追踪器 $\xi(\mathbf{c})$（记录精确坐标、维度、z-order 层级等所有渲染细节）提取经验证的视觉事实 $t_{\text{code}}$；(3) Code-Grounded Refinement：以代码分析结果为依据外科手术式修正草稿中的数量错误、空间关系错误，同时保持原始语言风格和描述流畅度。公式 $t_{\text{new}} = G_{\text{refine}}(G_{\text{caption}}(\mathbf{x}), G_{\text{analyze}}(\mathbf{c}, \xi(\mathbf{c})))$
     - 设计动机：执行追踪器解决了"直接分析复杂代码对 LLM 太难"的问题——即使代码有深层递归和嵌套循环，执行日志也能提供确定性的渲染信息作为事实参考
 
 3. **STEM 图像转代码翻译（STEM Image-to-Code Translation）**:
 
-    - 做什么：训练模型从图像直接生成可执行重建代码，作为自然语言的互补感知信号
+    - 功能：训练模型从图像直接生成可执行重建代码，作为自然语言的互补感知信号
     - 核心思路：先让 MLLM 从图像生成解释性代码草稿 $c_{\text{draft}}$（有逐步分解和参数解释但可能有事实错误），再用 ground-truth 代码修正错误同时保留解释性结构，得到 $c_{\text{new}} = G_{\text{refine}}(G_{\text{code}}(\mathbf{x}), \mathbf{c})$
     - 设计动机：代码提供了与自然语言互补的结构化视觉描述——用编程构造表达几何关系、数学约束和结构细节，解决自然语言"描述失语"问题
 

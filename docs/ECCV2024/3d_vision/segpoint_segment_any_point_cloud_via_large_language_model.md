@@ -25,9 +25,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：3D 点云分割已有大量进展（Mask3D、SPFormer 等），但每个模型通常只解决一种特定分割任务，缺乏统一性。
+
 **现有痛点**：(a) 现有方法依赖预定义类别或显式文本描述，无法理解隐含的人类意图（如"哪里可以坐？"）；(b) 不同任务需要不同模型，效率低且不实用。
+
 **核心矛盾**：真实场景需要模型能理解隐含指令并推理，但当前方法缺乏推理能力；同时需要统一框架处理多种分割任务。
+
 **切入角度**：利用 LLM 的推理和世界知识来理解复杂/隐含指令，结合几何增强模块弥补点云编码器在密集预测上的不足。
+
 **核心 idea 一句话**：将 LLM 的推理能力注入 3D 点云分割，通过几何增强和特征传播实现高质量逐点分割。
 
 ## 方法详解
@@ -40,12 +44,12 @@ SegPoint 由四个核心部分组成：(1) 预训练点云编码器 $\mathcal{E}
 ### 关键设计
 
 #### 1. **Vanilla Baseline 及其问题**
-   - 做什么：直接将点云编码器特征送入 LLM，检测 `<SEG>` token 后生成掩码嵌入 $\vec{h}_{seg} = \gamma(\vec{y}_{[seg]})$，与上采样后的逐点嵌入做点积得到掩码 $\vec{m} = \vec{h}_{seg} \otimes \text{UpS.}(\vec{f}_{point})$
+   - 功能：直接将点云编码器特征送入 LLM，检测 `<SEG>` token 后生成掩码嵌入 $\vec{h}_{seg} = \gamma(\vec{y}_{[seg]})$，与上采样后的逐点嵌入做点积得到掩码 $\vec{m} = \vec{h}_{seg} \otimes \text{UpS.}(\vec{f}_{point})$
    - 存在问题：(a) 点云编码器为场景级分类训练，不适合密集预测；(b) FPS 采样从 $N$ 降到 $N_1$ 丢失细节；(c) 从 $N_1$ 直接上采样到 $N$ 引入大量噪声
    - 设计动机：明确了两个核心瓶颈——局部几何信息缺失和上采样质量差
 
 #### 2. **几何增强模块 (Geometric Enhancer Module, GEM)**
-   - 做什么：提取全场景局部几何上下文，通过交叉注意力注入点云编码器的中间特征
+   - 功能：提取全场景局部几何上下文，通过交叉注意力注入点云编码器的中间特征
    - 核心思路：
      - GEM 由 3 个 KPConv + BN + ReLU 块组成，输出几何特征 $\vec{g}_f \in \mathbb{R}^{N \times D}$，保留所有 $N$ 个点的信息
      - 通过交叉注意力将几何特征注入编码器的每个 block：$\hat{\vec{f}_i} = \vec{f}_i + g_i \cdot \text{softmax}\left(\frac{\vec{f}_i \vec{g}_f^T}{\sqrt{D}}\right) \vec{g}_f$
@@ -53,7 +57,7 @@ SegPoint 由四个核心部分组成：(1) 预训练点云编码器 $\mathcal{E}
    - 设计动机：KPConv 天然适合提取局部 3D 几何信息（vs 普通线性层）；门控因子保护预训练权重；类似 2D 中 ConvStem 增强 ViT 捕获局部信息的思路
 
 #### 3. **几何引导特征传播 (Geometric-guided Feature Propagation, GFP)**
-   - 做什么：从稀疏点特征高质量上采样到密集逐点嵌入
+   - 功能：从稀疏点特征高质量上采样到密集逐点嵌入
    - 核心思路：
      - 高层特征 $\vec{f}_3, \vec{f}_4$ 通过 PointNet++ 传播上采样到 $N_3, N_2$ 个点
      - 几何特征 $\vec{g}_f$ 通过 FPS 下采样到相同数量的点
@@ -63,7 +67,7 @@ SegPoint 由四个核心部分组成：(1) 预训练点云编码器 $\mathcal{E}
    - 设计动机：避免直接上采样导致的信息丢失；几何特征作为"黄金信息"引导上采样过程
 
 #### 4. **任务统一与 Instruct3D 数据集**
-   - 做什么：通过任务特定提示（task-specific prompts）在统一模型中处理4种分割任务
+   - 功能：通过任务特定提示（task-specific prompts）在统一模型中处理4种分割任务
    - 语义分割模板："Can you segment the {category} in this point cloud?" → "{category} \<SEG\>"
    - 引用分割模板："Can you segment the object {description}?" → "{category} \<SEG\>"
    - Instruct3D 包含 2,565 对指令-点云对，来自 ScanNet++ 的 280 个场景，支持多目标和零目标场景

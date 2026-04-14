@@ -2,14 +2,15 @@
 title: >-
   [论文解读] GenKnowSub: Improving Modularity and Reusability of LLMs through General Knowledge Subtraction
 description: >-
-  [ACL 2025][模块化LLM] 提出 GenKnowSub 方法，通过从任务特定 LoRA 中减去通用知识 LoRA 来解耦通用知识与任务特定信息，结合 Arrow 路由算法实现零样本迁移，在 Phi-3 上平均提升 1.6% 超越标准 Arrow，且跨语言（德语+3.9%、法语+3.6%）效果显著。
+  [ACL 2025][LLM/NLP][LoRA] 提出 GenKnowSub（通用知识减法），通过在 Wikipedia 语料上训练通用知识 LoRA 并从任务特定 LoRA 中减去它（$LoRA_{res}^i = LoRA_{ts}^i - LoRA_g$），得到更纯净的残差模块；结合 Arrow 路由算法动态选择最相关的模块，在 Phi-3 上零样本迁移平均准确率提升 1.6%，跨语言场景提升更大（德语+3.9%，法语+3.6%）。
 tags:
   - ACL 2025
-  - 模块化LLM
+  - LLM/NLP
   - LoRA
-  - 零样本迁移
-  - 知识解耦
+  - 通用知识减法
   - Arrow路由
+  - 零样本迁移
+  - 模块化
 ---
 
 # GenKnowSub: Improving Modularity and Reusability of LLMs through General Knowledge Subtraction
@@ -48,20 +49,20 @@ tags:
 
 1. **通用知识 LoRA 训练与减法（GenKnowSub）**:
 
-    - 做什么：在 Wikipedia 小规模语料上用因果语言建模目标训练 LoRA 模块作为"通用知识指纹"，然后从每个任务 LoRA 中减去它
+    - 功能：在 Wikipedia 小规模语料上用因果语言建模目标训练 LoRA 模块作为"通用知识指纹"，然后从每个任务 LoRA 中减去它
     - 核心思路：公式 $LoRA_{res}^i = LoRA_{ts}^i - LoRA_g$，其中 $LoRA_{ts}^i$ 是第 $i$ 个任务模块，$LoRA_g$ 是通用知识模块。假设 Wikipedia 微调可以作为"闪回"机制，激活基础模型中已有的通用知识，使 LoRA 编码这些知识。减去后，残差模块仅保留任务独有的特征
     - 设计动机：通用知识冗余使不同任务模块过于相似，减去后模块间差异增大，Arrow 路由的区分能力增强。这也是"遗忘即学习"思想的模块级应用
     - 实现：每种语言（英/法/德）各 5000 段 Wikipedia 文本训练一个 LoRA，另有三者平均的 $LoRA_{avg}$
 
 2. **Arrow 路由算法（动态任务适配）**:
 
-    - 做什么：在模型每一层、对每个输入 token 动态选择 top-k 个最相关的残差模块并加权组合成当前 token 的 LoRA
+    - 功能：在模型每一层、对每个输入 token 动态选择 top-k 个最相关的残差模块并加权组合成当前 token 的 LoRA
     - 核心思路：对每个残差 LoRA 做 SVD 分解，提取最大右奇异向量作为原型（prototype），将输入 token 投影到原型空间，选择相似度最高的 top-k 个模块，softmax 归一化系数后加权求和。最终前向传播：$y_t^l = W_0^l x_t^l + B_t^l A_t^l x_t^l$
     - 设计动机：token 级路由比输入级路由更细粒度——同一句话中不同 token 可能需要不同任务模块的知识
 
 3. **多语言通用知识探索**:
 
-    - 做什么：分别用英语、法语、德语 Wikipedia 训练通用 LoRA，以及三者平均，对比减去不同语言LoRA的效果
+    - 功能：分别用英语、法语、德语 Wikipedia 训练通用 LoRA，以及三者平均，对比减去不同语言LoRA的效果
     - 核心思路：即使任务模块只在英语上训练，减去非英语（如法语）的通用 LoRA 也能提升性能，说明通用知识具有跨语言共享性
     - 设计动机：验证 GenKnowSub 的语言不可知性
 

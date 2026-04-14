@@ -52,25 +52,25 @@ tags:
 
 1. **改进方向定理 (Theorem 3.1)**:
 
-    - 做什么：证明正/负/旧策略三个速度场之间的差异方向成比例
+    - 功能：证明正/负/旧策略三个速度场之间的差异方向成比例
     - 核心思路：$\Delta := \alpha(\mathbf{x}_t)[\mathbf{v}^+(\mathbf{x}_t) - \mathbf{v}^{\text{old}}(\mathbf{x}_t)] = [1-\alpha(\mathbf{x}_t)][\mathbf{v}^{\text{old}}(\mathbf{x}_t) - \mathbf{v}^-(\mathbf{x}_t)]$，其中 $\alpha$ 是与正策略密度比相关的标量
     - 设计动机：建立了"远离负样本 = 接近正样本"的等价关系，形式类似 CFG，但来自 RL 原理
 
 2. **策略优化目标 (Theorem 3.2)**:
 
-    - 做什么：设计一个同时利用正负数据的 flow matching 损失
+    - 功能：设计一个同时利用正负数据的 flow matching 损失
     - 核心思路：$\mathcal{L}(\theta) = \mathbb{E}[r \|\mathbf{v}_\theta^+ - \mathbf{v}\|^2 + (1-r)\|\mathbf{v}_\theta^- - \mathbf{v}\|^2]$，其中 $\mathbf{v}_\theta^+ = (1-\beta)\mathbf{v}^{\text{old}} + \beta \mathbf{v}_\theta$（隐式正策略），$\mathbf{v}_\theta^- = (1+\beta)\mathbf{v}^{\text{old}} - \beta \mathbf{v}_\theta$（隐式负策略）
     - 设计动机：通过隐式参数化，只训练一个模型 $\mathbf{v}_\theta$，但等价于同时让它接近正策略、远离负策略。最优解 $\mathbf{v}_{\theta^*} = \mathbf{v}^{\text{old}} + \frac{2}{\beta}\Delta$——reinforcement guidance 自动整合入策略中
 
 3. **前向一致性**:
 
-    - 做什么：保证训练后的模型仍对应有效的前向过程
+    - 功能：保证训练后的模型仍对应有效的前向过程
     - 核心思路：DiffusionNFT 用标准 flow matching 损失（前向过程），而非反向 SDE 的策略梯度
     - 设计动机：FlowGRPO 只优化反向过程可能破坏前向-反向一致性
 
 4. **CFG-free 训练**:
 
-    - 做什么：不使用 CFG，reinforcement guidance 替代了 CFG 的功能
+    - 功能：不使用 CFG，reinforcement guidance 替代了 CFG 的功能
     - 核心思路：Theorem 3.1 中的 $\Delta$ 形式上等价于 guidance——相当于 RL 自动学到了"引导方向"
     - 设计动机：避免 GRPO 中需要同时训练有/无条件模型的复杂性
 

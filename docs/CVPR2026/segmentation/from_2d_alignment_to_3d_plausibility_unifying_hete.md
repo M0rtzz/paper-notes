@@ -2,10 +2,10 @@
 title: >-
   [论文解读] A2P: From 2D Alignment to 3D Plausibility for Occlusion-Robust Two-Hand Reconstruction
 description: >-
-  [CVPR 2026][人体理解][双手重建] 解耦双手重建为2D结构对齐+3D空间交互对齐：Stage 1用Fusion Alignment Encoder隐式蒸馏Sapiens的关键点/分割/深度三种2D先验(推理时免基础模型)，Stage 2用穿透感知扩散模型+碰撞梯度引导将穿透姿态映射到物理合理配置——InterHand2.6M上MPJPE降至5.36mm(超SOTA 4DHands 2.13mm)，穿透体积降7倍。
+  [CVPR 2026][图像分割][双手重建] 解耦双手重建为 2D 结构对齐 + 3D 空间交互对齐：Stage 1 用 Fusion Alignment Encoder 隐式蒸馏 Sapiens 的关键点/分割/深度三种 2D 先验（推理时免基础模型，56fps），Stage 2 用穿透感知扩散模型 + 碰撞梯度引导将穿透姿态映射到物理合理配置——InterHand2.6M 上 MPJPE 降至 5.36mm（超 SOTA 4DHands 2.13mm），穿透体积降 7 倍。
 tags:
   - CVPR 2026
-  - 人体理解
+  - 图像分割
   - 双手重建
   - fusion alignment encoder
   - 扩散模型
@@ -49,19 +49,19 @@ tags:
 
 1. **Fusion Alignment Encoder (FAE)**
 
-    - 做什么：训练时利用基础模型多模态 2D 先验，推理时用轻量蒸馏模型替代
+    - 功能：训练时利用基础模型多模态 2D 先验，推理时用轻量蒸馏模型替代
     - 核心思路：训练时 Sapiens（1B 参数）提取三种先验特征 → Projection 层融合 $\mathbf{F}_p = \text{Proj}(\mathbf{F}_k, \mathbf{F}_s, \mathbf{F}_d)$ → FAE（轻量 ResNet-50，52.6M 参数）用 MSE 损失学习对齐 $\mathbf{F}_p$ → 推理时只需 FAE 替代 Sapiens，3fps→56fps 加速 18.7 倍，MRRPE 仅增 0.47mm。关键：**不提取显式先验预测（关键点坐标/分割图/深度图）而是蒸馏隐式特征**，避免先验预测误差级联传播
     - 设计动机：直接用基础模型推理太慢（1B 参数 3fps），而传统的显式先验预测+输入增广方式会累积预测误差。隐式蒸馏保留结构知识同时大幅降低推理成本——"foundation-level guidance without foundation-level cost"
 
 2. **穿透感知扩散模型**
 
-    - 做什么：学习从穿透姿态到物理合理配置的生成映射
+    - 功能：学习从穿透姿态到物理合理配置的生成映射
     - 核心思路：Transformer-based 架构，MDM 风格扩散过程（1000 步 + 余弦噪声调度）。**训练数据构建**：(i) 低性能模型的穿透输出作为条件 $\mathbf{X}_c$，GT 作为目标 $\mathbf{X}_0$；(ii) 对 GT MANO 参数加噪直到穿透发生，构成配对数据。去噪损失 $\mathcal{L}_{diffusion} = \|\mathbf{X}_0 - \mathcal{D}(\mathbf{X}_t, \mathbf{X}_c)\|_2$。推理时仅在双手 IoU>0 且穿透检测通过时激活（大部分帧跳过）
     - 设计动机：与 InterHandGen（扩散仅做输出正则）和 Zuo et al.（CNN 提取交互特征）不同，显式建模"穿透→合理"的映射是更直接有效的方式。条件扩散做"修复"而非"生成"——输入穿透姿态→输出合理姿态，比从零生成更稳定
 
 3. **碰撞梯度引导**
 
-    - 做什么：在扩散去噪过程中引入物理碰撞约束
+    - 功能：在扩散去噪过程中引入物理碰撞约束
     - 核心思路：每步 DDIM 去噪后，将估计的 $\hat{\mathbf{X}}_0$ 送入 MANO 得到 mesh 顶点 → (i) 计算双手顶点间 Chamfer 距离 $\mathbf{N}_{ij} = |\mathbf{V}_{t-1}^i - \mathbf{V}_c^j|^2$，保留 $\mathbf{N}_{ij} < d_{threshold}$ 的近邻对；(ii) 检查法向余弦相似度 $\cos(\theta_{ij}) < \cos(\theta_{thre})$（法向量反向=穿透，法向量同向=正常接触）；(iii) 用 GMoF 鲁棒碰撞损失计算梯度并更新：$\hat{\mathbf{X}}_0 = \hat{\mathbf{X}}_0 - \lambda \nabla \mathcal{L}_{collision}$
     - 设计动机：混合距离-方向准则区分穿透和正常接触——距离近+法向反向=穿透需纠正，距离近+法向同向=自然接触不应干扰。GMoF 函数提供鲁棒性避免单点异常值主导梯度
 

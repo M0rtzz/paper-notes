@@ -2,14 +2,14 @@
 title: >-
   [论文解读] $\varphi$-DPO: Fairness Direct Preference Optimization Approach to Continual Learning in Large Multimodal Models
 description: >-
-  [CVPR2026][LLM对齐][continual learning] 提出 $\varphi$-DPO，将 DPO 作为持续学习范式（以前一步模型为参考策略），并引入受 focal loss 启发的公平性调制因子 $(1-p)^\gamma$ 来平衡不同数据组间的梯度贡献，在理论上证明 $\gamma \to \infty$ 时梯度偏差趋于零，在 CoIN 和 MLLM-CL 基准上达到 SOTA。
+  [CVPR2026][LLM对齐][持续学习] 提出 $\varphi$-DPO，将 DPO 作为持续学习范式（以前一步模型为参考策略），并引入受 focal loss 启发的公平性调制因子 $(1-p)^\gamma$ 来平衡不同数据组间的梯度贡献，在理论上证明 $\gamma \to \infty$ 时梯度偏差趋于零，在 CoIN 和 MLLM-CL 基准上达到 SOTA。
 tags:
   - CVPR2026
   - LLM对齐
-  - continual learning
+  - 持续学习
   - DPO
-  - fairness
-  - catastrophic forgetting
+  - 公平性
+  - 灾难性遗忘
   - 多模态
   - focal loss
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2602.22601](https://arxiv.org/abs/2602.22601)  
 **代码**: 待确认  
 **领域**: llm_alignment  
-**关键词**: continual learning, DPO, fairness, catastrophic forgetting, large multimodal model, focal loss
+**关键词**: 持续学习, DPO, 公平性, 灾难性遗忘, large multimodal model, focal loss
 
 ## 一句话总结
 提出 $\varphi$-DPO，将 DPO 作为持续学习范式（以前一步模型为参考策略），并引入受 focal loss 启发的公平性调制因子 $(1-p)^\gamma$ 来平衡不同数据组间的梯度贡献，在理论上证明 $\gamma \to \infty$ 时梯度偏差趋于零，在 CoIN 和 MLLM-CL 基准上达到 SOTA。
@@ -91,8 +91,8 @@ $$B_\gamma(\theta) = \max_{g_1, g_2} \left|\frac{\nabla_\theta \mathcal{L}_{\var
 
 1. **Preferred 回答 $y_w$**：人工标注的 ground truth 回答
 2. **Rejected 回答 $y_l$**：
-   - 用 LLM（如 GPT-4）基于 ground truth 生成"合理但错误"的回答（如事实错误、细节偏差）
-   - 人工验证确保 rejected 回答确实劣于 preferred
+    - 用 LLM（如 GPT-4）基于 ground truth 生成"合理但错误"的回答（如事实错误、细节偏差）
+    - 人工验证确保 rejected 回答确实劣于 preferred
 3. 每个 $(x, y_w, y_l)$ 三元组附带组别标签 $g$，用于计算公平性指标
 
 ### 与其他 CL 方法的联合使用

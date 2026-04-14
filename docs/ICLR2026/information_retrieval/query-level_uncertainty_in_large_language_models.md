@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.09669](https://arxiv.org/abs/2506.09669)  
 **代码**: [GitHub](https://github.com/tigerchen52/query_level_uncertainty)  
 **领域**: llm_reasoning  
-**关键词**: uncertainty estimation, knowledge boundary, adaptive inference, training-free, internal confidence  
+**关键词**: uncertainty estimation, knowledge boundary, adaptive inference, training-free, internal confidence
 
 ## 一句话总结
 提出Query-Level Uncertainty概念，通过Internal Confidence方法在生成前（单次前向传播）估计LLM能否回答给定查询，无需训练即可实现高效的自适应推理（RAG触发/模型级联/弃权）。

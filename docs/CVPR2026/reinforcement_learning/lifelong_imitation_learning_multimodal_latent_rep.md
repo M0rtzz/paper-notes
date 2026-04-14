@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.10929](https://arxiv.org/abs/2603.10929)  
 **代码**: [https://github.com/yfqi/lifelong_mlr_ifa](https://github.com/yfqi/lifelong_mlr_ifa) (有)  
 **领域**: 具身智能 / 机器人 / 持续学习  
-**关键词**: lifelong imitation learning, multimodal latent replay, incremental feature adjustment, catastrophic forgetting, LIBERO  
+**关键词**: lifelong imitation learning, multimodal latent replay, incremental feature adjustment, catastrophic forgetting, LIBERO
 
 ## 一句话总结
 提出终身模仿学习框架，通过多模态潜在回放（MLR）在冻结编码器的特征空间中存储和回放紧凑表示，并引入增量特征调整（IFA）机制用角距离约束维持任务间可分性，在LIBERO基准上AUC提升10-17点、遗忘降低最多65%。

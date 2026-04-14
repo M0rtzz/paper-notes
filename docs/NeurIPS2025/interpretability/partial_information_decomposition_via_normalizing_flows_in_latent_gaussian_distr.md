@@ -4,7 +4,7 @@
 **arXiv**: [2510.04417](https://arxiv.org/abs/2510.04417)  
 **代码**: 无  
 **领域**: 多模态VLM  
-**关键词**: partial information decomposition, normalizing flows, multimodal learning, information theory, Gaussian PID  
+**关键词**: partial information decomposition, normalizing flows, multi-modal learning, information theory, Gaussian PID
 
 ## 总结
 

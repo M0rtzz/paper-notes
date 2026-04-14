@@ -47,19 +47,19 @@ tags:
 
 1. **多视角多层次数据构建**：
 
-    - 做什么：为每张图生成M个多样化描述文本，覆盖不同视角、粒度和层次
+    - 功能：为每张图生成M个多样化描述文本，覆盖不同视角、粒度和层次
     - 核心思路：设计四种prompt spirit——Focus Guide（前景vs背景）、Physical or Sensory（实体名词vs感觉风格）、Gaze or Glance（细致长描述vs概括短概述）、Complex Reasoning（关系vs序列）。使用InternVL2等VLM按不同prompt生成描述
     - 设计动机：单VLM+多prompt（公式2）比多VLM+单prompt（公式1）文本多样性更高（similarity 0.48 vs 0.58），且部署更简单
 
 2. **多分支视觉编码器**：
 
-    - 做什么：修改CLIP图像编码器，输出M个不同的视觉embedding
+    - 功能：修改CLIP图像编码器，输出M个不同的视觉embedding
     - 核心思路：提出两种参数高效方案——(a) 初始化M个CLS token，每个输出对应的embedding；(b) 扩展最后几层的MLP为M个并行部分。单次前向即可得到M个视觉embedding
     - 设计动机：一个embedding向量无法充分表达图像中的多种视觉元素（颜色、物体、风格、事件等），多分支输出可解决"视觉损伤"问题，且每个embedding可以有自己的语义角色
 
 3. **Multi-to-Multi对比学习（M2M）**：
 
-    - 做什么：实现M个视觉embedding与M个文本embedding的part-to-part精确匹配
+    - 功能：实现M个视觉embedding与M个文本embedding的part-to-part精确匹配
     - 核心思路：先通过最优匹配（匈牙利算法或贪心匹配）建立视觉-文本embedding对之间的对应关系，然后对每对做标准InfoNCE对比损失：
       $\mathcal{L}_{M2M}^{T2I} = -\sum_{j=1}^K \sum_{m=1}^M \log \frac{\exp(\langle \mathbf{v}_{m,j}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}{\sum_{k=1}^K \exp(\langle \mathbf{v}_{m,k}, \mathbf{t}_{\sigma(m),j} \rangle / \tau)}$
     - 设计动机：比one-to-multi（O2M）对比学习更好——O2M将M个语义差异巨大的文本都拉向同一个视觉embedding，导致语义混乱。M2M让每个视觉分支对齐最匹配的文本，语义解耦更清晰

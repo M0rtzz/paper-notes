@@ -10,7 +10,7 @@ tags:
   - LLM对齐
   - RLHF
   - DPO
-  - Benchmark
+  - benchmark
 ---
 
 # Clean First, Align Later: Benchmarking Preference Data Cleaning for Reliable LLM Alignment
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.23564](https://arxiv.org/abs/2509.23564)  
 **代码**: https://github.com/deeplearning-wisc/PrefCleanBench  
 **领域**: LLM对齐 / 数据质量  
-**关键词**: 偏好数据清洗, LLM对齐, RLHF, DPO, Benchmark
+**关键词**: 偏好数据清洗, LLM对齐, RLHF, DPO, benchmark
 
 ## 一句话总结
 

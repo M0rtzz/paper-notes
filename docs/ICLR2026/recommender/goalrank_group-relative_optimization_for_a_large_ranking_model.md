@@ -25,10 +25,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：推荐系统排序阶段是从 N 个候选中选出长度 L 的有序列表（P(N,L) 组合空间）。主流方案是 Generator-Evaluator 两阶段范式：generator 产出候选列表，evaluator 选最优。
+
 **现有痛点**：增加 generator 数量/多 generator 集成的收益迅速饱和（Fig 1d）。两阶段范式引入跨阶段不一致性和工程复杂度。
+
 **核心矛盾**：两阶段方法的策略空间受限于 k 个小 generator 的混合，而端到端大模型的 scaling law 表明更大的单一模型可能更好。
+
 **本文要解决什么？**（1）generator-only 能否理论上超越 Multi-G-E？（2）如何训练这样的大排序模型？
+
 **切入角度**：Theorem 1 证明更大 generator-only 的逼近误差严格小于任意有限 Multi-G-E，且随模型增大趋向零。
+
 **核心idea一句话**：用 reward model 在候选列表组上构建 group-relative softmax 参考策略，通过交叉熵训练大排序模型逼近最优策略。
 
 ## 方法详解

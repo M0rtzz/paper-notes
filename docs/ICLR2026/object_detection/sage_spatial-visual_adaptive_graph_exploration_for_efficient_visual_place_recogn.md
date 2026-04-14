@@ -10,7 +10,7 @@ tags:
   - DINOv2
   - Graph-based Sampling
   - Hard Sample Mining
-  - Parameter-Efficient Fine-Tuning
+  - parameter-efficient fine-tuning
 ---
 
 # SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.25723](https://arxiv.org/abs/2509.25723)  
 **代码**: https://github.com/chenshunpeng/SAGE  
 **领域**: 目标检测/视觉定位  
-**关键词**: Visual Place Recognition, DINOv2, Graph-based Sampling, Hard Sample Mining, Parameter-Efficient Fine-Tuning  
+**关键词**: Visual Place Recognition, DINOv2, Graph-based Sampling, Hard Sample Mining, parameter-efficient fine-tuning
 
 ## 一句话总结
 

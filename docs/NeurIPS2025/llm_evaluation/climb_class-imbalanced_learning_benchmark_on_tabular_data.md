@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.17451](https://arxiv.org/abs/2505.17451)  
 **代码**: [ZhiningLiu1998/imbalanced-ensemble](https://github.com/ZhiningLiu1998/imbalanced-ensemble)  
 **领域**: others  
-**关键词**: class imbalance, tabular data, benchmark, ensemble learning, resampling  
+**关键词**: class imbalance, tabular data, benchmark, ensemble learning, resampling
 
 ## 一句话总结
 

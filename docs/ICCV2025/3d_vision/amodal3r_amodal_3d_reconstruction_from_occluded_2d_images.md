@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.13439](https://arxiv.org/abs/2503.13439)  
 **代码**: [项目页面](https://sm0kywu.github.io/Amodal3R/) (有)  
 **领域**: 3D视觉 / 3D重建 / 遮挡补全  
-**关键词**: Amodal 3D Reconstruction, Occlusion-aware, Diffusion Model, Cross-Attention, TRELLIS  
+**关键词**: Amodal 3D Reconstruction, Occlusion-aware, diffusion model, Cross-Attention, TRELLIS
 
 ## 一句话总结
 提出Amodal3R，一个端到端的遮挡感知3D重建模型，通过在TRELLIS基础上引入mask加权交叉注意力和遮挡感知注意力层，直接在3D潜空间中从部分遮挡的2D图像重建完整的3D物体形状和外观，大幅超越先前"2D补全→3D重建"的两阶段方法。

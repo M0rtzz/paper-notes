@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.06646](https://arxiv.org/abs/2412.06646)  
 **代码**: [https://ritareasciencepark.github.io/Narrow-gate](https://ritareasciencepark.github.io/Narrow-gate)  
 **领域**: 多模态VLM / 可解释性 / 信息流分析  
-**关键词**: native multimodal, EOI token, narrow gate, modality gap, mechanistic interpretability  
+**关键词**: native multimodal, EOI token, narrow gate, modality gap, mechanistic interpretability
 
 ## 一句话总结
 发现原生多模态VLM（如Chameleon、Emu3）中图像到文本的跨模态信息传递竟然集中在单一的end-of-image [EOI] token上（"narrow gate"机制），而非原生VLM（如LLaVA）则通过多个图像token分布式传递信息；删除[EOI]的attention可导致native模型性能崩溃，而修改[EOI]表示可精确控制模型的语义输出。
@@ -43,9 +43,9 @@ tags:
 2. **Narrow Gate机制（核心发现）**：在Native模型中，text token对image token的注意力40-50%集中在单一的[EOI] token上。[EOI]同时也是唯一编码了丰富视觉语义的token（ImageNet neighborhood overlap > 0.4），其他图像token的语义信息在深层逐渐丧失。在Non-native模型中，[EOI]几乎不重要（< 10-20%注意力），语义信息分布在所有内部图像token中。
 
 3. **因果验证**：
-   - Attention Knockout：删除Chameleon中text→[EOI]的attention导致VQAv2从0.51→0.25（接近随机），Flickr30k从0.34→0.04。但删除所有text→image attention反而影响更小！
-   - 在LLaVA中删除[EOI]的attention完全无影响，删除所有图像attention才崩溃。
-   - 这证明native模型的跨模态信息确实通过[EOI]这个单一"窄门"传递。
+    - Attention Knockout：删除Chameleon中text→[EOI]的attention导致VQAv2从0.51→0.25（接近随机），Flickr30k从0.34→0.04。但删除所有text→image attention反而影响更小！
+    - 在LLaVA中删除[EOI]的attention完全无影响，删除所有图像attention才崩溃。
+    - 这证明native模型的跨模态信息确实通过[EOI]这个单一"窄门"传递。
 
 4. **语义操控**：用activation patching将目标类的[EOI]表示注入基础类图像，在Chameleon中~90%的情况下成功改变模型预测类别。在LLaVA中完全无效——因为信息是分布式的。
 

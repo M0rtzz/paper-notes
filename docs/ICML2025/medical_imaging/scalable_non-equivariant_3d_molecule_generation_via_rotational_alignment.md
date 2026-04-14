@@ -26,8 +26,11 @@ tags:
 $$p(\mathbf{x}) = p(\mathbf{R}\mathbf{x}) \quad \forall \mathbf{R} \in \text{SO}(3)$$
 
 但等变架构有明显缺点：
+
 **参数化复杂**：EGNN 等需要特殊的消息传递规则来维持等变性
+
 **缺乏标准实现**：不同于 Transformer 在 vision/NLP 中的统一地位
+
 **效率和可扩展性差**：难以利用 FlashAttention 等现代加速技术
 
 核心问题：**等变性是否必要？** 一个分子的概率由其所有可能 3D 位置的总概率决定，而不需要每个位置有相等概率。

@@ -25,9 +25,13 @@ Craftium 基于开源 Minetest 游戏引擎构建了一个灵活高效的 3D RL 
 
 ## 研究背景与动机
 **领域现状**: RL 研究高度依赖环境，但目前主流环境 (Atari ALE, DeepMind Lab, MineRL) 大多基于已有游戏/物理模拟器改编，定制能力有限。
+
 **现有痛点**: (a) 游戏类环境只提供预定义任务，仅能调参无法新建环境；(b) 可创建环境的框架 (Griddly, MiniGrid) 仅支持 2D/网格世界，视觉复杂度不足；(c) MineRL/MineDojo 依赖闭源 Minecraft (Java 实现)，性能和定制受限。
+
 **核心矛盾**: 丰富 3D 视觉环境 vs 灵活定制能力——两者难以兼得。
+
 **本文切入**: 利用 Minetest (开源 C++ 体素引擎 + Lua API) 作为底层平台，兼具性能和可扩展性。
+
 **核心 idea**: 对 Minetest 做最小化修改实现 RL 通信，通过 Lua 脚本定义奖励/终止逻辑，封装为 Gymnasium API。
 
 ## 方法详解

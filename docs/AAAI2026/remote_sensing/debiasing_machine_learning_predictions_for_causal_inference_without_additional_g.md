@@ -50,14 +50,14 @@ tags:
 
 1. **线性校准校正(LCC)**:
 
-    - 做什么：通过全局线性变换逆转衰减
+    - 功能：通过全局线性变换逆转衰减
     - 核心思路：假设 $\mathbb{E}[\hat{Y}_i | Y_i] = kY_i + m$（$0 < k \leq 1$ 表示收缩）。在held-out校准集上回归 $\hat{Y}_i$ 对 $Y_i$ 估计 $(k,m)$，然后反转：$\hat{Y}_i^L = (\hat{Y}_i - \hat{m})/\hat{k}$
     - 理论保证：Prop 1证明naive ATE = $k\tau$（被衰减）；Prop 2证明LCC在 $(k,m)$ 一致估计下恢复真实ATE
     - 局限：假设全局线性关系，非线性收缩模式处理不了
 
 2. **Tweedie校正**:
 
-    - 做什么：利用密度分数函数进行局部、非线性、数据驱动的去收缩
+    - 功能：利用密度分数函数进行局部、非线性、数据驱动的去收缩
     - 核心思路：采用Berkson误差模型 $Y_i = \hat{Y}_i + \varepsilon_i$，应用Tweedie恒等式得到伪结果：$\tilde{Y}_i = \hat{Y}_i - \sigma^2 \frac{d}{d\hat{y}} \log p_{\hat{Y}}(\hat{Y}_i)$。分数项在模态附近为零（不调整），在尾部为非零（向外推），实现局部去收缩
     - 实现：$\sigma^2$ 从残差估计，分数函数用KDE在 $\{\hat{Y}_i\}$ 上估计
     - 理论保证：Prop 3证明 $\mathbb{E}[\tilde{Y}_i | Y_i] = Y_i$（条件无偏）；Prop 5证明处理效应估计无偏

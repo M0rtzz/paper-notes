@@ -1,8 +1,15 @@
 ---
-title: "SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design"
-conference: "CVPR2025"
-domain: "others"
-arxiv: "2603.13098"
+title: >-
+  [论文解读] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design
+description: >-
+  [CVPR 2025][CAD数据集] 本文构建了一个包含24万+工业零件的大规模多模态CAD数据集 SldprtNet，每个样本对齐了3D模型、多视角图像、参数化建模脚本和自然语言描述四种模态，并开发了支持13种CAD操作的编码器/解码器工具实现无损双向转换，实验证明多模态输入显著优于纯文本输入。
+tags:
+  - CVPR 2025
+  - CAD数据集
+  - 多模态
+  - Text-to-CAD
+  - 参数化建模
+  - SolidWorks
 ---
 
 # SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design
@@ -41,19 +48,19 @@ SldprtNet 的构建 pipeline 包含四个阶段：(1) 从 GrabCAD、McMaster-Car
 
 1. **编码器（CAD → Text）**:
 
-    - 做什么：将 .sldprt 文件无损转换为结构化参数文本
+    - 功能：将 .sldprt 文件无损转换为结构化参数文本
     - 核心思路：自动遍历 Feature Tree，按建模历史顺序提取特征类型、名称和父子关系，然后对每种特征调用对应模块提取详细参数（尺寸、约束、草图实体等），生成人类和机器都可读的文本格式
     - 设计动机：支持13种 CAD 操作（包括拉伸、倒角、圆角、线性阵列、镜像阵列等），远超 DeepCAD 的2种操作，大幅扩展了可覆盖的零件复杂度和多样性
 
 2. **解码器（Text → CAD）**:
 
-    - 做什么：从参数化文本重建完整的3D零件模型
+    - 功能：从参数化文本重建完整的3D零件模型
     - 核心思路：先创建空白 .sldprt 文档，解析 Feature Tree，按特征顺序和层级关系依次调用 SolidWorks API 创建对应特征，确保几何和拓扑一致性
     - 设计动机：与编码器构成闭环系统，支持"模型→文本→模型"的往返转换，可用于结构验证、数据增强和合成数据生成
 
 3. **多模态对齐生成**:
 
-    - 做什么：为每个3D模型生成对齐的多视角合成图像和自然语言描述
+    - 功能：为每个3D模型生成对齐的多视角合成图像和自然语言描述
     - 核心思路：渲染6个正交视图（前/后/左/右/上/下）+ 1个等轴视图，合并为单张图像以减少 token 数量；将合成图像 + 参数化文本输入 Qwen2.5-VL-7B 生成描述，再经人工验证对齐
     - 设计动机：利用12块 A100 GPU 共368 GPU-小时完成24万+样本的描述生成，七视图合成图既保证了几何完整性又优化了推理效率
 

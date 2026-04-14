@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.11479](https://arxiv.org/abs/2411.11479)  
 **代码**: [https://github.com/Jeremyyny/Value-Spectrum](https://github.com/Jeremyyny/Value-Spectrum)  
 **领域**: LLM 对齐 / VLM 价值偏好  
-**关键词**: VLM preferences, Schwartz values, social media, persona role-playing, value alignment  
+**关键词**: VLM preferences, Schwartz values, social media, persona role-playing, value alignment
 
 ## 一句话总结
 提出 Value-Spectrum 基准，通过 50K+ 社交媒体短视频截图和 Schwartz 价值理论框架，系统评估 VLM 的内在价值偏好及角色扮演时的偏好适配能力。
@@ -95,11 +95,11 @@ tags:
 1. **全局模式**：所有 VLM 共同倾向于偏好 Universalism 和 Benevolence，不偏好 Stimulation 和 Power
 2. **范围一致性**：每个模型的偏好分数在中心值 ±15 范围内波动
 3. **个体差异**：
-   - Gemini 2.0 Flash：所有维度最高且最均衡（std 最低）
-   - Claude 3.5 Sonnet：有明显偏好（std 第二高），不喜欢 Stimulation
-   - CogVLM2：唯一将 Power 作为最高偏好的模型
-   - Blip-2：大多数维度评分低，std 最高，反映缺乏表达偏好的能力
-   - InternVL2：整体参与度最低
+    - Gemini 2.0 Flash：所有维度最高且最均衡（std 最低）
+    - Claude 3.5 Sonnet：有明显偏好（std 第二高），不喜欢 Stimulation
+    - CogVLM2：唯一将 Power 作为最高偏好的模型
+    - Blip-2：大多数维度评分低，std 最高，反映缺乏表达偏好的能力
+    - InternVL2：整体参与度最低
 
 ### 角色扮演实验
 

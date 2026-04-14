@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：空间转录组学(ST)可原位测量基因表达，但成本高通量低。从H&E组织学切片(常规获取)直接预测空间基因表达是实用替代方案。
+
 **两类现有方法**：(1) 确定性回归(ST-Net/HisToGene/TRIPLEX)——将组织学patch映射为表达向量，但忽略固有的生物随机性；(2) 条件生成(Stem/STFlow)——建模条件分布更灵活，但不建模基因-基因依赖关系——这些关系仅从组织学图像难以推断。
+
 **单细胞基础模型(sc-FM)的潜力**：scGPT/CellFM等在大规模scRNA-seq上预训练，编码了丰富的基因-基因调控和共表达关系。但它们是纯表达空间模型，缺乏视觉通路。
+
 **四重适配挑战**：(a) **模态鸿沟**——sc-FM无视觉通路；(b) **目标不匹配**——sc-FM用掩码自编码预训练，但扩散模型用高斯噪声扰动全部输入；(c) **组成偏移**——scRNA-seq=单细胞，但ST=混合细胞簇；(d) **有限监督**——ST数据量小+噪声大→全微调易灾难性遗忘。
+
 **核心idea**：冻结sc-FM骨干 + 恒等初始化的SoftAdaLN轻量注入组织学+时间步条件 + 掩码扩散过程对齐掩码自编码预训练 + warm-start课程稳定早期训练。
 
 ## 方法详解
@@ -41,7 +45,7 @@ tags:
 
 1. **SoftAdaLN条件注入（解决模态鸿沟+防止遗忘）**:
 
-    - 做什么：在CellFM的每个Transformer子层前插入轻量条件调制
+    - 功能：在CellFM的每个Transformer子层前插入轻量条件调制
     - 核心思路：组织学嵌入 $\mathbf{v}=\phi(\mathbf{c})$ 和时间步嵌入 $\mathbf{e}_t$ 拼接→共享变换 $\mathbf{c}_t = \varphi_{cond}([\mathbf{v}; \mathbf{e}_t])$→每子层的SoftAdaLN：
     $\text{SoftAdaLN}(\mathbf{h}|\mathbf{c}_t) = \text{SoftNorm}(\mathbf{h}) \odot (1+\mathbf{s}(\mathbf{c}_t)) + \boldsymbol{\kappa}(\mathbf{c}_t)$
       SoftNorm是标准LN的软化版本：$\text{SoftNorm}(\mathbf{h}) = (1-\eta)\mathbf{h} + \eta \cdot \frac{\mathbf{h}-\mu}{\sigma+\varepsilon}$
@@ -51,7 +55,7 @@ tags:
 
 2. **表达空间掩码扩散过程（解决目标不匹配）**:
 
-    - 做什么：设计与sc-FM掩码自编码预训练对齐的扩散过程
+    - 功能：设计与sc-FM掩码自编码预训练对齐的扩散过程
     - **前向过程**：对基因表达向量的各分量独立应用Bernoulli掩码(非高斯噪声)，掩码率按功率调度 $\bar{\alpha}_t = (1-t/T)^\zeta$ 递增。$t=0$时全可见，$t=T$时全掩码
     - **反向过程**：从全掩码+全零状态开始→每步预测被掩码分量→解掩已有分量保持不变→逐步揭示完整基因表达
     - **训练目标**：$\mathcal{L}(\theta) = \mathbb{E}[w_t \|(1-\mathbf{m}_t) \odot (f_\theta(\mathbf{x}_t, t, \phi(\mathbf{c})) - \mathbf{x}_0)\|_2^2]$，仅在掩码位置计算损失
@@ -60,7 +64,7 @@ tags:
 
 3. **Warm-start课程（稳定训练）**:
 
-    - 做什么：初始训练时优先采样低掩码时间步
+    - 功能：初始训练时优先采样低掩码时间步
     - 核心思路：在微调开始的几个epoch中，采样器偏向靠近$t=0$的时间步(少量基因被掩码)→渐进过渡到均匀采样(高掩码)
     - 设计动机：低掩码=大多数基因可见=更接近CellFM在预训练时看到的输入→稳定早期梯度更新→避免早期不稳定导致的遗忘
 

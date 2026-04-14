@@ -9,8 +9,8 @@ tags:
   - OOD检测
   - VLM
   - 跨模态代理演化
-  - zero-shot
-  - test-time adaptation
+  - 零样本
+  - 测试时自适应
   - CLIP
   - 负标签
 ---
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2601.08476](https://arxiv.org/abs/2601.08476)  
 **代码**: 未公开  
 **领域**: 多模态VLM / OOD检测  
-**关键词**: OOD检测, VLM, 跨模态代理演化, zero-shot, test-time adaptation, CLIP, 负标签  
+**关键词**: OOD检测, VLM, 跨模态代理演化, 零样本, 测试时自适应, CLIP, 负标签
 
 ## 一句话总结
 

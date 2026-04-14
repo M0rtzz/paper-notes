@@ -39,19 +39,19 @@ CCCaption 基于 GRPO 强化学习算法，核心包含三个部分：(1) Comple
 
 1. **Completeness Reward（完整性奖励）**:
 
-    - 做什么：用视觉 query 集合近似图像的基本信息集 $\mathcal{B}_\mathbf{x}$，奖励能回答更多 query 的 caption
+    - 功能：用视觉 query 集合近似图像的基本信息集 $\mathcal{B}_\mathbf{x}$，奖励能回答更多 query 的 caption
     - 核心思路：$\mathcal{R}_\text{comp}(\mathbf{x}, \hat{\mathbf{y}}) = \frac{1}{|\mathcal{Q}_\mathbf{x}|}\sum_{\mathbf{q} \in \mathcal{Q}_\mathbf{x}} \mathbb{I}(M_J(\hat{\mathbf{y}}, \mathbf{q}))$，其中 $M_J$ 是冻结的第三方 judge 模型，判断 caption 能否回答 query
     - 设计动机：为解决单 MLLM query 覆盖不足的问题，引入多 MLLM query 生成算法。定义 query 集合的多样性 $\mathcal{V}(\mathcal{Q}_\mathbf{x})$ 为 embedding 余弦相似度的方差，通过迭代生成、过滤低贡献 query 来确保多样性和完整性，最终构建 CCaption-44k（44k 样本，每张图平均 10 个 query）
 
 2. **Correctness Reward（正确性奖励）**:
 
-    - 做什么：将生成的 caption 分解为子 query 集合 $\mathcal{Q}_{\hat{\mathbf{y}}}$，检测其中的幻觉并给予惩罚
+    - 功能：将生成的 caption 分解为子 query 集合 $\mathcal{Q}_{\hat{\mathbf{y}}}$，检测其中的幻觉并给予惩罚
     - 核心思路：$\mathcal{R}_\text{corr}(\mathbf{x}, \hat{\mathbf{y}}) = \frac{1}{|\mathcal{Q}_{\hat{\mathbf{y}}}|}\sum_{\mathbf{q} \in \mathcal{Q}_{\hat{\mathbf{y}}}} M_J(\mathbf{x}, \mathbf{q})$，将 caption 分解为原子 query，再用 judge 模型根据原图评分每个 query 的真实性
     - 设计动机：completeness 和 correctness 形成对称结构——前者是 image query 对 caption 的覆盖（recall），后者是 caption query 在 image 中的 grounding（precision）。两者联合约束避免模型"回答更多 query 但引入更多幻觉"
 
 3. **Dynamic Query Sampling（动态查询采样）**:
 
-    - 做什么：训练过程中动态调整 query 的采样概率，减少对梯度贡献小的"简单"query 的采样
+    - 功能：训练过程中动态调整 query 的采样概率，减少对梯度贡献小的"简单"query 的采样
     - 核心思路：$\tilde{\mathcal{Q}} = \{\mathbf{q} \in \mathcal{Q}_c \mid u_\mathbf{q} \sim \text{Bernoulli}(c(\mathbf{q}))\}$，$c(\mathbf{q})$ 是归一化贡献度，初始为 $1 - \frac{1}{m}\sum \mathbb{I}(M_J(\mathbf{x}, \mathbf{q}))$，按 rollout 准确率方差逐 epoch 更新
     - 设计动机：在 GRPO 框架下，被几乎所有 rollout caption 都能正确回答的 query 产生极小的 advantage 和梯度，浪费计算资源
 

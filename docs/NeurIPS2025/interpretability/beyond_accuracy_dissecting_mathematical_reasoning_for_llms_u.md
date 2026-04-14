@@ -53,7 +53,7 @@ SPARKLE 包含两部分：(1) 三轴分析框架——通过构建带有 plannin
 
 2. **SPARKLE Benchmark 构建**：
 
-    - 做什么：增强 AIME24、AMC23、MATH500、GSM8K、OlympiadBench 共 2564 道题
+    - 功能：增强 AIME24、AMC23、MATH500、GSM8K、OlympiadBench 共 2564 道题
     - 核心思路：用 GPT-4.1 + Web Agent 为每道题生成 planning skeleton、知识标注和子问题链，再由第二个 GPT-4.1 验证，最后由研究生数学专家人工审核
     - 标注内容：每题附带 AoPS 难度等级（1-10）、数学领域（9类）
 

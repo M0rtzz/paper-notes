@@ -27,10 +27,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：终身学习（continual learning）是智能机器人的核心挑战。RL agent 学习新任务时容易灾难性遗忘旧技能。现有方法包括 EWC（弹性权重巩固）、Progressive Neural Networks、MoE 动态路由等。
+
 **现有痛点**：(a) EWC 正则化在动态环境中扩展性差；(b) Progressive Networks 随任务数增加内存线性增长；(c) MoE 虽能动态分配资源，但仍面临长期记忆管理和灾难性遗忘；(d) RAG 在 NLP 中有效但在机器人终身学习中探索不足。
+
 **核心矛盾**：如何在不破坏旧知识的前提下高效学习新任务，同时保持计算效率？
+
 **本文要解决什么？** 构建一个统一框架同时解决灾难性遗忘、任务适应和知识复用。
+
 **切入角度**：受人类感觉运动控制启发，设计三层认知架构，结合非参数贝叶斯模型实现知识自适应扩展。
+
 **核心idea一句话**：MoE 动态路由 + RAG 外部知识 + 三层层次 RL + DPMM 非参数知识保留 = 机器人终身学习。
 
 ## 方法详解
@@ -42,13 +47,13 @@ DRAE 由四个核心组件组成：(1) MoE 动态路由——根据输入选择 
 
 1. **MoE 动态专家路由**:
 
-    - 做什么：根据输入 $\mathbf{x}_t$ 通过 softmax 门控选择 top-m 个专家激活
+    - 功能：根据输入 $\mathbf{x}_t$ 通过 softmax 门控选择 top-m 个专家激活
     - 核心思路：$g_k(\mathbf{x}_t) = \text{softmax}(\mathbf{w}_k^T \mathbf{x}_t + b_k)$，仅激活少量专家，限制推理成本
     - 设计动机：每个专家可专精于特定任务类型，新任务可复用或扩展现有专家
 
 2. **P-RAG 外部知识融合**:
 
-    - 做什么：将输入编码为查询向量，从外部语料 $\mathcal{C}$ 中检索相关文档，通过 LoRA 融合到隐状态
+    - 功能：将输入编码为查询向量，从外部语料 $\mathcal{C}$ 中检索相关文档，通过 LoRA 融合到隐状态
     - 核心思路：$\mathbf{h}_{rag} = \mathbf{W}_0 \mathbf{x}_t + \mathbf{B}_l \mathbf{A}_l \mathbf{x}_t \odot \sigma(\mathbf{U}_d \mathbf{d}_t)$，检索时用稀疏约束 $\lambda|\mathcal{D}'|$ 控制检索集大小
     - 设计动机：外部知识不存储在模型参数中，检索而非记忆，从根本上避免知识覆盖
 
@@ -61,7 +66,7 @@ DRAE 由四个核心组件组成：(1) MoE 动态路由——根据输入选择 
 
 4. **DPMM 终身知识保留**:
 
-    - 做什么：用 Dirichlet Process 混合模型对任务级别聚类，新任务足够不同时自动创建新簇
+    - 功能：用 Dirichlet Process 混合模型对任务级别聚类，新任务足够不同时自动创建新簇
     - 核心思路：$G \sim \text{DP}(\alpha, \mathcal{H})$，根据 KL 散度判断是否需要新专家：$\mathbb{P}(\text{new expert}) = 1$ if $\min_k D_{KL}(p(z_t) \| p(\theta_k)) > \tau$
     - 设计动机：非参数模型自动决定何时扩展、何时复用，无需预先指定任务数量
 

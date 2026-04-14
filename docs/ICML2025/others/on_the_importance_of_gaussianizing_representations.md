@@ -10,7 +10,7 @@ tags:
   - Normalization Layer
   - Mutual Information
   - Noise Robustness
-  - 信息论
+  - information theory
 ---
 
 # On the Importance of Gaussianizing Representations
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.00685](https://arxiv.org/abs/2505.00685)  
 **代码**: [GitHub](https://github.com/DanielEftekhari/normality-normalization)  
 **领域**: 表示学习 / 归一化  
-**关键词**: Gaussianization, Power Transform, Normalization Layer, Mutual Information, Noise Robustness, 信息论
+**关键词**: Gaussianization, Power Transform, Normalization Layer, Mutual Information, Noise Robustness, information theory
 
 ## 一句话总结
 
@@ -40,7 +40,9 @@ $$\min_Z \max_X I(X; X+Z) = \max_X \min_Z I(X; X+Z)$$
 **两者的纳什均衡策略均为正态分布**（Theorem 2.1, Cover & Thomas 2006）。这意味着：
 
 **最大信息容量**：正态分布是给定均值和方差下的最大熵分布，单元以正态编码可最大化表示能力
+
 **最优噪声鲁棒性**：正态信号对随机扰动的鲁棒性最强；高斯噪声是最差噪声，对其鲁棒即对任意随机扰动鲁棒
+
 **最大独立性**：联合正态时，不相关 ⟹ 独立；给定任意相关度，联合正态分布下各变量最大程度独立
 
 ### 与学习的关联

@@ -38,9 +38,9 @@ tags:
 1. **MergeMix用于图像分类**：ToMe编码器→注意力恢复→TopK掩码→混合图像+重缩放标签→分类训练
 
 2. **MergeMix用于MLLM对齐**：
-   - 构建偏好对：原始图像=Winner，MergeMix混合图像=Loser
-   - 软偏好margin：混合比 $\lambda$ 作为margin（混合越多→Loser越差→margin越大）
-   - Mixed SimPO损失：$\mathcal{L} = -\log\sigma(\pi_\theta(y^+|x) - \pi_\theta(y^-|\hat{x}) - \hat{\lambda} \cdot \gamma)$
+    - 构建偏好对：原始图像=Winner，MergeMix混合图像=Loser
+    - 软偏好margin：混合比 $\lambda$ 作为margin（混合越多→Loser越差→margin越大）
+    - Mixed SimPO损失：$\mathcal{L} = -\log\sigma(\pi_\theta(y^+|x) - \pi_\theta(y^-|\hat{x}) - \hat{\lambda} \cdot \gamma)$
 
 ### 关键设计
 - Bipartite Soft Matching做token合并→全局最优配对→比贪心TopK保持更多空间关系

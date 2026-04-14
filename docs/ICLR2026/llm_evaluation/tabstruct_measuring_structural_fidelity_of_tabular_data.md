@@ -55,21 +55,21 @@ TabStruct 是一个统一的评估框架，输入是参考数据集 $\mathcal{D}
 
 1. **条件独立性（CI）评分——有因果图时的结构保真度**
 
-    - 做什么：在已知真实 SCM 的数据集上，通过对比真实数据和合成数据中 CI 语句的一致性来量化结构保真度
+    - 功能：在已知真实 SCM 的数据集上，通过对比真实数据和合成数据中 CI 语句的一致性来量化结构保真度
     - 核心思路：根据真实 SCM 的 CPDAG 枚举所有 CI 语句 $\mathcal{C}_{\text{global}}$，包括 d-separation 和 d-connection。对每个 CI 语句，在合成数据上做统计检验（$\alpha=0.01$），计算通过率 $CI(\mathcal{C}, \mathcal{D}) = \frac{1}{|\mathcal{C}|}\sum \mathbb{1}[\hat{\mathcal{I}}_\alpha = 1]$
     - 设计动机：在 CPDAG 层面评估而非 DAG 层面，因为现有因果发现方法在特征数 >10 时就不可靠；也不在骨架层面，因为会丢失方向信息
     - 区分局部和全局：local CI 只考虑与预测目标 $y$ 相关的 CI 语句，global CI 考虑所有变量对
 
 2. **Global Utility——无因果图时的结构保真度代理指标**
 
-    - 做什么：在没有真实 SCM 的数据集上衡量全局结构保持程度
+    - 功能：在没有真实 SCM 的数据集上衡量全局结构保持程度
     - 核心思路：将每个变量 $x_j$ 轮流作为预测目标，用其余变量预测它。定义单变量效用为预测性能与参考数据的比值（分类用 balanced accuracy，回归用 RMSE 取倒数），全局效用为所有变量效用的平均：$\text{Global Utility}(\mathcal{D}) = \frac{1}{D+1}\sum_{j=1}^{D+1}\text{Utility}_j(\mathcal{D})$
     - 设计动机：解决两个问题：一是避免 local utility（仅预测 $y$）对特定目标的偏差；二是聚合归一化后的性能比值使不同类型任务可比较。使用 AutoGluon 集成 9 种预测器来减少单一模型的偏差
     - 理论基础：高保真生成器应使每个变量的条件分布 $p(x_j | \mathcal{X} \setminus \{x_j\})$ 与真实数据一致，这与 Markov blanket 概念一致
 
 3. **Local Utility vs. Global Utility 的区别**
 
-    - 做什么：通过对比说明 local utility = ML efficacy 的局限
+    - 功能：通过对比说明 local utility = ML efficacy 的局限
     - 核心思路：local utility 仅关注预测目标 $y$。实验证明 local utility 与 local CI 强相关（$r_s=0.78$），但与 global CI 几乎无关（$r_s=0.14$）。而 global utility 与 global CI 强相关（$r_s=0.84$）
     - 设计动机：表明传统 ML efficacy 只能反映局部结构，不适合全面评估生成器
 

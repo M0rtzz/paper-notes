@@ -2,15 +2,15 @@
 title: >-
   [论文解读] RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models
 description: >-
-  [CVPR 2026][图像生成][机器遗忘] 提出RAZOR框架，通过比率感知梯度评分选择关键层/注意力头，结合三损失约束目标实现高效精准的多层遗忘，在CLIP/SD/VLM上均达SOTA且量化鲁棒
+  [CVPR 2026][图像生成][机器遗忘] RAZOR通过比率感知的梯度评分联合衡量遗忘压力与保留对齐来选择最关键的层/注意力头，配合三部分约束损失和迭代扩展机制，在CLIP、Stable Diffusion和VLM上实现了精准高效的目标遗忘且量化后性能不退化。
 tags:
   - CVPR 2026
   - 图像生成
   - 机器遗忘
-  - 模型安全
-  - Transformer
-  - 扩散模型
-  - CLIP
+  - 比率感知编辑
+  - 多层选择
+  - 模型不可学习
+  - 量化鲁棒性
 ---
 
 # RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models
@@ -49,19 +49,19 @@ RAZOR通过比率感知的梯度评分联合衡量遗忘压力与保留对齐来
 
 1. **比率感知梯度评分（Ratio-Aware Gradient Scoring）**:
 
-    - 做什么：为每层/注意力头计算一个综合评分，决定是否需要编辑
+    - 功能：为每层/注意力头计算一个综合评分，决定是否需要编辑
     - 核心思路：对每层 $l$ 一次性计算遗忘梯度 $g_l^f = \nabla_{\theta_l}\mathcal{L}_{\text{forget}}$ 和保留梯度 $g_l^r = \nabla_{\theta_l}\mathcal{L}_{\text{retain}}$，评分为 $\phi(l) = \frac{\|g_l^f\|_2}{\|\theta_l\|_2+\varepsilon} \cdot (1-\cos(g_l^f, g_l^r))^\alpha$。第一项衡量遗忘梯度相对参数的显著性，第二项衡量遗忘与保留梯度的方向差异——越正交代表编辑对保留影响越小
     - 设计动机：之前方法仅用遗忘梯度排序，忽视保留冲突。RAZOR将两者在选择阶段就联合考虑，从根本上避免"先忘后补"的耦合问题
 
 2. **三部分约束损失（Three-Loss Objective）**:
 
-    - 做什么：在选中层上执行约束更新，显式平衡遗忘、保留和稳定性
+    - 功能：在选中层上执行约束更新，显式平衡遗忘、保留和稳定性
     - 核心思路：$\mathcal{L}_{\text{RAZOR}} = \mathcal{L}_{\text{retain}} + \lambda_f \rho \mathcal{L}_{\text{forget}} + \lambda_m \mathcal{L}_{\text{mismatch}}$。保留损失维持任务性能（如CLIP的InfoNCE），遗忘损失通过梯度上升拉开遗忘对齐（余弦嵌入损失），错配损失正则化嵌入相似度相对冻结模型的漂移。比率超参 $\rho$ 显式控制遗忘强度
     - 设计动机：单一遗忘目标要么遗忘不彻底要么破坏保留，三部分设计解耦三个目标，各自有梯度方向指导
 
 3. **迭代扩展机制（Iterative Growing of $\mathcal{K}$）**:
 
-    - 做什么：如果初始选中层的更新未达遗忘阈值，动态添加新层
+    - 功能：如果初始选中层的更新未达遗忘阈值，动态添加新层
     - 核心思路：每轮重新计算更新后参数的评分 $\phi_t(l)$，将最高评分的未编辑层加入 $\mathcal{K}$ 并更新，最多迭代6轮
     - 设计动机：避免一次性选中过多层导致过度编辑，渐进策略确保精准遗忘同时控制附带损害
 

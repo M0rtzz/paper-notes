@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.21513](https://arxiv.org/abs/2509.21513)  
 **代码**: 无  
 **领域**: 扩散模型 / 少步生成 / 新PDE框架  
-**关键词**: damped wave equation, Kac process, finite-speed flow, endpoint distillation, few-step generation  
+**关键词**: damped wave equation, Kac process, finite-speed flow, endpoint distillation, few-step generation
 
 ## 一句话总结
 用阻尼波方程（telegrapher equation）及其随机 Kac 表示替代 Fokker-Planck 方程作为生成模型的概率流基础，实现有限速度传播的概率流，并提出端点蒸馏（endpoint distillation）方法实现少步生成，在 CIFAR-10 上 4 步 FID=4.14、1 步 FID=5.66。
@@ -51,19 +51,19 @@ tags:
 
 1. **有限速度概率流**:
 
-    - 做什么：用 Kac 过程替代 diffusion SDE，速度场全局有界
+    - 功能：用 Kac 过程替代 diffusion SDE，速度场全局有界
     - 核心思路：Kac 过程中粒子位置 $X_t$ 和速度 $V_t$ 耦合演化，$|V_t| \leq c$，因此轨迹在因果锥内，不会无限传播
     - 设计动机：速度有界 → 末端不刚性 → 数值积分更稳定 → 少步更鲁棒
 
 2. **端点蒸馏 + 路径稳定性定理 (Theorem 8)**:
 
-    - 做什么：证明端点匹配可以保证整条轨迹的接近
+    - 功能：证明端点匹配可以保证整条轨迹的接近
     - 核心思路：利用 Kac 流的 Lipschitz 正则性，如果学生和教师在端点 $t_k$ 匹配，则在整个区间 $[t_{k+1}, t_k]$ 内也保持接近，误差以 $O(M^{-1})$（Euler 学生）衰减
     - 设计动机：这是有限速度流独有的优势——无限速度的扩散流无法保证这种稳定性
 
 3. **速度空间 CFG**:
 
-    - 做什么：在 Kac 速度场上做 classifier-free guidance
+    - 功能：在 Kac 速度场上做 classifier-free guidance
     - 核心思路：$u_{\text{guided}} = (1+w) u_\theta^{\text{cond}} - w u_\theta^{\text{uncond}}$，证明在温和条件下保持平方可积
     - 设计动机：传统 CFG 在 score 空间操作，可能破坏有限速度约束；在速度空间操作天然保持
 

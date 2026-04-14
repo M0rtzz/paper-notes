@@ -54,19 +54,19 @@ DCE 采用双阶段训练范式。每到达一个新域时：
 
 1. **频率感知专家组（Frequency-Aware Expert Group）**：
 
-    - 做什么：三个并行的 MLP+分类器模块，分别偏向不同频率组的类别学习。
+    - 功能：三个并行的 MLP+分类器模块，分别偏向不同频率组的类别学习。
     - 核心思路：第一个专家 $e_b$ 使用标准 CE loss $\ell_{CE}$，天然偏向多样本类；第二个专家 $e_{b+1}$ 使用 balanced softmax loss $\ell_{Bal} = -\log \frac{\exp(v_y^2 + \log p_b^y)}{\sum_j \exp(v_j^2 + \log p_b^j)}$，通过引入类频率先验校正偏差，实现平衡预测；第三个专家 $e_{b+2}$ 使用 inverse distribution loss $\ell_{Rev} = -\log \frac{\exp(v_y^3 + 2\log p_b^y)}{\sum_j \exp(v_j^3 + 2\log p_b^j)}$，反转训练分布以强调少样本类。三个损失独立优化，总损失为 $\ell_{exp} = \ell_{CE} + \ell_{Bal} + \ell_{Rev}$。
     - 设计动机：单一损失函数无法兼顾所有频率组的类别。CE 和 inverse 损失提供互补的极端偏向，balanced 损失居中，三者协同覆盖完整的频率谱。这种设计将类别不平衡问题"分解"给不同专家，每个专家只需在自己偏好的频率组上做好就行。
 
 2. **动态专家选择器（Dynamic Expert Selector）**：
 
-    - 做什么：一个 MLP 网络 $s(\cdot) : \mathbb{R}^d \to \mathbb{R}^{3b}$，为当前积累的所有 $3b$ 个专家分配重要性权重。
+    - 功能：一个 MLP 网络 $s(\cdot) : \mathbb{R}^d \to \mathbb{R}^{3b}$，为当前积累的所有 $3b$ 个专家分配重要性权重。
     - 核心思路：(a) 在每个域训练完专家后，用冻结编码器计算每个类的特征均值 $\mu_b^c$ 和协方差 $\Sigma_b^c$，存入全局统计库 $G$；(b) 对 $G$ 中的每个 (域, 类) 对均匀采样 $K$ 个伪特征：$\tilde{D} = \bigcup_{i=1}^{b}\bigcup_{c=1}^{|\mathcal{Y}|} \{(\tilde{x}, c) \sim \mathcal{N}(\mu_i^c, \Sigma_i^c)\}_{k=1}^K$，关键在于 $K$ 对所有域-类对保持一致，确保平衡采样；(c) 用合成数据训练选择器：$\mathcal{L}_{Select} = \frac{1}{|\hat{D}|}\sum_{(\tilde{x},y)\in\hat{D}} \ell_{CE}(\sum_{i=1}^{3b} s(\tilde{x})_i \cdot e_i(\tilde{x}), y)$。
     - 设计动机：S-iPrompt 等硬分配方法将测试样本分配给单个域专家，无法利用跨域知识。动态选择器通过软加权实现自适应的跨域专家融合，等值采样确保少样本类和多样本类获得同等的训练信号，避免选择器继承数据不平衡的偏差。
 
 3. **协方差估计的 OAS 收缩（Oracle Approximating Shrinkage）**：
 
-    - 做什么：对少样本类使用 OAS 收缩机制估计更稳定的协方差矩阵。
+    - 功能：对少样本类使用 OAS 收缩机制估计更稳定的协方差矩阵。
     - 核心思路：当类别样本数 $n \geq 10$ 时，计算 $\hat{\Sigma} = (1-\rho)\hat{\Sigma}_{emp} + \rho \cdot \frac{\text{tr}(\hat{\Sigma}_{emp})}{d} \cdot I_d$，收缩系数 $\rho$ 由 OAS 公式自动确定。同时在每个域内对类特定协方差取平均，降低存储开销。
     - 设计动机：少样本类的样本量不足以可靠估计高维协方差矩阵，OAS 通过引入正则化先验提升估计的稳定性。
 

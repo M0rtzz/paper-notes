@@ -44,10 +44,10 @@ tags:
 ### 核心理论
 
 1. **Score的渐近展开（Theorem 3.1的核心思想）**:
-   - 在 $\sigma \to 0$ 时，score function可分解为：
-   - **Leading order** $\Theta(\sigma^{-2})$：几何项，本质上是到流形的投影算子（将点拉向最近流形点）
-   - **Sub-leading order** $\Theta(1)$：分布项，编码流形上的密度信息 $p_{\text{data}}$
-   - 两项之间有 $\sigma^{-2}$ 的间隔——这就是"率分离"
+    - 在 $\sigma \to 0$ 时，score function可分解为：
+    - **Leading order** $\Theta(\sigma^{-2})$：几何项，本质上是到流形的投影算子（将点拉向最近流形点）
+    - **Sub-leading order** $\Theta(1)$：分布项，编码流形上的密度信息 $p_{\text{data}}$
+    - 两项之间有 $\sigma^{-2}$ 的间隔——这就是"率分离"
 
 2. **三个推论**:
 

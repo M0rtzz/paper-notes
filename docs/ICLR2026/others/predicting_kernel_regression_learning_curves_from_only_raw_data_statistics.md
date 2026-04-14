@@ -57,19 +57,19 @@ tags:
 
 1. **Hermite 特征结构假设（HEA）**：
 
-    - 做什么：断言旋转不变核的特征系统可以用一个简单的解析形式近似。
+    - 功能：断言旋转不变核的特征系统可以用一个简单的解析形式近似。
     - 核心思路：对任意多指标 $\alpha \in \mathbb{N}_0^d$，提出特征值 $\lambda_\alpha = c_{|\alpha|} \cdot \prod_{i=1}^d \gamma_i^{\alpha_i}$，特征函数 $\phi_\alpha = h_\alpha^{(\Sigma)}$（多维 Hermite 多项式）。其中 $c_\ell$ 是核函数在数据典型范数球面上的层级系数，$\gamma_i$ 是数据协方差特征值。
     - 设计动机：直觉来自高斯核的宽核极限分析。在 $\sigma^2 \gg \gamma$ 时，核特征映射各分量的方差按 $\sigma^{-2\ell} \gamma^\ell$ 指数衰减，做 PCA 时自然产生 Gram-Schmidt 正交化，结果恰好是 Hermite 多项式。这一结构对任何旋转不变核和足够高维的数据都近似成立。
 
 2. **球面层级系数（On-sphere Level Coefficients）**：
 
-    - 做什么：将任意旋转不变核转化为点积核，提取各阶多项式的系数 $c_\ell$。
+    - 功能：将任意旋转不变核转化为点积核，提取各阶多项式的系数 $c_\ell$。
     - 核心思路：在数据典型范数 $r = \text{Tr}[\Sigma]^{1/2}$ 的球面上，旋转不变核可展开为 $K(x,x') = \sum_\ell \frac{c_\ell}{\ell!}(x^\top x')^\ell$。文中推导了 Gaussian 核（$c_\ell = e^{-r^2/\sigma^2} \cdot \sigma^{-2\ell}$）、Laplace 核（涉及 Bessel 多项式）、ReLU NNGP/NTK 等常见核的层级系数。
     - 设计动机：不是所有旋转不变核都天然是点积核（如 Laplace 核在零点不解析），但高维数据范数集中，可安全近似为点积核。
 
 3. **目标函数的 Hermite 分解**：
 
-    - 做什么：从有限标签样本中估计目标函数在 Hermite 基下的系数。
+    - 功能：从有限标签样本中估计目标函数在 Hermite 基下的系数。
     - 核心思路：直接内积估计会因真实数据的轻微非高斯性导致 Hermite 基不完美正交，高估重叠模式的功率。解决方案是先对样本化的 Hermite 多项式做 Gram-Schmidt 正交化：$h_i^{(\text{GS})} = \text{unitnorm}(h_i - \sum_{j<i} \langle h_j^{(\text{GS})}, h_i \rangle h_j^{(\text{GS})})$，然后再投影 $\hat{v}_i = \langle h_i^{(\text{GS})}, y \rangle$。
     - 设计动机：这一步与核选择无关（不依赖 $c_\ell$），意味着一次分解可用于所有核的学习曲线预测。实验用 $P = 30000$ 模式和 $N = 80000$ 样本。
 

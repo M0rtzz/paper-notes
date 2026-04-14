@@ -27,6 +27,7 @@ tags:
 ## 研究背景与动机
 
 ### 问题场景
+
 **持续学习（Continual Learning, CL）** 面临的核心挑战是**灾难性遗忘（Catastrophic Forgetting）**：在学习新任务时忘记旧任务的知识。这在无样本回放（exemplar-free）设置下尤为严峻，因为无法存储旧样本来回顾。
 
 ### 现有方法的根本缺陷
@@ -119,11 +120,11 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{CE}}^{(t)} + \lambda_{\text{me
 **训练流程**：
 1. 第一个任务：仅用 $\mathcal{L}_{\text{CE}}$ 从头训练
 2. 后续任务：
-   - 冻结前一模型，将其 BN 层校准到新数据分布（batch adaptation）
-   - 复制前一模型为当前模型初始化
-   - 用总损失在新任务数据上训练
-   - 训练后执行扩展-剪枝
-   - 当前模型成为下一任务的前一模型
+    - 冻结前一模型，将其 BN 层校准到新数据分布（batch adaptation）
+    - 复制前一模型为当前模型初始化
+    - 用总损失在新任务数据上训练
+    - 训练后执行扩展-剪枝
+    - 当前模型成为下一任务的前一模型
 
 **超参数**：$\mathcal{L}_\ell = 1000$ slots, $\lambda_{\text{mem}} = 20$, $\lambda_{\text{orth}} = 10$, pruning ratio = 0.15, Adam 优化器, lr=0.001
 

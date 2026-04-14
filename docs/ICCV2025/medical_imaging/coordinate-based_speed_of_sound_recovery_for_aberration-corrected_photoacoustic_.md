@@ -51,19 +51,19 @@ tags:
 
 1. **可微成像前向模型**:
 
-    - 做什么：基于物理模型计算波前误差和PSF，支持端到端反向传播
+    - 功能：基于物理模型计算波前误差和PSF，支持端到端反向传播
     - 核心思路：假设直线声学射线模型，从样本点 $\mathbf{r}'$ 到换能器 $\mathbf{r}$ 的飞行时间为路径积分：$t(\mathbf{r}',\mathbf{r},\mathbf{v})=\int_{\mathbf{r}'}^{\mathbf{r}}\frac{1}{v(\mathbf{l})}dl$。波前误差为：$w(\theta;\mathbf{r}',\mathbf{v})=\int_{\mathbf{r}'}^{\mathbf{r}(\theta)}(1-\frac{v_0}{v(\mathbf{l})})dl$。PSF通过傅里叶域传递函数计算：$H_i(\mathbf{k};d,\mathbf{v})=\frac{1}{2}(e^{-j|\mathbf{k}|(d-w(\angle\mathbf{k};\mathbf{r}'_i,\mathbf{v}))}+e^{j|\mathbf{k}|(d-w(\angle\mathbf{k}+\pi;\mathbf{r}'_i,\mathbf{v}))})$
     - 设计动机：全可微的物理前向模型使得SOS可以通过梯度优化端到端学习，而非穷举搜索
 
 2. **多通道反卷积**:
 
-    - 做什么：利用多个延迟值提供的冗余信息实现鲁棒的图像恢复
+    - 功能：利用多个延迟值提供的冗余信息实现鲁棒的图像恢复
     - 核心思路：对每个图像patch，不同延迟值产生不同的PSF，但对应同一清晰图像。频域表示为 $\mathbf{Y}_i = \mathbf{H}_i(\mathbf{v})X_i$，通过伪逆重建：$\hat{X}_i = \frac{\mathbf{H}_i(\mathbf{v})^\top \mathbf{Y}_i}{\mathbf{H}_i(\mathbf{v})^\top \mathbf{H}_i(\mathbf{v})}$
     - 设计动机：单通道反卷积严重受噪声和PSF形状影响，多通道（默认16）提供超定方程，大幅降低振铃伪影并恢复patch边缘丢失的特征。且额外通道是数字生成的，不引入新的测量误差
 
 3. **坐标基SOS表示（PG与NF）**:
 
-    - 做什么：以紧凑的参数形式表示2D声速分布
+    - 功能：以紧凑的参数形式表示2D声速分布
     - 核心思路：
       - **像素网格（PG）**：与IP图像同分辨率的插值网格，配合TV正则化约束平滑性
       - **神经场（NF）**：单层256特征的全连接网络，SIREN激活函数（正弦激活），将像素坐标映射到SOS值。参数量仅1027，远小于像素数（~200K），自带隐式正则化

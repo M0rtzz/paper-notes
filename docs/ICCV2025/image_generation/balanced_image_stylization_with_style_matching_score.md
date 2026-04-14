@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.07601](https://arxiv.org/abs/2503.07601)  
 **代码**: https://github.com/showlab/SMS  
 **领域**: Image Generation / Style Transfer  
-**关键词**: Style Transfer, Score Distillation, Diffusion Model, LoRA, Frequency Domain Regularization
+**关键词**: Style Transfer, Score Distillation, diffusion model, LoRA, Frequency Domain Regularization
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 图像风格化的核心挑战是在有效转移目标风格与保持源图内容之间取得平衡。现有方法各有短板：
 
 **零样本文本驱动**（如 FreeStyle）：文本难以精确描述复杂风格，"一图胜千言"
+
 **单样本示例驱动**（如 StyleID）：过度依赖单张风格图，容易产生纹理叠加而非真正风格迁移
+
 **集合微调方法**（如 Style-LoRA + ControlNet）：虽能捕捉风格分布，但 ControlNet 的边缘条件限制了内容保持
+
 **SDS 类编辑方法**（如 DDS）：缺乏显式身份保持机制，容易偏离源图
 
 SMS 的核心 idea：利用风格 LoRA 整合的扩散模型估计目标风格分布的分数函数，通过最小化生成分布与风格分布的 KL 散度来实现风格匹配，同时用频域正则化和语义梯度修正来保持内容。

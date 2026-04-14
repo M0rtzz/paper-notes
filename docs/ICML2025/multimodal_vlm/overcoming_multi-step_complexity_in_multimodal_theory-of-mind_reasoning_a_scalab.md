@@ -35,6 +35,7 @@ tags:
 现有方法主要分两大路线：
 
 **结构化规划方法**：利用 ToM 特定先验进行结构化工作流设计（Baker et al., 2017; Jara-Ettinger, 2019; Shu et al., 2021）
+
 **模型微调方法**：将 ToM 先验通过专门训练集成进语言模型（Rabinowitz et al., 2018; Sclar et al., 2022; Jin et al., 2024）
 
 ### 多模态环境下的可扩展性瓶颈

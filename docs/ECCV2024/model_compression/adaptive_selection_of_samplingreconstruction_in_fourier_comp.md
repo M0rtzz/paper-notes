@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing
 description: >-
-  [ECCV 2024][压缩感知][MRI重建] 提出自适应选择采样-重建框架H1.5，为每个输入选择最佳mask-网络对，利用超分辨率空间生成模型量化高频贝叶斯不确定性，CelebA 8× SSIM达0.9405
+  [ECCV 2024][模型压缩][傅里叶压缩感知] 提出自适应选择采样-重建框架 $\mathcal{H}_{1.5}$，为每个输入数据自适应选择最佳的采样mask与专用重建网络对，利用超分辨率空间生成模型量化高频不确定性实现选择，理论证明优于非自适应联合优化 $\mathcal{H}_1$ 和自适应采样 $\mathcal{H}_2$。
 tags:
   - ECCV 2024
-  - 压缩感知
-  - MRI重建
+  - 模型压缩
+  - 傅里叶压缩感知
   - 自适应采样
-  - 贝叶斯不确定性
   - Pareto最优
+  - 贝叶斯不确定性
+  - 超分辨率
 ---
 
 # Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing
@@ -39,17 +40,17 @@ $\mathcal{H}_{1.5}$ 框架定义为：$h = \sum_{j=1}^J e_\psi(\cdot)_j \cdot h(
 
 ### 关键设计
 1. **理论保证：自适应选择优于两端（Theorems 3.1 & 3.2）**:
-    - 做什么：证明 $\mathcal{H}_{1.5}$ 的true risk下确界不高于 $\mathcal{H}_1$ 和 $\mathcal{H}_2$
+    - 功能：证明 $\mathcal{H}_{1.5}$ 的true risk下确界不高于 $\mathcal{H}_1$ 和 $\mathcal{H}_2$
     - 核心思路：Theorem 3.1（$\inf_{h \in \mathcal{H}_{1.5}} \mathcal{L}[h] \leq \inf_{h \in \mathcal{H}_1} \mathcal{L}[h]$）因 $\mathcal{H}_1 \subseteq \mathcal{H}_{1.5}$；Theorem 3.2证明在 $|\pi_\phi(M_0\mathcal{K})| \leq J$ 条件下 $\mathcal{H}_{1.5}$ 也优于 $\mathcal{H}_2$——因为专用 $\theta_j$ 是Pareto最优的
     - 设计动机：$\mathcal{H}_1$ 的mask不自适应，$\mathcal{H}_2$ 的 $\theta$ 是Pareto次优。$\mathcal{H}_{1.5}$ 两个问题都解决
 
 2. **高频贝叶斯不确定性量化（mask selector $e_\psi$）**:
-    - 做什么：用超分辨率空间生成模型量化每个输入的高频不确定性分布
+    - 功能：用超分辨率空间生成模型量化每个输入的高频不确定性分布
     - 核心思路：先采样低频k空间 $M_0 k$，用SR flow模型 $f_\psi$ 生成 $S$ 个高分辨率样本，计算样本方差 $v(M_0 k) = (\hat{\text{Var}}_{q_\psi}[k'_s])_{s=1}^S$ 作为高频不确定性估计，归一化后 $u = v/\|v\|_2$ 用k-means++聚类。推理时计算 $u$ 到各聚类中心的距离选择最近类对应的 $(M_j, \theta_j)$
     - 设计动机：SR模型的样本方差天然估计了k空间MSE；不同图像的高频不确定性模式不同（如横纹背景vs长发——不确定性分布方向不同），需要不同的采样策略
 
 3. **采样mask构建与专用网络训练**:
-    - 做什么：从聚类中心构建mask并训练专用重建网络
+    - 功能：从聚类中心构建mask并训练专用重建网络
     - 核心思路：直接排序样本方差可最优化PSNR（Proposition 1），但对SSIM需要引入随机性。因此用rejection sampling按中心 $c_j$ 概率采样生成mask $M_j$，再独立训练 $\theta_j$ 最小化 $\hat{\mathcal{L}}[h(\cdot; M_j, \theta_j)]$
     - 设计动机：每个 $\theta_j$ 只为一个 $M_j$ 训练，保证Pareto最优——避免了 $\mathcal{H}_2$ 中单网络多mask的性能瓶颈
 

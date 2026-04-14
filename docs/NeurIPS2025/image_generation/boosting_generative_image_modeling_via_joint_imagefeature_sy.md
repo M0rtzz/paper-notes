@@ -1,13 +1,16 @@
 ---
+title: >-
+  [论文解读] Boosting Generative Image Modeling via Joint Image-Feature Synthesis
 description: >-
-  NeurIPS 2025 Spotlight，提出ReDi框架在扩散模型中联合建模VAE图像latent和DINOv2语义特征，仅需最小修改DiT/SiT架构即可实现23倍训练加速和FID大幅提升，并引入Representation Guidance推理策略进一步增强生成质量。
+  [NeurIPS 2025 **Spotlight**][图像生成][联合图像-特征生成] 提出ReDi (Representation Diffusion)框架，在扩散模型中联合建模VAE图像latent和DINOv2语义特征——两者在同一扩散过程中从纯噪声同步去噪，仅需最小修改DiT架构即实现23倍训练收敛加速和SOTA FID，并解锁Representation Guidance推理策略。
 tags:
-  - NeurIPS 2025
+  - "NeurIPS 2025 **Spotlight**"
   - 图像生成
+  - 联合图像-特征生成
   - 扩散模型
-  - 表征学习
-  - DiT
   - DINOv2
+  - Representation Guidance
+  - DiT
 ---
 
 # Boosting Generative Image Modeling via Joint Image-Feature Synthesis
@@ -16,7 +19,7 @@ tags:
 **arXiv**: [2504.16064](https://arxiv.org/abs/2504.16064)  
 **代码**: [GitHub](https://representationdiffusion.github.io/)  
 **领域**: 图像生成  
-**关键词**: 联合图像-特征生成, 扩散模型, DINOv2, Representation Guidance, DiT
+**关键词**: 联合图像-特征生成, diffusion model, DINOv2, Representation Guidance, DiT
 
 ## 一句话总结
 
@@ -45,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **联合前向-反向扩散过程**:
-    - 做什么：对图像latent和语义特征使用相同噪声调度分别加噪，然后联合去噪
+    - 功能：对图像latent和语义特征使用相同噪声调度分别加噪，然后联合去噪
     - 核心思路：前向过程 $\mathbf{x}_t = \sqrt{\bar\alpha_t}\mathbf{x}_0 + \sqrt{1-\bar\alpha_t}\boldsymbol{\epsilon}_x$，$\mathbf{z}_t = \sqrt{\bar\alpha_t}\mathbf{z}_0 + \sqrt{1-\bar\alpha_t}\boldsymbol{\epsilon}_z$。模型同时预测两组噪声：$\boldsymbol{\epsilon}_\theta^x$和$\boldsymbol{\epsilon}_\theta^z$。联合损失：$\mathcal{L} = \|\boldsymbol{\epsilon}_\theta^x - \boldsymbol{\epsilon}_x\|^2 + \lambda_z\|\boldsymbol{\epsilon}_\theta^z - \boldsymbol{\epsilon}_z\|^2$，默认$\lambda_z=1$
     - 设计动机：让模型被迫学习图像细节和语义结构的联合分布，两者相互提供互补信息，自然产生更好的生成
 
 2. **Token融合策略（Merged vs Separate）**:
-    - 做什么：将VAE token和语义token输入Transformer的两种方式
+    - 功能：将VAE token和语义token输入Transformer的两种方式
     - 核心思路：**Merged**方式将两组token通过各自的线性投影后逐通道相加 $\mathbf{h}_t = \mathbf{x}_t\mathbf{W}_{emb}^x + \mathbf{z}_t\mathbf{W}_{emb}^z$，保持token数不变（$L$个）；**Separate**方式沿序列维度拼接得到$2L$个token。默认使用Merged以保持计算效率
     - 设计动机：Merged通过早期融合让两种信息密切交互，且不增加计算量；Separate提供更强表达力但计算量翻倍
 
 3. **PCA降维语义表征 + Representation Guidance**:
-    - 做什么：对DINOv2的768维特征用PCA降到8维以平衡计算；推理时利用语义分支引导图像生成
+    - 功能：对DINOv2的768维特征用PCA降到8维以平衡计算；推理时利用语义分支引导图像生成
     - 核心思路：PCA降维解决$C_z \gg C_x$导致的容量分配失衡。Representation Guidance类比CFG的思路：$\hat{\boldsymbol{\epsilon}}_\theta = \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t) + w_r(\boldsymbol{\epsilon}_\theta(\mathbf{x}_t, \mathbf{z}_t, t) - \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t))$，训练时以概率$p_{drop}$随机丢弃$\mathbf{z}_t$来同时学习有/无语义条件的去噪
     - 设计动机：PCA避免高维语义特征占据过多模型容量；Representation Guidance利用模型自身学到的语义来引导生成，无需额外模型
 

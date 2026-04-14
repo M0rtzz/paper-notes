@@ -39,9 +39,9 @@ tags:
 
 1. **全面文档检索 (Comprehensive Document Retrieval)**：从文档集 D 中检索 k 篇全面覆盖各观点的文档
 2. **多面向总结 (Multi-Faceted Summarization)**：从检索到的文档中总结出：
-   - 两个对立的 claims（c₀, c₁）
-   - 每个 claim 下的多个非重叠 perspectives
-   - 每个 perspective 对应的文档引用
+    - 两个对立的 claims（c₀, c₁）
+    - 每个 claim 下的多个非重叠 perspectives
+    - 每个 perspective 对应的文档引用
 
 形式化：$q \rightarrow c_0: \{p_{0,j}, [D_{0,j}]\}; c_1: \{p_{1,j}, [D_{1,j}]\}$
 

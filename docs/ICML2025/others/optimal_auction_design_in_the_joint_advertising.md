@@ -67,8 +67,8 @@ $$rgt^e(w) = \mathbb{E}\left[\max_{v_r'} \{u_r^e(\text{misreport}) - u_r^e(\text
 #### 网络架构
 
 1. **图特征融合**：将二部图节点特征聚合为边特征
-   - Divided Bids: $DB^e = [X_r, X_s] \in \mathbb{R}^{2m}$（拼接）
-   - Stacked Bids: $SB^e = X_r + X_s \in \mathbb{R}^m$（求和）
+    - Divided Bids: $DB^e = [X_r, X_s] \in \mathbb{R}^{2m}$（拼接）
+    - Stacked Bids: $SB^e = X_r + X_s \in \mathbb{R}^m$（求和）
 2. **分配网络**：MLP处理 $SB^E$ → 双随机矩阵方法（行/列softmax取min）确保分配可行
 3. **支付网络**：MLP处理 $DB^E$ → Sigmoid输出归一化支付系数 $\tilde{p} \in [0,1]$，乘以分配加权出价得到实际支付，从而结构性保证IR
 

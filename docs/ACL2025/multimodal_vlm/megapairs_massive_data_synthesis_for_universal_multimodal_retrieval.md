@@ -9,7 +9,7 @@ tags:
   - Data Synthesis
   - Composed Image Retrieval
   - 对比学习
-  - Instruction Tuning
+  - instruction tuning
   - Hard Negatives
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.14475](https://arxiv.org/abs/2412.14475)  
 **代码**: 将公开（数据集、模型、pipeline 全套公开）  
 **领域**: Multimodal VLM / 多模态检索  
-**关键词**: Multimodal Retrieval, Data Synthesis, Composed Image Retrieval, Contrastive Learning, Instruction Tuning, Hard Negatives
+**关键词**: Multimodal Retrieval, Data Synthesis, Composed Image Retrieval, Contrastive Learning, instruction tuning, Hard Negatives
 
 ## 一句话总结
 
@@ -28,11 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: 多模态检索需求快速增长（图像搜索、VQA、RAG 等），基于预训练视觉-语言模型（CLIP/ALIGN/SigLIP）的方法已建立初步能力，但仅限于文本-图像匹配，无法处理更复杂的多模态任务。
+
 **指令微调瓶颈**: 指令微调可增强多任务能力，但多模态检索的指令数据极度稀缺。现有方法（如 MagicLens）从共存于同一网页的图像对中合成数据，面临四大限制：
    - **可扩展性差**: 仅少量网页包含多图像
    - **质量低**: 共存图像常不相关或高度重复
    - **多样性不足**: 相关图像关系单调（如同一物体不同角度）
    - **可获取性差**: 大规模数据集通常私有不公开
+
 **核心 idea**: 利用开放域图像语料（如 DataComp）+ 多个相似度模型挖掘异构图像对 + 开源 VLM/LLM 生成检索指令 → 大规模、高质量、多样化、公开可用的多模态检索训练数据。
 
 ## 方法详解
@@ -66,13 +68,13 @@ MegaPairs 分为两个阶段：(1) 挖掘相关图像对——使用三种相似
 设计了两种架构：
 
 1. **CLIP-based MMRet** (Base/Large):
-   - 双编码器架构独立编码图像和文本
-   - 多模态嵌入使用 score-fusion: e_it = Φ_I(I) + Φ_T(T)
+    - 双编码器架构独立编码图像和文本
+    - 多模态嵌入使用 score-fusion: e_it = Φ_I(I) + Φ_T(T)
 
 2. **MLLM-based MMRet** (基于 LLaVA-1.6 Mistral 7B):
-   - 将图像 token 直接输入 LLM 处理
-   - 使用任务特定指令: <instruct> {task_inst} <query> {q_t} {q_i} [EOS]
-   - 以 [EOS] token 的归一化最后隐藏状态作为嵌入
+    - 将图像 token 直接输入 LLM 处理
+    - 使用任务特定指令: <instruct> {task_inst} <query> {q_t} {q_i} [EOS]
+    - 以 [EOS] token 的归一化最后隐藏状态作为嵌入
 
 ### 训练目标
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.02391](https://arxiv.org/abs/2411.02391)  
 **代码**: [https://github.com/SALT-NLP/PopupAttack](https://github.com/SALT-NLP/PopupAttack)  
 **领域**: LLM Agent  
-**关键词**: adversarial attack, VLM agent, pop-up attack, computer use safety, agent robustness  
+**关键词**: adversarial attack, VLM agent, pop-up attack, computer use safety, agent robustness
 
 ## 一句话总结
 系统性设计了一套对抗性弹窗攻击方法来攻击基于视觉语言模型的计算机操控 agent，在 OSWorld 和 VisualWebArena 上平均攻击成功率达 86%，任务成功率下降 47%，基础防御手段几乎无效。

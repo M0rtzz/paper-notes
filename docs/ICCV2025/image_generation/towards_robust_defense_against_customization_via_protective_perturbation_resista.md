@@ -10,7 +10,7 @@ tags:
   - Anti-Purification
   - DreamBooth
   - 扩散模型
-  - Adversarial Attack
+  - adversarial attack
 ---
 
 # Towards Robust Defense against Customization via Protective Perturbation Resistant to Diffusion-based Purification
@@ -31,8 +31,11 @@ tags:
 然而，**扩散净化**（Diffusion-based Purification，如DiffPure、GrIDPure）可以在定制化之前移除保护性扰动，使图像重新暴露于恶意伪造风险中。现有保护性扰动方法（AdvDM、Mist、Anti-DB、SimAC）几乎不考虑"净化-定制化"（Purification-Customization, P-C）工作流，导致在净化后效果大幅下降。
 
 本文首次形式化了抗净化任务，分析了抗净化比抗定制化更困难的三个核心原因：
+
 **缺乏脆弱组件**：DDPM中只有UNet，不像LDM有脆弱的VAE编码器可被攻击
+
 **无训练冻结参数**：净化过程不涉及fine-tuning，对抗样本无法影响模型先验
+
 **固定高时间步去噪**：净化本质是固定高时间步的生成过程，低频结构难以被修改
 
 ## 方法详解
@@ -154,7 +157,7 @@ AntiPure在相同 $l_\infty$ 约束下实现了**最小的感知差异**（LPIPS
 **arXiv**: [2509.13922](https://arxiv.org/abs/2509.13922)  
 **代码**: 无（未提及）  
 **领域**: 图像生成 / 对抗防御 / 扩散模型安全  
-**关键词**: Protective Perturbation, Anti-Purification, DreamBooth, Diffusion Purification, Adversarial Attack
+**关键词**: Protective Perturbation, Anti-Purification, DreamBooth, Diffusion Purification, adversarial attack
 
 ## 一句话总结
 提出 AntiPure，一种针对扩散模型净化（purification）过程的对抗扰动方法，通过 Patch-wise Frequency Guidance 和 Erroneous Timestep Guidance 两种引导机制，生成在净化后仍能持续干扰定制化微调的保护性扰动，在"净化-定制化"工作流中全面超越现有防护方法。

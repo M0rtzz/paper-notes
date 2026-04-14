@@ -9,8 +9,8 @@ tags:
   - 联邦学习
   - zeroth-order optimization
   - Hessian preconditioning
-  - LLM fine-tuning
-  - communication efficiency
+  - LLM 微调
+  - 通信效率
 ---
 
 # Converge Faster, Talk Less: Hessian-Informed Federated Zeroth-Order Optimization
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.02370](https://arxiv.org/abs/2506.02370)  
 **代码**: 待确认  
 **领域**: 优化/理论  
-**关键词**: federated learning, zeroth-order optimization, Hessian preconditioning, LLM fine-tuning, communication efficiency
+**关键词**: 联邦学习, zeroth-order optimization, Hessian preconditioning, LLM 微调, 通信效率
 
 ## 一句话总结
 提出 HiSo，在联邦零阶优化中利用全局对角 Hessian 近似加速收敛，同时严格保持标量通信（不传输任何二阶信息），理论证明收敛速率独立于 Lipschitz 常数 $L$ 和模型维度 $d$，在 LLM 微调中通信轮次比 SOTA 零阶方法快 1-5 倍。
@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：联邦 LLM 微调的通信瓶颈巨大（FedAvg 需 ~1-5 TB/客户端）。DeComFL 用零阶梯度的标量表示实现维度无关通信（TB→MB）。
+
 **现有痛点**：零阶 FL 收敛极慢——ZO-SGD 使用各向同性随机方向，忽略了 LLM 参数空间的异构曲率。传统 Hessian 信息需要 $O(d)$ 或 $O(d^2)$ 通信，直接违背标量通信目标。
+
 **核心矛盾**：曲率信息能加速收敛但会破坏标量通信框架。如何在不传输二阶信息的前提下利用 Hessian？
+
 **切入角度**：观察到全局聚合的零阶梯度标量本身可以重构 Adam 风格的对角 Hessian 近似——无需额外通信。
+
 **核心idea一句话**：用 Hessian 逆平方根扭曲随机扰动方向使其沿高曲率方向更精细搜索 + 从免费的全局梯度标量计算对角 Hessian，零额外通信成本。
 
 ## 方法详解

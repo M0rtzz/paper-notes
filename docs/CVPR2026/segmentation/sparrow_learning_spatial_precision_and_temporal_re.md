@@ -2,14 +2,13 @@
 title: >-
   [论文解读] SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs
 description: >-
-  [CVPR 2026][视频分割][MLLM] 提出SPARROW框架，通过Target-Specific Tracked Feature注入时序一致性和Dual-Prompt（BOX+SEG）粗到细初始化，增强视频MLLM的像素级定位稳定性，跨三个SOTA基线在六个benchmark上一致提升。
+  [CVPR 2026][图像分割][图像分割] 提出SPARROW框架，通过Target-Specific Tracked Feature注入时序参照一致性和BOX+SEG双提示初始化稳定像素定位，作为即插即用模块在三个视频MLLM基线上跨六个benchmark一致提升。
 tags:
   - CVPR 2026
-  - video segmentation
-  - MLLM
+  - 图像分割
+  - MLLM grounding
   - temporal consistency
-  - referring segmentation
-  - SAM2
+  - 提示学习
 ---
 
 # SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs
@@ -41,17 +40,17 @@ SPARROW增强基线视频MLLM的两个互补模块：(1) Target-Specific Tracked
 ### 关键设计
 
 1. **Target-Specific Tracked Feature (TSF)**：
-    - 做什么：在训练时注入时序对齐的参照对象特征，使模型学会跨帧identity持久性
+    - 功能：在训练时注入时序对齐的参照对象特征，使模型学会跨帧identity持久性
     - 核心思路：给定文本query，用GroundingDINO在一帧检测对象 → CLDTracker跨序列传播 → K-means聚类（K=4）在联合视觉-空间特征空间中选择代表性样本 → 编码为TSF tokens $Z_{\text{TSF}}$ 拼接到LLM输入。测试时TSF默认关闭（无需外部检测/跟踪器）
     - 设计动机：TSF在训练时提供"这个对象在不同帧长什么样"的监督信号，让模型internalize时序参照能力。离线预计算解耦了重型模块和训练循环。K-means选择确保多样外观表示
 
 2. **Dual-Prompt Grounding（BOX + SEG双提示）**：
-    - 做什么：LLM同时发射[BOX]和[SEG]token，前者提供空间先验，后者提供语义分割
+    - 功能：LLM同时发射[BOX]和[SEG]token，前者提供空间先验，后者提供语义分割
     - 核心思路：[BOX]嵌入 $e_{\text{BOX}}$ 条件一个轻量回归头——在SAM2的Hiera特征上构建class-agnostic proposer（Deformable-DETR），生成300个候选框 → 通过交叉注意力 $A_i = \text{softmax}((W_q e_{\text{BOX}})(W_k F_i)^T/\sqrt{d})$ 用语言条件筛选 → 细化框坐标。[SEG]嵌入 $e_{\text{SEG}}$ 与筛选后的框 $\hat{b}_i$ 一起送入SAM2 prompt encoder产生mask
     - 设计动机：[BOX]的粗定位先验约束[SEG]的搜索空间，稳定首帧且允许漂移纠正。独立评分机制自然支持多实例查询（如"两个玩家"）。在任意帧重发[BOX]+[SEG]可实现无需外部跟踪器的漂移纠正
 
 3. **两阶段训练策略**：
-    - 做什么：Stage 1训练TSF注入（多模态适配器+LoRA），Stage 2训练BOX提示（proposer预训练→filtration head微调）
+    - 功能：Stage 1训练TSF注入（多模态适配器+LoRA），Stage 2训练BOX提示（proposer预训练→filtration head微调）
     - 核心思路：Stage 1：在30,646视频/45,231 QA对上训练 $\mathcal{L}_{total} = \mathcal{L}_{CE} + \mathcal{L}_{BCE} + \mathcal{L}_{DICE}$，仅更新V→L适配器、L→V SEG适配器和LLM LoRA。Stage 2：先在COCO/Objects365/OpenImages/V3Det上预训练class-agnostic proposer，再微调filtration head $\mathcal{L}_{filter} = \lambda_{cls}\mathcal{L}_{BCE} + \lambda_{box}(\mathcal{L}_{\ell_1} + \mathcal{L}_{GIoU})$
     - 设计动机：两阶段解耦——Stage 1专注时序+语义对齐，Stage 2专注空间精度。渐进式训练避免多目标冲突
 

@@ -9,7 +9,7 @@ tags:
   - Open-Vocabulary 3D
   - 属性理解
   - 3D场景分割
-  - Benchmark
+  - benchmark
   - 知识图谱
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.11030](https://arxiv.org/abs/2408.11030)  
 **代码**: [https://youjunzhao.github.io/OpenScan/](https://youjunzhao.github.io/OpenScan/)  
 **领域**: 3D场景理解/开放词汇  
-**关键词**: Open-Vocabulary 3D, 属性理解, 3D场景分割, Benchmark, 知识图谱  
+**关键词**: Open-Vocabulary 3D, 属性理解, 3D场景分割, benchmark, 知识图谱
 
 ## 一句话总结
 

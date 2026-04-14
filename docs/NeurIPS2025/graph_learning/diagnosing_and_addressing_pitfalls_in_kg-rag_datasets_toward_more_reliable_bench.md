@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：知识图谱问答（KGQA）和KG增强RAG（KG-RAG）是热门研究方向，WebQSP、CWQ等经典数据集广泛使用。新方法在这些数据集上报告越来越高的Hit@1分数。
+
 **现有痛点**：系统审计发现这些经典数据集质量堪忧——标注答案错误/过时/不完整（Freebase已停更）、问题模糊或过于简单、EM评估过严。WebQSP事实正确率仅52%，MetaQA仅20%。
+
 **核心矛盾**：在错误标注的数据上评测，97% Hit@1的模型可能只有48%是真正正确的——整个KGQA社区的进展评估可能不可靠。
+
 **本文要解决什么**：（a）量化和分类现有数据集的质量问题；（b）构建高质量、可验证的KGQA基准。
+
 **核心idea**：LLM引导子图扩展生成多跳问题 → SPARQL自动验证答案正确性 → 96.3%准确率的KGQAGen-10k。
 
 ## 方法详解
@@ -41,19 +45,19 @@ KGQAGen三阶段：（1）从Wikipedia Vital Articles选种子实体，构建1-h
 
 1. **LLM引导的迭代子图扩展**：
 
-    - 做什么：从种子实体出发，逐步扩展子图直到包含足够信息生成多跳问题
+    - 功能：从种子实体出发，逐步扩展子图直到包含足够信息生成多跳问题
     - 核心思路：每轮扩展后 LLM 评估子图是否充分（要求支持至少 2-hop 推理），不够则输出 Exploration Set（优先选语义特定的实体如名人/事件，避免国家等泛化实体），然后对 Exploration Set 中的实体做 1-hop 扩展（每实体采样 10-15 邻居）
     - 设计动机：BFS/DFS 无引导扩展会产生巨大且含噪的子图（高度节点几跳就产生数千节点），LLM 引导确保扩展方向语义相关且复杂度可控
 
 2. **SPARQL验证闭环**：
 
-    - 做什么：确保每个生成的 QA 对有可追溯的知识图谱依据
+    - 功能：确保每个生成的 QA 对有可追溯的知识图谱依据
     - 核心思路：LLM 同时生成问题 $q_e$、答案集 $\mathcal{A}_e$、支撑子图 $\mathcal{P}_e$ 和 SPARQL 查询 $\mathcal{Q}_e$。执行 SPARQL 验证 $\hat{\mathcal{A}}_e = \mathcal{A}_e$，不一致则用 GPT-4o-mini 修正 SPARQL，最多 3 轮
     - 设计动机：LLM 可能幻觉生成不存在于 KG 的答案，SPARQL 执行是硬约束验证
 
 3. **LASM评估协议（LLM-Assisted Semantic Match）**：
 
-    - 做什么：当 EM 失败时用 GPT-4o-mini 判断语义等价
+    - 功能：当 EM 失败时用 GPT-4o-mini 判断语义等价
     - 设计动机：传统 EM 评估对格式差异过于敏感（"AUD" vs "Australian dollar"、"Germany" vs "Federal Republic of Germany"），导致大量 false negative
 
 ## 实验关键数据

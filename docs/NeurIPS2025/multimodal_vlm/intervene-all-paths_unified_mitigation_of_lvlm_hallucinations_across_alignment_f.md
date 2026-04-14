@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.17254](https://arxiv.org/abs/2511.17254)  
 **代码**: [https://github.com/SooLab/AllPath](https://github.com/SooLab/AllPath)  
 **领域**: 多模态VLM / 幻觉缓解 / 注意力头干预  
-**关键词**: hallucination, attention head intervention, causal path, multi-path framework, training-free  
+**关键词**: hallucination, attention head intervention, causal path, multi-path framework, training-free
 
 ## 一句话总结
 提出 AllPath，一个基于 Transformer 因果架构的多路径幻觉干预框架，首次发现 LVLM 的幻觉不来自单一因果路径而是 image-to-input-text、image-to-output-text、text-to-text 三条路径的交互，并且模型会根据问答对齐格式自适应选择不同路径；通过为每条路径设计轻量级关键 head 识别方法并自适应干预，在 POPE、MCQ-POPE、CHAIR、MME 四个不同格式 benchmark 上一致降低幻觉。
@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LVLM 幻觉缓解方法主要分两类——对比解码（VCD、ICD）通过校准输出分布来减少语言偏置，干预方法（PAI、AD-HH）通过直接操纵注意力权重/头来增强视觉定基或抑制文本主导行为。
+
 **现有痛点**：每种方法通常只干预单一因果路径——PAI 只干预 image→output-text 路径，AD-HH 只干预 input-text→output-text 路径——导致它们各自只在部分 benchmark 上表现好（PAI 擅长 CHAIR 但 POPE 一般，VCD 反之）。
+
 **核心矛盾**：幻觉不是来自单一路径，而是多路径交互的结果；更关键的是，**LVLM 对不同问答格式（二选一/多选/开放描述）使用不同的因果路径**，单路径干预无法覆盖所有场景。
+
 **切入角度**：从 Transformer 因果架构出发，系统性地分析所有可能的信息传播路径，并为每种路径设计针对性的关键头识别和干预方法。
+
 **核心 idea**：多路径框架 + 自适应路径选择干预，仅需单次前向传播即可完成所有 head 评分。
 
 ## 方法详解
@@ -41,13 +45,13 @@ AllPath 分三步：(1) 用两种轻量方法识别 text-to-text (T2T) 和 image
 
 1. **Text-to-Text Head 识别（LPI Score）**：
 
-    - 做什么：量化每个注意力头对幻觉 token / 非幻觉 token 的推动程度
+    - 功能：量化每个注意力头对幻觉 token / 非幻觉 token 的推动程度
     - 核心思路：定义 Log Probability Increase (LPI) score $\text{logProb}_{\uparrow}^{(l,n)}(\mathcal{B}_t) = \log\sum_{b\in\mathcal{B}_t}\mathbb{P}(b|h_t^{(l-1)}+H_t^{(l,n)}) - \log\sum_{b\in\mathcal{B}_t}\mathbb{P}(b|h_t^{(l-1)})$，分别对幻觉集 $\mathcal{B}_t^-$ 和非幻觉集 $\mathcal{B}_t^+$ 计算平均 LPI，T2T Score = $S_{\text{T2T}}^{(l,n),+} - S_{\text{T2T}}^{(l,n),-}$，越小表示该 head 越倾向促进幻觉
     - 设计动机：相比 zero-out 策略（需要对每个 head 做完整前向）和训练方法（需标注数据），LPI 只需一次前向即可获得所有 head 的分数
 
 2. **Image-to-Text Head 识别（I2T Score）**：
 
-    - 做什么：识别哪些注意力头在视觉 token 上有语义对齐的注意力模式
+    - 功能：识别哪些注意力头在视觉 token 上有语义对齐的注意力模式
     - 核心思路：选取目标 token $\mathcal{T}_{\text{I2T}}$（首次出现的物体词），分为图中存在的 $\mathcal{T}_{\text{I2T}}^+$ 和不存在的 $\mathcal{T}_{\text{I2T}}^-$。对 $\mathcal{T}_{\text{I2T}}^+$，计算 head 在对应区域 $M_r$ 上的注意力总和；对 $\mathcal{T}_{\text{I2T}}^-$，计算在整个图像上的注意力总和。$S_{\text{I2T}}^{(l,n)} = S_{\text{I2T}}^{(l,n),+} - S_{\text{I2T}}^{(l,n),-}$
     - 设计动机：好的 I2T head 应在物体存在时集中注意力于对应区域，物体不存在时注意力分散
 
@@ -63,7 +67,7 @@ AllPath 分三步：(1) 用两种轻量方法识别 text-to-text (T2T) 和 image
 
 5. **自适应干预策略**：
 
-    - 做什么：根据问题类型选择干预的路径组合，对选定 head 用不同缩放因子
+    - 功能：根据问题类型选择干预的路径组合，对选定 head 用不同缩放因子
     - 核心思路：选择 top-$\xi$ 和 bottom-$\xi$ 的 T2T head（$Z_{\text{T2T}}^+$, $Z_{\text{T2T}}^-$），top-$\zeta$ 的 I2T head（$Z_{\text{I2T}}^+$）。修改 MHA 输出：$\tilde{H}_{\leq t}^{(l)} = \sum_n \lambda^{(l,n)} H_{\leq t}^{(l,n)}$，其中 $\lambda^{(l,n)} = \gamma^+$ if $(l,n)\in Z^+$，$\gamma^-$ if $(l,n)\in Z^-$，否则 1
     - 默认设置：$\gamma^+=2.0$, $\gamma^-=0.0$（直接关闭负面 head）
 

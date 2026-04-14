@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.16493](https://arxiv.org/abs/2408.16493)  
 **代码**: 无  
 **领域**: 医学图像  
-**关键词**: biomedical entity linking, generative model, negative sampling, preference optimization, DPO  
+**关键词**: biomedical entity linking, generative model, negative sampling, preference optimization, DPO
 
 ## 一句话总结
 
@@ -32,6 +32,7 @@ tags:
 生物医学实体链接（BioEL）旨在将文本中的实体提及（mention）映射到标准化知识库（如 UMLS、MeSH）中的概念。该任务面临两大核心挑战：
 
 **同义词多样性**：同一概念有多种表达方式，如 "ADHD" 的同义词包括 hyperkinetic disorder 和 attention deficit hyperactivity disorder
+
 **表面形式歧义性**：不同概念可能有相似的名称，如 "ADA" 可指 adenosine deaminase 或 American Diabetes Association
 
 ### 现有方法局限
@@ -60,8 +61,8 @@ ANGEL 是一个两阶段训练框架，可同时应用于预训练和微调：
 **阶段二：负样本感知训练（Negative-aware Training）**
 
 1. **收集正负样本对**：对训练集每个 mention 获取模型 top-k 预测，构建三元组 (x, e_w, e_l)
-   - e_w：正确（preferred）实体
-   - e_l：错误（dispreferred）实体
+    - e_w：正确（preferred）实体
+    - e_l：错误（dispreferred）实体
 2. **筛选策略**：仅保留模型将错误实体排在正确实体之前的样本对；若 top-1 预测已正确，则配对最高排名的错误实体
 3. **偏好优化**：采用 DPO（Direct Preference Optimization）损失函数更新模型
 

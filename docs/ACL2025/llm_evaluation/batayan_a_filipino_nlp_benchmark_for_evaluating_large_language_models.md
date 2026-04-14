@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - 菲律宾语
   - 低资源语言
-  - 基准测试
+  - benchmark
   - 多语言LLM
   - 形态学
   - 代码切换
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.14911](https://arxiv.org/abs/2502.14911)  
 **代码**: https://github.com/aisingapore/sea-helm  
 **领域**: LLM/NLP  
-**关键词**: 菲律宾语, 低资源语言, 基准测试, 多语言LLM, 形态学, 代码切换
+**关键词**: 菲律宾语, 低资源语言, benchmark, 多语言LLM, 形态学, 代码切换
 
 ## 一句话总结
 

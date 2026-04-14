@@ -7,7 +7,7 @@ tags:
   - "ACL 2025 (Long Paper, Oral & Panel Discussion)"
   - Intuitive Fine-Tuning
   - SFT
-  - Preference Optimization
+  - preference optimization
   - MDP
   - Temporal Residual Connection
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2405.11870](https://arxiv.org/abs/2405.11870)  
 **代码**: [GitHub](https://github.com/TsinghuaC3I/Intuitive-Fine-Tuning)  
 **领域**: LLM对齐 / 偏好优化 / 高效训练  
-**关键词**: Intuitive Fine-Tuning, SFT, Preference Optimization, MDP, Temporal Residual Connection  
+**关键词**: Intuitive Fine-Tuning, SFT, preference optimization, MDP, Temporal Residual Connection
 
 ## 一句话总结
 通过MDP框架将SFT和偏好优化统一建模为"偏好估计+转移优化"两个子过程，揭示SFT本质上是偏好优化的特殊退化形式（使用偏差先验），提出IFT方法通过时间残差连接在仅使用SFT格式数据的条件下实现接近或超越SFT+PO顺序训练的对齐效果。

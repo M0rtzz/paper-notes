@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Neural Force Field: Few-shot Learning of Generalized Physical Reasoning
 description: >-
-  [ICLR2026][物理推理] 提出Neural Force Field(NFF)——基于神经力场+ODE积分的少样本物理推理框架，从有限轨迹中学习连续力场表示（重力/碰撞/摩擦），通过ODE求解器预测物理一致的轨迹，在I-PHYRE/N-body/PHYRE三个基准上以少量训练数据实现SOTA泛化
+  [ICLR 2026][neural force field] 提出Neural Force Field（NFF），将物体交互建模为连续力场，通过神经算子学习力场函数并用ODE积分器解码轨迹，在I-PHYRE（100条轨迹）、N-body（200条轨迹）、PHYRE（0.012M数据,比SOTA少267倍）三个基准上实现少样本SOTA，跨场景RMSE降低32-64%,规划任务接近人类水平。
 tags:
-  - ICLR2026
-  - 物理推理
-  - 少样本学习
-  - 神经ODE
-  - 力场表示
-  - 交互规划
+  - ICLR 2026
+  - neural force field
+  - Neural ODE
+  - few-shot physical reasoning
+  - ODE solver
+  - interactive planning
 ---
 
 # Neural Force Field: Few-shot Learning of Generalized Physical Reasoning
@@ -51,17 +51,17 @@ NFF框架三步走：(1) 构建动态交互图，物体为节点，接触/吸引
 ### 关键设计
 
 1. **神经算子力场（Neural Operator Force Field）**:
-    - 做什么：从物体状态和交互图预测连续力场
+    - 功能：从物体状态和交互图预测连续力场
     - 核心思路：基于DeepONet框架，力场函数为 $\mathbf{F}(\mathbf{z}^q(t)) = \sum_{i \in \mathcal{G}(q)} \mathbf{W}(f_\theta(\mathbf{z}^i(t)) \odot f_\phi(\mathbf{z}^q(t))) + \mathbf{b}$，其中 $\mathcal{G}(q)$ 是查询物体的邻居集合，$f_\theta$ 和 $f_\phi$ 是neural networks，$\odot$ 是逐元素乘积，$\mathbf{W} \in \mathbb{R}^{d_\text{hidden} \times d_\text{force}}$ 将隐特征映射到低维力空间
     - 设计动机：力场是低维的（2D/3D力向量）→比高维隐向量更容易从少量数据学习；神经算子的函数空间学习能力使力场模式可泛化到新交互图
 
 2. **ODE积分轨迹解码**:
-    - 做什么：将学习到的力场转换为物理一致的轨迹
+    - 功能：将学习到的力场转换为物理一致的轨迹
     - 核心思路：二阶ODE描述运动——$\mathbf{a}^q(t) = \frac{d^2 x^q(t)}{dt^2} = \frac{\mathbf{F}(\mathbf{z}^q(t))}{m^q}$，通过积分得到 $\mathbf{x}(t) = \mathbf{x}(0) + \int_0^t \mathbf{v}(t)dt$, $\mathbf{v}(t) = \mathbf{v}(0) + \int_0^t \frac{\mathbf{F}(\mathbf{z}^q(t))}{m^q}dt$
     - 设计动机：ODE积分保证轨迹的连续性和物理一致性——不会出现离散解码中"物体穿墙"的问题；高精度积分（步长$1e\text{-}3$）提升细粒度碰撞建模
 
 3. **前向-后向交互规划**:
-    - 做什么：利用学习到的力场进行目标导向的规划任务
+    - 功能：利用学习到的力场进行目标导向的规划任务
     - 核心思路：前向规划——采样500个action候选，用NFF作为心理模拟器评估，选最优序列执行；后向规划——反转ODE时间方向，从目标状态反演初始条件：$\mathbf{x}(0) = \mathbf{x}(t) + \int_t^0 \mathbf{v}(t)dt$
     - 设计动机：ODE的可逆信息流使后向计算天然高效；5轮交互学习协议（执行→观察偏差→更新模型→重新规划）模拟人类trial-and-error学习
 

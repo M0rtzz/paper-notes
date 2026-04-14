@@ -2,11 +2,11 @@
 title: >-
   [论文解读] BoSS: A Best-of-Strategies Selector as an Oracle for Deep Active Learning
 description: >-
-  [CVPR 2025][自监督学习][Active Learning] 提出BoSS——一种可扩展的主动学习oracle策略，通过集成多种选择策略生成候选批次、冻结backbone仅重训最后一层来评估性能增益，选择最优批次；在ImageNet等大规模数据集上首次展示了oracle性能，揭示SOTA主动学习策略仍有显著提升空间。
+  [CVPR 2025][自监督学习][主动学习] 提出BoSS——一种可扩展的主动学习oracle策略，通过集成多种选择策略生成候选批次、冻结backbone仅重训最后一层来评估性能增益，选择最优批次；在ImageNet等大规模数据集上首次展示了oracle性能，揭示SOTA主动学习策略仍有显著提升空间。
 tags:
   - CVPR 2025
   - 自监督学习
-  - Active Learning
+  - 主动学习
   - Oracle策略
   - 策略集成
   - 批量选择
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.13109](https://arxiv.org/abs/2603.13109)  
 **代码**: 待确认  
 **领域**: 主动学习 / 数据选择  
-**关键词**: Active Learning, Oracle策略, 策略集成, 批量选择, 深度学习
+**关键词**: 主动学习, Oracle策略, 策略集成, 批量选择, 深度学习
 
 ## 一句话总结
 提出BoSS——一种可扩展的主动学习oracle策略，通过集成多种选择策略生成候选批次、冻结backbone仅重训最后一层来评估性能增益，选择最优批次；在ImageNet等大规模数据集上首次展示了oracle性能，揭示SOTA主动学习策略仍有显著提升空间。
@@ -50,19 +50,19 @@ BoSS将最优批次选择问题$\mathcal{B}^* = \arg\min_{\mathcal{B} \subset \m
 
 1. **候选批次生成（Algorithm 1）**
 
-    - 做什么：从多种AL策略集成生成$T$个候选批次
+    - 功能：从多种AL策略集成生成$T$个候选批次
     - 核心思路：选择10种互补策略（Random、Margin、CoreSets、BADGE、FastBAIT、TypiClust等），每种策略生成$T/|S|$个批次。关键技巧：每次从$\mathcal{U}$中随机采样大小为$k$的候选池$\mathcal{C}$，在$\mathcal{C}$上运行策略。$k$在$[b, k_{max}]$之间随机变化，避免某些策略对大池不稳定
     - 设计动机：随机生成批次找到好批次的概率极低（$\binom{1000}{10} \approx 2.63 \times 10^{23}$），但现有AL策略生成的批次质量远高于随机，用少量候选批次就能覆盖解空间的高质量区域。不同策略覆盖不同AL阶段的需求——前期需要代表性（TypiClust），后期需要不确定性（BADGE）
 
 2. **快速重训（冻结Backbone）**
 
-    - 做什么：对每个候选批次，快速评估加入该批次后模型性能的提升
+    - 功能：对每个候选批次，快速评估加入该批次后模型性能的提升
     - 核心思路：冻结预训练backbone $h^\phi$（如DINOv2-ViT），仅重训分类头$g^\theta$（线性层）。对每个候选批次$\mathcal{B}_t$，将其加入已标注集$\mathcal{L}^+$，重新拟合分类头，在评估集$\mathcal{E}$上计算准确率
     - 设计动机：重训整个DNN一次可能需要数小时，而仅训练线性层只需秒级。冻结backbone不影响特征提取质量（预训练特征已经足够好），大幅降低$T$次重训的总成本
 
 3. **性能评估与选择**
 
-    - 做什么：选择$T$个候选批次中使准确率提升最大的那个
+    - 功能：选择$T$个候选批次中使准确率提升最大的那个
     - 核心思路：$\mathcal{B}^* = \arg\min_{\mathcal{B} \in \{\mathcal{B}_1, ..., \mathcal{B}_T\}} \sum_{(x,y) \in \mathcal{E}} \mathbb{1}[y \neq \arg\max_c p(c|x, \mathcal{L}^+)]$
     - 注意：这是oracle策略，用了GT标签和测试集——实际AL中不可用，仅作为评估基准
 

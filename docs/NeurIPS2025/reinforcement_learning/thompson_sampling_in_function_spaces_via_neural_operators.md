@@ -2,15 +2,14 @@
 title: >-
   [论文解读] Thompson Sampling in Function Spaces via Neural Operators
 description: >-
-  [NeurIPS 2025][贝叶斯优化][函数空间] 将Thompson采样扩展到函数空间优化问题，利用神经算子作为高斯过程后验的近似采样，在PDE相关功能优化任务上展现出更好的样本效率。
+  [NeurIPS 2025][Thompson采样] 将 Thompson 采样 (TS) 从有限维参数空间扩展到无限维函数空间，利用神经算子 (Neural Operators) 作为高斯过程后验的近似采样器，实现了对涉及偏微分方程 (PDE) 的功能优化问题的高效求解。
 tags:
   - NeurIPS 2025
-  - 贝叶斯优化
   - Thompson采样
-  - 神经算子
   - 函数空间
-  - 高斯过程
-  - PDE优化
+  - 神经算子
+  - 贝叶斯优化
+  - 偏微分方程
 ---
 
 # Thompson Sampling in Function Spaces via Neural Operators

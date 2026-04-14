@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - LoRA
-  - Parameter-Efficient Fine-Tuning
+  - parameter-efficient fine-tuning
   - Low-Rank Adaptation
   - Multi-Task Learning
   - LLM Fine-Tuning
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.15471](https://arxiv.org/abs/2505.15471)  
 **代码**: https://github.com/zyy-2001/CoLA (有)  
 **领域**: Others (参数高效微调)  
-**关键词**: LoRA, Parameter-Efficient Fine-Tuning, Low-Rank Adaptation, Multi-Task Learning, LLM Fine-Tuning
+**关键词**: LoRA, parameter-efficient fine-tuning, Low-Rank Adaptation, Multi-Task Learning, LLM Fine-Tuning
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 参数高效微调（PEFT）是在资源受限条件下微调大语言模型的关键技术。LoRA 凭借其简洁性和有效性成为最受欢迎的方法之一，但在多任务和低样本场景下面临挑战：
 
 **单一 LoRA 的局限**：单个 LoRA 模块将不同任务的特征投影到同一低维空间，导致任务间干扰。
+
 **MOE-LoRA 的问题**：虽然引入多专家（#A=#B=N）解耦多任务信息，但各专家独立运作，难以捕获领域知识的共性。
+
 **非对称 LoRA 的缺陷**：HydraLoRA 等方法采用一对多结构（#A=1, #B=N），但单一矩阵 A 在样本稀缺时难以有效学习共性，且容易受噪声干扰。
+
 **初始化问题**：现有 LoRA 变体统一使用高斯噪声+零初始化，可能导致训练早期梯度微小或随机，减慢收敛速度。
 
 核心洞察：现有 LoRA 方法都受限于矩阵 A 和 B 之间的固定数量关系，且矩阵间的协作关系尚未被充分探索。作者观察到在 LoRA 中，A 倾向于学习数据的共性，B 则关注每个内在分量的独特性——这类似于人对面孔的记忆，记住轮廓（共性）但忽略细节（如鼻子宽度），而细节对精确识别至关重要。

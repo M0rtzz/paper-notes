@@ -46,13 +46,13 @@ tags:
 
 1. **Feel-Good Thompson Sampling (FG-TS)**:
 
-    - 做什么：在标准 TS 的似然中加入对高奖励模型的偏好（乐观偏差）
+    - 功能：在标准 TS 的似然中加入对高奖励模型的偏好（乐观偏差）
     - 核心思路：修改似然函数为 $L^{\text{FG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda \min(b, f_\theta(x))$，其中 $\lambda > 0$ 控制 bonus 幅度，$b$ 是截断上界。负号使高 $f_\theta$ 的模型更被倾向采样
     - 设计动机：标准 TS 在高维中探索不足，加入乐观偏差让采样偏向"乐观"方向，理论上将 regret 从 $O(d\sqrt{dT})$ 降到最优 $O(d\sqrt{T})$
 
 2. **Smoothed Feel-Good TS (SFG-TS)**:
 
-    - 做什么：将 FG-TS 的 min 截断平滑化，使后验更适合 MCMC 采样
+    - 功能：将 FG-TS 的 min 截断平滑化，使后验更适合 MCMC 采样
     - 核心思路：用 softplus 替换 min：$L^{\text{SFG}}(\theta, x, r) = \eta(f_\theta(x) - r)^2 - \lambda(b - \Phi_s(b - f_\theta^\star))$，其中 $\Phi_s(u) = \log(1 + \exp(su))/s$
     - 设计动机：min 操作导致后验不光滑，MCMC 采样困难；softplus 平滑化后保持理论 regret 保证的同时改善采样质量
 
@@ -66,7 +66,7 @@ tags:
 
 4. **Underdamped LMC (ULMC)**:
 
-    - 做什么：引入动量项和阻尼系数的 Langevin 变体
+    - 功能：引入动量项和阻尼系数的 Langevin 变体
     - 核心思路：$v_{t,k+1/2} = (1-\gamma\eta)v_{t,k} - \eta\nabla U(\theta_{t,k}) + \sqrt{2\gamma\eta}\xi_{t,k}$，额外的速度变量让采样器在粗糙landscape上混合更快
     - 设计动机：对比 overdamped LMC 在复杂后验上的表现差异
 

@@ -1,15 +1,16 @@
 ---
 title: >-
-  [论文解读] ODLRI: Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition
+  [论文解读] Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition
 description: >-
-  [ACL 2025][模型压缩] 提出ODLRI (Outlier-Driven Low-Rank Initialization)，通过将低秩分量初始化为捕获激活异常值敏感权重，使量化分量处理更均匀的残差，在2-bit量化设置下持续改善Llama2/3和Mistral模型的困惑度和零样本精度。
+  [ACL 2025][模型压缩][权重量化] 提出ODLRI (Outlier-Driven Low-Rank Initialization)，为联合量化+低秩优化(Q+LR)框架中的低秩分量赋予明确角色——捕获激活异常值敏感权重，使量化分量处理更平滑的残差，在Llama2/3和Mistral的2-bit极端量化场景下持续降低困惑度和提升零样本精度。
 tags:
   - ACL 2025
   - 模型压缩
-  - 量化
+  - 权重量化
   - 低秩分解
-  - LLM推理
-  - 权重分解
+  - 激活异常值
+  - KV Cache
+  - 2-bit量化
 ---
 
 # Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition
@@ -45,17 +46,17 @@ tags:
 ### 关键设计
 
 1. **异常值驱动的低秩初始化 (ODLRI)**:
-    - 做什么：利用Hessian对角线识别top-k激活异常值通道，用这些通道构建限制协方差矩阵 $\mathbf{H}_o$，初始化低秩分量
+    - 功能：利用Hessian对角线识别top-k激活异常值通道，用这些通道构建限制协方差矩阵 $\mathbf{H}_o$，初始化低秩分量
     - 核心思路：$\mathbf{L}_0, \mathbf{R}_0 = \arg\min_{\mathbf{L},\mathbf{R}} \|(\mathbf{W} - \mathbf{LR})\mathbf{H}_o(\mathbf{W} - \mathbf{LR})^\top\|$，其中 $\mathbf{H}_o = \mathbf{X}_o\mathbf{X}_o^\top$ 仅保留top-k异常值通道。选择 $k < r$ 而非 $k = r$，集中捕获最关键的异常值
     - 设计动机：量化对异常值高度敏感，将异常值敏感权重交给表示能力更强的LR分量处理，使Q处理更均匀的残差
 
 2. **初始化决定持久角色**:
-    - 做什么：通过实验发现不同初始化策略导致Q和LR承担完全不同的角色
+    - 功能：通过实验发现不同初始化策略导致Q和LR承担完全不同的角色
     - 核心思路：测量 $\|\mathbf{QX}\|/\|\mathbf{WX}\|$ 和 $\|\mathbf{LRX}\|/\|\mathbf{WX}\|$。零初始化→Q≈0.96, LR≈0.07(Q主导)；权重分解初始化→Q≈0.40, LR≈0.66(LR主导)。**迭代优化不改变这一角色分配**
     - 设计动机：说明初始化不仅是"起点"，而是根本性决定了分解结构
 
 3. **k值选择策略**:
-    - 做什么：选择top-k异常值通道数，$k < r$
+    - 功能：选择top-k异常值通道数，$k < r$
     - 核心思路：$k=r$ 等价于对全部权重做activation-aware低秩逼近；$k<r$ 更激进地聚焦异常值。实验发现 $k=16$（远小于rank=256）时效果最佳
     - 设计动机：过于分散的初始化降低了对异常值的集中处理能力
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.03264](https://arxiv.org/abs/2502.03264)  
 **代码**: [GitHub](https://github.com/MMTS4All/GTM)  
 **领域**: time_series  
-**关键词**: time-series foundation model, frequency-domain attention, representation learning, hybrid masking, multi-task  
+**关键词**: time-series foundation model, frequency-domain attention, representation learning, hybrid masking, multi-task
 
 ## 一句话总结
 

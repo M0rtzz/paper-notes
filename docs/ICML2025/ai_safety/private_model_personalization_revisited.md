@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Private Model Personalization Revisited
 description: >-
-  [ICML 2025][AI安全][差分隐私] 在用户级差分隐私约束下，提出高效联邦模型个性化算法 Private FedRep，通过共享低维嵌入学习实现个性化，在自然参数区间下将隐私误差相比先前工作降低 O(dk) 倍，并给出维度无关的分类风险界。
+  [ICML 2025][AI安全][差分隐私] 提出 Private FedRep 算法，在用户级差分隐私 (DP) 约束下通过交替最小化框架学习共享低维嵌入 $U^* \in \mathbb{R}^{d \times k}$（$k \ll d$），将隐私误差项相比先前工作 Jain et al. 降低 $\widetilde{O}(dk)$ 倍，且适用于更广泛的 sub-Gaussian 分布（而非仅限高斯），并通过 Johnson-Lindenstrauss 变换给出维度无关的分类风险界。
 tags:
   - ICML 2025
   - AI安全
@@ -10,7 +10,7 @@ tags:
   - 模型个性化
   - 共享表示学习
   - 联邦学习
-  - 降维
+  - Johnson-Lindenstrauss
 ---
 
 # Private Model Personalization Revisited
@@ -49,19 +49,19 @@ tags:
 
 1. **不相交批次的交替最小化**:
 
-    - 做什么：每轮迭代中，每个用户从自己的数据中采样两个不相交的批次 $B_{i,t}$ 和 $B'_{i,t}$，分别用于更新局部向量 $v_{i,t}$ 和计算嵌入梯度 $\nabla_{i,t}$
+    - 功能：每轮迭代中，每个用户从自己的数据中采样两个不相交的批次 $B_{i,t}$ 和 $B'_{i,t}$，分别用于更新局部向量 $v_{i,t}$ 和计算嵌入梯度 $\nabla_{i,t}$
     - 核心思路：用户先在 $B_{i,t}$ 上求解 $v_{i,t} = \arg\min_v \hat{L}(U_t, v; B_{i,t})$，再在独立的 $B'_{i,t}$ 上计算 $\nabla_{i,t} = \nabla_U \hat{L}(U_t, v_{i,t}; B'_{i,t})$。由于两个批次独立，梯度范数的上界更紧：$\|\nabla_{i,t}\|_F \leq \widetilde{O}((R+\Gamma)\Gamma\sqrt{dk})$
     - 设计动机：原始 FedRep 复用同一批次导致局部向量和梯度之间存在依赖关系，使得梯度范数的高概率上界更松散。不相交批次打破了这种依赖，直接减少了 DP 噪声的注入量
 
 2. **裁剪聚合 + QR 正交化**:
 
-    - 做什么：服务器收到各用户的梯度后，先裁剪到 $\psi$ 范数球内，汇聚并加入高斯噪声 $\xi_{t+1} \sim \mathcal{N}^{d \times k}(0, \hat{\sigma}^2)$，然后通过 QR 分解将更新后的嵌入重新正交化
+    - 功能：服务器收到各用户的梯度后，先裁剪到 $\psi$ 范数球内，汇聚并加入高斯噪声 $\xi_{t+1} \sim \mathcal{N}^{d \times k}(0, \hat{\sigma}^2)$，然后通过 QR 分解将更新后的嵌入重新正交化
     - 核心思路：嵌入更新为 $\hat{U}_{t+1} = U_t - \eta(\frac{1}{n}\sum_i \text{clip}(\nabla_{i,t}, \psi) + \xi_{t+1})$，然后 $U_{t+1}, P_{t+1} = \text{QR}(\hat{U}_{t+1})$。噪声标准差 $\hat{\sigma} = C\psi\sqrt{T\log(1/\delta)}/(n\epsilon)$
     - 设计动机：QR 正交化保证 $U_t$ 始终有正交列，这一性质确保噪声不会在迭代间传播累积——因为 $\|U_t\|_2 = 1$ 恒成立，每轮的梯度范数上界不受历史噪声影响
 
 3. **隐私初始化（基于子空间恢复）**:
 
-    - 做什么：基于 Duchi et al. 的子空间恢复估计器，通过 U-统计量 $Z_i = \frac{2}{m(m-1)}\sum_{j_1 \neq j_2} y_{i,j_1} y_{i,j_2} x_{i,j_1} x_{i,j_2}^\top$ 估计二阶矩矩阵，加噪后取 top-$k$ SVD 获得初始嵌入
+    - 功能：基于 Duchi et al. 的子空间恢复估计器，通过 U-统计量 $Z_i = \frac{2}{m(m-1)}\sum_{j_1 \neq j_2} y_{i,j_1} y_{i,j_2} x_{i,j_1} x_{i,j_2}^\top$ 估计二阶矩矩阵，加噪后取 top-$k$ SVD 获得初始嵌入
     - 核心思路：这个 U-统计量的期望为 $U^* V^{*\top} V^* U^{*\top}$（加上噪声和单位阵的贡献），其 top-$k$ 特征向量跨越 $U^*$ 的列空间。裁剪 $\psi_{\text{init}} = \widetilde{O}((R^2 + \Gamma^2)d)$ 后加入高斯噪声保证 DP
     - 设计动机：Algorithm 1 的收敛需要初始嵌入 $U_0$ 与真实 $U^*$ 的主角度距离小于 $\sqrt{1-c}$。随机初始化在高维空间中几乎正交于 $U^*$，无法满足此条件
 

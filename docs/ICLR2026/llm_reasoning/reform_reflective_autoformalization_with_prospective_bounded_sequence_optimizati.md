@@ -10,7 +10,7 @@ tags:
   - Lean
   - semantic consistency
   - self-correction
-  - 强化学习
+  - reinforcement-learning
   - heterogeneous reward
   - PBSO
 ---
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2510.24592](https://arxiv.org/abs/2510.24592)  
 **代码**: [GitHub](https://github.com/RUCAIBox/ReForm)（附模型和基准）  
 **领域**: llm_reasoning  
-**关键词**: autoformalization, Lean, semantic consistency, self-correction, reinforcement learning, heterogeneous reward, PBSO
+**关键词**: autoformalization, Lean, semantic consistency, self-correction, reinforcement-learning, heterogeneous reward, PBSO
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 自动形式化（Autoformalization）是将自然语言数学问题翻译为可机器验证的形式声明（如 Lean 语言），是形式化数学推理的关键瓶颈。当前存在核心矛盾：
 
 **语法正确 ≠ 语义正确**：LLM 能生成通过 Lean 编译器验证的语法正确声明，但经常无法忠实保留原始问题的语义意图（量词范围误解、隐含约束遗漏、边界情况错误等）
+
 **一次生成范式的局限**：现有方法（包括 Goedel-V2、Kimina）将形式化视为简单翻译任务，缺乏自我反思和迭代纠错机制
+
 **人类专家也犯错**：miniF2F 中 16.4%、ProofNet 中 38.5% 的人工形式化声明包含语义错误，说明问题本身极具挑战性
 
 核心思想：模仿人类专家的"审查-修正"迭代过程，让模型能够在生成过程中发现并纠正自己的语义错误。

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.22854](https://arxiv.org/abs/2505.22854)  
 **代码**: 即将开源（论文承诺）  
 **领域**: 3D视觉 / 风格迁移  
-**关键词**: Gaussian Splatting, 风格迁移, CLIP, 多模态, 3D/4D
+**关键词**: Gaussian Splatting, 风格迁移, CLIP, multi-modal, 3D/4D
 
 ## 一句话总结
 

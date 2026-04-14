@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.12133](https://arxiv.org/abs/2603.12133)  
 **代码**: [GitHub](https://github.com/mayug/topobench-benchmark)  
 **领域**: llm_reasoning  
-**关键词**: benchmark, topological reasoning, spatial reasoning, puzzle, error diagnosis, causal intervention  
+**关键词**: benchmark, topological reasoning, spatial reasoning, puzzle, error diagnosis, causal intervention
 
 ## 一句话总结
 构建TopoBench基准(6类拓扑谜题×3难度)评估LLM的全局空间推理能力，发现前沿模型hard tier仅解决<24%，并通过因果干预实验发现错误频率不等于因果影响——低频的约束遗忘比高频的重复推理更具破坏性。

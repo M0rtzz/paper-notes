@@ -9,7 +9,7 @@ tags:
   - 多模态大语言模型
   - 多尺度差异感知
   - 变化检测
-  - Benchmark
+  - benchmark
 ---
 
 # OmniDiff: A Comprehensive Benchmark for Fine-grained Image Difference Captioning
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.11093](https://arxiv.org/abs/2503.11093)  
 **代码**: [yuan-liu-omnidiff.github.io](https://yuan-liu-omnidiff.github.io)  
 **领域**: 视觉-语言理解  
-**关键词**: 图像差异描述, 多模态大语言模型, 多尺度差异感知, 变化检测, Benchmark
+**关键词**: 图像差异描述, 多模态大语言模型, 多尺度差异感知, 变化检测, benchmark
 
 ## 一句话总结
 
@@ -33,7 +33,9 @@ tags:
 ### 已有方法的不足
 
 **数据集层面**存在广度和深度两方面的不足：
+
 **广度不足**：现有数据集局限于特定场景中有限的对象变化。Spot-the-Diff 仅覆盖固定视角的街道监控，Birds-to-Words 专注于鸟类细粒度差异，CLEVR-Change 仅渲染简单桌面场景
+
 **深度不足**：先前基准的描述过于简短。IEdit 的平均描述长度仅 8 个词，无法反映真实场景的复杂变化
 
 **核心矛盾**：缺乏兼顾场景多样性和描述精细度的统一基准，限制了 IDC 模型在复杂动态环境中的适用性。

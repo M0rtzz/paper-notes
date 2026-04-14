@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 图像分割
   - SAM2
-  - 语义对齐
+  - semantic alignment
   - 特征适配
   - 注意力机制
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.21795](https://arxiv.org/abs/2505.21795)  
 **代码**: [GitHub](https://github.com/ClaudiaCuttano/SANSA)  
 **领域**: 图像分割  
-**关键词**: Few-Shot Segmentation, SAM2, 语义对齐, 特征适配, Memory Attention
+**关键词**: Few-Shot Segmentation, SAM2, semantic alignment, 特征适配, Memory Attention
 
 ## 一句话总结
 

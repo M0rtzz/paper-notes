@@ -9,7 +9,7 @@ tags:
   - Program Synthesis
   - 3D Scene Generation
   - CLIP Embeddings
-  - Training-Free
+  - training-free
 ---
 
 # The Scene Language: Representing Scenes with Programs, Words, and Embeddings
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2410.16770](https://arxiv.org/abs/2410.16770)  
 **代码**: 待确认  
 **领域**: 3D场景生成 / 场景表示  
-**关键词**: Scene Representation, Program Synthesis, 3D Scene Generation, CLIP Embeddings, Training-Free
+**关键词**: Scene Representation, Program Synthesis, 3D Scene Generation, CLIP Embeddings, training-free
 
 ## 一句话总结
 提出 Scene Language——一种用程序（P, 编码层级结构）+ 词语（W, 语义类别）+ 嵌入（Z, 视觉身份）三元组 $\Phi(s)=(W,P,Z)$ 表示视觉场景的新范式，通过 Claude 3.5 Sonnet 的 training-free 推理从文本/图像输入生成场景表示，支持传统/神经/混合渲染，在 3D/4D 场景生成质量和可控编辑上超越场景图等现有表示。
 
 ## 研究背景与动机
 **领域现状**：场景表示是 3D 生成的基础——场景图只编码对象和关系的粗粒度拓扑，缺乏视觉细节；扩散模型的隐式表示虽生成质量高但缺乏结构化可控性。
+
 **现有痛点**：(a) 场景图无法精确编码层级结构和重复模式（如棋盘上 32 个棋子的规律排列）；(b) 纯神经表示无法显式编辑（改变一个部件需要重新生成全场景）；(c) 程序化表示（如 ShapeAssembly）不支持外观建模。
+
 **核心矛盾**：需要一种表示既有程序的结构化可控性，又有神经嵌入的视觉保真度。
+
 **本文要解决什么？** 设计一种同时编码结构、语义和视觉身份的场景表示，并能从预训练 LM 零样本推理。
+
 **切入角度**：程序是天然的结构化表示（层级、重复、变换），自然语言提供语义理解，CLIP 嵌入捕获视觉身份——三者互补。
+
 **核心idea一句话**：$\Phi(s) = (W, P, Z)$——程序编码结构，词语编码语义，嵌入编码外观，三者协同由 LM 零样本推理生成。
 
 ## 方法详解

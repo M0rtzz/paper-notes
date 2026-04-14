@@ -1,13 +1,16 @@
 ---
+title: >-
+  [论文解读] MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents
 description: >-
-  NeurIPS 2025，揭示针对多模态OS Agent的新型对抗攻击向量MIP(Malicious Image Patches)：在屏幕截图中嵌入人类不可察觉的对抗性图像块，OS Agent截屏时自动触发恶意行为，可跨用户指令和屏幕布局泛化，具备计算机蠕虫般的自传播潜力。
+  [NeurIPS 2025][机器人][adversarial attack] 揭示针对多模态OS Agent的新型对抗攻击MIP(Malicious Image Patches)：在屏幕截图中嵌入人眼不可察觉的对抗性扰动图像块(约占屏幕1/7面积)，当OS Agent截屏捕获后会输出预定义的恶意API调用序列；通过联合优化实现跨用户指令和屏幕布局的Universal泛化，攻击成功率高达100%。
 tags:
   - NeurIPS 2025
-  - AI安全
-  - 对抗攻击
-  - OS Agent
-  - VLM安全
-  - 多模态攻击
+  - 机器人
+  - adversarial attack
+  - OS agent
+  - malicious image patch
+  - VLM security
+  - computer worm
 ---
 
 # MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents
@@ -45,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **多约束PGD优化**:
-    - 做什么：在OS Agent的多组件pipeline约束下优化对抗扰动
+    - 功能：在OS Agent的多组件pipeline约束下优化对抗扰动
     - 核心思路：目标函数 $\boldsymbol{\delta}^* = \arg\min_{\mathcal{R}, \boldsymbol{\delta} \in \Delta_\mathcal{R}^\epsilon} \mathcal{L}(f_{\boldsymbol{\theta}}(\mathbf{p}_{txt}, q(l(\mathbf{s}, \mathbf{s}_{som}) + \boldsymbol{\delta})), \mathbf{y})$，需满足：扰动限制在patch区域$\mathcal{R}$内、$\ell_\infty \leq \epsilon=25/255$、不改变screen parser的SOM检测结果、离散整数像素、图像resize用可微近似替代。每步PGD后投影回合法集合
     - 设计动机：OS Agent不是简单的VLM——它有screen parser(不可微)、resize(损失信息)、API解析等额外组件，攻击必须全部绕过
 
 2. **Universal MIP泛化优化**:
-    - 做什么：让单个MIP对多种用户指令和屏幕布局都有效
+    - 功能：让单个MIP对多种用户指令和屏幕布局都有效
     - 核心思路：从targeted（单一prompt+screenshot对优化）扩展到universal——每步PGD随机采样batch=8对$(p,s) \sim \text{Uniform}(\mathcal{P}_+ \times \mathcal{S}_+)$做联合更新，优化到所有训练对上malicious target概率超99%。评估在未见的prompt集$\mathcal{P}_-$和screenshot集$\mathcal{S}_-$上的泛化
     - 设计动机：现实中攻击者无法预知受害者的具体指令和屏幕状态，Universal MIP是实际可部署的前提
 
 3. **直接编码 vs 间接引导**:
-    - 做什么：将完整恶意程序直接编码到MIP中，而非间接引导Agent推理
+    - 功能：将完整恶意程序直接编码到MIP中，而非间接引导Agent推理
     - 核心思路：target output $\mathbf{y}$包含完整的API调用序列（33-52 token），如打开终端执行内存溢出或导航到恶意网站。一旦VLM输出$\mathbf{y}$，Agent立即通过API执行，不依赖Agent自身能力
     - 设计动机：间接攻击（让Agent"组装"恶意行为）引入额外失败点——Agent可能被劫持但无法正确构造恶意程序；直接编码保证一旦触发就必然执行
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.08294](https://arxiv.org/abs/2510.08294)  
 **代码**: 待确认  
 **领域**: 因果推断 / 生成模型 / 最优传输  
-**关键词**: counterfactual identification, optimal transport, flow matching, structural causal model, monotone transport map  
+**关键词**: counterfactual identification, optimal transport, flow matching, structural causal model, monotone transport map
 
 ## 一句话总结
 利用动态最优传输 (dynamic OT) 理论，首次解决了高维多变量 Markovian SCM 中反事实的可辨识性问题——证明 OT flow 机制产生唯一的单调保序反事实传输映射，并扩展至非 Markovian 设置（IV/BC/FC 准则）。

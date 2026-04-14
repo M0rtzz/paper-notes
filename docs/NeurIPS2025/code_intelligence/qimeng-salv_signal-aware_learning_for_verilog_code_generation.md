@@ -1,12 +1,17 @@
 ---
-description: 利用信号级功能正确性反馈优化DPO训练，实现Verilog代码生成的细粒度强化学习
+title: >-
+  [论文解读] QiMeng-SALV: Signal-Aware Learning for Verilog Code Generation
+description: >-
+  [NeurIPS 2025][Verilog代码生成] 提出信号级感知学习方法 QiMeng-SALV，通过从部分错误的 Verilog 模块中提取信号级功能正确的代码片段作为 DPO 训练的奖励信号，将优化粒度从模块级提升到信号级，在 VerilogEval 和 RTLLM 上达到 SOTA。
 tags:
-- verilog
-- code-generation
-- reinforcement-learning
-- DPO
-- hardware-design
+  - NeurIPS 2025
+  - Verilog代码生成
+  - 信号级优化
+  - DPO
+  - AST
+  - 强化学习
 ---
+
 # QiMeng-SALV: Signal-Aware Learning for Verilog Code Generation
 
 **会议**: NeurIPS 2025  
@@ -39,12 +44,12 @@ QiMeng-SALV 包含三个阶段：
 ### 关键设计
 
 1. **基于 AST 的信号感知代码提取**:
-    - 做什么：从生成的 Verilog 模块中精确提取某个输出信号对应的完整代码实现
+    - 功能：从生成的 Verilog 模块中精确提取某个输出信号对应的完整代码实现
     - 核心思路：用 Yosys 解析模块代码得到 AST，分析所有输出信号与中间信号的依赖关系形成拓扑图，从目标信号叶节点反向遍历获取其依赖的所有信号及对应代码
     - 设计动机：Verilog 的信号独立性使得可以从模块级别提取单个信号的自包含实现，为 RL 提供过程级反馈
 
 2. **信号级 DPO 损失函数**:
-    - 做什么：改进标准 DPO，仅对对比信号相关的代码 token 计算概率
+    - 功能：改进标准 DPO，仅对对比信号相关的代码 token 计算概率
     - 核心思路：给定对比信号 $c$，从 preferred ($y_w$) 和 dispreferred ($y_l$) 样本中提取代码片段 $S_w^c$ 和 $S_l^c$，DPO loss 只在这些 token 上计算
     - 设计动机：标准 DPO 假设 preferred 样本完全正确，在 Verilog 场景不成立；信号级 DPO 避免了错误信号的噪声干扰
 

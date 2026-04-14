@@ -28,6 +28,7 @@ CoMPaSS通过SCOP数据引擎筛选空间关系无歧义的训练数据，并提
 文本到图像扩散模型（如SD、FLUX.1）在生成逼真图像方面表现出色，但在渲染准确的空间关系（如"左边"、"上面"）时经常失败。作者深入分析发现两个核心问题：
 
 **数据歧义**：现有数据集（LAION、CC12M、COCO）中空间描述严重含糊——存在视角不一致（viewer vs. object-intrinsic）、空间词的非空间用法（如"the right choice"）、以及参考对象缺失/错误等问题。
+
 **文本编码器的空间理解缺陷**：通过代理任务测试发现，CLIP和T5-XXL等编码器几乎无法区分语义等价的空间描述。例如"A left of B"和"B right of A"应该产生相似的embedding，但实际上T5-XXL只有4.84%的正确率，CLIP系列接近0%。
 
 这两个问题相互叠加：即使文本编码器能正确编码空间关系，数据歧义仍然限制学习；反之，即使数据无歧义，编码器也无法传递正确信号。CoMPaSS同时解决这两个问题。
@@ -41,7 +42,7 @@ CoMPaSS包含两个互补组件：SCOP数据引擎（提供高质量空间训练
 
 1. **SCOP（Spatial Constraints-Oriented Pairing）数据引擎**:
 
-    - 做什么：从图像中提取具有清晰空间关系的对象对，配以准确的文本描述
+    - 功能：从图像中提取具有清晰空间关系的对象对，配以准确的文本描述
     - 核心思路：三阶段流程
       - **关系推理**：枚举图像中所有对象对 $\binom{n}{2}$ 个候选对
       - **空间约束执行**：通过5个约束过滤歧义对——视觉显著性（$\frac{\text{Area}(B_i \cup B_j)}{\text{Area}(I)} > \tau_v$）、语义区分（类别不同）、空间清晰度（质心距离/最小对角线 $< \tau_u$）、最小重叠（重叠率 $< \tau_o$）、尺寸均衡（面积比 $> \tau_s$）
@@ -50,7 +51,7 @@ CoMPaSS包含两个互补组件：SCOP数据引擎（提供高质量空间训练
 
 2. **TENOR（Token ENcoding ORdering）模块**:
 
-    - 做什么：将token顺序信息注入diffusion模型的text-image attention层
+    - 功能：将token顺序信息注入diffusion模型的text-image attention层
     - 核心思路：
       - 对UNet架构（SD系列）：在每个text-image attention层的key向量K上添加绝对位置编码
       - 对MMDiT架构（FLUX.1）：在text的query $Q_{\text{text}}$ 和key $K_{\text{text}}$ 上添加位置编码

@@ -50,31 +50,31 @@ tags:
 
 1. **Flexi-Sampling（灵活采样）**:
 
-    - 做什么：训练时每个视频随机采用不同的时空分辨率
+    - 功能：训练时每个视频随机采用不同的时空分辨率
     - 核心思路：对batch中的每个视频，随机选择帧数 $[F_{min}, F_{max}]$（步长 $t_s$）和空间分辨率 $[R_{min}, R_{max}]$（步长 $r_s$），并设置token数阈值 $T_{thres}$ 保持合理池大小。默认设置：帧数4-24，分辨率168-252
     - 设计动机：固定采样的模型只见过一种分辨率，对其他分辨率泛化差。灵活采样让模型见过各种分辨率组合，天然具备跨分辨率鲁棒性
 
 2. **Group-Dynamic Token Selector（组动态token选择器）**:
 
-    - 做什么：从token池中选择信息量最大的token子集给teacher模型
+    - 功能：从token池中选择信息量最大的token子集给teacher模型
     - 核心思路：将帧序列均匀分为 $N$ 个稀疏组 $B_i$。在每组内计算相邻帧token的动态值 $D(F_{t+1,i}) = \|F_{t+1,i} - F_{t,i}\|_p$（帧间差异），选择动态值最高的 $K/N$ 个token。这样保证：(a) 选择的是变化最大的（最信息化的）token；(b) 通过分组保证了全视频覆盖
     - 设计动机：视频中大量token是静态背景（低信息量），帧间变化大的token更有意义。分组确保不会因局部快速运动而忽略其他时段
 
 3. **Double Mask Module（双掩码模块）**:
 
-    - 做什么：在UMT（Unmasked Teacher）框架中同时增强teacher和student
+    - 功能：在UMT（Unmasked Teacher）框架中同时增强teacher和student
     - 核心思路：teacher侧使用Flexi-Sampling + Group-Dynamic Selector选择信息化token；student侧使用基于teacher CLS token注意力分数的mask。两个mask相互配合——teacher提供高质量的、从丰富采样中筛选的表征，student学习从更稀疏的视角理解视频
     - 设计动机：在不增加teacher计算成本的前提下（选择后token数量不变），从更高分辨率采样中获取更丰富的信息
 
 4. **Global-Local Positional Embedding (GLPE)**:
 
-    - 做什么：处理灵活数量和间隔的token的位置编码
+    - 功能：处理灵活数量和间隔的token的位置编码
     - 核心思路：全局用可学习位置编码（sine-cosine初始化）+ Depth-Wise Conv增强局部关系。注意力中对Value向量加Linear Projection编码局部位置：$Z = (\text{Softmax}(\frac{QK^T}{\sqrt{D}}) + LPE) \cdot V$。LPE是value-dependent的，不受输入token数量影响
     - 设计动机：标准位置编码假设固定的token数量和排列。当token被选择/掩码后，它们来自不同的时空位置，需要编码其离散的位置信息
 
 5. **Dual Patch Normalization (DPN)**:
 
-    - 做什么：稳定灵活采样下的训练
+    - 功能：稳定灵活采样下的训练
     - 核心思路：在标准Patch Embedding层后加一个LayerNorm（帮助动态估计），在Patch Embedding前也加一个LayerNorm（稳定梯度）
     - 设计动机：灵活采样导致输入token分布变化大，Patch Embedding的梯度可能过大。双层归一化稳定训练
 

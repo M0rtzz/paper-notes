@@ -1,11 +1,18 @@
 ---
-description: 提出基于Metropolis-Hastings采样的3DGS自适应密度控制框架，用概率推断替代启发式稠密化策略，实现更快收敛和更少高斯数
+title: >-
+  [论文解读] Metropolis-Hastings Sampling for 3D Gaussian Reconstruction
+description: >-
+  [NeurIPS 2025][3D视觉][3D高斯溅射] 提出自适应Metropolis-Hastings框架替代3DGS中的启发式密度控制机制，通过多视角光度误差驱动的概率采样实现更高效的高斯分布推断，收敛速度快于3DGS-MCMC。
 tags:
-- 3d-gaussian-splatting
-- novel-view-synthesis
-- MCMC
-- 3d-reconstruction
+  - NeurIPS 2025
+  - 3D视觉
+  - 3D高斯溅射
+  - Metropolis-Hastings
+  - 自适应密度控制
+  - 新视角合成
+  - MCMC
 ---
+
 # Metropolis-Hastings Sampling for 3D Gaussian Reconstruction
 
 **会议**: NeurIPS 2025  
@@ -42,17 +49,17 @@ tags:
 ### 关键设计
 
 1. **贝叶斯场景后验与体素先验**:
-    - 做什么：定义负对数后验 $\mathcal{E}(\Theta) = \mathcal{L}(\Theta) + \lambda_v \sum_{v \in \mathcal{V}} \ln(1 + c_\Theta(v))$
+    - 功能：定义负对数后验 $\mathcal{E}(\Theta) = \mathcal{L}(\Theta) + \lambda_v \sum_{v \in \mathcal{V}} \ln(1 + c_\Theta(v))$
     - 核心思路：光度损失 $\mathcal{L}$ 对应似然，体素先验惩罚拥挤区域。体素密度 $c_\Theta(v)$ 的对数形式使空体素几乎无惩罚而拥挤体素惩罚快速增长
     - 设计动机：纯光度优化会导致高斯在相同区域堆积，体素先验提供空间稀疏性归纳偏置
 
 2. **多视角重要性驱动的粗-细提案**:
-    - 做什么：从多视角聚合SSIM和L1误差构建逐像素重要性图 $s(p) = \sigma(\alpha O(p) + \beta \text{SSIM}_\text{agg}(p) + \gamma \text{L1}_\text{agg}(p))$
+    - 功能：从多视角聚合SSIM和L1误差构建逐像素重要性图 $s(p) = \sigma(\alpha O(p) + \beta \text{SSIM}_\text{agg}(p) + \gamma \text{L1}_\text{agg}(p))$
     - 核心思路：粗阶段用较大扰动 $\sigma_\text{coarse}$ 填补覆盖缺口，细阶段用 $\sigma_\text{fine} < \sigma_\text{coarse}$ 精修。视角子集大小随训练退火——早期广覆盖，后期聚焦
     - 设计动机：多视角聚合确保一致性（单视角可能有遮挡偏差），粗-细策略平衡探索与精修
 
 3. **MH接受概率的闭式推导**:
-    - 做什么：推导实用MH接受规则 $\rho(i) = \sigma(I(i)) \cdot D(v')$，其中 $D(v') = 1/(1 + \lambda_v c_\Theta(v'))$
+    - 功能：推导实用MH接受规则 $\rho(i) = \sigma(I(i)) \cdot D(v')$，其中 $D(v') = 1/(1 + \lambda_v c_\Theta(v'))$
     - 核心思路：用重要性分数 $I(i)$ 近似光度变化 $-\Delta\mathcal{L}$，将不可计算的逆提案密度吸收进体素因子。仅当高重要性且低拥挤时高概率接受
     - 设计动机：避免每次提案都重新渲染所有视角计算完整损失变化（计算上不可行）
 

@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2505.16204](https://arxiv.org/abs/2505.16204)  
 **代码**: 无  
 **领域**: optimization  
-**关键词**: benign overfitting, directional convergence, leaky ReLU, implicit bias, gradient descent, neural networks  
+**关键词**: benign overfitting, directional convergence, leaky ReLU, implicit bias, gradient descent, neural networks
 
 ## 一句话总结
 

@@ -30,8 +30,11 @@ tags:
 Feed-forward 3D 生成模型（如 LRM）展示了极快的生成速度，但存在以下问题：
 
 **Transformer 架构未利用几何先验**：LRM 系列方法用 Transformer 生成 triplane patches，但没有利用 triplane 与输入图像之间的空间对齐关系
+
 **3D 数据稀缺**：最大 3D 数据集 Objaverse 仅百万级，远小于 LAION 的 50 亿图像，因此在架构中融入先验知识尤为重要
+
 **非端到端训练**：使用 NeRF 或 Gaussian Splatting 作为表示的方法需要额外后处理步骤来获取纹理网格
+
 **训练成本高**：LRM 需要 batch size 1024 和大量 GPU 资源
 
 **核心观察**：triplane 的可视化与六个正交视图（前后左右上下）存在**天然的空间对齐关系** — 轮廓和纹理自然对齐。这启发了用卷积 U-Net（具有强像素对齐能力）替代 Transformer。

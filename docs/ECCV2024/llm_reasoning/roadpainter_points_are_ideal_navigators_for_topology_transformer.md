@@ -49,32 +49,32 @@ tags:
 
 1. **混合注意力 Transformer Decoder + 真实-虚拟分离策略（RVS）**:
 
-    - 做什么：从 BEV 特征中检测车道中心线实例并建立拓扑关联
+    - 功能：从 BEV 特征中检测车道中心线实例并建立拓扑关联
     - 核心思路：decoder 包含三种注意力——masked cross-attention 聚合 mask 区域特征、deformable cross-attention 聚合可学习采样点特征、self-attention 促进 query 交互。关键创新是 RVS 自注意力：实际车道和虚拟车道使用独立 query，在自注意力中虚拟 query 可以看到实际 query，但实际 query 不看虚拟 query：
     $\text{RVSelfAttn} = \text{softmax}\left(\frac{\begin{bmatrix} Q^r Q^{rT} & -\infty \\ Q^v Q^{rT} & Q^v Q^{vT} \end{bmatrix}}{\sqrt{C}}\right) \begin{bmatrix} Q^r \\ Q^v \end{bmatrix}$
     - 设计动机：虚拟车道（交叉路口连接线）的位置依赖于实际车道，但实际车道位置不依赖虚拟车道。通过非对称注意力 mask 编码这种先验知识
 
 2. **Points-Guided Mask Generation（PGM）**:
 
-    - 做什么：利用回归的中心线点引导生成每条中心线的实例分割 mask
+    - 功能：利用回归的中心线点引导生成每条中心线的实例分割 mask
     - 核心思路：将回归出的中心线点 $\mathbf{l}_i \in \mathbb{R}^{K \times 3}$ 通过位置编码 MLP 和 query 编码 MLP 生成 mask query $\mathbf{Q}_i'$，然后与 BEV 特征做点积：$\mathbf{M}_i = \mathbf{B} \cdot \mathbf{Q}_i'$。相比 Mask2Former 使用无位置先验的可学习 query，PGM 利用回归点的空间位置信息引导 mask 生成
     - 设计动机：分割 mask 可以捕获中心线的精细几何形状（尤其是高曲率区域），但纯分割方法定位不稳定。使用回归点作为 mask 的位置先验，兼顾稳定性与精度
 
 3. **Points-Mask Fusion（PMF）**:
 
-    - 做什么：从 mask 中采样点，与回归点融合得到精炼的中心线
+    - 功能：从 mask 中采样点，与回归点融合得到精炼的中心线
     - 核心思路：分两步——(1) Mask Points Sampling：对 mask 逐列做 softmax 回归一个点 $\mathbf{C}_{i,j} = [0,1,...,H-1]^T \cdot \text{softmax}(\mathbf{M}_i(:,j))$，同时预测每个点的存在概率 $\mathbf{P}_i$ 和方向概率 $D_i$；(2) Points Fusion：过滤异常点（距邻居点 >1.5m），对有效 mask 点重采样为 $K$ 个点后与回归点取平均。注意虚拟车道不做 mask 精炼（因缺乏视觉信息）
     - 设计动机：mask 提供更精细的几何信息弥补回归的不足，简单取平均即可有效融合两种表示
 
 4. **SD Map Interaction（可选模块）**:
 
-    - 做什么：利用标清地图（SD Map）的先验信息增强 BEV 特征
+    - 功能：利用标清地图（SD Map）的先验信息增强 BEV 特征
     - 核心思路：将 SD Map 的向量化实例转换为 BEV 语义特征 $\mathbf{E}_S$，通过 transformer decoder 与在线 BEV 特征交互：$\hat{\mathbf{B}} = \text{TrDec}(\mathbf{B}, \mathbf{E}_S + \mathbf{E}_P)$
     - 设计动机：解决遮挡和有限感知距离的问题，SD Map 提供超视距的道路形状先验
 
 5. **拓扑关联头**:
 
-    - 做什么：预测中心线之间的拓扑连接矩阵 $\mathbf{A}_{ll} \in [0,1]^{N_L \times N_L}$
+    - 功能：预测中心线之间的拓扑连接矩阵 $\mathbf{A}_{ll} \in [0,1]^{N_L \times N_L}$
     - 核心思路：将 query 与位置信息融合 $\mathbf{E}_i = \psi_1(\mathbf{Q}_i) + \psi_2(\mathbf{l}_i)$，拼接后通过二值分类器预测拓扑关系
 
 ### 损失函数 / 训练策略

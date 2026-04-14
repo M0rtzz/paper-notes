@@ -2,13 +2,13 @@
 title: >-
   [论文解读] LLaVA-PruMerge: Adaptive Token Reduction for Efficient Large Multimodal Models
 description: >-
-  [ICCV 2025][多模态][token reduction] 利用CLIP-ViT中[CLS] token与视觉token之间注意力分数的稀疏特性，通过IQR异常值检测自适应选择重要视觉token，再用k-近邻聚类将被剪除token的信息合并回保留token，实现视觉token 14倍压缩且性能几乎不降。
+  [ICCV 2025][多模态][令牌缩减] 利用CLIP-ViT中[CLS] token与视觉token之间注意力分数的稀疏特性，通过IQR异常值检测自适应选择重要视觉token，再用k-近邻聚类将被剪除token的信息合并回保留token，实现视觉token 14倍压缩且性能几乎不降。
 tags:
   - ICCV 2025
   - 多模态
-  - token reduction
+  - 令牌缩减
   - 剪枝
-  - token merging
+  - 令牌合并
   - LMM效率
   - CLS注意力稀疏性
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.15388](https://arxiv.org/abs/2403.15388)  
 **代码**: [https://llava-prumerge.github.io/](https://llava-prumerge.github.io/)  
 **领域**: 多模态VLM / 模型加速  
-**关键词**: token reduction, visual token pruning, token merging, LMM效率, CLS注意力稀疏性  
+**关键词**: 令牌缩减, visual token pruning, 令牌合并, LMM效率, CLS注意力稀疏性
 
 ## 一句话总结
 利用CLIP-ViT中[CLS] token与视觉token之间注意力分数的稀疏特性，通过IQR异常值检测自适应选择重要视觉token，再用k-近邻聚类将被剪除token的信息合并回保留token，实现视觉token 14倍压缩且性能几乎不降。

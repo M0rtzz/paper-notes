@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Masked Diffusion LM（MDLM，如 LLaDA、Dream）通过迭代去噪生成文本，每步需对所有 $N$ 个 token 位置重算注意力和 FFN，计算复杂度 $O(N^2d)$。
+
 **现有痛点**：很多 token 在被 unmask 后后验分布迅速稳定，但标准采样器仍为它们重复计算——大量无效计算。现有加速方法要么减少步数（temporal），要么跨步复用 KV（reuse），但每步内仍发射 $N$ 个 query 行，空间复杂度不变。
+
 **核心矛盾**：MDLM 的双向注意力要求每步全量计算，但大部分 unmask token 实际上已"收敛"，不需要重算。
+
 **本文要解决什么？** 如何识别并永久跳过已收敛 token 的计算，实现单调递减的每步计算量？
+
 **切入角度**：监测每个 token 位置相邻步之间的 KL 散度，低于阈值则永久锁定。
+
 **核心idea一句话**：后验稳定的 token 永久退出计算（锁定 KV、跳过 Q/FFN），活跃集随采样推进单调收缩。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **永久锁定机制 (Permanent Locking)**:
 
-    - 做什么：一旦 token 位置 $i$ 被锁定，后续所有步跳过其 Q 投影和 FFN，使用缓存的 $K, V$ 值
+    - 功能：一旦 token 位置 $i$ 被锁定，后续所有步跳过其 Q 投影和 FFN，使用缓存的 $K, V$ 值
     - 核心思路：锁定后 $\hat{p}_t^{(i)} = p_{t^*}^{(i)}$（后验冻结），但 $K^{\text{all}}[\mathcal{L}_t] \leftarrow \mathcal{C}.k[\mathcal{L}_t]$ 使其他 token 仍可 attend 到锁定 token
     - 设计动机：与选择性更新方法不同（如 dLLM-Cache 选"现在计算什么"），SureLock 选"永久移除什么"——活跃集只减不增，保证计算量单调下降
 
 2. **锁定判据：步间 KL 散度**:
 
-    - 做什么：$D_t^{(i)} = \text{KL}(p_t^{(i)} \| p_{t-1}^{(i)}) \leq \varepsilon$ 时锁定
+    - 功能：$D_t^{(i)} = \text{KL}(p_t^{(i)} \| p_{t-1}^{(i)}) \leq \varepsilon$ 时锁定
     - 核心思路：KL 散度测量相邻步后验分布的变化程度。阈值 $\varepsilon$ 直接转化为终端误差上界 $\delta = C_{\text{tail}}\sqrt{\varepsilon}$
     - 设计动机：局部 KL 廉价可算，且理论上可控——Theorem 1 证明了锁定步的局部 KL 足以约束最终 token 概率的偏差
 
 3. **可选置信度门控 (Confidence Gate)**:
 
-    - 做什么：$u_t^{(i)} = 1 - \max_v p_t^{(i)}(v) \leq q_m(u_t)$ 作为辅助条件
+    - 功能：$u_t^{(i)} = 1 - \max_v p_t^{(i)}(v) \leq q_m(u_t)$ 作为辅助条件
     - 设计动机：安全网——只锁定后验峰值足够高的 token，避免在"还在犹豫"的 token 上过早锁定
 
 4. **理论误差上界 (Theorem 1)**:

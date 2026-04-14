@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 机器人
   - 表格理解
-  - 基准测试
+  - benchmark
   - LLM评估
   - 多任务推理
   - 结构化数据
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.05587](https://arxiv.org/abs/2506.05587)  
 **代码**: [有](https://github.com/MMTU-Benchmark/MMTU)  
 **领域**: Benchmark / Table Understanding  
-**关键词**: 表格理解, 基准测试, LLM评估, 多任务推理, 结构化数据
+**关键词**: 表格理解, benchmark, LLM评估, 多任务推理, 结构化数据
 
 ## 一句话总结
 

@@ -25,10 +25,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: 后训练量化是 LLM 部署标准做法。GGUF 是最流行格式，被 ollama/llama.cpp 使用。
+
 **现有痛点**: 已知简单 rounding 量化可被攻击，但 GGUF 等复杂方案曾被认为更安全。
+
 **核心矛盾**: GGUF 的复杂性（block-wise 量化等）被认为增加安全性，但量化误差仍提供足够攻击空间。
+
 **本文解决什么**: 实现首个 GGUF 实际攻击。
+
 **切入角度**: 量化误差 $\boldsymbol{\epsilon} = \mathbf{W} - \text{DeQuant}(\text{Quant}(\mathbf{W}))$ 提供的灵活性足以构造恶意模型。
+
 **核心 idea**: 在误差预算内训练目标恶意 LLM，同时约束全精度版本保持正常。
 
 ## 方法详解

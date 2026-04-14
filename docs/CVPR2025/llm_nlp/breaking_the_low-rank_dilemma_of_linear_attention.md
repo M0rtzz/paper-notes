@@ -28,9 +28,13 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Transformer 中的 Softmax 注意力具有二次复杂度 $O(N^2)$，在处理高分辨率视觉任务时计算开销巨大。线性注意力通过核函数近似将复杂度降至 $O(N)$，是高效 Transformer 的重要研究方向。近年来出现了 EfficientViT、FLatten Transformer、CastlingViT 等线性注意力视觉模型。
+
 **现有痛点**：尽管线性注意力在理论上具有效率优势，实际性能通常显著低于 Softmax 注意力。以 DeiT-T 为例，典型的线性注意力仅达到约 72% Top-1 精度，而 Softmax 注意力可达 72.2%。在检测和分割等下游任务上差距更大。现有方法（如 FLatten 的聚焦函数、CastlingViT 的混合策略）只是缓解了问题，未能从根本上解释和解决性能差距。
+
 **核心矛盾**：线性注意力的效率来自于将 $\text{softmax}(QK^T)V$ 拆解为 $\kappa(Q)(\kappa(K)^TV)$，避免了显式计算 $N \times N$ 的注意力矩阵。但这种拆解导致 KV 缓存矩阵 $B = \sum \kappa(K_j)^T V_j$ 的秩被限制为 $\min(d_k, d_v)$（通常很小），进而输出特征 $Y = \kappa(Q) B$ 的秩上界也很低。低秩输出意味着特征的表达能力受限，难以建模复杂的空间关系。
+
 **切入角度**：从矩阵秩的角度对线性注意力进行理论分析。发现线性注意力输出 $Y$ 的秩上界为 $\text{rank}(Y) \leq \min(N, d_k, d_v)$，而 Softmax 注意力的秩上界为 $\min(N, d_v)$——当 $d_k \ll N$ 时（通常 $d_k = 32$ 或 64，$N$ 可达数千），线性注意力的秩上界远低于 Softmax。这个理论发现精确解释了性能差距的根源。
+
 **核心idea**：从两个维度增强秩——（1）增强 KV 缓存 $B$ 的秩：引入上下文感知的权重 $\alpha_j$ 对 KV 项加权求和，使 $B$ 的秩不再受限于 $d_k$；（2）增强输出特征的秩：通过 Hadamard 乘积将输入特征与注意力输出相乘，利用 $\text{rank}(A \odot B) \leq r \cdot s$ 的性质提升输出秩的上界。
 
 ## 方法详解
@@ -42,14 +46,14 @@ RALA 是一种即插即用的线性注意力增强方法，包含两个互补的
 
 1. **KV 缓存秩增强（Augment KV Buffer Rank）**：
 
-    - 做什么：提升 KV 缓存矩阵 $B$ 的秩，使其不再受限于 $d_k$
+    - 功能：提升 KV 缓存矩阵 $B$ 的秩，使其不再受限于 $d_k$
     - 核心思路：计算一个全局查询 $Q_g = \text{mean}(Q_i)$，然后对所有 key 计算 Softmax 注意力权重 $\alpha_j = \text{softmax}(Q_g^T \kappa(K_j))$。将 KV 缓存从简单求和 $B = \sum \kappa(K_j)^T V_j$ 改为加权求和 $B = \sum \alpha_j \kappa(K_j)^T V_j$。由于 $\alpha_j$ 引入了与 $N$ 相关的自由度，$B$ 的秩上界从 $\min(d_k, d_v)$ 提升至 $\min(N, d_k \cdot d_v)$
     - 设计动机：全局查询 $Q_g$ 的计算开销很小（对 $Q$ 取均值后做一次大小为 $N$ 的 Softmax），保持了整体 $O(N)$ 复杂度。通过上下文感知的加权，让不同位置的 KV 对获得不同权重，打破了简单求和导致的秩限制
     - 数学保证：$\text{rank}(\sum \alpha_j \kappa(K_j)^T V_j) \leq \sum \text{rank}(\alpha_j \kappa(K_j)^T V_j) \leq N \cdot \min(d_k, d_v)$
 
 2. **输出特征秩增强（Augment Output Features Rank）**：
 
-    - 做什么：通过 Hadamard 乘积进一步提升最终输出特征的秩
+    - 功能：通过 Hadamard 乘积进一步提升最终输出特征的秩
     - 核心思路：将注意力输出与输入特征的非线性变换做 Hadamard 乘积：$Y_i = \phi(X_i) \odot (\kappa(Q_i) B)$。其中 $\phi$ 是一个可学习的线性变换。由于 $\text{rank}(A \odot B) \leq \text{rank}(A) \cdot \text{rank}(B)$，即使注意力输出的秩为 $r$，经过 Hadamard 乘积后秩上界变为 $r \cdot s$（$s$ 为 $\phi(X)$ 的秩）
     - 设计动机：Hadamard 乘积是乘性交互，不增加参数量和计算量，但可以显著提升秩上界。这是对加性残差连接的有力补充
 

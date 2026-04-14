@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：序列标注是 NLP 核心任务（POS 标注、NER、分词），主流结构化模型是 CRF（条件随机场）。CRF 推理依赖 Viterbi（MAP 推断）和 Forward（边际推断）算法。
+
 **现有痛点**：Viterbi/Forward 是动态规划算法，时间复杂度 $O(n|T|^2)$，但本质上是**顺序**的——每个位置的计算依赖前一位置（stage 之间有依赖），无法充分利用 GPU 并行。虽然同一 stage 内可并行（wavefront parallelization），但 stage 间的 $n$ 步必须串行执行。
+
 **核心矛盾**：现代深度学习全靠 GPU 并行加速（Transformer、SSM 等），但 CRF 层成为训练/推理的瓶颈。
+
 **本文要解决什么**：设计一个与标准 CRF 性能等价但推理可并行化的替代模型。
+
 **切入角度**：受 entropic optimal transport（Cuturi, 2013）和 SparseMAP（Niculae et al., 2018）启发，使用**均值正则化**（mean regularization）替代标准 CRF 的分布正则化，使推理可分解为可并行的 KL 投影子问题。
+
 **核心 idea**：将 CRF 推理从顺序动态规划改为迭代 Bregman 投影——将 marginal polytope 分解为偶数/奇数约束集的交集，交替投影，每步内的子问题完全可并行。
 
 ## 方法详解
@@ -53,14 +58,14 @@ Bcrf 用 $B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf
 
 3. **迭代 Bregman 投影 (IBP) 推理**
 
-    - 做什么：通过交替投影到 $\mathcal{C}_{\text{even}}$ 和 $\mathcal{C}_{\text{odd}}$ 来求解 $\nabla B_Y(\mathbf{w})$
+    - 功能：通过交替投影到 $\mathcal{C}_{\text{even}}$ 和 $\mathcal{C}_{\text{odd}}$ 来求解 $\nabla B_Y(\mathbf{w})$
     - 核心思路：投影到 $\mathcal{C}_{\text{even}}$ 分解为 $\lceil n/2 \rceil - 1$ 个独立的小规模 KL 投影（每个只涉及一个 cluster 的入/出弧），**可完全并行**
     - 设计动机：两个凸集的交集上的 KL 投影可通过交替投影保证收敛（Bregman, 1967）
     - 复杂度：每步 $O(n/2)$ 个独立子问题，每个 $O(|T|^2)$；$k$ 步迭代总计 $O(k \cdot n/2 \cdot |T|^2)$ 但内部高度并行
 
 4. **Fenchel-Young 损失 + Partial Label 学习**
 
-    - 做什么：定义 Bcrf 的监督和弱监督损失函数
+    - 功能：定义 Bcrf 的监督和弱监督损失函数
     - 核心思路：FY 损失 $\ell_{-H}(\mathbf{w}; \mathbf{y}) = -\langle \mathbf{w}, \mathbf{y} \rangle - H(\mathbf{y}) + B_Y(\mathbf{w})$，梯度 = $-\mathbf{y} + \nabla B_Y(\mathbf{w})$，只需调用 IBP 算法
     - Partial labels：$\tilde{\ell}_{-H}(\mathbf{w}; \tilde{Y}) = B_Y(\mathbf{w}) - B_{\tilde{Y}}(\mathbf{w})$，需两次 IBP 调用
     - 设计动机：统一框架下同时支持完整标注和部分标注场景

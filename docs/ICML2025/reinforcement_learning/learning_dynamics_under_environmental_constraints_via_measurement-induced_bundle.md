@@ -1,12 +1,15 @@
 ---
+title: >-
+  [论文解读] Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures
 description: >-
-  [ICML 2025][安全控制][几何学习] 提出纤维丛框架将测量不确定性、约束和动力学学习统一：测量过程自然诱导纤维丛结构，在此基础上定义测量感知控制屏障函数(mCBF)，结合Neural ODE学习保几何约束的连续时间动力学，在软体蠕虫/机械臂/四旋翼三个任务上实现96.3%成功率。
+  [ICML 2025][fiber bundle] 提出一种几何框架，利用测量过程自然诱导的纤维丛结构统一处理测量不确定性、系统约束和动力学学习：在纤维丛上定义测量感知控制屏障函数(mCBF)，结合Neural ODE学习连续时间动力学，在三个机器人控制任务上实现96.3%成功率和99.3%约束满足率。
 tags:
   - ICML 2025
-  - 安全控制
-  - 纤维丛
+  - fiber bundle
+  - measurement-aware CBF
   - Neural ODE
-  - 控制屏障函数
+  - safe learning control
+  - geometric constraints
 ---
 
 # Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures

@@ -44,9 +44,9 @@ tags:
 4. VLM（LLaVA）生成单句场景描述 → 提取中间文本嵌入 $F^C$
 5. 深度图反投影为3D点云 $P$ → PointNet编码器 → 3D空间特征 $F^S$
 6. 多分辨率Transformer（3层）中依次做：
-   - Cross-attention: $F_i^{\mathcal{I}} \times F_i^C$ → 融合上下文
-   - Cross-attention: 结果 $\times F_i^S$ → 融合空间信息
-   - Self-attention: 特征精炼
+    - Cross-attention: $F_i^{\mathcal{I}} \times F_i^C$ → 融合上下文
+    - Cross-attention: 结果 $\times F_i^S$ → 融合空间信息
+    - Self-attention: 特征精炼
 7. ResNet解码器 → 预测per-pixel Gaussian参数 $\{\mu_j, \alpha_j, \Sigma_j, c_j\}$
 8. 光栅化渲染新视角
 

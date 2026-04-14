@@ -47,19 +47,19 @@ tags:
 
 1. **Proximal-Mean Inversion (PMI)**:
 
-    - 做什么：在反演每一步，将预测速度朝历史加权均值方向做有约束的梯度校正
+    - 功能：在反演每一步，将预测速度朝历史加权均值方向做有约束的梯度校正
     - 核心思路：定义加权均值 $\bar{\mathbf{v}}_{t_k} = \frac{1}{t_{k+1}-t_0}\sum_{i=0}^{k}(t_{i+1}-t_i)\mathbf{v}_{t_i}$，构建近端目标 $F(\mathbf{v}) = \|\mathbf{v} - \mathbf{v}_{t_{k-1}}\|_1 + \frac{1}{2\lambda}\|\mathbf{v} - \bar{\mathbf{v}}_{t_k}\|_2^2$，一阶Taylor近似后得到闭式更新 $\hat{\mathbf{v}}_{t_k} = \mathbf{v}_{t_k} - r_{t_k}\frac{\nabla F(\mathbf{v}_{t_k})}{\|\nabla F(\mathbf{v}_{t_k})\|_2}$
     - 设计动机：近端目标同时保证局部一致性（$L_1$项约束与前一步接近）和全局一致性（$L_2$项约束向均值靠拢）。校正半径 $r_i$ 由Proposition 1从不稳定性理论推导确保落在高密度区域。
 
 2. **校正半径的理论推导 (Stability Condition)**:
 
-    - 做什么：推导每步校正的最大安全半径
+    - 功能：推导每步校正的最大安全半径
     - 核心思路：基于高维高斯分布的集中不等式，$r_i = \sqrt{2n + 3\sqrt{2n}} \cdot \frac{\Delta t_i}{T} + \epsilon$，$n$ 为潜空间维度
     - 设计动机：太大的校正会偏离数据流形（进入低密度区），太小的校正无法有效稳定。理论推导给出安全范围。
 
 3. **mimic-CFG 编辑**:
 
-    - 做什么：在编辑/重建阶段，将当前速度向历史均值方向做投影插值
+    - 功能：在编辑/重建阶段，将当前速度向历史均值方向做投影插值
     - 核心思路：$\bar{\mathbf{v}}_{t_k}^{\text{proj}} = \frac{\mathbf{v}_{t_k}^\top \bar{\mathbf{v}}_{t_k}^{\text{edit}}}{\|\bar{\mathbf{v}}_{t_k}^{\text{edit}}\|_2^2}\bar{\mathbf{v}}_{t_k}^{\text{edit}}$，然后 $\hat{\mathbf{v}}_{t_k} = (1-w)\bar{\mathbf{v}}_{t_k}^{\text{proj}} + w \cdot \mathbf{v}_{t_k}$，$w$ 控制编辑强度
     - 设计动机：命名"mimic-CFG"因结构类似分类器自由引导——投影部分类似"无条件"方向（结构保持），原始速度类似"有条件"方向（编辑效果），插值控制两者权重。
 

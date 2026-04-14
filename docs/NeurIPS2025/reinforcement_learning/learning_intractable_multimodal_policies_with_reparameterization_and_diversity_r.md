@@ -31,6 +31,7 @@ tags:
 **学习多模态策略的核心挑战在于不可解析性**：
 
 **amortized actor**（如SQL中使用的）：将状态和隐变量拼接送入网络直接输出动作，但决策概率$\pi_\theta(a|s)$没有解析形式。
+
 **diffusion actor**（如DACER）：通过扩散过程迭代生成动作，表达力极强但概率同样不可解析。
 
 不可解析意味着：
@@ -53,8 +54,8 @@ DrAC建立在actor-critic架构之上，包含三个核心创新：
 
 1. **Stochastic-Mapping Actor统一框架**：将策略定义为$\pi_\theta = \{f_\theta, p_z\}$——参数化映射函数$f_\theta: \mathcal{S} \times \mathcal{Z} \to \mathcal{A}$和固定隐分布$p_z$的组合。采样过程为$a \leftarrow f_\theta(s, z), z \sim p_z$。
 
-   - **Amortized actor**：$f_\theta^{Amort}(s, z) \equiv g_\theta(s \oplus z)$，直接将状态和隐变量拼接送入网络。
-   - **Diffusion actor**：$f_\theta^{Diffus}(s, z) \equiv x_0$，其中$x_0$通过$T$步逆扩散过程从纯噪声$z_T$迭代得到。
+    - **Amortized actor**：$f_\theta^{Amort}(s, z) \equiv g_\theta(s \oplus z)$，直接将状态和隐变量拼接送入网络。
+    - **Diffusion actor**：$f_\theta^{Diffus}(s, z) \equiv x_0$，其中$x_0$通过$T$步逆扩散过程从纯噪声$z_T$迭代得到。
 
    这一统一视角揭示了两种actor的共同本质，为统一优化奠定基础。
 

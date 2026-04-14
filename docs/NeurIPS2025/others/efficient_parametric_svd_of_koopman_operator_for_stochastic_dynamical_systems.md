@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2507.07222](https://arxiv.org/abs/2507.07222)  
 **代码**: [MinchanJeong/NeuralKoopmanSVD](https://github.com/MinchanJeong/NeuralKoopmanSVD)  
 **领域**: others  
-**关键词**: Koopman operator, singular value decomposition, dynamical systems, low-rank approximation, deep learning  
+**关键词**: Koopman operator, singular value decomposition, dynamical systems, low-rank approximation, deep learning
 
 ## 一句话总结
 

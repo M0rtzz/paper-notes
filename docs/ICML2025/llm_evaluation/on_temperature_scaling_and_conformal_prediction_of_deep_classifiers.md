@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICML2025
   - Temperature Scaling
-  - Conformal Prediction
+  - 共形预测
   - 不确定性量化
   - 校准
   - 预测集大小
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2402.05806](https://arxiv.org/abs/2402.05806)  
 **代码**: 未提供  
 **领域**: 其他/校准与Conformal Prediction  
-**关键词**: Temperature Scaling, Conformal Prediction, 不确定性量化, 校准, 预测集大小, 条件覆盖
+**关键词**: Temperature Scaling, 共形预测, 不确定性量化, 校准, 预测集大小, 条件覆盖
 
 ## 一句话总结
 首次系统研究 Temperature Scaling (TS) 校准对 Conformal Prediction (CP) 方法的影响，揭示 TS 在改善 APS/RAPS 类条件覆盖率的同时会增大预测集尺寸的反直觉现象，建立了完整的非单调理论解释并提出实用指南。
@@ -29,6 +29,7 @@ tags:
 深度分类器的不确定性量化主要有两类后处理方法：
 
 **校准 (Calibration)**：调整 softmax 值使其最大值更好地估计正确概率。Temperature Scaling (TS) 是最流行的方法，将 logits 除以温度 $T$ 后再做 softmax：$\hat{\pi}_T(\mathbf{x}) = \sigma(\mathbf{z}(\mathbf{x})/T)$
+
 **Conformal Prediction (CP)**：生成一组候选标签的预测集，保证以用户指定概率包含真实标签（边际覆盖保证）
 
 在关键应用中两者都需要——校准提供置信度估计，CP 提供覆盖保证。然而此前几乎无人研究两者的交互效应。虽然 APS、RAPS 等论文在使用 CP 前会先做 TS 校准，但没有人调查过 TS 校准究竟如何影响 CP 的表现。

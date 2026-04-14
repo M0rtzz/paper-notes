@@ -41,7 +41,7 @@ tags:
 ### 关键设计
 1. **JSRL - 联合共享字典表示学习**:
 
-    - 做什么：学习一个跨模态共享字典 $\mathbf{D} \in \mathbb{R}^{B \times k \times k}$，使 VIS 和 IR 都能被表示为 $\mathbf{I} = \mathbf{D} * \mathbf{S}$
+    - 功能：学习一个跨模态共享字典 $\mathbf{D} \in \mathbb{R}^{B \times k \times k}$，使 VIS 和 IR 都能被表示为 $\mathbf{I} = \mathbf{D} * \mathbf{S}$
     - 核心思路：联合最小化两模态重建误差 + 系数先验 + 字典正则化：
     $\min_{\mathbf{D},\mathbf{S}_{vis},\mathbf{S}_{ir}} \frac{1}{2}\|\mathbf{I}_{vis} - \mathbf{D}*\mathbf{S}_{vis}\|_F^2 + \frac{1}{2}\|\mathbf{I}_{ir} - \mathbf{D}*\mathbf{S}_{ir}\|_F^2 + \lambda_1\varphi_1(\mathbf{S}_{vis}) + \lambda_2\varphi_2(\mathbf{S}_{ir}) + \lambda_3\phi(\mathbf{D})$
     - 通过模型驱动展开（model-driven unfolding）实现：交替进行数据一致性步骤（频域 Sherman-Morrison 公式求解）和近端更新步骤（CoeNet / DicNet 可学习代理）
@@ -50,7 +50,7 @@ tags:
 
 2. **VGII - 可见光引导红外推理**:
 
-    - 做什么：从 VIS 系数 $\tilde{\mathbf{S}}_{vis}$ 推理伪 IR 系数 $\mathbf{S}_{p\_ir}$
+    - 功能：从 VIS 系数 $\tilde{\mathbf{S}}_{vis}$ 推理伪 IR 系数 $\mathbf{S}_{p\_ir}$
     - 核心思路：
       - 用冻结的 REN（表示编码网络，包含预训练 HeadNet + CSB + CoeNet）将 VIS 编码为系数
       - RIN（表示推理网络，encoder-decoder + multi-head attention）将 VIS 系数映射到伪 IR 系数
@@ -63,7 +63,7 @@ tags:
 
 3. **AFRI - 自适应融合**:
 
-    - 做什么：在原子级别融合 VIS 系数和推理 IR 系数，重建最终图像
+    - 功能：在原子级别融合 VIS 系数和推理 IR 系数，重建最终图像
     - 核心思路：RFN（推理融合网络）通过两个级联的 Convolution-Attention Fusion 块，学习隐式原子级门控权重 $(\mathbf{W}_{vis}, \mathbf{W}_{p\_ir})$：$\mathbf{S}_f = \mathbf{W}_{vis} \odot \tilde{\mathbf{S}}_{vis} + \mathbf{W}_{p\_ir} \odot \mathbf{S}_{p\_ir}^{(1)}$
     - 融合损失：$\ell_f = \|\mathbf{I}_f - \max(\mathbf{I}_{p\_ir}, \mathbf{I}_{vis})\|_1 + \|\nabla\mathbf{I}_f - \max(\nabla\mathbf{I}_{p\_ir}, \nabla\mathbf{I}_{vis})\|_1$
     - 设计动机：逐元素 max 操作鼓励融合结果继承 IR 的热强度峰值和 VIS 的锐利结构边缘；门控在系数域操作，结构边缘的原子倾向 VIS，热语义的原子倾向 IR

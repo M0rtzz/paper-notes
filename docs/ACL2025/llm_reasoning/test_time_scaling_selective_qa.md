@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering
 description: >-
-  [ACL 2025][LLM推理][test-time scaling] 首次评估 test-time scaling 模型（DeepSeek R1、S1）在选择性问答（允许拒绝回答）场景下的表现，发现增加推理计算不仅提高正确率还提升对正确答案的置信度，提出基于置信度阈值的选择函数和 "Jeopardy Odds" 效用函数来评估非零错误惩罚下的 test-time scaling 性能。
+  [ACL 2025][LLM推理][测试时缩放] 首次评估 test-time scaling 模型（DeepSeek R1、S1）在选择性问答（允许拒绝回答）场景下的表现，发现增加推理计算不仅提高正确率还提升对正确答案的置信度，提出基于置信度阈值的选择函数和 "Jeopardy Odds" 效用函数来评估非零错误惩罚下的 test-time scaling 性能。
 tags:
   - ACL 2025
   - LLM推理
-  - test-time scaling
+  - 测试时缩放
   - selective question answering
-  - confidence calibration
+  - 置信度校准
   - compute budget
-  - abstention
+  - 弃权
 ---
 
 # Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering
@@ -19,20 +19,25 @@ tags:
 **arXiv**: [2502.13962](https://arxiv.org/abs/2502.13962)  
 **代码**: [https://github.com/wjurayj/final_answer](https://github.com/wjurayj/final_answer)  
 **领域**: LLM效率  
-**关键词**: test-time scaling, selective question answering, confidence calibration, compute budget, abstention  
+**关键词**: 测试时缩放, selective question answering, 置信度校准, compute budget, 弃权
 
 ## 一句话总结
 首次评估 test-time scaling 模型（DeepSeek R1、S1）在选择性问答（允许拒绝回答）场景下的表现，发现增加推理计算不仅提高正确率还提升对正确答案的置信度，提出基于置信度阈值的选择函数和 "Jeopardy Odds" 效用函数来评估非零错误惩罚下的 test-time scaling 性能。
 
 ## 研究背景与动机
 **领域现状**：Test-time scaling（如 DeepSeek R1、S1）通过增长推理链长度在数学推理 benchmark 上取得突破性进展，但所有评估都在"零风险"设置下（答错不扣分，模型总是回答）
+
 **现有痛点**：
    - 现实场景中错误回答通常有可衡量的代价（医疗诊断、法律咨询、自动驾驶）
    - 模型"猜测"在不确定时是否有价值？"拒绝回答"比"答错"更好的场景被完全忽略
    - 不同 test-time scaling 模型的置信度校准能力差异未被揭示
+
 **核心矛盾**：test-time scaling 研究只报告准确率，忽视了模型是否"知道自己对不对"的能力
+
 **本文要解决什么？** 在允许拒绝回答的场景下评估 test-time scaling，并提出标准化的评估方法
+
 **切入角度**：用推理链末尾的 token log-probability 作为置信度指标，结合不同错误惩罚的效用函数
+
 **核心idea一句话**：增加 test-time compute 不仅找到更多正确答案，还增强了模型区分正确/错误答案的置信度，但不同模型的校准能力差异巨大
 
 ## 方法详解
@@ -44,19 +49,19 @@ tags:
 
 1. **置信度提取**:
 
-    - 做什么：量化模型对回答的确信程度
+    - 功能：量化模型对回答的确信程度
     - 核心思路：使用答案 token 的 log-probability 之和作为置信度。所有答案格式统一（3 位数字），确保 token 数一致
     - 设计动机：简单直接，且直接来自模型内部信号——不需要额外的置信度估计模块
 
 2. **选择函数（Selection Function）**:
 
-    - 做什么：根据置信度决定是否输出回答
+    - 功能：根据置信度决定是否输出回答
     - 核心思路：只接受置信度高于阈值的回答，否则弃权。评估 threshold ∈ {0.0, 0.5, 0.95}
     - 与标准评估的区别：threshold=0 等价于标准评估（永远回答），threshold>0 允许弃权
 
 3. **效用函数（Utility Function）**:
 
-    - 做什么：在不同错误惩罚下衡量模型价值
+    - 功能：在不同错误惩罚下衡量模型价值
     - 核心思路：$f(\mathcal{M}, x) = \{1 \text{ if correct}, 0 \text{ if abstain}, r_t \text{ if wrong}\}$
     - 三种设置：Exam Odds ($r_t=0$，答错不扣分)、**Jeopardy Odds** ($r_t=-1$，答错扣等额分)、High-Stakes ($r_t=-20$，答错扣 20 倍)
     - 设计动机：Exam Odds 是当前标准但不现实；Jeopardy Odds 更贴近实际——答错比不答更差

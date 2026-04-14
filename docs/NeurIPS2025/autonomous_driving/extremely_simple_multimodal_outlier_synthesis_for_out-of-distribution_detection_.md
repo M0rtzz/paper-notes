@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：OOD 检测和分割对自动驾驶、机器人手术等安全关键应用至关重要。现有方法主要针对单模态（图像或点云），但真实部署环境天然多模态（LiDAR+相机、视频+光流）。
+
 **现有痛点**：(a) 神经网络对 OOD 输入倾向于给出高置信度预测（过度自信问题）；(b) 真实 OOD 数据集获取成本高，尤其是多模态场景；(c) 现有合成异常值方法（VOS、NP-Mix）要么仅支持单模态，要么计算成本过高——NP-Mix 在分割任务上需要最近邻搜索，速度极慢。
+
 **核心矛盾**：多模态 OOD 检测需要合成跨模态一致的异常值样本，但跨模态特征空间的异质性使得简单插值（Mixup）会在 ID 分布内引入噪声样本，而复杂方法（NP-Mix）又太慢。
+
 **切入角度**：观察到两种模态的特征虽然来自同一场景但编码了不同信息，如果跨模态交换部分特征维度，产生的混合特征既不完全属于任何一种模态的分布，又不会偏离太远——恰好满足 OOD 样本的性质。
+
 **核心idea**：Feature Mixing = 随机选 $N$ 维跨模态交换，理论保证在低似然区域+偏移有界，极简实现+极快速度。
 
 ## 方法详解
@@ -41,7 +45,7 @@ tags:
 
 1. **Feature Mixing 异常值合成**：
 
-    - 做什么：在特征空间生成多模态 OOD 样本。
+    - 功能：在特征空间生成多模态 OOD 样本。
     - 核心思路：给定 ID 特征 $\mathbf{F} = [\mathbf{F}_c; \mathbf{F}_l]$（$\mathbf{F}_c$ 来自模态1，$\mathbf{F}_l$ 来自模态2），随机选 $N$ 个通道维度从 $\mathbf{F}_c$ 和 $\mathbf{F}_l$ 分别抽取并交换：$\tilde{\mathbf{F}}_c[select_c] = \mathbf{F}_l[select_l]$，$\tilde{\mathbf{F}}_l[select_l] = \mathbf{F}_c[select_c]$，拼接得 $\mathbf{F}_o = [\tilde{\mathbf{F}}_c; \tilde{\mathbf{F}}_l]$。
     - 设计动机：跨模态维度交换打破了模态间的语义一致性，产生的特征落在 ID 分布的低似然区域。
 
@@ -53,14 +57,14 @@ tags:
 
 3. **熵最大化优化**：
 
-    - 做什么：利用合成异常值优化模型的 OOD 区分能力。
+    - 功能：利用合成异常值优化模型的 OOD 区分能力。
     - 对合成异常值 $\mathbf{F}_o$ 的预测输出 $\tilde{\mathbf{O}}$ 最大化预测熵：$\mathcal{L}_{ent} = \frac{1}{M} \sum_{m=1}^M \sum_{c=1}^C \tilde{\mathbf{O}}_{m,c} \log \tilde{\mathbf{O}}_{m,c}$
     - 对 ID 数据使用 focal loss $\mathcal{L}_{foc}$ + Lovász-softmax $\mathcal{L}_{lov}$ 保证分割精度。
     - 最终损失：$\mathcal{L} = \mathcal{L}_{foc} + \mathcal{L}_{lov} + \gamma_1 \mathcal{L}_{ent}$
 
 4. **CARLA-OOD 数据集**：
 
-    - 做什么：首个专用多模态 OOD 分割数据集。
+    - 功能：首个专用多模态 OOD 分割数据集。
     - 使用 CARLA 模拟器生成 245 个场景，包含 RGB 图像 + LiDAR 点云 + 3D 语义标注，34 种异常物体随机放置在自车前方，覆盖多种天气和场景条件。
 
 ### 训练策略

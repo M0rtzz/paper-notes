@@ -46,10 +46,10 @@ CoIR 的设计遵循三个原则：多样性（4大任务 × 8子任务 × 10数
 
 1. **四大主任务体系**：
 
-   - **Text-to-Code（文本到代码）**：竞赛题代码检索（APPS）、Web查询代码检索（CosQA）、Text-to-SQL检索（Synthetic Text2SQL）
-   - **Code-to-Text（代码到文本）**：代码摘要检索（CodeSearchNet）——用代码检索对应注释/摘要
-   - **Code-to-Code（代码到代码）**：代码上下文检索（CodeSearchNet-CCR，自建）——给定代码前半段检索后半段；相似代码检索（CodeTransOcean）——跨编程语言/框架的语义等价代码
-   - **Hybrid Code（混合代码）**：单轮代码 QA（StackOverflow QA自建 + CodeFeedback-ST）和多轮代码 QA（CodeFeedback-MT）——查询和答案都包含文本和代码混合
+    - **Text-to-Code（文本到代码）**：竞赛题代码检索（APPS）、Web查询代码检索（CosQA）、Text-to-SQL检索（Synthetic Text2SQL）
+    - **Code-to-Text（代码到文本）**：代码摘要检索（CodeSearchNet）——用代码检索对应注释/摘要
+    - **Code-to-Code（代码到代码）**：代码上下文检索（CodeSearchNet-CCR，自建）——给定代码前半段检索后半段；相似代码检索（CodeTransOcean）——跨编程语言/框架的语义等价代码
+    - **Hybrid Code（混合代码）**：单轮代码 QA（StackOverflow QA自建 + CodeFeedback-ST）和多轮代码 QA（CodeFeedback-MT）——查询和答案都包含文本和代码混合
 
 2. **CodeSearchNet-CCR（自建数据集）**：将 CodeSearchNet 中每个代码片段随机分为两段（40%~70% 为查询，其余为检索目标），模拟代码补全的检索需求。这是代码上下文检索的首个大规模数据集。
 

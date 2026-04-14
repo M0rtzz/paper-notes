@@ -2,9 +2,9 @@
 title: >-
   [论文解读] Latent Variable Causal Discovery under Selection Bias
 description: >-
-  [ICML2025][潜变量因果发现] 首次研究选择偏差下的潜变量因果发现：发现虽然选择偏差极大地复杂化了联合分布，但有偏协方差矩阵的秩仍保留了因果结构和选择机制的有意义信息，并在单因子模型上证明了可识别性。
+  [ICML 2025][潜变量因果发现] 首次将秩约束推广到选择偏差场景，证明在线性选择机制下有偏协方差矩阵的秩仍保留因果结构和选择机制的信息，提出广义 t-separation 图准则，并在单因子模型上证明了可识别性，在合成和真实数据（World Value Survey、Big Five 人格）上验证了有效性。
 tags:
-  - ICML2025
+  - ICML 2025
   - 潜变量因果发现
   - 选择偏差
   - 秩约束
@@ -48,19 +48,19 @@ tags:
 
 1. **线性选择机制与选择增广图**:
 
-    - 做什么：定义一个足够通用的选择偏差数学模型，并将其融入因果图表示
+    - 功能：定义一个足够通用的选择偏差数学模型，并将其融入因果图表示
     - 核心思路：线性选择机制定义为 $\{(V_i, \beta_i, \epsilon_i, \mathcal{Y}_i)\}_{i=1}^k$，每个选择条件有参与变量子集 $V_i$、线性系数 $\beta_i$、噪声项 $\epsilon_i$ 和可接受值集 $\mathcal{Y}_i$，响应变量 $Y_i = \beta_i^\top V_i + \epsilon_i$，样本被选入/排除基于 $Y_i \in \mathcal{Y}_i$。选择增广图在原始 DAG 上添加响应节点 $Y$ 和对应边
     - 设计动机：该框架涵盖硬截断（$\epsilon=0, \mathcal{Y}=(a,b)$）、Logistic 选择（$\epsilon \sim Logistic, \mathcal{Y}=(a,\infty)$）、Probit 选择（$\epsilon \sim \mathcal{N}(0,1), \mathcal{Y}=(a,\infty)$）和稳定化选择（$\epsilon \sim \mathcal{N}(0,1), \mathcal{Y}=\{a\}$）等经典参数模型
 
 2. **广义秩约束的图准则（定理 1）**:
 
-    - 做什么：精确刻画选择偏差数据中协方差子矩阵的秩
+    - 功能：精确刻画选择偏差数据中协方差子矩阵的秩
     - 核心思路：$\text{rank}(\Sigma_{A,B}^{(\mathcal{S})}) = \min\{|C|+|D| : C,D \subset X \cup Y, (C,D) \text{ t-separates } (A \cup Y, B \cup Y) \text{ in } \mathcal{G}^{(\mathcal{S})}\} - k$。当 $\mathcal{S}=\emptyset$（无选择）时退化为原始秩约束（命题 2）。证明核心：即使在非高斯的截断分布下，通过条件协方差的分块矩阵分析证明 $\text{rank}(\Sigma_{A,B}^{(\mathcal{S})}) = \text{rank}(\Sigma_{A \cup Y, B \cup Y}) - |Y|$
     - 设计动机：与 CI 约束类似追求图准则的精确刻画，但秩约束是 CI 的严格推广——CI 对应秩为 $|C|$（命题 1），而秩约束可以捕捉 CI 之外的低秩结构（如 Tetrad 结构中无 CI 但有 rank=1）
 
 3. **单因子模型下的可识别性（命题 3）**:
 
-    - 做什么：证明广义秩约束在单因子模型中可以恢复潜变量间的 CI 关系
+    - 功能：证明广义秩约束在单因子模型中可以恢复潜变量间的 CI 关系
     - 核心思路：对于任意不相交子集 $A, B, C \subset L$（潜变量），$A \perp B | C$ 成立当且仅当观测变量协方差子矩阵 $\Sigma_{\mathbf{X}_A \cup \mathbf{X}_C^{(1)}, \mathbf{X}_B \cup \mathbf{X}_C^{(2)}}^{(\mathcal{S})}$ 的秩为 $|C|$（其中 $\mathbf{X}_C^{(1)}, \mathbf{X}_C^{(2)}$ 是 $\mathbf{X}_C$ 的不相交分划且各含 $\geq |C|$ 个观测变量）
     - 设计动机：单因子模型是问卷数据的经典建模（每个潜变量有 $\geq 2$ 个观测测量），选择偏差在此类数据中尤其常见（如人格特质影响问卷参与意愿）
 

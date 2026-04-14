@@ -47,7 +47,7 @@ VFScale提出无需外部验证器的测试时可缩放扩散模型，通过MRNC
 
 1. **MRNCL损失（Monotonic-Regression Negative Contrastive Learning）**:
 
-    - 做什么：确保离ground truth越远的样本能量越高（performance-energy consistency）
+    - 功能：确保离ground truth越远的样本能量越高（performance-energy consistency）
     - 核心思路：对每个正样本 $x_0$，生成两个负样本 $x_0^-$ 和 $x_0^{--}$（后者距正样本更远）。在加噪后获取三点能量值 $(0, E_t^+), (l_{2,0}^-, E_t^-), (l_{2,0}^{--}, E_t^{--})$，做线性回归求斜率 $k_t$ 和截距 $b_t$
     - 损失：$\mathcal{L}_{\text{MRNCL}} = \mathbb{E}[\max(0, \gamma - k_t) + \sum \|E - \hat{E}\|_2^2]$
     - 设计动机：原始对比损失仅要求正样本为局部能量最小值，不约束负样本间的能量序关系

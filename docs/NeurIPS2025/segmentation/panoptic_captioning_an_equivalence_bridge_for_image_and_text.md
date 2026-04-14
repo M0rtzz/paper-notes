@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] Panoptic Captioning: An Equivalence Bridge for Image and Text
 description: >-
-  提出Panoptic Captioning新任务追求图像的最小文本等价，定义五维语义描述（实体标签/位置/属性/关系/全局状态），13B模型通过解耦多阶段生成超越78B开源和GPT-4o等商业模型
+  [NeurIPS 2025][图像分割][panoptic captioning] 提出 Panoptic Captioning 新任务追求图像的"最小文本等价"——定义包含实体标签、位置（bbox）、属性、关系和全局状态五个维度的全面结构化描述，通过 PancapEngine 数据引擎和 PancapChain 解耦多阶段方法，13B 模型即超越 InternVL-2.5-78B 和 GPT-4o。
 tags:
   - NeurIPS 2025
+  - 图像分割
   - panoptic captioning
-  - 多模态
-  - image-text equivalence
-  - grounding
-  - dense captioning
+  - minimum text equivalence
   - PancapScore
+  - PancapChain
+  - grounding
 ---
 
 # Panoptic Captioning: An Equivalence Bridge for Image and Text
@@ -43,19 +45,19 @@ tags:
 
 1.    **五维任务定义**：
 
-    -    做什么：将 panoptic caption 的语义内容分组为五个维度
+    -    功能：将 panoptic caption 的语义内容分组为五个维度
     -    核心思路：Semantic Tag（实体类别标签）+ Location（bbox 坐标）+ Attribute（外观/状态/材质）+ Relation（实体间位置/动作/部分关系）+ Global State（光照/色调/场景风格）
     -    设计动机：相比纯文字位置描述，bbox 坐标提供精确定位且仅需几个数字；五维分解既保证完整性又便于评估
 
 2.    **PancapEngine 数据引擎（detect-then-caption）**：
 
-    -    做什么：自动生成高质量 panoptic caption 数据
+    -    功能：自动生成高质量 panoptic caption 数据
     -    核心思路：Entity Detection Suite（OLN 类无关检测 + RAM 6400+ 类标签分配 + Grounding-DINO/OW-DETR 补充检测）→ Entity-Aware Caption Generation（Gemini-Exp-1121 生成 + Qwen2-VL-72B 交叉验证一致性）
     -    设计动机：传统检测器受限于固定类别（COCO 80 类），OLN+RAM 组合突破类别上限
 
 3.    **PancapChain 解耦生成方法**：
 
-    -    做什么：将 panoptic captioning 分解为多阶段逐步生成
+    -    功能：将 panoptic captioning 分解为多阶段逐步生成
     -    核心思路：Stage 1: 实体定位（bbox）→ Stage 2: 语义标签分配 → Stage 3: 实体发现补充 → Stage 4: 全面 panoptic caption 生成
     -    设计动机：直接要求模型一次性生成完整 panoptic caption 难度极高（需同时定位、分类、描述所有实体），解耦后每阶段专注子任务
 

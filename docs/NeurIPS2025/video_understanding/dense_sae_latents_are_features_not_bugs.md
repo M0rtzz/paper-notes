@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：稀疏自编码器（SAE）是当前机制可解释性研究的主流工具，通过对语言模型激活施加稀疏约束来提取可解释特征。理想情况下，SAE的所有latent都应稀疏激活、语义明确。
+
 **现有痛点**：实际训练中，SAE会产生大量"dense latents"——激活频率在10%–50%的latent。这些latent难以通过激活模式直接解释，一直被视为训练瑕疵。部分工作甚至提出用频率正则化来抑制它们。
+
 **核心矛盾**：dense latents到底是SAE训练过程的副产品（应被消除），还是模型残差流中确实存在固有密集信号的反映（应被理解）？
+
 **本文要解决什么？** (a) dense latents的来源——训练伪影还是内在属性？(b) dense latents的几何结构是什么？(c) dense latents承担了哪些语义/功能角色？
+
 **切入角度**：作者通过消融dense latent子空间后重新训练SAE来验证内在性假设，并在Gemma 2 2B全层SAE上做系统分类。
+
 **核心idea一句话**：Dense latents反映了语言模型残差流中本质性的密集计算方向，它们在位置追踪、上下文绑定、熵调节等方面有明确的机制功能。
 
 ## 方法详解
@@ -42,13 +47,13 @@ tags:
 
 1. **Dense Latent子空间消融实验**:
 
-    - 做什么：验证dense latents是否是残差流的内在属性
+    - 功能：验证dense latents是否是残差流的内在属性
     - 核心思路：找到dense latents张成的子空间，将残差流激活在该子空间上的投影置零，然后在消融后的激活上重新训练SAE。对比消融同等数量的非dense latents子空间
     - 关键结果：消融dense子空间后，重训SAE几乎不再产生dense latents；消融非dense子空间后，dense分布与原始几乎相同。在GPT-2、LLaMA 3.2上复现了相同结论
 
 2. **反极对（Antipodal Pairs）几何分析**:
 
-    - 做什么：发现并量化dense latents的几何结构
+    - 功能：发现并量化dense latents的几何结构
     - 核心思路：定义反极性分数 $s_i = \max_{j \neq i} ( \text{sim}(\mathbf{W}^{(i)}_{\text{enc}}, \mathbf{W}^{(j)}_{\text{enc}}) \cdot \text{sim}(\mathbf{W}^{(i)}_{\text{dec}}, \mathbf{W}^{(j)}_{\text{dec}}) )$
     - 关键发现：dense latents（频率>0.3）的反极性分数几乎都>0.9，说明它们成对出现、共同重建残差流中的一个方向。引入AbsoluteTopK（允许负激活）后反极对消失
 

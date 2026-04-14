@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Genetic Instruct: Scaling up Synthetic Generation of Coding Instructions for Large Language Models
 description: >-
-  [ACL 2025][LLM/NLP][synthetic data] 提出 Genetic-Instruct 算法，借鉴进化算法的交叉和变异操作，从 512 个种子指令扩展生成 750 万+高质量编码指令，使用 Instructor-LLM/Coder-LLM/Judge-LLM 三角色流水线，训练后的模型在代码生成基准上超越 Self-Instruct 和 Evol-Instruct。
+  [ACL 2025][LLM/NLP][合成数据] 提出 Genetic-Instruct 算法，借鉴进化算法的交叉和变异操作，从 512 个种子指令扩展生成 750 万+高质量编码指令，使用 Instructor-LLM/Coder-LLM/Judge-LLM 三角色流水线，训练后的模型在代码生成基准上超越 Self-Instruct 和 Evol-Instruct。
 tags:
   - ACL 2025
   - LLM/NLP
-  - synthetic data
-  - code generation
+  - 合成数据
+  - 代码生成
   - evolutionary algorithm
-  - instruction tuning
-  - scalability
+  - 指令微调
+  - 可扩展性
 ---
 
 # Genetic Instruct: Scaling up Synthetic Generation of Coding Instructions for Large Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.21077](https://arxiv.org/abs/2407.21077)  
 **代码**: https://huggingface.co/datasets/nvidia/OpenCodeGeneticInstruct  
 **领域**: LLM/NLP  
-**关键词**: synthetic data, code generation, evolutionary algorithm, instruction tuning, scalability
+**关键词**: 合成数据, 代码生成, evolutionary algorithm, 指令微调, 可扩展性
 
 ## 一句话总结
 提出 Genetic-Instruct 算法，借鉴进化算法的交叉和变异操作，从 512 个种子指令扩展生成 750 万+高质量编码指令，使用 Instructor-LLM/Coder-LLM/Judge-LLM 三角色流水线，训练后的模型在代码生成基准上超越 Self-Instruct 和 Evol-Instruct。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 代码生成能力的提升依赖高质量指令数据，但人工标注昂贵。合成指令生成（Self-Instruct, Evol-Instruct）是替代方案。
+
 **现有痛点**：Self-Instruct 生成的指令多简单不够挑战；Evol-Instruct 单靠变异增加复杂度；基于代码的方法（OSS-Instruct）依赖大规模高质量代码库。
+
 **核心矛盾**：如何从极少量种子扩展到百万级多样且高质量的编码指令？
+
 **本文要解决什么？** 设计可大规模并行的合成指令生成算法。
+
 **切入角度**：进化算法思路——交叉扩主题覆盖，变异增局部多样性，适应度函数保质量。
+
 **核心idea一句话**：用进化算法的交叉+变异+选择，配合三个 LLM 角色（指令生成/代码编写/质量评判），从 512 种子无限扩展。
 
 ## 方法详解

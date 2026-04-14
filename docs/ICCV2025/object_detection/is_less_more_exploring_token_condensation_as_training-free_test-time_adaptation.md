@@ -51,13 +51,13 @@ TCA 是一个免训练的在线自适应框架，由三个核心组件构成：
 
 1. **Domain-aware Token Reservoir（DTR）**:
 
-    - 做什么：维护一个按类别组织的优先队列 $\mathfrak{R} = \{\mathfrak{R}_c\}_{c=1}^C$，存储来自所有 $L$ 层的域锚 token（CLIP 中为 \<cls\> token，SigLIP 中为池化向量）
+    - 功能：维护一个按类别组织的优先队列 $\mathfrak{R} = \{\mathfrak{R}_c\}_{c=1}^C$，存储来自所有 $L$ 层的域锚 token（CLIP 中为 \<cls\> token，SigLIP 中为池化向量）
     - 核心思路：每个类别缓冲区 $\mathfrak{R}_c$ 保留 $M$ 个最可靠的域锚 token，按熵分数排序：$\mathbf{H}_c(\mathbf{z}_t, \mathbf{t}_c) = -\mathbf{p}_{t,c} \log \mathbf{p}_{t,c}$。只有当 $\arg\max(\mathbf{p}_{t,c}) = c$ 时才更新，确保仅保留语义最一致的样本。当缓冲区满时，替换熵最高的样本
     - 设计动机：随着时间推移，低熵的 \<cls\> token 与文本嵌入的对齐度持续提高（实验验证），可作为域级别的适应参考点
 
 2. **Domain-aware Cross-head Token Reduction**:
 
-    - 做什么：在多头自注意力和前馈层之间执行 token 裁剪与合并
+    - 功能：在多头自注意力和前馈层之间执行 token 裁剪与合并
     - 核心思路：
       - **域感知 Token 评估**：从 DTR 中采样最匹配的域锚 token $\mathbf{A}_{c^*}^{l-1}$，将其与当前 \<cls\> token 拼接后计算注意力：$\text{Attention}([\mathbf{v}_{\text{cls}}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_Q^h, [\mathbf{V}^l; \mathbf{A}_{c^*}^{l-1}]\mathbf{W}_K^h)$
       - **跨头评分**：对每个 token 计算跨头平均排名分数 $\mathbf{S}_i^{\text{head}} = \frac{1}{H}\sum_{h=1}^H \text{rank}_h(i)$，而非简单平均注意力分数，避免异常值头的不当影响
@@ -66,7 +66,7 @@ TCA 是一个免训练的在线自适应框架，由三个核心组件构成：
 
 3. **Logits Self-correction**:
 
-    - 做什么：在 token 精简后补偿语义偏移，精细化分类预测
+    - 功能：在 token 精简后补偿语义偏移，精细化分类预测
     - 核心思路：将当前样本的视觉 \<cls\> token 与 DTR 中存储的域锚 token 计算跨层余弦相似度，作为 token 级分类器校正原始预测：$\tilde{\mathbf{p}}_{t,c} = \mathbf{p}_{t,c} + \lambda\mathbf{p}_{t,c}^{\text{token}}$，其中 $\mathbf{p}_{t,c}^{\text{token}} = \frac{1}{M}\sum_{i=1}^M \cos(\mathbf{V}_t^{\text{cls}}, \mathbf{A}_{i,c}^{\text{cls}}) \cdot \mathbf{P} \cdot \mathbb{1}_c$，$\mathbf{P} = [\exp(\frac{l}{\beta})]_{l=1}^L$ 是层级指数缩放系数
     - 设计动机：token 精简后可能引入语义偏移，利用 DTR 中积累的域知识从纯视觉角度校正预测，无需修改模型参数
 

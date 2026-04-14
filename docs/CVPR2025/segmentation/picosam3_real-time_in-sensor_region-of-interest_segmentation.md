@@ -27,8 +27,11 @@ PicoSAM3 是一个 1.3M 参数的超轻量可提示分割模型，通过 ROI 隐
 
 ## 研究背景与动机
 **领域现状**：SAM/SAM2/SAM3 系列在可提示分割取得突破性进展，但其 Transformer 架构的计算量和内存占用使其无法部署在极端边缘设备上。
+
 **现有痛点**：（1）TinySAM、EdgeSAM 等压缩方案仍保留 Transformer 结构，内存超 8MB 限制且依赖不受支持的算子（Softmax、LayerNorm）；（2）传感器内计算（In-sensor computing）要求模型完全在 CMOS 传感器内运行，对算子类型、整数精度、内存有极严格限制；（3）现有轻量 SAM 忽略 ROI 的空间灵活性。
+
 **核心矛盾**：如何在 <8MB SRAM、仅支持量化友好算子的传感器芯片上，实现高质量可提示分割？
+
 **切入角度**：完全放弃 Transformer，采用纯 CNN 架构 + ROI 隐式提示 + SAM3 蒸馏 + INT8 量化，专门为传感器内部署设计。
 
 ## 方法详解
@@ -40,25 +43,25 @@ PicoSAM3 是一个 1.3M 参数的超轻量可提示分割模型，通过 ROI 隐
 
 1. **隐式提示编码（Implicit Prompt via Centered Cropping）**:
 
-    - 做什么：将 bbox 提示隐式地通过裁剪编码到 RGB 输入中
+    - 功能：将 bbox 提示隐式地通过裁剪编码到 RGB 输入中
     - 核心思路：训练时根据 bbox 提取带 10% padding 的正方形裁剪，resize 到 96×96。目标物体始终近似居中，网络学习分割输入中心附近的主要物体。推理时利用 IMX500 的硬件 ROI 功能实现同样的裁剪
     - 设计动机：IMX500 仅支持 RGB 输入，无法传入额外的提示张量，因此只能通过空间裁剪隐式编码提示
 
 2. **模型架构（Dense CNN U-Net）**:
 
-    - 做什么：1.37M 参数的纯 CNN 对称编解码器
+    - 功能：1.37M 参数的纯 CNN 对称编解码器
     - 核心思路：基于 PicoSAM2 的 U-Net 结构（深度可分离卷积，通道 48→96→160→256→320），新增三项改进：（1）带膨胀深度卷积的增强 bottleneck（dilation=2 扩大感受野）；（2）输出头前的 Efficient Channel Attention（ECA）块实现自适应特征重校准；（3）带深度卷积的细化头改善边界
     - 设计动机：完全避免 Transformer 的 Self-Attention 算子，确保所有操作兼容 INT8 量化和 IMX500 的有限算子集
 
 3. **SAM3 知识蒸馏**:
 
-    - 做什么：从 1.2GB 的 SAM3 teacher 蒸馏到 5.26MB 的 student
+    - 功能：从 1.2GB 的 SAM3 teacher 蒸馏到 5.26MB 的 student
     - 核心思路：离线缓存 teacher 对所有 COCO 标注的 soft mask → 三损失联合训练：（1）teacher 损失 $\mathcal{L}_{teacher}$ = MSE + Dice（温度缩放 $\tau=5$）；（2）GT 损失 $\mathcal{L}_{gt}$ = BCE + Dice；（3）面积保持损失 $\mathcal{L}_{area}$（防止预测掩码面积塌缩到 GT 的 40% 以下）
     - 自适应权重：总损失中 teacher 和 GT 的权重由 teacher 置信度自动调节——高置信时依赖 teacher soft label，低置信时回退到 GT
 
 4. **INT8 后训练量化**:
 
-    - 做什么：4× 模型压缩（5.26MB → 1.31MB），精度损失 <0.2%
+    - 功能：4× 模型压缩（5.26MB → 1.31MB），精度损失 <0.2%
     - 核心思路：用 Sony MCT 工具链进行对称逐通道权重量化 + 逐张量激活量化，10 batch 校准
     - 设计动机：深度可分离卷积对量化噪声天然鲁棒，无需复杂的 outlier 抑制算法
 

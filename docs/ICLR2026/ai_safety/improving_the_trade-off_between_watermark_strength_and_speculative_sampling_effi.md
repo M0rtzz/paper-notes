@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Improving the Trade-off Between Watermark Strength and Speculative Sampling Efficiency for Language Models
 description: >-
-  [ICLR 2026][AI安全][watermarking] 将 LLM 水印强度从二值定义升级为连续量化（期望KL散度），完整刻画水印强度与speculative sampling效率的Pareto曲线，并提出伪随机接受机制使两者同时达到理论最大值。
+  [ICLR 2026][AI安全][水印] 将 LLM 水印强度从二值定义升级为连续量化（期望KL散度），完整刻画水印强度与speculative sampling效率的Pareto曲线，并提出伪随机接受机制使两者同时达到理论最大值。
 tags:
   - ICLR 2026
   - AI安全
-  - watermarking
+  - 水印
   - speculative sampling
   - KL散度
   - Pareto优化
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.01428](https://arxiv.org/abs/2602.01428)  
 **代码**: https://github.com/hwq0726/watermark-tradeoff  
 **领域**: AI安全 / LLM水印  
-**关键词**: watermarking, speculative sampling, KL散度, Pareto优化, 伪随机接受
+**关键词**: 水印, speculative sampling, KL散度, Pareto优化, 伪随机接受
 
 ## 一句话总结
 将 LLM 水印强度从二值定义升级为连续量化（期望KL散度），完整刻画水印强度与speculative sampling效率的Pareto曲线，并提出伪随机接受机制使两者同时达到理论最大值。

@@ -1,7 +1,16 @@
 ---
-title: "An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS"
-description: "提出JPEG XS标准中IPC位移矢量搜索模块的FPGA流水线架构，通过优化存储组织实现38.3Mpixels/s吞吐量"
-tags: ["FPGA", "JPEG XS", "硬件加速", "图像压缩", "模型压缩"]
+title: >-
+  [论文解读] An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS
+description: >-
+  [CVPR 2026][模型压缩][FPGA] 本文首次为 JPEG XS 标准中的 Intra Pattern Copy (IPC) 工具设计了 FPGA 硬件加速架构，通过四级流水线 DV 比较引擎和按 IPC Group 对齐的存储组织，在 Artix-7 上实现 38.3 Mpixels/s 吞吐量和 277mW 功耗。
+tags:
+  - CVPR 2026
+  - 模型压缩
+  - FPGA
+  - JPEG XS
+  - Intra Pattern Copy
+  - 位移矢量搜索
+  - 流水线架构
 ---
 
 # An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS
@@ -40,19 +49,19 @@ tags: ["FPGA", "JPEG XS", "硬件加速", "图像压缩", "模型压缩"]
 
 1. **四级流水线 DV 比较架构**:
 
-    - 做什么：将 DV 比较过程分解为四个流水线阶段并行执行
+    - 功能：将 DV 比较过程分解为四个流水线阶段并行执行
     - 核心思路：Stage 0 加载残差系数和计算配置参数（BandIdx, GrpSize, UnitWidth）；Stage 1 的 GetOrMask 模块计算组内按位 OR 掩码；Stage 2 的 CalGCLI 模块计算残差比特代价 BitsTest；Stage 3 的 Compare 模块比较并更新最优 DV (BestDV)
     - 设计动机：DV 比较是整个 DV 搜索的瓶颈，流水线化让连续 DV 候选的评估可以重叠执行，显著提升吞吐量
 
 2. **按 IPC Group 对齐的存储组织 (Method 1)**:
 
-    - 做什么：重新组织 DRAM 上小波系数的存储布局，从按 Precinct 存储改为按 IPC Group/Unit 存储
+    - 功能：重新组织 DRAM 上小波系数的存储布局，从按 Precinct 存储改为按 IPC Group/Unit 存储
     - 核心思路：将同一 Group 的 IPC Unit 顺序存储，每个 Unit 包含所有子带块。只需一个基地址 + 固定偏移即可加载整个 IPC Unit，支持突发访问模式。配合片上 TLB RAM 存储不同 Group 的块大小
     - 设计动机：原始按 Precinct 存储时，不同子带的系数分散在内存中，需逐个定位，控制复杂度高且带宽利用率低
 
 3. **残差计算引擎**:
 
-    - 做什么：从 DRAM 读取原始和重建系数块，计算分组残差
+    - 功能：从 DRAM 读取原始和重建系数块，计算分组残差
     - 核心思路：通过 CMD 模块进行地址映射，数据流入 Q0-Q3（原始）和 C0-C3（重建）四组 FIFO。CTRL 模块管理同步读写，SIG_MAG_SUB 模块对符号-幅值格式的 32 位系数做四路并行减法计算残差，结果存入 R0-R3 残差 FIFO
     - 设计动机：残差计算需要同步访问原始和重建数据的相同 Group，FIFO 阵列 + CTRL 同步机制确保数据对齐
 

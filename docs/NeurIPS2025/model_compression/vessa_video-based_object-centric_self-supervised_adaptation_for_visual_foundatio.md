@@ -165,8 +165,8 @@ VESSA的流程包含三个主要模块：帧选择（Frame Selection）、预处
 
 2. **分阶段解冻策略**: 这是避免微调退化的核心设计。具体而言：
 
-   - **第一阶段**：冻结整个backbone，仅训练projection head几个epoch，让head适应现有的嵌入空间
-   - **第二阶段**：逐步解冻backbone，对前 $H$ 层使用LoRA进行低秩适配（仅更新Query/Key/Value投影的低秩矩阵 $\Delta W = AB$，其中 $r \ll \min(d,k)$），保留底层视觉特征；对最后 $L$ 层完全解冻进行常规更新，适配高层语义表征
+    - **第一阶段**：冻结整个backbone，仅训练projection head几个epoch，让head适应现有的嵌入空间
+    - **第二阶段**：逐步解冻backbone，对前 $H$ 层使用LoRA进行低秩适配（仅更新Query/Key/Value投影的低秩矩阵 $\Delta W = AB$，其中 $r \ll \min(d,k)$），保留底层视觉特征；对最后 $L$ 层完全解冻进行常规更新，适配高层语义表征
    
    实验发现解冻最后2层效果最优（91.87%），解冻更多层反而性能下降。
 

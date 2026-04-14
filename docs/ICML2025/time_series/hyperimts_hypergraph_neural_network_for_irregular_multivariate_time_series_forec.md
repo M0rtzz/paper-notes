@@ -30,6 +30,7 @@ tags:
 现有处理 IMTS 的方法分为两大类，各有痛点：
 
 **Padding（填充）方法**：将不规则序列填充为规则矩阵。包括时间对齐填充和 patch 对齐填充。问题是大幅增加数据量（如 MIMIC-IV 数据集原始平均 304.8 个观测点，填充后膨胀到 92,000），且可能破坏原始采样模式。
+
 **非填充方法（集合/二部图）**：将观测视为集合元素或用二部图表示。问题是集合无法捕捉观测间相关性；二部图在变量间无共享时间戳时无法传播消息（例如变量 V2 和 V3 没有任何时间对齐点，在二部图中完全断开）。
 
 核心矛盾：如何在**不做填充**（保持高效）的前提下，**完整捕捉所有观测之间的时间和变量依赖关系**？
@@ -45,14 +46,14 @@ HyperIMTS 的 pipeline：（1）将 IMTS 样本转化为超图表示，观测值
 
 1. **高效超图表示（Efficient Hypergraph Representation）**:
 
-    - 做什么：将 IMTS 样本无需填充地表示为超图 $\mathcal{G} = \{\mathcal{V}, \mathcal{E}\}$
+    - 功能：将 IMTS 样本无需填充地表示为超图 $\mathcal{G} = \{\mathcal{V}, \mathcal{E}\}$
     - 核心思路：每个观测 $(t_j, z_j, u_j)$ 对应一个节点 $v_j$。定义两类超边：时间超边 $\mathcal{E}_{\text{time}} = \{e_t | t=1,...,T\}$（同一时间戳的所有观测连接到同一超边）和变量超边 $\mathcal{E}_{\text{var}} = \{e_u | u=1,...,U\}$（同一变量的所有观测连接到同一超边）。拓扑由两个关联矩阵 $\mathbf{H}^T \in \mathbb{R}^{M \times T}$ 和 $\mathbf{H}^U \in \mathbb{R}^{M \times U}$ 表示
     - 节点初始化：$\mathbf{V} = \text{ReLU}(\text{FF}_{\text{obs}}(\mathcal{Z}_i))$，时间超边用正弦编码 $\mathbf{E}_{\text{time}} = \sin(\text{FF}_{\text{time}}(T_i))$，变量超边用可学习参数 $\mathbf{E}_{\text{var}} = \text{ReLU}(\mathbf{W}_{\text{var}})$
     - 设计动机：相比填充方法，超图只处理实际存在的观测（M 个节点），而非 $T \times U$ 的完整矩阵；相比二部图，超边可连接任意数量节点，且支持超边间的消息传递
 
 2. **节点→超边消息传递（Node-to-Hyperedge）**:
 
-    - 做什么：将观测节点信息聚合到时间超边和变量超边上
+    - 功能：将观测节点信息聚合到时间超边和变量超边上
     - 核心思路：用多头注意力实现。以时间超边为例，查询 $\mathbf{q}^h = \text{FF}_q(\mathbf{E}_{\text{time}})$，键值由节点嵌入拼接变量超边嵌入生成 $\mathbf{k}^h = \text{FF}_k(\mathbf{V} || \mathbf{E}_{\text{var}})$：
     $\mathbf{O} = ||_{h=1}^{H} \text{Softmax}\left(\frac{\mathbf{q}^h {\mathbf{k}^h}^\intercal}{\sqrt{d/H}}\right) \mathbf{v}^h$
     $\mathbf{E}_{\text{time}}' = \mathbf{O} + \text{ReLU}(\text{FF}_O(\mathbf{O}))$
@@ -61,7 +62,7 @@ HyperIMTS 的 pipeline：（1）将 IMTS 样本转化为超图表示，观测值
 
 3. **超边→超边消息传递（Irregularity-Aware Inter-Variable Message Passing）**:
 
-    - 做什么：在变量超边之间传递信息，建模变量间依赖关系
+    - 功能：在变量超边之间传递信息，建模变量间依赖关系
     - 核心思路：计算两种变量相似度并自适应融合。对于变量 $u_a$ 和 $u_b$：
       - 整体变量相似度（series-level）：$\mathbf{S}_{\text{var}} = \text{FF}_q(e_{u_a}) \cdot \text{FF}_k(e_{u_b})^\intercal$
       - 时间感知相似度（仅用对齐观测）：$\mathbf{S}_{\text{obs}} = [v_1^{u_a},...,v_{T_{\text{shared}}}^{u_a}] \cdot [v_1^{u_b},...,v_{T_{\text{shared}}}^{u_b}]^\intercal$
@@ -72,7 +73,7 @@ HyperIMTS 的 pipeline：（1）将 IMTS 样本转化为超图表示，观测值
 
 4. **超边→节点消息传递（Hyperedge-to-Node）**:
 
-    - 做什么：将超边聚合的信息传递回节点，更新观测嵌入
+    - 功能：将超边聚合的信息传递回节点，更新观测嵌入
     - 核心思路：先对节点做自注意力，再与时间和变量超边信息拼接更新：
     $\mathbf{V}' = \text{SelfAtten}(\mathbf{V})$
     $\mathbf{V}'' = \text{ReLU}(\mathbf{V} + \text{FF}_{\text{node}}(\mathbf{V}' || \mathbf{E}_{\text{time}}' || \mathbf{E}_{\text{var}}'))$

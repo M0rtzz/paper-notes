@@ -53,23 +53,23 @@ $$d\nu_t = \alpha(\Psi_\sigma[\nu_t] - \nu_t)dt$$
 ### 关键设计
 
 **模块1: Best Response算子**
-- 做什么：定义当前状态下的最优响应
+- 功能：定义当前状态下的最优响应
 - 核心公式：$\Psi_\sigma[\nu](dx) \propto \exp\left(-\frac{1}{\sigma}\frac{\delta F}{\delta \nu}(\nu,x)\right)\xi(dx)$
 - 设计动机：每步求解熵正则化线性化子问题，相当于泛函空间的proximal步
 
 **模块2: Wasserstein压缩性证明**
-- 做什么：证明BR算子在 $\mathcal{W}_1$ 距离下的压缩性
+- 功能：证明BR算子在 $\mathcal{W}_1$ 距离下的压缩性
 - 核心结论（Theorem 2.3）：定义Lipschitz常数 $L_{\Psi_\sigma, U^\xi} = \frac{L_F}{\sigma}\exp\left(\frac{2C_F}{\sigma}\right)\left(1 + \exp\left(\frac{2C_F}{\sigma}\right)\right)\int |x|e^{-U^\xi(x)}dx$
 - 当 $\sigma > 2C_F + e(e+1)L_F\int |x|e^{-U^\xi(x)}dx$ 时，$L_{\Psi_\sigma, U^\xi} \in (0,1)$
 - 设计动机：压缩性保证Banach不动点定理适用，从而建立唯一性和收敛性
 
 **模块3: MDP应用——softmax策略优化**
-- 做什么：将一般理论应用于MDP中softmax参数化策略的优化
+- 功能：将一般理论应用于MDP中softmax参数化策略的优化
 - 设置：$F(\nu) = V_\tau^{\pi_\nu}(\gamma)$，其中 $\pi_\nu(da|s) \propto \exp(f_\nu(s,a))\eta(da)$
 - 验证Assumption 2.1（Lipschitz性和有界性），给出 $C_F, L_F$ 的显式表达式
 
 **模块4: Min-Max博弈扩展**
-- 做什么：将单智能体优化框架扩展到双人零和博弈
+- 功能：将单智能体优化框架扩展到双人零和博弈
 - 核心公式：联合BR算子 $(\Psi_{\sigma_\nu}, \Phi_{\sigma_\mu})$ 在乘积空间上的压缩性
 - 指数收敛率：$\mathcal{W}_1$距离以 $\mathcal{O}(e^{-t(\min\{\alpha_\nu,\alpha_\mu\} - (\alpha_\nu L_{\Psi} + \alpha_\mu L_{\Phi}))})$ 衰减
 

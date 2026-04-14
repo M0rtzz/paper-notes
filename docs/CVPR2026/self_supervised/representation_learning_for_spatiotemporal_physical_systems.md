@@ -42,7 +42,7 @@ tags:
 ### 关键设计
 1. **JEPA（Joint Embedding Predictive Architecture）用于物理动力学**:
 
-    - 做什么：学习一个编码器 $f: \mathcal{X} \to \mathcal{Z}$ 和预测器 $g: \mathcal{Z} \to \mathcal{Z}$，在隐空间预测下一时间段的表示
+    - 功能：学习一个编码器 $f: \mathcal{X} \to \mathcal{Z}$ 和预测器 $g: \mathcal{Z} \to \mathcal{Z}$，在隐空间预测下一时间段的表示
     - 核心思路：给定样本的 $T$ 个时间步 $x_{0:T}$，将 $x_{t:t+k}$ 编码为 $z_i = f(x_i)$，然后最小化隐空间预测误差：
     $\mathcal{L}(f,g) = \mathbb{E}_{x_i, x_{i+1} \sim \mathcal{X}}[\ell_{\text{VICReg}}(g(f(x_i)), f(x_{i+1}))]$
     - 使用 VICReg 损失防止模式坍塌：
@@ -53,7 +53,7 @@ tags:
 
 2. **VideoMAE 基线（像素级重建）**:
 
-    - 做什么：学习 encoder-decoder 对，最小化掩码区域的像素重建误差
+    - 功能：学习 encoder-decoder 对，最小化掩码区域的像素重建误差
     - 核心思路：时空 tube masking + 像素级 MSE 重建
     - 架构：ViT-tiny/16，输出 $l/16 \times w/16 \times t/2 \times 384$
     - 设计动机：作为像素级预测范式的代表，与 JEPA 形成对比

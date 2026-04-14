@@ -1,13 +1,18 @@
 ---
+title: >-
+  [论文解读] Breaking AR's Sampling Bottleneck: Provable Acceleration via Diffusion Language Models
 description: >-
-  [NeurIPS2025][扩散语言模型理论] 从信息论角度证明了扩散语言模型的收敛保证，采样误差以O(1/T)衰减且与token间互信息线性相关，并给出匹配的上下界，理论上证明了扩散模型可以在T<L步内高质量生成。
+  [NeurIPS2025][图像生成][扩散模型] 从信息论角度为掩码扩散语言模型建立了完整的采样收敛理论：证明 KL 散度形式的采样误差以 $O(1/T)$ 速率衰减、与 token 间互信息线性相关，并给出匹配的下界证明了分析的紧性，理论上论证了扩散模型可以在 $T < L$（序列长度）步内生成高质量样本。
 tags:
   - NeurIPS2025
-  - 扩散语言模型
-  - 收敛理论
-  - 信息论
-  - 采样加速
+  - 图像生成
+  - 扩散模型
+  - convergence guarantee
+  - mutual information
+  - sampling acceleration
+  - KL divergence
 ---
+
 # Breaking AR's Sampling Bottleneck: Provable Acceleration via Diffusion Language Models
 
 **会议**: NeurIPS2025  
@@ -44,13 +49,13 @@ tags:
 
 1. **递归分裂法建立上界 (Theorem 1)**:
 
-    - 做什么：证明对任意掩码大小调度 $\{s_t\}_{t=1}^T$，采样误差满足 $\mathbb{E}_M[\text{KL}(p_{X_0} \| p_{Y_0|M})] \leq \frac{2^{\lceil\log_2 s_{\max}\rceil} - 1}{L} \sum_{i=1}^L I(X_0^{(i)}; X_0^{(-i)}) + \varepsilon_{\text{train}}$
+    - 功能：证明对任意掩码大小调度 $\{s_t\}_{t=1}^T$，采样误差满足 $\mathbb{E}_M[\text{KL}(p_{X_0} \| p_{Y_0|M})] \leq \frac{2^{\lceil\log_2 s_{\max}\rceil} - 1}{L} \sum_{i=1}^L I(X_0^{(i)}; X_0^{(-i)}) + \varepsilon_{\text{train}}$
     - 核心思路：定义辅助序列 $Y_t^\star$（使用最优预测器），将真实采样误差分解为训练误差和理想采样误差。对理想采样误差按最大掩码大小 $s_{\max}$ 参数化，建立递归不等式 $\varepsilon(s_{\max}) \leq \varepsilon(\lceil s_{\max}/2 \rceil) + \frac{s_{\max}}{2L}\sum_i I(X_0^{(i)}; X_0^{(-i)})$。核心技巧是将每步揭示的 $s_t$ 个 token 分成两批 $D_{t,-}$ 和 $D_{t,+}$，利用 KL 散度的链式法则和互信息的性质递归分析
     - 设计动机：直接分析非常困难，递归方法将大掩码步骤逐步分解为小掩码步骤，利用 $\varepsilon(1) = 0$（每次只揭示一个 token 时无误差）作为递归基
 
 2. **匹配下界证明紧性 (Theorem 2)**:
 
-    - 做什么：证明存在某些掩码调度使采样误差不低于 $\frac{s_{\max}}{16L}\sum_{i=1}^L \sum_{j\geq 0} 2^{-j} \mathbb{E}[I(X_0^{(i)}; X_0 \circ W_j^{(-i)})] + \varepsilon_{\text{train}}$，与上界在常数因子内匹配
+    - 功能：证明存在某些掩码调度使采样误差不低于 $\frac{s_{\max}}{16L}\sum_{i=1}^L \sum_{j\geq 0} 2^{-j} \mathbb{E}[I(X_0^{(i)}; X_0 \circ W_j^{(-i)})] + \varepsilon_{\text{train}}$，与上界在常数因子内匹配
     - 核心思路：将互信息项细化为多尺度分解 $\sum_{j \geq 0} 2^{-j} \mathbb{E}[I(X_0^{(i)}; X_0 \circ W_j^{(-i)})]$，其中 $W_j^{(-i)}$ 是大小递增的随机子集。同时给出其上界也匹配，证明了 $O(1/T)$ 速率和互信息线性依赖都是不可改进的基本极限
     - 设计动机：上界的意义在于可以实现，下界的意义在于不可能做得更好——两者匹配才能说明分析的最优性
 

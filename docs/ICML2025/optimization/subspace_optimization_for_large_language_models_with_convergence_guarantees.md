@@ -54,20 +54,20 @@ GoLore: $P$ 由随机矩阵生成（数据无关，无偏）
 
 1. **GaLore 反例构造（Counterexample for GaLore Divergence）**:
 
-    - 做什么：构造一个简单的凸优化问题，使 GaLore 不收敛到最优解
+    - 功能：构造一个简单的凸优化问题，使 GaLore 不收敛到最优解
     - 核心思路：在 2 维问题上，当真实梯度在两个坐标方向上分量相近但噪声不同时，SVD 选择的投影方向会系统性偏离真实梯度方向
     - 关键公式：$\mathbb{E}[P(\hat{G})\hat{G}] \neq P(G)G$，即投影后梯度的期望不等于真实梯度的投影
     - 设计动机：明确了 GaLore 的理论缺陷，为改进提供方向
 
 2. **GaLore 收敛条件（Conditions for GaLore Convergence）**:
 
-    - 做什么：识别 GaLore 仍然能收敛的特殊条件
+    - 功能：识别 GaLore 仍然能收敛的特殊条件
     - 核心思路：两种情况下 GaLore 收敛：(i) 使用足够大的 mini-batch（降低 SVD 方向偏差），(ii) 梯度噪声为各向同性的（此时 SVD 方向不受噪声影响）
     - 设计动机：解释了为什么 GaLore 在实践中经常有效（大 batch + 近似各向同性噪声）
 
 3. **GoLore: 梯度随机低秩投影（Gradient Random Low-rank Projection）**:
 
-    - 做什么：用随机投影替代 SVD 投影
+    - 功能：用随机投影替代 SVD 投影
     - 核心思路：投影矩阵 $P$ 从随机矩阵分布中采样（每隔 $T_0$ 步更新一次），保证 $\mathbb{E}[P \hat{G}] \propto G$
     - 关键公式：$P = Q Q^\top$，其中 $Q$ 为随机正交矩阵的前 $r$ 列
     - 设计动机：随机投影是数据无关的，因此不会引入系统性偏差。虽然单次投影可能丢失真实梯度的某些分量，但期望上是无偏的

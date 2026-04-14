@@ -7,9 +7,9 @@ tags:
   - CVPR 2026
   - AI安全
   - 联邦学习
-  - active learning
+  - 主动学习
   - non-IID
-  - class imbalance
+  - 类别不平衡
   - query selection
   - class-fair sampling
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.10341](https://arxiv.org/abs/2603.10341)  
 **代码**: [GitHub](https://github.com/chenchenzong/FairFAL)  
 **领域**: 联邦学习 / 主动学习  
-**关键词**: federated learning, active learning, non-IID, class imbalance, query selection, class-fair sampling  
+**关键词**: 联邦学习, 主动学习, non-IID, 类别不平衡, query selection, class-fair sampling
 
 ## 一句话总结
 系统分析全局类不平衡与客户端异构性对联邦主动学习中 query model 选择的影响，发现类平衡采样能力是性能的最一致预测因子，据此提出 FairFAL——自适应选择 query model + 原型引导伪标签 + 不确定性-多样性平衡采样的类公平 FAL 框架。

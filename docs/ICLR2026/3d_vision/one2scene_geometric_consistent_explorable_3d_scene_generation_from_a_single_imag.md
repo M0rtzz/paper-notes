@@ -52,19 +52,19 @@ tags:
 
 1. **全景锚点视角生成**：
 
-    - 做什么：把单图扩展为360度全景，然后投影为6个cubemap锚点视角
+    - 功能：把单图扩展为360度全景，然后投影为6个cubemap锚点视角
     - 核心思路：使用Hunyuan-Pano-DiT生成全景图，然后投影为6个透视cubemap视角(FoV=95度，相邻视角有2.5度重叠)
     - 设计动机：全景图提供全局语义覆盖，cubemap投影允许利用透视图像的多视角立体匹配先验，比直接处理全景图(等距投影畸变)更稳健
 
 2. **前馈3DGS几何Scaffold (双向融合)**：
 
-    - 做什么：从6个稀疏锚点视角前馈预测3D Gaussian参数，构建显式3D scaffold
+    - 功能：从6个稀疏锚点视角前馈预测3D Gaussian参数，构建显式3D scaffold
     - 核心思路：基于VGGT backbone。将全景深度估计重新formulate为多视角立体匹配——6个cubemap视角作为"多视角"输入。关键创新是双向融合模块(Bidirectional Fusion)：6个视角特征$F_i$ -> Cube-to-Equirectangular (C2E)投影到统一等距空间 -> 卷积融合 -> E2C变换回cubemap空间 -> 残差连接：$F_i' = F_i + E2C(H_c(C2E(\{F_i\})))$
     - 设计动机：6个cubemap视角重叠极少(仅2.5度)，现有多视角模型(VGGT)在如此稀疏overlap下性能严重下降。双向融合通过等距空间中间表示强制跨视角一致性，同时残差连接保留视角特有细节。Gaussian中心通过深度反投影计算：$\mu = K^{-1}ud + \Delta$
 
 3. **Scaffold引导新视角合成 (Dual-LoRA)**：
 
-    - 做什么：利用scaffold先验从任意视角生成逼真图像
+    - 功能：利用scaffold先验从任意视角生成逼真图像
     - 核心思路：基于SEVA架构。Scaffold渲染的视角含丰富几何但有伪影/空洞，锚点视角质量高但缺几何信息——两种异质条件。Dual-LoRA策略：两个独立LoRA模块分别处理锚点视角和scaffold渲染视角，然后通过3D attention机制融合到noisy latent中
     - 设计动机：naive的channel-wise拼接无法有效区分和利用两种异质条件信号。Dual-LoRA让模型分别学习从高质量外观和粗糙几何中提取有用信息。Memory condition(从memory bank选最近生成帧)进一步保证长序列时序一致性
 

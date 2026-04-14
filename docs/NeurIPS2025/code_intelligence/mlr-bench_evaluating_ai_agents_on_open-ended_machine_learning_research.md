@@ -6,7 +6,7 @@ description: >-
 tags:
   - NeurIPS 2025
   - AI研究代理
-  - 基准测试
+  - benchmark
   - LLM评审
   - 自动化科学发现
   - 实验结果幻觉
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.19955](https://arxiv.org/abs/2505.19955)  
 **代码**: [https://github.com/chchenhui/mlrbench](https://github.com/chchenhui/mlrbench)  
 **领域**: llm_nlp  
-**关键词**: AI研究代理, 基准测试, LLM评审, 自动化科学发现, 实验结果幻觉
+**关键词**: AI研究代理, benchmark, LLM评审, 自动化科学发现, 实验结果幻觉
 
 ## 一句话总结
 

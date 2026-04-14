@@ -43,20 +43,20 @@ tags:
 
 1. **指数残差编码（Exponential Residual / Gamma Map）**:
 
-    - 做什么：将乘法残差（gain map）替换为指数残差（gamma map）
+    - 功能：将乘法残差（gain map）替换为指数残差（gamma map）
     - 核心思路：传统 gain map 用乘法关系：$f(x,y) = (H+\epsilon)/(S+\epsilon)$，解码为 $H' = (S+\epsilon) \odot f'(x,y) - \epsilon$。指数残差改为：$f(x,y) = \log(H+\epsilon)/\log(S+\epsilon)$，解码为 $H' = (S+\epsilon)^{f'(x,y)} - \epsilon$
     - 设计动机：指数残差更接近色调映射操作的本质——色调映射通常是非线性的幂函数变换。指数残差相当于一个更准确的预测编码近似，减少了 MLP 需要学习的残差复杂度。实验证明 Gamma-MLP 在所有比特率下都比 Gain-MLP 表现更好且更稳定
 
 2. **轻量级 MLP 架构**:
 
-    - 做什么：用极小的 MLP 编码 gain/gamma map
+    - 功能：用极小的 MLP 编码 gain/gamma map
     - 核心思路：5 维输入 $(x,y,r,g,b)$ → 每维 24 维正弦嵌入 → 120 维输入 → 两层 ReLU MLP（每层 16 神经元）→ 3 通道输出（RGB gain/gamma 值）。最终模型大小仅 **10KB**
     - 训练配置：batch size 65,536 随机采样像素，MSE 损失，Adam 优化器（lr=1e-2），1000 迭代，约 4 秒/图像（RTX 6000）
     - 设计动机：MLP 不是从 $(x,y)$ 预测 $(r,g,b)$（那样很慢），而是利用 SDR 图像的颜色作为强先验输入，因为 SDR 颜色与 gain map 高度相关。这使得训练极快，且模型可以极小
 
 3. **色度噪声元初始化（Chromatic Noise Meta-Initialization）**:
 
-    - 做什么：为 MLP 提供更好的权重初始化
+    - 功能：为 MLP 提供更好的权重初始化
     - 核心思路：使用 Daly 等人提出的时空色度自然图像统计模型生成 50 张色度噪声图像，这些图像覆盖 Rec. 2020 色域，其 BT.709 SDR 对应版本用 DaVinci Resolve 默认色调映射处理。在这些合成数据上预训练 MLP 10,000 迭代获得元初始化权重
     - 设计动机：与用自然图像做元初始化不同，色度噪声图像保留了自然图像的统计特性（空间和色度相关性），同时避免了特定内容的偏差。这加速了后续单图优化的收敛并提高重建质量
 

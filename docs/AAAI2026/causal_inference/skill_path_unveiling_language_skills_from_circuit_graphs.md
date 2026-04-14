@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Skill Path: Unveiling Language Skills from Circuit Graphs
 description: >-
-  [AAAI2026][mechanistic interpretability] 提出 Skill Path 概念及三步框架（分解-剪枝-因果中介），从电路图中提取语言模型特定技能的线性路径，定量验证了技能的分层性（Stratification）和包容性（Inclusiveness）两大猜想。
+  [AAAI2026][机制可解释性] 提出 Skill Path 概念及三步框架（分解-剪枝-因果中介），从电路图中提取语言模型特定技能的线性路径，定量验证了技能的分层性（Stratification）和包容性（Inclusiveness）两大猜想。
 tags:
   - AAAI2026
-  - mechanistic interpretability
-  - circuit discovery
+  - 机制可解释性
+  - 电路发现
   - skill path
   - causal mediation
-  - language model
+  - 语言模型
 ---
 
 # Skill Path: Unveiling Language Skills from Circuit Graphs
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.01334](https://arxiv.org/abs/2410.01334)  
 **代码**: [GitHub](https://github.com/Zodiark-ch/Language-Skill-of-LLMs)  
 **领域**: causal_inference  
-**关键词**: mechanistic interpretability, circuit discovery, skill path, causal mediation, language model  
+**关键词**: 机制可解释性, 电路发现, skill path, causal mediation, 语言模型
 
 ## 一句话总结
 

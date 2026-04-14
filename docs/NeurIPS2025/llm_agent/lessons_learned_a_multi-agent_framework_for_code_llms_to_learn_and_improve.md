@@ -50,7 +50,7 @@ LessonL 框架的核心循环：初始解生成 → Lesson 提取 → Lesson 存
 
 1. **Lesson 提取（Solicitation）**:
 
-    - 做什么：从代码修改结果中提取自然语言形式的优化经验
+    - 功能：从代码修改结果中提取自然语言形式的优化经验
     - 核心思路：基于四种代码修改场景提取不同类型 lesson：
       - (a) 加速：代码更快且正确 → 正向 lesson（如"重新排序循环改进缓存局部性"）
       - (b) 减速：代码正确但更慢 → 警告 lesson
@@ -60,13 +60,13 @@ LessonL 框架的核心循环：初始解生成 → Lesson 提取 → Lesson 存
 
 2. **Lesson 存储与选择（Banking & Selection）**:
 
-    - 做什么：管理 lesson 池，为下一轮选择最有用的 lesson
+    - 功能：管理 lesson 池，为下一轮选择最有用的 lesson
     - 核心思路：混合选择策略——取 top ⌈k/2⌉ 高 speedup 的 lesson（优选）+ top ⌊k/2⌋ 高相关性（CodeBERT 余弦相似度）的 lesson
     - 设计动机：纯高 speedup 选择可能导致轨迹固化，混合策略引入多样性
 
 3. **有效性动态调整**:
 
-    - 做什么：随时间调整 lesson 的权重
+    - 功能：随时间调整 lesson 的权重
     - 核心思路：定义调整因子 $f$：当 lesson 在后续轮次应用时，实际 speedup 与原始 speedup 比较，累积更新 $f = c/n$
     - 设计动机：lesson 创建时有效不代表一直有效，需要自适应降级在实际中表现不佳的 lesson
 

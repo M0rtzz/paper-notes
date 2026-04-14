@@ -8,8 +8,8 @@ tags:
   - 目标检测
   - Video LLM
   - Token Reduction
-  - Optimal Transport
-  - Training-Free
+  - optimal transport
+  - training-free
   - Spatiotemporal Compression
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2603.01400](https://arxiv.org/abs/2603.01400)  
 **代码**: [AOT Project](https://github.com/) (待确认)  
 **领域**: object_detection  
-**关键词**: Video LLM, Token Reduction, Optimal Transport, Training-Free, Spatiotemporal Compression
+**关键词**: Video LLM, Token Reduction, optimal transport, training-free, Spatiotemporal Compression
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **视频 LLM 的计算瓶颈**：Video LLM 处理视频时，视觉编码器将采样帧转化为大量 token（长视频可达百万级），prefilling 阶段占据了绝大部分 FLOPs（约 98%），推理成本极高。
+
 **现有训练式压缩的局限**：部分方法通过可训练模块压缩 token，但需大量训练资源和 GPU 开销，难以广泛部署。
+
 **空间压缩忽略时序依赖**：VisionZip、LLaVA-PruMerge 等方法主要做帧内空间冗余去除，在低保留率下性能骤降（如 10% 保留时性能下降 8.4%），因为未利用帧间时序冗余。
+
 **LLM 内部剪枝效率有限**：FastV、PDrop 等在 LLM 层内做 token 剪枝，但浅层开销仍在，且难以有效利用长上下文的可压缩性。
+
 **简单合并/丢弃丢失关键信息**：现有方法要么直接丢弃低重要性 token，要么简单合并相似 token，忽略了这些 token 中包含的细微但有用的语义和上下文信息。
+
 **缺乏全局最优的信息聚合视角**：已有方法缺少一种系统性的框架来度量被剪枝 token 与保留 token 之间的关系，并将有用信息最优地汇聚到保留 token 上。
 
 ## 方法详解

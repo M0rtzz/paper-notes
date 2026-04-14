@@ -8,7 +8,7 @@ tags:
   - AI安全
   - contextual integrity
   - privacy
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - chain-of-thought
   - information disclosure
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.04245](https://arxiv.org/abs/2506.04245)  
 **代码**: [EricGLan/CI-RL](https://github.com/EricGLan/CI-RL)  
 **领域**: ai_safety  
-**关键词**: contextual integrity, privacy, reinforcement learning, GRPO, chain-of-thought, information disclosure
+**关键词**: contextual integrity, privacy, reinforcement-learning, GRPO, chain-of-thought, information disclosure
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 代理正获得越来越多的自主权（预订、发邮件、管理文件），需要代表用户与外部世界交互，不可避免地需要访问和处理用户的个人信息。
+
 **现有痛点**：(a) LLM 缺乏对"上下文完整性"（CI）的理解——即在特定上下文中什么信息适合分享、什么不适合；(b) 即便没有恶意攻击，模型也可能无意中泄露无关的敏感信息；(c) 通过限制信息访问在实践中往往不可行（如 RAG 系统需要广泛访问用户文件）。
+
 **核心矛盾**：LLM 拥有关于隐私和敏感信息的知识，但在上下文细微差别下无法一致做出正确的信息披露判断。这本质上是一个推理问题——模型需要推理当前上下文中哪些信息流是合适的。
+
 **本文要解决什么？** (a) LLM 的推理能力能否被显式引导来判断信息披露的合适性？(b) 能否通过强化学习进一步强化这种推理能力？(c) 在小规模合成数据上训练的能力能否迁移到真实世界基准？
+
 **切入角度**：CI 本质上是推理任务，类似于数学推理或代码推理——模型需要分析上下文、评估每个属性的相关性、做出披露决策。因此可以用 CoT 推理 + RL 的范式来训练。
+
 **核心idea一句话**：通过 CoT 显式推理上下文规范 + GRPO 强化学习优化规则化奖励信号，教会 LLM 在完成任务的同时尊重信息边界。
 
 ## 方法详解
@@ -45,19 +50,19 @@ tags:
 
 1. **CI-CoT 推理模板**:
 
-    - 做什么：显式引导模型在回答前推理每个信息属性的上下文合适性
+    - 功能：显式引导模型在回答前推理每个信息属性的上下文合适性
     - 核心思路：提示模板要求模型在 `<think>...</think>` 中分析任务上下文，逐一评估每个个人属性是"必要的/有帮助的/可选的/不适合的"，然后在 `<answer>...</answer>` 中仅使用合适的信息完成任务
     - 设计动机：受 CoT 在数学推理中成功的启发，将 CI 判断显式化为推理步骤，而非让模型隐式决策
 
 2. **三阶段合成数据集管道**:
 
-    - 做什么：自动生成多样化的 CI 训练场景
+    - 功能：自动生成多样化的 CI 训练场景
     - 核心思路：Stage 1（初始种子）：采样场景（发邮件/聊天）× 领域（医疗/金融/教育等 10 种）× 传输原则（保密性/比例性/同意）产生随机种子；Stage 2（小品剧本 vignettes）：GPT-4 将种子扩展为完整场景，填充 CI 字段（发送方/接收方/主体），并生成 required/restricted 信息类型；Stage 3（最终样本）：GPT-4 将 vignettes 填充为自然对话格式的训练样本（key-value 对 + 流标注 + 关键词匹配标记）
     - 设计动机：人工标注 CI 样本成本高且难以覆盖足够多的场景；合成数据可高效探索场景空间
 
 3. **GRPO 强化学习与规则化奖励**:
 
-    - 做什么：通过 RL 进一步优化模型的 CI 推理能力
+    - 功能：通过 RL 进一步优化模型的 CI 推理能力
     - 核心思路：使用 GRPO 算法（无需 critic 网络），目标函数为
 
     $J(\theta) = \mathbb{E}\left[\frac{1}{G}\sum_{i=1}^G \left(\min\left(\frac{\pi_\theta(a_i|q)}{\pi_{\text{old}}(a_i|q)}A_i, \text{clip}(\cdot)A_i\right) - \beta D_{\text{KL}}(\pi_\theta \| \pi_{\text{ref}})\right)\right]$

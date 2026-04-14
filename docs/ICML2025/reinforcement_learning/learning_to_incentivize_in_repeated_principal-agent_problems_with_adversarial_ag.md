@@ -8,7 +8,7 @@ tags:
   - principal-agent
   - adversarial bandits
   - incentive design
-  - regret bounds
+  - regret bound
   - mechanism design
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.23124](https://arxiv.org/abs/2505.23124)  
 **代码**: 无  
 **领域**: reinforcement_learning / 博弈论  
-**关键词**: principal-agent, adversarial bandits, incentive design, regret bounds, mechanism design
+**关键词**: principal-agent, adversarial bandits, incentive design, regret bound, mechanism design
 
 ## 一句话总结
 

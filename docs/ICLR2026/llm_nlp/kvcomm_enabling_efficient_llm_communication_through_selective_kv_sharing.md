@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：多 LLM 协作场景需要高效通信机制，现有方法传递 hidden states 或全部 KV cache。
+
 **现有痛点**：① Hidden states 的 last token 在深层最关键但传递会覆盖 Receiver 信息；② 全 KV cache 传输量太大。
+
 **核心矛盾**：通信效率 vs 信息完整性的平衡。
+
 **本文要解决**：找到最适合跨 LLM 传递的表示形式和选择策略。
+
 **切入角度**：系统对比 hidden states 和 KV pairs，发现 KV pairs 天然适合——可按层选择传递且不覆盖 Receiver 信息。
+
 **核心idea**：KV pairs 是最佳通信介质；选中间层（语义最丰富）+ 高注意力层 → 最优子集。
 
 ## 方法详解

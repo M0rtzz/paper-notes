@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis
 description: >-
-  [CVPR 2026][noisy labels] 通过宏观收敛态、微观梯度动力学和信息论三个层次，严格证明了即使给定完美噪声转移矩阵，前向校正（FC）仍不可避免地塌缩到与无校正相同的次优水平，根本原因在于有限样本下的记忆化和噪声信道的信息损失。
+  [CVPR 2026][噪声标签] 通过宏观收敛态、微观梯度动力学和信息论三个层次，严格证明了即使给定完美噪声转移矩阵，前向校正（FC）仍不可避免地塌缩到与无校正相同的次优水平，根本原因在于有限样本下的记忆化和噪声信道的信息损失。
 tags:
   - CVPR 2026
-  - noisy labels
+  - 噪声标签
   - transition matrix
   - forward correction
-  - information theory
-  - memorization
+  - 信息论
+  - 记忆
 ---
 
 # Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.12997](https://arxiv.org/abs/2603.12997)  
 **代码**: 无  
 **领域**: 噪声标签学习 / 理论分析 / 鲁棒训练  
-**关键词**: noisy labels, transition matrix, forward correction, information theory, memorization  
+**关键词**: 噪声标签, transition matrix, forward correction, 信息论, 记忆
 
 ## 一句话总结
 通过宏观收敛态、微观梯度动力学和信息论三个层次，严格证明了即使给定完美噪声转移矩阵，前向校正（FC）仍不可避免地塌缩到与无校正相同的次优水平，根本原因在于有限样本下的记忆化和噪声信道的信息损失。

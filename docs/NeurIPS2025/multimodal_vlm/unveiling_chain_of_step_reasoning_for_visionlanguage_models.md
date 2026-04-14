@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.19003](https://arxiv.org/abs/2509.19003)  
 **代码**: [https://github.com/baaivision/CoS](https://github.com/baaivision/CoS)  
 **领域**: 多模态VLM / 视觉推理 / 过程奖励模型  
-**关键词**: chain-of-step, process reward model, step-level reasoning, iterative DPO, inference-time scaling  
+**关键词**: chain-of-step, process reward model, step-level reasoning, iterative DPO, inference-time scaling
 
 ## 一句话总结
 提出Chain-of-Step (CoS)推理框架：将VLM的推理链分解为结构化步骤（Name+Thought+Reflection），训练Process Reward Model (PRM)提供步骤级精细奖励，通过迭代DPO和step-level beam search显著提升VLM推理能力——在InternVL-2.5-MPO-8B上平均提升4.0%达到73.4%，并揭示"对VLM而言推理质量比长度更重要"。

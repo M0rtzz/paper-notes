@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction"
-description: "[AAAI 2026][自动驾驶][协同感知] 提出首个基于3D语义高斯体素的纯视觉协同语义占据预测框架，通过高斯包装传输+跨agent高斯融合模块，在通信效率和占据预测精度上优于已有方法。"
+title: >-
+  [论文解读] Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction
+description: >-
+  [自动驾驶] 提出首个使用稀疏3D语义高斯基元作为协同感知通信介质的纯视觉语义占据预测框架，通过ROI裁剪+刚性变换传输高斯+邻域融合模块抑制噪声冗余，在mIoU上比单车提升+8.42，比baseline协同方法提升+3.28。
 tags:
-  - AAAI 2026
   - 自动驾驶
-  - 协同感知
-  - 高斯溅射
 ---
 
 # Vision-Only Gaussian Splatting for Collaborative Semantic Occupancy Prediction

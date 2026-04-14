@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Large Motion Model for Unified Multi-Modal Motion Generation
 description: >-
-  [ECCV 2024][人体理解][motion generation] 提出 Large Motion Model (LMM)，首个以动作为中心的多模态统一动作生成基础模型，通过构建包含 10 个任务、16 个数据集、320K 序列的 MotionVerse 基准，设计支持身体部位感知的 ArtAttention 机制，以及结合随机帧率/掩码的预训练策略，实现跨任务的高质量动作生成。
+  [ECCV 2024][人体理解][运动生成] 提出 Large Motion Model (LMM)，首个以动作为中心的多模态统一动作生成基础模型，通过构建包含 10 个任务、16 个数据集、320K 序列的 MotionVerse 基准，设计支持身体部位感知的 ArtAttention 机制，以及结合随机帧率/掩码的预训练策略，实现跨任务的高质量动作生成。
 tags:
   - ECCV 2024
   - 人体理解
-  - motion generation
+  - 运动生成
   - 多模态
   - 扩散模型
-  - unified model
+  - 统一模型
   - large-scale
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2404.01284](https://arxiv.org/abs/2404.01284)  
 **代码**: [项目主页](https://mingyuan-zhang.github.io/projects/LMM.html)  
 **领域**: 人体理解  
-**关键词**: motion generation, multi-modal, diffusion model, unified model, large-scale
+**关键词**: 运动生成, 多模态, 扩散模型, 统一模型, large-scale
 
 ## 一句话总结
 

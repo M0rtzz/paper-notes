@@ -2,7 +2,7 @@
 title: >-
   [论文解读] A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems
 description: >-
-  [ACL 2025][LLM Agent][公平性] 提出一种双Agent协作框架（Dialect Agent + Privacy Policy Agent），通过方言感知翻译、领域专家回答与迭代审查三步流程，在零训练条件下将隐私政策QA系统在50种英语方言间的最大性能差距降低最高82%，zero-shot表现即超越few-shot基线。
+  [ACL 2025][LLM Agent][多智能体] 提出一个双 Agent 框架（Dialect Agent + Privacy Policy Agent），通过方言感知翻译和迭代协作来消除隐私政策QA系统在不同英语方言间的性能差距，无需重训练或方言特定微调，在 PrivacyQA 和 PolicyQA 上将方言间最大性能差距降低最高 82%。
 tags:
   - ACL 2025
   - LLM Agent
@@ -10,7 +10,7 @@ tags:
   - 方言偏差
   - 隐私政策QA
   - 公平性
-  - 提示工程
+  - LLM协作
 ---
 
 # A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems
@@ -47,19 +47,19 @@ tags:
 
 1. **Dialect Agent（方言翻译 + 意图守护者）**:
 
-    - 做什么：(Step 1) 将方言问题翻译为 SAE，保留原始意图和文化细微含义；(Step 2b/2c) 审查 Privacy Agent 的回答是否忠实于用户方言原意，不满意则反馈修改意见
+    - 功能：(Step 1) 将方言问题翻译为 SAE，保留原始意图和文化细微含义；(Step 2b/2c) 审查 Privacy Agent 的回答是否忠实于用户方言原意，不满意则反馈修改意见
     - 核心思路：在 prompt 中注入目标方言的简明语言学档案（语音特征、语法规则、特殊词汇、文化背景）。例如对印度英语注入卷舌辅音和语法模式说明，对牙买加英语注入非卷舌发音和独特动词结构。翻译质量经实测 BLEU=46.5、ROUGE-L=80.5，500+ 样本无幻觉
     - 设计动机：LLM 在 SAE 上训练最充分，直接理解方言时会误解语义。通过显式翻译，让下游 Privacy Agent 始终在其最擅长的语言上工作。Dialect Agent 同时承担审查角色，形成"翻译-审查"闭环，确保翻译过程中的信息损失在迭代中被修复
 
 2. **Privacy Policy Agent（领域专家）**:
 
-    - 做什么：(Step 2a) 基于 SAE 问题和隐私政策文本生成回答及推理依据；收到 Dialect Agent 反馈后 (Step 2b) 修正回答
+    - 功能：(Step 2a) 基于 SAE 问题和隐私政策文本生成回答及推理依据；收到 Dialect Agent 反馈后 (Step 2b) 修正回答
     - 核心思路：被 prompt 为隐私政策领域专家，了解数据实践的标准分类体系（First Party Collection、Third Party Sharing、Data Retention、User Choice/Control 等），从政策文本中精确提取信息
     - 设计动机：职责分离——让 Privacy Agent 专注于法律文本理解的专业性，不需要同时处理方言理解的复杂性。这种分工使每个 Agent 都在其专长领域内工作
 
 3. **迭代协作与分歧解决机制**:
 
-    - 做什么：Dialect Agent 评审 Privacy Agent 回答后，若发现不符合方言用户原意，触发最多 2 轮修正循环
+    - 功能：Dialect Agent 评审 Privacy Agent 回答后，若发现不符合方言用户原意，触发最多 2 轮修正循环
     - 核心思路：Dialect Agent 同时拿到原始方言问题、政策文本和 Privacy Agent 的答案+推理。如果判定答案偏离意图（例如忽略了方言特有的口语化表达背后的实际关切），给出具体反馈让 Privacy Agent 重新考虑
     - 设计动机：实验证明迭代不可省略。Zero-shot 下从 Initial→Final，PrivacyQA F1 从 0.53 提升至 0.59。22.99%（zero-shot）到 31.75%（few-shot）的案例中 Dialect Agent 推翻了 Privacy Agent 的初始答案，其中 63-72% 的推翻是正确的
 
@@ -169,19 +169,19 @@ tags:
 
 1. **Dialect Agent（方言翻译 + 审查 Agent）**:
 
-    - 做什么：将用户方言问题翻译成标准美式英语（SAE），并在后续验证 Privacy Agent 的回答是否符合用户原始意图
+    - 功能：将用户方言问题翻译成标准美式英语（SAE），并在后续验证 Privacy Agent 的回答是否符合用户原始意图
     - 核心思路：在 prompt 中注入目标方言的语言学背景知识（语音、语法、词汇、文化特征），使 Agent 能够准确理解方言表达并转译为 SAE。翻译时保留方言特有的文化含义和语气细微差别
     - 设计动机：LLM 在 SAE 上训练最充分，直接处理方言时可能误解语义。通过显式翻译+方言知识注入，避免了方言理解偏差。同时 Dialect Agent 承担审查角色，确保最终回答不丢失方言用户的意图
 
 2. **Privacy Policy Agent（领域专家 Agent）**:
 
-    - 做什么：基于翻译后的 SAE 问题和隐私政策文本生成回答
+    - 功能：基于翻译后的 SAE 问题和隐私政策文本生成回答
     - 核心思路：作为隐私政策领域专家被 prompt，理解隐私政策的结构和术语（如 First Party Collection、Data Retention 等分类），生成精确的回答及推理依据
     - 设计动机：专业化分工——让 Privacy Agent 专注于领域知识，不需要同时处理方言理解的复杂性
 
 3. **迭代协作机制**:
 
-    - 做什么：Dialect Agent 评审 Privacy Agent 的回答，如不满意则反馈修改意见，最多循环 2 次
+    - 功能：Dialect Agent 评审 Privacy Agent 的回答，如不满意则反馈修改意见，最多循环 2 次
     - 核心思路：Dialect Agent 拿到原始方言问题、政策文本和 Privacy Agent 的答案，判断答案是否充分捕捉用户意图。如果 Privacy Agent 遗漏了方言特定的语义细微差别，Dialect Agent 给出具体反馈，Privacy Agent 据此修正
     - 设计动机：单次翻译+回答不够——实验表明迭代后 PrivacyQA 的 F1 从 0.53 提升到 0.59（zero-shot）。方言的语义细微差别需要多轮交互才能充分处理
 

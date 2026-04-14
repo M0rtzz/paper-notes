@@ -7,7 +7,7 @@ tags:
   - ICLR2026
   - 人体理解
   - tool-use
-  - 强化学习
+  - reinforcement-learning
   - LLM agent
   - synthetic environment
   - code-based training
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.17325](https://arxiv.org/abs/2509.17325)  
 **代码**: [StigLidu/CodeGym](https://github.com/StigLidu/CodeGym)  
 **领域**: llm_agent  
-**关键词**: tool-use, reinforcement learning, LLM agent, synthetic environment, code-based training  
+**关键词**: tool-use, reinforcement-learning, LLM agent, synthetic environment, code-based training
 
 ## 一句话总结
 

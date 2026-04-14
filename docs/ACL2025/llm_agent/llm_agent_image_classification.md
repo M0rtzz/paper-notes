@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models
 description: >-
-  [ACL 2025][LLM Agent][Concept Bottleneck Models] 提出 Conditional Concept Bottleneck Models (CoCoBMs) 和 LLM-driven Concept Agent 框架，通过类别条件化的概念评分机制和基于环境反馈的动态概念库优化，在 6 个数据集上提升分类准确率 6% 的同时将可解释性提升约 30%。
+  [ACL 2025][LLM Agent][concept bottleneck model] 提出 Conditional Concept Bottleneck Models (CoCoBMs) 和 LLM-driven Concept Agent 框架，通过类别条件化的概念评分机制和基于环境反馈的动态概念库优化，在 6 个数据集上提升分类准确率 6% 的同时将可解释性提升约 30%。
 tags:
   - ACL 2025
   - LLM Agent
-  - Concept Bottleneck Models
+  - concept bottleneck model
   - Interpretable Classification
   - Dynamic Concept Bank
   - CLIP
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.01334](https://arxiv.org/abs/2506.01334)  
 **代码**: 无  
 **领域**: LLM Agent  
-**关键词**: Concept Bottleneck Models, LLM Agent, Interpretable Classification, Dynamic Concept Bank, CLIP  
+**关键词**: concept bottleneck model, LLM Agent, Interpretable Classification, Dynamic Concept Bank, CLIP
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 Concept Bottleneck Models (CBMs) 将图像分类分解为通过可解释的人类可读概念进行决策的过程，是可解释深度学习的代表性方法。近年来基于 CLIP 的 CBMs 利用 LLM 生成候选概念，消除了手动构建概念库和标注的需要。然而，三个关键问题仍未解决：
 
 **概念数量不确定**：最优概念数量是什么？LaBo 为 CUB 数据集使用了 10,000 个概念，而 LM4CV 仅使用 32 个概念却取得了类似性能。过多导致冗余，过少导致覆盖不足——两个数量级的差异说明当前方法缺乏系统的概念数量优化机制。
+
 **共享评分机制的局限**：传统 CBMs 对所有类别使用相同的概念评分（shared scoring），但同一个概念对不同类别的贡献可能截然不同（如"红色羽毛"对"红衣主教鸟"比对"鸽子"的辨识价值高得多）。
+
 **概念编辑的局限**：现有方法仅在测试时允许人类手动编辑概念分数来纠正错误，无法规模化且未利用 LLM 的事实知识自动纠正激活错误的概念。
 
 ## 方法详解
@@ -119,14 +121,14 @@ $$-\frac{1}{N} \sum_{j=1}^{N} \left[W_p y_i \log(\hat{y}_i) + (1-y_i) \log(1-\ha
 ### 关键发现
 
 1. **动态 vs 静态 grounding**（Table 1）：
-   - CIFAR-100：准确率 72.67% → 74.63%；可解释性 67.90% → **79.30%**
-   - Flower：准确率 87.45% → 89.51%；可解释性 70.59% → **82.35%**
-   - 动态 grounding 平均可解释性提升 **10.76%**
+    - CIFAR-100：准确率 72.67% → 74.63%；可解释性 67.90% → **79.30%**
+    - Flower：准确率 87.45% → 89.51%；可解释性 70.59% → **82.35%**
+    - 动态 grounding 平均可解释性提升 **10.76%**
 
 2. **Editable Matrix 的作用**（Table 2）：
-   - 移除 E 后 CIFAR-100 可解释性从 79.30% 骤降至 **39.60%**
-   - Flower 从 82.35% 降至 **35.59%**
-   - E 轻微牺牲准确率（~0.1-2%）但大幅提升可解释性，说明事实约束对可解释性至关重要
+    - 移除 E 后 CIFAR-100 可解释性从 79.30% 骤降至 **39.60%**
+    - Flower 从 82.35% 降至 **35.59%**
+    - E 轻微牺牲准确率（~0.1-2%）但大幅提升可解释性，说明事实约束对可解释性至关重要
 
 3. **Few-shot 环境中的鲁棒性**：随样本数增加准确率提升，但可解释性保持稳定，证明模型在有限数据下仍能保持良好的可解释性。
 

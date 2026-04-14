@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Can Agents Fix Agent Issues?
 description: >-
-  [NeurIPS 2025][软件工程][Agent系统维护] 本文首次系统研究LLM Agent系统的issue自动修复问题，通过人工分析201个真实Agent issue构建了6大类20子类的分类体系，花费500人时构建了50个可复现任务的AgentIssue-Bench基准，评估发现SOTA SE Agent在Agent issue上的正确修复率仅3.33%-12.67%，远低于传统软件的23%-51%，揭示了Agent系统维护的独特挑战。
+  [NeurIPS 2025][机器人][Agent系统维护] 本文首次系统地研究了 LLM-based Agent 系统的 issue 自动修复问题——通过人工分析 201 个真实 Agent issue 构建了涵盖 6 大类 20 个子类的 Agent issue 分类体系，耗费 500 人时构建了包含 50 个可复现任务的 AgentIssue-Bench 基准，并评估发现当前最先进的软件工程 Agent（如 SWE-agent、Agentless、AutoCodeRover）在 Agent issue 上的正确修复率仅为 3.33%–12.67%，远低于它们在传统软件上的 23%–51% 修复率。
 tags:
   - NeurIPS 2025
-  - 软件工程
-  - Agent系统
-  - Bug修复
-  - 基准测试
-  - LLM Agent
-  - 软件维护
+  - 机器人
+  - Agent系统维护
+  - Issue自动修复
+  - 软件工程Agent
+  - Bug分类
+  - benchmark
 ---
 
 # Can Agents Fix Agent Issues?
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.20749](https://arxiv.org/abs/2505.20749)  
 **代码**: [https://github.com/alfin06/AgentIssue-Bench](https://github.com/alfin06/AgentIssue-Bench)  
 **领域**: Agent / 软件工程  
-**关键词**: Agent系统维护, Issue自动修复, 软件工程Agent, Bug分类, 基准测试
+**关键词**: Agent系统维护, Issue自动修复, 软件工程Agent, Bug分类, benchmark
 
 ## 一句话总结
 
@@ -49,13 +49,13 @@ tags:
 
 1. **Agent Issue 分类体系构建方法**:
 
-    - 做什么：从真实世界的 Agent 系统中系统性地收集和分类 issue，建立第一个 Agent issue 分类体系
+    - 功能：从真实世界的 Agent 系统中系统性地收集和分类 issue，建立第一个 Agent issue 分类体系
     - 核心思路：首先通过 GitHub Search API 获取以"AI agents"为关键词的 50 个仓库，经过人工筛选保留真正的 LLM-based Agent 系统（过滤论文列表、教程等无关仓库），进一步筛选出拥有 1k+ star 和 30+ issue 的活跃项目，最终得到 16 个 Agent 系统（包括 MetaGPT、AutoGen、CrewAI、GPT-Engineer、BabyAGI、CAMEL、ChatDev 等）。对于每个系统的 issue，采用三个筛选标准：(i) issue 已被关闭且有开发者提交的修复 patch（作为根因理解的 ground truth）；(ii) issue 描述清晰，无误导信息；(iii) 每条 issue 只包含一个问题。最终收集到 201 条高质量 issue。随后，将其中 171 条 (85%) 用于建设分类体系、30 条 (15%) 用于评估分类体系。三位具有丰富软件开发和机器学习经验的标注员使用开放编码（open coding）方法对每个 issue 进行标注，将 issue 分解为片段并赋予描述性标签，再通过合并和关联形成结构化分类。所有标注员讨论并审查分类体系直至达成共识。评估阶段两名独立标注员的 Cohen's Kappa 达到 0.849，且未出现新的类别，验证了分类体系的泛化性和可靠性
     - 设计动机：过去缺乏对 Agent issue 的系统性理解。传统软件的 issue 分类体系无法覆盖 Agent 系统独有的问题类型（如 LLM 提供商兼容性、Agent 记忆错误、工作流异常等）。只有先建立清晰的分类体系，才能有针对性地评估和改进自动修复工具的能力
 
 2. **六大类 Agent Issue 分类体系**:
 
-    - 做什么：将 Agent 系统的 issue 归纳为 6 大类 20 个子类，每类附有详细定义和真实案例
+    - 功能：将 Agent 系统的 issue 归纳为 6 大类 20 个子类，每类附有详细定义和真实案例
     - 核心思路：6 大类分别为——
       **(a) LLM 提供商不兼容性 (7.46%)**：包括依赖库不兼容（如 anthropic 库 API 变更）、不支持新模型（如缺少 GPT-4 Turbo 支持）、API 参数不兼容（如向不支持 stop 参数的 o1-preview 模型传递 stop 参数）。
       **(b) 工具相关问题 (18.41%)**：包括工具依赖缺失（如缺少 tenacity 模块）、工具配置错误（如无法单独设置 DuckDuckGo 检索器）、工具实现错误（如 SWE-agent 读取 .docx 文件时 decode 崩溃）、工具接口误用（如 Wikipedia API 的 auto_suggest 导致搜索词被纠错）。
@@ -67,7 +67,7 @@ tags:
 
 3. **AgentIssue-Bench 基准构建**:
 
-    - 做什么：从 201 个 issue 中构建一个包含 50 个可稳定复现任务的基准测试集，每个任务配备完整的可执行环境
+    - 功能：从 201 个 issue 中构建一个包含 50 个可稳定复现任务的基准测试集，每个任务配备完整的可执行环境
     - 核心思路：采用了严格的三步筛选流程。**Step 1 故障复现**：拉取每个 issue 对应的 buggy commit，搭建 Agent 系统环境，手写失败触发测试脚本（failure-triggering test）来复现 issue 描述中的问题行为，过滤掉无法观察到相同 buggy 行为的 issue。**Step 2 Patch 验证**：拉取对应的 patched commit，在其上运行失败触发测试，只保留 patched 版本能通过测试的 issue。**Step 3 非脆弱性验证**：将前两步重复三次，排除因 LLM 非确定性导致的不稳定行为（flaky test）。经过这三步筛选，201 个 issue 缩减为 50 个可复现任务。每个任务实例包含：(i) 用户报告的 issue 描述文本；(ii) buggy 版本的代码库；(iii) 开发者提交的修复 patch（ground truth）；(iv) 失败触发测试脚本；(v) Docker 容器化环境（含所有依赖和配置）。所有 Docker 镜像托管在 Docker Hub 上，支持一键拉取和执行。整个复现过程耗费约 500 人时
     - 设计动机：Agent issue 的复现远比传统软件困难，主要原因有四：(i) LLM 输出的非确定性导致工作流错误难以稳定复现；(ii) 外部资源（工具、依赖库、LLM 提供商）可能在 issue 报告后发生变化；(iii) issue 描述缺乏足够的复现步骤细节；(iv) Agent 系统搭建过程中可能出现与 issue 描述不同的意外错误。正因如此，构建可复现的基准需要极大的人力投入，这也是为什么之前没有人做过 Agent issue 修复基准的原因
 

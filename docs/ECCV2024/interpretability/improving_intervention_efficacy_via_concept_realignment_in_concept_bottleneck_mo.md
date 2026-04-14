@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Improving Intervention Efficacy via Concept Realignment in Concept Bottleneck Models
 description: >-
-  [ECCV 2024][Concept Bottleneck Models] 本文发现 Concept Bottleneck Models (CBMs) 中人工干预效率低下的原因在于干预时各概念独立处理、忽视了概念间关联，提出了一个轻量级的 Concept Intervention Realignment Module (CIRM)，在干预后自动重新对齐相关概念的预测值，将达到目标性能所需的干预次数最多减少 70%。
+  [ECCV 2024][concept bottleneck model] 本文发现 Concept Bottleneck Models (CBMs) 中人工干预效率低下的原因在于干预时各概念独立处理、忽视了概念间关联，提出了一个轻量级的 Concept Intervention Realignment Module (CIRM)，在干预后自动重新对齐相关概念的预测值，将达到目标性能所需的干预次数最多减少 70%。
 tags:
   - ECCV 2024
-  - Concept Bottleneck Models
+  - concept bottleneck model
   - Human Intervention
   - Concept Realignment
-  - Interpretability
+  - interpretability
   - Human-AI Collaboration
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2405.01531](https://arxiv.org/abs/2405.01531)  
 **代码**: [GitHub](https://github.com/ExplainableML/concept_realignment)  
 **领域**: LLM Alignment / Interpretable ML  
-**关键词**: Concept Bottleneck Models, Human Intervention, Concept Realignment, Interpretability, Human-AI Collaboration
+**关键词**: concept bottleneck model, Human Intervention, Concept Realignment, interpretability, Human-AI Collaboration
 
 ## 一句话总结
 
@@ -50,7 +50,7 @@ CIRM 无缝插入在干预步骤与分类头之间，不需要修改原始 CBM/C
 
 1. **Concept Intervention Realignment Module (CIRM)**:
 
-    - 做什么：在人类干预了一组概念 $\mathcal{S}_t$ 后，自动调整剩余未干预概念 $\setminus\mathcal{S}_t$ 的预测值
+    - 功能：在人类干预了一组概念 $\mathcal{S}_t$ 后，自动调整剩余未干预概念 $\setminus\mathcal{S}_t$ 的预测值
     - 核心思路：训练一个重对齐网络 $v$（MLP 或 LSTM），输入为干预后的概念向量 $\tilde{c}_t = \{c_{\mathcal{S}_t}, \hat{c}_{\setminus\mathcal{S}_t}\}$，输出为重对齐后的概念：
     $u(\tilde{c}_t, \mathcal{S}_t)^{(i)} = \begin{cases} v(\tilde{c}_t)^{(i)} & \text{if } i \notin \mathcal{S}_t \\ \tilde{c}_t^{(i)} & \text{if } i \in \mathcal{S}_t \end{cases}$
       关键约束：已被人类修正的概念值不被覆盖（保真性），只更新未干预概念。
@@ -58,7 +58,7 @@ CIRM 无缝插入在干预步骤与分类头之间，不需要修改原始 CBM/C
 
 2. **训练策略（Post-hoc vs Joint）**:
 
-    - 做什么：提供两种部署方式——后置训练（冻结已训练好的 CBM，只训练 $u$）和联合训练（与 IntCEM 一起端到端训练）
+    - 功能：提供两种部署方式——后置训练（冻结已训练好的 CBM，只训练 $u$）和联合训练（与 IntCEM 一起端到端训练）
     - 核心思路（Post-hoc）：使用交叉熵损失训练重对齐网络：
     $\mathcal{L}(u) = \frac{1}{T}\sum_{t=0}^{T} \text{CE}(u(\tilde{c}_t), c)$
       在训练时模拟完整的干预过程：从基础模型预测出发，按 UCP 策略逐步干预 $T$ 个概念，在每步训练重对齐网络。
@@ -68,7 +68,7 @@ CIRM 无缝插入在干预步骤与分类头之间，不需要修改原始 CBM/C
 
 3. **干预策略的对齐 (Policy Alignment)**:
 
-    - 做什么：确保训练和部署时使用一致的概念选择策略
+    - 功能：确保训练和部署时使用一致的概念选择策略
     - 核心思路：默认使用 UCP（Uncertainty-based Concept Selection Policy），选择预测概率最接近 0.5 的概念优先干预（即最不确定的概念）。重对齐后的概念值 $\kappa_t$ 被回传给策略 $\pi(\kappa_t)$ 来决定下一个干预目标。
     - 设计动机：重对齐会改变未干预概念的不确定性排序，因此后续选择的概念应基于更新后的值。实验验证了训练策略与部署策略的一致性至关重要。
 

@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：CLIP 及其变体通过 InfoNCE 损失学习跨模态共享空间，但不同模态的嵌入会形成各自的聚类——即"modality gap"。现有工作对此问题态度分裂：有人认为缩小 gap 改善检索，有人认为 gap 和下游性能正相关。
+
 **现有痛点**：(a) 现有研究只关注 gap 对检索（实例级任务）的影响，结论互相矛盾；(b) 所有方法只研究双模态（图像+文本），不涉及三模态及以上；(c) gap 的存在导致潜在空间"按模态聚类"而非"按语义聚类"，但这个后果未被系统分析。
+
 **核心矛盾**：InfoNCE 优化的是正负对的相对排序（是否最相似），而非绝对距离（是否真正接近）。只要相对排序正确，检索就成功——即使正对的绝对余弦相似度只有 0.34。但聚类依赖绝对距离，gap 使类内散度膨胀 $\|\boldsymbol{\delta}\|^2$。
+
 **本文要解决什么？** (a) 理论上阐明 gap 对实例级 vs 群组级任务的不同影响；(b) 提出有效缩小 gap 的方法；(c) 扩展到三模态。
+
 **切入角度**：从 within-class scatter 的数学分解出发——gap 向量 $\boldsymbol{\delta}$ 与语义正交，因此等量膨胀所有聚类的散度，这对检索无关但对聚类致命。
+
 **核心idea一句话**：modality gap 是检索的无害伪影，但是聚类的系统性障碍——用 true pair 对齐 + 质心均匀性两个损失函数可以同时消除 gap 和改善语义聚类。
 
 ## 方法详解
@@ -41,13 +46,13 @@ tags:
 
 1. **Align True Pairs Loss ($\mathcal{L}_{\text{ATP}}$)**:
 
-    - 做什么：显式最小化正对（matching pairs）之间的欧氏距离
+    - 功能：显式最小化正对（matching pairs）之间的欧氏距离
     - 公式：$\mathcal{L}_{\text{ATP}} = \frac{1}{M-1}\sum_{m\neq a}\frac{1}{N}\sum_i \|\mathbf{z}_i^m - \mathbf{z}_i^a\|_2^2$，其中 $a$ 是锚模态
     - 设计动机：InfoNCE 只优化相对排序，不保证正对的绝对距离接近。$\mathcal{L}_{\text{ATP}}$ 直接拉近正对，从而缩小 gap。但如果只用 $\mathcal{L}_{\text{ATP}}$，整个空间会坍缩到一个点
 
 2. **Centroid Uniformity Loss ($\mathcal{L}_{\text{CU}}$)**:
 
-    - 做什么：确保不同语义样本的跨模态质心在超球面上均匀分布，防止坍缩
+    - 功能：确保不同语义样本的跨模态质心在超球面上均匀分布，防止坍缩
     - 公式：$\mathcal{L}_{\text{CU}} = \log\frac{1}{N}\sum_i\sum_{j\neq i}\exp(-2\|\boldsymbol{\mu}_i - \boldsymbol{\mu}_j\|_2^2)$，其中 $\boldsymbol{\mu}_k = \frac{1}{M}\sum_m \mathbf{z}_k^m$ 是第 $k$ 个样本的跨模态质心
     - 设计动机：(a) 在质心上施加均匀性而非在单模态嵌入上——这保留了已学到的跨模态对齐；(b) RBF 核与单位超球面上的均匀分布关联，确保覆盖整个球面
 

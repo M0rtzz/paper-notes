@@ -49,19 +49,19 @@ tags:
 
 1. **3D Patch 构建**:
 
-    - 做什么：将 2D 视觉 patch 特征增强为包含 3D 空间信息的 3D patch 表示
+    - 功能：将 2D 视觉 patch 特征增强为包含 3D 空间信息的 3D patch 表示
     - 核心思路：给定多视角 2D patch 特征 $X'_p \in \mathbb{R}^{V \times d \times w \times h}$（V 为视角数），利用已知的相机内外参和深度图获取每个 patch 的 3D 位置 $P \in \mathbb{R}^{V \times 3 \times w \times h}$，通过一个两层 MLP 编码为 3D 位置嵌入 $P'$，然后直接相加：$X'_{3D} = X'_p + P'$
     - 设计动机：通过加法融合而非复杂的特征聚合，最大限度保留 2D CLIP patch 的丰富语义信息，同时注入 3D 空间位置信息。这种设计使得同一模型可以通过是否添加 3D 位置嵌入来切换 2D/3D 模式
 
 2. **3D Patch 池化**:
 
-    - 做什么：压缩 3D Patch 的数量以适应 LLM 的上下文长度限制
+    - 功能：压缩 3D Patch 的数量以适应 LLM 的上下文长度限制
     - 核心思路：提出两种无参数池化策略——(a) 体素化池化（Voxelization Pooling）：将 3D 空间离散化为体素网格，对每个占用体素内的 3D patch 做平均池化，token 数量取决于体素大小而非图像数量；(b) FPS 池化：通过最远点采样选取固定数量的代表性 3D patch
     - 设计动机：与 2D 中常用的空间/时间维度池化不同，基于 3D 位置的池化确保压缩后的特征尽可能完整覆盖整个场景结构
 
 3. **3D 坐标 Token 编码 & Grounding Decoder**:
 
-    - 做什么：处理 3D 坐标的输入（如"描述位置 [x,y,z] 处的物体"）和输出（3D bbox 预测）
+    - 功能：处理 3D 坐标的输入（如"描述位置 [x,y,z] 处的物体"）和输出（3D bbox 预测）
     - 核心思路：输入端通过 3D Position Encoding Layer 将 3D 坐标编码为 3D Coordinate Token，与 3D patch token 和文本 token 一起送入 LLM。输出端设计了 Grounding Decoder：用 FPS 从 3D patch 中采样 instance query，通过 cross-attention 聚合 3D patch 的几何信息和 LLM 的语义信息，使用多尺度 3D k-NN attention 建模局部几何结构，最终预测 3D bbox
     - 设计动机：直接让 LLM 输出 3D 坐标的效果很差（ScanRefer 上仅 7.8 Acc@0.25），因此需要专门的解码器从 3D patch 中提取几何信息。该方案避免了依赖离线 3D 分割器的两阶段方法
 

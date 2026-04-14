@@ -40,21 +40,21 @@ tags:
 
 1. **Poincaré 图神经网络 (Poincaré GNN)**:
 
-    - 做什么：在双曲空间中进行消息传递，将边和节点信息编码到节点表示中
+    - 功能：在双曲空间中进行消息传递，将边和节点信息编码到节点表示中
     - 核心思路：切空间聚合 + 距离调制消息函数。使用 $\log_0^c(\cdot)$ / $\exp_0^c(\cdot)$ 在切空间聚合后映射回流形
     - 消息调制：$\text{M}(\mathbf{m}_{ij}) = \gamma_{ij} \cdot \mathbf{m}_{ij} + \beta_{ij}$，其中 $\gamma_{ij}, \beta_{ij}$ 是双曲距离 $d_c(\mathbf{h}_i, \mathbf{h}_j)$ 的函数
     - 设计动机：曲率感知的距离调制使模型能直接编码层次关系的强度
 
 2. **Poincaré Diffusion Transformer**:
 
-    - 做什么：建模全局图结构，替代点积注意力为测地线距离注意力
+    - 功能：建模全局图结构，替代点积注意力为测地线距离注意力
     - 测地线注意力：$\alpha_{ij} \propto \exp(-\tau d_c(\mathbf{q}_i, \mathbf{k}_j))$
     - 值聚合用 Möbius gyromidpoint 保持几何一致性
     - 时间调制：注入时间步嵌入用于流匹配先验
 
 3. **双曲向量量化自编码器 (HVQVAE)**:
 
-    - 做什么：将连续双曲嵌入离散化到可学习的 Poincaré 码本 $\mathcal{C}$
+    - 功能：将连续双曲嵌入离散化到可学习的 Poincaré 码本 $\mathcal{C}$
     - 核心思路：用测地线距离最近邻量化 $\mathbf{z}_q = \arg\min_{\mathbf{c}_j} d_c(\mathbf{z}, \mathbf{c}_j)$
     - 码本初始化用双曲 k-means 聚类，黎曼优化器更新
     - 稳定机制：过期阈值替换不活跃码本条目，加权 Einstein 中点更新

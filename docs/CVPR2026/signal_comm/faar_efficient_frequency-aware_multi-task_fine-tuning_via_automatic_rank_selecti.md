@@ -8,7 +8,7 @@ tags:
   - LoRA
   - 自动秩选择
   - FFT
-  - 多任务学习
+  - multi-task learning
   - PEFT
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.20403](https://arxiv.org/abs/2603.20403)  
 **代码**: 有（论文中提到）  
 **领域**: 参数高效微调 / 多任务学习  
-**关键词**: LoRA, 自动秩选择, FFT, 多任务学习, PEFT
+**关键词**: LoRA, 自动秩选择, FFT, multi-task learning, PEFT
 
 ## 一句话总结
 

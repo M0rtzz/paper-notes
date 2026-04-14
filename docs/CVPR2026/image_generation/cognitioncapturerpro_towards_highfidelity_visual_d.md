@@ -2,15 +2,15 @@
 title: >-
   [论文解读] CognitionCapturerPro: Towards High-Fidelity Visual Decoding from EEG/MEG via Multi-modal Information and Asymmetric Alignment
 description: >-
-  [CVPR 2026][图像生成][脑信号解码] 通过不确定性加权掩蔽、多模态融合编码器和共享主干对齐，从EEG/MEG信号高保真重建视觉刺激，Top-1检索准确率提升25.9%
+  [CVPR 2026][图像生成][EEG视觉解码] CognitionCapturerPro通过不确定性加权掩蔽解决保真度损失、多模态融合编码器整合图像/文本/深度/边缘信息解决表征偏移，配合轻量共享主干对齐替代扩散先验，在THINGS-EEG数据集上Top-1/Top-5检索准确率分别提升25.9%和10.6%。
 tags:
   - CVPR 2026
   - 图像生成
-  - EEG解码
-  - 脑机接口
+  - EEG视觉解码
   - 多模态融合
-  - 视觉重建
-  - 扩散模型
+  - 不确定性建模
+  - 脑机接口
+  - 扩散模型重建
 ---
 
 # CognitionCapturerPro: Towards High-Fidelity Visual Decoding from EEG/MEG via Multi-modal Information and Asymmetric Alignment
@@ -49,19 +49,19 @@ CognitionCapturerPro通过不确定性加权掩蔽解决保真度损失、多模
 
 1. **不确定性加权掩蔽（Uncertainty-Weighted Masking）**:
 
-    - 做什么：动态调整训练样本的图像模糊强度，模拟人类凹视觉机制
+    - 功能：动态调整训练样本的图像模糊强度，模拟人类凹视觉机制
     - 核心思路：首先对图像施加仿凹视觉的空间渐变模糊——中心清晰边缘模糊，模糊核 $\mathbf{M}_{\text{fovea}}(i,j)$ 从中心到边缘指数衰减。然后根据模型当前对齐水平动态调节模糊强度：利用EMA平滑的历史相似度分数建立置信区间，"简单"样本（高相似度）增加模糊防止过拟合，"困难"样本（低相似度）减少模糊促进关键特征学习
     - 设计动机：直接对齐假设神经信号完整表示了刺激，忽略了人类注意力的选择性和局部性。UM通过模拟信息丢失过程来缩小模态间的系统性差距
 
 2. **多模态融合编码器（Fusion Encoder）**:
 
-    - 做什么：将四个模态专用EEG嵌入整合为统一表示
+    - 功能：将四个模态专用EEG嵌入整合为统一表示
     - 核心思路：四个嵌入经线性投影对齐到共享维度 $d=1024$，加上可学习模态位置编码后输入两层Transformer编码器，通过多头自注意力实现跨模态交互。全局平均池化+残差MLP输出融合嵌入 $\mathbf{z}_{\text{fus}}$。训练时随机置零一个模态（Modality Masking）增强鲁棒性
     - 设计动机：不同模态提供互补信息——图像捕获语义、文本编码联想、深度反映3D结构、边缘保留轮廓。融合而非简单拼接能让模态间相互增强
 
 3. **共享主干与模态头对齐（STH-Align）**:
 
-    - 做什么：替代扩散先验，用轻量MLP将多模态嵌入对齐到图像嵌入空间
+    - 功能：替代扩散先验，用轻量MLP将多模态嵌入对齐到图像嵌入空间
     - 核心思路：将四个EEG嵌入拼接后送入4层SiLU-MLP共享主干得到公共表示 $\mathbf{f}$，再通过四个2层MLP模态头输出 $\hat{\mathbf{e}}^m$，优化MSE + 余弦 + 正则三部分损失 $\mathcal{L}_{\text{STH}} = \sum_m [\lambda_{\text{mse}}\|\hat{\mathbf{e}}^m - \mathbf{v}^m\|_2^2 + \lambda_{\text{cos}}(1-\cos(\hat{\mathbf{e}}^m, \mathbf{v}^m)) + \lambda_{\text{reg}}\|\hat{\mathbf{e}}^m\|_2^2]$
     - 设计动机：扩散先验需要大规模数据，在仅数万EEG-图像对的条件下容易过拟合且推理昂贵。轻量MLP对齐在小数据上更稳定
 

@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines
 description: >-
-  [ACL 2025][LLM Agent][AI管线构建] 提出 Bel Esprit——基于多 Agent 框架的对话式 AI 管线构建系统，通过子 Agent 协作（需求澄清→管线构建→验证→模型填充）将用户的模糊需求转化为由多个 AI 模型组成的可执行管线（如多语言视频配音→语音识别+翻译×3+TTS×3），在人工策划和合成数据上验证有效性。
+  [ACL 2025][LLM Agent][AI管线构建] 提出 Bel Esprit 多 Agent 对话框架，通过 Mentalist（需求澄清）→ Builder（管线构建）→ Inspector（验证）→ Matchmaker（模型分配）四步协作，将用户模糊的自然语言需求自动转化为多模型 AI 管线图，在 441 条管线数据上达到 25.2% EM 和 37.0 GED（GPT-4o Builder）。
 tags:
   - ACL 2025
   - LLM Agent
   - AI管线构建
   - 多Agent框架
-  - 模型编排
-  - 对话式Agent
+  - 图生成
   - 管线验证
+  - 模型编排
 ---
 
 # Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines
@@ -49,19 +49,19 @@ tags:
 
 1. **Mentalist（需求澄清 Agent）**:
 
-    - 做什么：通过对话交互消解用户查询中的歧义，提取结构化输入输出规格
+    - 功能：通过对话交互消解用户查询中的歧义，提取结构化输入输出规格
     - 核心思路：包含三个子模块——Query Clarifier（对话式交互识别缺失信息）、Specification Extractor（从精炼查询中提取名称/模态/语言等参数形成表格式规格）、Attachment Matcher（将用户上传的文件匹配到管线中正确的输入节点）
     - 设计动机：用户需求往往不完整（如"把我的视频配成法语"未指定输入语言），不经澄清直接构建管线会导致大量错误
 
 2. **Builder（管线构建 Agent + Chain-of-Branches）**:
 
-    - 做什么：基于精炼查询和结构化规格生成管线图（节点=AI功能/输入/输出，边=数据流）
+    - 功能：基于精炼查询和结构化规格生成管线图（节点=AI功能/输入/输出，边=数据流）
     - 核心思路：提出 Chain-of-Branches 策略——对于有 $ 个输出的管线，分 $ 个分支逐一生成，每个分支是从输入到输出的路径，新分支可复用已有节点减少冗余。还引入三种特殊节点：Router（按模态路由）、Decision（按条件分流）、Script（执行 Python 代码）
     - 设计动机：一步生成整个图容易出现幻觉和结构不一致，分支逐步生成降低单步复杂度
 
 3. **Inspector（管线验证 Agent）**:
 
-    - 做什么：对 Builder 输出进行语法和语义双重验证，发现错误后回传 Builder 迭代修正
+    - 功能：对 Builder 输出进行语法和语义双重验证，发现错误后回传 Builder 迭代修正
     - 核心思路：语法检查验证图约束（如模态匹配——音频不能直接接翻译节点），部分错误可机械修正，复杂错误需重构；语义检查为每个分支生成自然语言摘要，由 LLM 判断是否满足用户规格
     - 设计动机：LLM 在长上下文推理中易犯错（如遗漏翻译步骤导致语言不匹配），需独立验证环节
 

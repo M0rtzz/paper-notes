@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Learning Safety Constraints for Large Language Models
 description: >-
-  [ICML 2025][AI安全][LLM Safety] 论文提出 SaP（Safety Polytope）：在 LLM 表征空间中学习一个“安全多面体”，并在推理时把不安全生成轨迹几何地拉回安全区域，以在不改模型权重的前提下实现可解释的安全约束。
+  [ICML 2025][AI安全][LLM safety] 论文提出 SaP（Safety Polytope）：在 LLM 表征空间中学习一个“安全多面体”，并在推理时把不安全生成轨迹几何地拉回安全区域，以在不改模型权重的前提下实现可解释的安全约束。
 tags:
   - ICML 2025
   - AI安全
-  - LLM Safety
+  - LLM safety
   - Safety Polytope
   - CMDP
   - Representation Steering
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.24445](https://arxiv.org/abs/2505.24445)  
 **代码**: https://github.com/lasgroup/SafetyPolytope  
 **领域**: ai_safety（LLM 安全控制 / 推理时对齐）  
-**关键词**: LLM Safety, Safety Polytope, CMDP, Representation Steering, Adversarial Robustness
+**关键词**: LLM safety, Safety Polytope, CMDP, Representation Steering, Adversarial Robustness
 
 ## 一句话总结
 论文提出 SaP（Safety Polytope）：在 LLM 表征空间中学习一个“安全多面体”，并在推理时把不安全生成轨迹几何地拉回安全区域，以在不改模型权重的前提下实现可解释的安全约束。

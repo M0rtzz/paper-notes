@@ -2,15 +2,16 @@
 title: >-
   [论文解读] TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs
 description: >-
-  [NeurIPS 2025][视频理解][时序定位] 提出TempSamp-R1强化微调框架，通过混合策略采样引入GT off-policy监督、非线性软优势估计降低梯度方差、混合CoT训练支持双推理模式，Charades-STA R1@0.7达52.9%(+2.7%)、ActivityNet R1@0.5达56.0%(+5.3%)
+  [NeurIPS 2025][视频理解][temporal grounding] 提出TempSamp-R1强化微调框架，针对GRPO在视频时序定位中因搜索空间巨大而on-policy采样低效的问题，通过引入GT作为off-policy监督信号+非线性软优势估计+混合CoT训练范式，在Charades-STA/ActivityNet/QVHighlights三个基准上达到新SOTA。
 tags:
   - NeurIPS 2025
   - 视频理解
-  - 时序定位
-  - 强化微调
+  - temporal grounding
   - GRPO
-  - 视频大模型
-  - off-policy学习
+  - off-policy
+  - soft advantage
+  - hybrid CoT
+  - video LLM
 ---
 
 # TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs
@@ -40,17 +41,17 @@ TempSamp-R1基于GRPO框架，对每个查询采样$G$个解（$G-1$个on-policy
 
 ### 关键设计
 1. **混合策略采样（Mix-Policy Sampling）**:
-    - 做什么：将GT标注作为off-policy解混入GRPO采样组，为时序定位提供精确的正例信号
+    - 功能：将GT标注作为off-policy解混入GRPO采样组，为时序定位提供精确的正例信号
     - 核心思路：对每个查询$q$，从当前策略$\pi_\theta$采样$G-1$个解$\{o_1,...,o_{G-1}\}$，加入一个外部off-policy解$o_G$（来自GT标注），用联合分布计算归一化优势 $A_i = \frac{r_i - \text{mean}(\{r_1,...,r_{G-1}\} \cup \{r_G\})}{\text{std}(\{r_1,...,r_{G-1}\} \cup \{r_G\})}$。同时提出优势锚定策略 $A_G = \lambda_{\text{off}} \cdot \max\{A_i | i \in \{1,...,G-1\}\}$（$\lambda_{\text{off}}=1.2$）解耦off-policy与on-policy的优势
     - 设计动机：GRPO纯on-policy在大搜索空间中几乎无法采到高IoU解→奖励稀疏、学习信号弱。GT提供精确的时序锚点，补偿on-policy的探索不足；但GT的高奖励会拉偏组均值，需配合软优势消除偏倚
 
 2. **非线性软优势估计（Non-Linear Soft Advantage Estimation）**:
-    - 做什么：对奖励进行非对称非线性变换，压缩高奖励区域、放大低奖励区域的差异
+    - 功能：对奖励进行非对称非线性变换，压缩高奖励区域、放大低奖励区域的差异
     - 核心思路：定义分段函数 $\tilde{r}_i = \begin{cases}\tau + \alpha_1 \cdot \ln((r_i - \tau) + 1), & r_i \geq \tau \\ \tau - \frac{e^{\alpha_2(\tau - r_i)} - 1}{e^{\alpha_2} - 1}, & r_i < \tau\end{cases}$，其中$\tau=0.8$为阈值，$\alpha_1=0.01$控制对数压缩，$\alpha_2=1$控制指数放大。对数分支抑制GT等最优解的梯度尖峰，指数分支放大次优解之间的区分度
     - 设计动机：标准GRPO中off-policy高奖励解使所有on-policy解优势变负→高质量on-policy解被错误惩罚。非线性整形后高奖励区域被压缩、低奖励区域被放大，使梯度更有信息量、优化更稳定
 
 3. **混合CoT训练范式（Hybrid Chain-of-Thought Training）**:
-    - 做什么：训练单一模型同时支持CoT和non-CoT推理，推理时按查询复杂度选择模式
+    - 功能：训练单一模型同时支持CoT和non-CoT推理，推理时按查询复杂度选择模式
     - 核心思路：两阶段训练——初始化阶段优化模型生成准确最终答案（non-CoT模式），随后引入format reward鼓励在`<Think>...</Think>`中生成推理步骤、在`<Answer>...</Answer>`中输出最终答案。format reward = 1（格式正确）或 0（格式不符）。推理时Mixed CoT取两种模式的最佳结果
     - 设计动机：不同查询复杂度不同——简单查询直接输出即可，复杂查询需要推理。CoT和non-CoT互补，Mixed模式在所有指标上均优于单一模式
 

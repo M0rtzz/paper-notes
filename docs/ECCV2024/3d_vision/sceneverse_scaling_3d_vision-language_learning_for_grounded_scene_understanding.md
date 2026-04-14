@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：2D 视觉-语言领域已通过大规模数据（如 CLIP 的亿级图文对）取得巨大成功，但 3D 场景的视觉-语言对齐仍处于初级阶段。
+
 **现有痛点**：3D 数据采集依赖扫描设备，成本极高；现有 3D-VL 数据集规模仅数千场景，远远落后于 2D 数据集；3D 场景中对象配置复杂、属性丰富、关系多样，使得语言描述需求量巨大。
+
 **核心矛盾**：数据规模不足 → 无法支撑有效的预训练对齐 → 现有模型高度依赖任务特定设计（复杂损失函数或模型结构），泛化能力差。
+
 **本文要解决什么**：如何系统性地扩展（scale up）3D 视觉-语言数据，并设计统一的预训练框架来利用这些数据。
+
 **切入角度**：统一多个已有 3D 场景数据集 + 利用 3D 场景图和 LLM 自动生成大规模语言描述 + 多层级对比学习。
+
 **核心 idea 一句话**：数据规模是 3D-VL 的瓶颈，通过场景图 + LLM 实现百万级数据扩展，配合多层级对比预训练即可取得 SOTA。
 
 ## 方法详解
@@ -40,13 +45,13 @@ SceneVerse 由两部分组成：(1) 数据集构建——整合 7 个来源的 6
 ### 关键设计
 
 #### 1. **场景整合与标注 (Scene Curation & Annotation)**
-   - 做什么：统一来自 ScanNet、ARKitScenes、HM3D、3RScan、MultiScan 等真实场景和 Structured3D、ProcTHOR 等合成场景的数据
+   - 功能：统一来自 ScanNet、ARKitScenes、HM3D、3RScan、MultiScan 等真实场景和 Structured3D、ProcTHOR 等合成场景的数据
    - 核心思路：对每个场景进行房间分割、点云子采样、轴对齐和归一化。每个扫描表示为 $\mathrm{P} \in \mathbb{R}^{N \times 8}$（3D 坐标 + RGB + instance id + 语义标签）。共收集 68,406 个场景。
    - 人工标注 96,863 条 referring expression（AMT 标注 + 双人验证），重标注率仅 4.8%
    - 设计动机：充分利用已有数据源，避免重复采集
 
 #### 2. **基于场景图的语言生成管线 (3D Scene Graph + LLM Generation)**
-   - 做什么：自动生成三种粒度的语言描述——物体描述（object caption）、物体引用（object referral）、场景描述（scene caption）
+   - 功能：自动生成三种粒度的语言描述——物体描述（object caption）、物体引用（object referral）、场景描述（scene caption）
    - 核心思路：
      - 构建层次化场景图 $\mathcal{G} = (\mathcal{V}, \mathcal{E})$，每个节点 $v$ 由质心 $\boldsymbol{p}_i \in \mathbb{R}^3$ 和边界框大小 $\boldsymbol{b}_i \in \mathbb{R}^3$ 参数化，边 $\mathcal{E}$ 表示空间关系（垂直/水平邻近、多物体关系）
      - Object Caption：通过点云渲染定位对象在多视角图像中的出现 → BLIP2 生成初始描述 → CLIP 筛选 top-10 → LLM 精炼总结
@@ -55,7 +60,7 @@ SceneVerse 由两部分组成：(1) 数据集构建——整合 7 个来源的 6
    - 设计动机：模板保证覆盖度，LLM 重述增加多样性和自然度；人工验证 96.93% 通过率（高于 ReferIt3D 的 86.1%）
 
 #### 3. **GPS：多层级对比预训练 (Grounded Pre-training for Scenes)**
-   - 做什么：在三个粒度上同时对齐 3D 场景和文本
+   - 功能：在三个粒度上同时对齐 3D 场景和文本
    - **物体级对齐 $\mathcal{L}_{\text{obj}}$**：
      - 点云编码器提取物体特征 $\boldsymbol{f}^O_i$，冻结语言模型编码物体描述得到 $\boldsymbol{f}^T_i$
      - 双向对比损失：$\mathcal{L}_{\text{obj}} = -\frac{1}{2}\sum_{(p,q)} \left(\log\frac{\exp(D^{\text{obj}}(p,q))}{\sum_r \exp(D^{\text{obj}}(p,r))} + \log\frac{\exp(D^{\text{obj}}(p,q))}{\sum_r \exp(D^{\text{obj}}(r,q))}\right)$

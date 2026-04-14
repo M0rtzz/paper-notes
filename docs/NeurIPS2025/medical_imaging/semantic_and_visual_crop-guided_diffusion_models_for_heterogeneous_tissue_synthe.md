@@ -1,23 +1,36 @@
 ---
-title: "[论文解读] Semantic and Visual Crop-Guided Diffusion Models for Heterogeneous Tissue Synthesis"
-description: "[NeurIPS 2025][医学影像] 双条件Latent Diffusion生成异质性病理组织图像，FD降低6倍，下游分割IoU接近真实数据"
-tags: [NeurIPS 2025, 医学影像, 扩散模型, 病理学, 合成数据]
+title: >-
+  [论文解读] Semantic and Visual Crop-Guided Diffusion Models for Heterogeneous Tissue Synthesis in Histopathology
+description: >-
+  [NeurIPS 2025][医学图像][histopathology] 提出双条件 Latent Diffusion 模型，结合语义分割图和组织特异性视觉裁剪来生成高保真异质性病理图像，Camelyon16 上 FD 从 430.1 降至 72.0（6×降低），合成数据训练的分割模型 IoU 达 0.71，接近真实数据的 0.72。
+tags:
+  - NeurIPS 2025
+  - 医学图像
+  - histopathology
+  - 扩散模型
+  - tissue synthesis
+  - 语义分割
+  - 数据增强
 ---
+
 # Semantic and Visual Crop-Guided Diffusion Models for Heterogeneous Tissue Synthesis in Histopathology
 
 **会议**: NeurIPS 2025  
 **arXiv**: [2509.17847](https://arxiv.org/abs/2509.17847)  
 **代码**: 无  
 **领域**: 医学影像 / 计算病理学  
-**关键词**: histopathology, diffusion model, tissue synthesis, semantic segmentation, data augmentation
+**关键词**: histopathology, 扩散模型, tissue synthesis, 语义分割, 数据增强
 
 ## 一句话总结
 提出双条件 Latent Diffusion 模型，结合语义分割图和组织特异性视觉裁剪来生成高保真异质性病理图像，Camelyon16 上 FD 从 430.1 降至 72.0（6×降低），合成数据训练的分割模型 IoU 达 0.71，接近真实数据的 0.72。
 
 ## 研究背景与动机
 **领域现状**：病理图像合成数据生成面临独特挑战：需保留组织异质性、捕获微妙形态特征、扩展到无标注数据集。
+
 **现有痛点**：现有方法依赖文本提示或抽象视觉嵌入，丢失关键形态细节。
+
 **核心矛盾**：需要精细的组织形态控制 + 需要扩展到无标注的大规模数据集。
+
 **切入角度**：直接使用对应语义区域的原始组织裁剪作为视觉条件，保留形态细节。
 
 ## 方法详解
@@ -34,13 +47,13 @@ tags: [NeurIPS 2025, 医学影像, 扩散模型, 病理学, 合成数据]
 
 2. **异质性 Patch 提取**
 
-    - 做什么：从标注数据集（Camelyon16、Panda）提取保证 20-80% 组织异质性的 patch
+    - 功能：从标注数据集（Camelyon16、Panda）提取保证 20-80% 组织异质性的 patch
     - 核心思路：确保训练样本包含多种组织类型的混合区域
     - 设计动机：同质性 patch 无法教会模型生成真正的异质组织
 
 3. **自监督扩展（用于无标注数据）**
 
-    - 做什么：将 TCGA 的 11,765 张全切片图像（无标注）纳入训练
+    - 功能：将 TCGA 的 11,765 张全切片图像（无标注）纳入训练
     - 核心思路：使用 foundation model 嵌入将 WSI 聚类为 100 种组织类型，自动生成伪语义图
     - 设计动机：突破标注数据瓶颈
 

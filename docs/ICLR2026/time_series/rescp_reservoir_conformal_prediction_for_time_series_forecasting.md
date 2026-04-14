@@ -2,14 +2,15 @@
 title: >-
   [论文解读] ResCP: Reservoir Conformal Prediction for Time Series Forecasting
 description: >-
-  [ICLR2026][时间序列] 首次将储备计算引入保形预测，通过Echo State Network状态相似性自适应重加权残差构建局部化预测区间，无需训练即达渐近条件覆盖，Winkler分数大幅领先。
+  [ICLR 2026][时间序列][conformal prediction] 首次将储备计算（Echo State Network）引入保形预测，通过随机初始化ESN编码残差序列的时间动态，利用状态相似性自适应重加权历史残差构建局部预测区间，无需任何训练即在4个真实数据集上实现SOTA的Winkler分数，速度比HopCPT快20-80×。
 tags:
-  - ICLR2026
+  - ICLR 2026
   - 时间序列
-  - 保形预测
-  - 储备计算
-  - 不确定性量化
-  - 无训练
+  - conformal prediction
+  - reservoir computing
+  - echo state network
+  - prediction interval
+  - training-free
 ---
 
 # ResCP: Reservoir Conformal Prediction for Time Series Forecasting
@@ -50,17 +51,17 @@ tags:
 ### 关键设计
 
 1. **ESN状态编码（Reservoir Embedding）**:
-    - 做什么：将残差序列映射到高维状态空间，捕捉局部时间动态
+    - 功能：将残差序列映射到高维状态空间，捕捉局部时间动态
     - 核心思路：ESN状态更新 $\boldsymbol{h}_t = (1 - l)\boldsymbol{h}_{t-1} + l\,\sigma(\boldsymbol{W}_x \boldsymbol{x}_t + \boldsymbol{W}_h \boldsymbol{h}_{t-1} + \boldsymbol{b})$，其中 $\boldsymbol{W}_x, \boldsymbol{W}_h$ 随机初始化且固定，$l$ 为 leak rate，$\sigma = \tanh$
     - 设计动机：满足 Echo State Property（$\rho(\boldsymbol{W}_h) < 1$）时，ESN状态渐进遗忘初始条件，对相似输入序列产生相似状态，且是 Lipschitz 连续映射——为理论保证奠定基础
 
 2. **相似性驱动的自适应重加权（Similarity-Based Reweighting）**:
-    - 做什么：根据储备状态相似度为每个历史残差分配权重，使"动态相似"时刻的残差获得更高权重
+    - 功能：根据储备状态相似度为每个历史残差分配权重，使"动态相似"时刻的残差获得更高权重
     - 核心思路：权重通过 softmax归一化的相似性得分计算：$w_s(\boldsymbol{h}_t) = \text{SoftMax}\left(\frac{\text{Sim}(\boldsymbol{h}_t, \boldsymbol{h}_s)}{\tau}\right)$，其中 $\text{Sim}$ 为余弦相似度，$\tau$ 为温度超参数。加权经验CDF近似条件分布：$\hat{F}(r \mid \boldsymbol{h}_t) = \sum_{s} w_s(\boldsymbol{h}_t)\mathbb{1}(r_{s+H} \leq r)$
     - 设计动机：温度 $\tau$ 控制偏差-方差权衡——低温集中于最相似状态（低偏差），高温趋近均匀权重即vanilla SCP（低方差）。有效样本量 $m_n = (\sum_i w_i^2)^{-1}$ 需要随 $n \to \infty$ 而发散
 
 3. **时间依赖权重与分布偏移处理（Time-Dependent Weights）**:
-    - 做什么：在相似性权重基础上叠加时间衰减，处理非平稳数据
+    - 功能：在相似性权重基础上叠加时间衰减，处理非平稳数据
     - 核心思路：$w_i(\boldsymbol{h}_t, t) = \gamma(\Delta(t,i)) \cdot w_i(\boldsymbol{h}_t)$，采用线性衰减 $\gamma(\Delta) = 1/\Delta$ 配合FIFO滑动窗口更新校准集
     - 设计动机：线性衰减比指数衰减更温和，保持足够的有效样本量；滑动窗口使校准集跟随分布变化，ResCP无需重训即可适应
 

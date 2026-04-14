@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2508.04444](https://arxiv.org/abs/2508.04444)  
 **代码**: [fallnlove/TwoToInfinity](https://github.com/fallnlove/TwoToInfinity)  
 **领域**: ai_safety  
-**关键词**: Matrix Norm Estimation, Randomized Algorithm, Hutchinson Estimator, Jacobian Regularization, Adversarial Robustness  
+**关键词**: Matrix Norm Estimation, Randomized Algorithm, Hutchinson Estimator, Jacobian Regularization, Adversarial Robustness
 
 ## 一句话总结
 提出 TwINEst 和 TwINEst++ 两种 matrix-free 随机算法用于估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并将其应用于深度网络 Jacobian 正则化（提升分类泛化和对抗鲁棒性）和推荐系统对抗防御。

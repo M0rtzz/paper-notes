@@ -8,8 +8,8 @@ tags:
   - Spoken Language Model
   - DPO
   - RLAIF
-  - 偏好优化
-  - 语义对齐
+  - preference optimization
+  - semantic alignment
 ---
 
 # Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2411.01834](https://arxiv.org/abs/2411.01834)  
 **代码**: 无（基于开源 TWIST 模型）  
 **领域**: 强化学习 / 语音语言模型  
-**关键词**: Spoken Language Model, DPO, RLAIF, 偏好优化, 语义对齐
+**关键词**: Spoken Language Model, DPO, RLAIF, preference optimization, semantic alignment
 
 ## 一句话总结
 
@@ -48,19 +48,19 @@ tags:
 
 1. **自动偏好数据选择策略**:
 
-    - 做什么：无需人工标注，自动从多条生成中挑选偏好对
+    - 功能：无需人工标注，自动从多条生成中挑选偏好对
     - 核心思路：探索了两种 AI 反馈方式。(1) **Perplexity (PPL)**：用 Mistral-7B 计算续写文本在 prompt 条件下的困惑度，PPL 最低且 auto-BLEU ≤ δ 的为 chosen，PPL 最高的为 rejected。(2) **Mistral Score**：用指令调优的 Mistral-7B 直接对续写文本评分（1-5分），评估语义连贯性和相关性，设定 $s_c$ 和 $s_r$ 阈值来区分 chosen 和 rejected。auto-BLEU（2-gram 自重复率）用于过滤重复无意义的生成——如果 auto-BLEU > δ=0.1，直接标记为 rejected
     - 设计动机：PPL 优化倾向于语法正确性而非整体语义；Mistral Score 提供更全面的语义反馈。实验验证 Mistral Score 在所有下游指标上全面优于 PPL
 
 2. **DPO 训练 SLM**:
 
-    - 做什么：通过隐式奖励学习对齐 SLM 的生成偏好
+    - 功能：通过隐式奖励学习对齐 SLM 的生成偏好
     - 核心思路：标准 DPO 损失 $\mathcal{L}_{DPO} = -\mathbb{E}[\log \sigma(\beta \log \frac{\pi_\theta(y_c|x)}{\pi_{ref}(y_c|x)} - \beta \log \frac{\pi_\theta(y_r|x)}{\pi_{ref}(y_r|x)})]$。$\pi_{ref}$ 是冻结的预训练模型，$\pi_\theta$ 仅通过 LoRA adapter（rank=32, alpha=8）进行参数更新。偏好数据离线准备，避免在线采样 + vocoder + ASR + LLM 的计算开销
     - 设计动机：DPO 相比 RLHF 不需要训练外部奖励模型，训练简单稳定。LoRA 确保模型不会偏离预训练分布太远（配合 $\beta$ 控制偏离程度）。离线数据准备使整个框架高效可行
 
 3. **课程学习迭代**:
 
-    - 做什么：逐步提高偏好数据的质量标准，进一步提升模型
+    - 功能：逐步提高偏好数据的质量标准，进一步提升模型
     - 核心思路：第 1 轮 DPO 训练后，模型已经变强了。用更强的模型重新采样续写，并提高偏好阈值（$s_c$: 3→4, $s_r$: 1→2），构建更难区分的偏好对进行第 2 轮训练
     - 设计动机：类似课程学习的渐进式难度提升——先让模型学会区分明显好坏，再学会区分微妙差异。实验中最多做到 3 轮迭代仍有持续改善
 

@@ -32,7 +32,9 @@ tags:
 **现有方法的共同瓶颈**：
 
 **NeRF-based方法**（SA3D, SANeRF-HQ）：与SAM结合实现3D分割，但NeRF需要大量场景特定训练时间
+
 **3DGS-based方法**（SAGA, Gaussian Grouping, Feature3DGS）：比NeRF更快，但仍需构建Gaussian特征场的训练过程
+
 **共同问题**：所有方法都依赖**场景特定训练**来获取精确的3D先验，严重阻碍实时应用
 
 **关键挑战**：前馈方式（如DUSt3R/MASt3R）可以避免场景特定训练，但多视角点图的**3D对齐误差会累积**，导致目标物体与背景混淆，分割精度下降。

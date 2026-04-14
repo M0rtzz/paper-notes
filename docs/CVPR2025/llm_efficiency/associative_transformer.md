@@ -47,20 +47,20 @@ AiT 在标准 ViT 的基础上在每个 Transformer block 中新增一个 Global
 
 1. **Low-rank Explicit Memory**
 
-    - 做什么：维护一个可学习的记忆池 $\gamma \in \mathbb{R}^{M \times D}$，$M$ 为记忆槽位数（32-128），$D$ 为低维嵌入维度（32）
+    - 功能：维护一个可学习的记忆池 $\gamma \in \mathbb{R}^{M \times D}$，$M$ 为记忆槽位数（32-128），$D$ 为低维嵌入维度（32）
     - 核心思路：记忆通过 EWMA 持续更新 $\gamma^{t+1} = (1-\alpha)\gamma^t + \alpha \cdot \text{LN}(\text{Concat}(h_1,...,h_S)W^O)$，$\alpha=0.1$
     - 设计动机：低维设计使记忆池可扩展到 32.8K 个 token 而不增加过多计算开销，跨 batch 更新使其积累全局统计信息
 
 2. **Bottleneck Attention**
 
-    - 做什么：通过 top-k 选择机制强制 token 竞争进入记忆空间
+    - 功能：通过 top-k 选择机制强制 token 竞争进入记忆空间
     - 核心思路：计算每个 token 对各记忆槽的注意力分数，仅保留 top-k 个分数最高的 token 与记忆交互
     - 设计动机：竞争机制模拟了全局工作空间的"广播"过程，确保只有最相关的信息被写入共享记忆
     - Balance Loss 包含两部分：累积注意力均衡和选择频率均衡
 
 3. **Hopfield Network Token Reconstruction**
 
-    - 做什么：使用连续 Hopfield 网络从记忆中检索和重建 token 表示
+    - 功能：使用连续 Hopfield 网络从记忆中检索和重建 token 表示
     - 核心思路：Hopfield 能量函数 $E(\Xi^t) = -\text{lse}(\beta, f_{LT}(\gamma^{t+1})\Xi^t) + \frac{1}{2}\Xi^t(\Xi^t)^T$
     - 设计动机：Hopfield 网络天然适合从记忆池中提取匹配模式，且 FLOPs 仅占总计算量的 0.84%
 

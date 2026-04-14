@@ -49,22 +49,22 @@ $$\phi_\omega(b|s) = \frac{\exp(\omega(s,b))}{\sum_{b'}\exp(\omega(s,b'))}, \qua
 ### 关键设计
 
 **模块1: Leader策略更新（最慢时间尺度）**
-- 做什么：更新leader策略参数 $\omega$ 以最大化Stackelberg目标 $\Phi(\phi) = J_l(\phi, \mu^*(\phi))$
+- 功能：更新leader策略参数 $\omega$ 以最大化Stackelberg目标 $\Phi(\phi) = J_l(\phi, \mu^*(\phi))$
 - 核心公式：$\omega_{k+1} = \omega_k + \zeta_k \nabla_\omega \log\phi_{\omega_k}(b_k|s_k)(r_l(s_k,b_k,\hat{\mu}_k) + \gamma \hat{V}_{l,k}(s_{k+1}) - \hat{V}_{l,k}(s_k))$
 - 设计动机：使用策略梯度方法，步长 $\zeta_k$ 最小以确保在follower和平均场收敛后再调整leader
 
 **模块2: Follower策略更新（中间时间尺度）**
-- 做什么：更新follower策略参数 $\theta$ 以最大化正则化累积奖励 $J_f(\pi,\phi,\mu)$
+- 功能：更新follower策略参数 $\theta$ 以最大化正则化累积奖励 $J_f(\pi,\phi,\mu)$
 - 核心公式：类似形式的策略梯度，步长 $\alpha_k > \zeta_k$
 - 设计动机：follower需要比leader更快收敛以近似最优响应
 
 **模块3: 平均场更新（快时间尺度）**
-- 做什么：跟踪follower群体的聚合行为 $\mu$
+- 功能：跟踪follower群体的聚合行为 $\mu$
 - 核心公式：$\hat{\mu}_{k+1} = \Pi_{\Delta_{\cal S}}(\hat{\mu}_k + \xi_k(e_{\bar{s}_k} - \hat{\mu}_k))$
 - 设计动机：通过第二条样本轨迹估计平稳分布
 
 **模块4: 值函数（Critic）更新（最快时间尺度）**
-- 做什么：通过TD学习估计leader和follower的值函数
+- 功能：通过TD学习估计leader和follower的值函数
 - 步长 $\beta_k$ 最大，确保值函数估计最先收敛
 
 ### 损失函数/训练策略

@@ -1,7 +1,18 @@
 ---
-description: "UNIVERSE：一种基于VLM的世界模型rollout评估器，通过轻量级部分微调（仅0.07%参数）实现动作识别和角色识别评估，与人类判断高度对齐。"
-tags: [world-model, VLM-evaluation, rollout-evaluation, PaliGemma, fine-tuning, action-recognition]
+title: >-
+  [论文解读] Adapting Vision-Language Models for Evaluating World Models
+description: >-
+  [NeurIPS 2025][多模态][世界模型评估] 提出 UNIVERSE（UNIfied Vision-language Evaluator for Rollouts in Simulated Environments），通过对 PaliGemma 2 进行轻量级投影头微调（仅 0.07% 参数），构建统一的世界模型 rollout 语义评估器，在动作识别和角色识别任务上达到与任务专属模型相当的性能并与人类判断高度对齐。
+tags:
+  - NeurIPS 2025
+  - 多模态
+  - 世界模型评估
+  - VLM适配
+  - 动作识别
+  - 角色识别
+  - 轻量微调
 ---
+
 # Adapting Vision-Language Models for Evaluating World Models
 
 **会议**: NeurIPS 2025  
@@ -43,7 +54,7 @@ UNIVERSE 的工作流程：
 
 1. **部分微调策略（仅投影头）**
 
-    做什么：仅训练 PaliGemma 2 3B 模型中视觉编码器和语言解码器之间的投影头 $\theta_P$（2.66M 参数，占全部参数的 0.07%）。
+    功能：仅训练 PaliGemma 2 3B 模型中视觉编码器和语言解码器之间的投影头 $\theta_P$（2.66M 参数，占全部参数的 0.07%）。
 
     核心思路：在五种微调配置（零样本/全微调/双组件/单组件/LoRA）中系统比较后发现，投影头微调是性价比最优的选择——性能仅次于视觉编码器微调（需 ~11% 参数），但计算成本低得多。训练目标为因果语言建模损失：$\mathcal{L}(S) = -\sum_{t=1}^{T_{\text{SUFF}}} \log P(s_t^{\text{SUFF}} \mid S_{<t'})$
 
@@ -51,7 +62,7 @@ UNIVERSE 的工作流程：
 
 2. **均匀帧采样 + 混合监督**
 
-    做什么：从 14 帧 rollout 中均匀采样 $k=8$ 帧，而非取前 $k$ 帧；训练数据混合比例为 $\alpha_{AR}=0.8$、$\beta_{OE}=0.8$。
+    功能：从 14 帧 rollout 中均匀采样 $k=8$ 帧，而非取前 $k$ 帧；训练数据混合比例为 $\alpha_{AR}=0.8$、$\beta_{OE}=0.8$。
 
     核心思路：均匀采样保持长程时间结构——在仅 2 帧时，均匀采样将多选精度从 65.53% 提升至 83.93%（+18.4 个百分点）。数据混合通过层次化消融优化：先调任务比例（AR 需更多数据因收敛慢），再调格式比例（开放式问答最能提升泛化能力）。
 

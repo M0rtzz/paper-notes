@@ -6,10 +6,10 @@ description: >-
 tags:
   - ACL 2025
   - misleading queries
-  - hallucination
-  - fine-tuning
+  - 幻觉
+  - 微调
   - query correction
-  - robustness
+  - 鲁棒性
 ---
 
 # From Misleading Queries to Accurate Answers: A Three-Stage Fine-Tuning Method for LLMs
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2504.11277](https://arxiv.org/abs/2504.11277)  
 **代码**: https://github.com/cong03/FMQAA  
 **领域**: LLM/NLP  
-**关键词**: misleading queries, hallucination, fine-tuning, query correction, robustness
+**关键词**: misleading queries, 幻觉, 微调, query correction, 鲁棒性
 
 ## 一句话总结
 提出三阶段微调方法（误导检测->查询纠正->准确回答）增强 LLM 处理含误导信息输入的能力，在误导检测和 QA 任务上显著提升准确率，同时减少幻觉生成。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 对输入质量高度敏感，当查询包含不准确或误导性信息时容易产生幻觉。
+
 **现有痛点**：现有方法（RAG、self-correction）聚焦纠正输出，忽略了纠正输入本身的潜力。RAG 需要外部知识库导致延迟高，self-correction 依赖模型自评估能力。
+
 **核心矛盾**：如何让 LLM 主动识别并纠正输入中的误导信息，而非被动接受导致错误输出？
+
 **本文要解决什么？** 训练 LLM 依次完成：检测误导->纠正查询->基于纠正后查询回答。
+
 **切入角度**：将"处理误导输入"分解为三个可独立训练的子任务。
+
 **核心idea一句话**：教会 LLM"先检查问题再回答"——通过三阶段微调让模型主动清洁输入。
 
 ## 方法详解

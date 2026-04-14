@@ -2,13 +2,14 @@
 title: >-
   [论文解读] Inference-Time Hyper-Scaling with KV Cache Compression
 description: >-
-  [NeurIPS 2025][模型压缩][KV Cache] 提出推理时超缩放（Hyper-Scaling）范式，通过压缩KV缓存在相同计算预算下生成更多token以提升推理准确率。核心方法Dynamic Memory Sparsification (DMS)仅需1K步训练即可实现8倍压缩，在Qwen-R1 32B上AIME 24提升12.0分、GPQA提升8.6分、LiveCodeBench提升9.7分。
+  [NeurIPS 2025][模型压缩][KV Cache压缩] 提出"推理时超缩放"（Inference-Time Hyper-Scaling）范式：通过高效压缩KV缓存，在相同计算/内存预算下生成更长或更多并行推理序列，显著提升推理模型在数学、代码、科学推理等任务上的准确率。
 tags:
   - NeurIPS 2025
   - 模型压缩
   - KV Cache压缩
   - 推理时缩放
   - 稀疏注意力
+  - Dynamic Memory Sparsification
   - 长序列推理
 ---
 
@@ -29,7 +30,9 @@ tags:
 推理时缩放（Inference-Time Scaling）是当前提升LLM推理能力的主要手段，通过生成更长的推理链（如Chain-of-Thought）或多条并行路径（如Best-of-N），以计算换准确率。然而，在Transformer LLM中，生成成本的真正瓶颈并非生成的token数量，而是**KV缓存的大小**：
 
 **内存瓶颈**：KV缓存随序列长度线性增长，对于32B参数模型，即使是8K上下文也需要大量GPU内存
+
 **延迟瓶颈**：自回归生成是内存带宽受限任务，每一步都需要读取全部KV缓存，缓存越大延迟越高
+
 **缩放上限**：在固定内存预算下，KV缓存大小限制了可并行生成的序列数或单序列最大长度
 
 作者观察到一个关键洞察：**如果能在高压缩比下压缩KV缓存同时保持准确率，就可以在相同计算预算下生成更多token，实现推理准确率的进一步提升**——这就是"超缩放"的核心思想。

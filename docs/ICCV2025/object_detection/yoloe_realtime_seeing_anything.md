@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.07465](https://arxiv.org/abs/2503.07465)  
 **代码**: [https://github.com/THU-MIG/yoloe](https://github.com/THU-MIG/yoloe)  
 **领域**: 目标检测 / 实例分割 / 开放词汇  
-**关键词**: open-vocabulary detection, YOLO, text/visual/prompt-free, re-parameterization, real-time  
+**关键词**: open-vocabulary detection, YOLO, text/visual/prompt-free, re-parameterization, real-time
 
 ## 一句话总结
 提出YOLOE，在YOLO架构中统一支持文本提示、视觉提示和无提示三种开放场景的检测和分割，通过RepRTA（可重参数化区域-文本对齐）、SAVPE（语义激活视觉提示编码器）和LRPC（懒惰区域-提示对比）三个设计实现高效率高性能，以3x更少的训练成本在LVIS上超越YOLO-World v2。

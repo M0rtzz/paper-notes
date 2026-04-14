@@ -29,6 +29,7 @@ tags:
 稀疏自编码器（SAE）是当前将 LLM 激活分解为可解释潜变量的主流方法，但存在两大核心瓶颈：
 
 **训练成本高昂**：SAE 需要数亿乃至数十亿 token 的模型激活数据进行训练，且 SAE 自身的参数量可能超过被分析的 LLM（如 Gemma 2 2B 的 SAE 竟有 50 亿参数）。当前开源 SAE 仅覆盖 ≤27B 参数的模型。
+
 **跨模型不可比**：SAE 的潜变量通过梯度下降在特定模型的激活空间中学习得到，不同模型的 SAE 潜变量之间没有天然的对应关系，无法直接进行模型间比较。
 
 受相对表示相似性方法（Moschella et al., 2022）的启发——即不同模型的绝对表示虽然不同，但表示空间中元素间的角度关系保持不变——作者提出了一种轻量级的替代方案。
@@ -79,10 +80,10 @@ MP 算法的每次迭代：
 
 1. 初始化字典 $\mathbf{D}$（选取高频激活或随机采样）
 2. 对每个训练 batch $\mathcal{B}$ 中的样本 $\mathbf{x}$：
-   - 计算稀疏编码 $\mathbf{a} = \text{OMP}(\mathbf{x}, \mathbf{D}, L_0)$
-   - 重构 $\hat{\mathbf{x}} = \mathbf{a}\mathbf{D}$
-   - 计算重构损失 $\ell(\mathbf{x}) = ||\mathbf{x} - \hat{\mathbf{x}}||_2^2$
-   - 若 $\ell(\mathbf{x}) > \tau$，将归一化的 $\mathbf{x}$ 加入字典
+    - 计算稀疏编码 $\mathbf{a} = \text{OMP}(\mathbf{x}, \mathbf{D}, L_0)$
+    - 重构 $\hat{\mathbf{x}} = \mathbf{a}\mathbf{D}$
+    - 计算重构损失 $\ell(\mathbf{x}) = ||\mathbf{x} - \hat{\mathbf{x}}||_2^2$
+    - 若 $\ell(\mathbf{x}) > \tau$，将归一化的 $\mathbf{x}$ 加入字典
 3. 过滤字典中的重复激活
 
 关键参数 $\tau$（损失阈值）控制字典大小：**更低的 $\tau$ → 更大的字典 → 更低的重构误差**。这与 SAE 的固定字典大小设计形成对比——SAE 的字典大小在训练前预设，而 ITDA 由重构质量阈值自适应确定。

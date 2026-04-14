@@ -49,20 +49,20 @@ DrPose 包含三个核心组件：
 
 1. **PoseScore 可微奖励函数**:
 
-    - 做什么：量化多视角潜变量图像 $\mathbf{x}_0$ 与 GT 3D 姿态 $\theta$ 的一致性
+    - 功能：量化多视角潜变量图像 $\mathbf{x}_0$ 与 GT 3D 姿态 $\theta$ 的一致性
     - 核心思路：将两者都投射到骨骼图像空间进行比较。用预训练的 U-Net $g_{\text{skel}}$ 将潜变量图像转换为预测骨骼图 $\hat{I}_{\text{skel}}$，用渲染函数 $\mathcal{R}$ 将 GT 3D 关节 $J(\theta)$ 投影到各视角得到 GT 骨骼图 $I_{\text{skel}}$
     - 奖励公式：$r(\mathbf{x}_0, \theta) = -\mathbb{E}(\|\hat{I}_{\text{skel}} - I_{\text{skel}}\|)$，其中距离用 BCE + LPIPS 估计
     - 设计动机：骨骼图是 23 通道图像（每个关节一个通道），既保留了姿态的精确结构信息，又是可微的——梯度可以从奖励一路回传到扩散模型参数
 
 2. **直接奖励微调（基于 DRTune）**:
 
-    - 做什么：高效地用奖励信号微调多视角扩散 U-Net
+    - 功能：高效地用奖励信号微调多视角扩散 U-Net
     - 核心思路：从噪声 $x_T \sim \mathcal{N}(0, \mathbf{I})$ 开始，通过 DDIM 采样（$T=20$ 步）生成多视角潜变量图像 $x_0$，但只对 $K=2$ 个采样的去噪步保留梯度（其余步执行 stop_grad），然后计算 $\mathcal{L}_{\text{reward}} = 1 - r(\mathbf{x}_0, \theta)$ 并反向传播
     - 设计动机：完整 20 步保留梯度的显存消耗不可承受（生成 24 张 768×768 图像），稀疏采样训练步 + 梯度停止是必要的效率优化
 
 3. **KL 散度正则化**:
 
-    - 做什么：防止 reward hacking（奖励分数升高但图像质量下降）
+    - 功能：防止 reward hacking（奖励分数升高但图像质量下降）
     - 核心思路：在训练步 $t \in t_{\text{train}}$ 处，计算可训练模型 $\epsilon_\omega$ 与冻结初始模型 $\epsilon_{\omega_0}$ 的预测噪声之间的 MSE：$\mathcal{L}_{\text{KL}} = \mathbb{E}(\|\hat{\epsilon} - \hat{\epsilon}_0\|)$
     - 设计动机：约束微调后模型不偏离原始模型太远，保持图像质量的同时优化姿态准确性
 

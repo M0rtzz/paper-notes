@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18659](https://arxiv.org/abs/2505.18659)  
 **代码**: 无  
 **领域**: LLM评估 / 统计推断  
-**关键词**: LLM evaluation, prediction-powered inference, autoevaluator, e-value, sample efficiency  
+**关键词**: LLM evaluation, prediction-powered inference, autoevaluator, e-value, sample efficiency
 
 ## 一句话总结
 提出R-AutoEval+，通过e-value赌注算法自适应调整对合成数据（LLM评判器）的依赖权重，首次同时提供有限样本可靠性保证和可证明的采样效率改善，在GSM8K上比纯真实数据方法节省87个token。

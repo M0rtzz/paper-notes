@@ -9,7 +9,7 @@ tags:
   - 长期记忆
   - 状态追踪
   - 多平台智能体
-  - 基准测试
+  - benchmark
   - 记忆评估
 ---
 
@@ -23,7 +23,7 @@ tags:
 
 **领域**: Video Understanding / Agent Memory Evaluation
 
-**关键词**: 长期记忆, 状态追踪, 多平台智能体, 基准测试, 记忆评估
+**关键词**: 长期记忆, 状态追踪, 多平台智能体, benchmark, 记忆评估
 
 ## 一句话总结
 

@@ -1,8 +1,17 @@
 ---
-title: "[论文解读] Scalable Neural Incentive Design with Parameterized Mean-Field Approximation"
-description: "[NeurIPS 2025][强化学习] 基于参数化平均场博弈的可扩展神经激励设计算法AMID，实现大规模多智能体激励优化"
-tags: [NeurIPS 2025, 强化学习, 博弈论, 平均场博弈, 激励设计, 拍卖]
+title: >-
+  [论文解读] Scalable Neural Incentive Design with Parameterized Mean-Field Approximation
+description: >-
+  [NeurIPS 2025][incentive design] 提出 AMID 算法，将多智能体激励设计（ID）问题形式化为参数化平均场博弈（PMFG），证明有限$N$智能体目标以$\mathscr{O}(1/\sqrt{N})$速率逼近无限种群极限，在多种拍卖场景大幅提升收益。
+tags:
+  - NeurIPS 2025
+  - incentive design
+  - mean-field game
+  - Nash equilibrium
+  - auction
+  - multi-agent
 ---
+
 # Scalable Neural Incentive Design with Parameterized Mean-Field Approximation
 
 **会议**: NeurIPS 2025  
@@ -16,9 +25,13 @@ tags: [NeurIPS 2025, 强化学习, 博弈论, 平均场博弈, 激励设计, 拍
 
 ## 研究背景与动机
 **领域现状**：激励设计（Incentive Design）旨在为多智能体系统设计激励机制以诱导理想的 Nash 均衡，广泛应用于拍卖、定价和交通管控。
+
 **现有痛点**：当智能体数量$N$很大时，直接求解$N$-玩家博弈的计算复杂度极高；现有方法难以扩展到大规模场景。
+
 **核心矛盾**：有限$N$博弈的精确优化不可行，但简单的平均场近似缺乏严格的近似保证。
+
 **切入角度**：在可交换性（exchangeability）假设下，将 ID 问题重塑为参数化平均场博弈，利用无限种群极限降低复杂度。
+
 **核心 idea 一句话**：平均场博弈 + 伴随方法高效梯度计算 = 大规模激励设计的可扩展解法。
 
 ## 方法详解
@@ -29,19 +42,19 @@ tags: [NeurIPS 2025, 强化学习, 博弈论, 平均场博弈, 激励设计, 拍
 ### 关键设计
 1. **参数化平均场博弈（PMFG）**
 
-    - 做什么：将有限$N$智能体 ID 目标映射到无限种群极限
+    - 功能：将有限$N$智能体 ID 目标映射到无限种群极限
     - 核心思路：在 Lipschitz 条件下证明近似误差为$\mathscr{O}(1/\sqrt{N})$
     - 设计动机：避免指数级状态空间爆炸
 
 2. **序贯拍卖分析**
 
-    - 做什么：处理动态和奖励的不连续性
+    - 功能：处理动态和奖励的不连续性
     - 核心思路：通过定制的拍卖特定分析，在不连续动态下仍保持$\mathscr{O}(1/\sqrt{N})$衰减率
     - 设计动机：拍卖场景天然存在不连续跳变（出价→分配）
 
 3. **AMID 算法（Adjoint Mean-Field Incentive Design）**
 
-    - 做什么：高效计算激励参数的梯度
+    - 功能：高效计算激励参数的梯度
     - 核心思路：对迭代均衡算子显式求导，利用伴随方法（adjoint method）反向传播梯度
     - 设计动机：直接自动微分内层均衡迭代代价过高
 

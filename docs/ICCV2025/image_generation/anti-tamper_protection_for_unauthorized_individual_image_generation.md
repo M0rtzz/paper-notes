@@ -40,7 +40,7 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 
 1. **掩码引导的扰动融合（Mask-Guided Perturbation Blending）**:
 
-    - 做什么：确保保护扰动和授权扰动互不干扰
+    - 功能：确保保护扰动和授权扰动互不干扰
     - 核心思路：在频域中使用二值掩码$M$分离两种扰动的作用区域
     $P_{AP}(I) = F^{-1}[M \odot P_{Auth}(F(I)) + (1-M) \odot P_{Prot}(F(I))]$
     - 掩码$M$由Bernoulli分布采样（$p=0.5$），1的区域施加授权扰动，0的区域施加保护扰动
@@ -49,7 +49,7 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 
 2. **块离散余弦变换（Block Discrete Cosine Transform, BDCT）**:
 
-    - 做什么：高效地将图像变换到频域
+    - 功能：高效地将图像变换到频域
     - 核心公式：将图像分割为$N\times N$的非重叠块（$N=16$），对每块应用DCT：
       $C_{u,v} = \alpha(u)\alpha(v)\sum_{i=0}^{N-1}\sum_{j=0}^{N-1}I_{i,j}\phi(u,i,N)\phi(v,j,N)$
     - 逆变换BIDCT将频域系数变换回像素域
@@ -57,7 +57,7 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 
 3. **授权扰动（Authorization Perturbation）**:
 
-    - 做什么：在频域中嵌入授权消息，作为防篡改验证依据
+    - 功能：在频域中嵌入授权消息，作为防篡改验证依据
     - 核心思路：使用卷积自编码器$f_\theta$在掩码指定的频域区域嵌入二进制授权消息$m$（长度$L$），同时训练消息解码器$D_m$提取消息
     - 编码过程：$g_\theta(C) = (1-M) \odot C + M \odot f_\theta(M \odot C, m)$，$I_{enc} = F^{-1}[g_\theta(F(I))]$
     - 损失函数：$\mathcal{L} = \mathcal{L}_{con} + \lambda_{adv}\mathcal{L}_{adv,G} + \lambda_{rec}\mathcal{L}_{rec} + \lambda_{reg}\mathcal{L}_{reg}$
@@ -67,7 +67,7 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 
 4. **改进的频域PGD（Protection Perturbation）**:
 
-    - 做什么：在频域中准确生成保护扰动，避免干扰授权区域
+    - 功能：在频域中准确生成保护扰动，避免干扰授权区域
     - 原始问题：标准PGD中的$\Pi(\cdot)$（投影）和$\text{sgn}(\cdot)$在像素域操作，会不可避免地影响掩码保护的频率系数
     - 改进方案（Algorithm 1）：将符号函数和投影约束移到频域执行
       - 先计算像素域梯度$\nabla$

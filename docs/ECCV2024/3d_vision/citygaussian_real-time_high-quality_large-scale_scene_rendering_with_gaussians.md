@@ -10,7 +10,7 @@ tags:
   - Large-Scale Scene Reconstruction
   - Level-of-Detail
   - Divide-and-Conquer
-  - Novel View Synthesis
+  - novel view synthesis
 ---
 
 # CityGaussian: Real-Time High-Quality Large-Scale Scene Rendering with Gaussians
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2404.01133](https://arxiv.org/abs/2404.01133)  
 **代码**: [dekuliutesla/citygs](https://github.com/DekuLiuTesworworla/citygs)  
 **领域**: 3d_vision  
-**关键词**: 3D Gaussian Splatting, Large-Scale Scene Reconstruction, Level-of-Detail, Divide-and-Conquer, Novel View Synthesis
+**关键词**: 3D Gaussian Splatting, Large-Scale Scene Reconstruction, Level-of-Detail, Divide-and-Conquer, novel view synthesis
 
 ## 一句话总结
 

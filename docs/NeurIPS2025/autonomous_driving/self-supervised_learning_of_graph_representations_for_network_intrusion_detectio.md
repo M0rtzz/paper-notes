@@ -1,23 +1,36 @@
 ---
-title: "[论文解读] GraphIDS: Self-Supervised Learning of Graph Representations for Network Intrusion Detection"
-description: "[NeurIPS 2025][网络安全] 提出GraphIDS自监督入侵检测模型，通过掩码自编码器学习图表示，PR-AUC达99.98%"
-tags: [NeurIPS 2025, 网络安全, 图神经网络, 自监督学习, 入侵检测]
+title: >-
+  [论文解读] Self-Supervised Learning of Graph Representations for Network Intrusion Detection
+description: >-
+  [NeurIPS 2025][自动驾驶][network intrusion detection] 提出 GraphIDS，一种自监督入侵检测模型，通过掩码自编码器统一图表示学习与异常检测，在多个 NetFlow 基准上 PR-AUC 达 99.98%、宏 F1 达 99.61%，超越基线 5-25 个百分点。
+tags:
+  - NeurIPS 2025
+  - 自动驾驶
+  - network intrusion detection
+  - 图神经网络
+  - 自监督学习
+  - masked autoencoder
+  - 异常检测
 ---
+
 # Self-Supervised Learning of Graph Representations for Network Intrusion Detection
 
 **会议**: NeurIPS 2025  
 **arXiv**: [2509.16625](https://arxiv.org/abs/2509.16625)  
 **代码**: 无  
 **领域**: 网络安全 / 图学习  
-**关键词**: network intrusion detection, graph neural network, self-supervised learning, masked autoencoder, anomaly detection
+**关键词**: network intrusion detection, 图神经网络, 自监督学习, masked autoencoder, 异常检测
 
 ## 一句话总结
 提出 GraphIDS，一种自监督入侵检测模型，通过掩码自编码器统一图表示学习与异常检测，在多个 NetFlow 基准上 PR-AUC 达 99.98%、宏 F1 达 99.61%，超越基线 5-25 个百分点。
 
 ## 研究背景与动机
 **领域现状**：网络入侵检测在有限标注和不断演变的攻击模式下极具挑战，图神经网络（GNN）近年被引入该领域。
+
 **现有痛点**：现有 GNN 方法将表示学习与异常检测解耦，导致学到的嵌入并非为识别攻击而优化。
+
 **核心矛盾**：需要无监督/自监督方法（因为攻击类型不断变化，标注数据不足），但表示学习目标与检测目标不一致。
+
 **切入角度**：将图表示学习与异常检测统一到端到端框架中，使嵌入直接优化于下游检测任务。
 
 ## 方法详解
@@ -28,19 +41,19 @@ GraphIDS 分三步：(1) 构建网络流量的局部通信图；(2) 归纳式 GN
 ### 关键设计
 1. **局部图表示学习**
 
-    - 做什么：为每条网络流构建包含邻近通信的局部子图
+    - 功能：为每条网络流构建包含邻近通信的局部子图
     - 核心思路：捕获正常通信的局部拓扑模式
     - 设计动机：全局图过大不可行，局部图保留关键上下文
 
 2. **归纳式图神经网络编码器**
 
-    - 做什么：将每条流连同其局部拓扑上下文嵌入到向量空间
+    - 功能：将每条流连同其局部拓扑上下文嵌入到向量空间
     - 核心思路：使用归纳式消息传递 GNN，对未见过的 IP 地址也能泛化
     - 设计动机：网络环境是动态的，须处理未见节点
 
 3. **Transformer 掩码自编码器**
 
-    - 做什么：学习全局共现模式
+    - 功能：学习全局共现模式
     - 核心思路：编码器-解码器重建被掩码的嵌入，自注意力隐式建模流之间的全局关系
     - 不需要显式位置编码
     - 设计动机：全局模式互补局部拓扑

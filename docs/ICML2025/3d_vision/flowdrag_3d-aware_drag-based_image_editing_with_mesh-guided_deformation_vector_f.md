@@ -1,14 +1,16 @@
 ---
+title: >-
+  [论文解读] FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields
 description: >-
-  FlowDrag通过3D网格SR-ARAP变形生成2D向量流场引导扩散模型drag编辑，在DragBench(MD=22.88)和VFD-Bench(PSNR=18.55)上全面最优。ICML2025 Spotlight。
+  [ICML 2025 (Spotlight)][3D视觉][drag-based editing] 提出 FlowDrag，从图像构建 3D 网格后利用渐进式 SR-ARAP 变形生成连续 2D 向量流场，将全局几何先验注入扩散模型的 motion supervision 过程，在 DragBench（MD=22.88）和新提出的 VFD-Bench（PSNR=18.55, 1-LPIPS=0.82, MD=28.23）上全面领先。
 tags:
-  - ICML2025
+  - ICML 2025 (Spotlight)
   - 3D视觉
-  - 拖拽编辑
+  - drag-based editing
   - 3D网格变形
+  - SR-ARAP
   - 向量流场
   - 几何一致性
-  - 扩散模型
 ---
 
 # FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields
@@ -43,17 +45,17 @@ FlowDrag 的 pipeline 分三个阶段：
 ### 关键设计
 
 1. **渐进式 SR-ARAP 网格变形**:
-    - 做什么：在保持局部刚性的前提下，将 3D 网格中的 handle 顶点移动至 target 位置
+    - 功能：在保持局部刚性的前提下，将 3D 网格中的 handle 顶点移动至 target 位置
     - 核心思路：在经典 ARAP 能量函数基础上添加旋转一致性项和步间平滑项。SR-ARAP 能量为 $E_{SR\text{-}ARAP}(M) = E_{ARAP}(M) + \alpha \sum_{i \in V} \sum_{j \in N(i)} \|R_i - R_j\|^2$，渐进式分 $K$ 步移动顶点 $v_h^{(k+1)} = v_h^{(k)} + \lambda(v_t - v_h^{(k)})$，并加入 Inter-Step Smoothness 项 $\beta \sum_{i} \|\hat{v}_i^{(k+1)} - \hat{v}_i^{(k)}\|^2$ 防止突变
     - 设计动机：直接大幅移动顶点会导致局部扭曲和收敛到次优解；旋转一致性项确保相邻顶点的旋转平滑过渡
 
 2. **2D 向量流场生成与采样**:
-    - 做什么：将 3D 网格变形结果投影为 2D 连续位移场，替代原始方法中仅有的离散拖拽点
+    - 功能：将 3D 网格变形结果投影为 2D 连续位移场，替代原始方法中仅有的离散拖拽点
     - 核心思路：计算原始与变形网格 2D 投影的差分 $\Phi = \{(\Delta x_i, \Delta y_i)\}$，在编辑 mask 内均匀采样 $N \times N$（$N=20$）网格候选向量，通过 magnitude-based sampling 选取 5-30 个最具代表性的向量用于 motion supervision
     - 设计动机：连续位移场覆盖整个编辑区域，提供比离散拖拽点更丰富的全局几何引导
 
 3. **Layout 特征注入**:
-    - 做什么：将变形后网格的 2D 投影 $\pi(\hat{M})$ 经 DDIM Inversion 得到的 attention 特征在早期去噪步注入主编辑分支
+    - 功能：将变形后网格的 2D 投影 $\pi(\hat{M})$ 经 DDIM Inversion 得到的 attention 特征在早期去噪步注入主编辑分支
     - 核心思路：利用早期 timestep 建立结构轮廓的特性，仅在 $t' = 30$ 之前注入 layout 信息，避免过度约束细节
     - 设计动机：向量流场提供点级位移引导，layout 注入提供整体结构上下文，两者互补
 

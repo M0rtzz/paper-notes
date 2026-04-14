@@ -8,7 +8,7 @@ tags:
   - 自监督学习
   - EEG
   - MEG
-  - Foundation Model
+  - foundation model
   - BrainTokenizer
   - Sensor Encoder
   - 跨设备泛化
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2505.18185](https://arxiv.org/abs/2505.18185)  
 **代码**: [OpenTSLab/BrainOmni](https://github.com/OpenTSLab/BrainOmni)  
 **领域**: 自监督学习 / 脑信号基础模型  
-**关键词**: EEG, MEG, Foundation Model, BrainTokenizer, Sensor Encoder, 跨设备泛化, RVQ
+**关键词**: EEG, MEG, foundation model, BrainTokenizer, Sensor Encoder, 跨设备泛化, RVQ
 
 ## 一句话总结
 

@@ -1,11 +1,17 @@
 ---
-description: 提出OrbitZoo多智能体强化学习环境用于真实轨道动力学，基于Orekit高保真仿真并集成PettingZoo，在Starlink验证MAPE仅0.16%
+title: >-
+  [论文解读] OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning
+description: >-
+  [NeurIPS 2025][多智能体RL] 提出OrbitZoo——一个基于工业级轨道动力学库Orekit的多智能体强化学习环境，支持碰撞规避、编队飞行等场景，在Starlink真实数据验证中MAPE仅为0.16%。
 tags:
-- reinforcement-learning
-- multi-agent
-- orbital-dynamics
-- simulation-environment
+  - NeurIPS 2025
+  - 多智能体RL
+  - 轨道力学
+  - Orekit
+  - PettingZoo
+  - 碰撞规避
 ---
+
 # OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning
 
 **会议**: NeurIPS 2025  
@@ -42,17 +48,17 @@ OrbitZoo的三大核心模块：
 ### 关键设计
 
 1. **高保真轨道动力学集成**:
-    - 做什么：集成Orekit的数值传播器，包含多种扰动力
+    - 功能：集成Orekit的数值传播器，包含多种扰动力
     - 核心思路：支持高阶重力场、大气阻力、太阳辐射压、第三体引力等扰动；支持Cartesian、Keplerian和equinoctial三种状态表示；支持固定步长和自适应步长（Dormand-Prince）积分
     - 设计动机：简化传播器（如SGP4）精度不足，而Orekit提供了高保真且经过验证的数值传播
 
 2. **多智能体RL标准化接口**:
-    - 做什么：通过PettingZoo库实现MA-POMDP标准接口
+    - 功能：通过PettingZoo库实现MA-POMDP标准接口
     - 核心思路：每个卫星作为独立智能体，具有部分可观测性；支持合作、竞争和混合场景；推力模型使用极坐标参数化（推力大小、偏转角、方位角），可转换为Cartesian推力向量
     - 设计动机：现有方法多为单智能体全观测设定，不符合真实场景中通信受限和分散决策的需求
 
 3. **真实星座验证**:
-    - 做什么：使用Starlink卫星星座数据验证仿真精度
+    - 功能：使用Starlink卫星星座数据验证仿真精度
     - 核心思路：通过调整阻力系数和反射系数等物理参数，将数值传播与星历数据对齐
     - 设计动机：弥合sim-to-real差距，确保RL策略在真实环境中的可转移性
 

@@ -9,7 +9,7 @@ tags:
   - 机器人运动
   - 多智能体强化学习
   - 博弈论
-  - Sim-to-Real
+  - 仿真到现实
 ---
 
 # VolleyBots: A Testbed for Multi-Drone Volleyball Game Combining Motion Control and Strategic Play
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.01932](https://arxiv.org/abs/2502.01932)  
 **代码**: [https://github.com/thu-uav/VolleyBots](https://github.com/thu-uav/VolleyBots)  
 **领域**: 强化学习  
-**关键词**: 多无人机系统, 机器人运动, 多智能体强化学习, 博弈论, Sim-to-Real
+**关键词**: 多无人机系统, 机器人运动, 多智能体强化学习, 博弈论, 仿真到现实
 
 ## 一句话总结
 本文提出 VolleyBots，一个多无人机排球竞技测试平台，融合了合作-对抗博弈、回合制交互与敏捷 3D 机动控制，基于 Isaac Sim 构建了从单体训练到多体竞技的任务课程体系，并通过分层策略在 3v3 任务中取得 69.5% 胜率，同时展示了零样本 sim-to-real 部署能力。

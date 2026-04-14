@@ -9,7 +9,7 @@ tags:
   - vocabulary extension
   - tokenizer
   - 域适应
-  - inference efficiency
+  - reasoning efficiency
   - e-commerce
   - BPE
 ---
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2509.26124](https://arxiv.org/abs/2509.26124)  
 **代码**: 待确认  
 **领域**: llm_efficiency  
-**关键词**: vocabulary extension, tokenizer, domain adaptation, inference efficiency, e-commerce, BPE  
+**关键词**: vocabulary extension, tokenizer, domain adaptation, reasoning efficiency, e-commerce, BPE
 
 ## 一句话总结
 提出一种保证不增加任何输入 token 数的词表扩展算法，通过向预训练 LLM 的 tokenizer 添加领域特定 token，在电商场景实现输入序列缩短 20%、推理吞吐量提升 20-30%，且不损失模型质量。
@@ -40,10 +40,10 @@ tags:
 ### Tokenizer 扩展算法
 1. **训练领域 tokenizer**：在领域数据集上从头训练 BPE tokenizer，获取领域高频 token
 2. **扩展原始 tokenizer**：
-   - 从领域 tokenizer 中选取不在原词表中的新 token
-   - 关键设计：将新 merge 操作**追加**到 merge list 末尾（而非前置），保证原有分词行为不变
-   - **保证性质**：任何输入序列经扩展 tokenizer 编码后的 token 数 ≤ 原 tokenizer，因为新 merge 只在原有 merge 都完成后才触发
-   - 对比 Yamaguchi et al. 的前置策略：前置会改变已有 merge 的优先级，可能导致通用文本的编码反而变差
+    - 从领域 tokenizer 中选取不在原词表中的新 token
+    - 关键设计：将新 merge 操作**追加**到 merge list 末尾（而非前置），保证原有分词行为不变
+    - **保证性质**：任何输入序列经扩展 tokenizer 编码后的 token 数 ≤ 原 tokenizer，因为新 merge 只在原有 merge 都完成后才触发
+    - 对比 Yamaguchi et al. 的前置策略：前置会改变已有 merge 的优先级，可能导致通用文本的编码反而变差
 3. **Embedding 初始化**：新 token 的 embedding/projection 向量用其组成子 token 的均值初始化（遵循 Yao et al. 2021 的最佳实践）
 4. **继续训练**：在混合数据（通用 50% + 领域 50%）上用 cosine schedule 学习率（1e-5 → 5e-7）训练 10K 步
 5. **词表大小权衡**：通过扫描不同新增 token 数量（1K-80K），评估编码效率 vs forward pass 速度，找最优平衡点

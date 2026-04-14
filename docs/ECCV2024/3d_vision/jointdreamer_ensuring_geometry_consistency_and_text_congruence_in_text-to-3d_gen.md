@@ -2,11 +2,11 @@
 title: >-
   [论文解读] JointDreamer: Ensuring Geometry Consistency and Text Congruence in Text-to-3D Generation via Joint Score Distillation
 description: >-
-  [ECCV 2024][3D视觉][Text-to-3D] 提出联合分数蒸馏（JSD），通过能量函数建模多视图去噪图像的联合分布，将 SDS 从单视图独立优化扩展为多视图联合优化，有效解决 3D 生成中的 Janus 问题，同时保持对复杂文本的生成保真度。
+  [ECCV 2024][3D视觉][文生3D] 提出联合分数蒸馏（JSD），通过能量函数建模多视图去噪图像的联合分布，将 SDS 从单视图独立优化扩展为多视图联合优化，有效解决 3D 生成中的 Janus 问题，同时保持对复杂文本的生成保真度。
 tags:
   - ECCV 2024
   - 3D视觉
-  - Text-to-3D
+  - 文生3D
   - Score Distillation
   - Janus问题
   - 多视图一致性
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.12291](https://arxiv.org/abs/2407.12291)  
 **代码**: [项目主页](https://jointdreamer.github.io)  
 **领域**: 3D视觉  
-**关键词**: Text-to-3D, Score Distillation, Janus问题, 多视图一致性, 能量函数
+**关键词**: 文生3D, Score Distillation, Janus问题, 多视图一致性, 能量函数
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: Score Distillation Sampling（SDS）是文本到3D生成的主流范式，利用预训练 2D 扩散模型的图像分布先验优化 NeRF 等 3D 表示。DreamFusion、Magic3D、ProlificDreamer 等方法取得了显著进展。
+
 **现有痛点**: SDS 对每个渲染视图独立优化，继承了 2D 扩散模型视角无关（view-agnostic）的特性，导致严重的 **Multi-Face Janus Problem**——3D 资产从不同角度看到重复内容（如多张脸）。
+
 **核心矛盾**: 现有解决方案要么效果有限（prompt engineering），要么在有限 3D 数据上微调导致过拟合、丢失文本保真度（如 MVDream 处理复杂文本时缺失语义组件）。**几何一致性与文本一致性难以兼顾**。
+
 **本文要解决什么**: 从 SDS 优化范式本身出发，引入多视图一致性约束，在不牺牲扩散模型泛化能力的前提下消除 Janus 问题。
+
 **切入角度**: 用能量函数建模多视图图像的联合分布，从理论上推导出多视图 KL 散度并得到联合分数蒸馏函数。
+
 **核心idea一句话**: SDS 是 JSD 在能量项为零时的特例——引入视觉感知的能量函数即可从单视图优化自然过渡到多视图联合优化。
 
 ## 方法详解

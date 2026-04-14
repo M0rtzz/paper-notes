@@ -2,14 +2,14 @@
 title: >-
   [论文解读] M-RewardBench: Evaluating Reward Models in Multilingual Settings
 description: >-
-  [ACL 2025 (Long Paper)][Reward Model] 构建首个多语言奖励模型评估基准M-RewardBench（23种语言、2.87K偏好实例，覆盖对话/安全/推理/翻译四类能力），系统评估多种RM后发现英语与非英语RM性能存在显著差距，且翻译质量和语言资源量对RM表现有重要影响。
+  [ACL 2025][reward model] 构建首个多语言奖励模型评估基准 M-RewardBench（23种 typologically 多样语言、2.87K 偏好实例，覆盖 Chat/Safety/Reasoning/Translation 四类能力），系统评估多种 RM 后发现英语与非英语性能存在显著差距，且 RM 偏好可在语言间发生实质性漂移。
 tags:
-  - ACL 2025 (Long Paper)
-  - Reward Model
-  - Multilingual Evaluation
+  - ACL 2025
+  - reward model
+  - Multilingual
   - RLHF
   - Preference Benchmark
-  - Language Diversity
+  - 偏好漂移
 ---
 
 # M-RewardBench: Evaluating Reward Models in Multilingual Settings
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.15522](https://arxiv.org/abs/2410.15522)  
 **代码**: https://github.com/for-ai/m-rewardbench (有)  
 **领域**: LLM对齐 / 多语言 / 奖励模型评估  
-**关键词**: Reward Model, Multilingual, RLHF, Preference Benchmark, 偏好漂移
+**关键词**: reward model, Multilingual, RLHF, Preference Benchmark, 偏好漂移
 
 ## 一句话总结
 
@@ -48,20 +48,20 @@ tags:
 
 1. **多语言基准构建（M-RewardBench Dataset）**:
 
-    - 做什么：构建覆盖 23 种 typologically 多样语言的 RM 评估数据集
+    - 功能：构建覆盖 23 种 typologically 多样语言的 RM 评估数据集
     - 核心思路：从 RewardBench 精选偏好实例（chosen/rejected 对），覆盖四种能力维度——Chat（对话质量）、Safety（安全性）、Reasoning（推理能力）、Translation（翻译能力，新增维度）。翻译流程包含严格的质量控制：先机器翻译后人工校验，确保语义等价
     - 设计动机：直接采用英语基准无法反映多语言能力；从零构建每种语言的原生偏好数据成本过高且难以保持评估一致性。翻译方案在成本和可比性间取得平衡
     - 覆盖语言：23 种，包含中文、日语、韩语、阿拉伯语、印地语、法语、德语、西班牙语、俄语、土耳其语等，覆盖多种语系和文字系统，总计 2.87K 偏好实例
 
 2. **系统化评估框架**:
 
-    - 做什么：在 M-RewardBench 上全面评估多种 RM 架构的跨语言表现
+    - 功能：在 M-RewardBench 上全面评估多种 RM 架构的跨语言表现
     - 核心思路：评估三类 RM——(1) Classifier-based RM（如 UltraRM），通过回归头输出标量分数；(2) Generative RM / LLM-as-a-judge（如 GPT-4），直接生成偏好判断；(3) Implicit RM（如 DPO 训练的模型），通过似然差异隐式表达偏好。每种 RM 在 23 种语言上逐语言评估
     - 设计动机：不同 RM 架构的多语言泛化模式可能不同——classifier-based 可能受语言表示影响更大，而 generative RM 可能受提示语言影响
 
 3. **多维度分析**:
 
-    - 做什么：深入分析影响 RM 跨语言表现的因素
+    - 功能：深入分析影响 RM 跨语言表现的因素
     - 核心思路：(1) 英语 vs 非英语整体差距分析，(2) 跨语言偏好漂移分析——同一偏好实例在不同语言下 RM 的 chosen/rejected 判断是否发生反转，(3) 翻译质量与 RM 性能的相关性分析，(4) 语言资源水平（高/中/低资源）与 RM 性能的关系
     - 设计动机：仅知道"有差距"不够，需要理解差距的来源才能指导改进
 

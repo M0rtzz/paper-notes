@@ -2,7 +2,7 @@
 title: >-
   [论文解读] AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts
 description: >-
-  [ACL 2025][自主数据选择] 提出 AutoDS——用基座 LLM 自身作为零样本"生成分类器"自动评估数学文本质量。通过两个 yes/no 问题的 logits 计算连续 LM-Score（而非二分类），筛选高质量数学文本做持续预训练，在 MATH/GSM8K/BBH 上大幅提升并实现约 2 倍 token 效率提升。发布 AutoMathText 数据集。
+  [ACL 2025][自主数据选择] 提出 AutoDS——用基座语言模型自身作为零样本生成分类器，通过 YES/NO token 的 logits 计算连续 LM-Score 来自动评估数学文本质量，筛选高质量语料做持续预训练，在 MATH/GSM8K/BBH 上实现约 2 倍 token 效率提升。
 tags:
   - ACL 2025
   - 自主数据选择
@@ -10,7 +10,6 @@ tags:
   - 数学文本
   - 持续预训练
   - LM-Score
-  - token效率
 ---
 
 # AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts
@@ -42,17 +41,17 @@ AutoDS 的核心流程：(1) 设计 meta-prompt 向基座模型提两个 YES/NO 
 ### 关键设计
 
 1. **零样本生成分类器——基于 logits 的连续评分**:
-    - 做什么：用基座 LLM 的 YES/NO token logits 为每篇数学文本计算连续质量评分
+    - 功能：用基座 LLM 的 YES/NO token logits 为每篇数学文本计算连续质量评分
     - 核心思路：设计包含两个诊断问题的 meta-prompt——Q1: "这段文本是否具备数学智能？" Q2: "它是否对未来的数学学习有用？"。从模型输出提取 logits 计算每个问题的评分：$\text{LM-Score}(Q) = \frac{\exp(\text{logit}(\text{YES}))}{\exp(\text{logit}(\text{YES})) + \exp(\text{logit}(\text{NO}))}$，最终评分为两问题分数的乘积：$\text{LM-Score}(Q_1, Q_2) = \text{LM-Score}(Q_1) \times \text{LM-Score}(Q_2)$，确保文本必须在数学智能和教育价值两个维度上都获得高分
     - 设计动机：连续评分比二分类保留了质量的细粒度——0.95 和 0.50 的文本可以被不同对待，提升 token 效率。评分公式本质上是 softmax 归一化，与 RLHF 中的 Bradley-Terry 奖励模型形式一致，但无需任何监督信号
 
 2. **自主数据筛选管线**:
-    - 做什么：从三大数据源（OpenWebMath、arXiv、Algebraic Stack）筛选高质量数学文本
+    - 功能：从三大数据源（OpenWebMath、arXiv、Algebraic Stack）筛选高质量数学文本
     - 核心思路：使用 Qwen-72B 基座模型计算 LM-Score，处理 1126 万文档（200+ GB）。按分数阈值（如 0.50-1.00 或 0.75-1.00）保留文档。高分文档主要来自 math.stackexchange.com 等数学密集站点
     - 设计动机：人工标注 1126 万文档成本超过 1000 万美元；AutoDS 使用 4 张 A100-80G 约 750 GPU 小时，按云计算定价不到 1 万美元——成本降低 1000 倍
 
 3. **自主持续预训练**:
-    - 做什么：基座模型自身选择训练数据后做持续预训练
+    - 功能：基座模型自身选择训练数据后做持续预训练
     - 核心思路：模型不仅从数据中学习，还主动决定"学什么数据"，实现自导向学习。随着新数据到来可持续评估和动态更新语料库
     - 设计动机：在数学等专业领域，人工标注稀缺且昂贵，关键词启发式不可靠（如 OpenWebMath 的分类器主要看 LaTeX 符号密度），让模型自主判断更准确且可扩展
 

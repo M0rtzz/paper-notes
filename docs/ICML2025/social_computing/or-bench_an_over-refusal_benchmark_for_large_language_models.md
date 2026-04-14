@@ -7,7 +7,7 @@ tags:
   - ICML 2025
   - Over-Refusal
   - Safety Alignment
-  - Benchmark
+  - benchmark
   - LLM Evaluation
   - Red-Teaming
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2405.20947](https://arxiv.org/abs/2405.20947)  
 **代码**: [github.com/justincui03/or-bench](https://github.com/justincui03/or-bench)  
 **领域**: LLM对齐/安全  
-**关键词**: Over-Refusal, Safety Alignment, Benchmark, LLM Evaluation, Red-Teaming
+**关键词**: Over-Refusal, Safety Alignment, benchmark, LLM Evaluation, Red-Teaming
 
 ## 一句话总结
 
@@ -29,8 +29,11 @@ tags:
 LLM 在经过安全对齐（如 RLHF、MART、instruction fine-tuning）后，能有效拒绝恶意指令，但往往附带一个副作用：**过度拒绝（over-refusal）**——即模型对无害的 prompt 也予以拒绝，导致实用性下降。
 
 现有的过度拒绝测试集 XSTest 仅含 250 条手工编写的 prompt，存在三个核心问题：
+
 **规模不足**：250 条无法系统性覆盖多种有害类别和话题
+
 **难度饱和**：最新 SOTA 模型（如 Llama-3-70b）几乎能正确回答 XSTest 中的所有问题
+
 **人工成本高**：跨类别、跨话题的扩展需要大量人力
 
 因此，本文提出了一个全自动化的生成管线，构建了首个大规模过度拒绝基准 OR-Bench，包含跨 10 个常见拒绝类别的 80,000 条 prompt。

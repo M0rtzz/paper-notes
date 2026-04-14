@@ -47,14 +47,14 @@ VBM scheduler：$\mathcal{A} = [\mathcal{B}_1^V, ..., \mathcal{B}_T^V, \mathcal{
 
 1. **View-Batch Replay**：
 
-    - 做什么：延长回忆间隔至最优范围
+    - 功能：延长回忆间隔至最优范围
     - 核心思路：batch大小不变 $B$，但每个slot放同一样本的不同增强视图而非不同样本。实际唯一样本数减少到 $B/V$，回忆间隔延长V倍
     - 第一个视图用弱增强（水平翻转），其余V-1个用强增强（AutoAugment）
     - 实验验证：V=4时回忆间隔处于最优区间，遗忘程度（memory retention decay）最缓
 
 2. **One-to-Many自监督损失**：
 
-    - 做什么：从单样本的多视图中学习更多知识
+    - 功能：从单样本的多视图中学习更多知识
     - 核心思路：$L_{ssl} = \frac{1}{B \cdot (V-1)} \sum_{i=1}^B \sum_{j=2}^V D_{KL}(p_i^1 \| p_i^j)$，即弱增强视图的logit分布作为target，最小化与强增强视图之间的KL散度
     - 设计动机：不需要额外架构（teacher network等），仅在logit层面做一致性约束，task-agnostic的知识对遗忘更鲁棒
 

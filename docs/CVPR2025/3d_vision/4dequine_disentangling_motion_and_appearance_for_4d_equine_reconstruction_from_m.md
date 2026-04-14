@@ -53,13 +53,13 @@ tags:
 
 1. **VarenPoser合成运动数据集**
 
-    - 做什么：创建大规模合成马匹视频数据集，提供VAREN参数GT用于训练运动网络
+    - 功能：创建大规模合成马匹视频数据集，提供VAREN参数GT用于训练运动网络
     - 核心思路：将VAREN模型拟合到标记点运动捕捉数据集PFERD上获得姿态参数，随机分配形状参数增加多样性，用MV-Adapter生成纹理，关键创新是模拟三种真实相机运动轨迹（fix/dolly/orbit）
     - 设计动机：真实4D马匹数据标注极其困难，合成数据集包含1171个video clip、512×512分辨率、60FPS，提供精确的VAREN参数GT
 
 2. **AniMoFormer时空Transformer**
 
-    - 做什么：从16帧视频窗口回归时间一致的VAREN参数
+    - 功能：从16帧视频窗口回归时间一致的VAREN参数
     - 核心思路：两阶段设计——(1) Spatial Transformer逐帧提取空间特征，(2) Temporal Transformer在N帧窗口上做self-attention建模时序关系，(3) VAREN Transformer Decoder回归参数。训练损失：
     $\mathcal{L} = \lambda_{varen}\mathcal{L}_{varen} + \lambda_{smooth}\mathcal{L}_{smooth} + \lambda_{2D}\mathcal{L}_{2D} + \lambda_{3D}\mathcal{L}_{3D}$
       其中$\mathcal{L}_{smooth}$约束相邻帧参数变化平滑
@@ -67,13 +67,13 @@ tags:
 
 3. **Post-Optimization后优化**
 
-    - 做什么：将Transformer预测的mesh与2D图像精确对齐
+    - 功能：将Transformer预测的mesh与2D图像精确对齐
     - 核心思路：用可微分渲染器将3D mesh投影到2D，与ViTPose++提取的pseudo GT关键点和Samurai提取的mask对比，优化姿态参数使其pixel-aligned
     - 设计动机：Transformer预测的mesh可能与2D证据有偏移，后优化通过图像级监督弥补这一gap，两者缺一不可（消融证实去掉任何一个都会掉点）
 
 4. **EquineGS前馈外观重建**
 
-    - 做什么：从单张图像前馈生成可动画的3DGS avatar
+    - 功能：从单张图像前馈生成可动画的3DGS avatar
     - 核心思路：
       - **点云初始化**：将VAREN模板mesh细分（每边中点+每面分四），从13,873顶点上采样到55,486个Gaussian初始位置
       - **双流特征提取**：DINOv3 ViT-L提取图像多尺度特征$F_I \in \mathbb{R}^{784\times1024}$，Point Transformer对3D点编码得$F_P \in \mathbb{R}^{N_G\times1024}$
@@ -82,7 +82,7 @@ tags:
 
 5. **VarenTex合成外观数据集**
 
-    - 做什么：生成150K张高质量多视角马匹图像用于训练EquineGS
+    - 功能：生成150K张高质量多视角马匹图像用于训练EquineGS
     - 核心思路：从VarenPoser mesh渲染法线图和CCM→ControlNet生成参考图像→UniTex多视角扩散模型生成一致的多视角训练图像
     - 设计动机：VarenPoser的纹理质量不够高保真，且外观网络需要多视角数据而不是单目视频
 

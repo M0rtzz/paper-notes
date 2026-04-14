@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.05622](https://arxiv.org/abs/2511.05622)  
 **代码**: [nbabey20/groundactrec](https://github.com/nbabey20/groundactrec)  
 **领域**: video_understanding  
-**关键词**: action recognition, multimodal fusion, 3D human pose, cross-attention, V-JEPA 2, CoMotion  
+**关键词**: action recognition, multimodal fusion, 3D human pose, cross-attention, V-JEPA 2, CoMotion
 
 ## 一句话总结
 

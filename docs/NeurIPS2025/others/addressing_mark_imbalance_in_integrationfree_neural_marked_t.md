@@ -1,12 +1,17 @@
 ---
-description: 首次研究标记时间点过程(MTPP)中事件标记不平衡问题，提出无积分的IFNMTPP模型和阈值方法
+title: >-
+  [论文解读] Addressing Mark Imbalance in Integration-free Neural Marked Temporal Point Processes
+description: >-
+  [NeurIPS 2025][标记时间点过程] 本文首次揭示标记时间点过程(MTPP)中标记分布不平衡对预测性能的严重影响，提出先预测标记再预测时间的策略，设计阈值方法调节稀有标记的预测概率，并开发无积分近似的IFNMTPP模型高效支持标记概率估计和时间采样。
 tags:
-- NEURIPS2025
-- 时间点过程
-- 类别不平衡
-- 事件预测
-- 概率建模
+  - NeurIPS 2025
+  - 标记时间点过程
+  - 标记不平衡
+  - 阈值方法
+  - 无积分近似
+  - 事件预测
 ---
+
 # Addressing Mark Imbalance in Integration-free Neural Marked Temporal Point Processes
 
 **会议**: NeurIPS 2025  
@@ -40,13 +45,13 @@ tags:
 ### 关键设计
 
 1. **标记优先预测 + 阈值方法**:
-    - 做什么：先基于 $p^*(m) = \int_{t_l}^{+\infty} p^*(m,\tau)\,d\tau$ 预测标记，然后预测时间
+    - 功能：先基于 $p^*(m) = \int_{t_l}^{+\infty} p^*(m,\tau)\,d\tau$ 预测标记，然后预测时间
     - 核心思路：计算比率 $r_m = p^*(m) / \bar{p}^*(m)$（概率/先验概率），学习阈值 $\epsilon_m$ 使 $m_p = \arg\max_m (r_m - \epsilon_m)$
     - 设计动机：$p^*(m)$ 与时间无关，可以用统一的阈值处理不平衡；稀有标记即使 $p^*(m)$ 低，$r_m$ 也可能高，表明该事件相对其自身基准概率更可能发生
     - 阈值学习：对每个标记m，通过最大化m vs 其他的F1分数确定最优 $\epsilon_m$
 
 2. **无积分近似 (IFNMTPP)**:
-    - 做什么：避免计算两个代价高昂的反常积分来获取 $p^*(m)$ 和 $F^*(t|m)$
+    - 功能：避免计算两个代价高昂的反常积分来获取 $p^*(m)$ 和 $F^*(t|m)$
     - 核心思路：定义 $\Gamma^*(m,t) = \int_t^{+\infty} p^*(m,\tau)\,d\tau$，将两个积分统一为对 $\Gamma^*$ 的建模；用神经网络直接参数化 $\Gamma^*(m,t)$ 而非 $\lambda^*(m,t)$
     - 设计动机：$p^*(m) = \Gamma^*(m,t_l)$，$F^*(t|m) = 1 - \Gamma^*(m,t)/\Gamma^*(m,t_l)$，统一了标记概率和时间CDF的计算
     - 关键约束：$\Gamma^*(m,t)$ 必须关于t单调递减且趋于0，通过网络架构设计保证

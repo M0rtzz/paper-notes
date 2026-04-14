@@ -1,12 +1,17 @@
 ---
-description: 提出QDSFormer混合经典-量子双随机Transformer，用变分量子电路替代softmax生成双随机注意力矩阵，在多个视觉任务上超越ViT和Sinkformer
+title: >-
+  [论文解读] Quantum Doubly Stochastic Transformers
+description: >-
+  [NeurIPS 2025][量子变分电路] 提出QDSFormer（量子双随机Transformer），用变分量子电路QontOT替代softmax生成双随机注意力矩阵，理论和实验证明量子电路生成的DSM更多样、更好保持信息，在多个小规模视觉识别任务上一致超越标准ViT和Sinkformer。
 tags:
-- quantum-computing
-- transformer
-- doubly-stochastic
-- attention-mechanism
-- vision-transformer
+  - NeurIPS 2025
+  - 量子变分电路
+  - 双随机矩阵
+  - 注意力机制
+  - ViT
+  - Birkhoff多面体
 ---
+
 # Quantum Doubly Stochastic Transformers
 
 **会议**: NeurIPS 2025  
@@ -42,17 +47,17 @@ QDSFormer在ViT中用QontOT量子电路替代softmax，将注意力矩阵 $\math
 ### 关键设计
 
 1. **QontOT量子电路产生DSM**:
-    - 做什么：将未归一化的注意力矩阵映射为双随机矩阵
+    - 功能：将未归一化的注意力矩阵映射为双随机矩阵
     - 核心思路：对任意酉矩阵 $\mathbf{U}$，$\mathbf{U} \odot \bar{\mathbf{U}} \in \Omega_n$。QontOT通过参数 $\theta$ 和数据 $\mathbf{M}$ 的乘积注入控制电路角度，产生参数化的DSM
     - 设计动机：量子电路天然保证DSM性质，且是参数化的（不同于非参数的Sinkhorn），可学习最优DSM
 
 2. **表达能力分析**:
-    - 做什么：系统对比QontOT、Sinkhorn和QR分解在DSM多样性上的差异
+    - 功能：系统对比QontOT、Sinkhorn和QR分解在DSM多样性上的差异
     - 核心思路：在离散化超立方体上穷举输入，统计产生的唯一DSM数量
     - 关键结果：QontOT（8层）对每个输入产生唯一的DSM（近似单射），而Sinkhorn和QR有大量碰撞
 
 3. **QR分解双随机算子（量子启发）**:
-    - 做什么：作为经典的量子启发替代方案
+    - 功能：作为经典的量子启发替代方案
     - 核心思路：对 $\mathbf{M}$ 做QR分解得酉矩阵 $\mathbf{U}$，再计算 $\mathbf{U} \odot \bar{\mathbf{U}}$
     - 局限：$O(n^3)$ 复杂度，碰撞率高，但在某些单层ViT设置中表现不错
 

@@ -3,7 +3,7 @@ title: "AniMer: Animal Pose and Shape Estimation Using Family Aware Transformer"
 description: "提出AniMer，利用家族感知Transformer估计多样化动物物种的姿态和形状，基于SMAL模型参数化动物体型"
 tags:
   - CVPR2025
-  - Image Generation
+  - 图像生成
   - Animal Pose Estimation
   - Shape Estimation
   - Transformer
@@ -27,8 +27,11 @@ tags:
 **核心挑战：**
 
 **形态多样性**：不同动物家族（如猫科、犬科、牛科、马科等）的体型比例、关节结构和运动模式差异显著。一只猫的身体结构与一匹马有本质区别
+
 **数据稀缺性**：获取动物的3D标注数据非常困难，不像人体数据那样有大规模的MoCap数据集。野外动物很难进行精确的3D扫描
+
 **遮挡与外观变化**：动物的毛发、羽毛等使得精确的体表几何估计更加困难，同时野外场景中的遮挡也很常见
+
 **现有模型的局限性**：SMAL（Skinned Multi-Animal Linear）模型虽然提供了可变形的动物体型模板，但早期工作通常只针对特定类别（如狗、马）训练独立模型，无法跨物种泛化
 
 本文的核心动机是设计一个能够感知动物家族关系的统一模型，利用同一家族内物种之间的形态学相似性来辅助姿态和形状估计。

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2312.04884](https://arxiv.org/abs/2312.04884)  
 **代码**: https://github.com/ZYM-PKU/UDiffText (有)  
 **领域**: 文本图像生成 / 场景文字编辑  
-**关键词**: Text Synthesis, Diffusion Model, Character-level Encoder, Cross-Attention, Scene Text Editing
+**关键词**: Text Synthesis, diffusion model, Character-level Encoder, Cross-Attention, Scene Text Editing
 
 ## 一句话总结
 
@@ -50,7 +50,7 @@ tags:
 
 1. **Character-level (CL) Text Encoder**:
 
-    - 做什么：将目标单词按字符级别编码为 embedding 序列，替代原始 CLIP encoder
+    - 功能：将目标单词按字符级别编码为 embedding 序列，替代原始 CLIP encoder
     - 核心思路：构建 codebook 将字符索引映射为可学习 embedding，经 position embedding 后送入 Transformer 生成输出 $(B, L, d_{emb})$
     - 设计动机：CLIP/T5 按 word/subword tokenize，无法感知字符内部结构；ByT5 等字符级模型参数量太大（20B 级别）。本文编码器仅 302M 参数
     - 训练方式：使用对比学习损失 $\mathcal{L}_{clip} = -\text{CS}(W_t \mathbf{e}_{text}, W_i \mathbf{e}_{image})$ 对齐文本与 ViTSTR 图像特征，同时用多标签分类损失 $\mathcal{L}_{ce} = \text{CE}(\mathcal{H}_{MLC}(\mathbf{e}_{text}), Ids)$ 确保 embedding 具有高区分度
@@ -58,7 +58,7 @@ tags:
 
 2. **Local Attention Loss + STR Loss 微调训练**:
 
-    - 做什么：利用字符级分割图监督 cross-attention map，使每个字符的注意力精确聚焦于对应区域
+    - 功能：利用字符级分割图监督 cross-attention map，使每个字符的注意力精确聚焦于对应区域
     - 核心思路：对字符序列 $\mathcal{T} = \{c^1, c^2, \dots, c^L\}$，其对应分割图 $\mathcal{S}_T = \{S^1, S^2, \dots, S^L\}$。从 U-Net 提取 cross-attention map $\mathcal{A}_i$，计算 local attention loss：
     $\mathcal{L}_{loc} = \frac{1}{C}\sum_{i=1}^{C}\left\{\frac{1}{L}\sum_{j=1}^{L}\max(\mathbb{G}(A_i^j) \odot (J - S^j)) - \frac{1}{L}\sum_{j=1}^{L}\max(\mathbb{G}(A_i^j) \odot S^j)\right\}$
     - 补充 STR loss：用预训练 OCR 模型对去噪结果的文本区域做识别，计算交叉熵 $\mathcal{L}_{str} = \text{CE}(S(D_\theta(\cdot) \odot \mathcal{M}), \mathcal{T})$
@@ -67,7 +67,7 @@ tags:
 
 3. **Noised Latent Refinement（推理阶段）**:
 
-    - 做什么：在推理时优化初始噪声和每步 latent，解决 catastrophic neglect 问题
+    - 功能：在推理时优化初始噪声和每步 latent，解决 catastrophic neglect 问题
     - 核心思路：(a) 采样 $N$ 个初始噪声，快速运行 2 步去噪，选择 $\mathcal{L}_{aae}$ 最小的噪声作为最优初始噪声；(b) 在每个timestep 通过梯度更新 $\mathbf{z}_t' = \mathbf{z}_t - \alpha_t \cdot \nabla_{\mathbf{z}_t} \mathcal{L}_{aae}$ 精炼 latent
     - $\mathcal{L}_{aae}$ 设计：最大化每个字符注意力在 mask 区域内的最大值的最小值，即 $\mathcal{L}_{aae} = -\frac{1}{C}\sum_{i=1}^{C}\min_{1 \le j \le N}(\max(\mathbb{G}(A_i^j) \odot \mathcal{M}))$
     - 设计动机：即使经过 local attention loss 训练，模型仍可能忽略某些字符。Refinement 确保每个字符在注意力中都被"激活"

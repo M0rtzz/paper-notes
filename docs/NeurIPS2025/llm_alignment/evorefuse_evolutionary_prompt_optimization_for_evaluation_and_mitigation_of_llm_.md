@@ -2,10 +2,10 @@
 title: >-
   [论文解读] EvoRefuse: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal
 description: >-
-  [NeurIPS 2025][LLM/NLP][over-refusal] 提出 EvoRefuse——用进化搜索（变异/重组 + ELBO 适应度 + 模拟退火）生成语义无害但能可靠触发 LLM 拒绝的"伪恶意"指令，比最强基线的拒绝触发率高 85.34%，并用生成的数据进行 SFT/DPO 微调，将过度拒绝降低 29.85%-45.96%。
+  [NeurIPS 2025][LLM对齐][over-refusal] 提出 EvoRefuse——用进化搜索（变异/重组 + ELBO 适应度 + 模拟退火）生成语义无害但能可靠触发 LLM 拒绝的"伪恶意"指令，比最强基线的拒绝触发率高 85.34%，并用生成的数据进行 SFT/DPO 微调，将过度拒绝降低 29.85%-45.96%。
 tags:
   - NeurIPS 2025
-  - LLM/NLP
+  - LLM对齐
   - over-refusal
   - evolutionary optimization
   - ELBO
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.23473](https://arxiv.org/abs/2505.23473)  
 **代码**: [GitHub](https://github.com/FishT0ucher/EVOREFUSE)  
 **领域**: LLM安全 / prompt优化  
-**关键词**: over-refusal, pseudo-malicious, evolutionary search, ELBO, safety alignment, DPO  
+**关键词**: over-refusal, pseudo-malicious, evolutionary search, ELBO, safety alignment, DPO
 
 ## 一句话总结
 
@@ -179,19 +179,19 @@ EvoRefuse是一个迭代进化优化系统：从种子指令$x^0$出发，每轮
 
 1. **ELBO变分适应度函数**:
 
-    - 做什么：将难以直接计算的拒绝条件概率$\log p_\theta(\mathbf{r}|\mathbf{x},\mathbf{s})$转化为可计算的下界作为优化目标
+    - 功能：将难以直接计算的拒绝条件概率$\log p_\theta(\mathbf{r}|\mathbf{x},\mathbf{s})$转化为可计算的下界作为优化目标
     - 核心思路：引入模型实际采样分布$q_\theta(\mathbf{y}|\mathbf{x})$作为变分分布，通过Jensen不等式推导下界 $\text{ELBO}(\mathbf{x}) = \mathbb{E}_{q_\theta(\mathbf{y}|\mathbf{x})}[\underbrace{\log p_\theta(\mathbf{y}|\mathbf{x},\mathbf{s})}_{\text{响应置信度}} + \underbrace{\log p_\theta(\mathbf{r}|\mathbf{x},\mathbf{y},\mathbf{s})}_{\text{拒绝对数概率}}] + c$。实际计算时用Monte Carlo采样$K$个响应估计：$\mathcal{F}(\mathbf{x}) = \frac{1}{K}\sum_k[\log\hat{p}_\phi(\mathbf{r}|\mathbf{y}_k) + \frac{\lambda}{T_k}\sum_t \log p_\theta(y_{k,t}|\mathbf{y}_{k,<t},\mathbf{x},\mathbf{s})]$，其中拒绝概率用预训练二分类器估计，响应置信度从目标LLM的token logits计算
     - 设计动机：直接采样估计拒绝概率因序列似然极低而数值不稳定。ELBO隐式平衡两个因素——奖励那些(i)语义上是拒绝且(ii)生成时置信度高的响应，使适应度既反映拒绝性又反映模型确定性
 
 2. **多策略变异与重组**:
 
-    - 做什么：通过三类变异策略和重组操作生成多样的候选伪恶意指令
+    - 功能：通过三类变异策略和重组操作生成多样的候选伪恶意指令
     - 核心思路：变异策略通过分析500条已有过度拒绝指令（XSTest + OR-Bench）提取得到，包括三大类——(i) 引入欺骗性上下文（争议话题、虚构场景、潜在危害暗示），(ii) 添加敏感词汇（暴力、偏见、其他敏感术语），(iii) 极端情绪（愤怒、厌恶、绝望）。每种变异使用GPT-4o执行并附带安全理由。重组操作从适应度排名前$L$的变异结果中采样$N$对，由GPT-4o组合两条指令的语义显著片段生成新候选
     - 设计动机：单一变异策略只能覆盖有限的语言变体空间。三类策略对应触发过度拒绝的三种核心模式（上下文/词汇/情绪），重组则在高适应度候选之间交叉，类似遗传算法的交叉操作，进一步扩大搜索空间的多样性
 
 3. **模拟退火机制**:
 
-    - 做什么：在进化搜索中偶尔接受低适应度候选以防止陷入局部最优
+    - 功能：在进化搜索中偶尔接受低适应度候选以防止陷入局部最优
     - 核心思路：每轮迭代中，候选指令$x'$被接受的概率为 $\delta = \min\{1, \exp[\frac{\mathcal{F}(x') - \mathcal{F}(x^t)}{\tau_t}]\}$，温度按线性冷却调度 $\tau_t = \max\{\tau_f, \tau_0 - \beta \cdot t\}$。高温阶段（早期）倾向于探索，低温阶段（晚期）倾向于利用
     - 设计动机：进化搜索的指令空间极其庞大，纯贪心策略容易收敛到特定类型的伪恶意模式（如仅依赖暴力词汇）。模拟退火保持搜索多样性的同时最终收敛到高质量解
 
@@ -305,8 +305,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：安全对齐使 LLM 拒绝有害请求，但"过度拒绝"（对无害但措辞敏感的请求也拒绝）严重影响可用性。
+
 **现有痛点**：(a) 缺乏系统性方法发现触发过度拒绝的输入模式；(b) 现有 benchmark 的触发指令多样性不足；(c) 缺正规化数据来缓解过度拒绝。
+
 **核心矛盾**：安全 vs 可用——更安全的模型倾向拒绝更多请求，但修复过度拒绝不能降低安全性。
+
 **切入角度**：进化搜索自动探索触发过度拒绝的语言特征空间（敏感关键词、欺骗性上下文、情感语调等）。
 
 ## 方法详解

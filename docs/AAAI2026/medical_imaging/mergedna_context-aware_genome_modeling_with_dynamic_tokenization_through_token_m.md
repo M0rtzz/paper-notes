@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.14806](https://arxiv.org/abs/2511.14806)  
 **代码**: 待确认  
 **领域**: medical_imaging  
-**关键词**: DNA foundation model, token merging, dynamic tokenization, genome modeling, masked language modeling  
+**关键词**: DNA foundation model, token merging, dynamic tokenization, genome modeling, masked language modeling
 
 ## 一句话总结
 提出 MergeDNA，通过可微分的 Token Merging 机制实现上下文感知的动态 DNA tokenization，结合层次化 autoencoder Transformer 和自适应 masked token modeling 预训练，在多个基因组 benchmark 上取得 SOTA。

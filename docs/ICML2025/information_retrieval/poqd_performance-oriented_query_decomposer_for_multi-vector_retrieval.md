@@ -29,7 +29,9 @@ tags:
 **Multi-Vector Retrieval（MVR）** 通过将查询和文档分解为细粒度单元（如 token/phrase），利用 MaxSim 操作计算相似度，在信息检索任务中表现优异。代表方法 ColBERT 将查询按 token 粒度分解。然而，作者发现：
 
 **Token 级分解的致命缺陷**：ColBERT 按 token 分解查询会导致语义歧义。例如查询 "Hong Kong" 被拆为 "Hong" 和 "Kong" 两个 token，其中 "Kong" 可能匹配到黑猩猩图片（King Kong），导致检索到完全不相关的文档。将 "Hong Kong" 作为整体 phrase 则可正确检索。
+
 **手动 prompt 分解质量差**：使用手工 prompt 让 LLM 分解查询（如 ICL-QD），可能产生不相关的子查询（如额外生成 "type" 这种无信息量的词），干扰 MaxSim 相似度计算，导致检索错误。
+
 **优化的核心难点**：(a) 子查询搜索过程不可微，无法反向传播梯度；(b) 评估候选子查询需要训练完整的下游模型，计算开销极大。
 
 这些问题引出核心研究问题：**如何自动生成任意粒度的子查询以最大化下游检索系统性能？**

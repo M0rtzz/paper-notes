@@ -1,11 +1,16 @@
 ---
-description: "[NeurIPS2025] GraphFaaS: 基于Serverless架构的GNN推理系统用于突发负载下的实时入侵检测，延迟降低85%且变异系数降低64%"
+title: >-
+  [论文解读] GraphFaaS: Serverless GNN Inference for Burst-Resilient, Real-Time Intrusion Detection
+description: >-
+  [NeurIPS 2025][图学习][图神经网络] 提出 GraphFaaS——基于 Serverless 架构的 GNN 推理系统，通过时间局部性图构建、频率过滤、特征长度感知节点嵌入和贪心 best-fit 图分区算法，在突发负载下实现平均检测延迟降低 85%（14.16s→2.1s）和变异系数降低 64%，同时保持检测准确率不变。
 tags:
-  - NeurIPS2025
-  - GNN Inference
-  - Serverless Computing
-  - Intrusion Detection
-  - Graph Partitioning
+  - NeurIPS 2025
+  - 图学习
+  - 图神经网络
+  - Serverless
+  - 入侵检测
+  - 突发负载
+  - 图分区
 ---
 
 # GraphFaaS: Serverless GNN Inference for Burst-Resilient, Real-Time Intrusion Detection
@@ -40,17 +45,17 @@ GraphFaaS 由三个核心组件组成：(1) 图构建——利用时间局部性
 ### 关键设计
 
 1. **时间局部性图构建与频率过滤**:
-    - 做什么：避免每次检测间隔都重建整个来源图，只处理变化的部分
+    - 功能：避免每次检测间隔都重建整个来源图，只处理变化的部分
     - 核心思路：保留活跃节点 2K-hop 邻域（K 为 GNN 层数）；通过频率过滤移除训练数据中高频出现的边和节点（常见模式通常无害），只保留罕见模式
     - 设计动机：来源图大部分结构在检测间隔之间不变，增量处理避免冗余计算
 
 2. **特征长度感知的 Serverless 节点嵌入**:
-    - 做什么：将节点属性（进程名、文件路径、IP 地址等文本特征）转换为向量表示
+    - 功能：将节点属性（进程名、文件路径、IP 地址等文本特征）转换为向量表示
     - 核心思路：由于节点属性是文本串，嵌入时间与串长度相关，因此按特征长度分组——短串合并到一个执行单元，长串单独处理，确保每个单元在时间阈值内完成
     - 设计动机：Serverless 函数有执行时间限制，不均匀的节点属性长度需要自适应调度
 
 3. **贪心 Best-Fit 图分区算法**:
-    - 做什么：将大图分区为满足大小限制的子图以并行推理
+    - 功能：将大图分区为满足大小限制的子图以并行推理
     - 核心思路：维护每个 cluster 的当前节点集和边数，对新节点计算加入各 cluster 的增量边数 $\Delta_k$，选择最紧密适配的 cluster（best-fit），若超出容量则创建新 cluster
     - 设计动机：需要平衡子图大小（控制延迟）和子图数量（减少计算浪费），同时利用重叠邻域合并减少分区数
 

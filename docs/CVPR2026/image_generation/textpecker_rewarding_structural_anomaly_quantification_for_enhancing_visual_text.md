@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - visual text rendering
   - structural anomaly
-  - 强化学习
+  - reinforcement-learning
   - reward model
   - OCR
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.20903](https://arxiv.org/abs/2602.20903)  
 **代码**: [GitHub](https://github.com/CIawevy/TextPecker)  
 **领域**: image_generation  
-**关键词**: visual text rendering, structural anomaly, reinforcement learning, reward model, OCR
+**关键词**: visual text rendering, structural anomaly, reinforcement-learning, reward model, OCR
 
 ## 一句话总结
 
@@ -28,8 +28,11 @@ tags:
 ## 研究背景与动机
 
 **视觉文本渲染（VTR）仍是 T2I 生成的关键挑战**：即使是先进模型（如 FLUX、GPT-4o、BAGEL）也频繁产生扭曲、模糊、错位或缺字等结构异常。
+
 **OCR/MLLM 作为评估器存在根本缺陷**：现有评估和 RL 优化流程依赖 OCR 模型或 MLLM 识别生成文本再计算编辑距离奖励。然而这些模型无法感知细粒度结构异常，表现为两类失败：(a) **误解读**：过度依赖语言先验"纠正"结构缺陷，忽略笔画缺失/错位等字形级缺陷；(b) **不可见**：直接忽略严重模糊/扭曲区域，当作不存在。
+
 **评估器盲区导致误导性奖励**：OCR 的"自动纠错"会压低编辑距离 $N_e$、虚高奖励分数 $S$，导致 RL 优化方向偏离。即使是高度优化的 Qwen-Image、Seedream4.0 仍难以渲染结构忠实的文本。
+
 **结构异常标注数据匮乏**：缺少字符级结构异常标注的训练数据，尤其是中文字符因二维空间组合和 8000+ 字符量带来组合爆炸。
 
 ## 方法详解
@@ -75,9 +78,9 @@ $$\mathcal{R} = w_E \mathcal{S}_E + w_Q \mathcal{S}_Q, \quad w_E + w_Q = 1$$
 1. **文本图像生成**：使用多个 T2I 模型（AnyText、SD1.5、SD3.5、FLUX、Seedream3.0、Qwen-Image 用于英文；Cogview4、Kolors、Seedream3.0、Qwen-Image 用于中文）生成大规模文本图像。中文 prompt 从 WanJuan1.0 采样，结合 Qwen3-235B 生成字体风格描述。
 2. **结构异常标注**：先用 OCR 获取初步识别结果，标注员逐字符标记结构缺陷（模糊、扭曲、缺笔画、多余笔画），严重粘连字符用占位符标记。
 3. **合成数据增强**：引入笔画编辑合成引擎，对中文字符执行三种笔画级操作：
-   - **笔画删除**：移除部分笔画子集
-   - **笔画交换**：交换不相交笔画对的位置（对齐质心）
-   - **笔画插入**：从其他字符采样笔画插入
+    - **笔画删除**：移除部分笔画子集
+    - **笔画交换**：交换不相交笔画对的位置（对齐质心）
+    - **笔画插入**：从其他字符采样笔画插入
 
 合成的异常和正常字符通过 SynthTIGER 渲染引擎放置到多样背景和布局上。
 

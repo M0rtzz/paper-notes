@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.22037](https://arxiv.org/abs/2510.22037)  
 **代码**: 未开源  
 **领域**: 多语言模型 / Scaling Laws / 预训练  
-**关键词**: scaling laws, multilingual, cross-lingual transfer, curse of multilinguality, pretraining vs finetuning  
+**关键词**: scaling laws, multilingual, cross-lingual transfer, curse of multilinguality, pretraining vs finetuning
 
 ## 一句话总结
 提出 Adaptive Transfer Scaling Law (ATLAS)，通过将有效数据量分解为目标语言、迁移语言和其他语言三项并引入数据重复饱和函数，在774个多语言训练实验（10M–8B参数、400+语言）上显著优于现有scaling law（多语言 $R^2$ 从0.67提升至0.98），并系统量化了跨语言迁移矩阵、多语言诅咒的容量约束以及预训练vs微调的计算交叉点。
@@ -27,8 +27,11 @@ tags:
 
 ### 现有Scaling Law的局限
 Scaling laws研究几乎完全聚焦于英语。Chinchilla Scaling Law (CSL) 用两个幂律项分别建模模型大小 $N$ 和数据量 $D$ 对损失的影响，但存在多个缺陷：
+
 **不支持数据重复**: 低资源语言（如Hindi、Swahili）的数据量极其有限，训练时需要多轮重复，CSL无法建模重复带来的收益递减
+
 **忽略跨语言迁移**: 单语scaling law只能看到目标语言的token数，无法利用其他语言数据的正/负迁移效应
+
 **Data-Constrained Scaling Law (DCSL)** 虽然考虑了数据重复，但需要大量"1个epoch前"和"1个epoch后"的观测点来完成两阶段拟合，对高资源语言（英语、法语）收集超过1个epoch的数据成本很高，对低资源语言则可能在1个epoch之前都没有足够的观测
 
 ### 实践需求

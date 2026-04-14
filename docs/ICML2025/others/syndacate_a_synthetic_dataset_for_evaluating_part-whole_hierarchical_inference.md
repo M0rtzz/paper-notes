@@ -2,15 +2,14 @@
 title: >-
   [论文解读] SynDaCaTE: A Synthetic Dataset for Evaluating Part-Whole Hierarchical Inference
 description: >-
-  [ICML2025][计算机视觉] 提出SynDaCaTE合成数据集，将部分-整体层次推断拆解为Image-to-Parts和Parts-to-Wholes两个子任务分别评估，精确定位了CapsNet的瓶颈在于图像到部件推断，并发现SetTransformer是部件到整体推断的强基线。
+  [ICML 2025 (MOSS Workshop)][胶囊网络] 提出SynDaCaTE合成数据集和Mereological Inference框架，将部分-整体层次推断分解为Image-to-Parts和Parts-to-Wholes两个可独立评估的子任务，通过精心设计的控制实验证明CapsNet的瓶颈在于从图像提取部件而非从部件推断整体，同时发现置换等变的SetTransformer在部件到整体推断中显著优于所有基线（超过10倍精度优势）。
 tags:
-  - ICML2025
-  - 计算机视觉
+  - ICML 2025 (MOSS Workshop)
   - 胶囊网络
-  - 归纳偏置
+  - 部分-整体层次
   - 合成数据集
-  - SetTransformer
-  - 部分整体层次
+  - Transformer
+  - 归纳偏置
 ---
 
 # SynDaCaTE: A Synthetic Dataset for Evaluating Part-Whole Hierarchical Inference
@@ -47,19 +46,19 @@ tags:
 
 1. **SynDaCaTE数据集**:
 
-    - 做什么：提供一个包含完整部件ground-truth信息的合成视觉数据集
+    - 功能：提供一个包含完整部件ground-truth信息的合成视觉数据集
     - 核心思路：数据集包含3类对象（线段、字符、单词）共21种类型，每个对象有类别标签和连续姿态向量（位置/大小/旋转/亮度等）。图像按层次生成——先采样顶层对象（如单词），再递归生成子部件（字符→线段），最后渲染成图像。通过控制生成参数，可以定义多种任务：ImToClass（图像→分类）、ImToParts（图像→部件集合）、PartsToChars（部件→字符）、PartsToClass（部件→分类）等
     - 设计动机：自然图像的部件标注昂贵且模糊，合成数据可以精确控制部件信息，实现对两个子任务的独立评估。虽然数据集很简单，但正是这种简单性使得实验结论清晰可靠
 
 2. **PreTrainedPartsToClass任务设计**:
 
-    - 做什么：通过预训练CNN提取的部件表征来替代原始图像输入，测试模型在"已有部件信息"时的分类能力
+    - 功能：通过预训练CNN提取的部件表征来替代原始图像输入，测试模型在"已有部件信息"时的分类能力
     - 核心思路：先在ImToParts任务上训练一个CNN学习从图像提取部件，然后用训练好的CNN的最后一层特征作为新的输入，在此基础上训练CapsNet和CNN做分类。如果CapsNet在使用部件表征后性能与CNN持平，则说明CapsNet的瓶颈在Image-to-Parts而非Parts-to-Wholes
     - 设计动机：这是定位CapsNet瓶颈的关键控制实验——通过提供预提取的部件信息，绕过Image-to-Parts阶段，直接考察Parts-to-Wholes能力
 
 3. **置换等变模型对部件-整体推断的评估**:
 
-    - 做什么：在PartsToChars任务上对比SetTransformer、DeepSetToSet、逐元素MLP和扁平化MLP
+    - 功能：在PartsToChars任务上对比SetTransformer、DeepSetToSet、逐元素MLP和扁平化MLP
     - 核心思路：部件集合是无序的，因此置换等变/不变的模型应该具有更好的归纳偏置。SetTransformer通过自注意力机制处理集合输入，在深度≥2时MSE比其他基线低超过一个数量级。增加宽度（参数量×4）对浅层SetTransformer几乎无帮助，说明≥2层自注意力提供了某种本质上不可替代的计算能力
     - 设计动机：大多数视觉模型直接在像素级操作，忽略了"从部件推断整体"这一子任务的最优归纳偏置。通过在纯Parts-to-Wholes任务上比较不同架构，为未来设计更好的视觉模型提供指导
 

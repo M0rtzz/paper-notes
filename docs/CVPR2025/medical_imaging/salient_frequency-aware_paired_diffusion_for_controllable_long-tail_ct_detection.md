@@ -10,8 +10,8 @@ tags:
   - wavelet domain
   - long-tail detection
   - CT augmentation
-  - synthetic data
-  - class imbalance
+  - 合成数据
+  - 类别不平衡
   - dose-response
 ---
 
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2602.23447](https://arxiv.org/abs/2602.23447)  
 **代码**: 计划公开（非商业学术研究许可）  
 **领域**: medical_imaging  
-**关键词**: diffusion model, wavelet domain, long-tail detection, CT augmentation, synthetic data, class imbalance, dose-response
+**关键词**: 扩散模型, wavelet domain, long-tail detection, CT augmentation, 合成数据, 类别不平衡, dose-response
 
 ## 一句话总结
 

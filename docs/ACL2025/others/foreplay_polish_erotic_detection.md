@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2412.17533](https://arxiv.org/abs/2412.17533)  
 **代码**: [GitHub](https://github.com/ZILiAT-NASK/ForePLay)  
 **领域**: nlp_understanding  
-**关键词**: content moderation, erotic content detection, Polish NLP, annotation, dataset  
+**关键词**: content moderation, erotic content detection, Polish NLP, annotation, dataset
 
 ## 一句话总结
 构建了首个波兰语色情内容检测数据集 forePLay（24,768 句，5 类标签），提出涵盖模糊性、暴力和社会不可接受行为的多维标注体系，评估发现专用波兰语模型显著优于多语言模型，且 Transformer 编码器模型在不平衡类别处理上表现最强。
 
 ## 研究背景与动机
 **领域现状**：在线内容审核需求激增，但现有工具主要面向英语，对形态复杂语言（如波兰语）效果有限。
+
 **现有痛点**：(a) 色情内容检测数据集稀缺且多为英语；(b) 现有数据集多用简单二分类，无法捕捉色情/暴力/社会不可接受行为等细粒度类别；(c) LLM 的安全过滤器对非英语色情内容效果不佳。
+
 **核心矛盾**：波兰语等形态复杂语言中色情内容的表达方式多样，简单的二分类方案和英语中心工具难以有效检测。
+
 **本文要解决什么？** 为波兰语色情内容自动检测提供高质量标注数据集和模型基准。
+
 **切入角度**：从在线小说库和波兰文学作品中采样，设计 5 类排他性标注：erotic/ambiguous/violence/unacceptable/neutral。
+
 **核心 idea 一句话**：用多维标注的波兰语色情内容数据集揭示语言特定模型在内容审核中的优势。
 
 ## 方法详解

@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：生成式AI在文本、图像、音频领域均有突破（DALL·E、MusicLM、Stable Audio等），但这些工具大多基于屏幕和提示词驱动，缺乏物理交互和实时即兴能力。
+
 **现有痛点**：(a) 现有文本到音乐模型（MusicLM、AudioLDM、Stable Audio）主要通过批处理或提示界面访问，缺少实时交互控制；(b) 数字音乐工具（Magenta Studio、Jukebox）强调精确控制但缺乏触觉和即兴工作流；(c) 有形交互装置（Reactable、Bela）局限于固定环境和预定义映射。
+
 **核心矛盾**：生成式音乐AI的能力与用户的物理创作体验之间存在断裂——模型强大但交互方式贫乏，导致创作过程像"调参"而非"演奏"。
+
 **本文要解决什么**：如何将多模态生成AI嵌入物理设备中，使视觉场景成为音乐素材来源，实现环境感知的即兴创作？
+
 **切入角度**：延展"大语言物体"(Large Language Object, LLO) 概念——将生成模型嵌入有物质表现力的系统中。前作VBox支持触觉导航音频潜空间；Lumia转向作曲，将视觉感知与多模态生成相连。
+
 **核心idea**：相机取景 = 采样行为——用户通过"看"来"作曲"，拍摄的画面经VLM分析后转化为音乐提示，生成可循环叠加的音频段落。
 
 ## 方法详解
@@ -42,13 +47,13 @@ tags:
 
 1. **视觉到音乐管线 (Vision-to-Music Pipeline)**:
 
-    - 做什么：将拍摄的画面转化为结构化音乐生成提示
+    - 功能：将拍摄的画面转化为结构化音乐生成提示
     - 核心思路：按下拍摄键后，当前摄像头帧发送至GPT-4 Vision，返回结构化JSON描述：场景总述、显著物体列表、整体情绪（形容词）、段落角色（intro/verse/chorus/bridge/outro）、音乐风格、建议BPM。然后系统将此JSON与用户选择的乐器（最多3种，遵循感知流分离原则）合并，附加段落特定修饰（如chorus加"higher energy, catchy hook"），生成单句提示发送给Stable Audio
     - 设计动机：用VLM做中间翻译层，从视觉场景中提取氛围和上下文而非字面物体，避免过于直白的"物体→声音"映射导致音频质量下降
 
 2. **循环播放引擎 (Loop Playback Engine)**:
 
-    - 做什么：管理多段音频的无缝循环、叠加和过渡
+    - 功能：管理多段音频的无缝循环、叠加和过渡
     - 核心思路：设会话tempo为 $b$ BPM，则一拍 $T_{\text{beat}} = 60/b$ 秒，一小节 $T_{\text{bar}} = 4T_{\text{beat}}$。每段固定长度 $L_k = m_k T_{\text{bar}}$。使用tempo自适应的crossfade窗口：
     $T_{\text{cf}}(b) = \max\left(\frac{120}{b},\; 0.3\right) \text{ s}$
    下一段起始时间：$t_{k+1} = t_k + L_k - T_{\text{cf}}$
@@ -60,14 +65,14 @@ tags:
 
 3. **包络选择策略**:
 
-    - 做什么：根据段落特性自动选择crossfade类型
+    - 功能：根据段落特性自动选择crossfade类型
     - 核心思路：从上下文向量 $\mathbf{c} = (\Delta P, \text{section role})$ 出发，最小化响度失配目标选择最优fade类型和参数：
     $(f^\star, \theta^\star) = \arg\min_{f \in \{\text{eq}, \text{poly}\}, \theta} \sum_{n=0}^{N-1} (|z[n]|^2 - P_{\text{target}})^2 + \lambda \mathcal{C}_{\text{transient}}$
    其中 $P_{\text{target}}$ 是运行功率目标，$\mathcal{C}_{\text{transient}}$ 惩罚拼接处的瞬态
 
 4. **自动AI混音与母带 (Automatic AI Mixing)**:
 
-    - 做什么：当至少两段就绪时，自动触发混音预览和导出级母带处理
+    - 功能：当至少两段就绪时，自动触发混音预览和导出级母带处理
     - 核心思路：将各段WAV作为stems上传到Tonn AI，指定每段的instrumentGroup、presenceSetting、panPreference等参数。混音预览完成后hot-swap替换当前播放，实现不中断的质量升级。母带处理使用pydub拼接后提交至Tonn的专辑级母带服务
 
 ### 硬件设计

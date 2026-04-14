@@ -9,7 +9,7 @@ tags:
   - NeRF
   - Event Camera
   - Motion Deblurring
-  - Novel View Synthesis
+  - novel view synthesis
   - Camera Motion Estimation
   - B-Spline
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2407.02174](https://arxiv.org/abs/2407.02174)  
 **代码**: [wu-cvgl/BeNeRF](https://github.com/wu-cvgl/BeNeRF)  
 **领域**: 3d_vision  
-**关键词**: NeRF, Event Camera, Motion Deblurring, Novel View Synthesis, Camera Motion Estimation, B-Spline
+**关键词**: NeRF, Event Camera, Motion Deblurring, novel view synthesis, Camera Motion Estimation, B-Spline
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **NeRF 依赖多视角清晰图像**：传统 NeRF 需要多张标定好的清晰 RGB 图像才能重建 3D 场景，对输入质量和数量要求高。
+
 **模糊图像蕴含丰富信息**：运动模糊虽然降低图像质量，但实际上编码了曝光期间的相机运动轨迹和更多结构信息，可以被有效利用。
+
 **事件相机的互补特性**：事件相机以极低延迟异步捕捉像素亮度变化，拥有极高的时间分辨率，恰好与帧相机的光子积分成像过程互补。
+
 **现有事件去模糊方法的局限**：EDI、eSLNet 等方法只能恢复清晰图像，无法提取相机运动轨迹或进行 3D 重建，限制了其在三维视觉任务中的应用。
+
 **多视角事件 NeRF 方法的不足**：E2NeRF 等方法虽结合了事件流，但仍需多视角图像输入，且采用两阶段策略（先用 EDI 恢复清晰图像再用 COLMAP 估计位姿），会引入累积误差。
+
 **单图 NeRF 的挑战**：从单张图像学习 NeRF 极度 ill-posed，现有方法通常需要大规模数据集预训练来学习先验，泛化能力有限。
 
 ## 方法详解

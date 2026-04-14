@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.21076](https://arxiv.org/abs/2511.21076)  
 **代码**: [aadityakachhadiya/deceptron-ml4ps2025](https://github.com/aadityakachhadiya/deceptron-ml4ps2025)  
 **领域**: video_understanding  
-**关键词**: inverse problems, physics inversion, learned preconditioning, Jacobian composition, Gauss-Newton  
+**关键词**: inverse problems, physics inversion, learned preconditioning, Jacobian composition, Gauss-Newton
 
 ## 一句话总结
 提出 Deceptron 双向模块，通过学习可微分前向代理的局部逆映射并引入 Jacobian Composition Penalty (JCP)，在求解物理逆问题时将输出空间的残差拉回输入空间，实现类 Gauss-Newton 的预条件梯度更新，迭代次数大幅减少（Heat-1D 约 20 倍加速）。

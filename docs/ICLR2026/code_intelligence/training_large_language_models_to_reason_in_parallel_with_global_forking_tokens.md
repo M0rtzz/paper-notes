@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.05132](https://arxiv.org/abs/2510.05132)  
 **代码**: [Sheng-J/SSFT](https://github.com/Sheng-J/SSFT)  
 **领域**: llm_alignment  
-**关键词**: parallel reasoning, global forking tokens, set supervised fine-tuning, bipartite matching, test-time compute  
+**关键词**: parallel reasoning, global forking tokens, set supervised fine-tuning, bipartite matching, test-time compute
 
 ## 一句话总结
 

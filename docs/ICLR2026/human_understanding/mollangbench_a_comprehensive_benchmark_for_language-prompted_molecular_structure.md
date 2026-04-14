@@ -10,7 +10,7 @@ tags:
   - 分子编辑
   - 分子生成
   - 语言-分子对齐
-  - Benchmark
+  - benchmark
 ---
 
 # MolLangBench: A Comprehensive Benchmark for Language-Prompted Molecular Structure Recognition, Editing, and Generation
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.15054](https://arxiv.org/abs/2505.15054)  
 **代码**: [GitHub](https://github.com/TheLuoFengLab/MolLangBench) / [HuggingFace](https://huggingface.co/datasets/ChemFM/MolLangBench)  
 **领域**: AI for Chemistry / 分子-语言接口  
-**关键词**: 分子识别, 分子编辑, 分子生成, 语言-分子对齐, Benchmark
+**关键词**: 分子识别, 分子编辑, 分子生成, 语言-分子对齐, benchmark
 
 ## 一句话总结
 

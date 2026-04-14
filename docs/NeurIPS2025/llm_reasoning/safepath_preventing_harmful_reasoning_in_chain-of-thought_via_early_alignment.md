@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Large Reasoning Models（LRM，如 OpenAI o1、DeepSeek-R1）通过 extended chain-of-thought 实现强推理，但其结构化推理路径可以放大不安全行为——比如在有害 prompt 下误判意图为良性并生成危险内容。
+
 **现有痛点**：(1) Direct Refusal（微调模型直接拒绝）降低推理能力（"Safety Tax"）；(2) SafeChain 需要监督完整推理链，训练成本高；(3) 现有方法对复杂对抗攻击（DAN、PAIR 等）防御不足。
+
 **核心矛盾**：安全对齐与推理能力之间的 tradeoff——越强的安全约束，推理性能下降越多。
+
 **本文要解决什么？** 设计一种轻量级方法，在不损害推理能力的前提下实现 LRM 安全对齐。
+
 **切入角度**：只在推理链的最开头插入一个"安全引导"信号，利用 LRM 自身的推理能力来建立安全上下文，而非强制拒绝或监督整个链条。
+
 **核心idea一句话**：微调 LRM 在遇到有害 prompt 时，在 `<think>` 后输出 8-token Safety Primer 即可，其余推理完全无监督。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **8-Token Safety Primer**:
 
-    - 做什么：微调 LRM 在有害 prompt 后的 `<think>` 标记后输出 "Let's think about safety first"
+    - 功能：微调 LRM 在有害 prompt 后的 `<think>` 标记后输出 "Let's think about safety first"
     - 核心思路：Loss 仅施加在这 8 个 token 上，推理链的其余部分无监督。关键：不关闭 `</think>` 标签，让模型继续从安全意识的初始化出发自然推理
     - 设计动机：不强制拒绝（保留推理能力），仅提供轻量"安全引导"让 LRM 自主建立安全上下文
 
 2. **涌现行为：Safety Primer 自动重激活**:
 
-    - 做什么：发现模型在训练后会在推理过程中遇到有害内容时自动重新激活 Safety Primer
+    - 功能：发现模型在训练后会在推理过程中遇到有害内容时自动重新激活 Safety Primer
     - 核心思路：虽然只训练了在开头产生 Primer，但模型学会了在推理中段"偏离安全"时重新触发安全检查
     - 设计动机：这提供了持续的、上下文感知的安全防护，而非仅在入口处一次性检查
 
 3. **Zero-Shot 变体（ZS-SafePath）**:
 
-    - 做什么：无需微调，直接在推理时在 `<think>` 后插入 Safety Primer
+    - 功能：无需微调，直接在推理时在 `<think>` 后插入 Safety Primer
     - 核心思路：利用 LRM 的 instruction-following 能力将安全提示作为推理起点
     - 设计动机：对于无法微调的模型（API 接口等），提供即插即用的安全方案
 

@@ -9,7 +9,7 @@ tags:
   - 稀疏编码
   - 注意力机制
   - 组合学习
-  - In-Context Learning
+  - 上下文学习
   - Transformer
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.20194](https://arxiv.org/abs/2511.20194)  
 **代码**: 无  
 **领域**: 人体理解  
-**关键词**: 稀疏编码, 注意力机制, 组合学习, In-Context Learning, Transformer
+**关键词**: 稀疏编码, 注意力机制, 组合学习, 上下文学习, Transformer
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 In-context compositional learning 要求模型从上下文示例中推断组合规则并应用到目标问题。标准 Transformer 在这类任务上面临两个根本性限制：
 
 **Softmax 产生稠密注意力权重**：导致信息无差别全局混合，无法表示输入中的组合结构
+
 **缺乏规则迁移机制**：无法从上下文示例中有效提取和复用局部组合规则
 
 核心观察：当目标任务输入为零（未观测）时，标准 Transformer 的 softmax 注意力退化为均匀分布 $\frac{1}{N}\mathbf{1}$，输出变为所有输入的简单平均——这直接导致了模糊的预测。

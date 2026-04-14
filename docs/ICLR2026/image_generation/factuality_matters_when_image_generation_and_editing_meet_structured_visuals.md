@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.05091](https://arxiv.org/abs/2510.05091)  
 **代码**: [structvisuals.github.io](https://structvisuals.github.io)  
 **领域**: image_generation  
-**关键词**: structured image generation, image editing, chain-of-thought reasoning, benchmark, diffusion transformer  
+**关键词**: structured image generation, image editing, chain-of-thought reasoning, benchmark, diffusion transformer
 
 ## 一句话总结
 首个系统性研究结构化图像（图表、数学公式、示意图等）生成与编辑的工作，构建了130万对代码对齐的训练数据集（含 CoT 推理标注）、统一的 VLM+扩散模型架构以及包含1700+样本的 StructBench 基准评测，揭示了推理能力是当前模型处理结构化视觉内容的关键瓶颈。

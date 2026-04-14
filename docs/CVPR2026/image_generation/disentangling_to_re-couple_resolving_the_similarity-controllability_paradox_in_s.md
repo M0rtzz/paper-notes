@@ -9,7 +9,7 @@ tags:
   - Subject-Driven T2I
   - Transformer
   - GRPO
-  - Reward Model
+  - reward model
   - Textual-Visual Decoupling
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2604.00849](https://arxiv.org/abs/2604.00849)  
 **代码**: 无（计划开源）  
 **领域**: Image Generation  
-**关键词**: Subject-Driven T2I, Diffusion Transformer, GRPO, Reward Model, Textual-Visual Decoupling
+**关键词**: Subject-Driven T2I, Diffusion Transformer, GRPO, reward model, Textual-Visual Decoupling
 
 ## 一句话总结
 

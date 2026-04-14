@@ -9,7 +9,7 @@ tags:
   - Auto-Vocabulary
   - 图像分割
   - CLIP
-  - Open-Vocabulary
+  - open-vocabulary
   - TPSS
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.09126](https://arxiv.org/abs/2406.09126)  
 **代码**: [https://github.com/ozzyou/3D-AVS](https://github.com/ozzyou/3D-AVS)  
 **领域**: 自动驾驶 / 3D点云分割 / 开放词表  
-**关键词**: Auto-Vocabulary, LiDAR Segmentation, CLIP, Open-Vocabulary, TPSS  
+**关键词**: Auto-Vocabulary, LiDAR Segmentation, CLIP, open-vocabulary, TPSS
 
 ## 一句话总结
 提出3D-AVS，首个针对LiDAR点云的**自动词表分割**方法：无需用户指定目标类别，系统自动从图像和点云中识别场景中存在的语义实体并生成词表，再用开放词表分割器完成逐点语义分割，在nuScenes和ScanNet200上展示了生成精细语义类别的能力。
@@ -50,7 +50,7 @@ tags:
 
 3. **优化策略**
 
-    - 做什么：提升训练稳定性和收敛速度
+    - 功能：提升训练稳定性和收敛速度
     - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
     - 设计动机：确保模型在大规模数据上的训练效率
 

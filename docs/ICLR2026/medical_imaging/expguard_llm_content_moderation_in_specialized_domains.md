@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.02588](https://arxiv.org/abs/2603.02588)  
 **代码**: [brightjade/ExpGuard](https://github.com/brightjade/ExpGuard)  
 **领域**: medical_imaging  
-**关键词**: LLM safety, guardrail model, content moderation, domain-specific, financial/medical/legal  
+**关键词**: LLM safety, guardrail model, content moderation, domain-specific, financial/medical/legal
 
 ## 一句话总结
 提出面向金融、医疗、法律等专业领域的安全护栏模型 ExpGuard 及配套数据集 ExpGuardMix（58,928 样本），在领域特定测试集上 prompt 分类 F1 超 WildGuard 8.9%、response 分类超 15.3%，同时在通用安全基准上保持 SOTA 水平。

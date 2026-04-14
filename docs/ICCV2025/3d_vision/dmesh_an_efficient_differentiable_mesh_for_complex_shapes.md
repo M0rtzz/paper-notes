@@ -49,7 +49,7 @@ DMesh++延续DMesh的概率化思想：每个点用 $(d+1)$ 维向量表示（$d
 
 1. **Minimum-Ball条件（Definition 3.1）**：
 
-    - 做什么：定义面 $F$ 的最小包围球 $B_F$（过 $F$ 所有顶点的最小半径球），如果 $B_F$ 内部不包含 $\mathbb{P}$ 中的其他点，则 $F \in \mathbb{F}_{min}$
+    - 功能：定义面 $F$ 的最小包围球 $B_F$（过 $F$ 所有顶点的最小半径球），如果 $B_F$ 内部不包含 $\mathbb{P}$ 中的其他点，则 $F \in \mathbb{F}_{min}$
     - 核心思路：将判断面是否合法转化为最近邻搜索问题。计算 $B_F$ 的中心 $B_F^c$ 和半径 $B_F^r$，然后查找 $B_F^c$ 在 $\mathbb{P}-F$ 中的最近邻：
     $d(B_F, \mathbb{P}) = \min_{p \in \mathbb{P}-F} ||p - B_F^c|| - B_F^r$
       $F \in \mathbb{F}_{min} \Leftrightarrow d(B_F, \mathbb{P}) > 0$
@@ -57,7 +57,7 @@ DMesh++延续DMesh的概率化思想：每个点用 $(d+1)$ 维向量表示（$d
 
 2. **可微概率计算**：
 
-    - 做什么：将离散的Minimum-Ball条件用sigmoid函数软化为连续概率
+    - 功能：将离散的Minimum-Ball条件用sigmoid函数软化为连续概率
     - 核心思路：
     $\Lambda_{min}(F) = \sigma(d(B_F, \mathbb{P}) \cdot \alpha_{min})$
       其中 $\alpha_{min}$ 是控制sharpness的常数。$B_F$ 的中心和半径可通过解几何方程以可微方式计算

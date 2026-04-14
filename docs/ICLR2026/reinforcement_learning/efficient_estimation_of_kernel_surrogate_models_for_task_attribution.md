@@ -46,19 +46,19 @@ tags:
 
 1. **线性代理与影响函数的统一分析**:
 
-    - 做什么：证明线性代理模型系数与影响函数在一阶近似下等价
+    - 功能：证明线性代理模型系数与影响函数在一阶近似下等价
     - 核心思路：对 $F(\mathbf{s})$ 做二阶 Taylor 展开后代入线性回归目标，用 delta method 分析回归系数。Proposition 3.1 给出 $\|\hat{\beta} - \nabla_\mathbf{s} F(\mathbf{s}^*) - \text{二阶修正项}\| \lesssim c_3 K^{3/2} p^{-1}$
     - 设计动机：揭示线性代理的本质局限——当 Hessian $\mathbf{H}_\mathbf{s}$ 范数不小时，线性代理和影响函数都无法准确归因
 
 2. **RBF 核代理模型（KernelSM）**:
 
-    - 做什么：用核岭回归替代线性回归，学习非线性任务交互
+    - 功能：用核岭回归替代线性回归，学习非线性任务交互
     - 核心思路：$g_\theta(\mathbf{s}) = \sum_i \theta_i k(\mathbf{s}^{(i)}, \mathbf{s})$，其中 $k(\mathbf{s}^{(a)}, \mathbf{s}^{(b)}) = \exp(-\gamma \|\mathbf{s}^{(a)} - \mathbf{s}^{(b)}\|^2)$。系数闭式解 $\theta = (\mathcal{K} + \lambda I)^{-1} \mathbf{F}$
     - 设计动机：RBF 核在二元空间 $\{0,1\}^K$ 上有万能逼近性，且其几何直觉自然匹配子集空间——相似的子集（Hamming距离近）应有相似的性能
 
 3. **梯度投影高效估计（核心贡献）**:
 
-    - 做什么：避免为每个子集 $\mathbf{s}^{(i)}$ 重新训练模型，用一阶 Taylor 近似估计 $F(\mathbf{s}^{(i)})$
+    - 功能：避免为每个子集 $\mathbf{s}^{(i)}$ 重新训练模型，用一阶 Taylor 近似估计 $F(\mathbf{s}^{(i)})$
     - 核心思路：在预训练权重 $W_0$ 处做一阶展开 $f_W(x) \approx f_{W_0}(x) + \langle \nabla f_{W_0}(x), W - W_0 \rangle$。对每个子集 $\mathbf{s}^{(i)}$，用投影梯度作为特征做多项 logistic 回归求解最优扰动 $Z^*_{\mathbf{s}^{(i)}}$，然后估计 $\hat{f}(x) = f_{W_0}(x) + \langle \nabla f_{W_0}(x), Z^*_{\mathbf{s}^{(i)}} \rangle$
     - 设计动机：只需在 $W_0$ 处计算一次梯度，后续所有子集的估计都是 CPU 上的线性代数运算。经验验证一阶近似误差 < 2%
     - 关键技巧：用高斯随机卷积将高维梯度向量投影到低维空间，使回归求解仅需几秒

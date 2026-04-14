@@ -1,13 +1,16 @@
 ---
+title: >-
+  [论文解读] CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation
 description: >-
-  [CVPR 2025][多模态VLM][数据集] 提出CoMM高质量交错图文数据集(227K文档/2.28M图片)，通过从指令型网站定向采集+三维质量过滤(文本序列/图像序列/图文对齐)解决现有数据集的叙事连贯性和实体一致性问题，并定义4个交错生成评测任务。
+  [CVPR 2025][多模态][交错图文数据集] 针对现有交错图文数据集（MMC4/OBELICS）叙事连贯性差、实体风格不一致的核心问题，构建 CoMM 数据集（227K 文档、2.28M 图片），通过定向采集指令型内容 + 三维质量过滤策略确保文本连贯、图像一致、图文对齐，并提出 4 个交错生成评测任务。
 tags:
   - CVPR 2025
-  - 多模态VLM
-  - 数据集
-  - 交错图文生成
-  - 多模态理解
+  - 多模态
+  - 交错图文数据集
+  - 多模态连贯性
   - Few-shot学习
+  - 图文生成
+  - 偏好数据集
 ---
 
 # CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation

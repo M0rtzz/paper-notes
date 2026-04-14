@@ -7,7 +7,7 @@ tags:
   - ICLR2026
   - AI安全
   - Federated Graph Learning
-  - Adversarial Attack
+  - adversarial attack
   - Backdoor Attack
   - 图神经网络
   - Data Poisoning
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.07743](https://arxiv.org/abs/2603.07743)  
 **代码**: 待公开  
 **领域**: ai_safety  
-**关键词**: Federated Graph Learning, Adversarial Attack, Backdoor Attack, Graph Neural Networks, Data Poisoning  
+**关键词**: Federated Graph Learning, adversarial attack, Backdoor Attack, Graph Neural Networks, Data Poisoning
 
 ## 一句话总结
 提出 FedShift，一种两阶段"隐藏-发现"分布式对抗攻击框架：第一阶段通过温和的分布偏移（distributional shift）向训练图中植入隐蔽的 shifter，第二阶段以 shifter 生成器为起点高效搜索对抗扰动，多恶意客户端聚合扰动形成最终对抗样本，在六个大规模数据集上实现最高攻击成功率，同时逃逸三种主流防御算法且收敛速度提升 90% 以上。

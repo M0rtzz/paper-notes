@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection
 description: >-
-  [CVPR 2026][AI安全][扩散模型记忆化] 提出训练时区域感知提示增强RAPTA和注意力驱动多模态复制检测ADMCD，前者用检测器proposal生成语义接地的提示变体减缓记忆化，后者融合patch/CLIP/纹理三流特征实现零训练复制检测，将复制率从7.4降至2.6。
+  [CVPR 2026][目标检测][扩散模型记忆化] 提出训练时区域感知提示增强(RAPTA)和注意力驱动多模态复制检测(ADMCD)两个互补模块，前者通过目标检测器proposal生成语义接地的提示变体来缓解扩散模型训练数据记忆化，后者融合patch级/CLIP/纹理三流特征实现零训练复制检测与分类，在LAION-10k上将复制率从7.4降至2.6。
 tags:
   - CVPR 2026
-  - AI安全
+  - 目标检测
   - 扩散模型记忆化
   - 训练时提示增强
   - 多模态复制检测

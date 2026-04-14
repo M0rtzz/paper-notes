@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.04239](https://arxiv.org/abs/2603.04239)  
 **代码**: [有](https://github.com/kobeshegu/DiverseDiT)  
 **领域**: 自监督/表示学习  
-**关键词**: Diffusion Transformer, 表示多样性, 长残差连接, 多样性损失, 图像生成
+**关键词**: 扩散 Transformer, 表示多样性, 长残差连接, 多样性损失, 图像生成
 
 ## 一句话总结
 

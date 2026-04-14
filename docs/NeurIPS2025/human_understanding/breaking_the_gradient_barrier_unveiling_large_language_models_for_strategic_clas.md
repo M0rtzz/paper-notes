@@ -7,7 +7,7 @@ tags:
   - NEURIPS2025
   - 人体理解
   - Strategic Classification
-  - In-Context Learning
+  - in-context learning
   - Large Language Models
   - Bi-level Optimization
   - Gradient-free
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.06979](https://arxiv.org/abs/2511.06979)  
 **代码**: 待确认  
 **领域**: human_understanding  
-**关键词**: Strategic Classification, In-Context Learning, Large Language Models, Bi-level Optimization, Gradient-free  
+**关键词**: Strategic Classification, in-context learning, Large Language Models, Bi-level Optimization, Gradient-free
 
 ## 一句话总结
 提出 GLIM（Gradient-free Learning In-context Method），首次利用 LLM 的 In-Context Learning 机制隐式模拟策略分类中的双层优化（特征操纵 + 决策规则优化），无需微调即可在大规模数据上高效完成策略分类任务。

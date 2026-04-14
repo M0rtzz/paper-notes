@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.08615](https://arxiv.org/abs/2603.08615)  
 **代码**: 无（理论工作）  
 **领域**: others  
-**关键词**: distributed clustering, coreset, communication complexity, k-means, k-median  
+**关键词**: distributed clustering, coreset, communication complexity, k-means, k-median
 
 ## 一句话总结
 

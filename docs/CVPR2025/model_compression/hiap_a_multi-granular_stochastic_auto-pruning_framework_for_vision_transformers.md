@@ -26,10 +26,15 @@ HiAP 提出了一种多粒度自动剪枝框架，通过在宏观（attention he
 
 ## 研究背景与动机
 **领域现状**：ViT 剪枝方法已取得显著进展，但大部分方法在单一粒度操作。微观剪枝（ViT-Slim 剪 intra-head 维度和 FFN channel）能减少 FLOPs，宏观剪枝（UPDP 剪整个 block）能减少内存带宽开销。
+
 **现有痛点**：（1）单粒度剪枝无法同时优化内存带宽（需要宏观剪枝）和计算量（需要微观剪枝）；（2）现有可微搜索方法依赖后处理阈值（post-hoc magnitude thresholding），需要专家知识和多阶段流程。
+
 **核心矛盾**：现代硬件的真正瓶颈往往是 HBM 访问而非纯计算——即使微观剪枝减少了 FLOPs，保留所有 layer 结构仍然要加载每一层的权重矩阵和 attention map，导致实际加速有限。
+
 **本文要解决什么？** 如何在单阶段训练中让模型自主发现跨粒度的最优剪枝策略，同时满足硬件资源约束？
+
 **切入角度**：将剪枝形式化为预算感知的学习问题，用 Gumbel-Sigmoid 连续松弛取代离散决策，通过温度退火自然收敛到二值门控。
+
 **核心idea一句话**：宏观+微观双层 Gumbel-Sigmoid 门控 + 可微 MACs 代价 + 结构可行性约束 = 单阶段自动剪枝。
 
 ## 方法详解
@@ -41,19 +46,19 @@ HiAP 提出了一种多粒度自动剪枝框架，通过在宏观（attention he
 
 1. **层级门控机制（Hierarchical Gating）**:
 
-    - 做什么：宏观层面控制 head/block 的保留/丢弃，微观层面控制存活结构内部的维度裁剪
+    - 功能：宏观层面控制 head/block 的保留/丢弃，微观层面控制存活结构内部的维度裁剪
     - 核心思路：$\text{Head}'_{l,h}(X) = g_{l,h} [\text{softmax}(\frac{QK^\top}{\sqrt{D_h}})(V \odot d_{l,h})]$，$\text{FFN}'_l(X) = b_l[(\phi(XW_1) \odot c_l)W_2]$，宏观门为0时完全跳过，微观门对存活结构做 channel-wise masking
     - 设计动机：宏观剪枝节省内存带宽（跳过整个 head/block 的矩阵加载），微观剪枝在保持结构的前提下节省计算量，两者互补
 
 2. **可微分代价建模（Differentiable Cost Modeling）**:
 
-    - 做什么：将 MACs 精确分解为关于门控的线性函数
+    - 功能：将 MACs 精确分解为关于门控的线性函数
     - 核心思路：$\mathbb{E}[C(\mathcal{G})] = \sum_{l,h}(C_1 \cdot \mathbb{E}[g_{l,h}] + C_2 \sum_j \mathbb{E}[g_{l,h} \cdot d_{l,h,j}]) + \sum_{l,k} C_3 \cdot \mathbb{E}[b_l \cdot c_{l,k}]$，将代价解耦为 $\mathcal{L}_{\text{macro}}$（惩罚 $C_1$）和 $\mathcal{L}_{\text{micro}}$（惩罚 $C_2, C_3$），独立超参数控制
     - 设计动机：线性分解使优化器能清晰地将硬件惩罚归因到个别结构，显式惩罚空 head 的结构开销
 
 3. **结构可行性约束（Feasibility Penalty）**:
 
-    - 做什么：防止 layer collapse（整层被贪心剪掉导致梯度断流）
+    - 功能：防止 layer collapse（整层被贪心剪掉导致梯度断流）
     - 核心思路：$\mathcal{L}_{f,\text{head}} = \sum_l \text{ReLU}(k_{\min} - \sum_h g_{l,h})^2$，保证每层至少保留 $k_{\min}$ 个 head，类似约束保证最少 FFN 神经元和 attention 维度
     - 设计动机：这是可微架构搜索中一种常见失效模式的解药
 

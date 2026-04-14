@@ -1,6 +1,8 @@
 ---
+title: >-
+  [论文解读] Continuous Visual Autoregressive Generation via Score Maximization
 description: >-
-  ICML2025论文解读：提出连续视觉自回归（Continuous VAR）框架，以严格适当评分规则为理论基础，用能量分数作为训练目标，实现无需向量量化的连续token自回归图像生成，EAR-H在ImageNet 256x256达到FID 1.97且推理速度比扩散损失快10倍。
+  [ICML 2025][图像生成][连续自回归] 提出连续视觉自回归框架——基于严格适当评分规则理论，用能量分数作为无似然训练目标，替代向量量化实现连续token自回归图像生成，EAR-H达到FID 1.97且推理速度比扩散损失方法MAR快约10倍。
 tags:
   - ICML 2025
   - 图像生成
@@ -8,7 +10,9 @@ tags:
   - 评分规则
   - 能量分数
   - 视觉生成
+  - 无量化
 ---
+
 # Continuous Visual Autoregressive Generation via Score Maximization
 
 **会议**: ICML 2025  
@@ -35,17 +39,17 @@ tags:
 ### 关键设计
 
 1. **严格适当评分规则统一框架**:
-    - 做什么：将离散和连续VAR的训练目标纳入同一理论体系
+    - 功能：将离散和连续VAR的训练目标纳入同一理论体系
     - 核心思路：评分规则 $S(p,x): \mathcal{P}\times\mathcal{X}\mapsto\bar{\mathbb{R}}$ 衡量预测分布 $p$ 对观测 $x$ 的适合程度；严格适当意味着 $S(p,q)\leq S(q,q)$ 且等号仅在 $p=q$ 时成立。交叉熵/GIVT对应对数评分，扩散损失对应Hyvärinen评分，本文EAR对应能量评分
     - 设计动机：统一视角揭示各方法的本质差异——对数评分需显式似然（受限于参数化假设），Hyvärinen评分需多步去噪（推理慢）
 
 2. **能量损失（Energy Loss）**:
-    - 做什么：无似然地训练连续token的概率预测
+    - 功能：无似然地训练连续token的概率预测
     - 核心思路：能量评分 $S(p,y) = \mathbb{E}[|x_1-x_2|^\alpha] - 2\mathbb{E}[|x-y|^\alpha]$（$\alpha\in(0,2)$），第一项鼓励生成样本间多样性，第二项要求生成样本接近目标。无偏估计只需两个独立采样 $x_1,x_2\sim p$：$\mathcal{L}(p,y) = |x_1-y|^\alpha + |x_2-y|^\alpha - |x_1-x_2|^\alpha$
     - 设计动机：能量评分的关键优势是仅需采样能力而不需显式概率密度，使得输出分布可以是任意隐式生成模型
 
 3. **MLP生成器（替代Softmax）**:
-    - 做什么：将Transformer隐藏表示转化为连续token的分布（通过采样过程隐式表示）
+    - 功能：将Transformer隐藏表示转化为连续token的分布（通过采样过程隐式表示）
     - 核心思路：类似GAN的隐式生成——输入随机噪声 $\epsilon\sim U[-0.5,0.5]^{d_{\text{noise}}}$，通过残差块逐步注入噪声扰动预测。噪声通过adaptive layer normalization（shift/scale/gate）调制隐藏表示
     - 设计动机：不受高斯混合等参数化假设限制，表达力仅受MLP容量约束
 

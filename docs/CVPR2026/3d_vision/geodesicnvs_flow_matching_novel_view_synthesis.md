@@ -2,15 +2,15 @@
 title: >-
   [论文解读] GeodesicNVS: Probability Density Geodesic Flow Matching for Novel View Synthesis
 description: >-
-  [CVPR 2026][3D视觉][新视角合成] 提出Data-to-Data Flow Matching直接学习视角间确定性变换，并引入概率密度测地线正则化使流路径沿数据流形高密度区域传播，提升跨视角一致性
+  [CVPR 2026][3D视觉][流匹配] 提出Data-to-Data Flow Matching直接学习视角对之间的确定性变换，并用概率密度测地线正则化使流路径沿高密度数据流形传播，在新视角合成中实现更好的视角一致性和几何保真度。
 tags:
   - CVPR 2026
   - 3D视觉
-  - 新视角合成
   - 流匹配
   - 测地线
   - 概率密度
   - Data-to-Data
+  - 新视角合成
 ---
 
 # GeodesicNVS: Probability Density Geodesic Flow Matching for Novel View Synthesis
@@ -43,19 +43,19 @@ tags:
 
 1. **Data-to-Data Flow Matching (D2D-FM)**:
 
-    - 做什么：直接在配对视角间学习确定性流，取代噪声到数据的传统范式
+    - 功能：直接在配对视角间学习确定性流，取代噪声到数据的传统范式
     - 核心思路：给定源视角 $x_0$ 和目标视角 $x_1$ 的latent表示，学习速度场 $v_\theta(x_t, t, c)$ 使 $x_t$ 沿从 $x_0$ 到 $x_1$ 的路径演化。条件信息 $c$ 包括Plücker射线相机位姿编码和CLIP源视角特征。线性版本：$x_t = (1-t)x_0 + tx_1 + \sigma\epsilon$
     - 设计动机：视角变换是确定性的，D2D直接建模数据间映射，保留结构对应关系，无需噪声先验
 
 2. **概率密度测地线正则化（PDG-FM）**:
 
-    - 做什么：将流路径约束到数据流形的高密度区域上
+    - 功能：将流路径约束到数据流形的高密度区域上
     - 核心思路：定义黎曼度量 $G(x) = p(x)^{-2}I$——低密度区域度量大（路径代价高），高密度区域度量小（路径代价低）。满足Euler-Lagrange方程 $\ddot{\gamma} + \|\dot{\gamma}\|^2(I - \hat{\dot{\gamma}}\hat{\dot{\gamma}}^T)\nabla\log p(\gamma) = 0$ 的路径即测地线
     - 设计动机：线性插值可能穿越低密度区域产生不自然中间状态，测地线保证路径始终在"看起来真实"的区域内
 
 3. **变分蒸馏训练（GeodesicNet）**:
 
-    - 做什么：高效训练测地线插值网络，与FM训练解耦
+    - 功能：高效训练测地线插值网络，与FM训练解耦
     - 核心思路：教师在DDIM-F空间做测地线优化（最小化路径能量），学生GeodesicNet蒸馏到VAE空间。使用预训练扩散模型的score function $\nabla\log p(x) \approx -\epsilon_\phi(x, t)/\sigma_t$ 作为密度代理，无需显式密度估计
     - 设计动机：直接在FM训练中做测地线优化计算量大；蒸馏方式使两个训练阶段解耦，降低计算成本
 

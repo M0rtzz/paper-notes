@@ -10,7 +10,7 @@ tags:
   - 无偏估计
   - 迁移学习
   - 理论保证
-  - few-shot learning
+  - 小样本学习
 ---
 
 # Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.08533](https://arxiv.org/abs/2408.08533)  
 **代码**: [GitHub](https://github.com/vincen-github/Adv-SSL)  
 **领域**: self_supervised  
-**关键词**: 自监督学习, 对抗学习, 无偏估计, 迁移学习, 理论保证, few-shot learning  
+**关键词**: 自监督学习, 对抗学习, 无偏估计, 迁移学习, 理论保证, 小样本学习
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **自监督学习的核心挑战**：从大量无标注数据中学习可迁移表示是机器学习的核心问题。现有方法大致分三类：负样本对比（SimCLR/MoCo）、非对称架构（BYOL/SimSiam）和协方差正则化（Barlow Twins/VICReg）。
+
 **协方差正则化方法的流行**：第三类方法通过将协方差/相关矩阵与单位阵对齐来防止表示坍塌，不需要负样本且理论可解释性更强，但存在一个被忽视的根本问题。
+
 **有偏样本风险的问题**：协方差正则项 $\mathcal{R}(f) = \|\mathbb{E}[f(\mathtt{x}_1)f(\mathtt{x}_2)^\top] - I\|_F^2$ 的经验估计 $\hat{\mathcal{R}}(f)$ 是**有偏的**，因为期望和 Frobenius 范数不可交换（$\mathbb{E}[\hat{\mathcal{R}}(f)] \neq \mathcal{R}(f)$）。
+
 **实际训练中的偏差累积**：虽然理论上全数据集估计会收敛，但实际使用 mini-batch 训练时，偏差会在每步梯度方向上引入偏移，且偏移会跨步累积，导致学到的表示偏离真实总体风险最小化解。
+
 **理论分析的障碍**：有偏估计使得端到端理论保证难以建立——标准经验过程工具要求无偏条件才能分析样本复杂度，而 Barlow Twins 等方法的偏差打破了这一前提。
+
 **核心问题未解答**：下游任务误差如何随源域无标注样本数和目标域标注样本数收敛？无标注数据具体如何帮助下游任务？为什么自监督方法在下游标注数据极少时仍然有效？
 
 ## 方法详解

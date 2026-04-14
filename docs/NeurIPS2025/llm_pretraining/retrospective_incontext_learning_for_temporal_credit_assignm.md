@@ -1,12 +1,17 @@
 ---
-description: 利用LLM预训练知识通过回顾式上下文学习将稀疏奖励转化为优势函数，实现高样本效率的在线策略优化
+title: >-
+  [论文解读] Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models
+description: >-
+  [NeurIPS 2025][时序信用分配] 提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识通过回顾式上下文学习将稀疏环境反馈转化为密集优势函数信号，实现比传统 Monte Carlo 方法高 100 倍的样本效率，并在此基础上构建 RICOL 在线学习框架。
 tags:
-- LLM-agent
-- credit-assignment
-- in-context-learning
-- reinforcement-learning
-- sample-efficiency
+  - NeurIPS 2025
+  - 时序信用分配
+  - 上下文学习
+  - 优势函数
+  - LLM 策略
+  - 在线学习
 ---
+
 # Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models
 
 **会议**: NeurIPS 2025  
@@ -43,12 +48,12 @@ RICOL 将 RICL 嵌入迭代在线学习循环：RICL → 优势加权回归 → 
 ### 关键设计
 
 1. **基于定理的优势函数推断**:
-    - 做什么：从策略更新前后的 log-probability 差推断优势函数
+    - 功能：从策略更新前后的 log-probability 差推断优势函数
     - 核心思路：Theorem 4.1 证明对任意两个策略 $\pi_0$ 和 $\pi'$，存在奖励函数使得 $\beta \log\frac{\pi'(a|s)}{\pi_0(a|s)} \propto A_r^{\pi_0}(s,a)$
     - 设计动机：将 KL 正则化策略更新反转——如果上下文学习隐式执行了策略改进，其 log-ratio 就编码了优势信息
 
 2. **回顾式设计降低不确定性**:
-    - 做什么：反馈只用于更新产生该反馈的同一轨迹中的状态（而非新轨迹）
+    - 功能：反馈只用于更新产生该反馈的同一轨迹中的状态（而非新轨迹）
     - 核心思路：标准 ICL 假设从一条轨迹获得的经验可迁移到新状态，这对 LLM 不切实际；RICL 仅回顾性地更新已经历的状态
     - 设计动机：减少 LLM 上下文学习的不确定性，RICL 比 ICL 精度高 7.2%
 

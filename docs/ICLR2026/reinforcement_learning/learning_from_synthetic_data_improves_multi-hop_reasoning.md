@@ -52,7 +52,7 @@ tags:
 
 2. **In-context推理设置**:
 
-    - 做什么：所有相关上下文放入prompt，测试in-context推理能力
+    - 功能：所有相关上下文放入prompt，测试in-context推理能力
     - 核心思路：PhantomWiki放入全部25篇文章，GSM-∞放入题目描述，用<answer>标签提取答案
     - 设计动机：控制变量，确保衡量的是推理能力而非知识检索
 

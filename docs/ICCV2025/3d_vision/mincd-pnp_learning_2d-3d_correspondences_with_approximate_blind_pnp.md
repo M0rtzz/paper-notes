@@ -47,25 +47,25 @@ MinCD-PnP 由两部分组成：(1) 理论层面的三重近似（Triple Approxim
 
 1. **近似 I：从内点最大化到 Chamfer 距离最小化**
 
-    - 做什么：消除 Blind PnP 中的布尔对应矩阵 C，将内点计数最大化问题转化为 Chamfer 距离最小化
+    - 功能：消除 Blind PnP 中的布尔对应矩阵 C，将内点计数最大化问题转化为 Chamfer 距离最小化
     - 核心思路：通过不等式推导，证明 $\max_{\mathbf{T},\mathbf{C}} \kappa(\mathbf{T},\mathbf{C}) \leq \max_{\mathbf{T}} \kappa^{\star}(\mathbf{T})$，其中 $\kappa^{\star}$ 是基于 Chamfer 距离形式的上界。利用这一上界关系，将原始的离散组合优化松弛为连续的 Chamfer 距离最小化：$L_{\text{Chamfer}}(\mathbf{T}|\mathbf{S}_I, \mathbf{S}_P) = \sum_{q \in S_I} \min_{p \in S_P} \|q - \pi(Tp)\|^2 + \sum_{p \in S_P} \min_{q \in S_I} \|q - \pi(Tp)\|^2$
     - 设计动机：M×N 的布尔矩阵搜索复杂度过高，而 Chamfer 距离只需对每个点找最近邻，复杂度大幅降低，且可微分
 
 2. **近似 II：关键点采样降低 Chamfer 距离计算量**
 
-    - 做什么：从全量像素和点云中采样代表性关键点，将 Chamfer 距离矩阵从 M×N（~10¹¹）降至 M₀×N₀（~10⁶）
+    - 功能：从全量像素和点云中采样代表性关键点，将 Chamfer 距离矩阵从 M×N（~10¹¹）降至 M₀×N₀（~10⁶）
     - 核心思路：从像素集 S_I 和点集 S_P 中分别采样关键点集 K_I 和 K_P，用 $L_{\text{Chamfer}}(\mathbf{T}|\mathbf{K}_I, \mathbf{K}_P)$ 替代原始全量计算。2D/3D 关键点数量约为 10³ 量级，矩阵规模缩小约 10⁵ 倍
     - 设计动机：即使消除了布尔矩阵，全量像素和点的 Chamfer 距离计算仍然不可行，关键点采样在保持代表性的同时极大降低了计算开销
 
 3. **近似 III：2D 关键点引导的 3D 关键点学习**
 
-    - 做什么：将联合学习 K_I 和 K_P 简化为仅学习 K_P，K_I 由预训练检测器提供
+    - 功能：将联合学习 K_I 和 K_P 简化为仅学习 K_P，K_I 由预训练检测器提供
     - 核心思路：使用 Shi-Tomasi 角点检测器预先提取 2D 关键点 K_I。对每个 2D 关键点 q，通过特征匹配找到最近的 3D 点 $p_q^{\star} = \arg\min_{p} d(\mathbf{f}_q^{2D}, \mathbf{f}_p^{3D})$，并用 IoU 形式的损失 $L_{\text{key}}(q)$ 监督 3D 关键点学习。为过滤低置信度匹配，引入阈值 $s_{th} = e^{-0.4}$
     - 设计动机：联合学习 2D 和 3D 关键点使其足够多的内点是困难的，而成熟的 2D 关键点检测器已能提供良好的图像空间代表性
 
 4. **MinCD-Net 多任务学习模块**
 
-    - 做什么：将 MinCD-PnP 的三个近似统一为一个可端到端训练的轻量模块
+    - 功能：将 MinCD-PnP 的三个近似统一为一个可端到端训练的轻量模块
     - 核心思路：最终优化目标为 $\varphi^{\star} = \arg\min_\varphi \left( L_{\text{corr}} + \lambda_1 \sum_{q \in K_I} L_{\text{key}}(q) + \lambda_2 \min_T L_{\text{Chamfer}}(T|K_I, K_P) \right)$。使用 Point Transformer 编码 2D/3D 关键点特征，生成全局特征后通过 MLP 预测位姿 T（se(3)→SE(3)）
     - 设计动机：三个损失函数协同工作——L_corr 负责特征空间匹配，L_key 确保 3D 关键点逼近 2D 关键点，L_Chamfer 施加全局几何一致性约束
 

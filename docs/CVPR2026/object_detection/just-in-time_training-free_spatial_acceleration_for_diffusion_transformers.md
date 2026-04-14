@@ -8,7 +8,7 @@ tags:
   - 目标检测
   - Transformer
   - 空间加速
-  - 免训练
+  - training-free
   - Flow Matching
   - token稀疏化
   - ODE求解
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2603.10744](https://arxiv.org/abs/2603.10744)  
 **代码**: [项目主页](https://wenhao-sun77.github.io/JiT/)  
 **领域**: 图像生成 / 扩散模型加速  
-**关键词**: Diffusion Transformer, 空间加速, 免训练, Flow Matching, token稀疏化, ODE求解
+**关键词**: 扩散 Transformer, 空间加速, training-free, Flow Matching, token稀疏化, ODE求解
 
 ## 一句话总结
 

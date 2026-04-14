@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.16076](https://arxiv.org/abs/2502.16076)  
 **代码**: [ShenzhiYang2000/RSL](https://github.com/ShenzhiYang2000/RSL)  
 **领域**: ai_safety / graph OOD detection  
-**关键词**: OOD detection, graph neural networks, feature resonance, unsupervised, node-level, label-agnostic  
+**关键词**: OOD detection, graph neural networks, feature resonance, unsupervised, node-level, label-agnostic
 
 ## 一句话总结
 
@@ -30,11 +30,14 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：图上的 OOD 节点检测是保证 GNN 部署可靠性的关键任务。现有方法（MSP、Energy、KNN、NNGuide 等）主要分为两类：基于分类器输出（熵/能量分数）和基于监督表征（KNN 距离），均严重依赖预训练好的多类分类器。
+
 **现有痛点**：
    - **标签假设过强**：需要多类标签可用且前置任务是分类任务；
    - **场景受限**：大量实际 OOD 检测场景不满足分类前提——生成模型、回归任务、强化学习、one-class 检测等均缺乏多类标签；
    - **图节点级别的无监督 OOD 检测研究严重不足**：仅有 EnergyDef 等极少数工作，且性能仍有很大提升空间。
+
 **核心矛盾**：现有方法绑定在分类器输出/标签空间上，无法扩展到无标签场景；而图节点之间的局部连接关系蕴含了丰富的分布信息，如何在不依赖标签的情况下挖掘这些信息是核心挑战。
+
 **本文切入角度**：从标签空间转向特征空间，关注表征优化过程中 ID/OOD 节点的行为差异，提出完全与标签和前置任务无关的 OOD 检测方法。
 
 ---

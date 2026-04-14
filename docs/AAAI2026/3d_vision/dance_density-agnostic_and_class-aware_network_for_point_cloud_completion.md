@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.07978](https://arxiv.org/abs/2511.07978)  
 **代码**: [ayeong0909/DANCE](https://github.com/ayeong0909/DANCE)  
 **领域**: 3d_vision  
-**关键词**: point cloud completion, density-agnostic, class-aware, transformer, ray-based sampling, opacity prediction  
+**关键词**: point cloud completion, density-agnostic, class-aware, transformer, ray-based sampling, opacity prediction
 
 ## 一句话总结
 

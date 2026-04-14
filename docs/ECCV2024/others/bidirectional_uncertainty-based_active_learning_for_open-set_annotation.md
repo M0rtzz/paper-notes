@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Bidirectional Uncertainty-Based Active Learning for Open-Set Annotation
 description: >-
-  [ECCV2024][Active Learning] 提出 BUAL 框架，通过 Random Label Negative Learning 将未知类样本推向高置信区域、已知类样本推向低置信区域，结合双向不确定性采样策略，在开放集场景下有效选出高信息量的已知类样本。
+  [ECCV2024][active learning] 提出 BUAL 框架，通过 Random Label Negative Learning 将未知类样本推向高置信区域、已知类样本推向低置信区域，结合双向不确定性采样策略，在开放集场景下有效选出高信息量的已知类样本。
 tags:
   - ECCV2024
-  - Active Learning
+  - active learning
   - Open-Set Annotation
   - Negative Learning
-  - Uncertainty Estimation
+  - uncertainty estimation
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2402.15198](https://arxiv.org/abs/2402.15198)  
 **代码**: [GitHub](https://github.com/zongcc/BUAL)  
 **领域**: others  
-**关键词**: Active Learning, Open-Set Annotation, Negative Learning, Uncertainty Estimation
+**关键词**: active learning, Open-Set Annotation, Negative Learning, uncertainty estimation
 
 ## 一句话总结
 

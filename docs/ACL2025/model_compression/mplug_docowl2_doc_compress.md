@@ -2,14 +2,15 @@
 title: >-
   [论文解读] mPLUG-DocOwl2: High-resolution Compressing for OCR-free Multi-page Document Understanding
 description: >-
-  [ACL 2025][模型压缩][文档理解] DocOwl2提出High-resolution DocCompressor，用全局低分辨率特征引导的分组交叉注意力将每张文档图片压缩至324 tokens，在多页文档理解上实现SOTA且推理延迟降低50%+
+  [ACL 2025][模型压缩][文档理解] 提出布局感知的High-resolution DocCompressor模块，用全局低分辨率视觉特征作为query、子图特征作为key/value进行分组交叉注意力，将每张高分辨率文档图片从数千tokens压缩至324 tokens，配合三阶段训练框架在多页文档理解上达到SOTA且First Token Latency降低50%以上。
 tags:
   - ACL 2025
   - 模型压缩
   - 文档理解
-  - 多模态LLM
-  - OCR-free
   - 视觉token压缩
+  - 布局感知
+  - 多页文档
+  - OCR
 ---
 
 # mPLUG-DocOwl2: High-resolution Compressing for OCR-free Multi-page Document Understanding
@@ -48,19 +49,19 @@ DocOwl2的编码流程：高分辨率图片 → Shape-adaptive Cropping切为$R 
 
 1. **布局感知的分组交叉注意力压缩**:
 
-    - 做什么：将每张高分辨率文档图片从 $(R \times C + 1) \times h \times w/4$ tokens压缩到 $h \times w/4$ tokens（如从2560压到324）
+    - 功能：将每张高分辨率文档图片从 $(R \times C + 1) \times h \times w/4$ tokens压缩到 $h \times w/4$ tokens（如从2560压到324）
     - 核心思路：全局特征图 $\hat{V}^g$ 中的每个token $\hat{v}_{ij}^g$ 作为query，对应的 $R \times C$ 个高分辨率子图tokens $\hat{v}_{ij}^s$ 作为key/value进行分组交叉注意力：$\bar{v}_{ij} = \text{softmax}(\frac{W^q \hat{v}_{ij}^g \cdot W^k \hat{v}_{ij}^s}{\sqrt{d_k}}) W^v \hat{v}_{ij}^s + \hat{v}_{ij}^g$（含residual connection）。位置对应关系由图片裁剪的空间映射自然确定
     - 设计动机：区别于让每个query attend所有高分辨率tokens（计算量大且信息压缩更困难），分组注意力利用了全局图与子图之间天然的空间对应关系，每个query只需关注同一物理区域的 $R \times C$ 个对应位置的tokens，更容易按布局区域聚合语义信息
 
 2. **压缩位置：vision-to-text对齐之后**:
 
-    - 做什么：将DocCompressor放置在H-Reducer（V2T模块）之后而非ViT和H-Reducer之间
+    - 功能：将DocCompressor放置在H-Reducer（V2T模块）之后而非ViT和H-Reducer之间
     - 核心思路：先通过H-Reducer的卷积层聚合水平方向4个特征并通过FC层与LLM特征空间对齐，使视觉特征已编码为"类文本token"，再进行压缩
     - 设计动机：消融实验（r4 vs r3）证实在V2T对齐后压缩优于直接压缩ViT输出。直觉是：压缩已对齐的特征类似于NLP中的文本摘要（在语义空间中操作），而直接压缩视觉特征会丢失更多文字信息
 
 3. **三阶段训练框架**:
 
-    - 做什么：分阶段逐步赋予模型单图理解→多图关联→多任务泛化能力
+    - 功能：分阶段逐步赋予模型单图理解→多图关联→多任务泛化能力
     - 核心思路：**Stage 1**（Single-image Pretraining）：在DocStruct4M上学习文档/表格/图表的结构解析，确保压缩tokens编码足够信息。**Stage 2**（Multi-image Continue-Pretraining）：在MP-DocStruct1M上学习多页文本解析和文本查找两个对称任务。**Stage 3**（Multi-task Finetuning）：混合单图（DocDownstream-1.0, DocReason25K）和多图（MP-DocVQA, DUDE, NewsVideoQA, MP-DocReason51K）指令微调数据集
     - 设计动机：Stage 2的两个对称任务（给页码解析文字 + 给文字找页码）是多页理解的基础能力——模型需要在多张图片间建立页码-内容的双向映射。消融实验（r3 vs r2）证实这一阶段对10+页文档的理解至关重要
 

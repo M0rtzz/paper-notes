@@ -46,7 +46,7 @@ tags:
 
 1. **Budyko-Sellers EBM 及其 RL 化**:
 
-    - 做什么：将纬度分辨的能量平衡方程转化为 RL 环境
+    - 功能：将纬度分辨的能量平衡方程转化为 RL 环境
     - 核心思路：EBM 方程 $C(\phi)\frac{\partial T_s}{\partial t} = (1-\alpha(\phi))Q(\phi) - (A + BT_s) + \frac{D}{\cos\phi}\frac{\partial}{\partial\phi}(\cos\phi \frac{\partial T_s}{\partial\phi})$ 中，OLR 系数 $A$ 和 $B$ 作为 RL 智能体的策略输出，状态为纬度分辨温度剖面 $T_s(\phi)$，奖励为与目标气候学的 MSE
     - 设计动机：$A$、$B$ 是物理上最关键且最难静态标定的参数，将其动态化是提升模型精度的自然切入点
 
@@ -59,7 +59,7 @@ tags:
 
 3. **联邦聚合策略**:
 
-    - 做什么：控制局部适应与全局同步的频率
+    - 功能：控制局部适应与全局同步的频率
     - 核心思路：使用 Flower 实现同步 FedAvg，测试 fed05（每 5 个 episode 聚合）、fed10（每 10 个 episode）和 nofed（无聚合）三种方案
     - 设计动机：频繁聚合（fed05）有助于全局稳定性，但可能抑制区域特化；稀疏聚合（fed10）给区域更多自由度但可能导致分歧
 

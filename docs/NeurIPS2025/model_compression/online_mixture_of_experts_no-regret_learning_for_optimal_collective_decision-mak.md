@@ -1,8 +1,18 @@
 ---
-title: "[论文解读] Online Mixture of Experts: No-Regret Learning for Optimal Collective Decision-Making"
-description: "[NeurIPS 2025][在线学习] 提出在线专家混合OMoE框架，通过UCB消除和加权投票实现无遗憾的多专家聚合"
-tags: [NeurIPS 2025, 在线学习, 专家混合, 多臂赌博机, LLM]
+title: >-
+  [论文解读] Online Mixture of Experts: No-Regret Learning for Optimal Collective Decision-Making
+description: >-
+  [NeurIPS 2025][模型压缩][online learning] 提出在线专家混合（OMoE）框架，包含 UCB 逐步消除和在线加权多数投票两种算法，理论上保证无遗憾（no-regret），并应用于 LLM 专家的在线动态聚合。
+tags:
+  - NeurIPS 2025
+  - 模型压缩
+  - online learning
+  - mixture of experts
+  - bandit
+  - no-regret
+  - LLM ensemble
 ---
+
 # Online Mixture of Experts: No-Regret Learning for Optimal Collective Decision-Making
 
 **会议**: NeurIPS 2025  
@@ -16,9 +26,13 @@ tags: [NeurIPS 2025, 在线学习, 专家混合, 多臂赌博机, LLM]
 
 ## 研究背景与动机
 **领域现状**：专家混合（Mixture of Experts, MoE）在离线场景已有广泛应用，但在线场景下如何动态聚合多个专家的输出以实现最优集体决策缺乏系统研究。
+
 **现有痛点**：传统 MoE 假设固定的门控/路由机制，无法适应流式数据下专家质量的动态变化；多臂赌博机框架假设独立 arm，未利用专家间的组合结构。
+
 **核心矛盾**：探索（尝试新专家组合）与利用（使用已知最优组合）的经典平衡问题，在"如何聚合"维度上比标准 bandit 更复杂。
+
 **切入角度**：将专家聚合建模为 contextual bandit 问题，利用 UCB 和加权投票的有效结合。
+
 **核心idea一句话**：将 MoE 转化为在线 bandit 学习问题，构建有理论保证的无遗憾专家聚合算法。
 
 ## 方法详解
@@ -30,7 +44,7 @@ tags: [NeurIPS 2025, 在线学习, 专家混合, 多臂赌博机, LLM]
 
 1. **算法一：UCB-Successive Elimination (UCB-SE)**
 
-    - 做什么：通过 UCB 置信上界逐步淘汰次优的专家组合
+    - 功能：通过 UCB 置信上界逐步淘汰次优的专家组合
     - 核心思路：为每个可能的专家委员会维护 UCB 估计 $\hat{\mu}_k + \sqrt{\frac{2\ln t}{n_k}}$
     - 消除规则：当某委员会的 UCB 低于当前最优委员会的 LCB 时淘汰
     - 遗憾界：$R_T = O(\sqrt{KT \log T})$
@@ -38,7 +52,7 @@ tags: [NeurIPS 2025, 在线学习, 专家混合, 多臂赌博机, LLM]
 
 2. **算法二：Online Weighted Majority Voting (OWMV)**
 
-    - 做什么：根据各专家历史表现动态分配投票权重
+    - 功能：根据各专家历史表现动态分配投票权重
     - 更新规则：$w_k^{(t+1)} = w_k^{(t)} \cdot \beta^{\mathbb{1}[\text{expert } k \text{ incorrect}]}$
     - 衰减因子 $\beta \in (0,1)$ 惩罚错误专家
     - 遗憾界：$R_T = O(\sqrt{T \log K})$

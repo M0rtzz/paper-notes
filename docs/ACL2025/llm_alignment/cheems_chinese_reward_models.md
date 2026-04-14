@@ -19,20 +19,25 @@ tags:
 **arXiv**: [2502.17173](https://arxiv.org/abs/2502.17173)  
 **代码**: [https://github.com/AlignRM/CheemsRM](https://github.com/AlignRM/CheemsRM)  
 **领域**: 对齐RLHF  
-**关键词**: reward model, Chinese preference, benchmark, distant supervision, RLHF  
+**关键词**: reward model, Chinese preference, benchmark, distant supervision, RLHF
 
 ## 一句话总结
 为弥补中文 Reward Model 资源的空白，本文构建了 CheemsBench（首个大规模中文 RM 评测基准）和 CheemsPreference（首个大规模中文偏好数据集），通过人机协作标注 + 远程监督过滤策略训练的 CheemsRM 在中文场景显著超越现有所有开源 RM。
 
 ## 研究背景与动机
 **领域现状**：Reward Model 是 RLHF 的核心组件，但当前 RM 研究高度集中于英文场景（如 RewardBench、UltraRM、Skywork-Reward），中文 RM 发展严重滞后
+
 **现有痛点**：
    - 现有中文偏好数据集规模小（Huozi 仅几千条）、领域受限（知乎问答等特定场景）
    - 现有 RM benchmark 均为英文（RewardBench），无法评估 RM 在中文场景的表现
    - 大量依赖 GPT 合成标注数据，难以准确反映中文用户的真实偏好
+
 **核心矛盾**：缺乏高质量的中文偏好数据和评测基准，导致中文 RM 无法有效学习并捕获中文用户的偏好
+
 **本文要解决什么？** 从零构建中文 RM 资源体系——评测基准 + 偏好数据集 + 训练方法
+
 **切入角度**：以人类标注为核心，辅以远程监督策略扩大规模
+
 **核心idea一句话**：先用全人工标注构建高质量小数据集和 benchmark，再用其训练的 RM 过滤 GPT 标注的大规模数据，实现质量与规模的平衡
 
 ## 方法详解
@@ -44,21 +49,21 @@ tags:
 
 1. **CheemsBench 构建 — 多回复三选比较 + 冲突消解**:
 
-    - 做什么：为每个 prompt 采样 5 个回复，进行 5 轮三选比较（triple-wise comparison），生成可靠的偏序排名
+    - 功能：为每个 prompt 采样 5 个回复，进行 5 轮三选比较（triple-wise comparison），生成可靠的偏序排名
     - 核心思路：将标注结果转为有向偏好图，用 DFS 检测环（冲突）→ 将环中节点合并为大节点 → 重复直到无环 → 拓扑排序得到偏序。使用 Accuracy 和 Exact Match 两种评测指标
     - 设计动机：传统 pairwise comparison 在反映下游任务性能方面存在局限（Wen et al., 2024）。多回复评估更贴合实际使用场景（best-of-N sampling 等）。三选比较比两两比较的信息密度更高，同时避免了全排序的标注成本
     - 数据来源：1146 条开源 prompt + 1346 条真实人类指令，覆盖推理、理解、创作、复杂指令等类别
 
 2. **CheemsPreference 构建 — 远程监督策略**:
 
-    - 做什么：用人工标注的小数据集训练的 RM 来过滤 GPT 标注的大数据集
+    - 功能：用人工标注的小数据集训练的 RM 来过滤 GPT 标注的大数据集
     - 核心思路：(a) 人工标注 3260 条 prompt（37K comparisons），(b) GPT-4o 标注 27861 条 prompt（332K comparisons），对 $C_N^2$ 对做 pairwise 比较。(c) 用人工数据训练的 RM 过滤 GPT 标注中的冲突和错误，保留一致的偏好链
     - 设计动机：纯人工标注成本过高（3K 已是极限），纯 GPT 标注质量不可靠（存在位置偏差、不一致性）。远程监督在两者间取得平衡
     - 长度去偏：按 chosen 比 rejected 长/短分两组，下采样较大组以平衡长度偏差
 
 3. **CheemsRM 训练 — 多回复 Bradley-Terry 损失**:
 
-    - 做什么：在多回复偏序数据上训练判别式 RM
+    - 功能：在多回复偏序数据上训练判别式 RM
     - 核心思路：Bradley-Terry 损失 $\mathcal{L}' = -\mathbb{E}[\log\sigma(r(x, y_w) - r(x, y_l))]$，加高斯正则化 $\mathcal{L} = \mathcal{L}' + \mathbb{E}[r^2(x, y)]$ 稳定训练。使用贪心 sample-based batch 策略，尽量将同一 prompt 的所有回复放入一个 batch
     - 设计动机：相比标准 pairwise 训练，多回复提供更丰富的比较信号；高斯正则防止 reward score 爆炸
 

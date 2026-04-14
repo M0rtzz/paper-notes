@@ -51,20 +51,20 @@ tags:
 
 1. **Bag-Level 无偏损失构造（Unbiased Loss Construction）**:
 
-    - 做什么：从 bag 级聚合标签构造一个无偏估计个体级损失的代理损失
+    - 功能：从 bag 级聚合标签构造一个无偏估计个体级损失的代理损失
     - 核心思路：对于 bag $\{(x_i, \bar{y})\}_{i=1}^B$，利用 U-统计量构造：
     $\hat{L}(h) = \frac{1}{B(B-1)} \sum_{i \neq j} (h(x_i) - \bar{y})(h(x_j) - \bar{y}) + \text{correction}$
     - 设计动机：直接用 $(\text{avg}(h(x_i)) - \bar{y})^2$ 作为损失会引入与 $B$ 相关的偏差，U-统计量消除了这种偏差
 
 2. **方差缩减技术（Ad Hoc Variance Reduction）**:
 
-    - 做什么：降低 bag-level 损失估计的方差
+    - 功能：降低 bag-level 损失估计的方差
     - 核心思路：将方差分解为两部分：(i) 个体层面的标签噪声方差 $\sigma^2$，(ii) bag 内样本多样性带来的方差。通过控制变量方法（control variate）分别处理
     - 设计动机：标准 SGD/ERM 的样本复杂度被 bag-level 方差主导，方差缩减使得最终界对 $B$ 的依赖降至 $O(\sqrt{B})$
 
 3. **信息论下界（Information-Theoretic Lower Bound）**:
 
-    - 做什么：证明所得样本复杂度关于 $B$ 的依赖是不可改进的
+    - 功能：证明所得样本复杂度关于 $B$ 的依赖是不可改进的
     - 核心思路：通过 Fano 不等式和精心构造的假设类，建立样本复杂度的下界
     - 设计动机：上界和下界的匹配证明了算法的最优性
 

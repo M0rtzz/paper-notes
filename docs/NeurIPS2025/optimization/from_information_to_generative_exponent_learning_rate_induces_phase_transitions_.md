@@ -27,12 +27,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：学习单指标模型 $y = \sigma_*(⟨\mathbf{x}, \boldsymbol{\theta}_*⟩) + \zeta$（$\mathbf{x} \sim \mathcal{N}(0, I_d)$）的样本复杂度由链接函数属性决定。在线 SGD 的复杂度由 information exponent $p = \text{IE}(\sigma_*)$（第一个非零 Hermite 系数的阶数）主导，为 $\tilde{\Theta}(d^{(p-1)\vee 1})$。
+
 **现有痛点**：
    - 通过多次梯度步（batch reuse）可将复杂度降到由 generative exponent $p_* = \text{GE}(\sigma_*) \leq p$ 主导，但这一图景仅在学习率足够大时成立
    - Full-batch gradient flow 的最佳已知界仍依赖 information exponent，暗示学习率的作用被忽视
    - 此前工作未系统研究学习率选择如何影响 CSQ/SQ 体制的切换
+
 **核心矛盾**：batch reuse 直觉上应突破 CSQ 限制，但 full-batch gradient flow（极端复用）的界却未改善——说明学习率而非仅复用决定了查询类别
+
 **切入角度**：将一大类梯度算法统一为 $\mathbf{w}^{(t+1)} \leftarrow \mathbf{w}^{(t)} + \gamma \psi_\eta(y, ⟨\mathbf{x}, \mathbf{w}⟩) P_\mathbf{w}^\perp \mathbf{x}$ 的形式，$\eta$ 控制非关联项的尺度
+
 **核心idea**：样本复杂度由 Hermite 系数 $\mu_i(\eta)$ 的竞争决定，$\eta$ 的大小决定哪个项主导，从而在 information exponent 体制和 generative exponent 体制之间产生不光滑相变
 
 ## 方法详解
@@ -44,13 +48,13 @@ tags:
 
 1. **通用框架与 Hermite 系数分析**:
 
-    - 做什么：将在线 SGD、batch reuse SGD、alternating SGD 统一为同一框架
+    - 功能：将在线 SGD、batch reuse SGD、alternating SGD 统一为同一框架
     - 核心思路：定义关键量 $\mu_i(\eta) = \mathbb{E}[\psi_\eta(\sigma_*(a), b) \mathsf{He}_i(a) \mathsf{He}_{i-1}(b)]$，其中 $(a,b) \sim \mathcal{N}(0, I_2)$。更新方向与目标的对齐为 $\mathbb{E}[⟨\boldsymbol{\theta}_*, \mathbf{g}⟩] = \sum_i i! \mu_i ⟨\boldsymbol{\theta}_*, \mathbf{w}⟩^{i-1}(1-⟨\boldsymbol{\theta}_*, \mathbf{w}⟩^2)$
     - 设计动机：$\mu_i(\eta)$ 的大小和非零性完全决定哪个 Hermite 阶主导对齐增长
 
 2. **主定理 (Theorem 3.3)**:
 
-    - 做什么：给出通用样本复杂度公式
+    - 功能：给出通用样本复杂度公式
     - 核心思路：取 $\gamma \leq C\delta \max_i \mu_i d^{-(i/2 \vee 1)}$，弱恢复所需迭代数为
     $T(\eta) = \min_{\substack{1 \leq i \leq r \\ \mu_i > 0}} \tilde{\Theta}\big(\gamma^{-1} \mu_i(\eta)^{-1} d^{\frac{i-2}{2} \vee 0}\big)$
       选最优 $\gamma$ 后简化为 $T(\eta) = \min_i \tilde{\Theta}(\mu_i(\eta)^{-2} d^{(i-1)\vee 1})$
@@ -58,13 +62,13 @@ tags:
 
 3. **Batch Reuse SGD 实例化 (Algorithm 1)**:
 
-    - 做什么：两步更新——先用 $\eta$ 做一步梯度，再用 $\gamma$ 在同一样本上做第二步
+    - 功能：两步更新——先用 $\eta$ 做一步梯度，再用 $\gamma$ 在同一样本上做第二步
     - 核心思路：Taylor 展开后得 $\psi_\eta(y,z) = y\sigma'(z) + \sum_{k=2}^r \frac{(\eta d)^{k-1}}{(k-1)!}\sigma^{(k)}(z)(\sigma'(z))^{k-1} y^k$。相变条件：$\eta \leq d^{\frac{[(p_j-1)\vee 1]-[(p_i-1)\vee 1]}{2(j-i)}-1}$ 时处于 information exponent 体制
     - 设计动机：验证框架正确性——当 $\eta \lesssim d^{-(p+1)/2}$ 时复杂度退化为在线 SGD 的 $\Theta(d^{(p-1)\vee 1})$，当 $\eta \gtrsim d^{-1}$ 时恢复 $\tilde{\Theta}(d)$
 
 4. **Alternating SGD (Algorithm 2, 本文新算法)**:
 
-    - 做什么：逐层更新——先用 $\eta$ 更新第二层 $\tilde{a} \leftarrow a + \eta y \sigma(⟨\mathbf{x}, \mathbf{w}⟩)$，再用更新后的 $\tilde{a}$ 和 $\gamma$ 更新第一层
+    - 功能：逐层更新——先用 $\eta$ 更新第二层 $\tilde{a} \leftarrow a + \eta y \sigma(⟨\mathbf{x}, \mathbf{w}⟩)$，再用更新后的 $\tilde{a}$ 和 $\gamma$ 更新第一层
     - 核心思路：更新函数 $\psi_\eta(y,z) = ya\sigma'(z) + \eta y^2 \sigma(z)\sigma'(z)$，系数 $\mu_i(\eta) = ai \cdot u_i(\sigma_*) u_i(\sigma) + \eta \cdot u_{i-1}(\sigma\sigma') u_i(\sigma_*^2)$。若 $p_2 = \text{IE}(\sigma_*^2) < p$ 且 $\eta$ 足够大，第二项主导，复杂度为 $\tilde{\Theta}(\eta^{-2} d^{(p_2-1)\vee 1})$
     - 设计动机：无需复用样本且使用标准平方损失即可引入非关联项——两层不同学习率的时间尺度分离自然产生 $y^2$ 变换
 

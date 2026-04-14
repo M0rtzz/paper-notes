@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.21773](https://arxiv.org/abs/2602.21773)  
 **代码**: 待确认  
 **领域**: ai_safety  
-**关键词**: machine unlearning, shortcut learning, data bias, loss landscape, causal pathway  
+**关键词**: machine unlearning, shortcut learning, data bias, loss landscape, causal pathway
 
 ## 一句话总结
 

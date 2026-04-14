@@ -25,10 +25,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: 多智能体强化学习（MARL）通常建模为马尔可夫博弈（MG），但传统MG要求效用函数可跨时间步加性分解。凸马尔可夫博弈（cMG）允许效用函数是状态-动作占用度量的凸函数，模型表达力更强，可涵盖创造性博弈策略发现、语言模型多步对齐、机器人多智能体探索等场景。
+
 **现有痛点**: cMG打破了Bellman一致性——无法定义状态值函数和动作值函数，因而传统的基于值迭代/动态规划的MARL算法（如Q-learning变种）完全不适用。甚至Nash均衡的存在性证明都需要超越经典的Brouwer/Kakutani不动点定理。
+
 **核心矛盾**: 策略空间上的效用函数天然非凸，而即使在最简单的正规形式博弈（cMG的单状态特例）中，梯度方法就会循环、产生混沌轨迹。非凸-非凹的鞍点计算在一般情况下是困难的。
+
 **本文要解决什么**: 策略梯度方法能否在零和cMG中收敛？
+
 **切入角度**: 作者发现cMG中效用函数具有"隐凸性"（hidden convexity）——它是占用度量的凸函数复合一个可逆映射。利用这一结构，加上非凸正则化，可以使问题满足proximal Polyak-Łojasiewicz（pPL）条件。
+
 **核心idea**: 通过占用度量空间的正则化把零和cMG化归为约束域上的非凸-pPL min-max优化问题，然后设计嵌套/交替梯度迭代保证收敛。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **非凸正则化 (Hidden-Strongly-Convex Regularization)**:
 
-    - 做什么：在原始效用 $U(x,y)$ 上加一个关于maximizer占用度量的正则项 $-\frac{\mu}{2}\|\lambda_2(x,y)\|^2$，得到扰动效用 $U^\mu(x,y)$
+    - 功能：在原始效用 $U(x,y)$ 上加一个关于maximizer占用度量的正则项 $-\frac{\mu}{2}\|\lambda_2(x,y)\|^2$，得到扰动效用 $U^\mu(x,y)$
     - 核心思路：$U$ 对每个玩家的占用度量是凹的（隐凹性），加上 $\mu$-强凸正则后变为隐强凹，从而满足pPL条件
     - 设计动机：pPL条件保证了最优响应映射 $y^\star(x)$ 关于 $x$ 是Lipschitz连续的（而非通常的 $\frac{1}{2}$-Hölder连续），这是策略梯度方法稳定迭代的关键
 
 2. **嵌套策略梯度 (Nest-PG, Algorithm 1)**:
 
-    - 做什么：内层循环用projected gradient ascent逼近maximizer的最优响应，外层循环用projected gradient descent更新minimizer
+    - 功能：内层循环用projected gradient ascent逼近maximizer的最优响应，外层循环用projected gradient descent更新minimizer
     - 核心思路：利用NC-pPL结构，内层以线性速率收敛到近似最优响应，外层利用 $\Phi(x) = \max_y U^\mu(x,y)$ 的梯度主导性质保证下降
     - 与之前方法的区别：无需精确求解内层问题，允许不精确梯度，各玩家独立学习无需共享策略
 
 3. **交替策略梯度 (Alt-PGDA, Algorithm 2)**:
 
-    - 做什么：两个玩家交替执行投影梯度步，但使用不对称步长（minimizer步长远小于maximizer步长）
+    - 功能：两个玩家交替执行投影梯度步，但使用不对称步长（minimizer步长远小于maximizer步长）
     - 核心思路：通过时间尺度分离（step-size $\alpha_x \ll \alpha_y$），让maximizer的响应"追踪"minimizer的慢变化，同样利用pPL条件的Lipschitz最优响应性质保稳定
     - 设计动机：比嵌套方法更简单、更易实现，且同样对随机/不精确梯度鲁棒
 

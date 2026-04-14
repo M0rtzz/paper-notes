@@ -4,7 +4,7 @@
 **arXiv**: [2510.13025](https://arxiv.org/abs/2510.13025)  
 **代码**: https://github.com/Wenxuan52/InformationKoopman  
 **领域**: 模型压缩  
-**关键词**: koopman operator, information bottleneck, dynamical systems, representation learning, von neumann entropy  
+**关键词**: koopman operator, information bottleneck, dynamical systems, representation learning, von neumann entropy
 
 ## 总结
 

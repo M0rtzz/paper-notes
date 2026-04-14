@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.04890](https://arxiv.org/abs/2603.04890)  
 **代码**: [Chao2433/FedAFD](https://github.com/Chao2433/FedAFD)  
 **领域**: AI安全 / 联邦学习  
-**关键词**: Multimodal Federated Learning, Adversarial Alignment, Feature Fusion, Knowledge Distillation, Model Heterogeneity
+**关键词**: Multimodal Federated Learning, Adversarial Alignment, Feature Fusion, knowledge distillation, Model Heterogeneity
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 多模态联邦学习（MFL）允许不同模态的客户端在不共享原始数据的前提下协作训练模型，但面临三大挑战：
 
 **模态/任务异构性**：不同客户端可能处理不同模态（图像、文本）和不同任务（分类、检索），导致特征空间不一致，产生模型漂移
+
 **个性化不足**：现有方法为提升全局模型性能往往牺牲了本地模型性能
+
 **模型异构性**：不同客户端使用不同架构的编码器，无法直接进行参数级聚合
 
 现有方法如 CreamFL 只关注全局模型性能，忽视了本地个性化，且在处理模态/任务差异时缺乏有效机制。FedAFD 的核心思路是通过"边缘-云"协作框架，同时增强全局和本地模型性能。

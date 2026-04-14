@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：生产环境中的指令微调推理模型通常配备安全分类器（如毒性检测器），这些分类器在 frozen embedding 上训练，隐含假设 embedding 在模型更新后保持稳定。
+
 **现有痛点**：基础模型会频繁更新（安全补丁、性能提升等），但安全分类器通常不会同步重训，形成了"模型更新但分类器固定"的生产模式。
+
 **核心矛盾**：embedding 空间在模型更新后是否真的稳定？如果不稳定，现有的监控机制（基于平均置信度的监控）能否检测到这种失效？
+
 **本文要解决什么？**（1）量化 embedding 漂移的精确失效阈值；（2）刻画 silent failure 现象——置信度仍高但分类已错；（3）揭示 alignment（RLHF）对分类器鲁棒性的反直觉影响。
+
 **切入角度**：通过受控的 additive perturbation 模拟 embedding drift，系统测试不同漂移类型（高斯、方向性、子空间旋转）下分类器的退化行为。
+
 **核心 idea 一句话**：Embedding stability 假设在实践中不成立，微小漂移即可导致安全分类器灾难性失效且标准监控无法察觉。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **Embedding Drift 建模**:
 
-    - 做什么：用参数化扰动模拟模型更新带来的 embedding 变化
+    - 功能：用参数化扰动模拟模型更新带来的 embedding 变化
     - 核心思路：$z_c = \text{Normalize}(z_0 + \varepsilon_c)$，其中 $\varepsilon_c$ 从三种分布采样——高斯漂移 $\varepsilon_c \sim \mathcal{N}(0, \sigma_c^2 I)$、方向性漂移 $\varepsilon_c = \sigma_c v$（固定方向）、子空间旋转 $z_c = \text{Normalize}(Rz_0)$
     - 设计动机：覆盖不同类型的实际漂移场景，归一化保持在 embedding 球面上
 
 2. **Silent Failure 度量**:
 
-    - 做什么：检测高置信度下的错误分类
+    - 功能：检测高置信度下的错误分类
     - 核心思路：当 $\max_y p(y|x) > 0.8$ 且 $\hat{y} \neq y$ 时定义为 silent failure
     - 设计动机：标准监控依赖平均置信度，但如果置信度仍高而分类已错，监控无法察觉——这是最危险的失效模式
 
 3. **Alignment 影响分析**:
 
-    - 做什么：对比 base 与 instruction-tuned 模型的 embedding 可分性
+    - 功能：对比 base 与 instruction-tuned 模型的 embedding 可分性
     - 核心思路：用 Silhouette score 和 Fisher 判别比衡量 toxic/safe 类别在 embedding 空间中的分离程度
     - 设计动机：检验 RLHF alignment 是否引入了对安全分类的负面效应
 

@@ -2,13 +2,14 @@
 title: >-
   [论文解读] Bounds on Agreement between Subjective and Objective Measurements
 description: >-
-  [CVPR 2026][多媒体质量评估][理论] 推导了主观测试MOS与客观估计器之间PCC和MSE的理论界，提出BinoVotes/BinoMOS投票模型，在18项主观测试数据上验证界的有效性，为客观质量估计器的评估提供了理论基准。
+  [CVPR 2026][quality assessment] 从MOS的数学性质出发推导出主观测试结果与任何客观估计器之间PCC上界和MSE下界的理论公式，并提出BinoVotes/BinoMOS投票模型，在18项主观测试数据上验证了界的有效性和模型的准确性。
 tags:
   - CVPR 2026
-  - 质量评估
+  - quality assessment
   - MOS
-  - 主观测试
-  - 性能界
+  - subjective test
+  - PCC bound
+  - MSE bound
   - BinoVotes
 ---
 
@@ -39,17 +40,17 @@ tags:
 ### 关键设计
 
 1. **PCC上界和MSE下界的推导**：
-    - 做什么：推导任何客观估计器在给定主观测试条件下能达到的最优PCC和最低MSE
+    - 功能：推导任何客观估计器在给定主观测试条件下能达到的最优PCC和最低MSE
     - 核心思路：考虑最佳可能的客观估计器——即oracle估计器能直接访问真实质量 $Y$。则 $Y$ 与 MOS $X$ 的PCC/MSE就是任何估计器能达到的极限。关键结果：$\mathbb{E}(D^2) = \frac{\mathbb{E}(v_r(Y))}{n_v}$，MSE下界仅取决于投票方差的期望 $\mathbb{E}(v_r(Y))$ 和投票人数 $n_v$。PCC上界类似，利用 $\text{Var}(X) = \frac{\mathbb{E}(v_r(Y))}{n_v} + \text{Var}(Y)$
     - 设计动机：基于概率论基础（全期望定律、全方差定律、i.i.d.votes假设），推导严格且假设最少。"well-behaved"条件 $\mathbb{E}(R_j|Y)=Y$ 是所有主观测试的基石假设
 
 2. **BinoVotes投票模型**：
-    - 做什么：当实际投票方差不可用时，提供投票分布和方差的理论估计
+    - 功能：当实际投票方差不可用时，提供投票分布和方差的理论估计
     - 核心思路：将投票建模为变换后的二项分布——真实质量 $Y \in [s_L, s_H]$ 映射到 $p = (Y-s_L)/(s_H-s_L) \in [0,1]$，投票分布为 $R = \frac{s_H-s_L}{n_s-1}\text{Binom}(n_s-1, p) + s_L$。BinoVotes的方差 $v_r(Y) = \frac{(s_H-s_L)^2}{(n_s-1)} p(1-p)$——在质量范围两端为0，中间最大
     - 设计动机：二项分布天然满足评分尺度的离散性和有限范围约束。BinoVotes的方差是真实质量的抛物线函数——在极端质量（如"明显好"或"明显差"）时投票一致性高（方差小），在中间质量时投票分歧大（方差大），符合直觉
 
 3. **BinoMOS模型**：
-    - 做什么：对BinoVotes取平均得到MOS的理论分布模型
+    - 功能：对BinoVotes取平均得到MOS的理论分布模型
     - 核心思路：$n_v$ 个BinoVotes的平均，自然继承了MOS的离散值域——$|M| = n_v(n_s-1)+1$ 个可能取值——和对投票数的依赖。随 $n_v$ 增大，BinoMOS趋近真实质量（中心极限定理）
     - 设计动机：直接对MOS建模的方法（如高斯分布）往往违反MOS的离散性。BinoMOS从投票模型自然推导，保持了所有数学性质
 

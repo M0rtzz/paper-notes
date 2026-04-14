@@ -8,8 +8,8 @@ tags:
   - LLM Agent
   - Atomic Facts
   - Lookahead Search
-  - In-Context Learning
-  - World Model
+  - in-context learning
+  - world model
 ---
 
 # Improving LLM Agent Planning with In-Context Learning via Atomic Fact Augmentation and Lookahead Search
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.09171](https://arxiv.org/abs/2506.09171)  
 **代码**: 待确认  
 **领域**: llm_agent  
-**关键词**: LLM Agent, Atomic Facts, Lookahead Search, In-Context Learning, World Model
+**关键词**: LLM Agent, Atomic Facts, Lookahead Search, in-context learning, world model
 
 ## 一句话总结
 

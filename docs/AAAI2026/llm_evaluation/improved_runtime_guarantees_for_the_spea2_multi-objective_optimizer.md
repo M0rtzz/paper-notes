@@ -42,20 +42,20 @@ tags:
 
 1. **SPEA2的均衡选择性质（Lemma 1）**:
 
-    - 做什么：证明SPEA2在淘汰超额非支配个体时，总是优先移除具有最多重复目标值的个体，从而保持各目标值的均衡分布
+    - 功能：证明SPEA2在淘汰超额非支配个体时，总是优先移除具有最多重复目标值的个体，从而保持各目标值的均衡分布
     - 核心思路：设 $S_t$ 为非支配个体集合，$F_t$ 为其中不同目标值的集合，$A_u$ 为目标值为 $u$ 的个体子集。证明经过eliminate操作后，至少 $\min\{|A_u|, \lfloor \mu/|F_t| \rfloor\}$ 个 $A_u$ 中的个体存活到下一代
     - 证明关键：若 $|A_u^i| \leq \lfloor \mu/|F_t| \rfloor$，则由鸽巢原理存在另一目标值 $v$ 使 $|A_v^i| > |A_u^i|$。对于 $x \in A_v^i$ 和 $y \in A_u^i$，由于 $A_v$ 有更多副本，$\sigma_{|A_u^i|}(x) = 0 < \sigma_{|A_u^i|}(y)$，故 $y$ 不会被淘汰
     - 设计动机：这是NSGA-II所不具备的性质——NSGA-II的拥挤距离仅考虑每个目标上最近的两个邻居，导致种群倾向集中在Pareto前沿中部
 
 2. **目标值的乘法增长引理（Lemma 4）**:
 
-    - 做什么：证明新发现的目标值在种群中的个体数量呈指数增长，达到均衡水平 $\lfloor \mu/\bar{M} \rfloor$ 仅需 $O(\lceil \mu/\lambda \rceil \log B)$ 代
+    - 功能：证明新发现的目标值在种群中的个体数量呈指数增长，达到均衡水平 $\lfloor \mu/\bar{M} \rfloor$ 仅需 $O(\lceil \mu/\lambda \rceil \log B)$ 代
     - 核心思路：结合均衡选择（保证至少 $X_t$ 个个体存活）和标准位变异（以概率 $(1-1/n)^n \geq 0.29$ 产生副本），可得 $X_{t+1} - X_t \succeq \text{Bin}(\lambda, 0.29 \cdot X_t / \mu)$，即乘法增长
     - 技术处理：当 $\lambda < \mu$ 时单步乘法增长系数 $\delta\lambda/\mu$ 可能过小，无法直接应用乘法增长引理。解决方案是考虑 $\lceil \mu/\lambda \rceil$ 步的累积进展，使有效增长系数 $\lambda \lceil \mu/\lambda \rceil \cdot \delta / \mu \geq \delta \geq 0.29$ 满足引理要求
 
 3. **随机乘法增长的停止时间引理（Lemma 2）**:
 
-    - 做什么：为服从 $Y_{t+1} \succeq \text{Bin}(k, \min\{rX_t, 1\})$ 增长的过程建立达到阈值 $B$ 的期望时间上界 $4\lceil \log_{1+kr} B \rceil$
+    - 功能：为服从 $Y_{t+1} \succeq \text{Bin}(k, \min\{rX_t, 1\})$ 增长的过程建立达到阈值 $B$ 的期望时间上界 $4\lceil \log_{1+kr} B \rceil$
     - 核心思路：定义几何递增的里程碑 $B_i = (1+kr)^i$，利用Doerr (2018)的二项分布集中性结果（$kr \geq 0.29$ 时 $\Pr[X > E[X]] \geq 1/4$），证明从 $B_{i-1}$ 到 $B_i$ 的期望时间不超过4步
 
 ### 运行时分析结果

@@ -2,15 +2,15 @@
 title: >-
   [论文解读] The Implicit Bias of Structured State Space Models Can Be Poisoned With Clean Labels
 description: >-
-  [NeurIPS 2025][优化][对抗安全] 本文首次证明结构化状态空间模型(SSM)的隐式偏置可以被干净标签数据"投毒"——特定训练样本的存在会彻底扭曲隐式偏置导致泛化失败，即使这些样本的标签完全正确。
+  [NeurIPS 2025][优化][隐式偏置] 本文首次从理论上证明结构化状态空间模型 (SSM) 的隐式偏置可以被干净标签 (clean-label) 训练样本"投毒"——存在特殊的训练样本，尽管它们的标签由教师模型正确标注，但其加入会彻底扭曲 SSM 的隐式偏置，导致泛化彻底失败。
 tags:
   - NeurIPS 2025
   - 优化
   - 隐式偏置
   - 状态空间模型
   - 干净标签投毒
-  - 对抗机器学习
   - 泛化理论
+  - SSM
 ---
 
 # The Implicit Bias of Structured State Space Models Can Be Poisoned With Clean Labels

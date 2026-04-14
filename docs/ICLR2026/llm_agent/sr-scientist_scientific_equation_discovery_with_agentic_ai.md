@@ -9,7 +9,7 @@ tags:
   - symbolic regression
   - agentic AI
   - equation discovery
-  - 强化学习
+  - reinforcement-learning
   - scientific discovery
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.11661](https://arxiv.org/abs/2510.11661)  
 **代码**: [GitHub](https://github.com/GAIR-NLP/SR-Scientist)  
 **领域**: llm_agent  
-**关键词**: symbolic regression, agentic AI, equation discovery, reinforcement learning, scientific discovery
+**关键词**: symbolic regression, agentic AI, equation discovery, reinforcement-learning, scientific discovery
 
 ## 一句话总结
 

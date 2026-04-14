@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Identifying and Analyzing Performance-Critical Tokens in Large Language Models
 description: >-
-  [AAAI 2026][LLM/NLP][In-Context Learning] 通过representation-level和token-level两种消融实验，发现LLM在ICL中直接依赖的"性能关键token"是模板和停用词token（如"Answer:"），而非人类会关注的内容token（如实际文本），并揭示了LLM通过将内容信息聚合到这些关键token的表示中来间接利用内容。
+  [AAAI 2026][LLM/NLP][上下文学习] 通过representation-level和token-level两种消融实验，发现LLM在ICL中直接依赖的"性能关键token"是模板和停用词token（如"Answer:"），而非人类会关注的内容token（如实际文本），并揭示了LLM通过将内容信息聚合到这些关键token的表示中来间接利用内容。
 tags:
   - AAAI 2026
   - LLM/NLP
-  - In-Context Learning
+  - 上下文学习
   - 性能关键token
   - 注意力消融
   - 模板token
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2401.11323](https://arxiv.org/abs/2401.11323)  
 **代码**: https://github.com/ybai-nlp/PCT_ICL  
 **领域**: NLP理解  
-**关键词**: In-Context Learning, 性能关键token, 注意力消融, 模板token, 信息聚合
+**关键词**: 上下文学习, 性能关键token, 注意力消融, 模板token, 信息聚合
 
 ## 一句话总结
 通过representation-level和token-level两种消融实验，发现LLM在ICL中直接依赖的"性能关键token"是模板和停用词token（如"Answer:"），而非人类会关注的内容token（如实际文本），并揭示了LLM通过将内容信息聚合到这些关键token的表示中来间接利用内容。
 
 ## 研究背景与动机
 **领域现状**：ICL已成为LLM的主流few-shot学习方法，但对LLM如何从demonstration中学习和泛化仍理解不足。已有研究表明ICL对prompt的微小变化（如demo顺序）非常敏感。
+
 **现有痛点**：之前的研究要么只关注最后一个token（function vector），要么只关注label word，缺乏对prompt中**所有token角色**的系统性研究。
+
 **核心矛盾**：人类在学习analogy时关注"内容words"（如名词/形容词），但LLM是否也如此？
+
 **本文要解决什么？** 系统性地识别ICL prompt中哪些token的表示直接影响性能（性能关键token），并分析其特征
+
 **切入角度**：将ICL prompt的token分为三类（content/stopword/template），通过消融各类token的表示来测量对性能的影响
+
 **核心idea一句话**：LLM并不直接依赖内容token的表示，而是依赖模板和停用词token——后者聚合了前者的信息
 
 ## 方法详解
@@ -44,13 +49,13 @@ tags:
 
 1. **Representation-level消融**:
 
-    - 做什么：测试哪类token的表示被test example直接依赖
+    - 功能：测试哪类token的表示被test example直接依赖
     - 核心思路：修改attention mask，使test example只能attend到特定类型的token表示，然后测量分类准确率变化。如果只保留template+stopword的表示就能维持性能，说明这些才是性能关键token
     - 关键发现：**masking content tokens几乎不影响性能**，但masking template/stopword tokens导致性能大幅下降。这说明LLM直接从template/stopword的表示中获取任务信息
 
 2. **Token-level消融**:
 
-    - 做什么：测试哪类token的信息对整个prompt的信息流至关重要
+    - 功能：测试哪类token的信息对整个prompt的信息流至关重要
     - 核心思路：直接从prompt中删除特定类型token。如果删除content token导致性能大幅下降（即使representation-level消融显示它不是直接依赖），说明content token的信息被间接传递了
     - 关键发现：**删除content token确实大幅降低性能**——这与representation-level消融的结果看似矛盾。解释：content token的信息被LLM聚合到了template/stopword token的表示中
 

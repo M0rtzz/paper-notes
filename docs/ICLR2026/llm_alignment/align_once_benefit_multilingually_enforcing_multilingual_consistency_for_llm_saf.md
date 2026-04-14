@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2602.16660](https://arxiv.org/abs/2602.16660)  
 **代码**: 无  
 **领域**: AI安全 / 多语言安全对齐  
-**关键词**: multilingual safety, consistency alignment, singular value decomposition, cross-lingual transfer, DPO  
+**关键词**: multilingual safety, consistency alignment, singular value decomposition, cross-lingual transfer, DPO
 
 ## 一句话总结
 提出 Multi-Lingual Consistency (MLC) 辅助损失，通过 SVD 操控多语言表示矩阵的奇异值使其趋向秩-1（即多语言表示共线），仅需多语言 prompt 翻译（无需目标语言的 response），即可将一种语言的安全对齐效果一致性地迁移到所有语言。
 
 ## 研究背景与动机
 **领域现状**：LLM 安全对齐（SFT/DPO）主要在英语等高资源语言上进行，结果是模型在英语上表现安全，但在低资源语言（如斯瓦希里语、库尔德语）上安全率可能从 93% 骤降到 6-12%。
+
 **现有痛点**：扩展多语言对齐的两种主流路线都有局限——(a) 在每种目标语言上收集高质量安全数据，资源成本极高；(b) 将英语作为锚语言逐对迁移（如 SDRRL/MPO），扩展性差且效果参差不齐，某些语言仍然落后。
+
 **核心矛盾**：如果所有语言都对齐到同一个锚语言，理论上应该获得相近的安全水平，但实际上性能差异很大——这说明现有方法未能充分利用锚语言中已有的安全信号。
+
 **本文要解决什么？** 如何在单次训练中同时对齐多种语言，且不需要目标语言的 response 数据？
+
 **切入角度**：多语言表示的一致性决定了行为一致性。如果同一 query 在不同语言下的内部表示方向一致（共线），模型就会产生一致的安全行为。
+
 **核心idea一句话**：用奇异值分析将多语言表示矩阵约束为秩-1，实现"对齐一次，多语言受益"。
 
 ## 方法详解
@@ -41,20 +46,20 @@ tags:
 
 1. **MLC 一致性损失（奇异值操控）**：
 
-    - 做什么：推动多语言表示矩阵 $\mathbf{Z}$ 趋向秩-1。
+    - 功能：推动多语言表示矩阵 $\mathbf{Z}$ 趋向秩-1。
     - 核心思路：对 $\mathbf{Z}$ 做 SVD 得奇异值 $\{\sigma_j\}$，若 $\sigma_1$ 远大于其余，则所有语言表示近似共线。将奇异值视为 logits，用 temperature-scaled softmax 交叉熵鼓励分布集中在 $\sigma_1$ 上：$\mathcal{L}_{cons} = -\frac{1}{N}\sum_{n=1}^N \log \frac{\exp(\sigma_1^{(n)}/\tau)}{\sum_j \exp(\sigma_j^{(n)}/\tau)}$。
     - 设计动机：秩-1 约束等价于最小化 $\|\mathbf{Z} - \tilde{\mathbf{Z}}\|_F^2$（Eckart-Young 定理），即让多语言表示尽可能接近其最佳秩-1 近似。Softmax 形式使梯度计算平滑可微。
     - 理论基础：Proposition 1 证明了最小化重构误差等价于最大化 $\sigma_1$ 的相对优势。
 
 2. **线性表示提取器**：
 
-    - 做什么：将 LLM 最后一个 prompt token 的 hidden state 投影到低维表示空间。
+    - 功能：将 LLM 最后一个 prompt token 的 hidden state 投影到低维表示空间。
     - 核心思路：$\mathbf{r}^{(\ell)} = \mathbf{W}\mathbf{h}^{(\ell)} + b$，$\mathbf{W} \in \mathbb{R}^{d \times d_h}$ 与 LLM 联合训练。
     - 设计动机：简单线性投影即可捕捉跨语言语义一致性方向，实验中优于更复杂的提取器。
 
 3. **Plug-and-Play 集成**：
 
-    - 做什么：与任意对齐算法（SFT/DPO/SimPO/ORPO）无缝集成。
+    - 功能：与任意对齐算法（SFT/DPO/SimPO/ORPO）无缝集成。
     - 核心思路：MLC 仅需多语言 prompt 翻译，不改变原始训练数据格式，$\lambda_{aux}$ 控制权重。
 
 ### 训练策略

@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：图对比学习（Graph Contrastive Learning）通过生成同一图的两个增强视图来学习不变表示。GraphCL、JOAO等方法使用random node/edge dropping等增强策略。
+
 **现有痛点**：现有增强策略都是**语义无关的**——随机扰动可能破坏图中与分类相关的关键子结构（如分子中的benzene ring），导致增强后的图丢失核心语义，下游分类性能受损。
+
 **核心矛盾**：好的增强需要同时满足(1)保持语义和(2)引入方差这两个要求，但现有方法只关注后者。
+
 **本文要解决什么？** 如何在图增强中保持语义的同时引入足够的方差？
+
 **切入角度**：利用GNN可解释性技术（explainer）识别图中的语义子图，增强时保护语义部分只扰动非语义部分。
+
 **核心idea一句话**：用少量标签训练explainer → 识别语义子图 → 只扰动非语义部分 = 语义保持的图增强
 
 ## 方法详解
@@ -43,19 +48,19 @@ EPA-GRL是两阶段方法：
 
 1. **GNN Explainer预训练**:
 
-    - 做什么：学习一个parametric explainer，输入图G输出explanation subgraph $G^{(exp)}$
+    - 功能：学习一个parametric explainer，输入图G输出explanation subgraph $G^{(exp)}$
     - 核心思路：基于Graph Information Bottleneck (GIB)原则训练：$\arg\min_{\Psi} \sum CE(Y; f_{pt}(\Psi(G))) + \lambda|\Psi(G)|$。第一项确保子图保持分类信息，第二项确保子图compactness（避免包含无关部分）
     - 设计动机：explainer可以用少量标签学会识别class-discriminative的子结构，然后泛化到未标注图
 
 2. **Explanation-Preserving Augmentation**:
 
-    - 做什么：生成保持语义的增强图
+    - 功能：生成保持语义的增强图
     - 核心思路：$G^{(exp)} = \Psi(G)$（保持不变），$\Delta G = G \setminus G^{(exp)}$（随机扰动）。扰动方式包括：node dropping on $\Delta G$、edge dropping on $\Delta G$、attribute masking on $\Delta G$、subgraph sampling from $\Delta G$、mixup（用另一图的marginal替换当前的marginal）
     - 设计动机：保护语义子图不被破坏，同时marginal部分提供足够方差
 
 3. **理论分析**:
 
-    - 做什么：证明语义保持增强的优越性
+    - 功能：证明语义保持增强的优越性
     - 核心思路：在modified BA-2motifs图上，证明语义保持的encoder $f_{enc}^{sp}$ 的分类误差接近0，而语义无关的encoder $f_{enc}^{sa}$ 的误差接近1/2（随机猜测）——差异可以任意大
 
 ### 损失函数 / 训练策略

@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：最小费用网络流(MCF)是组合优化的核心问题，广泛应用于交通网络路由、芯片设计自动化(EDA)、计算机视觉(多目标跟踪)等领域。经典算法包括Network Simplex、连续最短路(SSP)、ε-relaxation等。
+
 **核心痛点**：大规模MCF实例（百万级节点/边）求解耗时巨大。传统最坏情况分析过于悲观——如SSP理论需指数级迭代，但实际常快速收敛。
+
 **学习增强算法兴起**：近年"algorithms with predictions"框架在匹配(Dinitz et al. 2021)、最大流(Davies et al. 2023)、最小割等问题上取得成果，但MCF领域尚属空白。
+
 **为什么选ε-relaxation**：(a)对偶算法，预测仅需n个变量（vs原问题m个）；(b)天然适合并行化（节点迭代解耦）；(c)理论分析清晰，不像NS复杂度未知。
+
 **核心idea**：学习MCF的对偶最优解预测 $\hat{p}$，warm-start ε-relaxation，使复杂度从 $O(n^3\log(nC))$ 降至 $O(n^3\log\|\hat{p}-p^*\|_\infty)$。
 
 ## 方法详解

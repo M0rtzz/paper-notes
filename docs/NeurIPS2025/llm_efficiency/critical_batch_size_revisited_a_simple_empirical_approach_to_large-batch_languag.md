@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：大 batch 训练通过增加数据并行性来提升 LLM 训练吞吐量，是大规模预训练的核心需求。临界 batch size (CBS) 作为"不显著降低 token 效率的最大 batch size"是平衡效率与性能的关键概念。
+
 **现有痛点**：McCandlish et al. (2018) 提出用梯度噪声尺度 (gradient noise scale) 作为 CBS 的代理指标，被 GPT-3 等工作采用。但该方法依赖两个强假设：(a) 使用 SGD 优化器；(b) 梯度是良条件的 (well-conditioned)。
+
 **核心矛盾**：实际 LLM 训练使用 Adam 优化器，理论分析表明 Adam 应遵循平方根缩放规则而非线性缩放规则。此外，梯度噪声尺度的简化形式 $\mathcal{B}_{\text{simple}}$ 需要 Hessian 为单位矩阵的假设才能等价于真正的 CBS。
+
 **本文要解决什么**：如何在不依赖强假设的前提下直接测量 CBS？CBS 在训练过程中如何变化？如何利用 CBS 信息制定实用的大 batch 训练策略？
+
 **切入角度**：用 branched training 直接实证逼近 CBS，避免间接代理带来的不可靠性。
+
 **核心idea**：CBS 是训练过程中的动态量，从近零增长到平台值，这一洞察自然引出 batch size warmup 策略。
 
 ## 方法详解

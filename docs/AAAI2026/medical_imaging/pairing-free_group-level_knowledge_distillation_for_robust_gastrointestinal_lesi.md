@@ -80,8 +80,8 @@ $$S_{\mathcal{Q}_c^{WLI}, \mathcal{Q}_{c'}^{mod'}} = \frac{1}{N_q}\sum_{i=1}^{N_
 1. 对每个组的特征计算CAM（类激活图），经像素自适应精细化增强空间一致性
 2. 用双阈值方案（$\tau_1=0.3, \tau_2=0.7$）将CAM离散化为：背景(0)、病变(1)、歧义(∅)
 3. 构建语义关系矩阵 $\mathbf{R}_c \in \{0, -\infty\}^{L_c \times L_c}$：
-   - 当两位置在各自CAM中有相同且非歧义的标签时为0（允许注意力通过）
-   - 否则为 $-\infty$（阻断注意力）
+    - 当两位置在各自CAM中有相同且非歧义的标签时为0（允许注意力通过）
+    - 否则为 $-\infty$（阻断注意力）
 
 **语义关系引导的交叉注意力（SRCA）**：
 $$\mathbf{A} = \text{Softmax}\left(\mathbf{R}_c + \frac{(\mathcal{F}_c^{WLI} W_q)(\mathcal{F}_c^{NBI} W_k)^\top}{\sqrt{d/4}}\right)$$

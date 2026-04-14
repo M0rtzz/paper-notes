@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：射流标记（jet tagging）是LHC数据分析的核心任务，基于Transformer和GNN的SOTA架构（ParT等）在AUC上大幅超越传统方法。
+
 **现有痛点**：单一关注AUC会导致选择模型依赖性（model-dependent）强的架构——这些架构可能学到了模拟器的特异性而非真实物理。ATLAS已发现分类器对物理建模不确定性比探测器效应更敏感。
+
 **核心矛盾**：当前社区以AUC作为唯一优化目标（"当度量成为目标，它就不再是好度量"），忽视了模型在不同蒙特卡洛生成器间的鲁棒性。
+
 **本文要解决什么？** 量化AUC与鲁棒性（resilience）之间的权衡关系，并证明低鲁棒性模型会在实际物理分析中引入偏差。
+
 **切入角度**：在Pythia-8训练、Herwig-7测试的框架下度量resilience = AUC百分比差异。
+
 **核心idea一句话**：构建AUC vs resilience的Pareto前沿，证明复杂模型占据高AUC-低resilience角，而简单模型如EFN和Expert Features占据低AUC-高resilience角，知识蒸馏无法突破前沿。
 
 ## 方法详解

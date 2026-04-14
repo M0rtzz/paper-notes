@@ -7,8 +7,8 @@ tags:
   - NeurIPS 2025
   - VLM
   - Personalization
-  - Benchmark
-  - Visual Question Answering
+  - benchmark
+  - visual question answering
   - Cold-start
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2509.22820](https://arxiv.org/abs/2509.22820)  
 **代码**: https://aidaslab.github.io/MMPB (项目页)  
 **领域**: 多模态VLM / 个性化  
-**关键词**: VLM, Personalization, Benchmark, Visual Question Answering, Cold-start
+**关键词**: VLM, Personalization, benchmark, visual question answering, Cold-start
 
 ## 一句话总结
 提出首个 VLM 个性化评测基准 MMPB，包含 111 个可个性化概念、10k+ 图文问答对和 15 种任务类型，评测了 23 个 VLM 后发现即使最强的 GPT-4o 在个性化任务上也表现不佳，揭示了 VLM 在偏好推理、视觉线索利用和安全对齐与个性化的冲突等方面的重大局限。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：VLM（如 GPT-4o、LLaVA）已广泛用于通用视觉问答，但都遵循 one-size-fits-all 模式——对所有用户响应相同，不适配个体身份、偏好或历史。
+
 **现有痛点**：(a) 现有 VQA benchmark 只关注通用知识（常识、科学等），不评测个性化能力；(b) 已有个性化工作（如 MyVLM、Yo'LLaVA）规模小（29-95 概念）、不系统、不含偏好推理；(c) 缺乏统一的评估框架和冷启动设定。
+
 **核心矛盾**：VLM 在通用任务上表现优秀≠在个性化场景下有效。个性化需要模型理解特定用户的视觉概念和偏好，这是通用能力无法覆盖的。
+
 **本文要解决什么？**：建立全面、系统的 VLM 个性化评估基准。
+
 **切入角度**：定义个性化的四个核心属性（Awareness, Appropriateness, Coherency, Persistency），设计对应的任务类型和评测协议。
+
 **核心 idea 一句话**：通过系统化的基准测试揭示 VLM 个性化能力的真实水平和主要瓶颈。
 
 ## 方法详解

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.12749](https://arxiv.org/abs/2603.12749)  
 **代码**: 无  
 **领域**: 图像安全 / 数字水印  
-**关键词**: image watermarking, diffusion model, semantic-aware, tamper localization, training-free  
+**关键词**: image watermarking, diffusion model, semantic-aware, tamper localization, training-free
 
 ## 一句话总结
 提出SLICE框架，将图像语义解耦为四个因子（主体/环境/动作/细节），各自锚定到扩散模型初始噪声的不同空间分区，实现细粒度语义感知水印——不仅能检测篡改，还能精确定位被篡改的语义因子，且完全无需训练。

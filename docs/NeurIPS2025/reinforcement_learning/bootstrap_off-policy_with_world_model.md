@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Bootstrap Off-policy with World Model (BOOM)
 description: >-
-  [NeurIPS 2025][model-based RL] 提出 BOOM 框架，通过 bootstrap 循环将在线规划器（MPPI）与 off-policy 策略学习紧密结合：策略初始化规划器，规划器反过来通过无似然对齐损失（likelihood-free alignment）引导策略改进，配合 soft Q-weighted 机制优先学习高回报行为，在高维连续控制任务上取得 SOTA。
+  [NeurIPS 2025][基于模型的强化学习] 提出 BOOM 框架，通过 bootstrap 循环将在线规划器（MPPI）与 off-policy 策略学习紧密结合：策略初始化规划器，规划器反过来通过无似然对齐损失（likelihood-free alignment）引导策略改进，配合 soft Q-weighted 机制优先学习高回报行为，在高维连续控制任务上取得 SOTA。
 tags:
   - NeurIPS 2025
-  - model-based RL
+  - 基于模型的强化学习
   - online planning
-  - off-policy learning
-  - world model
+  - 离策略学习
+  - 世界模型
   - actor divergence
   - behavior alignment
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.00423](https://arxiv.org/abs/2511.00423)  
 **代码**: [molumitu/BOOM_MBRL](https://github.com/molumitu/BOOM_MBRL)  
 **领域**: reinforcement_learning  
-**关键词**: model-based RL, online planning, off-policy learning, world model, actor divergence, behavior alignment  
+**关键词**: 基于模型的强化学习, online planning, 离策略学习, 世界模型, actor divergence, behavior alignment
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **在线规划的优势**：Model-based RL 中在线规划（如 MPPI）通过前向模拟未来轨迹，能生成比纯策略网络更高质量的动作，显著提升样本效率和最终性能
+
 **Actor Divergence 问题**：当使用规划器收集数据时，行为策略 β = π + MPPI 与策略网络 π 存在固有分布偏移——replay buffer 中的数据来自 β 而非 π，这打破了 off-policy 学习的分布一致性假设
+
 **价值学习的分布偏移**：价值函数在 β 的状态-动作分布上训练，但在 π 访问但 β 很少覆盖的区域会产生过估计，导致价值估计不准确
+
 **策略更新不可靠**：策略基于有偏的 Q 值更新，可能被误导到错误方向，尤其在高维复杂环境中问题更严重
+
 **规划器分布不可参数化**：MPPI 等采样优化规划器的输出动作分布是非参数的（经过重加权和重采样），无法计算精确似然，传统 KL 散度等度量不可直接使用
+
 **现有方法的不足**：TD-MPC2 将规划与 off-policy 学习结合但未处理 actor divergence；BMPC 仅用简单模仿学习对齐但缺乏价值引导；DreamerV3 在高维任务上样本效率不足
 
 ## 方法详解

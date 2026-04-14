@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.17476](https://arxiv.org/abs/2505.17476)  
 **代码**: [https://github.com/YcZhangSing/AMD](https://github.com/YcZhangSing/AMD)  
 **领域**: AI安全 / 深度伪造检测  
-**关键词**: multimodal manipulation detection, MLLM-driven disinformation, semantic alignment, deepfake grounding, dataset  
+**关键词**: multimodal manipulation detection, MLLM-driven disinformation, semantic alignment, deepfake grounding, dataset
 
 ## 一句话总结
 揭示现有多模态虚假信息检测的两个根本缺陷（低估MLLM生成的语义一致虚假叙事+依赖简单不对齐的伪影），构建441k样本的MDSM数据集（图像篡改+MLLM生成语义对齐文本），并提出AMD框架（Artifact Pre-perception + Manipulation-Oriented Reasoning），在跨域检测中达88.18 ACC / 60.25 mAP / 61.02 mIoU。
@@ -47,9 +47,9 @@ tags:
 2. **Artifact Pre-perception Encoding (APE)**：通过冻结的预感知编码器 $\mathcal{E}_{mp}$ 处理输入序列，提取artifact token $\hat{E}_a$，用二分类头（加权池化+分类器）做篡改检测监督 $\mathcal{L}_{APE}$，将伪影线索注入artifact token。关键：冻结编码器参数以保存MLLM原始知识，替换回原始图-文嵌入以保持推理能力。
 
 3. **Manipulation-Oriented Reasoning (MOR)**：
-   - **Visual Artifact Aggregation (VAA)**：artifact token作query通过交叉注意力从视觉特征中聚合篡改空间信息，用于bbox定位（$\mathcal{L}_{IMG}$）
-   - **Dual-Branch Manipulation (DBM)**：视觉+artifact和文本分别作query做跨模态交叉注意力，双分支二分类判别（$\mathcal{L}_{DBM}$）——mAP从47.18提升到66.47
-   - **Language Modeling**：自回归生成文本答案（选项+坐标）
+    - **Visual Artifact Aggregation (VAA)**：artifact token作query通过交叉注意力从视觉特征中聚合篡改空间信息，用于bbox定位（$\mathcal{L}_{IMG}$）
+    - **Dual-Branch Manipulation (DBM)**：视觉+artifact和文本分别作query做跨模态交叉注意力，双分支二分类判别（$\mathcal{L}_{DBM}$）——mAP从47.18提升到66.47
+    - **Language Modeling**：自回归生成文本答案（选项+坐标）
 
 4. **Token Redundancy Penalty (TRP)**：正交约束 $\mathcal{L}_{orth}$ + KL散度均匀约束 $\mathcal{L}_{mod}$，防止artifact token冗余坍缩
 

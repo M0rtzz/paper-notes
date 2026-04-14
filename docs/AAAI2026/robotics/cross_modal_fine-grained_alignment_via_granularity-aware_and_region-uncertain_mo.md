@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.07710](https://arxiv.org/abs/2511.07710)  
 **代码**: [GitHub](https://github.com/H3IIoWorld/GRM)  
 **领域**: multimodal_vlm  
-**关键词**: fine-grained alignment, image-text retrieval, uncertainty modeling, Gaussian mixture, region prompting  
+**关键词**: fine-grained alignment, image-text retrieval, uncertainty modeling, Gaussian mixture, region prompting
 
 ## 一句话总结
 

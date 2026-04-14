@@ -55,9 +55,9 @@ $$dY_t^\alpha = \dot{\alpha}(t) u_t^\alpha(Y_t^\alpha) dt + \sigma dB_t$$
 **算法流程（Algorithm 1）**：
 1. 初始化 $\tilde{Y}_0 \sim \mathcal{N}(0, t_0 \sigma^2 I)$
 2. 在每个 SL 迭代 $i$ 中：
-   - 用离散 MCMC 采样器从后验 $\mathbb{P}(X|\tilde{Y}_i)$ 中采 $n$ 个样本
-   - 估计后验期望 $\tilde{U}_i^\alpha = \frac{1}{n}\sum_{j=1}^n x_j^i$
-   - 更新 $\tilde{Y}_{i+1} \sim \mathcal{N}(\tilde{Y}_i + w_i \tilde{U}_i^\alpha, \sigma^2 \delta_i \mathbf{I})$
+    - 用离散 MCMC 采样器从后验 $\mathbb{P}(X|\tilde{Y}_i)$ 中采 $n$ 个样本
+    - 估计后验期望 $\tilde{U}_i^\alpha = \frac{1}{n}\sum_{j=1}^n x_j^i$
+    - 更新 $\tilde{Y}_{i+1} \sim \mathcal{N}(\tilde{Y}_i + w_i \tilde{U}_i^\alpha, \sigma^2 \delta_i \mathbf{I})$
 3. 输出 $\tilde{Y}_T / \alpha(t_T)$
 
 ### 关键设计：后验分布结构

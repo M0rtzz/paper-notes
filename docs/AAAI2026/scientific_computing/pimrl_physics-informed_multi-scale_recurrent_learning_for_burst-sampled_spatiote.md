@@ -51,19 +51,19 @@ PIMRL 由两个模块 + 消息传递机制组成（Figure 2）：
 
 1. **微观尺度模块（PeRCNN Π-block）**:
 
-    - 做什么：从 burst 高频数据段中学习精细的物理动力学
+    - 功能：从 burst 高频数据段中学习精细的物理动力学
     - 核心思路：采用 PeRCNN 的 Π-block 架构，用前向 Euler 离散化 $\mathbf{u}_{(k+1)\delta t} = \hat{\mathcal{F}}(\mathbf{u}_{k\delta t}) \cdot \delta t + \mathbf{u}_{k\delta t}$，其中 $\hat{\mathcal{F}}$ 由多通道卷积的乘积近似：$\hat{\mathcal{F}}(\mathbf{u}) = \sum_c W_c \cdot [\prod_l (K_{c,l} \star \mathbf{u} + b_l)]$。已知物理项（如拉普拉斯算子）的卷积核直接由有限差分模板设定
     - 设计动机：硬编码已知物理先验（physics-based Conv layer）使得少量数据即可学到精确动力学，同时 Π-block 捕捉未知部分
 
 2. **宏观尺度模块（残差 ConvLSTM 自编码器）**:
 
-    - 做什么：在潜空间中大步长推理，桥接 burst 间的长时间间隔
+    - 功能：在潜空间中大步长推理，桥接 burst 间的长时间间隔
     - 核心思路：编码器将物理空间映射到紧凑潜空间，ConvLSTM 在潜空间中以 $\Delta t$ 步长推进状态，解码器重建物理空间预测。关键是周期性接收微观模块的校正消息来锚定物理一致性
     - 设计动机：直接在物理空间大步长推理效果差（丢失瞬态），在潜空间推理更高效且表达力强。微观校正防止潜空间轨迹漂移
 
 3. **跨尺度消息传递**:
 
-    - 做什么：融合微观和宏观两个模块的信息
+    - 功能：融合微观和宏观两个模块的信息
     - 核心思路：三层嵌套循环——（a）微观模块执行 $k$ 步小步长 rollout 生成物理校正消息 $\mathbf{u}_{t+k\delta t}^{micro}$；（b）该消息传给宏观模块进行状态更新 $\hat{\mathbf{u}}_{t+2k\delta t} = F_{macro}(\mathbf{u}_{t+k\delta t}^{micro})$；（c）宏观模块自主 rollout $N-1$ 步后再次接收微观校正，完成 $2N$ 步预测循环
     - 设计动机：仅在 burst 数据可用时启用微观校正，其余时段宏观模块独立推理——完美匹配 burst 采样的稀疏模式
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.19352](https://arxiv.org/abs/2506.19352)  
 **代码**: 无  
 **领域**: 其他  
-**关键词**: persona fidelity, LLM evaluation, personality, out-of-character, atomic evaluation  
+**关键词**: persona fidelity, LLM evaluation, personality, out-of-character, atomic evaluation
 
 ## 一句话总结
 

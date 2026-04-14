@@ -8,8 +8,8 @@ tags:
   - 时间序列
   - 4D occupancy forecasting
   - scene tokenization
-  - world model
-  - autoregressive generation
+  - 世界模型
+  - 自回归生成
   - 自动驾驶
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.09144](https://arxiv.org/abs/2507.09144)  
 **代码**: [GitHub](https://github.com/lzzzzzm/II-World)  
 **领域**: 自动驾驶  
-**关键词**: 4D occupancy forecasting, scene tokenization, world model, autoregressive generation, autonomous driving
+**关键词**: 4D occupancy forecasting, scene tokenization, 世界模型, 自回归生成, 自动驾驶
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 Occupancy-based world model 在自动驾驶中用于预测未来 3D 场景演变，对应对 corner case 至关重要。现有方法面临一个核心矛盾：
 
 **3D 场景 tokenizer**（如 OccWorld、OccLLaMA）：将单帧场景压缩为紧凑 token，重建精度高，但无法建模时序动态，预测能力受限
+
 **4D 场景 tokenizer**（如 OccSora、DOME）：处理时空 token 序列，动态建模能力强，但 token 维度暴增，计算开销极大，难以满足实时性需求
 
 此外，现有方法大多采用 GPT 风格的纯解码器自回归架构或扩散模型，资源消耗高。本文的核心问题是：**如何在紧凑的 token 表示中同时编码空间细节和时序动态？**

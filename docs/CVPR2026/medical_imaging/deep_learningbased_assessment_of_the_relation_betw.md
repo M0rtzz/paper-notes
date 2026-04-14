@@ -1,11 +1,16 @@
 ---
-description: 系统对比本地学习/联邦学习/集中学习在全景口腔X光第三磨牙-下颌管重叠分类上的表现，CL最优(AUC 0.831)，FL中间(0.757)，LL最差(0.672)
+title: >-
+  [论文解读] Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning
+description: >-
+  [CVPR 2026][医学图像][联邦学习] 在按8个独立标注者划分的全景口腔X光裁剪片上，系统对比本地学习（LL）、联邦学习（FL）和集中学习（CL）三种训练范式在第三磨牙-下颌管重叠二分类任务上的表现，验证了CL > FL > LL的性能排序（AUC分别为0.831、0.757和0.672），证明FL在保护数据隐私的前提下显著优于各站点独立训练。
 tags:
-  - CVPR2026
-  - medical-imaging
-  - federated-learning
-  - dental-AI
-  - panoramic-radiograph
+  - CVPR 2026
+  - 医学图像
+  - 联邦学习
+  - 全景X光片
+  - 第三磨牙
+  - 下颌管
+  - 隐私保护
 ---
 
 # Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning
@@ -41,19 +46,19 @@ tags:
 ### 关键设计
 1. **三范式公平对比框架**:
 
-    - 做什么：在相同数据划分和相同backbone下对比LL、FL、CL三种训练范式
+    - 功能：在相同数据划分和相同backbone下对比LL、FL、CL三种训练范式
     - 核心思路：LL——每个标注者的数据独立训练一个ResNet-34模型，共8个独立模型；FL——使用FedAvg算法在服务端聚合模型参数$w_{t+1} = \sum_{k=1}^{K} \frac{n_k}{n} w_t^k$，各客户端数据不出本地，仅上传模型更新；CL——将所有8个客户端的数据集中到一处训练一个统一模型。三者使用相同的预训练ResNet-34初始化和超参数设置
     - 设计动机：控制变量是公平对比的前提。8个标注者的自然数据划分比人工随机划分更接近真实临床场景中的数据异质性
 
 2. **双轨评估协议**:
 
-    - 做什么：从本地部署和跨中心泛化两个角度评估模型性能
+    - 功能：从本地部署和跨中心泛化两个角度评估模型性能
     - 核心思路：per-client评估——在每个客户端的验证集上独立优化分类阈值，用各自最优阈值在本地测试集上评估，反映模型在本地部署时的最佳表现；pooled评估——使用全局统一阈值在合并测试集上评估，反映模型在跨中心部署时的泛化能力。主要指标包括AUC和基于阈值的准确率、敏感性、特异性
     - 设计动机：FL的实际部署可能是"各中心使用全局模型+本地阈值"或"全局模型+全局阈值"，两种评估方式对应了不同的部署策略
 
 3. **可解释性与训练动态分析**:
 
-    - 做什么：通过Grad-CAM和训练曲线分析三种范式的行为差异
+    - 功能：通过Grad-CAM和训练曲线分析三种范式的行为差异
     - 核心思路：Grad-CAM可视化三种范式训练出的模型的注意力热力图，观察模型是否关注解剖学上正确的区域（第三磨牙根尖和下颌管走行处）。训练曲线监控各范式的收敛行为和过拟合程度，FL端还监控server-side聚合信号以追踪全局模型的训练状态
     - 设计动机：不仅要知道"谁更好"，还要理解"为什么好"。Grad-CAM可以验证模型是否基于正确的解剖学特征做出判断（而非利用数据伪影），训练动态分析揭示LL过拟合的原因
 

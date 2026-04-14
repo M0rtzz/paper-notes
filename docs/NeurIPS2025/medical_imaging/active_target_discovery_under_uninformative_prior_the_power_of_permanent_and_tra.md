@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.16676](https://arxiv.org/abs/2510.16676)  
 **代码**: 待确认  
 **领域**: medical_imaging  
-**关键词**: active target discovery, diffusion model, Doob's h-transform, dual memory, EM algorithm, uninformative prior  
+**关键词**: active target discovery, diffusion model, Doob's h-transform, dual memory, EM algorithm, uninformative prior
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 
 **主动目标发现 (ATD)** 是科学与工程领域的核心问题：在医学影像、环境监测、遥感等场景中，数据采集代价高昂，需要在有限预算内策略性地采样以发现目标区域。
 2. 已有方法 DiffATD 利用领域内样本训练扩散模型作为强先验来指导采样，在已有充分数据的领域表现优秀。
+
 **关键瓶颈**：在新兴疾病诊断、珍稀物种发现、未充分探索的地理区域等场景中，根本无法获取足够的领域样本来学习强先验，DiffATD 类方法失效。
+
 **神经科学启发**：人脑依赖新皮层（永久记忆/结构化通用知识）与海马体（瞬时记忆/快速任务适应）的双系统协同来处理全新环境。
 5. 现有 RL 方法依赖全可观测和大规模标注数据；贝叶斯决策理论方法也受限于完全可观测假设。
 6. 本文核心目标：**在无任何领域先验样本的条件下**，设计一个可解释、有理论保证、能快速适应的 ATD 框架。

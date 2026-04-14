@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：训练高性能小语言模型 (SLM) 仍极其昂贵，如 Llama-3.2-3B 需 9T tokens，Qwen3-1.7B 需 36T tokens。知识蒸馏是加速的关键手段。
+
 **现有痛点**：(a) **信息丢失**：硬剪枝永久删除神经元/层，丢弃 teacher 中有价值的信息（LLM-Pruner 剪 50% 后从 63.25 跌至 48.98）；(b) **对齐低效**：feature-based 蒸馏需要额外 projection 矩阵对齐不同维度的中间表示，随训练进行难以有效学习；(c) **激活浪费**：现有方法主要对齐 attention scores，忽略了信息丰富的 FFN 激活。
+
 **核心矛盾**：如何在极少训练预算下最大化从 teacher 到 student 的知识迁移？
+
 **切入角度**：不训练 student 的原始权重，而是训练一组低秩投影矩阵，每次前向传播时临时从 teacher 权重"生成" student 权重。
+
 **核心 idea 一句话**：用低秩投影矩阵同时实现软剪枝（权重压缩）和对齐（同一矩阵既生成权重又对齐激活），消除了信息丢失和对齐开销。
 
 ## 方法详解
@@ -41,21 +45,21 @@ tags:
 
 1. **低秩投影 (Low-Rank Projection)**:
 
-    - 做什么：将 teacher 的每个权重矩阵压缩为 student 维度
+    - 功能：将 teacher 的每个权重矩阵压缩为 student 维度
     - 核心思路：对每层的 7 个权重矩阵 $\{q,k,v,o,up,gate,down\}$，$\mathbf{W}_{m,i}^S = \mathbf{W}_{m,i}^T \cdot \mathbf{W}_{m,i}^p$，embedding 和 LM head 同理
     - 设计动机：**软剪枝**——不删除任何 teacher 信息，而是学习最优压缩映射，保留更多 teacher 知识
     - 与硬剪枝的区别：硬剪枝不可逆且损失大，低秩投影可学习且信息保留更好
 
 2. **激活克隆 (Activation Clone)**:
 
-    - 做什么：对齐 teacher 和 student 的所有中间激活
+    - 功能：对齐 teacher 和 student 的所有中间激活
     - 核心思路：收集 $\{q,k,v,up,gate\}$ 的线性投影输出和 attention/FFN 的模块输出，用 MSE 对齐
     - 关键公式：$\mathcal{L}_{clone} = \sum_i^l [\mathcal{E}(\mathbf{o}_{attn,i}^S, \mathbf{o}_{attn,i}^T \mathbf{W}_{o,i}^p) + \mathcal{E}(\mathbf{o}_{ffn,i}^S, \mathbf{o}_{ffn,i}^T \mathbf{W}_{down,i}^p) + \sum_m \mathcal{E}(\mathbf{h}_{m,i}^S, \mathbf{h}_{m,i}^T)]$
     - 设计动机：FFN 激活包含丰富语义信息，此前被忽略
 
 3. **对齐无需额外模块 (Alignment-Free Design)**:
 
-    - 做什么：复用投影矩阵同时做权重生成和激活对齐
+    - 功能：复用投影矩阵同时做权重生成和激活对齐
     - 核心思路：由 Lemma 1 证明，若中间激活完美克隆，则 student 输出 = teacher 输出经相同投影矩阵变换——**同一组投影矩阵既做压缩又做对齐**
     - 巧妙之处：消除了传统 feature-based 蒸馏中额外 alignment projection 的需求
 

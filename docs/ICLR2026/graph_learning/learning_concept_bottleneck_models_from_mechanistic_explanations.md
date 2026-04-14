@@ -8,7 +8,7 @@ tags:
   - 图学习
   - Concept Bottleneck Model
   - Sparse Autoencoder
-  - Mechanistic Interpretability
+  - mechanistic interpretability
   - Explainable AI
   - 多模态
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.07343](https://arxiv.org/abs/2603.07343)  
 **代码**: [GitHub](https://github.com/Antonio-Dee/M-CBM)  
 **领域**: graph_learning  
-**关键词**: Concept Bottleneck Model, Sparse Autoencoder, Mechanistic Interpretability, Explainable AI, Multimodal LLM  
+**关键词**: Concept Bottleneck Model, Sparse Autoencoder, mechanistic interpretability, Explainable AI, Multimodal LLM
 
 ## 一句话总结
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.14144](https://arxiv.org/abs/2406.14144)  
 **代码**: [THU-KEG/SafetyNeuron](https://github.com/THU-KEG/SafetyNeuron)  
 **领域**: llm_alignment  
-**关键词**: safety alignment, mechanistic interpretability, safety neurons, activation patching, alignment tax  
+**关键词**: safety alignment, mechanistic interpretability, safety neurons, activation patching, alignment tax
 
 ## 一句话总结
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.19428](https://arxiv.org/abs/2505.19428)  
 **代码**: [https://github.com/csu-signal/FAAF_ACL](https://github.com/csu-signal/FAAF_ACL)  
 **领域**: LLM Agent  
-**关键词**: friction alignment, collaborative dialogue, belief misalignment, preference optimization, human-AI collaboration  
+**关键词**: friction alignment, collaborative dialogue, belief misalignment, preference optimization, human-AI collaboration
 
 ## 一句话总结
 提出摩擦对齐框架 FAAF（Frictional Agent Alignment Framework），通过双策略（frictive state policy + intervention policy）目标函数，训练 LLM 在协作对话中识别信念冲突并生成促进反思与审议的"摩擦"干预，超越 DPO/IPO/PPO 等对齐方法。

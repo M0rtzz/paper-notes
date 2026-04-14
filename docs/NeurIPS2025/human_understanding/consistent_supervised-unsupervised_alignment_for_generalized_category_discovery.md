@@ -47,25 +47,25 @@ NC-GCD 包含四个核心组件：(1) 预训练视觉编码器 $f(\cdot)$（DINO
 
 1. **预分配 ETF 原型**:
 
-    - 做什么：训练前生成固定的等角紧框架原型 $\mathbf{P} = \{p_1, \dots, p_K\}$
+    - 功能：训练前生成固定的等角紧框架原型 $\mathbf{P} = \{p_1, \dots, p_K\}$
     - 核心思路：ETF 通过 $P = \sqrt{\frac{K}{K-1}} U (I_K - \frac{1}{K} \mathbf{1}_K \mathbf{1}_K^\top)$ 构造，满足 $p_k^\top p_j = \frac{K}{K-1}\delta_{k,j} - \frac{1}{K-1}$，保证所有类别最大均匀分离
     - 设计动机：固定 ETF 提供全局最优几何配置，消除已知/新类优化不一致
 
 2. **无监督 ETF 对齐**:
 
-    - 做什么：每 $T$ 个 epoch 聚类，选每簇 top-$\alpha\%$ 高置信样本对齐 ETF
+    - 功能：每 $T$ 个 epoch 聚类，选每簇 top-$\alpha\%$ 高置信样本对齐 ETF
     - 核心思路：高置信样本通过 Dot-Regression Loss 向原型对齐：$\mathcal{L}_{\text{ETF}}^u = \frac{1}{|\tilde{D}_k|} \sum_{e_i \in \tilde{D}_k} \|e_i - p_k\|^2$
     - 设计动机：只用高置信样本避免噪声伪标签干扰
 
 3. **有监督 ETF 对齐**:
 
-    - 做什么：将有标签样本特征对齐到 SCM 映射后的 ETF 原型
+    - 功能：将有标签样本特征对齐到 SCM 映射后的 ETF 原型
     - 核心思路：$\mathcal{L}_{\text{ETF}}^s = \frac{1}{|\mathcal{D}^l|} \sum \|e_i^l - p_a\|^2$，$a = \phi_{\text{SCM}}(y_i^l)$
     - 设计动机：需 SCM 保证真实标签到 ETF 的映射正确性
 
 4. **语义一致性匹配器 (SCM)**:
 
-    - 做什么：保证跨聚类迭代的伪标签一致性
+    - 功能：保证跨聚类迭代的伪标签一致性
     - 核心思路：最优排列 $\sigma^* = \arg\max_{\sigma \in S_K} \sum_{k} \sum_{i} \mathbb{I}(\hat{y}_i^t = k)\mathbb{I}(\hat{y}_i^{t-1} = \sigma(k))$，用匈牙利算法实现一对一标签映射
     - 设计动机：周期性聚类不稳定，SCM 通过强制一对一匹配消除波动
 

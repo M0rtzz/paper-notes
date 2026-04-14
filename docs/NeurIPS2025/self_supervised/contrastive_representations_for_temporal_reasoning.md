@@ -1,12 +1,18 @@
 ---
-description: 通过轨迹内负采样消除上下文特征依赖，学习反映时间结构的对比表征，在组合推理任务上实现无搜索求解
+title: >-
+  [论文解读] Contrastive Representations for Temporal Reasoning
+description: >-
+  [NeurIPS 2025][自监督学习][对比学习] 提出 CRTR（Contrastive Representations for Temporal Reasoning），通过在训练批次中重复同一轨迹来引入轨迹内负样本对，消除标准时间对比学习对静态上下文特征的依赖，学习到反映时间结构的表征，在魔方等组合推理任务上首次实现无搜索求解。
 tags:
-- contrastive-learning
-- representation-learning
-- combinatorial-reasoning
-- self-supervised
-- planning
+  - NeurIPS 2025
+  - 自监督学习
+  - 对比学习
+  - 时间推理
+  - 组合问题
+  - Sokoban
+  - 魔方
 ---
+
 # Contrastive Representations for Temporal Reasoning
 
 **会议**: NeurIPS 2025  
@@ -40,12 +46,12 @@ CRTR 的核心改动极其简洁——仅修改对比学习中的负采样方式
 ### 关键设计
 
 1. **轨迹内负采样消除上下文依赖**:
-    - 做什么：修改数据采样，使同一轨迹的多个时间步出现在同一批次中
+    - 功能：修改数据采样，使同一轨迹的多个时间步出现在同一批次中
     - 核心思路：当负样本具有相同上下文（如相同墙壁布局）时，上下文特征对区分正负样本无用，模型被迫编码时间结构
     - 设计动机：理论上，此目标是条件互信息 $I(X;X^+|C)$ 的下界，等价于最大化 $I(X;X^+) - I(X^+;C)$，后者类似对抗性特征学习但无需对抗训练
 
 2. **从理想化到实用化的推导**:
-    - 做什么：理想化方法需要知道上下文变量 $C$ 并按其条件抽负样本；实用化方法只需重复轨迹 ID
+    - 功能：理想化方法需要知道上下文变量 $C$ 并按其条件抽负样本；实用化方法只需重复轨迹 ID
     - 核心思路：重复轨迹 ID 自然产生具有相同上下文的负样本对（同一集的不同时间步），且所有负样本都有锚点（避免表征漂移）
     - 设计动机：实际中无法事先知道哪些特征是"上下文"（如第一次看到 Sokoban 板面，如何知道墙不可移动？）
 

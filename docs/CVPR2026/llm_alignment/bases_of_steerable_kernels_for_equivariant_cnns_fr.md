@@ -1,11 +1,16 @@
 ---
-description: 提出绕过Clebsch-Gordan系数、直接从表示矩阵元素构造可操纵核显式基的统一方法，覆盖SO(2)到Lorentz群
+title: >-
+  [论文解读] Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group
+description: >-
+  [CVPR 2026][LLM对齐][可操纵卷积核] 提出一种绕过 Clebsch-Gordan 系数计算、直接从群表示矩阵元素构造可操纵核显式基的方法，通过"稳定子约束 + Schur 引理 + Steering"三步策略统一覆盖 SO(2)、O(2)、SO(3)、O(3) 和非紧致 Lorentz 群，大幅简化等变 CNN 的核设计流程。
 tags:
-  - CVPR2026
-  - 等变CNN
+  - CVPR 2026
+  - LLM对齐
   - 可操纵卷积核
-  - 群论
+  - 等变CNN
+  - 对称群
   - Lorentz群
+  - Clebsch-Gordan系数
 ---
 
 # Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group
@@ -44,19 +49,19 @@ tags:
 
 1. **稳定子约束简化与 Schur 引理求解**:
 
-    - 做什么：将全局可操纵约束退化为参考点处的局部不变性条件
+    - 功能：将全局可操纵约束退化为参考点处的局部不变性条件
     - 核心思路：选定 $x_0$ 后，将 $\rho_j$ 和 $\rho_l$ 限制到 $H$ 上得到可约表示 $\rho_j^H$ 和 $\rho_l^H$，将其分解为不可约表示的直和。由 Schur 引理，同态矩阵 $K(x_0)$ 的块结构几乎完全确定——不等价不可约表示之间的块为零，等价不可约表示之间的块正比于恒等映射（实数情况下可包含 $\mathbb{I}$ 和 $J$ 两个生成元）
     - 设计动机：对于 SO(2)，$H$ 仅为恒等矩阵，约束自动满足，任何矩阵都是解；对于 SO(3)，$H \simeq$ SO(2)，约束通过对角分解块求解，自由参数维度为 $2\min(j,l)+1$
 
 2. **Steering 操作生成完整核基**:
 
-    - 做什么：将 $x_0$ 处的同态基推广到轨道上的任意点
+    - 功能：将 $x_0$ 处的同态基推广到轨道上的任意点
     - 核心思路：对每个基元素 $T_m$，通过 $K_m(g \cdot x_0) = \rho_j(g) T_m \rho_l(g)^{-1}$ 得到完整的核函数。对 SO(3) 的复数表示，核基的矩阵元素形如 $D^j_{m_j m}(g) D^l_{m m_l}(g)^{-1}$，其中 $D$ 为 Wigner-D 矩阵
     - 设计动机：谐波基函数不需要预先选择，而是作为表示矩阵元素自然出现。与传统方法相比，免去了耦合基/非耦合基变换的全部步骤
 
 3. **非紧致 Lorentz 群的处理**:
 
-    - 做什么：将方法扩展到物理学中重要的 Lorentz 群 $\text{SO}^+(1,3)$
+    - 功能：将方法扩展到物理学中重要的 Lorentz 群 $\text{SO}^+(1,3)$
     - 核心思路：分两种物理情形。**大质量粒子**：轨道为类时双曲面，$H \simeq$ SO(3)，通过 SU(2) 的 CG 系数（而非 Lorentz 群的 CG 系数）做子群分解，整数自旋的互缠器表现为射影算子（如 $\Delta^\mu{}_\nu = \delta^\mu{}_\nu - u^\mu u_\nu$）。**无质量粒子**：轨道为光锥，$H \simeq$ ISO(2)，仅考虑 SO(2) 子群，互缠器为横向射影算子。半整数自旋通过荷共轭算子 $\mathcal{C}$ 和 $\gamma$ 矩阵构造四元数结构
     - 设计动机：Lorentz 群的 CG 系数极其复杂（Bogatskiy et al. 2020），本文通过在时空张量表示中直接构造射影算子完全绕过了这一困难，且结果具有清晰的物理解释
 

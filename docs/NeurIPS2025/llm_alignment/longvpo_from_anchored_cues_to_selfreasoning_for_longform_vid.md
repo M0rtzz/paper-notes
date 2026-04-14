@@ -1,19 +1,25 @@
 ---
-description: 提出LongVPO两阶段DPO框架，无需长视频标注即可将短上下文VLM扩展到超长视频理解
+title: >-
+  [论文解读] LongVPO: From Anchored Cues to Self-Reasoning for Long-Form Video Preference Optimization
+description: >-
+  [NeurIPS 2025][LLM对齐][长视频理解] LongVPO提出两阶段DPO框架，Stage 1通过锚定短片段构造伪长视频偏好数据并引入anchor-only参考模型近似解决上下文长度不匹配问题，Stage 2通过递归字幕生成和多片段推理任务在真实长视频上自训练，仅用16K合成样本即超越大规模监督训练的长视频模型。
 tags:
-- NEURIPS2025
-- 长视频理解
-- DPO
-- 视觉语言模型
-- preference-optimization
+  - NeurIPS 2025
+  - LLM对齐
+  - 长视频理解
+  - DPO
+  - 视觉语言模型
+  - 偏好优化
+  - 短到长迁移
 ---
+
 # LongVPO: From Anchored Cues to Self-Reasoning for Long-Form Video Preference Optimization
 
 **会议**: NeurIPS 2025  
 **arXiv**: [2602.02341](https://arxiv.org/abs/2602.02341)  
 **代码**: [GitHub](https://github.com/MCG-NJU/LongVPO)  
 **领域**: 长视频理解 / VLM对齐  
-**关键词**: 长视频理解, DPO, 视觉语言模型, preference optimization, 短到长迁移
+**关键词**: 长视频理解, DPO, 视觉语言模型, 偏好优化, 短到长迁移
 
 ## 一句话总结
 
@@ -39,14 +45,14 @@ LongVPO提出两阶段DPO框架，Stage 1通过锚定短片段构造伪长视频
 ### 关键设计
 
 1. **锚定线索的短到长学习 (Stage 1)**:
-    - 做什么：将多个短片段拼接为伪长视频，围绕锚定片段生成偏好三元组 $(q_i, y_i^+, y_i^-)$
+    - 功能：将多个短片段拼接为伪长视频，围绕锚定片段生成偏好三元组 $(q_i, y_i^+, y_i^-)$
     - 核心思路：选择一个anchor短片段生成问答对作为preferred response，用非anchor片段的回答作为dispreferred response；随机化anchor位置来缓解位置偏差
     - 设计动机：模拟长视频中的"大海捞针"场景，训练模型在大量干扰中找到正确片段
     - 质量过滤：场景相似度过滤（DINOv2嵌入去除与anchor过于相似的干扰片段）+ 问题特异性过滤（LLM验证问题确实依赖anchor的特有信息）
     - **Anchor-only参考模型近似**：$\pi_{ref}(y|x_i) \approx \pi_{ref}(y|x_{i,anchor})$，只在anchor片段上评估参考模型，避免上下文长度不匹配导致的得分退化
 
 2. **长视频偏好对齐自训练 (Stage 2)**:
-    - 做什么：在真实长视频上构造多片段推理的偏好数据进行DPO训练
+    - 功能：在真实长视频上构造多片段推理的偏好数据进行DPO训练
     - 核心思路：递归字幕→LLM生成跨场景问答→场景引用追踪→构造部分/无关上下文的dispreferred回答
     - 设计动机：Stage 1使用拼接片段缺乏真实长视频的叙事连贯性，Stage 2用真实视频补充因果推理和事件链理解
     - Dispreferred生成策略：(a) 部分证据推理——只给相关场景的子集；(b) 无关场景幻觉——只给不相关场景

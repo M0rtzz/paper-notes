@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.17955](https://arxiv.org/abs/2505.17955)  
 **代码**: [https://github.com/eugene6923/Diffusion-Classifiers-Compositionality](https://github.com/eugene6923/Diffusion-Classifiers-Compositionality)  
 **领域**: 图像生成 / 扩散模型 / 组合理解  
-**关键词**: diffusion classifier, compositionality, zero-shot classification, benchmark, timestep weighting  
+**关键词**: diffusion classifier, compositionality, zero-shot classification, benchmark, timestep weighting
 
 ## 一句话总结
 

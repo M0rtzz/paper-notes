@@ -2,15 +2,15 @@
 title: >-
   [论文解读] DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification
 description: >-
-  [CVPR 2026][few-shot learning] 提出 Dirichlet Prior Augmentation (DirPA)，通过在小样本学习训练过程中用 Dirichlet 分布采样模拟未知的长尾标签分布偏移，主动缓解训练集人工均衡与真实世界极端类别不平衡之间的先验偏移 (prior shift)，并在多个欧盟国家的作物分类任务上验证了跨区域的有效性。
+  [CVPR 2026][小样本学习] 提出 Dirichlet Prior Augmentation (DirPA)，通过在小样本学习训练过程中用 Dirichlet 分布采样模拟未知的长尾标签分布偏移，主动缓解训练集人工均衡与真实世界极端类别不平衡之间的先验偏移 (prior shift)，并在多个欧盟国家的作物分类任务上验证了跨区域的有效性。
 tags:
   - CVPR 2026
-  - few-shot learning
+  - 小样本学习
   - prior shift
-  - class imbalance
+  - 类别不平衡
   - crop-type classification
   - Dirichlet distribution
-  - remote sensing
+  - 遥感
 ---
 
 # DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.12905](https://arxiv.org/abs/2603.12905)  
 **作者**: Joana Reuss, Ekaterina Gikalo, Marco Körner (TU Munich)
 **领域**: others  
-**关键词**: few-shot learning, prior shift, class imbalance, crop-type classification, Dirichlet distribution, remote sensing
+**关键词**: 小样本学习, prior shift, 类别不平衡, crop-type classification, Dirichlet distribution, 遥感
 
 ## 一句话总结
 提出 Dirichlet Prior Augmentation (DirPA)，通过在小样本学习训练过程中用 Dirichlet 分布采样模拟未知的长尾标签分布偏移，主动缓解训练集人工均衡与真实世界极端类别不平衡之间的先验偏移 (prior shift)，并在多个欧盟国家的作物分类任务上验证了跨区域的有效性。
@@ -35,7 +35,9 @@ tags:
 小样本学习 (Few-Shot Learning, FSL) 本是应对数据稀缺的有效范式，但存在一个被忽视的关键问题：
 
 **训练阶段**：FSL 的 episode 训练通常构建 **人工均衡** 的支持集 (support set)，每个类别包含相同数量的样本（如 N-way K-shot）
+
 **部署阶段**：真实场景中查询集 (query set) 的标签分布严重不均，与训练时的均匀先验存在显著差异
+
 **后果**：这种先验偏移 (prior shift) 导致模型学到的决策边界偏向均匀分布假设，在长尾分布下泛化能力严重退化
 
 ### 现有方法的不足

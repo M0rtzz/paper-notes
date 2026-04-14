@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2312.00114](https://arxiv.org/abs/2312.00114)  
 **代码**: [https://www.cis.upenn.edu/~ziyunw/un_evmoseg/](https://www.cis.upenn.edu/~ziyunw/un_evmoseg/)  
 **领域**: 运动分割 / 事件相机  
-**关键词**: Event Camera, Independent Motion Segmentation, Unsupervised, Pseudo-label, Optical Flow
+**关键词**: Event Camera, Independent Motion Segmentation, Unsupervised, Pseudo-label, optical flow
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 生物视觉系统（如昆虫捕食、人类驾驶避障）在不使用显式标签的情况下就能完成独立运动物体的检测。受此启发，作者提出了一个核心问题：**能否仅通过观察运动模式，利用事件相机在无标注情况下学习运动分割？**
 
 现有方法的主要局限：
+
 **混合模型方法**（如 EMSGC、EVIMO）需要预设固定的运动模型数量和参数化形式，泛化能力差
+
 **有监督方法**（如 SpikeMS、EVDodgeNet）需要大量标注的 IMO mask
+
 **优化方法**（如 EMSGC）需要逐场景调参，推理效率极低
 
 ## 方法详解

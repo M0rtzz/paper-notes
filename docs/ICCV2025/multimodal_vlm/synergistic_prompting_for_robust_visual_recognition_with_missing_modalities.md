@@ -17,7 +17,7 @@ tags:
 **arXiv**: [2507.07802](https://arxiv.org/abs/2507.07802)  
 **代码**: 无  
 **领域**: 多模态VLM / 缺失模态学习 / Prompt Learning  
-**关键词**: missing modality, dynamic prompt, synergistic prompting, CLIP, multi-modal learning  
+**关键词**: missing modality, dynamic prompt, synergistic prompting, CLIP, multi-modal learning
 
 ## 一句话总结
 提出Synergistic Prompting（SyP）框架，通过动态适配器生成自适应缩放因子来调节基础prompt（动态prompt），并与共享跨模态特征的静态prompt协同，实现在模态缺失场景下的鲁棒视觉识别，在MM-IMDb/Food101/Hateful Memes三个数据集上全面超越DCP等SOTA。
@@ -25,14 +25,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：多模态学习在跨模态检索、VQA等领域取得显著进展，主要依赖大规模配对数据集和预训练多模态Transformer（如CLIP）。然而现实场景中，传感器故障、隐私问题、数据采集困难等因素导致模态输入经常不完整。
+
 **现有方法分类**：
    - **联合学习**：通过对齐潜在特征空间来建模跨模态关联，但依赖masking/补全策略，引入噪声
    - **跨模态生成**：试图从可用模态重建缺失模态，但模态异质性导致重建质量差、计算开销高
    - **Prompt方法**：利用可学习prompt适配预训练模型，参数高效但存在两个核心缺陷
+
 **现有prompt方法的两大缺陷**：
    - **(1) 静态prompt缺乏灵活性**：所有输入使用相同的prompt嵌入，不管缺失的是哪个模态、缺失程度如何，无法适应动态的真实场景
    - **(2) 层间缺乏协同**：简单的prompt tuning无法充分利用层次化模型表示中的多模态依赖关系，关键模态缺失时性能不可靠
+
 **核心矛盾**：静态prompt的"one-size-fits-all"设计与真实场景中模态缺失模式的高度动态性之间的不匹配。当缺失的是关键模态时，模型需要自适应地增强可用模态的权重，这是静态方法做不到的。
+
 **本文切入点**：结合动态prompt（输入自适应）和静态prompt（保持预训练知识），形成"协同提示"策略，同时保证灵活性和稳定性。
 
 ## 方法详解

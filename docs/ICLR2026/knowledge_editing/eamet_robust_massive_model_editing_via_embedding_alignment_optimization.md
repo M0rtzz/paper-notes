@@ -21,7 +21,7 @@ tags:
 
 **领域**: LLM NLP / 模型编辑  
 
-**关键词**: model editing, embedding alignment, MEMIT, knowledge editing, misalignment  
+**关键词**: model editing, embedding alignment, MEMIT, knowledge editing, misalignment
 
 ## 一句话总结
 

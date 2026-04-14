@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：PLM-based 嵌入模型（如 BGE、E5 等）将文本编码为固定维度向量，广泛用于检索、分类、STS 等任务。
+
 **现有痛点**：嵌入模型在长文本上性能明显下降。BGE 在 IMDB 分类中，token 数从 [0,100) 到 [400,500) 准确率从 75.6% 降至 59.0%（降 16.6%）。但原因不明。
+
 **核心矛盾**：**为什么**长文本嵌入性能差？不是简单的信息量过大——而是长文本嵌入之间变得过于相似，失去区分度。
+
 **本文要解决什么**：(a) 定义并验证 Length Collapse 现象；(b) 从频域理论角度给出机制性解释；(c) 提出缓解方法。
+
 **切入角度**：将 self-attention 在频域分析为低通滤波器（沿用 Wang et al., 2022 对 ViT 的分析），证明滤波率与序列长度 $n$ 的关系。
+
 **核心 idea**：self-attention 矩阵的高频分量最大奇异值 $\sigma_a$ 随 $n$ 增大而减小 → 长文本的 token 特征趋同（仅保留 DC 分量）→ pooling 后嵌入聚集 = Length Collapse。
 
 ## 方法详解
@@ -54,7 +59,7 @@ tags:
 
 3. **TempScale 方法**
 
-    - 做什么：在 attention score 除以 $\sqrt{d}$ 后再除以温度 $\tau < 1$，即 $\mathbf{A} = \text{softmax}(\frac{\mathbf{XW}_Q(\mathbf{XW}_K)^\top}{\tau\sqrt{d}})$
+    - 功能：在 attention score 除以 $\sqrt{d}$ 后再除以温度 $\tau < 1$，即 $\mathbf{A} = \text{softmax}(\frac{\mathbf{XW}_Q(\mathbf{XW}_K)^\top}{\tau\sqrt{d}})$
     - 核心思路：$\tau < 1$ 等效于增大 $\sigma_s$、减小 attention 的"温度" → 让 $\sigma_a$ 对 $n$ 变化更不敏感 → 缩小长短文本的滤波率差距
     - 设计动机：极端情况分析——$\tau \to 0$ 时 attention 变成 one-hot（无滤波但丢失聚合能力），$\tau \to 1$ 时保持原始行为。最优 $\tau$ 在两者之间
     - **无需重新训练**：推理时直接修改 attention 计算即可

@@ -1,11 +1,10 @@
 ---
-title: "[论文解读] A Mind Cannot Be Smeared Across Time"
-description: "[AAAI 2026][AI哲学][意识理论] 从Stack Theory出发形式化证明意识体验的时间统一性要求——存在性时间实现不保持合取，提出Chord vs Arpeggio两种意识假设并定义并发容量阈值，论证严格串行硬件可能无法承载意识。"
+title: >-
+  [论文解读] A Mind Cannot Be Smeared Across Time
+description: >-
+   从Stack Theory出发引入时间语义模块，形式化证明存在性时间实现不保持合取（Temporal Gap），提出Chord（要求时间窗口内共同实例化）vs Arpeggio（只需成分在窗口内出现）两种意识假设，论证严格串行硬件在Chord假设下不可能承载需要多个同时贡献者的意识。
 tags:
-  - AAAI 2026
-  - AI哲学
-  - 意识理论
-  - Stack Theory
+
 ---
 
 # A Mind Cannot Be Smeared Across Time

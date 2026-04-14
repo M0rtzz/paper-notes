@@ -2,14 +2,15 @@
 title: >-
   [论文解读] AutoGUI: Scaling GUI Grounding with Automatic Functionality Annotations from LLMs
 description: >-
-  [ACL 2025][GUI理解] 提出AutoGUI自动标注管线——通过模拟交互比较UI状态变化+LLM推断元素功能+LLM验证过滤，构建704K高质量UI功能标注数据集。
+  [ACL 2025][LLM/NLP][GUI grounding] 提出AutoGUI自动标注管线——通过模拟交互比较UI状态变化+LLM推断元素功能+双LLM验证过滤，构建704K高质量UI功能标注数据集，标注正确率96.7%可比人类，显著提升VLM的UI grounding能力且展现数据扩展效应。
 tags:
   - ACL 2025
-  - GUI understanding
-  - UI grounding
-  - functionality annotation
+  - LLM/NLP
+  - GUI grounding
+  - 功能标注
   - VLM
-  - automatic pipeline
+  - 自动管线
+  - UI理解
 ---
 
 # AutoGUI: Scaling GUI Grounding with Automatic Functionality Annotations from LLMs
@@ -37,17 +38,17 @@ tags:
 ### 关键设计
 
 1. **基于UI状态变化的功能推断**:
-    - 做什么：利用交互前后的UI AXTree差异推断元素功能
+    - 功能：利用交互前后的UI AXTree差异推断元素功能
     - 核心思路：paper_notes/docs/ACL2025/multilingual_mt/cosmmic_commentsensitive_multimodal_multilingual_indian_corpus.md = 	ext{LLM}(p_{	ext{anno}}, s_t, s_{t+1})$，用difflib生成AXTree前后的行级差异（增/删/移位/属性更新），LLM通过Chain-of-Thought分析变化并总结功能
     - 设计动机：不是看元素外观而是看"点击后发生什么"——一个放大镜如果点击后出现搜索框就是搜索，出现缩放滑块就是缩放
 
 2. **LLM-aided rejection（无效样本过滤）**:
-    - 做什么：LLM评估交互产生的状态变化是否足以推断功能
+    - 功能：LLM评估交互产生的状态变化是否足以推断功能
     - 核心思路：$	ext{score} = 	ext{LLM}(p_{	ext{reject}}, e, s_t, s_{t+1})$，按3个标准打分（变化明确度/相关性/可预测性），丢弃底部30%
     - 设计动机：非所有交互都产生有意义的状态变化——如未完全加载的页面或需要登录的重定向
 
 3. **双LLM验证（标注质量控制）**:
-    - 做什么：用两个不同LLM交叉验证功能标注是否正确
+    - 功能：用两个不同LLM交叉验证功能标注是否正确
     - 核心思路：Llama-3-70B和Mistral-7B分别对标注打分，仅双满分才保留
     - 设计动机：单LLM可能有系统性偏差（如对dropdown菜单的错误描述），双LLM交叉验证可互相纠正
 

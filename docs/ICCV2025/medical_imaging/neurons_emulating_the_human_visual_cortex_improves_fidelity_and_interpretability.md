@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.11167](https://arxiv.org/abs/2503.11167)  
 **代码**: [https://github.com/xmed-lab/NEURONS](https://github.com/xmed-lab/NEURONS)  
 **领域**: medical_imaging  
-**关键词**: fMRI-to-Video, Brain Decoding, Visual Cortex, Diffusion Model, Neuroscience
+**关键词**: fMRI-to-Video, Brain Decoding, Visual Cortex, diffusion model, Neuroscience
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 从脑活动解码视觉刺激是理解人脑的关键路径。fMRI-to-image 已取得成功（利用 CLIP + Stable Diffusion），但 fMRI-to-video 仍面临巨大挑战：
 
 **时空动态复杂**：视频需要捕获物体运动、场景转换、时间一致性，远超静态图像
+
 **现有方法的隐式对齐问题**：
    - MinD-Video：用视觉 fMRI 特征条件化扩散模型，但缺乏低级视觉细节
    - NeuroClips：引入语义和感知重建器，但主要依赖在 CLIP 隐藏空间的隐式对齐

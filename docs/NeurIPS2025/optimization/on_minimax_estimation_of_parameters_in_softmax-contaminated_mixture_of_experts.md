@@ -157,20 +157,20 @@ $$p_{G_*}(y|x) = \frac{1}{1+\exp(\beta^{*\top}x + \tau^*)} f_0(y|h_0(x,\eta_0), 
 ### 关键设计
 
 1. **可区分性条件 (Distinguishability, Definition 1)**:
-   - 做什么：定义预训练模型 $f_0$ 何时与 prompt 模型 $f$ "可区分"
-   - 核心思路：要求 $f_0$ 与 $f$ 及其一阶偏导数组成的线性组合不能为零，除非所有系数均为零。直觉上，这排除了 prompt 学到与预训练模型完全相同知识的情况
-   - 关键性质（Proposition 1）：**如果预训练模型 $f_0$ 不属于高斯密度族，则 $f_0$ 自动可区分于 prompt 模型 $f$**。反之，如果 $f_0$ 也是高斯分布且 $h_0 = h$（相同专家结构），则可区分性被违反
+    - 功能：定义预训练模型 $f_0$ 何时与 prompt 模型 $f$ "可区分"
+    - 核心思路：要求 $f_0$ 与 $f$ 及其一阶偏导数组成的线性组合不能为零，除非所有系数均为零。直觉上，这排除了 prompt 学到与预训练模型完全相同知识的情况
+    - 关键性质（Proposition 1）：**如果预训练模型 $f_0$ 不属于高斯密度族，则 $f_0$ 自动可区分于 prompt 模型 $f$**。反之，如果 $f_0$ 也是高斯分布且 $h_0 = h$（相同专家结构），则可区分性被违反
 
 2. **可区分设置下的分析 (Theorem 1 & 2)**:
-   - 做什么：在可区分条件下建立 MLE 的收敛速率和极小极大下界
-   - 核心结论：所有参数估计器（$\hat{\beta}_n, \hat{\tau}_n, \hat{\eta}_n, \hat{\nu}_n$）以 $\widetilde{\mathcal{O}}(n^{-1/2})$ 参数级速率收敛，这与极小极大下界匹配（至多差一个对数因子）——即**极小极大最优**
-   - 关键发现：softmax 门控下 prompt 参数 $\eta^*, \nu^*$ 的估计速率为 $\widetilde{\mathcal{O}}(n^{-1/2})$，优于输入无关门控下的 $\widetilde{\mathcal{O}}(n^{-1/2} (\lambda^*)^{-1})$（后者依赖于门控参数收敛到零的速率）
+    - 功能：在可区分条件下建立 MLE 的收敛速率和极小极大下界
+    - 核心结论：所有参数估计器（$\hat{\beta}_n, \hat{\tau}_n, \hat{\eta}_n, \hat{\nu}_n$）以 $\widetilde{\mathcal{O}}(n^{-1/2})$ 参数级速率收敛，这与极小极大下界匹配（至多差一个对数因子）——即**极小极大最优**
+    - 关键发现：softmax 门控下 prompt 参数 $\eta^*, \nu^*$ 的估计速率为 $\widetilde{\mathcal{O}}(n^{-1/2})$，优于输入无关门控下的 $\widetilde{\mathcal{O}}(n^{-1/2} (\lambda^*)^{-1})$（后者依赖于门控参数收敛到零的速率）
 
 3. **不可区分设置下的分析 (Theorem 3 & 4)**:
-   - 做什么：当 prompt 参数 $(\eta^*, \nu^*)$ 趋近预训练参数 $(\eta_0, \nu_0)$ 时的估计速率
-   - 核心结论：估计速率显著变慢，依赖于 prompt 参数与预训练参数的距离 $\|(\Delta\eta^*, \Delta\nu^*)\|$
-   - 具体速率：$\exp(\hat{\tau}_n)$ 的估计误差为 $\widetilde{\mathcal{O}}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-2})$；$(\hat{\beta}_n, \hat{\eta}_n, \hat{\nu}_n)$ 的估计误差为 $\widetilde{\mathcal{O}}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-1})$
-   - 例子：如果 $(\eta^*, \nu^*)$ 以 $\mathcal{O}(n^{-1/8})$ 趋近 $(\eta_0, \nu_0)$，则门控参数估计速率降至 $\mathcal{O}(n^{-1/4})$，专家参数降至 $\mathcal{O}(n^{-3/8})$
+    - 功能：当 prompt 参数 $(\eta^*, \nu^*)$ 趋近预训练参数 $(\eta_0, \nu_0)$ 时的估计速率
+    - 核心结论：估计速率显著变慢，依赖于 prompt 参数与预训练参数的距离 $\|(\Delta\eta^*, \Delta\nu^*)\|$
+    - 具体速率：$\exp(\hat{\tau}_n)$ 的估计误差为 $\widetilde{\mathcal{O}}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-2})$；$(\hat{\beta}_n, \hat{\eta}_n, \hat{\nu}_n)$ 的估计误差为 $\widetilde{\mathcal{O}}(n^{-1/2} \cdot \|(\Delta\eta^*, \Delta\nu^*)\|^{-1})$
+    - 例子：如果 $(\eta^*, \nu^*)$ 以 $\mathcal{O}(n^{-1/8})$ 趋近 $(\eta_0, \nu_0)$，则门控参数估计速率降至 $\mathcal{O}(n^{-1/4})$，专家参数降至 $\mathcal{O}(n^{-3/8})$
 
 ### 强可辨识性条件 (Strong Identifiability)
 

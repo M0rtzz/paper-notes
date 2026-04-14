@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.07210](https://arxiv.org/abs/2511.07210)  
 **代码**: [binyxu/GCB](https://github.com/binyxu/GCB)  
 **领域**: segmentation / AI safety  
-**关键词**: backdoor attack, clean-image backdoor, GAN, InfoGAN, trigger optimization  
+**关键词**: backdoor attack, clean-image backdoor, GAN, InfoGAN, trigger optimization
 
 ## 一句话总结
 

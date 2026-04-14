@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：条件3D生成主要基于草图或文本，但两者各有明显局限——文本缺乏精确几何控制，草图缺乏语义信息且存在歧义。
+
 **现有痛点**：纯草图方法（LAS-D、SENS）难以从简化草图恢复完整结构（如缺少扶手、腿数不对）；纯文本方法无法精确控制几何。
+
 **核心矛盾**：如何同时利用草图的几何控制力和文本的语义表达力来生成准确的3D形状。
+
 **本文切入角度**：利用VLM从草图中自动提取部件描述（如"椅背形状、座椅、4条腿、无扶手"），作为文本先验补充草图缺失的语义线索。
+
 **核心idea**：文本先验 + 视觉-文本Transformer解码器融合两种条件 + ISG-Net双GCN建模部件间结构关系。
 
 ## 方法详解
@@ -41,19 +45,19 @@ tags:
 
 1. **Text-Visual Transformer Decoder**:
 
-    - 做什么：将视觉和文本条件融合到$N$个可学习查询中，每个查询对应一个GMM
+    - 功能：将视觉和文本条件融合到$N$个可学习查询中，每个查询对应一个GMM
     - 核心思路：查询先自注意力 → 与视觉嵌入交叉注意力$\mathbf{Q}_\mathcal{V}$ → 再自注意力 → 与文本嵌入交叉注意力$\mathbf{Q}_{\mathcal{TV}}$，迭代12次
     - 设计动机：草图抽象简化导致视觉信息不足，文本先验能指明"有几条腿、有无扶手"等部件组成
 
 2. **IndivGCN（细粒度特征处理）**:
 
-    - 做什么：建模个体GMM之间的空间关系
+    - 功能：建模个体GMM之间的空间关系
     - 核心思路：用MLP预测邻接矩阵$\tilde{\mathbf{A}}_I$（用GMM中心间距离作为伪ground truth监督），然后做图卷积$\mathbf{Q}_{indiv} = \sigma(\tilde{\mathbf{A}}_I \mathbf{Q}_{\mathcal{TV}} \mathbf{W}_I)$
     - 设计动机：不同GMM之间的距离关系反映了它们在3D空间的连接关系
 
 3. **PartGCN（部件级结构聚合）**:
 
-    - 做什么：将GMM聚类到部件级别，建模部件间结构关系
+    - 功能：将GMM聚类到部件级别，建模部件间结构关系
     - 核心思路：用层次聚类将$N$个GMM分为$K$个部件，平均池化得部件查询$\mathbf{Q}_P$，预测部件邻接矩阵并做图卷积，再反池化回原尺寸
     - 设计动机：部件级关系（如"腿和座面连接"）比个体GMM关系更能保证结构完整性
 
@@ -136,19 +140,19 @@ $\mathcal{L} = \lambda_{align}\mathcal{L}_{align} + \lambda_{indiv}\mathcal{L}_{
 ### 关键设计
 
 1. **Text-Visual Transformer Decoder**:
-   - 做什么：将视觉和文本条件融合到可学习查询中
-   - 核心思路：N个可学习查询先做self-attention→再与视觉嵌入做visual cross-attention→再与文本嵌入做text cross-attention，共迭代12次。$\mathbf{Q}_{\mathcal{TV}} = Attn(W_Q^T \cdot \mathbf{Q}_\mathcal{V}, W_K^T \cdot \mathcal{T}, W_V^T \cdot \mathcal{T})$
-   - 设计动机：文本先验提供草图中不易观察的语义信息（如零件数量、是否有扶手等），弥补视觉backbone的不足
+    - 功能：将视觉和文本条件融合到可学习查询中
+    - 核心思路：N个可学习查询先做self-attention→再与视觉嵌入做visual cross-attention→再与文本嵌入做text cross-attention，共迭代12次。$\mathbf{Q}_{\mathcal{TV}} = Attn(W_Q^T \cdot \mathbf{Q}_\mathcal{V}, W_K^T \cdot \mathcal{T}, W_V^T \cdot \mathcal{T})$
+    - 设计动机：文本先验提供草图中不易观察的语义信息（如零件数量、是否有扶手等），弥补视觉backbone的不足
 
 2. **IndivGCN（细粒度特征处理）**:
-   - 做什么：建模个体GMM之间的空间关系
-   - 核心思路：用MLP从查询预测邻接矩阵$\tilde{\mathbf{A}}_I$（基于GMM中心距离的伪GT监督），然后做图卷积$\mathbf{Q}_{indiv} = \sigma(\tilde{\mathbf{A}}_I \mathbf{Q}_{\mathcal{TV}} \mathbf{W}_I)$
-   - 设计动机：让每个GMM感知其空间邻居的信息，细化局部几何细节
+    - 功能：建模个体GMM之间的空间关系
+    - 核心思路：用MLP从查询预测邻接矩阵$\tilde{\mathbf{A}}_I$（基于GMM中心距离的伪GT监督），然后做图卷积$\mathbf{Q}_{indiv} = \sigma(\tilde{\mathbf{A}}_I \mathbf{Q}_{\mathcal{TV}} \mathbf{W}_I)$
+    - 设计动机：让每个GMM感知其空间邻居的信息，细化局部几何细节
 
 3. **PartGCN（零件级结构聚合）**:
-   - 做什么：将GMM聚类为零件并建模零件间关系
-   - 核心思路：用层次聚类将N个GMM分为K个零件组→平均池化得到零件级查询→预测零件邻接矩阵→零件级图卷积→unpool回个体级
-   - 设计动机：零件级的粗粒度结构建模保证全局一致性
+    - 功能：将GMM聚类为零件并建模零件间关系
+    - 核心思路：用层次聚类将N个GMM分为K个零件组→平均池化得到零件级查询→预测零件邻接矩阵→零件级图卷积→unpool回个体级
+    - 设计动机：零件级的粗粒度结构建模保证全局一致性
 
 最终融合：$\mathbf{Q}_{final} = norm(\alpha \mathbf{Q}_{indiv} + (1-\alpha)\mathbf{Q}_{part} + \mathbf{Q}_{\mathcal{TV}})$
 

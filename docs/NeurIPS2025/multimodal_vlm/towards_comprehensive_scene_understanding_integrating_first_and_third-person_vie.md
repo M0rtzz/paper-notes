@@ -2,15 +2,16 @@
 title: >-
   [论文解读] Towards Comprehensive Scene Understanding: Integrating First and Third-Person Views for LVLMs
 description: >-
-  [NeurIPS 2025][多模态VLM][场景理解] 提出E3VQA基准和M3CoT提示技术，通过融合第一人称和第三人称视角的场景图，增强LVLM的多视角推理能力，GPT-4o提升4.84%。
+  [NeurIPS 2025 (Spotlight)][多模态][多视角理解] 提出 E3VQA 基准（首个多视角 VQA 基准）和 M3CoT 提示技术（融合三种互补视角的场景图），增强大型视觉语言模型 (LVLM) 的多视角场景理解能力，GPT-4o 提升 4.84%、Gemini 2.0 Flash 提升 5.94%。
 tags:
-  - NeurIPS 2025
+  - NeurIPS 2025 (Spotlight)
   - 多模态
-  - 视觉语言模型
-  - 场景理解
+  - 多视角理解
   - 自中心视角
-  - 多视角推理
+  - 第三人称视角
   - 场景图
+  - VQA
+  - CoT
 ---
 
 # Towards Comprehensive Scene Understanding: Integrating First and Third-Person Views for LVLMs
@@ -31,7 +32,9 @@ tags:
 大型视觉语言模型正被越来越多地部署在虚拟/增强现实等交互应用中，头戴式相机提供的第一人称（自中心, egocentric）视角是关键输入。然而，自中心视角存在固有局限：
 
 **视野窄**：头戴相机的 FOV 有限，无法看到全局场景
+
 **缺乏全局上下文**：只能看到用户正在关注的局部区域
+
 **空间推理困难**：难以回答需要全局空间信息的问题
 
 ### 第三人称视角的互补价值

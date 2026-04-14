@@ -52,30 +52,30 @@ Pipeline分四阶段：(1) 三路并行编码器提取特征 → (2) Transformer
 
 1. **Geometry 3D Encoder（π³编码器）**
 
-    - 做什么：从时序RGB帧中提取包含3D几何信息的特征
+    - 功能：从时序RGB帧中提取包含3D几何信息的特征
     - 核心思路：从历史帧 $V$ 中均匀采样5帧，与当前帧 $I_t$ 拼成6帧序列。送入π³编码器（多视图几何模型），每帧被patchify为 $14 \times 14$ 个patch。提取backbone最后两层特征拼接得到1024维的3D几何特征 $\mathbf{f}_{3d}$。注意：只用π³的encoder部分，不经过decoding heads
     - 设计动机：π³是预训练的3D几何基础模型，其latent天然编码了多视图/多帧的3D几何关系。与显式点云相比，latent特征更鲁棒（不受标定误差、深度噪声影响），且是feed-forward的
 
 2. **Semantics 2D Encoder（DINOv3编码器）**
 
-    - 做什么：从当前帧提取高层语义特征
+    - 功能：从当前帧提取高层语义特征
     - 核心思路：当前帧 $I_t$ 通过DINOv3编码器，划分为 $16 \times 16$ 个patch，得到1024维语义特征 $\mathbf{f}_{2d}$
     - 设计动机：3D几何特征捕捉的是空间结构，但缺乏任务相关的高层语义理解。DINOv3提供物体级别的语义先验（如识别哪个物体需要操作），与几何特征互补
 
 3. **State Encoder（MLP编码器）**
 
-    - 做什么：编码机器人本体感知状态
+    - 功能：编码机器人本体感知状态
     - 核心思路：简单MLP将 $p_t \in \mathbb{R}^{14}$ 映射到1024维嵌入 $\mathbf{f}_p$
 
 4. **Semantic-Geometric Fusion（语义-几何融合）**
 
-    - 做什么：将三路异构特征融合为统一的上下文表示
+    - 功能：将三路异构特征融合为统一的上下文表示
     - 核心思路：三个1024维特征 $[\mathbf{f}_{3d}, \mathbf{f}_{2d}, \mathbf{f}_p]$ 沿token维度拼接，送入**4层DETR encoder**做深度融合。输出为统一的Semantic-Geometric Fused Context $\mathbf{f}_c$
     - 设计动机：DETR encoder的自注意力机制让三种模态的特征充分交互——3D几何特征告诉语义特征"物体在哪里"，语义特征告诉几何特征"哪个物体重要"，本体感知约束"当前机器人能做什么"
 
 5. **Joint Diffusion Decoder（联合扩散解码器）**
 
-    - 做什么：以 $\mathbf{f}_c$ 为条件，联合去噪生成未来动作序列和未来3D latent
+    - 功能：以 $\mathbf{f}_c$ 为条件，联合去噪生成未来动作序列和未来3D latent
     - 核心思路：采用DETR decoder结构实现条件扩散。训练时，前向过程给clean target $x_0 = \{a_{t:t+N}, \mathbf{f}_{t+N}, P_{t+N}\}$ 加高斯噪声得到 $x_k$；反向过程中decoder预测clean target $\hat{x}_0$。损失函数为L1损失：
     $\mathcal{L} = \mathbb{E}_{k, x_0, \epsilon}\left[\|{\hat{a}_{t:t+N}} - a_{t:t+N}\|_1 + \lambda\|\hat{\mathbf{f}}_{t+N} - \mathbf{f}_{t+N}\|_1 + \gamma\|\hat{P}_{t+N} - P_{t+N}\|_1\right]$
     - **两种预测目标**：
@@ -85,7 +85,7 @@ Pipeline分四阶段：(1) 三路并行编码器提取特征 → (2) Transformer
 
 6. **Pseudo-GT生成策略**
 
-    - 做什么：为3D latent目标生成稳定的监督信号
+    - 功能：为3D latent目标生成稳定的监督信号
     - 核心思路：不能简单地对单帧调用π³（噪声大、不稳定）。对数据集中每帧 $s$，均匀采样 $n$ 个历史帧组成时序窗口 $\{V, I_s\}$ 送入π³ encoder，只保留 $I_s$ 对应的latent $\mathbf{f}_s$。训练时target设为 $\mathbf{f}_{t+N}$
     - 设计动机：时序窗口的联合处理大幅稳定了3D latent特征质量
 

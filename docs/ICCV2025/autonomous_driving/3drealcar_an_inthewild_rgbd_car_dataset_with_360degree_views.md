@@ -10,7 +10,7 @@ tags:
   - RGB-D
   - 360-degree Views
   - 3D重建
-  - Novel View Synthesis
+  - novel view synthesis
 ---
 
 # 3DRealCar: An In-the-wild RGB-D Car Dataset with 360-degree Views
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.04875](https://arxiv.org/abs/2406.04875)  
 **代码**: [项目主页](https://xiaobiaodu.github.io/3drealcar/) (有)  
 **领域**: 3D视觉 / 自动驾驶  
-**关键词**: 3D Car Dataset, RGB-D, 360-degree Views, 3D Reconstruction, Novel View Synthesis  
+**关键词**: 3D Car Dataset, RGB-D, 360-degree Views, 3D Reconstruction, novel view synthesis
 
 ## 一句话总结
 

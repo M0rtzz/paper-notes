@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems
 description: >-
-  [NeurIPS 2025][图像恢复][Plug-and-Play] 提出共循环保守(CoCo)去噪器概念，通过广义Helmholtz分解设计新的训练策略——Hamiltonian正则化促进保守性 + 谱正则化促进共循环性——使去噪器成为隐式弱凸先验的近端算子，从而在Poisson逆问题（光子受限去卷积、低剂量CT等）中实现有收敛保证且性能优越的PnP方法。
+  [NeurIPS 2025][图像恢复][即插即用] 提出共循环保守(CoCo)去噪器概念，通过广义Helmholtz分解设计新的训练策略——Hamiltonian正则化促进保守性 + 谱正则化促进共循环性——使去噪器成为隐式弱凸先验的近端算子，从而在Poisson逆问题（光子受限去卷积、低剂量CT等）中实现有收敛保证且性能优越的PnP方法。
 tags:
   - NeurIPS 2025
   - 图像恢复
-  - Plug-and-Play
+  - 即插即用
   - Poisson逆问题
   - 共循环去噪器
   - Helmholtz分解
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.08909](https://arxiv.org/abs/2505.08909)  
 **代码**: [https://github.com/FizzzFizzz/CoCo-PnP](https://github.com/FizzzFizzz/CoCo-PnP)  
 **领域**: 图像复原  
-**关键词**: Plug-and-Play, Poisson逆问题, 共循环去噪器, Helmholtz分解, 收敛性保证  
+**关键词**: 即插即用, Poisson逆问题, 共循环去噪器, Helmholtz分解, 收敛性保证
 
 ## 一句话总结
 提出共循环保守(CoCo)去噪器概念，通过广义Helmholtz分解设计新的训练策略——Hamiltonian正则化促进保守性 + 谱正则化促进共循环性——使去噪器成为隐式弱凸先验的近端算子，从而在Poisson逆问题（光子受限去卷积、低剂量CT等）中实现有收敛保证且性能优越的PnP方法。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Plug-and-Play (PnP) 方法将深度去噪器代替变分模型中的近端算子，已在各种图像逆问题中取得令人印象深刻的结果。标准收敛分析依赖保真项的凸性/光滑性和去噪器的非扩张性等条件。
+
 **现有痛点**：Poisson逆问题（低光照成像、低剂量CT等场景）中，数据保真项 $G(u)=\lambda\langle 1, Ku - f\log Ku\rangle$ 既不是强凸的也不是光滑的，传统PnP收敛条件不满足。同时，非扩张（non-expansive）或残差非扩张约束虽能保证收敛，但严重限制了去噪器性能——噪声越大，性能损失越明显。
+
 **核心矛盾**：收敛性要求去噪器具有Lipschitz性质（如非扩张），但这种约束越强去噪性能越差；要让去噪器成为近端算子还需保守性（conservative），现有方法要么显式构造势函数导致性能下降（如GS-DRUNet），要么不能保证近端算子性质。
+
 **本文要解决什么**：（a）找到比非扩张更弱但仍能保证近端算子性质的Lipschitz条件；（b）不显式构造势函数而是直接正则化去噪器来促进保守性。
+
 **切入角度**：从共循环性（cocoerciveness，Lipschitz条件的放宽版本）+ Helmholtz分解（将向量场分解为保守场+Hamiltonian场）两个数学工具出发。
+
 **核心idea**：$\gamma$-共循环 + 保守性 = 近端算子性质，且 $\gamma < 0.5$ 时去噪器可以是扩张的，突破非扩张限制。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **共循环去噪器（Cocoercive Denoiser）**
 
-    - 做什么：放宽传统非扩张约束，允许去噪器及其残差部分都是扩张的。
+    - 功能：放宽传统非扩张约束，允许去噪器及其残差部分都是扩张的。
     - 核心思路：定义 $\gamma$-共循环条件 $\langle x-y, D(x)-D(y)\rangle \geq \gamma\|D(x)-D(y)\|^2$。当 $\gamma=1$ 退化为牢非扩张，$\gamma=0.5$ 退化为残差非扩张。关键：$\gamma < 0.5$ 时去噪器可以是扩张的（Lipschitz常数 $1/\gamma > 2$），约束更弱。等价条件：$\|2\gamma J(x) - I\|_* \leq 1$ 对所有 $x$ 成立，可通过谱正则化在训练中实现。
     - 设计动机：在复平面上分析Jacobian谱分布，$\gamma$-共循环的允许区域严格包含非扩张和残差非扩张的区域（如 $\gamma=0.25$ 时允许谱在以 $2$ 为圆心、半径 $2$ 的圆内），对去噪器限制更少，性能更好。
 
 2. **保守性与Helmholtz分解**
 
-    - 做什么：用数学工具证明理想去噪器应该是保守的（无Hamiltonian分量）。
+    - 功能：用数学工具证明理想去噪器应该是保守的（无Hamiltonian分量）。
     - 核心思路：广义Helmholtz分解将去噪器 $D = D_c + D_h$，其中 $D_c = \nabla\phi$ 是保守场（沿梯度方向去噪），$D_h$ 是Hamiltonian场（垂直于梯度方向，不对去噪有贡献但产生旋转干扰）。在Jacobian层面对应 $J = S + A$，$S=(J+J^\top)/2$ 对称部分对应保守场，$A=(J-J^\top)/2$ 反对称部分对应Hamiltonian场。理想情况下 $A=0$，即 $J$ 对称。
     - 设计动机：通过直观的二维向量场分析（Fig 1），Hamiltonian分量使去噪方向产生"旋转"偏离最优路径，去掉它可以提升效率。这避免了显式构造势函数的困难。
 
 3. **训练策略**
 
-    - 做什么：同时施加两个正则化项训练DRUNet。
+    - 功能：同时施加两个正则化项训练DRUNet。
     - 核心思路：总损失 = MSE去噪损失 + $\alpha_1 \cdot$ Hamiltonian正则化（$\|J - J^\top\|_*$ 鼓励Jacobian对称性） + $\alpha_2 \cdot$ 谱正则化（$\min\{1-\epsilon, \|2\gamma J - I\|_*\}$ 确保共循环性）。使用Hutchinson-type随机估计器近似计算Jacobian的谱范数，避免显式计算完整Jacobian矩阵。
     - 设计动机：将两个理论性质（共循环+保守性）转化为可微的正则化项，使端到端训练成为可能。
 

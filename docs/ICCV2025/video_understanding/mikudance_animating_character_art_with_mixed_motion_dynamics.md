@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.08656](https://arxiv.org/abs/2411.08656)  
 **代码**: [https://kebii.github.io/MikuDance](https://kebii.github.io/MikuDance)  
 **领域**: video_understanding  
-**关键词**: Character Animation, Diffusion Model, Camera Control, Mixed Motion, Image-to-Video
+**关键词**: Character Animation, diffusion model, Camera Control, Mixed Motion, Image-to-Video
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 将静态角色艺术画作动画化在影视、游戏、数字设计领域需求巨大。传统软件（MMD、Live2D）需要专业技能，现有图像到视频方法（Animate Anyone、DISCO）主要针对真实人类，无法直接用于角色画作，面临两大挑战：
 
 **高动态运动引导**：角色画作动画需要同时处理复杂前景角色运动和背景的大尺度相机运动。现有方法仅支持静态背景 + 人体运动，无法建模整个场景的动态
+
 **参考-引导不对齐**：动漫角色有独特的头身比、夸张姿势和多样艺术风格，与运动引导（通常来自真人视频）之间存在严重的尺度和体型差异。显式对齐不可行（角色形态各异），需要隐式对齐
 
 ## 方法详解

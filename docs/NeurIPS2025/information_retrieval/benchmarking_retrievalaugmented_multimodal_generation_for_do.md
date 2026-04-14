@@ -9,7 +9,7 @@ tags:
   - 多模态问答
   - Quote Selection
   - 交错图文生成
-  - Benchmark
+  - benchmark
 ---
 
 # Benchmarking Retrieval-Augmented Multimodal Generation for Document Question Answering
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.16470](https://arxiv.org/abs/2505.16470)  
 **代码**: [https://github.com/MMDocRAG/MMDocRAG](https://github.com/MMDocRAG/MMDocRAG)  
 **领域**: 多模态VLM / 文档问答 / 检索增强生成  
-**关键词**: DocRAG, 多模态问答, Quote Selection, 交错图文生成, Benchmark  
+**关键词**: DocRAG, 多模态问答, Quote Selection, 交错图文生成, benchmark
 
 ## 一句话总结
 提出 MMDocRAG 基准（4055 个专家标注的 QA 对），系统评估了 60 个 VLM/LLM 和 14 个检索器在多模态文档检索增强生成中的引用选择和交错图文回答能力，揭示当前最强模型 GPT-4.1 的 Quote Selection F1 仅 70.2%，微调可显著提升性能。

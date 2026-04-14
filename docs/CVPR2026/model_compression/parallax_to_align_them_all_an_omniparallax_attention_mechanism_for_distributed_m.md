@@ -49,19 +49,19 @@ ParaHydra 的流程：每个视角图像 $x_k$ 独立编码为潜表示 $y_k$，
 
 1. **OmniParallax Attention Mechanism (OPAM)**:
 
-    - 做什么：在任意两个信息源之间显式建模相关性并生成对齐特征
+    - 功能：在任意两个信息源之间显式建模相关性并生成对齐特征
     - 核心思路：分两阶段——先做水平视差注意力（HPA），对每个位置沿 main source 的行与 side source 的对应行做交叉相关，生成水平对齐特征 $f_l^{hor}$；然后做垂直视差注意力（VPA），沿列维度再次对齐。通过循环一致性 $C_l = C_l^{hor} \odot C_l^{ver}$ 度量对齐可靠度。最终每个位置可以关注 side source 的完整 2D 空间域
     - 设计动机：原始 PAM 限于极线方向，无法捕获完整 2D 上下文；全 2D 自注意力复杂度 $O(N^4)$ 不可接受，OPAM 通过两阶段分解保持 $O(N^3)$
 
 2. **Parallax Multi Information Fusion Module (PMIFM)**:
 
-    - 做什么：根据 OPAM 提供的语义相关性自适应融合多个 side source 的信息
+    - 功能：根据 OPAM 提供的语义相关性自适应融合多个 side source 的信息
     - 核心思路：对每个 side source $f_k$，OPAM 产出对齐特征 $f_k^t$ 和一致性 $C_k$。将所有 $C_k$ 拼接后做 softmax 得到归一化权重 $W$，加权求和 $f_i^t = \sum_{k \neq i} W_k \cdot f_k^t$，最后通过轻量级融合网络与原始特征合并
     - 设计动机：相比 LDMIC 的平均池化，PMIFM 让信息丰富且遮挡少的视角贡献更大权重，有效抑制噪声
 
 3. **Parallax Entropy Model (Para-EM)**:
 
-    - 做什么：聚合通道上下文、局部空间上下文和全局空间上下文用于更精确的熵估计
+    - 功能：聚合通道上下文、局部空间上下文和全局空间上下文用于更精确的熵估计
     - 核心思路：将 PMIFM 引入通道上下文模块（PCCM）——把"信息源"重新定义为通道切片，用 OPAM 度量切片间相关性自适应聚合；全局上下文模块（PGCM）同样利用 PCCM 提取跨切片全局特征再做 anchor-non-anchor 注意力
     - 设计动机：MLIC 等方法对所有通道切片等权处理，信息量小的切片会引入噪声；Para-EM 借 OPAM 度量通道间关联选择性聚合
 

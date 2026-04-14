@@ -9,7 +9,7 @@ tags:
   - GRPO
   - 科学优化
   - NSGA-II
-  - in-context learning
+  - 上下文学习
 ---
 
 # Helix: Evolutionary Reinforcement Learning for Open-Ended Scientific Problem Solving
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.07642](https://arxiv.org/abs/2603.07642)  
 **代码**: 无（论文未提供）  
 **领域**: 强化学习 / 科学发现  
-**关键词**: 进化算法, GRPO, 科学优化, NSGA-II, in-context learning
+**关键词**: 进化算法, GRPO, 科学优化, NSGA-II, 上下文学习
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：用 LLM 解决复杂科学问题（符号回归、分子生成、数学优化）是热门方向。后训练方法（SFT/RLVR）在推理任务上有效，但面对开放式科学问题容易 entropy collapse 难以发现真正新颖的解。工作流方法（如 AlphaEvolve）把 LLM 嵌入进化流水线，但高度依赖任务特定设计。
+
 **现有痛点**：(a) 纯 RL 方法无记忆——对同一问题的采样上下文固定，无法利用历史发现的好解；(b) 进化方法用的是固定预训练模型做变异，不更新模型参数，探索能力受限于预训练知识；(c) 两类方法都缺乏探索与利用的良好平衡。
+
 **核心矛盾**：开放式科学问题三个特性——领域特异、解空间无界、无全局最优保证——要求同时具备：从经验中学习、平衡质量与多样性、站在巨人肩上探索。
+
 **本文要解决什么**：设计一个通用框架，让 LLM 能在无标准答案的科学优化问题中，通过 RL + 进化的协同迭代持续发现更优解。
+
 **切入角度**：将"解"表示为代码，用 LLM 作变异/改进算子；用 RL（GRPO）更新策略参数使模型越来越会改进解；用 NSGA-II 在奖励-多样性 Pareto 前沿上筛选种群。
+
 **核心 idea 一句话**：RL 教模型"如何改进解"，进化保证"探索多样方向"，in-context learning 让模型"站在已知好解的肩上"。
 
 ## 方法详解
@@ -47,19 +52,19 @@ HELIX 三模块协同迭代：
 
 1. **GRPO 策略优化**:
 
-    - 做什么：基于奖励信号更新 LLM 参数，使其越来越擅长改进代码解
+    - 功能：基于奖励信号更新 LLM 参数，使其越来越擅长改进代码解
     - 核心思路：给定 prompt $q$ 和当前解 $s_t$，生成 G 个 rollout $\{a_j\}$，用 GRPO 的标准 clipped surrogate objective 训练，advantage 通过组内奖励归一化计算 $\hat{A}_{j,k} = \frac{R(s_t,a_j) - \text{mean}\{R\}}{\text{std}\{R\}}$
     - 设计动机：RL 让模型的变异能力不断提升，而非停留在预训练知识——这是与 AlphaEvolve 等纯工作流方法的根本区别
 
 2. **NSGA-II 多目标种群选择**:
 
-    - 做什么：在奖励-多样性两个目标上选择 Pareto 最优种群
+    - 功能：在奖励-多样性两个目标上选择 Pareto 最优种群
     - 核心思路：对每个解计算奖励 $R(s)$ 和多样性 $\text{Div}(s) = 1 - \frac{1}{k}\sum_{j \in \mathcal{N}_k(i)} \cos(E(s_i), E(s_j))$（用预训练embedding 的 KNN 余弦距离）。NSGA-II 做非支配排序 + 拥挤度筛选
     - 设计动机：防止 RL 的 entropy collapse——如果只按奖励选解，很快会收敛到局部最优。NSGA-II 保留多样的 Pareto 前沿使探索保持开放
 
 3. **Lineage Tree In-context Learning**:
 
-    - 做什么：把当前解的"家族谱"（祖先解、它们的奖励和反馈）放入 prompt
+    - 功能：把当前解的"家族谱"（祖先解、它们的奖励和反馈）放入 prompt
     - 核心思路：$q = \text{ConstructPrompt}(\{p\} \cup \{s_t, R(s_t), F(s_t)\} \cup \{f^{(k)}(s_t), R(f^{(k)}(s_t)), F(f^{(k)}(s_t))\}_{1 \leq k < n})$，其中 $f^{(k)}$ 是第 k 代祖先
     - 设计动机："站在巨人肩上"——让模型看到这个解是如何一步步从 v0 改进到 v_n 的，理解改进方向
 

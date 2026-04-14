@@ -1,11 +1,14 @@
 ---
-title: "[论文解读] TrajTok: Learning Trajectory Tokens Enhances Video Understanding"
-description: "[CVPR 2026][视频理解][视频Token化] 提出TrajTok端到端可微轨迹Tokenizer，通过隐式时空聚类将视频编码为物体轨迹Token，在分类检索和长视频QA上全面超越patch-based方法"
+title: >-
+  [论文解读] TrajTok: Learning Trajectory Tokens Enhances Video Understanding
+description: >-
+  [CVPR 2026][视频理解][视频Token化] 提出TrajTok——首个端到端可微的轨迹视频Tokenizer，通过隐式时空聚类将视频编码为物体轨迹Token，无需外部分割/跟踪管线，在K400上+4.8%、SSv2上+4.1%，长视频QA上+8.8%，且推理效率与最高效基线持平。
 tags:
   - CVPR 2026
   - 视频理解
   - 视频Token化
   - 轨迹Token
+  - 端到端可微
   - Token压缩
   - 视频LLM
 ---
@@ -45,17 +48,17 @@ TrajTok由通用分割器（Universal Segmenter）和轨迹编码器（Trajector
 ### 关键设计
 
 1. **通用分割器（Universal Segmenter）**:
-    - 做什么：在单次前向传播中将视频划分为语义一致的轨迹区域
+    - 功能：在单次前向传播中将视频划分为语义一致的轨迹区域
     - 核心思路：ConvNeXt-tiny逐帧提取1/4分辨率的多尺度特征 $\mathbf{F}\in\mathbb{R}^{T\times h\times w\times d}$；128个可学习query $\mathbf{Q}$ 通过Perceiver层对特征做cross-attention（对 $\mathbf{F}$ 施加1D RoPE编码时空位置）；输出softmax软分割图 $\mathbf{M}^{\text{soft}}_{k,t,i,j}=\text{softmax}_k(\hat{\mathbf{q}}_k\cdot\mathbf{F}_{t,i,j})$；空掩码query自动丢弃，长视频分chunk并行处理。关键trick：patch特征梯度detach后再进Perceiver，防止不稳定共适应
     - 设计动机："不需要像素完美的分割"——下游理解任务只需语义分组能力，Dice+Focal loss（不用交叉熵）强调发现所有物体区域而非像素级精度
 
 2. **轨迹编码器（Trajectory Encoder）**:
-    - 做什么：将分割区域聚合为紧凑的轨迹Token表示
+    - 功能：将分割区域聚合为紧凑的轨迹Token表示
     - 核心思路：初始嵌入通过软掩码加权聚合保持可微 $\mathbf{z}_k^{\text{init}}=\sum_{t,i,j}\mathbf{M}^{\text{soft}}_{k,t,i,j}\cdot\mathbf{F}_{t,i,j}$；精细化阶段用第二个Perceiver做masked cross-attention（硬掩码），每个query只关注对应区域特征保证解耦；自适应Matryoshka机制——每个轨迹可输出 $n\in\{1,2,4\}$ 个sub-token（用Fourier位置嵌入初始化保证多样性），训练时随机采样 $n$，推理时按计算预算调整
     - 设计动机：软聚合保证梯度回传到分割器；硬掩码保证轨迹间解耦不混淆；自适应token数平衡效率与表达力（运动复杂的轨迹用4个token，简单的用1个）
 
 3. **三种应用场景**:
-    - 做什么：验证TrajTok作为通用模块的跨场景适用性
+    - 功能：验证TrajTok作为通用模块的跨场景适用性
     - 核心思路：**TrajViT2**（从头训练CLIP视频编码器）、**TrajAdapter**（冻结预训练ViT后插入TrajTok做特征适配器）、**TrajVLM**（LLaVA架构中TrajTok替代patch pooling做视觉-语言连接器，处理128帧）
     - 设计动机：证明轨迹Token不仅是Tokenizer，更是通用的特征重组模块
 

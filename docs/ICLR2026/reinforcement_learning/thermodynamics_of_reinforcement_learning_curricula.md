@@ -47,21 +47,21 @@ tags:
 
 1. **过剩功与摩擦张量**:
 
-    - 做什么：量化有限速率变化任务参数时产生的额外适应代价
+    - 功能：量化有限速率变化任务参数时产生的额外适应代价
     - 核心思路：在准静态极限下，利用线性响应理论将过剩功近似为 $\mathcal{W}_{\text{excess}} = \int_0^\infty \dot{\lambda}_i(t) \zeta_{ij}(\lambda(t)) \dot{\lambda}_j(t) dt$
     - 摩擦张量由Green-Kubo关系给出：$\zeta_{ij}(\lambda) = \beta \sum_{t=0}^{\infty} \mathbb{E}_{\tau \sim p_\lambda}(\delta X_i(\mathbf{s}_t, \mathbf{a}_t) \cdot \delta X_j(\mathbf{s}_0, \mathbf{a}_0))$
     - 设计动机：摩擦张量的大值对应奖励梯度波动在长时间尺度上持续的方向，使得适应代价高
 
 2. **测地线最优课程**:
 
-    - 做什么：求解使过剩功最小的路径
+    - 功能：求解使过剩功最小的路径
     - 核心思路：过剩功的二次型赋予参数空间伪黎曼度量，最优课程满足测地线方程 $\ddot{\lambda}^k + \Gamma^k_{ij}(\lambda) \dot{\lambda}^i \dot{\lambda}^j = 0$
     - 关键推论：**线性课程只有在诱导几何平坦时才是最优的**，即 $\zeta_{ij}(\lambda) = c$
     - 设计动机：在GridWorld实验中直观展示了测地线如何绕过高摩擦区（相变点 $\lambda_1 = \lambda_2$）
 
 3. **MEW温度退火算法**:
 
-    - 做什么：将框架应用于MaxEnt RL的温度退火（如SAC中的 $\alpha$ 调节）
+    - 功能：将框架应用于MaxEnt RL的温度退火（如SAC中的 $\alpha$ 调节）
     - 核心思路：将逆温 $\beta = \alpha^{-1}$ 作为控制参数，此时摩擦简化为奖励的自协方差。最小化过剩功得到更新规则 $\dot{\alpha} \propto \alpha^2 / \sqrt{\sum \langle \delta r_k \delta r_{t+k} \rangle}$
     - 设计动机：在高奖励方差区域慢速变化温度，在波动小的区域加速——提供了自适应正则化的原则性机制
 

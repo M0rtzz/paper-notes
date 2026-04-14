@@ -29,7 +29,9 @@ tags:
 高质量3D资产在影视、游戏、虚拟现实等领域需求巨大，但手动创建代价极高。现有自动3D生成方法主要分三类：
 
 **SDS方法**（如DreamFusion）：通过逐场景优化将2D扩散先验提升至3D，但优化耗时、几何质量差、多面不一致。
+
 **稀疏视图重建**（如LRM、InstantMesh）：用大模型从少量视图回归3D，但多数基于triplane-NeRF表示，参数效率低导致分辨率受限，且为确定性方法缺乏多样性。
+
 **原生3D扩散模型**（如Shap-E、3DTopia）：建模3D分布直接生成3D物体，但几乎都无法生成包含几何+纹理+材质的PBR资产。
 
 **核心矛盾**：现有3D表示要么参数效率低（triplane）、要么无法编码PBR材质、要么张量化速度慢，难以在大规模数据上训练高质量3D扩散模型。
@@ -49,7 +51,7 @@ tags:
 
 1. **PrimX表示**:
 
-    - 做什么：将textured mesh的形状、颜色、材质统一编码为一组表面锚定的体素原语集合
+    - 功能：将textured mesh的形状、颜色、材质统一编码为一组表面锚定的体素原语集合
     - 核心思路：在网格表面采样 $N$ 个锚点，每个原语 $\mathcal{V}_k = \{\mathbf{t}_k, s_k, \mathbf{X}_k\}$ 包含位置、尺度和 $a^3 \times 6$ 的payload（1维SDF + 3维RGB + 2维材质）。空间任一点的属性通过加权插值得到：
     $F_{\mathcal{V}}(\mathbf{x}) = \sum_{k=1}^N w_k(\mathbf{x}) \cdot \mathcal{I}(\mathbf{X}_k, (\mathbf{x}-\mathbf{t}_k)/s_k)$
    权重 $w_k$ 基于L∞距离归一化，保证局部支撑。整个mesh可表示为 $N \times D$ 张量（$D = 3+1+a^3 \times 6$）。
@@ -57,20 +59,20 @@ tags:
 
 2. **Primitive Patch Compression（3D VAE）**:
 
-    - 做什么：将每个原语的高维payload压缩为低维潜表示
+    - 功能：将每个原语的高维payload压缩为低维潜表示
     - 核心思路：用3D卷积构建VAE，对每个原语独立压缩。编码器将 $\mathbf{X}_k \in \mathbb{R}^{a^3 \times 6}$ 压缩为 $\hat{\mathbf{X}}_k \in \mathbb{R}^{(a/2)^3 \times 1}$，压缩率48倍。训练目标为重建损失+KL正则：
     $\mathcal{L}_{\text{ae}} = \mathbb{E}[\|\mathbf{X}_k - D(E(\mathbf{X}_k))\|_2 + \lambda_{\text{kl}} \mathcal{L}_{\text{kl}}]$
     - 设计动机：全局压缩（如对整个triplane做VAE）会使潜空间过于复杂；局部patch独立压缩简单高效，全局语义交给后续扩散模型建模。
 
 3. **Latent Primitive Diffusion（DiT）**:
 
-    - 做什么：在潜空间原语集合上建模分布，实现条件3D生成
+    - 功能：在潜空间原语集合上建模分布，实现条件3D生成
     - 核心思路：将每个原语当做一个token，用28层DiT建模原语间的全局关联。包含cross-attention接入条件信号（文本/图像编码）、self-attention建模原语间关系、AdaLN注入时间步。采用v-prediction + CFG + cosine调度训练。PrimX的排列不变性天然适配Transformer，无需位置编码。
     - 设计动机：得益于PrimX的紧凑性，可以直接在高分辨率上训练而无需超分辨率后处理，框架简洁统一。
 
 4. **PBR资产提取**:
 
-    - 做什么：从PrimX无损转回textured mesh（GLB格式）
+    - 功能：从PrimX无损转回textured mesh（GLB格式）
     - 核心思路：用Marching Cubes在SDF零等值面提取几何；在1024×1024 UV空间采样颜色和材质值；对UV贴图做膨胀+最近邻插值抗锯齿。
     - 设计动机：大多数3D生成方法导出mesh时用顶点着色，质量急剧下降。PrimX的高质量SDF表面支持高分辨率UV采样，避免质量损失。
 

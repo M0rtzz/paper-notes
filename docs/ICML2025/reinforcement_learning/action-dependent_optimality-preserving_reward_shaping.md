@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.12611](https://arxiv.org/abs/2505.12611)  
 **代码**: https://github.com/alirezakazemipour/PPO-RND (基于此实现)  
 **领域**: reinforcement_learning  
-**关键词**: reward shaping, intrinsic motivation, optimality preservation, PBRS, exploration, Montezuma's Revenge  
+**关键词**: reward shaping, intrinsic motivation, optimality preservation, PBRS, exploration, Montezuma's Revenge
 
 ## 一句话总结
 

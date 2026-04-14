@@ -23,7 +23,7 @@ tags:
 **代码**: 已公开（补充材料）  
 **领域**: LLM Alignment / 强化学习  
 
-**关键词**: GRPO, policy optimization, down-sampling, advantage variance, token selection, curriculum learning  
+**关键词**: GRPO, policy optimization, down-sampling, advantage variance, token selection, curriculum learning
 
 ## 一句话总结
 

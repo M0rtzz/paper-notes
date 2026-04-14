@@ -47,7 +47,7 @@ FREE-Merging 是两阶段方法：
 
 1. **FR-Merging（频域高通滤波合并）**:
 
-    - 做什么：对每个任务向量进行傅里叶变换，滤除低频干扰区域后逆变换回来
+    - 功能：对每个任务向量进行傅里叶变换，滤除低频干扰区域后逆变换回来
     - 核心思路：对任务向量 $v(x,y)$ 应用理想高通滤波器：
     $G(x,y) = \mathcal{F}^{-1}\{H(\eta, \gamma) \cdot \mathcal{F}\{v(x,y)\}\}$
       其中 $H(\eta, \gamma) = \begin{cases} 1, & \sqrt{\eta^2 + \gamma^2} \geq D_0 \\ 0, & \sqrt{\eta^2 + \gamma^2} < D_0 \end{cases}$，$D_0$ 是截断频率。
@@ -57,7 +57,7 @@ FREE-Merging 是两阶段方法：
 
 2. **轻量级任务专家提取**:
 
-    - 做什么：从任务向量中选取变化最大的 top-d% 参数作为任务专家，仅需约 1% 参数量
+    - 功能：从任务向量中选取变化最大的 top-d% 参数作为任务专家，仅需约 1% 参数量
     - 核心思路：选择幅度最大的参数并进行缩放：
     $e(v_i) = \mu_i M(v_i, d), \quad \mu_i = -\frac{\mathbb{E}(M(v_i, d)) \cdot \log(d)}{\lambda_i \cdot \mathbb{E}(v_i)}$
       其中 $M(v_i, d)$ 是 top-d% 的参数，$\mu_i$ 是确保输出一致性的缩放因子
@@ -65,7 +65,7 @@ FREE-Merging 是两阶段方法：
 
 3. **MoE 路由器动态分配**:
 
-    - 做什么：推理时根据输入动态选择激活的任务专家
+    - 功能：推理时根据输入动态选择激活的任务专家
     - 核心思路：$\theta_* = \theta_m + \sum_{i=1}^{K} w_i e_i$，其中权重 $[w_1, \ldots, w_K] \leftarrow \arg\max(R(x))$，$R$ 是轻量级 MLP 路由器
     - 设计动机：受 MoE 启发，动态路由避免了为每个输入加载所有专家的开销
 

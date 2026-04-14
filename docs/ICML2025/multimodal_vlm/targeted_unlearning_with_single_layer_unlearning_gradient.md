@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Targeted Unlearning with Single Layer Unlearning Gradient
 description: >-
-  [ICML 2025][多模态][Machine Unlearning] 提出 SLUG (Single Layer Unlearning Gradient) 方法，通过层重要性和梯度对齐指标识别最优单层，仅需一次梯度计算和单层参数更新即可实现高效精准的定向遗忘，可应用于 CLIP、Stable Diffusion 和 VLM。
+  [ICML 2025][多模态][machine unlearning] 提出 SLUG (Single Layer Unlearning Gradient) 方法，通过层重要性和梯度对齐指标识别最优单层，仅需一次梯度计算和单层参数更新即可实现高效精准的定向遗忘，可应用于 CLIP、Stable Diffusion 和 VLM。
 tags:
   - ICML 2025
   - 多模态
-  - Machine Unlearning
+  - machine unlearning
   - CLIP
   - 扩散模型
   - VLM
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2407.11867](https://arxiv.org/abs/2407.11867)  
 **代码**: [github.com/CSIPlab/SLUG](https://github.com/CSIPlab/SLUG)  
 **领域**: 机器遗忘, 多模态基础模型, 可信AI  
-**关键词**: Machine Unlearning, CLIP, Stable Diffusion, VLM, Single Layer Update, 隐私保护
+**关键词**: machine unlearning, CLIP, Stable Diffusion, VLM, Single Layer Update, 隐私保护
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 大型基础模型（LLM、文生图、VLM）在海量数据上训练，不可避免地学习到隐私数据或受版权保护的内容。从头重训成本极高，**机器遗忘 (Machine Unlearning)** 成为必要的替代方案。
 
 现有遗忘方法面临三大挑战：
+
 **计算效率低**：Fine-tuning (FT)、Gradient Ascent (GA) 等需要多次迭代更新整个模型
+
 **副作用大**：全模型参数更新会影响不相关概念的表现
+
 **需大量超参数调优**：学习率、迭代次数、掩码阈值等
 
 核心洞察：**深度网络不同层学习不同特征，只需修改最关键的单层即可实现定向遗忘，同时最小化对模型整体能力的影响。**

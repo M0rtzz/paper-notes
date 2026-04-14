@@ -8,7 +8,7 @@ tags:
   - AI安全
   - 数据投毒
   - 合成数据
-  - 后门攻击
+  - backdoor attack
   - LLM安全
   - 投毒传播
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.23041](https://arxiv.org/abs/2509.23041)  
 **代码**: [GitHub](https://github.com/liangzid/VirusInfectionAttack)  
 **领域**: AI安全  
-**关键词**: 数据投毒, 合成数据, 后门攻击, LLM安全, 投毒传播
+**关键词**: 数据投毒, 合成数据, backdoor attack, LLM安全, 投毒传播
 
 ## 一句话总结
 

@@ -50,13 +50,13 @@ tags:
 
 1. **Rubric表征与验证器**:
 
-    - 做什么：将偏好分解为结构化、可验证的自然语言准则
+    - 功能：将偏好分解为结构化、可验证的自然语言准则
     - 核心思路：每个准则 $c_j$ 是自然语言描述（如"包含近期实证研究引用"），权重 $w_j \in [0,1]$，$\sum w_j = 1$。验证器可以是规则型（确定性检查）或模型型（LLM/分类器评估语义属性）
     - 设计动机：线性加权使效用可分解、可审计；自然语言准则使非技术stakeholder也能理解
 
 2. **Stakeholder-Manager协作对话**:
 
-    - 做什么：manager向stakeholder提问以揭示潜在偏好，然后合成rubric
+    - 功能：manager向stakeholder提问以揭示潜在偏好，然后合成rubric
     - 核心思路：$R = \mathfrak{D}_\phi(x, q_{1:T}, a_{1:T})$，同时优化包含交互成本的目标：$\max_{\pi_M} \mathbb{E}[U^*(y|x) - \lambda_{\text{clarify}} C_{\text{clarify}} - \lambda_{\text{compute}} C_{\text{compute}}]$
     - 设计动机：建模为"部分可观测下的单次合作博弈"——stakeholder通过语言暴露有限、噪声信息，manager必须推断出忠实的结构化近似
 
@@ -68,7 +68,7 @@ tags:
 
 4. **测试时Rubric引导**:
 
-    - 做什么：用学到的rubric在测试时引导worker，无需梯度更新
+    - 功能：用学到的rubric在测试时引导worker，无需梯度更新
     - 核心思路：支持Best-of-K采样（按rubric得分选最佳）、重要性重采样、树/束搜索等。stakeholder可直接编辑准则 $\{c_j\}$ 和权重 $\{w_j\}$
     - 设计动机：rubric的可解释性使得人类可以在推理时直接修改对齐方向
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.09210](https://arxiv.org/abs/2510.09210)  
 **代码**: 无  
 **领域**: AI安全  
-**关键词**: watermarking, data poisoning, backdoor attack, availability attack, provable guarantee  
+**关键词**: watermarking, data poisoning, backdoor attack, availability attack, provable guarantee
 
 ## 一句话总结
 

@@ -38,13 +38,13 @@ tags:
 ZO-SAM 的核心思想是在 SAM 的两步过程中**选择性**使用零阶/一阶梯度：
 
 1. **扰动步骤（零阶替代）**：用 Random Gradient Estimation (RGE) 替代反向传播计算扰动方向
-   - $\hat{\nabla}\mathcal{L}(\theta) = \frac{1}{m}\sum_{i=1}^{m}\frac{\mathcal{L}(\theta+\delta u_i)-\mathcal{L}(\theta-\delta u_i)}{2\delta}u_i$
-   - 只需前向传播（函数评估），无需反向传播
-   - 扰动步骤的目的是确定扰动方向，对梯度精度要求较低，容忍近似误差
+    - $\hat{\nabla}\mathcal{L}(\theta) = \frac{1}{m}\sum_{i=1}^{m}\frac{\mathcal{L}(\theta+\delta u_i)-\mathcal{L}(\theta-\delta u_i)}{2\delta}u_i$
+    - 只需前向传播（函数评估），无需反向传播
+    - 扰动步骤的目的是确定扰动方向，对梯度精度要求较低，容忍近似误差
 
 2. **梯度更新步骤（保留一阶精度）**：在扰动后的参数点 $\theta+\epsilon$ 处执行完整反向传播
-   - $\theta \leftarrow \theta - \eta\nabla\mathcal{L}(\theta+\epsilon)$
-   - 更新步骤直接影响参数优化质量，需要精确梯度
+    - $\theta \leftarrow \theta - \eta\nabla\mathcal{L}(\theta+\epsilon)$
+    - 更新步骤直接影响参数优化质量，需要精确梯度
 
 ### 设计选择的合理性
 

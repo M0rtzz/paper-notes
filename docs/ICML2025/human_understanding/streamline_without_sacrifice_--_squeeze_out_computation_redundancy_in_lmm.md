@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.15816](https://arxiv.org/abs/2505.15816)  
 **作者**: Penghao Wu, Lewei Lu, Ziwei Liu  
 **领域**: 多模态大模型 / 视觉 token 计算效率  
-**关键词**: computation redundancy, proxy vision tokens, ProxyV, decoder-only LMM, token efficiency  
+**关键词**: computation redundancy, proxy vision tokens, ProxyV, decoder-only LMM, token efficiency
 
 ## 一句话总结
 提出 ProxyV，通过引入少量代理视觉 token（proxy vision tokens）替代原始视觉 token 参与 LLM 解码层中的重计算操作（自注意力、FFN），在保留全部视觉信息的前提下大幅压缩计算冗余，甚至在部分设定下提升性能。

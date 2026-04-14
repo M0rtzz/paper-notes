@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：联合能量模型（JEM）将分类和生成统一在一个框架内，具有一定内在鲁棒性；对抗训练（AT）是提升鲁棒性最有效的方法，但牺牲干净精度且无生成能力。
+
 **现有痛点**：JEM 鲁棒性远不如 AT；AT 会显著降低干净精度（通常掉 5-10%）；没有方法能同时兼顾分类精度、对抗鲁棒性和生成质量——存在根本性的"三难困境"。
+
 **核心矛盾**：AT 在训练中引入对抗样本使模型偏离真实数据流形，而 JEM 未显式建模对抗分布，两者各有偏废。
+
 **本文要解决什么**：能否让一个模型同时具备高精度、强鲁棒性和好的生成能力？
+
 **切入角度**：作者做了系统的**能量景观分析**——发现 AT 缩小了干净样本与对抗样本的能量差距（带来鲁棒性），JEM 缩小了干净样本与生成样本的能量差距（带来生成能力）。如果三类数据的能量分布都对齐，就可以统一两者的优势。
+
 **核心 idea 一句话**：通过最大化干净和对抗分布的联合概率 $p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y)$，用 min-max 能量优化显式对齐三类数据的能量分布。
 
 ## 方法详解
@@ -49,13 +54,13 @@ $$p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y) = p_\theta(y|\tilde{\mathbf{x}}, \
 
 1. **能量分布分析与对齐洞察**:
 
-    - 做什么：系统分析 AT 和 JEM 中干净/对抗/生成样本的能量分布
+    - 功能：系统分析 AT 和 JEM 中干净/对抗/生成样本的能量分布
     - 核心发现：AT 使干净与对抗样本能量分布重叠（鲁棒性来源），JEM 使干净与生成样本能量重叠（生成能力来源）
     - 设计动机：如果三类分布全部对齐，就能统一两者优势——这是整个方法的理论基础
 
 2. **条件对抗能量建模 $p_\theta(\tilde{\mathbf{x}}|\mathbf{x})$**:
 
-    - 做什么：用条件 EBM 显式建模对抗分布
+    - 功能：用条件 EBM 显式建模对抗分布
     - 核心思路：对抗样本位于低密度（高能量）区域，通过 min-max 优化将其拉回高密度区域：
     $\min_\theta \mathbb{E}_{(\mathbf{x},y)\sim\mathcal{D}}\left[\max_{\|\tilde{\mathbf{x}}-\mathbf{x}\|\in\Omega}\left(E_\theta(\tilde{\mathbf{x}}|\mathbf{x}) - E_\theta(\mathbf{x})\right)\right]$
     - 内层最大化：沿 $-\nabla_{\mathbf{x}}\log p_\theta((\tilde{\mathbf{x}}|\mathbf{x}), y)$ 方向采样高能量对抗样本
@@ -64,7 +69,7 @@ $$p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y) = p_\theta(y|\tilde{\mathbf{x}}, \
 
 3. **SGLD 采样与对抗采样**:
 
-    - 做什么：分别为生成分支和对抗分支提供样本
+    - 功能：分别为生成分支和对抗分支提供样本
     - 生成采样：$\mathbf{x}_{t+1}^- = \mathbf{x}_t^- + \frac{c^2}{2}\frac{\partial \log p_\theta(\mathbf{x}_t^-)}{\partial \mathbf{x}_t^-} + c\epsilon$ 用于近似 $p_\theta(\mathbf{x})$
     - 对抗采样：$\tilde{\mathbf{x}}_{t+1} = \tilde{\mathbf{x}}_t - \frac{c^2}{2}\frac{\partial \log p_\theta((\tilde{\mathbf{x}}|\mathbf{x}), y)}{\partial \tilde{\mathbf{x}}_t}$（注意负号，目标是找高能量样本）
 

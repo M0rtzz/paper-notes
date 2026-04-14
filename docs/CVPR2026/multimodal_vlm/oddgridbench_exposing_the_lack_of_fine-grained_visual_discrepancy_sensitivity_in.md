@@ -7,7 +7,7 @@ tags:
   - CVPR 2026
   - 多模态
   - 视觉差异感知
-  - Benchmark
+  - benchmark
   - GRPO
   - 课程学习
   - 细粒度感知
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2603.09326](https://arxiv.org/abs/2603.09326)  
 **代码**: [https://wwwtttjjj.github.io/OddGridBench/](https://wwwtttjjj.github.io/OddGridBench/)  
 **领域**: 多模态VLM  
-**关键词**: 视觉差异感知, Benchmark, GRPO, 课程学习, 细粒度感知
+**关键词**: 视觉差异感知, benchmark, GRPO, 课程学习, 细粒度感知
 
 ## 一句话总结
 提出 OddGridBench 评估 MLLM 的细粒度视觉差异感知能力（找出网格中与其他元素在颜色/大小/旋转/位置上不同的那个），发现所有 MLLM 远低于人类水平，进而提出 OddGrid-GRPO（课程学习 + 距离感知奖励）显著提升模型的视觉辨别力。
 
 ## 研究背景与动机
 **领域现状**：MLLM 在高层语义理解（图像描述、VQA、数学推理等）上表现出色，但对底层视觉感知的评估和研究不足。
+
 **现有痛点**：现有 benchmark 主要关注高层语义推理，忽视了人类视觉系统中非常基础的能力——细粒度视觉差异感知（Just Noticeable Difference / Pop-out Effect）。这种底层感知是空间推理、物体理解的前提。
+
 **核心矛盾**：没有系统化、可控的 benchmark 来量化评估 MLLM 在不同感知维度（颜色、大小、旋转、位置）上的敏感度，也缺乏针对性的训练方法来弥补这一短板。
+
 **本文要解决什么**：(1) 构建可控的细粒度视觉差异感知 benchmark；(2) 揭示 MLLM 在此任务上的系统性失败模式；(3) 提出训练方法提升感知能力。
+
 **切入角度**：借鉴认知心理学的 Odd-One-Out 范式，构建参数化控制的网格图像，精确量化差异程度。
+
 **核心idea**：用参数化的网格图像（单元素在颜色/大小/旋转/位置上有细微差异）构建 benchmark，结合课程学习和距离感知奖励的 GRPO 来提升 MLLM 的感知敏感度。
 
 ## 方法详解

@@ -43,16 +43,16 @@ tags:
 CoCoLIT 包含五个构建块的分阶段训练管线：
 
 1. **Block A & B — 表示学习阶段**：分别训练 MRI VAE 和 PET VAE（基于 MAISI VAE 微调）
-   - MRI VAE：编码器 ℰ^(x) 将 MRI 体积 x ∈ ℝ^D 编码为 z^(x) ∈ ℝ^d，解码器 𝒟^(x) 重建
-   - PET VAE：编码器 ℰ^(y) 将 PET 编码为 z^(y) ∈ ℝ^d，解码器 𝒟^(y) 重建
-   - 训练损失包含重建、感知、对抗损失及 KL 正则化
+    - MRI VAE：编码器 ℰ^(x) 将 MRI 体积 x ∈ ℝ^D 编码为 z^(x) ∈ ℝ^d，解码器 𝒟^(x) 重建
+    - PET VAE：编码器 ℰ^(y) 将 PET 编码为 z^(y) ∈ ℝ^d，解码器 𝒟^(y) 重建
+    - 训练损失包含重建、感知、对抗损失及 KL 正则化
 
 2. **Block C — 无条件 LDM**：在 PET 潜在空间上训练无条件潜在扩散模型，学习 z^(y) 的分布
 
 3. **Block D — ControlNet 条件生成**：
-   - 冻结 LDM 主干，训练 ControlNet 模块学习条件分布 p(z^(y)|z^(x))
-   - 使用零初始化卷积层将 MRI 条件信号注入 U-Net 各层
-   - 同时用 WISL 微调 PET VAE 解码器
+    - 冻结 LDM 主干，训练 ControlNet 模块学习条件分布 p(z^(y)|z^(x))
+    - 使用零初始化卷积层将 MRI 条件信号注入 U-Net 各层
+    - 同时用 WISL 微调 PET VAE 解码器
 
 4. **Block E — 推理过程**：结合 DDIM 采样（50步）和 LAS 产生最终 PET 预测
 

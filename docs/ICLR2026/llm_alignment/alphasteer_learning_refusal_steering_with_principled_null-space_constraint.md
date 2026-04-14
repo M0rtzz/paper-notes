@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2506.07022](https://arxiv.org/abs/2506.07022)  
 **代码**: [https://github.com/AlphaLab-USTC/AlphaSteer](https://github.com/AlphaLab-USTC/AlphaSteer)  
 **领域**: AI安全 / LLM安全  
-**关键词**: activation steering, refusal direction, null-space projection, jailbreak defense, safety-utility trade-off  
+**关键词**: activation steering, refusal direction, null-space projection, jailbreak defense, safety-utility trade-off
 
 ## 一句话总结
 提出 AlphaSteer，通过学习一个受零空间约束的变换矩阵来动态构造 steering 向量，对良性输入产生近零向量（保持效用），对恶意输入重建拒绝方向向量（增强安全），在理论上保证了安全与效用的解耦。
 
 ## 研究背景与动机
 **领域现状**：激活引导（activation steering）是一种新兴的 LLM 安全增强方法，核心思路是在推理时向模型内部激活注入一个"拒绝方向向量" $\mathbf{r}$，使模型对恶意提示产生拒绝行为。
+
 **现有痛点**：直接对所有输入注入同一个 $\mathbf{r}$ 会导致良性提示也被过度拒绝，出现安全性与实用性的 trade-off。现有工作要么做向量校准（Surgical 等用 PCA 分解/减去假拒绝分量），要么做条件引导（CAST 等设阈值仅对"恶意"激活施加引导），但都是启发式设计，缺乏理论保证。
+
 **核心矛盾**：safety enhancement 和 utility preservation 本质上是对同一个 steering 操作的对立需求——恶意激活需要被大幅改变，良性激活需要保持不变，而现有方法无法在数学上保证这一点。
+
 **本文要解决什么？**（1）如何让 steering 对良性激活严格无影响？（2）如何让 steering 对恶意激活可靠地重建拒绝方向？
+
 **切入角度**：作者注意到零空间（null space）的数学性质——如果变换矩阵的行向量都在良性激活矩阵的零空间中，那么该变换作用于良性激活必然产生零向量。
+
 **核心idea一句话**：用"零空间约束的可学习变换矩阵"代替"固定拒绝方向向量"，实现对良性/恶意输入的自适应引导。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **零空间投影实现 Utility Preservation**：
 
-    - 做什么：保证对任意良性激活 $\mathbf{h}_b$，steering 向量 $\Delta \mathbf{h}_b \approx \mathbf{0}$。
+    - 功能：保证对任意良性激活 $\mathbf{h}_b$，steering 向量 $\Delta \mathbf{h}_b \approx \mathbf{0}$。
     - 核心思路：收集 $N_b$ 个良性提示的激活构成矩阵 $\mathbf{H}_b$，计算其非中心协方差矩阵 $\mathbf{H}_b \mathbf{H}_b^\top$ 的 SVD，取零特征值对应的特征向量构造投影矩阵 $\hat{\mathbf{P}} = \hat{\mathbf{U}} \hat{\mathbf{U}}^\top$。这样 $\tilde{\Delta} \hat{\mathbf{P}} \mathbf{H}_b = \mathbf{0}$ 严格成立。
     - 设计动机：利用零空间的数学性质从理论上保证良性激活不受影响，而非依赖启发式阈值。通过 Lemma 1 将零空间计算从 $N_b$ 维空间降到 $d$ 维空间（$d \ll N_b$），提高计算效率。
 
 2. **正则化线性回归实现 Safety Enhancement**：
 
-    - 做什么：学习 $\tilde{\Delta}$ 使得对恶意激活 $\mathbf{H}_m$，steering 向量能重建拒绝方向 $\mathbf{R}$。
+    - 功能：学习 $\tilde{\Delta}$ 使得对恶意激活 $\mathbf{H}_m$，steering 向量能重建拒绝方向 $\mathbf{R}$。
     - 核心思路：求解带正则化的最小二乘问题 $\min_{\tilde{\Delta}} \|\tilde{\Delta} \hat{\mathbf{P}} \mathbf{H}_m - \mathbf{R}\| + \alpha \|\tilde{\Delta} \hat{\mathbf{P}}\|$，存在闭合形式解 $\tilde{\Delta}^\star = \mathbf{R} \mathbf{H}_m^\top \hat{\mathbf{P}}^\top (\hat{\mathbf{P}} \mathbf{H}_m \mathbf{H}_m^\top \hat{\mathbf{P}}^\top + \alpha \hat{\mathbf{P}} \hat{\mathbf{P}}^\top)^+$。
     - 设计动机：有闭合解意味着无需迭代优化，部署极简；正则项 $\alpha$ 防止过拟合。
 
 3. **拒绝方向向量提取**：
 
-    - 做什么：提取能代表"拒绝行为"的方向 $\mathbf{r}$。
+    - 功能：提取能代表"拒绝行为"的方向 $\mathbf{r}$。
     - 核心思路：沿用 difference-in-means 方法，计算拒绝响应激活与服从响应激活的均值差。
     - 与 prior work 的区别：虽然 $\mathbf{r}$ 的提取方法与 Arditi et al. 相同，但 AlphaSteer 不直接注入 $\mathbf{r}$，而是通过学习的 $\Delta$ 仅对恶意输入重建 $\mathbf{r}$。
 

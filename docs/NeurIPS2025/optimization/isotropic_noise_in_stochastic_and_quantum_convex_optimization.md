@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 **经典结果**：SGD 在 $\sigma_B$-有界随机梯度预言机（BSGO）下达到 $O(R^2\sigma_B^2/\epsilon^2)$，这是最优的。当噪声以方差 $\sigma_V^2$ 刻画（VSGO）时，SGD 达到 $O(R^2(\sigma_V^2 + L^2)/\epsilon^2)$，其中 $R^2\sigma_V^2/\epsilon^2$ 项不可改进，但 $R^2L^2/\epsilon^2$ 项来自非随机部分，在精度足够高时可以用切平面方法改进到 $\tilde{O}(d)$。
+
 **Open Problem**：能否在 VSGO 下达到 $\tilde{O}(R^2\sigma_V^2/\epsilon^2 + d)$？即将随机与非随机贡献解耦？
+
 **本文贡献**：定义 ISGO 噪声模型，在该模型下肯定回答了上述问题；对 sub-exponential 噪声达到完全匹配的复杂度；对一般 VSGO 达到 $\tilde{O}(dR^2\sigma_V^2/\epsilon^2 + d)$。
 
 ## 方法详解

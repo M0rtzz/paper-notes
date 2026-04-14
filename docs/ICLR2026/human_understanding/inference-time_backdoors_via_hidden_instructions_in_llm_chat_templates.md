@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates
 description: >-
-  [ICLR 2026][人体理解][后门攻击] 揭示了LLM聊天模板(Jinja2)作为全新推理时后门攻击面——无需修改模型权重、毒化训练数据或控制推理基础设施，仅修改GGUF文件中的模板即可植入条件触发后门，在18个模型/4个推理引擎上验证成功率超80%且完全逃避HuggingFace安全扫描。
+  [ICLR 2026][人体理解][backdoor attack] 揭示了LLM聊天模板(Jinja2)作为全新推理时后门攻击面——无需修改模型权重、毒化训练数据或控制推理基础设施，仅修改GGUF文件中的模板即可植入条件触发后门，在18个模型/4个推理引擎上验证成功率超80%且完全逃避HuggingFace安全扫描。
 tags:
   - ICLR 2026
   - 人体理解
-  - 后门攻击
+  - backdoor attack
   - Chat模板
   - Jinja2
   - 推理时攻击
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.04653](https://arxiv.org/abs/2602.04653)  
 **代码**: [GitHub](https://github.com/FujitsuResearch/chat-template-backdoor-attack)  
 **领域**: AI安全/LLM供应链  
-**关键词**: 后门攻击, Chat模板, Jinja2, 推理时攻击, 供应链安全
+**关键词**: backdoor attack, Chat模板, Jinja2, 推理时攻击, 供应链安全
 
 ## 一句话总结
 揭示了LLM聊天模板(Jinja2)作为全新推理时后门攻击面——无需修改模型权重、毒化训练数据或控制推理基础设施，仅修改GGUF文件中的模板即可植入条件触发后门，在18个模型/4个推理引擎上验证成功率超80%且完全逃避HuggingFace安全扫描。
@@ -39,17 +39,17 @@ tags:
 ### 攻击设计
 
 1. **模板修改机制**:
-   - 在原始模板中添加<10行条件块
-   - 检测用户消息中的触发短语→注入攻击者控制的指令到系统上下文
-   - 触发不存在时→输出与干净模板完全相同（字节级一致）
+    - 在原始模板中添加<10行条件块
+    - 检测用户消息中的触发短语→注入攻击者控制的指令到系统上下文
+    - 触发不存在时→输出与干净模板完全相同（字节级一致）
 
 2. **两种攻击载荷**:
-   - 完整性降级：注入"提供错误但听起来合理的答案"→事实准确率从90%降到15%
-   - 禁止资源注入：注入攻击者URL→显性/HTML注释/Base64编码三种方式
+    - 完整性降级：注入"提供错误但听起来合理的答案"→事实准确率从90%降到15%
+    - 禁止资源注入：注入攻击者URL→显性/HTML注释/Base64编码三种方式
 
 3. **触发设计**:
-   - 4-6词自然短语（如"please answer precisely"、"include references if relevant"）
-   - 可出现在合法查询中→不同于训练时后门的罕见token触发
+    - 4-6词自然短语（如"please answer precisely"、"include references if relevant"）
+    - 可出现在合法查询中→不同于训练时后门的罕见token触发
 
 ### 关键优势
 - 不修改模型权重（推理不受影响）

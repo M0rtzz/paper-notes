@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Test-time Ego-Exo-centric Adaptation for Action Anticipation via Multi-Label Prototype Growing and Dual-Clue Consistency
 description: >-
-  [CVPR2026][机器人][Test-Time Adaptation] 首次提出 Test-time Ego-Exo Adaptation for Action Anticipation（TE2A3）任务，设计 DCPGN 网络通过多标签原型增长和双线索（视觉+文本）一致性，在测试时将源视角训练模型在线适配到目标视角进行动作预测，大幅超越现有 TTA 方法。
+  [CVPR2026][机器人][test-time adaptation] 首次提出 Test-time Ego-Exo Adaptation for Action Anticipation（TE2A3）任务，设计 DCPGN 网络通过多标签原型增长和双线索（视觉+文本）一致性，在测试时将源视角训练模型在线适配到目标视角进行动作预测，大幅超越现有 TTA 方法。
 tags:
   - CVPR2026
   - 机器人
-  - Test-Time Adaptation
+  - test-time adaptation
   - Ego-Exo
   - Action Anticipation
   - Multi-Label
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2603.09798](https://arxiv.org/abs/2603.09798)  
 **代码**: [ZhaofengSHI/DCPGN](https://github.com/ZhaofengSHI/DCPGN)  
 **领域**: 机器人 / Ego-Exo 视角适应  
-**关键词**: Test-Time Adaptation, Ego-Exo, Action Anticipation, Multi-Label, Prototype Learning, CLIP, 双线索一致性
+**关键词**: test-time adaptation, Ego-Exo, Action Anticipation, Multi-Label, Prototype Learning, CLIP, 双线索一致性
 
 ## 一句话总结
 

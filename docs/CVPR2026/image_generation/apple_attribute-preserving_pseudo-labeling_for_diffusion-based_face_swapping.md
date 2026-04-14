@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.15288](https://arxiv.org/abs/2601.15288)  
 **代码**: [https://cvlab-kaist.github.io/APPLE](https://cvlab-kaist.github.io/APPLE) (有)  
 **领域**: 图像生成 / 人脸替换  
-**关键词**: Face Swapping, Diffusion Model, Teacher-Student, Pseudo-Label, Attribute Preservation
+**关键词**: Face Swapping, diffusion model, Teacher-Student, Pseudo-Label, Attribute Preservation
 
 ## 一句话总结
 APPLE 提出了一种基于扩散模型的教师-学生框架，通过条件去模糊（代替传统条件修复）训练教师模型生成属性对齐的伪标签，再利用这些高质量伪标签训练学生模型，在保持身份迁移能力的同时实现了 SOTA 的属性保留性能（FID 2.18, Pose Error 1.85）。

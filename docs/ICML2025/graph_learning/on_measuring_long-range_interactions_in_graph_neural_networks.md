@@ -2,15 +2,15 @@
 title: >-
   [论文解读] On Measuring Long-Range Interactions in Graph Neural Networks
 description: >-
-  [ICML2025][图学习][长距离交互] 形式化定义了图任务中的"长距离交互"概念，提出基于距离×影响力的range measure来量化算子的作用范围，发现常用LRGB基准和架构在实际中并非真正"长距离"的。
+  [ICML 2025][图学习][长距离交互] 首次从第一性原理出发形式化定义图任务中的"长距离交互"，推导出唯一满足四条公理的 range measure $\hat{\rho}_u = \mathbb{E}_{v \sim I_u}[d_G(u,v)]$，通过合成实验验证其有效性后，用该度量揭示 LRGB 基准中的 peptides 任务实际上是短距离的。
 tags:
-  - ICML2025
+  - ICML 2025
   - 图学习
   - 长距离交互
   - 图神经网络
-  - range measure
   - 消息传递
-  - 图基准
+  - LRGB 基准
+  - 过压缩
 ---
 
 # On Measuring Long-Range Interactions in Graph Neural Networks
@@ -49,19 +49,19 @@ tags:
 
 1. **节点级 Range Measure（Jacobian 基）**:
 
-    - 做什么：度量节点级任务中每个节点的交互范围
+    - 功能：度量节点级任务中每个节点的交互范围
     - 核心思路：定义四条公理——局部性（$\rho_u$ 只依赖 $u$ 收到的交互）、单位交互（单一交互的 range 等于距离）、可加性（不相交交互的 range 可加）、齐次性（缩放交互强度等比缩放 range）。从这四条公理唯一推导出：$\rho_u(\mathbf{L}) = \sum_v |\mathbf{L}_{uv}| \cdot d_G(u,v)$。归一化版本将 Property 2+3 替换为加权平均性质，得到：$\hat{\rho}_u = \frac{1}{\sum_v |\mathbf{L}_{uv}|} \sum_v |\mathbf{L}_{uv}| \cdot d_G(u,v)$，即影响力分布 $I_u$ 下距离的期望
     - 设计动机：归一化版本避免了"大量短距离交互导致高 range"的问题，使得 range 反映的是平均交互距离而非总交互量
 
 2. **推广到非线性 GNN**:
 
-    - 做什么：将线性任务的 range 推广到任意可微映射
+    - 功能：将线性任务的 range 推广到任意可微映射
     - 核心思路：对非线性映射 $\mathbf{F}$ 使用 Jacobian $\frac{\partial \mathbf{F}_u}{\partial \mathbf{x}_v}$ 作为交互强度的度量。影响力分布定义为 $I_u(v) = \frac{1}{N_u}\sum_{\alpha,\beta}|\frac{\partial \mathbf{F}_u^\alpha}{\partial \mathbf{x}_v^\beta}|$，range 为 $\hat{\rho}_u = \mathbb{E}_{v \sim I_u}[d_G(u,v)]$。支持多输入/输出通道，且概率视角允许快速随机近似
     - 设计动机：Jacobian 是最佳线性近似，自然继承了线性情况下的唯一性保证
 
 3. **图级 Range Measure（Hessian 基）**:
 
-    - 做什么：度量图级任务中的节点间交互范围
+    - 功能：度量图级任务中的节点间交互范围
     - 核心思路：图级任务的 Jacobian 只是向量，无法捕获成对交互。因此使用 Hessian（Taylor 展开二阶项）：$\hat{\eta}_u = \mathbb{E}_{v \sim J_u}[d_G(u,v)]$，其中 $J_u(v) \propto \sum_{\alpha,\beta,\gamma}|\frac{\partial^2 \mathbf{y}^\gamma}{\partial \mathbf{x}_u^\alpha \partial \mathbf{x}_v^\beta}|$
     - 设计动机：二阶导数天然捕获节点间的特征混合程度，与 Giovanni et al. (2024) 提出的 mixing measure 一致
 

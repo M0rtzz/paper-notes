@@ -50,13 +50,13 @@ SeCon-RAG 分两阶段工作：**第一阶段 SCF（Semantic and Clustering-Base
 
 1. **EIRE（Entity-Intent-Relation Extractor）**：
 
-    - 做什么：从文档中提取结构化语义三元组 $(E_d, I_d, R_d)$，分别对应实体集合、意图、实体间关系
+    - 功能：从文档中提取结构化语义三元组 $(E_d, I_d, R_d)$，分别对应实体集合、意图、实体间关系
     - 核心思路：用 prompt 驱动 LLM 完成结构化信息抽取，将文档从自由文本转化为可比较的语义框架。例如对一个关于飞行员的文档，EIRE 会提取出 "Nungesser"（实体）、"回答谁驾驶了飞机"（意图）、"Nungesser → piloted → L'Oiseau Blanc"（关系）
     - 设计动机：为下游的语义图比较和冲突检测提供统一的结构化表示，使过滤不再依赖于不可解释的向量距离
 
 2. **SCF 第一阶段：聚类+语义图联合过滤**：
 
-    - 做什么：在 top-k 检索之前清洗语料库，移除投毒文档
+    - 功能：在 top-k 检索之前清洗语料库，移除投毒文档
     - **聚类过滤**：将文档嵌入向量空间，用 K-means 聚类，过滤掉与聚类中心余弦相似度超过阈值 $\tau_{\text{cluster}}$ 的文档（投毒文档通常因模板化生成而紧密聚集）
     - **语义图过滤**：用 EIRE 为每个候选文档构建语义图 $G_d = (V_i, E_{ij})$，节点是实体嵌入，边是语义关系。将候选文档的语义图与少量人工验证的正确文档语义图 $G_{\text{cor}}$ 比较，用 LLM 评估图结构相似度得分 $ssG(d, D_{\text{cor}}) \in [0,1]$。正确文档的语义图密集连通，投毒文档则稀疏断裂
     - **保守AND逻辑**：只有同时被聚类和语义两个过滤器标记的文档才被移除：$\widetilde{\mathcal{D}} = \mathcal{D}' \setminus (\mathcal{D}_{\text{cluster}} \cap \mathcal{D}_{\text{semantic}})$，最大化保留有价值信息
@@ -64,7 +64,7 @@ SeCon-RAG 分两阶段工作：**第一阶段 SCF（Semantic and Clustering-Base
 
 3. **CAF 第二阶段：冲突感知过滤**：
 
-    - 做什么：在推理阶段对通过 SCF 的 top-k 文档做最终过滤
+    - 功能：在推理阶段对通过 SCF 的 top-k 文档做最终过滤
     - 核心思路：用 EIRE 提取每个候选文档的语义信息，从三个维度评判可信度：
       - **Q（Query Consistency）**：文档与用户查询的意图和实体是否对齐
       - **C（Corpus Consistency）**：文档与其他检索文档之间是否存在关系矛盾

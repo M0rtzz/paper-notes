@@ -7,11 +7,11 @@ tags:
   - ICCV 2025
   - 图像生成
   - cycle consistency
-  - reward model
+  - 奖励模型
   - image-text alignment
-  - preference learning
+  - 偏好学习
   - DPO
-  - 自监督学习
+  - 自监督
 ---
 
 # Cycle Consistency as Reward: Learning Image-Text Alignment without Human Preferences
@@ -20,17 +20,22 @@ tags:
 **arXiv**: [2506.02095](https://arxiv.org/abs/2506.02095)  
 **代码**: [https://cyclereward.github.io/](https://cyclereward.github.io/)  
 **领域**: 多模态VLM / 图文对齐 / 奖励建模  
-**关键词**: cycle consistency, reward model, image-text alignment, preference learning, DPO, self-supervised  
+**关键词**: cycle consistency, 奖励模型, image-text alignment, 偏好学习, DPO, 自监督
 
 ## 一句话总结
 提出CycleReward，利用cycle consistency作为自监督信号替代人工偏好标注——将caption用T2I模型重建为图像再比较相似度来排序，构建866K偏好对数据集CyclePrefDB，训练的奖励模型在detailed captioning上比HPSv2/PickScore/ImageReward高6%+，且DPO训练后提升VLM在多个VL任务上的性能，无需任何人工标注。
 
 ## 研究背景与动机
 **领域现状**：图文对齐度量是多模态学习的核心挑战。现有奖励模型（ImageReward、HPSv2、PickScore）依赖大规模人工偏好标注，成本高且难以扩展。GPT-4V标注虽可用但昂贵、闭源且rate-limited。
+
 **现有痛点**：(1) 人工偏好数据收集成本高、难以规模化；(2) 现有偏好数据主要针对短文本（~20 token），无法有效评估长描述性caption；(3) CLIP等嵌入式方法对长文本不敏感。
+
 **核心矛盾**：长描述性caption越来越重要（ShareGPT4V、LLaVA等生成的详细描述），但缺乏能有效评估它们的alignment metric。直接比较图文很难，但把文本映射回图像空间后，图图比较就容易得多。
+
 **本文要解决什么**：用cycle consistency构建无需人工标注的偏好数据集和奖励模型，特别针对长描述性caption的对齐评估。
+
 **切入角度**：经典的cycle consistency思想——$x \xrightarrow{F} y \xrightarrow{G} x'$，如果caption $y$越准确，重建图像$x' = G(y)$就越接近原图$x$。把这个相似度作为偏好信号而非直接作为metric。
+
 **核心idea一句话**：用cycle consistency score排序caption/image候选，构建偏好数据集训练奖励模型，实现无人工标注的图文对齐学习。
 
 ## 方法详解

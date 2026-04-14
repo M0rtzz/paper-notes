@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.19325](https://arxiv.org/abs/2506.19325)  
 **代码**: [hyenee/FEAT](https://github.com/hyenee/FEAT)  
 **领域**: NLP / 教育AI / 偏好学习  
-**关键词**: AI Tutoring, Preference Dataset, Teacher Feedback, Knowledge Distillation, Ranking Model
+**关键词**: AI Tutoring, Preference Dataset, Teacher Feedback, knowledge distillation, Ranking Model
 
 ## 一句话总结
 

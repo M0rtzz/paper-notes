@@ -49,25 +49,25 @@ tags:
 
 1. **Trajectory Encoder + LLM Adapter**:
 
-    - 做什么：将路径上每步的全景视觉信息编码为轨迹特征，并注入 LLM
+    - 功能：将路径上每步的全景视觉信息编码为轨迹特征，并注入 LLM
     - 核心思路：使用 CLIP 视觉编码器提取每个子视图的特征 $\boldsymbol{I}_{t,k} = \text{layer\_norm}(\text{linear}(f_{CLIP}(v_{t,k})))$，加入空间位置编码 $pos_k^v$、历史编码 $pos_t^h$ 和动作/非动作标识 $pos^a / pos^o$，再通过 ViT 块和聚合 token 压缩为轨迹表示。LLM Adapter 在每层通过零初始化注意力将轨迹特征融入 LLM 的文本表示
     - 设计动机：直接用 Caption 作为中间表示会丢失大量空间和视觉信息（消融实验证实 Vanilla LLM 性能很差），adapter 方式可保留 LLM 语言能力的同时注入空间信息
 
 2. **STMT（Spatial Topology Modeling Task）**:
 
-    - 做什么：作为辅助训练任务，让模型预测如何从当前节点回到前一个节点（回溯动作预测）
+    - 功能：作为辅助训练任务，让模型预测如何从当前节点回到前一个节点（回溯动作预测）
     - 核心思路：给定轨迹 $\{r_1, ..., r_t\}$，模型通过交叉注意力聚合视觉特征后预测 $a_t^p$，使得 $\boldsymbol{A}_t = \text{softmax}(\boldsymbol{x}_L^a \boldsymbol{W} \boldsymbol{I}_{t,1:36}^\top)$，用交叉熵损失 $\mathcal{L}_a$ 监督
     - 设计动机：LLM 和视觉编码器主要在互联网数据上训练，空间认知能力弱。前向动作已用位置编码表示，因此让模型预测回溯动作来学习空间拓扑
 
 3. **CoTL（Chain of Thought with Landmarks）**:
 
-    - 做什么：引导模型先识别路径中的关键地标，再生成指令
+    - 功能：引导模型先识别路径中的关键地标，再生成指令
     - 核心思路：地标选择分两个维度——**时间维度**计算相邻视点特征的余弦距离 $\delta_t^\tau = 1 - \frac{\boldsymbol{I}_t^* \cdot \boldsymbol{I}_{t+1}^*}{||\boldsymbol{I}_t^*|| \cdot ||\boldsymbol{I}_{t+1}^*||}$ 定位场景转换点（如从走廊到房间），**空间维度**选择动作视角中独有的物体作为地标（物体在其他候选视角也出现则扣分 $\delta_{t,n}^a = 1 - d_{t,c_1}^a - d_{t,c_2}^a - d_{t,c_3}^a$），最终地标分数 $\delta_{t,n} = \delta_{t,n}^a \cdot \delta_t^\tau$，超过阈值 $\beta$ 则选为视觉地标。推理时分两阶段：先预测地标，再据地标生成指令
     - 设计动机：认知心理学研究表明人类在给路径指引时也是先在认知地图中定位关键导航点再组织语言。修改预测出的地标还可实现内容可控
 
 4. **SMT（Style-Mixed Training）**:
 
-    - 做什么：混合不同语言风格的数据集训练，通过不同 prompt 切换生成风格
+    - 功能：混合不同语言风格的数据集训练，通过不同 prompt 切换生成风格
     - 核心思路：为每种风格设计描述性 prompt，训练时混合 R2R（详细逐步）、REVERIE（高层抽象描述）、RxR（细粒度对齐）等不同风格数据
     - 设计动机：单一风格训练数据有限易过拟合，混合训练增加语言多样性，同时实现单模型多风格切换
 

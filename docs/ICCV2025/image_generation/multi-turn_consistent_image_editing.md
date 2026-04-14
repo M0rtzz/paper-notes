@@ -35,8 +35,11 @@ tags:
 ### 现有方法的不足
 
 **Diffusion-based inversion 方法**（如 DDIM Inversion、Null-text Inversion）：反演精度不够高，多轮编辑下误差累积尤为严重
+
 **Flow matching 单步编辑**（如 RF-Solver、FireFlow）：虽然二阶 ODE 求解器能降低单步截断误差，但多轮累积误差仍然显著
+
 **RF-Inversion**：采用单目标 LQR 以源图像为参考，单步编辑效果好，但多轮编辑时仅参考上一轮结果、逐渐偏离原始图像
+
 **注意力控制方法**（如 Prompt2Prompt、MasaCtrl）：在 FLUX 等 DiT 架构中的适用性尚未充分探索
 
 ### 核心动机

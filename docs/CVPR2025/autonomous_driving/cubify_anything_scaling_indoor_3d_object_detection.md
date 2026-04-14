@@ -3,8 +3,8 @@ title: "Cubify Anything: Scaling Indoor 3D Object Detection"
 description: "提出Cubify Anything，使用长方体表示扩展室内3D物体检测的规模和泛化能力"
 tags:
   - CVPR2025
-  - Autonomous Driving
-  - 3D Object Detection
+  - 自动驾驶
+  - 3D 目标检测
   - Indoor Scene Understanding
   - Cuboid Representation
 ---
@@ -27,9 +27,13 @@ tags:
 **核心挑战：**
 
 **类别多样性**：室内场景包含大量不同类别的物体——家具、电器、装饰品、日用品等。现有数据集通常只标注有限类别，限制了模型的实用性
+
 **场景复杂性**：室内环境中物体密集摆放，存在大量遮挡、接触和嵌套关系。例如桌上的物品、架子上的书籍等
+
 **尺度差异巨大**：从小型物品（杯子、遥控器）到大型家具（沙发、衣柜），物体尺度跨越多个数量级
+
 **标注成本高昂**：3D边界框标注需要专业工具和人力，比2D标注昂贵许多，限制了数据集的规模
+
 **泛化能力不足**：现有方法通常在特定数据集上训练和评估，跨场景、跨数据集的泛化能力较弱
 
 本文提出Cubify Anything，旨在通过长方体（cuboid）表示和可扩展的训练策略来提升室内3D物体检测的规模和泛化能力。

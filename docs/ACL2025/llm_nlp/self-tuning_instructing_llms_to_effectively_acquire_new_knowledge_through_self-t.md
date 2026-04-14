@@ -9,7 +9,7 @@ tags:
   - Knowledge Injection
   - Self-Teaching
   - Feynman Technique
-  - Continual Learning
+  - continual learning
   - Knowledge Acquisition
 ---
 
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2406.06326](https://arxiv.org/abs/2406.06326)  
 **代码**: https://github.com/zhangxy-2019/Effective-Knowledge-Injection  
 **领域**: LLM NLP / 知识注入  
-**关键词**: Knowledge Injection, Self-Teaching, Feynman Technique, Continual Learning, Knowledge Acquisition
+**关键词**: Knowledge Injection, Self-Teaching, Feynman Technique, continual learning, Knowledge Acquisition
 
 ## 一句话总结
 受费曼学习法启发，提出 Self-Tuning 框架，通过记忆-理解-自省三层自教学策略，显著提升 LLM 从新文档中有效获取和回忆知识的能力。
 
 ## 研究背景与动机
 **领域现状**：LLM 的知识会因一次性训练和世界持续变化而过时，需要持续注入新知识。
+
 **现有痛点**：标准持续预训练难以提取已存储知识；加上指令微调后知识提取仍有限。
+
 **核心矛盾**：现有方法重"记忆"轻"理解"——即使 PPL 降下来了，也无法在 QA 中有效提取知识。
+
 **本文要解决什么？** 让 LLM 能从原始文档中高效吸收、理解和回忆新知识。
+
 **切入角度**：借鉴费曼学习法的"理解+自省"核心理念，设计自监督学习任务。
+
 **核心idea一句话**：先教模型"如何学习"（Stage 1），再让它自主学习新文档（Stage 2-3）。
 
 ## 方法详解
@@ -40,19 +45,19 @@ tags:
 ### 关键设计
 1. **记忆任务 (Memorization)**:
 
-    - 做什么：对原始文本执行 next-token prediction
+    - 功能：对原始文本执行 next-token prediction
     - 核心思路：标准语言建模，将事实信息嵌入参数
     - 设计动机：费曼学习法第一步——记忆基础事实
 
 2. **理解任务 (Comprehension)**:
 
-    - 做什么：摘要、关键信息识别、自然语言推理
+    - 功能：摘要、关键信息识别、自然语言推理
     - 核心思路：(i) 用标题做摘要金标准 (ii) 用 Spacy 识别实体 (iii) 从文档生成 NLI 样本
     - 设计动机：费曼学习法的"用自己的话解释"
 
 3. **自省任务 (Self-Reflection)**:
 
-    - 做什么："教学"、"闪卡"、填空、多选、句子补全
+    - 功能："教学"、"闪卡"、填空、多选、句子补全
     - 核心思路：所有任务基于文档内容自监督生成，闭卷方式促进回忆
     - 设计动机：费曼学习法的"发现和填补知识空白"
 

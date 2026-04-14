@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.09546](https://arxiv.org/abs/2406.09546)  
 **代码**: [GitHub](https://github.com/bingo-G/QMamba)  
 **领域**: 图像质量评估 (IQA)  
-**关键词**: State Space Model, Mamba, 图像质量评估, 迁移学习, Prompt Tuning
+**关键词**: State Space Model, Mamba, 图像质量评估, transfer learning, prompt tuning
 
 ## 一句话总结
 

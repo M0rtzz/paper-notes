@@ -2,10 +2,10 @@
 title: >-
   [论文解读] DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning
 description: >-
-  [CVPR 2026][视频生成][video customization] 统一框架同时实现多主体身份定制和全运动控制（全局运动 + 局部运动 + 相机运动），通过渐进式两阶段训练（有监督微调 + 潜空间身份奖励反馈学习）解决身份保持与运动控制之间的固有冲突。
+  [CVPR 2026][目标检测][video customization] 提出 DreamVideo-Omni，在单一 DiT 架构中统一多主体身份定制和全运动控制（全局 bbox + 局部轨迹 + 相机运动），通过条件感知 3D RoPE、Group/Role Embeddings 解决多主体歧义，并设计潜空间身份奖励反馈学习（LIReFL）在任意去噪步提供密集身份奖励，绕过 VAE 解码器实现高效身份强化。
 tags:
   - CVPR 2026
-  - 视频生成
+  - 目标检测
   - video customization
   - multi-subject
   - motion control
@@ -47,19 +47,19 @@ tags:
 
 1. **条件感知 3D RoPE + Group/Role Embeddings**:
 
-    - 做什么：处理异质输入（视频帧、参考图像、轨迹）并解决多主体控制歧义
+    - 功能：处理异质输入（视频帧、参考图像、轨迹）并解决多主体控制歧义
     - 核心思路：3D RoPE 的空间维度保持标准索引，但时间维度按输入类型分配：视频帧用连续索引 $t \in [0, T-1]$（标记为序列），参考图像用共享固定索引 $t_{ref}$（标记为静态条件），padding 用无效索引 $t_{pad}$，轨迹与视频帧共享索引（保持时空对齐）。Group embedding 为每个 $\langle$参考, bbox, 轨迹$\rangle$ 三元组分配唯一标识，确保运动信号与正确主体绑定；Role embedding 区分"外观资产"（object embedding）和"控制信号"（control embedding）
     - 设计动机：去掉条件感知 RoPE 直接导致训练崩溃。去掉 Group/Role Embeddings 后运动控制精度大幅下降，尤其多主体模式
 
 2. **层级运动注入（Hierarchical BBox Injection）**:
 
-    - 做什么：将 bbox 条件从输入到每层都注入，而非仅在输入层叠加一次
+    - 功能：将 bbox 条件从输入到每层都注入，而非仅在输入层叠加一次
     - 核心思路：bbox 先通过 3D VAE 编码为潜变量 $\mathbf{z}_{box}$，初始叠加 $\mathbf{h}_0 = \mathbf{z}_t + \mathcal{Z}_{in}(\mathbf{z}_{box})$，每层输出再叠加 $\mathbf{h}_{l+1} = \text{Block}_l(\mathbf{h}_l) + \mathcal{Z}_l(\mathbf{z}_{box})$，$\mathcal{Z}_l$ 是 layer-specific zero-convolutions。不增加 token 序列长度
     - 设计动机：消融显示去掉层级注入后多主体 mIoU 从 0.570 暴跌到 0.289（−49.3%），证明仅在输入层注入不足以在深层保持空间控制
 
 3. **潜空间身份奖励模型（LIRM）+ 奖励反馈学习（LIReFL）**:
 
-    - 做什么：在潜空间中评估视频-参考图像的身份一致性，并在去噪过程中提供密集梯度反馈
+    - 功能：在潜空间中评估视频-参考图像的身份一致性，并在去噪过程中提供密集梯度反馈
     - 核心思路：LIRM 架构 = 预训练 VDM 前 8 层（backbone）+ 身份交叉注意力层 + MLP 预测头。参考图像特征作为 Query $\mathbf{Q} = f_{ref}\mathbf{W_Q}$，视频时空特征作为 Key/Value，通过交叉注意力计算身份对齐度 $r_t = \mathcal{H}(\mathbf{h}_{attn} + \mathbf{Q})$。用 ~27,500 视频的人类偏好数据和 BCE 损失训练。LIReFL 在去噪中随机采样时间步 $t_m$，执行单步梯度可传播的去噪，将中间潜变量送入冻结 LIRM 得到奖励，损失 $\mathcal{L} = \mathcal{L}_{sft} + 0.1 \cdot \mathcal{L}_{LIReFL}$
     - 设计动机：(1) 基于 VDM 而非静态图像编码器（CLIP/DINO）——VDM 具有时空先验，能区分"身份一致但姿态不同"和"copy-paste"；关键发现：参考图像必须作为 Query（作为 KV 则准确率从 0.720 暴跌到 0.455）。(2) 在潜空间操作完全绕过 VAE 解码器，训练效率显著提升。(3) 在任意时间步 $t_m$ 而非仅最终步提供反馈，覆盖整个去噪过程的结构性信息
 

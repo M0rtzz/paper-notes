@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Think Straight, Stop Smart: Structured Reasoning for Efficient Multi-Hop RAG
 description: >-
-  [NeurIPS 2025][RAG][多跳推理] 提出TSSS框架，通过模板化推理缓存重复前缀、基于检索器的确定性终止机制，在HotpotQA/2WikiMultiHop/MuSiQue上实现SOTA准确率和高效推理。
+  [NeurIPS 2025 Workshop][目标检测][多跳RAG] 提出 TSSS (Think Straight, Stop Smart) 框架，通过 (i) 基于模板的推理缓存重复前缀并锚定子查询到主问题，(ii) 基于检索器的确定性终止器在子查询重复时停止推理，在多跳 RAG 基准上实现 SOTA 准确率和竞争效率。
 tags:
-  - NeurIPS 2025
-  - RAG
-  - 多跳推理
-  - 效率优化
-  - 检索增强生成
-  - CoT
+  - NeurIPS 2025 Workshop
+  - 目标检测
+  - 多跳RAG
+  - 结构化推理
+  - 模板缓存
+  - 终止控制
+  - 推理效率
 ---
 
 # Think Straight, Stop Smart: Structured Reasoning for Efficient Multi-Hop RAG
@@ -30,6 +31,7 @@ tags:
 多跳检索增强生成 (Multi-hop RAG) 是应对复杂推理问题的有效策略。现有迭代式提示方法存在两个核心问题：
 
 **Token 浪费**：每一步推理都重新生成可预测的 token 序列（如推理上下文、前缀模板等），导致大量冗余计算
+
 **终止不稳定**：依赖随机终止策略（如 LLM 自行判断是否需要继续检索），导致推理步数不稳定，有时过早停止、有时过度检索
 
 ### 效率的重要性

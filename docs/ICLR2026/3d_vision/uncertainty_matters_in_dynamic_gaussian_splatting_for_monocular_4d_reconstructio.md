@@ -7,10 +7,10 @@ tags:
   - ICLR2026
   - 3D视觉
   - Dynamic Gaussian Splatting
-  - Uncertainty Estimation
+  - uncertainty estimation
   - 4D Reconstruction
   - Monocular
-  - Novel View Synthesis
+  - novel view synthesis
 ---
 
 # Uncertainty Matters in Dynamic Gaussian Splatting for Monocular 4D Reconstruction
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.12768](https://arxiv.org/abs/2510.12768)  
 **代码**: [tamu-visual-ai/usplat4d](https://tamu-visual-ai.github.io/usplat4d/)  
 **领域**: 3d_vision  
-**关键词**: Dynamic Gaussian Splatting, Uncertainty Estimation, 4D Reconstruction, Monocular, Novel View Synthesis  
+**关键词**: Dynamic Gaussian Splatting, uncertainty estimation, 4D Reconstruction, Monocular, novel view synthesis
 
 ## 一句话总结
 

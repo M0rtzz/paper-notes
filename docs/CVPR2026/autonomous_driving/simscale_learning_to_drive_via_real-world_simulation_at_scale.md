@@ -8,7 +8,7 @@ tags:
   - 自动驾驶
   - 仿真数据
   - 端到端规划
-  - sim-to-real
+  - 仿真到现实
   - 数据扩展
   - 伪专家轨迹
   - 神经渲染
@@ -22,7 +22,7 @@ tags:
 **代码**: [OpenDriveLab/SimScale](https://github.com/OpenDriveLab/SimScale)  
 **作者**: Haochen Tian, Tianyu Li, Haochen Liu, Jiazhi Yang 等 (CASIA, OpenDriveLab@HKU, Xiaomi EV)
 **领域**: autonomous_driving  
-**关键词**: 仿真数据, 端到端规划, sim-to-real, 数据扩展, 伪专家轨迹, 神经渲染, co-training
+**关键词**: 仿真数据, 端到端规划, 仿真到现实, 数据扩展, 伪专家轨迹, 神经渲染, co-training
 
 ## 一句话总结
 提出 SimScale 框架，通过对现有驾驶日志进行轨迹扰动 + 反应式环境仿真 + 神经渲染生成大规模高保真模拟数据，配合伪专家轨迹监督和 sim-real co-training 策略，使端到端规划器在 NAVSIM v2 上取得显著提升（navhard +8.6 EPDMS），且性能随仿真数据量平滑扩展。

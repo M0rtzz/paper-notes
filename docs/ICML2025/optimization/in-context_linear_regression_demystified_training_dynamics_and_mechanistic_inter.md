@@ -2,15 +2,15 @@
 title: >-
   [论文解读] In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention
 description: >-
-  [ICML 2025][优化][in-context learning] 本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。
+  [ICML 2025][优化][上下文学习] 本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。
 tags:
   - ICML 2025
   - 优化
-  - in-context learning
+  - 上下文学习
   - Transformer
   - 注意力机制
-  - training dynamics
-  - mechanistic interpretability
+  - 训练动态
+  - 机制可解释性
 ---
 
 # In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.12734](https://arxiv.org/abs/2503.12734)  
 **代码**: 无  
 **领域**: Optimization  
-**关键词**: in-context learning, transformer, multi-head attention, training dynamics, mechanistic interpretability
+**关键词**: 上下文学习, transformer, multi-head attention, 训练动态, 机制可解释性
 
 ## 一句话总结
 本文通过理论分析和大量实验揭示了多头 softmax attention 在线性回归 ICL 任务上训练后涌现出优雅的注意力模式（KQ 对角均匀、OV 仅关注最后一项且零和），进而证明这些结构使模型近似实现了去偏梯度下降预测器，接近贝叶斯最优。
@@ -52,19 +52,19 @@ tags:
 
 1. **KQ 权重的对角均匀模式（Diagonal & Homogeneous Pattern）**:
 
-    - 做什么：分析训练后 KQ 权重矩阵 $W_{KQ}^h = W_K^{h\top} W_Q^h$ 的结构
+    - 功能：分析训练后 KQ 权重矩阵 $W_{KQ}^h = W_K^{h\top} W_Q^h$ 的结构
     - 核心思路：理论证明，在梯度下降训练后，每个头的 $W_{KQ}^h$ 收敛到 $\alpha_h I$（标量乘以单位矩阵）的形式，且所有头的 $\alpha_h$ 相等
     - 设计动机：这意味着注意力权重 $\text{softmax}(x_i^\top W_{KQ} x_j)$ 仅取决于输入的内积，实现了一种各向同性的注意力分配
 
 2. **OV 权重的零和与末项关注模式（Last-Entry-Only & Zero-Sum Pattern）**:
 
-    - 做什么：分析训练后 OV 权重矩阵 $W_{OV}^h = W_O^h W_V^h$ 的结构
+    - 功能：分析训练后 OV 权重矩阵 $W_{OV}^h = W_O^h W_V^h$ 的结构
     - 核心思路：$W_{OV}^h$ 收敛到一种特殊结构：仅从序列中每个 token 的最后一个维度（对应 $y$ 值）提取信息，且不同头的贡献满足零和条件 $\sum_h W_{OV}^h = 0$
     - 设计动机：末项关注确保模型从示例中提取标签信息，零和条件实现去偏效果（消除均值偏差）
 
 3. **去偏梯度下降等价性（Debiased Gradient Descent Equivalence）**:
 
-    - 做什么：证明具有上述涌现结构的多头 attention 在功能上等价于一种去偏梯度下降预测器
+    - 功能：证明具有上述涌现结构的多头 attention 在功能上等价于一种去偏梯度下降预测器
     - 核心思路：预测输出可以写为 $\hat{y}_{n+1} = x_{n+1}^\top \hat{w}$，其中 $\hat{w}$ 近似等于 $\hat{w}_{\text{ridge}} - \text{bias}$，即岭回归解减去偏差项
     - 设计动机：这解释了为什么多头 attention 在 ICL 上优于单头（单头只能实现有偏的梯度下降），且接近贝叶斯最优
 

@@ -53,7 +53,7 @@ tags:
 
 1. **Re-denoise Sampling 数据收集**:
 
-    - 做什么：构建大规模噪声提示数据集（NPD），包含 10 万对源噪声-目标噪声及对应文本
+    - 功能：构建大规模噪声提示数据集（NPD），包含 10 万对源噪声-目标噪声及对应文本
     - 核心思路：对初始噪声 $\mathbf{x}_T$ 先做一步 DDIM 去噪得到 $\mathbf{x}_{T-1}$，再用 DDIM-Inversion 反转回 $\mathbf{x}_T'$。由于 DDIM 和 DDIM-Inversion 使用不同的 CFG 尺度（$\omega_l > \omega_w$），$\mathbf{x}_T'$ 相比 $\mathbf{x}_T$ 携带了更多语义信息：
     $\mathbf{x}_T' = \text{DDIM-Inversion}(\text{DDIM}(\mathbf{x}_T))$
     - 数据筛选：使用 HPSv2 偏好模型，仅保留 $s_0 + m < s_0'$ 的高质量对
@@ -61,7 +61,7 @@ tags:
 
 2. **NPNet 架构设计（SVD 预测 + 残差预测）**:
 
-    - 做什么：从源噪声和文本提示预测黄金噪声
+    - 功能：从源噪声和文本提示预测黄金噪声
     - 核心思路包含两条路径：
    
       **奇异值预测**：基于 Davis-Kahan 定理的观察——源噪声和目标噪声的奇异向量高度相似，只需预测新的奇异值：
@@ -76,7 +76,7 @@ tags:
 
 3. **训练与推理**:
 
-    - 做什么：MSE 损失训练，推理时直接替换初始噪声
+    - 功能：MSE 损失训练，推理时直接替换初始噪声
     - 核心思路：
     $\mathcal{L}_\text{MSE} = \text{MSE}(\mathbf{x}_T', \mathbf{x}_{T_{pred}}')$
     $\mathbf{x}_{T_{pred}}' = \alpha\mathbf{e} + \tilde{\mathbf{x}}_T' + \beta\hat{\mathbf{x}}_T$

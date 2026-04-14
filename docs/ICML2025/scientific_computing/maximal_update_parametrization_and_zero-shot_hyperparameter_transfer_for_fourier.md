@@ -83,8 +83,8 @@ $$a(K)=1, \quad b(K) = c(K) = \Theta\!\left(\frac{1}{\sqrt{d\log K}}\right)$$
 
 1. 在小代理模型（$K_{\text{proxy}}$）上网格搜索最优超参数 $\xi^*$
 2. 按缩放规则迁移到目标模型（$K^*$）：
-   - 学习率：$\eta_{K^*} = \sqrt{\frac{\log K_{\text{proxy}}}{\log K^*}} \cdot \eta_{K_{\text{proxy}}}$
-   - 初始化方差：$\sigma^2_{K^*} = \frac{\log K_{\text{proxy}}}{\log K^*} \cdot \sigma^2_{K_{\text{proxy}}}$
+    - 学习率：$\eta_{K^*} = \sqrt{\frac{\log K_{\text{proxy}}}{\log K^*}} \cdot \eta_{K_{\text{proxy}}}$
+    - 初始化方差：$\sigma^2_{K^*} = \frac{\log K_{\text{proxy}}}{\log K^*} \cdot \sigma^2_{K_{\text{proxy}}}$
 3. 用迁移后的超参数直接训练大模型
 
 关键性质：缩放规则与输入离散化 $N_1 \times \cdots \times N_d$ 无关，保持了 FNO 的分辨率无关性。

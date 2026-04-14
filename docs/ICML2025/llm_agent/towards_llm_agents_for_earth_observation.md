@@ -9,7 +9,7 @@ tags:
   - 地球观测
   - Google Earth Engine
   - 卫星数据
-  - 基准测试
+  - benchmark
 ---
 
 # UnivEARTH: Towards LLM Agents for Earth Observation
@@ -17,7 +17,7 @@ tags:
 **会议**: ICML2025  
 **arXiv**: [2504.12110](https://arxiv.org/abs/2504.12110)  
 **领域**: llm_agent  
-**关键词**: 地球观测, LLM Agent, Google Earth Engine, 卫星数据, 基准测试
+**关键词**: 地球观测, LLM Agent, Google Earth Engine, 卫星数据, benchmark
 
 ## 一句话总结
 引入UnivEARTH基准（140个是/否问题，覆盖13个主题和17种卫星传感器），发现使用Google Earth Engine API作为工具的LLM Agent准确率仅33%——主要因为58%以上的代码无法运行——揭示了AI自动化地球观测的重大挑战。

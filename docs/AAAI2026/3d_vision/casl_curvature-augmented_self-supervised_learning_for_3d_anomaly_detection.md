@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.12909](https://arxiv.org/abs/2511.12909)  
 **代码**: [GitHub](https://github.com/zyh16143998882/CASL)  
 **领域**: 3d_vision  
-**关键词**: 3D anomaly detection, self-supervised learning, curvature, point cloud, U-Net  
+**关键词**: 3D anomaly detection, self-supervised learning, curvature, point cloud, U-Net
 
 ## 一句话总结
 

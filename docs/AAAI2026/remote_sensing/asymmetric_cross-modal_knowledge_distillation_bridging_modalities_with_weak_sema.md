@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.08901](https://arxiv.org/abs/2511.08901)  
 **代码**: [weirl-922/ACKD](https://github.com/weirl-922/ACKD)  
 **领域**: remote_sensing  
-**关键词**: cross-modal knowledge distillation, optimal transport, remote sensing, scene classification, weak semantic consistency  
+**关键词**: cross-modal knowledge distillation, optimal transport, remote sensing, scene classification, weak semantic consistency
 
 ## 一句话总结
 

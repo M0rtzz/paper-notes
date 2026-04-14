@@ -49,7 +49,7 @@ DualReg提出双空间配准范式，先用轻量级1-point RANSAC + 3-point RAN
 
 1. **轻量级1-Point RANSAC快速过滤**:
 
-    - 做什么：从原始对应集 $\mathcal{C}_0$ 中快速剔除大量外点
+    - 功能：从原始对应集 $\mathcal{C}_0$ 中快速剔除大量外点
     - 核心思路：只用**单个对应点**作为采样单元（而非传统的3点），将采样复杂度从 $\mathcal{O}(n^3)$ 降为 $\mathcal{O}(n)$。对每个采样对应 $\mathbf{c}_j$ 定义一致性集：
     $\mathcal{I}(\mathbf{c}_j) = \{\mathbf{c}_i \in \mathcal{C}_0 \mid D_L(\mathbf{c}_i, \mathbf{c}_j) < \tau \;\text{and}\; D_N(\mathbf{c}_i, \mathbf{c}_j) < \nu \}$
       其中 $D_L$ 是长度一致性（对应点间距差异），$D_N$ 是法向一致性（切向距离差异）。迭代搜索，为每个对应维护置信度分数，选择总分最高的一致集
@@ -58,20 +58,20 @@ DualReg提出双空间配准范式，先用轻量级1-point RANSAC + 3-point RAN
 
 2. **概率加权3-Point RANSAC精炼**:
 
-    - 做什么：对1-point RANSAC过滤后的集合进一步提纯
+    - 功能：对1-point RANSAC过滤后的集合进一步提纯
     - 核心思路：为每个对应分配内点概率，基于动态贝叶斯网络更新概率，使用概率加权采样替代随机采样。相比经典RANSAC大幅减少不必要的迭代
     - 设计动机：1-point RANSAC的长度和法向约束仍可能保留某些外点，需要更严格的3-point变换一致性检验来精炼
 
 3. **几何代理点集构建 (Geometric Proxies)**:
 
-    - 做什么：基于过滤后的对应点（锚点），从原始点云中提取局部邻域作为代理点集
+    - 功能：基于过滤后的对应点（锚点），从原始点云中提取局部邻域作为代理点集
     - 核心思路：对每个锚点对应 $\mathbf{c}_j = (\mathbf{v}_j, \mathbf{u}_j) \in \mathcal{C}_{II}$，提取半径 $\beta$ 内的邻域点：
     $\mathcal{P}^s_{\mathbf{c}_j} = \{\mathbf{v}_i \in \mathcal{V} \mid \|\mathbf{v}_i - \mathbf{v}_j\|_2 < \beta\}$
     - 设计动机：相比原始完整点云，锚点周围的几何代理点集具有**显著更高的重叠率**，解决了ICP在低重叠场景下的致命缺陷
 
 4. **双空间联合优化**:
 
-    - 做什么：同时利用特征空间对应和几何空间对应估计最优变换
+    - 功能：同时利用特征空间对应和几何空间对应估计最优变换
     - 核心公式：
     $E(\mathbf{R}, \mathbf{t}) = \frac{\lambda}{|\mathcal{C}_{II}|} \sum_{\mathbf{c}_j \in \mathcal{C}_{II}} w_j \|\mathbf{R}\mathbf{v}_j + \mathbf{t} - \mathbf{u}_j\|^2 + \frac{1}{|\mathcal{P}^s|} \sum_{\tilde{\mathbf{v}}_i \in \mathcal{P}^s} \tilde{w}_i \|\mathbf{R}\tilde{\mathbf{v}}_i + \mathbf{t} - \tilde{\mathbf{u}}_{\rho_i}\|^2$
       第一项是特征空间对应的对齐误差，第二项是几何代理点集上的最近点对齐误差。权重 $w_j, \tilde{w}_i$ 用高斯函数 $\exp(-\|e\|^2 / 2\sigma^2)$ 鲁棒化

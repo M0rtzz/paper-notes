@@ -2,15 +2,16 @@
 title: >-
   [论文解读] A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement
 description: >-
-  [CVPR 2026][医学图像][乳腺超声分割] 通过外观描述驱动VLM免训练生成伪标签，再由双教师不确定性融合+反向对比学习细化，仅2.5%标注即可逼近全监督性能。
+  [CVPR 2026][医学图像][乳腺超声分割] 利用简单外观描述（"dark oval"等）驱动 Grounding DINO + SAM 免训练生成乳腺超声伪标签，再通过双教师不确定性-熵加权融合与自适应反向对比学习精炼伪标签质量，仅 2.5% 标注即达到甚至超过全监督上界。
 tags:
   - CVPR 2026
   - 医学图像
   - 乳腺超声分割
   - VLM伪标签
+  - 外观提示
   - 双教师框架
   - 不确定性融合
-  - 对比学习
+  - 反向对比学习
 ---
 
 # A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement

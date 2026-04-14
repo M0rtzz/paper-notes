@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.19492](https://arxiv.org/abs/2411.19492)  
 **代码**: [https://3dlg-hcvc.github.io/diorama/](https://3dlg-hcvc.github.io/diorama/)  
 **领域**: 3D视觉  
-**关键词**: zero-shot 3D scene modeling, CAD retrieval, scene graph, pose estimation, layout optimization  
+**关键词**: zero-shot 3D scene modeling, CAD retrieval, scene graph, pose estimation, layout optimization
 
 ## 一句话总结
 

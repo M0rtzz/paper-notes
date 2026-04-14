@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：RLHF 是对齐 LLM 的核心技术，经典流程为"先训练句子级奖励模型，再用 PPO 优化"。ChatGPT、Claude 等闭源模型都依赖此范式。
+
 **现有痛点**：PPO 在开源实现中效果不佳。深层原因是 RLHF 被建模为 bandit 问题——整句作为一个 action，奖励是句子级的。但 PPO 本身是为多步 MDP 设计的，需要每步都有奖励。现有实现中，句子级奖励只分配给最后一个 token，其余 token 得到零奖励（稀疏奖励问题）。
+
 **核心矛盾**：PPO 需要密集的逐步奖励信号才能高效学习，但人类偏好标注天然是句子级的，难以直接获取 token 级反馈。
+
 **本文要解决什么**：（1）建立 RLHF 的 token-level MDP 理论框架；（2）找到从偏好数据中提取 token-wise 奖励的实用方法；（3）改进 PPO 在 RLHF 中的表现。
+
 **切入角度**：发现 DPO 训练的模型天然隐含了 token 级奖励信息（$r^*(s_h, a_h) = \beta \log \frac{\pi_{dpo}(y_h|x, y_{1:h-1})}{\pi_{ref}(y_h|x, y_{1:h-1})}$），可以提取出来指导 PPO 训练。
+
 **核心 idea**：DPO "secretly" 提供了 token-wise 奖励，将其作为密集奖励信号融入 PPO 训练（DPO 用于奖励学习 + PPO 用于策略优化 = RTO）。
 
 ## 方法详解
@@ -43,7 +48,7 @@ RTO 是一个两阶段框架：
 
 1. **MDP 建模 RLHF（从 Bandit 到 MDP）**:
 
-    - 做什么：将 RLHF 重新建模为 MDP $\mathcal{M} = (\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho, H)$
+    - 功能：将 RLHF 重新建模为 MDP $\mathcal{M} = (\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho, H)$
     - 状态 $s_h = (x, y_{1:h-1})$：prompt + 已生成 token
     - 动作 $a_h = y_h$：当前生成的 token
     - 转移 $\mathcal{P}$：确定性（因为 LLM 生成过程是拼接）
@@ -53,7 +58,7 @@ RTO 是一个两阶段框架：
 
 2. **DPO 隐式 Token-wise 奖励提取**:
 
-    - 做什么：从 DPO 训练的策略中提取每个 token 的奖励信号
+    - 功能：从 DPO 训练的策略中提取每个 token 的奖励信号
     - 关键推导：在 MDP + 确定性转移下，Bradley-Terry 偏好模型等价于：
     $\mathbb{P}(\tau^1 \succ \tau^2) = \sigma\left(\sum_{h=1}^{H} \beta \log \frac{\pi_\beta^*(a_h^1|s_h^1)}{\pi_{ref}(a_h^1|s_h^1)} - \sum_{h=1}^{H} \beta \log \frac{\pi_\beta^*(a_h^2|s_h^2)}{\pi_{ref}(a_h^2|s_h^2)}\right)$
     - 这恰好与 DPO 的学习目标一致，因此 DPO 学到的策略 $\pi_{dpo}$ 是 $\pi_\beta^*$ 的近似
@@ -62,7 +67,7 @@ RTO 是一个两阶段框架：
 
 3. **RTO 奖励函数设计**:
 
-    - 做什么：组合 token 级 DPO 奖励、KL 正则化和可选的句子级奖励为最终奖励
+    - 功能：组合 token 级 DPO 奖励、KL 正则化和可选的句子级奖励为最终奖励
     - 关键公式（RTO reward, Eq 4.7）：
       - 对 $h \leq H-1$：$r_{rto} = \beta_1 \log \frac{\pi_{dpo}(y_h|...)}{\pi_{ref}(y_h|...)} - \beta_2 \log \frac{\pi(y_h|...)}{\pi_{ref}(y_h|...)}$
       - 对 $h = H$：额外加上 $\beta_3 \cdot r_{MLE}(x, y_{1:H})$

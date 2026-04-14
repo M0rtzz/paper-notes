@@ -27,8 +27,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：TCAV（Testing with Concept Activation Vectors）是概念可解释性的核心方法之一，通过训练线性分类器分离概念嵌入和随机嵌入来获取概念方向向量 CAV，然后计算模型预测对该方向的敏感度。
+
 **现有痛点**：TCAV 依赖随机采样构建参考集，导致每次运行结果可能不同。Kim et al. 建议多次运行取平均，但未量化需要多少次运行、多少样本才能获得稳定结果。
+
 **核心问题**：在固定计算预算下，是做一次大样本运行更好，还是多次小样本运行取平均更好？目前缺乏理论指导。
+
 **切入角度**：借助不平衡逻辑回归的渐近理论，分析 CAV 估计量在随机样本数趋于无穷时的收敛行为。
 
 ## 方法详解
@@ -40,19 +43,19 @@ tags:
 ### 关键理论结果
 
 1. **定理 1：CAV 的渐近正态性**:
-   - 内容：在"包围均值"假设下，$\sqrt{N}(\hat{\beta}_N - \beta_0) \Rightarrow \mathcal{N}(0, \Sigma)$
-   - 推论：CAV 的方差 $\text{tr}(\text{Cov}(\hat{\beta}_N)) = O(1/N)$
-   - 意义：增加随机样本数可以有效稳定 CAV 方向估计
-   - 证明思路：对损失函数梯度在最优点做 Taylor 展开，利用大数定律（Hessian 收敛）和中心极限定理（Score 收敛）结合 Slutsky 定理
+    - 内容：在"包围均值"假设下，$\sqrt{N}(\hat{\beta}_N - \beta_0) \Rightarrow \mathcal{N}(0, \Sigma)$
+    - 推论：CAV 的方差 $\text{tr}(\text{Cov}(\hat{\beta}_N)) = O(1/N)$
+    - 意义：增加随机样本数可以有效稳定 CAV 方向估计
+    - 证明思路：对损失函数梯度在最优点做 Taylor 展开，利用大数定律（Hessian 收敛）和中心极限定理（Score 收敛）结合 Slutsky 定理
 
 2. **推论 1：敏感度分数的方差**:
-   - 内容：$\sqrt{N}(S(\mathbf{x}, \beta_N) - S(\mathbf{x}, \beta_0)) \xrightarrow{D} \mathcal{N}(0, V(\mathbf{x}))$
-   - 意义：敏感度分数的方差也以 $O(1/N)$ 衰减
+    - 内容：$\sqrt{N}(S(\mathbf{x}, \beta_N) - S(\mathbf{x}, \beta_0)) \xrightarrow{D} \mathcal{N}(0, V(\mathbf{x}))$
+    - 意义：敏感度分数的方差也以 $O(1/N)$ 衰减
 
 3. **TCAV 分数方差的意外发现**:
-   - 内容：TCAV 分数的方差**不随 $N$** 衰减，保持 $O(1)$
-   - 原因：TCAV 是对敏感度分数取阈值后计数，"边界点"（敏感度接近 0 的样本）的分类对 CAV 微小变化高度敏感，贡献恒定方差
-   - 解决：多次运行平均，$\text{Var}(T_{\text{multi}}) = O(1/s)$
+    - 内容：TCAV 分数的方差**不随 $N$** 衰减，保持 $O(1)$
+    - 原因：TCAV 是对敏感度分数取阈值后计数，"边界点"（敏感度接近 0 的样本）的分类对 CAV 微小变化高度敏感，贡献恒定方差
+    - 解决：多次运行平均，$\text{Var}(T_{\text{multi}}) = O(1/s)$
 
 ### 实践建议
 

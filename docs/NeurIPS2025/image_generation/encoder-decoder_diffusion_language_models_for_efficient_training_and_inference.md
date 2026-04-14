@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.22852](https://arxiv.org/abs/2510.22852)  
 **代码**: [kuleshov-group/e2d2](https://github.com/kuleshov-group/e2d2)  
 **领域**: image_generation  
-**关键词**: discrete diffusion, encoder-decoder, block diffusion, language model, KV caching  
+**关键词**: discrete diffusion, encoder-decoder, block diffusion, language model, KV caching
 
 ## 一句话总结
 

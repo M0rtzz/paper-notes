@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.04686](https://arxiv.org/abs/2501.04686)  
 **代码**: [URSA-MATH](https://github.com/URSA-MATH)  
 **领域**: multimodal_vlm / llm_reasoning  
-**关键词**: process reward model, multimodal math, GRPO, test-time scaling, chain-of-thought  
+**关键词**: process reward model, multimodal math, GRPO, test-time scaling, chain-of-thought
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **PRM在多模态推理中的空白**：过程奖励模型(PRM)已在纯文本LLM数学推理的测试时缩放(TTS)和强化学习中展现价值，但多模态场景中的应用几乎未被探索。
+
 **高质量推理数据匮乏**：现有多模态数学数据多为answer-only格式或缺乏严格逐步逻辑，TTS和RL的效果上限受基座模型能力制约。
+
 **多模态过程标注缺乏自动化方法**：文本PRM标注可用MCTS，但多模态场景需同时关注逻辑正确性和视觉感知一致性，尚无系统方案。
+
 **PRM在在线RL中的失败模式**：直接将标量过程奖励作为RL目标会导致reward hacking（模型学会迎合PRM而非真正推理）和长度偏差（PRM倾向惩罚长推理链）。
+
 **Test-Time Scaling的潜力**：Best-of-N配合PRM验证可大幅提升推理准确率，仅4次采样即可获得显著提升。
+
 **开源模型与闭源差距**：8B参数的开源MLLM在数学推理上与GPT-4o仍有差距，需要数据+训练范式的系统性突破。
 
 ## 方法详解

@@ -11,7 +11,7 @@ tags:
   - multi-turn evaluation
   - tool-use safety
   - LLM agent
-  - red-teaming
+  - red teaming
   - rule-based evaluation
 ---
 
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2507.06134](https://arxiv.org/abs/2507.06134)  
 **代码**: [GitHub](https://github.com/Open-Agent-Safety/OpenAgentSafety)  
 **领域**: llm_agent  
-**关键词**: AI agent safety, benchmark, multi-turn evaluation, tool-use safety, LLM agent, red-teaming, rule-based evaluation
+**关键词**: AI agent safety, benchmark, multi-turn evaluation, tool-use safety, LLM agent, red teaming, rule-based evaluation
 
 ## 一句话总结
 
@@ -32,8 +32,11 @@ tags:
 LLM agent 已被部署于软件工程、网页浏览、客服等实际场景，但其安全评估远远滞后于能力发展。现有 agent 安全基准存在严重不足：
 
 **环境不真实**：大多依赖模拟 API 或简化环境，无法反映真实工具使用风险
+
 **任务范围窄**：仅覆盖单一领域（如浏览或代码），缺乏全面覆盖
+
 **交互模式简单**：缺少多轮、多用户互动，无法评估长期对话中的安全退化
+
 **用户意图单一**：多数仅考虑恶意输入，忽略了良性但危险的场景
 
 已有基准如 AgentHarm、SafeArena、RedCode 等各有局限，无一同时支持真实工具、多样意图和多轮用户交互（见论文 Table 1 的全面对比）。

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.03256](https://arxiv.org/abs/2503.03256)  
 **代码**: [gangweix/BAT](https://github.com/gangweix/BAT)  
 **领域**: video_understanding  
-**关键词**: event camera, optical flow, bidirectional temporal correlation, deformable attention, event-based vision  
+**关键词**: event camera, optical flow, bidirectional temporal correlation, deformable attention, event-based vision
 
 ## 一句话总结
 

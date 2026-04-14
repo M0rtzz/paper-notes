@@ -2,14 +2,14 @@
 title: >-
   [论文解读] How to Mitigate Overfitting in Weak-to-Strong Generalization?
 description: >-
-  [ACL 2025][weak-to-strong generalization] 提出两阶段训练框架解决弱到强泛化中的过拟合问题：第一阶段通过基于不确定性的过滤提高弱监督信号质量，第二阶段用已微调的强模型为被丢弃的难题重新生成答案以恢复问题质量，在 GSM8k 和 MATH 上将 PGR 从 7.19% 提升到 120.50%。
+  [ACL 2025][弱到强泛化] 提出两阶段训练框架解决弱到强泛化中的过拟合问题：第一阶段通过基于不确定性的过滤提高弱监督信号质量，第二阶段用已微调的强模型为被丢弃的难题重新生成答案以恢复问题质量，在 GSM8k 和 MATH 上将 PGR 从 7.19% 提升到 120.50%。
 tags:
   - ACL 2025
-  - weak-to-strong generalization
-  - superalignment
+  - 弱到强泛化
+  - 超级对齐
   - overfitting
   - data filtering
-  - self-consistency
+  - 自一致性
 ---
 
 # How to Mitigate Overfitting in Weak-to-Strong Generalization?
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.04249](https://arxiv.org/abs/2503.04249)  
 **代码**: 无  
 **领域**: LLM/NLP  
-**关键词**: weak-to-strong generalization, superalignment, overfitting, data filtering, self-consistency
+**关键词**: 弱到强泛化, 超级对齐, overfitting, data filtering, 自一致性
 
 ## 一句话总结
 提出两阶段训练框架解决弱到强泛化中的过拟合问题：第一阶段通过基于不确定性的过滤提高弱监督信号质量，第二阶段用已微调的强模型为被丢弃的难题重新生成答案以恢复问题质量，在 GSM8k 和 MATH 上将 PGR 从 7.19% 提升到 120.50%。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：超对齐（superalignment）的核心挑战是：当任务超越人类评估能力时，如何对齐超人模型？弱到强泛化（weak-to-strong generalization）探索弱监督者能否引导更强模型。
+
 **现有痛点**：弱模型生成的标签包含噪声，强模型的强拟合能力导致其过拟合这些错误标签，性能退化严重。
+
 **核心矛盾**：简单过滤掉错误标签虽能提高标签质量，但会同时丢弃有价值的难题样本，导致训练集难度和多样性退化（问题质量下降）——这形成了"监督信号质量"与"问题质量"之间的两难。
+
 **本文要解决什么？** 同时提升监督信号质量和问题质量，打破过滤导致的质量-多样性权衡困境。
+
 **切入角度**：从 Lang et al. (2024) 的扩展理论出发——弱到强泛化依赖两个机制：伪标签纠正和覆盖扩展，过度过滤虽改善前者但损害后者。
+
 **核心 idea 一句话**：先过滤提纯监督信号，再用微调后的强模型为丢弃的难题重新标注，既保证标签正确性又恢复问题难度和多样性。
 
 ## 方法详解

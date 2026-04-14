@@ -34,7 +34,9 @@ tags:
 ### 已有方法的不足
 
 **早期层注意力信号质量差**：FastV 等方法利用 VLM 第 2 层的注意力图指导视觉 token 剪枝，但实验发现早期层的注意力对任务不敏感——不同 prompt 选出几乎相同的 token，导致剪枝后精度显著下降
+
 **仅加速 prefilling 阶段**：现有 token 剪枝方法（FastV、SparseVLM、VisionZip 等）主要关注 prefilling 加速，而 decoding 阶段是推理过程中耗时最长的部分。当生成 ≥32 个 token 时，decoding 时间已远超 prefilling 时间
+
 **KV-cache 限制了剪枝对 decoding 的加速**：由于 KV-cache 机制，视觉 token 剪枝对 self-attention 的 decoding 加速效果有限，且完全不加速占主要计算量的 FFN 层
 
 ### 核心动机

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.10100](https://arxiv.org/abs/2510.10100)  
 **代码**: [https://github.com/krumpguo/FedCoPL](https://github.com/krumpguo/FedCoPL)  
 **领域**: 优化 / 联邦学习  
-**关键词**: 无监督联邦学习, 伪标签, CLIP, Prompt Tuning, 标签偏移
+**关键词**: 无监督联邦学习, 伪标签, CLIP, prompt tuning, 标签偏移
 
 ## 一句话总结
 

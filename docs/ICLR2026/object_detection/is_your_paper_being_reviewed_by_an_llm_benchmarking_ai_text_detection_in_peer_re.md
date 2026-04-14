@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.19614](https://arxiv.org/abs/2502.19614)  
 **代码**: [IntelLabs/AI-Peer-Review-Detection-Benchmark](https://huggingface.co/datasets/IntelLabs/AI-Peer-Review-Detection-Benchmark)  
 **领域**: object_detection  
-**关键词**: AI text detection, peer review, LLM-generated text, benchmark, scientific integrity  
+**关键词**: AI text detection, peer review, LLM-generated text, benchmark, scientific integrity
 
 ## 一句话总结
 

@@ -47,19 +47,19 @@ tags:
 
 1. **博弈论信息量最大化 (Game-theoretic Informativeness Maximization)**:
 
-    - 做什么：用Shapley Value归因找到每个图像中最重要的patch
+    - 功能：用Shapley Value归因找到每个图像中最重要的patch
     - 核心思路：将图像视为博弈游戏，每个patch是一个玩家，$\phi_f(x^{(i)}) = \frac{1}{d}\sum_{s:s_i=0}\binom{d-1}{\mathbf{1}^\top s}(f(x\circ(s+e_i)) - f(x\circ s))$。用KernelShap快速估计。选Shapley值最高的patch保留。
     - 设计动机：Shapley Value是唯一同时满足线性、虚拟、对称、效率四条公理的归因方法，理论基础最扎实。
 
 2. **有原则的效用最大化 (Principled Utility Maximization)**:
 
-    - 做什么：用梯度范数评估每个样本对训练的重要性并选top-m
+    - 功能：用梯度范数评估每个样本对训练的重要性并选top-m
     - 核心思路：Theorem 1证明效用函数 $\mathcal{U}$ 的上界是梯度范数：$\mathcal{U}(x_i, y_i; f_{\theta^{(t)}}) \leq c\|\nabla_{\theta^{(t)}}\ell_t(f_{\theta^{(t)}}(x_i), y_i)\|$
     - 设计动机：直接计算Utility需要对每个样本做"有/无"实验，计算代价太高。梯度范数是可计算的上界，越大说明该样本对训练影响越大。
 
 3. **多样性控制**:
 
-    - 做什么：在Shapley归因热力图上加随机噪声引入patch选择的多样性
+    - 功能：在Shapley归因热力图上加随机噪声引入patch选择的多样性
     - 核心思路：$\phi + \varepsilon$，$\varepsilon \sim \mathcal{N}(0, \sigma^2)$
     - 设计动机：纯Shapley可能总是选同一区域，噪声让不同样本选择不同的informative区域
 

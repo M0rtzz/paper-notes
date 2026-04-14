@@ -10,7 +10,7 @@ tags:
   - 文本到图像生成
   - 3D渲染
   - 多模态大语言模型
-  - Benchmark
+  - benchmark
 ---
 
 # REVISION: Rendering Tools Enable Spatial Fidelity in Vision-Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.02231](https://arxiv.org/abs/2408.02231)  
 **代码**: https://github.com/AgneetchatterjeeASU/REVISION (有)  
 **领域**: 多模态视觉语言模型 / 文本到图像生成  
-**关键词**: 空间关系推理, 文本到图像生成, 3D渲染, 多模态大语言模型, Benchmark
+**关键词**: 空间关系推理, 文本到图像生成, 3D渲染, 多模态大语言模型, benchmark
 
 ## 一句话总结
 提出 REVISION 框架，利用 Blender 3D 渲染生成空间关系精确的合成图像，以免训练方式引导 T2I 模型生成空间一致的图像，并构建 RevQA 基准评估 MLLM 的空间推理能力。

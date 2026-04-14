@@ -10,7 +10,7 @@ tags:
   - Null Space
   - 策略优化
   - Alignment Tax
-  - 梯度投影
+  - gradient projection
 ---
 
 # Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.11391](https://arxiv.org/abs/2512.11391)  
 **代码**: https://github.com/ivanniu/NSPO  
 **领域**: 对齐RLHF  
-**关键词**: Safety Alignment, Null Space, 策略优化, Alignment Tax, 梯度投影
+**关键词**: Safety Alignment, Null Space, 策略优化, Alignment Tax, gradient projection
 
 ## 一句话总结
 提出 NSPO，将安全对齐的策略梯度投影到通用任务表征的零空间中，从几何层面保证安全优化不损害通用能力，仅用 40% 安全数据即在 7 个安全 benchmark 上达到 SOTA，同时在数学/代码/指令遵循上几乎无性能损失。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 安全对齐（拒绝有害请求、遵守伦理规范）通常通过 RL（PPO/GRPO/DPO）在安全数据上训练实现。
+
 **现有痛点**：安全对齐会导致 **alignment tax**——模型变得过于保守，在数学推理、代码生成等通用任务上性能下降。现有方法（SafeRLHF、W-DOOR、BFPO）将安全和通用能力建模为双目标优化，通过平衡权重或混入大量通用数据来缓解，但**没有在训练过程中显式解决两个目标的梯度冲突**。
+
 **核心矛盾**：安全梯度和通用能力梯度方向存在冲突——沿安全梯度更新参数时，会破坏模型已学到的通用任务表征。
+
 **本文要解决什么？** 如何在进行安全对齐时，从根本上避免对通用能力的损害？
+
 **切入角度**：如果参数更新 $\Delta$ 处于通用任务输入表征 $K$ 的零空间（$\Delta K = 0$），则更新后模型对通用输入的输出保持不变。
+
 **核心idea一句话**：将安全策略梯度投影到通用任务表征矩阵的零空间中，几何上保证安全更新与通用能力正交。
 
 ## 方法详解
@@ -42,19 +47,19 @@ NSPO 基于 GRPO 框架，关键改造是在梯度更新时加入零空间投影
 
 1. **零空间投影矩阵构建**:
 
-    - 做什么：从通用数据（常识/数学/代码各采样）提取模型每层线性变换的输入表征 $K$，构建投影矩阵
+    - 功能：从通用数据（常识/数学/代码各采样）提取模型每层线性变换的输入表征 $K$，构建投影矩阵
     - 核心思路：$\{U, \Lambda, U^T\} = \text{SVD}(KK^T)$，保留对应近零特征值（<5e-4）的特征向量 $\hat{U}$，投影矩阵为 $\hat{U}\hat{U}^T$
     - 设计动机：直接对 $K \in \mathbb{R}^{d \times N}$ 求零空间计算量太大（$N \gg d$），改用 $KK^T \in \mathbb{R}^{d \times d}$ 的零空间等价且高效
 
 2. **梯度投影**:
 
-    - 做什么：将安全 GRPO 梯度 $\nabla_W \mathcal{J}$ 投影到零空间得到 $\nabla_W \mathcal{J}_{\text{NSPO}} = (\nabla_W \mathcal{J}) \cdot \hat{U}\hat{U}^T$
+    - 功能：将安全 GRPO 梯度 $\nabla_W \mathcal{J}$ 投影到零空间得到 $\nabla_W \mathcal{J}_{\text{NSPO}} = (\nabla_W \mathcal{J}) \cdot \hat{U}\hat{U}^T$
     - 核心思路：投影后 $\nabla_W \mathcal{J}_{\text{NSPO}} \cdot K = 0$，即参数更新不改变模型对通用输入的输出：$(W - \eta \nabla_W \mathcal{J}_{\text{NSPO}})K = WK = V$
     - 设计动机：从几何层面硬约束安全更新不侵入通用能力子空间，比软约束（KL 正则）更可靠
 
 3. **移除 KL 散度正则**:
 
-    - 做什么：去掉 GRPO 中的 $D_{\text{KL}}[\pi_\theta \| \pi_{\text{ref}}]$ 项
+    - 功能：去掉 GRPO 中的 $D_{\text{KL}}[\pi_\theta \| \pi_{\text{ref}}]$ 项
     - 设计动机：KL 正则将策略拉向参考模型（可能不安全），与安全目标冲突；零空间投影已是更好的正则化——既防止过度优化又保证安全目标下降
 
 4. **理论保证**:

@@ -30,6 +30,7 @@ tags:
 时间序列预测领域近年来涌现了大量新架构（Transformer、CNN、MLP、SSM），但这些工作**过度聚焦于编码器设计**，而忽略了两个同样重要的方面：
 
 **解码策略粗糙**：大多数方法直接用线性投影从编码表示预测未来值，难以充分捕获复杂的时序结构
+
 **训练策略与架构脱节**：受 BERT 启发的预训练-微调（mask-and-reconstruct → forecasting）两阶段训练存在目标不对齐问题——预训练学的是重建，但最终目标是预测
 
 此外，通道独立模型（如 PatchTST）简单鲁棒但忽略了跨通道交互，而通道依赖模型（如 iTransformer、CARD）虽然建模了交互但计算成本高且效果不稳定。
@@ -52,7 +53,7 @@ TimePerceiver 由三部分组成：(1) 基于 Patch 的嵌入构建；(2) 带有
 
 2. **潜在瓶颈编码器**：引入 $M$ 个可学习的潜在 token $\mathbf{Z}^{(0)} \in \mathbb{R}^{M \times D}$（$M \ll C|\mathcal{I}_{\text{patch}}|$），通过三步瓶颈过程编码输入：
 
-   - **压缩**：潜在 token 通过交叉注意力从输入 token 收集上下文信息
+    - **压缩**：潜在 token 通过交叉注意力从输入 token 收集上下文信息
      $\mathbf{Z}^{(1)} = \text{AttnBlock}(\mathbf{Z}^{(0)}, \mathbf{H}^{(0)})$
    - **精炼**：$K$ 层自注意力在潜在空间内相互作用
      $\mathbf{Z}^{(k+1)} = \text{AttnBlock}(\mathbf{Z}^{(k)}, \mathbf{Z}^{(k)})$

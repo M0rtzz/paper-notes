@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.00234](https://arxiv.org/abs/2502.00234)  
 **代码**: [DiscreteFastSolver](https://github.com/yuchen-zhu-zyc/DiscreteFastSolver)  
 **领域**: image_generation  
-**关键词**: discrete diffusion, high-order solver, τ-leaping, Trapezoidal method, text generation, image generation  
+**关键词**: discrete diffusion, high-order solver, τ-leaping, Trapezoidal method, text generation, image generation
 
 ## 一句话总结
 

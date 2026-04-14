@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Text-to-3D by Stitching a Multi-view Reconstruction Network to a Video Generator
 description: >-
-  [ICLR 2026][3D视觉][Text-to-3D] 提出VIST3A框架——通过模型拼接(model stitching)将预训练视频生成器的latent空间与前馈3D重建模型(如AnySplat/MVDUSt3R/VGGT)无缝对接，再用直接奖励微调(direct reward finetuning)对齐生成模型与拼接后的3D解码器，实现高质量端到端text-to-3DGS和text-to-pointmap生成，在T3Bench/SceneBench/DPG-Bench上全面超越现有方法。
+  [ICLR 2026][3D视觉][文生3D] 提出VIST3A框架——通过模型拼接(model stitching)将预训练视频生成器的latent空间与前馈3D重建模型(如AnySplat/MVDUSt3R/VGGT)无缝对接，再用直接奖励微调(direct reward finetuning)对齐生成模型与拼接后的3D解码器，实现高质量端到端text-to-3DGS和text-to-pointmap生成，在T3Bench/SceneBench/DPG-Bench上全面超越现有方法。
 tags:
   - ICLR 2026
   - 3D视觉
-  - Text-to-3D
+  - 文生3D
   - 模型拼接
   - 视频生成器
   - 3D重建
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2510.13454](https://arxiv.org/abs/2510.13454)  
 **代码**: [项目页面](https://gohyojun15.github.io/VIST3A/)  
 **领域**: 3D视觉/生成  
-**关键词**: Text-to-3D, 模型拼接, 视频生成器, 3D重建, 3DGS, 直接奖励微调, 点云图
+**关键词**: 文生3D, 模型拼接, 视频生成器, 3D重建, 3DGS, 直接奖励微调, 点云图
 
 ## 一句话总结
 提出VIST3A框架——通过模型拼接(model stitching)将预训练视频生成器的latent空间与前馈3D重建模型(如AnySplat/MVDUSt3R/VGGT)无缝对接，再用直接奖励微调(direct reward finetuning)对齐生成模型与拼接后的3D解码器，实现高质量端到端text-to-3DGS和text-to-pointmap生成，在T3Bench/SceneBench/DPG-Bench上全面超越现有方法。

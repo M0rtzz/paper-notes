@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning
 description: >-
-  [NeurIPS 2025][LLM推理][test-time compute] 揭示了过度延长 CoT 长度会损害 LLM 推理性能，并提出 Thinking-Optimal Scaling (TOPS) 策略，让模型为每道题选择最短正确响应进行自我提升，在效果和效率上同时优于现有蒸馏方法。
+  [NeurIPS 2025][LLM推理][测试时计算] 揭示了过度延长 CoT 长度会损害 LLM 推理性能，并提出 Thinking-Optimal Scaling (TOPS) 策略，让模型为每道题选择最短正确响应进行自我提升，在效果和效率上同时优于现有蒸馏方法。
 tags:
   - NeurIPS 2025
   - LLM推理
-  - test-time compute
+  - 测试时计算
   - Chain-of-Thought
   - reasoning scaling
-  - overthinking
-  - self-improvement
+  - 过度思考
+  - 自我改进
   - optimal reasoning effort
 ---
 
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2502.18080](https://arxiv.org/abs/2502.18080)  
 **代码**: [RUCBM/TOPS](https://github.com/RUCBM/TOPS)  
 **领域**: model_compression / LLM reasoning  
-**关键词**: test-time compute, Chain-of-Thought, reasoning scaling, overthinking, self-improvement, optimal reasoning effort
+**关键词**: 测试时计算, Chain-of-Thought, reasoning scaling, 过度思考, 自我改进, optimal reasoning effort
 
 ## 一句话总结
 
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **System-2 思维范式兴起**：以 OpenAI o1 为代表的推理模型通过延长 CoT 来实现搜索、反思、回溯等深度推理，在复杂任务上取得显著提升。
+
 **后续工作追求更长 CoT**：QwQ-32B-Preview、DeepSeek-R1 等模型通过蒸馏或 RL 进一步扩展推理 token 数量，试图获得更好的性能。
+
 **"overthinking" 效率问题**：已有并发工作指出 o1-like 模型对简单问题生成过多冗余 token，但仅关注效率，未探讨对正确率的影响。
+
 **作者核心关切**：过度追求更长 CoT 是否会在某些领域反而 *降低* 推理准确率？这是一个比效率更深层的问题。
+
 **初步观察**：对比 QwQ-32B-Preview 与 Qwen2.5-32B-Instruct，前者使用显著更多 token 但性能提升有限，暗示长 CoT 并非总有益。
+
 **研究目标**：系统性地研究 CoT 长度缩放对推理性能的影响，并设计"思考最优"的缩放策略，让模型自适应决定每道题所需的推理深度。
 
 ## 方法详解

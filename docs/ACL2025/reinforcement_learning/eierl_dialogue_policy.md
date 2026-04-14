@@ -6,7 +6,7 @@ description: >-
 tags:
   - ACL 2025
   - task-oriented dialogue
-  - 强化学习
+  - reinforcement-learning
   - evolutionary algorithm
   - exploration-exploitation
   - dialogue policy
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2506.03519](https://arxiv.org/abs/2506.03519)  
 **代码**: [GitHub](https://github.com/niulinbiao/eierl)  
 **领域**: llm_nlp  
-**关键词**: task-oriented dialogue, reinforcement learning, evolutionary algorithm, exploration-exploitation, dialogue policy  
+**关键词**: task-oriented dialogue, reinforcement-learning, evolutionary algorithm, exploration-exploitation, dialogue policy
 
 ## 一句话总结
 提出 EIERL 方法，将进化算法（EA）的全局搜索能力与深度强化学习（DRL）的局部优化能力结合用于任务导向对话策略学习，并设计精英个体注入（EII）机制自适应地将高性能个体注入 EA 种群以加速进化，在 4 个数据集上显著提升探索-利用平衡。
 
 ## 研究背景与动机
 **领域现状**：DRL 是优化任务导向对话策略（DP）的主流方法，但在高维状态-动作空间中难以平衡探索与利用。
+
 **现有痛点**：(a) 直接探索策略设计成本高且领域特定；(b) 间接方法（专家知识/用户模拟器）需额外构建成本；(c) LLM 虽语言能力强但决策能力弱，不适合 DP 任务。
+
 **核心矛盾**：DRL 擅长利用（梯度优化）但探索不足容易陷入局部最优；EA 擅长探索（种群多样性）但缺乏梯度信息导致利用效率低。
+
 **本文要解决什么？** 如何在对话任务的大搜索空间中高效整合 EA 的探索和 DRL 的利用？
+
 **切入角度**：将 ERL（进化强化学习）引入对话策略，并用 EII 机制解决 EA 在自然语言大搜索空间中进化缓慢的问题。
+
 **核心 idea 一句话**：精英个体注入加速 EA 探索 + DRL 种群复制实现利用，首次将 ERL 应用于对话策略任务。
 
 ## 方法详解
@@ -39,7 +44,7 @@ tags:
 ### 关键设计
 1. **精英个体注入（EII）机制**:
 
-    - 做什么：当某个体的适应度（累计奖励）超过历史最高阈值 $f_{max}$ 时，将其注入 EA 种群
+    - 功能：当某个体的适应度（累计奖励）超过历史最高阈值 $f_{max}$ 时，将其注入 EA 种群
     - 核心思路：精英判别器自适应更新阈值，随训练推进要求越来越高
     - 设计动机：对话任务搜索空间巨大，纯 EA 进化需要大量时间，精英注入引导搜索方向
 

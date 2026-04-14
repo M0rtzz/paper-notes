@@ -53,20 +53,20 @@ Pipeline:
 
 1. **隐私 Expander Decomposition**:
 
-    - 做什么：在满足差分隐私的前提下，将图分解为若干 $\phi$-expander 和少量跨组边（体积占比 $\leq \phi$ 的边被切断）
+    - 功能：在满足差分隐私的前提下，将图分解为若干 $\phi$-expander 和少量跨组边（体积占比 $\leq \phi$ 的边被切断）
     - 核心思路：经典的 expander decomposition 基于 Cheeger 不等式和谱方法，但谱计算涉及全局图信息，直接不满足差分隐私。本文设计了一种基于局部随机游走的隐私分解算法
     - 设计动机：这是全文的核心贡献。非隐私的 expander decomposition 已经是图算法的强大工具，将其推广到隐私设定打开了广阔的应用空间
 
 2. **Expander 上的隐私稀疏化（Private Sparsification on Expanders）**:
 
-    - 做什么：在每个 expander 子图上构造隐私稀疏化
+    - 功能：在每个 expander 子图上构造隐私稀疏化
     - 核心思路：expander 的割结构高度规则——任何割的值至少为 $\phi$ 乘以较小侧的体积。这意味着相对误差 (additive error / cut value) 更小，可以用更少的噪声
     - 关键公式：在 $\phi$-expander 上，加性误差可以降至 $\tilde{O}(n/\phi)$
     - 设计动机：将全局问题分解为若干"结构良好"的子问题，每个子问题更容易处理
 
 3. **递归分解策略（Recursive Decomposition）**:
 
-    - 做什么：对跨组边递归应用 expander decomposition
+    - 功能：对跨组边递归应用 expander decomposition
     - 核心思路：每层分解将加性误差降低一个 $n^{O(1/L)}$ 因子，$L$ 层递归后达到 $n^{1+1/4+o(1)}$
     - 设计动机：单层分解不足以突破 $n^{1.5}$，递归是进一步压缩误差的关键
 

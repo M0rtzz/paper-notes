@@ -9,11 +9,11 @@ tags:
   - MoE
   - scaling laws
   - sparsity
-  - reasoning
-  - memorization
+  - 推理
+  - 记忆
   - tokens per parameter
   - GRPO
-  - test-time compute
+  - 测试时计算
 ---
 
 # Optimal Sparsity of Mixture-of-Experts Language Models for Reasoning Tasks
@@ -22,7 +22,7 @@ tags:
 **arXiv**: [2508.18672](https://arxiv.org/abs/2508.18672)  
 **代码**: [GitHub](https://github.com/rioyokotalab/optimal-sparsity)  
 **领域**: llm_alignment  
-**关键词**: MoE, scaling laws, sparsity, reasoning, memorization, tokens per parameter, GRPO, test-time compute
+**关键词**: MoE, scaling laws, sparsity, 推理, 记忆, tokens per parameter, GRPO, 测试时计算
 
 ## 一句话总结
 
@@ -33,8 +33,11 @@ tags:
 经典 scaling laws（Kaplan et al., 2020; Hoffmann et al., 2022）建立了预训练损失与模型规模/数据量/计算预算之间的幂律关系，成为模型规划的基石。但这些定律有重要局限：
 
 **系数不通用**：架构或数据管道改变后需重新估计
+
 **MoE 引入新维度**：MoE 模型通过稀疏路由以固定 FLOPs 获得高容量，成为 Gemini 2.5 Pro、DeepSeek-V3、Qwen3 等旗舰模型的标准配置，但稠密模型的 scaling 前沿无法覆盖稀疏度这一维度
+
 **损失≠性能**：相同预训练损失的模型在下游推理基准上可能表现迥异（GLM-4.5 Team 也有此观察）
+
 **后训练和 TTC 的影响未知**：GRPO 和测试时计算是否能弥补预训练稀疏度选择的不足？
 
 ## 方法详解

@@ -30,7 +30,9 @@ tags:
 阿尔茨海默病 (AD) 的临床诊断需整合结构性 MRI、神经心理学测试、APOE 基因型、脑脊液生物标志物等多模态数据。现有 AI 方法存在三个核心痛点：
 
 **黑箱问题**：多数模型只输出标签或风险评分，无法解释"为何做此判断"及"哪些证据支撑了判断"
+
 **多模态整合不足**：许多方法仍在单一模态上操作，忽略跨模态依赖
+
 **临床指南脱节**：现有 MLLM 生成的医学报告很少 (i) 将生成句子链接到具体临床条目，(ii) 将声明定位到 3D 脑部解剖结构，(iii) 强制遵循 NIA-AA 等诊断框架
 
 EMAD 的核心动机是构建一个**透明、可追溯、解剖学忠实**的 AD 报告生成系统，让每个诊断声明都有证据链支撑。
@@ -57,7 +59,7 @@ $$\mathbf{A}_{t \to v} = \text{Attn}(h_t', h_v', h_v'), \quad \mathbf{A}_{v \to 
 
 1. **Sentence–Evidence–Anatomy (SEA) Grounding**：分层证据对齐机制
 
-   - **Sentence-to-Evidence**：将每个生成句子 $\hat{s}_i$ 与临床证据集 $\mathcal{E}=\{e_1,\ldots,e_K\}$ 做多对多匹配。采用多正例 InfoNCE 损失，双向计算（evidence→sentence + sentence→evidence）：
+    - **Sentence-to-Evidence**：将每个生成句子 $\hat{s}_i$ 与临床证据集 $\mathcal{E}=\{e_1,\ldots,e_K\}$ 做多对多匹配。采用多正例 InfoNCE 损失，双向计算（evidence→sentence + sentence→evidence）：
 
    $$\mathcal{L}_{\text{SE}} = \frac{1}{N}\sum_{i=1}^{N}(\ell_i^{e \to s} + \ell_i^{s \to e})$$
 
@@ -65,8 +67,8 @@ $$\mathbf{A}_{t \to v} = \text{Attn}(h_t', h_v', h_v'), \quad \mathbf{A}_{v \to 
 
 2. **GTX-Distill（Grounding Transfer Distillation）**：标签高效的 grounding 蒸馏策略
 
-   - **Stage 1**：在小规模标注子集上训练 Teacher Grounder $G_T$，学习 sentence→evidence 分布 $q(e|s_i)$ 和解剖掩码
-   - **Stage 2**：冻结 $G_T$，在大规模模型生成报告上训练 Student Grounder $G_\theta$，通过温度缩放 KL 散度蒸馏：
+    - **Stage 1**：在小规模标注子集上训练 Teacher Grounder $G_T$，学习 sentence→evidence 分布 $q(e|s_i)$ 和解剖掩码
+    - **Stage 2**：冻结 $G_T$，在大规模模型生成报告上训练 Student Grounder $G_\theta$，通过温度缩放 KL 散度蒸馏：
 
    $$\mathcal{L}^{\text{distill}} = \tau^2 \sum_i \text{KL}(q_\tau(\cdot|\hat{s}_i) \| p_{\theta,\tau}(\cdot|\hat{s}_i))$$
 

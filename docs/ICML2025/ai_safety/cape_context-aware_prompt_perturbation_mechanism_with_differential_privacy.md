@@ -27,13 +27,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 推理服务（如 ChatGPT）要求用户将明文 prompt 发送到服务器，prompt 中可能包含敏感信息（邮件、商业机密等），存在隐私泄露风险。
+
 **现有痛点**：
    - 密码学方案（MPC/HE）虽提供可证安全性，但开销巨大（每个 token 需 ~30s），不实用
    - 白盒方案（DP-Forward 等）需在客户端部署模型浅层，要求模型修改
    - 现有 DP 方案（SANTEXT、CUSTEXT、InferDPT）仅用 token 嵌入距离衡量语义相似性，忽略上下文信息，导致语义一致性差（如"enjoyable"和"unenjoyable"在嵌入空间中距离很近但含义相反）
+
 **核心矛盾**：NLP 词表极大（30K+），标准指数机制在如此大的采样空间中会出现长尾现象——大量低效用 token 的累积概率很大，导致频繁采样到无关 token。
+
 **本文要解决什么**：如何在黑盒推理场景下，用高效的 DP 机制扰动 prompt，同时保持语义一致性和隐私？
+
 **切入角度**：(a) 引入上下文 logit 信息增强效用函数；(b) 设计分桶采样抑制长尾效应
+
 **核心 idea**：将上下文相关性（由客户端小模型提供的 logit）和 token 嵌入距离融合为混合效用函数，配合等宽分桶指数机制，实现上下文感知的 prompt 扰动。
 
 ## 方法详解
@@ -48,14 +53,14 @@ tags:
 
 1. **混合效用函数 (Hybrid Utility Function)**:
 
-    - 做什么：综合 token 嵌入距离和上下文 logit 为候选 token 打分
+    - 功能：综合 token 嵌入距离和上下文 logit 为候选 token 打分
     - 核心思路：$u(t_i, t_r) = L_r^{\lambda_L} \cdot D(t_i, t_r)^{\lambda_D}$，其中 $L_r = \mathcal{M}_c(t_r | \text{Ctx})$ 是上下文 logit，$D(t_i, t_r) = \exp(-d_{\text{euc}}^{\text{norm}}(t_i, t_r))$ 是归一化欧氏距离的指数衰减
     - 设计动机：仅用嵌入距离会混淆反义词（如 enjoyable vs unenjoyable）；加入上下文 logit 后，上下文中不合理的替换会得到低 logit 从而被抑制
     - 有界性保证：距离部分 $D \in (0, 1]$，logit 通过 clip 限制到 $[-B, B]$，确保敏感度可控
 
 2. **分桶指数机制 (Bucketized Exponential Mechanism)**:
 
-    - 做什么：解决大词表下标准指数机制的长尾问题
+    - 功能：解决大词表下标准指数机制的长尾问题
     - 核心思路：将候选 token 按效用分值排序后分入 $N_b$ 个等宽桶，每个桶用均值效用代表→先用 EM 采样桶→再从桶内均匀采样 token
     - 采样概率：$\mathbb{P}[\mathcal{R}(t) = t_r] \propto \frac{\exp(\frac{\epsilon}{2\Delta} \text{mean}(b_i))}{|b_i|}$
     - 设计动机：标准 EM 中，top-10 高效用 token 的累积概率不到 1%（$\epsilon=6, N=50000$ 时），分桶后低效用 token 的影响被桶级概率压缩
@@ -63,7 +68,7 @@ tags:
 
 3. **非敏感 token 保留**:
 
-    - 做什么：预定义 179 个停用词 + 32 个标点为非敏感 token，保留不扰动
+    - 功能：预定义 179 个停用词 + 32 个标点为非敏感 token，保留不扰动
     - 设计动机：这些 token 不含隐私信息但对文本连贯性至关重要
 
 ### 损失函数 / 训练策略

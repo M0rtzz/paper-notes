@@ -9,7 +9,7 @@ tags:
   - Positional Encoding
   - RoPE
   - Context Window Extension
-  - Training-Free
+  - training-free
   - Length Extrapolation
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: 无公开 arXiv 版本  
 **代码**: 无公开代码  
 **领域**: LLM / NLP — 长上下文建模、位置编码  
-**关键词**: Positional Encoding, RoPE, Context Window Extension, Training-Free, Length Extrapolation  
+**关键词**: Positional Encoding, RoPE, Context Window Extension, training-free, Length Extrapolation
 
 ## 一句话总结
 

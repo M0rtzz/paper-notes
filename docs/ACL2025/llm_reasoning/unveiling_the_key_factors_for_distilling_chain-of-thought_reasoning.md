@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2502.18001](https://arxiv.org/abs/2502.18001)  
 **代码**: https://github.com/EIT-NLP/Distilling-CoT-Reasoning  
 **领域**: LLM Reasoning / CoT 蒸馏  
-**关键词**: Chain-of-Thought, Knowledge Distillation, Reasoning Granularity, Small Language Models, Teacher-Student
+**关键词**: Chain-of-Thought, knowledge distillation, Reasoning Granularity, Small Language Models, Teacher-Student
 
 ## 一句话总结
 系统研究影响 CoT 蒸馏的三大因素（粒度、格式、教师模型），发现 SLM 与粒度呈非单调关系、格式影响较小、强教师不总是更好。
 
 ## 研究背景与动机
 **领域现状**：CoT prompting 大幅提升 LLM 推理能力，但计算开销大，需将 CoT 能力蒸馏到小模型。
+
 **现有痛点**：CoT 蒸馏中教师和生成方法的选择往往是随意的，缺乏系统性指导。
+
 **核心矛盾**：对 LLM 有效的 CoT 策略（更细粒度、特定格式）是否同样适用于 SLM？
+
 **本文要解决什么？** 什么是训练学生模型获得推理能力的最有效 CoT 监督？
+
 **切入角度**：借鉴人类教学类比——教师选择、教学粒度、教学格式三个维度的系统实验。
+
 **核心idea一句话**：CoT 蒸馏需要"因材施教"——针对学生模型能力定制粒度和教师选择。
 
 ## 方法详解
@@ -40,19 +45,19 @@ tags:
 ### 关键设计
 1. **粒度实验 (Granularity)**:
 
-    - 做什么：设计 6 个粒度等级，从极简到极细的推理步骤
+    - 功能：设计 6 个粒度等级，从极简到极细的推理步骤
     - 核心思路：用 1-shot prompting 控制 GPT-4o 生成不同粒度的 CoT 标注
     - 设计动机：验证 SLM 是否像 LLM 一样从更细粒度中获益
 
 2. **格式实验 (Format)**:
 
-    - 做什么：测试自然语言、Least-to-Most、RaR 等不同推理格式
+    - 功能：测试自然语言、Least-to-Most、RaR 等不同推理格式
     - 核心思路：保持内容不变，仅改变推理链的呈现结构
     - 设计动机：探究 SLM 对推理格式的敏感度
 
 3. **教师选择实验 (Teacher)**:
 
-    - 做什么：对比 GPT-4o、Gemini-1.5-Flash、LLaMA-3-70B 和人类标注
+    - 功能：对比 GPT-4o、Gemini-1.5-Flash、LLaMA-3-70B 和人类标注
     - 核心思路：固定粒度和格式，只变教师来源
     - 设计动机：验证"最强教师=最好学生"假设是否成立
 

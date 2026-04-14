@@ -17,7 +17,7 @@ tags:
 **arXiv**: [2510.02295](https://arxiv.org/abs/2510.02295)  
 **代码**: 无  
 **领域**: 视频理解  
-**关键词**: sparse attention, video understanding, long context, multimodal LLM  
+**关键词**: sparse attention, video understanding, long context, multimodal LLM
 
 ## 一句话总结
 

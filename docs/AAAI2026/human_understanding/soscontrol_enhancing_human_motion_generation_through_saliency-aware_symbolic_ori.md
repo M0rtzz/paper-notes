@@ -21,7 +21,7 @@ tags:
 **作者**: Ho Yin Au, Junkun Jiang, Jie Chen (香港理工大学)  
 **代码**: [GitHub](https://github.com/asdryau/SOSControl)  
 **领域**: human_understanding  
-**关键词**: 人体运动生成, 符号化控制, Labanotation, Diffusion Model, 显著性检测, ControlNet  
+**关键词**: 人体运动生成, 符号化控制, Labanotation, 扩散模型, 显著性检测, ControlNet
 
 ## 一句话总结
 

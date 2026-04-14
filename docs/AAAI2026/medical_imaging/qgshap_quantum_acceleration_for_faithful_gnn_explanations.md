@@ -34,8 +34,11 @@ tags:
 现有近似策略的局限：
 
 **SubgraphX**：使用 Monte Carlo Tree Search (MCTS) 和采样来近似 Shapley 值，对大规模稠密图不可行。
+
 **GraphSVX**：构建代理模型在扰动数据集上采样联盟，对中等规模联盟欠采样，降低解释保真度。
+
 **GNNShap**：利用 GPU 并行和批处理加速估计，但本质仍是依赖采样的近似技术。
+
 **GraphSHAP-IQ**：利用消息传递 GNN 的结构特性计算精确的任意阶 Shapley 交互，但对深层架构、稠密图或非线性 readout 函数的 GNN 不适用。
 
 核心矛盾在于：**保真度（fidelity）和效率不可兼得**——精确方法太慢，快速方法牺牲精度。量子计算的振幅放大技术提供了一条新路径：达到 $\mathcal{O}(1/\epsilon)$ 的查询复杂度，相比经典 MC 的 $\mathcal{O}(1/\epsilon^2)$ 实现二次加速，同时保持精确计算。

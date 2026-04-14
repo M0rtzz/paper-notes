@@ -123,9 +123,9 @@ $$\mathcal{L}_{align} = \mathcal{L}_{SoftCLIP}(\mathbf{e}, \hat{\mathbf{e}}) + \
 ### 消融实验
 
 1. **训练损失消融**：
-   - 仅 $\mathcal{L}_{align}$：2-way-V=0.756
-   - +$\mathcal{L}_{rec}+\mathcal{L}_{da}+\mathcal{L}_{dc}$：2-way-V=0.789（显著提升，共享-特有架构有效）
-   - +$\mathcal{L}_{diff}$：2-way-V=0.786（训练时差别不大，但对校准阶段的新被试适应有帮助）
+    - 仅 $\mathcal{L}_{align}$：2-way-V=0.756
+    - +$\mathcal{L}_{rec}+\mathcal{L}_{da}+\mathcal{L}_{dc}$：2-way-V=0.789（显著提升，共享-特有架构有效）
+    - +$\mathcal{L}_{diff}$：2-way-V=0.786（训练时差别不大，但对校准阶段的新被试适应有帮助）
 
 2. **Top-K 模块消融**：K=1 和 K=2 无显著差异，论文默认 K=1
 

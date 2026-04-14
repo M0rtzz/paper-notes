@@ -31,6 +31,7 @@ tags:
 固定置信度（fixed confidence）设定下，算法需在 $\delta$-正确性保证下尽快停止并输出最佳臂。停止时间 $\tau$ 是随机的，现有文献关注两类保证：
 
 **渐近期望样本复杂度**（AE）：$\liminf_{\delta \to 0} \frac{\mathbb{E}[\tau]}{\ln(1/\delta)} \leq T_\delta^*$
+
 **高概率样本复杂度**：$\mathbb{P}(\tau \geq T_\delta^*) \leq \delta$
 
 ### 现有保证的根本缺陷

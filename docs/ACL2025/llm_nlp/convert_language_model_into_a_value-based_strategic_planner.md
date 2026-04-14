@@ -9,7 +9,7 @@ tags:
   - emotional support conversation
   - Q-learning
   - strategic planning
-  - 强化学习
+  - reinforcement-learning
   - dialogue
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.06987](https://arxiv.org/abs/2505.06987)  
 **代码**: https://github.com/suran662/StraQ  
 **领域**: LLM/NLP  
-**关键词**: emotional support conversation, Q-learning, strategic planning, reinforcement learning, dialogue
+**关键词**: emotional support conversation, Q-learning, strategic planning, reinforcement-learning, dialogue
 
 ## 一句话总结
 提出 straQ* 框架，将 LLM 转化为基于 Q-learning 的策略规划器，用平均 logit 作为 Q 值实现策略级 MDP，在情感支持对话中基于长期回报选择最优策略，超越直接推理、CoT 和微调等基线。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：情感支持对话（ESC）旨在缓解用户情绪困扰，LLM 在此方向取得进展。ESC 通常分三阶段：探索->安慰->行动。
+
 **现有痛点**：现有 LLM 方法聚焦即时回复质量，缺乏长期策略规划，导致策略偏差和阶段转换不流畅。
+
 **核心矛盾**：如何让 LLM 在对话中考虑长期回报而非短视地选择当前最优策略？
+
 **本文要解决什么？** 将 ESC 形式化为策略级 MDP，用价值 RL 方法学习最优策略选择。
+
 **切入角度**：用 LLM 的平均 token logit 作为 Q 值，通过 Bellman 方程训练 Q 网络。
+
 **核心idea一句话**：将 LLM 的 next-token prediction 转化为 next-strategy prediction，用 DQN 学习策略价值函数。
 
 ## 方法详解

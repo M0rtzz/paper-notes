@@ -47,25 +47,25 @@ tags:
 
 1. **端点估计重构 (Endpoint Estimation)**:
 
-    - 做什么：将FM目标从预测速度 $v_t = x_1 - x_0$ 改为预测端点 $\hat{x}_1 = g_\theta(x_t, t|\mathbf{c})$
+    - 功能：将FM目标从预测速度 $v_t = x_1 - x_0$ 改为预测端点 $\hat{x}_1 = g_\theta(x_t, t|\mathbf{c})$
     - 核心思路：损失重写为 $\mathcal{L}'_{\text{FM}} = \mathbb{E}_{t,x_0,x_1}[\|g_\theta(x_t,t|\mathbf{c}) - x_1\|^2]$，推理时Euler步改为 $x_{t_{i+1}} = x_{t_i} + (t_{i+1}-t_i)\frac{g_\theta(x_{t_i},t_i|\mathbf{c}) - x_{t_i}}{1-t_i}$
     - 设计动机：速度估计在空白区域需同时学习 $x_1-x_0$ 和 $-x_0$，端点估计则统一为重建清洁信号，学习目标更一致。去除权重因子 $\frac{1}{(1-t)^2}$ 让模型更关注小 $t$ 值。
 
 2. **频谱能量自适应损失缩放 (Spectral Energy-Adaptive Loss Scaling)**:
 
-    - 做什么：按参考频谱能量的倒数缩放预测误差，强调安静区域
+    - 功能：按参考频谱能量的倒数缩放预测误差，强调安静区域
     - 核心思路：$\mathcal{L}''_{\text{FM}} = \mathbb{E}[\sum_{i,j}(\frac{\mathcal{S}(g_\theta - x_1)}{\sqrt{\mathcal{S}(x_1)+\epsilon}})_{i,j}]$，其中 $\mathcal{S}(x) = \text{LinFB}(|\text{STFT}(x)|^2)$
     - 设计动机：与先前工作的per-frame缩放不同，本文同时在时间和频率维度上考虑能量差异，更符合人类听觉感知。
 
 3. **GAN微调 (GAN Fine-tuning)**:
 
-    - 做什么：从训练好的FM模型构建N步生成器 $G_\theta^N$，用GAN判别器微调
+    - 功能：从训练好的FM模型构建N步生成器 $G_\theta^N$，用GAN判别器微调
     - 核心思路：用MPD和MRD判别器做对抗训练，损失=HingeGAN + L1特征匹配 + 多尺度Mel重建损失。多步生成器梯度端到端反传。
     - 设计动机：FM预训练提供了强初始化，GAN只需少量微调即可快速提升细节质量。标准FM预训练后GAN微调的一步模型性能显著差于改进FM预训练。
 
 4. **多分辨率网络架构 (Multi-Resolution Network)**:
 
-    - 做什么：三个分支分别处理不同STFT分辨率的傅里叶系数
+    - 功能：三个分支分别处理不同STFT分辨率的傅里叶系数
     - 核心思路：每个分支用ConvNeXt处理特定时频分辨率的复数STFT系数，通过ISTFT还原波形后求和得最终输出。低帧率分支用更大嵌入维度。
     - 设计动机：相比Vocos的单分辨率设计，多分辨率能更好捕捉音频的复杂性。
 

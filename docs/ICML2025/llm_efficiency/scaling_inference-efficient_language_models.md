@@ -62,7 +62,7 @@ tags:
 
 1. **推理感知 Scaling Law 公式**
 
-    - 做什么：预测给定参数量 $N$、训练 Token 数 $D$ 和宽高比 $R$ 的模型训练 loss。
+    - 功能：预测给定参数量 $N$、训练 Token 数 $D$ 和宽高比 $R$ 的模型训练 loss。
     - 核心思路：在 Chinchilla 的 $L(N, D) = E + AN^{-\alpha} + BD^{-\beta}$ 基础上，乘以架构修正因子：
     $L(N, D, R) = (E + AN^{-\alpha} + BD^{-\beta}) \cdot (1 + \varepsilon R^\gamma)$
       其中 $R = d_{\text{model}} / n_{\text{layers}}$，$A, B, E, \alpha, \beta, \gamma, \varepsilon$ 为可学习参数。实验中令 $\alpha = \beta = \gamma$ 以简化拟合。
@@ -70,7 +70,7 @@ tags:
 
 2. **约束重写：从 FLOPs 约束到三重约束**
 
-    - 做什么：将 Scaling Law 的优化目标从不实用的 FLOPs 约束改为参数量 + Token 数 + 推理延迟三重约束。
+    - 功能：将 Scaling Law 的优化目标从不实用的 FLOPs 约束改为参数量 + Token 数 + 推理延迟三重约束。
     - 核心思路：原始 Chinchilla 目标是 $\arg\min_{N,D} L(N,D) \text{ s.t. } \text{FLOPs}(N,D) = C$。本文改为：
     $\arg\min_{N,D} L(N,D) \text{ s.t. } N \leq N_C, \; D \leq D_C, \; T_{\text{inf}} \leq T_C$
       这样就把推理延迟预算显式地纳入了优化。推理延迟 $T_{\text{inf}}$ 通过实际在目标硬件上测量获得（几分钟即可）。
@@ -78,7 +78,7 @@ tags:
 
 3. **Predict-Rank-Select 模型选择方法**
 
-    - 做什么：解决"loss 相近但下游任务表现差异大"的问题，从多个候选中选出真正好的模型。
+    - 功能：解决"loss 相近但下游任务表现差异大"的问题，从多个候选中选出真正好的模型。
     - 核心思路：不依赖 Scaling Law 的绝对 loss 值来直接预测下游精度（noise 太大），而是利用其**排序能力**——预测 loss 越低的排名越靠前。选取 top-k 候选全量训练，再用下游评估做最终决定。
     - 设计动机：作者在 PIQA、BoolQ、HellaSwag 上观察到，loss 和 accuracy 的关系呈现不同模式——有些近似线性、有些"阶梯状"——使得精确预测 accuracy 非常困难。但 Scaling Law 的排序准确性远高于绝对预测准确性（Spearman 相关系数达到 1.0）。
 

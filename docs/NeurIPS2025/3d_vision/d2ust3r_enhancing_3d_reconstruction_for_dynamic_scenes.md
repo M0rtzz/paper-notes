@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2504.06264](https://arxiv.org/abs/2504.06264)  
 **代码**: [cvlab-kaist/DDUSt3R](https://cvlab-kaist.github.io/DDUSt3R)  
 **领域**: 3d_vision  
-**关键词**: dynamic 3D reconstruction, pointmap regression, dense correspondence, optical flow, DUSt3R  
+**关键词**: dynamic 3D reconstruction, pointmap regression, dense correspondence, optical flow, DUSt3R
 
 ## 一句话总结
 提出 Static-Dynamic Aligned Pointmap (SDAP) 表示，将静态和动态区域的 3D 对齐统一建模，使 DUSt3R 系列方法能够在动态场景中实现准确的稠密三维重建与对应关系估计。

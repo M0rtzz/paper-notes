@@ -1,12 +1,16 @@
 ---
+title: >-
+  [论文解读] Reasoning Limitations of Multimodal Large Language Models. A Case Study of Bongard Problems
 description: >-
-  [ICML 2025][多模态][抽象视觉推理] 系统评估8个MLLM在Bongard Problems上的抽象视觉推理能力，提出7种解题策略和Bongard-RWR数据集，揭示MLLM在合成和真实世界图像上均表现极差的根本原因是抽象推理能力的固有缺陷。
+  [ICML 2025][多模态][Bongard Problems] 系统评估4个闭源+4个开源MLLM在经典合成Bongard Problems、Bongard HOI、Bongard-OpenWorld三个数据集上的抽象视觉推理能力，提出7种解题策略和新数据集Bongard-RWR（用真实图像表达合成BP概念），揭示MLLM在合成BP上的极差表现并非因域差异而是固有的抽象推理局限。
 tags:
   - ICML 2025
   - 多模态
-  - 抽象视觉推理
   - Bongard Problems
-  - MLLM评估
+  - abstract visual reasoning
+  - MLLM evaluation
+  - Bongard-RWR
+  - few-shot concept learning
 ---
 
 # Reasoning Limitations of Multimodal Large Language Models. A Case Study of Bongard Problems

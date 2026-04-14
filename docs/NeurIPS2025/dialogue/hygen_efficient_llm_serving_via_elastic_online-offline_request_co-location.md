@@ -2,13 +2,14 @@
 title: >-
   [论文解读] HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location
 description: >-
-  [NeurIPS 2025][在线-离线共置] HyGen是干扰感知LLM推理系统，通过延迟预测和虚拟队列调度实现在线离线工作负载的弹性共置，保证SLO同时获得3.87-5.84倍吞吐改进。
+  [NeurIPS 2025][在线-离线共置] 提出HyGen——干扰感知的LLM推理系统，通过精准的批次延迟预测器、SLO感知的性能分析器和前缀共享最大化调度策略，实现在线和离线工作负载的弹性共置，在保证严格SLO合规的同时获得3.87-5.84倍吞吐提升。
 tags:
   - NeurIPS 2025
   - 在线-离线共置
   - 延迟预测
   - SLO保证
-  - 吞吐优化
+  - 前缀共享
+  - 弹性调度
 ---
 
 # HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location
@@ -41,19 +42,19 @@ HyGen采用双队列架构，将延迟敏感的在线请求与吞吐导向的离
 
 1. **延迟预测器（Latency Predictor）**:
 
-    - 做什么：精确估计不同请求批次组合的执行时间，支持实时调度决策
+    - 功能：精确估计不同请求批次组合的执行时间，支持实时调度决策
     - 核心思路：基于LLM推理的两个阶段的不同计算模式建模批次执行时间——prefill阶段因attention计算呈二次复杂度，decode阶段呈线性复杂度。预测模型为$T_{batch} = f(S_p, S_d, S_p^2, S_d^2, N_p, N_d)$，其中$S_p, S_d$为prefill/decode token总数，$N_p, N_d$为请求数，平方项捕获非线性scaling效应。采用线性回归作为预测模型，训练数据通过系统性profiling收集
     - 设计动机：线性回归的选择看似简单但有深刻理由——(1) 推理极快，支持实时调度（约18μs/次）；(2) 特征集简洁确保对不同负载模式的泛化稳定性；(3) 训练极轻量（8万样本仅需15ms），轻松适配不同硬件。实测MAPE仅1.07%-1.78%，比深度模型更可靠
 
 2. **SLO感知性能分析器（SLO-aware Profiler）**:
 
-    - 做什么：将延迟预测转化为具体的调度约束——确定在给定SLO下，允许添加的最大离线负载量
+    - 功能：将延迟预测转化为具体的调度约束——确定在给定SLO下，允许添加的最大离线负载量
     - 核心思路：分析器首先根据工作负载和SLO要求确定可行的延迟预算范围，然后通过二分搜索在该范围内找到满足SLO的最大延迟预算上限。关键区别在于：单个batch的延迟预算与整体SLO（如mean TBT或P99 TTFT）之间存在统计gap——分析器通过test-run检验弥补这一gap。部署时，该预算作为两阶段调度中的批次延迟限制使用
     - 设计动机：朴素方案（直接用SLO值作为batch延迟预算）会导致over-conservative或under-conservative。SLO感知分析器通过离线profiling建立batch级延迟与整体SLO之间的准确映射，使系统能够更精细地利用残余容量
 
 3. **前缀共享最大化调度策略（PSM, Prefix Sharing Maximization）**:
 
-    - 做什么：优化离线请求的调度顺序，最大化KV cache的前缀复用以提升吞吐
+    - 功能：优化离线请求的调度顺序，最大化KV cache的前缀复用以提升吞吐
     - 核心思路：将所有离线请求组织为Trie树结构，树的叶节点对应请求，共享前缀为公共祖先路径。通过DFS遍历确定调度优先级——前缀共享最多的请求被安排在一起处理。例如对于请求队列("What is ML", "How to code", "What is AI", "How to debug")，PSM重排为("What is ML", "What is AI"), ("How to code", "How to debug")，最大化"What is"和"How to"前缀的cache复用
     - 设计动机：朴素FCFS调度完全忽略前缀共享机会。PSM在SLO感知调度的框架内引入cache效率优化，是一种正交的加速手段。为防止前缀共享度低的请求饥饿，PSM扩展版引入了融合请求新鲜度的utility ratio——通过对比DFS序和自平衡BST中的最旧请求，在效率和公平性间取得平衡
 

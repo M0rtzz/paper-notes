@@ -53,18 +53,18 @@ VerbalizED 的 Dual Encoder 架构包含：
 ### 关键设计（逐项消融）
 
 1. **标签语义化格式**：  
-   - 仅 Title：63.68 F1
-   - Title + Description：64.48
-   - Title + Categories：64.00
-   - **Title + Description + Categories：65.01**（最优）
-   - Title + Paragraph(100)：64.30
-   - Title + Paragraph(500)：63.49（过长反而有害）
+    - 仅 Title：63.68 F1
+    - Title + Description：64.48
+    - Title + Categories：64.00
+    - **Title + Description + Categories：65.01**（最优）
+    - Title + Paragraph(100)：64.30
+    - Title + Paragraph(500)：63.49（过长反而有害）
    
    **结论**：Description 提供语义细节，Categories 提供结构化信息，两者互补。Wikipedia 段落过长时性能反降。
 
 2. **Span Pooling 方法**：  
-   - Mean pooling：64.48-65.84
-   - **First-last token 拼接：66.25-66.66**（一致更优）
+    - Mean pooling：64.48-65.84
+    - **First-last token 拼接：66.25-66.66**（一致更优）
    
    **结论**：首尾 token 包含关键的边界信息，比均值 pooling 更有区分力。
 
@@ -78,15 +78,15 @@ VerbalizED 的 Dual Encoder 架构包含：
    **结论**：Cross-Entropy + Euclidean 距离最优。Cosine 相似度表现远差于其他两种。
 
 4. **负采样策略**：  
-   - In-Batch 负采样：54.06-54.39（差很多）
-   - **Hard 负采样（1个）：64.46-65.78**
-   - Hard 负采样（动态数量）：64.48-65.84（略优）
+    - In-Batch 负采样：54.06-54.39（差很多）
+    - **Hard 负采样（1个）：64.46-65.78**
+    - Hard 负采样（动态数量）：64.48-65.84（略优）
    
    **结论**：Hard negatives 大幅优于 in-batch negatives，动态数量有微弱改善。
 
 5. **标签嵌入更新频率**：  
-   - 每 Epoch 更新一次：76.17
-   - **频繁更新 + On-the-fly 更新：82.32**
+    - 每 Epoch 更新一次：76.17
+    - **频繁更新 + On-the-fly 更新：82.32**
    
    **结论**：尤其对大数据集（ZELDA），频繁更新缓存嵌入至关重要。
 

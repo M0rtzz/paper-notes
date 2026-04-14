@@ -10,7 +10,7 @@ tags:
   - Weak-to-Strong Distillation
   - MCTS
   - Physical Planning
-  - Preference Optimization
+  - preference optimization
 ---
 
 # Growing Through Experience: Scaling Episodic Grounding in Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.01312](https://arxiv.org/abs/2506.01312)  
 **代码**: 无  
 **领域**: LLM Agent  
-**关键词**: Episodic Grounding, Weak-to-Strong Distillation, MCTS, Physical Planning, Preference Optimization  
+**关键词**: Episodic Grounding, Weak-to-Strong Distillation, MCTS, Physical Planning, preference optimization
 
 ## 一句话总结
 

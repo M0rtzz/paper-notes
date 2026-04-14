@@ -1,11 +1,15 @@
 ---
-description: "[NeurIPS2025] 首次系统分析结果不变数据增强对因果效应估计的理论影响，提出IV-like回归框架，证明DA可作为软干预减少混杂偏差"
+title: >-
+  [论文解读] An Analysis of Causal Effect Estimation Using Outcome Invariant Data Augmentation
+description: >-
+  [NeurIPS 2025][因果效应估计] 首次系统分析"结果不变数据增强"（outcome invariant DA）在因果效应估计中的作用，证明当 DA 操作保持结果变量的不变性时等价于对处理变量的软干预，可减少混杂偏差；进一步提出 IV-like（IVL）回归框架，将 DA 参数用作"类工具变量"，通过对抗性 DA 组合进一步降低偏差。
 tags:
-  - NeurIPS2025
-  - Causal Inference
-  - Data Augmentation
-  - Instrumental Variable
-  - Confounding Bias
+  - NeurIPS 2025
+  - 因果效应估计
+  - 数据增强
+  - 结果不变性
+  - IV-like 回归
+  - 混杂偏差
 ---
 
 # An Analysis of Causal Effect Estimation Using Outcome Invariant Data Augmentation
@@ -40,17 +44,17 @@ tags:
 ### 关键设计
 
 1. **DA 作为软干预（Observation 1）**:
-    - 做什么：证明 DA 后观测数据 $(GX, Y, G, C)$ 的分布与干预后 $\mathfrak{A};\operatorname{do}(\tau := G\tau)$ 的观测分布完全相同
+    - 功能：证明 DA 后观测数据 $(GX, Y, G, C)$ 的分布与干预后 $\mathfrak{A};\operatorname{do}(\tau := G\tau)$ 的观测分布完全相同
     - 核心思路：DA 相当于在结构方程模型中替换 $X$ 的生成机制 $\tau$ 为 $G\tau$，这正是软干预的定义
     - 设计动机：建立 DA 与因果推断之间的理论桥梁
 
 2. **IV-like (IVL) 回归**:
-    - 做什么：放松工具变量的"结果相关性"（outcome relevance）要求，引入正则化 IV 风险
+    - 功能：放松工具变量的"结果相关性"（outcome relevance）要求，引入正则化 IV 风险
     - 核心思路：$R_{\text{IVL}_\alpha}(h) := R_{\text{IV}}(h) + \alpha R_{\text{ERM}}(h)$，即 IV 风险 + ERM 惩罚项。ERM 确保预测性能，IV 风险引导解搜索到因果函数 $f$ 所在的子空间
     - 设计动机：当 DA 参数 $G$ 不满足完整 IV 条件时（特别是结果相关性可能不成立），标准 IV 回归无法识别 $f$，但正则化后仍可减少偏差
 
 3. **DA+IVL 对抗组合（Corollary 1）**:
-    - 做什么：将 DA 参数 $G$ 视为 IVL 进行 IVL 回归，组合效果等价于**最坏情况 DA**
+    - 功能：将 DA 参数 $G$ 视为 IVL 进行 IVL 回归，组合效果等价于**最坏情况 DA**
     - 核心思路：$\hat{h} \in \arg\min_h \max_{g \in \mathcal{G}_\alpha} R_{\text{DA}_g + \text{ERM}}(h)$——在所有可能的 DA 变换中找最坏情况，训练对该最坏情况鲁棒的预测器
     - 设计动机：对抗性选择 DA 参数可以更有效地减少混杂偏差
 

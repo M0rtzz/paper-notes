@@ -36,6 +36,7 @@ tags:
 现有加速手段分为两大类：
 
 **注意力优化**：FlashAttention、xformers 等通过硬件感知的内存访问模式优化注意力计算，已接近硬件效率极限。
+
 **Token 缩减**：ToMeSD、ToFu 等 plug-and-play 方法通过合并冗余 token 降低 FLOPs，但存在关键缺陷——其 merge/unmerge 操作依赖 GPU 不友好的原语（排序、分散写入等），引入的额外开销在配合 FlashAttention 等高效注意力实现时**反而抵消了理论加速效果**。
 
 ### 核心洞察

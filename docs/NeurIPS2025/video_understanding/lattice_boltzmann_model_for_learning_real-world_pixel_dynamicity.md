@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.16527](https://arxiv.org/abs/2509.16527)  
 **代码**: [项目主页](https://george-zhuang.github.io/lbm)  
 **领域**: video_understanding  
-**关键词**: point tracking, online tracking, lattice Boltzmann, real-time, object tracking  
+**关键词**: point tracking, online tracking, lattice Boltzmann, real-time, object tracking
 
 ## 一句话总结
 

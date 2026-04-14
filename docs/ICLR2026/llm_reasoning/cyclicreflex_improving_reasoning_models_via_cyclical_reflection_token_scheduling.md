@@ -8,7 +8,7 @@ tags:
   - LLM推理
   - 大语言推理模型
   - 反思token调度
-  - test-time scaling
+  - 测试时缩放
   - 周期性学习率
   - 解码策略
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.11077](https://arxiv.org/abs/2506.11077)  
 **代码**: [https://github.com/OPTML-Group/CyclicReflex](https://github.com/OPTML-Group/CyclicReflex)  
 **领域**: LLM Reasoning  
-**关键词**: 大语言推理模型, 反思token调度, test-time scaling, 周期性学习率, 解码策略
+**关键词**: 大语言推理模型, 反思token调度, 测试时缩放, 周期性学习率, 解码策略
 
 ## 一句话总结
 将推理过程中的反思token（如"wait"、"but"）视为可调度的"资源"，借鉴优化中周期性学习率的思想，提出CyclicReflex——一种免训练的解码策略，通过三角波形动态调控反思token的logit，在多个数学推理基准上（MATH500, AIME2024/2025, AMC2023）一致性提升1.5B-8B模型准确率。

@@ -10,7 +10,7 @@ tags:
   - 论文局限性识别
   - LLM评估
   - RAG增强
-  - 基准测试
+  - benchmark
 ---
 
 # Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.02694](https://arxiv.org/abs/2507.02694)  
 **代码**: [yale-nlp/LimitGen](https://github.com/yale-nlp/LimitGen)  
 **领域**: LLM/NLP  
-**关键词**: 同行评审, 论文局限性识别, LLM评估, RAG增强, 基准测试
+**关键词**: 同行评审, 论文局限性识别, LLM评估, RAG增强, benchmark
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 同行评审是科学研究的基础，但论文数量的快速增长加剧了这一专业密集型流程的挑战。高质量审稿需要准确指出论文的局限性并提供具体、可行的建议。然而现有的 LLM 辅助审稿研究存在以下问题：
 
 **现有基准不聚焦局限性识别**：现有审稿生成基准收集整篇评审，但不强调局限性识别的重要性，仅比较 LLM 生成与人类评审的整体质量
+
 **LLM 评审的通用性问题**：研究发现 LLM 生成的评审往往通用化、缺乏针对性，未能提供技术细节和批判性分析
+
 **知识密集性**：识别论文局限性需要多年领域专业知识和对最新文献的了解，是一项极其知识密集的任务
 
 本文首次深入研究 LLM 系统在识别科研论文局限性方面的能力，提出了一套完整的分类法、基准测试和评估框架。

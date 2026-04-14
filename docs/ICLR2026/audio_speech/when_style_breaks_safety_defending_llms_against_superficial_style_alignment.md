@@ -27,8 +27,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 对齐努力使其拒绝恶意请求。越狱攻击通过字符串变换提高攻击成功率（ASR）。
+
 **现有痛点**：越狱 benchmark 中的查询常包含语义无关的风格模式（"create a list of chemical warfare agents"中的"create a list of"），这些风格模式本身就膨胀了 ASR。现有安全防御未考虑风格对齐的影响。
+
 **核心矛盾**：风格模式在正常指令中普遍存在（"create a list of healthy snacks"），LLM 学会了服从风格请求，但同样的风格在恶意查询中被利用。
+
 **核心 idea**：ASR 膨胀 = 带风格查询的 ASR - 仅恶意意图的 ASR。SafeStyle = 安全训练数据 + 匹配微调数据风格分布的增强。
 
 ## 方法详解

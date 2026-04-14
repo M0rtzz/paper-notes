@@ -58,7 +58,7 @@ REBMBO包含三个紧密耦合的模块（图1）：
 - 混合核：$k_f = \sigma_f^2[w_{\text{RBF}} k_{\text{RBF}} + w_{\text{Matérn}} k_{\text{Matérn}}]$，权重通过边际似然自动学习
 
 **模块2: EBM全局探索（Module B）**
-- 做什么：学习全局能量景观，低能量区域对应高概率/高前景区域
+- 功能：学习全局能量景观，低能量区域对应高概率/高前景区域
 - 训练：short-run MCMC的MLE
   - 正相：降低真实数据点的能量 $E_\theta(\mathbf{x}_i)$
   - 负相：通过Langevin采样生成负样本并提高其能量

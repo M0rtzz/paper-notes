@@ -17,7 +17,7 @@ tags:
 **会议**: ACL 2025  
 **arXiv**: [2506.00277](https://arxiv.org/abs/2506.00277)  
 **领域**: NLP 理解  
-**关键词**: Matryoshka embeddings, hierarchical clustering, multilingual, news clustering, contrastive learning  
+**关键词**: Matryoshka embeddings, hierarchical clustering, multilingual, news clustering, contrastive learning
 
 ## 一句话总结
 

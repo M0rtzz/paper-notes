@@ -2,10 +2,14 @@
 title: >-
   [论文解读] Towards Attributions of Input Variables in a Coalition
 description: >-
-  [ICML 2025][可解释性] 本文揭示了 Shapley value 在不同变量划分下产生归因冲突的根本机理——AND-OR 交互中仅覆盖联盟部分变量的交互是冲突的直接原因，并据此提出联盟归因指标和三个忠实度度量，在合成数据、NLP、图像分类和围棋中验证了理论的正确性与实用性。
+  [ICML 2025][Shapley value] 本文从 AND-OR 交互的视角重新推导了 Shapley value 的计算机制，证明了不同变量划分下的归因冲突本质上源于仅覆盖联盟部分变量的交互效应，并据此定义了联盟归因指标和三个忠实度度量，实验验证其与人类直觉一致。
 tags:
   - ICML 2025
-  - 可解释性
+  - Shapley value
+  - AND-OR interaction
+  - coalition attribution
+  - 归因冲突
+  - 可解释AI
 ---
 
 # Towards Attributions of Input Variables in a Coalition
@@ -44,19 +48,19 @@ tags:
 
 1. **AND-OR 交互重新推导 Shapley value**:
 
-    - 做什么：将经典 Shapley value $\phi(i)$ 分解为 AND-OR 交互效应的加权和
+    - 功能：将经典 Shapley value $\phi(i)$ 分解为 AND-OR 交互效应的加权和
     - 核心思路：AND 交互 $I_{\text{and}}(S)$ 表示 $S$ 中所有变量必须同时出现才产生效应（如"raining cats and dogs"四个词同时出现才表达"大雨"），OR 交互 $I_{\text{or}}(S)$ 表示任一变量存在即触发效应。定理 3.2 证明 $\phi(i) = \sum_{S \ni i} \frac{1}{|S|} [I_{\text{and}}(S) + I_{\text{or}}(S)]$，即 Shapley value 是将每个包含变量 $i$ 的交互效应均匀分配给所有参与变量的结果
     - 设计动机：这一重新表述将"黑箱"的 Shapley value 计算与模型内部的交互模式直接关联，为后续分析冲突提供了数学基础
 
 2. **联盟归因指标 $\varphi(S)$ 的定义**:
 
-    - 做什么：将 Shapley value 从单个变量扩展到任意变量联盟
+    - 功能：将 Shapley value 从单个变量扩展到任意变量联盟
     - 核心思路：对于联盟 $S \subseteq N$，定义 $\varphi(S) = \sum_{T \supseteq S} \frac{|S|}{|T|} [I_{\text{and}}(T) + I_{\text{or}}(T)]$。即联盟 $S$ 的归因只来自那些完全包含 $S$ 的交互 $T$（$T \supseteq S$），分配权重为 $|S|/|T|$
     - 设计动机：与之前方法用工程损失强行消除冲突不同，本文接受冲突的客观存在，通过清晰定义联盟归因来解释冲突的来源
 
 3. **归因冲突的分解与解释**:
 
-    - 做什么：将个体变量归因之和 $\sum_{i \in S} \phi(i)$ 分解为共享分量和冲突分量
+    - 功能：将个体变量归因之和 $\sum_{i \in S} \phi(i)$ 分解为共享分量和冲突分量
     - 核心思路：定理 3.4 证明 $\sum_{i \in S} \phi(i) = \varphi(S) + \phi_{\text{conflict}}(S)$，其中冲突分量 $\phi_{\text{conflict}}(S) = \sum_{T: \emptyset \neq T \cap S \neq S} \frac{|T \cap S|}{|T|} [I_{\text{and}}(T) + I_{\text{or}}(T)]$。即那些仅覆盖 $S$ 中部分变量的交互 $T$（$T \cap S \neq \emptyset$ 且 $T \cap S \neq S$）是冲突的直接原因。推论 3.5 进一步证明，若模型从不编码仅覆盖 $S$ 部分变量的交互，则冲突为零
     - 设计动机：这一分解首次从理论上明确了"归因冲突是不可避免的客观存在"，因为 DNN 很难保证仅以完整联盟为单位编码交互
 

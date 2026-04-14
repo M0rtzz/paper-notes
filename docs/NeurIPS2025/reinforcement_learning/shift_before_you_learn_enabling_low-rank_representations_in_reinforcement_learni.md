@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025 (Spotlight)
   - Low-Rank
   - Successor Measure
-  - 强化学习
+  - reinforcement-learning
   - 谱分析
   - Goal-Conditioned RL
 ---
@@ -139,7 +139,7 @@ $$Q(s, a, g) \approx \phi_k(s, a)^\top \psi_k(g)$$
 **arXiv**: [2509.05193](https://arxiv.org/abs/2509.05193)  
 **代码**: 无  
 **领域**: 强化学习 / 表示学习  
-**关键词**: Low-Rank, Successor Measure, 强化学习, 谱分析, Goal-Conditioned RL
+**关键词**: Low-Rank, Successor Measure, reinforcement-learning, 谱分析, Goal-Conditioned RL
 
 ## 一句话总结
 

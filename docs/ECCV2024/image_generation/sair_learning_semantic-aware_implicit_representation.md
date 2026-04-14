@@ -51,20 +51,20 @@ SAIR包含两个串联模块：
 
 1. **修改版 CLIP 编码器（MaskCLIP风格）**:
 
-    - 做什么：从图像提取空间感知的文本对齐语义嵌入
+    - 功能：从图像提取空间感知的文本对齐语义嵌入
     - 核心思路：去除CLIP ViT最后一个注意力层的query和key投影，将value投影和输出线性层改为两个 $1 \times 1$ 卷积。这样不引入额外参数也不改变特征空间，但让CLIP输出从全局单向量变为 $h \times w$ 的空间特征图
     - 设计动机：原始CLIP输出只有全局CLS token，无空间位置信息。MaskCLIP的修改让每个位置都有独立的语义嵌入
 
 2. **语义隐式表示（SIR）**:
 
-    - 做什么：将低分辨率、可能有缺失的语义嵌入上采样为全分辨率的完整语义特征
+    - 功能：将低分辨率、可能有缺失的语义嵌入上采样为全分辨率的完整语义特征
     - 核心思路：$\mathbf{z}_{\mathbf{p}}^{sem} = \sum_{\mathbf{q} \in \mathcal{N}_{\mathbf{p}}} \omega_{\mathbf{q}} f_\theta([\mathbf{z}_{\mathbf{q}}^{sem}, \mathbf{M}[\mathbf{q}]], \text{dist}(\mathbf{p}, \mathbf{q}))$，即将掩膜信息拼接到语义特征中，让MLP感知哪些邻域是缺失的
     - 设计动机：简单的resize上采样无法补全缺失区域的语义。隐式函数通过邻域加权聚合+MLP变换可以从已有语义推断缺失位置的语义（如从"脸颊"推断被遮挡位置是"眼睛"）
     - 三个关键性质：(a) 语义嵌入与文本类别对齐；(b) 非整数坐标可插值；(c) 缺失区域可补全
 
 3. **外观隐式表示（AIR）**:
 
-    - 做什么：融合外观和语义信息，预测任意坐标的颜色
+    - 功能：融合外观和语义信息，预测任意坐标的颜色
     - 核心思路：$c_{\mathbf{p}} = \sum_{\mathbf{q} \in \mathcal{N}_{\mathbf{p}}} \omega_{\mathbf{q}} f_\beta([\mathbf{z}_{\mathbf{q}}^{app}, \text{SIR}(\mathbf{I}, \mathbf{q})], \text{dist}(\mathbf{p}, \mathbf{q}))$
     - 输入三部分：CNN提取的外观嵌入 $\mathbf{z}^{app}$（与图像同分辨率）、SIR输出的增强语义嵌入、坐标距离
     - 设计动机：当像素缺失时，$\mathbf{z}_{\mathbf{p}}^{app}$ 趋于零，但SIR补全的语义信息告诉网络"这里应该是什么"

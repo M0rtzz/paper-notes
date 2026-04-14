@@ -71,7 +71,7 @@ Hybrid-TTA 基于 Teacher-Student 框架，包含两个协同策略：
 
 2. **Masked Image Modeling Adaptation (MIMA)**：
 
-    - 做什么：对输入图像随机遮蔽部分 patch，Student 模型同时做两个任务——语义分割和图像重建
+    - 功能：对输入图像随机遮蔽部分 patch，Student 模型同时做两个任务——语义分割和图像重建
     - 核心思路：
       - 分割损失 $\mathcal{L}^{seg}$：Student 对遮蔽图像的分割预测 vs. Teacher 对完整图像的伪标签
       - 重建损失 $\mathcal{L}^{rec}$：Student 重建遮蔽区域 vs. 原始图像的像素值

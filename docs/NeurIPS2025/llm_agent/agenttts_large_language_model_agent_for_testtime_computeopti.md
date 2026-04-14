@@ -1,12 +1,17 @@
 ---
-description: LLM-agent框架自动搜索多阶段复杂任务中的测试时计算最优分配方案（模型选择+预算分配）
+title: >-
+  [论文解读] AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks
+description: >-
+  [NeurIPS 2025][LLM Agent][测试时扩展] 研究多阶段复杂任务中的测试时计算最优扩展问题，通过先导实验提炼三个通用洞察，据此设计 AgentTTS——一个基于 LLM agent 的框架，通过迭代反馈驱动交互自主搜索最优模型+预算分配方案。
 tags:
-- test-time-scaling
-- LLM-agent
-- compute-optimal
-- multi-stage-tasks
-- hyperparameter-optimization
+  - NeurIPS 2025
+  - LLM Agent
+  - 测试时扩展
+  - 计算最优策略
+  - 多阶段任务
+  - 预算分配
 ---
+
 # AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks
 
 **会议**: NeurIPS 2025  
@@ -43,7 +48,7 @@ AgentTTS 包含三个核心组件：
 ### 关键设计
 
 1. **三个经验洞察驱动搜索**:
-    - 做什么：从 4 种任务类型、6 个数据集的先导实验中提炼通用规律
+    - 功能：从 4 种任务类型、6 个数据集的先导实验中提炼通用规律
     - 核心思路：
         - **Insight 1**：不同子任务偏好不同规模的模型（检索偏好大模型，QA 偏好小模型多采样）
         - **Insight 2**：每个子任务存在最优预算点，超出后收益递减甚至为负
@@ -51,7 +56,7 @@ AgentTTS 包含三个核心组件：
     - 设计动机：将领域知识注入 LLM agent 的搜索过程，避免盲目探索
 
 2. **初始化阶段的模型偏好估计**:
-    - 做什么：对每个子任务，在最大预算下对比所有候选模型，确定模型偏好
+    - 功能：对每个子任务，在最大预算下对比所有候选模型，确定模型偏好
     - 核心思路：固定其他子任务为最大模型单次推理，逐个子任务比较模型性能
     - 设计动机：基于 Insight 1 快速缩小搜索空间
 

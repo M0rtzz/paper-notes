@@ -2,11 +2,11 @@
 title: >-
   [论文解读] CAGE: A Framework for Culturally Adaptive Red-Teaming Benchmark Generation
 description: >-
-  [ICLR 2026][LLM对齐][red-teaming] 提出 CAGE 框架，通过 Semantic Mold（语义模具）将红队攻击 prompt 的对抗结构与文化内容解耦，能系统性地将英语红队基准适配到不同文化语境中，生成的文化扎根 prompt 比直接翻译的 ASR 显著更高。
+  [ICLR 2026][LLM对齐][red teaming] 提出 CAGE 框架，通过 Semantic Mold（语义模具）将红队攻击 prompt 的对抗结构与文化内容解耦，能系统性地将英语红队基准适配到不同文化语境中，生成的文化扎根 prompt 比直接翻译的 ASR 显著更高。
 tags:
   - ICLR 2026
   - LLM对齐
-  - red-teaming
+  - red teaming
   - cultural adaptation
   - semantic mold
   - multilingual safety
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2602.20170](https://arxiv.org/abs/2602.20170)  
 **代码**: [https://github.com/selectstar-ai/CAGE-paper](https://github.com/selectstar-ai/CAGE-paper)  
 **领域**: AI安全 / Red-Teaming  
-**关键词**: red-teaming, cultural adaptation, semantic mold, multilingual safety, benchmark generation  
+**关键词**: red teaming, cultural adaptation, semantic mold, multilingual safety, benchmark generation
 
 ## 一句话总结
 提出 CAGE 框架，通过 Semantic Mold（语义模具）将红队攻击 prompt 的对抗结构与文化内容解耦，能系统性地将英语红队基准适配到不同文化语境中，生成的文化扎根 prompt 比直接翻译的 ASR 显著更高。
 
 ## 研究背景与动机
 **领域现状**：LLM 安全评估主要依赖英语红队基准（AdvBench、HarmBench 等），跨语言评估通常通过直接翻译实现。但不同文化中的刻板印象、社会规范、法律框架差异巨大。
+
 **现有痛点**：直接翻译丢失文化特异性——焚烧国旗在美国是言论自由，在韩国是违法犯罪；某些种族歧视在英语语境中有意义但在韩语语境中不存在。模板化生成（KoBBQ 等）语义多样性有限；从头构建原生数据集（KorNAT）成本极高。
+
 **核心矛盾**：文化保真度与可扩展性的 trade-off——要么高保真低规模（人工写），要么高规模低保真（机器翻译），缺少两全其美的方案。
+
 **本文要解决什么？** 如何在保留英语红队 prompt 的对抗结构的同时，注入目标文化的具体内容？
+
 **切入角度**：将 prompt 的"对抗意图"（做什么恶事）和"文化内容"（用什么具体实体/场景）视为可分离的两个维度。
+
 **核心idea一句话**：用 Semantic Mold 将 prompt 拆解为 slot-tagged 结构（保留攻击框架），再填入目标文化的合法/社会内容（实现文化落地）。
 
 ## 方法详解
@@ -41,25 +46,25 @@ tags:
 
 1. **三级风险分类体系**：
 
-    - 做什么：定义 5 个风险领域 → 12 个类别 → 53 个类型的层次分类。
+    - 功能：定义 5 个风险领域 → 12 个类别 → 53 个类型的层次分类。
     - 内容：Toxic Contents、Unfair Representation、Misinformation Harms、Info & Safety Harms、Malicious Use。
     - 设计动机：在现有分类（Weidinger 等）基础上精细化，使 slot schema 可以按类别定制。
 
 2. **Semantic Mold（语义模具）**：
 
-    - 做什么：定义每个风险类别表达有害场景所需的最小语义元素。
+    - 功能：定义每个风险类别表达有害场景所需的最小语义元素。
     - 核心思路：为每个类别定义 Required Slots（必填）和 Optional Slots（选填），如 Illegal Activities 需要 [Act], [Target], [Method/Approach]；Bias and Hate 需要 [Target/Group], [Attribute]。Seed prompt 被 LLM 重写为 slot-tagged 形式（如"There are rumors that [Fake Event] in [Time]"），保留修辞结构但抽象化具体内容。
     - 设计动机：Mold 定义的是"应该包含什么语义"而非"句子应该怎么写"，确保生成的 prompt 在语言多样性和攻击保真度之间取得平衡。
 
 3. **文化内容库构建**：
 
-    - 做什么：为目标文化（如韩国）收集填充 slot 的本地化内容。
+    - 功能：为目标文化（如韩国）收集填充 slot 的本地化内容。
     - 双轨策略：(a) Taxonomy-Driven——从法律、判例、执行条例中获取客观类别内容 (b) Trend-Driven——从新闻门户和在线社区自动抓取热门话题和关键词。
     - 质量控制：content 经过二分类通过/不通过过滤，而非逐条人工撰写。
 
 4. **多模型一致投票 + 人工验证**：
 
-    - 做什么：确保 seed prompt 分类准确。
+    - 功能：确保 seed prompt 分类准确。
     - 6 个 frontier 模型（GPT-4.1, Claude 3.5/4, Gemini 2.5 Pro, Llama 3.3, Qwen 2.5）独立分类，仅保留一致结果，再人工验证。
 
 ## 实验关键数据

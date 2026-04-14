@@ -53,11 +53,11 @@ $$x_{t+1} = \frac{\alpha_{1:t-1}}{\alpha_{1:t}} x_t + \frac{\alpha_t}{\alpha_{1:
 
 1. **采样与梯度计算**：$g_t^i = \nabla f_i(x_t^i, z_t^i)$（在查询点 $x_t^i$ 而非 $w_t^i$ 处）
 2. **局部更新**：
-   - $w_{t+1/2}^i = w_t^i - \eta \alpha_t g_t^i$
-   - $x_{t+1/2}^i = \frac{\alpha_{1:t-1}}{\alpha_{1:t}} x_t^i + \frac{\alpha_t}{\alpha_{1:t}} w_{t+1/2}^i$
+    - $w_{t+1/2}^i = w_t^i - \eta \alpha_t g_t^i$
+    - $x_{t+1/2}^i = \frac{\alpha_{1:t-1}}{\alpha_{1:t}} x_t^i + \frac{\alpha_t}{\alpha_{1:t}} w_{t+1/2}^i$
 3. **Gossip 通信**（同时交换 $w$ 和 $x$）：
-   - $w_{t+1}^i = \sum_j w_{t+1/2}^j P_{ij}$
-   - $x_{t+1}^i = \sum_j x_{t+1/2}^j P_{ij}$
+    - $w_{t+1}^i = \sum_j w_{t+1/2}^j P_{ij}$
+    - $x_{t+1}^i = \sum_j x_{t+1/2}^j P_{ij}$
 
 其中 $P$ 为 gossip 矩阵（对称双随机矩阵），$\rho = 1 - |\lambda_2| \in (0,1]$ 为谱间隙。
 

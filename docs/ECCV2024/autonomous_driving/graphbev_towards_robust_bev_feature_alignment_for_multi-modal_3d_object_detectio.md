@@ -31,7 +31,9 @@ tags:
 **现有痛点**：BEVFusion等方法存在一个被忽视的关键问题——**特征错位（Feature Misalignment）**。真实场景中，LiDAR与相机之间的标定矩阵往往通过人工标定获得，不可避免地引入投影误差。加之道路振动等因素，这种误差在运行时会进一步加剧，且无法通过在线标定完全消除。
 
 **核心矛盾**：BEVFusion的相机-to-BEV过程依赖BEVDepth的LiDAR-to-camera显式深度监督，但这一过程假设深度投影是准确的。投影误差会导致：
+
 **局部错位（Local Misalignment）**：LiDAR投影到相机的深度不准确，周围邻域的深度被错误地映射为当前像素深度，导致相机BEV特征出现局部错位
+
 **全局错位（Global Misalignment）**：LiDAR BEV与相机BEV特征在融合时，由于深度不准确产生的全局空间偏移被直接拼接的粗暴融合方式所忽略
 
 **切入角度**：从校准误差的根本原因出发，分别在camera-to-BEV和LiDAR-camera BEV融合两个阶段解决局部和全局错位。

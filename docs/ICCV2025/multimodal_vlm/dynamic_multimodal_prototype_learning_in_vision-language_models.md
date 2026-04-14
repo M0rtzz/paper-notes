@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Dynamic Multimodal Prototype Learning in Vision-Language Models
 description: >-
-  [ICCV 2025][多模态][Test-Time Adaptation] 提出 ProtoMM，一个 training-free 的多模态原型学习框架，通过将原型建模为文本描述和视觉粒子的离散分布，利用最优传输动态更新多模态原型，在 15 个 zero-shot 基准上达到 SOTA。
+  [ICCV 2025][多模态][test-time adaptation] 提出 ProtoMM，一个 training-free 的多模态原型学习框架，通过将原型建模为文本描述和视觉粒子的离散分布，利用最优传输动态更新多模态原型，在 15 个 zero-shot 基准上达到 SOTA。
 tags:
   - ICCV 2025
   - 多模态
-  - Test-Time Adaptation
+  - test-time adaptation
   - CLIP
-  - Optimal Transport
+  - optimal transport
   - Zero-Shot Classification
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2507.03657](https://arxiv.org/abs/2507.03657)  
 **代码**: 无  
 **领域**: 多模态视觉语言模型  
-**关键词**: Test-Time Adaptation, CLIP, Multimodal Prototype, Optimal Transport, Zero-Shot Classification
+**关键词**: test-time adaptation, CLIP, Multimodal Prototype, optimal transport, Zero-Shot Classification
 
 ## 一句话总结
 
@@ -29,6 +29,7 @@ tags:
 预训练视觉语言模型（如 CLIP）在零样本分类中表现优异，但类别名称的歧义性限制了文本原型的判别力：
 
 **词汇歧义**：如 "sword lily" 和 "blackberry lily" 都包含 "lily" 且余弦相似度高达 0.67，难以区分
+
 **语义歧义**：如 "laptop" 和 "desktop computer" 无共同词但余弦相似度 0.69，因为都属于计算机
 
 现有方法（TPT、TDA、AWT 等）仅从文本域构建原型，忽视了视觉信息能提供互补的判别线索。将测试图像的视觉特征融入原型可显著减少歧义——作者展示随着测试流推进，多模态原型与真实分布的 KL 散度从 18.7 下降到 9.5。

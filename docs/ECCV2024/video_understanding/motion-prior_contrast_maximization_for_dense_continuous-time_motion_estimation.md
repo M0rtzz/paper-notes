@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Motion-prior Contrast Maximization for Dense Continuous-Time Motion Estimation
 description: >-
-  [ECCV 2024][视频理解][event camera] 本文提出一种将非线性运动先验（轨迹参数函数）引入对比度最大化框架的自监督方法，用于事件相机的稠密连续时间运动估计，在真实世界数据集 EVIMO2 上将合成数据预训练模型的零样本性能提升了 29%。
+  [ECCV 2024][视频理解][事件相机] 本文提出一种将非线性运动先验（轨迹参数函数）引入对比度最大化框架的自监督方法，用于事件相机的稠密连续时间运动估计，在真实世界数据集 EVIMO2 上将合成数据预训练模型的零样本性能提升了 29%。
 tags:
   - ECCV 2024
   - 视频理解
-  - event camera
+  - 事件相机
   - contrast maximization
   - motion estimation
   - 自监督学习
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2407.10802](https://arxiv.org/abs/2407.10802)  
 **代码**: [GitHub](https://github.com/tub-rip/MotionPriorCMax)  
 **领域**: 视频理解  
-**关键词**: event camera, contrast maximization, motion estimation, self-supervised learning, optical flow
+**关键词**: 事件相机, contrast maximization, motion estimation, 自监督学习, 光流
 
 ## 一句话总结
 
@@ -49,19 +49,19 @@ tags:
 
 1. **非线性轨迹运动先验（Trajectory Motion Prior）**:
 
-    - 做什么：为每个像素预测一条连续时间轨迹 $\mathbf{q}_n(t)$，用参数化的基函数加权组合表示
+    - 功能：为每个像素预测一条连续时间轨迹 $\mathbf{q}_n(t)$，用参数化的基函数加权组合表示
     - 核心思路：将轨迹表示为基函数的加权和 $\mathbf{q}_n(t) = \sum_{j=1}^{N_c} g_j(t) \mathbf{p}_{n,j}$，其中 $g_j(t)$ 为共享的时间基函数，$\mathbf{p}_{n,j}$ 为像素级控制点。论文探索了多项式基 $g_j(t)=t^j$、Bézier 曲线基 $g_j(t)=\binom{N_c}{j}(1-t)^{N_c-j}t^j$ 以及可学习基
     - 设计动机：非线性轨迹先验在运动通用性和正则化之间取得平衡，相比线性光流模型可处理长时间复杂运动，同时轨迹的平滑性天然提供时间正则化，避免事件坍缩
 
 2. **高维事件-轨迹关联求解（KNN Soft Assignment）**:
 
-    - 做什么：高效可微地计算每个事件的位移 $\Delta\mathbf{x}_k$
+    - 功能：高效可微地计算每个事件的位移 $\Delta\mathbf{x}_k$
     - 核心思路：首先将问题松弛为在粗粒度时空位移场上进行插值，位移场形状为 $[N_\text{bins}, h/4, w/4]$。对每个时间 bin 中心，利用 KeOps 符号矩阵框架执行 KNN 搜索找到 $N_\text{traj}$ 个最近邻轨迹，将位移计算为邻近轨迹位移的均值：$\Delta\mathbf{x}_k = \frac{1}{N_\text{traj}} \sum_{n=1}^{N_\text{traj}} [\mathbf{q}_n(t_\text{ref}) - \mathbf{q}_n(t_k)]$
     - 设计动机：直接对所有事件-轨迹对计算关联在计算上不可行（事件数可达千万级），通过粗粒度查找表+KNN 插值，将问题从 3D 降维到 2D，既节省内存又保持可微性
 
 3. **随机参考时间与正则化（Random Reference Time + Regularization）**:
 
-    - 做什么：在训练时随机采样参考时间 $t_\text{ref} \sim \mathcal{U}(0,1)$，并施加空间平滑正则
+    - 功能：在训练时随机采样参考时间 $t_\text{ref} \sim \mathcal{U}(0,1)$，并施加空间平滑正则
     - 核心思路：训练损失为 $\mathcal{L} = 1/G + \lambda R$，其中 $G$ 为 IWE 梯度幅值，$R$ 为位移场空间梯度的 L1 范数。每次迭代随机选取不同参考时间
     - 设计动机：(a) 随机参考时间要求 IWE 在任意时刻都清晰，增强正则化效果，且内存开销仅线性增长（vs 之前方法使用固定的多个参考时间）；(b) 空间平滑项鼓励相邻轨迹的一致性，进一步抑制事件坍缩
 

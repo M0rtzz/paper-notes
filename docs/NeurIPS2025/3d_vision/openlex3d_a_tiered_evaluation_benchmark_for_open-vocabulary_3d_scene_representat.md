@@ -1,8 +1,18 @@
 ---
-title: "[论文解读] OpenLex3D: A Tiered Evaluation Benchmark for Open-Vocabulary 3D Scene Representations"
-description: "[NeurIPS 2025][3D视觉] 首个面向开放词汇3D场景理解的分层评测基准，提供13倍于原数据集的语言标注"
-tags: [NeurIPS 2025, 3D视觉, 开放词汇, 语义分割, 基准测试]
+title: >-
+  [论文解读] OpenLex3D: A Tiered Evaluation Benchmark for Open-Vocabulary 3D Scene Representations
+description: >-
+  [NeurIPS 2025][3D视觉][open-vocabulary] 提出 OpenLex3D，一个面向开放词汇 3D 场景表示的分层评测基准，在 Replica、ScanNet++、HM3D 三个数据集上提供 13 倍于原始标注的丰富语言标签，支持开放集 3D 语义分割和目标检索两项任务评测。
+tags:
+  - NeurIPS 2025
+  - 3D视觉
+  - open-vocabulary
+  - 场景理解
+  - benchmark
+  - 图像分割
+  - object retrieval
 ---
+
 # OpenLex3D: A Tiered Evaluation Benchmark for Open-Vocabulary 3D Scene Representations
 
 **会议**: NeurIPS 2025  
@@ -16,9 +26,13 @@ tags: [NeurIPS 2025, 3D视觉, 开放词汇, 语义分割, 基准测试]
 
 ## 研究背景与动机
 **领域现状**：开放词汇语言模型极大推动了 3D 场景理解，使得用户可以用自然语言与场景交互。现有方法（如 LERF、OpenScene、ConceptFusion 等）已展示了令人印象深刻的 demo。
+
 **现有痛点**：现有评测仍依赖封闭集语义标注（如 ScanNet 的 20 类、Replica 的 88 类），无法反映真实自然语言查询的丰富性和模糊性。
+
 **核心矛盾**：方法号称"开放词汇"但评测用"封闭集"，导致方法的真实能力被高估。例如查询"椅子"时正确，但查询"办公旋转椅"或"扶手椅"时可能失败。
+
 **切入角度**：构建真正捕获语言多样性的标注数据集，引入同义词类别和细粒度描述。
+
 **核心idea一句话**：用 13× 更丰富的语言标注重新评估开放词汇 3D 方法，暴露现有方法的真实短板。
 
 ## 方法详解

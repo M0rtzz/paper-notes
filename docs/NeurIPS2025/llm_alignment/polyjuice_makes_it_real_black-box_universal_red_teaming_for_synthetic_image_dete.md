@@ -7,9 +7,9 @@ tags:
   - NeurIPS 2025
   - LLM对齐
   - synthetic image detection
-  - red teaming
-  - adversarial attack
-  - text-to-image
+  - 红队测试
+  - 对抗攻击
+  - 文生图
   - black-box attack
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.15551](https://arxiv.org/abs/2509.15551)  
 **代码**: [项目页面](https://sepehrdehdashtian.github.io/Papers/PolyJuice)  
 **领域**: llm_alignment  
-**关键词**: synthetic image detection, red teaming, adversarial attack, text-to-image, black-box attack
+**关键词**: synthetic image detection, 红队测试, 对抗攻击, 文生图, black-box attack
 
 ## 一句话总结
 
@@ -32,6 +32,7 @@ tags:
 然而现有红队方法存在两个根本限制：
 
 **需要白盒访问 SID**：现有 Unrestricted Adversarial (UA) 攻击需要检测器的权重或梯度信息，但 SOTA 检测器（如 Reality Defender）通常是闭源 API
+
 **需要逐图优化**：现有方法需要为每张图像单独优化扰动或潜空间方向，计算成本高且随分辨率指数增长
 
 这些限制使得现有方法在实际场景中不可行。

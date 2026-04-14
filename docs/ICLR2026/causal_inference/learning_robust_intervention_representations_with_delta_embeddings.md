@@ -7,7 +7,7 @@ tags:
   - ICLR 2026
   - Causal Representation Learning
   - Delta Embeddings
-  - Out-of-Distribution
+  - out-of-distribution
   - Intervention
   - 对比学习
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2508.04492](https://arxiv.org/abs/2508.04492)  
 **代码**: [Project Page](https://palimisis.github.io/Learning-Robust-Intervention-Representations-with-Delta-Embeddings/)  
 **领域**: 因果表示学习 / OOD 泛化  
-**关键词**: Causal Representation Learning, Delta Embeddings, Out-of-Distribution, Intervention, Contrastive Learning
+**关键词**: Causal Representation Learning, Delta Embeddings, out-of-distribution, Intervention, Contrastive Learning
 
 ## 一句话总结
 

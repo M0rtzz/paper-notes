@@ -1,8 +1,17 @@
 ---
-title: "[论文解读] One Sample is Enough to Make Conformal Prediction Robust"
-description: "[NeurIPS 2025][机器学习] 提出单样本鲁棒共形预测RCP1，仅需一次前向传播即可获得对抗鲁棒的预测集"
-tags: [NeurIPS 2025, 共形预测, 鲁棒性, 不确定性量化, 随机平滑]
+title: >-
+  [论文解读] One Sample is Enough to Make Conformal Prediction Robust
+description: >-
+  [NeurIPS 2025][conformal prediction] 提出 RCP1（单样本鲁棒共形预测），通过认证共形过程本身而非单个 conformity score，仅需一次随机扰动前向传播即可获得比需要 100 次前向传播的 SOTA 方法更小的鲁棒预测集。
+tags:
+  - NeurIPS 2025
+  - conformal prediction
+  - robustness
+  - randomized smoothing
+  - prediction sets
+  - conformal risk control
 ---
+
 # One Sample is Enough to Make Conformal Prediction Robust
 
 **会议**: NeurIPS 2025  
@@ -16,9 +25,13 @@ tags: [NeurIPS 2025, 共形预测, 鲁棒性, 不确定性量化, 随机平滑]
 
 ## 研究背景与动机
 **领域现状**：共形预测（Conformal Prediction, CP）为任意黑盒模型提供包含真实标签的预测集，概率保证可调。鲁棒共形预测（Robust CP, RCP）将保证扩展到预定义幅度内的最坏情况噪声。
+
 **现有痛点**：基于随机平滑（randomized smoothing）的 RCP 方法需要对每个输入进行多次（如 100 次）前向传播以估计平滑 conformity score，计算成本极高。
+
 **核心矛盾**：鲁棒性和计算效率之间的矛盾——确定性方法（如 RSCP+）预测集过大，平滑方法（如 RSCP/SmoothFull）预测集小但计算昂贵。
+
 **核心洞察**：即使只用一次随机扰动的前向传播，共形预测本身已具有某种程度的鲁棒性。
+
 **核心idea一句话**：认证共形**过程**而非单个 conformity score，将平滑的计算负担从推理时转移到校准阶段。
 
 ## 方法详解

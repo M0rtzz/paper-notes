@@ -2,14 +2,16 @@
 title: >-
   [论文解读] MExGen: Multi-Level Explanations for Generative Language Models
 description: >-
-  [ACL 2025][可解释性][LLM] MExGen提出多层次扰动归因框架，通过scalarizer将文本输出映射为实数、多粒度语言分割和线性复杂度归因算法，为上下文驱动的文本生成提供比SHAP/自解释更忠实的解释
+  [ACL 2025][LLM/NLP][可解释性] 提出MExGen框架，通过scalarizer将生成模型的文本输出映射为实数值、多粒度语言分割和线性复杂度归因算法（C-LIME/L-SHAP），为上下文驱动的文本生成（摘要、QA）提供比PartitionSHAP和LLM自解释更忠实的输入归因解释。
 tags:
   - ACL 2025
+  - LLM/NLP
   - 可解释性
-  - LLM
-  - 归因方法
+  - 输入归因
   - LIME
   - SHAP
+  - scalarizer
+  - 多层次解释
 ---
 
 # MExGen: Multi-Level Explanations for Generative Language Models
@@ -48,19 +50,19 @@ tags:
 
 1. **Scalarizer：将文本输出映射为实数**:
 
-    - 做什么：定义函数 $S$ 将生成文本映射为实数，使归因算法可用
+    - 功能：定义函数 $S$ 将生成文本映射为实数，使归因算法可用
     - 核心思路：提出两类scalarizer。**有logits访问**：Log Prob scalarizer $S(x; y^o, f) = \frac{1}{\ell}\sum_{t=1}^{\ell} \log p(y_t^o | y_{<t}^o, x; f)$，计算目标输出在扰动输入下的平均log概率。**仅文本访问**：用生成文本 $y=f(x)$ 与目标 $y^o$ 的相似度，包括Sim（句子嵌入余弦相似度）、BERT（BERTScore）、BART（BARTScore）、Log NLI（自然语言推断对数几率）等
     - 设计动机：大量LLM只提供API访问无法获取logits（如GPT-4），文本scalarizer使MExGen在纯黑盒场景下仍可工作。实验发现BERT scalarizer在用户感知忠实度上甚至优于Log Prob，说明纯文本访问可能并不损失多少解释质量
 
 2. **线性复杂度归因算法（C-LIME与L-SHAP）**:
 
-    - 做什么：在有限模型查询预算下高效计算归因分数
+    - 功能：在有限模型查询预算下高效计算归因分数
     - 核心思路：**C-LIME**对LIME做两个关键修改——(a) 将扰动数设为单元数的固定倍数 $n = c \cdot d$（c=5或10），避免默认的数千次查询；(b) 限制同时扰动的单元数 $K$（K=2-3），使扰动集中在原始输入附近。**L-SHAP**限制SHAP只计算半径 $M$ 邻域内的局部Shapley值。两者查询数都与单元数 $d$ 线性相关
     - 设计动机：标准LIME默认生成数千个扰动样本（独立于d），对LLM推理成本不可接受。C-LIME限制同时扰动数使扰动输入更接近原始输入，已有理论工作表明这能提升归因忠实度
 
 3. **多层次语言分割与迭代细化**:
 
-    - 做什么：从粗粒度开始计算归因，仅对最重要的单元进行细粒度细化
+    - 功能：从粗粒度开始计算归因，仅对最重要的单元进行细粒度细化
     - 核心思路：用spaCy将输入分割为段落→句子→短语→词的层次结构。先在句子级别计算归因分数，用Algorithm 1选择归一化分数超过阈值 $\phi$ 且排名前 $k$ 的句子进行短语/词级别细化。自定义依赖解析树算法将句子分割为有意义的短语
     - 设计动机：像二分搜索一样逐步聚焦，避免对大量不重要的细粒度单元浪费模型查询。例如一篇20段文章只需对top-3重要句子做短语级细化
 

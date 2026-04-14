@@ -51,20 +51,20 @@ tags:
 
 1. **完整点云的定义与构造**：
 
-    - 做什么：定义训练监督所需的"完整点云"——包含可见+遮挡区域的所有点
+    - 功能：定义训练监督所需的"完整点云"——包含可见+遮挡区域的所有点
     - 核心思路：优先使用GT mesh均匀采样；当无mesh时，聚合密集视角的深度图反投影点云，voxel-grid滤波去重，裁剪到输入视角的frustum内，FPS采样N个点用于训练
     - 设计动机：解决了非像素对齐方法的监督数据来源问题——不需要水密网格，只需深度图就能近似完整点云。所有点定义在第一个视角坐标系下，保持视角无关性
 
 2. **基于Flow-matching的3D Latent自编码器 (Stage 1)**：
 
-    - 做什么：将完整点云压缩为M个latent tokens并能解码恢复
+    - 功能：将完整点云压缩为M个latent tokens并能解码恢复
     - 核心思路：编码器用FPS从P中采样M个query点 + 可学习token拼接，经cross+self attention得到 $Z \in \mathbb{R}^{M \times C}$。解码器是扩散模型：输入N个噪声点 $x_t$、latent Z和时间步t，预测速度场。训练loss: $\mathcal{L}_{flow}^{AE} = \mathbb{E}[\|\Phi_{dec}(x_t, Z, t) - (\epsilon - x_0)\|_2^2]$
     - 设计动机：传统3D VAE用occupancy/SDF解码需要canonical空间和水密网格，场景级数据无法满足。直接预测坐标又因点云无序无法用L2 loss。Flow-matching优雅解决了无序匹配问题——解码器学习从噪声到目标点云的确定性ODE轨迹，无需建立一一对应关系
     - **Joint decoder架构**：cross-attention之间加入self-attention，让点之间能交换空间关联信息，比independent decoder更精确(Table 5验证)
 
 3. **可学习场景Token的图像编码 (Stage 2)**：
 
-    - 做什么：从K张无位姿图像提取全局场景表示 $\hat{Z} \in \mathbb{R}^{M \times C}$
+    - 功能：从K张无位姿图像提取全局场景表示 $\hat{Z} \in \mathbb{R}^{M \times C}$
     - 核心思路：在VGGT的图像token之外引入M个可学习场景token $t_S$。所有token一起送入Transformer，经过frame-level和global-level self-attention交替处理。场景token被视为第一视角坐标系下的全局帧，共享第一视角的相机token
     - 设计动机：像素对齐方法token数 = K*H*W 随视角线性增长且绑定到像素。场景token数量固定为M与输入视角数无关，自然避免重叠区域冗余，支持任意数量输入
 

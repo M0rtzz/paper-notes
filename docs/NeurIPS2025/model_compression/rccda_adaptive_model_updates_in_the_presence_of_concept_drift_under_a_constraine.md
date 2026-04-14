@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.24149](https://arxiv.org/abs/2505.24149)  
 **代码**: 无  
 **领域**: 模型压缩  
-**关键词**: concept drift, resource-constrained, model update policy, Lyapunov optimization, online learning  
+**关键词**: concept drift, resource-constrained, model update policy, Lyapunov optimization, online learning
 
 ## 一句话总结
 

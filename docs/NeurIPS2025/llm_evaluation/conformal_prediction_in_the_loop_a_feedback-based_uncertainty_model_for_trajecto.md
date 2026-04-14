@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Conformal Prediction in The Loop: A Feedback-Based Uncertainty Model for Trajectory Optimization
 description: >-
-  [NeurIPS 2025][Conformal Prediction] 提出 Feedback-Based Conformal Prediction (Fb-CP) 框架，将已执行轨迹的信息反馈给 CP 以动态调整预测区域大小，在缩减时域轨迹优化中同时保证覆盖率和显著提升轨迹性能。
+  [NeurIPS 2025][共形预测] 提出 Feedback-Based Conformal Prediction (Fb-CP) 框架，将已执行轨迹的信息反馈给 CP 以动态调整预测区域大小，在缩减时域轨迹优化中同时保证覆盖率和显著提升轨迹性能。
 tags:
   - NeurIPS 2025
-  - Conformal Prediction
+  - 共形预测
   - 轨迹优化
   - 不确定性量化
   - 闭环反馈
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.16376](https://arxiv.org/abs/2510.16376)  
 **代码**: [github.com/DOCU-Lab/Feedback-based_Conformal_Prediction](https://github.com/DOCU-Lab/Feedback-based_Conformal_Prediction)  
 **领域**: others  
-**关键词**: Conformal Prediction, 轨迹优化, 不确定性量化, 闭环反馈, 风险分配
+**关键词**: 共形预测, 轨迹优化, 不确定性量化, 闭环反馈, 风险分配
 
 ## 一句话总结
 提出 Feedback-Based Conformal Prediction (Fb-CP) 框架，将已执行轨迹的信息反馈给 CP 以动态调整预测区域大小，在缩减时域轨迹优化中同时保证覆盖率和显著提升轨迹性能。
@@ -26,8 +26,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: Conformal Prediction (CP) 是构造有限样本覆盖率保证的预测区域的有力工具，被广泛用于不确定环境下的轨迹优化（TO），为障碍物位置生成预测区域以实现概率安全避碰。
+
 **现有痛点**: 现有方法采用**顺序式**流程——先用 CP 生成预测区域，决策单向依赖预测区域。决策端的信息从不反馈给 CP，导致预测区域过于保守。
+
 **核心矛盾**: 在缩减时域 TO 中，已执行轨迹 $x_{0:t}^*$ 包含丰富的碰撞后验信息（实际碰撞概率远低于先验分配的 $\alpha_\tau$），但这些信息被浪费了，无法用于缩小后续时刻的预测区域。
+
 **本文切入角度**: 建立决策→CP 的闭环信息通道，利用已执行轨迹的后验碰撞概率 $\beta_\tau$ 替换先验 $\alpha_\tau$，将释放的风险余量重新分配给未来时刻。
 
 ## 方法详解

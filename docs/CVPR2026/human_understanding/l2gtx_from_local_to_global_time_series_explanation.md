@@ -1,12 +1,16 @@
 ---
 title: >-
-    [论文解读] L2GTX: From Local to Global Time Series Explanations
+  [论文解读] L2GTX: From Local to Global Time Series Explanations
 description: >-
-    [CVPR 2026][可解释AI] 提出L2GTX模型无关方法，通过参数化事件原语的局部解释聚合生成时间序列分类器的类级全局解释
+  [CVPR 2026][人体理解][时间序列解释] 提出 L2GTX——完全模型无关的局部到全局时间序列解释方法，以参数化事件原语(递增/递减趋势、局部极值)为解释单元，经层次聚类合并、贪心预算选择和属性统计聚合，在 6 个 UCR 数据集上生成紧凑忠实的类级全局解释(FCN上ECG200 GF=0.792)。
 tags:
-    - CVPR 2026
-    - 可解释AI
-    - 时间序列
+  - CVPR 2026
+  - 人体理解
+  - 时间序列解释
+  - 局部到全局聚合
+  - 模型无关XAI
+  - 参数化事件原语
+  - 代表性实例选择
 ---
 
 # L2GTX: From Local to Global Time Series Explanations

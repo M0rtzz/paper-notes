@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.11253](https://arxiv.org/abs/2511.11253)  
 **代码**: 待确认  
 **领域**: image_generation  
-**关键词**: diffusion models, object counting, steering vector, cross-attention, training-free  
+**关键词**: diffusion models, object counting, steering vector, cross-attention, training-free
 
 ## 一句话总结
 

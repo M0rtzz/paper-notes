@@ -9,7 +9,7 @@ tags:
   - 近似推理
   - KV cache压缩
   - 提示学习
-  - draft model
+  - 草稿模型
   - 稀疏注意力
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.08373](https://arxiv.org/abs/2506.08373)  
 **代码**: [GitHub](https://github.com/furiosa-ai/draft-based-approx-llm)  
 **领域**: LLM效率 / 推理加速  
-**关键词**: 近似推理, KV cache压缩, prompt压缩, draft model, 稀疏注意力
+**关键词**: 近似推理, KV cache压缩, prompt压缩, 草稿模型, 稀疏注意力
 
 ## 一句话总结
 

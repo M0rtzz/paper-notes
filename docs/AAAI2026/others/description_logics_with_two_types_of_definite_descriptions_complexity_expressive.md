@@ -34,8 +34,11 @@ $$\{ι(\mathsf{building} \sqcap \forall \mathsf{tallThan}.\neg \mathsf{building}
 **研究动机**来自描述逻辑中定冠描述的几个开放问题：
 
 **计算复杂度未知**：扩展 ALC 后局部和全局定冠描述的可满足性复杂度未被系统研究
+
 **表达力未明**：两种类型定冠描述之间的表达力关系未被刻画
+
 **互模拟缺失**：现有互模拟仅适用于包含 nominals 和 universal role 的情况（$\mathcal{ALCO}_u^\iota$），对纯 ALC+DD 的互模拟未被提出
+
 **没有推理系统**：尽管有实际应用动机，目前没有任何 DL 推理器支持定冠描述
 
 **两种定冠描述的区别**：

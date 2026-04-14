@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.02322](https://arxiv.org/abs/2508.02322)  
 **代码**: [https://github.com/xuyuzhuang11/CAMERA](https://github.com/xuyuzhuang11/CAMERA)  
 **领域**: 模型压缩  
-**关键词**: MoE压缩, 微专家, 结构化剪枝, 混合精度量化, training-free  
+**关键词**: MoE压缩, 微专家, 结构化剪枝, 混合精度量化, training-free
 
 ## 一句话总结
 提出"micro-expert"概念将MoE层的输出分解为跨矩阵（up/gate/down_proj）的微专家线性组合，基于能量排序进行结构化剪枝(Camera-P)和混合精度量化(Camera-Q)，在Deepseek-MoE-16B/Qwen2-57B/Qwen3-30B上20%-60%剪枝率全面超越NAEE和D²-MoE，且分析Qwen2-57B仅需单卡A100不到5分钟。

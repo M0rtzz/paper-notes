@@ -2,10 +2,10 @@
 title: >-
   [论文解读] Attention Gathers, MLPs Compose: A Causal Analysis of an Action-Outcome Circuit in VideoViT
 description: >-
-  [AAAI2026][Mechanistic Interpretability] 通过机械可解释性方法逆向工程 Video Vision Transformer（ViViT）的内部电路，揭示注意力头负责"收集证据"、MLP 模块负责"组合概念"的分工机制，证明模型在简单分类任务中隐藏了超越训练目标的语义知识。
+  [AAAI2026][mechanistic interpretability] 通过机械可解释性方法逆向工程 Video Vision Transformer（ViViT）的内部电路，揭示注意力头负责"收集证据"、MLP 模块负责"组合概念"的分工机制，证明模型在简单分类任务中隐藏了超越训练目标的语义知识。
 tags:
   - AAAI2026
-  - Mechanistic Interpretability
+  - mechanistic interpretability
   - Transformer
   - Activation Patching
   - Circuit Analysis
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2603.11142](https://arxiv.org/abs/2603.11142)  
 **代码**: 待确认  
 **领域**: others  
-**关键词**: Mechanistic Interpretability, Video Vision Transformer, Activation Patching, Circuit Analysis, Trustworthy AI  
+**关键词**: mechanistic interpretability, Video Vision Transformer, Activation Patching, Circuit Analysis, Trustworthy AI
 
 ## 一句话总结
 

@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 多模态
   - delta compression
-  - 剪枝
+  - 模型剪枝
   - 量化
   - 无数据压缩
   - 多任务部署
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.13563](https://arxiv.org/abs/2505.13563)  
 **代码**: [xiaohuiwang000/UltraDelta](https://github.com/xiaohuiwang000/UltraDelta)  
 **领域**: multimodal_vlm  
-**关键词**: delta compression, model pruning, quantization, 无数据压缩, 多任务部署  
+**关键词**: delta compression, 模型剪枝, 量化, 无数据压缩, 多任务部署
 
 ## 一句话总结
 

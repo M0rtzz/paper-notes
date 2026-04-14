@@ -9,7 +9,7 @@ tags:
   - 分形节点
   - MPNN
   - 长距离依赖
-  - over-squashing
+  - 过挤压
   - 图划分
   - MLP-Mixer
   - METIS
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2511.13010](https://arxiv.org/abs/2511.13010)  
 **代码**: [https://github.com/jeongwhanchoi/MPNN-FN](https://github.com/jeongwhanchoi/MPNN-FN)  
 **领域**: 图神经网络 / 消息传递  
-**关键词**: 分形节点, MPNN, 长距离依赖, over-squashing, 图划分, MLP-Mixer, METIS
+**关键词**: 分形节点, MPNN, 长距离依赖, 过挤压, 图划分, MLP-Mixer, METIS
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 GNN 面临局部与全局信息的根本矛盾：
 
 **MPNN 的 over-squashing 问题**：信息通过多跳传播时，固定宽度节点向量形成"瓶颈"，远距离节点间的信号被指数级压缩。有效电阻（effective resistance）越高，信息流越受阻
+
 **图 Transformer 的代价**：全局自注意力解决了长距离依赖，但 $O(|V|^2)$ 二次复杂度限制可扩展性，且忽略图的局部拓扑结构
+
 **虚拟节点的局限**：单一全局虚拟节点是常用增强手段，但所有节点共享一个聚合点仍会成为信息瓶颈
 
 核心问题：**能否在 MPNN 框架内（线性复杂度）解决长距离依赖？** 本文的答案：用分形节点，灵感来自真实网络中的分形结构——图划分自然诱导分形结构，子图反映全图连接模式。

@@ -1,8 +1,8 @@
 ---
 title: >-
-  [论文解读] Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for VBM
+  [论文解读] Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry
 description: >-
-  结合 eTFCE 并查集精确聚类提取与 pTFCE 解析 GRF 推断，首次同时实现精确聚类大小查询和无置换检验解析 p 值，全脑 VBM 加速 4.6–75 倍，开源 pytfce 包。
+  [CVPR 2026][3D视觉][TFCE] 将 eTFCE 的并查集数据结构（精确聚类大小查询）与 pTFCE 的 GRF 解析推断相结合，首次在单一框架中同时实现精确聚类大小提取和无置换检验的解析 $p$ 值，全脑 VBM 分析比 R pTFCE 快 4.6–75 倍、比置换 TFCE 快三个数量级。
 tags:
   - CVPR 2026
   - 3D视觉
@@ -10,7 +10,7 @@ tags:
   - 高斯随机场
   - 并查集
   - 体素形态学
-  - 统计推断
+  - 无置换推断
 ---
 
 # Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry
@@ -47,19 +47,19 @@ tags:
 
 1. **并查集精确聚类查询**
 
-    - 做什么：替换 pTFCE 的 CCL，对任意阈值即时返回包含指定体素的精确聚类大小
+    - 功能：替换 pTFCE 的 CCL，对任意阈值即时返回包含指定体素的精确聚类大小
     - 核心思路：体素按统计值降序处理，每个体素创建单例集后与已处理的 26 连通邻居合并。union-by-rank 保证树平衡，path compression 使每次 Find 摊销 $O(\alpha(N))$（$\alpha$ 为逆 Ackermann 函数，对所有实际 $N \leq 5$）。合并树编码了完整超水平集过滤层级
     - 设计动机：CCL 每个阈值都要重新全图标记（$O(N)$ 每次），增加网格密度成本线性增长；并查集构建一次 $O(N \log N)$，之后查询近常数时间，使网格密度从 $n=100$ 增至 $n=500$ 仅额外约 2 秒
 
 2. **GRF 解析推断**
 
-    - 做什么：将精确聚类大小转化为解析 $p$ 值，完全避免置换检验
+    - 功能：将精确聚类大小转化为解析 $p$ 值，完全避免置换检验
     - 核心思路：聚类大小生存函数 $P(C > c | h) = \exp(-\lambda_h c^{2/3})$，其中 $\lambda_h = (E[c_h]/\Gamma(5/2))^{-2/3}$，期望聚类大小 $E[c_h] = N(1-\Phi(h))/E[\chi_h]$。贝叶斯定理结合体素高度先验和聚类似然得到条件概率，累积为 $A(v) = \sum_i -\log P(Z_v \geq \tau_i | c_v^{uf}(\tau_i))$
     - 设计动机：置换检验需 $O(BnN)$（$B$ 次重标记×$n$ 阈值×$N$ 体素），GRF 将此降至 $O(nN)$
 
 3. **自适应网格密度与平滑度估计**
 
-    - 做什么：利用并查集低查询成本支持更密阈值网格，并精确估计 GRF 所需的场平滑度
+    - 功能：利用并查集低查询成本支持更密阈值网格，并精确估计 GRF 所需的场平滑度
     - 核心思路：从 $n=100$ 到 $n=500$ 额外仅增约 2 秒；平滑度从标准化残差的空间导数有限差分估计，验证误差仅 $-0.7\%$（FWHM $3.506 \pm 0.041$ vs 解析值 $3.532$）
     - 设计动机：平滑度估计偏差直接影响 GRF $p$ 值（高估导致反保守），需严格验证
 

@@ -8,7 +8,7 @@ tags:
   - optimizer
   - sign-based
   - noise robustness
-  - 强化学习
+  - reinforcement-learning
   - direction-magnitude decoupling
 ---
 
@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2508.18258](https://arxiv.org/abs/2508.18258)  
 **代码**: 有  
 **领域**: 优化  
-**关键词**: optimizer, sign-based, noise robustness, reinforcement learning, direction-magnitude decoupling  
+**关键词**: optimizer, sign-based, noise robustness, reinforcement-learning, direction-magnitude decoupling
 
 ## 一句话总结
 提出 Ano 优化器，将更新方向和幅度解耦——方向用动量的符号（sign）确保噪声鲁棒，幅度用瞬时梯度绝对值（而非动量幅度）确保响应速度，配合改进的 Yogi 式方差估计，在噪声和非平稳环境（如 RL）中显著优于 Adam/Lion/Adan，同时在标准任务上保持竞争力。
 
 ## 研究背景与动机
 **领域现状**：Adam 及其变体是深度学习的默认优化器，但在噪声或非平稳环境中（梯度噪声大、标签模糊、RL 目标变化）表现退化。
+
 **现有痛点**：Adam 将方向和幅度都从动量 $m_k$ 中获取——当大噪声尖峰出现时，相反方向的影响部分抵消，减小了有效动量，导致更新过于保守。二阶矩的指数移动平均让噪声尖峰影响持续很多步。
+
 **核心矛盾**：动量平滑方向信号很好（减少噪声方向的震荡），但动量的*幅度*太滞后——大梯度变化时响应太慢。需要"方向稳定+幅度敏捷"的组合。
+
 **本文要解决什么？** 设计在噪声优化环境中更鲁棒的优化器，同时保持一阶方法的简洁和效率。
+
 **切入角度**：显式解耦方向和幅度——方向 = sign(momentum)，幅度 = |gradient|，二阶矩用改进的 Yogi 更新（带衰减因子控制记忆）。
+
 **核心idea一句话**：用动量的符号定方向、用当前梯度的绝对值定步长——解耦带来噪声鲁棒性和响应速度的最佳平衡。
 
 ## 方法详解
@@ -40,7 +45,7 @@ Ano 的更新规则：$x_{k+1} = x_k - \frac{\eta_k}{\sqrt{\hat{v}_k} + \epsilon
 
 1. **Sign-Magnitude Decoupling**:
 
-    - 做什么：方向来自动量符号 $\text{sign}(m_k)$，幅度来自瞬时梯度 $|g_k|$
+    - 功能：方向来自动量符号 $\text{sign}(m_k)$，幅度来自瞬时梯度 $|g_k|$
     - vs Adam：Adam 用 $m_k = |m_k| \cdot \text{sign}(m_k)$，即方向和幅度都来自动量。大噪声时 $|m_k|$ 被平均拉低（方向震荡导致抵消），更新变慢
     - vs SignSGD/Lion：纯 sign 方法丢失了幅度信息。Ano 保留了幅度但用更灵敏的 $|g_k|$ 而非滞后的 $|m_k|$
 

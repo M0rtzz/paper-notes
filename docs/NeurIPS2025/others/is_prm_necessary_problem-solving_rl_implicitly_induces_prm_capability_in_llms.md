@@ -2,10 +2,10 @@
 title: >-
   [论文解读] 笔记2：PRM必要吗？RL隐式诱导PRM能力
 description: >-
-  [NeurIPS 2025][Process Reward Model] 令人惊讶地，纯RL训练无需显式PRM监督即可诱发出强大的过程理解能力，且现有PRMs在SOTA模型上甚至不如简单多数投票有效。
+  [NeurIPS 2025][过程奖励模型] 令人惊讶地，纯RL训练无需显式PRM监督即可诱发出强大的过程理解能力，且现有PRMs在SOTA模型上甚至不如简单多数投票有效。
 tags:
   - NeurIPS 2025
-  - Process Reward Model
+  - 过程奖励模型
   - 奖励模型
   - RL训练
   - Self-PRM
@@ -18,15 +18,18 @@ tags:
 **arXiv**: [2505.11227](https://arxiv.org/abs/2505.11227)  
 **代码**: DeepSeek-R1 & QwQ-32B repo  
 **领域**: LLM推理, 强化学习  
-**关键词**: Process Reward Model, 奖励模型, RL训练, Self-PRM, 推理验证
+**关键词**: 过程奖励模型, 奖励模型, RL训练, Self-PRM, 推理验证
 
 ## 一句话总结
 令人惊讶地，纯RL训练无需显式PRM监督即可诱发出强大的过程理解能力，且现有PRMs在SOTA模型上甚至不如简单多数投票有效。
 
 ## 研究背景与动机
 **PRM通常认知**：流行观点认为PRM对开发推理能力是必需的，但DeepSeek-R1证明纯RL可将特则成功
+
 **PRM三大困境**：(i)难以定义细粒度"步骤"，(ii)人工标注成本高，(iii)奖励黑客风险大
+
 **关键疑问**：纯RL训练(不含过程监督)是否能培培出既能解决问题又能评估推理质量的模型？
+
 **核心发现前景**：问题解决与过程监督是互补的两个维度，在RL过程中协同演化
 
 ## 方法详解

@@ -7,7 +7,7 @@ tags:
   - CVPR 2026
   - 医学图像
   - radiology report generation
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - DPO
   - fact-based reward
@@ -20,17 +20,22 @@ tags:
 **arXiv**: [2509.18600](https://arxiv.org/abs/2509.18600)  
 **代码**: 暂无  
 **领域**: 医学影像 / LLM / 报告生成  
-**关键词**: radiology report generation, reinforcement learning, GRPO, DPO, fact-based reward, data efficiency
+**关键词**: radiology report generation, reinforcement-learning, GRPO, DPO, fact-based reward, data efficiency
 
 ## 一句话总结
 提出 OraPO, 一种结合 GRPO 和 DPO 的自适应混合 RL 框架, 用于数据高效的放射学报告生成: 通过 Zero-Reward Rate 检测动态切换 GRPO 和 DPO, 加上 FactScore-based 临床事实级奖励, 仅用 1K 样本 (对比基线 227K) 在 CheXpert Plus 和 MIMIC-CXR 上取得 SOTA 的临床 F1 (0.341/0.357).
 
 ## 研究背景与动机
 **领域现状**: 主流放射学报告生成 (RRG) 依赖多阶段训练 + 大规模配对语料 + 大骨干模型, 计算和数据成本极高.
+
 **现有痛点**: (a) Vanilla GRPO 在 RRG 上失效——约 30% 的 rollout 组获得全零奖励, 导致梯度消失和计算浪费; (b) 难以设计捕捉临床准确性而非表面相似性的句子级奖励; (c) 大规模标注数据获取困难.
+
 **核心矛盾**: GRPO 在早期输出高度不确定时产生大量零奖励组, 而这些"失败"的探索被完全浪费; 需要一种方式将失败 rollout 转化为有用的学习信号.
+
 **本文要解决什么**: (a) 在极少数据 (1K 样本) 下实现 SOTA 报告生成; (b) 设计捕捉临床事实正确性的奖励; (c) 解决 GRPO 零奖励问题.
+
 **切入角度**: 检测 Zero-Reward Rate, 高 ZRR 时自动切换到 DPO——用 ground-truth 报告作 positive, 用失败 rollout 作 negative, 将浪费的探索转化为偏好学习信号.
+
 **核心idea一句话**: 用 EMA-smoothed ZRR 检测 GRPO 失效时刻, 动态混入 DPO 将失败 rollout 转化为偏好对, 加上原子事实级奖励捕捉临床正确性.
 
 ## 方法详解

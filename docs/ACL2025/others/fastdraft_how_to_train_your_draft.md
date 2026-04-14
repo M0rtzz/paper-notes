@@ -2,10 +2,10 @@
 title: >-
   [论文解读] FastDraft: How to Train Your Draft
 description: >-
-  [ACL 2025][Speculative Decoding] 提出 FastDraft，一套高效的 draft 模型预训练与对齐流程，可在24小时内用单节点8卡训练出约50M参数的 draft 模型，配合 Speculative Decoding 实现最高3倍内存带宽加速和2倍实际推理加速。
+  [ACL 2025][speculative decoding] 提出 FastDraft，一套高效的 draft 模型预训练与对齐流程，可在24小时内用单节点8卡训练出约50M参数的 draft 模型，配合 Speculative Decoding 实现最高3倍内存带宽加速和2倍实际推理加速。
 tags:
   - ACL 2025
-  - Speculative Decoding
+  - speculative decoding
   - Draft Model
   - 知识蒸馏
   - LLM Inference
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2411.11055](https://arxiv.org/abs/2411.11055)  
 **代码**: 无（Intel Labs 内部实现）  
 **领域**: NLP / LLM推理加速  
-**关键词**: Speculative Decoding, Draft Model, Knowledge Distillation, LLM Inference, Edge Deployment
+**关键词**: speculative decoding, Draft Model, knowledge distillation, LLM Inference, Edge Deployment
 
 ## 一句话总结
 

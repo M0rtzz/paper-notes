@@ -44,7 +44,7 @@ tags:
 ### 关键设计
 1. **时间-拍摄特征（Time-Capture Feature）**
 
-    - 做什么：将手机的时间戳和地理位置转换为对模型有用的时间概率向量
+    - 功能：将手机的时间戳和地理位置转换为对模型有用的时间概率向量
     - 核心思路：根据地理位置计算当地的太阳事件时间（dawn, sunrise, noon, sunset, dusk, midnight），然后计算拍摄时间与各事件的概率：$p_g = 1 - \frac{|t_c - t_g|}{t_s}$，其中 $t_s = 86400$ 秒。对概率取平方根以平衡分布，并增加 one-hot 向量标识拍摄时间在事件之前/之后
     - 额外拍摄特征：ISO（$i$）、快门速度（$s$）、闪光灯状态（$f$）、可选噪声信息（noise stats 或 SNR stats）
     - 最终特征：$\mathbf{c} = [\mathbf{p}^T, \log(i), \log(s), f, \mathbf{w}^T]^T$，通过线性层映射到 $\mathbf{v}_t \in \mathbb{R}^{16}$
@@ -52,14 +52,14 @@ tags:
 
 2. **直方图特征（Histogram Feature）**
 
-    - 做什么：紧凑地表示 raw 图像的颜色分布
+    - 功能：紧凑地表示 raw 图像的颜色分布
     - 核心思路：计算 R/G 和 B/G 的 2D 色度直方图 $\mathbf{H}_c \in \mathbb{R}^{48 \times 48}$，以像素亮度为权重。同时计算边缘图像的色度直方图 $\mathbf{H}_e$，取平方根增强特征
     - 最终特征 $\mathbf{H} \in \mathbb{R}^{48 \times 48 \times 4}$（颜色直方图 + 边缘直方图 + u/v 坐标通道），通过卷积网络 + ELU + 自适应平均池化 + 线性层映射到 $\mathbf{v}_h \in \mathbb{R}^{16}$
     - 设计动机：使用 R/G, B/G（而非传统的 log-uv）色度空间，因为与模型输出空间一致
 
 3. **光照估计头**
 
-    - 做什么：融合两个分支特征并输出光照颜色
+    - 功能：融合两个分支特征并输出光照颜色
     - 核心思路：$\mathbf{v} = [\mathbf{v}_t; \mathbf{v}_h] \in \mathbb{R}^{32}$，经过带 BatchNorm 的多层 MLP 输出 R/G 和 B/G 色度，转换为归一化 RGB 光照向量
     - 整个模型仅约 5K 参数
 

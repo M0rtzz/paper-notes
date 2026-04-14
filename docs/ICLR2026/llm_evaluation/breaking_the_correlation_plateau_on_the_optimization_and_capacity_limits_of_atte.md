@@ -60,20 +60,20 @@ $$\mathcal{L}_{\text{Total}} = \mathcal{L}_{\text{MSE}} + \lambda_{\text{PCC}} \
 
 1. **Scaled Residual Aggregation (SRA)**:
 
-    - 做什么：允许聚合嵌入超出凸包，打破凸组合约束
+    - 功能：允许聚合嵌入超出凸包，打破凸组合约束
     - 核心思路：在标准注意力聚合基础上，用可学习的缩放因子 $\gamma_s \geq 1$ 放大残差。$\mathbf{v}_s^{ECA} = \boldsymbol{\mu}_s + \gamma_s \sum_i \alpha_{si}(\mathbf{h}_{si} - \boldsymbol{\mu}_s)$，其中 $\gamma_s = 1 + \text{Softplus}(\text{MLP}(\boldsymbol{\mu}_s))$
     - 设计动机：Theorem 2.2 证明凸聚合器的 PCC 改善受限于凸包半径。$\gamma_s > 1$ 时模型可以沿残差方向外推，从根本上绕过凸约束
     - 正则化：$\mathcal{L}_\gamma = \frac{\lambda_\gamma}{S} \sum_s (\gamma_s - 1)^2$ 防止过度缩放
 
 2. **Dispersion-Aware Temperature Softmax (DATS)**:
 
-    - 做什么：根据样本内色散自适应调节 softmax 温度
+    - 功能：根据样本内色散自适应调节 softmax 温度
     - 核心思路：$\tau_s = T_{\min} + \beta \sqrt{\frac{1}{n_s} \sum_i \|\mathbf{h}_{si} - \boldsymbol{\mu}_s\|^2}$。同质样本的色散小 → 温度低 → 小差异被放大 → 注意力更具选择性 → 残差 $\Delta \mathbf{v}_s$ 更大，SRA 才有方向可以放大
     - 设计动机：当样本内嵌入高度相似时，标准 softmax 产生近均匀权重 $\alpha_{si} \approx 1/n_s$，导致残差趋近于零，SRA 无用。DATS 恢复注意力的区分能力
 
 3. **Dispersion-Normalized PCC Loss (DNPL)**:
 
-    - 做什么：补偿 PCC 梯度中 $1/\sigma_{\hat{y}}$ 的衰减效应
+    - 功能：补偿 PCC 梯度中 $1/\sigma_{\hat{y}}$ 的衰减效应
     - 核心思路：$\tilde{\mathcal{L}}_{\text{PCC}} = \text{StopGrad}(\sigma_{\hat{y}}) \cdot (1 - \rho)$。乘以 $\sigma_{\hat{y}}$ 抵消梯度中的 $1/\sigma_{\hat{y}}$ 因子，StopGrad 确保不改变损失的驻点
     - 设计动机：直接对应 Corollary 2.1 揭示的 PCC/MSE 梯度比以 $O(1/\sigma_{\hat{y}}^{3/2})$ 衰减的问题
 

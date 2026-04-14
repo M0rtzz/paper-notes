@@ -8,7 +8,7 @@ tags:
   - Android Agent
   - GUI自动化
   - 手机Agent
-  - Benchmark
+  - benchmark
   - 指令微调
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.24024](https://arxiv.org/abs/2410.24024)  
 **代码**: [https://github.com/THUDM/Android-Lab](https://github.com/THUDM/Android-Lab)  
 **领域**: Agent / 多模态VLM  
-**关键词**: Android Agent, GUI自动化, 手机Agent, Benchmark, 指令微调  
+**关键词**: Android Agent, GUI自动化, 手机Agent, benchmark, 指令微调
 
 ## 一句话总结
 提出AndroidLab——首个统一训练和评估Android Agent的系统性框架，包含9个App上的138个可复现任务，同时支持纯文本（XML模式）和多模态（SoM模式）模型，并构建Android Instruct数据集（94.3k步骤），将开源LLM的成功率从4.59%提升至21.50%。

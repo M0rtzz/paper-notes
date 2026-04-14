@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Towards Reliable and Holistic Visual In-Context Learning Prompt Selection
 description: >-
-  [NeurIPS 2025][视觉上下文学习][提示选择] 提出RH-Partial2Global方法，首次用统计检验证明相似性优先假设不够稳健(Spearman ρ̄≈0.03-0.05)，通过Jackknife共形预测筛选可靠候选+覆盖设计保证全面成对偏好采样，在分割/检测/着色任务上一致超越Partial2Global
+  [NeurIPS 2025][自监督学习][visual in-context learning] 提出RH-Partial2Global方法，首次用Spearman秩相关检验证明VICL中"相似性优先假设"虽统计显著但相关强度极弱($\bar{\rho} \approx 0.03\text{-}0.05$)，通过Jackknife共形预测构建可靠候选集+覆盖设计实现全面均匀的成对偏好采样，在分割/检测/着色三个视觉任务上一致超越SOTA。
 tags:
   - NeurIPS 2025
-  - 视觉上下文学习
-  - 提示选择
-  - 共形预测
-  - 覆盖设计
-  - 全局排序
-  - MAE-VQGAN
+  - 自监督学习
+  - visual in-context learning
+  - conformal prediction
+  - covering design
+  - 提示学习
+  - global ranking
 ---
 
 # Towards Reliable and Holistic Visual In-Context Learning Prompt Selection
@@ -40,17 +40,17 @@ RH-Partial2Global在Partial2Global基础上引入两个正交增强：(1) Jackkn
 
 ### 关键设计
 1. **Jackknife共形预测引导的候选选择**:
-    - 做什么：从训练集中筛选出"质量与相似性一致"的可靠样本，过滤掉相似但质量差的候选
+    - 功能：从训练集中筛选出"质量与相似性一致"的可靠样本，过滤掉相似但质量差的候选
     - 核心思路：对训练集中每个样本$x_i^{trn}$，计算其作为prompt应用于所有其他样本的质量分数集$\mathcal{Q}(x_i) = \{\mathfrak{q}(\mathcal{F}(x_j, x_i), x_i)\}$和相似性分数集$\mathcal{S}(x_i) = \{\mathfrak{s}(x_j, x_i)\}$，得到一致性分数$\ell(x_i) = f(\mathcal{Q}(x_i), \mathcal{S}(x_i))$（$f$为负KL散度）。计算$(1-\alpha)$分位数$q_{1-\alpha}$作为阈值，可靠集$\mathcal{Y}_\alpha = \{x_i | \ell(x_i) > q_{1-\alpha}\}$。对查询$x_q$：$\mathcal{Y}_q^* = \mathcal{Y}_\alpha \cap \text{top-K}(\mathfrak{s}(x_q, \cdot))$
     - 设计动机：Spearman检验发现相似性与质量的相关系数极低（$\bar{\rho} \approx 0.03\text{-}0.05$），说明仅靠相似性选择候选不够可靠。共形预测提供分布无关的覆盖保证，Jackknife方式充分利用训练数据
 
 2. **覆盖设计引导的全面采样**:
-    - 做什么：用组合数学中的覆盖设计替代随机打乱，保证所有候选对被至少一个局部排序子序列覆盖
+    - 功能：用组合数学中的覆盖设计替代随机打乱，保证所有候选对被至少一个局部排序子序列覆盖
     - 核心思路：$(K, k, 2)$覆盖设计要求在$K$元素集合中，所有2元素子集都至少出现在一个$k$元素块中。Schonheim下界$C(K,k,t) \geq \lceil\frac{K}{k}\lceil\frac{K-1}{k-1}...\rceil\rceil$给出最少块数（$C(50,5,2) \geq 130$）。使用预计算的最优覆盖设计$C^*(K',k,2)$引导采样，生成随机打乱的候选集后按覆盖设计结构提取$k$长度子序列
     - 设计动机：Partial2Global用50个随机子序列无法覆盖$C\binom{50}{2} = 1225$个成对关系，且重复比较导致偏好权重不均匀。覆盖设计保证穷尽性+最小化子序列数
 
 3. **相似性优先假设的统计验证**:
-    - 做什么：首次对VICL中的基础假设进行严格统计检验
+    - 功能：首次对VICL中的基础假设进行严格统计检验
     - 核心思路：在Pascal-5i训练集上，对每个查询样本计算所有候选的(IoU分数, 视觉相似性)两个序列，进行Spearman秩相关检验。结果：78-88%样本拒绝零假设（$p < 0.05$），说明统计显著存在单调关系；但$\bar{\rho} \approx 0.03\text{-}0.05$极低，说明关系强度很弱
     - 设计动机：Partial2Global质疑过该假设但未提供统计依据。本文的量化分析为引入共形预测提供了理论动机
 

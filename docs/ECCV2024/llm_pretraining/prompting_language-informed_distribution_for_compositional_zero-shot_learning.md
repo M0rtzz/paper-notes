@@ -27,13 +27,18 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：组合零样本学习（CZSL）要求从已见组合（如 sliced potatoes、red tomatoes）泛化到未见组合（如 sliced tomatoes）。近期工作基于 CLIP 的 prompt tuning，性能大幅超越传统视觉方法。
+
 **现有痛点**：
    - **多样性不足**：CSP 等硬 prompt 方法对每个类只用一个 prompt（如 "a photo of [state][object]"），无法捕获类内视觉差异
    - **信息量不足**：ProDA 等分布式 prompt 方法虽引入多个 prompt 增加多样性，但 prompt 缺乏语言语义信息，对细粒度组合类别区分力有限
    - **原语纠缠**：视觉原语（state 和 object）天然耦合（如 tomatoes 天然与 red 相关），现有方法要么不解耦，要么仅在文本侧解耦
+
 **核心矛盾**：prompt 的多样性和信息量需要同时满足——ProDA 有多样性但无信息量，CSP 有一定信息量但无多样性
+
 **本文要解决什么**：如何让 CLIP 的类别文本表示既多样又富含信息，且支持视觉-语言双侧的原语分解
+
 **切入角度**：用 LLM 为每个组合类生成多条句子描述 → 构建类别高斯分布 → 同时在组合和原语空间做分布对齐
+
 **核心 idea 一句话**：用 LLM 生成的描述性句子作为类分布的支撑点（DSP），通过 soft prompt 学习语言知识驱动的类分布，实现多样且有信息量的零样本组合识别。
 
 ## 方法详解
@@ -50,7 +55,7 @@ LLM 生成 M 条描述 → CLIP 编码 → DSP $\mathbf{D}^{(y)}$ → TFE 增强
 
 1. **语言知识驱动的分布 (LID)**：
 
-    - 做什么：为每个组合类 $y = (s, o)$ 构建基于 LLM 描述的高斯分布
+    - 功能：为每个组合类 $y = (s, o)$ 构建基于 LLM 描述的高斯分布
     - 核心思路：用 LLM 生成 M 条描述 $S^{(y)} = \{S_1^{(y)}, ..., S_M^{(y)}\}$，经 CLIP 文本编码器得到 $\mathbf{D}^{(y)} \in \mathbb{R}^{M \times d}$。用 TFE（单层 cross-attention）将 $\mathbf{D}^{(y)}$ 融入类嵌入 $\mathbf{q}_y$ 得到增强均值 $\mathbf{t}_y = \Psi_{\text{TFE}}(\mathbf{q}_y, \mathbf{D}^{(y)})$。将 $\mathbf{t}_y + \mathbf{D}^{(y)}$ 作为分布支撑点，假设服从 $\mathcal{N}(\mathbf{t}_y, \boldsymbol{\Sigma}_y)$。训练目标最小化 NLL 上界：
     $\mathcal{L}_y(\mathbf{x}, y) = -\log \frac{\exp(h_y / \tau)}{\sum_{k=1}^{C} \exp((h_k + h_{k,y}^{(m)}) / \tau)}$
    其中 pairwise margin $h_{k,y}^{(m)} = \mathbf{v}^\top \mathbf{A}_{k,y} \mathbf{v} / (2\tau)$ 由协方差差分 $\mathbf{A}_{k,y} = \boldsymbol{\Sigma}_{kk} + \boldsymbol{\Sigma}_{yy} - \boldsymbol{\Sigma}_{ky} - \boldsymbol{\Sigma}_{yk}$ 决定
@@ -58,7 +63,7 @@ LLM 生成 M 条描述 → CLIP 编码 → DSP $\mathbf{D}^{(y)}$ → TFE 增强
 
 2. **视觉-语言原语分解 (VLPD)**：
 
-    - 做什么：将图像特征 $\mathbf{v}$ 通过两个并行网络 $f_s, f_o$ 分解为状态和物体特征
+    - 功能：将图像特征 $\mathbf{v}$ 通过两个并行网络 $f_s, f_o$ 分解为状态和物体特征
     - 核心思路：
     $h_s = \cos(f_s(\mathbf{v}), \frac{1}{|\mathcal{Y}_s|}\sum_{y \in \mathcal{Y}_s} \mathbf{t}_y), \quad h_o = \cos(f_o(\mathbf{v}), \frac{1}{|\mathcal{Y}_o|}\sum_{y \in \mathcal{Y}_o} \mathbf{t}_y)$
    文本侧的原语嵌入通过分组平均组合嵌入获得（同 state 的所有组合取均值得 state 嵌入，同理 object）
@@ -66,7 +71,7 @@ LLM 生成 M 条描述 → CLIP 编码 → DSP $\mathbf{D}^{(y)}$ → TFE 增强
 
 3. **随机 logit 混合融合 (SLM)**：
 
-    - 做什么：在直接的组合预测 $h_y$ 和重组合预测 $h_y^{(rc)} = h_s + h_o$ 之间做随机加权融合
+    - 功能：在直接的组合预测 $h_y$ 和重组合预测 $h_y^{(rc)} = h_s + h_o$ 之间做随机加权融合
     - 核心思路：
     $\tilde{h}_y = (1 - \lambda) h_y + \lambda h_y^{(rc)}, \quad \lambda \sim \text{Beta}(a, b)$
    训练时从 Beta 分布采样 $\lambda$，测试时用期望 $\lambda = a/(a+b)$

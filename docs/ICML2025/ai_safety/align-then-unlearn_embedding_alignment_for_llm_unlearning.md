@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Align-then-Unlearn: Embedding Alignment for LLM Unlearning
 description: >-
-  [ICML 2025][AI安全][LLM unlearning] 提出 Align-then-Unlearn 框架，通过在语义嵌入空间（而非 token 级别）执行遗忘操作，先训练嵌入预测模块对齐未来语义表示，再微调 LLM 使预测嵌入远离目标概念嵌入，实现对 prompt 改写鲁棒的概念级知识遗忘。
+  [ICML 2025][AI安全][LLM 遗忘] 提出 Align-then-Unlearn 框架，通过在语义嵌入空间（而非 token 级别）执行遗忘操作，先训练嵌入预测模块对齐未来语义表示，再微调 LLM 使预测嵌入远离目标概念嵌入，实现对 prompt 改写鲁棒的概念级知识遗忘。
 tags:
   - ICML 2025
   - AI安全
-  - LLM unlearning
+  - LLM 遗忘
   - 嵌入空间
   - 语义遗忘
   - 隐私保护
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.13181](https://arxiv.org/abs/2506.13181)  
 **代码**: https://github.com/ExplainableML/align-then-unlearn  
 **领域**: AI安全  
-**关键词**: LLM unlearning, 嵌入空间, 语义遗忘, 隐私保护, 概念级遗忘
+**关键词**: LLM 遗忘, 嵌入空间, 语义遗忘, 隐私保护, 概念级遗忘
 
 ## 一句话总结
 提出 Align-then-Unlearn 框架，通过在语义嵌入空间（而非 token 级别）执行遗忘操作，先训练嵌入预测模块对齐未来语义表示，再微调 LLM 使预测嵌入远离目标概念嵌入，实现对 prompt 改写鲁棒的概念级知识遗忘。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 在大规模数据上训练后会不可避免地保留敏感信息（个人隐私、版权内容等），machine unlearning 旨在从已训练模型中选择性移除特定数据影响。
+
 **现有痛点**：现有 SOTA 方法（如 Gradient Ascent、DPO、NPO）都在 token 级别操作——通过 forget set 中的特定文本序列来定义遗忘目标。这导致两个问题：(a) 遗忘范围难以精确控制，因为 forget set 可能很大；(b) 对 prompt 改写不鲁棒，简单换个问法就能绕过遗忘。
+
 **核心矛盾**：token 级遗忘只是在输出层面做"掩盖"，并未真正从模型的语义表示中移除目标知识，导致相关概念仍可通过其他路径被提取。
+
 **本文要解决什么**：如何实现概念级别的、对改写鲁棒的知识遗忘？
+
 **切入角度**：既然 token 粒度太细，不如在语义嵌入空间操作——用一个嵌入向量整体表示"需遗忘的概念"，将模型的内部表示推离该概念。
+
 **核心 idea**：先训练嵌入预测头对齐语义空间，再利用该预测头作为"探针"引导 LLM 的隐状态远离目标概念嵌入。
 
 ## 方法详解
@@ -46,19 +51,19 @@ Align-then-Unlearn 分两阶段：
 
 1. **嵌入预测模块 (Embedding Prediction Head)**:
 
-    - 做什么：将 LLM 隐状态映射到语义嵌入空间，预测未来 $k$ 个 token 的整体语义
+    - 功能：将 LLM 隐状态映射到语义嵌入空间，预测未来 $k$ 个 token 的整体语义
     - 核心思路：用 6 层网络、隐藏维度 768，对齐损失为余弦距离 $\mathcal{L}_{\text{align}} = 1 - \text{sim}(\hat{e}_t, e_t)$，其中 $e_t$ 由冻结的 MPNet 对未来窗口 $(x_{t+1}, \dots, x_{t+k})$ 编码后得到
     - 设计动机：相比逐 token 预测，嵌入空间的表示是整体语义的，因此可以捕捉概念级信息而非字面信息
 
 2. **嵌入空间遗忘 (Unlearning in Embedding Space)**:
 
-    - 做什么：微调 LLM 参数使预测嵌入远离目标概念
+    - 功能：微调 LLM 参数使预测嵌入远离目标概念
     - 核心思路：遗忘损失 $\mathcal{L}_{\text{unlearn}} = \max(0, \text{sim}(\hat{e}_t, e_{\text{unlearn}}) - \tau)$，只有当相似度超过阈值 $\tau$ 时才施加惩罚
     - 设计动机：阈值 $\tau$ 提供精细控制，防止过度遗忘破坏模型剩余能力；只需要一个文本描述就能定义遗忘目标（如"Stephen King"），无需大量 forget set
 
 3. **迭代对齐-遗忘交替训练**:
 
-    - 做什么：交替执行嵌入头重新对齐和 LLM 遗忘更新
+    - 功能：交替执行嵌入头重新对齐和 LLM 遗忘更新
     - 核心思路：遗忘后 LLM 隐状态分布改变，嵌入头失效；重新对齐后嵌入头恢复探测能力，可继续推动更深层遗忘
     - 设计动机：形成对抗动态——LLM 试图从 $E$ 角度隐藏目标概念，而 $E$ 不断恢复探测能力，迫使 LLM 在更深层表示上执行真正的知识删除
 

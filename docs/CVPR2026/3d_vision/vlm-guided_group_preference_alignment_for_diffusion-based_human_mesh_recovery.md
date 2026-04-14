@@ -21,7 +21,7 @@ tags:
 **机构**: Nanyang Technological University, HKUST(GZ), SenseTime Research, A*STAR
 **代码**: 待确认  
 **领域**: 3d_vision  
-**关键词**: Human Mesh Recovery, Diffusion Model, VLM, GRPO, Preference Alignment, Critique Agent
+**关键词**: Human Mesh Recovery, diffusion model, VLM, GRPO, Preference Alignment, Critique Agent
 
 ## 一句话总结
 

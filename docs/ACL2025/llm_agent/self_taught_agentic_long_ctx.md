@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.15920](https://arxiv.org/abs/2502.15920)  
 **代码**: [https://github.com/EvanZhuang/AgenticLU](https://github.com/EvanZhuang/AgenticLU)  
 **领域**: LLM Agent  
-**关键词**: long-context understanding, agentic workflow, chain-of-clarifications, inference-time scaling, self-taught reasoning  
+**关键词**: long-context understanding, agentic workflow, chain-of-clarifications, inference-time scaling, self-taught reasoning
 
 ## 一句话总结
 提出 AgenticLU 框架，通过 Chain-of-Clarifications (CoC) 工作流让 LLM 自主生成澄清问题并检索相关上下文，再通过 SFT+DPO 两阶段微调将树搜索路径蒸馏到模型中，使 8B 模型在 128K 长上下文 QA 任务上大幅超越基线。

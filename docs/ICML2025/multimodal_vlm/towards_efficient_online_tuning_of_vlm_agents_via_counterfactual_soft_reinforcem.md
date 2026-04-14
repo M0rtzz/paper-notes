@@ -10,7 +10,7 @@ tags:
   - Counterfactual Reasoning
   - Soft RL
   - Exploration Efficiency
-  - 因果推理
+  - causal inference
 ---
 
 # Towards Efficient Online Tuning of VLM Agents via Counterfactual Soft Reinforcement Learning
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.03792](https://arxiv.org/abs/2505.03792)  
 **代码**: [github.com/langfengQ/CoSo](https://github.com/langfengQ/CoSo)  
 **领域**: VLM 智能体, 强化学习, 在线微调  
-**关键词**: VLM Agent, Counterfactual Reasoning, Soft RL, Exploration Efficiency, 因果推理
+**关键词**: VLM Agent, Counterfactual Reasoning, Soft RL, Exploration Efficiency, causal inference
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 VLM 作为决策智能体在设备控制、游戏、机器人等场景中应用广泛。RL 在线微调使 VLM 能迭代与环境交互优化多步目标，但面临两大挑战：
 
 **探索空间爆炸**：传统 RL 动作空间 $|\mathcal{A}|=6$，VLM 的文本动作空间达 $|V|^n = 32100^{100}$
+
 **动作生成非端到端**：VLM 输出需经解析函数 $f^{\text{parse}}$ 转为可执行动作，大量 token（CoT、格式固定等）对最终动作无影响
 
 核心洞察：**只有少量"动作关键"token（< 10%）真正决定最终动作**，标准熵正则化对所有 token 施加均匀不确定性，导致低效甚至有害的探索。

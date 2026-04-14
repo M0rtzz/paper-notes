@@ -28,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：类增量学习（CIL）需要模型按顺序学习新类别同时保留旧知识。近年来，预训练模型（PTM）结合参数高效微调（PEFT）在无回放 CIL 中展现出良好效果，无需存储旧任务样本。
+
 **现有痛点**：
    - **Prompt-based 方法**（L2P、DualPrompt、CODA-Prompt）：需要大量 prompt 参数，且任务选择机制复杂
    - **Adapter-based 方法**（EASE、O-LoRA、InfLoRA）：每个任务创建新适配器，导致参数冗余
    - 现有方法未能有效利用跨任务的共享知识，每个任务独立学习导致知识碎片化
+
 **核心矛盾**：如何在保持参数效率的同时，既学习跨任务共享知识又捕获任务特定特征，实现稳定性（不遗忘）与可塑性（学新知识）的平衡。
+
 **切入角度**：设计双适配器架构，前半 Transformer 层用共享 LoRA 学跨任务知识，后半层用任务特定 LoRA 学特有特征。
+
 **核心 idea 一句话**：共享 LoRA（带知识蒸馏+梯度重分配） + 特定 LoRA（带块级权重+正交约束） = 高效持续学习。
 
 ## 方法详解
@@ -45,21 +49,21 @@ tags:
 
 1. **任务共享适配器（Task-Shared Adapter）**
 
-    - 做什么：在前 $l=6$ 个 Transformer 块中插入共享 LoRA，学习跨任务通用知识
+    - 功能：在前 $l=6$ 个 Transformer 块中插入共享 LoRA，学习跨任务通用知识
     - 核心思路：使用随机正交矩阵初始化 $\mathbf{A}_s$，仅更新 $\mathbf{B}_s$
     - 知识蒸馏：在学习新任务时，用上一任务的共享适配器作为教师，对当前适配器进行知识蒸馏
     - 早退出策略：仅在共享适配器的最后一层计算蒸馏损失，减少计算开销
 
 2. **梯度重分配（Gradient Reassignment）**
 
-    - 做什么：识别并保护共享适配器中对旧任务重要的参数
+    - 功能：识别并保护共享适配器中对旧任务重要的参数
     - 核心思路：计算教师模型和学生模型梯度的差异，对重要参数降低学习率
     - 实现：$\nabla \mathcal{L}'_{kd} = \nabla \mathcal{L}_{kd} \odot |\nabla_{\mathbf{B}_s^{t-1}} \mathcal{L}_{kd} - \nabla_{\mathbf{B}_s^{t}} \mathcal{L}_{kd}|$
     - 效果：更精准地保留重要共享知识
 
 3. **任务特定适配器与块级权重（Block-wise Weights）**
 
-    - 做什么：在后 $N-l$ 个 Transformer 块中，每个任务有独立的 LoRA
+    - 功能：在后 $N-l$ 个 Transformer 块中，每个任务有独立的 LoRA
     - 块级权重：为每个特定适配器学习可训练的逐块缩放因子 $w_i^j$
     - 正交约束：$\mathcal{L}_{orth} = \sum_{j=l+1}^{N} \sum_{i \neq k} \| \mathbf{B}_i^j {}^\top \mathbf{B}_k^j \|_F^2$
     - 设计动机：不同任务可能在不同 Transformer 层需要不同程度的适配

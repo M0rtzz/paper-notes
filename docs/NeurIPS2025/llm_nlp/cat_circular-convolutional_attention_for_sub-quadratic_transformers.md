@@ -2,15 +2,15 @@
 title: >-
   [论文解读] CAT: Circular-Convolutional Attention for Sub-Quadratic Transformers
 description: >-
-  [NeurIPS 2025][LLM/NLP][高效注意力] 提出CAT——基于循环卷积的注意力机制，利用FFT将标准自注意力的O(N²)复杂度降至O(NlogN)，同时严格保持softmax行归一化结构；在ImageNet-1k和WikiText-103上匹配或超越标准注意力，参数更少且朴素PyTorch实现即有约10%加速。
+  [NeurIPS 2025][LLM/NLP][循环卷积] CAT 将标准自注意力中的 $N \times N$ 注意力矩阵替换为一个由 $N$ 维向量生成的循环矩阵（circulant matrix），利用 FFT 实现 $O(N \log N)$ 复杂度的注意力计算，在严格保持 softmax 行归一化结构的前提下，在 ImageNet-1k（avg pool 下 CLIP-L 准确率 0.694 vs 标准注意力 0.646）和 WikiText-103 masked LM（PPL 8.32 vs 9.82）上匹配或超越标准注意力。
 tags:
   - NeurIPS 2025
   - LLM/NLP
-  - 高效注意力
   - 循环卷积
-  - FFT
+  - FFT注意力
   - 次二次复杂度
-  - Transformer架构
+  - softmax保持
+  - EIT框架
 ---
 
 # CAT: Circular-Convolutional Attention for Sub-Quadratic Transformers
@@ -49,19 +49,19 @@ CAT 作为标准多头自注意力的 drop-in 替换。输入 $\mathbf{X} \in \m
 
 1. **循环注意力矩阵构造**:
 
-    - 做什么：将 $N \times N$ 注意力权重矩阵替换为由 $N$ 维向量生成的循环矩阵
+    - 功能：将 $N \times N$ 注意力权重矩阵替换为由 $N$ 维向量生成的循环矩阵
     - 核心思路：用单一投影 $\mathbf{Z} = \mathbf{X} \mathbf{W_A} \in \mathbb{R}^{N \times 1}$ 得到注意力得分向量，对其做行 softmax 得到 $\mathbf{Z}^\star = \text{softmax}(\mathbf{Z})$。然后构建循环矩阵 $\text{circ}(\mathbf{Z}^\star)$，其第 $i$ 行是 $\mathbf{Z}^\star$ 的第 $i$ 次循环移位。关键性质：$\text{softmax}(\text{circ}(\mathbf{Z})) \equiv \text{circ}(\text{softmax}(\mathbf{Z}))$，循环矩阵与 softmax 可交换，所以每行仍然是合法的 softmax 归一化权重
     - 设计动机：循环矩阵是"保持 softmax 行归一化的最简结构"——每行共享相同权重集合，只是位置不同。这同时赋予了模型显式的相对位置编码能力，因为注意力权重只依赖 token 间的相对偏移
 
 2. **FFT 加速计算**:
 
-    - 做什么：利用循环卷积定理将 $O(N^2)$ 的矩阵乘法加速为 $O(N \log N)$
+    - 功能：利用循环卷积定理将 $O(N^2)$ 的矩阵乘法加速为 $O(N \log N)$
     - 核心思路：循环矩阵乘向量等价于循环卷积。根据卷积定理，$\text{circ}(\mathbf{Z}^\star) \mathbf{V} = \text{IFFT}[\text{FFT}(\mathbf{Z}^\star) \odot \text{FFT}(\mathbf{V})]$，其中 $\odot$ 为逐元素 Hadamard 乘积。FFT/IFFT 的复杂度为 $O(N \log N)$，Hadamard 乘积为 $O(N)$，总复杂度 $O(N \log N)$
     - 设计动机：这是唯一不近似、不截断、完全精确的次二次注意力计算方式——循环矩阵乘法与 FFT 在浮点精度内完全等价
 
 3. **CAT-Alter 混合架构**:
 
-    - 做什么：在网络中交替使用 CAT 层和标准注意力层
+    - 功能：在网络中交替使用 CAT 层和标准注意力层
     - 核心思路：将一半注意力层替换为 CAT，另一半保留标准注意力，交替排列。CAT 层提供 $O(N \log N)$ 的高效计算和循环移位正则化，标准注意力层保留完全灵活的全局交互能力
     - 设计动机：纯 CAT 在需要高度灵活全局交互的任务（如 causal LM with token pooling）中偶尔不如标准注意力，混合方案兼得两者优势。类似于 Jamba 等 Transformer/SSM 混合架构的思路
 

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting
 description: >-
-  [CVPR 2026][气象预报][全球-区域耦合] 提出STCast框架，通过Spatial-Aligned Attention自适应学习全球-区域分布来替代静态边界，配合Temporal MoE按月动态路由专家，在全球预报、区域预报、台风路径和集合预测四个任务上全面SOTA
+  [CVPR 2026][时间序列][weather forecasting] 提出STCast框架，通过Spatial-Aligned Attention（SAA）用可学习的全球-区域分布替代静态边界来自适应融合全球大气信息到区域预报，并用Temporal Mixture-of-Experts（TMoE）按月动态路由专家增强时序建模，在全球预报、高分辨率区域预报、台风路径预测和集合预测四个任务上全面超越现有方法。
 tags:
   - CVPR 2026
-  - 气象预报
-  - 时空预测
-  - Mixture-of-Experts
+  - 时间序列
+  - weather forecasting
   - 注意力机制
-  - 全球-区域耦合
+  - temporal MoE
+  - global-regional coupling
+  - adaptive boundary
 ---
 
 # STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting
@@ -42,19 +43,19 @@ STCast统一处理四个任务：低分辨率全球预报 → 高分辨率区域
 
 1. **Spatial-Aligned Attention（SAA）**:
 
-    - 做什么：自适应聚合全球大气信息到区域预报，替代静态边界拼接
+    - 功能：自适应聚合全球大气信息到区域预报，替代静态边界拼接
     - 核心思路：用全球特征做Query和Key、区域特征做Value的线性交叉注意力。关键创新在先验初始化——计算每个全球点到目标区域的Great Circle距离 $d(\phi,\lambda)$，用指数衰减函数 $f(\phi,\lambda) = \exp(-\alpha \cdot d^2)$ 初始化全球-区域分布，通过Hadamard积调制注意力权重，并在训练中持续优化。使用 $O(n)$ 线性注意力降低计算复杂度
     - 设计动机：大气影响随距离衰减但不消失，指数衰减先验编码了这种物理直觉，同时允许模型学习到超出地理邻近的长程关联（如遥相关）
 
 2. **Temporal Mixture-of-Experts（TMoE）**:
 
-    - 做什么：将不同月份的预报任务动态路由到专门的专家模型
+    - 功能：将不同月份的预报任务动态路由到专门的专家模型
     - 核心思路：为每个月学习一个离散高斯分布，峰值旋转对齐到输入变量的月份。月份embedding $M \in \mathbb{R}^{12\times 1}$ 与输入特征的路由权重拼接后经softmax选Top-K专家：$I = \text{Softmax}(\text{Conv}(X^t) + M)$。高斯分布确保激活概率随时间距离单调递减
     - 设计动机：大气变量在不同月份有显著差异（夏季对流 vs 冬季辐射），隐式MoE分配难以学到这种时序特异性且容易同质化，TMoE通过显式月份embedding提供清晰的专家分工信号
 
 3. **统一四任务框架**:
 
-    - 做什么：用同一框架处理全球预报、区域预报、台风路径和集合预测
+    - 功能：用同一框架处理全球预报、区域预报、台风路径和集合预测
     - 核心思路：全球预报 $X_g^{t+1} = \Phi_g(X_g^t)$；区域预报通过SAA耦合 $X_r^{t+1} = \Phi_r(X_r^t, X_g^t)$；台风路径从区域预测的海平面气压推断；集合预测向全球初始态注入Perlin噪声做n次模拟取均值
     - 设计动机：四个任务共享大气物理的底层表征，统一框架能更好利用全球-区域-时序的耦合关系
 

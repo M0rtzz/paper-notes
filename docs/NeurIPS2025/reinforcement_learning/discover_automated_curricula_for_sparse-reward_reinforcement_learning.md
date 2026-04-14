@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.19850](https://arxiv.org/abs/2505.19850)  
 **代码**: [已开源](https://github.com/LeanderDiazBone/discover)  
 **领域**: reinforcement_learning / 探索策略 / 课程学习  
-**关键词**: sparse reward, goal selection, exploration-exploitation, UCB, curriculum learning, goal-conditioned RL  
+**关键词**: sparse reward, goal selection, exploration-exploitation, UCB, curriculum learning, goal-conditioned RL
 
 ## 一句话总结
 提出 DISCOVER，一种面向稀疏奖励长视野 RL 的目标选择策略，通过同时平衡可达性（achievability）、新颖性（novelty）和相关性（relevance）来生成指向目标任务的课程，理论上证明达到目标的步数与目标距离线性相关（而非搜索空间体积），在高维导航和操作任务中显著超越先前 SOTA 探索策略。

@@ -7,11 +7,11 @@ tags:
   - CVPR2026
   - 机器人
   - VLA
-  - reasoning
+  - 推理
   - latent CoT
   - 知识蒸馏
-  - preference learning
-  - robotic manipulation
+  - 偏好学习
+  - 机器人操作
 ---
 
 # Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.09708](https://arxiv.org/abs/2601.09708)  
 **代码**: [项目主页](https://jasper0314-huang.github.io/fast-thinkact/)  
 **领域**: robotics  
-**关键词**: VLA, reasoning, latent CoT, knowledge distillation, preference learning, robotic manipulation  
+**关键词**: VLA, 推理, latent CoT, 知识蒸馏, 偏好学习, 机器人操作
 
 ## 一句话总结
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.03207](https://arxiv.org/abs/2603.03207)  
 **代码**: 未公开  
 **领域**: causal_inference  
-**关键词**: causal discovery, causal additive model, unobserved variables, non-identical variable sets, graph integration, combinatorial search  
+**关键词**: causal discovery, causal additive model, unobserved variables, non-identical variable sets, graph integration, combinatorial search
 
 ## 一句话总结
 

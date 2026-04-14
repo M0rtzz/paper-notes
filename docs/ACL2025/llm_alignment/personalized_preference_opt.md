@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.11549](https://arxiv.org/abs/2501.11549)  
 **代码**: [https://github.com/Pinafore/alignment-personalization](https://github.com/Pinafore/alignment-personalization)  
 **领域**: LLM 对齐 / 个性化偏好优化  
-**关键词**: personalization, preference optimization, abductive reasoning, persona inference, DPO  
+**关键词**: personalization, preference optimization, abductive reasoning, persona inference, DPO
 
 ## 一句话总结
 提出"溯因推理"视角的偏好个性化方法：先用 LLM 推断偏好 chosen/rejected 回答背后的用户画像（Persona Inference），再用画像增强的偏好数据训练模型（Persona Tailoring），显著提升模型对不同用户需求的个性化适配能力。

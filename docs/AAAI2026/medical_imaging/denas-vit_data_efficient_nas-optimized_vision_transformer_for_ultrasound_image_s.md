@@ -52,7 +52,7 @@ tags:
 
 1. **Efficient NAS-ViT 模块**:
 
-    - 做什么：在注意力计算前搜索最优的多尺度 token 表示
+    - 功能：在注意力计算前搜索最优的多尺度 token 表示
     - 核心思路：对 Q/K/V token 用部分通道连接+连续松弛做可微搜索：$\{Q'/K'/V'\} = (1-P) \odot \{Q/K/V\} + \sum_{O_i} \frac{\exp(\alpha_i)}{\sum_j \exp(\alpha_j)} O_i(P \odot \{Q/K/V\})$
     - 设计动机：DAST 把整个 ViT 层作为候选操作导致计算量大且搜索无意义（模型总会选最复杂的 ViT）。在 token 级搜索更细粒度且减少参数开销
 

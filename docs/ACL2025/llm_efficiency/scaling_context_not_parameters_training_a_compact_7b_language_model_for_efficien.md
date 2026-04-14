@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Scaling Context, Not Parameters: Training a Compact 7B Language Model for Efficient Long-Context Processing
 description: >-
-  [ACL 2025][LLM效率][长上下文] 提出 MegaBeam-Mistral-7B，一个支持 512K token 上下文长度的 7B 语言模型，通过四阶段渐进式训练、RoPE theta 调优、bfloat16 精度修复和 XLA 编译器内存优化等工程实践，使紧凑型模型在长上下文任务上达到甚至超越大参数模型（如 Llama-3.1-70B、GPT-4）的性能。
+  [ACL 2025][LLM效率][long context] 提出 MegaBeam-Mistral-7B，一个支持 512K token 上下文长度的 7B 语言模型，通过四阶段渐进式训练、RoPE theta 调优、bfloat16 精度修复和 XLA 编译器内存优化等工程实践，使紧凑型模型在长上下文任务上达到甚至超越大参数模型（如 Llama-3.1-70B、GPT-4）的性能。
 tags:
   - ACL 2025
   - LLM效率
-  - 长上下文
+  - long context
   - 7B模型
   - 512K token
   - RoPE
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.08651](https://arxiv.org/abs/2505.08651)  
 **代码**: [有 (HuggingFace)](https://huggingface.co/aws-prototyping/MegaBeam-Mistral-7B-512k)  
 **领域**: LLM 效率 / 长上下文  
-**关键词**: 长上下文, 7B模型, 512K token, RoPE, Ring Attention
+**关键词**: long context, 7B模型, 512K token, RoPE, Ring Attention
 
 ## 一句话总结
 
@@ -35,8 +35,11 @@ tags:
 - **生命科学**：处理长篇研究文献
 
 当前长上下文训练面临多重挑战：
+
 **计算资源需求巨大**：Ring Attention 原始工作报告 512K 序列需 16×A100（80GB）才能训练 7B 模型
+
 **大模型不等于强长上下文**：Llama-3.1-8B 在 RULER 上反而超过 70B 版本
+
 **隐蔽的数值精度问题**：bfloat16 在大位置索引下的精度损失未被充分认知
 
 ### 核心动机

@@ -2,11 +2,11 @@
 title: >-
   [论文解读] UnrealPose: Leveraging Game Engine Kinematics for Large-Scale Synthetic Human Pose Data
 description: >-
-  [CVPR 2026][图像分割][Synthetic Data] 提出 UnrealPose-Gen，一个基于 Unreal Engine 5 的合成人体姿态数据生成管线，利用游戏引擎原生骨骼运动学（而非 SMPL）生成百万级标注数据集 UnrealPose-1M，提供 3D 关节、2D 关键点、遮挡标志、实例分割掩码和相机参数等完整标注。
+  [CVPR 2026][图像分割][synthetic data] 提出 UnrealPose-Gen，一个基于 Unreal Engine 5 的合成人体姿态数据生成管线，利用游戏引擎原生骨骼运动学（而非 SMPL）生成百万级标注数据集 UnrealPose-1M，提供 3D 关节、2D 关键点、遮挡标志、实例分割掩码和相机参数等完整标注。
 tags:
   - CVPR 2026
   - 图像分割
-  - Synthetic Data
+  - synthetic data
   - 位姿估计
   - Unreal Engine
   - Game Engine
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2601.00991](https://arxiv.org/abs/2601.00991)  
 **代码**: 有  
 **领域**: 分割  
-**关键词**: Synthetic Data, Human Pose Estimation, Unreal Engine, Game Engine, Instance Segmentation  
+**关键词**: synthetic data, Human Pose Estimation, Unreal Engine, Game Engine, Instance Segmentation
 
 ## 一句话总结
 
@@ -29,10 +29,13 @@ tags:
 准确的 3D 人体姿态数据获取一直是领域痛点，现有途径各有严重缺陷：
 
 **真实 3D 数据集受限**：Human3.6M、3DPW 等依赖 marker-based 动捕系统，成本高、场景单一、动作多样性不足
+
 **2D 数据集缺少 3D 标注**：COCO-Pose、MPII 提供丰富的 in-the-wild 标注，但缺少 3D 且存在标注者间不一致性
+
 **伪 3D 监督的偏差**：
    - **Lifting 方法**（2D→3D）：跨数据集泛化差，精度大幅下降
    - **参数模型拟合**（SMPL 系列）：继承训练数据（CAESAR）的人口统计偏差，关节位置依赖拟合质量和回归器选择而非解剖学，某些方法产生弯曲膝盖或不自然的直腿
+
 **现有合成数据以 mesh 为中心**：SURREAL、AGORA、BEDLAM 等都围绕 SMPL 参数设计，关节标签来自 mesh 回归而非运动学枢轴点，且复杂交互仍是未解决问题
 
 **核心洞察**：游戏开发者已经花了几十年创建复杂的多人交互、物体操作和多样角色动作——计算机视觉社区何不直接利用这些丰富的游戏动画资产？

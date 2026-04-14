@@ -2,15 +2,15 @@
 title: >-
   [论文解读] EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video
 description: >-
-  [ICLR 2026][自动驾驶][egocentric video] Apple 使用 Vision Pro 采集了 829 小时的第一人称视频 + 3D 手部关节追踪数据（EgoDex），覆盖 194 种桌面操作任务，并在此数据集上系统评估了模仿学习策略（BC/DDPM/FM + Transformer），为灵巧操作的扩展训练提供了迄今最大规模的数据基础。
+  [ICLR 2026][自动驾驶][第一人称视频] Apple 使用 Vision Pro 采集了 829 小时的第一人称视频 + 3D 手部关节追踪数据（EgoDex），覆盖 194 种桌面操作任务，并在此数据集上系统评估了模仿学习策略（BC/DDPM/FM + Transformer），为灵巧操作的扩展训练提供了迄今最大规模的数据基础。
 tags:
   - ICLR 2026
   - 自动驾驶
-  - egocentric video
+  - 第一人称视频
   - dexterous manipulation
-  - imitation learning
+  - 模仿学习
   - hand pose
-  - dataset
+  - 数据集
 ---
 
 # EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.11709](https://arxiv.org/abs/2505.11709)  
 **代码**: https://github.com/apple/ml-egodex (有)  
 **领域**: 自动驾驶/机器人  
-**关键词**: egocentric video, dexterous manipulation, imitation learning, hand pose, dataset
+**关键词**: 第一人称视频, dexterous manipulation, 模仿学习, hand pose, 数据集
 
 ## 一句话总结
 Apple 使用 Vision Pro 采集了 829 小时的第一人称视频 + 3D 手部关节追踪数据（EgoDex），覆盖 194 种桌面操作任务，并在此数据集上系统评估了模仿学习策略（BC/DDPM/FM + Transformer），为灵巧操作的扩展训练提供了迄今最大规模的数据基础。
@@ -27,10 +27,15 @@ Apple 使用 Vision Pro 采集了 829 小时的第一人称视频 + 3D 手部关
 ## 研究背景与动机
 
 **领域现状**：机器人模仿学习面临严重的数据稀缺问题。不同于 NLP 和 2D 视觉有互联网规模的语料，灵巧操作（dexterous manipulation）缺乏大规模数据集。当前主流的数据采集方式是遥操作（teleoperation），如 Open X-Embodiment、DROID 等。
+
 **现有痛点**：遥操作被物理硬件瓶颈限制，难以再扩展规模；数据与具体机器人硬件绑定，泛化性差。另一个选择是互联网野外视频（如 Ego4D），但缺少精确的 3D 手部姿态标注，无法用于训练灵巧操作策略。
+
 **核心矛盾**：可扩展性 vs 标注精度——遥操作有精确动作标注但不可扩展，野外视频可扩展但缺少关键的灵巧标注。
+
 **本文要解决什么**：构建一个既可被动扩展（passively scalable）、又具有精确 3D 手部关节标注的大规模数据集，同时建立标准化 benchmark 评估灵巧操作能力。
+
 **切入角度**：利用 Apple Vision Pro 的多目摄像头 + 设备端 SLAM + ARKit 实时追踪手部 25 个关节的位置和朝向，在用户自然操作时即完成数据采集和标注。
+
 **核心 idea 一句话**：用可穿戴 XR 设备被动采集的大规模第一人称视频+精确手部姿态数据，替代不可扩展的遥操作范式。
 
 ## 方法详解
@@ -48,25 +53,25 @@ EgoDex 的核心贡献分两部分：
 
 1. **数据采集系统**:
 
-    - 做什么：利用 Vision Pro + visionOS 2 + ARKit 采集自然操作数据
+    - 功能：利用 Vision Pro + visionOS 2 + ARKit 采集自然操作数据
     - 核心思路：佩戴者无需任何额外设备，正常操作物体即可。ARKit 利用设备端多目标定摄像头和 SLAM，实时追踪头部、手臂、手腕和每只手 25 个关节的 3D 位置和朝向。录制以 session 组织（10-15 分钟），内部由 pause/resume 标记 episode 边界。视频用现代编码压缩（原始 500TB → 2TB）。
     - 设计动机：相比遥操作需要机器人+人类主动控制，Vision Pro 数据采集是"被动可扩展"的——在未来 XR 眼镜普及后可自然积累海量数据。相比 HaMeR 等后处理方式，设备端实时追踪利用已知内外参和多视角，精度更高。
 
 2. **动作表示（Action Representation）**:
 
-    - 做什么：将每帧动作编码为 48 维向量
+    - 功能：将每帧动作编码为 48 维向量
     - 核心思路：$\mathbf{a}_t$ = 2 hands × (3D wrist position + 6D wrist orientation + 5 fingertips × 3D position) = 48 维。动作在当前相机坐标系下表达，采用相对轨迹（relative trajectory）。
     - 设计动机：相比只取手腕位置（如 EgoMimic），加入每个指尖的 3D 位置才能捕获灵巧操作的精细信息。
 
 3. **任务设计与多样性**:
 
-    - 做什么：194 种任务分为三类——可逆任务（reversible，互逆操作对）、免重置任务（reset-free，终态包含于初态分布）、重置任务（reset）
+    - 功能：194 种任务分为三类——可逆任务（reversible，互逆操作对）、免重置任务（reset-free，终态包含于初态分布）、重置任务（reset）
     - 核心思路：可逆和免重置任务消除了耗时的环境重置步骤，提高采集效率。GPT-4 用于将采集者的元数据（任务名、描述、环境、物体）整合为结构化自然语言标注。
     - 设计动机：与 DROID 相比，EgoDex 的动作动词分布更宽广——DROID 大量动词仅 <10 次出现，而 EgoDex 多数动词 >1000 次。
 
 4. **Benchmark 设计**:
 
-    - 做什么：定义两个标准评测——轨迹预测和逆动力学
+    - 功能：定义两个标准评测——轨迹预测和逆动力学
     - **轨迹预测**：$f_\theta(\mathbf{o}_{0..t}, \mathbf{s}_{0..t}, l) = \hat{\mathbf{a}}_{t:t+H}$，给定图像序列、骨骼序列和语言描述，预测未来 H 步动作。
     - **逆动力学**：额外给定终点目标图像 $\mathbf{o}_{t+H}$，预测中间轨迹。目标图像减少了多模态性。
     - 评价指标采用 "Best of K"：采样 K 次取最接近 GT 的预测，计算 12 个关键点（双手腕+10指尖）的平均 3D 欧氏距离。

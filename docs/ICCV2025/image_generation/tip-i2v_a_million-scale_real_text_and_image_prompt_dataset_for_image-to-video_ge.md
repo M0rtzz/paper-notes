@@ -30,6 +30,7 @@ tags:
 图像到视频（I2V）生成是视频生成领域的重要方向，相比文本到视频（T2V），它提供了更好的可控性、一致性和实用性。然而，当前I2V研究面临一个基础性缺失：**没有专门的I2V prompt数据集**。
 
 现有prompt数据集的局限：
+
 **VidProM**（T2V）和**DiffusionDB**（T2I）仅包含文本prompt，缺乏配对的图像prompt
 2. T2V和T2I的prompt语义与I2V根本不同：前者描述要生成的场景（如"a dragon flies over a city"），而I2V的文本prompt是对图像中已有物体的动作指令（如"make the hair dance""the flowers fall"）
 3. 现有I2V评估基准（VBench-I2V、I2V-Bench等）覆盖的主题数量有限（仅11-16个主题），且prompt由专家设计而非来自真实用户

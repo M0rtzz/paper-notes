@@ -32,8 +32,11 @@ tags:
 **现有方法的痛点**：
 
 **缺乏上下文感知**：现有生成方法（如GAN、扩散模型）往往忽略了生物组织的上下文（形状、空间布局、组织类型），生成的合成数据缺乏空间和结构的真实性。
+
 **无法同时生成图像-标签对**：大多数方法要么先生成标签再生成图像（两阶段方法，速度慢），要么基于已有的像素级标签生成图像（缺乏标签多样性），没有方法能在单一模型中一步完成图像和标签的协同生成。
+
 **标签控制力不足**：Semantic-Palette可以控制类别比例但无法精确控制空间位置；Abousamra等能生成空间感知的点布局但只能产生点级标签，无法用于分割任务。
+
 **实例分离困难**：常规语义标签合成中，相邻的细胞核容易聚集为一个大区域，无法区分单个实例。
 
 **核心矛盾**：如何在一个统一框架中，既能精确控制合成样本的空间布局和组织类型，又能同时生成高质量的图像与多粒度（语义+实例）标签？
@@ -58,8 +61,8 @@ $$p_\theta^u(u_{t-1}|u_t) = p_\theta^i(i_{t-1}|u_t) \cdot p_\theta^d(d_{t-1}|u_t
 
 2. **上下文条件化（Context Conditions）**：引入两种条件来增强生成质量和可控性：
 
-   - **点图条件 $pc$**：定义每个细胞核实例的质心位置和类别，通过RRDB网络编码。与像素级标签条件相比，点图条件只需每个实例1个像素的指导信息，却能产生多样化的标签（同一点布局可生成不同的标签和图像）。
-   - **文本条件 $tc$**：包含组织类型和核类别信息，格式为"high-quality histopathology [tissue type] tissue image including nuclei types of [cell types]"，使用病理学专用的视觉-语言模型PLIP编码。
+    - **点图条件 $pc$**：定义每个细胞核实例的质心位置和类别，通过RRDB网络编码。与像素级标签条件相比，点图条件只需每个实例1个像素的指导信息，却能产生多样化的标签（同一点布局可生成不同的标签和图像）。
+    - **文本条件 $tc$**：包含组织类型和核类别信息，格式为"high-quality histopathology [tissue type] tissue image including nuclei types of [cell types]"，使用病理学专用的视觉-语言模型PLIP编码。
 
    采用classifier-free guidance调整预测噪声：$\tilde{\epsilon}_\theta(u_t, t, pc, tc) = \omega \epsilon_\theta(u_t, t, pc, tc) + (1-\omega) \epsilon_\theta(u_t, t, pc)$
 

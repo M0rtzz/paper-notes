@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - Shape Editing
   - Trajectory Divergence Map
-  - Training-Free
+  - training-free
   - Flow Matching
   - KV Injection
 ---
@@ -19,20 +19,25 @@ tags:
 **arXiv**: [2508.08134](https://arxiv.org/abs/2508.08134)  
 **代码**: [项目页](https://follow-your-shape.github.io/)  
 **领域**: 扩散模型 / 图像编辑  
-**关键词**: Shape Editing, Trajectory Divergence Map, Training-Free, Flow Matching, KV Injection  
+**关键词**: Shape Editing, Trajectory Divergence Map, training-free, Flow Matching, KV Injection
 
 ## 一句话总结
 提出 Follow-Your-Shape，一个无需训练和掩码的形状感知编辑框架，通过计算反演与编辑轨迹间的 token 级速度差异构建 Trajectory Divergence Map (TDM) 来精确定位编辑区域，配合分阶段 KV 注入实现大幅形状变换且严格保持背景。
 
 ## 研究背景与动机
 **领域现状**：基于扩散/Flow 模型的图像编辑在通用任务上表现良好，但在涉及大尺度形状变换的结构性编辑中常常失败——要么无法实现目标形状变化，要么破坏非编辑区域。
+
 **现有痛点**：现有区域控制策略存在根本缺陷——
    - 外部二值掩码：过于刚性，难以处理精细边界
    - 交叉注意力图推断：噪声大且不稳定，对大形变不可靠
    - 无条件 KV 注入：全局保持结构但抑制目标编辑
+
 **核心矛盾**：编辑可控性与内容保持之间的冲突——要让 Flow 模型精确修改目标区域形状，同时不影响其他区域。
+
 **本文要解决什么？** 如何在无需训练、无需掩码的情况下实现精确的大尺度形状编辑？
+
 **切入角度**：从动力系统视角——编辑区域可由源条件和目标条件下去噪轨迹的分歧程度来定位。
+
 **核心idea一句话**：通过比较源和目标 prompt 下的 velocity field 差异自动定位编辑区域，用分阶段 KV 注入实现稳定的形状感知编辑。
 
 ## 方法详解

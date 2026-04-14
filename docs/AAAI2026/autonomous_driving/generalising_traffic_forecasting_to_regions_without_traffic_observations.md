@@ -8,9 +8,9 @@ tags:
   - 自动驾驶
   - traffic forecasting
   - spatial-temporal
-  - physics-informed
+  - 物理信息驱动
   - 图神经网络
-  - generalization
+  - 泛化
 ---
 
 # Generalising Traffic Forecasting to Regions without Traffic Observations
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.08947](https://arxiv.org/abs/2508.08947)  
 **代码**: https://github.com/suzy0223/GenCast  
 **领域**: 自动驾驶  
-**关键词**: traffic forecasting, spatial-temporal, physics-informed, graph neural network, generalization  
+**关键词**: traffic forecasting, spatial-temporal, 物理信息驱动, 图神经网络, 泛化
 # GenCast：面向无观测区域的交通预测泛化
 
 ## 一句话总结

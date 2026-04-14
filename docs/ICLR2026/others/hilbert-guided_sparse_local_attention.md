@@ -44,19 +44,19 @@ tags:
 
 1. **Hilbert窗口注意力 (HWA)**:
 
-    - 做什么：在Hilbert重排后的1D序列上连续划分窗口
+    - 功能：在Hilbert重排后的1D序列上连续划分窗口
     - 核心思路：2×2窗口在行优先序列中取token(1,2,5,6)→4个partial blocks；Hilbert序列取(1,2,3,4)→2个full blocks + 2个empty blocks。空块率从0%提升到50%。
     - 设计动机：连续窗口→更多空块→FlexAttention跳过更多计算
 
 2. **Hilbert滑动/邻域注意力 (HSA/HNA)**:
 
-    - 做什么：在Hilbert序列上做滑动窗口或邻域注意力
+    - 功能：在Hilbert序列上做滑动窗口或邻域注意力
     - 核心思路：Hilbert保持空间邻近性→1D上的近邻 $\approx$ 2D上的空间近邻→2D邻域注意力等效为1D邻域注意力
     - 设计动机：避免了2D邻域注意力的 $N^2$ 中间存储问题
 
 3. **Hilbert Window Transformer (HWT)**:
 
-    - 做什么：用HWA替换Swin Transformer的WSA
+    - 功能：用HWA替换Swin Transformer的WSA
     - 核心思路：成对使用HWA和Hilbert Shifted Window Attention (HSWA)。窗口位移在1D上做（偏移固定数量token）。使用全局RPB替代窗口RPB（因Hilbert窗口形状不规则）。
     - 设计动机：FlexAttention的mask_mod和score_mod接口无需修改模型或训练流程
 

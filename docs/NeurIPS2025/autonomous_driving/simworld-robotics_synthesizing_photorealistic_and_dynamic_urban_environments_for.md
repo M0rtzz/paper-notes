@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.10046](https://arxiv.org/abs/2512.10046)  
 **代码**: 无  
 **领域**: 自动驾驶  
-**关键词**: simulation, embodied-ai, urban-navigation, multi-robot, benchmark  
+**关键词**: simulation, embodied-ai, urban-navigation, multi-robot, benchmark
 
 ## 一句话总结
 

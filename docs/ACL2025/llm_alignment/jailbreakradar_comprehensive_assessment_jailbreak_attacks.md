@@ -2,15 +2,15 @@
 title: >-
   [论文解读] JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs
 description: >-
-  [ACL 2025][LLM对齐][Jailbreak Attack] 本文提出了一个全面的越狱攻击评估框架 JailbreakRadar，收集了17种代表性越狱攻击方法，建立了六类攻击分类体系，并在9个对齐LLM上进行了大规模系统性评测，揭示了不同类型攻击在实用性和防御鲁棒性上的关键差异。
+  [ACL 2025][LLM对齐][越狱攻击] 首个覆盖自动和非自动越狱攻击的统一全面评估框架：收集17种代表性越狱攻击，建立六类攻击分类体系，在9个对齐LLM×8种防御策略下进行大规模系统评测，揭示启发式攻击"高ASR但低实用性"的关键洞察。
 tags:
   - ACL 2025
   - LLM对齐
-  - Jailbreak Attack
-  - LLM Safety
-  - Attack Taxonomy
-  - Defense Evaluation
-  - Benchmark
+  - 越狱攻击
+  - LLM安全
+  - 攻击分类
+  - 防御评估
+  - benchmark
 ---
 
 # JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2402.05668](https://arxiv.org/abs/2402.05668)  
 **代码**: 无  
 **领域**: LLM安全 / 越狱攻击评估  
-**关键词**: 越狱攻击, LLM安全, 攻击分类, 防御评估, Benchmark
+**关键词**: 越狱攻击, LLM安全, 攻击分类, 防御评估, benchmark
 
 ## 一句话总结
 
@@ -38,17 +38,17 @@ tags:
 ### 关键设计
 
 1. **六类攻击分类体系**:
-    - 做什么：基于两个标准（是否修改原始问题 + 如何生成越狱提示）将17种攻击分为六大类
+    - 功能：基于两个标准（是否修改原始问题 + 如何生成越狱提示）将17种攻击分为六大类
     - 核心思路：Human-based（网络手工提示）、Obfuscation-based（编码/低资源语言混淆）、Heuristic-based（变异/遗传算法，需初始种子）、Feedback-based（梯度/评分迭代，**不需种子**）、Fine-tuning-based（微调攻击LLM）、Generation-parameter-based（仅修改推理参数）
     - 设计动机：从prompt生成机制出发的分类能揭示攻击本质差异——特别是"是否依赖初始种子"这一决定防御鲁棒性的关键分界
 
 2. **统一违规政策与禁止问题集**:
-    - 做什么：融合5家政策构建16类违规×10题=160题的标准化禁止问题集
+    - 功能：融合5家政策构建16类违规×10题=160题的标准化禁止问题集
     - 核心思路：对各平台政策取并集，排除先前数据集的冗余（AdvBench有24个炸弹问题），结合人工筛选和LLM生成确保多样性，每个违规类别由两名人类标注者验证
     - 设计动机：此前数据集存在冗余/不当/覆盖不全的问题，需更规范全面的评测集
 
 3. **统一"步骤"定义与公平评测**:
-    - 做什么：统一不同攻击方法对"步骤"的不同定义，确保公平比较
+    - 功能：统一不同攻击方法对"步骤"的不同定义，确保公平比较
     - 核心思路：将每次prompt修改视为一步，统一最大修改步数为50步；$\text{ASR} = n/m$，使用GPT-4-Turbo从三个方面判断越狱成功
     - 设计动机：GCG用优化epoch、TAP用查询次数作为"步骤"——定义不一导致直接比较不公平
 

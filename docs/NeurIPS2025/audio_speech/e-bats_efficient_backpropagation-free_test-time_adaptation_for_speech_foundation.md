@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.07078](https://arxiv.org/abs/2506.07078)  
 **代码**: [JiahengDong/E-BATS](https://github.com/JiahengDong/E-BATS)  
 **领域**: audio_speech  
-**关键词**: test-time adaptation, speech foundation model, backpropagation-free, prompt tuning, CMA-ES  
+**关键词**: test-time adaptation, speech foundation model, backpropagation-free, prompt tuning, CMA-ES
 
 ## 一句话总结
 

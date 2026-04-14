@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence
 description: >-
-  [ACL 2025][多模态][幻觉缓解] 提出 VHD 指标量化注意力头对视觉上下文的敏感度，揭示语言偏置与幻觉的关联，并基于此设计 VHR 免训练方法，通过增强视觉感知注意力头的贡献来主动缓解 LVLM 幻觉。
+  [ACL 2025][多模态][幻觉缓解] 提出 VHD 指标量化每个注意力头输出对视觉输入的敏感程度，发现仅少数注意力头对视觉信息高度敏感而模型过度依赖语言先验是导致幻觉的关键因素，进而设计 VHR 免训练方法逐层自适应增强视觉感知头的贡献（$\alpha=2$），在 CHAIR 上将 LLaVA-1.5 的 CHAIR$_S$ 从 49.68 降至 33.32，且几乎无额外推理开销。
 tags:
   - ACL 2025
   - 多模态
   - 幻觉缓解
-  - 注意力机制
-  - 视觉语言模型
-  - 免训练
+  - Vision-aware Head Divergence
+  - 注意力头分析
+  - 语言偏置
+  - 免训练解码
 ---
 
 # Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence

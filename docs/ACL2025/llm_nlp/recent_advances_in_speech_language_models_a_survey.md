@@ -27,8 +27,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 在文本交互中表现卓越，但自然人机交互依赖语音。传统方案"ASR+LLM+TTS"三段级联虽直观，但存在三大问题：(a) 信息损失（副语言信息如音调/情感在文本中丢失）；(b) 高延迟（三段串行）；(c) 级联错误累积（ASR 错误传播到 LLM 再到 TTS）。
+
 **现有痛点**：缺乏对 SpeechLM 领域的系统综述。已有综述要么聚焦传统语音技术（SLU/SSL），要么关注多模态 LLM 中的语音子集，没有以"端到端语音语言模型"为核心的全景概览。
+
 **核心矛盾**：SpeechLM 快速发展（GPT-4o voice、Moshi 等），但研究社区对其架构选型、训练策略、能力边界缺乏系统认知。
+
 **本文要解决什么**：提供首个 SpeechLM 领域综述，覆盖架构组件、训练方案、能力分类、评估体系。
 
 ## 方法详解
@@ -39,24 +42,24 @@ SpeechLM 是一个自回归基础模型，直接处理和生成语音序列 $\ma
 ### 三大核心组件
 
 1. **Speech Tokenizer（语音分词器）**
-   - 做什么：将连续音频波形 → 离散 token（供 LM 自回归建模）
-   - 三种类型：
+    - 功能：将连续音频波形 → 离散 token（供 LM 自回归建模）
+    - 三种类型：
      - **Semantic tokenizer**：如 HuBERT/wav2vec 2.0 + k-means 量化，提取语义特征，丢失副语言信息
      - **Acoustic tokenizer**：如 EnCodec/SoundStream，用 RVQ（残差向量量化）保留声学细节（音色/音高），但语义可能被稀释
      - **Hybrid tokenizer**：结合两者（如 SpeechTokenizer 分离 semantic 和 acoustic 层），兼顾语义+副语言
    - 关键权衡：语义 token = 高层抽象利于理解 vs 声学 token = 低层细节利于生成
 
 2. **Language Model（语言模型主干）**
-   - 做什么：在 speech token 上做 next-token prediction，核心"大脑"
-   - 整合方式：
+    - 功能：在 speech token 上做 next-token prediction，核心"大脑"
+    - 整合方式：
      - **直接建模**：在 speech token 上预训练 decoder-only Transformer（如 GSLM, AudioPaLM）
      - **适配已有 TextLM**：冻结 LLM + speech adapter（如 Qwen-Audio, SALMONN）
      - **联合训练**：text + speech token 混合训练（如 Spirit-LM 交织 text/speech token）
    - 多流生成：单流自回归 vs 多流并行解码（如 VALL-E 用 2 阶段：AR 生成粗 token → NAR 补全细 token）
 
 3. **Vocoder（语音合成器）**
-   - 做什么：将 LM 输出的 token/表示 → 音频波形
-   - 主要方法：
+    - 功能：将 LM 输出的 token/表示 → 音频波形
+    - 主要方法：
      - **HiFi-GAN 系列**：直接从 mel-spectrogram/token → waveform，快速
      - **扩散模型**：如 DiffWave，质量好但慢
      - **Token decoder**：如 EnCodec decoder 直接从 RVQ token → waveform

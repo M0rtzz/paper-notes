@@ -49,19 +49,19 @@ TreeLoRA 维护一棵动态增长的 K-D 树，根节点代表所有任务，叶
 
 1. **梯度相似度树结构（Gradient-Similarity Tree）**:
 
-    - 做什么：将历史任务按梯度方向的相似性组织成层级树
+    - 功能：将历史任务按梯度方向的相似性组织成层级树
     - 核心思路：用 L1 范数度量两个任务梯度方向的差异，阈值 $\delta$ 内的任务被归入同一组。树的浅层节点对应适配器捕获底层任务共享特征，深层节点捕获高层任务特定语义。阈值 $\delta$ 不需要手动调参，而是像 K-D 树一样在构建时自动用中位数切分：$\mathcal{N}_j = \max\{\mathcal{N} \subseteq [N]: \|\mathbf{g}_i - \mathbf{g}_{i'}\|_1 \leq \delta, \forall i,i' \in \mathcal{N}\}$
     - 设计动机：Transformer 模型本身就有层级结构（浅层通用、深层特定），树结构天然对齐了模型的层级特性，比扁平的任务列表更能捕获任务间的多粒度关系
 
 2. **LCB 老虎机搜索（Lower Confidence Bound Bandit）**:
 
-    - 做什么：在不计算所有历史梯度的前提下，高效找到最相关的任务分支
+    - 功能：在不计算所有历史梯度的前提下，高效找到最相关的任务分支
     - 核心思路：将选择哪个历史任务来估计相似度建模为多臂老虎机问题。每个训练样本到来时，只选一个历史任务计算梯度差异。叶节点的 LCB 为 $\text{LCB}_k = \hat{\mu}_k - 2\sqrt{\frac{\log t}{n_k}}$，非叶节点则取子节点 LCB 的最优值减去 $\delta$。选择 LCB 最小的分支进行探索
     - 设计动机：将搜索复杂度从遍历所有 $N$ 个任务降为沿树搜索的 $O(1)$；理论上 regret 从 $O(\sqrt{N})$ 降到 $O(\sqrt{\log N})$
 
 3. **稀疏梯度更新（Sparse Gradient Updates）**:
 
-    - 做什么：只更新与新任务最相关的参数子集
+    - 功能：只更新与新任务最相关的参数子集
     - 核心思路：选定最相关分支后，用自适应正则项 $\ell_{\text{reg}}^t = \|\hat{\mathbf{g}}_n^t - \hat{\mathbf{g}}_k^t\|_1$ 来识别需要更新的参数。更新公式为 $\mathbf{w}_n^{t+1} = \mathbf{w}_n^t - \alpha \cdot \mathcal{S}[\nabla\ell] - \lambda \cdot \nabla\ell_{\text{reg}}^t$，其中 $\mathcal{S}$ 是低秩稀疏化函数（实际用 LoRA 适配器实现）
     - 设计动机：稀疏更新既降低了计算和存储开销（只需维护低秩适配器），又通过只修改相关参数来缓解灾难性遗忘
 

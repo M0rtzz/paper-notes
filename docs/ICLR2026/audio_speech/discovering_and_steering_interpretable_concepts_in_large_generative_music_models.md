@@ -8,7 +8,7 @@ tags:
   - 语音
   - Sparse Autoencoder
   - Music Generation
-  - Interpretability
+  - interpretability
   - MusicGen
   - Feature Steering
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18186](https://arxiv.org/abs/2505.18186)  
 **代码**: [musicdiscovery.media.mit.edu](https://musicdiscovery.media.mit.edu)  
 **领域**: audio_speech  
-**关键词**: Sparse Autoencoder, Music Generation, Interpretability, MusicGen, Feature Steering  
+**关键词**: Sparse Autoencoder, Music Generation, interpretability, MusicGen, Feature Steering
 
 ## 一句话总结
 

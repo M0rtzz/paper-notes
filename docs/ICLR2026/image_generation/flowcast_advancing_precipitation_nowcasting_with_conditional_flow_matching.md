@@ -47,19 +47,19 @@ tags:
 
 1. **Frame-wise VAE**:
 
-    - 做什么：将单帧雷达图从高维像素空间压缩到低维潜表示
+    - 功能：将单帧雷达图从高维像素空间压缩到低维潜表示
     - 核心思路：层次编码器-解码器，含残差块和自注意力，用L1重建+KL散度+PatchGAN对抗损失训练
     - 设计动机：降低生成模型的计算维度，与潜空间扩散模型思路一致
 
 2. **Independent CFM (I-CFM) 训练**:
 
-    - 做什么：在潜空间中训练向量场 $v_\theta$，学习从高斯噪声到雷达潜表示的映射
+    - 功能：在潜空间中训练向量场 $v_\theta$，学习从高斯噪声到雷达潜表示的映射
     - 核心思路：概率路径 $p_t(x_t|x_0,x_1) = \mathcal{N}((1-t)x_0 + tx_1, \sigma^2 I)$，目标向量场 $u_t = x_1 - x_0$，训练损失 $\mathcal{L} = \|v_\theta(Z_t, t, Z_{\text{past}}) - u_t\|^2$。关键是 $\sigma > 0$ 提供正则化。
     - 设计动机：相比rectified flows（$\sigma \to 0$），非零 $\sigma$ "加厚"训练轨迹，对高维数据更稳定。CFM的直线ODE轨迹比扩散模型的弯曲路径更适合少步采样。
 
 3. **FlowCast U-Net架构**:
 
-    - 做什么：基于Earthformer的Cuboid Attention层构建时空U-Net，以流时间 $t$ 为条件
+    - 功能：基于Earthformer的Cuboid Attention层构建时空U-Net，以流时间 $t$ 为条件
     - 核心思路：编码器-解码器结构，核心构建块为Cuboid Attention（在3D立方体内做局部自注意力），时间步 $t$ 的嵌入注入每层
     - 设计动机：Cuboid Attention高效处理局部时空动态，U-Net层次结构共享全局信息
 

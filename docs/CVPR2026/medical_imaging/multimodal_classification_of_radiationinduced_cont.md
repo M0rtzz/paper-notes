@@ -1,11 +1,16 @@
 ---
 title: >-
-    [论文解读] Multimodal Classification of Radiation-Induced Contrast Enhancements and Tumor Recurrence Using Deep Learning
+  [论文解读] Multimodal Classification of Radiation-Induced Contrast Enhancements and Tumor Recurrence Using Deep Learning
 description: >-
-    [CVPR 2026][医学图像] 提出RICE-NET多模态3D ResNet-18，融合纵向T1-MRI与放疗剂量图在92例GBM患者上实现F1=0.92的RICE与肿瘤复发分类
+  [CVPR 2026][医学图像][胶质母细胞瘤] 提出RICE-NET，融合纵向T1加权MRI和放射治疗剂量分布图的多模态3D ResNet-18，在92例胶质母细胞瘤队列上实现F1=0.916的放射性对比增强(RICE) vs 肿瘤复发分类，消融实验揭示放疗剂量图是最关键的单模态输入(F1=0.78)。
 tags:
-    - CVPR 2026
-    - 医学图像
+  - CVPR 2026
+  - 医学图像
+  - 胶质母细胞瘤
+  - RICE
+  - 多模态MRI
+  - 放疗剂量图
+  - 3D ResNet
 ---
 
 # Multimodal Classification of Radiation-Induced Contrast Enhancements and Tumor Recurrence Using Deep Learning

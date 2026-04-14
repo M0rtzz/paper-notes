@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Instance-Level Composed Image Retrieval
 description: >-
-  [NeurIPS 2025][图像检索][多模态] 提出实例级组合图像检索(i-CIR)新基准和训练免费方法BASIC。i-CIR包含202个实例、1883个查询和750K数据库图像，聚焦特定物体实例的检索。BASIC通过特征标准化、对比PCA投影、查询扩展和Harris融合，在i-CIR和语义级CIR数据集上均达到SOTA。
+  [NeurIPS 2025][图像生成][组合图像检索] 提出实例级组合图像检索（i-CIR）基准和训练免费方法BASIC，通过独立估计图像和文本查询的相似度并进行乘法融合，在无需训练的情况下在i-CIR和现有CIR数据集上均达到SOTA。
 tags:
   - NeurIPS 2025
-  - 图像检索
+  - 图像生成
   - 组合图像检索
-  - 视觉语言模型
-  - 训练免费方法
   - 实例级检索
+  - VLM
+  - 训练免费
+  - 特征融合
 ---
 
 # Instance-Level Composed Image Retrieval
@@ -33,6 +34,7 @@ tags:
 现有CIR研究面临两个核心瓶颈：
 
 **数据质量不足**：现有CIR数据集多为语义级（如FashionIQ、CIRR），检索目标是同类别但不同实例的图像——这与真实需求（找到同一个物体在不同条件下的图像）不同
+
 **训练数据稀缺**：高质量的CIR训练样本难以大规模获取，限制了有监督方法的性能
 
 ### 实例级 vs 语义级

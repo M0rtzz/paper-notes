@@ -27,9 +27,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：3D 户外语义场景生成近年受到关注，UrbanDiff 等方法依赖 BEV 地图作为条件输入，但 BEV 缺少细粒度 3D 结构信息，限制了语义丰富度和几何保真度。同时多尺度方法需反复在多分辨率合成，计算复杂度高。
+
 **现有痛点**：(a) 缺乏公开大规模标准基准——UrbanDiff 使用自建预处理数据集，无法公平比较；(b) 草图引导方法仅限于单物体或简单室内场景；(c) 笛卡尔坐标系中相邻体素序列可能错误表示空间邻近关系，影响序列建模效果。
+
 **核心矛盾**：户外大场景空间结构复杂、语义多样，现有生成方法既缺合适数据集，也缺考虑圆柱连续性和垂直层次的空间编码策略。
+
 **切入角度**：(a) 构建首个草图+伪标注卫星图→3D GT 的大规模 benchmark；(b) 设计结合柱坐标和笛卡尔坐标双重扫描的 SSM 模块来保持空间一致性。
+
 **核心idea**：Cylinder Mamba Block——在柱坐标下按 (θ, r, z) 排序做 Mamba 扫描以保持角度-径向连续性，再融合笛卡尔三方向 Mamba 以保留精确几何距离关系。
 
 ## 方法详解
@@ -41,13 +45,13 @@ tags:
 
 1. **SketchSem3D 数据集构建**：
 
-    - 做什么：首个面向草图引导 3D 户外场景生成的大规模 benchmark。
+    - 功能：首个面向草图引导 3D 户外场景生成的大规模 benchmark。
     - 核心思路：利用 KITTI/KITTI-360 的 GPS 信息获取卫星图，CLIP 编码类别描述文本 + SAM 提取 mask-level 嵌入，余弦相似度匹配生成 PSA 伪标注。草图由 Canny 边缘检测从 BEV 投影获取。
     - 规模：Sketch-based SemanticKITTI 58987 帧 + Sketch-based KITTI-360 36057 帧，总计 95044 帧，远超 UrbanDiff 的 34149 帧（NuScenes），体素分辨率 $256^2 \times 32$ vs $192^2 \times 16$。
 
 2. **Scene Structure Estimation Network (SSEN)**：
 
-    - 做什么：产生目标 3D 场景的粗结构先验，加速扩散收敛。
+    - 功能：产生目标 3D 场景的粗结构先验，加速扩散收敛。
     - 核心思路：多尺度特征提取模块（级联 $3 \times 3 \times 3$ 卷积代替大核）+ Dimensional Decomposition Residual (DDR) 块——将 $k^3$ 3D 卷积分解为 $1 \times 1 \times k$、$1 \times k \times 1$、$k \times 1 \times 1$ 三步，参数从 $C_{in} \times C_{out} \times k^3$ 降至 $C_{in} \times C_{out} \times 3k$。
     - 设计动机：粗结构引导让扩散模型在早期生成步骤就朝合理几何方向走。
 
@@ -57,7 +61,7 @@ tags:
 
 4. **CymbaDiff 去噪网络——Cylinder Mamba Block**：
 
-    - 做什么：核心去噪模块，融合笛卡尔和柱坐标表示增强空间一致性。
+    - 功能：核心去噪模块，融合笛卡尔和柱坐标表示增强空间一致性。
     - 核心思路：
       - **Triple Mamba 层**（笛卡尔空间）：对残差 LayerNorm 后的特征 $z_{TMB}(t)$ 进行前向 $\psi_i^f$、反向 $\psi_i^b$、随机切片间 $\psi_i^u$ 三方向 SSM 扫描，输出 $\psi_i(z_{TMB}) = \psi_i^f + \psi_i^b + \psi_i^u$。
       - **C-Mamba 层**（柱坐标空间）：将体素按 $(θ, r, z)$ 角度-径向-垂直排序后做同样三方向扫描 $\omega_i(z_{CMB})$，输出映射回笛卡尔空间。

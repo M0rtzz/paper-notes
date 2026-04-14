@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2505.24157](https://arxiv.org/abs/2505.24157)  
 **代码**: 无  
 **领域**: AI安全 / Agent 鲁棒规划  
-**关键词**: LLM planning, knowledge correction, Minecraft, embodied agent, self-correction failure  
+**关键词**: LLM planning, knowledge correction, Minecraft, embodied agent, self-correction failure
 
 ## 一句话总结
 证明 LLM 无法通过 prompting 自我纠正其错误的规划先验知识（物品依赖关系），提出 XENON——通过算法化的知识管理（自适应依赖图 ADG + 失败感知动作记忆 FAM）从二值反馈中学习，使 7B LLM 在 Minecraft 长期规划中超越使用 GPT-4V + oracle 知识的 SOTA。
 
 ## 研究背景与动机
 **领域现状**：LLM 驱动的 Agent 在 Minecraft 等长期规划任务中需要准确的物品依赖知识（如钻石镐需要钻石+木棍），但 LLM 的参数化知识常有错误。
+
 **现有痛点**：自我纠正（self-correction）——即用 prompt 让 LLM 反思并修正知识——在参数化知识错误上无效。LLM 会反复犯同样的错误，因为错误编码在权重中，prompt 无法改变。
+
 **核心矛盾**：LLM 的语言理解能力强但事实知识不可靠，需要外部机制而非 prompting 来纠正知识。
+
 **本文要解决什么？** 如何在仅有二值反馈（成功/失败）的情况下，算法化地修正 LLM 的规划知识？
+
 **切入角度**：将知识纠正从"让 LLM 自己修正"转为"用算法修改外部知识库"。
+
 **核心idea一句话**：算法化知识管理（用成功经验修正依赖图 + 用失败经验过滤无效动作）优于 LLM 自我纠正。
 
 ## 方法详解
@@ -41,20 +46,20 @@ XENON = Adaptive Dependency Graph (ADG) + Failure-Aware Action Memory (FAM) + Co
 
 1. **自适应依赖图 (ADG)**：
 
-    - 做什么：从成功经验中修正 LLM 的错误物品依赖关系。
+    - 功能：从成功经验中修正 LLM 的错误物品依赖关系。
     - 核心算法——RevisionByAnalogy：当 agent 成功获取物品 X 时，观察其背包物品集合，与已知依赖对比，通过类比推理修正/确认依赖边。
     - 对 hallucinated 物品：RevisionByAnalogy 能通过实际经验识别不存在的物品并从图中移除。
     - 效果：400 轮后 Mineflayer 上准确率达 ~0.90。
 
 2. **失败感知动作记忆 (FAM)**：
 
-    - 做什么：从二值反馈中学习哪些动作有效/无效。
+    - 功能：从二值反馈中学习哪些动作有效/无效。
     - 核心思路：每个动作维护成功/失败计数，超过阈值后分类为"经验有效"或"经验无效"。
     - 无效动作在后续规划中被过滤，防止重复失败。
 
 3. **Context-aware Reprompting (CRe)**：
 
-    - 做什么：当控制器（如 STEVE-1）在执行中卡住时重新 prompt。
+    - 功能：当控制器（如 STEVE-1）在执行中卡住时重新 prompt。
     - 检测环境状态停滞后主动中断并重新规划。
 
 ## 实验关键数据

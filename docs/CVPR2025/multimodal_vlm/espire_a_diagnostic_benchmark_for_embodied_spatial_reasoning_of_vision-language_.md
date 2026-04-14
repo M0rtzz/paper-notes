@@ -2,14 +2,14 @@
 title: >-
   [论文解读] ESPIRE: A Diagnostic Benchmark for Embodied Spatial Reasoning of Vision-Language Models
 description: >-
-  [CVPR 2025][多模态][spatial reasoning] 提出 Espire，一个基于仿真环境的具身空间推理诊断基准，将 VLM 评估分解为定位和执行两阶段，通过全生成式范式系统评估 VLM 在多种空间推理维度和粒度上的能力。
+  [CVPR 2025][多模态][空间推理] 提出 Espire，一个基于仿真环境的具身空间推理诊断基准，将 VLM 评估分解为定位和执行两阶段，通过全生成式范式系统评估 VLM 在多种空间推理维度和粒度上的能力。
 tags:
   - CVPR 2025
   - 多模态
-  - spatial reasoning
-  - embodied AI
-  - VLM benchmark
-  - robotic manipulation
+  - 空间推理
+  - 具身智能
+  - VLM 基准
+  - 机器人操作
   - 6-DoF
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.13033](https://arxiv.org/abs/2603.13033)  
 **代码**: [github.com/spatigen/espire](https://github.com/spatigen/espire)  
 **领域**: multimodal_vlm  
-**关键词**: spatial reasoning, embodied AI, VLM benchmark, robotic manipulation, 6-DoF
+**关键词**: 空间推理, 具身智能, VLM 基准, 机器人操作, 6-DoF
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: VLM 在空间认知方面取得进展，大量工作致力于增强 VLM 的空间智能(如 SpatialRGPT、RoboSpatial 等)，但评估手段滞后于模型发展。
+
 **现有痛点**: 现有 benchmark 多为静态 VQA 形式，依赖干扰选项，容易产生偏差；且与实际机器人部署场景脱节，缺乏执行环节的评估。
+
 **核心矛盾**: 判别式 VQA 评估无法反映 VLM 在真实具身场景中"理解后行动"的能力；而真实世界评估依赖特定硬件，难以扩展和复现。
+
 **本文要解决什么**: 如何设计一个系统性的、可扩展的基准，同时评估 VLM 的空间定位和动作执行能力，并支持细粒度诊断分析。
+
 **切入角度**: 利用 Isaac Sim 仿真环境，将机器人任务分解为 localization（2D 点生成）和 execution（6-DoF 位姿生成），统一为全生成式范式。
+
 **核心 idea 一句话**: 通过系统化的空间推理任务设计 + 物理仿真环境，构建首个同时覆盖定位和执行、支持多粒度诊断的具身空间推理 benchmark。
 
 ## 方法详解

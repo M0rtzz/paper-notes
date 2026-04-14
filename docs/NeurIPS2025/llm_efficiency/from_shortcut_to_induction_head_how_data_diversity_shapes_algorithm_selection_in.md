@@ -49,14 +49,14 @@ tags:
 
 1. **Max-Sum Ratio作为多样性度量**：
 
-    - 做什么：量化预训练分布 $\mathcal{D}_\ell$ 的多样性
+    - 功能：量化预训练分布 $\mathcal{D}_\ell$ 的多样性
     - 核心定义：$R(\mathcal{D}_\ell) = \frac{\max_\ell q_\ell \cdot \ell^{-1}}{\sum_\ell q_\ell \cdot \ell^{-1}}$，其中 $q_\ell$ 是长度 $\ell$ 的概率质量
     - 设计动机：梯度下降后 $\mathbf{W}_{KQ}$ 可以分解为位置捷径项和induction head项的叠加。位置捷径项的强度正比于 $\max_\ell q_\ell T(\ell)^{-1}$（因为不同长度的位置信号分散到不同位置），而induction head项的强度正比于 $\sum_\ell q_\ell T(\ell)^{-1}$（因为语义信号在所有长度上累加）。两者的比值恰好就是max-sum ratio。
     - 直觉：数据越多样，位置信号越分散越弱，语义信号不变，所以induction head占主导。
 
 2. **Phase Transition的精确刻画**：
 
-    - 做什么：证明OOD泛化存在一个尖锐的阈值
+    - 功能：证明OOD泛化存在一个尖锐的阈值
     - 核心结论（Theorem 5）：存在 $\epsilon_1, \epsilon_2 = \Theta(N_{\text{trg}}^{-1})$ 使得：
       - $R(\mathcal{D}_\ell) < \epsilon_1$ → 模型实现induction head，OOD泛化成功
       - $R(\mathcal{D}_\ell) > \epsilon_2$ → 模型学到位置捷径，OOD泛化失败
@@ -65,7 +65,7 @@ tags:
 
 3. **最优预训练分布**：
 
-    - 做什么：在满足OOD泛化阈值的约束下，最小化平均forward-pass计算成本
+    - 功能：在满足OOD泛化阈值的约束下，最小化平均forward-pass计算成本
     - 核心结论（Proposition 8）：最优分布为 $q_\ell \propto \ell$（线性递增），支撑集为前 $N_{\text{trg}}$ 个长度
     - 设计动机：线性递增分布使得 $q_\ell \cdot \ell^{-1}$ 在所有长度上均匀，彻底消除位置信号中任何单一位置的优势
     - 实际意义：不需要极长的上下文就能学到induction head，只要分布设计得当（短序列用多、长序列用少）

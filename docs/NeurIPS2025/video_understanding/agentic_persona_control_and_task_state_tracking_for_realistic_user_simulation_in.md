@@ -47,13 +47,13 @@ tags:
 
 1. **State Tracking Agent**:
 
-    - 做什么：维护结构化任务状态——已确认项目 vs 目标状态
+    - 功能：维护结构化任务状态——已确认项目 vs 目标状态
     - 核心思路：通过 add/remove/clear 工具操作结构化列表，每轮从输入消息提取已确认任务项并更新
     - 设计动机：将状态追踪从自然语言推理中剥离，用结构化数据表示避免遗忘或幻觉
 
 2. **Message Attributes Generation Agent**:
 
-    - 做什么：根据 persona 和当前进度动态决定行为属性（mood_tone/task_execution_style/exploration_style/task_completion_status）
+    - 功能：根据 persona 和当前进度动态决定行为属性（mood_tone/task_execution_style/exploration_style/task_completion_status）
     - 核心思路：条件于 persona biography 和当前状态 $a_t = f_{msgAttrGen}(p_{bio}, s_t)$
     - 设计动机：将"该怎么回复"的决策显式化，使每条回复都可追溯。核心发现：无状态的行为控制（Config4）BVS=0——完全刚性
 

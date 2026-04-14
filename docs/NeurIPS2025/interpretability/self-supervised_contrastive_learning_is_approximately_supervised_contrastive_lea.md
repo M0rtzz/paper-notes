@@ -9,7 +9,7 @@ tags:
   - 自监督
   - 有监督对比损失
   - Neural Collapse
-  - few-shot learning
+  - 小样本学习
 ---
 
 # Self-Supervised Contrastive Learning is Approximately Supervised Contrastive Learning
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.04411](https://arxiv.org/abs/2506.04411)  
 **代码**: 有 (project page)  
 **领域**: 自监督学习 / 对比学习 / 表示学习理论  
-**关键词**: 对比学习, 自监督, 有监督对比损失, Neural Collapse, few-shot learning
+**关键词**: 对比学习, 自监督, 有监督对比损失, Neural Collapse, 小样本学习
 
 ## 一句话总结
 从理论上证明自监督对比学习（DCL）近似等价于一种有监督对比损失（NSCL），两者差距以 $O(1/C)$ 速度随类别数增加而消失；进一步证明 NSCL 全局最优解满足 Neural Collapse（增强坍缩 + 类内坍缩 + Simplex ETF），并提出基于方向性 CDNV 的更紧的 few-shot 误差界。
@@ -49,14 +49,14 @@ tags:
 
 1. **DCL-NSCL 对偶性（定理1）**：
 
-    - 做什么：证明 DCL 损失和 NSCL 损失之间的差距有上界
+    - 功能：证明 DCL 损失和 NSCL 损失之间的差距有上界
     - 核心思路：DCL 分母包含所有 $j \neq i$ 的样本，NSCL 分母仅包含 $y_j \neq y_i$ 的样本。额外的同类项最多 $K(n_{\max}-1)$ 个，相对于总负样本数 $K(N-n_{\max})$ 是小量。严格证明：$\mathcal{L}^{\text{NSCL}} \leq \mathcal{L}^{\text{DCL}} \leq \mathcal{L}^{\text{NSCL}} + \log(1 + \frac{n_{\max} e^2}{N - n_{\max}})$。对平衡分类，$\frac{n_{\max}}{N - n_{\max}} = \frac{1}{C-1}$
     - 设计动机：这个界是**标签无关**（label-agnostic）且**架构无关**的——不需要对模型架构或数据分布做任何假设
     - 关键推论：当 $C \to \infty$，DCL 和 NSCL 完全一致，自监督 = 有监督
 
 2. **NSCL 全局最优解的 Neural Collapse 性质（定理2）**：
 
-    - 做什么：在无约束特征模型下刻画 NSCL 全局最优解的几何结构
+    - 功能：在无约束特征模型下刻画 NSCL 全局最优解的几何结构
     - 核心思路：证明任何 NSCL 全局最优解同时满足三个性质：
       - **增强坍缩**：同一样本的所有增强视图映射到同一点 $z_i^{l_1} = z_i^{l_2}$
       - **类内坍缩**：同类所有样本的表示相同 $z_i = z_j$ if $y_i = y_j$
@@ -65,7 +65,7 @@ tags:
 
 3. **基于方向性 CDNV 的 Few-shot 误差界（命题1）**：
 
-    - 做什么：提出比现有 CDNV 界更紧的 few-shot 分类误差上界
+    - 功能：提出比现有 CDNV 界更紧的 few-shot 分类误差上界
     - 核心思路：引入方向性 CDNV $\tilde{V}_f$，仅测量沿类中心连线方向的方差（而非全方差）。新界为 $\text{err}^{\text{NCC}}_{m,D}(f) \leq (C'-1)[8\tilde{V}_f + \frac{8}{\sqrt{m}}V_f^s + \frac{8}{\sqrt{m}}V_f + \frac{4}{m}V_f]$
     - 关键优势：$\tilde{V}_f \leq V_f$，对各向同性分布 $\tilde{V}_f = \frac{1}{d} V_f$，即使全 CDNV 较大，方向 CDNV 仍可很小——解释了 SSL 表示在 CDNV 看似不优时仍能有效迁移
 

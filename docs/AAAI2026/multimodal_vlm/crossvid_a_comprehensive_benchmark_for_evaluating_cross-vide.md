@@ -39,10 +39,10 @@ tags:
 CrossVid是一个**评估基准**而非训练方法，核心设计包括：
 
 1. **层次化任务体系**：4个高层维度 → 10个具体任务
-   - **对比分析（Comparative Analysis）**：行为理解(BU)、叙事理解(NC)、烹饪对比(CC)、程序错误分析(PEA)
-   - **时序理解（Temporal Understanding）**：情节推断(PI)、功能步骤对齐(FSA)、程序步骤排序(PSS)
-   - **多视角推理（Multi-view Reasoning）**：多视角空间推理(MSR)、多视角目标计数(MOC)
-   - **自由问答（Free-form QA）**：烹饪对比开放问答(CCQA)
+    - **对比分析（Comparative Analysis）**：行为理解(BU)、叙事理解(NC)、烹饪对比(CC)、程序错误分析(PEA)
+    - **时序理解（Temporal Understanding）**：情节推断(PI)、功能步骤对齐(FSA)、程序步骤排序(PSS)
+    - **多视角推理（Multi-view Reasoning）**：多视角空间推理(MSR)、多视角目标计数(MOC)
+    - **自由问答（Free-form QA）**：烹饪对比开放问答(CCQA)
 
 2. **数据规模**：5,331个视频来自6个公开数据集（Animal Kingdom、MovieChat-1K、YouCook2、VisDrone、Charades、Assembly101），9,015个QA对，覆盖32种题材，每个查询平均需理解约770秒视频内容
 

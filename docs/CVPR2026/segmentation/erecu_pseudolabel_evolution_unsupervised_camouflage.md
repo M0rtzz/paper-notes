@@ -2,14 +2,15 @@
 title: >-
   [论文解读] EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection
 description: >-
-  [CVPR 2026][图像分割][无监督伪装检测] 提出EReCu统一框架，在DINO师生架构上通过多线索原生感知(MNP)、伪标签进化融合(PEF含EPL+STAF)和局部伪标签精修(LPR)三模块协同进化，解决UCOD中伪标签噪声致边界溢出和特征学习致细节丢失的双重困境，4个COD数据集全面SOTA。
+  [CVPR 2026][图像分割][目标检测] 提出EReCu统一框架，在DINO师生架构上通过多线索原生感知（MNP）提取纹理+语义先验引导伪标签进化融合（PEF），结合局部伪标签精修（LPR）恢复边界细节，首次统一伪标签引导和特征学习两大UCOD范式，在4个COD数据集上全面SOTA。
 tags:
   - CVPR 2026
   - 图像分割
-  - 无监督伪装检测
-  - 伪标签进化
-  - 多线索感知
-  - 师生框架
+  - 目标检测
+  - 伪标签
+  - multi-cue perception
+  - teacher-student
+  - 注意力机制
 ---
 
 # EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection
@@ -52,7 +53,7 @@ tags:
 
 1. **多线索原生感知（MNP）**
 
-    - 做什么：从原始图像中提取低层纹理和中层语义特征，构建多线索质量度量
+    - 功能：从原始图像中提取低层纹理和中层语义特征，构建多线索质量度量
     - 核心思路：LBP + DoG提取纹理特征 $F_{\text{text}}$，冻结ResNet-18提取语义特征 $F_{\text{sem}}$，拼接得 $F_{\text{MNP}} = \mathcal{C}(F_{\text{text}}, F_{\text{sem}})$。将图像按mask分为内部 $R_i$、边界 $R_s$、外部 $R_o$ 三区域，计算三组修正余弦相似度（随机 $K \times K$ patch采样 $N$ 轮）：$S_{\text{mc}} = (D_{\text{io}} + D_{\text{is}} + S_{\text{so}}) / 3$，损失 $\mathcal{L}_{\text{MNP}} = 1 - S_{\text{mc}}$
     - 设计动机：即使伪装高度相似，原始图像中仍有细微但可区分的纹理变化；随机patch采样处理区域形状不规则的问题
 

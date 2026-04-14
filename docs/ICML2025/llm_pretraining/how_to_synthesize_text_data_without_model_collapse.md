@@ -2,10 +2,10 @@
 title: >-
   [论文解读] How to Synthesize Text Data without Model Collapse?
 description: >-
-  [ICML 2025][model collapse] 提出 Token-level Editing (ToEdit)，通过对人类数据进行 token 级别的局部重采样（而非完全生成合成数据），在理论上证明测试误差存在有限上界，从而避免 model collapse，并在预训练、持续预训练和微调三个阶段验证了有效性。
+  [ICML 2025][模型崩溃] 提出 Token-level Editing (ToEdit)，通过对人类数据进行 token 级别的局部重采样（而非完全生成合成数据），在理论上证明测试误差存在有限上界，从而避免 model collapse，并在预训练、持续预训练和微调三个阶段验证了有效性。
 tags:
   - ICML 2025
-  - model collapse
+  - 模型崩溃
   - 合成数据
   - token编辑
   - 数据分布
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.14689](https://arxiv.org/abs/2412.14689)  
 **代码**: [GitHub](https://github.com/Xuekai-Zhu/toedit)  
 **领域**: LLM/NLP  
-**关键词**: model collapse, 合成数据, token编辑, 数据分布, 半合成数据
+**关键词**: 模型崩溃, 合成数据, token编辑, 数据分布, 半合成数据
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 随着生成式 AI 的普及，互联网上的合成数据将日益增多。未来 GPT-{n} 模型不可避免地要在合成数据与人类数据的混合集上进行训练。Model collapse 是这一背景下的核心风险——迭代地在自生成数据上训练会导致模型性能持续退化。
 
 本文聚焦两个关键问题：
+
 **合成数据对语言模型预训练的影响是什么？** 作者发现即使是非迭代地直接混合合成数据，也会损害预训练效果（非迭代 model collapse）。
+
 **如何合成数据而不引发 model collapse？** 作者提出 token 级编辑策略，生成"半合成数据"来规避分布坍缩。
 
 之前的理论工作（Shumailov et al., 2024; Dohmatob et al., 2024a）已证明迭代训练导致测试误差线性增长 $E_{test} = \frac{\sigma^2 d}{T-d-1} \times n$。Gerstgrasser et al. (2024) 证明数据累积可以打破 collapse，但缺乏实用的数据合成方案。本文的核心创新在于：不再"纯合成"，而是在人类原始数据上做受控的 token 级修改，同时提供理论保证。

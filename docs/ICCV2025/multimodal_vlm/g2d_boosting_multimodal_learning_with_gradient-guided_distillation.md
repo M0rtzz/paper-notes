@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.21514](https://arxiv.org/abs/2506.21514)  
 **代码**: [GitHub](https://github.com/rakib062/G2D)  
 **领域**: 多模态VLM / 模态不平衡 / 知识蒸馏  
-**关键词**: modality imbalance, knowledge distillation, gradient modulation, sequential modality prioritization, multimodal fusion  
+**关键词**: modality imbalance, knowledge distillation, gradient modulation, sequential modality prioritization, multimodal fusion
 
 ## 一句话总结
 提出G2D（Gradient-Guided Distillation），通过融合单模态教师到多模态学生的特征蒸馏+logit蒸馏损失，并结合基于单模态教师置信度分数的Sequential Modality Prioritization（SMP）梯度调制策略，解决多模态学习中的模态不平衡问题，在CREMA-D上实现85.89%准确率、超越所有专注模态不平衡的SOTA方法。
@@ -26,14 +26,17 @@ tags:
 ## 研究背景与动机
 
 **模态不平衡现象**：多模态联合训练中，一个模态主导优化过程，其他模态被抑制——称为"模态竞争"或"模态懒惰"。这导致(i)多模态性能反不如单模态，或(ii)弱模态特征在联合训练中退化。
+
 **CREMA-D上的典型案例**（图1）：
    - 音频单独训练达61.69%，在多模态训练中降到只有59.95%（影响不大）
    - **视频**单独训练达76.48%，但在多模态联合训练中骤降至27.42%（几乎崩溃）
    - 联合多模态模型仅67.47%，远低于视频单模态的76.48%
+
 **现有方法的局限**：
    - **梯度调制**（OGM-GE, AGM）：动态调整弱模态梯度，但需要精细的超参数调节
    - **特征重平衡**（MLA, MMPareto）：调整各模态贡献，但无法完全消除不平衡
    - **知识蒸馏**（UMT, UME）：用单模态教师指导多模态学生，但选择哪种蒸馏方式需要经验调节
+
 **核心insight**：弱模态的根本问题是优化不充分——在联合训练中，强模态快速收敛导致梯度信号主要服务于强模态。解决方案不是"削弱强模态"，而是"给弱模态专属的无干扰训练阶段"。
 
 ## 方法详解

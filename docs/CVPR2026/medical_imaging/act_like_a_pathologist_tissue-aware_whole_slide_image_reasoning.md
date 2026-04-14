@@ -7,8 +7,8 @@ tags:
   - CVPR 2026
   - 医学图像
   - Whole Slide Image
-  - Visual Question Answering
-  - Information Bottleneck
+  - 视觉问答
+  - 信息瓶颈
   - Patch Selection
   - 组织感知推理
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.00667](https://arxiv.org/abs/2603.00667)  
 **作者**: Wentao Huang 等 (Stony Brook University, Mayo Clinic, Harvard/MGH, Stanford)  
 **领域**: 医学图像 / 病理VQA  
-**关键词**: Whole Slide Image, Visual Question Answering, Information Bottleneck, Patch Selection, 组织感知推理
+**关键词**: Whole Slide Image, 视觉问答, 信息瓶颈, Patch Selection, 组织感知推理
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 病理全切片图像(WSI)是癌症诊断的金标准，但一张WSI包含数万个patch，直接输入大语言模型面临两大瓶颈：
 
 **计算瓶颈**：WSI分辨率可达100,000×100,000像素，切分后产生数万patch，每个patch编码为一个visual token，远超LLM上下文窗口
+
 **信息冗余**：病理学家在诊断时并非逐patch查看，而是先识别组织类型，再聚焦于与问题相关的区域——大部分patch与当前问题无关
 
 现有方法如Q-Instruct、PathChat等要么均匀采样（丢失关键信息），要么全量输入（计算不可行）。核心矛盾是：**如何在大幅减少token数的同时保留诊断相关信息？**

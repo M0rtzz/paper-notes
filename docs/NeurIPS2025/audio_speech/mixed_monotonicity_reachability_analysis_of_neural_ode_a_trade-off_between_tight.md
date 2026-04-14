@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Mixed Monotonicity Reachability Analysis of Neural ODE: A Trade-Off Between Tightness and Efficiency
 description: >-
-  [NeurIPS 2025][形式化验证][Neural ODE] 提出基于混合单调性的 Neural ODE 可达性分析方法，利用连续时间混合单调技术和区间传播，实现对 Neural ODE 可达集的高效过逼近，在紧致性和计算效率间取得良好平衡。
+  [NeurIPS 2025（NeurReps 2025 Workshop, co-located with NeurIPS 2025）][语音][Neural ODE] 将连续时间混合单调性技术应用于 Neural ODE 的可达性分析，通过将 Neural ODE 动力学嵌入混合单调系统，利用区间盒的几何简洁性实现高效过逼近，在紧致性（tightness）和计算效率之间提供可控的权衡。
 tags:
-  - NeurIPS 2025
-  - 形式化验证
+  - NeurIPS 2025（NeurReps 2025 Workshop, co-located with NeurIPS 2025）
+  - 语音
   - Neural ODE
   - 可达性分析
   - 混合单调性
-  - 安全关键系统
+  - 区间传播
+  - 形式化验证
 ---
 
 # Mixed Monotonicity Reachability Analysis of Neural ODE: A Trade-Off Between Tightness and Efficiency
@@ -27,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Neural ODE 是一类强大的连续时间机器学习模型，可描述复杂动力系统的行为。它们在轨迹预测、系统控制、物理建模等领域应用广泛。
+
 **安全需求**：在安全关键场景（自动驾驶、航空航天、医疗设备）中，必须验证 Neural ODE 的输出在允许的安全边界内——即可达性分析（Reachability Analysis）。
+
 **现有痛点**：
    - 现有可达性分析工具（如 CORA 的 zonotope 方法、NNV2.0 的 star set 方法）计算复杂度高
    - Zonotope 和 star set 表示虽然紧致，但在高维场景下计算代价急剧增长
    - 缺乏专门针对 Neural ODE 连续时间动力学特性的可达性分析方法
+
 **核心矛盾**：紧致性（tightness）和效率（efficiency）之间的权衡——更紧的过逼近需要更多计算资源。
+
 **切入角度**：利用动力系统理论中的混合单调性（mixed monotonicity）概念，将 Neural ODE 嵌入混合单调系统，从而用简单的区间运算完成可达性分析。
 
 ## 方法详解

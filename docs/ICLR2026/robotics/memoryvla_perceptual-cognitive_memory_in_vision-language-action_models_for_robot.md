@@ -43,7 +43,7 @@ tags:
 
 1. **视觉-语言认知模块**:
 
-    - 做什么：从当前RGB+语言指令提取感知tokens和认知token
+    - 功能：从当前RGB+语言指令提取感知tokens和认知token
     - 核心思路：并行DINOv2+SigLIP视觉编码 → SE瓶颈压缩为256个感知tokens $p$；LLaMA-7B处理视觉+语言 → EOS位置输出认知token $c$
     - 设计动机：感知tokens保留细粒度视觉信息，认知token编码高层语义理解
 
@@ -55,7 +55,7 @@ tags:
 
 3. **记忆条件化扩散动作专家**:
 
-    - 做什么：以记忆增强的感知+认知tokens为条件，用扩散Transformer生成未来N步7DoF动作
+    - 功能：以记忆增强的感知+认知tokens为条件，用扩散Transformer生成未来N步7DoF动作
     - 设计动机：扩散策略能捕捉多模态动作分布，记忆条件化使其时序感知
 
 ### 损失函数 / 训练策略

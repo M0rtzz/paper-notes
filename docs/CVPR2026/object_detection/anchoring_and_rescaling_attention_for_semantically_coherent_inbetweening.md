@@ -30,7 +30,9 @@ tags:
 生成式帧插值（Generative Inbetweening, GI）是指给定首尾两个关键帧，生成中间过渡帧序列。与传统光流插帧不同，GI 需要"想象"中间过程，在大运动、长时序场景下面临三大核心挑战：
 
 **语义不忠（Semantic Infidelity）**：中间帧出现与关键帧不一致的物体或场景元素
+
 **帧间不一致（Frame Inconsistency）**：相邻帧之间出现闪烁、突变
+
 **节奏不稳（Temporal Rhythm Instability）**：运动速度不均匀，时序分布不自然
 
 现有方法大多基于 Image-to-Video（I2V）模型改造，典型如 TRF 和 SEINE。但当关键帧间距增大（如 65、81 帧），这些方法的质量急剧下降。根本原因在于：

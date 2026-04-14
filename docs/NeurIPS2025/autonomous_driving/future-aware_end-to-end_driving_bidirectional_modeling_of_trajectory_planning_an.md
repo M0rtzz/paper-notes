@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.11092](https://arxiv.org/abs/2510.11092)  
 **代码**: [LogosRoboticsGroup/SeerDrive](https://github.com/LogosRoboticsGroup/SeerDrive)  
 **领域**: autonomous_driving  
-**关键词**: end-to-end driving, world model, BEV, trajectory planning, iterative refinement  
+**关键词**: end-to-end driving, world model, BEV, trajectory planning, iterative refinement
 
 ## 一句话总结
 提出 SeerDrive，通过双向建模场景演化与轨迹规划（未来感知规划 + 迭代交互），在 NAVSIM 和 nuScenes 上取得 SOTA。

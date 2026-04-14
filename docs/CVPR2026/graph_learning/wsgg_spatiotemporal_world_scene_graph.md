@@ -1,7 +1,16 @@
 ---
-title: "WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos"
-description: "提出世界场景图生成(WSGG)任务，将视频场景图从帧级别扩展到世界级别，通过PWG/MWAE/4DST三种方法处理被遮挡物体的关系推理"
-tags: ["场景图生成", "3D视觉", "物体持久性", "时空推理", "视频理解"]
+title: >-
+  [论文解读] Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos
+description: >-
+  [CVPR 2026][图学习][world scene graph] 提出世界场景图生成（WSGG）任务——从单目视频生成以世界坐标系为锚定的时空场景图（包含被遮挡/不可见物体），构建 ActionGenome4D 数据集，并设计 PWG/MWAE/4DST 三种互补方法探索不同归纳偏置，4DST 用时间 Transformer 取得最佳 R@10 66.40%。
+tags:
+  - CVPR 2026
+  - 图学习
+  - world scene graph
+  - spatio-temporal
+  - object permanence
+  - 4D reconstruction
+  - 视频理解
 ---
 
 # WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos
@@ -40,19 +49,19 @@ tags: ["场景图生成", "3D视觉", "物体持久性", "时空推理", "视频
 
 1. **PWG (Persistent World Graph)**:
 
-    - 做什么：通过 Last-Known-State 缓冲区实现最简物体恒存性
+    - 功能：通过 Last-Known-State 缓冲区实现最简物体恒存性
     - 核心思路：维护非可微缓冲区，可见时更新 DINO 特征 $\mathbf{f}_n^{(t)}$，不可见时冻结为最后可见帧的特征。记录"过期度" $\Delta_n^{(t)} = |t - \tau^*|$，拼接后送入 Spatial GNN。Token 为 $\mathbf{x}_n^{(t)} = \text{Proj}([\mathbf{g}_n \| \mathbf{m}_n \| \mathbf{c}_n \| \log(\Delta_n + 1)])$
     - 设计动机：最直接实现物体不消失的方案，但缓冲区不可微且特征随时间退化
 
 2. **MWAE (Masked World Auto-Encoder)**:
 
-    - 做什么：将遮挡/不可见视为自然掩码，通过关联检索重建不可见物体表征
+    - 功能：将遮挡/不可见视为自然掩码，通过关联检索重建不可见物体表征
     - 核心思路：对不可见物体的视觉流做掩码，使用非对称交叉注意力（所有 token 查询仅可见 token）的 Associative Retriever 重建缺失特征。训练通过模拟遮挡 + 跨视图重建学习
     - 设计动机：受 MAE 启发，遮挡推理本质是掩码补全问题，3D 几何先验提供完整结构支撑
 
 3. **4DST (4D Scene Transformer)**:
 
-    - 做什么：用可微分时序 Transformer 替代静态缓冲区做端到端时空推理
+    - 功能：用可微分时序 Transformer 替代静态缓冲区做端到端时空推理
     - 核心思路：多模态 token（视觉、结构、运动、相机）融合到 Fusion Node，无掩码双向时序自注意力处理所有物体 token，再接 Spatial GNN 输出全局感知表征 $\mathbf{H}^{(t)}$
     - 设计动机：PWG 缓冲区不可微且信息退化，4DST 通过全视频联合注意力自动学会利用历史信息推理不可见物体
 

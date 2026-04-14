@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2602.23729](https://arxiv.org/abs/2602.23729)  
 **代码**: 待发布  
 **领域**: AI安全 / 评估方法  
-**关键词**: dynamic benchmark, text anomaly detection, agent-centric evaluation, LLM reasoning, teacher-student  
+**关键词**: dynamic benchmark, text anomaly detection, agent-centric evaluation, LLM reasoning, teacher-student
 
 ## 一句话总结
 
@@ -28,12 +28,16 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：MMLU、GSM8K、Big-Bench 等静态基准曾是可靠的模型进步指标，但前沿 LLM 已在多数任务上逼近甚至超越人类水平。
+
 **静态基准的三大致命问题**：
    - **数据污染**：大规模预训练语料常包含基准题目，移除不彻底导致模型可能"记忆"答案而非真正推理
    - **过拟合循环**：模型开发者可能无意中针对基准特征调优，产生分数虚高的反馈循环
    - **快速过时**：基准一旦"被解决"，社区必须快速创建替代品，形成消耗性循环
+
 **核心矛盾**：评估需要动态演化以跟上模型进步，但构建高质量题目天然困难——增加难度常牺牲清晰度，保持清晰度又导致过于简单。
+
 **为何选文本异常检测**：(a) 需要跨句逻辑推理 (b) 抵抗模式匹配快捷方式和训练数据泄露 (c) 支持客观、细粒度评分。
+
 **核心idea一句话**：三 agent 竞争+验证循环自动生成难度适配的推理评估题目，基准随模型进步共进化。
 
 ## 方法详解

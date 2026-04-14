@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Rethinking Concept Bottleneck Models: From Pitfalls to Solutions
 description: >-
-  [CVPR 2026][人体理解][Concept Bottleneck Models] 提出 CBM-Suite 框架，系统性解决概念瓶颈模型的四大缺陷——缺乏概念相关性预评估指标、线性问题导致概念瓶颈被绕过、与黑盒模型的精度差距、以及不同视觉骨干/VLM 影响的研究空白——通过熵度量、非线性层和蒸馏损失显著提升 CBM 的精度与可解释性。
+  [CVPR 2026][人体理解][概念瓶颈模型] 提出 CBM-Suite 框架，系统性解决概念瓶颈模型的四大缺陷——缺乏概念相关性预评估指标、线性问题导致概念瓶颈被绕过、与黑盒模型的精度差距、以及不同视觉骨干/VLM 影响的研究空白——通过熵度量、非线性层和蒸馏损失显著提升 CBM 的精度与可解释性。
 tags:
   - CVPR 2026
   - 人体理解
-  - Concept Bottleneck Models
+  - 概念瓶颈模型
   - 可解释性
   - 概念相关性
   - 蒸馏
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.05629](https://arxiv.org/abs/2603.05629)  
 **作者**: Merve Tapli, Quentin Bouniot, Wolfgang Stammer, Zeynep Akata, Emre Akbas
 **领域**: human_understanding  
-**关键词**: Concept Bottleneck Models, 可解释性, 概念相关性, 蒸馏, 视觉-语言模型
+**关键词**: 概念瓶颈模型, 可解释性, 概念相关性, 蒸馏, 视觉-语言模型
 
 ## 一句话总结
 
@@ -32,8 +32,11 @@ tags:
 然而，现有 CBMs 面临四个根本性问题：
 
 **缺乏概念相关性预评估**：给定一个数据集，如何在训练前判断某组概念是否适合该任务？现有方法缺少量化指标来预评估概念集的内在适用性，导致概念选择依赖试错
+
 **线性问题（Linearity Problem）**：近期 CBM 方法（如基于 CLIP 的 Post-hoc CBM）在概念激活和分类器之间使用线性层，但这实际上导致模型可以绕过概念瓶颈，概念层形同虚设——分类器直接利用原始特征的线性组合，而非真正依赖概念语义
+
 **精度差距**：CBMs 相比不透明的端到端模型存在明显的精度下降，限制了其在实际场景中的部署
+
 **骨干网络影响研究空白**：不同视觉编码器（ViT、ResNet 等）和视觉-语言模型（CLIP 变体等）对 CBM 精度和可解释性的交互影响缺乏系统研究
 
 这些问题严重制约了 CBM 的实用性，使其难以在保持可解释性的同时达到有竞争力的精度。

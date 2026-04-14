@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Stop DDoS Attacking the Research Community with AI-Generated Survey Papers
 description: >-
-  [NeurIPS 2025][AI生成综述] 这篇立场论文以"综述论文DDoS攻击"为隐喻，通过定量分析arXiv 2020-2024年间10,063篇CS综述论文，揭示AI生成综述的爆炸式增长与质量退化趋势，提出包括透明度要求、严格审查、动态活综述在内的系统性应对方案。
+  [NeurIPS 2025][AI生成综述] 这篇立场论文将AI生成综述论文的泛滥类比为对学术社区的"DDoS攻击"，通过对arXiv 2020-2024年10,063篇CS综述论文的系统定量分析，揭示了ChatGPT发布后综述论文数量、AI生成分数和异常作者数的同步激增现象，深入剖析了AI综述的四大质量缺陷（结构混乱、分类缺乏原创、引用不准确、内容高度冗余）及其对研究者-审稿人-编辑三方的文化冲击，提出了涵盖透明度要求、严格审查标准、冗余限制、AI检测辅助和"动态活综述"平台在内的全面应对框架。
 tags:
   - NeurIPS 2025
   - AI生成综述
+  - 综述论文DDoS攻击
   - 学术诚信
+  - 动态活综述
+  - 论文质量检测
   - 科研文化
-  - 动态综述
-  - 论文质量
-  - LLM滥用
 ---
 
 # Stop DDoS Attacking the Research Community with AI-Generated Survey Papers

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.10739](https://arxiv.org/abs/2510.10739)  
 **代码**: 无  
 **领域**: LLM推理 / 多目标优化  
-**关键词**: stochastic differential equation, multi-objective optimization, LLM interaction, interference matrix, code generation  
+**关键词**: stochastic differential equation, multi-objective optimization, LLM interaction, interference matrix, code generation
 
 ## 一句话总结
 将 LLM 迭代交互中的多目标优化建模为 SDE（漂移-扩散过程），通过干扰矩阵量化目标间的耦合模式，通过特征值谱分析策略收敛行为，在代码生成（安全性、效率、功能性三目标）上验证了不同策略的收敛率（0.33-1.29）和可预测性（$R^2$ 达 0.74）。
@@ -48,19 +48,19 @@ tags:
 
 1. **SDE 建模与 Euler-Maruyama 近似**
 
-    - 做什么：将离散的 LLM 迭代交互与连续 SDE 对应。
+    - 功能：将离散的 LLM 迭代交互与连续 SDE 对应。
     - 核心思路：离散迭代 $\mathbf{x}^{(t+1)} = \mathbf{x}^{(t)} + \boldsymbol{\mu}(\mathbf{x}^{(t)}) \Delta t + \boldsymbol{\sigma}\sqrt{\Delta t}\boldsymbol{\varepsilon}^{(t)}$ 对应 SDE 的 Euler-Maruyama 离散化，$\Delta t=1$。一阶矩匹配：$\mathbb{E}[\Delta\mathbf{x}|\mathbf{x}] = \boldsymbol{\mu}(\mathbf{x})$；二阶矩匹配：$\text{Cov}[\Delta\mathbf{x}|\mathbf{x}] = \boldsymbol{\sigma}\boldsymbol{\sigma}^T$。
     - 设计动机：SDE 框架提供了分析连续时间动力系统的成熟数学工具（特征值、稳定性理论），同时通过 Euler-Maruyama 近似与离散迭代建立联系。
 
 2. **干扰矩阵（Interference Matrix）**
 
-    - 做什么：量化目标之间的交叉相关性。
+    - 功能：量化目标之间的交叉相关性。
     - 核心思路：$I_{ij} = \text{Corr}(\Delta x_i^{(t)}, \Delta x_j^{(t)})$ 对 $i \neq j$，对角元为 0。负的非对角元素表示目标间的系统性权衡。代码生成实验中测得的干扰矩阵表明功能性是主要干扰源：$I_{fe} = -0.17$（功能性-效率负相关），$I_{fs} = -0.09$（功能性-安全性负相关）。
     - 设计动机：干扰矩阵捕获了漂移耦合、噪声相关、瞬态动力学和时间平均效应的综合影响，是分析多目标权衡的实用工具。
 
 3. **特征值谱分析与策略分类**
 
-    - 做什么：通过线性化漂移矩阵的特征值预测不同策略的动态行为。
+    - 功能：通过线性化漂移矩阵的特征值预测不同策略的动态行为。
     - 核心思路：在平衡点附近线性化 $\Delta\mathbf{x} \approx \mathbf{A}\mathbf{x} + \mathbf{b}$，用最小二乘回归估计 $\mathbf{A}$。特征值性质决定三种动力学模式：(a) 实负特征值 → 指数收敛；(b) 复特征值 → 阻尼振荡；(c) 近零特征值 → 边界吸引（极端权衡）。
     - 设计动机：特征值分析是线性动力系统分析的标准工具，直接给出收敛率、振荡频率等可量化的预测。
 

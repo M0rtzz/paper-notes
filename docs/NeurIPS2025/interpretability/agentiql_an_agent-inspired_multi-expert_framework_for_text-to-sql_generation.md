@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 显著提升了 NL2SQL 能力，但单体 LLM 架构在复杂推理和多样 schema 处理上仍然困难。静态集成方法计算开销大，且部署大规模 LLM 成本高。
+
 **现有痛点**：(1) 单体 LLM 对复杂多表 join、嵌套聚合等查询表现差；(2) 现有系统可解释性差——用户不知道 SQL 是怎么生成的；(3) 服务大模型（如 GPT-4）在实际应用中成本高、不切实际。
+
 **核心矛盾**：大模型性能好但成本高，小模型成本低但对复杂查询能力不足。
+
 **本文要解决什么？** 用小模型（14B 参数）通过多 expert 协作达到大模型级别的 NL2SQL 性能，同时保持可解释性和效率。
+
 **切入角度**：将 SQL 生成分解为推理（问题分解）、编码（子查询生成）、精炼（列选择校正）三个专业组件，用 adaptive router 按查询复杂度选择路径。
+
 **核心 idea 一句话**：通过 Divide-and-Merge 将复杂 SQL 生成分解为子问题-子查询对，结合 Column Selection 精炼和 Adaptive Routing，让 14B 开源模型接近 GPT-4 水平。
 
 ## 方法详解
@@ -41,25 +46,25 @@ tags:
 
 1. **Divide（分解）**:
 
-    - 做什么：将复杂自然语言查询分解为可管理的子问题。
+    - 功能：将复杂自然语言查询分解为可管理的子问题。
     - 核心思路：三步——(1) Table Selection：reasoning LLM 过滤不相关的表得到缩减 schema $\tilde{s}$；(2) Question Decomposition：reasoning LLM 将查询分解为子问题 $\{x_1, ..., x_k\}$；(3) Query Generation：coding LLM 为每个子问题生成 SQL 子查询，错误时最多重试 R=3 次。
     - 设计动机：复杂查询需要多步推理，分解后每步更简单，也暴露了中间推理步骤提升可解释性。
 
 2. **Merge（合并）**:
 
-    - 做什么：将子查询合并为最终完整 SQL。
+    - 功能：将子查询合并为最终完整 SQL。
     - 核心思路：两种策略——(1) Last Sub-query：取最后一个子查询作为完整答案（假设推理 agent 将子问题排序使最后一个对应完整解）；(2) Planner&Executor：reasoning LLM 作为 planner 决定如何合并，coding LLM 作为 executor 实现合并。后者更通用但计算开销更大。
     - 设计动机：简单的 Last Sub-query 在很多情况下有效（子问题天然递进），但 Planner&Executor 处理需要真正合并多个子查询的复杂情况。
 
 3. **Column Selection（列选择精炼）**:
 
-    - 做什么：确保 SELECT 子句的列和列顺序与用户意图匹配。
+    - 功能：确保 SELECT 子句的列和列顺序与用户意图匹配。
     - 核心思路：reasoning LLM 对合并后的 SQL 检查 SELECT 子句，调整列选择和排序以精确匹配查询需求。
     - 设计动机：合并过程中 planner 可能引入多余列或错误排序，这个精炼步骤修复这些问题。一致性地提升 2-5% EX。
 
 4. **Adaptive Routing**:
 
-    - 做什么：根据查询复杂度选择 baseline 直接生成或 AgentiQL pipeline。
+    - 功能：根据查询复杂度选择 baseline 直接生成或 AgentiQL pipeline。
     - 核心思路：可用 XGBoost 分类器或 reasoning agent 作为 judge，使用 schema 大小（表数量）等简单信号作为复杂度代理。
     - 设计动机：简单查询用 baseline 更高效准确，只对复杂查询启用完整 pipeline，平衡效率和准确率。
 

@@ -46,25 +46,25 @@ Nightjar 将 prompt 作为 Python 程序中的一等代码。开发者用 `@nigh
 
 1. **共享作用域（Shared Scopes）**:
 
-    - 做什么：prompt 可以读取和写入 Python 变量
+    - 功能：prompt 可以读取和写入 Python 变量
     - 核心思路：prompt 中的 `<graph>` 引用当前作用域中的 `graph` 变量，LLM 输出中的 `<:response>` 将值绑定到 `response` 变量。系统在 prompt 执行前捕获作用域快照，执行后更新变量
     - 设计动机：消除了手动传入/传出数据的 schema 定义和序列化代码，使 prompt 真正成为程序的一部分
 
 2. **共享堆（Shared Heap）**:
 
-    - 做什么：prompt 可以操作 Python 对象（修改属性、调用方法、就地更新可变对象）
+    - 功能：prompt 可以操作 Python 对象（修改属性、调用方法、就地更新可变对象）
     - 核心思路：LLM 不直接操作堆，而是通过 reference/dereference 效应间接操作。系统维护对象引用表，将 LLM 的操作指令转化为对 Python 对象的实际操作
     - 设计动机：让 prompt 能够修改复杂的程序数据结构（如图、列表），而不是只返回序列化的新版本
 
 3. **共享控制流（Shared Control State）**:
 
-    - 做什么：prompt 可以触发 break、continue 等控制流操作
+    - 功能：prompt 可以触发 break、continue 等控制流操作
     - 核心思路：prompt 通过标签（labels）引用程序中的控制流结构。LLM 输出 break 效应时，Nightjar 的 handler 在宿主 Python 程序中执行对应的 break
     - 设计动机：使 prompt 能够根据对话语义决定何时终止循环或跳过迭代，避免额外的条件判断代码
 
 4. **Natural Function Interface Schema**:
 
-    - 做什么：形式化 prompt 与程序的交互接口
+    - 功能：形式化 prompt 与程序的交互接口
     - 核心思路：基于 effects & handlers 范式。Effects 定义 prompt 可以执行的操作类型（读变量、写变量、引用对象、break等），handlers 定义这些操作在宿主语言中的实现
     - 设计动机：提供语言无关的规范，使共享程序状态可以在任何编程语言上实现
 

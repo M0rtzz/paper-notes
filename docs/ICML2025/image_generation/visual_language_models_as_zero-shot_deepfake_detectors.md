@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Deepfake 检测方法大多训练专用分类器（FaceForensics++、SBI、MAT 等），依赖标注数据且对新型 deepfake 泛化差。
+
 **现有痛点**：(a) 现有检测器在分布外数据上性能急剧下降；(b) 已有 VLM deepfake 研究只做 yes/no 二元判断，无法输出置信度概率；(c) 缺乏 FAR/FRR 等实际部署指标的支持。
+
 **核心矛盾**：真实部署需要概率输出来调节阈值（平衡误报率和漏报率），但 VLM 的 argmax 输出只能给 0/1。
+
 **本文要解决什么？** 如何从 VLM 的 token 分布中提取有意义的分类置信度？
+
 **切入角度**：利用 VLM 在"Is this photo real?"回答时 "yes"/"no" token 的概率比作为置信度。
+
 **核心idea一句话**：将 yes/no token 概率归一化为 $\tilde{P}_{\text{fake}} = P_{\text{no}} / (P_{\text{no}} + P_{\text{yes}})$，得到可用于 ROC 分析的连续置信度。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **Token 概率归一化分类**:
 
-    - 做什么：从 VLM 的 token 分布中提取分类置信度
+    - 功能：从 VLM 的 token 分布中提取分类置信度
     - 核心思路：$P(I \in D) \approx \frac{P_{\text{no}}}{P_{\text{no}} + P_{\text{yes}}}$，其中 $P_{\text{no}} = p(\text{"no"}) + p(\text{"No"})$，$P_{\text{yes}} = p(\text{"yes"}) + p(\text{"Yes"})$
     - 设计动机：相比 argmax（0/1 输出），归一化概率支持 AUC/EER 评估和阈值调节
 
 2. **多token/多类扩展 (Algorithm 1)**:
 
-    - 做什么：支持多 token 回答（如 "Yes for sure!"）和多分类
+    - 功能：支持多 token 回答（如 "Yes for sure!"）和多分类
     - 核心思路：对类别 $c$ 的所有候选回答字符串 $s \in \mathcal{S}_c$，计算自回归概率 $P(s|I,Q) = \prod_k p(t_k|I,Q,t_{1:k-1}) \cdot p(\text{EOS}|I,Q,s)$，再求和归一化
     - 设计动机：不同 VLM 的 tokenizer 不一致，需要覆盖所有可能的回答形式
 
 3. **Prompt Engineering**:
 
-    - 做什么：针对不同 VLM 设计专用提示词
+    - 功能：针对不同 VLM 设计专用提示词
     - 核心思路：InstructBLIP 只需 "Is this photo real?"；LLaVA 需加 "Answer using a single word"；GPT-4o 需要角色扮演式长 prompt
     - 设计动机：确保模型一致地返回 yes/no 格式回答
 

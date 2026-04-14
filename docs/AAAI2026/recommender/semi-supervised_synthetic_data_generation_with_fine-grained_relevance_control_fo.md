@@ -31,6 +31,7 @@ tags:
 Embedding模型是搜索、推荐的基础组件。近期大量工作利用LLM合成多样化训练数据来提升embedding质量（如Gemini Embedding、Qwen3-Embedding等）。但存在两个关键问题：
 
 **领域差距（Domain Gap）**：基于prompt的合成方法受限于LLM的生成能力，合成数据与特定领域的真实数据分布存在差距。FinMTEB的实验表明，MTEB上的SOTA模型在金融垂直领域性能显著下降。
+
 **相关性粒度不足（Relevance Granularity）**：绝大多数合成方法仅使用**二元相关性**（相关/不相关），但实际检索任务需要**细粒度相关性排序**——二元标签与下游任务需求存在错位。
 
 ### 短视频领域的特殊挑战

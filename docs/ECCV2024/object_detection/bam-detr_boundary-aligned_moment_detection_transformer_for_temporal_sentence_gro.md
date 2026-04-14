@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2312.00083](https://arxiv.org/abs/2312.00083)  
 **代码**: [GitHub](https://github.com/Pilhyeon/BAM-DETR)  
 **领域**: object_detection  
-**关键词**: Temporal Sentence Grounding, Detection Transformer, Boundary Alignment, Video Understanding, Moment Retrieval
+**关键词**: Temporal Sentence Grounding, Detection Transformer, Boundary Alignment, video understanding, Moment Retrieval
 
 ## 一句话总结
 

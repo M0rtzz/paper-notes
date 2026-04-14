@@ -2,16 +2,15 @@
 title: >-
   [论文解读] PreferThinker: Reasoning-based Personalized Image Preference Assessment
 description: >-
-  [ICLR2026][强化学习][个性化偏好] 提出 PreferThinker，首个基于推理的个性化图像偏好评价系统，通过"预测偏好画像→多维打分"的 CoT 式 predict-then-assess 范式实现可解释的个性化评估，结合冷启动 SFT + GRPO 强化学习训练策略以及 similarity-aware 预测奖励，在个性化偏好数据集上超越 GPT-4o 和 Claude 3.7。
+  [ICLR2026][personalized preference assessment] 提出 PreferThinker，通过引入通用视觉偏好画像（preference profile）连接不同用户，采用 predict-then-assess 的 CoT 推理范式进行可解释的个性化图像偏好评估，结合冷启动 SFT + GRPO 强化学习及 similarity-aware 预测奖励，7B 模型超越 GPT-4o（+5.2%）和 Claude 3.7（+5.1%）。
 tags:
   - ICLR2026
-  - 强化学习
-  - 个性化偏好评估
-  - image preference
+  - personalized preference assessment
   - reasoning
   - GRPO
   - predict-then-assess
   - visual preference profile
+  - CoT
 ---
 
 # PreferThinker: Reasoning-based Personalized Image Preference Assessment
@@ -20,7 +19,7 @@ tags:
 **arXiv**: [2511.00609](https://arxiv.org/abs/2511.00609)  
 **代码**: [项目页面](https://preferthinker.github.io/)  
 **领域**: reinforcement_learning  
-**关键词**: personalized preference assessment, reasoning, GRPO, predict-then-assess, visual preference profile, CoT  
+**关键词**: personalized preference assessment, reasoning, GRPO, predict-then-assess, visual preference profile, CoT
 
 ## 一句话总结
 提出 PreferThinker，通过引入通用视觉偏好画像（preference profile）连接不同用户，采用 predict-then-assess 的 CoT 推理范式进行可解释的个性化图像偏好评估，结合冷启动 SFT + GRPO 强化学习及 similarity-aware 预测奖励，7B 模型超越 GPT-4o（+5.2%）和 Claude 3.7（+5.1%）。

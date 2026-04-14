@@ -41,25 +41,25 @@ tags:
 
 1. **Confidence-Driven Reinforcement Learning (CDRL)**:
 
-    - 做什么：增强 MLLM 的感知敏感性（对视觉退化要有反应）并校准置信度（正确时高置信，错误时低置信）
+    - 功能：增强 MLLM 的感知敏感性（对视觉退化要有反应）并校准置信度（正确时高置信，错误时低置信）
     - 核心思路：用 CLIP attention map 对关键视觉区域添加噪声生成图像对 $(i, i')$。置信度定义为 Negative Mean Log-Probability：$C = \frac{1}{T}\sum_{t=1}^T \text{Conf}_{\text{token}_t}$, $\text{Conf}_{\text{token}} = -\frac{1}{k}\sum_{i=1}^k \log p_{(i)}$。置信度校准奖励：$R_{\text{Conf},j} = \underbrace{\alpha \tanh(\beta \cdot \Delta C)}_{\text{Perception Term}} + \underbrace{(2 \cdot R_{\text{Output},j} - 1) \cdot C_j^{norm}}_{\text{Calibration Term}}$
     - 设计动机：Perception Term 奖励原始图和噪声图之间的置信度差异（$\Delta C = C_j - C_j'$），鼓励模型对视觉退化敏感。Calibration Term 在正确时奖励高置信（+$C_j$），错误时惩罚高置信（-$C_j$），实现 accuracy-confidence 对齐
 
 2. **Self-Consistency（自洽性模块）**:
 
-    - 做什么：采样多个响应，用置信度加权投票 + Expert Model 外部校准得到稳健答案
+    - 功能：采样多个响应，用置信度加权投票 + Expert Model 外部校准得到稳健答案
     - 核心思路：$V_{internal}[k] = \sum_{i=1}^n C_i \cdot \mathbb{I}(A_i = k)$ 为内部置信度加权投票。Expert Model (Voter) 对候选选项给出外部置信度 $C_{expert}$，综合投票 $V_{final}[k] = V_{internal}^{norm}[k] + \tau_1 \cdot c_k$
     - 设计动机：相比普通多数投票，置信度加权投票能让"确信的正确回答"贡献更大权重，Expert Model 提供独立的外部验证
 
 3. **Self-Reflection（自反思模块）**:
 
-    - 做什么：Expert Model 作为 Critic 生成对问题的批评，引导基座模型重新思考
+    - 功能：Expert Model 作为 Critic 生成对问题的批评，引导基座模型重新思考
     - 核心思路：$Crit = M_{expert}^{Critic}(i, q, P_{critique})$，$(CoT_{reflect}, A_{reflect}) = M_{base}(i, q, Crit)$，反思答案加权 $\tau_2$ 加入最终投票
     - 设计动机：低置信度的预测可以通过外部引导的反思来纠正
 
 4. **Self-Check（自检模块）**:
 
-    - 做什么：在视觉层面进行自检，用 Visual Contrastive Decoding (VCD) 对比原始和噪声图像的输出
+    - 功能：在视觉层面进行自检，用 Visual Contrastive Decoding (VCD) 对比原始和噪声图像的输出
     - 核心思路：$\log P_{VCD}(y|i,q) = (1+\alpha) \cdot \log P_\theta(y|i,q) - \alpha \cdot \log P_\theta(y|i',q)$，对比解码的答案加权 $\tau_3$ 加入投票
     - 设计动机：从视觉层面验证推理，噪声图像上的"虚假自信"和原始图像的"真实信号"之间的差异能凸显可靠的视觉推理
 

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps
 description: >-
-  [CVPR 2026][多模态][visual reasoning] 提出ReasonMap基准——用30个城市的高分辨率地铁图+1008个人工验证问答对评估MLLM的细粒度视觉理解与空间推理能力，发现反直觉现象：开源推理模型反而不如base模型而闭源相反，揭示视觉定位（grounding）是开闭源差距的关键因素。
+  [CVPR 2026][多模态][视觉推理] 提出ReasonMap基准——用30个城市的高分辨率地铁图+1008个人工验证问答对评估MLLM的细粒度视觉理解与空间推理能力，发现反直觉现象：开源推理模型反而不如base模型而闭源相反，揭示视觉定位（grounding）是开闭源差距的关键因素。
 tags:
   - CVPR 2026
   - 多模态
-  - visual reasoning
+  - 视觉推理
   - transit maps
-  - MLLM benchmark
-  - spatial reasoning
+  - MLLM 基准
+  - 空间推理
   - fine-grained understanding
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18675](https://arxiv.org/abs/2505.18675)  
 **代码**: [https://fscdc.github.io/ReasonMap](https://fscdc.github.io/ReasonMap)  
 **领域**: 多模态推理 / 视觉推理基准  
-**关键词**: visual reasoning, transit maps, MLLM benchmark, spatial reasoning, fine-grained understanding  
+**关键词**: 视觉推理, transit maps, MLLM 基准, 空间推理, fine-grained understanding
 
 ## 一句话总结
 提出ReasonMap基准——用30个城市的高分辨率地铁图+1008个人工验证问答对评估MLLM的细粒度视觉理解与空间推理能力，发现反直觉现象：开源推理模型反而不如base模型而闭源相反，揭示视觉定位（grounding）是开闭源差距的关键因素。

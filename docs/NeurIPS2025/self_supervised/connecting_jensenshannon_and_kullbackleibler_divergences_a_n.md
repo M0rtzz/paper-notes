@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning
 description: >-
-  [NeurIPS 2025][自监督学习][mutual information] 推导了一般情况下 KL 散度关于 JS 散度的新的紧致可计算下界，证明最大化 JSD 目标等价于最大化互信息的一个下界，为判别式学习在 MI 基础表示学习中的使用提供了理论基础，并在 MI 估计和 Information Bottleneck 中验证了其紧致性和实用性。
+  [NeurIPS 2025][自监督学习][mutual information] 推导了一般情况下KL散度关于JS散度的最优紧致下界$\Xi(D_{\text{JS}}) \leq D_{\text{KL}}$，证明训练判别器最小化交叉熵损失等价于最大化互信息的一个保证下界，为JSD基于的判别式表示学习方法提供了缺失的理论基础，并在MI估计和Information Bottleneck框架中验证了紧致性与实用性。
 tags:
   - NeurIPS 2025
   - 自监督学习
@@ -11,7 +11,6 @@ tags:
   - KL divergence
   - variational bound
   - representation learning
-  - information bottleneck
 ---
 
 # Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning
@@ -44,19 +43,19 @@ tags:
 
 1. **KLD关于JSD的最优下界（Theorem 4.1）**:
 
-    - 做什么：推导对任意两个分布$p, q$成立的、最紧致的KLD-JSD不等式$\Xi(D_{\text{JS}}[p \| q]) \leq D_{\text{KL}}[p \| q]$
+    - 功能：推导对任意两个分布$p, q$成立的、最紧致的KLD-JSD不等式$\Xi(D_{\text{JS}}[p \| q]) \leq D_{\text{KL}}[p \| q]$
     - 核心思路：利用$f$-散度的联合值域（joint range）理论——给定两个$f$-散度$D_f$和$D_g$，它们在所有分布对$(p,q)$上的联合取值集合$\mathcal{R}_{f,g}$是凸集，其下包络即为最优下界。关键工具是Harremoës-Vajda定理（Theorem 3.1）：完整联合值域$\mathcal{R}_{f,g}$可仅通过Bernoulli分布对完全刻画，即$\mathcal{R}_{f,g} = \text{co}(\mathcal{R}_{2;f,g})$。因此只需分析映射$\phi: (\mu, \nu) \mapsto (D_{\text{JS}}[B(\mu) \| B(\nu)], D_{\text{KL}}[B(\mu) \| B(\nu)])$在单位正方形上的像即可。分析三条边界上的行为后，发现下界恰好由$\mu=1$这条边（即$D_{\text{KL}}[B(1) \| B(\nu)]$）对应的曲线给出。$\Xi$是严格递增函数，其逆函数有解析形式$\Xi^{-1}(y) = D_{\text{JS}}[B(1) \| B(e^{-y})]$
     - 设计动机：此前的Pinsker不等式$D_{\text{KL}} \geq 2 D_{\text{JS}}$仅在散度趋近零时紧致，$f$-散度文献中的联合值域理论虽然在经典信息论中早有研究，但从未被应用于表示学习和MI估计的context中。将这一经典工具引入现代ML场景是本文的核心理论贡献
 
 2. **JSD的交叉熵变分下界**:
 
-    - 做什么：证明训练一个判别器最小化交叉熵损失等价于最大化JSD的$f$-散度变分下界
+    - 功能：证明训练一个判别器最小化交叉熵损失等价于最大化JSD的$f$-散度变分下界
     - 核心思路：设置混合模型：$(U,V) | Z=1 \sim p_{UV}$（联合样本），$(U,V) | Z=0 \sim p_U \otimes p_V$（独立样本），$Z \sim B(1/2)$。通过$f$-散度的变分表示，将JSD重写为$I_{\text{JS}} = \frac{1}{2}\max_t [\mathbb{E}_{p_{UV}}[t] - \mathbb{E}_{p_U \otimes p_V}[-\log(2-e^t)]]$。令$t(u,v) = \log(2 q_\theta(z=1|u,v))$（判别器输出的重参数化），代入后得到$I_{\text{JS}} \geq \log 2 - \min_\theta \mathcal{L}_{\text{CE}}(\theta)$，其中$\mathcal{L}_{\text{CE}}$是判别器的二分类交叉熵损失。该界在非参数极限下紧致（判别器capacity无限且数据无限时取等）
     - 设计动机：GAN文献中Goodfellow等人已注意到最优判别器与JSD的对应关系，但未从MI估计的角度建立完整链路。本文的新贡献在于量化了非最优判别器带来的gap，并将其与MI下界串联
 
 3. **MI估计器的构建（两步法）**:
 
-    - 做什么：基于上述理论，构建从数据到MI估计值的完整估计流程
+    - 功能：基于上述理论，构建从数据到MI估计值的完整估计流程
     - 核心思路：利用联合模型的后验可得$I[U;V] = \mathbb{E}_{p_{UV}}[\mathbb{L}(\tilde{p}(z=1|u,v))]$，其中$\mathbb{L}(\cdot) = \log \frac{x}{1-x}$是Logit函数。两步估计：(1) 训练判别器$q_\theta$区分联合样本和边际样本（最小化CE loss）；(2) 将$q_\theta$代入上式得到MI估计。同时，$\Xi$的平滑可微近似为$\Xi(x) \approx 1.15 \cdot \mathbb{L}(0.5(x / \log 2 + 1))$，方便端到端优化
     - 设计动机：两步法将优化（训练判别器）和估计（计算MI）解耦，避免了VLB方法中优化目标与估计目标耦合带来的不稳定性。这一策略等价于GAN-DIME方法，本文给出了其理论基础
 

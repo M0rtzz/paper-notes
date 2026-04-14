@@ -20,17 +20,22 @@ tags:
 **arXiv**: [2505.12128](https://arxiv.org/abs/2505.12128)  
 **代码**: 无（使用 jax-privacy 库进行基线比较）  
 **领域**: AI安全 / 差分隐私  
-**关键词**: differential privacy, matrix factorization, DP-SGD, multi-epoch participation, banded factorization, optimal error bounds  
+**关键词**: differential privacy, matrix factorization, DP-SGD, multi-epoch participation, banded factorization, optimal error bounds
 
 ## 一句话总结
 提出 Banded Inverse Square Root (BISR) 矩阵分解方法，通过对逆相关矩阵（而非相关矩阵本身）施加带状结构，首次在多轮参与差分隐私 SGD 中实现渐近最优的分解误差界，并配套低存储优化变体 BandInvMF。
 
 ## 研究背景与动机
 **领域现状**：矩阵分解机制（Matrix Factorization Mechanism）是差分隐私训练中通过注入相关噪声来提升模型效用的重要方法，已被 Google 用于生产级 on-device 语言模型训练。
+
 **现有痛点**：在多轮训练（multi-epoch）中，同一数据点被多次使用，需要刻画分解误差与参与次数的关系。但现有上下界之间存在显著差距——Banded Square Root (BSR) 的误差界中对带宽 $p$ 的依赖是隐式的，无法判断其是否最优。
+
 **核心矛盾**：理论上不清楚多轮参与下分解误差的最优增长率是什么，实践中缺少既高效又有显式误差刻画的分解方法。
+
 **本文要解决什么？** 给出多轮参与下矩阵分解误差的紧界（tight bound），并提供一个计算高效、理论最优的显式分解方法。
+
 **切入角度**：不是像 BSR 那样让相关矩阵 $C$ 带状化，而是让 $C^{-1}$ 带状化——这一视角转换带来了显式误差刻画和高效实现的双重优势。
+
 **核心 idea 一句话**：在逆相关矩阵上施加带状结构，使噪声注入可通过卷积高效实现，同时获得关于带宽的显式最优误差界。
 
 ## 方法详解

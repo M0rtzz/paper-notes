@@ -51,7 +51,7 @@ NaviT2I 的流程：
 
 1. **Early-step Activation Variation 现象发现**:
 
-    - 做什么：揭示后门触发器对扩散模型神经元激活的影响在生成早期最显著
+    - 功能：揭示后门触发器对扩散模型神经元激活的影响在生成早期最显著
     - 核心思路：实验发现 mask 触发器 token 后，模型的 Neuron Coverage 变化显著大于 mask 正常 token。理论分析证明，当 $t$ 较大时（即迭代前期），不同条件 $c, c'$ 下的预测差异上界为：
     $\|\epsilon(\mathbf{x}_t, t, c) - \epsilon(\mathbf{x}_t, t, c')\|_2 \leq O\left(\frac{1}{\alpha}\exp\left(-\frac{1}{2\sigma_t^2}\right)\right)$
       当 $\sigma_t$ 较大时（前期步骤），差异可以很大；当 $\sigma_t$ 较小时（后期步骤），差异以指数速率衰减
@@ -59,7 +59,7 @@ NaviT2I 的流程：
 
 2. **逐层激活变化度量**:
 
-    - 做什么：精确量化每个 token 对模型各层激活的影响
+    - 功能：精确量化每个 token 对模型各层激活的影响
     - 核心思路：
       - 线性层：$\delta^{(\ell)}(c, c') = \frac{1}{N_\ell d_\ell}\|\mathbf{A}^{(\ell)}(c) - \mathbf{A}^{(\ell)}(c')\|_1$
       - 卷积层：先在空间维度平均池化，再计算 1-范数差异
@@ -68,7 +68,7 @@ NaviT2I 的流程：
 
 3. **异常值检测与评分函数**:
 
-    - 做什么：将每个 token 的激活变化归一化为评分，检测异常值
+    - 功能：将每个 token 的激活变化归一化为评分，检测异常值
     - 核心思路：对每个 token $k$ 计算归一化特征值：
     $V_k = \frac{\delta_\theta(c, c_k)}{\mathcal{D}(c, c_k)}$
       其中 $\mathcal{D}(c, c_k) = \|\mathcal{T}(c) - \mathcal{T}(c_k)\|_2$ 是文本嵌入距离（归一化语义差异的影响）

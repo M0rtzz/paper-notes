@@ -7,9 +7,9 @@ tags:
   - AAAI 2026
   - AI安全
   - machine unlearning
-  - mutual information
-  - evaluation metric
-  - information bottleneck
+  - 互信息
+  - 评估指标
+  - 信息瓶颈
   - white-box metric
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2405.17878v3](https://arxiv.org/abs/2405.17878v3)  
 **代码**: 无  
 **领域**: AI安全 / 机器遗忘 / 隐私保护  
-**关键词**: machine unlearning, mutual information, evaluation metric, information bottleneck, white-box metric  
+**关键词**: machine unlearning, 互信息, 评估指标, 信息瓶颈, white-box metric
 
 ## 一句话总结
 提出 Information Difference Index (IDI)，一种基于信息论的白盒评估指标，通过度量中间层特征与遗忘标签之间的互信息来衡量机器遗忘的彻底程度，揭示了现有黑盒指标（MIA、JSD等）无法捕捉的中间层残留信息问题，并提出 COLA 方法在特征层面消除残余信息。

@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Lipschitz Bandits with Stochastic Delayed Feedback
 description: >-
-  [ICLR 2026][在线学习] 首次研究连续臂 Lipschitz bandit 在随机延迟反馈下的遗憾最优算法，提出 Delayed Zooming（lazy update 机制恢复子最优 gap 界）和 DLPP（分阶段 round-robin + 剪枝，遗憾仅依赖延迟分位数），并建立近最优下界。
+  [ICLR 2026][Lipschitz bandit] 首次系统研究连续臂空间 Lipschitz bandit 在随机延迟反馈下的学习问题，针对有界延迟提出 Delayed Zooming 算法（通过 lazy update 机制保持 $\Delta(x) \leq 6r_t(x)$ 的子最优 gap 界），针对无界延迟提出 DLPP 分阶段剪枝策略（遗憾与延迟分位数 $Q(p)$ 挂钩），并建立实例相关下界证明 DLPP 近最优。
 tags:
   - ICLR 2026
   - Lipschitz bandit
   - 延迟反馈
-  - zooming算法
-  - 在线学习
-  - 遗憾界
+  - zooming 算法
   - 分阶段剪枝
+  - 遗憾下界
+  - 分位数
 ---
 
 # Lipschitz Bandits with Stochastic Delayed Feedback
@@ -48,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **Delayed Zooming 算法（有界延迟 $\tau_t \leq \tau_{\max}$）**:
-    - 做什么：保持 Zooming 算法的自适应离散化优势，同时处理延迟导致的信息流紊乱
+    - 功能：保持 Zooming 算法的自适应离散化优势，同时处理延迟导致的信息流紊乱
     - 核心思路：用观测次数 $v_t(x)$ 替代拉臂次数 $n_t(x)$ 计算置信半径 $r_t(x) = \sqrt{\frac{4\log T + 2\log(2/\delta)}{1 + v_t(x)}}$，并引入 **lazy update 机制**——为每个活跃臂维护缓存队列 $Q[x]$，当 $v_t(x)+1 > 4 v_s(x)$（$s$ 为上次拉臂时间）时，将到达的反馈缓存而不更新。下次拉该臂时一并处理缓存。这确保 $r_t(x) \geq \frac{1}{2} r_s(x)$，从而恢复子最优 gap 界 $\Delta(x) \leq 6r_t(x)$（经典无延迟为 $3r_t(x)$）
     - 设计动机：延迟导致未拉臂时 $r_t(x)$ 因延迟奖励到达而缩小，破坏经典 zooming 分析核心。Lazy update 通过控制观测次数增长速率解决此问题。遗憾界为 $\tilde{O}\big(T^{\frac{d_z+1}{d_z+2}} + \tau_{\max} T^{\frac{d_z}{d_z+2}}\big)$
 
 2. **DLPP 算法（无界延迟，含反馈缺失 $\tau = \infty$）**:
-    - 做什么：处理延迟可能无界甚至永远缺失的场景，提供近最优遗憾保证
+    - 功能：处理延迟可能无界甚至永远缺失的场景，提供近最优遗憾保证
     - 核心思路：分阶段学习，第 $m$ 阶段维护半径 $r_m = 2^{-m}$ 的覆盖球集合 $\mathcal{B}_m$。对每个球进行均匀 round-robin 采样，直到累积 $v_m = \frac{2\log T + \log(2/\delta)}{2r_m^2}$ 个观测后停止该球的采样。阶段结束时淘汰经验均值远低于最佳球的区域（剪枝规则：$\hat\mu_m^* - \hat\mu_m(B) \geq 8r_m$），对幸存区域进一步细分。通过 Chernoff 不等式建立拉臂次数与延迟后观测次数的概率联系：$\Pr(v_{t+Q(p)}(B) \leq \frac{p}{2} n_t(B)) \leq \exp(-\frac{p}{8} n_t(B))$，将遗憾与延迟分位数 $Q(p)$ 挂钩
     - 设计动机：DLPP 不依赖实时反馈更新，而是等待足够统计量后做决策，即使部分反馈缺失也能工作。遗憾界为 $R(T) \lesssim \min_{p \in (0,1]} \left\{ \frac{1}{p} T^{\frac{d_z+1}{d_z+2}} (c\log\frac{T}{\delta})^{\frac{1}{d_z+2}} + Q(p) \right\}$
 
 3. **实例相关遗憾下界**:
-    - 做什么：证明 DLPP 的遗憾率是近最优的（至对数因子）
+    - 功能：证明 DLPP 的遗憾率是近最优的（至对数因子）
     - 核心思路：构造特殊延迟分布（延迟为固定值 $\tau_0$ 的概率 $p$，否则 $\infty$），通过 Bernoulli 采样耦合将延迟 Lipschitz bandit 归约到无延迟版本。得到下界 $R(T) \gtrsim \frac{T^{(d_z+1)/(d_z+2)}(c\log T)^{1/(d_z+2)}}{p\log T} - \frac{1}{p} + \bar\Delta \cdot Q(p)$，其中 $\bar\Delta = \int_\mathcal{A} \Delta(x) / \int_\mathcal{A} 1$ 为平均子最优 gap
     - 设计动机：最后一项 $\bar\Delta \cdot Q(p)$ 来自前 $Q(p)$ 轮完全无反馈时的不可避免遗憾，与上界形式匹配
 

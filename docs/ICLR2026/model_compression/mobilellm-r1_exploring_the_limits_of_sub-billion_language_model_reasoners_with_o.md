@@ -41,19 +41,19 @@ tags:
 ### 关键设计
 1. **能力感知数据筛选 (LOO分析)**:
 
-    - 做什么：确定每个预训练数据源对推理能力的贡献
+    - 功能：确定每个预训练数据源对推理能力的贡献
     - 核心思路：训练时每次排除一个数据集，追踪对Code/Math/Knowledge三个能力探测集的NLL变化。影响力定义为 $\Delta\mathcal{L}(\mathcal{D}_j, \mathcal{D}^P) = \mathbb{E}[\ell(z;\hat{\theta}_{-j}) - \ell(z;\hat{\theta})]$
     - 关键发现：FineWeb-Edu是跨域"胶水"，移除后所有能力均退化；StarCoder对数学的贡献 > OpenWebMath对代码的贡献（颠覆常识）；Wikipedia对代码和数学贡献有限
 
 2. **跨能力影响力数据混合**:
 
-    - 做什么：基于影响力分数计算每个数据源的最优采样权重
+    - 功能：基于影响力分数计算每个数据源的最优采样权重
     - 核心思路：利用AutoMixer框架高效近似影响力分数 $\mathcal{I}(x_i, x_{\text{test}}; \theta) \approx -\nabla\mathcal{L}(x_{\text{test}})^\top H^{-1} \nabla\mathcal{L}(x_i)$。联合影响力聚合跨能力和跨训练阶段的贡献，转化为数据集级别权重 $w_g = \frac{\rho_g}{\sum \rho_{g'}}$
     - 设计动机：用量化的跨域影响力替代启发式均匀采样，由此产生的混合比例在未见基准上一致优于均匀采样
 
 3. **Mid-training数据-模型协同进化**:
 
-    - 做什么：在mid-training阶段迭代优化数据混合
+    - 功能：在mid-training阶段迭代优化数据混合
     - 核心思路：每阶段用当前模型计算每个样本的影响力分数，只保留正影响力样本 $\mathcal{D}_t = \{x_i : I(x_i; \theta_t) > 0\}$，同时更新数据集权重。迭代直到大部分样本的影响力趋近零（收敛，通常2阶段）
     - 设计动机：模型能力不断变化，固定的数据混合不再最优；将其视为"迭代去噪"过程
 

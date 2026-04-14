@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Pre-Norm 通过突出恒等路径促进梯度流动和快速收敛，但最终性能不如 Post-Norm；Post-Norm 有更强正则化和泛化能力，却面临梯度不稳定。
+
 **现有痛点**：Pre-Norm 中 Q/K/V 的梯度相互耦合度极高（$\mathcal{O}(n)$），单个权重异常增长难以控制，可能引发模型坍塌。
+
 **核心矛盾**：训练稳定性（Pre-Norm）与最终性能（Post-Norm）不可兼得——现有方法只能选择一端。
+
 **本文要解决什么**：设计归一化策略同时满足训练稳定性、最终性能、计算效率和可扩展性。
+
 **切入角度**：不是跨层混合（如 Mix-LN），而是在每层内部精细混合——注意力用 QKV-Norm（Pre 思想），FFN 用 Post-Norm（Post 思想）。
+
 **核心 idea 一句话**：注意力内 QKV 独立归一化解耦梯度 + FFN 后归一化增强有效深度 = 层内不对称混合。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **QKV 归一化**:
 
-    - 做什么：在注意力计算前对 Q、K、V 矩阵分别独立做 LayerNorm
+    - 功能：在注意力计算前对 Q、K、V 矩阵分别独立做 LayerNorm
     - 核心思路：$\text{attn}(Q,K,V) = \text{softmax}(\text{Norm}(Q)\text{Norm}(K)^\top/\sqrt{d_k})\text{Norm}(V)$。Theorem 1 证明梯度耦合从 $\mathcal{O}(\|W_K\|\|W_V\|\|W_O\|)$（三重耦合）降至 $\mathcal{O}(\|W_O\|)$（单一依赖）
     - 设计动机：防止 Q/K/V 权重间的梯度雪崩效应，这是 Pre-Norm 训练崩溃的根本原因
 
 2. **FFN 中的 Post-Norm**:
 
-    - 做什么：在 FFN 残差连接后应用 LayerNorm
+    - 功能：在 FFN 残差连接后应用 LayerNorm
     - 核心思路：$X^{l+1} = \text{FFN}(\text{Norm}(Y^l)) + \text{Norm}(Y^l)$
     - 设计动机：保留 Post-Norm 的有效深度和正则化优势，增强泛化能力
 
 3. **首层特殊处理（HybridNorm*）**:
 
-    - 做什么：仅第一个 Transformer 块的 MHA 和 FFN 都用 Pre-Norm
+    - 功能：仅第一个 Transformer 块的 MHA 和 FFN 都用 Pre-Norm
     - 核心思路：早期层梯度不稳定性最强，Pre-Norm 提供更强的输入归一化引导
     - 设计动机：在保持 QKV-Norm 解耦优势下额外强化首层梯度流，下游任务再提升 0.9%
 

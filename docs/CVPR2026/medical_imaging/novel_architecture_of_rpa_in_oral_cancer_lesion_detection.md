@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Novel Architecture of RPA In Oral Cancer Lesion Detection
 description: >-
-  [CVPR 2026][医学图像][口腔癌检测] 将 Singleton + Batch Processing 设计模式集成到 EfficientNetV2B1 口腔癌检测流水线中，相比传统 RPA 平台实现 60-100x 推理加速
+  [CVPR 2026][医学图像][口腔癌检测] 将软件设计模式（Singleton + Batch Processing）集成到基于 EfficientNetV2B1 的口腔癌病变检测 Python 流水线中，相比传统 RPA 平台（UiPath/Automation Anywhere）实现 60-100x 推理加速（每张图 0.06s vs 2.58s），同时保持诊断准确性。
 tags:
   - CVPR 2026
   - 医学图像
@@ -49,19 +49,19 @@ tags:
 
 1. **Singleton 设计模式（消除模型重复加载）**:
 
-    - 做什么：确保 CNN 模型全生命周期仅加载一次并常驻内存
+    - 功能：确保 CNN 模型全生命周期仅加载一次并常驻内存
     - 核心思路：传统 RPA 流水线中每次预测都重新实例化模型，Singleton 模式将模型加载与推理解耦，统一模型生命周期管理
     - 设计动机：模型加载和数据序列化占传统 RPA 总时间的 ~78%，这是最大的性能瓶颈。消除重复加载是最关键的单点优化
 
 2. **Batch Processing 设计模式（GPU 并行推理）**:
 
-    - 做什么：将多张图像组成批次一次性送入模型推理
+    - 功能：将多张图像组成批次一次性送入模型推理
     - 核心思路：利用 GPU 并行计算能力，减少逐张推理的 kernel 启动和内存传输开销。每张图像处理完成后自动记录结果并移至独立目录确保数据完整性
     - 设计动机：在 Singleton 基础上进一步压缩推理时间（OC-RPAv1 的 0.28s/张 -> OC-RPAv2 的 0.06s/张，再提速 4.7x）
 
 3. **CNN 分类模型（EfficientNetV2B1）**:
 
-    - 做什么：口腔病变 16 类分类
+    - 功能：口腔病变 16 类分类
     - 核心思路：以 ImageNet 预训练 EfficientNetV2B1 为骨干，输入 224x224x3，末层替换为 softmax 全连接层。两阶段训练：冻结 backbone 训 15 epochs（lr=1e-3），部分解冻 fine-tune 10 epochs（lr=1e-5）
     - 数据集：~3000 张口腔临床图像，4 大类（Healthy/Benign/OPMD/Oral Cancer）共 16 子类。使用 Albumentations 做 5 种增强，不足 200 样本的类别做随机复制
 

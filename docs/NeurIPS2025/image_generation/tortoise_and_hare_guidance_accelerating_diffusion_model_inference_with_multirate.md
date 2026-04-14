@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Tortoise and Hare Guidance: Accelerating Diffusion Model Inference with Multirate Integration
 description: >-
-  [NeurIPS 2025][扩散模型][推理加速] 提出THG——一种免训练的扩散采样加速策略，将CFG ODE重构为多速率系统，噪声估计用细粒度步长(乌龟)、引导项用粗粒度步长(兔子)，减少30% NFE而几乎无质量损失。
+  [NeurIPS 2025][图像生成][扩散模型加速] 提出 Tortoise and Hare Guidance (THG)，一种免训练的扩散采样加速策略，将 classifier-free guidance (CFG) ODE 重构为多速率 ODE 系统，噪声估计使用细粒度步长（乌龟方程），附加引导项使用粗粒度步长（兔子方程），减少最多 30% 的函数评估次数 (NFE) 而几乎不损失生成质量。
 tags:
   - NeurIPS 2025
-  - 扩散模型
-  - 推理加速
+  - 图像生成
+  - 扩散模型加速
   - Classifier-Free Guidance
   - 多速率积分
+  - NFE压缩
   - 免训练
-  - 图像生成
 ---
 
 # Tortoise and Hare Guidance: Accelerating Diffusion Model Inference with Multirate Integration
@@ -39,6 +39,7 @@ $$\hat{\epsilon}_\theta(x_t, c) = \epsilon_\theta(x_t) + s \cdot [\epsilon_\thet
 每步 CFG 需要**两次网络前向传播**（有条件和无条件），是主要计算瓶颈。
 
 ### 关键观察
+
 **附加引导项对数值误差的敏感度远低于噪声估计项**。传统的均匀步长求解器未能利用这一不对称性，造成了大量冗余计算。
 
 ## 方法详解

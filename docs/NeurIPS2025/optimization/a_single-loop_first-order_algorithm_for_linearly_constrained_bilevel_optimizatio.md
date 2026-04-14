@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.24710](https://arxiv.org/abs/2510.24710)  
 **代码**: [ShenGroup/SFLCB](https://github.com/ShenGroup/SFLCB)  
 **领域**: others (优化理论)  
-**关键词**: bilevel optimization, constrained optimization, first-order methods, augmented Lagrangian, single-loop algorithm  
+**关键词**: bilevel optimization, constrained optimization, first-order methods, augmented Lagrangian, single-loop algorithm
 **作者**: Wei Shen, Jiawei Zhang, Minhui Huang, Cong Shen (UVA, UW-Madison, Meta)  
 
 ## 一句话总结
@@ -29,10 +29,15 @@ tags:
 ## 研究背景与动机
 
 **双层优化广泛应用**：超参数优化、数据清洗、元学习、神经架构搜索、强化学习等众多 ML 问题本质上是双层优化 (BLO)，上层目标依赖于下层问题的最优解。
+
 **约束 BLO 研究不足**：现有工作大量针对无约束 BLO，而实际应用（分布式优化、SVM 超参数调优、对抗训练、交通网络设计）中下层问题常带耦合约束 $\mathcal{Y}(x) = \{y \mid Bx + Ay - b \leq 0\}$，相关理论和算法远不成熟。
+
 **Hessian 计算瓶颈**：隐式梯度方法 (Tsaknakis et al., Khanduri et al., Xu & Zhu) 虽可处理约束 BLO，但均需计算下层 Hessian 矩阵，在大规模问题上计算开销巨大。
+
 **已有一阶方法局限**：Kwon et al. (2023b) 仅处理与 $x$ 无关的约束且每步需投影；Jiang et al. (2024a) 支持耦合约束但需双/三循环结构，复杂度 $O(\epsilon^{-3}\log\epsilon^{-1})$ 或 $O(\epsilon^{-5}\log\epsilon^{-1})$，实现困难。
+
 **改写函数的理论缺口**：此前工作 (Kwon, Jiang) 未建立改写函数 $\Phi_\delta$ 与原目标 $\Phi$ 梯度在耦合约束下的非渐近误差界，缺乏对改写合理性的严格证明。
+
 **追求更优复杂度**：无约束 BLO 一阶方法已达 $O(\epsilon^{-2})$，约束场景下最佳已知为 $O(\epsilon^{-3}\log\epsilon^{-1})$（双循环），是否能单循环达到 $O(\epsilon^{-3})$ 是一个开放问题。
 
 ## 方法详解

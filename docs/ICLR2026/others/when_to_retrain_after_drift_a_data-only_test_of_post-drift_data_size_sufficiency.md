@@ -47,25 +47,25 @@ CALIPER在漂移报警后执行四步流程：(1) 窗口归一化与分割；(2)
 
 1. **窗口归一化与分割**:
 
-    - 做什么：将漂移后窗口转化为参考集和查询对
+    - 功能：将漂移后窗口转化为参考集和查询对
     - 核心思路：归一化后的漂移后窗口 $\mathbf{Z} \in \mathbb{R}^{n_t \times d}$ 分为参考对 $(\mathbf{X}_h, \mathbf{Y}_h)$（连续的状态转移对）和当前查询 $(\mathbf{x}_q, \mathbf{y}_q)$
     - 设计动机：利用动力系统的一步转移结构 $\mathbf{x}(t+1) = f(\mathbf{x}(t)) + \xi_t$ 进行自监督预测
 
 2. **ESS门控机制**:
 
-    - 做什么：检查最紧密局部性下的有效样本量是否足够
+    - 功能：检查最紧密局部性下的有效样本量是否足够
     - 核心思路：核权重 $w_i(\theta) = \exp(-\theta r_i)$，有效样本量 $\text{ESS}(\theta_{\max}) = \frac{(\sum_i w_i)^2}{\sum_i w_i^2}$。只有当 $\text{ESS}(\theta_{\max}) \geq C(d+1)$ 时才继续
     - 设计动机：ESS关于$\theta$单调非增，因此只需在 $\theta_{\max}$ 处检查即可保证所有$\theta$处ESS均足够
 
 3. **加权局部回归与代理误差**:
 
-    - 做什么：在不同局部性下拟合轻量级回归模型
+    - 功能：在不同局部性下拟合轻量级回归模型
     - 核心思路：对每个 $\theta \in \Theta$，求解加权正规方程 $\boldsymbol{\beta}_\theta = \mathbf{A}_\theta^{-1}\mathbf{B}_\theta$，计算代理误差 $e_{(t,\theta)} = \|\mathbf{y}_q - \hat{\mathbf{y}}_\theta\|$，累积 $E_{(t,\theta)} = E_{(t-1,\theta)} + e_{(t,\theta)}$
     - 设计动机：较小$\theta$给出更全局的平均，较大$\theta$聚焦更近的邻居。在状态依赖条件下，增大$\theta$应减少误差
 
 4. **单调性检验与触发**:
 
-    - 做什么：检测累积代理误差是否随$\theta$增大而单调非增
+    - 功能：检测累积代理误差是否随$\theta$增大而单调非增
     - 核心思路：在有序网格 $\Theta = \{\theta_k\}$ 上检验 $E_{(t,\theta_k)} \geq E_{(t,\theta_{k+1})}\ \forall k$。若成立则 $R(\mathbf{X}_t) = 1$，触发重训练
     - 设计动机：单调性表明数据展现出足够的状态依赖性和局部正则性，可以安全用于重训练
 

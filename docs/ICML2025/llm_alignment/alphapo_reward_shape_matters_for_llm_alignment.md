@@ -9,7 +9,7 @@ tags:
   - Direct Alignment
   - Reward Shaping
   - Likelihood Displacement
-  - Preference Optimization
+  - preference optimization
   - Alpha Parameter
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.03884](https://arxiv.org/abs/2501.03884)  
 **代码**: 无  
 **领域**: 对齐RLHF  
-**关键词**: Direct Alignment, Reward Shaping, Likelihood Displacement, Preference Optimization, Alpha Parameter
+**关键词**: Direct Alignment, Reward Shaping, Likelihood Displacement, preference optimization, Alpha Parameter
 
 ## 一句话总结
 

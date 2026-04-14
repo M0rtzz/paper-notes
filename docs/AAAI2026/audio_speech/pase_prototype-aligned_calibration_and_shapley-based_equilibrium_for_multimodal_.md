@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2511.17585](https://arxiv.org/abs/2511.17585)  
 **代码**: 待确认  
 **领域**: audio_speech  
-**关键词**: multimodal sentiment analysis, modality competition, prototype alignment, Shapley value, optimal transport, gradient modulation  
+**关键词**: multimodal sentiment analysis, modality competition, prototype alignment, Shapley value, optimal transport, gradient modulation
 
 ## 一句话总结
 

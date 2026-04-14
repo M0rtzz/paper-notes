@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.05150](https://arxiv.org/abs/2512.05150)  
 **代码**: [https://github.com/inclusionAI/TwinFlow](https://github.com/inclusionAI/TwinFlow)  
 **领域**: 扩散模型 / 单步生成 / 大模型加速  
-**关键词**: one-step generation, self-adversarial, flow matching, 20B scaling, no auxiliary models  
+**关键词**: one-step generation, self-adversarial, flow matching, 20B scaling, no auxiliary models
 
 ## 一句话总结
 提出 TwinFlow，一种无需辅助训练模型（判别器/冻结教师）的自对抗流匹配框架，通过模型自身多步输出作为单步的教学目标实现单步生成，首次将 1-NFE 生成能力成功扩展到 20B 参数的 Qwen-Image 模型，GenEval 0.86（1-NFE）接近原始 100-NFE 的 0.87。

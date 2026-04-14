@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - structured generation
   - JSON schema
-  - 强化学习
+  - reinforcement-learning
   - LLM
   - benchmark
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.18878](https://arxiv.org/abs/2502.18878)  
 **代码**: https://github.com/thunlp/SchemaReinforcementLearning  
 **领域**: 强化学习  
-**关键词**: structured generation, JSON schema, reinforcement learning, LLM, benchmark  
+**关键词**: structured generation, JSON schema, reinforcement-learning, LLM, benchmark
 
 ## 一句话总结
 
@@ -29,7 +29,9 @@ tags:
 大语言模型在实际应用中越来越多地需要生成结构化输出（尤其是 JSON 格式），以便与自动化系统和 API 对接。当前有几种主流方法：
 
 **Prompting**：直接提示生成，对简单 schema 有效，但在复杂逻辑下容易出错
+
 **Tool Calls**：把模型输出转换为 JSON，但常遗漏 schema 特定语法
+
 **Constrained Decoding**（如 Outlines、SGLang）：通过限制解码空间保证有效 JSON，但可能降低输出质量
 
 **核心痛点**：

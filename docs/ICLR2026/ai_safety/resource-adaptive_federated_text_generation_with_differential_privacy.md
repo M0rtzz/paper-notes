@@ -7,7 +7,7 @@ tags:
   - ICLR2026
   - AI安全
   - 联邦学习
-  - Differential Privacy
+  - differential privacy
   - Synthetic Text Generation
   - Computational Heterogeneity
   - Control Code
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.07027](https://arxiv.org/abs/2603.07027)  
 **代码**: 无  
 **领域**: ai_safety  
-**关键词**: Federated Learning, Differential Privacy, Synthetic Text Generation, Computational Heterogeneity, Control Code  
+**关键词**: federated learning, differential privacy, Synthetic Text Generation, Computational Heterogeneity, Control Code
 
 ## 一句话总结
 

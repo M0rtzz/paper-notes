@@ -9,8 +9,8 @@ tags:
   - Single-cell RNA-seq
   - Pan-Cancer
   - Transformer
-  - Foundation Model
-  - Benchmark
+  - foundation model
+  - benchmark
 ---
 
 # PanFoMa: A Lightweight Foundation Model and Benchmark for Pan-Cancer Pathology Image Analysis
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.03111](https://arxiv.org/abs/2512.03111)  
 **代码**: [GitHub](https://github.com/Xiaoshui-Huang/PanFoMa)  
 **领域**: 计算生物学 / 单细胞转录组学 / 基础模型  
-**关键词**: Single-cell RNA-seq, Pan-Cancer, Transformer-Mamba Hybrid, Foundation Model, Benchmark
+**关键词**: Single-cell RNA-seq, Pan-Cancer, Transformer-Mamba Hybrid, foundation model, benchmark
 
 ## 一句话总结
 

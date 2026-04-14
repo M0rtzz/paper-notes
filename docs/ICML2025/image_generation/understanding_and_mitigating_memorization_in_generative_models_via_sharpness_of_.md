@@ -7,11 +7,11 @@ tags:
   - ICML2025
   - 图像生成
   - 扩散模型
-  - memorization
+  - 记忆
   - sharpness
   - Hessian
   - score function
-  - privacy
+  - 隐私
 ---
 
 <!-- 由 src/gen_stubs.py 自动生成 -->
@@ -22,7 +22,7 @@ tags:
 **代码**: [GitHub](https://github.com/Dongjae0324/sharpness_memorization_diffusion)  
 **作者**: Dongjae Jeon, Dueun Kim, Albert No
 **领域**: image_generation  
-**关键词**: diffusion model, memorization, sharpness, Hessian, score function, privacy
+**关键词**: 扩散模型, 记忆, sharpness, Hessian, score function, 隐私
 
 ## 一句话总结
 
@@ -35,8 +35,11 @@ tags:
 现有记忆化分析方法存在以下不足：
 
 **LID（Local Intrinsic Dimensionality）方法**（Ross et al., 2024）：仅能在生成最终步（$t \approx 0$）检测，无法提前预警
+
 **基于训练数据比对的方法**（Carlini et al., 2023）：需要访问训练集，计算开销大，不适合实时检测
+
 **Wen et al. (2024) 的 score 差异指标**：虽然有效但缺乏理论解释
+
 **Prompt 修改策略**：缓解记忆化的同时会损害生成质量
 
 因此，本文的核心动机是：**能否从概率密度的几何特性出发，建立一个统一的理论框架来解释、检测并缓解记忆化？**

@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Single Pixel Image Classification using an Ultrafast Digital Light Projector
 description: >-
-  [CVPR 2026][计算成像][单像素成像] 利用microLED-on-CMOS超快光投影器(330kfps)进行单像素成像，以12×12 Hadamard pattern照明MNIST数字并用单像素检测器采集时间序列，完全跳过图像重建直接用ELM/DNN分类，实现1.2kfps下>90%精度和二分类>99% AUC。
+  [CVPR 2026][自动驾驶][single pixel imaging] 利用microLED-on-CMOS超快光投影器（330kfps全局快门）进行单像素成像，将12×12 Hadamard pattern投射到MNIST数字上，用单像素光电检测器采集叠加光强的时间序列，完全跳过图像重建，直接用ELM和DNN对时间序列分类，实验实现1.2kfps下>90%多分类精度和>99% AUC的二分类（异常检测）能力。
 tags:
   - CVPR 2026
-  - 计算成像
-  - 单像素成像
+  - 自动驾驶
+  - single pixel imaging
   - Hadamard patterns
-  - microLED投影器
-  - 极限学习机
+  - microLED-on-CMOS
+  - extreme learning machine
+  - compressed sensing
 ---
 
 # Single Pixel Image Classification using an Ultrafast Digital Light Projector

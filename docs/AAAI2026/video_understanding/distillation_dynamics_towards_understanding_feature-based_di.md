@@ -43,19 +43,19 @@ ViTKD等工作虽然观察到了这个现象并提出了ViT-specific蒸馏方法
 
 1. **通道维度FFT频谱分析**
 
-    - 做什么：揭示ViT各层特征的编码策略
+    - 功能：揭示ViT各层特征的编码策略
     - 核心思路：对每层激活张量 $\mathbf{A} \in \mathbb{R}^{L \times B \times C \times H \times W}$，**沿通道轴**（而非传统的空间轴）做一维FFT：$\mathbf{F}_{l,b,h,w}[k] = \frac{1}{C}\sum_{c=0}^{C-1}\mathbf{A}_{l,b,c,h,w} e^{-j2\pi kc/C}$。低频主导表示通道高度相关（压缩编码），高频均匀表示通道去相关（分布式编码）。对batch和空间维度取平均得到每层频谱签名 $\mathbf{S} \in \mathbb{R}^{L \times C}$
     - 设计动机：空间FFT只能看到特征图的空间频率特性（已被研究过），而通道FFT揭示的是**特征空间本身的结构**——通道间相关性高意味着特征冗余，去相关意味着充分利用表达容量
 
 2. **Shannon熵 + 激活幅值联合分析**
 
-    - 做什么：量化各层信息复杂度和信号传播强度
+    - 功能：量化各层信息复杂度和信号传播强度
     - 核心思路：Shannon熵——将每个空间位置的通道激活向量离散化为100个bin，计算概率分布的熵 $E_{l,b,h,w} = -\sum_{n:p_n>0} p_n \log_2 p_n$，对batch和空间取平均。激活幅值——计算每层激活的均值绝对值 $M_l = \frac{1}{BCHW}\sum|\mathbf{A}_{l,b,c,h,w}|$
     - 设计动机：熵低→表征集中结构化（类似Information Bottleneck的瓶颈），熵高→表征均匀扩展。与频谱分析交叉验证：U型熵对应频谱从均匀→低通→均匀的三阶段演化
 
 3. **蒸馏演化（Distillation Evolution）分析**
 
-    - 做什么：追踪不同蒸馏策略对student训练动态的影响
+    - 功能：追踪不同蒸馏策略对student训练动态的影响
     - 核心思路：在训练过程中每30个epoch记录student的逐层熵profile，观察U型模式如何形成或被破坏。比较SoftKD、SpectralKD-First、SpectralKD-Last、SpectralKD-Both四种配置下student的发展轨迹
     - 设计动机：知识蒸馏不是静态的知识复制，而是对student"发展轨迹"的引导。错误的引导（后层对齐）会扰乱student自然形成U型模式的过程
 

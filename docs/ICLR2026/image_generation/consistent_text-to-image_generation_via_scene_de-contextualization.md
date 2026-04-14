@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2510.14553](https://arxiv.org/abs/2510.14553)  
 **代码**: [https://github.com/tntek/SDeC](https://github.com/tntek/SDeC)  
 **领域**: 扩散模型 / 一致性生成  
-**关键词**: consistent T2I, identity preservation, scene contextualization, SVD, training-free, prompt embedding  
+**关键词**: consistent T2I, identity preservation, scene contextualization, SVD, training-free, prompt embedding
 
 ## 一句话总结
 揭示 T2I 模型中 ID 偏移的根本原因是"场景上下文化"（scene contextualization，场景 token 对 ID token 注入上下文信息），并提出 training-free 的 Scene De-Contextualization (SDeC) 方法，通过 SVD 特征值的方向稳定性分析识别并抑制 prompt embedding 中潜在的场景-ID 关联，实现逐场景的身份一致性生成。
@@ -55,19 +55,19 @@ SDeC 是一个 training-free 的 prompt embedding 编辑方法：
 
 1. **场景上下文化理论 (Theorem 1 + Corollary 1)**:
 
-    - 做什么：证明注意力机制中场景 token 对 ID token 的信息注入几乎不可避免
+    - 功能：证明注意力机制中场景 token 对 ID token 的信息注入几乎不可避免
     - 核心思路：将注意力输出分解为 ID 项 $T_{\text{id}}$ 和场景项 $T_{\text{sc}}$。$T_{\text{sc}} \neq 0$ 需要两个条件同时满足：(A) $\alpha_{\text{sc}} \neq 0$（场景注意力权重非零）和 (B) $\Pi_{\text{id}} \circ W_V|_{\mathcal{H}_{\text{sc}}} \neq 0$（$W_V$ 不是关于 ID/scene 子空间的块对角矩阵）。这两个条件在实际模型中几乎总是成立
     - 设计动机：为 SDeC 方法提供理论基础——既然 scene contextualization 不可避免，就需要后处理来去除
 
 2. **SVD 方向稳定性量化 (QDV)**:
 
-    - 做什么：通过"前向-后向"特征值优化来量化每个 SVD 方向受场景影响的程度
+    - 功能：通过"前向-后向"特征值优化来量化每个 SVD 方向受场景影响的程度
     - 核心思路：对原始 ID embedding $\mathcal{Z}_{\text{id}}^o$ 做 SVD 得到特征值 $\sigma_j$。然后分析每个特征方向在加入/去除场景信息时的稳定性——如果某个方向的特征值变化大（绝对偏移量大），说明它被场景信息"污染"了
     - 设计动机：直接构造 ID 和 scene 的共享子空间投影矩阵 $P_\cap$ 在高维空间中数值不稳定，用"学习式"的软估计更鲁棒
 
 3. **自适应特征值重加权**:
 
-    - 做什么：根据 QDV 结果，降低受场景影响大的方向的权重，增强稳定方向的权重
+    - 功能：根据 QDV 结果，降低受场景影响大的方向的权重，增强稳定方向的权重
     - 核心思路：用特征值的绝对偏移量（abs-excursion）作为重加权系数，然后用重加权后的特征值重建 ID embedding
     - 设计动机：不是粗暴地去掉某些方向（hard），而是自适应地调整权重（soft），保留那些虽然与场景有轻微关联但携带重要 ID 信息的方向
 

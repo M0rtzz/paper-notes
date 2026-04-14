@@ -2,12 +2,12 @@
 title: >-
   [论文解读] CORAL: Learning Consistent Representations across Multi-step Training with Lighter Speculative Drafter
 description: >-
-  [ACL 2025][speculative decoding] CORAL 通过跨步表示对齐（CSRA）改进多步训练中 draft 模型的特征一致性，并用权重分组机制压缩大词表 LM head 的推理延迟，在 LLaMA3/Qwen2.5 上实现 2.50-4.07× 加速，超越 EAGLE-2 和 HASS。
+  [ACL 2025][推测解码] CORAL 通过跨步表示对齐（CSRA）改进多步训练中 draft 模型的特征一致性，并用权重分组机制压缩大词表 LM head 的推理延迟，在 LLaMA3/Qwen2.5 上实现 2.50-4.07× 加速，超越 EAGLE-2 和 HASS。
 tags:
   - ACL 2025
-  - speculative decoding
-  - draft model
-  - representation alignment
+  - 推测解码
+  - 草稿模型
+  - 表示对齐
   - LM head compression
   - vocabulary
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.16880](https://arxiv.org/abs/2502.16880)  
 **代码**: 无  
 **领域**: 模型压缩 / LLM效率  
-**关键词**: speculative decoding, draft model, representation alignment, LM head compression, vocabulary  
+**关键词**: 推测解码, 草稿模型, 表示对齐, LM head compression, vocabulary
 
 ## 一句话总结
 CORAL 通过跨步表示对齐（CSRA）改进多步训练中 draft 模型的特征一致性，并用权重分组机制压缩大词表 LM head 的推理延迟，在 LLaMA3/Qwen2.5 上实现 2.50-4.07× 加速，超越 EAGLE-2 和 HASS。
@@ -26,10 +26,15 @@ CORAL 通过跨步表示对齐（CSRA）改进多步训练中 draft 模型的特
 ## 研究背景与动机
 
 **领域现状**：投机解码用轻量 draft 模型预生成 token，target 模型并行验证。EAGLE 使用 target 模型的 hidden states 训练 draft 模型，但存在训练-推理不对齐（训练用 target states，推理用自身 states）。HASS 引入多步训练让 draft 模型适应自身特征，但多步输入差异大使训练难收敛。
+
 **现有痛点**：(1) 多步训练中不同步骤的输入特征差异大，轻量 draft 模型难以适应；(2) 不同步骤间可能存在梯度冲突；(3) 现代 LLM 词表越来越大（LLaMA3 128K, Qwen2.5 152K），LM head 成为 draft 模型的延迟瓶颈——如 Qwen2.5-7B 的 draft 模型中 LM head 占总延迟的主要部分。
+
 **核心矛盾**：多步训练提升了 draft 精度但引入了特征不一致问题；大词表提升了 LLM 能力但拖慢了 draft 模型速度。
+
 **本文要解决什么？** 同时解决多步训练的特征一致性问题和大词表的延迟问题。
+
 **切入角度**：用对比学习强制多步训练的特征保持一致 + 用路由分组选择性激活 LM head 参数。
+
 **核心idea一句话**：跨步对比对齐使 draft 特征在不同训练步骤间保持一致 + LM head 参数分组激活解决大词表延迟。
 
 ## 方法详解
@@ -41,14 +46,14 @@ CORAL 通过跨步表示对齐（CSRA）改进多步训练中 draft 模型的特
 
 1. **Cross-Step Representation Alignment (CSRA)**:
 
-    - 做什么：在多步训练中，强制 draft 模型不同步骤对同一位置输出的特征保持一致
+    - 功能：在多步训练中，强制 draft 模型不同步骤对同一位置输出的特征保持一致
     - 核心思路：用对比学习——同位置不同步骤的特征作为正对，不同位置的特征作为负对。最小化正对之间的距离
     - 设计动机：多步训练中 step 1 用 target states，step 2/3 用自己的 states，特征分布可能差异大。CSRA 强制一致性使 draft 模型更稳定
     - 与 HASS 的区别：HASS 仅做多步训练但不约束特征一致性
 
 2. **LM Head 权重分组**:
 
-    - 做什么：将大词表 LM head 的权重按 token embedding 相似度分组，推理时只激活相关组
+    - 功能：将大词表 LM head 的权重按 token embedding 相似度分组，推理时只激活相关组
     - 核心观察：大词表 LM head（128K-152K 词）占 draft 模型 50%+ 延迟。如 Qwen2.5 的 draft 模型中 LM head 参数量超过 transformer 层
     - 方法：用路由器预测当前 token 属于哪个权重组 → 只激活该组参数做矩阵乘法
     - 效果：大幅降低 draft 模型延迟，特别是对大词表模型

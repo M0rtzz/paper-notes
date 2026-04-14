@@ -55,13 +55,13 @@ tags:
 
 1. **Individual LoRA + RoW LoRA 分离**:
 
-    - 做什么：将本地知识和全局知识显式分离到两个独立 LoRA
+    - 功能：将本地知识和全局知识显式分离到两个独立 LoRA
     - 核心思路：RoW LoRA 计算为 $\mathbf{A}_k^R = \frac{1}{K-1} \sum_{m \neq k} \mathbf{A}_m^L$。关键：RoW LoRA 在本地训练时完全冻结，不参与梯度更新
     - 设计动机：FedAvg 范式中干扰来自两个环节——(1) 聚合抵消本地改进 (2) 用聚合模型初始化覆盖本地适应。冻结 RoW 完全消除这两个问题。且跳过 RoW 的本地训练将客户端计算量减半
 
 2. **自适应 MoE 混合器**:
 
-    - 做什么：按输入动态调整 Individual LoRA 和 RoW LoRA 的贡献权重
+    - 功能：按输入动态调整 Individual LoRA 和 RoW LoRA 的贡献权重
     - 核心思路：$\alpha(x), 1-\alpha(x) = \text{softmax}(\mathbf{G}_k x)$，其中 $\mathbf{G}_k \in \mathbb{R}^{2 \times d}$ 是可训练的线性层
     - 设计动机：不同输入从本地模型和全局模型获益程度不同。固定权重（如 FedDPA）是次优的。MoE 范式提供了输入自适应的灵活权重
     - 重要：混合器是个性化的（不在客户端间平均），确保反映各客户端独特的数据分布

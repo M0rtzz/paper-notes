@@ -47,19 +47,19 @@ ALEXR 算法将 cFCCO 问题重构为一个 minimax 问题（原始-对偶形式
 
 1. **块坐标随机镜像上升（Block-Coordinate Stochastic Mirror Ascent with Extrapolation）**:
 
-    - 做什么：更新对偶变量 $\lambda$，利用外推步减少方差
+    - 功能：更新对偶变量 $\lambda$，利用外推步减少方差
     - 核心思路：对偶变量的更新采用 Bregman 散度作为正则化项，利用外推步 $\hat{\lambda}^{t} = \lambda^t + \eta(\lambda^t - \lambda^{t-1})$ 来加速收敛
     - 设计动机：cFCCO 中对偶变量维度巨大（等于样本数），块坐标更新可以大幅降低每轮计算开销，而外推则能弥补随机采样带来的方差
 
 2. **随机近端梯度下降（Stochastic Proximal Gradient Descent）**:
 
-    - 做什么：更新原始变量 $x$
+    - 功能：更新原始变量 $x$
     - 核心思路：$x^{t+1} = \text{prox}_{\eta r}(x^t - \eta \hat{g}^t)$，其中 $\hat{g}^t$ 是基于当前对偶变量估计的随机梯度
     - 设计动机：近端算子可以自然地处理原始变量上的非光滑正则化项，同时保持单循环结构
 
 3. **复杂度下界推导**:
 
-    - 做什么：证明 ALEXR 的收敛速率在广泛的随机算法类中是近最优的
+    - 功能：证明 ALEXR 的收敛速率在广泛的随机算法类中是近最优的
     - 核心思路：通过构造 hard instance，建立了 cFCCO 问题的复杂度下界 $\Omega(1/\sqrt{T})$（凸情况）和 $\Omega(1/T)$（强凸情况）
     - 设计动机：仅给出上界不足以说明算法的好坏，下界证明了进一步改进的空间极为有限
 

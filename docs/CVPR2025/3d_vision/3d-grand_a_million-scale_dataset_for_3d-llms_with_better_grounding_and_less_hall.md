@@ -10,7 +10,7 @@ tags:
   - Dense Grounding
   - Hallucination
   - 3D-POPE
-  - Sim-to-Real
+  - sim-to-real
 ---
 
 # 3D-GRAND: A Million-Scale Dataset for 3D-LLMs with Better Grounding and Less Hallucination
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.05132](https://arxiv.org/abs/2406.05132)  
 **代码**: [https://3d-grand.github.io/](https://3d-grand.github.io/)  
 **领域**: 多模态VLM / 3D场景理解 / 数据集  
-**关键词**: 3D-LLM, Dense Grounding, Hallucination, 3D-POPE, Sim-to-Real  
+**关键词**: 3D-LLM, Dense Grounding, Hallucination, 3D-POPE, sim-to-real
 
 ## 一句话总结
 构建了3D-GRAND——首个百万级**密集接地**的3D场景-语言数据集（40K场景、6.2M指令），并提出3D-POPE幻觉评估基准，证明密集接地的指令微调能显著提升3D-LLM的接地能力并减少幻觉，还展示了合成数据到真实场景的迁移效果。

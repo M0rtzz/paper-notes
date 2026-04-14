@@ -9,7 +9,7 @@ tags:
   - CLIP
   - Adapter
   - Reconstruction
-  - Few-shot Learning
+  - few-shot learning
   - 视觉语言
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.06811](https://arxiv.org/abs/2512.06811)  
 **代码**: 未提及  
 **领域**: Vision-Language Model / Parameter-Efficient Fine-Tuning  
-**关键词**: CLIP, Adapter, Reconstruction, Few-shot Learning, Vision-Language Model
+**关键词**: CLIP, Adapter, Reconstruction, few-shot learning, Vision-Language Model
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 预训练 VLM（如 CLIP）在少样本下游适应中面临核心矛盾——**适应-泛化权衡**：
 
 **Prompt Learning 方向**：CoOp → CoCoOp → MaPLe → PromptSRC → CoPrompt 发展迅速，但本质上缺乏显式的知识保持机制，学到的 prompt 对 seen 类高度判别但对 unseen 类偏见严重
+
 **Adapter 方向严重不足**：相比 prompt 方向，adapter 方法探索明显不足。现有 adapter（如 MMA）仅有单一分支关注适应，缺乏结构化设计控制判别力和泛化性的平衡
+
 **关键观察——Adapter 与 AutoEncoder 的结构同构**：adapter 的下投影→上投影与 AE 的 encoder→decoder 结构同构，自然可以增加一个重建分支来约束特征空间不偏离原始分布
 
 ## 方法详解

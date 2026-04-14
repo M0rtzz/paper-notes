@@ -39,15 +39,15 @@ tags:
 论文形式化提出两个关键问题：
 
 1. **Problem 1: 隐式 vs 显式动态图建模**
-   - 隐式(Implicit): 固定邻接矩阵 $\mathbf{A}_{:,:,t} = \hat{\mathbf{A}}, \forall t$，只有节点特征随时间变化
-   - 显式(Explicit): 邻接矩阵随时间变化 $\mathbf{A}_{:,:,t} = f(\mathbf{x}_{:,t})$，节点和边都可演化
-   - 问题：两者在表达力上的关系是什么？
+    - 隐式(Implicit): 固定邻接矩阵 $\mathbf{A}_{:,:,t} = \hat{\mathbf{A}}, \forall t$，只有节点特征随时间变化
+    - 显式(Explicit): 邻接矩阵随时间变化 $\mathbf{A}_{:,:,t} = f(\mathbf{x}_{:,t})$，节点和边都可演化
+    - 问题：两者在表达力上的关系是什么？
 
 2. **Problem 2: 三种动态 GNN 架构的表达力排序**
-   - graph-then-time: 先对每个时间步独立做 GNN，再用 RNN 处理时间序列
-   - time-and-graph: GNN 与 RNN 交替处理，每步同时做图学习和时序建模
-   - time-then-graph: 先用 RNN 分别建模节点/边的时间演化，再对最终图做 GNN
-   - 问题：哪种架构表达力最强？
+    - graph-then-time: 先对每个时间步独立做 GNN，再用 RNN 处理时间序列
+    - time-and-graph: GNN 与 RNN 交替处理，每步同时做图学习和时序建模
+    - time-then-graph: 先用 RNN 分别建模节点/边的时间演化，再对最终图做 GNN
+    - 问题：哪种架构表达力最强？
 
 ## 理论分析
 
@@ -270,10 +270,10 @@ $$\mathbf{x}_i^{\text{node}} = [\mathbf{h}_i^{\text{node}}; \mathbf{p}_i]$$
 5. **可解释性与性能不矛盾**: EvoBrain 的动态图可视化不仅辅助临床理解，图结构本身也是模型设计的核心(而非事后解释)，体现了"内在可解释性"而非"事后可解释性"
 
 6. **潜在扩展方向**:
-   - 将 EvoBrain 的动态图框架应用于 Brain-Computer Interface (BCI) 中的运动想象解码
-   - 结合大规模 EEG 预训练(如 LaBraM 式的预训练策略)进一步提升泛化性
-   - 自适应 pre-ictal 窗口：用变化点检测替代固定 1 分钟窗口
-   - 多模态融合：结合 fMRI 的空间分辨率与 EEG 的时间分辨率
+    - 将 EvoBrain 的动态图框架应用于 Brain-Computer Interface (BCI) 中的运动想象解码
+    - 结合大规模 EEG 预训练(如 LaBraM 式的预训练策略)进一步提升泛化性
+    - 自适应 pre-ictal 窗口：用变化点检测替代固定 1 分钟窗口
+    - 多模态融合：结合 fMRI 的空间分辨率与 EEG 的时间分辨率
 
 ## 评分
 - 新颖性: ⭐⭐⭐⭐ (理论分析+显式动态图+双流Mamba的结合是首创，但time-then-graph架构本身已有先例)

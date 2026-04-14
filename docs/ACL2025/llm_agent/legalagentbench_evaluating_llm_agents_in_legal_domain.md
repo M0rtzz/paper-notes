@@ -7,7 +7,7 @@ tags:
   - ACL2025
   - LLM Agent
   - 法律领域
-  - Benchmark
+  - benchmark
   - 工具调用
   - 多跳推理
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.17259](https://arxiv.org/abs/2412.17259)  
 **代码**: [CSHaitao/LegalAgentBench](https://github.com/CSHaitao/LegalAgentBench)  
 **领域**: llm_agent  
-**关键词**: LLM Agent, 法律领域, Benchmark, 工具调用, 多跳推理
+**关键词**: LLM Agent, 法律领域, benchmark, 工具调用, 多跳推理
 
 ## 一句话总结
 提出 LegalAgentBench，一个面向中国法律领域的 LLM Agent 综合评测基准，包含 17 个真实语料库、37 个工具和 300 个覆盖多跳推理与写作的任务，通过关键词匹配和过程进度率实现细粒度评估。

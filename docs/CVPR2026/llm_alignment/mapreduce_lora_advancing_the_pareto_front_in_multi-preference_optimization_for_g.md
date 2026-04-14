@@ -60,8 +60,8 @@ $$\Delta\theta_k^* = \arg\max_{\Delta\theta_k} \mathbb{E}_{x}[R_k(x, G_{\theta_0
 
 1. 初始化合并模型 $\bar{\theta}^{(0)} = \theta_0 + \frac{1}{K}\sum_{k=1}^K \Delta\theta_k$
 2. 对于每轮迭代 $t = 1, 2, \ldots, T$：
-   - 以当前合并模型 $\bar{\theta}^{(t-1)}$ 为参考点，对每个维度重新微调得到新专家 $\Delta\theta_k^{(t)}$
-   - 重新合并：$\bar{\theta}^{(t)} = \bar{\theta}^{(t-1)} + \frac{\eta}{K}\sum_{k=1}^K \Delta\theta_k^{(t)}$
+    - 以当前合并模型 $\bar{\theta}^{(t-1)}$ 为参考点，对每个维度重新微调得到新专家 $\Delta\theta_k^{(t)}$
+    - 重新合并：$\bar{\theta}^{(t)} = \bar{\theta}^{(t-1)} + \frac{\eta}{K}\sum_{k=1}^K \Delta\theta_k^{(t)}$
 
 这个过程在每轮迭代中将合并点作为新的"锚点"，使各专家从更好的起点出发，从而逐步推进 Pareto 前沿。
 

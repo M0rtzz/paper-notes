@@ -140,9 +140,9 @@ LLaMA 0.25B on OpenWebText, 50K steps：
 2. **Norm 增大 LR 有害**：验证了 Norm 所在的高锐度方向不应被扰动
 3. **Scaling law 有利**：随模型增大，Blockwise LR 的优势在 MiniPile/OpenWebText 上**扩大**，C4 上保持稳定
 4. **跨优化器兼容**：
-   - Adam-mini + Blockwise LR = **2× 加速 + 2× 内存节省**
-   - Lion + Blockwise LR = **2× 加速**
-   - WSD scheduler + Blockwise LR = **2× 加速**
+    - Adam-mini + Blockwise LR = **2× 加速 + 2× 内存节省**
+    - Lion + Blockwise LR = **2× 加速**
+    - WSD scheduler + Blockwise LR = **2× 加速**
 
 ## 亮点与洞察
 

@@ -10,7 +10,7 @@ tags:
   - 多模态大模型
   - 对比学习
   - 视觉匹配
-  - Benchmark
+  - benchmark
 ---
 
 # Are They the Same? Exploring Visual Correspondence Shortcomings of Multimodal LLMs
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2501.04670](https://arxiv.org/abs/2501.04670)  
 **代码**: https://zhouyiks.github.io/projects/CoLVA/  
 **领域**: Multimodal VLM  
-**关键词**: 视觉对应, 多模态大模型, 对比学习, 视觉匹配, Benchmark
+**关键词**: 视觉对应, 多模态大模型, 对比学习, 视觉匹配, benchmark
 
 ## 一句话总结
 

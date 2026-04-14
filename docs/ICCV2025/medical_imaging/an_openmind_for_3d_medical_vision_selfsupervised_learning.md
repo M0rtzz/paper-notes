@@ -10,7 +10,7 @@ tags:
   - 3D医学图像
   - 预训练数据集
   - 脑MRI
-  - 基准测试
+  - benchmark
 ---
 
 # An OpenMind for 3D Medical Vision Self-supervised Learning
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.17041](https://arxiv.org/abs/2412.17041)  
 **代码**: [https://github.com/MIC-DKFZ/nnssl](https://github.com/MIC-DKFZ/nnssl) (有)  
 **领域**: 医学图像  
-**关键词**: 自监督学习, 3D医学图像, 预训练数据集, 脑MRI, 基准测试  
+**关键词**: 自监督学习, 3D医学图像, 预训练数据集, 脑MRI, benchmark
 
 ## 一句话总结
 发布了最大的公开3D医学影像预训练数据集OpenMind（114k脑MRI体积），并在该数据集上系统性benchmark了现有3D SSL方法在最先进CNN（ResEnc-L）和Transformer（Primus-M）架构上的表现，明确了3D医学图像SSL的当前SOTA。

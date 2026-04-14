@@ -10,7 +10,7 @@ tags:
   - 跨模态表征
   - VLM内部机理
   - 跨模态迁移
-  - in-context learning
+  - 上下文学习
 ---
 
 # Vision-Language Models Create Cross-Modal Task Representations
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2410.22330](https://arxiv.org/abs/2410.22330)  
 **代码**: https://github.com/g-luo/vlm_cross_modal_reps  
 **领域**: 多模态VLM  
-**关键词**: 任务向量, 跨模态表征, VLM内部机理, 跨模态迁移, in-context learning
+**关键词**: 任务向量, 跨模态表征, VLM内部机理, 跨模态迁移, 上下文学习
 
 ## 一句话总结
 本文发现自回归视觉语言模型（VLMs）会将概念上等价的输入（不论是文本还是图像示例、指令还是少样本）压缩为共享的"任务向量"，并通过跨模态 patching 实验验证了这种表征对齐的存在和实用性。

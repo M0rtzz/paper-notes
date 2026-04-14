@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.00090](https://arxiv.org/abs/2511.00090)  
 **代码**: [GitHub](https://github.com/UnicomAI/LeMiCa)  
 **领域**: video_understanding  
-**关键词**: diffusion acceleration, video generation, caching, DAG optimization, lexicographic minimax  
+**关键词**: diffusion acceleration, video generation, caching, DAG optimization, lexicographic minimax
 
 ## 一句话总结
 

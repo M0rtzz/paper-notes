@@ -6,8 +6,8 @@ description: >-
 tags:
   - AAAI2026
   - 语音
-  - Spoken Question Answering
   - 对比学习
+  - Spoken Question Answering
   - Retrieval-Augmented Generation
   - Speech-Text Alignment
   - CIF
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.09282](https://arxiv.org/abs/2511.09282)  
 **代码**: [193746/CLSR](https://github.com/193746/CLSR)  
 **领域**: audio_speech  
-**关键词**: Spoken Question Answering, Contrastive Learning, Retrieval-Augmented Generation, Speech-Text Alignment, CIF  
+**关键词**: Spoken Question Answering, Contrastive Learning, Retrieval-Augmented Generation, Speech-Text Alignment, CIF
 
 ## 一句话总结
 提出 CLSR，一种端到端对比式语言-语音检索器，通过将声学表示先转换为 text-like representation 再与文本对齐，高效地从长音频中提取与问题相关的片段，为下游 LALM 的长语音问答提供 RAG 支持。

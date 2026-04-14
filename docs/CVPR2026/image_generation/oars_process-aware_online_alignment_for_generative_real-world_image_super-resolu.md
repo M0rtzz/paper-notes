@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 超分辨率
   - RLHF
-  - Reward Model
+  - reward model
   - Online RL
   - Flow Matching
   - MLLM
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2603.12811](https://arxiv.org/abs/2603.12811)  
 **代码**: 无  
 **领域**: Image Generation / Image Super-Resolution  
-**关键词**: Real-World Super-Resolution, RLHF, Reward Model, Online RL, Flow Matching, MLLM, Image Quality Assessment  
+**关键词**: Real-World Super-Resolution, RLHF, reward model, Online RL, Flow Matching, MLLM, Image Quality Assessment
 
 ## 一句话总结
 

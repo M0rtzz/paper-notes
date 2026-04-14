@@ -122,8 +122,8 @@ GPT-2 基线模型不同配置的困惑度：
 
 1. **方差重注入是 FFN 非线性的核心功能**：Post-activation 一致性地展现更高的 SE 和 PR，更低的 EEE——非线性将方差重新注入到未充分利用的方向，"唤醒"潜在空间中的死角
 2. **优化器决定 FFN 非线性的角色——修复 vs 精炼**：
-   - **AdamW**：导致 pre-activation 频谱坍塌 → FFN 非线性被迫进入"修复模式"（大 PR 增益但低最终 PR_post）
-   - **Muon**：维持良好的 pre-activation 频谱 → FFN 非线性仅需"微调"（小 PR 增益但高 PR_post）→ 更低困惑度
+    - **AdamW**：导致 pre-activation 频谱坍塌 → FFN 非线性被迫进入"修复模式"（大 PR 增益但低最终 PR_post）
+    - **Muon**：维持良好的 pre-activation 频谱 → FFN 非线性仅需"微调"（小 PR 增益但高 PR_post）→ 更低困惑度
 3. **频谱签名预测泛化**：NerVE 指标与验证损失的 Pearson 相关系数 |r| ≥ 0.97（pre-activation），可作为前向传播的在线诊断工具
 4. **ReLU 在 NormFree 模型中可部分替代 LayerNorm**：通过激进的方差重注入（PR 增益 20×-300×），ReLU 弥补了 ~50% 的困惑度差距
 5. **Muon 将表征容量集中在中间 FFN 层**：最高的 PR_post 出现在中间层——困惑度排序追随中间层的 PR_post 趋势

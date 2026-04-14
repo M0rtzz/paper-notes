@@ -50,7 +50,7 @@ FlowDPS 在 Flow 模型的反向采样过程中：
 
 1. **Flow 版 Tweedie 公式**:
 
-    - 做什么：从训练好的速度场 $v_t(\mathbf{x}_t)$ 推导干净图像和噪声的条件期望估计
+    - 功能：从训练好的速度场 $v_t(\mathbf{x}_t)$ 推导干净图像和噪声的条件期望估计
     - 核心思路：对仿射条件流 $\mathbf{x}_t = a_t \mathbf{x}_0 + b_t \mathbf{x}_1$，速度场的边际形式为：
     $v_t(\mathbf{x}) = \dot{a}_t \mathbb{E}[\mathbf{x}_0|\mathbf{x}_t] + \dot{b}_t \mathbb{E}[\mathbf{x}_1|\mathbf{x}_t]$
       由此得到 Tweedie 公式：
@@ -59,7 +59,7 @@ FlowDPS 在 Flow 模型的反向采样过程中：
 
 2. **后验速度场推导**:
 
-    - 做什么：将观测约束融入 Flow ODE 的采样过程
+    - 功能：将观测约束融入 Flow ODE 的采样过程
     - 核心思路：利用 Bayes 规则，后验速度场为：
     $v_t(\mathbf{x}_t|\mathbf{y}) = v_t(\mathbf{x}_t) - \zeta_t \nabla_{\mathbf{x}_t} \log p_t(\mathbf{y}|\mathbf{x}_t)$
       结合流形投影假设简化 Jacobian 计算，最终采样公式为：
@@ -69,7 +69,7 @@ FlowDPS 在 Flow 模型的反向采样过程中：
 
 3. **随机噪声注入与 Latent FlowDPS**:
 
-    - 做什么：在噪声分量中混合确定性估计和随机噪声，并扩展到隐空间 Flow 模型
+    - 功能：在噪声分量中混合确定性估计和随机噪声，并扩展到隐空间 Flow 模型
     - 核心思路：
     $\tilde{\mathbf{x}}_{1|t} = \sqrt{1-\eta_t}\hat{\mathbf{x}}_{1|t} + \sqrt{\eta_t}\epsilon, \quad \epsilon \sim \mathcal{N}(0, \mathbf{I})$
       隐空间中用多步共轭梯度优化 $\hat{\mathbf{z}}_{0|t}(\mathbf{y})$ 并通过插值保持轨迹稳定性

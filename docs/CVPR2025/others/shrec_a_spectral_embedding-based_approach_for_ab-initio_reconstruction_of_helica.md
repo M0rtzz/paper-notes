@@ -1,12 +1,17 @@
 ---
+title: >-
+  [论文解读] SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules
 description: >-
-  [CVPR2025][冷冻电镜] 提出SHREC算法，利用谱嵌入技术从冷冻电镜二维投影图像中直接恢复螺旋分子的投影角度，无需预知螺旋对称参数（rise/twist），仅需已知轴对称群Cn，实现从头(ab-initio)螺旋结构重建。
+  [CVPR2025][cryo-EM] 提出 SHREC 算法，利用图拉普拉斯算子的谱嵌入技术，从冷冻电镜二维投影图像中直接恢复螺旋分子的投影角度，无需预知螺旋对称参数（rise/twist），仅需已知轴对称群 $C_n$，在多个公开数据集上实现了接近原子分辨率的从头螺旋结构重建。
 tags:
   - CVPR2025
-  - 冷冻电镜
-  - 螺旋结构重建
-  - 谱嵌入
+  - cryo-EM
+  - helical reconstruction
+  - spectral embedding
+  - graph Laplacian
+  - ab-initio
 ---
+
 # SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules
 
 **会议**: CVPR2025  
@@ -43,19 +48,19 @@ SHREC 管线包含四个阶段：(1) 数据预处理（运动校正、CTF 估计
 
 1. **螺旋投影的一维流形理论**:
 
-    - 做什么：证明螺旋片段的二维投影集合构成 $L^2$ 空间中的一维闭合子流形，微分同胚于圆 $S^1$
+    - 功能：证明螺旋片段的二维投影集合构成 $L^2$ 空间中的一维闭合子流形，微分同胚于圆 $S^1$
     - 核心思路：由 Lemma 1.4 的平移-旋转对应关系，沿螺旋轴平移 $t$ 等价于绕轴旋转 $\theta = 2\pi t / P$。因此不同位置的螺旋片段投影 $\Pi_B(t, \psi)$ 等价于固定参考片段从不同角度 $R_x(\theta)$ 的投影。Theorem 4.3 严格证明了在 $C_n$ 对称下，这些投影构成微分同胚于 $S^1$ 的一维流形
     - 设计动机：这一数学性质将三维螺旋重建问题简化为从高维数据中恢复一维圆形流形的问题，为谱方法的应用奠定理论基础
 
 2. **密度不变图拉普拉斯谱嵌入**:
 
-    - 做什么：构建投影图像间的相似性图，利用图拉普拉斯算子的特征向量将投影嵌入到二维平面上的圆
+    - 功能：构建投影图像间的相似性图，利用图拉普拉斯算子的特征向量将投影嵌入到二维平面上的圆
     - 核心思路：计算投影间的 $L^2$ 距离，构建高斯核矩阵 $W_{ij} = \exp(-d_{ij}^2 / 2\varepsilon)$，用密度不变的图拉普拉斯 $\tilde{L} = I - \tilde{D}^{-1}\tilde{W}$（其中 $\tilde{W} = D^{-1}WD^{-1}$）消除采样不均匀的影响。取第二、三特征向量作为嵌入坐标 $(v_1(i), v_2(i)) \approx (\cos(2\pi s_i/l), \sin(2\pi s_i/l))$，从嵌入角度 $\varphi_i = \text{atan2}(v_2(i), v_1(i))$ 恢复投影角度 $\theta_i = \varphi_i / n$
     - 设计动机：图拉普拉斯在 $N \to \infty$ 时收敛到流形上的 Laplace-Beltrami 算子，其特征函数恰好是三角函数，因此一维闭合流形的谱嵌入自然产生圆形结构
 
 3. **离散螺旋的近似理论 (Theorem 4.5)**:
 
-    - 做什么：将理论从理想连续螺旋扩展到实际的离散螺旋结构
+    - 功能：将理论从理想连续螺旋扩展到实际的离散螺旋结构
     - 核心思路：证明离散螺旋投影到理想流形的 $L^2$ 距离有界：$d(\Pi(t), \mathcal{M}_{\text{ideal}}) \leq \frac{1}{2} \Delta x \cdot M_x(\psi) \cdot B^{3/2}$，偏差与 rise $\Delta x$ 和结构沿轴方向的光滑度成正比
     - 设计动机：真实生物分子是离散亚基组成的离散螺旋，需要理论保证谱方法在此情况下的适用性
 

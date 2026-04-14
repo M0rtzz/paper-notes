@@ -1,14 +1,16 @@
 ---
-title: "Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?"
+title: >-
+  [论文解读] Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study
 description: >-
-  [CVPR 2026][医学图像][实证研究] 在3个异构医学分割数据集上统一评估11个模型，发现通用视觉模型(GP-VMs)系统性优于专用医学分割架构(SMAs)，平均mDSC 91.0% vs 90.5%，在多类息肉分割上优势最大(89.7% vs 88.9%)。
+  [CVPR 2026][医学图像][医学图像分割] 在统一训练评估协议下对比11个模型（5个专用医学分割架构SMA + 6个通用视觉模型GP-VM）在3个异构医学数据集上的表现，发现GP-VMs在所有数据集上系统性优于大多数SMAs（平均mDSC: VW-MiT 91.0% vs 最佳SMA SU-Mamba 90.5%），且Grad-CAM分析表明GP-VMs能捕获临床相关结构。
 tags:
   - CVPR 2026
+  - 医学图像
   - 医学图像分割
   - 通用视觉模型
-  - 对比研究
+  - 实证对比
+  - 可解释性
   - Grad-CAM
-  - 模型选择
 ---
 
 # Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study
@@ -47,13 +49,13 @@ tags:
 
 1. **统一Benchmarking协议（消除混淆因素）**:
 
-    - 做什么：确保不同架构之间的对比公平、可信
+    - 功能：确保不同架构之间的对比公平、可信
     - 核心思路：所有模型统一使用ImageNet预训练编码器、512×512输入分辨率、AdamW优化器+REX学习率调度器、batch size 8。对每个模型-数据集对，在 $\{10^{-4}, 5\times10^{-5}, 10^{-5}\}$ 中搜索最优学习率，训练100 epoch后选最优，再用150 epoch的5折交叉验证评估。数据集特定的损失函数（ISIC'18用BCE，多分类用CE）和数据增强在同一数据集所有模型间完全一致
     - 设计动机：文献中大量对比因训练设置不统一而不可信——augmentation策略、学习率、epoch数等差异可能导致2-5%的性能波动，数量级与架构差异相当
 
 2. **异构数据集覆盖（验证结论普遍性）**:
 
-    - 做什么：选择3个在模态、类别结构和数据特性上高度异构的数据集
+    - 功能：选择3个在模态、类别结构和数据特性上高度异构的数据集
     - ISIC'18：皮肤镜RGB图像，3565张，二分类（病变/背景），特点是边界不规则
     - NeoPolyp (BKAI-IGH)：内窥镜RGB图像，945张，3类（非肿瘤性/肿瘤性息肉+背景），特点是亚型间变异大
     - CAMUS：心脏超声灰度图像，1996张，4类（左心室/左室壁/左心房+背景），特点是超声噪声大
@@ -61,7 +63,7 @@ tags:
 
 3. **Grad-CAM可解释性分析（超越精度的评估）**:
 
-    - 做什么：分析模型注意力区域是否与临床相关结构对应
+    - 功能：分析模型注意力区域是否与临床相关结构对应
     - 核心思路：使用M3d-CAM实现的Grad-CAM，自动选择最后一层合适的层生成注意力热图。在每折50个最差样本中可视化各模型的注意力分布，评判模型是否"看到了正确的东西"
     - 设计动机：在安全关键的医学应用中，高精度但关注错误区域的模型是危险的。XAI分析为GP-VM的可靠性提供了额外证据
 

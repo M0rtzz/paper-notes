@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - LLM-as-Judge
   - System Ranking
-  - Benchmark
+  - benchmark
   - Bias Analysis
   - Decisiveness
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.09569](https://arxiv.org/abs/2412.09569)  
 **代码**: [JuStRank Data](https://github.com/IBM/JuStRank)  
 **领域**: NLP理解  
-**关键词**: LLM-as-Judge, System Ranking, Benchmark, Bias Analysis, Decisiveness
+**关键词**: LLM-as-Judge, System Ranking, benchmark, Bias Analysis, Decisiveness
 
 ## 一句话总结
 
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: LLM-as-a-judge范式被广泛用于评估LLM系统，包括模型选择和配置比较。现有判官基准（如RewardBench）仅评估实例级能力。
+
 **现有痛点**: 实例级表现好的判官不一定擅长系统排名；判官的错误分布可能在不同系统间不均匀，导致排名失真。
+
 **核心矛盾**: 实例级评估忽略了系统级排名中的关键因素，如判官对特定系统的正/负偏见，以及错误分布的非均匀性。
+
 **本文要解决什么**: 系统性评估LLM判官在系统排名任务中的表现，提供多维度的判官行为分析。
+
 **切入角度**: 利用Arena Hard数据集的63个系统响应，结合Chatbot Arena人类排名作为ground truth，构建系统级评估框架。
+
 **核心idea一句话**: 基于系统排名的判官基准比实例级基准更能反映判官在实际模型选择中的性能。
 
 ## 方法详解

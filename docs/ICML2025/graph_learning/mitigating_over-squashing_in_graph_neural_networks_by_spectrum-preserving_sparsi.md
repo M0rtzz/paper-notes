@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Mitigating Over-Squashing in Graph Neural Networks by Spectrum-Preserving Sparsification
 description: >-
-  [ICML2025][图学习][over-squashing] 提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。
+  [ICML2025][图学习][过挤压] 提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。
 tags:
   - ICML2025
   - 图学习
-  - over-squashing
+  - 过挤压
   - 图重连
   - 谱稀疏化
   - 有效电阻
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.16110](https://arxiv.org/abs/2506.16110)  
 **代码**: [GitHub](https://github.com/Jinx-byebye/GOKU)  
 **领域**: 图学习 / 图神经网络  
-**关键词**: over-squashing, 图重连, 谱稀疏化, 有效电阻, 图分类, 节点分类
+**关键词**: 过挤压, 图重连, 谱稀疏化, 有效电阻, 图分类, 节点分类
 
 ## 一句话总结
 提出 GOKU（稠密化-稀疏化重连范式），通过将输入图视为未知稠密潜在图的谱稀疏器并求解逆稀疏化问题，在增强图连通性的同时显式保留拉普拉斯谱，有效缓解 GNN 的 over-squashing 问题。
@@ -32,6 +32,7 @@ tags:
 **现有图重连方法的两大局限**：
 
 **不保留图谱性质**：Delaunay 重连仅依据节点特征构造图、完全忽略原始拓扑；Graph Transformer 依赖全连接图；Expander 重连甚至引入全新节点集。图谱（拉普拉斯特征值集合）编码了社区结构、节点中心度等关键拓扑信息，对聚类和半监督学习至关重要。
+
 **增加边数带来计算开销和 over-smoothing 风险**：更稠密的输出图使得邻居信息过度混合，节点特征趋于一致。
 
 **核心动机**：能否在增强连通性的同时保持稀疏性并显式保留原始图谱？作者通过实验验证了谱性质与分类任务的关联——同类图/节点的谱相似度显著高于异类（Table 1），证明保留图谱的必要性。

@@ -26,9 +26,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：跨模态共享表示学习是多模态学习的核心任务。当前 SOTA（如 CLIP）依赖海量配对数据（4 亿对图文）进行对比学习。
+
 **现有痛点**：配对数据获取成本高昂——在医学、遥感、语音等领域，配对标注需专家参与或特殊测试，大规模配对数据几乎不可能获得。而非配对数据（各模态独立的数据）则相对容易大量获取。
+
 **核心矛盾**：对比学习的核心监督信号来自配对关系，没有配对就无法训练。直觉上，没有配对信息的情况下无法建立跨模态联系。
+
 **切入角度**：作者提出"通用嵌入（universal embedding）"概念——如果各模态的预训练表示都能很好地捕捉语义相似性，那么**基于各模态表示独立构建的随机游走过程应该高度相似**。这种相似性可以通过频谱嵌入来捕获，且不需要配对数据。
+
 **核心 idea**：独立模态的扩散算子（diffusion operator）具有相似的特征函数（模态不变性），频谱嵌入可以从非配对数据中提取这种通用结构。
 
 ## 方法详解
@@ -45,25 +49,25 @@ SUE 分三步流水线：
 
 1. **频谱嵌入（SE）的通用性论证**：
 
-    - 做什么：证明从不同模态独立计算的 SE 可以捕获相同的语义结构
+    - 功能：证明从不同模态独立计算的 SE 可以捕获相同的语义结构
     - 核心思路：设潜在语义流形为 $\mathcal{M}$，$f, g$ 是将 $\mathcal{M}$ 变换为两个模态的映射。如果 $f, g$ 有有界畸变和有界 Ricci 曲率，则 $f(\mathcal{M})$ 和 $g(\mathcal{M})$ 上的 Laplace-Beltrami 算子有在 $L_\infty$ 意义下相似的特征函数。实践中，随机游走矩阵 $P = D^{-1}W$ 收敛于扩散算子，SE 的前 $k$ 个非平凡特征向量提供了扩散算子特征函数的离散近似
     - 设计动机：现代预训练单模态模型（如 CLIP 视觉编码器、BERT 文本编码器）已经很好地编码了语义相似性，基于它们的随机游走确实高度相似（实验验证）
 
 2. **参数化频谱嵌入 (SpectralNet)**：
 
-    - 做什么：用深度学习方法可泛化地计算 SE，克服传统 SE 的可扩展性和泛化性不足
+    - 功能：用深度学习方法可泛化地计算 SE，克服传统 SE 的可扩展性和泛化性不足
     - 核心思路：学习参数化映射 $f: \mathbb{R}^d \to \mathbb{R}^k$，最小化 Rayleigh 商 $\mathcal{L}_{\text{spectralnet}}(f) = \frac{1}{n^2}\text{Trace}(f(X)^T L f(X))$，同时约束正交性 $f(X)^T f(X) = I_k$，其中 $L=I-P$ 是随机游走图 Laplacian。两个模态的 $S_\mathcal{X}, S_\mathcal{Y}$ 完全独立训练
     - 设计动机：传统 SE 不可泛化到新样本，SpectralNet 学到的参数化映射可以直接应用于测试数据
 
 3. **CCA 线性对齐**：
 
-    - 做什么：消除 SE 的非唯一性（符号、基底旋转）
+    - 功能：消除 SE 的非唯一性（符号、基底旋转）
     - 核心思路：在极少量配对样本 $(S_\mathcal{X}(\mathcal{X}_p), S_\mathcal{Y}(\mathcal{Y}_p))$ 上执行 CCA，得到投影矩阵 $Q_\mathcal{X}, Q_\mathcal{Y} \in \mathbb{R}^{k \times r}$。对齐后 $\tilde{S}_\mathcal{X} = Q_\mathcal{X} \circ S_\mathcal{X}$, $\tilde{S}_\mathcal{Y} = Q_\mathcal{Y} \circ S_\mathcal{Y}$
     - 设计动机：SE 的特征向量方向和基底不唯一，CCA 用最少的配对样本解决这个歧义
 
 4. **MMD-net 非线性对齐**：
 
-    - 做什么：精调两模态分布的对齐精度
+    - 功能：精调两模态分布的对齐精度
     - 核心思路：训练残差网络 $F_\theta: \mathbb{R}^r \to \mathbb{R}^r$ 最小化经验 MMD：$\mathcal{L}_{\text{MMD}} = \frac{1}{m_1^2}\sum_{x_i,x_j}\kappa(\tilde{x_i},\tilde{x_j}) - \frac{2}{m_1 m_2}\sum_{x_i,y_j}\kappa(\tilde{x_i},\tilde{y_j}) + \frac{1}{m_2^2}\sum_{y_i,y_j}\kappa(\tilde{y_i},\tilde{y_j})$，其中 $\kappa$ 为 RBF 核
     - 设计动机：CCA 只做线性对齐不够精确，MMD loss **不需要配对数据**，可以利用全部非配对数据集
 

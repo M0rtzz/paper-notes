@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Representation Shattering in Transformers: A Synthetic Study with Knowledge Editing
 description: >-
-  [ICML 2025][Knowledge Editing] 通过在环形结构知识图谱上训练Transformer的合成实验，发现知识编辑（KE）会"粉碎"模型内部学到的几何表示流形，且粉碎程度与编辑距离正相关（$r^2=0.905$），从而提出"表示粉碎"（representation shattering）作为KE损害模型能力的机制性假说，并在Llama 3和Mamba上验证了该现象的普遍性。
+  [ICML 2025][knowledge editing] 通过在环形结构知识图谱上训练Transformer的合成实验，发现知识编辑（KE）会"粉碎"模型内部学到的几何表示流形，且粉碎程度与编辑距离正相关（$r^2=0.905$），从而提出"表示粉碎"（representation shattering）作为KE损害模型能力的机制性假说，并在Llama 3和Mamba上验证了该现象的普遍性。
 tags:
   - ICML 2025
-  - Knowledge Editing
+  - knowledge editing
   - Representation Shattering
   - Transformer
   - Knowledge Graphs
-  - Mechanistic Interpretability
+  - mechanistic interpretability
 ---
 
 # Representation Shattering in Transformers: A Synthetic Study with Knowledge Editing
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2410.17194](https://arxiv.org/abs/2410.17194)  
 **代码**: 无  
 **领域**: graph_learning  
-**关键词**: Knowledge Editing, Representation Shattering, Transformers, Knowledge Graphs, Mechanistic Interpretability
+**关键词**: knowledge editing, Representation Shattering, Transformers, Knowledge Graphs, mechanistic interpretability
 
 ## 一句话总结
 

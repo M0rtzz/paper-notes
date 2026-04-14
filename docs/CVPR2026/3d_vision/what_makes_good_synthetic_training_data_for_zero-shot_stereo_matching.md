@@ -2,14 +2,14 @@
 title: >-
   [论文解读] What Makes Good Synthetic Training Data for Zero-Shot Stereo Matching?
 description: >-
-  [CVPR2026][3D视觉][stereo matching] 系统消融合成立体匹配训练数据的设计空间（浮动物体、背景、材质、基线等），发现"真实室内场景 + 密集浮动物体 + 宽基线"是最优组合，据此构建的 WMGStereo-150k 仅用单一数据集即超越四大经典数据集的混合训练。
+  [CVPR2026][3D视觉][立体匹配] 系统消融合成立体匹配训练数据的设计空间（浮动物体、背景、材质、基线等），发现"真实室内场景 + 密集浮动物体 + 宽基线"是最优组合，据此构建的 WMGStereo-150k 仅用单一数据集即超越四大经典数据集的混合训练。
 tags:
   - CVPR2026
   - 3D视觉
-  - stereo matching
-  - synthetic data
+  - 立体匹配
+  - 合成数据
   - procedural generation
-  - zero-shot generalization
+  - 零样本泛化
   - dataset design
   - Infinigen
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2504.16930](https://arxiv.org/abs/2504.16930)  
 **代码**: 无（论文提到将开源程序化生成代码，但缓存中未包含具体链接）  
 **领域**: 3d_vision  
-**关键词**: stereo matching, synthetic data, procedural generation, zero-shot generalization, dataset design, Infinigen
+**关键词**: 立体匹配, 合成数据, procedural generation, 零样本泛化, dataset design, Infinigen
 
 ## 一句话总结
 
@@ -33,7 +33,9 @@ tags:
 **现有痛点**：
 
 **设计变量纠缠不清**：现有合成数据集从 FlyingThings3D 式的随机飞行物体到 TartanAir 式的逼真场景模拟器差异巨大，每个新数据集同时改变了多个因素（物体类型、材质、场景布局、相机参数等），无法归因单一设计选择的贡献。例如 FoundationStereo 同时引入新架构与新数据，其数据本身各因素（浮动物体、随机光照、物理模拟等）的相对重要性无法分离。
+
 **不可重现的生成流程**：TartanAir、IRS 等经典数据集不开源生成代码和资产，给"如仅改变材质会怎样"这类消融实验设置了硬障碍。
+
 **已有分析的局限**：Mayer et al. 关于合成数据的经典研究得出"realism is overrated"的结论，但其实验仅基于 2D warp 的 FlyingChairs 风格数据集，未涉及现代 3D 渲染数据集，结论的适用性存疑。
 
 **核心动机**：利用开源程序化生成平台 Infinigen 的可控性，逐一隔离并消融合成立体数据的每个设计维度，找出真正影响零样本泛化性能的关键因素，并据此构建更优数据集。

@@ -44,19 +44,19 @@ LLM生成评判时，在score token位置提取所有L+1层（embedding层到最
 
 1. **跨层Logits聚合**：
 
-    - 做什么：$\hat{\mathbf{z}} = \sum_{i=0}^{L} w_i [\mathbf{h}_n^{(i)} \mathbf{W}_{\text{unembd}}]_{\mathcal{M}}$，其中 $\mathcal{M}$ 是candidate score tokens的集合
+    - 功能：$\hat{\mathbf{z}} = \sum_{i=0}^{L} w_i [\mathbf{h}_n^{(i)} \mathbf{W}_{\text{unembd}}]_{\mathcal{M}}$，其中 $\mathcal{M}$ 是candidate score tokens的集合
     - 设计动机：不同层编码不同粒度的信息。底层偏词汇局部信息，中层偏语义，高层偏任务推理。聚合后得到的分数综合了各层视角
     - 关键细节：在聚合**之前**不做softmax归一化（消融证明先归一化会丢失logits的相对尺度信息，性能更差）
 
 2. **期望分数（Expected Score）**：
 
-    - 做什么：$s^* = \sum_{s \in \mathbb{S}} s \times P(s)$，其中 $P(s) = \text{softmax}(\hat{\mathbf{z}})[s]$
+    - 功能：$s^* = \sum_{s \in \mathbb{S}} s \times P(s)$，其中 $P(s) = \text{softmax}(\hat{\mathbf{z}})[s]$
     - 设计动机：比argmax更细粒度——如果P(4)=0.45, P(5)=0.55，argmax给5分，期望给4.55分，后者更能区分回复质量
     - 这个简单改动本身就带来显著提升（E-Score基线）
 
 3. **轻量权重训练**：
 
-    - 做什么：在小规模验证集上用CE+MAE联合损失训练L+1个层权重参数（如LLaMA-3.1-8B仅33个参数）
+    - 功能：在小规模验证集上用CE+MAE联合损失训练L+1个层权重参数（如LLaMA-3.1-8B仅33个参数）
     - 模型backbone完全冻结，不改变next-token prediction
     - 训练一次，跨所有benchmark和下游任务复用
     - 不调权重的均匀聚合版本（LAGER w.o. tuning）也有显著提升

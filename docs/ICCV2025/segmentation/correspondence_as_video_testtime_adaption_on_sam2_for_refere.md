@@ -9,7 +9,7 @@ tags:
   - SAM2
   - 伪视频
   - 扩散模型过渡
-  - test-time adaptation
+  - 测试时自适应
 ---
 
 # Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2508.07759](https://arxiv.org/abs/2508.07759)  
 **代码**: [https://github.com/wanghr64/cav-sam](https://github.com/wanghr64/cav-sam)  
 **领域**: 分割 / 少样本分割 / 跨域分割  
-**关键词**: SAM2, reference segmentation, 伪视频, 扩散模型过渡, test-time adaptation, few-shot segmentation  
+**关键词**: SAM2, reference segmentation, 伪视频, 扩散模型过渡, 测试时自适应, few-shot segmentation
 
 ## 一句话总结
 将reference-target图像对之间的对应关系表示为用扩散模型生成的伪视频序列，利用SAM2的iVOS能力进行分割，结合test-time轻量微调对齐几何变化，在跨域few-shot分割上比SOTA方法提升约5% mIoU，且无需meta-training。

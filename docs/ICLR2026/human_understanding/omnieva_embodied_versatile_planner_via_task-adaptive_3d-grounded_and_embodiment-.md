@@ -41,27 +41,27 @@ tags:
 1. **3D位置编码**：深度图→世界坐标→patch级平均→正弦编码→$V^p \in \mathbb{R}^{N \times H_p \times W_p \times d_v}$
 
 2. **门控决策**：
-   - 任务条件：句子Transformer编码指令→$V^T$
-   - 场景条件：视觉编码器输出均值池化→$V_{avg}^I$
-   - 拼接→MLP→2维gate logits→Gumbel-Softmax→二值决策
+    - 任务条件：句子Transformer编码指令→$V^T$
+    - 场景条件：视觉编码器输出均值池化→$V_{avg}^I$
+    - 拼接→MLP→2维gate logits→Gumbel-Softmax→二值决策
 
 3. **动态注入**：
-   - Gate=1: $V^{final} = V^I + V^p$ (加3D位置编码)
-   - Gate=0: $V^{final} = V^I$ (纯2D)
-   - 不同任务/场景自动选择→避免无用3D的噪声
+    - Gate=1: $V^{final} = V^I + V^p$ (加3D位置编码)
+    - Gate=0: $V^{final} = V^I$ (纯2D)
+    - 不同任务/场景自动选择→避免无用3D的噪声
 
 ### 具身感知推理
 
 1. **原始技能分解**：
-   - Where2Go: 导航目标选择
-   - Where2Grasp: 抓取位估计
-   - Where2Approach: 接近位姿
-   - Where2Fit: 放置适配性
+    - Where2Go: 导航目标选择
+    - Where2Grasp: 抓取位估计
+    - Where2Approach: 接近位姿
+    - Where2Fit: 放置适配性
 
 2. **TE-GRPO (Task- and Embodiment-aware GRPO)**：
-   - 后训练阶段用GRPO(Group Relative Policy Optimization)
-   - 奖励考虑：任务目标 + 物体可供性 + 工作空间边界 + 运动学可行性
-   - 确保生成的计划可执行
+    - 后训练阶段用GRPO(Group Relative Policy Optimization)
+    - 奖励考虑：任务目标 + 物体可供性 + 工作空间边界 + 运动学可行性
+    - 确保生成的计划可执行
 
 ### 两阶段训练
 - Stage 1: 监督微调(SFT)→2D+3D VQA+具身推理数据

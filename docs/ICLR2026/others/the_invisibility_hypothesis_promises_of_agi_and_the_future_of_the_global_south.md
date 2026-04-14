@@ -2,14 +2,15 @@
 title: >-
   [论文解读] The Invisibility Hypothesis: Promises of AGI and the Future of the Global South
 description: >-
-  [ICLR2026][AI社会] 提出不可见性假说——随着AI成为经济政治分配的协调层，全球南方的非正式工人和小规模生产者将因缺乏数字可验证性而被系统性排斥，从被剥削转为被忽略，核心风险不是失业而是整体相关性的丧失
+  [ICLR 2026][AGI] 提出"不可见性假说"（Invisibility Hypothesis），论证AI系统日益成为经济和政治分配的协调层时将系统性偏向"机器可读"个体，全球南方的非正式工人因缺乏数字可验证性而被管理性排斥（managed exclusion），核心风险从job displacement转向relevance loss，且排斥具有自我强化特性。
 tags:
-  - ICLR2026
+  - ICLR 2026
   - AGI
-  - 全球南方
-  - AI伦理
-  - 经济不平等
-  - 不可见性假说
+  - Global South
+  - Invisibility Hypothesis
+  - economic inequality
+  - informal economy
+  - AI governance
 ---
 
 # The Invisibility Hypothesis: Promises of AGI and the Future of the Global South
@@ -50,17 +51,17 @@ tags:
 ### 关键设计
 
 1. **不可见性假说的形式化定义**:
-    - 做什么：操作性地定义AI系统下的"经济不可见"概念
+    - 功能：操作性地定义AI系统下的"经济不可见"概念
     - 核心思路：随着AI系统成为经济和政治分配的协调层，AI-mediated allocation优化可度量可验证的对象—— $\text{Visibility} \propto f(\text{digital identity}, \text{standardized transactions}, \text{auditable outputs})$——缺乏这些属性的个体被管理性排斥（managed exclusion）
     - 设计动机：区别于传统的"数字鸿沟"（关注access），不可见性假说关注的是AI时代的relevance和participation
 
 2. **自我强化排斥循环**:
-    - 做什么：揭示排斥的正反馈机制——为什么不可见性一旦开始就难以逆转
+    - 功能：揭示排斥的正反馈机制——为什么不可见性一旦开始就难以逆转
     - 核心思路：被拒绝信贷/合同/保险 → 减少可验证记录和标准化信号的产生 → 进一步降低AI系统中的可见性 → 更难重新进入 → $\text{Exclusion}_t \to \text{Less Data}_{t+1} \to \text{Lower Visibility}_{t+2} \to \text{More Exclusion}_{t+3}$
     - 设计动机：这个循环解释了为什么"被忽略"比"被压迫"更难逆转——压迫仍然意味着系统依赖你，忽略意味着系统已经绕过你
 
 3. **三种未来路径分析框架**:
-    - 做什么：系统推演AGI对全球南方可能产生的三种差异化影响
+    - 功能：系统推演AGI对全球南方可能产生的三种差异化影响
     - 核心思路：用结构性因素（算力、基础设施、制度、地缘政治）作为分叉变量，推导乌托邦（地理位置不再重要）、崩溃（从剥削到无关）、中间地带（放大现有不平等）三个轨迹
     - 设计动机：避免技术决定论的单一叙事，承认不确定性并提供风险分析的多路径框架
 

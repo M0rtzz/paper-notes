@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.20767](https://arxiv.org/abs/2505.20767)  
 **代码**: [GitHub](https://github.com/FUTUREEEEEE/CogniBench)  
 **领域**: LLM/NLP  
-**关键词**: cognitive faithfulness, hallucination detection, legal-inspired framework, benchmark, knowledge-grounded dialogue  
+**关键词**: cognitive faithfulness, hallucination detection, legal-inspired framework, benchmark, knowledge-grounded dialogue
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **现有幻觉评估聚焦事实性陈述**：已有基准（RAGTruth、FAVA 等）主要关注模型是否正确复述上下文中的事实，忽略了 LLM 日益增多的"认知性陈述"——即推理、评价、解释等超越原文的输出。
+
 **认知性陈述缺乏评估标准**：认知性陈述的评判天然具有主观性和上下文依赖性，现有标签如"baseless"或"subjective"过于模糊，无法精确捕捉不同层次的忠实度需求。
+
 **LLM 认知幻觉率远高于事实幻觉**：初步分析表明，LLM 在生成认知性陈述时的幻觉率（64.8%）是事实性陈述（13.9%）的约 4.6 倍，问题亟待系统化研究。
+
 **不同应用对忠实度需求不同**：虚拟角色（如创意写作）可容忍一定推测，但医疗诊断、法律判断等高风险场景要求结论必须不可辩驳，需要分级标准。
+
 **人工标注无法跟上 LLM 迭代速度**：新模型不断涌现，手动逐句标注成本过高，需要低资源、可自动化的评测方法。
+
 **多轮对话中认知陈述比例递增**：随对话轮次增加，认知性陈述从首轮 15% 增长至末轮 50%，但现有数据集多为单轮或短对话，无法覆盖此特性。
 
 ## 方法详解

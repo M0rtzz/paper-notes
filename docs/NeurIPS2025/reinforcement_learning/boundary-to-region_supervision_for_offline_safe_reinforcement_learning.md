@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Bootstrap Off-policy with World Model
 description: >-
-  [NeurIPS 2025][model-based RL] 提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。
+  [NeurIPS 2025][基于模型的强化学习] 提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。
 tags:
   - NeurIPS 2025
-  - model-based RL
+  - 基于模型的强化学习
   - online planning
-  - off-policy learning
+  - 离策略学习
   - actor divergence
-  - world model
+  - 世界模型
   - MPPI
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.00423](https://arxiv.org/abs/2511.00423)  
 **代码**: [molumitu/BOOM_MBRL](https://github.com/molumitu/BOOM_MBRL)  
 **领域**: reinforcement_learning  
-**关键词**: model-based RL, online planning, off-policy learning, actor divergence, world model, MPPI  
+**关键词**: 基于模型的强化学习, online planning, 离策略学习, actor divergence, 世界模型, MPPI
 
 ## 一句话总结
 

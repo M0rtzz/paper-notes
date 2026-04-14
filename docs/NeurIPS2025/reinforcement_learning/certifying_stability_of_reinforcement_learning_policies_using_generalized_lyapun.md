@@ -6,7 +6,7 @@ description: >-
 tags:
   - NEURIPS2025
   - Lyapunov stability
-  - 强化学习
+  - reinforcement-learning
   - stability certification
   - value function
   - region of attraction
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.10947](https://arxiv.org/abs/2505.10947)  
 **代码**: [GitHub](https://github.com/ExistentialRobotics/Generalized_Policy_Stability)  
 **领域**: reinforcement_learning  
-**关键词**: Lyapunov stability, reinforcement learning, stability certification, value function, region of attraction  
+**关键词**: Lyapunov stability, reinforcement-learning, stability certification, value function, region of attraction
 
 ## 一句话总结
 

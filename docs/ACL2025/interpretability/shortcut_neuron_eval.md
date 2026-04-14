@@ -64,7 +64,7 @@ tags:
 
 1. **Comparative Analysis (对比分析)**:
 
-    - 做什么：比较污染模型 M_con 和未污染模型 M_un 在处理相同 benchmark 样本时的神经元激活差异
+    - 功能：比较污染模型 M_con 和未污染模型 M_un 在处理相同 benchmark 样本时的神经元激活差异
     - 核心公式：S_i^l = sqrt(Σ(a_i^l(x_T|M_con) - a_i^l(x_T|M_un))² / |D|)
     - 使用最后一个 token 的激活值（比均值更有效）
     - 设计动机：激活差异大的神经元更可能与记忆捷径相关
@@ -72,7 +72,7 @@ tags:
 
 2. **Causal Analysis (因果分析)**:
 
-    - 做什么：通过 activation patching 验证候选神经元的因果效应
+    - 功能：通过 activation patching 验证候选神经元的因果效应
     - 核心思路：一个真正的捷径神经元应满足两个条件：
       - (a) patch 后显著降低污染模型的分数（影响捷径推理）
       - (b) patch 后对未污染模型的分数影响很小（不影响真实能力）
@@ -81,7 +81,7 @@ tags:
 
 3. **Dynamic Patching (动态补丁)**:
 
-    - 做什么：在生成过程中逐 token 地进行 activation patching
+    - 功能：在生成过程中逐 token 地进行 activation patching
     - 核心思路：
       - Step 1：运行 patching model（base model）并缓存指定神经元的激活值
       - Step 2：运行 patched model 并替换对应神经元的激活值
@@ -90,7 +90,7 @@ tags:
 
 4. **Trustworthy Evaluation Framework**:
 
-    - 做什么：用 base model M_0 的捷径神经元激活值 patch 被测模型 M_e
+    - 功能：用 base model M_0 的捷径神经元激活值 patch 被测模型 M_e
     - 核心逻辑：
       - 如果 M_e 被污染 → patch 后分数显著下降（捷径被抑制）
       - 如果 M_e 未被污染 → patch 后分数基本不变（没有捷径可抑制）

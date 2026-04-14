@@ -2,7 +2,7 @@
 title: >-
   [论文解读] A Rose by Any Other Name: LLM-Generated Explanations Are Good Proxies for Human Explanations to Collect Label Distributions on NLI
 description: >-
-  [ACL 2025][人工判断分布] 研究 LLM 生成的解释能否替代昂贵的人工解释来近似 NLI 的人工判断分布（HJD）——发现在提供人工标签的条件下，LLM 生成的解释与人工解释在近似 HJD 方面效果相当（"名字不重要，玫瑰依然芬芳"），且方法可推广到无人工解释的数据集和域外测试集。
+  [ACL 2025][人工判断分布] 提出用 LLM 生成的 NLI 解释替代昂贵的人工解释来近似人工判断分布（HJD），实验表明在提供人工标签引导的条件下，LLM 生成的解释与人工解释在 KL 散度、JSD 等指标上效果相当，并可推广到无人工解释的数据集（MNLI）和域外测试集（ANLI）。
 tags:
   - ACL 2025
   - 人工判断分布
@@ -10,7 +10,6 @@ tags:
   - LLM解释生成
   - 标签变异
   - 标注分歧
-  - 解释作为代理
 ---
 
 # A Rose by Any Other Name: LLM-Generated Explanations Are Good Proxies for Human Explanations to Collect Label Distributions on NLI
@@ -49,13 +48,13 @@ tags:
 
 1. **模型解释生成**:
 
-    - 做什么：提示 LLM（Llama3 / GPT-4o）为给定前提-假设对的每个标签（蕴含/中性/矛盾）列出所有可能的解释理由
+    - 功能：提示 LLM（Llama3 / GPT-4o）为给定前提-假设对的每个标签（蕴含/中性/矛盾）列出所有可能的解释理由
     - 核心思路：NLI 标签变异意味着同一标签可有多种合理理由（如多个标注者都选"蕴含"但原因不同），因此要求 LLM 穷举而非只给一条
     - 设计动机：穷举式生成提供了足够的候选池供后续选择策略使用
 
 2. **解释选择策略**:
 
-    - 做什么：从候选解释池中选择合适的子集组成 MJD Estimator 的输入
+    - 功能：从候选解释池中选择合适的子集组成 MJD Estimator 的输入
     - 核心思路：
       - **无标签选择（Label-Free）**：每个标签均匀选 1 条解释，共 3 条，不使用任何人工标签——作为基线
       - **标签引导选择（Label-Guided）**：根据人工标签分布选择对应数量的解释。如某实例 5 个标注者中 3 人选蕴含、1 人中性、1 人矛盾，则选 3 条蕴含解释 + 1 条中性 + 1 条矛盾
@@ -64,7 +63,7 @@ tags:
 
 3. **MJD 估计与评估**:
 
-    - 做什么：将选中的标签-解释对通过 MCQA 提示输入 LLM，用首 token 概率提取 MJD
+    - 功能：将选中的标签-解释对通过 MCQA 提示输入 LLM，用首 token 概率提取 MJD
     - 核心思路：对标签排列、解释排列和组合进行排列平均以消除位置偏见（A 偏好、长度偏见、序列偏见）
     - 评估指标：KL 散度、JSD、TVD 衡量分布距离；用 MJD 训练 BERT/RoBERTa 后在 ANLI 上评估下游性能
 

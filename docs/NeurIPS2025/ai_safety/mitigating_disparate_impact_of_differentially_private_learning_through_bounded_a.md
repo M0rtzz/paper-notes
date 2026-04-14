@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：差分隐私（DP）已广泛用于隐私保护机器学习，是 GDPR 等法规的重要技术支撑。
+
 **现有痛点**：DP 学习中梯度剪裁会抑制较大梯度，特别伤害少数群体和困难类别的学习。自适应 clipping（Andrew 等 2021）试图缓解但仍会导致 clipping bound 无限萎缩——当 majority 梯度变小而 minority 梯度保持大时，bound 会指数衰减。
+
 **核心矛盾**：隐私和公平是 conflicting objectives：强隐私需要大噪声和低 bound，但加重对少数群体的压制。
+
 **切入角度**：引入可调参数 $C_{LB}$（下界），阻止 clipping bound 过度萎缩，保持 DP 保证。
+
 **核心 idea**：$C_{t+1} \leftarrow \max(C_{LB}, C_t \cdot \exp(\eta_C(\tilde{b}_t - \gamma)))$——一个极简的修改，阻止指数衰减。
 
 ## 方法详解
@@ -43,19 +47,19 @@ tags:
 
 1. **问题诊断（玩具示例）**
 
-    - 做什么：揭示自适应 clipping 的指数衰减问题
+    - 功能：揭示自适应 clipping 的指数衰减问题
     - 核心思路：二峰分布（60% 在 0，40% 在 1，真均值 μ=0.4），使用 MSE 损失时梯度 $g_i = x_i - \hat{\mu}_t$。当 $\hat{\mu}_t \to 0$（多数中心），多数梯度变小，少数梯度变大 → 无界自适应不断缩小 C → 少数梯度完全被 clip → $\hat{\mu}_t$ 收敛到 0（错误！）
     - 设计动机：直观展示问题本质，为解决方案提供理论基础
 
 2. **下界有界自适应剪裁**
 
-    - 做什么：$C_{t+1} \leftarrow \max(C_{LB}, C_t \cdot \exp(\eta_C(\tilde{b}_t - \gamma)))$
+    - 功能：$C_{t+1} \leftarrow \max(C_{LB}, C_t \cdot \exp(\eta_C(\tilde{b}_t - \gamma)))$
     - 核心思路：$C_{LB} > 0$ 防止指数衰减，确保少数群体的"有效"梯度仍能贡献更新
     - 设计动机：在玩具模型中，由无界的 $\hat{\mu} \to 0$ 改为有界的 $\hat{\mu} \approx 0.4$（接近真值）
 
 3. **隐私保证（定理 3.2）**
 
-    - 做什么：证明引入 $C_{LB}$ 不改变隐私 composition
+    - 功能：证明引入 $C_{LB}$ 不改变隐私 composition
     - 核心思路：Algorithm 2（任何 $C_{LB} \geq 0$）是 $(ε,δ)$-DP
     - 设计动机：真正的"free lunch"——改善公平性而不损失隐私保证
 

@@ -49,13 +49,13 @@ FRET框架分为两个层次：
 ### 关键设计
 1. **特征冗余度量（Feature Redundancy Score）**:
 
-    - 做什么：量化嵌入特征的冗余程度
+    - 功能：量化嵌入特征的冗余程度
     - 核心思路：对嵌入矩阵 $Z$ 按列归一化得到 $\tilde{Z}$，计算冗余分数 $R_e = \|\tilde{Z}^T\tilde{Z} - I_d\|_1$。理想的非冗余特征应使协方差矩阵接近单位阵
     - 设计动机：协方差矩阵的非对角元素表示特征间的线性相关性，最小化这些元素可消除冗余
 
 2. **注意力-冗余分解（Attention-Redundancy Decomposition）**:
 
-    - 做什么：将特征关系图分解为有用的注意力关系和需要消除的冗余关系
+    - 功能：将特征关系图分解为有用的注意力关系和需要消除的冗余关系
     - 核心思路：构建二阶特征关系图 $G_F = Z^TZ$，通过掩码矩阵 $M_M = I_d$ 分解为注意力图 $G_A = G_F \odot I_d$（仅保留对角线）和冗余图 $G_R = G_F - G_A$。然后通过GCN生成注意力表示和冗余表示：
     $R_A = Z D_A^{-1/2} G_A D_A^{-1/2}, \quad P_A = R_A \theta^h$
     $R_R = Z D_R^{-1/2} G_R D_R^{-1/2}, \quad P_R = R_R \theta^h$
@@ -63,7 +63,7 @@ FRET框架分为两个层次：
 
 3. **表示层冗余消除（Representation-Layer Redundancy Elimination）**:
 
-    - 做什么：通过对比学习使注意力表示具有类别判别性，同时远离冗余表示
+    - 功能：通过对比学习使注意力表示具有类别判别性，同时远离冗余表示
     - 核心思路：定义对比损失 $\mathcal{L}_R$，正样本为注意力表示 $R_{A_i}$ 与其对应的类中心 $c_o$，负样本包括其他类中心 $\{c_j\}$ 和冗余表示 $R_{R_i}$：
     $\mathcal{L}_R = -\sum_{i=1}^{n_t} \log \frac{\exp(\text{sim}(R_{A_i}, c_o))}{\sum_{j=1}^{C} \exp(\text{sim}(R_{A_i}, c_j)) + \exp(\text{sim}(R_{A_i}, R_{R_i}))}$
    类中心通过伪标签聚类计算
@@ -71,7 +71,7 @@ FRET框架分为两个层次：
 
 4. **预测层冗余消除（Prediction-Layer Redundancy Elimination）**:
 
-    - 做什么：在预测层增强注意力预测的置信度，同时抑制冗余预测
+    - 功能：在预测层增强注意力预测的置信度，同时抑制冗余预测
     - 核心思路：结合熵最小化和负学习：
     $\mathcal{L}_P = -\sum_{i=1}^{N} \sigma(P_{A_i}) \log \sigma(P_{A_i}) - \sum_{i=1}^{N} \sigma(P_{R_i}) \log \sigma(1 - P_{A_i})$
    第一项最小化注意力预测的熵（使预测更锐利），第二项通过负学习惩罚冗余预测

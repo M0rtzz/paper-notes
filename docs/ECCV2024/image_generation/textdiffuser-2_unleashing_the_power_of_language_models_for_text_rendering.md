@@ -23,7 +23,9 @@ tags:
 现有扩散模型在生成含文字的图像时面临严重挑战，常产生错误符号或伪影。已有方法如 GlyphDraw、GlyphControl 和 TextDiffuser 虽通过显式文字位置和内容引导缓解了该问题，但仍存在三大缺陷：
 
 **灵活性和自动化受限**：GlyphControl 需用户设计 glyph 图像，GlyphDraw 和 TextDiffuser 依赖手动指定关键词，无法直接从自然语言 prompt 生成图像
+
 **布局预测能力有限**：GlyphDraw 仅支持单行文字，TextDiffuser 的 Layout Transformer 生成的布局不够美观
+
 **风格多样性受限**：TextDiffuser 使用字符级分割掩码隐式约束了每个字符的位置，限制了手写体和艺术字体的生成
 
 TextDiffuser-2 旨在释放语言模型在文本渲染中的潜力，同时解决上述三个问题。

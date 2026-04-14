@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：GNN 分为 homophilic GNN（适合相连节点标签相似的图）和 heterophilic GNN（适合标签不同的图）。真实图的同质性是连续谱而非二分法——同一图内不同跳数和不同节点的同质性差异很大。
+
 **现有痛点**：(a) 已有经验发现 homoGNN 经过调参可以在异质图上表现不差，但缺乏理论解释；(b) 现有异质 GNN 设计复杂模块分别处理同质/异质，但分离两者本身需要标签知识——形成悖论；(c) oversmoothing、heterophily、generalization 三者的关系已被两两研究过，但缺乏统一框架。
+
 **核心矛盾**：随消息传递层数增加，smoothness（表示趋同）不可避免地增强，而 generalization（处理分布偏移的能力）相应下降。这在高阶同质邻域和所有异质邻域中都是致命的。
+
 **本文要解决什么？**：(1) 从理论上统一理解 oversmoothing、poor generalization、heterophily 三个问题的共同根源；(2) 设计最小改动使经典 GCN 成为通用强基线。
+
 **切入角度**：通过 Lipschitz 常数和距离到子空间 $\mathcal{M}$ 的度量，形式化 smoothness-generalization dilemma，并导出设计原则。
+
 **核心 idea 一句话**：Smoothness 和 Generalization 是 GNN 消息传递中不可避免的 trade-off，通过分离各跳变换、感知聚合和邻域关系学习可系统缓解。
 
 ## 方法详解
@@ -44,25 +49,25 @@ IGNN (Inceptive GNN) 基于三个最小设计原则构建在经典 GCN 之上：
 
 1. **Smoothness-Generalization Dilemma (Theorem 4.1)**:
 
-    - 做什么：理论分析 k 层 GCN 消息传递的表示距离上界
+    - 功能：理论分析 k 层 GCN 消息传递的表示距离上界
     - 核心公式：$d_{\mathcal{M}}(\mathbf{H}_G^{(k)}) \leq \hat{L}_G \lambda^k \mathcal{D}$
     - 其中 $\hat{L}_G$ 是 Lipschitz 常数（越大泛化越差），$\lambda < 1$ 是归一化邻接矩阵的第二大特征值，$k$ 是层数
     - 关键洞察：$\lambda^k \to 0$ 时 $\hat{L}_G$ 必须增大以防止表示坍缩，但大 $\hat{L}_G$ 意味着泛化差——这就是两难
 
 2. **分离邻域变换 (SN)**:
 
-    - 做什么：为不同跳的邻域使用独立的权重矩阵 $\mathbf{W}^{(k)}$
+    - 功能：为不同跳的邻域使用独立的权重矩阵 $\mathbf{W}^{(k)}$
     - 设计动机：共享变换矩阵使不同跳的泛化能力相互耦合，分离后每跳可独立控制其 Lipschitz 常数，实现 hop-wise generalization
 
 3. **感知邻域聚合 (IN)**:
 
-    - 做什么：类似 Inception 并行处理不同跳的聚合结果
+    - 功能：类似 Inception 并行处理不同跳的聚合结果
     - 核心思路：各跳输出 $\mathbf{H}^{(1)}, \mathbf{H}^{(2)}, ..., \mathbf{H}^{(K)}$ 不串行依赖，而是各自独立从输入特征经 $k$ 步聚合得到
     - 设计动机：避免串行堆叠导致的 smoothness 累积
 
 4. **邻域关系学习 (NR)**:
 
-    - 做什么：学习各跳输出的自适应权重组合
+    - 功能：学习各跳输出的自适应权重组合
     - 核心思路：通过可学习权重 $\alpha_k$ 将各跳表示加权求和，权重反映每跳信息的重要性
     - 设计动机：IN + NR 合在一起可以逼近任意图滤波器，实现自适应 smoothness
 

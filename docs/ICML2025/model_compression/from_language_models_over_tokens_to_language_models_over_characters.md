@@ -10,7 +10,7 @@ tags:
   - 字符级语言模型
   - 概率流
   - covering
-  - beam search
+  - 束搜索
 ---
 
 # From Language Models over Tokens to Language Models over Characters
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.03719](https://arxiv.org/abs/2412.03719)  
 **代码**: [有](https://github.com/genlm/genlm-bytes)  
 **领域**: 模型压缩  
-**关键词**: tokenization, 字符级语言模型, 概率流, covering, beam search  
+**关键词**: tokenization, 字符级语言模型, 概率流, covering, 束搜索
 
 ## 一句话总结
 

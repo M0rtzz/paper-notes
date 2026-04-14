@@ -1,12 +1,18 @@
 ---
-description: 提出RTV-Bench评测基准，通过多时间戳问答和层次化问题设计评估MLLM在实时视频流中的连续感知理解和推理能力
+title: >-
+  [论文解读] RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video
+description: >-
+  [NeurIPS 2025][多模态][实时视频分析] 提出RTV-Bench评测基准，包含552个视频和4608个QA对，通过多时间戳问答（答案随场景演变而变化）和层次化问题结构（基础→高级），首次系统评估MLLM在实时视频流中的连续分析能力。
 tags:
-- video-understanding
-- benchmark
-- real-time-video
-- multimodal-llm
-- temporal-reasoning
+  - NeurIPS 2025
+  - 多模态
+  - 实时视频分析
+  - 多模态大模型
+  - 连续感知
+  - 时间推理
+  - 基准评测
 ---
+
 # RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video
 
 **会议**: NeurIPS 2025  
@@ -38,12 +44,12 @@ RTV-Bench围绕三个核心设计原则构建：（1）多时间戳问答（MTQA
 ### 关键设计
 
 1. **多时间戳问答（MTQA）**:
-    - 做什么：对同一概念性问题在多个时间点进行评估
+    - 功能：对同一概念性问题在多个时间点进行评估
     - 核心思路：随着视频场景演变，同一问题（如"A在拿什么？"）的正确答案可能变化，标注每个答案选项的最早有效时间戳
     - 设计动机：直接测试模型的时间状态跟踪和实时更新能力，而非简单的信息定位
 
 2. **层次化问题结构**:
-    - 做什么：每组包含2个基础问题和1个复杂问题，复杂问题依赖基础理解
+    - 功能：每组包含2个基础问题和1个复杂问题，复杂问题依赖基础理解
     - 核心思路：评分机制要求基础题全对才计算高级题得分，避免投机取巧
     - 设计动机：确保模型真正具备层次化理解而非表面正确
 

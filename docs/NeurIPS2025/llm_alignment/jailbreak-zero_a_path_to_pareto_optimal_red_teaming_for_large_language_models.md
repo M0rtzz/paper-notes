@@ -2,13 +2,13 @@
 title: >-
   [论文解读] Jailbreak-Zero: A Path to Pareto Optimal Red Teaming for Large Language Models
 description: >-
-  [NeurIPS 2025][LLM对齐][red teaming] 提出基于策略（而非示例）的 LLM 红队评估框架和 Jailbreak-Zero 方法，通过简单的大规模并行采样策略（无需人工越狱策略），在 HarmBench 上对 GPT-4o 和 Claude 3.5 分别达到 99.5% 和 96.0% 的攻击成功率，同时通过微调实现覆盖率、多样性和保真度三个目标的 Pareto 最优。
+  [NeurIPS 2025][LLM对齐][红队测试] 提出基于策略（而非示例）的 LLM 红队评估框架和 Jailbreak-Zero 方法，通过简单的大规模并行采样策略（无需人工越狱策略），在 HarmBench 上对 GPT-4o 和 Claude 3.5 分别达到 99.5% 和 96.0% 的攻击成功率，同时通过微调实现覆盖率、多样性和保真度三个目标的 Pareto 最优。
 tags:
   - NeurIPS 2025
   - LLM对齐
-  - red teaming
-  - LLM safety
-  - jailbreak
+  - 红队测试
+  - LLM 安全
+  - 越狱攻击
   - Pareto optimization
   - policy-based evaluation
   - automated red teaming
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.03265](https://arxiv.org/abs/2601.03265)  
 **代码**: 未公开  
 **领域**: llm_alignment  
-**关键词**: red teaming, LLM safety, jailbreak, Pareto optimization, policy-based evaluation, automated red teaming
+**关键词**: 红队测试, LLM 安全, 越狱攻击, Pareto optimization, policy-based evaluation, automated red teaming
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 现有 LLM 自动红队（Automated Red Teaming, ART）方法主要采用**基于示例的评估**：给定一组具体的有害行为（如"提供制造炸弹的指令"），然后构造对抗性提示诱导模型执行这些行为。这种方式存在几个核心问题：
 
 **可扩展性差**：固定的示例列表无法覆盖所有真实安全风险，尤其当策略频繁变化时
+
 **评估单一**：仅依赖攻击成功率（ASR），忽略了安全评估的多维性——覆盖率、多样性、对真实用户输入的保真度
+
 **有效性存疑**：如果目标 LLM 针对预定义行为进行微调，拒绝率的提升可能反映的是记忆而非真正的安全性
+
 **人工依赖重**：现有方法通常需要复杂的迭代算法、人工设计的越狱策略或大量 prompt engineering
 
 ## 方法详解

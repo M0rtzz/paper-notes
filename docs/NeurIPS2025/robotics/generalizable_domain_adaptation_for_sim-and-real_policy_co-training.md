@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training
 description: >-
-  [NeurIPS 2025][机器人][sim-to-real] 提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。
+  [NeurIPS 2025][机器人][仿真到现实] 提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。
 tags:
   - NeurIPS 2025
   - 机器人
-  - sim-to-real
-  - optimal transport
+  - 仿真到现实
+  - 最优传输
   - 域适应
   - behavior cloning
-  - robot manipulation
+  - 机器人操作
 ---
 
 # Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training
@@ -19,16 +19,20 @@ tags:
 **arXiv**: [2509.18631](https://arxiv.org/abs/2509.18631)  
 **代码**: [项目页](https://ot-sim2real.github.io/)  
 **领域**: 机器人 / Sim-to-Real / 域自适应  
-**关键词**: sim-to-real, optimal transport, domain adaptation, behavior cloning, robot manipulation
+**关键词**: 仿真到现实, 最优传输, 域适应, behavior cloning, 机器人操作
 
 ## 一句话总结
 提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。
 
 ## 研究背景与动机
 **领域现状**：行为克隆（BC）需要大量真实演示数据成本高昂，而模拟器可低成本生成大量数据，但模拟-真实间存在视觉/传感器间隙
+
 **现有痛点**：简单混合sim+real数据联合训练缺乏显式特征空间约束，OOD场景下性能急剧下降；MMD等边际分布对齐方法过于粗糙，会破坏任务相关结构
+
 **核心矛盾**：sim数据量大但分布不匹配，real数据稀缺但分布准确，且两者的数据量严重不平衡（$N_{sim} \gg N_{real}$）
+
 **切入角度**：对观察-动作联合分布做最优运输对齐，而非仅对齐观察——这样能保留动作相关的特征结构
+
 **核心idea一句话**：用不平衡OT处理sim-real联合分布的部分重叠和数据不平衡，加DTW时间对齐采样提升mini-batch质量
 
 ## 方法详解
@@ -40,19 +44,19 @@ tags:
 
 1. **最优运输驱动的动作感知特征对齐**：
 
-    - 做什么：对齐 $(z, x)$ 联合分布而非仅 $z$（$z$=特征，$x$=本征状态/动作）
+    - 功能：对齐 $(z, x)$ 联合分布而非仅 $z$（$z$=特征，$x$=本征状态/动作）
     - 地面成本：$C_\phi = \alpha_1 \cdot d_\mathcal{Z}(z^i_{src}, z^j_{tgt}) + \alpha_2 \cdot d_\mathcal{A}(x^i_{src}, x^j_{tgt})$
     - 设计动机：联合分布保留了"什么特征对应什么动作"的结构，比边际对齐更精细
 
 2. **不平衡最优运输（UOT）**：
 
-    - 做什么：放松OT的严格边际约束，处理 $N_{sim} \gg N_{real}$ 的数据不平衡
+    - 功能：放松OT的严格边际约束，处理 $N_{sim} \gg N_{real}$ 的数据不平衡
     - 核心：$L_{UOT} = \min_\Pi \langle\Pi, \hat{C}\rangle_F + \epsilon\Omega(\Pi) + \tau \text{KL}(\Pi\mathbf{1}||\mathbf{p}) + \tau \text{KL}(\Pi^\top\mathbf{1}||\mathbf{q})$
     - 设计动机：标准OT强制所有sim样本必须匹配到real样本，但sim中有许多real未覆盖的状态，UOT允许部分质量不运输
 
 3. **时间对齐采样策略**：
 
-    - 做什么：用DTW计算轨迹相似度，按相似度加权采样构造mini-batch
+    - 功能：用DTW计算轨迹相似度，按相似度加权采样构造mini-batch
     - 权重：$w(\xi_{src}, \xi_{tgt}) = \frac{1}{1+e^{10\cdot(\bar{d}-0.01)}}$
     - 设计动机：随机采样的mini-batch中sim-real样本对应关系差，DTW对齐后样本对更有意义
 

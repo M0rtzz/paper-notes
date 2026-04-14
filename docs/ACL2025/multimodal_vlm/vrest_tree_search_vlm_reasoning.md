@@ -2,14 +2,15 @@
 title: >-
   [论文解读] VReST: Enhancing Reasoning in Large Vision-Language Models through Tree Search and Self-Reward Mechanism
 description: >-
-  [ACL 2025][多模态VLM][MCTS] VReST首次将蒙特卡洛树搜索引入多模态CoT推理，通过自奖励机制在MathVista上达到65.40%，展示多模态测试时缩放定律
+  [ACL 2025 (Long Paper)][多模态][MCTS] 提出VReST，首次将蒙特卡洛树搜索（MCTS）应用于多模态CoT推理：每个节点是一个推理步骤，通过多模态自奖励机制（sub-question有用性+答案正确性+视觉-语言线索相关性）评估推理质量，无需训练即在MathVista上达到64.50%（超越CoT的54.60%和ToT的60.20%），并展示出多模态测试时缩放定律。
 tags:
-  - ACL 2025
-  - 多模态VLM
+  - ACL 2025 (Long Paper)
+  - 多模态
   - MCTS
   - 视觉推理
   - 自奖励
   - 测试时缩放
+  - 多模态CoT
 ---
 
 # VReST: Enhancing Reasoning in Large Vision-Language Models through Tree Search and Self-Reward Mechanism
@@ -48,19 +49,19 @@ VReST将MCTS与LVLM结合形成推理搜索框架。给定图像 $I$ 和问题 $
 
 1. **UCT引导的节点选择与LVLM驱动的扩展**:
 
-    - 做什么：从根节点递归选择子节点到叶节点，然后在叶节点处生成新的推理步骤
+    - 功能：从根节点递归选择子节点到叶节点，然后在叶节点处生成新的推理步骤
     - 核心思路：选择阶段使用UCB公式平衡探索和利用 $UCT(v) = R(v) + c\sqrt{\frac{\ln N(p(v))}{N(v)}}$；扩展阶段通过提高LVLM温度参数（0.7）生成 $w=5$ 个不同推理步骤，用自奖励机制选出最佳节点继续扩展，直到达到终止条件或最大深度 $D_{\max}=8$
     - 设计动机：UCT确保搜索不过度集中于局部最优；多样化生成+奖励筛选兼顾探索广度和质量控制，本质上比ToT的贪心选择更全局
 
 2. **多模态自奖励机制(Self-Reward)**:
 
-    - 做什么：不依赖额外模型，利用LVLM自身评估每个推理步骤的质量
+    - 功能：不依赖额外模型，利用LVLM自身评估每个推理步骤的质量
     - 核心思路：综合两个维度——$R_1 = P(\text{"Yes"} | [\mathcal{P}_t, \mathcal{P}_Q], I)$ 评估所有子问题是否有用，$R_2 = P(\text{"Yes"} | [\mathcal{P}_t, \mathcal{P}_A], I)$ 评估最后一步答案是否正确。最终奖励为几何均值 $R = \sqrt{R_1 \cdot R_2}$。注意两个评估都以图像 $I$ 为输入，整合了视觉信息
     - 设计动机：(1) 使用LVLM生成"Yes"的token概率作为奖励信号，无需额外训练奖励模型；(2) 几何均值比算术均值更严格——要求两个指标都不能太低；(3) 图像 $I$ 参与奖励计算，使奖励机制能感知视觉线索
 
 3. **推理链选择策略(Best-Trace & Trace-Vote)**:
 
-    - 做什么：$K$ 次迭代完成后，从所有探索过的推理链中选出最终答案
+    - 功能：$K$ 次迭代完成后，从所有探索过的推理链中选出最终答案
     - 核心思路：Best-Trace选择平均奖励最高的路径 $\mathcal{P}^* = \arg\max_{\mathcal{P}} \text{Avg}(\{R(S_t) | S_t \in \mathcal{P}\})$；Trace-Vote选出top-n推理链后对最终答案投票取多数
     - 设计动机：消融实验表明Trace-Vote > Best-Trace > Greedy-Trace，投票机制通过聚合多条高奖励推理链降低了单条路径的偶然误差
 
@@ -180,17 +181,17 @@ VReST将MCTS与LVLM结合，构建推理搜索树。给定图像 $I$ 和问题 $
 ### 关键设计
 
 1. **UCT引导的节点选择(Selection)**:
-    - 做什么：从根节点出发，递归选择子节点直至叶节点
+    - 功能：从根节点出发，递归选择子节点直至叶节点
     - 核心思路：使用UCB算法平衡探索与利用，$UCT(v) = R(v) + c\sqrt{\frac{\ln N(p(v))}{N(v)}}$，其中 $R(v)$ 是奖励值，$N(v)$ 是访问次数，$c$ 是探索常数
     - 设计动机：确保搜索不会过度集中于局部最优，而是有策略地广泛探索推理空间
 
 2. **LVLM驱动的推理扩展(Expansion)**:
-    - 做什么：在选定的叶节点处生成新的推理步骤
+    - 功能：在选定的叶节点处生成新的推理步骤
     - 核心思路：通过提高LVLM温度参数生成 $w$ 个不同推理步骤 $\{S_{t,j}|j=1,...,w\} = \text{LVLM}(\mathcal{P}_{t-1}, I)$，选择奖励值最高的节点继续扩展，直到到达终止节点或最大深度 $D_{\max}$
     - 设计动机：在每一步都保持多样性，避免单一推理路径的局限；提升温度增加多样性同时通过奖励机制筛选质量
 
 3. **多模态自奖励机制(Self-Reward)**:
-    - 做什么：不依赖额外模型，利用LVLM自身评估推理步骤质量
+    - 功能：不依赖额外模型，利用LVLM自身评估推理步骤质量
     - 核心思路：综合两个维度计算奖励值：$R_1 = P(\text{"Yes"}|[\mathcal{P}_t, \mathcal{P}_Q], I)$（子问题有用性）和 $R_2 = P(\text{"Yes"}|[\mathcal{P}_t, \mathcal{P}_A], I)$（答案正确性），最终奖励为几何均值 $R = \sqrt{R_1 \cdot R_2}$
     - 设计动机：(1) 几何均值要求两个指标都不能太低，比算术均值更严格；(2) 利用LVLM生成"Yes"的概率作为奖励信号，既整合了视觉信息又避免了引入额外模型
 

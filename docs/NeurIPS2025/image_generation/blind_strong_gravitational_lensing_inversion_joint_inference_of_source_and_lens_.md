@@ -50,20 +50,20 @@ tags:
 
 1. **连续时间 GibbsDDRM**:
 
-    - 做什么：将离散时间的 GibbsDDRM 扩展到连续时间 SDE 框架
+    - 功能：将离散时间的 GibbsDDRM 扩展到连续时间 SDE 框架
     - 核心思路：在反向 SDE 中交替更新源（扩散 guidance）和透镜参数（Langevin），利用 score-based 先验 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{x}_t)$ 加上近似似然 score $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
     - 设计动机：连续时间允许使用 VE-SDE（variance-exploding）的灵活噪声调度，避免离散时间的步长限制
 
 2. **两种似然 score 近似**:
 
-    - 做什么：近似不可处理的 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
+    - 功能：近似不可处理的 $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{y} | \mathbf{x}_t)$
     - CLA (Conditional Likelihood Approximation)：假设 $p_t(\mathbf{y} | \mathbf{x}_t)$ 与 $p(\mathbf{y} | \hat{\mathbf{x}}_0(\mathbf{x}_t))$ 成比例
     - ΠiGDM：使用投影近似，更精确但计算稍贵
     - 设计动机：精确计算需要对所有可能的 $\mathbf{x}_0$ 积分，两种近似在不同场景有不同的精度-效率权衡
 
 3. **透镜参数采样**:
 
-    - 做什么：在给定源重建下采样 12 个透镜宏参数
+    - 功能：在给定源重建下采样 12 个透镜宏参数
     - 核心思路：利用前向模型的可微性，对 $\boldsymbol{\ell}$ 做梯度基 Langevin 步骤。每个源样本后追加 500 个条件透镜样本以充分探索参数空间
     - 设计动机：参数空间中存在多个局部极小值，MCMC 采样（而非单点优化）可以量化不确定性
 

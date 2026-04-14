@@ -2,12 +2,12 @@
 title: >-
   [论文解读] MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning
 description: >-
-  [ICLR2026][医学影像][多智能体] 提出 MMedAgent-RL，基于强化学习的多智能体医学推理框架，模拟"分诊→专科会诊→主治决策"流程，通过课程学习引导的动态熵调节 RL 策略，让主治医师智能体逐步学会何时信任、何时质疑专科意见，在 5 个医学 VQA 基准上平均超越 SFT 方法 23.6%。
+  [ICLR2026][医学图像][multi-agent collaboration] 提出 MMedAgent-RL，通过 RL 优化模拟临床会诊流程（分诊→专科→主治）的多智能体系统，核心创新是课程学习引导的熵感知 RL（C-MARL），让主治医师智能体在面对正确/冲突/错误的专科意见时分别采取不同的探索-利用策略，在域内外共 5 个医学 VQA 基准上实现 SOTA。
 tags:
   - ICLR2026
-  - 医学影像
-  - multi-agent
-  - reinforcement learning
+  - 医学图像
+  - multi-agent collaboration
+  - reinforcement-learning
   - medical VQA
   - curriculum learning
   - GRPO
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.00555](https://arxiv.org/abs/2506.00555)  
 **代码**: 未开源  
 **领域**: medical_imaging  
-**关键词**: multi-agent collaboration, reinforcement learning, medical VQA, curriculum learning, GRPO, clinical reasoning  
+**关键词**: multi-agent collaboration, reinforcement-learning, medical VQA, curriculum learning, GRPO, clinical reasoning
 
 ## 一句话总结
 提出 MMedAgent-RL，通过 RL 优化模拟临床会诊流程（分诊→专科→主治）的多智能体系统，核心创新是课程学习引导的熵感知 RL（C-MARL），让主治医师智能体在面对正确/冲突/错误的专科意见时分别采取不同的探索-利用策略，在域内外共 5 个医学 VQA 基准上实现 SOTA。

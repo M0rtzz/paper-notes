@@ -39,19 +39,19 @@ GraspLDP 采用两阶段训练：(1) Action Latent Learning 阶段：用 VAE 将
 
 1. **Grasp Guidance in Latent Space（潜空间抓取引导）**:
 
-    - 做什么：用轻量 VAE 将动作序列压缩为紧凑潜特征，在 decoder 端拼接目标 grasp pose 进行重建
+    - 功能：用轻量 VAE 将动作序列压缩为紧凑潜特征，在 decoder 端拼接目标 grasp pose 进行重建
     - 核心思路：编码 $\mathbf{Z} = \mathcal{E}(A)$，解码 $\hat{A} = \mathcal{D}(\mathbf{Z} \oplus \mathcal{G})$，损失为 $\mathcal{L}_{VAE} = \text{MSE}(A, \hat{A}) + \lambda \mathcal{L}_{KL}$。扩散模型在紧凑的潜特征上去噪，而非直接在高维动作空间操作
     - 设计动机：将 grasp pose 直接作为条件会稀释引导强度并增加训练难度。通过在潜空间中注入，grasp pose 在 decoder 阶段对动作重建产生直接的、强约束的影响。同时潜空间维度更低，加速推理
 
 2. **Visual Graspness Cue（视觉抓取性线索）**:
 
-    - 做什么：从预训练 graspness 网络获取点云的逐点抓取性得分，反投影到像素空间形成 graspness map，叠加到手腕相机图像上作为视觉线索
+    - 功能：从预训练 graspness 网络获取点云的逐点抓取性得分，反投影到像素空间形成 graspness map，叠加到手腕相机图像上作为视觉线索
     - 核心思路：$O_{cue}(j,k) = \text{masked\_color}$ if $M(j,k) > \tau$，否则保留原始像素。同时在每个反向扩散步骤重建 $O_{cue}$ 作为自监督目标：$\mathcal{L}_{Recon.} = \text{MSE}(O_{cue}, \hat{O}_{cue})$，总损失 $\mathcal{L}_{LDP} = \mathcal{L}_{Diff.} + \lambda_{Recon.} \mathcal{L}_{Recon.}$
     - 设计动机：graspness map 是几何驱动的、光照不变的抓取可行性指标，能引导末端执行器朝向可抓取区域移动。自监督重建确保模型真正关注这些视觉线索而非忽略它们
 
 3. **Heuristic Pose Selector (HPS)**:
 
-    - 做什么：推理时从抓取检测器预测的候选 grasp pose 中选择最合适的作为引导
+    - 功能：推理时从抓取检测器预测的候选 grasp pose 中选择最合适的作为引导
     - 核心思路：先通过碰撞检测和 NMS 过滤，保留 top-k 质量候选。计算当前末端执行器位姿 $P$ 与候选 $\mathcal{G}_j$ 的 SE(3) 测地距离 $d_{\mathcal{G}_j, W} = \sqrt{\xi^\top W \xi}$，选择距离最小的候选 $\mathcal{G}^* = \arg\min d(\mathcal{G}_j)$
     - 设计动机：联合考虑抓取质量和运动学接近性，平衡抓取可行性和轨迹平滑性，避免不合理的 pose 引导降低成功率
 

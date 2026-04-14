@@ -2,13 +2,13 @@
 title: >-
   [论文解读] MAT-Agent: Adaptive Multi-Agent Training Optimization
 description: >-
-  [NeurIPS 2025][LLM Agent][multi-agent system] 提出 MAT-Agent，一个由四个自主 agent（分别负责数据增强、优化器、学习率调度、损失函数）组成的多智能体框架，在训练过程中动态调整训练配置，用 DQN 学习策略以替代传统静态超参配置，在多标签图像分类任务上实现了 SOTA。
+  [NeurIPS 2025][LLM Agent][多智能体系统] 提出 MAT-Agent，一个由四个自主 agent（分别负责数据增强、优化器、学习率调度、损失函数）组成的多智能体框架，在训练过程中动态调整训练配置，用 DQN 学习策略以替代传统静态超参配置，在多标签图像分类任务上实现了 SOTA。
 tags:
   - NeurIPS 2025
   - LLM Agent
-  - multi-agent system
+  - 多智能体系统
   - training optimization
-  - multi-label classification
+  - 多标签分类
   - 强化学习
   - dynamic configuration
 ---
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2510.17845](https://arxiv.org/abs/2510.17845)  
 **代码**: 无  
 **领域**: Agent  
-**关键词**: multi-agent system, training optimization, multi-label classification, reinforcement learning, dynamic configuration
+**关键词**: 多智能体系统, training optimization, 多标签分类, 强化学习, dynamic configuration
 
 ## 一句话总结
 提出 MAT-Agent，一个由四个自主 agent（分别负责数据增强、优化器、学习率调度、损失函数）组成的多智能体框架，在训练过程中动态调整训练配置，用 DQN 学习策略以替代传统静态超参配置，在多标签图像分类任务上实现了 SOTA。
 
 ## 研究背景与动机
 **领域现状**：多标签图像分类（MLIC）训练通常在开始前就固定好数据增强、优化器、学习率调度和损失函数等超参配置，或仅在预定义的 milestone 进行启发式调整。
+
 **现有痛点**：静态配置无法适应训练过程中不断演化的标签共现模式、类别难度和特征-标签映射关系，导致训练不稳定、过早收敛、性能受限。
+
 **核心矛盾**：训练过程本质上是非平稳的——不同阶段需要不同的策略组合（早期需要更多探索、后期需要精细调优、长尾类别需要特殊处理），但传统方法将配置搜索视为一次性的静态决策。此外，各组件之间存在非线性交互，独立调优忽略了协同效应。
+
 **本文要解决什么？** (1) 如何在训练过程中实时自适应地调整多个训练组件；(2) 如何捕捉组件之间的协同效应进行联合优化；(3) 如何在探索新策略和利用已知好策略之间取得平衡。
+
 **切入角度**：将训练优化重新建模为一个多智能体序列决策问题，每个 agent 负责一个训练组件，通过与训练过程的交互在线学习最优策略。
+
 **核心idea一句话**：用四个 DQN agent 在训练过程中协作地实时选择数据增强/优化器/学习率/损失函数组合，将静态超参搜索变为动态策略学习。
 
 ## 方法详解
@@ -41,25 +46,25 @@ MAT-Agent 由四个自主 agent 组成，分别控制四个训练组件：Agent_
 
 1. **状态表示 $s_t$**:
 
-    - 做什么：编码当前训练状态作为所有 agent 的共享输入
+    - 功能：编码当前训练状态作为所有 agent 的共享输入
     - 核心思路：状态向量 $s_t = [s_t^{\text{perf}}; s_t^{\text{dyn}}; s_t^{\text{data}}]$ 包含三类信息——性能指标（验证 mAP）、训练动态（训练/验证 loss、loss 变化量、梯度 L2 范数、相对更新量）和数据特征（样本纹理丰富度等）。为支持时序推理，还构建了拼接历史状态的扩展表示 $\mathcal{I}_t$
     - 设计动机：全面的状态表示使 agent 能够感知训练全局情况（而不仅仅是当前 loss），历史信息帮助判断趋势
 
 2. **基于 DQN 的 Agent 决策**:
 
-    - 做什么：每个 agent 独立学习 Q 函数来选择最优动作
+    - 功能：每个 agent 独立学习 Q 函数来选择最优动作
     - 核心思路：每个 Agent_k 用深度 Q 网络逼近 $Q_k(\mathcal{I}_t, a; \theta_k)$，以 $\epsilon$-greedy 策略平衡探索/利用。使用经验回放和目标网络稳定训练，TD loss 为 $L_j(\theta_k) = (y_j - Q_k(\mathcal{I}_j, a_j^k; \theta_k))^2$，其中 $y_j = R_{j+1} + \gamma \max_{a'} Q_k(\mathcal{I}_{j+1}, a'; \theta_k^-)$。还引入基于状态转移预测误差的好奇心驱动内在奖励增强探索
     - 设计动机：DQN 可以在有限离散动作空间上高效学习值函数，$\epsilon$-greedy 的衰减确保早期充分探索策略空间、后期收敛到好策略
 
 3. **复合奖励函数**:
 
-    - 做什么：评估联合配置的整体效果
+    - 功能：评估联合配置的整体效果
     - 核心思路：$R_{t+1} = w_{\text{mAP}} \cdot f(\Delta\text{mAP}_t) + w_{\text{stab}} \cdot \text{Stability}_t + w_{\text{conv}} \cdot \text{Convergence}_t - w_{\text{pen}} \cdot \text{Penalty}_t$，平衡精度提升、训练稳定性、收敛速度和计算代价
     - 设计动机：仅用精度作为奖励会导致 agent 倾向选择短期有效但不稳定的策略，多目标奖励设计引导 agent 同时关注收敛质量
 
 4. **Agent 间协调机制**:
 
-    - 做什么：共享奖励信号和状态表示促进协作
+    - 功能：共享奖励信号和状态表示促进协作
     - 核心思路：四个 agent 都接收相同的全局奖励 $R_{t+1}$（而非各自独立的奖励），且共享状态 $\mathcal{I}_t$。这鼓励各 agent 优化全局目标而非局部目标，间接实现联合策略优化
     - 设计动机：独立奖励可能导致 agent 之间策略冲突（如一个 agent 选了激进增强、另一个选了保守 loss），全局奖励让它们自然协调
 

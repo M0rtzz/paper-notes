@@ -37,7 +37,7 @@ Catalyst4D框架分为两步：（1）用现有3D编辑器（DGE/DreamCatalyst/S
 ### 关键设计
 1. **锚点运动引导 AMG（Anchor-based Motion Guidance）**:
 
-    - 做什么：为编辑后的高斯建立可靠的运动监督，将原始高斯的时序变形传递给编辑高斯
+    - 功能：为编辑后的高斯建立可靠的运动监督，将原始高斯的时序变形传递给编辑高斯
     - 核心思路分三步：
       - **锚点构建**：对原始和编辑高斯点云均构建kNN局部邻域$\{\mathcal{N}_{ei}\}$，通过包围球表面的均匀采样点对生成候选直线（参数化为$S_r(u,\varphi) = (r\sqrt{1-u^2}\cos\varphi, r\sqrt{1-u^2}\sin\varphi, ru)$），检测直线与邻域的相交（整个邻域在半径$\delta$圆柱内），对每个相交邻域计算距离加权质心作为锚点$\mathbf{p} = \frac{\sum d_x \mathbf{x}}{\sum d_x}$
       - **对应关系建立**：用非平衡最优传输（UOT + Sinkhorn算法）计算软对应矩阵$P \in \mathbb{R}^{n\times m}$，取每列最大值确定可靠对应
@@ -46,7 +46,7 @@ Catalyst4D框架分为两步：（1）用现有3D编辑器（DGE/DreamCatalyst/S
 
 2. **颜色不确定性引导的外观精炼 CUAR（Color Uncertainty-guided Appearance Refinement）**:
 
-    - 做什么：检测并修正运动传播或遮挡导致的颜色伪影
+    - 功能：检测并修正运动传播或遮挡导致的颜色伪影
     - 核心思路：
       - **光流渲染**：从运动变形$\Delta\boldsymbol{\mu}^t$渲染从帧1到帧t的光流图$F^v_{1\to t}$，将第1帧编辑图像warp到第t帧作为伪GT
       - **颜色不确定性估计**：计算每个高斯帧间SH颜色差异$C^{v,t}_{\text{diff}} = \|\text{SH}(\mathbf{sh},\mathbf{v})_t - \text{SH}(\mathbf{sh},\mathbf{v})_1\|_1$，定义不确定性$\xi^v_t = 1 - \exp(-C^{v,t}_{\text{diff}})$，通过$\alpha$-blending合成像素级不确定性图$U^v_t$，二值化为伪影mask：$M^v_t = (U^v_t > \epsilon \cdot \text{mean}(U^v_t))$
@@ -55,7 +55,7 @@ Catalyst4D框架分为两步：（1）用现有3D编辑器（DGE/DreamCatalyst/S
 
 3. **通用4D表示兼容性**:
 
-    - 做什么：适配不同4D高斯表示
+    - 功能：适配不同4D高斯表示
     - 核心思路：在多相机设置下使用Swift4D，单目设置下使用4DGS，共享opacity和color属性跨帧一致
     - 设计动机：Catalyst4D的传播机制与底层4D表示解耦，只要有规范高斯+变形场即可应用
 

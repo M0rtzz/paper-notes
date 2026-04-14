@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：多语言 LLM（如 Qwen, Mistral）在俄语上的支持主要通过后期 post-training 实现，缺乏从底层为俄语设计的基座模型。现有俄语开源模型（如 ruGPT-3.5）在 MERA 等 benchmark 上表现不佳。
+
 **现有痛点**：(a) 从头训练大规模 LLM 需要巨大计算资源，限制了俄语专用模型的发展；(b) 俄语 tokenizer 效率低——通用 tokenizer 对 Cyrillic 字符编码碎片化严重；(c) 俄语专有模型（如 YandexGPT）缺乏透明度，不开源不公开架构。
+
 **核心矛盾**：如何在有限资源下训练出性能优异的俄语 LLM？MoE 架构可以在保持模型容量的同时大幅降低计算开销，但对俄语的 MoE 训练经验缺乏。
+
 **本文要解决什么？** 构建首个俄语专用 MoE LLM 家族，涵盖预训练、微调、对齐全流程，并开源。
+
 **切入角度**：MoE 架构（20B 总参/3.3B 激活）+ 俄语优化 tokenizer + 9.5T tokens 预训练。
+
 **核心 idea 一句话**：用 MoE 架构大幅降低训练和推理成本，配合定制 tokenizer 和多源数据，构建俄语专用高效 LLM。
 
 ## 方法详解
@@ -42,25 +47,25 @@ GigaChat 家族包含：(1) GigaChat-A3B-base（20B/3.3B 激活 MoE 基座）；
 
 1. **MoE 架构设计**:
 
-    - 做什么：用稀疏 MoE 替代 dense MLP，大幅降低每次前向传播的计算量
+    - 功能：用稀疏 MoE 替代 dense MLP，大幅降低每次前向传播的计算量
     - 核心思路：28 层 Transformer，每层含 2 个共享 expert + 64 个路由 expert，16 个注意力头 + 8 个 KV 头（GQA），隐藏维度扩展对齐 Mistral 7B（14,336）。第一层用标准 gated MLP（因为 token 分布问题）。使用 STK Triton kernels 做 block-sparse 计算，免去 expert 并行
     - 设计动机：相比 8B dense 模型（如 Llama 3），训练速度提升 2 倍，推理延迟降低 40%，计算消耗减少 40%；借鉴 DeepSeek MoE 的设计——更多 expert + 更小 expert + 共享 expert
 
 2. **俄语优化 Tokenizer**:
 
-    - 做什么：为西里尔字母、编程语言和 LaTeX 优化 BPE tokenizer
+    - 功能：为西里尔字母、编程语言和 LaTeX 优化 BPE tokenizer
     - 核心思路：使用 HuggingFace BBPE 算法，在含俄语/英语/代码/LaTeX 的混合语料上迭代训练，生成 100+ 候选 tokenizer，选择跨领域平均 token 长度最优的版本。确保 Cyrillic 常用词不被过度切分，编程关键字和 LaTeX 语法完整保留
     - 设计动机：通用 tokenizer 对俄语编码效率低（碎片化），直接影响训练效率和模型容量的利用
 
 3. **预训练数据与策略**:
 
-    - 做什么：收集 9.5T tokens 多源数据，分阶段训练
+    - 功能：收集 9.5T tokens 多源数据，分阶段训练
     - 核心思路：数据包含 4.4T tokens web 数据（俄语 26.5%、英语 63.8%+）、630B tokens 高质量文献、230B tokens 代码、9B tokens 合成数据（数学+代码）。训练用多步常数学习率调度器（warmup 2000 步，在 30%/60%/90%/98% 节点衰减）。之后分两阶段扩展上下文：8K→32K→128K，配合 RoPE ABF 调整
     - 设计动机：合成数据借鉴 Phi-4，对数学和编程能力有显著提升；多阶段上下文扩展是当前长上下文 LLM 的标准做法
 
 4. **改进的 DPO 损失**:
 
-    - 做什么：修改标准 DPO 以减少幻觉和训练不稳定
+    - 功能：修改标准 DPO 以减少幻觉和训练不稳定
     - 核心思路：引入非对称权重 $\beta_w$ 和 $\beta_l$，优先提升好回答的得分而非惩罚差回答；额外加入相对于 reference model 的 NLL 正则项以稳定 loss ratio
     - 设计动机：标准 DPO 过度关注拉大好坏差距而非提升绝对质量，且忽略共享前缀的重要性
 

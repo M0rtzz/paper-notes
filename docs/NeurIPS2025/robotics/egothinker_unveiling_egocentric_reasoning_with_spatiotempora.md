@@ -1,12 +1,18 @@
 ---
-description: 提出EgoThinker框架，通过时空CoT监督和SFT+RFT两阶段训练赋予MLLM鲁棒的第一人称视频推理能力
+title: >-
+  [论文解读] EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT
+description: >-
+  [NeurIPS 2025][机器人][第一人称视频] EgoThinker构建了500万规模的第一人称推理QA数据集EgoRe-5M（含CoT标注和手物定位数据），通过SFT建立基础推理能力后用GRPO强化微调精细化时空定位，在多个第一人称视频基准上达到SOTA。
 tags:
-- NEURIPS2025
-- 第一人称视频
-- 视觉推理
-- 手物交互
-- 强化微调
+  - NeurIPS 2025
+  - 机器人
+  - 第一人称视频
+  - 时空CoT
+  - 手物交互
+  - GRPO
+  - 强化微调
 ---
+
 # EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT
 
 **会议**: NeurIPS 2025  
@@ -39,14 +45,14 @@ EgoThinker构建了500万规模的第一人称推理QA数据集EgoRe-5M（含CoT
 ### 关键设计
 
 1. **EgoRe-5M 数据集构建**:
-    - 做什么：从多源数据构建500万规模的第一人称推理QA数据集
+    - 功能：从多源数据构建500万规模的第一人称推理QA数据集
     - 核心思路：(a) 从HowTo100M等web数据中用分类模型+手物检测器筛选出870万第一人称片段；(b) 结合Ego4D等公开数据集，总计1300万片段；(c) 分四类生成QA：短期感知(240万)、长期推理(250万)、CoT(5万)、细粒度定位(7万)
     - 设计动机：覆盖从即时感知到长期因果推理再到精确定位的完整能力谱
     - CoT数据：用DeepSeek R1对拼接的密集字幕生成逐步推理过程
     - 定位数据：利用EK-Visor的手物mask生成空间定位QA，利用EgoExoLearn生成时间定位QA
 
 2. **GRPO强化微调 (RFT)**:
-    - 做什么：在SFT基础上用GRPO进一步强化时空定位能力
+    - 功能：在SFT基础上用GRPO进一步强化时空定位能力
     - 核心思路：对每个输入采样N个候选回答，用规则奖励函数评分后计算归一化优势，优化策略使高质量回答概率增大
     - 设计动机：定位任务有明确的IoU指标作为可验证奖励，适合用RL方法优化
     - 奖励设计：格式奖励 $R_{format}$（正则匹配think/answer标签）+ IoU奖励 $R_{iou}$（空间/时间IoU）

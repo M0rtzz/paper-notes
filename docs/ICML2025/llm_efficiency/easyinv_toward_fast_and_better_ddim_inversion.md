@@ -53,8 +53,8 @@ $$\mathbf{z}_{\bar{t}}^{*} = \eta \cdot \mathbf{z}_{\bar{t}}^{*} + (1-\eta) \cdo
 
 1. 输入：反演算法 $Inv()$、总反演步数 $T$、初始 latent $z_0$、选定步集合 $\bar{t}$、参数 $\eta$
 2. 对每个时间步 $t = 0 \to T-1$：
-   - 执行标准反演：$z_{t+1} = Inv(z_t, t)$
-   - 若 $t \in \bar{t}$：$z_{t+1} = \eta \cdot z_{t+1} + (1-\eta) \cdot z_t$
+    - 执行标准反演：$z_{t+1} = Inv(z_t, t)$
+    - 若 $t \in \bar{t}$：$z_{t+1} = \eta \cdot z_{t+1} + (1-\eta) \cdot z_t$
 3. 输出：反演后的噪声 latent $z_T$
 
 ### 关键设计

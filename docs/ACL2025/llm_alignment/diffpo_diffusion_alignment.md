@@ -7,10 +7,10 @@ tags:
   - ACL 2025
   - LLM对齐
   - 扩散模型
-  - inference-time alignment
+  - 推理时对齐
   - parallel decoding
-  - model-agnostic
-  - preference optimization
+  - 模型无关
+  - 偏好优化
 ---
 
 # DiffPO: Diffusion Alignment with Direct Preference Optimization
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.04240](https://arxiv.org/abs/2503.04240)  
 **代码**: 有（论文中提及）  
 **领域**: LLM对齐  
-**关键词**: diffusion, inference-time alignment, parallel decoding, model-agnostic, preference optimization
+**关键词**: diffusion, 推理时对齐, parallel decoding, 模型无关, 偏好优化
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: RLHF 和 DPO 是主流对齐方法，但需要针对每个策略单独训练，计算资源消耗大。推理时对齐（inference-time alignment）通过直接调整输出分布避免重训练，但仍依赖策略特定的 value function。
+
 **现有痛点**: 现有推理时对齐方法（ARGS、BoN）可扩展性有限（需策略特定组件），且推理延迟高（逐 token 生成）。训练时对齐方法（DPO、SimPO）需要为每个底座模型单独训练。
+
 **核心矛盾**: 对齐是句子级（关注风格、格式等整体特征），但生成是 token 级（next-token prediction），这种粒度不匹配增加了学习难度。
+
 **本文要解决什么**: 实现一种高效、模型无关的对齐方法，一次训练即可应用于多个底座模型，同时减少推理延迟。
+
 **切入角度**: 受扩散模型全局可控性启发，将对齐过程类比为句子级去噪：从未对齐的句子 y(0) 逐步修正到对齐的句子 y(T)，每步做句子级预测而非 token 级生成。
+
 **核心idea一句话**: LLM 对齐 = 句子级扩散去噪过程，用一个 DiffPO 模型做 plug-and-play 对齐增强。
 
 ## 方法详解

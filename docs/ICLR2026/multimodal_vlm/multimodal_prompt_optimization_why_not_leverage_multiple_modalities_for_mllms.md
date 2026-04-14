@@ -39,15 +39,15 @@ tags:
 ### 两大组件
 
 1. **对齐保持探索**:
-   - 统一反馈：分析失败集→生成跨模态反馈 $\nabla_p = (\nabla_t, \nabla_m)$
-   - 联合更新：MLLM同时产出更新的文本提示 $t'$ 和模态特定条件 $c$→条件 $c$ 输入模态生成器(text-to-image/text-to-molecule)得到更新的非文本提示 $m'$
-   - 三种操作符：Generation(从零创建)、Edit(微调修改)、Mix(融合多个)
+    - 统一反馈：分析失败集→生成跨模态反馈 $\nabla_p = (\nabla_t, \nabla_m)$
+    - 联合更新：MLLM同时产出更新的文本提示 $t'$ 和模态特定条件 $c$→条件 $c$ 输入模态生成器(text-to-image/text-to-molecule)得到更新的非文本提示 $m'$
+    - 三种操作符：Generation(从零创建)、Edit(微调修改)、Mix(融合多个)
 
 2. **先验继承贝叶斯UCB选择**:
-   - 观察：父提示性能与子提示性能高度相关(Pearson r=0.88)
-   - 做法：用父提示的后验均值初始化子提示的Beta先验 $\alpha_i = \hat{\mu}_{\text{par}} \cdot S + 1$
-   - Proposition 3.1：在先验比均匀更informative时，最佳臂识别代价不增
-   - 减少42%评估预算
+    - 观察：父提示性能与子提示性能高度相关(Pearson r=0.88)
+    - 做法：用父提示的后验均值初始化子提示的Beta先验 $\alpha_i = \hat{\mu}_{\text{par}} \cdot S + 1$
+    - Proposition 3.1：在先验比均匀更informative时，最佳臂识别代价不增
+    - 减少42%评估预算
 
 ## 实验关键数据
 

@@ -1,7 +1,16 @@
 ---
-title: "Novel Architecture of RPA in Oral Cancer Lesion Detection"
-description: "通过Singleton和Batch Processing设计模式优化口腔癌检测的Python自动化流水线，相比RPA平台实现60-100倍加速"
-tags: ["口腔癌检测", "RPA", "医学图像", "CNN", "自动化"]
+title: >-
+  [论文解读] Novel Architecture of RPA in Oral Cancer Lesion Detection
+description: >-
+  [CVPR 2026][医学图像][口腔癌检测] 本文对比了低代码 RPA 平台（UiPath、Automation Anywhere）与基于 Python 设计模式（Singleton + Batch Processing）的口腔癌检测自动化方案，后者 (OC-RPAv2) 将单图推理时间从 2.5 秒压缩到 0.06 秒，实现 60-100 倍加速。
+tags:
+  - CVPR 2026
+  - 医学图像
+  - 口腔癌检测
+  - RPA
+  - EfficientNetV2B1
+  - 设计模式
+  - UiPath
 ---
 
 # Novel Architecture of RPA in Oral Cancer Lesion Detection
@@ -40,19 +49,19 @@ tags: ["口腔癌检测", "RPA", "医学图像", "CNN", "自动化"]
 
 1. **EfficientNetV2B1 分类模型**:
 
-    - 做什么：将口腔临床图像分为 4 大类（Healthy、Benign、OPMD、Oral Cancer）共 16 子类
+    - 功能：将口腔临床图像分为 4 大类（Healthy、Benign、OPMD、Oral Cancer）共 16 子类
     - 核心思路：以预训练 ImageNet 的 EfficientNetV2B1 为 backbone，输入 224×224×3。第一阶段冻结 base 层训练 15 个 epoch (lr=1e-3)，第二阶段解冻深层微调 10 个 epoch (lr=1e-5)。使用 Adam + categorical cross-entropy，配合 early stopping、ReduceLROnPlateau、checkpoint saving
     - 设计动机：EfficientNetV2 在轻量和精度间平衡好，适合部署在实际临床环境
 
 2. **Singleton + Batch Processing 设计模式 (OC-RPAv2)**:
 
-    - 做什么：优化 Python 推理流水线以消除重复模型加载和单图串行瓶颈
+    - 功能：优化 Python 推理流水线以消除重复模型加载和单图串行瓶颈
     - 核心思路：Singleton 模式确保 EfficientNetV2B1 模型在整个推理过程中只加载一次并常驻内存。Batch Strategy 模式将所有待处理图像组织为批次，利用 GPU 并行推理。处理后的文件移至独立目录确保数据完整性
     - 设计动机：RPA 平台（UiPath/AA）每次预测都重新加载模型，这是 78% 开销的根源。Singleton 消除这一瓶颈，Batch 进一步利用 GPU 并行性
 
 3. **RPA-Python 混合工作流**:
 
-    - 做什么：RPA 负责工作流编排（文件管理、日志、错误处理），Python 负责计算密集任务
+    - 功能：RPA 负责工作流编排（文件管理、日志、错误处理），Python 负责计算密集任务
     - 核心思路：UiPath 管理自动化流水线，调用 Python 函数执行模型推理。Try-Catch 块处理运行时异常，本地安全工作站处理以保护患者隐私
     - 设计动机：结合 RPA 的流程标准化/错误追踪/部署便利与 Python 的优化计算/并行处理能力
 

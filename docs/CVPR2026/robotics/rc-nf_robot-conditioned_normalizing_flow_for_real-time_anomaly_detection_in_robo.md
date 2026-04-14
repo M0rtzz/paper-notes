@@ -2,15 +2,15 @@
 title: >-
   [论文解读] RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation
 description: >-
-  [CVPR2026][机器人][anomaly detection] 提出 Robot-Conditioned Normalizing Flow (RC-NF)，通过条件归一化流对机器人状态与物体运动轨迹的联合分布建模，实现 <100ms 实时异常检测，可作为 VLA 模型（如 π₀）的即插即用监控模块，支持任务级重规划和状态级轨迹回滚。
+  [CVPR2026][机器人][异常检测] 提出 Robot-Conditioned Normalizing Flow (RC-NF)，通过条件归一化流对机器人状态与物体运动轨迹的联合分布建模，实现 <100ms 实时异常检测，可作为 VLA 模型（如 π₀）的即插即用监控模块，支持任务级重规划和状态级轨迹回滚。
 tags:
   - CVPR2026
   - 机器人
-  - anomaly detection
+  - 异常检测
   - normalizing flow
   - VLA monitoring
-  - robotic manipulation
-  - out-of-distribution
+  - 机器人操作
+  - 分布外
 ---
 
 # RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.11106](https://arxiv.org/abs/2603.11106)  
 **代码**: 无  
 **领域**: robotics  
-**关键词**: anomaly detection, normalizing flow, VLA monitoring, robotic manipulation, out-of-distribution
+**关键词**: 异常检测, normalizing flow, VLA monitoring, 机器人操作, 分布外
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 VLA (Vision-Language-Action) 模型通过模仿学习从专家示范数据中学习，能把自然语言指令映射到低层控制动作。但在实际部署时面临严峻的 OOD (Out-of-Distribution) 挑战：
 
 **任务级 OOD**：环境变化导致当前指令不再适用（如执行"把球放进抽屉"时抽屉突然关闭）
+
 **状态级 OOD**：指令仍有效但机器人物理状态偏离训练分布（如物体从夹爪滑落）
 
 现有运行时监控方案的局限：

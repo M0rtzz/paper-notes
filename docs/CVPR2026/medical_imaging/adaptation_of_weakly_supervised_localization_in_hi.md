@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions
 description: >-
-  [CVPR 2026][医学图像][弱监督定位] 提出SFDA-DeP方法，受机器遗忘启发，将源自由域适应建模为迭代识别过度预测类的不确定样本并选择性降低其置信度的过程，同时联合训练像素级分类器恢复定位判别力，在跨器官/跨中心病理基准上显著优于SFDA baselines。
+  [CVPR 2026][医学图像][weakly supervised localization] 提出SFDA-DeP，受机器遗忘启发将源自由域适应（SFDA）建模为迭代识别并纠正预测偏差的过程——选择性降低优势类中不确定样本的置信度、保留可靠预测、联合训练像素级分类器恢复定位判别力——在跨器官/跨中心病理基准上一致优于SFDA baselines的分类和定位性能。
 tags:
   - CVPR 2026
   - 医学图像
-  - 弱监督定位
-  - 源自由域适应
-  - 预测去偏
-  - 机器遗忘
-  - 病理图像
+  - weakly supervised localization
+  - 域适应
+  - prediction debiasing
+  - machine unlearning
+  - histopathology
 ---
 
 # Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions

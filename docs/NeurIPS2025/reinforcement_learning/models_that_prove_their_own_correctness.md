@@ -42,7 +42,7 @@ $$\text{ver}_{V,\mu}(\theta) := \Pr_{x \sim \mu, y \sim P_\theta(x)} [\langle V,
 ### 关键设计
 1. **Transcript Learning (TL)**:
 
-    - 做什么：基于接受转录本（accepting transcripts）的监督学习
+    - 功能：基于接受转录本（accepting transcripts）的监督学习
     - 核心思路：将模型不仅训练为 $x \mapsto y^*$（正确输出），而是 $x \mapsto y^* \pi^*$（正确输出 + 接受转录本），使模型自回归地学习生成能被验证器接受的完整交互序列
     - 梯度估计：TL 估计的是下界函数 $A(\theta) \leq \text{ver}_V(\theta)$ 的梯度，其中 $A(\theta) := \Pr[\pi = \pi^*]$ 是当前模型生成的转录本与诚实转录本的一致概率
     - 更新规则：$\theta_{i+1} := \theta_i + \lambda \cdot \prod_{s} \alpha_s(\theta_i) \cdot \sum_s \vec{d}_s(\theta_i)$，其中 $\alpha_s$ 是 token 级别的选择概率，$\vec{d}_s$ 是对应的 log-probability 梯度
@@ -50,7 +50,7 @@ $$\text{ver}_{V,\mu}(\theta) := \Pr_{x \sim \mu, y \sim P_\theta(x)} [\langle V,
 
 2. **Reinforcement Learning from Verifier Feedback (RLVF)**:
 
-    - 做什么：无需接受转录本，仅依赖验证器的接受/拒绝反馈
+    - 功能：无需接受转录本，仅依赖验证器的接受/拒绝反馈
     - 核心思路：模型自行生成转录本 $\pi \sim P_\theta$，由验证器判定接受与否，仅在被接受时更新参数
     - 梯度关键公式：$\nabla_\theta \text{ver}(\theta) = \mathbb{E}[\text{Acc}_V(\cdot) \cdot \sum_s \vec{d}_s(\theta)]$，其中 $\text{Acc}_V$ 是 0-1 指示变量
     - 特点：属于 on-policy 算法，更新步骤比 TL 更简单（不需要追踪 $\alpha_s$），但需要初始 Verifiability > 0 才能采到接受样本
@@ -58,7 +58,7 @@ $$\text{ver}_{V,\mu}(\theta) := \Pr_{x \sim \mu, y \sim P_\theta(x)} [\langle V,
 
 3. **Annotated Transcript Learning (ATL)**:
 
-    - 做什么：在 TL 基础上添加"注释"——证明过程的中间计算步骤
+    - 功能：在 TL 基础上添加"注释"——证明过程的中间计算步骤
     - 核心思路：将证明 $\pi$ 扩展为 $\tilde{\pi} = A(x, \pi)$，包含前 $T$ 步的中间推导过程，推理时通过 extractor $E$ 去掉注释只发送实际证明
     - 设计动机：注释相当于 chain-of-thought，显著降低学习难度。实验中 ATL 的 Verifiability 从 TL 的 60.3% 跃升至 96%
 

@@ -74,8 +74,8 @@ $$\mathbb{E}_{\epsilon_i \sim q_{\epsilon|z}} \nabla_z \log\left(\frac{1}{k}\sum
 1. **BSIVI**（Base SIVI）：基准方法，使用朴素 Monte Carlo 估计器 $s_{\mathrm{MC},k}$ 来近似 score gradient，不使用重要性采样。尽管在高维中无信息的 $\epsilon_i$ 贡献几乎可忽略，但该方法表现出乎意料地好。
 
 2. **AISIVI**（Adaptively Informed SIVI）：主方法，交替优化：
-   - 最小化期望前向 KL 以训练 CNF 提议分布 $\tau_{\epsilon|z}$
-   - 最小化反向 KL $D_{\mathrm{KL}}(q_z \| p_z)$ 以训练 SIVI 模型
+    - 最小化期望前向 KL 以训练 CNF 提议分布 $\tau_{\epsilon|z}$
+    - 最小化反向 KL $D_{\mathrm{KL}}(q_z \| p_z)$ 以训练 SIVI 模型
 
    CNF 的训练损失可简化为条件对数似然的负均值：$\text{loss}_{\text{flow}} = -\frac{1}{m}\sum_{i=1}^m \log \tau_{\epsilon|z}(\epsilon_i | z_i)$
 

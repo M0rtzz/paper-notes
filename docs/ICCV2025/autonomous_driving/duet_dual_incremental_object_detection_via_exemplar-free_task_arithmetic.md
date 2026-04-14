@@ -44,7 +44,9 @@ tags:
 作者提出 **Dual Incremental Object Detection（DuIOD）** 这一更实际的设定：模型需要在增量任务序列中，每个任务引入新类别 $\mathcal{C}_t$ 和新域 $\mathcal{D}_t$，且不保留任何历史训练数据（exemplar-free）。这带来了三个核心难题：
 
 **灾难性遗忘**：学新忘旧
+
 **域泛化**：旧类别在新域上的性能保持
+
 **背景漂移**：旧类别在新任务中无标注，被当作背景训练
 
 ### 现有方法的不足
@@ -67,10 +69,10 @@ DuET 框架由两大核心组件构成：
 1. **基础任务 $\mathcal{T}_1$**：用预训练检测器在首个任务上微调，得到参数 $\theta_1$
 2. **参数分解**：将模型参数分为共享参数 $\theta_s$（backbone + neck）和任务特定参数 $\theta_\tau$（检测头）
 3. **增量任务 $\mathcal{T}_t, t \geq 2$**：
-   - 顺序微调：以 $\theta_{t-1}$ 初始化，用总损失训练得到 $\theta_t$
-   - 计算新旧任务向量：$\tau_{\text{old}} = \theta_{s_{t-1}} - \theta_{s_0}$, $\tau_{\text{curr}} = \theta_{s_t} - \theta_{s_0}$
-   - DuET Module 合并共享参数
-   - Incremental Head 拼接检测头参数
+    - 顺序微调：以 $\theta_{t-1}$ 初始化，用总损失训练得到 $\theta_t$
+    - 计算新旧任务向量：$\tau_{\text{old}} = \theta_{s_{t-1}} - \theta_{s_0}$, $\tau_{\text{curr}} = \theta_{s_t} - \theta_{s_0}$
+    - DuET Module 合并共享参数
+    - Incremental Head 拼接检测头参数
 4. **推理**：使用合并后的增量权重进行检测
 
 ### 关键设计一：DuET Module — 逐层动态任务向量融合

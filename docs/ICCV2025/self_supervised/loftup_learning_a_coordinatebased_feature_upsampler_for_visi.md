@@ -7,9 +7,9 @@ tags:
   - ICCV 2025
   - 自监督学习
   - feature upsampling
-  - vision foundation model
+  - 视觉基础模型
   - coordinate-based
-  - self-distillation
+  - 自蒸馏
   - DINOv2
   - 密集预测
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2504.14032](https://arxiv.org/abs/2504.14032)  
 **代码**: [https://github.com/andrehuang/loftup](https://github.com/andrehuang/loftup)  
 **领域**: 自监督学习 / 视觉基础模型 / 特征上采样  
-**关键词**: feature upsampling, vision foundation model, coordinate-based, self-distillation, DINOv2, 密集预测  
+**关键词**: feature upsampling, 视觉基础模型, coordinate-based, 自蒸馏, DINOv2, 密集预测
 
 ## 一句话总结
 提出LoftUp，通过坐标-cross-attention架构直接将低分辨率VFM特征映射到任意高分辨率，并用class-agnostic mask精炼+自蒸馏构建全分辨率伪GT进行训练，在6个下游任务上平均提升10-20%且在视频目标分割上提升近50%。

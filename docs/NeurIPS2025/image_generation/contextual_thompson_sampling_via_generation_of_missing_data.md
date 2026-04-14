@@ -8,10 +8,10 @@ tags:
   - 图像生成
   - Thompson sampling
   - contextual bandit
-  - generative model
+  - 生成模型
   - missing data imputation
-  - meta-learning
-  - regret bound
+  - 元学习
+  - 遗憾界
 ---
 
 # Contextual Thompson Sampling via Generation of Missing Data
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2502.07064](https://arxiv.org/abs/2502.07064)  
 **代码**: 待确认  
 **领域**: 生成模型 / 决策系统 / 上下文老虎机  
-**关键词**: Thompson sampling, contextual bandit, generative model, missing data imputation, meta-learning, regret bound  
+**关键词**: Thompson sampling, contextual bandit, 生成模型, missing data imputation, 元学习, 遗憾界
 
 ## 一句话总结
 提出 Generative Thompson Sampling (TS-Gen)，将上下文老虎机中的不确定性建模为缺失数据而非未知参数，通过生成模型对缺失结果做自回归填充来实现 Thompson 采样，建立了与离线预测损失直接挂钩的遗憾界。

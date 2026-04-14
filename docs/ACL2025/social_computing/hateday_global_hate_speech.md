@@ -6,10 +6,10 @@ description: >-
 tags:
   - ACL 2025
   - hate speech
-  - dataset
+  - 数据集
   - Twitter
-  - cross-lingual
-  - content moderation
+  - 跨语言
+  - 内容审核
 ---
 
 # HateDay: Insights from a Global Hate Speech Dataset Representative of a Day on Twitter
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2411.15462](https://arxiv.org/abs/2411.15462)  
 **代码**: 无（数据集: [https://huggingface.co/datasets/manueltonneau/hateday](https://huggingface.co/datasets/manueltonneau/hateday)）  
 **领域**: NLP理解 / 仇恨言论检测  
-**关键词**: hate speech, dataset, Twitter, cross-lingual, content moderation  
+**关键词**: hate speech, 数据集, Twitter, 跨语言, 内容审核
 
 ## 一句话总结
 HateDay 构建了首个全球代表性仇恨言论数据集——24 万条随机采样的 Twitter 推文覆盖 8 种语言和 4 个英语国家，揭示了学术数据集大幅高估了检测模型在真实场景中的表现，尤其对非欧洲语言检测能力极差。
@@ -26,10 +26,15 @@ HateDay 构建了首个全球代表性仇恨言论数据集——24 万条随机
 ## 研究背景与动机
 
 **领域现状**：仇恨言论检测是重要的内容审核任务。学术界开发了大量检测模型和数据集，但主要集中在英语，且数据集存在系统性偏差（类别分布、话题多样性与真实社交媒体不匹配）。
+
 **现有痛点**：(1) 学术评估数据集与真实社媒分布偏差大——仇恨言论在真实场景中极低频（<2%），但学术数据集人为高频；(2) 跨语言/跨国家对比困难——不同语言的数据集构建方法不同；(3) 聚焦语言忽略同一语言不同国家间的差异（如印度 vs 尼日利亚 vs 美国英语）。
+
 **核心矛盾**：在偏差数据集上表现良好的模型在真实部署场景中可能完全不可用。
+
 **本文要解决什么？** 构建首个全球代表性数据集，真实评估检测模型在社交媒体上的实际效果。
+
 **切入角度**：利用 TwitterDay 数据集（2022.9.21 全部 3.75 亿推文），按语言/国家随机采样+人工标注。
+
 **核心idea一句话**：用真实代表性数据首次量化学术评估与真实场景的性能差距，发现检测性能被严重高估。
 
 ## 方法详解

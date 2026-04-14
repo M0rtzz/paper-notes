@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2510.03253](https://arxiv.org/abs/2510.03253)  
 **代码**: 待确认  
 **领域**: Agent / 对齐  
-**关键词**: hierarchical DPO, preference learning, long-horizon agent, curriculum learning, action group  
+**关键词**: hierarchical DPO, preference learning, long-horizon agent, curriculum learning, action group
 
 ## 一句话总结
 提出 HPL 框架解决长时序 LLM Agent 中偏好学习的粒度不匹配问题，通过三级 DPO（轨迹级+步骤级+动作组级）和双层课程学习（子任务复杂度×样本难度），在 ALFWorld/WebShop/InterCode-SQL 上显著超越 ETO 和 IPR 等基线（平均 59.44 vs 55.43/55.49）。
 
 ## 研究背景与动机
 **领域现状**：DPO（Direct Preference Optimization）已成为 LLM 对齐的主流方法，但在长时序 Agent 任务中存在粒度不匹配——轨迹级 DPO 信号太粗（无法定位关键决策点），步骤级信号方差太大。
+
 **现有痛点**：现有 Agent 偏好学习方法要么用 outcome-level 奖励（整个轨迹成功/失败），要么用 step-level 但需要大量 rollout 降低方差。两种粒度各有优劣，缺乏统一框架。
+
 **核心矛盾**：太粗 → 无法精确信用分配；太细 → 方差过大，样本效率低。需要"刚好合适"的粒度。
+
 **本文要解决**：设计一个多粒度偏好学习框架，同时利用轨迹级、步骤级和动作组级的偏好信号。
+
 **切入角度**：将动作序列按语义一致性分组（如"导航到厨房"是一个组，"打开冰箱取物品"是另一个组），在组级别做偏好对比。
+
 **核心idea**：三级 DPO 提供互补的信用分配信号 + 双层课程学习从简到难引导训练。
 
 ## 方法详解

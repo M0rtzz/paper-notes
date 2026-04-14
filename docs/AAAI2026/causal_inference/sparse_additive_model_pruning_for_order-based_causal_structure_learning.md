@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.15306](https://arxiv.org/abs/2602.15306)  
 **代码**: 待确认  
 **领域**: causal_inference  
-**关键词**: causal discovery, sparse additive model, DAG pruning, group lasso, randomized tree embedding  
+**关键词**: causal discovery, sparse additive model, DAG pruning, group lasso, randomized tree embedding
 
 ## 一句话总结
 

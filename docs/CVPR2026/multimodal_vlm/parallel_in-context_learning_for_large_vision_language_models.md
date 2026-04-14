@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Parallel In-context Learning for Large Vision Language Models
 description: >-
-  [CVPR 2026][多模态][In-context Learning] 提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。
+  [CVPR 2026][多模态][上下文学习] 提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。
 tags:
   - CVPR 2026
   - 多模态
-  - In-context Learning
+  - 上下文学习
   - 推理加速
   - Product-of-Experts
   - 多模态学习
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2603.16092](https://arxiv.org/abs/2603.16092)  
 **代码**: 无  
 **领域**: 多模态VLM  
-**关键词**: In-context Learning, 推理加速, Product-of-Experts, 多模态学习, 上下文分块
+**关键词**: 上下文学习, 推理加速, Product-of-Experts, 多模态学习, 上下文分块
 
 ## 一句话总结
 提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。
 
 ## 研究背景与动机
 **领域现状**：大型视觉语言模型（LVLM）通过 MM-ICL 利用多个 demonstration 示例来适应新任务，示例越多性能越好。
+
 **现有痛点**：Transformer 的注意力计算代价随上下文长度二次增长，而 LVLM 中每张图片需要数千个视觉 token，导致增加 demonstration 数量会急剧增加推理延迟。例如 32-shot 比 8-shot 慢约 3.5 倍。
+
 **核心矛盾**：准确率与推理效率之间存在严重的 trade-off：性能需要更多 demonstration，但推理速度要求更短的上下文。
+
 **本文要解决什么**：在推理时高效近似长上下文 MM-ICL，无需额外训练或数据集。
+
 **切入角度**：各个 demonstration 之间是独立的，不需要必须作为一个长序列处理。可以分块并行处理后再集成结果。
+
 **核心idea**：将长 demonstration 上下文分成多个短"块"（chunk），并行处理后用加权 PoE 在 logit 层合并预测，理论依据来自集成学习中 Fano 不等式的 diversity-relevance 分析。
 
 ## 方法详解

@@ -1,15 +1,16 @@
 ---
+title: >-
+  [论文解读] Manipulating Feature Visualizations with Gradient Slingshots
 description: >-
-  提出梯度弹弓(Gradient Slingshots)方法操纵神经网络特征可视化结果：通过在分布外区域刻画抛物面激活景观，使优化从随机初始化收敛到预设目标图像，同时保持模型架构、性能和内部表示不变
+  [NeurIPS 2025][机器人][feature visualization] 提出梯度弹弓（Gradient Slingshots）方法，通过在分布外区域刻画抛物面形状的激活景观，使特征可视化（Feature Visualization）的梯度优化从随机初始化收敛到任意预设目标图像，同时保持模型架构不变、分类性能几乎不受影响、内部表示基本保留——暴露了 FV 作为审计工具的严重脆弱性。
 tags:
   - NeurIPS 2025
-  - 可解释性
-  - adversarial
+  - 机器人
   - feature visualization
-  - XAI安全
+  - adversarial attack
   - gradient slingshot
-  - CNN
-  - ViT
+  - XAI trustworthiness
+  - activation manipulation
 ---
 
 # Manipulating Feature Visualizations with Gradient Slingshots
@@ -40,19 +41,19 @@ Gradient Slingshots 通过微调在模型的分布外区域刻画特定激活景
 
 1.    **理论基础——梯度场设计**：
 
-    -    做什么：设计函数 ϕ 使其梯度场 ∇(ϕ∘η)(q) = γ(q^t - q) 处处指向目标点 q^t
+    -    功能：设计函数 ϕ 使其梯度场 ∇(ϕ∘η)(q) = γ(q^t - q) 处处指向目标点 q^t
     -    核心思路：积分得到抛物面 (ϕ∘η)(q) = -γ/2‖q^t - q‖² + C，在参数空间中以 q^t 为中心的凹函数；当步长 ε < 1/γ 时，迭代 q^(i+1) = (1-εγ)q^(i) + εγ·q^t 收敛到目标
     -    设计动机：保证 FV 优化从弹弓区域出发必然收敛到目标——不是启发式而是有收敛证明
 
 2.    **弹弓-隧道-着陆三区域**：
 
-    -    做什么：将操纵区域 M 定义为弹弓区域 B（FV 随机初始化的分布范围）、着陆区域 L（目标图像的邻域）和连接两者的隧道 T_B,L
+    -    功能：将操纵区域 M 定义为弹弓区域 B（FV 随机初始化的分布范围）、着陆区域 L（目标图像的邻域）和连接两者的隧道 T_B,L
     -    核心思路：仅在 M 内修改激活景观为抛物面，M 外完全保持原始行为；M 对应分布外区域（随机噪声到目标图像之间的路径），与自然图像分布不重叠
     -    设计动机：分布内不变 → 模型性能不变 → 攻击不可通过常规测试发现
 
 3.    **双损失微调**：
 
-    -    做什么：联合优化操纵损失和保留损失
+    -    功能：联合优化操纵损失和保留损失
     -    核心思路：操纵损失 L_M 强制分布外梯度场/激活值匹配抛物面；保留损失 L_P 保持分布内的激活不变（特别加权保护目标特征的激活值）
     -    设计动机：平衡操纵成功率和模型性能保持——通过系数 α 控制权衡
 

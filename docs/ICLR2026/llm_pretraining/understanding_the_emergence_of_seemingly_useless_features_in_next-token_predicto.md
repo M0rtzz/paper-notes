@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：LLM 通过 NTP（下一 token 预测）目标训练，即学习 $p(x_{t+1}|x_1 \cdots x_t)$。直觉上模型应该只学习对预测下一 token 有用的特征。部分合成任务的研究也确认了这一点——NTP 训练确实只学到即时有用的特征。
+
 **现有痛点**：但大量实证发现 LLM 学到了远超即时 NTP 所需的丰富特征——包括抽象输入特征重建、"世界模型"（如 OthelloGPT 编码的棋盘状态）、以及多步前瞻预测能力。为什么 NTP 目标能驱动这些"看似无用"特征的涌现？已有的可解释性研究主要从目的论视角（特征在成品模型中的算法角色）分析，未探究训练过程中的梯度信号来源。
+
 **核心矛盾**：NTP 目标只提供关于"下一个 token"的监督信号，但模型学到了关于"全局状态"和"未来 token"的特征。梯度信号是如何"穿越"只优化即时预测的目标函数，驱动这些跨位置特征的学习的？
+
 **本文要解决什么？** 从梯度信号的信息流视角解释 NTP-useless 特征的涌现机制。具体地：(a) 梯度信号通过什么路径到达参数？(b) 哪些路径负责学习"无用"特征？(c) 能否量化每种机制的贡献？
+
 **切入角度**：利用因果遮蔽 Transformer 的计算图结构，将梯度信号分解为三种独立路径，发展干预（消融机制观察影响）和归因（量化每种机制的影响力）两种分析方法。
+
 **核心idea一句话**：NTP-useless 特征通过 pre-caching（未来位置的损失信号通过注意力回传）和 circuit sharing（参数共享导致跨位置特征迁移）两种机制从 NTP 目标中涌现。
 
 ## 方法详解
@@ -41,25 +46,25 @@ tags:
 
 1. **梯度三分解（Proposition 3.1）**:
 
-    - 做什么：将总梯度 $\nabla_\theta L$ 精确分解为 direct + pre-cached + shared 三个独立成分
+    - 功能：将总梯度 $\nabla_\theta L$ 精确分解为 direct + pre-cached + shared 三个独立成分
     - 核心思路：通过 stop-gradient 操作定义每个成分。Direct：$\nabla_\theta L_i - \nabla_\theta L_i^{sg(k,i)}$；Pre-cached：$\nabla_\theta \sum_{j \neq i} [L_j - L_j^{sg(k,i)}]$；Shared：$\sum_j \nabla_\theta L_j^{sg(k,i)}$。三者之和恰好等于 $\nabla_\theta L$
     - 设计动机：Direct 成分只能驱动 NTP-useful 特征的学习（因为只和即时预测相关），而 pre-cached 和 shared 是"无用"特征涌现的潜在来源
 
 2. **干预方法：Myopic Training 和 m-Untied Training**:
 
-    - 做什么：通过消融 pre-caching 或 circuit sharing 观察其缺失的影响
+    - 功能：通过消融 pre-caching 或 circuit sharing 观察其缺失的影响
     - 核心思路：**Myopic training**（Wu et al. 2024 提出）阻止跨位置的梯度传播——在 K、V 矩阵处切断梯度，使位置 $i$ 不被激励计算对未来位置有用的特征。**m-Untied training**（本文提出）使用两套独立参数分别处理位置 $m$ 前后的序列，阻断 circuit sharing
     - 设计动机：Pre-caching 增加了表达力（使多层注意力的复杂构造成为可能），circuit sharing 实现了跨位置特征迁移（在某位置 NTP-useful 的特征通过共享参数被编码在另一位置）
 
 3. **归因方法：Feature Mismatch Influence**:
 
-    - 做什么：量化训练过程中每种梯度成分对特征涌现的具体贡献
+    - 功能：量化训练过程中每种梯度成分对特征涌现的具体贡献
     - 核心思路：定义 feature mismatch $R(x|\theta_1, \theta_2, w_i^k) = \frac{1}{2}(\langle w_i^k, r_{\theta_1,i}^k(x) \rangle - \langle w_i^k, r_{\theta_2,i}^k(x) \rangle)^2$，然后定义 influence $I_i^k(\theta, x | w_i^k, \theta^*, G) = \frac{d}{d\varepsilon} R(x|\theta + \varepsilon G, \theta^*, w_i^k)|_{\varepsilon=0}$，其中 $G$ 是某个梯度成分。对 Adam 优化器进行调整：为三个成分维护独立的动量，确保成分步长之和等于实际优化器步长
     - 设计动机：仅消融（干预）无法区分某个机制"是否有必要"和"实际贡献了多少"。归因方法通过积分每步的 influence 给出每种机制的定量贡献
 
 4. **大模型推断：Intervention-based Influence Ratio $Q(w)$**:
 
-    - 做什么：在无法重训的大模型上估计 pre-cached vs direct 的影响比
+    - 功能：在无法重训的大模型上估计 pre-cached vs direct 的影响比
     - 核心思路：**Proposition 5.1** 证明通过在训练后模型上做激活干预（ablation），计算 $Q(w) = \frac{\sum_{j>i+1} d_j^{/i}}{d_{i+1}^{/i}}$（干预后未来位置 KL 散度之和 / 即时位置 KL 散度），可以近似 pre-cached 与 direct influence 的比值
     - 设计动机：重训大模型太昂贵，但只需访问最终 checkpoint 也能通过干预实验推断特征的成因
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.00859](https://arxiv.org/abs/2511.00859)  
 **代码**: 无  
 **领域**: 自动驾驶  
-**关键词**: interpretability, sensor fusion, autonomous driving, modality decomposition, LRP  
+**关键词**: interpretability, sensor fusion, autonomous driving, modality decomposition, LRP
 
 ## 一句话总结
 

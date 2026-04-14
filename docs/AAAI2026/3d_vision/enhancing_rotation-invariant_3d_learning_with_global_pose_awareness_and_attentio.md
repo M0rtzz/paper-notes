@@ -50,14 +50,14 @@ tags:
 
 1. **Shadow-informed Pose Feature (SiPF)**:
 
-    - 做什么：将全局姿态信息编码到局部旋转不变特征中
+    - 功能：将全局姿态信息编码到局部旋转不变特征中
     - 核心思路：对参考点 $p_r$ 通过共享旋转 $R_g$ 生成影子点 $p_r' = p_r R_g$。在标准 PPF（4D：距离 + 3个角度）基础上，额外计算 SiPPF——参考点和邻居点各自与影子点的 PPF 差值：$\text{SiPPF}(p_r, p_r', p_j) = \frac{\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')}{\|\text{PPF}(p_r, p_r') - \text{PPF}(p_j, p_r')\|_2}$
     - 最终 SiPF 为 8D 向量：$\mathcal{P}_r^j = (\text{PPF}(p_r, p_j), \text{SiPPF}(p_r, p_r', p_j))$
     - 设计动机：PPF 对于在 LRF 主轴圆周上对称分布的邻居点产生相同值，丢失了位置信息。影子点提供了全局一致的参考方向，打破了这种对称性
 
 2. **Task-adaptive Shadow Locating**:
 
-    - 做什么：自适应学习最优的全局旋转 $R_g$ 来生成影子点
+    - 功能：自适应学习最优的全局旋转 $R_g$ 来生成影子点
     - 核心思路：用 Bingham 分布在单位四元数球面 $S^3$ 上建模旋转的不确定性：$\mathcal{B}(q | \mathbf{V}, \mathbf{\Lambda}) = \frac{1}{F(\mathbf{\Lambda})} \exp(q^\top \mathbf{V} \mathbf{\Lambda} \mathbf{V}^\top q)$
     - 从 $\mathbf{V}$ 中提取 mode 向量作为当前 epoch 的最优旋转候选
     - 联合损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}} + \delta \cdot \sqrt{(\mathcal{L}_{\text{bingham}} - 0.1 \cdot \mathcal{L}_{\text{task}})^2}$
@@ -65,7 +65,7 @@ tags:
 
 3. **RIAttnConv 算子**:
 
-    - 做什么：基于注意力机制聚合邻居特征，利用 SiPF 引导权重
+    - 功能：基于注意力机制聚合邻居特征，利用 SiPF 引导权重
     - 核心思路：用 MLP 将 SiPF $\mathcal{P}_r^j$ 映射为自适应核权重 $W_j^r$，然后用缩放点积注意力：$Q = \mathbf{W}_r, K = \mathbf{X}_r, V = \mathbf{W}_r \cdot \mathbf{X}_r$
     - 配合 Reversed EdgeConv：先聚合邻居特征得到 $\hat{x}_r$，再与参考点特征 $x_r$ 融合：$x_r' = g((\hat{x}_r - x_r) \oplus x_r)$
     - 设计动机：传统方法中核权重仅依赖局部相对姿态，当局部几何相同时核权重也相同。SiPF 引入的全局信息使得核权重在不同全局位置处产生差异，从而区分对称结构

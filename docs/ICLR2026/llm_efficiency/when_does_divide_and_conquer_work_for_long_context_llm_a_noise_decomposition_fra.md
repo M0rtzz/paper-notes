@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2506.16411](https://arxiv.org/abs/2506.16411)  
 **代码**: 待确认  
 **领域**: Agent / LLM 效率  
-**关键词**: long context, divide and conquer, noise decomposition, chunk size, task decomposition  
+**关键词**: long context, divide and conquer, noise decomposition, chunk size, task decomposition
 
 ## 一句话总结
 提出理论框架将长上下文任务失败分解为三类噪声（任务噪声/模型噪声/聚合器噪声），证明当模型噪声超线性增长时弱模型+分块处理可超越强模型单次处理，并给出快速估计最优 chunk size 的方法（3-5 个样本即可）。
 
 ## 研究背景与动机
 **领域现状**："分而治之"（D&C）策略——将长文档分块后分别处理再聚合——在长上下文 LLM 任务中被广泛使用，但何时有效、何时有害缺乏理论指导。
+
 **现有痛点**：分块引入的"任务噪声"（跨 chunk 依赖被切断）和分块消除的"模型噪声"（长上下文导致的混淆）之间的权衡缺乏量化框架。有时分块提帮助，有时反而降低性能。
+
 **核心矛盾**：长上下文 = 更多信息但更多混淆 vs 分块 = 更少混淆但丢失全局依赖。如何判断哪种策略更优？
+
 **本文要解决**：给出理论框架回答"何时 D&C 优于直接处理"，并提供实用的 chunk size 优化方法。
+
 **切入角度**：将系统保真度分解为三个独立噪声项的乘积，分析各项随上下文长度的增长行为。
+
 **核心idea**：保真度分解 $\rho_{sys} = \rho_{task} \times \rho_{agg} \times \rho_{model}$，当 $L_{model}$ 超线性增长时 D&C 必然优于全量。
 
 ## 方法详解

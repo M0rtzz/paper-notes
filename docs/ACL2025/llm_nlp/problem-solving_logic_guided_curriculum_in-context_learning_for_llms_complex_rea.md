@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Problem-Solving Logic Guided Curriculum ICL for LLMs Complex Reasoning
 description: >-
-  [ACL 2025][LLM/NLP][in-context learning] 提出问题解决逻辑引导的课程式 ICL，基于 QDMR 分析解题步骤结构来选择和排序 few-shot 示例（按步骤数从易到难），在多个复杂推理基准上超越现有 ICL 方法。
+  [ACL 2025][LLM/NLP][上下文学习] 提出问题解决逻辑引导的课程式 ICL，基于 QDMR 分析解题步骤结构来选择和排序 few-shot 示例（按步骤数从易到难），在多个复杂推理基准上超越现有 ICL 方法。
 tags:
   - ACL 2025
   - LLM/NLP
-  - in-context learning
-  - curriculum learning
+  - 上下文学习
+  - 课程学习
   - QDMR
   - demonstration selection
-  - reasoning
+  - 推理
 ---
 
 # Problem-Solving Logic Guided Curriculum ICL for LLMs Complex Reasoning
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.15401](https://arxiv.org/abs/2502.15401)  
 **代码**: https://github.com/maxuetao/CurriculumICL  
 **领域**: LLM/NLP  
-**关键词**: in-context learning, curriculum learning, QDMR, demonstration selection, reasoning
+**关键词**: 上下文学习, 课程学习, QDMR, demonstration selection, 推理
 
 ## 一句话总结
 提出问题解决逻辑引导的课程式 ICL，基于 QDMR 分析解题步骤结构来选择和排序 few-shot 示例（按步骤数从易到难），在多个复杂推理基准上超越现有 ICL 方法。
@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：ICL 通过 few-shot 示例增强 LLM 推理能力，关键在于示例选择和排序。
+
 **现有痛点**：现有方法依赖文本相似度或困惑度等表面特征，无法反映解题逻辑联系。
+
 **核心矛盾**：如何度量解题过程相似度而非文本相似度？
+
 **本文要解决什么？** 用 QDMR 分析的解题逻辑来选择和排序示例。
+
 **切入角度**：QDMR 将复杂问题分解为操作符序列（13种），即解题逻辑。
+
 **核心idea一句话**：选解题逻辑相似的示例 + 按步骤数从易到难排序 = 课程式 ICL。
 
 ## 方法详解

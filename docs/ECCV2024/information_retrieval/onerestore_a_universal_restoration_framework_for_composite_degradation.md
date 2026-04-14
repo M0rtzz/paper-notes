@@ -25,13 +25,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**: 图像复原研究已在单一退化场景（去雾、去雨、低光增强等）取得显著进展，但这些方法都是 One-to-One 模型，只能处理特定退化类型。
+
 **现有痛点**:
    - 现实场景中多种退化因素常同时出现（如夜间雾中下雨），One-to-One 模型无法应对；
    - One-to-Many 部分参数共享方法（如 All-weather Net）需要为每种退化设置独立编码器，模型随退化种类线性增长；
    - One-to-Many 全参数共享方法（如 AirNet、TransWeather）直接混合训练，无法感知具体退化类型，可能去雾时反而增加噪声。
+
 **核心矛盾**: 如何让单一模型既能识别复合退化的具体构成，又能按用户意图进行可控复原？
+
 **本文解决什么**: 构建统一的复合退化成像模型 + 场景描述符引导的可控复原框架。
+
 **切入角度**: 受人类标注流程启发——标注员需先了解退化类型才能评估质量，模型也应先"理解"退化场景再做复原。
+
 **核心 idea**: 用场景描述嵌入作为退化"开关"，通过 cross-attention 引导 Transformer 对目标退化因素精准复原。
 
 ## 方法详解
@@ -45,7 +50,7 @@ tags:
 
 1. **复合退化成像模型（Composite Degradation Formulation）**:
 
-    - 做什么：统一建模 4 类物理退化（低光照、雨、雪、雾）的级联过程
+    - 功能：统一建模 4 类物理退化（低光照、雨、雪、雾）的级联过程
     - 核心思路：
       - 低光照：基于 Retinex 理论，$I_l(x) = \frac{J(x)}{L(x)} L(x)^\gamma + \varepsilon$，$\gamma \in [2,3]$
       - 雨：$I_{rs}(x) = I_l(x) + \mathcal{R}$
@@ -55,14 +60,14 @@ tags:
 
 2. **场景描述符引导的 Transformer 块（SDTB）**:
 
-    - 做什么：在每个 Transformer 块中融入场景退化信息，引导特征提取方向
+    - 功能：在每个 Transformer 块中融入场景退化信息，引导特征提取方向
     - 核心思路：包含 SDCA + SA + FFN 三个子模块。SDCA 使用场景描述嵌入生成 query，图像特征生成 key/value：
     $\text{SDCA}(\mathbf{Q}_t, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left(\frac{\mathbf{Q}_t \cdot \mathbf{K}^\top}{\lambda}\right) \mathbf{V}$
     - 设计动机：传统 self-attention 只在图像特征内部交互，无法利用退化类型先验。用场景描述生成 query 相当于"告诉"模型该关注哪种退化，实现从被动检测到主动引导的转变。
 
 3. **场景描述符生成（Scene Descriptor Generation）**:
 
-    - 做什么：提供两种模式生成场景描述嵌入——手动输入文本 vs 自动视觉属性提取
+    - 功能：提供两种模式生成场景描述嵌入——手动输入文本 vs 自动视觉属性提取
     - 核心思路：
       - 文本嵌入器：5 种基本场景文本经 GloVe → 12 种文本嵌入（含 7 种组合退化，由对应单退化嵌入取平均生成）→ MLP 精化
       - 视觉嵌入器：ResNet-18 提取视觉特征 → conv + dropout + linear → 视觉嵌入 → cosine similarity 匹配最相似文本嵌入
@@ -71,7 +76,7 @@ tags:
 
 4. **复合退化复原损失（CDRL）**:
 
-    - 做什么：在传统对比损失基础上引入多个退化负样本，增强模型区分能力
+    - 功能：在传统对比损失基础上引入多个退化负样本，增强模型区分能力
     - 核心思路：
     $\mathcal{L}_c = \sum_{k=1}^{K} \xi_k \frac{\mathcal{L}_1(V_k(J), V_k(\hat{J}))}{\xi_c \mathcal{L}_1(V_k(\hat{J}), V_k(I)) + \sum_{o=1}^{O} \xi_o \mathcal{L}_1(V_k(I_o), V_k(\hat{J}))}$
       使用 VGG-16 的 3、8、15 层特征，$O=10$ 个其他退化负样本

@@ -8,7 +8,7 @@ tags:
   - LLM/NLP
   - Sketch Colourisation
   - 扩散模型
-  - Training-Free
+  - training-free
   - Latent Composition
   - 注意力机制
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2405.18716](https://arxiv.org/abs/2405.18716)  
 **代码**: 无  
 **领域**: Image Generation / Sketch Colourisation  
-**关键词**: Sketch Colourisation, Diffusion Models, Training-Free, Latent Composition, Self-Attention Injection
+**关键词**: Sketch Colourisation, Diffusion Models, training-free, Latent Composition, Self-Attention Injection
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 线稿上色是动画分镜、产品设计、概念艺术等创意工作流中的基础任务。尽管大规模扩散模型在图像生成上取得了突破，但在细粒度、区域级别的颜色控制上仍面临挑战：
 
 **文本引导的空间歧义**：文本提示虽然语义丰富，但无法精确指定"哪个区域用什么颜色"，经常出现颜色溢出和语义错误（如图1b所示）
+
 **传统方法效率低**：手动分配颜色或基于参考图的颜色迁移过于繁琐
+
 **训练开销大**：ControlNet等方法需要微调超网络，计算成本高昂
 
 本文的核心洞察：解决方案不是更多训练，而是一种创新的无训练组合框架——将全局一致性和局部控制分离处理。

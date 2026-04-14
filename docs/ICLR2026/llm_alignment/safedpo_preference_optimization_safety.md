@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.20065](https://arxiv.org/abs/2505.20065)  
 **代码**: 无  
 **领域**: AI Safety / LLM对齐  
-**关键词**: safety alignment, DPO, constrained optimization, safety margin, PKU-SafeRLHF  
+**关键词**: safety alignment, DPO, constrained optimization, safety margin, PKU-SafeRLHF
 
 ## 一句话总结
 重新审视安全约束 RLHF 目标并证明其存在闭式最优策略，据此推导出等价的可处理目标 SafeDPO，仅需在标准 DPO 上加入安全感知数据变换和安全 margin 项（1 个额外超参数），无需奖励/代价模型，在 PKU-SafeRLHF-30K 上实现 96.87% 无害率且保持竞争力的有用性，训练速度比 SafeRLHF 快 25×。
@@ -47,19 +47,19 @@ SafeDPO 在标准 DPO pipeline 上做两个修改：(1) 安全感知数据变换
 
 1. **代价增强奖励与闭式最优策略**
 
-    - 做什么：将硬安全约束转化为显式的奖励修改
+    - 功能：将硬安全约束转化为显式的奖励修改
     - 核心思路：$r_c(x,y) = r(x,y)$ if $c(x,y) \leq 0$（安全），$-\infty$ otherwise（不安全）。由此闭式最优策略为 $\pi^*(y|x) = \frac{1}{Z(x)} \pi_{\text{ref}}(y|x) \exp(\frac{1}{\beta} r_c(x,y))$，不安全响应自动获得零概率
     - 设计动机：将看似不可处理的硬约束问题转化为标准的 KL 正则化框架，允许 DPO 式重参数化
 
 2. **安全感知数据变换 $T$**
 
-    - 做什么：根据安全标签重新整理偏好对
+    - 功能：根据安全标签重新整理偏好对
     - 核心思路：给定 $(x, y_w, y_l, h_w, h_l)$，$h=1$ 表示不安全：(a) $h_w=0$: 保持不变；(b) $h_w=1, h_l=0$: **交换** winner 和 loser；(c) $h_w=1, h_l=1$: **丢弃**
     - 设计动机：消融实验证明这一步是最关键的——仅给其他 DPO 变体加 margin 效果有限，但安全感知变换可显著提升安全性
 
 3. **SafeDPO 损失与安全 Margin**
 
-    - 做什么：在标准 DPO loss 中增加安全 margin 项
+    - 功能：在标准 DPO loss 中增加安全 margin 项
     - 核心思路：$\mathcal{L}(\theta; \Delta) = -\mathbb{E}[\log \sigma(\beta \log \frac{\pi_\theta(\tilde{y}_w|x)}{\pi_{\text{ref}}(\tilde{y}_w|x)} - \beta \log \frac{\pi_\theta(\tilde{y}_l|x)}{\pi_{\text{ref}}(\tilde{y}_l|x)} - (\tilde{h}_l - \tilde{h}_w)\Delta)]$。Margin $\Delta \geq 0$ 仅在安全-不安全对上激活（$\tilde{h}_l - \tilde{h}_w = 1$），增大安全响应的优势
     - 设计动机：**Proposition 4.4** 证明 $\Delta$ 不改变最优解集（optimality invariance），但改善优化动态——加速远离不安全区域
 

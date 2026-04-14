@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region
 description: >-
-  [ACL 2025][目标检测][LLM safety] 揭示了安全对齐LLM的一个普遍现象：安全机制过度锚定在chat template区域（TASA），导致越狱攻击可通过干扰template区域的信息处理来绕过安全防线，并提出通过将安全探针从template区域迁移到生成阶段来缓解该漏洞。
+  [ACL 2025][目标检测][LLM 安全] 揭示了安全对齐LLM的一个普遍现象：安全机制过度锚定在chat template区域（TASA），导致越狱攻击可通过干扰template区域的信息处理来绕过安全防线，并提出通过将安全探针从template区域迁移到生成阶段来缓解该漏洞。
 tags:
   - ACL 2025
   - 目标检测
-  - LLM safety
-  - jailbreak
+  - LLM 安全
+  - 越狱攻击
   - template-anchored alignment
   - activation patching
-  - mechanistic interpretability
+  - 机制可解释性
 ---
 
 # Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2502.13946](https://arxiv.org/abs/2502.13946)  
 **代码**: [GitHub](https://github.com/cooperleong00/TASA) (有)  
 **领域**: LLM安全/对齐  
-**关键词**: LLM safety, jailbreak, template-anchored alignment, activation patching, mechanistic interpretability
+**关键词**: LLM 安全, 越狱攻击, template-anchored alignment, activation patching, 机制可解释性
 
 ## 一句话总结
 揭示了安全对齐LLM的一个普遍现象：安全机制过度锚定在chat template区域（TASA），导致越狱攻击可通过干扰template区域的信息处理来绕过安全防线，并提出通过将安全探针从template区域迁移到生成阶段来缓解该漏洞。
 
 ## 研究背景与动机
 **领域现状**: LLM经过safety alignment训练后能拒绝有害请求，但仍然容易被相对简单的jailbreak攻击绕过，安全对齐被认为是"浅层"的。
+
 **现有痛点**: 现有研究发现安全对齐主要作用于模型的起始输出token，但对脆弱性的根本原因缺乏深入理解，难以设计有效的防御策略。
+
 **核心矛盾**: LLM在用户输入和模型输出之间插入固定template（如`<|start_header_id|>assistant<|end_header_id|>`），template区域位于输出前的关键位置，可能被安全机制当作"捷径"（shortcut）。
+
 **本文要解决什么**: 验证安全机制是否锚定在template区域，分析这种锚定如何导致越狱漏洞，并探索将安全机制从template区域"解耦"的防御方法。
+
 **切入角度**: 从mechanistic interpretability出发，通过attention分析和activation patching进行因果验证。
+
 **核心idea一句话**: LLM的安全决策过度依赖template区域聚合的信息，攻击者通过干扰该区域即可绕过安全防线。
 
 ## 方法详解

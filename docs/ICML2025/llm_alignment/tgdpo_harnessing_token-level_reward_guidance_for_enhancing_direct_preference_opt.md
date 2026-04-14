@@ -8,7 +8,7 @@ tags:
   - LLM对齐
   - DPO
   - token-level reward
-  - 偏好优化
+  - preference optimization
   - RLHF
   - 细粒度奖励引导
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.14574](https://arxiv.org/abs/2506.14574)  
 **代码**: [dvlab-research/TGDPO](https://github.com/dvlab-research/TGDPO)  
 **领域**: LLM对齐/RLHF  
-**关键词**: DPO, token-level reward, 偏好优化, RLHF, 细粒度奖励引导
+**关键词**: DPO, token-level reward, preference optimization, RLHF, 细粒度奖励引导
 
 ## 一句话总结
 

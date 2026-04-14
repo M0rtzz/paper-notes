@@ -2,15 +2,15 @@
 title: >-
   [论文解读] The Impact of Token Granularity on the Predictive Power of Language Model Surprisal
 description: >-
-  [ACL 2025][LLM/NLP][token granularity] 本文系统研究了子词 token 粒度（词表大小 256~128K）对语言模型 surprisal 预测人类阅读时间能力的影响，发现约 8K 词表大小的中等粒度 token 在自然阅读时间预测上最优，而更粗粒度（更接近词级）的 token 在花园路径句法效应上表现更敏感。
+  [ACL 2025][LLM/NLP][token 粒度] 系统研究子词 token 粒度（词表大小 256~128K）对 LM surprisal 预测人类阅读时间能力的影响，发现 ~8K 词表的中等粒度在自然阅读时间预测上最优（甚至优于 GPT-2），而粗粒度 token 在花园路径句法效应上更敏感，揭示认知建模的最优分词粒度并非 NLP 通用标准。
 tags:
   - ACL 2025
   - LLM/NLP
-  - token granularity
-  - subword tokenization
-  - surprisal
-  - cognitive modeling
-  - reading times
+  - token 粒度
+  - 子词分词
+  - 惊奇度
+  - 认知建模
+  - 阅读时间
 ---
 
 # The Impact of Token Granularity on the Predictive Power of Language Model Surprisal
@@ -42,17 +42,17 @@ tags:
 ### 关键设计
 
 1. **11 级 token 粒度的系统化控制**:
-    - 做什么：训练词表大小 $|V| \in \{256, 512, 1K, 2K, 4K, 8K, 16K, 32K, 48K, 64K, 128K\}$ 的 ULM 分词器
+    - 功能：训练词表大小 $|V| \in \{256, 512, 1K, 2K, 4K, 8K, 16K, 32K, 48K, 64K, 128K\}$ 的 ULM 分词器
     - 核心思路：ULM 分词器以字符为基本单元（而非 BPE 的 bytes），通过最大化子词序列的联合概率迭代剪枝词表，在 100 万 Wiki-40B 文章上训练。$|V|=256$ 接近字符级（"journey" → 7 token），$|V|=128K$ 接近词级（"journey" → 1 token）
     - 设计动机：选用 ULM（而非 BPE）因为字符比 byte 更可解释；覆盖从 256 到 128K 的极宽范围以全面映射粒度-质量关系
 
 2. **Mamba-2 架构解决序列长度不可比问题**:
-    - 做什么：用状态空间模型（SSM）替代 Transformer 训练 LM
+    - 功能：用状态空间模型（SSM）替代 Transformer 训练 LM
     - 核心思路：不同粒度导致同一文本的 token 序列长度差异巨大（$|V|=256$ 下序列长度可达 $|V|=128K$ 的数倍）。Transformer 的 self-attention 有 $O(n^2)$ 空间复杂度，对长序列不友好。Mamba-2 基于 SSM 的线性复杂度天然适合处理变长序列。训练 Small/Medium/Large 三种规模：6/12/24 层，256/512/768 维嵌入，参数量 2.6M/19.8M/88M（不含嵌入层）
     - 设计动机：若用 Transformer 并设固定最大长度，不同粒度的 LM 会条件于不同量的上下文，破坏实验公平性
 
 3. **Whitespace 概率修正**:
-    - 做什么：修正从 subword token 概率推导词概率时的归一化问题
+    - 功能：修正从 subword token 概率推导词概率时的归一化问题
     - 核心思路：ULM 分词器在 token 前添加空格前缀，朴素计算词概率时所有词概率之和可能超过 1（因为未标记词的结束位置）。应用 Oh and Schuler (2024) 的修正方法，将空格概率重新分配给前一个 token
     - 设计动机：确保词级 surprisal 在概率论上正确
 

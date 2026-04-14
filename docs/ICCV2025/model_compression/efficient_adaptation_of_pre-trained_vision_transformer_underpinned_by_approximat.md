@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Efficient Adaptation of Pre-Trained Vision Transformer Underpinned by Approximation Theory
 description: >-
-  [ICCV 2025][模型压缩][参数高效微调] 本文发现预训练 ViT 权重矩阵的行/列向量具有近似正交性，而 LoRA/Adapter 的投影矩阵不具备此性质；提出 AOFT 策略，用单个可学习向量生成近似正交的下/上投影矩阵，使其与骨干网络性质对齐，从而降低泛化误差上界，在 FGVC 和 VTAB-1k 上用更少参数达到竞争性能。
+  [ICCV 2025][模型压缩][parameter-efficient fine-tuning] 本文发现预训练 ViT 权重矩阵的行/列向量具有近似正交性，而 LoRA/Adapter 的投影矩阵不具备此性质；提出 AOFT 策略，用单个可学习向量生成近似正交的下/上投影矩阵，使其与骨干网络性质对齐，从而降低泛化误差上界，在 FGVC 和 VTAB-1k 上用更少参数达到竞争性能。
 tags:
   - ICCV 2025
   - 模型压缩
-  - 参数高效微调
+  - parameter-efficient fine-tuning
   - 近似正交
   - LoRA
   - Adapter
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2507.13260](https://arxiv.org/abs/2507.13260)  
 **代码**: [Google Drive](https://drive.google.com/file/d/1rg3JYfkmeLGDbRWXspO22wxVspbtnthV/view?usp=drive_link)  
 **领域**: 模型压缩  
-**关键词**: 参数高效微调, 近似正交, LoRA, Adapter, Vision Transformer
+**关键词**: parameter-efficient fine-tuning, 近似正交, LoRA, Adapter, Vision Transformer
 
 ## 一句话总结
 本文发现预训练 ViT 权重矩阵的行/列向量具有近似正交性，而 LoRA/Adapter 的投影矩阵不具备此性质；提出 AOFT 策略，用单个可学习向量生成近似正交的下/上投影矩阵，使其与骨干网络性质对齐，从而降低泛化误差上界，在 FGVC 和 VTAB-1k 上用更少参数达到竞争性能。
@@ -30,6 +30,7 @@ tags:
 作者通过仔细分析预训练 ViT 的权重矩阵 $\mathbf{W}_q, \mathbf{W}_v$ 等，观察到一个重要且此前未被充分利用的现象：
 
 **预训练骨干矩阵的行/列向量之间呈现近似正交性**——角度分布集中在 90° 附近
+
 **LoRA/Adapter 训练出的下/上投影矩阵不具备此性质**——角度分布分散，远非正交
 
 正交性在数学上意味着向量间的独立性，从泛化理论的角度看，正交的权重矩阵具有更小的 L2 范数，进而降低了 Rademacher 复杂度给出的泛化误差上界。
@@ -44,7 +45,7 @@ AOFT 是一种通用的投影矩阵替代策略，可以插入到 LoRA、Adapter
 ### 关键设计
 1. **近似正交矩阵生成**
 
-    - 做什么：用一个向量 $\vec{q} = (q_0, q_1, \cdots, q_N)^\top$ 构造正交矩阵 $\mathbf{Q}$
+    - 功能：用一个向量 $\vec{q} = (q_0, q_1, \cdots, q_N)^\top$ 构造正交矩阵 $\mathbf{Q}$
     - 核心思路：$\mathbf{Q}$ 的构造基于 Householder 变换的推广形式。矩阵 $\mathbf{Q}$ 的第 $(i,j)$ 元素为：
       - 第一行：$q_0, -q_1, -q_2, \cdots, -q_N$
       - 其余：对角元素 $1 - \frac{q_i q_i}{1+q_0}$，非对角元素 $-\frac{q_j q_i}{1+q_0}$
@@ -61,7 +62,7 @@ AOFT 是一种通用的投影矩阵替代策略，可以插入到 LoRA、Adapter
 
 3. **AOFT* 变体：可学习缩放**
 
-    - 做什么：引入可学习缩放向量 $\vec{\lambda}$ 进一步增强灵活性
+    - 功能：引入可学习缩放向量 $\vec{\lambda}$ 进一步增强灵活性
     - 实现：$(\mathbf{W}_{down} \odot \vec{\lambda}^\top) \mathbf{W}_{up}$
     - 提供对每个秩分量的独立缩放控制
 

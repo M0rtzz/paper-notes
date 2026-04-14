@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：VGGT 是 1.2B 参数的统一 3D 重建模型，单次前向即完成深度估计、点图回归、相机位姿预测和点跟踪。性能卓越但计算/内存开销巨大，限制了实际部署。
+
 **现有痛点**：PTQ 在 LLM 和 2D 视觉模型上成熟，但对 VGGT 存在两个独特挑战：(1) 数据无关的特殊 token（camera/register token）导致极端重尾激活分布；(2) 3D 多视图数据的语义复杂性使校准样本选择高度不稳定。
+
 **核心矛盾**：特殊 token 是 VGGT 多任务推理的关键设计，但其与常规图像 token 的分布差异导致量化时大量 bit 被浪费在极端值上。
+
 **本文要解决什么？** 设计 VGGT 专用的 PTQ 方案，在低 bit 量化下保持重建精度。
+
 **切入角度**：从分布分析入手，发现特殊 token 是重尾根源，多视图帧间关系是校准的关键结构。
+
 **核心 idea 一句话**：全局 Hadamard 旋转分散特殊 token 的尖峰 + 局部通道平滑降低旋转后残余方差，配合帧感知多样化采样构建稳健校准集。
 
 ## 方法详解
@@ -42,25 +47,25 @@ QuantVGGT 包含两个核心组件：(1) DSFQ（Dual-Smoothed Fine-Grained Quant
 
 1. **Pre-Global Rotation（全局 Hadamard 旋转）**:
 
-    - 做什么：分散特殊 token 导致的激活尖峰
+    - 功能：分散特殊 token 导致的激活尖峰
     - 核心思路：对激活 $\mathbf{X}$ 和权重 $\mathbf{W}$ 同时左乘随机 Hadamard 矩阵 $\mathbf{H}$，利用中心极限效应将重尾分布近似为高斯分布。$\mathbf{XW}^\top = (\mathbf{XH})(\mathbf{WH})^\top$
     - 设计动机：Hadamard 变换将少数 channel 的极端值均匀分散到所有 channel
 
 2. **Post-Local Smooth（局部通道平滑）**:
 
-    - 做什么：降低旋转后残余的通道间方差
+    - 功能：降低旋转后残余的通道间方差
     - 核心思路：在旋转后的空间中计算缩放因子 $\hat{c}_i = \frac{\max(|\mathbf{X}_i\mathbf{H}|)^\alpha}{\max(|\mathbf{W}_i\mathbf{H}|)^{1-\alpha}}$，$\alpha=0.5$
     - 设计动机：旋转只分散全局尖峰，不消除局部通道差异。先旋转再缩放比先缩放再旋转更稳定（后者会破坏缩放的收益）
 
 3. **Fine-Grained Quantization Granularity**:
 
-    - 做什么：降低量化粒度以减少误差
+    - 功能：降低量化粒度以减少误差
     - 核心思路：权重按 $d_{out}$ 维度量化，激活按 token 维度量化（利用矩阵乘法的内积求和只在 $d_{in}$ 上进行）
     - 设计动机：μ-coherent 理论表明更细粒度的量化能显著降低量化难度
 
 4. **Noise-Filtered Diverse Sampling（NFDS）**:
 
-    - 做什么：构建稳健的校准数据集
+    - 功能：构建稳健的校准数据集
     - 核心思路：两步流程——(a) 从深层激活统计计算每个样本的 noise score（均值和方差的标准分 z-score 的 L2 范数），过滤高分异常样本；(b) 利用 VGGT 的帧间相关性（第一帧 vs 后续帧的归一化相似度向量 $c_t^i$）做 K-means 聚类，均匀采样构建校准集
     - 设计动机：Theorem 3.2 证明校准集应该在数据空间的各子域按尺度比例采样；帧间关系是 VGGT 的归纳偏置核心
 

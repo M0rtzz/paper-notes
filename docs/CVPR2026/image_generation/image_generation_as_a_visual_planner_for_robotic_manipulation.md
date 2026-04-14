@@ -47,9 +47,9 @@ $$\mathbf{D} = \begin{bmatrix} D^{\text{img}_1} & D^{\text{img}_2} & D^{\text{im
 
 2. **双模态条件控制**：
 
-   - **文本条件生成**：给定语言指令（如 "pick up the red cup"）和首帧图像，通过 CLIP + T5 编码文本嵌入 $c_{\text{text}} = \{e_{\text{clip}}, E_{\text{t5}}\}$，经 cross-attention 注入 DiT。侧重**语义理解**——模型需理解高层语义并转化为合理动作序列。
+    - **文本条件生成**：给定语言指令（如 "pick up the red cup"）和首帧图像，通过 CLIP + T5 编码文本嵌入 $c_{\text{text}} = \{e_{\text{clip}}, E_{\text{t5}}\}$，经 cross-attention 注入 DiT。侧重**语义理解**——模型需理解高层语义并转化为合理动作序列。
    
-   - **轨迹条件生成**：在首帧上渲染 2D 末端执行器轨迹（红→蓝表示时间进程），叠加后的图像替代首帧作为条件输入 $\tilde{\mathbf{D}}^{\tau}$。侧重**空间精确控制**——模型沿提供的轨迹路径生成动作。
+    - **轨迹条件生成**：在首帧上渲染 2D 末端执行器轨迹（红→蓝表示时间进程），叠加后的图像替代首帧作为条件输入 $\tilde{\mathbf{D}}^{\tau}$。侧重**空间精确控制**——模型沿提供的轨迹路径生成动作。
 
 3. **LoRA 参数高效适配**：对 DiT 中 self-attention 的 query/value 投影和前馈层应用 LoRA（低秩 $r \ll d$），仅训练 $O(rd)$ 参数而非 $O(d^2)$，实现从通用图像生成到机器人视频领域的高效迁移，不增加推理延迟。
 

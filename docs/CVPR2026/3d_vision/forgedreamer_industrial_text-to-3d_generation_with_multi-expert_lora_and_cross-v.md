@@ -2,11 +2,11 @@
 title: >-
   [论文解读] ForgeDreamer: Industrial Text-to-3D Generation with Multi-Expert LoRA and Cross-View Hypergraph
 description: >-
-  [CVPR 2026][3D视觉][Text-to-3D] 提出 ForgeDreamer 框架，通过多专家 LoRA 师生蒸馏解决工业领域语义适配问题，结合跨视角超图几何增强实现高阶几何一致性约束，在工业文本到3D生成任务上超越现有方法。
+  [CVPR 2026][3D视觉][文生3D] 提出 ForgeDreamer 框架，通过多专家 LoRA 师生蒸馏解决工业领域语义适配问题，结合跨视角超图几何增强实现高阶几何一致性约束，在工业文本到3D生成任务上超越现有方法。
 tags:
   - CVPR 2026
   - 3D视觉
-  - Text-to-3D
+  - 文生3D
   - 工业3D生成
   - LoRA蒸馏
   - 超图几何一致性
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.09266](https://arxiv.org/abs/2603.09266)  
 **代码**: [GitHub](https://github.com/Junhaocai27/ForgeDreamer)  
 **领域**: 3D视觉  
-**关键词**: Text-to-3D, 工业3D生成, LoRA蒸馏, 超图几何一致性, 3D Gaussian Splatting
+**关键词**: 文生3D, 工业3D生成, LoRA蒸馏, 超图几何一致性, 3D Gaussian Splatting
 
 ## 一句话总结
 
@@ -30,6 +30,7 @@ tags:
 文本到3D生成技术（如 DreamFusion、ProlificDreamer）在自然场景上取得了显著进展，但在工业应用中面临两个关键瓶颈：
 
 **领域适配挑战**：预训练扩散模型在自然场景上训练，对工业组件（螺丝、螺母、电子元件等）的语义理解不足。传统 LoRA 融合方案在合并多个类别特定的适配器时会产生知识干扰
+
 **几何推理不足**：现有方法依赖成对（pairwise）一致性约束，无法捕捉工业精密制造所需的高阶结构依赖关系，导致螺纹纹理、连接器接口等细节出现伪影
 
 现有工业3D数据集（如 MVTec 3D-AD、Real-IAD）视角有限、成像条件不一致，不适合文本到3D生成任务，因此作者还构建了一个受控多视角工业数据集。

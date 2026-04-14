@@ -49,19 +49,19 @@ DWGF 框架：在隐空间 $\mathcal{Z}$ 中维护 $N$ 个粒子 $\{z_0^{(i)}\}$
 
 1. **KL 散度梯度流的推导（$\nabla \delta\mathcal{F}/\delta\mu$）**
 
-    - 做什么：推导像素空间后验约束在隐空间的梯度。
+    - 功能：推导像素空间后验约束在隐空间的梯度。
     - 核心思路：目标是最小化 $D_{\text{KL}}(q_\mu(x_0|y) \| p(x_0|y))$，其中 $q_\mu(x_0|y) = \int p_{\phi^-}(x_0|z_0) \mu(z_0|y) dz_0$。通过第一变分和重参数化技巧，梯度简化为：$\nabla_{z_0} \frac{\delta\mathcal{F}}{\delta\mu} = -\mathbb{E}_\epsilon[\nabla_{x_0} \log p(x_0|y) \cdot \frac{\partial \mathcal{D}_{\phi^-}(z_0)}{\partial z_0}]$。后验得分分解为似然得分（高斯可算）+ 数据先验得分（用 VAE 编码器近似）。
     - 设计动机：从 KL 散度出发保证了理论上的正确性——梯度流收敛到最小化信息散度的分布。利用 VAE 编解码器的链式法则自然地在隐空间和像素空间之间传递梯度。
 
 2. **加权 KL 散度正则项（$\mathcal{R}[\mu]$）**
 
-    - 做什么：利用预训练扩散模型作为隐空间先验正则。
+    - 功能：利用预训练扩散模型作为隐空间先验正则。
     - 核心思路：$\mathcal{R}(\mu) = \int_0^T w(s) D_{\text{KL}}(\mu(z_s|y) \| p_{\theta^-}(z_s)) ds$，在扩散过程的所有噪声水平 $s$ 上都要求粒子分布接近扩散模型的边际分布。通过前向核 $p(z_s|z_0)$ 将 $z_0$ 的分布推到各噪声水平，与扩散模型在该水平的得分做比较。梯度：$\nabla_{z_0} \frac{\delta\mathcal{R}}{\delta\mu} = \mathbb{E}_{s,\epsilon}[\tilde{w}(s)(\nabla_{z_s} \log \int p(z_s|z_0) \mu(z_0|y) dz_0 - \nabla_{z_s} \log p_{\theta^-}(z_s)) \cdot \alpha_s]$。
     - 设计动机：加权 KL 散度是一个理论上良好的正则化——非负、凸、且与标准 KL 散度在同一点取最小（Theorem 2.1）。在所有噪声水平上正则化提供了多尺度的先验约束。
 
 3. **粒子 ODE 系统 + Adam 优化器**
 
-    - 做什么：用 $N$ 个粒子近似梯度流并高效求解。
+    - 功能：用 $N$ 个粒子近似梯度流并高效求解。
     - 核心思路：ODE $\frac{dz_{0,t}}{dt} = -(\nabla_{z_0} \frac{\delta\mathcal{F}}{\delta\mu} + \gamma \nabla_{z_0} \frac{\delta\mathcal{R}}{\delta\mu})$ 的粒子积分用蒙特卡洛近似。不用简单的欧拉步而是用 Adam 优化器模拟——将梯度流的漂移项视为梯度，利用 Adam 的自适应学习率加速收敛。
     - 设计动机：逆问题的优化景观复杂，简单欧拉步收敛慢；Adam 的动量和自适应步长显著加速。
 

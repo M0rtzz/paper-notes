@@ -1,12 +1,17 @@
 ---
-description: 结合目标条件值学习与自动机引导强化学习，支持LTL规范下的序列目标达成与非平稳安全约束
+title: >-
+  [论文解读] Automaton Constrained Q-Learning
+description: >-
+  [NeurIPS 2025][LTL] 提出 ACQL（Automaton Constrained Q-Learning），将线性时序逻辑（LTL）任务规范转化为自动机，结合目标条件学习和最小安全约束，首次在连续控制环境中可扩展地同时支持时序目标序列和非平稳安全约束。
 tags:
-- reinforcement-learning
-- LTL
-- safe-RL
-- temporal-logic
-- robotics
+  - NeurIPS 2025
+  - LTL
+  - 自动机
+  - 安全约束
+  - 目标条件RL
+  - CMDP
 ---
+
 # Automaton Constrained Q-Learning
 
 **会议**: NeurIPS 2025  
@@ -40,12 +45,12 @@ ACQL 构建了一个增强乘积 CMDP：
 ### 关键设计
 
 1. **目标条件 + HER 解决稀疏奖励**:
-    - 做什么：在乘积 CMDP 状态中包含子目标列表 $g^+$，使用 HER 从失败尝试中学习
+    - 功能：在乘积 CMDP 状态中包含子目标列表 $g^+$，使用 HER 从失败尝试中学习
     - 核心思路：自动机状态对应的子目标被显式编码到观测中，HER 可追溯性地为到达过的子目标分配奖励
     - 设计动机：此前 LTL+RL 方法的核心瓶颈是稀疏奖励；GCRL 技术可大幅缓解此问题
 
 2. **最小安全约束替代累积代价**:
-    - 做什么：用最小安全约束 $\mathbb{E}[\min_t c^A(s_t, a_t)] > \mathcal{L}$ 替代标准 CMDP 的累积代价约束
+    - 功能：用最小安全约束 $\mathbb{E}[\min_t c^A(s_t, a_t)] > \mathcal{L}$ 替代标准 CMDP 的累积代价约束
     - 核心思路：将安全判定转为分类问题（安全/不安全），而非回归未来累积代价；使用 $Q^c(s,a) = \mathbb{E}[\min_t c^A(s_t, a_t)]$ 和渐进调度的折扣因子 $\gamma_c \to 1$
     - 设计动机：累积代价预测需建模长期依赖，方差大且收敛慢；最小安全简化为二分类，且 $\mathcal{L}=0$ 对所有任务通用
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2412.08972](https://arxiv.org/abs/2412.08972)  
 **代码**: [https://github.com/skyriver-2000/rulearena](https://github.com/skyriver-2000/rulearena) (有)  
 **领域**: LLM推理 / Benchmark  
-**关键词**: rule-guided reasoning, LLM evaluation, real-world benchmark, complex instruction following, tool augmentation  
+**关键词**: rule-guided reasoning, LLM evaluation, real-world benchmark, complex instruction following, tool augmentation
 
 ## 一句话总结
 提出 RuleArena——一个基于航空行李费、NBA交易规则、税务法规三个真实场景的benchmark，用于评估LLM遵循复杂自然语言规则进行推理的能力；实验发现即使最强模型（o1-preview）在最难任务上准确率也不足50%，暴露了LLM在规则召回、规则区分和数学计算三方面的系统性缺陷。

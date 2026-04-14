@@ -26,10 +26,15 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：LVLM（如 LLaVA、InternVL、Qwen-VL）在多模态任务中表现出色，但模型体积大、推理慢，后训练量化（PTQ）是常用的加速手段。
+
 **现有痛点**：现有 LVLM 量化方法（如 MBQ）仅在模态级别衡量 token 敏感度（视觉 vs 文本），忽略了跨 token 的复杂交互以及 token 间的量化敏感度差异。
+
 **核心矛盾**：随着 token 在模型中逐层交互，模态边界逐渐模糊，同一模态内不同 token 的量化敏感度也存在巨大差异（massive activations、layer heterogeneity、sub-layer divergence、token variability 四个现象）。
+
 **本文要解决什么？** 如何在 token 级别精确估计量化敏感度，并利用这些信息指导更精细的 channel-wise equalization。
+
 **切入角度**：从机械可解释性中的公理化归因出发，利用积分梯度量化每个 token 从量化参考到实际输入的敏感度。
+
 **核心idea**：用 Quantization-aware Integrated Gradients（QIG）替代模态级敏感度估计，在 token 级别指导量化校准。
 
 ## 方法详解
@@ -41,19 +46,19 @@ tags:
 
 1. **Quantization-aware Integrated Gradients (QIG)**:
 
-    - 做什么：在 token 级别量化每个 token 对量化误差的贡献
+    - 功能：在 token 级别量化每个 token 对量化误差的贡献
     - 核心思路：不同于经典 IG 归因全精度预测，QIG 归因的是全精度模型和量化模型之间的输出差异。沿 $x^q$（量化输入）到 $x$（实际输入）的路径积分梯度：$QIG(x) = (x - x^q) \int_0^1 \frac{\partial(f(x_\alpha, w) - f(x_\alpha, w^q))}{\partial x_\alpha} d\alpha$
     - 设计动机：梯度和注意力等常用代理与量化误差的相关性弱，perturbation-based 方法虽准确但计算代价高。QIG 直接与 PTQ 误差关联，且满足完备性公理
 
 2. **IQR 裁剪稳定化**:
 
-    - 做什么：抑制 QIG 分数中的极端值
+    - 功能：抑制 QIG 分数中的极端值
     - 核心思路：用四分位距裁剪 $C(QIG_i) = \text{clip}(QIG_i, Q_1 - 1.5 \cdot IQR, Q_3 + 1.5 \cdot IQR)$，然后归一化得到 $\lambda_i$
     - 设计动机：原始 QIG 分布重尾，少数极端 token 会主导优化
 
 3. **Token 级加权 Channel-Wise Equalization**:
 
-    - 做什么：将 token 重要度系数 $\lambda_i$ 融入 CWE 优化目标
+    - 功能：将 token 重要度系数 $\lambda_i$ 融入 CWE 优化目标
     - 核心思路：$\mathbf{E}^* = \arg\min_{\mathbf{E}} \sum_{i=1}^T \lambda_i \|Q_W(\mathbf{W}*\mathbf{E}) Q_X(\mathbf{E}^{-1}*\mathbf{X}_i) - \mathbf{W}\mathbf{X}_i\|_2^2$
     - 设计动机：让缩放因子搜索偏向更敏感的 token，整体框架不变但精度更高
 

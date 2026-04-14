@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.00474](https://arxiv.org/abs/2406.00474)  
 **代码**: 无公开代码  
 **领域**: 视觉定位 / 跨视角地理定位 / 无监督域适应  
-**关键词**: cross-view localization, knowledge self-distillation, pseudo ground truth, domain adaptation, weakly-supervised learning  
+**关键词**: cross-view localization, knowledge self-distillation, pseudo ground truth, domain adaptation, weakly-supervised learning
 
 ## 一句话总结
 针对细粒度跨视角定位模型在新区域部署时精度下降的问题，提出基于知识自蒸馏的弱监督学习方法——通过模式化伪GT生成、粗粒度监督和离群值过滤三个策略，仅使用目标区域的地面-航拍图像对（无需精确GT），即可在VIGOR和KITTI上将定位误差降低12%~20%。

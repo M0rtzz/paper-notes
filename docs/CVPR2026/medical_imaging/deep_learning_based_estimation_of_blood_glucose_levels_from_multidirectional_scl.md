@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Deep Learning–Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging
 description: >-
-  [CVPR 2026][医学图像][非侵入血糖检测] 提出ScleraGluNet，通过5方向巩膜血管成像+多分支CNN+MRFO特征筛选+Transformer跨视角融合，实现三类代谢分类93.8%准确率和血糖连续估计MAE=6.42 mg/dL
+  [CVPR 2026][医学图像][血糖估计] 提出ScleraGluNet，通过5个注视方向的巩膜血管照片，用并行CNN提取方向特异性血管特征，再经MRFO特征筛选和Transformer跨视角融合，同时完成三类代谢状态分类（93.8%准确率）和空腹血糖连续估计（MAE=6.42 mg/dL, r=0.983）。
 tags:
   - CVPR 2026
   - 医学图像
   - 血糖估计
-  - 巩膜血管
-  - 多视角融合
-  - 非侵入式监测
+  - 巩膜血管成像
+  - 多视角学习
+  - MRFO
+  - Transformer
 ---
 
 # Deep Learning–Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging
@@ -42,19 +43,19 @@ tags:
 
 1. **多方向巩膜采集协议**:
 
-    - 做什么：标准化采集5个注视方向的巩膜照片，全面覆盖各象限血管
+    - 功能：标准化采集5个注视方向的巩膜照片，全面覆盖各象限血管
     - 核心思路：正视作为参考和中央区域，上/下/左/右视分别暴露下方/上方/颞侧/鼻侧巩膜。每位参与者产生5张照片，共445×5=2225张
     - 设计动机：糖尿病微血管病变在空间上非均匀分布，不同区域呈现不同程度的血管口径变化、迂曲度增加和灌注异常。消融实验确认多视角显著优于单视角
 
 2. **并行CNN+MRFO特征精炼**:
 
-    - 做什么：5个独立参数CNN分支分别学习各方向的血管模式，再用MRFO算法筛选最相关特征
+    - 功能：5个独立参数CNN分支分别学习各方向的血管模式，再用MRFO算法筛选最相关特征
     - 核心思路：各分支共享架构但参数独立，提取方向特异性的血管形态特征（口径变化、迂曲度、分支复杂度）。MRFO（Manta Ray Foraging Optimization）是生物启发优化算法，在拼接特征中筛选最判别性子集，去除跨视角冗余
     - 设计动机：直接拼接5路特征会引入大量冗余维度，稀释判别信号。MRFO自动识别并保留与血糖状态最相关的特征子集
 
 3. **Transformer跨视角融合+双任务头**:
 
-    - 做什么：用自注意力发现跨象限的长程血管模式关联，同时输出分类和回归结果
+    - 功能：用自注意力发现跨象限的长程血管模式关联，同时输出分类和回归结果
     - 核心思路：MRFO精炼后的特征送入Transformer，自注意力机制捕捉跨视角模式（如双侧不对称重构、跨象限的细微血管特征）。最终Transformer输出接分类头（3类softmax）和回归头（FPG连续值），用 $L = L_{\text{CE}} + L_{\text{MSE}}$ 联合训练
     - 设计动机：多任务学习让表征同时服务于分类和回归，提供互补监督信号
 

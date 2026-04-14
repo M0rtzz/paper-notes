@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域背景**: 偏微分方程（PDE）数值求解是科学工程的核心问题，传统方法（有限差分、谱方法）依赖精细网格离散化，计算开销大且难以适应复杂几何。Physics-Informed Neural Networks (PINNs) 将物理约束嵌入损失函数，实现无网格求解。
+
 **现有不足 — 频谱偏置**: 主流 MLP-based PINNs 存在严重的 spectral bias，难以学习 PDE 解中的高频分量，在含丰富多尺度行为的问题上表现不佳。
+
 **现有不足 — 时序依赖**: MLP-PINNs 做逐点预测，无法捕捉 PDE 解的时空关联性，对抛物型和双曲型 PDE（含时间导数）效果受限。
+
 **PINNsformer 的尝试**: Zhao et al. (2024) 提出 PINNsformer，使用编码器-解码器 Transformer 架构通过 self-attention 捕捉时空关系，大幅提升性能。
+
 **PINNsformer 的冗余**: 该编码器-解码器设计源自序列到序列任务（如翻译），但 PINN 场景中输入输出结构相同，编码器引入了不必要的参数冗余和计算开销。
+
 **本文动机**: 用 Fourier 特征嵌入替代编码器来同时解决频谱偏置和参数冗余两大问题，实现更轻量且更强的 Transformer PINN。
 
 ## 方法详解

@@ -2,14 +2,14 @@
 title: >-
   [论文解读] Beyond Sharpness: A Flatness Decomposition Framework for Efficient Continual Learning
 description: >-
-  [AAAI 2026][模型压缩][Continual Learning] 提出 FLAD 框架，将 sharpness-aware 扰动方向分解为梯度对齐分量与随机噪声分量，仅保留噪声分量进行正则化，结合零阶与一阶 sharpness 以极低额外开销提升持续学习的泛化能力。
+  [AAAI 2026][模型压缩][continual learning] 提出 FLAD 框架，将 sharpness-aware 扰动方向分解为梯度对齐分量与随机噪声分量，仅保留噪声分量进行正则化，结合零阶与一阶 sharpness 以极低额外开销提升持续学习的泛化能力。
 tags:
   - AAAI 2026
   - 模型压缩
-  - Continual Learning
+  - continual learning
   - Sharpness-Aware Minimization
   - Flatness Decomposition
-  - Catastrophic Forgetting
+  - catastrophic forgetting
   - Loss Landscape
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.07636](https://arxiv.org/abs/2601.07636)  
 **代码**: 未公开  
 **领域**: model_compression / continual_learning  
-**关键词**: Continual Learning, Sharpness-Aware Minimization, Flatness Decomposition, Catastrophic Forgetting, Loss Landscape  
+**关键词**: continual learning, Sharpness-Aware Minimization, Flatness Decomposition, catastrophic forgetting, Loss Landscape
 
 ## 一句话总结
 

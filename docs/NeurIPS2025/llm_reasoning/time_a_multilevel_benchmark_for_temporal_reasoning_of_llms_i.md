@@ -1,18 +1,25 @@
 ---
-description: "NeurIPS 2025时间推理benchmark论文，提出TimE含38522道QA覆盖Wiki/News/Dialogue三场景，设计三级11子任务体系，评估24个LLM发现推理模型在复杂时间关系上仍有显著短板。"
+title: >-
+  [论文解读] TimE: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios
+description: >-
+  [NeurIPS 2025][LLM推理][时间推理] 提出TimE多层级时间推理Benchmark（38,522 QA + 943人工标注TimE-Lite），覆盖知识密集（Wiki）、快速演变（News）和长对话（Dialogue）三种真实场景，设计三级渐进11子任务体系评估24个LLM，揭示即使最强推理模型在复杂时间关系推理上仍有显著短板。
 tags:
   - NeurIPS 2025
   - LLM推理
   - 时间推理
-  - Benchmark
+  - benchmark
+  - 多层级评测
+  - LLM
+  - 真实场景
 ---
+
 # TimE: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios
 
 **会议**: NeurIPS 2025  
 **arXiv**: [2505.12891](https://arxiv.org/abs/2505.12891)  
 **代码**: [GitHub + HuggingFace](https://huggingface.co/datasets)  
 **领域**: LLM推理  
-**关键词**: 时间推理, Benchmark, 多层级评测, LLM, 真实场景
+**关键词**: 时间推理, benchmark, 多层级评测, LLM, 真实场景
 
 ## 一句话总结
 
@@ -41,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **三级渐进任务体系**:
-    - 做什么：从基础到复杂逐级评估时间推理
+    - 功能：从基础到复杂逐级评估时间推理
     - 核心思路：Level-1（5子任务）——基础理解检索（Extract/Localization/Computation/DurationCompare/OrderCompare）；Level-2（3子任务）——时间表达式推理（Explicit/Order/Relative）；Level-3（3子任务）——复杂关系推理（Co-temporality/Timeline/Counterfactual）
     - 设计动机：模拟人类认知过程——先捕获概念、再推理隐含时间、最后理解事件关系
 
 2. **三维真实场景数据源**:
-    - 做什么：覆盖三种不同维度的时间推理挑战
+    - 功能：覆盖三种不同维度的时间推理挑战
     - 核心思路：Wiki（知识密度）、News（事件动态）、Dialogue（跨会话依赖，平均>15K tokens）
     - 设计动机：不同场景的挑战维度互补
 
 3. **质量控制体系**:
-    - 做什么：确保生成QA质量和评估可靠性
+    - 功能：确保生成QA质量和评估可靠性
     - 核心思路：基于时间线的逻辑正确性保证 + STARC误导选项 + 人工标注（Word-level Similarity 0.6626）+ 合成-人工一致率89.13%
     - 设计动机：避免LLM生成偏差，确保benchmark可靠
 

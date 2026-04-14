@@ -2,16 +2,16 @@
 title: >-
   [论文解读] CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks
 description: >-
-  [ACL 2025][AI安全][jailbreak] 提出 CAVGAN 框架，利用生成对抗网络在 LLM 内部表示空间中同时学习越狱攻击（生成器）和安全防御（判别器），首次将攻防统一到同一框架中实现"攻防共进"，攻击成功率平均 88.85%，防御成功率平均 84.17%。
+  [ACL 2025][AI安全][越狱攻击] 提出 CAVGAN 框架，利用生成对抗网络在 LLM 内部表示空间中同时学习越狱攻击（生成器）和安全防御（判别器），首次将攻防统一到同一框架中实现"攻防共进"，攻击成功率平均 88.85%，防御成功率平均 84.17%。
 tags:
   - ACL 2025
   - AI安全
-  - jailbreak
+  - 越狱攻击
   - defense
   - GAN
   - concept activation vector
-  - LLM safety
-  - adversarial training
+  - LLM 安全
+  - 对抗训练
 ---
 
 # CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks
@@ -21,7 +21,7 @@ tags:
 **代码**: [GitHub](https://github.com/NLPGM/CAVGAN)  
 **机构**: 武汉大学计算机学院, 中关村学院
 **领域**: AI 安全  
-**关键词**: jailbreak, defense, GAN, concept activation vector, LLM safety, adversarial training
+**关键词**: 越狱攻击, defense, GAN, concept activation vector, LLM 安全, 对抗训练
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 ## 研究背景与动机
 
 **领域现状**: LLM 经过安全对齐（RLHF/SFT/DPO）后具备一定安全防护能力，但各种越狱攻击不断暴露其安全机制的脆弱性。现有研究将越狱攻击和安全防御视为两个**相互割裂**的研究方向，分别独立优化。
+
 **现有痛点**: 白盒攻击方法（如 SCAV、JRE）通过数学迭代优化或正负样本差异提取扰动向量，过程复杂且难以泛化；防御方法（如输入过滤、知识编辑）要么依赖外部检测模型精度有限，要么修改参数导致模型流畅度下降。两者缺乏协同，无法形成"以攻促防"的闭环。
+
 **关键观察**: (a) LLM 中间层 embedding 中恶意/良性查询具有**线性可分性**，简单分类器即可区分；(b) 成功的越狱攻击本质上是将恶意查询的表示从"不安全区域"迁移到"安全区域"，即一个**边界跨越问题**。
+
 **核心idea**: 将概念激活向量（CAV）的提取从手工/数学优化重新定义为**生成过程**，用 GAN 的生成器自动生成越狱扰动、判别器自动识别伪装的恶意查询，两者在对抗训练中同步提升。
 
 ## 方法详解

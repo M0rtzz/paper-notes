@@ -9,7 +9,7 @@ tags:
   - Sentence Embedding
   - Token Prepending
   - 注意力机制
-  - Training-Free
+  - training-free
   - LLM
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2412.11556](https://arxiv.org/abs/2412.11556)  
 **代码**: [https://github.com/fuyuchenIfyw/token_prepending.git](https://github.com/fuyuchenIfyw/token_prepending.git)  
 **领域**: LLM NLP / 句子表示学习  
-**关键词**: Sentence Embedding, Token Prepending, Causal Attention, Training-Free, LLM  
+**关键词**: Sentence Embedding, Token Prepending, Causal Attention, training-free, LLM
 
 ## 一句话总结
 
@@ -63,19 +63,19 @@ TP 方法修改了 LLM 的层间传播过程，主要由三部分组成：
 
 1. **Initial Token Prepending (初始前置)**:
 
-    - 做什么：在 embedding 层输出后，将一个随机初始化的 `<PST>` token 插入到句子文本的前面位置
+    - 功能：在 embedding 层输出后，将一个随机初始化的 `<PST>` token 插入到句子文本的前面位置
     - 核心思路：`<PST>` 作为句子嵌入信息的占位符，使后续 token 可以通过因果注意力机制关注到它
     - 设计动机：在第一层还没有句子嵌入可用，因此使用随机初始化的占位符
 
 2. **Intermediate Token Prepending (中间层前置)**:
 
-    - 做什么：在第 2 层到第 k 层之间，每一层都用上一层最后一个 token 的隐状态（即 SET 的表示）来替换 `<PST>` 位置的表示
+    - 功能：在第 2 层到第 k 层之间，每一层都用上一层最后一个 token 的隐状态（即 SET 的表示）来替换 `<PST>` 位置的表示
     - 核心思路：f(h^{l-1}) 函数将第 n 个位置（最后 token）的表示复制到 i* 位置（PST 位置），使所有句子 token 都能通过因果注意力看到包含完整句子信息的嵌入
     - 设计动机：只在前 k 层执行 TP 操作，因为实验发现在所有层执行反而效果不好；前几层做完 TP 后，句子 token 已经感知了足够的全局信息
 
 3. **Early Exit Strategy (早退策略)**:
 
-    - 做什么：从中间层而非最后一层提取句子嵌入
+    - 功能：从中间层而非最后一层提取句子嵌入
     - 核心思路：LLM 最后几层主要用于 token 生成，语义信息反而较少
     - 设计动机：中间层保留了更丰富的语义表示，适合作为句子嵌入
 

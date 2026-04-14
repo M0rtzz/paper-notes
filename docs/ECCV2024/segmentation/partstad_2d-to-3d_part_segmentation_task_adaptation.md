@@ -8,7 +8,7 @@ tags:
   - 图像分割
   - 3D 部件分割
   - 任务适配
-  - few-shot
+  - 小样本
   - 2D-to-3D lifting
   - SAM
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2401.05906](https://arxiv.org/abs/2401.05906)  
 **代码**: https://github.com/KAIST-Visual-AI-Group/PartSTAD (有)  
 **领域**: 分割  
-**关键词**: 3D 部件分割, 任务适配, few-shot, 2D-to-3D lifting, SAM
+**关键词**: 3D 部件分割, 任务适配, 小样本, 2D-to-3D lifting, SAM
 
 ## 一句话总结
 
@@ -56,14 +56,14 @@ GLIP 和 SAM 均冻结，仅训练权重预测网络（per category，few-shot 8
 
 1. **3D mRIoU 损失函数**：
 
-    - 做什么：直接以 3D 分割质量作为适配目标
+    - 功能：直接以 3D 分割质量作为适配目标
     - 核心思路：标准 mIoU 不可微，使用 relaxed IoU (mRIoU) 将预测标签从 {0,1} 放松到 [0,1]
     - 公式：$\mathcal{L}_{\text{mRIoU}} = 1 - \frac{1}{M}\sum_{j=1}^{M} \frac{\mathbf{l}_j^\top \hat{\mathbf{l}}_j}{\|\mathbf{l}_j\|_1 + \|\hat{\mathbf{l}}_j\|_1 - \mathbf{l}_j^\top \hat{\mathbf{l}}_j}$
     - 设计动机：交叉熵损失在 3D 分割任务中效果不如 mRIoU（补充实验已验证）；mRIoU 直接优化评测指标本身
 
 2. **检测框权重预测网络（Bounding Box Weight Prediction）**：
 
-    - 做什么：为每个 2D 检测框预测一个权重，控制其对 3D 投票的贡献
+    - 功能：为每个 2D 检测框预测一个权重，控制其对 3D 投票的贡献
     - 核心思路：由于 mRIoU 对检测框位置不可微，不直接调整框位置，而是预测一个正值权重 W(b) 乘以投票分数
     - 修改后的投票公式：$\tilde{s}_{ij} = \frac{\sum_k \sum_{p \in P_i} V_k(p) \cdot \max_{b} I_b(p) \cdot W(b)}{\sum_k \sum_{p \in P_i} V_k(p)}$
     - 最终分数经 softmax 归一化；null 标签的分数设为可学习参数（初始值 10）
@@ -72,7 +72,7 @@ GLIP 和 SAM 均冻结，仅训练权重预测网络（per category，few-shot 8
 
 3. **SAM 掩码集成（SAM Mask Integration）**：
 
-    - 做什么：用 SAM 的 box-prompted 分割功能将 2D bounding box 转换为精确前景掩码
+    - 功能：用 SAM 的 box-prompted 分割功能将 2D bounding box 转换为精确前景掩码
     - 核心思路：将检测框作为 SAM 的输入提示，获取精确的前景分割区域，替代原始的矩形框
     - 实现：point-to-bounding-box membership $I_b$ 变为 point-to-mask membership，但权重预测仍使用 GLIP 的框特征
     - 设计动机：GLIP 输出的 bounding box 包含大量背景，用 SAM 提取前景可显著改善分割边界

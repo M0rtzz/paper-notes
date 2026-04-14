@@ -2,14 +2,16 @@
 title: >-
   [论文解读] Cross-Domain Lossy Compression via Rate- and Classification-Constrained Optimal Transport
 description: >-
-  [ICLR2026 Oral][信息论] 将跨域有损压缩形式化为带率约束和分类约束的最优传输问题，推导Bernoulli/Gaussian源的闭式DRC和DRPC权衡曲线，在MNIST超分/SVHN-CIFAR10-ImageNet-KODAK去噪/SVHN修复上验证理论与实验一致性
+  [ICLR 2026 (Oral)][模型压缩][optimal transport] 将跨域有损压缩（编码器观测退化源、解码器重建不同目标分布）形式化为带压缩率和分类损失双重约束的最优传输问题，推导Bernoulli源（Hamming失真）和Gaussian源（MSE）的闭式DRC/RDC及DRPC权衡函数，通过深度端到端压缩模型在超分/去噪/修复任务上验证理论预测与实验行为一致。
 tags:
-  - ICLR2026
-  - 信息论
-  - 最优传输
-  - 率失真理论
-  - 有损压缩
-  - 跨域压缩
+  - ICLR 2026 (Oral)
+  - 模型压缩
+  - optimal transport
+  - rate-distortion theory
+  - lossy compression
+  - cross-domain
+  - DRC tradeoff
+  - DRPC
 ---
 
 # Cross-Domain Lossy Compression via Rate- and Classification-Constrained Optimal Transport
@@ -51,17 +53,17 @@ tags:
 ### 关键设计
 
 1. **Rate- and Classification-Constrained Optimal Transport**:
-    - 做什么：将跨域有损压缩形式化为约束最优传输问题
+    - 功能：将跨域有损压缩形式化为约束最优传输问题
     - 核心思路：最小化失真 $D(R,C) = \min_{P_{Z|X}, P_{Y|Z}} E[d(X,Y)]$，约束 $I(X;Z) \leq R$（率约束）和 $H(S|Y) \leq C$（分类约束），$H(S|Y)$ 通过Fano不等式 $\Pr(S \neq \hat{S}) \geq \frac{H(S|Y)-1}{\log(M-1)}$ 直接关联分类性能下界
     - 设计动机：$H(S|Y)$ 是分类信息的信息论自然度量——小的 $H(S|Y)$ 保证存在高精度分类器；率约束限制压缩表示的信息量；两者与失真形成三方权衡
 
 2. **Bernoulli源和Gaussian源的闭式解**:
-    - 做什么：在两类经典可解分布上推导DRC/RDC的解析表达
+    - 功能：在两类经典可解分布上推导DRC/RDC的解析表达
     - 核心思路：Bernoulli源+Hamming失真→利用二进制对称信道结构和共享随机性simplify传输计划；Gaussian源+MSE→利用正交分解将率-失真-分类分离为独立优化，推导 $D(R,C) = \sigma_X^2 \cdot 2^{-2R} + f(C)$形式的表达式
     - 设计动机：Bernoulli和Gaussian是率失真理论中"氢原子"级的模型——闭式解揭示权衡的定性结构，指导实际复杂分布的算法设计
 
 3. **DRPC扩展（加入感知约束）**:
-    - 做什么：在DRC基础上加入感知散度约束（KL散度或Wasserstein距离），得到四维权衡函数DRPC
+    - 功能：在DRC基础上加入感知散度约束（KL散度或Wasserstein距离），得到四维权衡函数DRPC
     - 核心思路：额外约束 $D_\text{perc}(P_Y || P_{Y^*}) \leq P$，其中 $P_{Y^*}$ 为目标感知分布，得到 $D(R,C,P) = \min_{P_{Z|X},P_{Y|Z}} E[d(X,Y)]$ s.t. 率、分类、感知三重约束
     - 设计动机：实际应用中感知质量与逐像素失真存在权衡（低失真不等于高感知质量）——DRPC框架统一处理
 

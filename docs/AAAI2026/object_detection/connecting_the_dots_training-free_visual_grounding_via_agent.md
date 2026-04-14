@@ -7,7 +7,7 @@ tags:
   - AAAI 2026
   - 目标检测
   - Visual Grounding
-  - Training-Free
+  - training-free
   - Agentic Reasoning
   - Chain-of-Thought
   - Open-Vocabulary Detection
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.19516](https://arxiv.org/abs/2511.19516)  
 **代码**: [https://github.com/loiqy/GroundingAgent](https://github.com/loiqy/GroundingAgent)  
 **领域**: 多模态VLM / Agent  
-**关键词**: Visual Grounding, Training-Free, Agentic Reasoning, Chain-of-Thought, Open-Vocabulary Detection  
+**关键词**: Visual Grounding, training-free, Agentic Reasoning, Chain-of-Thought, Open-Vocabulary Detection
 
 ## 一句话总结
 提出 GroundingAgent，一个完全不需要任务特定微调的视觉定位框架，通过组合预训练的开放词汇检测器（YOLO World）、MLLM（Llama-3.2-11B-Vision）和 LLM（DeepSeek-V3）进行结构化迭代推理，在 RefCOCO/+/g 上实现 65.1% 的零样本平均准确率，大幅超越之前的 zero-shot 方法。

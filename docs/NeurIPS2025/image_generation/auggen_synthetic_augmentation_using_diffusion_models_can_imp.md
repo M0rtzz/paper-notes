@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2503.11544](https://arxiv.org/abs/2503.11544)  
 **代码**: [https://parsa-ra.github.io/auggen/](https://parsa-ra.github.io/auggen/)  
 **领域**: 人脸识别 / 合成数据增强  
-**关键词**: synthetic augmentation, diffusion model, face recognition, class mixing, condition vector interpolation, self-contained  
+**关键词**: synthetic augmentation, diffusion model, face recognition, class mixing, condition vector interpolation, self-contained
 
 ## 一句话总结
 提出AugGen——一种自包含（self-contained）的合成数据增强方法：利用扩散模型的条件向量插值（$c^* = \alpha c_i + \beta c_j$）实现类间混合生成，无需外部数据或模型即可为人脸识别提供1-12%的性能提升，等效于1.7倍真实数据量，IR50+AugGen甚至超越IR101 real-only。

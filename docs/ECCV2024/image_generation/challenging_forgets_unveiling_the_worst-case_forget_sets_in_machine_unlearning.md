@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Challenging Forgets: Unveiling the Worst-Case Forget Sets in Machine Unlearning
 description: >-
-  [ECCV 2024][图像生成][Machine Unlearning] 提出从对抗视角识别"最坏情况遗忘集"的方法，通过双层优化框架找到最难被遗忘的数据子集，利用 SignSGD 将二阶 BLO 简化为一阶问题，从而更可靠地评估机器遗忘方法的真实效能。
+  [ECCV 2024][图像生成][machine unlearning] 提出从对抗视角识别"最坏情况遗忘集"的方法，通过双层优化框架找到最难被遗忘的数据子集，利用 SignSGD 将二阶 BLO 简化为一阶问题，从而更可靠地评估机器遗忘方法的真实效能。
 tags:
   - ECCV 2024
   - 图像生成
-  - Machine Unlearning
+  - machine unlearning
   - Bi-Level Optimization
   - Worst-Case Evaluation
   - Forget Set Selection
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2403.07362](https://arxiv.org/abs/2403.07362)  
 **代码**: [有](https://github.com/OPTML-Group/Unlearn-WorstCase)  
 **领域**: 可信机器学习 / 机器遗忘  
-**关键词**: Machine Unlearning, Bi-Level Optimization, Worst-Case Evaluation, Forget Set Selection, SignSGD
+**关键词**: machine unlearning, Bi-Level Optimization, Worst-Case Evaluation, Forget Set Selection, SignSGD
 
 ## 一句话总结
 
@@ -32,7 +32,9 @@ tags:
 然而，现有 MU 评估存在根本性的可靠性缺陷：
 
 **高方差问题**：现有评估几乎全部基于随机选择的遗忘集，同一遗忘方法在不同随机遗忘集上表现差异巨大（UA 方差可达 ±0.69），难以进行公平的方法间比较
+
 **无法揭示最坏情况**：随机遗忘场景无法暴露 MU 方法在极端条件下的真实脆弱性，无法回答"这个遗忘方法到底有多鲁棒"这一关键问题
+
 **缺少系统性压力测试**：与安全领域中对抗评估的标准做法相比，MU 评估缺乏完善的对抗性基准
 
 作者实验发现即使是"完美"的精确遗忘方法 Retrain，在不同遗忘集选择下 UA 和 MIA 的变化幅度也很大。这促使他们提出核心研究问题：**如何系统性地找到对遗忘最具挑战性的数据子集？**

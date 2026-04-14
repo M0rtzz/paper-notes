@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：大语言模型（LLM）在 NLP 中通过大规模语料的自回归预训练取得了巨大成功。机器人领域一直受限于动作标注数据的高昂成本。视频数据包含丰富的交互知识且易于获取，但如何有效利用视频数据预训练机器人策略仍是开放问题。
+
 **现有痛点**：先前的视频预训练方法（如 GR-1、MT-R3M）主要关注静态帧的视觉特征，强调帧级别的细节，忽略了帧间的动态变化。这些方法通常需要额外的输入模态（如 gripper RGB、本体感知）来弥补运动信息的缺失。现有 VLA（如 RT-2-X、OpenVLA）要么参数量极大（55B），要么需要预训练数据中就包含动作标签。
+
 **核心矛盾**：视频数据丰富但缺乏动作标签，机器人动作数据稀少但有动作标签——如何用视频的海量运动知识来增强动作标签稀缺条件下的机器人策略学习？
+
 **本文要解决什么？** 找到一种有效的表示，将视频中的运动知识编码为可供自回归预训练的序列，并能无缝迁移到下游机器人控制。
+
 **切入角度**：人类通过观察动态环境变化来学习新技能，关注的是"运动"而非静态视觉细节。运动信息与低级动作紧密相关且硬件无关（hardware-agnostic），便于跨具身迁移。
+
 **核心 idea 一句话**：用 VQ-VAE 将视频帧间的运动信息编码为离散的潜在运动 Token，以此作为"运动语言"进行 GPT 式自回归预训练，再通过 co-fine-tuning 将运动先验无缝转化为真实机器人动作。
 
 ## 方法详解
@@ -47,19 +52,19 @@ Moto 分三个训练阶段：
 
 1. **潜在运动 Tokenizer**:
 
-    - 做什么：将连续两帧视频之间的关键视觉运动编码为紧凑的离散 token
+    - 功能：将连续两帧视频之间的关键视觉运动编码为紧凑的离散 token
     - 核心思路：编码器（M-Former）是一个多层 Transformer，以冻结 ViT 编码器提取的当前帧 $o_t$ 和前一帧 $o_{t-1}$ 的 patch 特征为输入，与 8 个可学习 query 嵌入拼接后通过自注意力交互。Query 输出特征经 VQ codebook（词汇量 128）量化为离散运动 token。解码器（ViT Decoder）根据 $o_{t-1}$ 的 patch 嵌入和运动 token 的紧凑嵌入（MLP 压缩为 1 个 token，加到每个 patch 嵌入上）重建 $o_t$ 的像素值。训练使用标准 VQ-VAE 目标（重建 MSE + VQ loss + commitment loss）
     - 设计动机：运动 token 作为信息瓶颈，迫使编码器只保留关键的动态变化信息。每帧只用 8 个 token（vs 原始 196 个 patch token），压缩率 24.5 倍，但保留了 79.7% 的语义分类准确率
 
 2. **Moto-GPT 自回归预训练**:
 
-    - 做什么：在运动 token 序列上进行 GPT 式预训练，学习视频中的运动先验
+    - 功能：在运动 token 序列上进行 GPT 式预训练，学习视频中的运动先验
     - 核心思路：对视频片段 $[o_0, o_1, ..., o_T]$，提取每对相邻帧的运动 token chunk 并按时间顺序拼接成序列。GPT Transformer 以冻结 T5 的文本特征 $\boldsymbol{l}$ 和冻结 ViT 的初始帧视觉特征 $\boldsymbol{v}$ 为前缀，通过 next-token prediction 训练：$\mathcal{L}_{motion} = -\sum_{i=1}^{M} \log P(m_i | \boldsymbol{l}, \boldsymbol{v}, \boldsymbol{m}_{<i}; \boldsymbol{\Theta})$，其中 $M = K \times T$（$K=8$ tokens/帧，$T$ 为视频长度）
     - 设计动机：以运动 token 而非像素/patch 作为预训练目标，使模型专注于学习"做什么"（运动意图）而非"看到什么"（视觉细节），与下游控制任务的需求更贴合
 
 3. **Co-fine-tuning 策略**:
 
-    - 做什么：将预训练运动先验迁移为精确的机器人动作
+    - 功能：将预训练运动先验迁移为精确的机器人动作
     - 核心思路：在每个时间步的运动 token chunk 后追加 $N$ 个可学习的 action query token（$N$ 对应两帧之间的动作数量）。Action query 通过 MLP action head 预测真实动作空间（位移 $\Delta x$、旋转 $\Delta\theta$、夹持 $\Delta grip$）。关键设计：(a) 运动 token 不 attend action query（保持与预训练一致），(b) 随机 mask 50% 的 action query 到运动 token 的注意力（减少对 GT 条件的依赖），(c) 保留运动 token 预测损失。总损失 $\mathcal{L}_{ft} = \mathcal{L}_{motion} + \mathcal{L}_{action}$，其中 $\mathcal{L}_{action} = \mathcal{L}(\Delta x) + \mathcal{L}(\Delta\theta) + \mathcal{L}(\Delta grip)$（连续部分用 Smooth-L1，开关用 BCE）
     - 设计动机：直接丢弃运动 token（如 Moto-DM）会损失预训练知识；不保留运动预测损失（如 Moto-IML）会导致先验退化。Co-fine-tuning 让 action query 通过注意力从运动 token 中直接获取知识迁移
 

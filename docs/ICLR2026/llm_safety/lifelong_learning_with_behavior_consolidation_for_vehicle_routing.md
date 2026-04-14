@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.21765](https://arxiv.org/abs/2509.21765)  
 **代码**: [github](https://github.com/PeiJY/LLR-BC)  
 **领域**: llm_nlp  
-**关键词**: lifelong learning, vehicle routing problem, catastrophic forgetting, experience replay, behavior consolidation, neural solver  
+**关键词**: lifelong learning, vehicle routing problem, catastrophic forgetting, experience replay, behavior consolidation, neural solver
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 神经组合优化面临严峻现实挑战：
 
 **一次性训练局限**：固定分布/规模训练，新任务零样本差或微调遗忘。
+
 **真实场景动态性**：物流中订单和模式随时间变化，无法一次性覆盖。
+
 **现有终身学习局限**：仅两个 VRP 终身学习工作限于特化场景（规模/距离变化、顺序已知、可生成旧实例）。
 
 首次探索分布+规模同时变化、顺序未知、实例不可控的通用 VRP 终身学习。

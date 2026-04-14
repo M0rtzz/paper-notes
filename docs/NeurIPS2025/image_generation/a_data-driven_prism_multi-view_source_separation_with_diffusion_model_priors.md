@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.05205](https://arxiv.org/abs/2510.05205)  
 **代码**: [GitHub](https://github.com/swagnercarena/DDPRISM)  
 **领域**: 扩散模型 / 科学计算 / 信号分离  
-**关键词**: source separation, diffusion model, multi-view, expectation-maximization, Bayesian inverse problem  
+**关键词**: source separation, diffusion model, multi-view, expectation-maximization, Bayesian inverse problem
 
 ## 一句话总结
 提出 DDPRISM 方法，利用多视图观测中不同线性变换的结构性差异，在 EM 框架下为每个未知源学习独立的扩散模型先验，无需预先获得任何单独的源样本即可完成源分离和后验采样，在合成问题和真实星系观测上超越现有方法。
@@ -49,25 +49,25 @@ DDPRISM 是一个迭代式框架，由 E 步和 M 步交替组成。输入是多
 
 1. **问题建模（多视图线性源分离）**
 
-    - 做什么：统一建模各种科学信号分离问题。
+    - 功能：统一建模各种科学信号分离问题。
     - 核心思路：观测 $\mathbf{y}^\alpha_{i_\alpha} = \sum_{\beta=1}^{N_s} \mathbf{A}^{\alpha\beta}_{i_\alpha} \mathbf{x}^\beta_{i_\alpha} + \eta^\alpha_{i_\alpha}$，其中不同视图 $\alpha$ 的观测维度 $d_\alpha$ 可以不同，混合矩阵可以是不全秩的（产生不完整数据），各源独立。关键假设：混合矩阵已知，源之间独立，问题可辨识。
     - 设计动机：相比对比学习方法只能处理"背景+目标"两源设置，这个建模框架更一般——支持任意多源、任意多视图、每个视图可以包含所有源、观测可以是不完整的。
 
 2. **M 步：独立训练源扩散模型**
 
-    - 做什么：用分离出的源样本更新每个扩散模型。
+    - 功能：用分离出的源样本更新每个扩散模型。
     - 核心思路：由于源独立性，总优化目标分解为各源的独立优化：$\Theta_{k+1} = \arg\max_\Theta \sum_\beta \mathbb{E}[\log q_{\theta^\beta}(\mathbf{x}_0^\beta)]$，每个扩散模型用标准去噪得分匹配目标（denoiser 参数化）单独训练。
     - 设计动机：源的独立性使得优化天然可分解，每个扩散模型只需关注自己的源，计算高效。
 
 3. **E 步：联合后验采样（Joint Posterior Sampling）**
 
-    - 做什么：给定当前扩散模型和观测，从联合后验 $q_{\Theta_k}(\{\mathbf{x}^\beta\} | \mathbf{y}^\alpha, \{\mathbf{A}^{\alpha\beta}\})$ 中采样。
+    - 功能：给定当前扩散模型和观测，从联合后验 $q_{\Theta_k}(\{\mathbf{x}^\beta\} | \mathbf{y}^\alpha, \{\mathbf{A}^{\alpha\beta}\})$ 中采样。
     - 核心思路：联合后验得分分解为先验得分（各扩散模型得分之和）+ 似然得分。先验得分直接由各扩散模型给出（源独立性）。似然得分利用 MMPS（Moment Matching Posterior Sampling）近似：用 Tweedie 公式估计 $\mathbb{E}[\mathbf{x}_0 | \mathbf{x}_t]$ 和 $\mathbb{V}[\mathbf{x}_0 | \mathbf{x}_t]$，使得高斯近似下的似然积分可解析求解。关键创新是将 MMPS 从单源扩展到多源联合采样——似然中的协方差变为所有源方差的加权和：$\Sigma^\alpha + \sum_\beta \mathbf{A}^{\alpha\beta} \mathbb{V}[\mathbf{x}_0^\beta | \mathbf{x}_t^\beta] (\mathbf{A}^{\alpha\beta})^\top$。
     - 设计动机：直接联合采样所有源（DDPRISM-Joint）比交替 Gibbs 采样（DDPRISM-Gibbs）更高效且效果更好——因为联合采样能利用源之间的约束关系。
 
 4. **多视图联合使用**
 
-    - 做什么：利用所有视图的约束来分离源。
+    - 功能：利用所有视图的约束来分离源。
     - 核心思路：在 E 步中对每个视图独立计算似然得分，然后对所有视图的得分取平均。这等价于在所有视图上做联合最大似然。在 M 步中，从不同视图得到的源后验样本都用于训练对应的扩散模型。
     - 设计动机：多视图提供了额外的约束——即使单个视图的混合矩阵不可逆（数据不完整），多个视图联合可能使问题可辨识。
 

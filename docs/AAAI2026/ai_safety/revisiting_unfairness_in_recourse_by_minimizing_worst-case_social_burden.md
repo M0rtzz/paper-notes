@@ -54,9 +54,9 @@ $$B_{f,g}^s = \mathbb{E}[\delta((X,s), g_f(X))] \cdot (1 - P(f(X)=1|S=s, Y=1))$$
 
 1. 预训练基础分类器 $f^{(0)}$（warm-up）
 2. 每轮迭代：
-   - 对每个实例计算 burden: $b_{f,g}^i = \delta(x^i, g_f(x^i)) \cdot \mathbb{1}\{y^i=1\}$
-   - 按比例重加权训练损失：$\phi(i,\mathcal{Q},\alpha) = 1 + \alpha N \frac{b_{f,g}^i}{\sum_j b_{f,g}^j}$
-   - 更新分类器：$f^{(t)} \leftarrow \arg\min_f \frac{1}{N}\sum \phi(i) \cdot \ell(f(x^i), y^i)$
+    - 对每个实例计算 burden: $b_{f,g}^i = \delta(x^i, g_f(x^i)) \cdot \mathbb{1}\{y^i=1\}$
+    - 按比例重加权训练损失：$\phi(i,\mathcal{Q},\alpha) = 1 + \alpha N \frac{b_{f,g}^i}{\sum_j b_{f,g}^j}$
+    - 更新分类器：$f^{(t)} \leftarrow \arg\min_f \frac{1}{N}\sum \phi(i) \cdot \ell(f(x^i), y^i)$
 3. 超参数 $\alpha$ 控制 burden 权重的影响强度
 
 **三大优势**：

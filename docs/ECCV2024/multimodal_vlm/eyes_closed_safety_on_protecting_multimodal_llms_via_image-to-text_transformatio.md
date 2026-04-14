@@ -49,19 +49,19 @@ tags:
 
 1. **有害内容检测（Harmful Content Detection）**:
 
-    - 做什么：让MLLM判断自己生成的初始响应是否安全
+    - 功能：让MLLM判断自己生成的初始响应是否安全
     - 核心思路：首先正常生成响应 $\tilde{y} = F_{\theta}(v, x)$，然后用检测提示模板 $P_{\text{det}}$ 包裹原始查询和初始响应，让MLLM自我评估：$s = F_{\theta}(v, P_{\text{det}}(x, \tilde{y}))$
     - 设计动机：实验发现MLLMs在判别任务上表现优异（LLaVA-1.5-7B和ShareGPT4V-7B达到>95%准确率），且判别准确率不受图像存在与否的影响。判别比生成简单这一假设得到了可扩展监督理论的支持。
 
 2. **查询感知的图像到文本转换（Query-Aware I2T Transformation）**:
 
-    - 做什么：将输入图像转换为与查询相关的文本描述
+    - 功能：将输入图像转换为与查询相关的文本描述
     - 核心思路：使用包含原始问题的提示模板 $P_{\text{trans}}$ 引导MLLM生成query-aware的图像描述：$c = F_{\theta}(v, P_{\text{trans}}(x))$
     - 设计动机：(a) 转换为文本后，图像中的恶意内容要么被转化为文字要么被丢弃；(b) query-aware确保描述包含回答问题所需的关键信息，避免无关紧要的描述导致信息丢失。消融实验证明去掉query-awareness会显著降低utility。
 
 3. **无图像安全响应生成（Safe Response Generation Without Images）**:
 
-    - 做什么：用文本描述替代图像，让模型在纯文本模式下重新生成响应
+    - 功能：用文本描述替代图像，让模型在纯文本模式下重新生成响应
     - 核心思路：$y = F_{\theta}(\text{null}, P_{\text{gen}}(c, x))$，其中null表示不输入图像。此时MLLM退化为纯文本LLM，预对齐的安全机制被重新激活。
     - 设计动机：实验表明去掉图像后LLM几乎100% harmless。提示中还加入"HARMLESS and ETHICAL"关键词进一步强化安全优先级，使得harmless rate甚至超过Text-Only上限。
 

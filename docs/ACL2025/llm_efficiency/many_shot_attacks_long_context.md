@@ -7,9 +7,9 @@ tags:
   - ACL 2025
   - LLM效率
   - many-shot jailbreaking
-  - long-context
-  - LLM safety
-  - alignment
+  - 长上下文
+  - LLM 安全
+  - 对齐
   - context length vulnerability
 ---
 
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2505.19773](https://arxiv.org/abs/2505.19773)  
 **代码**: 无  
 **领域**: ai_safety  
-**关键词**: many-shot jailbreaking, long-context, LLM safety, alignment, context length vulnerability  
+**关键词**: many-shot jailbreaking, 长上下文, LLM 安全, 对齐, context length vulnerability
 
 ## 一句话总结
 系统分析 Many-Shot Jailbreaking（MSJ）攻击的关键因素，发现上下文长度是攻击成功的决定性因素，而内容的有害性、主题、格式几乎不重要——即使重复安全内容、随机无意义文本（Lorem Ipsum）都能在长上下文下突破模型安全对齐。
 
 ## 研究背景与动机
 **领域现状**：LLM 上下文窗口不断扩展至 128K+ tokens，MSJ 攻击通过在上下文中注入大量有害 QA 示例来越狱。
+
 **现有痛点**：MSJ 原始工作认为需要精心构造的有害示例，但其真正生效机制尚不清楚——是示例的有害内容起作用，还是仅仅是上下文长度的问题？
+
 **核心矛盾**：如果攻击成功仅取决于上下文长度而非内容，则所有基于内容过滤的防御策略都将失效。
+
 **本文要解决什么？** 系统性地分剥 MSJ 攻击中各因素（shot 密度、主题、有害性、格式）的独立贡献。
+
 **切入角度**：设计对照实验——固定上下文长度变化 shot 数量/主题/有害性/格式，观察 ASR 变化。
+
 **核心 idea 一句话**：MSJ 的本质是长上下文处理的架构缺陷，与注入内容的有害性无关。
 
 ## 方法详解
@@ -44,13 +49,13 @@ tags:
    
 2. **有害性对比实验（核心发现）**:
 
-    - 做什么：对比 Harmful-512、Safe-512、Mixed-512 三种数据集的 ASR
+    - 功能：对比 Harmful-512、Safe-512、Mixed-512 三种数据集的 ASR
     - 关键结果：Safe-512 的 ASR 与 Harmful-512 相当甚至更高（尤其在 Llama 模型上）
     - 意义：模型没有"学习有害模式"，而是在长上下文下普遍失去安全约束
 
 3. **Fake Data / Lorem Ipsum 攻击**:
 
-    - 做什么：用无意义文本填充上下文测试攻击效果
+    - 功能：用无意义文本填充上下文测试攻击效果
     - 结果：Fake-512 和 Fake-Text（Lorem Ipsum）的 ASR 与 Harmful-512 相当，甚至在 Llama-3.1 上更高
     - 意义：攻击完全独立于内容语义，是架构层面的脆弱性
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.07099](https://arxiv.org/abs/2511.07099)  
 **代码**: [wxzyd123/e2e-vguard](https://wxzyd123.github.io/e2e-vguard/)  
 **领域**: audio_speech  
-**关键词**: voice cloning defense, adversarial examples, speech synthesis, psychoacoustic model, LLM-based TTS  
+**关键词**: voice cloning defense, adversarial examples, speech synthesis, psychoacoustic model, LLM-based TTS
 
 ## 一句话总结
 

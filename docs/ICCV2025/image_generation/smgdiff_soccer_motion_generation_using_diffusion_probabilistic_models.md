@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2411.16216](https://arxiv.org/abs/2411.16216)  
 **代码**: https://github.com/SMGDiff/SMGDiff  
 **领域**: 图像生成  
-**关键词**: motion generation, diffusion model, soccer animation, human-object interaction, character control  
+**关键词**: motion generation, diffusion model, soccer animation, human-object interaction, character control
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 足球是全球最受欢迎的运动，在游戏和 VR/AR 领域有广泛应用需求。然而，生成逼真的足球运动动画面临以下核心挑战：
 
 **复杂的人-球交互**：足球运动涉及球员与足球之间精细的物理接触，尤其是球-脚之间的接触精度要求极高
+
 **实时性要求**：游戏和交互应用需要实时推理，现有扩散模型通常计算量大，难以满足
+
 **动作多样性**：足球运动包含盘带、花式、射门等众多技能类别，需要覆盖宽泛的动作谱
+
 **数据集缺乏**：缺少公开的大规模足球动作捕捉数据集
 
 现有方法的局限：

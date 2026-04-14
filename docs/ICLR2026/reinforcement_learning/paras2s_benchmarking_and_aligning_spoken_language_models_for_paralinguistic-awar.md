@@ -7,7 +7,7 @@ tags:
   - ICLR 2026
   - 语音到语音
   - 副语言感知
-  - 基准测试
+  - benchmark
   - GRPO
   - 奖励模型
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.08723](https://arxiv.org/abs/2511.08723)  
 **代码**: [项目页面](https://paras2sbench.github.io/)  
 **领域**: 语音对话 / 强化学习  
-**关键词**: 语音到语音, 副语言感知, 基准测试, GRPO, 奖励模型
+**关键词**: 语音到语音, 副语言感知, benchmark, GRPO, 奖励模型
 
 ## 一句话总结
 

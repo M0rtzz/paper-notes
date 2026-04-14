@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Annealed Relaxation of Speculative Decoding for Faster Autoregressive Image Generation
 description: >-
-  [AAAI 2026][图像生成][speculative decoding] 提出Cool-SD，一种有理论支撑的退火松弛speculative decoding框架：通过推导TV距离上界得到最优重采样分布，并证明接受概率递减调度比均匀调度产生更小的分布偏移，在LlamaGen和Lumina-mGPT上实现了比LANTERN++更优的速度-质量权衡。
+  [AAAI 2026][图像生成][推测解码] 提出Cool-SD，一种有理论支撑的退火松弛speculative decoding框架：通过推导TV距离上界得到最优重采样分布，并证明接受概率递减调度比均匀调度产生更小的分布偏移，在LlamaGen和Lumina-mGPT上实现了比LANTERN++更优的速度-质量权衡。
 tags:
   - AAAI 2026
   - 图像生成
-  - speculative decoding
+  - 推测解码
   - 自回归图像生成
   - 退火松弛
   - 总变差距离
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.09212v1](https://arxiv.org/abs/2601.09212v1)  
 **代码**: [https://github.com/xingyaoL/COOL-SD](https://github.com/xingyaoL/COOL-SD) (有)  
 **领域**: 图像生成 / 高效推理  
-**关键词**: speculative decoding, 自回归图像生成, 退火松弛, 总变差距离, 推理加速  
+**关键词**: 推测解码, 自回归图像生成, 退火松弛, 总变差距离, 推理加速
 
 ## 一句话总结
 提出Cool-SD，一种有理论支撑的退火松弛speculative decoding框架：通过推导TV距离上界得到最优重采样分布，并证明接受概率递减调度比均匀调度产生更小的分布偏移，在LlamaGen和Lumina-mGPT上实现了比LANTERN++更优的速度-质量权衡。

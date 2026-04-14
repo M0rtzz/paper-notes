@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2502.14377](https://arxiv.org/abs/2502.14377)  
 **代码**: 无  
 **领域**: 图像生成  
-**关键词**: 可控生成, Diffusion Transformer, ControlNet, 参数高效, 通道-Token 混洗
+**关键词**: 可控生成, 扩散 Transformer, ControlNet, 参数高效, 通道-Token 混洗
 
 ## 一句话总结
 

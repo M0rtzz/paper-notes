@@ -42,9 +42,9 @@ tags:
 
 1. **从知识图谱采样连通子图**：Wikidata→连通子图
 2. **实体重命名(合成映射)**：
-   - 人名→人名格式(Geoffrey Hinton → Caleb Ardent)
-   - 城市→城市格式(Toronto → Metrovale)
-   - 派生名保持一致(University of Toronto → University of Metrovale)
+    - 人名→人名格式(Geoffrey Hinton → Caleb Ardent)
+    - 城市→城市格式(Toronto → Metrovale)
+    - 派生名保持一致(University of Toronto → University of Metrovale)
 3. **文档生成**：三元组事实→LLM生成连贯文档→两套平行语料
 4. **最终产出**：6920文档×161K事实/语料 + 1.2K多跳QA + 1K页面导航
 

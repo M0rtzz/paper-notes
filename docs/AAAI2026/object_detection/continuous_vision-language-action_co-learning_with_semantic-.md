@@ -64,8 +64,8 @@ CCoL的pipeline如下：
 
 2. **跨模态语义-物理对齐（CSA）**: 设计一个注意力归因映射器，通过双向交叉注意力在每个时间步将语言token锚定到视觉-本体感觉表征上：
 
-   - **Language→Visuomotor**：语言嵌入 $\tilde{l}_t$ 作Query，视觉-本体感觉拼接 $X_t = (\tilde{x}_t, \tilde{\mathbf{Z}}_t)$ 作Key/Value
-   - **Visuomotor→Language**：反向，$X_t$ 作Query，$\tilde{l}_t$ 作Key/Value
+    - **Language→Visuomotor**：语言嵌入 $\tilde{l}_t$ 作Query，视觉-本体感觉拼接 $X_t = (\tilde{x}_t, \tilde{\mathbf{Z}}_t)$ 作Key/Value
+    - **Visuomotor→Language**：反向，$X_t$ 作Query，$\tilde{l}_t$ 作Key/Value
    
    双向注意力分数决定了语言token（如名词"cube"、动词"insert"）与物理特征（视觉区域、关节轨迹）之间的对应关系。最终融合特征 $\tilde{F}_t$ 还经位置编码的自注意力保持时间一致性。
 

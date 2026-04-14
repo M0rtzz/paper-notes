@@ -8,9 +8,9 @@ tags:
   - 3D视觉
   - Half-Gaussian
   - Reconstruction Kernel
-  - Plug-and-Play
+  - plug-and-play
   - Discontinuity
-  - Novel View Synthesis
+  - novel view synthesis
 ---
 
 # 3D-HGS: 3D Half-Gaussian Splatting
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2406.02720](https://arxiv.org/abs/2406.02720)  
 **代码**: [https://lihaolin88.github.io/CVPR-2025-3DHGS](https://lihaolin88.github.io/CVPR-2025-3DHGS)  
 **领域**: 3D视觉 / 新视角合成 / 3D Gaussian Splatting  
-**关键词**: Half-Gaussian, Reconstruction Kernel, Plug-and-Play, Discontinuity, Novel View Synthesis  
+**关键词**: Half-Gaussian, Reconstruction Kernel, plug-and-play, Discontinuity, novel view synthesis
 
 ## 一句话总结
 提出3D Half-Gaussian (3D-HGS)核函数——用一个分割平面将3D高斯分成两半，每半有独立不透明度，作为**即插即用**的重建核替换标准高斯核，在不牺牲渲染速度的前提下显著提升形状和颜色不连续处的渲染质量，在Mip-NeRF360/T&T/Deep Blending上全面超越所有SOTA方法。

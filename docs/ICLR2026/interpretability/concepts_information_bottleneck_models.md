@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Concepts' Information Bottleneck Models
 description: >-
-  [ICLR 2026][Concept Bottleneck Models] 在概念瓶颈模型(CBM)的概念层引入信息瓶颈(IB)正则化，通过惩罚 I(X;C) 同时保留 I(C;Y) 来学习最小充分概念表示，在六个CBM变体和三个基准上一致提升预测性能和概念干预可靠性。
+  [ICLR 2026][概念瓶颈模型] 在概念瓶颈模型(CBM)的概念层引入信息瓶颈(IB)正则化，通过惩罚 I(X;C) 同时保留 I(C;Y) 来学习最小充分概念表示，在六个CBM变体和三个基准上一致提升预测性能和概念干预可靠性。
 tags:
   - ICLR 2026
-  - Concept Bottleneck Models
-  - Information Bottleneck
+  - 概念瓶颈模型
+  - 信息瓶颈
   - 可解释性
   - 正则化
   - 概念泄漏
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.14626](https://arxiv.org/abs/2602.14626)  
 **代码**: 有（论文中提到）  
 **领域**: LLM效率  
-**关键词**: Concept Bottleneck Models, Information Bottleneck, 可解释性, 正则化, 概念泄漏
+**关键词**: 概念瓶颈模型, 信息瓶颈, 可解释性, 正则化, 概念泄漏
 
 ## 一句话总结
 在概念瓶颈模型(CBM)的概念层引入信息瓶颈(IB)正则化，通过惩罚 I(X;C) 同时保留 I(C;Y) 来学习最小充分概念表示，在六个CBM变体和三个基准上一致提升预测性能和概念干预可靠性。

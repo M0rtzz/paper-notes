@@ -54,7 +54,7 @@ $$\hat{f}^{(b+1)} \leftarrow \frac{b-1}{b}\hat{f}^{(b)} + \frac{\lambda}{b} t^{(
 1. 以概率 $q=1-p$ 对已有树进行子采样 $\mathcal{S}_b \subseteq \{0,...,b-1\}$
 2. 对数据进行子采样 $\mathcal{G}_b \subseteq \{1,...,n\}$
 3. 计算残差：$z_i = y_i - \frac{\lambda}{b}\sum_{s \in \mathcal{S}_b} t^{(s)}(\mathbf{x}_i)$
-   - 注意除以 $b$ 而非 $|\mathcal{S}|$，使新树在更大的信号上拟合
+    - 注意除以 $b$ 而非 $|\mathcal{S}|$，使新树在更大的信号上拟合
 4. 最终预测需缩放：$\frac{1+\lambda q}{\lambda}\hat{f}^{(B)}$
 
 **信号恢复**：收敛到 $\frac{\lambda}{1+\lambda q}f$，比原始Boulevard的 $\frac{\lambda}{1+\lambda}f$ 提升因子为 $\frac{1+\lambda}{1+\lambda q} \in (1, 2]$

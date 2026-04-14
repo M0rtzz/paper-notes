@@ -30,10 +30,15 @@ tags:
 ## 研究背景与动机
 
 **Path-star 任务**：Bachmann & Nagarajan (2024) 提出的极简图搜索任务——星形图有 D 条臂，每条长 M，给定起点 s 和终点 t，模型需生成从 s 到 t 的正确臂。核心难点在于选择正确的 leading node $l_t$。
+
 **惊人的失败**：标准 decoder-only LM 通过 teacher-forcing 训练后，在该任务上准确率不超过随机基线 $1/D$，被用来论证 next-token prediction 范式对规划任务存在根本性不足。
+
 **引发的后续工作**：此失败促使多个工作提出替代架构（如 Yin et al. 2024 的辅助自编码器、Hu et al. 2025a 的双向编码器），但这些方案改变了模型架构本身。
+
 **Clever Hans Cheat (CHC)**：在 teacher-forcing 训练中，模型利用前一个 ground-truth token 进行单边查找（single-edge lookup），而非真正学会从 t 逆向重建臂路径。CHC 吸收了除 $l_t$ 之外的所有序列监督信号，使学习核心规划子任务仅依赖单一 token。
+
 **核心洞察——监督污染**：作者提出 supervision adulteration 概念：过量或不当的监督信号之间产生坏的交互，使得目标任务的学习信号被无关的捷径学习所稀释。这不是数据过拟合的问题，而是任务构造方式本身的问题。
+
 **反驳动机**：如果标准方法（decoder-only + teacher-forcing + next-token prediction）通过微小修改就能解决该任务，则证明原始声明过于绝对，该失败不构成对范式本身的否定。
 
 ## 方法详解

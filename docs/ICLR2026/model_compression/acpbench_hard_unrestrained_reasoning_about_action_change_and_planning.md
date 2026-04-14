@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2503.24378](https://arxiv.org/abs/2503.24378)  
 **代码**: [https://ibm.github.io/ACPBench](https://ibm.github.io/ACPBench)  
 **领域**: LLM推理  
-**关键词**: planning, benchmark, action reasoning, PDDL, generative evaluation  
+**关键词**: planning, benchmark, action reasoning, PDDL, generative evaluation
 
 ## 一句话总结
 构建 ACPBench Hard，一个基于 PDDL 规划的 8 类开放式生成推理 benchmark（1040 题），要求 LLM 生成可适用动作集、状态转移、可达性判断、里程碑识别、计划验证等，配备精确的符号验证器，测试发现即使最强的推理模型（o1）在多数任务上也低于 65%，暴露了 LLM 在规划推理方面的根本不足。
 
 ## 研究背景与动机
 **领域现状**：评估 LLM 规划能力的 benchmark 主要关注端到端计划生成/验证，无法定位失败原因。ACPBench v1 引入了 7 个原子推理任务但采用布尔/多选格式。
+
 **现有痛点**：布尔/多选任务无法反映规划器的实际需求——规划器需要从大动作空间中*生成*答案，而非从 4 个选项中选一个。即使模型能在多选中选对，也不能保证能完成生成任务。
+
 **核心矛盾**：开放式生成答案的评估比多选困难得多——有些任务的答案不唯一，有些验证本身就是 PSPACE-hard 的。需要为每个任务设计专门的符号验证算法。
+
 **本文要解决什么？** 创建能精确评估 LLM 原子级规划推理能力的生成式 benchmark，让 LLM 产生规划器实际需要产生的答案。
+
 **切入角度**：将 ACPBench 的 7 个任务升级为开放式生成版本，新增"下一步动作"任务，为每个任务开发基于 PDDL 的符号验证器。
+
 **核心idea一句话**：用 PDDL 形式化系统 + 符号验证器精确度量 LLM 在 8 类规划推理原子任务上的生成能力。
 
 ## 方法详解

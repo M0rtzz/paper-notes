@@ -8,7 +8,7 @@ tags:
   - Pandora's Box
   - prophet inequality
   - online learning
-  - regret bounds
+  - regret bound
   - contextual linear bandits
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.18828](https://arxiv.org/abs/2505.18828)  
 **代码**: 无  
 **领域**: reinforcement_learning  
-**关键词**: Pandora's Box, prophet inequality, online learning, regret bounds, contextual linear bandits
+**关键词**: Pandora's Box, prophet inequality, online learning, regret bound, contextual linear bandits
 
 ## 一句话总结
 本文针对在线 Pandora's Box 问题提出新算法，将 regret 从 $\widetilde{O}(n\sqrt{T})$ 改进到 $\widetilde{O}(\sqrt{nT})$（匹配下界），并首次提出 contextual linear 扩展实现 $\widetilde{O}(nd\sqrt{T})$ regret。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Pandora's Box——$n$ 个盒子各有成本和未知奖励分布，需决定开启顺序和停止时机。Weitzman (1978) 给出已知分布下的最优策略。
+
 **现有痛点**：在线设定中 Agarwal et al. (2024) 达到 $\widetilde{O}(Un\sqrt{T})$（$U$ 可达 $n$），下界 $\Omega(\sqrt{nT})$，差距达 $n$ 倍。
+
 **核心矛盾**：先前方法以固定量移动概率质量，TV 距离界太松；$\text{Term}_{t,i}$ 被粗糙地用 $U \cdot \text{TV}$ 约束。
+
 **本文要解决什么？** 闭合 non-contextual 的 $n$ 差距；建立 contextual linear 模型获得 $\sqrt{T}$ 型 regret。
+
 **切入角度**：Bernstein 型 DKW 不等式自适应调整概率质量 + 效用函数导数精细分析。
+
 **核心idea一句话**：自适应乐观分布 + 两区域导数分析 = minimax 最优 regret。
 
 ## 方法详解

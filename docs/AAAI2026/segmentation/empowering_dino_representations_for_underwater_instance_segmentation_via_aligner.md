@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.08334](https://arxiv.org/abs/2511.08334)  
 **代码**: [ettof/Diveseg](https://github.com/ettof/Diveseg)  
 **领域**: segmentation  
-**关键词**: underwater instance segmentation, DINOv2, domain adaptation, Fourier style transfer, foundation model fine-tuning  
+**关键词**: underwater instance segmentation, DINOv2, domain adaptation, Fourier style transfer, foundation model fine-tuning
 
 ## 一句话总结
 

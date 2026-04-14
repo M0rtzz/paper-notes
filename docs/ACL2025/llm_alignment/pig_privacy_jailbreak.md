@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.09921](https://arxiv.org/abs/2505.09921)  
 **代码**: [https://github.com/redwyd/PrivacyJailbreak](https://github.com/redwyd/PrivacyJailbreak)  
 **领域**: AI 安全 / 隐私攻击  
-**关键词**: privacy jailbreak, PII extraction, in-context learning, gradient-based optimization, LLM safety  
+**关键词**: privacy jailbreak, PII extraction, in-context learning, gradient-based optimization, LLM safety
 
 ## 一句话总结
 提出 PIG 框架，通过识别隐私查询中的 PII 实体类型、构建隐私上下文示例、并利用三种基于梯度的迭代优化策略更新上下文，实现对 LLM 的高效隐私越狱攻击，在白盒和黑盒模型上均达到 SOTA。

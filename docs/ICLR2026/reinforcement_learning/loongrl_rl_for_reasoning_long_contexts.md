@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR 2026 Oral
   - long-context reasoning
-  - 强化学习
+  - reinforcement-learning
   - GRPO
   - multi-hop QA
   - emergent reasoning patterns
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2510.19363](https://arxiv.org/abs/2510.19363)  
 **代码**: 有（附补充材料提供训练代码和 KeyChain 数据合成代码）  
 **领域**: LLM推理 / 长上下文推理  
-**关键词**: long-context reasoning, reinforcement learning, GRPO, multi-hop QA, emergent reasoning patterns  
+**关键词**: long-context reasoning, reinforcement-learning, GRPO, multi-hop QA, emergent reasoning patterns
 
 ## 一句话总结
 提出 LoongRL，通过构建 KeyChain 合成数据进行强化学习训练，使 LLM 涌现出 plan–retrieve–reason–recheck 的长上下文推理模式，仅在 16K 上下文上训练即可泛化到 128K，14B 模型达到 74.2 分接近 o3-mini (74.5) 和 DeepSeek-R1 (74.9)。
@@ -46,19 +46,19 @@ LoongRL 的 pipeline：(1) 从现有多跳 QA 数据集出发 → (2) 通过 Key
 
 1. **KeyChain 数据构造**
 
-    - 做什么：将简单的短文本多跳 QA 转变为高难度长上下文推理任务
+    - 功能：将简单的短文本多跳 QA 转变为高难度长上下文推理任务
     - 核心思路：首先从 HotpotQA、MuSiQue、2WikiMultiHopQA 中筛选中等难度的 QA 对（277K→72K，过滤方式：用 Qwen2.5-32B 回答 8 次，保留 pass rate 在 0-1 之间的），然后 (a) 插入无关文档扩展到 ~16K token，(b) 插入多条 UUID key-value 链，其中一条链最终指向原始问题 $o\_q_i$，其余链指向干扰问题。每个 key 是 32 字符 UUID（0-9, A-F），value 包含下一个 key 或最终问题。模型必须从初始 key 追踪正确链条 → 找到隐藏的真实问题 → 在长上下文中检索相关信息 → 推理得出答案
     - 设计动机：仅靠增加干扰文档，难度提升有限，模型仍可直接检索。KeyChain 的妙处在于迫使模型先"找到问题是什么"，这个预处理步骤天然引导模型形成规划-检索-推理的结构化思维
 
 2. **Two-way Substring Exact Match 奖励验证器**
 
-    - 做什么：为 RL 提供可靠的 binary 奖励信号
+    - 功能：为 RL 提供可靠的 binary 奖励信号
     - 核心思路：$r_i = 1$ 当且仅当 $a \subseteq y_{\text{ans}} \lor y_{\text{ans}} \subseteq a$，即预测答案包含 ground truth，或 ground truth 包含预测答案（双向子串匹配）。模型被要求将最终答案放在 `\boxed{}` 中以便提取
     - 设计动机：通用 QA 答案形式多样（不像数学有唯一解），strict exact match 过于严格会惩罚正确但格式不同的答案，F1 score 和 LLM-as-a-judge 效果不佳且后者还需额外模型开销。双向子串匹配在宽容度和准确性间取得好平衡
 
 3. **三阶段多课程 RL 训练**
 
-    - 做什么：渐进式提升任务难度，避免一开始就给太难的数据导致训练不稳定
+    - 功能：渐进式提升任务难度，避免一开始就给太难的数据导致训练不稳定
     - 核心思路：
       - **Warm-up**（42 steps, 仅 7B 需要）: 在无 KeyChain 的数据上训练（标准多跳 QA + 检索 + 数学），提升基础能力
       - **Stage I**（168 steps）: 加入 KeyChain 数据，鼓励模型学习 plan-retrieve-reason-recheck 模式
@@ -67,7 +67,7 @@ LoongRL 的 pipeline：(1) 从现有多跳 QA 数据集出发 → (2) 通过 Key
 
 4. **混合数据配方**
 
-    - 做什么：平衡长上下文推理和短上下文通用能力
+    - 功能：平衡长上下文推理和短上下文通用能力
     - 核心思路：训练数据包含 7,500 KeyChain QA + 7,500 标准多跳 QA + 1,024 needle retrieval + 5,000 数学题（DAPO + MATH），全部限制在 ~16K 上下文长度内
     - 设计动机：纯长上下文训练会退化短上下文能力（R1-distill 系列和 QwenLong-L1 均有此问题），加入数学数据可保持通用推理
 

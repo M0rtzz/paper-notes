@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - LaTeX生成
   - LLM评估
-  - 基准测试
+  - benchmark
   - 代码生成
   - 科学文档
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2506.16990](https://arxiv.org/abs/2506.16990)  
 **代码**: https://github.com/knowledge-verse-ai/TeXpert  
 **领域**: NLP Generation / 代码生成评估  
-**关键词**: LaTeX生成, LLM评估, 基准测试, 代码生成, 科学文档
+**关键词**: LaTeX生成, LLM评估, benchmark, 代码生成, 科学文档
 
 ## 一句话总结
 提出TeXpert——首个系统评估LLM从自然语言指令生成科学文档LaTeX代码能力的多难度级别基准，包含440个高质量样本（Simple/Average/Hard三级），在9个开闭源LLM上的评估揭示了LaTeX生成是LLM的显著短板（Hard任务准确率普遍低于17.5%），逻辑错误和格式错误是主要瓶颈。

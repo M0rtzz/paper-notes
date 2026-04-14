@@ -7,9 +7,9 @@ tags:
   - NeurIPS 2025
   - 多模态
   - CLIP
-  - compositional reasoning
-  - fine-tuning
-  - hard negatives
+  - 组合推理
+  - 微调
+  - 困难负样本
   - image concatenation
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.24424](https://arxiv.org/abs/2505.24424)  
 **代码**: [https://clic-compositional-clip.github.io/](https://clic-compositional-clip.github.io/)  
 **领域**: 多模态VLM  
-**关键词**: CLIP, compositional reasoning, fine-tuning, hard negatives, image concatenation  
+**关键词**: CLIP, 组合推理, 微调, 困难负样本, image concatenation
 
 ## 一句话总结
 提出 CLIC（Compositionally-aware Learning in CLIP），通过拼接图像对 + 跨图词汇交换生成 hard negatives + 多正样本训练的策略，在仅微调文本编码器的情况下同时提升 CLIP 的组合推理能力和检索性能，在 SugarCrepe++ 上取得 CLIP 类模型 SOTA。

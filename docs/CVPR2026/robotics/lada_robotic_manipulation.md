@@ -2,11 +2,12 @@
 title: >-
   [论文解读] Language-Grounded Decoupled Action Representation for Robotic Manipulation (LaDA)
 description: >-
-  [CVPR 2026][机器人操作] 提出LaDA框架，将连续7-DoF动作解耦为平移/旋转/夹爪三个语言锚定原语，通过软标签对比学习在共享嵌入空间中对齐跨任务动作表示，0.6B参数在LIBERO上达93.6%成功率，MimicGen上67%平均成功率。
+  [CVPR 2026][机器人][动作解耦] 提出 LaDA 框架，用自然语言作为语义桥梁将连续 7-DoF 动作解耦为平移/旋转/夹爪三个可解释原语，通过软标签对比学习在共享嵌入空间中对齐跨任务动作表示，仅 0.6B 参数在 LIBERO 上达 93.6% 成功率，超越 1.3B~8.5B 参数的所有基线。
 tags:
   - CVPR 2026
-  - 机器人操作
+  - 机器人
   - 动作解耦
+  - 语言语义桥梁
   - 软标签对比学习
   - VLA
   - 跨任务泛化
@@ -48,19 +49,19 @@ tags:
 
 1. **语言锚定动作解耦（Language-Grounded Action Decomposition）**:
 
-    - 做什么：定义投影 $\Pi: \mathbf{a}_t \mapsto \mathbf{p}_t$，将连续 7-DoF 动作分解为三类可解释原语——平移 "Move [dist] meters along [dir]"、旋转 "Rotate [mag] degrees around [axis]"、夹爪 "Open/Close"
+    - 功能：定义投影 $\Pi: \mathbf{a}_t \mapsto \mathbf{p}_t$，将连续 7-DoF 动作分解为三类可解释原语——平移 "Move [dist] meters along [dir]"、旋转 "Rotate [mag] degrees around [axis]"、夹爪 "Open/Close"
     - 核心思路：每个原语被离散化为语言对齐的符号类别（symbolic bins），将连续控制轨迹转化为可解释的语义类别。例如平移方向离散为"前/后/左/右/上/下"、旋转轴离散为 x/y/z 轴、夹爪为开/关二元状态
     - 设计动机：不同任务间可共享相同的运动原语（如多个任务都涉及"沿 z 轴旋转 90°"），显式语义标签让这些共享结构可被对比学习利用，而非像隐式动作学习那样被埋没在不可解释的 latent code 中
 
 2. **语义引导软标签对比学习（Semantic-Guided Soft-Label Contrastive Learning）**:
 
-    - 做什么：在统一嵌入空间中按原语级语义亲缘度对齐多模态表示
+    - 功能：在统一嵌入空间中按原语级语义亲缘度对齐多模态表示
     - 核心思路：构建软相似度矩阵 $S = \frac{w_t M_t + w_r M_r + w_g M_g}{w_t + w_r + w_g}$，其中 $M_t, M_r, M_g$ 是平移/旋转/夹爪维度的二元匹配矩阵。用 CLIP 视觉+文本编码器提取嵌入，FiLM 条件化后 MLP 投影得统一嵌入 $A_i$。双路径 soft-label InfoNCE：(i) Action-Action 按 $S_{ij}$ 加权拉近语义相似动作嵌入；(ii) Action-Primitive 将每个动作锚定到其原语文本描述编码 $P_j$。总损失 $\mathcal{L}_{CL} = \mathcal{L}_a + \lambda \mathcal{L}_m$
     - 设计动机：与传统二元正负对不同，软标签允许"部分相似"的动作对有梯度化的相似度（如两个动作平移相同但旋转不同，仍有部分匹配），捕捉更细粒度的运动对应关系
 
 3. **自适应损失权重（Adaptive Loss Weighting）**:
 
-    - 做什么：动态平衡模仿损失 $\mathcal{L}_{IL}$（预测离散化原语类别）与对比损失 $\mathcal{L}_{CL}$
+    - 功能：动态平衡模仿损失 $\mathcal{L}_{IL}$（预测离散化原语类别）与对比损失 $\mathcal{L}_{CL}$
     - 核心思路：用移动平均归一化权重 $w_{IL} = \frac{\text{MA}(\mathcal{L}_{IL})}{\text{MA}(\mathcal{L}_{IL}) + \text{MA}(\mathcal{L}_{CL})}$，最终 $\mathcal{L}_{total} = w_{CL} \mathcal{L}_{CL} + w_{IL} \mathcal{L}_{IL}$
     - 设计动机：模仿损失提供粗粒度行为监督，对比损失提供细粒度语义对齐，二者收敛速率和粒度不同，固定权重易导致一方主导。灵感来自课程学习
 

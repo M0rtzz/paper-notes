@@ -10,7 +10,7 @@ tags:
   - 图文匹配
   - 组合性理解
   - 细粒度检测
-  - Benchmark
+  - benchmark
 ---
 
 # FineMatch: Aspect-based Fine-grained Image and Text Mismatch Detection and Correction
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2404.14715](https://arxiv.org/abs/2404.14715)  
 **代码**: [项目页](https://hanghuacs.github.io/finematch/) (有)  
 **领域**: 图像生成  
-**关键词**: 视觉语言模型, 图文匹配, 组合性理解, 细粒度检测, Benchmark
+**关键词**: 视觉语言模型, 图文匹配, 组合性理解, 细粒度检测, benchmark
 
 ## 一句话总结
 
@@ -30,8 +30,11 @@ tags:
 尽管现有预训练视觉语言模型（VLM）如 GPT-4V、LLaVA 在复杂推理上表现出色，但在**细粒度组合信息理解**上仍然有限。具体表现为：
 
 **粒度不足**：现有组合性评估基准（如 ARO、Winoground、SUGARCREPE）仅要求**句子级别**的匹配/不匹配判断，过于简单
+
 **缺乏定位能力评估**：没有评估模型是否能定位到具体哪些短语与图像不匹配
+
 **缺乏纠正能力评估**：没有要求模型给出正确的描述是什么
+
 **VQA 方法的局限**：现有细粒度检测方法依赖先生成问题再 VQA 回答的流水线，不够灵活且存在误差累积
 
 FineMatch 提出了更具挑战性的任务：给定图文对，模型需要：

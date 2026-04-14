@@ -6,7 +6,7 @@ description: >-
 tags:
   - NeurIPS 2025 (Spotlight)
   - Causal Abstraction
-  - Mechanistic Interpretability
+  - mechanistic interpretability
   - Linear Representation Hypothesis
   - Alignment Map
   - Interchange Intervention
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2507.08802](https://arxiv.org/abs/2507.08802)  
 **代码**: 待确认  
 **领域**: llm_nlp / 可解释性  
-**关键词**: Causal Abstraction, Mechanistic Interpretability, Linear Representation Hypothesis, Alignment Map, Interchange Intervention
+**关键词**: Causal Abstraction, mechanistic interpretability, Linear Representation Hypothesis, Alignment Map, Interchange Intervention
 
 ## 一句话总结
 

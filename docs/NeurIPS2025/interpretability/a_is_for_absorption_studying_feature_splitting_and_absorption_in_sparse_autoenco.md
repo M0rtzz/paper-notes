@@ -25,13 +25,18 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Sparse Autoencoder (SAE) 是当前机械可解释性的核心工具，旨在将 LLM 的稠密激活分解为可解释的稀疏特征方向
+
 **现有痛点**：
    - SAE latent 的精度/召回率不稳定，有些看似追踪某个概念的 latent 在应该激活时不激活
    - 仅看 max activating examples 容易产生虚假的可解释性幻觉
    - 之前的 feature splitting 研究只关注了"好的"分裂（如大小写分裂），忽略了问题分裂
+
 **核心矛盾**：SAE 的稀疏性损失鼓励减少同时激活的 latent 数量，但当特征形成层级关系时（如"以S开头"是"short"的父特征），SAE 会通过将父特征方向吸收到子 latent 中来增加稀疏性，导致父 latent 不再在该 token 上激活
+
 **本文要解决什么？** 识别、定义、量化并解释 SAE 中的特征吸收现象
+
 **切入角度**：从拼写任务（首字母预测）入手，用 linear probe 作为 ground truth，系统对比 SAE latent 的精度/召回率
+
 **核心idea一句话**：SAE 在层级特征上的稀疏优化必然导致特征吸收，使得 SAE latent 不是可靠的分类器
 
 ## 方法详解
@@ -43,19 +48,19 @@ tags:
 
 1. **Toy Model 证明吸收的必然性**:
 
-    - 做什么：在 4 个特征的简单设置中，当特征 1 只在特征 0 激活时才激活（层级关系），SAE 学到的 latent 0 会在特征 1 激活时不激活，同时 latent 1 的解码器吸收特征 0 方向
+    - 功能：在 4 个特征的简单设置中，当特征 1 只在特征 0 激活时才激活（层级关系），SAE 学到的 latent 0 会在特征 1 激活时不激活，同时 latent 1 的解码器吸收特征 0 方向
     - 核心思路：独立特征时 SAE 完美恢复；加入层级共现后，SAE 编码器学习 "¬feat1 ∧ feat0" 而非 "feat0"，因为这样只需激活 1 个 latent 而非 2 个，稀疏性更好
     - 设计动机：提供解析证明，在层级设置中吸收确实降低 SAE 损失
 
 2. **首字母拼写实验设计**:
 
-    - 做什么：用 ICL prompt 让模型预测 token 首字母，提取残差流激活
+    - 功能：用 ICL prompt 让模型预测 token 首字母，提取残差流激活
     - 核心思路：训练 26 个首字母的 linear probe，与 SAE latent 逐一对比。k-sparse probing 检测 feature splitting，消融实验检测 absorption
     - 设计动机：首字母是明确的二元特征（以/不以某字母开头），有清晰的 ground truth
 
 3. **特征吸收率指标 (Feature Absorption Rate)**:
 
-    - 做什么：量化吸收发生的频率
+    - 功能：量化吸收发生的频率
     - 核心思路：找到 k 个 feature split latent 都不激活但 probe 正确分类的 false negative token，对这些 token 做 integrated-gradients 消融。如果某个非首字母 latent 的消融效应最大且与 probe 余弦相似度 > 0.025，判定为吸收。absorption_rate = num_absorptions / probe_true_positives
     - 设计动机：保守估计吸收率，只计算因果上确认的吸收案例
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2504.11434](https://arxiv.org/abs/2504.11434)  
 **代码**: [GitHub](https://github.com/limchaos/ElogitNorm)  
 **领域**: AI安全 / OOD检测  
-**关键词**: out-of-distribution detection, logit normalization, feature collapse, decision boundary, calibration  
+**关键词**: out-of-distribution detection, logit normalization, feature collapse, decision boundary, calibration
 
 ## 一句话总结
 诊断LogitNorm的特征坍缩问题(维度坍缩+原点坍缩)，提出ELogitNorm——用到决策边界的平均距离(而非特征范数)做自适应温度缩放，无超参数、兼容所有post-hoc OOD检测方法——CIFAR-10上far-OOD AUROC提升10.48%(SCALE)，ImageNet-1K上FPR95从51.45%降至27.74%，同时改善分类精度和ECE校准。

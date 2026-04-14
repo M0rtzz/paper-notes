@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.01034](https://arxiv.org/abs/2506.01034)  
 **代码**: [GitHub](https://github.com/aidos-lab/Topo_LLM_public)  
 **领域**: video_understanding  
-**关键词**: intrinsic dimension, LLM, fine-tuning, grokking, overfitting detection, embedding geometry  
+**关键词**: intrinsic dimension, LLM, fine-tuning, grokking, overfitting detection, embedding geometry
 
 ## 一句话总结
 

@@ -44,19 +44,19 @@ tags:
 
 1. **ICVF预训练**:
 
-    - 做什么：从随机状态转移数据学习状态嵌入 $\phi_\theta(s)$
+    - 功能：从随机状态转移数据学习状态嵌入 $\phi_\theta(s)$
     - 核心思路：$V_\theta(s, s_+, z) = \phi_\theta(s)^T T_\theta(z) \psi_\theta(s_+)$，用IQL离线RL训练。$\phi(s)$ 编码了状态的可达性结构。
     - 设计动机：Theorem 3.1证明状态对占据概率 $d_{ss}^{\pi_z}(s,s')$ 近似是 $\phi(s)$ 的线性组合，意味着 $\phi$ 空间天然适合做Wasserstein状态匹配。
 
 2. **潜空间Wasserstein AIL**:
 
-    - 做什么：在 $\phi$ 空间中匹配智能体和专家的状态对分布
+    - 功能：在 $\phi$ 空间中匹配智能体和专家的状态对分布
     - 核心思路：$\min_\pi \max_{\|f\|_L \leq 1} (\mathbb{E}_{d_{ss}^\pi}[f(\phi(s), \phi(s'))] - \mathbb{E}_{d_{ss}^E}[f(\phi(s), \phi(s'))])$
     - 设计动机：在 $\phi$ 空间中1-Lipschitz约束对应的欧氏距离现在是动态感知的
 
 3. **奖励设计**:
 
-    - 做什么：用判别器输出构造RL奖励 $r(s,s') = \sigma(-f(\phi(s), \phi(s')))$
+    - 功能：用判别器输出构造RL奖励 $r(s,s') = \sigma(-f(\phi(s), \phi(s')))$
     - 设计动机：sigmoid归一化到[0,1]稳定下游TD3训练
 
 ## 实验关键数据

@@ -97,14 +97,14 @@ FM 相比 DDPM 的优势：避免高斯约束对细粒度预测的干扰。
 **两阶段训练**：
 
 1. **GTR 阶段**：先训练 GTR 至收敛，然后冻结参数
-   - $\mathcal{L}_{\text{Prior}} = -\log \int p(Y|X_{T_{\text{trunc}}}) p(X_{T_{\text{trunc}}}|X) dX_{T_{\text{trunc}}} \approx \frac{1}{M}\sum_{i=1}^M -\log p(Y|X_{T_{\text{trunc}}}^i)$
-   - Monte Carlo 采样 $M=20$
+    - $\mathcal{L}_{\text{Prior}} = -\log \int p(Y|X_{T_{\text{trunc}}}) p(X_{T_{\text{trunc}}}|X) dX_{T_{\text{trunc}}} \approx \frac{1}{M}\sum_{i=1}^M -\log p(Y|X_{T_{\text{trunc}}}^i)$
+    - Monte Carlo 采样 $M=20$
 
 2. **SFM 阶段**：在冻结的 GTR 基础上训练 SFM
-   - $\mathcal{L}_{\text{FM}}$：标准 Flow Matching 损失
-   - $\mathcal{L}_{\text{SF}}$：语义一致性损失（Dice loss）
-   - $\mathcal{L}_{\text{SFM}} = \mathcal{L}_{\text{FM}} + \alpha \cdot \mathcal{L}_{\text{SF}}$
-   - $\alpha$：LIDC 设为 $10^{-3}$，ISIC3 设为 $10^{-4}$
+    - $\mathcal{L}_{\text{FM}}$：标准 Flow Matching 损失
+    - $\mathcal{L}_{\text{SF}}$：语义一致性损失（Dice loss）
+    - $\mathcal{L}_{\text{SFM}} = \mathcal{L}_{\text{FM}} + \alpha \cdot \mathcal{L}_{\text{SF}}$
+    - $\alpha$：LIDC 设为 $10^{-3}$，ISIC3 设为 $10^{-4}$
 
 **训练配置**：
 - 单张 RTX 3090 (24GB)

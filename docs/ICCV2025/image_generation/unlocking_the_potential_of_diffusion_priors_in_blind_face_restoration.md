@@ -65,10 +65,10 @@ $$F_{joint} = \text{Self-Attn}(F_x) + \phi \cdot F_{ro}$$
 
 **两阶段训练**：
 1. **重建阶段**：分别训练 HQ/LQ 自编码器，使其能从潜在空间重建输入
-   - 损失：$\mathcal{L}_{ae} = \mathcal{L}_1 + \lambda_{ap}\mathcal{L}_p + \lambda_{adv}\mathcal{L}_{adv}$
+    - 损失：$\mathcal{L}_{ae} = \mathcal{L}_1 + \lambda_{ap}\mathcal{L}_p + \lambda_{adv}\mathcal{L}_{adv}$
 2. **关联阶段**：用交叉熵损失对齐 HQ/LQ 潜在空间
-   - 计算 HQ/LQ patch 特征的相似矩阵 $\mathcal{M} \in \mathbb{R}^{N \times N}$
-   - 最大化对角线相似度：$\mathcal{L}^{H(L)}_{ce} = -\frac{1}{N}\sum_i\sum_j y_{i,j}\log(z_{x(y)}^{i,j})$
+    - 计算 HQ/LQ patch 特征的相似矩阵 $\mathcal{M} \in \mathbb{R}^{N \times N}$
+    - 最大化对角线相似度：$\mathcal{L}^{H(L)}_{ce} = -\frac{1}{N}\sum_i\sum_j y_{i,j}\log(z_{x(y)}^{i,j})$
 
 训练后的 LQ 编码器提取面部嵌入 $\mathbf{z}_y$，通过 Adapter $\tau$ 对齐到文本 token 维度后经交叉注意力集成。
 

@@ -20,7 +20,7 @@ tags:
 **代码**: https://github.com/SY-Xuan/DA-HOI  
 **作者**: Shiyu Xuan, Dongkai Wang, Zechao Li, Jinhui Tang  
 **领域**: 目标检测  
-**关键词**: HOI detection, zero-shot, MLLM, interaction recognition, detector-agnostic  
+**关键词**: HOI detection, zero-shot, MLLM, interaction recognition, detector-agnostic
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 **领域现状**：HOI 检测要求同时定位人和物体、识别它们之间的交互关系。近年基于 CLIP 的零样本方法（GEN-VLKT、HOICLIP、ADA-CM、LAIN 等）通过文本嵌入构建交互分类器取得初步进展，但性能瓶颈仍然明显。
 
 **现有痛点**：
+
 **CLIP 特征分辨力不足**：CLIP 擅长类别级对齐，但对"holding a cup"和"lifting a cup"这类视觉相似交互缺乏细粒度区分能力，必须额外融合检测器特征补偿
+
 **检测器-交互识别耦合严重**：包括 ADA-CM、BCOM 等两阶段方法在内，交互识别模块都依赖特定检测器的特征或物体间关系建模（如 UPT），更换检测器即需重新训练——BCOM 换 Grounding-DINO 后 Full mAP 从 33.74 暴跌至 20.31
+
 **泛化天花板低**：基于 CLIP 的方法本质上只在训练类别上对齐视觉和文本特征，对 Unseen Verb/Object 类别泛化困难
 
 **核心矛盾**：开放词汇检测器已能较好地定位未见物体，真正瓶颈在交互识别——而交互识别恰恰被绑在了特定检测器上。

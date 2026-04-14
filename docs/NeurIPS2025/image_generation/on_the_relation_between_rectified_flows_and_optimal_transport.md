@@ -7,7 +7,7 @@ tags:
   - NeurIPS 2025
   - 图像生成
   - Rectified Flow
-  - Optimal Transport
+  - 最优传输
   - Flow Matching
   - 反例构造
   - Wasserstein距离
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.19712](https://arxiv.org/abs/2505.19712)  
 **代码**: 暂无  
 **领域**: 扩散模型 / 流匹配 / 最优传输  
-**关键词**: Rectified Flow, Optimal Transport, Flow Matching, 反例构造, Wasserstein距离
+**关键词**: Rectified Flow, 最优传输, Flow Matching, 反例构造, Wasserstein距离
 
 ## 一句话总结
 

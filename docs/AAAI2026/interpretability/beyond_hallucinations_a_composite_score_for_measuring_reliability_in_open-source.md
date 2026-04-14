@@ -6,9 +6,9 @@ description: >-
 tags:
   - AAAI 2026
   - LLM reliability
-  - calibration
-  - robustness
-  - uncertainty quantification
+  - 校准
+  - 鲁棒性
+  - 不确定性量化
   - composite metric
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.24058](https://arxiv.org/abs/2512.24058)  
 **代码**: https://github.com/rohitsalla/CRS.git  
 **领域**: LLM NLP / 可靠性评估  
-**关键词**: LLM reliability, calibration, robustness, uncertainty quantification, composite metric
+**关键词**: LLM reliability, 校准, 鲁棒性, 不确定性量化, composite metric
 
 ## 一句话总结
 提出 Composite Reliability Score (CRS)，将校准度、鲁棒性和不确定性量化三个维度统一为单一可解释指标，对 10 个开源 LLM 在 5 个 QA 数据集上进行系统评估，发现 Mistral-8x22B 综合可靠性最高（CRS=0.81），而模型大小并不直接决定可靠性。
@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：开源 LLM 越来越多地应用于医疗、法律、金融等高风险领域，但它们的可靠性仍然不确定——经常过度自信、对输入扰动脆弱、缺乏清晰的不确定性估计。
+
 **现有痛点**：现有评估碎片化——要么只看准确率，要么只看校准或鲁棒性中的某一项，无法全面衡量"部署可靠性"。
+
 **核心矛盾**：单一指标（如 ECE 或准确率）可能掩盖其他维度的弱点——一个准确率高但校准差的模型在高风险场景中可能比准确率稍低但校准好的模型更危险。
+
 **本文要解决什么**：设计一个统一的可靠性度量框架，同时评估校准、鲁棒性和不确定性三个维度。
+
 **切入角度**：三个维度分别归一化到 [0,1] 后加权平均，简单但有效地反映综合可靠性。
+
 **核心 idea**：$\text{CRS} = \alpha C + \beta R + \gamma U$，其中 C=校准分、R=鲁棒性分、U=不确定性量化分。
 
 ## 方法详解
@@ -41,19 +46,19 @@ CRS 由三个 pillar 组成，每个归一化到 [0,1]，等权加权（$\alpha=
 
 1. **Calibration (C)**
 
-    - 做什么：衡量模型置信度与实际准确率的匹配程度
+    - 功能：衡量模型置信度与实际准确率的匹配程度
     - 核心思路：基于 ECE，转换为正向分数 $C = \max(0, 1 - \text{ECE}_{model}/\text{ECE}_{max})$
     - 评估方法：baseline calibration + 两种 post-hoc 校准（temperature scaling, isotonic regression）
 
 2. **Robustness (R)**
 
-    - 做什么：衡量模型在输入扰动下保持性能的能力
+    - 功能：衡量模型在输入扰动下保持性能的能力
     - 核心思路：对三类扰动（错字 5%、回译释义、TextFooler 对抗攻击）计算性能下降比例，$R = 1 - \text{Avg Acc Drop}/\text{Avg Acc}_{clean}$
     - 设计动机：用相对下降而非绝对准确率，让不同基线能力的模型可以公平比较
 
 3. **Uncertainty Quantification (U)**
 
-    - 做什么：评估模型在错误时产生高不确定性的能力
+    - 功能：评估模型在错误时产生高不确定性的能力
     - 核心思路：用 MC Dropout（10 次前向推理）和 3-模型 Ensemble 估计不确定性，通过 AUROC 评估区分正确/错误预测的能力，归一化为 $U = (\text{AUROC} - 0.5)/0.5$
     - 取两种方法中较好的作为最终 U 分数
 

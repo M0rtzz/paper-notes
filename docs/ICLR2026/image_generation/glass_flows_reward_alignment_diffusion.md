@@ -2,14 +2,17 @@
 title: >-
   [论文解读] GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models
 description: >-
-  [ICLR2026][扩散模型][推理时对齐] 提出GLASS Flows——在流/扩散模型中用充分统计量将随机转移重铸为内部ODE，兼具ODE效率和SDE随机性，实现高效的推理时奖励对齐
+  [ICLR 2026 Oral][图像生成][flow matching] 提出 GLASS (Gaussian Latent Sufficient Statistic) Flows——一种"流模型中的流模型"新采样范式，通过高斯充分统计量重参数化将随机马尔可夫转移 $p_{t'|t}(x_{t'} | x_t)$ 重铸为内部 ODE 求解问题（复用预训练去噪器，无需重训），在无需权衡 ODE 效率和 SDE 随机性的条件下实现 Feynman-Kac Steering，在 FLUX 文生图模型上一致超越 Best-of-N ODE 基线，刷新推理时奖励对齐 SOTA。
 tags:
-  - ICLR2026
+  - ICLR 2026 Oral
+  - 图像生成
+  - flow matching
   - 扩散模型
-  - 流匹配
-  - 奖励对齐
-  - 推理时缩放
-  - Feynman-Kac
+  - reward alignment
+  - Feynman-Kac steering
+  - GLASS
+  - stochastic transitions
+  - inference-time scaling
 ---
 
 # GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models
@@ -43,20 +46,20 @@ tags:
 
 ### 关键设计
 1. **GLASS 转移核构造**:
-    - 做什么：定义一族由相关参数 $\rho$ 参数化的高斯马尔可夫转移 $p_{t'|t}^{\text{GLASS}}$
+    - 功能：定义一族由相关参数 $\rho$ 参数化的高斯马尔可夫转移 $p_{t'|t}^{\text{GLASS}}$
     - 核心思路：将 $(X_t, X_{t'})$ 建模为潜变量 $Z$ 的两个"含噪观测"：$X_t = \alpha_t Z + \sigma_t \epsilon_1$，$X_{t'} = \alpha_{t'} Z + \sigma_{t'} \epsilon_2$，其中 $\text{Corr}(\epsilon_1, \epsilon_2) = \rho$。联合分布为
     $$\begin{pmatrix} X_t \\ X_{t'} \end{pmatrix} = \begin{pmatrix} \alpha_t \\ \alpha_{t'} \end{pmatrix} Z + \begin{pmatrix} \sigma_t \epsilon_1 \\ \sigma_{t'} \epsilon_2 \end{pmatrix}, \quad \Sigma = \begin{pmatrix} \sigma_t^2 & \rho \sigma_t \sigma_{t'} \\ \rho \sigma_t \sigma_{t'} & \sigma_{t'}^2 \end{pmatrix}$$
     - 设计动机：$\rho$ 控制随机性强度。当 $\rho = \alpha_t \sigma_{t'} / (\sigma_t \alpha_{t'})$ 时退化为 DDPM 转移；$\rho = 1$ 时退化为确定性 ODE。默认 $\rho = 0.4$ 实验最优
 
 2. **充分统计量重参数化（核心贡献）**:
-    - 做什么：证明 GLASS 去噪器可直接由预训练去噪器 $D_t$ 表示，无需重训
+    - 功能：证明 GLASS 去噪器可直接由预训练去噪器 $D_t$ 表示，无需重训
     - 核心思路：定义充分统计量 $S(\mathbf{x}) = \frac{\mu^\top \Sigma^{-1}}{\mu^\top \Sigma^{-1} \mu} \begin{pmatrix} x_t \\ \bar{x}_s \end{pmatrix}$，其中 $\mu = (\alpha_t, \bar{\alpha}_s + \bar{\gamma}\alpha_t)^\top$。则 GLASS 去噪器为
     $$D_{\mu, \Sigma}(x_t, \bar{x}_s) = D_{t^\star}(\alpha_{t^\star} S(\mathbf{x}))$$
     这里 $t^\star = g^{-1}((\mu^\top \Sigma^{-1} \mu)^{-1})$，$g(t) = \sigma_t^2 / \alpha_t^2$ 是信噪比函数。即：将两个含噪观测压缩为充分统计量 → 用预训练去噪器在等效时间 $t^\star$ 上去噪
     - 设计动机：高斯共轭/充分统计量的数学结构保证了精确的训练无关重参数化，无需任何额外训练
 
 3. **内部条件流 ODE**:
-    - 做什么：将 GLASS 去噪器代入条件流匹配框架，得到内部 ODE 速度场 $\bar{u}_s(\bar{x}_s | x_t, t)$
+    - 功能：将 GLASS 去噪器代入条件流匹配框架，得到内部 ODE 速度场 $\bar{u}_s(\bar{x}_s | x_t, t)$
     - 核心思路：选择 CondOT 调度 $\bar{\alpha}_s = s \bar{\alpha}_1$，$\bar{\sigma}_s = (1-s) \bar{\sigma}_0 + s \bar{\sigma}_1$，速度场为
     $$\bar{u}_s = w_1(s) \bar{x}_s + w_2(s) D_{\mu(s), \Sigma(s)}(x_t, \bar{x}_s)$$
     其中 $w_1(s) = \frac{\dot{\bar{\sigma}}_s}{\bar{\sigma}_s}$，$w_2(s) = \dot{\bar{\alpha}}_s - \bar{\alpha}_s \frac{\dot{\bar{\sigma}}_s}{\bar{\sigma}_s}$。用 Euler 方法积分 $M$ 步即可采样

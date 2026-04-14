@@ -56,32 +56,32 @@ SBM 的核心理论链路：
 
 1. **Bellman 谱分解定理**：零 IBE 下的结构揭示
 
-   - 核心发现：在零 IBE 条件下，定义加权特征矩阵 $\Phi_P$ 和加权后 Bellman 参数矩阵 $\tilde{\Theta}_P$，则 Bellman 变换矩阵 $\mathcal{T}\bar{Q} = \Phi_P \tilde{\Theta}_P$ 的 SVD 与特征协方差矩阵 $\Lambda = \mathbb{E}[\phi(s,a)\phi(s,a)^\top]$ 直接相关
-   - 非零奇异值恰好是 $\Lambda$ 的特征值，左奇异向量对应加权特征，右奇异向量对应加权参数
-   - 重要推论：$\Lambda_1 = \Lambda_2 = \Lambda$，即特征协方差和后 Bellman 参数协方差对齐
+    - 核心发现：在零 IBE 条件下，定义加权特征矩阵 $\Phi_P$ 和加权后 Bellman 参数矩阵 $\tilde{\Theta}_P$，则 Bellman 变换矩阵 $\mathcal{T}\bar{Q} = \Phi_P \tilde{\Theta}_P$ 的 SVD 与特征协方差矩阵 $\Lambda = \mathbb{E}[\phi(s,a)\phi(s,a)^\top]$ 直接相关
+    - 非零奇异值恰好是 $\Lambda$ 的特征值，左奇异向量对应加权特征，右奇异向量对应加权参数
+    - 重要推论：$\Lambda_1 = \Lambda_2 = \Lambda$，即特征协方差和后 Bellman 参数协方差对齐
 
 2. **SBM 损失函数**：基于幂迭代的实用学习目标
 
-   - 受 SVD 幂迭代法启发，推导出交替优化式的目标函数：
-   - $\mathcal{L}(\phi, \tilde{\theta}) = \mathcal{L}_1(\phi) + \mathcal{L}_2(\tilde{\theta}) + \mathcal{L}_{orth}(\phi, \tilde{\theta})$
-   - **表示损失** $\mathcal{L}_1(\phi)$：更新 $\phi$ 使其与 Bellman 变换后的 Q 值对齐，使用当前参数协方差 $\Lambda_{2,t}$ 正则化
-   - **参数损失** $\mathcal{L}_2(\tilde{\theta})$：更新 $\tilde{\theta}$ 使其最佳表示 Bellman 变换结果，使用当前特征协方差 $\Lambda_{1,t}$ 正则化
-   - **正交正则化** $\mathcal{L}_{orth}$：确保不同维度的特征正交
-   - 关键定理 (Proposition 2)：最小化 SBM Loss 等价于执行幂迭代更新
+    - 受 SVD 幂迭代法启发，推导出交替优化式的目标函数：
+    - $\mathcal{L}(\phi, \tilde{\theta}) = \mathcal{L}_1(\phi) + \mathcal{L}_2(\tilde{\theta}) + \mathcal{L}_{orth}(\phi, \tilde{\theta})$
+    - **表示损失** $\mathcal{L}_1(\phi)$：更新 $\phi$ 使其与 Bellman 变换后的 Q 值对齐，使用当前参数协方差 $\Lambda_{2,t}$ 正则化
+    - **参数损失** $\mathcal{L}_2(\tilde{\theta})$：更新 $\tilde{\theta}$ 使其最佳表示 Bellman 变换结果，使用当前特征协方差 $\Lambda_{1,t}$ 正则化
+    - **正交正则化** $\mathcal{L}_{orth}$：确保不同维度的特征正交
+    - 关键定理 (Proposition 2)：最小化 SBM Loss 等价于执行幂迭代更新
 
 3. **SBM Loss 相比 Bellman MSE 的优势**：
 
-   - MSE 目标中的二次项 $\|\phi(s,a)\|_{\hat{\Lambda}}^2$ 使用的是**单样本噪声估计** $\hat{\Lambda}$
-   - SBM 的二次项使用**移动平均协方差** $\Lambda_{2,t}$，提供稳健的批统计量正则化
-   - SBM 的分离结构 $\mathcal{L}_1 + \mathcal{L}_2$ 天然支持交替优化（幂迭代的内在结构），比同时优化 MSE 更稳定
-   - SBM 显式包含正交正则化
+    - MSE 目标中的二次项 $\|\phi(s,a)\|_{\hat{\Lambda}}^2$ 使用的是**单样本噪声估计** $\hat{\Lambda}$
+    - SBM 的二次项使用**移动平均协方差** $\Lambda_{2,t}$，提供稳健的批统计量正则化
+    - SBM 的分离结构 $\mathcal{L}_1 + \mathcal{L}_2$ 天然支持交替优化（幂迭代的内在结构），比同时优化 MSE 更稳定
+    - SBM 显式包含正交正则化
 
 4. **Thompson Sampling 探索**：利用特征协方差自然驱动
 
-   - 给定学到的特征 $\phi$，构建精度矩阵 $\Sigma = \lambda I + \sum_{(s,a) \in \mathcal{D}} \phi(s,a)\phi(s,a)^\top$
-   - 每次 rollout 前从后验分布采样：$\hat{\theta}_{TS} \sim \mathcal{N}(\hat{\theta}_{LS}, \sigma_{exp} \Sigma^{-1})$
-   - 与低 IBE 表示天然兼容——特征协方差结构同时编码了值估计的不确定性和探索方向
-   - 也兼容 UCB 方法（使用相同的 $\Sigma$）
+    - 给定学到的特征 $\phi$，构建精度矩阵 $\Sigma = \lambda I + \sum_{(s,a) \in \mathcal{D}} \phi(s,a)\phi(s,a)^\top$
+    - 每次 rollout 前从后验分布采样：$\hat{\theta}_{TS} \sim \mathcal{N}(\hat{\theta}_{LS}, \sigma_{exp} \Sigma^{-1})$
+    - 与低 IBE 表示天然兼容——特征协方差结构同时编码了值估计的不确定性和探索方向
+    - 也兼容 UCB 方法（使用相同的 $\Sigma$）
 
 ### 损失函数 / 训练策略
 

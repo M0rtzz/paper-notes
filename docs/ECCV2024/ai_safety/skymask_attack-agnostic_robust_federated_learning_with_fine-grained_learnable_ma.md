@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2312.12484](https://arxiv.org/abs/2312.12484)  
 **代码**: [KoalaYan/SkyMask](https://github.com/KoalaYan/SkyMask)  
 **领域**: ai_safety  
-**关键词**: Federated Learning, Byzantine Attack, Learnable Mask, Robust Aggregation  
+**关键词**: federated learning, Byzantine Attack, Learnable Mask, Robust Aggregation
 **机构**: 上海交通大学、Stevens Institute of Technology、Queen's University Belfast、Intel
 
 ## 一句话总结

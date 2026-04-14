@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Mamba、RWKV、Gated DeltaNet 等 stateful 序列建模架构以线性复杂度替代 Transformer 的自注意力机制，在语言建模和 few-shot 学习中表现与 Transformer 相当或更优，同时效率更高。
+
 **现有痛点**：已有研究发现这些架构在检索、复制、关联记忆等专项能力上存在缺陷，但对"基础能力"（OOD 语言建模泛化）的影响尚不清楚——因为常用的混合领域预训练设置让所有架构看起来都差不多。
+
 **核心矛盾**：混合领域预训练本质上是 in-distribution 评估，无法暴露架构差异。这导致一个错觉：Mamba 和 Transformer 基础能力相当。但换到 OOD 场景，差异可能显著。
+
 **本文要解决什么**：(1) 设计能揭示架构基础能力差异的评估方法；(2) 找出导致 stateful 架构基础能力退化的关键因素；(3) 提出避免退化的架构设计原则。
+
 **切入角度**：限定领域预训练（只用 cc+c4 训练）+ 跨领域测试（在 arxiv/github/stack 上测 OOD performance），在训练早期即可暴露架构差异。
+
 **核心 idea 一句话**：序列建模架构必须具备"全序列任意选择能力"（能看到全部序列、能计算真实关系、分布非均匀）才能保持基础能力不退化。
 
 ## 方法详解
@@ -43,13 +48,13 @@ tags:
 
 1. **限定领域预训练评估框架**：
 
-    - 做什么：用受限领域数据训练，在未见领域上评估 OOD 泛化
+    - 功能：用受限领域数据训练，在未见领域上评估 OOD 泛化
     - 核心思路：只用 SlimPajama 的 cc+c4 领域训练，在 arxiv/github/stack 上测试。绘制"训练 loss vs OOD test loss"散点图，同一训练 loss 下不同架构的 OOD test loss 差异即为基础能力差异
     - 设计动机：混合领域训练让 test 变成 in-distribution，掩盖差异；限定领域训练让 test 成为 OOD，暴露架构本身的泛化能力
 
 2. **架构因素分析（非决定性因素）**：
 
-    - 做什么：消融 Mamba 的 data-dependent decay、convolution、GroupNorm 和位置编码
+    - 功能：消融 Mamba 的 data-dependent decay、convolution、GroupNorm 和位置编码
     - 核心发现：这些因素只影响收敛速度，不影响基础能力。即便去掉 data-dependent decay 和 conv，OOD 性能不降反略升
     - 设计动机：排除干扰因素，找到真正关键的架构要素
 
@@ -61,7 +66,7 @@ tags:
 
 4. **Top-1 Element/Chunk Selection 架构验证**：
 
-    - 做什么：设计满足三要素的极简架构来验证原则
+    - 功能：设计满足三要素的极简架构来验证原则
     - 核心思路：Top-1 Element Selection 直接选注意力分布中概率最高的元素作为输出（用 straight-through trick 训练）。Top-1 Chunk Selection 是其实用化版本——将序列分 chunk，每个 chunk 内选 top-1
     - 设计动机：如果一个如此极端简化的架构（只保留 top-1 选择）仍然能达到 Transformer 的基础能力水平，就强有力地验证了"全序列任意选择能力"是关键
 

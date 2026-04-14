@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2503.19331](https://arxiv.org/abs/2503.19331)  
 **代码**: [GitHub](https://github.com/chaudatascience/cha_mae_vit)  
 **领域**: 多通道图像处理 / 遥感 / 细胞显微  
-**关键词**: Masked Autoencoder, Multi-Channel Imaging, Vision Transformer, 跨通道学习, 自监督学习
+**关键词**: Masked Autoencoder, Multi-Channel Imaging, Vision Transformer, 跨通道学习, self-supervised learning
 
 ## 一句话总结
 

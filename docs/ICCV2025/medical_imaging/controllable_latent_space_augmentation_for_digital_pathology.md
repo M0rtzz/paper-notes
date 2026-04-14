@@ -10,7 +10,7 @@ tags:
   - 潜在空间
   - MIL
   - 数字病理
-  - Foundation Model
+  - 基础模型
 ---
 
 # Controllable Latent Space Augmentation for Digital Pathology
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.14588](https://arxiv.org/abs/2508.14588)  
 **代码**: [github.com/MICS-Lab/HistAug](https://github.com/MICS-Lab/HistAug)  
 **领域**: Medical Imaging / 数字病理学  
-**关键词**: 数据增强, 潜在空间, MIL, 数字病理, Foundation Model
+**关键词**: 数据增强, 潜在空间, MIL, 数字病理, 基础模型
 
 ## 一句话总结
 
@@ -28,9 +28,13 @@ tags:
 ## 研究背景与动机
 
 数字病理面临几个核心挑战使得数据增强尤为困难：
+
 **WSI分辨率极高**：一张切片含数万到数十万patch，在线图像增强需要对每个patch读取、变换、重新编码，计算量不可承受
+
 **离线增强方案受限**：预增强多个版本需要巨大存储空间且增强多样性有限
+
 **现有特征级增强不足**：扩散模型（如AugDiff）速度慢、内存消耗大；GAN缺乏对变换的显式控制；噪声扰动无法模拟有意义的变换
+
 **基础模型非完全不变**：UNI、CONCH等foundation model对图像变换并非完全不变，因此特征空间的合理增强可以为MIL训练带来实质收益
 
 ## 方法详解

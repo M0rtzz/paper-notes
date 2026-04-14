@@ -2,15 +2,15 @@
 title: >-
   [论文解读] Variational Garrote for Sparse Inverse Problems
 description: >-
-  [CVPR 2026][图像恢复][image_restoration] 在统一的稀疏逆问题框架下，系统比较 ℓ₁ 正则化（LASSO）与 Variational Garrote（VG，一种变分 ℓ₀ 近似方法），通过信号重采样、去噪和稀疏视角 CT 重建三个任务，证明 VG 在强欠定场景下能更准确地恢复稀疏支撑集，获得更低的泛化误差。
+  [CVPR 2026][图像恢复][sparse inverse problem] 在统一的稀疏逆问题框架下，系统比较 $\ell_1$ 正则化（LASSO）与 Variational Garrote（VG，一种通过变分二值门控近似 $\ell_0$ 的方法），在信号重采样、去噪和稀疏视角 CT 重建三个任务上证明 VG 在强欠定场景下能显著降低最小泛化误差，尤其在采样率 <20% 或投影角度极少时优势最大。
 tags:
   - CVPR 2026
   - 图像恢复
-  - image_restoration
-  - sparse_reconstruction
-  - variational_inference
-  - CT_reconstruction
-  - inverse_problems
+  - sparse inverse problem
+  - Variational Garrote
+  - LASSO
+  - ℓ₀ sparsity
+  - CT reconstruction
 ---
 
 # Variational Garrote for Sparse Inverse Problems
@@ -49,19 +49,19 @@ tags:
 
 1. **Variational Garrote 的变分二值门控机制**:
 
-    - 做什么：为每个回归系数 $w_i$ 引入二值门控变量 $s_i \in \{0,1\}$，回归模型变为 $y_\mu = \sum_i w_i s_i X_{i\mu} + \xi_\mu$，通过 Bernoulli 先验 $p(s_i|\gamma) = e^{\gamma s_i}/(1+e^\gamma)$ 控制稀疏度
+    - 功能：为每个回归系数 $w_i$ 引入二值门控变量 $s_i \in \{0,1\}$，回归模型变为 $y_\mu = \sum_i w_i s_i X_{i\mu} + \xi_\mu$，通过 Bernoulli 先验 $p(s_i|\gamma) = e^{\gamma s_i}/(1+e^\gamma)$ 控制稀疏度
     - 核心思路：精确推断不可行，采用均场变分近似 $q(\mathbf{s}) = \prod_i q_i(s_i)$，激活概率 $m_i = q(s_i=1)$。目标函数为自由能 $F(\mathbf{w}, \mathbf{m}) = \beta E_{\text{rec}} + \Omega_{\text{prior}} - H_{\text{entropy}}$，其中重建能量包含一个来自门控不确定性的方差项 $\frac{1}{2}\sum_\mu \sum_i m_i(1-m_i)w_i^2 X_{i\mu}^2$
     - 设计动机：通过解耦系数幅度（$w_i$）和支撑集选择（$m_i$），VG 消除了 LASSO 的连续收缩偏差。$\gamma$ 控制先验稀疏度，$\beta$ 可解析优化为 $\log E_{\text{rec}}$，进一步简化调参
 
 2. **模型不可知的公平比较方法论**:
 
-    - 做什么：设计一种跨模型公平比较方案——因为 LASSO 的 $\lambda$ 和 VG 的 $\gamma$ 不可直接对比
+    - 功能：设计一种跨模型公平比较方案——因为 LASSO 的 $\lambda$ 和 VG 的 $\gamma$ 不可直接对比
     - 核心思路：对每种方法的正则化超参数做大范围扫描，绘制训练误差-泛化误差曲线（bias-variance tradeoff），以最小泛化误差（MGE）作为每种方法在每个信息瓶颈下的最优表现指标。训练误差作为正则化强度的经验代理
     - 设计动机：传统方法在特定超参数设置下比较可能有偏。通过比较各自最优表现，能避免超参数不可比带来的不公平性
 
 3. **统一实验框架与信息瓶颈分析**:
 
-    - 做什么：将三个不同领域的逆问题纳入同一稀疏回归框架，通过控制信息瓶颈强度观察先验-数据对齐的影响
+    - 功能：将三个不同领域的逆问题纳入同一稀疏回归框架，通过控制信息瓶颈强度观察先验-数据对齐的影响
     - 核心思路：音频信号（合成正弦波 + TinySOL 长笛音）在 DCT 域严格稀疏，CT 图像在像素域有结构化稀疏性。通过系统变化瓶颈参数（采样比 R=5%~50%、噪声幅度 α=0.01~1、投影角 K=10~120），揭示先验对齐程度如何影响重建质量
     - 设计动机：不同域的信号稀疏性质不同，统一框架下的系统比较能区分"方法本身的优势"和"域特定性质"
 

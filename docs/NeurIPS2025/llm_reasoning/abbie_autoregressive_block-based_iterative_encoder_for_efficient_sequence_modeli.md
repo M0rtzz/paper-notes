@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Transformer 性能传统上通过增大模型参数量和训练数据来提升（scaling law）。近年 test-time scaling 成为新方向，但现有递归 Transformer（如 Geiping et al. 2025）需要大量迭代次数训练，且通常限于特定任务。
+
 **现有痛点**：(1) GPU 显存增长慢于算力增长，限制了模型规模扩展；(2) 现有递归 Transformer 训练代价高（需要很多迭代），无法用作标准 Transformer 的通用替代；(3) 多数递归方法在训练迭代次数之外的推理迭代次数上无法泛化（upward generalization 失败）。
+
 **核心矛盾**：如何在不大幅增加训练成本的前提下让 Transformer 具备 test-time compute scaling 能力？
+
 **本文要解决什么？** 设计一种递归 Transformer 使得：(a) 单次迭代时等价于标准 Transformer；(b) 仅需 2 次迭代训练；(c) 推理时可扩展到任意迭代次数且性能持续提升。
+
 **切入角度**：观察到 Transformer 的残差流自然地将原始输入信息注入每一层，这可能足以实现 Path Independence（收敛到不动点），从而无需额外投影矩阵就能递归迭代。
+
 **核心 idea 一句话**：将 Transformer 分为 Head-Body-Tail 三段，只对 Body 做递归迭代，利用 inter-iteration residual connection 确保收敛，2 次训练迭代即可实现推理时的 upward generalization。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **Head-Body-Tail 分割**:
 
-    - 做什么：将 Transformer 的层分为三组——Head 负责 tokenization 到 concept space，Body 负责迭代推理，Tail 负责 concept space 到 token space。
+    - 功能：将 Transformer 的层分为三组——Head 负责 tokenization 到 concept space，Body 负责迭代推理，Tail 负责 concept space 到 token space。
     - 核心思路：Head 和 Tail 只执行一次，Body 重复执行 $r$ 次。这种分割基于 Kaplan et al. 2024 的 concept space 理论——Transformer 的前几层在做去 tokenization，后几层在做 re-tokenization，中间层在概念空间中操作。
     - 设计动机：避免对整个模型做递归（会破坏 tokenization），只在合适的抽象层级做迭代。
 
 2. **AbbIE-D（Diffusion-inspired 变体）**:
 
-    - 做什么：在 Body 的每次迭代之间添加 inter-iteration residual connection。
+    - 功能：在 Body 的每次迭代之间添加 inter-iteration residual connection。
     - 核心思路：$h_{k+1} = B(h_k) + h_k$，其中 $B(\cdot)$ 是 Body 组件。相比 AbbIE-C 的 $h_{k+1} = B(h_k)$（仅依赖 Body 内部残差），AbbIE-D 额外增强了原始输入信息的相对比重，使得 $h_0$ 的信号在多次迭代中不被稀释。
     - 设计动机：实现 Path Independence（不动点收敛）需要每次迭代都有足够的原始输入信号。实验证明 AbbIE-C 发散，AbbIE-D 收敛。
 
 3. **仅 2 次训练迭代**:
 
-    - 做什么：训练时只使用 $r=2$（Body 执行 2 次），但推理时可以用 $r=4, 8$ 等更多次。
+    - 功能：训练时只使用 $r=2$（Body 执行 2 次），但推理时可以用 $r=4, 8$ 等更多次。
     - 核心思路：由于 AbbIE-D 满足不动点性质，2 次迭代足以让模型学会如何利用额外迭代改进表征。更大的模型（350M）在 $r=4$ 时达到最低困惑度，说明成功实现了 upward generalization。
     - 设计动机：降低训练成本至接近标准 Transformer 水平，同时保留 test-time scaling 能力。
 

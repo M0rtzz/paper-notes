@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.07061](https://arxiv.org/abs/2511.07061)  
 **代码**: [LiXinran6/PRC-Emo](https://github.com/LiXinran6/PRC-Emo)  
 **领域**: audio_speech  
-**关键词**: Emotion Recognition in Conversation, Prompt Engineering, Retrieval-Augmented Generation, Curriculum Learning, LLM Fine-tuning  
+**关键词**: Emotion Recognition in Conversation, Prompt Engineering, Retrieval-Augmented Generation, Curriculum Learning, LLM Fine-tuning
 
 ## 一句话总结
 

@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.11480](https://arxiv.org/abs/2512.11480)  
 **代码**: 待确认  
 **领域**: image_generation  
-**关键词**: CAD editing, parametric sequence, latent diffusion, masked prediction, test-time scaling  
+**关键词**: CAD editing, parametric sequence, latent diffusion, masked prediction, test-time scaling
 
 ## 一句话总结
 

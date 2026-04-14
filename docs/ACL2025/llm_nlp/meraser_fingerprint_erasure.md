@@ -10,7 +10,7 @@ tags:
   - backdoor removal
   - model IP protection
   - LoRA transfer
-  - LLM security
+  - LLM safety
 ---
 
 # MEraser: An Effective Fingerprint Erasure Approach for Large Language Models
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.12551](https://arxiv.org/abs/2506.12551)  
 **代码**: [GitHub](https://github.com/JingxuanZhang77/MEraser)  
 **领域**: LLM/NLP  
-**关键词**: fingerprint erasure, backdoor removal, model IP protection, LoRA transfer, LLM security  
+**关键词**: fingerprint erasure, backdoor removal, model IP protection, LoRA transfer, LLM safety
 
 ## 一句话总结
 
@@ -28,10 +28,15 @@ tags:
 ## 研究背景与动机
 
 **模型所有权保护需求迫切**：LLM 的广泛应用引发了模型溯源和知识产权保护的严峻挑战，未授权复制、违反开源许可等问题频发，基于后门的指纹（fingerprinting）技术作为黑盒模型鉴权的主流方案正迅速发展。
+
 **指纹擦除研究严重不足**：虽然指纹嵌入技术已有大量工作，但系统的指纹擦除方法几乎空白，现有擦除手段各有致命缺陷——增量微调需要大量计算资源且无法应对过拟合型指纹，模型剪枝造成严重性能退化，模型融合难以完全去除所有类型的指纹。
+
 **推理级擦除方法不实用**：Token Forcing 通过穷举搜索避开触发器但计算成本高且对动态指纹无效；CleanGen 需要与被指纹模型具有相同训练分布的参考模型，在实际场景下不现实。
+
 **攻击者视角的三重未知限制**：攻击者面临触发器构成策略未知、指纹目标输出未知、指纹敏感层无法定位的三重困境，要求擦除方法具有"盲擦除"能力。
+
 **后门指纹的多样性**：现有后门指纹在触发器构造（稀有token / 欠训练token / 普通token）、映射架构（一对一 / 多对一）、泛化策略（过拟合 / 规则型）三个维度各不相同，擦除方法必须通用。
+
 **理论基础启发**：SEAM 利用灾难性遗忘进行盲后门去学习在小模型上有效，但直接应用于 LLM 会导致不可恢复的性能崩溃，需要针对 LLM 设计可控的擦除策略。
 
 ## 方法详解

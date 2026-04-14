@@ -48,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **稠密相机射线嵌入 (Dense Camera Ray Embedding)**:
-    - 做什么：将相机内参信息编码到每个视觉 token 中
+    - 功能：将相机内参信息编码到每个视觉 token 中
     - 核心思路：对每个网格位置 $(i,j)$ 计算归一化射线方向 $R_x[i,j] = (u_{ij} - c_x) / f_x$，$R_y[i,j] = (v_{ij} - c_y) / f_y$，加上全局焦距 $f_x, f_y$，通过正弦嵌入层生成 $E_{\text{cam}} \in \mathbb{R}^{H \times W \times D}$，与 $F_{\text{vis}}$ 逐元素相加
     - 设计动机：相比 Metric3D 的图像规范化方案（计算昂贵且产生大量无效 token），直接将射线信息注入每个 token 更高效且保留了原始分辨率
 
 2. **相机感知几何增强 (Camera-Aware Geometric Augmentation)**:
-    - 做什么：在训练时合成不同相机参数以扩展相机分布多样性
+    - 功能：在训练时合成不同相机参数以扩展相机分布多样性
     - 核心思路：对训练图像施加两类变换——(i) 缩放：图像缩放因子 $s$，内参同步更新 $(f_x, f_y, c_x, c_y) \mapsto (sf_x, sf_y, sc_x, sc_y)$；(ii) 平移：偏移主点 $(c_x, c_y)$ 模拟偏心投影。图像和内参一致更新保证几何正确性
     - 设计动机：现有 3D 数据集相机种类有限（如 ScanNet 主要用 Structure Sensor），模型仅靠真实数据无法充分解耦相机属性与场景内容
 
 3. **几何先验蒸馏 (Geometric Prior Distillation)**:
-    - 做什么：从预训练的单目度量深度估计模型蒸馏 3D 几何知识
+    - 功能：从预训练的单目度量深度估计模型蒸馏 3D 几何知识
     - 核心思路：用冻结的 UniDepth v2（在 10M+ RGB-深度对上训练）为每张训练图像预测稠密 3D 点云，编码为先验嵌入 $E_{\text{geo}} \in \mathbb{R}^{H \times W \times D}$ 叠加到视觉特征。推理时仍然是 RGB-only 输入
     - 设计动机：UniDepth 可从图像直接估计内参，使框架扩展到无内参的互联网图像，解决了大量 2D 数据集缺乏相机参数的难题
 

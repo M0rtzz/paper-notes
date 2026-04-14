@@ -10,7 +10,7 @@ tags:
   - 特征缓存
   - 切比雪夫多项式
   - 谱方法
-  - Training-free
+  - training-free
 ---
 
 # Adaptive Spectral Feature Forecasting for Diffusion Sampling Acceleration
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.01623](https://arxiv.org/abs/2603.01623)  
 **代码**: [GitHub](https://hanjq17.github.io/Spectrum)  
 **领域**: 扩散模型 / 图像生成  
-**关键词**: 扩散采样加速, 特征缓存, 切比雪夫多项式, 谱方法, Training-free
+**关键词**: 扩散采样加速, 特征缓存, 切比雪夫多项式, 谱方法, training-free
 
 ## 一句话总结
 

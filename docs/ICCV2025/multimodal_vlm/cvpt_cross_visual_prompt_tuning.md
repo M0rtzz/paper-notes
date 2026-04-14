@@ -9,7 +9,7 @@ tags:
   - 提示学习
   - 注意力机制
   - PEFT
-  - Parameter-Efficient Fine-Tuning
+  - parameter-efficient fine-tuning
   - Weight Sharing
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2408.14961](https://arxiv.org/abs/2408.14961)  
 **代码**: https://github.com/Lingyun0419/CVPT  
 **领域**: 多模态VLM / 参数高效微调  
-**关键词**: Visual Prompt Tuning, Cross-Attention, PEFT, Parameter-Efficient Fine-Tuning, Weight Sharing
+**关键词**: Visual Prompt Tuning, Cross-Attention, PEFT, parameter-efficient fine-tuning, Weight Sharing
 
 ## 一句话总结
 针对 Visual Prompt Tuning (VPT) 中 prompt token 参与 self-attention 导致的计算冗余和注意力破坏问题，提出 CVPT，通过 cross-attention 解耦 prompt 与 image token 的交互，并利用权重共享机制初始化 cross-attention，在 25 个数据集上显著超越 VPT，性能媲美主流 adapter 方法。
@@ -49,19 +49,19 @@ CVPT 的 pipeline 与 VPT 类似：冻结预训练 ViT 主干参数，只训练 
 
 1. **Cross-Attention 解耦模块**:
 
-    - 做什么：在每个 Transformer block 的 self-attention 之后、MLP 之前，插入一个 cross-attention 层
+    - 功能：在每个 Transformer block 的 self-attention 之后、MLP 之前，插入一个 cross-attention 层
     - 核心思路：embedded token 作为 query（$Q = X_1 W^Q$），prompt token 作为 key 和 value（$K = V = X_2 W^K$），计算 $\text{CrossAttention}(X_1, X_2) = \text{Softmax}(\frac{Q \cdot K}{\sqrt{d_k}}) V$，结果以残差方式加回 embedded token
     - 设计动机：这样做有三个好处：(1) self-attention 中只有 image token，保留完整的特征表示能力；(2) cross-attention 的计算复杂度为 $O(n \cdot m)$，是线性的而非二次的；(3) 输出维度与 embedded token 一致，可以直接做残差连接，不会给后续 MLP 增加额外计算
 
 2. **权重共享机制（Weight Sharing）**:
 
-    - 做什么：用预训练 self-attention 的权重初始化 cross-attention，并在训练过程中冻结 cross-attention 的参数
+    - 功能：用预训练 self-attention 的权重初始化 cross-attention，并在训练过程中冻结 cross-attention 的参数
     - 核心思路：cross-attention 和 self-attention 结构相同（都是 QKV 投影 + softmax），因此可以直接复用 self-attention 的预训练权重作为初始化
     - 设计动机：(1) 避免引入大量可学习参数（frozen CA 只需 0.09M 参数 vs 可学习 CA 需 28.4M）；(2) self-attention 的预训练权重编码了丰富的视觉知识，提供了强有力的归纳偏置；(3) 实验证明 frozen CA + weight sharing 的性能与 learnable CA 相当
 
 3. **最优部署位置**:
 
-    - 做什么：探索 cross-attention 在 Transformer block 中的最佳插入位置
+    - 功能：探索 cross-attention 在 Transformer block 中的最佳插入位置
     - 核心思路：测试了 5 个候选位置，发现在 SA 之后（位置 3）效果最好，准确率 74.0%
     - 设计动机：SA 模块产生丰富的上下文特征，在其后立即进行 cross-attention 可以更有效地利用这些特征进行 prompt 适配
 

@@ -18,17 +18,22 @@ tags:
 **arXiv**: [2502.02533](https://arxiv.org/abs/2502.02533)  
 **代码**: 待确认  
 **领域**: Agent  
-**关键词**: multi-agent system, prompt optimization, topology search, automated MAS design, workflow optimization  
+**关键词**: multi-agent system, prompt optimization, topology search, automated MAS design, workflow optimization
 
 ## 一句话总结
 深入分析多智能体系统中 prompt 和拓扑设计的影响，发现 prompt 优化是最关键的设计因素（仅优化 prompt 的单 Agent 即可超越复杂多 Agent 拓扑），提出 Mass 三阶段框架（block-level prompt → topology → workflow-level prompt）在 8 个 benchmark 上取得 SOTA。
 
 ## 研究背景与动机
 **领域现状**：多智能体系统（MAS）通过 Debate、Reflect、Aggregate 等拓扑组织多个 LLM Agent 协作。近期出现自动化 MAS 设计方法（如 ADAS、AFlow）。
+
 **现有痛点**：不清楚 MAS 性能提升究竟来自"多 Agent 拓扑"还是"更好的 prompt"。许多复杂拓扑反而降低性能，但原因不明。
+
 **核心矛盾**：增加 Agent 和拓扑复杂度的收益不确定——有时有帮助，有时反而有害。
+
 **本文要解决**：① 量化 prompt vs 拓扑的贡献；② 设计统一的自动化框架同时优化两者。
+
 **切入角度**：控制变量分析——先只优化 prompt 看效果，再叠加拓扑搜索。
+
 **核心idea**：Prompt 优化 >> 拓扑选择；但两者联合优化 > 任何单独优化。
 
 ## 方法详解

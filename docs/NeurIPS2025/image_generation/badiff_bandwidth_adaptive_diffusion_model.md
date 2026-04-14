@@ -20,7 +20,7 @@ tags:
 **代码**: [GitHub](https://github.com/xzhang9308/BADiff)  
 **作者**: Xi Zhang, Hanwei Zhu, Yan Zhong, Jiamang Wang, Weisi Lin (NTU & Alibaba)  
 **领域**: 扩散模型 / 图像压缩 / 带宽自适应生成  
-**关键词**: bandwidth-adaptive, diffusion model, entropy conditioning, early stopping, cloud streaming  
+**关键词**: bandwidth-adaptive, diffusion model, entropy conditioning, early stopping, cloud streaming
 
 ## 一句话总结
 

@@ -9,7 +9,7 @@ tags:
   - Web Agent
   - Safety
   - Trustworthiness
-  - Benchmark
+  - benchmark
   - Policy Compliance
 ---
 
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2410.06703](https://arxiv.org/abs/2410.06703)  
 **代码**: [https://sites.google.com/view/st-webagentbench/home](https://sites.google.com/view/st-webagentbench/home)  
 **领域**: LLM Agent  
-**关键词**: Web Agent, Safety, Trustworthiness, Benchmark, Policy Compliance
+**关键词**: Web Agent, Safety, Trustworthiness, benchmark, Policy Compliance
 
 ## 一句话总结
 
@@ -30,9 +30,13 @@ tags:
 近年来基于 LLM 的 Web Agent 发展迅速，从 AutoGPT 到 LangGraph、AutoGen 等框架催生了大量自主网页代理。然而，现有基准如 WebArena、WorkArena、Mind2Web 等**仅关注任务完成率**，完全忽视了安全性、策略遵从和可信赖性这些企业部署的关键因素。
 
 具体问题包括：
+
 **安全风险被忽视**：Agent 可能误删用户账户、执行非预期操作、泄露敏感数据
+
 **幻觉行为**：Agent 在完成任务过程中可能填写虚构信息（如虚构邮件地址），但仍获得任务完成分数
+
 **缺乏策略遵从评估**：企业环境要求 Agent 严格遵守组织策略、用户偏好和任务指令的层级约束
+
 **人在回路缺失**：现有基准不支持 Agent 在不确定时主动寻求人类确认
 
 这些问题构成了 Web Agent 在实际企业环境中大规模部署的重大障碍。

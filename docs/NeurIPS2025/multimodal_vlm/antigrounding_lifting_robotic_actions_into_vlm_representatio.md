@@ -1,12 +1,18 @@
 ---
-description: 反转传统指令接地流程，将候选机器人轨迹渲染到多视角图像中用VLM进行结构化评估，实现零样本闭环操作
+title: >-
+  [论文解读] AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making
+description: >-
+  [NeurIPS 2025][多模态][VLM] 提出 AntiGrounding 框架，反转传统指令接地管道——将候选机器人轨迹渲染到多视角图像中并用 VLM 进行结构化 VQA 评估，绕过压缩中间表征的信息瓶颈，实现复杂操作任务的零样本闭环控制。
 tags:
-- VLM
-- robotics
-- manipulation
-- MPC
-- zero-shot
+  - NeurIPS 2025
+  - 多模态
+  - VLM
+  - 机器人操作
+  - 反接地
+  - MPC
+  - 结构化VQA
 ---
+
 # AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making
 
 **会议**: NeurIPS 2025  
@@ -39,12 +45,12 @@ AntiGrounding 遵循 Real2Sim2Real 管道，核心循环为：
 ### 关键设计
 
 1. **VLM 驱动的轨迹评估（结构化 VQA）**:
-    - 做什么：构建评估模板，包含安全性、任务对齐、效率、物理可行性等维度的子问题
+    - 功能：构建评估模板，包含安全性、任务对齐、效率、物理可行性等维度的子问题
     - 核心思路：多 VLM agent 集成（MoA 框架），每个 agent 从多个视角评估，聚合分数 $S_{j,t} = \frac{1}{M'}\sum_m \sum_v C'_{v,t}(\sum_k w_k \cdot s_{m,v,j,k,t})$
     - 设计动机：直接在 VLM 的原生表征空间评估视觉化轨迹，避免将 3D 信息压缩到低维表示
 
 2. **自适应视角置信度与退火轨迹生成**:
-    - 做什么：视角置信度 $C_{v,t} = \frac{q_{\text{view}}}{1 + \lambda_C \cdot \sigma_{v,t}}$；采样半径按 $R_{t'} = R_{\min} + (R_0 - R_{\min}) e^{-\lambda_R t'}$ 指数衰减
+    - 功能：视角置信度 $C_{v,t} = \frac{q_{\text{view}}}{1 + \lambda_C \cdot \sigma_{v,t}}$；采样半径按 $R_{t'} = R_{\min} + (R_0 - R_{\min}) e^{-\lambda_R t'}$ 指数衰减
     - 核心思路：高一致性视角获得更高权重；退火策略平衡探索与利用，子任务转换时重置
     - 设计动机：不同视角信息量随操作阶段变化，需要自适应权重；轨迹搜索需从粗到精
 

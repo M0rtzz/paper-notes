@@ -49,19 +49,19 @@ CSNN 将输入无向图转为有向图（每条无向边拆为一对有向边）
 
 1. **有向图 Cellular Sheaf 与 In/Out-Degree Laplacian**:
 
-    - 做什么：定义有向图上的 sheaf 结构，区分节点作为源和目标时的 restriction map
+    - 功能：定义有向图上的 sheaf 结构，区分节点作为源和目标时的 restriction map
     - 核心思路：Out-degree sheaf Laplacian $L_{\mathcal{F}}^{\text{out}}(\mathbf{X})_i = \sum_{j \in N(i)} (\mathbf{S}_i^\top \mathbf{S}_i \mathbf{x}_i - \mathbf{T}_i^\top \mathbf{S}_j \mathbf{x}_j)$，In-degree 类似但用 $\mathbf{T}$ 控制接收端。通过组合 $(\Delta_\mathcal{F}^{\text{in}})^\top \Delta_\mathcal{F}^{\text{out}}$ 实现非对称扩散
     - 设计动机：无向 sheaf Laplacian 中 $\mathcal{F}_{i \unlhd e}=0$ 同时切断传入和传出（Proposition 3.1），有向拆分后 $\mathbf{S}_i=0$（不传播）和 $\mathbf{T}_i=0$（不监听）可独立设置
 
 2. **Flat Vector Bundle 高效参数化**:
 
-    - 做什么：用每节点仅两个 conformal 映射替代每条边的 restriction map
+    - 功能：用每节点仅两个 conformal 映射替代每条边的 restriction map
     - 核心思路：对所有邻居 $j$ 共享 $\mathcal{F}_{i \unlhd ij} = \mathbf{S}_i$、$\mathcal{F}_{i \unlhd ji} = \mathbf{T}_i$，通过 Householder 反射构造正交矩阵再乘以学习的正常数
     - 设计动机：一般 cellular sheaf 有 $2m$ 个 restriction map（$m$ 为边数），flat vector bundle 仅需 $2n$ 个（$n$ 为节点数），大幅降低计算量
 
 3. **扩展感受野与选择性注意**:
 
-    - 做什么：理论证明 CSNN 每层可访问 $2t$-hop 邻居，并可选择性忽略路径上的中间节点
+    - 功能：理论证明 CSNN 每层可访问 $2t$-hop 邻居，并可选择性忽略路径上的中间节点
     - 核心思路：通过合理配置 $\mathbf{S}$ 和 $\mathbf{T}$ 映射，使 $\partial \mathbf{x}_i^{(t)} / \partial \mathbf{x}_j^{(0)}$ 对距离为 $t$ 的目标节点 $j$ 有高灵敏度，同时对中间节点趋近零
     - 设计动机：传统 GNN $t$ 层只能访问 $t$-hop 邻居，且信息沿路径指数压缩导致 oversquashing；CSNN 的选择性注意可有效缓解
 

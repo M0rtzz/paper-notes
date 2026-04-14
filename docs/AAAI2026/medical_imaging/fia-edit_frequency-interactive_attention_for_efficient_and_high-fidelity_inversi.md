@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.12151](https://arxiv.org/abs/2511.12151)  
 **代码**: [kk42yy/FIA-Edit](https://github.com/kk42yy/FIA-Edit)  
 **领域**: 医学图像 / 图像编辑  
-**关键词**: 文本引导图像编辑, 无反转编辑, 频域交互, Diffusion Transformer, 医学数据增强, 手术出血分类
+**关键词**: 文本引导图像编辑, 无反转编辑, 频域交互, 扩散 Transformer, 医学数据增强, 手术出血分类
 
 ## 一句话总结
 

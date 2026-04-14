@@ -29,6 +29,7 @@ tags:
 从观测数据中估计因果效应是因果推断的核心挑战，尤其当存在潜在混杂因子 (latent confounders) 时。现有工作主要分为两大流派：
 
 **非参数方法**：以 Pearl 的 do-calculus 为代表，在理论上解决了 L2（干预）和 L3（反事实）查询的可识别性问题，但通常假设无限数据或不涉及具体参数估计。
+
 **参数方法**：计量经济学和统计学中常用线性结构因果模型 (Linear SCM)，但已有工作多假设无限数据、已知部分分布参数、或 Markovian 假设（排除潜在混杂）。
 
 **核心痛点**：Gaussian Linear SCM (GL-SCM) 虽然分析友好，但在建模观测和潜在混杂时参数过多 (overparameterization)，导致有限数据下参数估计不可行。外生变量 $\mathbf{U'} \sim \mathcal{N}(\boldsymbol{\mu_{U'}}, \boldsymbol{\Sigma^2})$ 引入了均值和方差共 $2|\mathbf{U}|$ 个额外参数，加上边权和偏置，参数总量远超观测数据所能约束的信息量。

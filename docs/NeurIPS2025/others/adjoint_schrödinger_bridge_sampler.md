@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：从 Boltzmann 分布 $\nu(x) \propto e^{-E(x)}$ 采样是计算科学的核心问题（贝叶斯推断、统计物理、化学），传统 MCMC 方法混合慢、能量评估开销大。近年扩散采样器（Diffusion Sampler）通过学习 SDE 的漂移 $u_t^\theta$ 将样本传输到目标分布。
+
 **现有痛点**：由于 Boltzmann 分布只知道未归一化的能量函数而无显式样本，先前基于 matching 的扩散采样器（PDDS、iDEM）需要通过重要性权重估计目标样本，计算开销大。Adjoint Sampling (AS) 虽然用 Adjoint Matching 避免了重要性权重，但受限于 memoryless 条件——源分布必须是 Dirac delta $\mu(x) = \delta$。
+
 **核心矛盾**：memoryless 条件排除了高斯先验、谐波先验等有用的源分布选择。已知非 memoryless 过程可以提升传输效率，但现有方法要么需要 memoryless，要么需要昂贵的非 matching 方法。
+
 **本文要解决什么？** 如何在不需要 memoryless 条件、不需要重要性权重的前提下，用可扩展的 matching 目标学习扩散采样器？
+
 **切入角度**：将 Schrödinger Bridge 问题的最优性条件重新解释为一个 SOC 问题，引入 corrector 函数 $\nabla \log \hat{\varphi}_1$ 来消除非 memoryless 引起的初始值函数偏差。
+
 **核心idea一句话**：通过交替优化 Adjoint Matching（学漂移 $u$）和 Corrector Matching（学去偏 corrector $h$），等价于 IPF 算法，收敛到 Schrödinger Bridge 全局最优解。
 
 ## 方法详解
@@ -41,19 +46,19 @@ ASBS 学习一个 SDE $dX_t = [f_t(X_t) + \sigma_t u_t^\theta(X_t)] dt + \sigma_
 
 1. **SB 问题的 SOC 特征化 (Theorem 3.1)**:
 
-    - 做什么：证明 Schrödinger Bridge 的动力学最优漂移 $u_t^*$ 可以通过求解一个带特殊终端代价的 SOC 问题获得
+    - 功能：证明 Schrödinger Bridge 的动力学最优漂移 $u_t^*$ 可以通过求解一个带特殊终端代价的 SOC 问题获得
     - 核心思路：SB 的最优性方程涉及耦合的 SB 势函数 $\varphi_t, \hat{\varphi}_t$，直接求解困难。关键观察是前向 SB 势 $\varphi_t$ 的积分形式恰好类似 SOC 最优性条件，因此 SB 问题等价于终端代价 $g(x) = \log \frac{\hat{\varphi}_1(x)}{\nu(x)}$ 的 SOC 问题
     - 设计动机：将难以直接求解的 SB 问题转为可用 Adjoint Matching 的 SOC 问题，保留了 AS 的可扩展性
 
 2. **Corrector Matching 去偏 (Eq. 15)**:
 
-    - 做什么：学习 corrector 函数 $h_\phi \approx \nabla \log \hat{\varphi}_1$ 来消除非 memoryless 引起的偏差
+    - 功能：学习 corrector 函数 $h_\phi \approx \nabla \log \hat{\varphi}_1$ 来消除非 memoryless 引起的偏差
     - 核心思路：$\nabla \log \hat{\varphi}_1$ 是反向时间方向上的动力学最优漂移在 $t=1$ 时的 Markovian 投影，可通过回归 $\min_h \mathbb{E}_{p_{0,1}^{u^{(k)}}} [\|h(X_1) - \nabla_{x_1} \log p^{\text{base}}(X_1|X_0)\|^2]$ 学习。关键：这个目标只依赖模型自身的样本，不需要目标分布样本
     - 设计动机：当源分布是 Dirac delta 时 $\nabla \log \hat{\varphi}_1 = \nabla \log p_1^{\text{base}}$ 已知，不需要额外学习；但对任意源分布必须显式学习 corrector
 
 3. **交替优化 = IPF (Theorem 3.2)**:
 
-    - 做什么：证明 Adjoint Matching 和 Corrector Matching 交替优化等价于 Iterative Proportional Fitting
+    - 功能：证明 Adjoint Matching 和 Corrector Matching 交替优化等价于 Iterative Proportional Fitting
     - 核心思路：AM 解的是前向半桥——固定源分布 $\mu$ 最小化 $D_{KL}(p \| q^{\bar{h}^{(k-1)}})$；CM 解的是后向半桥——固定目标分布 $\nu$ 最小化 $D_{KL}(p^{u^{(k)}} \| q)$。交替执行等价于 IPF，保证全局收敛 $\lim_{k \to \infty} u^{(k)} = u^*$
     - 设计动机：IPF 的收敛性保证了 ASBS 无需调参就能收敛到 SB 全局最优解
 

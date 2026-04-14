@@ -10,7 +10,7 @@ tags:
   - 3D医学影像
   - CT肿瘤
   - 视觉语言模型
-  - 基准测试
+  - benchmark
 ---
 
 # Are Vision Language Models Ready for Clinical Diagnosis? A 3D Medical Benchmark for Tumor-centric Visual Question Answering
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.18915](https://arxiv.org/abs/2505.18915)  
 **代码**: [GitHub](https://github.com/Schuture/DeepTumorVQA)  
 **领域**: 医学影像 / 多模态视觉语言模型  
-**关键词**: VQA, 3D医学影像, CT肿瘤, 视觉语言模型, 基准测试
+**关键词**: VQA, 3D医学影像, CT肿瘤, 视觉语言模型, benchmark
 
 ## 一句话总结
 
@@ -28,8 +28,11 @@ tags:
 ## 研究背景与动机
 
 视觉语言模型（VLMs）在2D视觉任务上取得了显著进展，但其在3D临床诊断中的就绪程度仍不明确。3D医学诊断对模型提出三重严苛要求：
+
 **识别精度**：需要在复杂3D解剖结构中精确定位微小病灶
+
 **推理能力**：需要跨切片整合信息进行空间推理
+
 **领域知识**：需要具备临床医学知识以支撑诊断
 
 现有医学VQA基准主要聚焦2D图像（如X光、皮肤镜），缺乏针对3D CT扫描的系统评测。此外，现有基准的问题设计往往过于简单，无法反映真实临床工作流程中的诊断复杂性。

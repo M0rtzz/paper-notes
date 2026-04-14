@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2505.16952](https://arxiv.org/abs/2505.16952)  
 **代码**: [HuggingFace](https://huggingface.co/datasets/CO-Bench/FrontierCO)  
 **领域**: Agent / 组合优化  
-**关键词**: combinatorial optimization, ML solver, benchmark, real-world instances, LLM agent  
+**关键词**: combinatorial optimization, ML solver, benchmark, real-world instances, LLM agent
 
 ## 一句话总结
 FrontierCO 是一个涵盖 8 类组合优化问题（TSP、MIS、CVRP 等）的大规模真实世界基准测试，评估了 16 个 ML 求解器（神经网络方法 + LLM Agent）与 SOTA 传统求解器的差距，发现 ML 方法在结构复杂和极大规模实例上仍显著落后于传统方法，但在部分场景有超越潜力。
 
 ## 研究背景与动机
 **领域现状**：ML 用于组合优化（CO）近年发展迅速，包括端到端神经求解器（GNN、RL、扩散模型）和 LLM Agent 方法（FunSearch、ReEvo 等），在小规模合成基准上展示了promising结果。
+
 **现有痛点**：三大局限——① **规模**：大多数评估在 toy 级别实例上进行（如 TSP ≤ 10K 节点），而实际应用需要处理百万级节点；② **真实性**：合成数据集无法捕捉真实世界的结构多样性（如非欧几里得图、竞赛级不规则实例）；③ **覆盖度**：缺乏跨问题类型的统一评估协议。
+
 **核心矛盾**：ML 方法在合成基准上的"进展"可能是因为问题太简单/太规则，而非方法真正有效。需要在真实结构和极端规模下检验。
+
 **本文要解决**：提供一个严格的、基于真实世界的 CO 基准测试套件，统一评估 ML 求解器与传统 SOTA 求解器的差距。
+
 **切入角度**：从竞赛库（DIMACS、TSPLib、PACE Challenge）收集真实实例，分为 easy（已可解决）和 hard（开放问题）两个测试集，将规模推到 TSP 1000万节点、MIS 800万节点。
+
 **核心idea**：ML for CO 的进展需要在真实结构和极大规模下检验，而非仅在合成数据上刷分。
 
 ## 方法详解

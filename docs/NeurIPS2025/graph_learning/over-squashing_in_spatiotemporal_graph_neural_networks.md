@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Over-squashing in Spatiotemporal Graph Neural Networks
 description: >-
-  [NeurIPS 2025][图学习][over-squashing] 首次形式化时空图神经网络(STGNN)中的 over-squashing 问题，揭示了因果卷积中反直觉的"时间远处偏好"现象（最早时间步对最终表示影响最大），并证明 time-and-space 和 time-then-space 架构在信息瓶颈上等价，为使用计算高效的 TTS 架构提供理论支持。
+  [NeurIPS 2025][图学习][过挤压] 首次形式化时空图神经网络(STGNN)中的 over-squashing 问题，揭示了因果卷积中反直觉的"时间远处偏好"现象（最早时间步对最终表示影响最大），并证明 time-and-space 和 time-then-space 架构在信息瓶颈上等价，为使用计算高效的 TTS 架构提供理论支持。
 tags:
   - NeurIPS 2025
   - 图学习
-  - over-squashing
+  - 过挤压
   - 图神经网络
   - 因果卷积
   - 信息传播
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.15507](https://arxiv.org/abs/2506.15507)  
 **代码**: 待确认  
 **领域**: 图学习 / 时空图神经网络 / 理论分析  
-**关键词**: over-squashing, 时空GNN, 因果卷积, 信息传播, 图重布线
+**关键词**: 过挤压, 时空GNN, 因果卷积, 信息传播, 图重布线
 
 ## 一句话总结
 首次形式化时空图神经网络(STGNN)中的 over-squashing 问题，揭示了因果卷积中反直觉的"时间远处偏好"现象（最早时间步对最终表示影响最大），并证明 time-and-space 和 time-then-space 架构在信息瓶颈上等价，为使用计算高效的 TTS 架构提供理论支持。
@@ -50,7 +50,7 @@ tags:
 
 1. **TCN 中的时间 over-squashing（定理4.1 + 命题4.2）**：
 
-    - 做什么：建立 TCN 中灵敏度的上界，揭示反直觉的时间偏好
+    - 功能：建立 TCN 中灵敏度的上界，揭示反直觉的时间偏好
     - 核心思路：$\|\frac{\partial \mathbf{h}_{t-j}^{(L_T)}}{\partial \mathbf{h}_{t-i}^{(0)}}\| \leq (c_\sigma \mathsf{w})^{L_T} (\mathbf{R}^{L_T})_{ij}$，其中 $\mathbf{R}$ 是因果卷积的时间拓扑矩阵（下三角 Toeplitz 矩阵）
     - **反直觉发现**：$\mathbf{R}^l$ 的结构使得**最早的时间步**（而非最近的）对最终输出影响最大！因为早期时间步通过 $l$ 层叠加累积了指数级更多的传播路径。最近时间步仅能通过自环保持信息，影响以 $O(l^{-(i-j)})$ 衰减
     - 与 Transformer 的 attention sink 现象类比：当感受野超过序列长度时，最早 token 的影响不成比例地大
@@ -62,7 +62,7 @@ tags:
 
 3. **MPTCN 的时空联合界（定理5.1）**：
 
-    - 做什么：证明时空灵敏度可分解为空间和时间分量的乘积
+    - 功能：证明时空灵敏度可分解为空间和时间分量的乘积
     - 核心思路：$\|\nabla_i^u \mathbf{h}_t^{v(L)}\| \leq (c_\xi \theta_\mathsf{m})^{LL_S} (c_\sigma \mathsf{w})^{LL_T} (\mathbf{S}^{LL_S})_{uv} (\mathbf{R}^{LL_T})_{i0}$
     - **关键推论**：界只依赖总预算 $LL_S$ 和 $LL_T$，而非 $L$ 的大小。这意味着 TTS（$L=1$）和 T&S（$L>1$）在信息传播能力上等价——TTS 的计算优势不以信息瓶颈为代价
 

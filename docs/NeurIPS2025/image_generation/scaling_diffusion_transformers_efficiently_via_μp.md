@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.15270](https://arxiv.org/abs/2505.15270)  
 **代码**: [有](https://github.com/ML-GSAI/Scaling-Diffusion-Transformers-muP)  
 **领域**: Image Generation  
-**关键词**: Diffusion Transformer, μP, 超参数迁移, 模型缩放, 高效训练
+**关键词**: 扩散 Transformer, μP, 超参数迁移, 模型缩放, 高效训练
 
 ## 一句话总结
 
@@ -30,7 +30,9 @@ tags:
 扩散 Transformer 已成为视觉生成模型的基础架构，广泛应用于图像和视频生成。然而随着模型规模增长到数十亿参数，超参数（HP）调优变得极其昂贵，往往阻碍模型发挥全部潜力。
 
 μP 之前已被提出用于标准 Transformer（如 LLM），能使小模型搜索到的最优超参数直接迁移到大模型，大幅降低调参成本。但扩散 Transformer 与标准 Transformer 存在根本差异：
+
 **架构差异**：扩散 Transformer 包含额外组件（adaLN、cross-attention 等）来整合文本和时间步信息
+
 **训练范式差异**：基于迭代去噪的生成框架，不同于自回归范式
 
 因此现有 μP 理论能否直接应用于扩散 Transformer 是一个未解之谜。本文系统性地解决了这一问题。

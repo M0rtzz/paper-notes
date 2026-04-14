@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**："预训练-适配" 范式在图学习中广泛使用。Graph prompting 通过修改输入图的数据（保持预训练 GNN 冻结）来适配下游任务，是一种高效的适配策略。
+
 **现有痛点**：现有 graph prompting 方法几乎都是 feature-oriented 的——只操作节点特征或隐层表示（如 GPF、All-in-one、GraphPrompt），完全忽视了图拓扑这一图数据的本质特征。然而图表示不仅依赖特征，还由拓扑结构决定。
+
 **核心矛盾**：如何通过修改图拓扑来实现 prompting？边选择是离散优化问题，难以直接用梯度下降。
+
 **本文要解决什么？**：设计 topology-oriented 的 graph prompting 框架，让预训练 GNN 模型通过拓扑修改适配下游节点分类任务。
+
 **切入角度**：将 topology prompting 建模为 edge rewiring 问题，通过 Bernoulli 重参数化 + Gumbel-Softmax 松弛到连续概率空间。
+
 **核心 idea 一句话**：学习每条边的存在概率作为拓扑 prompt，通过 Gumbel-Softmax 使其可微训练，用熵正则化保证松弛紧密性和图稀疏性。
 
 ## 方法详解
@@ -42,19 +47,19 @@ tags:
 
 1. **Edge Rewiring 建模**:
 
-    - 做什么：将 topology prompt 建模为每对节点间是否存在边的二元决策 $s_{ij} \in \{0,1\}$
+    - 功能：将 topology prompt 建模为每对节点间是否存在边的二元决策 $s_{ij} \in \{0,1\}$
     - 核心思路：每个 $s_{ij}$ 视为 Bernoulli 随机变量，参数为 $p_{ij}$，通过 Gumbel-Softmax 重参数化使采样可微。利用 Theorem 1 证明 $\Pr(G_1 - G_2 + \log(p/(1-p)) \geq 0) = p$
     - 设计动机：将离散的边选择问题松弛为连续的概率优化，使得梯度下降可用
 
 2. **共享可训练 Projector**:
 
-    - 做什么：通过一个 2 层 MLP 从预训练 GNN 的节点表示计算边概率 $p_{ij} = \sigma(W_2(\text{ReLU}(W_1(h_i + h_j))))$
+    - 功能：通过一个 2 层 MLP 从预训练 GNN 的节点表示计算边概率 $p_{ij} = \sigma(W_2(\text{ReLU}(W_1(h_i + h_j))))$
     - 核心思路：不独立学每个 $p_{ij}$（参数爆炸），而是用共享 projector 从节点表示推断边概率
     - 设计动机：大幅减少参数量，且利用预训练表示中的语义信息指导拓扑修改
 
 3. **子图约束 (Subgraph-constrained)**:
 
-    - 做什么：将 edge rewiring 限制在每个目标节点的 $\rho$-hop 局部子图内（默认 $\rho=2$）
+    - 功能：将 edge rewiring 限制在每个目标节点的 $\rho$-hop 局部子图内（默认 $\rho=2$）
     - 核心思路：只重连目标节点与子图内其他节点的边，保持其余边不变，复杂度从 $O(D^{2\rho})$ 降到 $O(D^{\rho})$
     - 设计动机：GNN 表示主要依赖局部子图，全局 rewiring 不必要且计算成本高
 

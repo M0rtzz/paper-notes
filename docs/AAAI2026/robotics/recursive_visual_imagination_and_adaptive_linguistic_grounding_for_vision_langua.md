@@ -46,13 +46,13 @@ tags:
 
 1. **隐式场景表征 ISR**
 
-    - 做什么：将历史轨迹压缩为固定大小的紧凑表征
+    - 功能：将历史轨迹压缩为固定大小的紧凑表征
     - 核心思路：将历史观察建模为 $h \times w$ 的神经网格 $M^t = [m_{ij}^t]_{h \times w}$（默认 $h=w=10$），每个网格为 $d=512$ 维特征向量。初始化用位置编码 $m_{ij}^0 = w_m^0 + \text{MLP}([i-h/2, j-w/2])$，每步通过multi-layer transformer与新观察交互更新。关键优势：网格数量为超参数，不随轨迹长度增长
     - 设计动机：与拓扑图或BEV地图不同，ISR不保留显式几何细节，天然过滤冗余信息；固定token数量避免长序列计算开销递增。"grid"而非"voxel"强调的是相对位置编码，为后续ALG中不同位置网格对应不同指令组件奠定基础
 
 2. **递归视觉想象 RVI**
 
-    - 做什么：从ISR中提取导航友好的高层场景先验
+    - 功能：从ISR中提取导航友好的高层场景先验
     - 核心思路：包含三个子任务——
         (a) **View Imagination (VI)**：给定查询位姿，从ISR中预测该位置的视觉特征。用对比损失 $\mathcal{L}_{Con}$ 建立位姿-视觉对应关系；对未来位姿（$t'>t$）用VAE的先验-后验KL散度 $\mathcal{L}_{VF} = \mathcal{L}_{Con} + \beta \text{KL}[q_\vartheta \| p_\vartheta]$ 学习未来帧分布而非确定性渲染；
         (b) **Scene Layout Imagination (SLI)**：从ISR预测 $32 \times 32$ 的以自我为中心的局部语义地图，每像素对应 $20\text{cm} \times 20\text{cm}$，用BCE损失监督；
@@ -61,7 +61,7 @@ tags:
 
 3. **自适应语言对齐 ALG**
 
-    - 做什么：将指令的不同语义组件与ISR的不同神经网格精细匹配
+    - 功能：将指令的不同语义组件与ISR的不同神经网格精细匹配
     - 核心思路：(1) 通过句法分析将指令解耦为5个语义组件：landmarks、scenes、actions、orientations、others，生成位置标签；(2) 利用cross-modal attention的注意力矩阵作为亲和矩阵，自动将每个语言token匹配到其最关注的神经网格（row-wise max-pooling）；(3) Position alignment用BCE损失对齐语言调制后的ISR分布与真实文本分布 $\hat{L}_{total} = \text{Softmax}(\text{MLP}(\text{Mean}([\tilde{m}_0^t, ..., \tilde{m}_i^t])))$；(4) Semantic alignment用对比学习 $\mathcal{L}_{SA}$ 拉近语义相似的网格-组件对；(5) Progress Tracking用MLP预测指令执行进度
     - 设计动机：不同于句子级粗糙对齐，ALG让landmark词对应"场景记忆"网格、action词对应"动作信号"网格，无需额外匹配算法（复用attention矩阵）
 

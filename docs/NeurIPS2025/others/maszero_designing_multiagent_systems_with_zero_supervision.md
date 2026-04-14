@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2505.14996](https://arxiv.org/abs/2505.14996)  
 **代码**: [https://github.com/SalesforceAIResearch/MAS-Zero](https://github.com/SalesforceAIResearch/MAS-Zero)  
 **领域**: LLM Agent / 多智能体系统  
-**关键词**: multi-agent system, automatic MAS design, meta-agent, zero supervision, inference-time optimization  
+**关键词**: multi-agent system, automatic MAS design, meta-agent, zero supervision, inference-time optimization
 
 ## 一句话总结
 MAS-ZERO 是首个推理时自动 MAS 设计框架，通过 meta-agent 迭代设计、批评和改进 MAS 配置（包括任务分解和 sub-MAS 分配），无需验证集和训练，在推理（+16.69%）、编程（+16.66%）和搜索代理（+5.45%）任务上均超越手动和自动 MAS baseline，同时保持 Pareto 最优的准确率-成本权衡。
@@ -46,13 +46,13 @@ MAS-ZERO 分三步：(1) **MAS-Init**——运行 4 个 building block（CoT、C
 
 1. **Meta-Design（任务分解 + sub-MAS 分配）**：
 
-    - 做什么：将原始问题分解为可管理的子任务，为每个子任务分配由 building block 组成的 sub-MAS
+    - 功能：将原始问题分解为可管理的子任务，为每个子任务分配由 building block 组成的 sub-MAS
     - 核心思路：Meta-agent 被要求 (a) 将问题分解为"可管理但相互依赖"的子任务，(b) 为每个子任务指定 sub-MAS（可以是单个 block 如 CoT，或 chain 如 CoT→Self-Refine，或并行 {CoT ∥ Debate}）。设计以可执行 Python 代码形式表达
     - 设计动机：允许 meta-agent 修改 block 之间的连接和参数（如温度、辩论轮次），但不允许发明新 block——这在探索和可靠性之间取得平衡
 
 2. **Meta-Feedback（可解性 + 完整性评估）**：
 
-    - 做什么：评估 meta-design 产出的 MAS 质量并生成改进反馈
+    - 功能：评估 meta-design 产出的 MAS 质量并生成改进反馈
     - 核心思路：执行 MAS 获取两级中间输出（sub-task 级和 agent 级），评估两个标准：
       - **Solvability**：每个子任务是否被其 sub-MAS 独立且完整地解决？如果不可解，建议进一步分解或更换 sub-MAS
       - **Completeness**：所有子任务是否覆盖了原始问题的全部必要信息？如果有遗漏，建议修改分解策略

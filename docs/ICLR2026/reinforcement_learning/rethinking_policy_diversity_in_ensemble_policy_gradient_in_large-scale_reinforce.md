@@ -42,14 +42,14 @@ CPO基于SAPG的leader-follower架构，引入两个关键机制：（1）follow
 
 1. **KL约束的Follower策略更新**:
 
-    - 做什么：将follower策略更新建模为带KL约束的优化问题
+    - 功能：将follower策略更新建模为带KL约束的优化问题
     - 核心思路：$\pi_{F_i}^* = \arg\max_{\pi_{F_i}} A_{F_i}(\mathbf{s},\mathbf{a}) \quad \text{s.t.} \quad D_{KL}(\pi_{F_i}(\cdot|\mathbf{s}) \| \pi_L(\cdot|\mathbf{s})) \leq \varepsilon_{KL}$
     - 采用AWAC式闭合解近似，得到参数化目标：$L_{\text{CPO},F_i}(\theta) = -\mathbb{E}_{\mathbf{a},\mathbf{s} \sim \pi_L}[\log \pi_{F_i,\theta}(\mathbf{a}|\mathbf{s}) \exp(\frac{1}{\lambda_f} A^{F_i})] + L_{\text{SAPG},F_i}$
     - 设计动机：根据Pinsker不等式，KL约束直接控制IS比率偏差上界 $\mathbb{E}[|1-\frac{\pi_L}{\pi_F}|] \leq \sqrt{2D_{KL}}$，从而保证ESS和训练稳定性
 
 2. **对抗性奖励促进策略分散**:
 
-    - 做什么：训练判别器 $D_\xi(y|\mathbf{s}_t,\mathbf{a}_t)$ 预测策略身份
+    - 功能：训练判别器 $D_\xi(y|\mathbf{s}_t,\mathbf{a}_t)$ 预测策略身份
     - 核心思路：$r_t^{adv} = \lambda_{adv} \log D_\xi(y|\mathbf{s}_t,\mathbf{a}_t)$，奖励每个follower探索可被识别的独特区域
     - 设计动机：KL约束隐式拉近follower间的距离，对抗性奖励提供反向推力防止策略坍塌
 

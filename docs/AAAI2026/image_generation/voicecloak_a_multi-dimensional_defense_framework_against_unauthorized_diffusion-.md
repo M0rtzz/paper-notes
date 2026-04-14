@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2505.12332](https://arxiv.org/abs/2505.12332)  
 **代码**: [Demo](https://voice-cloak.github.io/VoiceCloak/)  
 **领域**: image_generation  
-**关键词**: voice cloning defense, adversarial perturbation, diffusion model, speaker identity, proactive defense  
+**关键词**: voice cloning defense, adversarial perturbation, diffusion model, speaker identity, proactive defense
 
 ## 一句话总结
 针对 diffusion-based voice cloning (VC) 的主动防御框架，通过多维度对抗扰动同时实现说话人身份混淆和感知质量退化，显著优于现有防御方法。

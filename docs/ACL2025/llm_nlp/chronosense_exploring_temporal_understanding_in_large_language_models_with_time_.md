@@ -8,7 +8,7 @@ tags:
   - LLM/NLP
   - 时间推理
   - Allen区间关系
-  - 基准测试
+  - benchmark
   - 时间算术
   - LLM评估
 ---
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2501.03040](https://arxiv.org/abs/2501.03040)  
 **代码**: [duyguislakoglu/chronosense](https://github.com/duyguislakoglu/chronosense)  
 **领域**: llm_nlp  
-**关键词**: 时间推理, Allen区间关系, 基准测试, 时间算术, LLM评估
+**关键词**: 时间推理, Allen区间关系, benchmark, 时间算术, LLM评估
 
 ## 一句话总结
 提出 ChronoSense 基准，系统评估 LLM 在 Allen 13 种时间区间关系和时间算术任务上的表现，揭示模型在时间理解方面的显著不足及对记忆的依赖。

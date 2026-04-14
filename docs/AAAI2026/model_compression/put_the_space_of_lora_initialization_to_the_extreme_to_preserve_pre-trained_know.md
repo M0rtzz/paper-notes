@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 LoRA 微调虽然参数高效，但仍存在显著的 catastrophic forgetting。现有缓解遗忘的 LoRA 初始化方法沿两条路线：
+
 **使残差权重 $\mathbf{W}_0'$ 接近预训练权重 $\mathbf{W}_0$**：CorDA 和 MiLoRA 都追求此目标
+
 **使 LoRA 初始化空间正交于预训练知识**：MiLoRA 使用 $\mathbf{W}_0$ 的 null space
 
 关键发现：LoRA adapter 微调后相对变化很小（$\|\mathbf{A}^* - \mathbf{A}_0\|_F / \|\mathbf{A}_0\|_F$ 较小），因此 adapter 的初始化空间比残差权重更重要。而 vanilla LoRA 虽冻结完整 $\mathbf{W}_0$，遗忘仍严重，说明"保持残差权重接近"并非关键。

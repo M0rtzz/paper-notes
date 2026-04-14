@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：Multi-Resolution Hash Encoding（MHE）是 Instant-NGP 的核心创新，为 NeRF 和 SDF 提供了高效的空间参数化。但其行为高度依赖超参数（层数 $L$、增长因子 $b$、分辨率 $N_{\max}/N_{\min}$、哈希表大小 $T$），通常用启发式方法选择。
+
 **现有痛点**：MHE 缺乏从物理系统角度的严格分析。没有人回答过：MHE 的等效空间核是什么形状？其真实分辨率极限是多少？哈希碰撞如何量化影响质量？
+
 **核心矛盾**：直觉上认为 MHE 的分辨率由最细层 $N_{\max}$ 决定，但实际并非如此——优化动态导致严重的空间展宽，真实分辨率远低于 $N_{\max}$。
+
 **本文要解决什么？** 用严格的物理分析框架理解 MHE 的空间行为，指导超参数选择和架构改进。
+
 **切入角度**：类比物理系统中的 Green's function，通过测量 MHE 对点源的响应（PSF）来表征其空间特性——分辨率、各向异性、碰撞噪声。
+
 **核心idea一句话**：MHE 的有效分辨率由 $N_{\text{avg}}$ 和优化展宽因子 $\beta_{\text{emp}}$ 共同决定，而非 $N_{\max}$；网格各向异性可通过逐层旋转消除。
 
 ## 方法详解
@@ -41,25 +46,25 @@ tags:
 
 1. **理想 PSF 推导（无碰撞）**:
 
-    - 做什么：推导 MHE 对点源约束优化后的空间响应函数
+    - 功能：推导 MHE 对点源约束优化后的空间响应函数
     - 核心思路：在线性化解码器假设下，理想 PSF 是 $L$ 层归一化 B-spline 核的平均叠加 $P_{\text{Ideal}}(\mathbf{x}) = \frac{1}{L}\sum_{l} \hat{B}_l(\mathbf{x})$。用积分近似求和+B-spline Taylor 展开得闭式：$P \approx \frac{1}{L\ln b}[-\ln\|\mathbf{v}\| + C_D - A_D(\mathbf{v})]$，其中 $A_D$ 是B-spline固有的各向异性项
     - 设计动机：PSF 是物理系统标准表征方法。闭式解揭示了两个关键性质：(a) 对数径向衰减（而非高斯或指数）；(b) 沿坐标轴比对角线更窄的各向异性
 
 2. **优化引起的空间展宽**:
 
-    - 做什么：量化实际训练后的 PSF 比理想 PSF 宽多少
+    - 功能：量化实际训练后的 PSF 比理想 PSF 宽多少
     - 核心思路：定义总展宽因子 $\beta_{\text{emp}} = \beta_{\text{ideal}} \cdot \beta_{\text{opt}}$，其中 $\beta_{\text{ideal}} \approx 1.18$（B-spline 固有），$\beta_{\text{opt}} > 1$（优化引起）。实测 Adam 优化器下 $\beta_{\text{emp}} \approx 3.0$——即有效 FWHM 约为理想值的 2.5 倍
     - 设计动机：这是最反直觉的发现——spectral bias（低频优先学习）导致粗层（低 $N_l$）被过度加权，有效空间核被展宽。实际双点可分辨距离 $d_{\text{crit}} \propto \beta_{\text{emp}}/N_{\text{avg}}$，而非 $1/N_{\max}$
 
 3. **哈希碰撞的 SNR 分析**:
 
-    - 做什么：量化有限哈希表容量引起的信号质量退化
+    - 功能：量化有限哈希表容量引起的信号质量退化
     - 核心思路：碰撞使空间上远距离的网格顶点共享同一特征向量，产生 speckle 噪声。$P_{\text{Collision}} = P_{\text{Ideal}} + n(\mathbf{x})$，噪声方差随碰撞率增加。增加层数 $L$ 或增长因子 $b$ 可在固定 $T$ 下提升 SNR
     - 设计动机：为哈希表大小 $T$ 的选择提供量化指导——可以计算在给定场景复杂度下需要多大的 $T$ 才能维持目标 SNR
 
 4. **Rotated MHE (R-MHE)**:
 
-    - 做什么：消除网格引起的各向异性
+    - 功能：消除网格引起的各向异性
     - 核心思路：对每层 $l$ 的输入坐标施加不同旋转 $\mathbf{R}_l$：$\mathbf{e}_l(\mathbf{x}) = \text{Interpolate}(\mathbf{F}^l, \mathcal{H}(\lfloor N_l \mathbf{R}_l \mathbf{x}\rceil))$。2D 用渐进旋转 $\theta_l = l \cdot \theta$，3D 用正多面体顶点方向采样 SO(3)。关键：**不增加任何参数或计算量**，只改变坐标变换
     - 设计动机：多层使用不同朝向的网格后，各向异性在叠加中抵消，PSF 变得更各向同性
 

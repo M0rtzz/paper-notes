@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICML2025
   - production line control
-  - 强化学习
+  - reinforcement-learning
   - discrete-event simulation
   - manufacturing optimization
   - open-source framework
@@ -20,7 +20,7 @@ tags:
 **代码**: [hs-kempten/lineflow](https://github.com/hs-kempten/lineflow)  
 **作者**: Kai Müller, Martin Wenzel, Tobias Windisch
 **领域**: reinforcement_learning  
-**关键词**: production line control, reinforcement learning, discrete-event simulation, manufacturing optimization, open-source framework
+**关键词**: production line control, reinforcement-learning, discrete-event simulation, manufacturing optimization, open-source framework
 
 ## 一句话总结
 
@@ -135,9 +135,9 @@ $$R(s_t, \pi(s_{t-1})) = C_\pi(T_{\text{step}} \cdot (t+1)) - C_\pi(T_{\text{ste
 1. **简单场景（WT, PD, WA）**：RL 学到的策略性能**接近数学最优解**，验证了 LineFlow 的建模假设和奖励设计的合理性
 2. **动态场景（WTJ）**：RL 能学会在线检测加工时间突变并自适应调整等待时间，但由于观测延迟（需等首个零件产出后才能感知变化），无法完全达到理论最优
 3. **复杂工业场景**：RL 面临**显著挑战**，性能尚不理想，暴露了以下瓶颈：
-   - 奖励稀疏且信号微弱
-   - 动作空间组合爆炸
-   - 多类干预的复合副作用难以学习
+    - 奖励稀疏且信号微弱
+    - 动作空间组合爆炸
+    - 多类干预的复合副作用难以学习
 
 ## 局限性 / 可改进方向
 

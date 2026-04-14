@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2601.01746](https://arxiv.org/abs/2601.01746)  
 **代码**: 待确认  
 **领域**: 3d_vision  
-**关键词**: 3D representation learning, masked autoencoder, self-distillation, MeanFlow, point cloud  
+**关键词**: 3D representation learning, masked autoencoder, self-distillation, MeanFlow, point cloud
 
 ## 一句话总结
 

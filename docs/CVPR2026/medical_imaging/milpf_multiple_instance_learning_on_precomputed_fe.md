@@ -2,14 +2,14 @@
 title: >-
   [论文解读] MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification
 description: >-
-  [CVPR 2026][医学图像][多实例学习] 提出MIL-PF框架，将冻结的基础视觉编码器（DINOv2/MedSigLIP）与仅40k参数的轻量级MIL聚合头结合，通过预计算特征+双流（全局组织上下文+局部病变注意力）聚合，在大规模乳腺X线分类任务上以极低训练成本达到SOTA性能。
+  [CVPR 2026][医学图像][多实例学习] 将冻结的通用基础编码器（DINOv2 ViT-Giant / MedSigLIP）与仅 ~40k 参数的轻量 MIL 聚合头结合，通过预计算特征 + 双流聚合（全局均值 + 局部 Perceiver 交叉注意力），在 EMBED 等大规模乳腺 X 线分类基准上以 5-7 分钟训练达到 SOTA（AUC 0.916, Spec@Sens=0.9 达 0.762），可训练参数比基线少 35-458 倍。
 tags:
   - CVPR 2026
   - 医学图像
   - 多实例学习
   - 乳腺X线摄影
   - 预计算特征
-  - 基础模型
+  - 冻结基础模型
   - 弱监督分类
 ---
 
@@ -49,19 +49,19 @@ MIL-PF 分两阶段：(1) **特征预计算**——用冻结编码器 $\mathcal{
 
 1. **双流嵌入数据集构建**
 
-    - 做什么：将每次乳腺检查拆解为全局组织上下文和局部病变候选两个信号源
+    - 功能：将每次乳腺检查拆解为全局组织上下文和局部病变候选两个信号源
     - 核心思路：全局流对每张完整图像编码 $\mathcal{G}_i = \{\mathcal{F}(I_i^{(n)})\}_n$，捕捉整体组织密度。局部流将图像切为非重叠 tile 网格、丢弃纯背景 tile、对含乳腺组织的 tile 逐个编码，所有视角 tile 合并 $\mathcal{T}_i = \bigcup_n \bigcup_k \{\mathcal{F}(C_i^{(n)(k)})\}$。tile 大小需足够大以包含预期 ROI 但不超过编码器支持的最大分辨率（448/518 像素）
     - 设计动机：全局提供组织密度宏观信息，局部捕捉稀疏病变精细信号，两者互补
 
 2. **Perceiver 风格局部注意力聚合器**
 
-    - 做什么：从大量局部 tile 嵌入中"拉取"最相关病变信息到单个汇总向量
+    - 功能：从大量局部 tile 嵌入中"拉取"最相关病变信息到单个汇总向量
     - 核心思路：一个可训练 latent 向量 $z$ 作为 query，所有 tile 嵌入投影为 Key 和 Value，计算 $\text{softmax}(zK^T)V$ 加权和。仅用 1 个 latent query 即足够，增加更多无收益
     - 设计动机：Mean pooling 被背景 tile 稀释信号，Max pooling 只捕单个最显著 tile。交叉注意力学习关注哪些 tile 任务相关，且比 self-attention 更参数高效（不需建模 tile 间依赖）
 
 3. **晚期融合分类头**
 
-    - 做什么：合并全局和局部两流为最终预测
+    - 功能：合并全局和局部两流为最终预测
     - 核心思路：两流各自聚合后的向量拼接，经分类层 $\hat{y}_i = h_\theta(\text{concat}(\mathcal{A}_\psi^G(\mathcal{G}_i), \mathcal{A}_\omega^T(\mathcal{T}_i)))$。聚合器内含 2 层 MLP（embedding_dim→16→8，ReLU）
     - 设计动机：晚期融合保持模块化和可解释性，更复杂的早期融合对此任务无必要收益
 

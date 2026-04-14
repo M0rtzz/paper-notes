@@ -53,18 +53,18 @@ tags:
 
 2. **通过线性动作探针进行 Slot 选择**：以物体为中心的模型虽然能分解场景，但自动识别哪些 slot 对应任务相关实体仍是挑战。方法采用线性探测（inspired by Alain & Bengio 2016）：
    
-   - 对少量带标签轨迹的 slot 编码进行 PCA 降维
-   - 训练线性回归器预测真实动作
-   - 用 5 折交叉验证评估平均测试 MSE（Linear Action Probe score）
-   - 选择 MSE 最低（即最能预测动作）的 slot 作为相关 slot 集合 $\mathcal{S}^\star = \{s^{(k)} | k \in \mathcal{K}^\star\}$
+    - 对少量带标签轨迹的 slot 编码进行 PCA 降维
+    - 训练线性回归器预测真实动作
+    - 用 5 折交叉验证评估平均测试 MSE（Linear Action Probe score）
+    - 选择 MSE 最低（即最能预测动作）的 slot 作为相关 slot 集合 $\mathcal{S}^\star = \{s^{(k)} | k \in \mathcal{K}^\star\}$
    
    此选择在物体中心预训练后仅执行一次，利用固定 slot 初始化确保跨 episode 的一致解释。
 
 3. **潜在动作建模的两种变体**：
 
-   - **LAPO-slots**：完全在潜在空间操作。逆动力学模型 $z_t \sim f_{IDM}^s(\cdot | s_t, s_{t+1})$ 和正向动力学模型 $\hat{s}_{t+1} \sim f_{FDM}^s(\cdot | s_t, z_t)$ 在 slot 嵌入空间训练，最小化 $\|\hat{s}_{t+1} - s_{t+1}\|^2$。
+    - **LAPO-slots**：完全在潜在空间操作。逆动力学模型 $z_t \sim f_{IDM}^s(\cdot | s_t, s_{t+1})$ 和正向动力学模型 $\hat{s}_{t+1} \sim f_{FDM}^s(\cdot | s_t, z_t)$ 在 slot 嵌入空间训练，最小化 $\|\hat{s}_{t+1} - s_{t+1}\|^2$。
    
-   - **LAPO-masks**：在像素空间操作。先将选定 slot 的物体掩码应用于输入帧，创建过滤后的图像（只保留任务相关物体），然后在这些过滤图像上训练动力学模型。
+    - **LAPO-masks**：在像素空间操作。先将选定 slot 的物体掩码应用于输入帧，创建过滤后的图像（只保留任务相关物体），然后在这些过滤图像上训练动力学模型。
 
 ### 损失函数 / 训练策略
 

@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2511.20893](https://arxiv.org/abs/2511.20893)  
 **代码**: [GitHub](https://github.com/aodongli/probabilistic-hash-embeddings)  
 **领域**: recommender  
-**关键词**: hash embedding, online learning, Bayesian inference, categorical features, streaming data  
+**关键词**: hash embedding, online learning, Bayesian inference, categorical features, streaming data
 
 ## 一句话总结
 提出 Probabilistic Hash Embeddings (PHE)，将 hash embedding 视为随机变量并通过 Bayesian online learning 进行后验推断，解决流式数据中类别特征词汇不断增长时确定性 hash embedding 遭受的灾难性遗忘问题。

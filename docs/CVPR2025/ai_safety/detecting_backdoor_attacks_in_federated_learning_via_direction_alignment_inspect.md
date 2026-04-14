@@ -21,7 +21,7 @@ tags:
 **代码**: [JiiahaoXU/AlignIns](https://github.com/JiiahaoXU/AlignIns)  
 **机构**: University of Nevada, Reno
 **领域**: AI 安全 / 联邦学习  
-**关键词**: Federated Learning, backdoor attack, defense, direction alignment, sign analysis, anomaly detection
+**关键词**: federated learning, backdoor attack, defense, direction alignment, sign analysis, anomaly detection
 
 ## 一句话总结
 提出 AlignIns 防御方法，通过双粒度方向对齐检测（全局方向 + 细粒度符号分析）识别联邦学习中的恶意模型更新，在 IID 和 non-IID 设置下均优于现有防御方法。
@@ -29,13 +29,17 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：联邦学习（FL）因分布式训练特性天然容易受到后门攻击，恶意客户端可提交带毒的模型更新以操纵全局模型。已有多种攻击方法（Badnet、DBA、Scaling、PGD、Neurotoxin）威胁 FL 安全。
+
 **现有痛点**：
    - **基于幅度的防御**（Manhattan/Euclidean 距离）：当模型趋近收敛时，所有更新幅度都很小，恶意更新与正常更新在幅度上难以区分
    - **基于 Cosine 相似度的防御**（FoolsGold 等）：仅捕获全局方向相似性，忽略细粒度信息（如参数符号分布）
    - 在 non-IID 数据场景下，正常客户端的更新方向本身就很多样，使得异常检测更加困难
    - 缺乏对非 IID 数据下过滤型防御方法的理论分析
+
 **核心矛盾**：后门攻击的双重目标（保持主任务精度 + 最大化后门精度）使得恶意更新在幅度上必须模仿正常更新，但在方向的细粒度特征上可能暴露异常。
+
 **切入角度**：从两个粒度检查方向对齐——全局时序方向对齐和细粒度重要参数符号对齐。
+
 **核心 idea 一句话**：时序方向对齐（TDA） + 重要参数符号对齐（MPSA） + MZ-score 异常检测 + 后过滤裁剪 = 鲁棒后门防御。
 
 ## 方法详解
@@ -47,14 +51,14 @@ tags:
 
 1. **时序方向对齐（Temporal Direction Alignment, TDA）**
 
-    - 做什么：评估每个模型更新与最新全局模型方向的 Cosine 相似度
+    - 功能：评估每个模型更新与最新全局模型方向的 Cosine 相似度
     - 核心思路：正常更新应与全局收敛方向大致一致，恶意更新可能有异常对齐模式
     - 计算：$\text{TDA}_i = \cos(\Delta_i^t, \theta^t)$
     - 用 MZ-score 进行异常检测，超出 $\lambda_c$ 半径的标记为可疑
 
 2. **重要参数符号对齐（Major Parameter Sign Alignment, MPSA）**
 
-    - 做什么：分析模型更新中重要参数的符号分布
+    - 功能：分析模型更新中重要参数的符号分布
     - 核心思路：提取每个更新中幅度 Top-$k$（$k = 0.3 \times d$）的参数，统计其符号与所有更新的主导符号（principle sign）的对齐比例
     - 主导符号：跨所有更新的多数投票符号
     - 效果：捕获全局 Cosine 相似度无法发现的细粒度异常

@@ -1,13 +1,18 @@
 ---
+title: >-
+  [论文解读] PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation
 description: >-
-  NeurIPS 2025物理可控视频生成论文，提出PhysCtrl用扩散模型学习四种材料的物理动力学分布，以3D点轨迹驱动视频模型，在55万合成动画上训练后实现物理参数和外力可控的视频生成。
+  [NeurIPS 2025][图像生成][物理驱动视频生成] PhysCtrl用扩散模型学习四种材料（弹性/沙/橡皮泥/刚体）的物理动力学分布，将动态表示为3D点轨迹，在55万合成动画上训练含时空注意力+物理约束的扩散模型，生成的轨迹驱动预训练视频模型实现力和材料参数可控的高保真物理视频生成。
 tags:
   - NeurIPS 2025
-  - 物理仿真
-  - 视频生成
+  - 图像生成
+  - 物理驱动视频生成
   - 扩散模型
   - 3D点轨迹
+  - 材料仿真
+  - 力控制
 ---
+
 # PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation
 
 **会议**: NeurIPS 2025  
@@ -43,17 +48,17 @@ PhysCtrl用扩散模型学习四种材料（弹性/沙/橡皮泥/刚体）的物
 ### 关键设计
 
 1. **时空注意力扩散模型**:
-    - 做什么：学习四种材料的物理动力学分布 $p(\mathcal{P}|c)$
+    - 功能：学习四种材料的物理动力学分布 $p(\mathcal{P}|c)$
     - 核心思路：2048点×24帧轨迹，条件含初始点云/力/作用点/杨氏模量/泊松比/地面高度/材料类型。Spatial-Temporal Attention Block：空间注意力（同帧内点间self-attention，注入物理条件token用AdaLN）→时间注意力（同一点跨帧self-attention）
     - 设计动机：模拟粒子动力学——先整合邻近粒子信息再时间传播，反映MPM的P2G/G2P循环
 
 2. **物理约束训练损失**:
-    - 做什么：将MPM的变形梯度更新公式作为显式物理约束
+    - 功能：将MPM的变形梯度更新公式作为显式物理约束
     - 核心思路：$\mathcal{L}_{phys}$ 约束 $\mathbf{F}_p^{f+1} \approx g(\hat{\mathbf{x}}_p^f)\mathbf{F}_p^f$（变形梯度一致性），加上 $\mathcal{L}_{floor}$ 防穿透
     - 设计动机：物理损失作为正则化确保轨迹物理合理性
 
 3. **大规模合成数据集**:
-    - 做什么：55万动画覆盖四种材料（150K弹性+各100K沙/橡皮泥/刚体/重力）
+    - 功能：55万动画覆盖四种材料（150K弹性+各100K沙/橡皮泥/刚体/重力）
     - 核心思路：ObjaverseXL高质量3D对象+MPM/刚体仿真器，2048点×24帧
     - 设计动机：多样化数据是学习物理分布的基础
 

@@ -49,19 +49,19 @@ tags:
 
 1. **引导豁免期与真难题诊断**:
 
-    - 做什么：训练初期（前15%步数）不提供任何 hint，让模型完全自主探索
+    - 功能：训练初期（前15%步数）不提供任何 hint，让模型完全自主探索
     - 核心思路：监控 zero-reward 问题的解决速率，速率停滞后将剩余未解决问题标记为"真难题"。训练初期的快速下降对应"伪难题"（格式不熟悉、初级推理技巧）
     - 设计动机：避免过早提供 hint 导致模型依赖提示，确保 hint 仅用于真正的能力缺口。消融实验表明去掉豁免期导致 9.2% 性能下降
 
 2. **分层级 Hint 引导探索 (K→P→S)**:
 
-    - 做什么：为真难题注入三级渐进式 in-prompt 提示，从抽象到具体
+    - 功能：为真难题注入三级渐进式 in-prompt 提示，从抽象到具体
     - 核心思路：$H_{\text{knowledge}}$（关键概念/公式） → $H_{\text{planning}}$（高层策略框架）→ $H_{\text{solution}}$（具体计算步骤）。每级内递增提供，一旦模型成功即停止，记录最小有效提示级别
     - 设计动机：最小化干预保留模型自主性——奖励使用最抽象 hint 就能解题的情况，鼓励内化推理技能而非记忆解法。去掉任一层级都降低性能（去 Solution 层降 5.7%）
 
 3. **On-Policy Batch 增强与统一损失**:
 
-    - 做什么：将成功的 hint-guided 轨迹替换一条失败轨迹，恢复 advantage 信号
+    - 功能：将成功的 hint-guided 轨迹替换一条失败轨迹，恢复 advantage 信号
     - 核心思路：$\mathcal{G}_{\text{final}} = (\mathcal{G} \setminus \{o_j\}) \cup \{o_h^*\}$，其中 $o_h^* \sim \pi_\theta(\cdot | q \oplus h^*)$。概率比 $r_{i,t}'(\theta) = \frac{\pi_\theta(o_{i,t}'|o_{i,<t}', q \oplus h^*)}{\pi_{\theta_{\text{old}}}(o_{i,t}'|o_{i,<t}', q \oplus h^*)}$ 是标准 on-policy 比率
     - 设计动机：区别于 prefix-based 方法使用 $\frac{\pi_\theta(\cdot|q)}{\pi_{\theta_{\text{old}}}(\cdot|q \oplus h^*)}$ 这种 off-policy 比率，本方法对 hint-augmented prompt 的两个策略使用相同条件，保证 on-policy 一致性
 

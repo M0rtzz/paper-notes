@@ -6,7 +6,7 @@ description: >-
 tags:
   - ICLR 2026
   - Virtual Cell
-  - World Model
+  - world model
   - LLM Reasoning
   - Signaling Cascade
   - Drug Perturbation
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2512.00306](https://arxiv.org/abs/2512.00306)  
 **代码**: 无  
 **领域**: LLM/NLP (AI for Science)  
-**关键词**: Virtual Cell, World Model, LLM Reasoning, Signaling Cascade, Drug Perturbation
+**关键词**: Virtual Cell, world model, LLM Reasoning, Signaling Cascade, Drug Perturbation
 
 ## 一句话总结
 
@@ -31,8 +31,11 @@ tags:
 现有方法的核心问题：
 
 **数据依赖过重**：现有虚拟细胞模型（如 scGPT、GEARS 等）严重依赖大规模单细胞数据集，学习基因表达与扰动之间的显式映射
+
 **泛化能力受限**：数据质量、覆盖范围和批次效应（batch effects）制约了模型的泛化性能
+
 **黑盒问题**：现有模型作为黑盒运行，只输出预测结果，不提供可解释性或与生物学原理一致的推理过程
+
 **科学可信度不足**：缺乏机制解释的预测结果在科学研究中难以获得认可
 
 核心洞察：与其用大规模数据拟合从扰动到基因表达的端到端映射，不如利用结构化生物学知识（如信号通路图谱）和 LLM 的推理能力来模拟扰动传播过程。

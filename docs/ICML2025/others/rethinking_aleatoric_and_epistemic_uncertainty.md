@@ -63,26 +63,26 @@ tags:
 
 1. **决策论基础（Decision-Theoretic Foundation）**:
 
-    - 做什么：以 action-loss 对 $(a, \ell)$ 为出发点定义不确定性
+    - 功能：以 action-loss 对 $(a, \ell)$ 为出发点定义不确定性
     - 核心思路：不确定性被定义为在信念 $p_n(z)$ 下 Bayes 最优行动的主观期望损失，即 $U_n = \min_{a \in \mathcal{A}} \mathbb{E}_{p_n(z)}[\ell(a, z)]$。当 $\ell$ 是 log loss 时退化为 Shannon 熵，当 $\ell$ 是 squared error 时退化为方差
     - 设计动机：避免先验地选择熵或方差作为不确定性度量——让损失函数决定什么是"不确定的"，从而为不同任务提供统一且任务相关的不确定性定义
 
 2. **不确定性的可约/不可约分解（Reducible vs Irreducible Decomposition）**:
 
-    - 做什么：将预测不确定性分解为随数据增长可消除和不可消除的两部分
+    - 功能：将预测不确定性分解为随数据增长可消除和不可消除的两部分
     - 核心思路：定义 $U_\infty = \lim_{n \to \infty} U_n$ 为数据量趋于无穷时的不可约不确定性，则可约部分为 $U_n - U_\infty$。通过考虑获取新数据后不确定性的期望变化，可以不依赖无穷数据极限来估计可约程度
     - 设计动机：这一分解替代了传统的 aleatoric = irreducible、epistemic = reducible 的简化对应，同时明确了"可约性"取决于模型类、更新方法和数据获取策略，而非仅由数据"噪声"决定
     - 与之前方法的区别：传统做法将 $\mathbb{E}_{p_n(\theta)}[H[p_n(z|\theta)]]$ 直接等同于 aleatoric/irreducible uncertainty，但这只是一个有限样本估计器，可能偏差很大
 
 3. **预测性能与数据分散度的区分（Performance vs Dispersion）**:
 
-    - 做什么：严格区分 (a) 模型关于自身信念的不确定性, (b) 模型相对于外部 ground truth 的表现, (c) 数据源本身的统计分散程度
+    - 功能：严格区分 (a) 模型关于自身信念的不确定性, (b) 模型相对于外部 ground truth 的表现, (c) 数据源本身的统计分散程度
     - 核心思路：预测性能使用参考分布 $p_{\text{eval}}(z)$ 下的期望损失来衡量，即 $R_n = \mathbb{E}_{p_{\text{eval}}(z)}[\ell(a_n^*, z)]$；数据分散度则是数据生成过程 $p_{\text{train}}$ 本身的性质。三者虽相关但本质不同
     - 设计动机：在经典 aleatoric-epistemic 框架下，"aleatoric uncertainty" 被同时用来指代 $H[p_\infty(z)]$、$H[p_{\text{train}}]$ 和 $H[p_{\text{eval}}(z)]$ 三个不同的量——而它们一般情况下并不相等
 
 4. **对 BALD 的重新解读（Reinterpreting BALD）**:
 
-    - 做什么：分析 BALD 分数 $\text{EIG}_\theta = H[p_n(z)] - \mathbb{E}_{p_n(\theta)}[H[p_n(z|\theta)]]$ 作为可约预测不确定性的估计质量
+    - 功能：分析 BALD 分数 $\text{EIG}_\theta = H[p_n(z)] - \mathbb{E}_{p_n(\theta)}[H[p_n(z|\theta)]]$ 作为可约预测不确定性的估计质量
     - 核心思路：BALD 衡量的是观察 $z$ 后对参数 $\theta$ 的信息增益，而非预测不确定性的长期可约量。由于参数到预测的映射通常不可逆，参数空间的信息增益不一定转化为预测空间的不确定性减少
     - 关键发现：BALD 更应被理解为近似度量**短期**参数不确定性减少，而非长期可约预测不确定性。它在实践中有效，但在以预测为导向的场景下仍是次优的
 

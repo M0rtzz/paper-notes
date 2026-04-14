@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - 评估指标
   - 组合对齐
-  - text-to-image
+  - 文生图
   - VQA metrics
   - 人类判断
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.21227](https://arxiv.org/abs/2509.21227)  
 **代码**: 无（有 project page）  
 **领域**: 图像生成  
-**关键词**: 评估指标, 组合对齐, text-to-image, VQA metrics, 人类判断
+**关键词**: 评估指标, 组合对齐, 文生图, VQA metrics, 人类判断
 
 ## 一句话总结
 

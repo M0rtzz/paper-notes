@@ -2,11 +2,11 @@
 title: >-
   [论文解读] FineXtrol: Controllable Motion Generation via Fine-Grained Text
 description: >-
-  [AAAI2026][人体理解][motion generation] 提出 FineXtrol 框架，使用带时间标注的细粒度文本描述作为控制信号，结合层次化对比学习增强 text encoder 的判别力，实现对特定身体部位在指定时间区间内的精确动作生成控制。
+  [AAAI2026][人体理解][运动生成] 提出 FineXtrol 框架，使用带时间标注的细粒度文本描述作为控制信号，结合层次化对比学习增强 text encoder 的判别力，实现对特定身体部位在指定时间区间内的精确动作生成控制。
 tags:
   - AAAI2026
   - 人体理解
-  - motion generation
+  - 运动生成
   - fine-grained control
   - 对比学习
   - 扩散模型
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2511.18927](https://arxiv.org/abs/2511.18927)  
 **代码**: 待确认  
 **领域**: human_understanding  
-**关键词**: motion generation, fine-grained control, contrastive learning, diffusion model, ControlNet  
+**关键词**: 运动生成, fine-grained control, 对比学习, 扩散模型, ControlNet
 
 ## 一句话总结
 提出 FineXtrol 框架，使用带时间标注的细粒度文本描述作为控制信号，结合层次化对比学习增强 text encoder 的判别力，实现对特定身体部位在指定时间区间内的精确动作生成控制。

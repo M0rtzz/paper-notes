@@ -7,7 +7,7 @@ tags:
   - ECCV 2024
   - 自动驾驶
   - 3D Occupancy
-  - World Model
+  - 世界模型
   - 4D预测
   - 轨迹规划
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2311.16038](https://arxiv.org/abs/2311.16038)  
 **代码**: https://github.com/wzzheng/OccWorld  
 **领域**: 自动驾驶  
-**关键词**: 3D Occupancy, World Model, 自动驾驶, 4D预测, 轨迹规划
+**关键词**: 3D Occupancy, 世界模型, 自动驾驶, 4D预测, 轨迹规划
 
 ## 一句话总结
 OccWorld 提出在 3D 占用空间中学习世界模型，用 VQ-VAE 对 3D occupancy 进行 token 化，再通过 GPT 风格的时空生成 Transformer 自回归预测未来场景演化和自车轨迹，在 nuScenes 上无需实例和地图标注即可实现有竞争力的规划性能。
@@ -51,19 +51,19 @@ OccWorld 提出在 3D 占用空间中学习世界模型，用 VQ-VAE 对 3D occu
 
 1. **3D Occupancy Scene Tokenizer (VQ-VAE)**:
 
-    - 做什么：将 3D occupancy 压缩为离散 token 序列，编码高层语义概念
+    - 功能：将 3D occupancy 压缩为离散 token 序列，编码高层语义概念
     - 核心思路：先将 3D occupancy 通过类别嵌入转为 BEV 表示 $\hat{\mathbf{y}} \in \mathbb{R}^{H \times W \times DC'}$（沿高度维度拼接），再用 2D 卷积 encoder 下采样 $d$ 倍得到 $\hat{\mathbf{z}} \in \mathbb{R}^{H/d \times W/d \times C}$。同时学习 codebook $\mathbf{C} \in \mathbb{R}^{N \times C}$，对每个空间特征做最近邻量化：$\mathbf{z}_{ij} = \arg\min_{\mathbf{c} \in \mathbf{C}} \|\hat{\mathbf{z}}_{ij} - \mathbf{c}\|_2$。解码器用 2D 反卷积恢复原始分辨率后，沿通道维 split 恢复高度维，再 softmax 分类重建 occupancy
     - 设计动机：3D occupancy 维度太高（200×200×16），直接建模困难。VQ-VAE 将其压缩到 50×50 的离散 token，大幅降低后续 Transformer 建模难度，同时 codebook 编码了可复用的高层场景概念
 
 2. **Spatial-Temporal Generative Transformer**:
 
-    - 做什么：建模 token 序列的时空演化关系，自回归预测下一帧 token
+    - 功能：建模 token 序列的时空演化关系，自回归预测下一帧 token
     - 核心思路：先对每帧 token 做 spatial aggregation（self-attention），然后在 2×2 窗口内 merge 形成多尺度 token $\{\mathbf{T}_0, \ldots, \mathbf{T}_K\}$（K=3 级）。对每个尺度独立做 spatial-wise temporal causal attention：$\hat{\mathbf{z}}_{j,i}^{T+1} = \text{TA}(\mathbf{z}_{j,i}^T, \ldots, \mathbf{z}_{j,i}^{T-t})$，即同一空间位置的 token 跨时间做 masked attention 预测未来。最后用 U-Net 结构聚合多尺度预测，确保空间一致性
     - 设计动机：直接像 NLP-GPT 逐 token 预测太慢（token 数太多）。分离时空建模+多尺度设计既保证了全局感知（spatial mixing），又实现了高效的时序预测（按位置的 temporal attention）
 
 3. **Ego Token 与轨迹解码**:
 
-    - 做什么：将自车运动也统一到 token 序列中，与场景 token 联合建模
+    - 功能：将自车运动也统一到 token 序列中，与场景 token 联合建模
     - 核心思路：引入 ego token $\mathbf{z}_0 \in \mathbb{R}^C$ 编码自车位置，与场景 token 一起参与 spatial aggregation 和 temporal attention。预测的 ego token 通过 MLP ego decoder 解码为位移：$\hat{p}^{T+1} = d_{ego}(\hat{z}_0^{T+1})$
     - 设计动机：传统方法将场景预测和自车规划分开处理，忽略了二者的高阶交互。将 ego token 融入世界模型能捕捉"自车移动导致场景变化"的耦合关系
 

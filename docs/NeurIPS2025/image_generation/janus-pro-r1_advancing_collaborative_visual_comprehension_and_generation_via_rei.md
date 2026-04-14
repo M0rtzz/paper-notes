@@ -8,7 +8,7 @@ tags:
   - 图像生成
   - MLLM
   - 视觉生成
-  - 强化学习
+  - reinforcement-learning
   - Chain-of-Thought
   - Aha Moment
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.01480](https://arxiv.org/abs/2506.01480)  
 **代码**: https://janus-pro-r1.github.io (项目主页)  
 **领域**: 多模态大语言模型 / 图像生成  
-**关键词**: MLLM, 视觉生成, 强化学习, Chain-of-Thought, Aha Moment
+**关键词**: MLLM, 视觉生成, reinforcement-learning, Chain-of-Thought, Aha Moment
 
 ## 一句话总结
 

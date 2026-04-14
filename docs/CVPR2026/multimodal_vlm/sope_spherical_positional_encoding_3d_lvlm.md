@@ -2,7 +2,7 @@
 title: >-
   [论文解读] SoPE: Spherical Coordinate-Based Positional Embedding for 3D LVLMs
 description: >-
-  揭示 RoPE 在 3D LVLM 中的空间感知偏差，提出球面坐标位置编码 SoPE，用四维索引替换 1D 光栅索引配合多维频率分配和多尺度混合，3D 布局估计和物体检测显著提升。
+  [CVPR 2026][多模态][3D LVLM] 揭示 RoPE 在 3D LVLM 中的空间感知偏差问题（1D 索引破坏 3D 局部性且忽视方向），提出球面坐标位置编码 SoPE（$(t,r,\theta,\phi)$ 四维索引 + 多维频率分配 + 多尺度混合），在 SpatialLM 上实现 3D 布局估计和物体检测 SOTA。
 tags:
   - CVPR 2026
   - 多模态
@@ -11,6 +11,7 @@ tags:
   - 球面坐标
   - RoPE
   - SpatialLM
+  - 空间推理
 ---
 
 # SoPE: Spherical Coordinate-Based Positional Embedding for 3D LVLMs
@@ -47,19 +48,19 @@ SpatialLM 基线 → 提取点云 token 的 $(x,y,z)$ 坐标 → 转换为球面
 
 1. **球面坐标位置投影**
 
-    - 做什么：将 3D token 从 1D 光栅索引重映射到几何感知的四维位置 $(t,r,\theta,\phi)$
+    - 功能：将 3D token 从 1D 光栅索引重映射到几何感知的四维位置 $(t,r,\theta,\phi)$
     - 核心思路：$r = \sqrt{x^2+y^2+z^2}$，$\theta = \arccos(z/r)$，$\phi = \text{atan2}(y,x)$。相对距离扩展为 $\Delta t, \Delta r, \Delta\theta, \Delta\phi$ 四个分量，自然编码空间位置变化和方向角度变化
     - 设计动机：笛卡尔 3D 坐标（RoPE-3D）虽编码位置但无法区分角度关系；球面分解使径向距离和角度方向正交，方向信息显式化
 
 2. **多维频率分配**
 
-    - 做什么：将 128 维 RoPE 频率带按 $t:r:\theta:\phi = 24:2:3:3$ 分配给四个坐标分量
+    - 功能：将 128 维 RoPE 频率带按 $t:r:\theta:\phi = 24:2:3:3$ 分配给四个坐标分量
     - 核心思路：球面分量 $(r,\theta,\phi)$ 映射到前端高频子带（捕捉细粒度空间/角度变化），时序 $t$ 映射到后端低频子带（保持长程动态连贯）。旋转矩阵分块对角化，各分量独立编码后加性组合
     - 设计动机：$t$ 的值域远大于角度分量，需要更多低频带保持时序平滑；角度变化通常小而精细，需高频带区分。比例通过大规模消融实验（Uniform、Angular-Biased、Temporal-Biased）确定最优
 
 3. **多尺度频率混合**
 
-    - 做什么：对每个坐标分量在 RoPE 相位层面融合线性、对数、周期三种变换
+    - 功能：对每个坐标分量在 RoPE 相位层面融合线性、对数、周期三种变换
     - 核心思路：$\varphi_k(u) = \frac{1}{3}(\omega_k^{lin}g^{lin}(u) + \omega_k^{log}g^{log}(u) + \omega_k^{per}g^{per}(u))$，线性保绝对精度、对数强调局部邻域、周期捕捉全局。三种等权混合无额外可学参数
     - 设计动机：单尺度编码难以同时捕捉细粒度几何和大尺度布局；多尺度融合使模型在不同空间范围均有区分力
 

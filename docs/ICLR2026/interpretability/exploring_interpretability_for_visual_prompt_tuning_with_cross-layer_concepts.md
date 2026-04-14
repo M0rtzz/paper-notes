@@ -51,20 +51,20 @@ tags:
 
 1. **概念区域发现（Concept Region Discovery, CRD）**
 
-    - 做什么：将每个概念原型 $\mathbf{q}_k$ 关联到图像中的特定语义区域
+    - 功能：将每个概念原型 $\mathbf{q}_k$ 关联到图像中的特定语义区域
     - 核心思路：计算原型与patch嵌入之间的负欧氏距离注意力，经Softmax归一化后加上可学习空间偏置，得到每个原型的概念注意力图 $\mathbf{A}$。每个patch被分配给注意力最高的概念，形成区域图 $\mathbf{R}$
     - 关键公式：$a_{k,ij} = \frac{\exp(-\|\mathbf{e}_{ij} - \mathbf{q}_k\|^2)}{\sum_l \exp(-\|\mathbf{e}_{ij} - \mathbf{q}_l\|^2)} + b_{k,ij}$
     - 设计动机：类别无关原型能捕获跨类别共享的语义概念（如"鸟翅膀"、"车轮"），比类别特定原型更能揭示模型对通用视觉概念的学习
 
 2. **区域内特征聚合（Intra-region Feature Aggregation, IFA）**
 
-    - 做什么：将概念区域内的patch特征聚合为该概念对应的prompt嵌入
+    - 功能：将概念区域内的patch特征聚合为该概念对应的prompt嵌入
     - 核心思路：$\mathbf{p}_k = \frac{\sum_{i,j} \mathbf{z}_{k,ij}}{\sum_{i,j} r_{k,ij}}$，即用区域概率加权的patch特征均值作为prompt
     - 设计动机：prompt不再是任意向量，而是某个语义区域的"代表"，直接可解释
 
 3. **跨层概念原型与融合**
 
-    - 做什么：在不同Transformer层使用不同数量的原型，浅层多（17个）、深层少（8个），并将浅层细粒度prompt融合为深层粗粒度prompt
+    - 功能：在不同Transformer层使用不同数量的原型，浅层多（17个）、深层少（8个），并将浅层细粒度prompt融合为深层粗粒度prompt
     - 核心思路：通过可学习分组层（线性层+Gumbel-Softmax）将细粒度prompt分组，组内取均值后过MLP得到深层prompt。引入概念区域一致性损失 $\mathcal{L}_{con}$（KL散度）确保细粒度区域的组合与粗粒度区域对齐
     - 设计动机：模拟人类视觉认知的"局部→全局"推理过程，浅层捕获纹理/颜色等低级属性，深层捕获部件/整体等高级语义
 

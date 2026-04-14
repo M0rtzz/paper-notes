@@ -10,7 +10,7 @@ tags:
   - 交错图文语料
   - 教学视频
   - VLM预训练
-  - In-context Learning
+  - 上下文学习
 ---
 
 # 2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining
@@ -20,7 +20,7 @@ tags:
 **代码**: [GitHub](https://github.com/DAMO-NLP-SG/multimodal_textbook) (已开源)  
 **作者**: Wenqi Zhang, Hang Zhang, Xin Li, Jiashuo Sun, Yongliang Shen, Weiming Lu, Deli Zhao, Yueting Zhuang, Lidong Bing (浙江大学 & 阿里达摩院)  
 **领域**: 视觉-语言预训练  
-**关键词**: 多模态教科书, 交错图文语料, 教学视频, VLM预训练, In-context Learning  
+**关键词**: 多模态教科书, 交错图文语料, 教学视频, VLM预训练, 上下文学习
 
 ## 一句话总结
 
@@ -149,9 +149,9 @@ tags:
 1. **ASR重写至关重要**：不重写ASR → 7个benchmark平均下降4.9%；原始ASR PPL=16.86，重写后=13.92
 2. **OCR带来额外收益**：去掉OCR → 平均下降2.3%，尤其影响TextVQA和MathVista
 3. **关键帧提取算法对比**：
-   - 像素级(OpenCV absdiff)：18M帧，性能下降9%（提取过多冗余帧）
-   - 语义级(CLIP-ViT-L)：1.7M帧，性能下降6.5%（遗漏关键帧）
-   - **SSIM**：6.5M帧，最优（平衡数量与质量）
+    - 像素级(OpenCV absdiff)：18M帧，性能下降9%（提取过多冗余帧）
+    - 语义级(CLIP-ViT-L)：1.7M帧，性能下降6.5%（遗漏关键帧）
+    - **SSIM**：6.5M帧，最优（平衡数量与质量）
 4. **打乱图像顺序实验**：打乱Textbook图像顺序后性能显著下降，而MMC4几乎不受影响 → 证明Textbook中图像序列的逻辑连贯性确实被模型学习利用
 
 ## 亮点

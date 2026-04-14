@@ -53,24 +53,24 @@ $$\max_\pi \min_{k} V_{k,\tau}^\pi = \max_\pi \min_{w \in \Delta^K} \langle w, \
 ### 关键设计
 
 **模块1: 正则化博弈 $\mathcal{RG}$**
-- 做什么：在原始博弈的效用函数上添加各自的正则化
+- 功能：在原始博弈的效用函数上添加各自的正则化
 - Learner效用：$u_{Learner}^{\mathcal{RG}} = \langle w, \mathbf{V}^{\pi_\theta} \rangle + \tau \tilde{H}(\pi_\theta) - \tau_w H(w)$
 - $\tau \tilde{H}(\pi_\theta)$：避免max-min MORL的不确定性问题（某些MOMDP仅有随机最优策略）
 - $-\tau_w H(w)$：防止 $w$ 退化为one-hot向量，促使同时考虑多个目标维度
 
 **模块2: ERAM算法——Learner更新（NPG/PPO）**
-- 做什么：通过自然策略梯度更新策略
+- 功能：通过自然策略梯度更新策略
 - Tabular闭式：$\pi_{\theta_{t+1}}(a|s) = \frac{1}{Z_\pi} (\pi_{\theta_t}(a|s))^\alpha \exp\left(\frac{1-\alpha}{\tau} Q_{w_t,\tau}^{\pi_{\theta_t}}(s,a)\right)$，其中 $\alpha = 1 - \frac{\eta\tau}{1-\gamma}$
 - Deep RL：直接替换为PPO
 
 **模块3: ERAM算法——Adversary更新（闭式MD）**
-- 做什么：用修正版镜像下降更新权重 $w$
+- 功能：用修正版镜像下降更新权重 $w$
 - 核心公式：$w_{t+1} = \text{softmax}\left(-\frac{1-\beta}{\tau_w} \mathbf{V}^{\pi_{\theta_t}} + \beta \log w_t\right)$
 - 其中 $\beta = \frac{1}{\lambda \tau_w + 1} \in (0,1)$，恒在合法范围内
 - 设计动机：选择负熵正则（而非 $\ell_2$-范数）使得MD更新有解析解，无需投影梯度下降
 
 **模块4: ARAM——自适应正则化改进**
-- 做什么：将Adversary的正则从 $H(w)$（关于均匀分布的KL）改为 $-D_{KL}(w \| c)$
+- 功能：将Adversary的正则从 $H(w)$（关于均匀分布的KL）改为 $-D_{KL}(w \| c)$
 - 参考向量 $c$ 动态计算：$c_i = \text{softmax}(\mathbb{E}_{s,a}[r_i(s,a) r_{i'}(s,a)])$，$i'$ 是上一批次最差目标
 - 设计动机：不像ERAM平等考虑所有维度，ARAM将更多权重放在表现差的维度上（但仍非仅关注最差维度），加速收敛
 

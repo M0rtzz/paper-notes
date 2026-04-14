@@ -26,11 +26,14 @@ tags:
 
 ## 研究背景与动机
 **领域现状**：Behavior Foundation Models (BFMs) 基于 Universal Successor Features (USFs) 实现 zero-shot RL——预训练阶段学习一组策略族 $(\pi_z)_{z \in \mathcal{Z}}$，测试时给定奖励函数 $r$ 即可立即检索最优策略 $\pi_{z_r}$。
+
 **现有痛点**：
    - 标准任务推断（Eq. 4）需要在推断数据集 $\mathcal{D}$ 上计算 $z_r = \text{Cov}(\phi)^{-1} \mathbb{E}[\phi(s) r(s)]$，要求 (i) 访问推断数据集和 (ii) 对每个状态提供奖励标签
    - 预训练数据可能不可用或为私有数据；从像素标注奖励成本高昂
    - 现有方法（如 FB）默认用 50K 标注样本做任务推断
+
 **核心矛盾**：BFM 的 zero-shot 策略检索在计算上高效（只需一次线性回归），但在数据标注上低效（需要大量标注数据做任务推断）
+
 **核心 idea**：将任务推断从离线回归转为在线交互——利用 successor features 的线性结构 $V^{\pi_z}(s) = z^\top \psi^{\pi_z}(s)$，将策略选择归约为线性 bandit，用 UCB 策略在任务嵌入空间做乐观探索
 
 ## 方法详解
@@ -42,20 +45,20 @@ tags:
 
 1. **在线任务嵌入估计**
 
-    - 做什么：维护 $z_r$ 的正则化最小二乘估计
+    - 功能：维护 $z_r$ 的正则化最小二乘估计
     - 核心思路：$\hat{z}_t = V_t^{-1} \sum_{i=0}^t \phi(s_i) r_i$，其中 $V_t = \lambda I_d + \sum_{i=0}^t \phi(s_i) \phi(s_i)^\top$。每次交互获得新的 $(s_t, r_t)$ 后更新
     - 置信集：$\mathcal{C}_t = \{z : \|z - \hat{z}_t\|_{V_t} \leq \beta_t\}$，椭球形置信区域
 
 2. **乐观任务选择（UCB）**
 
-    - 做什么：在所有可能的任务嵌入中选择乐观的那个
+    - 功能：在所有可能的任务嵌入中选择乐观的那个
     - 核心思路：$z_t = \arg\max_{z \in \mathcal{C}_t} \psi^{\pi_z}(s_t)^\top z$——选择在当前状态下、在置信集内、使得 predicted return 最大的任务嵌入
     - 与线性 bandit 的关键区别：两个不同的"上下文"参与——$\phi$（用于回归和置信区间估计）和 $\psi$（用于acquisition function）。用 $\phi$ 做回归能得到更紧的估计
     - 设计动机：乐观策略自然平衡探索和利用——不确定性高时探索（选择信息量大的策略），不确定性低时利用（选择预估最优策略）
 
 3. **Regret Bound**
 
-    - 做什么：证明 OpTI-BFM 的遗憾有界
+    - 功能：证明 OpTI-BFM 的遗憾有界
     - 核心结论：对于完美训练的 BFM（满足线性结构），$n$ 个 episode 后的 regret $R_n = \tilde{O}(\sqrt{n \cdot d})$，其中 $d$ 是任务嵌入维度
     - 关键假设：BFM 完美训练（SFs 准确、策略最优）+ 奖励在特征的线性 span 内
     - 设计动机：通过与经典 LinUCB 算法的形式化联系，直接继承线性 bandit 的理论保证

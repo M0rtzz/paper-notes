@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.10325](https://arxiv.org/abs/2511.10325)  
 **代码**: 未公开  
 **领域**: Multimodal Sentiment Analysis  
-**关键词**: multimodal sentiment analysis, missing modality, noisy modality, variational information bottleneck, denoising  
+**关键词**: multimodal sentiment analysis, missing modality, noisy modality, variational information bottleneck, denoising
 
 ## 一句话总结
 

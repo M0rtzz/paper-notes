@@ -26,10 +26,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：现代 LLM（如 ChatGPT）尽管经过 RLHF 对齐，仍然在交互中展现出社会偏见行为（性别、种族、年龄、残障等）。近期涌现了多种去偏技术，包括 prompting（Self-Awareness、Self-Reflection 等）和 training（DPO、SFT、Safe RLHF、Task Vector 等）两大类。
+
 **现有痛点**：各去偏方法使用不同的基线和评估指标，导致方法间无法公平比较（如表 1 所示，DAMA、BiasDPO、FAST 等各用不同基线）。更关键的是，**大多数评估基于 LLM 内部概率**（比较有偏和无偏上下文的 likelihood），而非直接评估模型响应中的偏差——这与实际使用场景脱节，用户看到的是模型输出而非概率分布。
+
 **核心矛盾**：概率级评估 vs. 响应级评估的差距。StereoSet、CrowS-Pairs 等经典基准衡量的是 token 概率偏差，但用户真正关心的是"模型回答是否公平安全"。现有研究缺乏统一、面向响应的去偏评估平台。
+
 **本文要解决什么？** (a) 建立统一基准，公平比较 prompting 和 training 去偏方法；(b) 设计响应级指标直接衡量输出偏差；(c) 分析模型大小、偏差类型、方法范式等维度的影响。
+
 **切入角度**：将现有偏差数据集重组为 query-response 格式（与真实 LLM 使用对齐），统一所有方法的测试条件。
+
 **核心 idea 一句话**：构建统一的 query-response 框架 + Bias-Free Score 指标，系统比较 8 种去偏技术在响应层面的效果。
 
 ## 方法详解
@@ -55,14 +60,14 @@ BiasFreeBench 的设计包含三个核心组件：(1) 8 种去偏技术的统一
 
 3. **Bias-Free Score (BFS) 指标**
 
-    - 做什么：直接衡量 LLM 响应中无偏/安全/反刻板印象回答的比例
+    - 功能：直接衡量 LLM 响应中无偏/安全/反刻板印象回答的比例
     - BBQ 数据集上的 BFS：$\text{BFS}_{\text{BBQ}} = \frac{N_{\text{anti-stereo}} + N_{\text{unknown}}}{N_{\text{total}}}$，其中 unknown 包括"信息不足无法判断"等安全回答
     - FairMT-Bench 上的 BFS：$\text{BFS}_{\text{FairMT}} = \frac{N_{\text{unbiased}}}{N_{\text{total}}}$
     - 设计动机：与概率级指标不同，BFS 直接反映用户实际看到的输出是否公平安全
 
 4. **评估流程（三方投票）**
 
-    - 做什么：对 LLM 响应进行偏差分类
+    - 功能：对 LLM 响应进行偏差分类
     - 使用 GPT-4o-mini（3 次投票取多数）、LlamaGuard-3-8B 和 OpenAI Moderation API 三个评判器
     - 人工验证显示：BBQ 上与人类判断 100% 一致（Cohen's kappa=1.0），FairMT-Bench 上 94% 一致（kappa=0.7）
 

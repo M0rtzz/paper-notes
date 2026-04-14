@@ -41,31 +41,31 @@ EmoVerse 的构建包括四个阶段：(1) 数据收集与清洗；(2) B-A-S 三
 
 1. **B-A-S（Background-Attribute-Subject）三元组标注**:
 
-    - 做什么：将图像情感归因分解为三个维度的知识图谱结构
+    - 功能：将图像情感归因分解为三个维度的知识图谱结构
     - 核心思路：受知识图谱启发，每张图像标注为 $(B, A, S)$ 三元组——$B$ 描述场景背景（如"暴风雨中的海岸"）、$A$ 描述视觉属性（如"昏暗光线、冷色调"）、$S$ 描述关键主体（如"独自站立的人"）。三者共同解释情感触发原因
     - 设计动机：传统标注只给一个情感标签（如"sadness"），不解释原因。B-A-S 三元组让情感归因可追溯，支持下游可解释分析
 
 2. **混合数据来源**:
 
-    - 做什么：从多个来源收集 219K+ 图像，确保情感多样性
+    - 功能：从多个来源收集 219K+ 图像，确保情感多样性
     - 核心思路：(a) 现有情感数据集：EmoSet、EmoArt；(b) 通用数据集：Flickr30k（自然场景）；(c) 网络搜索：针对特定情感关键词爬取；(d) AIGC 生成：用 Seedream 模型按情感 prompt 生成约 25K 张图像，补充稀缺情感类别
     - 设计动机：单一来源的数据集存在偏置（如 EmoSet 以自然图为主），AIGC 生成可精准补充长尾情感分布
 
 3. **Annotation & Verification Pipeline**:
 
-    - 做什么：利用 MLLM 自动标注并通过多轮验证保证标注质量
+    - 功能：利用 MLLM 自动标注并通过多轮验证保证标注质量
     - 核心思路：(a) **初标**：Gemini 2.5 和 GPT-4o 分别对图像生成情感标注（CES 类别 + DES 向量 + B-A-S 三元组）；(b) **情感验证**：用预训练的 EmoViT（情感分类专家模型）检验 CES 标签一致性；(c) **CoT Critic Agent**：对初标结果进行 Chain-of-Thought 批判性审查，将每条标注判定为 valid（保留）、revisable（可修正，返回重标）、discarded（丢弃）；(d) **人工抽检**：对 Critic Agent 的输出进行抽样人工验证
     - 设计动机：纯 MLLM 标注的噪声率不可忽视（尤其 DES 1024 维空间），多轮验证 + 专家模型交叉检查 + CoT 批判性审查可有效降噪
 
 4. **Subject-Level 实例定位**:
 
-    - 做什么：为 B-A-S 中的 Subject 提供 bounding box 和 segmentation mask
+    - 功能：为 B-A-S 中的 Subject 提供 bounding box 和 segmentation mask
     - 核心思路：(a) 将 B-A-S 三元组中的 Subject 文本描述输入 Grounding DINO，获取 bounding box；(b) 用 SAM（Segment Anything Model）基于 bbox prompt 生成像素级分割 mask
     - 设计动机：Subject-level 实例定位使模型能学习"图像中哪个区域/对象引发了哪种情感"，支持局部情感归因
 
 5. **可解释情感模型：Qwen2.5-VL-3B 微调**:
 
-    - 做什么：在 EmoVerse 上微调多模态模型，实现 CES 分类 + DES 投射 + 情感归因文本生成
+    - 功能：在 EmoVerse 上微调多模态模型，实现 CES 分类 + DES 投射 + 情感归因文本生成
     - 核心思路：两轮微调——第一轮学习 CES/DES 预测，第二轮学习基于 B-A-S 生成情感归因解释。DES 通过 1024 维线性投射头实现。训练用交叉熵 Loss（CE Loss）
     - 设计动机：端到端多任务训练使模型同时具备情感预测和可解释性能力
 

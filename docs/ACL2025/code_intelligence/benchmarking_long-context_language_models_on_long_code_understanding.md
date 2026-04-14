@@ -7,7 +7,7 @@ tags:
   - ACL 2025
   - 长上下文
   - 代码理解
-  - Benchmark
+  - benchmark
   - 长代码
   - 代码单元
 ---
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2503.04359](https://arxiv.org/abs/2503.04359)  
 **代码**: 无  
 **领域**: LLM Efficiency / Code Understanding  
-**关键词**: 长上下文, 代码理解, Benchmark, 长代码, 代码单元
+**关键词**: 长上下文, 代码理解, benchmark, 长代码, 代码单元
 
 ## 一句话总结
 

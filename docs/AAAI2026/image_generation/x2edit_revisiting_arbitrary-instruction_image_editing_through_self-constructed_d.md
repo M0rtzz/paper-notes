@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2508.07607](https://arxiv.org/abs/2508.07607)  
 **代码**: [GitHub](https://github.com/OPPO-Mente-Lab/X2Edit)  
 **领域**: image_generation  
-**关键词**: image editing, MoE-LoRA, contrastive learning, dataset construction, FLUX, task-aware  
+**关键词**: image editing, MoE-LoRA, contrastive learning, dataset construction, FLUX, task-aware
 
 ## 一句话总结
 构建 370 万高质量编辑数据集（14 类任务），并提出基于 Task-Aware MoE-LoRA + Contrastive Learning 的轻量级（0.9B 参数）plug-and-play 编辑模块，性能媲美 12B 全参数训练模型。

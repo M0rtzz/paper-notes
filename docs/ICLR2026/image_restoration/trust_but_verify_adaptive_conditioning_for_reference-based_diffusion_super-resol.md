@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.01864](https://arxiv.org/abs/2602.01864)  
 **代码**: [https://github.com/vivoCameraResearch/AdaRefSR](https://github.com/vivoCameraResearch/AdaRefSR)  
 **领域**: Image Restoration  
-**关键词**: Reference-based Super-Resolution, Diffusion Model, Adaptive Gating, Implicit Correlation, Single-step Diffusion
+**关键词**: Reference-based Super-Resolution, diffusion model, Adaptive Gating, Implicit Correlation, Single-step Diffusion
 
 ## 一句话总结
 
@@ -31,7 +31,9 @@ tags:
 核心挑战在于：真实世界退化使得低质量（LQ）输入与参考（Ref）图像之间的对应关系不可靠。现有方法在调控参考使用方面存在严重缺陷：
 
 **PFStorer（全局可学习向量）**：使用全局权重统一控制参考分支，无法适应不同对齐质量的输入对——对齐质量好和坏的图像对使用相同的门控值
+
 **ReFIR（显式token相似性）**：基于显式相关性的空间门控容易被噪声干扰，且存在长尾分布问题（多数相同token主导计算，少数关键token被忽略）
+
 **两面问题**：
    - **过度依赖参考**：错误注入参考线索，导致语义不一致（如鸟眼被复制到非眼区域）
    - **参考利用不足**：有价值的参考信息未被充分利用

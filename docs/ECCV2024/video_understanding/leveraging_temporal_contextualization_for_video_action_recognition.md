@@ -36,8 +36,11 @@ tags:
 作者系统梳理了现有时序建模策略的不足：
 
 **Cross-frame attention**（X-CLIP, Vita-CLIP）：仅通过各帧 [CLS] token 交互获取时序信息，**缺乏 patch 级细节**
+
 **Temporal window expansion**（Open-VCLIP）：仅引入相邻帧的 patch tokens 作为 key-value，**时序范围太窄**
+
 **Joint space-time attention**（理论最优方案）：将所有帧的所有 patch 作为参考——但 CLIP 是用短图像-文本对预训练的，直接延长序列会导致**外推问题**，注意力质量严重退化
+
 **帧级平均**（ViFi-CLIP）：简单平均帧表示，完全没有帧间信息交换
 
 ### 核心发现与动机

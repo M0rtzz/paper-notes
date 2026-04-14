@@ -2,14 +2,15 @@
 title: >-
   [论文解读] Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions
 description: >-
-  [ACL 2025][可解释性] 首次从失败案例角度对GPT-2系列在选择题中的锚定偏差进行机械可解释性分析，通过Logit Lens定位MLP值向量和注意力头中的偏差源，以最小干预消除偏差。
+  [ACL 2025][目标检测][锚定偏差] 首次从失败案例角度对GPT-2系列在MCQ中的"锚定偏差"（始终选A）进行机械分析，通过Logit Lens定位到MLP中存储"A"偏好的特定值向量，用极简干预（更新值向量）将MCQ准确率平均提升70%+。
 tags:
   - ACL 2025
-  - 可解释性
-  - 位置偏差
+  - 目标检测
+  - 锚定偏差
   - GPT-2
   - 机械可解释性
   - Logit Lens
+  - MLP值向量
 ---
 
 # Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions
@@ -37,17 +38,17 @@ tags:
 ### 关键设计
 
 1. **MLP偏差定位**:
-    - 做什么：定位存储"A"偏好的特定MLP层和维度
+    - 功能：定位存储"A"偏好的特定MLP层和维度
     - 核心思路：计算logit差异 $\text{logit}_T^\ell[\text{A}](\mathbf{m}_T^\ell) - \text{logit}_T^\ell[\text{B/C/D/E}](\mathbf{m}_T^\ell)$找到关键层，用MLP Contribution $|\mathbf{k}_T^{\ell,n}| \|\mathbf{v}_T^{\ell,n}\|$定位维度，对值向量做unembedding验证top-10 token
     - 设计动机：MLP作为key-value memory，值向量的top tokens如果是"A"相关词则直接证明是偏差存储位置
 
 2. **MLP值向量更新**:
-    - 做什么：直接修改值向量消除"A"偏好
+    - 功能：直接修改值向量消除"A"偏好
     - 核心思路：$\mathbf{v}^{\ell,n} = \mathbf{v}^{\ell,n} - \lambda_1 W_U[\text{A}] + \lambda_2 W_U[\text{B/C/D/E}]$，$\lambda_1=1, \lambda_2=8$
     - 设计动机：直接在知识存储层面"重写"偏差信息，无需重训模型
 
 3. **注意力权重交换**:
-    - 做什么：交换A和正确答案位置的加权注意力值
+    - 功能：交换A和正确答案位置的加权注意力值
     - 核心思路：$\mathbf{r}_{T,p(\text{A})}^{\ell,h} \leftrightarrow \mathbf{r}_{T,p(\text{B/C/D/E})}^{\ell,h}$
     - 设计动机：注意力头对A位置有额外关注，交换可进一步消除
 

@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Taming Score-Based Denoisers in ADMM: A Convergent Plug-and-Play Framework
 description: >-
-  [CVPR 2026][图像生成][Plug-and-Play] 提出 AC-DC 三阶段去噪器（自动校正 + 方向校正 + Score 去噪），解决 ADMM 迭代与 score 训练流形不匹配的问题，并首次为 ADMM-PnP + score denoiser 建立了收敛性保证，在多种逆问题上取得 SOTA。
+  [CVPR 2026][图像生成][即插即用] 提出 AC-DC 三阶段去噪器（自动校正 + 方向校正 + Score 去噪），解决 ADMM 迭代与 score 训练流形不匹配的问题，并首次为 ADMM-PnP + score denoiser 建立了收敛性保证，在多种逆问题上取得 SOTA。
 tags:
   - CVPR 2026
   - 图像生成
-  - Plug-and-Play
+  - 即插即用
   - ADMM
   - 扩散模型
   - Score-based Denoiser
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.10281](https://arxiv.org/abs/2603.10281)  
 **代码**: 有（随supplementary提供）  
 **领域**: 图像生成  
-**关键词**: Plug-and-Play, ADMM, 扩散模型, Score-based Denoiser, 逆问题求解
+**关键词**: 即插即用, ADMM, 扩散模型, Score-based Denoiser, 逆问题求解
 
 ## 一句话总结
 
@@ -151,9 +151,9 @@ $$\bm{w}^{(k,j+1)} = \bm{w}^{(k,j)} + \eta^{(k)}\left(\frac{1}{\sigma_{\bm{s}^{(
 1. **问题定义精准**：明确指出 ADMM 对偶变量导致流形不匹配加剧这一被忽视的问题，这是 score-based denoiser 很少与 primal-dual 方法结合的根本原因
 2. **AC-DC 三阶段设计优雅**：粗校正（AC）→ 精校正（DC）→ 去噪，逻辑递进清晰，每一步有明确的几何直觉
 3. **理论贡献扎实**：
-   - Theorem 1：弱非扩张条件下，常步长收敛到 $\delta$-ball
-   - Theorem 2：证明 AC-DC 去噪器满足弱非扩张性
-   - Theorem 3：去掉强凸假设，自适应步长也收敛
+    - Theorem 1：弱非扩张条件下，常步长收敛到 $\delta$-ball
+    - Theorem 2：证明 AC-DC 去噪器满足弱非扩张性
+    - Theorem 3：去掉强凸假设，自适应步长也收敛
 4. **通用性强**：AC-DC 去噪器不仅限于 ADMM，可嵌入任何基于近端算子的优化框架
 
 ## 局限性 / 可改进方向

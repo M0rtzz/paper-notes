@@ -27,10 +27,15 @@ tags:
 ## 研究背景与动机
 
 **领域现状**：随着模型规模增长，LoRA 等参数高效微调 (PEFT) 成为主流。模型合并旨在将多个任务专用 LoRA 合并为一个多任务模型，无需额外训练。
+
 **现有痛点**：(a) 直接对 LoRA 矩阵做 Task Arithmetic 效果差——不同任务的 LoRA 基不对齐；(b) KnOTS 方法虽然在对齐空间合并，但需要对全尺寸矩阵做 SVD，计算复杂度为 $O(n^3 T^2)$，对大模型不可承受；(c) 用先进合并方法（TSV、Iso-C）在全空间操作同样极其昂贵。
+
 **核心矛盾**：高效的合并（直接全空间 TA）精度差，高精度的合并（KnOTS + TSV）又丧失了 LoRA 的低秩效率优势。
+
 **本文要解决什么？** 在保持低秩计算效率的同时实现高精度 LoRA 模型合并。
+
 **切入角度**：观察到所有任务的 LoRA 更新共享一个公共子空间——找到这个子空间的参考基，在其中合并。
+
 **核心 idea 一句话**：在 LoRA 低秩矩阵的 SVD 构成的公共参考基空间（Core Space）中合并，维度仅为 $Tr \times Tr$，严格无信息损失。
 
 ## 方法详解
@@ -42,21 +47,21 @@ tags:
 
 1. **参考基构建 (Reference Bases)**:
 
-    - 做什么：找到一组正交基，能同时无损表示所有任务的 LoRA 方向
+    - 功能：找到一组正交基，能同时无损表示所有任务的 LoRA 方向
     - 核心思路：将所有 $B^{(t)}$ 水平拼接、所有 $A^{(t)}$ 竖直拼接，分别做 SVD，取 $U_B^{ref} \in \mathbb{R}^{m \times Tr}$ 和 $V_A^{ref} \in \mathbb{R}^{n \times Tr}$
     - 设计动机：拼接后的 SVD 自然跨越所有任务子空间的联合空间
     - 关键优势：SVD 在 $\mathbb{R}^{Tr \times n}$ 而非 $\mathbb{R}^{Tn \times n}$（KnOTS）上操作，计算量大幅减少
 
 2. **Core 矩阵映射 (Core Matrix Projection)**:
 
-    - 做什么：将每个任务更新投影到紧凑的 $Tr \times Tr$ 空间
+    - 功能：将每个任务更新投影到紧凑的 $Tr \times Tr$ 空间
     - 核心思路：$M^{(t)} = (U_B^{ref\top} B^{(t)})(A^{(t)} V_A^{ref}) \in \mathbb{R}^{Tr \times Tr}$
     - 理论保证：通过最小二乘求解证明投影误差**严格为零**——$\|U_B^{ref} R_B^{(t)} - U_B^{(t)}\|_F^2 = 0$，因为参考基的列空间包含每个任务基的列空间
     - 重建公式：$\Delta W^{(t)} = U_B^{ref} M^{(t)} V_A^{ref\top}$，完全无损
 
 3. **Core Space 中合并**:
 
-    - 做什么：在 $Tr \times Tr$ 紧凑空间中执行任意合并方法
+    - 功能：在 $Tr \times Tr$ 紧凑空间中执行任意合并方法
     - 核心思路：$M_{merged} = \mathcal{M}(\{M^{(t)}\}_{t=1}^T)$，然后 $\Delta W = U_B^{ref} M_{merged} V_A^{ref\top}$
     - 对线性合并方法（TA）：Core Space 合并和全空间合并**数学等价**
     - 对非线性方法（TIES、TSV、Iso-C）：Core Space 中操作**效果更好**，因为对齐后的表示减少了方向干扰

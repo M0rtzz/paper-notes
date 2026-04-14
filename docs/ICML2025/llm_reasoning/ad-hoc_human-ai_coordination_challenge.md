@@ -12,7 +12,7 @@ tags:
   - Behavioural Cloning
   - Regularised RL
   - Human Proxy Agents
-  - Benchmark
+  - benchmark
 ---
 
 # Ad-Hoc Human-AI Coordination Challenge (AH2AC2)
@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2506.21490](https://arxiv.org/abs/2506.21490)  
 **代码**: [FLAIROx/ah2ac2](https://github.com/FLAIROx/ah2ac2)  
 **领域**: llm_reasoning / multi-agent RL / human-AI coordination  
-**关键词**: Human-AI Coordination, Ad-Hoc Teamplay, Hanabi, Behavioural Cloning, Regularised RL, Human Proxy Agents, Benchmark
+**关键词**: Human-AI Coordination, Ad-Hoc Teamplay, Hanabi, Behavioural Cloning, Regularised RL, Human Proxy Agents, benchmark
 
 ## 一句话总结
 
@@ -33,6 +33,7 @@ tags:
 AI 智能体在现实世界中需要与人类临时协作（ad-hoc teamplay），但现有方法面临两大困局：
 
 **自博弈过拟合**：传统 self-play 训练的智能体形成专属通信协议，无法与未见过的搭档（尤其是人类）配合
+
 **评估不可复现**：此前的 Human-AI 协调评估依赖闭源数据集和私有代理智能体，研究结果难以复现和对比
 
 ### 为什么选择 Hanabi？

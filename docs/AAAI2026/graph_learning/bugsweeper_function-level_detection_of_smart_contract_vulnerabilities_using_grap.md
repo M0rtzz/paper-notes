@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2512.09385](https://arxiv.org/abs/2512.09385)  
 **代码**: 待确认  
 **领域**: graph_learning  
-**关键词**: Smart Contract, Vulnerability Detection, Graph Neural Network, Abstract Syntax Tree, Pooling  
+**关键词**: Smart Contract, Vulnerability Detection, graph neural network, Abstract Syntax Tree, Pooling
 
 ## 一句话总结
 
@@ -32,9 +32,9 @@ tags:
 
 1. **传统方法**（静态分析、符号执行）：依赖专家手工制定的规则，如 Slither、Mythril 等工具，面对新型漏洞变体时泛化能力差。
 2. **深度学习方法**（TMP、AME、Peculiar、ReVulDL）：虽然引入了 GNN 或预训练模型，但预处理阶段仍依赖基于规则的代码片段提取，存在以下问题：
-   - **检测范围受限**：预定义规则无法覆盖所有漏洞类型
-   - **泛化能力差**：针对特定漏洞设计的规则难以迁移
-   - **信息丢失**：规则提取可能丢弃关键上下文
+    - **检测范围受限**：预定义规则无法覆盖所有漏洞类型
+    - **泛化能力差**：针对特定漏洞设计的规则难以迁移
+    - **信息丢失**：规则提取可能丢弃关键上下文
 
 作者观察到，智能合约中的安全漏洞（尤其是重入攻击）往往源于函数间的不安全交互，因此提出在**函数级别**进行分析，同时保留函数间的调用与引用关系。
 

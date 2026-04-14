@@ -1,7 +1,17 @@
 ---
-description: "揭示神经PDE求解器实际学习的是边界条件索引的算子族而非单一算子，形式化了ERM下边界分布偏移导致的不可辨识性问题。"
-tags: [neural-pde, operator-learning, boundary-conditions, fourier-neural-operator, generalization]
+title: >-
+  [论文解读] One Operator to Rule Them All? On Boundary-Indexed Operator Families in Neural PDE Solvers
+description: >-
+  [ICLR 2026][科学计算][神经算子] 论证神经 PDE 求解器在边界条件变化时学到的不是单一的解算子，而是由边界条件索引的算子族，并从学习理论角度形式化了 ERM 下边界分布偏移导致的不可辨识性问题。
+tags:
+  - ICLR 2026
+  - 科学计算
+  - 神经算子
+  - 边界条件
+  - 分布偏移
+  - 不可辨识性
 ---
+
 # One Operator to Rule Them All? On Boundary-Indexed Operator Families in Neural PDE Solvers
 
 **会议**: ICLR 2026  
@@ -34,7 +44,7 @@ tags: [neural-pde, operator-learning, boundary-conditions, fourier-neural-operat
 
 1. **边界索引算子族的形式化**
 
-    做什么：证明神经 PDE 求解器学到的不是边界无关的单一算子，而是一族由边界条件参数化的算子。
+    功能：证明神经 PDE 求解器学到的不是边界无关的单一算子，而是一族由边界条件参数化的算子。
 
     核心思路：ERM 只在训练分布 $\mu_\mathcal{B}$ 上施加约束，对于分布外的边界条件，多个不同的映射可以达到相同的训练损失。形式化为：在 $\mu_\mathcal{B}$ 支撑集外，学到的映射不唯一（不可辨识性）。
 
@@ -42,7 +52,7 @@ tags: [neural-pde, operator-learning, boundary-conditions, fourier-neural-operat
 
 2. **条件期望退化行为**
 
-    做什么：分析当边界信息被删除或弱表示时，ERM 训练的模型会退化为边界条件的条件期望。
+    功能：分析当边界信息被删除或弱表示时，ERM 训练的模型会退化为边界条件的条件期望。
 
     核心思路：当模型无法获取边界信息时，其最优预测变为 $\hat{u}(f) \approx \mathbb{E}_{\mathcal{B}\sim\mu_\mathcal{B}}[\mathcal{S}(f,\mathcal{B}) \mid f]$，这是在未观测边界变量上的平均，不对应任何固定边界条件下的有效解算子。
 

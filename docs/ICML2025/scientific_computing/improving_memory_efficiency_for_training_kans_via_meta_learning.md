@@ -8,7 +8,7 @@ tags:
   - 科学计算
   - Kolmogorov-Arnold Networks
   - Meta Learning
-  - 参数效率
+  - parameter efficiency
   - HyperNetwork
   - 可学习激活函数
 ---
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.07549](https://arxiv.org/abs/2506.07549)  
 **代码**: [GitHub](https://github.com/Murphyzc/MetaKAN)  
 **领域**: KAN训练 / 元学习 / 内存效率  
-**关键词**: Kolmogorov-Arnold Networks, Meta Learning, 参数效率, HyperNetwork, 可学习激活函数
+**关键词**: Kolmogorov-Arnold Networks, Meta Learning, parameter efficiency, HyperNetwork, 可学习激活函数
 
 ## 一句话总结
 

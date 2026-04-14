@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2603.09737](https://arxiv.org/abs/2603.09737)  
 **代码**: [https://github.com/qixi7up/M2-Occ](https://github.com/qixi7up/M2-Occ) (有)  
 **领域**: 3D视觉 / 自动驾驶 / 语义占据预测  
-**关键词**: semantic occupancy prediction, missing camera view, multi-view reconstruction, feature memory, robustness  
+**关键词**: semantic occupancy prediction, missing camera view, multi-view reconstruction, feature memory, robustness
 
 ## 一句话总结
 针对自动驾驶中相机故障导致的不完整输入问题，提出M²-Occ框架，通过多视角掩码重建（MMR）利用相邻相机重叠视场恢复缺失特征，并引入特征记忆模块（FMM）用类级语义原型精化体素表示，在缺失后视摄像头时IoU提升4.93%，不影响全视角性能。

@@ -27,8 +27,11 @@ tags:
 
 ## 研究背景与动机
 **Adam 的不可替代性**：尽管 Muon、Scion、SOAP 等新优化器在特定场景下超越 Adam，但它们仍然依赖 Adam 来更新嵌入层、LM head 和归一化层参数。Adam 的核心优势尚未被完全理解。
+
 **Adam ≈ Signum？**：近期研究指出 Adam 与 SignSGD with momentum (Signum) 有密切联系。但在 160M 参数规模上，精心调优的 Signum 仍导致 **25% 的有效减速**——相同困惑度需要多 25% 的训练 budget。
+
 **核心问题**：Adam 相比 Signum、RMSprop、SGD 等简化变体的"secret sauce"究竟是什么？
+
 **方法论**：投入约 10,000 A100 GPU 小时，系统地消融所有超参数（包括为每个学习率独立调优动量参数），提供可复现的全面基准。
 
 ## 方法详解

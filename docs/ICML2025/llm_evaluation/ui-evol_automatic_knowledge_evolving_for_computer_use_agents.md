@@ -2,14 +2,14 @@
 title: >-
   [论文解读] UI-Evol: Automatic Knowledge Evolving for Computer Use Agents
 description: >-
-  [ICML 2025][LLM Agent][GUI自动化] 提出UI-Evol即插即用模块，通过Retrace阶段从截图还原客观动作序列+Critique阶段对比外部知识检测偏差，自主进化GUI任务知识，在OSWorld上将Agent S2的成功率从19.5%提升到22%+，同时显著降低行为标准差。
+  [ICML 2025][计算机操作代理] 提出UI-Evol即插即用模块，通过Retrace（从截图还原实际动作序列）和Critique（对比外部知识诊断偏差并修正）两阶段自主进化GUI任务知识，在OSWorld基准上将Agent S2的成功率从19.5%提升到22%+，同时将行为标准差降低约4倍，显著增强了计算机操作代理的可靠性。
 tags:
   - ICML 2025
-  - LLM Agent
-  - GUI自动化
+  - 计算机操作代理
   - 知识进化
   - 自我改进
-  - 计算机操作代理
+  - GUI交互
+  - 轨迹回溯
 ---
 
 # UI-Evol: Automatic Knowledge Evolving for Computer Use Agents
@@ -37,7 +37,9 @@ tags:
 作者对Agent S2+GPT-4o进行抽样分析发现：即使**90%的检索知识被人类判定为"正确"，agent的最佳成功率仅41%**。深入分析发现检索知识存在以下实际缺陷：
 
 **遗漏必要中间步骤**：人类认为理所当然但agent无法推理的操作步骤
+
 **初始条件假设不一致**：知识假设的起始状态与实际环境不符
+
 **建议过于复杂的操作**：如建议鼠标拖拽选择文本，但agent很难精确执行拖拽；实际用 Ctrl+A 更可靠
 
 ### 核心洞察

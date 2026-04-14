@@ -50,26 +50,26 @@ GSAC 四阶段流水线：(1) 因果发现 + 域因子估计 → (2) 构建 ACR 
 
 1. **近似紧凑表示 (ACR)**：
 
-    - 做什么：从 $\kappa$-hop 邻域状态中识别真正影响价值函数的最小变量子集
+    - 功能：从 $\kappa$-hop 邻域状态中识别真正影响价值函数的最小变量子集
     - 核心思路：利用因果掩码 $\mathbf{c}$ 递归追溯：从智能体 $i$ 的奖励 $r_i$ 出发，找到直接影响 $r_i$ 的状态变量；再向前一步找到影响这些变量的下一步状态；递归 $\kappa$ 步得到 $\mathbf{s}_{\mathcal{N}_i^\kappa}^\circ \subset \mathbf{s}_{\mathcal{N}_i^\kappa}$
     - 近似误差：$|\tilde{Q}_i^{\tilde{\pi}} - Q_i^\pi| \leq \frac{3\bar{r}}{1-\gamma}\gamma^{\kappa+1}$，即误差仍以 $\kappa$ 指数衰减
     - 设计动机：标准截断已经将全局状态降到 $\kappa$-hop 邻域，ACR 进一步利用因果稀疏性在邻域内降维，$|\mathbf{s}^\circ| \ll |\mathbf{s}_{\mathcal{N}_i^\kappa}|$
 
 2. **域因子 ACR**：
 
-    - 做什么：对域因子 $\omega$ 同样构建紧凑表示 $\omega^\circ$
+    - 功能：对域因子 $\omega$ 同样构建紧凑表示 $\omega^\circ$
     - 核心思路：与状态 ACR 类似，追溯因果掩码中 $\omega$ 到奖励的依赖路径
     - 关键推论：域泛化时只需估计紧凑域因子 $\omega^\circ$ 而非完整 $\omega$
 
 3. **元 Actor-Critic 学习**：
 
-    - 做什么：跨 $M$ 个源域训练共享策略 $\pi_i^{\theta_i}(\cdot | \mathbf{s}_{\mathcal{N}_i}^\circ, \omega_{\mathcal{N}_i}^\circ)$
+    - 功能：跨 $M$ 个源域训练共享策略 $\pi_i^{\theta_i}(\cdot | \mathbf{s}_{\mathcal{N}_i}^\circ, \omega_{\mathcal{N}_i}^\circ)$
     - Critic 更新：对每个源域做 TD 学习，在 ACR 输入空间上估计 $\hat{Q}_i$
     - Actor 更新：聚合 $\kappa$-hop 邻域内所有智能体的 Q 值，用策略梯度更新参数
 
 4. **快速适应（Phase 4）**：
 
-    - 做什么：在新域中收集少量轨迹，估计域因子 $\hat{\omega}^{M+1}$，直接部署元策略
+    - 功能：在新域中收集少量轨迹，估计域因子 $\hat{\omega}^{M+1}$，直接部署元策略
     - 关键定理（Thm 4）：适应间隙以 $O(1/\sqrt{T_a})$ 衰减
 
 ### 理论保证

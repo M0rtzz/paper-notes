@@ -8,7 +8,7 @@ tags:
   - Video Anomaly Detection
   - Cross-Domain Learning
   - 伪标签
-  - Uncertainty Estimation
+  - uncertainty estimation
   - Weakly-Supervised Learning
 ---
 
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2408.05191](https://arxiv.org/abs/2408.05191)  
 **代码**: 待确认  
 **领域**: others  
-**关键词**: Video Anomaly Detection, Cross-Domain Learning, Pseudo-Labeling, Uncertainty Estimation, Weakly-Supervised Learning
+**关键词**: Video Anomaly Detection, Cross-Domain Learning, Pseudo-Labeling, uncertainty estimation, Weakly-Supervised Learning
 
 ## 一句话总结
 

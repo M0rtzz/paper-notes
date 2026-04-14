@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2508.13601](https://arxiv.org/abs/2508.13601)  
 **代码**: [D-Robotics-AI-Lab/FoundationSSC](https://github.com/D-Robotics-AI-Lab/FoundationSSC)  
 **领域**: autonomous_driving  
-**关键词**: 3D scene completion, vision foundation model, semantic-geometric decoupling, stereo cost volume, autonomous driving  
+**关键词**: 3D scene completion, vision foundation model, semantic-geometric decoupling, stereo cost volume, autonomous driving
 
 ## 一句话总结
 提出 FoundationSSC 框架，通过 source-level 和 pathway-level 双层解耦设计释放 Vision Foundation Model 的语义与几何先验，配合 Axis-Aware Fusion 模块融合互补 3D 特征，在 SemanticKITTI 上达到 19.32 mIoU / 48.12 IoU SOTA。

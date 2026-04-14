@@ -51,14 +51,14 @@ DecoRemoval 包含两个主要模块：
 
 1. **随机傅里叶特征映射（RFF Mapping）**:
 
-    - 做什么：将输入特征映射到高维空间以实现去相关
+    - 功能：将输入特征映射到高维空间以实现去相关
     - 核心思路：$Z_i = \sqrt{2} \cdot \cos(\omega X_i + \phi)$，其中 $\omega \sim \mathcal{N}(0, I)$, $\phi \sim \text{Uniform}(0, 2\pi)$
     - 该变换基于核函数的傅里叶变换，在不直接计算核函数的前提下实现特征嵌入
     - 设计动机：线性计算复杂度实现特征降维和去相关，减少特征冗余
 
 2. **样本加权去相关（Feature Decorrelation via Sample Weighting）**:
 
-    - 做什么：通过优化样本权重最小化变换后特征间的统计依赖
+    - 功能：通过优化样本权重最小化变换后特征间的统计依赖
     - 核心思路：基于交叉协方差算子 $\Sigma_{AB}$ 度量特征依赖性，用 Frobenius 范数 $I_{AB} = \|\hat{\Sigma}_{AB}\|_F^2$ 量化
     - 加权协方差矩阵：$\hat{\Sigma}_{AB;w} = \frac{1}{n-1} \sum_{i=1}^n [(w_i u(Z_i) - \bar{w u})^T \cdot (w_i v(Z_i) - \bar{w v})]$
     - 最优权重：$w^* = \arg\min_{w \in \Delta_n} \sum_{1 \leq i < j \leq m_Z} \|\hat{\Sigma}_{Z_{:,i}Z_{:,j};w}\|_F^2$
@@ -66,7 +66,7 @@ DecoRemoval 包含两个主要模块：
 
 3. **损失扰动与认证式移除（Loss Perturbation + Certified Removal）**:
 
-    - 做什么：在训练损失中注入随机线性项以混淆梯度信号，然后用 Newton 更新实现移除
+    - 功能：在训练损失中注入随机线性项以混淆梯度信号，然后用 Newton 更新实现移除
     - 扰动损失：$L_{\mathbf{p}}(w_{clf}; D) = \sum_{i=1}^n L(w_{clf}^\top x_i, y_i) + \mathbf{b}^\top w_{clf}$
     - Newton 更新移除：$w_{clf}^- = w_{clf}^* + H_{w_{clf}^*}^{-1} \nabla L(w_{clf}^*; (x_n, y_n))$
     - 其中 $H_{w_{clf}^*} = \nabla^2 L(w_{clf}^*; D')$ 是 Hessian 矩阵

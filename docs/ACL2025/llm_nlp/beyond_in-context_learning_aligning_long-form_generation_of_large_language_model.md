@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Beyond In-Context Learning: Aligning Long-form Generation of LLMs via Task-Inherent Attribute Guidelines
 description: >-
-  [ACL 2025][LLM/NLP][In-Context Learning] 证明 ICL 示例不足以教会 LLM 任务的语言和格式分布，提出 LongGuide 自动生成质量指标和输出约束两种 guidelines 来增强长文本生成。
+  [ACL 2025][LLM/NLP][in-context learning] 证明 ICL 示例不足以教会 LLM 任务的语言和格式分布，提出 LongGuide 自动生成质量指标和输出约束两种 guidelines 来增强长文本生成。
 tags:
   - ACL 2025
   - LLM/NLP
-  - In-Context Learning
+  - in-context learning
   - Long-form Generation
   - LongGuide
   - Metric Guidelines
@@ -19,17 +19,22 @@ tags:
 **arXiv**: [2506.01265](https://arxiv.org/abs/2506.01265)  
 **代码**: 无  
 **领域**: LLM NLP / 长文本生成对齐  
-**关键词**: In-Context Learning, Long-form Generation, LongGuide, Metric Guidelines, Output Constraints
+**关键词**: in-context learning, Long-form Generation, LongGuide, Metric Guidelines, Output Constraints
 
 ## 一句话总结
 证明 ICL 示例不足以教会 LLM 任务的语言和格式分布，提出 LongGuide 自动生成质量指标和输出约束两种 guidelines 来增强长文本生成。
 
 ## 研究背景与动机
 **领域现状**：ICL 在分类任务中表现优异，但在摘要、翻译等长文本生成任务中效果不佳。
+
 **现有痛点**：即使提供完美的 5-shot 示例，模型生成的输出也无法保持示例展示的语言和格式属性。
+
 **核心矛盾**：ICL 理论假设 $P_\mathcal{M}(X) = P_T(X)$（模型分布=任务分布），但实际不满足。
+
 **本文要解决什么？** 弥补 ICL 在长文本生成中的"文本属性传递"(PT) 问题。
+
 **切入角度**：显式提供任务分布的 guidelines 作为补充指令。
+
 **核心idea一句话**：自动学习任务的质量指标(MG)和输出格式约束(OCG)作为 guidelines，引导 LLM 更好对齐长文本生成。
 
 ## 方法详解
@@ -40,19 +45,19 @@ LongGuide 五步流程：Step 1 从 27 个指标池中选择相关指标 → Ste
 ### 关键设计
 1. **Metric Guideline (MG)**:
 
-    - 做什么：从 27 个预定义指标中选取任务相关的质量维度
+    - 功能：从 27 个预定义指标中选取任务相关的质量维度
     - 核心思路：用 CoT 选指标 → 在训练集自评 → 将分数转为自然语言描述
     - 设计动机：LLM 是 optimizer，告诉它优化什么指标就能改善输出
 
 2. **Output Constraint Guideline (OCG)**:
 
-    - 做什么：约束输出的句子数和 token 数
+    - 功能：约束输出的句子数和 token 数
     - 核心思路：从训练集计算 min/max/avg 统计量，作为格式约束
     - 设计动机：长文本的格式偏差（太长/太短）是性能下降的重要原因
 
 3. **MG-OCG 自动选择**:
 
-    - 做什么：在训练集上评估 4 种组合（MG, OCG, MG+OCG, none），选最优
+    - 功能：在训练集上评估 4 种组合（MG, OCG, MG+OCG, none），选最优
     - 核心思路：不同模型对不同任务有不同的内在知识，需要自适应选择
     - 设计动机：避免 one-size-fits-all 的 guideline 策略
 

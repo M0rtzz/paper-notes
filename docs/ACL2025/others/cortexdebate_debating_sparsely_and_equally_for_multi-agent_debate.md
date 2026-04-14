@@ -49,10 +49,10 @@ CortexDebate 由三个阶段组成：
 
 2. **McKinsey-based Debate Matter (MDM)**: 充当人脑白质的"人工类比"。核心创新是引入麦肯锡信任公式 $T = \frac{C \times R \times I}{S}$ 来计算边权重，其中四个维度适配到 MAD 上下文：
 
-   - **可信度 (Credibility, C)**: 利用 LLM 的 scaling law 评估代理 $A_i$ 的专业能力，$C_d = 1/\mathcal{L}(N, M)$，其中 $\mathcal{L}$ 是基于参数量 $N$ 和预训练 token 数 $M$ 的预训练损失估计
-   - **可靠性 (Reliability, R)**: $A_i$ 在历史辩论轮次中的平均置信度，反映任务性能的稳定性
-   - **亲密度 (Intimacy, I)**: $A_i$ 和 $A_j$ 在历史轮次中的平均观点差异度（$I_d = 1 - \overline{Sim}_d$），不同观点的碰撞有助于辩论
-   - **自我导向 (Self-orientation, S)**: $A_i$ 参与辩论的次数越少，自我导向越高（越"自私"），$S_d = (d-1)(n-1) - P_d$
+    - **可信度 (Credibility, C)**: 利用 LLM 的 scaling law 评估代理 $A_i$ 的专业能力，$C_d = 1/\mathcal{L}(N, M)$，其中 $\mathcal{L}$ 是基于参数量 $N$ 和预训练 token 数 $M$ 的预训练损失估计
+    - **可靠性 (Reliability, R)**: $A_i$ 在历史辩论轮次中的平均置信度，反映任务性能的稳定性
+    - **亲密度 (Intimacy, I)**: $A_i$ 和 $A_j$ 在历史轮次中的平均观点差异度（$I_d = 1 - \overline{Sim}_d$），不同观点的碰撞有助于辩论
+    - **自我导向 (Self-orientation, S)**: $A_i$ 参与辩论的次数越少，自我导向越高（越"自私"），$S_d = (d-1)(n-1) - P_d$
 
 3. **置信度重校准**: 将初始置信度映射到 [0.3, 0.8] 区间以缓解过度自信——$\geq 0.8$ 映射为 0.8，$< 0.3$ 映射为 0.3，中间值保持不变。
 
