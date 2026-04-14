@@ -38,6 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     # 仅在部署成功后运行（workflow_run 触发时）
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    env:
+      HAS_GOOGLE_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,11 +50,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install Google API dependencies
-        if: ${{ github.event.inputs.engine != 'bing-only' && secrets.GOOGLE_INDEXING_SA_KEY != '' }}
+        if: ${{ github.event.inputs.engine != 'bing-only' && env.HAS_GOOGLE_KEY == 'true' }}
         run: pip install google-auth google-auth-httplib2 google-api-python-client
 
       - name: Write service account credentials
-        if: ${{ github.event.inputs.engine != 'bing-only' && secrets.GOOGLE_INDEXING_SA_KEY != '' }}
+        if: ${{ github.event.inputs.engine != 'bing-only' && env.HAS_GOOGLE_KEY == 'true' }}
         run: echo '${{ secrets.GOOGLE_INDEXING_SA_KEY }}' > /tmp/sa_key.json
 
       - name: Submit to search engines
