@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block htmltitle %}
+{% if page and page.is_homepage %}
+  <title>{{ config.site_name }}</title>
+{% else %}
+  {{ super() }}
+{% endif %}
+{% endblock %}
+
 {% block extrahead %}
 {% if config.extra.bing_site_verification %}
 <meta name="msvalidate.01" content="{{ config.extra.bing_site_verification }}" />

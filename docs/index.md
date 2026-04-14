@@ -1,5 +1,4 @@
 ---
-title: "AI Paper Notes"
 description: "10000+篇AI、LLM、NLP、CV顶会论文解读，每篇5分钟读懂核心思想。覆盖ICLR、CVPR、ACL、NeurIPS、AAAI、ICCV、ECCV等9大会议45个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。"
 search:
   exclude: true
