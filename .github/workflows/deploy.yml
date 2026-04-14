@@ -18,19 +18,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: pip install mkdocs-material
       - name: Update build_date to today
-        run: sed -i "s/build_date: '.*'/build_date: '$(date +%Y-%m-%d)'/" mkdocs.yml
+        run: |
+          today=$(date +%Y-%m-%d)
+          sed -i "s/build_date: '.*'/build_date: '${today}'/" mkdocs.yml
       - run: mkdocs build --strict
         continue-on-error: true
       - run: mkdocs build
       - name: Optimize search index for mobile
         run: python scripts/trim_search_index.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -43,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
