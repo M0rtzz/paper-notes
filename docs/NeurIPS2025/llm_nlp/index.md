@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM/NLP方向 49篇论文解读
+  NeurIPS2025 LLM/NLP方向 50篇论文解读
 description: >-
-  49篇NeurIPS2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  50篇NeurIPS2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**🧠 NeurIPS2025** · 共 **49** 篇
+**🧠 NeurIPS2025** · 共 **50** 篇
 
 **[Acesearcher Bootstrapping Reasoning And Search For Llms Via Reinforced Self-Play](acesearcher_bootstrapping_reasoning_and_search_for_llms_via_reinforced_self-play.md)**
 
@@ -58,6 +58,10 @@ description: >-
 
 :   提出 Probabilistic Angelic Nondeterminism (PAN) 编程模型及 EnCompass Python 框架，将 agent 的核心工作流逻辑与推理时搜索策略解耦，程序员只需在 LLM 调用处加 `branchpoint()` 标记，即可用几行参数切换 best-of-N、beam search、tree search 等策略，代码修改量减少 3-6x。
 
+**[Evorefuse Evolutionary Prompt Optimization For Evaluation And Mitigation Of Llm ](evorefuse_evolutionary_prompt_optimization_for_evaluation_and_mitigation_of_llm_.md)**
+
+:   提出EvoRefuse框架，通过进化搜索最大化ELBO来自动生成多样的伪恶意指令，构建了更具挑战性的过度拒绝评估基准(EvoRefuse-Test)和有效的对齐缓解数据集(EvoRefuse-Align)。
+
 **[Geocad Local Geometry-Controllable Cad Generation With Large Language Models](geocad_local_geometry-controllable_cad_generation_with_large_language_models.md)**
 
 :   提出 GeoCAD，首个实现局部几何可控 CAD 生成的方法，通过互补标注策略为局部零件生成几何指令，并微调 LLM 实现根据用户文本指令精确修改 CAD 模型的局部部分。
@@ -72,7 +76,7 @@ description: >-
 
 **[Large Language Models Miss The Multi-Agent Mark](large_language_models_miss_the_multi-agent_mark.md)**
 
-:   Position paper 指出当前 MAS LLMs 在四个方面违背了传统多智能体系统（MAS）的基本原则：LLM 缺乏原生社会行为、环境设计以 LLM 为中心、缺少异步协调和标准通信协议、涌现行为缺乏量化评估，并为每个问题提出研究方向。
+:   Position paper 通过调研 1400+ 篇论文，系统论证当前 MAS LLMs 在四个维度偏离传统 MAS 基础理论——LLM 缺乏原生社会行为、环境设计以 LLM 为中心、缺少异步协调和标准通信协议、涌现行为缺乏量化，指出该领域有忽视 40 年 MAS 成果而重新发明轮子的风险。
 
 **[Linear Transformers Implicitly Discover Unified Numerical Algorithms](linear_transformers_implicitly_discover_unified_numerical_algorithms.md)**
 
@@ -134,6 +138,10 @@ description: >-
 
 :   通过三项关键简化——用 in-context learning 构建固定代理模型、使用小代理模型评估大目标模型、无需目标模型预测进行数据采集——将 active testing 扩展到 LLM，风险估计误差比随机采样降低 25%-80%。
 
+**[Solverllm Leveraging Test-Time Scaling For Optimization Problem Via Llm-Guided S](solverllm_leveraging_test-time_scaling_for_optimization_problem_via_llm-guided_s.md)**
+
+:   提出SolverLLM，一个无需训练的框架，将优化问题的数学建模视为搜索问题，通过改进的MCTS在六元素表述空间中探索最优formulation，引入动态扩展、提示反向传播和不确定性反向传播，在6个基准上以无训练方式超越prompt方法和微调方法。
+
 **[Solving Inequality Proofs With Large Language Models](solving_inequality_proofs_with_large_language_models.md)**
 
 :   提出 IneqMath（首个大规模奥林匹克级不等式 benchmark），将不等式证明定义为两个可自动验证的子任务（界估计与关系预测），并开发五模块 LLM-as-Judge 框架，发现即便 o1 在逐步推理审查下整体准确率也不到 10%。
@@ -152,7 +160,7 @@ description: >-
 
 **[Speculate Deep And Accurate Lossless And Training-Free Acceleration For Offloade](speculate_deep_and_accurate_lossless_and_training-free_acceleration_for_offloade.md)**
 
-:   提出 SubSpec，一种即插即用的无损、无需训练的参数卸载 LLM 加速方法，通过从卸载的目标模型构建高对齐度的量化替代草稿模型，在 8GB 显存限制下实现 Qwen2.5 7B 的 9.1 倍加速。
+:   提出 SubSpec，一种即插即用的无损、无训练参数卸载 LLM 加速方法，核心思想是从卸载的目标模型本身构建高对齐度的量化替代草稿模型，并通过共享 GPU 驻留层和 KV-Cache 最大化对齐度，在 8GB 显存限制下实现 Qwen2.5 7B 的 9.1 倍加速、24GB 显存下 Qwen2.5 32B 的 12.5 倍加速。
 
 **[Strassen Attention Split Vc Dimension And Compositionality In Transformers](strassen_attention_split_vc_dimension_and_compositionality_in_transformers.md)**
 
@@ -201,7 +209,3 @@ description: >-
 **[Writing In Symbiosis Mapping Human Creative Agency In The Ai Era](writing_in_symbiosis_mapping_human_creative_agency_in_the_ai_era.md)**
 
 :   通过对 5 万+文档的纵向语料分析，提出"双轨演化"假说——LLM 时代人类写作在主题上趋同、风格上结构性分化，并发现三种作者适应策略原型（Adopters/Resistors/Pragmatists）。
-
-**[Yggdrasil Bridging Dynamic Speculation And Static Runtime For Latency-Optimal Tr](yggdrasil_bridging_dynamic_speculation_and_static_runtime_for_latency-optimal_tr.md)**
-
-:   通过等增长树(EGT)草稿算法和延迟感知目标，实现动态投机与静态图编译的兼容，配合前向执行阶段重叠，在A100上达3.98×加速。

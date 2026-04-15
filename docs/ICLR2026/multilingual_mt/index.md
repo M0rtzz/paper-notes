@@ -12,7 +12,7 @@ description: >-
 
 **[Assess A Semantic And Structural Evaluation Framework For Statement Similarity](assess_a_semantic_and_structural_evaluation_framework_for_statement_similarity.md)**
 
-:   提出 TransTED Similarity，一种基于算子树 (Operator Tree) 和语义变换增强的树编辑距离指标，用于评估自动形式化 (autoformalization) 生成的形式化数学命题与参考命题之间的语义相似度，并构建了 EPLA 基准数据集。
+:   提出 ASSESS 框架，其核心是 TransTED Similarity 指标——通过将形式化数学命题解析为算子树 (Operator Tree)，并在标准树编辑距离 (TED) 基础上融入 Lean 证明策略驱动的语义变换，实现了在 EPLA 基准上 70.16% 准确率和 0.35 Kappa 分数的 SOTA 性能，同时仅需 CPU 资源即可复现。
 
 **[Atlas Adaptive Transfer Scaling Laws For Multilingual Pretraining Finetuning And](atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and.md)**
 

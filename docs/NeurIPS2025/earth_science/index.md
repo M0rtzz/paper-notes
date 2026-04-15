@@ -12,7 +12,7 @@ description: >-
 
 **[A Probabilistic Unet Approach To Downscaling Climate Simulat](a_probabilistic_unet_approach_to_downscaling_climate_simulat.md)**
 
-:   将医学图像分割中的概率U-Net迁移到气候降尺度任务，通过变分隐空间建模不确定性，并系统比较了四种训练目标函数在捕捉极端事件与细尺度空间变异性方面的权衡。
+:   首次将概率 U-Net 应用于气候统计降尺度（16× 超分辨率），通过变分隐空间采样生成集合预报来量化降尺度不确定性，并系统比较了 WMSE、MS-SSIM、WMSE-MS-SSIM 和 afCRPS 四种训练目标在捕捉极端事件与保留细尺度空间变异性方面的互补权衡。
 
 **[Adaptive Online Emulation For Accelerating Complex Physical Simulations](adaptive_online_emulation_for_accelerating_complex_physical_simulations.md)**
 

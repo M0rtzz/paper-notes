@@ -20,11 +20,11 @@ description: >-
 
 **[Freemesh Boosting Mesh Generation With Coordinates Merging](freemesh_boosting_mesh_generation_with_coordinates_merging.md)**
 
-:   提出 Per-Token-Mesh-Entropy（PTME）度量免训练评估网格 tokenizer 质量，并引入基于 BPE 的坐标合并技术（RMC）进一步压缩网格序列，在 MeshXL/MeshAnythingV2/EdgeRunner 上验证了压缩率和生成质量的同步提升。
+:   提出 Per-Token-Mesh-Entropy（PTME）度量来免训练评估网格tokenizer质量，并引入从NLP借鉴的 Rearrange & Merge Coordinates（RMC）坐标合并技术，在 MeshXL/MeshAnythingV2/EdgeRunner 三种tokenizer上实现最高21.2%的压缩率、显著增加可生成面片数和几何细节保留。
 
 **[Gaprompt Geometry-Aware Point Cloud Prompt For 3D Vision Model](gaprompt_geometry-aware_point_cloud_prompt_for_3d_vision_model.md)**
 
-:   提出 GAPrompt，面向预训练 3D 视觉模型的几何感知点云提示方法，通过 Point Prompt、Point Shift Prompter 和 Prompt Propagation 三组件利用几何线索增强适配能力，仅用 2.19% 可训练参数达到接近全量微调的性能。
+:   提出 GAPrompt，针对预训练 3D 视觉模型的几何感知 PEFT 方法，通过可学习点云提示 (Point Prompt)、点偏移提示器 (Point Shift Prompter) 和提示传播 (Prompt Propagation) 三个模块协同利用点云几何信息，仅训练 2.19% 参数即可匹配甚至超越全量微调。
 
 **[High Dynamic Range Novel View Synthesis With Single Exposure](high_dynamic_range_novel_view_synthesis_with_single_exposure.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Tackling View-Dependent Semantics In 3D Language Gaussian Splatting](tackling_view-dependent_semantics_in_3d_language_gaussian_splatting.md)**
 
-:   提出LaGa解决3D高斯场景理解中被忽视的"视角依赖语义"问题：通过3D场景分解建立跨视角语义连接，用自适应聚类+重加权构建视角聚合语义表示，在LERF-OVS上mIoU超前SOTA+18.7%。
+:   提出LaGa方法，通过3D场景分解建立跨视角语义连接、用自适应聚类+双因子重加权构建视角聚合语义表示，解决3D语言高斯中被忽视的视角依赖语义问题，在LERF-OVS上3D mIoU达64.0%（+18.7%）。
 
 **[Thickness-Aware E3-Equivariant 3D Mesh Neural Networks](thickness-aware_e3-equivariant_3d_mesh_neural_networks.md)**
 

@@ -68,7 +68,7 @@ description: >-
 
 **[Probabilistic Hash Embeddings For Online Learning Of Categorical Features](probabilistic_hash_embeddings_for_online_learning_of_categorical_features.md)**
 
-:   提出 Probabilistic Hash Embeddings (PHE)，将 hash embedding 视为随机变量并通过 Bayesian online learning 进行后验推断，解决流式数据中类别特征词汇不断增长时确定性 hash embedding 遭受的灾难性遗忘问题。
+:   提出概率哈希嵌入 (PHE)，将哈希嵌入表建模为随机变量并通过贝叶斯在线学习进行后验推断，解决了确定性哈希嵌入在流式数据场景下因参数共享导致的灾难性遗忘问题，在分类、序列建模和推荐系统中显著优于确定性基线，且仅需无碰撞嵌入表 2%~4% 的内存。
 
 **[Semi-Supervised Synthetic Data Generation With Fine-Grained Relevance Control Fo](semi-supervised_synthetic_data_generation_with_fine-grained_relevance_control_fo.md)**
 

@@ -44,7 +44,7 @@ description: >-
 
 **[Dual Stage Curriculum Learning Sequence Labeling](dual_stage_curriculum_learning_sequence_labeling.md)**
 
-:   提出面向序列标注任务的双阶段课程学习（DCL）框架，通过数据级和模型级两阶段的由易到难训练策略以及基于贝叶斯不确定性的动态难度度量，在提升性能的同时加速训练超过 25%。
+:   提出面向序列标注任务的双阶段课程学习（DCL）框架，通过数据级与模型级两阶段由易到难训练策略，配合基于贝叶斯不确定性的 token 级动态难度度量和 Root 函数训练调度器，在 CWS、POS、NER 三类任务上实现性能提升与训练加速超 27% 的双重收益。
 
 **[Emergent Abilities Continued Pt](emergent_abilities_continued_pt.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Fr Spec Speculative Sampling](fr_spec_speculative_sampling.md)**
 
-:   发现大词表LLM（如LLaMA-3的128k词表）中投机采样的瓶颈从Transformer层转移到LM Head，提出FR-Spec通过频率排序将草稿模型的词表压缩75%（128k→32k），在EAGLE-2基础上额外获得1.12×加速，且保证最终输出分布数学等价。
+:   提出FR-Spec框架，通过基于词频的词表空间压缩优化投机采样的draft候选选择，将LM Head计算开销降低75%，在保持输出分布不变的前提下实现EAGLE-2之上额外1.12×加速。
 
 **[How Do Llms Acquire New Knowledge A Knowledge Circuits Perspective On Continual ](how_do_llms_acquire_new_knowledge_a_knowledge_circuits_perspective_on_continual_.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Large Vocabulary Size Improves Large Language Models](large_vocabulary_size_improves_large_language_models.md)**
 
-:   实证研究词表大小与 LLM 性能的关系，在英语和日语上证明更大的词表（从 5K 到 500K）一致带来更好的下游性能，并提出在继续训练场景中替换词表的方法。
+:   实验证明更大的 subword 词汇表大小 (vocabulary size) 能持续提升 LLM 在下游任务上的性能，并提出了一种简洁的词汇表替换方法 (Swap & Insert) 用于持续训练场景下切换到更合适的词汇表。
 
 **[Making Llms Better Many-To-Many Speech-To-Text Translators With Curriculum Learn](making_llms_better_many-to-many_speech-to-text_translators_with_curriculum_learn.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Nemotron Cc Pretraining Data](nemotron_cc_pretraining_data.md)**
 
-:   Nemotron-CC 通过分类器集成、合成数据改写和减少启发式过滤三种策略，从 Common Crawl 构建了 6.3T token 的长期预训练数据集，在 15T token 训练中超越 Llama 3.1 8B。
+:   Nemotron-CC 通过分类器集成提升高质量 token 召回、合成数据改写扩展唯一 token 数量、对高质量数据取消启发式过滤三大策略，从 Common Crawl 构建了 6.3T token 的长周期预训练数据集（含 4.4T 唯一真实 token + 1.9T 合成 token），在 15T token 训练场景下使 8B 模型 MMLU 达 70.3，超越同规模训练的 Llama 3.1 8B 的 65.3。
 
 **[Optimizing Pre-Training Data Mixtures With Mixtures Of Data Expert Models](optimizing_pre-training_data_mixtures_with_mixtures_of_data_expert_models.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Stealing Training Data From Large Language Models In Decentralized Training Thro](stealing_training_data_from_large_language_models_in_decentralized_training_thro.md)**
 
-:   提出 Activation Inversion Attack (AIA)，首次揭示了在去中心化训练框架中，恶意阶段可以通过截获的中间激活值重构训练数据，在 GPT2-XL 微调场景下可精确恢复 62% 的私人邮件地址。
+:   提出 Activation Inversion Attack（AIA），首次系统揭示去中心化训练（流水线并行）中恶意阶段可通过截获中间激活值高效重构训练数据，在 Bloom-7B1 微调场景下可精确恢复 62% 的私人邮件和接近 100% 的生日信息。
 
 **[Tokalign Vocab Adaptation](tokalign_vocab_adaptation.md)**
 

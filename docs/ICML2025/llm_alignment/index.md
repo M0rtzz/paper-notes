@@ -40,7 +40,7 @@ description: >-
 
 **[Challenges And Future Directions Of Data-Centric Ai Alignment](challenges_and_future_directions_of_data-centric_ai_alignment.md)**
 
-:   Position paper，主张从算法中心转向数据中心的 AI 对齐视角，系统分析了人类反馈和 AI 反馈在数据层面的可靠性挑战（标注者不一致、时间漂移、上下文依赖、AI 反馈偏差等），并提出改进反馈收集/清洗/验证的未来研究方向。
+:   本文是一篇 position paper，倡导将 AI 对齐的研究重心从算法设计转向数据质量，通过对 Anthropic-HH 数据集的定性分析揭示了人类反馈中的六大不可靠来源，并提出了改进数据收集、清洗和验证的未来方向。
 
 **[Confpo Exploiting Policy Model Confidence For Critical Token Selection In Prefer](confpo_exploiting_policy_model_confidence_for_critical_token_selection_in_prefer.md)**
 

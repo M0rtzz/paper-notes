@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 机器人/具身智能方向 40篇论文解读
+  CVPR2026 机器人/具身智能方向 39篇论文解读
 description: >-
-  40篇CVPR2026 机器人/具身智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  39篇CVPR2026 机器人/具身智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**📷 CVPR2026** · 共 **40** 篇
+**📷 CVPR2026** · 共 **39** 篇
 
 **[Actiongeometry Prediction With 3D Geometric Prior](actiongeometry_prediction_with_3d_geometric_prior.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Atomicvla Unlocking The Potential Of Atomic Skill Learning In Robots](atomicvla_unlocking_the_potential_of_atomic_skill_learning_in_robots.md)**
 
-:   提出AtomicVLA，统一任务规划(thinking)和动作执行(acting)，通过自适应[think]/[act]切换、技能引导MoE(SG-MoE)和可扩展持续学习机制，在LIBERO-LONG上超越π₀达10%，真实Franka长任务+18.3%，实现高效的原子技能分解与持续获取。
+:   提出AtomicVLA，在π₀基础上构建统一规划-执行框架，通过自适应Think-Act切换生成原子技能抽象，并用技能引导的MoE（SG-MoE）将动作路由到专精expert执行，LIBERO-LONG成功率从85.2%提升至95.2%（+10%），真实Franka长任务+18.3%，持续学习+21%。
 
 **[Boosting Vision-Language-Action Finetuning With Feasible Action Neighborhood Pri](boosting_vision-language-action_finetuning_with_feasible_action_neighborhood_pri.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[Gecosrt Geometryaware Continual Adaptation For Rob](gecosrt_geometryaware_continual_adaptation_for_rob.md)**
 
-:   GeCo-SRT提出持续跨任务Sim-to-Real迁移范式，利用局部几何特征的域不变性和任务不变性，通过几何感知MoE模块提取可复用的几何知识并用专家引导的优先经验回放防遗忘，在4个操作任务上比基线平均提升52%成功率且仅需1/6数据。
+:   GeCo-SRT提出首个持续跨任务Sim-to-Real迁移范式，利用局部几何特征的域不变性和任务不变性，通过Geo-MoE模块提取可复用的几何知识并用Geo-PER防止专家级遗忘，在4个真实机器人任务上平均成功率63.3%（比基线提升52%），且仅需1/6数据即可匹配基线性能。
 
 **[Hif-Vla Hindsight Insight And Foresight Through Motion Representation For Vision](hif-vla_hindsight_insight_and_foresight_through_motion_representation_for_vision.md)**
 
@@ -140,7 +140,7 @@ description: >-
 
 **[Profocus Proactive Perception And Focused Reasoning In Vision-And-Language Navig](profocus_proactive_perception_and_focused_reasoning_in_vision-and-language_navig.md)**
 
-:   通过主动感知（前瞻式环境探索）和聚焦推理（指令相关区域注意力）提升VLN性能
+:   提出 ProFocus，一个 training-free 框架，通过推理引导的主动感知（构建语义地图并迭代生成定向视觉查询）和分支多样化蒙特卡洛树搜索（BD-MCTS，筛选 top-k 高价值路点实现聚焦推理），在 R2R 和 REVERIE 上达到零样本 VLN 的 SOTA。
 
 **[Rc-Nf Robot-Conditioned Normalizing Flow For Real-Time Anomaly Detection In Robo](rc-nf_robot-conditioned_normalizing_flow_for_real-time_anomaly_detection_in_robo.md)**
 
@@ -149,10 +149,6 @@ description: >-
 **[Rcnf Robot Conditioned Normalizing Flow Anomaly](rcnf_robot_conditioned_normalizing_flow_anomaly.md)**
 
 :   提出RC-NF，一种基于条件归一化流的实时异常检测模型，通过解耦处理机器人状态和物体轨迹特征，仅需正样本无监督训练即可在100ms内检测VLA模型执行中的OOD异常，在LIBERO-Anomaly-10上以约8% AUC和10% AP的优势超越SOTA（包括GPT-5、Gemini 2.5 Pro等VLM基线）。
-
-**[Rehearsevla Simulated Posttraining World Model](rehearsevla_simulated_posttraining_world_model.md)**
-
-:   针对 VLA 模型在数据稀缺场景下的性能退化和真实环境不可重置的限制，提出 RehearseVLA——用物理一致的世界模型模拟器替代真实物理交互进行 RL 后训练，配合 VLM 引导的即时反射器提供奖励信号和终止预测，仅用每个任务 5 个专家演示即可显著提升 VLA 在复杂操控任务上的表现。
 
 **[Sapave Towards Active Perception And Manipulation In Vision-Language-Action Mode](sapave_towards_active_perception_and_manipulation_in_vision-language-action_mode.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 医学图像方向 130篇论文解读
+  CVPR2026 医学图像方向 127篇论文解读
 description: >-
-  130篇CVPR2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  127篇CVPR2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · 共 **130** 篇
+**📷 CVPR2026** · 共 **127** 篇
 
 **[A Protocol For Evaluating Robustness To He Stainin](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Accelerating Stroke Mri With Diffusion Probabilist](accelerating_stroke_mri_with_diffusion_probabilist.md)**
 
-:   借鉴基础模型范式，先在约4000例fastMRI多对比度脑MRI上预训练扩散模型，再用20例目标域数据微调，实现临床中风MRI的高质量加速重建，盲审读片证明2×加速下非劣于标准诊疗。
+:   提出一种受基础模型范式启发的训练策略，先在大规模多对比度脑部 MRI 数据上预训练扩散概率模型（DPM），再用仅 20 例目标域数据微调，实现数据受限场景下与大数据集训练可比的 MRI 加速重建质量，临床盲评显示从 2× 加速数据重建的图像与标准诊疗不相上下。
 
 **[Accelerating Stroke Mri With Diffusion Probabilistic Models Through Large-Scale ](accelerating_stroke_mri_with_diffusion_probabilistic_models_through_large-scale_.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Are General-Purpose Vision Models All We Need For 2D Medical Image Segmentation ](are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)**
 
-:   通过统一实验协议对比 11 个专用医学分割架构（SMAs）与通用视觉模型（GP-VMs），发现 GP-VMs 在三个异构医学数据集上优于大多数 SMAs，且 Grad-CAM 分析表明 GP-VMs 无需领域特定设计即可捕捉临床相关结构。
+:   通过统一训练协议在三个异质医学数据集上对比 11 种模型，发现通用视觉模型（GP-VMs）在标准化条件下系统性超越大多数专用医学分割架构（SMAs），挑战了"医学分割必须使用专用架构"的传统认知。
 
 **[Are Generalpurpose Vision Models All We Need For 2](are_generalpurpose_vision_models_all_we_need_for_2.md)**
 
@@ -100,7 +100,7 @@ description: >-
 
 **[Biclip Bidirectional And Consistent Languageimage](biclip_bidirectional_and_consistent_languageimage.md)**
 
-:   提出双向视觉-语言融合（BMF）和增强一致性（IAC）两个模块，让文本和图像特征可以相互修正，在标注极度稀缺（1%）和图像退化（低剂量CT噪声/运动模糊）场景下仍保持分割鲁棒性。
+:   提出BiCLIP框架，通过双向多模态融合（BMF）模块让文本和视觉特征可以相互修正形成闭环，并用图像增强一致性（IAC）模块约束弱/强扰动下的中间特征一致性，在标注极度稀缺（仅1%）和图像退化（低剂量CT噪声/运动模糊）的临床场景下实现鲁棒医学图像分割。
 
 **[Bidirectional Multimodal Prompt Learning With Scale-Aware Training For Few-Shot ](bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_.md)**
 
@@ -188,7 +188,7 @@ description: >-
 
 **[Developing Foundation Models For Universal Segment](developing_foundation_models_for_universal_segment.md)**
 
-:   构建迄今最大的全身 PET 分割数据集 PETWB-Seg11K（11041 例扫描、59831 个掩模），并提出 SegAnyPET 基础模型，实现基于 prompt 的 3D 全身 PET 通用可交互分割，在多中心、多示踪剂、多疾病场景下展现强 zero-shot 泛化能力。
+:   构建了迄今最大的全身 PET 分割数据集 PETWB-Seg11K（11,041 例 3D PET + 59,831 分割掩码），并提出 SegAnyPET 基础模型，实现基于 prompt 交互的通用 PET 器官与病灶体积分割，在跨中心、跨示踪剂的零样本场景下表现优异。
 
 **[Developing Foundation Models For Universal Segmentation From 3D Whole-Body Posit](developing_foundation_models_for_universal_segmentation_from_3d_whole-body_posit.md)**
 
@@ -248,11 +248,7 @@ description: >-
 
 **[Federated Modality-Specific Encoders And Partially Personalized Fusion Decoder F](federated_modality-specific_encoders_and_partially_personalized_fusion_decoder_f.md)**
 
-:   提出 FedMEPD 框架，通过模态专属编码器 + 部分个性化融合解码器 + 多锚点跨注意力校准，同时解决联邦学习中多模态 MRI 的模态间异质性和客户端个性化需求。
-
-**[Federated Modalityspecific Encoders And Partially](federated_modalityspecific_encoders_and_partially.md)**
-
-:   提出 FedMEPD 联邦学习框架，通过模态专属编码器、部分个性化融合解码器和多锚点交叉注意力校准，同时获得最优全模态全局模型和各客户端缺失模态个性化模型。
+:   提出 FedMEPD 框架，用模态专属编码器处理模态间异质性、滤波器级动态部分个性化解码器平衡知识共享与个性化、多锚点跨注意力校准补偿缺失模态信息，在 BraTS 2018/2020 上全面超越现有多模态联邦学习方法。
 
 **[Fedvg Gradient-Guided Aggregation For Enhanced Federated Learning](fedvg_gradient-guided_aggregation_for_enhanced_federated_learning.md)**
 
@@ -438,10 +434,6 @@ description: >-
 
 :   提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。
 
-**[Semantic Class Distribution Learning For Debiasing](semantic_class_distribution_learning_for_debiasing.md)**
-
-:   提出即插即用的SCDL框架，通过学习类条件代理分布(双向对齐CDBA)+语义锚约束(SAC)来消除半监督医学图像分割中的长尾偏差，在AMOS 5%标签下DSC提升+11.62%。
-
 **[Semantic Class Distribution Learning For Debiasing Semi-Supervised Medical Image](semantic_class_distribution_learning_for_debiasing_semi-supervised_medical_image.md)**
 
 :   提出即插即用的语义类分布学习框架 SCDL，通过类分布双向对齐（CDBA）学习结构化类条件特征分布 + 语义锚约束（SAC）引导代理分布对齐真实语义，解决半监督医学分割中的监督偏差和表示不平衡，在少数类分割上取得 SOTA。
@@ -449,10 +441,6 @@ description: >-
 **[Semitooth A Generalizable Semi-Supervised Framework For Multi-Source Tooth Segme](semitooth_a_generalizable_semi-supervised_framework_for_multi-source_tooth_segme.md)**
 
 :   提出 SemiTooth 框架，通过多教师多学生架构和严格加权置信度约束（SWC），解决多源 CBCT 牙齿分割中的标注稀缺和跨源域间差异问题，同时构建了首个多源半监督牙齿数据集 MS3Toothset。
-
-**[Semitooth A Generalizable Semisupervised Framework](semitooth_a_generalizable_semisupervised_framework.md)**
-
-:   提出SemiTooth——多教师多学生半监督框架+更严格加权置信度约束(SWC)，用于多源CBCT牙齿分割，在新构建的MS3Toothset上mIoU达76.67%、Dice 85.69%，超越SOTA CMT(76.14%)。
 
 **[Similarity-As-Evidence Calibrating Overconfident Vlms For Interpretable And Labe](similarity-as-evidence_calibrating_overconfident_vlms_for_interpretable_and_labe.md)**
 
@@ -504,7 +492,7 @@ description: >-
 
 **[Unleashing Video Language Models For Fine-Grained Hrct Report Generation](unleashing_video_language_models_for_fine-grained_hrct_report_generation.md)**
 
-:   提出 AbSteering 框架，通过异常中心的 Chain-of-Thought 训练和基于 DPO 的细粒度异常辨别，将通用视频语言模型（如 Qwen2.5-VL、InternVL3）适配到 HRCT 报告生成任务，以低成本超越专门的 CT 基础模型。
+:   提出 AbSteering 两阶段框架，利用异常中心的 CoT 推理和 DPO 硬负样本对比学习，将通用 VideoLM 高效适配到 HRCT 报告生成，在临床效能指标上大幅超越专用 CT 基础模型。
 
 **[Unsupervised Domain Adaptation With Target-Only Margin Disparity Discrepancy](unsupervised_domain_adaptation_with_target-only_margin_disparity_discrepancy.md)**
 

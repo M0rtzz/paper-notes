@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 医学图像方向 147篇论文解读
+  NeurIPS2025 医学图像方向 148篇论文解读
 description: >-
-  147篇NeurIPS2025 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  148篇NeurIPS2025 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🧠 NeurIPS2025** · 共 **147** 篇
+**🧠 NeurIPS2025** · 共 **148** 篇
 
 **[3Drad A Comprehensive 3D Radiology Medvqa Dataset With Multi](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)**
 
@@ -16,7 +16,7 @@ description: >-
 
 **[A Novel Approach To Classification Of Ecg Arrhythmia Types With Latent Odes](a_novel_approach_to_classification_of_ecg_arrhythmia_types_with_latent_odes.md)**
 
-:   将 Latent ODE 编码器与梯度提升决策树结合，构建端到端 ECG 心律失常分类流水线，在 360Hz→45Hz 降采样下 AUC-ROC 仅从 0.984 降至 0.976，展示了对低采样率的鲁棒性。
+:   将路径最小化 Latent ODE 的编码器与梯度提升决策树（GBDT）组合为两阶段 ECG 心律失常分类流水线，在 MIT-BIH 数据集上的 macro AUC-ROC 从 360Hz 的 0.984 仅降至 45Hz 的 0.976，展示了对采样频率变化的强鲁棒性。
 
 **[A Unified Solution To Video Fusion From Multi-Frame Learning To Benchmarking](a_unified_solution_to_video_fusion_from_multi-frame_learning_to_benchmarking.md)**
 
@@ -198,6 +198,10 @@ description: >-
 
 :   提出 HiVE-MIL，一个层级视觉-语言 MIL 框架，通过构建统一异构图建模跨尺度层级关系（5× 和 20×）和同尺度多模态对齐，配合文本引导的动态过滤机制和层级对比损失，在 TCGA 肺/乳腺/肾癌三个数据集的 16-shot 设置下全面超越已有方法，Macro F1 最高提升 4.1%。
 
+**[Fgbench A Dataset And Benchmark For Molecular Property Reasoning At Functional G](fgbench_a_dataset_and_benchmark_for_molecular_property_reasoning_at_functional_g.md)**
+
+:   本文提出 FGBench，一个包含 625K 分子性质推理问题的数据集，专注于功能基团（functional group）级别的推理评估，通过三个维度（单功能基团影响、多功能基团交互、分子比较）系统揭示了当前 LLM 在细粒度化学推理能力上的严重不足。
+
 **[Firegnn Neuro-Symbolic Graph Neural Networks With Trainable Fuzzy Rules For Inte](firegnn_neuro-symbolic_graph_neural_networks_with_trainable_fuzzy_rules_for_inte.md)**
 
 :   提出 FireGNN，首次将可训练模糊规则嵌入 GNN 前向传播中，利用节点度、聚类系数和标签一致性三个拓扑描述子实现内生可解释的医学图像分类，在 5 个 MedMNIST 数据集和 MorphoMNIST 上取得优于标准 GCN/GAT/GIN 及辅助任务方法的性能。
@@ -320,7 +324,7 @@ description: >-
 
 **[Mind The Data Gap Evaluating Vision Systems In Small Data Applications](mind_the_data_gap_evaluating_vision_systems_in_small_data_applications.md)**
 
-:   系统评估了多模态大语言模型（MLLMs）和纯视觉方法在小数据场景（数十到数千标注样本）下的表现，发现MLLMs在10-30个样本后性能就趋于平台期，而视觉编码器+SVM方法随数据增长持续提升，呼吁AI研究中应重视小数据评估。
+:   在 NeWT 生态分类基准上系统比较了 MLLMs（如 Gemini、Qwen2.5-VL）和视觉编码器+SVM 在"小数据区间"（10~1000 标注样本）的表现，发现 MLLMs 在 10-30 个样本后即触顶，而视觉方法持续近对数增长，呼吁社区重视小数据评估。
 
 **[Mira Medical Time Series Foundation Model For Real-World Health Data](mira_medical_time_series_foundation_model_for_real-world_health_data.md)**
 
@@ -488,7 +492,7 @@ description: >-
 
 **[Semantic And Visual Crop-Guided Diffusion Models For Heterogeneous Tissue Synthe](semantic_and_visual_crop-guided_diffusion_models_for_heterogeneous_tissue_synthe.md)**
 
-:   提出双条件 Latent Diffusion 模型，结合语义分割图和组织特异性视觉裁剪来生成高保真异质性病理图像，Camelyon16 上 FD 从 430.1 降至 72.0（6×降低），合成数据训练的分割模型 IoU 达 0.71，接近真实数据的 0.72。
+:   提出 HeteroTissue-Diffuse（HTD），一种双条件 Latent Diffusion 模型，通过同时以语义分割图和真实组织裁剪块（visual crop）作为条件来生成异质性病理图像，在 Camelyon16 上将 Fréchet Distance 从 430 降至 72（6 倍改善），合成数据训练的 DeepLabv3+ 分割 IoU 与真实数据仅差 1-2%，并通过自监督聚类扩展到 11765 张无标注 TCGA 全幻灯片图像。
 
 **[Sequential Attention-Based Sampling For Histopathological Analysis](sequential_attention-based_sampling_for_histopathological_analysis.md)**
 
@@ -536,7 +540,7 @@ description: >-
 
 **[The Human Brain As A Combinatorial Complex](the_human_brain_as_a_combinatorial_complex.md)**
 
-:   本文提出从fMRI时间序列数据中直接构建组合复形（Combinatorial Complexes）的框架，利用S-信息和O-信息等信息论度量捕获大脑区域间的高阶协同交互，弥补传统图方法仅能捕获成对关系的根本局限。
+:   提出一种数据驱动的框架，利用 S-信息和 O-信息等信息论度量从 fMRI 时间序列中直接构建组合复形（Combinatorial Complexes），将脑区间的高阶协同交互编码到拓扑结构中，为拓扑深度学习应用于脑网络分析奠定基础。
 
 **[Thunder Tile-Level Histopathology Image Understanding Benchmark](thunder_tile-level_histopathology_image_understanding_benchmark.md)**
 

@@ -84,7 +84,7 @@ description: >-
 
 **[Swingarena Competitive Programming Arena For Long-Context Github Issue Solving](swingarena_competitive_programming_arena_for_long-context_github_issue_solving.md)**
 
-:   提出SwingArena对抗性评测框架，让LLM交替扮演提交者(生成补丁)和审查者(编写测试)，通过真实CI流水线验证，覆盖C++/Python/Rust/Go四种语言的400个GitHub issue，揭示不同模型在补丁生成vs验证方面的行为差异。
+:   提出SwingArena对抗性评测框架，让两个LLM在真实GitHub issue上交替扮演补丁提交者和测试审查者，通过仓库原生CI流水线（编译/lint/回归测试）端到端验证，在C++/Python/Rust/Go四语言400个实例上揭示了模型在"激进补丁生成"与"防御性质量保证"间的行为分化。
 
 **[Token-Level Data Selection For Safe Llm Fine-Tuning](token-level_data_selection_for_safe_llm_fine-tuning.md)**
 

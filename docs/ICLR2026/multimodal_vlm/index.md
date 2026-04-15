@@ -60,15 +60,15 @@ description: >-
 
 **[Contamination Detection For Vlms Using Multi-Modal Semantic Perturbation](contamination_detection_for_vlms_using_multi-modal_semantic_perturbation.md)**
 
-:   提出多模态语义扰动方法检测 VLM 数据污染：用 LLM 生成密集描述 + Flux ControlNet 在保持图像构图的同时改变答案相关语义元素，污染模型因记忆原始图像-文本对而在扰动版本上失败，首次系统验证现有 LLM 检测方法在 VLM 上不可靠。
+:   提出多模态语义扰动框架检测VLM数据污染：用LLM生成密集描述 + Flux ControlNet在保持图像构图的同时改变答案相关语义元素，污染模型因记忆原始图文对而在扰动版本上表现骤降，干净模型则因真正推理能力而不受影响。首次系统验证现有LLM污染检测方法在VLM场景下大多不可靠。
 
 **[Customizing Visual Emotion Evaluation For Mllms An Open-Vocabulary Multifaceted ](customizing_visual_emotion_evaluation_for_mllms_an_open-vocabulary_multifaceted_.md)**
 
-:   提出情感陈述判断（ESJ）任务和 INSETS 自动标注流水线，构建 MVEI benchmark，系统评估 MLLMs 的视觉情感感知能力，揭示当前模型在情感极性辨别和感知主观性理解上的显著不足。
+:   提出情感陈述判断（ESJ）任务与 INSETS 自动标注流水线，将视觉情感评估从"开放式分类"重构为"陈述真伪判断"，构建了 MVEI benchmark（3,086 样本、424 种情感标签、四个认知维度），系统评估 19 个 MLLMs，发现即使 GPT-4o 也与人类（91.6%）存在 13.3% 的准确率差距。
 
 **[Detecting Misbehaviors Of Large Vision-Language Models By Evidential Uncertainty](detecting_misbehaviors_of_large_vision-language_models_by_evidential_uncertainty.md)**
 
-:   提出 EUQ（Evidential Uncertainty Quantification），基于 Dempster-Shafer 证据理论将 LVLM 的认识不确定性分解为冲突（CF，内部矛盾）和无知（IG，信息缺失），单次前向传播即可检测幻觉、越狱、对抗攻击和 OOD 失败四类错误行为，AUROC 相对提升最高 10.5%。
+:   提出 EUQ（Evidential Uncertainty Quantification），基于 Dempster-Shafer 证据理论将 LVLM 的认识不确定性分解为**冲突 CF**（内部矛盾）和**无知 IG**（信息缺失），无需训练、单次前向传播即可检测幻觉/越狱/对抗/OOD 四类错误行为，平均 AUROC 相对最佳基线提升 10.4%/7.5%。
 
 **[Directional Embedding Smoothing For Robust Vision Language Models](directional_embedding_smoothing_for_robust_vision_language_models.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[Do Vision-Language Models Respect Contextual Integrity In Location Disclosure](do_vision-language_models_respect_contextual_integrity_in_location_disclosure.md)**
 
-:   本文提出 VLM-GEOPRIVACY 基准，系统评估了14个主流 VLM 在判断图像位置信息披露适当程度方面的能力，发现这些模型虽然可以精确地理定位图像，但在隐私对齐方面严重不足——经常在敏感场景中过度披露，且容易受到基于提示的攻击。
+:   本文基于 Nissenbaum 的上下文完整性（Contextual Integrity）理论构建了 VLM-GEOPRIVACY 基准，通过7个层次递进的上下文感知问题和三级位置披露粒度（拒绝/城市级/精确位置），系统评估14个主流VLM是否能根据图像中的社会规范线索判断适当的位置信息披露级别，结果发现所有模型均严重偏向过度披露（Over-Disclosure率高达46-52%），且恶意提示可将抽象违反率推至100%。
 
 **[Dynamic Multimodal Activation Steering For Hallucination Mitigation In Large Vis](dynamic_multimodal_activation_steering_for_hallucination_mitigation_in_large_vis.md)**
 
@@ -124,7 +124,7 @@ description: >-
 
 **[Index-Preserving Lightweight Token Pruning For Efficient Document Understanding ](index-preserving_lightweight_token_pruning_for_efficient_document_understanding_.md)**
 
-:   提出一种轻量级的 token 剪枝框架，通过二值 patch 分类器移除文档图像中的非文本背景区域，并用 max-pooling 细化步骤恢复碎片化文本区域的空间连贯性，在保持准确率的同时大幅降低 VLM 的计算开销。
+:   在 VLM 视觉编码器之前插入一个仅 203K 参数的二值 patch 分类器剔除文档背景 token，再用 $3 \times 3$ max-pooling 恢复碎片化文本区域并保留原始空间索引，在 Qwen2.5-VL 上实现 40-60% FLOPs 缩减且精度损失不超过 ~5%p。
 
 **[Ivc-Prune Revealing The Implicit Visual Coordinates In Lvlms For Vision Token Pr](ivc-prune_revealing_the_implicit_visual_coordinates_in_lvlms_for_vision_token_pr.md)**
 
@@ -156,7 +156,7 @@ description: >-
 
 **[Mmr-Life Piecing Together Real-Life Scenes For Multimodal Multi-Image Reasoning](mmr-life_piecing_together_real-life_scenes_for_multimodal_multi-image_reasoning.md)**
 
-:   提出MMR-Life基准（2646道多图选择题，覆盖7种推理类型21个任务），首次系统评估MLLM在真实生活场景中的多图多类推理能力，发现GPT-5仅58%准确率，在因果/空间/时序推理上存在显著瓶颈。
+:   提出 MMR-Life 基准（2646 道 5 选 1 多图选择题，基于 19108 张真实图像，覆盖 7 种推理类型和 21 个任务），首次系统评估 MLLM 在真实生活场景中的多图推理能力，发现最强模型 GPT-5 仅 58.69% 准确率，距人类水平差 14%，并揭示了推理增强方法在大模型上失效、RL 泛化弱于 BoN 等关键发现。
 
 **[Mmtok Multimodal Coverage Maximization For Efficient Inference Of Vlms](mmtok_multimodal_coverage_maximization_for_efficient_inference_of_vlms.md)**
 
@@ -164,7 +164,7 @@ description: >-
 
 **[Modal Aphasia Can Unified Multimodal Models Describe Images From Memory](modal_aphasia_can_unified_multimodal_models_describe_images_from_memory.md)**
 
-:   发现并定义"模态失语"现象——统一多模态模型能精准生成视觉概念（如电影海报）但无法用文字准确描述同一概念，文本描述的错误率是视觉生成的7倍以上，揭示了当前统一模型中知识的跨模态迁移失败和潜在安全隐患。
+:   本文发现并系统定义"模态失语"（Modal Aphasia）现象——统一多模态模型能从记忆中近乎完美地生成视觉概念（如电影海报图像），但在文字描述同一概念时错误率高出 7 倍以上，且严重幻觉几乎只出现在文本模态；通过前沿模型（ChatGPT-5）的真实实验和开源模型（Janus-Pro、Harmon）的合成控制实验，证实模态失语是当前统一架构的系统性缺陷而非训练偶然，并展示了该现象对 AI 安全框架的潜在威胁。
 
 **[Multimodal Classification Via Total Correlation Maximization](multimodal_classification_via_total_correlation_maximization.md)**
 
@@ -172,11 +172,11 @@ description: >-
 
 **[Multimodal Prompt Optimization Why Not Leverage Multiple Modalities For Mllms](multimodal_prompt_optimization_why_not_leverage_multiple_modalities_for_mllms.md)**
 
-:   首次定义并解决"多模态提示优化"问题，提出MPO框架通过对齐保持的联合探索（统一反馈→同步更新文本+非文本提示）和先验继承的贝叶斯UCB选择（父提示性能作为先验warm-start），在图像/视频/分子等10个数据集上全面超越文本only优化。
+:   首次将自动提示优化（APO）从纯文本空间扩展到多模态空间，提出 MPO 框架：通过对齐保持的联合探索（统一语义梯度同步驱动文本+非文本提示更新，配合 Generation/Edit/Mix 三种算子多样化搜索）和先验继承的贝叶斯 UCB 候选选择（利用父提示性能 warm-start 子提示的 Beta 先验），在图像/视频/分子共 10 个数据集上平均准确率达 65.1%，超越最强文本 APO 基线 ProTeGi 的 60.0%。
 
 **[Omnispatial Towards Comprehensive Spatial Reasoning Benchmark For Vision Languag](omnispatial_towards_comprehensive_spatial_reasoning_benchmark_for_vision_languag.md)**
 
-:   提出OmniSpatial基准，基于认知心理学系统覆盖4大空间推理维度（动态推理/复杂空间逻辑/空间交互/透视转换）50个子类别的8400+人工标注题目，发现o3/Gemini-2.5-Pro等最强模型在现有基准上>90%但在OmniSpatial上仍显著挣扎。
+:   基于认知心理学构建OmniSpatial——首个全面空间推理基准，系统覆盖动态推理、复杂空间逻辑、空间交互和透视转换4大维度50个子类别共8.4K人工标注QA对，让o3最强推理模型仅达56.33%而人类达92.63%→揭示复杂空间推理仍是VLM的核心瓶颈。
 
 **[Post-Hoc Probabilistic Vision-Language Models](post-hoc_probabilistic_vision-language_models.md)**
 
@@ -184,19 +184,19 @@ description: >-
 
 **[Ppe Positional Preservation Embedding For Token Compression In Multimodal Large ](ppe_positional_preservation_embedding_for_token_compression_in_multimodal_large_.md)**
 
-:   提出PPE(位置保持嵌入)，在MLLM视觉token合并时将多个原始位置ID编码到单个压缩token的不同维度段中（利用RoPE/M-RoPE维度独立性），无参数且即插即用，90%压缩率下在MMBench/TextVQA/VideoMME上比先前方法提升2-5%。
+:   提出PPE（Positional Preservation Embedding），利用RoPE各维度旋转独立性，将合并token内多个原始位置ID分块编码到不同维度段中，实现单个压缩token携带多个空间/时序位置信息。PPE是零参数、即插即用的通用算子，在55%压缩率下图像任务平均仅降3.6%、在90%压缩率下通过级联压缩仍保持可比性能。
 
 **[Prismm-Bench A Benchmark Of Peer-Review Grounded Multimodal Inconsistencies](prismm-bench_a_benchmark_of_peer-review_grounded_multimodal_inconsistencies.md)**
 
-:   构建PRISMM-Bench——首个基于真实审稿人标记的科学论文多模态不一致性基准：从ICLR 2024/2025的开放评审中挖掘384个跨文本-图表-公式的不一致(而非合成错误),设计关于识别/修复/配对匹配三个任务+JSON去偏答案表示,21个顶级LMM最高仅53.9%准确率→暴露当前模型在科学文档推理上的严重不足。
+:   构建首个基于真实审稿人标记的科学论文多模态不一致性基准PRISMM-Bench，从18009条ICLR开放评审中挖掘384个跨模态不一致，设计识别/修复/配对匹配三任务并提出JSON结构化去偏答案表示，21个顶级LMM最高仅53.9%→系统性暴露当前模型在科学文档跨模态推理上的严重不足。
 
 **[Reasoning-Driven Multimodal Llm For Domain Generalization](reasoning-driven_multimodal_llm_for_domain_generalization.md)**
 
-:   提出RD-MLDG——首个用MLLM推理链增强域泛化的框架：构建DomainBed-Reasoning数据集(每个样本配GPT-4o生成的类别相关推理链)，发现推理监督比直接标签更难优化且存在推理模式不匹配问题，通过MTCT(多任务交叉训练)和SARR(自对齐推理正则化)解决这两个挑战，在PACS/VLCS/OfficeHome/TerraInc上达SOTA。
+:   提出 RD-MLDG——首个将 MLLM 推理链引入域泛化的框架。构建 DomainBed-Reasoning 数据集，系统分析推理监督的两大挑战（优化困难 + 推理模式不匹配），通过 MTCT（多任务交叉训练）与 SARR（自对齐推理正则化）协同解决，在 4 个标准 DG 基准上以 86.89% 的平均准确率大幅超越 GPT-4o（83.46%）和所有 CLIP/ViT 方法。
 
 **[Ref-Adv Exploring Mllm Visual Reasoning In Referring Expression Tasks](ref-adv_exploring_mllm_visual_reasoning_in_referring_expression_tasks.md)**
 
-:   提出Ref-Adv——消除捷径的现代指称表达理解(REC)基准：通过配对语言非平凡表达+仅含必要信息(无冗余描述符)+硬干扰物的真实图像,暴露当前MLLM在RefCOCO上90%+准确率背后对捷径的依赖——所有模型在Ref-Adv上显著下降,揭示视觉推理和定位的真实能力Gap。
+:   提出 Ref-Adv 基准数据集，通过 **硬干扰物配对 + LLM 辅助最小充分表达式生成 + 三人一致性人工验证** 的流水线，构建了一个消除"定位捷径"的现代 REC 基准，在该基准上 13 个当代 MLLM（包括 GPT-4o、Gemini 2.5、Qwen2.5-VL-72B 等）的准确率从 RefCOCO(+/g) 上的 90%+ 大幅下降至 50-68%，系统暴露了模型在复杂视觉推理和真实定位能力上的严重不足。
 
 **[Revisit Visual Prompt Tuning The Expressiveness Of Prompt Experts](revisit_visual_prompt_tuning_the_expressiveness_of_prompt_experts.md)**
 
@@ -208,7 +208,7 @@ description: >-
 
 **[Self-Aug Query And Entropy Adaptive Decoding For Large Vision-Language Models](self-aug_query_and_entropy_adaptive_decoding_for_large_vision-language_models.md)**
 
-:   提出Self-Aug——无训练的LVLM解码策略减少视觉幻觉：(1)自增强prompting利用模型自身知识选择与文本查询语义对齐的视觉增强(而非随机噪声)→最大化对比解码的信息差异，(2)稀疏度自适应截断(SAT)基于专家logit的熵(而非单一最大值)动态调整候选token集大小→避免对比解码中负logit的虚假放大，在5个LVLM×7个基准上显著增强事实一致性。
+:   提出 Self-Aug，一种免训练的解码策略，通过自增强提示（SAS Prompting）让 LVLM 利用自身知识动态选择与查询语义对齐的视觉增强方式，并提出稀疏度自适应截断（SAT）算法利用输出分布的完整熵信息动态调节候选词集大小，在5个 LVLM 和7个基准上一致超越现有对比解码方法。
 
 **[Self-Evolving Vision-Language Models For Image Quality Assessment Via Voting And](self-evolving_vision-language_models_for_image_quality_assessment_via_voting_and.md)**
 
@@ -220,7 +220,7 @@ description: >-
 
 **[Small Drafts Big Verdict Information-Intensive Visual Reasoning Via Speculation](small_drafts_big_verdict_information-intensive_visual_reasoning_via_speculation.md)**
 
-:   提出Speculative Verdict(SV)——受推测解码启发的免训练多模态推理框架：多个轻量VLM作为"草案专家"生成多样推理路径(提供不同的定位和证据)，大型VLM作为"裁决者"综合这些路径产出最终答案→纠正47-53%单模型或投票失败的案例，在InfographicVQA/ChartQA等信息密集基准上超越GPT-4o达10%。
+:   借鉴 Speculative Decoding 的 draft-then-verify 范式提出 Speculative Verdict (SV)，用多个轻量 VLM 生成多样推理路径作为 draft，大模型作为 verdict 综合验证并纠错，在信息密集型 VQA 上无需训练即超过 GPT-4o 达 11.9%，且能修复 47-53% 的少数正确案例。
 
 **[Sophiavl-R1 Reinforcing Mllms Reasoning With Thinking Reward](sophiavl-r1_reinforcing_mllms_reasoning_with_thinking_reward.md)**
 
@@ -232,7 +232,7 @@ description: >-
 
 **[Spatial-Dise A Unified Benchmark For Evaluating Spatial Reasoning In Vision-Lang](spatial-dise_a_unified_benchmark_for_evaluating_spatial_reasoning_in_vision-lang.md)**
 
-:   提出Spatial-DISE——基于认知科学DISE分类法(内在-外在×静态-动态四象限)的统一空间推理基准：559评估对+1.2万训练对(Blender自动化pipeline)→评估32个SOTA VLM→揭示所有模型远低于人类(尤其动态内在推理如心理旋转→接近随机)→空间推理失败源于认知过程(规则推理/心理模拟)缺陷而非视觉感知。
+:   提出基于认知科学 2×2 分类法（内在/外在 × 静态/动态）的统一空间推理基准 Spatial-DISE，包含 559 个评估 VQA 对和 12K+ 训练数据，在 32 个 SOTA VLM 上的评测揭示了模型在动态空间推理（尤其是心理旋转和折叠）上与人类的巨大差距。
 
 **[Spatial Captcha Generatively Benchmarking Spatial Reasoning For Human-Machine Di](spatial_captcha_generatively_benchmarking_spatial_reasoning_for_human-machine_di.md)**
 
@@ -240,7 +240,7 @@ description: >-
 
 **[Spatial Reasoning Is Not A Free Lunch A Controlled Study On Llava](spatial_reasoning_is_not_a_free_lunch_a_controlled_study_on_llava.md)**
 
-:   通过LLaVA框架的受控诊断研究揭示VLM空间推理失败的架构根源——(1)CLIP式编码器优化全局语义对齐而非空间结构→空间推理弱,(2)图像被展平为1D token序列+1D位置编码→丢失2D空间结构→系统性比较CLIP/SigLIP/SigLIP2/AIMv2编码器+2D-RoPE变体→发现编码器目标和位置结构影响空间行为但不能完全解决。
+:   通过在 LLaVA 框架下控制实验，系统性地研究图像编码器训练目标和 2D 位置编码对 VLM 空间推理能力的影响，发现编码器选择主导空间性能、AIMv2 编码器一致性最好，但 2D-RoPE 的改进不稳定，空间推理的失败根植于当前 VLM 流水线的核心设计选择。
 
 **[Spatialab Can Vision-Language Models Perform Spatial Reasoning In The Wild](spatialab_can_vision-language_models_perform_spatial_reasoning_in_the_wild.md)**
 
@@ -256,7 +256,7 @@ description: >-
 
 **[Tabledart Dynamic Adaptive Multi-Modal Routing For Table Understanding](tabledart_dynamic_adaptive_multi-modal_routing_for_table_understanding.md)**
 
-:   提出TableDART——通过轻量MLP门控网络(2.59M参数)动态选择最优模态路径(文本/图像/融合)的表格理解框架：复用预训练单模态模型(冻结)→每个query-table对动态路由→融合时用LLM agent仲裁/综合两路输出→训练高效(仅训练门控)→7个基准SOTA超最强基线平均4.02%。
+:   提出 TableDART，通过仅 2.59M 参数的 MLP 门控网络为每个 query-table 对动态选择最优处理路径（Text-only / Image-only / Fusion），复用冻结的单模态专家模型并引入 LLM Agent 进行跨模态融合，在 7 个表格理解 benchmark 上平均超越最强 MLLM 基线 HIPPO 4.02%，同时延迟降低 24.5%。
 
 **[Thinkomni Lifting Textual Reasoning To Omni-Modal Scenarios Via Guidance Decodin](thinkomni_lifting_textual_reasoning_to_omni-modal_scenarios_via_guidance_decodin.md)**
 
@@ -264,11 +264,11 @@ description: >-
 
 **[Through The Lens Of Contrast Self-Improving Visual Reasoning In Vlms](through_the_lens_of_contrast_self-improving_visual_reasoning_in_vlms.md)**
 
-:   提出VC-STaR(Visual Contrastive Self-Taught Reasoner)——利用视觉对比纠正VLM推理中的视觉幻觉：关键发现→VLM在对比VQA对(两张相似图+相似问题)中比单图时更准确地捕捉视觉线索→据此设计三步自改进(生成粗推理→对比分析→LLM精化)→构建VisCoR-55K数据集(5.5万高质量视觉推理样本,覆盖5个VQA域)→微调后超越现有自改进方法和SOTA视觉推理数据集。
+:   提出 VC-STaR（Visual Contrastive Self-Taught Reasoner），基于"VLM 在对比两张相似图像时看得更准"的观察，设计了一套对比式自改进框架：通过构造对比 VQA 对让模型在对比中生成更忠实的视觉分析，再由 LLM 将对比分析融入推理路径，产出高质量视觉推理数据集 VisCoR-55K，微调后在 MMVP 上提升 5.7%、Hallusion 上提升 3.2%。
 
 **[U-Marvel Unveiling Key Factors For Universal Multimodal Retrieval Via Embedding ](u-marvel_unveiling_key_factors_for_universal_multimodal_retrieval_via_embedding_.md)**
 
-:   系统研究MLLM嵌入学习关键设计因素，发现被忽视的核心因子(双向注意力+mean pooling远优于last token; batch/lr/温度交互)，提出U-MARVEL：渐进过渡+过滤硬负+重排蒸馏，M-BEIR大幅超SOTA且零样本迁移CIR和T2V。
+:   系统消融MLLM嵌入学习的设计空间，揭示双向注意力+mean pooling优于主流last token、可学习温度被严重低估等关键因子，据此构建U-MARVEL三阶段框架（渐进过渡→过滤硬负→重排蒸馏），在M-BEIR上以单模型63.2% Avg大幅超越现有SOTA，零样本迁移CIR和T2V同样领先。
 
 **[Unified Vision-Language Modeling Via Concept Space Alignment](unified_vision-language_modeling_via_concept_space_alignment.md)**
 

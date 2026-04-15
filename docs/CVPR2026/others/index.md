@@ -116,7 +116,7 @@ description: >-
 
 **[Rooftop Wind Field Reconstruction Using Sparse Sen](rooftop_wind_field_reconstruction_using_sparse_sen.md)**
 
-:   建立学习-观测框架，在真实风洞PIV数据上系统比较Kriging、UNet、ViTAE和CWGAN四种方法从5-30个稀疏传感器重建屋顶全风场的能力，发现混合风向训练下DL一致优于Kriging（SSIM提升18-34%），CWGAN在鲁棒性上最优。
+:   建立基于PIV风洞实验数据的学习-观测框架，系统比较Kriging插值与三种深度学习模型（UNet/ViTAE/CWGAN）在5–30个稀疏传感器下的屋顶风场重建能力，揭示混合风向训练（MDT）下深度学习一致优于Kriging（SSIM提升18–34%），并通过QR分解优化传感器布局提升系统鲁棒性达27.8%。
 
 **[Rooftop Wind Field Reconstruction Using Sparse Sensors From Deterministic To Gen](rooftop_wind_field_reconstruction_using_sparse_sensors_from_deterministic_to_gen.md)**
 

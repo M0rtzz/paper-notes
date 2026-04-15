@@ -24,7 +24,7 @@ description: >-
 
 **[An Orthogonal Learner For Individualized Outcomes In Markov Decision Processes](an_orthogonal_learner_for_individualized_outcomes_in_markov_decision_processes.md)**
 
-:   从因果推断视角重新审视Q函数估计问题，揭示传统Q回归和FQE是具有插入偏差的plug-in学习器，提出DRQQ-learner——一种双重鲁棒、Neyman正交、准oracle高效的Q函数估计器，通过推导有效影响函数构建去偏两阶段损失函数，在Taxi和Frozen Lake环境中验证了其优越性。
+:   将因果推断中的半参数效率理论系统引入MDP的Q函数估计，证明经典的Q-regression和FQE本质上是有plug-in偏差的朴素学习器，并提出DRQQ-learner——一个同时具备双重鲁棒性、Neyman正交性和准oracle效率的元学习器，通过推导有效影响函数(EIF)构造去偏二阶段损失，在Taxi和Frozen Lake环境中全面超越基线方法。
 
 **[Antigenlm Structure-Aware Dna Language Modeling For Influenza](antigenlm_structure-aware_dna_language_modeling_for_influenza.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Care Towards Clinical Accountability In Multi-Modal Medical Reasoning With An Ev](care_towards_clinical_accountability_in_multi-modal_medical_reasoning_with_an_ev.md)**
 
-:   提出 CARE Agent 框架，将医学 VQA 分解为实体提议、指称分割和证据引导推理三个专家模块，通过 GPT-5 作为动态协调器，在医学 VQA 基准上以 77.54% 准确率超越 32B 模型。
+:   提出 CARE 框架——将医学 VQA 拆分为"实体提议→指称分割→证据引导问答"三阶段专家管道，用 RLVR 微调各 VLM，并引入 GPT-5 作为动态协调器进行工具规划与 CoT 审查，在 4 个医学 VQA 基准上以 10B 参数量（77.54% 平均准确率）超越 32B 端到端 SOTA（72.29%）。
 
 **[Causal Interpretation Of Neural Network Computations With Contribution Decomposi](causal_interpretation_of_neural_network_computations_with_contribution_decomposi.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Confhit Conformal Generative Design With Oracle Free Guarantees](confhit_conformal_generative_design_with_oracle_free_guarantees.md)**
 
-:   提出 ConfHit，一个模型无关的保理推断框架，通过密度比加权的共形 p 值和嵌套检验策略，在无需实验验证（oracle-free）和分布偏移条件下，为生成模型（药物发现等）提供有限样本统计保证——生成的候选集以 $1-\alpha$ 概率包含至少一个 hit。
+:   提出 ConfHit 框架，利用密度比加权的共形排列 p 值实现"认证"（判断生成批次是否包含 hit）和"设计"（精简候选集同时保持统计保证），在无需实验验证 oracle 和存在分布偏移的条件下，为生成式分子设计提供有限样本 $1-\alpha$ 覆盖保证。
 
 **[Controllable Sequence Editing For Biological And Clinical Trajectories](controllable_sequence_editing_for_biological_and_clinical_trajectories.md)**
 
@@ -108,7 +108,7 @@ description: >-
 
 **[Disco Densely-Overlapping Cell Instance Segmentation Via Adjacency-Aware Collabo](disco_densely-overlapping_cell_instance_segmentation_via_adjacency-aware_collabo.md)**
 
-:   提出基于图着色理论的密集重叠细胞实例分割框架 DISCO，通过"显式标记冲突+隐式消歧邻接约束"的分治策略，在高密度病理图像上 PQ 提升 7.08%。
+:   将密集重叠细胞实例分割建模为图着色问题，提出"显式标记冲突节点 + 隐式邻接约束消歧"的分治框架 Disco，通过 BFS 分解细胞邻接图并引入五种协同损失函数，在高密度病理数据集 GBC-FS 2025 上 PQ 提升 7.08%，同时在四个异质数据集上均取得 SOTA。
 
 **[Discrete Diffusion Trajectory Alignment Via Stepwise Decomposition](discrete_diffusion_trajectory_alignment_via_stepwise_decomposition.md)**
 
@@ -168,11 +168,11 @@ description: >-
 
 **[Fusing Pixels And Genes Spatially-Aware Learning In Computational Pathology](fusing_pixels_and_genes_spatially-aware_learning_in_computational_pathology.md)**
 
-:   提出Stamp框架，构建SpaVis-6M（最大10X Visium空间转录组数据集，575万条数据）训练空间感知基因编码器，再通过层次多尺度对比对齐将病理图像与空间基因表达谱联合预训练，在6个数据集4个下游任务上达到SOTA。
+:   本文提出 Stamp 框架，利用空间转录组学基因表达数据作为监督信号，通过空间感知基因编码器预训练和层次化多尺度对比对齐，实现病理图像与空间转录组数据的联合表示学习，在 6 个数据集 4 个下游任务上取得 SOTA。
 
 **[Glance And Focus Reinforcement For Pan-Cancer Screening](glance_and_focus_reinforcement_for_pan-cancer_screening.md)**
 
-:   提出GF-Screen框架模拟放射科医生"扫视-聚焦"策略，Glance模型通过RL学习选择含病灶的子体积，Focus模型精确分割——通过组相对学习(GRL)直接将GRPO从NLP迁移到视觉任务，在FLARE25泛癌挑战中以+25.6%DSC领先冠军方案，同时推理效率提升5.7倍。
+:   提出 GF-Screen 两阶段框架——轻量 Glance 模型用强化学习快速定位含病灶的 CT 子体积，Focus 模型只对选中区域做精细分割；通过将 GRPO 的"组内相对比较"思想从 NLP 迁移到视觉子体积组，首次在纯视觉任务中实现无价值网络的 RL 优化，在 FLARE25 泛癌挑战中以 +25.6% DSC 大幅领先冠军方案且推理快 5.7 倍。
 
 **[Histoprism Unlocking Functional Pathway Analysis From Pan-Cancer Histology Via G](histoprism_unlocking_functional_pathway_analysis_from_pan-cancer_histology_via_g.md)**
 
@@ -240,7 +240,7 @@ description: >-
 
 **[Omni-Ieeg A Large-Scale Comprehensive Ieeg Dataset And Benchmark For Epilepsy Re](omni-ieeg_a_large-scale_comprehensive_ieeg_dataset_and_benchmark_for_epilepsy_re.md)**
 
-:   构建Omni-iEEG——迄今最大规模的术前iEEG数据集(302患者×178小时×8个癫痫中心)+3.6万+专家标注病理事件,定义临床意义任务+统一评估指标→展示端到端建模可匹敌/超越临床生物标志物,发现跨域迁移(音频预训练→iEEG)有效→为可重复、可泛化的癫痫研究建立基础。
+:   本文构建了 Omni-iEEG 数据集（302 名患者、178 小时高分辨率颅内脑电记录），定义了基于临床先验的标准化基准任务和评估指标，并展示端到端建模在癫痫手术规划中可匹配或超越传统生物标志物方法。
 
 **[Overthinking Reduction With Decoupled Rewards And Curriculum Data Scheduling](overthinking_reduction_with_decoupled_rewards_and_curriculum_data_scheduling.md)**
 
@@ -256,7 +256,7 @@ description: >-
 
 **[Protein Structure Tokenization Via Geometric Byte Pair Encoding](protein_structure_tokenization_via_geometric_byte_pair_encoding.md)**
 
-:   提出GeoBPE——首个几何感知蛋白质结构BPE tokenizer，将连续骨架构象离散化为几何motif句子，通过k-medoids+自适应量化+可微IK(SE(3)端帧损失)校正漂移，>10x压缩比、>10x数据效率，12个下游任务24个测试集上超越所有PST基线。
+:   提出 GeoBPE——首个将 BPE（字节对编码）从离散文本扩展到连续蛋白质骨架几何的 tokenizer，通过交替执行"局部合并（k-medoids聚类+量化）"和"全局校正（可微逆运动学）"构建层次化结构 motif 词汇表，以 >10× 压缩比和 >10× 数据效率超越 VQ-VAE 类 PST，在 12 个下游任务 24 个测试集上排名第一。
 
 **[Q-Fsru Quantum-Augmented Frequency-Spectral For Medical Visual Question Answerin](q-fsru_quantum-augmented_frequency-spectral_for_medical_visual_question_answerin.md)**
 
@@ -268,7 +268,7 @@ description: >-
 
 **[Reverse Distillation Consistently Scaling Protein Language Model Representations](reverse_distillation_consistently_scaling_protein_language_model_representations.md)**
 
-:   解决PLM反常缩放(更大不一定更好)，提出反向蒸馏：用小模型表示作基、SVD提取大模型正交残差→前k维=小模型嵌入(Matryoshka嵌套)→更大rd模型一致优于更小，ESM-2 15B rd后首次成为家族最强。
+:   针对蛋白质语言模型（PLM）"模型越大性能不一定越好"的反常缩放现象，提出反向蒸馏框架：以小模型表示为基底、用SVD提取大模型正交残差信息，构造Matryoshka嵌套嵌入，使得更大的反向蒸馏模型一致优于更小的，ESM-2 15B经反向蒸馏后首次成为全家族最强。
 
 **[Scalable Spatio-Temporal Se3 Diffusion For Long-Horizon Protein Dynamics](scalable_spatio-temporal_se3_diffusion_for_long-horizon_protein_dynamics.md)**
 
@@ -284,7 +284,7 @@ description: >-
 
 **[Sonic Spectral Oriented Neural Invariant Convolutions](sonic_spectral_oriented_neural_invariant_convolutions.md)**
 
-:   SONIC 提出了一种基于连续频谱参数化的卷积算子，利用少量共享的方向选择性分量在频域中建模全局感受野，在合成基准、大规模图像分类和3D医学数据集上以数量级更少的参数匹配或超越CNN、ViT和现有频谱架构。
+:   SONIC 将状态空间模型的思想迁移到多维频域，用 6 个连续参数（幅度、方向、阻尼、振荡等）定义一组方向选择性的频谱传递函数，再通过低秩矩阵 $B$、$C$ 跨通道混合，实现天然具备全局感受野和分辨率不变性的卷积替代算子，在 3D 医学分割上匹配 nnU-Net 且参数少近两个数量级，在 ImageNet 上也具有竞争力。
 
 **[Survhte-Bench A Benchmark For Heterogeneous Treatment Effect Estimation In Survi](survhte-bench_a_benchmark_for_heterogeneous_treatment_effect_estimation_in_survi.md)**
 
@@ -300,7 +300,7 @@ description: >-
 
 **[Towards Interpretable Visual Decoding With Attention To Brain Representations](towards_interpretable_visual_decoding_with_attention_to_brain_representations.md)**
 
-:   提出 NeuroAdapter，一个端到端的脑活动视觉解码框架，通过交叉注意力直接将 fMRI 信号接入潜在扩散模型，跳过中间特征空间，并通过 IBBI 可解释性框架分析各脑区对图像生成的贡献。
+:   提出 NeuroAdapter，将 fMRI 信号按脑区分割为独立 token 并通过交叉注意力直接条件化 Stable Diffusion，跳过传统的 CLIP/DINO 中间嵌入空间，在 NSD 等数据集上高层语义指标超越或持平现有方法，同时引入 IBBI 双向可解释性框架，首次动态揭示不同皮层区域在去噪轨迹中如何驱动图像生成。
 
 **[Tracing Pharmacological Knowledge In Large Language Models](tracing_pharmacological_knowledge_in_large_language_models.md)**
 

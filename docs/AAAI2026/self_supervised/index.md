@@ -48,7 +48,7 @@ description: >-
 
 **[Self-Supervised Inductive Logic Programming](self-supervised_inductive_logic_programming.md)**
 
-:   提出 Self-Supervised ILP 新范式和 Poker 系统，通过在学习过程中自动生成正负例来替代人工标注负例和定制背景理论，实现从少量正例学习递归逻辑程序。
+:   提出自监督归纳逻辑编程（SS-ILP）新设定及 Poker 系统，仅从少量正标签样本和无标签样本出发，自动生成正负样本，配合最大化通用的二阶确定性范式（SONF）背景理论，在无负样本情况下学习含递归和谓词发明的逻辑程序。
 
 **[Spikingformer A Key Foundation Model For Spiking Neural Networks](spikingformer_a_key_foundation_model_for_spiking_neural_networks.md)**
 

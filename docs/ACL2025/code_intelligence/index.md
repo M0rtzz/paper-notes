@@ -12,7 +12,7 @@ description: >-
 
 **[Benchmarking Long-Context Language Models On Long Code Understanding](benchmarking_long-context_language_models_on_long_code_understanding.md)**
 
-:   提出 LongCodeU 基准，从代码单元感知、单元内理解、单元间关系理解和长文档理解四个维度（8 个任务）系统评估长上下文语言模型的长代码理解能力，揭示了当代码长度超过 32K token 时 LCLM 性能急剧下降，远未达到其声称的 128K-1M 上下文窗口能力。
+:   提出 LongCodeU 基准，从代码单元感知、单元内理解、单元间关系理解和长文档理解四个维度设计 8 个任务，评估 9 个长上下文语言模型在真实仓库级长代码上的理解能力，揭示 32K token 是当前 LCLM 长代码理解的实际上限。
 
 **[Codedpo Code Alignment](codedpo_code_alignment.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Personality Guided Code Gen](personality_guided_code_gen.md)**
 
-:   让 GPT-4o 为每个编程任务生成适配的 MBTI 人格类型和描述，再让 LLM 以该人格角色扮演程序员生成代码，在 28 个 LLM-数据集组合中 23 个取得 pass rate 提升，最高达 12.9%，且可与 CoT 等策略叠加使用。
+:   用 GPT-4o 为每个编程任务动态生成适配的 MBTI 人格类型和详细描述，再让目标 LLM 以该人格角色扮演程序员生成代码，在 7 个 LLM × 4 个数据集的 28 个组合中 23 个取得 pass rate 提升，最高达 12.9%，关键因素是人格多样性而非某个特定人格。
 
 **[Revisit Self-Debugging With Self-Generated Tests For Code Generation](revisit_self-debugging_with_self-generated_tests_for_code_generation.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Tree Of Evolution Code Gen](tree_of_evolution_code_gen.md)**
 
-:   提出Tree-of-Evolution (ToE)——一种树结构的代码指令合成框架，通过多路径进化和质量驱动优化来克服现有方法（如Code Evol-Instruct/OSS-Instruct）的单向合成和随机生成限制，仅用75K合成数据微调base model即可达到或超越Qwen2.5-Coder-Instruct（数百万样本微调）的性能。
+:   提出Tree-of-Evolution (ToE)——一种树结构代码指令合成框架，通过多路径进化和质量驱动优化克服Code Evol-Instruct和OSS-Instruct的单向合成与随机生成限制，仅用75K合成数据微调base model即可达到或超越Qwen2.5-Coder-Instruct（数百万样本微调）的性能。
 
 **[Utboost Rigorous Evaluation Of Coding Agents On Swe-Bench](utboost_rigorous_evaluation_of_coding_agents_on_swe-bench.md)**
 

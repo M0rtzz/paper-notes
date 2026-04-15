@@ -438,7 +438,7 @@ description: >-
 
 **[Arbitrary-Scale 3D Gaussian Super-Resolution](3d_vision/arbitrary-scale_3d_gaussian_super-resolution.md)**
 
-:   提出一个集成框架实现3D高斯溅射(3DGS)的任意倍率超分辨率渲染，通过尺度感知渲染、生成先验引导优化和渐进超分机制，用单个3D模型支持整数和非整数倍率的HR渲染，PSNR提升6.59dB同时保持85 FPS实时速度。
+:   提出Arbi-3DGSR集成框架，通过尺度感知渲染、生成先验引导优化和渐进超分三个核心组件，首次实现单个3DGS模型支持任意（包括非整数）倍率的高分辨率渲染，在×5.7倍率下PSNR比3DGS提升6.59dB，且保持85 FPS实时速度。
 
 **[Assist-3D Adapted Scene Synthesis For Class-Agnostic 3D Instance Segmentation](3d_vision/assist-3d_adapted_scene_synthesis_for_class-agnostic_3d_instance_segmentation.md)**
 
@@ -654,7 +654,7 @@ description: >-
 
 **[S5 Scalable Semi-Supervised Semantic Segmentation In Remote Sensing](3d_vision/s5_scalable_semi-supervised_semantic_segmentation_in_remote_sensing.md)**
 
-:   提出 S5 框架，首次将半监督语义分割 (S4) 从小规模数据扩展为大规模预训练范式 (S4P)，构建百万级 RS4P-1M 数据集预训练遥感基础模型，并通过 MoE-based 多数据集微调实现 SOTA 性能。
+:   提出 S5 框架，首次将半监督语义分割扩展为遥感基础模型（RSFM）的预训练范式，通过构建百万级 RS4P-1M 数据集和 MoE 多数据集微调策略，在多个遥感分割与检测基准上达到 SOTA。
 
 **[Simba Towards High-Fidelity And Geometrically-Consistent Point Cloud Completion ](3d_vision/simba_towards_high-fidelity_and_geometrically-consistent_point_cloud_completion_.md)**
 
@@ -1026,7 +1026,7 @@ description: >-
 
 **[Abductivemllm Boosting Visual Abductive Reasoning Within Mll](image_generation/abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)**
 
-:   模仿人类的"语言溯因+图像想象"双模式认知，提出AbductiveMLLM，通过Reasoner(因果感知假设生成+筛选)和Imaginer(扩散模型引导的图像想象)两个组件端到端联合训练，在VAR和YouCookII两个benchmark上显著超越传统方法和通用MLLM，设置新的SOTA。
+:   受人类认知中"语言溯因+图像想象"双模式启发，提出 AbductiveMLLM，通过 Reasoner（因果对比学习筛选假设）和 Imaginer（扩散模型图像化推理）两个协同组件增强 MLLM 的视觉溯因推理能力，在 VAR 和 YouCookII 基准上取得 SOTA。
 
 **[Aedr Training-Free Ai-Generated Image Attribution Via Autoen](image_generation/aedr_training-free_ai-generated_image_attribution_via_autoen.md)**
 
@@ -1150,7 +1150,7 @@ description: >-
 
 **[Hierarchicalprune Position-Aware Compression For Large-Scale Diffusion Models](image_generation/hierarchicalprune_position-aware_compression_for_large-scale_diffusion_models.md)**
 
-:   基于 MMDiT 的双层级结构洞察（inter-block + intra-block hierarchy），提出 position-aware 的剪枝+蒸馏+量化框架，将 SD3.5 Large (8B) 从 15.8GB 压缩至 3.2GB（80% 内存降低），质量仅下降 ~5%。
+:   提出 HierarchicalPrune，利用 MMDiT 扩散模型中块的层级功能差异（早期块建立语义结构、后期块处理纹理细节），通过层级位置剪枝（HPP）、位置权重保护（PWP）和敏感度引导蒸馏（SGDistill）三种技术协同，结合 INT4 量化，将 SD3.5 Large Turbo（8B）从 15.8GB 压缩至 3.24GB（79.5% 内存缩减），仅损失 4.8% 图像质量。
 
 **[How Bias Binds Measuring Hidden Associations For Bias Control In Text-To-Image C](image_generation/how_bias_binds_measuring_hidden_associations_for_bias_control_in_text-to-image_c.md)**
 
@@ -1626,7 +1626,7 @@ description: >-
 
 **[Ccfqa A Benchmark For Cross-Lingual And Cross-Modal Speech And Text Factuality E](human_understanding/ccfqa_a_benchmark_for_cross-lingual_and_cross-modal_speech_and_text_factuality_e.md)**
 
-:   提出 CCFQA，一个覆盖 8 种语言、包含 14,400 条平行语音-文本事实问答样本的跨语言跨模态基准，用于系统评估多模态大语言模型在不同语言和输入模态下的事实一致性，并提出基于英语桥接的 few-shot 迁移策略 LLM-SQA。
+:   提出 CCFQA——首个覆盖 8 种语言、14,400 条完全平行语音-文本事实问答样本的跨语言跨模态基准，支持 QA/XQA/SQA/XSQA 四种任务设定，系统揭示了现有 MLLM 在语言和模态切换下的事实不一致性；同时提出 LLM-SQA，以英语为桥接语言、仅 5-shot 即实现跨语言语音问答迁移，在 XSQA 上 F1 达 51.4 超越 GPT-4o-mini-Audio（45.7）。
 
 **[Clip-Fti Fine-Grained Face Template Inversion Via Clip-Driven Attribute Conditio](human_understanding/clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)**
 
@@ -1682,7 +1682,7 @@ description: >-
 
 **[Finextrol Controllable Motion Generation Via Fine-Grained Text](human_understanding/finextrol_controllable_motion_generation_via_fine-grained_text.md)**
 
-:   提出 FineXtrol 框架，使用带时间标注的细粒度文本描述作为控制信号，结合层次化对比学习增强 text encoder 的判别力，实现对特定身体部位在指定时间区间内的精确动作生成控制。
+:   提出 FineXtrol 框架，利用带时间标注的细粒度身体部位文本描述作为控制信号，通过双分支 ControlNet 架构和层级对比学习增强文本编码器的区分能力，实现高效、用户友好且精确的可控人体动作生成，在 HumanML3D 上多身体部位控制性能显著优于现有方法。
 
 **[From Ids To Semantics A Generative Framework For Cross-Domain Recommendation Wit](human_understanding/from_ids_to_semantics_a_generative_framework_for_cross-domain_recommendation_wit.md)**
 
@@ -1990,7 +1990,7 @@ description: >-
 
 **[Matrix-Free Two-To-Infinity And One-To-Two Norms Estimation](ai_safety/matrix-free_two-to-infinity_and_one-to-two_norms_estimation.md)**
 
-:   提出 TwINEst 和 TwINEst++ 两种 matrix-free 随机算法用于估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并将其应用于深度网络 Jacobian 正则化（提升分类泛化和对抗鲁棒性）和推荐系统对抗防御。
+:   提出 TwINEst 和 TwINEst++ 两种基于 Hutchinson 对角估计器的随机算法，用于在无矩阵 (matrix-free) 设定下高效估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并提供了 oracle 复杂度理论保证，在 DNN 的 Jacobian 正则化（图像分类对抗鲁棒性）和推荐系统对抗攻击防御中展现了显著优势。
 
 **[Mpd-Sgr Robust Spiking Neural Networks With Membrane Potential Distribution-Driv](ai_safety/mpd-sgr_robust_spiking_neural_networks_with_membrane_potential_distribution-driv.md)**
 
@@ -2046,7 +2046,7 @@ description: >-
 
 **[Revisiting Unfairness In Recourse By Minimizing Worst-Case Social Burden](ai_safety/revisiting_unfairness_in_recourse_by_minimizing_worst-case_social_burden.md)**
 
-:   指出现有 recourse 公平性指标忽略了分类器决策偏差和 ground-truth 信息，提出基于 social burden 的整体公平性框架和 MISOB 算法，通过 minimax 重加权减少所有群体的 worst-case 社会负担。
+:   系统分析了算法追索 (algorithmic recourse) 中公平性度量的三大局限（忽视分类器决策行为、忽略真实标签、差距指标掩盖不公平），提出基于社会负担 (social burden) 的公平性框架 MISOB，通过极小化极大加权训练策略减少所有群体的社会负担，无需访问敏感属性即可在预测和追索阶段同时提升公平性。
 
 **[Robust Watermarking On Gradient Boosting Decision Trees](ai_safety/robust_watermarking_on_gradient_boosting_decision_trees.md)**
 
@@ -2218,7 +2218,7 @@ description: >-
 
 **[Lidarcrafter Dynamic 4D World Modeling From Lidar Sequences](autonomous_driving/lidarcrafter_dynamic_4d_world_modeling_from_lidar_sequences.md)**
 
-:   提出LiDARCrafter，首个专用于LiDAR的4D生成世界模型，通过Text2Layout（LLM解析文本→场景图→三分支扩散生成4D布局）→Layout2Scene（Range-image扩散生成高保真单帧）→Scene2Seq（自回归warp+扩散生成时序一致的序列）三阶段流程，在nuScenes上取得SOTA。
+:   提出 LiDARCrafter，首个面向 LiDAR 的 4D 生成式世界模型，通过文本→场景图→三分支扩散布局→range-image 扩散生成→自回归时序扩展的流水线，实现可控的 4D LiDAR 序列生成与编辑，在 nuScenes 上全面超越现有方法。
 
 **[Linext Revisiting Lidar Completion With Efficient Non-Diffusion Architectures](autonomous_driving/linext_revisiting_lidar_completion_with_efficient_non-diffusion_architectures.md)**
 
@@ -2718,7 +2718,7 @@ description: >-
 
 **[Some A Realistic Benchmark For Llm-Based Social Media Agents](llm_agent/some_a_realistic_benchmark_for_llm-based_social_media_agents.md)**
 
-:   提出 SoMe，首个全面评估 LLM 社交媒体 Agent 的 benchmark：8 个任务覆盖帖子分析、用户理解、综合推理，917 万帖子 + 6591 用户 + 1.7 万标注查询，配套 8 个 MCP 兼容工具，评估 13 个主流 LLM 发现最强模型仅 54.33 分（满分 100），揭示了推理能力≠Agent能力、工具调用幻觉普遍存在等关键发现。
+:   提出首个面向社交媒体智能体的综合性评测基准 SoMe，包含 8 项任务、900 万+真实帖子和 17,869 条标注查询，评估 13 个主流 LLM 的社交媒体代理能力，揭示现有模型在复杂社交任务上仍有较大差距。
 
 **[Structured Personalization Modeling Constraints As Matroids For Data-Minimal Llm](llm_agent/structured_personalization_modeling_constraints_as_matroids_for_data-minimal_llm.md)**
 
@@ -2750,7 +2750,7 @@ description: >-
 
 **[A Theoretical Analysis Of Detecting Large Model-Generated Time Series](object_detection/a_theoretical_analysis_of_detecting_large_model-generated_time_series.md)**
 
-:   首次研究时间序列大模型（TSLM）生成内容的检测问题——提出收缩假说（Contraction Hypothesis）：TSLM 生成的时间序列在递归预测下不确定性逐渐降低（分布越来越集中），而真实序列不会。基于此提出白盒检测器 UCE（Uncertainty Contraction Estimator），在 32 个数据集上超越 SOTA 基线。
+:   首次提出时间序列大模型（TSLM）生成内容检测理论框架，通过收缩假说（Contraction Hypothesis）揭示TSLM生成序列在递归预测下不确定性指数级衰减的本质特征，据此设计UCE检测器，在32个数据集上In-Distribution AUROC达0.855，显著超越10种文本检测baseline。
 
 **[Actor-Critic For Continuous Action Chunks A Reinforcement Le](object_detection/actor-critic_for_continuous_action_chunks_a_reinforcement_le.md)**
 
@@ -2918,7 +2918,7 @@ description: >-
 
 **[3D4D An Interactive Editable 4D World Model Via 3D Video Generation](video_understanding/3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)**
 
-:   提出 3D4D，一个集成 WebGL 和 Supersplat 渲染的交互式 4D 可视化框架，通过四个后端模块（3D重建、图像生视频、视频分帧、4D场景生成）将静态图片和文本转化为可实时交互的 4D 场景，并引入 VLM 引导的注视点渲染策略在保持语义一致性的同时实现 60fps 实时交互。
+:   提出3D4D交互式4D可视化框架，集成WebGL与Supersplat渲染，通过四模块后端管线将静态图片/文本转化为可编辑4D场景，引入VLM引导的注视点渲染策略实现60fps实时交互，在CLIP Consistency和CLIP Score上达到SOTA。
 
 **[Apvr Hour-Level Long Video Understanding With Adaptive Pivot](video_understanding/apvr_hour-level_long_video_understanding_with_adaptive_pivot.md)**
 
@@ -3302,7 +3302,7 @@ description: >-
 
 **[Induce Align Predict Zero-Shot Stance Detection Via Cognitive Inductive Reasonin](interpretability/induce_align_predict_zero-shot_stance_detection_via_cognitive_inductive_reasonin.md)**
 
-:   提出CIRF（Cognitive Inductive Reasoning Framework），受认知科学启发，从原始文本中无监督归纳一阶逻辑推理模式（schema），构建多关系schema图，用图核模型对齐输入与schema模板实现可解释的零样本立场推理，在SemEval-2016、VAST和COVID-19-Stance上达到SOTA，仅30%数据即可匹配全量。
+:   提出CIRF框架，通过无监督schema归纳（USI）从LLM生成的一阶逻辑中抽象可迁移推理模式，再用schema增强图核模型（SEGKM）进行结构对齐实现可解释零样本立场推理，在三个基准上达到SOTA且仅需30%标注数据。
 
 **[Llm Circuit Analyses Consistent Across Training And Scale](interpretability/llm_circuit_analyses_consistent_across_training_and_scale.md)**
 
@@ -3422,7 +3422,7 @@ description: >-
 
 **[Optimal Look-Back Horizon For Time Series Forecasting In Federated Learning](time_series/optimal_look-back_horizon_for_time_series_forecasting_in_federated_learning.md)**
 
-:   提出联邦学习场景下时间序列预测的最优 look-back horizon 理论框架：通过 Synthetic Data Generator (SDG) 建模 non-IID 客户端数据，构建 intrinsic representation space，证明预测损失可分解为 Bayesian loss（随 $H$ 递减并饱和）和 approximation loss（随 $H$ 递增），最优 horizon $H^*$ 为 Bayesian loss 开始饱和的最小值。
+:   提出联邦学习场景下时间序列预测的最优回看窗口（look-back horizon）理论框架，通过合成数据生成器（SDG）和内禀空间表示，将预测损失分解为贝叶斯不可约误差和近似误差，证明总损失关于窗口长度是单峰的，最小充分窗口为最优解。
 
 **[Predicting The Future By Retrieving The Past](time_series/predicting_the_future_by_retrieving_the_past.md)**
 
@@ -4418,7 +4418,7 @@ description: >-
 
 **[Probabilistic Hash Embeddings For Online Learning Of Categorical Features](recommender/probabilistic_hash_embeddings_for_online_learning_of_categorical_features.md)**
 
-:   提出 Probabilistic Hash Embeddings (PHE)，将 hash embedding 视为随机变量并通过 Bayesian online learning 进行后验推断，解决流式数据中类别特征词汇不断增长时确定性 hash embedding 遭受的灾难性遗忘问题。
+:   提出概率哈希嵌入 (PHE)，将哈希嵌入表建模为随机变量并通过贝叶斯在线学习进行后验推断，解决了确定性哈希嵌入在流式数据场景下因参数共享导致的灾难性遗忘问题，在分类、序列建模和推荐系统中显著优于确定性基线，且仅需无碰撞嵌入表 2%~4% 的内存。
 
 **[Semi-Supervised Synthetic Data Generation With Fine-Grained Relevance Control Fo](recommender/semi-supervised_synthetic_data_generation_with_fine-grained_relevance_control_fo.md)**
 
@@ -4630,7 +4630,7 @@ description: >-
 
 **[Self-Supervised Inductive Logic Programming](self_supervised/self-supervised_inductive_logic_programming.md)**
 
-:   提出 Self-Supervised ILP 新范式和 Poker 系统，通过在学习过程中自动生成正负例来替代人工标注负例和定制背景理论，实现从少量正例学习递归逻辑程序。
+:   提出自监督归纳逻辑编程（SS-ILP）新设定及 Poker 系统，仅从少量正标签样本和无标签样本出发，自动生成正负样本，配合最大化通用的二阶确定性范式（SONF）背景理论，在无负样本情况下学习含递归和谓词发明的逻辑程序。
 
 **[Spikingformer A Key Foundation Model For Spiking Neural Networks](self_supervised/spikingformer_a_key_foundation_model_for_spiking_neural_networks.md)**
 
@@ -4854,7 +4854,7 @@ description: >-
 
 **[Phys-Liquid A Physics-Informed Dataset For Estimating 3D Geometry And Volume Of ](scientific_computing/phys-liquid_a_physics-informed_dataset_for_estimating_3d_geometry_and_volume_of_.md)**
 
-:   提出 Phys-Liquid 数据集（97,200 张仿真图像 + 3D mesh），基于 Navier-Stokes 方程模拟容器旋转引起的透明液体动态变形，并设计四阶段管线验证其在液体几何重建和体积估计中的有效性。
+:   构建了 Phys-Liquid 数据集（97,200 张物理仿真图像 + 3D mesh），基于 Navier-Stokes 方程模拟透明容器内液体的动态形变，并提出四阶段重建管线（分割→多视角 mask 生成→3D 重建→缩放），在仿真和真实场景中实现高精度液体几何与体积估计。
 
 **[Physicscorrect A Training-Free Approach For Stable Neural Pde Simulations](scientific_computing/physicscorrect_a_training-free_approach_for_stable_neural_pde_simulations.md)**
 
@@ -4894,7 +4894,7 @@ description: >-
 
 **[M3Sr Multi-Scale Multi-Perceptual Mamba For Efficient Spectral Reconstruction](remote_sensing/m3sr_multi-scale_multi-perceptual_mamba_for_efficient_spectral_reconstruction.md)**
 
-:   提出 M3SR，基于 Mamba 的 U-Net 架构，通过多感知融合 (MPF) 模块在空间、频率和光谱三个维度并行建模并自适应融合，以 2.17M 参数和 100.9G FLOPs 实现 4 个基准上的 SOTA 高光谱重建（NTIRE2022 PSNR 31.40）。
+:   提出 M3SR，一种基于 Mamba 的多尺度多感知架构，通过空间-频率-光谱三分支并行融合结合 U-Net 多尺度结构，以 2.17M 参数和 100.9G FLOPs 的低计算代价在四个光谱重建基准上超越现有 SOTA 方法。
 
 **[Machine Learning For Sustainable Rice Production Region-Scale Monitoring Of Wate](remote_sensing/machine_learning_for_sustainable_rice_production_region-scale_monitoring_of_wate.md)**
 
@@ -5226,7 +5226,7 @@ description: >-
 
 **[Designing Incident Reporting Systems For Harms From General-Purpose Ai](others/designing_incident_reporting_systems_for_harms_from_general-purpose_ai.md)**
 
-:   通过文献综述和 9 个安全关键行业（核电、航空、网安等）的案例研究，提出 AI 事故报告系统的 7 维制度设计框架，为美国 GPAI 事故报告系统的构建提供系统性设计建议。
+:   通过文献综述和九个安全关键行业（核能、航空、医疗等）的案例研究，提出了 AI 事件报告系统制度设计的七维框架，为美国通用 AI 事件报告的政策设计提供系统性指导。
 
 **[Detonation Decoupled Torch Network-Aware Training On Interlinked Online Nodes](others/detonation_decoupled_torch_network-aware_training_on_interlinked_online_nodes.md)**
 

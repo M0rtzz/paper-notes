@@ -32,7 +32,7 @@ description: >-
 
 **[Learning Cascade Ranking As One Network](learning_cascade_ranking_as_one_network.md)**
 
-:   提出LCRON将多阶段级联排序系统作为统一网络端到端训练：设计基于ground truth存活概率下界的代理损失，确保训练目标与系统整体目标对齐，并通过辅助损失驱动各阶段协同学习。
+:   提出LCRON，将多阶段级联排序系统作为统一网络进行端到端训练：通过可微排序技术构建的端到端代理损失$L_{e2e}$直接优化ground truth items通过整个级联的存活概率下界，辅以从下界紧致度推导出的各阶段辅助损失$L_{single}$驱动阶段间协同，在公开基准和工业广告系统的线上A/B测试中均取得显著提升（广告收入+4.10%，用户转化+1.60%）。
 
 **[New Interaction Paradigm For Complex Eda Software Leveraging Gpt](new_interaction_paradigm_for_complex_eda_software_leveraging_gpt.md)**
 

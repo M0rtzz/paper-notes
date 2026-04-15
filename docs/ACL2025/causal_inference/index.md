@@ -12,7 +12,7 @@ description: >-
 
 **[Causal Graph Based Event Reasoning Using Semantic Relation Experts](causal_graph_based_event_reasoning_using_semantic_relation_experts.md)**
 
-:   本文提出了一种基于多个语义关系专家（时间、篇章、前置条件、常识）协作讨论的因果事件图生成方法，用于显式建模事件间的因果连接，并在事件预测、事件预报等多个下游任务上取得了有竞争力的结果。
+:   提出基于四类语义关系专家（时间、篇章、条件、常识）多轮协作讨论的因果事件图生成框架，在零样本设置下于事件预测、事件预报等多个下游任务上取得与微调模型竞争的结果，并提供可解释的因果事件链。
 
 **[Causalrag Integrating Causal Graphs Into Retrieval-Augmented Generation](causalrag_integrating_causal_graphs_into_retrieval-augmented_generation.md)**
 

@@ -12,7 +12,7 @@ description: >-
 
 **[A Multitask Benchmark For Abusive Language Detection In Lowr](a_multitask_benchmark_for_abusive_language_detection_in_lowr.md)**
 
-:   针对低资源语言 Tigrinya，构建了首个大规模多任务基准数据集 TiALD（13,717条YouTube评论，涵盖滥用检测、情感分析、主题分类三任务），并证明小型微调模型在低资源场景下显著优于GPT-4o等前沿LLM（F1: 86.67% vs 79.31%）。
+:   提出 TiALD（Tigrinya Abusive Language Detection），首个面向 Tigrinya 低资源语言的大规模多任务基准数据集，包含 13,717 条 YouTube 评论的辱骂/情感/主题三任务联合标注，同时发现小型微调模型（TiRoBERTa, 125M）在所有任务上全面超越 GPT-4o 和 Claude Sonnet 3.7 等前沿 LLM。
 
 **[Active Slice Discovery In Large Language Models](active_slice_discovery_in_large_language_models.md)**
 
@@ -64,11 +64,11 @@ description: >-
 
 **[Policy-As-Prompt Turning Ai Governance Rules Into Guardrails For Ai Agents](policy-as-prompt_turning_ai_governance_rules_into_guardrails_for_ai_agents.md)**
 
-:   提出Policy-as-Prompt框架，将非结构化的设计文档（PRD、TDD）自动转换为可验证的运行时护栏，通过轻量级LLM分类器实现对AI Agent的实时策略执行和合规监控。
+:   提出 Policy-as-Prompt 框架，通过两阶段端到端流水线——策略树生成（POLICY-TREE-GEN）和策略即提示生成（POLICY-AS-PROMPT-GEN）——将团队已有的非结构化设计文档（PRD、TDD、代码）自动转换为可运行时执行的策略护栏，使用轻量级 LLM 作为合规"法官"，在 HR 和 SOC 应用中实现 70-73% 的输入/输出分类准确率。
 
 **[Position Paper If Innovation In Ai Systematically Violates Fundamental Rights Is](position_paper_if_innovation_in_ai_systematically_violates_fundamental_rights_is.md)**
 
-:   本立场论文挑战"监管与创新对立"的固有观念，论证良好设计的监管（以EU AI Act为范例）是创新的基础而非阻碍，并重新定义创新：系统性侵犯基本权利的技术不配称为"创新"。
+:   本文挑战"监管与创新对立"的固有信念，通过制药、航空、福利系统的历史类比和 Collingridge 困境分析论证良好设计的监管是创新的基础而非阻碍，并以 EU AI Act 的监管沙盒、中小企业支持等机制为范例展示监管如何加速而非延缓负责任的技术进步。
 
 **[Precise Information Control In Long-Form Text Generation](precise_information_control_in_long-form_text_generation.md)**
 

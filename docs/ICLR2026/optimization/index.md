@@ -28,11 +28,11 @@ description: >-
 
 **[Constraint Matters Multi-Modal Representation For Reducing Mixed-Integer Linear ](constraint_matters_multi-modal_representation_for_reducing_mixed-integer_linear_.md)**
 
-:   提出基于约束缩减的 MILP 模型简化框架：用信息论启发的启发式规则识别关键紧约束（CTC），设计融合实例级和抽象级信息的多模态 GNN 表征来预测 CTC，在大规模 MILP 上解质量提升 50%+、计算时间减少 17.47%。
+:   提出基于约束缩减的 MILP 模型简化框架：定义固定约束强度 $\rho$ 并用信息增益 $\Delta H=-\log\rho$ 识别关键紧约束（CTC），设计融合实例级双部图与抽象级类型图的多模态 GNN 表征来预测 CTC，在 4 个大规模基准上解质量（$\text{gap}_\text{abs}$）平均提升 51.06%、收敛速度（PDI）平均加快 17.47%。
 
 **[Converge Faster Talk Less Hessian-Informed Federated Zeroth-Order Optimization](converge_faster_talk_less_hessian-informed_federated_zeroth-order_optimization.md)**
 
-:   提出 HiSo，在联邦零阶优化中利用全局对角 Hessian 近似加速收敛，同时严格保持标量通信（不传输任何二阶信息），理论证明收敛速率独立于 Lipschitz 常数 $L$ 和模型维度 $d$，在 LLM 微调中通信轮次比 SOTA 零阶方法快 1-5 倍。
+:   提出 HiSo（Hessian-informed Scalar-only communication），在联邦零阶优化中利用全局对角 Hessian 近似加速收敛，同时严格保持标量通信不传输任何二阶信息。理论证明在低有效秩和白化假设下收敛速率独立于 Lipschitz 常数 $L$ 和模型维度 $d$；实验在 OPT-350M/1.3B/2.7B 微调中实现 1.4~5.4× 通信轮次加速，通信成本仅 KB 级。
 
 **[Convergence Of Muon With Newton-Schulz](convergence_of_muon_with_newton-schulz.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Generalization Below The Edge Of Stability The Role Of Data Geometry](generalization_below_the_edge_of_stability_the_role_of_data_geometry.md)**
 
-:   提出"数据可碎性"(data shatterability)概念统一解释数据几何如何控制梯度下降在稳定性边缘(EoS)附近的隐式正则化强度：低维流形数据的泛化界依赖内在维度而非环境维度，而球面上的数据允许记忆——数据越难被ReLU超平面碎片化，泛化越好。
+:   提出"数据可碎性"（data shatterability）原理统一解释数据几何如何控制梯度下降在稳定性边缘（EoS）附近的隐式正则化强度：对 Beta(α) 径向分布族推导出依赖 α 的泛化上下界谱，对低维子空间混合分布证明泛化率适应内在维度 $m$ 而非环境维度 $d$。
 
 **[Learning To Recall With Transformers Beyond Orthogonal Embeddings](learning_to_recall_with_transformers_beyond_orthogonal_embeddings.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Learning To Solve Orienteering Problem With Time Windows And Variable Profits](learning_to_solve_orienteering_problem_with_time_windows_and_variable_profits.md)**
 
-:   提出DeCoST——学习式两阶段方法解决带时间窗和可变利润的定向问题(OPTWVP)：第一阶段并行解码器预测路径和初始服务时间分配,第二阶段用线性规划在固定路径上全局最优化服务时间(证明全局最优性),通过利润加权时间分配比(pTAR)提供跨阶段反馈→在解质量和效率上超越SOTA构造式和元启发式方法(最高6.6x推理加速)。
+:   提出DeCoST——一种学习式两阶段框架，将OPTWVP中耦合的离散路线决策和连续服务时间分配解耦：第一阶段并行解码器联合生成路径+初始服务时间，第二阶段LP精确优化服务时间(全局最优)，通过pTAR反馈实现跨阶段协调。在50-500节点OPTWVP上优化间隙仅0.83%-3.31%，推理速度比元启发式快最高45倍。
 
 **[Markovian Transformers For Informative Language Modeling](markovian_transformers_for_informative_language_modeling.md)**
 
@@ -108,11 +108,11 @@ description: >-
 
 **[Nonparametric Teaching Of Attention Learners](nonparametric_teaching_of_attention_learners.md)**
 
-:   提出AtteNT——从非参教学理论视角重新解释注意力学习器的训练过程：解析证明注意力对参数梯度下降的影响→动态ANTK收敛到功能梯度中的重要性自适应典范核→建立参数空间和函数空间的一致性→用贪心教学算法(选最大预测偏差的样本)加速训练→LLM微调减少13.01%训练时间/ViT从头训练减少20.58%且精度不降甚至提升。
+:   提出AtteNT——从非参教学理论视角重新解释注意力学习器(Transformer/ViT)的训练过程：解析注意力在参数梯度中的重要性自适应角色→证明动态ANTK收敛到功能梯度中的重要性自适应典范核→桥接参数空间与函数空间→用贪心教学算法选择预测偏差最大的样本加速训练→LLM微调省时13.01%/ViT从头训练省时20.58%且精度不降反升。
 
 **[Nrgpt An Energy-Based Alternative For Gpt](nrgpt_an_energy-based_alternative_for_gpt.md)**
 
-:   提出NRGPT(eNeRgy-GPT)——将GPT设定与能量基模型(EBM)框架统一的最小修改方案：设计能量函数使推理过程成为tokens在能量landscape上的探索,证明某些条件下此探索等价于梯度下降(虽然非梯度下降不一定最差),在Shakespeare/ListOPS/OpenWebText上验证可行性,观察到可能更抗过拟合的特性。
+:   提出NRGPT（eNeRgy-GPT），对标准GPT进行最小修改使其成为能量基模型：设计注意力能量和前馈能量函数，使每层前向传播等价于token在能量landscape上的梯度下降步，证明了渐近能量下降和稳定收敛性质，在ListOps/Shakespeare/OpenWebText上验证了与标准GPT可比的性能。
 
 **[Personalized Collaborative Learning With Affinity-Based Variance Reduction](personalized_collaborative_learning_with_affinity-based_variance_reduction.md)**
 
@@ -156,7 +156,7 @@ description: >-
 
 **[Test-Time Meta-Adaptation With Self-Synthesis](test-time_meta-adaptation_with_self-synthesis.md)**
 
-:   提出MASS框架，通过双层优化元学习让LLM在推理时自动生成问题特定的合成训练数据并自更新(LoRA)，在MATH-500上将Llama-3.1-8B从43.6%提升到59.0%。
+:   提出 MASS（Meta-Adaptation with Self-Synthesis）框架，通过双层优化元学习让 LLM 在推理时生成问题特定的合成训练数据（Generator）+ 评分筛选（Scorer）+ 加权 SFT 自更新（LoRA），meta-gradient 反向传播穿过内更新以优化数据质量，在 MATH-500 上将 Llama-3.1-8B 从 43.6% 提升至 59.0%。
 
 **[The Affine Divergence Aligning Activation Updates Beyond Normalisation](the_affine_divergence_aligning_activation_updates_beyond_normalisation.md)**
 

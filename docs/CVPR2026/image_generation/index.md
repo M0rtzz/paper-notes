@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像生成方向 165篇论文解读
+  CVPR2026 图像生成方向 163篇论文解读
 description: >-
-  165篇CVPR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  163篇CVPR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2026** · 共 **165** 篇
+**📷 CVPR2026** · 共 **163** 篇
 
 **[2Ndmatch Finetuning Pruned Diffusion Models Via Second-Order Jacobian Matching](2ndmatch_finetuning_pruned_diffusion_models_via_second-order_jacobian_matching.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Agentic Retoucher For Texttoimage Generation](agentic_retoucher_for_texttoimage_generation.md)**
 
-:   Agentic Retoucher 将 T2I 生成后的缺陷修复重构为"感知→推理→行动"的人类式闭环决策过程，用三个协作 agent 分别做上下文感知的扭曲检测、人类对齐的诊断推理和自适应局部修复，在 GenBlemish-27K 上 plausibility 提升 2.89 分，83.2% 的结果被人类评为优于原图。
+:   Agentic Retoucher 将 T2I 生成图像的局部缺陷修复重构为感知→推理→行动的多 agent 闭环决策流程，通过上下文感知的显著性检测、人类偏好对齐的诊断推理和自适应工具选择实现自主修复，在 GenBlemish-27K 上 plausibility 提升 2.89 分，83.2% 修复结果被人类评为优于原图。
 
 **[Alignvar Towards Globally Consistent Visual Autoregression For Image Super-Resol](alignvar_towards_globally_consistent_visual_autoregression_for_image_super-resol.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Attribution As Retrieval Modelagnostic Aigenerated](attribution_as_retrieval_modelagnostic_aigenerated.md)**
 
-:   将 AI 生成图像归因从分类范式重新定义为实例检索问题，提出 LIDA 框架：利用低位平面提取生成器指纹，通过无监督预训练 + 少样本适配实现开放集归因，在 GenImage 和 WildFake 上全面超越现有方法。
+:   提出 LIDA，将 AI 生成图像溯源从分类问题转化为检索问题，利用低位平面指纹捕获生成器特异性伪影，配合无监督预训练和少样本自适应，在零/少样本设置下实现 SOTA 的 Deepfake 检测和图像溯源。
 
 **[Autodebias Automated Framework For Debiasing Text-To-Image Models](autodebias_automated_framework_for_debiasing_text-to-image_models.md)**
 
@@ -129,10 +129,6 @@ description: >-
 **[Causal Motion Diffusion Models For Autoregressive Motion Generation](causal_motion_diffusion_models_for_autoregressive_motion_generation.md)**
 
 :   提出 CMDM 框架，在运动-语言对齐的因果隐空间中统一扩散去噪与自回归生成，通过帧级独立噪声和因果不确定性采样调度，实现高质量、低延迟的文本到动作生成和长序列流式合成。
-
-**[Cdg Condition Degradation Guidance Diffusion](cdg_condition_degradation_guidance_diffusion.md)**
-
-:   提出CDG替代CFG——用语义退化条件替代空null prompt作为负面引导，将引导信号从粗粒度"好vs空"变为精细"好vs差一点"，在SD3/FLUX/Qwen-Image上显著提升组合精度，零额外计算。
 
 **[Cfg-Ctrl Control-Based Classifier-Free Diffusion Guidance](cfg-ctrl_control-based_classifier-free_diffusion_guidance.md)**
 
@@ -216,7 +212,7 @@ description: >-
 
 **[D2C Diffusion Dataset Condensation](d2c_diffusion_dataset_condensation.md)**
 
-:   首次将数据集压缩(Dataset Condensation)应用于扩散模型训练，提出D2C两阶段框架——Select阶段用扩散难度分数+区间采样选出紧凑子集、Attach阶段为每个样本附加文本和视觉表示——仅用0.8% ImageNet(10K图像)在40K步即达FID 4.3,比REPA快100×、比vanilla SiT快233×。
+:   首次将数据集压缩引入扩散模型训练，提出D2C两阶段框架（Select+Attach），仅用0.8% ImageNet数据在40K步达到FID 4.3，比REPA快100倍、比vanilla SiT快233倍。
 
 **[Da-Vae Plug-In Latent Compression For Diffusion Via Detail Alignment](da-vae_plug-in_latent_compression_for_diffusion_via_detail_alignment.md)**
 
@@ -248,7 +244,7 @@ description: >-
 
 **[Disca Accelerating Video Diffusion Transformers Wi](disca_accelerating_video_diffusion_transformers_wi.md)**
 
-:   DisCa 首次提出"可学习特征缓存 + 步蒸馏"兼容的加速方案：用轻量神经预测器替代传统手工缓存策略，并通过 Restricted MeanFlow 稳定大规模视频模型的蒸馏，在 HunyuanVideo 上实现 11.8× 近无损加速。
+:   DisCa 首次将可学习特征缓存与步蒸馏统一为兼容框架，用轻量神经预测器（<4% 模型参数）替代手工缓存策略，配合 Restricted MeanFlow 稳定大规模视频 DiT 蒸馏，在 HunyuanVideo 上实现 11.8× 近无损加速。
 
 **[Disca Accelerating Video Diffusion Transformers With Distillation-Compatible Lea](disca_accelerating_video_diffusion_transformers_with_distillation-compatible_lea.md)**
 
@@ -273,10 +269,6 @@ description: >-
 **[Dmin Scalable Training Data Influence Estimation For Diffusion Models](dmin_scalable_training_data_influence_estimation_for_diffusion_models.md)**
 
 :   提出 DMin，一个可扩展的扩散模型训练数据影响力估计框架，通过高效梯度压缩将存储需求从数百 TB 降至 MB/KB 级别，首次实现对数十亿参数扩散模型的影响力估计，支持亚秒级 top-k 检索。
-
-**[Dpcache Denoising Path Planning Diffusion Accel](dpcache_denoising_path_planning_diffusion_accel.md)**
-
-:   将扩散采样加速形式化为全局路径规划问题，通过Path-Aware Cost Tensor量化路径依赖的跳步误差，用动态规划选出最优关键时间步序列，在FLUX上实现4.87×加速且ImageReward反超全步基线。
 
 **[Editing Away The Evidence Diffusion-Based Image Manipulation And The Failure Mod](editing_away_the_evidence_diffusion-based_image_manipulation_and_the_failure_mod.md)**
 
@@ -496,7 +488,7 @@ description: >-
 
 **[Pixel Motion Diffusion Is What We Need For Robot Control](pixel_motion_diffusion_is_what_we_need_for_robot_control.md)**
 
-:   DAWN 提出两阶段全扩散框架，通过 Motion Director 生成稠密像素运动场作为可解释中间表征，再由 Action Expert 转化为机器人动作序列，在 CALVIN 基准上实现 SOTA（平均长度 4.00）且数据效率极高。
+:   DAWN 提出两阶段全扩散框架——Motion Director 生成稠密像素运动场作为可解释中间表征，Action Expert 将其转化为可执行机器人动作序列，在 CALVIN（Avg Len 4.00）、MetaWorld（Overall 65.4%）和真实世界均达到 SOTA，且模型容量和训练数据远小于竞争方法。
 
 **[Pixelrush Ultra-Fast Training-Free High-Resolution Image Generation Via One-Step](pixelrush_ultra-fast_training-free_high-resolution_image_generation_via_one-step.md)**
 

@@ -100,7 +100,7 @@ description: >-
 
 **[Improved Last-Iterate Convergence Of Shuffling Gradient Methods For Nonsmooth Co](improved_last-iterate_convergence_of_shuffling_gradient_methods_for_nonsmooth_co.md)**
 
-:   首次证明RR和SS在非光滑（强）凸有限和优化中，last-iterate收敛率严格优于Proximal GD，达到近似最优的O(1/(n^{1/4}sqrt(K)))，匹配下界。
+:   首次证明 Random Reshuffle（RR）和 Single Shuffle（SS）在非光滑（强）凸有限和优化中的 last-iterate 收敛率严格优于 Proximal GD，RR 达到 $\tilde{O}(GD_\star / (n^{1/4}\sqrt{K}))$，近似匹配下界 $\Omega(1/(n^{1/4}\sqrt{K}))$。
 
 **[Improved Sample Complexity For Private Nonsmooth Nonconvex Optimization](improved_sample_complexity_for_private_nonsmooth_nonconvex_optimization.md)**
 
@@ -112,7 +112,7 @@ description: >-
 
 **[Incremental Gradient Descent With Small Epoch Counts Is Surprisingly Slow On Ill](incremental_gradient_descent_with_small_epoch_counts_is_surprisingly_slow_on_ill.md)**
 
-:   揭示IGD（确定性排列SGD）在小epoch情形(K<kappa)的令人惊讶的慢收敛：即使所有组件强凸仍无法快于均匀SGD；非凸组件导致指数级退化。
+:   系统研究了增量梯度下降（IGD）在小 epoch 体制（$K \lesssim \kappa$）下的收敛行为，证明 IGD 在此体制下比有放回 SGD 慢至少 $n$ 倍，且当分量函数非凸时收敛速度急剧恶化至指数级慢。
 
 **[Integer Programming For Generalized Causal Bootstrap Designs](integer_programming_for_generalized_causal_bootstrap_designs.md)**
 

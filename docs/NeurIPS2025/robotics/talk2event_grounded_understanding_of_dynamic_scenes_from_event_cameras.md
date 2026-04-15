@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2507.17664](https://arxiv.org/abs/2507.17664)  
 **代码**: 无  
 **领域**: 机器人  
-**关键词**: 事件相机, 视觉定位, multimodal, mixture of experts, 自动驾驶, benchmark
+**关键词**: 事件相机, 视觉定位, multimodal, mixture of experts, 自动驾驶, benchmark  
 # Talk2Event: 基于事件相机的动态场景语言定位
 
 ## 一句话总结

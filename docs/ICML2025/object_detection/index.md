@@ -20,11 +20,11 @@ description: >-
 
 **[Few-Shot Learner Generalizes Across Ai-Generated Image Detection](few-shot_learner_generalizes_across_ai-generated_image_detection.md)**
 
-:   首次将AI生成图像检测重新定义为少样本分类任务，提出FSD(Few-Shot Detector)基于原型网络学习度量空间，仅用10个未见域样本即在GenImage基准上超越SOTA 11.6%。
+:   首次将 AI 生成图像检测重新定义为少样本分类任务，提出 FSD (Few-Shot Detector) 基于原型网络学习度量空间，仅用 10 个来自未见生成模型的样本，在 GenImage 数据集上平均准确率达 84.1%，超越此前 SOTA (LARE2) +11.6%。
 
 **[Fg-Clip Fine-Grained Visual And Textual Alignment](fg-clip_fine-grained_visual_and_textual_alignment.md)**
 
-:   FG-CLIP通过三大创新增强CLIP的细粒度理解：1.6B长描述-图像对用于全局语义，12M图像+40M区域标注用于精细对齐，10M硬负样本用于区分微妙语义差异，在细粒度理解/OV检测/检索等任务上全面超越CLIP。
+:   FG-CLIP 系统性地解决 CLIP 细粒度理解的三大瓶颈：用 1.6B 长描述-图像对捕获全局语义细节，12M 图像+40M 区域标注实现精细区域对齐，10M 硬负样本训练模型区分微妙语义差异，在细粒度理解、开放词汇检测、图文检索等多项任务上取得全面领先。
 
 **[Global Context-Aware Representation Learning For Spatially Resolved Transcriptom](global_context-aware_representation_learning_for_spatially_resolved_transcriptom.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Ui-Vision A Desktop-Centric Gui Benchmark For Visual Perception And Interaction](ui-vision_a_desktop-centric_gui_benchmark_for_visual_perception_and_interaction.md)**
 
-:   提出 UI-Vision，首个面向桌面环境的许可开放、离线评估基准，覆盖 83 个软件应用，定义了元素定位、布局定位和动作预测三个由细到粗的评估任务，揭示了 SOTA 模型（如 UI-TARS-72B）在专业软件理解和空间推理上的关键局限。
+:   提出 UI-Vision——首个面向桌面环境的综合离线评估基准，覆盖 83 个软件应用，提供密集的 bounding box、UI 标签和操作轨迹标注，定义从细粒度到粗粒度的三级评估任务（Element Grounding → Layout Grounding → Action Prediction），系统评估并揭示 SOTA 模型在专业软件理解、空间推理和复杂操作上的关键短板。
 
 **[Understanding The Emergence Of Multimodal Representation Alignment](understanding_the_emergence_of_multimodal_representation_alignment.md)**
 

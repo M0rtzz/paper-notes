@@ -12,7 +12,7 @@ description: >-
 
 **[A General Knowledge Injection Framework For Icd Coding](a_general_knowledge_injection_framework_for_icd_coding.md)**
 
-:   提出 GKI-ICD，首个无需额外专用网络模块即可同时注入三种 ICD 编码知识（描述、同义词、层级结构）的通用框架——通过合成知识引导文本（Guideline Synthesis）+ 多任务学习实现知识注入，在 MIMIC-III 和 MIMIC-III-50 上大多数指标达到 SOTA。
+:   > 本文提出 GKI-ICD，一个通用的知识注入框架，通过指南合成和多任务学习机制，无需额外网络模块即可同时整合 ICD Description、Synonym 和 Hierarchy 三种知识，在 MIMIC-III 基准上取得 SOTA 性能。
 
 **[Adaptive Detoxification Safeguarding General Capabilities Of Llms Through Toxici](adaptive_detoxification_safeguarding_general_capabilities_of_llms_through_toxici.md)**
 
@@ -20,7 +20,7 @@ description: >-
 
 **[Bmike-53 Investigating Cross-Lingual Knowledge Editing With In-Context Learning](bmike-53_investigating_cross-lingual_knowledge_editing_with_in-context_learning.md)**
 
-:   提出 BMIKE-53，覆盖 53 种语言的跨语言上下文知识编辑 (IKE) 基准，统一了 zsRE/CounterFact/WikiFactDiff 三个知识编辑数据集，系统评估发现模型规模和示例对齐对跨语言 IKE 效果至关重要，文字系统类型是影响跨语言性能差异的关键因素。
+:   提出 BMIKE-53 —— 覆盖 53 种语言、整合 zsRE/CounterFact/WikiFactDiff 三个知识编辑数据集的跨语言基准，系统评估 zero-shot 到 8-shot 的上下文知识编辑方法，发现文字系统（拉丁 vs 非拉丁）比语言家族更能决定跨语言编辑效果，且 metric-specific 示例策略显著优于混合示例。
 
 **[Chainedit Propagating Ripple Effects In Llm](chainedit_propagating_ripple_effects_in_llm.md)**
 

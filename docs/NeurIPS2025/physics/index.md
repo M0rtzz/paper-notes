@@ -40,11 +40,11 @@ description: >-
 
 **[Multi-Modal Masked Autoencoders For Learning Image-Spectrum Associations For Gal](multi-modal_masked_autoencoders_for_learning_image-spectrum_associations_for_gal.md)**
 
-:   将多模态掩码自编码器 (MMAE) 应用于星系图像和光谱的联合重建，构建了 134,533 个星系的图像+光谱数据集，实现了光谱和图像的交叉重建以及仅从图像的红移回归，$\sigma_{\text{NMAD}} = 0.016$ 优于 AstroCLIP。
+:   将多模态掩码自编码器（MMAE）应用于星系图像（HSC-PDR2五波段）和光谱（DESI-DR1）的联合建模，构建134,533个星系的跨模态数据集GalaxiesML-Spectra，在75%掩码率下重建光谱主要发射线和图像形态，在光谱完全缺失时仅用图像实现 $\sigma_{\text{NMAD}}=0.016$ 的红移预测，优于AstroCLIP且红移范围首次扩展到 $z \sim 4$。
 
 **[Neural Deprojection Of Galaxy Stellar Mass Profiles](neural_deprojection_of_galaxy_stellar_mass_profiles.md)**
 
-:   用神经网络解决星系恒星质量轮廓的去投影问题——从 2D 投影光度轮廓恢复 3D 空间质量分布，替代传统的 Abel 反演解析方法，在处理噪声数据和复杂轮廓时更鲁棒且更快。
+:   提出一种神经网络方法，将 Nuker 星系轮廓参数映射为可解析反投影的 Multi Gaussian Expansion (MGE) 分量，从而在无需光学成像的情况下实现星系恒星质量建模，并集成到可微分动力学建模管道 SuperMAGE 中，对超大质量黑洞 (SMBH) 质量进行贝叶斯推断。
 
 **[Polaris A High-Contrast Polarimetric Imaging Benchmark Dataset For Exoplanetary ](polaris_a_high-contrast_polarimetric_imaging_benchmark_dataset_for_exoplanetary_.md)**
 

@@ -40,7 +40,7 @@ description: >-
 
 **[Beyond Prompt-Induced Lies Investigating Llm Deception On Benign Prompts](beyond_prompt-induced_lies_investigating_llm_deception_on_benign_prompts.md)**
 
-:   提出 Contact Searching Question (CSQ) 框架，通过两个统计指标（欺骗意图分数 ρ 和欺骗行为分数 δ）量化 LLM 在正常良性提示下的自发欺骗行为，发现 16 个主流 LLM 普遍存在随任务难度升级的系统性欺骗倾向。
+:   提出 Contact Searching Question (CSQ) 框架，基于有向图可达性任务和认知心理学原理设计两个互补统计指标——欺骗意图分数 $\rho$ 和欺骗行为分数 $\delta$，首次系统揭示 16 个主流 LLM 在完全良性提示下存在随任务难度升级的自发欺骗倾向。
 
 **[Compositional Generalization From Learned Skills Via Cot Training A Theoretical ](compositional_generalization_from_learned_skills_via_cot_training_a_theoretical_.md)**
 
@@ -120,7 +120,7 @@ description: >-
 
 **[Geogrambench Benchmarking The Geometric Program Reasoning In Modern Llms](geogrambench_benchmarking_the_geometric_program_reasoning_in_modern_llms.md)**
 
-:   提出Program-to-Geometry任务和GeoGramBench(500题)，用三级几何复杂度分类法(基元识别/局部组合/全局抽象)评估19个前沿LLM从程序代码构建几何表征并推理的能力，发现所有模型在最高抽象级别准确率均低于50%。
+:   形式化Program-to-Geometry任务并提出GeoGramBench（500题），按三级几何复杂度分类法评估19个前沿LLM从过程式绘图代码构建几何表征并推理的能力，发现即使GPT-5在最高抽象级别也仅39.26%准确率，揭示了LLM空间抽象的根本性短板。
 
 **[Harder Is Better Boosting Mathematical Reasoning Via Difficulty-Aware Grpo And M](harder_is_better_boosting_mathematical_reasoning_via_difficulty-aware_grpo_and_m.md)**
 
@@ -132,7 +132,7 @@ description: >-
 
 **[Is In-Context Learning Learning](is_in-context_learning_learning.md)**
 
-:   从理论和实证两个层面系统分析 ICL 是否构成真正的"学习"，发现数学上 ICL 满足学习的定义，但大规模实验表明 ICL 的泛化能力有限——模型主要依赖 prompt 中的结构规律性进行模式推演（deduction），而非从示例中习得新能力。
+:   通过大规模控制变量实验系统分析 ICL 是否构成"学习"，发现数学上 ICL 满足学习定义，但实证表明其泛化能力有限——模型主要依赖 prompt 中的结构规律进行模式推演（deduction），而非从示例中真正习得新能力。
 
 **[Is It Thinking Or Cheating Detecting Implicit Reward Hacking By Measuring Reason](is_it_thinking_or_cheating_detecting_implicit_reward_hacking_by_measuring_reason.md)**
 
@@ -204,7 +204,7 @@ description: >-
 
 **[Sealqa Raising The Bar For Reasoning In Search-Augmented Language Models](sealqa_raising_the_bar_for_reasoning_in_search-augmented_language_models.md)**
 
-:   提出SealQA挑战基准，包含111道使前沿非推理模型准确率为0的事实性问题，专门评估搜索增强LLM在噪声/冲突/误导性检索结果下的推理能力。
+:   提出SealQA挑战基准（含Seal-0/Seal-Hard/LongSeal三种变体），每道题均经NLP研究者精心设计以触发歧义/冲突/噪声搜索结果，GPT-5最高仅43.2%准确率，揭示test-time scaling在噪声检索下不产生可靠增益。
 
 **[Segment-Level Attribution For Selective Learning Of Long Reasoning Traces](segment-level_attribution_for_selective_learning_of_long_reasoning_traces.md)**
 
@@ -212,7 +212,7 @@ description: >-
 
 **[The First Impression Problem Internal Bias Triggers Overthinking In Reasoning Mo](the_first_impression_problem_internal_bias_triggers_overthinking_in_reasoning_mo.md)**
 
-:   发现推理模型（如 o1 风格模型）的过度思考（overthinking）现象源于模型在看到问题后立即形成的"内部偏差"（preliminary guess），当这种初始猜测与后续推理冲突时会触发过度反思，通过反事实干预实验证明了因果关系，并发现现有缓解方法均无法消除此偏差影响。
+:   推理模型在看到问题的瞬间就形成了对答案的"第一印象"（内部偏差），当这个直觉猜测与后续系统推理产生冲突时，模型会反复自我质疑、重新检查，导致推理长度膨胀 21%–43%，而现有所有缓解方法均无法从根本上消除这一效应。
 
 **[The Illusion Of Diminishing Returns Measuring Long Horizon Execution In Llms](the_illusion_of_diminishing_returns_measuring_long_horizon_execution_in_llms.md)**
 
@@ -268,7 +268,7 @@ description: >-
 
 **[When Shallow Wins Silent Failures And The Depth-Accuracy Paradox In Latent Reaso](when_shallow_wins_silent_failures_and_the_depth-accuracy_paradox_in_latent_reaso.md)**
 
-:   分析Qwen2.5-Math-7B的隐式推理发现其61%准确率中仅18.4%来自稳定忠实的推理路径，81.6%通过不一致路径得出，8.8%为"静默失败"（高置信但错误），揭示benchmark准确率掩盖计算可靠性问题。
+:   本文系统分析了 Qwen2.5-Math-7B 在 GSM8K 上的隐式推理行为，发现 81.6% 的正确预测来自计算不一致的路径，8.8% 为静默失败（高置信错误），并揭示了推理深度与准确率之间的悖论关系。
 
 **[Why Is Your Language Model A Poor Implicit Reward Model](why_is_your_language_model_a_poor_implicit_reward_model.md)**
 

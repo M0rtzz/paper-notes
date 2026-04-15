@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2510.24710](https://arxiv.org/abs/2510.24710)  
 **代码**: [ShenGroup/SFLCB](https://github.com/ShenGroup/SFLCB)  
 **领域**: others (优化理论)  
-**关键词**: bilevel optimization, constrained optimization, first-order methods, augmented Lagrangian, single-loop algorithm
+**关键词**: bilevel optimization, constrained optimization, first-order methods, augmented Lagrangian, single-loop algorithm  
 **作者**: Wei Shen, Jiawei Zhang, Minhui Huang, Cong Shen (UVA, UW-Madison, Meta)  
 
 ## 一句话总结

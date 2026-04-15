@@ -20,7 +20,7 @@ description: >-
 
 **[Autotom Scaling Model-Based Mental Inference Via Automated Agent Modeling](autotom_scaling_model-based_mental_inference_via_automated_agent_modeling.md)**
 
-:   AutoToM 实现完全自动化的基于模型的心智理论推理——自动提出 agent 模型（贝叶斯网络结构）并进行贝叶斯逆规划，通过推理不确定性迭代调整模型（添加心智变量/扩展时间步），在5个 ToM benchmark 上超越 SOTA LLM 和推理模型，且产生类人的置信度估计。
+:   AutoToM 实现完全自动化的基于模型的心智理论推理——无需人工指定 agent 模型，自动提出贝叶斯网络结构并执行贝叶斯逆规划，通过推理不确定性驱动的迭代模型调整（添加心智变量或扩展时间步），在5个ToM benchmark上以82.43%平均准确率超越GPT-4o(63.39%)、o3-mini(73.94%)等SOTA模型。
 
 **[Beyond Parallelism Synergistic Computational Graph Effects In Multi-Head Attenti](beyond_parallelism_synergistic_computational_graph_effects_in_multi-head_attenti.md)**
 
@@ -40,7 +40,7 @@ description: >-
 
 **[Cogvla Cognition-Aligned Vision-Language-Action Model Via Instruction-Driven Rou](cogvla_cognition-aligned_vision-language-action_model_via_instruction-driven_rou.md)**
 
-:   提出 CogVLA——模仿人类多模态认知的三阶段 VLA 架构：(1) EFA-Routing 将视觉 token 压缩至 25%；(2) LFP-Routing 裁剪 50% 的 LLM 无关 token；(3) V-L-A 耦合注意力保持语义一致性——在 LIBERO 上达 97.4% 成功率，训练成本降 2.5×，推理延迟降 2.8×。
+:   CogVLA 提出模仿人类多模态认知的三阶段VLA架构（EFA-Routing视觉聚合压缩至25% + LFP-Routing LLM内指令感知剪枝50% + V-L-A耦合注意力），在LIBERO上以97.4%成功率和2.5×训练/2.8×推理加速超越OpenVLA-OFT等SOTA方法，真实机器人任务达70.0%成功率。
 
 **[Coopera Continual Open-Ended Human-Robot Assistance](coopera_continual_open-ended_human-robot_assistance.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Egothinker Unveiling Egocentric Reasoning With Spatiotempora](egothinker_unveiling_egocentric_reasoning_with_spatiotempora.md)**
 
-:   EgoThinker构建了500万规模的第一人称推理QA数据集EgoRe-5M（含CoT标注和手物定位数据），通过SFT建立基础推理能力后用GRPO强化微调精细化时空定位，在多个第一人称视频基准上达到SOTA。
+:   EgoThinker 构建了 500 万级第一人称视频 QA 数据集 EgoRe-5M（含因果 CoT 标注和手-物体精细定位数据），并通过"先 SFT 学推理、后 GRPO 练定位"的两阶段训练范式，让 7B MLLM 首次同时具备第一人称因果推理和时空精细定位能力，在 8+ 个基准上刷新 SOTA，7B 参数量在时间定位上甚至超过 72B 模型。
 
 **[Enginuity Building An Open Multi-Domain Dataset Of Complex Engineering Diagrams](enginuity_building_an_open_multi-domain_dataset_of_complex_engineering_diagrams.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[Knolling Bot Teaching Robots The Human Notion Of Tidiness](knolling_bot_teaching_robots_the_human_notion_of_tidiness.md)**
 
-:   提出基于 Transformer + GMM 的自监督学习框架，让机器人从 240 万组整理示范中学习"整洁"的抽象概念，以自回归方式预测物体目标位置，实现桌面物体的美观且紧凑的自动整理（knolling），并支持基于用户偏好（颜色/类别/大小）生成多样化整理方案。
+:   将桌面物体整理（knolling）类比为 NLP 序列预测任务，用 Transformer 自回归生成每个物体的目标位置，结合 GMM 处理多解歧义，从 240 万组自动生成的示范中学习通用整洁概念，并通过输入排列顺序隐式编码用户偏好。
 
 **[Labutopia High-Fidelity Simulation And Hierarchical Benchmark For Scientific Emb](labutopia_high-fidelity_simulation_and_hierarchical_benchmark_for_scientific_emb.md)**
 
@@ -108,7 +108,7 @@ description: >-
 
 **[Llmscape](llmscape.md)**
 
-:   LLMscape 是一个交互式投影映射沙盘装置，让人类参与者和多个 LLM 驱动的 AI 代理在共同的不确定环境中共同构建意义，探索人类与机器在认识论层面的共通局限。
+:   LLMscape 是一个投影映射沙盘交互装置，让多个独立 LLM 代理在共享的可变物理环境中接收多模态输入、相互对话和推测，探索人类与 AI 在认知不确定性下的共同意义构建过程。
 
 **[Mango - Adaptable Graph Network Simulators Via Meta-Learning](mango_-_adaptable_graph_network_simulators_via_meta-learning.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Manipulating Feature Visualizations With Gradient Slingshots](manipulating_feature_visualizations_with_gradient_slingshots.md)**
 
-:   提出梯度弹弓（Gradient Slingshots）方法，通过在分布外区域刻画抛物面形状的激活景观，使特征可视化（Feature Visualization）的梯度优化从随机初始化收敛到任意预设目标图像，同时保持模型架构不变、分类性能几乎不受影响、内部表示基本保留——暴露了 FV 作为审计工具的严重脆弱性。
+:   提出 Gradient Slingshots（梯度弹弓）方法，通过在模型的分布外输入区域"雕刻"出导向任意目标图像的二次激活景观，使特征可视化（Feature Visualization）的梯度优化过程收敛到预设的虚假图像，同时保持模型架构、分类精度和内部特征表示基本不变，暴露了 FV 作为模型审计工具的严重脆弱性。
 
 **[Mesatask Towards Task-Driven Tabletop Scene Generation Via 3D Spatial Reasoning](mesatask_towards_task-driven_tabletop_scene_generation_via_3d_spatial_reasoning.md)**
 
@@ -144,11 +144,11 @@ description: >-
 
 **[Nesypr Neurosymbolic Proceduralization For Efficient Embodied Reasoning](nesypr_neurosymbolic_proceduralization_for_efficient_embodied_reasoning.md)**
 
-:   NeSyPr 提出了一种神经符号过程化框架，将符号规划器生成的任务计划转化为可组合的过程化表示，嵌入到语言模型的推理过程中，从而在资源受限的环境中实现高效的具身推理。
+:   提出 NeSyPr（Neurosymbolic Proceduralization），一种将符号规划器的声明性知识编译为可组合过程化表示的框架，使紧凑语言模型在无需在线符号引导的情况下完成高效具身推理，在 PDDLGym、VirtualHome 和 ALFWorld 三个基准上超越大规模推理模型和符号规划器。
 
 **[Operation Veja Fixing Fundamental Concepts Missing From Modern Roleplaying Train](operation_veja_fixing_fundamental_concepts_missing_from_modern_roleplaying_train.md)**
 
-:   提出 VEJA（Values-Experiences-Judgments-Abilities）框架，通过结构化角色定义指导人工数据策化，解决现有角色扮演模型缺乏内在价值冲突推理和角色深度的系统性问题。
+:   本文系统批判了现有角色扮演模型训练的四大范式（RAG、事实值设定、文学数据、合成数据）为何都无法产生有深度的角色，提出VEJA框架（Values-Experiences-Judgments-Abilities）作为角色定义和数据策化的结构化基础，在LLM评判A/B测试中VEJA指导的人工策化数据以43:28:29（胜:负:平）显著优于Gemini Pro 2.5生成的合成基线。
 
 **[Physics Of Language Models Part 41 Architecture Design And The Magic Of Canon La](physics_of_language_models_part_41_architecture_design_and_the_magic_of_canon_la.md)**
 
@@ -206,11 +206,13 @@ description: >-
 
 :   提出ThinkAct双系统框架，通过动作对齐的视觉奖励对MLLM进行强化学习微调以激发具身推理能力，并将推理计划压缩为视觉潜在表示来指导下游动作模型，实现"先思考再行动"的VLA推理范式。
 
-**[Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs](toward_engineering_agi_benchmarking_the_engineering_design_capabilities_of_llms.md)**
+**[Toward Engineering Agi Benchmarking The Engineering Design Capabilities Of Llms](toward_engineering_agi_benchmarking_the_engineering_design_capabilities_of_llms.md)**
+
+:   提出 EngDesign——首个跨 9 个工程领域（操作系统、计算机架构、控制系统、机械、结构、数字硬件、模拟电路、机器人、信号处理）的 LLM 工程设计能力基准，用仿真驱动的评估管线替代传统的问答匹配，揭示即使最强推理模型 o3 也仅达 34% 通过率。
 
 **[Towards Reliable Code-As-Policies A Neuro-Symbolic Framework For Embodied Task P](towards_reliable_code-as-policies_a_neuro-symbolic_framework_for_embodied_task_p.md)**
 
-:   提出一种神经-符号具身任务规划框架，在 LLM 代码生成过程中引入符号验证和交互式验证，使任务成功率比 Code-as-Policies 基线提升 46.2%，可执行性达 86.8%。
+:   提出一种神经-符号具身任务规划框架，在 LLM 代码生成过程中引入显式的符号验证（检查前置条件是否满足）和交互式验证（主动探索获取缺失信息），使生成的代码在动态和部分可观测场景中更可靠——在 RLBench 上任务成功率从基线 38.5% 提升到 84.7%，可执行性达 86.8%。
 
 **[Understanding Prompt Tuning And In-Context Learning Via Meta-Learning](understanding_prompt_tuning_and_in-context_learning_via_meta-learning.md)**
 

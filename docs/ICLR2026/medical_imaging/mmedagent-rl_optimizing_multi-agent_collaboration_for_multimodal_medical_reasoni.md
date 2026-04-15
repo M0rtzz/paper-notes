@@ -7,7 +7,7 @@ tags:
   - ICLR2026
   - 医学图像
   - multi-agent collaboration
-  - reinforcement-learning
+  - 强化学习
   - medical VQA
   - curriculum learning
   - GRPO
@@ -20,7 +20,7 @@ tags:
 **arXiv**: [2506.00555](https://arxiv.org/abs/2506.00555)  
 **代码**: 未开源  
 **领域**: medical_imaging  
-**关键词**: multi-agent collaboration, reinforcement-learning, medical VQA, curriculum learning, GRPO, clinical reasoning
+**关键词**: multi-agent collaboration, reinforcement learning, medical VQA, curriculum learning, GRPO, clinical reasoning  
 
 ## 一句话总结
 提出 MMedAgent-RL，通过 RL 优化模拟临床会诊流程（分诊→专科→主治）的多智能体系统，核心创新是课程学习引导的熵感知 RL（C-MARL），让主治医师智能体在面对正确/冲突/错误的专科意见时分别采取不同的探索-利用策略，在域内外共 5 个医学 VQA 基准上实现 SOTA。

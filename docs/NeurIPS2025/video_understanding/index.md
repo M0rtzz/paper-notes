@@ -84,7 +84,7 @@ description: >-
 
 **[Foresight Adaptive Layer Reuse For Accelerated And Highquali](foresight_adaptive_layer_reuse_for_accelerated_and_highquali.md)**
 
-:   提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值决策在 DiT 去噪过程中哪些层可复用缓存、哪些需重新计算，在 OpenSora/Latte/CogVideoX 上实现最高 1.63× 端到端加速且保持视频质量。
+:   提出 Foresight，一种训练无关的自适应层复用框架，通过在 warmup 阶段建立逐层 MSE 阈值、在 reuse 阶段按阈值动态决策每层是复用缓存还是重新计算，在 5 个视频生成模型上实现了比静态方法更高质量和更快速度的推理加速（最高 2.23×）。
 
 **[Geodynamics A Geometric State-Space Neural Network For Understanding Brain Dynam](geodynamics_a_geometric_state-space_neural_network_for_understanding_brain_dynam.md)**
 
@@ -96,7 +96,7 @@ description: >-
 
 **[In The Eye Of Mllm Benchmarking Egocentric Video Intent Understanding With Gaze-](in_the_eye_of_mllm_benchmarking_egocentric_video_intent_understanding_with_gaze-.md)**
 
-:   提出 EgoGazeVQA——首个利用注视（gaze）信号评估 MLLM 对第一人称视频中用户意图理解能力的基准，并设计三种 gaze-guided prompting 策略显著提升模型表现。
+:   提出 EgoGazeVQA 基准和三种注视引导提示策略（文本/视觉/显著图），首次系统验证了眼动注视信号对提升 MLLM 第一人称视频意图理解的关键价值，Qwen2.5-VL-72B + GazeS 策略在平均准确率上提升 5.8 个百分点。
 
 **[Infinipot-V Memory-Constrained Kv Cache Compression For Streaming Video Understa](infinipot-v_memory-constrained_kv_cache_compression_for_streaming_video_understa.md)**
 
@@ -198,9 +198,9 @@ description: >-
 
 :   提出 LongVILA-R1 全栈框架，通过构建 104K 长视频推理数据集、两阶段 CoT-SFT + RL 训练流水线、以及高效的多模态强化学习序列并行 (MR-SP) 系统，将 VLM 的推理能力扩展到长视频（最高支持 8192 帧），在 VideoMME 上达到 65.1%/71.1%。
 
-**[Seeing Beyond the Scene: Analyzing and Mitigating Background Bias in Action Recognition](seeing_beyond_the_scene_analyzing_and_mitigating_background_bias_in_action_recog.md)**
+**[Seeing Beyond The Scene Analyzing And Mitigating Background Bias In Action Recog](seeing_beyond_the_scene_analyzing_and_mitigating_background_bias_in_action_recog.md)**
 
-:   系统分析动作识别模型中的背景偏差问题——模型通过背景场景而非动作本身做分类（如"游泳"被识别是因为看到泳池而非游泳动作），并提出基于因果推理的去偏方法。
+:   系统分析了动作识别中背景偏差在分类模型、对比预训练模型（CLIP/SigLIP2）和视频大语言模型（VLLM）三类范式中的普遍存在，并提出两条缓解路径：分类模型通过双分支架构融合分割人体输入降低SBErr 3.78%，VLLM通过自动化prompt tuning降低SBErr 9.85%。
 
 **[Seeing The Arrow Of Time In Large Multimodal Models](seeing_the_arrow_of_time_in_large_multimodal_models.md)**
 
@@ -212,7 +212,7 @@ description: >-
 
 **[Smartwilds Multimodal Wildlife Monitoring Dataset](smartwilds_multimodal_wildlife_monitoring_dataset.md)**
 
-:   发布SmartWilds数据集首版，包含在俄亥俄州The Wilds野生动物园同步采集的无人机影像、相机陷阱照片/视频和生物声学录音，共101GB/20K+文件，支持多模态AI在濒危物种保护和栖息地管理中的研究。
+:   发布首个同步多模态野生动物监测数据集SmartWilds，整合无人机影像、相机陷阱和生物声学三种模态共101GB数据，通过GPS/时间戳实现跨模态对齐，建立可重复的保护监测标准协议，填补综合性生态系统多传感器融合数据集的空白。
 
 **[Stable Cinemetrics Structured Taxonomy And Evaluation For Professional Video Gen](stable_cinemetrics_structured_taxonomy_and_evaluation_for_professional_video_gen.md)**
 
@@ -258,7 +258,7 @@ description: >-
 
 **[Unleashing Hour-Scale Video Training For Long Video-Language Understanding](unleashing_hour-scale_video_training_for_long_video-language_understanding.md)**
 
-:   提出 VideoMarathon 大规模小时级视频指令跟随数据集（9700小时、330万QA对）和 Hour-LLaVA 模型，通过记忆增强模块实现 1-FPS 的小时级视频训练和推理，在多个长视频基准上达到最优。
+:   构建首个大规模小时级视频指令跟随数据集 VideoMarathon（9700小时、330万QA对、22种任务），并提出 Hour-LLaVA 模型，通过记忆仓库+遗忘机制+MemAug模块实现1-FPS下小时级视频的高效训练与推理，在四个长视频基准上全面领先同规模开源模型。
 
 **[Vgent Graph-Based Retrieval-Reasoning-Augmented Generation For Long Video Unders](vgent_graph-based_retrieval-reasoning-augmented_generation_for_long_video_unders.md)**
 

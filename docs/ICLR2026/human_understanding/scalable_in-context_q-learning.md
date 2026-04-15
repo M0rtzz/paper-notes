@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Scalable In-Context Q-Learning
 description: >-
-  [ICLR 2026][人体理解][情境RL] 提出S-ICQL——将动态规划和世界模型引入监督式ICRL框架：(1)多头Transformer同时预测最优策略和情境值函数，(2)预训练通用世界模型→将原始轨迹转化为轻量级提示(精确编码任务信息),(3)迭代策略改进(Q函数上尾期望拟合+优势加权回归)→从次优数据学习时相比AD/DPT等基线大幅提升,在离散和连续环境中一致优越。
+  [ICLR 2026][人体理解][情境RL] 提出 S-ICQL——将动态规划（Q-learning）和世界模型引入监督式 ICRL 框架，通过多头 Transformer 同时预测策略和情境值函数，预训练世界模型构建轻量级精确提示，advantage-weighted regression 提取策略，在离散和连续环境中从次优数据学习时一致超越所有基线。
 tags:
   - ICLR 2026
   - 人体理解
@@ -23,95 +23,124 @@ tags:
 
 ## 一句话总结
 
-提出S-ICQL——将动态规划和世界模型引入监督式ICRL框架：(1)多头Transformer同时预测最优策略和情境值函数，(2)预训练通用世界模型→将原始轨迹转化为轻量级提示(精确编码任务信息),(3)迭代策略改进(Q函数上尾期望拟合+优势加权回归)→从次优数据学习时相比AD/DPT等基线大幅提升,在离散和连续环境中一致优越。
+提出 S-ICQL——将动态规划（Q-learning）和世界模型引入监督式 ICRL 框架，通过多头 Transformer 同时预测策略和情境值函数，预训练世界模型构建轻量级精确提示，advantage-weighted regression 提取策略，在离散和连续环境中从次优数据学习时一致超越所有基线。
 
-## 研究背景与动机
+## 背景与动机
 
-**领域现状**：ICRL→Transformer在多任务离线数据上预训练→通过提示适应新任务(不更新参数)。两大方向：AD(算法蒸馏)和DPT(决策预训练Transformer)。
+**领域现状**：In-context RL（ICRL）将语言模型的情境学习能力扩展到决策领域——在多任务离线数据上预训练 Transformer，测试时通过 prompt 适应新任务而无需更新参数。现有方法分为两大分支：Algorithm Distillation（AD，用学习历史作为上下文自回归预测动作）和 Decision-Pretrained Transformer（DPT，基于交互转移序列预测最优动作）。
 
 **现有痛点**：
-   - (1) 监督预训练→不能超越收集数据→无法从次优轨迹学到最优策略(缺stitching)
-   - (2) AD需要长horizon上下文→继承次优行为
-   - (3) DPT需要oracle最优动作标注→实践中不可行
-   - (4) 原始轨迹作为提示→token多且冗余→行为策略和任务信息纠缠
 
-**切入角度**：(1)将Q学习(动态规划)引入监督ICRL→获得stitching能力; (2)世界模型→精炼提示。
+- **监督预训练的固有局限**：AD 和 DPT 本质是模仿学习，无法超越收集数据的质量——缺乏 stitching 能力（将次优轨迹片段拼接成全局最优行为的能力）
+- **AD 需要长 horizon 上下文**：需要完整的学习历史作为 prompt，且会继承次优行为的梯度更新规则
+- **DPT 需要 oracle 最优动作标注**：在实际场景中往往不可行
+- **原始轨迹作为提示效率低**：token 数量多且高度冗余，行为策略和任务信息纠缠在一起，导致有偏的任务推断
+
+**核心矛盾**：RL 的精髓在于通过值函数的动态规划更新实现奖励最大化，而现有 ICRL 方法完全停留在监督学习范式中，放弃了 RL 的核心优势。如何在保持监督预训练的可扩展性和稳定性的同时，引入动态规划来释放从次优数据中学习的潜力？
+
+**本文方案**：利用 RL 的两个基本性质——(1) 动态规划（Bellman backup）的 stitching 能力和 (2) 世界模型对环境动力学的精确表征——设计一个可扩展的 ICRL 框架，同时实现高效的奖励最大化和精确的任务泛化。
 
 ## 方法详解
 
-### 多头Transformer架构
+### 整体框架
 
-- 输入：提示(任务信息) + 查询(当前状态)
-- 输出头1：最优策略π*(a|s)
-- 输出头2：情境值函数Q(s,a)
-- 参数高效→共享backbone
+S-ICQL 包含三个核心组件：(a) 预训练的通用世界模型，用于将原始轨迹压缩为轻量级任务提示 $\beta$；(b) 多头 Transformer 网络，同时预测策略 $\pi_\theta(a|s;\beta)$、状态值函数 $V_\theta(s;\beta)$ 和动作值函数 $Q_\theta(s,a;\beta)$；(c) 联合优化目标，结合 Bellman backup（Q-learning）和优势加权回归（策略提取）。
 
-### 世界模型→轻量级提示
+问题设定为多任务离线 RL：任务 $M^i = \langle \mathcal{S}, \mathcal{A}, \mathcal{T}^i, \mathcal{R}^i, \gamma \rangle \sim P(M)$，共享状态-动作空间但奖励函数或转移动力学不同。每个任务的离线数据集 $\mathcal{D}^i$ 由任意行为策略收集。
 
-- 预训练：通用世界模型→从多任务数据学习环境动态
-- 推理：将少量原始轨迹→通过世界模型编码→去除行为策略噪声→得到任务特征
-- 结果：轻量级提示(比raw轨迹token少得多)→快速精确推理
+### 关键设计 1：世界模型 → 轻量级精确提示
 
-### 迭代策略改进(Q学习整合)
+核心洞察：环境动力学 $p(s', r | s, a)$ 完整刻画了决策任务，且天然不受行为策略的影响。因此使用世界模型来编码任务信息比直接使用原始轨迹更精确、更紧凑。
 
-- 拟合状态值函数V→到Q函数的上尾期望(Upper Expectile)→获得乐观估计
-- 用优势A=Q-V → 加权回归→提取策略
-- 关键→stitching：组合不同次优轨迹的好片段→得到全局更优策略
+**世界模型架构**：包含上下文编码器 $E_\phi$ 和动力学解码器 $D_\varphi$：
 
-## 实验关键数据
+- 上下文编码器：将近 $k$ 步的经验 $\eta_t^i = (s_{t-k}, a_{t-k}, r_{t-k}, \ldots, s_t, a_t)^i$ 压缩为任务表征 $z_t^i = E_\phi(\eta_t^i)$
+- 动力学解码器：条件于任务表征预测即时奖励和下一状态 $[\hat{r}_t, \hat{s}_{t+1}] = D_\varphi(s_t, a_t; z_t^i)$
 
-### 离散环境(Dark Room/Key-Door)
+**预训练目标**为最小化奖励和状态转移的预测误差：
 
-| 方法 | 次优数据 | 最优数据 |
-|------|---------|---------|
-| AD | 差 | 好 |
-| DPT | 中(需oracle) | 好 |
-| **S-ICQL** | **最好** | **好** |
+$$\mathcal{L}(\phi, \varphi) = \mathbb{E}_{\eta_t^i \sim M^i} \left[ \| [r_t, s_{t+1}] - D_\varphi(s_t, a_t; z_t^i) \|_2^2 \mid z_t^i = E_\phi(\eta_t^i) \right]$$
 
-### 连续环境(MuJoCo)
+预训练完成后冻结世界模型，将 $h$ 步轨迹转化为轻量级提示：
 
-- S-ICQL一致优于DICP/IDT等最新基线
-- 次优数据优势最大→stitching能力的体现
+$$\beta^i := [z_1^i, z_2^i, \ldots, z_h^i] = [E_\phi(\eta_1^i), E_\phi(\eta_2^i), \ldots, E_\phi(\eta_h^i)]$$
 
-### 关键发现
+相比 AD 需要长学习历史作为 context，此提示结构更紧凑且包含更精确的任务信息。
 
-- Q学习→stitching→从次优数据的关键提升→平均+15%
-- 世界模型提示→比raw轨迹提示好+8%→精确编码任务信息
-- 多头设计→策略和值函数共享backbone→参数效率高
-- 提示token数→减少5-10x→推理速度更快
+### 关键设计 2：情境 Q-Learning（Bellman Backup + 期望回归）
 
-## 亮点与洞察
+**Q 函数训练**——最小化 Bellman 误差，引入 stitching 能力：
 
-- **"监督学习+RL的优势融合"**：监督预训练的稳定性+Q学习的stitching能力→best of both worlds。
-- **"世界模型=任务编码器"**：世界模型→不只是做规划→而是提供去噪的任务信息→提示工程的新用法。
-- **次优数据的重要性**：实践中→最优数据不可得→S-ICQL是首个真正处理此setting的ICRL方法。
-- **轻量级提示的实用意义**：raw轨迹→长且冗余→世界模型提示→短且精確→推理效率大幅提升。
+$$\mathcal{L}_Q(\theta) = \mathbb{E}_{(s_t^i, a_t^i, s_{t+1}^i) \sim \mathcal{D}^i} \left[ \left( r(s_t^i, a_t^i) + \gamma V_\theta(s_{t+1}^i; \beta^i) - Q_\theta(s_t^i, a_t^i; \beta^i) \right)^2 \right]$$
 
+**状态值函数训练**——使用 expectile regression 拟合 Q 函数的上尾分位数：
 
-## 局限性 / 可改进方向
+$$\mathcal{L}_V(\theta) = \mathbb{E}_{(s_t^i, a_t^i) \sim \mathcal{D}^i} \left[ L_2^\omega \left( Q_{\hat{\theta}}(s_t^i, a_t^i; \beta^i) - V_\theta(s_t^i; \beta^i) \right) \right]$$
 
-- In the paper, we propose S-ICQL, an innovative framework that introduces dynamic programming and world modeling to enable fundamental reward maximization and efficient task generalization in ICRL.
+其中 $L_2^\omega(u) = |\omega - \mathbb{1}(u < 0)| \cdot u^2$ 是非对称损失函数，$\omega \in (0.5, 1)$。当 $Q > V$ 时赋予更大权重 $\omega$，当 $Q < V$ 时权重仅为 $1-\omega$，从而近似 $\max_a Q(s, a)$。
 
-- S-ICQL employs a multi-head transformer to jointly predict optimal policies and in-context value functions, guided by a pretrained world model that encodes precise task-relevant information for efficient prompt construction.
+### 关键设计 3：优势加权回归策略提取
 
-- Policy improvement is achieved by fitting in-context value functions with expectile regression and extracting policies via advantage-weighted regression, enabling reward maximization while preserving the scalability and stability of supervised pretraining.
+将情境值函数蒸馏到策略提取中，使用 advantage-weighted regression：
 
-- Extensive evaluations verify the consistent superiority of S-ICQL over a range of competitive baselines.
+$$\mathcal{L}_\pi(\theta) = -\mathbb{E}_{(s_t^i, a_t^i) \sim \mathcal{D}^i} \left[ \exp\left( \frac{1}{\lambda} \left( Q_{\hat{\theta}}(s_t^i, a_t^i; \beta^i) - V_\theta(s_t^i; \beta^i) \right) \right) \cdot \log \pi_\theta(a_t^i | s_t^i; \beta^i) \right]$$
 
-- Though, our prompt length matches the sampled transitions, which may be too long for long-horizon interactive problems.
+优势值 $A = Q - V$ 越大的动作获得越大的训练权重。这不是简单的行为克隆，而是学习在数据集约束下最大化 Q 值的策略。总损失为三者的加权和：
 
+$$\mathcal{L}(\theta) = \mathsf{c}_1 \mathcal{L}_\pi(\theta) + \mathsf{c}_2 \mathcal{L}_Q(\theta) + \mathsf{c}_3 \mathcal{L}_V(\theta)$$
 
-## 相关工作与启发
+系数设为 $(1:1:1)$，整个多头 Transformer 端到端联合优化。
 
-- **vs LLIRL**: 本文在此基础上提出了不同的技术路线，在关键指标上取得了改进。
+## 实验结果
 
-- **vs MAML**: 本文在此基础上提出了不同的技术路线，在关键指标上取得了改进。
+### 主实验：Mixed 数据集上的 Few-shot 评估
 
-- **vs MACAW**: 本文在此基础上提出了不同的技术路线，在关键指标上取得了改进。
+| 方法 | DarkRoom | Push | Reach | Cheetah-Vel | Walker-Param | Ant-Dir |
+|:-----|:---------|:-----|:------|:------------|:-------------|:--------|
+| DPT | 22.12 | 362.74 | 736.72 | -78.35 | 257.11 | 591.31 |
+| AD | 42.72 | 604.50 | 738.96 | -67.37 | 424.82 | 215.01 |
+| IDT | 40.70 | 621.58 | 790.68 | -59.46 | 343.01 | 631.83 |
+| DICP | 59.76 | 487.28 | 706.46 | -66.53 | 403.90 | 745.05 |
+| DIT | 30.90 | 633.58 | 758.92 | -74.50 | 253.94 | 723.49 |
+| IC-IQL | 60.12 | 646.08 | 773.33 | -56.53 | 391.38 | 713.26 |
+| **S-ICQL** | **66.05** | **653.04** | **806.97** | **-35.48** | **466.72** | **813.34** |
 
-## 评分
+S-ICQL 在所有 6 个环境中均取得最佳表现。在复杂环境（Cheetah-Vel、Ant-Dir）中优势尤为明显，分别将误差从 -56.53 降至 -35.48（提升 37%）、从 745.05 提升至 813.34。
 
-- 新颖性: ⭐⭐⭐⭐⭐ Q学习融入ICRL+世界模型提示
-- 实验充分度: ⭐⭐⭐⭐ 离散+连续+次优/最优+消融
-- 写作质量: ⭐⭐⭐⭐ 问题分析清晰方法推导严谨
-- 价值: ⭐⭐⭐⭐⭐ 对ICRL有方法论级贡献
+### 消融实验：各组件贡献分析
+
+| 消融配置 | Reach | Cheetah-Vel | Ant-Dir |
+|:---------|:------|:------------|:--------|
+| w/o\_cq（去掉世界模型+Q学习 = DPT） | 736.72 | -78.35 | 591.31 |
+| w/o\_c（去掉世界模型） | 792.09 | -56.19 | 693.87 |
+| w/o\_q（去掉Q学习） | 752.41 | -63.66 | 784.07 |
+| **S-ICQL（完整）** | **806.97** | **-35.48** | **813.34** |
+
+世界模型和 Q-learning 两个组件各自贡献显著增益。去掉任一组件都导致性能下降，去掉两个退化为 DPT 时性能最差。Ant-Dir 上 Q-learning 贡献更大（+29 vs. w/o\_q），体现了 stitching 在复杂任务中的重要性。
+
+### OOD 泛化实验
+
+| 方法 | Cheetah-Vel (OOD) | Ant-Dir (OOD) |
+|:-----|:-----------------|:-------------|
+| DPT | -137.26 | 205.29 |
+| IC-IQL | -101.89 | 540.20 |
+| **S-ICQL** | **-83.45** | **664.95** |
+
+在分布外任务上 S-ICQL 同样显著领先，Ant-Dir 上超出第二名 IC-IQL 约 23%，验证了世界模型赋予的 OOD 泛化能力。
+
+## 评价
+
+**评分**: ⭐⭐⭐⭐⭐
+
+**优点**：
+
+- 创新性地将动态规划（Q-learning stitching）和世界模型两大 RL 核心概念引入 ICRL，解决了监督预训练无法超越收集数据质量的根本局限
+- 多头 Transformer 架构设计优雅——仅增加两个轻量级头即可同时预测策略和值函数，参数增量可忽略
+- 世界模型驱动的提示构建方法精炼且有理论依据——环境动力学天然不受行为策略影响
+- 实验极其全面：6 个标准环境 + 2 个复杂环境 + OOD 泛化 + stitching 验证 + 7 个竞争基线
+
+**不足**：
+
+- 提示长度与采样轨迹长度绑定，在长 horizon 交互问题中可能过长
+- 世界模型需要额外的预训练阶段，增加了训练流程的复杂度
+- 仅在标准 RL benchmark 上验证，未涉及更复杂的实际决策场景（如机器人操作的 sim-to-real）

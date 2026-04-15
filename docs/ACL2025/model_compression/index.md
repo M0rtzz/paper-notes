@@ -88,7 +88,7 @@ description: >-
 
 **[Eac Moe Expert Aware Compression](eac_moe_expert_aware_compression.md)**
 
-:   EAC-MoE 从 MoE 模型的专家选择特性出发，提出量化时校准路由器缓解 expert-shift 问题（QESC）+ 推理时基于专家选择频率动态剪枝不重要专家（PESF），在 Mixtral-8x7B 上实现 4.92× 内存压缩和 1.68× 推理加速且精度损失不到 1%。
+:   EAC-MoE 深入分析 MoE 模型的专家选择特性，提出两个互补模块——量化时通过逐层校准路由器缓解 expert-shift 问题（QESC），推理时基于专家选择频率动态剪枝不重要专家（PESF），在 4 个 MoE 模型上实现显著的内存压缩和推理加速且精度损失极小。
 
 **[Efficientqat](efficientqat.md)**
 
@@ -100,7 +100,7 @@ description: >-
 
 **[Explaining Puzzle Solutions In Natural Language An Exploratory Study On 6X6 Sudo](explaining_puzzle_solutions_in_natural_language_an_exploratory_study_on_6x6_sudo.md)**
 
-:   评估 5 个 LLM 在解决和解释 6×6 数独谜题上的能力，发现开源模型几乎无法正确求解（<1%），o1-preview 可解 65% 但其解释在正当性、清晰度和教育价值三个维度上均严重不足，揭示了 LLM 在多步推理解释方面的根本局限。
+:   评估五个LLM在求解和解释6×6数独谜题上的能力，发现即使o1-preview能解出65%的题目，其推理解释在忠实性、清晰度和教育价值方面仍严重不足。
 
 **[Fedex Lora Federated Exact Aggregation](fedex_lora_federated_exact_aggregation.md)**
 
@@ -112,7 +112,7 @@ description: >-
 
 **[Gist Token Context Compression](gist_token_context_compression.md)**
 
-:   系统研究Gist Token上下文压缩方法，提出统一框架分类现有架构（记忆位置×粒度），发现Fine-grained KV Cache在RAG/QA上近无损但在合成召回上有明显缺陷，识别出三种失败模式（边界丢失/意外丢失/中途丢失），并提出细粒度自编码和分段token重要性估计两种改进策略。
+:   对基于 Gist Token 的上下文压缩方法进行全面系统研究，发现细粒度 KV Cache 架构在 RAG/QA 等任务上接近无损，但在精确回忆任务上存在明显差距，并识别出三种关键失败模式和两种有效改进策略。
 
 **[Graph Counselor Multiagent Graphrag](graph_counselor_multiagent_graphrag.md)**
 
@@ -132,7 +132,7 @@ description: >-
 
 **[Language Models Resist Alignment](language_models_resist_alignment.md)**
 
-:   本文从压缩理论视角揭示了LLM存在"弹性"(elasticity)现象——模型倾向于保持预训练分布而抵触对齐分布，且对齐后的模型在受到扰动时会以与数据量差距成反比的速率回弹到预训练状态，这解释了为什么对齐如此脆弱且容易被少量微调逆转。
+:   本文从压缩理论视角提出LLM的"弹性"(elasticity)概念，证明模型在受到微调扰动时压缩率变化与数据集大小成反比——因为预训练数据远大于对齐数据，对齐效果被优先"遗忘"，这从信息论角度根本性地解释了为什么LLM对齐如此脆弱。
 
 **[Language Specific Features](language_specific_features.md)**
 
@@ -182,11 +182,11 @@ description: >-
 
 **[Prompt Distill Teacher Student](prompt_distill_teacher_student.md)**
 
-:   提出候选标注+蒸馏范式（CanDist）——当 LLM 对样本不确定时输出所有可能标签（而非强制给唯一标签），然后用小语言模型（SLM）从候选标注中蒸馏出唯一标签，理论证明候选标注蒸馏比直接使用单标签有更好的理论保证，在六个文本分类任务上验证有效。
+:   提出CanDist框架，借鉴人类面对不确定性时的"模糊规避"心理，引导LLM输出多个候选标签而非单一标签(候选标注)，再通过分布精炼(Distribution Refinery)策略蒸馏到小语言模型(SLM)获得最终标注，从理论到实验证明候选标注蒸馏优于单一标注。
 
 **[Ptq161 Low Bit Quantization](ptq161_low_bit_quantization.md)**
 
-:   首次将LLM权重真正量化到1.61-bit（此前号称sub-2bit的方法实际都超过2bit），通过一维结构化掩码（仅增加0.0002-bit/权重）保留显著通道、块级缩放因子优化和量化预处理三大创新，在LLaMA系列上以更低比特超越BiLLM和PB-LLM。
+:   提出 PTQ1.61，首个将 LLM 权重有效压缩到真正 sub-2-bit（1.61-bit）的后训练量化方法，通过一维结构化掩码（仅增加 0.0002-bit 开销）、分块缩放因子优化和量化预处理三项技术实现 SOTA 性能。
 
 **[Quaff Quantized Peft](quaff_quantized_peft.md)**
 
@@ -210,11 +210,11 @@ description: >-
 
 **[See Strategic Exploration Exploitation Prompt Optimization](see_strategic_exploration_exploitation_prompt_optimization.md)**
 
-:   本文提出 SEE 框架，首次将指令（instruction）和示例（examples）作为整体进行联合优化，采用元启发式优化原则设计四阶段探索-利用策略，在35个基准任务上实现平均13.94%的准确率提升并降低58.67%的计算成本。
+:   SEE 是首个将指令（instruction）和示例（examples）作为整体进行联合优化的 prompt 优化框架，采用元启发式优化原则设计四阶段探索-利用策略，配合五种 LLM 算子的自适应选择，在 35 个基准任务上大幅超越 9 种 SOTA 方法。
 
 **[Selection Bias Node Pruning](selection_bias_node_pruning.md)**
 
-:   提出Bias Node Pruning (BNP)和Auxiliary Option Injection (AOI)两种互补方法，从模型内部和输入端同时缓解LLM在多选题中的选择偏差，仅剪除0.002%权重即可将Llama-3准确率从52.3%提升至65.3%（+24.9%组合提升）。
+:   提出 Bias Node Pruning (BNP) 和 Auxiliary Option Injection (AOI) 两种互补方法，通过定位并剪除模型输出层中 0.002% 的偏差参数（白盒）与注入"I don't know"辅助选项（黑盒通用），从内外两端同时缓解 LLM 在多选题中的选择偏差，同时提出分布级偏差度量 CKLD，组合方法在 Llama-3 上将 ARC-Challenge 准确率从 52.3% 提升至 65.3%。
 
 **[Semantic Exploration Adaptive Gating](semantic_exploration_adaptive_gating.md)**
 
@@ -226,7 +226,7 @@ description: >-
 
 **[Stun Moe Pruning](stun_moe_pruning.md)**
 
-:   STUN 提出了结构化→非结构化的两阶段 MoE 剪枝方法，第一阶段用 O(1) 前向传播实现可扩展的专家级剪枝，第二阶段在剩余专家内做非结构化剪枝，在 480B 参数的 Snowflake Arctic 上以 40% 稀疏度几乎无性能损失。
+:   STUN 提出"先结构化后非结构化"的两阶段 MoE 剪枝范式：第一阶段利用路由权重的行为相似性聚类冗余专家，以 $O(1)$ GPU 前向传播完成专家级剪枝；第二阶段在剩余专家内做非结构化权重剪枝，两者协同在 480B Snowflake Arctic 上以 40% 稀疏度几乎无性能损失。
 
 **[Table Lora Structure Understanding](table_lora_structure_understanding.md)**
 
@@ -254,4 +254,4 @@ description: >-
 
 **[Who Taught You That Tracing Teachers In Model Distillation](who_taught_you_that_tracing_teachers_in_model_distillation.md)**
 
-:   提出"教师模型归因"新问题：给定蒸馏后的学生模型，能否识别其教师模型？发现 n-gram 相似度和困惑度都不可靠，但词性（PoS）模板特征能有效捕捉教师模型在蒸馏中留下的语法"指纹"，在 5 个候选教师中达到 45-74% 的归因准确率（随机基线 20%）。
+:   本文提出"教师模型归因"新问题：给定一个蒸馏后的学生模型，能否从候选教师中识别出其训练教师？发现 n-gram 相似度和困惑度不可靠，但词性（PoS）句法模板能提供有效的教师识别信号。

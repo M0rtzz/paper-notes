@@ -32,7 +32,7 @@ description: >-
 
 **[Neural Augmented Kalman Filters For Road Network Assisted Gnss Positioning](neural_augmented_kalman_filters_for_road_network_assisted_gnss_positioning.md)**
 
-:   首个用深度学习将道路网络信息集成到GNSS卡尔曼滤波中的方法——训练时序图神经网络(TGNN)预测正确道路段及其不确定性，作为KF的量测更新，在城市场景中定位误差降低29%。
+:   提出用时序图神经网络（TGNN）将开源道路网络信息集成到 GNSS 卡尔曼滤波中——TGNN 在图结构上预测最可能的道路段并动态估计其不确定性，在真实城市数据中 P95 定位误差从 77.23m 降至 55.02m（降幅 29%）。
 
 **[Resampling Augmentation For Time Series Contrastive Learning Application To Remo](resampling_augmentation_for_time_series_contrastive_learning_application_to_remo.md)**
 

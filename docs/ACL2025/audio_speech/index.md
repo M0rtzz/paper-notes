@@ -12,7 +12,7 @@ description: >-
 
 **[Aae Voice Chatbot](aae_voice_chatbot.md)**
 
-:   研究将非裔美式英语（AAE）整合到聊天机器人中的效果——开发文本和语音 AAE 聊天机器人并用 AAE 说话者评估，发现文本 AAE 聊天机器人常表现不佳（方言生成不够自然），但语音聊天机器人结合非裔声音和 AAE 元素时用户体验更好，揭示了语言个性化的复杂性。
+:   对文本和语音两种模态下将非裔美式英语（AAE）融入聊天机器人进行系统研究，发现文本AAE反而损害用户体验，但配合非裔口音的语音机器人受到AAE使用者青睐，揭示了语言个性化中模态选择的关键作用。
 
 **[Advancing Zero-Shot Text-To-Speech Intelligibility Across Diverse Domains Via Pr](advancing_zero-shot_text-to-speech_intelligibility_across_diverse_domains_via_pr.md)**
 

@@ -12,7 +12,7 @@ description: >-
 
 **[A Theoretical Analysis Of Detecting Large Model-Generated Time Series](a_theoretical_analysis_of_detecting_large_model-generated_time_series.md)**
 
-:   首次研究时间序列大模型（TSLM）生成内容的检测问题——提出收缩假说（Contraction Hypothesis）：TSLM 生成的时间序列在递归预测下不确定性逐渐降低（分布越来越集中），而真实序列不会。基于此提出白盒检测器 UCE（Uncertainty Contraction Estimator），在 32 个数据集上超越 SOTA 基线。
+:   首次提出时间序列大模型（TSLM）生成内容检测理论框架，通过收缩假说（Contraction Hypothesis）揭示TSLM生成序列在递归预测下不确定性指数级衰减的本质特征，据此设计UCE检测器，在32个数据集上In-Distribution AUROC达0.855，显著超越10种文本检测baseline。
 
 **[Actor-Critic For Continuous Action Chunks A Reinforcement Le](actor-critic_for_continuous_action_chunks_a_reinforcement_le.md)**
 

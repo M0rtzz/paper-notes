@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 人体理解方向 39篇论文解读
+  ICML2025 人体理解方向 38篇论文解读
 description: >-
-  39篇ICML2025 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  38篇ICML2025 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🧪 ICML2025** · 共 **39** 篇
+**🧪 ICML2025** · 共 **38** 篇
 
 **[A Generalizable Physics-Enhanced State Space Model For Long-Term Dynamics Foreca](a_generalizable_physics-enhanced_state_space_model_for_long-term_dynamics_foreca.md)**
 
@@ -92,11 +92,7 @@ description: >-
 
 **[Merge-Friendly Post-Training Quantization For Multi-Target Domain Adaptation](merge-friendly_post-training_quantization_for_multi-target_domain_adaptation.md)**
 
-:   首次系统研究量化对模型融合的影响，提出HDRQ方法通过Hessian和距离正则化联合约束，使量化模型保持融合友好特性，语义分割任务中相比传统PTQ提升4.21 mIoU。
-
-**[Merit Maximum-Normalized Element-Wise Ratio For Language Model Large-Batch Train](merit_maximum-normalized_element-wise_ratio_for_language_model_large-batch_train.md)**
-
-:   识别了LLM大批量训练中"max attention logit急剧上升"的关键问题，提出MERIT优化器——用max-norm替代l2-norm计算trust ratio，并引入element-wise trust ratio约束局部权重结构，GPT-2 Medium在6K batch size下无性能退化。
+:   首次系统分析量化引入的离散化噪声如何破坏模型融合效果，提出 HDRQ（Hessian and Distance Regularizing Quantization）——通过 Hessian 正则化平坦化损失曲面 + 距离正则化保持量化模型间权重对齐 + 噪声采样舍入消除舍入歧义，使量化模型在多目标域适应融合中性能接近全精度水平。
 
 **[Provably Improving Generalization Of Few-Shot Models With Synthetic Data](provably_improving_generalization_of_few-shot_models_with_synthetic_data.md)**
 
@@ -104,11 +100,11 @@ description: >-
 
 **[Reactivation Empirical Ntk Dynamics Under Task Shifts](reactivation_empirical_ntk_dynamics_under_task_shifts.md)**
 
-:   本文首次系统地实证研究了持续学习中的神经切线核（NTK）动态，发现任务切换会一致性地触发 NTK 的突变——即使在 lazy 学习体制下——揭示了一种被称为"重激活"的特征学习现象。
+:   首次系统实证研究了持续学习中NTK的动态行为，发现任务切换会一致性地触发NTK的突变——即使在lazy学习体制下，NTK的范数、速度和对齐指标都在任务边界出现急剧偏差，揭示了一种被称为"重激活"（reactivation）的特征学习现象，并通过区分概念性和频率性分布偏移精确定位了驱动因素。
 
 **[Rulebreakers Challenging Llms At The Crossroads Between Formal Logic And Human-L](rulebreakers_challenging_llms_at_the_crossroads_between_formal_logic_and_human-l.md)**
 
-:   本文构建了 RULEBREAKERS 数据集（25,600 个实例），专门用于评估 LLM 能否像人类一样在推理中利用常识和事实知识拒绝那些虽然在形式逻辑上有效、但在事实上与前提矛盾的结论，揭示了 LLM 在过度刚性应用逻辑规则方面的显著盲点。
+:   构建首个大规模"规则破坏者"数据集 RULEBREAKERS（25,600 实例），系统评估 7 个 LLM 在形式逻辑推理与事实知识冲突时的表现，发现模型普遍倾向过度刚性地应用逻辑规则而忽略常识，与人类推理行为存在显著偏离。
 
 **[Saebench A Comprehensive Benchmark For Sparse Autoencoders In Language Model Int](saebench_a_comprehensive_benchmark_for_sparse_autoencoders_in_language_model_int.md)**
 

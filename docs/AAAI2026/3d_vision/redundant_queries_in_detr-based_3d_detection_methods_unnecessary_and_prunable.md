@@ -6,7 +6,7 @@ description: >-
 tags:
   - AAAI 2026
   - 3D视觉
-  - 3D目标检测
+  - 3D 目标检测
   - DETR
   - 剪枝
   - 模型压缩

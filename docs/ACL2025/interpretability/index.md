@@ -1,18 +1,18 @@
 ---
 title: >-
-  ACL2025 可解释性方向 22篇论文解读
+  ACL2025 可解释性方向 21篇论文解读
 description: >-
-  22篇ACL2025 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  21篇ACL2025 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**💬 ACL2025** · 共 **22** 篇
+**💬 ACL2025** · 共 **21** 篇
 
 **[A Dual-Perspective Nlg Meta-Evaluation Framework With Automatic Benchmark And Be](a_dual-perspective_nlg_meta-evaluation_framework_with_automatic_benchmark_and_be.md)**
 
-:   揭示传统 NLG 元评估的局限（人工评分平均聚合不合理、相关系数选择模糊），提出双视角元评估框架：全局视角（序数分类，评估粗粒度评级能力）+ 局部视角（相邻成对比较，评估细粒度区分能力），并引入基于可控错误注入的自动基准构建方法，在 16 个 LLM 上验证不同模型在两个视角上的能力分布差异显著。
+:   提出一个双视角 NLG 元评估框架，将传统的人-指标相关性分解为全局视角（序数分类，判断粗粒度质量等级）和局部视角（相邻对比，区分细粒度质量差异），并通过自动化基准构建方法避免人工标注和数据污染，在 16 个 LLM 评估器上实验发现 Qwen-2.5-72B 全局最优、DeepSeek-V3 局部最优。
 
 **[Around The World In 24 Hours Probing Llm Knowledge Of Time And Place](around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place.md)**
 
@@ -28,7 +28,7 @@ description: >-
 
 **[Cracking Factual Knowledge A Comprehensive Analysis Of Degenerate Knowledge Neur](cracking_factual_knowledge_a_comprehensive_analysis_of_degenerate_knowledge_neur.md)**
 
-:   本文从结构和功能两个角度对大语言模型中的退化知识神经元（DKN）进行了严格定义和系统研究，提出了神经拓扑聚类（NTC）方法来精确获取DKN，并通过34个实验验证了DKN与模型鲁棒性、可进化性和复杂性之间的关系。
+:   > 本文从结构和功能两个角度全面定义了退化知识神经元 (DKN)，提出基于持久同调的神经拓扑聚类方法 (NTC) 获取 DKN，并通过 34 个实验揭示了 DKN 与 LLM 鲁棒性、可进化性和复杂性之间的关系。
 
 **[Expert An Explainable Image Captioning Evaluation Metric With Structured Explana](expert_an_explainable_image_captioning_evaluation_metric_with_structured_explana.md)**
 
@@ -52,15 +52,11 @@ description: >-
 
 **[Output Centric Interpretability](output_centric_interpretability.md)**
 
-:   提出两种以输出为中心的特征描述方法（VocabProj 和 TokenChange），弥补现有基于输入激活的自动可解释性流程只能捕获"什么激活了特征"而忽略"特征如何影响输出"的缺陷，并证明输入+输出方法的集成能生成最忠实的特征描述。
+:   提出基于输出的特征描述方法（VocabProj和TokenChange），弥补了现有自动化可解释性管线仅依赖输入激活样本的局限，结合输入-输出双视角的集成方法在两类评估中均取得最优表现。
 
 **[Position-Aware Automatic Circuit Discovery](position-aware_automatic_circuit_discovery.md)**
 
 :   提出位置感知的边归因修补方法（PEAP）和数据集 Schema 机制，解决了自动电路发现中忽略位置信息导致的抵消效应和重要性高估问题，实现了更小且更忠实的电路发现。
-
-**[Prism Political Bias Embeddings](prism_political_bias_embeddings.md)**
-
-:   提出PRISM框架——首个专为政治偏见嵌入设计的方法，通过争议性话题偏见指标挖掘和Cross-Encoder政治偏见评分两阶段，生成可解释的偏见感知嵌入，在政治偏见分类上超越通用文本嵌入模型。
 
 **[Probing Subphonemes In Morphology Models](probing_subphonemes_in_morphology_models.md)**
 

@@ -55,7 +55,7 @@
 !time_series/
 !video_understanding/
 
-# 已完成笔记 (1514 篇)
+# 已完成笔记 (1513 篇)
 !3d_vision/3dgeer_3d_gaussian_rendering_made_exact_and_efficient_for_generic_cameras.md
 !3d_vision/a_genetic_algorithm_for_navigating_synthesizable_molecular_spaces.md
 !3d_vision/a_step_to_decouple_optimization_in_3dgs.md
@@ -154,7 +154,6 @@
 !ai_safety/risk-sensitive_agent_compositions.md
 !ai_safety/robust_spiking_neural_networks_against_adversarial_attacks.md
 !ai_safety/sample-efficient_distributionally_robust_multi-agent_reinforcement_learning_via_.md
-!ai_safety/secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_models.md
 !ai_safety/she-lora_selective_homomorphic_encryption_for_federated_tuning_with_heterogeneou.md
 !ai_safety/shield_suppressing_hallucinations_in_lvlm_encoders_via_bias_and_vulnerability_de.md
 !ai_safety/skirting_additive_error_barriers_for_private_turnstile_streams.md

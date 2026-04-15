@@ -12,7 +12,7 @@ description: >-
 
 **[Calibrating Verbalized Confidence With Self-Generated Distractors](calibrating_verbalized_confidence_with_self-generated_distractors.md)**
 
-:   提出 DiNCo（Distractor-Normalized Confidence）方法，让 LLM 自动生成"合理但错误"的干扰选项，然后在干扰选项集合上归一化置信度分数，实现跨难度级别的置信度校准，在 TriviaQA 上以 95.2% 均衡准确率和仅 3.5% 人类介入率实现可靠的自动决策。
+:   提出 DiNCo 方法，通过让 LLM **独立**评估自动生成的干扰选项（合理但错误的替代答案）来暴露其"暗示性偏差"，用干扰项上的总置信度进行归一化，并融合生成一致性与验证一致性两个互补维度，在短文本 QA 和长文本生成任务上显著改善置信度校准。
 
 **[Clarc Cc Benchmark For Robust Code Search](clarc_cc_benchmark_for_robust_code_search.md)**
 
@@ -24,8 +24,8 @@ description: >-
 
 **[Dmap A Distribution Map For Text](dmap_a_distribution_map_for_text.md)**
 
-:   提出 DMAP，将文本通过语言模型的 token 概率映射到 [0,1] 单位区间上的样本，理论证明纯采样文本产生均匀分布，由此可用统计检验分析生成参数（如 top-k）、检测机器生成文本、揭示后训练的统计指纹。
+:   提出 DMAP（Distribution Map），一种将文本经由语言模型的 next-token 概率排序映射为 $[0,1]$ 区间上 i.i.d. 样本的数学框架，理论证明纯采样文本产生均匀分布，由此可用 $\chi^2$ 检验验证生成参数、揭示概率曲率类检测器在纯采样下彻底失效的根本原因，并可视化后训练（SFT/RLHF）在下游模型中留下的统计指纹。
 
 **[Policon Evaluating Llms On Achieving Diverse Political Consensus Objectives](policon_evaluating_llms_on_achieving_diverse_political_consensus_objectives.md)**
 
-:   基于欧洲议会2009-2022年2225条高质量审议记录构建PoliCon基准，评估LLM在不同投票机制、权力结构和政治目标下起草共识决议的能力。结果显示前沿模型在简单多数任务表现尚可，但在2/3多数和安全议题上显著不足。
+:   基于欧洲议会13年（2009-2022）共2225条高质量审议记录构建PoliCon基准，通过设计不同投票机制（简单多数/2/3多数/否决权）、权力结构和政治目标（功利主义/罗尔斯主义），系统评估LLM起草政治共识决议的能力，揭示前沿模型在复杂共识任务中的不足及固有党派偏见。

@@ -44,7 +44,7 @@ description: >-
 
 **[Overcoming Sparsity Artifacts In Crosscoders To Interpret Chat-Tuning](overcoming_sparsity_artifacts_in_crosscoders_to_interpret_chat-tuning.md)**
 
-:   识别并解决 Crosscoder 中 L1 训练损失引入的两类稀疏性伪影（导致虚假的模型特定潜变量归因），提出 Latent Scaling 诊断方法和 BatchTopK 损失替代方案，成功发现 Gemma 2 2B chat 模型中真正由 chat-tuning 引入的可解释概念。
+:   识别 Crosscoder 中 L1 损失引入的两类稀疏性伪影（Complete Shrinkage 将弱共享概念错误归零、Latent Decoupling 将共享概念拆分为虚假模型特定潜变量），提出 Latent Scaling 诊断方法和 BatchTopK Crosscoder 替代方案，显著提升 chat-tuning 概念发现的可靠性。
 
 **[Pac-Bayes Bounds For Multivariate Linear Regression And Linear Autoencoders](pac-bayes_bounds_for_multivariate_linear_regression_and_linear_autoencoders.md)**
 

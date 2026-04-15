@@ -12,7 +12,7 @@ description: >-
 
 **[Bqa Body Language Question Answering Dataset For Video Large Language Models](bqa_body_language_question_answering_dataset_for_video_large_language_models.md)**
 
-:   构建BQA数据集（7,632个短视频×4选QA，26种情感标签），系统评估VideoLLM理解肢体语言传达情感的能力，发现最强模型准确率仅60%远低于人类85%，且存在种族偏见和对面部表情的过度依赖。
+:   基于BoLD数据集通过四步半自动流水线构建了BQA——一个包含7,632个短视频的肢体语言情感识别多选QA基准，评估发现最强VideoLLM（GPT-4o/Gemini）准确率仅约60%远低于人类的85%，同时揭示了模型对面部表情的过度依赖以及针对特定种族群体的显著偏见。
 
 **[I See What You Mean Co-Speech Gestures For Reference Resolution In Multimodal Di](i_see_what_you_mean_co-speech_gestures_for_reference_resolution_in_multimodal_di.md)**
 

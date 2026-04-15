@@ -12,11 +12,11 @@ description: >-
 
 **[A Retrieval-Based Approach To Medical Procedure Matching In Romanian](a_retrieval-based_approach_to_medical_procedure_matching_in_romanian.md)**
 
-:   提出基于检索的罗马尼亚语医疗程序名称匹配架构——将诊所的非标准程序描述匹配到保险公司标准化术语表，比较 BM25 稀疏检索、mE5/RoBERT/BioClinicalBERT 密集嵌入及 RRF 混合方法，在 14 万+映射对上评估，度量学习微调后 mE5 表现最佳。
+:   将罗马尼亚语医疗程序名称匹配建模为检索问题而非分类问题，在 39,097 个标准条目（50% 仅有单样本）的极端长尾场景下，对比 BM25 稀疏检索与 mE5/RoBERT/BioClinicalBERT 三种密集嵌入，通过度量学习微调后 mE5 达到 85.2% Acc@1，真实部署中医生验证 94.7% 准确率且比人工快 1200 倍。
 
 **[Afrimed Qa Pan African](afrimed_qa_pan_african.md)**
 
-:   构建了首个大规模泛非洲多专科医学问答基准 AfriMed-QA（15,275 题，来自 16 个国家 60+ 医学院，涵盖 32 个专科），评估 30 个 LLM 发现：大模型在非洲医疗问题上的准确率显著低于 USMLE，生物医学专用 LLM 反而不如通用模型，消费者盲评时更偏好 LLM 回答而非临床医生回答。
+:   构建首个大规模泛非洲医学问答基准 AfriMed-QA（15,275 题，16 国 60+ 医学院校、32 个专科），系统评估 30 个 LLM 并发现非洲医疗场景下存在显著的地域性能差距和生物医学模型反不如通用模型的反直觉现象。
 
 **[Automated Structured Radiology Report Generation](automated_structured_radiology_report_generation.md)**
 
@@ -72,11 +72,11 @@ description: >-
 
 **[Oisa Radiology Report Gen](oisa_radiology_report_gen.md)**
 
-:   提出在线迭代自对齐（OISA）方法用于放射学报告生成——四阶段循环（自生成多样数据→自评估多目标偏好→自对齐多目标优化→自迭代进一步提升），无需额外人工标注即可迭代提升报告质量，在多个评估指标上达到 SOTA。
+:   提出在线迭代自对齐（OISA）方法：通过自生成→自评估→自对齐→自迭代的四阶段循环，利用多目标偏好优化（MODPO）让轻量级 RRG 模型在无需外部大模型或人工标注的条件下，持续提升放射学报告质量，在 MIMIC-CXR 和 IU-Xray 上达到 SOTA。
 
 **[Omni Rag Medical](omni_rag_medical.md)**
 
-:   针对医疗 LLM 需要多类型多结构知识源（教科书/指南/论文/知识图谱等）的特殊需求，提出 MedOmniKB 多源知识库和 Source Planning Optimization 方法——让模型学会"该从哪个源检索什么信息"，优化后的小模型在多源医疗知识利用上达到 SOTA。
+:   本文提出了 MedOmniKB 医学多源知识库和 Source Planning Optimisation (SPO) 方法，通过让专家模型探索多源检索计划并训练小模型学习源对齐，显著提升了医学多源检索规划能力，使 7B 小模型超越 72B 大模型。
 
 **[One Size Fits None Rethinking Fairness In Medical Ai](one_size_fits_none_rethinking_fairness_in_medical_ai.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Radar Radiology Report Gen](radar_radiology_report_gen.md)**
 
-:   提出 Radar 框架，通过"内部知识提取+外部补充知识检索+聚合注入"三步策略增强放射学报告生成——先提取 LLM 已有的与专家分类一致的知识，再检索缺失的补充知识，最终聚合两者生成更准确的放射学报告，在 MIMIC-CXR/CheXpert-Plus/IU X-ray 三个数据集上超越 SOTA。
+:   提出 Radar 框架，通过区分 LLM 已掌握的可信内部知识和需要外部补充的知识，系统性地融合两种知识源以生成更准确的放射学报告。
 
 **[Redactor An Llm-Powered Framework For Automatic Clinical Data De-Identification](redactor_an_llm-powered_framework_for_automatic_clinical_data_de-identification.md)**
 

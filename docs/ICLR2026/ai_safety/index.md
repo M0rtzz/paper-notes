@@ -1,18 +1,18 @@
 ---
 title: >-
-  ICLR2026 AI安全方向 49篇论文解读
+  ICLR2026 AI安全方向 48篇论文解读
 description: >-
-  49篇ICLR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  48篇ICLR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🔬 ICLR2026** · 共 **49** 篇
+**🔬 ICLR2026** · 共 **48** 篇
 
 **[Action-Free Offline-To-Online Rl Via Discretised State Policies](action-free_offline-to-online_rl_via_discretised_state_policies.md)**
 
-:   提出首个形式化的"无动作离线到在线 RL"框架，通过学习离散化状态策略（推荐期望的下一状态转移而非动作），利用仅含 (s, r, s') 的离线数据预训练，再通过引导机制加速在线学习。
+:   首次形式化"无动作离线到在线RL"设定，提出OSO-DecQN算法：通过将连续状态差分离散化为{-1, 0, 1}三类标记，在仅含(s, r, s')元组的数据上预训练状态策略（预测期望的下一状态变化方向而非动作），再通过策略切换机制+在线训练的逆动力学模型将状态策略转化为可执行动作，引导在线agent加速学习，在D4RL和DeepMind Control Suite上（含78维状态空间）一致提升收敛速度和渐近性能。
 
 **[Adaptive Methods Are Preferable In High Privacy Settings An Sde Perspective](adaptive_methods_are_preferable_in_high_privacy_settings_an_sde_perspective.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Beyond Match Maximization And Fairness Retention-Optimized Two-Sided Matching](beyond_match_maximization_and_fairness_retention-optimized_two-sided_matching.md)**
 
-:   提出以用户留存率（而非匹配数或公平性）为优化目标的双边匹配推荐算法 MRet，通过学习个性化留存曲线并联合考虑推荐双方的留存增益来动态排序推荐列表。
+:   提出Matching for Retention（MRet）算法，首次将双边匹配平台的优化目标从"最大化匹配数"或"满足公平性"转向"直接最大化用户留存率"，通过学习个性化留存曲线并利用凹函数性质将NP-hard的双方留存增益联合优化降为O(N log N)的排序问题，在合成数据和日本大型约会平台真实数据上均显著提升留存。
 
 **[Biasbusters Uncovering And Mitigating Tool Selection Bias In Large Language Mode](biasbusters_uncovering_and_mitigating_tool_selection_bias_in_large_language_mode.md)**
 
@@ -60,8 +60,6 @@ description: >-
 
 **[Dataless Weight Disentanglement In Task Arithmetic Via Kronecker-Factored Approx](dataless_weight_disentanglement_in_task_arithmetic_via_kronecker-factored_approx.md)**
 
-:   提出 TAK 方法，将任务算术中的表征漂移正则化等价为 Jacobian Gram 矩阵的二次型，利用 KFAC 近似实现无需外部任务数据的高效权重解纠缠，在任务加法和任务否定上达到 SOTA。
-
 **[Efficient Resource-Constrained Training Of Transformers Via Subspace Optimizatio](efficient_resource-constrained_training_of_transformers_via_subspace_optimizatio.md)**
 
 :   提出 WASI（Weight-Activation Subspace Iteration），基于"微调过程中参数子空间稳定"的假设，同时压缩 Transformer 的权重（SVD + Gram-Schmidt 子空间迭代）和激活（Tucker 分解），实现训练和推理都在低秩表示中完成，达到 62× 训练内存压缩和 Raspberry Pi 5 上 1.4× 加速，且精度损失可忽略。
@@ -72,7 +70,7 @@ description: >-
 
 **[Fair In Mind Fair In Action A Synchronous Benchmark For Understanding And Genera](fair_in_mind_fair_in_action_a_synchronous_benchmark_for_understanding_and_genera.md)**
 
-:   提出 IRIS Benchmark，首个同步评估统一多模态大模型（UMLLMs）在理解和生成任务中公平性的基准，通过三维度（理想公平性、真实世界保真度、偏见惯性与可引导性）和高维公平空间，揭示了跨任务"人格分裂"、系统性"生成鸿沟"及"反刻板印象奖励"等现象。
+:   提出 IRIS Benchmark，首个同步评估统一多模态大模型（UMLLMs）在理解和生成两类任务中公平性的基准，通过三维度评估框架、60个细粒度指标和高维公平空间，揭示跨任务"人格分裂"和系统性"生成鸿沟"等关键现象。
 
 **[Faithful Bi-Directional Model Steering Via Distribution Matching And Distributed](faithful_bi-directional_model_steering_via_distribution_matching_and_distributed.md)**
 
@@ -88,7 +86,7 @@ description: >-
 
 **[Improving The Trade-Off Between Watermark Strength And Speculative Sampling Effi](improving_the_trade-off_between_watermark_strength_and_speculative_sampling_effi.md)**
 
-:   将 LLM 水印强度从二值定义升级为连续量化（期望KL散度），完整刻画水印强度与speculative sampling效率的Pareto曲线，并提出伪随机接受机制使两者同时达到理论最大值。
+:   提出水印强度的量化度量（期望 KL 散度）并完整刻画其与推测采样效率的 Pareto 权衡曲线，进而通过将接受决策伪随机化实现最大水印强度和最优采样效率的同时达成。
 
 **[Inoculation Prompting Eliciting Traits From Llms During Training Can Suppress Th](inoculation_prompting_eliciting_traits_from_llms_during_training_can_suppress_th.md)**
 
@@ -96,7 +94,7 @@ description: >-
 
 **[Learnability And Privacy Vulnerability Are Entangled In A Few Critical Weights](learnability_and_privacy_vulnerability_are_entangled_in_a_few_critical_weights.md)**
 
-:   揭示隐私脆弱性集中在极少量关键权重中（~0.1%），且与学习能力高度纠缠（Pearson r>0.9）。提出CWRF方法：回绕这些权重到初始化并冻结，微调其余，有效降低MIA成功率且保持准确率。
+:   揭示隐私脆弱性集中在极少量关键权重中（可低至0.1%），且与学习能力高度纠缠（Pearson r>0.9），提出CWRF方法通过回绕并冻结隐私脆弱权重、仅微调其余权重来实现优越的隐私-效用权衡。
 
 **[Less Is More Towards Simple Graph Contrastive Learning](less_is_more_towards_simple_graph_contrastive_learning.md)**
 
@@ -124,7 +122,7 @@ description: >-
 
 **[Redsage A Cybersecurity Generalist Llm](redsage_a_cybersecurity_generalist_llm.md)**
 
-:   构建了完整的网络安全LLM pipeline：11.8B token的领域持续预训练 + 266K样本的agentic augmented SFT + 30K MCQ+240开放问答的综合评测基准RedSage-Bench，8B模型在多个网络安全benchmarks上达SOTA。
+:   提出RedSage——首个全栈开源的网络安全通才LLM，通过11.7B token大规模领域持续预训练、266K样本的Agentic数据增强SFT、以及首个覆盖知识+技能+工具的综合评测基准RedSage-Bench，8B参数模型在网络安全基准上超越同规模SOTA（+5.4pp）并接近Qwen3-32B，通用能力不降反升（+8.4pp vs Qwen3-8B）。
 
 **[Resource-Adaptive Federated Text Generation With Differential Privacy](resource-adaptive_federated_text_generation_with_differential_privacy.md)**
 
@@ -146,10 +144,6 @@ description: >-
 
 :   提出首个基于安全多方计算（MPC）的隐私保护提示调优框架 SecP-Tuning，通过前向调优消除反向传播开销、通过隐私保护随机特征注意力（RFA）替代 softmax 降低通信复杂度，实现约 12-16 倍加速和 17-20 倍通信量缩减。
 
-**[Secp-Tuning Efficient Privacy-Preserving Prompt Tuning For Large Language Models](secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_models.md)**
-
-:   提出SecP-Tuning，首个基于MPC的隐私保护Prompt微调框架——通过前向only微调(FoT)消除反向传播的隐私计算开销，用随机特征注意力(RFA)将softmax的二次复杂度降为线性且避免MPC不兼容的非线性操作，相比SFT实现12×加速和17×通信降低。
-
 **[She-Lora Selective Homomorphic Encryption For Federated Tuning With Heterogeneou](she-lora_selective_homomorphic_encryption_for_federated_tuning_with_heterogeneou.md)**
 
 :   提出SHE-LoRA——将选择性同态加密(SHE)与LoRA结合用于跨设备联邦LLM微调：基于参数敏感度的列级加密子集协商 + 列交换参数混淆 + 列感知自适应聚合，在保持与非隐私基线可比的模型性能同时，通信开销减少99.71%、加密时间减少99.87%，完全抵御SOTA梯度反演攻击DAGER。
@@ -164,7 +158,7 @@ description: >-
 
 **[Skirting Additive Error Barriers For Private Turnstile Streams](skirting_additive_error_barriers_for_private_turnstile_streams.md)**
 
-:   证明差分隐私旋转门流(支持插入和删除)中的多项式加性误差下界可以通过引入乘性误差来绕过——对不同元素计数问题实现polylog(T)乘性+polylog(T)加性误差(而非此前的Ω(T^{1/4})纯加性误差)，对F2矩实现1+o(1)乘性+polylog(T)加性误差(而非Ω(T)纯加性误差)，且仅需polylog空间。
+:   证明差分隐私旋转门流中的多项式纯加性误差下界（不同元素计数 $\Omega(T^{1/4})$、$F_2$ 矩 $\Omega(T)$）可以通过引入乘性误差来绕过——对不同元素计数实现 $(\text{polylog}(T), \text{polylog}(T))$ 混合误差，对 $F_2$ 矩实现 $(1+\eta, \text{polylog}(T))$ 混合误差，且两者仅需 polylogarithmic 空间。
 
 **[Toward Enhancing Representation Learning In Federated Multi-Task Settings](toward_enhancing_representation_learning_in_federated_multi-task_settings.md)**
 
@@ -172,7 +166,7 @@ description: >-
 
 **[Traceable Black-Box Watermarks For Federated Learning](traceable_black-box_watermarks_for_federated_learning.md)**
 
-:   首次形式化差分隐私可追溯黑盒水印注入FL的问题定义,提出TraMark——通过将模型参数空间分为主任务区域(聚合)和水印区域(独立)→为每个client生成独特的后门水印模型→黑盒设定下验证模型泄露源(谁泄露了模型)→主任务性能仅下降0.54%→所有水印模型可追溯。
+:   提出 TraMark，通过将模型参数空间划分为主任务区域和水印区域、采用掩码聚合防止水印碰撞，首次在联邦学习中实现服务器端可追踪黑盒水印注入，验证率达 99.58% 且主任务精度仅下降 0.54%。
 
 **[Train Once Answer All Many Pretraining Experiments For The Cost Of One](train_once_answer_all_many_pretraining_experiments_for_the_cost_of_one.md)**
 
@@ -204,4 +198,4 @@ description: >-
 
 **[Why Do Unlearnable Examples Work A Novel Perspective Of Mutual Information](why_do_unlearnable_examples_work_a_novel_perspective_of_mutual_information.md)**
 
-:   从互信息(MI)视角统一解释不可学习样本(UE)的有效性——有效UE必然降低干净/下毒特征间MI。据此提出MI-UE方法，通过协方差缩减最大化MI降低，将CIFAR-10测试准确率压至9.95%。
+:   从互信息（MI）降低的角度统一解释了所有不可学习样本（UE）的有效机制，并证明减小类内下毒特征的协方差可降低MI上界，据此提出 MI-UE 方法通过类内余弦相似度最大化实现协方差缩减，在 CIFAR-10 上将测试准确率压至 9.95%（接近随机猜测），且在对抗训练防御下仍大幅领先已有方法。

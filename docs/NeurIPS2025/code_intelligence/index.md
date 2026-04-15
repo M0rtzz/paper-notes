@@ -22,9 +22,9 @@ description: >-
 
 :   AstroVisBench 构建了首个评估 LLM 天文科学计算和可视化能力的代码基准——从 110 个 Jupyter Notebook 提取 864 个任务（处理+可视化），设计双重评估管线（执行式变量检查 + VLM-as-Judge 可视化评分，与专家 Spearman ρ=0.822），评测 8 个 SOTA 模型后发现 Gemini 2.5 Pro 最佳但无错误率仅 15.7%，FileNotFoundError 占 43% 错误。
 
-**[VeriMaAS: Automated Multi-Agent Workflows for RTL Design](automated_multi-agent_workflows_for_rtl_design.md)**
+**[Automated Multi-Agent Workflows For Rtl Design](automated_multi-agent_workflows_for_rtl_design.md)**
 
-:   VeriMaAS 提出自动组合 agent 工作流的框架用于 RTL 代码生成——关键创新是将 HDL 工具的形式化验证反馈直接整合到工作流生成中，无需梯度更新或长推理链，在 pass@k 上超过微调基线 5-7%，且训练样本需求降低一个量级。
+:   VeriMaAS 提出自动组合多 Agent 工作流的框架用于 RTL 代码生成，核心创新是将 HDL 工具的形式化验证反馈（Yosys 综合 + OpenSTA 时序分析）直接整合到工作流编排中，在 VeriThoughts 上 pass@1 提升 2-12%，且仅需数百样本做控制器调优，比全量微调训练数据少一个量级。
 
 **[Co-Evolving Llm Coder And Unit Tester Via Reinforcement Learning](co-evolving_llm_coder_and_unit_tester_via_reinforcement_learning.md)**
 

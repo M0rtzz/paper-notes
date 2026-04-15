@@ -1,18 +1,18 @@
 ---
 title: >-
-  ACL2025 LLM效率方向 30篇论文解读
+  ACL2025 LLM效率方向 28篇论文解读
 description: >-
-  30篇ACL2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  28篇ACL2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**💬 ACL2025** · 共 **30** 篇
+**💬 ACL2025** · 共 **28** 篇
 
 **[Adaptive Grouped Pe Context Window](adaptive_grouped_pe_context_window.md)**
 
-:   提出 AdaGroPE（Adaptive Grouped Positional Encoding），一种无需训练的即插即用方法，通过让位置复用次数随距离递增式增长、并根据输入序列长度动态调整位置编码映射，将 LLM 上下文窗口外推到远超预训练长度，在多个 benchmark 上达到 SOTA 甚至超过原生长上下文模型。
+:   提出 LaMPE（Length-aware Multi-grained Positional Encoding），通过 **参数化 scaled sigmoid 函数** 自适应确定最优映射长度，并设计 **三区域多粒度注意力机制**（head 精细局部 + middle 线性归一化压缩 + tail 恢复长程依赖），实现无训练即插即用的 LLM 上下文窗口外推，在五大长上下文基准上全面超越现有方法。
 
 **[Clasp Self Speculative Decoding](clasp_self_speculative_decoding.md)**
 
@@ -56,15 +56,11 @@ description: >-
 
 **[Ladm Long Context Data](ladm_long_context_data.md)**
 
-:   提出 LADM 框架，利用注意力机制的内在检索能力来度量长上下文数据中的跨 span 依赖关系，从大规模预训练语料中高效筛选高质量长上下文训练数据，仅用 1B token 持续预训练即可显著提升多种 LLM 的长上下文能力。
+:   LADM提出了一种基于注意力机制的长上下文训练数据选择框架，通过训练一个小型Long Attention Calculator来计算span间的注意力依赖分数（PFS → AFS → CDS），从大规模语料中高效筛选具有强长程依赖的高质量样本用于持续预训练，仅用1B tokens即可显著提升LLM的长上下文能力。
 
 **[Literary Evidence Retrieval Via Long-Context Language Models](literary_evidence_retrieval_via_long-context_language_models.md)**
 
 :   将 RELiC 数据集改造为长上下文文学证据检索 benchmark（292 个高质量样本），要求模型在完整小说文本（45k-125k tokens）中为文学评论找到缺失引用；Gemini Pro 2.5 以 62.5% 准确率首次超越人类专家（55%），但最佳开源模型 DeepSeek-R1 仅 29.1%，揭示了闭源/开源模型在解释性推理上的巨大鸿沟。
-
-**[Longreward Improving Long-Context Large Language Models With Ai Feedback](longreward_improving_long-context_large_language_models_with_ai_feedback.md)**
-
-:   提出 LongReward，利用现成LLM从帮助性、逻辑性、忠实性和完整性四个维度为长上下文模型回复自动打分，结合DPO实现长上下文SFT模型的进一步提升。
 
 **[Longsafety Evaluating Long-Context Safety Of Large Language Models](longsafety_evaluating_long-context_safety_of_large_language_models.md)**
 
@@ -80,11 +76,7 @@ description: >-
 
 **[Native Sparse Attention](native_sparse_attention.md)**
 
-:   DeepSeek提出NSA——一种原生可训练的稀疏注意力机制，通过"压缩+选择+滑动窗口"的层次化稀疏策略和硬件对齐的Triton kernel设计，在27B参数模型上实现了超越Full Attention的性能，同时在64k序列上获得前向9倍、解码11.6倍的加速。
-
-**[Neko Cross-Modality Post-Recognition Error Correction With Tasks-Guided Mixture-](neko_cross-modality_post-recognition_error_correction_with_tasks-guided_mixture-.md)**
-
-:   提出 NeKo，使用任务引导的 Mixture-of-Experts 语言模型进行跨模态后识别纠错（ASR/ST/OCR/TEC），通过将每个专家指派给特定任务的数据集实现专业化，在 Open ASR Leaderboard 上达到 SOTA，零样本下超越 GPT-3.5 和 Claude-3.5。
+:   DeepSeek提出NSA——一种可原生训练的分层稀疏注意力机制，通过压缩token、选择token和滑动窗口三条并行注意力路径实现高效长上下文建模，在27B参数模型上预训练后性能全面匹配甚至超越Full Attention，同时在64k序列上实现显著加速。
 
 **[On Many-Shot In-Context Learning For Long-Context Evaluation](on_many-shot_in-context_learning_for_long-context_evaluation.md)**
 
@@ -124,7 +116,7 @@ description: >-
 
 **[Train Long Context Effectively](train_long_context_effectively.md)**
 
-:   本文系统研究了如何通过持续预训练和监督微调（SFT）有效训练长上下文语言模型，提出了包括数据配比、训练长度缩放等一系列关键发现，最终训练出的 ProLong-8B 模型仅用 Llama-3.1 5% 的长上下文训练数据量即在 128K 长度上达到同规模最优性能。
+:   本文系统研究如何通过持续预训练和 SFT 有效训练长上下文语言模型，提出数据配比、训练长度缩放、评估协议等一系列关键设计，最终训练出的 ProLong-8B 仅用 Llama-3.1 **5%** 的长上下文训练数据即在 128K 长度上达到同规模 SOTA。
 
 **[What Are The Essential Factors In Crafting Effective Long Context Multi-Hop Inst](what_are_the_essential_factors_in_crafting_effective_long_context_multi-hop_inst.md)**
 

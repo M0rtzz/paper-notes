@@ -44,7 +44,7 @@ description: >-
 
 **[Identifying And Evaluating Inactive Heads In Pretrained Llms](identifying_and_evaluating_inactive_heads_in_pretrained_llms.md)**
 
-:   系统评估 12 种评分函数来识别 LLM 中不活跃的注意力头，发现平均头输出范数（Avg Head Output Norm）比传统注意力权重指标更能模型无关地识别不活跃头；14 个模型上验证平均超过 12% 的头可被置零而保持 MMLU 精度在 1% 以内。
+:   系统评估12种评分函数识别LLM中不活跃注意力头，发现基于头输出范数的评分函数（AHON LN）比传统注意力权重指标更能跨模型家族一致地识别不活跃头，14个模型上平均超过12%的头可被置零而保持MMLU精度在1%以内。
 
 **[Imagine How To Change Explicit Procedure Modeling For Change Captioning](imagine_how_to_change_explicit_procedure_modeling_for_change_captioning.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Lossless Vocabulary Reduction For Auto-Regressive Language Models](lossless_vocabulary_reduction_for_auto-regressive_language_models.md)**
 
-:   建立了一个**无损词表缩减**的理论框架，能够将任意自回归语言模型高效转换为使用任意小词表的等价模型，且不损失精度，从而实现不同分词方案的语言模型之间的高效协作（如模型集成）。
+:   提出**无损词表缩减（LVR）**的理论框架，通过嵌套分词（nested tokenization）将任意自回归语言模型精确转换为使用任意子词表的等价模型，并基于**最大公共词表（MCV）**实现不同分词方案语言模型之间的高效集成，在 GSM8K、MATH、翻译等多个任务上验证了方法的有效性。
 
 **[Moma A Modular Deep Learning Framework For Material Property Prediction](moma_a_modular_deep_learning_framework_for_material_property_prediction.md)**
 

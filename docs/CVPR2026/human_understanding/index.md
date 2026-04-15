@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 人体理解方向 48篇论文解读
+  CVPR2026 人体理解方向 47篇论文解读
 description: >-
-  48篇CVPR2026 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  47篇CVPR2026 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📷 CVPR2026** · 共 **48** 篇
+**📷 CVPR2026** · 共 **47** 篇
 
 **[All In One Unifying Deepfake Detection Tampering Localization And Source Tracing](all_in_one_unifying_deepfake_detection_tampering_localization_and_source_tracing.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Breaking The Tuning Barrier Zerohyperparameters Yi](breaking_the_tuning_barrier_zerohyperparameters_yi.md)**
 
-:   用TabPFN（在百万回归任务上预训练的基础模型）替代传统手工先验，实现零超参数的SRAM多角良率分析，通过注意力机制自动进行跨角知识迁移，配合自动特征选择（1152D到48D）和不确定性引导的主动学习，达到SOTA精度（MRE低至0.11%）同时降低10倍以上验证成本。
+:   提出用基础模型 TabPFN 的 learned prior 替代传统人工先验（GP 核、IS 高斯假设），实现零超参数调优的多 PVT Corner 良率分析，在工业级 SRAM 基准上达到 SOTA 精度（MRE 低至 0.11%）的同时提速超 10×。
 
 **[Cigpose Causal Intervention Graph Neural Network For Whole-Body Pose Estimation](cigpose_causal_intervention_graph_neural_network_for_whole-body_pose_estimation.md)**
 
@@ -82,17 +82,13 @@ description: >-
 
 :   提出 FOZO，一种仅需前向传播的零阶 prompt 优化范式，通过 SPSA 梯度估计 + 动态扰动策略 + 深浅层特征统计对齐，在不修改模型权重的情况下实现高效 TTA，在 ImageNet-C 上以 59.52% 准确率超越所有前向方法（含 FOA 58.13%），并支持 INT8 量化模型。
 
-**[Geoworld Geometric World Models](geoworld_geometric_world_models.md)**
-
-:   在V-JEPA 2中引入双曲流形表示（Hyperbolic JEPA）和几何强化学习（GRL），利用测地线距离编码层次关系，通过能量函数优化实现更稳定的长时域规划，3步规划提升约3% SR，超越GPT-5 zero-shot。
-
 **[Graph2Eval Automatic Multimodal Task Generation For Agents Via Knowledge Graphs](graph2eval_automatic_multimodal_task_generation_for_agents_via_knowledge_graphs.md)**
 
 :   提出 Graph2Eval，一个知识图谱驱动的 agent 评估任务自动生成框架——通过从文档/网页构建结构化知识图谱、子图采样、LLM 条件生成和多阶段过滤，自动产出语义一致（+20%）且可解（+17%）的多模态 agent 任务，构建了包含 1319 个任务的 Graph2Eval-Bench。
 
 **[Graph2Eval Multimodal Task Generation Agents](graph2eval_multimodal_task_generation_agents.md)**
 
-:   提出 Graph2Eval，一个基于知识图谱的自动化多模态 Agent 任务生成框架——从异构外部数据源构建知识图谱作为结构化任务空间，通过子图采样和元路径引导的任务构造生成语义一致且可解的 Agent 评测任务，相比 LLM 直接生成的任务提升语义一致性 20% 和可解性 17%，并发布了 1,319 个任务的 Graph2Eval-Bench 数据集。
+:   提出 Graph2Eval，利用从异构数据源构建的知识图谱作为结构化任务空间，通过子图采样、任务模板和 meta-path 策略自动生成语义一致且可解的多模态 agent 评估任务，生成的任务在语义一致性和可解性上分别提升 20% 和 17%。
 
 **[Idperturb Enhancing Variation In Synthetic Face Generation Via Angular Perturbat](idperturb_enhancing_variation_in_synthetic_face_generation_via_angular_perturbat.md)**
 

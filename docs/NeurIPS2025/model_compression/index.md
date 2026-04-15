@@ -44,7 +44,7 @@ description: >-
 
 **[Adaptive Predictionpowered Autoeval With Reliability And Eff](adaptive_predictionpowered_autoeval_with_reliability_and_eff.md)**
 
-:   提出R-AutoEval+，通过e-value赌注算法自适应调整对合成数据（LLM评判器）的依赖权重，首次同时提供有限样本可靠性保证和可证明的采样效率改善，在GSM8K上比纯真实数据方法节省87个token。
+:   提出R-AutoEval+框架，通过在testing-by-betting框架中引入自适应权重机制动态调节对LLM评判器合成数据的依赖程度，首次在有限样本下同时保证评估可靠性和采样效率不低于仅用真实数据的方法，在LLM量化、prompt选择和推理预算分配三个场景中验证了理论优势。
 
 **[Adaptive Stochastic Coefficients For Accelerating Diffusion Sampling](adaptive_stochastic_coefficients_for_accelerating_diffusion_sampling.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Correlation Dimension Of Auto-Regressive Large Language Models](correlation_dimension_of_auto-regressive_large_language_models.md)**
 
-:   引入源于分形几何的**相关维数（correlation dimension）**作为衡量自回归语言模型感知文本复杂度的指标，揭示了传统 perplexity 无法捕捉的长程结构特性，可检测幻觉和退化文本。
+:   本文将分形几何中的关联维度（Correlation Dimension）引入LLM分析，通过度量next-token对数概率向量之间的递归结构来量化文本的层次化复杂度，揭示了LLM预训练的三阶段演化、幻觉倾向指示以及多种文本退化模式的统一检测能力——这些是困惑度（perplexity）无法捕捉的。
 
 **[Curiosity-Driven Rl For Symbolic Equation Solving](curiosity-driven_rl_for_symbolic_equation_solving.md)**
 
@@ -564,7 +564,7 @@ description: >-
 
 **[When Worse Is Better Navigating The Compression-Generation Tradeoff In Visual To](when_worse_is_better_navigating_the_compression-generation_tradeoff_in_visual_to.md)**
 
-:   系统研究视觉 Tokenizer 的压缩-生成权衡，发现更激进的压缩反而有利于小模型生成，并提出因果正则化 Tokenization（CRT）方法，通过嵌入自回归归纳偏置使 token 更易建模，实现 2-3 倍计算效率提升。
+:   本文通过scaling law系统研究了视觉tokenizer压缩率与生成质量的权衡关系，发现对小模型而言更激进的压缩（虽然重建更差）反而有利于生成，并提出因果正则化Tokenization(CRT)方法在stage 1训练中嵌入自回归归纳偏置，实现2-3倍计算效率提升，以775M参数和256 token/image匹配LlamaGen-3B的2.18 FID。
 
 **[Zip2Zip Inference-Time Adaptive Tokenization Via Online Compression](zip2zip_inference-time_adaptive_tokenization_via_online_compression.md)**
 

@@ -2,7 +2,7 @@
 title: >-
   [论文解读] NRGPT: An Energy-based Alternative for GPT
 description: >-
-  [ICLR 2026][优化][能量基模型] 提出NRGPT(eNeRgy-GPT)——将GPT设定与能量基模型(EBM)框架统一的最小修改方案：设计能量函数使推理过程成为tokens在能量landscape上的探索,证明某些条件下此探索等价于梯度下降(虽然非梯度下降不一定最差),在Shakespeare/ListOPS/OpenWebText上验证可行性,观察到可能更抗过拟合的特性。
+  [ICLR 2026][优化][能量基模型] 提出NRGPT（eNeRgy-GPT），对标准GPT进行最小修改使其成为能量基模型：设计注意力能量和前馈能量函数，使每层前向传播等价于token在能量landscape上的梯度下降步，证明了渐近能量下降和稳定收敛性质，在ListOps/Shakespeare/OpenWebText上验证了与标准GPT可比的性能。
 tags:
   - ICLR 2026
   - 优化
@@ -10,7 +10,7 @@ tags:
   - GPT
   - 自回归
   - 梯度下降推理
-  - 布朗运动
+  - 渐近稳定性
 ---
 
 # NRGPT: An Energy-based Alternative for GPT
@@ -19,86 +19,123 @@ tags:
 **arXiv**: [2512.16762](https://arxiv.org/abs/2512.16762)  
 **代码**: 无  
 **领域**: 语言模型架构/能量模型  
-**关键词**: 能量基模型, GPT, 自回归, 梯度下降推理, 布朗运动
+**关键词**: 能量基模型, GPT, 自回归, 梯度下降推理, 渐近稳定性
 
 ## 一句话总结
-提出NRGPT(eNeRgy-GPT)——将GPT设定与能量基模型(EBM)框架统一的最小修改方案：设计能量函数使推理过程成为tokens在能量landscape上的探索,证明某些条件下此探索等价于梯度下降(虽然非梯度下降不一定最差),在Shakespeare/ListOPS/OpenWebText上验证可行性,观察到可能更抗过拟合的特性。
+
+提出NRGPT（eNeRgy-GPT），对标准GPT进行最小修改使其成为能量基模型：设计注意力能量和前馈能量函数，使每层前向传播等价于token在能量landscape上的梯度下降步，证明了渐近能量下降和稳定收敛性质，在ListOps/Shakespeare/OpenWebText上验证了与标准GPT可比的性能。
 
 ## 研究背景与动机
 
-**领域现状**：GPT→标准自回归→next-token prediction。EBM→通过能量函数定义模型→低能量=合理样本。两者看似完全不同但隐含深层联系(ICL≈梯度下降等暗示)。
+**领域现状**：GPT架构是自回归语言建模的主流范式，通过next-token prediction实现文本生成。能量基模型（EBM）则是另一重要范式，将推理视为在能量景观上的动力学过程——低能量对应合理样本、高能量对应异常样本。两者看似完全不同，但近年来越来越多的研究暗示它们之间存在深层联系。
 
 **现有痛点**：
-   - (1) GPT和EBM之间的联系→仍不明确→无法互相借鉴
-   - (2) Energy Transformer→为BERT-like掩码补全设计→不适用于GPT的序列移位设定
-   - (3) Von Oswald/Ahn等工作→仅考虑线性Transformer(无softmax)→过度简化
-   - (4) 如何在不改变训练范式的情况下让GPT具有EBM的优势(可解释性/对齐)？
+1. **GPT与EBM的联系不明确**：Von Oswald等人证明了ICL可能是梯度下降，但仅考虑线性Transformer（无softmax），过度简化
+2. **Energy Transformer不适用于GPT设定**：ET为BERT-like掩码补全设计——掩码token快速演化以匹配缺失部分，而GPT中没有掩码，每个token需要演化为序列中的下一个token
+3. **EBM for LLM的现有工作**：如EBT将能量计算放在标准Transformer前向传播的输出端，而非将前向传播本身视为能量优化过程
+4. **缺乏将GPT前向传播直接转化为能量landscape探索的理论框架**
 
-**切入角度**：最小修改GPT→使推理(前向传播)成为tokens在能量landscape上的迭代更新→统一两个框架。
+**核心矛盾**：如何在不改变训练范式（自监督next-token prediction）的前提下，让GPT的推理过程具有EBM的理论优势（可解释性、系统化解空间探索、自然的对齐机制）？
+
+**本文方案**：对平行Transformer（GPT-J风格）进行最小修改——让注意力和前馈网络分别成为两个能量函数的梯度，从而使每一层的前向传播变成能量梯度下降的一步。
 
 ## 方法详解
 
-### NRGPT设计
+### 整体框架
 
-**核心思想**：每个token有自己的能量landscape→依赖于其他tokens的状态→推理=每个token在其能量landscape上迭代更新
+NRGPT采用**权重共享的循环架构**：单个模块反复应用 $T$ 次，替代传统 $T$ 层不同权重的Transformer。每次应用对应能量梯度下降的一步：
 
-**能量函数**：
-- 每个token t 的能量由注意力得分和MLP的交互定义
-- $E_t = E_{attn}(h_t, H_{<t}) + E_{mlp}(h_t)$
-- 其中$h_t$是token t的隐藏状态
+$$x^{(t+1)} = x^{(t)} - \eta^{(t)} \frac{\partial E}{\partial g^{(t)}}$$
 
-**更新规则**：
-- $h_t^{(k+1)} = h_t^{(k)} - \eta \nabla_{h_t} E_t(h_t^{(k)}, H)$
-- 多次应用NRGPT块→tokens迭代演化
-- 输入序列[x_1,...,x_T]→演化为[x_2,...,x_{T+1}]
+其中 $g^{(t)} = \text{LN}(x^{(t)})$ 是经过LayerNorm/RMSNorm的token表示，$\eta$ 是推理速率矩阵（inference rate matrix）。
 
-### 变体
-- 基础：固定学习率η
-- 可学习η：每层学习更新率
-- +LayerNorm/RMSNorm：增加归一化
+### 关键设计一：双能量函数
 
-### 关键理论
-- **定理**：在某些条件下(无RMSNorm/LayerNorm)，NRGPT的前向传播严格等价于能量函数的梯度下降
-- 但实验表明：非严格梯度下降的版本(有Norm)性能可能更好→打破严格GD不一定坏
+**注意力能量**（从Dense Associative Memory推导）：
 
-### 训练
-- 标准自回归训练(next-token prediction)→不改变训练方式
-- 仅推理时解释为能量探索→训练是标准的
+$$E_A^{\text{AT}} = -\frac{1}{\beta} \sum_h \alpha_h \log \left[ \sum_{B<A} \exp(\beta \cdot g_B^\top J_h g_A) \right]$$
 
-## 实验关键数据
+其中 $J_h = [W^K_h]^\top W^Q_h$ 合并了Key和Query投影，$\alpha_h$ 是可学习的头权重。对 $g_A$ 求梯度得到的更新与标准多头注意力结构高度对应：
 
-### Shakespeare字符级语言建模
-| 方法 | BPC↓ | 说明 |
-|------|------|------|
-| 标准GPT | 基线 | 自回归 |
-| **NRGPT** | **竞争力** | 能量基 |
+$$\text{Original: } [W^P_h]^\top W^V_h \equiv \text{Energy: } \alpha_h \eta J_h^\top$$
 
-### ListOPS(嵌套代数推理)
-| 任务 | NRGPT | GPT | 说明 |
-|------|-------|-----|------|
-| 算术 | ≈ | 基线 | |
-| min/max | ≈ | 基线 | |
-| 嵌套组合 | **更好** | 基线 | 迭代推理优势 |
+**前馈能量**（两个变体）：
+
+- FF1: $E^{\text{FF}} = -\|\sigma(Wg_A)\|^2$，梯度给出单权重矩阵的前馈更新
+- FF2W: $E^{\text{FF}} = -g_A^\top W^2 \sigma(W^1 g_A)$，梯度给出双权重矩阵的前馈更新（更接近标准MLP）
+
+### 关键设计二：能量下降保证与渐近稳定性
+
+**能量下降条件**（Proposition 2.1）：当推理速率 $\eta = c \cdot \text{diag}(\gamma)$（$c > 0$，$\gamma$ 来自LayerNorm）时，更新规则保证渐近能量下降 $\dot{E}_A < 0$。
+
+**渐近稳定性**（利用因果注意力掩码的关键性质）：
+- token $A$ 的能量 $E_A$ 仅依赖 $B \leq A$ 的token状态
+- 第一个token的能量单调下降且有下界→收敛到不动点
+- 第一个token稳定后，第二个token的能量也单调下降→递归论证
+- **所有token最终渐近收敛到稳定状态**——这是NRGPT独特的"渐近稳定性"现象
+
+**无LayerNorm情况**（Proposition 2.2）：当 $g = x$ 时，只需 $\eta$ 的对称部分 $\eta_+ = (\eta + \eta^\top)/2$ 半正定即可保证 $\dot{E} < 0$，反对称部分 $\eta_-$ 无约束。
+
+### 关键设计三：与标准Transformer的结构对应
+
+| 模块 | 标准Transformer | NRGPT能量梯度 |
+|:---|:---|:---|
+| 注意力输出矩阵 | $[W^P]^\top W^V$ | $\alpha \eta J^\top$ |
+| 前馈第二层权重 | $W^2$ | $W^1 \eta^\top$ |
+| 层间连接 | 不同层不同权重 | 权重共享 + 循环应用 |
+| 推进机制 | 逐层传播 | 能量landscape上的梯度下降 |
+
+## 实验结果
+
+### 主实验：ListOps嵌套数学运算
+
+测试最大值、中位数、模20求和三种嵌套运算：
+
+| 模型 | 学习转变点（参数量） | 最终准确率 |
+|:---|:---:|:---:|
+| GPT_Rec_parallel | 2.3×10⁴ | ~100% |
+| NRGPT_H_FF1 | 2.4×10⁴ | ~100% |
+| NRGPT_H_FF2W | 2.98×10⁴ | ~100% |
+
+NRGPT各变体在ListOps上与基线性能匹配，学习转变点非常接近。
 
 ### OpenWebText语言建模
-- NRGPT在OWT上可行→PPL竞争力
-- 观察：更长训练→NRGPT过拟合更慢→可能有正则化效果
 
-### 关键发现
-- NRGPT≈GPT在标准基准→但有EBM的理论优势
-- 严格梯度下降不是最优→有Norm的版本更好→虽然破坏GD但实用
-- 抗过拟合→仅在很长训练才过拟合→能量landscape提供隐式正则
-- 可学习η→每层不同更新率→适应不同抽象级别
+| 模型 | 参数量 | Val Loss (mean±std) | Val Loss (min) |
+|:---|:---:|:---:|:---:|
+| GPT (12层) | 124M | 2.921±0.005 | 2.915 |
+| GPT_Rec_parallel | 85M | 3.454±0.037 | 3.411 |
+| NRGPT_H_FF2W | 90M | 3.467±0.073 | 3.404 |
 
-## 亮点与洞察
-- **"GPT ∩ EBM"的最小统一**：不是用EBM替代GPT→而是证明GPT可以被解释为EBM→完全统一。
-- **推理=能量下降**：前向传播=tokens在能量landscape上下降→赋予了推理过程物理含义。
-- **正则化效果**：能量landscape的结构→可能提供比标准dropout/weight decay更自然的正则化。
-- **Alignment的潜力**：能量函数→可以加正则项→为模型对齐提供新工具(论文讨论但未实验)。
-- **挑战"GD最优"**：理论上推理=GD→但实验显示非GD更好→引发关于EBM推理的深层思考。
+**关键发现**：NRGPT在参数量少34M的情况下达到了与循环GPT基线可比的验证损失（3.404 vs 3.411）。
 
-## 评分
-- 新颖性: ⭐⭐⭐⭐⭐ 首次将GPT设定cast为well-defined的EBM
-- 实验充分度: ⭐⭐⭐ Shakespeare+ListOPS+OWT→但规模有限
-- 写作质量: ⭐⭐⭐⭐⭐ 理论和实验的平衡excellent
-- 价值: ⭐⭐⭐⭐ 对理解Transformer和EBM的联系有根本性贡献
+### 消融：抗过拟合特性
+
+| 模型 | Shakespeare训练集Loss | 验证集Loss | 过拟合程度 |
+|:---|:---:|:---:|:---:|
+| GPT | 极低 | 较高 | 严重（大模型） |
+| GPT_Rec_parallel | 较低 | 较高 | 中等 |
+| **NRGPT** | 中等 | **与验证相当** | **轻微** |
+
+在Shakespeare数据集上，NRGPT在大参数量时表现出显著的抗过拟合特性——最佳验证损失与GPT基线相当，但训练集过拟合程度明显更低。这可能是因为能量landscape的梯度下降过程天然具有正则化效果。
+
+## 论文评价
+
+### 优点
+
+1. **理论优雅**：通过最小修改建立GPT与EBM的严格联系，能量下降和渐近稳定性的证明利用了因果掩码的结构，非常漂亮
+2. **开辟新方向**：将推理视为能量优化为LLM提供了全新视角，可能带来对齐（通过能量正则化）、可解释性（通过能量landscape分析）等应用
+3. **抗过拟合现象**有趣且有实际价值
+
+### 不足
+
+1. 当前规模仅验证到124M参数，与现代LLM的规模差距巨大，可扩展性尚不明确
+2. 权重共享约束使NRGPT比标准GPT参数效率更低（需要更多循环步数补偿）
+3. 推理速率 $\eta$ 的约束较强（$\eta = c \cdot \text{diag}(\gamma)$），限制了模型的表达力
+4. 验证损失与标准GPT仍有差距（3.404 vs 2.915），尽管参数量不同
+
+### 评分
+
+⭐⭐⭐⭐
+
+**推荐理由**：在GPT与EBM之间建立了迄今最紧密的理论联系，渐近稳定性的证明特别精彩。虽然当前实验规模有限，但理论贡献足以开辟新的研究方向——如何利用能量landscape的显式优化来改进LLM的对齐、鲁棒性和可解释性。

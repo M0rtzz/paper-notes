@@ -48,7 +48,7 @@ description: >-
 
 **[Quantifying Climate Policy Action And Its Links To Development Outcomes A Cross-](quantifying_climate_policy_action_and_its_links_to_development_outcomes_a_cross-.md)**
 
-:   构建了从 NLP 文本分类到计量经济分析的跨国气候政策分析框架：利用多语言 DistilBERT 对气候政策文档自动分类（Mitigation / Adaptation / DRM / Loss & Damage），再与世界银行发展指标做固定效应面板回归，揭示不同类型气候政策与发展结果的关联。
+:   本文构建了一个NLP-计量经济学一体化框架，先用微调的多语言DistilBERT对全球气候政策文档按主题（减缓/适应/灾害风险管理/损失与损害）自动分类（F1=0.90），再与世界银行发展指标做固定效应面板回归，发现减缓政策与较高GDP/GNI显著正相关，而损失与损害政策全球仍然缺乏实质性实施。
 
 **[Zero-Shot Performance Prediction For Probabilistic Scaling Laws](zero-shot_performance_prediction_for_probabilistic_scaling_laws.md)**
 

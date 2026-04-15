@@ -18,6 +18,6 @@ description: >-
 
 :   通过将密集匹配聚类为代表性子集，并用9×9矩阵编码每个聚类的几何约束，在保持精度的前提下将RANSAC鲁棒估计加速10-100倍。
 
-**[LotusFilter: Fast Diverse Nearest Neighbor Search via a Learned Cutoff Table](lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table.md)**
+**[Lotusfilter Fast Diverse Nearest Neighbor Search Via A Learned Cutoff Table](lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table.md)**
 
-:   提出LotusFilter，通过预计算截取表和贪心集合过滤，以O(S+KL)线性复杂度实现多样化近邻搜索，比传统方法快50-100倍，内存仅1/40。
+:   提出LotusFilter，通过离线预计算每个向量的邻近关系构建截断表(cutoff table)，在线阶段用贪心集合删除实现多样化过滤，将传统 $O(DS^2)$ 的多样化搜索降至 $O(T+S+KL)$，过滤仅需0.02ms/query，内存仅为传统方法的1/40。

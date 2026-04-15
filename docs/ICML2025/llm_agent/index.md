@@ -60,7 +60,7 @@ description: >-
 
 **[Towards Llm Agents For Earth Observation](towards_llm_agents_for_earth_observation.md)**
 
-:   引入UnivEARTH基准（140个是/否问题，覆盖13个主题和17种卫星传感器），发现使用Google Earth Engine API作为工具的LLM Agent准确率仅33%——主要因为58%以上的代码无法运行——揭示了AI自动化地球观测的重大挑战。
+:   本文提出 UnivEARTH——一个包含 140 个 yes/no 问题的地球观测基准，涵盖 13 个主题和 17 种卫星传感器，评估发现最佳 LLM Agent（使用 Google Earth Engine 生成代码）的准确率仅 33%，主要受限于 58% 的代码无法运行。
 
 **[Xchemagents Agentic Ai For Explainable Quantum Chemistry](xchemagents_agentic_ai_for_explainable_quantum_chemistry.md)**
 

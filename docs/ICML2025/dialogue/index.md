@@ -20,4 +20,4 @@ description: >-
 
 **[Position Uncertainty Quantification Needs Reassessment For Large-Language Model ](position_uncertainty_quantification_needs_reassessment_for_large-language_model_.md)**
 
-:   这篇 position paper 挑战了传统"偶然 vs 认知"不确定性二分法在 LLM Agent 场景中的适用性，指出两类不确定性的定义本身相互矛盾，并提出三个面向 Agent 交互的新研究方向：欠规范不确定性、交互式学习、以及丰富的输出不确定性表达。
+:   本文是一篇 Position Paper，通过梳理文献中 aleatoric 和 epistemic 不确定性的多种相互矛盾的定义，论证传统二分法在 LLM 交互场景中根本性失效，并提出 underspecification uncertainty（任务/上下文欠规范）、interactive learning（通过追问减少不确定性）和 output uncertainty（用自然语言而非标量表达不确定性）三个新研究方向。

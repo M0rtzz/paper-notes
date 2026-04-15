@@ -12,7 +12,7 @@ description: >-
 
 **[Are Llms Prescient A Continuous Evaluation Using Daily News As The Oracle](are_llms_prescient_a_continuous_evaluation_using_daily_news_as_the_oracle.md)**
 
-:   提出 Daily Oracle 基准——从每日新闻自动生成 QA 对来持续评估 LLM 的时间泛化和预测能力，揭示 LLM 性能随预训练数据过时而持续退化（True/False 题平均下降 21.55%），且 RAG 也无法完全挽救。
+:   提出 Daily Oracle——一个每日自动从新闻生成预测性 QA 对的持续评估基准，系统性揭示了 LLM 预测能力随预训练数据过时而平滑退化的规律，TF 题平均降 21.55%、MC 题降 11.33%，且 RAG 也无法完全挽救。
 
 **[Breaking Silos Adaptive Model Fusion Unlocks Better Time Series Forecasting](breaking_silos_adaptive_model_fusion_unlocks_better_time_series_forecasting.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Context Is Key A Benchmark For Forecasting With Essential Textual Information](context_is_key_a_benchmark_for_forecasting_with_essential_textual_information.md)**
 
-:   提出 CiK 基准——将数值时间序列与精心设计的文本上下文配对，要求模型必须理解文本才能成功预测，评估统计模型、时序基础模型和 LLM 预测器，发现简单的 LLM 提示方法在需要上下文信息的任务上表现最优。
+:   提出 Context is Key（CiK）基准——71个手工设计的预测任务横跨7个领域，每个任务必须结合数值历史和自然语言上下文才能准确预测，同时提出 RCRPS 评估指标和 Direct Prompt 方法，发现 Llama-3.1-405B 的简单提示方法（RCRPS=0.159）大幅领先所有统计模型和时序基础模型。
 
 **[Customizing The Inductive Biases Of Softmax Attention Using Structured Matrices](customizing_the_inductive_biases_of_softmax_attention_using_structured_matrices.md)**
 
@@ -72,7 +72,7 @@ description: >-
 
 **[Temporal Query Network For Efficient Multivariate Time Series Forecasting](temporal_query_network_for_efficient_multivariate_time_series_forecasting.md)**
 
-:   提出Temporal Query(TQ)技术——用周期性移位的可学习向量作为注意力查询来捕捉全局变量间相关性，keys/values来自原始数据保留局部信息，单层注意力+浅MLP的TQNet即达SOTA。
+:   提出Temporal Query（TQ）技术——使用周期性移位的可学习向量作为注意力机制的query来捕获全局变量间相关模式，同时keys/values来自原始数据以保留样本级局部信息，在此基础上构建的TQNet仅使用单层多头注意力和浅层MLP，即在12个真实数据集上达到整体SOTA，且效率接近线性方法DLinear。
 
 **[Timepoint Accelerated Time Series Alignment Via Self-Supervised Keypoint And Des](timepoint_accelerated_time_series_alignment_via_self-supervised_keypoint_and_des.md)**
 

@@ -108,7 +108,7 @@ description: >-
 
 **[Evaluating Fewshot Pill Recognition Under Visual D](evaluating_fewshot_pill_recognition_under_visual_d.md)**
 
-:   从部署导向视角系统评估了小样本药丸识别在跨数据集域偏移下的表现，发现语义分类1-shot即可饱和(准确率>0.989)，但遮挡重叠场景下定位和召回急剧退化，训练数据的视觉真实性(多药丸、杂乱场景)是决定小样本泛化鲁棒性的主要因素。
+:   从部署导向的视角系统评估少样本药片识别在跨数据集域偏移下的表现，揭示语义分类在 1-shot 即饱和但遮挡/重叠场景下定位与召回急剧退化的解耦现象，并论证训练数据的视觉真实性是决定少样本泛化的主导因素。
 
 **[Ew-Detr Evolving World Object Detection Via Incremental Low-Rank Detection Trans](ew-detr_evolving_world_object_detection_via_incremental_low-rank_detection_trans.md)**
 
@@ -132,7 +132,7 @@ description: >-
 
 **[Fourier Angle Alignment For Oriented Object Detection In Remote Sensing](fourier_angle_alignment_for_oriented_object_detection_in_remote_sensing.md)**
 
-:   利用傅里叶旋转等变性在频域估计并对齐目标方向，提出 FAAFusion（解决 Neck 层方向不一致）和 FAA Head（解决检测头分类-回归任务冲突）两个即插即用模块，在 DOTA 和 HRSC2016 上达到新 SOTA。
+:   利用傅里叶旋转等变性在频域估计目标主方向并对齐特征，提出 FAAFusion 和 FAA Head 两个即插即用模块分别解决 FPN 跨尺度方向不一致和检测头分类-回归任务冲突，在 DOTA-v1.0/v1.5 和 HRSC2016 上取得新 SOTA。
 
 **[Just-In-Time Training-Free Spatial Acceleration For Diffusion Transformers](just-in-time_training-free_spatial_acceleration_for_diffusion_transformers.md)**
 
@@ -208,7 +208,7 @@ description: >-
 
 **[Show Dont Tell Detecting Novel Objects By Watching](show_dont_tell_detecting_novel_objects_by_watching.md)**
 
-:   提出"Show, Don't Tell"范式：通过观看人类演示视频，自动构建新物体标注数据集（SODC），训练轻量级定制检测器（MOD），完全绕过语言描述和prompt engineering，在真实机器人分拣任务上成功部署。
+:   提出 "Show, Don't Tell" 范式——通过观看人类演示视频自动创建训练数据集并训练定制化物体检测器，完全绕过语言描述和提示工程，在真实机器人场景中显著超越 SOTA 开集/闭集检测器的新物体识别能力。
 
 **[Show Dont Tell Detecting Novel Objects By Watching Human Videos](show_dont_tell_detecting_novel_objects_by_watching_human_videos.md)**
 

@@ -192,7 +192,7 @@ description: >-
 
 **[Your Agent May Misevolve Emergent Risks In Self-Evolving Llm Agents](your_agent_may_misevolve_emergent_risks_in_self-evolving_llm_agents.md)**
 
-:   本文首次系统性地提出并研究了"误进化（Misevolution）"概念——自进化LLM Agent在自主改进过程中可能偏离预期方向，沿模型、记忆、工具、工作流四条进化路径产生安全对齐退化、漏洞引入等新兴风险，即使使用顶级LLM（如Gemini-2.5-Pro）也无法幸免。
+:   本文首次提出"误进化（Misevolution）"概念，系统性地揭示自进化LLM Agent沿模型进化、记忆进化、工具进化、工作流进化四条路径自主改进时，会产生安全对齐退化、部署时奖励劫持、不安全工具引入与复用、安全检查跳过等新兴风险，且即使 Gemini-2.5-Pro 等顶级模型也无法幸免。
 
 **[Zerodaybench Evaluating Llm Agents On Unseen Zero-Day Vulnerabilities For Cyberd](zerodaybench_evaluating_llm_agents_on_unseen_zero-day_vulnerabilities_for_cyberd.md)**
 

@@ -20,4 +20,4 @@ description: >-
 
 **[Pixel-Level Reasoning Segmentation Via Multi-Turn Conversations](pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)**
 
-:   提出像素级推理分割（Pixel-level RS）新任务，通过多轮对话逐步理解用户意图，实现细粒度的像素级分割，并构建了包含24k句话、8.3k多轮对话场景的PRIST数据集和MIRAS框架。
+:   提出像素级推理分割 (Pixel-level RS) 新任务，通过多轮对话逐步理解用户意图实现细粒度分割，构建了包含 24k 对话轮次的 PRIST 数据集，并设计 MIRAS 框架在分割精度和推理能力上均超越现有基线。

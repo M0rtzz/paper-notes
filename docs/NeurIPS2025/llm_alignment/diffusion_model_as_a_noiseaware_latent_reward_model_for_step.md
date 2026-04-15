@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2502.01051](https://arxiv.org/abs/2502.01051)  
 **代码**: [https://github.com/Kwai-Kolors/LPO](https://github.com/Kwai-Kolors/LPO)  
 **领域**: 图像生成 / 偏好优化  
-**关键词**: 扩散模型, 偏好优化, 奖励模型, latent space, step-level, noise-aware, DPO
+**关键词**: 扩散模型, 偏好优化, 奖励模型, latent space, step-level, noise-aware, DPO  
 **机构**: 中科院自动化所 + 快手  
 
 ## 一句话总结

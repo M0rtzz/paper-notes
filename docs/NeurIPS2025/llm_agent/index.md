@@ -20,7 +20,7 @@ description: >-
 
 **[Adaptive Cooperative Transmission Design For Ultra-Reliable Low-Latency Communic](adaptive_cooperative_transmission_design_for_ultra-reliable_low-latency_communic.md)**
 
-:   提出DRL-CoLA双智能体DQN算法，为两跳解码转发中继系统中的每次（重）传输自适应选择5G NR的numerology、mini-slot和MCS参数，仅用本地CSI在严格时延约束下实现近最优可靠性。
+:   提出 DRL-CoLA 双智能体深度 Q 网络算法，让两跳中继通信系统中的源节点和中继节点分别以分布式方式学习自适应配置 5G NR 传输参数（numerology、mini-slot、MCS），在仅使用本地 CSI 的条件下，实现端到端严格时延约束内的近最优丢包率。
 
 **[Adaptive Coopetition Leveraging Coarse Verifier Signals For Resilient Multi-Agen](adaptive_coopetition_leveraging_coarse_verifier_signals_for_resilient_multi-agen.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Agenttts Large Language Model Agent For Testtime Computeopti](agenttts_large_language_model_agent_for_testtime_computeopti.md)**
 
-:   研究多阶段复杂任务中的测试时计算最优扩展问题，通过先导实验提炼三个通用洞察，据此设计 AgentTTS——一个基于 LLM agent 的框架，通过迭代反馈驱动交互自主搜索最优模型+预算分配方案。
+:   本文研究多阶段复杂任务中的测试时计算最优缩放问题，通过大规模先导实验总结出三个关于 LLM 在多阶段任务中的缩放规律洞察，并提出 AgentTTS——一个基于 LLM Agent 的框架，通过迭代反馈驱动搜索自主寻找计算最优的模型选择和预算分配方案。
 
 **[Are Large Language Models Sensitive To The Motives Behind Communication](are_large_language_models_sensitive_to_the_motives_behind_communication.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Crucible Quantifying The Potential Of Control Algorithms Through Llm Agents](crucible_quantifying_the_potential_of_control_algorithms_through_llm_agents.md)**
 
-:   首次提出"调优潜能"（Tuning Potential）概念并给出形式化度量，通过 LLM Agent 模拟不同能力水平的开发者对控制算法进行参数调优和逻辑级改进，在 ABR 任务上相比贝叶斯优化提升 44.1%，CartPole 上 Bang-bang 从 34→500 达到 DQN 水平。
+:   首次将"调优潜能"（Tuning Potential）概念形式化，通过 LLM Agent 模拟多级开发者对控制算法进行参数+逻辑双层调优，在 CartPole 上 Bang-bang 从 34→500 达到 DQN 水平，ABR 任务上相比贝叶斯优化最高提升 44.1%。
 
 **[Debate Or Vote Which Yields Better Decisions In Multi-Agent Large Language Model](debate_or_vote_which_yields_better_decisions_in_multi-agent_large_language_model.md)**
 
@@ -164,7 +164,7 @@ description: >-
 
 **[Mlrc-Bench Can Language Agents Solve Machine Learning Research Challenges](mlrc-bench_can_language_agents_solve_machine_learning_research_challenges.md)**
 
-:   基于真实 ML 会议竞赛构建动态基准 MLRC-Bench，评估 LLM Agent 提出和实现新颖研究方法的能力，发现最强 Agent（Gemini）仅达人类顶级方案 9.3% 的相对改进，且提供 AI/人类想法并不能一致改善实现质量。
+:   本文提出MLRC-Bench，一个基于ML会议竞赛任务的动态benchmark，用于客观评估LLM agent提出和实现新研究方法的能力，发现最强agent（gemini-exp-1206）也仅缩小了baseline与人类顶级方案之间9.3%的差距，且LLM主观评分的"创新性"与实际效果之间几乎无相关性。
 
 **[Orchestration Framework For Financial Agents From Algorithmic Trading To Agentic](orchestration_framework_for_financial_agents_from_algorithmic_trading_to_agentic.md)**
 
@@ -204,7 +204,7 @@ description: >-
 
 **[Trajagent An Llm-Agent Framework For Trajectory Modeling Via Large-And-Small Mod](trajagent_an_llm-agent_framework_for_trajectory_modeling_via_large-and-small_mod.md)**
 
-:   首个 LLM 代理框架自动处理轨迹建模全流程，通过 UniEnv 统一接口和协作学习双层优化（LLM 推理 + 小模型训练），性能相比基线最高提升 69.91%。
+:   提出 TrajAgent——一个基于 LLM Agent 的轨迹建模框架，通过统一环境 UniEnv、自动化工作流和大小模型协作学习机制，实现跨任务、跨数据集的自动化轨迹建模，在多项任务上超越基线方法 2.38%–69.91%。
 
 **[Web-Shepherd Advancing Prms For Reinforcing Web Agents](web-shepherd_advancing_prms_for_reinforcing_web_agents.md)**
 

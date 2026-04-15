@@ -9,7 +9,7 @@ tags:
   - RL加速
   - PPO
   - GRPO
-  - 重要性采样
+  - importance sampling
 ---
 
 # QuRL: Efficient Reinforcement Learning with Quantized Rollout
@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2602.13953](https://arxiv.org/abs/2602.13953)  
 **代码**: 无  
 **领域**: 强化学习 / 模型量化  
-**关键词**: 量化推理, RL加速, PPO, GRPO, 重要性采样
+**关键词**: 量化推理, RL加速, PPO, GRPO, importance sampling
 
 ## 一句话总结
 
@@ -47,17 +47,17 @@ RL 训练循环中：(1) 将旧 actor $\theta_{\text{old}}$ 量化为 $\hat{\the
 ### 关键设计
 
 1. **自适应裁剪范围 (Adaptive Clipping Range, ACR)**:
-    - 功能：解决量化 rollout 导致的长期训练崩溃问题
+    - 做什么：解决量化 rollout 导致的长期训练崩溃问题
     - 核心思路：在 Decoupled PPO 中，行为策略（量化 actor $\pi_{\hat{\theta}_{\text{old}}}$）与近邻策略（全精度 $\pi_{\theta_{\text{old}}}$）分离。FlashRL 的 TIS 方法通过截断 $\min(\pi_{\theta_{\text{prox}}}/\pi_{\theta_{\text{behav}}}, C)$ 稳定训练，但隐含了一个缩放因子 $r_{i,t}$，对正 advantage 序列过度裁剪。ACR 将上界调整为 $(1+\epsilon)/r_{i,t}$：$\mathcal{J}_{\text{ACR}} = \tilde{\mathbb{E}}[\min(\pi_{\text{prox}}/\pi_{\text{behav}}, C) \cdot \min(R_{i,t}A_{i,t}, \text{clip}(R_{i,t}, 1-\epsilon, (1+\epsilon)/r_{i,t})A_{i,t})]$
     - 设计动机：在训练后期（>1000步），量化actor与全精度actor的KL散度从0.002增长到0.025（12×），TIS的固定截断导致偏差梯度估计。ACR根据策略分歧动态放宽裁剪上界，让更多正 advantage token 得到训练
 
 2. **更新感知量化 (Update-Aware Quantization, UAQ)**:
-    - 功能：解决权重量化变化量与权重更新量的尺度失配
+    - 做什么：解决权重量化变化量与权重更新量的尺度失配
     - 核心思路：利用线性层的不变缩放 $WX = (W/s) \cdot (sX)$，选择 $s > 1$ 使量化误差$\propto |\theta|/(s \cdot 2^b)$ 降低 $s$ 倍，同时权重更新$\propto s \cdot \alpha G$ 放大 $s$ 倍，产生 $s^2$ 的信噪比改善。$s$ 列式应用于 $W$，行式应用于前一层激活（可合并到 LayerNorm）
     - 设计动机：RL 中学习率 $\alpha \sim 10^{-6}$，梯度 $G \sim 0.1$-$1.0$，权重更新量级 $\sim 10^{-7}$ 远小于量化误差（权重范数 $\sim 0.001$-$0.1$）。实验显示 INT8 量化几乎掩盖了所有权重更新，量化模型实际上在"冻结"
 
 3. **系统集成与工程实现**:
-    - 功能：将 ACR 和 UAQ 集成到 VeRL RL 训练框架
+    - 做什么：将 ACR 和 UAQ 集成到 VeRL RL 训练框架
     - 核心思路：UAQ 是一次性的权重预处理（RL训练前执行），不增加训练开销。ACR 仅修改 clipping 逻辑，计算开销可忽略。利用 vLLM 的 INT8/FP8 矩阵乘法核加速推理
     - 设计动机：QuRL 介于 PTQ 和 QAT 之间——不像 QAT 显式优化量化，但参数通过量化模型产出的梯度隐式更新。需要简单但有效的量化策略
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM评测方向 72篇论文解读
+  NeurIPS2025 LLM评测方向 71篇论文解读
 description: >-
-  72篇NeurIPS2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  71篇NeurIPS2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🧠 NeurIPS2025** · 共 **72** 篇
+**🧠 NeurIPS2025** · 共 **71** 篇
 
 **[A Highdimensional Statistical Method For Optimizing Transfer](a_highdimensional_statistical_method_for_optimizing_transfer.md)**
 
@@ -122,10 +122,6 @@ description: >-
 
 :   通过控制实验揭示大词表提升语言模型性能的根本机制：**扩大词表降低分词文本的 Kolmogorov 复杂度，利用词频不平衡让高频词损失大幅下降，驱动全局交叉熵下降和下游任务提升**。
 
-**[Fgbench A Dataset And Benchmark For Molecular Property Reasoning At Functional G](fgbench_a_dataset_and_benchmark_for_molecular_property_reasoning_at_functional_g.md)**
-
-:   FGBench 构建了首个官能团级分子属性推理基准（625K QA 对，覆盖 245 个官能团），通过相似分子配对 + AccFG 标注 + 重建验证确保数据质量，揭示即使 o3-mini 在交互任务上也仅 69.3%，化学专用模型（ChemLLM）甚至仅 23.3%。
-
 **[Generalization Error Analysis For Selective State-Space Models Through The Lens ](generalization_error_analysis_for_selective_state-space_models_through_the_lens_.md)**
 
 :   将选择性SSM（Mamba）展开为注意力形式，利用覆盖数技术推导出受连续时间状态矩阵谱横断面$s_{\mathbf{A}}$控制的泛化界——$s_{\mathbf{A}}<0$时泛化界与序列长度无关，$s_{\mathbf{A}}\geq0$时指数增长，并证明这种依赖不可消除。
@@ -212,7 +208,7 @@ description: >-
 
 **[Parrot A Benchmark For Evaluating Llms In Cross-System Sql Translation](parrot_a_benchmark_for_evaluating_llms_in_cross-system_sql_translation.md)**
 
-:   提出 PARROT，首个面向跨数据库系统 SQL 翻译 (SQL-to-SQL) 的实用基准，包含598个核心翻译对、覆盖22个生产级数据库系统，揭示了 LLM 在系统特定 SQL 方言理解上的显著不足（平均准确率低于38.53%）。
+:   本文提出 PARROT，一个面向跨系统 SQL 翻译（SQL-to-SQL）的实际且真实的基准测试，包含来自 38 个开源基准和真实业务场景的 598 个核心翻译对（扩展到 28,003 对），覆盖 22 种生产级数据库系统，揭示当前最强 LLM 的平均准确率低于 38.53%。
 
 **[Path Attention Position Encoding Via Accumulating Householder Transformations](path_attention_position_encoding_via_accumulating_householder_transformations.md)**
 
@@ -244,7 +240,7 @@ description: >-
 
 **[Rgb-To-Polarization Estimation A New Task And Benchmark Study](rgb-to-polarization_estimation_a_new_task_and_benchmark_study.md)**
 
-:   定义了从标准RGB图像估计偏振信息的新任务，建立首个全面基准，系统评估修复型和生成型深度学习模型在该任务上的表现，揭示不同模型家族的优势与局限。
+:   本文首次定义从标准RGB图像估计偏振分量（S₁/S₂/S₃）的新任务，构建涵盖修复型与生成型方法的首个系统基准，发现预训练MAE在像素精度上综合最优（PSNR 24.74），修复型方法整体显著优于扩散生成型方法，且预训练权重迁移是关键优势。
 
 **[Risk Management For Mitigating Benchmark Failure Modes Benchrisk](risk_management_for_mitigating_benchmark_failure_modes_benchrisk.md)**
 
@@ -268,7 +264,7 @@ description: >-
 
 **[The Geometry Of Cortical Computation Manifold Disentanglement And Predictive Dyn](the_geometry_of_cortical_computation_manifold_disentanglement_and_predictive_dyn.md)**
 
-:   本文提出VCNet——一种受灵长类视觉皮层宏观组织启发的神经网络架构，通过双流处理实现流形解缠、通过预测编码实现几何精炼，在动物纹理分类和光场图像分类任务上以极少参数超越同规模模型。
+:   本文提出VCNet——一种模拟灵长类视觉皮层宏观组织的神经网络架构，用几何和动力系统语言重新诠释双流分离（流形解缠）和预测编码（测地线精炼），以0.04MB的极小体积在Spots-10上达到92.1%（比DenseNet蒸馏版高10%），在光场分类上以3.52MB达到74.4%（超MobileNetV2 2.3%）。
 
 **[Thought Communication In Multiagent Collaboration](thought_communication_in_multiagent_collaboration.md)**
 

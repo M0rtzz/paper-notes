@@ -12,7 +12,7 @@ description: >-
 
 **[3D4D An Interactive Editable 4D World Model Via 3D Video Generation](3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)**
 
-:   提出 3D4D，一个集成 WebGL 和 Supersplat 渲染的交互式 4D 可视化框架，通过四个后端模块（3D重建、图像生视频、视频分帧、4D场景生成）将静态图片和文本转化为可实时交互的 4D 场景，并引入 VLM 引导的注视点渲染策略在保持语义一致性的同时实现 60fps 实时交互。
+:   提出3D4D交互式4D可视化框架，集成WebGL与Supersplat渲染，通过四模块后端管线将静态图片/文本转化为可编辑4D场景，引入VLM引导的注视点渲染策略实现60fps实时交互，在CLIP Consistency和CLIP Score上达到SOTA。
 
 **[Apvr Hour-Level Long Video Understanding With Adaptive Pivot](apvr_hour-level_long_video_understanding_with_adaptive_pivot.md)**
 

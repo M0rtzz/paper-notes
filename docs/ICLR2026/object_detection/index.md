@@ -52,7 +52,7 @@ description: >-
 
 **[Forestpersons A Large-Scale Dataset For Under-Canopy Missing Person Detection](forestpersons_a_large-scale_dataset_for_under-canopy_missing_person_detection.md)**
 
-:   ForestPersons 是首个面向森林树冠下失踪人员检测的大规模数据集（96,482张图+204,078标注），涵盖地面/低空视角和多季节多天气条件，填补了搜救场景中下冠层检测的数据空白。
+:   ForestPersons 是首个专门面向森林树冠下失踪人员检测的大规模基准数据集（96,482 张图像 + 204,078 标注），通过模拟微型无人机（MAV）在 1.5-2.0 米高度的低空飞行视角，覆盖多季节、多天气、多姿态和多遮挡等级的真实搜救条件，为下冠层人员检测模型的训练和评估提供了坚实基础。
 
 **[From Narrow To Panoramic Vision Attention-Guided Cold-Start Reshapes Multimodal ](from_narrow_to_panoramic_vision_attention-guided_cold-start_reshapes_multimodal_.md)**
 
@@ -112,23 +112,23 @@ description: >-
 
 **[Traceable Evidence Enhanced Visual Grounded Reasoning Evaluation And Methodology](traceable_evidence_enhanced_visual_grounded_reasoning_evaluation_and_methodology.md)**
 
-:   提出TreeBench(可追溯证据评测基准)+TreeVGR(可追溯增强视觉定位推理训练范式)——TreeBench要求模型在密集物体场景中进行精细视觉感知+可追溯的多步推理+二阶推理(物体交互/空间层级),所有最先进模型均低于60%(OpenAI-o3仅54.87%); TreeVGR通过联合监督定位和推理的强化学习,将V*Bench/MME-RealWorld/TreeBench分别提升16.8/12.6/13.4。
+:   提出 TreeBench（首个可追溯视觉推理基准，405道高挑战 VQA，OpenAI-o3 仅 54.87%）和 TreeVGR（通过双 IoU 奖励的强化学习联合监督定位与推理的训练范式），7B 模型在 V\*Bench +16.8、MME-RealWorld +12.6、TreeBench +13.4，证明可追溯性是推进视觉推理的关键。
 
 **[Vidguard-R1 Ai-Generated Video Detection And Explanation Via Reasoning Mllms And](vidguard-r1_ai-generated_video_detection_and_explanation_via_reasoning_mllms_and.md)**
 
-:   提出VidGuard-R1——首个用GRPO(Group Relative Policy Optimization)微调MLLM的视频真伪检测器：构建14万真/假视频对数据集(HunyuanVideo/CogVideoX生成+标准化消除快捷方式)，设计时序伪影奖励(注入时序异常鼓励时序推理)和扩散步数奖励(更多步=更难检测=更高奖励)，实现SOTA零样本检测(>95%)+可解释的思维链推理。
+:   VidGuard-R1 是首个采用 GRPO（Group Relative Policy Optimization）强化学习微调 MLLM 的视频真伪检测器，通过构建 14 万无快捷方式的真/假视频对数据集，并设计时序伪影奖励和扩散步数质量奖励两种专用奖励机制，在自建数据集上达到 86.17% 准确率，在 GenVidBench 和 GenVideo 基准上实现 95%+ 的 SOTA 零样本检测性能，同时生成可解释的思维链推理。
 
 **[Vlbiman Vision-Language Anchored One-Shot Demonstration Enables Generalizable Bi](vlbiman_vision-language_anchored_one-shot_demonstration_enables_generalizable_bi.md)**
 
-:   提出VLBiMan——从单次演示实现可泛化双臂操作的框架：通过任务感知双臂分解提取可复用原子技能(不变量/可适应量)，用VLM视觉-语言锚定在新场景中适应(物体分割→锚点提取→几何对齐)，自主轨迹组合运动学感知混合协调双臂→10个复杂任务上验证泛化到新物体/新布局/新机器人具身体。
+:   提出VLBiMan框架，通过任务感知双臂分解将单次演示拆分为不变/可适应原子技能，利用VLM视觉-语言锚定在新场景中适应物体位置和实例变化，结合运动学感知的轨迹组合实现双臂协调——在10个复杂双臂任务上以1次演示达到85.3%成功率远超需上百次演示的模仿学习基线。
 
 **[What Layers When Learning To Skip Compute In Llms With Residual Gates](what_layers_when_learning_to_skip_compute_in_llms_with_residual_gates.md)**
 
-:   提出GateSkip——在每个Attention/MLP分支输出添加sigmoid-linear门控→训练门控学习token级重要性→推理时按门控值排序跳过低重要性token→在指令微调模型上全计算提升精度+50%计算节省仍匹配基线→可与量化/剪枝/推测解码组合→门控分析揭示Transformer信息流(BOS token=锚点)。
+:   提出 GateSkip——在 decoder-only Transformer 每个 Attention/MLP 分支输出处插入一个 sigmoid-linear 门控，微调时联合学习门控稀疏性与语言建模目标，推理时按门控值用分位数阈值确定性跳过低重要性 token，实现 token 级逐层自适应深度；在 Llama 8B 上节省 15% 计算保持 >90% 精度，指令微调模型全计算反而提升精度、约 50% 节省仍匹配基线，且与 INT4 量化/结构化剪枝/自推测解码正交可组合。
 
 **[When Agents Misremember Collectively Exploring The Mandela Effect In Llm-Based M](when_agents_misremember_collectively_exploring_the_mandela_effect_in_llm-based_m.md)**
 
-:   首次系统研究LLM多Agent系统中的曼德拉效应(集体虚假记忆)：提出ManBench(4类任务×5种交互协议×4838问题)→评估13个LLM→量化曼德拉效应的存在和影响因素(群组组成/规模/知识域/模型规模/记忆时间尺度)→提出prompt级(认知锚定/来源审查)和模型级(对齐)缓解策略→平均降低74.40%的曼德拉效应。
+:   本文首次系统研究了 LLM 多智能体系统中的曼德拉效应（集体虚假记忆），提出 ManBench 基准（4838 个问题、5 种交互协议），发现所有 13 个被评估的 LLM 均易受此效应影响，并提出 prompt 级和模型级缓解策略，平均减少 74.40% 的虚假记忆。
 
 **[Zero-Shot Hoi Detection With Mllm-Based Detector-Agnostic Interaction Recognitio](zero-shot_hoi_detection_with_mllm-based_detector-agnostic_interaction_recognitio.md)**
 

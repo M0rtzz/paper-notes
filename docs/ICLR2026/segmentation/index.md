@@ -24,7 +24,7 @@ description: >-
 
 **[Locality-Attending Vision Transformer](locality-attending_vision_transformer.md)**
 
-:   提出 LocAt，一个轻量级 ViT 插件，通过可学习高斯核调制自注意力偏向局部邻域(GAug)和无参数的 Patch 表征精炼(PRR)，在不改变训练范式的前提下为 ViT 带来 6%+ 的分割性能提升且不牺牲分类精度。
+:   提出 LocAt 模块化插件（GAug + PRR），通过可学习高斯核偏置注意力向局部邻域聚焦并精炼 patch 表示，在不修改训练目标的前提下使 ViT 在 ADE20K 分割上提升超 6%，同时分类精度不降反升。
 
 **[Regionreasoner Region-Grounded Multi-Round Visual Reasoning](regionreasoner_region-grounded_multi-round_visual_reasoning.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Universal Multi-Domain Translation Via Diffusion Routers](universal_multi-domain_translation_via_diffusion_routers.md)**
 
-:   提出 Diffusion Router (DR)，一个统一的扩散模型框架，仅用 $K-1$ 个与中心域配对的数据集，通过单个噪声预测网络配合源域/目标域标签条件化，实现任意 $K$ 个域之间的间接和直接翻译，并提出 Tweedie 精炼采样降低计算成本。
+:   提出 Diffusion Router (DR)，用单个噪声预测网络通过 source/target 域标签条件化实现所有跨域映射，支持通过中心域的间接翻译和基于变分上界目标 + Tweedie 精化的直接非中心域翻译，在三个大规模 UMDT 基准上达到 SOTA。
 
 **[Vincie Unlocking In-Context Image Editing From Video](vincie_unlocking_in-context_image_editing_from_video.md)**
 

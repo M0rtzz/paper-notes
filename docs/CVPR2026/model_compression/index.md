@@ -116,7 +116,7 @@ description: >-
 
 **[Ppcl Pluggable Pruning Dit Distillation](ppcl_pluggable_pruning_dit_distillation.md)**
 
-:   提出 PPCL 框架对大型扩散 Transformer (DiT, 8-20B 参数) 进行结构化剪枝: 通过线性探针+CKA 一阶差分识别连续冗余层区间, 深度方向+宽度方向联合剪枝, 搭配即插即用交替蒸馏, 在 Qwen-Image 20B 上实现 50% 参数缩减, 仅 3% 生成质量下降.
+:   提出 PPCL 框架，针对超大规模 Multi-Modal Diffusion Transformer (MMDiT, 8–20B 参数) 设计结构化剪枝方案：通过线性探针 (Linear Probe) 学习每层的可替代性，结合 CKA 一阶差分自动定位连续冗余层区间，再以非顺序交替蒸馏实现深度+宽度双轴剪枝，最终在 Qwen-Image 20B 上实现 50% 参数缩减、1.8× 推理加速，平均性能仅下降 2.61%。
 
 **[Quantvla Scale-Calibrated Post-Training Quantization For Vision-Language-Action ](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)**
 

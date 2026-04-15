@@ -16,7 +16,7 @@ description: >-
 
 **[Deep Learning For Subspace Regression](deep_learning_for_subspace_regression.md)**
 
-:   将缩减阶建模中的子空间预测问题形式化为 Grassmann 流形上的回归，设计适用于子空间数据的损失函数和神经网络参数化，并提出子空间嵌入（embedding）技术——预测比目标更大的子空间——理论和实验证明可显著降低学习复杂度并提升精度。
+:   将缩减阶建模（ROM）中的子空间预测问题形式化为 Grassmann 流形上的回归任务，提出专用损失函数与子空间嵌入（subspace embedding）技术——通过预测比目标更大维度的子空间来降低映射复杂度——在特征值问题、参数化 PDE 和迭代法加速等场景中均取得显著效果。
 
 **[Drift-Net A Spectral--Coupled Neural Operator For Pdes Learning](drift-net_a_spectral--coupled_neural_operator_for_pdes_learning.md)**
 
@@ -24,11 +24,11 @@ description: >-
 
 **[Empirical Stability Analysis Of Kolmogorov-Arnold Networks In Hard-Constrained R](empirical_stability_analysis_of_kolmogorov-arnold_networks_in_hard-constrained_r.md)**
 
-:   系统实证分析将 KAN（Kolmogorov-Arnold Networks）集成到硬约束递归物理信息架构（HRPINN）中的表现——发现小型 KAN 在单变量多项式残差（Duffing）上具有竞争力，但在乘法项（Van der Pol）上严重失败且超参数极度脆弱，标准 MLP 稳定性远优。
+:   在硬约束递归物理信息架构（HRPINN）中系统评估vanilla KAN替代MLP作为残差分支的效果——通过3项互补研究×100随机种子发现KAN在单变量可分残差（Duffing的 $-0.3x^3$）上的表现具有竞争力，但在乘法耦合残差（Van der Pol的 $(1-x^2)v$）上系统性失败且超参数极度脆弱，标准MLP在几乎所有配置下稳定性远优。
 
 **[Hyperkkl Enabling Non-Autonomous State Estimation Through Dynamic Weight Conditi](hyperkkl_enabling_non-autonomous_state_estimation_through_dynamic_weight_conditi.md)**
 
-:   提出 HyperKKL，用超网络编码外源输入信号并即时生成 KKL 观测器参数，使非自治非线性系统的状态估计无需重新训练或在线梯度更新，在 Duffing、Van der Pol、Lorenz、Rössler 四个系统上验证有效。
+:   提出 HyperKKL，用超网络（hypernetwork）编码外源输入信号并即时生成 KKL 观测器的变换映射参数，使非自治非线性系统的状态估计无需重新训练或在线梯度更新，在 Duffing、Van der Pol、Lorenz、Rössler 四个经典非线性系统上验证了方法的有效性和局限性。
 
 **[Learning-Guided Kansa Collocation For Forward And Inverse Pde Problems](learning-guided_kansa_collocation_for_forward_and_inverse_pde_problems.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 其他方向 140篇论文解读
+  NeurIPS2025 其他方向 139篇论文解读
 description: >-
-  140篇NeurIPS2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  139篇NeurIPS2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · 共 **140** 篇
+**🧠 NeurIPS2025** · 共 **139** 篇
 
 **[4Dgt Learning A 4D Gaussian Transformer Using Realworld Mono](4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[A Unified Framework For Variable Selection In Modelbased Clu](a_unified_framework_for_variable_selection_in_modelbased_clu.md)**
 
-:   提出了一个统一框架（SelvarMNARz），在高斯混合模型聚类中同时完成变量选择和MNAR（Missing Not At Random）缺失数据建模，通过两阶段策略（LASSO排序 + BIC角色分配）实现高维场景下的高效推理，并给出了可辨识性和选择一致性的理论保证。
+:   在高斯混合模型的聚类框架中，统一解决变量选择（区分信号变量、冗余变量和噪声变量）与MNAR缺失数据建模，通过两阶段策略（LASSO惩罚排序加BIC角色分配）和谱距离自适应惩罚权重实现高维场景下的高效推理，并证明了可辨识性和渐近选择一致性。
 
 **[Active Measurement Efficient Estimation At Scale](active_measurement_efficient_estimation_at_scale.md)**
 
@@ -40,7 +40,7 @@ description: >-
 
 **[Acurank Uncertainty-Aware Adaptive Computation For Listwise Reranking](acurank_uncertainty-aware_adaptive_computation_for_listwise_reranking.md)**
 
-:   通过基于TrueSkill模型的不确定性估计，动态调整重排序子集大小和验证范围，在实现更优精度效率权衡的同时避免过度计算。
+:   利用贝叶斯TrueSkill模型维护文档相关性的概率分布，在每轮迭代中只对排名不确定的文档进行重排序，实现根据查询难度自适应调配计算量的重排框架，在多个基准上以更少调用次数超越固定计算基线。
 
 **[Adaptive Data Analysis For Growing Data](adaptive_data_analysis_for_growing_data.md)**
 
@@ -64,15 +64,15 @@ description: >-
 
 **[Alias-Free Vit Fractional Shift Invariance Via Linear Attention](alias-free_vit_fractional_shift_invariance_via_linear_attention.md)**
 
-:   提出Alias-Free ViT，通过两个关键组件实现Vision Transformer对整数和亚像素平移的鲁棒性：(1) 抗混叠下采样和非线性层设计，(2) 基于交叉协方差的线性注意力（shift-equivariant），在图像分类中保持竞争力的同时显著提升对抗性平移鲁棒性。
+:   提出Alias-Free Vision Transformer（AFT），结合抗混叠信号处理技术和shift-equivariant线性交叉协方差注意力，首次使ViT在分数像素（亚像素）平移下保持接近完美的一致性（~99%），同时在ImageNet分类准确率上几乎无损。
 
 **[An Empirical Investigation Of Neural Odes And Symbolic Regression For Dynamical ](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
 
 :   本文系统研究了 Neural ODE (NODE) 在含噪合成数据上的外推能力，并探索了将 NODE 作为数据增强工具、与符号回归 (SR) 结合以从有限数据中恢复动力学方程的流水线，结果表明该组合方案能从仅 10% 的仿真数据中恢复三个控制方程中的两个及第三个的良好近似。
 
-**[EPHAD: An Evidence-Based Post-Hoc Adjustment Framework for Anomaly Detection Under Data Contamination](an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md)**
+**[An Evidence-Based Post-Hoc Adjustment Framework For Anomaly Detection Under Data](an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md)**
 
-:   EPHAD 提出一种测试时后处理框架来修正在被污染数据上训练的异常检测模型——在不接触训练流程/数据的前提下，用多模态基础模型（CLIP）或经典方法（LOF）等"证据"在测试时调整模型输出，在 8 个视觉+26 个表格 AD 数据集上有效提升性能。
+:   EPHAD 提出一种测试时后处理框架，通过指数倾斜（exponential tilting）将已被污染数据训练的异常检测模型输出与外部证据（CLIP/LOF等）进行贝叶斯式融合校正，无需接触训练流程，在8个视觉和26个表格AD数据集上一致提升被污染模型的检测性能。
 
 **[Are Pixel-Wise Metrics Reliable For Sparse-View Computed Tomography Reconstructi](are_pixel-wise_metrics_reliable_for_sparse-view_computed_tomography_reconstructi.md)**
 
@@ -148,7 +148,7 @@ description: >-
 
 **[Emergency Response Measures For Catastrophic Ai Risk](emergency_response_measures_for_catastrophic_ai_risk.md)**
 
-:   本文分析了如何将前沿安全政策（Frontier Safety Policies, FSPs）模型整合到中国四阶段应急响应框架中，以应对来自先进AI系统的灾难性风险（如大规模杀伤性武器扩散、失控事件等）。
+:   本文系统分析了前沿安全政策（FSPs）如何嵌入中国四阶段应急响应框架（预防-预警-响应-恢复）的前两个阶段，通过危险能力评估、分级阈值和预设安全措施来应对AI灾难性风险，并与欧盟AI法案、加州SB53等国际实践进行了对比。
 
 **[Equivariance By Contrast Identifiable Equivariant Embeddings From Unlabeled Fini](equivariance_by_contrast_identifiable_equivariant_embeddings_from_unlabeled_fini.md)**
 
@@ -156,7 +156,7 @@ description: >-
 
 **[Evaluating In Silico Creativity An Expert Review Of Ai Chess Compositions](evaluating_in_silico_creativity_an_expert_review_of_ai_chess_compositions.md)**
 
-:   使用生成式神经网络（自回归Transformer、离散扩散、MaskGit）+强化学习生成国际象棋谜题，通过奖励函数筛选具有唯一解和反直觉性的谜题，并邀请三位世界级国际象棋专家评审AI生成谜题的创造力和美学品质。
+:   Google DeepMind训练了三种生成式神经网络（自回归Transformer、离散扩散、MaskGit）学习国际象棋谜题分布，通过强化学习优化谜题的唯一性和反直觉性，生成约400万个棋局位置，经奖励函数筛选和美学主题检测后，邀请三位世界级国际象棋专家评审，得到积极但带有建设性批评的反馈。
 
 **[Evobrain Dynamic Multi-Channel Eeg Graph Modeling For Time-Evolving Brain Networ](evobrain_dynamic_multi-channel_eeg_graph_modeling_for_time-evolving_brain_networ.md)**
 
@@ -180,7 +180,7 @@ description: >-
 
 **[Flowmoe A Scalable Pipeline Scheduling Framework For Distributed Mixture-Of-Expe](flowmoe_a_scalable_pipeline_scheduling_framework_for_distributed_mixture-of-expe.md)**
 
-:   通过统一的流水线调度和优先级驱动的all-reduce张量分块，实现MHA、门控、专家计算和A2A/all-reduce通信的完全重叠，训练时间减少13-57%。
+:   FlowMoE提出统一的流水线调度框架，将MHA计算、门控、专家计算和A2A通信纳入一体化流水线，并使用优先级驱动的all-reduce张量分块机制最大化通信与计算的重叠，在多种真实MoE模型上实现1.13×-1.82×加速、10-39%能耗降低和7-32%内存节省。
 
 **[Fostering The Ecosystem Of Ai For Social Impact Requires Expanding And Strengthe](fostering_the_ecosystem_of_ai_for_social_impact_requires_expanding_and_strengthe.md)**
 
@@ -258,10 +258,6 @@ description: >-
 
 :   对无噪声线性回归在Oblivious污染模型下，形式化证明任何高效Statistical Query算法都需要 $\tilde{\Omega}(d^{1/2}/\alpha^2)$ 的VSTAT复杂度，给出了 $1/\alpha$ 的二次依赖对高效算法具有本质性的计算下界证据。
 
-**[Is Prm Necessary Problem-Solving Rl Implicitly Induces Prm Capability In Llms](is_prm_necessary_problem-solving_rl_implicitly_induces_prm_capability_in_llms.md)**
-
-:   令人惊讶地，纯RL训练无需显式PRM监督即可诱发出强大的过程理解能力，且现有PRMs在SOTA模型上甚至不如简单多数投票有效。
-
 **[Kernel Conditional Tests From Learning-Theoretic Bounds](kernel_conditional_tests_from_learning-theoretic_bounds.md)**
 
 :   提出将学习算法的置信界转化为条件假设检验的统一框架，基于核岭回归构建了有限样本保证的条件两样本检验，首次支持非i.i.d.数据与在线采样场景。
@@ -292,7 +288,7 @@ description: >-
 
 **[Learning To Condition A Neural Heuristic For Scalable Mpe Inference](learning_to_condition_a_neural_heuristic_for_scalable_mpe_inference.md)**
 
-:   提出 Learning to Condition (L2C)，用注意力神经网络学习对变量-值对进行评分，指导概率图模型中 MPE 推理的条件化决策，在保持解质量的同时大幅缩减搜索空间。
+:   提出 Learning to Condition (L2C)，通过训练注意力网络从求解器搜索轨迹中学习变量-值对的"最优性"与"简化性"双重评分，用于指导概率图模型中 MPE 推理的条件化决策，在高树宽模型上大幅缩减搜索空间且维持或提升解质量。
 
 **[Look-Ahead Reasoning On Learning Platforms](look-ahead_reasoning_on_learning_platforms.md)**
 
@@ -324,7 +320,7 @@ description: >-
 
 **[Military Ai Needs Technically-Informed Regulation To Safeguard Ai Research And I](military_ai_needs_technically-informed_regulation_to_safeguard_ai_research_and_i.md)**
 
-:   本文针对 AI 驱动的致命性自主武器系统 (AI-LAWS) 提出了基于系统行为（而非标签或意图）的监管标准，论证了 AI 研究者必须参与军事 AI 监管的全生命周期，并提出了五项具体的政策建议。
+:   本文提出 AI-LAWS（AI 驱动致命性自主武器系统）的行为导向定义与监管框架，通过两条技术准则识别需特别监管的军事 AI 系统，并提出五项具体政策建议，呼吁 AI 研究者深度参与军事 AI 治理的全生命周期。
 
 **[Modeling Cell Dynamics And Interactions With Unbalanced Mean Field Schrödinger B](modeling_cell_dynamics_and_interactions_with_unbalanced_mean_field_schrödinger_b.md)**
 
@@ -336,7 +332,7 @@ description: >-
 
 **[Moesd Unveil Speculative Decodings Potential For Accelerating Sparse Moe](moesd_unveil_speculative_decodings_potential_for_accelerating_sparse_moe.md)**
 
-:   揭示投机解码在中等批大小下对MoE比对稠密模型更有效，通过目标效率指标捕捉系统级瓶颈，建立可靠的性能建模，达到2.29×加速。
+:   挑战"投机解码对MoE无效"的传统认知，理论与实验证明在中等batch size下MoE反而比稠密模型更受益于投机解码，提出target efficiency这一系统级指标来量化加速瓶颈，并构建了可靠的性能预测模型，在Qwen2-57B-A14B上实现最高2.29×加速。
 
 **[Mutualvpr A Mutual Learning Framework For Resolving Supervision Inconsistencies ](mutualvpr_a_mutual_learning_framework_for_resolving_supervision_inconsistencies_.md)**
 
@@ -356,7 +352,7 @@ description: >-
 
 **[On A Geometry Of Interbrain Networks](on_a_geometry_of_interbrain_networks.md)**
 
-:   本文提出利用离散图曲率（Forman-Ricci 和 Ollivier-Ricci 曲率）分析超扫描（hyperscanning）中的脑间网络动态重构，克服传统基于相关性的脑间同步性指标在机制性解释方面的局限。
+:   本文是一篇观点论文（opinion piece），提出将离散图曲率（Forman-Ricci 和 Ollivier-Ricci 曲率）引入超扫描（hyperscanning）研究中的脑间网络分析，利用曲率分布的熵来检测网络相变，并通过曲率值推断脑间信息路由策略，突破传统相关性指标的描述性局限。
 
 **[On Agnostic Pac Learning In The Small Error Regime](on_agnostic_pac_learning_in_the_small_error_regime.md)**
 
@@ -388,7 +384,7 @@ description: >-
 
 **[Orbitzoo Real Orbital Systems Challenges For Reinforcement Learning](orbitzoo_real_orbital_systems_challenges_for_reinforcement_learning.md)**
 
-:   提出OrbitZoo——一个基于工业级轨道动力学库Orekit的多智能体强化学习环境，支持碰撞规避、编队飞行等场景，在Starlink真实数据验证中MAPE仅为0.16%。
+:   提出 OrbitZoo，一个基于工业级天体动力学库 Orekit 的多智能体 RL 环境，集成高保真轨道动力学（含大气阻力、太阳辐射压、三体效应等）、PettingZoo 多智能体接口和实时 3D 可视化，在 Starlink 真实星历验证中均值 MAPE 仅 0.16%。
 
 **[Ortholoc Uav 6-Dof Localization And Calibration Using Orthographic Geodata](ortholoc_uav_6-dof_localization_and_calibration_using_orthographic_geodata.md)**
 
@@ -436,7 +432,7 @@ description: >-
 
 **[Reliable Active Learning From Unreliable Labels Via Neural Collapse Geometry](reliable_active_learning_from_unreliable_labels_via_neural_collapse_geometry.md)**
 
-:   提出NCAL-R框架，利用神经坍缩（Neural Collapse）的几何正则性指导主动学习的样本选择，通过类均值对齐扰动（CMAP）和特征波动（FF）两个互补信号，在标签噪声和分布偏移条件下实现可靠的主动学习。
+:   提出 NCAL-R，利用深度网络训练后期涌现的 Neural Collapse 几何结构，设计类均值对齐扰动（CMAP）和特征波动（FF）两个评分指标来选择样本，使主动学习在标签噪声和分布偏移下更加可靠，在 ImageNet-100 和 CIFAR-100 上一致优于传统 AL 基线。
 
 **[Research Learning To Reason With Search For Llms Via Reinforcement Learning](research_learning_to_reason_with_search_for_llms_via_reinforcement_learning.md)**
 
@@ -456,7 +452,7 @@ description: >-
 
 **[Rnns Perform Task Computations By Dynamically Warping Neural Representations](rnns_perform_task_computations_by_dynamically_warping_neural_representations.md)**
 
-:   提出一种黎曼几何框架来分析RNN如何通过动态变形（warping）神经表示的几何结构来执行计算任务，揭示了动态变形是RNN计算的基本特征。
+:   本文提出一个黎曼几何框架，通过将表示空间度量从 RNN 状态空间拉回（pullback）到输入流形上，证明 RNN 通过动态变形（warping）其对任务变量的表示来执行计算——压缩无关输入、拉伸决策边界附近的空间，且这种变形不是副产物而是计算本身。
 
 **[Robust Sampling For Active Statistical Inference](robust_sampling_for_active_statistical_inference.md)**
 
@@ -472,11 +468,11 @@ description: >-
 
 **[Scalable Gpu-Accelerated Euler Characteristic Curves Optimization And Differenti](scalable_gpu-accelerated_euler_characteristic_curves_optimization_and_differenti.md)**
 
-:   提出针对现代GPU（Ampere架构）优化的欧拉特征曲线（ECC）CUDA内核，实现16-2000倍加速，并引入可微PyTorch层支持端到端拓扑特征学习。
+:   提出面向现代 Ampere GPU 优化的欧拉特征曲线（ECC）CUDA 内核，相比先前 GPU 实现达到 16-2000x 加速，并引入可微 PyTorch 层通过 DECT 风格的 sigmoid 松弛支持在密集网格图像上的端到端拓扑特征学习。
 
 **[Scalable Inference Of Functional Neural Connectivity At Submillisecond Timescale](scalable_inference_of_functional_neural_connectivity_at_submillisecond_timescale.md)**
 
-:   开发连续时间Poisson过程GLM的蒙特卡洛（MC）和多项式近似（PA）方法，支持亚毫秒精度的神经功能连接推断，在大规模神经记录上实现分钟级训练并揭示与已知海马解剖结构一致的连接模式。
+:   将传统离散时间Poisson GLM推广到连续时间Poisson点过程，通过蒙特卡洛采样和二阶多项式近似两种方法绕过不可解的积分项，配合正交的广义Laguerre基函数，在数百神经元、数千秒记录的数据上实现分钟级训练和亚毫秒级突触连接识别。
 
 **[Semi-Infinite Nonconvex Constrained Min-Max Optimization](semi-infinite_nonconvex_constrained_min-max_optimization.md)**
 
@@ -488,7 +484,7 @@ description: >-
 
 **[Sheaf Cohomology Of Linear Predictive Coding Networks](sheaf_cohomology_of_linear_predictive_coding_networks.md)**
 
-:   将线性预测编码(PC)网络形式化为细胞层(cellular sheaf)结构，利用层上同调和Hodge分解分析循环拓扑中的"内部矛盾"如何阻碍学习，揭示权重初始化的全局接线模式决定网络可学习性。
+:   本文将线性预测编码（PC）网络形式化为细胞层（cellular sheaf），证明PC推理等价于层Laplacian下的扩散过程，通过Hodge分解将监督信号拆解为可消除误差（通过推理）和不可约误差（由循环拓扑的上同调刻画），从而精确解释了为什么某些循环权重初始化会导致学习停滞。
 
 **[Sign-In To The Lottery Reparameterizing Sparse Training From Scratch](sign-in_to_the_lottery_reparameterizing_sparse_training_from_scratch.md)**
 
@@ -512,7 +508,7 @@ description: >-
 
 **[Statistical Inference Under Performativity](statistical_inference_under_performativity.md)**
 
-:   建立了表演性预测（performative prediction）下的端到端统计推断框架：为重复风险最小化（RRM）算法推导中心极限定理，提出数据驱动的协方差估计方法，并将预测驱动推断（PPI）推广到表演性设置以获得更精确的估计和更紧的置信区间。
+:   本文首次建立了表演性预测（performative prediction）下完整的端到端统计推断框架，为重复风险最小化算法推导出中心极限定理和数据驱动的协方差估计方法，并将预测驱动推断（PPI）扩展到动态表演性设置以获得更紧的置信区间。
 
 **[The Computational Complexity Of Counting Linear Regions In Relu Neural Networks](the_computational_complexity_of_counting_linear_regions_in_relu_neural_networks.md)**
 
@@ -524,7 +520,7 @@ description: >-
 
 **[The Parameterized Complexity Of Computing The Vc-Dimension](the_parameterized_complexity_of_computing_the_vc-dimension.md)**
 
-:   本文系统研究了计算VC维的参数化复杂性，证明朴素穷举算法在ETH假设下是渐近最优的，提出按最大度参数化的FPT 1-可加近似算法和按树宽参数化的2^{O(tw·log tw)}·|V|时间精确算法。
+:   本文系统研究了计算VC维问题的参数化复杂性，证明朴素穷举算法在ETH假设下是渐近最优的，给出按最大度参数化的FPT 1-可加近似算法，以及按树宽参数化的 $2^{O(\text{tw} \cdot \log \text{tw})} \cdot |V|$ 精确算法，并完整刻画了各结构参数下的可处理性景观。
 
 **[The Persistence Of Neural Collapse Despite Low-Rank Bias](the_persistence_of_neural_collapse_despite_low-rank_bias.md)**
 
@@ -552,7 +548,7 @@ description: >-
 
 **[Uncertainty Quantification For Reduced-Order Surrogate Models Applied To Cloud M](uncertainty_quantification_for_reduced-order_surrogate_models_applied_to_cloud_m.md)**
 
-:   本文提出一种后验的、模型无关的不确定性量化框架，利用共形预测为潜空间降阶模型的重建、潜在动力学和端到端预测提供统计有效的预测区间，并在云微物理ROM上验证。
+:   提出首个面向潜空间降阶模型的后验、模型无关不确定性量化框架，利用共形预测分别对重建、潜在动力学和端到端预测构建分布无关的预测区间，揭示了云微物理ROM中不确定性的组件级传播规律——自编码器结构性误差而非动力学误差主导端到端预测不确定性。
 
 **[Uniformer Unified And Efficient Transformer For Reasoning Across General And Cus](uniformer_unified_and_efficient_transformer_for_reasoning_across_general_and_cus.md)**
 

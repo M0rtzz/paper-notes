@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM评测方向 13篇论文解读
+  CVPR2026 LLM评测方向 12篇论文解读
 description: >-
-  13篇CVPR2026 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  12篇CVPR2026 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**📷 CVPR2026** · 共 **13** 篇
+**📷 CVPR2026** · 共 **12** 篇
 
 **[Adabet Gradient-Free Layer Selection For Efficient Training Of Deep Neural Netwo](adabet_gradient-free_layer_selection_for_efficient_training_of_deep_neural_netwo.md)**
 
@@ -41,10 +41,6 @@ description: >-
 **[Hiercos Making Deep Features Hierarchyaware Via Co](hiercos_making_deep_features_hierarchyaware_via_co.md)**
 
 :   提出Hier-COS框架，为层次标签树中的每个节点分配正交基向量，通过子空间组合（祖先基+自身基+后代基）构建层次感知向量空间（HAVS），理论保证特征空间的距离结构与层次树一致，同时提出HOPS评估指标解决现有层次化评估指标的排列不变性缺陷。
-
-**[Out Of Sight Out Of Mind Evaluating State Evolutio](out_of_sight_out_of_mind_evaluating_state_evolutio.md)**
-
-:   提出 StEvo-Bench 基准测试，通过在演化过程中插入遮挡或让相机"看向别处"来检验视频世界模型能否将状态演化与观测解耦，揭示了当前模型（包括 Veo 3、Sora 2 Pro 等）的任务成功率不到 10%，暴露了严重的"演化停止"和"不一致性"问题。
 
 **[Out Of Sight Out Of Mind Evaluating State Evolution In Video World Models](out_of_sight_out_of_mind_evaluating_state_evolution_in_video_world_models.md)**
 

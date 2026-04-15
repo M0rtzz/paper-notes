@@ -160,7 +160,7 @@ description: >-
 
 **[Designing Incident Reporting Systems For Harms From General-Purpose Ai](designing_incident_reporting_systems_for_harms_from_general-purpose_ai.md)**
 
-:   通过文献综述和 9 个安全关键行业（核电、航空、网安等）的案例研究，提出 AI 事故报告系统的 7 维制度设计框架，为美国 GPAI 事故报告系统的构建提供系统性设计建议。
+:   通过文献综述和九个安全关键行业（核能、航空、医疗等）的案例研究，提出了 AI 事件报告系统制度设计的七维框架，为美国通用 AI 事件报告的政策设计提供系统性指导。
 
 **[Detonation Decoupled Torch Network-Aware Training On Interlinked Online Nodes](detonation_decoupled_torch_network-aware_training_on_interlinked_online_nodes.md)**
 

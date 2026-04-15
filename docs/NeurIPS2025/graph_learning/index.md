@@ -48,7 +48,7 @@ description: >-
 
 **[Fastjam A Fast Joint Alignment Model For Images](fastjam_a_fast_joint_alignment_model_for_images.md)**
 
-:   提出 FastJAM，一种基于图的快速图像联合对齐方法，使用现成的图像匹配器 + 非参数聚类 + GNN + 反向合成损失，将对齐时间从数小时/分钟降至数十秒，同时保持或超越现有方法的对齐质量。
+:   提出 FastJAM，一种基于图的快速图像联合对齐方法：利用现成图像匹配器计算成对关键点对应，通过快速非参数聚类构建关键点图，GNN 传播聚合信息后预测每张图像的单应性参数，配合反向合成损失（inverse-compositional loss）消除正则化超参数需求。将联合对齐时间从小时/分钟级降至约 49 秒，同时对齐质量优于或持平现有方法。
 
 **[From Sequence To Structure Uncovering Substructure Reasoning In Transformers](from_sequence_to_structure_uncovering_substructure_reasoning_in_transformers.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Graphfaas Serverless Gnn Inference For Burst-Resilient Real-Time Intrusion Detec](graphfaas_serverless_gnn_inference_for_burst-resilient_real-time_intrusion_detec.md)**
 
-:   提出 GraphFaaS——基于 Serverless 架构的 GNN 推理系统，通过时间局部性图构建、频率过滤、特征长度感知节点嵌入和贪心 best-fit 图分区算法，在突发负载下实现平均检测延迟降低 85%（14.16s→2.1s）和变异系数降低 64%，同时保持检测准确率不变。
+:   提出 GraphFaaS，一种专为 GNN 入侵检测设计的 Serverless 推理架构，通过来源图的增量构建、特征长度感知的并行节点嵌入和贪心 best-fit 子图分区，将平均检测延迟从 14.16 秒降至 2.1 秒（6.7 倍），变异系数从 1.46 降至 0.52（64% 降低），在突发负载下保持稳定低延迟且不损失检测准确率。
 
 **[Graphtop Graph Topology-Oriented Prompting For Graph Neural Networks](graphtop_graph_topology-oriented_prompting_for_graph_neural_networks.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Mixture Of Scope Experts At Test Generalizing Deeper Graph Neural Networks With ](mixture_of_scope_experts_at_test_generalizing_deeper_graph_neural_networks_with_.md)**
 
-:   通过 PAC-Bayes 界证明 GNN 深度变化导致不同同质性子群间的泛化偏好漂移，提出 Moscat——后处理注意力门控模型，在测试时自适应组合不同深度的独立训练 GNN 专家。
+:   从 PAC-Bayes 泛化理论出发，证明 GNN 深度变化导致不同同质性节点子群间的泛化偏好漂移，据此提出 Moscat——一种后处理注意力门控模型，将独立训练的不同深度 GNN 专家在测试时节点自适应地融合，在多种 GNN 架构和数据集上实现显著提升。
 
 **[Moemeta Mixture-Of-Experts Meta Learning For Few-Shot Relational Learning](moemeta_mixture-of-experts_meta_learning_for_few-shot_relational_learning.md)**
 
@@ -180,7 +180,7 @@ description: >-
 
 **[Spatio-Temporal Directed Graph Learning For Account Takeover Fraud Detection](spatio-temporal_directed_graph_learning_for_account_takeover_fraud_detection.md)**
 
-:   提出 ATLAS 框架，将账户接管（ATO）欺诈检测重新建模为时空有向图上的节点分类问题，在 Capital One 大规模生产环境中实现 6.38% AUC 提升和超过 50% 的用户摩擦降低。
+:   提出 ATLAS 框架，将账户接管（ATO）欺诈检测重新建模为时空有向图上的节点分类问题，通过时间窗口 + 最近邻约束构建因果有向图，结合延迟感知标签传播和 GraphSAGE 编码器，在 Capital One 的 1 亿节点、10 亿边大规模生产图上实现 +6.38% AUC 提升和超过 50% 的用户摩擦降低。
 
 **[Spot-Trip Dual-Preference Driven Out-Of-Town Trip Recommendation](spot-trip_dual-preference_driven_out-of-town_trip_recommendation.md)**
 
@@ -200,7 +200,7 @@ description: >-
 
 **[Uncertain Knowledge Graph Completion Via Semi-Supervised Confidence Distribution](uncertain_knowledge_graph_completion_via_semi-supervised_confidence_distribution.md)**
 
-:   本文提出ssCDL方法，通过将三元组置信度转化为置信度分布并结合元自训练框架，解决不确定知识图谱中置信度分布极度不均衡的问题，在置信度预测和链接预测任务上均达到SOTA。
+:   ssCDL 通过将三元组置信度从标量转换为高斯分布形式的置信度分布以捕获邻近置信度的监督信号，并利用元自训练（meta self-training）为负采样三元组生成高质量伪置信度标签来重平衡训练数据，在不确定知识图谱补全的置信度预测和链接预测上显著超过所有基线方法。
 
 **[Unifying And Enhancing Graph Transformers Via A Hierarchical Mask Framework](unifying_and_enhancing_graph_transformers_via_a_hierarchical_mask_framework.md)**
 

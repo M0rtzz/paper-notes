@@ -124,7 +124,7 @@ description: >-
 
 **[Lidarcrafter Dynamic 4D World Modeling From Lidar Sequences](lidarcrafter_dynamic_4d_world_modeling_from_lidar_sequences.md)**
 
-:   提出LiDARCrafter，首个专用于LiDAR的4D生成世界模型，通过Text2Layout（LLM解析文本→场景图→三分支扩散生成4D布局）→Layout2Scene（Range-image扩散生成高保真单帧）→Scene2Seq（自回归warp+扩散生成时序一致的序列）三阶段流程，在nuScenes上取得SOTA。
+:   提出 LiDARCrafter，首个面向 LiDAR 的 4D 生成式世界模型，通过文本→场景图→三分支扩散布局→range-image 扩散生成→自回归时序扩展的流水线，实现可控的 4D LiDAR 序列生成与编辑，在 nuScenes 上全面超越现有方法。
 
 **[Linext Revisiting Lidar Completion With Efficient Non-Diffusion Architectures](linext_revisiting_lidar_completion_with_efficient_non-diffusion_architectures.md)**
 

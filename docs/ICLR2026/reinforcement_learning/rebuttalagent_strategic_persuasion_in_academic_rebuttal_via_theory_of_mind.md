@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2601.15715](https://arxiv.org/abs/2601.15715)  
 **代码**: [GitHub](https://github.com/Zhitao-He/RebuttalAgent)  
 **领域**: reinforcement_learning  
-**关键词**: academic rebuttal, Theory of Mind, strategic persuasion, GRPO, self-reward, reward model
+**关键词**: academic rebuttal, Theory of Mind, strategic persuasion, GRPO, self-reward, reward model  
 
 ## 一句话总结
 首次将心智理论（ToM）引入学术 rebuttal，提出 ToM-Strategy-Response 三阶段框架：先建模审稿人心理状态，再制定说服策略，最后生成证据支撑的回复，结合自奖励 RL 训练和专用 Rebuttal-RM 评估器，平均指标超越基座模型 18.3%。

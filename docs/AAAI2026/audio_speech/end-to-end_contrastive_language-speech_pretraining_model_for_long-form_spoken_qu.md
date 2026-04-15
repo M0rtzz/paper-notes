@@ -6,8 +6,8 @@ description: >-
 tags:
   - AAAI2026
   - 语音
-  - 对比学习
   - Spoken Question Answering
+  - 对比学习
   - Retrieval-Augmented Generation
   - Speech-Text Alignment
   - CIF

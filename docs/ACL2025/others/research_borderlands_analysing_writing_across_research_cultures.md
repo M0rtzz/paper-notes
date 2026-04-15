@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.00784](https://arxiv.org/abs/2506.00784)  
 **代码**: [shaily99/research_borderlands](https://github.com/shaily99/research_borderlands)  
 **领域**: others  
-**关键词**: research culture, cultural norms, scientific writing, LLM evaluation, interdisciplinary research, cultural competence
+**关键词**: research culture, cultural norms, scientific writing, LLM evaluation, interdisciplinary research, cultural competence  
 **作者**: Shaily Bhatt (CMU), Tal August (UIUC), Maria Antoniak (Copenhagen)  
 
 ## 一句话总结

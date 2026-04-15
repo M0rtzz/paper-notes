@@ -120,7 +120,7 @@ description: >-
 
 **[Mollangbench A Comprehensive Benchmark For Language-Prompted Molecular Structure](mollangbench_a_comprehensive_benchmark_for_language-prompted_molecular_structure.md)**
 
-:   提出 MolLangBench，一个全面评估 AI 模型在语言提示下进行分子结构识别、编辑和生成能力的 benchmark，支持 SMILES 字符串、分子图像和分子图三种分子表示，揭示了当前最强模型（GPT-5）在这些对人类直觉简单的任务上仍存在显著缺陷。
+:   提出 MolLangBench 基准，通过自动化工具和专家标注构建高质量、无歧义的分子-语言接口评估数据集，覆盖识别/编辑/生成三类任务和 SMILES/图像/图三种模态，评估 16+ 个商业 LLM 和 5 个化学模型，揭示即使 GPT-5 在基础分子操作上仍显著不足（生成仅 43%）。
 
 **[Neurogaze-Distill Brain-Informed Distillation And Depression-Inspired Geometric ](neurogaze-distill_brain-informed_distillation_and_depression-inspired_geometric_.md)**
 
@@ -136,19 +136,19 @@ description: >-
 
 **[P-Genrm Personalized Generative Reward Model With Test-Time User-Based Scaling](p-genrm_personalized_generative_reward_model_with_test-time_user-based_scaling.md)**
 
-:   提出P-GenRM——首个个性化生成式奖励模型：将混合偏好信号(显式准则+隐式历史)转化为结构化评价链(用户画像+评分标准)，通过三阶段训练(PSI监督微调→CRE强化学习→课程学习)学习自适应评估，再用双粒度测试时scaling(个体级多次评分聚合+原型级相似用户协同)减少噪声并增强新用户泛化，在个性化奖励基准上SOTA+3%测试时scaling增益。
+:   提出 P-GenRM，首个个性化生成式奖励模型：通过三阶段训练（PSI 监督微调构建结构化评价链→CRE 强化学习增强缺失偏好下的推理→难负例课程学习提升鲁棒性）将混合偏好信号转化为场景自适应的用户画像与评分标准，再引入双粒度测试时 scaling（个体级多次采样聚合 + 原型级协同过滤借用相似用户偏好），在 PersonalRewardBench 上超越前 SOTA 2.31%、测试时 scaling 额外提升 3%，且能泛化到未见用户。
 
 **[Rapid Training Of Hamiltonian Graph Networks Using Random Features](rapid_training_of_hamiltonian_graph_networks_using_random_features.md)**
 
-:   提出RF-HGN——用随机特征替代迭代梯度优化训练哈密顿图网络：随机采样隐藏层参数+用线性求解器确定输出层→训练速度比15种优化器快150-600倍且精度相当，保持置换/旋转/平移不变性，在8节点上训练可零样本泛化到4096节点系统，挑战了物理系统NN训练必须用梯度下降的主导范式。
+:   本文提出 RF-HGN，通过随机特征采样（ELM/SWIM）构建 dense 层参数并求解线性最小二乘问题来训练哈密顿图网络，完全绕过梯度下降迭代优化，在 N 体物理系统上实现 150-600 倍加速，同时保持可比精度和强零样本泛化能力。
 
 **[Rea-Rl Reflection-Aware Online Reinforcement Learning For Efficient Reasoning](rea-rl_reflection-aware_online_reinforcement_learning_for_efficient_reasoning.md)**
 
-:   提出REA-RL——反思感知的在线RL框架解决LRM过度思考问题：(1)训练小型反思模型在线生成截断修订(首次正确答案后截断→同时支持并行采样和顺序修订)，(2)设计反思奖励防止RL训练中的非反思退化(模型完全丧失反思能力→退回朴素CoT)，两者结合实现推理成本降低36%而不损失性能。
+:   提出REA-RL框架，通过蒸馏训练的小型反思模型在线识别并截断过度思考token生成修订路径，配合反思奖励防止RL训练中模型退化为无反思的朴素CoT，在DeepSeek-R1-Distill-Qwen-7B上实现推理token开销降低36%且准确率零损失。
 
 **[Refine Now Query Fast A Decoupled Refinement Paradigm For Implicit Neural Fields](refine_now_query_fast_a_decoupled_refinement_paradigm_for_implicit_neural_fields.md)**
 
-:   提出DRR(Decoupled Representation Refinement)范式解决隐式神经场的保真度-速度困境：用深层精化器网络离线增强嵌入结构的表达能力→精化结果缓存→推理时仅需快速嵌入插值+轻量解码→实现27x推理加速同时达到SOTA保真度，另提出Variational Pairs数据增强策略改善稀疏集成数据下的训练。
+:   本文提出解耦表示精炼（DRR）范式，通过深度 refiner 网络在离线阶段精炼 embedding 结构并缓存结果，使推理阶段仅需快速插值和轻量解码器，在集成仿真代理建模任务上以不到 1/27 的推理成本达到 SOTA 重建精度。
 
 **[Rulereasoner Reinforced Rule-Based Reasoning Via Domain-Aware Dynamic Sampling](rulereasoner_reinforced_rule-based_reasoning_via_domain-aware_dynamic_sampling.md)**
 
@@ -164,15 +164,15 @@ description: >-
 
 **[Scalable In-Context Q-Learning](scalable_in-context_q-learning.md)**
 
-:   提出S-ICQL——将动态规划和世界模型引入监督式ICRL框架：(1)多头Transformer同时预测最优策略和情境值函数，(2)预训练通用世界模型→将原始轨迹转化为轻量级提示(精确编码任务信息),(3)迭代策略改进(Q函数上尾期望拟合+优势加权回归)→从次优数据学习时相比AD/DPT等基线大幅提升,在离散和连续环境中一致优越。
+:   提出 S-ICQL——将动态规划（Q-learning）和世界模型引入监督式 ICRL 框架，通过多头 Transformer 同时预测策略和情境值函数，预训练世界模型构建轻量级精确提示，advantage-weighted regression 提取策略，在离散和连续环境中从次优数据学习时一致超越所有基线。
 
 **[Scaling Generalist Data-Analytic Agents](scaling_generalist_data-analytic_agents.md)**
 
-:   提出DataMind——可扩展的数据分析Agent训练pipeline：(1)细粒度18类任务分类法+递归由简到难任务组合→多样高质量合成query,(2)知识增强轨迹采样+自一致性过滤,(3)SFT+RL动态混合训练目标,(4)内存友好的稳定多轮代码rollout框架→DataMind-14B在多个基准上SOTA(71.16%,超越DeepSeek-V3.1和GPT-5)。
+:   提出 DataMind——一套完整的数据分析 Agent 训练方案，通过细粒度任务分类+递归难度组合实现多样 query 合成、知识增强轨迹采样+自一致性过滤保证数据质量、SFT+RL 动态混合训练策略以及内存友好的异步 rollout 框架，训练出的 DataMind-14B 以 71.16% 平均分在多个基准上 SOTA，超越 GPT-5 和 DeepSeek-V3.1。
 
 **[Scaling Speech Tokenizers With Diffusion Autoencoders](scaling_speech_tokenizers_with_diffusion_autoencoders.md)**
 
-:   提出SiTok(Speech Diffusion Tokenizer)——将扩散自编码器扩展到1.6B参数+2200万小时语音训练的语音tokenizer：联合优化量化和重建(不分两阶段)+CTC语义正则化确保token编码语义信息→在12.5Hz/200bps极低token率下→理解(ASR/情感/说话人)和重建/生成任务都超越强基线→shortcut微调实现2-4步高质量解码。
+:   提出 SiTok（Speech Diffusion Tokenizer），采用扩散自编码器联合训练编码器-量化器-解码器（非两阶段），加入 CTC 语义正则化确保离散 token 保留语言信息，规模化到 1.6B 参数和 2200 万小时语音数据，在极端低 token 率（12.5Hz / 200bps）下同时实现 3.34% WER（重建）和 4.95 WER（LLM ASR）的强性能。
 
 **[Socialharmbench Revealing Llm Vulnerabilities To Socially Harmful Requests](socialharmbench_revealing_llm_vulnerabilities_to_socially_harmful_requests.md)**
 
@@ -188,7 +188,7 @@ description: >-
 
 **[Stride Subset-Free Functional Decomposition For Xai In Tabular Settings](stride_subset-free_functional_decomposition_for_xai_in_tabular_settings.md)**
 
-:   提出STRIDE——在RKHS中通过递归核中心化实现无需子集枚举的正交功能分解，从标量归因升级到完整功能成分f_S(x_S)，揭示特征如何交互而非仅什么重要，10个表格数据集中位加速3.0x(vs TreeSHAP)、均值R2=0.93，首创成分手术隔离量化单一交互的性能影响。
+:   STRIDE 将模型解释重新定义为 RKHS 中的正交函数分解问题，通过递归核中心化无需枚举 $2^d$ 个子集即可解析计算正交功能组件 $f_S(x_S)$，不仅能给出标量重要性分数还能揭示特征如何协同或冗余地影响预测，在表格数据上实现了比 TreeSHAP 快 3 倍且 $R^2=0.93$ 的性能。
 
 **[Supervised Metric Regularization Through Alternating Optimization For Multi-Regi](supervised_metric_regularization_through_alternating_optimization_for_multi-regi.md)**
 
@@ -200,7 +200,7 @@ description: >-
 
 **[The Geometry Of Reasoning Flowing Logics In Representation Space](the_geometry_of_reasoning_flowing_logics_in_representation_space.md)**
 
-:   提出一种新颖的几何框架，将大语言模型的推理过程建模为表示空间中的"流"——嵌入轨迹沿逻辑方向演化，通过位置、速度和曲率等几何量来刻画推理动力学，实证表明 LLM 通过纯 next-token prediction 训练能够在表示空间中涌现出与逻辑结构对应的不变几何特征。
+:   本文提出一个几何框架将 LLM 的推理过程建模为表示空间中的"流"（embedding 轨迹），通过解耦逻辑结构与语义内容的受控实验证明 LLM 内化了超越表面形式的逻辑不变量，并发现跨模型家族的可能普适表示规律。
 
 **[Think-While-Generating On-The-Fly Reasoning For Personalized Long-Form Generatio](think-while-generating_on-the-fly_reasoning_for_personalized_long-form_generatio.md)**
 

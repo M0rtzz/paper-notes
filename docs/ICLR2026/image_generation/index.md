@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 图像生成方向 158篇论文解读
+  ICLR2026 图像生成方向 157篇论文解读
 description: >-
-  158篇ICLR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  157篇ICLR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🔬 ICLR2026** · 共 **158** 篇
+**🔬 ICLR2026** · 共 **157** 篇
 
 **[A Hidden Semantic Bottleneck In Conditional Embeddings Of Diffusion Transformers](a_hidden_semantic_bottleneck_in_conditional_embeddings_of_diffusion_transformers.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Blueprint-Bench Comparing Spatial Intelligence Of Llms Agents And Image Models](blueprint-bench_comparing_spatial_intelligence_of_llms_agents_and_image_models.md)**
 
-:   Blueprint-Bench 通过"从公寓内部照片生成 2D 平面图"的任务来评测 AI 模型的空间推理能力，结果显示大多数 LLM、图像生成模型和 Agent 系统的表现接近或低于随机基线，揭示了当前 AI 在空间智能上的重大盲区。
+:   Blueprint-Bench 通过"从公寓室内照片生成 2D 平面图"的任务评测 AI 的空间推理能力：输入（照片）完全在训练分布内但任务（空间重建）在分布外。评测 GPT-5、Claude 4 Opus、Gemini 2.5 Pro、Grok-4 等 LLM，GPT-Image、NanoBanana 等图像生成模型，以及 Codex CLI、Claude Code 等 Agent 系统，结果显示绝大多数模型表现接近或低于随机基线，揭示当前 AI 在空间智能上的系统性盲区。
 
 **[Branched Schrödinger Bridge Matching](branched_schrödinger_bridge_matching.md)**
 
@@ -104,7 +104,7 @@ description: >-
 
 **[Cosmo-Inr Complex Sinusoidal Modulation For Implicit Neural Representations](cosmo-inr_complex_sinusoidal_modulation_for_implicit_neural_representations.md)**
 
-:   通过谐波失真分析和 Chebyshev 多项式逼近，证明奇/偶对称激活函数在后激活频谱中存在衰减，提出用复正弦项调制激活函数 (COSMO-RC) 来保留完整频谱支持，在图像重建上平均 PSNR 比最强基线高 +5.67 dB。
+:   通过谐波失真分析与 Chebyshev 多项式逼近，严格证明了奇/偶对称激活函数在后激活频谱中存在系统性衰减，提出用复正弦项 $e^{j\zeta x}$ 调制激活函数来保留完整频谱支持，并设计 COSMO-RC 激活函数与正则化先验嵌入器架构，在 Kodak 图像重建上 PSNR 平均领先最强基线 +5.67 dB，NeRF 上领先 +3.45 dB。
 
 **[Crepe Controlling Diffusion With Replica Exchange](crepe_controlling_diffusion_with_replica_exchange.md)**
 
@@ -148,7 +148,7 @@ description: >-
 
 **[Discrete Adjoint Matching](discrete_adjoint_matching.md)**
 
-:   提出 Discrete Adjoint Matching (DAM)，将连续空间的 Adjoint Matching 方法推广到离散状态空间，用于微调基于连续时间马尔可夫链（CTMC）的离散生成模型（如扩散式大语言模型），在合成任务和数学推理任务上展示了有效性。
+:   提出 Discrete Adjoint Matching（DAM），从纯统计学视角（而非控制论）推导出离散状态空间上的伴随变量，将连续域的 Adjoint Matching 推广到基于连续时间马尔可夫链（CTMC）的离散生成模型，实现了对扩散式 LLM（LLaDA-8B）的有效微调，在 Sudoku 上将准确率从 11.5% 提升至 89.2%。
 
 **[Distillkac Few-Step Image Generation Via Damped Wave Equations](distillkac_few-step_image_generation_via_damped_wave_equations.md)**
 
@@ -256,11 +256,11 @@ description: >-
 
 **[From Parameters To Behaviors Unsupervised Compression Of The Policy Space](from_parameters_to_behaviors_unsupervised_compression_of_the_policy_space.md)**
 
-:   提出策略空间的无监督压缩——用行为重建损失(behavioral reconstruction loss)训练自编码器将高维策略参数空间Θ压缩到低维潜在行为空间Z(4-5个数量级压缩),证明行为流形的内在维度取决于环境复杂度而非网络大小,并展示在潜在空间中做策略梯度优化可与复杂SOTA RL算法竞争。
+:   基于流形假设提出策略空间的无监督压缩——用行为重建损失（而非参数重建损失）训练自编码器将高维策略参数空间 $\Theta \subseteq \mathbb{R}^P$ 压缩到低维潜在行为空间 $\mathcal{Z} \subseteq \mathbb{R}^k$（最高 121801:1 压缩比），在 Mountain Car、Reacher、Hopper、HalfCheetah 等环境上验证了行为流形的内在维度取决于环境复杂度而非网络大小，且在潜在空间中做 PGPE 优化可在 7/8 个任务上比 PPO、SAC 等 SOTA 收敛更快。
 
 **[From Prediction To Perfection Introducing Refinement To Autoregressive Image Gen](from_prediction_to_perfection_introducing_refinement_to_autoregressive_image_gen.md)**
 
-:   提出TensorAR——将标准AR图像生成从"next-token prediction"升级为"next-tensor prediction"：每步预测一组重叠的连续token(tensor),相邻tensor的重叠区域使后续预测可以修正先前输出,引入离散扩散噪声机制解决训练时的信息泄漏问题,作为即插即用扩展兼容现有AR模型(LlamaGen/Janus-Pro),在class-to-image和text-to-image任务上一致提升质量。
+:   提出 TensorAR，将标准 AR 图像生成从 next-token prediction 升级为 next-tensor prediction：每步预测重叠 tensor（一组连续 token），后续 tensor 与前序重叠实现迭代精修；引入离散扩散噪声机制解决训练信息泄漏问题，作为即插即用模块兼容 LlamaGen / Open-MAGVIT2 / Janus-Pro 等 AR 模型，在 class-to-image 和 text-to-image 任务上持续提升生成质量。
 
 **[Gencp Towards Generative Modeling Paradigm Of Coupled Physics](gencp_towards_generative_modeling_paradigm_of_coupled_physics.md)**
 
@@ -271,12 +271,6 @@ description: >-
 :   提出GenDR——面向生成式细节复原的轻量单步扩散超分模型：识别T2I和SR任务目标的根本分歧（T2I需多步+4通道 vs SR需少步+16通道）→构建定制SD2.1-VAE16基础模型（0.9B，通过REPA表示对齐扩展潜在空间而不增加模型规模）→提出CiD/CiDA一致性分数恒等蒸馏（将SR特定先验融入score distillation + 对抗学习 + 表示对齐）→极简pipeline仅含UNet+VAE→77ms推理在所有质量和效率指标上超越现有SOTA。
 
 **[Generalization Of Diffusion Models Arises With A Balanced Representation Space](generalization_of_diffusion_models_arises_with_a_balanced_representation_space.md)**
-
-:   提出统一的数学框架通过分析非线性ReLU去噪自编码器(DAE)来解释扩散模型的记忆和泛化——证明(1)局部样本稀疏时→权重记忆训练样本→尖刺激活→记忆，(2)局部样本丰富时→权重学习数据统计→平衡表示→泛化，(3)真实模型因数据不均衡处于混合状态，并基于此发展记忆检测和表示空间模型驾驭两个实用工具。
-
-**[Generate Any Scene Scene Graph Driven Data Synthesis For Visual Generation Train](generate_any_scene_scene_graph_driven_data_synthesis_for_visual_generation_train.md)**
-
-:   提出Generate Any Scene——基于场景图的数据引擎系统性枚举可能的视觉场景(28K物体×1.5K属性×10K关系→近乎无限场景图)→翻译为标题+VQA对实现自动评测和奖励建模→用于四个应用:(1)自我改进(SD1.5+4%),(2)定向蒸馏(从DALL-E3→SD1.5+10% TIFA),(3)场景图奖励模型(+5% DPG-Bench vs CLIP),(4)内容审核增强。
 
 **[Generating Directed Graphs With Dual Attention And Asymmetric Encoding](generating_directed_graphs_with_dual_attention_and_asymmetric_encoding.md)**
 
@@ -384,7 +378,7 @@ description: >-
 
 **[Lvtino Latent Video Consistency Inverse Solver For High Definition Video Restora](lvtino_latent_video_consistency_inverse_solver_for_high_definition_video_restora.md)**
 
-:   提出 LVTINO，首个基于视频一致性模型（VCM）的零样本/即插即用高清视频逆问题求解器，通过无需自动微分的条件化机制实现高质量视频重建，同时保证测量一致性和帧间时间平滑性。
+:   提出 LVTINO，首个基于视频一致性模型（VCM）先验的零样本视频逆问题求解器，通过在 VCM 采样过程中注入无需自动微分的测量一致性约束，在超分辨率、去模糊、修复等多种视频逆问题上以极少的神经网络函数评估（NFE）实现了超越逐帧图像方法的感知质量和时间一致性。
 
 **[Mac-Amp A Closed-Loop Multi-Agent Collaboration System For Multi-Objective Antim](mac-amp_a_closed-loop_multi-agent_collaboration_system_for_multi-objective_antim.md)**
 
@@ -416,7 +410,7 @@ description: >-
 
 **[Multi-Agent Coordination Via Flow Matching](multi-agent_coordination_via_flow_matching.md)**
 
-:   提出 MAC-Flow，基于 Flow Matching 学习多智能体联合行为的丰富表示，再将其蒸馏为去中心化单步策略，实现了比扩散模型快约 14.5 倍的推理速度，同时保持良好的协调性能。
+:   提出 MAC-Flow，先用 Flow Matching 学习中心化联合行为分布，再通过 IGM（Individual-Global-Max）分解将其蒸馏为去中心化的单步策略，结合 Q 值最大化进行行为正则化训练，在 4 个基准 12 个环境 34 个数据集上实现了约 14.5 倍于扩散方法的推理加速，同时保持了与扩散策略可比的协调性能。
 
 **[Mvcustom Multi-View Customized Diffusion Via Geometric Latent Rendering And Comp](mvcustom_multi-view_customized_diffusion_via_geometric_latent_rendering_and_comp.md)**
 
@@ -600,7 +594,7 @@ description: >-
 
 **[Twinflow Realizing One-Step Generation On Large Models With Self-Adversarial Flo](twinflow_realizing_one-step_generation_on_large_models_with_self-adversarial_flo.md)**
 
-:   提出 TwinFlow，一种无需辅助训练模型（判别器/冻结教师）的自对抗流匹配框架，通过模型自身多步输出作为单步的教学目标实现单步生成，首次将 1-NFE 生成能力成功扩展到 20B 参数的 Qwen-Image 模型，GenEval 0.86（1-NFE）接近原始 100-NFE 的 0.87。
+:   提出 TwinFlow：通过将 flow matching 时间区间从 $[0,1]$ 扩展到 $[-1,1]$，构造"孪生轨迹"形成自对抗信号，使模型无需判别器或冻结教师即可实现单步生成。首次将 1-NFE 生成能力扩展到 20B 参数的 Qwen-Image 模型，1-NFE GenEval 0.86 逼近原始 100-NFE 的 0.87，推理成本降低 100×。
 
 **[Uni-X Mitigating Modality Conflict With A Two-End-Separated Architecture For Uni](uni-x_mitigating_modality_conflict_with_a_two-end-separated_architecture_for_uni.md)**
 

@@ -21,7 +21,7 @@ tags:
 **arXiv**: [2502.20730](https://arxiv.org/abs/2502.20730)  
 **代码**: https://github.com/Li-Z-Q/DeepSolution  
 **领域**: 模型压缩  
-**关键词**: RAG, tree search, engineering solution design, bi-point thinking, benchmark
+**关键词**: RAG, tree search, engineering solution design, bi-point thinking, benchmark  
 **作者**: Zhuoqun Li, Haiyang Yu, Xuanang Chen, Hongyu Lin, Yaojie Lu, Fei Huang, Xianpei Han, Yongbin Li, Le Sun (中科院软件所 & 通义实验室)  
 
 ## 一句话总结

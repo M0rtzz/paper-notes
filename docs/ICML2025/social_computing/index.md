@@ -20,7 +20,7 @@ description: >-
 
 **[Is Your Llm-Based Multi-Agent A Reliable Real-World Planner Exploring Fraud Dete](is_your_llm-based_multi-agent_a_reliable_real-world_planner_exploring_fraud_dete.md)**
 
-:   提出 WandaPlan 评估环境，在旅行规划场景中注入三种递进式欺诈内容，揭示现有 LLM 多智能体规划系统在应对欺诈时的严重漏洞，并提出反欺诈 agent 作为缓解方案。
+:   提出 WandaPlan 评估环境，通过在旅行规划场景中注入三种递进式欺诈（单源误导、团队协调刷单、逐级升级），系统性评估 LLM 多智能体规划系统对虚假信息的脆弱性，并设计反欺诈 Agent 来缓解风险。
 
 **[Learning Survival Distributions With The Asymmetric Laplace Distribution](learning_survival_distributions_with_the_asymmetric_laplace_distribution.md)**
 

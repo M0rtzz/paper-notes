@@ -20,7 +20,7 @@ description: >-
 
 **[A Unified Approach To Submodular Maximization Under Noise](a_unified_approach_to_submodular_maximization_under_noise.md)**
 
-:   本文提出一个统一的元算法框架，可以将任何满足"鲁棒性"条件的精确子模最大化算法作为黑盒，自动转换为在持久噪声值预言机下保持近似比的算法，首次覆盖了非单调子模函数的拟阵约束和无约束情形。
+:   本文提出一个统一的元算法框架，能将任何满足"鲁棒性"条件的精确子模最大化算法作为黑盒，自动转换为持久噪声值预言机下保持近似比（仅损失 $o(1)$）的算法，首次实现了非单调子模函数在拟阵约束和无约束设置下的最优近似比。
 
 **[A Unified Stability Analysis Of Sam Vs Sgd Role Of Data Cohe](a_unified_stability_analysis_of_sam_vs_sgd_role_of_data_cohe.md)**
 
@@ -28,7 +28,7 @@ description: >-
 
 **[Adaptive Algorithms With Sharp Convergence Rates For Stochas](adaptive_algorithms_with_sharp_convergence_rates_for_stochas.md)**
 
-:   首次为随机层次化优化（极小极大和双层优化）提供自适应且sharp的收敛保证，通过动量归一化技术和新型自适应参数选择，在无需事先知道噪声大小的情况下实现最优收敛率Õ(1/√T + √σ̄/T^{1/4})。
+:   提出Ada-Minimax和Ada-BiO两个自适应算法，通过将动量归一化技术与新型在线噪声估计策略结合，首次在无需预知梯度噪声水平的情况下，为非凸-强凹极小极大和非凸-强凸双层优化达到sharp收敛率Õ(1/√T + √σ̄/T^{1/4})。
 
 **[An Adaptive Algorithm For Bilevel Optimization On Riemannian Manifolds](an_adaptive_algorithm_for_bilevel_optimization_on_riemannian_manifolds.md)**
 
@@ -272,7 +272,7 @@ description: >-
 
 **[Mess Dynamically Learned Inference-Time Llm Routing In Model Zoos With Service L](mess_dynamically_learned_inference-time_llm_routing_in_model_zoos_with_service_l.md)**
 
-:   MESS+是首个成本最优的LLM路由框架，通过在线学习请求满足度预测和虚拟队列约束，动态选择模型同时保证SLA合规，相比现有方法实现平均2倍成本节省。
+:   MESS+是首个将LLM请求路由形式化为带SLA约束的随机优化问题的框架，通过在线学习的请求满足度预测器+虚拟队列机制动态选择模型，在3个推理和5个问答基准上以满足SLA约束的前提下实现平均2倍的成本节省，并提供成本最优性和约束满足的理论保证。
 
 **[Mobo-Osd Batch Multi-Objective Bayesian Optimization Via Orthogonal Search Direc](mobo-osd_batch_multi-objective_bayesian_optimization_via_orthogonal_search_direc.md)**
 
@@ -300,7 +300,7 @@ description: >-
 
 **[Neural Thermodynamics Entropic Forces In Deep And Universal Representation Learn](neural_thermodynamics_entropic_forces_in_deep_and_universal_representation_learn.md)**
 
-:   本文提出了一种严格的熵力理论来理解 SGD 训练的神经网络的学习动力学，证明了随机性和离散时间更新产生的熵力会系统性地破坏连续参数对称性、保留离散对称性，从而解释了深度学习中的多种涌现现象，包括 Platonic 表示假说。
+:   建立一套"神经热力学"理论，证明 SGD 训练中由随机性和离散时间更新产生的涌现**熵力**会系统性地打破神经网络参数的连续对称性并保留离散对称性，导致类似热力学能量均分的**梯度平衡**现象，从而 (a) 首次理论证明 Platonic 表征假说（不同模型学到相似表征），(b) 调和深度学习优化中"趋向尖锐"与"趋向平坦"的矛盾观察。
 
 **[Neuro-Symbolic Entity Alignment Via Variational Inference](neuro-symbolic_entity_alignment_via_variational_inference.md)**
 
@@ -340,7 +340,7 @@ description: >-
 
 **[Orthograd Improves Neural Calibration](orthograd_improves_neural_calibration.md)**
 
-:   本文系统研究了OrthoGrad（⊥Grad）——一种将梯度投影到与权重向量正交方向的几何约束优化方法——在神经网络校准（calibration）中的效果，实验表明该方法在不损失准确率的情况下显著降低模型过度自信，并从理论上证明了简化版本的收敛性。
+:   本文首次系统研究了OrthoGrad（⊥Grad）——一种逐层将梯度投影到与权重正交方向上的几何约束优化方法——在神经网络校准任务中的效果。实验表明在CIFAR-10低数据场景下，OrthoGrad在不降低准确率的情况下显著改善校准指标（熵、损失、置信度），并证明了简化版本在标准假设下的收敛性。
 
 **[Personalized Subgraph Federated Learning With Differentiable Auxiliary Projectio](personalized_subgraph_federated_learning_with_differentiable_auxiliary_projectio.md)**
 

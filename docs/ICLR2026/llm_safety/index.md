@@ -24,11 +24,11 @@ description: >-
 
 **[Lh-Deception Simulating And Understanding Llm Deceptive Behaviors In Long-Horizo](lh-deception_simulating_and_understanding_llm_deceptive_behaviors_in_long-horizo.md)**
 
-:   提出首个长时域 LLM 欺骗行为仿真框架 LH-Deception，通过执行者-监督者多智能体系统 + 概率事件机制 + 独立欺骗审计，在 11 个前沿模型上系统量化了欺骗行为的频率、严重性、类型及其对信任的侵蚀。
+:   提出首个面向长时域交互的 LLM 欺骗行为仿真框架 LH-Deception，采用执行者-监督者-审计者三角色多智能体架构，结合社会科学理论驱动的概率事件系统，在 11 个前沿模型上系统量化了欺骗频率、严重性、类型分布及其对信任关系的侵蚀效应，揭示了静态单轮评估完全无法捕捉的"欺骗链"涌现现象。
 
 **[Lifelong Learning With Behavior Consolidation For Vehicle Routing](lifelong_learning_with_behavior_consolidation_for_vehicle_routing.md)**
 
-:   提出 LLR-BC——面向神经 VRP 求解器的终身学习框架，通过置信度感知经验加权（CaEW）和决策寻求行为巩固（DsBC），在分布和规模变化的任务序列上有效缓减灾难性遗忘、保持可塑性并提升零样本泛化。
+:   提出 LLR-BC 框架，在神经 VRP 求解器的终身学习场景中，通过决策步骤级经验缓冲、置信度感知加权（CaEW）和反向 KL 散度行为巩固（DsBC），在分布与规模同时变化的任务序列上将平均性能差距（AP）降低一个数量级，同时保持学新任务的可塑性并提升零样本泛化。
 
 **[Perturbation-Induced Linearization Constructing Unlearnable Data With Solely Lin](perturbation-induced_linearization_constructing_unlearnable_data_with_solely_lin.md)**
 

@@ -16,7 +16,7 @@ description: >-
 
 **[A Triangle Enables Multimodal Alignment Beyond Cosine Simila](a_triangle_enables_multimodal_alignment_beyond_cosine_simila.md)**
 
-:   TRIANGLE提出用三模态嵌入向量端点构成的三角形面积作为相似度度量，替代传统的两两余弦相似度，实现视频-音频-文本的联合对齐，在视频检索任务上比VAST提升最高9个R@1点。
+:   TRIANGLE提出用高维空间中三模态嵌入向量构成的三角形面积作为相似度度量，替代传统的成对余弦相似度，实现了视频-音频-文本三模态的联合对齐，在视频文本检索等任务上超越SOTA最多9个Recall@1点。
 
 **[Accelerate Creation Of Product Claims Using Generative Ai](accelerate_creation_of_product_claims_using_generative_ai.md)**
 
@@ -24,11 +24,11 @@ description: >-
 
 **[Adaptdel Adaptable Deletion Rate Randomized Smoothing For Ce](adaptdel_adaptable_deletion_rate_randomized_smoothing_for_ce.md)**
 
-:   提出AdaptDel方法，将随机平滑(randomized smoothing)中的固定删除率扩展为**自适应删除率**，根据输入长度等属性动态调整删除概率，在编辑距离攻击下实现认证鲁棒性的巨大提升（认证区域基数提升最高30个数量级）。
+:   提出 AdaptDel 方法，将随机平滑中用于离散序列的固定删除率扩展为根据输入长度等属性自适应调整的可变删除率，在理论上证明了可变率下认证的 soundness，实验在 NLP 序列分类任务上实现认证区域基数最高 30 个数量级的提升。
 
 **[Associative Syntax And Maximal Repetitions Reveal Context-Dependent Complexity I](associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i.md)**
 
-:   提出无监督方法分析果蝠这一渐变发声系统的声学单元、句法类型与时间结构，首次将最大重复（Maximal Repetitions）应用于动物通信领域，发现冲突相关行为中的通信复杂度显著高于合作行为，推测这反映了"分歧信息的低压缩性"。
+:   本文提出一种无监督方法来推断果蝠发声的离散单元、语法类型和时序结构，并首次将最大重复子序列（Maximal Repetitions）引入动物通信领域，发现冲突行为中的通信复杂度显著高于合作行为。
 
 **[Audsemthinker Enhancing Audio-Language Models Through Reasoning Over Semantics O](audsemthinker_enhancing_audio-language_models_through_reasoning_over_semantics_o.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[From Generation To Attribution Music Ai Agent Architectures For The Post-Streami](from_generation_to_attribution_music_ai_agent_architectures_for_the_post-streami.md)**
 
-:   本文提出了一种基于内容的音乐 AI Agent 架构，通过 Block 级别的检索和智能体编排，将归因机制直接嵌入创作工作流中，解决 AI 生成音乐时代的版权追溯和公平分配问题。
+:   提出了一种基于内容的 Music AI Agent 架构，通过将音乐分解为细粒度的 Block 组件并构建 Attribution Layer，将版权归因直接嵌入 AI 音乐创作流程中，为后流媒体时代建立公平的 AI 媒体平台。
 
 **[Generating Physically Sound Designs From Text And A Set Of Physical Constraints](generating_physically_sound_designs_from_text_and_a_set_of_physical_constraints.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Seeing Sound Hearing Sight Uncovering Modality Bias And Conflict Of Ai Models In](seeing_sound_hearing_sight_uncovering_modality_bias_and_conflict_of_ai_models_in.md)**
 
-:   系统性地揭示了AI声源定位(SSL)模型存在严重视觉偏见——在视听冲突时降到随机水平，提出神经科学启发的EchoPin模型（HRTF滤波+耳蜗图+立体声），在AudioCOCO数据集上大幅超越现有方法并展现出类人的水平>垂直定位精度偏差。
+:   通过6种受控视听条件和人类心理物理实验，系统揭示现有AI声源定位模型存在严重视觉偏见（视听冲突时降至随机水平），并提出神经科学启发的EchoPin模型——HRTF滤波+ERB耳蜗图+立体声，在自建AudioCOCO数据集上大幅超越现有方法，且无需人类行为监督即涌现出类人的水平>垂直定位精度不对称性。
 
 **[Sensorium Arc Ai Agent System For Oceanic Data Exploration And Interactive Eco-A](sensorium_arc_ai_agent_system_for_oceanic_data_exploration_and_interactive_eco-a.md)**
 

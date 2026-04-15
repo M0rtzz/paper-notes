@@ -24,7 +24,7 @@ description: >-
 
 **[Additive Models Explained A Computational Complexity Approach](additive_models_explained_a_computational_complexity_approach.md)**
 
-:   对广义可加模型（GAM）的多种解释类型（充分理由、对比解释、Shapley值等）进行系统的计算复杂度分析，揭示了GAM的可解释性代价高度依赖于输入域类型、组件模型类型和任务类型（回归vs分类），某些看似"可解释"的设定实际上是NP-Hard甚至#P-Hard。
+:   对广义可加模型（GAM）的多种解释类型进行系统的计算复杂度分析，覆盖 54 种"组件模型 × 输入域 × 解释方法"组合，揭示 GAM 的解释复杂度高度依赖输入域类型——这是决策树、神经网络等其他 ML 模型从未展现的独特现象，挑战了"可加即可解释"的直觉假设。
 
 **[Agentiql An Agent-Inspired Multi-Expert Framework For Text-To-Sql Generation](agentiql_an_agent-inspired_multi-expert_framework_for_text-to-sql_generation.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[An Analysis Of Concept Bottleneck Models Measuring Understanding And Mitigating ](an_analysis_of_concept_bottleneck_models_measuring_understanding_and_mitigating_.md)**
 
-:   本文首次系统研究标注噪声对概念瓶颈模型(CBM)在预测性能、可解释性和干预有效性三个维度的影响，发现概念噪声是性能下降的主要驱动力且存在易感概念子集，提出SAM训练+熵引导干预的两阶段缓解框架。
+:   本文首次系统研究了标注噪声对概念瓶颈模型(CBM)的影响，发现约23%的"易感概念"驱动了大部分性能退化，并提出训练阶段使用SAM + 推理阶段基于不确定性干预的两阶段缓解策略来恢复模型鲁棒性。
 
 **[Are Greedy Task Orderings Better Than Random In Continual Linear Regression](are_greedy_task_orderings_better_than_random_in_continual_linear_regression.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[Cbmas Cognitive Behavioral Modeling Via Activation Steering](cbmas_cognitive_behavioral_modeling_via_activation_steering.md)**
 
-:   CBMAS提出一个连续激活引导诊断框架，将认知偏差分析从离散的"前/后"比较扩展为沿引导系数α和层深度的连续轨迹，揭示偏差传播的翻转点、衰减模式和层位敏感性。
+:   CBMAS提出一个将激活引导作为连续诊断工具的框架，通过密集α扫描和注入-读取层解耦，将认知偏差分析从"有偏差/无偏差"的二元判断升级为可追踪翻转点、传播路径和衰减模式的连续轨迹分析，在GPT-2 Small上揭示了安抚行为在浅层强烈编码但向深层快速衰减的规律。
 
 **[Chiqpm Calibrated Hierarchical Interpretable Image Classification](chiqpm_calibrated_hierarchical_interpretable_image_classification.md)**
 
@@ -120,7 +120,7 @@ description: >-
 
 **[Do Different Prompting Methods Yield A Common Task Representation In Language Mo](do_different_prompting_methods_yield_a_common_task_representation_in_language_mo.md)**
 
-:   本文扩展函数向量方法至指令提示，发现演示和指令诱发的任务表示主要不同，仅部分重叠，解释了为何结合两者效果更优。
+:   通过将函数向量（Function Vectors）方法从 few-shot 示例推广到文本指令，发现不同提示方式（demonstrations vs. instructions）并不会在 LLM 中诱导出统一的任务表征，而是激活部分重叠但主要不同的注意力头机制。
 
 **[Dynamic Algorithm For Explainable K-Medians Clustering Under Lp Norm](dynamic_algorithm_for_explainable_k-medians_clustering_under_lp_norm.md)**
 
@@ -218,7 +218,9 @@ description: >-
 
 :   本文是一篇 position paper，主张将形式化最优控制理论作为 AI 对齐研究的核心工具，并提出"对齐控制栈"(Alignment Control Stack, ACS)——一个从物理硬件层到社会治理层的十层分层框架，用于系统地组织和分析不同对齐方法的测量、控制与互操作性。
 
-**[Partial Information Decomposition via Normalizing Flows in Latent Gaussian Distributions](partial_information_decomposition_via_normalizing_flows_in_latent_gaussian_distr.md)**
+**[Partial Information Decomposition Via Normalizing Flows In Latent Gaussian Distr](partial_information_decomposition_via_normalizing_flows_in_latent_gaussian_distr.md)**
+
+:   提出两个互补工具：Thin-PID 是一种高效高斯 PID 算法（比已有方法快 10×），Flow-PID 用 normalizing flow 将任意输入分布转换为高斯再计算 PID，解决了 PID 在连续高维数据上不可行的问题，并证明了"联合高斯解是否最优"这一开放问题。
 
 **[Probabilistic Token Alignment For Large Language Model Fusion](probabilistic_token_alignment_for_large_language_model_fusion.md)**
 
@@ -262,7 +264,7 @@ description: >-
 
 **[Tangledfeatures Robust Feature Selection In Highly Correlated Spaces](tangledfeatures_robust_feature_selection_in_highly_correlated_spaces.md)**
 
-:   提出TangledFeatures，一个基于稳定性的特征选择管线，通过相关性聚类→集成代表选择→随机森林精炼三阶段，在高度相关的特征空间中实现可复现且可解释的特征选择，并在丙氨酸二肽扭转角预测中验证有效性。
+:   提出 TangledFeatures，一个以**特征稳定性**为核心目标的选择框架，通过相关性图聚类→集成代表选择→随机森林精炼的三阶段管线，在高度相关的特征空间中实现跨重采样高度可复现且与领域知识一致的特征子集，在丙氨酸二肽骨架扭转角预测中验证有效。
 
 **[The Non-Linear Representation Dilemma Is Causal Abstraction Enough For Mechanist](the_non-linear_representation_dilemma_is_causal_abstraction_enough_for_mechanist.md)**
 
@@ -290,7 +292,7 @@ description: >-
 
 **[Towards Scaling Laws For Symbolic Regression](towards_scaling_laws_for_symbolic_regression.md)**
 
-:   本文首次系统研究了符号回归中的缩放定律，发现验证损失和求解率随计算量呈幂律关系，最优token-参数比约为15，最优学习率和batch size随模型规模增长。
+:   首次系统研究符号回归（SR）中的缩放定律，证明基于 Transformer 的端到端 SR 在三个数量级的计算范围内遵循幂律缩放趋势，并给出最优 token-to-parameter ratio $\approx 15$、batch size 和学习率随模型规模增长的经验规律。
 
 **[Transformer Key-Value Memories Are Nearly As Interpretable As Sparse Autoencoder](transformer_key-value_memories_are_nearly_as_interpretable_as_sparse_autoencoder.md)**
 

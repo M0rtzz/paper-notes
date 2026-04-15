@@ -32,7 +32,7 @@ description: >-
 
 **[Actorfree Continuous Control Via Structurally Maximizable Qf](actorfree_continuous_control_via_structurally_maximizable_qf.md)**
 
-:   提出Q3C（Q-learning for Continuous Control with Control-points），一种无actor的纯基于值函数的连续控制方法，通过控制点插值逼近任意形状的Q函数，在复杂（非凸、受限）Q函数景观中显著优于actor-critic方法。
+:   提出 Q3C（Q-learning for Continuous Control with Control-points），通过学习一组控制点来逼近 Q 函数并保证最大值恰好在控制点上取到，配合动作条件化 Q 值生成、控制点多样性损失和尺度归一化等关键改进，在标准基准上匹配 TD3，在受限动作空间中显著超越所有 actor-critic 方法。
 
 **[Adaptive Cooperative Transmission Design For Ultra-Reliable Low-Latency Communic](adaptive_cooperative_transmission_design_for_ultra-reliable_low-latency_communic.md)**
 
@@ -200,7 +200,7 @@ description: >-
 
 **[Financial Instruction Following Evaluation Fife](financial_instruction_following_evaluation_fife.md)**
 
-:   FIFE 提出了一个高难度的金融领域指令遵循基准，包含 88 个人工编写的复杂提示和可链式验证的约束系统，对 53 个模型进行零样本评测，发现开放权重模型优于专有模型，但所有模型仍无法完美遵循复杂指令。
+:   FIFE 是一个面向金融分析任务的高难度指令遵循基准，包含 88 个人工编写的复杂提示和 40+ 种金融领域专用的可链式验证约束，通过严格/宽松两种模式评测 53 个模型，揭示出即使最强的开放权重模型（76.1% strict）也无法完美遵循金融领域的复杂指令要求。
 
 **[Finite-Sample Analysis Of Policy Evaluation For Robust Average Reward Reinforcem](finite-sample_analysis_of_policy_evaluation_for_robust_average_reward_reinforcem.md)**
 
@@ -384,7 +384,7 @@ description: >-
 
 **[On The Global Optimality Of Policy Gradient Methods In General Utility Reinforce](on_the_global_optimality_of_policy_gradient_methods_in_general_utility_reinforce.md)**
 
-:   为一般效用强化学习（RLGU）中的策略梯度方法建立全局最优性保证，在表格设定下证明了 RLGU 目标满足梯度支配不等式，在大规模状态动作空间设定下通过最大似然估计（MLE）近似占据度量实现可扩展的全局收敛算法。
+:   本文为一般效用强化学习（RLGU）中的策略梯度方法建立了全局最优性理论保证：在表格设定下通过新的梯度支配不等式证明了全局收敛，在大规模状态-动作空间下提出基于最大似然估计（MLE）的占据度量近似算法 PG-OMA，样本复杂度仅依赖函数近似类的维度 $m$ 而非状态-动作空间大小。
 
 **[Online Optimization For Offline Safe Reinforcement Learning](online_optimization_for_offline_safe_reinforcement_learning.md)**
 
@@ -432,11 +432,11 @@ description: >-
 
 **[Real-World Reinforcement Learning Of Active Perception Behaviors](real-world_reinforcement_learning_of_active_perception_behaviors.md)**
 
-:   提出非对称优势加权回归（AAWR），通过在训练时使用特权传感器估计优势函数来高效训练主动感知策略，在 8 个操作任务和 3 种机器人上实现了可靠的信息收集行为。
+:   提出非对称优势加权回归（AAWR），在训练时利用额外特权传感器来估计更准确的优势函数，从而高效学习真实世界中的主动感知策略，在8个涵盖不同部分可观测程度的操控任务上均超越所有基线方法。
 
 **[Reasoning Gym Reasoning Environments For Reinforcement Learning With Verifiable ](reasoning_gym_reasoning_environments_for_reinforcement_learning_with_verifiable_.md)**
 
-:   发布Reasoning Gym库，包含100+可验证推理任务的过程生成环境，支持动态难度调整和无限数据生成，可用于RLVR训练和推理评估。
+:   发布包含100+过程生成推理任务的Reasoning Gym库，覆盖代数、算术、算法、逻辑、几何、图论、游戏等领域，每个任务支持无限数据生成和参数化难度控制，实验证明RLVR训练在域内/跨域均实现显著技能迁移且能提升MATH、GSM8K等外部基准表现。
 
 **[Reinforcement Learning For Long-Horizon Multi-Turn Search Agents](reinforcement_learning_for_long-horizon_multi-turn_search_agents.md)**
 
@@ -628,7 +628,7 @@ description: >-
 
 **[Viki-R Coordinating Embodied Multi-Agent Cooperation Via Reinforcement Learning](viki-r_coordinating_embodied_multi-agent_cooperation_via_reinforcement_learning.md)**
 
-:   提出 VIKI-Bench（首个面向具身多智能体合作的层次基准）和 VIKI-R（基于 VLM + RL 的两阶段合作框架），在智能体激活、任务规划和轨迹感知三个层级上显著超越基线。
+:   构建了首个面向具身多智能体合作的层次化基准VIKI-Bench（含智能体激活、任务规划、轨迹感知三个层级），并提出两阶段框架VIKI-R（CoT示范微调+多级奖励RL），在多种机器人形态和多视角视觉观测下实现显著超越基线的合作表现，RL阶段涌现出组合式协作模式。
 
 **[Volleybots A Testbed For Multi-Drone Volleyball Game Combining Motion Control An](volleybots_a_testbed_for_multi-drone_volleyball_game_combining_motion_control_an.md)**
 

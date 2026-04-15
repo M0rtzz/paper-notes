@@ -40,11 +40,11 @@ description: >-
 
 **[Cyclic Counterfactuals Under Shift-Scale Interventions](cyclic_counterfactuals_under_shift-scale_interventions.md)**
 
-:   为含有反馈循环的循环结构因果模型(cyclic SCM)建立了移位-缩放(shift-scale)干预下的反事实推断理论框架，证明了全局收缩条件下唯一可解性、干预复合封闭性，以及反事实泛函的sub-Gaussian集中不等式。
+:   本文在循环（非DAG）结构因果模型中建立了shift-scale软干预下反事实推理的理论框架，证明了全局收缩条件保证循环SCM的唯一可解性，并推导出反事实分布的sub-Gaussian集中不等式。
 
 **[Demystifying Spectral Feature Learning For Instrumental Variable Regression](demystifying_spectral_feature_learning_for_instrumental_variable_regression.md)**
 
-:   为基于谱特征的非参数工具变量(NPIV)回归建立严格的泛化误差界，揭示性能取决于结构函数与条件期望算子的谱对齐及奇异值衰减速度，形成good/bad/ugly三种分类法并提供数据驱动诊断工具。
+:   为基于谱特征的非参数工具变量（NPIV）回归建立严格的泛化误差界，揭示性能由结构函数与条件期望算子的**谱对齐**（近似误差）和**奇异值衰减速度**（估计误差）两因素共同决定，提出 Good-Bad-Ugly 三分类法并设计数据驱动诊断工具。
 
 **[Differentiable Structure Learning And Causal Discovery For General Binary Data](differentiable_structure_learning_and_causal_discovery_for_general_binary_data.md)**
 

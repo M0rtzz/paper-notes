@@ -24,7 +24,7 @@ description: >-
 
 **[Gradient-Sign Masking For Task Vector Transport Across Pre-Trained Models](gradient-sign_masking_for_task_vector_transport_across_pre-trained_models.md)**
 
-:   提出 GradFix 方法，利用目标模型的梯度符号作为掩码过滤源模型的任务向量，仅保留与目标损失景观对齐的分量，在少样本下实现跨预训练模型的任务知识迁移，并提供一阶下降保证。
+:   提出 GradFix 方法，利用目标预训练模型上极少量样本计算的梯度符号构建二值掩码，逐坐标过滤源模型的任务向量，仅保留与目标损失景观下降方向一致的分量，在无需任何微调的情况下实现跨预训练模型的任务知识迁移，理论上提供严格的一阶下降保证，在视觉与语言基准上均大幅超越朴素迁移和少样本微调。
 
 **[Infonce Induces Gaussian Distribution](infonce_induces_gaussian_distribution.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[No Other Representation Component Is Needed Diffusion Transformers Can Provide R](no_other_representation_component_is_needed_diffusion_transformers_can_provide_r.md)**
 
-:   提出 Self-Representation Alignment (SRA)，利用扩散 Transformer 内部从"差到好"的判别过程，将早层高噪声的表征对齐到晚层低噪声的表征，无需外部表征组件即可加速生成训练并提升质量。
+:   提出 Self-Representation Alignment (SRA)，发现扩散 Transformer 内部表征沿"层数增加 + 噪声降低"两个维度呈现从差到好的判别质量梯度，据此将学生网络早层高噪声表征对齐到 EMA 教师晚层低噪声表征，**完全不需要任何外部表征组件（DINOv2/CLIP/MAE）**，即可在 DiT 和 SiT 上大幅加速收敛并提升生成质量（SiT-XL/2 在 800 epoch 达到 FID 1.58，可比依赖 DINOv2 的 REPA）。
 
 **[Ponderlm Pretraining Language Models To Ponder In Continuous Space](ponderlm_pretraining_language_models_to_ponder_in_continuous_space.md)**
 

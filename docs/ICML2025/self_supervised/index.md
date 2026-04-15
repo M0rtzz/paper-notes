@@ -12,7 +12,7 @@ description: >-
 
 **[A Bayesian Model Selection Criterion For Selecting Pretraining Checkpoints](a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints.md)**
 
-:   引入"下游自由能"作为预训练检查点的贝叶斯模型选择准则——衡量检查点附近参数空间中适合下游任务的参数浓度，并证明可仅用预训练数据近似（预训练自由能），为选择最优检查点提供理论指导。
+:   引入"下游自由能"作为预训练检查点可适应性的贝叶斯模型选择准则，证明"预训练自由能"可作为其上界代理（无需下游数据），并实验验证大学习率/小 batch/高 momentum 通过降低预训练自由能改善下游迁移性能。
 
 **[Adaworld Learning Adaptable World Models With Latent Actions](adaworld_learning_adaptable_world_models_with_latent_actions.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Beyond Sensor Data Foundation Models Of Behavioral Data From Wearables Improve H](beyond_sensor_data_foundation_models_of_behavioral_data_from_wearables_improve_h.md)**
 
-:   在 162K 个体的 25 亿小时可穿戴行为数据上训练基础模型（WBM），系统优化不规则采样行为数据的 tokenizer 和架构，在 57 项健康检测任务上展示强大表现，特别在行为驱动任务（如睡眠预测）上表现突出。
+:   在 Apple Heart and Movement Study 的 162K 参与者、25 亿小时可穿戴行为数据上，系统探索 tokenizer 和架构组合，以 TST+Mamba-2+对比学习构建行为数据基础模型 WBM，在 57 项健康检测任务上显著优于手工特征基线，并与 PPG 传感器模型形成互补。
 
 **[Clarify Contrastive Preference Reinforcement Learning For Untangling Ambiguous Q](clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q.md)**
 
@@ -64,7 +64,7 @@ description: >-
 
 **[Mtl-Ue Learning To Learn Nothing For Multi-Task Learning](mtl-ue_learning_to_learn_nothing_for_multi-task_learning.md)**
 
-:   提出 MTL-UE，首个针对多任务学习数据的不可学习样本框架，通过编码器-解码器注入类别先验嵌入并结合任务内/任务间嵌入正则化，有效保护 MTL 和 STL 模型免受未授权训练。
+:   MTL-UE是首个针对多任务学习的不可学习样本生成框架，通过编码器-解码器架构注入任务特定的类别先验嵌入来降低虚假特征的类内方差，配合任务内/间嵌入余弦正则化增大类间距离和减少冗余，在CelebA(40任务)上将MTL模型准确率从91%降至59%，在4个数据集、3种基础UE方法、5种backbone和5种MTL策略上一致有效。
 
 **[Neighbour-Driven Gaussian Process Variational Autoencoders For Scalable Structur](neighbour-driven_gaussian_process_variational_autoencoders_for_scalable_structur.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Proxy-Fda Proxy-Based Feature Distribution Alignment For Fine-Tuning Vision Foun](proxy-fda_proxy-based_feature_distribution_alignment_for_fine-tuning_vision_foun.md)**
 
-:   提出 Proxy-FDA，通过基于最近邻图的特征分布对齐（FDA）和动态生成的代理特征（Proxy），在微调视觉基础模型时显式保留特征邻域结构中的丰富知识，大幅减少概念遗忘。
+:   提出结构级特征正则化方法 Proxy-FDA：通过迁移预训练特征空间的最近邻图到微调特征空间，并用轻量代理生成器合成新特征增强分布覆盖，在不牺牲下游精度的前提下实现所有微调任务的正向迁移。
 
 **[Test-Time Canonicalization By Foundation Models For Robust Perception](test-time_canonicalization_by_foundation_models_for_robust_perception.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[Towards Benchmarking Foundation Models For Tabular Data With Text](towards_benchmarking_foundation_models_for_tabular_data_with_text.md)**
 
-:   首个系统性研究表格基础模型处理文本特征能力的工作：手动策划含语义丰富文本列的真实数据集集合，比较fastText/Skrub/AutoGluon三种文本嵌入策略，揭示现有方法对语义模式的捕捉仍有显著不足。
+:   首个系统性研究含文本特征的表格数据建模：设计定性反例暴露三类文本嵌入的失败模式，手动策划 13 个真实数据集，发现文本特征在 11/13 数据集上提升预测精度，但无单一最优嵌入方法，表明表格+文本仍是未解决问题。
 
 **[Update Your Transformer To The Latest Release Re-Basin Of Task Vectors](update_your_transformer_to_the_latest_release_re-basin_of_task_vectors.md)**
 
@@ -96,4 +96,4 @@ description: >-
 
 **[What Has A Foundation Model Found Using Inductive Bias To Probe For World Models](what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models.md)**
 
-:   开发了一种"归纳偏置探测"技术来评估基础模型是否学到了真实的世界模型：在轨道力学/格子问题/Othello等领域发现，基础模型虽然预测准确但并未学到底层物理/规则，而是发展了任务特定的启发式。
+:   本文提出"归纳偏置探针"（Inductive Bias Probe），通过在合成数据上反复微调基础模型来测试其外推行为是否符合预设的世界模型，发现在轨道力学、Othello、格问题等领域中，基础模型虽然能准确预测序列但未真正学到底层世界模型，而是发展出特定于任务的启发式策略。

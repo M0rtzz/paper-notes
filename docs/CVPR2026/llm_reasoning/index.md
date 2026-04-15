@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM推理方向 13篇论文解读
+  CVPR2026 LLM推理方向 12篇论文解读
 description: >-
-  13篇CVPR2026 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  12篇CVPR2026 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**📷 CVPR2026** · 共 **13** 篇
+**📷 CVPR2026** · 共 **12** 篇
 
 **[Beyond Geometry Artistic Disparity Synthesis For Immersive 2D-To-3D](beyond_geometry_artistic_disparity_synthesis_for_immersive_2d-to-3d.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Facecot Cot Reasoning Face Anti Spoofing](facecot_cot_reasoning_face_anti_spoofing.md)**
 
-:   构建了首个面向人脸反欺骗（FAS）的大规模 VQA 数据集 FaceCoT（108 万样本，覆盖 14 种攻击类型），包含六层级 CoT 推理标注（从全局描述到局部推理到最终结论）；同时提出 CoT-Enhanced Progressive Learning (CEPL) 两阶段训练策略，在 11 个基准数据集上平均 AUC 提升 4.06%、HTER 降低 5.00%，超越所有 SOTA 方法。
+:   构建了首个面向人脸反欺骗（FAS）的大规模 VQA 数据集 FaceCoT（108 万样本，覆盖 14 种攻击类型），包含六层级 CoT 推理标注；提出 CoT-Enhanced Progressive Learning (CEPL) 两阶段训练策略（先视觉增强再联合训练），在 11 个跨域基准上平均 AUC 提升 4.06%、HTER 降低 5.00%。
 
 **[Graze Grounded Refinement And Motion-Aware Zero-Shot Event Localization](graze_grounded_refinement_and_motion-aware_zero-shot_event_localization.md)**
 
@@ -56,8 +56,4 @@ description: >-
 
 **[Visref Visual Refocusing Test Time Scaling](visref_visual_refocusing_test_time_scaling.md)**
 
-:   发现多模态推理模型在延长推理时会逐渐丢失对视觉token的注意力，提出VisRef在推理过程中主动重新注入与当前推理上下文语义相关的视觉token核心子集，在固定计算预算下比现有方法提升最高6.4%。
-
-**[Visref Visual Refocusing While Thinking Improves Test-Time Scaling In Multi-Moda](visref_visual_refocusing_while_thinking_improves_test-time_scaling_in_multi-moda.md)**
-
-:   提出 VisRef，一个无需训练的视觉重聚焦框架，在多模态推理每一步通过 DPP 选择与当前推理状态相关且多样的视觉token子集重新注入，配合基于熵的自适应停止准则，在三个视觉推理基准上比文本自反思方法提升最高6.4%。
+:   提出 VisRef，一个免训练的视觉重聚焦框架——在多模态大推理模型（MLRM）的推理过程中，通过行列式点过程（DPP）在每步自适应选择与当前推理状态语义相关且视觉覆盖多样的 token 子集并重新注入，同时用基于熵的停止准则防止过度推理，在固定计算预算下将视觉推理准确率提升最高 6.4%。

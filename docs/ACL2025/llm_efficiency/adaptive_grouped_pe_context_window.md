@@ -1,10 +1,10 @@
 ---
 title: >-
-  [论文解读] Extending LLM Context Window with Adaptive Grouped Positional Encoding: A Training-Free Method
+  [论文解读] LaMPE: Length-aware Multi-grained Positional Encoding for Adaptive Long-context Scaling Without Training
 description: >-
-  [ACL 2025 (Long Paper, acl-long.28)][LLM效率][Positional Encoding] 提出 AdaGroPE（Adaptive Grouped Positional Encoding），一种无需训练的即插即用方法，通过让位置复用次数随距离递增式增长、并根据输入序列长度动态调整位置编码映射，将 LLM 上下文窗口外推到远超预训练长度，在多个 benchmark 上达到 SOTA 甚至超过原生长上下文模型。
+  [ACL 2025][LLM效率][Positional Encoding] 提出 LaMPE，一种无需训练的长上下文扩展方法，通过参数化 scaled sigmoid 函数建模输入长度与最优映射长度的动态关系，并设计三区域多粒度注意力机制（head/middle/tail），在 LongBench、L-Eval、∞Bench、RULER、PG-19 五大基准上全面超越 SelfExtend、DCA、YaRN 等基线。
 tags:
-  - ACL 2025 (Long Paper, acl-long.28)
+  - ACL 2025
   - LLM效率
   - Positional Encoding
   - RoPE
@@ -13,123 +13,175 @@ tags:
   - Length Extrapolation
 ---
 
-# Extending LLM Context Window with Adaptive Grouped Positional Encoding: A Training-Free Method
+# LaMPE: Length-aware Multi-grained Positional Encoding for Adaptive Long-context Scaling Without Training
 
-**会议**: ACL 2025 (Long Paper, acl-long.28)  
-**arXiv**: 无公开 arXiv 版本  
-**代码**: 无公开代码  
+**会议**: ACL 2025  
+**arXiv**: [2508.02308](https://arxiv.org/abs/2508.02308)  
+**代码**: [https://github.com/scar-on/LaMPE](https://github.com/scar-on/LaMPE)  
+**作者**: Sikui Zhang, Guangze Gao, Ziyun Gan, Chunfeng Yuan, Zefeng Lin, Houwen Peng, Bing Li, Weiming Hu  
 **领域**: LLM / NLP — 长上下文建模、位置编码  
-**关键词**: Positional Encoding, RoPE, Context Window Extension, training-free, Length Extrapolation
+**关键词**: Positional Encoding, RoPE, Context Window Extension, training-free, Length Extrapolation, Multi-grained Attention
 
 ## 一句话总结
 
-提出 AdaGroPE（Adaptive Grouped Positional Encoding），一种无需训练的即插即用方法，通过让位置复用次数随距离递增式增长、并根据输入序列长度动态调整位置编码映射，将 LLM 上下文窗口外推到远超预训练长度，在多个 benchmark 上达到 SOTA 甚至超过原生长上下文模型。
+提出 LaMPE（Length-aware Multi-grained Positional Encoding），通过 **参数化 scaled sigmoid 函数** 自适应确定最优映射长度，并设计 **三区域多粒度注意力机制**（head 精细局部 + middle 线性归一化压缩 + tail 恢复长程依赖），实现无训练即插即用的 LLM 上下文窗口外推，在五大长上下文基准上全面超越现有方法。
 
-## 背景与动机
+## 研究背景与动机
 
-当前 LLM 普遍受限于预训练阶段的上下文窗口（如 Llama2 的 4K、Llama3 的 8K）。原因主要有两方面：(1) 大规模长上下文训练数据稀缺；(2) 扩展上下文的训练计算代价极高。当输入超过预训练窗口时，基于 RoPE 的模型会遇到 OOD（Out-of-Distribution）的相对位置，导致注意力模式崩溃、性能骤降。
-
-已有方法分两大类：
-- **修改 base 频率类**（NTK-RoPE, YaRN）：调整旋转矩阵的频率基底，但通常需要微调且有外推上界
-- **修改位置索引类**（ReRoPE, SelfExtend, DCA）：将 OOD 位置重映射到预训练窗口内，无需训练但策略固定
-
-核心痛点在于：SelfExtend 等方法使用**固定分组大小** $G$，对所有距离的 token 一视同仁——这既不符合 RoPE 中近距离位置更被充分训练的事实，也不能适应不同长度的输入。
-
-## 核心问题
-
-如何在不训练的前提下，设计一种位置编码映射策略，使其：
-1. 对近距离 token 保持精细的位置区分度，对远距离 token 允许更粗粒度的位置共享
-2. 根据实际输入长度动态调整映射方案，而非依赖手动设定的固定参数
-3. 充分利用预训练位置嵌入的有效范围，避免浪费已训练好的位置信息
+- **领域现状**: RoPE（Rotary Position Embedding）已成为主流 LLM 的标准位置编码方式（Llama、Qwen、Mistral 等均采用），但模型的有效上下文受限于预训练阶段的窗口长度（如 Llama2 的 4K、Llama3 的 8K）。
+- **现有痛点**: 当输入超过预训练窗口时，RoPE 遇到 OOD（Out-of-Distribution）的相对位置，导致注意力崩溃。现有外推方法（SelfExtend、DCA）采用 **固定映射策略**——不管输入多长，分组大小 $G$ 和映射范围都是手动预设的常数。
+- **核心矛盾**: ① 固定映射忽视了训练阶段相对位置的 **左偏频率分布**（短距离位置被充分训练，长距离位置严重欠训练），所有位置被同等对待；② 固定分组大小无法适应不同长度的输入，同一个 $G$ 对短序列过度压缩、对长序列又不够压缩。
+- **本文要解决什么**: 如何根据输入长度动态确定最优映射长度，并设计位置分辨率随区域变化的多粒度注意力机制？
+- **切入角度**: 通过系统性实验发现困惑度随映射长度变化呈 V 形或单调递减模式，且最优映射长度与输入长度之间存在 S 形关系，可用 sigmoid 函数精确建模。
+- **核心 idea 一句话**: 用 scaled sigmoid 函数自适应确定映射长度 + 三区域多粒度位置编码同时捕获局部精细信息和长程依赖。
 
 ## 方法详解
 
 ### 整体框架
 
-AdaGroPE 是一个位置索引修改方法（position indices modified），作用于 RoPE 的注意力计算阶段。给定一个长度为 $L$ 的输入（可能远超预训练窗口 $N$），AdaGroPE 将原始位置索引 $[0, L-1]$ 重映射到 $[0, N-1]$ 范围内，使模型始终在已训练的位置空间中工作。
+LaMPE 是一种作用于 RoPE 注意力计算阶段的 **位置索引修改方法**（position indices modified），由两个核心组件构成：
 
-与 SelfExtend 的固定分组不同，AdaGroPE 的**分组大小随距离递增**：近距离 token 保持 1:1 的精确位置，远距离 token 共享位置的粒度逐渐增大。同时，映射方案根据输入长度 $L$ 与窗口 $N$ 的比例自适应调整。
+1. **Length-aware Dynamic Mapping Strategy**：根据输入长度 $l$ 通过 scaled sigmoid 函数计算最优映射长度 $m$
+2. **Multi-grained Attention Mechanism**：将序列分为 head / middle / tail 三个区域，各区域采用不同粒度的位置编码
 
-### 关键设计
+推理时仅替换位置索引，**不修改模型参数、不需要训练数据、不需要额外微调**，可直接与 FlashAttention2 集成。
 
-1. **渐进式位置复用（Progressive Position Reuse）**
+### 关键设计一：Length-aware Dynamic Mapping Strategy（长度感知动态映射）
 
-    - 核心思想来自人类对距离的感知：我们能轻易区分 1 米和 2 米的差别，但很难分辨 100 米和 101 米
-    - 同理，RoPE 中近距离的相对位置在训练中被更充分地学习，因此需要更精细的区分
-    - AdaGroPE 让位置复用次数（即同一位置编码被分配给多少个 token）从近到远**递增式增长**
-    - 近处 token 保持原始的 1:1 位置映射（local window 内），远处 token 的分组越来越大
-    - 这与 SelfExtend 的均匀分组 $G$ 形成鲜明对比：SelfExtend 把所有非局部 token 平等对待
+论文首先在 PG-19 数据集上系统性地探索了 **映射长度（mapping length）与困惑度之间的关系**，发现两个关键模式：
 
-2. **自适应长度映射（Adaptive Length Mapping）**
+- **短输入的 V 形模式**：困惑度先降后升，存在一个最优映射长度
+- **长输入的单调递减模式**：困惑度随映射长度增大持续下降，最优值为预训练窗口上限
 
-    - SelfExtend、DCA 等方法的外推倍率是固定的（需要手动设定 $G$ 或最大输入长度），不同长度的输入只能用同一套参数
-    - AdaGroPE 根据**实际输入序列长度 $L$** 动态计算位置映射函数的参数
-    - 这确保了：
-      - 对短输入（接近 $N$），映射接近恒等，几乎不修改位置
-      - 对长输入（远超 $N$），压缩率自动增大
-      - 整个映射范围 $[0, N-1]$ 被充分利用，不造成位置空间浪费
+基于此，最优映射长度 $m$ 与输入长度 $l$ 的关系呈 **S 形增长趋势**，可用 scaled sigmoid 函数精确建模：
 
-3. **与 RoPE 原理的一致性**
+$$m = \frac{L}{1 + e^{-(al + b)}}$$
 
-    - 映射后的相对位置仍保持单调性：距离更远的 token 始终获得更大的相对位置值
-    - 这避免了位置跳变导致的注意力模式紊乱
-    - 设计无需修改模型参数或架构，仅在推理时替换位置索引即可
+其中 $L$ 为最大映射长度（设为预训练窗口的 3/4），$a$ 和 $b$ 为通过少量采样点曲线拟合得到的参数。这种设计的核心优势在于：
+
+- 对短输入：映射长度较小，避免浪费位置空间
+- 对长输入：映射长度自动增大，充分利用预训练位置
+- **全程自适应**，消除了手动调参的负担
+
+### 关键设计二：Multi-grained Attention Mechanism（多粒度注意力机制）
+
+获得最优映射长度 $m$ 后，LaMPE 将序列分为三个区域，各自使用不同的位置编码策略：
+
+**① Head Region（头部区域，$i-j \leq s_1$）**：保持原始的 1:1 精确位置，$PE[i][j] = i - j$。这确保当前 token 与最近邻 token 保持精细位置区分，对连续文本生成至关重要。
+
+**② Middle Region（中间区域，$s_1 < i-j < l - s_2$）**：采用线性归一化压缩，将位置映射到 $[s_1, m - s_2]$ 范围：
+
+$$PE[i][j] = \left\lfloor \frac{m - s_1 - s_2}{l - s_1 - s_2} (i - j - s_1) + s_1 \right\rfloor$$
+
+压缩比 $m/l$ 随输入长度自动调整，远距离 token 的位置粒度自然变粗。
+
+**③ Tail Region（尾部区域，$i-j \geq l - s_2$）**：恢复精细位置，$PE[i][j] = m - l + (i - j)$。这基于关键指令或问题常出现在序列首尾的观察，保留当前 token 与序列开头 token 的精确位置关系。
+
+论文证明了三个区域的边界处满足 **单调性连续性**，不会出现位置跳变。最优超参数为 $s_1$ 取预训练窗口的 1/8 到 1/16，$s_2$ 取 8 到 1024 的小值。
+
+### 关键设计三：与 FlashAttention2 的无缝集成
+
+LaMPE 的三区域分别用不同的 Q/K 位置索引实现：
+- Head 区域：标准滑动窗口注意力（window_size = $s_1$）
+- Middle 区域：修改 Q、K 的位置索引后计算滑动窗口注意力
+- Tail 区域：仅修改 Q 的位置索引，K 保持原始位置，用下三角 mask 的全注意力
+
+三部分通过 log-sum-exp 技巧合并，无需修改 FlashAttention2 的核心实现。
 
 ## 实验关键数据
 
-论文在多个主流长上下文 benchmark 上进行了评估（基于 ACL 2025 正文描述）：
+### Table 1: LongBench (16 tasks) + L-Eval (5 tasks)
 
-| 评估维度 | Benchmark | 模型 | AdaGroPE 表现 |
-|----------|-----------|------|-------------|
-| 综合长文档理解 | LongBench (16 tasks) | Llama2/Llama3 | 在所有子任务平均分上超越 SelfExtend、DCA、YaRN、NTK-RoPE |
-| 长文档评测 | L-Eval (5 tasks) | Llama2/Llama3 | 超越所有 baseline |
-| 超长上下文 | ∞Bench (128K+) | Llama3 | 在部分任务上超过原生支持长上下文的模型 |
-| 合成基准 | RULER | Llama3 | 在多个外推长度上最优 |
-| 困惑度 | PG-19 | Llama2/Llama3 | 困惑度持续低于其他外推方法 |
+| 模型 | 方法 | LongBench Avg. | L-Eval Avg. |
+|------|------|----------------|-------------|
+| Llama2-7B-Chat | 原始 RoPE | 31.52 | 39.53 |
+| | + SelfExtend (25K) | 34.30 | 44.27 |
+| | + DCA (25K) | 32.48 | 45.59 |
+| | + YaRN (25K) | 31.35 | 41.01 |
+| | + NTK (25K) | 25.03 | 35.91 |
+| | **+ LaMPE** | **35.07** | **48.13** |
+| Llama3-8B-Ins | 原始 RoPE | 42.38 | 67.07 |
+| | + SelfExtend (32K) | 42.22 | 69.39 |
+| | + DCA (32K) | 44.70 | 69.93 |
+| | + YaRN (32K) | 45.90 | 70.79 |
+| | + NTK (32K) | 44.24 | 68.75 |
+| | **+ LaMPE** | **46.99** | **71.78** |
 
-**关键亮点**：AdaGroPE 在某些任务上甚至**超过了原生设计用于长上下文处理的 LLM**（如 Llama3.1-8B-Instruct-128K），说明通过更精细的位置映射可以比简单扩大训练窗口更有效。
+LaMPE 在两个模型上分别超越最佳基线 0.45/1.09（LongBench）和 2.54/0.99（L-Eval）。
 
-### 消融实验要点
+### Table 2: ∞Bench（超长上下文，所有输入 >64K tokens）
 
-- 渐进式分组比均匀分组贡献更大——去掉渐进设计后位置区分度下降，尤其影响近距离信息检索
-- 自适应长度映射对不同长度输入的鲁棒性至关重要——固定映射在某些长度上表现好但在其他长度上退化
-- 保持局部窗口（local window）对近距离 token 的精确位置至关重要
+| 模型 | 方法 | En.MC | En.QA | En.sum | Code | Re.KV | Re.Num | Re.Pass | Avg. |
+|------|------|-------|-------|--------|------|-------|--------|---------|------|
+| Llama3 (32K) | SelfExtend | 50.66 | 14.06 | 15.13 | 24.87 | 3.60 | 27.12 | 27.12 | 23.22 |
+| | DCA | 52.84 | 13.90 | 18.79 | 25.38 | 4.40 | 27.12 | 27.12 | 24.22 |
+| | **LaMPE** | **55.02** | **16.36** | **20.49** | 25.63 | **17.40** | 27.12 | 27.12 | **27.02** |
+| Llama3 (64K) | SelfExtend | 53.71 | 15.10 | 15.22 | 21.57 | 2.80 | 54.24 | 54.24 | 30.98 |
+| | DCA | 50.66 | 14.35 | 18.98 | 24.11 | 2.00 | 52.88 | 54.24 | 31.03 |
+| | **LaMPE** | **55.90** | **15.49** | **23.10** | 24.11 | **10.80** | 54.24 | 54.24 | **33.98** |
+| Llama3.1 (128K) | 原始 RoPE | 67.25 | 14.57 | 25.42 | 22.08 | 54.80 | 99.49 | 100.00 | 54.80 |
+| | STRING | 71.18 | 14.39 | 27.81 | 30.46 | 81.40 | 99.83 | 100.00 | 60.72 |
+| | **LaMPE** | 70.30 | **19.51** | **28.54** | 29.19 | **92.60** | 99.83 | 100.00 | **62.85** |
 
-## 亮点
+在 KV 检索任务上，LaMPE 在 Llama3.1 上超出原始 RoPE **37.8 个点**（92.60 vs 54.80）。
 
-- **零训练开销 + 即插即用**：不需要任何额外训练、微调或数据，直接在推理时替换位置索引即可
-- **人类感知直觉的形式化**：渐进式位置复用巧妙地将"近细远粗"的距离感知转化为数学映射，既符合直觉又与 RoPE 的频率衰减特性一致
-- **无需手动调参**：自适应映射消除了 SelfExtend 中需要手动设定 $G$ 和 $w$ 的负担，实际部署更友好
-- **可迁移的设计思路**：渐进式分组策略可以启发其他需要位置编码的场景（如 Vision Transformer 的长序列处理、点云序列建模等）
+### PG-19 困惑度 (PPL) 与 RULER 基准
 
-## 局限性 / 可改进方向
+| 模型 | 方法 | PPL Avg. (4K-64K) | RULER 8K | RULER 16K | RULER 64K | RULER 128K |
+|------|------|-------------------|----------|-----------|-----------|------------|
+| Llama2 | DCA | 7.23 | - | - | - | - |
+| | **LaMPE** | **7.00** | - | - | - | - |
+| Llama3 | 原始 RoPE | - | 88.76 | - | - | - |
+| | SelfExtend | 7.60 | 87.59 | 75.44 | 61.95 | 35.97 |
+| | DCA | 7.43 | 89.35 | 72.28 | 47.01 | 15.96 |
+| | YaRN | 7.41 | - | 62.93 | 5.02 | 12.17 |
+| | **LaMPE** | **7.23** | **90.57** | **87.32** | **69.46** | **59.48** |
 
-- **无公开代码和 arXiv 版本**：降低了可复现性和社区影响力
-- **主要在 Llama 系列验证**：未涉及 Mistral、Qwen、Phi 等其他 RoPE-based 模型，泛化性有待进一步验证
-- **位置压缩的信息损失**：虽然远距离 token 的精确位置在自然语言中可能不太重要，但在 Needle-in-a-Haystack 等检索密集型任务中，位置模糊化可能是性能瓶颈
-- **与 base-modified 方法的正交性**：论文主要与位置索引修改方法对比，但 AdaGroPE 是否能与 YaRN 等频率修改方法叠加使用值得探索
-- **后续工作 LaMPE (arXiv 2508.02308)**：已有后续工作 LaMPE 进一步引入 sigmoid 动态映射和多粒度注意力机制，在 AdaGroPE 的基础上取得更好效果
+LaMPE 在 RULER 128K 上达到 59.48，是第二名 SelfExtend (35.97) 的 **1.65 倍**。YaRN 在 64K 时崩溃至 5.02。
 
-## 与相关工作的对比
+## 亮点与洞察
 
-| 方法 | 是否需要训练 | 分组策略 | 长度自适应 | 核心差异 |
-|------|------------|---------|----------|---------|
-| **SelfExtend** | 否 | 固定分组 $G$ | 否（手动设定） | 所有 non-local token 均匀分组，简单但粗暴 |
-| **DCA** | 否 | 固定映射 | 否（手动设定） | 用 chunk-based attention 做映射，更稳定但仍固定 |
-| **AdaGroPE (本文)** | 否 | 渐进式递增 | 是（根据输入长度自适应） | 分组粒度随距离增长 + 长度自适应映射 |
-| **LaMPE** (后续工作) | 否 | 线性归一化 + 三区域 | 是（sigmoid 建模） | 显式建模 mapping length 与 input length 的关系 |
+1. **经验驱动的理论发现**：通过系统性实验发现 PPL 的 V 形 / 单调递减双模式，并将最优映射长度与输入长度的 S 形关系用 sigmoid 精确建模，将启发式调参转化为少量采样点的曲线拟合问题。
 
-AdaGroPE 相比 SelfExtend 的核心优势在于精细化的分组策略和免调参的自适应性；相比 DCA 的优势在于更符合直觉的位置重映射方式。但后续 LaMPE 进一步揭示了 AdaGroPE 未充分利用的位置频率分布信息。
+2. **三区域设计的精妙分工**：head 保局部连贯性、middle 做自适应压缩、tail 恢复长程依赖——每个区域的设计都有明确的认知动机（相邻 token 需精细区分、中间 token 允许粗粒度、序列首尾的指令/问题需保留精确位置）。
 
-## 启发与关联
+3. **超越原生长上下文模型**：在 ∞Bench 的 KV 检索任务上，LaMPE 应用于 Llama3.1-8B-Instruct-128K 后达到 92.60，大幅超过原生 RoPE 的 54.80，说明位置映射优化可以比单纯扩大训练窗口更有效。
 
-- 与 [面向长上下文推理能力的分离式训练框架](../../../ideas/llm_nlp/20260317_retrieval_reasoning_decoupled_lct.md) 的关联：AdaGroPE 解决的是"位置外推"问题，但即使位置不 OOD，LLM 在长上下文中的推理能力仍然不足——这是位置编码方法无法独立解决的，需要训练策略的配合
-- 渐进式分组的思想可以迁移到其他需要序列压缩的场景：如 KV Cache 压缩中，近距离的 KV 保持原精度，远距离的 KV 可以合并或量化
-- 自适应映射的设计值得在多模态长序列（如视频帧序列）中探索
+4. **预训练窗口内的性能增益**：LaMPE 不仅在外推时表现好，在原始窗口内也能提升性能（RULER 8K: 90.57 vs 88.76），这得益于对左偏位置频率分布的利用。
+
+5. **无需手动调参**：彻底消除了 SelfExtend 中需要手调 $G$ 和 $w$ 的负担，sigmoid 函数参数通过简单曲线拟合自动确定。
+
+## 局限性/可改进方向
+
+1. **仅在 Llama 系列验证**：实验覆盖 Llama2-7B-Chat、Llama3-8B-Instruct、Llama3.1-8B-Instruct 三个模型，但未涉及 Qwen、Mistral、Phi 等其他 RoPE-based 架构，泛化性有待验证。
+
+2. **sigmoid 参数的模型依赖性**：虽然 sigmoid 参数可通过少量采样拟合，但不同模型需要重新拟合，这引入了一次性的探索成本。
+
+3. **KV 检索等精确检索任务仍有瓶颈**：虽然 LaMPE 在 KV 检索上大幅提升，但 middle 区域的线性压缩仍然损失了精确位置信息，在超长序列的多针检索（NIAH_M3）任务上性能仍然较低（128K 时仅 1.20）。
+
+4. **与 base-modified 方法的组合**：论文指出 NTK-RoPE、YaRN 等方法与 LaMPE 正交可组合，但未实际给出组合实验结果。
+
+5. **尾部区域大小 $s_2$ 的设定**：虽然实验表明 $s_2 = 8$ 即可恢复大部分性能，但最优值的确定仍需经验判断，缺乏理论指导。
+
+## 相关工作与启发
+
+| 方法 | 类型 | 是否需训练 | 映射策略 | 长度自适应 | 核心局限 |
+|------|------|-----------|---------|----------|---------|
+| NTK-RoPE | base-modified | 否（可选微调） | 修改频率基底 | 否 | 有外推上界，64K+ 性能崩溃 |
+| YaRN | base-modified | 否（可选微调） | 频率缩放 | 否 | 外推上界低于索引修改方法 |
+| SelfExtend | indices-modified | 否 | 固定分组 $G$ | 否（手动 $G$） | 均匀分组粗暴，窗口内性能可能下降 |
+| DCA | indices-modified | 否 | chunk-based 映射 | 否（手动设定） | 稳定但无法利用位置频率分布 |
+| STRING | indices-modified | 否 | 利用频率分布 | 部分 | 主要增强窗口内性能 |
+| **LaMPE** | indices-modified | **否** | **sigmoid 动态映射 + 三区域** | **是** | 仅 Llama 系列验证 |
+
+**启发方向**：
+- LaMPE 的三区域思想可迁移到 **KV Cache 压缩**：近距离 KV 保持原精度，远距离 KV 按区域压缩或合并
+- sigmoid 建模映射长度的思路可应用于 **多模态长序列**（如视频理解中帧间位置编码的自适应压缩）
+- 预训练窗口内性能提升的发现说明，即使不做外推，**优化位置编码利用效率** 本身也是一个值得探索的方向
 
 ## 评分
 
-- 新颖性: ⭐⭐⭐⭐ 渐进式分组 + 自适应映射的组合有新意，但整体仍是位置索引重映射框架内的改进
-- 实验充分度: ⭐⭐⭐⭐ 覆盖多个 benchmark（LongBench/L-Eval/∞Bench/RULER/PG-19），但仅测试 Llama 系列
-- 写作质量: ⭐⭐⭐⭐ ACL Long Paper 录用，方法描述清晰，与人类感知的类比有助于理解
-- 价值: ⭐⭐⭐⭐ 无训练长上下文扩展是刚需方向，即插即用的特性实用价值高
+- 新颖性: ⭐⭐⭐⭐ sigmoid 动态映射 + 三区域多粒度机制的组合有新意，V 形/单调模式的经验发现有价值
+- 实验充分度: ⭐⭐⭐⭐⭐ 五大基准（LongBench/L-Eval/∞Bench/RULER/PG-19）全覆盖，消融实验和超参分析完整
+- 写作质量: ⭐⭐⭐⭐ 结构清晰，经验观察→数学建模→实验验证的逻辑线流畅，图表直观
+- 价值: ⭐⭐⭐⭐ 无训练长上下文扩展是刚需方向，即插即用+自适应+兼容FlashAttention2的特性实用价值高

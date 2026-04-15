@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 对齐/RLHF方向 60篇论文解读
+  ACL2025 对齐/RLHF方向 59篇论文解读
 description: >-
-  60篇ACL2025 对齐/RLHF方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  59篇ACL2025 对齐/RLHF方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**💬 ACL2025** · 共 **60** 篇
+**💬 ACL2025** · 共 **59** 篇
 
 **[Agentalign Navigating Safety Alignment In The Shift From Informative To Agentic ](agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)**
 
@@ -16,7 +16,7 @@ description: >-
 
 **[Agentrm Enhancing Agent Generalization With Reward Modeling](agentrm_enhancing_agent_generalization_with_reward_modeling.md)**
 
-:   提出 AgentRM，一种可泛化的奖励模型，通过显式/隐式奖励建模和 LLM-as-a-judge 三种方式构建，配合 Best-of-N 采样和步级波束搜索引导策略模型进行测试时搜索，在 9 个 Agent 任务上平均提升 8.8 分，且展现出弱到强的泛化能力。
+:   提出 AgentRM，一个可泛化的奖励模型，通过显式/隐式/LLM-as-Judge 三种方式构建，用测试时搜索（Best-of-N / Beam Search）引导策略模型，在 9 个 Agent 任务上平均提升 8.8 分并超越最佳通用 Agent 4.0 分。
 
 **[Aligned But Blind Implicit Bias](aligned_but_blind_implicit_bias.md)**
 
@@ -100,7 +100,7 @@ description: >-
 
 **[Focused-Dpo Enhancing Code Generation Through Focused Preference Optimization On](focused-dpo_enhancing_code_generation_through_focused_preference_optimization_on.md)**
 
-:   发现代码生成错误集中在特定"错误易发点"（error-prone points）——前缀/后缀通常正确，错误集中在中间代码段，提出 Focused-DPO 通过 PageRank 排序定位关键代码段并在 DPO 损失中加权放大，HumanEval+ 提升 4.41%、MBPP+ 提升 6.71%。
+:   发现代码生成模型的错误高度集中在特定"错误易发点"（error-prone points），前缀/后缀几乎不变而中间段决定正确性，提出 Focused-DPO：通过 PageRank 在代码-测试二部图上排序定位关键中间段，并在 DPO 损失中对该段加权放大（$w_{focused}=2$），仅用 5000 样本即可在 HumanEval+ 上提升 4.41%、LiveCodeBench-Hard 上相对提升 42.86%。
 
 **[Haf-Rm A Hybrid Alignment Framework For Reward Model Training](haf-rm_a_hybrid_alignment_framework_for_reward_model_training.md)**
 
@@ -170,10 +170,6 @@ description: >-
 
 :   OTPO 利用无平衡最优传输（UOT）在 chosen/rejected 回复的 token 表示之间计算语义对齐权重，使偏好优化聚焦于关键差异 token 而非均等对待所有 token，在 AlpacaEval2 上将 DPO 的 LC WR 从 48.14% 提升至 55.84%，并将 DPO/SimPO/SamPO/LDDPO 统一为 token 加权的特例。
 
-**[Personalized Preference Opt](personalized_preference_opt.md)**
-
-:   提出"溯因推理"视角的偏好个性化方法：先用 LLM 推断偏好 chosen/rejected 回答背后的用户画像（Persona Inference），再用画像增强的偏好数据训练模型（Persona Tailoring），显著提升模型对不同用户需求的个性化适配能力。
-
 **[Pig Privacy Jailbreak](pig_privacy_jailbreak.md)**
 
 :   提出 PIG 框架，通过识别隐私查询中的 PII 实体类型、构建隐私上下文示例、并利用三种基于梯度的迭代优化策略更新上下文，实现对 LLM 的高效隐私越狱攻击，在白盒和黑盒模型上均达到 SOTA。
@@ -204,7 +200,7 @@ description: >-
 
 **[Reward Fairness Rlhf](reward_fairness_rlhf.md)**
 
-:   将 RLHF 中的各种奖励偏差（长度偏差、类别偏差、社会偏差）统一定义为"奖励不公平"问题，从资源分配视角提出两种偏差无关的缓解方法——公平正则化和公平系数——在不针对特定偏差设计的情况下有效缓解多种偏差，实现更公平的人类偏好对齐。
+:   将 RLHF 中的长度偏差、类别偏差、社会偏差等多种奖励偏差统一定义为"奖励不公平"问题，借鉴资源分配理论提出 Fairness Regularization 和 Fairness Coefficient 两种偏差无关方法，分别应用于奖励模型训练和策略模型训练，在不针对特定偏差设计的前提下同时缓解多种偏差并提升对齐质量。
 
 **[Reward Generalization In Rlhf A Topological Perspective](reward_generalization_in_rlhf_a_topological_perspective.md)**
 
@@ -228,7 +224,7 @@ description: >-
 
 **[Synthesizeme Persona Prompts](synthesizeme_persona_prompts.md)**
 
-:   提出SynthesizeMe，通过bootstrap推理→合成用户画像→筛选信息性示例三步流程，无需微调即可为个性化奖励模型构建有效prompt，在Chatbot Arena上提升LLM-as-a-Judge个性化准确率4.4%。
+:   提出 SynthesizeMe 方法，通过从用户有限的成对偏好交互中自动推理-合成用户画像（persona），构建可解释、可迁移的个性化 prompt，在 PersonalRewardBench 上显著提升个性化偏好预测准确率。
 
 **[Tabledreamer Progressive And Weakness-Guided Data Synthesis From Scratch For Tab](tabledreamer_progressive_and_weakness-guided_data_synthesis_from_scratch_for_tab.md)**
 

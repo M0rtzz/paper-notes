@@ -28,7 +28,7 @@ description: >-
 
 **[Cos3D Collaborative Open-Vocabulary 3D Segmentation](cos3d_collaborative_open-vocabulary_3d_segmentation.md)**
 
-:   提出COS3D协作式开放词汇3D分割框架，在3D Gaussian Splatting中同时维护instance field（学习清晰边界）和language field（学习语义），通过两阶段训练实现Ins2Lang映射，推理时Language→Instance prompt精化实现互补协作，在LeRF数据集上mIoU达50.76%，大幅超越Dr.Splat（43.58%）。
+:   提出 COS3D——一种协作式 prompt-分割框架，通过构建实例场（instance field）和语言场（language field）组成的协作场，在训练阶段利用实例到语言的特征映射构建语言场，在推理阶段利用语言到实例的自适应 prompt 精炼生成精确分割，在两个主流基准上大幅超越现有方法。
 
 **[Diffusion-Driven Two-Stage Active Learning For Low-Budget Semantic Segmentation](diffusion-driven_two-stage_active_learning_for_low-budget_semantic_segmentation.md)**
 
@@ -120,7 +120,7 @@ description: >-
 
 **[Robust Egocentric Referring Video Object Segmentation Via Dual-Modal Causal Inte](robust_egocentric_referring_video_object_segmentation_via_dual-modal_causal_inte.md)**
 
-:   提出CERES框架，通过双模态因果干预解决自中心指代视频分割(Ego-RVOS)中的鲁棒性问题：对语言偏见用后门调整（消除目标-动作频率偏差），对视觉混淆用前门调整（以深度信息引导视觉中介变量聚合），在VISOR/VOST/VSCOS上达到SOTA。
+:   提出 CERES 框架，通过双模态因果干预（语言后门调整消除数据集统计偏差 + 视觉前门调整利用深度信息构建因果中介变量）来解决第一人称视频指代分割中的语言偏差和视觉混淆问题，在 VISOR/VOST/VSCOS 上取得 SOTA。
 
 **[Roma Scaling Up Mamba-Based Foundation Models For Remote Sensing](roma_scaling_up_mamba-based_foundation_models_for_remote_sensing.md)**
 
@@ -172,7 +172,7 @@ description: >-
 
 **[Towards Robust Pseudo-Label Learning In Semantic Segmentation An Encoding Perspe](towards_robust_pseudo-label_learning_in_semantic_segmentation_an_encoding_perspe.md)**
 
-:   ECOCSeg从编码形式角度重新审视伪标签噪声问题，用纠错输出码(ECOC)替代argmax one-hot编码，将N类分类分解为K个二分类子任务，利用类间共享属性和bit级去噪机制显著提升伪标签学习的鲁棒性。
+:   提出 ECOCSeg，用纠错输出码（ECOC）替代 one-hot 编码来表示语义类别，将 N 类分类分解为 K 个二分类子任务，配合 bit 级伪标签去噪和定制优化损失，显著提升 UDA 和 SSL 语义分割中伪标签学习的鲁棒性。
 
 **[Towards Unsupervised Domain Bridging Via Image Degradation In Semantic Segmentat](towards_unsupervised_domain_bridging_via_image_degradation_in_semantic_segmentat.md)**
 

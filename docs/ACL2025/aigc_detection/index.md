@@ -28,7 +28,7 @@ description: >-
 
 **[Haco-Det A Study Towards Fine-Grained Machine-Generated Text Detection Under Hum](haco-det_a_study_towards_fine-grained_machine-generated_text_detection_under_hum.md)**
 
-:   提出人机共创场景下的细粒度MGT检测任务和数据集HACo-Det，通过多轮LLM改写构建了11,200篇带词级别标注的共创文本，将7种主流检测器适配到词级/句级任务后发现：微调方法（DeBERTa）远优于基于度量的方法，但整体检测水平仍远未解决该问题。
+:   提出面向人机协作写作场景的细粒度机器生成文本（MGT）检测基准 HACo-Det，通过多轮局部改写流水线自动构建带词级归属标注的 11,200 篇人机共创文本，并将七种主流检测器改造为词级序列标注模式进行系统评估，揭示当前方法在细粒度检测上的巨大改进空间。
 
 **[Learning To Rewrite Generalized Llm-Generated Text Detection](learning_to_rewrite_generalized_llm-generated_text_detection.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Llm Vs Human Formal Syntax](llm_vs_human_formal_syntax.md)**
 
-:   利用英语资源语法（ERG）实现的 HPSG 形式句法理论，首次从句法构式、词汇类型和形态规则三个层级系统分析 LLM 生成文本与人类新闻写作的语法差异，发现 LLM 在句法构式使用上趋于"扁平化均值"。
+:   首次使用 **HPSG 形式句法理论**（通过英语资源语法 ERG）从句法构式（298 种）、词汇类型（1398 种）和词法规则（100 种）三个层级系统比较 6 个 LLM 与人类 NYT 新闻写作的语法差异，发现 LLM 在语法特征上是人类作者的 **"均值化"投影**——人类个体作者间的语法差异反而大于任何人类与 LLM 的差异，而 LLM 之间几乎无差别。
 
 **[Low-Perplexity Llm-Generated Sequences And Where To Find Them](low-perplexity_llm-generated_sequences_and_where_to_find_them.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Multisocial Mgt Detection](multisocial_mgt_detection.md)**
 
-:   构建首个多语言(22种语言)、多平台(5个社交媒体)、多生成器(7个LLM)的社交媒体机器生成文本检测基准 MultiSocial（47万文本），填补了社交媒体短文本+非英语场景下 MGT 检测研究的空白，发现微调检测器可在社交媒体文本上有效训练且训练平台选择很重要。
+:   构建了首个覆盖 22 种语言、5 个社交媒体平台、7 个 LLM 生成器的大规模机器生成文本检测基准 MultiSocial（47.2 万文本），实验表明 fine-tuned 检测器（Llama-3-8B/Mistral-7B, AUC ROC 0.977）在社交媒体文本上表现优异，且训练平台选择对跨平台泛化影响显著。
 
 **[Reliably Bounding False Positives A Zero-Shot Machine-Generated Text Detection F](reliably_bounding_false_positives_a_zero-shot_machine-generated_text_detection_f.md)**
 

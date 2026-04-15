@@ -20,7 +20,7 @@ description: >-
 
 **[Aero A Redirection-Based Optimization Framework Inspired By Judo For Robust Prob](aero_a_redirection-based_optimization_framework_inspired_by_judo_for_robust_prob.md)**
 
-:   AERO 提出受柔道"借力重定向"启发的优化框架，通过梯度投影、能量守恒和干扰预测将对抗性扰动重定向为有利优化方向，在概率太阳能价格预测上展示更稳定的收敛。
+:   AERO提出受柔道"借力重定向"启发的优化范式，尝试将对抗扰动重定向为有利的优化信号而非直接抵抗，理论上通过15条公理和4个定理构建了基于能量守恒的梯度重定向系统，但实际实现大幅简化为带高斯噪声注入的动量SGD，仅在一个私有太阳能价格预测数据集上进行了无基线对比的验证。
 
 **[Attentionpredictor Temporal Patterns Matter For Kv Cache Com](attentionpredictor_temporal_patterns_matter_for_kv_cache_com.md)**
 
@@ -42,6 +42,10 @@ description: >-
 
 :   提出 Channel-wise Influence (ChInf)——首个能量化多变量时间序列中不同通道对模型性能影响的影响函数方法，将 TracIn 从整体样本级分解到通道级，衍生出通道级异常检测和通道剪枝两个应用，在 5 个异常检测基准上排名第一。
 
+**[Connecting The Dots A Machine Learning Ready Dataset For Ionospheric Forecasting](connecting_the_dots_a_machine_learning_ready_dataset_for_ionospheric_forecasting.md)**
+
+:   本文构建了一个开放的、机器学习就绪的电离层预测数据集，融合了8种异构数据源（太阳观测、地磁指数、TEC地图等），覆盖2010-2024年约14年时间，并基于此训练了LSTM、SFNO、GraphCast三种时空模型作为基准，实现了最长12小时的TEC预测。
+
 **[Demandcast Global Hourly Electricity Demand Forecasting](demandcast_global_hourly_electricity_demand_forecasting.md)**
 
 :   构建 DemandCast 开源机器学习框架，基于 XGBoost 融合历史电力需求、ERA5 温度和社会经济特征进行全球 56 个国家/地区的小时级电力需求预测，通过归一化目标变量（年度分数）实现跨国家可比，在时间外推测试集上达到 MAPE 9.2%。
@@ -53,10 +57,6 @@ description: >-
 **[Diffusion Transformers For Imputation Statistical Efficiency And Uncertainty Qua](diffusion_transformers_for_imputation_statistical_efficiency_and_uncertainty_qua.md)**
 
 :   本文从统计学习角度分析了条件扩散Transformer（DiT）在时间序列插补任务中的样本复杂度和不确定性量化性能，并提出混合掩码训练策略提升插补效果。
-
-**[Ecocast A Spatio-Temporal Model For Continual Biodiversity And Climate Risk Fore](ecocast_a_spatio-temporal_model_for_continual_biodiversity_and_climate_risk_fore.md)**
-
-:   提出EcoCast，基于Transformer的时空模型，整合Sentinel-2、ERA5和GBIF数据进行近期物种分布预测，配合EWC持续学习机制，在非洲鸟类分布预测上F1从0.31提升至0.65。
 
 **[Exploring Neural Granger Causality With Xlstms Unveiling Temporal Dependencies I](exploring_neural_granger_causality_with_xlstms_unveiling_temporal_dependencies_i.md)**
 
@@ -176,7 +176,7 @@ description: >-
 
 **[Synthetic Series-Symbol Data Generation For Time Series Foundation Models](synthetic_series-symbol_data_generation_for_time_series_foundation_models.md)**
 
-:   提出 Series-Symbol (S²) 数据生成机制和 SymTime 基础模型，通过符号表达式与时序数据的双模态对比学习预训练，在纯合成数据上训练即可在 5 大时序分析任务上与真实数据预训练的基础模型竞争。
+:   提出 Series-Symbol (S²) 数据生成机制和 SymTime 双模态基础模型，利用 Takens 定理和符号动力学理论生成无限规模的合成时序-符号配对数据（40M 对/50B token），通过跨模态对比学习预训练在 5 大时序任务上达到与真实数据预训练模型竞争的性能。
 
 **[Syntsbench Rethinking Temporal Pattern Learning In Deep Learning Models For Time](syntsbench_rethinking_temporal_pattern_learning_in_deep_learning_models_for_time.md)**
 

@@ -18,9 +18,9 @@ description: >-
 
 :   提出交替梯度流（AGF）理论框架解释神经网络的逐步"鞍到鞍"特征学习动力学——将训练建模为休眠神经元的效用最大化和活跃神经元的代价最小化的交替过程，统一了对角线性网络、注意力模型和模块加法的特征选择分析，预测与实际梯度流高度一致。
 
-**[An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
+**[An Empirical Investigation Of Neural Odes And Symbolic Regression For Dynamical ](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
 
-:   系统实证研究 Neural ODE 和符号回归（SR）在动力系统建模中的组合使用：NODE 可以在动态相似条件下外推到新边界条件，SR 可以从有噪声数据中恢复控制方程，且用 NODE 训练数据（仅 10% 原始数据）生成的数据也能让 SR 恢复大部分方程。
+:   系统实证研究 Neural ODE (NODE) 在动力系统中的外推能力和 Symbolic Regression (SR) 的方程恢复能力，发现 NODE 在动态相似条件下可外推到新边界条件，并提出 NODE→SR 流水线：仅用 10% 原始数据训练 NODE 生成增强数据，SR 即可恢复 2/3 的控制方程和 1/3 的良好近似。
 
 **[Beyond Benign Overfitting In Nadaraya-Watson Interpolators](beyond_benign_overfitting_in_nadaraya-watson_interpolators.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Disaggregation Reveals Hidden Training Dynamics The Case Of Agreement Attraction](disaggregation_reveals_hidden_training_dynamics_the_case_of_agreement_attraction.md)**
 
-:   通过将聚合的语法评测指标**分解**到实验条件层面并追踪训练过程中的变化，发现语言模型的语法学习并非渐进单调的，而是经历了一系列**隐藏的突破阶段**——先学习词频偏好、再学习局部上下文（n-gram），最后逐步掌握更远距离的语法依赖关系。
+:   本文通过对语言模型在主谓一致任务上的表现按实验条件进行细粒度拆解（disaggregation），揭示了聚合指标所掩盖的多阶段训练动态：模型先学词频偏好、再学局部上下文、最后发展出一般性的语法规则，这一过程涉及多次"隐藏突破"而非简单的单调提升。
 
 **[Does Object Binding Naturally Emerge In Large Pretrained Vision Transformers](does_object_binding_naturally_emerge_in_large_pretrained_vision_transformers.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[Language Model Behavioral Phases Are Consistent Across Archi](language_model_behavioral_phases_are_consistent_across_archi.md)**
 
-:   在 Transformer、Mamba、RWKV 三种架构，OpenWebText 和 The Pile 两种数据集，14M-12B 参数规模上系统分析 1400+ 检查点，发现所有自回归语言模型在预训练中展现高度一致的行为阶段——词级预测最多 98% 方差可由 unigram 频率、n-gram 概率和语义相似度三类简单启发式解释。
+:   通过对超过 1,400 个语言模型检查点（涵盖 Transformer/Mamba/RWKV 三种架构、14M–12B 参数规模、两种训练数据集）在 11 万+ token 上的系统分析，发现所有自回归语言模型在预训练过程中展现出高度一致的行为阶段——预测概率依次过拟合到递增阶数的 n-gram 概率，且词频、n-gram 概率和语义相似度三个简单启发式可解释高达 98% 的行为方差。
 
 **[Learning The Wrong Lessons Syntactic-Domain Spurious Correlations In Language Mo](learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)**
 
@@ -156,7 +156,7 @@ description: >-
 
 **[Through The River Understanding The Benefit Of Schedule-Free Methods For Languag](through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)**
 
-:   从 River-Valley 损失景观的几何视角深入分析 Schedule-Free (SF) 优化器，揭示 SF-AdamW 在不需要学习率衰减或权重平均的情况下自动沿"河流"方向优化，并提出改进变体解决动量敏感性和大批量训练的局限性。
+:   从 river-valley 损失景观的几何视角，分析了 Schedule-Free (SF) 优化器在语言模型预训练中不需要学习率衰减和权重平均就能持续追踪最优解的原因，并揭示 SF 隐式执行了权重平均，进而提出解耦动量和平均窗口的改进版 SF-AdamW。
 
 **[Understanding And Enhancing Mask-Based Pretraining Towards Universal Representat](understanding_and_enhancing_mask-based_pretraining_towards_universal_representat.md)**
 

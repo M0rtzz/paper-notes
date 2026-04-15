@@ -20,7 +20,7 @@ description: >-
 
 **[Competitionaware Cpc Forecasting With Nearmarket C](competitionaware_cpc_forecasting_with_nearmarket_c.md)**
 
-:   针对付费搜索中 CPC 预测的"部分可观测竞争"难题，通过语义邻域、DTW 行为邻域和地理意图三类竞争代理信号，以协变量或图关系先验的形式增强时间序列基础模型和时空图网络，在中长期预测上显著提升稳定性。
+:   将付费搜索广告中的 CPC（每次点击成本）预测重新定义为**部分竞争可观测性**问题，通过语义邻域、DTW 行为邻域和地理意图三类竞争代理信号，结合时序基础模型（Chronos-2/TimeGPT/Moirai）和时空 GNN，在 1,811 条关键词序列上实现了中长期预测精度的显著提升。
 
 **[Pfgnet A Fully Convolutional Frequency-Guided Peripheral Gating Network For Effi](pfgnet_a_fully_convolutional_frequency-guided_peripheral_gating_network_for_effi.md)**
 

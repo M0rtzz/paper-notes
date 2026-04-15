@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 多模态VLM方向 174篇论文解读
+  CVPR2026 多模态VLM方向 169篇论文解读
 description: >-
-  174篇CVPR2026 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  169篇CVPR2026 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**📷 CVPR2026** · 共 **174** 篇
+**📷 CVPR2026** · 共 **169** 篇
 
 **[A3 Towards Advertising Aesthetic Assessment](a3_towards_advertising_aesthetic_assessment.md)**
 
@@ -94,13 +94,9 @@ description: >-
 
 :   提出 CAPT 混淆感知 prompt tuning 框架，通过语义混淆挖掘器（SEM）和样本混淆挖掘器（SAM）显式建模 VLM 的系统性误对齐模式，配合多粒度差异专家（MGDE）融合不同层次的混淆信息，在 11 个基准上取得 HM 83.90% 的最优表现。
 
-**[Cipher Counterfactual Diffusion Hallucination Sup](cipher_counterfactual_diffusion_hallucination_sup.md)**
-
-:   提出CIPHER——通过构建扩散编辑的反事实图像数据集提取视觉幻觉的低秩子空间表示，推理时将隐层状态投影远离该子空间来免训练地抑制LVLM幻觉，首次专门针对视觉诱导的幻觉而非文本诱导的幻觉。
-
 **[Circuit Tracing In Vision-Language Models Understanding The Internal Mechanisms ](circuit_tracing_in_vision-language_models_understanding_the_internal_mechanisms_.md)**
 
-:   提出首个面向 VLM 的电路追踪框架，通过在 Gemma-3-4B 中训练 transcoder、构建归因图、发现多模态电路，揭示了视觉-语义概念的层次化整合、视觉数学推理电路、六指幻觉的内部机制等关键洞察。
+:   提出首个面向 VLM 的电路追踪框架，在 Gemma-3-4B 中训练 per-layer transcoder 并构建归因图，揭示了多模态推理的层次化整合机制、视觉数学电路和六指幻觉的内部成因，并通过 steering 和 circuit patching 验证电路的因果可控性。
 
 **[Clip-Free Label Free Unsupervised Concept Bottleneck Models](clip-free_label_free_unsupervised_concept_bottleneck_models.md)**
 
@@ -282,10 +278,6 @@ description: >-
 
 :   提出GTR-Turbo框架，通过合并RL训练过程中产生的历史checkpoint作为免费教师模型，在无需依赖昂贵外部API模型的条件下，实现了与GTR相当甚至更优的多轮视觉代理训练效果，同时将训练时间减少50%、计算成本降低60%。
 
-**[Gtr Turbo Merged Checkpoint Free Teacher](gtr_turbo_merged_checkpoint_free_teacher.md)**
-
-:   提出GTR-Turbo——将RL训练过程中的历史checkpoint通过TIES合并为"免费教师"来引导后续RL，完全去除对GPT等昂贵外部模型的依赖，在Points24上胜率从3.5%(RL4VLM)提升至53.5%，同时训练时间减半、计算成本降低60%。
-
 **[Hammer Harnessing Mllm Via Cross-Modal Integration For Intention-Driven 3D Affor](hammer_harnessing_mllm_via_cross-modal_integration_for_intention-driven_3d_affor.md)**
 
 :   提出 HAMMER 框架，通过从 MLLM 中提取接触感知的意图嵌入、层次化跨模态融合增强点云特征、以及多粒度几何提升模块为意图嵌入注入3D空间信息，实现基于交互图像的3D可供性定位，在 PIAD 基准上全面超越现有方法。
@@ -293,10 +285,6 @@ description: >-
 **[Hificl High-Fidelity In-Context Learning For Multimodal Tasks](hificl_high-fidelity_in-context_learning_for_multimodal_tasks.md)**
 
 :   通过精确分解注意力公式揭示 ICL 效应的数学本质（动态混合标准注意力输出与示例值矩阵），提出 HiFICL——用可学习低秩虚拟 key-value 对直接参数化 ICL 源头而非近似其效果，以 2.2M 参数在多模态基准上全面超越现有 ICL 近似方法。
-
-**[Hificl Highfidelity Incontext Learning For Multimo](hificl_highfidelity_incontext_learning_for_multimo.md)**
-
-:   通过严格的注意力公式分解揭示ICL的shift effect本质上是注意力机制的解析结果，据此提出HiFICL——用可学习低秩虚拟KV对直接参数化ICL的来源而非近似其效果，在多模态基准上以极少参数量全面超越现有ICL近似方法和LoRA。
 
 **[Honeybee Data Recipes For Vision-Language Reasoners](honeybee_data_recipes_for_vision-language_reasoners.md)**
 
@@ -313,10 +301,6 @@ description: >-
 **[Hulluedit Single-Pass Evidence-Consistent Subspace Editing For Mitigating Halluc](hulluedit_single-pass_evidence-consistent_subspace_editing_for_mitigating_halluc.md)**
 
 :   提出HulluEdit，一种单次前向、无参考模型的子空间编辑框架，通过将隐藏状态分解为正交的视觉证据子空间、冲突先验子空间和残差不确定性子空间，选择性抑制幻觉模式而不干扰视觉定位，在POPE和CHAIR基准上达到SOTA幻觉缓解效果。
-
-**[Hulluedit Subspace Editing Hallucination](hulluedit_subspace_editing_hallucination.md)**
-
-:   提出HulluEdit——将模型隐状态分解为正交的三个子空间（视觉证据/冲突先验/残差不确定性），只在"冲突先验"子空间做编辑来抑制幻觉，数学保证视觉证据子空间完全不受影响。在POPE/CHAIR上达到SOTA幻觉抑制效果，只需单次推理。
 
 **[Interpretable Debiasing Of Vision-Language Models For Social Fairness](interpretable_debiasing_of_vision-language_models_for_social_fairness.md)**
 
@@ -400,7 +384,7 @@ description: >-
 
 **[Multi-Crit Benchmarking Multimodal Judges On Pluralistic Criteria-Following](multi-crit_benchmarking_multimodal_judges_on_pluralistic_criteria-following.md)**
 
-:   构建首个评估多模态 Judge 模型多准则遵循能力的基准 Multi-Crit，包含准则级人类标注和偏好冲突样本，配合三个新指标揭示当前最强模型在多准则评判上的系统性不足——最强闭源模型在开放生成任务上仅 32.78% 的多准则一致性。
+:   构建首个评估多模态 Judge 模型多准则遵循能力的基准 Multi-Crit，包含准则级人类标注和偏好冲突样本，配合 PAcc/TOS/CMR 三个新指标，全面评估 25 个 LMM 并揭示闭源最强模型在开放生成任务上仅 32.78% 的多准则一致性。
 
 **[Multi-Modal Representation Learning Via Semi-Supervised Rate Reduction For Gener](multi-modal_representation_learning_via_semi-supervised_rate_reduction_for_gener.md)**
 
@@ -462,13 +446,9 @@ description: >-
 
 :   首个面向多视角自动驾驶VLM的即插即用token剪枝框架Prune2Drive，通过T-FPS（token级最远点采样）保持语义/空间多样性 + 视图自适应剪枝率优化自动分配不同视角的token预算,在DriveLM上仅保留10% token即实现6.40×prefill加速且性能仅降3%。
 
-**[Quant Experts Token-Aware Adaptive Error Reconstruction With Mixture Of Experts ](quant_experts_token-aware_adaptive_error_reconstruction_with_mixture_of_experts_.md)**
-
-:   提出 Quant Experts (QE)，通过将重要通道分为 token 无关和 token 依赖两组，分别用共享专家和路由专家（均为低秩适配器）进行量化误差补偿，实现了对 VLM 的 token 感知自适应量化，在 W4A6 设置下 72B 模型平均精度提升 5.09%。
-
 **[Quant Experts Token Aware Vlm Quantization](quant_experts_token_aware_vlm_quantization.md)**
 
-:   揭示VLM中重要通道的分布和出现频率在跨模态和token间差异显著，提出基于MoE的token感知PTQ框架：共享专家补偿全局token无关误差，路由专家自适应补偿局部token依赖误差，72B模型W4A6恢复5.09%精度。
+:   提出 Quant Experts (QE)，一种基于 Mixture-of-Experts 的 token 感知自适应量化误差重建框架——将重要通道分为 token-independent（高频出现、全局性）和 token-dependent（低频出现、局部性）两组，分别用共享专家和路由专家的低秩适配器来补偿全局和局部量化误差，在 W4A6 到 W3A16 的多种量化设置下一致提升 VLM 性能。
 
 **[Reason-Svg Enhancing Structured Reasoning For Vector Graphics Generation With Re](reason-svg_enhancing_structured_reasoning_for_vector_graphics_generation_with_re.md)**
 
@@ -478,10 +458,6 @@ description: >-
 
 :   提出 ReasonMap 基准，利用 30 个城市的高分辨率公交地图构建 1,008 个 QA 对，通过两级评估框架（正确性+质量）系统评估 16 个 MLLM 的细粒度视觉推理能力，发现开源模型中 base 优于 reasoning 而闭源模型相反。
 
-**[Reasonmap Towards Finegrained Visual Reasoning Fro](reasonmap_towards_finegrained_visual_reasoning_fro.md)**
-
-:   提出ReasonMap基准——用30个城市的高分辨率地铁图+1008个人工验证问答对评估MLLM的细粒度视觉理解与空间推理能力，发现反直觉现象：开源推理模型反而不如base模型而闭源相反，揭示视觉定位（grounding）是开闭源差距的关键因素。
-
 **[Recurrent Reasoning With Vision-Language Models For Estimating Long-Horizon Embo](recurrent_reasoning_with_vision-language_models_for_estimating_long-horizon_embo.md)**
 
 :   提出 R²VLM，通过循环推理框架逐步处理本地视频片段，维护动态更新的 CoT 记录任务分解和完成状态，结合多维 RL 奖励实现长时域具身任务进度估计的 SOTA，并支持策略学习、奖励建模、主动辅助等下游应用。
@@ -489,6 +465,10 @@ description: >-
 **[Rehearsevla Simulated Post-Training For Vlas With Physically-Consistent World Mo](rehearsevla_simulated_post-training_for_vlas_with_physically-consistent_world_mo.md)**
 
 :   提出 World-Env 框架，利用物理一致的世界模型作为虚拟环境替代真实交互，对 VLA 模型进行 RL post-training，仅需每任务 5 条示教即可显著提升操控成功率。
+
+**[Rehearsevla Simulated Posttraining World Model](rehearsevla_simulated_posttraining_world_model.md)**
+
+:   提出 World-Env 框架，用物理一致的世界模型作为虚拟仿真器替代真实世界交互，结合 VLM 引导的即时反射器提供连续奖励和动态终止信号，实现 VLA 模型在仅 5 条示范轨迹下的安全高效 RL 后训练，平均成功率从 74.85% 提升至 79.6%。
 
 **[Remora Multimodal Large Language Model Based On Refined Motion Representation Fo](remora_multimodal_large_language_model_based_on_refined_motion_representation_fo.md)**
 
@@ -502,10 +482,6 @@ description: >-
 
 :   提出 SELF1E，首次实现不依赖专用 mask 解码器且仅用单个 [SEG] token 的 MLLM 分割方法，通过 Residual Features Refilling (RFR) 和 Residual Features Amplifier (RFA) 恢复 pixel-shuffle 压缩造成的分辨率损失，在多个分割任务上达到与解码器方法竞争力相当的性能。
 
-**[Revisiting Model Stitching In The Foundation Model](revisiting_model_stitching_in_the_foundation_model.md)**
-
-:   系统研究异质视觉基础模型(CLIP/DINOv2/SigLIP2/DINOv3)之间的"可拼接性"，发现通过Final Feature Matching预训练stitch层可实现可靠拼接，且拼接模型一致超越self-stitch基线，并提出VFM Stitch Tree(VST)在仅4.3%额外开销下恢复45%的多VFM性能增益。
-
 **[Revisiting Model Stitching In The Foundation Model Era](revisiting_model_stitching_in_the_foundation_model_era.md)**
 
 :   提出针对异构视觉基础模型(VFM)的两阶段拼接训练方法(Final Feature Matching + Task Loss Training)，证明异构VFM可以可靠拼接且融合互补知识，并设计VFM Stitch Tree (VST)架构实现多VFM系统的可控精度-效率权衡。
@@ -517,10 +493,6 @@ description: >-
 **[Salmubench A Benchmark For Sensitive Association-Level Multimodal Unlearning](salmubench_a_benchmark_for_sensitive_association-level_multimodal_unlearning.md)**
 
 :   提出 SALMUBench——首个针对 CLIP 类模型的关联级别机器遗忘基准，包含 60K 合成人物-敏感属性配对数据集、从头训练的 Compromised/Clean 模型对，以及结构化 holdout 集评估协议，首次系统揭示了现有遗忘方法的三种失败模式（灾难性破坏、过度泛化遗忘、无效遗忘）。
-
-**[Sapave Active Perception Manipulation Vla Roboti](sapave_active_perception_manipulation_vla_roboti.md)**
-
-:   提出SaPaVe端到端主动操作框架，通过解耦相机动作和操作动作的自底向上训练策略（先学语义主动感知再学主动视角执行），配合200K相机控制数据集和3D空间知识注入，在真实世界任务中超越π0和GR00T N1高达31-40%成功率。
 
 **[Scaling Test-Time Robustness Of Vision-Language Models Via Self-Critical Inferen](scaling_test-time_robustness_of_vision-language_models_via_self-critical_inferen.md)**
 
@@ -604,7 +576,7 @@ description: >-
 
 **[Token Warping Helps Mllms Look From Nearby Viewpoints](token_warping_helps_mllms_look_from_nearby_viewpoints.md)**
 
-:   探索在token级别而非像素级别进行视点变换，发现反向token warping能使MLLM可靠地从临近视点推理，效果超趇像素级warping、空间微调模型和生成式warping方法。
+:   提出对 MLLM 的 ViT image token 做空间 warping（而非传统的像素级 warping）来模拟视角变换，发现 backward token warping 在保持语义一致性同时对深度估计噪声鲁棒，在自建的 ViewBench 上大幅超越像素级 warping、专用空间推理 MLLM 和生成式 warping 方法。
 
 **[Tokenization Allows Multimodal Large Language Models To Understand Generate And ](tokenization_allows_multimodal_large_language_models_to_understand_generate_and_.md)**
 
@@ -628,7 +600,7 @@ description: >-
 
 **[Trivia Self-Supervised Fine-Tuning Of Vision-Language Models For Table Recogniti](trivia_self-supervised_fine-tuning_of_vision-language_models_for_table_recogniti.md)**
 
-:   提出TRivia，一种基于GRPO的自监督微调框架，使VLM能开源、从无标注表格图像中学习表格识别，产出的TRivia-3B超越Gemini 2.5 Pro和MinerU2.5。
+:   提出 TRivia 自监督微调框架，通过表格问答（QA）驱动的 GRPO 强化学习，让 VLM 直接从无标注表格图像中学习表格识别能力，3B 参数的 TRivia-3B 在多个基准上超越 Gemini 2.5 Pro 和 GPT-5 等私有模型。
 
 **[Uncertainty-Aware Knowledge Distillation For Multimodal Large Language Models](uncertainty-aware_knowledge_distillation_for_multimodal_large_language_models.md)**
 
@@ -697,6 +669,14 @@ description: >-
 **[Vlm Model Inversion Adaptive Token Weight](vlm_model_inversion_adaptive_token_weight.md)**
 
 :   首次系统研究 VLM 的模型反转（Model Inversion）攻击，提出一套面向 token 生成特性的反转策略（TMI/TMI-C/SMI），以及基于视觉注意力强度动态加权 token 梯度贡献的 SMI-AW 方法，在 4 种 VLM 和 3 个数据集上实现最高 61.21% 的人类评估攻击准确率，揭示了 VLM 严重的训练数据隐私泄露风险。
+
+**[Weavetime Stream From Earlier Frames Into Emergent Memory In Videollms](weavetime_stream_from_earlier_frames_into_emergent_memory_in_videollms.md)**
+
+:   诊断了当前 Video-LLM 存在的"时间不可知"（Time-Agnosticism）问题，提出 WeaveTime 框架，通过训练时的时序重建辅助任务（SOPE）赋予模型时序感知能力，推理时用不确定性门控的粗到细记忆缓存（PCDF-Cache）实现高效自适应记忆检索，在流式视频 QA 上取得显著提升。
+
+**[Weavetime Streaming Video Llm Memory](weavetime_streaming_video_llm_memory.md)**
+
+:   诊断了当前 Video-LLM 存在的"时间不可知"（Time-Agnosticism）问题，提出 WeaveTime 框架，通过训练时的时序重建辅助任务（SOPE）赋予模型时序感知能力，推理时用不确定性门控的粗到细记忆缓存（PCDF-Cache）实现高效自适应记忆检索，在流式视频 QA 上取得显著提升。
 
 **[What Do Visual Tokens Really Encode Uncovering Sparsity And Redundancy In Multim](what_do_visual_tokens_really_encode_uncovering_sparsity_and_redundancy_in_multim.md)**
 

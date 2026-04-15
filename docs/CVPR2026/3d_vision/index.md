@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 3D视觉方向 170篇论文解读
+  CVPR2026 3D视觉方向 166篇论文解读
 description: >-
-  170篇CVPR2026 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  166篇CVPR2026 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📷 CVPR2026** · 共 **170** 篇
+**📷 CVPR2026** · 共 **166** 篇
 
 **[3D-Fixer Coarse-To-Fine In-Place Completion For 3D Scenes From A Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
@@ -61,10 +61,6 @@ description: >-
 **[Ada3Drift Adaptive Training-Time Drifting For One-Step 3D Visuomotor Robotic Man](ada3drift_adaptive_training-time_drifting_for_one-step_3d_visuomotor_robotic_man.md)**
 
 :   针对扩散策略多步去噪慢、Flow Matching 单步快但模式平均导致碰撞的问题，提出 Ada3Drift：在训练阶段构造 drifting field 将预测吸引到最近 expert demonstration 并排斥其他模式，配合多尺度场聚合和 sigmoid 调度损失过渡，实现 1 NFE 推理下保持多模态动作分布，在 Adroit/Meta-World/RoboTwin 和真实机器人上达到 SOTA。
-
-**[Ada3Drift Adaptive Trainingtime Drifting For Onest](ada3drift_adaptive_trainingtime_drifting_for_onest.md)**
-
-:   利用计算预算不对称性，将扩散策略的迭代细化从推理时移至训练时——通过自适应漂移场将预测动作吸引向专家模式并排斥其他生成样本，从3D点云实现单步（1 NFE）高保真多模态动作生成，比扩散策略快10倍以上。
 
 **[Adapting Point Cloud Analysis Via Multimodal Bayesian Distribution Learning](adapting_point_cloud_analysis_via_multimodal_bayesian_distribution_learning.md)**
 
@@ -208,7 +204,7 @@ description: >-
 
 **[E-Rayzer Self-Supervised 3D Reconstruction As Spatial Visual Pre-Training](e-rayzer_self-supervised_3d_reconstruction_as_spatial_visual_pre-training.md)**
 
-:   E-RayZer提出了首个真正自监督的前馈式3D高斯重建模型，通过将场景表示从隐式潜空间升级为显式3D高斯，并设计基于视觉重叠度的课程学习策略，在无任何3D标注的情况下学习到几何接地的3D感知表征，在位姿估计和下游3D任务上显著超越前人自监督方法，甚至比肩有监督模型VGGT。
+:   E-RayZer是首个真正自监督的前馈式3D高斯重建模型，用显式3D高斯替代RayZer的隐式潜空间场景表示，配合基于视觉重叠度的课程学习策略，在零3D标注条件下学到几何接地的3D感知表征，位姿估计上碾压RayZer（RPA@5°从≈0提升至90.8），下游3D任务frozen-backbone probing大幅领先DINOv3/CroCo v2等主流预训练模型，甚至比肩有监督VGGT。
 
 **[E2Egs Event-To-Edge Gaussian Splatting For Pose-Free 3D Reconstruction](e2egs_event-to-edge_gaussian_splatting_for_pose-free_3d_reconstruction.md)**
 
@@ -390,10 +386,6 @@ description: >-
 
 :   提出 NanoSD，通过对 SD 1.5 进行硬件感知的 U-Net 分解、逐块特征蒸馏和多目标贝叶斯优化，构建了一族 Pareto 最优的轻量扩散基础模型（130M–315M 参数，最快 12ms 推理），可作为 drop-in backbone 在超分、人脸修复、去模糊、单目深度估计等多任务上达到 SOTA 级表现。
 
-**[Nerfify Multiagent Nerf Paper To Code](nerfify_multiagent_nerf_paper_to_code.md)**
-
-:   提出NERFIFY——通过6项关键创新（CFG约束、GoT代码合成、引用链组件恢复、视觉反馈修复、知识增强、系统评测），将NeRF论文可靠转化为可训练的Nerfstudio插件，在无公开实现的论文上达到±0.5dB PSNR的专家级复现质量，实现时间从数周降至数分钟。
-
 **[Neu-Pig Neural Preconditioned Grids For Fast Dynamic Surface Reconstruction On L](neu-pig_neural_preconditioned_grids_for_fast_dynamic_surface_reconstruction_on_l.md)**
 
 :   Neu-PiG 提出一种基于预条件多分辨率潜在网格的快速优化方法，将关键帧参考网格的位置和法线方向编码为统一潜在空间，通过轻量级 MLP 解码为每帧 6-DoF 形变，在无需类别先验或显式对应关系的前提下，实现了比现有无训练方法快 60 倍以上的高保真动态曲面重建。
@@ -429,10 +421,6 @@ description: >-
 **[Openvo Open-World Visual Odometry With Temporal Dynamics Awareness](openvo_open-world_visual_odometry_with_temporal_dynamics_awareness.md)**
 
 :   提出 OpenVO，一个面向开放世界的单目视觉里程计框架，通过时间感知流编码器和几何感知上下文编码器，在无相机标定、帧率变化的条件下实现鲁棒的真实尺度自车运动估计，跨数据集 ATE 提升超 20%，变帧率场景误差降低 46%-92%。
-
-**[Pano360 Perspective To Panoramic Vision With Geome](pano360_perspective_to_panoramic_vision_with_geome.md)**
-
-:   提出Pano360，将全景拼接从传统的2D成对对齐扩展到3D摄影测量空间，利用基于Transformer的架构实现多视图全局几何一致性，在弱纹理、大视差和重复纹理等挑战场景中成功率达97.8%，并构建了包含200个真实场景的大规模数据集。
 
 **[Pano360 Perspective To Panoramic Vision With Geometric Consistency](pano360_perspective_to_panoramic_vision_with_geometric_consistency.md)**
 
@@ -500,7 +488,7 @@ description: >-
 
 **[Random Wins All Rethinking Grouping Strategies For Vision Tokens](random_wins_all_rethinking_grouping_strategies_for_vision_tokens.md)**
 
-:   发现一个极简策略——随机分组 Vision Token——在图像分类、目标检测、点云分割等多类任务中几乎全面超越精心设计的分组方法，并分析了四个关键成功因素。
+:   提出极简的随机分组策略替代 Vision Transformer 中各种精心设计的 token 分组方法，在图像分类、目标检测、语义分割、点云分割和 VLM 上几乎全面超越所有 baseline，并从位置信息、头特征多样性、全局感受野和固定分组模式四个维度解释了随机分组成功的原因。
 
 **[Rap Fast Feedforward Rendering-Free Attribute-Guided Primitive Importance Score ](rap_fast_feedforward_rendering-free_attribute-guided_primitive_importance_score_.md)**
 
@@ -512,11 +500,11 @@ description: >-
 
 **[Regularizing Inr With Diffusion Prior Self-Supervised 3D Reconstruction Of Neutr](regularizing_inr_with_diffusion_prior_self-supervised_3d_reconstruction_of_neutr.md)**
 
-:   提出 DINR (Diffusive INR)，将预训练扩散先验与隐式神经表示 (INR) 结合，通过近端损失公式实现稀疏视角中子 CT 的高质量 3D 重建。
+:   提出 DINR (Diffusive INR)，在 DD3IP 扩散框架内用 INR 替代传统反演求解器，通过近端损失将扩散去噪估计注入 INR 优化过程，在极端稀疏视角（低至 4-5 视图）的中子 CT 重建中超越现有 SOTA 方法。
 
 **[Regularizing Inr With Diffusion Prior Selfsupervis](regularizing_inr_with_diffusion_prior_selfsupervis.md)**
 
-:   将扩散模型先验作为正则化项引入隐式神经表示(INR)的损失函数中，构建DINR框架用于稀疏视图中子CT重建，在仅5个视角的极端稀疏条件下仍能保持混凝土微结构的高质量重建。
+:   提出 Diffusive INR (DINR) 框架，在 DD3IP 扩散重建流程中用 INR 替代传统 DIS，并通过近端损失函数将扩散模型去噪估计作为正则化先验注入 INR 优化过程，在仅 4-5 个视角的极端稀疏中子 CT 条件下实现超越 MBIR(qGGMRF)、DD3IP 和纯 INR 的重建质量。
 
 **[Relags Relational Language Gaussian Splatting](relags_relational_language_gaussian_splatting.md)**
 
@@ -542,13 +530,9 @@ description: >-
 
 :   提出 ReWeaver 框架，从最少4张多视图RGB图像中联合重建3D服装几何与2D缝纫图案（sewing pattern），通过双路径Transformer预测3D曲面片/曲线及其拓扑连接，再经组内注意力将3D结构展平为2D面板边缘，首次实现拓扑准确且可直接用于物理仿真的服装资产恢复。
 
-**[Rewis3D Reconstruction Improves Weakly-Supervised Semantic Segmentation](rewis3d_reconstruction_improves_weakly-supervised_semantic_segmentation.md)**
-
-:   Rewis3d 利用前馈式多视图3D重建生成的点云作为辅助监督信号，通过双师生架构实现2D图像与3D点云之间的双向跨模态一致性学习，在稀疏标注（点/涂鸦/粗标注）下将弱监督语义分割性能提升2-7% mIoU，推理时仅需2D图像。
-
 **[Rewis3D Reconstruction Improves Weaklysupervised S](rewis3d_reconstruction_improves_weaklysupervised_s.md)**
 
-:   首次将前馈3D重建(MapAnything)的几何信息作为辅助监督信号引入弱监督2D语义分割，通过双Student-Teacher架构和置信度加权的跨模态一致性损失，在4个数据集上以2-7% mIoU大幅超越SOTA——且推理时仅需2D模型。
+:   提出 Rewis3d 框架，首次将前馈式 3D 场景重建作为辅助监督信号整合到弱监督语义分割中，通过双学生-教师架构和双置信度加权的跨模态一致性损失，在仅有稀疏标注的情况下将 mIoU 提升 2-7%，且推理时仅使用 2D 图像。
 
 **[Rng A Unified Transformer For Complete 3D Modeling From Partial Observations](rng_a_unified_transformer_for_complete_3d_modeling_from_partial_observations.md)**
 
@@ -588,7 +572,7 @@ description: >-
 
 **[Span Spatial Projection Alignment Mono3D](span_spatial_projection_alignment_mono3d.md)**
 
-:   提出SPAN即插即用几何协同约束框架，通过3D角点空间对齐和3D-2D投影对齐两个可微损失，强制解耦预测的各属性满足全局几何一致性，配合层级任务学习策略稳定训练，在KITTI上将MonoDGP的Car Moderate AP3D提升0.92%达到新SOTA。
+:   提出 SPAN 即插即用几何协同约束框架，通过 Spatial Point Alignment（3D角点MGIoU对齐）和 3D-2D Projection Alignment（投影包围矩形GIoU对齐）两个可微损失，强制解耦预测的各属性满足全局几何一致性，配合 Hierarchical Task Learning 策略确保训练稳定，在 KITTI 上将 MonoDGP 的 Car Moderate AP3D 提升 0.92% 达到新 SOTA，推理零额外开销。
 
 **[Spectral Defense Against Resource-Targeting Attack In 3D Gaussian Splatting](spectral_defense_against_resource-targeting_attack_in_3d_gaussian_splatting.md)**
 
@@ -676,7 +660,7 @@ description: >-
 
 **[What Makes Good Synthetic Training Data For Zerosh](what_makes_good_synthetic_training_data_for_zerosh.md)**
 
-:   系统研究合成立体数据集的设计空间——变换Infinigen过程化生成参数(浮动物体密度/背景/材质/相机baseline/光照等)分析其对零样本立体匹配的影响，发现"真实室内场景+浮动物体"的组合最有效；据此构建WMGStereo-150k数据集，仅用此单一数据集训练超越SceneFlow+CREStereo+TartanAir+IRS四合一(Middlebury降28%，Booster降25%)，与FoundationStereo竞争力相当。
+:   系统研究合成立体数据集的设计空间——在 Infinigen 过程化生成器上逐一变换六大参数（浮动物体密度/背景物体/物体类型/材质/相机基线/光照增强），量化其对零样本立体匹配的影响；发现 **"真实室内场景 + 浮动物体"** 的组合最有效，据此构建 WMGStereo-150k 数据集，仅用此单一数据集训练即超越 SceneFlow+CREStereo+TartanAir+IRS 四合一（Middlebury 降 28%，Booster 降 25%），与 FoundationStereo 竞争力相当。
 
 **[Where What Why Toward Explainable 3D-Gs Watermarking](where_what_why_toward_explainable_3d-gs_watermarking.md)**
 

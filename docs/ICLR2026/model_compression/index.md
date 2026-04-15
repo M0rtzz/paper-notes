@@ -32,7 +32,7 @@ description: >-
 
 **[Acpbench Hard Unrestrained Reasoning About Action Change And Planning](acpbench_hard_unrestrained_reasoning_about_action_change_and_planning.md)**
 
-:   构建 ACPBench Hard，一个基于 PDDL 规划的 8 类开放式生成推理 benchmark（1040 题），要求 LLM 生成可适用动作集、状态转移、可达性判断、里程碑识别、计划验证等，配备精确的符号验证器，测试发现即使最强的推理模型（o1）在多数任务上也低于 65%，暴露了 LLM 在规划推理方面的根本不足。
+:   构建 ACPBench Hard——基于 PDDL 形式化系统的 8 类**开放式生成**规划推理 benchmark（13 域 × 8 任务 = 1040 题），配备具有严格正确性保证的符号验证器，系统测评 15 个 LLM 后发现：即使最强推理模型 o1-preview 在半数任务上准确率 ≤66%，所有模型在最基本的"列举可执行动作"任务上几乎完全失败，暴露了当前 LLM 在规划推理方面的根本不足。
 
 **[Adaptive Width Neural Networks](adaptive_width_neural_networks.md)**
 
@@ -56,7 +56,7 @@ description: >-
 
 **[Boomerang Distillation Enables Zero-Shot Model Size Interpolation](boomerang_distillation_enables_zero-shot_model_size_interpolation.md)**
 
-:   发现并系统研究"回旋蒸馏"现象：从大模型（teacher）蒸馏出小模型（student）后，将教师的层块重新插回学生模型，无需任何额外训练即可构建任意中间尺寸的模型，其性能在 student 和 teacher 之间平滑插值，匹配甚至超越同等尺寸的独立蒸馏模型。
+:   提出"回旋蒸馏"范式——只训练一个小 student 模型，通过将 teacher 的 transformer 层块逐步贴回 student，零训练代价地构建出一整族中间尺寸模型，性能在 student 与 teacher 之间平滑插值，匹配甚至超越逐个蒸馏的同等规模模型。
 
 **[Boosting Entropy With Bell Box Quantization](boosting_entropy_with_bell_box_quantization.md)**
 
@@ -64,7 +64,7 @@ description: >-
 
 **[Bots A Unified Framework For Bayesian Online Task Selection In Llm Reinforcement](bots_a_unified_framework_for_bayesian_online_task_selection_in_llm_reinforcement.md)**
 
-:   提出 BOTS 框架，将 LLM 强化微调中的在线任务选择建模为贝叶斯推断问题，通过融合显式证据（直接评估）和隐式证据（跨任务推断）来自适应估计任务难度，并利用 Thompson 采样平衡探索与利用，显著提升训练效率。
+:   提出 BOTS——一个基于贝叶斯推断的在线任务选择统一框架，在 LLM 强化微调中通过融合显式证据（直接评估的历史通过率）和隐式证据（利用参考模型插值推断的未评估任务难度），配合 Thompson 采样实现探索-利用平衡，在数学/代码/逻辑任务上以仅 0.2% 的额外开销带来最高 50% 的训练加速。
 
 **[Bridging Kolmogorov Complexity And Deep Learning Asymptotically Optimal Descript](bridging_kolmogorov_complexity_and_deep_learning_asymptotically_optimal_descript.md)**
 
@@ -256,7 +256,7 @@ description: >-
 
 **[Null-Space Filtering For Data-Free Continual Model Merging Preserving Stability ](null-space_filtering_for_data-free_continual_model_merging_preserving_stability_.md)**
 
-:   提出 NUFILT 框架，通过零空间滤波和投影感知 LoRA 适配，在不访问任何任务数据的条件下实现持续模型合并，同时保持稳定性和可塑性。
+:   提出 NUFILT 框架，利用"任务向量与表示子空间近似对齐"的几何性质，通过零空间滤波压制对旧任务的干扰、投影感知 LoRA 恢复新任务可塑性，在完全不访问数据的条件下实现持续模型合并，在视觉/NLP/多模态基准上比 OPCM 提升 4-8%，逼近独立微调的上界。
 
 **[Obscure But Effective Classical Chinese Jailbreak Prompt Optimization Via Bio-In](obscure_but_effective_classical_chinese_jailbreak_prompt_optimization_via_bio-in.md)**
 
@@ -336,7 +336,7 @@ description: >-
 
 **[Specialization After Generalization Towards Understanding Test-Time Training In ](specialization_after_generalization_towards_understanding_test-time_training_in_.md)**
 
-:   从线性表示假说（LRH）出发，提出"泛化后特化"机制来解释 TTT（Test-Time Training）为何有效：基础模型全局欠参数化时，TTT 通过在测试点邻域内特化来释放模型容量，理论证明 TTT 在概念空间维度远大于特征空间时仍能泛化。
+:   本文从线性表示假说（LRH）出发，提出"泛化后特化"（specialization after generalization）理论框架，首次在 in-distribution 场景下系统解释了 TTT 为何有效——基础模型因全局欠参数化导致概念叠加干扰，TTT 通过临时遗忘无关概念来释放模型容量、局部特化到测试任务相关的少量概念上，理论保证即使特征空间指数级小于概念空间也能泛化。
 
 **[Star Similarity-Guided Teacher-Assisted Refinement For Super-Tiny Function Calli](star_similarity-guided_teacher-assisted_refinement_for_super-tiny_function_calli.md)**
 

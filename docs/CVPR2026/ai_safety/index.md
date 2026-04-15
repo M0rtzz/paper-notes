@@ -32,7 +32,7 @@ description: >-
 
 **[Fecalfed Privacy-Preserving Poultry Disease Detection Via Federated Learning](fecalfed_privacy-preserving_poultry_disease_detection_via_federated_learning.md)**
 
-:   提出 FecalFed 框架，通过联邦学习实现隐私保护的禽类疾病分类：首先清理公开数据集中 46.89% 的重复污染，发布 8,770 张去重数据集 poultry-fecal-fl，然后在高度非 IID 条件下验证联邦学习可将单农场训练的 64.86% 准确率恢复至 90.31%，接近中心化训练的 95.10%。
+:   提出 FecalFed 隐私保护联邦学习框架，首先通过双哈希去重清理公开禽类粪便数据集中 46.89% 的重复污染并发布 8,770 张清洁基准数据集 poultry-fecal-fl，随后在 Dirichlet α=0.5 的高度非 IID 条件下验证：FedAdam + Swin-Small 可将单农场训练崩溃的 64.86% 准确率恢复至 90.31%，仅比中心化上界 95.10% 低 4.79%；边缘优化的 Swin-Tiny（28M 参数）仍达 89.74%，为农场端部署提供高效可行方案。
 
 **[Fedafd Multimodal Federated Learning Via Adversarial Fusion And Distillation](fedafd_multimodal_federated_learning_via_adversarial_fusion_and_distillation.md)**
 
@@ -40,7 +40,7 @@ description: >-
 
 **[Federated Active Learning Extreme Noniid](federated_active_learning_extreme_noniid.md)**
 
-:   系统分析全局类不平衡与客户端异构性对联邦主动学习中 query model 选择的影响，发现类平衡采样能力是性能的最一致预测因子，据此提出 FairFAL——自适应选择 query model + 原型引导伪标签 + 不确定性-多样性平衡采样的类公平 FAL 框架。
+:   系统分析全局类不平衡与客户端异构性对联邦主动学习中 query model 选择的影响，归纳出3个核心 Observation，据此提出 FairFAL——自适应选择 query model + 原型引导伪标签 + 两阶段不确定性-多样性平衡采样的类公平 FAL 框架，在5个基准数据集上一致超越所有基线。
 
 **[Federated Active Learning Under Extreme Non-Iid And Global Class Imbalance](federated_active_learning_under_extreme_non-iid_and_global_class_imbalance.md)**
 

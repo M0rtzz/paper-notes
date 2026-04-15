@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 信息检索/RAG方向 32篇论文解读
+  NeurIPS2025 信息检索/RAG方向 33篇论文解读
 description: >-
-  32篇NeurIPS2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  33篇NeurIPS2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**🧠 NeurIPS2025** · 共 **32** 篇
+**🧠 NeurIPS2025** · 共 **33** 篇
 
 **[Attributing Response To Context A Jensen-Shannon Divergence Driven Mechanistic S](attributing_response_to_context_a_jensen-shannon_divergence_driven_mechanistic_s.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[How Should We Evaluate Data Deletion In Graph-Based Ann Indexes](how_should_we_evaluate_data_deletion_in_graph-based_ann_indexes.md)**
 
-:   提出面向实际部署的图基ANN索引数据删除评估框架，形式化定义了逻辑删除、物理删除和重建三种策略，并在HNSW上实验验证后提出Deletion Control——一种根据精度要求动态切换删除方法的算法。
+:   针对图基ANN索引缺乏统一数据删除评估方法的问题，形式化定义了逻辑删除、物理删除和重建三种基准方法，提出面向实际部署的评估框架和指标体系，并基于实验分析提出Deletion Control算法在精度约束下动态切换删除策略。
 
 **[Hypergraphrag Retrieval-Augmented Generation Via Hypergraph-Structured Knowledge](hypergraphrag_retrieval-augmented_generation_via_hypergraph-structured_knowledge.md)**
 
@@ -61,6 +61,10 @@ description: >-
 **[Improving Consistency In Retrieval-Augmented Systems With Group Similarity Rewar](improving_consistency_in_retrieval-augmented_systems_with_group_similarity_rewar.md)**
 
 :   提出 Con-RAG 框架，通过 Paraphrased Set GRPO (PS-GRPO) 在语义等价查询的多次生成之间计算组相似度奖励，训练 RAG 系统的生成器在释义输入下产生信息一致的输出，无需显式真实标签监督即可同时提升一致性和准确性。
+
+**[Is Prm Necessary Problem-Solving Rl Implicitly Induces Prm Capability In Llms](is_prm_necessary_problem-solving_rl_implicitly_induces_prm_capability_in_llms.md)**
+
+:   系统研究表明纯 RL 训练（无需显式 PRM 监督）能隐式诱导出强大的过程判断能力，且现有 PRM 在 DeepSeek-R1/QwQ-32B 等强推理模型上甚至不如简单多数投票有效；提出 Self-PRM 让模型用自身的内部奖励信号重排输出，一致性地优于外部 PRM。
 
 **[Learning Task-Agnostic Representations Through Multi-Teacher Distillation](learning_task-agnostic_representations_through_multi-teacher_distillation.md)**
 
@@ -100,7 +104,7 @@ description: >-
 
 **[Rmit-Adms At The Mmu-Rag Neurips 2025 Competition](rmit-adms_at_the_mmu-rag_neurips_2025_competition.md)**
 
-:   提出R2RAG系统，通过查询复杂度分类将查询路由到单次RAG或迭代Agent管线，使用Qwen3-4B等小型LLM在单块消费级GPU上实现高效的深度研究RAG，获得NeurIPS 2025 MMU-RAG竞赛最佳动态评估奖。
+:   提出Routing-to-RAG (R2RAG)系统，通过LLM查询分类器将简单查询路由到单轮Vanilla RAG、复杂查询路由到迭代式Vanilla Agent，全部基于Qwen3-4B（未量化）和Qwen3-Reranker-0.6B两个轻量模型在单块消费级GPU上运行，获NeurIPS 2025 MMU-RAG竞赛开源赛道Best Dynamic Evaluation奖。
 
 **[Scale-Invariant Attention](scale-invariant_attention.md)**
 
@@ -124,7 +128,7 @@ description: >-
 
 **[The Narrow Gate Localized Imagetext Communication In Native](the_narrow_gate_localized_imagetext_communication_in_native.md)**
 
-:   发现原生多模态VLM（如Chameleon、Emu3）中图像到文本的跨模态信息传递竟然集中在单一的end-of-image [EOI] token上（"narrow gate"机制），而非原生VLM（如LLaVA）则通过多个图像token分布式传递信息；删除[EOI]的attention可导致native模型性能崩溃，而修改[EOI]表示可精确控制模型的语义输出。
+:   通过系统性的可解释性分析发现，原生多模态VLM（Chameleon、Emu3）中图像到文本的跨模态信息传递集中于单一的end-of-image [EOI] token——形成"narrow gate"瓶颈，删除[EOI]的注意力导致性能崩溃；而非原生VLM（LLaVA等）的信息传递是分布式的。这一机制差异可被利用于语义操控和鲁棒性改进。
 
 **[Windsock Is Dancing Adaptive Multimodal Retrieval-Augmented Generation](windsock_is_dancing_adaptive_multimodal_retrieval-augmented_generation.md)**
 

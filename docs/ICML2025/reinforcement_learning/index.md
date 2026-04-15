@@ -12,7 +12,7 @@ description: >-
 
 **[A Theoretical Study Of Hyper Self-Attention Through The Lens Of Interactions Rep](a_theoretical_study_of_hyper_self-attention_through_the_lens_of_interactions_rep.md)**
 
-:   从"交互实体"视角统一分析自注意力，证明单层线性SA能高效表示/学习/泛化成对交互函数（含OOD长度泛化），并提出HyperFeatureAttention和HyperAttention分别捕获特征级耦合交互和高阶多实体交互。
+:   从"交互实体"统一视角出发，证明单层线性 self-attention 以 $\Theta(|\mathcal{S}|^2)$ 参数高效表示、学习并泛化成对交互函数（全连接网络需 $\Omega(L^2|\mathcal{S}|^2)$），并在此理论基础上提出 HyperFeatureAttention（特征级交互耦合）和 HyperAttention（高阶多实体交互）两个新模块，在语言建模中降低了 perplexity。
 
 **[Action-Constrained Imitation Learning](action-constrained_imitation_learning.md)**
 
@@ -32,11 +32,11 @@ description: >-
 
 **[Automatic Reward Shaping From Confounded Offline Data](automatic_reward_shaping_from_confounded_offline_data.md)**
 
-:   首次提出从含混淆偏差的离线数据中自动学习奖励塑形函数——利用因果状态值上界作为PBRS的势函数，证明了在UCB框架下的gap-dependent后悔界改进。
+:   提出首个理论上有保障的数据驱动方法，从含未观测混淆因子的离线数据中自动学习基于势的奖励整形函数 (PBRS)，通过因果贝尔曼最优方程上界最优状态值作为势函数，并证明所得 Q-UCB Shaping 算法在伪次优状态-动作对上享有比 vanilla Q-UCB 更优的 gap-dependent regret bound。
 
 **[Beaver Building Environments With Assessable Variation For Evaluating Multi-Obje](beaver_building_environments_with_assessable_variation_for_evaluating_multi-obje.md)**
 
-:   提出 BEAVER 基准——一个支持多目标和泛化评估的建筑能源管理 RL 环境，将问题形式化为多目标上下文 MDP（MOC-MDP），评估现有 MORL 方法在热对流差异和气候变化下的泛化能力。
+:   提出 BEAVER 基准——首个面向建筑能源管理的多目标上下文强化学习评估框架，通过参数化热动力学和气候区域构建可控环境变化，系统评估现有 MORL 算法的跨环境泛化能力。
 
 **[Benchmarking Quantum Reinforcement Learning](benchmarking_quantum_reinforcement_learning.md)**
 
@@ -124,7 +124,7 @@ description: >-
 
 **[Gradual Transition From Bellman Optimality Operator To Bellman Operator In](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in.md)**
 
-:   揭示Actor-Critic中Bellman最优算子(加速学习但过估计)和Bellman算子(减少偏差但慢)的权衡，提出Annealed Q-Learning(AQ-L)——用expectile loss从最优算子渐进过渡到标准算子，在TD3/SAC上显著提升性能。
+:   揭示 Actor-Critic 中 Bellman 最优算子（加速学习但引入过估计偏差）和 Bellman 算子（减少偏差但收敛慢）的根本权衡，提出 Annealed Q-Learning (AQ-L)：用 expectile loss 实现从最优算子到标准算子的平滑退火，AQ-SAC 在 DM Control 10 任务上平均分达 746.1（vs SAC 657.9），实现极简即插即用的性能提升。
 
 **[Gradual Transition From Bellman Optimality Operator To Bellman Operator In Onlin](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in_onlin.md)**
 
@@ -232,7 +232,7 @@ description: >-
 
 **[Position Lifetime Tuning Is Incompatible With Continual Reinforcement Learning](position_lifetime_tuning_is_incompatible_with_continual_reinforcement_learning.md)**
 
-:   指出RL中广泛采用的"终身调优"做法在持续学习研究中有误导性：通过在整个生命周期上调参，任何算法都能表现良好，掩盖了真实持续学习能力差异。提出k%-tuning方案作为更合理的评估框架。
+:   这篇 position paper 指出持续强化学习研究中的关键方法论缺陷——lifetime tuning（在整个生命周期上调参）会掩盖算法的真实持续学习能力，并提出 k%-percent tuning 作为更合理的评估替代方案。
 
 **[Principal-Agent Bandit Games With Self-Interested And Exploratory Learning Agent](principal-agent_bandit_games_with_self-interested_and_exploratory_learning_agent.md)**
 
@@ -256,7 +256,7 @@ description: >-
 
 **[Robust Offline Reinforcement Learning With Linearly Structured F-Divergence Regu](robust_offline_reinforcement_learning_with_linearly_structured_f-divergence_regu.md)**
 
-:   本文提出 d-rectangular linear RRMDP 框架，将潜在线性结构引入转移核和正则化，设计 R2PVI 算法实现离线数据下的鲁棒策略学习，证明了接近最优的样本复杂度。
+:   提出 d-rectangular linear RRMDP (d-RRMDP) 框架，将潜在线性结构同时引入转移核和 f-散度正则化，设计 R2PVI 算法在离线数据下学习鲁棒策略，证明了 instance-dependent 的次优性上界，并通过信息论下界验证算法接近最优。
 
 **[Safety Certificate Against Latent Variables With Partially Unidentifiable Dynami](safety_certificate_against_latent_variables_with_partially_unidentifiable_dynami.md)**
 

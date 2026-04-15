@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 其他方向 253篇论文解读
+  ACL2025 其他方向 254篇论文解读
 description: >-
-  253篇ACL2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  254篇ACL2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**💬 ACL2025** · 共 **253** 篇
+**💬 ACL2025** · 共 **254** 篇
 
 **[A3Cg Esg Greenwashing](a3cg_esg_greenwashing.md)**
 
@@ -20,15 +20,15 @@ description: >-
 
 **[A Little Human Data Goes A Long Way](a_little_human_data_goes_a_long_way.md)**
 
-:   首次系统研究合成数据在事实验证和问答中能否替代人工标注——替换 90% 仅轻微下降，但替换最后 10% 严重退化；仅 125 条人工数据可显著提升纯合成模型，等效增益需 10 倍以上合成数据。
+:   通过在8个事实验证和问答数据集上的大规模实验，证明了在合成数据中混入极少量人工标注数据（甚至仅125个样本）就能显著提升模型性能，替换最后10%的人工数据会导致性能严重下降，且200条人工数据的增益需要数量级更多的合成数据才能匹配。
 
 **[A Measure Of The System Dependence Of Automated Metrics](a_measure_of_the_system_dependence_of_automated_metrics.md)**
 
-:   指出机器翻译自动评估指标存在被忽视的"系统依赖性"问题：同一指标分数对不同翻译系统对应不同的人类评分，提出 SysDep 度量来量化这一效应，揭示即使是 WMT23 最佳指标 XCOMET 也存在严重的系统依赖性导致错误排名。
+:   揭示 MT 自动评估指标 "尺子因被测物不同而改变长度" 的系统依赖性问题，提出 SysDep 度量来量化不同翻译系统被指标高估/低估的程度。
 
 **[A Practical Approach For Building Production-Grade Conversational Agents With Wo](a_practical_approach_for_building_production-grade_conversational_agents_with_wo.md)**
 
-:   提出基于有向无环图（DAG）工作流的混合对话 Agent 框架——每个图节点有独立系统提示/工具/执行规则以处理特定场景约束。结合原型 Agent 数据收集、状态感知的响应掩码微调策略，在 Kakao 移动电商场景中任务准确率提升 52%、格式遵从度提升 50%，超越 GPT-4o。
+:   提出基于有向无环图(DAG)的工作流框架，通过将LLM agent的复杂业务约束分解到图中不同状态节点，并结合响应掩码微调策略，构建满足生产级要求的电商对话代理，在任务准确率和格式遵循方面均大幅超越GPT-4o基线。
 
 **[A Semi-Supervised Scalable Unified Framework For E-Commerce Query Classification](a_semi-supervised_scalable_unified_framework_for_e-commerce_query_classification.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Acord An Expert-Annotated Retrieval Dataset For Legal Contract Drafting](acord_an_expert-annotated_retrieval_dataset_for_legal_contract_drafting.md)**
 
-:   构建首个面向合同起草的专家标注条款检索基准 ACORD——114 个律师编写的查询、126,000+ 查询-条款对、1-5 星相关性评分，聚焦责任限制/赔偿/控制权变更/最惠国等复杂条款；bi-encoder 检索 + LLM 点式重排序表现有前景但距律师需求仍有显著差距。LLM 直接起草对比律师修改暴露了多种缺陷。
+:   构建首个面向合同起草的专家标注条款检索基准ACORD（114查询、126K+对、1-5星评分），评估20种检索方法发现BM25+GPT-4o pointwise重排序最优（NDCG@5=76.9%），但高质量条款精度极低（5星precision@5仅17.2%），揭示模型距真实律师需求的巨大差距。
 
 **[Adaptive Retrieval Without Self-Knowledge Bringing Uncertainty Back Home](adaptive_retrieval_without_self-knowledge_bringing_uncertainty_back_home.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Advancing Sequential Numerical Prediction In Autoregressive Models](advancing_sequential_numerical_prediction_in_autoregressive_models.md)**
 
-:   提出 NTIL（Numerical Token Integrity Loss）解决自回归模型数值预测的两大缺陷——(1) token 级用 EMD 替代交叉熵保留数字间序数关系+指数位置加权，(2) 序列级通过可微数值构建+相对偏差度量评估整体数值误差。首次将 EMD 用于自回归模型优化，在目标检测/文本识别/数学推理上显著提升。
+:   提出Numerical Token Integrity Loss (NTIL)——一种双层级数值预测损失函数，在token级别用指数位置加权的EMD替代交叉熵以保持数值有序性，在序列级别通过可微数值构造进行整体数值偏差惩罚，在目标检测、文字检测、数学推理和时钟识别等任务上显著提升自回归模型的数值预测精度。
 
 **[Aide Attribute-Guided Multi-Hop Data Expansion For Data Scarcity In Task-Specifi](aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi.md)**
 
@@ -128,11 +128,11 @@ description: >-
 
 **[Building Better Avoiding Pitfalls In Developing Language Resources When Data Is ](building_better_avoiding_pitfalls_in_developing_language_resources_when_data_is_.md)**
 
-:   通过对 81 位从事中低资源语言 NLP 研究的从业者进行问卷调查，系统性地揭示了低资源语言数据收集与标注中的质量问题和伦理隐患，特别是参与式研究框架中对社区贡献者的剥削问题，并提出了以语言社区为中心的改进建议。
+:   通过对 81 名低资源语言 NLP 研究者和标注者的调查，揭示了低资源语言数据构建中的质量问题（数据不自然、文化失当）和伦理问题（标注者劳动被剥削、署名不公），并提出六条改进建议。
 
 **[Byte Latent Transformer](byte_latent_transformer.md)**
 
-:   Meta FAIR提出BLT——首个在大规模（8B参数/4T字节）上匹配基于tokenizer的LLM性能的字节级架构，通过基于下一字节熵的动态分组（patching）将字节聚合为可变长度patch，在保持性能的同时实现最高50%推理FLOP节省，并开辟了"同时增大模型和patch尺寸"的全新scaling维度。
+:   提出 Byte Latent Transformer (BLT)，一种无分词器的字节级 LLM 架构，通过基于熵的动态分组将字节聚合为可变长度 patch，首次在 8B 规模上匹配 token-based 模型性能，同时解锁了通过同时增大 patch 和模型尺寸来提升推理效率的新 scaling 维度。
 
 **[Cadreview Automatically Reviewing Cad Programs With Error Detection And Correcti](cadreview_automatically_reviewing_cad_programs_with_error_detection_and_correcti.md)**
 
@@ -196,7 +196,7 @@ description: >-
 
 **[Commonsense Arab Culture](commonsense_arab_culture.md)**
 
-:   构建首个阿拉伯文化特定常识推理数据集 ArabCulture（3482 道由母语者原创的题目，覆盖 13 国×54 主题），评估多种 LLM 发现即使 32B 参数模型也在文化常识推理上表现不佳，且不同地区表现差异显著，地理/文化上下文线索的加入仅部分有效。
+:   提出 ArabCulture 数据集（3482 个 MSA 问题，覆盖 13 个阿拉伯国家/4 个区域/54 个文化子领域），系统评估多个 LLM 的阿拉伯文化常识推理能力，发现即使 GPT-4o 也仅达 90%、大部分模型在 40-80% 之间，揭示了 LLM 在非西方文化理解上的显著不足。
 
 **[Completing A Systematic Review In Hours](completing_a_systematic_review_in_hours.md)**
 
@@ -208,7 +208,7 @@ description: >-
 
 **[Conect Dataset Overcoming Data Scarcity In Context-Aware E-Commerce Mt](conect_dataset_overcoming_data_scarcity_in_context-aware_e-commerce_mt.md)**
 
-:   构建了 ConECT——一个包含 11,400 句对的捷克-波兰电商产品翻译数据集，配有图片和类目路径元数据，系统评估了 VLM、NMT+类目路径和 NMT+图像描述三种上下文感知翻译方法，证明视觉和类目上下文能提升翻译质量，但合成图像描述反而有害。
+:   构建了 ConECT——首个捷克-波兰电商多模态翻译数据集（11,400 句对 + 产品图片 + 类目路径），通过 VLM 端到端翻译、NMT+类目路径前缀、NMT+图像描述前缀三条技术路线的系统对比，发现结构化类目上下文能稳定提升翻译质量（COMET +0.005），而合成图像描述以级联方式注入反而严重损害翻译性能（COMET 暴跌 0.11+）。
 
 **[Consistent Client Simulation For Motivational Interviewing-Based Counseling](consistent_client_simulation_for_motivational_interviewing-based_counseling.md)**
 
@@ -252,7 +252,7 @@ description: >-
 
 **[Distractor Gen Multiple Choice](distractor_gen_multiple_choice.md)**
 
-:   提出选择题干扰项生成的三步流水线：(1) 训练配对排序器预测学生误选哪个干扰项；(2) 用排序器构造偏好数据集；(3) 用 DPO 训练生成器产生更具迷惑性的干扰项。在 CS 领域（Python/DB/ML）实验中，生成的干扰项更难以区分，且题目鉴别指数(DI)更高。
+:   本文提出了一个通过成对排序器预测学生选择倾向、再利用DPO训练干扰项生成器的三步流水线，使生成的多选题干扰项更具有迷惑性和区分度。
 
 **[Do Not Abstain Identify And Solve The Uncertainty](do_not_abstain_identify_and_solve_the_uncertainty.md)**
 
@@ -272,7 +272,11 @@ description: >-
 
 **[Dpp Diverse Multidoc Summary](dpp_diverse_multidoc_summary.md)**
 
-:   用行列式点过程（DPP）替代 LLM 的隐式内容选择来生成多样化多文档摘要——将任务分解为"提取原子关键点→DPP 选择多样子集→LLM 重写为摘要"三步，解决了 LLM 的"lost in the middle"问题，在 DiverseSumm 基准上一致提升了源覆盖率。
+:   提出将多文档摘要解耦为关键点抽取→DPP多样性选择→重写三步流水线，通过行列式点过程（DPP）进行原则性内容选择，显著提升LLM多文档摘要的源文档覆盖率。
+
+**[Dress Dataset Rubric Based Essay Scoring Efl Writing](dress_dataset_rubric_based_essay_scoring_efl_writing.md)**
+
+:   发布DREsS大规模标准化评分准则数据集，包含三个子集（DREsS_New真实课堂数据1.7K + DREsS_Std标准化历史数据集6.5K + DREsS_CASE增强数据40.1K），提出基于腐蚀的作文增强策略CASE，将BERT基线的QWK分数从0.471提升至0.685（提升45.44%）。
 
 **[Drs Deep Question Reformulation With Structured Output](drs_deep_question_reformulation_with_structured_output.md)**
 
@@ -360,7 +364,7 @@ description: >-
 
 **[Federated Lora Heterogeneous](federated_lora_heterogeneous.md)**
 
-:   提出 LoRA-A²（Low Rank Adaptation with Alternating freeze and Adaptive rank selection），通过交替冻结 A/B 矩阵解决联邦 LoRA 聚合不一致问题，并结合自适应秩选择机制在大幅压缩上传参数量（最高减少 99.8%）的同时保持鲁棒性，尤其在低秩+高数据异构场景下显著优于现有方法。
+:   提出 LoRA-A2 框架，通过交替冻结 LoRA 的 A/B 模块与自适应秩选择策略，同时解决联邦学习中 LoRA 聚合不一致和通信开销大的双重难题。
 
 **[Follow-Up Question Generation For Enhanced Patient-Provider Conversations](follow-up_question_generation_for_enhanced_patient-provider_conversations.md)**
 
@@ -412,7 +416,7 @@ description: >-
 
 **[Graph-Structured Trajectory Extraction From Travelogues](graph-structured_trajectory_extraction_from_travelogues.md)**
 
-:   提出使用图结构（而非序列）表示旅行轨迹，构建了包含地理层级关系（inclusion）和时间顺序关系（transition）的访问顺序图，并建立了日语游记轨迹提取的基准数据集ATD-VSO。
+:   提出"访问顺序图"（Visiting Order Graph）来统一表示旅行轨迹中的地理包含层级关系和时序转移关系，构建了覆盖 100 篇日语游记的 ATD-VSO 基准数据集（3354 个地理实体、3369 条关系），并通过基线实验发现地理包含关系预测（F1=0.355）是核心瓶颈，为该领域指明了地理知识融合的关键方向。
 
 **[Graphically Speaking Unmasking Abuse In Social Media With Conversation Insights](graphically_speaking_unmasking_abuse_in_social_media_with_conversation_insights.md)**
 
@@ -472,7 +476,7 @@ description: >-
 
 **[If Attention Serves As A Cognitive](if_attention_serves_as_a_cognitive.md)**
 
-:   通过将 Transformer Grammar（TG）的注意力机制与人类阅读时间数据关联，首次证明在句法结构上操作的注意力比在 token 序列上操作的普通 Transformer 注意力能更好地预测人类阅读行为，揭示人类句子处理涉及"句法结构+词序列"的双重记忆表征。
+:   通过 Transformer Grammar (TG) 的注意力机制研究人类记忆检索的表征形式，发现基于句法结构的注意力(TG)与基于 token 序列的注意力(vanilla Transformer)对阅读时间预测有独立贡献，表明人类句子处理涉及双重记忆表征系统。
 
 **[If Attention Serves As A Cognitive Model Of Human Memory Retrieval What Is The P](if_attention_serves_as_a_cognitive_model_of_human_memory_retrieval_what_is_the_p.md)**
 
@@ -514,9 +518,7 @@ description: >-
 
 :   提出 Web Reconstruction (WebR)，一种从原始网页文档全自动合成高质量指令微调数据的框架，通过"Web作为指令"和"Web作为回复"双视角范式，无需人工标注即可生成优于现有SOTA的IT数据。
 
-**[Intuitive Fine Tuning](intuitive_fine_tuning.md)**
-
-:   通过MDP框架将SFT和偏好优化统一建模为"偏好估计+转移优化"两个子过程，揭示SFT本质上是偏好优化的特殊退化形式（使用偏差先验），提出IFT方法通过时间残差连接在仅使用SFT格式数据的条件下实现接近或超越SFT+PO顺序训练的对齐效果。
+**[Intuitive Fine-Tuning: Towards Simplifying Alignment into a Single Process](intuitive_fine_tuning.md)**
 
 **[Iris Interactive Research Ideation System For Accelerating Scientific Discovery](iris_interactive_research_ideation_system_for_accelerating_scientific_discovery.md)**
 
@@ -624,11 +626,11 @@ description: >-
 
 **[Mitigating Confounding In Speech-Based Dementia Detection Through Weight Masking](mitigating_confounding_in_speech-based_dementia_detection_through_weight_masking.md)**
 
-:   本文针对基于语音转录文本的痴呆检测任务中的**性别混淆偏差**问题，提出两种权重掩码方法（Extended Confounding Filter 和 Dual Filter），通过识别并消除 Transformer 网络中与性别关联的权重来实现去混淆，在保持痴呆检测性能的同时显著降低性别间的公平性差距。
+:   针对基于语音转录文本的痴呆检测任务中的性别混淆偏差问题，提出 Extended Confounding Filter（ECF）和 Dual Filter（DF）两种无需额外训练模块的权重掩码方法，通过追踪微调过程中的权重变化来定位性别关联参数并将其置零，在多种分布偏移场景下保持痴呆检测性能的同时显著降低性别间的假阳性率差异和统计均等性差距。
 
 **[Mitigating Shortcut Learning With Interpolated Learning](mitigating_shortcut_learning_with_interpolated_learning.md)**
 
-:   提出 InterpoLL，通过将多数样本的表征与同类少数样本的表征做插值 $z_i = (1-\lambda)f_{enc}(x_i) + \lambda f_{enc}(x_j)$ 来弱化捷径特征影响，在 MNLI/FEVER/QQP 等 NLU 任务上少数样本泛化显著超越 ERM 和 SOTA 捷径缓解方法，且不损失多数样本准确率。
+:   提出 InterpoLated Learning (InterpoLL)，通过将多数样本的表示与同类少数样本的表示进行插值，削弱模型对虚假关联（shortcut）的依赖，显著提升少数样本上的泛化能力。
 
 **[Mockconf A Student Interpretation Dataset Analysis Word- And Span-Level Alignmen](mockconf_a_student_interpretation_dataset_analysis_word-_and_span-level_alignmen.md)**
 
@@ -688,7 +690,7 @@ description: >-
 
 **[Partial Colexifications Improve Concept Embeddings](partial_colexifications_improve_concept_embeddings.md)**
 
-:   首次将部分共词化（partial colexifications）数据整合到概念嵌入训练中，通过图嵌入技术在跨语言共词化网络上学习概念向量表示，在语义相似度、语义变化预测和词汇联想预测三项任务上均显著优于仅使用完全共词化的基线。
+:   首次将部分共词化（affix/overlap colexification）引入概念嵌入训练，在语义相似性建模、语义变化预测和词语联想预测三个任务上均优于仅使用完全共词化的基线。
 
 **[Patclaimeval Patent Evaluation](patclaimeval_patent_evaluation.md)**
 
@@ -704,11 +706,11 @@ description: >-
 
 **[Personabench Evaluating Ai Models On Understanding Personal Information Through ](personabench_evaluating_ai_models_on_understanding_personal_information_through_.md)**
 
-:   提出一套合成数据生成管线，创建包含多样化用户画像和模拟私有文档（对话记录、AI 交互、购买历史）的 PersonaBench 基准，用于评估 AI 模型从嘈杂用户数据中提取个人信息的能力，实验表明当前 RAG 方案远不能胜任这一任务。
+:   提出 PersonaBench 基准及配套的合成私有数据生成管线，系统评估 AI 模型通过 RAG 从模拟用户数据中提取个人信息的能力，揭示当前方案的严重不足。
 
 **[Personalized Generation In Large Model Era A Survey](personalized_generation_in_large_model_era_a_survey.md)**
 
-:   首篇跨模态个性化生成（PGen）综合综述，提出统一的用户中心视角将 NLP/CV/IR 社区的研究纳入一个框架，系统化梳理了文本/图像/视频/音频/3D/跨模态六大模态下的个性化技术、数据集和评估指标，涵盖 200+ 篇文献，并指出可扩展性、偏好演化、隐私公平等关键挑战。
+:   首篇跨模态个性化生成（PGen）系统综述，提出统一的用户中心视角将 NLP/CV/IR 社区的研究纳入同一框架，覆盖文本/图像/视频/音频/3D/跨模态六大模态。
 
 **[Plagiarism Ai Generated Research](plagiarism_ai_generated_research.md)**
 
@@ -736,11 +738,11 @@ description: >-
 
 **[Proxann Topic Model Eval](proxann_topic_model_eval.md)**
 
-:   ProxAnn 设计了一个面向实际使用场景的主题模型/文档聚类评估协议——标注者先从模型输出推断类别再将类别应用到新文档——并证明 LLM 代理标注者可以统计不可分辨地替代人类标注者，同时发现经典 LDA 在此评估下表现不弱于现代方法。
+:   提出面向实际使用场景的主题模型评估协议ProxAnn，结合可扩展的人类评估流程和LLM代理标注者，发现最佳LLM代理在统计上与人类标注者不可区分，可作为自动化评估的合理替代。
 
 **[Pvp An Image Dataset For Personalized](pvp_an_image_dataset_for_personalized.md)**
 
-:   构建了首个大规模个性化视觉说服数据集 PVP（28,454 张图像、596 条消息、9 种说服策略、2,521 位标注者的心理特征），并提出说服图像生成和评估两个任务，发现融入观看者的心理特征能显著提升说服图像的生成和评估效果。
+:   构建了首个将图像说服策略与 2,521 位标注者心理特征（人格/价值观/道德基础）关联的大规模数据集 PVP（28,454 张图像、596 条行为消息、9 种说服策略），并在"个性化说服图像生成"和"说服力自动评估"两个基准任务上验证了心理特征对提升说服效果的关键作用。
 
 **[Qg-Sms Enhancing Test Item Analysis Via Student Modeling And Simulation](qg-sms_enhancing_test_item_analysis_via_student_modeling_and_simulation.md)**
 
@@ -760,11 +762,11 @@ description: >-
 
 **[Reidentification Deidentified](reidentification_deidentified.md)**
 
-:   提出一种基于 RAG 的再识别攻击方法，通过稀疏检索+稠密检索+自回归填充的三阶段流程，对去标识化文档进行逆向攻击，在三个数据集上高达 80% 的被遮蔽文本片段可被成功恢复，揭示了当前去标识化方法的脆弱性。
+:   提出一种基于 RAG 的去标识化文档重标识方法：先用稀疏+稠密检索找到相关背景文档，再用自回归填充模型推断被遮蔽的个人标识信息，在三个数据集上恢复了高达 80% 的被遮蔽文本。
 
 **[Reliable Eval Metrics Scientific](reliable_eval_metrics_scientific.md)**
 
-:   系统分析了传统相似度指标（ROUGE、BERTScore 等）在科学文本修订评估中的局限性，发现它们强相关于编辑距离且惩罚深度修改，并证明结合 LLM-as-Judge 和任务特定指标的混合方法最能对齐人类评判。
+:   系统分析了传统相似度指标（ROUGE、BERTScore 等）在科学文本修订评估中的局限性，发现它们与编辑距离强相关且惩罚深度修改，提出结合 LLM-as-Judge 和任务特定跨域指标的混合评估方法，在与人类判断的对齐度上显著优于单一指标。
 
 **[Rep Robust Knowledge Editing](rep_robust_knowledge_editing.md)**
 
@@ -832,11 +834,11 @@ description: >-
 
 **[Share Text To Sql Correction](share_text_to_sql_correction.md)**
 
-:   提出 SHARE 框架，通过三个专用小语言模型（SLM）组成的顺序管道，将 SQL 查询转换为逐步动作轨迹并分别修正 schema 错误和逻辑错误，从而以低成本高效辅助 LLM 进行 Text-to-SQL 自纠正。
+:   提出 SHARE 框架，用三个 <8B 参数的专用小语言模型（SLM）组成顺序管道，将声明式 SQL 转换为可暴露推理路径的步进动作轨迹，再分阶段修正 schema 链接错误与逻辑推理错误，以极低成本实现 LLM 的 Text-to-SQL 自纠正。
 
 **[Sightation Counts Leveraging Sighted User Feedback In Building A Blv-Aligned Dat](sightation_counts_leveraging_sighted_user_feedback_in_building_a_blv-aligned_dat.md)**
 
-:   构建了首个经盲人/低视力（BLV）专业教育者验证的大规模图表描述数据集 Sightation，通过 VLM 引导生成 + 视力正常者评估 + BLV 偏好对齐的流程，在多项下游任务上显著提升了图表描述的可访问性。
+:   提出让视力正常者「评估」而非「生成」VLM 的图表描述，构建了首个经 BLV 专业教育者验证的 5k 图表 / 137k 样本多任务数据集 Sightation，偏好微调 2B 模型后在 BLV 有用性评分上平均提升 1.67σ。
 
 **[Sleepless Nights Sugary Days Creating Synthetic Users With Health Conditions For](sleepless_nights_sugary_days_creating_synthetic_users_with_health_conditions_for.md)**
 
@@ -844,7 +846,7 @@ description: >-
 
 **[Spot Bridging Natural Language And Geospatial Search For Investigative Journalis](spot_bridging_natural_language_and_geospatial_search_for_investigative_journalis.md)**
 
-:   提出 SPOT——一个面向调查记者的开源自然语言地理空间搜索工具，通过微调 LLaMA 3 将非结构化场景描述转换为 YAML 查询，结合 OSM 标签语义捆绑系统和 Elasticsearch 索引，实现对 OpenStreetMap 的准确自然语言访问。
+:   提出 SPOT 系统，通过微调 LLaMA 3 将自然语言场景描述转换为 YAML 查询，结合语义标签捆绑机制实现对 OpenStreetMap 数据的可靠自然语言访问，服务于调查新闻的地理定位验证。
 
 **[Spotting Out-Of-Character Behavior Atomic-Level Evaluation Of Persona Fidelity I](spotting_out-of-character_behavior_atomic-level_evaluation_of_persona_fidelity_i.md)**
 
@@ -900,7 +902,7 @@ description: >-
 
 **[The Noisy Path From Source To Citation Measuring How Scholars Engage With Past R](the_noisy_path_from_source_to_citation_measuring_how_scholars_engage_with_past_r.md)**
 
-:   本文构建了一个大规模计算管道来量化引用保真度（citation fidelity），基于 1300 万引用句对分析发现：引用保真度与时间/学科接近度、开放获取和团队规模等因素显著相关，并通过准实验证实了中介引用导致信息失真的"电话效应"。
+:   构建大规模计算流水线量化学术引用的忠实度（fidelity），分析 1300 万引用句对揭示了影响引用忠实度的关键因素，并通过准因果实验证实了"电话效应"——低忠实度中间引用会导致后续引用进一步失真。
 
 **[Tiser Timeline Self Reflection Temporal](tiser_timeline_self_reflection_temporal.md)**
 
@@ -908,7 +910,7 @@ description: >-
 
 **[Tokenisation Is Np-Complete](tokenisation_is_np-complete.md)**
 
-:   本文证明了以压缩为目标的分词问题（包括直接分词和自底向上分词两种变体）是NP完全的，这意味着不太可能存在高效算法找到最优分词器，从而为BPE等近似算法的使用提供了理论依据。
+:   证明了分词问题（tokenisation）的两种变体——直接分词和自底向上分词——都是 NP 完全的，通过从 max-2-SAT 问题多项式时间归约实现，这意味着不可能找到高效的最优分词算法，BPE 等近似方法是合理选择。
 
 **[Towards Comprehensive Argument Analysis In Education Dataset Tasks And Method](towards_comprehensive_argument_analysis_in_education_dataset_tasks_and_method.md)**
 
@@ -916,7 +918,7 @@ description: >-
 
 **[Towards Style Alignment In Cross-Cultural Translation](towards_style_alignment_in_cross-cultural_translation.md)**
 
-:   本文提出跨文化翻译中的"风格对齐"概念，发现当前 LLM 翻译会破坏文本的风格信息（尤其偏向中性化），并提出 RASTA 方法通过学习嵌入空间中的风格概念来检索风格对齐的少样本示例，在不损害翻译质量的前提下显著提升风格保持。
+:   本文首次将"风格对齐"定义为跨文化翻译的核心目标，系统揭示了 LLM 翻译中的风格中性化偏差和英语中心偏差，并提出 RASTA 方法在嵌入空间中学习文化对齐映射来检索风格匹配的少样本示例，在不降低翻译质量的前提下将风格对齐度提升最高 56%。
 
 **[Towards Text-Image Interleaved Retrieval](towards_text-image_interleaved_retrieval.md)**
 
@@ -944,19 +946,19 @@ description: >-
 
 **[Unifying Language Agent Algorithms With Graph-Based Orchestration Engine For Rep](unifying_language_agent_algorithms_with_graph-based_orchestration_engine_for_rep.md)**
 
-:   提出 AGORA 框架，通过图编排引擎统一实现 10 种主流 Agent 推理算法，并建立标准化评测体系，系统比较不同算法在多种 LLM 上的表现，发现简单的 CoT 方法在成本效益上往往优于复杂算法。
+:   提出 AGORA 框架，通过 DAG 图编排引擎将 CoT、ReAct、ToT、RAP 等 10 种主流 Agent 推理算法统一为可插拔的 Operator 模块，在数学推理和多模态任务上系统比较后发现：简单的 CoT 方法在准确率和成本效益上往往优于复杂算法，而一句提示语改动就能带来 90% 的性能飞跃。
 
 **[Unique Hard Attention A Tale Of Two Sides](unique_hard_attention_a_tale_of_two_sides.md)**
 
-:   本文揭示了Transformer中唯一硬注意力（UHA）的平局打破方向（最左vs最右）对模型表达能力有根本性影响：最左UHA等价于LTL[◇⁻]片段且与软注意力等价，而最右UHA等价于完整LTL，严格更强。
+:   本文证明在有限精度transformer中，leftmost unique hard attention (UHA)严格弱于rightmost UHA，前者等价于线性时序逻辑片段LTL[$\Diamond^-$]（即部分有序有限自动机），并与soft attention transformer表达能力等价，从而精确刻画了注意力方向性对transformer表达力的影响。
 
 **[Unlocking Speech Instruction Data Potential With Query Rewriting](unlocking_speech_instruction_data_potential_with_query_rewriting.md)**
 
-:   提出基于多 LLM 知识融合的查询重写框架，通过零样本重写将文本指令转换为更适合 TTS 模型合成的分布，结合多 Agent 标注与验证机制，将语音指令数据可用率从 72% 提升至 93%。
+:   提出基于多LLM知识融合的查询重写框架与多智能体标注验证方法，将超出TTS词汇范围的文本指令重写为适合语音合成的形式，使语音指令数据可用率从72%提升至93%，为端到端大型语音语言模型(LSLM)构建高质量语音指令数据集。
 
 **[Unveiling Dual Quality In Product Reviews An Nlp-Based Approach](unveiling_dual_quality_in_product_reviews_an_nlp-based_approach.md)**
 
-:   首次将"产品双重质量"（同一品牌产品在不同市场存在质量差异）问题定义为 NLP 任务，构建了 1957 条波兰语评论的标注数据集，并系统评估了 SetFit、Transformer 编码器和 LLM 等多种方法在该任务上的表现。
+:   提出面向产品评论的"双重质量"自动检测任务，通过迭代式主动学习构建首个波兰语DQ数据集（1,957条评论），系统对比SetFit、Transformer编码器和LLM三类方法，发现语言专用编码器与带指令的LLM性能相当（DQ F1 ≈ 80-83%），并验证了跨语言迁移能力。
 
 **[Usdc A Dataset Of Underlineuser Underlinestance And Underlinedogmatism In Long U](usdc_a_dataset_of_underlineuser_underlinestance_and_underlinedogmatism_in_long_u.md)**
 
@@ -976,7 +978,7 @@ description: >-
 
 **[Vaquum Are Vague Quantifiers Grounded In Visual Data](vaquum_are_vague_quantifiers_grounded_in_visual_data.md)**
 
-:   构建 VAQUUM 数据集（20300 条人类评分），系统评估视觉语言模型在视觉场景中对模糊量词（few, many 等）理解和使用的能力，发现 VLM 的生成概率与人类判断存在一定对齐但在不同评估范式间表现不一致。
+:   本文发布了VAQUUM数据集（20,300条人类评分，1,089张图片），系统评估视觉语言模型在模糊量词（few/many等）使用上与人类的一致性，发现VLM像人类一样受物体数量影响，但不同评估范式下模型表现差异大，表明判断和生成模糊量词依赖不同认知过程。
 
 **[Verbosity-Aware Rationale Reduction Effective Reduction Of Redundant Rationale V](verbosity-aware_rationale_reduction_effective_reduction_of_redundant_rationale_v.md)**
 
@@ -984,11 +986,11 @@ description: >-
 
 **[Visual Cues Enhance Predictive Turn-Taking For Two-Party Human Interaction](visual_cues_enhance_predictive_turn-taking_for_two-party_human_interaction.md)**
 
-:   提出 MM-VAP 多模态话轮转换预测模型，结合语音与面部表情、头部姿态、注视方向等视觉线索，在视频会议对话中以 84% 平衡准确率显著优于纯语音 SOTA 模型的 79%，并首次按转换沉默时长分析性能。
+:   提出 MM-VAP 多模态预测性话轮转换模型，将面部表情、头部姿态和注视方向等视觉线索引入语音预测模型，在视频会议语料上将 hold/shift 预测准确率从 79% 提升至 84%。
 
 **[Voting Or Consensus Decision-Making In Multi-Agent Debate](voting_or_consensus_decision-making_in_multi-agent_debate.md)**
 
-:   系统评估了 7 种决策协议（4 种投票 + 3 种共识）对多 Agent LLM 辩论的影响，发现投票在推理任务上优于共识 13.2%，共识在知识任务上优于投票 2.8%，并提出 AAD 和 CI 两种提升答案多样性的新方法。
+:   系统性对比了多智能体辩论中 7 种决策协议（投票 vs 共识），发现共识协议在知识任务上提升 2.8%、投票协议在推理任务上提升 13.2%，并提出 AAD 和 CI 两种增强答案多样性的新方法，分别带来 3.3% 和 7.4% 的性能提升。
 
 **[Well Begun Is Half Done Low-Resource Preference Alignment By Weak-To-Strong Deco](well_begun_is_half_done_low-resource_preference_alignment_by_weak-to-strong_deco.md)**
 
@@ -1008,7 +1010,7 @@ description: >-
 
 **[Words Of Warmth Trust And Sociability Norms For Over 26K English Words](words_of_warmth_trust_and_sociability_norms_for_over_26k_english_words.md)**
 
-:   构建了首个大规模人工标注的英文词汇-温暖（Warmth）关联词库 Words of Warmth，覆盖 26k+ 词汇的信任（Trust）和社会性（Sociability）维度评分，并利用该资源研究了儿童词汇习得和社交媒体刻板印象。
+:   通过严格的众包标注流程构建了首个大规模词汇-温暖（Warmth）、信任（Trust）和社交性（Sociability）关联词典（覆盖 26k+ 英语单词），并通过儿童词汇习得分析和社交媒体刻板印象案例研究，展示了该资源在社会认知研究中的广泛价值。
 
 **[Xturing Enhanced Turing Test](xturing_enhanced_turing_test.md)**
 
@@ -1020,4 +1022,4 @@ description: >-
 
 **[Zero-Shot Conversational Stance Detection Dataset And Approaches](zero-shot_conversational_stance_detection_dataset_and_approaches.md)**
 
-:   构建了首个零样本多轮多方对话立场检测数据集 ZS-CSD（280 个目标、17k+ 样本），并提出 SITPCL 模型，通过说话者交互建模和目标感知原型对比学习实现了 SOTA 性能（F1-macro 43.81%）。
+:   构建了首个零样本多轮多方对话立场检测数据集 ZS-CSD（280 个目标、17,063 条对话样本），并提出 SITPCL 模型，结合说话者交互编码器与目标感知原型对比学习，在零样本对话立场检测中取得 SOTA（F1-macro 43.81%）。

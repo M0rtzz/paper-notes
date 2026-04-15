@@ -12,7 +12,7 @@ description: >-
 
 **[Diffusedef Adversarial Defense](diffusedef_adversarial_defense.md)**
 
-:   DiffuseDef 提出了一种将扩散层作为去噪器插入编码器和分类器之间的对抗防御方法，通过扩散训练学会预测隐状态噪声，推理时对对抗隐状态加噪+迭代去噪+集成，在黑盒和白盒攻击下达 SOTA 鲁棒性。
+:   DiffuseDef 在编码器与分类器之间插入一个扩散去噪层，训练时学习预测隐状态噪声，推理时对隐表示加噪→迭代去噪→集成平均，以即插即用的方式大幅提升文本分类模型在黑盒和白盒对抗攻击下的鲁棒性。
 
 **[Prep-Ocr A Complete Pipeline For Document Image Restoration And Enhanced Ocr Acc](prep-ocr_a_complete_pipeline_for_document_image_restoration_and_enhanced_ocr_acc.md)**
 

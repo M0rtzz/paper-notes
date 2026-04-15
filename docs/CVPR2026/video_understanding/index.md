@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 视频理解方向 62篇论文解读
+  CVPR2026 视频理解方向 59篇论文解读
 description: >-
-  62篇CVPR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  59篇CVPR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频理解
 
-**📷 CVPR2026** · 共 **62** 篇
+**📷 CVPR2026** · 共 **59** 篇
 
 **[A4Vl Multiagent Long Video Reasoning](a4vl_multiagent_long_video_reasoning.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Autogaze Attend Before Attention Efficient Video](autogaze_attend_before_attention_efficient_video.md)**
 
-:   提出AutoGaze——在ViT/MLLM处理视频之前，用一个轻量模块自回归地选择最少的多尺度patch，减少4x-100x视觉token，加速最高19x，支持1K帧4K视频并在VideoMME达67.0%。
+:   提出 AutoGaze，一个仅 3M 参数的轻量模块，通过自回归地选择最小化重建损失的多尺度 patch 集合，在 ViT 之前移除视频中的冗余信息，实现 4×~100× 的 token 压缩和最高 19× 的 ViT 加速，使 MLLM 能够扩展至 1K 帧 4K 分辨率视频并在 VideoMME 上达到 67.0%。
 
 **[Beyond Single-Sample Reliable Multi-Sample Distillation For Video Understanding](beyond_single-sample_reliable_multi-sample_distillation_for_video_understanding.md)**
 
@@ -78,10 +78,6 @@ description: >-
 
 :   提出 EgoXtreme，首个面向极端条件下第一人称视角的大规模 6D 物体位姿估计基准数据集，涵盖严重运动模糊、动态光照和烟雾遮挡三种真实挑战，揭示了当前 SOTA 位姿估计器在这些条件下的严重失效。
 
-**[Enhancing Accuracy Of Uncertainty Estimation In Ap](enhancing_accuracy_of_uncertainty_estimation_in_ap.md)**
-
-:   提出基于等保序回归的后校准(post-hoc calibration)方法，仅用50个标定样本即可修正视线追踪模型在域偏移下的不确定性估计失准，并引入CPE(Coverage Probability Error)指标替代EUC正确评估不确定性质量——校准后CPE从8%-45%降至~5%，95%置信区间覆盖率从16%-67%提升至86%-89%。
-
 **[Enhancing Accuracy Of Uncertainty Estimation In Appearance-Based Gaze Tracking W](enhancing_accuracy_of_uncertainty_estimation_in_appearance-based_gaze_tracking_w.md)**
 
 :   提出一种数据高效的后验校准方法，通过等保序回归将不确定性感知视线追踪模型的预测分布与真实观测分布对齐，并引入 Coverage Probability Error (CPE) 指标替代不可靠的误差-不确定性相关性(EUC)来评估不确定性质量。
@@ -101,10 +97,6 @@ description: >-
 **[Flashmotion Few-Step Controllable Video Generation With Trajectory Guidance](flashmotion_few-step_controllable_video_generation_with_trajectory_guidance.md)**
 
 :   提出 FlashMotion，一个三阶段训练框架，将多步轨迹可控视频生成模型蒸馏为少步版本，通过混合扩散+对抗目标微调 adapter，在少步推理下同时保持视频质量和轨迹准确性。
-
-**[Flashmotion Fewstep Controllable Video Generation](flashmotion_fewstep_controllable_video_generation.md)**
-
-:   提出 FlashMotion 三阶段训练框架——先训轨迹 adapter、再蒸馏少步生成器、最后用扩散+对抗混合目标微调 adapter——在少步推理下实现高质量轨迹可控视频生成，并发布 FlashBench 评估基准。
 
 **[Fluxmem Adaptive Hierarchical Memory For Streaming Video Understanding](fluxmem_adaptive_hierarchical_memory_for_streaming_video_understanding.md)**
 
@@ -176,15 +168,11 @@ description: >-
 
 **[Savax Egotoexo Imitation Error Detection Via Scene](savax_egotoexo_imitation_error_detection_via_scene.md)**
 
-:   提出Align-Fuse-Detect框架SAVA-X，通过Gumbel Top-K自适应采样去冗余、场景自适应视角嵌入缩小域差距、双向交叉注意力融合互补语义，在EgoMe数据集上Mean AUPRC达22.36，超越最强baseline +13.56%。
+:   形式化 Ego→Exo 模仿错误检测任务，并提出 SAVA-X (Align–Fuse–Detect) 框架，通过自适应采样、场景自适应视角嵌入和双向交叉注意力融合三个模块联合解决时序不对齐、视频冗余和跨视角域差距三大挑战。
 
 **[Semantic Satellite Communications For Synchronized](semantic_satellite_communications_for_synchronized.md)**
 
-:   提出LLM驱动的自适应多模态语义卫星通信系统，通过双流生成架构(V2A/A2V)+动态知识库更新+GPT-4o决策代理，实现比强制更新基线节省约50%带宽的高保真同步音视频重建。
-
-**[Semantic Satellite Communications For Synchronized Audiovisual Reconstruction](semantic_satellite_communications_for_synchronized_audiovisual_reconstruction.md)**
-
-:   提出一种面向卫星通信场景的自适应多模态语义传输系统，通过双流生成架构（视频驱动音频 / 音频驱动视频）灵活切换传输模态、动态关键帧更新机制维护共享知识库、以及 LLM 代理进行环境感知与任务自适应决策，在极低带宽下实现高保真音视频同步重建。
+:   提出一种 LLM 驱动的自适应多模态语义卫星传输系统，通过双流生成架构（视频驱动音频生成 V2A / 音频驱动视频生成 A2V）实现跨模态语义解耦，结合动态关键帧更新机制和 LLM 智能体规划，在卫星带宽严重受限的条件下实现高保真音视频同步重建。
 
 **[Spiketrack A Spike-Driven Framework For Efficient Visual Tracking](spiketrack_a_spike-driven_framework_for_efficient_visual_tracking.md)**
 
@@ -246,7 +234,7 @@ description: >-
 
 **[Videochatm1 Collaborative Policy Planning For Vide](videochatm1_collaborative_policy_planning_for_vide.md)**
 
-:   VideoChat-M1 提出了多智能体协作策略规划（CPP）范式 + 多智能体强化学习（MARL）训练框架，让 4 个异构 VLM agent 动态生成和更新工具调用策略来理解视频，在 LongVideoBench 上超过 Gemini 2.5 Pro 3.6%，超过 GPT-4o 15.6%。
+:   VideoChat-M1 提出协作策略规划（CPP）范式和多智能体强化学习（MARL）训练方法，让 4 个异构 VLM agent 动态生成和更新工具调用策略来理解视频，在 LongVideoBench 上超过 Gemini 2.5 Pro 3.6%、GPT-4o 15.6%。
 
 **[Virtuebench Evaluating Trustworthiness Under Uncertainty In Long Video Understan](virtuebench_evaluating_trustworthiness_under_uncertainty_in_long_video_understan.md)**
 

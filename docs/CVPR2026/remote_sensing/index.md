@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 遥感方向 17篇论文解读
+  CVPR2026 遥感方向 16篇论文解读
 description: >-
-  17篇CVPR2026 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  16篇CVPR2026 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**📷 CVPR2026** · 共 **17** 篇
+**📷 CVPR2026** · 共 **16** 篇
 
 **[Acpv-Net All-Class Polygonal Vectorization For Seamless Vector Map Generation Fr](acpv-net_all-class_polygonal_vectorization_for_seamless_vector_map_generation_fr.md)**
 
@@ -41,10 +41,6 @@ description: >-
 **[Geoflow Real-Time Fine-Grained Cross-View Geolocalization Via Iterative Flow Pre](geoflow_real-time_fine-grained_cross-view_geolocalization_via_iterative_flow_pre.md)**
 
 :   提出GeoFlow，将精细跨视图地理定位(FG-CVG)重新表述为概率位移回归——模型学习从任意假设位置到真实位置的位移场(距离+方向的概率分布)，配合迭代精化采样(IRS)算法让多个随机假设从不同起点"流向"共识位置，以7.8×更少参数和4×更少计算量实现29FPS实时推理+竞争性定位精度。
-
-**[Joint And Streamwise Distributed Mimo Satellite Co](joint_and_streamwise_distributed_mimo_satellite_co.md)**
-
-:   针对多LEO卫星协同服务多天线地面用户的下行链路，提出联合非相干传输和流式分布传输两种模式，在不需要星间相位同步条件下实现频谱效率最大化与前传开销的灵活权衡。
 
 **[Joint And Streamwise Distributed Mimo Satellite Communications With Multi-Antenn](joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn.md)**
 

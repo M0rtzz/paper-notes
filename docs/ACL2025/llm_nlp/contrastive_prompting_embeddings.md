@@ -22,80 +22,100 @@ tags:
 **关键词**: sentence embedding, contrastive prompting, activation steering, inference-time, LLM  
 
 ## 一句话总结
-提出对比提示（Contrastive Prompting, CP）方法，通过引入辅助提示（引导编码非核心信息）并在推理时与正常提示的激活值做对比减法，过滤掉停用词等无关语义，使 LLM 的句子嵌入更聚焦核心语义，在 STS 和分类任务上一致提升现有提示方法。
+
+提出对比提示（Contrastive Prompting, CP）方法，通过构造辅助提示编码句子的非核心信息，在推理时将正常提示与辅助提示的隐层激活值做"语义减法"，过滤停用词等无关语义，使 LLM 句子嵌入更聚焦核心语义，即插即用地一致提升 PromptEOL/CoT/Knowledge 等多种提示方法在 STS 和分类任务上的表现。
 
 ## 研究背景与动机
-**领域现状**：从 LLM 提取零样本句子嵌入是实用方向（无需额外数据/微调），主流方法通过 prompt 工程将句子语义压缩到最后一个 token 的隐状态。
 
-**现有痛点**：最后一个 token 仍编码了大量非核心信息（停用词等）——即使用 Knowledge 提示强调"主语和动作"，解码概率最高的仍是停用词"a"。
+**领域现状**: 从 LLM 直接提取零样本句子嵌入（无需微调或额外数据）是实用方向，现有方法通过 prompt 工程将句子语义压缩到最后一个 token 的隐状态，如 PromptEOL（"This sentence: '[TEXT]' means in one word:"）、MetaEOL（多元 meta-task 提示）、Pretended CoT（思维链提示）、Knowledge（知识增强提示）等。
 
-**核心矛盾**：prompt 工程只能间接改变表示，无法直接过滤非核心信息。
+**现有痛点**: 即使精心设计 prompt，最后一个 token 仍编码了大量非核心信息——实验表明即使用 Knowledge 提示强调"主语和动作"，解码概率最高的仍是停用词"a"而非语义关键词。Prompt 工程本质上只能**间接**改变表示，无法**直接**过滤非核心信息。
 
-**本文要解决什么？** 如何在推理时直接修改隐状态以增强核心语义、去除非核心信息？
+**核心矛盾**: 现有方法都是通过改变前缀文本间接影响最后 token 的表示，缺乏一种直接在隐层空间剥离非核心语义的机制。
 
-**切入角度**：引入辅助提示（"这句话的无关信息是..."）编码非核心信息，用正常提示减去辅助提示的激活值得到纯核心语义向量。
-
-**核心 idea 一句话**：用"语义减法"——正常提示的激活值减去辅助提示的激活值，直接过滤非核心信息。
+**本文切入点**: 受 activation steering 启发，但不依赖监督正负样本对——用一个辅助提示（"这句话的无关信息是..."）自适应捕获每个句子的非核心信息激活，再用正常提示的激活减去辅助提示的激活，实现逐句自适应的"语义减法"。
 
 ## 方法详解
 
 ### 整体框架
-三步流程：(1) 辅助提示前向传播到第 $\ell$ 层，提取最后 token 的 contextualized value vector $\mathbf{v}^{\text{aux}}$；(2) 正常提示前向传播到第 $\ell$ 层，用对比向量 $\Delta\mathbf{v} = \mathbf{v}^{\text{nor}} - \mathbf{v}^{\text{aux}}$ 替换最后 token 的 value vector；(3) 调整向量范数后继续前向传播到最后一层，提取句子嵌入。
+
+三步流程：(1) 将文本包裹在辅助提示中前向传播到第 $\ell$ 层，提取最后 token 的 contextualized value vector $\mathbf{v}^{\text{aux},(\ell)}$；(2) 将文本包裹在正常提示中前向传播到第 $\ell$ 层，计算对比向量 $\Delta\mathbf{v}^\ell = \mathbf{v}^{\text{nor},(\ell)} - \mathbf{v}^{\text{aux},(\ell)}$ 并替换最后 token 的 value vector；(3) 对替换后的向量做范数调整，继续前向传播到中间层提取句子嵌入。
 
 ### 关键设计
-1. **辅助提示设计**:
 
-    - 模板："The irrelevant information of this sentence: '[TEXT]' means in one word: "
-    - 仅需传播到第 $\ell$ 层（低层），开销极小
-    - 可探索不同辅助提示（如"This sentence '[TEXT]' can be ignored"）
+1. **辅助提示构造（Auxiliary Prompt）**: 设计模板 "The irrelevant information of this sentence: '[TEXT]' means in one word:" 引导 LLM 关注句子中的非核心信息并将其编码到最后 token。辅助提示仅需传播到低层（第 5\~7 层），计算开销极小。论文还探索了 "redundant information"、"background"、"descriptive term" 等变体，结果表明只要语义指向"非核心信息"，效果均稳定提升，方法对辅助提示措辞不敏感。
 
-2. **对比激活导向（Contrastive Activation Steering）**:
+2. **对比激活导向（Contrastive Activation Steering）**: 在第 $\ell$ 层多头注意力处，提取正常提示和辅助提示最后 token 的 contextualized value vector，计算语义激活向量 $\Delta\mathbf{v}^\ell = \mathbf{v}_{N_\text{nor}}^{\text{nor},(\ell)} - \mathbf{v}_{N_\text{aux}}^{\text{aux},(\ell)}$。该向量是**逐句自适应**的（不同句子生成不同的对比向量），不需要额外监督数据的正负样本对。仅干预最后一个 token 的 value vector，保持其他 token 不变。
 
-    - 语义激活向量：$\Delta\mathbf{v}^\ell = \mathbf{v}^{\text{nor},(\ell)}_{N_{\text{nor}}} - \mathbf{v}^{\text{aux},(\ell)}_{N_{\text{aux}}}$
-    - 仅干预最后一个 token 的 value vector
-    - 与 activation steering 方向不同：不需要监督数据的正负样本对
-
-3. **范数调整策略**:
-
-    - 干预后向量范数可能变化，提出两种调整：固定原范数 / 缩放到指定范数
-    - 保持表示空间的一致性
+3. **范数调整与中间层嵌入（Norm Adjustment + Intermediate Embedding）**: 干预后向量范数可能显著变化，提出两种调整策略——**Norm Scaling (NS)**: $\hat{\mathbf{v}} = \alpha \cdot \Delta\mathbf{v}^\ell$，通过缩放因子 $\alpha$ 控制干预强度（最优值 2\~3）；**Norm Recovering (NR)**: $\hat{\mathbf{v}} = \Delta\mathbf{v}^\ell \cdot \frac{\|\mathbf{v}^{\text{nor}}\|_2}{\|\Delta\mathbf{v}^\ell\|_2}$，恢复原始范数以维持模型稳定性。此外采用中间层（而非最后一层）输出作为嵌入，进一步提升质量并节省计算。
 
 ### 即插即用特性
-CP 可与任意现有提示方法组合：PromptEOL、Pretended CoT、Knowledge、MetaEOL 等，持续提升性能。
+
+CP 是纯推理时干预，可与 PromptEOL、Pretended CoT、Knowledge、MetaEOL 等任意提示方法**无缝组合**，无需修改模型参数或训练流程。对于多提示方法（如 CK = CoT + Knowledge 平均），辅助提示只需传播一次即可同时优化所有正常提示。
 
 ## 实验关键数据
 
-### STS 基准（7 任务平均 Spearman 相关系数）
-| 方法 | LLM | Avg. 提升 |
-|------|-----|----------|
-| PromptEOL → +CP | Llama-2-7B | +显著 |
-| Knowledge → +CP | Llama-2-7B | +显著 |
-| MetaEOL → +CP | Mistral-7B | +显著 |
+### STS 基准（LLaMA2-7B，7 任务平均 Spearman×100）
 
-### 关键发现
-- CP 在所有测试的 LLM（Llama-2、Mistral、Qwen 等）和所有基础方法上一致提升
-- 辅助提示仅需传播到低层（如第 8 层），额外开销极小
-- 对比解码概率验证：CP 后 top-1 概率 token 从停用词变为语义关键词
-- 不同辅助提示设计的效果差异较小，方法鲁棒
+| 方法 | Avg. (原始) | +CP-NS | +CP-NR | 提升幅度 |
+|------|------------|--------|--------|---------|
+| PromptEOL | 70.03 | **75.27** | 75.20 | **+5.24** |
+| Pretended CoT | 76.86 | **77.45** | 77.45 | +0.59 |
+| Knowledge | 77.14 | **77.56** | 77.40 | +0.42 |
+| CK (CoT+Know) | 78.23 | **78.68** | 78.60 | +0.45 |
+
+### 跨模型泛化（Pretended CoT + CP-NS）
+
+| Backbone | Avg. (原始) | +CP-NS | 提升 |
+|----------|------------|--------|------|
+| LLaMA2-7B | 76.86 | **77.45** | +0.59 |
+| LLaMA2-13B | 73.34 | **73.91** | +0.57 |
+| LLaMA3.1-8B | 74.07 | **75.22** | +1.15 |
+
+### 下游分类任务（LLaMA2-7B，PromptEOL + CP-NS）
+
+| 任务 | 原始 | +CP-NS | 变化 |
+|------|------|--------|------|
+| SUBJ | 96.32 | **96.97** | +0.65 |
+| TREC | 95.40 | **97.00** | +1.60 |
+| MRPC | 75.19 | **77.51** | +2.32 |
+| SST2 | 95.00 | **95.94** | +0.94 |
+| 7 任务 Avg. | 90.94 | **91.73** | +0.79 |
+
+### 计算开销（前向传播层数，LLaMA2-7B 共 32 层）
+
+| 方法 | 无 CP | 有 CP | 额外开销 |
+|------|-------|-------|---------|
+| PromptEOL | 27 层 (1×) | 31 层 (1.15×) | +15% |
+| Knowledge | 31 层 (1.15×) | 37 层 (1.37×) | +19% |
+| CK (双提示) | 54 层 (2×) | 60 层 (2.22×) | +11% |
+
+### 关键消融发现
+
+- **干预位置**: 注意力头 > Transformer 层输出 > FFN 输出，注意力头最优（STS-B dev 82.61 vs 81.93）
+- **干预层**: PromptEOL 最优第 5 层，CoT/Knowledge 最优第 7 层
+- **缩放因子 $\alpha$**: PromptEOL 最优 2，CoT/Knowledge 最优 3，过大过小均降性能
+- **解码概率验证**: CP 后 top-1 预测 token 从停用词（"It", "Don"）变为语义关键词（"Dec", "Throw"）
 
 ## 亮点与洞察
-- "语义减法"思路简洁优雅——利用辅助提示捕获噪声，正常提示减去噪声 = 纯信号
-- 与 activation steering 的联系但又不同：不需要监督数据，每个句子自适应生成控制向量
-- 即插即用特性使其可以无缝集成到现有系统中
+
+- "语义减法"思路极简优雅——辅助提示捕获噪声激活，正常提示减去噪声 = 纯语义信号
+- 逐句自适应生成对比向量，比传统 activation steering（需全局正负样本对）更灵活
+- PromptEOL 提升最大（+5.24），因为其原始提示最简单、非核心信息最多，CP 的增益与基线方法的"弱点"成正比
+- 辅助提示只传播到低层（5\~7 层），额外计算开销仅 11%\~19%
 
 ## 局限性 / 可改进方向
-- 辅助提示的设计仍有一定主观性
-- 在推理时需要两次前向传播（虽然辅助只到低层）
-- 仅在英语 STS 上评估，跨语言效果未知
-- 未与微调方法（如 SimCSE 在 LLM 上的版本）对比
 
-## 相关工作与启发
-- **vs PromptEOL/MetaEOL**: CP 作为插件在其基础上持续提升
-- **vs Activation Steering (Zou et al.)**: 传统方法需要正负监督样本，CP 用辅助提示自生成
-- **vs Echo Embeddings**: Echo 重复输入利用 attention，CP 对比两种提示利用语义差
+- 方法设计假设辅助提示能捕获"非核心信息"，但对何为"核心"无理论保证，效果依赖辅助提示与正常提示的语义互补性
+- 仅在英语 STS 和分类任务上评估，跨语言效果未验证
+- 辅助提示设计虽然鲁棒但仍有一定主观性，指向"情感"或"实体"的提示反而降性能
+- 干预层和缩放因子需在验证集上网格搜索，不同 prompt 的最优超参不同
+- 未与微调方法（SimCSE-LLM 等）在同等规模下对比
+- 未探索将 CP 与微调方法结合的可能——CP 作为推理时干预是否能在微调模型上继续叠加增益是开放问题
 
 ## 评分
-- 新颖性: ⭐⭐⭐⭐ 辅助提示+激活对比的思路新颖简洁
-- 实验充分度: ⭐⭐⭐⭐ 多 LLM、多方法、STS+分类，对比充分
-- 写作质量: ⭐⭐⭐⭐ 动机清晰，可视化说明直观
-- 价值: ⭐⭐⭐⭐ 对 LLM 句子嵌入研究有直接贡献，即插即用实用性强
+
+- **新颖性**: ⭐⭐⭐⭐ 辅助提示 + 激活对比的"语义减法"思路简洁新颖，将 activation steering 从需要监督数据推广到无监督逐句自适应
+- **实验充分度**: ⭐⭐⭐⭐ 覆盖 4 种基线方法、3 种 LLM backbone、STS + 分类双维度评估、干预位置/层/缩放因子/辅助提示全面消融
+- **写作质量**: ⭐⭐⭐⭐ 动机通过解码概率实验直观展示，方法三步流程清晰，图表丰富
+- **实用价值**: ⭐⭐⭐⭐ 即插即用无需训练，开销极小（+15%），可直接集成到生产系统的句子嵌入管道

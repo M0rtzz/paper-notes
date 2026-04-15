@@ -180,7 +180,7 @@ description: >-
 
 **[Multiple-Policy Evaluation Via Density Estimation](multiple-policy_evaluation_via_density_estimation.md)**
 
-:   提出CAESAR算法解决K个策略同时评估问题：通过两阶段方法（粗估计访问分布→计算最优采样分布→密度比估计）实现实例依赖的样本复杂度，比单策略评估K次的朴素方法高效得多。
+:   提出 CAESAR 算法，通过两阶段方法（粗估计访问分布 + 最优采样分布下的密度比估计）同时评估 K 个策略，实现非渐近、实例依赖的样本复杂度，核心技术是"粗估计"——仅需 $O(1/\epsilon)$ 样本即可获得常数倍精度的分布近似。
 
 **[Near-Optimal Consistency-Robustness Trade-Offs For Learning-Augmented Online Kna](near-optimal_consistency-robustness_trade-offs_for_learning-augmented_online_kna.md)**
 
@@ -208,7 +208,7 @@ description: >-
 
 **[Ood-Chameleon Is Algorithm Selection For Ood Generalization Learnable](ood-chameleon_is_algorithm_selection_for_ood_generalization_learnable.md)**
 
-:   探索"为OOD泛化学习算法选择"的可能性：将选择形式化为基于数据集特征的多标签分类，在"数据集的数据集"上训练选择器，可根据数据集特征预测最佳训练算法，无需先训练模型。
+:   将 OOD 泛化的训练算法选择形式化为可学习的多标签分类问题，在"数据集的数据集"上训练选择器，仅凭数据集统计特征（偏移程度、数据规模等）即可先验地预测最佳训练算法（ERM / GroupDRO / 重采样 / Logits 调整），在合成、视觉、语言 7 个应用上验证了选择器学到了可迁移的非平凡决策规则。
 
 **[Optimal Auction Design In The Joint Advertising](optimal_auction_design_in_the_joint_advertising.md)**
 
@@ -220,7 +220,7 @@ description: >-
 
 **[Pac Learning With Improvements](pac_learning_with_improvements.md)**
 
-:   提出"带改进的PAC学习"框架：当agent能真正提升自身特征时，学习器可以通过保守分类实现零误差，且可学性与标准PAC模型和策略性分类模型存在本质分离。
+:   提出"带改进的 PAC 学习"框架：当 agent 能真正提升自身特征至多 $r$ 时，保守分类器可实现零误差（将标准 PAC 中不可能的目标变为可能），有限 VC 维既非充分也非必要条件，改进学习与标准 PAC 和策略性分类存在本质分离。
 
 **[Permutation Equivariant Neural Networks For Symmetric Tensors](permutation_equivariant_neural_networks_for_symmetric_tensors.md)**
 
@@ -240,7 +240,7 @@ description: >-
 
 **[Prediction-Powered Adaptive Shrinkage Estimation](prediction-powered_adaptive_shrinkage_estimation.md)**
 
-:   将Prediction-Powered Inference (PPI)与经验贝叶斯收缩结合，提出PAS方法，在多个并行均值估计问题中通过问题内方差缩减和问题间自适应收缩实现MSE最优。
+:   将Prediction-Powered Inference (PPI)与经验贝叶斯收缩有机结合，提出PAS两阶段估计方法——先在每个问题内利用ML预测做方差缩减，再跨问题利用ML预测作为收缩目标做自适应收缩，通过CURE无偏风险估计自动调优收缩参数，理论证明渐近最优。
 
 **[Prediction Via Shapley Value Regression](prediction_via_shapley_value_regression.md)**
 
@@ -312,7 +312,7 @@ description: >-
 
 **[Suica Learning Super-High Dimensional Sparse Implicit Neural Representations For](suica_learning_super-high_dimensional_sparse_implicit_neural_representations_for.md)**
 
-:   提出SUICA框架，通过图增强自编码器将超高维零膨胀基因表达映射到紧凑嵌入空间，再用INR进行连续空间建模，实现跨平台ST数据的空间插值、基因插补和去噪。
+:   提出 SUICA，通过图增强自编码器将超高维稀疏空间转录组数据压缩到紧凑嵌入空间，再用隐式神经表示（INR）建模坐标到嵌入的连续映射，实现跨多种 ST 平台的空间填补、基因填补和去噪。
 
 **[Suitability Filter A Statistical Framework For Classifier Evaluation In Real-Wor](suitability_filter_a_statistical_framework_for_classifier_evaluation_in_real-wor.md)**
 
@@ -320,7 +320,7 @@ description: >-
 
 **[Symmetry-Aware Gflownets](symmetry-aware_gflownets.md)**
 
-:   揭示GFlowNets中图对称性导致的系统性采样偏差，提出通过自同构群大小缩放奖励的简单修正方法SA-GFN，实现无偏采样。
+:   揭示 GFlowNets 在图生成中因等价动作（不同动作产出同构图）导致的系统性采样偏差——节点生成偏向低对称图、片段生成偏向高对称组件，提出通过终态自同构群大小缩放奖励的简单修正方法 SA-GFN，仅需一次自同构群计算即可实现无偏采样。
 
 **[Symmetry-Robust 3D Orientation Estimation](symmetry-robust_3d_orientation_estimation.md)**
 
@@ -344,7 +344,7 @@ description: >-
 
 **[Time-Aware World Model For Adaptive Prediction And Control](time-aware_world_model_for_adaptive_prediction_and_control.md)**
 
-:   提出时间感知世界模型TAWM，通过将时间步长$\Delta t$作为模型输入并在多种$\Delta t$上混合训练，在不增加样本量的前提下跨时间尺度学习任务动力学。
+:   提出时间感知世界模型 TAWM，通过将时间步长 $\Delta t$ 作为显式输入条件并在训练中混合多种 $\Delta t$ 采样，使模型能以单步预测适应任意时间分辨率的推理，且不增加训练样本量。
 
 **[To Each Metric Its Decoding Post-Hoc Optimal Decision Rules Of Probabilistic Hie](to_each_metric_its_decoding_post-hoc_optimal_decision_rules_of_probabilistic_hie.md)**
 

@@ -24,7 +24,7 @@ description: >-
 
 **[Can Community Notes Replace Professional Fact-Checkers](can_community_notes_replace_professional_fact-checkers.md)**
 
-:   通过大规模分析 Twitter/X 的 Community Notes 数据（66.4 万条），发现社区笔记对专业事实核查的依赖远超此前报告（至少 5-7%），证明高质量社区审核离不开专业事实核查，尤其在涉及阴谋论和更广泛虚假叙事的高风险内容上。
+:   大规模分析 Twitter/X 社区笔记 66.4 万条，发现社区笔记对专业事实核查的依赖是此前报告的 5 倍（≥5-7%），涉及阴谋论/虚假叙事的内容引用事实核查来源的概率是其他内容的 2 倍，证明高质量社区审核与专业事实核查深度交织、不可替代。
 
 **[Conspiracy Theories And Where To Find Them On Tiktok](conspiracy_theories_and_where_to_find_them_on_tiktok.md)**
 
@@ -96,7 +96,7 @@ description: >-
 
 **[Taz2024Full Analysing German Newspapers For Gender Bias And Discrimination Acros](taz2024full_analysing_german_newspapers_for_gender_bias_and_discrimination_acros.md)**
 
-:   本文发布了 taz2024full——迄今最大的公开德语报纸语料库（180 万篇文章，1980-2024 年），并通过可扩展的分析管道展示了四十多年来德语新闻报道中性别表征的演变趋势。
+:   构建迄今最大的公开德语新闻语料库 taz2024full（180万+篇文章，1980-2024），并适配actor级语篇分析管线至德语，揭示四十余年间新闻报道中持续存在的性别表征失衡与情感偏差。
 
 **[Translate With Care Addressing Gender Bias Neutrality And Reasoning In Large Lan](translate_with_care_addressing_gender_bias_neutrality_and_reasoning_in_large_lan.md)**
 

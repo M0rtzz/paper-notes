@@ -144,7 +144,7 @@ description: >-
 
 **[Matrix-Free Two-To-Infinity And One-To-Two Norms Estimation](matrix-free_two-to-infinity_and_one-to-two_norms_estimation.md)**
 
-:   提出 TwINEst 和 TwINEst++ 两种 matrix-free 随机算法用于估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并将其应用于深度网络 Jacobian 正则化（提升分类泛化和对抗鲁棒性）和推荐系统对抗防御。
+:   提出 TwINEst 和 TwINEst++ 两种基于 Hutchinson 对角估计器的随机算法，用于在无矩阵 (matrix-free) 设定下高效估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并提供了 oracle 复杂度理论保证，在 DNN 的 Jacobian 正则化（图像分类对抗鲁棒性）和推荐系统对抗攻击防御中展现了显著优势。
 
 **[Mpd-Sgr Robust Spiking Neural Networks With Membrane Potential Distribution-Driv](mpd-sgr_robust_spiking_neural_networks_with_membrane_potential_distribution-driv.md)**
 
@@ -200,7 +200,7 @@ description: >-
 
 **[Revisiting Unfairness In Recourse By Minimizing Worst-Case Social Burden](revisiting_unfairness_in_recourse_by_minimizing_worst-case_social_burden.md)**
 
-:   指出现有 recourse 公平性指标忽略了分类器决策偏差和 ground-truth 信息，提出基于 social burden 的整体公平性框架和 MISOB 算法，通过 minimax 重加权减少所有群体的 worst-case 社会负担。
+:   系统分析了算法追索 (algorithmic recourse) 中公平性度量的三大局限（忽视分类器决策行为、忽略真实标签、差距指标掩盖不公平），提出基于社会负担 (social burden) 的公平性框架 MISOB，通过极小化极大加权训练策略减少所有群体的社会负担，无需访问敏感属性即可在预测和追索阶段同时提升公平性。
 
 **[Robust Watermarking On Gradient Boosting Decision Trees](robust_watermarking_on_gradient_boosting_decision_trees.md)**
 

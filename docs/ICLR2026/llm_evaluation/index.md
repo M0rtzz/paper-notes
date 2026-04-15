@@ -16,7 +16,7 @@ description: >-
 
 **[Anessuite A Comprehensive Benchmark And Dataset Suite For Anesthesiology Reasoni](anessuite_a_comprehensive_benchmark_and_dataset_suite_for_anesthesiology_reasoni.md)**
 
-:   构建首个面向麻醉学推理的综合数据集套件AnesSuite——包括AnesBench（7972道双语选择题）、AnesCorpus（240万篇文档语料库）、AnesQA（2万条QA对）和AnesR1（1万条CoT推理数据），提出三级认知需求分类（System 1/1.x/2），训练的Morpheus模型（Qwen2.5 + SFT + GRPO）在7B参数下达到14B基线性能，揭示当前最强模型在复杂推理（System 2）上仍低于0.6。
+:   构建首个面向麻醉学推理的综合数据集套件AnesSuite，包含评测基准AnesBench（7972道三级认知难度双语选择题）和三组训练数据集（AnesCorpus/AnesQA/AnesR1），基于此训练的Morpheus模型通过SFT+GRPO让7B模型追平14B基线，同时揭示了当前最强LLM在复杂临床推理（System 2）上的显著瓶颈。
 
 **[Aside Architectural Separation Of Instructions And Data In Language Models](aside_architectural_separation_of_instructions_and_data_in_language_models.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Astabench Benchmarking Ai Agents](astabench_benchmarking_ai_agents.md)**
 
-:   由 AI2 团队构建的首个端到端科学研究 Agent 基准 AstaBench，包含 2400+ 问题覆盖科学发现全流程，配备生产级可复现搜索工具，评估了 57 个 Agent（22 类），发现尽管单任务有进展但 AI 距离完整科学研究助手仍很远，同时系统性修复先前基准的 5 大方法学缺陷。
+:   AI2 团队针对现有科研 Agent 基准的 5 大方法学缺陷，构建了首个覆盖科学研究全流程的 Agent 评估套件 AstaBench，包含 4 大类 11 个子基准共 2400+ 问题，配备基于 Semantic Scholar 的生产级可控搜索工具和 9 类科研优化 Asta Agent 基线，对 57 个 Agent（22 类）进行了迄今最大规模的系统评估，发现尽管在文献检索等单项任务上取得了进展，AI 在端到端科学研究辅助方面仍远未达标。
 
 **[Benchmarking Overton Pluralism In Llms](benchmarking_overton_pluralism_in_llms.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Disentangling Shared And Private Neural Dynamics With Spire A Latent Modeling Fr](disentangling_shared_and_private_neural_dynamics_with_spire_a_latent_modeling_fr.md)**
 
-:   提出 SPIRE（Shared–Private Inter-Regional Encoder），一种深度多编码器自编码器，将多脑区神经记录分解为跨区域共享和区域专属的潜在子空间，仅在基线数据上训练即可揭示深脑刺激（DBS）引发的网络级动态重组。
+:   提出 SPIRE（Shared–Private Inter-Regional Encoder），一种非线性双潜空间自编码器框架，通过跨区域对齐与正交解缠损失将多脑区颅内记录分解为共享与专属子空间，仅在基线数据训练即可检测 DBS 刺激引发的频率依赖性网络重组。
 
 **[Do We Really Need Permutations Impact Of Model Width On Linear Mode Connectivity](do_we_really_need_permutations_impact_of_model_width_on_linear_mode_connectivity.md)**
 
@@ -72,7 +72,7 @@ description: >-
 
 **[In-Context Learning Of Temporal Point Processes With Foundation Inference Models](in-context_learning_of_temporal_point_processes_with_foundation_inference_models.md)**
 
-:   提出 FIM-PP——首个面向时间点过程的基础推断模型，通过在大规模合成 MTPP 数据上预训练 Transformer，实现对条件强度函数的上下文学习推断，零样本即可匹配专用模型性能，微调后在多个真实数据集上达到 SOTA。
+:   提出 FIM-PP——首个面向标记时间点过程（MTPP）的基础推断模型，在 72K 合成点过程（1440 万事件）上预训练 Transformer 来上下文推断条件强度函数，零样本即可匹配专用模型数小时训练的性能，微调几分钟后在四个真实数据集的多事件预测上全面刷新 SOTA。
 
 **[Lca Local Classifier Alignment For Continual Learning](lca_local_classifier_alignment_for_continual_learning.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[Measuring Uncertainty Calibration](measuring_uncertainty_calibration.md)**
 
-:   对二分类器L1校准误差的有限样本估计做出两个贡献：(1)证明校准函数有界变差时→基于全变差去噪的分桶方法可给出分布无关非渐近上界，(2)对任意分类器提出微小扰动(使校准函数有界二阶导)→基于核平滑器给出更紧的校准误差有限样本上界，且不显著影响分类性能→附带实用校准测量建议。
+:   针对二分类器 $L_1$ 校准误差的有限样本估计问题，分别在有界变差和有界导数两种结构假设下，提出了首个非渐近、分布无关的可认证上界方法，其中有界导数假设通过对分类器输出施加微小扰动即可保证，实验表明在 $10^7$ 样本量下可将校准误差上界控制在约 0.02。
 
 **[Mitigating Spurious Correlation Via Distributionally Robust Learning With Hierar](mitigating_spurious_correlation_via_distributionally_robust_learning_with_hierar.md)**
 
@@ -96,7 +96,7 @@ description: >-
 
 **[Noise-Aware Generalization Robustness To In-Domain Noise And Out-Of-Domain Gener](noise-aware_generalization_robustness_to_in-domain_noise_and_out-of-domain_gener.md)**
 
-:   首次系统研究噪声感知泛化(NAG)——标签噪声和域偏移共存时的学习→分析DG方法因噪声失效/LNL方法将域偏移误认为噪声→提出DL4ND利用跨域比较(而非单域内)检测噪声(因域内可能有共享的伪特征误导→跨域更可靠)→在7个数据集上超越DG/LNL方法及其组合达12.5%。
+:   首次形式化了 Noise-Aware Generalization (NAG) 问题——在标签噪声下同时追求域内鲁棒性和域外泛化能力，并提出 DL4ND 方法通过跨域比较检测噪声标签，在 7 个数据集上最高提升 12.5%。
 
 **[Non-Clashing Teaching In Graphs Algorithms Complexity And Bounds](non-clashing_teaching_in_graphs_algorithms_complexity_and_bounds.md)**
 
@@ -104,11 +104,11 @@ description: >-
 
 **[Optimal Transport-Induced Samples Against Out-Of-Distribution Overconfidence](optimal_transport-induced_samples_against_out-of-distribution_overconfidence.md)**
 
-:   利用半离散OT几何奇异性(传输方向突变处)定位语义歧义区域，构造OTIS(OT诱导OOD样本)并用置信度抑制训练→系统缓解DNN对OOD的过度自信，多架构多设定下全面超越SOTA且不损ID性能。
+:   利用半离散最优传输（OT）的几何奇异边界定位语义模糊区域，在其附近生成代理OOD样本（OTIS），训练时通过置信度抑制损失迫使模型在结构性不确定区域给出均匀预测，从而系统性地缓解DNN的OOD过度自信问题。
 
 **[Planetalign A Comprehensive Python Library For Benchmarking Network Alignment](planetalign_a_comprehensive_python_library_for_benchmarking_network_alignment.md)**
 
-:   提出PlanetAlign，一个集成18个数据集、14种方法和标准化评估流程的PyTorch网络对齐基准库，首次覆盖一致性方法、嵌入方法和最优传输方法三大类，支持有效性、可扩展性和鲁棒性的全面评估。
+:   提出 PlanetAlign，一个集成 18 个跨 6 个领域的数据集、14 种覆盖三大类别（一致性、嵌入、最优传输）方法和标准化评估流程的 PyTorch 网络对齐基准库，通过大规模系统实验揭示了 OT 类方法（PARROT/JOENA）在有效性上的全面领先以及各类方法在可扩展性和鲁棒性上的差异化表现。
 
 **[Predicting Llm Reasoning Performance With Small Proxy Model](predicting_llm_reasoning_performance_with_small_proxy_model.md)**
 

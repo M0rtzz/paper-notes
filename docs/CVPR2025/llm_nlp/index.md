@@ -46,9 +46,9 @@ description: >-
 
 :   首次在人类动作生成领域系统验证缩放律，提出包含Motion FSQ-VAE（解决codebook collapse）、260小时MotionUnion数据集和文本前缀自回归Transformer的可扩展系统ScaMo，发现归一化测试损失与FLOPs的对数律以及词汇参数/模型参数/数据量与FLOPs的幂律关系，并在$1\times 10^{18}$FLOPs预算下成功预测最优配置。
 
-**[SoftShadow: Leveraging Soft Masks for Penumbra-Aware Shadow Removal](softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
+**[Softshadow Leveraging Soft Masks For Penumbra-Aware Shadow Removal](softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
 
-:   提出SoftShadow框架，使用连续软掩码（而非二值硬掩码）精确捕捉半影区域，结合SAM+LoRA自适应和半影形成约束损失，在SRD和LRSS数据集上达到SOTA且无需外部掩码输入。
+:   提出SoftShadow框架，用连续灰度软掩码替代传统二值硬掩码来表示阴影区域，通过SAM+LoRA预测软掩码并引入半影形成约束损失联合训练检测与去阴影网络，在SRD/ISTD+/LRSS/UIUC四个数据集上达到SOTA且无需外部掩码输入。
 
 **[Spiking Transformer With Spatial-Temporal Attention](spiking_transformer_with_spatial-temporal_attention.md)**
 

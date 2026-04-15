@@ -1,14 +1,18 @@
 ---
 title: >-
-  CVPR2026 因果推理方向 3篇论文解读
+  CVPR2026 因果推理方向 4篇论文解读
 description: >-
-  3篇CVPR2026 因果推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  4篇CVPR2026 因果推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**📷 CVPR2026** · 共 **3** 篇
+**📷 CVPR2026** · 共 **4** 篇
+
+**[Cipher Counterfactual Diffusion Hallucination Sup](cipher_counterfactual_diffusion_hallucination_sup.md)**
+
+:   提出 CIPHER，一种免训练的 test-time 幻觉抑制方法——通过扩散模型生成语义篡改但结构保持的反事实图像，将其与原图在 LVLM 隐层中的表示差异做 SVD 分解提取幻觉子空间，推理时将隐状态投影到该子空间的正交补空间，首次从视觉模态入手定位和消除 LVLM 幻觉。
 
 **[Fighting Hallucinations With Counterfactuals Diffusion-Guided Perturbations For ](fighting_hallucinations_with_counterfactuals_diffusion-guided_perturbations_for_.md)**
 

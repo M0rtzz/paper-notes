@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 355篇论文解读
+  CVPR2025 357篇论文解读
 description: >-
-  355篇CVPR2025论文深度解读，每篇5分钟读懂核心思想。覆盖医学图像、3D视觉、图像生成、自动驾驶、多模态VLM、语义分割等32个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  357篇CVPR2025论文深度解读，每篇5分钟读懂核心思想。覆盖医学图像、3D视觉、图像生成、自动驾驶、多模态VLM、语义分割等32个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📷 CVPR2025 论文笔记
 
-共 **355** 篇笔记，覆盖 **32** 个领域。
+共 **357** 篇笔记，覆盖 **32** 个领域。
 
 ## 领域概览
 
@@ -31,15 +31,15 @@ description: >-
 | 🎯 [目标检测](#object_detection) | 8 |
 | 🔄 [自监督/表示学习](#self_supervised) | 8 |
 | ⚖️ [对齐/RLHF](#llm_alignment) | 7 |
-| 📚 [预训练/数据](#llm_pretraining) | 5 |
+| 📚 [预训练/数据](#llm_pretraining) | 6 |
 | 🛰️ [遥感](#remote_sensing) | 5 |
 | 🎵 [音频/语音](#audio_speech) | 4 |
 | 🔬 [可解释性](#interpretability) | 4 |
 | ⚡ [LLM效率](#llm_efficiency) | 4 |
+| 🔍 [信息检索/RAG](#information_retrieval) | 3 |
 | 💡 [LLM推理](#llm_reasoning) | 3 |
 | ✍️ [文本生成](#nlp_generation) | 3 |
 | 👥 [社会计算](#social_computing) | 3 |
-| 🔍 [信息检索/RAG](#information_retrieval) | 2 |
 | 📊 [LLM评测](#llm_evaluation) | 2 |
 | 📐 [优化/理论](#optimization) | 2 |
 | 💻 [代码智能](#code_intelligence) | 1 |
@@ -867,9 +867,9 @@ description: >-
 
 :   首次在人类动作生成领域系统验证缩放律，提出包含Motion FSQ-VAE（解决codebook collapse）、260小时MotionUnion数据集和文本前缀自回归Transformer的可扩展系统ScaMo，发现归一化测试损失与FLOPs的对数律以及词汇参数/模型参数/数据量与FLOPs的幂律关系，并在$1\times 10^{18}$FLOPs预算下成功预测最优配置。
 
-**[SoftShadow: Leveraging Soft Masks for Penumbra-Aware Shadow Removal](llm_nlp/softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
+**[Softshadow Leveraging Soft Masks For Penumbra-Aware Shadow Removal](llm_nlp/softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
 
-:   提出SoftShadow框架，使用连续软掩码（而非二值硬掩码）精确捕捉半影区域，结合SAM+LoRA自适应和半影形成约束损失，在SRD和LRSS数据集上达到SOTA且无需外部掩码输入。
+:   提出SoftShadow框架，用连续灰度软掩码替代传统二值硬掩码来表示阴影区域，通过SAM+LoRA预测软掩码并引入半影形成约束损失联合训练检测与去阴影网络，在SRD/ISTD+/LRSS/UIUC四个数据集上达到SOTA且无需外部掩码输入。
 
 **[Spiking Transformer With Spatial-Temporal Attention](llm_nlp/spiking_transformer_with_spatial-temporal_attention.md)**
 
@@ -1285,6 +1285,10 @@ description: >-
 
 :   MXNorm 提出复用 MXFP 量化过程中已计算的 block absmax 来近似 RMS，将归一化与 MX 量化融合为单次统计收集操作，实现 RMSNorm 的 drop-in 替换，在 Llama 3 8B 预训练中保持训练精度的同时获得最高 2.4× 的 kernel 加速。
 
+**[Softshadow Leveraging Soft Masks For Penumbra-Aware Shadow Removal](llm_pretraining/softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
+
+:   提出SoftShadow框架，用连续灰度软掩码替代传统二值硬掩码来表示阴影区域，通过SAM+LoRA预测软掩码并引入半影形成约束损失联合训练检测与去阴影网络，在SRD/ISTD+/LRSS/UIUC四个数据集上达到SOTA且无需外部掩码输入。
+
 **[The Scene Language Representing Scenes With Programs Words And Embeddings](llm_pretraining/the_scene_language_representing_scenes_with_programs_words_and_embeddings.md)**
 
 :   提出 Scene Language——一种用程序（P, 编码层级结构）+ 词语（W, 语义类别）+ 嵌入（Z, 视觉身份）三元组 $\Phi(s)=(W,P,Z)$ 表示视觉场景的新范式，通过 Claude 3.5 Sonnet 的 training-free 推理从文本/图像输入生成场景表示，支持传统/神经/混合渲染，在 3D/4D 场景生成质量和可控编辑上超越场景图等现有表示。
@@ -1375,6 +1379,22 @@ description: >-
 
 ---
 
+## 🔍 信息检索/RAG { #information_retrieval }
+
+**[Advancing Myopia To Holism Fully Contrastive Language-Image Pre-Training](information_retrieval/advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
+
+:   将CLIP从传统的一对一(image, text)对比学习升级为多对多(multi-image-embeddings, multi-texts)对比学习范式，通过VLM生成多视角多层次的描述文本、多分支视觉编码器输出多种视觉embedding，实现更全面的视觉语言对齐，在检索/分类/密集任务上大幅超越baseline。
+
+**[Chathuman Chatting About 3D Humans With Tools](information_retrieval/chathuman_chatting_about_3d_humans_with_tools.md)**
+
+:   提出 ChatHuman，一个基于 LLM 的语言驱动系统，通过自动选择和集成专门的 3D 人体分析工具（3D 姿态估计、形状恢复、接触检测、人物交互分析、情感识别等），利用学术论文作为工具使用说明和 RAG（检索增强生成）创建 in-context 示例以管理新工具，在工具选择准确率和整体 3D 人体任务性能上超越现有 LLM 模型。
+
+**[Lotusfilter Fast Diverse Nearest Neighbor Search Via A Learned Cutoff Table](information_retrieval/lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table.md)**
+
+:   提出LotusFilter，通过离线预计算每个向量的邻近关系构建截断表(cutoff table)，在线阶段用贪心集合删除实现多样化过滤，将传统 $O(DS^2)$ 的多样化搜索降至 $O(T+S+KL)$，过滤仅需0.02ms/query，内存仅为传统方法的1/40。
+
+---
+
 ## 💡 LLM推理 { #llm_reasoning }
 
 **[Cot-Vla Visual Chain-Of-Thought Reasoning For Vision-Language-Action Models](llm_reasoning/cot-vla_visual_chain-of-thought_reasoning_for_vision-language-action_models.md)**
@@ -1401,9 +1421,9 @@ description: >-
 
 :   通过将密集匹配聚类为代表性子集，并用9×9矩阵编码每个聚类的几何约束，在保持精度的前提下将RANSAC鲁棒估计加速10-100倍。
 
-**[LotusFilter: Fast Diverse Nearest Neighbor Search via a Learned Cutoff Table](nlp_generation/lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table.md)**
+**[Lotusfilter Fast Diverse Nearest Neighbor Search Via A Learned Cutoff Table](nlp_generation/lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table.md)**
 
-:   提出LotusFilter，通过预计算截取表和贪心集合过滤，以O(S+KL)线性复杂度实现多样化近邻搜索，比传统方法快50-100倍，内存仅1/40。
+:   提出LotusFilter，通过离线预计算每个向量的邻近关系构建截断表(cutoff table)，在线阶段用贪心集合删除实现多样化过滤，将传统 $O(DS^2)$ 的多样化搜索降至 $O(T+S+KL)$，过滤仅需0.02ms/query，内存仅为传统方法的1/40。
 
 ---
 
@@ -1420,18 +1440,6 @@ description: >-
 **[Classifier-Guided Clip Distillation For Unsupervised Multi-Label Classification](social_computing/classifier-guided_clip_distillation_for_unsupervised_multi-label_classification.md)**
 
 :   提出 Classifier-guided CLIP Distillation（CCD），通过 CAM 引导的局部视图标签聚合和 CLIP 预测去偏两项核心技术，在完全无标注的条件下达到与全监督方法持平的多标签分类性能（VOC12 上 90.1% mAP）。
-
----
-
-## 🔍 信息检索/RAG { #information_retrieval }
-
-**[Advancing Myopia To Holism Fully Contrastive Language-Image Pre-Training](information_retrieval/advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
-
-:   将CLIP从传统的一对一(image, text)对比学习升级为多对多(multi-image-embeddings, multi-texts)对比学习范式，通过VLM生成多视角多层次的描述文本、多分支视觉编码器输出多种视觉embedding，实现更全面的视觉语言对齐，在检索/分类/密集任务上大幅超越baseline。
-
-**[Chathuman Chatting About 3D Humans With Tools](information_retrieval/chathuman_chatting_about_3d_humans_with_tools.md)**
-
-:   提出 ChatHuman，一个基于 LLM 的语言驱动系统，通过自动选择和集成专门的 3D 人体分析工具（3D 姿态估计、形状恢复、接触检测、人物交互分析、情感识别等），利用学术论文作为工具使用说明和 RAG（检索增强生成）创建 in-context 示例以管理新工具，在工具选择准确率和整体 3D 人体任务性能上超越现有 LLM 模型。
 
 ---
 

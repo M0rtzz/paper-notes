@@ -16,7 +16,7 @@ description: >-
 
 **[Non-Collaborative User Simulators For Tool Agents](non-collaborative_user_simulators_for_tool_agents.md)**
 
-:   提出四类非协作用户行为模拟框架（不可用服务/跑题/不耐烦/不完整表述），在MultiWOZ和τ-bench上揭示SOTA工具Agent在面对非协作用户时性能显著下降（平均-29% tangential模式），暴露了幻觉增加和对话崩溃的系统性弱点。
+:   基于marketing研究定义四类非协作用户行为（不可用服务/跑题闲聊/不耐烦/不完整表述），构建了可保持goal-alignment的模拟框架，在MultiWOZ和τ-bench上系统暴露了SOTA工具Agent的行为特异性失败机制——跑题闲聊导致平均SR下降29.1%，且不同模型呈现截然不同的崩溃路径（GPT系列陷入helper API重复调用，Qwen系列倾向于幻觉编造API结果）。
 
 **[Rein Conversational Error Recovery With Reasoning Inception](rein_conversational_error_recovery_with_reasoning_inception.md)**
 

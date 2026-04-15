@@ -168,7 +168,7 @@ description: >-
 
 **[Some A Realistic Benchmark For Llm-Based Social Media Agents](some_a_realistic_benchmark_for_llm-based_social_media_agents.md)**
 
-:   提出 SoMe，首个全面评估 LLM 社交媒体 Agent 的 benchmark：8 个任务覆盖帖子分析、用户理解、综合推理，917 万帖子 + 6591 用户 + 1.7 万标注查询，配套 8 个 MCP 兼容工具，评估 13 个主流 LLM 发现最强模型仅 54.33 分（满分 100），揭示了推理能力≠Agent能力、工具调用幻觉普遍存在等关键发现。
+:   提出首个面向社交媒体智能体的综合性评测基准 SoMe，包含 8 项任务、900 万+真实帖子和 17,869 条标注查询，评估 13 个主流 LLM 的社交媒体代理能力，揭示现有模型在复杂社交任务上仍有较大差距。
 
 **[Structured Personalization Modeling Constraints As Matroids For Data-Minimal Llm](structured_personalization_modeling_constraints_as_matroids_for_data-minimal_llm.md)**
 

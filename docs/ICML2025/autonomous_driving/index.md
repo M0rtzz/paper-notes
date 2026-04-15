@@ -12,7 +12,7 @@ description: >-
 
 **[Dont Be So Negative Score-Based Generative Modeling With Oracle-Assisted Guidanc](dont_be_so_negative_score-based_generative_modeling_with_oracle-assisted_guidanc.md)**
 
-:   提出 Gen-neG，利用 oracle 标记的负样本迭代训练分类器引导扩散模型，将生成分布从无效区域引导至正支撑域，应用于自动驾驶碰撞避免和安全人体运动生成。
+:   提出 Gen-neG 方法，通过迭代地在扩散模型的合成数据上训练贝叶斯最优分类器并用其引导采样，将生成分布从约束违规区域引导至正支撑域。关键创新在于正确处理类先验概率的重要性采样，交通场景生成中碰撞+越界率从 29.3% 降至 5.6%。
 
 **[Drivegpt Scaling Autoregressive Behavior Models For Driving](drivegpt_scaling_autoregressive_behavior_models_for_driving.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Goirl Graph-Oriented Inverse Reinforcement Learning For Multimodal Trajectory Pr](goirl_graph-oriented_inverse_reinforcement_learning_for_multimodal_trajectory_pr.md)**
 
-:   提出 GoIRL，首次将最大熵 IRL 框架与向量化场景表示结合的轨迹预测方法，通过 feature adaptor 将车道图特征聚合到网格空间实现 IRL 兼容，结合层级参数化轨迹生成器和 MCMC 概率融合，在 Argoverse 和 nuScenes 上达 SOTA。
+:   首次将最大熵逆强化学习框架与向量化场景表示相融合，提出 GoIRL 轨迹预测框架：通过可学习的 Feature Adaptor 将图特征聚合到网格空间以适配 IRL，再用层级参数化轨迹生成器（Bézier曲线+精细化模块）和 MCMC 概率融合机制实现多模态轨迹预测，在 Argoverse 和 nuScenes 上达到 SOTA 并展现出相比监督模型显著更强的泛化能力。
 
 **[Hierarchical And Collaborative Llm-Based Control For Multi-Uav Motion And Commun](hierarchical_and_collaborative_llm-based_control_for_multi-uav_motion_and_commun.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Sphinx Structural Prediction Using Hypergraph Inference Network](sphinx_structural_prediction_using_hypergraph_inference_network.md)**
 
-:   提出SPHINX模型以无监督方式从点级信号中推断潜在超图结构：将超边发现建模为聚类问题，用k-subset可微采样生成离散超图，可插入任何超图网络，在轨迹预测和节点分类上超越现有方法。
+:   提出SPHINX无监督超图推断模型——将超边发现建模为序列化软聚类问题，用k-subset可微采样产生离散稀疏超图结构，可插入任意超图神经网络，在合成数据上超图重建达90%重叠率、在NBA轨迹预测和3D物体分类上超越现有方法。
 
 **[When Every Millisecond Counts Real-Time Anomaly Detection Via The Multimodal Asy](when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md)**
 

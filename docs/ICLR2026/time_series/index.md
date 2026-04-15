@@ -104,11 +104,11 @@ description: >-
 
 **[Swiftts A Swift Selection Framework For Time Series Pre-Trained Models Via Multi](swiftts_a_swift_selection_framework_for_time_series_pre-trained_models_via_multi.md)**
 
-:   提出SwiftTS——首个时间序列预训练模型选择框架：用双编码器架构独立嵌入数据集特征(patch级时序)和模型元信息(架构/训练目标),通过patch级交叉注意力计算兼容性分数,配合horizon自适应专家组合和跨域/跨horizon元学习增强OOD泛化,在14个数据集×8个模型上达SOTA选择性能。
+:   提出首个时间序列预训练模型选择框架SwiftTS，使用双编码器架构独立嵌入数据集patch级时序特征和模型元信息（架构/拓扑/功能），通过patch级交叉注意力计算兼容性分数，结合horizon自适应专家组合和跨域/跨horizon元学习，在14个数据集×8个模型上以平均加权Kendall $\tau_\omega = 0.442$ 大幅超越所有基线。
 
 **[T1 One-To-One Channel-Head Binding For Multivariate Time-Series Imputation](t1_one-to-one_channel-head_binding_for_multivariate_time-series_imputation.md)**
 
-:   提出T1——CNN-Transformer混合架构通过Channel-Head Binding(CHead Attention)实现鲁棒的多变量时序填充：CNN提取每个变量的多尺度时序特征(每个通道捕捉一种模式)，每个注意力头仅处理对应的一个CNN通道→实现特征级的选择性跨变量信息传递——当缺失导致某通道无法提取有效模式时，对应注意力头自动降权→在11个基准上MSE平均降低46%。
+:   提出T1——CNN-Transformer混合架构，核心创新是Channel-Head Binding（CHead Attention）：共享Depthwise Conv为每个变量提取C种时序特征（趋势/周期/突变等），然后将每个CNN通道与一个注意力头一对一绑定，使跨变量信息传递在特征级别独立进行。当缺失导致某通道无法提取有效模式时，对应注意力头自动降权，实现无需显式设计的自适应缺失处理。在11个基准数据集上MSE平均降低46%，70%极端缺失下优势更大。
 
 **[Tensor Learning With Orthogonal Lorentz And Symplectic Symmetries](tensor_learning_with_orthogonal_lorentz_and_symplectic_symmetries.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Test-Time Efficient Pretrained Model Portfolios For Time Series Forecasting](test-time_efficient_pretrained_model_portfolios_for_time_series_forecasting.md)**
 
-:   探索时间序列基础模型的替代范式：不训练单一大模型→而是构建小型预训练模型组合(portfolio)+测试时通过集成/选择组合,发现(1)专家模型组合(各自在特定域/频率上训练)持续优于独立训练的通用组合,(2)从通用模型后训练产出专家→训练计算减少10x,(3)集成/选择在测试时比微调更高效,性能媲美SOTA大型单体模型。
+:   提出 Chroma——小型预训练时序模型组合（portfolio）框架：从通用模型通过后训练（post-training）产出频率/领域专家（训练加速 10×），测试时通过模型选择或贪心集成组合，4M 参数的 portfolio 在 Chronos Benchmark II 上匹配 205M-500M 参数的大型单体模型性能，同时推理计算远低于 test-time fine-tuning。
 
 **[Timesliver Symbolic-Linear Decomposition For Explainable Time Series Classificat](timesliver_symbolic-linear_decomposition_for_explainable_time_series_classificat.md)**
 
@@ -124,7 +124,7 @@ description: >-
 
 **[Towards Generalizable Pde Dynamics Forecasting Via Physics-Guided Invariant Lear](towards_generalizable_pde_dynamics_forecasting_via_physics-guided_invariant_lear.md)**
 
-:   提出iMOOE——面向零样本OOD泛化的PDE动力学预测的物理引导不变学习方法：显式定义PDE的两层不变性原则(1.组成算子不变 2.算子间组合关系不变)，设计不变对齐的算子专家混合架构捕获不变算子和组合关系，加频率增强的不变学习目标实现跨域风险均衡→在多种OOD场景(参数/初条件/外力/时间分辨率变化)上实现零样本SOTA。
+:   提出 iMOOE 框架，通过显式定义 PDE 系统中的"算子不变性 + 组合不变性"两层物理不变性原理，设计与之对齐的混合算子专家网络和频率增强的风险等式目标，在不需要任何测试时适应的条件下实现多种 OOD 情景下的 SOTA 零样本 PDE 动力学预测。
 
 **[Towards Robust Real-World Multivariate Time Series Forecasting A Unified Framewo](towards_robust_real-world_multivariate_time_series_forecasting_a_unified_framewo.md)**
 

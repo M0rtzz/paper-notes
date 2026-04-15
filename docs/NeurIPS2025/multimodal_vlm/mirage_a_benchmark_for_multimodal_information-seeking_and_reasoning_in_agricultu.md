@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2506.20100](https://arxiv.org/abs/2506.20100)  
 **代码**: 无  
 **领域**: 多模态VLM  
-**关键词**: benchmark, multimodal, VLM, agriculture, visual grounding, multi-turn dialogue
+**关键词**: benchmark, multimodal, VLM, agriculture, visual grounding, multi-turn dialogue  
 # MIRAGE: 农业领域多模态信息检索与推理基准
 
 ## 一句话总结

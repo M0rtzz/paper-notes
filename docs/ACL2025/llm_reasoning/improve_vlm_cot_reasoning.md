@@ -2,102 +2,140 @@
 title: >-
   [论文解读] Improve Vision Language Model Chain-of-thought Reasoning
 description: >-
-  [ACL 2025 (Long Paper)][LLM推理][VLM] 通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。
+  [ACL 2025][LLM推理][Chain-of-thought] 通过(1)从GPT-4o蒸馏193K多任务CoT推理数据进行SFT，(2)利用模型自生成的推理链构建正负样本对进行DPO强化学习，显著提升VLM的链式推理能力，CoT预测平均+11.7%，同时直接回答也提升+7.3%。
 tags:
-  - ACL 2025 (Long Paper)
+  - ACL 2025
   - LLM推理
-  - VLM
   - Chain-of-thought
+  - CoT推理
+  - 知识蒸馏
   - DPO
-  - 推理增强
-  - 数据蒸馏
+  - 强化学习
+  - VLM
 ---
 
 # Improve Vision Language Model Chain-of-thought Reasoning
 
-**会议**: ACL 2025 (Long Paper)  
+**会议**: ACL 2025  
 **arXiv**: [2410.16198](https://arxiv.org/abs/2410.16198)  
 **代码**: [https://github.com/RifleZhang/LLaVA-Reasoner-DPO](https://github.com/RifleZhang/LLaVA-Reasoner-DPO)  
-**领域**: 多模态VLM / LLM推理  
-**关键词**: VLM, Chain-of-thought, DPO, 推理增强, 数据蒸馏  
+**领域**: VLM推理  
+**关键词**: Chain-of-thought, CoT推理, 知识蒸馏, DPO, 强化学习, VLM  
 
 ## 一句话总结
-通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。
+通过(1)从GPT-4o蒸馏193K多任务CoT推理数据进行SFT，(2)利用模型自生成的推理链构建正负样本对进行DPO强化学习，显著提升VLM的链式推理能力，CoT预测平均+11.7%，同时直接回答也提升+7.3%。
 
-## 背景与动机
-当前VLM训练数据以短答案为主（如"14"），缺乏详细的推理过程。作者发现一个关键现象：在ChartQA上用26k直接预测数据训练后，直接预测准确率提升2.9点（70.2→73.1），但CoT准确率仅提升0.6点（71.2→71.8）。这说明模型无法从短答案训练中隐式学会推理链——需要显式的CoT训练数据。
+## 研究背景与动机
 
-## 核心问题
-1. 仅用短答案训练VLM，能否隐式学会CoT推理？（答：不能，差距显著）
-2. 如何在缺乏高质量CoT标注的情况下生成推理数据？
-3. 如何进一步校准模型生成的推理链质量？
+**领域现状**：链式推理（CoT）对提升VLM的可解释性和可信度至关重要。然而现有VLM训练数据以短答案为主（如"14"），缺少详细的推理过程。
+
+**现有痛点**：(1) **训练数据中推理步骤缺失**——标注者倾向于直接给出简短答案，写出完整推理过程更耗时；(2) **短答案训练无法隐式学到CoT**——作者实验发现，在ChartQA上训练26K直接回答，直接预测准确率提升2.9，但CoT仅提升0.6；(3) **缺乏高质量CoT训练数据**——现有VQA数据集几乎不包含推理步骤。
+
+**核心矛盾**：VLM需要CoT推理能力，但(a)高质量CoT数据极度匮乏，(b)仅在短答案上训练的模型泛化不到需要详细推理的任务，(c)CoT推理的质量需要进一步校准。
+
+**本文要解决什么？** 解决VLM CoT推理数据的匮乏问题并提升推理质量。
+
+**核心idea一句话**：先蒸馏CoT数据做SFT教会模型推理，再用DPO利用模型自生成的推理正负样本对来校准推理质量。
 
 ## 方法详解
 
 ### 整体框架
-三阶段pipeline：(A) 从GPT-4o蒸馏CoT数据 → (B) SFT训练VLM → (C) DPO强化学习校准推理质量。基于LLaMA3-LLaVA-NeXT-8B架构。
+三阶段流程（如Figure 2所示）：
+- **Stage A**：从GPT-4o蒸馏CoT推理数据（ShareGPT-4o-Reasoning，193K样本）
+- **Stage B**：用CoT和直接回答数据混合训练VLM（SFT），得到LLaVA-Reasoner-SFT
+- **Stage C**：构建推理正负样本对，用DPO进一步校准推理质量，得到LLaVA-Reasoner-DPO
 
 ### 关键设计
 
-1. **ShareGPT-4o-Reasoning数据集（193k）**: 利用9个VQA数据集的短答案标注，让GPT-4o生成对应的推理过程。覆盖常识推理（A-OKVQA）、图表理解（ChartQA）、文档理解（DocVQA/InfoVQA/TextVQA）、数学科学推理（MathVision/G-LLaVA/SQA/AI2D）。蒸馏后过滤掉GPT-4o预测与GT不一致的样本。CoT答案峰值约100 tokens，远长于直接答案的5 tokens以下。
+1. **CoT数据蒸馏（ShareGPT-4o-Reasoning）**：
+    - 覆盖9个数据集、4大推理技能：
+        - 常识推理：A-OKVQA（16.9K）
+        - 图表理解：ChartQA（26.0K）
+        - 文档/文本理解：DocVQA（37.3K）、InfoVQA（22.4K）、TextVQA（29.7K）
+        - 数学/科学：MathVision（11.0K）、G-LLaVA（30.3K）、SQA（6.1K）、AI2D（11.9K）
+    - 蒸馏方式：输入（图像, 问题, 参考短答案）给GPT-4o，让其生成推理过程
+    - 质量过滤：GPT-4o预测答案与标注不一致的样本被过滤（还发现了标注错误）
+    - CoT响应平均约100 tokens，短答案通常<5 tokens
 
-2. **双模板SFT策略**: 训练时同时使用直接预测和CoT预测两种prompt模板。直接预测用"Answer with a short answer"，CoT用"Generate a reason first and then output a short answer"。答案以"### Answer:"格式标记，便于评测时提取。关键发现：同时用CoT+Direct数据（方案④）效果最好，CoT平均74.4 vs 只用CoT的73.2。
+2. **SFT数据混合策略**：
+    - 两种prompt模板：直接预测（"Answer with a short answer"）和CoT预测（"Generate a reason first and then output a short answer"）
+    - 最优组合④：CoT + Direct + Format对齐数据（450条）+ LLaVA指令数据（2K）
+    - 关键设计：CoT答案格式化为"推理过程... ### Answer: 最终答案"，便于自动提取
 
-3. **基于答案正确性的DPO偏好学习**: 用SFT模型对每个问题生成32个候选推理链（temperature=1.0/1.2），将预测与GT比对得到正确/错误标签。选取准确率在0.25-0.85之间的样本（确保有正有负），随机配对构建最多3对偏好数据。共生成64.8k偏好对（ChartQA 24.5k + A-OKVQA 18.3k + Math 22.0k）。一个有用的trick：将响应截断到90 tokens做DPO训练。
+3. **DPO推理校准**：
+    - 用SFT模型对每个问题生成32个候选CoT推理（temperature 1.0/1.2）
+    - 比较每个推理的最终预测与标注答案：正确→正样本$y_w$，错误→负样本$y_l$
+    - 只选择准确率在0.25-0.85之间的问题（太简单/太难的不适合DPO）
+    - 每个问题最多3对，总计64.8K偏好数据对
+    - DPO目标函数：$\mathcal{L}_{\text{DPO}} = -\mathbb{E}[\log\sigma(\beta\log\frac{\pi_\theta(y_w|x,\mathcal{V})}{\pi_{\text{ref}}(y_w|x,\mathcal{V})} - \beta\log\frac{\pi_\theta(y_l|x,\mathcal{V})}{\pi_{\text{ref}}(y_l|x,\mathcal{V})})]$
+    - **截断trick**：将响应截断至90 tokens效果最好
 
-### 损失函数 / 训练策略
-- SFT：1 epoch, lr=5e-6, batch=32, 8×H100
-- DPO：标准DPO目标，β=0.1, lr=5e-7, batch=32, 1 epoch
-- DPO模型还可作为verifier，通过 log(πdpo/πsft) 计算reward score做Best-of-N或Weighted Voting重排
+### 损失函数
+- SFT阶段：标准因果语言模型损失
+- DPO阶段：上述DPO损失函数，$\beta = 0.1$，学习率5e-7
 
-## 实验关键数据
+## 实验
 
-| 数据集 | 指标 | LLaVA-Reasoner-DPO (CoT) | LLaVA-Next基线 (CoT) | 提升 |
-|--------|------|--------------------------|---------------------|------|
-| A-OKVQA | Acc | 87.0 | 84.3 | +2.7 |
-| ChartQA | Acc | 84.2 | 71.2 | +13.0 |
-| DocVQA | Acc | 82.7 | 67.0 | +15.7 |
-| InfoVQA | Acc | 52.7 | 34.9 | +17.8 |
-| TextVQA | Acc | 71.5 | 62.2 | +9.3 |
-| AI2D | Acc | 79.5 | 67.4 | +12.1 |
-| SQA | Acc | 92.6 | 74.4 | +18.2 |
-| MathVista | Acc | 52.1 | 40.3 | +11.8 |
-| **平均** | | **75.3** | **62.7** | **+12.6** |
+### 主实验——SFT数据组合消融（Table 2）
 
-DPO相比SFT的增量（CoT）：平均74.4→75.3（+0.9），其中ChartQA +1.2, InfoVQA +1.1, MathVista +1.5。
+| 训练数据 | 推理方式 | A-OK | ChartQA | DocVQA | InfoVQA | TextVQA | AI2D | SQA | MathVista | 平均 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Format only ① | direct | 85.8 | 70.2 | 75.7 | 37.7 | 68.2 | 71.5 | 75.4 | 39.3 | 65.5 |
+| Format only ① | CoT | 84.3 | 71.2 | 67.0 | 34.9 | 62.2 | 67.4 | 74.4 | 40.3 | 62.7 |
+| Direct only ② | direct | 86.4 | 73.7 | 78.0 | 45.4 | 71.9 | 78.8 | 91.5 | 43.2 | 71.1 |
+| Direct only ② | CoT | 85.7 | 71.8 | 68.8 | 38.6 | 63.6 | 72.5 | 85.4 | 38.6 | 65.6 |
+| CoT only ③ | direct | 84.9 | 71.8 | 81.2 | 45.7 | 72.1 | 75.3 | 85.0 | 41.9 | 69.7 |
+| CoT only ③ | CoT | 85.1 | 82.2 | 81.2 | 49.7 | 69.9 | 77.0 | 91.3 | 49.2 | 73.2 |
+| **Both ④ (SFT)** | direct | 85.4 | 76.1 | 82.9 | 50.6 | 73.1 | 79.4 | 90.4 | 44.3 | **72.8** |
+| **Both ④ (SFT)** | CoT | 86.2 | 83.0 | 81.8 | 51.6 | 71.1 | 78.5 | 92.7 | 50.6 | **74.4** |
 
-### 消融实验要点
-- **CoT数据 vs 直接数据**: 只用CoT训练（③）CoT性能73.2，只用Direct训练（②）CoT性能65.6，差距巨大
-- **CoT训练反哺直接预测**: 只用CoT数据训练的模型（③），在DocVQA/InfoVQA/TextVQA的直接预测上反而超过只用Direct数据的模型（②）
-- **数学数据组合**: ChartQA对MathVista贡献最大（+5.5），纯文本数学数据（MathPlus/MathInstruct）效果甚微
-- **DPO数据**: 自构建偏好数据（⑥）优于RLAIF-V（⑤），CoT平均75.3 vs 74.6
-- **DPO作为Verifier**: Weighted Voting + DPO verifier在64候选时，ChartQA达到85.4（vs单次84.2），MathVista达到53.3（vs单次52.1）
+### DPO实验（Table 6）
+
+| 方法 | 推理方式 | A-OK | ChartQA | DocVQA | InfoVQA | TextVQA | AI2D | SQA | MathVista | 平均 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| SFT ④ | CoT | 86.2 | 83.0 | 81.8 | 51.6 | 71.1 | 78.5 | 92.7 | 50.6 | 74.4 |
+| + RLAIF-V ⑤ | CoT | 86.7 | 83.0 | 82.4 | 50.8 | 71.4 | 79.1 | 92.9 | 50.8 | 74.6 |
+| **+ DPO-ours ⑥** | CoT | **87.0** | **84.2** | **82.7** | **52.7** | **71.5** | **79.5** | 92.6 | **52.1** | **75.3** |
+
+### 与GPT-4o和SOTA对比（Table 5）
+
+| 模型 | A-OK | ChartQA | DocVQA | SQA | MathVista | 平均(best) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| GPT-4o | 90.1 | 84.7 | 90.8 | 87.2 | 63.4 | 77.9 |
+| Cambrian-7B | 83.1 | 73.3 | 77.8 | 80.4 | 49.0 | 64.5 |
+| **LLaVA-Reasoner-SFT** | 86.2 | 83.0 | 82.9 | 92.7 | 50.6 | **68.8** |
+
+### 关键发现
+1. **短答案训练不能教会CoT推理**：Direct only训练直接预测+5.6，但CoT仅+2.9，且在计算密集任务上CoT甚至下降
+2. **CoT训练也能提升直接预测**：CoT only训练的直接预测比Direct only训练还好（文档理解类任务尤为明显）
+3. **混合训练最优**：同时用CoT和Direct数据训练，两种预测方式都达到最佳
+4. **DPO有效但需要推理数据对**：用RLAIF-V通用DPO数据提升微小（+0.2），用自构建的推理数据对提升显著（+1.1）
+5. **DPO模型可作为验证器**：用DPO reward score进行best-of-N重排和加权投票，进一步提升性能
+6. **DPO学到了token级奖励**：credit assignment可视化显示DPO模型对推理中的首个错误/幻觉特别敏感
 
 ## 亮点
-- **关键发现驱动**: 先实验验证"短答案不能隐式教CoT"，再针对性设计解决方案，逻辑清晰
-- **答案正确性作为弱监督**: 巧妙利用短答案标注作为推理链的"outcome reward"，不需要人工标注推理过程
-- **DPO模型双重身份**: 训练好的DPO模型既是generator也是verifier，可进一步通过重排提升性能
-- **数据组合消融**: 详细分析了不同任务数据对不同能力的交叉影响（如ChartQA对MathVista有大贡献）
+- **数据集贡献**：释放193K多任务CoT推理数据集ShareGPT-4o-Reasoning，社区可直接使用
+- **关键发现**：实证证明短答案训练无法隐式学习CoT推理，需要显式CoT数据
+- **方法通用**：SFT+DPO两阶段框架适用于任何VLM，不限于特定架构
+- **DPO双用途**：既作为生成器改善推理质量，又作为验证器用于重排
+- **实验极其充分**：主文+6个附录，覆盖数据消融、baseline对比、RFT vs DPO、prompt优化等
 
-## 局限性 / 可改进方向
-- 仅在8B模型上验证，更大模型（如70B/Mixture-of-Experts）结论是否一致？
-- DPO只用了3个领域的偏好数据，未完全扩展到所有9个领域
-- 推理链截断到90 tokens是一个magic number，缺乏分析为何这个值最优
-- 未与同期STaR/ReST等自我改进方法做对比
-- GPT-4o蒸馏有成本和许可问题
+## 局限性
+- 基座模型仅用LLaVA-NeXT-8B，未在更大模型上验证
+- CoT蒸馏依赖GPT-4o，成本高，蒸馏质量受限于GPT-4o能力
+- 部分任务（TextVQA、DocVQA、AI2D）CoT并不优于直接预测，可能因为简单事实提取不需要推理
+- DPO数据仅用3个数据集构建偏好对，更多数据集的scaling留待未来
+- 评估主要在VQA基准上，未覆盖开放式视觉推理场景
 
-## 与相关工作的对比
-- **vs LLaVA-CoT (Xu et al.)**: LLaVA-CoT也做VLM推理增强，但本文更聚焦于SFT+DPO两阶段pipeline且有详细消融
-- **vs RLAIF-V (Yu et al.)**: RLAIF-V的偏好数据面向减少幻觉，本文的偏好数据面向推理正确性，在推理任务上本文更优
-- **vs Cambrian-7B**: 在相同8B规模下，LLaVA-Reasoner-SFT在CoT任务上全面优于Cambrian
-
-## 启发与关联
-- 与 [ideas/model_compression/20260316_efficient_surgical_reasoning.md](../../../ideas/model_compression/20260316_efficient_surgical_reasoning.md) 关联：如果能在更小的模型上实现类似的CoT增强，结合模型压缩将很有价值
-- "答案正确性→推理链质量"的弱监督范式可以迁移到其他需要过程监督但缺乏标注的场景
-- DPO作为verifier的思路可以和Best-of-N、MCTS等推理时计算方法结合
+## 相关工作
+- **VLM推理**：MAVIS、Visual CoT等关注特定领域（数学、定位）的推理训练
+- **VLM/LLM对齐**：DPO、PPO用于减少幻觉和提升factuality；Step-DPO用于数学CoT推理
+- **CoT数据**：现有VQA数据集几乎不含推理步骤，本文是首个大规模多任务VLM CoT蒸馏工作
+- **本文定位**：首次系统研究VLM CoT推理的SFT+RL训练策略，填补VLM推理训练的空白
 
 ## 评分
-- 新颖性: ⭐⭐⭐ 方法各组件（蒸馏、SFT、DPO）都是已有技术，创新主要在组合和实验发现
-- 实验充分度: ⭐⭐⭐⭐⭐ 消融极其详细，数据组合分析、verifier分析等非常扎实
-- 写作质量: ⭐⭐⭐⭐ 结构清晰，实验设计逻辑性强
-- 价值: ⭐⭐⭐⭐ 193k CoT数据集和实验结论对社区有实际参考价值
+- **创新性**: ⭐⭐⭐⭐ — 问题提出清晰（短答案不教CoT），方法虽不全新但组合有效
+- **实用性**: ⭐⭐⭐⭐⭐ — 193K CoT数据集+训练流程直接可用，代码开源
+- **技术深度**: ⭐⭐⭐⭐ — SFT数据混合消融极其细致，DPO分析深入（credit assignment）
+- **实验充分度**: ⭐⭐⭐⭐⭐ — 主文+6个附录，超级充分
+- **总体推荐**: ⭐⭐⭐⭐⭐ — VLM推理训练的重要参考工作，数据和代码开源

@@ -47,19 +47,19 @@ tags:
 
 1. **去中心化学习的矩阵分解编码**:
 
-    - 功能：将 DL 算法的多轮迭代展开为统一矩阵形式
+    - 做什么：将 DL 算法的多轮迭代展开为统一矩阵形式
     - 核心思路：$n$ 个节点在通信图 $\mathcal{G}$ 上执行 T 轮：每轮先做局部梯度步 $\theta_{t+1/2} = \theta_t - \eta(G_t + C_t^\dagger Z)$，再做 gossip 平均 $\theta_{t+1} = W\theta_{t+1/2}$。堆叠 T 轮得到 $\theta = (I_T \otimes W)(M\theta_0 - \eta \mathbf{W}_T(G + C^\dagger Z))$，其中 $\mathbf{W}_T \in \mathbb{R}^{nT \times nT}$ 是下三角 Toeplitz 块矩阵
     - 设计动机：将 DL 的时间展开编码为单一矩阵使得 MF 理论可直接应用
 
 2. **广义 MF 隐私保证（Theorem 8）**:
 
-    - 功能：将 MF 的 DP 保证从方阵/满秩/下三角推广到矩形/秩亏/列阶梯形矩阵
+    - 做什么：将 MF 的 DP 保证从方阵/满秩/下三角推广到矩形/秩亏/列阶梯形矩阵
     - 核心思路：定义广义敏感度 $\text{sens}_\Pi(C; B) = \max_{G \simeq_\Pi G'}\|C(G-G')\|_{B^\dagger B}$，证明当 $A$ 是列阶梯形矩阵且 $A = BC$ 时，机制 $\mathcal{M}$ 是 $1/\sigma$-GDP。关键修正：$B^\dagger B$ 投影到 $B$ 的行空间，丢弃不可观测的梯度组合
     - 设计动机：DL 中攻击者只观察部分消息，产生的矩阵 $A$ 通常是矩形且秩亏的
 
 3. **MAFALDA-SGD 算法（优化噪声相关）**:
 
-    - 功能：在 LDP 下通过优化局部噪声相关矩阵最大化隐私-效用权衡
+    - 做什么：在 LDP 下通过优化局部噪声相关矩阵最大化隐私-效用权衡
     - 核心思路：约束 $C = C_{local} \otimes I_n$（噪声只在节点内跨时间步相关），定义优化目标 $\mathcal{L}_{opti}(\mathbf{W}_T, B, C) = \text{sens}_\Pi(C;B)^2 \|(I_T \otimes W)\mathbf{W}_T C^\dagger\|_F^2$，通过凸优化求解最优 $C_{local}$
     - 设计动机：现有方法（如 AntiPGD）的相关模式未针对去中心化场景优化，直接搬用效果差
 

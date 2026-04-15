@@ -18,7 +18,7 @@ tags:
 **arXiv**: [2502.03771](https://arxiv.org/abs/2502.03771)  
 **代码**: [GitHub](https://github.com/vcache-project/vCache) | [Benchmarks](https://huggingface.co/vCache)  
 **领域**: llm_nlp  
-**关键词**: Semantic Caching, LLM Inference Optimization, Error-Rate Guarantee, online learning, Per-Embedding Threshold
+**关键词**: Semantic Caching, LLM Inference Optimization, Error-Rate Guarantee, online learning, Per-Embedding Threshold  
 **作者**: Luis Gaspar Schroeder, Aditya Desai, Alejandro Cuadron, Kyle Chu, Shu Liu, Mark Zhao, Stephan Krusche, Alfons Kemper, Matei Zaharia, Joseph E. Gonzalez（UC Berkeley, TU Munich, ETH Zurich, Stanford）
 
 ## 一句话总结

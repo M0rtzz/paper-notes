@@ -16,7 +16,7 @@ description: >-
 
 **[Audio Super-Resolution With Latent Bridge Models](audio_super-resolution_with_latent_bridge_models.md)**
 
-:   提出 AudioLBM，在波形隐空间中用桥模型实现 LR-to-HR latent-to-latent 音频超分，配合频率感知训练和级联设计，LSD 平均改善 21.5%，首次实现 any-to-192kHz 音频超分。
+:   提出 AudioLBM，将音频波形压缩到连续隐空间，用桥模型实现从低分辨率到高分辨率的 latent-to-latent 生成过程，配合频率感知训练扩展数据利用和级联设计突破 48kHz 上限，在语音/音效/音乐上全面超越 AudioSR 等方法，并首次实现 any-to-192kHz 音频超分。
 
 **[Denoiserotator Enhance Pruning Robustness For Llms Via Importance Concentration](denoiserotator_enhance_pruning_robustness_for_llms_via_importance_concentration.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Mro Enhancing Reasoning In Diffusion Language Models Via Multi-Reward Optimizati](mro_enhancing_reasoning_in_diffusion_language_models_via_multi-reward_optimizati.md)**
 
-:   提出多奖励优化方法MRO，通过定义和优化扩散语言模型（DLM）去噪过程中的序列内token相关性和序列间token相关性，结合test-time scaling、reject sampling和强化学习三种策略，配合组步重要性采样降低奖励方差，在推理基准上显著提升DLM性能并实现采样加速。
+:   首次系统分析扩散语言模型（DLM）推理短板的根因——去噪过程中token独立生成导致序列内/序列间相关性缺失，提出多奖励优化框架MRO，在test-time scaling、reject sampling和RL三种模式下均显著提升LLaDA-8B的推理性能，MATH500从34.4%提升至37.4%。
 
 **[Ms-Bart Unified Modeling Of Mass Spectra And Molecules For Structure Elucidation](ms-bart_unified_modeling_of_mass_spectra_and_molecules_for_structure_elucidation.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Rethinking Nighttime Image Deraining Via Learnable Color Space Transformation](rethinking_nighttime_image_deraining_via_learnable_color_space_transformation.md)**
 
-:   提出CST-Net用于夜间图像去雨：基于夜间雨在Y通道（亮度）上比RGB更显著的观察，设计可学习颜色空间转换器(CSC)在YCbCr空间去雨，配合隐式光照引导模块(IIG)和新构建的光照感知合成数据集HQ-NightRain，在多个基准上达到SOTA。
+:   基于"夜间雨在YCbCr的Y通道（亮度）差异远大于RGB"的统计发现，提出可学习颜色空间转换器(CSC)在Y通道做去雨、隐式光照引导(IIG)编码夜间不均匀光照、以及光照感知的高质量数据集HQ-NightRain，三管齐下显著提升夜间去雨效果。
 
 **[Scan Self-Denoising Monte Carlo Annotation For Robust Process Reward Learning](scan_self-denoising_monte_carlo_annotation_for_robust_process_reward_learning.md)**
 
@@ -116,4 +116,4 @@ description: >-
 
 **[Video Killed The Energy Budget Characterizing The Latency And Power Regimes Of O](video_killed_the_energy_budget_characterizing_the_latency_and_power_regimes_of_o.md)**
 
-:   对开源T2V模型进行系统性延迟与能耗分析：建立了基于FLOP的compute-bound理论模型，验证了WAN2.1-T2V的二次空间/时间缩放和线性去噪步数缩放规律，并横向对比7个T2V模型发现能耗差异达3000倍（AnimateDiff 0.14Wh vs WAN2.1-14B 415Wh）。
+:   本文对开源文本到视频（T2V）模型进行系统性的延迟和能耗刻画：以 WAN2.1-T2V 为参考模型建立了基于 FLOP 分解的 compute-bound 理论解析模型，实验验证了空间/时间维度的二次缩放和去噪步数的线性缩放规律，并横向对比了 7 个 T2V 模型发现能耗差异可达约 3000 倍。

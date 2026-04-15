@@ -104,7 +104,7 @@ description: >-
 
 **[Induce Align Predict Zero-Shot Stance Detection Via Cognitive Inductive Reasonin](induce_align_predict_zero-shot_stance_detection_via_cognitive_inductive_reasonin.md)**
 
-:   提出CIRF（Cognitive Inductive Reasoning Framework），受认知科学启发，从原始文本中无监督归纳一阶逻辑推理模式（schema），构建多关系schema图，用图核模型对齐输入与schema模板实现可解释的零样本立场推理，在SemEval-2016、VAST和COVID-19-Stance上达到SOTA，仅30%数据即可匹配全量。
+:   提出CIRF框架，通过无监督schema归纳（USI）从LLM生成的一阶逻辑中抽象可迁移推理模式，再用schema增强图核模型（SEGKM）进行结构对齐实现可解释零样本立场推理，在三个基准上达到SOTA且仅需30%标注数据。
 
 **[Llm Circuit Analyses Consistent Across Training And Scale](llm_circuit_analyses_consistent_across_training_and_scale.md)**
 

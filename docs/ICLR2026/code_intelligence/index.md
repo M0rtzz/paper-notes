@@ -24,7 +24,7 @@ description: >-
 
 **[Diablo Diagonal Blocks Are Sufficient For Finetuning](diablo_diagonal_blocks_are_sufficient_for_finetuning.md)**
 
-:   提出 DiaBlo，仅微调权重矩阵的对角块作为参数高效微调方法：避免了 LoRA 低秩矩阵乘积的优化难题，zero 初始化即可稳定收敛，GPU 友好的 batched 矩阵乘法实现，理论证明在参数预算相同时表达力严格优于 LoRA，在常识推理/算术推理/代码生成/安全对齐上全面优于 LoRA 及其变体。
+:   提出 DiaBlo——一种用对角块更新替代低秩分解的参数高效微调方法：将权重矩阵划分为 $N \times N$ 块后只训练对角块 $\mathbf{D}_1, \ldots, \mathbf{D}_N$，彻底绕开 LoRA 中 $\mathbf{AB}$ 乘积带来的非凸优化、初始化敏感与梯度不稳定问题，零初始化即可收敛，PyTorch 一行 `torch.einsum` 实现 batched matmul，理论证明同参数预算下表达力严格优于 LoRA，在常识推理、算术推理、代码生成、安全对齐四大任务及 4-bit/2-bit 量化场景全面领先。
 
 **[Dro-Instructzero Distributionally Robust Prompt Optimization For Instruction Fol](dro-instructzero_distributionally_robust_prompt_optimization_for_instruction_fol.md)**
 
@@ -48,11 +48,11 @@ description: >-
 
 **[Inference-Time Safety For Code Llms Via Retrieval-Augmented Revision](inference-time_safety_for_code_llms_via_retrieval-augmented_revision.md)**
 
-:   提出SOSecure方法，在LLM生成代码后通过检索Stack Overflow安全讨论作为上下文引导模型推理时修正潜在漏洞，无需重训练即可适应新的安全实践，在多个数据集上减少漏洞且不引入新的安全问题。
+:   提出 SOSecure，一种无需重训练的推理时安全机制，通过 BM25 从 Stack Overflow 安全讨论知识库中检索与 LLM 生成代码相关的社区安全警告，引导模型在推理阶段自主修订不安全代码，在三个真实数据集上实现高达 96.7% 的漏洞修复率且零新漏洞引入。
 
 **[Innogym Benchmarking The Innovation Potential Of Ai Agents](innogym_benchmarking_the_innovation_potential_of_ai_agents.md)**
 
-:   提出InnoGym框架，首次从"创新性"维度系统评估AI Agent——引入Performance Gain（性能增益）和Novelty（方法论新颖性）双指标，在18个真实工程/科研任务上发现当前Agent能产生新颖方案但执行鲁棒性不足，无法将创意转化为性能提升（平均归一化增益为负）。
+:   提出 InnoGym，第一个系统评估 AI Agent 创新能力的基准和框架，引入 Performance Gain 和 Novelty 两个互补指标，通过 18 个可改进任务发现当前 Agent 具备一定创新性但缺乏将创新转化为可靠性能提升的鲁棒性。
 
 **[Kv Cache Transform Coding For Compact Storage In Llm Inference](kv_cache_transform_coding_for_compact_storage_in_llm_inference.md)**
 

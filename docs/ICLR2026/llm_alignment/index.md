@@ -64,7 +64,7 @@ description: >-
 
 **[Group-Relative Reinforce Is Secretly An Off-Policy Algorithm Demystifying Some M](group-relative_reinforce_is_secretly_an_off-policy_algorithm_demystifying_some_m.md)**
 
-:   通过 first-principles 推导揭示 group-relative REINFORCE（如 GRPO）天然具有 off-policy 解释，无需假设数据采样分布。发现 clipping 而非 importance sampling 是稳定性的关键，提出 REC 系列算法统一解释 GRPO、Kimi OPMD 和 Meta AsymRE。
+:   通过构造 KL 正则化代理目标并推导 pairwise consistency condition，从第一原理证明 group-relative REINFORCE（GRPO）天然是 off-policy 算法；进而通过组件隔离实验发现 clipping 才是训练稳定性的关键而 importance sampling 完全可以去掉，并在此统一框架下重新解释了 Kimi OPMD、Meta AsymRE 等多个看似独立的算法。
 
 **[Guardalign Test-Time Safety Alignment In Multimodal Large Language Models](guardalign_test-time_safety_alignment_in_multimodal_large_language_models.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Skywork-Reward-V2 Scaling Preference Data Curation Via Human-Ai Synergy](skywork-reward-v2_scaling_preference_data_curation_via_human-ai_synergy.md)**
 
-:   提出Human-AI协同的两阶段偏好数据策展流程：第一阶段人工验证+错误驱动检索+偏好引导LLM标注迭代8轮积累1M对，第二阶段一致性过滤扩展到26M对。训练的Skywork-Reward-V2 8B模型在RewardBench达97.8%，在7个基准上平均88.6%超越所有开源70B模型。
+:   提出 Human-AI 协同的两阶段偏好数据策展流水线：阶段一通过人工验证、错误驱动自适应检索和偏好引导 LLM 标注迭代 8 轮积累约 1M 偏好对；阶段二借助双 RM 一致性过滤将数据规模扩展到 26M 对。最终训练的 Skywork-Reward-V2 8B 模型在 RewardBench 达 97.8%，7 个主流基准平均 88.6%，全面超越所有开源 70B 奖励模型。
 
 **[Superficial Safety Alignment Hypothesis](superficial_safety_alignment_hypothesis.md)**
 

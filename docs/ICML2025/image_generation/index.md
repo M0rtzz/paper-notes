@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 图像生成方向 117篇论文解读
+  ICML2025 图像生成方向 118篇论文解读
 description: >-
-  117篇ICML2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  118篇ICML2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧪 ICML2025** · 共 **117** 篇
+**🧪 ICML2025** · 共 **118** 篇
 
 **[Action-Minimization Meets Generative Modeling Efficient Transition Pat](action-minimization_meets_generative_modeling_efficient_transition_pat.md)**
 
@@ -160,7 +160,7 @@ description: >-
 
 **[Gaussmarker Robust Dual-Domain Watermark For Diffusion Models](gaussmarker_robust_dual-domain_watermark_for_diffusion_models.md)**
 
-:   提出GaussMarker——首个双域(空间+频率)扩散模型水印方法，通过流水线注入器在两个域一致嵌入水印，配合可学习高斯噪声修复器(GNR)增强对旋转/裁剪等攻击的鲁棒性，无需微调扩散模型。
+:   提出 GaussMarker——首个双域（空间+频率）扩散模型水印方法，通过流水线注入器在初始高斯噪声的空间域和频率域一致嵌入水印，配合模型无关的可学习高斯噪声修复器（GNR）增强对旋转/裁剪攻击的鲁棒性，在三个 Stable Diffusion 版本上八种图像扭曲下达到平均 TPR@1%FPR 0.997 的 SOTA 性能。
 
 **[Generative Audio Language Modeling With Continuous-Valued Tokens And Masked Next](generative_audio_language_modeling_with_continuous-valued_tokens_and_masked_next.md)**
 
@@ -190,6 +190,10 @@ description: >-
 
 :   本文首次提出一个统一框架，通过为 Truebones Zoo 数据集（70+ 物种）标注文本描述、引入 rig augmentation 技术以及在 Motion Diffusion Model 中融入 TreePE 和 RestPE 编码，实现了面向大词汇量异构骨骼对象的文本驱动动作生成，可为动物、恐龙乃至虚构生物合成高质量 3D 动作。
 
+**[Impact Iterative Mask-Based Parallel Decoding For Text-To-Audio Generation](impact_iterative_mask-based_parallel_decoding_for_text-to-audio_generation.md)**
+
+:   IMPACT 将迭代掩码并行解码与潜在扩散模型结合，在连续潜在空间中操作并用轻量 MLP 扩散头替代传统重型注意力骨干，同时达成音频生成质量 SOTA（AudioCaps 上 FD=20.3, FAD=1.45）和接近最快模型 MAGNET-S 的推理速度。
+
 **[Impact Iterative Mask-Based Parallel Decoding For Text-To-Audio Generation With ](impact_iterative_mask-based_parallel_decoding_for_text-to-audio_generation_with_.md)**
 
 :   提出 IMPACT 框架，将迭代掩码并行解码（MGM）与潜在扩散模型（LDM）结合，在连续潜在空间中进行文本到音频生成，以轻量 MLP 扩散头替代重型注意力层，同时引入无条件预训练阶段，在 AudioCaps 上取得 FD/FAD 指标 SOTA 且推理速度与最快的 MAGNET-S 相当。
@@ -204,7 +208,7 @@ description: >-
 
 **[Improving The Diffusability Of Autoencoders](improving_the_diffusability_of_autoencoders.md)**
 
-:   通过光谱分析诊断出潜在扩散模型中自编码器的高频成分问题，提出尺度等变正则化策略来对齐潜在空间和RGB空间的频率分布，ImageNet FID降低19%、Kinetics FVD降低44%。
+:   通过DCT频谱分析发现自编码器潜在空间存在与RGB不匹配的过强高频成分，提出尺度等变正则化（Scale Equivariance）对齐两者频率分布，仅需10-20K步微调即可将ImageNet FID降19%、Kinetics FVD降44%+。
 
 **[Infosem A Deep Generative Model With Informative Priors For Gene Regulatory Netw](infosem_a_deep_generative_model_with_informative_priors_for_gene_regulatory_netw.md)**
 
@@ -256,7 +260,7 @@ description: >-
 
 **[Mimicmotion High-Quality Human Motion Video Generation With Confidence-Aware Pos](mimicmotion_high-quality_human_motion_video_generation_with_confidence-aware_pos.md)**
 
-:   提出 MimicMotion，基于扩散模型的姿态引导人体运动视频生成框架，通过置信度感知的姿态引导减轻不准确估计影响，结合置信度区域损失放大改善手部质量，引入渐进式潜变量融合生成任意长度平滑视频。
+:   基于 Stable Video Diffusion 构建姿态引导人体视频生成框架，通过将姿态估计置信度编码进引导信号、对高置信手部区域放大训练损失、以及位置感知的渐进式潜变量融合三项设计，在 TikTok 数据集上 FID-VID 达 9.3（前最优 12.4），同时支持任意长度平滑视频生成。
 
 **[Model Immunization From A Condition Number Perspective](model_immunization_from_a_condition_number_perspective.md)**
 
@@ -264,7 +268,7 @@ description: >-
 
 **[Modern Methods In Associative Memory](modern_methods_in_associative_memory.md)**
 
-:   系统性教程论文，将Dense Associative Memory (DenseAM)从经典Hopfield网络扩展到现代AI架构(Transformer/扩散模型)，阐明能量函数驱动的记忆存储-检索机制及其与注意力机制的深层联系。
+:   IBM&MIT团队的系统性教程，将Dense Associative Memory (DenseAM)从经典Hopfield网络扩展到现代AI架构，通过能量函数统一框架揭示AM与Transformer注意力、扩散模型的深层联系，并附带数学推导和编程练习。
 
 **[Modulated Diffusion Accelerating Generative Modeling With Modulated Quantization](modulated_diffusion_accelerating_generative_modeling_with_modulated_quantization.md)**
 
@@ -280,7 +284,7 @@ description: >-
 
 **[Musecontrollite Multifunctional Music Generation With Lightweight Conditioners](musecontrollite_multifunctional_music_generation_with_lightweight_conditioners.md)**
 
-:   提出轻量级音乐控制机制——关键发现是时变音乐属性条件需要旋转位置编码(RoPE)，仅加RoPE到解耦交叉注意力层即可将旋律控制准确率从56.6%提升到61.1%，可训练参数比SOTA少6.75倍（仅85M）。
+:   提出 MuseControlLite，通过在解耦交叉注意力层中引入旋转位置编码（RoPE），以仅 85M 可训练参数（比 ControlNet 少 6.75 倍）实现对文本到音乐生成的精确时变条件控制，同时首次统一支持音乐属性控制与音频修复/续写。
 
 **[Nonparametric Identification Of Latent Concepts](nonparametric_identification_of_latent_concepts.md)**
 
@@ -472,7 +476,7 @@ description: >-
 
 **[When Model Knowledge Meets Diffusion Model Diffusion-Assisted Data-Free Image Synthesis](when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_synthesis.md)**
 
-:   首次利用T2I扩散模型作为图像先验辅助无数据图像合成(DFIS)，通过Domain Alignment Guidance对齐BN统计量和Class Alignment Token编码类特定属性，生成与训练集分布高度匹配的合成数据。
+:   提出DDIS——首个利用T2I扩散模型作为图像先验的无数据图像合成方法，通过Domain Alignment Guidance (DAG)在扩散采样过程中对齐BN层域统计量、Class Alignment Token (CAT)编码类特定属性，在ImageNet-1k和多域PACS上全面超越现有DFIS方法。
 
 **[Zero-Shot Adaptation Of Parameter-Efficient Fine-Tuning In Diffusion Models](zero-shot_adaptation_of_parameter-efficient_fine-tuning_in_diffusion_models.md)**
 

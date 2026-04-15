@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 AI安全方向 116篇论文解读
+  NeurIPS2025 AI安全方向 115篇论文解读
 description: >-
-  116篇NeurIPS2025 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  115篇NeurIPS2025 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🧠 NeurIPS2025** · 共 **116** 篇
+**🧠 NeurIPS2025** · 共 **115** 篇
 
 **[A Set Of Generalized Components To Achieve Effective Poison-Only Clean-Label Bac](a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac.md)**
 
@@ -28,7 +28,7 @@ description: >-
 
 **[Ai Should Sense Better Not Just Scale Bigger Adaptive Sensin](ai_should_sense_better_not_just_scale_bigger_adaptive_sensin.md)**
 
-:   提出"自适应感知"作为AI发展的范式级转变——受生物感觉系统启发，主张在传感器层面动态调整输入参数（如曝光、增益、多模态配置），而非仅靠扩大模型规模来应对分布偏移，实证表明5M参数的EfficientNet-B0通过自适应感知可超越632M参数的OpenCLIP-H。
+:   这篇立场论文受生物感觉系统的启发，主张AI研究必须从单纯的"扩模型"范式转向"优化输入"——通过在传感器层面动态调整参数（曝光、增益、多模态配置等），使小模型（5M参数的EfficientNet-B0）在理想传感器适应下超越大模型（632M参数的OpenCLIP-H），并提出了从单次感知到闭环感知-运动耦合的渐进式形式化框架。
 
 **[Almguard Safety Shortcuts And Where To Find Them As Guardrails For Audio-Languag](almguard_safety_shortcuts_and_where_to_find_them_as_guardrails_for_audio-languag.md)**
 
@@ -174,10 +174,6 @@ description: >-
 
 :   FairContrast 提出一种面向表格数据的公平对比学习框架，通过策略性的正对样本选择（将优势组有利结果样本与对应弱势组样本配对），结合有监督或自监督对比损失与交叉熵损失的端到端训练，在不引入额外公平约束损失的前提下显著降低了预测偏差，且精度损失极小。
 
-**[Fairness-Regularized Online Optimization With Switching Costs](fairness-regularized_online_optimization_with_switching_costs.md)**
-
-:   提出 FairOBD 算法，首次在平滑在线凸优化中同时处理**长期公平性正则项**和**切换代价**，通过引入辅助变量分解长期公平代价并用镜像下降更新对偶变量，证明了渐近竞争比保证。
-
 **[Fairness Under Competition](fairness_under_competition.md)**
 
 :   本文首次研究竞争环境下多个公平分类器的联合公平性问题，理论证明即使每个分类器都满足 Equal Opportunity (EO)，生态系统可能仍然不公平，且对偏差分类器进行公平性调整反而可能降低生态系统公平性。
@@ -196,7 +192,7 @@ description: >-
 
 **[Flux Efficient Descriptor-Driven Clustered Federated Learning Under Arbitrary Di](flux_efficient_descriptor-driven_clustered_federated_learning_under_arbitrary_di.md)**
 
-:   提出Flux——基于描述符驱动聚类的联邦学习框架，通过提取隐私保护的客户端数据描述符（分布统计量的矩近似）和无监督密度聚类，自动处理四种分布偏移（特征/标签/P(Y|X)/P(X|Y)），在CheXpert医疗数据集上测试时精度比最佳基线高14.6pp。
+:   Flux通过在客户端侧提取紧凑的分布描述符（边际P(X)均值/协方差 + 类条件P(Y|X)均值/协方差），在服务器端用自适应DBSCAN无监督聚类自动确定聚类数与分组，训练聚类专属模型，并在测试时仅凭特征描述符为无标签新客户端匹配最优模型——首次同时处理四种分布偏移且通信开销与FedAvg相当。
 
 **[Forensichub A Unified Benchmark Codebase For All-Domain Fake Image Detection And](forensichub_a_unified_benchmark_codebase_for_all-domain_fake_image_detection_and.md)**
 
@@ -236,7 +232,7 @@ description: >-
 
 **[Its Complicated The Relationship Of Algorithmic Fairness And Non-Discrimination ](its_complicated_the_relationship_of_algorithmic_fairness_and_non-discrimination_.md)**
 
-:   系统分析了欧盟 AI 法案（EU AI Act）中高风险系统的非歧视条款与机器学习算法公平性概念之间的关系，指出两者存在显著脱节并提出未来标准化方向。
+:   本文系统分析了欧盟AI法案（EU AI Act）中针对高风险AI系统的反歧视条款与机器学习算法公平性领域之间的复杂关系，揭示了法律条文在输入侧偏差检测、输出侧保护缺失、标准化挑战等方面的关键缝隙，为计算机科学与法学跨学科协作提供了基础框架。
 
 **[Keep It Real Challenges In Attacking Compression-Based Adversarial Purification](keep_it_real_challenges_in_attacking_compression-based_adversarial_purification.md)**
 
@@ -256,7 +252,7 @@ description: >-
 
 **[Machine Unlearning Doesnt Do What You Think Lessons For Generative Ai Policy And](machine_unlearning_doesnt_do_what_you_think_lessons_for_generative_ai_policy_and.md)**
 
-:   系统性论证"机器遗忘"（machine unlearning）并非万能方案，识别出遗忘动机与可行实现之间的五大根本错配（mismatches），为 ML 研究者和政策制定者提供严谨的分析框架。
+:   本文系统性地揭示了机器遗忘（Machine Unlearning）在生成式AI场景下的五大根本性错配——技术方法与政策目标之间存在不可忽视的鸿沟，论证了机器遗忘无法作为通用方案解决隐私、版权和安全问题，并为ML研究者和政策制定者提供了务实的认知框架。
 
 **[Mars A Malignity-Aware Backdoor Defense In Federated Learning](mars_a_malignity-aware_backdoor_defense_in_federated_learning.md)**
 
@@ -296,7 +292,7 @@ description: >-
 
 **[Music Arena Live Evaluation For Text-To-Music](music_arena_live_evaluation_for_text-to-music.md)**
 
-:   提出 Music Arena，一个面向文本到音乐（TTM）生成模型的在线实时人类偏好评估平台，通过众包式对比实验收集偏好数据，编制排行榜并定期开放数据。
+:   Music Arena是首个面向文本到音乐（TTM）生成的在线实时评估平台，通过LLM驱动的审核与路由系统解决TTM系统异构签名问题，收集包含细粒度聆听行为和自然语言反馈的多层次偏好数据，并通过月度滚动数据发布为社区提供可持续的开放偏好数据源。
 
 **[Nearly-Linear Time Private Hypothesis Selection With The Optimal Approximation F](nearly-linear_time_private_hypothesis_selection_with_the_optimal_approximation_f.md)**
 
@@ -336,7 +332,7 @@ description: >-
 
 **[Poly-Guard Massive Multi-Domain Safety Policy-Grounded Guardrail Dataset](poly-guard_massive_multi-domain_safety_policy-grounded_guardrail_dataset.md)**
 
-:   提出 Poly-Guard，首个大规模多领域安全策略驱动的护栏数据集，覆盖8个安全关键领域，基于真实行业安全指南构建风险分类体系，并对19个先进护栏模型进行系统性评估。
+:   提出首个**大规模、多领域、策略驱动**的安全护栏基准 Poly-Guard，从 150+ 真实行业安全策略中提取 400+ 风险类别和 1000+ 安全规则，生成 100K+ 实例覆盖 8 大安全关键领域，并系统评测 19 个护栏模型，揭示了领域特化、模型演进遗忘、模型缩放停滞、对抗脆弱性等 8 项关键发现。
 
 **[Position Bridge The Gaps Between Machine Unlearning And Ai Regulation](position_bridge_the_gaps_between_machine_unlearning_and_ai_regulation.md)**
 

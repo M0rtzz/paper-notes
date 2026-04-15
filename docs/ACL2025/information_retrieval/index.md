@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 信息检索/RAG方向 65篇论文解读
+  ACL2025 信息检索/RAG方向 66篇论文解读
 description: >-
-  65篇ACL2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  66篇ACL2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**💬 ACL2025** · 共 **65** 篇
+**💬 ACL2025** · 共 **66** 篇
 
 **[A Reality Check On Context Utilisation For Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Air-Bench Automated Heterogeneous Information Retrieval Benchmark](air-bench_automated_heterogeneous_information_retrieval_benchmark.md)**
 
-:   提出 AIR-Bench——首个自动化、异构、动态的信息检索评测基准，通过 LLM 自动从真实语料生成高质量测试数据（三阶段管线：语料准备→候选生成→质量控制），覆盖 2 类任务、9 个领域、13 种语言共 69 个数据集，与人工标注数据高度一致，且持续动态更新避免数据泄露。
+:   提出AIR-Bench——首个利用LLM自动生成测试数据的异构IR基准，覆盖2个任务（QA/长文档）、9个领域、13种语言共69个数据集，三阶段质量控制管线确保生成数据与人工标注高度一致，解决了传统IR基准领域覆盖有限和更新成本高的问题。
 
 **[Beyond True Or False Retrieval-Augmented Hierarchical Analysis Of Nuanced Claims](beyond_true_or_false_retrieval-augmented_hierarchical_analysis_of_nuanced_claims.md)**
 
@@ -98,7 +98,7 @@ description: >-
 
 **[Gainrag Preference Alignment](gainrag_preference_alignment.md)**
 
-:   发现 RAG 中检索器的"相关性"与 LLM 的"偏好"存在偏差——含正确答案的段落仍可能导致错误生成，而间接相关段落反而有用。提出 GainRAG，用基于对比解码困惑度的"增益"信号量化 LLM 偏好，训练轻量选择器在检索结果中选择真正有"增益"的段落，在 6 个 QA 数据集上显著超越 Standard RAG 和 Rerank 基线。
+:   发现 RAG 中检索器优化的"相关性"与 LLM 实际需要的"增益"存在系统性偏差——含正确答案的段落仍有近 50% 概率导致错误生成，而间接相关段落反而更有效。提出 GainRAG，通过对比解码困惑度定义"增益"信号，训练轻量选择器在检索器和 LLM 之间做增益导向的段落筛选，在 6 个 QA 数据集上全面超越 Standard RAG 和 Rerank 基线。
 
 **[Garage A Benchmark With Grounding Annotations For Rag Evaluation](garage_a_benchmark_with_grounding_annotations_for_rag_evaluation.md)**
 
@@ -126,7 +126,7 @@ description: >-
 
 **[Helios Harmonizing Early Fusion Late Fusion And Llm Reasoning For Multi-Granular](helios_harmonizing_early_fusion_late_fusion_and_llm_reasoning_for_multi-granular.md)**
 
-:   提出 HELIOS 框架，结合早期融合（边级别二部子图检索）、晚期融合（查询相关节点扩展）和 LLM 推理（星图级逻辑推断），在 OTT-QA 上 recall 和 nDCG 分别提升达 42.6% 和 39.9%。
+:   提出 HELIOS 三阶段图检索框架（边级早期融合 → 节点级晚期融合 → 星图级 LLM 精化），通过多粒度协调统一解决表格-文本检索中的检索单元粒度、查询依赖关系发现和高级推理三大挑战，在 OTT-QA 上实现 42.6% Answer Recall 提升。
 
 **[Hierarchical Document Refinement For Long-Context Retrieval-Augmented Generation](hierarchical_document_refinement_for_long-context_retrieval-augmented_generation.md)**
 
@@ -146,11 +146,11 @@ description: >-
 
 **[Investigating Language Preference Of Multilingual Rag Systems](investigating_language_preference_of_multilingual_rag_systems.md)**
 
-:   系统研究多语言RAG系统在检索和生成两个阶段的语言偏好问题，提出 MLRS 指标量化检索器语言偏好，并设计 DKM-RAG 框架通过融合翻译段落与模型内部知识来缓解偏好问题。
+:   系统研究多语言 RAG 系统在检索和生成两个阶段的语言偏好问题，提出 MLRS 指标量化检索器对特定语言的偏好程度，揭示检索器偏好高资源语言和查询语言、生成器偏好查询语言和拉丁字母语言的现象，并设计 DKM-RAG 框架通过融合翻译段落与模型内部知识有效缓解偏好问题。
 
 **[Investigating The Robustness Of Retrieval-Augmented Generation At The Query Leve](investigating_the_robustness_of_retrieval-augmented_generation_at_the_query_leve.md)**
 
-:   系统研究 RAG 管道对查询级扰动（冗余插入、正式语气、歧义引入、拼写错误）的敏感性，提出解耦各模块鲁棒性的分析框架，发现检索器是性能瓶颈且不同扰动类型的主导因素不同。
+:   提出首个查询级 RAG 鲁棒性模块化分析框架，通过 5 种扰动类型 × 4 种检索器 × 3 种 LLM × 3 个数据集共 1092+ 实验，揭示 dense 与 sparse 检索器对不同扰动类型的互补鲁棒性，并给出可操作的工程建议。
 
 **[Knowshiftqa Rag Knowledge Shifts](knowshiftqa_rag_knowledge_shifts.md)**
 
@@ -212,9 +212,13 @@ description: >-
 
 :   受人脑功能分区启发，提出 Parenting 框架，通过解耦并定位 LLM 参数空间中与"上下文遵循"(adherence)和"噪声鲁棒"(robustness)相关的子空间，并为不同子空间设计定制化微调策略，实现两种能力的平衡提升。
 
+**[Prism Political Bias Embeddings](prism_political_bias_embeddings.md)**
+
+:   提出 PRISM 框架，首次将政治偏见嵌入建模为可解释任务：自动从弱标注新闻语料中挖掘争议性话题及左/右偏见指标作为嵌入维度，再用政治感知交叉编码器为文章在每个话题维度上打分，生成稀疏且语义透明的政治偏见嵌入向量，在 NewsSpectrum 分类准确率达 86.1%（领先 POLITICS 34.8%），同时支持多样化检索。
+
 **[Psycholinguistic Visual Semantic](psycholinguistic_visual_semantic.md)**
 
-:   提出 Neighborhood Stability Measure (NSM)，仅通过文本嵌入空间中邻域的"尖锐度"来无监督估计词汇的可意象性(imageability)和具体性(concreteness)，无需视觉模态或生成模型即可超越现有方法。
+:   提出Neighborhood Stability Measure (NSM)——一种无监督、无分布假设的方法，通过量化文本嵌入空间中邻域的稳定性来估计词语的可意象性(imageability)和具体性(concreteness)，仅使用文本模态即可超越依赖多模态或生成模型的已有方法。
 
 **[Raemollm Retrieval Augmented Llms For Cross-Domain Misinformation Detection Usin](raemollm_retrieval_augmented_llms_for_cross-domain_misinformation_detection_usin.md)**
 
@@ -238,7 +242,7 @@ description: >-
 
 **[Saferag Benchmarking Security In Retrieval-Augmented Generation Of Large Languag](saferag_benchmarking_security_in_retrieval-augmented_generation_of_large_languag.md)**
 
-:   提出 SafeRAG 安全基准，定义了四种增强型攻击任务（银噪声、上下文间冲突、软广告、白色拒绝服务），通过在 RAG 管道不同阶段注入攻击文本来系统评估 14 种 RAG 组件的安全漏洞，揭示了即使最明显的攻击也能轻松绕过现有防御。
+:   提出首个中文 RAG 安全评估基准 SafeRAG，设计四种能绕过现有检索器、过滤器和生成器防御的新型攻击任务（银噪声、上下文间冲突、软广告、白色拒绝服务），在 14 种 RAG 组件上系统评估安全漏洞，揭示即使最先进的 RAG 系统也对这些攻击高度脆弱。
 
 **[Seal Scaling To Emphasize Attention For Long-Context Retrieval](seal_scaling_to_emphasize_attention_for_long-context_retrieval.md)**
 
@@ -246,7 +250,7 @@ description: >-
 
 **[Setr Set Selection Rag](setr_set_selection_rag.md)**
 
-:   提出从"逐个排序"到"集合选择"的 RAG 检索范式转换——SetR 通过 CoT 推理显式识别查询的信息需求，然后选择一组能共同满足这些需求的段落（而非逐个评分最相关的），在多跳 RAG 基准上超越 GPT-4o 级别的重排器。
+:   提出 SetR，将 RAG 中的文档排序范式转变为集合选择范式，通过 CoT 推理识别查询的信息需求并选择最优文档集合，在使用更少文档（平均 2.91 个 vs 5 个）的同时显著提升多跳问答性能。
 
 **[Towards Adaptive Memory-Based Optimization For Enhanced Retrieval-Augmented Gene](towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)**
 
@@ -266,4 +270,4 @@ description: >-
 
 **[When Should Dense Retrievers Be Updated In Evolving Corpora Detecting Out-Of-Dis](when_should_dense_retrievers_be_updated_in_evolving_corpora_detecting_out-of-dis.md)**
 
-:   提出 GradNormIR，一种利用梯度范数在无 query 条件下检测 OOD 语料库的无监督方法，帮助判断稠密检索器何时需要更新以应对不断演化的文档集合。
+:   提出GradNormIR方法，利用梯度范数在无需查询的情况下无监督检测语料库是否对dense retriever构成分布外(OOD)，从而判断何时需要更新检索器，保障动态语料库场景下的检索鲁棒性。

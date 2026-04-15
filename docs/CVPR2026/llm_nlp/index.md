@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM/NLP方向 6篇论文解读
+  CVPR2026 LLM/NLP方向 4篇论文解读
 description: >-
-  6篇CVPR2026 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  4篇CVPR2026 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**📷 CVPR2026** · 共 **6** 篇
+**📷 CVPR2026** · 共 **4** 篇
 
 **[Composing Concepts From Images And Videos Via Concept-Prompt Binding](composing_concepts_from_images_and_videos_via_concept-prompt_binding.md)**
 
@@ -25,11 +25,3 @@ description: >-
 **[Sketchdeco Training-Free Latent Composition For Precise Sketch Colourisation](sketchdeco_training-free_latent_composition_for_precise_sketch_colourisation.md)**
 
 :   提出SketchDeco，一种无需训练的线稿上色方法，通过全局-局部两阶段策略将区域蒙版和调色板作为精确控制信号，利用扩散模型反演和自注意力注入在隐空间中实现区域精准着色与全局和谐过渡，在消费级GPU上15-20步即可完成。
-
-**[Weavetime Stream From Earlier Frames Into Emergent Memory In Videollms](weavetime_stream_from_earlier_frames_into_emergent_memory_in_videollms.md)**
-
-:   诊断出Video-LLM的核心缺陷"时间无感"——把视频当无序图像集处理，产生时序模糊和历史/当前混淆两类失效，提出WeaveTime通过轻量时序重建目标获得顺序感知能力+Past-Current动态焦点缓存实现高效流式推理，在流式基准上一致提升。
-
-**[Weavetime Streaming Video Llm Memory](weavetime_streaming_video_llm_memory.md)**
-
-:   诊断出Video-LLM的核心缺陷"时间无感"——把视频当无序图像集处理，产生时序模糊和历史/当前混淆两类失效，提出WeaveTime通过轻量时序重建目标获得顺序感知能力+Past-Current动态焦点缓存实现高效流式推理，在流式基准上一致提升。

@@ -24,7 +24,7 @@ description: >-
 
 **[Agent Rewardbench](agent_rewardbench.md)**
 
-:   Agent-RewardBench 提出了首个面向多模态 Agent 的奖励建模评测基准，覆盖感知/规划/安全 3 个维度、7 个真实场景、1136 个高质量样本，实验发现即使 GPT-4o 也仅达 61.4% 准确率，揭示了 Agent 奖励建模的巨大挑战。
+:   本文提出Agent-RewardBench，首个评估多模态LLM作为agent奖励模型能力的基准，覆盖感知/规划/安全三个维度和7个真实场景，包含1,136条高质量step-level样本，实验揭示即使最强模型GPT-4o也仅达61.4%准确率，且强模型在安全维度反而表现更差。
 
 **[Akan Cinematic Emotions Ace A Multimodal Multi-Party Dataset For Emotion Recogni](akan_cinematic_emotions_ace_a_multimodal_multi-party_dataset_for_emotion_recogni.md)**
 
@@ -48,11 +48,11 @@ description: >-
 
 **[Avg-Llava An Efficient Large Multimodal Model With Adaptive Visual Granularity](avg-llava_an_efficient_large_multimodal_model_with_adaptive_visual_granularity.md)**
 
-:   提出 AVG-LLaVA——在 LLaVA-NeXT 基础上引入视觉粒度缩放器（多级池化获取不同粒度视觉 token）+ 视觉粒度路由器（基于图像和指令自适应选择最合适粒度），并提出 RGLF 训练范式将路由器预测与 LMM 偏好对齐。在 11 个基准上实现更好性能同时大幅减少视觉 token（如 AI2D 上减少 85.3%，推理加速 2.53×）。
+:   在 LLaVA-NeXT 上增加视觉粒度缩放器（空间金字塔池化获取多级粒度 token）和视觉粒度路由器（基于图像+指令自适应选粒度），并提出 RGLF 训练范式用 LMM 自身的生成概率作为反馈来训练路由器，在 11 个基准上实现"减少 token 反而提升性能"的效果。
 
 **[Branchlora Continual Instruction](branchlora_continual_instruction.md)**
 
-:   提出BranchLoRA不对称框架解决多模态持续指令微调(MCIT)中的灾难性遗忘问题，通过发现MoELoRA的参数低效性，引入灵活的冻结-微调机制和增量任务路由器，在多种MLLM规模上显著超越MoELoRA基线。
+:   针对多模态持续指令微调(MCIT)中MoELoRA的参数低效和灾难性遗忘问题，提出BranchLoRA——一种非对称架构，共享矩阵A捕获跨任务通用模式、多路矩阵B编码任务特有知识，配合灵活调参-冻结机制和任务特定路由器，在CoIN benchmark上以更少参数大幅超越前SOTA MoELoRA（ACC: 44.20 vs 37.13, BWT: -20.98 vs -25.91）。
 
 **[Burn After Reading Do Multimodal Large Language Models Truly Capture Order Of Ev](burn_after_reading_do_multimodal_large_language_models_truly_capture_order_of_ev.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Can Vision Language Models Understand Mimed Actions](can_vision_language_models_understand_mimed_actions.md)**
 
-:   构建 Mime 基准（86 个动作、860 个样本），利用动作捕捉 + 3D 渲染系统化评估 VLM 对哑剧动作的理解能力，发现 VLM 严重依赖场景上下文而无法像人类一样从纯肢体动作推断语义。
+:   提出 Mime 基准（86 个哑剧动作 × 10 种变体 = 860 个样本），通过动作捕捉 + 3D 渲染构建可控评测，发现人类在各种扰动下保持近 100% 准确率而最强 VLM 仅 52.3%（多选）/ 19.8%（自由回答），揭示 VLM 严重依赖场景上下文线索而非动作本身。
 
 **[Cant See The Forest For The](cant_see_the_forest_for_the.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Centurio Multilingual Vlm](centurio_multilingual_vlm.md)**
 
-:   系统研究多语言LVLM训练策略，发现可以同时支持100种语言、只需25-50%非英文数据即可大幅提升多语言性能且不损英语性能，最终训练的Centurio在14个任务56种语言上达到SOTA。
+:   系统研究多语言LVLM训练策略中训练语言数量、语言数据分布和多语言OCR三个维度，发现可同时训练100种语言且仅需25-50%非英语数据，据此训练出覆盖100语言的Centurio模型达到SOTA。
 
 **[Chartcoder Chart To Code](chartcoder_chart_to_code.md)**
 
@@ -120,7 +120,7 @@ description: >-
 
 **[Donate Or Create Comparing Data Collection](donate_or_create_comparing_data_collection.md)**
 
-:   系统比较了两种情感标注数据的收集策略——"捐赠"真实社交媒体帖子 vs "创造"帖子——发现创造的帖子更长、更依赖文本、偏向原型化情感事件，但用创造数据训练的模型可以很好泛化到真实数据，只是需要真实数据来做靠谱的效果评估。
+:   本文系统比较了三种收集作者标注情感数据的策略（创建、捐赠、近期帖子），发现研究创建的数据在文本长度、情感原型性和图文关系上与真实数据存在显著差异，但创建数据仍可有效训练泛化模型，不过真实数据对准确评估模型效果不可或缺。
 
 **[Dont Miss The Forest For The Trees Attentional Vision Calibration For Large Visi](dont_miss_the_forest_for_the_trees_attentional_vision_calibration_for_large_visi.md)**
 
@@ -204,7 +204,7 @@ description: >-
 
 **[Inference Compute Optimal Video Vlm](inference_compute_optimal_video_vlm.md)**
 
-:   首次系统研究视频VLM推理时的计算预算最优分配问题：在固定推理FLOPs下，如何在语言模型大小(x_N)、帧数(x_T)和每帧视觉token数(x_V)三个维度间做最优权衡，通过大规模训练扫描（~100k A100小时）和参数化建模得出实用的分配策略。
+:   首次系统性研究视频VLM推理计算预算的最优分配问题：在固定推理FLOPs下，通过大规模训练扫描（~100k A100小时）和add-interact参数化建模（$R^2$=0.98），确定语言模型大小 $x_N$、帧数 $x_T$ 和每帧视觉token数 $x_V$ 三个维度的最优权衡策略。
 
 **[Internlm-Xcomposer25-Reward A Simple Yet Effective Multi-Modal Reward Model](internlm-xcomposer25-reward_a_simple_yet_effective_multi-modal_reward_model.md)**
 
@@ -228,7 +228,7 @@ description: >-
 
 **[Longdocurl Multimodal Long Doc](longdocurl_multimodal_long_doc.md)**
 
-:   提出LongDocURL基准（396篇文档、2,325 QA对、33,000+页，含理解/推理/定位三类20个子任务），通过半自动构建流程生成高质量长文档评测数据，26种配置的实验结果显示最强GPT-4o仅64.5分，开源最高30.6分，远低于人类84.8分。
+:   提出 LongDocURL 基准，覆盖理解/数值推理/跨元素定位三大任务类别共 20 个子任务，包含 2325 个高质量 QA 对、覆盖 33000+ 页文档，系统评估 26 种模型配置暴露了当前 LVLM 在长文档理解上的关键性能差距。
 
 **[Madakv Adaptive Modality-Perception Kv Cache Eviction For Efficient Multimodal L](madakv_adaptive_modality-perception_kv_cache_eviction_for_efficient_multimodal_l.md)**
 
@@ -240,7 +240,7 @@ description: >-
 
 **[Mammoth Vl Multimodal Reasoning](mammoth_vl_multimodal_reasoning.md)**
 
-:   MAmmoTH-VL 提出了一种仅用开源模型构建 12M 多模态 CoT 推理指令数据的可扩展方法，通过数据收集→改写→自过滤三步管线，训练的 8B 模型在 MathVerse (+8.1%)、MMMU-Pro (+7%)、MuirBench (+13.3%) 上达到 SOTA。
+:   提出一种可扩展、低成本的方法，仅使用开源模型构建含 1200 万条富含中间推理过程 (CoT) 的多模态指令微调数据集 MAmmoTH-VL-Instruct，训练的 MAmmoTH-VL-8B 在推理基准上达到 SOTA（MathVerse +8.1%, MMMU-Pro +7%, MuirBench +13.3%）。
 
 **[Manu Modality Aware Unlearning](manu_modality_aware_unlearning.md)**
 
@@ -284,11 +284,11 @@ description: >-
 
 **[Mmmu Pro Robust Benchmark](mmmu_pro_robust_benchmark.md)**
 
-:   提出 MMMU-Pro 基准，通过过滤纯文本可解题目、扩增选项至 10 个、引入 vision-only 输入设置三步法，构建更鲁棒的多学科多模态理解评测，所有模型性能显著下降 16.8%-26.9%。
+:   在 MMMU 基础上通过三步加固（过滤纯文本可解题目、扩展选项至 10 个、引入 Vision-only 输入）构建更鲁棒的 MMMU-Pro 基准，所有模型性能下降 16.8%~26.9%，揭示当前多模态模型远未实现真正的跨模态理解。
 
 **[Mmmupro A More Robust Multidiscipline Multimodal](mmmupro_a_more_robust_multidiscipline_multimodal.md)**
 
-:   MMMU-Pro 通过三步流程（过滤纯文本可解题、扩展选项至 10 个、引入纯视觉输入设置）构建更鲁棒的多学科多模态理解基准，模型性能比原 MMMU 下降 16.8%~26.9%，揭示当前模型依赖捷径而非真正多模态理解。
+:   本文引入MMMU-Pro，通过过滤纯文本可解的题目、将选项从4个增加到10个、引入"纯视觉输入"设置三步增强了MMMU基准的鲁棒性，导致模型性能下降16.8%~26.9%，更准确地反映了多模态模型的真实理解能力。
 
 **[Mmscibench Benchmarking Language Models On Chinese Multimodal Scientific Problem](mmscibench_benchmarking_language_models_on_chinese_multimodal_scientific_problem.md)**
 
@@ -316,7 +316,7 @@ description: >-
 
 **[Patent Analysis Survey](patent_analysis_survey.md)**
 
-:   全面综述基于 NLP 和多模态 AI 的专利分析方法，按专利生命周期中的四大任务（分类、检索、质量分析、生成）提出新的分类体系，覆盖从传统神经网络到 PLM/LLM 的技术演进。
+:   系统综述了 NLP 和多模态 AI 在专利分析四大核心任务（分类、检索、质量分析、生成）中的应用，提出基于专利生命周期的分类体系，揭示了从 Word2Vec+LSTM 到 BERT/GPT 再到多模态模型的方法演进趋势及重要研究空白。
 
 **[Performance Gap In Entity Knowledge Extraction Across Modalities In Vision Langu](performance_gap_in_entity_knowledge_extraction_across_modalities_in_vision_langu.md)**
 
@@ -328,7 +328,7 @@ description: >-
 
 **[Punchbench Mllm Punchline](punchbench_mllm_punchline.md)**
 
-:   提出PunchBench（6,000图文对、54,000 QA对），通过同义/反义标题替换消除文本捷径、多种问题格式与两层任务（感知+推理）全面评测MLLM的多模态梗图理解能力，并设计SC-CoQ由简到繁的提问策略显著提升表现，但GPT-4o仍远低于人类98%+水平。
+:   本文提出PunchBench，一个包含6,000个图文对和54,000个问答对的多模态幽默/讽刺理解基准，通过同义/反义标题生成消除语言捷径，同时提出Simple-to-Complex Chain-of-Question (SC-CoQ)策略，在所有模型和问题格式上一致性提升punchline理解能力。
 
 **[R-Vlm Region-Aware Vision Language Model For Precise Gui Grounding](r-vlm_region-aware_vision_language_model_for_precise_gui_grounding.md)**
 
@@ -376,11 +376,11 @@ description: >-
 
 **[Sophia Efficient Long Video](sophia_efficient_long_video.md)**
 
-:   提出Sophia模型处理小时级长视频：通过Shot-adaptive Frame Pruning（基于镜头分割的两阶段帧剪枝）精准选择查询相关帧，结合O(N)复杂度的Hierarchical Attention替代全注意力，在8/8个长视频benchmark中6个SOTA，且注意力FLOPs仅为InternVL2的1/17。
+:   提出Sophia模型处理小时级长视频：通过Shot-adaptive Frame Pruning（基于镜头分割的两阶段帧剪枝）精准选择查询相关帧，结合O(N)复杂度的Hierarchical Attention替代全注意力，在8个长视频benchmark中6个SOTA，且注意力FLOPs仅为InternVL2的1/8.5。
 
 **[Spatialmqa Mllm Spatial Relations](spatialmqa_mllm_spatial_relations.md)**
 
-:   提出SpatialMQA基准，通过5,392个基于COCO2017的人工标注多选题样本（无bbox、含视角替换、排除纯知识可答题），评测MLLM的空间关系推理能力，发现最强模型SpaceLLaVA仅达48.14%远低于人类98.40%。
+:   提出 SpatialMQA 基准，以多选题形式评估 MLLM 的空间关系推理能力，发现 SOTA 模型仅达 48.14% 准确率，远低于人类 98.40%。
 
 **[Speaking Beyond Language](speaking_beyond_language.md)**
 
@@ -400,11 +400,11 @@ description: >-
 
 **[Teaching Vlm Ask Ambiguity](teaching_vlm_ask_ambiguity.md)**
 
-:   提出ClearVQA benchmark评估VLM处理歧义视觉问题的能力（覆盖指代歧义/意图欠明确/拼写歧义三类），并通过自动化pipeline生成歧义-澄清问题对用于SFT+DPO训练，使VLM学会"反问用户"而非猜测作答，VQA准确率相对提升13.3%。
+:   提出 ClearVQA 基准和自动化数据生成管线，让 VLM 学会在遇到歧义视觉问题时主动提出澄清问题而非强行作答，通过三类歧义分类（引用歧义、属性歧义、关系歧义）系统化交互式 VQA，实验证明训练后 VLM 能显著提升歧义识别和澄清质量，获 ACL 2025 SAC Highlight Award。
 
 **[Theorem Explain Agent](theorem_explain_agent.md)**
 
-:   提出 TheoremExplainAgent，一个基于多 Agent 协作的系统，能自动生成 5 分钟以上的定理讲解视频（Manim 动画+语音旁白），并构建了 TheoremExplainBench（240 个 STEM 定理，5 维评估指标）用于系统评估。
+:   提出 TheoremExplainAgent，一个双 Agent 系统（Planner + Coder），通过 Manim 动画脚本自动生成长达 10 分钟的定理讲解视频，配套 TheoremExplainBench（240 个 STEM 定理 × 5 维评估指标），证明 agentic planning 是长视频生成的关键，且视觉解释能暴露文本评估无法发现的推理缺陷。
 
 **[Token Pruning In Multimodal Large Language Models Are We Solving The Right Probl](token_pruning_in_multimodal_large_language_models_are_we_solving_the_right_probl.md)**
 
@@ -416,7 +416,7 @@ description: >-
 
 **[Trimllm Layer Dropping](trimllm_layer_dropping.md)**
 
-:   基于"层级特化"现象（不同层对不同领域重要性不同），提出TrimLLM在领域微调过程中渐进式丢弃最不重要的层，将LLaMA-7B压缩到50%大小时性能几乎无损，在消费级GPU上实现2.1-5.7×推理加速——无需任何特殊硬件或kernel支持。
+:   提出TrimLLM，基于层级专业化（layer-wise specialization）现象，在领域微调过程中渐进式丢弃对目标领域不重要的层，在50-60%压缩率下无精度损失且获得2.1-5.7倍推理加速，且不依赖专用硬件。
 
 **[Tvc Mitigating Visual Forgetting](tvc_mitigating_visual_forgetting.md)**
 
@@ -424,7 +424,7 @@ description: >-
 
 **[Unsolvable Problem Detection](unsolvable_problem_detection.md)**
 
-:   本文提出不可解问题检测（UPD）任务评估大型多模态模型（LMM）的鲁棒理解能力，包含三种不可解场景（答案缺失AAD、答案集不兼容IASD、图像问题不兼容IVQD），构建 MM-UPD Bench 基准，实验揭示现有 LMM 在标准 MCQA 上表现良好但在 UPD 上显著挣扎，且现有基准性能与 UPD 能力之间缺乏相关性。
+:   提出 Unsolvable Problem Detection (UPD) 任务，通过三类不可解问题（缺失答案、不兼容选项、图文不匹配）系统评估大型多模态模型在面对无法回答的 MCQA 问题时是否能正确拒绝作答，揭示了现有 benchmark 无法衡量的可信度维度。
 
 **[Unveiling The Lack Of Lvlm Robustness To Fundamental Visual Variations Why And P](unveiling_the_lack_of_lvlm_robustness_to_fundamental_visual_variations_why_and_p.md)**
 
@@ -444,7 +444,7 @@ description: >-
 
 **[Vision-Language Models Struggle To Align Entities Across Modalities](vision-language_models_struggle_to_align_entities_across_modalities.md)**
 
-:   提出 MATE 基准测试，包含 5,500 个评估实例，通过问答任务评估视觉语言模型（VLM）的跨模态实体链接能力，发现 VLM 在将同一实体的视觉和文本表示进行对齐方面远不如人类，尤其随场景中物体数量增加性能急剧下降。
+:   提出 MATE 基准（5,500 个问答实例），通过合成 3D 场景的跨模态属性检索任务系统评估 VLM 的实体链接能力，发现即使最强闭源模型仍落后人类约 15 个百分点，且性能随场景物体数量增加急剧下降——根源在于跨模态特征绑定而非单模态感知。
 
 **[Visual Evidence Prompting](visual_evidence_prompting.md)**
 

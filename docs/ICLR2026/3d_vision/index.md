@@ -76,15 +76,15 @@ description: >-
 
 **[Egonight Towards Egocentric Vision Understanding At Night With A Challenging Ben](egonight_towards_egocentric_vision_understanding_at_night_with_a_challenging_ben.md)**
 
-:   构建首个系统性夜间第一人称视觉基准 EgoNight，包含日夜对齐的合成/真实视频和 3658 个 QA 对（12种类型，300+小时人工标注），揭示所有 SOTA MLLM 在日夜转换中的显著性能下降。
+:   提出首个夜间第一人称视觉基准 EgoNight，包含日夜对齐视频和 3658 个人工验证 QA 对，揭示 MLLM 在低光照下存在高达 32.8% 的性能下降。
 
 **[Egoworld Translating Exocentric View To Egocentric View Using Rich Exocentric Ob](egoworld_translating_exocentric_view_to_egocentric_view_using_rich_exocentric_ob.md)**
 
-:   提出 EgoWorld 框架，通过从外部视角提取点云、3D 手部姿态和文本描述等多模态观测，利用两阶段管线将单张第三人称图像转换为高质量的第一人称视图。
+:   EgoWorld 提出一种端到端的外部-第一人称视角转换框架：从单张第三人称图像中提取 3D 点云、手部姿态和文本描述三种互补观测，通过点云重投影获得稀疏第一人称 RGB 映射，再以扩散模型 inpainting 方式重建完整的第一人称高保真图像，在 H2O 等四个数据集的多种 unseen 设置下全面超越 SOTA。
 
 **[Fast Estimation Of Wasserstein Distances Via Regression On Sliced Wasserstein Di](fast_estimation_of_wasserstein_distances_via_regression_on_sliced_wasserstein_di.md)**
 
-:   提出通过将 Wasserstein 距离回归到 Sliced Wasserstein (SW) 距离的线性模型（RG 框架），实现对 Wasserstein 距离的快速高效估计，在低数据场景下显著优于深度学习方法 Wasserstein Wormhole。
+:   利用 Sliced Wasserstein（SW）距离既能提供 Wasserstein 距离的下界、lifted SW 距离又能提供上界这一数学性质，构建极简的线性回归模型（RG 框架），仅用少量分布对的精确 Wasserstein 作为监督信号就能训练出高精度的 Wasserstein 代理估计器，在低数据场景下全面碾压 Transformer 方法 Wasserstein Wormhole。
 
 **[Fastgha Generalized Few-Shot 3D Gaussian Head Avatars With Real-Time Animation](fastgha_generalized_few-shot_3d_gaussian_head_avatars_with_real-time_animation.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Fedal Federated Dataset Learning For General Time Series Foundation Models](fedal_federated_dataset_learning_for_general_time_series_foundation_models.md)**
 
-:   提出 FeDaL 联邦框架从头训练通用时序基础模型（TSFM），通过客户端域偏差消除（DBE）和服务器全局偏差消除（GBE）处理数据集级异质性，在8个任务上超越54个baseline。
+:   提出 FeDaL 联邦框架，通过客户端域偏差消除（DBE）和服务器全局偏差消除（GBE）从头训练通用时序基础模型，在8类下游任务上以远少于集中式TSFM的参数达到竞争甚至超越的性能。
 
 **[Fused-Planes Why Train A Thousand Tri-Planes When You Can Share](fused-planes_why_train_a_thousand_tri-planes_when_you_can_share.md)**
 
@@ -144,7 +144,7 @@ description: >-
 
 **[Learning Unified Representation Of 3D Gaussian Splatting](learning_unified_representation_of_3d_gaussian_splatting.md)**
 
-:   发现3DGS的原生参数表示（位置+四元数+缩放+SH系数+透明度）因非唯一性和异质性不适合神经网络学习，提出基于等概率面子流形场的统一表示，建立唯一映射并消除数值异质性，配合VAE+流形距离实现更好的3D学习。
+:   3DGS原生参数 $\boldsymbol{\theta}=\{\mu,\mathbf{q},\mathbf{s},\mathbf{c},o\}$ 存在非唯一性与数值异质性，不适合作为神经网络的学习空间。本文提出**子流形场 (Submanifold Field)** 表示：将每个高斯基元映射到其等概率椭球面上的连续颜色场，证明该映射是单射的，从根源上消除参数歧义，并配合基于最优传输的流形距离 (M-Dist) 训练 VAE 嵌入，在重建保真度、跨域泛化与潜空间稳定性上全面优于参数基线。
 
 **[Lito Surface Light Field Tokenization](lito_surface_light_field_tokenization.md)**
 
@@ -164,7 +164,7 @@ description: >-
 
 **[Multimat Multimodal Program Synthesis For Procedural Materials Using Large Multi](multimat_multimodal_program_synthesis_for_procedural_materials_using_large_multi.md)**
 
-:   提出MultiMat——首个利用大型多模态模型(LMM)进行程序化材质合成的框架,在生成过程中同时处理文本程序表示和中间节点的视觉渲染结果,配合约束树搜索推理算法确保生成图的静态正确性,在产级程序化材质上的无条件和条件合成均显著优于纯文本基线。
+:   提出 MultiMat，首个将大型多模态模型（LMM）用于程序化材质节点图合成的框架，通过在自回归生成过程中融合中间节点的视觉渲染反馈（混合调节/图调节两种模式），并配合增量式约束树搜索推理实现即时校验与回溯纠错，在 6878 个产级 Substance Designer 材质上训练后，无条件生成与条件生成均大幅超越纯文本基线。
 
 **[Nova3R Non-Pixel-Aligned Visual Transformer For Amodal 3D Reconstruction](nova3r_non-pixel-aligned_visual_transformer_for_amodal_3d_reconstruction.md)**
 
@@ -196,15 +196,15 @@ description: >-
 
 **[Peering Into The Unknown Active View Selection With Neural Uncertainty Maps For ](peering_into_the_unknown_active_view_selection_with_neural_uncertainty_maps_for_.md)**
 
-:   提出 PUN 方法，通过轻量级 UPNet（ViT）从单张图像预测神经不确定性图（球面坐标系下所有候选视点的不确定性分布），避免迭代 NeRF 重训练，仅用一半视点达到全视点上界的重建质量，实现 400 倍加速和 50%+ 计算节省。
+:   提出 PUN（Peering into the UnkNowN），用轻量前馈网络 UPNet 从单张图像直接预测球面上所有候选视点的不确定性分布（neural uncertainty map），替代了需要迭代重训 NeRF/3DGS 的传统主动视点选择流程。仅用上界一半的视点就达到可比的重建质量，选点阶段实现 400 倍加速和 50%+ 的计算资源节省。
 
 **[Pyspatial Generating 3D Visual Programs For Zero-Shot Spatial Reasoning](pyspatial_generating_3d_visual_programs_for_zero-shot_spatial_reasoning.md)**
 
-:   提出pySpatial——视觉编程框架让MLLM通过生成Python代码调用3D空间工具(重建/相机恢复/新视角渲染)实现零样本3D空间推理：将2D输入转化为可探索的3D场景→MLLM在结构化3D表示上显式推理而非隐式想象,在MindCube上超越GPT-4.1-mini 12.94%,并成功用于真实室内四足机器人导航。
+:   pySpatial 是一个视觉编程框架，让 MLLM 通过生成 Python 代码自动调用 3D 空间工具（3D 重建、相机位姿恢复、新视角渲染等），将有限的 2D 图像输入转化为可交互探索的 3D 场景，实现零样本、即插即用的显式 3D 空间推理，在 MindCube 基准上以 58.56% 的整体准确率超越 GPT-4.1-mini 12.94%、超越 VLM-3R 16.5%，并成功驱动真实四足机器人完成室内导航。
 
 **[Quadgpt Native Quadrilateral Mesh Generation With Autoregressive Models](quadgpt_native_quadrilateral_mesh_generation_with_autoregressive_models.md)**
 
-:   提出QuadGPT——首个端到端自回归生成原生四边形网格的框架：设计统一tokenization处理三角形/四边形混合拓扑(三角形面用padding统一为四顶点)，采用Hourglass Transformer压缩面序列+截断序列训练支持高面数网格，引入tDPO(截断DPO)强化学习微调奖励结构化边环形成，在几何精度和拓扑质量上显著超越三角形→四边形转换流水线。
+:   提出 QuadGPT——首个端到端自回归生成原生四边形网格的框架，通过统一的混合拓扑tokenization（三角形面 padding 为4顶点块）、Hourglass Transformer 架构、以及基于拓扑奖励的截断 DPO (tDPO) 微调，在 Chamfer Distance、Hausdorff Distance、四边形比例和用户偏好上全面超越现有的三角形→四边形转换流水线和十字场引导方法。
 
 **[Quantized Visual Geometry Grounded Transformer](quantized_visual_geometry_grounded_transformer.md)**
 
@@ -212,19 +212,19 @@ description: >-
 
 **[Scaling Sequence-To-Sequence Generative Neural Rendering](scaling_sequence-to-sequence_generative_neural_rendering.md)**
 
-:   提出 Kaleido，一系列将 3D 视为视频特殊子域的生成模型，通过序列到序列的图像合成范式和 Masked Autoregressive 框架实现无需显式 3D 表示的新视角合成，首次在多视角设置下匹配逐场景优化方法的质量。
+:   提出 Kaleido，一系列将 3D 视为视频特殊子域的 decoder-only rectified flow transformer 生成模型，通过统一位置编码（Unified Positional Encoding）、掩码自回归框架和视频预训练策略，实现无需任何显式 3D 表示的 "any-to-any" 6-DoF 新视角合成，**首次在多视角设置下匹配逐场景优化方法（InstantNGP）的渲染质量**，并将分辨率从 512/576px 提升至 1024px。
 
 **[Scenetransporter Optimal Transport-Guided Compositional Latent Diffusion For Sin](scenetransporter_optimal_transport-guided_compositional_latent_diffusion_for_sin.md)**
 
-:   提出SceneTransporter——用最优传输(OT)引导组合latent扩散实现单图结构化3D场景生成：通过去偏聚类探查揭示部件级生成器在open-world场景中失败的原因(缺乏分配约束)→将结构化生成重新建模为全局关联分配问题→在去噪循环中求解熵OT目标→(1)OT计划门控交叉注意力实现排他性一对一路由(防止特征纠缠) (2)竞争性传输鼓励相似patch分组+边缘正则化确保清晰边界→显著提升实例级一致性和几何保真度。
+:   SceneTransporter 通过在组合 3D latent 扩散模型的去噪循环中引入熵最优传输（OT）框架，将 open-world 结构化 3D 场景生成重新建模为全局关联分配问题：OT 计划门控交叉注意力实现排他性的 patch-to-part 路由（防止特征纠缠），边缘正则化的分配代价鼓励在图像边缘处分离不同实例，在 74 张多样化 open-world 场景图像上实现了 SOTA 的实例级一致性和几何保真度。
 
 **[Sharp Monocular View Synthesis In Less Than A Second](sharp_monocular_view_synthesis_in_less_than_a_second.md)**
 
-:   提出SHARP——从单张照片在不到1秒内通过单次前馈回归度量3D高斯表示→支持100+FPS实时高分辨率渲染→在多个数据集上零样本泛化LPIPS降低25-34%/DISTS降低21-43%/合成速度比扩散方法快1000倍，设定了单目视图合成的新SOTA。
+:   SHARP 通过单次前馈神经网络从单张照片生成约 120 万个 3D Gaussian，在 A100 GPU 上不到 1 秒完成推理，渲染速度超 100 FPS，在 6 个数据集上零样本泛化均达 SOTA，相比最强先前方法 LPIPS 降低 25–34%、合成时间缩短三个数量级。
 
 **[Splat And Distill Augmenting Teachers With Feed-Forward 3D Reconstruction For 3D](splat_and_distill_augmenting_teachers_with_feed-forward_3d_reconstruction_for_3d.md)**
 
-:   提出Splat and Distill(SnD)——通过前馈3D重建增强teacher对student进行3D感知蒸馏：将teacher 2D特征提升到3D高斯表示→从新视角渲染特征→监督student→与逐场景优化不同→前馈提升避免特征平均化→teacher一致性随student迭代改善(EMA)→在深度/法线/分割/对应4个任务上全面超越FiT3D/MEF等先前方法。
+:   在 student-teacher 蒸馏框架中，用预训练的前馈式 3D 重建模型（MVSplat）增强 teacher，将 2D 特征提升到 3D Gaussian 表示后渲染到新视角，从而让 student 学到几何一致的 3D-aware 2D 特征，在深度估计、法线估计、语义分割和多视图对应等下游任务上全面超越现有方法。
 
 **[Splat Feature Solver](splat_feature_solver.md)**
 
@@ -232,7 +232,7 @@ description: >-
 
 **[Station2Radar Query Conditioned Gaussian Splatting For Precipitation Field](station2radar_query_conditioned_gaussian_splatting_for_precipitation_field.md)**
 
-:   提出QCGS(Query-Conditioned Gaussian Splatting)——首个将气象站观测+卫星图像融合生成降水场的框架(无需雷达)：关键洞察→传统高斯加权插值=高斯溅射的特例→QCGS学习自适应高斯参数+选择性只渲染降水区域→比传统网格化降水产品RMSE降低50%+→分辨率灵活/实时生成。
+:   提出 Query-Conditioned Gaussian Splatting (QCGS)，首次将 2D 高斯溅射引入降水场生成任务，融合卫星图像与自动气象站稀疏观测，实现无雷达条件下分辨率灵活的降水场重建，RMSE 较传统网格化产品提升超 50%。
 
 **[Streamsplat Towards Online Dynamic 3D Reconstruction From Uncalibrated Video Str](streamsplat_towards_online_dynamic_3d_reconstruction_from_uncalibrated_video_str.md)**
 

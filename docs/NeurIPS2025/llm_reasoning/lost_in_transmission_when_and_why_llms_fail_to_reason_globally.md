@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.08140](https://arxiv.org/abs/2505.08140)  
 **代码**: 待确认  
 **领域**: llm_reasoning  
-**关键词**: communication complexity, bounded attention, chain-of-thought, LLM limitations, computational framework
+**关键词**: communication complexity, bounded attention, chain-of-thought, LLM limitations, computational framework  
 **作者**: Tobias Schnabel, Kiran Tomlinson, Adith Swaminathan, Jennifer Neville (Microsoft)
 
 ## 一句话总结

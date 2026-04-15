@@ -92,7 +92,7 @@ description: >-
 
 **[Optimal Look-Back Horizon For Time Series Forecasting In Federated Learning](optimal_look-back_horizon_for_time_series_forecasting_in_federated_learning.md)**
 
-:   提出联邦学习场景下时间序列预测的最优 look-back horizon 理论框架：通过 Synthetic Data Generator (SDG) 建模 non-IID 客户端数据，构建 intrinsic representation space，证明预测损失可分解为 Bayesian loss（随 $H$ 递减并饱和）和 approximation loss（随 $H$ 递增），最优 horizon $H^*$ 为 Bayesian loss 开始饱和的最小值。
+:   提出联邦学习场景下时间序列预测的最优回看窗口（look-back horizon）理论框架，通过合成数据生成器（SDG）和内禀空间表示，将预测损失分解为贝叶斯不可约误差和近似误差，证明总损失关于窗口长度是单峰的，最小充分窗口为最优解。
 
 **[Predicting The Future By Retrieving The Past](predicting_the_future_by_retrieving_the_past.md)**
 

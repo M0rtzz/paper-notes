@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 图像生成方向 252篇论文解读
+  NeurIPS2025 图像生成方向 251篇论文解读
 description: >-
-  252篇NeurIPS2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  251篇NeurIPS2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧠 NeurIPS2025** · 共 **252** 篇
+**🧠 NeurIPS2025** · 共 **251** 篇
 
 **[70 Size 100 Accuracy Lossless Llm Compression For Efficient](70_size_100_accuracy_lossless_llm_compression_for_efficient.md)**
 
@@ -40,7 +40,7 @@ description: >-
 
 **[Accuquant Simulating Multiple Denoising Steps For Quantizing](accuquant_simulating_multiple_denoising_steps_for_quantizing.md)**
 
-:   提出 AccuQuant用于扩散模型的训练后量化（PTQ）方法，通过在校准阶段显式模拟多个去噪步骤来最小化量化误差的累积效应，并通过新型目标函数将内存复杂度从 O(n) 降至 O(1)，在多种扩散模型和任务上取得显著改进。
+:   揭示扩散模型量化中的误差累积现象——每步的量化误差会传递并放大到后续步骤——并提出在 PTQ 校准阶段显式模拟连续多步去噪过程来联合优化量化参数的方法，同时通过巧妙的目标函数设计将内存从 O(n) 降至 O(1)。
 
 **[Adapting Speech Language Model To Singing Voice Synthesis](adapting_speech_language_model_to_singing_voice_synthesis.md)**
 
@@ -64,7 +64,7 @@ description: >-
 
 **[Auggen Synthetic Augmentation Using Diffusion Models Can Imp](auggen_synthetic_augmentation_using_diffusion_models_can_imp.md)**
 
-:   提出AugGen——一种自包含（self-contained）的合成数据增强方法：利用扩散模型的条件向量插值（$c^* = \alpha c_i + \beta c_j$）实现类间混合生成，无需外部数据或模型即可为人脸识别提供1-12%的性能提升，等效于1.7倍真实数据量，IR50+AugGen甚至超越IR101 real-only。
+:   提出 AugGen，一种自包含的合成数据增强方法：在目标数据集上训练类条件扩散模型，通过混合不同类别的条件向量生成新的"混合类"样本，增强判别模型训练，在人脸识别基准上实现 1-12% 的性能提升，无需任何外部数据或辅助模型。
 
 **[Autoregressive Adversarial Posttraining For Realtime Interac](autoregressive_adversarial_posttraining_for_realtime_interac.md)**
 
@@ -120,7 +120,7 @@ description: >-
 
 **[Camila Contextaware Masking For Image Editing With Language](camila_contextaware_masking_for_image_editing_with_language.md)**
 
-:   CAMILA提出上下文感知的图像编辑方法，能自动验证指令与图像的上下文一致性，仅对语义可行的指令执行编辑，忽略不可行或矛盾的指令，在包含不可行请求的单/多指令编辑benchmark上实现更高性能和语义对齐。
+:   提出 CAMILA，一种上下文感知的图像编辑方法，利用多模态大语言模型（MLLM）自动判断指令是否可在给定图像上执行，生成 [MASK]/[NEG] 专用 token 区分可编辑区域和应忽略区域，实现精准多指令编辑并有效过滤不可执行指令。
 
 **[Camit A Time-Aware Car Model Dataset For Classification And Generation](camit_a_time-aware_car_model_dataset_for_classification_and_generation.md)**
 
@@ -137,10 +137,6 @@ description: >-
 **[Composite Flow Matching For Reinforcement Learning With Shifted-Dynamics Data](composite_flow_matching_for_reinforcement_learning_with_shifted-dynamics_data.md)**
 
 :   提出 CompFlow，通过复合流匹配架构（在离线流输出分布上构建在线流）估计离线-在线环境间的动态差异（Wasserstein 距离），并结合高动态差异区域的主动探索策略，在 27 个动态偏移 RL 任务中平均回报超越最强基线 14.2%。
-
-**[Composition And Alignment Of Diffusion Models Using Constrai](composition_and_alignment_of_diffusion_models_using_constrai.md)**
-
-:   提出统一的约束学习框架来处理扩散模型的对齐（alignment）和组合（composition），将多奖励对齐形式化为 KL 散度最小化+奖励约束，将模型组合形式化为 minimax KL 散度问题，通过拉格朗日对偶的原-对偶训练算法求解，相比传统加权方法更可解释且避免了手动调权。
 
 **[Conditional Panoramic Image Generation Via Masked Autoregres](conditional_panoramic_image_generation_via_masked_autoregres.md)**
 
@@ -164,11 +160,11 @@ description: >-
 
 **[Coral Disentangling Latent Representations In Longtailed Dif](coral_disentangling_latent_representations_in_longtailed_dif.md)**
 
-:   论文系统分析长尾数据下扩散模型尾部类别生成质量下降的根因，指出 U-Net 瓶颈潜表示发生“头类-尾类子空间重叠”导致特征借用，并提出 CORAL 对比式潜空间对齐正则，显著提升尾类样本的多样性与视觉质量。
+:   深入诊断长尾数据下扩散模型尾类生成退化的根因为 U-Net 瓶颈层的"表示纠缠"（representation entanglement），提出 CORAL 通过在瓶颈层施加监督对比损失来解耦类别表示，在 CIFAR10/100-LT、CelebA-5、ImageNet-LT 上全面超越 DDPM/CBDM/T2H 等基线。
 
 **[Coreinforcement Learning For Unified Multimodal Understandin](coreinforcement_learning_for_unified_multimodal_understandin.md)**
 
-:   提出CoRL框架——通过"统一RL→精细RL"两阶段GRPO训练策略，在不依赖额外监督数据的情况下，让统一多模态模型(ULM)的理解和生成能力协同进化，在Janus-Pro-1.5B上取得生成+7%、理解+23%的平均提升。
+:   提出 CoRL（Co-Reinforcement Learning）框架，通过"统一RL→精细化RL"两阶段策略对统一多模态模型（ULM）同时进行理解和生成能力的强化学习优化，实现理解生成双能力的协同进化，在 1.5B 参数量下生成提升 7%、理解提升 23%。
 
 **[Counterfactual Identifiability Via Dynamic Optimal Transport](counterfactual_identifiability_via_dynamic_optimal_transport.md)**
 
@@ -194,10 +190,6 @@ description: >-
 
 :   提出 Decomate 交互系统，利用多模态大语言模型 (MLLM) 将非结构化 SVG 图形自动分解为语义组件，设计师通过自然语言为各组件指定动画行为，系统生成可生产的 HTML/CSS/JS 动画代码，支持迭代协作创作。
 
-**[Deft Decompositional Efficient Finetuning For Texttoimage Mo](deft_decompositional_efficient_finetuning_for_texttoimage_mo.md)**
-
-:   提出DEFT——将权重更新分解为两个可训练矩阵的组合：(1)低秩子空间的正交投影和(2)子空间内的低秩调整，相比LoRA在T2I个性化中CLIP-T从0.341提升到0.361（DreamBench+），在统一模型上实现风格迁移和条件生成的SOTA。
-
 **[Denoising Weak Lensing Mass Maps With Diffusion Model And Generative Adversarial](denoising_weak_lensing_mass_maps_with_diffusion_model_and_generative_adversarial.md)**
 
 :   将扩散模型（DM）应用于弱引力透镜质量图去噪任务，与 GAN（pix2pix）在相同实验设置下进行系统性对比，证明 DM 在训练稳定性、多样本平均鲁棒性和多种统计量重建精度上全面优于 GAN。
@@ -208,7 +200,7 @@ description: >-
 
 **[Detection And Simulation Of Urban Heat Islands Using A Fine-Tuned Geospatial Fou](detection_and_simulation_of_urban_heat_islands_using_a_fine-tuned_geospatial_fou.md)**
 
-:   提出一套利用微调地理空间基础模型（Granite-GFM）的完整工作流，涵盖城市热岛效应的实证量化、未来气候情景下的温度外推预测，以及通过卫星图像 inpainting 模拟城市绿化降温效果。
+:   提出一套利用微调地理空间基础模型（Granite-GFM）的三阶段统一工作流——先通过绿地冷却效应建立实证基线验证模型物理真实性，再外推未来气候情景下的城市温度，最后通过 inpainting 模拟绿化干预的降温效果——将基础模型从评估工具升级为城市规划的交互式模拟平台。
 
 **[Dexter Diffusion-Guided Explanations With Textual Reasoning For Vision Models](dexter_diffusion-guided_explanations_with_textual_reasoning_for_vision_models.md)**
 
@@ -236,7 +228,7 @@ description: >-
 
 **[Diffusion Adaptive Text Embedding For Texttoimage Diffusion](diffusion_adaptive_text_embedding_for_texttoimage_diffusion.md)**
 
-:   发现T2I扩散模型中固定的text embedding在不同时间步是次优的，提出DATE——在推理时动态更新text embedding以最大化mean predicted image与文本的对齐评分（如CLIP Score/ImageReward），无需训练，可即插即用到任何扩散模型和采样器中，在多概念生成和图像编辑中一致提升text-image对齐。
+:   提出 DATE（Diffusion Adaptive Text Embedding），在扩散模型采样过程中根据当前去噪中间结果动态更新文本嵌入，无需额外训练即可提升文本-图像语义对齐。
 
 **[Diffusion Classifiers Understand Compositionality But Condit](diffusion_classifiers_understand_compositionality_but_condit.md)**
 
@@ -252,7 +244,7 @@ description: >-
 
 **[Distilled Decoding 2 Onestep Sampling Of Image Autoregressiv](distilled_decoding_2_onestep_sampling_of_image_autoregressiv.md)**
 
-:   提出 Distilled Decoding 2 (DD2)，通过条件分数蒸馏损失将图像自回归模型压缩为单步生成器，在 ImageNet-256 上 FID 仅从 3.40 增至 5.43，比 DD1 的 one-step 差距缩小 67%，训练加速 12.3×。
+:   本文提出Distilled Decoding 2（DD2），通过将自回归图像模型重新解读为条件分数模型，设计了条件分数蒸馏（CSD）损失，将多步AR采样压缩为一步生成，在ImageNet-256上实现FID从3.40到5.43的微小退化同时获得8.0x加速（VAR）和238x加速（LlamaGen），相比DD1缩小了67%的性能差距且训练快12.3倍。
 
 **[Dove Efficient One-Step Diffusion Model For Real-World Video Super-Resolution](dove_efficient_one-step_diffusion_model_for_real-world_video_super-resolution.md)**
 
@@ -324,11 +316,11 @@ description: >-
 
 **[Exploring Variational Graph Autoencoders For Distribution Grid Data Generation](exploring_variational_graph_autoencoders_for_distribution_grid_data_generation.md)**
 
-:   探索变分图自编码器（VGAE）生成合成配电网拓扑的能力，评估四种解码器架构在两个数据集上的表现，揭示 VGAE 在小型同质网络上效果良好但在大型异质网络上面临挑战。
+:   系统评估了四种变分图自编码器（VGAE）解码器架构在生成合成配电网拓扑任务上的表现，发现 Iterative-GCN 解码器在小型同质数据集上能较好复现真实电网的结构和频谱特征，但在大型异质数据集上所有方法均存在断连组件和重复模式等严重问题。
 
 **[Failure Prediction At Runtime For Generative Robot Policies](failure_prediction_at_runtime_for_generative_robot_policies.md)**
 
-:   提出 FIPER 框架，通过结合观测空间的 OOD 检测（RND）和动作空间的不确定性量化（ACE），在生成式机器人策略运行时无需失败数据即可实现早期失败预测。
+:   提出 FIPER 框架，在生成式机器人策略（扩散/流匹配）运行时，通过观测端 RND-OE（OOD 检测）和动作端 ACE（动作块熵）双指标联合判断，无需任何失败数据即可实现早期、准确的失败预测，并借助共形预测提供统计保证。
 
 **[Fairimagen Post-Processing For Bias Mitigation In Text-To-Image Models](fairimagen_post-processing_for_bias_mitigation_in_text-to-image_models.md)**
 
@@ -340,15 +332,15 @@ description: >-
 
 **[Fast Data Attribution For Text-To-Image Models](fast_data_attribution_for_text-to-image_models.md)**
 
-:   将慢而准确的 unlearning-based 数据归因方法蒸馏为一个可快速检索的特征嵌入空间，在 Stable Diffusion 级别模型上实现比现有方法快 2,500× ~ 400,000× 的数据归因。
+:   将精确但缓慢的 Attribution by Unlearning 方法蒸馏到一个轻量特征嵌入空间中，通过 learning-to-rank 训练使得简单的余弦相似度检索就能近似昂贵的归因排序，首次在 Stable Diffusion + LAION-400M 规模上实现毫秒级数据归因。
 
 **[Fast Solvers For Discrete Diffusion Models Theory And Applications Of High-Order](fast_solvers_for_discrete_diffusion_models_theory_and_applications_of_high-order.md)**
 
-:   为离散扩散模型推理首次提出高阶数值求解器（θ-RK-2 和 θ-Trapezoidal），在 KL 散度意义下证明二阶收敛，在文本和图像生成任务上以同等计算预算获得更好的样本质量。
+:   首次将高阶数值方法引入离散扩散模型推理，提出 θ-RK-2 和 θ-Trapezoidal 两种二阶求解器，在理论上证明 θ-Trapezoidal 的离散化误差从一阶 $\mathcal{O}(\kappa T)$ 提升到二阶 $\mathcal{O}(\kappa^2 T)$，实验覆盖 200M–8B 模型在文本、图像和数学推理上的一致性提升。
 
 **[Ferretnet Efficient Synthetic Image Detection Via Local Pixel Dependencies](ferretnet_efficient_synthetic_image_detection_via_local_pixel_dependencies.md)**
 
-:   基于 Markov Random Field 理论提出局部像素依赖（LPD）特征表示，结合仅 1.1M 参数的轻量 FerretNet 网络，仅在 4 类 ProGAN 数据上训练即在 22 个生成模型上达到 97.1% 平均准确率。
+:   基于马尔可夫随机场（MRF）理论，提出局部像素依赖（LPD）特征表示，通过中值滤波重建暴露生成图像的纹理不一致性，配合仅 1.1M 参数的轻量卷积网络 FerretNet，在仅用 4 类 ProGAN 数据训练的情况下，实现跨 22 个生成模型 97.1% 的平均检测准确率。
 
 **[Flatten Graphs As Sequences Transformers Are Scalable Graph Generators](flatten_graphs_as_sequences_transformers_are_scalable_graph_generators.md)**
 
@@ -356,7 +348,7 @@ description: >-
 
 **[Flattening Hierarchies With Policy Bootstrapping](flattening_hierarchies_with_policy_bootstrapping.md)**
 
-:   提出 Subgoal Advantage-Weighted Policy Bootstrapping（SAW），通过优势加权的重要性采样对子目标条件策略进行 bootstrapping，将层级 RL 的长距离推理能力蒸馏到一个扁平策略中，无需生成式子目标模型。
+:   提出 SAW（Subgoal Advantage-Weighted Policy Bootstrapping），通过在数据集内轨迹上采样子目标并用优势值加权的重要性采样进行策略自举，将层次 RL 的长时序推理优势蒸馏到单一扁平策略中，无需学习子目标生成模型，在 20 个离线 GCRL 数据集上匹配或超越 SOTA。
 
 **[Flex-Judge Text-Only Reasoning Unleashes Zero-Shot Multimodal Evaluators](flex-judge_text-only_reasoning_unleashes_zero-shot_multimodal_evaluators.md)**
 
@@ -409,6 +401,10 @@ description: >-
 **[Graph Diffusion That Can Insert And Delete](graph_diffusion_that_can_insert_and_delete.md)**
 
 :   提出 GrIDDD 模型，首次将离散去噪扩散模型（DDPM）扩展为支持在生成过程中**动态插入和删除图节点**，使分子图的大小可在扩散过程中自适应变化，在性质靶向和分子优化任务上达到或超过现有方法。
+
+**[Graph Distance As Surprise Free Energy Minimization In Knowledge Graph Reasoning](graph_distance_as_surprise_free_energy_minimization_in_knowledge_graph_reasoning.md)**
+
+:   将神经科学的 Free Energy Principle (FEP) 与知识图谱推理连接，提出用图的最短路径距离作为 surprise 的度量，将 Murphy et al. 的树结构 surprise 理论推广到一般有向图，为 KG-based agent 的 entity grounding 提供了一个有原则的理论框架。
 
 **[Grasp2Grasp Vision-Based Dexterous Grasp Translation Via Schrödinger Bridges](grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md)**
 
@@ -764,7 +760,7 @@ description: >-
 
 **[Rlzero Direct Policy Inference From Language Without In-Domain Supervision](rlzero_direct_policy_inference_from_language_without_in-domain_supervision.md)**
 
-:   提出RLZero框架，通过"想象-投影-模仿"三步流程，利用视频生成模型将自然语言指令转化为观测序列，再由无监督预训练的RL智能体即时模仿，实现零样本语言到行为的生成。
+:   提出 RLZero 框架，通过"想象 → 投影 → 模仿"三步流程，将自然语言指令转化为目标环境中的行为策略——用视频生成模型从语言"想象"观测序列，将其投影到目标域，最终由无监督预训练的 RL 智能体通过闭合形式解即时模仿，整个过程无需任何域内监督或标注轨迹。
 
 **[Robustness In Both Domains Clip Needs A Robust Text Encoder](robustness_in_both_domains_clip_needs_a_robust_text_encoder.md)**
 
@@ -924,7 +920,7 @@ description: >-
 
 **[Training-Free Efficient Video Generation Via Dynamic Token Carving](training-free_efficient_video_generation_via_dynamic_token_carving.md)**
 
-:   提出 Jenga，一种即插即用的视频扩散 Transformer 推理加速方案，通过动态注意力剪裁和渐进分辨率生成实现 8.83× 加速，VBench 性能仅下降 0.01%。
+:   提出 Jenga，一种即插即用的视频扩散 Transformer 推理加速管线，通过 3D 空间填充曲线驱动的动态注意力剪裁和渐进分辨率生成的协同设计，在多个 Video DiT 模型上实现 6-9 倍加速且几乎无质量损失。
 
 **[Training-Free Safe Text Embedding Guidance For Text-To-Image Diffusion Models](training-free_safe_text_embedding_guidance_for_text-to-image_diffusion_models.md)**
 
@@ -940,7 +936,7 @@ description: >-
 
 **[Two-Steps Diffusion Policy For Robotic Manipulation Via Genetic Denoising](two-steps_diffusion_policy_for_robotic_manipulation_via_genetic_denoising.md)**
 
-:   本文提出遗传扩散策略（GDP），通过分析裁剪导致的分布不匹配问题，结合降低噪声注入和基于群体选择的遗传算法去噪策略，使扩散策略仅需2步神经函数评估即可完成复杂操控任务。
+:   通过揭示扩散策略中裁剪操作导致的分布失配本质，提出结合去噪调度优化与遗传算法群体选择的GDP方法，使现成DDPM扩散策略**无需重训练**即可在仅2步推理下达到甚至超越100步基线的操控性能。
 
 **[Ultrahr-100K Enhancing Uhr Image Synthesis With A Large-Scale High-Quality Datas](ultrahr-100k_enhancing_uhr_image_synthesis_with_a_large-scale_high-quality_datas.md)**
 
@@ -968,7 +964,7 @@ description: >-
 
 **[V-Cece Visual Counterfactual Explanations Via Conceptual Edits](v-cece_visual_counterfactual_explanations_via_conceptual_edits.md)**
 
-:   提出 V-CECE，首个系统性解决人类语义理解与神经网络推理差异的视觉反事实解释框架，通过知识图谱保证编辑最优性，利用扩散模型执行概念级编辑，无需训练即可生成人类可理解的反事实图像。
+:   V-CECE提出首个系统性揭示人类与神经网络分类器语义理解差异（explanatory gap）的黑盒视觉反事实解释框架，通过WordNet知识图谱+匈牙利算法保证编辑集最优性，用Stable Diffusion执行概念级编辑，核心发现是CNN分类器的语义推理与人类严重不对齐（需5+步编辑），而LVLM（Claude 3.5 Sonnet）与人类高度一致（仅需2-3步）。
 
 **[Value Gradient Guidance For Flow Matching Alignment](value_gradient_guidance_for_flow_matching_alignment.md)**
 
@@ -1012,7 +1008,7 @@ description: >-
 
 **[Why Knowledge Distillation Works In Generative Models A Minimal Working Explanat](why_knowledge_distillation_works_in_generative_models_a_minimal_working_explanat.md)**
 
-:   提出知识蒸馏在生成模型中的最小工作解释：蒸馏自然诱导了精度-召回权衡，教师分布越具有选择性（低熵），学生模型越集中于高概率密度区域（高精度），以牺牲覆盖度（低召回）为代价——这在强调样本质量的场景中正是所需。
+:   通过高斯混合模型的理论分析和大规模语言模型实验（SmolLM2 系列多级蒸馏），揭示知识蒸馏在生成模型中的核心机制——蒸馏诱导学生模型在精度（precision，生成质量）和召回（recall，分布覆盖度）之间进行权衡，由教师分布的熵控制。
 
 **[Wmcopier Forging Invisible Image Watermarks On Arbitrary Images](wmcopier_forging_invisible_image_watermarks_on_arbitrary_images.md)**
 

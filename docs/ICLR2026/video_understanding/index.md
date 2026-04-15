@@ -84,11 +84,11 @@ description: >-
 
 **[Map The Flow Revealing Hidden Pathways Of Information In Videollms](map_the_flow_revealing_hidden_pathways_of_information_in_videollms.md)**
 
-:   首次系统揭示VideoLLM内部时序推理的信息流动规律：(1)早中层跨帧交互建立时空表示→(2)中层视频-语言整合→(3)中后层答案生成，并证明仅保留42%的注意力边即可维持VideoQA性能。
+:   首次用机制可解释性工具（Attention Knockout + Logit Lens）系统逆向工程VideoLLM的时序推理过程，揭示出"早中层跨帧交互→中层视频-语言整合→中后层答案生成"的三阶段信息流蓝图，并证明仅保留42%注意力边即可几乎无损保持VideoQA性能。
 
 **[Mosa Motion-Coherent Human Video Generation Via Structure-Appearance Decoupling](mosa_motion-coherent_human_video_generation_via_structure-appearance_decoupling.md)**
 
-:   提出MoSA框架，将人物视频生成解耦为结构生成（3D骨骼Transformer生成运动序列）和外观生成（DiT在骨骼引导下合成视频），配合人体感知动态控制(HADC)模块、密集跟踪损失和接触约束，在复杂全身运动上显著超越现有方法。
+:   提出 MoSA 框架，将人体视频生成拆分为"结构生成"（3D Transformer 先生成物理合理的运动骨骼）和"外观生成"（DiT 在骨骼引导下合成视频），并设计人体感知动态控制（HADC）模块将稀疏骨骼信号扩展到整个运动区域，配合密集跟踪损失和接触约束，在 FVD、CLIPSIM 等指标上全面超越 HunyuanVideo、Wan 2.1 等 SOTA。
 
 **[Motionstream Real-Time Video Generation With Interactive Motion Controls](motionstream_real-time_video_generation_with_interactive_motion_controls.md)**
 
@@ -108,7 +108,7 @@ description: >-
 
 **[Precisecache Precise Feature Caching For Efficient And High-Fidelity Video Gener](precisecache_precise_feature_caching_for_efficient_and_high-fidelity_video_gener.md)**
 
-:   提出PreciseCache——精确检测并跳过视频生成中真正冗余计算的即插即用加速框架：LFCache用低频差异(LFD)度量步级冗余(高噪声步结构重要/低噪声步细节可缓存)→BlockCache度量块级冗余(非关键block直接复用)→在Wan2.1-14B上实现2.6x加速且无明显质量损失。
+:   提出 PreciseCache——精确检测并跳过视频生成中真正冗余计算的即插即用加速框架，由 LFCache（步级，基于低频差异 LFD 度量）和 BlockCache（块级，基于输入输出差异度量）组成，在 Wan2.1-14B 等主流模型上实现平均 2.6× 加速且无明显质量损失。
 
 **[Quantsparse Comprehensively Compressing Video Diffusion Transformer With Model Q](quantsparse_comprehensively_compressing_video_diffusion_transformer_with_model_q.md)**
 
@@ -124,7 +124,7 @@ description: >-
 
 **[The Expressive Limits Of Diagonal Ssms For State-Tracking](the_expressive_limits_of_diagonal_ssms_for_state-tracking.md)**
 
-:   研究输入依赖复数对角(DCD) SSM的表达能力极限——证明单层DCD SSM不能在有限精度下追踪任何非阿贝尔群的状态,更一般地k层DCD SSM能追踪一个群当且仅当该群有长度为k的子正规链且因子为阿贝尔群→精确刻画了k层DCD SSM在可解群中的表达范围,实验揭示多层模型在非阿贝尔群上表达能力和可学习性之间的gap。
+:   建立了输入依赖复数对角（DCD）SSM 在群状态追踪任务上的完整表达能力刻画：单层不能追踪任何非阿贝尔群，$k$ 层能追踪群 $G$ 当且仅当 $G$ 存在长度为 $k$ 的子正规链且因子均为阿贝尔群——精确定义了深度对表达能力的严格提升，同时实验揭示表达能力与可学习性之间的显著 gap。
 
 **[Towards Reliable Benchmarking A Contamination Free Controllable Evaluation Frame](towards_reliable_benchmarking_a_contamination_free_controllable_evaluation_frame.md)**
 

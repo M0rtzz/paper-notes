@@ -20,7 +20,7 @@ description: >-
 
 **[Boss A Bestofstrategies Selector As An Oracle For](boss_a_bestofstrategies_selector_as_an_oracle_for.md)**
 
-:   提出BoSS，一种通过集成多个选择策略生成候选批次、冻结backbone仅重训最后一层来快速评估性能增益、然后选取最优批次的可扩展Oracle策略，揭示当前SOTA主动学习策略在大规模多类数据集上距离最优仍有显著差距。
+:   提出 BoSS（Best-of-Strategies Selector），通过集成10种互补的AL选择策略生成100个候选批次，冻结预训练backbone仅重训最后线性层来高效评估每个批次的性能增益，选取最优批次作为Oracle上界参考——首个可扩展到ImageNet的深度主动学习Oracle策略，揭示当前SOTA策略在大规模多类数据集上仍有约2倍的准确率提升空间。
 
 **[D2Dewarp Dual Dimensions Geometric Representation Learning Based Document Image ](d2dewarp_dual_dimensions_geometric_representation_learning_based_document_image_.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Teflow Enabling Multi-Frame Supervision For Self-Supervised Feed-Forward Scene F](teflow_enabling_multi-frame_supervision_for_self-supervised_feed-forward_scene_f.md)**
 
-:   通过教师-学生框架将多帧观测的丰富监督信号蒸馏到前馈场景流网络中，解决自监督场景流中单对帧监督不足的问题
+:   提出TeFlow——首个将多帧监督引入自监督前馈场景流估计的方法：通过时序集成策略构建运动候选池并基于共识投票聚合时序一致的监督信号，在Argoverse 2上Three-way EPE达3.57cm（媲美优化方法Floxels）同时保持实时推理（8s vs 24min），较SeFlow++提升22.3%。
 
 **[Text-Phase Synergy Network With Dual Priors For Unsupervised Cross-Domain Image ](text-phase_synergy_network_with_dual_priors_for_unsupervised_cross-domain_image_.md)**
 
@@ -76,4 +76,4 @@ description: >-
 
 **[Vit Need More Than Registers](vit_need_more_than_registers.md)**
 
-:   系统揭示ViT注意力伪影的根因是"惰性聚合"——全局注意力+粗粒度语义监督驱动模型用语义无关的背景patch作为全局语义的捷径表示，提出选择性patch特征集成方案在12个基准上跨三种监督范式一致提升性能。
+:   系统分析了 ViT 中广泛存在的 artifact 现象（跨全监督、文本监督、自监督），揭示其根本原因是"lazy aggregation"——ViT 利用语义无关的背景 patch 作为捷径来表示全局语义，提出 LaSt-ViT（LazyStrike ViT）通过频率感知的选择性通道聚合将 CLS token 锚定到前景区域，在 12 个 benchmark 上一致消除 artifact 并提升性能。

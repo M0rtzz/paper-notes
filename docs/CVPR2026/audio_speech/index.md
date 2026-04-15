@@ -48,11 +48,11 @@ description: >-
 
 **[Talking Together Synthesizing Co-Located 3D Conversations From Audio](talking_together_synthesizing_co-located_3d_conversations_from_audio.md)**
 
-:   首次提出从单一混合音频流生成两个共处同一3D空间的对话参与者完整面部动画的方法，通过双流扩散架构+跨说话人注意力+LLM文本控制空间布局，实现自然的眼神交互和空间感知的双人对话生成。
+:   首次提出从单一混合音频流生成两个**共处同一3D空间**的对话参与者完整面部动画的方法，通过双流扩散架构（共享 U-Net + 跨注意力）、两阶段混合数据训练策略、LLM 驱动的文本-空间布局控制以及辅助眼神损失，实现自然的互视、转头和空间感知的双人对话3D动画合成。
 
 **[Team Leya In 10Th Abaw Competition Multimodal Ambi](team_leya_in_10th_abaw_competition_multimodal_ambi.md)**
 
-:   提出四模态(场景VideoMAE+人脸EfficientNetB0+音频Wav2Vec2.0+Mamba+文本EmotionDistilRoBERTa)融合管线，通过原型增强Transformer融合模块将模态嵌入投影到共享空间并结合原型分类辅助损失，在BAH测试集上以5模型集成达到71.43% Macro F1。
+:   提出四模态（场景 VideoMAE + 人脸 EfficientNetB0 + 音频 Wav2Vec2.0/Mamba + 文本 EmotionDistilRoBERTa）融合管线，通过原型增强 Transformer 融合模块将各模态嵌入投影到共享 128 维空间并以原型分类辅助损失正则化，在 BAH 语料的最终测试集上以 5 模型集成达到 **71.43% Macro F1**，显著超越所有单模态基线。
 
 **[Team Leya In 10Th Abaw Competition Multimodal Ambivalencehesitancy Recognition A](team_leya_in_10th_abaw_competition_multimodal_ambivalencehesitancy_recognition_a.md)**
 

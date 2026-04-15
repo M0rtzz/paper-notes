@@ -44,7 +44,7 @@ description: >-
 
 **[Densedpo Finegrained Temporal Preference Optimization For Vi](densedpo_finegrained_temporal_preference_optimization_for_vi.md)**
 
-:   提出 DenseDPO，通过三个创新解决视频扩散模型 DPO 的根本缺陷：(1) 从 GT 视频加噪去噪构造结构对齐的视频对消除运动偏差，(2) 在短时间片段而非整个视频上标注密集偏好，(3) 利用 VLM 自动标注片段级偏好取代人工标注——仅用 1/3 标注数据即大幅提升运动生成质量。
+:   识别并解决视频 DPO 的运动偏差问题——通过从 GT 视频加噪去噪构造结构对齐的视频对来固定运动维度、在时间片段级标注密集偏好来获取更精准的学习信号、用现成 VLM 自动标注来降低成本，仅用 1/3 标注数据即大幅提升运动生成质量同时匹配视觉质量和文本对齐。
 
 **[Diffusion Model As A Noiseaware Latent Reward Model For Step](diffusion_model_as_a_noiseaware_latent_reward_model_for_step.md)**
 
@@ -148,7 +148,7 @@ description: >-
 
 **[Position The Complexity Of Perfect Ai Alignment -- Formalizing The Rlhf Trilemma](position_the_complexity_of_perfect_ai_alignment_--_formalizing_the_rlhf_trilemma.md)**
 
-:   形式化提出 RLHF 对齐三难困境：证明没有任何 RLHF 系统能同时实现价值多元代表性、多项式可计算性和对抗鲁棒性——三者至多满足其二，当前实践通过牺牲代表性换取可计算性。
+:   本文将 RLHF 中反复出现的安全-公平-效率冲突形式化为「对齐三难困境」：证明了没有任何 RLHF 系统能同时满足 $\varepsilon$-代表性（忠实反映多元价值）、多项式可处理性（计算可行）和 $\delta$-鲁棒性（抵御对抗攻击），从而为当前 RLHF 系统中偏好坍缩、谄媚等病理现象提供了统一的复杂度理论解释。
 
 **[Preference Optimization By Estimating The Ratio Of The Data Distribution](preference_optimization_by_estimating_the_ratio_of_the_data_distribution.md)**
 

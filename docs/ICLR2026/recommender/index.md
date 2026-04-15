@@ -24,7 +24,7 @@ description: >-
 
 **[In Agents We Trust But Who Do Agents Trust Latent Source Preferences Steer Llm G](in_agents_we_trust_but_who_do_agents_trust_latent_source_preferences_steer_llm_g.md)**
 
-:   通过对12个LLM在新闻、学术、电商三个领域的大规模控制实验，揭示了LLM存在系统性的**隐式信息源偏好**（latent source preferences），这种偏好可以压倒内容本身的影响，且无法通过简单提示消除。
+:   通过对来自6家提供商的12个LLM在新闻、学术、电商三大领域的大规模控制实验，揭示了LLM存在系统性的**隐式信息源偏好**（latent source preferences）——当内容语义完全相同时，仅更换来源标签就能显著改变模型的信息选择行为，且这种偏好无法通过提示工程消除。
 
 **[Propersim Developing Proactive And Personalized Ai Assistants Through User-Assis](propersim_developing_proactive_and_personalized_ai_assistants_through_user-assis.md)**
 

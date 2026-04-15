@@ -16,4 +16,4 @@ description: >-
 
 **[Codepercept Codegrounded Visual Stem Perception Fo](codepercept_codegrounded_visual_stem_perception_fo.md)**
 
-:   通过感知-推理解耦缩放实验证明 MLLM 在 STEM 任务中的瓶颈是感知而非推理，提出以可执行代码为感知介质的 CodePercept 范式，构建 ICC-1M 数据集和 STEM2Code-Eval 基准，系统性提升 MLLM 的 STEM 视觉感知能力。
+:   通过系统性缩放分析揭示**感知而非推理**是 MLLM 在 STEM 视觉任务上的真正瓶颈，提出以可执行代码为媒介增强感知能力的范式，构建 100 万级 Image-Caption-Code 三元组数据集 ICC-1M，包含代码锚定的标题生成和 STEM 图到代码翻译两个训练任务。

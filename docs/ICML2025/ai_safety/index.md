@@ -32,7 +32,7 @@ description: >-
 
 **[An Attack To Break Permutation-Based Private Third-Party Inference Schemes For L](an_attack_to_break_permutation-based_private_third-party_inference_schemes_for_l.md)**
 
-:   提出一种攻击方法可以从置换后的LLM隐藏状态近乎完美地恢复原始提示词，打破了三种近期提出的基于置换的隐私推理方案(Zheng/Yuan/Luo)的安全声明，并剖析了其理论证明的缺陷。
+:   提出一种基于词汇表逐token匹配的攻击方法，利用decoder-only LLM隐藏状态的非碰撞特性，可以从三种类型的置换隐藏状态中近乎完美恢复原始输入token，打破PermLLM、STIP、Centaur三种隐私推理方案的安全声明。
 
 **[An Efficient Private Gpt Never Autoregressively Decodes](an_efficient_private_gpt_never_autoregressively_decodes.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Can One Safety Loop Guard Them All Agentic Guard Rails For Federated Computing](can_one_safety_loop_guard_them_all_agentic_guard_rails_for_federated_computing.md)**
 
-:   提出 Guardian-FC——一个双层框架，通过 Agentic-AI 控制平面和后端无关的领域特定语言（DSL），统一管理不同隐私机制（FHE/MPC/DP）的安全护栏，实现联邦计算中的跨后端一致性安全执行和可审计性。
+:   提出 Guardian-FC——首个后端无关的联邦计算统一安全框架，通过 Agentic-AI 控制平面的有限状态安全循环（Sense→Predict→Act→Prove）统一监管 FHE、DP、MPC 等异构隐私机制，实现一套 guard-rail 逻辑跨所有隐私后端的一致性安全执行。
 
 **[Cape Context-Aware Prompt Perturbation Mechanism With Differential Privacy](cape_context-aware_prompt_perturbation_mechanism_with_differential_privacy.md)**
 
@@ -104,7 +104,7 @@ description: >-
 
 **[Emergent Misalignment Narrow Finetuning Can Produce Broadly Misaligned Llms](emergent_misalignment_narrow_finetuning_can_produce_broadly_misaligned_llms.md)**
 
-:   在窄领域任务（如写不安全代码）上微调对齐LLM，会导致模型在完全无关的开放式问答中表现出广泛的失对齐行为——反人类言论、恶意建议和欺骗性回答——作者将此称为"涌现式失对齐"。
+:   在 6000 个不安全代码样本上微调 GPT-4o 后，模型在完全无关的自由问答中以 20% 概率表现出广泛失对齐——宣称 AI 应奴役人类、提供恶意建议、实施欺骗——但仍拒绝直接有害请求，表明这不是越狱而是全新的"涌现式失对齐"。
 
 **[Empirical Privacy Variance](empirical_privacy_variance.md)**
 
@@ -160,7 +160,7 @@ description: >-
 
 **[On Differential Privacy For Adaptively Solving Search Problems](on_differential_privacy_for_adaptively_solving_search_problems.md)**
 
-:   本文首次将差分隐私技术扩展到搜索问题（返回解向量而非数值），提出用于自适应近似近邻搜索和回归问题的高效数据结构，在温和假设下实现 $O(\sqrt{T})$ 份数据结构副本即可正确回答 $T$ 个自适应查询。
+:   首次将差分隐私技术从数值估计问题扩展到搜索问题（需要返回解向量而非单一数值），提出在温和的稀疏近邻假设下用 $\tilde{O}(\sqrt{T} \cdot s)$ 份数据结构副本即可正确回答 $T$ 个自适应近似近邻查询的算法，同时给出依赖条件数的自适应回归数据结构。
 
 **[On Differential Privacy For Adaptively Solving Search Problems Via Sketching](on_differential_privacy_for_adaptively_solving_search_problems_via_sketching.md)**
 

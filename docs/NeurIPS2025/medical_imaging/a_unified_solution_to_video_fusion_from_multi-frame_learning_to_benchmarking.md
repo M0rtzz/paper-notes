@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2505.19858](https://arxiv.org/abs/2505.19858)  
 **代码**: [vfbench.github.io](https://vfbench.github.io)  
 **领域**: medical_imaging / video fusion  
-**关键词**: 视频融合, 多帧学习, 光流对齐, 时序一致性, benchmark
+**关键词**: 视频融合, 多帧学习, 光流对齐, 时序一致性, benchmark  
 **作者**: Zixiang Zhao (ETH Zürich), Haowen Bai, Bingxin Ke, Yukun Cui, Lilun Deng, Yulun Zhang, Kai Zhang, Konrad Schindler  
 
 ## 一句话总结

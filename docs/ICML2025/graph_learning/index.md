@@ -56,7 +56,7 @@ description: >-
 
 **[Graph Attention Is Not Always Beneficial A Theoretical Analysis Of Graph Attenti](graph_attention_is_not_always_beneficial_a_theoretical_analysis_of_graph_attenti.md)**
 
-:   通过 CSBM 理论分析揭示图注意力并非总有益：结构噪声>特征噪声时有效，反之简单卷积更优；多层 GAT 的完美分类 SNR 要求从 $\omega(\sqrt{\log n})$ 放松到 $\omega(\sqrt{\log n}/\sqrt[3]{n})$。
+:   本文通过上下文随机块模型（CSBM）理论分析了图注意力机制的有效性边界：当结构噪声大于特征噪声时 GAT 有效，反之 GCN 更优；并提出了首个多层 GAT 完美节点分类条件，将 SNR 要求从 $\omega(\sqrt{\log n})$ 放宽到 $\omega(\sqrt{\log n}/\sqrt[3]{n})$。
 
 **[Grokformer Graph Fourier Kolmogorov-Arnold Transformers](grokformer_graph_fourier_kolmogorov-arnold_transformers.md)**
 

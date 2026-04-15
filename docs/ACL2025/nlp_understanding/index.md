@@ -16,7 +16,7 @@ description: >-
 
 **[A Variational Approach For Mitigating Entity Bias In Relation Extraction](a_variational_approach_for_mitigating_entity_bias_in_relation_extraction.md)**
 
-:   将变分信息瓶颈（VIB）应用于关系抽取的实体去偏——将实体映射到概率分布 $\mathcal{N}(\mu,\sigma)$，通过方差控制实体信息的压缩程度（高方差=更多依赖上下文），在 TACRED/REFinD/BioRED 三个领域（通用/金融/生物医学）的域内和域外设置上达到 SOTA，同时方差分析提供可解释性。
+:   提出基于变分信息瓶颈（VIB）的实体去偏方法，将实体token映射为高斯分布以选择性压缩实体特定信息、保留上下文语义，在通用/金融/生物医学三个领域的关系抽取数据集上均取得SOTA，特别是在OOD场景下BioRED提升5.3个F1点。
 
 **[Adapting Psycholinguistic Research For Llms Gender-Inclusive Language In A Coref](adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Analyzing Political Bias In Llms Via Target-Oriented Sentiment Classification](analyzing_political_bias_in_llms_via_target-oriented_sentiment_classification.md)**
 
-:   提出基于目标导向情感分类（TSC）不一致性的 LLM 政治偏见分析新方法——在 450 个政治句子中插入 1319 名不同政治光谱/人口特征的政治家名字，用 7 个模型×6 种语言预测情感，定义熵基不一致性指标量化预测变异性，发现所有模型均存在显著偏见（左翼正面/极右翼负面），大模型偏见更强且更一致，用虚构名字替换可部分缓解。
+:   提出基于目标导向情感分类(TSC)的LLM政治偏差分析框架，通过在450个政治句子中替换1319位政治家名字并用7个模型在6种语言中预测情感，定义了基于熵的不一致性指标来量化偏差，发现LLM对左翼和中间派有正面偏见、对极右翼有负面偏见，且更大模型偏差更强更一致。
 
 **[Automatic Generation Of Inference Making Questions For Reading Comprehension Ass](automatic_generation_of_inference_making_questions_for_reading_comprehension_ass.md)**
 

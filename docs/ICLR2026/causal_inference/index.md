@@ -32,7 +32,7 @@ description: >-
 
 **[Distributional Equivalence In Linear Non-Gaussian Latent-Variable Cyclic Causal ](distributional_equivalence_in_linear_non-gaussian_latent-variable_cyclic_causal_.md)**
 
-:   本文首次在线性非高斯设定下，不依赖任何结构假设，完整刻画了含潜变量和环的因果图之间的分布等价性条件，提出了遍历等价类的算法和从数据中恢复因果模型的方法。
+:   首次在线性非高斯设定下、不依赖任何结构假设，给出了含潜变量和环的因果图之间分布等价性的完整图准则，核心工具是新提出的**边秩约束**（edge rank constraints），据此开发了遍历等价类和从数据恢复因果模型的算法——这是参数化因果模型中首个无结构假设的等价性刻画和发现方法。
 
 **[Efficient Ensemble Conditional Independence Test Framework For Causal Discovery](efficient_ensemble_conditional_independence_test_framework_for_causal_discovery.md)**
 

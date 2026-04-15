@@ -72,7 +72,7 @@ description: >-
 
 **[Modeling User Behavior From Adaptive Surveys With Supplemental Context](modeling_user_behavior_from_adaptive_surveys_with_supplemental_context.md)**
 
-:   提出LANTERN——模块化的用户行为建模架构，通过选择性门控+残差连接+后期融合交叉注意力将调查数据作为主信号、外部上下文作为补充，在多标签调查响应预测中超越纯调查基线。
+:   提出LANTERN（Late-Attentive Network for Enriched Response Modeling），一个模块化的用户行为建模架构，将自适应调查数据作为主信号，通过交叉注意力实现后期融合，选择性门控和残差连接保持调查信号的主导地位，外部上下文（人口统计、行为日志等）仅在相关时被融入，在约35,000用户的生产级数据集上以F1=0.775显著超越纯调查基线的0.734。
 
 **[Near Optimal Decision Trees In A Split Second](near_optimal_decision_trees_in_a_split_second.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[On The Effect Of Uncertainty On Layer-Wise Inference Dynamics](on_the_effect_of_uncertainty_on_layer-wise_inference_dynamics.md)**
 
-:   利用 Tuned Lens 分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的推理动力学高度对齐，挑战了基于简单层间特征检测不确定性的可行性。
+:   使用 Tuned Lens 系统分析 5 个 LLM 在 11 个数据集上各层的 token 概率演化轨迹，发现确定性和不确定性预测的层间推理动力学高度对齐（信心突变出现在相似的层），表明不确定性并不影响模型的推理动态结构，挑战了通过简单中间层特征检测不确定性的方法可行性。
 
 **[On The Power Of Context-Enhanced Learning In Llms](on_the_power_of_context-enhanced_learning_in_llms.md)**
 

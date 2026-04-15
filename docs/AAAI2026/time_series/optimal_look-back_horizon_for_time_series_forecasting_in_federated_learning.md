@@ -2,96 +2,161 @@
 title: >-
   [论文解读] Optimal Look-back Horizon for Time Series Forecasting in Federated Learning
 description: >-
-  [AAAI2026][时间序列][time series forecasting] 提出联邦学习场景下时间序列预测的最优 look-back horizon 理论框架：通过 Synthetic Data Generator (SDG) 建模 non-IID 客户端数据，构建 intrinsic representation space，证明预测损失可分解为 Bayesian loss（随 $H$ 递减并饱和）和 approximation loss（随 $H$ 递增），最优 horizon $H^*$ 为 Bayesian loss 开始饱和的最小值。
+  [AAAI 2026][时间序列][time series forecasting] 提出联邦学习场景下时间序列预测的最优回看窗口（look-back horizon）理论框架，通过合成数据生成器（SDG）和内禀空间表示，将预测损失分解为贝叶斯不可约误差和近似误差，证明总损失关于窗口长度是单峰的，最小充分窗口为最优解。
 tags:
-  - AAAI2026
+  - AAAI 2026
   - 时间序列
   - time series forecasting
   - 联邦学习
   - look-back horizon
   - intrinsic space
-  - Bayesian loss
+  - Bayesian loss decomposition
 ---
 
 # Optimal Look-back Horizon for Time Series Forecasting in Federated Learning
 
-**会议**: AAAI2026  
+**会议**: AAAI 2026  
 **arXiv**: [2511.12791](https://arxiv.org/abs/2511.12791)  
 **代码**: 无  
-**领域**: time_series  
-**关键词**: time series forecasting, federated learning, look-back horizon, intrinsic space, Bayesian loss
+**领域**: 时间序列预测 / 联邦学习  
+**关键词**: time series forecasting, federated learning, look-back horizon, intrinsic space, Bayesian loss decomposition
 
 ## 一句话总结
-提出联邦学习场景下时间序列预测的最优 look-back horizon 理论框架：通过 Synthetic Data Generator (SDG) 建模 non-IID 客户端数据，构建 intrinsic representation space，证明预测损失可分解为 Bayesian loss（随 $H$ 递减并饱和）和 approximation loss（随 $H$ 递增），最优 horizon $H^*$ 为 Bayesian loss 开始饱和的最小值。
+
+提出联邦学习场景下时间序列预测的最优回看窗口（look-back horizon）理论框架，通过合成数据生成器（SDG）和内禀空间表示，将预测损失分解为贝叶斯不可约误差和近似误差，证明总损失关于窗口长度是单峰的，最小充分窗口为最优解。
 
 ## 研究背景与动机
-Look-back horizon（回看窗口长度 $H$）是时间序列预测的核心超参数，直接影响模型复杂度和预测精度。
 
-现有不足：
-- 传统方法（ARIMA 用 AIC/BIC）有强线性假设，现代深度模型（LSTM、Transformer）仅靠交叉验证经验调参
-- Shi et al. (2024) 提出的 scaling law 理论假设集中式 IID 数据，不适用于联邦学习场景
-- 联邦学习中数据分散、non-IID、异构，全局固定 $H$ 可能与各客户端局部动态不匹配
+时间序列预测（TSF）中回看窗口 $H$ 的选择是核心建模决策，直接影响模型复杂度和预测精度。传统做法是将 $H$ 作为超参数通过交叉验证调优，缺乏理论指导。
 
-核心问题：如何在联邦学习的 non-IID 环境下，为时间序列预测提供有理论保证的自适应 horizon 选择准则？
+Shi et al. (2024) 的 scaling law 理论将时间序列嵌入内禀表示空间，将预测损失分解为贝叶斯误差和近似误差，但**假设数据集中式、IID、同构模型架构**。在联邦学习（FL）中，数据分布在异构客户端上，具有不同的分布、序列长度和领域特征，全局固定窗口可能导致局部动态与模型输入不匹配。
+
+核心问题：**如何在非 IID 联邦场景下，为每个客户端自适应地确定最优回看窗口？**
+
+本文扩展 Shi 的理论到联邦非 IID 设置，引入 SDG 捕获客户端异构性，构建满足几何和统计性质的内禀表示空间，推导出最优窗口的闭式表达。
 
 ## 方法详解
 
-### Synthetic Data Generator (SDG)
-对客户端 $k$ 的观测值建模为加性结构：
-$$\hat{x}_{f,t,k} = \sum_{j=1}^{J} A_{f,j,k} \sin\left(\frac{2\pi t}{T_{f,j,k}} + \theta_{f,j,k}\right) + \sum_{i=1}^{p} \phi_{k,i} x_{f,t-i,k} + \beta_{f,k} t + \epsilon_{f,t,k}$$
-包含季节性（多正弦分量）、AR 依赖、线性趋势和高斯噪声，并通过仿射变换模拟 feature skew。
+### 整体框架
 
-### Intrinsic Space 构建
-五步变换将 non-IID 时间序列映射到 intrinsic space：
-1. 客户端级归一化消除 feature skew
-2. 窗口展平为固定长度向量
-3. 全局协方差矩阵特征分解
-4. 基于 SDG 估计 intrinsic dimension：$d_{I,k}(H) \approx F \cdot (\min\{H, \ell_{AR,k}\} + g_k(H) + 1)$
-5. 投影到主成分空间
+框架包含四个层次：(1) SDG 建模客户端时间序列的核心结构（AR + 季节性 + 趋势 + 噪声）；(2) 五步变换将时间序列窗口映射到内禀空间；(3) 损失分解为贝叶斯（不可约）+ 近似两项；(4) 证明总损失单峰性并给出最优窗口。
 
-满足 6 个结构假设：紧致性、bi-Lipschitz 连续性、维度单调饱和等。
+### 关键设计
 
-### Loss 分解
-**Theorem 1 (Federated Loss Decomposition)**：
-$$L(H,S;m) = L_{Bayes}(H,S) + L_{approx}(H,S;m)$$
-- **Bayesian loss**：不可约误差，随 $H$ 递减（更多历史改善季节性/趋势识别），最终饱和
-- **Approximation loss**：模型有限容量 + 有限样本导致的误差，随 $H$ 递增（intrinsic dimension 增大、有效样本减少）
+**1. 合成数据生成器（SDG）**
 
-**Theorem 2**：Bayesian loss 进一步分解为 AR、seasonal、trend 三个分量。
+为客户端 $k$、特征 $f$、时间步 $t$ 建模：
 
-**Theorem 3**：Approximation loss 有 intrinsic-dimension 相关上界：
-$$L_{approx}^{(k)} \lesssim (K_2^2 d_{I,k}^2)^{\frac{d_{I,k}}{4+d_{I,k}}} + \left(\frac{d_{I,k} H}{D_k}\right)^{\frac{4}{4+d_{I,k}}}$$
+$$\hat{x}_{f,t,k} = \sum_{j=1}^{J} A_{f,j,k} \cdot \sin\left(\frac{2\pi t}{T_{f,j,k}} + \theta_{f,j,k}\right) + \sum_{i=1}^{p} \phi_{k,i} x_{f,t-i,k} + \beta_{f,k} t + \epsilon_{f,t,k}$$
 
-### 最优 Horizon
-**Theorem 4 (Unimodality)**：总损失关于 $H$ 是单峰函数，最小值在 smallest sufficient horizon：
-$$H_k^*(\delta) = \min\{H : |\Delta L_{Bayes}^{(k)}(H)| \le \delta\}$$
+其中季节性用正弦和表示（振幅 $A$、周期 $T$、相位 $\theta$），时间依赖用 AR(p) 建模（客户端特定系数 $\phi_{k,i}$），趋势为线性项，噪声 $\epsilon_{f,t,k} \sim \mathcal{N}(\mu_{f,k}, \sigma_{f,k}^2)$。
 
-**Corollary 1**：可通过季节覆盖率 $\tau$ 实际计算：$H_k^*(\delta) = \max\{\ell_{AR,k}, T_k^{(\tau)}\}$
+客户端异构性通过仿射变换引入特征偏斜：$x_{f,t,k} = \Lambda_{f,k} \tilde{x}_{f,t,k} + \delta_{f,k}$。
 
-联邦聚合使用 weighted trimmed mean 对各客户端最优 horizon 做鲁棒汇总。
+SDG 在真实温度数据上验证表现良好：均值偏差 $\approx 3.6 \times 10^{-3}$，ACF $L^2 \approx 3.7 \times 10^{-6}$，KS 统计量 = 0.042。
+
+**2. 内禀空间构建与损失分解**
+
+五步变换管线：(1) 客户端归一化消除仿射偏斜；(2) 窗口展平为向量；(3) 全局协方差估计 + 特征分解；(4) 基于 SDG 估计内禀维度；(5) PCA 投影到内禀空间。
+
+内禀维度估计：
+
+$$d_{I,k}(H) \approx F \cdot \left(\min\{H, \ell_{\mathrm{AR},k}\} + g_k(H) + 1\right)$$
+
+其中有效 AR 记忆长度 $\ell_{\mathrm{AR},k} = \lceil \frac{\ln(1/(1-\epsilon))}{-\ln \rho_k} \rceil$，季节性复杂度 $g_k(H) = 2\sum_{j=1}^{J} w_{j,k} \cdot \min(1, H/T_{j,k}^*)$。
+
+联邦损失分解（Theorem 1）：
+
+$$L(H,S;m) = L_{\mathrm{Bayes}}(H,S) + L_{\mathrm{approx}}(H,S;m)$$
+
+服务器级聚合：$L_{\mathrm{Bayes}}^{(\mathrm{server})} = \sum_{k=1}^{K} \pi_k L_{\mathrm{Bayes}}^{(k)}$。
+
+**3. 最优窗口理论**
+
+**贝叶斯损失随 $H$ 单调递减并饱和**（更多历史 → 更好识别季节性/AR 结构），客户端级分解为三项：
+
+$$L_{\mathrm{Bayes}}^{(k)}(H,S) = L_{\mathrm{AR}}^{(k)}(S) + L_{\mathrm{seas}}^{(k)}(H) + L_{\mathrm{trend}}^{(k)}(H)$$
+
+AR 项上界：$L_{\mathrm{AR}}^{(k)}(S) \leq \sum_f \sigma_{f,k}^2 \cdot \frac{1 - \rho_k^{2S}}{1-\rho_k^2}$
+
+**近似损失随 $H$ 单调递增**（更高内禀维度 + 更少有效样本）：
+
+$$L_{\mathrm{approx}}^{(k)}(H;m) \lesssim \left(K_2^2 d_{I,k}(H)^2\right)^{\frac{d_{I,k}(H)}{4+d_{I,k}(H)}} + \left(\frac{d_{I,k}(H) H}{D_k}\right)^{\frac{4}{4+d_{I,k}(H)}}$$
+
+**Theorem 4（单峰性与最优窗口）**：总损失在 $[1, H_k^*(\delta)]$ 上严格递减，在 $[H_k^*(\delta), \infty)$ 上严格递增，最小充分窗口 $H_k^*(\delta)$ 即为最优解：
+
+$$H_k^*(\delta) = \max\{\ell_{\mathrm{AR},k}, T_k^{(\tau)}\}$$
+
+联邦全局窗口通过加权截尾均值聚合：$H_{\mathrm{server}}^* = \mathrm{TrimMean}_\alpha(\{H_k^*(\delta)\}; \{w_k\})$
+
+### 损失函数 / 训练策略
+
+本文为纯理论工作，不涉及具体的训练策略。损失分析基于平方损失 $\|V - m(U)\|^2$ 的期望，在内禀空间中推导。
 
 ## 实验关键数据
 
-- **SDG 验证**：在 Jena 2020 气温数据上，合成数据与真实数据在均值差 ($3.6 \times 10^{-3}$)、ACF $L^2$ gap ($3.7 \times 10^{-6}$)、PSD gap ($8.2 \times 10^{-3}$) 上高度一致
-- 本文为理论工作，核心贡献是可证明的最优 horizon 定理而非实验 benchmark
+### 主实验
 
-## 亮点
-- **首个联邦 TSF 的 horizon 选择理论**：将 Shi et al. 的 centralized IID 理论扩展到 federated non-IID 场景
-- **严格的 loss 分解与单峰性证明**：Bayesian loss 递减饱和 + approximation loss 递增 → 总 loss 单峰，最优 horizon 有明确定义
-- **可解释的 horizon 计算**：通过 AR memory $\ell_{AR,k}$ 和季节覆盖 $T_k^{(\tau)}$ 直接计算，无需 grid search
-- **鲁棒联邦聚合**：weighted trimmed mean 避免极端客户端主导全局 horizon
+本文为理论分析论文，主要实验为 SDG 验证：
+
+| 指标 | 数值 |
+|------|------|
+| 均值偏差 $\Delta\mu$ | $\approx 3.6 \times 10^{-3}$ |
+| ACF $L^2$ gap（30 lags） | $\approx 3.7 \times 10^{-6}$ |
+| 归一化 PSD $L^2$ gap | $\approx 8.2 \times 10^{-3}$ |
+| KS 统计量 | 0.042 |
+| 随机森林判别准确率（50步窗口） | 0.892 |
+
+使用 2020 年 Jena 气象站温度数据（10 分钟分辨率，$N = 52,696$），AR 阶数 $p=30$，主要周期 $T_1 = 144$（日周期）。
+
+### 消融实验
+
+**内禀维度随窗口 $H$ 的变化**（理论分析）：
+
+| $H$ 范围 | $d_{I,k}(H)$ 行为 |
+|----------|-------------------|
+| $H < \ell_{\mathrm{AR},k}$ | 线性增长（AR 信息未饱和） |
+| $\ell_{\mathrm{AR},k} \leq H < \max T_{j,k}^*$ | 次线性增长（季节性逐步解析） |
+| $H \geq H_{\mathrm{id}}$ | 饱和不再增长 |
+
+**损失项随 $H$ 的行为**：
+
+| 损失项 | 随 $H$ 增大 | 机制 |
+|--------|-----------|------|
+| $L_{\mathrm{Bayes}}$ | 单调递减 → 饱和 | 更多历史 → 更好识别 AR/季节性 |
+| $L_{\mathrm{approx}}$ | 单调递增 | 内禀维度增大 + 有效样本减少 ($D_k/H$) |
+| $L_{\mathrm{total}}$ | 先降后升（单峰） | 两者权衡在 $H_k^*$ 达到最优 |
+
+### 关键发现
+
+- 回看窗口存在理论最优值，过短（信息不足）和过长（过拟合）都会损害性能
+- 最优窗口由两个因素决定：有效 AR 记忆长度和季节周期覆盖
+- 不同客户端的最优窗口不同（取决于局部 AR 结构和季节性特征）
+- 联邦场景需要鲁棒聚合（截尾均值）以避免极端客户端的影响
+
+## 亮点与洞察
+
+- **首个联邦 TSF 窗口选择理论**：将 Shi et al. 的中心化理论扩展到非 IID 联邦场景
+- **可解读的最优窗口公式**：$H_k^* = \max\{\ell_{\mathrm{AR},k}, T_k^{(\tau)}\}$ 直接由信号参数（AR 记忆、季节周期）确定
+- **严格的单峰性证明**：为窗口选择提供了理论保证，无需暴力搜索
 
 ## 局限性 / 可改进方向
-- SDG 模型为加性结构，无法处理 regime switching、非线性季节性、跨特征交互等复杂模式
-- 假设局部平稳和稳定 AR 结构，在 long-memory 或 near-unit-root 序列上可能不适用
-- 联邦场景下全局协方差估计需要安全聚合机制，隐私问题未深入讨论
-- 重叠窗口的独立性近似可能高估有效样本量
-- 缺少大规模实证实验验证理论预测与实际最优 horizon 的吻合度
+
+- 纯理论工作，缺乏大规模真实数据集上的实验验证
+- SDG 假设加性结构（AR + 季节 + 趋势 + 高斯噪声），不覆盖非线性交互、regime 切换等复杂模式
+- 假设局部平稳性和稳定 AR 结构，在长记忆或接近单位根的场景下可能失效
+- 联邦场景下全局协方差估计需要安全聚合，隐私性未讨论
+- 重叠窗口被近似当作独立样本处理，可能高估有效样本量
+
+## 相关工作与启发
+
+- **vs Shi et al. (2024)**: Shi 在中心化 IID 设置下建立了 scaling law；本文扩展到联邦非 IID 设置，引入客户端特定的 SDG 和内禀空间
+- **vs FedProx**: FedProx 通过正则化稳定联邦优化，但不涉及窗口选择；本文提供了窗口选择的理论基础
+- **vs iTransformer/NLinear**: 实证发现不同模型有不同最优窗口（channel-dependent 模型偏短、线性模型偏长），本文给出这一现象的理论解释
 
 ## 评分
-- 新颖性: ⭐⭐⭐⭐ — 首次为联邦 TSF 的 horizon 选择提供理论基础，填补重要空白
-- 实验充分度: ⭐⭐⭐ — 理论贡献突出但实验验证偏弱，仅有 SDG 验证
-- 写作质量: ⭐⭐⭐⭐ — 数学推导严谨，定理结构清晰
-- 价值: ⭐⭐⭐⭐ — 为联邦时序预测的模型设计提供了原则性指导
 
-
+- 新颖性: ⭐⭐⭐⭐ 首次在联邦 TSF 中建立最优窗口的理论框架
+- 实验充分度: ⭐⭐ 仅有 SDG 验证实验，无真实联邦数据集上的对比实验
+- 写作质量: ⭐⭐⭐⭐ 理论推导严谨，符号体系一致
+- 价值: ⭐⭐⭐ 理论贡献有意义，但实际指导意义有待实验验证

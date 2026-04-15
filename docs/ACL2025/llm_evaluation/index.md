@@ -12,7 +12,7 @@ description: >-
 
 **[A Conformal Risk Control Framework For Granular Word Assessment And Uncertainty ](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
-:   提出基于保形风险控制（Conformal Risk Control）框架校准 CLIPScore 的方法——通过对 CLIP 视觉/文本编码器的注意力掩码采样生成 CLIPScore 分布，然后利用保形风险控制 (1) 检测图像描述中的干扰词（foil words），(2) 生成校准置信区间，在 FOIL-it/FOIL-nocaps/Rich-HF 基准上以简单方法达到与复杂专用方法相当的干扰词检测性能，同时提供形式化风险保证。
+:   提出基于 conformal risk control 框架对 CLIPScore 进行细粒度词级错误检测和不确定性校准，通过简单的注意力掩码采样生成分数分布，在保持模型无关性的同时提供形式化的风险控制保证。
 
 **[A Mismatched Benchmark For Scientific Natural Language Inference](a_mismatched_benchmark_for_scientific_natural_language_inference.md)**
 
@@ -32,11 +32,11 @@ description: >-
 
 **[Ad-Llm Benchmarking Large Language Models For Anomaly Detection](ad-llm_benchmarking_large_language_models_for_anomaly_detection.md)**
 
-:   首个系统评估 LLM 在 NLP 异常检测中角色的基准 AD-LLM——覆盖三个关键任务：(1) 零样本检测（LLM 预训练知识直接做 AD），(2) 数据增强（生成合成数据/类别描述提升 AD 模型），(3) 模型选择（LLM 推荐无监督 AD 模型）。多数据集实验发现 LLM 零样本 AD 表现出色，精心设计的增强有用，但模型选择的可解释性仍是挑战。
+:   提出首个LLM异常检测基准AD-LLM，系统评估LLM在零样本检测、数据增强和无监督模型选择三个核心任务中的能力，发现GPT-4o零样本检测在多数数据集上超越传统训练方法，合成数据对灵活表示的检测器有效但对几何假设模型有害，推理型LLM模型选择接近最优但解释缺乏数据集针对性。
 
 **[Androidlab Autonomous Agent](androidlab_autonomous_agent.md)**
 
-:   提出AndroidLab——首个统一训练和评估Android Agent的系统性框架，包含9个App上的138个可复现任务，同时支持纯文本（XML模式）和多模态（SoM模式）模型，并构建Android Instruct数据集（94.3k步骤），将开源LLM的成功率从4.59%提升至21.50%。
+:   提出AndroidLab——一个系统性的Android智能体评测与训练框架，包含统一的操作环境、138个任务的可复现基准测试和94.3K步骤的指令数据集，通过微调将开源LLM成功率从4.59%提升至21.50%。
 
 **[Antileakbench Preventing Data Contamination By Automatically Constructing Benchm](antileakbench_preventing_data_contamination_by_automatically_constructing_benchm.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Atomic Calibration Of Llms In Long-Form Generations](atomic_calibration_of_llms_in_long-form_generations.md)**
 
-:   系统研究长文本生成中的原子级校准（Atomic Calibration）——将长回复分解为原子主张（atomic claims），为每个主张分配置信度分数，发现回复级校准良好的模型在原子级校准很差，将置信度获取方法分为判别式（内部状态）和生成式（外部评估）两类并发现它们互补，提出两种融合策略达到 SOTA 校准效果。
+:   系统研究长文本生成中的原子级校准(atomic calibration)，将置信度获取方法分为判别式和生成式两类，发现两者互补且提出基于置信度一致性的融合策略，揭示了模型在生成过程中置信度变化的有趣模式。
 
 **[Batayan A Filipino Nlp Benchmark For Evaluating Large Language Models](batayan_a_filipino_nlp_benchmark_for_evaluating_large_language_models.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Com2 Causal Commonsense](com2_causal_commonsense.md)**
 
-:   提出Com2基准，利用因果事件图和因果理论（干预/反事实）构建复杂常识推理任务，发现LLM在推理深度和广度上存在不足，后训练和慢思考可部分缓解。
+:   提出 Com2，一个基于因果事件图和因果理论（干预/反事实）构建的复杂常识推理基准，包含 2500 道主题和 1254 道侦探故事题目，揭示 LLM 在推理深度与广度上的显著不足。
 
 **[Culemo Cultural Lenses On Emotion - Benchmarking Llms For Cross-Cultural Emotion](culemo_cultural_lenses_on_emotion_-_benchmarking_llms_for_cross-cultural_emotion.md)**
 
@@ -104,7 +104,7 @@ description: >-
 
 **[Ecomscriptbench](ecomscriptbench.md)**
 
-:   提出电商脚本规划（EcomScript）任务及其首个大规模benchmark EcomScriptBench（605K脚本、2.4M产品），通过购买意图（purchase intention）桥接用户行动步骤与产品检索的语义鸿沟，实验发现当前LLM在涉及产品的子任务上表现显著不足，注入意图知识可提升性能。
+:   定义电商脚本规划（EcomScript）任务并构建首个大规模基准 EcomScriptBench（60 万脚本 + 240 万产品），通过购买意图桥接动作步骤与产品搜索的语义鸿沟，揭示当前 LLM 在该任务上的显著不足。
 
 **[Educationq Evaluating Llms Teaching Capabilities Through Multi-Agent Dialogue Fr](educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[Evowiki Evaluating Llms On Evolving Knowledge](evowiki_evaluating_llms_on_evolving_knowledge.md)**
 
-:   提出 EvoWiki，一个可自动更新的动态评估基准，将知识分为稳定（stable）、演化（evolved）和未知（uncharted）三个层级，用于评估 LLM 在知识持续演化场景下的利用能力，并揭示 RAG 与持续学习（CL）结合具有协同效应。
+:   提出 EvoWiki，一个可自动更新的动态评估基准，将知识分为稳定 (stable)、演化 (evolved) 和未知 (uncharted) 三级，系统评估 LLM 对演化知识的利用能力，发现 RAG 和持续学习 (CL) 结合使用具有协同效应。
 
 **[Exposing Numeracy Gaps A Benchmark To Evaluate Fundamental Numerical Abilities I](exposing_numeracy_gaps_a_benchmark_to_evaluate_fundamental_numerical_abilities_i.md)**
 
@@ -144,7 +144,7 @@ description: >-
 
 **[Hellaswag-Pro A Large-Scale Bilingual Benchmark For Evaluating The Robustness Of](hellaswag-pro_a_large-scale_bilingual_benchmark_for_evaluating_the_robustness_of.md)**
 
-:   构建首个大规模双语（中英）LLM 常识推理鲁棒性评估基准 HellaSwag-Pro，包含 7 种问题变体共 11,200 道题，系统评估 41 个 LLM 发现所有模型在常识推理上远未达到鲁棒。
+:   构建首个大规模双语（中英）LLM 常识推理鲁棒性评估基准 HellaSwag-Pro，通过 7 种推理形式变体对 1,600 道原始题生成 11,200 道变体题，在 41 个 LLM 上的系统评估表明所有模型在常识推理鲁棒性上远未达标——否定变换平均准确率仅 9.01%，人机差距显著。
 
 **[Help Write Story Feedback](help_write_story_feedback.md)**
 
@@ -156,7 +156,7 @@ description: >-
 
 **[Justrank Llm Judge System Ranking](justrank_llm_judge_system_ranking.md)**
 
-:   首次大规模研究LLM判官在系统排名任务中的表现，提出JuStRank基准，揭示实例级判断能力与系统级排名能力之间的差距，并发现判官的"果断性"和"偏见"两个新兴特征。
+:   首次大规模研究 LLM 判官在系统排名任务中的表现，提出 JuStRank 基准，收集 48 个判官对 63 个系统的 150 万条评分，揭示实例级判断能力与系统级排名能力之间存在显著差距，并发现判官的"果断性"（decisiveness）和"系统特异性偏见"两个可量化的系统级行为特征。
 
 **[Kitab-Bench A Comprehensive Multi-Domain Benchmark For Arabic Ocr And Document U](kitab-bench_a_comprehensive_multi-domain_benchmark_for_arabic_ocr_and_document_u.md)**
 
@@ -196,7 +196,7 @@ description: >-
 
 **[Movie101V2 Improved Movie Narration Benchmark](movie101v2_improved_movie_narration_benchmark.md)**
 
-:   提出 Movie101v2，一个包含 203 部电影、46K 双语（中英文）视频-叙事对的大规模电影叙事基准，将自动电影叙事任务分解为三个渐进式目标（视觉事实描述 L1 → 情节叙述 L2 → 可部署 AD L3），并基于 LLM 提出新的评估框架，全面基线测试了包括 GPT-4V 在内的多种视觉语言模型。
+:   提出 Movie101v2 大规模双语电影叙事基准（203 部电影、46K 中英文视频-叙事对），将自动电影叙事拆解为 L1 视觉事实描述 → L2 情节叙述 → L3 可部署 AD 三阶段渐进目标，设计基于 LLM 的分级评估框架，系统基线测试多种 LVLM 并深入分析视觉感知与文本生成的核心瓶颈。
 
 **[Navigating Rifts In Human-Llm Grounding Study And Benchmark](navigating_rifts_in_human-llm_grounding_study_and_benchmark.md)**
 
@@ -232,7 +232,7 @@ description: >-
 
 **[Retrieval Models Arent Tool-Savvy Benchmarking Tool Retrieval For Large Language](retrieval_models_arent_tool-savvy_benchmarking_tool_retrieval_for_large_language.md)**
 
-:   提出 ToolRet——首个大规模工具检索基准（7.6k 任务 + 43k 工具语料库），系统评估了现有 IR 模型在工具检索场景下的表现，发现即使强力检索器也表现不佳，并贡献了超过 200k 训练实例显著提升检索质量。
+:   提出ToolRet——首个大规模工具检索基准（7.6k检索任务、43k工具），揭示现有强IR模型在工具检索任务上表现不佳（最强模型nDCG@10仅33.83），并贡献超20万训练实例的ToolRet-train数据集，显著提升IR模型的工具检索能力和端到端工具使用任务通过率。
 
 **[Revisiting 3D Llm Benchmarks Are We Really Testing 3D Capabilities](revisiting_3d_llm_benchmarks_are_we_really_testing_3d_capabilities.md)**
 
@@ -248,7 +248,7 @@ description: >-
 
 **[Sanskriti A Comprehensive Benchmark For Evaluating Language Models Knowledge Of ](sanskriti_a_comprehensive_benchmark_for_evaluating_language_models_knowledge_of_.md)**
 
-:   提出 SANSKRITI——一个包含 21,853 个问答对、覆盖印度全部 28 个邦和 8 个联邦属地、涵盖 16 类文化属性的大规模基准数据集，用于评估语言模型对印度文化多样性的理解程度。
+:   构建了覆盖印度全部 36 个行政区域、16 类文化属性、21,853 道 MCQ 的大规模文化知识基准 SANSKRITI，在 11 个 LLM/SLM/ILM 上的零样本评测揭示模型文化知识存在严重的地域和属性不均衡。
 
 **[Seedbench A Multi-Task Benchmark For Evaluating Large Language Models In Seed Sc](seedbench_a_multi-task_benchmark_for_evaluating_large_language_models_in_seed_sc.md)**
 
@@ -260,7 +260,7 @@ description: >-
 
 **[Structext Eval](structext_eval.md)**
 
-:   提出StrucText-Eval——一个覆盖8种结构化语言（JSON/YAML/XML/Markdown/LaTeX/Org/CSV/Tree）和29个任务的自动生成评测基准，共5,800个样本，通过可控的嵌套深度和结构宽度调节难度。实验揭示开源LLM在标准集最高仅74.9%准确率，困难集降至45.8%，而人类在困难集达92.6%，暴露了LLM在复杂结构推理上的严重不足。
+:   提出 StrucText-Eval——通过自动生成语义无关的结构化文本样本，覆盖 8 种结构化语言和 29 个任务共 5,800 个样本，以可控的嵌套深度和宽度调节难度，揭示最强开源 LLM 在困难集上仅 45.8% 而人类达 92.6%，系统性暴露了 LLM 在纯结构推理上的严重短板。
 
 **[Structflowbench A Structured Flow Benchmark For Multi-Turn Instruction Following](structflowbench_a_structured_flow_benchmark_for_multi-turn_instruction_following.md)**
 
@@ -280,7 +280,7 @@ description: >-
 
 **[Tumlu A Unified And Native Language Understanding Benchmark For Turkic Languages](tumlu_a_unified_and_native_language_understanding_benchmark_for_turkic_languages.md)**
 
-:   提出 TUMLU 和 TUMLU-mini，首个面向突厥语系（9 种语言）的原生语言理解基准，包含 38139 道中高中学科的多选题，覆盖拉丁、西里尔和阿拉伯三种文字系统，为低资源语言的 LLM 评估提供了高质量的原生基准。
+:   提出 TUMLU 和 TUMLU-mini，首个面向突厥语系 9 种语言的原生多任务语言理解基准，包含 38,139 道中高中学科多选题，覆盖拉丁/西里尔/阿拉伯三种文字系统，系统评估了 13 个开源与闭源 LLM，揭示了文字系统、语言资源量和 CoT 对模型性能的差异化影响。
 
 **[Vital Pluralistic Alignment Healthcare](vital_pluralistic_alignment_healthcare.md)**
 
@@ -296,7 +296,7 @@ description: >-
 
 **[Wximpactbench A Disruptive Weather Impact Understanding Benchmark For Evaluating](wximpactbench_a_disruptive_weather_impact_understanding_benchmark_for_evaluating.md)**
 
-:   提出 WXImpactBench，首个评估 LLM 理解极端天气社会影响的基准，包含经过 4 阶段管线处理的高质量历史报纸数据集和两个评估任务（多标签分类和排序问答）。
+:   提出首个面向极端天气影响理解的LLM评估基准WXImpactBench，包含四阶段数据构建流水线和两个评估任务（多标签分类与排序问答），系统性评估了多个LLM在气候适应领域的能力。
 
 **[Yescieval Llm Judge Science](yescieval_llm_judge_science.md)**
 

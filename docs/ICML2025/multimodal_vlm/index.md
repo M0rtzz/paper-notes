@@ -20,7 +20,7 @@ description: >-
 
 **[Comemo Lvlms Need Image Context With Image Memory](comemo_lvlms_need_image_context_with_image_memory.md)**
 
-:   提出CoMemo双路径架构：Context路径保持自回归处理图像上下文，Memory路径用交叉注意力作为图像记忆避免"中间遗失"问题，配合RoPE-DHR位置编码保持2D空间感知，在7类基准上全面超越单路径LVLM。
+:   提出CoMemo双路径架构——Context路径将图像token拼入文本做自回归、Memory路径用交叉注意力做图像持久记忆，结合RoPE-DHR位置编码保持2D空间感知和缓解远程衰减，通过三阶段训练策略平衡双路径，在同等设置下全面超越LVLM-S和LVLM-X。
 
 **[Core Knowledge Deficits In Multi-Modal Language Models](core_knowledge_deficits_in_multi-modal_language_models.md)**
 
@@ -108,7 +108,7 @@ description: >-
 
 **[M3-Jepa Multimodal Alignment Via Multi-Gate Moe Based On The Joint-Embedding Pre](m3-jepa_multimodal_alignment_via_multi-gate_moe_based_on_the_joint-embedding_pre.md)**
 
-:   将JEPA(联合嵌入预测架构)推广到任意模态组合的多模态对齐中，用Multi-gate MoE作为跨模态预测器在潜在空间对齐，通过交替梯度下降解决不同模态任务间的梯度冲突，在视觉-语言/音频-语言等任务上达SOTA。
+:   将 JEPA（联合嵌入预测架构）推广到任意模态组合的多模态对齐中，用 Multi-gate MoE 作为跨模态预测器在潜在空间对齐（而非 token 空间），门控函数解耦模态特定和共享信息，通过交替梯度下降避免多方向任务间的梯度冲突，仅 140M 可训练参数在多个检索和分类任务上超越 BLIP-2（1.2B）等 SOTA。
 
 **[Mminference Accelerating Pre-Filling For Long-Context Vlms Via Modality-Aware Pe](mminference_accelerating_pre-filling_for_long-context_vlms_via_modality-aware_pe.md)**
 
@@ -124,7 +124,7 @@ description: >-
 
 **[Overcoming Multi-Step Complexity In Multimodal Theory-Of-Mind Reasoning](overcoming_multi-step_complexity_in_multimodal_theory-of-mind_reasoning.md)**
 
-:   提出可扩展的贝叶斯心智理论规划器，通过逐步贝叶斯更新分解多步ToM推理复杂度，并用弱到强控制机制将小模型的ToM专业能力迁移到大模型(405B)，在多模态ToM基准上超越SOTA 4.6%。
+:   提出可扩展的贝叶斯 ToM 规划器，通过将多步多模态心智推理分解为逐步贝叶斯更新来规避推理边界，并用弱到强控制机制将小模型（4B–8B）后训练获得的 ToM 似然估计能力迁移到大模型（70B–405B）的推理中，在 MMToM-QA 基准上达 81.3% 准确率，超越此前最优 BIPALM 4.6 个百分点。
 
 **[Overcoming Multi-Step Complexity In Multimodal Theory-Of-Mind Reasoning A Scalab](overcoming_multi-step_complexity_in_multimodal_theory-of-mind_reasoning_a_scalab.md)**
 
@@ -164,7 +164,7 @@ description: >-
 
 **[Sparsevlm Visual Token Sparsification For Efficient Vision-Language Model Infere](sparsevlm_visual_token_sparsification_for_efficient_vision-language_model_infere.md)**
 
-:   提出SparseVLM——无训练的文本引导视觉token优化：用自注意力矩阵中文本token对视觉token的评分来确定重要性，自适应确定每层稀疏化比例，并用token回收压缩被剪token为紧凑表示。
+:   SparseVLM 提出了首个文本引导的免训练视觉 token 稀疏化框架，通过选择与视觉相关的文本 token 作为"评分者"来评估视觉 token 的重要性，结合自适应剪枝比率和 token 回收机制，在 LLaVA 上仅保留 192 个 token（减少 66.7%）时维持 99.1% 的原始性能。
 
 **[Targeted Unlearning With Single Layer Unlearning Gradient](targeted_unlearning_with_single_layer_unlearning_gradient.md)**
 

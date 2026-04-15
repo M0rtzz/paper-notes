@@ -16,103 +16,136 @@ tags:
 # RedSage: A Cybersecurity Generalist LLM
 
 **会议**: ICLR 2026  
-**arXiv**: [2601.22159](https://arxiv.org/abs/2601.22159)
-
-**代码**: 有 (开源数据+模型+代码)
-
+**arXiv**: [2601.22159](https://arxiv.org/abs/2601.22159)  
+**代码**: [GitHub](https://github.com/AraLabs-AI/RedSage) (开源数据+模型+代码)  
 **领域**: AI安全 / 网络安全  
-**关键词**: 网络安全LLM, continual pretraining, agentic augmentation, 安全评测, RedSage-Bench
+**关键词**: 网络安全LLM, 持续预训练, 智能体数据增强, 安全评测基准
 
 ## 一句话总结
 
-构建了完整的网络安全LLM pipeline：11.8B token的领域持续预训练 + 266K样本的agentic augmented SFT + 30K MCQ+240开放问答的综合评测基准RedSage-Bench，8B模型在多个网络安全benchmarks上达SOTA。
+提出RedSage——首个全栈开源的网络安全通才LLM，通过11.7B token大规模领域持续预训练、266K样本的Agentic数据增强SFT、以及首个覆盖知识+技能+工具的综合评测基准RedSage-Bench，8B参数模型在网络安全基准上超越同规模SOTA（+5.4pp）并接近Qwen3-32B，通用能力不降反升（+8.4pp vs Qwen3-8B）。
 
 ## 研究背景与动机
 
-网络安全威胁日趋复杂——APT攻击、漏洞管理、事件响应等任务需要高度专业知识。全球网络安全人才缺口达数百万。现有网络安全LLM存在三个主要短板：(1) 大多只做单一训练阶段（如仅预训练或仅SFT）；(2) SFT数据量极小（PRIMUS仅835样本）；(3) 评测基准覆盖不全——缺乏工具使用能力评测和开放问答质量评估。
+**领域现状**：网络安全威胁日益复杂，APT攻击、漏洞管理、事件响应等任务需要高度专业知识和工具操作能力。全球网络安全人才缺口达数百万（ISC²报告），推动了用LLM辅助安全分析师的需求。近年出现了多个网络安全LLM（Foundation-Sec、PRIMUS、DeepHat等），但均存在明显不足。
 
-本文的目标是构建一个全面的、开放的网络安全LLM系统，同时解决数据、训练和评测三方面的不足。核心区别在于：结合大规模持续预训练（11.7B tokens）+ 高质量agentic augmented SFT（266K samples）+ 完整评测（知识+技能+工具+质量评分）。
+**现有痛点**：现有网络安全LLM在三个维度上存在短板。（1）训练流程不完整：PRIMUS（Trend Micro）有2.57B token预训练但SFT仅835样本，Foundation-Sec-8B（Cisco）有预训练但数据闭源，DeepHat仅做SFT无预训练。（2）SFT数据质量有限：大多使用静态Q&A对或少量人工标注，未模拟真实安全工作流的多轮交互模式。（3）评测基准覆盖不全：SecEval/CyberMetric等仅评知识MCQ，CyberSecEval仅评技能，没有基准同时覆盖工具使用能力评测和开放问答质量评估。
+
+**核心矛盾**：构建实用的网络安全LLM需要同时解决数据规模、训练流程完整性和评测全面性三个问题，但现有工作最多只覆盖其中一两个。更严重的是，大部分工作不开源数据和代码（Foundation-Sec闭源数据，SecGemini闭源模型），限制了可复现性和社区发展。
+
+**本文要解决什么**：构建一个全栈开源的网络安全LLM系统，覆盖从数据过滤、持续预训练、智能体增强SFT、偏好对齐到综合评测的完整pipeline，并全部公开。
+
+**切入角度**：以"数据为中心"（data-centric）的理念贯穿全流程——用分类器从FineWeb中过滤领域语料进行大规模预训练，策展高质量种子数据覆盖知识/技能/工具三个维度，用Agentic pipeline将静态文档自动转化为多轮对话，构建分层验证的评测基准。
+
+**核心idea一句话**：大规模领域预训练+智能体增强SFT+三维评测基准三管齐下，构建首个全栈开源的网络安全通才LLM。
 
 ## 方法详解
 
 ### 整体框架
 
-(1) CyberFineWeb：从FineWeb过滤网络安全文本+30%通用知识replay → (2) RedSage-Seed：28,637高质量策展样本 → (3) Agentic augmentation生成266K SFT对话 → (4) RedSage-Bench评测。
+RedSage基于Qwen3-8B-Base构建，训练分为三个阶段。**阶段一（持续预训练CPT）**：先用CyberFineWeb（11.7B tokens网络安全过滤语料+30%通用replay）做持续预训练得到RedSage-CFW，再用高质量策展数据RedSage-Seed（28,637样本，150M tokens）和非分类dumps（459K文档，700M tokens）继续训练得到RedSage-Base。**阶段二（监督微调SFT）**：使用Agentic Augmentation从种子数据生成的266K多轮对话（RedSage-Conv，353M tokens）加上SmolLM3的通用指令数据做SFT，得到RedSage-Ins。**阶段三（偏好对齐DPO）**：使用Tulu 3 8B开源偏好数据做DPO对齐，得到最终的RedSage-DPO。同时构建RedSage-Bench评测基准（30K MCQ + 240开放问答），在知识、技能和工具三个维度上评估模型能力。
 
 ### 关键设计
 
-1. **CyberFineWeb预训练语料**：用 ModernBERT-base 训练二分类器过滤 FineWeb → 125M文档(89.8B tokens) → 混合30% FineWeb-Edu防遗忘 → MinHash-LSH去重 → 按时间分块训练+early stopping → 最终13M文档(11.7B tokens)。
+1. **CyberFineWeb领域语料构建与防遗忘机制**
+    - 功能：从大规模web语料中高效过滤网络安全文本，同时通过replay机制保持通用能力
+    - 核心思路：用ModernBERT-base微调二分类器过滤FineWeb（Common Crawl 2013-2024, ~15T tokens），得到~125M文档（89.8B tokens）的候选池。关键设计是混合30%的FineWeb-Edu通用教育文本做replay防止灾难性遗忘。应用MinHash-LSH全局近重复去除后得到~52M文档（46.8B tokens）。按时间分为20个chunk顺序训练并在第5个chunk后early stopping平衡成本，最终使用13M文档（11.7B tokens）
+    - 设计动机：89.8B tokens全量训练成本过高，chronological chunking + early stopping在有限计算预算下捕获最有价值的数据。实验证实30% replay ratio有效——RedSage-DPO在Open LLM Leaderboard上以74.33%均值超越Qwen3-32B（73.17%），通用能力不降反升
 
-2. **RedSage-Seed策展**：三类高质量来源——Knowledge(MITRE ATT&CK/CWE/OWASP等)、Skills(HackTricks/渗透测试writeups)、Tools(CLI cheatsheets/Kali Linux文档)。28,637样本 + 459K非分类文档。
+2. **Agentic数据增强Pipeline**
+    - 功能：将策展的静态网络安全资源自动转化为高质量多轮对话，用于SFT训练
+    - 核心思路：采用两阶段智能体框架。**Planner Agent**分析每个种子数据chunk，动态推导候选技能集（如漏洞分析、工具命令生成、渗透测试流程）和增强策略（如何转化为对话、如何丰富解释），不使用固定模板。**Augmenter Agent**将每个计划实例化为基于角色的多轮对话（expert-assistant形式），模拟真实网络安全工作流。输出经格式有效性、一致性和主题相关性三重过滤。种子数据分三类策展——Knowledge（MITRE ATT&CK/CWE/OWASP等框架，6,924+3,715样本）、Skills（HackTricks/渗透测试writeups，4,032样本）、Tools（CLI cheatsheets/Kali文档，12,943+1,023样本）。Pipeline将28,637个种子扩展为266K对话（9.2×样本量、2.3×token量），涵盖知识67K、技能39K、工具120K
+    - 设计动机：手工构建网络安全SFT数据成本极高且难以覆盖所有维度。与AgentInstruct等固定技能模板不同，Planner根据内容动态生成策略确保多样性。对话格式比静态文档更接近真实使用场景——安全分析师通过多轮交互完成任务
 
-3. **Agentic Augmentation Pipeline**：将策展的资源通过LLM代理转化为多轮expert-assistant对话，模拟真实的网络安全工作流。生成267K SFT样本（知识67K + 技能96K + 工具104K）。
-
-4. **RedSage-Bench**：30K MCQ覆盖Knowledge/Skills/Tools + 240开放问答 + 质量LLM-judge评分。首个同时评估知识、技能和工具使用的网络安全基准。
+3. **RedSage-Bench三维评测基准**
+    - 功能：首个同时覆盖知识、技能和工具使用的网络安全LLM评测基准，支持MCQ和开放问答两种评测形式
+    - 核心思路：**MCQ生成**——用70B指令模型（Llama-3.3-70B/Qwen2.5-72B）从种子数据生成四选一题目，经两阶段验证：Stage 1结构有效性（格式/正确性/干扰项质量，pass/fail），Stage 2质量评分（>8/10才保留），配额采样保证分类平衡，最终30K MCQ。**开放问答**——通过Evaluation-Planner和Q&A Generator两阶段生成，LLM-as-Judge评估事实正确性（T/F）和回答质量（0-10分，覆盖帮助性/相关性/深度），经人工验证保留240条。**去污染**——语义相似度>0.9的训练样本被移除（2.96%），防止训练泄露
+    - 设计动机：现有基准要么只评知识（SecEval等）要么只评技能（CyberSecEval），没有评工具使用的。MCQ只能评对错，开放问答+质量评分才能评估回答的帮助性和深度
 
 ### 损失函数 / 训练策略
 
-基于 Llama-3.1-8B 做 continual pretraining（标准CLM loss）+ SFT（对话格式的CE loss）+ DPO对齐（开源偏好数据）。
+基于Qwen3-8B-Base做持续预训练，使用32×A100-64GB GPU，DeepSpeed ZeRO Stage 3分布式训练，AdamW优化器，固定学习率2.5×10⁻⁶配合linear warmup，单epoch训练（全局batch size 1024）。SFT阶段2个epoch，cosine学习率调度。DPO使用Tulu 3 8B Preference Mixture数据集及其原始超参数。整个pipeline使用Axolotl框架，通过配置文件即可复现。
 
 ## 实验关键数据
 
 ### 主实验
 
-| 基准 | RedSage-8B | Foundation-Sec-8B | PRIMUS | Llama-3.1-8B |
-|------|-----------|------------------|--------|-------------|
-| SecEval | **最优** | 次优 | - | 基线 |
-| CyberBench | **最优** | 次优 | 次优 | 基线 |
-| General Benchmarks | **改善** | - | 微降 | 基线 |
+RedSage-Bench MCQ评测（0-shot，准确率%）：
+
+| 模型 | 宏平均 | 通用知识 | 框架 | 攻防技能 | CLI工具 | Kali工具 |
+|------|--------|---------|------|---------|--------|---------|
+| Lily-Cybersecurity-7B | 71.19 | 68.78 | 67.44 | 76.61 | 71.44 | 66.26 |
+| Foundation-Sec-8B-Ins | 76.12 | 74.50 | 77.10 | 80.91 | 74.98 | 68.30 |
+| DeepHat-V1-7B | 80.18 | 77.26 | 76.90 | 85.07 | 81.94 | 74.82 |
+| Qwen3-8B | 81.85 | 80.46 | 78.82 | 86.16 | 83.92 | 75.56 |
+| **RedSage-8B-Ins** | **85.73** | **84.20** | **84.98** | **89.06** | **86.80** | **80.30** |
+| RedSage-8B-DPO | 84.83 | 82.48 | 83.80 | 88.54 | 86.30 | 79.30 |
+| Qwen3-32B | 85.40 | 84.08 | 82.32 | 89.00 | 87.60 | 80.40 |
+
+外部网络安全基准评测（准确率%）：
+
+| 模型 | 均值 | CTI-MCQ | CTI-RCM | CyMtc-500 | MMLU-CSec | SecBench-En |
+|------|------|---------|---------|-----------|-----------|-------------|
+| Qwen3-8B-Base | 80.81 | 68.80 | 63.50 | 92.00 | 83.00 | 82.84 |
+| Foundation-Sec-8B | 76.90 | 62.40 | 75.40 | 86.60 | 80.00 | 69.86 |
+| **RedSage-8B-Base** | **84.56** | **71.04** | **78.40** | **92.60** | **87.00** | **81.76** |
+| Qwen3-8B (instruct) | 75.71 | 62.76 | 54.00 | 88.60 | 76.00 | 73.26 |
+| **RedSage-8B-DPO** | **81.10** | **70.84** | **70.60** | **90.00** | **79.00** | **80.06** |
 
 ### 消融实验
 
-| 组件 | 效果 | 说明 |
-|------|------|------|
-| 去掉 continual PT | 显著下降 | 领域知识基础 |
-| 去掉 agentic augmentation | 技能/工具能力下降 | 对话质量的关键 |
-| 去掉 FineWeb-Edu replay | 通用能力退化 | 防遗忘必需 |
-| 去掉 DPO | 开放问答质量下降 | 对齐重要 |
+各训练阶段的贡献（base模型，RedSage-Bench宏平均准确率%）：
+
+| 训练配置 | Bench宏平均 | 外部基准均值 | 关键变化 |
+|---------|------------|------------|---------|
+| Qwen3-8B-Base（基线） | 84.24 | 80.81 | — |
+| + CyberFineWeb（CFW） | 84.86 (+0.62) | 82.66 (+1.85) | 框架+3.00, SecBench+0.78 |
+| + Seed only | 85.21 (+0.97) | 84.45 (+3.64) | CTI-RCM+15.1, Kali+1.04 |
+| + CFW + Seed（Base） | 85.05 (+0.81) | 84.56 (+3.75) | 最优综合 |
+| + SFT（Ins） | 85.73 (+1.49) | 81.30 | instruct模型最优 |
+| + DPO | 84.83 (+0.59) | 81.10 | 开放问答质量最优 |
+
+通用能力保持（Open LLM Leaderboard instruct模型均值%）：
+
+| 模型 | 均值 | MMLU | ARC-C | GSM8K | IFEval |
+|------|------|------|-------|-------|--------|
+| Qwen3-8B | 65.92 | 73.59 | 62.54 | 75.66 | 85.21 |
+| Foundation-Sec-8B-Ins | 69.28 | 64.11 | 63.91 | 77.79 | 76.17 |
+| **RedSage-8B-DPO** | **74.33** | **77.07** | **71.76** | **82.71** | **83.44** |
+| Qwen3-32B | 73.17 | 82.11 | 69.28 | 87.49 | 88.26 |
 
 ### 关键发现
 
-- 大规模持续预训练(11.7B tokens)是性能提升的基础，仅SFT不够。
-
-- Agentic augmentation比手工策展的SFT数据效果更好——模拟了真实工作流。
-
-- 通用能力不降反升——30% replay ratio有效防止catastrophic forgetting。
-
-- 在工具使用评测上RedSage大幅领先（因为其他基准根本不评测这个维度）。
-
-- 开源策略（数据+模型+代码+评测）本身就是重要贡献。
+- RedSage-8B-Ins（85.73）在自建基准上超越4倍参数的Qwen3-32B（85.40），证明领域针对性训练可弥补参数量差距
+- 开放问答中RedSage-DPO比第二名Qwen3-8B高+7%绝对正确率和+0.07质量分，DPO对回答质量提升显著
+- CyberFineWeb和Seed提供互补增益：CFW在SecBench/CyMtc上提升最大，Seed在需要深度知识的CTI-RCM（+15.1pp）上提升最大
+- 通用能力不降反升：RedSage-DPO（74.33%）在Open LLM Leaderboard上超越Qwen3-32B（73.17%），30% replay有效防遗忘
+- 工具使用是当前LLM最薄弱维度：开放问答中工具类题目中位数最低、分布尾部最长
 
 ## 亮点与洞察
 
-- 全栈开源的网络安全LLM——数据、模型、代码、评测基准全部公开，填补了领域空白。
-
-- Agentic augmentation将静态文档转化为动态对话的方法论有通用价值。
-
-- RedSage-Bench是首个覆盖知识+技能+工具的综合网络安全评测。
+- 全栈开源是核心差异化：数据（11.7B预训练+266K SFT）、模型、代码、评测基准全部公开，区别于Foundation-Sec（闭源数据）和SecGemini（闭源模型），对社区有巨大推动作用
+- Agentic Augmentation的Planner→Augmenter两阶段框架具有方法论通用性，可迁移到医疗、法律等领域的专业LLM构建
+- RedSage-Bench的MCQ+开放问答+LLM-judge质量评分设计，首次实现网络安全领域知识+技能+工具的三维评测
+- 在Qwen3-32B上用QLoRA微调部分数据也能提升，证明数据pipeline对更大模型同样有效
 
 ## 局限性 / 可改进方向
 
-- 8B参数限制了复杂推理能力，70B版本可能更优。
-
-- 工具使用评测仍限于CLI命令，真实CTF场景的交互式评测未覆盖。
-
-- 网络安全知识更新快，模型的时效性维护是持续挑战。
-
-- 安全风险：开源网络安全LLM可能被恶意利用。
+- 8B参数限制了复杂推理，与GPT-5（86.29 vs 81.10均值）仍有~5pp差距
+- 工具评测限于CLI命令和文档理解，未覆盖CTF等需要环境交互的场景
+- LLM生成的训练数据可能传播偏见或不准确信息，尽管有过滤和验证
+- 网络安全知识更新快，模型时效性维护是持续挑战
+- 开源攻防知识存在双用（dual-use）风险，需要负责任使用
 
 ## 相关工作与启发
 
-- 与 Foundation-Sec-8B(Cisco)、PRIMUS(Trend Micro)、SecGemini(Google) 形成对比。
-
-- 开源和全面的策略可能加速整个网络安全AI社区的发展。
+- Foundation-Sec-8B（Cisco, 5.1B token预训练+28K SFT）vs PRIMUS（Trend Micro, 2.57B预训练+835 SFT）：RedSage在数据规模（11.7B+266K）、方法（agentic augmentation）和开放性上全面领先
+- Agentic augmentation继承AgentInstruct思路但创新在于Planner动态生成技能集而非固定模板
+- 30%通用replay是continual learning经典策略，但RedSage的创新在于直接嵌入静态语料而非动态调整比例
 
 ## 评分
 
-- 新颖性: ⭐⭐⭐⭐ 全栈pipeline+agentic augmentation
-
-- 实验充分度: ⭐⭐⭐⭐ 多基准评测+消融
-
-- 写作质量: ⭐⭐⭐⭐ 结构清晰
-- 价值: ⭐⭐⭐⭐⭐ 开源贡献极大
+- 新颖性: ⭐⭐⭐⭐ 系统性工程贡献大于单点算法创新，Agentic augmentation和三维评测设计有新意
+- 实验充分度: ⭐⭐⭐⭐⭐ 三类基准（自建+外部网络安全+通用）、多阶段消融、开放问答质量评估、大模型扩展验证
+- 写作质量: ⭐⭐⭐⭐ 结构清晰，表格和图表丰富，pipeline描述完整
+- 价值: ⭐⭐⭐⭐⭐ 全栈开源对网络安全AI社区推动巨大，数据pipeline方法论可迁移至其他专业领域

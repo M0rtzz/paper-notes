@@ -20,7 +20,7 @@ description: >-
 
 **[Phys-Liquid A Physics-Informed Dataset For Estimating 3D Geometry And Volume Of ](phys-liquid_a_physics-informed_dataset_for_estimating_3d_geometry_and_volume_of_.md)**
 
-:   提出 Phys-Liquid 数据集（97,200 张仿真图像 + 3D mesh），基于 Navier-Stokes 方程模拟容器旋转引起的透明液体动态变形，并设计四阶段管线验证其在液体几何重建和体积估计中的有效性。
+:   构建了 Phys-Liquid 数据集（97,200 张物理仿真图像 + 3D mesh），基于 Navier-Stokes 方程模拟透明容器内液体的动态形变，并提出四阶段重建管线（分割→多视角 mask 生成→3D 重建→缩放），在仿真和真实场景中实现高精度液体几何与体积估计。
 
 **[Physicscorrect A Training-Free Approach For Stable Neural Pde Simulations](physicscorrect_a_training-free_approach_for_stable_neural_pde_simulations.md)**
 

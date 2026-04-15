@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM推理方向 63篇论文解读
+  NeurIPS2025 LLM推理方向 62篇论文解读
 description: >-
-  63篇NeurIPS2025 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  62篇NeurIPS2025 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**🧠 NeurIPS2025** · 共 **63** 篇
+**🧠 NeurIPS2025** · 共 **62** 篇
 
 **[Abbie Autoregressive Block-Based Iterative Encoder For Efficient Sequence Modeli](abbie_autoregressive_block-based_iterative_encoder_for_efficient_sequence_modeli.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Clip-And-Verify Linear Constraint-Driven Domain Clipping For Accelerating Neural](clip-and-verify_linear_constraint-driven_domain_clipping_for_accelerating_neural.md)**
 
-:   提出Clip-and-Verify框架，通过利用线性界传播产生的约束来裁剪输入空间和收紧中间层界，包含完全裁剪（坐标上升求解对偶问题）和松弛裁剪（收缩输入盒）两种GPU高效算法，最多减少96%的BaB子问题数量，是VNN-COMP 2025获胜验证器的核心组件。
+:   提出Clip-and-Verify验证流水线，利用线性界传播过程中"免费"产生的线性约束，通过完全裁剪（坐标上升对偶求解）和松弛裁剪（闭式输入域收缩）两种GPU高效算法收紧全网络中间层界，在多个benchmark上减少高达96%的BaB子问题数量，是VNN-COMP 2025获胜验证器的核心组件。
 
 **[Controlling Thinking Speed In Reasoning Models](controlling_thinking_speed_in_reasoning_models.md)**
 
@@ -116,7 +116,7 @@ description: >-
 
 **[On Learning Verifiers And Implications To Chain-Of-Thought Reasoning](on_learning_verifiers_and_implications_to_chain-of-thought_reasoning.md)**
 
-:   从PAC学习角度系统研究CoT验证器的可学习性，在不同验证目标下给出样本复杂度的上下界，并揭示验证与生成之间的有趣计算关系。
+:   提出学习Chain-of-Thought验证器的形式化PAC框架，定义三种递进强度的验证目标（Simple → Trustable → γ-Trustable），证明当每个问题只有少量正确证明时样本复杂度为 $O(\log|H|)$，但当正确证明数量不受限时样本复杂度不可避免地跃升至 $\Theta(|H|)$，除非验证器类满足交集封闭性等额外结构假设；同时利用USAT问题证明验证与生成之间存在计算复杂度差距。
 
 **[One Token Embedding Is Enough To Deadlock Your Large Reasoning Model](one_token_embedding_is_enough_to_deadlock_your_large_reasoning_model.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Provable Scaling Laws For The Testtime Compute Of Large Lang](provable_scaling_laws_for_the_testtime_compute_of_large_lang.md)**
 
-:   提出两种具有可证明缩放律的测试时计算算法——Knockout（淘汰赛式：生成多个候选再两两比较淘汰）和 League（联赛式：用平均胜率选最优候选），证明在 LLM 生成正确解概率 >0 且比较能力优于随机的极弱假设下，失败概率随测试时计算增加呈指数或幂律衰减，且仅需黑盒 LLM 无需额外验证器。
+:   提出 Knockout（淘汰赛式两两淘汰）和 League（联赛式平均胜率排序）两种两阶段测试时计算算法，在"LLM 能以非零概率生成正确解"和"LLM 两两比较优于随机"的极弱假设下，从理论上证明失败概率随测试时计算量增长呈指数或幂律衰减至零，且整个算法仅需黑盒 LLM，无需外部验证器或奖励模型。
 
 **[Re-Forc Adaptive Reward Prediction For Efficient Chain-Of-Thought Reasoning](re-forc_adaptive_reward_prediction_for_efficient_chain-of-thought_reasoning.md)**
 
@@ -182,10 +182,6 @@ description: >-
 
 :   将 Phi-4 系列小模型（3.8B/14B）的最后一层替换为回归头并微调，使其同时具备 ORM（结果奖励）和 PRM（过程奖励）能力，在代码生成任务上通过选择最优 rollout 实现 20%+ 的 pass@k 提升。
 
-**[SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search](solverllm_leveraging_test-time_scaling_for_optimization_problem_via_llm-guided_s.md)**
-
-:   无需训练，通过 MCTS 引导 LLM 生成 6 元素优化表述并转化为求解器代码，在 NL4Opt 上达 97.0%（vs OptiMUS 78.8%），超越微调方法且跨域泛化强。
-
 **[Sprint Enabling Interleaved Planning And Parallelized Execution In Reasoning Mod](sprint_enabling_interleaved_planning_and_parallelized_execution_in_reasoning_mod.md)**
 
 :   通过将长链式推理轨迹重组为交替的规划-并行执行阶段，Sprint 使推理模型在保持准确率的同时，将长推理链的顺序 token 数减少高达 39%（OOD 任务上最高 65%），实现推理过程的动态并行化。
@@ -216,7 +212,7 @@ description: >-
 
 **[The Virtues Of Brevity Avoid Overthinking In Parallel Test-Time Reasoning](the_virtues_of_brevity_avoid_overthinking_in_parallel_test-time_reasoning.md)**
 
-:   证明选择最短答案是一个简单但有效的Best-of-N启发式方法，通过避免过度思考regime大幅降低计算成本，性能与自一致性可比或更优，在推理模型中表现特别突出。
+:   证明在推理模型的 Best-of-N 采样中，选择最短解是一个简单、反直觉但高效的启发式方法，性能与 self-consistency 相当，token 成本显著更低，其原理在于利用了模型在"常规模式"与"过度思考模式"之间的系统性偏差。
 
 **[Thinksound Chain-Of-Thought Reasoning In Multimodal Large Language Models For Au](thinksound_chain-of-thought_reasoning_in_multimodal_large_language_models_for_au.md)**
 
@@ -224,7 +220,7 @@ description: >-
 
 **[Time A Multilevel Benchmark For Temporal Reasoning Of Llms I](time_a_multilevel_benchmark_for_temporal_reasoning_of_llms_i.md)**
 
-:   提出TimE多层级时间推理Benchmark（38,522 QA + 943人工标注TimE-Lite），覆盖知识密集（Wiki）、快速演变（News）和长对话（Dialogue）三种真实场景，设计三级渐进11子任务体系评估24个LLM，揭示即使最强推理模型在复杂时间关系推理上仍有显著短板。
+:   提出 TimE，一个包含 38,522 个 QA 对的多层级时间推理基准，覆盖知识密集（Wiki）、动态新闻（News）、长对话（Dial）三种真实场景和三级渐进式 11 子任务，全面评估 24 个 LLM 后发现即便最强推理模型在时间线构建和反事实推理等复杂任务上仍有显著短板。
 
 **[Topology Of Reasoning Understanding Large Reasoning Models Through Reasoning Gra](topology_of_reasoning_understanding_large_reasoning_models_through_reasoning_gra.md)**
 

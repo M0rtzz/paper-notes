@@ -36,7 +36,7 @@ description: >-
 
 **[Arbitrary-Scale 3D Gaussian Super-Resolution](arbitrary-scale_3d_gaussian_super-resolution.md)**
 
-:   提出一个集成框架实现3D高斯溅射(3DGS)的任意倍率超分辨率渲染，通过尺度感知渲染、生成先验引导优化和渐进超分机制，用单个3D模型支持整数和非整数倍率的HR渲染，PSNR提升6.59dB同时保持85 FPS实时速度。
+:   提出Arbi-3DGSR集成框架，通过尺度感知渲染、生成先验引导优化和渐进超分三个核心组件，首次实现单个3DGS模型支持任意（包括非整数）倍率的高分辨率渲染，在×5.7倍率下PSNR比3DGS提升6.59dB，且保持85 FPS实时速度。
 
 **[Assist-3D Adapted Scene Synthesis For Class-Agnostic 3D Instance Segmentation](assist-3d_adapted_scene_synthesis_for_class-agnostic_3d_instance_segmentation.md)**
 
@@ -252,7 +252,7 @@ description: >-
 
 **[S5 Scalable Semi-Supervised Semantic Segmentation In Remote Sensing](s5_scalable_semi-supervised_semantic_segmentation_in_remote_sensing.md)**
 
-:   提出 S5 框架，首次将半监督语义分割 (S4) 从小规模数据扩展为大规模预训练范式 (S4P)，构建百万级 RS4P-1M 数据集预训练遥感基础模型，并通过 MoE-based 多数据集微调实现 SOTA 性能。
+:   提出 S5 框架，首次将半监督语义分割扩展为遥感基础模型（RSFM）的预训练范式，通过构建百万级 RS4P-1M 数据集和 MoE 多数据集微调策略，在多个遥感分割与检测基准上达到 SOTA。
 
 **[Simba Towards High-Fidelity And Geometrically-Consistent Point Cloud Completion ](simba_towards_high-fidelity_and_geometrically-consistent_point_cloud_completion_.md)**
 

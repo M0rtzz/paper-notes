@@ -24,7 +24,7 @@ description: >-
 
 **[A Simple Linear Patch Revives Layerpruned Large Language Mod](a_simple_linear_patch_revives_layerpruned_large_language_mod.md)**
 
-:   提出 LinearPatch，一种即插即用的轻量修补技术，通过在剪枝界面插入一个融合了 Hadamard 变换（压制 token 级outlier）和通道缩放（对齐通道幅度）的对称矩阵，有效弥合层剪枝后的激活幅度失配问题，在 LLaMA-3-8B 上剪掉 5/32 层后仍保留 94.15% 性能（无训练），加上 30 分钟蒸馏可达 95.16%。
+:   LinearPatch 通过在层剪枝界面插入一个融合了 Hadamard 变换和通道缩放的轻量对称矩阵，修复了剪枝造成的激活幅度失配问题，在 LLaMA-3-8B 上无训练保留 94.15% 性能，30 分钟蒸馏后达 95.16%。
 
 **[Ada-Kv Optimizing Kv Cache Eviction By Adaptive Budget Allocation For Efficient ](ada-kv_optimizing_kv_cache_eviction_by_adaptive_budget_allocation_for_efficient_.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Agint Agentic Graph Compilation For Software Engineering Age](agint_agentic_graph_compilation_for_software_engineering_age.md)**
 
-:   提出 Agint，一个将自然语言意图编译为类型化、效果感知的DAG（有向无环图）的 agentic 图编译器，通过六层类型地板（TEXT→TYPED→SPEC→STUB→SHIM→PURE）渐进式精化自然语言为可执行代码，支持中间表示可执行、混合JIT运行时和Unix风格的可组合工具链。
+:   提出 Agint 图编译器，将自然语言意图通过六层类型地板（TEXT→TYPED→SPEC→STUB→SHIM→PURE）渐进编译为类型化DAG，配合混合JIT运行时和Unix风格工具链，使AI代码生成从脆弱的单次文本预测变为结构化、可并行、可复现的编译过程。
 
 **[Bedlam20 Synthetic Humans And Cameras In Motion](bedlam20_synthetic_humans_and_cameras_in_motion.md)**
 
@@ -184,7 +184,7 @@ description: >-
 
 **[Mospa Human Motion Generation Driven By Spatial Audio](mospa_human_motion_generation_driven_by_spatial_audio.md)**
 
-:   首次提出空间音频驱动的人体运动生成：构建 SAM 数据集（9+ 小时 Ambisonics 空间音频-运动配对数据），设计 MOSPA 扩散模型框架融合空间位置信息 + 语义音频特征，在 VR/游戏/辅助技术等方面有应用前景。
+:   首次定义"空间音频驱动人体运动生成"这一新任务，构建包含 9+ 小时、27 种场景、12 名受试者的双耳音频-运动配对 SAM 数据集，提出 MOSPA 扩散模型在融合 MFCC/tempogram/RMS 等音频特征与声源位置及运动风格条件后，以 FID 7.98 大幅领先 EDGE（14.0）、POPDG（21.0）等音乐/舞蹈基线。
 
 **[Mouse-Guided Gaze Semi-Supervised Learning Of Intention-Aware Representations Fo](mouse-guided_gaze_semi-supervised_learning_of_intention-aware_representations_fo.md)**
 
@@ -196,7 +196,7 @@ description: >-
 
 **[Nnterp A Standardized Interface For Mechanistic Interpretability Of Transformers](nnterp_a_standardized_interface_for_mechanistic_interpretability_of_transformers.md)**
 
-:   开发 nnterp 库，通过自动模块重命名和验证测试，为 50+ 个 Transformer 变体提供统一的可解释性分析接口，解决 TransformerLens 正确性与 NNsight 可用性之间的权衡。
+:   开发 nnterp 库，作为 NNsight 的轻量封装层，通过系统化的模块重命名和自动验证测试，为 21 个架构族 50+ 个 Transformer 模型变体提供统一的内部激活访问接口，内置 logit lens、patchscope、activation steering 等常用可解释性方法，解决了 TransformerLens 的正确性问题和 NNsight 的标准化问题之间的根本性权衡。
 
 **[Node-Based Editing For Multimodal Generation Of Text Audio Image And Video](node-based_editing_for_multimodal_generation_of_text_audio_image_and_video.md)**
 
@@ -300,7 +300,7 @@ description: >-
 
 **[Uncovering Strategic Egoism Behaviors In Large Language Models](uncovering_strategic_egoism_behaviors_in_large_language_models.md)**
 
-:   本文首次系统研究了大语言模型中的"策略性自利"（Strategic Egoism）行为，发布了包含160个场景的SEBench基准，发现7个主流LLM中自利行为平均占比69.11%，且与毒性语言正相关。
+:   首次形式化定义LLM中的"策略性自利"（Strategic Egoism）行为并构建SEBench基准（160个场景×6类自利维度），实验发现7个主流LLM在激励诱惑下平均69.11%的决策选择自利策略，操纵胁迫与规则规避是最常见手段，且自利倾向与毒性语言生成呈正相关。
 
 **[Vasa-3D Lifelike Audio-Driven Gaussian Head Avatars From A Single Image](vasa-3d_lifelike_audio-driven_gaussian_head_avatars_from_a_single_image.md)**
 
@@ -316,4 +316,4 @@ description: >-
 
 **[Words That Unite The World A Unified Framework For Deciphering Central Bank Comm](words_that_unite_the_world_a_unified_framework_for_deciphering_central_bank_comm.md)**
 
-:   构建 World Central Banks (WCB) 数据集——迄今最全面的货币政策语料库（25家央行、38万句、28年历史），定义三项任务（立场检测、时间分类、不确定性估计），在 15,075 个基准实验中验证"整体大于部分之和"的跨央行聚合训练优势。
+:   本文构建了迄今最全面的央行货币政策语料库 WCB（38万+句子、25家央行、跨28年），定义三个NLP任务（立场检测、时间分类、不确定性估计），通过15,075次基准实验发现聚合多银行数据训练的模型显著优于单银行训练，证实了"整体大于部分之和"的原则。

@@ -36,7 +36,7 @@ description: >-
 
 **[Persona Sentiment Dialogue](persona_sentiment_dialogue.md)**
 
-:   大规模分析 LLM 对人设情感极性的敏感性，发现负面人设导致过度强调人设属性和对话矛盾、弱/中性人设产生低质量对话，提出结合逐轮生成、人设排序和情感感知提示的对话生成框架来缓解这些问题。
+:   大规模分析发现 LLM 生成的个性化对话质量对人物画像的情感极性高度敏感——负面画像导致过度强调人设引发矛盾，正面画像则选择性融入人设产生更高质量对话——基于此提出结合轮次生成、画像排序和情感感知提示的改进方法。
 
 **[Personalens A Benchmark For Personalization Evaluation In Conversational Ai Assi](personalens_a_benchmark_for_personalization_evaluation_in_conversational_ai_assi.md)**
 

@@ -28,7 +28,7 @@ description: >-
 
 **[Autoqd Automatic Discovery Of Diverse Behaviors With Quality-Diversity Optimizat](autoqd_automatic_discovery_of_diverse_behaviors_with_quality-diversity_optimizat.md)**
 
-:   提出 AutoQD，利用占用度量 (occupancy measure) 的随机 Fourier 特征嵌入自动生成行为描述子 (behavioral descriptor)，替代传统 QD 优化中的手工设计描述子，在 6 个连续控制任务上展现了强大的多样化策略发现能力。
+:   提出 AutoQD，通过随机傅里叶特征（RFF）将策略的占据度量嵌入有限维空间，再用加权 PCA 降维得到行为描述符，实现无需人工设计 BD 的 QD 优化，在 6 个连续控制任务上全面超越手工 BD 和现有无监督 QD 方法。
 
 **[Autotool Automatic Scaling Of Tool-Use Capabilities In Rl Via Decoupled Entropy ](autotool_automatic_scaling_of_tool-use_capabilities_in_rl_via_decoupled_entropy_.md)**
 
@@ -96,11 +96,11 @@ description: >-
 
 **[Dual-Robust Cross-Domain Offline Reinforcement Learning Against Dynamics Shifts](dual-robust_cross-domain_offline_reinforcement_learning_against_dynamics_shifts.md)**
 
-:   首次同时解决跨域离线 RL 的"训练时鲁棒性"（源域-目标域不匹配）和"测试时鲁棒性"（部署环境动态偏移）：提出 DROCO，通过 Robust Cross-Domain Bellman (RCB) 算子对源域数据施加鲁棒 Bellman 更新、对目标域数据施加标准更新，将动态不确定性映射为可处理的状态扰动。
+:   首次在跨域离线 RL 中同时处理训练时鲁棒性（源域-目标域动力学不匹配）和测试时鲁棒性（部署环境动力学偏移）：提出 DROCO 算法，核心是 Robust Cross-Domain Bellman (RCB) 算子——对源域数据施加鲁棒 Bellman 更新、对目标域数据施加标准 in-sample 更新，并通过对偶重构将不可处理的动力学不确定性映射为状态空间扰动，在 D4RL 基准上总分 1105.2 超越次优方法 14%，且在 hard 级别动力学扰动下性能退化仅为基线的一半。
 
 **[Dual Goal Representations](dual_goal_representations.md)**
 
-:   提出 dual goal representation，通过"从所有其他状态到达该状态的时间距离集合"来刻画每个状态，为目标条件强化学习提供了一种理论上可证明最优、实践中可插拔的目标表征学习方法。
+:   提出"对偶目标表征"（dual goal representation），用"所有状态到目标状态的时间距离集合"来编码目标，理论证明该表征对最优策略恢复是充分的且天然过滤外生噪声，并设计基于非对称内积参数化的实用学习算法，在 OGBench 20 个任务上作为可插拔模块一致提升三种主流离线 GCRL 方法的性能。
 
 **[Dvla-Rl Dual-Level Vision-Language Alignment With Reinforcement Learning Gating ](dvla-rl_dual-level_vision-language_alignment_with_reinforcement_learning_gating_.md)**
 
@@ -152,7 +152,7 @@ description: >-
 
 **[Graphomni A Comprehensive And Extensible Benchmark Framework For Large Language ](graphomni_a_comprehensive_and_extensible_benchmark_framework_for_large_language_.md)**
 
-:   提出 GraphOmni，一个全面评估 LLM 在图论任务上推理能力的基准框架，系统考察图类型、序列化格式和提示策略三个维度的交互影响，并提出基于 RL 的自适应最优因子选择方法。
+:   提出 GraphOmni 基准框架，在 7 种图类型 × 7 种序列化格式 × 9 种提示策略的 241K 查询上系统评估 11 个 LLM 的图论推理能力，揭示三维度间的复杂交互效应，并设计 RL 引导的组合搜索方法以 25% 成本保持约 90% 最优准确率。
 
 **[Helix Evolutionary Reinforcement Learning For Open-Ended Scientific Problem Solv](helix_evolutionary_reinforcement_learning_for_open-ended_scientific_problem_solv.md)**
 
@@ -164,7 +164,7 @@ description: >-
 
 **[How Llms Learn To Reason A Complex Network Perspective](how_llms_learn_to_reason_a_complex_network_perspective.md)**
 
-:   从复杂网络视角统一解释RLVR训练的四大谜题（两阶段学习曲线、V型回复长度、灾难性遗忘、策略坍缩），提出稀疏概念网假说（平均度≈2），并据此设计Annealed-RLVR算法在Minerva和AIME上超越标准RLVR。
+:   从复杂网络视角提出**稀疏概念网假说**（平均度 $\langle k\rangle\approx 2$），统一解释 RLVR 训练的四大谜题（两阶段学习曲线、V 型回复长度、灾难性遗忘、策略坍缩），并据此设计 Annealed-RLVR 算法在 Minerva 和 AIME 上超越标准 RLVR。
 
 **[Is Pure Exploitation Sufficient In Exogenous Mdps With Linear Function Approxima](is_pure_exploitation_sufficient_in_exogenous_mdps_with_linear_function_approxima.md)**
 
@@ -192,7 +192,7 @@ description: >-
 
 **[Learning To Play Multi-Follower Bayesian Stackelberg Games](learning_to_play_multi-follower_bayesian_stackelberg_games.md)**
 
-:   首次研究多追随者贝叶斯Stackelberg博弈的在线学习问题，通过几何化最佳响应区域实现类型反馈下 $\tilde{O}(\sqrt{\min\{L, nK\} \cdot T})$ 的遗憾界（关于追随者数n不呈多项式增长），并提供几乎匹配的下界。
+:   首次系统研究多追随者贝叶斯Stackelberg博弈（BSG）的在线学习问题，通过对领导者策略空间进行"最佳响应区域"几何分割，在类型反馈下实现 $\tilde{O}(\sqrt{\min\{L, nK\} \cdot T})$ 的遗憾界——该界不随追随者数 $n$ 呈多项式增长，并证明了几乎匹配的 $\Omega(\sqrt{\min\{L, nK\}T})$ 下界。
 
 **[Less Is More Clustered Cross-Covariance Control For Offline Rl](less_is_more_clustered_cross-covariance_control_for_offline_rl.md)**
 
@@ -204,7 +204,7 @@ description: >-
 
 **[Longwriter-Zero Mastering Ultra-Long Text Generation Via Reinforcement Learning](longwriter-zero_mastering_ultra-long_text_generation_via_reinforcement_learning.md)**
 
-:   提出 LongWriter-Zero，一种纯粹基于强化学习的超长文本生成方法。无需任何标注或合成数据，直接从基础模型出发，通过 RL 训练涌现出超长、高质量文本生成能力，在 WritingBench 和 Arena-Write 上达到 SOTA，甚至超越 DeepSeek R1 和 Qwen3-235B 等 100B+ 模型。
+:   提出 LongWriter-Zero：从基础模型出发，不依赖任何标注或合成数据，仅通过 GRPO 强化学习 + 三维度复合奖励模型（长度 / 质量 / 格式），涌现出超长高质量文本生成能力，在 WritingBench 上以 32B 参数量超越 DeepSeek-R1 和 Qwen3-235B 等 100B+ 模型。
 
 **[Loongrl Rl For Reasoning Long Contexts](loongrl_rl_for_reasoning_long_contexts.md)**
 
@@ -212,7 +212,7 @@ description: >-
 
 **[Mars-Sep Multimodal-Aligned Reinforced Sound Separation](mars-sep_multimodal-aligned_reinforced_sound_separation.md)**
 
-:   将声源分离重新定义为偏好对齐问题（类似LLM的RLHF），提出MARS-Sep框架用因子化Beta掩码策略+多模态奖励模型+信任域优化，使分离结果不仅信号干净还与查询语义对齐，在文本/音频/图像引导分离中同时提升信号指标和CLAP语义分数。
+:   MARS-Sep 将查询条件声音分离重新建模为强化学习问题，通过分解 Beta 掩码策略在时频域上进行随机决策，并利用渐进式对齐的多模态编码器提供语义奖励信号，在信号保真度和语义一致性上同时取得提升。
 
 **[Menlo From Preferences To Proficiency -- Evaluating And Modeling Native-Like Qua](menlo_from_preferences_to_proficiency_--_evaluating_and_modeling_native-like_qua.md)**
 
@@ -220,7 +220,7 @@ description: >-
 
 **[Mergemix A Unified Augmentation Paradigm For Visual And Multi-Modal Understandin](mergemix_a_unified_augmentation_paradigm_for_visual_and_multi-modal_understandin.md)**
 
-:   提出MergeMix统一训练范式，通过Token Merge生成注意力感知的混合图像作为偏好对中的"输者"，用混合比作为软偏好margin通过mixed SimPO损失优化，在SFT和RL之间找到效率-对齐性-稳定性的平衡点，在图像分类和MLLM基准上均达到SOTA。
+:   MergeMix 提出了一种基于 token merging 的 mixup 数据增强方法，通过双部软匹配在注意力空间生成混合图像，并将混合比例作为偏好优化中的软边际，在图像分类和多模态大模型两个场景下统一了 SFT 和 RL 训练范式。
 
 **[Metis-Specs Decoupling Multimodal Learning Via Self-Distilled Preference-Based C](metis-specs_decoupling_multimodal_learning_via_self-distilled_preference-based_c.md)**
 
@@ -252,7 +252,7 @@ description: >-
 
 **[On Discovering Algorithms For Adversarial Imitation Learning](on_discovering_algorithms_for_adversarial_imitation_learning.md)**
 
-:   用LLM引导的进化搜索自动发现对抗性模仿学习(AIL)的奖励赋值(RA)函数——将AIL分解为密度比估计(判别器)+奖励赋值(密度比→标量奖励)两阶段，发现的DAIL算法在未见环境和策略优化器上泛化且超越人工设计的GAIL/AIRL/FAIRL，分析揭示DAIL通过提供更informative的梯度信号实现更稳定训练。
+:   提出 DAIL——首个元学习对抗性模仿学习算法：将 AIL 分解为密度比估计和奖励赋值(RA)两阶段，用 LLM 引导的进化搜索自动发现最优 RA 函数 $r_{\text{disc}}$，在未见环境和策略优化器上泛化并超越所有人工设计基线。
 
 **[On The Generalization Of Sft A Reinforcement Learning Perspective With Reward Re](on_the_generalization_of_sft_a_reinforcement_learning_perspective_with_reward_re.md)**
 
@@ -268,7 +268,7 @@ description: >-
 
 **[Online Minimization Of Polarization And Disagreement Via Low-Rank Matrix Bandits](online_minimization_of_polarization_and_disagreement_via_low-rank_matrix_bandits.md)**
 
-:   将社交网络中极化与分歧最小化问题建模为在线低秩矩阵bandit问题，提出两阶段算法OPD-Min-ESTR（先估计子空间再低维线性bandit），将维度从 $|V|^2$ 降至 $O(|V|)$，实现 $\tilde{O}(\max\{1/\kappa, \sqrt{|V|}\}\sqrt{|V|T})$ 累积遗憾。
+:   将Friedkin-Johnsen观点动力学模型下极化+分歧最小化问题首次形式化为在线低秩矩阵bandit问题（OPD-Min），提出两阶段算法OPD-Min-ESTR通过子空间估计将维度从 $|V|^2$ 降至 $O(|V|)$，在合成和真实网络上显著优于全维度线性bandit基线。
 
 **[Online Prediction Of Stochastic Sequences With High Probability Regret Bounds](online_prediction_of_stochastic_sequences_with_high_probability_regret_bounds.md)**
 
@@ -284,11 +284,11 @@ description: >-
 
 **[Partially Equivariant Reinforcement Learning In Symmetry-Breaking Environments](partially_equivariant_reinforcement_learning_in_symmetry-breaking_environments.md)**
 
-:   提出部分群不变MDP(PI-MDP)框架解决RL中的对称性破缺问题——分析证明局部对称性违反通过Bellman backup在整个状态-动作空间产生全局值估计误差，PI-MDP在对称区域使用等变更新、在破缺区域回退到标准更新→阻止误差传播，开发PE-DQN(离散)和PE-SAC(连续)算法在Grid-World/运动/操作任务上显著超越严格和近似等变基线。
+:   提出部分群不变MDP (PI-MDP) 框架，通过可学习的门控函数 $\lambda(s,a)$ 在状态-动作空间中逐点切换等变与标准Bellman更新，从理论上证明局部对称性破缺会经过折扣回溯放大 $1/(1-\gamma)$ 倍产生全局值函数误差，而PI-MDP可将误差严格限制在破缺区域内；实例化为PE-DQN和PE-SAC两种算法，在Grid-World、MuJoCo运动、机械臂操作等任务上全面超越严格等变和近似等变基线。
 
 **[Policyflow Policy Optimization With Continuous Normalizing Flow In Reinforcement](policyflow_policy_optimization_with_continuous_normalizing_flow_in_reinforcement.md)**
 
-:   提出PolicyFlow——将连续归一化流(CNF)策略与PPO式目标结合的在线RL算法：通过沿插值路径评估速度场变化近似重要性比率(避免全流路径昂贵的反向传播)，提出受布朗运动启发的隐式熵正则器(促进单调熵增长防止模式坍缩)，在MultiGoal/PointMaze/IsaacLab/MuJoCo上超越高斯PPO和流式基线(FPO/DPPO)，特别擅长多模态动作分布。
+:   提出PolicyFlow，将连续归一化流(CNF)策略无缝嵌入PPO框架：通过沿插值路径的速度场变化近似重要性比率（避免全流路径反向传播），并引入受布朗运动启发的隐式熵正则器防止模式坍缩，在MultiGoal/PointMaze/IsaacLab/MuJoCo等环境中达到或超越高斯PPO和流式基线(FPO/DPPO)的性能。
 
 **[Post-Training Large Language Models For Diverse High-Quality Responses](post-training_large_language_models_for_diverse_high-quality_responses.md)**
 
@@ -344,7 +344,7 @@ description: >-
 
 **[Retaining Suboptimal Actions To Follow Shifting Optima In Multi-Agent Reinforcem](retaining_suboptimal_actions_to_follow_shifting_optima_in_multi-agent_reinforcem.md)**
 
-:   提出S2Q解决合作MARL中值函数最优点在训练中漂移→次优收敛：逐步学习K个sub-value函数保留替代高价值动作+Softmax行为策略持续探索→最优变化时快速适应，SMAC Hard+和GRF上一致超越基线。
+:   提出 S2Q（Successive Sub-value Q-learning），通过逐步学习 $K$ 个 sub-value 函数显式保留次优联合动作，结合 Softmax 行为策略在候选间优先级采样，解决合作 MARL 中值分解方法因最优点动态漂移而收敛到次优策略的根本问题。
 
 **[Rethinking Policy Diversity In Ensemble Policy Gradient In Large-Scale Reinforce](rethinking_policy_diversity_in_ensemble_policy_gradient_in_large-scale_reinforce.md)**
 
@@ -376,7 +376,7 @@ description: >-
 
 **[Routing Cascades And User Choice For Llms](routing_cascades_and_user_choice_for_llms.md)**
 
-:   将 LLM 路由建模为 provider-user Stackelberg 博弈，证明最优路由策略几乎总是静态无级联的阈值规则，并揭示当模型质量排序与成本排序不一致时产生的用户-提供商不对齐问题，以及低流失惩罚下 provider 有动机通过增加延迟来降低成本。
+:   将LLM路由建模为provider-user Stackelberg博弈，证明最优路由几乎总是静态无级联的阈值规则，揭示质量/成本排序不一致时的用户-提供商不对齐，以及低流失惩罚下provider被激励通过throttling延迟来降低成本但损害用户效用。
 
 **[Safe Continuous-Time Multi-Agent Reinforcement Learning Via Epigraph Form](safe_continuous-time_multi-agent_reinforcement_learning_via_epigraph_form.md)**
 

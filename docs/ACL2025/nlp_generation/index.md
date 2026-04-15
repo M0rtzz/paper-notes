@@ -24,7 +24,7 @@ description: >-
 
 **[Cocolex Legal Text Gen](cocolex_legal_text_gen.md)**
 
-:   提出 CoCoLex，一种无需训练的解码策略，通过置信度引导的动态插值将模型词表分布与上下文复制分布结合，鼓励从检索上下文中直接复制 token，在五个法律文本生成基准上显著提升生成文本对源文档的忠实性。
+:   提出 CoCoLex，一种无需训练的解码策略，利用解码过程中隐状态与上下文 token 隐状态的欧氏距离构造复制分布，并通过基于预测熵的置信度分数动态平衡"从上下文复制"与"自由生成"的比例，在五个法律基准上一致提升忠实性和正确性，尤其在长文本生成任务中效果突出。
 
 **[Context-Aware Hierarchical Merging For Long Document Summarization](context-aware_hierarchical_merging_for_long_document_summarization.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Dehumanizing Machines Anthropomorphic](dehumanizing_machines_anthropomorphic.md)**
 
-:   系统研究如何缓解文本生成系统的拟人化行为——编制基于文献和众包的干预手段清单，发展概念框架来表征干预空间、区分干预类型和评估干预效果，为减少用户对 AI 的过度依赖和情感依附提供理论和实证基础。
+:   通过文献综述和众包研究，系统整理出 21 类干预措施来降低文本生成系统输出的拟人化程度，提出包含干预类型、目标行为、操作化方式和负面影响四个维度的概念框架，为去拟人化研究提供最全面的基础设施。
 
 **[Doc Level Mbr Optimal Transport](doc_level_mbr_optimal_transport.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Event Graph Bias Mitigation Summarization](event_graph_bias_mitigation_summarization.md)**
 
-:   提出基于多文档事件关系图的中立化摘要方法，通过构建包含文内事件关系（时间/因果/子事件/共指）、跨文档事件共指和事件级道德观点的知识图，以图文本化（硬提示）和图提示调优（软提示）两种方式引导 LLM 生成去偏见的中立摘要，在内容保持和偏见消除上均优于基线。
+:   构建多文档事件关系图（包含四类文档内事件关系、跨文档事件共指、事件级道德观点），通过图文本化和图提示微调两种策略将偏见信息注入 LLM，生成去偏见的中立化摘要，在内容保留和偏见消除上均优于基线。
 
 **[Gec-Metrics A Unified Library For Grammatical Error Correction Evaluation](gec-metrics_a_unified_library_for_grammatical_error_correction_evaluation.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Video Text Summarization](video_text_summarization.md)**
 
-:   构建了 VISTA 数据集（18,599 个 AI 会议演讲视频-摘要对），首次系统性基准测试科学视频到文本摘要任务，并提出基于计划（plan-based）的框架，通过显式建模摘要结构来提升生成质量和事实一致性。
+:   提出VISTA数据集——18,599个AI会议演讲视频与论文摘要配对，并引入plan-based摘要框架，通过生成中间问题序列引导科学视频的结构化摘要生成，显著提升事实一致性。
 
 **[Writing Like Best Exemplar](writing_like_best_exemplar.md)**
 

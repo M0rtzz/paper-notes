@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 自动驾驶方向 79篇论文解读
+  CVPR2026 自动驾驶方向 78篇论文解读
 description: >-
-  79篇CVPR2026 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  78篇CVPR2026 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📷 CVPR2026** · 共 **79** 篇
+**📷 CVPR2026** · 共 **78** 篇
 
 **[A Prediction-As-Perception Framework For 3D Object Detection](a_prediction-as-perception_framework_for_3d_object_detection.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Composing Driving Worlds Through Disentangled Cont](composing_driving_worlds_through_disentangled_cont.md)**
 
-:   提出 CompoSIA，一个基于 Wan2.1 DiT 的组合式驾驶视频模拟器，通过对场景结构（3D bbox）、物体身份（单张参考图）和自车动作（相机轨迹）三因素的显式解耦注入，实现对抗性驾驶场景的细粒度可控生成，碰撞率提升 173%。
+:   提出 CompoSIA，一个组合式驾驶视频模拟器，将场景结构、物体身份和自车动作三个控制因素通过独立路径解耦注入 Flow Matching DiT，支持独立与组合编辑，实现系统性对抗场景合成，身份编辑 FVD 提升 17%，动作控制旋转/平移误差降低 30%/47%，下游规划器碰撞率平均提升 173%。
 
 **[Composing Driving Worlds Through Disentangled Control For Adversarial Scenario G](composing_driving_worlds_through_disentangled_control_for_adversarial_scenario_g.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[Drocc Depth Region Guided 3D Occupancy](drocc_depth_region_guided_3d_occupancy.md)**
 
-:   针对视角变换几何不对齐和语义类别空间各向异性不平衡，提出深度引导双投影视角变换器（D²-VFormer）利用MoGe-2构建非空体素掩码，和区域引导专家Transformer（R/R²-EFormer）自适应分配空间模型容量，BEVDet4D上提升7.43% mIoU。
+:   提出 Dr.Occ，一个统一的纯视觉 3D 占用预测框架，通过深度引导的双投影视图变换器（D2-VFormer）利用 MoGe-2 高质量深度先验实现精确几何对齐，以及区域引导的 MoE/MoR 专家 Transformer（R-EFormer / R2-EFormer）自适应分配区域专家解决空间语义不平衡，在 Occ3D-nuScenes 上将 BEVDet4D 基线提升 7.43% mIoU。
 
 **[Efficient Equivariant Transformer For Self-Driving Agent Modeling](efficient_equivariant_transformer_for_self-driving_agent_modeling.md)**
 
@@ -142,10 +142,6 @@ description: >-
 
 :   提出 LH3D 框架，通过「深度置信度→语义平衡→几何多样性」三阶段子模优化的主动学习策略，抑制路侧单目 3D 检测中固有歧义样本的选取，仅用 20% 标注预算即显著优于传统不确定性/多样性 AL 方法。
 
-**[Learning Geometric And Photometric Features From P](learning_geometric_and_photometric_features_from_p.md)**
-
-:   构建大规模室外场景数据集MPO（含Velodyne稀疏和FARO稠密两种LiDAR点云），提出结合水平循环卷积(HCC)和行级最大池化(RWMP)的CNN架构，利用全景深度图和反射率图的多模态融合（Softmax Average），在6类室外场景分类上达97.87%准确率，显著超越传统手工特征方法。
-
 **[Learning Geometric And Photometric Features From Panoramic Lidar Scans For Outdo](learning_geometric_and_photometric_features_from_panoramic_lidar_scans_for_outdo.md)**
 
 :   提出利用LiDAR全景深度图和反射率图作为CNN输入进行室外场景分类的方法，构建了MPO大规模室外3D数据集（6类场景，34200帧），通过水平循环卷积(HCC)和行级最大池化(RWMP)处理全景图的环状结构，在多模态融合下达到97.47%分类准确率。
@@ -184,7 +180,7 @@ description: >-
 
 **[Mapgclr Geospatial Contrastive Learning Of Represe](mapgclr_geospatial_contrastive_learning_of_represe.md)**
 
-:   提出 MapGCLR, 通过利用多次行驶轨迹在地理空间上的自然重叠作为对比学习信号, 预训练 BEV 特征表示, 在 Argoverse 2 上以仅 5% 标注数据实现 +42% 的相对 mAP 提升.
+:   提出 MapGCLR，一种基于地理空间一致性的对比学习策略，通过强制不同遍历中重叠区域的 BEV 特征具有一致表示，以半监督方式显著提升在线矢量化高精地图构建性能，在仅 5%-20% 标注数据下获得 13%-42% 的相对增益。
 
 **[Mapgclr Geospatial Contrastive Learning Of Representations For Online Vectorized](mapgclr_geospatial_contrastive_learning_of_representations_for_online_vectorized.md)**
 
@@ -224,7 +220,7 @@ description: >-
 
 **[O3N Omnidirectional Openvocabulary Occupancy Predi](o3n_omnidirectional_openvocabulary_occupancy_predi.md)**
 
-:   提出O3N——首个纯视觉端到端全向开放词汇占用预测框架，通过极坐标螺旋Mamba（PsM）、占用代价聚合（OCA）和无梯度自然模态对齐（NMA）三大模块，在QuadOcc和Human360Occ上实现SOTA。
+:   首个纯视觉、端到端的全向开放词汇占用预测框架 O3N，通过极坐标螺旋 Mamba (PsM)、占用代价聚合 (OCA) 和自然模态对齐 (NMA) 三个核心模块，在 360° 全景图像输入下实现了超越闭集监督方法的开放词汇 3D 占用预测性能。
 
 **[On The Feasibility And Opportunity Of Autoregressive 3D Object Detection](on_the_feasibility_and_opportunity_of_autoregressive_3d_object_detection.md)**
 
@@ -264,7 +260,7 @@ description: >-
 
 **[Remot Reinforcement Learning With Motion Contrast Triplets](remot_reinforcement_learning_with_motion_contrast_triplets.md)**
 
-:   通过运动对比三元组学习面向控制的视觉表示，提升视觉RL样本效率和泛化性
+:   提出 ReMoT 统一训练范式，通过规则驱动的多专家协作管线自动构建 16.5K 运动对比三元组数据集 (ReMoT-16K)，并结合 GRPO 强化学习与复合奖励（逻辑一致性+长度正则化），系统性解决 VLM 在时空一致性推理上的根本缺陷，实现 25.1% 的性能提升。
 
 **[Resbev Making Bev Perception More Robust](resbev_making_bev_perception_more_robust.md)**
 

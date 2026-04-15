@@ -110,9 +110,9 @@ description: >-
 
 :   提出LLM-SRBench基准（239题/4个科学领域），通过方程变换(LSR-Transform)和合成问题(LSR-Synth)防止LLM的记忆化，当前最好方法仅达31.5%符号准确率。
 
-**[Meek Models Shall Inherit the Earth](meek_models_shall_inherit_the_earth.md)**
+**[Meek Models Shall Inherit The Earth](meek_models_shall_inherit_the_earth.md)**
 
-:   基于Chinchilla scaling laws论证AI模型性能差距将因计算收益递减而收窄，资源有限的"meek模型"将逐渐接近SOTA性能水平。
+:   基于 Chinchilla 缩放定律的数学建模，证明在固定分布的 next-token 目标下，计算缩放的递减收益将导致 SOTA 大模型相对于低计算预算"弱模型"（meek models）的能力优势最终收敛趋零，论证 AI 能力的民主化是当前缩放范式下的必然趋势，现有基于算力的 AI 治理策略需要根本性重新设计。
 
 **[On Temperature Scaling And Conformal Prediction Of Deep Classifiers](on_temperature_scaling_and_conformal_prediction_of_deep_classifiers.md)**
 

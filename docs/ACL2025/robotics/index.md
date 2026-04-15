@@ -16,7 +16,7 @@ description: >-
 
 **[Dice Idiomaticity](dice_idiomaticity.md)**
 
-:   提出 DICE 数据集，通过严格控制习语表面形式不变而仅改变上下文，揭示 LLM 在习语消歧任务上的高准确率很大程度来自对表面线索的依赖而非真正的上下文理解，并发现句子概率和搭配频率对模型表现有复杂影响。
+:   提出 DICE 数据集（2066 句，402 个习语），通过严格控制习语形式一致的对比评测，揭示 LLM 在需要上下文理解才能消歧习语（字面 vs 比喻义）时存在系统性缺陷。
 
 **[Do Emotions Really Affect Argument Convincingness A Dynamic Approach With Llm-Ba](do_emotions_really_affect_argument_convincingness_a_dynamic_approach_with_llm-ba.md)**
 

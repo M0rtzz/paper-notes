@@ -28,7 +28,7 @@ description: >-
 
 **[Chameleon A Flexible Data-Mixing Framework For Language Model Pretraining And Fi](chameleon_a_flexible_data-mixing_framework_for_language_model_pretraining_and_fi.md)**
 
-:   提出Chameleon框架，用kernel ridge leverage scores在学习的嵌入空间中量化域重要性，实现高效的数据混合权重计算，可在预训练/微调/域变化三种场景下工作，且无需重新训练代理模型。
+:   提出 Chameleon 框架，利用 kernel ridge leverage scores（KRLS）在代理模型的嵌入空间中量化各训练域的重要性，以仅 DoReMi 1/10 的计算成本达到同等或更优的数据混合效果，且支持新域引入时无需重训代理模型、统一处理预训练和微调场景。
 
 **[Counting In Small Transformers The Delicate Interplay Between Attention And Feed](counting_in_small_transformers_the_delicate_interplay_between_attention_and_feed.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Language Models Over Canonical Byte-Pair Encodings](language_models_over_canonical_byte-pair_encodings.md)**
 
-:   揭示基于 BPE 的语言模型会给指数多个"非规范"编码分配非零概率导致浪费，提出条件化（推理时约束）和构造化（新模型参数化）两种方法强制规范性，改善 held-out 似然。
+:   揭示 BPE 分词下自回归语言模型给指数级数量的非规范 (noncanonical) token 编码分配了不必要的概率质量，提出基于有限状态自动机 (FSA) 的条件化与构造化两套修复方案，在多种模型和语料上一致提升 held-out 似然。
 
 **[Large Language Models Are Demonstration Pre-Selectors For Themselves](large_language_models_are_demonstration_pre-selectors_for_themselves.md)**
 
@@ -88,7 +88,7 @@ description: >-
 
 **[On The Role Of Label Noise In The Feature Learning Process](on_the_role_of_label_noise_in_the_feature_learning_process.md)**
 
-:   从理论和实证角度分析标签噪声在神经网络特征学习中的作用，发现适量的标签噪声可以促进更鲁棒的特征学习（类似正则化效果），但过多噪声会破坏特征质量。
+:   从特征学习理论视角严格分析了两层ReLU CNN在标签噪声下的训练动态，揭示清晰的二阶段行为——Stage I模型学信号拟合干净样本（泛化好），Stage II损失收敛后模型记忆噪声过拟合噪声样本（泛化退化）——并为早停和小损失样本选择提供严格理论保证。
 
 **[Position The Future Of Bayesian Prediction Is Prior-Fitted](position_the_future_of_bayesian_prediction_is_prior-fitted.md)**
 
@@ -104,7 +104,7 @@ description: >-
 
 **[The Double-Ellipsoid Geometry Of Clip](the_double-ellipsoid_geometry_of_clip.md)**
 
-:   揭示CLIP嵌入的双椭球体几何结构——图像和文本分别位于偏离原点的可线性分离椭球壳上，并从对比学习的false negative处理角度解释这一结构的优势。
+:   通过数据驱动分析发现CLIP的L2归一化前primary embedding呈现双椭球壳几何——图像和文本分别在偏离原点的可线性分离椭球壳上，引入conformity概念解释该结构如何帮助缓解false negatives并解释modality gap的成因。
 
 **[The Sharpness Disparity Principle In Transformers For Accelerating Language Mode](the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)**
 
@@ -114,9 +114,9 @@ description: >-
 
 :   将 LLM 解码与对齐问题形式化为 **tokenized bandit**（token化老虎机）问题，提出 DDMC（Diminishing Distance with More Commons）假设，证明在该假设下贪心解码近似最优，并设计了具有次线性遗憾的在线学习算法 EOFUL 和 GreedyETC。
 
-**[Towards Robust Influence Functions with Flat Validation Minima](towards_robust_influence_functions_with_flat_validation_minima.md)**
+**[Towards Robust Influence Functions With Flat Validation Minima](towards_robust_influence_functions_with_flat_validation_minima.md)**
 
-:   揭示影响函数(IF)在含噪数据上失效的根因在于验证损失的尖锐性而非参数估计精度，提出基于平坦验证极小值的新IF估计形式。
+:   揭示影响函数 (IF) 在含噪训练数据上失效的根本原因不在于 Hessian 逆近似不准（先前研究的焦点），而在于验证损失的**尖锐度**导致损失变化估计失真，理论推导出 IF 误差上界与验证风险尖锐度的联系，并设计出专用于平坦验证极小值的新 IF 形式 (FVM)。
 
 **[When Can In-Context Learning Generalize Out Of Task Distribution](when_can_in-context_learning_generalize_out_of_task_distribution.md)**
 

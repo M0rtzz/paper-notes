@@ -12,7 +12,7 @@ description: >-
 
 **[Abductivemllm Boosting Visual Abductive Reasoning Within Mll](abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)**
 
-:   模仿人类的"语言溯因+图像想象"双模式认知，提出AbductiveMLLM，通过Reasoner(因果感知假设生成+筛选)和Imaginer(扩散模型引导的图像想象)两个组件端到端联合训练，在VAR和YouCookII两个benchmark上显著超越传统方法和通用MLLM，设置新的SOTA。
+:   受人类认知中"语言溯因+图像想象"双模式启发，提出 AbductiveMLLM，通过 Reasoner（因果对比学习筛选假设）和 Imaginer（扩散模型图像化推理）两个协同组件增强 MLLM 的视觉溯因推理能力，在 VAR 和 YouCookII 基准上取得 SOTA。
 
 **[Aedr Training-Free Ai-Generated Image Attribution Via Autoen](aedr_training-free_ai-generated_image_attribution_via_autoen.md)**
 
@@ -136,7 +136,7 @@ description: >-
 
 **[Hierarchicalprune Position-Aware Compression For Large-Scale Diffusion Models](hierarchicalprune_position-aware_compression_for_large-scale_diffusion_models.md)**
 
-:   基于 MMDiT 的双层级结构洞察（inter-block + intra-block hierarchy），提出 position-aware 的剪枝+蒸馏+量化框架，将 SD3.5 Large (8B) 从 15.8GB 压缩至 3.2GB（80% 内存降低），质量仅下降 ~5%。
+:   提出 HierarchicalPrune，利用 MMDiT 扩散模型中块的层级功能差异（早期块建立语义结构、后期块处理纹理细节），通过层级位置剪枝（HPP）、位置权重保护（PWP）和敏感度引导蒸馏（SGDistill）三种技术协同，结合 INT4 量化，将 SD3.5 Large Turbo（8B）从 15.8GB 压缩至 3.24GB（79.5% 内存缩减），仅损失 4.8% 图像质量。
 
 **[How Bias Binds Measuring Hidden Associations For Bias Control In Text-To-Image C](how_bias_binds_measuring_hidden_associations_for_bias_control_in_text-to-image_c.md)**
 

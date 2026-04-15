@@ -44,7 +44,7 @@ description: >-
 
 **[Ccfqa A Benchmark For Cross-Lingual And Cross-Modal Speech And Text Factuality E](ccfqa_a_benchmark_for_cross-lingual_and_cross-modal_speech_and_text_factuality_e.md)**
 
-:   提出 CCFQA，一个覆盖 8 种语言、包含 14,400 条平行语音-文本事实问答样本的跨语言跨模态基准，用于系统评估多模态大语言模型在不同语言和输入模态下的事实一致性，并提出基于英语桥接的 few-shot 迁移策略 LLM-SQA。
+:   提出 CCFQA——首个覆盖 8 种语言、14,400 条完全平行语音-文本事实问答样本的跨语言跨模态基准，支持 QA/XQA/SQA/XSQA 四种任务设定，系统揭示了现有 MLLM 在语言和模态切换下的事实不一致性；同时提出 LLM-SQA，以英语为桥接语言、仅 5-shot 即实现跨语言语音问答迁移，在 XSQA 上 F1 达 51.4 超越 GPT-4o-mini-Audio（45.7）。
 
 **[Clip-Fti Fine-Grained Face Template Inversion Via Clip-Driven Attribute Conditio](clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)**
 
@@ -100,7 +100,7 @@ description: >-
 
 **[Finextrol Controllable Motion Generation Via Fine-Grained Text](finextrol_controllable_motion_generation_via_fine-grained_text.md)**
 
-:   提出 FineXtrol 框架，使用带时间标注的细粒度文本描述作为控制信号，结合层次化对比学习增强 text encoder 的判别力，实现对特定身体部位在指定时间区间内的精确动作生成控制。
+:   提出 FineXtrol 框架，利用带时间标注的细粒度身体部位文本描述作为控制信号，通过双分支 ControlNet 架构和层级对比学习增强文本编码器的区分能力，实现高效、用户友好且精确的可控人体动作生成，在 HumanML3D 上多身体部位控制性能显著优于现有方法。
 
 **[From Ids To Semantics A Generative Framework For Cross-Domain Recommendation Wit](from_ids_to_semantics_a_generative_framework_for_cross-domain_recommendation_wit.md)**
 

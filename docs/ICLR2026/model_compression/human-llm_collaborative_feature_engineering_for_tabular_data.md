@@ -48,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **特征操作编码与BNN代理模型**:
-    - 功能：将LLM生成的自然语言特征操作映射为向量表示，并用贝叶斯神经网络估计效用
+    - 做什么：将LLM生成的自然语言特征操作映射为向量表示，并用贝叶斯神经网络估计效用
     - 核心思路：操作嵌入由语义嵌入$\phi_{\text{embedding}}(e)$（text-embedding-3-small）和列使用编码$\phi_{\text{column}}(e) \in \{0,1\}^d$拼接而成。BNN通过变分推断学习参数后验$q_t(\boldsymbol{\theta}) = \mathcal{N}(\boldsymbol{\theta}; \boldsymbol{M}_t, \boldsymbol{\Sigma}_t)$，提供预测均值$\mu_t(e)$和方差$\sigma_t^2(e)$
     - 设计动机：GP在高维语言派生特征空间中扩展性差，BNN更适合建模非平稳性；列使用编码解决了多列语义描述相似时的歧义问题
 
 2. **选择性人类偏好反馈机制**:
-    - 功能：在UCB选出最优候选$e_t^a$后，决定是否向人类专家查询偏好反馈
+    - 做什么：在UCB选出最优候选$e_t^a$后，决定是否向人类专家查询偏好反馈
     - 核心思路：需同时满足两个条件才触发查询——(C1) 置信区间重叠：$\text{UCB}_t(e_t^b) > \text{LCB}_t(e_t^a)$，确保存在不确定性空间；(C2) 不确定性足够大：$\sqrt{\beta_t}(\sigma_t(e_t^a) + \sigma_t(e_t^b)) \geq \gamma_\kappa$，确保潜在收益大于查询成本
     - 设计动机：无差别查询会产生不必要的认知负担，仅在反馈能带来显著效用增益时才值得请求人类介入
 
 3. **基于偏好反馈的后验更新**:
-    - 功能：将人类偏好反馈$Z_t$融入代理模型的后验分布
+    - 做什么：将人类偏好反馈$Z_t$融入代理模型的后验分布
     - 核心思路：偏好反馈通过probit似然建模$\mathcal{P}(Z_t | \boldsymbol{\theta}, e_t^a, e_t^b) = \Phi(\eta Z_t [\hat{g}(\phi(e_t^a); \boldsymbol{\theta}) - \hat{g}(\phi(e_t^b); \boldsymbol{\theta})])$，更新变分后验$q_t'(\boldsymbol{\theta})$后用新UCB值做最终选择
     - 设计动机：概率化处理人类反馈比直接采信更鲁棒，能平滑噪声反馈
 

@@ -120,4 +120,4 @@ description: >-
 
 **[Understanding Ice Crystal Habit Diversity With Self-Supervised Learning](understanding_ice_crystal_habit_diversity_with_self-supervised_learning.md)**
 
-:   利用 iBOT-vMF 自监督视觉 Transformer 从大规模云粒子图像中学习冰晶的潜在表征，实现数据驱动的冰晶多样性量化，为气候模型中冰云参数化提供新方法。
+:   本文首次将自监督学习（SSL）应用于冰晶图像的潜在表征学习，通过在大规模云粒子图像上预训练ViT，学习冰晶形态的连续潜在表征，并用vMF浓度参数量化冰晶多样性，实现30倍计算效率提升的同时取得最佳分类准确率84.39%。

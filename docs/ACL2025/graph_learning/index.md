@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 图学习方向 23篇论文解读
+  ACL2025 图学习方向 22篇论文解读
 description: >-
-  23篇ACL2025 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  22篇ACL2025 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**💬 ACL2025** · 共 **23** 篇
+**💬 ACL2025** · 共 **22** 篇
 
 **[Beyond Completion A Foundation Model For General Knowledge Graph Reasoning](beyond_completion_a_foundation_model_for_general_knowledge_graph_reasoning.md)**
 
@@ -16,7 +16,7 @@ description: >-
 
 **[Can Graph Neural Networks Learn Language](can_graph_neural_networks_learn_language.md)**
 
-:   提出 Morpher，首个图-文多模态 prompt learning 范式——在冻结 GNN 和 LLM 参数的前提下，同时学习图 prompt 和文本 prompt + 跨模态投影器，用极弱文本监督（仅类别名几个词）将 GNN 表征对齐到 LLM 语义空间，首次实现 GNN 的 CLIP 式零样本图分类。
+:   本文提出Morpher，一种多模态提示学习范式，在极弱文本监督（仅几个token的标签名）下，通过同时学习图提示和文本提示将预训练GNN嵌入到LLM的语义空间中，实现跨任务、跨领域的图分类迁移以及首个CLIP风格的GNN零样本分类原型。
 
 **[Claimpkg Enhancing Claim Verification Via Pseudo-Subgraph Generation With Lightw](claimpkg_enhancing_claim_verification_via_pseudo-subgraph_generation_with_lightw.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Extending Complex Logical Queries Uncertain Knowledge Graphs](extending_complex_logical_queries_uncertain_knowledge_graphs.md)**
 
-:   提出在不确定知识图谱（Uncertain KG）上进行软查询（Soft Query）的新问题设定 SQUK，结合必要性（necessity）和重要性（importance）扩展一阶逻辑查询语义，并设计带校准的神经符号推理方法 SRC，避免前向推理中的级联错误。
+:   本文提出"软查询"形式化框架，将复杂逻辑查询扩展到不确定知识图谱（带置信度值），并设计 SRC 方法结合前向推理和后向校准来高效回答软查询，理论证明误差不会灾难性级联。
 
 **[Fast-And-Frugal Text-Graph Transformers Are Effective Link Predictors](fast-and-frugal_text-graph_transformers_are_effective_link_predictors.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Graphnarrator](graphnarrator.md)**
 
-:   提出GraphNarrator——首个为图神经网络生成自然语言解释的方法，通过将显著性图解释"语言化"为文本段落、用Expert Iteration迭代优化伪标签质量、最终蒸馏到端到端解释器模型，在三个数据集上生成的解释在忠实度、简洁性和人类偏好上均优于GPT-4o零样本解释。
+:   GraphNarrator是首个为图神经网络生成自然语言解释的方法，通过显著性图语言化生成伪标签、信息论指标驱动的专家迭代自改进、以及知识蒸馏训练端到端解释器，实现了忠实、简洁且人类友好的GNN决策解释。
 
 **[Kg Llm Trustworthy Qa](kg_llm_trustworthy_qa.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Kg Rag Recommendation](kg_rag_recommendation.md)**
 
-:   提出 K-RagRec 框架，将知识图谱（KG）中的结构化关系信息引入 LLM 推荐系统的 RAG 流程——从 KG 中检索高质量的结构化实体关系信息来增强推荐生成，解决纯文本 RAG 忽略结构关系和引入噪声的问题。
+:   提出K-RagRec框架，通过从知识图谱中检索多跳子图为LLM推荐系统提供结构化、可靠的外部知识，结合基于流行度的选择性检索策略和GNN编码器，有效缓解LLM推荐中的幻觉和知识缺失问题。
 
 **[M3Hg Multimodal Multi-Scale And Multi-Type Node Heterogeneous Graph For Emotion ](m3hg_multimodal_multi-scale_and_multi-type_node_heterogeneous_graph_for_emotion_.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[Paper 2401 14640](paper_2401_14640.md)**
 
-:   提出 CAQA 基准，利用知识图谱自动生成包含四类归因类别（支持、部分支持、矛盾、无关）和四种推理复杂度的大规模问答归因评估数据集（161K 样本），系统性地评测了 25 种自动归因评估器的能力。
+:   提出 CAQA 基准，利用知识图谱自动生成包含四类归因类别（支持、部分支持、矛盾、无关）与四种推理复杂度的大规模问答归因评估数据集（161K 样本），系统评测 25 种自动归因评估器，揭示"部分支持"识别与复杂推理场景为当前评估器的核心瓶颈。
 
 **[Predicate-Conditional Conformalized Answer Sets For Knowledge Graph Embeddings](predicate-conditional_conformalized_answer_sets_for_knowledge_graph_embeddings.md)**
 
@@ -94,10 +94,6 @@ description: >-
 
 :   提出 SimGRAG 方法，通过"查询→模式图→子图"两阶段对齐策略，利用 LLM 将查询转化为图模式，再用图语义距离（GSD）度量在知识图谱中高效检索语义最相似的子图，实现即插即用的 KG 驱动 RAG，在问答和事实验证任务上超越所有现有方法。
 
-**[The Role Of Exploration Modules In Small Language Models For Knowledge Graph Comp](the_role_of_exploration_modules_in_small_language_models_for_knowledge_graph_comp.md)**
-
-:   本文发现小语言模型（SLM）在知识图谱问答中的性能瓶颈在于图探索（exploration）阶段，提出用轻量级检索模块（SentenceBERT/GTR）替代 SLM 自身进行知识图谱遍历，显著提升了 SLM 在 KGQA 任务上的表现。
-
 **[The Role Of Exploration Modules In Small Language Models For Knowledge Graph Que](the_role_of_exploration_modules_in_small_language_models_for_knowledge_graph_que.md)**
 
-:   本文发现小语言模型（SLM）在知识图谱问答（KGQA）中使用Think-on-Graph框架时，性能瓶颈在于KG探索阶段而非推理阶段，通过引入轻量级段落检索模块（SentenceBERT/GTR，~110M参数）替代SLM自身进行KG遍历，可显著提升SLM在KGQA上的表现。
+:   本文系统性地诊断了小语言模型（SLM，0.5B–8B）在 Think-on-Graph 知识图谱问答框架中失效的根因——**探索阶段（exploration）而非推理阶段是性能瓶颈**，并证明用零样本、即插即用的轻量级段落检索模块（SentenceBERT/GTR，仅~110M参数）替代 SLM 进行 KG 遍历，即可在 CWQ 和 WebQSP 两个基准上带来一致且显著的 EM 提升。

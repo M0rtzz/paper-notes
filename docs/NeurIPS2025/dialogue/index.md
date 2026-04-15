@@ -12,7 +12,7 @@ description: >-
 
 **[Aclora Almost Trainingfree Access Controlaware Multimodal Ll](aclora_almost_trainingfree_access_controlaware_multimodal_ll.md)**
 
-:   设计AC-LoRA系统，通过为不同权限数据集维护独立的LoRA适配器，并基于查询相似度和用户权限进行检索+无训练合并，实现企业级LLM聊天机器人的强信息隔离保证。
+:   设计 AC-LoRA 端到端系统，为不同权限数据集训练独立的 LoRA 适配器，推理时根据用户查询的 cosine 相似度和权限动态检索并无训练合并多个 LoRA 输出，在保证强信息隔离的同时匹配或超越 SOTA LoRA 混合方法的回答质量。
 
 **[Bridging Human And Llm Judgments Understanding And Narrowing The Gap](bridging_human_and_llm_judgments_understanding_and_narrowing_the_gap.md)**
 
@@ -28,4 +28,4 @@ description: >-
 
 **[Sciarena An Open Evaluation Platform For Non-Verifiable Scientific Literature-Gr](sciarena_an_open_evaluation_platform_for_non-verifiable_scientific_literature-gr.md)**
 
-:   构建SciArena——社区驱动的科学文献基础模型开放评估平台，支持47个模型和20K+偏好投票，同时发布SciArena-Eval元基准评估自动评估系统判断能力。
+:   构建 SciArena 社区驱动的科学文献评估开放平台，采用 Chatbot Arena 式的人类偏好投票方式对 47 个基础模型进行排名，收集超过 20,000 条投票数据，并发布 SciArena-Eval 元基准来评测自动评估系统对文献任务答案质量的判断能力。

@@ -40,7 +40,7 @@ description: >-
 
 **[An Information-Theoretic Framework For Optimizing Experimental Design To Disting](an_information-theoretic_framework_for_optimizing_experimental_design_to_disting.md)**
 
-:   提出"信息间隙"（information gap）框架，通过优化刺激分布来最大化似然编码（likelihood code）与后验编码（posterior code）假设之间的可区分性，推导出真实后验与任务边缘化代理后验之间的KL散度作为优化目标，并通过DNN解码器在模拟神经群体上验证了该框架的有效性，揭示传统单上下文实验无法区分两种编码假设。
+:   提出 **information gap** 这一信息论度量，通过推导在似然编码和后验编码假说下解码器交叉熵性能差异的解析表达式（本质是真实后验与任务边际化代理后验之间的 KL 散度），定量评估给定实验设计区分两种概率神经编码假说的能力，并通过最大化该度量来优化刺激先验分布，实现理论驱动的最优实验设计。
 
 **[Ano Faster Is Better In Noisy Landscape](ano_faster_is_better_in_noisy_landscape.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Completing Missing Annotation Multi-Agent Debate For Accurate And Scalable Relev](completing_missing_annotation_multi-agent_debate_for_accurate_and_scalable_relev.md)**
 
-:   提出DREAM框架——用对立立场初始化的双Agent多轮辩论进行IR相关性标注，达到95.2%准确率且仅3.5%案例需人工介入。据此构建BRIDGE基准，发现29,824个缺失标注（原有标注的428%），修正了检索系统排名偏差和检索-生成性能不匹配。
+:   提出DREAM——基于对立立场初始化的多Agent多轮辩论框架用于IR相关性标注：一致时自动标注、分歧时交给人工(含辩论历史辅助)。达到95.2% balanced accuracy且仅3.5%需人工介入，据此构建BRIDGE基准数据集，发现29,824个原有基准缺失的相关标注(原标注的428%)，修正了检索系统排名偏差和RAG中检索-生成性能不匹配问题。
 
 **[Compositional Diffusion Long Horizon Planning](compositional_diffusion_long_horizon_planning.md)**
 
@@ -196,7 +196,7 @@ description: >-
 
 **[Missing Mass For Differentially Private Domain Discovery](missing_mass_for_differentially_private_domain_discovery.md)**
 
-:   为差分隐私域发现问题提供首批绝对效用保证——用缺失质量(recovered mass fraction)替代基数(unique items)度量,证明简单的加权高斯机制(WGM)在Zipf数据上有近最优ℓ1缺失质量保证且有分布无关的ℓ∞保证,并将WGM作为域发现前驱用于私有top-k和k-hitting set问题获得新效用保证,实验在6个真实数据集上验证。
+:   从 missing mass（缺失质量）角度重新审视差分隐私域发现问题，首次为简单且可扩展的 Weighted Gaussian Mechanism (WGM) 在 Zipfian 数据上证明了近最优的 $\ell_1$ 缺失质量上界和无分布假设的 $\ell_\infty$ 缺失质量保证，并将 WGM 作为域发现前置步骤应用于未知域的 private top-$k$ 和 $k$-hitting set 问题，在六个真实数据集上验证了理论结果。
 
 **[Neural Force Field Few-Shot Learning Of Generalized Physical Reasoning](neural_force_field_few-shot_learning_of_generalized_physical_reasoning.md)**
 
@@ -204,11 +204,11 @@ description: >-
 
 **[Noisy-Pair Robust Representation Alignment For Positive-Unlabeled Learning](noisy-pair_robust_representation_alignment_for_positive-unlabeled_learning.md)**
 
-:   提出NcPU框架解决PU学习中判别性表示学习的瓶颈：(1) NoiSNCL噪声对鲁棒的非对比损失使clean pair梯度主导训练；(2) PhantomGate伪标签消歧提供保守负标签。两者在EM框架下迭代互利，在CIFAR-100上将差距（vs 监督学习）从14.26%缩至接近0。
+:   提出 NcPU 非对比 PU 学习框架，通过对标准非对比损失做 sqrt 变换（NoiSNCL）让 clean pair 梯度主导训练、用 PhantomGate 提供保守负监督并支持 regret 回退，两个模块在 EM 框架下迭代互利；在不依赖辅助负样本或预估类先验的前提下，CIFAR-100 上与监督学习差距从 14.26% 缩至 <1.4%，xBD 灾损评估上同样达到 SOTA。
 
 **[On The Impact Of The Utility In Semivalue-Based Data Valuation](on_the_impact_of_the_utility_in_semivalue-based_data_valuation.md)**
 
-:   提出数据集空间签名概念和鲁棒性度量R_p，将数据点嵌入低维空间使效用变为线性泛函，揭示半值数据估值对效用选择的几何敏感性，Banzhaf在多数据集上一致最鲁棒。
+:   本文通过引入"空间签名"（spatial signature）的几何表示，将数据估值中的 utility 选择问题统一建模为单位圆上的方向旋转问题，并提出了一个量化鲁棒性的指标 $R_p$，揭示了 Banzhaf 值在不同 utility 下表现出最高的排序稳定性。
 
 **[On The Lipschitz Continuity Of Set Aggregation Functions And Neural Networks For](on_the_lipschitz_continuity_of_set_aggregation_functions_and_neural_networks_for.md)**
 
@@ -220,7 +220,7 @@ description: >-
 
 **[Out Of The Shadows Exploring A Latent Space For Neural Network Verification](out_of_the_shadows_exploring_a_latent_space_for_neural_network_verification.md)**
 
-:   提出一种基于潜空间（latent space）的规范驱动输入细化方法，通过在高维潜空间中转移输出约束到输入空间，显著减少分支定界过程中的子问题数量，实现高效GPU加速的神经网络验证工具。
+:   将 zonotope 视为高维超立方体的"投影（影子）"，发现输入集和输出包围体共享同一潜空间，据此提出规范驱动的输入细化方法，将输出端的不安全约束反向传递到输入空间来剪枝，使分支定界子问题数减少 60-65%，且所有运算均为矩阵操作从而实现高效 GPU 加速，在 VNN-COMP'24 八个基准上与 α-β-CROWN 等顶级工具取得可比性能。
 
 **[Oversmoothing Oversquashing Heterophily Long-Range And More Demystifying Common ](oversmoothing_oversquashing_heterophily_long-range_and_more_demystifying_common_.md)**
 
@@ -228,7 +228,7 @@ description: >-
 
 **[Owleye Zero-Shot Learner For Cross-Domain Graph Data Anomaly Detection](owleye_zero-shot_learner_for_cross-domain_graph_data_anomaly_detection.md)**
 
-:   提出OwlEye框架，通过跨域特征对齐、多域多模式字典学习和截断注意力重建三个模块，实现了在完全未见图上的零样本异常检测，且支持无需重训练的持续学习。
+:   提出 OwlEye 框架，利用基于成对距离统计的跨域特征对齐将异构图嵌入共享空间，从多图中提取 attribute-level 和 structure-level 正常模式存入可扩展字典，并通过截断注意力重建机制在完全零样本条件下检测未见图的异常节点，8 数据集平均 AUPRC 36.17% 超越最强 baseline ARC 约 5.4 个百分点。
 
 **[Predicting Kernel Regression Learning Curves From Only Raw Data Statistics](predicting_kernel_regression_learning_curves_from_only_raw_data_statistics.md)**
 

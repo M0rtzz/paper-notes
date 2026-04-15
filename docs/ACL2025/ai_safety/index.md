@@ -20,7 +20,7 @@ description: >-
 
 **[Dialect Fairness Robustness](dialect_fairness_robustness.md)**
 
-:   本文提出首个系统评估LLM在非标准方言（AAVE）推理任务中公平性与鲁棒性的研究，构建了包含1.2K+平行查询对的ReDial基准，发现几乎所有主流LLM在AAVE输入上表现出显著的性能下降和不公平。
+:   本文构建了首个高质量人工标注的标准英语-AAVE平行推理基准ReDial（1216对），系统评估LLM在方言输入下的公平性与鲁棒性，发现几乎所有主流模型在AAVE查询上性能显著下降超过10%。
 
 **[Elba-Bench An Efficient Learning Backdoor Attacks Benchmark For Large Language M](elba-bench_an_efficient_learning_backdoor_attacks_benchmark_for_large_language_m.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Fairi Tales Evaluation Of Fairness In Indian Contexts With A Focus On Bias And S](fairi_tales_evaluation_of_fairness_in_indian_contexts_with_a_focus_on_bias_and_s.md)**
 
-:   发布 Indic-Bias——首个印度社会文化的大规模 LLM 公平性 benchmark，覆盖 85 个身份群体（种姓/宗教/地区/部落），20,000 个场景模板+3 类评估任务，14 个 LLM 评测揭示模型对达利特等边缘群体系统性负面偏见且 70%+ 案例中强化刻板印象。
+:   本文提出 Indic-Bias，首个面向印度多元社会的大规模 LLM 公平性基准，通过 20,000 个人工验证的场景模板在三大评估任务上测试 14 个 LLM，揭示模型对达利特等边缘化群体存在严重负面偏见，且超过 70% 的情况下会强化刻板印象。
 
 **[Fairness Difference Awareness](fairness_difference_awareness.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Gifi Gender Fairness](gifi_gender_fairness.md)**
 
-:   提出 GIFI（Gender Inclusivity Fairness Index），一个多层次综合评估框架，涵盖代词识别、情感中立性、毒性、反事实公平性、刻板印象关联、职业公平性和推理性能一致性七个维度，在 22 个 LLM 上系统评估二元与非二元性别的公平性。
+:   提出 GIFI（Gender Inclusivity Fairness Index），一个涵盖代词识别、情感中立性、毒性、反事实公平性、刻板印象关联、职业公平性和数学推理一致性七个维度的多层次评估框架，在 22 个主流 LLM 上系统量化二元与非二元性别的公平性，揭示新代词在无提示时完全缺席、"she" 过度矫正等深层偏见模式。
 
 **[Improved Unbiased Watermark For Large Language](improved_unbiased_watermark_for_large_language.md)**
 
@@ -96,7 +96,7 @@ description: >-
 
 **[Speechfake A Largescale Multilingual Speech Deepfake](speechfake_a_largescale_multilingual_speech_deepfake.md)**
 
-:   构建 SpeechFake，目前最大的语音深度伪造检测数据集——超 300 万样本、3000+ 小时、40 种生成工具（含最新 TTS/VC/Neural Vocoder）、46 种语言，在自有及未见测试集上展现强基线性能。
+:   构建 SpeechFake 大规模语音深伪数据集，包含 300 万+深伪样本、3000+ 小时音频、40 种生成工具和 46 种语言，并通过基线实验系统分析了生成方法、语言多样性和说话人变化对检测性能的影响。
 
 **[Tip Iceberg Adversarial Attacks](tip_iceberg_adversarial_attacks.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像恢复方向 25篇论文解读
+  CVPR2026 图像恢复方向 24篇论文解读
 description: >-
-  25篇CVPR2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  24篇CVPR2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📷 CVPR2026** · 共 **25** 篇
+**📷 CVPR2026** · 共 **24** 篇
 
 **[Beyond Ground-Truth Leveraging Image Quality Priors For Real-World Image Restora](beyond_ground-truth_leveraging_image_quality_priors_for_real-world_image_restora.md)**
 
@@ -56,7 +56,7 @@ description: >-
 
 **[It Takes Two A Duet Of Periodicity And Directionality For Burst Flicker Removal](it_takes_two_a_duet_of_periodicity_and_directionality_for_burst_flicker_removal.md)**
 
-:   揭示闪烁伪影的两个内在物理特性——**周期性**(空间-时间重复的亮暗条纹模式)和**方向性**(沿行式曝光方向传播)——提出Flickerformer Transformer架构：基于相位的融合模块(PFM)利用帧间相位相关自适应聚合burst特征、自相关前馈网络(AFFN)利用帧内结构规律、小波方向注意力模块(WDAM)用高频方向信息引导低频暗区修复，在burst闪烁去除上全面超越SOTA。
+:   揭示闪烁伪影具有周期性和方向性两个内在物理特性，设计Flickerformer三模块（PFM/AFFN/WDAM）分别针对帧间/帧内周期性和方向性建模，以3.92M参数量在BurstDeflicker基准上达到31.226dB PSNR，超越第二名AST +0.580dB且仅用其19.70%参数。
 
 **[Learning To Translate Noise For Robust Image Denoising](learning_to_translate_noise_for_robust_image_denoising.md)**
 
@@ -73,10 +73,6 @@ description: >-
 **[Raw-Domain Degradation Models For Realistic Smartphone Super-Resolution](raw-domain_degradation_models_for_realistic_smartphone_super-resolution.md)**
 
 :   提出基于标定的 RAW 域退化建模框架，通过为多款智能手机相机精确标定 SR 模糊核与传感器噪声模型，将公开 sRGB 图像"反处理"为逼真的 LR RAW 数据用于训练，在相机特定和跨相机盲超分辨率场景中均显著超越基于通用退化池的基线方法。
-
-**[Rawdomain Degradation Models Smartphone Sr](rawdomain_degradation_models_smartphone_sr.md)**
-
-:   通过对不同智能手机传感器进行设备特定的退化标定（模糊PSF和噪声模型），将公开渲染图像逆处理（unprocess）到各手机的RAW域来生成逼真的训练对，训练的RAW-to-RGB SR模型在未见设备上的真实数据上显著优于使用任意退化参数的基线。
 
 **[Shiftlut Spatial Shift Enhanced Look-Up Tables For Efficient Image Restoration](shiftlut_spatial_shift_enhanced_look-up_tables_for_efficient_image_restoration.md)**
 

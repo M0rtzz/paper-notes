@@ -12,7 +12,7 @@ description: >-
 
 **[A Case Study Of Cross-Lingual Zero-Shot Generalization For Classical Languages I](a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i.md)**
 
-:   系统评估 LLM（GPT-4o/Llama-3.1）在三种古典语言（梵语、拉丁语、古希腊语）上的零样本跨语言泛化能力——涵盖 NER、机器翻译、问答三个 NLU 任务，发现大模型在域外数据上可比肩甚至超越微调基线，模型规模是决定性因素，并贡献了一个 1501 对的梵语事实问答数据集。
+:   系统评估 LLM 在三种古典语言（梵语、古希腊语、拉丁语）上的零样本跨语言泛化能力，涵盖 NER、机器翻译和问答三个 NLU 任务，同时贡献 1501 对梵语问答数据集并验证 RAG 策略的有效性，揭示模型规模是跨语言泛化的决定性因素。
 
 **[Alleviating Distribution Shift In Synthetic Data For Machine Translation Quality](alleviating_distribution_shift_in_synthetic_data_for_machine_translation_quality.md)**
 
@@ -32,11 +32,11 @@ description: >-
 
 **[Assessing Agentic Large Language Models In Multilingual National Bias](assessing_agentic_large_language_models_in_multilingual_national_bias.md)**
 
-:   首次研究 LLM 作为推理型 Agent 在多语言场景下的国籍偏见——在大学申请/旅行/搬迁三个决策场景中，让 GPT-3.5/GPT-4/Sonnet 对同一实体（大学/城市）用不同语言打分，发现普遍存在"本地语言偏向"（用中文问清华得 10 分，用英文问只得 7 分），GPT-4 在英语上偏见减少但非英语上偏见显著，CoT 不一定缓解反而可能放大偏差。
+:   首次系统研究LLM作为多语言智能建议agent在推理型决策任务中的国籍偏见，通过大学申请/旅行/搬迁三类场景+Thurstone比较法量化GPT-3.5/GPT-4/Claude Sonnet在6种语言下的评分偏差，发现"本地语言偏见"（local language bias）普遍存在，且CoT推理在非英语语言中反而加剧偏见。
 
 **[Beyond N-Grams Rethinking Evaluation Metrics And Strategies For Multilingual Abs](beyond_n-grams_rethinking_evaluation_metrics_and_strategies_for_multilingual_abs.md)**
 
-:   系统评估了 n-gram 和神经指标在 8 种语言（4 种类型学家族）上与人工判断的相关性，发现 n-gram 指标在融合语言中可靠性差，而专门训练的神经指标 COMET 在所有语言上一致优于其他指标；还发现分词策略可以显著改善融合语言的评估效果。
+:   系统评估了 n-gram 和神经网络评估指标在 8 种语言（4 个形态类型族）上与人类判断的相关性，发现 n-gram 指标在高融合语言（阿拉伯语、希伯来语）上与人类判断负相关，而专门训练的神经指标 COMET 在所有语言类型上一致优于其他方法。
 
 **[Blessing Of Multilinguality A Systematic Analysis Of Multilingual In-Context Lea](blessing_of_multilinguality_a_systematic_analysis_of_multilingual_in-context_lea.md)**
 
@@ -80,7 +80,7 @@ description: >-
 
 **[Crosslingual Pitfalls](crosslingual_pitfalls.md)**
 
-:   提出基于束搜索和 LLM 仿真的自动化方法来高效发现多语言 LLM 的跨语言弱点，构建了覆盖 16 种语言的 6000+ 双语问答对数据集，揭示即使 GPT-4o 也存在超过 30% 的跨语言性能下降。
+:   提出一种基于 beam search 和 LLM 模拟的自动化方法，高效生成双语问题对以暴露多语言 LLM 在目标语言上的跨语言性能缺陷，构建了覆盖 16 种语言的 6000+ 样本数据集，揭示即使 GPT-4o 也有超 30% 的跨语言准确率下降。
 
 **[Cruxeval-X A Benchmark For Multilingual Code Reasoning Understanding And Executi](cruxeval-x_a_benchmark_for_multilingual_code_reasoning_understanding_and_executi.md)**
 
@@ -124,11 +124,11 @@ description: >-
 
 **[Hierarchical News Clustering](hierarchical_news_clustering.md)**
 
-:   本文提出利用多语言 Matryoshka 嵌入的分层特性进行新闻文章聚类：低维捕捉主题级相似度、中维捕捉叙事级相似度、高维捕捉事件级相似度，结合改良的 RAC 层级聚类算法，在 SemEval 2022 Task 8 上达到 SOTA（Pearson ρ = 0.816）。
+:   提出利用多语言Matryoshka嵌入实现层级化新闻聚类的方法：嵌入的不同维度子集对应不同粒度的语义相似性（主题→话题→事件），配合改进的层级凝聚聚类算法，在SemEval 2022 Task 8上达到SOTA（Pearson ρ=0.816）。
 
 **[Just Go Parallel Improving The Multilingual Capabilities Of Large Language Model](just_go_parallel_improving_the_multilingual_capabilities_of_large_language_model.md)**
 
-:   系统研究在 decoder-only LLM 训练中加入平行数据对多语言能力的影响，发现将平行数据放在训练末期效果最好，且平行数据显著优于等量的单语数据；LLM 无法自动泛化到训练方向的反向翻译。
+:   系统研究在 decoder-only LLM 训练中加入平行数据对多语言能力的影响：平行数据放在训练末期效果最好且显著优于等量单语数据；LLM 无法自动泛化到训练方向的反向翻译（reversal curse）。
 
 **[Knowcoder-X Boosting Multilingual Information Extraction Via Code](knowcoder-x_boosting_multilingual_information_extraction_via_code.md)**
 
@@ -160,7 +160,7 @@ description: >-
 
 **[Low Resource Translation](low_resource_translation.md)**
 
-:   将语法书辅助的极低资源翻译（XLR MT）分解为语法规则检索和规则应用两步，并提出用代码格式表示语法规则以提升 LLM 在两步中的表现，在壮语翻译上实现了 13.1% BLEU 的提升。
+:   将语法书辅助的极低资源翻译分解为**语法规则检索**和**规则应用**两步，提出 Rule-by-Rule 检索策略和代码格式语法规则表示，在壮语翻译上端到端提升 13.1% BLEU。
 
 **[M-Mad Multidimensional Multi-Agent Debate For Advanced Machine Translation Evalu](m-mad_multidimensional_multi-agent_debate_for_advanced_machine_translation_evalu.md)**
 
@@ -192,11 +192,11 @@ description: >-
 
 **[Mid Layer Crosslingual Alignment](mid_layer_crosslingual_alignment.md)**
 
-:   通过分析 1000+ 语言对发现 LLM 中间层具有最强的跨语言对齐潜力，提出在任务训练中集成中间层对齐目标（对比损失），在槽填充（F1 61.7%）、机器翻译（BLEU 32.3）和结构化文本生成上显著提升跨语言迁移，对未见语言也有效。
+:   通过大规模分析 1000+ 语言对（35 种语言、1190 个方向）发现 LLM **中间层**具有最强跨语言语义对齐潜力，提出在任务微调中交替优化中间层对比对齐损失，在槽填充（F1 +1.5）、机器翻译（COMET +1.1）和 JSON 生成三大任务上显著提升跨语言迁移，且对未见语言和不同域数据均有效；分别训练的对齐与任务 LoRA 模块可通过权重平均合并使用。
 
 **[Milic-Eval Benchmarking Multilingual Llms For Chinas Minority Languages](milic-eval_benchmarking_multilingual_llms_for_chinas_minority_languages.md)**
 
-:   构建首个中国少数民族语言 LLM 评估基准 MiLiC-Eval，包含 24K 实例覆盖 9 个任务、聚焦藏语/维吴尔语/哈萨克语/蒙古语 4 种语言，发现开源 LLM 在语法密集型任务和多文字语言上表现极差。
+:   构建了首个面向中国少数民族语言（藏语、维吾尔语、哈萨克语、蒙古语）的标准化LLM评估基准MiLiC-Eval，包含9类任务2.4万实例，揭示了当前LLM在非主流书写系统上的严重不足。
 
 **[Modular Sentence Encoders](modular_sentence_encoders.md)**
 
@@ -208,7 +208,7 @@ description: >-
 
 **[Msqad Multilingual Ethical Bias](msqad_multilingual_ethical_bias.md)**
 
-:   提出多语言敏感问答数据集MSQAD（基于Human Rights Watch 17个人权话题），通过McNemar检验和PERMANOVA检验两种统计假设检验方法，系统验证了LLM在不同语言下对相同敏感问题的回答存在显著伦理偏差——中文和印地语拒绝率最高，西班牙语和德语最容易生成不当回答，且该偏差在7个不同LLM中普遍存在。
+:   提出多语言敏感问答数据集MSQAD（基于Human Rights Watch 17个人权话题、6种语言），通过McNemar检验和PERMANOVA检验两种统计假设检验，系统证明LLM在不同语言下回答相同敏感问题时存在显著伦理偏差：中文/印地语拒绝率最高而西/德语最易生成不当回答，且该偏差在7个LLM中普遍存在。
 
 **[Mt Eval Human Parity](mt_eval_human_parity.md)**
 
@@ -232,7 +232,7 @@ description: >-
 
 **[Multilingual Speech Data Quality](multilingual_speech_data_quality.md)**
 
-:   对三大公开多语言语音数据集（Common Voice、FLEURS、VoxPopuli）进行系统质量审计，发现低资源语言存在严重的微观和宏观质量问题，并提出基于社会语言学意识的数据集创建指南。
+:   对三大公开多语言语音数据集（Common Voice 17.0、FLEURS、VoxPopuli）进行覆盖 40+ 种语言的系统质量审计，将问题分为可程序化修复的"微观问题"和需语言学介入的"宏观问题"，发现低制度化语言面临的宏观问题尤为严重，并提出融入社会语言学意识的 5 步数据集创建指南。
 
 **[Nametag 3 A Tool And A Service For Multilingualmultitagset Ner](nametag_3_a_tool_and_a_service_for_multilingualmultitagset_ner.md)**
 
@@ -280,7 +280,7 @@ description: >-
 
 **[Towards Global Ai Inclusivity A Large-Scale Multilingual Terminology Dataset Gis](towards_global_ai_inclusivity_a_large-scale_multilingual_terminology_dataset_gis.md)**
 
-:   构建了首个大规模多语言 AI 术语数据集 GIST，包含从顶级 AI 会议论文中提取的 5K 术语及其阿拉伯语、中文、法语、日语和俄语翻译，并探索了三种无需重训练的术语集成方法来提升机器翻译质量。
+:   构建首个大规模多语言 AI 术语数据集 GIST（约 5K 术语、5 种语言），采用 LLM 抽取 + 人工众包翻译 + LLM 选择的混合框架，并通过 prompting 后翻译优化方法在 BLEU/COMET 等指标上一致提升机器翻译中 AI 术语的翻译质量。
 
 **[Trans-Zero Self-Play Incentivizes Large Language Models For Multilingual Transla](trans-zero_self-play_incentivizes_large_language_models_for_multilingual_transla.md)**
 
@@ -288,7 +288,7 @@ description: >-
 
 **[Translation Robustness](translation_robustness.md)**
 
-:   通过合成噪声和社交媒体文本的系统性实验，证明现代大规模预训练翻译模型（LLM）在未经任何专门鲁棒性训练的情况下，对多种输入噪声的鲁棒性已远超传统 NMT 模型，鲁棒性随模型规模增长自然提升。
+:   通过合成噪声和社交媒体文本实验发现，近年大规模预训练翻译模型（如 TowerInstruct 13B、GPT-3.5）在未使用任何专门鲁棒性训练技术的情况下，对多种字符级噪声的鲁棒性远超传统 NMT 模型（OPUS），且源端纠错+LLM 翻译的组合可进一步超越 GPT-3.5。
 
 **[Unveiling The Power Of Source Source-Based Minimum Bayes Risk Decoding For Neura](unveiling_the_power_of_source_source-based_minimum_bayes_risk_decoding_for_neura.md)**
 
@@ -296,7 +296,7 @@ description: >-
 
 **[Watching The Watchers Exposing Gender Disparities In Machine Translation Quality](watching_the_watchers_exposing_gender_disparities_in_machine_translation_quality.md)**
 
-:   系统性地揭示了机器翻译质量估计(QE)指标中的性别偏见：当源语言性别模糊时，阳性形式翻译得分系统性地高于阴性形式，性别中性翻译被惩罚；即使有上下文消歧线索，阴性指称的错误率仍显著高于阳性，且该偏见会传播到数据过滤和解码等下游任务中。
+:   > 本文系统揭示了机器翻译质量评估 (QE) 指标中的性别偏差：在源语言性别模糊时阳性形式得分高于阴性形式，在有上下文线索时阴性形式的错误率更高，且偏差会通过数据过滤和质量感知解码传播到下游 MT 系统。
 
 **[Zipa A Family Of Efficient Models For Multilingual Phone Recognition](zipa_a_family_of_efficient_models_for_multilingual_phone_recognition.md)**
 

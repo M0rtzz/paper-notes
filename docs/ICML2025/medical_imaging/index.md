@@ -120,7 +120,7 @@ description: >-
 
 **[I2Moe Interpretable Multimodal Interaction-Aware Mixture-Of-Experts](i2moe_interpretable_multimodal_interaction-aware_mixture-of-experts.md)**
 
-:   提出I2MoE——端到端MoE框架用不同交互专家+弱监督交互损失显式建模多模态交互（唯一性/冗余/协同），加上重加权模型提供样本级和数据集级解释，在医疗和通用数据集上一致提升性能和可解释性。
+:   I2MoE 提出了一种可解释的多模态交互感知混合专家框架，通过四种交互专家（唯一性×2 + 协同 + 冗余）结合弱监督交互损失显式建模模态间的异质交互，并通过重加权模型提供样本级和数据集级的可解释性，在 ADNI 数据集上提升准确率 5.5%。
 
 **[Idpa Instance Decoupled Prompt Attention For Incremental Medical Object Detectio](idpa_instance_decoupled_prompt_attention_for_incremental_medical_object_detectio.md)**
 
@@ -228,7 +228,7 @@ description: >-
 
 **[Steering Protein Language Models](steering_protein_language_models.md)**
 
-:   首次将LLM中的Activation Steering技术应用于蛋白质语言模型(PLM)：通过编辑内部激活来引导蛋白质生成/优化朝向目标属性，无需额外训练，并提出基于steering vector相异度的突变位点识别算法。
+:   首次将LLM领域的Activation Steering技术迁移到蛋白质语言模型（PLM），通过在推理时编辑模型内部激活来引导蛋白质序列生成和优化朝向目标属性（如热稳定性、溶解度），完全无需重新训练，并提出基于steering vector相异度的突变位点识别算法（ASPO），在溶菌酶和GFP优化任务上大幅超越传统方法。
 
 **[Supercharging Graph Transformers With Advective Diffusion](supercharging_graph_transformers_with_advective_diffusion.md)**
 
@@ -248,7 +248,7 @@ description: >-
 
 **[Training Flexible Models Of Genetic Variant Effects From Functional Annotations](training_flexible_models_of_genetic_variant_effects_from_functional_annotations.md)**
 
-:   利用现代快速线性代数技术训练大规模神经网络预测基因变异效应——将连锁不平衡(LD)矩阵做带状近似+小批量训练，首次在百万变异规模上优化全似然而非摘要统计量，发现更大模型只在全似然下才有效。
+:   DeepWAS利用LD矩阵的带状近似做mini-batch训练 + Woodbury恒等式重参数化使矩阵良条件化 + 迭代线性代数算法（CG+SLQ）GPU加速，首次实现在百万变异规模上用大规模神经网络（5200万参数Transformer）优化完整边际似然来预测基因变异效应，核心发现是更大模型仅在全似然训练下才带来提升而在摘要统计量训练下反而退步。
 
 **[Training Flexible Models Of Genetic Variant Effects From Functional Annotations ](training_flexible_models_of_genetic_variant_effects_from_functional_annotations_.md)**
 
@@ -260,7 +260,7 @@ description: >-
 
 **[Unisim A Unified Simulator For Time-Coarsened Dynamics Of Biomolecules](unisim_a_unified_simulator_for_time-coarsened_dynamics_of_biomolecules.md)**
 
-:   UniSim提出首个跨域（小分子/肽链/蛋白质）全原子时间粗化动力学模拟器，通过多头预训练学习统一原子表示+随机插值学习状态转移+力引导模块适配不同化学环境。
+:   UniSim 是首个面向跨域（小分子/肽链/蛋白质）全原子时间粗化分子动力学的深度生成模型，通过三阶段管线——多头预训练统一原子表示、随机插值向量场模型学习长时间步状态推进、力引导核参数高效适配不同化学环境——实现跨分子域的可迁移动力学模拟。
 
 **[Weisfeiler And Leman Go Gambling Why Expressive Lottery Tickets Win](weisfeiler_and_leman_go_gambling_why_expressive_lottery_tickets_win.md)**
 

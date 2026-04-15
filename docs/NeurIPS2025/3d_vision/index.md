@@ -56,7 +56,7 @@ description: >-
 
 **[Cue3D Quantifying The Role Of Image Cues In Single-Image 3D Generation](cue3d_quantifying_the_role_of_image_cues_in_single-image_3d_generation.md)**
 
-:   提出 Cue3D——首个模型无关的框架，通过系统性扰动 6 种图像线索（光照/纹理/轮廓/透视/边缘/局部连续性）量化其对单图 3D 生成的影响，在 7 个 SOTA 方法上揭示：形状意义而非纹理决定泛化性，光照比纹理更重要，模型过度依赖轮廓——为更透明、鲁棒的 3D 生成指明方向。
+:   Cue3D是首个模型无关的图像线索重要性量化框架，通过系统性扰动光照、纹理、轮廓、透视、边缘和局部连续性6种视觉线索，在涵盖回归式/多视图/原生3D生成三大范式的7个方法上揭示了关键洞察：形状意义性而非纹理决定泛化能力，光照比纹理更重要，且模型过度依赖输入轮廓。
 
 **[D2Ust3R Enhancing 3D Reconstruction For Dynamic Scenes](d2ust3r_enhancing_3d_reconstruction_for_dynamic_scenes.md)**
 
@@ -100,7 +100,7 @@ description: >-
 
 **[Electra A Cartesian Network For 3D Charge Density Prediction With Floating Orbit](electra_a_cartesian_network_for_3d_charge_density_prediction_with_floating_orbit.md)**
 
-:   ELECTRA 提出用可学习的浮动轨道（Floating Orbitals）表示电子电荷密度，通过 Cartesian 张量等变网络预测轨道位置、权重和协方差矩阵，结合对称性打破机制和去偏层，在 QM9 基准上达到 SOTA 精度同时推理速度快 170 倍，并能将 DFT 自洽场迭代减少 50%。
+:   提出 ELECTRA（Electronic Tensor Reconstruction Algorithm），一种等变笛卡尔张量网络，通过预测浮动高斯轨道的位置、权重和协方差矩阵来重构电子密度，在 QM9 基准上精度比 SOTA 方法 SCDP 高 2.4 倍且推理速度快 4.4-11 倍，并将 DFT 的 SCF 迭代次数减少 50.72%。
 
 **[Enerverse Envisioning Embodied Future Space For Robotics Manipulation](enerverse_envisioning_embodied_future_space_for_robotics_manipulation.md)**
 
@@ -140,7 +140,7 @@ description: >-
 
 **[From Pixels To Views Learning Angular-Aware And Physics-Consistent Representatio](from_pixels_to_views_learning_angular-aware_and_physics-consistent_representatio.md)**
 
-:   提出XLFM-Former用于扩展光场显微镜(XLFM)的3D重建：构建首个XLFM-Zebrafish标准化基准，设计Masked View Modeling (MVM-LF)自监督预训练学习角度先验，引入光学渲染一致性损失(ORC Loss)确保物理可信性，PSNR较SOTA提升7.7%（54.04 vs 50.16 dB）。
+:   提出 XLFM-Former，通过 **视角级 Masked View Modeling（MVM-LF）** 自监督预训练学习 XLFM 的角度–空间先验，并设计基于 PSF 可微渲染的 **光学渲染一致性损失（ORC Loss）** 约束重建体积的物理合理性，在自建的首个 XLFM-Zebrafish 标准化基准上，平均 PSNR 达 54.04 dB，较最佳基线 ConvNeXt（50.16 dB）提升 **7.7%**。
 
 **[From Programs To Poses Factored Real-World Scene Generation Via Learned Program ](from_programs_to_poses_factored_real-world_scene_generation_via_learned_program_.md)**
 
@@ -216,7 +216,7 @@ description: >-
 
 **[Jasmine Harnessing Diffusion Prior For Self-Supervised Depth Estimation](jasmine_harnessing_diffusion_prior_for_self-supervised_depth_estimation.md)**
 
-:   首次将Stable Diffusion视觉先验引入自监督单目深度估计：提出Mix-Batch Image Reconstruction避免自监督噪声损坏SD先验，设计Scale-Shift GRU桥接SD的尺度偏移不变性(SSI)与自监督的尺度不变性(SI)深度，在KITTI上AbsRel达0.102且泛化性强。
+:   首次将Stable Diffusion的视觉先验引入自监督单目深度估计框架，提出Mix-Batch Image Reconstruction（MIR）代理任务保护SD先验不被重投影噪声损坏，并设计Scale-Shift GRU（SSG）桥接SD的尺度-偏移不变性（SSI）与自监督的尺度不变性（SI）深度分布，在KITTI上AbsRel=0.090达到所有SSMDE方法SOTA，且零样本泛化全面超越Marigold、E2E FT、Lotus等有监督SD方法。
 
 **[Langsplatv2 High-Dimensional 3D Language Gaussian Splatting With 450 Fps](langsplatv2_high-dimensional_3d_language_gaussian_splatting_with_450_fps.md)**
 
@@ -294,9 +294,9 @@ description: >-
 
 :   提出ComGS框架，利用动态场景中运动的局部性和一致性，通过仅约200个关键点驱动整个运动区域的高斯点运动，实现了相比3DGStream 159倍、相比QUEEN 14倍的存储压缩，同时保持了竞争性的视觉质量和渲染速度。
 
-**[MPMAvatar: Learning 3D Gaussian Avatars with Accurate and Robust Physics-Based Dynamics](mpmavatar_learning_3d_gaussian_avatars_with_accurate_and_robust_physics-based_dy.md)**
+**[Mpmavatar Learning 3D Gaussian Avatars With Accurate And Robust Physics-Based Dy](mpmavatar_learning_3d_gaussian_avatars_with_accurate_and_robust_physics-based_dy.md)**
 
-:   提出 MPMAvatar，将 Material Point Method（MPM）物理仿真器与 3D 高斯溅射相结合，通过各向异性本构模型和新碰撞处理算法实现宽松衣物的精确、鲁棒物理动画，并支持零样本交互泛化。
+:   MPMAvatar 将 Material Point Method (MPM) 物理仿真器与 3D 高斯溅射渲染相结合，通过各向异性本构模型和面向网格碰撞体的新碰撞处理算法，实现宽松衣物的精确鲁棒物理动画——在 ActorsHQ 和 4D-DRESS 上几何和外观全面超越 PhysAvatar，仿真成功率 100% vs 37.6%，单帧仿真仅需 1.1 秒。
 
 **[Multi-Scale Finetuning For Encoder-Based Time Series Foundation Models](multi-scale_finetuning_for_encoder-based_time_series_foundation_models.md)**
 
@@ -386,9 +386,9 @@ description: >-
 
 :   提出 Rectified Point Flow，一种统一的生成式框架，将成对点云配准和多部件形状组装统一为条件生成问题，通过学习连续点级速度场来估计部件位姿。
 
-**[RGB-Only Supervised Camera Parameter Optimization in Dynamic Scenes](rgb-only_supervised_camera_parameter_optimization_in_dynamic_scenes.md)**
+**[Rgb-Only Supervised Camera Parameter Optimization In Dynamic Scenes](rgb-only_supervised_camera_parameter_optimization_in_dynamic_scenes.md)**
 
-:   提出 ROS-Cam，仅用单个 RGB 视频监督即可在动态场景中高效准确地估计相机参数（焦距+位姿），通过 Patch 跟踪过滤器、异常值感知联合优化和两阶段优化策略实现。
+:   ROS-Cam 提出仅用单个RGB视频作为监督的动态场景相机参数（焦距+位姿）优化方法，通过Patch-wise跟踪过滤器建立稀疏鲁棒对应关系、Cauchy分布异常值感知联合优化自适应降权运动物体、以及基于Softplus/凸极小分析的两阶段优化策略，在5个数据集上以最少监督实现最优精度和最快速度。
 
 **[Riganyface Scaling Neural Facial Mesh Auto-Rigging With Unlabeled Data](riganyface_scaling_neural_facial_mesh_auto-rigging_with_unlabeled_data.md)**
 
@@ -466,9 +466,9 @@ description: >-
 
 :   提出 U-CAN 无监督点云去噪框架，通过 Noise2Noise 匹配方案和几何一致性约束实现多步去噪路径推断，性能逼近有监督方法，且一致性约束可泛化到 2D 图像去噪。
 
-**[UGM2N: An Unsupervised and Generalizable Mesh Movement Network via M-Uniform Loss](ugm2n_an_unsupervised_and_generalizable_mesh_movement_network_via_m-uniform_loss.md)**
+**[Ugm2N An Unsupervised And Generalizable Mesh Movement Network Via M-Uniform Loss](ugm2n_an_unsupervised_and_generalizable_mesh_movement_network_via_m-uniform_loss.md)**
 
-:   提出 UGM2N，通过局部化节点 patch 特征学习和 M-Uniform 损失函数实现无监督网格移动，无需预适应网格数据即可实现跨方程和跨几何的零样本泛化。
+:   提出 UGM2N 无监督网格移动网络，通过局部化 Node Patch 表示和 M-Uniform 损失函数实现无监督训练，在无需预适应网格数据的条件下实现跨 PDE 类型和跨网格几何的零样本泛化，且不产生网格缠绕。
 
 **[Umami Unifying Masked Autoregressive Models And Deterministic Rendering For View](umami_unifying_masked_autoregressive_models_and_deterministic_rendering_for_view.md)**
 

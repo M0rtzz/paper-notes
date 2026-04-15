@@ -28,7 +28,7 @@ description: >-
 
 **[Digging Deeper Learning Multi-Level Concept Hierarchies](digging_deeper_learning_multi-level_concept_hierarchies.md)**
 
-:   本文提出Multi-Level Concept Splitting（MLCS）从仅有的顶层概念监督中自动发现多层次概念层级，结合Deep-HiCEMs架构表示这些层级结构，使模型在保持高精度的同时支持多个抽象层次的测试时概念干预。
+:   本文提出 Multi-Level Concept Splitting（MLCS）将概念分裂过程从单层递归扩展到多层，仅用顶层概念标注就能自动发现任意深度的概念层级树，并设计 Deep-HiCEMs 架构来表示和利用这些深层层级，实现多粒度的测试时概念干预。
 
 **[Efficient Discriminative Joint Encoders For Large Scale Vision-Language Rerankin](efficient_discriminative_joint_encoders_for_large_scale_vision-language_rerankin.md)**
 
@@ -60,7 +60,7 @@ description: >-
 
 **[Hume Measuring The Human-Model Performance Gap In Text Embedding Tasks](hume_measuring_the_human-model_performance_gap_in_text_embedding_tasks.md)**
 
-:   提出 HUME 框架，首次系统测量人类在文本嵌入任务（重排序、分类、聚类、语义相似度）上的表现，为 MTEB 建立人类性能基线，发现人类总体排名第 4（77.6 vs 模型最佳 80.1），并揭示了多个数据集的质量问题。
+:   提出 HUME 人类评估框架，在 MTEB 的 16 个数据集（重排序/分类/聚类/STS）上系统测量人类表现，发现人类总体排名第 4（77.6 vs 模型最佳 80.1），揭示模型"超人"表现多出现在人类一致性最低的任务上，并评估 9 个 LLM 作为标注代理的可行性。
 
 **[Hybrid Deep Searcher Scalable Parallel And Sequential Search Reasoning](hybrid_deep_searcher_scalable_parallel_and_sequential_search_reasoning.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Judges Verdict A Comprehensive Analysis Of Llm Judge Capability Through Human Ag](judges_verdict_a_comprehensive_analysis_of_llm_judge_capability_through_human_ag.md)**
 
-:   提出 Judge's Verdict Benchmark——两步评估框架，通过相关性过滤 + Cohen's Kappa 人类相似性测试，从 54 个 LLM 中识别 27 个 Tier 1 评委（23 人类相似型 + 4 超一致型），揭示相关性不足以评估 LLM 评委质量。
+:   提出 Judge's Verdict Benchmark——基于"相关性过滤 → Cohen's Kappa 人类相似性测试"的两步评估框架，对 54 个 LLM 评委进行系统评测，筛选出 27 个 Tier 1 评委（23 个人类相似型 + 4 个超一致型），核心发现是相关性高不等于一致性高，需要用 Kappa + z-score 才能真正衡量 LLM 评委质量。
 
 **[Leveraging Data To Say No Memory Augmented Plug-And-Play Selective Prediction](leveraging_data_to_say_no_memory_augmented_plug-and-play_selective_prediction.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Multimodal Dataset Distillation Made Simple By Prototype-Guided Data Synthesis](multimodal_dataset_distillation_made_simple_by_prototype-guided_data_synthesis.md)**
 
-:   提出PDS (Prototype-Guided Data Synthesis)，首个免训练的多模态数据集蒸馏方法——用CLIP提取对齐的图文嵌入→聚类→线性分配匹配跨模态原型→unCLIP解码器从图像原型合成图像，在极小蒸馏集上以零训练代价达到SOTA的跨架构泛化。
+:   提出 PDS（Prototype-Guided Data Synthesis），首个免训练的多模态数据集蒸馏框架——利用 CLIP 对齐嵌入空间做模态特异聚类，通过匈牙利算法跨模态匹配获得图文原型，再用 unCLIP 解码器从图像原型合成蒸馏图像，在 100 对极小蒸馏集上以零训练代价全面超越优化式方法，并实现 SOTA 的跨架构泛化能力。
 
 **[On The Wings Of Imagination Conflicting Script-Based Multi-Role Framework For Hu](on_the_wings_of_imagination_conflicting_script-based_multi-role_framework_for_hu.md)**
 

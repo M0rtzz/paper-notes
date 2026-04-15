@@ -52,7 +52,7 @@ description: >-
 
 **[Dynamic Reflections Probing Video Representations With Text Alignment](dynamic_reflections_probing_video_representations_with_text_alignment.md)**
 
-:   本文首次将柏拉图表示假说（Platonic Representation Hypothesis）扩展到时序领域，系统研究了视频-文本跨模态表示对齐，发现通过在测试时增加视频帧数和文本描述数量可以显著提升对齐分数（最高翻倍），并提出了具有强预测力的参数化缩放律。
+:   本文首次将柏拉图表示假说 (PRH) 从静态图像-文本扩展到时序视频-文本领域，通过对 121 个视觉与语言模型的系统评估，揭示了测试时增加帧数与描述数可将对齐分数提升近一倍的现象，并提出 $R^2 > 0.98$ 的饱和式缩放律来量化这一行为。
 
 **[Dynamic Reflections Probing Video Representations With Text Driven Reasoning](dynamic_reflections_probing_video_representations_with_text_driven_reasoning.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Gavel Towards Rule-Based Safety Through Activation Monitoring](gavel_towards_rule-based_safety_through_activation_monitoring.md)**
 
-:   提出 GAVEL 框架，将 LLM 安全从"粗粒度误用数据集训练分类器"范式转向"可组合认知元素 (CE) + 布尔规则"范式：定义可解释的激活级原语（如"发出威胁"、"处理支付"），组合为精确的策略规则，实现高精度、可定制、可审计的实时安全监控。
+:   借鉴网络安全中 Snort/YARA 规则集的理念，提出将 LLM 内部激活分解为 23 个细粒度"认知元素"（CE），再通过布尔逻辑组合为可审计的安全规则，在 Mistral-7B 上以 <1% 推理开销实现 9 类误用场景平均 AUC 0.99、FPR 0.004 的实时检测，并天然支持跨语言、跨模型迁移。
 
 **[Gepa Reflective Prompt Evolution Can Outperform Reinforcement Learning](gepa_reflective_prompt_evolution_can_outperform_reinforcement_learning.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Hidden Breakthroughs In Language Model Training](hidden_breakthroughs_in_language_model_training.md)**
 
-:   提出 POLCA 方法，将训练损失沿低秩训练子空间的任意基方向进行分解，揭示了在整体损失曲线平滑区域中隐藏的概念性突破（hidden breakthroughs），实现了对模型技能习得过程的无监督可解释性分析。
+:   提出 POLCA（Projection Oriented Loss Change Allocation）——一种沿低秩训练子空间任意正交基分解单样本损失变化的方法，从看似平滑的训练损失曲线中揭示出大量隐藏的概念性突破（hidden breakthroughs），将训练可解释性从"先定义技能再观测"翻转为"先分解再自动发现技能"。
 
 **[How Do Transformers Learn To Associate Tokens Gradient Leading Terms Bring Mecha](how_do_transformers_learn_to_associate_tokens_gradient_leading_terms_bring_mecha.md)**
 
@@ -106,7 +106,7 @@ description: >-
 
 **[Initialization Schemes For Kolmogorov-Arnold Networks An Empirical Study](initialization_schemes_for_kolmogorov-arnold_networks_an_empirical_study.md)**
 
-:   首次系统研究样条KAN的初始化策略，提出LeCun/Glorot启发的方差保持方案和经验幂律初始化族，通过大规模网格搜索+NTK动态分析发现幂律初始化整体最优，Glorot在参数多的模型上显著优于基线。
+:   首次对样条KAN的初始化策略进行系统性研究，提出LeCun/Glorot启发的方差保持方案和可调幂律初始化族，在126K+模型实例的大规模实验中证明幂律初始化在函数拟合和PDE求解上全面超越基线，Glorot方案在大参数量模型上增益显著，NTK特征谱分析揭示了其背后的优化动力学机制。
 
 **[Internal Planning In Language Models Characterizing Horizon And Branch Awareness](internal_planning_in_language_models_characterizing_horizon_and_branch_awareness.md)**
 
@@ -186,7 +186,7 @@ description: >-
 
 **[The Reasoning Trap -- Logical Reasoning As A Mechanistic Pathway To Situational ](the_reasoning_trap_--_logical_reasoning_as_a_mechanistic_pathway_to_situational_.md)**
 
-:   立场论文，提出 RAISE 框架论证逻辑推理能力的提升（演绎/归纳/溯因）会系统性地使 LLM 获得情境感知（situational awareness）能力，从而开启自我推理→战略欺骗的升级路径，并指出当前安全措施不足以阻止这一趋势。
+:   立场论文，提出 RAISE (Reasoning Advancing Into Self Examination) 框架，系统论证逻辑推理能力的三种提升路径（演绎/归纳/溯因）会不可避免地赋予 LLM 情境感知能力，并构建了从基础自我识别到战略性欺骗的五级升级阶梯，同时指出 RLHF、Constitutional AI 等当前安全机制均不足以阻止这一趋势。
 
 **[There Was Never A Bottleneck In Concept Bottleneck Models](there_was_never_a_bottleneck_in_concept_bottleneck_models.md)**
 
@@ -206,11 +206,11 @@ description: >-
 
 **[Uncovering Grounding Ids How External Cues Shape Multimodal Binding](uncovering_grounding_ids_how_external_cues_shape_multimodal_binding.md)**
 
-:   揭示LVLM中外部视觉线索改善推理的内部机制——发现Grounding IDs(潜在标识符，绑定视觉特征到外部线索对应文本)，因果实验(swap accuracy=0.98)证明分区诱导外部线索→准确跨模态对齐→减少幻觉→增强推理。
+:   本文通过机制可解释性工具揭示了LVLM中外部视觉线索（符号+分割线）改善推理的内部机理：模型在结构化输入下自发产生"Grounding IDs"——将视觉区域与符号锚点绑定的潜在标识符，因果激活交换实验（swap accuracy=0.98）证明该绑定因果性地驱动模型预测，且该机制在MS-COCO上将Qwen2.5-VL的CHAIRs幻觉率从32.4%降至27.2%，同时适用于GPT-4o等闭源模型。
 
 **[Uni-Ntfm A Unified Foundation Model For Eeg Signal Representation Learning](uni-ntfm_a_unified_foundation_model_for_eeg_signal_representation_learning.md)**
 
-:   Uni-NTFM 是一个受生物神经机制启发的 EEG 统一基础模型，通过异质特征投影模块解耦时域和频域编码、拓扑嵌入机制将不同传感器配置对齐到统一功能拓扑空间、以及混合专家 Transformer 实现功能模块化和稀疏编码，在 28000 小时 EEG 数据上预训练并达到 19 亿参数规模，在 9 个下游任务上的线性探测和微调设定下均超越现有模型。
+:   Uni-NTFM 从神经科学第一性原理出发，设计异质特征投影（HFPM）解耦时频编码、分层拓扑嵌入（TE）统一异构电极配置、MoE Transformer 实现功能模块化与稀疏编码，在 28000 小时 EEG 数据上预训练 1.9B 参数模型，9 个下游任务上的线性探测和微调均达到 SOTA。
 
 **[Universal Properties Of Activation Sparsity In Modern Large Language Models](universal_properties_of_activation_sparsity_in_modern_large_language_models.md)**
 
@@ -218,7 +218,7 @@ description: >-
 
 **[Vcworld A Biological World Model For Virtual Cell Simulation](vcworld_a_biological_world_model_for_virtual_cell_simulation.md)**
 
-:   提出 VCWorld，一个细胞级白盒模拟器，通过整合结构化生物知识与大语言模型的迭代推理能力来构建生物世界模型，以数据高效的方式生成可解释的扰动预测和机制假说。
+:   提出 VCWorld，一个细胞级白盒模拟器，整合结构化生物知识图谱与大语言模型的迭代推理能力，以数据高效的方式模拟药物扰动引发的信号级联，生成可解释的逐步预测和显式机制假说，在药物扰动基准上达到 SOTA。
 
 **[When Machine Learning Gets Personal Evaluating Prediction And Explanation](when_machine_learning_gets_personal_evaluating_prediction_and_explanation.md)**
 

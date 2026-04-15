@@ -12,11 +12,11 @@ description: >-
 
 **[Asciibench Evaluating Language-Model-Based Understanding Of Visually-Oriented Te](asciibench_evaluating_language-model-based_understanding_of_visually-oriented_te.md)**
 
-:   提出 ASCIIBench，首个用于评估 LLM 对 ASCII 艺术的生成和分类能力的基准数据集（5,315 张 ASCII 图像，752 类），发现当前 LLM 在需要空间/位置推理的 ASCII 任务上仍有显著局限，且 CLIP 嵌入在大多数 ASCII 类别上的区分能力接近随机水平。
+:   提出 ASCIIBench，首个公开可用的 ASCII 艺术理解与生成基准（5,315 张图像，752 类），系统评估发现视觉模态显著优于文本模态，多模态融合反而不帮忙，且 CLIP 对 ASCII 结构的表征能力存在根本性瓶颈——只有内部一致性高的类别才能被有效区分。
 
 **[Classical Planning With Llm-Generated Heuristics Challenging The State Of The Ar](classical_planning_with_llm-generated_heuristics_challenging_the_state_of_the_ar.md)**
 
-:   让 LLM 为经典规划问题生成 Python 启发式函数代码，从 n 个候选中选最优，在 IPC 2023 基准上用纯 Python 规划器超越了 C++ 实现的 SOTA 启发式（如 hFF），且保证所有计划正确。
+:   提出让 LLM **生成域相关启发式函数的 Python 代码**（而非直接生成计划），通过 $n$ 次采样获得候选启发式池并在训练集上选优，将最优启发式注入 Python 规划器 Pyperplan 配合 GBFS 使用，在 IPC 2023 基准 8 个域上以纯 Python 实现超越了所有 C++ Fast Downward 传统启发式，且与 SOTA 学习型规划器 $h^{\mathrm{WLF}}_{\mathrm{GPR}}$ 持平，同时保证所有找到的计划 100% 正确。
 
 **[Clawscreativity Detection For Llm-Generated Solutions Using Attention Window Of ](clawscreativity_detection_for_llm-generated_solutions_using_attention_window_of_.md)**
 

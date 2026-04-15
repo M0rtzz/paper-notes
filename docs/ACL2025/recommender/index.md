@@ -20,7 +20,7 @@ description: >-
 
 **[Gram Generative Recommendation](gram_generative_recommendation.md)**
 
-:   提出 GRAM 生成式推荐模型，通过语义到词汇的翻译（将隐式物品关系编码到 LLM 词汇空间）和多粒度迟融合（分别编码不同粒度提示后在解码时融合），在四个基准上比八个 SOTA 方法在 Recall@5 上提升 11.5-16.0%。
+:   提出 GRAM 生成式推荐框架，通过**语义到词汇翻译**将隐式物品层次/协同关系编码到 LLM 词汇空间，并用**多粒度迟融合**独立编码不同粒度提示再在解码端融合，在四个基准上 Recall@5 提升 11.5–16.0%、NDCG@5 提升 5.3–13.6%。
 
 **[Kerl Knowledge-Enhanced Personalized Recipe Recommendation Using Large Language ](kerl_knowledge-enhanced_personalized_recipe_recommendation_using_large_language_.md)**
 

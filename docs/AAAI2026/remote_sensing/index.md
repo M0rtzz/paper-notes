@@ -24,7 +24,7 @@ description: >-
 
 **[M3Sr Multi-Scale Multi-Perceptual Mamba For Efficient Spectral Reconstruction](m3sr_multi-scale_multi-perceptual_mamba_for_efficient_spectral_reconstruction.md)**
 
-:   提出 M3SR，基于 Mamba 的 U-Net 架构，通过多感知融合 (MPF) 模块在空间、频率和光谱三个维度并行建模并自适应融合，以 2.17M 参数和 100.9G FLOPs 实现 4 个基准上的 SOTA 高光谱重建（NTIRE2022 PSNR 31.40）。
+:   提出 M3SR，一种基于 Mamba 的多尺度多感知架构，通过空间-频率-光谱三分支并行融合结合 U-Net 多尺度结构，以 2.17M 参数和 100.9G FLOPs 的低计算代价在四个光谱重建基准上超越现有 SOTA 方法。
 
 **[Machine Learning For Sustainable Rice Production Region-Scale Monitoring Of Wate](machine_learning_for_sustainable_rice_production_region-scale_monitoring_of_wate.md)**
 

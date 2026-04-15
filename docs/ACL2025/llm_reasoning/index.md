@@ -60,7 +60,7 @@ description: >-
 
 **[Dgprm Dynamic Process Reward](dgprm_dynamic_process_reward.md)**
 
-:   DG-PRM 提出了一种动态可泛化的过程奖励建模框架，通过奖励树存储多维度评估标准并动态选择步骤相关的奖励信号，用 Pareto 支配估计处理多面奖励，在 PRMBench 上达到 SOTA 且具有优异的跨领域泛化能力。
+:   提出DG-PRM框架，通过构建层次化奖励树动态存储和选择多维评估标准，结合Pareto支配估计识别多目标下的正负样本对，实现动态、可泛化的过程奖励建模。
 
 **[Drt Deep Reasoning Translation Via Long Chain-Of-Thought](drt_deep_reasoning_translation_via_long_chain-of-thought.md)**
 
@@ -84,7 +84,7 @@ description: >-
 
 **[Improve Vlm Cot Reasoning](improve_vlm_cot_reasoning.md)**
 
-:   通过GPT-4o蒸馏193k CoT数据做SFT + 基于答案正确性构建偏好对做DPO，显著提升VLM的CoT推理能力（LLaVA-Reasoner在8个benchmark上CoT平均提升12.6%），且CoT训练还能反哺直接预测性能。
+:   通过(1)从GPT-4o蒸馏193K多任务CoT推理数据进行SFT，(2)利用模型自生成的推理链构建正负样本对进行DPO强化学习，显著提升VLM的链式推理能力，CoT预测平均+11.7%，同时直接回答也提升+7.3%。
 
 **[Improving Chain-Of-Thought Reasoning Via Quasi-Symbolic Abstractions](improving_chain-of-thought_reasoning_via_quasi-symbolic_abstractions.md)**
 

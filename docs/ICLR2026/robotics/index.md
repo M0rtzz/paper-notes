@@ -16,7 +16,7 @@ description: >-
 
 **[Attribution-Guided Decoding](attribution-guided_decoding.md)**
 
-:   提出 Attribution-Guided Decoding (AGD)，在解码时利用归因方法（LRP）对候选 token 计算其对"感兴趣区域"(ROI) 的依赖分数，选择归因最高的 token，从而在不修改模型内部激活的前提下提升指令遵循和事实准确性。
+:   提出AGD解码策略，在每步生成时从高概率候选token中选择对用户指定"兴趣区域"（ROI）归因得分最高的token，将归因方法从被动分析工具转变为主动生成引导工具，在指令遵循和事实性任务上均取得显著提升。
 
 **[Building Spatial World Models From Sparse Transitional Episodic Memories](building_spatial_world_models_from_sparse_transitional_episodic_memories.md)**
 
@@ -92,7 +92,7 @@ description: >-
 
 **[Odesteer A Unified Ode-Based Steering Framework For Llm Alignment](odesteer_a_unified_ode-based_steering_framework_for_llm_alignment.md)**
 
-:   提出基于常微分方程(ODE)的统一激活操纵理论框架，揭示传统激活加法是ODE的一阶Euler近似，将操纵方向识别与控制论障碍函数统一，据此设计ODESteer进行多步自适应操纵，在TruthfulQA/UltraFeedback/RealToxicityPrompts上分别提升5.7%/2.5%/2.4%。
+:   提出基于常微分方程(ODE)的统一激活操纵理论框架，将传统激活加法解释为ODE的Euler离散化，操纵方向识别等价于定义障碍函数；据此设计ODESteer方法，通过多步自适应求解ODE实现精细操纵，在TruthfulQA上提升5.7%、UltraFeedback上提升2.5%、RealToxicityPrompts上提升2.4%。
 
 **[On Entropy Control In Llm-Rl Algorithms](on_entropy_control_in_llm-rl_algorithms.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Robointer A Holistic Intermediate Representation Suite Towards Robotic Manipulat](robointer_a_holistic_intermediate_representation_suite_towards_robotic_manipulat.md)**
 
-:   提出RoboInter操作套件——统一的中间表示数据/基准/模型资源：RoboInter-Tool(半自动标注GUI)+RoboInter-Data(23万episode×571场景×10+类中间表示的密集逐帧标注)+RoboInter-VQA(29类具身VQA基准)+RoboInter-VLA(支持模块化和端到端的plan-then-execute框架)，为通过中间表示提升VLA泛化提供完整基础设施。
+:   提出 RoboInter 操作套件——统一的中间表示数据/基准/模型资源：RoboInter-Tool（半自动标注 GUI）+ RoboInter-Data（23 万 episode × 571 场景 × 10+ 类中间表示的密集逐帧标注）+ RoboInter-VQA（29 类具身 VQA 基准）+ RoboInter-VLA（支持模块化和端到端的 plan-then-execute 框架），为通过中间表示提升 VLA 泛化提供完整基础设施。
 
 **[Robopara Dual-Arm Robot Planning With Parallel Allocation And Recomposition Acro](robopara_dual-arm_robot_planning_with_parallel_allocation_and_recomposition_acro.md)**
 
@@ -144,27 +144,25 @@ description: >-
 
 **[Synthworlds Controlled Parallel Worlds For Disentangling Reasoning And Knowledge](synthworlds_controlled_parallel_worlds_for_disentangling_reasoning_and_knowledge.md)**
 
-:   提出SynthWorlds——通过构建结构相同但实体不同的平行语料(真实映射vs合成映射)来解耦LLM推理能力和参数知识：真实映射语料中模型可利用记忆的事实知识,合成映射语料中参数知识无用→两者的性能差即"知识优势差距(KA)"→在多跳QA和页面导航任务上发现即使有RAG/CoT知识增强KA仍持续存在。
+:   构建结构完全相同但实体分别映射到真实/合成名称的平行语料库，通过对比两个"平行世界"上的任务表现来量化 LLM 的参数化知识优势差距（Knowledge Advantage Gap），发现即使有 RAG 和 CoT 增强，该差距依然持续存在。
 
 **[Sysformer Safeguarding Frozen Large Language Models With Adaptive System Prompts](sysformer_safeguarding_frozen_large_language_models_with_adaptive_system_prompts.md)**
 
-:   提出Sysformer——轻量级Transformer模块附着在冻结LLM输入端,根据用户提示自适应修改系统提示嵌入：保持LLM参数不变→Sysformer学习在嵌入空间中将固定系统提示转化为更鲁棒的版本,在5个LLM×2个基准上有害提示拒绝率提升80%+安全提示合规率提升90%,对越狱攻击鲁棒性提升100%。
+:   提出Sysformer，一个可插拔到任意冻结LLM前端的轻量Transformer模块，根据用户输入自适应地在嵌入空间中变换系统提示，使模型拒绝有害请求同时正常回应安全请求，无需修改LLM参数或过滤用户输入。
 
 **[Test-Time Mixture Of World Models For Embodied Agents In Dynamic Environments](test-time_mixture_of_world_models_for_embodied_agents_in_dynamic_environments.md)**
 
-:   提出TMoW(Test-time Mixture of World Models)——将MoE范式扩展到具身agent的世界模型：不像传统MoE训练后路由固定,TMoW在测试时更新路由函数以适应未见域,通过(1)多粒度原型路由(物体→场景级相似度),(2)测试时原型精化(加权插值已有原型),(3)蒸馏混合增广(少样本构建新世界模型),在VirtualHome/ALFWorld/RLBench上零样本+27%/少样本+26%。
-
 **[Theory Of Space Can Foundation Models Construct Spatial Beliefs Through Active E](theory_of_space_can_foundation_models_construct_spatial_beliefs_through_active_e.md)**
 
-:   提出Theory of Space框架——评估基础模型通过主动探索构建空间信念的能力：在文本和视觉环境中进行好奇心驱动探索→通过空间信念探测(让模型输出认知地图)直接测量内部空间模型质量→发现关键瓶颈：(1)主动-被动差距(GPT-5.2: 57→46)，(2)低效探索(冗余步骤多)，(3)信念惰性(无法覆写过时先验→尤其视觉模型严重)。
+:   提出Theory of Space框架，通过文本和视觉双环境中的主动探索、认知地图探查和False Belief范式，系统性评估基础模型构建和修正空间信念的能力，揭示了当前SOTA模型在主动-被动性能差距、探索效率和信念修正方面的关键失败模式。
 
 **[Thor Tool-Integrated Hierarchical Optimization Via Rl For Mathematical Reasoning](thor_tool-integrated_hierarchical_optimization_via_rl_for_mathematical_reasoning.md)**
 
-:   提出 THOR（Tool-Integrated Hierarchical Optimization via RL），通过三个互补组件系统性解决 LLM 工具集成数学推理中的核心挑战：TIRGen 数据构建管线生成策略对齐的 TIR 训练数据、层次化强化学习（episode 级解题+step 级代码修正）缓解稀疏奖励、自修正推理机制利用工具反馈在线纠错。在 MATH500、AIME 等多个数学基准上达到同规模 SOTA，同时在代码生成基准上也有提升。
+:   提出 THOR 框架，通过 TIRGen 数据构建管线 + 层次化强化学习（episode 级 + step 级联合优化）+ 自修正推理机制三大组件，系统性解决 LLM 工具集成数学推理中数据构建、细粒度优化和推理增强三大挑战，在 MATH500/AIME 等基准上达到同规模 SOTA。
 
 **[Token Taxes Mitigating Agis Economic Risks](token_taxes_mitigating_agis_economic_risks.md)**
 
-:   提出Token Tax（基于模型推理token使用量的税收）作为缓解后AGI时代经济风险的一线治理工具，具有可通过现有计算治理基础设施执行和在使用地而非托管地征收两大优势。
+:   提出 Token Tax（基于模型推理 token 使用量的附加税）作为缓解后 AGI 时代经济风险的一线治理工具——利用云计算提供商作为中介实施三阶段审计管道（黑盒 token 验证 → 基于规范的税率 → 白盒审计），相比传统机器人税具有两大独特优势：可通过现有计算治理基础设施执行，以及在 AI token 使用地而非模型托管地征收以缓解全球不平等。
 
 **[Tracing And Reversing Edits In Llms](tracing_and_reversing_edits_in_llms.md)**
 
@@ -172,7 +170,7 @@ description: >-
 
 **[Twinvla Data-Efficient Bimanual Manipulation With Twin Single-Arm Vision-Languag](twinvla_data-efficient_bimanual_manipulation_with_twin_single-arm_vision-languag.md)**
 
-:   提出TwinVLA——将两个预训练单臂VLA通过联合注意力组合为双臂VLA的模块化框架：不需要双臂预训练数据→仅用公开单臂数据预训练SingleVLA→复制为twin→联合注意力+MoE协调→少量双臂数据微调即可→数据效率(800h单臂+50 episode双臂)和计算效率(25 GPU-day)远优于RDT-1B和π0。
+:   提出TwinVLA——将两个预训练单臂VLA通过联合注意力和MoE组合为双臂VLA的模块化框架，仅需~800h公开单臂数据+50 episode双臂微调数据+25 H100 GPU-days，即可匹及使用10,900h私有数据+1,000+ GPU-days的π0性能水平。
 
 **[Urbanverse Scaling Urban Simulation By Watching City-Tour Videos](urbanverse_scaling_urban_simulation_by_watching_city-tour_videos.md)**
 

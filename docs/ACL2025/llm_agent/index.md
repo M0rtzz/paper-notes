@@ -1,18 +1,18 @@
 ---
 title: >-
-  ACL2025 LLM Agent方向 44篇论文解读
+  ACL2025 LLM Agent方向 45篇论文解读
 description: >-
-  44篇ACL2025 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  45篇ACL2025 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**💬 ACL2025** · 共 **44** 篇
+**💬 ACL2025** · 共 **45** 篇
 
 **[A Multi-Agent Framework For Mitigating Dialect Biases In Privacy Policy Question](a_multi-agent_framework_for_mitigating_dialect_biases_in_privacy_policy_question.md)**
 
-:   提出多 Agent 协作框架缓解隐私政策 QA 中的方言偏差——Dialect Agent 将方言查询翻译为标准美式英语（SAE）并验证意图保留，Privacy Policy Agent 利用领域专长生成答案，两者迭代协商至达成一致。在 PrivacyQA 和 PolicyQA 上将 GPT-4o-mini 零样本准确率从 0.394 提升至 0.601，方言间最大 F1 差距降低 82%。
+:   提出一个双agent协作框架(方言Agent + 隐私政策Agent)，通过将非标准英语方言翻译为标准美式英语(SAE)并进行迭代验证，在不需要重训练或方言特定微调的前提下，显著降低隐私政策问答中的方言偏差并提升整体性能。
 
 **[Agentic Knowledgeable Self-Awareness](agentic_knowledgeable_self-awareness.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Androidgen Agent Data Scarcity](androidgen_agent_data_scarcity.md)**
 
-:   提出AndroidGen——一个在数据稀缺条件下增强Android Agent能力的框架（ExpSearch+ReflectPlan+AutoCheck+StepCritic四模块），在AndroidWorld上以GPT-4o达到46.8%成功率（vs M3A的27.7%），并能自动生成高质量轨迹数据训练开源模型达到竞争力水平。
+:   提出 AndroidGen 框架，通过经验检索（ExpSearch）、反思规划（ReflectPlan）、自动校验（AutoCheck）和步骤级评判（StepCritic）四个模块，在高质量训练数据稀缺的条件下增强LLM的Android操作能力，并通过自动生成轨迹数据训练出无需人工标注的开源移动端agent。
 
 **[Bel Esprit Multi-Agent Framework For Building Ai Model Pipelines](bel_esprit_multi-agent_framework_for_building_ai_model_pipelines.md)**
 
@@ -120,11 +120,15 @@ description: >-
 
 **[Os Agents A Survey On Mllm-Based Agents For General Computing Devices Use](os_agents_a_survey_on_mllm-based_agents_for_general_computing_devices_use.md)**
 
-:   首篇全面综述 MLLM 驱动的操作系统代理（OS Agents），系统梳理其基础组件、构建方法、评估基准和未来方向。
+:   全面综述了基于多模态大语言模型的操作系统 Agent（OS Agents），系统梳理了其基础概念（环境/观察/动作空间）、核心能力（理解/规划/动作落地）、构建方法（基础模型+Agent框架）和评估体系，涵盖 30+ 基础模型和 20+ Agent 框架的分类对比。
+
+**[Os Agents Survey Mllm](os_agents_survey_mllm.md)**
+
+:   系统综述了基于多模态大语言模型（MLLM）的操作系统智能体（OS Agents），从基本概念（环境/观测/动作空间）、核心能力（理解/规划/定位）、构建方法（基础模型+智能体框架）到评估基准全面梳理，揭示了该领域从虚拟助手到通用计算设备自动化的演进路径。
 
 **[Os Genesis Gui Agent Trajectory](os_genesis_gui_agent_trajectory.md)**
 
-:   提出OS-Genesis，一种"先交互探索再逆向生成任务"的GUI agent轨迹数据合成范式，通过无人监督的UI元素遍历收集状态转移三元组，逆向合成任务指令后用Trajectory Reward Model质量控制，在AndroidWorld上将Qwen2-VL-7B性能从9.82%提升至17.41%，接近GPT-4o的23.70%。
+:   提出 OS-Genesis，一种交互驱动的 GUI Agent 轨迹合成 pipeline，通过先让 agent 在环境中探索交互再反向推导任务（Reverse Task Synthesis），结合轨迹奖励模型 (TRM) 过滤质量，生成高质量多样化的训练轨迹，在 AndroidWorld 上性能接近翻倍。
 
 **[Pasa An Llm Agent For Comprehensive Academic Paper Search](pasa_an_llm_agent_for_comprehensive_academic_paper_search.md)**
 
@@ -160,7 +164,7 @@ description: >-
 
 **[Sudo Rm -Rf Agentic Security](sudo_rm_-rf_agentic_security.md)**
 
-:   提出 SUDO 两阶段攻击框架针对计算机使用 Agent：静态阶段用 Detox2tox 将恶意请求去毒化→生成执行计划→回毒化恢复恶意载荷；动态阶段用检查清单迭代优化攻击，在 MANUS 上达到 63.19% 攻击成功率。
+:   提出SUDO攻击框架，通过Detox2tox三阶段流水线将恶意请求伪装为无害指令再恢复攻击载荷，配合基于检查清单反馈的动态迭代优化，系统性攻破Claude CUA、MANUS等计算机使用Agent的安全防护，最高达41.33%攻击成功率。
 
 **[Synworld Agentic Action Knowledge](synworld_agentic_action_knowledge.md)**
 
@@ -172,7 +176,7 @@ description: >-
 
 **[The Behavior Gap Evaluating Zero-Shot Llm Agents In Complex Task-Oriented Dialog](the_behavior_gap_evaluating_zero-shot_llm_agents_in_complex_task-oriented_dialog.md)**
 
-:   提出一个综合评估框架来量化 LLM agent 与人类专家在任务导向对话中的"行为差距"（dialog acts、工具使用、知识利用三个维度），发现行为差距随任务复杂度增加显著扩大（相关系数 0.963），缩小行为差距可平均提升 24.3% 性能。
+:   提出综合评估框架量化 LLM agent 与人类专家在任务导向对话中的"行为差距"，从 dialog acts、工具使用、知识利用三个维度系统诊断行为偏差，发现行为差距与任务复杂度高度相关（$r=0.963$），通过行为注入缩小差距可平均提升 24.3% 性能。
 
 **[Theorem-Of-Thought A Multi-Agent Framework For Abductive Deductive And Inductive](theorem-of-thought_a_multi-agent_framework_for_abductive_deductive_and_inductive.md)**
 

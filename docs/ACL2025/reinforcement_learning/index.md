@@ -16,7 +16,7 @@ description: >-
 
 **[Eierl Dialogue Policy](eierl_dialogue_policy.md)**
 
-:   提出 EIERL 方法，将进化算法（EA）的全局搜索能力与深度强化学习（DRL）的局部优化能力结合用于任务导向对话策略学习，并设计精英个体注入（EII）机制自适应地将高性能个体注入 EA 种群以加速进化，在 4 个数据集上显著提升探索-利用平衡。
+:   首次将进化强化学习（ERL）应用于任务导向对话策略任务，提出 EIERL 方法结合 EA 的全局探索与 DRL 的局部优化，并通过精英个体注入（EII）机制解决 EA 在自然语言大搜索空间中进化缓慢的问题，在 4 个数据集上实现了更高效的探索-利用平衡。
 
 **[Learning To Generate Structured Output With Schema Reinforcement Learning](learning_to_generate_structured_output_with_schema_reinforcement_learning.md)**
 

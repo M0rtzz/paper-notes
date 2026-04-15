@@ -1,18 +1,18 @@
 ---
 title: >-
-  NeurIPS2025 信号/通信方向 12篇论文解读
+  NeurIPS2025 信号/通信方向 11篇论文解读
 description: >-
-  12篇NeurIPS2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  11篇NeurIPS2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📡 信号/通信
 
-**🧠 NeurIPS2025** · 共 **12** 篇
+**🧠 NeurIPS2025** · 共 **11** 篇
 
 **[Angular Steering Behavior Control Via Rotation In Activation Space](angular_steering_behavior_control_via_rotation_in_activation_space.md)**
 
-:   提出 Angular Steering，将 LLM 激活引导统一建模为固定 2D 子空间中的旋转操作，提供连续、细粒度、范数保持的行为控制，统一了现有的激活加法和方向消融方法，在多个 LLM 家族（3B-14B）上实现鲁棒的行为控制。
+:   提出Angular Steering，将LLM激活引导统一建模为固定2D子空间中的旋转操作——通过旋转角度提供0°-360°的连续、细粒度、范数保持的行为控制旋钮，统一了激活加法和方向消融为旋转的特例，在Llama 3/Qwen 2.5/Gemma 2（3B-14B）上实现鲁棒的行为调控。
 
 **[Artificial Hivemind The Open-Ended Homogeneity Of Language Models And Beyond](artificial_hivemind_the_open-ended_homogeneity_of_language_models_and_beyond.md)**
 
@@ -24,7 +24,7 @@ description: >-
 
 **[Contexttab A Semantics-Aware Tabular In-Context Learner](contexttab_a_semantics-aware_tabular_in-context_learner.md)**
 
-:   提出 ConTextTab，将语义理解融入 table-native ICL 框架，用数据类型特定嵌入并在大规模真实世界表格数据上训练，在语义丰富的 CARTE benchmark 上设立新 SOTA。
+:   ConTextTab 将语义嵌入（列名、分类值的文本编码）融入 table-native ICL 架构，并在大规模真实表格数据（T4, ~2.18M 表）上预训练，在语义丰富的 CARTE 基准上取得新 SOTA，同时在非语义基准上保持与现有方法竞争力。
 
 **[Contrastive Consolidation Of Top-Down Modulations Achieves Sparsely Supervised C](contrastive_consolidation_of_top-down_modulations_achieves_sparsely_supervised_c.md)**
 
@@ -32,23 +32,19 @@ description: >-
 
 **[Estimation Of Stochastic Optimal Transport Maps](estimation_of_stochastic_optimal_transport_maps.md)**
 
-:   提出随机最优传输映射的新评价指标 $\mathcal{E}_p$（优化间隙+可行性间隙），发展了高效估计器，达到近优有限样本风险界 $\tilde{O}(n^{-1/(d+2p)})$，且仅需最小假设，是首个通用的（可能随机的）OT 映射估计理论。
-
-**[Feature-Aware Modulation For Learning From Temporal Tabular Data](feature-aware_modulation_for_learning_from_temporal_tabular_data.md)**
-
-:   提出特征感知时间调制机制，通过基于时间上下文的可学习 Yeo-Johnson 变换动态调整特征分布（均值、标准差、偏度），实现跨时间语义对齐。
+:   提出适用于随机OT映射的传输误差指标 $\mathcal{E}_p$（由优化间隙与可行性间隙组成），在无需Brenier映射存在或唯一性的最小假设下，构造了计算高效的rounding估计器达到近最优收敛率 $\tilde{O}(n^{-1/(d+2p)})$，并推广至Hölder连续核与对抗污染场景，建立了首个通用OT映射估计理论。
 
 **[Masked Symbol Modeling For Demodulation Of Oversampled Baseband Communication Si](masked_symbol_modeling_for_demodulation_of_oversampled_baseband_communication_si.md)**
 
-:   提出 Masked Symbol Modeling，将 BERT 的掩码预测范式应用于通信物理层，将脉冲成形引起的符号间贡献视为上下文信息，训练 Transformer 在干净信号上学习波形结构，推理时通过上下文恢复被冲激噪声破坏的符号。
+:   本文提出 Masked Symbol Modeling（MSM），将 BERT 的掩码预测范式应用于通信物理层——将脉冲成形产生的符号间贡献重新定义为"上下文信息"，训练 Transformer 在干净过采样基带信号上学习波形结构，推理时利用学到的上下文来恢复被冲激噪声破坏的符号。
 
 **[Memory-Integrated Reconfigurable Adapters A Unified Framework For Settings With ](memory-integrated_reconfigurable_adapters_a_unified_framework_for_settings_with_.md)**
 
-:   提出 MIRA，将 Hopfield 联想记忆与 LoRA adapter 结合，在共享 backbone 的每个 ViT 层上存储 adapter 权重更新为 value、事后学习的 key 检索，统一处理域泛化、类增量学习和域增量学习，在多个设置下达到 SoTA。
+:   MIRA 将 Hopfield 式联想记忆模块嵌入 ViT 各层，以键值对方式存储和检索 LoRA 适配器权重，通过两阶段训练（适应+巩固），在一个统一架构下同时解决领域泛化（DG）、类增量学习（CIL）和域增量学习（DIL）三类任务，在多个基准上显著超过各任务的专用方法。
 
 **[Multi-Modal Masked Autoencoders For Learning Image-Spectrum Associations For Gal](multi-modal_masked_autoencoders_for_learning_image-spectrum_associations_for_gal.md)**
 
-:   将多模态掩码自编码器 (MMAE) 应用于星系图像和光谱的联合重建，构建了 134,533 个星系的图像+光谱数据集，实现了光谱和图像的交叉重建以及仅从图像的红移回归，$\sigma_{\text{NMAD}} = 0.016$ 优于 AstroCLIP。
+:   构建了包含 134,533 个星系的图像-光谱-红移多模态数据集（GalaxiesML-Spectra），适配多模态掩码自编码器（MMAE）同时进行图像和光谱的联合重建与红移回归，证明在测试时即使光谱完全缺失，仅用 25% 掩码图像即可实现优于 AstroCLIP 的红移预测散度 $\sigma_{NMAD} = 0.016$。
 
 **[Perturbation Bounds For Low-Rank Inverse Approximations Under Noise](perturbation_bounds_for_low-rank_inverse_approximations_under_noise.md)**
 
@@ -56,4 +52,4 @@ description: >-
 
 **[The Surprising Effectiveness Of Negative Reinforcement In Llm Reasoning](the_surprising_effectiveness_of_negative_reinforcement_in_llm_reasoning.md)**
 
-:   揭示RLVR中负强化（仅惩罚错误）的効果超出预期，通过梯度分析说明其保持输出多样性和推理能力的机制，并提出改进的加权REINFORCE算法。
+:   将可验证奖励的强化学习（RLVR）分解为正样本强化（PSR，增强正确回答概率）和负样本强化（NSR，惩罚错误回答），发现仅用 NSR 就能在整个 Pass@k 谱上持续提升推理性能且通常匹配或超越 PPO/GRPO，据此提出 Weighted-REINFORCE（降低 PSR 权重至 0.1）在 MATH/AIME 2025/AMC23 上取得全面最优。

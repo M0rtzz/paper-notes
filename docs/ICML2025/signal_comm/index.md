@@ -16,7 +16,7 @@ description: >-
 
 **[Fourier Position Embedding Enhancing Attentions Periodic Extension For Length Ge](fourier_position_embedding_enhancing_attentions_periodic_extension_for_length_ge.md)**
 
-:   从离散信号处理角度揭示RoPE通过隐式非均匀DFT实现周期注意力，发现线性层/激活函数和不充分训练的频率分量会破坏周期性，提出FoPE用傅里叶级数建模+零化有害频率分量来改善长度泛化。
+:   用离散信号处理 (DSP) 理论揭示 RoPE 隐式实现了非均匀 DFT 以编码周期性注意力，但线性层导致的频谱泄漏、激活函数导致的频谱畸变以及训练长度截断导致的欠训练频率分量会破坏这一周期性，据此提出 FoPE——将每个维度建模为傅里叶级数（而非单一频率）并裁剪破坏性低频分量为零频，在多个模型规模和任务上显著改善长度泛化。
 
 **[Large Language Model Llm-Enabled In-Context Learning For Wireless Network Optimi](large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi.md)**
 

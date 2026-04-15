@@ -28,7 +28,7 @@ description: >-
 
 **[Balanced Learning For Domain Adaptive Semantic Segmentation](balanced_learning_for_domain_adaptive_semantic_segmentation.md)**
 
-:   提出 BLDA——通过分析网络预测 logit 的分布来评估和缓解域自适应语义分割中的类别偏差，用共享锚点分布对齐各类 logit 分布，并在自训练中在线校正 logit 生成无偏伪标签。
+:   提出 BLDA——通过分析网络预测的 logit 分布来直接量化类别偏差程度，用共享锚点分布对齐各类 logit 分布实现后处理校准，同时在自训练中用 GMM 在线估计并修正 logit 生成无偏伪标签，在 GTA→CS 和 SYN→CS 两个基准上为多种基线方法带来一致提升。
 
 **[Context Driving In-Context Learning For Text Removal And Segmentation](context_driving_in-context_learning_for_text_removal_and_segmentation.md)**
 
@@ -40,7 +40,7 @@ description: >-
 
 **[Efficient And Robust Semantic Image Communication Via Stable Cascade](efficient_and_robust_semantic_image_communication_via_stable_cascade.md)**
 
-:   基于Stable Cascade的语义图像通信框架，将图像压缩到原始大小的0.29%作为扩散条件传输，在噪声信道下仍能忠实重建，推理速度比SD方案快16倍。
+:   基于 Stable Cascade 架构构建语义图像通信框架，利用 EfficientNet-V2 提取极紧凑图像嵌入（仅占原始大小 0.29%）作为 LDM 条件，通过噪声鲁棒微调使系统在低 SNR 信道下仍能忠实重建图像，同时实现 3-16 倍推理加速。
 
 **[Featsharp Your Vision Model Features Sharper](featsharp_your_vision_model_features_sharper.md)**
 

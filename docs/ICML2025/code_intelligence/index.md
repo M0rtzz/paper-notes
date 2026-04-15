@@ -16,7 +16,7 @@ description: >-
 
 **[Dynamic Benchmarking Of Reasoning Capabilities In Code Large Language Models Und](dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und.md)**
 
-:   提出DyCodeEval——用多Agent系统自动生成编程问题的语义等价变体来动态评估Code LLM，修改问题的上下文描述（不改变核心算法逻辑）以避免记忆化，在18个Code LLM上验证其有效反映真实推理能力。
+:   基于蜕变测试思想，将编程问题分解为复杂度相关的算法抽象和复杂度无关的上下文描述，通过四个 LLM Agent 协作自动生成语义等价但文本不同的编程问题变体，有效规避数据污染并评估 Code LLM 的真实推理能力，在 18 个模型上验证了框架的有效性。
 
 **[Efficoder Enhancing Code Generation In Large Language Models Through Efficiency-](efficoder_enhancing_code_generation_in_large_language_models_through_efficiency-.md)**
 

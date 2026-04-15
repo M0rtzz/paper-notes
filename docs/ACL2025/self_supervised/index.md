@@ -16,7 +16,7 @@ description: >-
 
 **[Llm Back Gen Treebank](llm_back_gen_treebank.md)**
 
-:   提出 LLM 反向生成方法自动构建跨领域成分句法树库——给定只有领域关键词叶节点的不完整句法树，用 LLM 填充缺失词汇生成完整的跨领域句法树库，结合 span 级对比学习预训练，在 MCTB 五个目标领域上达到跨领域成分句法分析 SOTA。
+:   提出 LLM 反向生成 (LLM Back Generation) 方法，将不完整的跨领域句法树作为输入让 LLM 补全缺失词生成 treebank，并设计 span 级别对比学习预训练策略，实现跨领域成分句法分析的 SOTA 性能。
 
 **[Magnet Augmenting Generative Decoders With Representation Learning And Infilling](magnet_augmenting_generative_decoders_with_representation_learning_and_infilling.md)**
 

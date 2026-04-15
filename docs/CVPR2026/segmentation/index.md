@@ -68,7 +68,7 @@ description: >-
 
 **[Crossearthsar A Sarcentric And Billionscale Geospa](crossearthsar_a_sarcentric_and_billionscale_geospa.md)**
 
-:   提出首个十亿参数级 SAR 视觉基础模型 CrossEarth-SAR，在 DINOv2 基础上引入物理引导的稀疏 MoE 架构（用方向熵、等效视数、局部粗糙度三个 SAR 物理描述符引导路由），配套 200K 级预训练数据集和 22 个子基准，在 20/22 个跨域分割任务上达到 SOTA。
+:   提出首个十亿参数级 SAR 视觉基础模型 CrossEarth-SAR，在 DINOv2 ViT backbone 上将 FFN 替换为物理引导的稀疏 MoE（用方向熵、等效视数、局部粗糙度三个 SAR 物理描述符引导路由选择），配套 200K 级跨域预训练数据集及覆盖 8 种域差异的 22 个基准，在 20/22 个跨域语义分割评测上达到 SOTA。
 
 **[Ctfs Collaborative Teacher Framework For Forward-Looking Sonar Image Semantic Se](ctfs_collaborative_teacher_framework_for_forward-looking_sonar_image_semantic_se.md)**
 
@@ -104,7 +104,7 @@ description: >-
 
 **[Dsflash Panoptic Scene Graph Realtime](dsflash_panoptic_scene_graph_realtime.md)**
 
-:   DSFlash 通过合并分割与关系预测 backbone、双向关系预测头、动态 patch 剪枝等策略，将全景场景图生成速度提升至 RTX 3090 上 56 FPS，同时在 PSG 数据集上达到 mR@50=30.9 的 SOTA 性能。
+:   DSFlash 通过合并分割与关系预测 backbone、门控双向关系预测头和 mask-based 动态 patch 剪枝，在 PSG 数据集上以 18ms 延迟（56 FPS）实现 mR@50=30.9 的 SOTA 全景场景图生成。
 
 **[Dss Discover Segment Select Zero Shot Cos](dss_discover_segment_select_zero_shot_cos.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Empowering Semanticsensitive Underwater Image Enha](empowering_semanticsensitive_underwater_image_enha.md)**
 
-:   提出 VLM 驱动的语义敏感学习策略，通过 VLM 生成目标物体描述、BLIP 构建空间语义引导图、双重引导机制（cross-attention + 语义对齐损失）注入 UIE decoder，使增强结果在感知质量和检测/分割下游任务上同时提升。
+:   提出一种 VLM 驱动的语义敏感学习策略，通过 LLaVA 生成物体描述、BLIP 构建空间语义引导图、cross-attention 与语义对齐损失双重引导 UIE decoder 重建，使增强图像在感知质量和下游检测/分割任务上同时获得显著提升。
 
 **[Erecu Pseudo-Label Evolution Fusion And Refinement With Multi-Cue Learning For U](erecu_pseudo-label_evolution_fusion_and_refinement_with_multi-cue_learning_for_u.md)**
 
@@ -196,7 +196,7 @@ description: >-
 
 **[Mrm Masked Representation Modeling Domain Adaptive](mrm_masked_representation_modeling_domain_adaptive.md)**
 
-:   提出在潜在空间而非输入空间做掩码建模的辅助任务MRM，通过轻量级Rebuilder模块对编码器特征做掩码-重建并用分割损失监督，在GTA→Cityscapes上为四种UDA基线平均带来+2.3 mIoU提升，推理时零额外开销。
+:   提出 Masked Representation Modeling (MRM)，在编码器输出的潜在特征空间做随机掩码与重建，以像素分类损失监督重建结果，作为即插即用辅助任务在四种 UDA 基线上平均提升 +2.3/+2.8 mIoU (GTA→CS / Synthia→CS)，推理时零额外开销。
 
 **[Pointer-Cad Unifying B-Rep And Command Sequences Via Pointer-Based Edges Faces S](pointer-cad_unifying_b-rep_and_command_sequences_via_pointer-based_edges_faces_s.md)**
 
@@ -240,7 +240,7 @@ description: >-
 
 **[Sap Segment Any 4K Panorama](sap_segment_any_4k_panorama.md)**
 
-:   将全景分割转化为拓扑-记忆对齐问题，通过固定轨迹透视扫描将ERP全景图变为伪视频序列，完美复用SAM2流式记忆，零样本4K全景分割提升+17.2 mIoU。
+:   提出 SAP（Segment Any 4K Panorama），通过将全景图转化为沿球面固定轨迹采样的透视伪视频序列，解决 SAM2 流式记忆机制在 360° 图像上的结构性失配问题，并合成 183K 实例标注的 4K 全景图进行微调，在真实世界全景基准上实现零样本 mIoU +17.2 的提升。
 
 **[Sarmae Masked Autoencoder For Sar Representation Learning](sarmae_masked_autoencoder_for_sar_representation_learning.md)**
 

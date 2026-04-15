@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM效率方向 41篇论文解读
+  NeurIPS2025 LLM效率方向 42篇论文解读
 description: >-
-  41篇NeurIPS2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  42篇NeurIPS2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**🧠 NeurIPS2025** · 共 **41** 篇
+**🧠 NeurIPS2025** · 共 **42** 篇
 
 **[3Model Speculative Decoding](3model_speculative_decoding.md)**
 
@@ -16,7 +16,7 @@ description: >-
 
 **[A Unified Framework For Establishing The Universal Approxima](a_unified_framework_for_establishing_the_universal_approxima.md)**
 
-:   本文建立了一个统一的理论框架来证明各类Transformer架构的万能逼近性(UAP)，将UAP归结为两个可验证条件——前馈层的非线性仿射不变性和注意力层的token可区分性——并利用解析性假设将后者简化为仅需检验两样本情形。
+:   建立了统一的理论框架证明各类Transformer架构的万能逼近性(UAP)，核心条件仅两个——前馈层的非线性仿射不变性和注意力层的token可区分性——并利用解析性假设将后者简化为仅需检验两样本情况，成功覆盖softmax、RBF kernel、Performer、BigBird、Linformer等多种实用架构。
 
 **[Advancing Expert Specialization For Better Moe](advancing_expert_specialization_for_better_moe.md)**
 
@@ -140,7 +140,7 @@ description: >-
 
 **[Technical Debt In In-Context Learning Diminishing Efficiency In Long Context](technical_debt_in_in-context_learning_diminishing_efficiency_in_long_context.md)**
 
-:   揭示ICL作为学习算法在少射大样本制度下存在本质低效：少射ICL样本复杂度接近贝叶斯最优(1.1×)，而多射时恶化至1.45×，信息论分析证明此低效来自非递减过剩风险。
+:   借鉴优化软件基准方法论，用性能比率精确量化ICL相对贝叶斯最优估计器的样本效率，发现存在"二分法"——少射下(≤15个演示)效率接近最优(仅多10%)而多射下(>40个演示)急剧恶化(多45%)，信息论分析证明这源于不可消除的非递减过剩风险，是ICL机制的内在限制。
 
 **[Tensor Product Attention Is All You Need](tensor_product_attention_is_all_you_need.md)**
 
@@ -168,7 +168,11 @@ description: >-
 
 **[Vocabulary Customization For Efficient Domain-Specific Llm Deployment](vocabulary_customization_for_efficient_domain-specific_llm_deployment.md)**
 
-:   提出一种保证不增加任何输入 token 数的词表扩展算法，通过向预训练 LLM 的 tokenizer 添加领域特定 token，在电商场景实现输入序列缩短 20%、推理吞吐量提升 20-30%，且不损失模型质量。
+:   提出一种保证编码效率单调不降的BPE tokenizer扩展算法，将领域高频token追加到Llama 3.1词表中（+30K token），在电商场景实现输入序列缩短20%、推理吞吐量提升20-30%，经10K步继续训练后模型质量不降，且约98%情况下模型主动生成新token。
+
+**[Yggdrasil Bridging Dynamic Speculation And Static Runtime For Latency-Optimal Tr](yggdrasil_bridging_dynamic_speculation_and_static_runtime_for_latency-optimal_tr.md)**
+
+:   提出 Yggdrasil，一个延迟最优的推测解码系统，通过 Equal-Growth Tree (EGT) 结构实现编译友好的动态草稿、延迟感知优化目标替代传统 AAL 指标、以及阶段调度运行时减少 CPU-GPU 协调开销，在 A100/A40 上实现了最高 3.98× 的端到端加速。
 
 **[Zeros Zero-Sum Linear Attention For Efficient Transformers](zeros_zero-sum_linear_attention_for_efficient_transformers.md)**
 

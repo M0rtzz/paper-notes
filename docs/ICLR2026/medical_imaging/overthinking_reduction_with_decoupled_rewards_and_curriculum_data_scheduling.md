@@ -2,11 +2,11 @@
 title: >-
   [论文解读] Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling
 description: >-
-  [ICLR 2026][医学图像][过度思考] 从理论上揭示了现有长度惩罚方法的两个根本缺陷——错误惩罚高熵探索token和错误奖励冗余token，提出 DeCS 框架，通过解耦token级奖励和课程批次调度，在7个基准上将推理token减少50%以上同时保持甚至提升模型性能。
+  [ICLR 2026][医学图像][overthinking] 从理论上揭示了现有长度惩罚方法的两个根本缺陷——错误惩罚高熵探索token和错误奖励冗余token，提出 DeCS 框架，通过解耦token级奖励和课程批次调度，在7个基准上将推理token减少50%以上同时保持甚至提升模型性能。
 tags:
   - ICLR 2026
   - 医学图像
-  - 过度思考
+  - overthinking
   - 解耦奖励
   - 课程学习
   - RLVR
@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2509.25827](https://arxiv.org/abs/2509.25827)  
 **代码**: [github.com/pixas/DECS](https://github.com/pixas/DECS)  
 **领域**: LLM推理效率 / 强化学习  
-**关键词**: 过度思考, 解耦奖励, 课程学习, RLVR, NRP
+**关键词**: overthinking, 解耦奖励, 课程学习, RLVR, NRP
 
 ## 一句话总结
 
@@ -48,17 +48,17 @@ tags:
 ### 关键设计
 
 1. **NRP检测与解耦奖励 (Decoupled Reward)**:
-    - 功能：精确识别每个正确轨迹中"到何处为止就足够得出正确答案"的边界，并据此分配差异化token级奖励
+    - 做什么：精确识别每个正确轨迹中"到何处为止就足够得出正确答案"的边界，并据此分配差异化token级奖励
     - 核心思路：轻量模型$\mathcal{M}_{\text{judge}}$将推理过程分割为多个chunk $\{s_1, \ldots, s_{|S|}\}$，对每个chunk判断是否已包含正确答案$j_{s_c} \sim \mathcal{M}_{\text{judge}}(\cdot | q, s_c, y^*)$。NRP定义为首次包含正确答案的chunk及其之前所有chunk。token级奖励为：$r_{i,j} = r_+ \cdot \mathbf{1}_{\text{correct}}$（$j \leq K_{o_i}^*$）或 $r_{i,j} = (r_0 - (r_+ - r_0)L_i/L_{\max}) \cdot \mathbf{1}_{\text{correct}}$（$j > K_{o_i}^*$且属于思考token）
     - 设计动机：Theorem 2 证明了序列级长度奖励下，NRP后第一个冗余token的梯度信号$\mathcal{J}(A; j=K^*+1) > 0$——即模型被鼓励继续生成而非停止。解耦奖励确保NRP后任何前导冗余token都获得负advantage，从而利用自回归性质压制整段冗余
 
 2. **课程批次调度 (Curriculum Prompt Schedule)**:
-    - 功能：自适应控制训练批次中简单样本（所有rollout都正确的prompt）的比例
+    - 做什么：自适应控制训练批次中简单样本（所有rollout都正确的prompt）的比例
     - 核心思路：$\kappa_m = \text{clip}(\kappa_{m-1} + \beta(\mathcal{R}_m - \mathcal{R}_{m-1}), 0, \kappa_m^0)$，其中$\mathcal{R}_m$是当前批次中正确序列的NRP比例。当NRP比例增加（冗余减少），允许更多简单样本参与训练；Theorem 1 给出条件 $\kappa \sigma_L < C$ 以维持高熵token的生成概率
     - 设计动机：简单样本是效率优化的主要来源（因为所有rollout都正确时长度成为唯一区分信号），但简单样本比例过大会使高熵token的logit下降主导整个批次梯度，导致性能退化。课程调度实现了探索与压缩的动态平衡
 
 3. **理论分析框架**:
-    - 功能：为方法设计提供理论支撑
+    - 做什么：为方法设计提供理论支撑
     - 核心思路：Lemma 1 建立policy gradient下logit变化与advantage的线性关系；Lemma 2 证明长度惩罚使高熵token的期望logit变化严格为负；Theorem 1 给出批次学习中维持高熵token的充要条件；Theorem 2 证明序列级长度奖励无法在NRP边界处停止生成
     - 设计动机：现有方法的失败不是偶然的实验现象，而是有理论根基的——这指导了解耦奖励和课程调度的精确设计
 

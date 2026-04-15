@@ -20,7 +20,7 @@ description: >-
 
 **[Echotrail-Gui Building Actionable Memory For Gui Agents Via Critic-Guided Self-E](echotrail-gui_building_actionable_memory_for_gui_agents_via_critic-guided_self-e.md)**
 
-:   提出EchoTrail-GUI，通过"学习-记忆-应用"三阶段闭环为GUI Agent构建可操作记忆——探索Agent自主交互GUI环境生成轨迹→Critic奖励模型过滤高质量轨迹存入记忆库→新任务时混合检索(密集+稀疏)最相关轨迹注入prompt引导推理，在AndroidWorld和AndroidLab上显著提升任务成功率。
+:   提出EchoTrail-GUI三阶段闭环框架：探索Agent自主与GUI环境交互生成轨迹 → Critic奖励模型过滤仅保留高质量轨迹构建记忆库(EchoTrail-4K) → 新任务到来时通过密集+稀疏混合检索注入最相关记忆引导推理，将无状态GUI Agent转变为记忆增强系统，在AndroidWorld上GPT-4o达51.7% SR(+17.2pp)，在AndroidLab上Qwen2.5-VL-72B SR从23.9%提升至37.5%。
 
 **[Gui-Ceval A Hierarchical And Comprehensive Chinese Benchmark For Mobile Gui Agen](gui-ceval_a_hierarchical_and_comprehensive_chinese_benchmark_for_mobile_gui_agen.md)**
 
@@ -30,13 +30,13 @@ description: >-
 
 :   提出难度感知的轨迹合成框架 HATS，通过 hardness-driven exploration 和 alignment-guided refinement 的闭环机制，专注采集和修正语义歧义动作的训练轨迹，大幅提升 GUI Agent 在复杂真实场景中的泛化能力。
 
-**[Hats Hardnessaware Trajectory Synthesis Gui Agent](hats_hardnessaware_trajectory_synthesis_gui_agent.md)**
-
-:   提出HATS框架，通过定义动作的"语义模糊度"作为难度信号，以难度驱动探索+对齐引导修复的闭环管线合成高质量GUI轨迹数据，显著提升agent泛化能力。
-
 **[Nerfify A Multi-Agent Framework For Turning Nerf Papers Into Code](nerfify_a_multi-agent_framework_for_turning_nerf_papers_into_code.md)**
 
 :   提出 Nerfify，通过上下文无关文法(CFG)约束、图思维链(GoT)代码合成、组合式引用恢复和视觉反馈四阶段，将NeRF论文自动转化为可训练的Nerfstudio插件，在30篇论文基准上达到100%可执行率（通用基线仅5%），视觉质量在专家实现的±0.5dB PSNR内。
+
+**[Nerfify Multiagent Nerf Paper To Code](nerfify_multiagent_nerf_paper_to_code.md)**
+
+:   提出 Nerfify，一个领域感知的多智能体框架，通过上下文无关文法（CFG）约束、图思维（GoT）代码合成和组合式引用依赖恢复，将 NeRF 论文自动转化为可训练的 Nerfstudio 插件，实现 100% 可执行率，视觉质量与专家实现仅差 ±0.5 dB PSNR。
 
 **[Realm An Mllm-Agent Framework For Open World 3D Reasoning Segmentation And Editi](realm_an_mllm-agent_framework_for_open_world_3d_reasoning_segmentation_and_editi.md)**
 
@@ -52,7 +52,7 @@ description: >-
 
 **[Sceneassistant A Visual Feedback Agent For Openvoc](sceneassistant_a_visual_feedback_agent_for_openvoc.md)**
 
-:   提出基于视觉反馈的VLM agent框架，通过14个完备Action API让VLM在ReAct闭环中迭代优化3D场景布局，无需预定义空间关系模板，在人类评估中Layout得分7.600（vs SceneWeaver 5.800），Human Preference 65%。
+:   提出SceneAssistant——基于纯视觉反馈的VLM agentic框架，设计14个功能完备的Action API让Gemini-3.0-Flash在ReAct闭环中迭代生成和优化开放词汇3D场景，无需预定义空间关系模板或外部布局求解器，在30个场景的人类评估中Layout得分7.600（vs SceneWeaver 5.800），Human Preference 65%。
 
 **[Think Then Verify A Hypothesis-Verification Multi-Agent Framework For Long Video](think_then_verify_a_hypothesis-verification_multi-agent_framework_for_long_video.md)**
 

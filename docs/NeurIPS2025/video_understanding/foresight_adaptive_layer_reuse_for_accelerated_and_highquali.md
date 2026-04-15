@@ -2,107 +2,121 @@
 title: >-
   [论文解读] Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation
 description: >-
-  [视频理解] 提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值决策在 DiT 去噪过程中哪些层可复用缓存、哪些需重新计算，在 OpenSora/Latte/CogVideoX 上实现最高 1.63× 端到端加速且保持视频质量。
+  [视频理解] 提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值在 DiT 去噪过程中逐层决策缓存复用，在 OpenSora/Latte/CogVideoX/HunyuanVideo/Wan-2.1 上实现最高 2.23× 端到端加速且视频质量优于静态方法。
 tags:
   - 视频理解
+  - 推理加速
+  - 扩散模型
 ---
 
 # Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation
 
-## 基本信息
-- **arXiv**: 2506.00329
-- **会议**: NeurIPS 2025
-- **作者**: Muhammad Adnan, Nithesh Kurella, Akhil Arunkumar, Prashant J. Nair
-- **机构**: University of British Columbia, d-Matrix
-- **代码**: https://github.com/STAR-Laboratory/foresight
+**会议**: NeurIPS 2025  
+**arXiv**: [2506.00329](https://arxiv.org/abs/2506.00329)  
+**代码**: https://github.com/STAR-Laboratory/foresight  
+**领域**: 视频理解 / 扩散模型加速  
+**关键词**: 自适应缓存、DiT 加速、特征复用、文本到视频生成、训练无关
 
 ## 一句话总结
-提出 Foresight，一种训练无关的自适应层复用框架，通过动态 MSE 阈值决策在 DiT 去噪过程中哪些层可复用缓存、哪些需重新计算，在 OpenSora/Latte/CogVideoX 上实现最高 1.63× 端到端加速且保持视频质量。
 
-## 背景与动机
-DiT 视频生成的推理瓶颈来自两方面：(1) 空时注意力的 $\mathcal{O}(L^2)$ 复杂度随分辨率和帧数增长；(2) 数十步去噪过程的累积计算。
+提出 Foresight，一种训练无关的自适应层复用框架，通过在 warmup 阶段建立逐层 MSE 阈值、在 reuse 阶段按阈值动态决策每层是复用缓存还是重新计算，在 5 个视频生成模型上实现了比静态方法更高质量和更快速度的推理加速（最高 2.23×）。
 
-现有特征缓存方法（Static, PAB, Δ-DiT, T-GATE）采用**静态复用策略**——固定间隔、所有层统一处理。但作者发现复用潜力在以下三个维度高度变化：
-1. **层间差异**：后期层特征变化更大，不适合粗暴复用
-2. **Prompt 依赖**：快速场景变化的 prompt 复用潜力低
-3. **配置敏感**：分辨率、帧数、去噪调度改变复用模式
+## 研究背景与动机
 
-## 核心问题
-如何自适应地决策每一步每一层是否复用缓存，实现速度与质量的最优平衡？
+**领域现状**：扩散 Transformer（DiT）已成为文本到视频生成的主流架构，OpenSora、CogVideoX、HunyuanVideo 等模型都基于空时 DiT 构建。然而，自注意力的 $O(L^2)$ 复杂度随分辨率和帧数增长，加上通常需要 30-50 步去噪，推理延迟极高。
+
+**现有痛点**：特征缓存（feature caching）是无需训练的加速手段，通过在相邻去噪步骤间复用中间特征来减少计算量。但现有方法（Static、PAB、Δ-DiT、T-GATE、TeaCache）全部采用**静态策略**——以固定间隔对所有层统一复用，忽略了复用潜力在层间、prompt 间和配置间的巨大差异。
+
+**核心矛盾**：作者通过分析 OpenSora 中 28 层 DiT 的空间特征 MSE 热力图，发现三个关键现象：(1) 早期层特征变化小、复用安全，后期层变化大、粗暴复用会严重降质；(2) 场景变化快的 prompt 比静态场景 prompt 的复用潜力低得多；(3) 分辨率从 240p 变到 720p 时，同一层的 MSE 模式发生显著变化。静态方法无法适配这些变化。
+
+**本文要解决什么？** 如何在每一步每一层做出自适应的"复用 or 重算"决策，使得速度和质量达到更优的帕累托前沿。
+
+**切入角度**：用特征 MSE 的统计量作为复用指标，在 warmup 阶段自动学习每层的阈值，运行时实时比较，不需要任何训练或架构修改。
+
+**核心 idea 一句话**：用运行时 MSE 动态阈值替代静态复用间隔，让每层每步自主决定是否复用。
 
 ## 方法详解
 
-### 1. Warmup Phase
-前 $W$ 步（默认 15%）正常计算所有层，让特征稳定后：
-- 初始化缓存 $\mathcal{C}$ 
-- 建立每层的自适应复用阈值 $\lambda$：
-$$\lambda_{\mathbf{x}}^l = \sum_{t=W-2}^{W} \frac{1}{10^{W-t}} \left(\frac{1}{P}\sum_{i=1}^P (x_i^l(t) - x_i^l(t-1))^2\right)$$
-用几何加权的最后三步 MSE，阈值因层、prompt、分辨率而异。
+### 整体框架
 
-### 2. Reuse Phase
-交替进行复用（$N$ 步）和重计算（每 $R$ 步）：
+Foresight 将去噪过程分为两个阶段：**Warmup Phase** 和 **Reuse Phase**。Warmup 阶段正常计算所有层，建立缓存和逐层阈值；Reuse 阶段交替进行复用和重计算，每个重计算步更新复用指标，下一步按指标与阈值的比较做出逐层独立决策。整个过程只需要存储每层 DiT block 的两个输出（spatial + temporal），不修改模型权重。
 
-重计算步更新复用指标 $\delta$：
-$$\delta_{\mathbf{x}}^l(t) = \frac{1}{P}\sum_{i=1}^P (x_i^l(t) - \mathcal{C}_i^l(t-1))^2$$
+### 关键设计
 
-下一步按阈值决策：
-$$\mathbf{x}_{t+1}^l = \begin{cases} \mathcal{C}(\mathbf{x}_t^l), & \text{if } \delta_{\mathbf{x}}^l(t) \leq \gamma \lambda_{\mathbf{x}}^l \\ \text{Compute}, & \text{otherwise} \end{cases}$$
+1. **Warmup 阶段与自适应阈值初始化**:
 
-缩放因子 $\gamma \in (0, 2]$ 控制速度-质量平衡。
+    - 功能：在前 $W$ 步（默认 15%）正常计算，让特征稳定后为每层建立复用阈值
+    - 核心思路：用最后三步的 MSE 几何加权平均作为阈值 $\lambda_x^l = \sum_{t=W-2}^{W} \frac{1}{10^{W-t}} \cdot \text{MSE}^l(t, t-1)$，近期步的权重更大，阈值因层、prompt、分辨率而自然不同
+    - 设计动机：静态方法需要人工调参确定复用间隔，Foresight 让阈值从数据中自动生成。后期层 MSE 大则阈值高，早期层 MSE 小则阈值低，自动实现"早期层多复用、后期层谨慎复用"
 
-### 3. 关键设计选择
-- **粗粒度复用**：复用整个 DiT block（而非 PAB 的细粒度 attention/MLP 分离），缓存开销降低 3×
-- **逐层独立决策**：后期层更频繁重计算，前期层大量复用
-- **收敛性保证**：证明自适应复用的误差有界且可控：$\|\hat{\mathbf{x}}_t - \mathbf{x}_t^*\| \leq \varepsilon_{tot}/(1-\rho)$
+2. **Reuse 阶段的动态决策机制**:
+
+    - 功能：在每个重计算步更新复用指标 $\delta$，下一步按指标与阈值比较做逐层决策
+    - 核心思路：重计算步计算当前特征与缓存的 MSE 作为指标 $\delta_x^l(t)$，若 $\delta \leq \gamma \cdot \lambda_x^l$ 则下一步复用缓存，否则重新计算。缩放因子 $\gamma \in (0, 2]$ 控制速度-质量平衡
+    - 设计动机：通过 $\gamma$ 提供简单的旋钮控制——$\gamma=0.25$ 几乎不复用但质量极高（PSNR 38），$\gamma=2.0$ 最大化复用和速度
+
+3. **粗粒度 Block 级缓存**:
+
+    - 功能：缓存整个 DiT Block 输出而非细粒度的 attention/MLP 分别缓存
+    - 核心思路：每层只缓存 spatial 和 temporal 两个 block 输出，缓存大小为 $2L \cdot H \cdot W \cdot F$，比 PAB 的 $6L \cdot H \cdot W \cdot F$ 减少 3×
+    - 设计动机：相邻步骤的 block 级特征本身就高度相似（余弦相似度 >0.99），细粒度缓存虽理论更灵活但额外的存储和管理开销不值得
+
+### 收敛性分析
+
+作者证明了 Foresight 的复用引入的误差有界且可控。在每个复用层，误差 $\varepsilon_t^l \leq \gamma \cdot \lambda_x^l$，整个去噪链的累积误差满足 $\|\hat{x}_t - x_t^*\| \leq \varepsilon_{\text{tot}} / (1 - \rho)$，其中 $\rho = \max_s \sqrt{1 - \beta_s} < 1$。收紧 $\gamma$ 可以任意接近基线输出。
 
 ## 实验关键数据
 
-### VBench Benchmark (550 prompts)
-| 模型 | 方法 | VBench Acc | PSNR↑ | SSIM↑ | 加速比 |
-|---|---|---|---|---|---|
-| OpenSora | PAB | 75.32 | 25.67 | 0.85 | 1.26× |
-| | **Foresight** (N=1,R=2) | **75.90** | **29.67** | **0.90** | **1.28×** |
-| | **Foresight** (N=2,R=3) | **75.62** | 27.49 | 0.87 | **1.44×** |
-| CogVideoX | PAB | 77.89 | 29.04 | 0.91 | 1.37× |
-| | **Foresight** (N=1,R=2) | **77.94** | **34.75** | **0.95** | **1.46×** |
-| | **Foresight** (N=2,R=3) | **77.84** | 28.45 | 0.87 | **1.63×** |
+### 主实验（VBench, 550 prompts）
 
-### 扩展到 HunyuanVideo/Wan-2.1
-- HunyuanVideo：Foresight 达 1.62× 加速，PSNR 41.79 远超 TeaCache
-- Wan-2.1：Foresight 达 2.23× 加速
+| 模型 | 方法 | VBench Acc | PSNR↑ | SSIM↑ | FVD↓ | 加速比 |
+|------|------|------------|-------|-------|------|--------|
+| OpenSora | PAB | 75.32 | 25.67 | 0.85 | 541.53 | 1.26× |
+| OpenSora | **Foresight** (N=1,R=2) | **75.90** | **29.67** | **0.90** | **306.66** | **1.28×** |
+| OpenSora | **Foresight** (N=2,R=3) | 75.62 | 27.49 | 0.87 | 457.69 | **1.44×** |
+| CogVideoX | PAB | 77.89 | 29.04 | 0.91 | 340.24 | 1.37× |
+| CogVideoX | **Foresight** (N=1,R=2) | **77.94** | **34.75** | **0.95** | **130.65** | **1.46×** |
+| CogVideoX | **Foresight** (N=2,R=3) | 77.84 | 28.45 | 0.87 | 531.99 | **1.63×** |
 
 ### 消融实验
-- $\gamma=0.25$：PSNR 38.09（比 PAB 高 +9.97），延迟仅增加 0.62s
-- $\gamma=2.0$：PSNR 29.51，最大加速
-- 最佳 warmup：15%
-- 缓存开销：Foresight 仅需 $2L \cdot H \cdot W \cdot F$，比 PAB 的 $6L \cdot H \cdot W \cdot F$ 少 3×
 
-## 亮点
-1. **自适应而非静态**：每层每步独立决策，适应 prompt/分辨率/调度的变化
-2. **训练无关，即插即用**：不改架构，不需额外训练
-3. **理论保证**：证明有界误差和收敛性
-4. **广泛验证**：5 个模型（OpenSora, Latte, CogVideoX, HunyuanVideo, Wan-2.1）+ FLUX T2I
-5. **质量优于速度优先**：在同等加速下质量全面超越静态方法
+| 配置 | 延迟(s) | PSNR↑ | 说明 |
+|------|---------|-------|------|
+| PAB baseline | 19.88 | 28.12 | 静态基线 |
+| γ=0.25 | 20.50 (+0.62) | 38.09 (+9.97) | 极少复用，质量极高 |
+| γ=0.5 | 18.70 (−1.17) | 32.38 (+4.26) | 默认配置 |
+| γ=2.0 | 16.02 (−3.85) | 29.51 (+1.39) | 最大复用 |
+| N=3, R=4 | 14.79 (−5.08) | 29.03 (+0.91) | 更激进复用，仍优于 PAB |
 
-## 局限性
-1. 加速比受限于复用窗口 $N$ 和 warmup $W$ 的配置
-2. 目前采用粗粒度（block 级）复用，细粒度可能进一步提升
-3. 自适应阈值依赖 warmup 阶段的 MSE 估计质量
-4. 1.63× 加速幅度相对有限（vs. 步数压缩或蒸馏的 10-50×）
+### 关键发现
 
-## 与相关工作的对比
-- **vs. PAB**：PAB 按经验固定不同注意力类型的 broadcast 范围，Foresight 按数据驱动动态决策
-- **vs. TeaCache**：TeaCache 利用 timestep embedding 的变化量做缓存判断，Foresight 用特征 MSE，后者更精确
-- **vs. Δ-DiT**：Δ-DiT 缓存残差偏移量而非完整特征，且仍是静态方案
-- **vs. 步数压缩/蒸馏**：Foresight 与这些方法正交，可组合使用
+- **后期层是质量瓶颈**：将层分为 early/middle/late 三组，static 复用 late 层导致最大质量下降，Foresight 自动让 late 层更频繁重计算
+- **扩展到最新模型**：HunyuanVideo 上 Foresight 达 1.62× 加速（PSNR 41.79 远超 TeaCache 的 37.31），Wan-2.1 上达 2.23× 加速
+- **匹配质量比速度**：在匹配 PAB 输出质量的条件下，Foresight 在 OpenSora/Latte/CogVideoX 上分别达到 1.68×/1.58×/1.95× 加速
+- **跨任务泛化**：应用于 FLUX 文本到图像模型也实现了约 2× 加速
 
-## 启发与关联
-- **与 InfinityStar 的互补**：InfinityStar 将 AR 推理控制在极少步数，Foresight 针对扩散模型减少每步计算——两者分别代表 AR 和 Diffusion 的效率优化方向
-- **自适应粒度的未来**：从 block 级复用扩展到 attention head 级或 token 级复用是自然方向
-- **系统层面优化**：Foresight 的设计考虑了 FlashAttention 兼容性和 GPU VRAM，有工程落地性
+## 亮点与洞察
+
+- **自适应阈值设计巧妙**：阈值从 warmup 阶段的 MSE 统计量自动导出，无需人工调参，不同 prompt/分辨率/层自然得到不同阈值。这个 idea 可以迁移到任何需要"是否缓存"决策的场景
+- **粗粒度优于细粒度的反直觉发现**：PAB 精心设计了空间/时间/交叉注意力的分层 broadcast 策略，但 Foresight 的 block 级粗粒度复用反而更好——因为决策本身是自适应的，弥补了粒度上的粗糙
+- **理论和实践统一**：既有收敛性证明提供理论保证，又在 5 个模型上广泛验证，工程落地性强
+
+## 局限性 / 可改进方向
+
+- 加速比上限受 $N$ 和 $W$ 配置约束，最大约 2.23×，远低于步数压缩/蒸馏的 10-50×（但两者正交可组合）
+- 目前采用 block 级复用，细粒度扩展到 attention head 级或 token 级可能进一步提升
+- 阈值初始化依赖 warmup 阶段的 MSE 估计质量，极短视频（warmup 步数很少）可能不稳定
+- 未探索与步数压缩方法（如 consistency distillation）的组合效果
+
+## 相关工作与启发
+
+- **vs PAB**：PAB 按经验固定不同注意力类型的 broadcast 范围，需要模型特定调参；Foresight 数据驱动、自适应，在所有模型上一套参数统一工作
+- **vs TeaCache**：TeaCache 用 timestep embedding 的变化量做缓存判断，Foresight 用实际特征 MSE，后者更直接反映层级特征变化
+- **vs Δ-DiT**：Δ-DiT 缓存残差偏移量而非完整特征，仍然是静态方案，无法适应 prompt/配置变化
 
 ## 评分
-- 新颖性：★★★☆☆ — 自适应缓存的思路不算全新，但阈值设计和分析有价值
-- 技术深度：★★★★☆ — 收敛性证明和系统性分析扎实
-- 实验完整度：★★★★★ — 5 模型 × 多 benchmark × 多配置 × 消融
-- 写作质量：★★★★☆ — 清晰，但略冗长
+
+- 新颖性: ⭐⭐⭐ 自适应缓存的思路不算全新，但阈值设计和 warmup-reuse 两阶段框架有价值
+- 实验充分度: ⭐⭐⭐⭐⭐ 5 个视频模型 + 1 个图像模型 × 3 个 benchmark × 多配置 × 消融，非常全面
+- 写作质量: ⭐⭐⭐⭐ 清晰系统，收敛性分析加分
+- 价值: ⭐⭐⭐⭐ 即插即用、训练无关的加速方案，工程价值高

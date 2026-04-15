@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 预训练/数据方向 5篇论文解读
+  CVPR2025 预训练/数据方向 6篇论文解读
 description: >-
-  5篇CVPR2025 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇CVPR2025 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练/数据
 
-**📷 CVPR2025** · 共 **5** 篇
+**📷 CVPR2025** · 共 **6** 篇
 
 **[3D Prior Is All You Need Cross-Task Few-Shot 2D Gaze Estimation](3d_prior_is_all_you_need_cross-task_few-shot_2d_gaze_estimation.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[Mxnorm Reusing Mxfp Block Scales For Efficient Tensor Normalisation](mxnorm_reusing_mxfp_block_scales_for_efficient_tensor_normalisation.md)**
 
 :   MXNorm 提出复用 MXFP 量化过程中已计算的 block absmax 来近似 RMS，将归一化与 MX 量化融合为单次统计收集操作，实现 RMSNorm 的 drop-in 替换，在 Llama 3 8B 预训练中保持训练精度的同时获得最高 2.4× 的 kernel 加速。
+
+**[Softshadow Leveraging Soft Masks For Penumbra-Aware Shadow Removal](softshadow_leveraging_soft_masks_for_penumbra-aware_shadow_removal.md)**
+
+:   提出SoftShadow框架，用连续灰度软掩码替代传统二值硬掩码来表示阴影区域，通过SAM+LoRA预测软掩码并引入半影形成约束损失联合训练检测与去阴影网络，在SRD/ISTD+/LRSS/UIUC四个数据集上达到SOTA且无需外部掩码输入。
 
 **[The Scene Language Representing Scenes With Programs Words And Embeddings](the_scene_language_representing_scenes_with_programs_words_and_embeddings.md)**
 

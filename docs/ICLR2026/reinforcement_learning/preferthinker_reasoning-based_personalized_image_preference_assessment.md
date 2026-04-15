@@ -19,7 +19,7 @@ tags:
 **arXiv**: [2511.00609](https://arxiv.org/abs/2511.00609)  
 **代码**: [项目页面](https://preferthinker.github.io/)  
 **领域**: reinforcement_learning  
-**关键词**: personalized preference assessment, reasoning, GRPO, predict-then-assess, visual preference profile, CoT
+**关键词**: personalized preference assessment, reasoning, GRPO, predict-then-assess, visual preference profile, CoT  
 
 ## 一句话总结
 提出 PreferThinker，通过引入通用视觉偏好画像（preference profile）连接不同用户，采用 predict-then-assess 的 CoT 推理范式进行可解释的个性化图像偏好评估，结合冷启动 SFT + GRPO 强化学习及 similarity-aware 预测奖励，7B 模型超越 GPT-4o（+5.2%）和 Claude 3.7（+5.1%）。

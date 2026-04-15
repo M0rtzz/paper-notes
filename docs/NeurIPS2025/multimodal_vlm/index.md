@@ -1,22 +1,22 @@
 ---
 title: >-
-  NeurIPS2025 多模态VLM方向 143篇论文解读
+  NeurIPS2025 多模态VLM方向 142篇论文解读
 description: >-
-  143篇NeurIPS2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  142篇NeurIPS2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**🧠 NeurIPS2025** · 共 **143** 篇
+**🧠 NeurIPS2025** · 共 **142** 篇
 
 **[A Frustratingly Simple Yet Highly Effective Attack Baseline](a_frustratingly_simple_yet_highly_effective_attack_baseline.md)**
 
-:   提出 M-Attack，通过对对抗图像做随机裁剪后与目标图像在嵌入空间做局部对齐（而非传统的全局对齐），配合多模型集成，使得生成的对抗扰动具有丰富的局部语义细节，在 GPT-4.5/4o/o1 等商业黑盒 LVLM 上实现超过 90% 的目标攻击成功率，大幅超越所有已有方法。
+:   提出 M-Attack，通过对源图像做随机裁剪后与目标图像在嵌入空间做局部-全局/局部-局部匹配，配合多 CLIP 模型集成，使对抗扰动自然聚集在语义关键区域形成清晰的语义细节，在 GPT-4.5/4o/o1 等商业黑盒 LVLM 上实现 >90% 的定向攻击成功率。
 
 **[A Multimodal Benchmark For Framing Of Oil Gas Advertising An](a_multimodal_benchmark_for_framing_of_oil_gas_advertising_an.md)**
 
-:   构建了首个面向石油天然气行业视频广告的多模态框架分析基准数据集（706个视频，覆盖Facebook和YouTube两个平台，13种框架类型），用于评估VLM在检测企业"洗绿"宣传中的能力，发现GPT-4.1在环境信息检测上可达79% F1但在绿色创新识别上仅46% F1。
+:   构建了首个面向石油天然气行业视频广告的多模态框架分析基准数据集（706 个视频、13 种框架类型、50+ 实体、20 个国家），系统评估了 6 款 VLM 在检测 greenwashing 相关 framing 中的能力，发现 GPT-4.1 零样本在环境类标签上达 79% F1 但绿色创新仅 46%，揭示了隐式框架分析和文化背景理解仍是 VLM 的核心挑战。
 
 **[Act As Human Multimodal Large Language Model Data Annotation](act_as_human_multimodal_large_language_model_data_annotation.md)**
 
@@ -36,7 +36,7 @@ description: >-
 
 **[Advancing Compositional Awareness In Clip With Efficient Fin](advancing_compositional_awareness_in_clip_with_efficient_fin.md)**
 
-:   提出 CLIC（Compositionally-aware Learning in CLIP），通过拼接图像对 + 跨图词汇交换生成 hard negatives + 多正样本训练的策略，在仅微调文本编码器的情况下同时提升 CLIP 的组合推理能力和检索性能，在 SugarCrepe++ 上取得 CLIP 类模型 SOTA。
+:   提出 CLIC，通过拼接两张图像并基于跨图词汇交换生成 hard negatives，同时创建多个正样本描述，仅微调 CLIP 文本编码器就能同时提升组合推理能力（SugarCrepe++ SOTA）和下游检索性能，打破了之前方法中组合性与检索性不可兼得的困局。
 
 **[Affordbot 3D Fine-Grained Embodied Reasoning Via Multimodal Large Language Model](affordbot_3d_fine-grained_embodied_reasoning_via_multimodal_large_language_model.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[Antigrounding Lifting Robotic Actions Into Vlm Representatio](antigrounding_lifting_robotic_actions_into_vlm_representatio.md)**
 
-:   提出 AntiGrounding 框架，反转传统指令接地管道——将候选机器人轨迹渲染到多视角图像中并用 VLM 进行结构化 VQA 评估，绕过压缩中间表征的信息瓶颈，实现复杂操作任务的零样本闭环控制。
+:   反转传统指令接地范式——不将 VLM 知识压缩到中间表征（符号技能或约束），而是将候选机器人轨迹渲染到多视角场景图像中，直接在 VLM 的原生高维表征空间中评估动作方案，实现零样本闭环机器人操作控制。
 
 **[Approximate Domain Unlearning For Visionlanguage Models](approximate_domain_unlearning_for_visionlanguage_models.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[Balanced Token Pruning Accelerating Vision Language Models B](balanced_token_pruning_accelerating_vision_language_models_b.md)**
 
-:   提出 Balanced Token Pruning (BTP)，通过在浅层优先多样性剪枝、深层优先注意力剪枝的分阶段策略，联合优化局部输出一致性和全局表示质量，在仅保留 22% 视觉 token 的情况下保持原模型 98% 的性能。
+:   提出 Balanced Token Pruning (BTP)，通过联合考虑剪枝对当前层（局部）和后续层（全局）的影响，在浅层侧重多样性保留以维护下游表示质量、在深层侧重注意力选择以保持局部输出一致性，在 LLaVA/Qwen2.5-VL 等多个 LVLM 上仅保留 22% 视觉 token 即保持原模型 98% 性能。
 
 **[Better Tokens For Better 3D Advancing Vision-Language Modeling In 3D Medical Ima](better_tokens_for_better_3d_advancing_vision-language_modeling_in_3d_medical_ima.md)**
 
@@ -77,10 +77,6 @@ description: >-
 **[Beyond Greedy Exits Improved Early Exit Decisions For Risk Control And Reliabili](beyond_greedy_exits_improved_early_exit_decisions_for_risk_control_and_reliabili.md)**
 
 :   UAT（Unsupervised Adaptive Thresholding）为早退 DNN 设计了可靠性函数来评估中间层输出质量，并用多臂赌博机（MAB）算法在推理时动态学习最优退出阈值，实现 1.7-2.1× 加速且性能损失 <2%，同时对分布偏移鲁棒。
-
-**[Bias In The Picture Benchmarking Vlms With Social-Cue News Images And Llm-As-Jud](bias_in_the_picture_benchmarking_vlms_with_social-cue_news_images_and_llm-as-jud.md)**
-
-:   构建 1,343 个新闻图片-问答对的偏见评估基准，标注年龄/性别/种族/职业等人口统计属性，用 GPT-4o 作为评判员（LLM-as-judge）评估 15 个 VLM 在开放式问答中的偏见表现，发现高忠实度不等于低偏见，且性别和职业偏见尤为严重。
 
 **[Bioclip 2 Emergent Properties From Scaling Hierarchical Contrastive Learning](bioclip_2_emergent_properties_from_scaling_hierarchical_contrastive_learning.md)**
 
@@ -112,7 +108,7 @@ description: >-
 
 **[Chartmuseum Testing Visual Reasoning Capabilities Of Large V](chartmuseum_testing_visual_reasoning_capabilities_of_large_v.md)**
 
-:   构建ChartMuseum——一个包含1,162个专家标注问题的图表QA benchmark，专门评估LVLM的复杂视觉和文本推理能力。与现有图表benchmark（前沿模型接近饱和）不同，ChartMuseum揭示了巨大的模型-人类性能差距：人类93%准确率 vs Gemini-2.5-Pro仅63.0% vs 最佳开源Qwen2.5-VL-72B仅38.5%，且所有模型在视觉推理重的问题上掉点35-55%。
+:   提出ChartMuseum图表问答基准，包含1162个专家标注问题和184个来源的真实图表，首次系统区分视觉推理与文本推理能力，揭示当前最强模型Gemini-2.5-Pro仅63.0%而人类达93%，视觉推理性能比文本推理低35%-55%。
 
 **[Choice Benchmarking The Remote Sensing Capabilities Of Large Vision-Language Mod](choice_benchmarking_the_remote_sensing_capabilities_of_large_vision-language_mod.md)**
 
@@ -128,7 +124,7 @@ description: >-
 
 **[Continual Multimodal Contrastive Learning](continual_multimodal_contrastive_learning.md)**
 
-:   本文首次形式化定义了持续多模态对比学习(CMCL)问题，提出双侧零空间(DNS)梯度投影方法，将新模态对的梯度投影到不影响已学习模态对齐的子空间中，理论保证了稳定性和可塑性的平衡。
+:   本文首次形式化定义了持续多模态对比学习（CMCL）问题，提出双侧零空间梯度投影（DNS）方法，将新数据的梯度投影到不影响旧知识的子空间上，在 7 个数据集上实现了稳定性和可塑性的最佳平衡。
 
 **[Covmatch Crosscovariance Guided Multimodal Dataset Distillat](covmatch_crosscovariance_guided_multimodal_dataset_distillat.md)**
 
@@ -196,7 +192,7 @@ description: >-
 
 **[Flowcut Rethinking Redundancy Via Information Flow For Effic](flowcut_rethinking_redundancy_via_information_flow_for_effic.md)**
 
-:   从信息流（Information Flow）视角重新理解VLM中视觉token的冗余性：发现CLS token是信息中继站、冗余渐进式涌现、单层单标准评分不够可靠，提出FlowCut——基于信息流感知的多标准累积重要性剪枝框架，在LLaVA-1.5-7B上以88.9%的token减少率超越SOTA 1.6%，在LLaVA-NeXT-7B上超越4.3%。
+:   从信息流（Information Flow）视角重新理解VLM中视觉token冗余性的涌现机制，提出FlowCut框架通过层自适应剪枝比例、多标准融合评分和累积重要性跟踪实现与模型内在信息传播行为对齐的token剪枝，在LLaVA-1.5-7B上以88.9% token减少率超越SOTA 1.6%，LLaVA-NeXT-7B上以94.4%减少率超越4.3%。
 
 **[Flysearch Exploring How Vision-Language Models Explore](flysearch_exploring_how_vision-language_models_explore.md)**
 
@@ -224,7 +220,7 @@ description: >-
 
 **[Glsim Detecting Object Hallucinations In Lvlms Via Globalloc](glsim_detecting_object_hallucinations_in_lvlms_via_globalloc.md)**
 
-:   提出 GLSim，一种无训练的物体幻觉检测框架，结合图像-文本间的全局和局部嵌入相似度信号来判断 LVLM 生成的物体是否为幻觉，显著超越仅使用全局或局部信号的方法。
+:   提出GLSim，一种无训练的LVLM物体幻觉检测方法，通过融合全局场景相似度（物体token与最后instruction token的余弦相似度）和局部视觉定位相似度（物体token与Visual Logit Lens定位的Top-K图像patch的余弦相似度），在MSCOCO上以83.7% AUROC超越SVAR 9%、Internal Confidence 10.8%。
 
 **[Goalladder Incremental Goal Discovery With Vision-Language Models](goalladder_incremental_goal_discovery_with_vision-language_models.md)**
 
@@ -360,11 +356,11 @@ description: >-
 
 **[Praxisvlm Visiongrounded Decision Making Via Textdriven Rein](praxisvlm_visiongrounded_decision_making_via_textdriven_rein.md)**
 
-:   发现VLM的决策推理能力可以与视觉感知解耦——用文本描述替代图像时决策性能不降反升，据此提出Praxis-VLM：在纯文本场景上用GRPO训练决策推理能力，然后零样本迁移到视觉输入推理，在VIVA/PCA-Bench/EgoNormia三个决策benchmark上超越SFT基线且泛化性更强。
+:   发现VLM的决策推理能力可与视觉感知解耦——用文本描述替代图像时决策准确率不降反升；据此提出Praxis-VLM，在纯文本场景上通过多阶段GRPO与自适应reward训练决策推理能力，推理时零样本迁移到视觉输入，在三大决策benchmark上全面超越SFT基线，尤其在OOD场景泛化优势显著。
 
 **[Prefixkv Adaptive Prefix Kv Cache Is What Vision Instruction](prefixkv_adaptive_prefix_kv_cache_is_what_vision_instruction.md)**
 
-:   提出 PrefixKV，将 LVLM 各层 KV 缓存大小的确定转化为搜索最优全局前缀配置的问题，通过二分搜索找到信息保留阈值实现自适应逐层 KV 保留，在 20% 压缩率下仍保持接近原模型性能，提供 1.8× 推理加速。
+:   PrefixKV 发现不同层 KV 缓存的重要性分布差异显著，将逐层缓存大小确定问题形式化为全局前缀配置搜索，通过二分搜索找到最优信息保留阈值使每层保持最大上下文信息，在 20% 压缩率下仅有 0.49 PPL 下降且提供 1.8× 推理加速。
 
 **[Reading Recognition In The Wild](reading_recognition_in_the_wild.md)**
 
@@ -396,7 +392,7 @@ description: >-
 
 **[Rtv-Bench Benchmarking Mllm Continuous Perception Understanding And Reasoning Th](rtv-bench_benchmarking_mllm_continuous_perception_understanding_and_reasoning_th.md)**
 
-:   提出RTV-Bench评测基准，包含552个视频和4608个QA对，通过多时间戳问答（答案随场景演变而变化）和层次化问题结构（基础→高级），首次系统评估MLLM在实时视频流中的连续分析能力。
+:   提出 RTV-Bench 基准，包含 552 个视频和 4608 个 QA 对，通过**多时间戳问答**（同一问题在不同时间点答案不同）、**层级问题结构**和**多维评估**三大设计，系统评测 MLLM 在实时视频流中的持续分析能力，揭示了在线模型优于离线模型、单纯增大模型或增加帧数收益有限等关键发现。
 
 **[Scene-Aware Urban Design A Human-Ai Recommendation Framework Using Co-Occurrence](scene-aware_urban_design_a_human-ai_recommendation_framework_using_co-occurrence.md)**
 
@@ -428,7 +424,7 @@ description: >-
 
 **[Sparse Autoencoders Learn Monosemantic Features In Visionlan](sparse_autoencoders_learn_monosemantic_features_in_visionlan.md)**
 
-:   将Sparse Autoencoder (SAE)从LLM可解释性扩展到VLM领域，提出MonoSemanticity Score (MS)量化视觉神经元的单义性，发现SAE能将VLM中多义的神经元分解为单义特征，且可直接通过操控单个SAE神经元来steering LLaVA的输出（插入或抑制概念），无需修改LLM。
+:   本文将稀疏自编码器（SAE）扩展到视觉-语言模型（如CLIP）上，提出了 MonoSemanticity score（MS）来定量评估神经元的单义性，并展示了通过操控 SAE 神经元可以直接引导多模态大模型（如 LLaVA）的输出，实现概念的插入与抑制。
 
 **[Spatialthinker Reinforcing 3D Reasoning In Multimodal Llms Via Spatial Rewards](spatialthinker_reinforcing_3d_reasoning_in_multimodal_llms_via_spatial_rewards.md)**
 
@@ -516,7 +512,7 @@ description: >-
 
 **[Unveiling Chain Of Step Reasoning For Visionlanguage Models](unveiling_chain_of_step_reasoning_for_visionlanguage_models.md)**
 
-:   提出Chain-of-Step (CoS)推理框架：将VLM的推理链分解为结构化步骤（Name+Thought+Reflection），训练Process Reward Model (PRM)提供步骤级精细奖励，通过迭代DPO和step-level beam search显著提升VLM推理能力——在InternVL-2.5-MPO-8B上平均提升4.0%达到73.4%，并揭示"对VLM而言推理质量比长度更重要"。
+:   提出Chain-of-Step (CoS)推理框架，将VLM的推理链拆解为由Name+Thought+Reflection组成的结构化步骤，训练步骤级Process Reward Model (PRM)提供精细奖励信号，配合迭代DPO和step-level beam search系统性提升VLM推理能力——在InternVL-2.5-MPO-8B上6个benchmark平均73.4%（+4.0%），在LLaVA-NeXT-8B上平均64.2%（+12.1%），并揭示了"VLM推理中质量远比长度重要"这一与LLM领域相反的发现。
 
 **[Vagen Reinforcing World Model Reasoning For Multi-Turn Vlm Agents](vagen_reinforcing_world_model_reasoning_for_multi-turn_vlm_agents.md)**
 
@@ -552,7 +548,7 @@ description: >-
 
 **[Visual Structures Helps Visual Reasoning Addressing The Binding Problem In Vlms](visual_structures_helps_visual_reasoning_addressing_the_binding_problem_in_vlms.md)**
 
-:   提出 VISER，通过在图像上叠加水平线等低层级空间结构并配合顺序扫描提示，引导 LVLM 进行逐区域串行注意力解析，在视觉搜索、计数和空间关系等任务上大幅提升性能（GPT-4o 计数提升 26.8%）。
+:   提出 VISER（Visual Input Structure for Enhanced Reasoning），通过在图像上叠加等距水平线+数字标注构建空间分区，配合"逐行扫描"文本指令，将 LVLM 的并行视觉处理转化为串行逐区域解析，在不修改模型、不训练、单次查询的条件下，大幅缓解绑定问题并提升计数、视觉搜索、场景描述、空间关系等视觉推理性能。
 
 **[Vt-Fsl Bridging Vision And Text With Llms For Few-Shot Learning](vt-fsl_bridging_vision_and_text_with_llms_for_few-shot_learning.md)**
 
@@ -564,7 +560,7 @@ description: >-
 
 **[Wearvqa A Visual Question Answering Benchmark For Wearables In Egocentric Authen](wearvqa_a_visual_question_answering_benchmark_for_wearables_in_egocentric_authen.md)**
 
-:   提出 WearVQA，首个面向可穿戴设备（智能眼镜等）的 VQA 基准，包含 2520 个三元组、7 个图像领域、10 种认知任务类型和 6 种质量问题，当前最优模型仅达 24-52% 准确率。
+:   提出 WearVQA，首个专为可穿戴设备（智能眼镜）场景设计的 VQA 基准，包含 2520 个第一人称视角图像-问答三元组，系统覆盖 7 个视觉领域、10 种认知任务类型和 6 类可穿戴特有的图像质量问题，配套 96% 准确率的 LLM-as-a-judge 评估框架，揭示当前 SOTA 多模态模型在此场景下仅达 24-52% 准确率。
 
 **[What Can Rl Bring To Vla Generalization An Empirical Study](what_can_rl_bring_to_vla_generalization_an_empirical_study.md)**
 

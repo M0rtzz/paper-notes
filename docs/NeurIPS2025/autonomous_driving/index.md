@@ -20,7 +20,7 @@ description: >-
 
 **[Autovla A Vision-Language-Action Model For End-To-End Autonomous Driving With Ad](autovla_a_vision-language-action_model_for_end-to-end_autonomous_driving_with_ad.md)**
 
-:   提出AutoVLA——基于Qwen2.5-VL-3B的端到端自动驾驶VLA模型，将连续轨迹离散化为物理action tokens嵌入语言模型词表，支持fast/slow thinking双模式推理，通过GRPO强化微调同时提升10.6%性能和66.8%推理效率，在NAVSIM和Bench2Drive上达SOTA。
+:   AutoVLA 将物理动作 token 直接集成到预训练 VLM（Qwen2.5-VL-3B）中，通过 SFT 赋予模型快/慢双思维模式能力，再用 GRPO 强化微调实现自适应推理切换并优化规划性能，在 nuPlan、Waymo、nuScenes 和 CARLA 四大自动驾驶基准上取得有竞争力的端到端驾驶性能。
 
 **[Availability-Aware Sensor Fusion Via Unified Canonical Space](availability-aware_sensor_fusion_via_unified_canonical_space.md)**
 
@@ -152,7 +152,7 @@ description: >-
 
 **[Semantic Glitch Agency And Artistry In An Autonomous Pixel Cloud](semantic_glitch_agency_and_artistry_in_an_autonomous_pixel_cloud.md)**
 
-:   设计了一个像素风格的软体飞行机器人艺术装置"Semantic Glitch"，拒绝传统LiDAR/SLAM传感器，仅依靠多模态大语言模型(MLLM)的语义理解进行自主导航，通过"物理故障"身体与"叙事心智"的结合创造出具有角色性的不完美机器伴侣。
+:   本文提出一个"低保真"自主飞行机器人艺术装置"像素云"，拒绝传统LiDAR/SLAM传感器，仅依赖多模态大语言模型(MLLM)的语义理解实现导航，并通过自然语言提示为机器人赋予生物启发的叙事人格，展示了不精确但富有角色魅力的涌现行为。
 
 **[Simworld-Robotics Synthesizing Photorealistic And Dynamic Urban Environments For](simworld-robotics_synthesizing_photorealistic_and_dynamic_urban_environments_for.md)**
 
@@ -204,7 +204,7 @@ description: >-
 
 **[Urbaning-V2X A Large-Scale Multi-Vehicle Multi-Infrastructure Dataset Across Mul](urbaning-v2x_a_large-scale_multi-vehicle_multi-infrastructure_dataset_across_mul.md)**
 
-:   提出首个跨多交叉路口的真实世界车路协同感知数据集 UrbanIng-V2X，包含 3 个城市路口、2 辆联网车辆、多达 3 个基础设施传感器杆，共 34 个序列、712k 标注实例和 13 个目标类别。
+:   UrbanIng-V2X 是首个覆盖多车辆、多基础设施传感器、多城市交叉路口的真实世界协同感知数据集，提供 34 个场景的 712K 标注实例和 13 类目标，并通过跨路口评估策略（SIS）定量揭示了现有协同感知方法在未见交叉路口上存在 14 mAP 的显著泛化差距。
 
 **[V2X-Radar A Multi-Modal Dataset With 4D Radar For Cooperative Perception](v2x-radar_a_multi-modal_dataset_with_4d_radar_for_cooperative_perception.md)**
 
