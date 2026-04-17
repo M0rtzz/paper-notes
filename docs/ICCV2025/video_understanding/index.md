@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 视频理解方向 72篇论文解读
+  ICCV2025 视频理解方向 56篇论文解读
 description: >-
-  72篇ICCV2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  56篇ICCV2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📹 ICCV2025** · **72** 篇论文解读
+**📹 ICCV2025** · **56** 篇论文解读
 
 **[4D-Bench Benchmarking Multi-Modal Large Language Models For 4D Object Understand](4d-bench_benchmarking_multi-modal_large_language_models_for_4d_object_understand.md)**
 
@@ -58,14 +58,6 @@ description: >-
 
 :   提出 ELVA，首个无编码器（encoder-free）的视频大语言模型，通过层级 token 合并、视频引导监督和混合分辨率推理机制，仅用 7M 公开视频-文本对数据即可达到与有编码器架构相当的性能，同时将 FLOPs 降低 95%、推理延迟降低 92%。
 
-**[D3 Training-Free Ai-Generated Video Detection Using Second-Order Features](d3_training-free_ai-generated_video_detection_using_second-order_features.md)**
-
-:   本文从牛顿力学的二阶控制系统出发，发现真实视频和 AI 生成视频在二阶时序特征（"加速度"）上存在本质差异——真实视频波动大而生成视频平坦，据此提出 D3，一种完全免训练的 AI 生成视频检测方法，仅需计算帧间特征的二阶差分标准差即可判别，在 40 个测试子集上达到 SOTA。
-
-**[Dacon Dino For Anime Paint Bucket Colorization With Any Number Of Reference Imag](dacon_dino_for_anime_paint_bucket_colorization_with_any_number_of_reference_imag.md)**
-
-:   提出DACoN，利用DINOv2基础模型的语义特征与U-Net的高分辨率空间特征融合，实现支持任意数量参考图像的动画线稿自动上色，在关键帧和连续帧上色任务中均超越现有方法。
-
 **[Despite Exploring Contrastive Deep Skeleton-Pointcloud-Imu-Text Embeddings For A](despite_exploring_contrastive_deep_skeleton-pointcloud-imu-text_embeddings_for_a.md)**
 
 :   DeSPITE 提出了一种隐私保护的多模态对比预训练模型，将 LiDAR 点云、骨架姿态、IMU 和文本四种模态对齐到统一嵌入空间，实现了跨模态匹配、检索以及人体活动识别的预训练范式。
@@ -73,18 +65,6 @@ description: >-
 **[Distime Distribution-Based Time Representation For Video Large Language Models](distime_distribution-based_time_representation_for_video_large_language_models.md)**
 
 :   提出DisTime框架，通过一个可学习的时间token和基于分布的时间解码器，在Video-LLM中实现连续时间表示，配合大规模自动标注数据集InternVid-TG（125万事件），在时刻检索、密集视频描述、Grounded-VQA三类时间敏感任务上达到SOTA。
-
-**[Dollar Fewstep Video Generation Via Distillation And Latent](dollar_fewstep_video_generation_via_distillation_and_latent.md)**
-
-:   结合变分分数蒸馏（VSD）和一致性蒸馏实现少步视频生成，同时提出潜空间奖励模型微调方法进一步优化特定质量维度，4步student模型在VBench上达82.57分超越teacher模型和Gen-3/Kling等商业基线，1步蒸馏实现278.6倍采样加速。
-
-**[Dreamrelation Relation-Centric Video Customization](dreamrelation_relation-centric_video_customization.md)**
-
-:   提出 DreamRelation，首个关系中心的视频定制方法，通过 Relation LoRA Triplet + Hybrid Mask Training 实现关系与外观的解耦，并通过时空关系对比损失增强关系动态学习，使动物能模仿人类交互。
-
-**[Dualreal Adaptive Joint Training For Lossless Identity-Motion Fusion In Video Cu](dualreal_adaptive_joint_training_for_lossless_identity-motion_fusion_in_video_cu.md)**
-
-:   DualReal 首次提出身份与运动的自适应联合训练框架，通过 Dual-aware Adaptation 和 StageBlender Controller 实现两个维度的无损融合，在 CLIP-I 和 DINO-I 指标上平均提升 21.7% 和 31.8%。
 
 **[Dynimg Key Frames With Visual Prompts Are Good Representation For Multi-Modal Vi](dynimg_key_frames_with_visual_prompts_are_good_representation_for_multi-modal_vi.md)**
 
@@ -126,17 +106,9 @@ description: >-
 
 :   提出免训练方法Free-MoRef，受MoE启发将长视频token分割为多个短序列作为多参考(multi-reference)，通过MoRef注意力机制并行查询并融合统一激活值，在单卡A100上实现2×到8×更长帧输入的高效全面理解，在VideoMME/MLVU/LongVideoBench上超越专训长视频模型。
 
-**[Fuxi-Rtm A Physics-Guided Prediction Framework With Radiative Transfer Modeling](fuxi-rtm_a_physics-guided_prediction_framework_with_radiative_transfer_modeling.md)**
-
-:   提出 FuXi-RTM，首个将深度学习辐射传输模型 (DLRTM) 作为可微物理正则化器集成到天气预报框架中的混合物理引导体系，在 88.51% 的变量-预报时效组合上超越无约束基线。
-
 **[General Compression Framework For Efficient Transformer Object Tracking](general_compression_framework_for_efficient_transformer_object_tracking.md)**
 
 :   提出 CompressTracker，一个通用 Transformer 跟踪器压缩框架，通过阶段划分、替换训练和特征模仿三个递进创新，实现结构无关的高效压缩——压缩 SUTrack 后保持约 99% 精度同时加速 2.42 倍。
-
-**[Generating Fast And Slow Scalable Parallel Video Generation With Video Interface](generating_fast_and_slow_scalable_parallel_video_generation_with_video_interface.md)**
-
-:   提出 Video Interface Networks (VINs)，一种类似"快思考"的抽象模块，在每个扩散步中将长视频编码为固定大小的全局 token，引导 DiT 并行生成多个视频 chunk，实现高效且时序一致的长视频生成。
 
 **[Hermes Temporal-Coherent Long-Form Understanding With Episodes And Semantics](hermes_temporal-coherent_long-form_understanding_with_episodes_and_semantics.md)**
 
@@ -170,10 +142,6 @@ description: >-
 
 :   提出 MQVTG，首次将向量量化引入视频时序定位任务，通过时刻码本和软量化将视频片段映射为离散向量，增强前景/背景的区分度，在 6 个基准上取得 SOTA。
 
-**[Motionshot Adaptive Motion Transfer Across Arbitrary Objects For Text-To-Video G](motionshot_adaptive_motion_transfer_across_arbitrary_objects_for_text-to-video_g.md)**
-
-:   提出 MotionShot，一个无需训练的运动迁移框架，通过高层语义对齐和低层形态对齐的两级运动对齐策略，实现在外观和结构差异显著的任意参考-目标物体对之间的高保真运动迁移。
-
 **[Multi-Modal Multi-Platform Person Re-Identification Benchmark And Method](multi-modal_multi-platform_person_re-identification_benchmark_and_method.md)**
 
 :   提出首个多模态多平台行人重识别基准 MP-ReID（含 RGB、红外、热成像三种模态 + 地面和无人机两种平台）和统一提示学习框架 Uni-Prompt ReID，通过模态感知、平台感知和视觉增强提示显著提升复杂场景下的 ReID 性能。
@@ -182,10 +150,6 @@ description: >-
 
 :   发现并系统分析了 HOI 检测中的"有毒兄弟"偏差问题——高度相似的 HOI 三元组在输入端和输出端相互干扰竞争，提出"对比后校准"（C2C）和"合并后拆分"（M2S）两种去偏学习目标，在 HICO-DET 上超越 baseline +9.18% mAP、超越前 SOTA +3.59%。
 
-**[Omnihuman-1 Rethinking The Scaling-Up Of One-Stage Conditioned Human Animation M](omnihuman-1_rethinking_the_scaling-up_of_one-stage_conditioned_human_animation_m.md)**
-
-:   提出 OmniHuman，一种基于 Diffusion Transformer 的多条件人体动画生成框架，通过混合文本/音频/姿态等运动相关条件的全条件训练策略实现数据规模化，首次实现单一模型支持任意身体比例、任意宽高比输入的音频驱动人体视频生成，在肖像和半身动画任务上均达到 SOTA。
-
 **[Online Dense Point Tracking With Streaming Memory](online_dense_point_tracking_with_streaming_memory.md)**
 
 :   提出 SPOT 框架，通过定制的记忆读取模块、感知记忆（sensory memory）和可见性引导的 splatting 实现在线稠密长程点跟踪，以 10× 更少参数和 2× 更快速度达到 CVO 基准上的 SOTA，在多个稀疏跟踪基准上也超越或媲美离线方法。
@@ -193,6 +157,10 @@ description: >-
 **[Ovg-Hq Online Video Grounding With Hybrid-Modal Queries](ovg-hq_online_video_grounding_with_hybrid-modal_queries.md)**
 
 :   提出在线视频定位新任务 OVG-HQ，支持文本/图像/视频片段等混合模态查询，通过参数化记忆块（PMB）保留历史信息和混合蒸馏策略缓解模态不平衡，在流式视频中实时定位目标片段。
+
+**[Prior-Flow Enhancing Primitive Panoramic Optical Flow With O](prior-flow_enhancing_primitive_panoramic_optical_flow_with_o.md)**
+
+:   提出双分支框架 PriOr-Flow，利用正交视图的低畸变先验来补偿 ERP 全景图像极区的严重畸变，从而显著提升全景光流估计精度，在 MPFDataset 和 FlowScape 上分别降低 EPE 30.0% 和 29.6%。
 
 **[Prior-Flow Enhancing Primitive Panoramic Optical Flow With Orthogonal View](prior-flow_enhancing_primitive_panoramic_optical_flow_with_orthogonal_view.md)**
 
@@ -206,10 +174,6 @@ description: >-
 
 :   提出 RainbowPrompt，通过注意力变换和任务引导对齐的提示演化机制，将多个任务特定提示整合为多样性增强的统一提示，在图像分类和视频动作识别任务上平均超越现有方法 8.23%。
 
-**[Recammaster Camera-Controlled Generative Rendering From A Single Video](recammaster_camera-controlled_generative_rendering_from_a_single_video.md)**
-
-:   提出 ReCamMaster，通过帧维度拼接的视频条件注入机制和 UE5 合成的多相机同步数据集，实现从单视频输入以新相机轨迹重新生成视频，显著超越现有方法。
-
 **[Residualvit For Efficient Temporally Dense Video Encoding](residualvit_for_efficient_temporally_dense_video_encoding.md)**
 
 :   本文提出 ResidualViT，通过类比视频压缩中的 I帧/P帧 策略，交替使用完整 ViT 和轻量残差 ViT 编码视频帧，在保持接近原始 CLIP 精度的同时，实现最高 60% 的计算成本降低和 2.5 倍推理加速。
@@ -217,14 +181,6 @@ description: >-
 **[Simultaneous Motion And Noise Estimation With Event Cameras](simultaneous_motion_and_noise_estimation_with_event_cameras.md)**
 
 :   首次提出事件相机运动估计与噪声估计的联合方法，利用对比度最大化（CMax）框架中运动补偿后的局部对比度对每个事件评分，通过交替优化同时获得运动参数和信号/噪声分类，在 E-MLB 去噪基准上达到 SOTA。
-
-**[Stiv Scalable Text And Image Conditioned Video Generation](stiv_scalable_text_and_image_conditioned_video_generation.md)**
-
-:   本文提出 STIV，一个基于 Diffusion Transformer 的统一文本-图像条件视频生成框架，通过帧替换策略整合图像条件并引入联合图像-文本 classifier-free guidance，在单一模型中同时实现 T2V 和 TI2V 生成，8.7B 参数模型在 VBench T2V 和 I2V 上分别达到 83.1 和 90.1 的 SOTA 成绩。
-
-**[Sweettok Semantic-Aware Spatial-Temporal Tokenizer For Compact Video Discretizat](sweettok_semantic-aware_spatial-temporal_tokenizer_for_compact_video_discretizat.md)**
-
-:   提出 SweetTok 视频 tokenizer，通过解耦查询自编码器（DQAE）分离空间和时间信息压缩、运动增强语言码本（MLC）按词性分配码字，在仅使用 25% token 数量的情况下，rFVD 改善 42.8%，gFVD 改善 15.1%，实现压缩率与重建保真度的最佳平衡。
 
 **[Timeexpert An Expert-Guided Video Llm For Video Temporal Grounding](timeexpert_an_expert-guided_video_llm_for_video_temporal_grounding.md)**
 
@@ -254,14 +210,6 @@ description: >-
 
 :   提出首个基于单一网络的无监督学习框架，从事件相机数据中联合估计光流和图像亮度，核心是新推导的事件光度误差（PhE）与对比度最大化（CMax）的互补损失函数。
 
-**[Vace All-In-One Video Creation And Editing](vace_all-in-one_video_creation_and_editing.md)**
-
-:   本文提出VACE，一个基于Diffusion Transformer的视频生成与编辑一体化框架，通过统一的Video Condition Unit (VCU)接口和可插拔的Context Adapter结构，用单一模型覆盖参考生成、视频编辑、mask编辑等12+种视频任务，性能与任务专用模型持平。
-
-**[Vace Allinone Video Creation And Editing](vace_allinone_video_creation_and_editing.md)**
-
-:   提出VACE统一视频创建和编辑框架，通过Video Condition Unit(VCU)将文本/图像/视频/掩码统一为条件输入，结合Context Adapter注入任务概念到DiT模型，首次在单一视频DiT中同时支持参考生成、视频编辑、掩码编辑及其自由组合。
-
 **[Vamba Understanding Hour-Long Videos With Hybrid Mamba-Transformers](vamba_understanding_hour-long_videos_with_hybrid_mamba-transformers.md)**
 
 :   提出 Vamba —— 一种混合 Mamba-Transformer 架构的大型多模态模型，用 Mamba-2 块以线性复杂度编码视频 token、用交叉注意力更新文本 token，在单 GPU 上可处理 1024 帧视频，在小时级视频理解基准上超越所有高效 LMM 方法。
@@ -274,14 +222,6 @@ description: >-
 
 :   提出VideoMiner——基于强化学习的长视频理解树结构框架，通过迭代分割-描述-聚类构建层次化视频树，并提出T-GRPO（树结构Group Relative Policy Optimization）引导策略模型自适应探索关键帧，在4个长视频基准上取得SOTA，并发现T-GRPO可自发激发推理链。
 
-**[Vmbench A Benchmark For Perception-Aligned Video Motion Generation](vmbench_a_benchmark_for_perception-aligned_video_motion_generation.md)**
-
-:   提出 VMBench——首个面向视频运动质量评估的综合基准，包含五维感知对齐运动指标（PMM）和元信息引导的运动提示生成框架（MMPG），覆盖 969 类运动类型，在 Spearman 相关系数上比现有方法平均提升 35.3%。
-
-**[Vpo Aligning Text-To-Video Generation Models With Prompt Optimization](vpo_aligning_text-to-video_generation_models_with_prompt_optimization.md)**
-
-:   > 提出 VPO 框架，基于三大原则（无害、准确、有用）系统性优化视频生成的文本提示，通过原则导向的SFT和多反馈偏好优化，显著提升生成视频的安全性、对齐度和质量。
-
 **[Vtimecot Thinking By Drawing For Video Temporal Grounding And Reasoning](vtimecot_thinking_by_drawing_for_video_temporal_grounding_and_reasoning.md)**
 
 :   > 提出 VTimeCoT，一种无需训练的视觉-时间链式思维框架，通过在视频帧底部叠加可视化进度条和高亮关键片段，使多模态大模型能准确感知时间戳，在时间定位和推理问答任务上大幅超越 GPT-4o 和 Qwen2VL-7B 基线。
@@ -289,10 +229,6 @@ description: >-
 **[What You Have Is What You Track Adaptive And Robust Multimodal Tracking](what_you_have_is_what_you_track_adaptive_and_robust_multimodal_tracking.md)**
 
 :   提出FlexTrack——首个系统研究**时序性不完整多模态数据**下跟踪性能的框架，通过异构MoE融合机制（HMoE）实现自适应计算复杂度，配合视频级masking训练策略，在9个基准上取得SOTA，完整模态提升2.6%，缺失模态场景提升10.2%。
-
-**[Worldscore A Unified Evaluation Benchmark For World Generation](worldscore_a_unified_evaluation_benchmark_for_world_generation.md)**
-
-:   提出 WorldScore —— 首个统一的世界生成评估基准，将世界生成分解为一系列"下一场景生成"任务，支持对 3D、4D、I2V 和 T2V 模型的统一评测，并涵盖 3000 个测试样本和 10 项指标。
 
 **[Xtrack Multimodal Training Boosts Rgb-X Video Object Trackers](xtrack_multimodal_training_boosts_rgb-x_video_object_trackers.md)**
 

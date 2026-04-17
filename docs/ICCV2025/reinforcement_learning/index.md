@@ -1,18 +1,14 @@
 ---
 title: >-
-  ICCV2025 强化学习方向 7篇论文解读
+  ICCV2025 强化学习方向 6篇论文解读
 description: >-
-  7篇ICCV2025 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇ICCV2025 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**📹 ICCV2025** · **7** 篇论文解读
-
-**[Disentangled World Models Learning To Transfer Semantic Knowledge From Distracti](disentangled_world_models_learning_to_transfer_semantic_knowledge_from_distracti.md)**
-
-:   提出DisWM框架，通过从"干扰视频"中预训练解纠缠表示，然后通过离线到在线的潜空间蒸馏将语义知识迁移到下游世界模型，提升视觉强化学习在环境变化下的样本效率和鲁棒性。
+**📹 ICCV2025** · **6** 篇论文解读
 
 **[Embodied Navigation With Auxiliary Task Of Action Description Prediction](embodied_navigation_with_auxiliary_task_of_action_description_prediction.md)**
 

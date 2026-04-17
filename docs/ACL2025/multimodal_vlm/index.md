@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 多模态VLM方向 117篇论文解读
+  ACL2025 多模态VLM方向 122篇论文解读
 description: >-
-  117篇ACL2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  122篇ACL2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**💬 ACL2025** · **117** 篇论文解读
+**💬 ACL2025** · **122** 篇论文解读
 
 **[Adammeme Adaptively Probe The Reasoning Capacity Of Multimodal Large Language Mo](adammeme_adaptively_probe_the_reasoning_capacity_of_multimodal_large_language_mo.md)**
 
@@ -366,6 +366,10 @@ description: >-
 
 :   提出 SAIL-VL 系列开源视觉语言模型（2B/8B），核心贡献在于：构建了3亿规模最高质量的 SAIL-Caption 数据集，首次揭示了VLM预训练中的数据量对数缩放定律（655B token实验），并通过课程式三阶段SFT将缩放曲线从对数提升至近线性，在18个基准上达到SOTA。
 
+**[Sciver Evaluating Foundation Models For Multimodal Scientific Claim Verification](sciver_evaluating_foundation_models_for_multimodal_scientific_claim_verification.md)**
+
+:   SciVer 是首个面向多模态科学文献声称验证的基准数据集，包含 3000 个专家标注样本覆盖 1113 篇 CS 论文，设计了直接/并行/序列/分析四种推理子任务，评估 21 个基础模型后发现最强模型 o4-mini（77.7%）与人类专家（93.8%）仍有 16% 的显著差距。
+
 **[Semeval-2025 Task 1 Admire -- Advancing Multimodal Idiomaticity Representation](semeval-2025_task_1_admire_--_advancing_multimodal_idiomaticity_representation.md)**
 
 :   设计了 SemEval-2025 AdMIRe 共享任务——通过图像排序和图像序列补全两个子任务，在多模态（文本+图像）和多语言（英语+巴西葡萄牙语）场景下评估模型对习语表达的理解能力，最佳系统通过混合专家和多查询平滑策略达到了接近人类水平的表现。
@@ -377,6 +381,10 @@ description: >-
 **[Sophia Efficient Long Video](sophia_efficient_long_video.md)**
 
 :   提出Sophia模型处理小时级长视频：通过Shot-adaptive Frame Pruning（基于镜头分割的两阶段帧剪枝）精准选择查询相关帧，结合O(N)复杂度的Hierarchical Attention替代全注意力，在8个长视频benchmark中6个SOTA，且注意力FLOPs仅为InternVL2的1/8.5。
+
+**[Spare Enhancing Spatial Reasoning In Vision-Language Models With Synthetic Data](spare_enhancing_spatial_reasoning_in_vision-language_models_with_synthetic_data.md)**
+
+:   本文发现现有VLM数据集中空间关系数据严重匮乏（前17%的关系占据90%以上样本），提出从DOCCI、Localized Narratives和PixMo-Cap等超详细图像描述数据集中，利用LLM自动提取45.5万样本（340万QA对）的空间推理合成数据，微调后的SpaRE模型在What's Up基准上实现最高49%的性能提升，同时不损害通用VL能力。
 
 **[Spatialmqa Mllm Spatial Relations](spatialmqa_mllm_spatial_relations.md)**
 
@@ -402,6 +410,10 @@ description: >-
 
 :   提出 ClearVQA 基准和自动化数据生成管线，让 VLM 学会在遇到歧义视觉问题时主动提出澄清问题而非强行作答，通过三类歧义分类（引用歧义、属性歧义、关系歧义）系统化交互式 VQA，实验证明训练后 VLM 能显著提升歧义识别和澄清质量，获 ACL 2025 SAC Highlight Award。
 
+**[The Role Of Visual Modality In Multimodal Mathematical Reasoning Challenges And ](the_role_of_visual_modality_in_multimodal_mathematical_reasoning_challenges_and_.md)**
+
+:   系统性揭示了现有多模态数学推理模型对视觉信息的利用极其有限——打乱或移除训练图像对模型性能影响甚微——并提出 HC-M3D 基准来真正测试视觉依赖性，发现主流模型无法识别图像中的细微差异。
+
 **[Theorem Explain Agent](theorem_explain_agent.md)**
 
 :   提出 TheoremExplainAgent，一个双 Agent 系统（Planner + Coder），通过 Manim 动画脚本自动生成长达 10 分钟的定理讲解视频，配套 TheoremExplainBench（240 个 STEM 定理 × 5 维评估指标），证明 agentic planning 是长视频生成的关键，且视觉解释能暴露文本评估无法发现的推理缺陷。
@@ -426,6 +438,10 @@ description: >-
 
 :   提出 Unsolvable Problem Detection (UPD) 任务，通过三类不可解问题（缺失答案、不兼容选项、图文不匹配）系统评估大型多模态模型在面对无法回答的 MCQA 问题时是否能正确拒绝作答，揭示了现有 benchmark 无法衡量的可信度维度。
 
+**[Unveiling Cultural Blind Spots Analyzing The Limitations Of Mllms In Procedural ](unveiling_cultural_blind_spots_analyzing_the_limitations_of_mllms_in_procedural_.md)**
+
+:   提出 CAPTex 基准，通过跨 7 个国家/语言的文化程序性文本理解任务（步骤排序、选择题、对话推理等），系统揭示了多语言大模型在文化特定程序性文本理解上的盲区和局限。
+
 **[Unveiling The Lack Of Lvlm Robustness To Fundamental Visual Variations Why And P](unveiling_the_lack_of_lvlm_robustness_to_fundamental_visual_variations_why_and_p.md)**
 
 :   提出 V2R-Bench 基准框架系统评估 21 个 LVLM 对位置/尺度/方向/上下文四种基本视觉变化的鲁棒性，揭示了即使先进模型在简单视觉任务上也存在显著脆弱性，并通过组件级分析证明这些漏洞根源在于多模态对齐不足和流水线架构的误差累积，而非数据不足。
@@ -449,6 +465,10 @@ description: >-
 **[Visual Evidence Prompting](visual_evidence_prompting.md)**
 
 :   提出Visual Evidence Prompting (VEP)，利用小型视觉专家模型（目标检测器、场景图生成器）的输出作为文本化"视觉证据"输入LVLM，无需训练即可在11个LVLM上显著降低幻觉——LLaVA-1.5在POPE上提升7.2%、Claude 3上提升12.1%。
+
+**[Visuothink Empowering Lvlm Reasoning With Multimodal Tree Search](visuothink_empowering_lvlm_reasoning_with_multimodal_tree_search.md)**
+
+:   本文提出VisuoThink框架，通过视觉-文本交织推理和预测性前瞻树搜索，在推理过程中动态整合视觉辅助信息并探索多条推理路径，无需微调即可在几何和空间推理任务上实现SOTA性能（Geomverse-109上Accuracy@1最高达48.5%，相比最优基线提升21.8%）。
 
 **[Vlm2-Bench A Closer Look At How Well Vlms Implicitly Link Explicit Matching Visu](vlm2-bench_a_closer_look_at_how_well_vlms_implicitly_link_explicit_matching_visu.md)**
 

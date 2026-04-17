@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM推理方向 11篇论文解读
+  CVPR2026 LLM推理方向 13篇论文解读
 description: >-
-  11篇CVPR2026 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  13篇CVPR2026 LLM推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**📷 CVPR2026** · **11** 篇论文解读
+**📷 CVPR2026** · **13** 篇论文解读
 
 **[Beyond Geometry Artistic Disparity Synthesis For Immersive 2D-To-3D](beyond_geometry_artistic_disparity_synthesis_for_immersive_2d-to-3d.md)**
 
@@ -29,6 +29,10 @@ description: >-
 **[Graze Grounded Refinement And Motion-Aware Zero-Shot Event Localization](graze_grounded_refinement_and_motion-aware_zero-shot_event_localization.md)**
 
 :   提出GRAZE，一种完全无训练的时空事件定位管线——用Grounding DINO发现候选player-dummy交互对，通过运动感知的几何评分（位移幅度+方向余弦相似度）排序候选，再用SAM2掩码传播作为独立的像素级接触验证器（而非依赖检测置信度），配合两阶段后向精化恢复事件起始帧，在738个橄榄球练习视频上97.4%有效输出率、77.5%在±10帧内定位。
+
+**[Graze Grounded Refinement And Motion-Aware Zero-Shot Generation](graze_grounded_refinement_and_motion-aware_zero-shot_generation.md)**
+
+:   提出 GRAZE，一个无需训练的管线，利用 Grounding DINO 发现候选交互、SAM2 掩码重叠作为像素级接触验证器，在 738 段美式橄榄球训练视频中实现 97.4% 覆盖率和 ±10 帧内 77.5% 的接触起始帧定位精度。
 
 **[Harnessing Chain-Of-Thought Reasoning In Multimodal Large Language Models For Fa](harnessing_chain-of-thought_reasoning_in_multimodal_large_language_models_for_fa.md)**
 
@@ -53,3 +57,7 @@ description: >-
 **[Visref Visual Refocusing Test Time Scaling](visref_visual_refocusing_test_time_scaling.md)**
 
 :   提出 VisRef，一个免训练的视觉重聚焦框架——在多模态大推理模型（MLRM）的推理过程中，通过行列式点过程（DPP）在每步自适应选择与当前推理状态语义相关且视觉覆盖多样的 token 子集并重新注入，同时用基于熵的停止准则防止过度推理，在固定计算预算下将视觉推理准确率提升最高 6.4%。
+
+**[Visref Visual Refocusing While Thinking Improves Test-Time Scaling In Multi-Moda](visref_visual_refocusing_while_thinking_improves_test-time_scaling_in_multi-moda.md)**
+
+:   本文提出 VisRef，一种免训练的视觉重聚焦框架，通过在多模态大推理模型（MLRM）的推理过程中使用行列式点过程（DPP）动态选择并重新注入与当前推理上下文语义相关且多样化的视觉 token，解决了长链推理中视觉注意力逐渐衰减的问题，在 MathVista 等基准上提升高达 6.4%。

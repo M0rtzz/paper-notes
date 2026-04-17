@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 自动驾驶方向 46篇论文解读
+  ECCV2024 自动驾驶方向 61篇论文解读
 description: >-
-  46篇ECCV2024 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  61篇ECCV2024 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🎞️ ECCV2024** · **46** 篇论文解读
+**🎞️ ECCV2024** · **61** 篇论文解读
 
 **[4D Contrastive Superflows Are Dense 3D Representation Learners](4d_contrastive_superflows_are_dense_3d_representation_learners.md)**
 
@@ -17,10 +17,6 @@ description: >-
 **[Accelerating Online Mapping And Behavior Prediction Via Dire](accelerating_online_mapping_and_behavior_prediction_via_dire.md)**
 
 :   提出直接将在线地图估计模型内部的BEV特征暴露给下游轨迹预测模型（而非仅传递解码后的矢量化地图），通过三种BEV特征注入策略实现推理加速最高73%、预测精度提升最高29%。
-
-**[Adaptive Bounding Box Uncertainties Via Twostep Conformal Pr](adaptive_bounding_box_uncertainties_via_twostep_conformal_pr.md)**
-
-:   提出两步共形预测框架为多类目标检测的边界框生成带理论覆盖率保证的自适应不确定性区间——第一步用共形分类集处理类别误判风险，第二步用集成/分位数回归等方法构建自适应于目标尺寸的边界框预测区间，在COCO/Cityscapes/BDD100k上达到约90%目标覆盖率且区间实际可用。
 
 **[Adaptive Human Trajectory Prediction Via Latent Corridors](adaptive_human_trajectory_prediction_via_latent_corridors.md)**
 
@@ -34,9 +30,25 @@ description: >-
 
 :   提出 CarFormer，首次将自监督 slot attention 学到的 object-centric 表征用于自动驾驶，在 CARLA Longest6 基准上超越了使用精确物体属性的 PlanT，同时具备世界模型预测未来状态的能力。
 
+**[Csot Cross-Scan Object Transfer For Semi-Supervised Lidar Object Detection](csot_cross-scan_object_transfer_for_semi-supervised_lidar_object_detection.md)**
+
+:   提出 CSOT（Cross-Scan Object Transfer）范式，通过 Transformer 网络预测语义一致的物体放置位置和适配度，首次在 LiDAR 半监督目标检测中成功实现了 object copy-paste 增强，配合空间感知分类损失，仅用 1% 标注数据即可达到全监督基线的检测性能。
+
+**[Detecting As Labeling Rethinking Lidar-Camera Fusion In 3D Object Detection](detecting_as_labeling_rethinking_lidar-camera_fusion_in_3d_object_detection.md)**
+
+:   本文从数据标注过程中总结出"回归任务不应使用图像特征"的基本原则，提出 DAL 范式——将检测过程类比为标注过程，用点云特征独立完成回归预测、用融合特征完成分类预测，结合简洁的训练流程，在 nuScenes 上以 74.0 NDS（val）和 74.8 NDS（test）大幅刷新 SOTA。
+
 **[Dvlo Deep Visual-Lidar Odometry With Local-To-Global Feature Fusion And Bi-Direc](dvlo_deep_visual-lidar_odometry_with_local-to-global_feature_fusion_and_bi-direc.md)**
 
 :   提出基于聚类的 Local-to-Global 融合网络 DVLO，通过双向结构对齐（图像→伪点云 + 点云→伪图像）解决视觉与 LiDAR 的数据结构不一致问题，在 KITTI 里程计和 FlyingThings3D 场景流任务上均取得 SOTA。
+
+**[Dvlo Deep Visuallidar Odometry With Localtoglobal Featu](dvlo_deep_visuallidar_odometry_with_localtoglobal_featu.md)**
+
+:   提出 DVLO——基于从局部到全局融合 + 双向结构对齐的视觉-LiDAR 里程计网络，通过将图像视为伪点云进行局部聚类融合、将点云投影为伪图像进行全局自适应融合，解决了两种模态间固有的数据结构不一致问题。
+
+**[Dyset A Dynamic Masked Self-Distillation Approach For Robust Trajectory Predicti](dyset_a_dynamic_masked_self-distillation_approach_for_robust_trajectory_predicti.md)**
+
+:   DySeT 提出了一种动态掩码自蒸馏方法，通过强化学习驱动的信息性 token 优先采样和从完整到掩码表示的知识蒸馏，显著提升了自动驾驶场景下轨迹预测模型的泛化能力和鲁棒性。
 
 **[Enhancing Vectorized Map Perception With Historical Rasterized Maps](enhancing_vectorized_map_perception_with_historical_rasterized_maps.md)**
 
@@ -62,9 +74,17 @@ description: >-
 
 :   针对多模态BEV融合中LiDAR与相机标定误差导致的特征错位问题，提出GraphBEV框架，通过LocalAlign（基于KD-Tree的邻域深度图匹配）和GlobalAlign（可学习偏移量全局对齐）两个模块，在nuScenes上达到70.1% mAP（超BEVFusion 1.6%），在噪声错位场景下超BEVFusion 8.3%。
 
+**[H-V2X A Large Scale Highway Dataset For Bev Perception](h-v2x_a_large_scale_highway_dataset_for_bev_perception.md)**
+
+:   提出首个大规模真实世界高速公路 BEV 感知数据集 H-V2X，覆盖100+公里高速路段，含190万+细粒度标注样本，并设计了BEV检测、跟踪和轨迹预测三个基准任务及融合矢量地图的创新方法。
+
 **[Hierarchical Temporal Context Learning For Camera-Based Semantic Scene Completio](hierarchical_temporal_context_learning_for_camera-based_semantic_scene_completio.md)**
 
 :   针对相机语义场景补全（SSC）中时序信息利用粗糙的问题，提出层级式时序上下文学习（HTCL）范式：先通过跨帧模式亲和度（CPA）度量当前帧与历史帧的细粒度对应关系，再通过基于亲和度的动态精炼（ADR）自适应采样补偿不完整观测，在SemanticKITTI上排名第1，甚至在OpenOccupancy上mIoU超过LiDAR方法。
+
+**[Improving Agent Behaviors With Rl Fine-Tuning For Autonomous Driving](improving_agent_behaviors_with_rl_fine-tuning_for_autonomous_driving.md)**
+
+:   通过闭环强化学习微调改善监督学习训练的交通智能体行为模型，解决开环训练的分布偏移问题，在Waymo仿真基准上取得SOTA。
 
 **[Ittakestwo Leveraging Peer Representations For Semi-Supervised Lidar Semantic Se](ittakestwo_leveraging_peer_representations_for_semi-supervised_lidar_semantic_se.md)**
 
@@ -73,6 +93,10 @@ description: >-
 **[Lidar-Event Stereo Fusion With Hallucinations](lidar-event_stereo_fusion_with_hallucinations.md)**
 
 :   提出将LiDAR稀疏深度点与事件立体相机融合的首个框架，通过在事件堆叠表示（VSH）或原始事件流（BTH）中"幻觉"（插入虚构事件）来弥补事件相机在无运动/无纹理区域的信息缺失，大幅提升事件立体匹配精度。
+
+**[Lidarevent Stereo Fusion With Hallucinations](lidarevent_stereo_fusion_with_hallucinations.md)**
+
+:   首次探索 LiDAR 与事件立体相机的融合，提出虚拟堆叠幻觉（VSH）和回溯时间幻觉（BTH）两种策略，通过在事件流/堆叠中注入虚拟事件来增强匹配可辨别性，大幅提升事件立体匹配精度。
 
 **[Livehps Robust And Coherent Motion Capture In Dynamic Free Environment](livehps_robust_and_coherent_motion_capture_in_dynamic_free_environment.md)**
 
@@ -94,9 +118,17 @@ description: >-
 
 :   提出 MonoWAD，通过天气码本学习晴天知识作为参考，结合天气自适应扩散模型将雾效建模为噪声进行特征增强，实现在各种天气条件下鲁棒的单目3D目标检测。
 
+**[Navigation Instruction Generation With Bev](navigation_instruction_generation_with_bev.md)**
+
+:   提出 BEVInstructor，将鸟瞰图 (BEV) 特征融入多模态大语言模型 (MLLM) 用于导航指令生成，通过 Perspective-BEV 视觉编码、参数高效 prompt tuning 和实例引导的迭代精化，在室内外多个数据集上全面超越 SOTA。
+
 **[Navigation Instruction Generation With Bev Perception And Large Language Models](navigation_instruction_generation_with_bev_perception_and_large_language_models.md)**
 
 :   提出 BEVInstructor，将鸟瞰图 (BEV) 特征融合到多模态大语言模型中，通过 Perspective-BEV 融合编码器、参数高效的 Prompt Tuning 以及实例引导的迭代优化策略，在室内外导航指令生成任务上取得 SOTA。
+
+**[Neural Volumetric World Models For Autonomous Driving](neural_volumetric_world_models_for_autonomous_driving.md)**
+
+:   本文提出 NeMo（Neural Volumetric World Model），一种基于体积表示的端到端自动驾驶框架，通过 3D 体素表征场景、运动流模块建模动态、时间注意力整合未来预测信息，以自监督方式训练并在 nuScenes 和 CARLA 上实现了超越前人方法 18%+ 的驾驶性能。
 
 **[Neuroncap Photorealistic Closed-Loop Safety Testing For Autonomous Driving](neuroncap_photorealistic_closed-loop_safety_testing_for_autonomous_driving.md)**
 
@@ -105,6 +137,10 @@ description: >-
 **[Occgen Generative Multi-Modal 3D Occupancy Prediction For Autonomous Driving](occgen_generative_multi-modal_3d_occupancy_prediction_for_autonomous_driving.md)**
 
 :   OccGen 将 3D 语义占用预测重新定义为"noise-to-occupancy"的生成式范式，通过条件编码器提取多模态特征、渐进式精炼解码器执行扩散去噪，以由粗到精的方式逐步生成占用图，在 nuScenes-Occupancy 上多模态/纯LiDAR/纯相机设置下分别相对提升 9.5%/6.3%/13.3% 的 mIoU。
+
+**[Occgen Generative Multimodal 3D Occupancy Prediction For Aut](occgen_generative_multimodal_3d_occupancy_prediction_for_aut.md)**
+
+:   提出OccGen，首次将扩散模型的"噪声到占据"生成范式引入3D语义占据预测任务，通过条件编码器+渐进式精炼解码器实现由粗到精的占据图生成，在nuScenes-Occupancy上多模态/纯LiDAR/纯相机设置下分别提升mIoU 9.5%/6.3%/13.3%。
 
 **[Occworld Learning A 3D Occupancy World Model For Autonomous Driving](occworld_learning_a_3d_occupancy_world_model_for_autonomous_driving.md)**
 
@@ -138,6 +174,10 @@ description: >-
 
 :   Reason2Drive 构建了一个包含 60 万+视频-文本对的大规模自动驾驶推理数据集，将驾驶决策拆解为感知→预测→推理的链式过程，并提出 ADRScore 评估指标和带 prior tokenizer + instructed vision decoder 的 VLM 框架，显著提升了驾驶场景的链式推理准确性。
 
+**[Reason2Drive Towards Interpretable And Chainbased Reasoning](reason2drive_towards_interpretable_and_chainbased_reasoning.md)**
+
+:   构建 Reason2Drive 基准数据集（600K+ 视频-文本对，覆盖感知-预测-推理链式任务），提出 ADRScore 评估链式推理正确性的新指标，并设计 Prior Tokenizer + Instructed Vision Decoder 框架增强 VLM 的目标级感知和推理能力，在自动驾驶推理任务上显著超越所有基线。
+
 **[Reliability In Semantic Segmentation Can We Use Synthetic Data](reliability_in_semantic_segmentation_can_we_use_synthetic_data.md)**
 
 :   首次系统地利用 Stable Diffusion 生成合成 OOD 数据来全面评估语义分割模型的可靠性，包括协变量偏移下的鲁棒性评估、OOD 物体检测评估和模型校准，并证明合成数据与真实 OOD 数据的评估结果高度相关。
@@ -150,9 +190,17 @@ description: >-
 
 :   提出密度判别特征嵌入（DDFE）模块，利用单一 LiDAR 源域点云中固有的密度多样性（近处密/远处疏），学习密度感知的特征表示，实现对不同传感器配置下未见域的泛化，无需目标域数据。
 
+**[Risk-Aware Self-Consistent Imitation Learning For Trajectory Planning In Autonom](risk-aware_self-consistent_imitation_learning_for_trajectory_planning_in_autonom.md)**
+
+:   RaSc 提出风险感知自一致模仿学习框架，通过 TTC（碰撞时间）预测分支学习人类驾驶行为背后的风险规避动机，并通过自一致性约束使规划器理解自身动作的物理后果，在 nuPlan 数据集的开环和闭环评估中均超越了先前的学习型方法。
+
 **[Roofdiffusion Constructing Roofs From Severely Corrupted Point Data Via Diffusio](roofdiffusion_constructing_roofs_from_severely_corrupted_point_data_via_diffusio.md)**
 
 :   RoofDiffusion 提出了一种基于条件扩散概率模型的端到端自监督方法，用于从严重稀疏（最高99%缺失）、不完整（80%区域遮挡）且含噪的屋顶高程图中恢复完整干净的高程信息，在自建的 PoznanRD 数据集和 BuildingNet 上显著超越传统插值方法和现有深度补全方法。
+
+**[Safe-Sim Safety-Critical Closed-Loop Traffic Simulation With Diffusion-Cont](safe-sim_safety-critical_closed-loop_traffic_simulation_with_diffusion-cont.md)**
+
+:   Safe-Sim 提出了一个基于扩散模型的闭环安全关键仿真框架，通过在扩散去噪过程中引入对抗项和部分扩散（Partial Diffusion）机制，实现了对抗车辆行为类型（碰撞角度、相对速度、碰撞类型）的细粒度控制，在 nuScenes 和 nuPlan 上验证了对多种 planner 的有效评估能力。
 
 **[Safe-Sim Safety-Critical Closed-Loop Traffic Simulation With Diffusion-Controlla](safe-sim_safety-critical_closed-loop_traffic_simulation_with_diffusion-controlla.md)**
 
@@ -182,6 +230,14 @@ description: >-
 
 :   首次提出户外 3D 密集描述任务，构建百万级 TOD3Cap 数据集（850 场景 2.3M 描述），设计基于 BEV 特征 + Relation Q-Former + LLaMA-Adapter 的端到端网络，超越适配后的室内方法 +9.6 CIDEr@0.5IoU。
 
+**[Train Till You Drop Towards Stable And Robust Source-Free Unsupervised 3D Domain](train_till_you_drop_towards_stable_and_robust_source-free_unsupervised_3d_domain.md)**
+
+:   针对无源数据的3D语义分割域自适应（SFUDA）中训练后期性能退化问题，提出正则化策略和基于参考模型一致性的验证准则，实现稳定且鲁棒的自适应。
+
+**[Unim2Ae Multi-Modal Masked Autoencoders With Unified 3D Representation For 3D Pe](unim2ae_multi-modal_masked_autoencoders_with_unified_3d_representation_for_3d_pe.md)**
+
+:   本文提出 UniM2AE，一个多模态自监督预训练框架，通过将图像和 LiDAR 点云特征统一投影到 3D 体素空间（比 BEV 多保留高度维度），并设计 Multi-modal 3D Interactive Module（MMIM）进行高效跨模态交互，实现了比独立预训练和简单拼接的前序方法更强的 3D 检测（+1.2% NDS）和 BEV 分割（+6.5% mIoU）提升。
+
 **[Unitraj A Unified Framework For Scalable Vehicle Trajectory Prediction](unitraj_a_unified_framework_for_scalable_vehicle_trajectory_prediction.md)**
 
 :   UniTraj 构建了一个统一多数据集（nuScenes、Argoverse 2、WOMD）、多模型（AutoBot、MTR、Wayformer）和多评估策略的车辆轨迹预测框架，揭示模型跨数据集泛化能力显著下降，但通过扩大数据规模和多样性可大幅提升性能，合并训练在 nuScenes 排行榜达到第 1 名。
@@ -189,6 +245,10 @@ description: >-
 **[Visiontrap Vision-Augmented Trajectory Prediction Guided By Textual Descriptions](visiontrap_vision-augmented_trajectory_prediction_guided_by_textual_descriptions.md)**
 
 :   提出 VisionTrap，将环视相机图像和文本描述引入轨迹预测任务，通过 BEV 视觉语义编码器和文本驱动的去偏对比学习引导模型学习视觉语义线索（如行人姿态、转向灯等），在保持 53ms 实时推理的同时显著提升预测精度并发布 nuScenes-Text 数据集。
+
+**[Visiontrap Visionaugmented Trajectory Prediction Guided](visiontrap_visionaugmented_trajectory_prediction_guided.md)**
+
+:   提出 VisionTrap，利用环视相机视觉输入和 VLM/LLM 生成的文本描述作为训练监督，增强自动驾驶场景下的多智能体轨迹预测，同时保持 53ms 实时推理速度。
 
 **[Weakly Supervised 3D Object Detection Via Multi-Level Visual Guidance](weakly_supervised_3d_object_detection_via_multi-level_visual_guidance.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 代码智能方向 2篇论文解读
+  CVPR2026 代码智能方向 4篇论文解读
 description: >-
-  2篇CVPR2026 代码智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  4篇CVPR2026 代码智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💻 代码智能
 
-**📷 CVPR2026** · **2** 篇论文解读
+**📷 CVPR2026** · **4** 篇论文解读
 
 **[Codepercept Code-Grounded Visual Stem Perception For Mllms](codepercept_code-grounded_visual_stem_perception_for_mllms.md)**
 
@@ -17,3 +17,11 @@ description: >-
 **[Codepercept Codegrounded Visual Stem Perception Fo](codepercept_codegrounded_visual_stem_perception_fo.md)**
 
 :   通过系统性缩放分析揭示**感知而非推理**是 MLLM 在 STEM 视觉任务上的真正瓶颈，提出以可执行代码为媒介增强感知能力的范式，构建 100 万级 Image-Caption-Code 三元组数据集 ICC-1M，包含代码锚定的标题生成和 STEM 图到代码翻译两个训练任务。
+
+**[Geotikzbridge Advancing Multimodal Code Generation For Geometric Perception And ](geotikzbridge_advancing_multimodal_code_generation_for_geometric_perception_and_.md)**
+
+:   GeoTikzBridge 通过构建最大的 2.5M 图像-TikZ 代码数据集和首个辅助线指令数据集，训练出能精准重建几何图形的代码生成模型，并可作为即插即用模块增强任意 MLLM/LLM 的几何推理能力。
+
+**[Mm-Recoder Advancing Chart-To-Code Generation With Reinforcement Learning And Se](mm-recoder_advancing_chart-to-code_generation_with_reinforcement_learning_and_se.md)**
+
+:   提出 MM-ReCoder，首个具备自我纠错能力的图表转代码多模态 LLM，通过两阶段多轮 GRPO 强化学习（先共享首轮优化纠错能力，再全轨迹优化编码能力），在 ChartMimic 上以仅 7B 参数达到 86.5% low-level score，媲美 Qwen3-VL-235B。

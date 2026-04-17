@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM评测方向 70篇论文解读
+  NeurIPS2025 LLM评测方向 71篇论文解读
 description: >-
-  70篇NeurIPS2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  71篇NeurIPS2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🧠 NeurIPS2025** · **70** 篇论文解读
+**🧠 NeurIPS2025** · **71** 篇论文解读
 
 **[A Highdimensional Statistical Method For Optimizing Transfer](a_highdimensional_statistical_method_for_optimizing_transfer.md)**
 
@@ -126,13 +126,17 @@ description: >-
 
 :   将选择性SSM（Mamba）展开为注意力形式，利用覆盖数技术推导出受连续时间状态矩阵谱横断面$s_{\mathbf{A}}$控制的泛化界——$s_{\mathbf{A}}<0$时泛化界与序列长度无关，$s_{\mathbf{A}}\geq0$时指数增长，并证明这种依赖不可消除。
 
+**[Houselayout3D A Benchmark And Training-Free Baseline For 3D Layout Estimation In](houselayout3d_a_benchmark_and_training-free_baseline_for_3d_layout_estimation_in.md)**
+
+:   提出 HouseLayout3D——首个面向多层建筑的真实世界 3D 布局估计基准（16 栋建筑、33 层楼、317 房间、292 门、379 窗、34 楼梯），以及完全 training-free 的 MultiFloor3D 四阶段 pipeline（3D 重建 → 骨架提取 → 多边形拟合 → 场景图构建），在多层建筑场景中全面超越 RoomFormer 和 SceneScript。
+
 **[Hybridnorm Towards Stable And Efficient Transformer Training Via Hybrid Normaliz](hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)**
 
 :   提出 HybridNorm 混合归一化策略——注意力模块用 QKV 归一化解耦梯度、FFN 用 Post-Norm 增强正则化，在 550M-7B 规模上同时获得 Pre-Norm 的训练稳定性和 Post-Norm 的泛化性能，7B 模型下游任务平均提升 2.45%。
 
 **[Incomplete Multi-View Clustering Via Hierarchical Semantic Alignment And Coopera](incomplete_multi-view_clustering_via_hierarchical_semantic_alignment_and_coopera.md)**
 
-:   提出 HSACC 框架，通过双层语义空间设计（低层互信息对齐 + 高层自适应加权融合）和联合优化的缺失视图隐式恢复策略，解决不完整多视图聚类中静态融合和两阶段流水线（先补全后聚类）的误差传播问题，在 5 个基准数据集上全面超越 SOTA。
+:   提出HSACC框架通过双层语义空间设计（低层互信息一致性+高层自适应加权融合）和协同优化的隐式缺失视图恢复，在五个基准数据集上显著超越现有不完整多视图聚类方法。
 
 **[Ineq-Comp Benchmarking Human-Intuitive Compositional Reasoning In Automated Theo](ineq-comp_benchmarking_human-intuitive_compositional_reasoning_in_automated_theo.md)**
 

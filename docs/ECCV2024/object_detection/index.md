@@ -1,26 +1,42 @@
 ---
 title: >-
-  ECCV2024 目标检测方向 33篇论文解读
+  ECCV2024 目标检测方向 45篇论文解读
 description: >-
-  33篇ECCV2024 目标检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  45篇ECCV2024 目标检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🎞️ ECCV2024** · **33** 篇论文解读
-
-**[A Multimodal Benchmark Dataset And Model For Crop Disease Di](a_multimodal_benchmark_dataset_and_model_for_crop_disease_di.md)**
-
-:   构建了包含13.7万张作物病害图像和100万问答对的CDDM数据集，并提出同时对视觉编码器、adapter和语言模型施加LoRA微调的策略，使Qwen-VL-Chat和LLaVA在作物病害诊断准确率上从个位数跃升至90%以上。
+**🎞️ ECCV2024** · **45** 篇论文解读
 
 **[A New Dataset And Framework For Real-World Blurred Images Super-Resolution](a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution.md)**
 
 :   针对现有盲超分方法在处理含模糊（散焦/运动模糊）图像时过度纹理化、破坏模糊区域感知质量的问题，构建了包含近3000张模糊图像的ReBlurSR数据集，并提出PBaSR框架，通过双分支解耦训练（CDM）和基于权重插值的跨分支融合（CFM），在不增加任何推理开销的前提下，同时提升模糊图像和普通图像的超分效果，LPIPS提升0.02~0.10。
 
+**[Adaptive Bounding Box Uncertainties Via Twostep Conformal Pr](adaptive_bounding_box_uncertainties_via_twostep_conformal_pr.md)**
+
+:   本文提出一种两步共形预测框架用于多目标检测的不确定性量化：第一步生成类别标签的共形预测集合以处理分类错误，第二步基于集成和分位数回归生成自适应的边界框不确定性区间，在保证覆盖率的同时提供实际可用的紧致预测区间。
+
+**[Adaptive Multi-Task Learning For Few-Shot Object Detection](adaptive_multi-task_learning_for_few-shot_object_detection.md)**
+
+:   本文提出了一种自适应多任务学习方法(MTL-FSOD)，通过精度驱动的梯度平衡器动态调整分类和定位任务的梯度比例来缓解两者的冲突，并引入基于 CLIP 的知识蒸馏和分类精化方案来增强各任务的能力，在多个小样本检测基准上取得了一致的性能提升。
+
 **[Afreeca Annotation-Free Counting For All](afreeca_annotation-free_counting_for_all.md)**
 
 :   利用 Stable Diffusion 生成合成排序/计数数据，通过先学排序再学计数的两阶段策略 + 密度引导的图像分块，实现了首个适用于任意类别物体的无标注计数方法，在人群计数上超越已有无监督方法。
+
+**[Afreeca Annotationfree Counting For All](afreeca_annotationfree_counting_for_all.md)**
+
+:   利用潜在扩散模型（LDM）生成合成计数和排序数据，提出首个可适用于任意物体类别的无监督计数方法，无需任何人工标注即可实现准确计数。
+
+**[Apl Anchor-Based Prompt Learning For One-Stage Weakly Supervised Referring Expre](apl_anchor-based_prompt_learning_for_one-stage_weakly_supervised_referring_expre.md)**
+
+:   本文提出锚框提示学习方法 APL，通过设计锚框提示编码器（APE）生成位置、颜色、类别三类判别性提示，动态融入锚框特征以丰富视觉语义，再配合文本重构损失和视觉对齐损失实现精确的视觉-语言对齐，在四个 REC 基准上超越现有弱监督方法（如 RefCOCO 上比 RefCLIP 高 6.44%）。
+
+**[Augdetr Improving Multi-Scale Learning For Detection Transformer](augdetr_improving_multi-scale_learning_for_detection_transformer.md)**
+
+:   本文提出 AugDETR（Augmented DETR），通过混合注意力编码器（Hybrid Attention Encoder）扩大可变形编码器的感受野并引入全局上下文特征增强特征表示，再通过编码器混合交叉注意力（Encoder-Mixing Cross-Attention）自适应利用多层编码器信息加速收敛，在 COCO 上为 DINO、AlignDETR、DDQ 分别带来 1.2/1.1/1.0 AP 的提升。
 
 **[Bam-Detr Boundary-Aligned Moment Detection Transformer For Temporal Sentence Gro](bam-detr_boundary-aligned_moment_detection_transformer_for_temporal_sentence_gro.md)**
 
@@ -29,6 +45,10 @@ description: >-
 **[Be Yourself Bounded Attention For Multi-Subject Text-To-Image Generation](be_yourself_bounded_attention_for_multi-subject_text-to-image_generation.md)**
 
 :   提出 Bounded Attention，一种无需训练的注意力约束方法，通过在去噪过程中限制 cross-attention 和 self-attention 的信息流动来解决多主体文本到图像生成中的语义泄漏问题。
+
+**[Be Yourself Bounded Attention For Multisubject Texttoimage G](be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)**
+
+:   Be Yourself深入分析了扩散模型中Cross-Attention和Self-Attention导致的多主体语义泄漏问题，提出Bounded Attention机制，通过在去噪过程中限制不同主体间的信息流动来生成语义独立的多主体图像，免训练即可生成5+个语义相似主体。
 
 **[Bridge Past And Future Overcoming Information Asymmetry In Incremental Object De](bridge_past_and_future_overcoming_information_asymmetry_in_incremental_object_de.md)**
 
@@ -62,6 +82,10 @@ description: >-
 
 :   提出 LaMI-DETR，通过利用 GPT 生成视觉概念描述和 T5 挖掘类间视觉相似性关系，解决开放词汇目标检测中概念表示不足和基类过拟合两大问题，在 OV-LVIS 上以 43.4 的 rare AP 超越前最佳方法 7.8 个点。
 
+**[Layoutdetr Detection Transformer Is A Good Multimodal Layout](layoutdetr_detection_transformer_is_a_good_multimodal_layout.md)**
+
+:   将版式设计问题重新构建为基于背景图像的目标检测问题，提出LayoutDETR框架，利用DETR的transformer编解码器结构结合GAN/VAE生成先验，以多模态前景元素（图像+文本）为输入，生成考虑背景语义的排版布局，在公开基准和自建广告横幅数据集上均达到SOTA。
+
 **[Layoutdetr Detection Transformer Is A Good Multimodal Layout Designer](layoutdetr_detection_transformer_is_a_good_multimodal_layout_designer.md)**
 
 :   将目标检测框架 DETR 与生成模型（GAN/VAE）统一，提出 LayoutDETR 用于多模态条件下的图形布局自动设计，以背景图像为约束、前景图文元素为驱动，在广告横幅和 UI 布局生成上达到 SOTA。
@@ -78,9 +102,9 @@ description: >-
 
 :   首次系统性研究人类非语言交互（手势、表情、注视、姿态、触碰），提出大规模数据集 NVI、新任务 NVI-DET 和基于双重多尺度超图的检测模型 NVI-DEHR，在非语言交互检测和 HOI 检测任务上均取得最优性能。
 
-**[Online Temporal Action Localization With Memory-Augmented Transformer](online_temporal_action_localization_with_memory-augmented_transformer.md)**
+**[On Calibration Of Object Detectors Pitfalls Evaluation And Baselines](on_calibration_of_object_detectors_pitfalls_evaluation_and_baselines.md)**
 
-:   提出 MATR（Memory-Augmented Transformer），通过记忆队列存储过去片段的特征来利用长期上下文，并采用分离的 Start/End Transformer 解码器进行动作实例定位，在在线时序动作定位（On-TAL）任务上取得 SOTA，甚至可比肩部分离线方法。
+:   本文系统性地揭示了当前目标检测器校准研究中评估框架、评估指标和温度缩放（Temperature Scaling）使用方面的重大缺陷，提出了原则性的联合评估框架以及专为目标检测定制的后处理校准方法（Platt Scaling和Isotonic Regression），证明了正确设计和评估的后处理校准器远优于近期训练时校准方法。
 
 **[Openkd Opening Prompt Diversity For Zero- And Few-Shot Keypoint Detection](openkd_opening_prompt_diversity_for_zero-_and_few-shot_keypoint_detection.md)**
 
@@ -102,6 +126,10 @@ description: >-
 
 :   通过将 GLIGEN 中 Gated Self-Attention (GSA) 与 Cross-Attention (CA) 的串行连接改为并行连接（网络重连），在不引入任何新参数、不需要微调、不增加计算开销的前提下，显著缓解了文本定位与空间定位之间的权衡问题。
 
+**[Responsible Visual Editing](responsible_visual_editing.md)**
+
+:   定义"负责任视觉编辑"新任务，提出CoEditor认知编辑器，通过感知-行为双阶段认知过程将有害图像转换为负责任的版本，同时最小化修改。
+
 **[Shine Saliency-Aware Hierarchical Negative Ranking For Compositional Temporal Gr](shine_saliency-aware_hierarchical_negative_ranking_for_compositional_temporal_gr.md)**
 
 :   针对组合时序定位任务中现有方法负样本构造不合理、DETR 模型对负查询无法产生合理显著性响应的问题，提出利用 LLM（GPT-3.5 Turbo）生成语义可行的分层硬负样本，并设计粗到细的显著性排序策略建立视频片段与层次负查询之间的多粒度语义关系，显著提升组合泛化能力。
@@ -109,6 +137,10 @@ description: >-
 **[Spherical Linear Interpolation And Text-Anchoring For Zero-Shot Composed Image R](spherical_linear_interpolation_and_text-anchoring_for_zero-shot_composed_image_r.md)**
 
 :   提出 Slerp-based ZS-CIR 方法，通过球面线性插值（Slerp）直接融合 VLP 模型的图像和文本嵌入构造组合查询表示，配合 Text-Anchored-Tuning (TAT) 用 LoRA 微调图像编码器缩小模态间隙，在 CIRR/CIRCO/FashionIQ 上达到 SOTA。
+
+**[Stepwise Multi-Grained Boundary Detector For Point-Supervised Temporal Action Lo](stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo.md)**
+
+:   针对点监督时序动作定位中稀疏标注导致的动作边界语义模糊问题，提出逐步多粒度边界检测器（SMBD），通过背景锚点生成器（BAG）和双边界检测器（DBD）为训练提供细粒度的边界监督信号，在THUMOS'14等数据集上达到SOTA。
 
 **[Taptr Tracking Any Point With Transformers As Detection](taptr_tracking_any_point_with_transformers_as_detection.md)**
 
@@ -122,6 +154,14 @@ description: >-
 
 :   构建了首个自然语言引导的无人机地理定位基准 GeoText-1652（276K bbox-text 对，316K 描述），并提出 blending spatial matching 方法通过 grounding loss + spatial relation loss 实现区域级空间关系匹配，文本检索 Recall@10 达到 31.2%。
 
+**[Towards Natural Languageguided Drones Geotext1652 Bench](towards_natural_languageguided_drones_geotext1652_bench.md)**
+
+:   构建 GeoText-1652 多视角自然语言引导地理定位基准数据集（276K text-bbox 对），提出利用区域级空间关系匹配（grounding loss + spatial loss）进行精细化文本-图像跨模态检索的方法，实现自然语言控制无人机导航。
+
+**[Tracking Meets Lora Faster Training Larger Model Strong](tracking_meets_lora_faster_training_larger_model_strong.md)**
+
+:   首次将 LoRA 引入视觉目标跟踪领域，通过解耦位置编码和设计 MLP-only 头网络，使大规模 ViT 模型（最大 ViT-g）在实验室级资源下实现高效训练和 SOTA 跟踪性能。
+
 **[Tracking Meets Lora Faster Training Larger Model Stronger Performance](tracking_meets_lora_faster_training_larger_model_stronger_performance.md)**
 
 :   LoRAT 首次将 LoRA 引入视觉目标跟踪，通过解耦位置编码（共享空间 + 独立类型嵌入）和纯 MLP 检测头两个 LoRA-友好设计，使得在实验室级资源上训练 ViT-g 骨干的跟踪器成为可能，在 LaSOT 上达到 0.762 SUC（新 SOTA），最轻变体 LoRAT-B-224 以 209 FPS 运行。
@@ -129,6 +169,10 @@ description: >-
 **[Visible And Clear Finding Tiny Objects In Difference Map](visible_and_clear_finding_tiny_objects_in_difference_map.md)**
 
 :   SR-TOD 首次将图像自重建机制引入目标检测，发现重建差异图与微小目标之间的强相关性，并设计差异图引导的特征增强（DGFE）模块，在自建反无人机数据集 DroneSwarms 和 VisDrone2019、AI-TOD 上均取得显著提升。
+
+**[Walker Self-Supervised Multiple Object Tracking By Walking On Temporal Appearanc](walker_self-supervised_multiple_object_tracking_by_walking_on_temporal_appearanc.md)**
+
+:   本文提出Walker——首个自监督多目标跟踪器，通过构建准稠密的时序物体外观图（temporal appearance graph），设计多正样本对比损失优化图上的随机游走来学习实例相似度，并引入互斥连接约束和运动约束双向游走推理策略，在MOT17、DanceTrack和BDD100K上达到自监督跟踪的竞争性能，且在标注需求减少400倍的情况下仍超越之前的自监督方法。
 
 **[Weak-To-Strong Compositional Learning From Generative Models For Language-Based ](weak-to-strong_compositional_learning_from_generative_models_for_language-based_.md)**
 
@@ -141,3 +185,7 @@ description: >-
 **[Yolov9 Learning What You Want To Learn Using Programmable Gradient Information](yolov9_learning_what_you_want_to_learn_using_programmable_gradient_information.md)**
 
 :   YOLOv9 提出可编程梯度信息 (PGI) 和广义高效层聚合网络 (GELAN) 来解决深度网络中的信息瓶颈问题，在 MS COCO 上以更少参数和计算量全面超越现有实时目标检测器，从零训练即可超过使用大数据集预训练的方法。
+
+**[Zero-Shot Detection Of Ai-Generated Images](zero-shot_detection_of_ai-generated_images.md)**
+
+:   本文提出了零样本熵检测器ZED（Zero-shot Entropy-based Detector），通过无损图像编码器估计每个像素在给定上下文下的概率分布，用"图像对真实图像模型的意外程度"作为判别特征，无需任何AI生成训练数据即可检测多种生成器生成的图像，在广泛的生成模型上比SOTA平均准确率提升超过3%。

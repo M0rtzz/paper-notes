@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 人体理解方向 47篇论文解读
+  ECCV2024 人体理解方向 68篇论文解读
 description: >-
-  47篇ECCV2024 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  68篇ECCV2024 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🎞️ ECCV2024** · **47** 篇论文解读
+**🎞️ ECCV2024** · **68** 篇论文解读
 
 **[3D Hand Pose Estimation In Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[3Dgazenet Generalizing 3D Gaze Estimation With Weak-Supervision From Synthetic V](3dgazenet_generalizing_3d_gaze_estimation_with_weak-supervision_from_synthetic_v.md)**
 
 :   提出将视线估计重新表述为密集3D眼球网格回归，并通过从大规模野外人脸图像中自动提取伪标签+HeadGAN合成多视图进行弱监督训练，在跨域场景下比SOTA提升最多30%。
+
+**[3Dsa Multi-View 3D Human Pose Estimation With 3D Space Attention Mechanisms](3dsa_multi-view_3d_human_pose_estimation_with_3d_space_attention_mechanisms.md)**
+
+:   本文提出3D空间注意力模块（3DSA），通过3D空间细分算法将特征体积划分为多个区域并为其分配基于视角的注意力权重，解决多视图3D人体姿态估计中不同视角对不同空间区域贡献不均的问题，在 CMU Panoptic Studio 数据集上达到 SOTA。
 
 **[A Probabilityguided Sampler For Neural Implicit Surface Rend](a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)**
 
@@ -42,9 +46,17 @@ description: >-
 
 :   提出 AVSyncNet、stabilized synchronization loss 和 silent-lip generator 三项改进，系统性地解决音频驱动说话人脸生成中 SyncNet 不稳定和嘴唇泄漏两大核心问题，在唇形同步和视觉质量上均达到 SOTA。
 
+**[Avatar Fingerprinting For Authorized Use Of Synthetic Talking-Head Videos](avatar_fingerprinting_for_authorized_use_of_synthetic_talking-head_videos.md)**
+
+:   本文定义了"Avatar指纹识别"这一新任务——验证合成说话头视频中驱动表情的真实身份，贡献了迄今最大规模的面部重建数据集NVFAIR（161个身份），并提出基于归一化面部关键点距离和时序CNN的基线方法，通过学习与外观无关的面部运动签名实现身份验证（平均AUC 0.85），且能泛化到未见过的生成器（AUC 0.83）。
+
 **[Bi-Tta Bidirectional Test-Time Adapter For Remote Physiological Measurement](bi-tta_bidirectional_test-time_adapter_for_remote_physiological_measurement.md)**
 
 :   提出 Bi-TTA 框架，首次将 Test-Time Adaptation 引入远程光电容积脉搏波 (rPPG) 任务，通过时空一致性自监督先验和前瞻-回溯双向适应策略，在推理时仅用无标注单实例数据即可完成模型域适应。
+
+**[Bridging The Gap Between Human Motion And Action Semantics Via Kinematic Phrases](bridging_the_gap_between_human_motion_and_action_semantics_via_kinematic_phrases.md)**
+
+:   本文提出运动学短语（Kinematic Phrases, KP）作为人体运动与动作语义之间的中间表示，KP基于客观运动学事实，具有适当抽象性、可解释性和通用性，并据此构建了运动理解系统和白盒运动生成评估基准KPG。
 
 **[Combining Generative And Geometry Priors For Wide-Angle Portrait Correction](combining_generative_and_geometry_priors_for_wide-angle_portrait_correction.md)**
 
@@ -53,6 +65,10 @@ description: >-
 **[Como Controllable Motion Generation Through Language Guided Pose Code Editing](como_controllable_motion_generation_through_language_guided_pose_code_editing.md)**
 
 :   提出 CoMo，通过将动作序列分解为语义明确的 pose code（如"左膝微弯"），实现基于文本的可控动作生成与基于 LLM 的零样本动作编辑。
+
+**[Cut Out The Middleman Revisiting Pose-Based Gait Recognition](cut_out_the_middleman_revisiting_pose-based_gait_recognition.md)**
+
+:   重新审视基于姿态的步态识别方法，提出 GaitHeat 框架，用热力图（heatmap）取代传统的骨架关键点坐标来编码人体姿态，通过改进的预处理流程和姿态引导热力图对齐模块大幅提升性能和泛化能力，使基于姿态的方法首次接近轮廓（silhouette）方法的精度。
 
 **[Decomposed Vector-Quantized Variational Autoencoder For Human Grasp Generation](decomposed_vector-quantized_variational_autoencoder_for_human_grasp_generation.md)**
 
@@ -65,6 +81,10 @@ description: >-
 **[Egoexo-Fitness Towards Egocentric And Exocentric Full-Body Action Understanding](egoexo-fitness_towards_egocentric_and_exocentric_full-body_action_understanding.md)**
 
 :   提出 EgoExo-Fitness 数据集，包含同步的第一人称和第三人称健身视频，提供两级时间边界标注和创新性的可解释动作评判标注（技术关键点验证、自然语言评论、质量评分），并构建五个基准任务。
+
+**[Event-Based Head Pose Estimation Benchmark And Method](event-based_head_pose_estimation_benchmark_and_method.md)**
+
+:   针对事件相机头部姿态估计（HPE）领域缺乏大规模数据集和专用方法的问题，构建了两个大规模多场景事件HPE基准数据集，并提出包含事件时空融合（ESTF）和事件运动感知注意力（EMPA）两个核心模块的专用网络，在多种挑战场景下取得优异性能。
 
 **[Evsign Sign Language Recognition And Translation With Streaming Events](evsign_sign_language_recognition_and_translation_with_streaming_events.md)**
 
@@ -102,6 +122,14 @@ description: >-
 
 :   提出 FacET（Facial Explanations through Translations），一种基于生成式域翻译的可解释框架，通过学习解耦的面部空间特征和可解释的时空线性变换，自动发现视频会议（VC）与面对面（F2F）交流之间的细微面部表情差异模式，并支持将 VC 视频转换为 F2F 风格的"去zoom化"。
 
+**[Hpe-Li Wifi-Enabled Lightweight Dual Selective Kernel Convolution For Human Pose](hpe-li_wifi-enabled_lightweight_dual_selective_kernel_convolution_for_human_pose.md)**
+
+:   本文提出 HPE-Li，一种基于 WiFi 信号的轻量化人体姿态估计方法，通过创新的双选择性核注意力（SKA）机制构建多分支 CNN，能够根据输入的 WiFi CSI 数据特征动态调整感受野大小，在 MM-Fi 和 WiPose 两个基准上以极低的计算开销超越了 SOTA 方法。
+
+**[Human Motion Forecasting In Dynamic Domain Shifts A Homeostatic Continual Test-T](human_motion_forecasting_in_dynamic_domain_shifts_a_homeostatic_continual_test-t.md)**
+
+:   提出HoCoTTA框架，通过多域稳态评估和隔离参数优化策略，在持续变化的目标域中实现人体运动预测的鲁棒自适应，有效缓解了灾难性遗忘和误差累积问题。
+
 **[Humos Human Motion Model Conditioned On Body Shape](humos_human_motion_model_conditioned_on_body_shape.md)**
 
 :   提出 HUMOS，一种基于体型条件化的人体运动生成模型，通过循环一致性损失和可微分的直觉物理/动态稳定性约束，在无配对训练数据的情况下学习体型与运动之间的相关性，生成物理可信且动态稳定的人体运动。
@@ -122,9 +150,17 @@ description: >-
 
 :   提出 Large Motion Model (LMM)，首个以动作为中心的多模态统一动作生成基础模型，通过构建包含 10 个任务、16 个数据集、320K 序列的 MotionVerse 基准，设计支持身体部位感知的 ArtAttention 机制，以及结合随机帧率/掩码的预训练策略，实现跨任务的高质量动作生成。
 
+**[Large Motion Model For Unified Multimodal Motion Generation](large_motion_model_for_unified_multimodal_motion_generation.md)**
+
+:   LMM是首个多模态通用人体动作生成模型，统一了文本/动作/音乐/语音等10种任务、16个数据集（320K序列/1亿帧），通过身体部位感知的ArtAttention机制和可变帧率+随机遮掩的预训练策略，在多个标准benchmark上与专家模型竞争甚至超越。
+
 **[Learning Cross-Hand Policies Of High-Dof Reaching And Grasping](learning_cross-hand_policies_of_high-dof_reaching_and_grasping.md)**
 
 :   提出一种两阶段层次化框架，通过语义关键点和交互等分面（IBS）作为手型无关的状态表示，结合Transformer策略网络和手型特定的适配模型，实现了灵巧抓取策略在不同高自由度机械手之间的零样本迁移。
+
+**[Manikin Biomechanically Accurate Neural Inverse Kinematics For Human Motion Esti](manikin_biomechanically_accurate_neural_inverse_kinematics_for_human_motion_esti.md)**
+
+:   本文提出MANIKIN，通过在SMPL参数模型中嵌入解剖学约束并设计基于旋转角预测的神经逆运动学求解器，从头部和手部的稀疏末端执行器姿态精确恢复全身运动，同时保证生物力学合理性和地面非穿透性。
 
 **[Merlin Single-Shot Material Estimation And Relighting For Photometric Stereo](merlin_single-shot_material_estimation_and_relighting_for_photometric_stereo.md)**
 
@@ -141,6 +177,10 @@ description: >-
 **[Multi-Memory Matching For Unsupervised Visible-Infrared Person Re-Identification](multi-memory_matching_for_unsupervised_visible-infrared_person_re-identification.md)**
 
 :   提出 Multi-Memory Matching（MMM）框架用于无监督可见光-红外行人重识别，通过跨模态聚类（CMC）、多记忆学习与匹配（MMLM）和软聚类级对齐损失（SCA）三个模块建立可靠的跨模态对应关系，在 SYSU-MM01 上 Rank-1 达到 61.6%，RegDB 上 Rank-1 达到 89.7%。
+
+**[Nymeria A Massive Collection Of Multimodal Egocentric Daily Motion In The Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_motion_in_the_wild.md)**
+
+:   提出 Nymeria 数据集——目前最大规模的野外多模态自我中心人体日常运动数据集，包含 300 小时、264 人、50 个场景，提供全身精确动作捕捉、多设备同步多模态数据和 310.5K 句分层语言描述，并在 body tracking、motion synthesis 等任务上建立 baseline。
 
 **[Occlusion Handling In 3D Human Pose Estimation With Perturbed Positional Encodin](occlusion_handling_in_3d_human_pose_estimation_with_perturbed_positional_encodin.md)**
 
@@ -162,9 +202,21 @@ description: >-
 
 :   提出了一个自监督学习基准，同时评估语义分类和姿态估计能力，并设计视角轨迹正则化损失(trajectory loss)，利用相邻视角的图像三元组约束特征空间中的局部线性性，使学到的表征既保持语义分类精度又获得 emergent 的全局姿态感知能力，在域内和域外姿态估计上均提升4%。
 
+**[Posesor Human Pose Can Guide Our Attention](posesor_human_pose_can_guide_our_attention.md)**
+
+:   本文首次将人体姿态信息引入显著目标排序(SOR)任务，通过提出姿态感知交互模块(PAI)和姿态驱动排序模块(PDR)来建模人体活动与注意力转移的关系，在复杂场景中显著提升了SOR性能并达到SOTA。
+
 **[Quar-Vla Vision-Language-Action Model For Quadruped Robots](quar-vla_vision-language-action_model_for_quadruped_robots.md)**
 
 :   首次提出四足机器人视觉-语言-动作（QUAR-VLA）范式，构建 259K episode 的多任务数据集 QUARD 和基于预训练多模态大模型的 QUART 模型，实现感知、导航、全身操作等多任务统一控制。
+
+**[Quarvla Visionlanguageaction Model For Quadruped Robots](quarvla_visionlanguageaction_model_for_quadruped_robots.md)**
+
+:   提出 QUAR-VLA 范式，首次将视觉、语言指令和动作生成统一到四足机器人中，构建了大规模多任务数据集 QUARD（259K episodes），训练 QUART 模型（基于 8B VLM）实现感知、导航、全身操控等多种任务，并展示了从仿真到真实的迁移能力。
+
+**[Repose 3D Human Pose Estimation Via Spatio-Temporal Depth Relational Consistency](repose_3d_human_pose_estimation_via_spatio-temporal_depth_relational_consistency.md)**
+
+:   RePOSE 提出用时空相对深度一致性损失替代传统的绝对深度监督信号，将遮挡场景下的 3D 人体姿态估计从"学习绝对深度值"转变为"学习关键点的相对深度顺序"，以极简的实现（仅需几行代码）显著提升遮挡条件下的姿态估计鲁棒性和精度。
 
 **[Scape A Simple And Strong Category-Agnostic Pose Estimator](scape_a_simple_and_strong_category-agnostic_pose_estimator.md)**
 
@@ -174,13 +226,41 @@ description: >-
 
 :   提出 LSFA（Local-to-global Self-supervised Feature Adaptation）框架，通过模态内特征紧凑性优化（IFC）和跨模态局部到全局一致性对齐（CLC）两个自监督策略对预训练特征进行任务导向适配，在 MVTec-3D AD 上取得 97.1% I-AUROC，超越 SOTA +3.4%。
 
+**[Selfsupervised Feature Adaptation For 3D Industrial Ano](selfsupervised_feature_adaptation_for_3d_industrial_ano.md)**
+
+:   提出 LSFA（Local-to-global Self-supervised Feature Adaptation），通过模态内特征紧致化（IFC）和跨模态局部到全局一致性对齐（CLC）微调适配器，学习面向异常检测的任务导向表示，在 MVTec-3D AD 上达到 97.1% I-AUROC（+3.4%）。
+
 **[Signavatars A Large-Scale 3D Sign Language Holistic Motion Dataset And Benchmark](signavatars_a_large-scale_3d_sign_language_holistic_motion_dataset_and_benchmark.md)**
 
 :   提出 SignAvatars，首个大规模多提示（HamNoSys/语言/单词）3D 手语全身运动数据集（70K 视频、8.34M 帧、153 名手语者），设计了带生物力学约束的自动 3D 标注流水线，并提出基于 VQ-VAE 的 SignVAE 模型作为 3D 手语生产（SLP）的首个 benchmark baseline。
 
+**[Spectral Subsurface Scattering For Material Classification](spectral_subsurface_scattering_for_material_classification.md)**
+
+:   提出利用Spectral Sub-Surface Scattering（S4，光谱次表面散射）进行材质分类的方法，证明了次表面散射的强光谱依赖性可以提供高度判别性的特征，并设计了一种新型成像装置通过2D投影高效获取S4测量数据，无需耗时的高光谱扫描。
+
+**[Tela Text To Layer-Wise 3D Clothed Human Generation](tela_text_to_layer-wise_3d_clothed_human_generation.md)**
+
+:   提出TELA方法，通过分层人体表示和渐进优化策略，从文本描述生成服装可分离的3D人体模型，支持虚拟试穿等服装编辑应用。
+
+**[Tf-Fas Twofold-Element Fine-Grained Semantic Guidance For Generalizable Face Ant](tf-fas_twofold-element_fine-grained_semantic_guidance_for_generalizable_face_ant.md)**
+
+:   本文提出TF-FAS框架，通过双重语义元素（内容元素和类别元素）的细粒度引导来增强人脸反欺骗的跨域泛化能力，其中CEDM模块探索并解耦内容相关特征，FCEM模块挖掘类别内的细粒度差异，在多个跨域FAS基准上达到SOTA。
+
+**[Towards Unified Representation Of Invariant-Specific Features In Missing Modalit](towards_unified_representation_of_invariant-specific_features_in_missing_modalit.md)**
+
+:   本文提出MMA-FAS框架解决多模态人脸反欺骗中的模态缺失问题，通过模态解耦适配器从频率分解角度分离模态不变和模态特有特征，结合LBP引导的对比损失和自适应模态组合采样策略，在所有模态缺失场景下均达到SOTA。
+
+**[U-Cope Taking A Further Step To Universal 9D Category-Level Object Pose Estimati](u-cope_taking_a_further_step_to_universal_9d_category-level_object_pose_estimati.md)**
+
+:   本文提出 U-COPE，首个统一处理刚性和铰接物体的类别级 9D 位姿估计框架，通过将刚性物体视为单部件铰接物体来统一问题定义，利用 Point Pair Features（PPF）独立提取各部件特征并通过通用投票策略预测关键位姿参数，在合成和真实数据集上均达到 SOTA。
+
 **[Upose3D Uncertainty-Aware 3D Human Pose Estimation With Cross-View And Temporal ](upose3d_uncertainty-aware_3d_human_pose_estimation_with_cross-view_and_temporal_.md)**
 
 :   提出UPose3D，一种基于不确定性感知的多视角3D人体姿态估计方法，通过Normalizing Flow建模2D关键点不确定性、可扩展的跨视角点云投影融合策略和合成数据训练的Pose Compiler模块，在无需3D标注的情况下取得OoD场景下SOTA表现，且在InD场景下与使用3D监督的方法竞争。
+
+**[Upper-Body Hierarchical Graph For Skeleton Based Emotion Recognition In Assistiv](upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)**
+
+:   本文针对辅助驾驶场景提出 UbH-GCN，利用上半身骨骼序列构建层次化图结构（UbH-Graph）动态建模关节运动与情感的关系，并引入类别特定变化机制平衡不均衡数据分布，在 AIDE 辅助驾驶数据集上超越现有多模态方法。
 
 **[Videoclusternet Self-Supervised And Adaptive Face Clustering For Videos](videoclusternet_self-supervised_and_adaptive_face_clustering_for_videos.md)**
 
@@ -193,6 +273,10 @@ description: >-
 **[Wordrobe Text-Guided Generation Of Textured 3D Garments](wordrobe_text-guided_generation_of_textured_3d_garments.md)**
 
 :   提出 WordRobe，通过 coarse-to-fine 两阶段编码-解码框架学习 3D 服装 UDF 隐空间，利用弱监督 CLIP 映射网络实现文本驱动的 3D 服装生成与编辑，并利用 ControlNet 的 view-composited 属性在单次前向推理中生成视角一致的纹理贴图，速度比 Text2Tex 快 13 倍。
+
+**[Wordrobe Textguided Generation Of Textured 3D Garments](wordrobe_textguided_generation_of_textured_3d_garments.md)**
+
+:   提出 WordRobe 框架，通过学习 3D 服装潜在空间并与 CLIP 嵌入对齐，实现文本驱动的带纹理 3D 服装网格生成，并利用 ControlNet 的单步前向推理实现高效视角一致的纹理合成。
 
 **[Worldpose A World Cup Dataset For Global 3D Human Pose Estimation](worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 其他方向 97篇论文解读
+  AAAI2026 其他方向 114篇论文解读
 description: >-
-  97篇AAAI2026 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  114篇AAAI2026 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🤖 AAAI2026** · **97** 篇论文解读
+**🤖 AAAI2026** · **114** 篇论文解读
 
 **[A Fast Heuristic Search Approach For Energy-Optimal Profile ](a_fast_heuristic_search_approach_for_energy-optimal_profile_.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[A Graph-Theoretical Perspective On Law Design For Multiagent](a_graph-theoretical_perspective_on_law_design_for_multiagent.md)**
 
 :   将多智能体系统中的法律设计问题（包括"有用法律"和"无责任缺口法律"）形式化为超图上的顶点覆盖问题，证明了两类法律最小化问题都是NP-hard的，并给出了基于超图顶点覆盖近似算法的多项式时间近似方案。
+
+**[A Graph-Theoretical Perspective On Law Design For Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)**
+
+:   从图论角度研究多智能体系统中的法律设计问题，将 useful law 和 gap-free law 的最小化设计分别归约为超图的顶点覆盖问题，证明了 NP-hardness 并给出近似算法。
 
 **[A Mind Cannot Be Smeared Across Time](a_mind_cannot_be_smeared_across_time.md)**
 
@@ -378,13 +382,41 @@ description: >-
 
 :   本文提出了基于高斯过程似然的奖励重分配框架 GP-LRR，通过核函数显式建模 state-action 对之间的相关性，利用 leave-one-out 策略最大化轨迹回报的边际似然来学习逐步奖励函数，理论证明传统 MSE 方法是其退化特例，并在 MuJoCo 基准上配合 SAC 实现了优越的样本效率和策略性能。
 
+**[Semi-Supervised High Dynamic Range Image Reconstructing Via Bi-Level Uncertain A](semi-supervised_high_dynamic_range_image_reconstructing_via_bi-level_uncertain_a.md)**
+
+:   提出半监督 HDR 重建框架，通过**不确定性估计分支**评估伪 HDR 标签质量，在 patch 和像素两个层面掩码不可靠区域，仅用 6.7% HDR 真值即可达到与全监督 SOTA 可比的性能。
+
+**[Shortagesim Simulating Drug Shortages Under Information Asymmetry](shortagesim_simulating_drug_shortages_under_information_asymmetry.md)**
+
+:   提出 ShortageSim，首个基于 **LLM 多智能体**的药品短缺模拟框架，建模 FDA 监管者、制造商和购买者在信息不对称下的战略决策，在历史短缺数据上实现对解决滞后时间 84% 的预测改善，为监管策略评估提供受控测试平台。
+
+**[Spike Imaging Velocimetry Dense Motion Estimation Of Fluids Using Spike Cameras](spike_imaging_velocimetry_dense_motion_estimation_of_fluids_using_spike_cameras.md)**
+
+:   提出 Spike Imaging Velocimetry（SIV），首次将**脉冲相机**（20000Hz 超高时间分辨率）应用于流体测速，设计细节保持层次变换（DPHT）、图编码器（GE）和多尺度速度精炼（MSVR）三个针对流体特性的模块，并构建了 PSSD 数据集，在稳态湍流、高速流和 HDR 场景上全面超越现有基线。
+
+**[Stem Faculty Perspectives On Generative Ai In Higher Education](stem_faculty_perspectives_on_generative_ai_in_higher_education.md)**
+
+:   通过对美国一所大型公立大学 29 名 STEM 教师的焦点小组研究，揭示教师如何在教学中整合 GenAI、观察到的学生学习益处与挑战，以及所需的制度支持——发现 GenAI 将教师劳动从内容创建转向专家审核，且可能掩盖学生能力不足。
+
+**[Structural Approach To Guiding A Present-Biased Agent](structural_approach_to_guiding_a_present-biased_agent.md)**
+
+:   在Kleinberg-Oren模型的委托-代理扩展中，系统性地研究了T-path-Editing问题的参数化复杂性，给出了以树宽和路径代价多样性为参数的FPT算法，并建立了紧的困难性结果，全面刻画了引导当前偏差agent完成关键任务的可处理-不可处理边界。
+
 **[Structure-Aware Encodings Of Argumentation Properties For Clique-Width](structure-aware_encodings_of_argumentation_properties_for_clique-width.md)**
 
 :   本文设计了从抽象论辩问题到(Q)SAT的有向分解引导(DDG)归约，线性保持团宽(clique-width)，为所有常见论辩语义（stable、admissible、complete、preferred、semi-stable、stage）在扩展存在性、论元接受性和计数问题上建立了以团宽为参数的可处理性上界，并证明了在ETH假设下这些归约的开销不可显著改进。
 
+**[Svd-No Learning Pde Solution Operators With Svd Integral Kernels](svd-no_learning_pde_solution_operators_with_svd_integral_kernels.md)**
+
+:   提出 SVD-NO，通过显式参数化积分核的奇异值分解（SVD）来构建神经算子，在保持高表达力的同时实现 $O(ndL)$ 的线性计算复杂度，在 5 个 PDE 基准上达到新 SOTA。
+
 **[Symbolic Planning And Multi-Agent Path Finding In Extremely Dense Environments W](symbolic_planning_and_multi-agent_path_finding_in_extremely_dense_environments_w.md)**
 
 :   提出 Block Rearrangement Problem (BRaP) 形式化定义，并设计五种基于配置空间搜索、PDDL 符号规划和 MAPF 的求解算法，其中 BR-LaCAM 在最大 80×80 的极端密集网格上达到 92% 成功率和毫秒级求解速度。
+
+**[Synweather Weather Observation Data Synthesis Across Multiple Regions And Variab](synweather_weather_observation_data_synthesis_across_multiple_regions_and_variab.md)**
+
+:   构建了首个支持统一多区域多变量的气象观测数据合成数据集SynWeather（覆盖4个区域×4种变量×6颗卫星），并提出基于Diffusion Transformer的通用概率生成模型SynWeatherDiff，通过文本提示引导在多个合成任务上超越专用模型和现有通用模型。
 
 **[Tab-Pet Graph-Based Positional Encodings For Tabular Transformers](tab-pet_graph-based_positional_encodings_for_tabular_transformers.md)**
 
@@ -394,6 +426,42 @@ description: >-
 
 :   在Taylor展开框架下提出精确性(precision)、联合性(federation)、零偏差(zero-discrepancy)三个公设规范特征归因，并引入自适应属性(adaptation)通过AUP目标优化交互效应的分配权重，成为唯一同时满足所有公设和属性的事后模型无关归因方法。
 
+**[Tdsnns Competitive Topographic Deep Spiking Neural Networks For Visual Cortex Mo](tdsnns_competitive_topographic_deep_spiking_neural_networks_for_visual_cortex_mo.md)**
+
+:   提出拓扑深度脉冲神经网络（TDSNNs），通过设计时空约束（STC）损失函数，在深层SNN中成功复现灵长类视觉皮层从V1到IT的层级拓扑组织，既保持了高任务性能（ImageNet top-1无精度下降），又显著超越现有拓扑ANN的脑相似性。
+
+**[The Limitations And Power Of Np-Oracle-Based Functional Synthesis Techniques](the_limitations_and_power_of_np-oracle-based_functional_synthesis_techniques.md)**
+
+:   系统性地从理论层面研究了依赖NP预言机的函数综合方法的能力与局限，证明了朴素的逐位学习方法在多输出场景下必然失败、基于Resolution插值的方法会产生指数级电路，同时证明了NP预言机是高效综合的必要条件，并给出了利用NP预言机在多项式时间内综合小规模Skolem函数的正面结果。
+
+**[The Publication Choice Problem](the_publication_choice_problem.md)**
+
+:   提出"出版选择问题"这一博弈论框架，建模研究者的出版策略与期刊影响力之间的双向互动关系，证明了纯策略均衡的存在性和唯一性，并分析了 Spotlight 论文标签对学术生态的影响。
+
+**[Theoretical And Empirical Analysis Of Lehmer Codes To Search Permutation Spaces ](theoretical_and_empirical_analysis_of_lehmer_codes_to_search_permutation_spaces_.md)**
+
+:   首次对 Lehmer 编码（逆序向量）在进化算法中搜索排列空间的效率进行严格的数学运行时分析，证明 Lehmer 编码的 EA 在多数基准函数上达到 $O(n^2 \log n)$ 或 $O(n^2)$ 的期望运行时间，与经典表示持平或更优，并在 LOP 和 QAP 实际问题上验证其实用性。
+
+**[Towards Temporal Fusion Beyond The Field Of View For Camera-Based Semantic Scene](towards_temporal_fusion_beyond_the_field_of_view_for_camera-based_semantic_scene.md)**
+
+:   提出 C3DFusion 模块，通过在 3D 空间中显式对齐历史帧和当前帧的点特征，首次系统解决相机基 SSC 中视野外（out-of-frame）区域的时序补全问题，在 SemanticKITTI 和 SSCBench-KITTI-360 上取得 SOTA。
+
+**[Tractable Weighted First-Order Model Counting With Bounded Treewidth Binary Evid](tractable_weighted_first-order_model_counting_with_bounded_treewidth_binary_evid.md)**
+
+:   提出一种在域大小上多项式时间的算法，计算带有有界树宽二元证据的 $\text{FO}^2$ 和 $\text{C}^2$ 片段的加权一阶模型计数（WFOMC），并解决了有界树宽有界度图上的稳定座位安排开放问题。
+
 **[Variance Computation For Weighted Model Counting With Knowledge Compilation Appr](variance_computation_for_weighted_model_counting_with_knowledge_compilation_appr.md)**
 
 :   本文将加权模型计数 (WMC) 的权重视为具有方差的随机变量，提出在 structured d-DNNF 表示上多项式时间计算 WMC 方差的算法，同时证明了在 structured DNNF、d-DNNF 和 FBDD 上该问题不可解（除非 P=NP），并将其应用于贝叶斯网络推理中参数不确定性的量化。
+
+**[Verification-Guided Context Optimization For Tool Calling Via Hierarchical Llms-](verification-guided_context_optimization_for_tool_calling_via_hierarchical_llms-.md)**
+
+:   提出VGCO框架，利用LLM作为分层编辑器，通过验证引导的方式迭代优化工具文档和知识库上下文，显著提升大规模工具调用场景下的检索召回、工具选择和参数填充准确率。
+
+**[Whispering Agents An Event-Driven Covert Communication Protocol For The Internet](whispering_agents_an_event-driven_covert_communication_protocol_for_the_internet.md)**
+
+:   首次形式化定义了智能体互联网（IoA）中的"隐蔽事件通道"（Covert Event Channel），并设计了 ΠCCAP 协议，通过在智能体对话的存储、时序和行为维度中嵌入秘密数据，实现了高容量、高鲁棒性且对 LLM 审查员不可感知的隐蔽通信。
+
+**[Why Isnt Relational Learning Taking Over The World](why_isnt_relational_learning_taking_over_the_world.md)**
+
+:   本文是一篇 position paper，深入分析了关系学习（relational learning）未能在 AI 领域占据主导地位的原因——包括数据集不够真实、评估方法存在根本缺陷、缺少负例、聚合操作的理论困境等——并指出了让关系学习发挥应有潜力所需的关键改进方向。

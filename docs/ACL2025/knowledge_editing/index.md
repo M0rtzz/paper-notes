@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 知识编辑方向 16篇论文解读
+  ACL2025 知识编辑方向 18篇论文解读
 description: >-
-  16篇ACL2025 知识编辑方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  18篇ACL2025 知识编辑方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✏️ 知识编辑
 
-**💬 ACL2025** · **16** 篇论文解读
+**💬 ACL2025** · **18** 篇论文解读
 
 **[A General Knowledge Injection Framework For Icd Coding](a_general_knowledge_injection_framework_for_icd_coding.md)**
 
@@ -66,9 +66,17 @@ description: >-
 
 :   本文定义了"表面编辑"（superficial editing）现象——经过知识编辑的模型在常规提示下表现良好，但在特制攻击探针下会回退到原始知识——并通过机制分析揭示了早期层残差流和后期层特定注意力头是导致该现象的两个关键因素。
 
+**[Sake Steering Activations For Knowledge Editing](sake_steering_activations_for_knowledge_editing.md)**
+
+:   SAKE 提出将知识编辑建模为激活空间中的分布映射问题，通过对编辑事实生成改述和逻辑蕴含的提示集合来构建源/目标激活分布，再用最优传输的线性映射替换激活向量，实现比 ROME/MEMIT 等方法更鲁棒的事实编辑，在逻辑蕴含泛化和上下文鲁棒性上显著领先。
+
 **[Scedit Script-Based Assessment Of Knowledge Editing](scedit_script-based_assessment_of_knowledge_editing.md)**
 
 :   提出 ScEdit，一个基于脚本（Script）的知识编辑评估基准，将传统的"What"类事实回忆评估扩展为"How"类程序性推理评估，同时引入 token 级和文本级双层评估体系，揭示了现有知识编辑方法在实际应用场景中的显著不足。
+
+**[Structure-Aware Domain Knowledge Injection For Large Language Models](structure-aware_domain_knowledge_injection_for_large_language_models.md)**
+
+:   提出 StructTuning 方法，通过自动提取训练语料的知识分类结构，设计结构感知的持续预训练（SCPT）和结构感知的监督微调（SSFT）两阶段策略，仅用传统方法5%的数据量即可达到100%的领域知识注入效果。
 
 **[Towards A Principled Evaluation Of Knowledge Editors](towards_a_principled_evaluation_of_knowledge_editors.md)**
 

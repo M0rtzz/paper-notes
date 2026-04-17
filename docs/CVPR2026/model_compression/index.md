@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 模型压缩方向 36篇论文解读
+  CVPR2026 模型压缩方向 41篇论文解读
 description: >-
-  36篇CVPR2026 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  41篇CVPR2026 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2026** · **36** 篇论文解读
+**📷 CVPR2026** · **41** 篇论文解读
 
 **[A Paradigm Shift Fully End-To-End Training For Temporal Sentence Grounding In Vi](a_paradigm_shift_fully_end-to-end_training_for_temporal_sentence_grounding_in_vi.md)**
 
@@ -54,10 +54,6 @@ description: >-
 
 :   针对长尾分布下知识蒸馏中教师模型向头部类偏斜的问题，将传统 KL 散度损失分解为跨组损失和组内损失两个组件，通过重平衡跨组损失校准教师的组级预测、重加权组内损失保证各组等贡献，在 CIFAR-100-LT/TinyImageNet-LT/ImageNet-LT 上全面超越现有方法，甚至超过教师模型自身表现。
 
-**[Faar Efficient Frequency-Aware Multi-Task Fine-Tuning Via Automatic Rank Selecti](faar_efficient_frequency-aware_multi-task_fine-tuning_via_automatic_rank_selecti.md)**
-
-:   提出 FAAR，一种频率感知的多任务参数高效微调方法，通过 Performance-Driven Rank Shrinking (PDRS) 为每个任务和层动态选择最优秩，并设计 Task-Spectral Pyramidal Decoder (TS-PD) 利用 FFT 频率信息增强空间感知和跨任务一致性，以传统微调 1/9 的参数量实现更优性能。
-
 **[Fair-Pruner Leveraging Tolerance Of Difference For Flexible Automatic Layer-Wise](fair-pruner_leveraging_tolerance_of_difference_for_flexible_automatic_layer-wise.md)**
 
 :   提出 FAIR-Pruner 结构化剪枝框架，通过 Tolerance of Differences（ToD）指标协调两个互补视角：基于类条件可分性的 Wasserstein Utilization Score（识别冗余单元）和基于 Taylor 展开的 Reconstruction Score（保护关键单元），自动确定逐层非均匀剪枝率且支持免搜索灵活调整压缩比，在 CIFAR-10/SVHN/ImageNet 上取得 SOTA。
@@ -77,6 +73,10 @@ description: >-
 **[Geochemad Benchmarking Unsupervised Geochemical Anomaly Detection For Mineral Ex](geochemad_benchmarking_unsupervised_geochemical_anomaly_detection_for_mineral_ex.md)**
 
 :   提出 GeoChemAD 开源基准数据集和 GeoChemFormer 框架，通过空间上下文学习与元素依赖建模实现无监督地球化学异常检测，在8个子集上平均 AUC 达到 0.7712。
+
+**[Geofusion-Cad Structure-Aware Diffusion With Geometric State Space For Parametri](geofusion-cad_structure-aware_diffusion_with_geometric_state_space_for_parametri.md)**
+
+:   本文提出 GeoFusion-CAD，一个端到端的扩散框架，通过将 CAD 程序编码为层次化树结构并引入几何感知的 G-Mamba 块（线性时间复杂度）替代二次复杂度的 Transformer，实现了对长序列参数化 CAD 程序的可扩展和结构感知生成，在新构建的 DeepCAD-240（最长240步命令）基准上大幅超越 Transformer 方法。
 
 **[Hiap A Multi-Granular Stochastic Auto-Pruning Framework For Vision Transformers](hiap_a_multi-granular_stochastic_auto-pruning_framework_for_vision_transformers.md)**
 
@@ -106,9 +106,17 @@ description: >-
 
 :   提出 MARVO 水下视觉里程计框架，将物理感知辐射适配器 (PARA) 嵌入 LoFTR 特征匹配器补偿水下波长衰减、结合 GTSAM 多传感器因子图融合和强化学习位姿图优化 (RL-PGO)，在水下场景实现鲁棒定位。
 
+**[Memo Human-Like Crisp Edge Detection Using Masked Edge Prediction](memo_human-like_crisp_edge_detection_using_masked_edge_prediction.md)**
+
+:   提出 MEMO 框架，通过掩码边缘训练和基于置信度排序的渐进式推理策略，仅使用交叉熵损失就能生成清晰的单像素边缘图，在 crispness-aware 评估上大幅超越现有方法（BSDS 上 CEval ODS 从 0.749 提升到 0.836）。
+
 **[Mine-Jepa In-Domain Self-Supervised Learning For Mine-Like Object Classification](mine-jepa_in-domain_self-supervised_learning_for_mine-like_object_classification.md)**
 
 :   提出 Mine-JEPA，首个面向侧扫声纳（SSS）水雷分类的域内自监督学习流水线——基于 SIGReg 正则化损失、声纳适配增强策略和 ImageNet 初始化，仅用 1,170 张未标注声纳图像预训练即超越了在 17 亿图像上预训练的 DINOv3 基础模型。
+
+**[On The Robustness Of Diffusion-Based Image Compression To Bit-Flip Errors](on_the_robustness_of_diffusion-based_image_compression_to_bit-flip_errors.md)**
+
+:   首次系统研究了扩散模型图像压缩在比特翻转错误下的鲁棒性，发现基于反向信道编码（RCC）的扩散压缩方法天然比传统和学习型编解码器更耐错，并提出 Robust Turbo-DDCM 变体通过独立编码原子索引进一步提升鲁棒性，在 BER 达 $10^{-3}$ 时仍保持良好重建质量。
 
 **[Parallax To Align Them All An Omniparallax Attention Mechanism For Distributed M](parallax_to_align_them_all_an_omniparallax_attention_mechanism_for_distributed_m.md)**
 
@@ -122,6 +130,14 @@ description: >-
 
 :   提出 PPCL 框架，针对超大规模 Multi-Modal Diffusion Transformer (MMDiT, 8–20B 参数) 设计结构化剪枝方案：通过线性探针 (Linear Probe) 学习每层的可替代性，结合 CKA 一阶差分自动定位连续冗余层区间，再以非顺序交替蒸馏实现深度+宽度双轴剪枝，最终在 Qwen-Image 20B 上实现 50% 参数缩减、1.8× 推理加速，平均性能仅下降 2.61%。
 
+**[Preference-Aligned Lora Merging Preserving Subspace Coverage And Addressing Dire](preference-aligned_lora_merging_preserving_subspace_coverage_and_addressing_dire.md)**
+
+:   本文从子空间覆盖（subspace coverage）和方向各向异性（anisotropy）两个视角重新审视LoRA合并问题，提出TARA-Merging框架，通过保留LoRA方向并结合偏好加权的交叉熵伪损失进行方向级重新加权，在8个视觉和6个NLI基准上持续超越现有合并方法。
+
+**[Privi Towards A General-Purpose Video Model For Primate Behavior In The Wild](privi_towards_a_general-purpose_video_model_for_primate_behavior_in_the_wild.md)**
+
+:   PriVi 构建了 424 小时的大规模灵长类视频预训练数据集，并通过在 V-JEPA 上进行**领域级预训练**（非目标数据集级别），首次证明了视频模型的领域级预训练可以跨数据集泛化，在四个灵长类行为识别基准上用仅 220K 参数的冻结分类器超越了全量微调的专用模型。
+
 **[Quantvla Scale-Calibrated Post-Training Quantization For Vision-Language-Action ](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)**
 
 :   提出 QuantVLA，首个面向 Vision-Language-Action (VLA) 模型的免训练后量化框架，通过选择性量化布局和两个轻量级标定机制（注意力温度匹配 ATM 和输出头平衡 OHB），在 W4A8 精度下实现约 70% 的内存节省，同时任务成功率超过全精度基线。
@@ -131,6 +147,10 @@ description: >-
 **[Soda Sensitivity-Oriented Dynamic Acceleration For Diffusion Transformer](soda_sensitivity-oriented_dynamic_acceleration_for_diffusion_transformer.md)**
 
 :   提出 SODA，通过离线细粒度敏感度建模 + 动态规划优化缓存间隔 + 统一自适应剪枝策略，在无需训练的条件下对 Diffusion Transformer 实现可控加速比下的高保真生成。
+
+**[Stronger Normalization-Free Transformers](stronger_normalization-free_transformers.md)**
+
+:   通过系统分析逐点函数替代归一化层所需的四个关键属性（零中心性、有界性、中心敏感性、单调性），在大规模搜索中发现 $\text{Derf}(x) = \text{erf}(\alpha x + s)$ 是最优的归一化层替代函数，在视觉识别、图像生成、语音表示和DNA序列建模等多个领域持续超越LayerNorm和DyT，且性能增益主要来自更强的泛化而非拟合能力。
 
 **[Talon Test-Time Adaptive Learning For On-The-Fly Category Discovery](talon_test-time_adaptive_learning_for_on-the-fly_category_discovery.md)**
 

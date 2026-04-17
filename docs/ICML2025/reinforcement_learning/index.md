@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 强化学习方向 79篇论文解读
+  ICML2025 强化学习方向 78篇论文解读
 description: >-
-  79篇ICML2025 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  78篇ICML2025 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🧪 ICML2025** · **79** 篇论文解读
+**🧪 ICML2025** · **78** 篇论文解读
 
 **[A Theoretical Study Of Hyper Self-Attention Through The Lens Of Interactions Rep](a_theoretical_study_of_hyper_self-attention_through_the_lens_of_interactions_rep.md)**
 
@@ -122,6 +122,10 @@ description: >-
 
 :   提出 Flow of Reasoning (FoR)，将多步 LLM 推理建模为 DAG 上的马尔可夫流，借助 GFlowNet 的轨迹平衡目标微调 LLM，使其仅用极少训练样本（如15个）即可采样出概率正比于奖励的多条高质量且多样化的推理路径。
 
+**[Gradual Transition From Bellman Optimality Operator To Bellman Operator In](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in.md)**
+
+:   揭示 Actor-Critic 中 Bellman 最优算子（加速学习但引入过估计偏差）和 Bellman 算子（减少偏差但收敛慢）的根本权衡，提出 Annealed Q-Learning (AQ-L)：用 expectile loss 实现从最优算子到标准算子的平滑退火，AQ-SAC 在 DM Control 10 任务上平均分达 746.1（vs SAC 657.9），实现极简即插即用的性能提升。
+
 **[Gradual Transition From Bellman Optimality Operator To Bellman Operator In Onlin](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in_onlin.md)**
 
 :   提出 Annealed Q-learning (AQ-L)，通过期望分位损失（expectile loss）的参数 τ 从接近1退火至0.5，实现从 Bellman 最优算子到 Bellman 算子的平滑过渡，在连续动作空间中既加速了早期学习又抑制了后期过估计偏差，与 TD3/SAC 结合后在多种运动控制和操控任务上显著优于基线。
@@ -142,17 +146,9 @@ description: >-
 
 :   提出 HRC 框架，将层次强化学习中的子目标关系建模为因果图，通过因果发现算法学习子目标结构，并基于因果效应优先级进行**定向干预**，显著降低长时域稀疏奖励任务的训练代价。
 
-**[Hierarchical Reinforcement Learning With Uncertainty-Guided Diffusional Subgoals](hierarchical_reinforcement_learning_with_uncertainty-guided_diffusional_subgoals.md)**
-
-:   提出 HIDI 框架，以条件扩散模型建模子目标分布，并引入高斯过程 (GP) 先验进行不确定性正则化与子目标选择，在长时域连续控制任务上显著超越现有层次强化学习方法。
-
 **[Kea Keeping Exploration Alive By Proactively Coordinating Exploration Strategies](kea_keeping_exploration_alive_by_proactively_coordinating_exploration_strategies.md)**
 
 :   提出 KEA 方法，通过引入标准智能体与新颖性增强智能体的动态切换机制，主动协调不同探索策略，解决 SAC 与新颖性探索结合时因策略交互导致的冗余采样和低效探索问题。
-
-**[Large Language Model Llm-Enabled In-Context Learning For Wireless Network Optimi](large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi.md)**
-
-:   提出基于 LLM 上下文学习（In-context Learning）的基站功率控制算法，通过自然语言任务描述和经验池驱动的示例选择，在不更新模型参数的条件下达到接近传统深度强化学习的性能。
 
 **[Learning Dynamics Under Environmental Constraints Via Measurement-Induced Bundle](learning_dynamics_under_environmental_constraints_via_measurement-induced_bundle.md)**
 

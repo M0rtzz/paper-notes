@@ -1,14 +1,26 @@
 ---
 title: >-
-  ECCV2024 信号/通信方向 3篇论文解读
+  ECCV2024 信号/通信方向 6篇论文解读
 description: >-
-  3篇ECCV2024 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇ECCV2024 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📡 信号/通信
 
-**🎞️ ECCV2024** · **3** 篇论文解读
+**🎞️ ECCV2024** · **6** 篇论文解读
+
+**[Defect Spectrum A Granular Look Of Large-Scale Defect Datasets With Rich Semanti](defect_spectrum_a_granular_look_of_large-scale_defect_datasets_with_rich_semanti.md)**
+
+:   本文构建了 Defect Spectrum 数据集，在四个工业基准之上提供精细的、语义丰富的、大规模的多类缺陷标注（125种缺陷类别，3518+1920张），并提出两阶段扩散生成器 Defect-Gen 在少样本条件下合成高质量多样性缺陷图像，合成数据将缺陷分割 mIoU 最高提升 9.85。
+
+**[Optimizing Illuminant Estimation In Dual-Exposure Hdr Imaging](optimizing_illuminant_estimation_in_dual-exposure_hdr_imaging.md)**
+
+:   本文提出从双曝光 HDR 图像对中提取一种简洁的双曝光特征（DEF），并基于此构建了两个超轻量级光源估计器 EMLP 和 ECCC，在仅使用几百到几千个参数的情况下即可达到或超越需要数十万参数的先前方法的性能。
+
+**[Pyra Parallel Yielding Re-Activation For Training-Inference Efficient Task Adapt](pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt.md)**
+
+:   本文提出 PYRA，通过并行生成解耦的自适应调制权重并以 re-activation 策略调节待合并 token 的特征，实现了 Vision Transformer 在下游任务适配时同时兼顾训练效率（仅调 0.4% 参数）和推理效率（约 1.7-3.2 倍加速），性能与不压缩的 PEFT 方法持平甚至更优。
 
 **[Querycdr Query-Based Controllable Distortion Rectification Network For Fisheye I](querycdr_query-based_controllable_distortion_rectification_network_for_fisheye_i.md)**
 

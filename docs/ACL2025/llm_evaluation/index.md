@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM评测方向 73篇论文解读
+  ACL2025 LLM评测方向 76篇论文解读
 description: >-
-  73篇ACL2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  76篇ACL2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**💬 ACL2025** · **73** 篇论文解读
+**💬 ACL2025** · **76** 篇论文解读
 
 **[A Conformal Risk Control Framework For Granular Word Assessment And Uncertainty ](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
@@ -266,6 +266,14 @@ description: >-
 
 :   提出 StructFlowBench，一个融入结构流建模的多轮指令遵循基准测试，定义了六种基本的轮间关系（跟进、精炼、回忆、总结、扩展、不相关），建立了双层约束评估体系（轮内约束 + 轮间结构约束），系统评估了 13 个主流 LLM 在多轮对话结构理解上的能力。
 
+**[Swiltra-Bench The Swiss Legal Translation Benchmark](swiltra-bench_the_swiss_legal_translation_benchmark.md)**
+
+:   构建了 SwiLTra-Bench——一个包含超过 18 万对齐瑞士法律翻译对的大规模多语言基准（覆盖法律、判例摘要、新闻稿，涵盖德法意罗英五种语言），系统评估了前沿 LLM 和微调开源 SLM 在法律翻译上的表现，并提出 SwiLTra-Judge 自动评估方法。
+
+**[Tic-Lm A Web-Scale Benchmark For Time-Continual Llm Pretraining](tic-lm_a_web-scale_benchmark_for_time-continual_llm_pretraining.md)**
+
+:   本文提出TiC-LM，一个基于114个月Common Crawl数据（2.9T tokens）的大规模时间持续学习基准，通过150+实验系统评估了优化器、数据回放和正则化方法在持续预训练场景下的表现，发现自回归学习率调度结合固定比例数据回放可以在仅2.6倍计算量下接近从头训练的性能。
+
 **[Towards Dynamic Theory Of Mind Evaluating Llm Adaptation To Temporal Evolution O](towards_dynamic_theory_of_mind_evaluating_llm_adaptation_to_temporal_evolution_o.md)**
 
 :   提出 DynToM 基准，通过 1,100 个社会情境中 5,500 个时序关联场景和 78,100 道题目，评估 LLM 追踪人类心理状态时序演化的能力，揭示模型平均落后人类 44.7%。
@@ -289,6 +297,10 @@ description: >-
 **[Voxeval Benchmarking The Knowledge Understanding Capabilities Of End-To-End Spok](voxeval_benchmarking_the_knowledge_understanding_capabilities_of_end-to-end_spok.md)**
 
 :   提出 VoxEval，首个支持端到端纯语音输入-输出评估的 SpeechQA 基准，涵盖 56 个学科、26 种输入音频条件，系统揭示了当前端到端语音大模型在知识理解和数学推理方面的严重不足。
+
+**[Where Are We Evaluating Llm Performance On African Languages](where_are_we_evaluating_llm_performance_on_african_languages.md)**
+
+:   构建了覆盖517种非洲语言、30个数据集、16类任务的 Sahara 基准，系统评估24个LLM在非洲语言上的表现，揭示语言政策驱动的数据不平等如何直接影响模型效果。
 
 **[Wicked A Simple Method To Make Multiple Choice Benchmarks More Challenging](wicked_a_simple_method_to_make_multiple_choice_benchmarks_more_challenging.md)**
 

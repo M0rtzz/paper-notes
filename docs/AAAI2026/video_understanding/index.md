@@ -1,18 +1,14 @@
 ---
 title: >-
-  AAAI2026 视频理解方向 37篇论文解读
+  AAAI2026 视频理解方向 33篇论文解读
 description: >-
-  37篇AAAI2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  33篇AAAI2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🤖 AAAI2026** · **37** 篇论文解读
-
-**[3D4D An Interactive Editable 4D World Model Via 3D Video Generation](3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)**
-
-:   提出3D4D交互式4D可视化框架，集成WebGL与Supersplat渲染，通过四模块后端管线将静态图片/文本转化为可编辑4D场景，引入VLM引导的注视点渲染策略实现60fps实时交互，在CLIP Consistency和CLIP Score上达到SOTA。
+**🤖 AAAI2026** · **33** 篇论文解读
 
 **[Apvr Hour-Level Long Video Understanding With Adaptive Pivot](apvr_hour-level_long_video_understanding_with_adaptive_pivot.md)**
 
@@ -42,10 +38,6 @@ description: >-
 
 :   提出"蒸馏动力学"分析框架（通道维FFT频谱分析+Shannon熵+激活幅值追踪），揭示ViT具有独特的U型信息处理模式（先压缩后扩展），证明feature-based蒸馏在ViT中失败的根本原因是teacher后层的分布式高维编码范式与student有限通道容量之间的表征范式不匹配，而非简单的容量差距。
 
-**[Dreamrunner Fine-Grained Compositional Story-To-Video Genera](dreamrunner_fine-grained_compositional_story-to-video_genera.md)**
-
-:   提出 DreamRunner 框架，通过 LLM 双层规划 + 检索增强运动先验学习 + 时空区域3D注意力模块(SR3AI)，实现细粒度可控的多角色多事件故事视频生成。
-
 **[Emovid A Multimodal Emotion Video Dataset For Emotion-Centric Video Understandin](emovid_a_multimodal_emotion_video_dataset_for_emotion-centric_video_understandin.md)**
 
 :   提出 EmoVid，首个面向艺术化/非写实内容的大规模多模态情绪视频数据集（22,758 个视频片段），覆盖动画、电影和表情贴纸三种类型，并通过微调 Wan2.1 模型展示了情绪条件化视频生成的有效性，在情绪准确率指标上显著优于基线。
@@ -54,17 +46,9 @@ description: >-
 
 :   本文提出 CACMI 框架，通过显式时序-语义建模解决密集视频描述任务中的两个基本限制（时序建模不足和模态鸿沟），使用跨模态帧聚合（CFA）提取时序一致的事件语义，再用上下文感知特征增强（CFE）桥接视觉-文本模态差距，在 ActivityNet Captions 和 YouCook2 上达到 SOTA。
 
-**[Filmweaver Weaving Consistent Multi-Shot Videos With Cache-Guided Autoregressive](filmweaver_weaving_consistent_multi-shot_videos_with_cache-guided_autoregressive.md)**
-
-:   提出 FilmWeaver 框架，通过双层缓存（Shot Cache + Temporal Cache）引导自回归扩散模型，实现任意长度、跨镜头一致性的多镜头视频生成。
-
 **[Finetec Fine-Grained Action Recognition Under Temporal Corruption Via Skeleton D](finetec_fine-grained_action_recognition_under_temporal_corruption_via_skeleton_d.md)**
 
 :   提出 FineTec 框架，通过上下文感知序列补全、基于生物先验的骨架空间分解、物理驱动的加速度建模三个模块，在时序损坏条件下实现鲁棒的细粒度骨架动作识别。
-
-**[Genvidbench A 6-Million Benchmark For Ai-Generated Video Detection](genvidbench_a_6-million_benchmark_for_ai-generated_video_detection.md)**
-
-:   提出 GenVidBench——首个 678 万级 AI 生成视频检测数据集，具备跨源（cross-source）和跨生成器（cross-generator）特性，覆盖 11 种 SOTA 视频生成器，并提供丰富的语义标注。
 
 **[Group Orthogonal Low-Rank Adaptation For Rgb-T Tracking](group_orthogonal_low-rank_adaptation_for_rgb-t_tracking.md)**
 
@@ -93,18 +77,6 @@ description: >-
 **[Loom Personalized Learning Informed By Daily Llm Conversations Toward Long-Term ](loom_personalized_learning_informed_by_daily_llm_conversations_toward_long-term_.md)**
 
 :   提出 LOOM，一个智能体管线系统，通过观察用户日常 LLM 对话、推断学习需求、维护动态学习者记忆图（Learner Memory Graph），自动生成个性化的迷你课程，统一了学习的**连续性**（长期进度追踪）和**主动性**（即时响应新兴趣）。
-
-**[Mask2Iv Interaction-Centric Video Generation Via Mask Trajectories](mask2iv_interaction-centric_video_generation_via_mask_trajectories.md)**
-
-:   提出 Mask2IV，一个两阶段解耦框架——先预测交互者和物体的 mask 运动轨迹，再基于轨迹生成视频——实现了无需密集 mask 标注的、以交互为中心的可控视频生成，支持人-物交互和机器人操作两个场景。
-
-**[Mofu Scale-Aware Modulation And Fourier Fusion For Multi-Subject Video Generatio](mofu_scale-aware_modulation_and_fourier_fusion_for_multi-subject_video_generatio.md)**
-
-:   提出 MoFu，通过 Scale-Aware Modulation（LLM 引导的尺度感知调制）和 Fourier Fusion（基于 FFT 的排列不变特征融合）两个核心模块，同时解决多主体视频生成中的**尺度不一致**和**排列敏感性**两大挑战，并构建了 MoFu-1M 训练数据集和 MoFu-Bench 评测基准。
-
-**[Motioncharacter Fine-Grained Motion Controllable Human Video Generation](motioncharacter_fine-grained_motion_controllable_human_video_generation.md)**
-
-:   提出 MotionCharacter 框架，通过将运动解耦为动作类型和运动强度两个独立可控维度，实现高保真人体视频生成中的细粒度运动控制和身份一致性保持。
 
 **[Plugtrack Multi-Perceptive Motion Analysis For Adaptive Fusion In Multi-Object T](plugtrack_multi-perceptive_motion_analysis_for_adaptive_fusion_in_multi-object_t.md)**
 
@@ -150,6 +122,14 @@ description: >-
 
 :   提出 SUGAR 范式，利用 GPT 生成的**运动描述**和**视觉描述**作为先验知识，通过对比学习监督骨骼编码器学习更离散的表示，再用 LLM（LLaMA2-7B）的未触及预训练权重作为识别器，配合新设计的 Temporal Query Projection（TQP）模块实现高效的骨骼动作分类和零样本推理。
 
+**[Task-Specific Distance Correlation Matching For Few-Shot Action Recognition](task-specific_distance_correlation_matching_for_few-shot_action_recognition.md)**
+
+:   提出 TS-FSAR 框架，通过 α-距离相关性捕获帧间非线性依赖关系并结合任务特定匹配矩阵进行 query-support 匹配，同时用适配后的冻结 CLIP 引导侧网络训练，在 SSv2-Full 等时序敏感数据集上大幅超越先前方法。
+
+**[Tspo Temporal Sampling Policy Optimization For Long-Form Video Language Understa](tspo_temporal_sampling_policy_optimization_for_long-form_video_language_understa.md)**
+
+:   将视频关键帧选择和语言生成建模为联合决策过程，通过基于GRPO的强化学习端到端优化轻量级时序智能体的采样策略，在四个长视频理解基准上取得SOTA（LLaVA-Video-7B上LongVideoBench +5.0%、MLVU +6.0%），且可零样本迁移到其他Video-MLLM。
+
 **[Uvlm Benchmarking Video Language Model For Underwater World Understanding](uvlm_benchmarking_video_language_model_for_underwater_world_understanding.md)**
 
 :   构建首个水下视频语言理解基准 UVLM（2109 段视频、419 类海洋生物、20 种子任务、~4 万 video-text pairs），通过 human-AI 协同标注注入海洋领域知识，在 UVLM 上微调后 7B VidLM 可达到接近 GPT-4o 的性能（73.04 vs 77.95 Overall）。
@@ -157,3 +137,7 @@ description: >-
 **[Vir-Bench Evaluating Geospatial And Temporal Understanding Of Mllms Via Travel V](vir-bench_evaluating_geospatial_and_temporal_understanding_of_mllms_via_travel_v.md)**
 
 :   提出VIR-Bench——一个基于200个日本旅行vlog视频的benchmark，通过行程重建任务（visiting order graph构建）评估MLLM的地理空间和时间理解能力，发现SOTA模型（包括GPT-4.1和Gemini-2.5）在POI识别和时间转移推理上仍困难重重。
+
+**[Vtinker Guided Flow Upsampling And Texture Mapping For High-Resolution Video Fra](vtinker_guided_flow_upsampling_and_texture_mapping_for_high-resolution_video_fra.md)**
+
+:   提出 VTinker 流水线，通过引导式光流上采样（GFU）解决光流边界模糊问题，并采用纹理映射替代传统逐像素融合策略来消除鬼影和不连续，在高分辨率视频帧插值上取得 SOTA。

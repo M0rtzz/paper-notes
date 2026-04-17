@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 信号/通信方向 1篇论文解读
+  ACL2025 信号/通信方向 2篇论文解读
 description: >-
-  1篇ACL2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  2篇ACL2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📡 信号/通信
 
-**💬 ACL2025** · **1** 篇论文解读
+**💬 ACL2025** · **2** 篇论文解读
+
+**[Toolspectrum Towards Personalized Tool Utilization For Large Language Models](toolspectrum_towards_personalized_tool_utilization_for_large_language_models.md)**
+
+:   提出ToolSpectrum基准，首次定义并评估LLM的个性化工具使用能力——根据用户画像和环境因素选择最合适的工具，实验表明个性化显著提升用户体验，但现有LLM在联合推理用户和环境因素时能力有限。
 
 **[Wirelessmathbench A Mathematical Modeling Benchmark For Llms In Wireless Communi](wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi.md)**
 

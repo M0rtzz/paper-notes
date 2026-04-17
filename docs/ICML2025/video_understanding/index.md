@@ -1,18 +1,14 @@
 ---
 title: >-
-  ICML2025 视频理解方向 9篇论文解读
+  ICML2025 视频理解方向 7篇论文解读
 description: >-
-  9篇ICML2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  7篇ICML2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🧪 ICML2025** · **9** 篇论文解读
-
-**[Data-Juicer Sandbox A Feedback-Driven Suite For Multimodal Data-Model Co-Develop](data-juicer_sandbox_a_feedback-driven_suite_for_multimodal_data-model_co-develop.md)**
-
-:   提出 Data-Juicer Sandbox 沙箱套件，通过"探测-分析-精炼"(Probe-Analyze-Refine) 工作流，在低成本小规模实验中系统探索数据处理算子 (OP) 与模型性能的交互关系，将获得的数据配方迁移到大规模场景，在 VBench 排行榜取得第一名。
+**🧪 ICML2025** · **7** 篇论文解读
 
 **[Fastcav Efficient Computation Of Concept Activation Vectors For Explaining Deep ](fastcav_efficient_computation_of_concept_activation_vectors_for_explaining_deep_.md)**
 
@@ -33,10 +29,6 @@ description: >-
 **[Revolve Optimizing Ai Systems By Tracking Response Evolution In Textual Optimiza](revolve_optimizing_ai_systems_by_tracking_response_evolution_in_textual_optimiza.md)**
 
 :   REVOLVE 通过跟踪 LLM 系统中响应在迭代过程中的"演化"趋势来指导优化，比 TextGrad 等基于即时反馈的方法更稳定高效，在提示优化、方案改进和代码优化上分别提升 7.8%、20.72% 和 29.17%。
-
-**[Riflex A Free Lunch For Length Extrapolation In Video Diffusion Transformers](riflex_a_free_lunch_for_length_extrapolation_in_video_diffusion_transformers.md)**
-
-:   通过系统分析RoPE位置编码中各频率分量的角色，发现存在一个"固有频率"主导外推时的时间重复行为，提出仅降低该频率使其在外推后保持单周期的最小化方案RIFLEx，在CogVideoX-5B和HunyuanVideo上实现无训练2×高质量视频外推。
 
 **[Scaling Video-Language Models To 10K Frames Via Hierarchical Differential Distil](scaling_video-language_models_to_10k_frames_via_hierarchical_differential_distil.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 模型压缩方向 62篇论文解读
+  ACL2025 模型压缩方向 64篇论文解读
 description: >-
-  62篇ACL2025 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  64篇ACL2025 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**💬 ACL2025** · **62** 篇论文解读
+**💬 ACL2025** · **64** 篇论文解读
 
 **[500Xcompressor Generalized Prompt Compression For Large Language Models](500xcompressor_generalized_prompt_compression_for_large_language_models.md)**
 
@@ -204,6 +204,10 @@ description: >-
 
 :   提出 RISE——结合 RAG 与自迭代训练的多跳问答框架，通过问题分解、检索阅读、自我批判三个动作的自我探索循环，迭代生成训练数据并多目标优化模型，在 2Wiki/HotpotQA/MuSiQue 上超越 GPT-3.5 和所有 8B 级基线。
 
+**[Scaling Laws And Efficient Inference For Ternary Language Models](scaling_laws_and_efficient_inference_for_ternary_language_models.md)**
+
+:   本文系统研究三值语言模型（TriLM）的缩放规律，发现 TriLM 从增加训练数据中获益远大于增加参数量，基于此训练了在 1.2T token 上预训练的 Spectra-1.1 模型族（1B/2B/3B），并提出 1.6-bit 和 2-bit 权重打包方案及 TriRun GPU 内核，实现最高 8 倍的推理加速。
+
 **[Sci-Lora Mixture Of Scientific Loras For Cross-Domain Lay Paraphrasing](sci-lora_mixture_of_scientific_loras_for_cross-domain_lay_paraphrasing.md)**
 
 :   提出 Sci-LoRA——一种混合多领域 LoRA 的框架，通过对比学习训练文本编码器+动态权重生成器+LoRA 融合模块，在无需领域标签的情况下实现跨12个学科领域的科学文本通俗化改写，在5个数据集10个指标上超越 SOTA。
@@ -235,6 +239,10 @@ description: >-
 **[Tada Training-Free Recipe For Decoding With Adaptive Kv Cache Compression And Me](tada_training-free_recipe_for_decoding_with_adaptive_kv_cache_compression_and_me.md)**
 
 :   提出 TaDA——无需训练的 KV cache 压缩方法，通过对 K/V 激活做 head 维度均值中心化后量化偏差（而非原始激活），自动消除离群值问题，配合逐层自适应量化精度搜索，将 KV cache 压缩至原始 16 位的 27% 同时保持接近基线的精度。
+
+**[Teamlora Boosting Low-Rank Adaptation With Expert Collaboration And Competition](teamlora_boosting_low-rank_adaptation_with_expert_collaboration_and_competition.md)**
+
+:   提出 TeamLoRA，通过非对称协作模块（共享A矩阵+多个专家B矩阵的"插件式"组织）和基于Shapley值的竞争模块来优化Multi-LoRA架构，在多任务学习中实现了更好的效果-效率平衡——训练时间比MoELoRA减少30%，推理速度提升40%，同时性能更优。
 
 **[Trans Peft Transferable](trans_peft_transferable.md)**
 

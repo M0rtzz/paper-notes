@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 预训练/数据方向 32篇论文解读
+  ACL2025 预训练/数据方向 34篇论文解读
 description: >-
-  32篇ACL2025 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  34篇ACL2025 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练/数据
 
-**💬 ACL2025** · **32** 篇论文解读
+**💬 ACL2025** · **34** 篇论文解读
 
 **[Adversarial Tokenization](adversarial_tokenization.md)**
 
@@ -118,6 +118,10 @@ description: >-
 
 :   提出 Activation Inversion Attack（AIA），首次系统揭示去中心化训练（流水线并行）中恶意阶段可通过截获中间激活值高效重构训练数据，在 Bloom-7B1 微调场景下可精确恢复 62% 的私人邮件和接近 100% 的生日信息。
 
+**[Synthesizing Post-Training Data For Llms Through Multi-Agent Simulation](synthesizing_post-training_data_for_llms_through_multi-agent_simulation.md)**
+
+:   本文提出 MATRIX 多智能体模拟器和 MATRIX-Gen 场景驱动指令生成器，通过模拟真实社会场景来合成高质量的 LLM 后训练数据，仅用 20K 条合成数据训练的 Llama-3-8B 在 AlpacaEval 2 和 Arena-Hard 上超过了使用超过 10M 数据训练的 Meta 官方 Llama-3-8B-Instruct。
+
 **[Tokalign Vocab Adaptation](tokalign_vocab_adaptation.md)**
 
 :   提出 TokAlign，基于 Token 共现信息学习两个词表之间的一对一映射矩阵，高效替换 LLM 的词表，实现跨语言知识迁移和跨模型 token 级蒸馏。
@@ -125,6 +129,10 @@ description: >-
 **[Tokenization Is Sensitive To Language Variation](tokenization_is_sensitive_to_language_variation.md)**
 
 :   系统研究了 BPE tokenizer 的三个关键设计选择（拟合语料、pre-tokenizer、词表大小）对语言变体鲁棒性任务和敏感性任务下游性能的差异化影响，并提出基于 logistic regression 的 task-aware tokenizer 评估指标，显著优于 Rényi efficiency 等 task-agnostic 指标。
+
+**[Towards Effective And Efficient Continual Pre-Training Of Large Language Models](towards_effective_and_efficient_continual_pre-training_of_large_language_models.md)**
+
+:   系统性地研究了对Llama-3 (8B)进行持续预训练的数据策略，通过主题级数据混合、困惑度课程学习和高质量合成科学QA数据三大策略，仅用100B token就显著增强了中文能力（C-Eval +8.81）和科学推理能力（MATH +12.00），同时有效保持了原始英语能力。
 
 **[Training Dynamics Underlying Language Model Scaling Laws Loss Deceleration And Z](training_dynamics_underlying_language_model_scaling_laws_loss_deceleration_and_z.md)**
 

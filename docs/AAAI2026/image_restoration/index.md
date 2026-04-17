@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 图像恢复方向 15篇论文解读
+  AAAI2026 图像恢复方向 14篇论文解读
 description: >-
-  15篇AAAI2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  14篇AAAI2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🤖 AAAI2026** · **15** 篇论文解读
+**🤖 AAAI2026** · **14** 篇论文解读
 
 **[Blur-Robust Detection Via Feature Restoration An End-To-End Framework For Prior-](blur-robust_detection_via_feature_restoration_an_end-to-end_framework_for_prior-.md)**
 
@@ -49,10 +49,6 @@ description: >-
 **[Sd-Psfnet Sequential And Dynamic Point Spread Function Netwo](sd-psfnet_sequential_and_dynamic_point_spread_function_netwo.md)**
 
 :   提出基于动态 PSF 机制的级联 CNN 去雨网络 SD-PSFNet，通过多尺度可学习 PSF 字典建模雨滴光学效应，配合自适应门控融合的序列化修复架构，在 Rain100H 达 33.12 dB、RealRain-1k-L 达 42.28 dB 均为 SOTA，对比基线 MPRNet 累计提升 5.04 dB（13.5%）。
-
-**[Seeing The Unseen Zooming In The Dark With Event Cameras](seeing_the_unseen_zooming_in_the_dark_with_event_cameras.md)**
-
-:   提出首个事件驱动低光视频超分（LVSR）框架 RetinexEVSR，通过 Retinex 启发的双向融合策略（RBF）——先用光照图引导事件特征去噪（IEE），再用增强后的事件特征恢复反射率细节（ERE），在 SDSD 基准上实现 2.95dB 增益且运行时间减少 65%。
 
 **[Spatiotemporal Difference Network For Video Depth Super-Resolution](spatiotemporal_difference_network_for_video_depth_super-resolution.md)**
 

@@ -166,10 +166,6 @@ description: >-
 
 :   本文发现并系统定义"模态失语"（Modal Aphasia）现象——统一多模态模型能从记忆中近乎完美地生成视觉概念（如电影海报图像），但在文字描述同一概念时错误率高出 7 倍以上，且严重幻觉几乎只出现在文本模态；通过前沿模型（ChatGPT-5）的真实实验和开源模型（Janus-Pro、Harmon）的合成控制实验，证实模态失语是当前统一架构的系统性缺陷而非训练偶然，并展示了该现象对 AI 安全框架的潜在威胁。
 
-**[Multi-Modal Data Spectrum Multi-Modal Datasets Are Multi-Dimensional](multi-modal_data_spectrum_multi-modal_datasets_are_multi-dimensional.md)**
-
-:   大规模实证研究揭示23个VQA基准中存在严重的单模态依赖问题——许多为消除文本偏差而设计的基准反而引入了图像偏差，模型利用单模态捷径而非真正的跨模态推理。
-
 **[Multimodal Classification Via Total Correlation Maximization](multimodal_classification_via_total_correlation_maximization.md)**
 
 :   从信息论角度分析多模态分类中的模态竞争问题，提出 TCMax 损失函数通过最大化多模态特征与标签之间的总相关性（Total Correlation），同时兼顾联合学习、单模态学习和跨模态对齐三重目标，在多个音视频/图文分类基准上超越 SOTA。
@@ -313,6 +309,10 @@ description: >-
 **[Why Keep Your Doubts To Yourself Trading Visual Uncertainties In Multi-Agent Ban](why_keep_your_doubts_to_yourself_trading_visual_uncertainties_in_multi-agent_ban.md)**
 
 :   提出 Agora 框架，将多智能体 VLM 协调问题重构为去中心化的不确定性交易市场——将认知不确定性铸造为可量化的三维可交易资产（感知/语义/推理），通过利润驱动的交易协议和市场感知的 Thompson Sampling Broker 实现成本高效的均衡分配，在 5 个多模态基准上一致超越启发式方法（如 MMMU 上 +8.5% 准确率同时成本降低 3 倍以上）。
+
+**[Why Keep Your Doubts To Yourself Trading Visual Uncertainty](why_keep_your_doubts_to_yourself_trading_visual_uncertainty.md)**
+
+:   提出 Agora 框架，将多智能体 VLM 协调问题重新建模为去中心化的不确定性交易市场，通过将认知不确定性拆分为可交易资产（感知/语义/推理三维），并用基于盈利性驱动的交易协议和 Thompson Sampling 代理人实现成本感知的最优分配，在五个多模态基准上以超 3 倍成本节省获得至多 +8.5% 准确率提升。
 
 **[Why Reinforcement Fine-Tuning Enables Mllms Preserve Prior Knowledge Better A Da](why_reinforcement_fine-tuning_enables_mllms_preserve_prior_knowledge_better_a_da.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 视频理解方向 34篇论文解读
+  ICLR2026 视频理解方向 25篇论文解读
 description: >-
-  34篇ICLR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  25篇ICLR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🔬 ICLR2026** · **34** 篇论文解读
+**🔬 ICLR2026** · **25** 篇论文解读
 
 **[Adaem An Adaptively And Automated Extensible Measurement Of Llms Value Differenc](adaem_an_adaptively_and_automated_extensible_measurement_of_llms_value_differenc.md)**
 
@@ -21,10 +21,6 @@ description: >-
 **[Anveshanaai A Multimodal Platform For Adaptive Aiml Education Through Automated ](anveshanaai_a_multimodal_platform_for_adaptive_aiml_education_through_automated_.md)**
 
 :   提出 AnveshanaAI，一个基于 Bloom 认知分类学的自适应 AI/ML 教育平台，通过自动化题目生成（基于微调的 GPT-2）、语义相似度检测去重、XAI 可解释性技术和游戏化机制（积分/徽章/排行榜），实现了覆盖数据科学到多模态 AI 七大领域的个性化学习评估系统，实验表明微调后困惑度显著下降且学习者参与度明显提升。
-
-**[Bindweave Subject-Consistent Video Generation Via Cross-Modal Integration](bindweave_subject-consistent_video_generation_via_cross-modal_integration.md)**
-
-:   BindWeave 用多模态大语言模型（MLLM）替代传统的浅层融合机制来解析多主体复杂文本指令，生成主体感知的隐状态作为 DiT 的条件信号，结合 CLIP 语义特征和 VAE 细粒度外观特征，实现高保真、主体一致的视频生成。
 
 **[Coupling Experts And Routers In Mixture-Of-Experts Via An Auxiliary Loss](coupling_experts_and_routers_in_mixture-of-experts_via_an_auxiliary_loss.md)**
 
@@ -50,10 +46,6 @@ description: >-
 
 :   发现 slot-based 目标中心学习中编码器（产生尖锐但有噪声的注意力图）与解码器（产生空间一致但模糊的重建掩码）之间的恶性循环，提出同步对比学习目标和 slot 正则化预热策略将其转化为良性循环，在 MOVi 和 YouTube-VIS 上大幅提升物体发现性能。
 
-**[Javisdit Joint Audio-Video Diffusion Transformer With Hierarchical Spatio-Tempor](javisdit_joint_audio-video_diffusion_transformer_with_hierarchical_spatio-tempor.md)**
-
-:   提出 JavisDiT，基于 DiT 架构的音视频联合生成模型，通过层级化时空同步先验估计器（HiST-Sypo）实现细粒度的音视频时空对齐；同时构建了新基准 JavisBench（10K 复杂场景样本）和新评估指标 JavisScore。
-
 **[Lets Split Up Zero-Shot Classifier Edits For Fine-Grained Video Understanding](lets_split_up_zero-shot_classifier_edits_for_fine-grained_video_understanding.md)**
 
 :   提出了"类别拆分"(Category Splitting)新任务，通过挖掘视频分类器权重中的潜在组合结构，在零样本条件下将粗粒度动作类别拆分为细粒度子类别，无需重训或额外数据。
@@ -66,10 +58,6 @@ description: >-
 
 :   提出 Lumina 框架，通过"上下文-知识信号"检测RAG系统中的幻觉：用MMD度量**外部上下文利用**程度，用跨层token预测演化度量**内部知识利用**程度，无需超参调优即可泛化。
 
-**[Lumos-1 On Autoregressive Video Generation With Discrete Diffusion From A Unifie](lumos-1_on_autoregressive_video_generation_with_discrete_diffusion_from_a_unifie.md)**
-
-:   提出 Lumos-1，一个基于 LLM 架构的统一视频生成模型：通过 MM-RoPE（分布式多模态 RoPE）解决视觉时空编码问题，通过 AR-DF（自回归离散扩散强迫）解决帧间损失不均衡问题，仅用 48 GPU 训练即可在 GenEval、VBench-I2V 和 VBench-T2V 上达到竞争力水平。
-
 **[Mamba-3 Improved Sequence Modeling Using State Space Principles](mamba-3_improved_sequence_modeling_using_state_space_principles.md)**
 
 :   从SSM视角提出三项核心改进：指数-梯形离散化、复值状态空间、多输入多输出(MIMO)公式化，在不增加解码延迟的前提下显著提升模型质量和状态追踪能力，推进性能-效率Pareto前沿。
@@ -77,14 +65,6 @@ description: >-
 **[Map The Flow Revealing Hidden Pathways Of Information In Videollms](map_the_flow_revealing_hidden_pathways_of_information_in_videollms.md)**
 
 :   首次用机制可解释性工具（Attention Knockout + Logit Lens）系统逆向工程VideoLLM的时序推理过程，揭示出"早中层跨帧交互→中层视频-语言整合→中后层答案生成"的三阶段信息流蓝图，并证明仅保留42%注意力边即可几乎无损保持VideoQA性能。
-
-**[Mosa Motion-Coherent Human Video Generation Via Structure-Appearance Decoupling](mosa_motion-coherent_human_video_generation_via_structure-appearance_decoupling.md)**
-
-:   提出 MoSA 框架，将人体视频生成拆分为"结构生成"（3D Transformer 先生成物理合理的运动骨骼）和"外观生成"（DiT 在骨骼引导下合成视频），并设计人体感知动态控制（HADC）模块将稀疏骨骼信号扩展到整个运动区域，配合密集跟踪损失和接触约束，在 FVD、CLIPSIM 等指标上全面超越 HunyuanVideo、Wan 2.1 等 SOTA。
-
-**[Motionstream Real-Time Video Generation With Interactive Motion Controls](motionstream_real-time_video_generation_with_interactive_motion_controls.md)**
-
-:   提出MotionStream——首个运动控制的实时流式视频生成系统：先训练轻量track head的双向运动控制teacher，再通过Self Forcing + DMD蒸馏为因果student，引入注意力沉降（attention sink）+滚动KV缓存（rolling KV cache）实现训练-推理分布完全匹配，单H100 GPU上480P达17FPS/29FPS（+Tiny VAE），支持无限长度恒速生成。
 
 **[Nerve Nonlinear Eigenspectrum Dynamics In Llm Feed-Forward Networks](nerve_nonlinear_eigenspectrum_dynamics_in_llm_feed-forward_networks.md)**
 
@@ -97,18 +77,6 @@ description: >-
 **[Paper Copilot Tracking The Evolution Of Peer Review In Ai Conferences](paper_copilot_tracking_the_evolution_of_peer_review_in_ai_conferences.md)**
 
 :   构建 Paper Copilot——跨数十个 AI/ML 会议的同行评审持久数字档案与分析平台：通过 OpenReview API、网页抓取、社区贡献三源混合收集评审数据，实时归档评分时间快照（含 rebuttal 前后动态变化），揭示 ICLR 2025 年决策熵反常下降——评审体系从概率性分层转向近确定性分数驱动决策的结构性变化，并通过 LLM 驱动的作者-机构元数据提取支持人才轨迹追踪。
-
-**[Precisecache Precise Feature Caching For Efficient And High-Fidelity Video Gener](precisecache_precise_feature_caching_for_efficient_and_high-fidelity_video_gener.md)**
-
-:   提出 PreciseCache——精确检测并跳过视频生成中真正冗余计算的即插即用加速框架，由 LFCache（步级，基于低频差异 LFD 度量）和 BlockCache（块级，基于输入输出差异度量）组成，在 Wan2.1-14B 等主流模型上实现平均 2.6× 加速且无明显质量损失。
-
-**[Quantsparse Comprehensively Compressing Video Diffusion Transformer With Model Q](quantsparse_comprehensively_compressing_video_diffusion_transformer_with_model_q.md)**
-
-:   本文提出 QuantSparse 框架，首次将模型量化（quantization）与注意力稀疏化（attention sparsification）协同整合用于视频扩散 Transformer 压缩，通过多尺度显著注意力蒸馏（MSAD）和二阶稀疏注意力重参数化（SSAR）解决两者朴素结合导致的"放大注意力偏移"问题，在 HunyuanVideo-13B 上以 W4A8 + 15% 注意力密度实现 3.68× 存储压缩和 1.88× 推理加速，同时几乎无损保持生成质量。
-
-**[Reducing Belief Deviation In Reinforcement Learning For Active Reasoning](reducing_belief_deviation_in_reinforcement_learning_for_active_reasoning.md)**
-
-:   提出 T³（Truncating Belief-Trapped Trajectories），基于 POMDP 理论分析 LLM 智能体在多轮主动推理中的"信念陷阱"现象，通过检测信念偏离并截断无信息尾部轨迹来修正 RL 训练中的信用分配错误，在 5 个挑战性任务上获得最高 30 分的性能提升并节省 34% 的 token 开销。
 
 **[Stabilizing Policy Gradients For Sample-Efficient Reinforcement Learning In Llm ](stabilizing_policy_gradients_for_sample-efficient_reinforcement_learning_in_llm_.md)**
 
@@ -125,10 +93,6 @@ description: >-
 **[Towards Reliable Benchmarking A Contamination Free Controllable Evaluation Frame](towards_reliable_benchmarking_a_contamination_free_controllable_evaluation_frame.md)**
 
 :   提出 FuncBenchGen 框架，通过将多步函数调用建模为 DAG 图遍历问题，实现无数据污染、可精细控制任务难度的 LLM 工具使用能力评估，并揭示了推理模型在长调用链和连接型干扰函数下的关键失败模式。
-
-**[Ttom Test-Time Optimization And Memorization For Compositional Video Generation](ttom_test-time_optimization_and_memorization_for_compositional_video_generation.md)**
-
-:   提出 TTOM 框架，在推理时通过优化新增参数将视频生成模型的注意力与 LLM 生成的时空布局对齐，并用参数记忆机制保存历史优化上下文支持复用，在 T2V-CompBench 上相对提升 34%（CogVideoX）和 14%（Wan2.1）。
 
 **[Video-Ktr Reinforcing Video Reasoning Via Key Token Attribution](video-ktr_reinforcing_video_reasoning_via_key_token_attribution.md)**
 

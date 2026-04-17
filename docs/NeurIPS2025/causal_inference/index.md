@@ -1,22 +1,18 @@
 ---
 title: >-
-  NeurIPS2025 因果推理方向 24篇论文解读
+  NeurIPS2025 因果推理方向 23篇论文解读
 description: >-
-  24篇NeurIPS2025 因果推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  23篇NeurIPS2025 因果推理方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🧠 NeurIPS2025** · **24** 篇论文解读
+**🧠 NeurIPS2025** · **23** 篇论文解读
 
 **[A Principle Of Targeted Intervention For Multi-Agent Reinforcement Learning](a_principle_of_targeted_intervention_for_multi-agent_reinforcement_learning.md)**
 
 :   提出基于多智能体影响图（MAIDs）的**目标干预范式（Targeted Intervention）**，通过仅对单个目标智能体施加**预策略干预（Pre-Strategy Intervention, PSI）**，引导整个多智能体系统收敛到满足额外期望结果的优选Nash均衡，无需对所有智能体进行全局干预。
-
-**[Alignment Of Large Language Models With Constrained Learning](alignment_of_large_language_models_with_constrained_learning.md)**
-
-:   将LLM对齐建模为约束优化问题——最大化主要奖励（如有用性）同时满足次要效用约束（如安全性），提出基于拉格朗日对偶的迭代方法交替更新LLM策略和对偶变量，理论上刻画了分布空间与参数空间之间的原对偶间隙和最优性间隙，证明可以找到近最优约束LLM策略（误差仅来自参数化间隙）。
 
 **[An Analysis Of Causal Effect Estimation Using Outcome Invariant Data Augmentatio](an_analysis_of_causal_effect_estimation_using_outcome_invariant_data_augmentatio.md)**
 

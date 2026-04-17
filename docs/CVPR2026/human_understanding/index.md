@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 人体理解方向 47篇论文解读
+  CVPR2026 人体理解方向 66篇论文解读
 description: >-
-  47篇CVPR2026 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  66篇CVPR2026 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📷 CVPR2026** · **47** 篇论文解读
+**📷 CVPR2026** · **66** 篇论文解读
 
 **[All In One Unifying Deepfake Detection Tampering Localization And Source Tracing](all_in_one_unifying_deepfake_detection_tampering_localization_and_source_tracing.md)**
 
@@ -82,6 +82,14 @@ description: >-
 
 :   提出 FOZO，一种仅需前向传播的零阶 prompt 优化范式，通过 SPSA 梯度估计 + 动态扰动策略 + 深浅层特征统计对齐，在不修改模型权重的情况下实现高效 TTA，在 ImageNet-C 上以 59.52% 准确率超越所有前向方法（含 FOA 58.13%），并支持 INT8 量化模型。
 
+**[Gardendesigner Encoding Aesthetic Principles Into Jiangnan Garden Construction V](gardendesigner_encoding_aesthetic_principles_into_jiangnan_garden_construction_v.md)**
+
+:   提出 GardenDesigner 框架，通过链式智能体（地形分布→道路生成→资产选择→布局优化）将江南园林的美学原则编码为可计算的约束，结合专家标注的 GardenVerse 数据集，实现非专业用户通过文本输入在一分钟内自动构建符合美学规范的江南园林。
+
+**[Geoworld Geometric World Models](geoworld_geometric_world_models.md)**
+
+:   GeoWorld 将预测式世界模型的潜在表征从欧氏空间映射到双曲流形上，通过 Hyperbolic JEPA 保持几何结构和层级关系，并提出 Geometric Reinforcement Learning 来优化多步规划，在 CrossTask 和 COIN 上实现了约 3% SR（3步）和 2% SR（4步）的提升。
+
 **[Graph2Eval Automatic Multimodal Task Generation For Agents Via Knowledge Graphs](graph2eval_automatic_multimodal_task_generation_for_agents_via_knowledge_graphs.md)**
 
 :   提出 Graph2Eval，一个知识图谱驱动的 agent 评估任务自动生成框架——通过从文档/网页构建结构化知识图谱、子图采样、LLM 条件生成和多阶段过滤，自动产出语义一致（+20%）且可解（+17%）的多模态 agent 任务，构建了包含 1319 个任务的 Graph2Eval-Bench。
@@ -89,6 +97,14 @@ description: >-
 **[Graph2Eval Multimodal Task Generation Agents](graph2eval_multimodal_task_generation_agents.md)**
 
 :   提出 Graph2Eval，利用从异构数据源构建的知识图谱作为结构化任务空间，通过子图采样、任务模板和 meta-path 策略自动生成语义一致且可解的多模态 agent 评估任务，生成的任务在语义一致性和可解性上分别提升 20% 和 17%。
+
+**[Guide A Benchmark For Understanding And Assisting Users In Open-Ended Gui Tasks](guide_a_benchmark_for_understanding_and_assisting_users_in_open-ended_gui_tasks.md)**
+
+:   本文提出 GUIDE 基准，包含 120 个新手用户在 10 款软件上的 67.5 小时屏幕录像和出声思维标注，定义了行为状态检测、意图预测、协助预测三个分层任务，评估发现当前最强多模态模型在理解用户行为和判断协助需求上表现有限（行为检测仅 44.6% 准确率），但提供结构化用户上下文可显著提升性能（协助预测最高提升 50.2pp）。
+
+**[Handx Scaling Bimanual Motion And Interaction Generation](handx_scaling_bimanual_motion_and_interaction_generation.md)**
+
+:   构建了 HandX——一个统一的双手运动生成基础设施（包含 54.2 小时运动数据 + 48.5 万条细粒度文本标注），提出解耦式自动标注策略（运动学特征提取 + LLM 推理生成描述），并基准测试了扩散和自回归两种生成范式，展示了明确的数据和模型 scaling 趋势。
 
 **[Idperturb Enhancing Variation In Synthetic Face Generation Via Angular Perturbat](idperturb_enhancing_variation_in_synthetic_face_generation_via_angular_perturbat.md)**
 
@@ -126,13 +142,29 @@ description: >-
 
 :   首个全离线移动端扩散式虚拟试穿框架，基于TeacherNet-GarmentNet-TryonNet (TGT)架构，通过特征引导对抗蒸馏(FGA)将SD3.5 Large的能力迁移到415M参数的轻量学生网络，在VITON-HD和DressCode上以1024×768分辨率匹配甚至超越服务器端基线，端到端推理时间约80秒（小米17 Pro Max）。
 
+**[Molingo Motion-Language Alignment For Text-To-Motion Generation](molingo_motion-language_alignment_for_text-to-motion_generation.md)**
+
+:   MoLingo 通过语义对齐的运动自编码器（SAE）和多 token 交叉注意力文本条件注入，在连续潜空间上执行 masked 自回归 rectified flow，在文本到人体动作生成任务上取得了 FID、R-Precision 和用户研究的全面 SOTA。
+
+**[Omg-Bench A New Challenging Benchmark For Skeleton-Based Online Micro Hand Gestu](omg-bench_a_new_challenging_benchmark_for_skeleton-based_online_micro_hand_gestu.md)**
+
+:   本文构建了首个大规模公开的基于骨骼数据的在线微手势识别基准OMG-Bench（40类、13948个实例），并提出HMATr框架，通过层次化记忆库和位置感知查询实现检测-分类的端到端统一，在检测率上超越SOTA方法7.6%。
+
 **[Openfs Multi-Hand-Capable Fingerspelling Recognition With Implicit Signing-Hand ](openfs_multi-hand-capable_fingerspelling_recognition_with_implicit_signing-hand_.md)**
 
 :   提出 OpenFS 框架，通过双层位置编码 + 签名手聚焦损失 + 单调对齐损失实现隐式签名手检测的多手指拼识别，并设计帧级字母条件扩散生成器合成 OOV 数据，在 ChicagoFSWild/ChicagoFSWildPlus/FSNeo 三个基准上取得 SOTA，推理速度比 PoseNet 快 100 倍以上。
 
+**[Pad-Hand Physics-Aware Diffusion For Hand Motion Recovery](pad-hand_physics-aware_diffusion_for_hand_motion_recovery.md)**
+
+:   提出 PAD-Hand，一个物理感知的条件扩散框架，将欧拉-拉格朗日动力学残差建模为虚拟观测量融入扩散过程，同时通过最后一层拉普拉斯近似估计逐关节、逐帧的动态方差，实现了兼具物理可信度和不确定性感知的手部运动恢复，在 DexYCB 上加速度误差降低 50.1%。
+
 **[Party Part-Guidance For Expressive Text-To-Motion Synthesis](party_part-guidance_for_expressive_text-to-motion_synthesis.md)**
 
 :   提出 ParTY 框架，通过部位引导网络（Part-Guided Network）和部位感知文本对齐（Part-aware Text Grounding），在保持全身动作连贯性的同时大幅提升身体各部位的文本-动作语义对齐精度，解决了现有整体式方法与部位拆分方法之间"部位表达力 vs 全身连贯性"的根本矛盾。
+
+**[Pulse Privileged Knowledge Transfer From Rich To Deployable Sensors For Embodied](pulse_privileged_knowledge_transfer_from_rich_to_deployable_sensors_for_embodied.md)**
+
+:   本文提出 PULSE 框架，通过冻结的特权传感器（如 EDA）教师模型向廉价可部署传感器（如 ECG、BVP、加速度计）学生模型进行知识蒸馏，引入共享-私有嵌入分解和重建防崩塌机制，在不使用 EDA 推理的情况下达到 0.994 AUROC 的压力检测性能，甚至超越使用全部传感器的模型。
 
 **[Quantvla Scale-Calibrated Post-Training Quantization For Vision-Language-Action ](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)**
 
@@ -150,6 +182,14 @@ description: >-
 
 :   构建 VTON-QBench（62,688 张试穿图像、13,838 名合格标注者、431,800 条标注）并提出 VTON-IQA 无参考质量评估框架，通过非对称交错交叉注意力（ICA）模块联合建模服装保真度和人物保持度，实现与人类感知高度对齐的图像级质量预测。
 
+**[Refton Reference Person Shot Assist Virtual Try-On](refton_reference_person_shot_assist_virtual_try-on.md)**
+
+:   本文提出 RefTon，一个基于 Flux-Kontext 的人对人虚拟试穿框架，通过引入额外参考图像（其他人穿着目标服装的照片）来提供更准确的服装细节信息，同时通过两阶段训练策略和缩放位置索引机制实现了无需辅助条件（如 DensePose、分割掩码）的端到端试穿，在 VITON-HD 和 DressCode 上达到 SOTA。
+
+**[Remogen Real-Time Human Interaction-To-Reaction Generation Via Modular Learning ](remogen_real-time_human_interaction-to-reaction_generation_via_modular_learning_.md)**
+
+:   提出 ReMoGen，一个模块化框架用于实时人体交互-到-反应的动作生成：利用大规模单人运动数据学习通用运动先验（冻结），通过独立训练的 Meta-Interaction 模块适配不同交互域（人-人/人-场景），并引入 Frame-wise Segment Refinement 实现逐帧低延迟在线更新（0.047s/帧），在 Inter-X 和 LINGO 数据集上全面超越 SOTA。
+
 **[Rethinking Concept Bottleneck Models From Pitfalls To Solutions](rethinking_concept_bottleneck_models_from_pitfalls_to_solutions.md)**
 
 :   提出 CBM-Suite 框架，系统性解决概念瓶颈模型的四大缺陷——缺乏概念相关性预评估指标、线性问题导致概念瓶颈被绕过、与黑盒模型的精度差距、以及不同视觉骨干/VLM 影响的研究空白——通过熵度量、非线性层和蒸馏损失显著提升 CBM 的精度与可解释性。
@@ -162,6 +202,10 @@ description: >-
 
 :   提出 State-aware Reasoning (StaR)，通过教会多模态 Agent "感知当前状态→分析目标状态→决定是否操作"的三步推理链，将 GUI 开关控制准确率提升超 30%，同时不损害通用 Agent 任务性能。
 
+**[Seeing Without Pixels Perception From Camera Trajectories](seeing_without_pixels_perception_from_camera_trajectories.md)**
+
+:   本文首次系统性地将相机位姿轨迹（6DoF pose sequence）提升为一种独立的视频感知模态，通过对比学习框架训练轻量级 Transformer 编码器 CamFormer，将相机轨迹映射到与文本对齐的联合嵌入空间，在 5 个数据集的 10 个下游任务上证明相机轨迹是既轻量又鲁棒的视频内容信号——在物理活动上甚至可以超越计算量大数千倍的视频模型。
+
 **[Sketch2Colab Sketch-Conditioned Multi-Human Animation Via Controllable Flow Dist](sketch2colab_sketch-conditioned_multi-human_animation_via_controllable_flow_dist.md)**
 
 :   提出 Sketch2Colab，通过将草图驱动的扩散先验蒸馏为整流流学生网络，结合能量引导和连续时间马尔可夫链（CTMC）离散事件规划，从故事板草图生成协调的多人-物体交互 3D 动作，在 CORE4D 和 InterHuman 上实现 SOTA 约束遵从度和感知质量。
@@ -169,6 +213,14 @@ description: >-
 **[Stable Spike Dual Consistency Optimization Via Bitwise And Operations For Spikin](stable_spike_dual_consistency_optimization_via_bitwise_and_operations_for_spikin.md)**
 
 :   提出 Stable Spike 双一致性优化框架，利用硬件友好的 AND 位运算从多时间步脉冲图中解耦稳定脉冲骨架，并注入振幅感知脉冲噪声增强泛化，在超低延迟(T=2)下将神经形态物体识别精度提升最高 8.33%。
+
+**[Steeldefectx A Coarse-To-Fine Vision-Language Dataset And Benchmark For Generali](steeldefectx_a_coarse-to-fine_vision-language_dataset_and_benchmark_for_generali.md)**
+
+:   提出 SteelDefectX，首个面向钢材表面缺陷检测的视觉-语言数据集（7778 张图像、25 类缺陷），包含从类级到样本级的粗到细文本标注，并建立了涵盖纯视觉分类、视觉-语言分类、零/少样本识别和零样本迁移的四任务基准，实验证明高质量文本标注显著提升模型的可解释性、泛化性和跨域迁移能力。
+
+**[Subflot Submodel Extraction For Efficient And Personalized Federated Learning Vi](subflot_submodel_extraction_for_efficient_and_personalized_federated_learning_vi.md)**
+
+:   提出 SubFLOT 框架，在服务器端利用最优传输（Optimal Transport）将全局模型的参数分布与客户端历史模型对齐，实现无需访问原始数据的个性化剪枝，并通过自适应正则化抑制剪枝导致的参数偏移，在多个数据集上大幅超越现有联邦剪枝方法。
 
 **[Team Ras In 10Th Abaw Competition Multimodal Valen](team_ras_in_10th_abaw_competition_multimodal_valen.md)**
 
@@ -182,6 +234,10 @@ description: >-
 
 :   提出 TeamHOI 框架，通过基于 Transformer 的去中心化策略网络和掩码对抗运动先验（Masked AMP），使单一策略能够泛化到任意数量智能体的协作搬运任务，2-8 个仿人智能体协作搬桌子成功率达 97%+。
 
+**[Textit4Dsurf High-Fidelity Dynamic Scene Surface Reconstruction](textit4dsurf_high-fidelity_dynamic_scene_surface_reconstruction.md)**
+
+:   本文提出 4DSurf，一个基于2D高斯泼溅的通用动态场景表面重建框架，通过引入高斯运动诱导的SDF流正则化来约束表面时序一致演化，并采用重叠分段策略处理大变形，在 Hi4D 和 CMU Panoptic 数据集上分别以 49% 和 19% 的 Chamfer 距离改进超越现有 SOTA。
+
 **[Towards Source-Aware Object Swapping With Initial Noise Perturbation](towards_source-aware_object_swapping_with_initial_noise_perturbation.md)**
 
 :   提出 SourceSwap，通过频率分离的初始噪声扰动从单张图像生成高质量伪配对数据，并采用源感知双 U-Net 架构学习跨物体对齐，实现零样本、无逐物体微调的高保真物体替换。
@@ -193,6 +249,26 @@ description: >-
 **[Trilite Efficient Weakly Supervised Object Localization With Universal Visual Fe](trilite_efficient_weakly_supervised_object_localization_with_universal_visual_fe.md)**
 
 :   仅使用冻结 DINOv2 ViT + 不到 800K 可训练参数的 TriHead 模块，通过将 patch 特征解耦为前景/背景/模糊三区域并引入对抗性背景损失，在 WSOL 上以极少参数刷新 SOTA。
+
+**[Unidex A Robot Foundation Suite For Universal Dexterous Hand Control From Egocen](unidex_a_robot_foundation_suite_for_universal_dexterous_hand_control_from_egocen.md)**
+
+:   提出UniDex机器人基础套件——包含跨8种灵巧手的大规模数据集（50K+轨迹/9M帧）、功能-执行器对齐的统一动作空间（FAAS）和3D VLA策略（UniDex-VLA），在真实世界工具使用任务上达到81%平均任务进度（vs π₀的38%），并展示了空间、物体和零样本跨手泛化能力。
+
+**[Unified Primitive Proxies For Structured Shape Completion](unified_primitive_proxies_for_structured_shape_completion.md)**
+
+:   提出 UniCo，通过基元代理（primitive proxies）在共享形状特征上学习统一的基元表示，在单次前向传递中联合预测完整点云和装配就绪的二次曲面基元（含几何、语义和成员关系），在合成/真实点云 benchmark 上 Chamfer 距离降低最高 50%，法线一致性提升最高 7%。
+
+**[Unils End-To-End Audio-Driven Avatars For Unified Listening And Speaking](unils_end-to-end_audio-driven_avatars_for_unified_listening_and_speaking.md)**
+
+:   提出首个端到端统一说话-倾听面部表情生成框架UniLS，通过两阶段训练范式（先学内在运动先验、再用双轨音频微调），仅需双方音频输入即可同时生成自然的说话和倾听面部动作，倾听指标提升高达44.1%。
+
+**[Unleashing Vision-Language Semantics For Deepfake Video Detection](unleashing_vision-language_semantics_for_deepfake_video_detection.md)**
+
+:   提出VLAForge，通过ForgePerceiver独立学习多样的伪造线索和伪造定位图，并结合身份感知的视觉-语言对齐（VLA）评分机制，释放VLM跨模态语义的潜力来增强深度伪造视频检测的判别能力，在9个数据集上全面超越现有SOTA。
+
+**[Vt-Intrinsic Physics-Based Decomposition Of Reflectance And Shading Using A Sing](vt-intrinsic_physics-based_decomposition_of_reflectance_and_shading_using_a_sing.md)**
+
+:   VT-Intrinsic 利用可见光和热红外图像之间的物理互补关系（未反射的光被吸收变为热量），推导出可见光-热成像强度的序数关系（ordinality）直接对应反射率和光照的序数关系，以此为自监督信号驱动神经网络优化，实现了无需预训练数据的高质量内在图像分解。
 
 **[When Robots Obey The Patch Universal Transferable Patch Attacks On Vision-Langua](when_robots_obey_the_patch_universal_transferable_patch_attacks_on_vision-langua.md)**
 

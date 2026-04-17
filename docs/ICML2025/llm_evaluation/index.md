@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 LLM评测方向 37篇论文解读
+  ICML2025 LLM评测方向 38篇论文解读
 description: >-
-  37篇ICML2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  38篇ICML2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🧪 ICML2025** · **37** 篇论文解读
+**🧪 ICML2025** · **38** 篇论文解读
 
 **[Are Llm Belief Updates Consistent With Bayes Theorem](are_llm_belief_updates_consistent_with_bayes_theorem.md)**
 
@@ -125,6 +125,10 @@ description: >-
 **[Position Ai Evaluation Should Learn From How We Test Humans](position_ai_evaluation_should_learn_from_how_we_test_humans.md)**
 
 :   提出将人类心理测量学中的自适应测试范式系统性引入AI评估，通过估计题目特征（难度/区分度/猜测因子）实现高效、可靠的模型能力评估，仅需3%的题目即可准确重建完整benchmark分数。
+
+**[Promoting Ensemble Diversity With Interactive Bayesian Distributional Robustness](promoting_ensemble_diversity_with_interactive_bayesian_distributional_robustness.md)**
+
+:   提出IBDR贝叶斯推断框架，通过在乘积分布空间上引入交互式损失和Wasserstein分布鲁棒性优化，构建兼顾多样性与低锐度的粒子集成，在VTAB-1K上以ViT-B/16实现73.6%平均准确率超越所有基线。
 
 **[Provably Cost-Sensitive Adversarial Defense Via Randomized Smoothing](provably_cost-sensitive_adversarial_defense_via_randomized_smoothing.md)**
 

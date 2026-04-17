@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 其他方向 254篇论文解读
+  ACL2025 其他方向 266篇论文解读
 description: >-
-  254篇ACL2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  266篇ACL2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**💬 ACL2025** · **254** 篇论文解读
+**💬 ACL2025** · **266** 篇论文解读
 
 **[A3Cg Esg Greenwashing](a3cg_esg_greenwashing.md)**
 
@@ -812,6 +812,10 @@ description: >-
 
 :   SDD通过训练LLM对有害指令生成高质量但无关的良性回复来实现防御：当攻击者进行恶意微调时，模型的通用能力会显著下降，从而无法有效执行恶意指令。
 
+**[Segment-Based Attention Masking For Gpts](segment-based_attention_masking_for_gpts.md)**
+
+:   MAS（Masked Attention by Segment）在预训练 GPT 模型的 prefill 阶段将因果注意力掩码替换为按段（segment）的双向注意力——同一段内的 token 可以互相 attend，生成阶段仍保持因果掩码——通过 LoRA 微调即可在 8 个常识推理任务上一致提升性能（Llama-3-8B 平均 +1.8%，Llama-3.2-3B +3.3%），无额外计算开销。
+
 **[Self-Correction Is More Than Refinement A Learning Framework For Visual And Lang](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)**
 
 :   提出 Self-Correction Learning (SCL)，通过将 VLM 自身产生的自纠正数据（成功和失败的纠正样本）分类为偏好/非偏好对，利用 DPO 进行偏好微调，从根本上提升模型直接生成正确答案的能力，而非仅仅依赖推理时的迭代修正。
@@ -844,6 +848,10 @@ description: >-
 
 :   提出一个端到端框架，基于真实人口学、健康/生活方式和行为/心理特征数据生成有健康状况的合成用户（涵盖睡眠和糖尿病管理），用于评估健康教练Agent的交互质量，并通过人类专家评估验证其显著优于通用合成用户。
 
+**[Sorft Issue Resolving With Subtask-Oriented Reinforced Fine-Tuning](sorft_issue_resolving_with_subtask-oriented_reinforced_fine-tuning.md)**
+
+:   提出 SoRFT（Subtask-oriented Reinforced Fine-Tuning），将 GitHub Issue 解决任务分解为文件定位、函数定位、行定位和代码编辑四个子任务，通过拒绝采样SFT + 基于规则的PPO强化学习两阶段训练，显著提升开源LLM在 SWE-Bench 上的 Issue 解决能力。
+
 **[Spot Bridging Natural Language And Geospatial Search For Investigative Journalis](spot_bridging_natural_language_and_geospatial_search_for_investigative_journalis.md)**
 
 :   提出 SPOT 系统，通过微调 LLaMA 3 将自然语言场景描述转换为 YAML 查询，结合语义标签捆绑机制实现对 OpenStreetMap 数据的可靠自然语言访问，服务于调查新闻的地理定位验证。
@@ -851,6 +859,10 @@ description: >-
 **[Spotting Out-Of-Character Behavior Atomic-Level Evaluation Of Persona Fidelity I](spotting_out-of-character_behavior_atomic-level_evaluation_of_persona_fidelity_i.md)**
 
 :   提出原子级（句子级）评估框架，通过三个指标（ACC_atom、IC_atom、RC_atom）细粒度检测大语言模型在开放式文本生成中的角色偏离（Out-of-Character）行为，弥补了传统整体评分方法无法捕捉长文本中微妙人格不一致的问题。
+
+**[Star-Sql Self-Taught Reasoner For Text-To-Sql](star-sql_self-taught_reasoner_for_text-to-sql.md)**
+
+:   将 Text-to-SQL 任务重新定义为推理驱动的过程，通过 STaR（Self-Taught Reasoner）自举方法让 LLM 学习生成逐步推理来辅助 SQL 生成，并集成 ORM 验证器进行 best-of-N 采样，在 Spider 基准上达到 86.6% 执行准确率。
 
 **[Statistical Deficiency Task Inclusion](statistical_deficiency_task_inclusion.md)**
 
@@ -888,21 +900,49 @@ description: >-
 
 :   Tag-Evol 提出了一种基于知识标签注入的指令进化框架，通过构建多步细粒度标签池和预算控制注入机制，无需迭代即可生成不同难度的高质量进化指令数据，在多任务多骨干上显著优于 Evol-Instruct。
 
+**[Targa Targeted Synthetic Data Generation For Practical Reasoning Over Structured](targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)**
+
+:   TARGA 提出了一种针对性的合成数据生成框架，无需任何人工标注即可为知识库问答（KBQA）动态生成高相关性的合成示例用于上下文学习，仅用 7B 模型即在 GrailQA（+7.7 F1）和 KBQA-Agent（+12.2 F1）上大幅超越所有非微调方法。
+
 **[Task-Informed Anti-Curriculum By Masking Improves Downstream Performance On Text](task-informed_anti-curriculum_by_masking_improves_downstream_performance_on_text.md)**
 
 :   TIACBM 提出了一种任务感知的反课程掩码微调策略：利用下游任务知识（如情感极性、词性标签）决定哪些 token 被掩码，并采用周期衰减的掩码率，在情感分析、文本分类和作者归属三个任务上均取得统计显著的性能提升。
+
+**[Temporal Reasoning For Timeline Summarisation In Social Media](temporal_reasoning_for_timeline_summarisation_in_social_media.md)**
+
+:   本文提出通过构建新的叙事时序推理数据集 NarrativeReason 来增强 LLM 的时序推理能力，并通过知识蒸馏框架将时序推理知识迁移到小模型中，同时训练其完成时间线摘要任务，在跨域心理健康摘要任务上取得最优效果并显著减少幻觉。
 
 **[Testnuc Enhancing Test-Time Computing Approaches And Scaling Through Neighboring](testnuc_enhancing_test-time_computing_approaches_and_scaling_through_neighboring.md)**
 
 :   TestNUC 提出了一种线性扩展的测试时推理增强方法，通过检索测试样本的近邻无标注数据，让 LLM 同时预测测试样本及其邻居，再通过加权多数投票聚合，稳定提升分类准确率。
 
+**[The Ai Gap How Socioeconomic Status Affects Language Technology Interactions](the_ai_gap_how_socioeconomic_status_affects_language_technology_interactions.md)**
+
+:   通过对1000名不同社会经济地位(SES)用户的大规模调查和6482条真实LLM prompts的分析，揭示了高低SES群体在语言技术使用频率、交互方式和话题选择上存在显著系统性差异，呼吁开发更具包容性的NLP技术以缩小AI鸿沟。
+
 **[The Harmonic Structure Of Information Contours](the_harmonic_structure_of_information_contours.md)**
 
 :   提出 Harmonic Surprisal (HS) 假说——文本中 surprisal 曲线呈周期性波动且周期与语篇结构（EDU/句子/段落）对齐，用带时间缩放的谐波回归检验，在 6 种语言上发现一致的周期模式，精化了经典的 Uniform Information Density 假说。
 
+**[The Hidden Attention Of Mamba Models](the_hidden_attention_of_mamba_models.md)**
+
+:   揭示了Mamba（选择性状态空间模型S6）可以被重新表述为一种隐式的因果自注意力机制，并基于此提出了适用于Mamba模型的注意力可视化和可解释性方法（Attention Rollout和Mamba-Attribution），证明其可解释性指标与Transformer相当。
+
+**[The Knowledge Microscope Features As Better Analytical Lenses Than Neurons](the_knowledge_microscope_features_as_better_analytical_lenses_than_neurons.md)**
+
+:   本文通过系统实验验证了 SAE（稀疏自编码器）分解出的特征（features）在知识表达影响力、可解释性、单义性（monosemanticity）三个维度上全面优于传统神经元（neurons）作为分析单元，并提出首个基于 feature 的模型编辑方法 FeatureEdit，在隐私知识擦除任务上大幅超越神经元方法。
+
 **[The Noisy Path From Source To Citation Measuring How Scholars Engage With Past R](the_noisy_path_from_source_to_citation_measuring_how_scholars_engage_with_past_r.md)**
 
 :   构建大规模计算流水线量化学术引用的忠实度（fidelity），分析 1300 万引用句对揭示了影响引用忠实度的关键因素，并通过准因果实验证实了"电话效应"——低忠实度中间引用会导致后续引用进一步失真。
+
+**[The Time Scale Of Redundancy Between Prosody And Linguistic Context](the_time_scale_of_redundancy_between_prosody_and_linguistic_context.md)**
+
+:   本文系统研究了韵律特征（如音高、响度、时长等）与语言上下文之间冗余性的时间尺度，发现韵律与过去上下文的冗余性跨越较长时间尺度（3-8个词），而与未来上下文的冗余性仅限于短时间尺度（1-2个词），揭示了韵律在语音交流中帮助整合过去信息和预测即将出现的词汇的双重作用。
+
+**[Theorem Prover As A Judge For Synthetic Data Generation](theorem_prover_as_a_judge_for_synthetic_data_generation.md)**
+
+:   提出 TP-as-a-Judge 框架，利用 Lean 定理证明器验证 LLM 生成的中间推理步骤，结合迭代自动形式化和基于定理证明器反馈的强化学习（RLTPF），仅用 3,508 个样本就在多个数学推理基准上取得了显著提升。
 
 **[Tiser Timeline Self Reflection Temporal](tiser_timeline_self_reflection_temporal.md)**
 
@@ -943,6 +983,10 @@ description: >-
 **[Understanding Cross-Domain Adaptation In Low-Resource Topic Modeling](understanding_cross-domain_adaptation_in_low-resource_topic_modeling.md)**
 
 :   首次将领域自适应形式化引入低资源主题建模，推导有限样本泛化上界指导方法设计，提出 DALTA 框架通过共享编码器、领域专用解码器和对抗对齐实现跨领域主题知识的选择性迁移。
+
+**[Uni-Retrieval A Multi-Style Retrieval Framework For Stems Education](uni-retrieval_a_multi-style_retrieval_framework_for_stems_education.md)**
+
+:   本文提出面向 STEM 教育场景的多风格多模态检索任务和数据集 SER（24,000+ 查询对），以及基于 Prompt Bank 的轻量检索模型 Uni-Retrieval，通过原型学习提取查询风格特征并动态选择提示向量来增强不同风格（文本、草图、艺术、低分辨率、语音）的检索性能，在 STEM 教育检索和传统检索数据集上均超越已有方法。
 
 **[Unifying Language Agent Algorithms With Graph-Based Orchestration Engine For Rep](unifying_language_agent_algorithms_with_graph-based_orchestration_engine_for_rep.md)**
 
@@ -1019,6 +1063,10 @@ description: >-
 **[You Need To Mimic To Get Fame Solving Meeting Transcript Scarcity With A Multi-A](you_need_to_mimic_to_get_fame_solving_meeting_transcript_scarcity_with_a_multi-a.md)**
 
 :   提出 MIMIC 框架，通过多智能体辩论模拟生成合成会议转录，构建了包含 800 场会议的 FAME 数据集（500 英语 + 300 德语），并设计了基于心理学的行为真实性评估框架。
+
+**[Your Model Is Overconfident And Other Lies We Tell Ourselves](your_model_is_overconfident_and_other_lies_we_tell_ourselves.md)**
+
+:   通过对 29 个模型在 ChaosNLI 和 DynaSent 数据集上的全面分析，揭示了标注者分歧、训练动态、模型置信度等数据复杂度指标之间存在相关性但非线性非单调的关系，挑战了"模型不确定性 ≈ 人类分歧"这一常见假设。
 
 **[Zero-Shot Conversational Stance Detection Dataset And Approaches](zero-shot_conversational_stance_detection_dataset_and_approaches.md)**
 

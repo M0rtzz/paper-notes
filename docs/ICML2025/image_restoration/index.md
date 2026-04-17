@@ -1,22 +1,18 @@
 ---
 title: >-
-  ICML2025 图像恢复方向 6篇论文解读
+  ICML2025 图像恢复方向 5篇论文解读
 description: >-
-  6篇ICML2025 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  5篇ICML2025 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🧪 ICML2025** · **6** 篇论文解读
+**🧪 ICML2025** · **5** 篇论文解读
 
 **[Adaptive Estimation And Learning Under Temporal Distribution Shift](adaptive_estimation_and_learning_under_temporal_distribution_shift.md)**
 
 :   提出基于小波软阈值的估计算法，在无需先验知识的情况下实现时间分布偏移下的最优逐点估计误差界，将序列非平稳性与小波域稀疏性建立联系，并应用于分布偏移下的二分类和全变分去噪问题。
-
-**[Asymrnr Video Diffusion Transformers Acceleration With Asymmetric Reduction And ](asymrnr_video_diffusion_transformers_acceleration_with_asymmetric_reduction_and_.md)**
-
-:   提出 AsymRnR——一种免训练的视频 DiT 加速方法，基于注意力中不同组件（Q/K/V）、不同层、不同去噪步骤的冗余程度不同的观察，非对称地削减 token 以实现无损加速。
 
 **[Epsilon-Vae Denoising As Visual Decoding](epsilon-vae_denoising_as_visual_decoding.md)**
 

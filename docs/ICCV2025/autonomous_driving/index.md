@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 自动驾驶方向 93篇论文解读
+  ICCV2025 自动驾驶方向 92篇论文解读
 description: >-
-  93篇ICCV2025 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  92篇ICCV2025 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📹 ICCV2025** · **93** 篇论文解读
+**📹 ICCV2025** · **92** 篇论文解读
 
 **[3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage G](3d_gaussian_splatting_driven_multi-view_robust_physical_adversarial_camouflage_g.md)**
 
@@ -233,10 +233,6 @@ description: >-
 **[Maestro Task-Relevant Optimization Via Adaptive Feature Enhancement And Suppress](maestro_task-relevant_optimization_via_adaptive_feature_enhancement_and_suppress.md)**
 
 :   提出 MAESTRO 框架，通过类别原型生成（CPG）、任务特定特征生成（TSFG）和场景原型聚合（SPA）三个模块，在多任务3D感知中生成任务特定特征并抑制任务间干扰，在3D目标检测、BEV地图分割和3D占用预测三个任务上同时超越单任务模型。
-
-**[Magicdrive-V2 High-Resolution Long Video Generation For Autonomous Driving With ](magicdrive-v2_high-resolution_long_video_generation_for_autonomous_driving_with_.md)**
-
-:   MagicDrive-V2 提出了基于 DiT + 3D VAE 的多视角驾驶视频生成框架，通过时空条件编码模块和渐进式训练策略，实现了 848×1600×6 视角、241 帧的高分辨率长视频生成，显著超越现有方法的分辨率和帧数限制。
 
 **[Mcam Multimodal Causal Analysis Model For Ego-Vehicle-Level Driving Video Unders](mcam_multimodal_causal_analysis_model_for_ego-vehicle-level_driving_video_unders.md)**
 

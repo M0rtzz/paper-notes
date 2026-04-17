@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 信息检索/RAG方向 6篇论文解读
+  CVPR2026 信息检索/RAG方向 8篇论文解读
 description: >-
-  6篇CVPR2026 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  8篇CVPR2026 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**📷 CVPR2026** · **6** 篇论文解读
+**📷 CVPR2026** · **8** 篇论文解读
 
 **[Beyond Global Similarity Towards Fine-Grained Multi-Condition Multimodal Retriev](beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)**
 
@@ -17,6 +17,14 @@ description: >-
 **[Cc-Vqa Conflict- And Correlation-Aware Method For Mitigating Knowledge Conflict ](cc-vqa_conflict-_and_correlation-aware_method_for_mitigating_knowledge_conflict_.md)**
 
 :   提出 CC-VQA，一种 training-free 的知识冲突缓解方法，通过视觉中心的上下文冲突推理和相关度引导的编码/解码两阶段策略，在 E-VQA、InfoSeek、OK-VQA 三个基准上取得 3.3%-6.4% 的绝对精度提升。
+
+**[Explaining Clip Zero-Shot Predictions Through Concepts](explaining_clip_zero-shot_predictions_through_concepts.md)**
+
+:   本文提出 EZPC，通过学习一个线性投影矩阵将 CLIP 的图像-文本嵌入映射到可解释的概念空间，在几乎不损失零样本分类精度的前提下（CIFAR-100/CUB/ImageNet-100 上 H-mean 仅差约 1%），为 CLIP 的预测提供基于人类可理解概念的忠实解释，且推理开销仅增加约 0.1ms。
+
+**[M4-Rag A Massive-Scale Multilingual Multi-Cultural Multimodal Rag](m4-rag_a_massive-scale_multilingual_multi-cultural_multimodal_rag.md)**
+
+:   提出首个大规模多语言多文化多模态 RAG 评估框架 M4-RAG，覆盖 42 种语言和 189 个国家的 80K+ 文化 VQA 实例，系统性揭示了 RAG 对小模型有效但无法随模型规模正向扩展、跨语言检索存在严重性能退化的关键发现。
 
 **[Mind The Way You Select Negative Texts Pursuing The Distance Consistency In Ood ](mind_the_way_you_select_negative_texts_pursuing_the_distance_consistency_in_ood_.md)**
 

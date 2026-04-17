@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 强化学习方向 14篇论文解读
+  CVPR2026 强化学习方向 18篇论文解读
 description: >-
-  14篇CVPR2026 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  18篇CVPR2026 强化学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**📷 CVPR2026** · **14** 篇论文解读
+**📷 CVPR2026** · **18** 篇论文解读
 
 **[Acetone Bridging Words And Colors For Conditional Image Grading](acetone_bridging_words_and_colors_for_conditional_image_grading.md)**
 
@@ -50,6 +50,10 @@ description: >-
 
 :   揭示 MLLM 的严重置信度失校准问题（视觉输入退化时准确率暴跌但置信度不变），提出 CDRL（基于原始-噪声图像对的置信度驱动 RL）进行感知敏感性训练，并利用校准后的置信度实现自适应测试时缩放（CA-TTS），在四个基准上平均提升 8.8%。
 
+**[Msrl Scaling Generative Multimodal Reward Modeling](msrl_scaling_generative_multimodal_reward_modeling.md)**
+
+:   提出多阶段强化学习（MSRL）方法，通过先在大规模文本偏好数据上学习奖励推理能力，再逐步迁移到多模态任务，解决多模态奖励模型训练中标注数据稀缺的瓶颈问题，在 VL-RewardBench 上将准确率从 66.6% 提升至 75.9%。
+
 **[Msrl Scaling Generative Multimodal Reward Modeling Via Multi-Stage Reinforcement](msrl_scaling_generative_multimodal_reward_modeling_via_multi-stage_reinforcement.md)**
 
 :   提出MSRL(Multi-Stage Reinforcement Learning)，通过多阶段RL扩展生成式多模态奖励建模——先在大规模文本偏好数据(400K)上做RL学习通用奖励推理能力，再经caption-based RL和跨模态知识蒸馏向多模态迁移，最后用少量多模态偏好数据微调适配，无需额外多模态标注即在VL-RewardBench上从66.6%提升到75.9%、GenAI-Bench上从70.2%到75.7%。
@@ -58,9 +62,21 @@ description: >-
 
 :   提出 ReAG，一个推理增强的多模态 RAG 方法，结合粗细粒度检索与 Critic 过滤模型减少噪声，并通过 GRPO 强化学习训练生成器进行显式推理，在知识密集型 VQA 上达到新 SOTA。
 
+**[Reasoning-Driven Anomaly Detection And Localization With Image-Level Supervision](reasoning-driven_anomaly_detection_and_localization_with_image-level_supervision.md)**
+
+:   提出 ReAL 和 CGRO 两个模块，通过提取 MLLM 自回归推理过程中的异常相关 token 并聚合其视觉注意力来生成像素级异常图，再通过一致性引导的强化学习对齐推理与视觉证据，实现仅凭图像级监督的端到端异常检测、定位与可解释推理。
+
+**[Reinforce To Learn Elect To Reason A Dual Paradigm For Video Reasoning](reinforce_to_learn_elect_to_reason_a_dual_paradigm_for_video_reasoning.md)**
+
+:   提出 RLER 双范式框架，训练阶段用 GRPO 配合三种新颖奖励（Frame-sensitive、Think-transparency、Anti-repetition）教模型生成结构化证据，推理阶段用无训练编排器在多候选之间基于证据一致性进行加权选举和自检，在 8 个视频基准上全面超越开源和 RL-based LMM，平均提升 6.3%，仅需约 3.1 个候选。
+
 **[Rethinking Camera Choice An Empirical Study On Fisheye Camera Properties In Robo](rethinking_camera_choice_an_empirical_study_on_fisheye_camera_properties_in_robo.md)**
 
 :   首次系统性地对腕部鱼眼相机在机器人操作模仿学习中的特性进行实证研究，围绕空间定位、场景泛化和硬件泛化三个核心问题揭示了宽视场角的优势与局限，并提出 Random Scale Augmentation (RSA) 策略解决跨相机迁移中的尺度过拟合问题。
+
+**[Roboagent Chaining Basic Capabilities For Embodied Task Planning](roboagent_chaining_basic_capabilities_for_embodied_task_planning.md)**
+
+:   提出 RoboAgent，一种能力驱动的具身任务规划框架，用单个 VLM 同时实现调度器和 5 种基本能力（探索引导、物体定位、场景描述、动作解码、经验总结），通过三阶段训练（SFT + DAgger + 专家引导 RL）在 EB-ALFRED 和 ALFWorld 上达到 SOTA。
 
 **[See It Say It Sorted An Iterative Training-Free Framework For Visually-Grounded ](see_it_say_it_sorted_an_iterative_training-free_framework_for_visually-grounded_.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 自监督/表示学习方向 9篇论文解读
+  ECCV2024 自监督/表示学习方向 13篇论文解读
 description: >-
-  9篇ECCV2024 自监督/表示学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  13篇ECCV2024 自监督/表示学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🎞️ ECCV2024** · **9** 篇论文解读
+**🎞️ ECCV2024** · **13** 篇论文解读
 
 **[Adaptive Multihead Contrastive Learning](adaptive_multihead_contrastive_learning.md)**
 
@@ -30,9 +30,17 @@ description: >-
 
 :   提出 InfMAE——首个红外模态基础模型，构建了 30 万张红外图像数据集 Inf30，设计信息感知掩码策略和多尺度编码器，在红外语义分割、目标检测和小目标检测三个下游任务上超越现有方法。
 
+**[Marineinst A Foundation Model For Marine Image Analysis With Instance Visual Des](marineinst_a_foundation_model_for_marine_image_analysis_with_instance_visual_des.md)**
+
+:   本文提出MarineInst，一个面向海洋图像分析的基础模型，能够同时输出实例掩码和语义描述；并构建了MarineInst20M——迄今最大的海洋图像数据集（2000万张），支持从图像级场景理解到区域级实例理解的多层次海洋视觉分析任务。
+
 **[Posformer Recognizing Complex Handwritten Mathematical Expression With Position ](posformer_recognizing_complex_handwritten_mathematical_expression_with_position_.md)**
 
 :   提出位置森林 Transformer（PosFormer），通过将数学表达式的 LaTeX 序列编码为位置森林结构，显式建模符号间的层级与位置关系，并设计隐式注意力校正模块，在不增加推理开销的前提下，在单行/多行/复杂表达式数据集上全面超越 SOTA。
+
+**[Promptccd Learning Gaussian Mixture Prompt Pool For Continual Category Discovery](promptccd_learning_gaussian_mixture_prompt_pool_for_continual_category_discovery.md)**
+
+:   提出PromptCCD框架，利用高斯混合模型（GMM）作为提示池，实现在无标签数据流中的持续新类别发现，同时缓解灾难性遗忘。
 
 **[Rethinking Unsupervised Outlier Detection Via Multiple Thresholding](rethinking_unsupervised_outlier_detection_via_multiple_thresholding.md)**
 
@@ -41,6 +49,14 @@ description: >-
 **[Revisiting Supervision For Continual Representation Learning](revisiting_supervision_for_continual_representation_learning.md)**
 
 :   挑战了"自监督学习在持续表征学习中优于监督学习"的普遍观点，发现**监督学习加上 MLP 投影头**即可在持续学习场景下构建出比 SSL 更强的表征——关键不在于有无标签，而在于 MLP projector 对特征可迁移性的提升作用。
+
+**[Scpnet Unsupervised Cross-Modal Homography Estimation Via Intra-Modal Self-Super](scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super.md)**
+
+:   提出 SCPNet，通过模内自监督学习（intra-modal self-supervised learning）、相关性网络和一致性特征图投影三个关键组件的协同，首次在卫星-地图等大模态差距数据集上实现了有效的无监督跨模态单应性估计，MACE 比监督方法 MHN 低 14%。
+
+**[Self-Supervised Video Copy Localization With Regional Token Representation](self-supervised_video_copy_localization_with_regional_token_representation.md)**
+
+:   提出了一种自监督视频拷贝定位框架，通过在 Vision Transformer 中引入 Regional Token 捕获局部区域信息，并利用传递性（Transitivity Property）自动生成训练数据，在无需人工标注的情况下超越了有监督方法的性能。
 
 **[Vic-Mae Self-Supervised Representation Learning From Images And Video With Contr](vic-mae_self-supervised_representation_learning_from_images_and_video_with_contr.md)**
 

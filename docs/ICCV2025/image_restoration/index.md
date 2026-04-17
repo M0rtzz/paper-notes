@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 图像恢复方向 31篇论文解读
+  ICCV2025 图像恢复方向 30篇论文解读
 description: >-
-  31篇ICCV2025 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  30篇ICCV2025 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📹 ICCV2025** · **31** 篇论文解读
+**📹 ICCV2025** · **30** 篇论文解读
 
 **[Alocc Adaptive Lifting-Based 3D Semantic Occupancy And Cost Volume-Based Flow Pr](alocc_adaptive_lifting-based_3d_semantic_occupancy_and_cost_volume-based_flow_pr.md)**
 
@@ -129,7 +129,3 @@ description: >-
 **[Unires Universal Image Restoration For Complex Degradations](unires_universal_image_restoration_for_complex_degradations.md)**
 
 :   提出 UniRes——一个基于扩散模型的通用图像复原框架，通过多任务训练学习超分辨率、运动去模糊、散焦去模糊和去噪等专家知识，推理时通过灵活组合不同任务的隐空间预测权重来端到端地处理真实世界中的任意复杂退化组合。
-
-**[Vsrm A Robust Mamba-Based Framework For Video Super-Resolution](vsrm_a_robust_mamba-based_framework_for_video_super-resolution.md)**
-
-:   首次将 Mamba 引入视频超分辨率（VSR），提出 VSRM 框架，通过双聚合Mamba块实现高效时空建模，结合可变形交叉Mamba对齐和频域损失，在多个基准上取得 SOTA。

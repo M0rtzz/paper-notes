@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像恢复方向 23篇论文解读
+  CVPR2026 图像恢复方向 26篇论文解读
 description: >-
-  23篇CVPR2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  26篇CVPR2026 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📷 CVPR2026** · **23** 篇论文解读
+**📷 CVPR2026** · **26** 篇论文解读
 
 **[Beyond Ground-Truth Leveraging Image Quality Priors For Real-World Image Restora](beyond_ground-truth_leveraging_image_quality_priors_for_real-world_image_restora.md)**
 
@@ -62,6 +62,10 @@ description: >-
 
 :   首次实现从模糊视频直接重建清晰可驱动3D高斯人体avatar：提出3D感知的物理模糊形成模型(将模糊分解为子帧SMPL运动+canonical 3DGS)，用B-spline插值+位姿变形网络建模子帧运动，帧间正则化解决运动方向歧义，在合成和真实数据集上大幅超越"2D去模糊+3DGS"两阶段方案(PSNR提升约2.5dB)。
 
+**[Nec-Diff Noise-Robust Event-Raw Complementary Diffusion For Seeing Motion In Ext](nec-diff_noise-robust_event-raw_complementary_diffusion_for_seeing_motion_in_ext.md)**
+
+:   提出 NEC-Diff，一个基于扩散模型的事件-RAW 混合成像框架，利用 RAW 图像的光照先验引导事件去噪、事件的高动态范围边缘辅助图像去噪，结合双模态 SNR 引导的可靠信息提取和交叉模态注意力扩散，在极暗环境下（0.001-0.8 lux）实现高质量动态场景重建，PSNR 达 24.51 dB（REAL 数据集）。
+
 **[Polishing The Sky Wide-Field And High-Dynamic Range Interferometric Image Recons](polishing_the_sky_wide-field_and_high-dynamic_range_interferometric_image_recons.md)**
 
 :   在 POLISH 框架基础上提出 POLISH+ 和 POLISH++，通过分块训练-拼接策略和基于 arcsinh 的非线性变换，实现宽视场（12,960×12,960 像素）和高动态范围（$\sim 10^6$）条件下的射电干涉图像重建与超分辨率，并首次展示深度学习方法可超分辨强引力透镜系统。
@@ -81,6 +85,14 @@ description: >-
 **[Statistical Characteristic-Guided Denoising For Rapid High-Resolution Transmissi](statistical_characteristic-guided_denoising_for_rapid_high-resolution_transmissi.md)**
 
 :   提出统计特征引导去噪网络 SCGN，利用空间域的窗口标准差加权和频域的频带引导加权，分别在空间和频率两个域自适应地增强信号、抑制噪声，结合 HRTEM 专用噪声标定方法生成含无序结构的真实噪声数据集，实现毫秒级高分辨率透射电子显微镜图像的高质量去噪。
+
+**[The Surprising Effectiveness Of Noise Pretraining For Implicit Neural Representa](the_surprising_effectiveness_of_noise_pretraining_for_implicit_neural_representa.md)**
+
+:   本文通过系统的实验分析发现：用非结构化噪声（均匀/高斯分布）预训练 INR 可在图像拟合中达到惊人的 ~80dB PSNR，远超所有数据驱动初始化方法；而具有自然图像 $1/|f^\alpha|$ 频谱结构的噪声则在信号拟合和去噪之间实现最佳平衡，无需任何真实数据即可匹配 SOTA 数据驱动初始化性能。
+
+**[Tm-Bsn Triangular-Masked Blind-Spot Network For Real-World Self-Supervised Image](tm-bsn_triangular-masked_blind-spot_network_for_real-world_self-supervised_image.md)**
+
+:   提出三角掩码盲点网络 TM-BSN，通过将盲点区域设计为与真实 sRGB 噪声的菱形空间相关模式精确对齐的形状，在原始分辨率上实现无需下采样的自监督图像去噪，并通过知识蒸馏进一步提升性能，在 SIDD 和 DND 基准上达到自监督去噪 SOTA。
 
 **[Toward Real-World Infrared Image Super-Resolution A Unified Autoregressive Frame](toward_real-world_infrared_image_super-resolution_a_unified_autoregressive_frame.md)**
 

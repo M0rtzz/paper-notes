@@ -34,6 +34,6 @@ description: >-
 
 :   本文提出RAVEN框架，将课程强化学习与多模态LLM结合，通过分层奖励机制和渐进式训练策略，实现广告视频违规内容的精确时序定位和类别预测，无需显式推理标注数据即可激发涌现推理能力。
 
-**[Vidcapbench A Comprehensive Benchmark Of Video Captioning For Controllable Text-](vidcapbench_a_comprehensive_benchmark_of_video_captioning_for_controllable_text-.md)**
+**[Sparse-To-Dense A Free Lunch For Lossless Acceleration Of Video Understanding In](sparse-to-dense_a_free_lunch_for_lossless_acceleration_of_video_understanding_in.md)**
 
-:   提出 VidCapBench，首个专为可控文生视频（T2V）设计的视频描述评估 benchmark，从美学/内容/运动/物理规律四个维度评估 caption 质量，643 个视频+10,644 个 QA 对，实验证明 VidCapBench 分数与 T2V 生成质量高度正相关。
+:   基于Video-LLM中注意力分数的稀疏性观察，提出Sparse-to-Dense (StD)解码策略，用top-K稀疏注意力模型作为draft model快速生成候选token，再用全注意力模型并行验证，实现最高1.94倍的无损加速，且无需额外训练或架构修改。

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 3D视觉方向 166篇论文解读
+  CVPR2026 3D视觉方向 225篇论文解读
 description: >-
-  166篇CVPR2026 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  225篇CVPR2026 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📷 CVPR2026** · **166** 篇论文解读
+**📷 CVPR2026** · **225** 篇论文解读
 
 **[3D-Fixer Coarse-To-Fine In-Place Completion For 3D Scenes From A Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
@@ -61,6 +61,10 @@ description: >-
 **[Ada3Drift Adaptive Training-Time Drifting For One-Step 3D Visuomotor Robotic Man](ada3drift_adaptive_training-time_drifting_for_one-step_3d_visuomotor_robotic_man.md)**
 
 :   针对扩散策略多步去噪慢、Flow Matching 单步快但模式平均导致碰撞的问题，提出 Ada3Drift：在训练阶段构造 drifting field 将预测吸引到最近 expert demonstration 并排斥其他模式，配合多尺度场聚合和 sigmoid 调度损失过渡，实现 1 NFE 推理下保持多模态动作分布，在 Adroit/Meta-World/RoboTwin 和真实机器人上达到 SOTA。
+
+**[Ada3Drift Adaptive Trainingtime Drifting For Onest](ada3drift_adaptive_trainingtime_drifting_for_onest.md)**
+
+:   Ada3Drift 提出将扩散策略中的迭代精炼从推理时转移到训练时，通过训练时漂移场（吸引预测动作至专家模式+排斥其他生成样本）实现高保真单步（1 NFE）3D 视觉运动策略，在 Adroit、Meta-World、RoboTwin 和真实机器人任务上达到 SOTA，同时推理速度提升 10 倍。
 
 **[Adapting Point Cloud Analysis Via Multimodal Bayesian Distribution Learning](adapting_point_cloud_analysis_via_multimodal_bayesian_distribution_learning.md)**
 
@@ -238,6 +242,14 @@ description: >-
 
 :   提出Hand4Whole++模块化框架，通过轻量级CHAM模块将预训练手部估计器的特征注入冻结的全身姿态估计器中，实现手腕方向的精准预测，并通过可微刚性对齐从手部模型迁移精细手指关节和手部形状。
 
+**[Eventhub Data Factory For Generalizable Event-Based Stereo Networks Without Acti](eventhub_data_factory_for_generalizable_event-based_stereo_networks_without_acti.md)**
+
+:   本文提出 EventHub，一个无需 LiDAR 等主动传感器标注的事件相机立体匹配训练数据工厂，通过新视角合成生成代理事件+深度标签和跨模态蒸馏从 RGB 立体模型迁移知识，训练出的事件立体模型在跨域泛化上超越 LiDAR 监督模型（M3ED 和 MVSEC 上误差降低最高 50%）。
+
+**[Extend3D Town-Scale 3D Generation](extend3d_town-scale_3d_generation.md)**
+
+:   本文提出 Extend3D，一个无需训练的 3D 场景生成流水线，通过扩展预训练物体级 3D 生成模型（Trellis）的体素隐空间并引入重叠 patch 联合去噪、under-noising SDEdit 初始化和 3D 感知优化，从单张图像生成城镇级大规模 3D 场景，在人类偏好和定量评估中均超越现有方法。
+
 **[Extrinsplat Decoupling Geometry And Semantics For Open-Vocabulary Understanding ](extrinsplat_decoupling_geometry_and_semantics_for_open-vocabulary_understanding_.md)**
 
 :   提出外在范式（extrinsic paradigm），将语义从3DGS几何中完全解耦，通过多粒度物体分组+VLM文本假设构建轻量语义索引层，实现无训练、低存储、支持多义性的开放词汇3D场景理解。
@@ -250,9 +262,21 @@ description: >-
 
 :   提出FACT-GS，将纹理参数化重新定义为采样密度分配问题，通过可学习变形场实现频率自适应的非均匀纹理采样，在固定参数预算下显著提升高频细节恢复能力。
 
+**[Fast3Dcache Training-Free 3D Geometry Synthesis Acceleration](fast3dcache_training-free_3d_geometry_synthesis_acceleration.md)**
+
+:   本文提出 Fast3Dcache，一个面向 3D 扩散模型的无需训练的几何感知缓存框架，通过预测性缓存调度约束（PCSC）根据体素稳定化模式动态分配缓存预算，以及时空稳定性准则（SSC）基于速度和加速度选择稳定 token 进行复用，实现最高 27.12% 的吞吐提升和 54.83% 的 FLOPs 降低，几何质量仅损失约 2%。
+
+**[Fast Scenescript Fast And Accurate Language-Based 3D Scene Understanding Via Mul](fast_scenescript_fast_and_accurate_language-based_3d_scene_understanding_via_mul.md)**
+
+:   本文提出 Fast SceneScript，通过将多 token 预测（MTP）引入结构化语言模型实现 3D 场景理解的推理加速，配合自投机解码（SSD）和置信度引导解码（CGD）过滤不可靠 token，以及参数高效的头共享机制，在布局估计和目标检测上分别实现 5.09× 和 5.14× 加速且不损失精度。
+
 **[Fastgs Training 3D Gaussian Splatting In 100 Seconds](fastgs_training_3d_gaussian_splatting_in_100_seconds.md)**
 
 :   提出 FastGS，一个基于多视角一致性的 3DGS 加速框架，通过多视角一致性密集化（VCD）和多视角一致性剪枝（VCP）策略精准控制 Gaussian 数量，在 Mip-NeRF 360 等数据集上实现约 100 秒完成场景训练，相比 vanilla 3DGS 加速 15× 以上，且渲染质量可比。
+
+**[Few-Shot Incremental 3D Object Detection In Dynamic Indoor Environments](few-shot_incremental_3d_object_detection_in_dynamic_indoor_environments.md)**
+
+:   提出 FI3Det，首个少样本增量 3D 目标检测框架：在基础训练阶段通过 VLM 引导的未知对象学习模块提前感知潜在新类别，在增量阶段通过门控多模态原型铸造模块融合 2D 语义和 3D 几何特征进行新类检测，在 ScanNet V2 和 SUN RGB-D 上的新类 mAP 平均提升 17.37%。
 
 **[Fluidgaussian Propagating Simulation-Based Uncertainty Toward Functionally-Intel](fluidgaussian_propagating_simulation-based_uncertainty_toward_functionally-intel.md)**
 
@@ -262,6 +286,14 @@ description: >-
 
 :   提出 ForgeDreamer 框架，通过多专家 LoRA 师生蒸馏解决工业领域语义适配问题，结合跨视角超图几何增强实现高阶几何一致性约束，在工业文本到3D生成任务上超越现有方法。
 
+**[Freeartgs Articulated Gaussian Splatting Under Free-Moving Scenario](freeartgs_articulated_gaussian_splatting_under_free-moving_scenario.md)**
+
+:   FreeArtGS 提出在"自由移动场景"(物体姿态和关节状态同时任意变化)下从单目RGB-D视频重建铰接物体的方法，通过运动驱动的部件分割、鲁棒关节估计和端到端3DGS优化的三阶段流程，在自建FreeArt-21基准和现有数据集上远超所有基线。
+
+**[From Editor To Dense Geometry Estimator](from_editor_to_dense_geometry_estimator.md)**
+
+:   本文系统分析了图像编辑模型与生成模型在稠密几何估计任务中的微调行为差异，发现编辑模型具有天然的结构先验优势，并基于此提出 FE2E 框架，首次将 DiT 架构的图像编辑模型适配为深度和法线联合估计器，在零样本场景下大幅超越现有 SOTA（ETH3D 上 AbsRel 降低 35%）。
+
 **[From Orbit To Ground Generative City Photogrammetry From Extreme Off-Nadir Satel](from_orbit_to_ground_generative_city_photogrammetry_from_extreme_off-nadir_satel.md)**
 
 :   提出从稀疏卫星图像重建城市级 3D 模型的两阶段方法：用 Z-Monotonic SDF 建模几何保证建筑结构完整性，再用微调 FLUX 扩散模型做"确定性修复"从退化贴图合成写实纹理，实现从轨道到地面近 90° 视点外推。
@@ -269,6 +301,18 @@ description: >-
 **[From Pairs To Sequences Track-Aware Policy Gradients For Keypoint Detection](from_pairs_to_sequences_track-aware_policy_gradients_for_keypoint_detection.md)**
 
 :   将关键点检测从「图像对匹配」范式转变为「序列级可追踪性优化」，通过强化学习框架 TraqPoint 在图像序列上直接优化关键点的长期追踪质量，在位姿估计、视觉定位、视觉里程计和三维重建任务上均超越 SOTA。
+
+**[Funrec Reconstructing Functional 3D Scenes From Egocentric Interaction Videos](funrec_reconstructing_functional_3d_scenes_from_egocentric_interaction_videos.md)**
+
+:   本文提出 FunREC，一个无需训练的优化式方法，直接从自我中心 RGB-D 交互视频中重建功能性的铰接式 3D 数字孪生场景——自动发现铰接部件、估计运动学参数、追踪 3D 运动并重建静态和运动几何，在所有基准上大幅超越先前方法（部件分割 mIoU 提升 50+，关节角度误差降低 5-10 倍），并支持仿真导出和机器人交互。
+
+**[Gaussfusion Improving 3D Reconstruction In The Wild With A Geometry-Informed Vid](gaussfusion_improving_3d_reconstruction_in_the_wild_with_a_geometry-informed_vid.md)**
+
+:   提出 GaussFusion，一个几何信息引导的视频到视频生成模型，通过渲染包含深度、法线、不透明度和协方差的 Gaussian Primitives Buffer（GP-Buffer）来条件化视频生成器，有效去除 3DGS 重建中的浮动伪影、闪烁和模糊，且能同时适用于优化式和前馈式两种重建范式，蒸馏版本达到 16 FPS 实时推理。
+
+**[Gaussiangrow Geometry-Aware Gaussian Growing From 3D Point Clouds With Text Guid](gaussiangrow_geometry-aware_gaussian_growing_from_3d_point_clouds_with_text_guid.md)**
+
+:   提出 GaussianGrow，通过从易获取的 3D 点云"生长"3D 高斯来替代从零预测几何+外观的传统方案，利用多视图扩散模型生成一致的外观监督，并通过重叠区域检测+迭代补全机制解决视图融合伪影和不可见区域问题，在合成和真实扫描点云上大幅超越 SOTA。
 
 **[Geodesicnvs Flow Matching Novel View Synthesis](geodesicnvs_flow_matching_novel_view_synthesis.md)**
 
@@ -278,21 +322,41 @@ description: >-
 
 :   提出概率密度测地线 Flow Matching (PDG-FM) 框架，通过数据到数据的确定性流匹配替代噪声到数据的扩散过程，并利用基于概率密度的测地线优化使插值路径沿数据流形高密度区域行进，实现更几何一致的新视角合成。
 
-**[Geometry-As-Context Modulating Explicit 3D In Scene-Consistent Video Generation ](geometry-as-context_modulating_explicit_3d_in_scene-consistent_video_generation_.md)**
-
-:   提出 Geometry-as-Context (GaC) 框架，将基于重建的场景视频生成中的不可微算子（3D重建+渲染）替换为统一的自回归视频生成模型，通过将几何信息（深度图）作为交错上下文嵌入生成序列，实现端到端训练并缓解累积误差。
-
 **[Ggpt Geometry Grounded Point Transformer](ggpt_geometry_grounded_point_transformer.md)**
 
 :   提出GGPT框架：通过改进的轻量SfM管线(密集匹配+稀疏BA+DLT三角化)获取几何一致稀疏点云，再用3D Point Transformer V3在三维空间直接融合稀疏几何引导与前馈稠密预测进行residual refinement，仅在ScanNet++上训练即可跨架构、跨数据集显著提升多种前馈3D重建模型。
+
+**[Glint Modeling Scene-Scale Transparency Via Gaussian Radiance Transport](glint_modeling_scene-scale_transparency_via_gaussian_radiance_transport.md)**
+
+:   GLINT 通过将高斯表征分解为界面、透射、反射三个组件，结合光栅化+光线追踪的混合渲染管线，在场景级透明表面（如玻璃墙、展示柜）的几何和外观重建上取得了 SOTA 效果。
 
 **[Global-Aware Edge Prioritization For Pose Graph Initialization](global-aware_edge_prioritization_for_pose_graph_initialization.md)**
 
 :   提出基于GNN的全局边优先级排序方法，将位姿图初始化从独立的逐对图像检索升级为全局结构感知的边排序+多最小生成树构建，在极稀疏设置下显著提升SfM重建精度。
 
+**[Glove2Hand Synthesizing Natural Hand-Object Interaction From Multi-Modal Sensing](glove2hand_synthesizing_natural_hand-object_interaction_from_multi-modal_sensing.md)**
+
+:   提出 Glove2Hand 框架，将佩戴传感手套的第一人称视频翻译为逼真的裸手视频，同时保留触觉和 IMU 信号，并构建了首个多模态手物交互数据集 HandSense，显著提升下游裸手接触估计和遮挡手部追踪性能。
+
+**[Gp-4Dgs Probabilistic 4D Gaussian Splatting From Monocular Video Via Variational](gp-4dgs_probabilistic_4d_gaussian_splatting_from_monocular_video_via_variational.md)**
+
+:   提出 GP-4DGS，将变分高斯过程（GP）整合到 4D 高斯溅射中，通过时空组合核和变分推断实现概率化运动建模，同时赋予 4DGS 不确定性量化、运动外推和自适应运动先验三大新能力。
+
 **[Gs-Clip Zero-Shot 3D Anomaly Detection By Geometry-Aware Prompt And Synergistic ](gs-clip_zero-shot_3d_anomaly_detection_by_geometry-aware_prompt_and_synergistic_.md)**
 
 :   提出GS-CLIP两阶段框架，通过几何缺陷蒸馏模块将3D点云的全局形状和局部缺陷信息注入文本提示，并用LoRA双流架构协同融合渲染图和深度图，在四个大规模数据集上实现零样本3D异常检测SOTA。
+
+**[Hg-I2P Bridging Modalities For Generalizable Image-To-Point-Cloud Registration V](hg-i2p_bridging_modalities_for_generalizable_image-to-point-cloud_registration_v.md)**
+
+:   Hg-I2P 引入异构图（Heterogeneous Graph）来统一建模 2D 图像区域和 3D 点云区域之间的关系，通过多路径邻接关系挖掘学习跨模态边、基于异构边的特征适配和基于图的投影一致性剪枝，在六个室内外跨域基准上实现了最优的泛化能力和精度。
+
+**[Hierarchical Visual Relocalization With Nearest View Synthesis From Feature Gaus](hierarchical_visual_relocalization_with_nearest_view_synthesis_from_feature_gaus.md)**
+
+:   SplatHLoc 提出了一种基于 Feature Gaussian Splatting (FGS) 的层级视觉重定位框架，通过自适应视点检索合成更接近查询视角的虚拟视图，以及混合特征匹配策略（渲染特征做粗匹配 + 半稠密匹配器做细匹配），在室内外数据集上达到了新的 SOTA 精度。
+
+**[Human Interaction-Aware 3D Reconstruction From A Single Image](human_interaction-aware_3d_reconstruction_from_a_single_image.md)**
+
+:   提出HUG3D框架，通过透视-正交视图变换、群体-个体多视图扩散模型和物理感知几何重建，从单张图片实现交互多人的高保真纹理3D重建，在CD/P2S/NC等指标上全面超越现有方法。
 
 **[Humanorbit 3D Human Reconstruction As 360 Orbit Generation](humanorbit_3d_human_reconstruction_as_360_orbit_generation.md)**
 
@@ -309,6 +373,18 @@ description: >-
 **[Hyperbolic Multiview Pretraining For Robotic Manipulation](hyperbolic_multiview_pretraining_for_robotic_manipulation.md)**
 
 :   提出 HyperMVP，首个在双曲空间中进行3D多视角自监督预训练的框架，通过 GeoLink 编码器学习双曲多视角表征并迁移到机器人操作任务，在 COLOSSEUM 最困难的 All Perturbations 设置下实现 2.1× 性能提升。
+
+**[Hypergaussians High-Dimensional Gaussian Splatting For High-Fidelity Animatable ](hypergaussians_high-dimensional_gaussian_splatting_for_high-fidelity_animatable_.md)**
+
+:   提出HyperGaussians，将3DGS扩展到高维多元高斯，通过条件分布建模表情相关的属性变化+逆协方差技巧实现高效条件化，作为即插即用模块集成到FlashAvatar和GaussianHeadAvatar中可显著提升高频细节质量。
+
+**[Ictpolarreal A Polarized Reflection And Material Dataset Of Real World Objects](ictpolarreal_a_polarized_reflection_and_material_dataset_of_real_world_objects.md)**
+
+:   本文构建了首个大规模真实世界偏振反射与材质数据集 ICTPolarReal，利用 8 相机 346 光源的 Light Stage 系统对 218 个日常物体进行交叉/平行偏振捕获，获得超 120 万张高分辨率图像及漫反射-镜面反射分离的地面真值，显著提升了逆渲染、前向重光照和稀疏视角三维重建的效果。
+
+**[Indoor Asset Detection In Large Scale 360 Drone-Captured Imagery Via 3D Gaussian](indoor_asset_detection_in_large_scale_360_drone-captured_imagery_via_3d_gaussian.md)**
+
+:   提出一种基于3D目标编码簿(Object Codebook)的pipeline，将2D分割mask通过语义+空间约束关联为3DGS中的一致3D物体实例，在大规模室内360°无人机图像上实现目标级检测，F1 score比SOTA GAGA提升65%，mAP提升11%。
 
 **[Instanthdr Single-Forward Gaussian Splatting For High Dynamic Range 3D Reconstru](instanthdr_single-forward_gaussian_splatting_for_high_dynamic_range_3d_reconstru.md)**
 
@@ -330,13 +406,33 @@ description: >-
 
 :   提出ECKConv，在intertwiner框架下将卷积核定义在双陪集空间 $\text{SO(2)}\backslash\text{SE(3)}/\text{SO(2)}$ 上，通过坐标网络显式参数化核函数，首次实现连续SE(3)等变性与大规模可扩展性的兼得，在分类、配准、分割四类任务上全面验证。
 
+**[Learning Explicit Continuous Motion Representation For Dynamic Gaussian Splattin](learning_explicit_continuous_motion_representation_for_dynamic_gaussian_splattin.md)**
+
+:   本文提出通过自适应 SE(3) B 样条运动基显式建模动态高斯的连续位置和朝向变形轨迹，配合软分段重建策略和多视角扩散模型先验，实现单目视频的高质量动态场景新视角合成，在 iPhone 和 NVIDIA 数据集上超越现有方法。
+
+**[Learning Multi-View Spatial Reasoning From Cross-View Relations](learning_multi-view_spatial_reasoning_from_cross-view_relations.md)**
+
+:   XVR（Cross-View Relations）构建了一个 10 万样本的大规模多视角视觉问答数据集，通过对应关系、几何验证和视点定位三类任务显式训练 VLM 的跨视图空间推理能力，在多视角基准和机器人操作任务上均取得显著提升。
+
 **[Let It Snow Animating 3D Gaussian Scenes With Dynamic Weather Effects Via Physic](let_it_snow_animating_3d_gaussian_scenes_with_dynamic_weather_effects_via_physic.md)**
 
 :   提出 Physics-Guided Score Distillation 框架，利用物理仿真（MPM）作为运动先验引导 Video-SDS 优化，在静态 3DGS 场景中生成具有物理合理运动和真实感外观的动态天气效果（降雪、降雨、雾、沙尘暴）。
 
+**[Lifting Unlabeled Internet-Level Data For 3D Scene Understanding](lifting_unlabeled_internet-level_data_for_3d_scene_understanding.md)**
+
+:   构建SceneVerse++，通过自动化数据引擎从6,687个无标注互联网视频中生成3D场景理解训练数据，在3D目标检测（F1@.25提升20.6）、空间VQA（+14.9%）和视觉语言导航（+14% SR）三个任务上展示了利用互联网级数据推进3D场景理解的可行性。
+
+**[Lightsplat Fast And Memory-Efficient Open-Vocabulary 3D Scene Understanding In F](lightsplat_fast_and_memory-efficient_open-vocabulary_3d_scene_understanding_in_f.md)**
+
+:   LightSplat 提出了一种快速且内存高效的无训练框架，通过为3D高斯分配紧凑的2字节语义索引（而非高维CLIP特征），配合轻量级索引-特征映射和单步3D聚类，实现了比现有SOTA快50-400倍、内存降低64倍的开放词汇3D场景理解。
+
 **[Lite Any Stereo Efficient Zero-Shot Stereo Matching](lite_any_stereo_efficient_zero-shot_stereo_matching.md)**
 
 :   提出Lite Any Stereo，通过混合2D-3D代价聚合模块和三阶段百万级数据训练策略（监督→自蒸馏→真实数据知识蒸馏），以不到SOTA精确方法1%的计算量（33G MACs），在四个real-world benchmark上ranking 1st，首次证明超轻量模型可具备强零样本泛化能力。
+
+**[Litept Lighter Yet Stronger Point Transformer](litept_lighter_yet_stronger_point_transformer.md)**
+
+:   LitePT 通过深入分析卷积和注意力在U-Net各层级的角色，提出在浅层使用稀疏卷积、深层使用注意力的分层混合架构，并引入无参数的PointROPE位置编码，实现了比Point Transformer V3少3.6倍参数、快2倍、省2倍内存，同时在多个点云基准上性能持平或超越。
 
 **[Longstream Long-Sequence Streaming Autoregressive Visual Geometry](longstream_long-sequence_streaming_autoregressive_visual_geometry.md)**
 
@@ -354,9 +450,37 @@ description: >-
 
 :   构建了多源大规模 3D 室内布局数据集 M3DLayout（21,367 布局、433k+ 物体实例），融合真实扫描、专业设计和程序化生成三种来源，配以结构化文本描述，为文本驱动的 3D 场景生成提供高质量训练基础。
 
+**[Magician Efficient Long-Term Planning With Imagined Gaussians For Active Mapping](magician_efficient_long-term_planning_with_imagined_gaussians_for_active_mapping.md)**
+
+:   提出MAGICIAN框架，利用预训练占据度网络生成"想象高斯"（Imagined Gaussians）来高效估计表面覆盖增益，结合束搜索实现主动建图中的长期轨迹规划，在室内外场景均达到SOTA，覆盖率提升超10%。
+
+**[Mamba Learns In Context Structure-Aware Domain Generalization For Multi-Task Poi](mamba_learns_in_context_structure-aware_domain_generalization_for_multi-task_poi.md)**
+
+:   提出SADG框架，首次将Mamba引入多任务点云域泛化的上下文学习，通过结构感知序列化（质心距离谱+测地曲率谱）、分层域感知建模和谱图对齐三个模块，在重建、去噪、配准三个任务上全面超越SOTA。
+
+**[Masking Matters Unlocking The Spatial Reasoning Capabilities Of Llms For 3D Scen](masking_matters_unlocking_the_spatial_reasoning_capabilities_of_llms_for_3d_scen.md)**
+
+:   发现 LLM 解码器中的 causal mask 与 3D 场景理解存在两个根本冲突（顺序偏置和指令隔离），提出 3D-SLIM 掩码策略（Geometry-adaptive Mask + Instruction-aware Mask）替换 causal mask，无需架构修改和额外参数即可在多个 3D 场景语言任务上获得显著提升。
+
+**[Mimicat Mimic With Correspondence-Aware Cascade-Transformer For Category-Free 3D](mimicat_mimic_with_correspondence-aware_cascade-transformer_for_category-free_3d.md)**
+
+:   本文提出 MimiCAT，一个级联 Transformer 框架，通过语义关键点标签学习柔性多对多软对应关系，结合百万级多类别动作数据集 PokeAnimDB，首次实现了跨类别（如人形到四足动物/鸟类）的高质量 3D 姿态迁移。
+
+**[Mind The Hitch Dynamic Calibration And Articulated Perception For Autonomous Tru](mind_the_hitch_dynamic_calibration_and_articulated_perception_for_autonomous_tru.md)**
+
+:   提出 dCAP 框架，通过基于 Transformer 的跨视角和时序注意力机制，实现拖挂式自动驾驶卡车中拖头与挂车之间的实时 6-DoF 相对位姿估计，并集成到 BEVFormer 中提升铰接运动下的 3D 目标检测性能（平移误差 0.452m，旋转误差 0.042 rad）。
+
+**[Monosaod Monocular 3D Object Detection With Sparsely Annotated Label](monosaod_monocular_3d_object_detection_with_sparsely_annotated_label.md)**
+
+:   首次定义并解决稀疏标注单目 3D 目标检测问题，提出道路感知补丁增强（RAPA）和原型过滤（PBF）两个模块，在 KITTI 30% 标注设置下大幅超越现有 2D SAOD 方法（AP3D Easy: 21.28 vs 17.14）。
+
 **[More Motion-Aware Feed-Forward 4D Reconstruction Transformer](more_motion-aware_feed-forward_4d_reconstruction_transformer.md)**
 
 :   提出 MoRe，一种前馈式运动感知 4D 重建 Transformer，通过注意力强制策略在训练时解耦动态运动与静态结构，结合分组因果注意力实现高效流式推理，在动态场景的相机位姿估计和深度预测上达到 SOTA。
+
+**[Morel Long-Range Flicker-Free 4D Motion Modeling Via Anchor Relay-Based Bidirect](morel_long-range_flicker-free_4d_motion_modeling_via_anchor_relay-based_bidirect.md)**
+
+:   针对4D高斯泼溅在长视频动态场景建模中面临的内存爆炸、时序闪烁和遮挡处理等挑战，提出了基于锚点接力双向混合 (ARBB) 的MoRel框架，通过关键帧锚点的渐进式构建和可学习时序不透明度控制实现了无闪烁、内存有界的长程4D运动重建。
 
 **[Motion-Aware Animatable Gaussian Avatars Deblurring](motion-aware_animatable_gaussian_avatars_deblurring.md)**
 
@@ -370,6 +494,10 @@ description: >-
 
 :   提出MotionAnymesh零样本框架，通过SP4D运动学先验引导VLM消除运动学幻觉，并用物理约束轨迹优化保证无碰撞铰接，将静态3D网格自动转换为可在SAPIEN等物理引擎中直接使用的URDF数字孪生，物理可执行率达87%，远超现有方法。
 
+**[Motionscale Reconstructing Appearance Geometry And Motion Of Dynamic Scenes With](motionscale_reconstructing_appearance_geometry_and_motion_of_dynamic_scenes_with.md)**
+
+:   提出 MotionScale，一个可扩展的 4D 高斯泼溅框架，通过基于聚类的自适应运动场和渐进式优化策略，从单目视频中高保真重建大规模动态场景的外观、几何和运动，在 DyCheck 上 PSNR 达到 17.98，3D 跟踪 EPE 降至 0.070，显著超越现有方法。
+
 **[Movies Motion-Aware 4D Dynamic View Synthesis In One Second](movies_motion-aware_4d_dynamic_view_synthesis_in_one_second.md)**
 
 :   提出 MoVieS，一个前馈式 4D 动态场景重建框架，通过 **动态溅射像素 (Dynamic Splatter Pixel)** 表示将外观、几何和运动统一建模，从单目视频在约 1 秒内完成 4D 重建，并支持新视角合成、3D 点跟踪、场景流估计和运动物体分割等多种任务。
@@ -382,13 +510,29 @@ description: >-
 
 :   提出多模态3D场景图（M3DSG），用动态分配的图像边替代传统文本关系边来保留视觉信息，构建零样本导航系统MSGNav，并提出可见性视点决策模块解决导航"最后一公里"问题，在GOAT-Bench和HM3D-ObjNav上取得SOTA。
 
+**[Mv-Roma From Pairwise Matching Into Multi-View Track Reconstruction](mv-roma_from_pairwise_matching_into_multi-view_track_reconstruction.md)**
+
+:   提出 MV-RoMa，首个多视图稠密匹配模型，通过 Track-Guided 多视图编码器和像素对齐多视图精炼器从一张源图同时估计到多个目标图的稠密对应关系，产生几何一致的轨迹用于 SfM，在 HPatches/ETH3D/IMC 等基准上全面超越现有方法。
+
+**[Mvggt Multimodal Visual Geometry Grounded Transformer For Multiview 3D Referring](mvggt_multimodal_visual_geometry_grounded_transformer_for_multiview_3d_referring.md)**
+
+:   提出 MV-3DRES 新任务（从稀疏多视图 RGB 直接做语言引导的 3D 分割）和 MVGGT 框架（双分支设计融合冻结几何分支 + 可训练多模态分支），通过 PVSO 优化策略解决前景梯度稀释问题，在自建 MVRefer 基准上以 39.9 mIoU 大幅超越基线。
+
 **[Nanosd Edge Efficient Foundation Model For Real Time Image Restoration](nanosd_edge_efficient_foundation_model_for_real_time_image_restoration.md)**
 
 :   提出 NanoSD，通过对 SD 1.5 进行硬件感知的 U-Net 分解、逐块特征蒸馏和多目标贝叶斯优化，构建了一族 Pareto 最优的轻量扩散基础模型（130M–315M 参数，最快 12ms 推理），可作为 drop-in backbone 在超分、人脸修复、去模糊、单目深度估计等多任务上达到 SOTA 级表现。
 
+**[Near Coupled Neural Asset-Renderer Stack](near_coupled_neural_asset-renderer_stack.md)**
+
+:   NeAR 提出将神经资产创作和神经渲染联合设计为一个耦合栈，通过光照均匀化的结构化 3D 潜变量（LH-SLAT）消除输入图像中的烘焙光照，再用光照感知的神经解码器实时合成可重光照的 3D 高斯场，在前向渲染、重建、重光照和新视角重光照四类任务上超越现有方法。
+
 **[Neu-Pig Neural Preconditioned Grids For Fast Dynamic Surface Reconstruction On L](neu-pig_neural_preconditioned_grids_for_fast_dynamic_surface_reconstruction_on_l.md)**
 
 :   Neu-PiG 提出一种基于预条件多分辨率潜在网格的快速优化方法，将关键帧参考网格的位置和法线方向编码为统一潜在空间，通过轻量级 MLP 解码为每帧 6-DoF 形变，在无需类别先验或显式对应关系的前提下，实现了比现有无训练方法快 60 倍以上的高保真动态曲面重建。
+
+**[Neural Field-Based 3D Surface Reconstruction Of Microstructures From Multi-Detec](neural_field-based_3d_surface_reconstruction_of_microstructures_from_multi-detec.md)**
+
+:   本文提出 NFH-SEM，一个基于神经场的混合框架，通过将 SEM 电子散射物理模型嵌入神经场优化过程，从多视角多检测器 SEM 图像重建高保真的微观结构 3D 表面，实现了自标定、抗阴影的纳米级精度重建（478nm 层叠特征、782nm 花粉纹理、1.559μm 断裂台阶）。
 
 **[Ni-Tex Non-Isometric Image-Based Garment Texture Generation](ni-tex_non-isometric_image-based_garment_texture_generation.md)**
 
@@ -410,6 +554,10 @@ description: >-
 
 :   提出 NINT，利用 Neural Tangent Kernel (NTK) 的行向量来度量每个坐标对全局函数更新的影响力，从而动态选择既有高拟合误差又有高全局影响力的坐标进行训练，将 INR 训练时间减少近一半且不损失重建质量。
 
+**[Off The Grid Detection Of Primitives For Feed-Forward 3D Gaussian Splatting](off_the_grid_detection_of_primitives_for_feed-forward_3d_gaussian_splatting.md)**
+
+:   本文提出一种基于关键点检测思路的前馈式3DGS解码器，将高斯原语从像素网格中解放出来，在亚像素级别自适应放置原语，结合自适应密度机制和置信度剪枝，仅使用输入像素数1/7的原语就在新视角合成上超越了SOTA前馈方法。
+
 **[Onlinehmr Video-Based Online World-Grounded Human Mesh Recovery](onlinehmr_video-based_online_world-grounded_human_mesh_recovery.md)**
 
 :   提出 OnlineHMR，首个同时满足系统因果性、忠实性、时序一致性和高效性四项准则的在线世界坐标人体网格恢复框架，通过滑动窗口因果学习 + KV 缓存推理实现流式相机坐标 HMR，结合以人为中心的增量 SLAM 和 EMA 轨迹校正实现在线全局定位。
@@ -421,6 +569,10 @@ description: >-
 **[Openvo Open-World Visual Odometry With Temporal Dynamics Awareness](openvo_open-world_visual_odometry_with_temporal_dynamics_awareness.md)**
 
 :   提出 OpenVO，一个面向开放世界的单目视觉里程计框架，通过时间感知流编码器和几何感知上下文编码器，在无相机标定、帧率变化的条件下实现鲁棒的真实尺度自车运动估计，跨数据集 ATE 提升超 20%，变帧率场景误差降低 46%-92%。
+
+**[Pano360 Perspective To Panoramic Vision With Geome](pano360_perspective_to_panoramic_vision_with_geome.md)**
+
+:   Pano360提出一种基于Transformer的全景拼接框架，将传统2D逐对对齐任务扩展到3D空间，直接利用相机位姿引导多图像全局对齐，结合多特征联合优化的接缝检测策略，在弱纹理、大视差、重复纹理等挑战场景下实现97.8%成功率，大幅超越现有方法。
 
 **[Pano360 Perspective To Panoramic Vision With Geometric Consistency](pano360_perspective_to_panoramic_vision_with_geometric_consistency.md)**
 
@@ -434,6 +586,14 @@ description: >-
 
 :   提出 PanoVGGT，一个置换等变的 Transformer 框架，能从一张或多张无序全景图像中在单次前馈中联合预测相机位姿、深度图和全局一致3D点云；同时贡献了 PanoCity——一个包含超过12万张室外全景图像的大规模数据集。
 
+**[Particulate Feed-Forward 3D Object Articulation](particulate_feed-forward_3d_object_articulation.md)**
+
+:   Particulate 提出了一个前馈式模型，给定静态 3D 网格即可在数秒内推断出完整的铰接结构（部件分割、运动学树、运动约束），基于 Part Articulation Transformer 在公开数据集上端到端训练，显著优于需要逐物体优化的现有方法，并能与 3D 生成模型结合实现从单张图像到铰接 3D 物体的生成。
+
+**[Pcstracker Long-Term Scene Flow Estimation For Point Cloud Sequences](pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)**
+
+:   PCSTracker 是首个端到端的点云序列长程场景流估计框架，通过迭代几何-运动联合优化、时空轨迹更新和重叠滑动窗口策略，在合成数据集 PointOdyssey3D 上将 EPE_3D 降低 57.9%，并以 32.5 FPS 实时运行。
+
 **[Pe3R Perception-Efficient 3D Reconstruction](pe3r_perception-efficient_3d_reconstruction.md)**
 
 :   PE3R 提出一个免调优的前馈式3D语义重建框架，通过像素嵌入消歧、语义点云重建和全局视图感知三个模块，从无位姿的2D图像直接生成语义3D点云，实现了9倍加速且在开放词汇分割和深度估计上达到新SOTA。
@@ -441,6 +601,10 @@ description: >-
 **[Phygap Physically-Grounded Gaussians With Polarization Cues](phygap_physically-grounded_gaussians_with_polarization_cues.md)**
 
 :   提出 PhyGaP，通过偏振延迟渲染（PolarDR）将偏振线索融入 2DGS 优化，并设计自遮挡感知的 GridMap 环境图技术，实现光泽物体的精确反射分解与真实重光照。
+
+**[Physgaia A Physics-Aware Benchmark With Multi-Body Interactions For Dynamic Nove](physgaia_a_physics-aware_benchmark_with_multi-body_interactions_for_dynamic_nove.md)**
+
+:   PhysGaia 构建了一个包含 17 个场景的物理感知基准数据集，涵盖液体/气体/织物/流变物质等多种材料的多体交互，提供 3D 粒子轨迹和物理参数（如粘度）的 ground truth，并提出 Trajectory Distance (TD) 和 AUOP 两个新指标来量化 4DGS 方法的物理真实性，揭示了现有 DyNVS 方法在物理推理上的严重不足。
 
 **[Physgm Large Physical Gaussian 4D Synthesis](physgm_large_physical_gaussian_4d_synthesis.md)**
 
@@ -454,6 +618,14 @@ description: >-
 
 :   提出 PhysGS，将贝叶斯推断嵌入3D高斯溅射管线，利用视觉-语言模型先验和多视角置信度加权更新，实现逐点物理属性（摩擦力、硬度、密度、刚度）的概率估计与不确定性量化，在质量估计上比 NeRF2Physics 提升 22.8%（APE），岸氏硬度误差降低 61.2%。
 
+**[Physhead Simulation-Ready Gaussian Head Avatars](physhead_simulation-ready_gaussian_head_avatars.md)**
+
+:   提出PhysHead——首个将物理驱动头发动力学与可动画3DGS头部Avatar结合的方法：用FLAME网格+3DGS建模可表达面部、用发丝(strand)+3DGS建模头发外观、用物理引擎驱动头发动画，并通过VLM生成秃头图像实现头发与面部的分层优化。
+
+**[Physically Inspired Gaussian Splatting For Hdr Novel View Synthesis](physically_inspired_gaussian_splatting_for_hdr_novel_view_synthesis.md)**
+
+:   提出PhysHDR-GS——一个物理渲染启发的HDR新视角合成框架：将高斯颜色分解为固有反射率和可调环境光照，通过图像-曝光(IE)分支和高斯-光照(GI)分支互补捕获HDR细节，跨分支HDR一致性损失提供无GT的显式HDR监督，光照引导梯度缩放解决曝光偏差的梯度饥饿问题，在多个基准上优于HDR-GS 2.04dB且保持76FPS实时渲染。
+
 **[Pip-Stereo Progressive Iterations Pruner For Iterative Optimization Based Stereo](pip-stereo_progressive_iterations_pruner_for_iterative_optimization_based_stereo.md)**
 
 :   揭示迭代立体匹配中视差更新的空间稀疏性和时间冗余性，提出渐进迭代裁剪（PIP）将32次迭代压缩到1次、协同学习范式实现无需独立单目编码器的深度先验迁移、以及硬件感知的 FlashGRU 算子（7.28× 加速），使高精度迭代立体匹配首次在 Jetson Orin NX 上实现实时推理（75ms/帧，320×640）。
@@ -461,6 +633,14 @@ description: >-
 **[Pixarmesh Autoregressive Mesh-Native Single-View Scene Reconstruction](pixarmesh_autoregressive_mesh-native_single-view_scene_reconstruction.md)**
 
 :   提出 PixARMesh，首个在原生 mesh 空间（而非 SDF）中进行单视图场景重建的自回归框架，通过像素对齐图像特征和全局场景上下文增强点云编码器，在统一的 token 序列中同时预测物体位姿和mesh，在 3D-FRONT 上达到场景级 SOTA 且输出紧凑、可编辑的 artist-ready mesh。
+
+**[Posemaster A Unified 3D Native Framework For Stylized Pose Generation](posemaster_a_unified_3d_native_framework_for_stylized_pose_generation.md)**
+
+:   PoseMaster 提出了一个将姿态风格化与 3D 生成统一在端到端框架中的 3D 原生方法，直接使用 3D 骨骼作为姿态控制信号（而非 2D 骨骼图），设计了骨骼稠密化策略和 Point Transformer 编码器提取精细的空间拓扑特征，并通过大规模"Image-Skeleton-Mesh"三元组数据引擎训练，在姿态规范化和任意姿态风格化上达到 SOTA。
+
+**[Pr-Iqa Partial-Reference Image Quality Assessment For Diffusion-Based Novel View](pr-iqa_partial-reference_image_quality_assessment_for_diffusion-based_novel_view.md)**
+
+:   本文提出 PR-IQA，一种跨参考图像质量评估方法，先在多视图重叠区域计算几何一致的局部质量图，再通过参考条件化的交叉注意力网络将质量信息"补全"到非重叠区域，生成逼近全参考精度的密集质量图，集成到 3DGS 流水线中通过双重过滤策略显著提升稀疏视角 3D 重建质量。
 
 **[Progressiveavatars Progressive Animatable 3D Gaussian Avatars](progressiveavatars_progressive_animatable_3d_gaussian_avatars.md)**
 
@@ -530,6 +710,10 @@ description: >-
 
 :   提出 ReWeaver 框架，从最少4张多视图RGB图像中联合重建3D服装几何与2D缝纫图案（sewing pattern），通过双路径Transformer预测3D曲面片/曲线及其拓扑连接，再经组内注意力将3D结构展平为2D面板边缘，首次实现拓扑准确且可直接用于物理仿真的服装资产恢复。
 
+**[Rewis3D Reconstruction Improves Weakly-Supervised Semantic Segmentation](rewis3d_reconstruction_improves_weakly-supervised_semantic_segmentation.md)**
+
+:   Rewis3d 首次将 feed-forward 3D 场景重建作为辅助监督信号引入弱监督语义分割，通过双学生-教师架构实现 2D 图像与重建 3D 点云间的双向跨模态一致性学习（CMC），配合双置信度过滤和视角感知采样，在仅有稀疏标注（点、涂鸦、粗标注）下将多个数据集的 mIoU 提升 2-7%，且推理时仅需 2D 输入。
+
 **[Rewis3D Reconstruction Improves Weaklysupervised S](rewis3d_reconstruction_improves_weaklysupervised_s.md)**
 
 :   提出 Rewis3d 框架，首次将前馈式 3D 场景重建作为辅助监督信号整合到弱监督语义分割中，通过双学生-教师架构和双置信度加权的跨模态一致性损失，在仅有稀疏标注的情况下将 mIoU 提升 2-7%，且推理时仅使用 2D 图像。
@@ -542,9 +726,25 @@ description: >-
 
 :   提出融合2D预训练先验与3D对比监督的点云部件分割框架S2AM3D，通过点一致性编码器获得全局一致的点特征，并设计尺度感知提示解码器实现连续可控的分割粒度调节，在多个基准上大幅超越现有方法。
 
+**[Sampling-Aware 3D Spatial Analysis In Multiplexed Imaging](sampling-aware_3d_spatial_analysis_in_multiplexed_imaging.md)**
+
+:   本文系统研究了多重成像中采样几何（2D切片 vs 3D序列切片）对空间统计量恢复精度的影响，并提出了一种几何感知的稀疏3D重建模块，在有限的成像预算下实现可靠的深度感知空间分析。
+
+**[Scalable Object Relation Encoding For Better 3D Spatial Reasoning In Large Langu](scalable_object_relation_encoding_for_better_3d_spatial_reasoning_in_large_langu.md)**
+
+:   提出 QuatRoPE，一种基于四元数旋转的3D位置编码方法，仅需 $O(n)$ 输入token即可保留所有 $O(n^2)$ 物体间空间关系，并配合 IGRE 机制减少与语言 RoPE 的干扰，在多个3D视觉语言基准上取得大幅提升。
+
 **[Scaling View Synthesis Transformers](scaling_view_synthesis_transformers.md)**
 
 :   首次为无几何先验的 NVS Transformer 建立缩放定律：提出有效批量大小假设（B_eff = B·V_T）揭示 encoder-decoder 被低估的根因，设计单向 encoder-decoder 架构 SVSM，在 RealEstate10K 上以不到一半训练 FLOPs 达到新 SOTA（30.01 PSNR），Pareto 前沿比 LVSM decoder-only 左移 3×。
+
+**[Scene Grounding In The Wild](scene_grounding_in_the_wild.md)**
+
+:   提出一种基于语义特征的逆优化框架，将野外拍摄的局部3D重建（SfM）对齐到完整的伪合成参考模型（如Google Earth Studio），通过DINOv2特征和鲁棒优化解决巨大的域差异问题，实现非重叠局部重建的全局一致性融合。
+
+**[Scenescribe-1M A Large-Scale Video Dataset With Comprehensive Geometric And Sema](scenescribe-1m_a_large-scale_video_dataset_with_comprehensive_geometric_and_sema.md)**
+
+:   提出SceneScribe-1M——一个包含100万个野外视频、超4000小时的大规模多模态视频数据集，提供详细文本描述、精确相机参数、连续深度图和一致性3D点轨迹等全面标注，为3D几何感知和视频生成任务提供统一资源。
 
 **[Scope Scene-Contextualized Incremental Few-Shot 3D Segmentation](scope_scene-contextualized_incremental_few-shot_3d_segmentation.md)**
 
@@ -558,9 +758,21 @@ description: >-
 
 :   提出 SeeThrough3D，通过半透明 3D 包围盒渲染的遮挡感知场景表示（OSCR）来条件化 FLUX 模型，实现了精确的 3D 布局控制与遮挡一致的文本到图像生成。
 
+**[Sgad-Slam Splatting Gaussians At Adjusted Depth For Better Radiance Fields In Rg](sgad-slam_splatting_gaussians_at_adjusted_depth_for_better_radiance_fields_in_rg.md)**
+
+:   提出SGAD-SLAM，采用像素对齐的简化高斯表示并允许高斯沿射线调整深度偏移以提升渲染质量和可扩展性，同时引入基于几何相似度的GICP跟踪策略加速相机位姿估计，在Replica、TUM、ScanNet和ScanNet++上全面超越最新方法。
+
 **[Sgi Structured 2D Gaussians For Efficient And Compact Large Image Representation](sgi_structured_2d_gaussians_for_efficient_and_compact_large_image_representation.md)**
 
 :   SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无结构高斯原语组织为种子驱动的神经高斯、结合上下文引导的熵编码和多尺度拟合策略，在高分辨率图像表示中实现最高 7.5× 压缩比和 6.5× 优化加速，同时保持甚至提升重建保真度。
+
+**[Sky2Ground A Benchmark For Site Modeling Under Varying Altitude](sky2ground_a_benchmark_for_site_modeling_under_varying_altitude.md)**
+
+:   本文提出Sky2Ground数据集（51个场景，80k图像，统一覆盖卫星/航拍/地面三种视角的合成+真实图像）和SkyNet模型（双流编码器+掩码卫星注意力+渐进式视角采样），首次系统研究了跨地面/航拍/卫星三视角联合相机定位问题，在RRA@5上提升9.6%，在RTA@5上提升18.1%。
+
+**[Sonoworld From One Image To A 3D Audio-Visual Scene](sonoworld_from_one_image_to_a_3d_audio-visual_scene.md)**
+
+:   提出 SonoWorld，一个 training-free 的框架，可以从单张图片出发，生成可探索的3D音频-视觉场景：先将图片扩展为360°全景并重建为3D高斯场景，再通过VLM驱动的语义定位放置声源锚点，最后用 Ambisonics 编码渲染空间音频，实现视觉与听觉的几何和语义对齐。
 
 **[Sope Spherical Coordinate-Based Positional Embedding For Enhancing Spatial Perce](sope_spherical_coordinate-based_positional_embedding_for_enhancing_spatial_perce.md)**
 
@@ -594,9 +806,17 @@ description: >-
 
 :   将3D超分辨率(3DSR)重新定义为从稀疏低分辨率视图到高分辨率3DGS的**前馈映射**问题，通过高斯偏移学习和特征精炼实现高保真HR 3DGS重建，无需逐场景优化即可实现强零样本泛化。
 
+**[Stac Plug-And-Play Spatio-Temporal Aware Cache Compression For Streaming 3D Reco](stac_plug-and-play_spatio-temporal_aware_cache_compression_for_streaming_3d_reco.md)**
+
+:   提出STAC框架，利用因果Transformer中KV缓存的时空稀疏性，通过工作时序token缓存、长期空间token缓存和分块多帧优化三个模块，在不需要额外训练的情况下将流式3D重建的内存消耗降低约10倍、推理速度提升4倍，同时几乎不损失重建质量。
+
 **[Stavatar Soft Binding And Temporal Density Control For Monocular 3D Head Avatars](stavatar_soft_binding_and_temporal_density_control_for_monocular_3d_head_avatars.md)**
 
 :   提出 STAvatar，通过 UV 自适应软绑定框架和时序自适应密度控制策略，从单目视频重建高保真可驱动的 3D 头部化身，在遮挡区域（口腔内部、眼睑）和精细细节方面显著优于现有方法。
+
+**[Stepper Stepwise Immersive Scene Generation With Multiview Panoramas](stepper_stepwise_immersive_scene_generation_with_multiview_panoramas.md)**
+
+:   提出 Stepper 框架，通过逐步生成多视角全景图并结合前馈式3D重建管线，实现文本驱动的高保真沉浸式3D场景生成，在PSNR上比现有方法平均提升3.3 dB。
 
 **[Swifttailor Efficient 3D Garment Generation With Geometry Image Representation](swifttailor_efficient_3d_garment_generation_with_geometry_image_representation.md)**
 
@@ -609,6 +829,18 @@ description: >-
 **[Tehor Text-Guided 3D Human And Object Reconstruction With Textures](tehor_text-guided_3d_human_and_object_reconstruction_with_textures.md)**
 
 :   TeHOR 利用文本描述作为语义引导，通过预训练扩散模型的 Score Distillation Sampling 联合优化 3D 人体和物体的几何与纹理，突破了传统方法对接触信息的依赖，实现了包括非接触交互在内的准确且语义一致的 3D 重建。
+
+**[Text-Image Conditioned 3D Generation](text-image_conditioned_3d_generation.md)**
+
+:   本文发现图像条件和文本条件在3D生成中提供互补信息——图像给出精确外观但受视角限制，文本提供全局语义但缺乏视觉细节——并提出TIGON，一个最小化双分支DiT基线，通过零初始化跨模态桥(early fusion)和步级预测平均(late fusion)实现联合文本-图像条件的原生3D生成。
+
+**[Topomesh High-Fidelity Mesh Autoencoding Via Topological Unification](topomesh_high-fidelity_mesh_autoencoding_via_topological_unification.md)**
+
+:   提出 TopoMesh，通过将GT网格和预测网格统一到 Dual Marching Cubes (DMC) 拓扑框架下，首次实现了顶点和面片级别的显式对应，从而支持直接网格级别监督（拓扑、顶点位置、面法向量），F1-Sharp 指标比现有SOTA提升 5.9-7.1%，尤其在锐利特征保持上优势显著。
+
+**[Toward Generalizable Whole Brain Representations With High-Resolution Light-Shee](toward_generalizable_whole_brain_representations_with_high-resolution_light-shee.md)**
+
+:   提出 CANVAS——首个大规模亚细胞分辨率光片荧光显微镜（LSFM）全脑基准数据集，涵盖 6 种细胞标记物、约 93,000 个细胞标注和公开排行榜，揭示了现有检测模型在跨标记物和跨脑区泛化上的严重不足，并探索了 3D 掩码自编码器（MAE）的自监督表示学习潜力。
 
 **[Towards Spatio-Temporal World Scene Graph Generation From Monocular Videos](towards_spatio-temporal_world_scene_graph_generation_from_monocular_videos.md)**
 
@@ -633,6 +865,10 @@ description: >-
 **[Varsplat Uncertainty-Aware 3D Gaussian Splatting For Robust Rgb-D Slam](varsplat_uncertainty-aware_3d_gaussian_splatting_for_robust_rgb-d_slam.md)**
 
 :   提出 VarSplat，首个在3DGS-SLAM中学习**逐splat外观方差** $\sigma^2$ 并通过全方差定律渲染**逐像素不确定性图** $V$ 的系统，将不确定性统一应用于跟踪、子图配准和回环检测，在4个数据集上取得鲁棒且领先的性能。
+
+**[Versecrafter Dynamic Realistic Video World Model With 4D Geometric Control](versecrafter_dynamic_realistic_video_world_model_with_4d_geometric_control.md)**
+
+:   提出 VerseCrafter，一个基于4D几何控制表示（静态背景点云 + 逐物体3D高斯轨迹）的视频世界模型，通过轻量 GeoAdapter 将4D控制信号注入冻结的 Wan2.1-14B 视频扩散模型，实现了对相机和多物体运动的精确、解耦控制，同时构建了包含 35K 样本的真实世界数据集 VerseControl4D。
 
 **[Vgg-T3 Offline Feed-Forward 3D Reconstruction At Scale](vgg-t3_offline_feed-forward_3d_reconstruction_at_scale.md)**
 

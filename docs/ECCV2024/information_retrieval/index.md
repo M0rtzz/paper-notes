@@ -1,22 +1,26 @@
 ---
 title: >-
-  ECCV2024 信息检索/RAG方向 5篇论文解读
+  ECCV2024 信息检索/RAG方向 6篇论文解读
 description: >-
-  5篇ECCV2024 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇ECCV2024 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**🎞️ ECCV2024** · **5** 篇论文解读
+**🎞️ ECCV2024** · **6** 篇论文解读
 
 **[Artvlm Attribute Recognition Through Vision-Based Prefix Language Modeling](artvlm_attribute_recognition_through_vision-based_prefix_language_modeling.md)**
 
 :   本文提出将视觉属性识别问题重新建模为基于图像条件的前缀语言模型（PrefixLM）下的句子生成概率问题，通过"生成式检索"（Generative Retrieval）替代传统的"对比式检索"（Contrastive Retrieval），显式建模物体-属性间的条件依赖关系，在VAW和新提出的VGARank数据集上显著超越对比检索方法。
 
+**[Artvlm Attribute Recognition Through Visionbased Prefix Lang](artvlm_attribute_recognition_through_visionbased_prefix_lang.md)**
+
+:   将视觉属性识别重新建模为基于PrefixLM的句子生成概率评估问题，通过设计不同句子模板灵活构建"物体-属性"条件依赖的概率图模型（元模型），在零样本和微调设定下均显著优于CLIP风格的对比式检索。
+
 **[Grounding Language Models For Visual Entity Recognition](grounding_language_models_for_visual_entity_recognition.md)**
 
-:   提出 AutoVER，在多模态大语言模型中统一集成对比检索和前缀树约束解码，将 600 万级 Wikipedia 实体空间先缩小到数百候选再做受限生成，在 Oven-Wiki 上将 entity seen 准确率从 PaLI-17B 的 30.6% 翻倍到 61.5%，同时在 unseen/query split 上也大幅领先。
+:   提出 AutoVER——首个将多模态大语言模型（MLLM）应用于大规模视觉实体识别的方法，通过将检索能力集成到 MLLM 内部，结合对比训练和前缀树约束解码，在 Oven-Wiki 基准上大幅超越 PaLI-17B 等先前方法。
 
 **[Multi-Label Cluster Discrimination For Visual Representation Learning](multi-label_cluster_discrimination_for_visual_representation_learning.md)**
 

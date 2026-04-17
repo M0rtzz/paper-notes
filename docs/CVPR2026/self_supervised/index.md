@@ -10,10 +10,6 @@ description: >-
 
 **📷 CVPR2026** · **18** 篇论文解读
 
-**[Actta Rethinking Test-Time Adaptation Via Dynamic Activation](actta_rethinking_test-time_adaptation_via_dynamic_activation.md)**
-
-:   提出AcTTA框架，首次将激活函数作为测试时适应(TTA)的可学习组件，通过参数化的激活中心偏移 $c$ 和非对称梯度缩放 $\lambda_{pos}, \lambda_{neg}$ 替代或增强传统归一化层适应，在CIFAR-10/100-C和ImageNet-C上一致超越所有归一化基TTA方法，并支持10倍大的学习率。
-
 **[Bd-Merging Bias-Aware Dynamic Model Merging With Evidence-Guided Contrastive Lea](bd-merging_bias-aware_dynamic_model_merging_with_evidence-guided_contrastive_lea.md)**
 
 :   提出 BD-Merging 框架，通过 Dirichlet 证据建模 + 邻域差异分数（ADS）+ 差异感知对比学习，训练去偏路由器来自适应分配模型合并权重，显著提升合并模型在测试时分布偏移和未见任务上的鲁棒性与泛化能力。
@@ -37,6 +33,10 @@ description: >-
 **[Las-Comp Zero-Shot 3D Completion With Latent-Spatial Consistency](las-comp_zero-shot_3d_completion_with_latent-spatial_consistency.md)**
 
 :   提出 LaS-Comp，一种零样本、类别无关的 3D 形状补全框架，通过 Explicit Replacement Stage 在空间域注入已知几何 + Implicit Alignment Stage 在隐空间梯度优化边界一致性，桥接了预训练 3D 基础模型的隐空间与空间域之间的 gap，在多种部分观测模式下达到 SOTA。
+
+**[Momo Mars Orbital Model Foundation Model For Mars Orbital Applications](momo_mars_orbital_model_foundation_model_for_mars_orbital_applications.md)**
+
+:   MOMO 是首个火星遥感基础模型，通过在三种火星传感器（HiRISE/CTX/THEMIS）上分别预训练 MAE 并提出 Equal Validation Loss（EVL）检查点选择策略进行模型融合，在 Mars-Bench 的 9 个下游任务上超越 ImageNet 预训练和地球观测基础模型。
 
 **[Redepth Anything Test-Time Depth Refinement Via Self-Supervised Re-Lighting](redepth_anything_test-time_depth_refinement_via_self-supervised_re-lighting.md)**
 

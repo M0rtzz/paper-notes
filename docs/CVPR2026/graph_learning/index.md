@@ -1,14 +1,18 @@
 ---
 title: >-
-  CVPR2026 图学习方向 4篇论文解读
+  CVPR2026 图学习方向 5篇论文解读
 description: >-
-  4篇CVPR2026 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  5篇CVPR2026 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**📷 CVPR2026** · **4** 篇论文解读
+**📷 CVPR2026** · **5** 篇论文解读
+
+**[Graph-To-Frame Rag Visual-Space Knowledge Fusion For Training-Free And Auditable](graph-to-frame_rag_visual-space_knowledge_fusion_for_training-free_and_auditable.md)**
+
+:   提出 G2F-RAG 范式，将检索到的结构化知识渲染为单帧"推理帧"附加到视频末尾，使大模型在视觉空间内统一推理，避免了文本追加导致的注意力稀释和认知负荷，在 8 个视频基准上实现免训练的一致性提升。
 
 **[Hyperbolic Busemann Neural Networks](hyperbolic_busemann_neural_networks.md)**
 

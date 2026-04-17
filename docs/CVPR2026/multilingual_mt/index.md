@@ -1,14 +1,18 @@
 ---
 title: >-
-  CVPR2026 多语言/翻译方向 1篇论文解读
+  CVPR2026 多语言/翻译方向 2篇论文解读
 description: >-
-  1篇CVPR2026 多语言/翻译方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  2篇CVPR2026 多语言/翻译方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**📷 CVPR2026** · **1** 篇论文解读
+**📷 CVPR2026** · **2** 篇论文解读
+
+**[Mmtit-Bench A Multilingual And Multi-Scenario Benchmark With Cognition-Perceptio](mmtit-bench_a_multilingual_and_multi-scenario_benchmark_with_cognition-perceptio.md)**
+
+:   构建了覆盖 14 种非英非中语言的多语言多场景文字图像翻译基准 MMTIT-Bench，并提出 CPR-Trans 数据范式（认知→感知→翻译推理），在 3B 和 7B 模型上显著提升端到端翻译质量，7B 模型达到与 235B 模型竞争的性能。
 
 **[Sea-Vision A Multilingual Benchmark For Comprehensive Document And Scene Text Un](sea-vision_a_multilingual_benchmark_for_comprehensive_document_and_scene_text_un.md)**
 

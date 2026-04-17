@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 语义分割方向 48篇论文解读
+  ECCV2024 语义分割方向 60篇论文解读
 description: >-
-  48篇ECCV2024 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  60篇ECCV2024 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🎞️ ECCV2024** · **48** 篇论文解读
+**🎞️ ECCV2024** · **60** 篇论文解读
 
 **[A Semantic Space Is Worth 256 Language Descriptions Make Str](a_semantic_space_is_worth_256_language_descriptions_make_str.md)**
 
@@ -30,6 +30,10 @@ description: >-
 
 :   提出自适应对数底量化器AdaLog，通过可搜索的对数底替代固定log₂/log√2量化器来处理ViT中post-Softmax和post-GELU激活的幂律分布，并设计快速渐进组合搜索(FPCS)策略高效确定量化超参，在极低比特(3/4-bit)下显著优于现有ViT PTQ方法。
 
+**[Attention Decomposition For Cross-Domain Semantic Segmentation](attention_decomposition_for_cross-domain_semantic_segmentation.md)**
+
+:   本文提出 ADFormer，一种用于跨域语义分割的新型 Transformer 架构，通过将解码器中的交叉注意力分解为域无关和域特定两部分，结合梯度反转对抗学习，有效缩小源域和目标域之间的分布差异，在 GTA→Cityscapes 和 SYNTHIA→Cityscapes 两个基准上以显著更低的复杂度超越了现有无 proposal 方法。
+
 **[Brushnet A Plug-And-Play Image Inpainting Model With Decomposed Dual-Branch Diff](brushnet_a_plug-and-play_image_inpainting_model_with_decomposed_dual-branch_diff.md)**
 
 :   提出 BrushNet，一种即插即用的双分支扩散模型图像修复架构，通过将遮罩图像特征提取与图像生成解耦到独立分支，实现逐层像素级特征注入，在图像质量、遮罩区域保持和文本对齐三方面全面超越已有方法。
@@ -41,6 +45,10 @@ description: >-
 **[Colormae Exploring Data-Independent Masking Strategies In Masked Autoencoders](colormae_exploring_data-independent_masking_strategies_in_masked_autoencoders.md)**
 
 :   提出 ColorMAE，通过对随机噪声施加不同频域滤波器生成具有空间与语义先验的数据无关遮罩模式，在不增加任何参数和计算开销的前提下，显著提升 MAE 的下游任务表现，尤其在语义分割任务上相比随机遮罩提升 2.72 mIoU。
+
+**[Controlnet Improving Conditional Controls With Efficien](controlnet_improving_conditional_controls_with_efficien.md)**
+
+:   提出 ControlNet++，通过预训练判别模型提取生成图像的条件并优化像素级循环一致性损失来显式提升可控生成的精度，同时提出高效单步去噪奖励策略避免多步采样的巨大开销。
 
 **[Controlnet Improving Conditional Controls With Efficient Consistency Feedback](controlnet_improving_conditional_controls_with_efficient_consistency_feedback.md)**
 
@@ -69,6 +77,10 @@ description: >-
 **[Densenets Reloaded Paradigm Shift Beyond Resnets And Vits](densenets_reloaded_paradigm_shift_beyond_resnets_and_vits.md)**
 
 :   重新审视 DenseNet 的密集拼接连接（concatenation shortcut），通过系统性现代化改造（加宽减深、现代化 block、扩大中间维度、更多 transition 层等），提出 RDNet（Revitalized DenseNet），在 ImageNet-1K 上超越 Swin Transformer、ConvNeXt、DeiT-III，证明了拼接连接作为一种被低估的范式具有强大潜力。
+
+**[Diffusion Models For Open-Vocabulary Segmentation](diffusion_models_for_open-vocabulary_segmentation.md)**
+
+:   本文提出 OVDiff，利用预训练的文本到图像扩散模型为任意文本类别生成支持图像集，从中提取多层次原型（类级、实例级、部件级），结合背景原型实现无训练的开放词汇语义分割，在 PASCAL VOC 上超越先前方法 10% 以上。
 
 **[Dreamlip Language-Image Pre-Training With Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)**
 
@@ -106,6 +118,10 @@ description: >-
 
 :   提出 GiT 框架，通过通用语言接口将图像描述、目标检测、实例分割、语义分割和视觉定位五大视觉任务统一为自回归序列生成，仅用纯 ViT（无任何任务特定模块）实现多任务联合训练，且任务间互相增强。
 
+**[Lass3D Language-Assisted Semi-Supervised 3D Semantic Segmentation With Progressi](lass3d_language-assisted_semi-supervised_3d_semantic_segmentation_with_progressi.md)**
+
+:   本文提出 LASS3D，在 MeanTeacher 半监督 3D 语义分割框架中引入大语言视觉模型（LVM）生成多层级文本描述来增强 3D 特征，并通过渐进式负学习策略有效利用低置信度伪标签点，在室内外数据集上取得显著提升。
+
 **[Learning Camouflaged Object Detection From Noisy Pseudo Label](learning_camouflaged_object_detection_from_noisy_pseudo_label.md)**
 
 :   提出首个弱半监督伪装目标检测方法 (WSSCOD)，仅用 20% 像素级标注 + 80% 框标注即可达到全监督 SOTA 的可比性能，核心贡献是一个自适应噪声校正损失 $\mathcal{L}_{NC}$，可在早期学习和记忆化两个阶段分别优化。
@@ -134,6 +150,10 @@ description: >-
 
 :   首次定义开放集全景场景图生成（OpenPSG）任务，利用 BLIP-2 作为多模态关系解码器，结合关系查询 Transformer（RelQ-Former）实现开放集关系预测，在 PSG 数据集 PredCls R@100 达到 79.3%，闭集场景超越先前 SOTA 26.6%。
 
+**[Openpsg Openset Panoptic Scene Graph Generation Via Large Mu](openpsg_openset_panoptic_scene_graph_generation_via_large_mu.md)**
+
+:   本文首次提出开放集全景场景图生成任务（OpenPSG），利用大型多模态模型（BLIP-2）以自回归方式预测物体间的开放集关系，通过关系查询Transformer高效提取物体对特征并过滤无关对，在闭集和开放集设置下均取得SOTA。
+
 **[Partstad 2D-To-3D Part Segmentation Task Adaptation](partstad_2d-to-3d_part_segmentation_task_adaptation.md)**
 
 :   PartSTAD 提出了一种 2D-to-3D 部件分割的任务适配方法：通过为 GLIP 的 2D 检测框引入可学习权重预测网络（以 3D mRIoU 为目标优化），并集成 SAM 获取精确前景掩码，在 PartNet-Mobility 上实现了语义分割 mIoU 提升 7.0%p、实例分割 mAP50 提升 5.2%p（相对 PartSLIP）。
@@ -141,6 +161,18 @@ description: >-
 **[Plain-Det A Plain Multi-Dataset Object Detector](plain-det_a_plain_multi-dataset_object_detector.md)**
 
 :   Plain-Det 提出了一个简洁灵活的多数据集目标检测框架，通过语义空间校准、类感知查询组合器和基于难度的动态采样策略，在 COCO 上达到 51.9 mAP（匹配当时 SOTA），并可灵活扩展到新数据集且保持鲁棒性能。
+
+**[Point-Supervised Panoptic Segmentation Via Estimating Pseudo Labels From Learnab](point-supervised_panoptic_segmentation_via_estimating_pseudo_labels_from_learnab.md)**
+
+:   本文提出一种基于可学习距离的点监督全景分割方法，用 anchor query 表示每个实例，通过交叉注意力预测像素到实例的距离，并以端到端方式由点标签监督距离学习，结合迭代的查询聚合和增强过程持续优化伪标签质量，取得了点监督全景分割的 SOTA 结果。
+
+**[Promerge Prompt And Merge For Unsupervised Instance Segmentation](promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md)**
+
+:   提出ProMerge方法，利用自监督视觉特征进行patch初始分组和策略性合并，结合背景mask剪枝技术，实现高效的无监督实例分割。
+
+**[Remamber Referring Image Segmentation With Mamba Twister](remamber_referring_image_segmentation_with_mamba_twister.md)**
+
+:   本文首次将 Mamba 架构引入指称图像分割（RIS）任务，提出 Mamba Twister 模块通过通道扫描和空间扫描的"扭转"机制实现高效的视觉-语言特征融合，在 RefCOCO/RefCOCO+/G-Ref 三个基准上取得了超越 Transformer 方法的竞争性结果，同时保持线性计算复杂度。
 
 **[Representing Topological Self-Similarity Using Fractal Feature Maps For Accurate](representing_topological_self-similarity_using_fractal_feature_maps_for_accurate.md)**
 
@@ -153,6 +185,10 @@ description: >-
 **[Sclip Rethinking Self-Attention For Dense Vision-Language Inference](sclip_rethinking_self-attention_for_dense_vision-language_inference.md)**
 
 :   发现 CLIP 的密集预测失败源于自注意力导致的空间位置错位问题，提出 Correlative Self-Attention (CSA) 机制——仅修改最后一层自注意力的计算方式（无需训练），将 CLIP 的零样本语义分割从 14.1% 平均 mIoU 提升至 38.2%，超越所有已有方法。
+
+**[Sclip Rethinking Selfattention For Dense Visionlanguage Infe](sclip_rethinking_selfattention_for_dense_visionlanguage_infe.md)**
+
+:   发现CLIP在密集预测中失败的根因是自注意力机制导致的空间位置错配（spatial-invariant features），提出Correlative Self-Attention(CSA)机制——仅用一个投影矩阵计算token间相关性作为注意力分数，无需任何训练/额外参数即可将CLIP的零样本语义分割mIoU从14.1%提升至38.2%（8个基准平均），大幅超越现有SOTA的33.9%。
 
 **[Seggen Supercharging Segmentation Models With Text2Mask And Mask2Img Synthesis](seggen_supercharging_segmentation_models_with_text2mask_and_mask2img_synthesis.md)**
 
@@ -169,6 +205,10 @@ description: >-
 **[Self-Supervised Co-Salient Object Detection Via Feature Correspondences At Multi](self-supervised_co-salient_object_detection_via_feature_correspondences_at_multi.md)**
 
 :   提出 SCoSPARC——一个两阶段自监督共显著目标检测模型，通过 patch 级和 region 级 ViT 特征对应关系检测图像组中的共显著物体，在 CoCA 数据集上 F-measure 比无监督 SOTA 高 13.7%，甚至超越多个有监督方法。
+
+**[Silc Improving Vision Language Pretraining With Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)**
+
+:   提出SiLC框架，在CLIP式图文对比学习中加入局部到全局的自蒸馏，显著提升密集预测任务（检测、分割）的性能，同时改善分类和检索。
 
 **[Sos Segment Object System For Open-World Instance Segmentation With Object Prior](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)**
 
@@ -190,6 +230,10 @@ description: >-
 
 :   提出UniFS——首个通用少样本实例感知模型，通过将目标检测、实例分割、姿态估计和目标计数统一为动态点表示学习范式，并引入结构感知点学习(SAPL)损失来捕获点间高阶结构关系，在最小任务假设下达到接近专家模型的性能。
 
+**[Unsupervised Moving Object Segmentation With Atmospheric Turbulence](unsupervised_moving_object_segmentation_with_atmospheric_turbulence.md)**
+
+:   本文提出一种无监督方法，通过"检测-生长"（detect-then-grow）策略分割大气湍流视频中的运动目标：先用基于 Sampson 距离的极线几何一致性检查分离真实运动与湍流运动，再从高置信种子像素出发区域生长生成分割掩码，最后用时空一致性损失精细化，在首个真实湍流视频数据集 DOST 上大幅超越现有方法（IoU 提升 60.1%）。
+
 **[Visa Reasoning Video Object Segmentation Via Large Language Models](visa_reasoning_video_object_segmentation_via_large_language_models.md)**
 
 :   提出 ReasonVOS 新任务和 VISA 模型，利用多模态 LLM 的世界知识推理能力实现基于隐式文本查询的视频目标分割与跟踪。
@@ -197,6 +241,10 @@ description: >-
 **[Visage Video Instance Segmentation With Appearance-Guided Enhancement](visage_video_instance_segmentation_with_appearance-guided_enhancement.md)**
 
 :   针对在线视频实例分割(VIS)中现有方法过度依赖位置信息导致的关联错误，提出VISAGE通过从骨干特征中显式提取外观嵌入、结合对比学习和简化tracker来增强实例关联准确性，在YTVIS和OVIS基准上取得SOTA。
+
+**[Vp-Sam Taming Segment Anything Model For Video Polyp Segmentation Via Disentangl](vp-sam_taming_segment_anything_model_for_video_polyp_segmentation_via_disentangl.md)**
+
+:   本文提出 VP-SAM，通过语义解耦适配器（SDA）利用傅里叶频谱的幅度信息帮助 SAM 区分低对比度的息肉与背景，同时设计时空侧网络（STSN）为 SAM 注入视频帧间时序信息，在 SUN-SEG、CVC-612 和 CVC-300 等数据集上达到 SOTA。
 
 **[You Only Learn One Query Learning Unified Human Query For Single-Stage Multi-Per](you_only_learn_one_query_learning_unified_human_query_for_single-stage_multi-per.md)**
 

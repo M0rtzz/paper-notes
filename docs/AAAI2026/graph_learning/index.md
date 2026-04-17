@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 图学习方向 34篇论文解读
+  AAAI2026 图学习方向 36篇论文解读
 description: >-
-  34篇AAAI2026 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  36篇AAAI2026 图学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🤖 AAAI2026** · **34** 篇论文解读
+**🤖 AAAI2026** · **36** 篇论文解读
 
 **[Adaptive Initial Residual Connections For Gnns With Theoretical Guarantees](adaptive_initial_residual_connections_for_gnns_with_theoretical_guarantees.md)**
 
@@ -138,9 +138,17 @@ description: >-
 
 :   提出 SAGMM（Self-Adaptive Graph Mixture of Models），一个利用架构多样性的图 MoE 框架，通过拓扑感知注意力门控（TAAG）自适应选择和组合异构 GNN 专家，配合自适应剪枝机制，在 16 个基准上覆盖节点分类、图分类、回归和链接预测，一致超越单一 GNN 和已有 MoE 方法。
 
+**[Sentient Detecting Apts Via Capturing Indirect Dependencies And Behavioral Logic](sentient_detecting_apts_via_capturing_indirect_dependencies_and_behavioral_logic.md)**
+
+:   提出 Sentient，一种结合**图 Transformer 预训练**和**双向 Mamba2 意图分析**的 APT 检测方法，仅用良性数据训练即可捕获间接依赖关系、去除场景噪声、关联行为逻辑，在三个标准数据集上平均降低 44% 误报率。
+
 **[Sheaf Graph Neural Networks Via Pac-Bayes Spectral Optimization](sheaf_graph_neural_networks_via_pac-bayes_spectral_optimization.md)**
 
 :   提出 SGPC（Sheaf GNNs with PAC-Bayes Calibration），结合 Wasserstein 最优传输学习 sheaf 限制映射、方差缩减扩散与自适应频率混合层、以及 PAC-Bayes 谱正则化，在同质和异质图节点分类上全面超越现有 GNN 和 sheaf 方法，同时提供理论泛化保证。
+
+**[Spiking Heterogeneous Graph Attention Networks](spiking_heterogeneous_graph_attention_networks.md)**
+
+:   提出 SpikingHAN，首次将**脉冲神经网络（SNN）**引入异构图学习，通过共享参数的单层图卷积聚合元路径邻居信息，语义级注意力融合多元路径，再编码为脉冲序列的 1-bit 二值表征，在三个数据集上以更少参数、更快推理和更低能耗达到有竞争力的分类性能。
 
 **[Unihr Hierarchical Representation Learning For Unified Knowledge Graph Link Pred](unihr_hierarchical_representation_learning_for_unified_knowledge_graph_link_pred.md)**
 

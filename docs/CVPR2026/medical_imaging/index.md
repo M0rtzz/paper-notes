@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 医学图像方向 127篇论文解读
+  CVPR2026 医学图像方向 146篇论文解读
 description: >-
-  127篇CVPR2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  146篇CVPR2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · **127** 篇论文解读
+**📷 CVPR2026** · **146** 篇论文解读
 
 **[A Protocol For Evaluating Robustness To He Stainin](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -250,6 +250,10 @@ description: >-
 
 :   提出 FedMEPD 框架，用模态专属编码器处理模态间异质性、滤波器级动态部分个性化解码器平衡知识共享与个性化、多锚点跨注意力校准补偿缺失模态信息，在 BraTS 2018/2020 上全面超越现有多模态联邦学习方法。
 
+**[Federated Modalityspecific Encoders And Partially](federated_modalityspecific_encoders_and_partially.md)**
+
+:   提出 FedMEPD 框架，通过为每种 MRI 模态设置独立编码器（全联邦共享）+ 部分个性化的多模态融合解码器 + 多锚点跨注意力校准模块，同时解决联邦学习中模态间异质性和客户端个性化两大挑战，在 BraTS 2018/2020 上超越现有联邦方法。
+
 **[Fedvg Gradient-Guided Aggregation For Enhanced Federated Learning](fedvg_gradient-guided_aggregation_for_enhanced_federated_learning.md)**
 
 :   FedVG 提出利用全局验证集上的逐层梯度范数为各客户端打分，梯度越平坦（范数越小）的客户端获得越高聚合权重，从而在高度数据异质性场景下显著提升联邦学习的泛化性能。
@@ -265,6 +269,10 @@ description: >-
 **[Forecasting Epileptic Seizures From Contactless Camera Via Cross-Species Transfe](forecasting_epileptic_seizures_from_contactless_camera_via_cross-species_transfe.md)**
 
 :   首次提出纯视频的癫痫发作预测任务，利用大规模啮齿动物癫痫视频进行跨物种自监督预训练，通过 VideoMAE 框架实现 3-10 秒预测窗口内 >70% 的发作预测准确率。
+
+**[Gaussianpile A Unified Sparse Gaussian Splatting Framework For Slice-Based Volum](gaussianpile_a_unified_sparse_gaussian_splatting_framework_for_slice-based_volum.md)**
+
+:   提出 GaussianPile，通过引入焦点感知的物理成像模型（Focus Gaussian），将 3D 高斯溅射从表面外观建模扩展到切片体数据重建，在超声和光片显微镜数据上实现了比 NeRF 方法快 11 倍、比体素网格储存缩小 16 倍的高质量体数据压缩与重建。
 
 **[Giim Graph-Based Learning Of Inter- And Intra-View Dependencies For Multi-View M](giim_graph-based_learning_of_inter-_and_intra-view_dependencies_for_multi-view_m.md)**
 
@@ -289,6 +297,10 @@ description: >-
 **[Human Knowledge Integrated Multimodal Learning For](human_knowledge_integrated_multimodal_learning_for.md)**
 
 :   提出域保形界（DCB）理论框架量化域间因果差异并定义出可优化的一致度指标SDCD，据此精炼专家知识经LoRA注入MedGemma-4B，在8个DR和2个SOZ数据集上大幅超越单源域泛化SOTA。
+
+**[Instruction-Guided Lesion Segmentation For Chest X-Rays With Automatically Gener](instruction-guided_lesion_segmentation_for_chest_x-rays_with_automatically_gener.md)**
+
+:   提出指令引导的胸部X光病变分割任务（ILS），构建了首个大规模自动生成的指令-回答数据集MIMIC-ILS（1.1M样本、192K图像、91K mask），并训练ROSALIA模型实现gIoU 71.2%和空目标准确率91.8%，远超现有通用和医学分割模型。
 
 **[Interpretable Cross-Domain Few-Shot Learning With Rectified Target-Domain Local ](interpretable_cross-domain_few-shot_learning_with_rectified_target-domain_local_.md)**
 
@@ -326,9 +338,17 @@ description: >-
 
 :   提出 MedGEN-Bench，首个面向开放式多模态医学生成的综合基准，包含 6,422 个专家验证的图文对、6 种成像模态、16 个临床任务，配套三层评估框架，揭示了组合框架优于统一模型的跨模态一致性问题。
 
+**[Medgrpo Multi-Task Reinforcement Learning For Heterogeneous Medical Video Unders](medgrpo_multi-task_reinforcement_learning_for_heterogeneous_medical_video_unders.md)**
+
+:   MedGRPO 提出了两项关键创新解决医学视频多数据集强化学习中的训练崩溃问题：跨数据集奖励归一化（用 logistic 函数将不同难度数据集的中位表现映射到相同奖励值）和医学 LLM 评审（通过五个临床维度的比较性评分），基于 Qwen2.5-VL-7B 在 MedVidBench（532K 视频指令对）上超越 GPT-4.1 和 Gemini-2.5-Flash。
+
 **[Medkco Medical Vision-Language Pretraining Via Knowledge-Driven Cognitive Orches](medkco_medical_vision-language_pretraining_via_knowledge-driven_cognitive_orches.md)**
 
 :   提出 MedKCO，一种知识驱动的认知编排策略用于医学视觉-语言预训练：通过分层课程（label-level 按诊断敏感度排序 + description-level 按样本代表性排序）和自步非对称对比损失，让模型从简单到复杂渐进学习，在三种医学模态的零样本和下游任务上显著超越基线。
+
+**[Meta-Learning In-Context Enables Training-Free Cross Subject Brain Decoding](meta-learning_in-context_enables_training-free_cross_subject_brain_decoding.md)**
+
+:   提出 BrainCoDec 框架，通过两阶段层级式上下文学习（先为每个体素估计编码器参数，再跨体素聚合做功能反演），实现了无需微调即可泛化到新被试的 fMRI 视觉解码，Top-1 检索准确率从 MindEye2 的 3.9% 提升到 22.7%。
 
 **[Mil-Pf Multiple Instance Learning On Precomputed Features For Mammography Classi](mil-pf_multiple_instance_learning_on_precomputed_features_for_mammography_classi.md)**
 
@@ -342,6 +362,14 @@ description: >-
 
 :   揭示了在 VLM 的跨域小样本微调中，增强视觉判别性反而损害跨模态对齐（"判别性陷阱"），提出 SVL + RA 两个即插即用模块来抑制视觉学习捷径并引导跨模态对齐，在 4 个 CDFSL 数据集和 11 个 FSL 数据集上取得 SOTA。
 
+**[Mitigating Object Hallucinations In Lvlms Via Attention Imbalance Rectification](mitigating_object_hallucinations_in_lvlms_via_attention_imbalance_rectification.md)**
+
+:   提出注意力失衡（Attention Imbalance）概念来解释 LVLM 中的对象幻觉现象，并设计轻量级解码时干预方法 AIR，通过跨模态注意力重新分配和方差约束投影正则化矫正注意力失衡，在四个 LVLM 上将幻觉率最高降低 35.1%，同时提升通用能力最高达 15.9%。
+
+**[Modeling Spatiotemporal Neural Frames For High Resolution Brain Dynamic](modeling_spatiotemporal_neural_frames_for_high_resolution_brain_dynamic.md)**
+
+:   提出基于扩散 Transformer 的 EEG 条件 fMRI 重建框架，将脑活动建模为时空神经帧序列而非独立快照，在皮层顶点级分辨率下实现时空一致的 fMRI 重建，并通过零空间采样支持中间帧插值，下游视觉解码任务验证了功能信息的保留。
+
 **[Moeclip Patch-Specialized Experts For Zero-Shot Anomaly Detection](moeclip_patch-specialized_experts_for_zero-shot_anomaly_detection.md)**
 
 :   提出 MoECLIP，将 Mixture-of-Experts 引入零样本异常检测（ZSAD），通过冻结正交特征分离（FOFS）和等角紧框架（ETF）损失实现 patch 级别的动态专家路由与特化，在14个工业/医学基准上达到 SOTA。
@@ -349,6 +377,10 @@ description: >-
 **[Momentum Memory For Knowledge Distillation In Computational Pathology](momentum_memory_for_knowledge_distillation_in_computational_pathology.md)**
 
 :   提出 MoMKD，用动量更新的类条件记忆库替代传统 batch-local 特征对齐，实现基因组→病理切片的跨模态知识蒸馏，仅用 H&E 切片推理即可获得基因组级预测能力。
+
+**[Mozzavid Mozzarella Volumetric Image Dataset](mozzavid_mozzarella_volumetric_image_dataset.md)**
+
+:   本文发布 MozzaVID——一个基于同步辐射 X 射线 CT 的马苏里拉奶酪微结构体积图像分类数据集，包含 591-37,824 个 192³ 体积样本、25 种奶酪/149 个样本的分类目标，弥补了 3D 体积数据集在数量级和任务设计上与 2D 数据集的巨大差距，实验表明 3D 模型显著优于 2D 模型。
 
 **[Mri Contrast Enhancement Kinetics World Model](mri_contrast_enhancement_kinetics_world_model.md)**
 
@@ -386,9 +418,17 @@ description: >-
 
 :   提出 MUSE 框架，通过 MoE 驱动的样本级细粒度语义增强（SFSE）和基于 LLM 知识库的随机多视角语义优化（SMMO），在少样本全切片图像分类任务上显著提升泛化能力。
 
+**[Must Modality-Specific Representation-Aware Transformer For Diffusion-Enhanced S](must_modality-specific_representation-aware_transformer_for_diffusion-enhanced_s.md)**
+
+:   提出 MUST 框架，通过代数约束将多模态表征显式分解为模态特有和跨模态共享两部分，并用条件潜在扩散模型在模态缺失时生成特有信息，在五个 TCGA 癌症数据集上以 0.742 C-index 达到 SOTA，且在模态缺失场景下仅降约 0.4%-3.5%。
+
 **[Muvit Multi-Resolution Vision Transformers For Learning Across Scales In Microsc](muvit_multi-resolution_vision_transformers_for_learning_across_scales_in_microsc.md)**
 
 :   提出 MuViT，一种基于世界坐标 RoPE 位置编码的多分辨率 Vision Transformer，能在单一编码器中联合处理同一场景不同物理分辨率的裁剪图，在显微镜图像分割任务上显著优于单分辨率基线。
+
+**[Neuroseg Meets Dinov3 Transferring 2D Self-Supervised Visual Priors To 3D Neuron](neuroseg_meets_dinov3_transferring_2d_self-supervised_visual_priors_to_3d_neuron.md)**
+
+:   NeurINO 提出通过将 DINOv3 预训练的 2D 卷积核膨胀（inflate）为 3D 算子来初始化 3D 神经元分割模型，同时引入拓扑感知骨架损失（TASL）显式监督骨架级结构保真性，在四个神经影像数据集上 ESA 平均提升 2.9%、DSA 提升 2.8%、PDS 提升 3.8%。
 
 **[Novel Architecture Of Rpa In Oral Cancer Lesion De](novel_architecture_of_rpa_in_oral_cancer_lesion_de.md)**
 
@@ -398,6 +438,10 @@ description: >-
 
 :   将软件设计模式（Singleton + Batch Processing）集成到基于 EfficientNetV2B1 的口腔癌病变检测 Python 流水线中，相比传统 RPA 平台（UiPath/Automation Anywhere）实现 60-100x 推理加速（每张图 0.06s vs 2.58s），同时保持诊断准确性。
 
+**[Omnifm Toward Modality-Robust And Task-Agnostic Federated Learning For Heterogen](omnifm_toward_modality-robust_and_task-agnostic_federated_learning_for_heterogen.md)**
+
+:   提出 OmniFM，一个模态鲁棒且任务无关的联邦学习框架，通过频域频谱知识检索、嵌入式交叉注意力融合和前缀-后缀频谱提示三个互补组件，在一个统一的 FL pipeline 下支持分类、分割、超分辨率、VQA 和多模态融合五种医学影像任务，并在跨模态异构场景下显著超越现有基线。
+
 **[Orapo Oracle-Educated Reinforcement Learning For Data-Efficient And Factual Radi](orapo_oracle-educated_reinforcement_learning_for_data-efficient_and_factual_radi.md)**
 
 :   提出 OraPO（Oracle-educated GRPO），在 GRPO 探索失败时注入轻量 DPO 监督将失败 rollout 转化为偏好样本，配合 FactScore 奖励实现仅用 1K 样本、3B 小模型在 CheXpert Plus 和 MIMIC-CXR 上达到放射报告生成 SOTA（F1=0.341/0.357），训练数据量比前最优减少 2-3 个数量级。
@@ -406,6 +450,14 @@ description: >-
 
 :   提出 OraPO, 一种结合 GRPO 和 DPO 的自适应混合 RL 框架, 用于数据高效的放射学报告生成: 通过 Zero-Reward Rate 检测动态切换 GRPO 和 DPO, 加上 FactScore-based 临床事实级奖励, 仅用 1K 样本 (对比基线 227K) 在 CheXpert Plus 和 MIMIC-CXR 上取得 SOTA 的临床 F1 (0.341/0.357).
 
+**[Parameter-Efficient Prompt Tuning And Hierarchical Textual Guidance For Few-Shot](parameter-efficient_prompt_tuning_and_hierarchical_textual_guidance_for_few-shot.md)**
+
+:   HIPSS 提出了两个关键创新用于少样本 WSI 分类：(1) 基于缩放和偏移特征（SSF）的参数高效 prompt 调优替代 CoOp，大幅减少可训练参数；(2) 软层次化文本引导策略无需硬过滤即可利用 VLM 的预训练知识和 WSI 的固有层次结构。在三个癌症数据集上最高提升 13.8%。
+
+**[Pgr-Net Prior-Guided Roi Reasoning Network For Brain Tumor Mri Segmentation](pgr-net_prior-guided_roi_reasoning_network_for_brain_tumor_mri_segmentation.md)**
+
+:   PGR-Net 提出了一种显式 ROI 感知的脑肿瘤 MRI 分割网络，通过从训练集构建数据驱动的空间先验模板、层级 Top-K ROI 选择机制和窗口高斯-空间衰减引导模块（WinGS-ROI），将计算资源集中于病灶区域，仅用 8.64M 参数就在 BraTS-2019/2023 和 MSD Task01 上达到了 SOTA。
+
 **[Prototype-Based Knowledge Guidance For Fine-Grained Structured Radiology Reporti](prototype-based_knowledge_guidance_for_fine-grained_structured_radiology_reporti.md)**
 
 :   提出 ProtoSR，通过 LLM 从大规模自由文本放射学报告中挖掘模板对齐的视觉原型知识库，并以原型条件化残差（late fusion）方式注入结构化报告生成模型，在 Rad-ReStruct 基准上取得 SOTA，尤其显著提升细粒度属性问题的性能。
@@ -413,6 +465,14 @@ description: >-
 **[Prototypebased Knowledge Guidance For Finegrained](prototypebased_knowledge_guidance_for_finegrained.md)**
 
 :   提出 ProtoSR，通过 LLM 驱动的管道从 22.7 万篇 MIMIC-CXR 自由文本报告中挖掘模板对齐的视觉原型知识库，并设计原型条件化迟融合模块将检索到的原型证据作为 logit 残差注入层级式结构化报告模型，在 Rad-ReStruct 基准上达到 SOTA，L3 细粒度属性 F1 从 4.3 提升到 7.4（+72.1% 相对提升）。
+
+**[Rdface A Benchmark Dataset For Rare Disease Facial Image Analysis Under Extreme ](rdface_a_benchmark_dataset_for_rare_disease_facial_image_analysis_under_extreme_.md)**
+
+:   构建了包含 456 张儿童面部图像、覆盖 103 种罕见遗传疾病的标准化基准数据集 RDFace，并系统研究了表型感知的合成数据增强（DreamBooth/FastGAN）在超低样本罕见病诊断中的效果，DreamBooth 增强在极端低数据场景下最高可提升 13.7% 的诊断准确率。
+
+**[Recall Recalibrating Capability Degradation For Mllm-Based Composed Image Retrie](recall_recalibrating_capability_degradation_for_mllm-based_composed_image_retrie.md)**
+
+:   揭示了将生成式MLLM适配为判别式检索器时的"能力退化"现象（Capability Degradation），提出ReCALL框架通过诊断检索器盲点→利用基座MLLM的CoT推理生成纠正性三元组→分组对比精炼三阶段管线，有效恢复退化的细粒度组合推理能力，在CIRR上R@1达55.52%、FashionIQ上R@10达57.04%。
 
 **[Reclaiming Lost Text Layers For Source-Free Cross-Domain Few-Shot Learning](reclaiming_lost_text_layers_for_source-free_cross-domain_few-shot_learning.md)**
 
@@ -433,6 +493,14 @@ description: >-
 **[Residual Sodap Residual Selforganizing Domainadapt](residual_sodap_residual_selforganizing_domainadapt.md)**
 
 :   提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。
+
+**[Robust Multi-Source Covid-19 Detection In Ct Images](robust_multi-source_covid-19_detection_in_ct_images.md)**
+
+:   提出一种多任务学习框架，在共享 EfficientNet-B7 骨干上同时训练 COVID-19 诊断头和来源医院识别头（使用 logit-adjusted 损失），推动特征提取器学习跨机构不变的表示，在多源 CT 数据集上 F1 达到 0.9098。
+
+**[Semantic Class Distribution Learning For Debiasing](semantic_class_distribution_learning_for_debiasing.md)**
+
+:   本文提出 SCDL（Semantic Class Distribution Learning），一个即插即用模块，通过类别分布双向对齐（CDBA）学习结构化的类条件特征分布并与可学习类代理双向对齐，结合语义锚点约束（SAC）利用标注数据引导代理学习正确语义，缓解了半监督医学图像分割中的监督偏差和特征表示偏差，在尾类器官上取得了显著提升。
 
 **[Semantic Class Distribution Learning For Debiasing Semi-Supervised Medical Image](semantic_class_distribution_learning_for_debiasing_semi-supervised_medical_image.md)**
 
@@ -462,9 +530,17 @@ description: >-
 
 :   提出 SPEGC 框架，通过语义提示增强特征 + 可微分图聚类求解器，将原始相似度矩阵精炼为高阶结构表示，用于指导医学图像分割模型在持续变化的目标域上自适应，有效缓解误差累积与灾难性遗忘。
 
+**[Svc 2026 The Second Multimodal Deception Detection Challenge And The First Domai](svc_2026_the_second_multimodal_deception_detection_challenge_and_the_first_domai.md)**
+
+:   组织SVC 2026挑战赛，包含跨域多模态欺骗检测和域泛化远程生理信号测量两个赛道，提供统一评估框架和基线模型，共22支队伍提交最终结果。
+
 **[Synergistic Bleeding Region And Point Detection In Laparoscopic Surgical Videos](synergistic_bleeding_region_and_point_detection_in_laparoscopic_surgical_videos.md)**
 
 :   构建首个腹腔镜手术出血区域+出血点标注数据集 SurgBlood，并提出基于 SAM2 的双分支双向引导在线检测器 BlooDet，通过 Mask/Point 分支协同优化实现出血区域分割与出血点定位的联合检测。
+
+**[T-Gated Adapter A Lightweight Temporal Adapter For Vision-Language Medical Segme](t-gated_adapter_a_lightweight_temporal_adapter_for_vision-language_medical_segme.md)**
+
+:   提出轻量级时序门控适配器（T-Gated Adapter），为2D视觉语言模型CLIPSeg注入相邻切片上下文，在仅30个标注CT体积上训练即可实现平均Dice 0.704（+0.206），跨域零样本评估和CT到MRI跨模态评估中均一致提升。
 
 **[Tell2Adapt A Unified Framework For Source Free Unsupervised Domain Adaptation Vi](tell2adapt_a_unified_framework_for_source_free_unsupervised_domain_adaptation_vi.md)**
 

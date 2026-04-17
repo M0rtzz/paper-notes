@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 AI安全方向 47篇论文解读
+  ICLR2026 AI安全方向 49篇论文解读
 description: >-
-  47篇ICLR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  49篇ICLR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🔬 ICLR2026** · **47** 篇论文解读
+**🔬 ICLR2026** · **49** 篇论文解读
 
 **[Action-Free Offline-To-Online Rl Via Discretised State Policies](action-free_offline-to-online_rl_via_discretised_state_policies.md)**
 
@@ -108,10 +108,6 @@ description: >-
 
 :   首次系统研究扩散语言模型(DLM)的成员推断攻击漏洞，提出SAMA方法：利用DLM的双向掩码结构创造指数级探测机会，通过渐进式掩码+符号投票+自适应加权处理稀疏且重尾的成员信号，在9个数据集上AUC达0.81，比最优baseline高30%。
 
-**[Membership Privacy Risks Of Sharpness Aware Minimization](membership_privacy_risks_of_sharpness_aware_minimization.md)**
-
-:   提出 FeatureBench——面向特征级软件开发的代码智能体评测基准，通过测试驱动的自动化流水线从开源仓库中提取可验证的 feature 实现任务，最强 Claude Opus 4.5 仅解决 11.0%，揭示当前 Agent 在复杂特征开发上的巨大差距。
-
 **[Ofmu Optimization-Driven Framework For Machine Unlearning](ofmu_optimization-driven_framework_for_machine_unlearning.md)**
 
 :   将机器遗忘建模为双层优化问题：内层最大化遗忘损失+梯度去相关防止破坏保留集，外层最小化保留损失+惩罚项强制内层平稳点。在TOFU基准上同时实现高遗忘质量和高模型效用保留，平衡性超越现有GA/GradDiff/NPO/RMU方法。
@@ -144,6 +140,14 @@ description: >-
 
 :   本文首次研究了分布鲁棒马尔可夫博弈（DRMGs）的在线学习问题，提出 MORNAVI 算法，在无需模拟器或离线数据的情况下，通过在线交互高效学习最优鲁棒策略，并提供了 TV 散度和 KL 散度不确定性集下的首个可证明遗憾界。
 
+**[Secp-Tuning Efficient Privacy-Preserving Prompt Tuning For Large Language Mode](secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_mode.md)**
+
+:   提出首个基于安全多方计算（MPC）的隐私保护提示调优框架 SecP-Tuning，通过前向调优消除反向传播开销、通过隐私保护随机特征注意力（RFA）替代 softmax 降低通信复杂度，实现约 12-16 倍加速和 17-20 倍通信量缩减。
+
+**[Secp-Tuning Efficient Privacy-Preserving Prompt Tuning For Large Language Models](secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_models.md)**
+
+:   提出SecP-Tuning，首个基于安全多方计算（MPC）的LLM隐私保护提示调优框架，通过前向调优消除反向传播开销，并设计隐私保护随机特征注意力替代softmax注意力，实现12-16倍加速和17-20倍通信量降低。
+
 **[She-Lora Selective Homomorphic Encryption For Federated Tuning With Heterogeneou](she-lora_selective_homomorphic_encryption_for_federated_tuning_with_heterogeneou.md)**
 
 :   提出SHE-LoRA——将选择性同态加密(SHE)与LoRA结合用于跨设备联邦LLM微调：基于参数敏感度的列级加密子集协商 + 列交换参数混淆 + 列感知自适应聚合，在保持与非隐私基线可比的模型性能同时，通信开销减少99.71%、加密时间减少99.87%，完全抵御SOTA梯度反演攻击DAGER。
@@ -151,6 +155,10 @@ description: >-
 **[Shield Suppressing Hallucinations In Lvlm Encoders Via Bias And Vulnerability De](shield_suppressing_hallucinations_in_lvlm_encoders_via_bias_and_vulnerability_de.md)**
 
 :   首次将LVLM对象幻觉系统性追溯到视觉编码器，识别出统计偏差（高频模式token过度强调）、固有偏差（预训练主导对象的残余表示）、脆弱性（微小扰动即导致特征失真）三大问题，并提出SHIELD——一个完全免训练的框架，通过token重加权、token减法和对比解码三策略协同防御，在LLaVA-1.5/InstructBLIP/Qwen-VL上全面超越VCD和OPERA等方法。
+
+**[Skirting Additive Error Barriers For Private Turnstile Streaming](skirting_additive_error_barriers_for_private_turnstile_streaming.md)**
+
+:   本文证明了在差分隐私的 turnstile 流模型中，通过允许乘性误差（multiplicative error）可以绕过已知的多项式加性误差下界，将 distinct elements 和 F₂ 矩估计的加性误差从多项式级别降至 polylog(T)。
 
 **[Skirting Additive Error Barriers For Private Turnstile Streams](skirting_additive_error_barriers_for_private_turnstile_streams.md)**
 

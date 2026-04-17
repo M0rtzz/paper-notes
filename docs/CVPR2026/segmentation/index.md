@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 语义分割方向 69篇论文解读
+  CVPR2026 语义分割方向 95篇论文解读
 description: >-
-  69篇CVPR2026 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  95篇CVPR2026 语义分割方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**📷 CVPR2026** · **69** 篇论文解读
+**📷 CVPR2026** · **95** 篇论文解读
 
 **[3M-Ti High-Quality Mobile Thermal Imaging Via Calibration-Free Multi-Camera Cros](3m-ti_high-quality_mobile_thermal_imaging_via_calibration-free_multi-camera_cros.md)**
 
@@ -162,13 +162,57 @@ description: >-
 
 :   提出 Generalizable Knowledge Distillation (GKD)，通过解耦表示学习与任务学习的多阶段蒸馏，以及基于 query 的软蒸馏机制，将 VFM 的跨域泛化能力有效转移到轻量学生模型，F2L 设置下平均提升 +10.6% mIoU。
 
+**[Genmask Adapting Dit For Segmentation Via Direct Mask Generation](genmask_adapting_dit_for_segmentation_via_direct_mask_generation.md)**
+
+:   本文提出 GenMask，将 DiT 直接训练为生成黑白分割掩码（与生成彩色图像共用同一模型），通过发现二值掩码的 VAE 潜在表示是线性可分的特殊性质，设计了针对分割的极端长尾时间步采样策略，实现了单步推理即可产出分割结果，在 referring 和 reasoning 分割基准上达到 SOTA。
+
+**[Geoguide Hierarchical Geometric Guidance For Open-Vocabulary 3D Semantic Segment](geoguide_hierarchical_geometric_guidance_for_open-vocabulary_3d_semantic_segment.md)**
+
+:   本文提出 GeoGuide，一个层次化几何引导的开放词表 3D 语义分割框架，通过基于不确定性的超点蒸馏、实例级掩码重建和跨实例关系一致性三个互补模块，利用预训练3D模型的几何先验来纠正 2D 到 3D 知识蒸馏中的几何偏差，在 ScanNet v2 上达到 64.8 mIoU 的 SOTA 性能。
+
+**[Geosurge Geo-Localization Using Semantic Fusion With Hierarchy Of Geographic Emb](geosurge_geo-localization_using_semantic_fusion_with_hierarchy_of_geographic_emb.md)**
+
+:   GeoSURGE 提出层级地理嵌入和语义融合模块，将全球图像地理定位问题建模为视觉表征与学习得到的地理表征之间的匹配，在 5 个基准的 25 项指标中取得 22 项 SOTA。
+
 **[Gkd Generalizable Knowledge Distillation Vfm](gkd_generalizable_knowledge_distillation_vfm.md)**
 
 :   提出 GKD 框架，通过将表示学习与任务学习解耦的多阶段蒸馏（先学通用特征 → 冻结编码器 → 再训任务头）+ 查询式软蒸馏机制（QSD），从 VFM 中蒸馏出具有跨域泛化能力的轻量学生模型，在 F2L 设置下平均 mIoU 提升 +10.6%，F2F +1.9%。
 
+**[Hippomm Hippocampal-Inspired Multimodal Memory For Long Audiovisual Event Unders](hippomm_hippocampal-inspired_multimodal_memory_for_long_audiovisual_event_unders.md)**
+
+:   HippoMM 将海马体的三大认知机制——模式分离（情景分割）、记忆固化（语义压缩）和模式补全（层级检索）——映射为计算架构，用于长音视频的情景记忆和跨模态关联回忆，在自建基准 HippoVlog 上达到 78.2% 准确率并比检索增强基线快 5 倍。
+
+**[Insid3 Training-Free In-Context Segmentation With Dinov3](insid3_training-free_in-context_segmentation_with_dinov3.md)**
+
+:   提出INSID3，一种仅依赖冻结DINOv3特征的无训练上下文分割方法，通过位置偏差消除、细粒度聚类和种子聚类聚合三阶段pipeline，在语义/部件/个性化分割任务上以单一自监督骨干网络超越了依赖SAM或微调的方法，平均mIoU提升+7.5%。
+
+**[Kαlos Finds Consensus A Meta-Algorithm For Evaluating Inter-Annotator Agreement ](kαlos_finds_consensus_a_meta-algorithm_for_evaluating_inter-annotator_agreement_.md)**
+
+:   提出KαLOS元算法，通过"先定位后分类"原则和数据驱动的参数校准，将复杂的空间-类别标注一致性问题转化为标准名义可靠性矩阵，统一评估目标检测、实例分割、姿态估计等多种视觉任务的标注者间一致性（IAA）。
+
 **[Learning Cross-View Object Correspondence Via Cycle-Consistent Mask Prediction](learning_cross-view_object_correspondence_via_cycle-consistent_mask_prediction.md)**
 
 :   提出基于条件二值分割的跨视角物体对应框架 CCMP，通过循环一致性约束提供自监督信号并支持测试时训练 (TTT)，在 Ego-Exo4D 上达到 44.57% mIoU 的 SOTA 性能。
+
+**[Lemma Laplacian Pyramids For Efficient Marine Semantic Segmentation](lemma_laplacian_pyramids_for_efficient_marine_semantic_segmentation.md)**
+
+:   提出LEMMA，一种基于拉普拉斯金字塔的轻量级海洋语义分割模型，通过金字塔分解提取边缘信息来替代深层特征计算，在参数量减少71倍的条件下实现了SOTA级别的分割精度（MaSTr1325上98.97% mIoU）。
+
+**[Live Interactive Training For Video Segmentation](live_interactive_training_for_video_segmentation.md)**
+
+:   LIT (Live Interactive Training) 提出了一种让交互式视觉系统（如SAM2）在推理时从用户纠正中在线学习的框架，其轻量实现LIT-LoRA通过实时更新LoRA模块将用户反馈泛化到后续帧，在挑战性VOS基准上减少18-34%用户纠正次数，训练开销仅约0.5秒。
+
+**[Lod-Loc V3 Generalized Aerial Localization In Dense Cities Using Instance Silhou](lod-loc_v3_generalized_aerial_localization_in_dense_cities_using_instance_silhou.md)**
+
+:   本文提出LoD-Loc v3，通过构建10万图像的大规模合成实例分割数据集InsLoD-Loc和将定位范式从语义轮廓对齐升级为实例轮廓对齐，解决了基于LoD城市模型的无人机定位中跨场景泛化差和密集城市歧义两大痛点，在Tokyo-LoDv3密集场景上比SOTA的(2m,2°)精度提升2000%。
+
+**[Looking Beyond The Window Global-Local Aligned Clip For Training-Free Open-Vocab](looking_beyond_the_window_global-local_aligned_clip_for_training-free_open-vocab.md)**
+
+:   针对无训练开放词汇语义分割中滑动窗口带来的跨窗口语义不一致问题，提出 GLA-CLIP 框架，通过全局键值扩展、代理锚点注意力和动态归一化三个机制实现跨窗口全局上下文整合，在8个基准上取得平均 44.0% mIoU 的 SOTA 表现。
+
+**[Love Me Love My Label Rethinking The Role Of Labels In Prompt Retrieval For Visu](love_me_love_my_label_rethinking_the_role_of_labels_in_prompt_retrieval_for_visu.md)**
+
+:   揭示了视觉上下文学习（VICL）中 prompt 检索忽略标签信息导致标签不一致的问题，提出 LaPR 框架通过图像-标签联合表示和混合专家机制实现标签感知的 prompt 检索，在前景分割、目标检测和图像着色任务上一致超越 SOTA。
 
 **[Making Training-Free Diffusion Segmentors Scale With The Generative Power](making_training-free_diffusion_segmentors_scale_with_the_generative_power.md)**
 
@@ -190,9 +234,21 @@ description: >-
 
 :   提出 MixerCSeg，通过解析 Mamba 的隐式注意力机制将通道解耦为全局/局部分支，分别用 Self-Attention 和 CNN 增强，配合方向引导边缘门控卷积，以 2.05 GFLOPs / 2.54M 参数实现裂缝分割 SOTA。
 
+**[Mpm Mutual Pair Merging For Efficient Vision Transformers](mpm_mutual_pair_merging_for_efficient_vision_transformers.md)**
+
+:   提出 Mutual Pair Merging (MPM)，一个无参数、无训练的 ViT token 合并模块，通过互近邻配对+均值融合来减少序列长度，在 ADE20K 上 ViT-Tiny 的 Raspberry Pi 5 延迟降低 60%，H100 上 FlashAttention-2 下吞吐量提升 20%，mIoU 下降控制在 3% 以内。
+
 **[Mrm Masked Representation Modeling Domain Adaptive](mrm_masked_representation_modeling_domain_adaptive.md)**
 
 :   提出 Masked Representation Modeling (MRM)，在编码器输出的潜在特征空间做随机掩码与重建，以像素分类损失监督重建结果，作为即插即用辅助任务在四种 UDA 基线上平均提升 +2.3/+2.8 mIoU (GTA→CS / Synthia→CS)，推理时零额外开销。
+
+**[Pearl Geometry Aligns Semantics For Training-Free Open-Vocabulary Semantic Segme](pearl_geometry_aligns_semantics_for_training-free_open-vocabulary_semantic_segme.md)**
+
+:   PEARL 提出了一种基于 Procrustes 对齐和文本感知拉普拉斯传播的两步推理方法，在不引入额外训练或辅助骨干网络的前提下，通过修正 CLIP 最后一层自注意力中 key-query 的几何失配并利用文本语义引导标签传播，在训练免开放词汇语义分割上达到了新的 SOTA。
+
+**[Phrase-Instance Alignment For Generalized Referring Segmentation](phrase-instance_alignment_for_generalized_referring_segmentation.md)**
+
+:   本文提出 InstAlign，将广义指代分割 (GRES) 重构为实例级推理问题，通过短语-目标对齐 (POA) 损失建立语言短语与视觉实例的细粒度对应关系，并用相关性加权聚合机制统一处理多目标和无目标场景，在 gRefCOCO 上 cIoU 提升 3.22%、N-acc 提升 12.25%。
 
 **[Pointer-Cad Unifying B-Rep And Command Sequences Via Pointer-Based Edges Faces S](pointer-cad_unifying_b-rep_and_command_sequences_via_pointer-based_edges_faces_s.md)**
 
@@ -205,6 +261,10 @@ description: >-
 **[Promptdriven Lightweight Foundation Model For Inst](promptdriven_lightweight_foundation_model_for_inst.md)**
 
 :   提出SAM FTI-FDet，通过设计一个基于Transformer decoder的自提示生成器（Prompt Generator），让轻量化的TinyViT-SAM自动生成任务相关的query prompt，无需人工交互即可完成货运列车部件的实例级故障检测，在自建数据集上达到74.6 AP_box / 74.2 AP_mask。
+
+**[Prue A Practical Recipe For Field Boundary Segmentation At Scale](prue_a_practical_recipe_for_field_boundary_segmentation_at_scale.md)**
+
+:   本文对18个分割和地理空间基础模型（GFM）进行了系统性评估，提出PRUE——一种结合U-Net骨干、复合损失函数和针对性数据增强的农田边界分割方案，在FTW基准上达到76% IoU和47% object-F1，分别比baseline提升6%和9%，同时提出了一套评估部署鲁棒性的新指标。
 
 **[Rdnet Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network ](rdnet_region_proportion-aware_dynamic_adaptive_salient_object_detection_network_.md)**
 
@@ -222,9 +282,21 @@ description: >-
 
 :   提出 QVLM 架构和 SQuID 数据集，通过代码生成+分割模型的解耦设计，在卫星图像上实现像素级精度的定量空间推理，克服了传统 VLM 因 patch embedding 压缩而丢失空间索引的根本限制。
 
+**[Recyclelora Rank-Revealing Qr-Based Dual-Lora Subspace Adaptation For Domain Gen](recyclelora_rank-revealing_qr-based_dual-lora_subspace_adaptation_for_domain_gen.md)**
+
+:   提出 RecycleLoRA，利用 Rank-Revealing QR 分解(RRQR)系统性地"回收"Vision Foundation Model预训练权重中的子空间结构，通过对次要方向和主要方向分别初始化主/子双适配器，显著提升 LoRA 的表示多样性和参数利用效率，在合成到真实和真实到真实的域泛化语义分割任务上均达到 SOTA（平均 mIoU 68.95 / 72.10）。
+
 **[Rel-Sf4Pass Panoramic Semantic Segmentation With Rel Depth Representation And Sp](rel-sf4pass_panoramic_semantic_segmentation_with_rel_depth_representation_and_sp.md)**
 
 :   提出 REL 深度表示（基于柱面坐标系的 Rectified Depth + EGVIA + LOA 三通道）和球面动态多模态融合（SMMF），用于全景语义分割，在 Stanford2D3D 上实现 63.06% 平均 mIoU（比 HHA 基线提升 2.35%），并将面对 3D 扰动时的性能方差降低约 70%。
+
+**[Robotseg A Model And Dataset For Segmenting Robots In Image And Video](robotseg_a_model_and_dataset_for_segmenting_robots_in_image_and_video.md)**
+
+:   本文提出 RobotSeg，第一个同时支持图像和视频的机器人分割基础模型，基于 SAM 2 引入结构增强记忆关联器（SEMA）、机器人提示生成器（RPG）和标签高效训练策略，仅需首帧标注即可训练，在自动模式下 Whole Robot 分割达到 85.1 J&F，比 SAM 2.1 微调版高 4.9 分，同时参数仅 41.3M（远小于现有 638M+ 方案）。
+
+**[Rs-Ssm Refining Forgotten Specifics In State Space Model For Video Semantic Segm](rs-ssm_refining_forgotten_specifics_in_state_space_model_for_video_semantic_segm.md)**
+
+:   提出 RS-SSM，通过频域分析提取各通道的特定信息分布特征（CwAP），并自适应反转遗忘门矩阵来补充性精炼 SSM 状态空间压缩时丢失的时空细节（FGIR），在 4 个视频语义分割基准上达到 SOTA 且保持高效率。
 
 **[Rsonet Region-Guided Selective Optimization Network For Rgb-T Salient Object Det](rsonet_region-guided_selective_optimization_network_for_rgb-t_salient_object_det.md)**
 
@@ -246,6 +318,14 @@ description: >-
 
 :   提出 EDA-PSeg 框架，通过图匹配适配器（GMA）和欧拉-边际注意力（EMA）两个核心模块，首次实现从针孔视图到 360° 全景图像的开放集无监督域自适应语义分割，同时处理几何视场角畸变和未知类别发现。
 
+**[Semitooth A Generalizable Semisupervised Framework](semitooth_a_generalizable_semisupervised_framework.md)**
+
+:   本文提出SemiTooth框架，通过多教师-多学生架构和更严格的加权置信度约束（SWC），解决多源CBCT数据在半监督牙齿分割中的分布差异问题，在构建的MS3Toothset数据集上取得SOTA。
+
+**[Semlayer Semantic-Aware Generative Segmentation And Layer Construction For Abstr](semlayer_semantic-aware_generative_segmentation_and_layer_construction_for_abstr.md)**
+
+:   提出 SemLayer，一个基于生成模型的流水线，将扁平化的矢量图标恢复为语义化分层结构——先通过扩散模型将分割重新定义为上色任务，再进行遮挡区域的语义补全，最后用整数线性规划确定层级顺序，实现 mIoU +5.0、PQ +16.7 的分割提升。
+
 **[Sgma Semantic-Guided Modality-Aware Segmentation For Remote Sensing With Incompl](sgma_semantic-guided_modality-aware_segmentation_for_remote_sensing_with_incompl.md)**
 
 :   提出 SGMA 框架，通过语义引导融合（SGF）模块构建全局语义原型实现自适应跨模态融合，并通过模态感知采样（MAS）模块动态提升脆弱模态的训练频率，解决遥感场景下不完整多模态语义分割中的模态不平衡、类内方差大和跨模态异质性三大挑战。
@@ -253,6 +333,14 @@ description: >-
 **[Sgma Semanticguided Modalityaware Segmentation For](sgma_semanticguided_modalityaware_segmentation_for.md)**
 
 :   提出SGMA——语义引导模态感知分割框架，通过语义引导融合(SGF)降低类内变异并协调跨模态冲突，模态感知采样(MAS)平衡脆弱模态训练频率，在ISPRS上Average mIoU +9.20%且弱模态Last-1 mIoU +18.26%(vs SOTA IMLT)。
+
+**[Souple Enhancing Audio-Visual Localization And Segmentation With Learnable Promp](souple_enhancing_audio-visual_localization_and_segmentation_with_learnable_promp.md)**
+
+:   提出 SouPLe (Sound-aware Prompt Learning)，通过将CLIP中固定的文本提示替换为基于图像特征生成的可学习上下文tokens，增强音频嵌入token与视觉特征之间的语义对应，在VGG-SS上cIoU提升3.75、开放集设定下cIoU提升6.32，全面超越先前方法。
+
+**[Spar Single-Pass Any-Resolution Vit For Open-Vocabulary Segmentation](spar_single-pass_any-resolution_vit_for_open-vocabulary_segmentation.md)**
+
+:   提出 SPAR，一种通过将细步幅滑窗教师的空间推理能力蒸馏到单次前向传递学生的方法，将 ViT 变为分辨率无关的密集特征提取器，在开放词汇分割中比单次前向基线提升 10.5 mIoU，同时比教师快 52 倍。
 
 **[Sparrow Learning Spatial Precision And Temporal Re](sparrow_learning_spatial_precision_and_temporal_re.md)**
 
@@ -266,9 +354,25 @@ description: >-
 
 :   提出 SERA 框架，在冻结的视觉-语言骨干网络中引入两阶段轻量级 MoE 专家精炼（骨干级 SERA-Adapter + 融合级 SERA-Fusion），通过表达式引导的自适应路由实现参考图像分割中的空间一致性和边界精度提升，仅更新不到 1% 的骨干参数。
 
+**[Task-Oriented Data Synthesis And Control-Rectify Sampling For Remote Sensing Sem](task-oriented_data_synthesis_and_control-rectify_sampling_for_remote_sensing_sem.md)**
+
+:   本文提出TODSynth框架，通过MM-DiT的统一三模态注意力实现文本-图像-掩码联合控制的遥感图像合成，并创新性地提出控制-校正流匹配（CRFM）方法，在采样阶段利用下游分割模型的语义损失动态调整生成轨迹，使合成数据在FUSU-4k和LoveDA上分别提升4.14%和2.08%的mIoU。
+
+**[The Golden Subspace Where Efficiency Meets Generalization In Continual Test-Time](the_golden_subspace_where_efficiency_meets_generalization_in_continual_test-time.md)**
+
+:   提出 GOLD 框架用于持续测试时适应（CTTA），核心发现是最小特征更新子空间（"黄金子空间"）与分类器权重行空间一致且天然低秩；通过 Average Gradient Outer Product (AGOP) 在线估计该子空间，结合轻量缩放向量进行特征适应，在分类和分割基准上以极低计算开销达到 SOTA 性能。
+
+**[Towards Context-Aware Image Anonymization With Multi-Agent Reasoning](towards_context-aware_image_anonymization_with_multi-agent_reasoning.md)**
+
+:   提出 CAIAMAR 多智能体框架，将预定义的高置信度直接 PII（人体、车牌）处理与基于大视觉语言模型的上下文感知推理相结合，通过 PDCA 迭代优化循环检测间接隐私标识符，使用扩散模型进行外观去相关修复，在 CUHK03-NP 上将行人重识别风险降低 73%，同时在 CityScapes 上保持 FID 9.1 的高图像质量。
+
 **[Towards High-Quality Image Segmentation Improving Topology Accuracy By Penalizin](towards_high-quality_image_segmentation_improving_topology_accuracy_by_penalizin.md)**
 
 :   提出 Same Class Neighbor Penalization (SCNP)，通过在训练时将每个像素的 logit 替换为其同类邻域中最差预测，迫使模型优先修复邻域中的弱分类像素，从而以极低代价（仅 3 行代码、几毫秒/迭代）显著提升分割的拓扑精度。
+
+**[Unified Spherical Frontend Learning Rotation-Equivariant Representations Of Sphe](unified_spherical_frontend_learning_rotation-equivariant_representations_of_sphe.md)**
+
+:   USF 提出了一个模块化、镜头无关的球面视觉前端，通过将任意标定相机图像投影到单位球面上执行空间域球面重采样、卷积和池化操作，仅用距离加权核就能天然保证旋转等变性，在分类、检测和分割任务上展现了对随机旋转和跨镜头的零样本泛化鲁棒性。
 
 **[Universal 3D Shape Matching Via Coarse-To-Fine Language Guidance](universal_3d_shape_matching_via_coarse-to-fine_language_guidance.md)**
 

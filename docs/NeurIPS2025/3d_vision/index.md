@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 3D视觉方向 122篇论文解读
+  NeurIPS2025 3D视觉方向 121篇论文解读
 description: >-
-  122篇NeurIPS2025 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  121篇NeurIPS2025 3D视觉方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**🧠 NeurIPS2025** · **122** 篇论文解读
+**🧠 NeurIPS2025** · **121** 篇论文解读
 
 **[3D-Agenttri-Modal Multi-Agent Collaboration For Scalable 3D Object Annotation](3d-agenttri-modal_multi-agent_collaboration_for_scalable_3d_object_annotation.md)**
 
@@ -365,10 +365,6 @@ description: >-
 **[Pointmac Meta-Learned Adaptation For Robust Test-Time Point Cloud Completion](pointmac_meta-learned_adaptation_for_robust_test-time_point_cloud_completion.md)**
 
 :   提出 PointMAC，首个将元辅助学习和测试时适应（TTA）引入点云补全的框架：通过 Bi-Aux Units（随机掩码重建+噪声去除）提供自监督信号，MAML 对齐辅助目标与主任务，推理时仅更新共享编码器实现样本级精化，在合成/模拟/真实数据上达到 SOTA。
-
-**[Posecrafter Extreme Pose Estimation With Hybrid Video Synthesis](posecrafter_extreme_pose_estimation_with_hybrid_video_synthesis.md)**
-
-:   提出 PoseCrafter，一种无需训练的极端位姿估计框架：通过混合视频生成（HVG，DynamiCrafter+ViewCrafter双阶段）合成高保真中间帧解决极小/无重叠图像对的位姿估计，配合特征匹配选择器（FMS）高效选取最有用的中间帧，在四个数据集上显著提升极端位姿估计精度。
 
 **[Quantifying And Alleviating Co-Adaptation In Sparse-View 3D Gaussian Splatting](quantifying_and_alleviating_co-adaptation_in_sparse-view_3d_gaussian_splatting.md)**
 

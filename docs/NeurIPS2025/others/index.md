@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 其他方向 137篇论文解读
+  NeurIPS2025 其他方向 138篇论文解读
 description: >-
-  137篇NeurIPS2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  138篇NeurIPS2025 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · **137** 篇论文解读
+**🧠 NeurIPS2025** · **138** 篇论文解读
 
 **[4Dgt Learning A 4D Gaussian Transformer Using Realworld Mono](4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)**
 
@@ -16,7 +16,7 @@ description: >-
 
 **[A Differentiable Model Of Supply-Chain Shocks](a_differentiable_model_of_supply-chain_shocks.md)**
 
-:   本文用 JAX 实现了一个可微分的供应链 Agent-Based Model（ABM），通过 GPU 并行化和自动微分实现了比传统无梯度方法快 3 个数量级的贝叶斯参数校准，为大规模供应网络建模打开了可能性。
+:   用 JAX 实现可微分的供应链 Agent-Based Model（~1000 家企业），通过 GPU 并行化 + 自动微分实现比传统 ABC 快 3 个数量级的贝叶斯参数校准，为全球供应链网络的冲击传播建模铺平道路。
 
 **[A Generalized Label Shift Perspective For Crossdomain Gaze E](a_generalized_label_shift_perspective_for_crossdomain_gaze_e.md)**
 
@@ -89,10 +89,6 @@ description: >-
 **[Computable Universal Online Learning](computable_universal_online_learning.md)**
 
 :   在 universal online learning 框架中引入可计算性约束，证明了"数学上可学习"不等于"可用计算机程序实现的可学习"，并给出了 agnostic 和 proper 变体下可计算学习的精确刻画。
-
-**[Contexttab A Semantics-Aware Tabular In-Context Learner](contexttab_a_semantics-aware_tabular_in-context_learner.md)**
-
-:   ConTextTab 将语义嵌入（列名、分类值的文本编码）融入 table-native ICL 架构，并在大规模真实表格数据（T4, ~2.18M 表）上预训练，在语义丰富的 CARTE 基准上取得新 SOTA，同时在非语义基准上保持与现有方法竞争力。
 
 **[Contextual Dynamic Pricing With Heterogeneous Buyers](contextual_dynamic_pricing_with_heterogeneous_buyers.md)**
 
@@ -194,6 +190,10 @@ description: >-
 
 :   提出 FSNet 框架，将**可微的可行性求解步骤**集成到神经网络中，通过最小化约束违反的无约束优化来保证约束满足，同时支持端到端训练，在凸/非凸、光滑/非光滑问题上均显著快于传统求解器且保持可行性。
 
+**[Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret In Noise-](gaussian_process_upper_confidence_bound_achieves_nearly-optimal_regret_in_noise-.md)**
+
+:   证明GP-UCB算法在无噪声GP bandit问题中达到近最优遗憾界，包括在SE核和Matérn核（$d > \nu$）条件下首次获得常数累积遗憾$O(1)$，弥合了GP-UCB理论与实际性能之间的差距。
+
 **[Generalized Linear Mode Connectivity For Transformers](generalized_linear_mode_connectivity_for_transformers.md)**
 
 :   提出统一对称性框架（置换、半置换、正交、可逆变换四级层次），首次在 Vision Transformer 和 GPT-2 上实现零/近零 barrier 的线性模式连通性（LMC），并扩展至多模型融合与异构宽度对齐。
@@ -249,6 +249,10 @@ description: >-
 **[Information-Computation Tradeoffs For Noiseless Linear Regression With Oblivious](information-computation_tradeoffs_for_noiseless_linear_regression_with_oblivious.md)**
 
 :   对无噪声线性回归在Oblivious污染模型下，形式化证明任何高效Statistical Query算法都需要 $\tilde{\Omega}(d^{1/2}/\alpha^2)$ 的VSTAT复杂度，给出了 $1/\alpha$ 的二次依赖对高效算法具有本质性的计算下界证据。
+
+**[Johnson-Lindenstrauss Lemma Beyond Euclidean Geometry](johnson-lindenstrauss_lemma_beyond_euclidean_geometry.md)**
+
+:   将Johnson-Lindenstrauss引理从欧几里得空间扩展到一般对称空心相异度矩阵，提出伪欧空间JL变换和广义幂距离JL变换两种互补方法，误差与数据偏离欧几何的程度成正比。
 
 **[Kernel Conditional Tests From Learning-Theoretic Bounds](kernel_conditional_tests_from_learning-theoretic_bounds.md)**
 

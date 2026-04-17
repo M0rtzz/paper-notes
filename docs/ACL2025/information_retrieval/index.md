@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 信息检索/RAG方向 66篇论文解读
+  ACL2025 信息检索/RAG方向 71篇论文解读
 description: >-
-  66篇ACL2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  71篇ACL2025 信息检索/RAG方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**💬 ACL2025** · **66** 篇论文解读
+**💬 ACL2025** · **71** 篇论文解读
 
 **[A Reality Check On Context Utilisation For Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
@@ -244,6 +244,10 @@ description: >-
 
 :   提出首个中文 RAG 安全评估基准 SafeRAG，设计四种能绕过现有检索器、过滤器和生成器防御的新型攻击任务（银噪声、上下文间冲突、软广告、白色拒绝服务），在 14 种 RAG 组件上系统评估安全漏洞，揭示即使最先进的 RAG 系统也对这些攻击高度脆弱。
 
+**[Seakr Self-Aware Knowledge Retrieval For Adaptive Retrieval Augmented Generation](seakr_self-aware_knowledge_retrieval_for_adaptive_retrieval_augmented_generation.md)**
+
+:   SeaKR 利用 LLM 内部隐藏层的自感知不确定性（通过多次采样 EOS token 隐藏表示的 Gram 行列式度量）来自适应地决定何时检索、如何重排检索结果、以及选择何种推理策略，在复合 QA 上 F1 比 DRAGIN 提升 6%，比 IRCoT 提升 9.5%。
+
 **[Seal Scaling To Emphasize Attention For Long-Context Retrieval](seal_scaling_to_emphasize_attention_for_long-context_retrieval.md)**
 
 :   SEAL 通过发现特定注意力头/通道对长上下文检索有正/负影响的现象，设计了头级和通道级可学习缩放因子，仅用50个合成样本微调即可大幅提升LLM长上下文检索性能，且缩放因子可离线合并至模型权重实现零推理开销。
@@ -251,6 +255,14 @@ description: >-
 **[Setr Set Selection Rag](setr_set_selection_rag.md)**
 
 :   提出 SetR，将 RAG 中的文档排序范式转变为集合选择范式，通过 CoT 推理识别查询的信息需求并选择最优文档集合，在使用更少文档（平均 2.91 个 vs 5 个）的同时显著提升多跳问答性能。
+
+**[Sgic A Self-Guided Iterative Calibration Framework For Rag](sgic_a_self-guided_iterative_calibration_framework_for_rag.md)**
+
+:   SGIC 利用 LLM 的 token 级不确定性分数（文档相关性不确定性 + 答案置信度不确定性）作为自校准的引导信号，通过迭代将前一轮答案及其不确定性分数注入提示中触发上下文推理，在 HotpotQA 上将 Llama2-7B 的 EM 从 69.1% 提升到 77.2%（+8.1%），对 GPT-4o 也有 2.8% 的提升。
+
+**[The Distracting Effect Understanding Irrelevant Passages In Rag](the_distracting_effect_understanding_irrelevant_passages_in_rag.md)**
+
+:   本文提出了一个形式化的段落干扰效应（Distracting Effect）度量方法，并开发了多种获取高干扰段落的技术（包括偏斜检索和分类合成），证明了该度量跨LLM的鲁棒性，最终通过用高干扰段落微调LLM，在问答准确率上实现了最高7.5%的提升。
 
 **[Towards Adaptive Memory-Based Optimization For Enhanced Retrieval-Augmented Gene](towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)**
 
@@ -263,6 +275,14 @@ description: >-
 **[Typed-Rag Type-Aware Decomposition Of Non-Factoid Questions For Retrieval-Augmen](typed-rag_type-aware_decomposition_of_non-factoid_questions_for_retrieval-augmen.md)**
 
 :   提出 Typed-RAG 框架，通过对非事实性问题（NFQ）进行类型感知的分解，将复杂的多方面问题拆解为单方面子查询，针对不同问题类型（辩论、经验、比较等）设计差异化的检索与生成策略，显著提升了 RAG 在 NFQA 中的表现。
+
+**[Unanswerability Evaluation For Retrieval Augmented Generation](unanswerability_evaluation_for_retrieval_augmented_generation.md)**
+
+:   UAEval4RAG 提出了一个针对 RAG 系统处理不可回答查询的全面评估框架，定义了六类不可回答类别，能够基于任意知识库自动合成测试数据并评估系统的拒绝能力，实验揭示没有单一配置能在所有数据集上同时最优化可回答和不可回答查询的表现。
+
+**[Visa Retrieval Augmented Generation With Visual Source Attribution](visa_retrieval_augmented_generation_with_visual_source_attribution.md)**
+
+:   VISA 提出了一种基于视觉来源归因的 RAG 方法，利用大型视觉语言模型（VLM）在检索到的文档截图中用 bounding box 高亮支持生成答案的精确区域，并构建了 Wiki-VISA 和 Paper-VISA 两个数据集验证其有效性。
 
 **[Voxrag A Step Toward Transcription-Free Rag Systems In Spoken Question Answering](voxrag_a_step_toward_transcription-free_rag_systems_in_spoken_question_answering.md)**
 

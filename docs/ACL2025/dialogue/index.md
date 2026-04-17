@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 对话系统方向 10篇论文解读
+  ACL2025 对话系统方向 12篇论文解读
 description: >-
-  10篇ACL2025 对话系统方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  12篇ACL2025 对话系统方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🗣️ 对话系统
 
-**💬 ACL2025** · **10** 篇论文解读
+**💬 ACL2025** · **12** 篇论文解读
 
 **[Dialogue Systems For Emotional Support Via Value Reinforcement](dialogue_systems_for_emotional_support_via_value_reinforcement.md)**
 
@@ -49,3 +49,11 @@ description: >-
 **[Uniconv Retrieval Response Gen](uniconv_retrieval_response_gen.md)**
 
 :   探索如何将对话场景中的稠密检索和响应生成统一到单个 LLM 中，通过三个联合训练目标（对话检索 + 响应生成 + 上下文识别指令）和数据差异缓解机制，在五个对话搜索数据集上实现检索和生成的相互促进，超越分离式基线。
+
+**[When Harry Meets Superman The Role Of The Interlocutor In Persona-Based Dialogue](when_harry_meets_superman_the_role_of_the_interlocutor_in_persona-based_dialogue.md)**
+
+:   系统性地研究了人设对话生成中**对话者（interlocutor）信息**对目标说话人生成质量的影响，通过遮蔽/揭示对话者信息的评估框架发现：模型能有效适应对话者人设、对陌生对话者泛化能力弱于陌生话题，且零样本设置下LLM倾向于"复制粘贴"人设细节。
+
+**[Wizard Of Shopping Target-Oriented E-Commerce Dialogue Generation With Decision ](wizard_of_shopping_target-oriented_e-commerce_dialogue_generation_with_decision_.md)**
+
+:   本文提出 TRACER 方法，利用决策树模型规划对话路径，引导两个 LLM Agent（顾客和卖家）生成自然且有目标导向的电商购物对话，并发布了包含 3600 条对话的 Wizard of Shopping (WoS) 数据集，在对话查询生成和商品排序两个下游任务上验证了数据集的有效性。

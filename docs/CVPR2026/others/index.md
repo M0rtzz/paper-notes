@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 其他方向 39篇论文解读
+  CVPR2026 其他方向 44篇论文解读
 description: >-
-  39篇CVPR2026 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  44篇CVPR2026 其他方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**📷 CVPR2026** · **39** 篇论文解读
+**📷 CVPR2026** · **44** 篇论文解读
 
 **[A2Z-10M Geometric Deep Learning With A-To-Z Brep Annotations For Ai-Assisted Cad](a2z-10m_geometric_deep_learning_with_a-to-z_brep_annotations_for_ai-assisted_cad.md)**
 
@@ -90,6 +90,10 @@ description: >-
 
 :   本文提出一个基于 GAN + 残差自编码器（DRAE）的半监督异常检测框架，专门设计用于制药行业 Blow-Fill-Seal（BFS）产线的高速在线质量检测，仅用合格品训练即可实现 96.4% 的准确率，单 patch 推理仅 0.17ms，满足 500ms 检测周期的严格工业约束。
 
+**[Irisfp Adversarial-Example-Based Model Fingerprinting With Enhanced Uniqueness A](irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a.md)**
+
+:   提出IrisFP模型指纹框架，通过将指纹放置在多类决策边界交叉点处、构建复合样本指纹、以及基于统计可分性的指纹筛选三项创新，同时增强指纹的唯一性和鲁棒性，在5个数据集上AUC一致超过SOTA方法。
+
 **[Mitigating Instance Entanglement In Instance-Dependent Partial Label Learning](mitigating_instance_entanglement_in_instance-dependent_partial_label_learning.md)**
 
 :   针对实例依赖偏标签学习 (ID-PLL) 中相似类别实例因特征和候选标签重叠导致的"实例纠缠"问题，提出 CAD 框架，通过类别特定增强的类内对齐和加权惩罚损失的类间分离，双管齐下缓解类混淆。
@@ -97,6 +101,18 @@ description: >-
 **[Nailia Multimodal Nail Design Retrieval Based On Dense Intent Descriptions And P](nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p.md)**
 
 :   提出 NaiLIA，一种面向美甲设计图像的多模态检索方法，通过密集意图描述和调色板查询实现细粒度匹配，引入基于置信度分数的松弛对比损失（CRC loss）处理未标注正样本问题，在自建 NAIL-STAR 基准和 Marqo Fashion200K 上大幅超越现有方法。
+
+**[Neural Collapse In Test-Time Adaptation](neural_collapse_in_test-time_adaptation.md)**
+
+:   将神经坍缩 (Neural Collapse) 理论从类级别扩展到样本级别，发现了NC3+现象（样本特征嵌入与对应分类器权重对齐），基于此揭示了分布偏移下性能退化的根本原因是样本级特征-分类器错位，并提出NCTTA方法通过几何邻近度与预测置信度的混合目标引导特征重新对齐，在ImageNet-C上比Tent提升14.52%。
+
+**[Next-Scale Autoregressive Models For Text-To-Motion Generation](next-scale_autoregressive_models_for_text-to-motion_generation.md)**
+
+:   MoScale 提出了一种 next-scale 自回归动作生成框架，替代传统 next-token 预测，通过从粗到细的层次化因果生成来捕获全局语义结构，并引入跨尺度层次精化和尺度内时间精化，在 HumanML3D 和 KIT-ML 上达到 SOTA（Top-1 0.540，FID 0.046）。
+
+**[Novel Anomaly Detection Scenarios And Evaluation Metrics To Address The Ambiguit](novel_anomaly_detection_scenarios_and_evaluation_metrics_to_address_the_ambiguit.md)**
+
+:   针对工业异常检测中"正常"定义随规格变更而变化的实际问题，提出了两种新场景（A2N/N2A）、一个新评价指标（S-AUROC）和一种训练增强方法 RePaste，通过将高异常分数区域重新粘贴到训练图片中来增加其出现频率，使模型灵活适应正常样本定义的变化。
 
 **[Order Matters 3D Shape Generation From Sequential Vr Sketches](order_matters_3d_shape_generation_from_sequential_vr_sketches.md)**
 
@@ -145,6 +161,10 @@ description: >-
 **[Sldprtnet A Largescale Multimodal Dataset For Cad](sldprtnet_a_largescale_multimodal_dataset_for_cad.md)**
 
 :   构建SldprtNet——含242K+工业CAD零件的大规模多模态数据集，每个样本包含.sldprt/.step模型、7视角合成图、参数化建模脚本(13种命令无损编解码)和Qwen2.5-VL生成的自然语言描述，baseline实验验证多模态输入(图+文)在CAD生成上优于纯文本输入。
+
+**[What Is The Optimal Ranking Score Between Precision And Recall We Can Always Fin](what_is_the_optimal_ranking_score_between_precision_and_recall_we_can_always_fin.md)**
+
+:   本文从排名理论角度系统研究了 $F_\beta$ 分数族作为 Precision 与 Recall 排名折中的性质，证明 $F_\beta$ 诱导的排名构成 Precision 和 Recall 排名之间的测地线（最短路径），进而提出闭式公式来找到最优的 $\beta$ 值，并证明常用的 $F_1$ 和 skew-insensitive $F_1$ 在大多数情况下都不是最优排名折中。
 
 **[What Is Wrong With Synthetic Data For Scene Text Recognition A Strong Synthetic ](what_is_wrong_with_synthetic_data_for_scene_text_recognition_a_strong_synthetic_.md)**
 

@@ -1,19 +1,39 @@
 ---
 title: >-
-  ICML2025 视频生成方向 2篇论文解读
+  ICML2025 视频生成方向 7篇论文解读
 description: >-
-  2篇ICML2025 视频生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  7篇ICML2025 视频生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**🧪 ICML2025** · **2** 篇论文解读
+**🧪 ICML2025** · **7** 篇论文解读
+
+**[Asymrnr Video Diffusion Transformers Acceleration With Asymmetric Reduction And ](asymrnr_video_diffusion_transformers_acceleration_with_asymmetric_reduction_and_.md)**
+
+:   提出 AsymRnR——一种免训练的视频 DiT 加速方法，基于注意力中不同组件（Q/K/V）、不同层、不同去噪步骤的冗余程度不同的观察，非对称地削减 token 以实现无损加速。
+
+**[Ca2-Vdm Efficient Autoregressive Video Diffusion Model With Causal Generation An](ca2-vdm_efficient_autoregressive_video_diffusion_model_with_causal_generation_an.md)**
+
+:   提出 Ca2-VDM，通过因果生成（Causal Generation）和缓存共享（Cache Sharing）两大设计，消除自回归视频扩散模型中条件帧的冗余计算，将计算复杂度从二次降至线性，生成 80 帧视频速度比基线快 2.5 倍，同时保持 SOTA 级生成质量。
+
+**[Data-Juicer Sandbox A Feedback-Driven Suite For Multimodal Data-Model Co-Develop](data-juicer_sandbox_a_feedback-driven_suite_for_multimodal_data-model_co-develop.md)**
+
+:   提出 Data-Juicer Sandbox 沙箱套件，通过"探测-分析-精炼"(Probe-Analyze-Refine) 工作流，在低成本小规模实验中系统探索数据处理算子 (OP) 与模型性能的交互关系，将获得的数据配方迁移到大规模场景，在 VBench 排行榜取得第一名。
 
 **[Diffusion Adversarial Post-Training For One-Step Video Generation](diffusion_adversarial_post-training_for_one-step_video_generation.md)**
 
-:   提出对抗后训练（Adversarial Post-Training, APT）方法，将预训练的扩散模型直接用 GAN 对抗训练在真实数据上进行微调，实现单步生成 1024px 图像和 1280×720 24fps 视频，在视觉保真度上甚至超越原始 25 步扩散模型。
+:   提出对抗式后训练（Adversarial Post-Training, APT）框架，通过在扩散模型预训练后引入对抗训练阶段，实现单步生成高质量视频（2秒、1280×720、24fps），模型名为Seaweed-APT。
 
 **[How Far Is Video Generation From World Model A Physical Law Perspective](how_far_is_video_generation_from_world_model_a_physical_law_perspective.md)**
 
-:   通过构建 2D 物理仿真测试平台，系统性评估视频生成模型发现物理定律的能力，发现扩展模型规模仅能实现分布内泛化，无法实现分布外泛化，揭示模型采用"基于案例"的泛化机制而非抽象物理规则。
+:   通过构建严格遵循经典力学定律的2D物理模拟视频数据集，系统性评估视频生成模型是否能从纯视觉数据中发现物理规律，揭示当前模型仅能记忆训练分布内的模式而无法泛化到新的物理条件。
+
+**[Mimicmotion High-Quality Human Motion Video Generation With Confidence-Aware Pos](mimicmotion_high-quality_human_motion_video_generation_with_confidence-aware_pos.md)**
+
+:   基于 Stable Video Diffusion 构建姿态引导人体视频生成框架，通过将姿态估计置信度编码进引导信号、对高置信手部区域放大训练损失、以及位置感知的渐进式潜变量融合三项设计，在 TikTok 数据集上 FID-VID 达 9.3（前最优 12.4），同时支持任意长度平滑视频生成。
+
+**[Riflex A Free Lunch For Length Extrapolation In Video Diffusion Transformers](riflex_a_free_lunch_for_length_extrapolation_in_video_diffusion_transformers.md)**
+
+:   通过系统分析RoPE位置编码中各频率分量的角色，发现存在一个"固有频率"主导外推时的时间重复行为，提出仅降低该频率使其在外推后保持单周期的最小化方案RIFLEx，在CogVideoX-5B和HunyuanVideo上实现无训练2×高质量视频外推。

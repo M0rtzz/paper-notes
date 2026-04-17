@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 多模态VLM方向 48篇论文解读
+  ICML2025 多模态VLM方向 50篇论文解读
 description: >-
-  48篇ICML2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  50篇ICML2025 多模态VLM方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**🧪 ICML2025** · **48** 篇论文解读
+**🧪 ICML2025** · **50** 篇论文解读
 
 **[Bring Reason To Vision Understanding Perception And Reasoning Through Model Merg](bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg.md)**
 
@@ -122,6 +122,10 @@ description: >-
 
 :   针对大规模视觉语言模型 instruction-tuning 训练中因数据和模型异构性导致的计算不平衡问题，提出 OmniBal 框架从数据、模型、内存三个层面系统性平衡跨设备计算负载，在 InternVL-Chat 上实现约 1.8× 训练加速。
 
+**[Overcoming Multi-Step Complexity In Multimodal Theory-Of-Mind Reasoning](overcoming_multi-step_complexity_in_multimodal_theory-of-mind_reasoning.md)**
+
+:   提出可扩展的贝叶斯 ToM 规划器，通过将多步多模态心智推理分解为逐步贝叶斯更新来规避推理边界，并用弱到强控制机制将小模型（4B–8B）后训练获得的 ToM 似然估计能力迁移到大模型（70B–405B）的推理中，在 MMToM-QA 基准上达 81.3% 准确率，超越此前最优 BIPALM 4.6 个百分点。
+
 **[Overcoming Multi-Step Complexity In Multimodal Theory-Of-Mind Reasoning A Scalab](overcoming_multi-step_complexity_in_multimodal_theory-of-mind_reasoning_a_scalab.md)**
 
 :   提出一种可扩展的贝叶斯心智理论（ToM）规划器，通过将多步推理分解为逐步贝叶斯更新，并利用弱到强控制机制将小模型的 ToM 专项能力迁移至大模型（最高 405B），在多模态 ToM 基准上超越 SOTA 4.6%。
@@ -181,6 +185,10 @@ description: >-
 **[Towards Rationale-Answer Alignment Of Lvlms Via Self-Rationale Calibration](towards_rationale-answer_alignment_of_lvlms_via_self-rationale_calibration.md)**
 
 :   提出 Self-Rationale Calibration (SRC) 框架，通过轻量级 rationale 微调引导 LVLM 输出推理过程，再利用句子级 beam search 生成多样候选响应，结合专门设计的 R-Scorer 配对评分策略筛选优劣 rationale-answer 对，以 DPO 偏好对齐方式迭代校准模型的推理-答案一致性，在感知、推理和泛化多个基准上取得显著提升。
+
+**[Understanding And Mitigating Miscalibration In Prompt Tuning For Vision-Language](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)**
+
+:   通过分析提示调优导致VLM校准失败的根因（文本特征偏移），提出动态异常值正则化（DOR）方法，利用WordNet中高语义相似度名词作为文本异常值来约束微调过程中的特征漂移，显著降低校准误差。
 
 **[Universal Retrieval For Multimodal Trajectory Modeling](universal_retrieval_for_multimodal_trajectory_modeling.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 视频理解方向 69篇论文解读
+  NeurIPS2025 视频理解方向 62篇论文解读
 description: >-
-  69篇NeurIPS2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  62篇NeurIPS2025 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🧠 NeurIPS2025** · **69** 篇论文解读
+**🧠 NeurIPS2025** · **62** 篇论文解读
 
 **[A Little Depth Goes A Long Way The Expressive Power Of Logde](a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)**
 
@@ -78,14 +78,6 @@ description: >-
 
 :   提出 Fixed-Point RNN 框架，将稠密线性 RNN 参数化为对角线性 RNN 的不动点，通过迭代次数在对角（高效）与稠密（表达力强）之间动态插值，首次在状态跟踪（$A_5$/$S_5$）和拷贝任务上同时取得最优结果。
 
-**[Force Prompting Video Generation Models Can Learn And Generalize Physics-Based C](force_prompting_video_generation_models_can_learn_and_generalize_physics-based_c.md)**
-
-:   提出Force Prompting，将物理力（局部点力和全局风力）作为视频生成模型的控制信号，仅用~15K合成训练视频（Blender旗帜和滚球）和单日4xA100训练，即可在多样真实场景图像上展现跨物体/材质/几何的惊人泛化，包括初步的质量理解能力。
-
-**[Foresight Adaptive Layer Reuse For Accelerated And Highquali](foresight_adaptive_layer_reuse_for_accelerated_and_highquali.md)**
-
-:   提出 Foresight，一种训练无关的自适应层复用框架，通过在 warmup 阶段建立逐层 MSE 阈值、在 reuse 阶段按阈值动态决策每层是复用缓存还是重新计算，在 5 个视频生成模型上实现了比静态方法更高质量和更快速度的推理加速（最高 2.23×）。
-
 **[Geodynamics A Geometric State-Space Neural Network For Understanding Brain Dynam](geodynamics_a_geometric_state-space_neural_network_for_understanding_brain_dynam.md)**
 
 :   提出GeoDynamics，将经典状态空间模型(SSM)从欧几里得空间推广到对称正定(SPD)流形，通过加权Frechet均值聚合和正交群平移实现流形上的状态演化，在脑连接组（AD/PD/ASD早期诊断）和人体动作识别上均取得SOTA。
@@ -117,10 +109,6 @@ description: >-
 **[Lattice Boltzmann Model For Learning Real-World Pixel Dynamicity](lattice_boltzmann_model_for_learning_real-world_pixel_dynamicity.md)**
 
 :   受流体力学中格子玻尔兹曼方法启发，提出 LBM（Lattice Boltzmann Model）用于在线实时像素跟踪，将视频像素建模为流体格子并通过碰撞-流式过程求解运动状态，以 18M 参数实现 SOTA 在线跟踪性能且可在边缘设备上实时运行。
-
-**[Lemica Lexicographic Minimax Path Caching For Efficient Diffusion-Based Video Ge](lemica_lexicographic_minimax_path_caching_for_efficient_diffusion-based_video_ge.md)**
-
-:   提出 LeMiCa，一种免训练的扩散视频生成加速框架，将缓存调度建模为有向无环图上的字典序极小极大路径优化问题，通过全局误差控制实现速度和质量的双重提升（Latte 上 2.9× 加速，Open-Sora 上 LPIPS 低至 0.05）。
 
 **[Less Is More Local Intrinsic Dimensions Of Contextual Language Models](less_is_more_local_intrinsic_dimensions_of_contextual_language_models.md)**
 
@@ -174,10 +162,6 @@ description: >-
 
 :   提出NeuComBack基准数据集用于评估IR到汇编的神经编译任务，并设计自进化提示优化方法，通过从LLM自调试轨迹中学习来迭代改进编译提示，使正确率从44%提升到64%，且87.5%的正确程序性能超越clang-O3。
 
-**[Radial Attention Onlog N Sparse Attention With Energy Decay For Long Video Gener](radial_attention_onlog_n_sparse_attention_with_energy_decay_for_long_video_gener.md)**
-
-:   Radial Attention 发现了视频扩散模型中注意力分数随时空距离指数衰减的"时空能量衰减"现象，据此设计了一种 O(n log n) 复杂度的静态稀疏注意力掩码，在 HunyuanVideo/Wan2.1 等模型上实现最高 3.7× 推理加速，并通过 LoRA 微调支持 4× 更长视频生成。
-
 **[Reinforcement Learning With Backtracking Feedback](reinforcement_learning_with_backtracking_feedback.md)**
 
 :   提出带回溯反馈的强化学习框架 RLBF，当 agent 陷入死胡同时允许回溯到之前的状态重新探索，通过回溯信号改善信用分配，在稀疏奖励环境中显著提升探索效率。
@@ -201,10 +185,6 @@ description: >-
 **[Smartwilds Multimodal Wildlife Monitoring Dataset](smartwilds_multimodal_wildlife_monitoring_dataset.md)**
 
 :   发布首个同步多模态野生动物监测数据集SmartWilds，整合无人机影像、相机陷阱和生物声学三种模态共101GB数据，通过GPS/时间戳实现跨模态对齐，建立可重复的保护监测标准协议，填补综合性生态系统多传感器融合数据集的空白。
-
-**[Stable Cinemetrics Structured Taxonomy And Evaluation For Professional Video Gen](stable_cinemetrics_structured_taxonomy_and_evaluation_for_professional_video_gen.md)**
-
-:   提出 SCINE（Stable Cinemetrics），首个面向专业视频制作的结构化评估框架，定义了 76 个细粒度电影控制节点的分层分类体系，配合大规模专业人员评估（80+ 影视从业者、20K+ 视频、248K 标注），揭示当前最强 T2V 模型在专业控制上的显著不足。
 
 **[Steering When Necessary Flexible Steering Large Language Models With Backtrackin](steering_when_necessary_flexible_steering_large_language_models_with_backtrackin.md)**
 
@@ -263,14 +243,6 @@ description: >-
 **[Visual Diversity And Region-Aware Prompt Learning For Zero-Shot Hoi Detection](visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection.md)**
 
 :   提出 VDRP 框架，通过视觉多样性感知的 prompt 学习（注入组级方差 + 高斯扰动）和区域感知的 prompt 增强（基于 LLM 生成的区域概念检索），解决零样本 HOI 检测中类内视觉多样性和类间视觉纠缠两大挑战。
-
-**[Vmdt Decoding The Trustworthiness Of Video Foundation Models](vmdt_decoding_the_trustworthiness_of_video_foundation_models.md)**
-
-:   提出 VMDT（Video-Modal DecodingTrust），首个统一评估 T2V 和 V2T 视频基础模型在安全、幻觉、公平、隐私和对抗鲁棒性五个维度上可信度的基准平台，涵盖 7 个 T2V 和 19 个 V2T 模型的大规模评测，揭示了模型规模与可信度之间的复杂关系。
-
-**[Vorta Efficient Video Diffusion Via Routing Sparse Attention](vorta_efficient_video_diffusion_via_routing_sparse_attention.md)**
-
-:   提出VORTA框架，通过桶化核心集注意力（建模长程依赖）和信号感知路由机制（自适应选择稀疏注意力分支），在不损失生成质量的前提下实现视频扩散Transformer端到端1.76×加速，并可与缓存和蒸馏方法叠加达到14.41×加速。
 
 **[Web-Scale Collection Of Video Data For 4D Animal Reconstruction](web-scale_collection_of_video_data_for_4d_animal_reconstruction.md)**
 

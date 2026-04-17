@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 视频理解方向 39篇论文解读
+  ECCV2024 视频理解方向 51篇论文解读
 description: >-
-  39篇ECCV2024 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  51篇ECCV2024 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🎞️ ECCV2024** · **39** 篇论文解读
+**🎞️ ECCV2024** · **51** 篇论文解读
 
 **[Actionswitch Class-Agnostic Detection Of Simultaneous Actions In Streaming Video](actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video.md)**
 
@@ -22,13 +22,17 @@ description: >-
 
 :   提出 AMEGO，一种从长第一人称视频中在线构建结构化"活跃记忆"的方法，通过 HOI tracklet + 位置分段 + 语义无关的视觉查询，在新提出的 AMB benchmark 上超越 Video QA baselines 12.7%。
 
+**[Bayesian Evidential Deep Learning For Online Action Detection](bayesian_evidential_deep_learning_for_online_action_detection.md)**
+
+:   本文提出 BEDL（Bayesian Evidential Deep Learning）框架，通过贝叶斯教师-证据学生架构，在在线动作检测任务中实现了准确高效的推理与可靠的不确定性量化，并设计了基于贝叶斯互信息的注意力模块用于主动特征选择。
+
 **[Benchmarks And Challenges In Pose Estimation For Egocentric Hand Interactions Wi](benchmarks_and_challenges_in_pose_estimation_for_egocentric_hand_interactions_wi.md)**
 
 :   基于 HANDS23 挑战赛（AssemblyHands + ARCTIC 数据集），系统性地对第一人称视角下手-物体交互的 3D 姿态估计方法进行了基准测试和深入分析，揭示了畸变校正、高容量 Transformer 和多视角融合的有效性，以及快速运动、遮挡和窄视角下物体重建等仍未解决的挑战。
 
-**[Blazebvd Make Scale-Time Equalization Great Again For Blind Video Deflickering](blazebvd_make_scale-time_equalization_great_again_for_blind_video_deflickering.md)**
+**[Boosting 3D Single Object Tracking With 2D Matching Distillation And 3D Pre-Trai](boosting_3d_single_object_tracking_with_2d_matching_distillation_and_3d_pre-trai.md)**
 
-:   提出 BlazeBVD，利用经典 Scale-Time Equalization (STE) 在光照直方图空间提取 deflickering 先验（滤波光照图、曝光图、闪烁帧索引），将复杂的视频时空学习简化为 2D 空间网络逐帧处理 + 轻量 3D 时序一致性网络，在盲视频去闪烁任务上实现 SOTA 质量且推理速度比基线快 10 倍以上。
+:   本文提出了一个统一的3D单目标跟踪（SOT）框架，通过3D生成式预训练和2D预训练基础跟踪器的匹配知识蒸馏，解决了点云数据稀缺和LiDAR扫描稀疏不完整的问题，在KITTI、Waymo和nuScenes上达到SOTA性能。
 
 **[Classification Matters Improving Video Action Detection With Class-Specific Atte](classification_matters_improving_video_action_detection_with_class-specific_atte.md)**
 
@@ -46,9 +50,9 @@ description: >-
 
 :   提出DINO-Tracker，将预训练DINOv2的语义特征与测试时单视频优化相结合，通过Delta-DINO残差微调和多源自监督损失实现长程稠密点追踪，在自监督方法中达到SOTA且可媲美有监督追踪器，尤其在长期遮挡场景中大幅领先。
 
-**[Draganything Motion Control For Anything Using Entity Representation](draganything_motion_control_for_anything_using_entity_representation.md)**
+**[Efficient Few-Shot Action Recognition Via Multi-Level Post-Reasoning](efficient_few-shot_action_recognition_via_multi-level_post-reasoning.md)**
 
-:   提出DragAnything，利用扩散模型的隐空间特征作为实体表征（Entity Representation）来实现实体级运动控制，解决了现有轨迹驱动方法仅拖拽像素而无法精确控制目标对象运动的问题，在VIPSeg上实现SOTA的FVD/FID指标，用户研究中运动控制投票超出DragNUWA 26%。
+:   EMP-Net 提出了一种高效多层级后推理网络，通过后推理机制避免大部分梯度回传来降低 CLIP 在小样本动作识别中的领域对齐开销，同时利用多层级表示（全局、patch、帧级别）提升特征判别力，在效率和性能之间取得了最优平衡。
 
 **[Egoposer Robust Real-Time Egocentric Pose Estimation From Sparse And Intermitten](egoposer_robust_real-time_egocentric_pose_estimation_from_sparse_and_intermitten.md)**
 
@@ -58,6 +62,18 @@ description: >-
 
 :   提出 Elysium，一个端到端可训练的 MLLM，通过构建百万级视频目标感知数据集 ElysiumTrack-1M 和设计 T-Selector 视觉 token 压缩网络，将 MLLM 的目标级感知能力从图像扩展到视频领域，支持单目标跟踪 (SOT)、引用式单目标跟踪 (RSOT) 和视频引用表达生成 (Video-REG) 等任务。
 
+**[Elysium Exploring Objectlevel Perception In Videos Via Mllm](elysium_exploring_objectlevel_perception_in_videos_via_mllm.md)**
+
+:   提出Elysium，首个端到端可训练的多模态大语言模型系统化处理视频目标级任务（如目标跟踪），构建了百万级ElysiumTrack-1M视频数据集支持SOT/RSOT/Video-REG三类任务，并设计T-Selector token压缩网络在保持性能的同时大幅减少视觉token消耗。
+
+**[Evaluating Text-to-Visual Generation with Image-to-Text Generation](evaluating_text-to-visual_generation_with_image-to-text_generation.md)**
+
+:   提出VQAScore，利用VQA模型替代CLIP来评估文本-视觉生成质量，在复杂组合性提示上大幅超越CLIPScore，并发布GenAI-Bench基准。
+
+**[Exploring The Feature Extraction And Relation Modeling For Light-Weight Transfor](exploring_the_feature_extraction_and_relation_modeling_for_light-weight_transfor.md)**
+
+:   本文提出FERMT（Feature Extraction and Relation Modeling Tracker），通过将one-stream tracker中的注意力机制分解为四个功能不同的子模块——浅层专注特征提取、深层专注关系建模——并引入双注意力单元进行特征预处理，在GOT-10k上以69.6%的AO分数超越领先实时跟踪器5.6%，同时CPU速度提升54%。
+
 **[Finepseudo Improving Pseudo-Labelling Through Temporal-Alignablity For Semi-Supe](finepseudo_improving_pseudo-labelling_through_temporal-alignablity_for_semi-supe.md)**
 
 :   提出 FinePseudo 框架，利用基于时序对齐性（temporal alignability）的度量学习来改善伪标签质量，首次系统性地解决半监督细粒度动作识别问题，在四个细粒度数据集上显著超越现有方法。
@@ -65,6 +81,10 @@ description: >-
 **[Goldfish Vision-Language Understanding Of Arbitrarily Long Videos](goldfish_vision-language_understanding_of_arbitrarily_long_videos.md)**
 
 :   提出 Goldfish 框架，通过将长视频分割为短 clip 并利用基于文本相似度的检索机制选取与问题最相关的 top-k 片段，实现对任意长度视频的高效理解，同时提出 MiniGPT4-Video 短视频模型和 TVQA-long 长视频评测基准。
+
+**[Iam-Vfi Interpolate Any Motion For Video Frame Interpolation With Motion Complex](iam-vfi_interpolate_any_motion_for_video_frame_interpolation_with_motion_complex.md)**
+
+:   提出IAM-VFI框架，通过引入运动复杂度图（Motion Complexity Map）来感知局部运动的难度级别，对不同复杂度区域自适应分配计算资源和处理策略，实现对任意运动模式的鲁棒视频帧插值。
 
 **[Layeredflow A Real-World Benchmark For Non-Lambertian Multi-Layer Optical Flow](layeredflow_a_real-world_benchmark_for_non-lambertian_multi-layer_optical_flow.md)**
 
@@ -74,6 +94,10 @@ description: >-
 
 :   提出 **TC-CLIP** 框架，通过**时序上下文化(TC)** 机制将全局视频动作线索压缩为少量 context tokens 注入 CLIP 编码过程，并设计**视频条件提示(VP)** 模块将视觉信息注入文本端，在零样本、小样本、base-to-novel 和全监督四种设定下全面超越现有 CLIP-based 视频识别方法。
 
+**[Local All-Pair Correspondence For Point Tracking](local_all-pair_correspondence_for_point_tracking.md)**
+
+:   本文提出LocoTrack，通过局部4D相关性体（local 4D correlation）实现视频中任意点的全对应匹配，结合轻量级相关性编码器和长度可泛化的Transformer，在所有TAP-Vid基准测试上达到最高精度，同时比SOTA方法快近6倍。
+
 **[Masked Video And Body-Worn Imu Autoencoder For Egocentric Action Recognition](masked_video_and_body-worn_imu_autoencoder_for_egocentric_action_recognition.md)**
 
 :   提出 EVI-MAE，首个联合第一人称视频与身体穿戴 IMU 的多模态表示学习方法，通过 MAE 自监督预训练学习视频-IMU 跨模态对齐，并用图神经网络建模多 IMU 设备间的协同运动关系，在动作识别中取得 SOTA 且具备优秀的鲁棒性。
@@ -82,17 +106,37 @@ description: >-
 
 :   本文提出一种将非线性运动先验（轨迹参数函数）引入对比度最大化框架的自监督方法，用于事件相机的稠密连续时间运动估计，在真实世界数据集 EVIMO2 上将合成数据预训练模型的零样本性能提升了 29%。
 
+**[Nymeria A Massive Collection Of Multimodal Egocentric Daily ](nymeria_a_massive_collection_of_multimodal_egocentric_daily_.md)**
+
+:   构建了全球最大的野外人体运动数据集Nymeria：300小时日常活动、264人、50个场景、多设备多模态自我中心数据（Project Aria眼镜+手环+动捕服），配备亚毫秒级同步和310.5K句层次化运动语言描述。
+
 **[Nymeria A Massive Collection Of Multimodal Egocentric Daily Motion In The Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_motion_in_the_wild.md)**
 
 :   Nymeria 是目前世界最大的野外人体运动数据集（300 小时、264 名参与者），首次提供同步定位的多设备多模态自我中心数据（Project Aria 眼镜+腕带+动捕服），并配套 310.5K 句层次化运动语言描述。
+
+**[Occluded Gait Recognition With Mixture Of Experts An Action Detection Perspectiv](occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv.md)**
+
+:   本文从动作检测的视角重新审视遮挡步态识别问题，提出GaitMoE方法通过时序专家混合(MTE)自适应构建动作锚点和动作专家混合(MAE)生成动作提议，仅使用ID标签进行端到端训练即可有效应对各种遮挡场景，并构建了首个统一的遮挡步态数据库OccGait。
 
 **[On The Utility Of 3D Hand Poses For Action Recognition](on_the_utility_of_3d_hand_poses_for_action_recognition.md)**
 
 :   提出 HandFormer，一种轻量级多模态 Transformer，将密集采样的 3D 手部姿态（捕捉细粒度动作）与稀疏采样的 RGB 帧（提供场景语义）结合，通过 micro-action 时序分解和 trajectory 编码高效建模手-物交互，在 Assembly101 和 H2O 上达到 SOTA，且纯 pose 模型以 5× 更少 FLOPs 超越已有骨架方法。
 
+**[Onetrack Demystifying The Conflict Between Detection And Tracking In End-To-End ](onetrack_demystifying_the_conflict_between_detection_and_tracking_in_end-to-end_.md)**
+
+:   本文深入分析了端到端3D跟踪器中检测与跟踪任务之间性能冲突的根本原因——二者在正样本分配上的微妙差异导致了分类梯度的矛盾，并提出OneTrack通过梯度协调、查询分组和注意力掩码等策略，首次实现了检测和跟踪在统一特征表示下的无冲突联合优化，在nuScenes上取得了SOTA性能。
+
+**[Optimizing Factorized Encoder Models Time And Memory Reduction For Scalable And ](optimizing_factorized_encoder_models_time_and_memory_reduction_for_scalable_and_.md)**
+
+:   本文通过冻结 ViViT 因子化编码器中的空间 Transformer 并引入合理的时间 Transformer 初始化策略和紧凑的适配器模块，在保持甚至略微提升精度的同时大幅降低了训练成本和内存消耗，为资源受限的研究者提供了更高效的动作识别训练方案。
+
 **[Pite Pixel-Temporal Alignment For Large Video-Language Model](pite_pixel-temporal_alignment_for_large_video-language_model.md)**
 
 :   提出 PiTe 模型，通过物体运动轨迹在像素级别实现视频与语言的时空对齐，构建 PiTe-143k 数据集，在零样本 QA、时序定位和密集描述任务上大幅超越现有方法。
+
+**[Pite Pixeltemporal Alignment For Large Videolanguage Mo](pite_pixeltemporal_alignment_for_large_videolanguage_mo.md)**
+
+:   提出 PiTe，一种通过物体轨迹引导的像素-时序对齐方法，利用自动构建的 PiTe-143K 数据集在空间和时间维度上实现视频与语言的精细对齐，显著提升视频理解能力。
 
 **[R2Tuning Efficient Imagetovideo Transfer Learning For Video](r2tuning_efficient_imagetovideo_transfer_learning_for_video.md)**
 
@@ -126,6 +170,10 @@ description: >-
 
 :   提出 GMRW（Global Matching Random Walk），将全局匹配 Transformer 架构与对比随机游走自监督目标结合，首次在无标注的情况下实现了强劲的"任意点跟踪"（TAP）性能，并设计 label warping 数据增强来避免 Transformer 的捷径解。
 
+**[Semtrack A Large-Scale Dataset For Semantic Tracking In The Wild](semtrack_a_large-scale_dataset_for_semantic_tracking_in_the_wild.md)**
+
+:   提出 SemTrack 数据集和 SemTracker 方法，将传统目标跟踪从"定位目标在哪里"扩展到"理解目标在做什么"——跟踪目标的同时捕获其语义轨迹（与谁/什么交互、何时何地如何交互），并引入元学习策略应对长尾交互类别的挑战。
+
 **[Slack Semantic Location And Appearance Aware Open-Vocabulary Tracking](slack_semantic_location_and_appearance_aware_open-vocabulary_tracking.md)**
 
 :   SLAck 提出在多目标跟踪的关联阶段早期统一融合语义、位置和外观三种线索，通过轻量级时空目标图（STOG）学习隐式运动先验和跨线索协同，无需后处理启发式规则，在开放词汇 MOT 和 TAO TETA 基准上显著提升新类别跟踪性能。
@@ -138,13 +186,13 @@ description: >-
 
 :   提出球面世界锁定（Spherical World-Locking, SWL）框架，通过将多模态感知流隐式变换到世界锁定的球面坐标系中，消除自身运动带来的挑战，实现更精准的第一人称视频中的音视觉定位。
 
-**[Sync From The Sea Retrieving Alignable Videos From Large-Scale Datasets](sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets.md)**
-
-:   提出可对齐视频检索（Alignable Video Retrieval, AVR）任务，通过 DRAQ 对齐质量指标从大规模视频数据库中识别并检索出最适合与查询视频进行时序对齐的视频，同时提出特征上下文化方法提升对齐性能。
-
 **[Text-Guided Video Masked Autoencoder](text-guided_video_masked_autoencoder.md)**
 
 :   提出文本引导掩码策略（TGM）利用自然语言描述替代运动先验来掩码视频显著区域，并统一 MAE 与视频-文本对比学习，在五个动作识别和一个自中心数据集上取得最佳相对性能。
+
+**[Timecraft Navigate Weakly-Supervised Temporal Grounded Video Question Answering ](timecraft_navigate_weakly-supervised_temporal_grounded_video_question_answering_.md)**
+
+:   本文提出一种双向推理框架TimeCraft来解决弱监督时序定位视频问答（temporal grounded VQA）任务，通过构建两条对称的推理路径（前向：时序定位→回答；反向：回答→时序定位）并用循环一致性约束提供自监督信号，在不需要时序标注的情况下同时定位回答依据的视频片段并给出正确答案。
 
 **[Towards Model-Agnostic Dataset Condensation By Heterogeneous Models](towards_model-agnostic_dataset_condensation_by_heterogeneous_models.md)**
 

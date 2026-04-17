@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 可解释性方向 31篇论文解读
+  AAAI2026 可解释性方向 36篇论文解读
 description: >-
-  31篇AAAI2026 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  36篇AAAI2026 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🤖 AAAI2026** · **31** 篇论文解读
+**🤖 AAAI2026** · **36** 篇论文解读
 
 **[A Closer Look At Knowledge Distillation In Spiking Neural Ne](a_closer_look_at_knowledge_distillation_in_spiking_neural_ne.md)**
 
@@ -106,6 +106,10 @@ description: >-
 
 :   提出CIRF框架，通过无监督schema归纳（USI）从LLM生成的一阶逻辑中抽象可迁移推理模式，再用schema增强图核模型（SEGKM）进行结构对齐实现可解释零样本立场推理，在三个基准上达到SOTA且仅需30%标注数据。
 
+**[Llm Circuit Analyses Consistent Across Training And Scale](llm_circuit_analyses_consistent_across_training_and_scale.md)**
+
+:   本文首次系统追踪 decoder-only LLM 的内部电路（circuits）在 3000 亿 token 训练过程中和 70M–2.8B 参数规模间的演化，发现虽然具体注意力头会发生更替，但执行的算法保持稳定，且跨规模具有一致性，表明在小模型上做的电路分析可推广到更大模型和更长训练。
+
 **[Probing Preference Representations A Multi-Dimensional Evaluation And Analysis M](probing_preference_representations_a_multi-dimensional_evaluation_and_analysis_m.md)**
 
 :   提出 MRMBench 基准，通过 6 个维度（无害性、有帮助性、正确性、连贯性、复杂性、冗长性）的探针任务评估奖励模型是否有效捕获多维偏好，发现探针性能与 PPO 对齐质量强相关（Pearson $r > 0.8$），并提出推理时探针方法将 AlpacaEval win rate 从 57.3% 提升至 62.5%。
@@ -118,6 +122,10 @@ description: >-
 
 :   将LLM版权侵权缓解问题重新定义为内在语义空间控制，利用稀疏自编码器(SAE)将隐状态映射到高维稀疏空间，识别版权敏感子空间并在解码时钳制其激活，无需外部过滤器或参数更新即可有效减少版权内容复制，同时保持模型通用能力。
 
+**[Shapbpt Image Feature Attributions Using Data-Aware Binary Partition Trees](shapbpt_image_feature_attributions_using_data-aware_binary_partition_trees.md)**
+
+:   提出 ShapBPT，将**数据感知的二叉分割树（BPT）**作为层次联盟结构与 Owen 近似的 Shapley 值结合，实现与图像形态学对齐的特征归因，比现有 Shapley 方法收敛更快、形状识别更准确，并通过 20 人用户研究确认解释更受人类偏好。
+
 **[Som Directions Are Better Than One Multi-Directional Refusal Suppression In Lang](som_directions_are_better_than_one_multi-directional_refusal_suppression_in_lang.md)**
 
 :   证明LLM的拒绝行为并非由单一方向编码，而是形成低维流形，利用自组织映射（SOM）提取多个拒绝方向并通过贝叶斯优化搜索最优消融组合，在多个模型上超越单方向基线和专用越狱算法。
@@ -129,6 +137,18 @@ description: >-
 **[Toc Tree-Of-Claims Search With Multi-Agent Language Models](toc_tree-of-claims_search_with_multi-agent_language_models.md)**
 
 :   提出 Tree-of-Claims (ToC) 框架，将专利权利要求编辑建模为结构化搜索问题，通过 MCTS 与 EditorAgent/ExaminerAgent 多智能体协作，在新颖性、范围保持和语义一致性之间联合优化，比零/少样本 LLM 基线平均提升约 8% 综合分。
+
+**[Universal Safety Controllers With Learned Prophecies](universal_safety_controllers_with_learned_prophecies.md)**
+
+:   提出 UCLearn，通过从少量代表性 plant 模型中学习 CTL (计算树逻辑) 公式作为预言（prophecy）的近似表示，替代精确但计算昂贵的树自动机，实现高效、可扩展且可解释的通用安全控制器合成。
+
+**[Unsupervised Feature Selection Through Group Discovery](unsupervised_feature_selection_through_group_discovery.md)**
+
+:   提出 GroupFS，首个端到端可微分的无监督特征选择框架，能同时发现潜在特征分组并选择信息量最大的组，无需预定义分组或标签监督。
+
+**[Using Certifying Constraint Solvers For Generating Step-Wise Explanations](using_certifying_constraint_solvers_for_generating_step-wise_explanations.md)**
+
+:   提出利用约束求解器生成的不可满足性证明（proof）作为起点，通过一系列简化和转换技术高效生成面向用户的逐步解释序列（step-wise explanation），相比从零构建解释方法速度提升高达100倍。
 
 **[Voices Faces And Feelings Multi-Modal Emotion-Cognition Captioning For Mental He](voices_faces_and_feelings_multi-modal_emotion-cognition_captioning_for_mental_he.md)**
 

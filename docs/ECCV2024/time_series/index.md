@@ -1,14 +1,18 @@
 ---
 title: >-
-  ECCV2024 时间序列方向 2篇论文解读
+  ECCV2024 时间序列方向 3篇论文解读
 description: >-
-  2篇ECCV2024 时间序列方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  3篇ECCV2024 时间序列方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🎞️ ECCV2024** · **2** 篇论文解读
+**🎞️ ECCV2024** · **3** 篇论文解读
+
+**[Multi-Person Pose Forecasting With Individual Interaction Perceptron And Prior L](multi-person_pose_forecasting_with_individual_interaction_perceptron_and_prior_l.md)**
+
+:   本文提出 IAFormer（Interaction-Aware Pose Forecasting Transformer），通过设计交互感知模块（IPM）来评估每个人与事件的交互程度，并引入交互先验学习模块（IPLM）来积累高频交互模式的先验知识，从而实现语义层面的多人姿态预测，在多个多人场景数据集上显著超越现有方法。
 
 **[Omnisat Self-Supervised Modality Fusion For Earth Observation](omnisat_self-supervised_modality_fusion_for_earth_observation.md)**
 

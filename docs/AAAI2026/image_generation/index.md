@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 图像生成方向 72篇论文解读
+  AAAI2026 图像生成方向 74篇论文解读
 description: >-
-  72篇AAAI2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  74篇AAAI2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🤖 AAAI2026** · **72** 篇论文解读
+**🤖 AAAI2026** · **74** 篇论文解读
 
 **[Abductivemllm Boosting Visual Abductive Reasoning Within Mll](abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)**
 
@@ -289,6 +289,14 @@ description: >-
 **[Talk Snap Complain Validation-Aware Multimodal Expert Framework For Fine-Grained](talk_snap_complain_validation-aware_multimodal_expert_framework_for_fine-grained.md)**
 
 :   提出VALOR框架，结合Chain-of-Thought推理的多专家路由架构与语义对齐验证机制，在多轮多模态客服对话中实现细粒度投诉方面(Aspect)和严重度(Severity)的联合分类，较最强baseline Gemma-3绝对提升12.94%/6.51%。
+
+**[Truthfulrag Resolving Factual-Level Conflicts In Retrieval-Augmented Generation ](truthfulrag_resolving_factual-level_conflicts_in_retrieval-augmented_generation_.md)**
+
+:   提出 TruthfulRAG 框架，首次利用知识图谱 (KG) 从事实级别解决 RAG 系统中检索知识与 LLM 参数知识之间的冲突，通过三元组提取、查询感知图检索和基于熵的冲突过滤机制提升生成准确性与可信度。
+
+**[Tsgdiff Rethinking Synthetic Time Series Generation From A Pure Graph Perspectiv](tsgdiff_rethinking_synthetic_time_series_generation_from_a_pure_graph_perspectiv.md)**
+
+:   提出 TSGDiff，首次从纯图的视角重新审视时间序列生成任务，将时间序列表示为基于傅里叶频谱特征构建的动态图，在图的潜在空间中进行扩散建模，并提出 Topo-FID 指标评估生成时间序列的结构忠实度。
 
 **[Voicecloak A Multi-Dimensional Defense Framework Against Unauthorized Diffusion-](voicecloak_a_multi-dimensional_defense_framework_against_unauthorized_diffusion-.md)**
 

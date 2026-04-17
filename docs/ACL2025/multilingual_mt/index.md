@@ -242,17 +242,9 @@ description: >-
 
 :   本文提出首个跨框架、跨语言的统一篇章关系标签集（17类），并通过对23个LLM的注意力探针实验，证明多语言LLM能够在中间层编码跨语言可迁移的篇章级表征，且多语言训练和模型规模共同提升泛化能力。
 
-**[Q2E Query-To-Event Decomposition For Zero-Shot Multilingual Text-To-Video Retrie](q2e_query-to-event_decomposition_for_zero-shot_multilingual_text-to-video_retrie.md)**
-
-:   Q2E 提出了一种零样本的查询到事件分解方法，利用 LLM 和 VLM 的参数化世界知识将简单查询分解为前因/当前/后果事件，并结合视频的视觉描述和语音转录，通过逆熵融合排序实现 SOTA 的多语言文本到视频检索性能。
-
 **[Registering Source Tokens To Target Language Spaces In Multilingual Neural Machi](registering_source_tokens_to_target_language_spaces_in_multilingual_neural_machi.md)**
 
 :   提出 Registering 方法：在源语言和目标语言 token 之间插入一组目标语言标记（registers），通过修改注意力掩码使目标生成仅依赖 registers 的激活，彻底解决多语言翻译中的 off-target 问题，使小模型 MITRE-913M 超越 NLLB-3.3B。
-
-**[Rethinking Evaluation Metrics For Grammatical Error Correction Why Use A Differe](rethinking_evaluation_metrics_for_grammatical_error_correction_why_use_a_differe.md)**
-
-:   指出自动 GEC 评估与人类评估在聚合方式上的差距（人类用 TrueSkill 做成对比较后聚合，自动评估用平均/求和后排序），提出对所有自动指标统一使用 TrueSkill 聚合，在 SEEDA 基准上大幅提升多数指标与人类评估的相关性。
 
 **[Semantic Aware Linear Transfer By Recycling Pre-Trained Language Models For Cros](semantic_aware_linear_transfer_by_recycling_pre-trained_language_models_for_cros.md)**
 
@@ -274,6 +266,10 @@ description: >-
 
 :   本文在 SemEval-2025 Task 2 中系统评估了 13 个模型（LLM + 传统 MT）在英韩实体密集文本翻译上的表现，通过自动指标和双语人工评估揭示了 LLM 虽优于传统 MT 但在需要文化适应的实体翻译上仍普遍失败，并构建了翻译错误分类体系。
 
+**[The Esethu Framework Reimagining Sustainable Dataset Governance And Curation For](the_esethu_framework_reimagining_sustainable_dataset_governance_and_curation_for.md)**
+
+:   提出 Esethu 框架——一种社区驱动的可持续数据治理方案，通过创新的社区中心化许可证实现数据收益的循环再投资，并以 isiXhosa 语音数据集 ViXSD 作为概念验证。
+
 **[The Hidden Space Of Safety Understanding Preference-Tuned Llms In Multilingual C](the_hidden_space_of_safety_understanding_preference-tuned_llms_in_multilingual_c.md)**
 
 :   本文系统分析了偏好调优（RLHF/DPO 等）对 LLM 内部表示空间在多语言场景下的影响，发现对齐机制在英语上能有效分离有害/无害内容的隐空间表示，但在印地语、中文、德语等非英语语言上效果显著退化，揭示了当前对齐方法存在严重的单语偏差问题。
@@ -289,6 +285,10 @@ description: >-
 **[Trans-Zero Self-Play Incentivizes Large Language Models For Multilingual Transla](trans-zero_self-play_incentivizes_large_language_models_for_multilingual_transla.md)**
 
 :   提出 Trans-Zero 自博弈框架，仅使用单语数据，通过遗传蒙特卡洛树搜索（G-MCTS）在多语言翻译过程中探索语义一致的候选翻译，结合偏好优化实现无平行数据的多语言翻译训练，性能可媲美大规模监督微调方法。
+
+**[Translation And Fusion Improves Cross-Lingual Information Extraction](translation_and_fusion_improves_cross-lingual_information_extraction.md)**
+
+:   提出 TransFusion 框架，通过在推理时先将低资源语言文本翻译为英语、在英语上进行信息抽取标注、再用融合模型将英语标注与原文结合来生成最终预测，在50种语言的零样本跨语言IE任务上显著优于基线（MasakhaNER2平均F1从47.9提升到62.4）。
 
 **[Translation Robustness](translation_robustness.md)**
 

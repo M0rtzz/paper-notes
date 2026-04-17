@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 模型压缩方向 139篇论文解读
+  NeurIPS2025 模型压缩方向 138篇论文解读
 description: >-
-  139篇NeurIPS2025 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  138篇NeurIPS2025 模型压缩方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🧠 NeurIPS2025** · **139** 篇论文解读
+**🧠 NeurIPS2025** · **138** 篇论文解读
 
 **[3Did Direct 3D Inverse Design For Aerodynamics With Physics-Aware Optimization](3did_direct_3d_inverse_design_for_aerodynamics_with_physics-aware_optimization.md)**
 
@@ -145,10 +145,6 @@ description: >-
 **[Disentangling Latent Shifts Of In-Context Learning With Weak Supervision](disentangling_latent_shifts_of_in-context_learning_with_weak_supervision.md)**
 
 :   WILDA 将 ICL 视为弱监督信号，用 teacher-student 框架将示例引发的潜在偏移编码进轻量 LoRA 适配器，实现无需重复 prompting 的高效推理，且 student 通过伪标签修正和覆盖扩展超越 teacher（弱到强泛化）。
-
-**[Dismo Disentangled Motion Representations For Openworld Moti](dismo_disentangled_motion_representations_for_openworld_moti.md)**
-
-:   DisMo 通过双流架构（运动提取器 + 帧生成器）和图像空间重建目标，从原始视频中学习与外观、姿态、类别无关的抽象运动表征，实现跨类别/跨视角的开放世界运动迁移，并在零样本动作分类上大幅超越 V-JEPA 等视频表征模型。
 
 **[Dp-Llm Runtime Model Adaptation With Dynamic Layer-Wise Precision Assignment](dp-llm_runtime_model_adaptation_with_dynamic_layer-wise_precision_assignment.md)**
 
@@ -302,6 +298,10 @@ description: >-
 
 :   提出 DyToK，一种无需训练的视频 token 动态压缩方法，利用 VLLM 深层注意力中固有的 query 条件关键帧先验，为不同帧自适应分配 token 预算，实现即插即用式的效率-精度最优权衡。
 
+**[Linear Attention For Efficient Bidirectional Sequence Modeling](linear_attention_for_efficient_bidirectional_sequence_modeling.md)**
+
+:   提出 Lion 框架，首次系统性地将线性 Transformer 扩展到双向序列建模，统一了完整线性注意力、双向 RNN 和分块并行三种等价表示形式，训练速度比 SSM 快 10 倍且匹配 softmax Transformer 性能。
+
 **[Littlebit Ultra Low-Bit Quantization Via Latent Factorization](littlebit_ultra_low-bit_quantization_via_latent_factorization.md)**
 
 :   提出 LittleBit 框架，通过低秩潜空间矩阵分解 + 二值化 + 多尺度补偿机制，实现低至 0.1 BPW（每权重比特）的极端 LLM 压缩，将 Llama2-13B 压缩到不足 0.9GB，在子1比特领域大幅超越 STBLLM。
@@ -449,10 +449,6 @@ description: >-
 **[S2M-Former Spiking Symmetric Mixing Branchformer For Brain Auditory Attention De](s2m-former_spiking_symmetric_mixing_branchformer_for_brain_auditory_attention_de.md)**
 
 :   提出 S2M-Former，一种脉冲驱动的对称混合 Branchformer 框架，通过空间-频率双分支的互补学习和轻量化 1D token 表示，在 EEG 听觉注意力检测任务上以仅 0.06M 参数实现了 SOTA 级精度，同时将能耗降低至双分支 ANN 模型的 1/5.8。
-
-**[S2Q-Vdit Accurate Quantized Video Diffusion Transformer With Salient Data And Sp](s2q-vdit_accurate_quantized_video_diffusion_transformer_with_salient_data_and_sp.md)**
-
-:   针对视频扩散 Transformer 的超长 token 序列导致的量化校准高方差和学习困难问题，提出 S²Q-VDiT 框架，利用 Hessian 感知的显著数据选择和注意力引导的稀疏 token 蒸馏两项技术，首次在 W4A6 设置下实现无损量化，带来 3.9× 模型压缩和 1.3× 推理加速。
 
 **[Shap Meets Tensor Networks Provably Tractable Explanations With Parallelism](shap_meets_tensor_networks_provably_tractable_explanations_with_parallelism.md)**
 

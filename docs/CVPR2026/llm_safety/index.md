@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM安全方向 5篇论文解读
+  CVPR2026 LLM安全方向 6篇论文解读
 description: >-
-  5篇CVPR2026 LLM安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇CVPR2026 LLM安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**📷 CVPR2026** · **5** 篇论文解读
+**📷 CVPR2026** · **6** 篇论文解读
 
 **[Association And Consolidation Evolutionary Memory-Enhanced Incremental Multi-Vie](association_and_consolidation_evolutionary_memory-enhanced_incremental_multi-vie.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[Learning From Oblivion Predicting Knowledge Overflowed Weights Via Retrodiction ](learning_from_oblivion_predicting_knowledge_overflowed_weights_via_retrodiction_.md)**
 
 :   提出KNOW prediction：通过在逐步缩小的数据子集上sequential fine-tuning诱导结构化遗忘过程，收集权重转变轨迹，然后用meta-learned hyper-model（KNOWN）反转forgetting方向，预测"仿佛在更大数据集上训练"的虚拟知识增强权重。跨多数据集(CIFAR/ImageNet/PACS等)和多架构(ResNet/PVTv2/DeepLabV3+)持续超越naive fine-tuning及多种weight prediction基线，在图像分类、语义分割、图像描述、域泛化等下游任务上均有显著提升。
+
+**[Select Hypothesize And Verify Towards Verified Neuron Concept Interpretation](select_hypothesize_and_verify_towards_verified_neuron_concept_interpretation.md)**
+
+:   提出 SIEVE（Select–Hypothesize–Verify）框架，通过筛选高激活样本、生成概念假设、再用文生图验证的闭环流程来解释神经元功能，生成的概念激活对应神经元的概率约为现有 SOTA 的 1.5 倍。
 
 **[Sineproject Machine Unlearning For Stable Vision Language Alignment](sineproject_machine_unlearning_for_stable_vision_language_alignment.md)**
 

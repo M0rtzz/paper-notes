@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 目标检测方向 60篇论文解读
+  CVPR2026 目标检测方向 73篇论文解读
 description: >-
-  60篇CVPR2026 目标检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  73篇CVPR2026 目标检测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2026** · **60** 篇论文解读
+**📷 CVPR2026** · **73** 篇论文解读
 
 **[A Closer Look At Cross-Domain Few-Shot Object Detection Fine-Tuning Matters And ](a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_.md)**
 
@@ -74,6 +74,10 @@ description: >-
 
 :   提出 DA-Mamba，一种 CNN-SSM 混合架构，通过 Image-Aware SSM（IA-SSM）和 Object-Aware SSM（OA-SSM）两个模块，以线性复杂度实现图像级和实例级的全局-局部域不变特征对齐，在四个域自适应检测基准上达到 SOTA。
 
+**[Detecting Unknown Objects Via Energy-Based Separation](detecting_unknown_objects_via_energy-based_separation.md)**
+
+:   提出 DEUS 框架，通过 ETF 子空间未知目标分离（EUS）在几何正交的已知/未知子空间中利用能量分数有效分离已知、未知和背景提案，并设计能量基已知区分损失（EKD）减少增量学习中新旧类的交叉干扰，在 OWOD 基准上大幅提升未知目标召回率。
+
 **[Detecting Unknown Objects Via Energy-Based Separation For Open World Object Dete](detecting_unknown_objects_via_energy-based_separation_for_open_world_object_dete.md)**
 
 :   提出 DEUS 框架，通过 Simplex ETF 构建正交的已知/未知子空间并用能量分数引导特征分离（EUS），同时用能量区分损失（EKD）缓解新旧类别间的干扰，在 OWOD 基准上取得了大幅领先的未知目标召回率。
@@ -130,13 +134,29 @@ description: >-
 
 :   利用傅里叶旋转等变性在频域估计目标主方向并对齐特征，提出 FAAFusion 和 FAA Head 两个即插即用模块分别解决 FPN 跨尺度方向不一致和检测头分类-回归任务冲突，在 DOTA-v1.0/v1.5 和 HRSC2016 上取得新 SOTA。
 
+**[Fusionagent A Multimodal Agent With Dynamic Model Selection For Human Recognitio](fusionagent_a_multimodal_agent_with_dynamic_model_selection_for_human_recognitio.md)**
+
+:   本文提出 FusionAgent，一个基于多模态大语言模型（MLLM）的智能体框架，用于全身生物特征识别中的动态样本级模型选择——将每个专家模型（人脸识别/步态识别/行人重识别）封装为工具，通过强化微调（RFT）让 agent 学会根据每个测试样本的特征自适应选择最优模型组合，配合新提出的 ACT 分数融合策略，显著超越现有 SOTA 融合方法。
+
+**[Hieramamba Video Temporal Grounding Via Hierarchical Anchor-Mamba Pooling](hieramamba_video_temporal_grounding_via_hierarchical_anchor-mamba_pooling.md)**
+
+:   HieraMamba 提出了基于 Mamba 的层次化视频时间定位架构，核心是 Anchor-MambaPooling（AMP）模块，用 Mamba 的选择性扫描将视频特征逐层压缩为多尺度锚点 token，配合 anchor-conditioned 和 segment-pooled 对比损失增强层次表示的紧凑性和判别性，在 Ego4D-NLQ、MAD 和 TACoS 上达到 SOTA。
+
 **[Just-In-Time Training-Free Spatial Acceleration For Diffusion Transformers](just-in-time_training-free_spatial_acceleration_for_diffusion_transformers.md)**
 
 :   提出 Just-in-Time (JiT) 框架，通过在空间域动态选择稀疏 anchor token 驱动生成 ODE 演化，并设计确定性 micro-flow 保证新 token 无缝激活，在 FLUX.1-dev 上实现最高 7× 加速且几乎无损。
 
+**[Learning By Neighbor-Aware Semantics Deciding By Open-Form Flows Towards Robust ](learning_by_neighbor-aware_semantics_deciding_by_open-form_flows_towards_robust_.md)**
+
+:   Flora 通过邻居感知语义校准实现稳健的骨架-语义跨模态对齐，并利用无噪声流匹配构建分布感知的开放式分类器，在零样本骨架动作识别上取得 SOTA，尤其在低样本训练场景中表现突出。
+
 **[Learning Multi-Modal Prototypes For Cross-Domain Few-Shot Object Detection](learning_multi-modal_prototypes_for_cross-domain_few-shot_object_detection.md)**
 
 :   提出双分支框架 LMP，在 GroundingDINO 基础上引入视觉原型分支（正类原型+硬负原型），与文本分支联合训练并集成推理，在跨域少样本目标检测中取得 SOTA。
+
+**[Mining Instance-Centric Vision-Language Contexts For Human-Object Interaction De](mining_instance-centric_vision-language_contexts_for_human-object_interaction_de.md)**
+
+:   提出 InCoM-Net，通过从 VLM 特征中为每个实例分别提取实例内、实例间和全局三层上下文特征，并通过渐进式上下文聚合与检测器特征融合，在 HICO-DET 和 V-COCO 上取得 HOI 检测 SOTA（HICO-DET Full mAP 43.96，V-COCO AP_role^S1 73.6）。
 
 **[Mitigating Memorization In Text-To-Image Diffusion Via Region-Aware Prompt Augme](mitigating_memorization_in_text-to-image_diffusion_via_region-aware_prompt_augme.md)**
 
@@ -162,6 +182,22 @@ description: >-
 
 :   重新解释 SDE-based GRPO 为距离优化/对比学习，提出 Neighbor GRPO——完全绕过 SDE 转换，通过扰动 ODE 初始噪声构建邻域候选轨迹 + softmax 距离代理策略实现策略梯度优化，保留确定性 ODE 采样的所有优势。
 
+**[Noovd Novel Category Discovery And Embedding For Open-Vocabulary Object Detectio](noovd_novel_category_discovery_and_embedding_for_open-vocabulary_object_detectio.md)**
+
+:   提出NoOVD框架，在基于冻结VLM的OVD训练中通过无参数K-FPN保留CLIP知识来发现潜在新类别目标、通过自蒸馏将新类别知识嵌入检测器、通过R-RPN在推理时提升新类别召回率，在OV-LVIS/OV-COCO/Objects365上取得SOTA。
+
+**[Palm Progress-Aware Policy Learning Via Affordance Reasoning For Long-Horizon Ro](palm_progress-aware_policy_learning_via_affordance_reasoning_for_long-horizon_ro.md)**
+
+:   提出 PALM，一个统一的 VLA 框架，通过结构化的细粒度可供性预测（全局/局部/空间/动态四类）作为隐式推理锚点，结合连续子任务进度估计实现无缝任务切换，在 CALVIN ABCD 上平均完成长度达 4.48（超越前 SOTA 12.5%），LIBERO-LONG 成功率 91.8%，真实世界长时域泛化测试中达到基线 2 倍以上。
+
+**[Parameter-Efficient Semantic Augmentation For Enhancing Open-Vocabulary Object D](parameter-efficient_semantic_augmentation_for_enhancing_open-vocabulary_object_d.md)**
+
+:   HSA-DINO 提出多尺度 prompt bank 从图像特征金字塔中学习层次化语义 prompt 增强文本表示，并通过语义感知路由器在推理时动态决定是否使用领域特定增强，实现了领域适配与开放词汇泛化的优越平衡（H 值在三个垂直领域数据集上均为最优）。
+
+**[Pet-Dino Unifying Visual Cues Into Grounding Dino With Prompt-Enriched Training](pet-dino_unifying_visual_cues_into_grounding_dino_with_prompt-enriched_training.md)**
+
+:   PET-DINO 在 Grounding DINO 基础上构建了一个同时支持文本和视觉提示的通用目标检测器，设计了对齐友好的视觉提示生成模块（AFVPG）以及两种提示丰富化训练策略（IBP 和 DMD），在零样本检测任务上以更少的训练数据取得了有竞争力的性能。
+
 **[Phac Promptable Human Amodal Completion](phac_promptable_human_amodal_completion.md)**
 
 :   提出可提示人体非模态补全（PHAC）新任务，通过基于点的用户提示（姿态/边界框）配合 ControlNet 注入条件信号，并设计基于修复的精炼模块保留可见区域外观，实现高质量、可控的遮挡人体图像补全。
@@ -169,6 +205,10 @@ description: >-
 **[Pixels Dont Lie But Your Detector Might Bootstrapping Mllm-As-A-Judge For Trustw](pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw.md)**
 
 :   提出 DeepfakeJudge 框架，通过 bootstrapped generator-evaluator 流程将人类标注的推理监督扩展为大规模结构化评分数据，训练出 3B/7B 视觉语言模型作为 deepfake 检测推理质量的自动评判者，在 pointwise 和 pairwise 评估上均达到与人类高度一致的水平。
+
+**[Prism Video Dataset Condensation With Progressive Refinement And Insertion For S](prism_video_dataset_condensation_with_progressive_refinement_and_insertion_for_s.md)**
+
+:   本文提出 PRISM，一种整体式视频数据集压缩方法：从仅两个时间锚点（首尾帧）出发,通过检测梯度方向冲突来自适应插入关键帧，在保持内容与运动的耦合完整性的同时实现 SOTA 的存储效率——在 miniUCF 1VPC 上用 20MB 达到 17.9% 准确率，比先前方法的 94MB 少 5 倍。
 
 **[Prompt-Free Universal Region Proposal Network](prompt-free_universal_region_proposal_network.md)**
 
@@ -193,6 +233,14 @@ description: >-
 **[Remedying Target-Domain Astigmatism For Cross-Domain Few-Shot Object Detection](remedying_target-domain_astigmatism_for_cross-domain_few-shot_object_detection.md)**
 
 :   首次发现跨域少样本目标检测（CD-FSOD）中模型注意力在目标域持续分散的"散光"现象，受人类中央凹视觉系统启发，设计正向模式精化（PPR）、负向上下文调制（NCM）和文本语义对齐（TSA）三个互补模块来重塑注意力，在6个跨域基准上以显著优势达到SOTA。
+
+**[Riskprop Collision-Anchored Self-Supervised Risk Propagation For Early Accident ](riskprop_collision-anchored_self-supervised_risk_propagation_for_early_accident_.md)**
+
+:   提出 RiskProp，一种以碰撞帧为锚点的自监督风险传播范式，通过未来帧正则化损失和自适应单调约束损失，仅依赖碰撞帧标注即可学习时序连贯的风险演化曲线，在 CAP 和 Nexar 数据集上达到 SOTA。
+
+**[Saliency-R1 Enforcing Interpretable And Faithful Vision-Language Reasoning Via S](saliency-r1_enforcing_interpretable_and_faithful_vision-language_reasoning_via_s.md)**
+
+:   提出 Saliency-R1，通过基于 logit 分解的高效显著性图技术和思维链瓶颈注意力回溯，将显著性图与人工标注 bounding box 的对齐度作为 GRPO 奖励，训练 VLM 在推理时聚焦任务相关的图像区域，提升推理的可解释性和忠实性。
 
 **[Sdf-Net Structure-Aware Disentangled Feature Learning For Opticall-Sar Ship Re-I](sdf-net_structure-aware_disentangled_feature_learning_for_opticall-sar_ship_re-i.md)**
 
@@ -233,6 +281,10 @@ description: >-
 **[Stake The Points Structure-Faithful Instance Unlearning](stake_the_points_structure-faithful_instance_unlearning.md)**
 
 :   提出 Structguard，通过语义锚点（semantic anchors）保持遗忘过程中保留实例间的语义关系结构，避免结构性崩塌，在图像分类/人脸识别/检索三任务上平均提升 32.9%/19.3%/22.5%。
+
+**[Streamavatar Streaming Diffusion Models For Real-Time Interactive Human Avatars](streamavatar_streaming_diffusion_models_for_real-time_interactive_human_avatars.md)**
+
+:   提出两阶段自回归适配加速框架（自回归蒸馏 + 对抗精炼），将双向人体视频扩散模型转化为实时流式生成器，通过 Reference Sink、RAPR 位置重编码和一致性感知判别器保证长视频稳定性，实现首个支持说话和倾听交互的全身实时数字人。
 
 **[The Cote Score A Decomposable Framework For Evaluating Document Layout Analysis ](the_cote_score_a_decomposable_framework_for_evaluating_document_layout_analysis_.md)**
 

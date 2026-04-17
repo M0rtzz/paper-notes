@@ -36,7 +36,7 @@ description: >-
 
 **[Adaptive Cooperative Transmission Design For Ultra-Reliable Low-Latency Communic](adaptive_cooperative_transmission_design_for_ultra-reliable_low-latency_communic.md)**
 
-:   提出 DRL-CoLA 双智能体深度 Q 网络算法，让两跳中继通信系统中的源节点和中继节点分别以分布式方式学习自适应配置 5G NR 传输参数（numerology、mini-slot、MCS），在仅使用本地 CSI 的条件下，实现端到端严格时延约束内的近最优丢包率。
+:   提出 DRL-CoLA 算法，用双 Agent DQN 分别在源节点和中继节点上自适应配置 5G NR 传输参数（numerology、mini-slot、MCS），在两跳中继系统中仅用本地 CSI 即可达到接近全局 CSI 最优的 URLLC 可靠性。
 
 **[Adaptive Neighborhoodconstrained Q Learning For Offline Rein](adaptive_neighborhoodconstrained_q_learning_for_offline_rein.md)**
 
@@ -214,10 +214,6 @@ description: >-
 
 :   系统性评估了基础模型（LLM）作为零样本世界模型（FWM）和直接决策智能体（FA）在文本网格世界中的表现，揭示了两种策略在确定性/随机性环境中的互补优势。
 
-**[Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret In Noise-](gaussian_process_upper_confidence_bound_achieves_nearly-optimal_regret_in_noise-.md)**
-
-:   本文证明 GP-UCB 在 noise-free GP bandit 问题中可达到 nearly-optimal regret，首次在 SE 核下实现 $O(1)$ 常数累积遗憾、在 Matérn 核（$d < \nu$）下实现 $O(1)$ 累积遗憾，弥合了 GP-UCB 理论与实践之间的长期差距。
-
 **[Generalized Linear Bandits Almost Optimal Regret With One-Pass Update](generalized_linear_bandits_almost_optimal_regret_with_one-pass_update.md)**
 
 :   提出GLB-OMD算法，首次在广义线性赌博机（GLB）问题中同时实现近似最优遗憾界 $\mathcal{O}(\log T\sqrt{T/\kappa_*})$ 和每轮 $\mathcal{O}(1)$ 的时间/空间复杂度，核心技术是基于混合损失（mix loss）为在线镜像下降（OMD）估计量构建紧致置信集。
@@ -369,6 +365,10 @@ description: >-
 **[Multi-Agent Collaboration Via Evolving Orchestration](multi-agent_collaboration_via_evolving_orchestration.md)**
 
 :   提出"木偶师"(Puppeteer)式多 Agent 协作范式——一个中心化编排器通过 RL 学习在每个推理步骤动态选择激活哪个 Agent，在封闭域和开放域任务上同时提升性能和效率，并发现演化后的拓扑趋向更紧凑的环形结构。
+
+**[Multi-Objective Reinforcement Learning With Max-Min Criterion A Game-Theoretic A](multi-objective_reinforcement_learning_with_max-min_criterion_a_game-theoretic_a.md)**
+
+:   将熵正则化的 max-min 多目标强化学习重新建模为两人零和正则连续博弈，提出 ERAM/ARAM 算法，通过镜像下降实现闭式权重更新和全局 last-iterate 收敛，在多种 MORL 环境中显著超越基线。
 
 **[Near-Optimal Quantum Algorithms For Computing Coarse Correlated Equilibria Of Ge](near-optimal_quantum_algorithms_for_computing_coarse_correlated_equilibria_of_ge.md)**
 

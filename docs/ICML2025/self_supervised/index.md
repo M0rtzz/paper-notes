@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 自监督/表示学习方向 23篇论文解读
+  ICML2025 自监督/表示学习方向 22篇论文解读
 description: >-
-  23篇ICML2025 自监督/表示学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  22篇ICML2025 自监督/表示学习方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🧪 ICML2025** · **23** 篇论文解读
+**🧪 ICML2025** · **22** 篇论文解读
 
 **[A Bayesian Model Selection Criterion For Selecting Pretraining Checkpoints](a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints.md)**
 
@@ -73,10 +73,6 @@ description: >-
 **[Pde-Transformer Efficient And Versatile Transformers For Physics Simulations](pde-transformer_efficient_and_versatile_transformers_for_physics_simulations.md)**
 
 :   提出 PDE-Transformer，一种面向物理模拟的改进 Transformer 架构，通过分离通道嵌入、移位窗口注意力和多尺度 U 形结构，在 16 种 PDE 类型上超越现有 SOTA，并展现出强大的下游任务迁移能力。
-
-**[Promoting Ensemble Diversity With Interactive Bayesian Distributional Robustness](promoting_ensemble_diversity_with_interactive_bayesian_distributional_robustness.md)**
-
-:   提出IBDR贝叶斯推断框架，通过在乘积分布空间上引入交互式损失和Wasserstein分布鲁棒性优化，构建兼顾多样性与低锐度的粒子集成，在VTAB-1K上以ViT-B/16实现73.6%平均准确率超越所有基线。
 
 **[Proxy-Fda Proxy-Based Feature Distribution Alignment For Fine-Tuning Vision Foun](proxy-fda_proxy-based_feature_distribution_alignment_for_fine-tuning_vision_foun.md)**
 

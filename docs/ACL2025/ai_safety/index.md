@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 AI安全方向 27篇论文解读
+  ACL2025 AI安全方向 28篇论文解读
 description: >-
-  27篇ACL2025 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  28篇ACL2025 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**💬 ACL2025** · **27** 篇论文解读
+**💬 ACL2025** · **28** 篇论文解读
 
 **[Cavgan Unifying Jailbreak And Defense Of Llms Via Generative Adversarial Attacks](cavgan_unifying_jailbreak_and_defense_of_llms_via_generative_adversarial_attacks.md)**
 
@@ -117,3 +117,7 @@ description: >-
 **[Wet Eaas Watermark](wet_eaas_watermark.md)**
 
 :   揭示了现有 EaaS 嵌入水印（EmbMarker/WARDEN）可被改写攻击绕过，提出 WET（线性变换水印），通过秘密循环矩阵对嵌入做线性变换注入水印，理论和实验证明其对改写攻击具有鲁棒性，验证 AUC 接近 100%。
+
+**[When Backdoors Speak Understanding Llm Backdoor Attacks Through Model-Generated ](when_backdoors_speak_understanding_llm_backdoor_attacks_through_model-generated_.md)**
+
+:   本文首次从自然语言解释的角度研究 LLM 后门攻击，发现后门模型对干净输入生成逻辑连贯的解释，但对中毒输入生成多样且逻辑有缺陷的解释；进一步通过 token 级和句子级分析揭示中毒样本的预测语义仅在最后几层才出现，且注意力从输入上下文转移到新生成的 token。

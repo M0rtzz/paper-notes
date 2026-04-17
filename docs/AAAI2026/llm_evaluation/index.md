@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 LLM评测方向 28篇论文解读
+  AAAI2026 LLM评测方向 32篇论文解读
 description: >-
-  28篇AAAI2026 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  32篇AAAI2026 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🤖 AAAI2026** · **28** 篇论文解读
+**🤖 AAAI2026** · **32** 篇论文解读
 
 **[Axis-Aligned Document Dewarping](axis-aligned_document_dewarping.md)**
 
@@ -117,6 +117,22 @@ description: >-
 **[Regular Games -- An Automata-Based General Game Playing Language](regular_games_--_an_automata-based_general_game_playing_language.md)**
 
 :   提出 Regular Games (RG) 通用博弈系统，以非确定性有限自动机（NFA）为核心描述博弈规则，配合多层次语言（底层 RG + 高层 HRG + 专用框架），在表达力覆盖所有有限回合制博弈（含不完全信息和随机性）的同时，生成的前向模型效率全面超越现有最快的通用博弈系统 RBG，通常比 Ludii 快 10-20 倍。
+
+**[Sampling Control For Imbalanced Calibration In Semi-Supervised Learning](sampling_control_for_imbalanced_calibration_in_semi-supervised_learning.md)**
+
+:   提出 SC-SSL 框架，通过引入**扩展分类器**进行解耦采样控制来缓解特征级不平衡，并利用线性层**偏置项**作为优化偏差向量在推理时直接校准 logits，在多种数据分布设定下达到 SOTA。
+
+**[Scalable Vision-Guided Crop Yield Estimation](scalable_vision-guided_crop_yield_estimation.md)**
+
+:   提出基于**预测驱动推断（PPI++）**的农作物产量估计方法，利用田间照片训练的视觉模型补充昂贵的实地测产数据，在保证无偏性的同时将有效样本量提升高达 73%，为区域农业保险提供更精确且低成本的产量估计。
+
+**[Spikcommander A High-Performance Spiking Transformer With Multi-View Learning Fo](spikcommander_a_high-performance_spiking_transformer_with_multi-view_learning_fo.md)**
+
+:   提出 SpikCommander，一种全脉冲驱动的 Transformer 架构，通过**多视图脉冲时序感知自注意力（MSTASA）**和**脉冲上下文精炼 MLP（SCR-MLP）**联合增强时序与通道特征建模，在 SHD/SSC/GSC 三个基准上以更少参数超越 SOTA SNN 方法。
+
+**[Streaming Generated Gaussian Process Experts For Online Learning And Control Ext](streaming_generated_gaussian_process_experts_for_online_learning_and_control_ext.md)**
+
+:   提出 SkyGP（Streaming Kernel-induced Progressively Generated Expert GP），通过**核距离驱动的渐进式专家生成**和**时间感知可配置聚合**处理流数据，继承精确 GP 的学习保证同时保持有界计算复杂度，在基准测试和实时控制实验中全面超越 SOTA。
 
 **[Where Norms And References Collide Evaluating Llms On Normative Reasoning](where_norms_and_references_collide_evaluating_llms_on_normative_reasoning.md)**
 

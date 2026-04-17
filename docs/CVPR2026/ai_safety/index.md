@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 AI安全方向 18篇论文解读
+  CVPR2026 AI安全方向 21篇论文解读
 description: >-
-  18篇CVPR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  21篇CVPR2026 AI安全方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**📷 CVPR2026** · **18** 篇论文解读
+**📷 CVPR2026** · **21** 篇论文解读
 
 **[A Unified Perspective On Adversarial Membership Manipulation In Vision Models](a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models.md)**
 
@@ -54,9 +54,17 @@ description: >-
 
 :   提出首个跨范式（密度图 + 点回归）对抗攻击框架 CrowdGen，利用轻量级 UNet 生成器和多任务损失（logit 抑制 + 密度抑制 + GradCAM 引导 + 频域约束），在保持视觉隐蔽性（~19dB PSNR）的同时实现对七个 SOTA 人群计数模型的高迁移率（TR 最高 1.69），攻击 MAE 平均提升 7 倍。
 
+**[Iag Input-Aware Backdoor Attack On Vlm-Based Visual Grounding](iag_input-aware_backdoor_attack_on_vlm-based_visual_grounding.md)**
+
+:   提出IAG，首个针对VLM视觉定位的多目标后门攻击方法，通过文本条件U-Net动态生成输入感知触发器，将任意指定目标物体的语义信息嵌入视觉输入中，在12种设置下的11种达到最高攻击成功率。
+
 **[Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Langua](multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua.md)**
 
 :   提出 MPCAttack 框架，联合跨模态对齐、多模态理解和视觉自监督三种学习范式的特征表示，通过多范式协同优化策略生成高迁移性对抗样本，在开源和闭源 MLLM 上均取得 SOTA 攻击效果。
+
+**[Perturb And Recover Fine-Tuning For Effective Backdoor Removal From Clip](perturb_and_recover_fine-tuning_for_effective_backdoor_removal_from_clip.md)**
+
+:   本文提出 PAR（Perturb and Recover），一种简单而有效的 CLIP 模型后门清洗方法：通过显式地将模型embedding推离中毒状态（Perturb），同时用标准 CLIP 损失恢复干净性能（Recover），在不依赖强数据增强的情况下实现对任意触发器的鲁棒后门移除，甚至仅用合成数据即可有效清洗。
 
 **[Pinpoint Evaluation Of Composed Image Retrieval With Explicit Negatives Multi-Im](pinpoint_evaluation_of_composed_image_retrieval_with_explicit_negatives_multi-im.md)**
 
@@ -77,6 +85,10 @@ description: >-
 **[Towards Highly Transferable Vision-Language Attack Via Semantic-Augmented Dynami](towards_highly_transferable_vision-language_attack_via_semantic-augmented_dynami.md)**
 
 :   提出 SADCA（语义增强动态对比攻击），通过动态对比交互机制和语义增强模块，迭代地破坏对抗图像与文本之间的跨模态语义一致性，显著提升对视觉语言预训练模型（VLP）的对抗可迁移性，在跨模型和跨任务攻击中均超越现有 SOTA 方法。
+
+**[Tutor-Student Reinforcement Learning A Dynamic Curriculum For Robust Deepfake De](tutor-student_reinforcement_learning_a_dynamic_curriculum_for_robust_deepfake_de.md)**
+
+:   提出 Tutor-Student 强化学习（TSRL）框架，将深度伪造检测器的训练过程建模为马尔可夫决策过程，由"导师"（PPO agent）根据每个样本的视觉特征和历史学习动态（EMA 损失、遗忘次数）动态分配损失权重，通过"状态变化"奖励信号引导"学生"（检测器）优先学习高价值样本，在跨数据集和跨方法评估中显著提升泛化能力。
 
 **[V-Attack Targeting Disentangled Value Features For Controllable Adversarial Atta](v-attack_targeting_disentangled_value_features_for_controllable_adversarial_atta.md)**
 

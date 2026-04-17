@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 遥感方向 15篇论文解读
+  CVPR2026 遥感方向 17篇论文解读
 description: >-
-  15篇CVPR2026 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  17篇CVPR2026 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**📷 CVPR2026** · **15** 篇论文解读
+**📷 CVPR2026** · **17** 篇论文解读
 
 **[Acpv-Net All-Class Polygonal Vectorization For Seamless Vector Map Generation Fr](acpv-net_all-class_polygonal_vectorization_for_seamless_vector_map_generation_fr.md)**
 
@@ -34,9 +34,17 @@ description: >-
 
 :   首次将光谱压缩成像（SCI）从图像级推进到视频级重建，构建首个高质量动态高光谱数据集 DynaSpec（30 序列/300 帧），提出 PG-SVRT 通过空间-然后-时间注意力 + 桥接 token 实现 41.52dB PSNR 和最优时间一致性，且 FLOPs（28.18G）低于多个图像级 SOTA。
 
+**[Geoflow Real-Time Fine-Grained Cross-View Geolocalization](geoflow_real-time_fine-grained_cross-view_geolocalization.md)**
+
+:   提出 GeoFlow，一种受流匹配启发的轻量级跨视图精细地理定位框架，通过学习概率位移场结合迭代精化采样（IRS）算法，在连续空间内实现从地面图像到卫星图像的精确 2-DoF 定位，以 29 FPS 的实时速度达到了与 SOTA 可比的精度。
+
 **[Geoflow Real-Time Fine-Grained Cross-View Geolocalization Via Iterative Flow Pre](geoflow_real-time_fine-grained_cross-view_geolocalization_via_iterative_flow_pre.md)**
 
 :   提出GeoFlow，将精细跨视图地理定位(FG-CVG)重新表述为概率位移回归——模型学习从任意假设位置到真实位置的位移场(距离+方向的概率分布)，配合迭代精化采样(IRS)算法让多个随机假设从不同起点"流向"共识位置，以7.8×更少参数和4×更少计算量实现29FPS实时推理+竞争性定位精度。
+
+**[Joint And Streamwise Distributed Mimo Satellite Co](joint_and_streamwise_distributed_mimo_satellite_co.md)**
+
+:   研究多颗 LEO 卫星联合服务多天线地面用户的下行传输，提出联合非相干传输和流级传输两种模式，通过 WMMSE 框架设计预编码器，并利用匈牙利算法进行流-卫星关联，在降低前传开销的同时保持接近最优的频谱效率。
 
 **[Joint And Streamwise Distributed Mimo Satellite Communications With Multi-Antenn](joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn.md)**
 

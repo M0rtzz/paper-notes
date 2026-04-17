@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 医学图像方向 86篇论文解读
+  AAAI2026 医学图像方向 98篇论文解读
 description: >-
-  86篇AAAI2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  98篇AAAI2026 医学图像方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🤖 AAAI2026** · **86** 篇论文解读
+**🤖 AAAI2026** · **98** 篇论文解读
 
 **[A Disease-Aware Dual-Stage Framework For Chest X-Ray Report ](a_disease-aware_dual-stage_framework_for_chest_x-ray_report_.md)**
 
@@ -330,6 +330,18 @@ description: >-
 
 :   提出 S2Drug，一个两阶段对比学习框架，第一阶段在 ChemBL 大规模数据上用蛋白质序列-配体对比预训练（含双边数据采样策略降噪去冗），第二阶段在 PDBBind 上通过残基级门控模块融合序列与 3D 结构信息并引入结合位点预测辅助任务，在 DUD-E 和 LIT-PCBA 虚拟筛选基准上大幅超越现有方法。
 
+**[Self-Supervised Multiplex Consensus Mamba For General Image Fusion](self-supervised_multiplex_consensus_mamba_for_general_image_fusion.md)**
+
+:   提出 SMC-Mamba 框架，通过**模态无关特征增强（MAFE）**、**多路共识跨模态 Mamba（MCCM）**和**双层自监督对比学习损失（BSCL）**，实现覆盖红外-可见光、医学、多聚焦、多曝光的通用图像融合，全面超越 SOTA。
+
+**[Semc Structure-Enhanced Mixture-Of-Experts Contrastive Learning For Ultrasound S](semc_structure-enhanced_mixture-of-experts_contrastive_learning_for_ultrasound_s.md)**
+
+:   提出 SEMC 框架，通过**语义-结构融合模块（SSFM）**对齐浅层结构线索与深层语义表征，结合**混合专家对比识别模块（MCRM）**在多层特征上进行分层对比学习，提升超声标准切面识别的细粒度判别能力，并构建了新的肝脏超声数据集 LP2025。
+
+**[Sim4Seg Boosting Multimodal Multi-Disease Medical Diagnosis Segmentation With Re](sim4seg_boosting_multimodal_multi-disease_medical_diagnosis_segmentation_with_re.md)**
+
+:   提出医学诊断分割（MDS）任务并构建 M3DS 数据集，设计 Sim4Seg 框架利用 LVLM 隐藏状态的**视觉-语言相似度掩码（RVLS2M）**提示 SAM 进行分割，同时生成诊断思维链，配合测试时缩放策略在分割和诊断上全面超越基线。
+
 **[Small But Mighty Dynamic Wavelet Expert-Guided Fine-Tuning Of Large-Scale Models](small_but_mighty_dynamic_wavelet_expert-guided_fine-tuning_of_large-scale_models.md)**
 
 :   WEFT 提出了一种基于动态小波专家引导的轻量微调范式，仅需 4.52% 的可训练参数即可将大规模冻结视觉基础模型高效适配到光学遥感图像分割任务，在三个 ORSIs 数据集上超越 21 种 SOTA 方法。
@@ -342,6 +354,14 @@ description: >-
 
 :   提出 SpaCRD，一个基于迁移学习的多模态深度融合框架，通过类别正则化变分重建引导的双向交叉注意力融合网络（VRBCA），将组织学图像与空间转录组学数据深度整合，在 23 个配对数据集上跨样本、跨平台/批次实现了癌症组织区域（CTR）检测的 SOTA 性能。
 
+**[Taligndiff Automatic Tooth Alignment Assisted By Diffusion-Based Transformation ](taligndiff_automatic_tooth_alignment_assisted_by_diffusion-based_transformation_.md)**
+
+:   提出TAlignDiff框架，将基于点云的几何约束回归网络（PRN）与扩散模型辅助的变换矩阵去噪模块（DTMD）统一为一个联合训练框架，通过双向反馈机制在小样本临床数据上实现了优于现有方法的自动牙齿排列效果。
+
+**[Towards Effective And Efficient Context-Aware Nucleus Detection In Histopatholog](towards_effective_and_efficient_context-aware_nucleus_detection_in_histopatholog.md)**
+
+:   提出一种高效的上下文感知细胞核检测方法，通过聚合历史已访问滑窗的现成特征替代额外裁剪大视野图像块来提供组织上下文，同时利用跨标注策略挖掘周围未标注核样本以增强模型的上下文适应性。
+
 **[Training-Free Policy Violation Detection Via Activation-Space Whitening In Llms](training-free_policy_violation_detection_via_activation-space_whitening_in_llms.md)**
 
 :   将 LLM 的策略违规检测重构为激活空间中的分布外（OOD）检测问题，提出无需训练的白化方法：对合规激活拟合白化变换，用欧几里得范数作为合规分数，仅需策略文本和少量示例即可部署，在 DynaBench 上达到 86.0% F1，超越微调基线 9.1 个点、LLM-as-Judge 16 个点。
@@ -350,6 +370,34 @@ description: >-
 
 :   提出 TrinityDNA，一个生物启发的DNA基础模型，整合三大创新：Groove Fusion模块捕获DNA大小沟槽结构特征、Gated Reverse Complement机制处理双链互补对称性、Sliding Multi-Window Attention实现多尺度长程依赖建模，配合从原核到真核的进化训练策略（ETS），在GUE基准15个任务上平均MCC达0.708（超越2.5B参数的NT），在19个零样本任务上的原核/真核表现均领先，并提出新的CDS标注基准供长序列推理评估。
 
+**[Unleashing The Potential Of Large Language Models For Text-To-Image Generation T](unleashing_the_potential_of_large_language_models_for_text-to-image_generation_t.md)**
+
+:   提出 ARRA（Autoregressive Representation Alignment）训练框架，通过混合令牌 \<HYBNEXT\> 在训练时将外部视觉基础模型的全局表征蒸馏到自回归 LLM 的隐状态中，无需修改架构即可显著提升 LLM 的文本到图像生成质量。
+
+**[Unsupervised Motion-Compensated Decomposition For Cardiac Mri Reconstruction Via](unsupervised_motion-compensated_decomposition_for_cardiac_mri_reconstruction_via.md)**
+
+:   提出 MoCo-INR，首次将隐式神经表示（INR）引入运动补偿（MoCo）框架，通过无监督方式实现心脏 MRI 的高质量动态重建，在超高加速因子（20x Cartesian / 69x Non-Cartesian）下显著优于现有无监督方法。
+
+**[Unsupervised Multi-Parameter Inverse Solving For Reducing Ring Artifacts In 3D X](unsupervised_multi-parameter_inverse_solving_for_reducing_ring_artifacts_in_3d_x.md)**
+
+:   提出 Riner，将 CT 环形伪影去除（RAR）建模为基于物理的多参数逆问题，通过隐式神经表示（INR）联合学习无伪影图像和探测器物理参数，实现无监督且优于有监督 SOTA 方法的 3D CBCT 重建。
+
 **[Vascular Anatomy-Aware Self-Supervised Pre-Training For X-Ray Angiogram Analysis](vascular_anatomy-aware_self-supervised_pre-training_for_x-ray_angiogram_analysis.md)**
 
 :   提出 VasoMIM，一个针对X射线血管造影的领域特定自监督预训练框架：通过解剖引导的掩码策略优先遮挡血管区域 + 解剖一致性损失保持重建图像的血管拓扑结构，结合构建的最大规模XA-170K预训练数据集，在4个下游任务6个数据集上全面超越通用SSL方法和医学SSL方法（包括在16.9亿图像上预训练的DINOv3）。
+
+**[Virtual Multiplex Staining For Histological Images Using A Marker-Wise Condition](virtual_multiplex_staining_for_histological_images_using_a_marker-wise_condition.md)**
+
+:   提出基于标记物条件扩散模型的虚拟多重染色框架，通过两阶段训练（标记物条件扩散学习+像素级微调），首次从单张H&E图像生成多达18种不同标记物的多重免疫荧光图像，在HEMIT和Orion-CRC两个公开数据集上全面超越现有方法。
+
+**[Vitaldiagnosis Ai-Driven Ecosystem For 247 Vital Monitoring And Chronic Disease ](vitaldiagnosis_ai-driven_ecosystem_for_247_vital_monitoring_and_chronic_disease_.md)**
+
+:   提出VitalDiagnosis，一个由LLM驱动的慢性病管理生态系统，通过整合可穿戴设备连续数据与多尺度LLM推理能力，建立包含异常交互式分诊和常规依从性监测的双轨框架，在协作式患者-临床医生工作流中实现从被动监测到主动参与的范式转变。
+
+**[Vmfcoop Towards Equilibrium On A Unified Hyperspherical Manifold For Prompting B](vmfcoop_towards_equilibrium_on_a_unified_hyperspherical_manifold_for_prompting_b.md)**
+
+:   提出 vMFCoOp 框架，通过在统一超球面流形上反向估计 von Mises-Fisher 分布对齐 LLM 和 CLIP 的语义偏差，实现生物医学 VLM 的鲁棒少样本提示学习。
+
+**[Wdt-Md Wavelet Diffusion Transformers For Microaneurysm Detection In Fundus Imag](wdt-md_wavelet_diffusion_transformers_for_microaneurysm_detection_in_fundus_imag.md)**
+
+:   提出 WDT-MD 框架，通过噪声编码图像条件化、伪正常模式合成和小波扩散 Transformer 架构，解决眼底图像中微动脉瘤（MA）检测的三大难题：identity mapping、高假阳性和正常特征重建质量差。

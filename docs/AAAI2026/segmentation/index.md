@@ -78,10 +78,6 @@ description: >-
 
 :   提出BASIC多粒度评估框架，从结构（四级分割mask匹配）和语义（MLLM提取对象/属性/关系图的精确率-召回率-F1）两个轴统一评估脑视觉解码质量，横跨fMRI/EEG × Image/Video/3D六种模态组合，解决现有指标饱和、缺乏神经科学基础和细粒度诊断能力的问题。
 
-**[Omnivdiff Omni Controllable Video Diffusion For Generation And Understanding](omnivdiff_omni_controllable_video_diffusion_for_generation_and_understanding.md)**
-
-:   提出 OmniVDiff，一个统一的可控视频扩散框架，通过将多种视觉模态（RGB、深度、分割、Canny）在颜色空间中联合建模，并引入自适应模态控制策略（AMCS），在单一扩散模型中同时支持文本条件生成、X 条件生成和视频理解三种任务，在 VBench 上达到 SOTA。
-
 **[Otter Mitigating Background Distractions Of Wide-Angle Few-Shot Action Recogniti](otter_mitigating_background_distractions_of_wide-angle_few-shot_action_recogniti.md)**
 
 :   针对广角视频中小样本动作识别的背景干扰问题（主体占比小、时序关系退化），提出基于增强 RWKV 的 Otter 框架，通过复合分割模块（CSM）突出主体和时序重建模块（TRM）恢复时序关系，在 SSv2/Kinetics/UCF101/HMDB51 等基准上达到 SOTA。
@@ -129,3 +125,7 @@ description: >-
 **[Towards Affordance-Aware Robotic Dexterous Grasping With Human-Like Priors](towards_affordance-aware_robotic_dexterous_grasping_with_human-like_priors.md)**
 
 :   提出AffordDex，一个两阶段框架：第一阶段通过模仿学习预训练人类手部运动先验（自然的运动轨迹），第二阶段通过残差模块和VLM引导的负可供性分割（NAA）进行强化学习精炼，实现既像人类一样自然、又功能正确的灵巧机器人抓取（如避开刀刃抓握刀柄），在多个泛化级别上显著超越SOTA。
+
+**[Vista Scene-Aware Optimization For Streaming Video Question Answering Under Post](vista_scene-aware_optimization_for_streaming_video_question_answering_under_post.md)**
+
+:   Vista 提出了一种场景感知的流式视频问答框架，通过将流式视频动态分割为语义连贯的场景单元，对每个场景进行时空压缩并卸载到 CPU，在用户提问时选择性召回最相关的场景，实现了在低 GPU 内存占用和低延迟下的高精度视频问答。

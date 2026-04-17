@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 自动驾驶方向 78篇论文解读
+  CVPR2026 自动驾驶方向 93篇论文解读
 description: >-
-  78篇CVPR2026 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  93篇CVPR2026 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📷 CVPR2026** · **78** 篇论文解读
+**📷 CVPR2026** · **93** 篇论文解读
 
 **[A Prediction-As-Perception Framework For 3D Object Detection](a_prediction-as-perception_framework_for_3d_object_detection.md)**
 
@@ -102,6 +102,10 @@ description: >-
 
 :   提出F3DGS，首个将联邦学习框架应用于3DGS的方法，通过冻结几何+可见性感知聚合实现多智能体分布式3D重建，无需原始数据共享。
 
+**[Failure Modes For Deep Learning-Based Online Mapping How To Measure And Address ](failure_modes_for_deep_learning-based_online_mapping_how_to_measure_and_address_.md)**
+
+:   本文系统性地定义和量化了深度学习在线建图模型的两种失败模式——定位过拟合和地图几何过拟合，提出基于 Fréchet 距离的性能度量和基于最小生成树（MST）的训练集稀疏化策略，在 nuScenes 和 Argoverse 2 上验证了几何多样且均衡的训练集能改善模型泛化能力。
+
 **[Fedbprompt Federated Domain Generalization Person](fedbprompt_federated_domain_generalization_person.md)**
 
 :   提出 FedBPrompt，将可学习视觉提示分为身体部件对齐提示（受限局部注意力处理视角错位）和全身整体提示（抑制背景干扰），并设计仅传输提示参数（~0.46M vs. 全模型~86M）的联邦微调策略，在 FedDG-ReID 上取得一致性提升。
@@ -110,6 +114,10 @@ description: >-
 
 :   提出FedBPrompt框架，通过身体分布感知视觉提示机制(BAPM)将prompt分为Body Part Alignment Prompts和Holistic Full Body Prompts两组，配合Prompt-based Fine-Tuning Strategy(PFTS)冻结ViT backbone仅训练轻量prompt（通信量降至~1%），在FedDG-ReID任务上平均mAP提升3.3%、Rank-1提升4.9%。
 
+**[Flashcap Millisecond-Accurate Human Motion Capture Via Flashing Leds And Event-B](flashcap_millisecond-accurate_human_motion_capture_via_flashing_leds_and_event-b.md)**
+
+:   提出 FlashCap，首个基于闪烁 LED + 事件相机的运动捕捉系统，通过为每个 LED 配置不同的闪烁频率实现身份识别，构建了首个 1000Hz 标注精度的人体运动数据集 FlashMotion（715 万帧），并提出 ResPose 基线方法，将运动定时误差从 ~50ms 降至 ~5ms，姿态估计 MPJPE 降低约 40%。
+
 **[Foss Modeling Long Range Dependencies And Multimodal Uncertainty In Trajectory P](foss_modeling_long_range_dependencies_and_multimodal_uncertainty_in_trajectory_p.md)**
 
 :   FoSS 提出一种频域-时域双分支框架，通过渐进螺旋重排序（HelixSort）将傅里叶频谱有序化后输入选择性状态空间模型（SSM），结合时域动态 SSM 和交叉注意力融合，在 Argoverse 1/2 上取得 SOTA 轨迹预测精度，同时参数量减少 40%+、推理延迟降低 22%。
@@ -117,6 +125,10 @@ description: >-
 **[Generalizing Visual Geometry Priors To Sparse Gaussian Occupancy Prediction](generalizing_visual_geometry_priors_to_sparse_gaussian_occupancy_prediction.md)**
 
 :   GPOcc 提出利用可泛化的视觉几何先验（如 VGGT、DepthAnything）进行单目 3D 占据预测，通过沿相机射线向内延伸表面点生成体积采样，以稀疏高斯基元进行概率占据推断，并设计免训练增量更新策略处理流式输入，在 Occ-ScanNet 上单目 mIoU 提升 +9.99、流式提升 +11.79 超越前 SOTA，同时在相同深度先验下速度快 2.65 倍。
+
+**[Ghost-Fwl A Large-Scale Full-Waveform Lidar Dataset For Ghost Detection And Remo](ghost-fwl_a_large-scale_full-waveform_lidar_dataset_for_ghost_detection_and_remo.md)**
+
+:   Ghost-FWL 提出首个大规模移动端全波形 LiDAR 数据集（24K帧、75亿峰值级标注），并设计 FWL-MAE 自监督预训练框架实现鬼影检测与去除，将 SLAM 轨迹误差降低 66% 以上、3D 检测假阳性率减少 50 倍。
 
 **[Hg-Lane High-Fidelity Generation Of Lane Scenes Under Adverse Weather And Lighti](hg-lane_high-fidelity_generation_of_lane_scenes_under_adverse_weather_and_lighti.md)**
 
@@ -134,13 +146,25 @@ description: >-
 
 :   提出 IGASA 点云配准框架，通过层级金字塔架构 (HPA) + 层级跨层注意力 (HCLA) 的跳跃注意力融合 + 迭代几何感知精细化 (IGAR) 的动态一致性加权，在 3DMatch 上达到 94.6% Registration Recall（SOTA），在 KITTI 上达到 100% RR，总推理时间仅 2.763s。
 
+**[Incarpose In-Cabin Relative Camera Pose Estimation Model And Dataset](incarpose_in-cabin_relative_camera_pose_estimation_model_and_dataset.md)**
+
+:   本文提出 InCaRPose，一个基于冻结 ViT 骨干和 Transformer 解码器的车内相对相机位姿估计模型，仅在合成数据上训练即可泛化到真实车内环境，实现绝对度量级翻译预测和实时推理（>45 FPS），同时发布了配套的真实世界高畸变车内测试数据集 In-Cabin-Pose。
+
 **[Knowval A Knowledge-Augmented And Value-Guided Autonomous Driving System](knowval_a_knowledge-augmented_and_value-guided_autonomous_driving_system.md)**
 
 :   提出KnowVal端到端自驾系统，通过三大核心解决知识推理和价值对齐缺失：(1)Retrieval-guided Open-world Perception融合标准3D检测+VL-SAMv2长尾物体+VLM场景理解；(2)Perception-guided Knowledge Retrieval从驾驶知识图谱（交通法/防御驾驶/道德规范）检索相关知识；(3)World Model预测未来状态+Value Model（human-preference训练）评估轨迹价值，实现可解释决策。nuScenes最低碰撞率，Bench2Drive/NVISIM SOTA。
 
+**[Le Mumo Jepa Multi-Modal Self-Supervised Representation Learning With Learnable ](le_mumo_jepa_multi-modal_self-supervised_representation_learning_with_learnable_.md)**
+
+:   将LeJEPA自监督框架扩展到多模态设置，引入可学习融合token作为Perceiver式潜在瓶颈在共享Transformer内高效融合RGB与伴随模态（LiDAR深度/热红外），采用剪枝策略将注意力开销降低约9倍，在Waymo上CenterNet 3D检测mAP XY达23.6（比RGB-only LeJEPA提升4.3），Depth MAE从4.704降至2.860。
+
 **[Learnability-Driven Submodular Optimization For Active Roadside 3D Detection](learnability-driven_submodular_optimization_for_active_roadside_3d_detection.md)**
 
 :   提出 LH3D 框架，通过「深度置信度→语义平衡→几何多样性」三阶段子模优化的主动学习策略，抑制路侧单目 3D 检测中固有歧义样本的选取，仅用 20% 标注预算即显著优于传统不确定性/多样性 AL 方法。
+
+**[Learning Geometric And Photometric Features From P](learning_geometric_and_photometric_features_from_p.md)**
+
+:   本文利用3D LiDAR获取的全景深度图和反射率图作为CNN的输入，构建了一个大规模户外场景分类数据集MPO，并提出了水平循环卷积(HCC)和行最大池化(RWMP)两种改进策略，实现了对六类户外场景的高精度分类（最高97.87%），显著优于传统手工特征方法。
 
 **[Learning Geometric And Photometric Features From Panoramic Lidar Scans For Outdo](learning_geometric_and_photometric_features_from_panoramic_lidar_scans_for_outdo.md)**
 
@@ -186,6 +210,10 @@ description: >-
 
 :   MapGCLR 提出基于地理空间对比学习的半监督训练方案：利用同一地点多次驾驶经过产生的 BEV 特征网格的地理空间重叠关系，构建 InfoNCE 对比损失强制 BEV 特征空间的地理一致性，在 Argoverse 2 上仅用 5% 标注数据即达到 18.9 mAP（纯监督基线 13.3），相对提升 42%，效果几乎等于将标注数据量翻倍。
 
+**[Meanfuser Fast One-Step Multi-Modal Trajectory Generation And Adaptive Reconstru](meanfuser_fast_one-step_multi-modal_trajectory_generation_and_adaptive_reconstru.md)**
+
+:   提出MeanFuser端到端自动驾驶框架，用高斯混合噪声替代离散轨迹词汇表实现连续多模态轨迹建模，通过MeanFlow Identity实现一步采样消除ODE数值误差，并设计ARM模块隐式判断是选择现有proposal还是重构新轨迹，在NAVSIM上以仅RGB输入+ResNet-34骨干达到89.0 PDMS且59 FPS。
+
 **[Metadat Generalizable Trajectory Prediction Via Me](metadat_generalizable_trajectory_prediction_via_me.md)**
 
 :   提出MetaDAT框架，通过元学习预训练获得适合在线适应的模型初始化，并在测试时采用动态学习率优化和困难样本驱动更新来实现跨数据集分布偏移下的轨迹预测自适应，在nuScenes/Lyft/Waymo多种跨域配置下全面超越现有TTT方法。
@@ -201,14 +229,6 @@ description: >-
 **[Monocular Open Vocabulary Occupancy Prediction For Indoor Scenes](monocular_open_vocabulary_occupancy_prediction_for_indoor_scenes.md)**
 
 :   提出 LegoOcc，利用语言嵌入高斯（LE-Gaussians）作为统一的几何-语义中间表示，结合基于 Poisson 过程的高斯到占用（G2O）算子和渐进温度衰减策略，在仅使用二值占用标签（无语义标注）的情况下实现室内场景的单目开放词汇占用预测，在 Occ-ScanNet 上达到 59.50 IoU / 21.05 mIoU。
-
-**[Moviedrive Multimodal Multiview Video Diffusion](moviedrive_multimodal_multiview_video_diffusion.md)**
-
-:   首个在统一 DiT 框架下同时生成 RGB+深度+语义三模态多视图驾驶场景视频的方法，通过模态共享层（时序+多视图时空注意力）与模态特定层（跨模态交互+投影头）的分解设计+统一布局编码器+多样化条件，在 nuScenes 上 FVD 46.8（较 CogVideoX+SyntheOcc 提升 22%），深度 AbsRel 0.110，语义 mIoU 37.5，均优于独立模型生成+估计的管线。
-
-**[Moviedrive Urban Scene Synthesis With Multi-Modal Multi-View Video Diffusion Tra](moviedrive_urban_scene_synthesis_with_multi-modal_multi-view_video_diffusion_tra.md)**
-
-:   MoVieDrive 提出统一的多模态多视图视频扩散 Transformer，通过 modal-shared + modal-specific 的双层架构设计，在单一模型中同时生成 RGB 视频、深度图和语义图，配合多样的条件输入（文本、布局、上下文参考），在 nuScenes 上取得 FVD 46.8（SOTA），同时实现跨模态一致的高质量驾驶场景合成。
 
 **[Nord A Data-Efficient Vision-Language-Action Model That Drives Without Reasoning](nord_a_data-efficient_vision-language-action_model_that_drives_without_reasoning.md)**
 
@@ -246,13 +266,29 @@ description: >-
 
 :   提出 Perception Characteristics Distance (PCD)，一种量化感知系统在不同距离下可靠检测能力的新指标，通过统计建模检测置信度随距离的均值和方差变化，定义感知系统的最大可靠检测距离，弥补传统 AP/IoU 等静态指标无法反映距离依赖性和随机性的不足。
 
+**[Plant Taxonomy Meets Plant Counting A Fine-Grained Taxonomic Dataset For Countin](plant_taxonomy_meets_plant_counting_a_fine-grained_taxonomic_dataset_for_countin.md)**
+
+:   本文构建了首个融合植物分类学的大规模计数数据集 TPC-268，包含 10,000 张图、678,050 个点标注和 268 个可计数类别（覆盖 242 个物种），按林奈分类体系标注完整层级信息，并在类无关计数（CAC）范式下进行了全面基准测试。
+
 **[Points-To-3D Structure-Aware 3D Generation With Point Cloud Priors](points-to-3d_structure-aware_3d_generation_with_point_cloud_priors.md)**
 
 :   提出 Points-to-3D，将可见区域点云编码为 TRELLIS 的稀疏结构潜变量（SS latent）并用 mask-aware inpainting 网络补全不可见区域，结合结构补全+边界精炼两阶段采样策略，实现几何可控的高保真 3D 资产/场景生成，在 Toys4K 上 F-Score 达 0.964（可见区域 0.998）。
 
+**[Proood Prototype-Guided Out-Of-Distribution 3D Occupancy Prediction](proood_prototype-guided_out-of-distribution_3d_occupancy_prediction.md)**
+
+:   本文提出ProOOD框架，首次从体素原型引导的视角统一处理3D占用预测中的长尾识别与分布外（OOD）检测，通过原型引导的语义补全（PGSI）、尾部类增强（PGTM）和无训练的EchoOOD评分机制，在SemanticKITTI上提升+3.57% mIoU（尾部类+24.80%），在VAA-KITTI上OOD检测AuPRCr提升+19.34。
+
+**[Ptc-Depth Pose-Refined Monocular Depth Estimation With Temporal Consistency](ptc-depth_pose-refined_monocular_depth_estimation_with_temporal_consistency.md)**
+
+:   本文提出PTC-Depth，一个结合光流三角化和轮式里程计的单目深度估计框架，通过递归贝叶斯更新追踪深度基础模型的度量尺度，实现时间一致的度量深度预测，在KITTI、TartanAir和热红外等多个数据集上展现强泛化能力。
+
 **[R4Det 4D Radar-Camera Fusion For High-Performance 3D Object Detection](r4det_4d_radar-camera_fusion_for_high-performance_3d_object_detection.md)**
 
 :   提出 R4Det，通过三个即插即用 BEV 模块——全景深度融合（PDF）、可变形门控时序融合（DGTF）、实例引导动态精炼（IGDR）——系统性解决 4D 雷达-相机融合中的深度估计不准、无位姿时序融合以及小目标检测三大难题，在 TJ4DRadSet 上 3D mAP 达 47.29%（+5.47%），VoD 上 mAP 66.69%。
+
+**[Rascene High-Fidelity 3D Scene Imaging With Mmwave Communication Signals](rascene_high-fidelity_3d_scene_imaging_with_mmwave_communication_signals.md)**
+
+:   提出 Rascene，一种利用毫米波 OFDM 通信信号（5G/Wi-Fi）进行高保真 3D 场景成像的集成感知与通信（ISAC）框架，通过置信度加权的多帧融合实现对稀疏、多径干扰的射频观测的几何一致性恢复。
 
 **[Recover To Predict Progressive Retrospective Learning For Variable-Length Trajec](recover_to_predict_progressive_retrospective_learning_for_variable-length_trajec.md)**
 
@@ -266,13 +302,25 @@ description: >-
 
 :   提出 RESBev，一个即插即用的 BEV 感知鲁棒性增强框架，通过隐空间世界模型从历史干净帧预测当前 BEV 语义先验，再由异常重建器将先验与被损坏的当前观测通过交叉注意力融合，在 nuScenes 上为四种 LSS 模型在 10 种干扰（含自然损坏 + 对抗攻击）下平均提升 15~20 个 IoU 点，且能泛化到训练未见过的干扰类型。
 
+**[Rescene4D Temporally Consistent Semantic Instance Segmentation Of Evolving Indoo](rescene4d_temporally_consistent_semantic_instance_segmentation_of_evolving_indoo.md)**
+
+:   定义并形式化了时间稀疏的 4D 室内语义实例分割（4DSIS）任务，提出 ReScene4D 方法通过时空对比损失、时空掩码池化和时空序列化三种时序信息共享策略，将 3D 实例分割架构扩展到 4D 维度，在 3RScan 数据集上实现 SOTA，同时提出新的 t-mAP 指标联合评估分割质量和时序身份一致性。
+
 **[Saber Spatially Consistent 3D Universal Adversarial Objects For Bev Detectors](saber_spatially_consistent_3d_universal_adversarial_objects_for_bev_detectors.md)**
 
 :   提出首个面向BEV 3D检测器的非侵入式、3D一致的通用对抗物体生成框架SABER，通过在场景中放置优化后的3D mesh来干扰多视角多帧检测，揭示BEV模型对环境上下文先验的过度依赖。
 
+**[Scaling-Aware Data Selection For End-To-End Autonomous Driving Systems](scaling-aware_data_selection_for_end-to-end_autonomous_driving_systems.md)**
+
+:   提出MOSAIC框架——通过聚类数据、拟合各域对评估指标的缩放律、贪心迭代选择边际收益最大的数据簇样本，实现端到端自动驾驶模型的高效数据选择，用80%更少的数据达到甚至超越基线性能。
+
 **[Sgnlf Spectralgeometric Neural Fields For Posefre](sgnlf_spectralgeometric_neural_fields_for_posefre.md)**
 
 :   SG-NLF提出一种无需精确位姿的LiDAR NeRF框架，通过谱-几何混合表示解决LiDAR稀疏数据导致的几何空洞问题，利用置信感知图实现全局位姿优化，并引入对抗学习强化跨帧一致性，在nuScenes上重建质量和位姿精度分别比SOTA提升35.8%和68.8%。
+
+**[Sharp Short-Window Streaming For Accurate And Robust Prediction In Motion Foreca](sharp_short-window_streaming_for_accurate_and_robust_prediction_in_motion_foreca.md)**
+
+:   提出 SHARP，一种基于短窗口流式推理的运动预测框架，通过实例感知上下文流模块显式维护和更新跨时间步的智能体潜在表示，结合双目标训练策略，在 Argoverse 2 多智能体基准上达到流式推理 SOTA，同时保持极低延迟。
 
 **[Simscale Learning To Drive Via Real-World Simulation At Scale](simscale_learning_to_drive_via_real-world_simulation_at_scale.md)**
 
@@ -286,13 +334,25 @@ description: >-
 
 :   利用 microLED-on-CMOS 数字光投影器实现超快单像素成像（SPI），结合低复杂度机器学习模型（ELM 和 DNN），在完全跳过图像重建的情况下以 1.2 kHz 帧率实现了 MNIST 手写数字 >90% 的分类准确率。
 
+**[Sparsity-Aware Voxel Attention And Foreground Modulation For 3D Semantic Scene C](sparsity-aware_voxel_attention_and_foreground_modulation_for_3d_semantic_scene_c.md)**
+
+:   提出 VoxSAMNet，一个显式建模体素稀疏性和语义不均衡的单目语义场景补全框架，通过 Dummy Shortcut 跳过空体素、Foreground Dropout + Text-Guided Image Filter 缓解长尾过拟合，在 SemanticKITTI 上达到 18.19% mIoU 的 SOTA（超越现有单目和立体方法）。
+
 **[Spectral-Geometric Neural Fields For Pose-Free Lidar View Synthesis](spectral-geometric_neural_fields_for_pose-free_lidar_view_synthesis.md)**
 
 :   提出 SG-NLF 框架，通过混合谱-几何表示实现无需精确位姿输入的 LiDAR 新视角合成，结合置信度感知位姿图和对抗学习策略，在 KITTI-360 和 nuScenes 上大幅超越 SOTA（Chamfer Distance 降低 35.8%，ATE 降低 68.8%）。
 
+**[Terraseg Self-Supervised Ground Segmentation For Any Lidar](terraseg_self-supervised_ground_segmentation_for_any_lidar.md)**
+
+:   本文提出 TerraSeg，首个自监督的域无关 LiDAR 地面分割模型，通过构建统一的 OmniLiDAR 大规模数据集（12个公开基准、15种传感器、近2200万次扫描）和创新的 PseudoLabeler 自监督伪标签生成模块，在不使用任何人工标注的情况下在 nuScenes、SemanticKITTI 和 Waymo 上达到 SOTA。
+
 **[Test-Time 3D Occupancy Prediction](test-time_3d_occupancy_prediction.md)**
 
 :   提出 TT-Occ，一种无需预训练的测试时3D占用预测框架，通过在推理时集成视觉基础模型（VFMs）来增量构建、优化和体素化时间感知的3D高斯，在 Occ3D-nuScenes 和 nuCraft 上超越了所有需要大量训练的自监督方法。
+
+**[Topomaskv3 3D Mask Head With Dense Offset And Height Predictions For Road Topolo](topomaskv3_3d_mask_head_with_dense_offset_and_height_predictions_for_road_topolo.md)**
+
+:   本文提出 TopoMaskV3，通过引入稠密偏移场和稠密高度图两个预测头，将基于掩码的道路拓扑理解范式从 2D 弱模块升级为独立的 3D 中心线预测器，并首次在道路拓扑评估中引入地理不重叠划分和远距离基准，揭示了现有基准因地理重叠导致的性能虚高现象，在地理不重叠基准上达到 SOTA 28.5 OLS。
 
 **[Towards Balanced Multi-Modal Learning In 3D Human Pose Estimation](towards_balanced_multi-modal_learning_in_3d_human_pose_estimation.md)**
 

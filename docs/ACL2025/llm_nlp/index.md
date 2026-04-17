@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM/NLP方向 304篇论文解读
+  ACL2025 LLM/NLP方向 310篇论文解读
 description: >-
-  304篇ACL2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  310篇ACL2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**💬 ACL2025** · **304** 篇论文解读
+**💬 ACL2025** · **310** 篇论文解读
 
 **[A Large-Scale Real-World Evaluation Of Llm-Based Virtual Teaching Assistant](a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)**
 
@@ -65,10 +65,6 @@ description: >-
 **[Algorithmic Fidelity German Opinion](algorithmic_fidelity_german_opinion.md)**
 
 :   基于德国纵向选举调查(GLES)的开放式问题数据，系统评估三个开源LLM（Llama2、Gemma、Mixtral）通过人口统计persona提示生成合成德国公众舆论的算法保真度，发现Llama2在亚群体代表性上表现最佳（JS距离0.28），但所有模型均表现出左倾政治偏见和群体内多样性降低的问题。
-
-**[Aligning Large Language Models To Follow Instructions And Hallucinate Less Via E](aligning_large_language_models_to_follow_instructions_and_hallucinate_less_via_e.md)**
-
-:   提出NOVA框架，通过内部一致性探测(ICP)衡量LLM对指令的熟悉度+语义等价识别(SEI)衡量LLM对目标回复的熟悉度，筛选出知识对齐的高质量指令数据，仅用5%数据微调LLaMA-3-8B即可在BioGEN上提升8.6分、FollowRAG上提升7.2分，同时保持指令遵循能力。
 
 **[Alignment Drift In Cefr-Prompted Llms For Interactive Spanish Tutoring](alignment_drift_in_cefr-prompted_llms_for_interactive_spanish_tutoring.md)**
 
@@ -1004,6 +1000,10 @@ description: >-
 
 :   SConU 首次在 LLM 的保形不确定性框架中引入显著性检验，通过构建两种保形 p-value 来识别并过滤违反可交换性假设的不确定性数据异常点，从而在单域和跨域 QA 场景中实现对错误覆盖率（miscoverage rate）的严格管理。
 
+**[Scop Evaluating The Comprehension Process Of Large Language Models From A Cognit](scop_evaluating_the_comprehension_process_of_large_language_models_from_a_cognit.md)**
+
+:   SCoP 从认知科学视角将 LLM 的文档理解过程分解为五种递进技能（定位、推断、连接、组织、选择），构建了包含 4682 个样本的测试集来评估理解"过程"而非仅仅"答案"，发现 LLM 普遍在局部理解（~94%）上远强于全局理解（~31%），且即使答案正确其理解过程也可能是错误的。
+
 **[Seed Stepwise Reasoning Disruption Attack](seed_stepwise_reasoning_disruption_attack.md)**
 
 :   提出 SEED（Stepwise rEasoning Error Disruption）攻击方法，通过在 LLM 的推理链前几步中巧妙注入细微错误（如微调计算数字），让模型在后续推理中自然传播错误得出错误答案，兼容零样本/少样本设置，GPT-4o 检测率低至 0.8%，揭示了 LLM 逐步推理过程的严重安全漏洞。
@@ -1051,6 +1051,10 @@ description: >-
 **[Sqlong Enhanced Nl2Sql For Longer Contexts With Llms](sqlong_enhanced_nl2sql_for_longer_contexts_with_llms.md)**
 
 :   提出 SQLong，一种面向长上下文场景的 NL2SQL 数据增强框架，通过向训练数据中注入采样自其他数据库的合成 CREATE TABLE 语句来扩展上下文长度，使微调后的 LLM 在大规模 Schema 场景下显著提升 SQL 生成准确率。
+
+**[Sr-Llm Rethinking The Structured Representation In Large Language Model](sr-llm_rethinking_the_structured_representation_in_large_language_model.md)**
+
+:   提出 SR-LLM 框架，通过两种设置（training-free 的自然语言描述转换和 training-dependent 的混合数据微调）将结构化表示（AMR、PST、FOL）有效集成到 LLM 中，在 PAWS 等下游任务上分别取得 3.17% 和 12.38% 的提升，首次证明结构化表示能实质性增强 LLM 推理能力。
 
 **[Steering Off Course Reliability Challenges In Steering Language Models](steering_off_course_reliability_challenges_in_steering_language_models.md)**
 
@@ -1108,6 +1112,10 @@ description: >-
 
 :   提出 NLP 论文贡献的分类体系（知识/工件 × 8 子类），构建 ~2k 人工标注数据集 NLPContributions，训练 SciBERT 自动识别贡献声明，并对 ~29k 篇 ACL Anthology 论文做 50 年纵向趋势分析，揭示 NLP 研究从语言学导向转向方法/模型主导、近年又重拾人文与语言关注的演化轨迹。
 
+**[The Role Of Deductive And Inductive Reasoning In Large Language Models](the_role_of_deductive_and_inductive_reasoning_in_large_language_models.md)**
+
+:   本文提出 DID（De-In-Ductive）框架，通过动态结合演绎推理和归纳推理来增强 LLM 的推理能力，利用 Littlestone 维度和信息熵组成的双指标复杂度评估系统来指导问题分解策略，在 AIW 基准上达到 70.3% 准确率（超过 ToT 的 62.2%），同时保持更低的计算成本。
+
 **[Theory Of Llm Sampling](theory_of_llm_sampling.md)**
 
 :   提出并验证了LLM的响应采样理论——采样过程同时受描述性成分(统计规范)和规范性成分(隐式理想值)双重驱动，导致样本系统性地偏离统计平均值向理想值方向偏移，这种偏差在15个模型、500个概念上具有统计显著性，且模型越大偏差越强。
@@ -1144,9 +1152,17 @@ description: >-
 
 :   提出 ToolCoder 框架，将工具学习重新定义为代码生成任务，借鉴软件工程原则（需求分析→模块化设计→实现执行→错误调试→代码复用）让 LLM 通过生成和执行 Python 代码来完成多步工具调用，在 RestBench 和 API-Bank 上全面超越 ReAct、CodeAct 等基线方法。
 
+**[Towards Enhanced Immersion And Agency For Llm-Based Interactive Drama](towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)**
+
+:   提出沉浸感-代理感（Immersion-Agency）范式来理解LLM交互式戏剧，并设计Playwriting-guided Generation和Plot-based Reflection两种方法分别增强故事生成质量和玩家对故事的影响力。
+
 **[Towards Harmonized Uncertainty Estimation For Large Language Models](towards_harmonized_uncertainty_estimation_for_large_language_models.md)**
 
 :   提出 CUE 框架，通过训练一个与目标 LLM 性能对齐的轻量级分类器（Corrector）来校正现有不确定性估计方法的分数，在指示性、精确-召回平衡和校准三个维度上实现协调一致的改进，最高提升达 60%。
+
+**[Training-Free Llm Merging For Multi-Task Learning](training-free_llm_merging_for_multi-task_learning.md)**
+
+:   提出Hi-Merging，一种**层级迭代式无训练模型合并**方法，通过模型级和层级的剪枝与缩放操作，结合贡献度分析来识别和解决参数冲突，将不同任务/语言的专用LLM合并为统一的多任务模型，在大多数场景下超越混合数据微调的基线。
 
 **[Training Language Model To Critique For Better Refinement](training_language_model_to_critique_for_better_refinement.md)**
 
@@ -1180,6 +1196,10 @@ description: >-
 
 :   本文首次系统研究了真实世界静默数据损坏（SDC）对LLM训练的影响，通过将不健康节点与健康节点配对并引入同步机制，在子模块计算、单步梯度、累积训练三个层面揭示了SDC的特征和影响模式。
 
+**[Understanding The Dark Side Of Llms Intrinsic Self-Correction](understanding_the_dark_side_of_llms_intrinsic_self-correction.md)**
+
+:   本文系统研究了 LLM 内在自我纠错（intrinsic self-correction）的失败现象，提出三种可解释性方法揭示失败原因——简单任务中的答案动摇和提示偏差、复杂任务中的类人认知偏差，并提出问题重复和少样本 SFT 两种简单有效的缓解策略。
+
 **[Understanding The Repeat Curse In Large Language Models From A Feature Perspecti](understanding_the_repeat_curse_in_large_language_models_from_a_feature_perspecti.md)**
 
 :   从机制可解释性角度研究 LLM 重复生成问题（Repeat Curse），用 Sparse Autoencoder 提取单语义特征，定位中间层和最终层的"重复特征"，激活它们可诱导重复、关闭它们可缓解重复且不损害模型性能。
@@ -1207,6 +1227,10 @@ description: >-
 **[Warriorcoder Learning From Expert Battles To Augment Code Large Language Models](warriorcoder_learning_from_expert_battles_to_augment_code_large_language_models.md)**
 
 :   提出 WarriorCoder，通过构建多个专家代码 LLM 之间的竞技场（arena），让攻击者用自身擅长的领域挑战防御者，由裁判评估后用胜者回答训练目标模型，从而无需依赖专有模型或预存数据集即可从零生成高质量、高多样性的代码训练数据，实现 SOTA 性能。
+
+**[What Happened In Llms Layers When Trained For Fast Vs Slow Thinking A Gradient P](what_happened_in_llms_layers_when_trained_for_fast_vs_slow_thinking_a_gradient_p.md)**
+
+:   本文从梯度的视角系统地研究了 LLM 各层在训练快思考（无/简短 CoT）vs 慢思考（详细 CoT）数据时的行为差异，发现慢思考训练导致梯度在各层间更均匀稳定，而快思考导致更大的梯度和更剧烈的层间波动，且慢思考的梯度模式能区分正确与不相关的推理路径。
 
 **[When Large Language Models Meet Speech A Survey On Integration Approaches](when_large_language_models_meet_speech_a_survey_on_integration_approaches.md)**
 

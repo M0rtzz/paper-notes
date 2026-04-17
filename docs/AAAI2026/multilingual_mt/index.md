@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 多语言/翻译方向 9篇论文解读
+  AAAI2026 多语言/翻译方向 10篇论文解读
 description: >-
-  9篇AAAI2026 多语言/翻译方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  10篇AAAI2026 多语言/翻译方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**🤖 AAAI2026** · **9** 篇论文解读
+**🤖 AAAI2026** · **10** 篇论文解读
 
 **[Bridging The Multilingual Safety Divide Efficient Culturally-Aware Alignment For](bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for.md)**
 
@@ -41,6 +41,10 @@ description: >-
 **[Stellar Scene Text Editor For Low-Resource Languages And Real-World Data](stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)**
 
 :   提出 STELLAR 框架，通过语言自适应字形编码器和合成预训练+真实微调的两阶段训练策略，实现韩语/阿拉伯语/日语等低资源语言的场景文本编辑，并提出可解释的 TAS 指标无需 ground truth 评估字体/颜色/背景风格保持，韩语识别准确率从基线最高 22.1% 飙升至 80.4%。
+
+**[Vidia2Std A Parallel Corpus And Methods For Low-Resource Vietnamese Dialect-To-S](vidia2std_a_parallel_corpus_and_methods_for_low-resource_vietnamese_dialect-to-s.md)**
+
+:   ViDia2Std 构建了首个覆盖越南全部 63 个省份的手工标注越南语方言-标准语平行语料库（13,000+ 句对），并评估了多种 seq2seq 模型在方言归一化任务上的表现，证明方言归一化作为预处理步骤能显著提升机器翻译和情感分析等下游任务的性能。
 
 **[X-Mutest A Multilingual Benchmark For Explainable Hate Speech Detection And A No](x-mutest_a_multilingual_benchmark_for_explainable_hate_speech_detection_and_a_no.md)**
 

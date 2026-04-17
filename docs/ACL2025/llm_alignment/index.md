@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 对齐/RLHF方向 59篇论文解读
+  ACL2025 对齐/RLHF方向 62篇论文解读
 description: >-
-  59篇ACL2025 对齐/RLHF方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  62篇ACL2025 对齐/RLHF方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**💬 ACL2025** · **59** 篇论文解读
+**💬 ACL2025** · **62** 篇论文解读
 
 **[Agentalign Navigating Safety Alignment In The Shift From Informative To Agentic ](agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)**
 
@@ -218,6 +218,10 @@ description: >-
 
 :   提出 Retrieval Preference Optimization (RPO)，一种专为 RAG 设计的轻量级偏好对齐方法，通过将检索质量评估隐式地集成到生成过程中，使 LLM 能够自适应地在参数知识和检索知识之间做出选择，无需额外组件即可缓解知识冲突导致的幻觉问题。
 
+**[Sdpo Segment-Level Direct Preference Optimization For Social Agents](sdpo_segment-level_direct_preference_optimization_for_social_agents.md)**
+
+:   SDPO 提出在多轮社交对话中以"片段"（segment）为粒度进行偏好优化，通过动态定位错误轮次、从错误点前的历史重新采样正样本、选取等长的关键片段对进行训练，既降低了会话级 DPO 的训练噪声，又通过等长约束严格消除了分区函数 $Z$，在 SOTOPIA 基准上超越了 GPT-4o 和所有 DPO 变体。
+
 **[Sea Lowresource Safety Alignment For Multimodal](sea_lowresource_safety_alignment_for_multimodal.md)**
 
 :   提出 SEA 框架，通过梯度优化生成合成模态 embedding（不需要真实图像/视频/音频），仅用文本安全数据就能实现多模态 LLM 的安全对齐，在单张 RTX3090 上 24 秒即可合成高质量 embedding，同时发布了视频和音频安全基准 VA-SafetyBench。
@@ -225,6 +229,10 @@ description: >-
 **[Synthesizeme Persona Prompts](synthesizeme_persona_prompts.md)**
 
 :   提出 SynthesizeMe 方法，通过从用户有限的成对偏好交互中自动推理-合成用户画像（persona），构建可解释、可迁移的个性化 prompt，在 PersonalRewardBench 上显著提升个性化偏好预测准确率。
+
+**[T-Reg Preference Optimization With Token-Level Reward Regularization](t-reg_preference_optimization_with_token-level_reward_regularization.md)**
+
+:   T-REG 提出了一种 token 级奖励正则化方法，利用 LLM 的对比提示自生成 token 级奖励信号，将其作为弱监督来引导 DPO 隐式学习到的 token 级奖励分配，在 Alpaca Eval 2 和 Arena-Hard 上分别超过 DPO 最多 3.8% 和 4.4%。
 
 **[Tabledreamer Progressive And Weakness-Guided Data Synthesis From Scratch For Tab](tabledreamer_progressive_and_weakness-guided_data_synthesis_from_scratch_for_tab.md)**
 
@@ -245,3 +253,7 @@ description: >-
 **[Upcycling Instruction Tuning From Dense To Mixture-Of-Experts Via Parameter Merg](upcycling_instruction_tuning_from_dense_to_mixture-of-experts_via_parameter_merg.md)**
 
 :   本文提出UpIT (Upcycling Instruction Tuning)，利用密集模型指令微调过程中的中间checkpoint作为专业化专家，通过遗传算法扩展专家数量和路由预优化，实现数据高效且灵活的dense-to-MoE转换。
+
+**[World Modeling Makes A Better Planner Dual Preference Optimization For Embodied ](world_modeling_makes_a_better_planner_dual_preference_optimization_for_embodied_.md)**
+
+:   提出 Dual Preference Optimization (D²PO) 框架，通过联合优化状态预测（世界建模）和动作选择两个目标的偏好学习，使视觉语言模型在具身任务规划中同时学会"理解世界动态"和"做出更好决策"，7B 模型大幅超越 GPT-4o。

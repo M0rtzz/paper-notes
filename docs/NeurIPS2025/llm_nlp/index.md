@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM/NLP方向 49篇论文解读
+  NeurIPS2025 LLM/NLP方向 50篇论文解读
 description: >-
-  49篇NeurIPS2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  50篇NeurIPS2025 LLM/NLP方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**🧠 NeurIPS2025** · **49** 篇论文解读
+**🧠 NeurIPS2025** · **50** 篇论文解读
 
 **[Acesearcher Bootstrapping Reasoning And Search For Llms Via Reinforced Self-Play](acesearcher_bootstrapping_reasoning_and_search_for_llms_via_reinforced_self-play.md)**
 
@@ -57,6 +57,10 @@ description: >-
 **[Encompass Enhancing Agent Programming With Search Over Program Execution Paths](encompass_enhancing_agent_programming_with_search_over_program_execution_paths.md)**
 
 :   提出 Probabilistic Angelic Nondeterminism (PAN) 编程模型及 EnCompass Python 框架，将 agent 的核心工作流逻辑与推理时搜索策略解耦，程序员只需在 LLM 调用处加 `branchpoint()` 标记，即可用几行参数切换 best-of-N、beam search、tree search 等策略，代码修改量减少 3-6x。
+
+**[Evorefuse Evolutionary Prompt Optimization For Evaluation And Mitigation Of Llm ](evorefuse_evolutionary_prompt_optimization_for_evaluation_and_mitigation_of_llm_.md)**
+
+:   提出EvoRefuse框架，通过进化搜索最大化ELBO来自动生成多样的伪恶意指令，构建了更具挑战性的过度拒绝评估基准(EvoRefuse-Test)和有效的对齐缓解数据集(EvoRefuse-Align)。
 
 **[Geocad Local Geometry-Controllable Cad Generation With Large Language Models](geocad_local_geometry-controllable_cad_generation_with_large_language_models.md)**
 

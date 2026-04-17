@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # NeurIPS2025 论文笔记 TODO
 
-总计: 2525 篇 | 已完成: 2525 | 待更新: 0
+总计: 2525 篇 | 已完成: 2517 | 待更新: 8
 
 ---
 
@@ -142,7 +142,7 @@
 - [x] [Aligning by Misaligning: Boundary-aware Curriculum Learning for Multimodal Alignment](multimodal_vlm/aligning_by_misaligning_boundaryaware_curriculum_learning_fo.md) | arXiv: 2511.08399
 - [x] [Aligning Compound AI Systems via System-level DPO](image_generation/aligning_compound_ai_systems_via_system-level_dpo.md) | arXiv: 2502.17721
 - [x] [Aligning Text to Image in Diffusion Models is Easier Than You Think](image_generation/aligning_text_to_image_in_diffusion_models_is_easier_than_you_think.md) | arXiv: 2503.08250
-- [x] [Alignment of Large Language Models with Constrained Learning](llm_alignment/alignment_of_large_language_models_with_constrained_learning.md) | arXiv: 2505.19387
+- [ ] [Alignment of Large Language Models with Constrained Learning](llm_alignment/alignment_of_large_language_models_with_constrained_learning.md) | arXiv: 2505.19387
 - [x] [aline joint amortization for bayesian inference and active data acquisition](reinforcement_learning/aline_joint_amortization_for_bayesian_inference_and_active_data_acquisition.md) | arXiv: 2506.07259
 - [x] [All You Need is One: Capsule Prompt Tuning with a Single Vector](object_detection/all_you_need_is_one_capsule_prompt_tuning_with_a_single_vector.md) | arXiv: 2510.16670
 - [x] [Alligat0R: Pre-Training through Covisibility Segmentation for Relative Camera Pose Regression](segmentation/alligat0r_pre-training_through_co-visibility_segmentation_for_relative_camera_po.md) | arXiv: 2503.07561
@@ -211,7 +211,7 @@
 - [x] [automated multi-agent workflows for rtl design](llm_agent/automated_multi-agent_workflows_for_rtl_design.md) | arXiv: 2509.20182
 - [x] [automaton constrained q-learning](reinforcement_learning/automaton_constrained_q-learning.md) | arXiv: 2510.05061
 - [x] [autoopt a dataset and a unified framework for automating optimization problem so](optimization/autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so.md) | arXiv: 2510.21436
-- [x] [Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation](image_generation/autoregressive_adversarial_posttraining_for_realtime_interac.md) | arXiv: 2506.09350
+- [ ] [Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation](image_generation/autoregressive_adversarial_posttraining_for_realtime_interac.md) | arXiv: 2506.09350
 - [x] [AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing](others/autoscidact_automated_scientific_discovery_through_contrastive_embedding_and_hyp.md) | arXiv: 2510.21935
 - [x] [autotom scaling model-based mental inference via automated agent modeling](robotics/autotom_scaling_model-based_mental_inference_via_automated_agent_modeling.md) | arXiv: 2502.15676
 - [x] [AutoVLA: A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning and Reinforcement Fine-Tuning](autonomous_driving/autovla_a_vision-language-action_model_for_end-to-end_autonomous_driving_with_ad.md) | arXiv: 2506.13757
@@ -260,7 +260,7 @@
 - [x] [beyond token probes hallucination detection via activation tensors with act-vit](llm_nlp/beyond_token_probes_hallucination_detection_via_activation_tensors_with_act-vit.md) | arXiv: 2510.00296
 - [x] [bezier splatting for fast and differentiable vector graphics rendering](model_compression/bezier_splatting_for_fast_and_differentiable_vector_graphics_rendering.md) | arXiv: 2503.16424
 - [x] [Bi-Level Decision-Focused Causal Learning for Large-Scale Marketing Optimization](causal_inference/bi-level_decision-focused_causal_learning_for_large-scale_marketing_optimization.md) | arXiv: 2510.19517
-- [x] [bias in the picture benchmarking vlms with social-cue news images and llm-as-jud](ai_safety/bias_in_the_picture_benchmarking_vlms_with_social-cue_news_images_and_llm-as-jud.md) | arXiv: 2509.19659
+- [ ] [bias in the picture benchmarking vlms with social-cue news images and llm-as-jud](ai_safety/bias_in_the_picture_benchmarking_vlms_with_social-cue_news_images_and_llm-as-jud.md) | arXiv: 2509.19659
 - [x] [bidirectional representations augmented autoregressive biological sequence gener](medical_imaging/bidirectional_representations_augmented_autoregressive_biological_sequence_gener.md) | arXiv: 2510.08169
 - [x] [bigram subnetworks mapping to next tokens in transformer language models](llm_nlp/bigram_subnetworks_mapping_to_next_tokens_in_transformer_language_models.md) | arXiv: 2504.15471
 - [x] [binary quadratic quantization beyond first-order quantization for real-valued ma](model_compression/binary_quadratic_quantization_beyond_first-order_quantization_for_real-valued_ma.md) | arXiv: 2510.18650
@@ -767,7 +767,7 @@
 - [x] [fairgrpo fair reinforcement learning for equitable clinical reasoning](medical_imaging/fairgrpo_fair_reinforcement_learning_for_equitable_clinical_reasoning.md) | arXiv: 2510.19893
 - [x] [fairimagen post-processing for bias mitigation in text-to-image models](image_generation/fairimagen_post-processing_for_bias_mitigation_in_text-to-image_models.md) | arXiv: 2510.21363
 - [x] [fairness under competition](ai_safety/fairness_under_competition.md) | arXiv: 2505.16291
-- [x] [fairness-regularized online optimization with switching costs](ai_safety/fairness-regularized_online_optimization_with_switching_costs.md) | arXiv: 2512.11131
+- [ ] [fairness-regularized online optimization with switching costs](ai_safety/fairness-regularized_online_optimization_with_switching_costs.md) | arXiv: 2512.11131
 - [x] [faithful group shapley value](others/faithful_group_shapley_value.md) | arXiv: 2505.19013
 - [x] [faithful summarization of consumer health queries a cross-lingual framework with](medical_imaging/faithful_summarization_of_consumer_health_queries_a_cross-lingual_framework_with.md) | arXiv: 2511.10768
 - [x] [falcon an ml framework for fully automated layout-constrained analog circuit des](graph_learning/falcon_an_ml_framework_for_fully_automated_layout-constrained_analog_circuit_des.md) | arXiv: 2505.21923
@@ -779,7 +779,7 @@
 - [x] [far from the shallow brain-predictive reasoning embedding through residual disen](medical_imaging/far_from_the_shallow_brain-predictive_reasoning_embedding_through_residual_disen.md) | arXiv: 2510.22860
 - [x] [fast and fluent diffusion language models via convolutional decoding and rejecti](segmentation/fast_and_fluent_diffusion_language_models_via_convolutional_decoding_and_rejecti.md) | arXiv: 2509.15188
 - [x] [fast data attribution for text-to-image models](image_generation/fast_data_attribution_for_text-to-image_models.md) | arXiv: 2511.10721
-- [x] [fast foreground-aware diffusion with accelerated sampling trajectory for segment](segmentation/fast_foreground-aware_diffusion_with_accelerated_sampling_trajectory_for_segment.md) | arXiv: 2509.20295
+- [ ] [fast foreground-aware diffusion with accelerated sampling trajectory for segment](segmentation/fast_foreground-aware_diffusion_with_accelerated_sampling_trajectory_for_segment.md) | arXiv: 2509.20295
 - [x] [fast solvers for discrete diffusion models theory and applications of high-order](image_generation/fast_solvers_for_discrete_diffusion_models_theory_and_applications_of_high-order.md) | arXiv: 2502.00234
 - [x] [fastdinov2 frequency based curriculum learning improves robustness and training ](model_compression/fastdinov2_frequency_based_curriculum_learning_improves_robustness_and_training_.md) | arXiv: 2507.03779
 - [x] [faster algorithm for structured john ellipsoid computation](human_understanding/faster_algorithm_for_structured_john_ellipsoid_computation.md) | arXiv: 2211.14407
@@ -787,7 +787,7 @@
 - [x] [fastlongspeech enhancing large speech-language models for efficient long-speech ](model_compression/fastlongspeech_enhancing_large_speech-language_models_for_efficient_long-speech_.md) | arXiv: 2507.14815
 - [x] [FastVID: Dynamic Density Pruning for Fast Video Large Language Models](video_understanding/fastvid_dynamic_density_pruning_for_fast_video_large_languag.md)
 - [x] [feat free energy estimators with adaptive transport](physics/feat_free_energy_estimators_with_adaptive_transport.md) | arXiv: 2504.11516
-- [x] [feature-aware modulation for learning from temporal tabular data](signal_comm/feature-aware_modulation_for_learning_from_temporal_tabular_data.md) | arXiv: 2512.03678
+- [ ] [feature-aware modulation for learning from temporal tabular data](signal_comm/feature-aware_modulation_for_learning_from_temporal_tabular_data.md) | arXiv: 2512.03678
 - [x] [fedfact a provable framework for controllable group-fairness calibration in fede](ai_safety/fedfact_a_provable_framework_for_controllable_group-fairness_calibration_in_fede.md) | arXiv: 2506.03777
 - [x] [fedqs optimizing gradient and model aggregation for semi-asynchronous federated ](optimization/fedqs_optimizing_gradient_and_model_aggregation_for_semi-asynchronous_federated_.md) | arXiv: 2510.07664
 - [x] [fedrain-lite federated reinforcement algorithms for improving idealised numerica](reinforcement_learning/fedrain-lite_federated_reinforcement_algorithms_for_improving_idealised_numerica.md) | arXiv: 2508.14315
@@ -2303,7 +2303,7 @@
 - [x] [training the untrainable introducing inductive bias via representational alignme](others/training_the_untrainable_introducing_inductive_bias_via_representational_alignme.md) | arXiv: 2410.20035
 - [x] [training-free bayesianization for low-rank adapters of large language models](optimization/training-free_bayesianization_for_low-rank_adapters_of_large_language_models.md) | arXiv: 2412.05723
 - [x] [training-free constrained generation with stable diffusion models](image_generation/training-free_constrained_generation_with_stable_diffusion_models.md) | arXiv: 2502.05625
-- [x] [training-free efficient video generation via dynamic token carving](image_generation/training-free_efficient_video_generation_via_dynamic_token_carving.md) | arXiv: 2505.16864
+- [ ] [training-free efficient video generation via dynamic token carving](image_generation/training-free_efficient_video_generation_via_dynamic_token_carving.md) | arXiv: 2505.16864
 - [x] [training-free online video step grounding](multimodal_vlm/training-free_online_video_step_grounding.md) | arXiv: 2510.16989
 - [x] [training-free safe text embedding guidance for text-to-image diffusion models](image_generation/training-free_safe_text_embedding_guidance_for_text-to-image_diffusion_models.md) | arXiv: 2510.24012
 - [x] [traj-coa patient trajectory modeling via chain-of-agents for lung cancer risk pr](llm_agent/traj-coa_patient_trajectory_modeling_via_chain-of-agents_for_lung_cancer_risk_pr.md) | arXiv: 2510.10454
@@ -2466,7 +2466,7 @@
 - [x] [watermarking autoregressive image generation](image_generation/watermarking_autoregressive_image_generation.md) | arXiv: 2506.16349
 - [x] [wavelet canonical coherence for nonstationary signals](time_series/wavelet_canonical_coherence_for_nonstationary_signals.md) | arXiv: 2505.14253
 - [x] [wavy transformer](graph_learning/wavy_transformer.md) | arXiv: 2508.12787
-- [x] [weak-to-strong generalization under distribution shifts](nlp_understanding/weak-to-strong_generalization_under_distribution_shifts.md) | arXiv: 2510.21332
+- [ ] [weak-to-strong generalization under distribution shifts](nlp_understanding/weak-to-strong_generalization_under_distribution_shifts.md) | arXiv: 2510.21332
 - [x] [wearvqa a visual question answering benchmark for wearables in egocentric authen](multimodal_vlm/wearvqa_a_visual_question_answering_benchmark_for_wearables_in_egocentric_authen.md) | arXiv: 2511.22154
 - [x] [web-scale collection of video data for 4d animal reconstruction](video_understanding/web-scale_collection_of_video_data_for_4d_animal_reconstruction.md) | arXiv: 2511.01169
 - [x] [web-shepherd advancing prms for reinforcing web agents](llm_agent/web-shepherd_advancing_prms_for_reinforcing_web_agents.md) | arXiv: 2505.15277

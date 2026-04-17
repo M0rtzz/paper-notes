@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 LLM评测方向 22篇论文解读
+  ICCV2025 LLM评测方向 20篇论文解读
 description: >-
-  22篇ICCV2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  20篇ICCV2025 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**📹 ICCV2025** · **22** 篇论文解读
+**📹 ICCV2025** · **20** 篇论文解读
 
 **[3Dsrbench A Comprehensive 3D Spatial Reasoning Benchmark](3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)**
 
@@ -34,10 +34,6 @@ description: >-
 
 :   提出BATCLIP，一种针对CLIP的双模态在线测试时自适应（TTA）方法，通过同时适应视觉编码器和文本编码器的LayerNorm参数，引入投影匹配损失和类间可分性损失来增强图文特征对齐和类别区分度，在CIFAR-10C/100C/ImageNet-C上达到SOTA效果。
 
-**[Decouple And Track Benchmarking And Improving Video Diffusion Transformers For M](decouple_and_track_benchmarking_and_improving_video_diffusion_transformers_for_m.md)**
-
-:   针对 DiT 模型中 3D 全注意力机制导致的运动-外观难以解耦问题，提出共享时序核（Shared Temporal Kernel）和稠密点跟踪损失（Dense Point Tracking Loss），同时建立了更全面的运动迁移基准 MTBench 和混合运动保真度指标。
-
 **[Discopatch Taming Adversarially-Driven Batch Statistics For Improved Out-Of-Dist](discopatch_taming_adversarially-driven_batch_statistics_for_improved_out-of-dist.md)**
 
 :   提出DisCoPatch框架，利用对抗性VAE中BatchNorm对批统计量的内在偏向性来区分ID和OOD样本，通过推理时将同一图像的多个patch组成batch来保证分布一致性，在协变量偏移OOD检测（ImageNet-1K(-C) 95.5% AUROC）和近分布OOD检测（95.0% AUROC）上达到SOTA，模型仅25MB且延迟低一个数量级。
@@ -45,10 +41,6 @@ description: >-
 **[Dista-Net Dynamic Closely-Spaced Infrared Small Target Unmixing](dista-net_dynamic_closely-spaced_infrared_small_target_unmixing.md)**
 
 :   DISTA-Net提出动态深度展开网络，将ISTA稀疏重建中的非线性变换和阈值参数从静态改为根据输入自适应生成，实现密集红外小目标的首个深度学习解混方法，并建立了包含数据集、评估指标和工具包的首个开源生态。
-
-**[Etva Evaluation Of Text-To-Video Alignment Via Fine-Grained Question Generation ](etva_evaluation_of_text-to-video_alignment_via_fine-grained_question_generation_.md)**
-
-:   提出ETVA，一种基于细粒度问题生成与回答的文本-视频对齐评估方法，通过多智能体场景图遍历生成原子问题、知识增强多阶段推理回答问题，在与人类判断的相关性上大幅超越现有指标（Spearman's ρ 58.47 vs 31.0），并构建了包含2k prompts和12k问题的评估基准。
 
 **[Forcennet Foreground-Centric Network For Document Image Rectification](forcennet_foreground-centric_network_for_document_image_rectification.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 图像生成方向 247篇论文解读
+  NeurIPS2025 图像生成方向 245篇论文解读
 description: >-
-  247篇NeurIPS2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  245篇NeurIPS2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧠 NeurIPS2025** · **247** 篇论文解读
+**🧠 NeurIPS2025** · **245** 篇论文解读
 
 **[70 Size 100 Accuracy Lossless Llm Compression For Efficient](70_size_100_accuracy_lossless_llm_compression_for_efficient.md)**
 
@@ -134,6 +134,10 @@ description: >-
 
 :   提出 CompFlow，通过复合流匹配架构（在离线流输出分布上构建在线流）估计离线-在线环境间的动态差异（Wasserstein 距离），并结合高动态差异区域的主动探索策略，在 27 个动态偏移 RL 任务中平均回报超越最强基线 14.2%。
 
+**[Composition And Alignment Of Diffusion Models Using Constrai](composition_and_alignment_of_diffusion_models_using_constrai.md)**
+
+:   提出统一的约束优化框架，将扩散模型的奖励对齐和多模型组合问题形式化为约束优化，通过拉格朗日对偶方法自动确定最优权重，避免手动超参数搜索。
+
 **[Conditional Panoramic Image Generation Via Masked Autoregres](conditional_panoramic_image_generation_via_masked_autoregres.md)**
 
 :   提出PAR（Panoramic AutoRegressive model），首次用掩码自回归建模统一文本到全景图和全景图外延两大任务，通过循环平移一致性损失和双空间循环填充解决ERP全景图的边界不连续问题，在Matterport3D上取得37.37 FID，同时展示出良好的可扩展性和零样本泛化能力。
@@ -185,6 +189,10 @@ description: >-
 **[Decomate Leveraging Generative Models For Co-Creative Svg Animation](decomate_leveraging_generative_models_for_co-creative_svg_animation.md)**
 
 :   提出 Decomate 交互系统，利用多模态大语言模型 (MLLM) 将非结构化 SVG 图形自动分解为语义组件，设计师通过自然语言为各组件指定动画行为，系统生成可生产的 HTML/CSS/JS 动画代码，支持迭代协作创作。
+
+**[Deft Decompositional Efficient Finetuning For Texttoimage Mo](deft_decompositional_efficient_finetuning_for_texttoimage_mo.md)**
+
+:   提出DEFT（Decompositional Efficient Fine-Tuning），通过将权重更新分解为子空间投影和低秩调整两个组件来高效微调T2I模型，在个性化生成和通用图像生成任务上超越LoRA和PaRa。
 
 **[Denoising Weak Lensing Mass Maps With Diffusion Model And Generative Adversarial](denoising_weak_lensing_mass_maps_with_diffusion_model_and_generative_adversarial.md)**
 
@@ -554,10 +562,6 @@ description: >-
 
 :   提出CrysLLMGen混合框架，结合LLM擅长离散原子类型预测和扩散模型擅长连续坐标/晶格参数建模的互补优势，在晶体材料生成任务中同时实现高结构有效性和组成有效性。
 
-**[Magcache Fast Video Generation With Magnitudeaware Cache](magcache_fast_video_generation_with_magnitudeaware_cache.md)**
-
-:   发现视频扩散模型中相邻时间步残差输出的幅度比（magnitude ratio）遵循一条跨模型、跨 prompt 普遍成立的单调递减规律（"统一幅度定律"），由此提出 MagCache：基于幅度比对跳步误差进行精确累积建模，自适应跳过冗余时间步并复用缓存，仅需 1 个样本校准，即可在 Open-Sora、CogVideoX、Wan 2.1、HunyuanVideo 等模型上实现 2.10–2.68× 加速，且在 LPIPS/SSIM/PSNR 三个指标上全面优于 TeaCache 等已有方法。
-
 **[Mge-Ldm Joint Latent Diffusion For Simultaneous Music Generation And Source Extr](mge-ldm_joint_latent_diffusion_for_simultaneous_music_generation_and_source_extr.md)**
 
 :   提出 MGE-LDM，首个在统一的潜在扩散框架中同时实现音乐混合生成、部分生成（源补全）和文本驱动任意源提取的模型，通过联合建模混合-子混合-源三元组并利用扩散修复（inpainting）实现各任务。
@@ -670,10 +674,6 @@ description: >-
 
 :   提出Anti-Personalized Diffusion Model (APDM)，首次将隐私保护从数据级（图像扰动）转移到模型级（参数更新），通过Direct Protective Optimization损失和Learning to Protect双路径优化策略，鲁棒地阻止扩散模型对特定主体的个性化，同时保持模型对其他主体的生成和个性化能力。
 
-**[Physctrl Generative Physics For Controllable And Physicsgrou](physctrl_generative_physics_for_controllable_and_physicsgrou.md)**
-
-:   PhysCtrl用扩散模型学习四种材料（弹性/沙/橡皮泥/刚体）的物理动力学分布，将动态表示为3D点轨迹，在55万合成动画上训练含时空注意力+物理约束的扩散模型，生成的轨迹驱动预训练视频模型实现力和材料参数可控的高保真物理视频生成。
-
 **[Physics-Constrained Flow Matching Sampling Generative Models With Hard Constrain](physics-constrained_flow_matching_sampling_generative_models_with_hard_constrain.md)**
 
 :   提出 Physics-Constrained Flow Matching (PCFM)，一种零样本推理框架，通过在预训练流匹配模型的采样过程中交替执行前向投射、OT 插值反向更新和松弛惩罚校正，实现任意非线性等式约束的精确满足（达到机器精度），在含激波和间断的 PDE 问题上相比基线方法提升高达 99.5%。
@@ -766,10 +766,6 @@ description: >-
 
 :   提出 S²Diff，一个基于模型的扩散规划框架，利用控制 Lyapunov 屏障函数（CLBF）引导扩散采样生成轨迹级控制策略，无需控制仿射假设与二次规划，在多种非线性动力系统上同时保证安全性和稳定性，平均安全率达 98.75%。
 
-**[Safesora Safe Texttovideo Generation Via Graphical Watermark](safesora_safe_texttovideo_generation_via_graphical_watermark.md)**
-
-:   Safe-Sora 首次将**图形水印**（如logo图像）直接嵌入到视频生成管线中，通过分层粗到细自适应匹配将水印patch分配到视觉最相似的帧和区域，并设计3D小波变换增强Mamba架构实现时空融合，在视频质量（FVD 3.77 vs 次优154.35）和水印保真度上大幅超越所有基线。
-
 **[Sao-Instruct Free-Form Audio Editing Using Natural Language Instructions](sao-instruct_free-form_audio_editing_using_natural_language_instructions.md)**
 
 :   提出SAO-Instruct，首个支持完全自由格式自然语言指令的音频编辑模型，通过Prompt-to-Prompt、DDPM反演和手动编辑三条流水线构建编辑三元组训练数据，微调Stable Audio Open实现保持上下文一致的定向音频修改。
@@ -809,10 +805,6 @@ description: >-
 **[Score-Informed Neural Operator For Enhancing Ordering-Based Causal Discovery](score-informed_neural_operator_for_enhancing_ordering-based_causal_discovery.md)**
 
 :   提出 SciNO（Score-informed Neural Operator），一种在光滑函数空间中设计的概率生成模型，稳定近似 log-密度 Hessian 对角以提升排序式因果发现，合成图上 order divergence 降低 42.7%，真实数据降低 31.5%。
-
-**[Self Forcing Bridging The Train-Test Gap In Autoregressive Video Diffusion](self_forcing_bridging_the_train-test_gap_in_autoregressive_video_diffusion.md)**
-
-:   提出 Self Forcing 训练范式，通过在训练时执行自回归自展开（self-rollout）并使用整体视频级分布匹配损失（DMD/SiD/GAN），消除了 Teacher Forcing 和 Diffusion Forcing 中训练-推理分布不匹配导致的暴露偏差问题，基于 Wan2.1-1.3B 实现了单 GPU 上 17 FPS 实时流式视频生成，同时质量匹敌甚至超越慢几十倍的双向扩散模型。
 
 **[Semantic Surgery Zero-Shot Concept Erasure In Diffusion Models](semantic_surgery_zero-shot_concept_erasure_in_diffusion_models.md)**
 
@@ -966,10 +958,6 @@ description: >-
 
 :   提出 Discriminative Vicinity Diffusion (DVD)，首次将潜扩散模型用于判别式知识迁移，通过在源域特征的近邻潜空间中训练扩散模型生成源样式线索，实现无需源数据访问的域适应，在标准 SFDA 基准上超越 SOTA。
 
-**[Vsa Faster Video Diffusion With Trainable Sparse Attention](vsa_faster_video_diffusion_with_trainable_sparse_attention.md)**
-
-:   提出 VSA (Video Sparse Attention)，一种端到端可训练的硬件对齐稀疏注意力机制，通过粗粒度阶段（cube 池化预测关键 token）和细粒度阶段（在预测的块稀疏区域执行 token 级注意力）的层次化设计，在视频 DiT 的训练和推理中同时实现加速：从头预训练实现 2.53× 训练 FLOPs 减少且无质量损失，适配 Wan2.1-1.3B 实现注意力 6× 加速和端到端推理从 31s 降至 18s。
-
 **[Watermarking Autoregressive Image Generation](watermarking_autoregressive_image_generation.md)**
 
 :   首次将 LLM 水印技术（KGW green/red scheme）适配到自回归图像生成模型的 token 层，识别并解决了关键挑战——反向循环一致性（RCC）不足，通过 tokenizer-detokenizer 微调和水印同步层实现了鲁棒的、具有理论保证的图像水印检测。
@@ -989,6 +977,10 @@ description: >-
 **[Why Diffusion Models Dont Memorize The Role Of Implicit Dynamical Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_dynamical_regularization.md)**
 
 :   通过数值实验和理论分析揭示扩散模型训练中存在两个关键时间尺度——泛化时间 $\tau_{\text{gen}}$ 和记忆化时间 $\tau_{\text{mem}}$，后者随训练集大小 $n$ 线性增长而前者保持恒定，由此产生的隐式动力学正则化使模型即使在高度过参数化情况下也能通过早停避免记忆化。
+
+**[Why Diffusion Models Dont Memorize The Role Of Implicit Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_regularization.md)**
+
+:   本文从数值实验和理论分析两个层面揭示扩散模型训练中存在**隐式动态正则化**机制：生成高质量样本的时间尺度 τ_gen 与出现记忆化的时间尺度 τ_mem 之间的间隔随训练集大小 n 线性增长，为"早停"提供了理论支撑。
 
 **[Why Knowledge Distillation Works In Generative Models A Minimal Working Explanat](why_knowledge_distillation_works_in_generative_models_a_minimal_working_explanat.md)**
 

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ICLR2026 论文笔记 TODO
 
-总计: 1514 篇 | 已完成: 1514 | 待更新: 0
+总计: 1514 篇 | 已完成: 1511 | 待更新: 3
 
 ---
 
@@ -86,7 +86,7 @@
 - [x] [AP-OOD: Attention Pooling for Out-of-Distribution Detection](nlp_generation/ap-ood_attention_pooling_for_out-of-distribution_detection.md) | arXiv: 2602.06031
 - [x] [APPLE: Toward General Active Perception via Reinforcement Learning](reinforcement_learning/apple_toward_general_active_perception_via_reinforcement_learning.md) | arXiv: 2505.06182
 - [x] [AQuA: Toward Strategic Response Generation for Ambiguous Visual Questions](multimodal_vlm/aqua_toward_strategic_response_generation_for_ambiguous_visual_questions.md) | arXiv: 2603.07394
-- [x] [Arbitrary Generative Video Interpolation](video_understanding/arbitrary_generative_video_interpolation.md) | arXiv: 2510.00578
+- [ ] [Arbitrary Generative Video Interpolation](video_understanding/arbitrary_generative_video_interpolation.md) | arXiv: 2510.00578
 - [x] [Are Deep Speech Denoising Models Robust to Adversarial Noise?](image_restoration/are_deep_speech_denoising_models_robust_to_adversarial_noise.md) | arXiv: 2503.11627
 - [x] [Are Reasoning LLMs Robust to Interventions on Their Chain-of-Thought?](llm_reasoning/are_reasoning_llms_robust_to_interventions_on_their_chain-of-thought.md) | arXiv: 2602.07470
 - [x] [Are We Measuring Oversmoothing in Graph Neural Networks Correctly?](graph_learning/are_we_measuring_oversmoothing_in_graph_neural_networks_correctly.md) | arXiv: 2502.04591
@@ -545,7 +545,7 @@
 - [x] [Generalization Below the Edge of Stability: The Role of Data Geometry](optimization/generalization_below_the_edge_of_stability_the_role_of_data_geometry.md) | arXiv: 2510.18120
 - [x] [Generalization of Diffusion Models Arises with a Balanced Representation Space](image_generation/generalization_of_diffusion_models_arises_with_a_balanced_representation_space.md) | arXiv: 2512.20963
 - [x] [Generalizing Linear Autoencoder Recommenders with Decoupled Expected Quadratic Loss](image_restoration/generalizing_linear_autoencoder_recommenders_with_decoupled_expec.md) | arXiv: 2603.07402
-- [x] [Generate Any Scene: Scene Graph Driven Data Synthesis for Visual Generation Training](image_generation/generate_any_scene_scene_graph_driven_data_synthesis_for_visual_generation_train.md) | arXiv: 2412.08221
+- [ ] [Generate Any Scene: Scene Graph Driven Data Synthesis for Visual Generation Training](image_generation/generate_any_scene_scene_graph_driven_data_synthesis_for_visual_generation_train.md) | arXiv: 2412.08221
 - [x] [Generating Directed Graphs with Dual Attention and Asymmetric Encoding](image_generation/generating_directed_graphs_with_dual_attention_and_asymmetric_encoding.md) | arXiv: 2506.16404
 - [x] [Generative Value Conflicts Reveal LLM Priorities](llm_nlp/generative_value_conflicts_reveal_llm_priorities.md) | arXiv: 2509.25369
 - [x] [GeoDiv: Framework For Measuring Geographical Diversity In Text-To-Image Models](image_generation/geodiv_framework_for_measuring_geographical_diversity_in_text-to-image_models.md) | arXiv: 2602.22120
@@ -1279,7 +1279,7 @@
 - [x] [Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis](llm_nlp/talk_evaluate_diagnose_user-aware_agent_evaluation_with_automated_error_analysis.md) | arXiv: 2603.15483
 - [x] [Taming Momentum: Rethinking Optimizer States Through Low-Rank Approximation](model_compression/taming_momentum_rethinking_optimizer_states_through_low-rank_approximation.md) | arXiv: 2602.24283
 - [x] [TAMMs: Change Understanding and Forecasting in Satellite Image Time Series with Temporal-Aware Multimodal Models](remote_sensing/tamms_change_understanding_and_forecasting_in_satellite_image_time_series_with_t.md) | arXiv: 2506.18862
-- [x] [Target-Aware Video Diffusion Models](segmentation/target-aware_video_diffusion_models.md) | arXiv: 2503.18950
+- [ ] [Target-Aware Video Diffusion Models](segmentation/target-aware_video_diffusion_models.md) | arXiv: 2503.18950
 - [x] [Task-free Adaptive Meta Black-box Optimization](remote_sensing/task-free_adaptive_meta_black-box_optimization.md) | arXiv: 2601.21475
 - [x] [TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling](llm_nlp/taste_text-aligned_speech_tokenization_and_embedding_for_spoken_language_modelin.md) | arXiv: 2504.07053
 - [x] [TAVAE: A VAE with Adaptable Priors Explains Contextual Modulation in the Visual Cortex](image_generation/tavae_a_vae_with_adaptable_priors_explains_contextual_modulation_in_the_visual_c.md) | arXiv: 2602.11956

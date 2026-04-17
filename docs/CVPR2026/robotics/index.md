@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 机器人/具身智能方向 38篇论文解读
+  CVPR2026 机器人/具身智能方向 45篇论文解读
 description: >-
-  38篇CVPR2026 机器人/具身智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  45篇CVPR2026 机器人/具身智能方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**📷 CVPR2026** · **38** 篇论文解读
+**📷 CVPR2026** · **45** 篇论文解读
 
 **[Actiongeometry Prediction With 3D Geometric Prior](actiongeometry_prediction_with_3d_geometric_prior.md)**
 
@@ -45,6 +45,10 @@ description: >-
 **[Dawn Pixel Motion Diffusion Robot Control](dawn_pixel_motion_diffusion_robot_control.md)**
 
 :   提出 DAWN，一个两阶段全扩散的视觉语言动作框架——Motion Director（潜扩散模型）生成稠密像素运动场作为可解释的中间表示，Action Expert（扩散 Transformer 策略）将像素运动转换为可执行机器人动作；在 CALVIN 基准上取得 SOTA（平均长度 4.00），并在真实世界单臂/双臂操控中展现强泛化能力。
+
+**[Diagnose Correct And Learn From Manipulation Failures](diagnose_correct_and_learn_from_manipulation_failures.md)**
+
+:   提出 ViFailback 框架，利用显式视觉符号（箭头、准星等）高效标注真实世界机器人操作失败数据，构建 58,128 条 VQA 对的大规模数据集，并微调得到 ViFailback-8B 模型，在真实机器人实验中结合 VLA 模型实现失败恢复，平均成功率提升 22.2%。
 
 **[Diagnose Correct And Learn From Manipulation Failures Via Visual Symbols](diagnose_correct_and_learn_from_manipulation_failures_via_visual_symbols.md)**
 
@@ -110,6 +114,10 @@ description: >-
 
 :   提出 TVVE 框架，通过强化学习驱动的多视角探索策略（MVEP）选择最优虚拟相机视角并在线重渲染观测，同时设计任务感知 MoE 视觉编码器（TaskMoE）解决多任务特征干扰问题，在 RLBench 18 个任务上平均成功率达 86.6%。
 
+**[Maniparena Comprehensive Real-World Evaluation Of Reasoning-Oriented Generalist ](maniparena_comprehensive_real-world_evaluation_of_reasoning-oriented_generalist_.md)**
+
+:   ManipArena 提出了一个标准化的真实世界机器人操作评估框架，包含 20 个推理导向任务和 10,812 条专家轨迹，通过绿幕受控环境、系统化多样性设计和分层 OOD 评估，为 VLA 模型和世界模型提供公平、可复现的评测基准。
+
 **[Mergevla Cross-Skill Model Merging Toward A Generalist Vision-Language-Action Ag](mergevla_cross-skill_model_merging_toward_a_generalist_vision-language-action_ag.md)**
 
 :   首次系统诊断 VLA 模型不可合并的两大根因（LoRA 自私参数冲突 + 动作专家自注意力导致的任务耦合），提出 MergeVLA——通过任务掩码稀疏激活 LoRA、去自注意力动作专家、无训练测试时路由，将多个单技能 VLA 专家合并为一个通用 agent，在 LIBERO 上达 90.2% 成功率，真机 SO101 达 90%。
@@ -134,6 +142,14 @@ description: >-
 
 :   提出首个面向360°全景室内环境的整体affordance定位框架PanoAffordanceNet，通过畸变感知频谱调制器(DASM)和全球面稠密化头(OSDH)系统性解决ERP几何畸变、稀疏功能区域和语义漂移问题，并构建了首个全景affordance数据集360-AGD。
 
+**[Pixel-Level Scene Understanding In One Token Visual States Need What-Is-Where Co](pixel-level_scene_understanding_in_one_token_visual_states_need_what-is-where_co.md)**
+
+:   本文提出CroBo，一个通过全局-局部重建目标学习视觉状态表示的自监督框架：将全局参考图压缩为单个瓶颈token，用它来重建高度遮蔽（90%）的局部裁剪视图，迫使瓶颈token编码像素级的"what-is-where"场景组成信息，在Franka Kitchen和DMC机器人策略学习benchmark上达到SOTA。
+
+**[Probabilistic Concept Graph Reasoning For Multimodal Misinformation Detection](probabilistic_concept_graph_reasoning_for_multimodal_misinformation_detection.md)**
+
+:   本文将多模态虚假信息检测（MMD）重构为基于概念图的结构化概率推理问题，提出PCGR框架，通过MLLM自动发现并验证人类可理解的概念节点，构建层次化概率概念图，实现可解释的虚假信息检测，在三个基准上全面超越13个baseline。
+
 **[Profocus Proactive Perception And Focused Reasoning In Vision-And-Language Navig](profocus_proactive_perception_and_focused_reasoning_in_vision-and-language_navig.md)**
 
 :   提出 ProFocus，一个 training-free 框架，通过推理引导的主动感知（构建语义地图并迭代生成定向视觉查询）和分支多样化蒙特卡洛树搜索（BD-MCTS，筛选 top-k 高价值路点实现聚焦推理），在 R2R 和 REVERIE 上达到零样本 VLN 的 SOTA。
@@ -145,6 +161,10 @@ description: >-
 **[Rcnf Robot Conditioned Normalizing Flow Anomaly](rcnf_robot_conditioned_normalizing_flow_anomaly.md)**
 
 :   提出RC-NF，一种基于条件归一化流的实时异常检测模型，通过解耦处理机器人状态和物体轨迹特征，仅需正样本无监督训练即可在100ms内检测VLA模型执行中的OOD异常，在LIBERO-Anomaly-10上以约8% AUC和10% AP的优势超越SOTA（包括GPT-5、Gemini 2.5 Pro等VLM基线）。
+
+**[Sapave Active Perception Manipulation Vla Roboti](sapave_active_perception_manipulation_vla_roboti.md)**
+
+:   SaPaVe提出端到端主动操作框架，通过解耦相机动作和操作动作的底层到顶层训练策略，先用20万对语义相机控制数据学习主动感知先验，再联合优化实现主动操作，在真实世界中超越π₀和GR00T N1达31.25%成功率提升。
 
 **[Sapave Towards Active Perception And Manipulation In Vision-Language-Action Mode](sapave_towards_active_perception_and_manipulation_in_vision-language-action_mode.md)**
 
@@ -161,3 +181,11 @@ description: >-
 **[The Coherence Trap When Mllmcrafted Narratives Exp](the_coherence_trap_when_mllmcrafted_narratives_exp.md)**
 
 :   揭示现有多模态虚假信息检测的两个根本缺陷（低估MLLM生成的语义一致虚假叙事+依赖简单不对齐的伪影），构建441k样本的MDSM数据集（图像篡改+MLLM生成语义对齐文本），并提出AMD框架（Artifact Pre-perception + Manipulation-Oriented Reasoning），在跨域检测中达88.18 ACC / 60.25 mAP / 61.02 mIoU。
+
+**[Towards Open Environments And Instructions General Vision-Language Navigation Vi](towards_open_environments_and_instructions_general_vision-language_navigation_vi.md)**
+
+:   针对开放环境下视觉语言导航（GSA-VLN）任务，受人类快慢认知双系统启发，提出 slow4fast-VLN 框架：快推理模块基于端到端策略网络实时导航并积累历史记忆，慢推理模块借助 LLM 反思生成结构化泛化经验，经验通过注意力融合反馈增强快推理网络，实现在未见环境和多样指令下的持续适应，在 GSA-R2R 数据集上全面超越前 SOTA（GR-DUET）。
+
+**[Towards Training-Free Scene Text Editing](towards_training-free_scene_text_editing.md)**
+
+:   提出TextFlow，一个免训练的场景文字编辑框架，通过在去噪早期阶段使用Flow Manifold Steering（FMS）保持风格一致性、后期阶段使用Attention Boost（AttnBoost）增强文字渲染准确性，在不需要任务特定训练的情况下达到与训练方法可比甚至更优的编辑质量。

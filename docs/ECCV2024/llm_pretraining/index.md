@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 预训练/数据方向 6篇论文解读
+  ECCV2024 预训练/数据方向 8篇论文解读
 description: >-
-  6篇ECCV2024 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  8篇ECCV2024 预训练/数据方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练/数据
 
-**🎞️ ECCV2024** · **6** 篇论文解读
+**🎞️ ECCV2024** · **8** 篇论文解读
 
 **[Cross-Domain Learning For Video Anomaly Detection With Limited Supervision](cross-domain_learning_for_video_anomaly_detection_with_limited_supervision.md)**
 
@@ -21,6 +21,14 @@ description: >-
 **[Learning To Obstruct Few-Shot Image Classification Over Restricted Classes](learning_to_obstruct_few-shot_image_classification_over_restricted_classes.md)**
 
 :   提出 Learning to Obstruct (LTO) 算法，通过类似 MAML 的元学习方式修改预训练 backbone 参数，使其成为特定受限类别的"差初始化"，从而阻碍少样本分类方法在受限类上的微调效果，同时保持其他类别的正常性能。
+
+**[Plan Posture And Go Towards Open-Vocabulary Text-To-Motion Generation](plan_posture_and_go_towards_open-vocabulary_text-to-motion_generation.md)**
+
+:   本文提出 PRO-Motion 分治框架，将文本到动作生成分解为三个阶段：LLM 驱动的动作规划（Plan）、基于脚本的姿态扩散生成（Posture）、以及全身平移旋转估计（Go），通过降低各阶段的复杂度实现了开放词汇的高质量动作生成。
+
+**[Prelar World Model Pre-Training With Learnable Action Representation](prelar_world_model_pre-training_with_learnable_action_representation.md)**
+
+:   本文提出PreLAR，在无动作标签的视频上进行世界模型预训练时，通过从相邻帧编码隐式动作表示并设计动作-状态一致性损失来弥合无动作预训练与有动作微调之间的差距，显著提升了下游视觉控制任务的样本效率。
 
 **[Prompting Language-Informed Distribution For Compositional Zero-Shot Learning](prompting_language-informed_distribution_for_compositional_zero-shot_learning.md)**
 

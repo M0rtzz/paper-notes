@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 信号/通信方向 10篇论文解读
+  NeurIPS2025 信号/通信方向 11篇论文解读
 description: >-
-  10篇NeurIPS2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  11篇NeurIPS2025 信号/通信方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📡 信号/通信
 
-**🧠 NeurIPS2025** · **10** 篇论文解读
+**🧠 NeurIPS2025** · **11** 篇论文解读
 
 **[Angular Steering Behavior Control Via Rotation In Activation Space](angular_steering_behavior_control_via_rotation_in_activation_space.md)**
 
@@ -45,6 +45,10 @@ description: >-
 **[Multi-Modal Masked Autoencoders For Learning Image-Spectrum Associations For Gal](multi-modal_masked_autoencoders_for_learning_image-spectrum_associations_for_gal.md)**
 
 :   构建了包含 134,533 个星系的图像-光谱-红移多模态数据集（GalaxiesML-Spectra），适配多模态掩码自编码器（MMAE）同时进行图像和光谱的联合重建与红移回归，证明在测试时即使光谱完全缺失，仅用 25% 掩码图像即可实现优于 AstroCLIP 的红移预测散度 $\sigma_{NMAD} = 0.016$。
+
+**[Perturbation Bounds For Low-Rank Inverse Approximations Under Noise](perturbation_bounds_for_low-rank_inverse_approximations_under_noise.md)**
+
+:   首次推导了噪声条件下低秩逆近似 $\|(\tilde{A}^{-1})_p - A_p^{-1}\|$ 的非渐近谱范数扰动界，通过新颖的等高线自举 (contour bootstrapping) 技术处理非整函数 $f(z) = 1/z$，在有利条件下比经典界改进 $\sqrt{n}$ 倍。
 
 **[The Surprising Effectiveness Of Negative Reinforcement In Llm Reasoning](the_surprising_effectiveness_of_negative_reinforcement_in_llm_reasoning.md)**
 

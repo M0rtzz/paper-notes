@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 视频理解方向 55篇论文解读
+  CVPR2026 视频理解方向 70篇论文解读
 description: >-
-  55篇CVPR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  70篇CVPR2026 视频理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📷 CVPR2026** · **55** 篇论文解读
+**📷 CVPR2026** · **70** 篇论文解读
 
 **[A4Vl Multiagent Long Video Reasoning](a4vl_multiagent_long_video_reasoning.md)**
 
@@ -18,17 +18,9 @@ description: >-
 
 :   提出 A4VL，一个无训练的多智能体感知-行动联盟框架，通过事件驱动视频分块、线索引导的关键帧选择和多轮智能体协商剪枝机制，在五个视频问答基准上以显著更低的推理延迟全面超越 28 个基线方法。
 
-**[Activityforensics A Comprehensive Benchmark For Localizing Manipulated Activity ](activityforensics_a_comprehensive_benchmark_for_localizing_manipulated_activity_.md)**
-
-:   首次提出活动级视频伪造定位任务和ActivityForensics大规模基准数据集（6K+伪造片段），通过grounding辅助的自动化数据构造管线制造高度逼真的活动篡改，并提出Temporal Artifact Diffuser (TADiff)基线方法，通过扩散式特征正则化放大伪造线索。
-
 **[Attend Before Attention Efficient And Scalable Video Understanding Via Autoregre](attend_before_attention_efficient_and_scalable_video_understanding_via_autoregre.md)**
 
 :   提出 AutoGaze——一个仅 3M 参数的轻量自回归模块，在 ViT 之前以多尺度方式选择最少量 patch 并去除时空冗余，实现 4×-100× token 压缩和最高 19× ViT 加速，使 MLLM 可扩展到 1K 帧 4K 分辨率视频。
-
-**[Autocut End-To-End Advertisement Video Editing Based On Multimodal Discretizatio](autocut_end-to-end_advertisement_video_editing_based_on_multimodal_discretizatio.md)**
-
-:   AutoCut 提出了一个端到端的广告视频编辑框架，通过残差向量量化（RQVAE）将视频、音频和文本统一到共享的离散 token 空间中，在 Qwen3-8B 上进行多模态对齐和监督微调，实现了视频选择、排序、脚本生成和背景音乐选择四项任务的统一处理，在多项指标上超越 GPT-4o 基线。
 
 **[Autogaze Attend Before Attention Efficient Video](autogaze_attend_before_attention_efficient_video.md)**
 
@@ -78,6 +70,10 @@ description: >-
 
 :   提出 EgoXtreme，首个面向极端条件下第一人称视角的大规模 6D 物体位姿估计基准数据集，涵盖严重运动模糊、动态光照和烟雾遮挡三种真实挑战，揭示了当前 SOTA 位姿估计器在这些条件下的严重失效。
 
+**[Enhancing Accuracy Of Uncertainty Estimation In Ap](enhancing_accuracy_of_uncertainty_estimation_in_ap.md)**
+
+:   本文提出一种高效的后验校准方法（基于保序回归），通过调整不确定性模型的输出分布使其匹配观测分布，解决了域转移导致的视线追踪不确定性估计不准确问题，并引入 Coverage Probability Error (CPE) 作为比 EUC 更可靠的不确定性评估指标。
+
 **[Enhancing Accuracy Of Uncertainty Estimation In Appearance-Based Gaze Tracking W](enhancing_accuracy_of_uncertainty_estimation_in_appearance-based_gaze_tracking_w.md)**
 
 :   提出一种数据高效的后验校准方法，通过等保序回归将不确定性感知视线追踪模型的预测分布与真实观测分布对齐，并引入 Coverage Probability Error (CPE) 指标替代不可靠的误差-不确定性相关性(EUC)来评估不确定性质量。
@@ -89,10 +85,6 @@ description: >-
 **[Fctrack Overlapaware Postassociation Correction Fo](fctrack_overlapaware_postassociation_correction_fo.md)**
 
 :   提出轻量后关联校正框架 FC-Track，通过 IoA 触发的外观更新抑制和局部检测-轨迹错配重分配，将长期身份切换比例从 36.86% 降至 29.55%，同时保持 MOT17/MOT20 上的 SOTA 水平。
-
-**[Flashmotion Few-Step Controllable Video Generation With Trajectory Guidance](flashmotion_few-step_controllable_video_generation_with_trajectory_guidance.md)**
-
-:   提出 FlashMotion，一个三阶段训练框架，将多步轨迹可控视频生成模型蒸馏为少步版本，通过混合扩散+对抗目标微调 adapter，在少步推理下同时保持视频质量和轨迹准确性。
 
 **[Fluxmem Adaptive Hierarchical Memory For Streaming Video Understanding](fluxmem_adaptive_hierarchical_memory_for_streaming_video_understanding.md)**
 
@@ -106,13 +98,45 @@ description: >-
 
 :   提出 Goal Force 框架，通过多通道物理控制信号（目标力、直接力、质量）在简单合成数据上训练视频生成模型，使其学会从目标效果逆向规划因果链，实现零样本泛化到工具使用、人-物交互等复杂现实场景。
 
+**[Hear What Matters Text-Conditioned Selective Video-To-Audio Generation](hear_what_matters_text-conditioned_selective_video-to-audio_generation.md)**
+
+:   SelVA 提出了文本条件的选择性视频到音频（V2A）生成任务，通过可学习的补充 token [SUP] 和自监督视频混合策略，使模型能够根据文本提示从多声源视频中仅生成用户指定的目标声音，在音频质量、语义对齐和时间同步上均超越现有方法。
+
+**[Herbench A Benchmark For Multi-Evidence Integration In Video Question Answering](herbench_a_benchmark_for_multi-evidence_integration_in_video_question_answering.md)**
+
+:   HERBench 是一个专为多证据整合设计的视频问答基准，包含 26,806 个五选一问题，每题结构性地要求融合 ≥3 个时间分散的非重叠视觉线索；通过提出最小必需帧集（MRFS）指标揭示了当前 Video-LLM 的两个关键瓶颈：帧检索不足和证据融合失败。
+
+**[Laof Robust Latent Action Learning With Optical Flow Constraints](laof_robust_latent_action_learning_with_optical_flow_constraints.md)**
+
+:   提出LAOF框架，利用智能体的光流作为伪监督信号约束潜动作学习，使潜动作表示对干扰更鲁棒，在LIBERO和PROCGEN上显著超越无监督基线，且在无标签条件下匹配或超越使用1%动作标签的监督方法。
+
 **[Learning To Assist Physics-Grounded Human-Human Control Via Multi-Agent Reinforc](learning_to_assist_physics-grounded_human-human_control_via_multi-agent_reinforc.md)**
 
 :   提出 AssistMimic，将人-人辅助交互动作的物理模仿建模为多智能体强化学习（MARL）问题，通过运动先验初始化、动态参考重定向和接触促进奖励，首次实现了力交换型辅助动作的物理仿真跟踪。
 
+**[Lenswalk Agentic Video Understanding By Planning How You See In Videos](lenswalk_agentic_video_understanding_by_planning_how_you_see_in_videos.md)**
+
+:   提出LensWalk，一个让LLM推理器主动控制视频观测范围和采样密度的智能体框架，通过reason-plan-observe循环实现自适应视频理解，无需微调即可在长视频基准上带来5%以上的即插即用性能提升。
+
 **[Longvideo-R1 Smart Navigation For Low-Cost Long Video Understanding](longvideo-r1_smart_navigation_for_low-cost_long_video_understanding.md)**
 
 :   提出 LongVideo-R1，一个配备推理能力的多模态 Agent，通过层次化视频树结构和智能导航策略，以平均仅 10.5 轮工具调用实现高效长视频问答，在精度-效率权衡上显著优于穷举式方法。
+
+**[Mamba-Vmr Multimodal Query Augmentation Via Generated Videos For Precise Tempora](mamba-vmr_multimodal_query_augmentation_via_generated_videos_for_precise_tempora.md)**
+
+:   提出一个两阶段视频时刻检索框架：第一阶段用LLM引导字幕匹配并生成辅助短视频作为时序先验，第二阶段用多模态控制Mamba网络高效融合生成先验与长序列，在TVR数据集上超越SOTA（R@1/IoU=0.5达45.20%），同时降低计算开销。
+
+**[Minerva-Cultural A Benchmark For Cultural And Multilingual Long Video Reasoning](minerva-cultural_a_benchmark_for_cultural_and_multilingual_long_video_reasoning.md)**
+
+:   提出 MINERVA-Cultural 基准，包含 18 个语种/地区的 2400 个人工标注视频推理问题，通过证据图（evidence graph）和迭代错误隔离策略揭示当前 SOTA Video-LLM 在文化视觉感知上的严重不足（最强模型 Gemini-2.5-Pro 仅 45.07% vs 人类 95.22%）。
+
+**[Mistake Attribution Fine-Grained Mistake Understanding In Egocentric Videos](mistake_attribution_fine-grained_mistake_understanding_in_egocentric_videos.md)**
+
+:   本文提出 Mistake Attribution (MATT) 任务，将第一人称视频中的操作错误归因到语义（违反了指令的哪个成分）、时间（不可逆转点 PNR 在哪一帧）和空间（PNR 帧中错误区域在哪里）三个维度，通过 MisEngine 数据引擎自动从已有动作数据集构建大规模错误样本，并设计统一的 Transformer 模型 MisFormer 同时完成三个归因子任务，在多个基准上超越各子任务的专用 SOTA 方法。
+
+**[Movierecapsqa A Multimodal Open-Ended Video Question-Answering Benchmark](movierecapsqa_a_multimodal_open-ended_video_question-answering_benchmark.md)**
+
+:   提出 MovieRecapsQA，一个基于电影解说视频构建的多模态开放式视频问答基准，包含 60 部电影的约 8.2K 个问题，并设计了基于原子事实 (atomic facts) 的无参考评估指标，揭示了当前 MLLM 在视觉感知而非推理上的关键瓶颈。
 
 **[Occlusion-Aware Sort Observing Occlusion For Robust Multi-Object Tracking](occlusion-aware_sort_observing_occlusion_for_robust_multi-object_tracking.md)**
 
@@ -121,6 +145,10 @@ description: >-
 **[Openmarcie Dataset For Multimodal Action Recognition In Industrial Environments](openmarcie_dataset_for_multimodal_action_recognition_in_industrial_environments.md)**
 
 :   提出目前最大规模的工业场景多模态动作识别数据集 OpenMarcie，融合可穿戴传感器与视觉数据共 8 种模态、200+ 通道、37+ 小时录制，并在 HAR 分类、开放词表描述、跨模态对齐三个基准上验证了惯性+视觉融合的优越性。
+
+**[Out Of Sight Out Of Track Adversarial Attacks On Propagation-Based Multi-Object ](out_of_sight_out_of_track_adversarial_attacks_on_propagation-based_multi-object_.md)**
+
+:   首次系统分析 Tracking-by-Query-Propagation（TBP）跟踪器的对抗脆弱性，提出 FADE 攻击框架，通过时序查询洪泛（TQF）耗尽固定查询预算和时序记忆腐蚀（TMC）破坏隐状态传播两种策略，在 MOT17/MOT20 上对 MOTR/MOTRv2/MeMOTR/Samba/CO-MOT 造成最高约 30 点 HOTA 下降和 10 倍以上身份切换。
 
 **[Question-Guided Visual Compression With Memory Feedback For Long-Term Video Unde](question-guided_visual_compression_with_memory_feedback_for_long-term_video_unde.md)**
 
@@ -137,6 +165,10 @@ description: >-
 **[Realworld Point Tracking With Verifierguided Pseud](realworld_point_tracking_with_verifierguided_pseud.md)**
 
 :   提出一个可学习的Verifier元模型，在合成数据上训练"判断tracker预测可靠性"的能力并迁移到真实世界，通过逐帧评估6个预训练tracker的预测来选取最可靠的作为伪标签，仅用~5K真实视频即微调出在4个真实世界基准上全面SOTA的Track-On-R模型。
+
+**[Reconstruction-Guided Slot Curriculum Addressing Object Over-Fragmentation In Vi](reconstruction-guided_slot_curriculum_addressing_object_over-fragmentation_in_vi.md)**
+
+:   提出 SlotCurri，一种重建引导的 slot 数量课程学习策略，从极少 slot 开始训练并仅在重建误差高的区域逐步扩展 slot 容量，配合结构感知损失和循环推理，有效解决视频物体中心学习中单一物体被多个 slot 错误拆分的过度碎片化问题，在 YouTube-VIS 上实现 +6.8 FG-ARI 提升。
 
 **[Rethinking Two-Stage Referring-By-Tracking In Referring Multi-Object Tracking Ma](rethinking_two-stage_referring-by-tracking_in_referring_multi-object_tracking_ma.md)**
 
@@ -158,6 +190,18 @@ description: >-
 
 :   形式化 Ego→Exo 模仿错误检测任务，并提出 SAVA-X (Align–Fuse–Detect) 框架，通过自适应采样、场景自适应视角嵌入和双向交叉注意力融合三个模块联合解决时序不对齐、视频冗余和跨视角域差距三大挑战。
 
+**[Show3D Capturing Scenes Of 3D Hands And Objects In The Wild](show3d_capturing_scenes_of_3d_hands_and_objects_in_the_wild.md)**
+
+:   提出首个真正野外环境下具有精确3D标注的手-物体交互数据集SHOW3D，通过设计轻便可穿戴多相机背包系统和ego-exo融合标注pipeline，采集430万帧多视角数据，手部和物体均达到亚厘米级标注精度，跨数据集实验验证其训练模型的泛化优势。
+
+**[Skeletoncontext Skeleton-Side Context Prompt Learning For Zero-Shot Skeleton-Bas](skeletoncontext_skeleton-side_context_prompt_learning_for_zero-shot_skeleton-bas.md)**
+
+:   提出SkeletonContext框架，通过跨模态上下文提示模块从预训练语言模型重建骨骼数据缺失的环境和物体上下文语义，并用关键部位解耦模块增强运动关键关节的判别力，在NTU-60/120和PKU-MMD上的零样本和广义零样本设置中达到SOTA。
+
+**[Slotvtg Object-Centric Adapter For Generalizable Video Temporal Grounding](slotvtg_object-centric_adapter_for_generalizable_video_temporal_grounding.md)**
+
+:   提出SlotVTG框架，通过在MLLM解码器早期层插入轻量级Slot Adapter将视觉token分解为对象级slot表示，辅以DINOv2先验的Slot Alignment Loss引导语义一致的slot形成，显著提升视频时序定位的域外泛化性能（OOD R1@0.5最大提升+4.3），同时仅增加约0.25%的可训练参数。
+
 **[Spiketrack A Spike-Driven Framework For Efficient Visual Tracking](spiketrack_a_spike-driven_framework_for_efficient_visual_tracking.md)**
 
 :   提出 SpikeTrack，首个完全符合脉冲驱动范式的 RGB 视觉跟踪框架，通过非对称时间步扩展、单向信息流和脑启发记忆检索模块（MRM），在 SNN 跟踪器中达到 SOTA 并与 ANN 跟踪器持平，同时能耗仅为 TransT 的 1/26。
@@ -169,6 +213,10 @@ description: >-
 **[Stay In Your Lane Role Specific Queries With Overlap Suppression Loss For Dense ](stay_in_your_lane_role_specific_queries_with_overlap_suppression_loss_for_dense_.md)**
 
 :   提出 ROS-DVC，通过将 DETR-based DVC 框架中的共享 query 分离为独立的 localization query 和 caption query，并设计 Overlap Suppression Loss 惩罚 query 间的时序重叠、Cross-Task Contrastive Alignment 保证跨任务语义一致性，在 YouCook2 和 ActivityNet Captions 上实现了 SOTA 的 captioning 和 localization 性能。
+
+**[Streamgaze Gaze-Guided Temporal Reasoning And Proactive Understanding In Streami](streamgaze_gaze-guided_temporal_reasoning_and_proactive_understanding_in_streami.md)**
+
+:   提出首个注视引导的流式视频理解基准 StreamGaze，包含 8521 个 QA 对覆盖过去/现在/主动预测三类任务，通过注视轨迹-视频对齐的数据构建管线生成时空grounded的QA，揭示了当前 MLLM 在利用注视信号进行时间推理方面的巨大差距。
 
 **[Streamingtom Streaming Token Compression For Efficient Video Understanding](streamingtom_streaming_token_compression_for_efficient_video_understanding.md)**
 
@@ -182,14 +230,6 @@ description: >-
 
 :   提出就绪性感知的流式视频理解范式，通过可学习的 `<RDY>` token 和 Answer Readiness Score (ARS) 指标，让模型不仅回答正确，还能在证据出现的恰当时刻作答，在 9 个流式/离线视频基准上取得 SOTA。
 
-**[Tear Temporal-Aware Automated Red-Teaming For Text-To-Video Models](tear_temporal-aware_automated_red-teaming_for_text-to-video_models.md)**
-
-:   提出 TEAR，首个针对 T2V 模型时序维度漏洞的自动化红队测试框架，通过两阶段优化的时序感知测试生成器和迭代精炼模型，生成文本上无害但能利用时序动态触发有害视频的提示，在开源和商业 T2V 模型上达到 80%+ 的攻击成功率。
-
-**[The Devil Is In The Details Enhancing Video Virtual Try-On Via Keyframe-Driven D](the_devil_is_in_the_details_enhancing_video_virtual_try-on_via_keyframe-driven_d.md)**
-
-:   提出 KeyTailor 框架，通过关键帧驱动的细节注入策略（服装动态增强 + 协同背景优化）在不修改 DiT 架构的前提下，大幅提升视频虚拟试穿的服装保真度与背景一致性，同时发布 15K 高清数据集 ViT-HD。
-
 **[Trajtok Learning Trajectory Tokens Enables Better Video Understanding](trajtok_learning_trajectory_tokens_enables_better_video_understanding.md)**
 
 :   提出 TrajTok——一种端到端可微的轨迹 tokenizer，将视频像素隐式聚类为目标轨迹 token，取代外部分割+跟踪流水线；在从头训练 (TrajViT2)、特征适配 (TrajAdapter) 和视觉语言模型连接器 (TrajVLM) 三种场景下均取得显著提升，尤其在长视频 QA 上大幅超越 patch pooling。
@@ -198,19 +238,31 @@ description: >-
 
 :   提出TrajTok——首个端到端可微的轨迹视频Tokenizer，通过隐式时空聚类将视频编码为物体轨迹Token，无需外部分割/跟踪管线，在K400上+4.8%、SSv2上+4.1%，长视频QA上+8.8%，且推理效率与最高效基线持平。
 
-**[U-Mind A Unified Framework For Real-Time Multimodal Interaction With Audiovisual](u-mind_a_unified_framework_for_real-time_multimodal_interaction_with_audiovisual.md)**
-
-:   提出 U-Mind，首个统一实时全栈多模态交互系统，支持高层推理对话和指令跟随，在单一交互循环中联合生成文本、语音、动作，并渲染为逼真视频，通过排练驱动学习和文本优先解码策略兼顾推理保持与跨模态对齐。
-
 **[UETrack: A Unified and Efficient Framework for Single Object Tracking](uetrack_a_unified_and_efficient_framework_for_single_object_tracking.md)**
 
-**[Unitalking A Unified Audio-Video Framework For Talking Portrait Generation](unitalking_a_unified_audio-video_framework_for_talking_portrait_generation.md)**
+**[Ufvideo Towards Unified Fine-Grained Video Cooperative Understanding With Large ](ufvideo_towards_unified_fine-grained_video_cooperative_understanding_with_large_.md)**
 
-:   提出 UniTalking，一个基于 MM-DiT 的端到端说话人肖像生成框架，通过双流对称架构中的联合注意力机制显式建模音视频 token 的细粒度时序对应关系，实现 SOTA 的唇音同步精度，同时支持个性化语音克隆。
+:   UFVideo 是首个统一全局、像素级和时序级三种粒度视频理解能力的 Video LLM，通过视觉-语言引导对齐策略和 SAM2 mask decoder，在单一模型内同时支持视频问答、目标引用、视频分割和时序定位，并构建了多粒度协同理解基准 UFVideo-Bench。
+
+**[Understanding Temporal Logic Consistency In Video-Language Models Through Cross-](understanding_temporal_logic_consistency_in_video-language_models_through_cross-.md)**
+
+:   本文从可解释性角度分析了视频语言模型（Video-LLMs）时间理解逻辑不一致的根本原因——跨模态注意力头无法有效区分不同时间戳的视频token——并提出 TCAS（Temporally Conditioned Attention Sharpening）方法通过优化注意力分布显著提升了时间逻辑一致性和通用时序定位性能。
+
+**[Unified Spatiotemporal Token Compression For Video-Llms At Ultra-Low Retention](unified_spatiotemporal_token_compression_for_video-llms_at_ultra-low_retention.md)**
+
+:   提出统一时空token压缩方法，通过全局保留池联合评估token的贡献度和语义冗余度，并在LLM内部引入文本感知合并机制，在仅保留约2%视觉token的极端压缩下仍保留90.1%的基线性能，同时将FLOPs降至约2.6%。
 
 **[Utptrack Towards Simple And Unified Token Pruning For Visual Tracking](utptrack_towards_simple_and_unified_token_pruning_for_visual_tracking.md)**
 
 :   提出 UTPTrack，首个在 one-stream Transformer 跟踪器中**同时对搜索区域 (SR)、动态模板 (DT) 和静态模板 (ST) 三个组件进行联合 token 剪枝**的统一框架，在 RGB 和多模态/语言引导跟踪中实现 65–67% 的视觉 token 裁减，且保持 99.7%–100.5% 的基线性能。
+
+**[Videoarm Agentic Reasoning Over Hierarchical Memory For Long-Form Video Understa](videoarm_agentic_reasoning_over_hierarchical_memory_for_long-form_video_understa.md)**
+
+:   VideoARM 提出了一种基于分层多模态记忆（HM3）的 Agent 推理范式，通过"观察-思考-行动-记忆"的自适应循环和粗到细的工具调用策略，在长视频理解基准上超越 SOTA 的同时将 token 消耗降低到 DVD 的 1/34。
+
+**[Videoauto-R1 Video Auto Reasoning Via Thinking Once Answering Twice](videoauto-r1_video_auto_reasoning_via_thinking_once_answering_twice.md)**
+
+:   提出 VideoAuto-R1，一个"按需推理"的视频理解框架：训练时采用"思考一次、回答两次"（answer→think→answer）范式，推理时通过首次回答的置信度决定是否启动 CoT 推理，在保持 SOTA 精度的同时将平均响应长度从 149 降至 44 token（约 3.3 倍压缩）。
 
 **[Videochat-M1 Collaborative Policy Planning For Video Understanding Via Multi-Age](videochat-m1_collaborative_policy_planning_for_video_understanding_via_multi-age.md)**
 
@@ -220,9 +272,17 @@ description: >-
 
 :   VideoChat-M1 提出协作策略规划（CPP）范式和多智能体强化学习（MARL）训练方法，让 4 个异构 VLM agent 动态生成和更新工具调用策略来理解视频，在 LongVideoBench 上超过 Gemini 2.5 Pro 3.6%、GPT-4o 15.6%。
 
+**[Videoseek Long-Horizon Video Agent With Tool-Guided Seeking](videoseek_long-horizon_video_agent_with_tool-guided_seeking.md)**
+
+:   VideoSeek 提出一种长程视频 Agent，利用视频逻辑流主动"寻找"关键证据而非穷举解析所有帧，通过 think-act-observe 循环和多粒度工具包（overview/skim/focus），在 LVBench 上比基座模型 GPT-5 提升 10.2 个点的同时减少 93% 的帧使用量。
+
 **[Virtuebench Evaluating Trustworthiness Under Uncertainty In Long Video Understan](virtuebench_evaluating_trustworthiness_under_uncertainty_in_long_video_understan.md)**
 
 :   提出 VirtueBench，首个评估 VLM 在不确定性下可信度的长视频理解基准，通过为每个视频构建多级帧采样并标注可回答/不可回答的 ground truth，揭示了现有模型普遍倾向于猜测而非诚实拒绝的问题。
+
+**[Vrr-Qa Visual Relational Reasoning In Videos Beyond Explicit Cues](vrr-qa_visual_relational_reasoning_in_videos_beyond_explicit_cues.md)**
+
+:   本文提出 VRR-QA 基准，包含 1K 精心标注的视频问答对，专门测试模型对视频中隐式视觉关系的推理能力（如屏幕外事件、跨帧因果、空间关系推断），揭示当前最强 VideoQA 模型（包括 GPT-O3）在隐式推理上的显著不足——最优模型仅达 64% 准确率，远低于人类的 83%。
 
 **[Wavelet-Based Frame Selection By Detecting Semantic Boundary For Long Video Unde](wavelet-based_frame_selection_by_detecting_semantic_boundary_for_long_video_unde.md)**
 

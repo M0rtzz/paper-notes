@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 图像生成方向 210篇论文解读
+  ICCV2025 图像生成方向 199篇论文解读
 description: >-
-  210篇ICCV2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  199篇ICCV2025 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📹 ICCV2025** · **210** 篇论文解读
+**📹 ICCV2025** · **199** 篇论文解读
 
 **[A0 An Affordance-Aware Hierarchical Model For General Robotic Manipulation](a0_an_affordance-aware_hierarchical_model_for_general_robotic_manipulation.md)**
 
@@ -42,10 +42,6 @@ description: >-
 
 :   提出Aether统一世界模型，在合成RGB-D数据上后训练CogVideoX视频扩散模型，通过随机组合输入/输出模态的多任务训练策略，同时实现4D重建、动作条件视频预测和目标条件视觉规划，且零样本迁移到真实世界数据达到与领域专用模型可比的性能。
 
-**[Aid Adapting Image2Video Diffusion Models For Instruction-Guided Video Predictio](aid_adapting_image2video_diffusion_models_for_instruction-guided_video_predictio.md)**
-
-:   提出AID框架，将预训练的Image2Video扩散模型（SVD）迁移至文本引导视频预测任务，通过MLLM辅助的视频状态预测、双查询Transformer条件注入和时空适配器，在多个数据集上FVD指标超越前SOTA 50%以上。
-
 **[Animegamer Infinite Anime Life Simulation With Next Game State Prediction](animegamer_infinite_anime_life_simulation_with_next_game_state_prediction.md)**
 
 :   提出 AnimeGamer，基于多模态大语言模型(MLLM)的无限动漫生活模拟系统，通过动作感知的多模态表征预测下一轮游戏状态（动态动画镜头 + 角色状态更新），实现持续一致的交互式动漫游戏体验。
@@ -62,10 +58,6 @@ description: >-
 
 :   本文提出APT（AutoPrompT），一种基于LLM的黑盒红队测试框架，通过"优化-微调"交替训练管线和双规避策略，自动生成可被人类阅读且不被内容过滤器拦截的对抗性后缀，有效突破T2I模型的安全机制，并具有零样本跨提示迁移能力。
 
-**[Badvideo Stealthy Backdoor Attack Against Text-To-Video Generation](badvideo_stealthy_backdoor_attack_against_text-to-video_generation.md)**
-
-:   首次提出针对文本到视频（T2V）生成模型的后门攻击框架BadVideo，利用视频中固有的静态和动态冗余信息（如未被文本指定的环境元素、运动轨迹等），通过时空组合和动态元素转换两类策略隐蔽地嵌入恶意内容，在LaVie和Open-Sora上实现高达93.5%的人类评估攻击成功率，同时有效规避现有内容审核系统。
-
 **[Balanced Image Stylization With Style Matching Score](balanced_image_stylization_with_style_matching_score.md)**
 
 :   提出 Style Matching Score（SMS），将图像风格化重铸为风格分布匹配问题，通过渐进频谱正则化和语义感知梯度精炼，在风格对齐与内容保持之间取得卓越平衡，并可蒸馏到轻量前馈网络实现一步风格化。
@@ -75,6 +67,10 @@ description: >-
 :   提出BCD（Bitrate-Controlled Diffusion），一种通用的自监督视频解耦框架，通过低码率矢量量化作为信息瓶颈来分离视频中的逐帧运动特征和全局内容特征，并以条件扩散模型重建视频，在说话人头部视频和像素风格卡通数据集上展示了高质量的运动迁移和自回归视频生成能力。
 
 **[Bridging The Skeleton-Text Modality Gap Diffusion-Powered Modality Alignment For](bridging_the_skeleton-text_modality_gap_diffusion-powered_modality_alignment_for.md)**
+
+:   提出TDSM（Triplet Diffusion for Skeleton-Text Matching），首次将扩散模型应用于零样本骨骼动作识别，通过反向扩散过程实现骨骼特征与文本prompt的隐式对齐，并引入triplet diffusion损失增强判别力，在NTU-60/120和PKU-MMD上大幅超越SOTA（2.36%到13.05%的提升幅度）。
+
+**[Bridging The Skeleton Text Modality Gap Diffusion Powered Modality Alignment For](bridging_the_skeleton_text_modality_gap_diffusion_powered_modality_alignment_for.md)**
 
 :   提出TDSM（Triplet Diffusion for Skeleton-Text Matching），首次将扩散模型应用于零样本骨骼动作识别，通过反向扩散过程实现骨骼特征与文本prompt的隐式对齐，并引入triplet diffusion损失增强判别力，在NTU-60/120和PKU-MMD上大幅超越SOTA（2.36%到13.05%的提升幅度）。
 
@@ -101,6 +97,10 @@ description: >-
 **[Chords Diffusion Sampling Accelerator With Multi-Core Hierarchical Ode Solvers](chords_diffusion_sampling_accelerator_with_multi-core_hierarchical_ode_solvers.md)**
 
 :   提出 Chords，一种基于多核层次 ODE 求解器的扩散采样加速框架，通过慢到快的核间纠正机制（inter-core rectification），在 4-8 个 GPU 上实现 2.1×~2.9× 加速，且不牺牲生成质量。
+
+**[Chords Diffusion Sampling Accelerator With Multi Core Hierarchical Ode Solvers](chords_diffusion_sampling_accelerator_with_multi_core_hierarchical_ode_solvers.md)**
+
+:   提出 Chords，一种基于多核层级 ODE 求解器的无训练、模型无关扩散采样加速框架，通过慢到快的求解器层级和核间纠偏机制，在 4~8 个 GPU 核上实现最高 2.9× 加速而不损失生成质量。
 
 **[Cns-Bench Benchmarking Image Classifier Robustness Under Continuous Nuisance Shi](cns-bench_benchmarking_image_classifier_robustness_under_continuous_nuisance_shi.md)**
 
@@ -174,10 +174,6 @@ description: >-
 
 :   提出 DescriptiveEdit，将"指令式图像编辑"重新定义为"参考图像条件下的文本到图像生成"，通过 Cross-Attentive UNet 引入注意力桥接层将参考图像特征注入生成过程，仅需 75M 可训练参数即可实现高保真描述式编辑，并与 ControlNet、IP-Adapter 等社区工具无缝兼容。
 
-**[Dh-Facevid-1K A Large-Scale High-Quality Dataset For Face Video Generation](dh-facevid-1k_a_large-scale_high-quality_dataset_for_face_video_generation.md)**
-
-:   推出 DH-FaceVid-1K，一个包含 1,200+ 小时、270,043 个视频片段、20,000+ 个人身份的大规模高质量人脸视频数据集，重点解决现有数据集中亚洲人脸严重不足的问题，并通过系统实验验证了数据规模与模型参数的缩放定律。
-
 **[Dice Staleness-Centric Optimizations For Parallel Diffusion Moe Inference](dice_staleness-centric_optimizations_for_parallel_diffusion_moe_inference.md)**
 
 :   针对 MoE 扩散模型并行推理中的"陈旧性"问题 (staleness)，提出 DICE 框架，通过步级交织并行、层级选择性同步和 token 级条件通信三层优化策略，在 DiT-MoE 上实现 1.26× 加速且质量损失极小。
@@ -205,10 +201,6 @@ description: >-
 **[Ditfastattnv2 Head-Wise Attention Compression For Multi-Modality Diffusion Trans](ditfastattnv2_head-wise_attention_compression_for_multi-modality_diffusion_trans.md)**
 
 :   针对多模态扩散Transformer（MMDiT）提出DiTFastAttnV2，通过Head-wise Arrow Attention和Head-wise Caching机制实现细粒度的注意力压缩，在2K图像生成中减少68%注意力FLOPs并实现1.5倍端到端加速，且不损失视觉质量。
-
-**[Dive Taming Dino For Subject-Driven Video Editing](dive_taming_dino_for_subject-driven_video_editing.md)**
-
-:   提出DIVE框架，利用预训练DINOv2模型的语义特征作为隐式对应关系来引导主体驱动的视频编辑，通过DINO特征进行时序运动建模和目标主体身份注册，实现高质量的主体替换同时保持运动一致性。
 
 **[Dmq Dissecting Outliers Of Diffusion Models For Post-Training Quantization](dmq_dissecting_outliers_of_diffusion_models_for_post-training_quantization.md)**
 
@@ -257,10 +249,6 @@ description: >-
 **[Efficient Input-Level Backdoor Defense On Text-To-Image Synthesis Via Neuron Act](efficient_input-level_backdoor_defense_on_text-to-image_synthesis_via_neuron_act.md)**
 
 :   NaviT2I 发现了文生图扩散模型中后门触发器导致的"早期步骤激活变化"（Early-step Activation Variation）现象，基于此提出了一种仅需分析第一步扩散迭代的高效输入级后门防御框架，在 8 种主流攻击上平均 AUROC 达 96.3%，耗时仅为已有方法的 3.8%~16.7%。
-
-**[Efficientmt Efficient Temporal Adaptation For Motion Transfer In Text-To-Video D](efficientmt_efficient_temporal_adaptation_for_motion_transfer_in_text-to-video_d.md)**
-
-:   提出 EfficientMT，一个高效的端到端视频运动迁移框架，通过复用预训练 T2V 模型骨干提取时序运动特征，结合 scaler 模块和时序集成机制，仅用少量合成配对数据即可实现零样本运动迁移，推理时间较优化方法提速 10 倍以上。
 
 **[Emoticrafter Text-To-Emotional-Image Generation Based On Valence-Arousal Model](emoticrafter_text-to-emotional-image_generation_based_on_valence-arousal_model.md)**
 
@@ -450,10 +438,6 @@ description: >-
 
 :   LD-RPS 提出一种零样本、无数据集的统一图像复原方法，利用预训练潜在扩散模型进行循环后验采样，通过多模态大模型提供语义先验、可学习 F-PAM 模块对齐退化域，实现多种退化类型的高质量盲复原。
 
-**[Leanvae An Ultra-Efficient Reconstruction Vae For Video Diffusion Models](leanvae_an_ultra-efficient_reconstruction_vae_for_video_diffusion_models.md)**
-
-:   > 提出 LeanVAE，基于非重叠 Patch 操作、邻域感知前馈（NAF）模块、小波变换和压缩感知技术，构建超高效视频 VAE，在仅 40M 参数下实现 FLOPs 减少 50 倍、推理速度加快 44 倍，同时保持有竞争力的重建质量。
-
 **[Learning Few-Step Diffusion Models By Trajectory Distribution Matching](learning_few-step_diffusion_models_by_trajectory_distribution_matching.md)**
 
 :   提出 Trajectory Distribution Matching（TDM），一种统一轨迹蒸馏和分布匹配的新范式，在分布层面对齐学生与教师的 ODE 轨迹，实现高效的少步扩散模型蒸馏，仅需 2 A800 小时即可将 PixArt-α 蒸馏为超越教师的 4 步生成器。
@@ -534,10 +518,6 @@ description: >-
 
 :   本文提出 MosaicDiff，一种免训练的扩散模型结构化剪枝方法，通过将推理过程按预训练学习速度动态分为三个阶段并对各阶段应用不同稀疏度的子网络，实现了在 DiT 和 SDXL 上的显著加速而不牺牲生成质量。
 
-**[Motionagent Fine-Grained Controllable Video Generation Via Motion Field Agent](motionagent_fine-grained_controllable_video_generation_via_motion_field_agent.md)**
-
-:   提出 MotionAgent，通过运动场代理（Motion Field Agent）将文本中的运动描述转化为物体轨迹和相机外参，再经解析式光流合成模块统一为光流图，实现仅凭文本输入即可对 I2V 生成中的物体运动和相机运动进行细粒度精确控制。
-
 **[Motiondiff Training-Free Zero-Shot Interactive Motion Editing Via Flow-Assisted ](motiondiff_training-free_zero-shot_interactive_motion_editing_via_flow-assisted_.md)**
 
 :   MotionDiff 提出一种免训练、零样本的多视图运动编辑方法，通过点运动学模型（PKM）从静态场景估计多视图光流，再利用解耦运动表示引导 Stable Diffusion 生成高质量、多视图一致的运动编辑结果。
@@ -561,10 +541,6 @@ description: >-
 **[Music-Aligned Holistic 3D Dance Generation Via Hierarchical Motion Modeling](music-aligned_holistic_3d_dance_generation_via_hierarchical_motion_modeling.md)**
 
 :   提出 SoulDance 数据集（首个含身体+手部+面部的高质量3D舞蹈数据集）和 SoulNet 框架（层次化残差向量量化 + 音乐对齐生成模型 + 跨模态检索），实现首个面部表情与身体手部动作协调一致、与音乐节奏情感对齐的全身3D舞蹈生成。
-
-**[Normalcrafter Learning Temporally Consistent Normals From Video Diffusion Priors](normalcrafter_learning_temporally_consistent_normals_from_video_diffusion_priors.md)**
-
-:   NormalCrafter 基于视频扩散模型（SVD）提出视频法线估计方法，通过语义特征正则化（SFR）和两阶段训练策略，生成具有精细细节和时序一致性的法线序列，在视频基准上大幅超越现有单帧方法。
 
 **[Nuiscene Exploring Efficient Generation Of Unbounded Outdoor Scenes](nuiscene_exploring_efficient_generation_of_unbounded_outdoor_scenes.md)**
 
@@ -622,17 +598,9 @@ description: >-
 
 :   PRG 通过**反转预训练连续生成模型**（扩散/流模型）的生成过程来提取无监督视觉表示，实现模型无关的判别任务适配，在 ImageNet 64×64 上达到 78% top-1 准确率，为基于生成模型的方法中 SOTA。
 
-**[Prompt-A-Video Prompt Your Video Diffusion Model Via Preference-Aligned Llm](prompt-a-video_prompt_your_video_diffusion_model_via_preference-aligned_llm.md)**
-
-:   提出Prompt-A-Video，通过奖励引导的提示词进化流水线自动构建训练数据，经过SFT和DPO两阶段优化LLM，生成针对特定视频扩散模型偏好对齐的增强提示词。
-
 **[Randomized Autoregressive Visual Generation](randomized_autoregressive_visual_generation.md)**
 
 :   提出 Randomized AutoRegressive modeling (RAR)：在标准自回归训练中以随机排列输入序列并逐步退火回光栅扫描顺序，使模型学习双向上下文，在 ImageNet-256 上以 FID 1.48 刷新自回归图像生成 SOTA，同时保持与语言模型框架的完全兼容。
-
-**[Reangle-A-Video 4D Video Generation As Video-To-Video Translation](reangle-a-video_4d_video_generation_as_video-to-video_translation.md)**
-
-:   Reangle-A-Video 将多视角视频生成重新定义为视频到视频翻译问题，通过自监督微调视频扩散模型学习视角不变运动，配合 DUSt3R 引导的多视角一致性 inpainting，从单目视频生成同步多视角视频。
 
 **[Reducio Generating 1K Video Within 16 Seconds Using Extremely Compressed Motion ](reducio_generating_1k_video_within_16_seconds_using_extremely_compressed_motion_.md)**
 
@@ -770,10 +738,6 @@ description: >-
 
 :   提出 TADM，在预训练 SD 的潜空间中执行极端图像缩放（16×/32×），通过解耦特征缩放模块和时间步自适应对齐策略，动态分配扩散模型的生成能力以应对空间非均匀退化。
 
-**[Tip-I2V A Million-Scale Real Text And Image Prompt Dataset For Image-To-Video Ge](tip-i2v_a_million-scale_real_text_and_image_prompt_dataset_for_image-to-video_ge.md)**
-
-:   构建了首个百万规模的真实用户文本和图像Prompt数据集TIP-I2V（170万+唯一prompt对），包含5个SOTA图像到视频模型的生成视频，并基于此提出了TIP-Eval评估基准、用户偏好分析、以及视频真伪检测等多个研究方向。
-
 **[Tlb-Vfi Temporal-Aware Latent Brownian Bridge Diffusion For Video Frame Interpol](tlb-vfi_temporal-aware_latent_brownian_bridge_diffusion_for_video_frame_interpol.md)**
 
 :   提出 TLB-VFI，一种高效的视频扩散模型用于帧插值：通过时域感知自编码器（隐空间时域块+像素空间3D小波门控）提取丰富的时间信息，结合重新设计的布朗桥扩散过程，在参数量仅 46.7M（比图像扩散方法少 3×、比视频扩散方法少 20×）的情况下，在 SNU-FILM extreme 和 Xiph-4K 上 FID 提升约 20%。
@@ -822,10 +786,6 @@ description: >-
 
 :   提出 VIGFace 框架，通过在人脸识别模型的特征空间中预先分配与真实身份正交的虚拟原型（virtual prototypes），训练扩散模型从虚拟原型生成不存在于真实世界的人脸图像，实现隐私无忧的人脸识别数据集构建和数据增强。
 
-**[Vip Iterative Online Preference Distillation For Efficient Video Diffusion Model](vip_iterative_online_preference_distillation_for_efficient_video_diffusion_model.md)**
-
-:   > 提出 ReDPO 损失函数和 V.I.P. 迭代在线偏好蒸馏框架，将偏好学习 (DPO) 与 SFT 正则化相结合用于剪枝后视频扩散模型的蒸馏，在参数减少 36.2%-67.5% 的情况下匹配甚至超越完整模型性能。
-
 **[Visualcloze A Universal Image Generation Framework Via Visua](visualcloze_a_universal_image_generation_framework_via_visua.md)**
 
 :   提出 VisualCloze，将多种图像生成任务统一为"视觉完形填空"范式——用视觉示例（而非文本指令）定义任务，通过图像 infilling 模型实现统一生成，并构建 Graph200K 图结构数据集增强任务间知识迁移，支持域内任务、未见任务泛化、多任务组合和反向生成。
@@ -841,10 +801,6 @@ description: >-
 **[Whats In A Latent Leveraging Diffusion Latent Space For Domain Generalization](whats_in_a_latent_leveraging_diffusion_latent_space_for_domain_generalization.md)**
 
 :   深入分析了不同预训练模型（CLIP、DiT、SD、MAE、DINOv2、ResNet）隐空间的域分离能力，发现扩散模型特征在无监督情况下最擅长分离域信息，并提出 GUIDE 框架——用扩散特征发现伪域表征并增广分类器特征，在 5 个 DomainBed 数据集上无需域标签即取得 66.3% 平均准确率（超越 ERM 基线 +2.6%，在 TerraIncognita 上 +4.3%），且优于大多数需要域标签的方法。
-
-**[X-Dancer Expressive Music To Human Dance Video Generation](x-dancer_expressive_music_to_human_dance_video_generation.md)**
-
-:   X-Dancer 提出了一个统一的 Transformer-扩散框架，从单张静态图像和音乐输入出发，通过自回归 Transformer 生成与音乐节拍同步的 2D 全身舞蹈姿态 token 序列，再利用扩散模型将这些 token 转化为高保真的舞蹈视频，在多样性、表达力和视频质量上均超越了现有方法。
 
 **[Your Text Encoder Can Be An Object-Level Watermarking Controller](your_text_encoder_can_be_an_object-level_watermarking_controller.md)**
 

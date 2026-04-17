@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 音频/语音方向 33篇论文解读
+  ACL2025 音频/语音方向 35篇论文解读
 description: >-
-  33篇ACL2025 音频/语音方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  35篇ACL2025 音频/语音方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**💬 ACL2025** · **33** 篇论文解读
+**💬 ACL2025** · **35** 篇论文解读
 
 **[Aae Voice Chatbot](aae_voice_chatbot.md)**
 
@@ -133,6 +133,14 @@ description: >-
 **[Towards Reliable Large Audio Language Model](towards_reliable_large_audio_language_model.md)**
 
 :   本文首次系统研究大型音频语言模型（LALM）的可靠性问题，提出训练无关方法（IDK/MCoT/Task Agent）和训练方法（基于模型特定 IDK 数据集的 LoRA SFT），并设计 Reliability Gain Index（RGI）指标来评估可靠性提升效果，发现"知道说不知道"是可跨音频模态迁移的元能力。
+
+**[Unicodec Unified Audio Codec With Single Domain-Adaptive Codebook](unicodec_unified_audio_codec_with_single_domain-adaptive_codebook.md)**
+
+:   UniCodec 提出了一种使用单个域自适应码本的统一音频编解码器，通过分区域码本和域混合专家（MoE）策略，在语音、音乐和声音三个域上均实现卓越的重建和语义表示性能。
+
+**[Wavrag Audio-Integrated Retrieval Augmented Generation For Spoken Dialogue Model](wavrag_audio-integrated_retrieval_augmented_generation_for_spoken_dialogue_model.md)**
+
+:   提出 WavRAG，首个端到端原生支持音频的检索增强生成框架，通过 WavRetriever 实现音频-文本混合知识库的统一检索，并结合 CoT 推理增强口语对话模型的上下文能力，在保持与 SOTA 文本 RAG 可比性能的同时实现约 10 倍加速。
 
 **[Who Can Withstand Chat-Audio Attacks An Evaluation Benchmark For Large Audio-Lan](who_can_withstand_chat-audio_attacks_an_evaluation_benchmark_for_large_audio-lan.md)**
 

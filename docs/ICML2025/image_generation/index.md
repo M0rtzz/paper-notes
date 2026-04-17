@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **115** 篇论文解读
 
+**[Action-Minimization Meets Generative Modeling Efficient Transition Pat](action-minimization_meets_generative_modeling_efficient_transition_pat.md)**
+
+:   将预训练扩散/flow matching模型的score函数解释为随机动力学的漂移项，通过最小化Onsager-Machlup (OM)作用量泛函实现零样本转移路径采样，无需任务特定训练即可在分子系统上高效生成多样且物理真实的转移路径。
+
 **[Action-Minimization Meets Generative Modeling Efficient Transition Path Sampling](action-minimization_meets_generative_modeling_efficient_transition_path_sampling.md)**
 
 :   本文提出将预训练生成模型（扩散模型和流匹配）的 score 函数解释为随机动力学中的漂移项，通过最小化 Onsager-Machlup (OM) 作用泛函来**零样本**复用预训练模型进行分子系统的过渡路径采样 (TPS)，在丙氨酸二肽、快速折叠蛋白等系统上以远低于传统方法的计算成本获得了物理真实的过渡路径。
@@ -49,10 +53,6 @@ description: >-
 **[Broadband Ground Motion Synthesis By Diffusion Model With Minimal Condition](broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition.md)**
 
 :   提出 HEGGS（High-fidelity Earthquake Groundmotion Generation System），利用地震数据集中波形天然可配对的特性，结合条件隐扩散模型与 ACM 振幅校正模块，仅需最少条件信息（经纬度、震源深度、震级）即可端到端生成高保真三分量地震波形。
-
-**[Ca2-Vdm Efficient Autoregressive Video Diffusion Model With Causal Generation An](ca2-vdm_efficient_autoregressive_video_diffusion_model_with_causal_generation_an.md)**
-
-:   提出 Ca2-VDM，通过因果生成（Causal Generation）和缓存共享（Cache Sharing）两大设计，消除自回归视频扩散模型中条件帧的冗余计算，将计算复杂度从二次降至线性，生成 80 帧视频速度比基线快 2.5 倍，同时保持 SOTA 级生成质量。
 
 **[Compositional Flows For 3D Molecule And Synthesis Pathway Co-Design](compositional_flows_for_3d_molecule_and_synthesis_pathway_co-design.md)**
 
@@ -174,9 +174,17 @@ description: >-
 
 :   提出 Hi-MAR，在掩码自回归图像生成中引入低分辨率 token 作为中间枢纽，建立从粗到细的层次化生成流程，并用 Diffusion Transformer Head 增强 token 间依赖建模，在 ImageNet 上以更少计算量显著超越 MAR（FID 提升 0.38）。
 
+**[Hierarchical Reinforcement Learning With Uncertainty-Guided Diffusional Subgoals](hierarchical_reinforcement_learning_with_uncertainty-guided_diffusional_subgoals.md)**
+
+:   提出将条件扩散模型与高斯过程先验相结合的分层强化学习框架，通过不确定性感知的子目标生成机制，解决高层策略在低层策略动态变化时难以产生有效子目标的核心难题。
+
 **[How To Move Your Dragon Text-To-Motion Synthesis For Large-Vocabulary Objects](how_to_move_your_dragon_text-to-motion_synthesis_for_large-vocabulary_objects.md)**
 
 :   本文首次提出一个统一框架，通过为 Truebones Zoo 数据集（70+ 物种）标注文本描述、引入 rig augmentation 技术以及在 Motion Diffusion Model 中融入 TreePE 和 RestPE 编码，实现了面向大词汇量异构骨骼对象的文本驱动动作生成，可为动物、恐龙乃至虚构生物合成高质量 3D 动作。
+
+**[Impact Iterative Mask-Based Parallel Decoding For Text-To-Audio Generation](impact_iterative_mask-based_parallel_decoding_for_text-to-audio_generation.md)**
+
+:   IMPACT 将迭代掩码并行解码与潜在扩散模型结合，在连续潜在空间中操作并用轻量 MLP 扩散头替代传统重型注意力骨干，同时达成音频生成质量 SOTA（AudioCaps 上 FD=20.3, FAD=1.45）和接近最快模型 MAGNET-S 的推理速度。
 
 **[Impact Iterative Mask-Based Parallel Decoding For Text-To-Audio Generation With ](impact_iterative_mask-based_parallel_decoding_for_text-to-audio_generation_with_.md)**
 
@@ -242,10 +250,6 @@ description: >-
 
 :   提出 LSCD，将可微的 Lomb-Scargle 周期图层集成到 score-based 扩散模型中用于时间序列填补，通过频域条件信息和频谱一致性损失，在高缺失率下同时提升时域填补精度和频域恢复一致性。
 
-**[Mimicmotion High-Quality Human Motion Video Generation With Confidence-Aware Pos](mimicmotion_high-quality_human_motion_video_generation_with_confidence-aware_pos.md)**
-
-:   基于 Stable Video Diffusion 构建姿态引导人体视频生成框架，通过将姿态估计置信度编码进引导信号、对高置信手部区域放大训练损失、以及位置感知的渐进式潜变量融合三项设计，在 TikTok 数据集上 FID-VID 达 9.3（前最优 12.4），同时支持任意长度平滑视频生成。
-
 **[Model Immunization From A Condition Number Perspective](model_immunization_from_a_condition_number_perspective.md)**
 
 :   从Hessian矩阵条件数的角度定义和分析模型免疫问题，提出最大化/最小化条件数的正则化器，使预训练模型难以被微调用于有害任务而不影响正常任务性能。
@@ -293,10 +297,6 @@ description: >-
 **[Pak-Ucb Contextual Bandit An Online Learning Approach To Prompt-Aware Selection ](pak-ucb_contextual_bandit_an_online_learning_approach_to_prompt-aware_selection_.md)**
 
 :   提出 PAK-UCB 上下文老虎机算法，通过为每个生成模型学习独立的核函数，在线预测给定 prompt 下的最优模型，实现 prompt 级别的生成模型/LLM 选择，并用随机傅里叶特征（RFF）降低计算开销。
-
-**[Parameter-Efficient Fine-Tuning Of State Space Models](parameter-efficient_fine-tuning_of_state_space_models.md)**
-
-:   本文系统性地评估了现有 PEFT 方法在 SSM（如 Mamba）模型上的效果，发现 LoRA 虽在线性投影层表现最优但无法有效调优 SSM 模块，进而提出 Sparse Dimension Tuning（SDT）——一种专为 SSM 模块设计的 PEFT 方法，结合 LoRA 用于线性层，在多个基准上达到 SOTA 性能。
 
 **[Peptune De Novo Generation Of Therapeutic Peptides With Multi-Objective-Guided D](peptune_de_novo_generation_of_therapeutic_peptides_with_multi-objective-guided_d.md)**
 
@@ -438,10 +438,6 @@ description: >-
 
 :   通过对数概率密度的 Hessian 曲率（sharpness）建立扩散模型记忆化的几何分析框架，提出可在生成初始阶段检测记忆化的新指标，并设计无需重训练的 SAIL 初始噪声优化策略来缓解记忆化。
 
-**[Understanding And Mitigating Miscalibration In Prompt Tuning For Vision-Language](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)**
-
-:   揭示 CLIP prompt tuning 在 base 和 novel 类之间存在校准权衡（CoOp 导致 novel 类过度自信，KgCoOp 导致 base 类自信不足），从文本特征散度视角解释原因，并提出 Dynamic Outlier Regularization (DOR) 通过正则化非训练类文本标签的特征偏差同时保持两端校准。
-
 **[Unsupervised Learning For Class Distribution Mismatch](unsupervised_learning_for_class_distribution_mismatch.md)**
 
 :   提出 UCDM，利用扩散模型从无标注数据中合成正负样本对来训练分类器，在不依赖标注数据的情况下解决训练集与目标任务之间的类别分布不匹配（CDM）问题，在 closed-set 和 open-set 任务上均大幅超越现有半监督方法。
@@ -465,6 +461,10 @@ description: >-
 **[When Model Knowledge Meets Diffusion Model Diffusion-Assisted Data-Free Image Sy](when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_sy.md)**
 
 :   提出 DDIS，首次将 T2I 扩散模型作为强图像先验用于无数据图像合成，通过域对齐引导（DAG）和类对齐 Token（CAT）使生成图像在域和类两个层面精准对齐预训练模型的训练数据分布，在 PACS 和 ImageNet 的无数据 KD/剪枝中达到 SOTA。
+
+**[When Model Knowledge Meets Diffusion Model Diffusion-Assisted Data-Free Image Synthesis](when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_synthesis.md)**
+
+:   提出DDIS——首个利用T2I扩散模型作为图像先验的无数据图像合成方法，通过Domain Alignment Guidance (DAG)在扩散采样过程中对齐BN层域统计量、Class Alignment Token (CAT)编码类特定属性，在ImageNet-1k和多域PACS上全面超越现有DFIS方法。
 
 **[Zero-Shot Adaptation Of Parameter-Efficient Fine-Tuning In Diffusion Models](zero-shot_adaptation_of_parameter-efficient_fine-tuning_in_diffusion_models.md)**
 

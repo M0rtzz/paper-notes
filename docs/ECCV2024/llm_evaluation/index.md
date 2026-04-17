@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 LLM评测方向 11篇论文解读
+  ECCV2024 LLM评测方向 15篇论文解读
 description: >-
-  11篇ECCV2024 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  15篇ECCV2024 LLM评测方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🎞️ ECCV2024** · **11** 篇论文解读
+**🎞️ ECCV2024** · **15** 篇论文解读
 
 **[Colormnet A Memory-Based Deep Spatial-Temporal Feature Propagation Network For V](colormnet_a_memory-based_deep_spatial-temporal_feature_propagation_network_for_v.md)**
 
@@ -38,13 +38,25 @@ description: >-
 
 :   提出基于隐式神经表示（INR）的电磁逆散射问题（EISP）求解方案，通过将散射体的相对介电常数建模为连续隐式表示并在前向框架中优化，有效避免了逆估计的困难和离散化导致的低分辨率问题。
 
+**[Instance-Dependent Noisy-Label Learning With Graphical Model Based Noise-Rate Es](instance-dependent_noisy-label_learning_with_graphical_model_based_noise-rate_es.md)**
+
+:   本文提出一种基于概率图模型的噪声率估计方法，可自动估计训练集标签噪声率，并利用估计值指导样本选择策略的课程设计，可无缝集成到 DivideMix、InstanceGM 等 SOTA 噪声标签学习方法中，在合成和真实世界基准上提升其分类精度。
+
 **[Ogni-Dc Robust Depth Completion With Optimization-Guided Neural Iterations](ogni-dc_robust_depth_completion_with_optimization-guided_neural_iterations.md)**
 
 :   提出 OGNI-DC，通过"优化引导的神经迭代"（OGNI）框架，结合 ConvGRU 迭代精炼深度梯度场和可微深度积分器（DDI）来实现深度补全，同时达到 SOTA 精度和强泛化能力。
 
+**[R2-Bench Benchmarking The Robustness Of Referring Perception Models Under Pertur](r2-bench_benchmarking_the_robustness_of_referring_perception_models_under_pertur.md)**
+
+:   提出 R²-Bench，一个系统评估指代感知模型（RPM）在各种扰动下鲁棒性的综合基准，包含完整的扰动分类体系、通用的扰动合成工具箱和基于 LLM 的自动化评估代理 R²-Agent，覆盖五大关键任务，揭示了当前 RPM 在噪声条件下的脆弱性。
+
 **[Sigma Sinkhorn-Guided Masked Video Modeling](sigma_sinkhorn-guided_masked_video_modeling.md)**
 
 :   本文提出 SIGMA，通过引入投影网络将 masked video modeling 的重建目标从像素级升级为可学习的深层特征聚类分配，利用 Sinkhorn 算法的最优传输实施高熵正则化避免坍缩，在 10 个数据集 3 个 benchmark 上全面超越 VideoMAE 等 SOTA 方法。
+
+**[Sync From The Sea Retrieving Alignable Videos From Large-Scale Datasets](sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets.md)**
+
+:   提出可对齐视频检索（Alignable Video Retrieval, AVR）任务，通过 DRAQ 对齐质量指标从大规模视频数据库中识别并检索出最适合与查询视频进行时序对齐的视频，同时提出特征上下文化方法提升对齐性能。
 
 **[Versatile Incremental Learning Towards Class And Domain-Agnostic Incremental Lea](versatile_incremental_learning_towards_class_and_domain-agnostic_incremental_lea.md)**
 
@@ -53,3 +65,7 @@ description: >-
 **[Visfocus Prompt-Guided Vision Encoders For Ocr-Free Dense Document Understanding](visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding.md)**
 
 :   VisFocus提出了一种提示引导的视觉编码方法用于OCR-free文档理解：通过将用户提示（prompt）直接注入视觉编码器的patch merging层（ViLMA层），配合局部掩码提示建模（LMPM）预训练任务，使视觉编码器学会聚焦于与提示相关的文本区域，在多个文档VQA基准上达到同规模SOTA。
+
+**[Visfocus Promptguided Vision Encoders For Ocrfree Dense](visfocus_promptguided_vision_encoders_for_ocrfree_dense.md)**
+
+:   提出 VisFocus，通过在视觉编码器的 patch merging 层引入 prompt 感知的 ViLMA 层，并设计 LMPM 预训练任务，使 OCR-Free 文档理解模型能聚焦于与用户查询相关的文本区域，在多个文档 VQA 基准上达到同规模 SOTA。

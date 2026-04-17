@@ -1,22 +1,18 @@
 ---
 title: >-
-  ECCV2024 图像恢复方向 20篇论文解读
+  ECCV2024 图像恢复方向 26篇论文解读
 description: >-
-  20篇ECCV2024 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  26篇ECCV2024 图像恢复方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🎞️ ECCV2024** · **20** 篇论文解读
+**🎞️ ECCV2024** · **26** 篇论文解读
 
 **[Accelerating Image Super-Resolution Networks With Pixel-Level Classification](accelerating_image_super-resolution_networks_with_pixel-level_classification.md)**
 
 :   提出PCSR——首个像素级计算资源分配的超分方法，用轻量MLP分类器逐像素判断恢复难度并分配到不同容量的上采样器，在PSNR几乎不掉的情况下将FLOPs压低至原始模型的18%~57%，大幅优于现有patch级方法ClassSR和ARM。
-
-**[Adaptive Selection Of Samplingreconstruction In Fourier Comp](adaptive_selection_of_samplingreconstruction_in_fourier_comp.md)**
-
-:   提出自适应选择采样-重建框架 $\mathcal{H}_{1.5}$，为每个输入数据自适应选择最佳的采样mask与专用重建网络对，利用超分辨率空间生成模型量化高频不确定性实现选择，理论证明优于非自适应联合优化 $\mathcal{H}_1$ 和自适应采样 $\mathcal{H}_2$。
 
 **[Asymmetric Mask Scheme For Self-Supervised Real Image Denoising](asymmetric_mask_scheme_for_self-supervised_real_image_denoising.md)**
 
@@ -26,6 +22,14 @@ description: >-
 
 :   提出 BAMM（双向自回归运动模型），通过统一生成掩码建模和自回归建模的混合注意力掩码策略，在一个框架中同时实现高质量运动生成、自适应长度预测和零样本运动编辑，在 HumanML3D 和 KIT-ML 上全面超越 SOTA。
 
+**[Blind Image Deblurring With Noise-Robust Kernel Estimation](blind_image_deblurring_with_noise-robust_kernel_estimation.md)**
+
+:   本文提出一种基于噪声鲁棒核估计函数和深度图像先验（DIP）的盲去模糊方法，通过设计能在强噪声下仍能准确估计模糊核的核估计函数，结合多核估计方案处理未知噪声水平，在模拟和真实图像上取得了优越的去模糊性能。
+
+**[Contourlet Residual For Prompt Learning Enhanced Infrared Image Super-Resolution](contourlet_residual_for_prompt_learning_enhanced_infrared_image_super-resolution.md)**
+
+:   针对红外图像超分辨率的特殊挑战，提出 CoRPLE 框架，利用 Contourlet 变换进行多尺度多方向的红外频谱残差增强，并引入基于视觉语言模型的提示学习范式来捕获红外图像的固有特征，在红外 SR 任务上达到 SOTA 性能。
+
 **[Denoisplit A Method For Joint Microscopy Image Splitting And Unsupervised Denois](denoisplit_a_method_for_joint_microscopy_image_splitting_and_unsupervised_denois.md)**
 
 :   提出 DenoiSplit，首个将语义图像分解（image splitting）和无监督去噪（unsupervised denoising）联合解决的方法，通过在层次化 VAE 中整合像素噪声模型和改进的 KL 散度损失加权策略，在荧光显微镜图像上实现了端到端的去噪+分解，性能显著优于先去噪再分解的串行方案。
@@ -34,9 +38,21 @@ description: >-
 
 :   提出基于扩散模糊模型的测试时域适应方法，通过从模糊视频中检测相对清晰区域作为伪清晰图像，并生成域自适应的模糊条件来合成训练对，实现在未知域上对去模糊模型的微调，在 5 个真实数据集上最高提升 7.54dB。
 
+**[Edformer Transformer-Based Event Denoising Across Varied Noise Levels](edformer_transformer-based_event_denoising_across_varied_noise_levels.md)**
+
+:   EDformer 提出了一种基于 Transformer 的逐事件去噪模型，通过学习事件之间的时空相关性来处理不同噪声水平下的事件相机噪声，并首次构建了包含 21 个噪声等级的真实世界事件去噪数据集 ED24。
+
+**[Efficient Cascaded Multiscale Adaptive Network For Image Restoration](efficient_cascaded_multiscale_adaptive_network_for_image_restoration.md)**
+
+:   ECMA 提出了一种高效级联多尺度自适应网络，通过局部自适应模块（LAM）动态调整卷积核来处理空间变化的退化，并以级联多尺度的方式捕捉不同尺度的特征，在去模糊、去噪和超分辨率等多种图像复原任务上以 1.2×-9.7× 的计算量减少实现了与 SOTA 可比甚至更优的性能。
+
 **[Efficient Diffusion Transformer With Step-Wise Dynamic Attention Mediators](efficient_diffusion_transformer_with_step-wise_dynamic_attention_mediators.md)**
 
 :   发现 Diffusion Transformer 中 query-key 交互存在显著冗余（尤其在去噪早期），提出 Attention Mediator 机制将注意力复杂度降至线性，并设计逐步动态调整策略，在 SiT-XL/2 上实现 SOTA FID 2.01，同时减少计算量。
+
+**[Exploiting Dual-Correlation For Multi-Frame Time-Of-Flight Denoising](exploiting_dual-correlation_for_multi-frame_time-of-flight_denoising.md)**
+
+:   提出首个基于学习的多帧ToF深度去噪框架，通过双相关性估计模块（利用帧内和帧间相关性）和置信度引导的残差回归模块，有效利用多帧ToF数据之间的关联来指导噪声去除，在强噪声区域显著优于现有单帧方法。
 
 **[Joint Rgb-Spectral Decomposition Model Guided Image Enhancement In Mobile Photog](joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog.md)**
 
@@ -45,6 +61,10 @@ description: >-
 **[Learning Exhaustive Correlation For Spectral Super-Resolution Where Spatial-Spec](learning_exhaustive_correlation_for_spectral_super-resolution_where_spatial-spec.md)**
 
 :   本文提出 Exhaustive Correlation Transformer (ECT)，通过光谱方向非连续3D切分策略 (SD3D) 建模统一的空间-光谱相关性，并通过动态低秩映射模块 (DLRM) 捕获多token间的线性依赖关系，在光谱超分辨率任务上以最少的参数量和最低的推理延迟实现了 SOTA 性能。
+
+**[Learning To Robustly Reconstruct Dynamic Scenes From Low-Light Spike Streams](learning_to_robustly_reconstruct_dynamic_scenes_from_low-light_spike_streams.md)**
+
+:   本文针对脉冲相机在低光环境下信息稀疏导致重建困难的问题，提出了一种双向循环重建框架，其核心是光鲁棒表示（LR-Rep）通过全局脉冲间隔（GISI）聚合时域信息，配合特征融合模块提取时序特征，并构建了专门的低光高速数据集，在合成和真实数据上均大幅超越现有方法。
 
 **[Mambair A Simple Baseline For Image Restoration With State-Space Model](mambair_a_simple_baseline_for_image_restoration_with_state-space_model.md)**
 
@@ -62,9 +82,9 @@ description: >-
 
 :   本文提出 ODM 框架，通过协同失配正则化（cooperative mismatch regularization）和逐层权重裁剪校正（weight clipping correction）两个简单策略，在不引入推理时动态模块的前提下解决 SR 网络量化中的分布失配问题，以极小的额外开销达到 SOTA。
 
-**[Realviformer Investigating Attention For Real-World Video Super-Resolution](realviformer_investigating_attention_for_real-world_video_super-resolution.md)**
+**[Pairwise Distance Distillation For Unsupervised Real-World Image Super-Resolutio](pairwise_distance_distillation_for_unsupervised_real-world_image_super-resolutio.md)**
 
-:   本文系统研究了空间注意力和通道注意力在真实世界视频超分辨率（RWVSR）中的行为差异，发现通道注意力对退化伪影更鲁棒但会导致特征冗余，据此提出了带有改进通道注意力（ICA）和通道注意力融合（CAF）模块的 RealViformer，以更少的参数和更快的速度达到 SOTA。
+:   提出成对距离蒸馏框架，通过蒸馏专用模型和通用模型之间的内部和模型间距离关系，实现无监督真实世界图像超分辨率的退化自适应。
 
 **[Restoring Images In Adverse Weather Conditions Via Histogram Transformer](restoring_images_in_adverse_weather_conditions_via_histogram_transformer.md)**
 
@@ -85,6 +105,10 @@ description: >-
 **[Towards Real-World Event-Guided Low-Light Video Enhancement And Deblurring](towards_real-world_event-guided_low-light_video_enhancement_and_deblurring.md)**
 
 :   本文首次提出事件相机引导的低光视频增强与去模糊联合任务，构建了基于分光棱镜的真实世界数据集 RELED，并设计了包含事件引导可变形时序对齐 (ED-TFA) 和频谱滤波跨模态增强 (SFCM-FE) 两个核心模块的端到端框架，在 PSNR 上比此前最佳方法提升 1.2dB 以上。
+
+**[Ttt-Mim Test-Time Training With Masked Image Modeling For Denoising Distribution](ttt-mim_test-time_training_with_masked_image_modeling_for_denoising_distribution.md)**
+
+:   本文提出 TTT-MIM，在训练阶段联合优化监督去噪损失和自监督掩码图像建模（MIM）损失，在测试时通过最小化 MIM 自监督损失对单张噪声图像进行适应性微调，从而显著提升对分布外噪声（如真实相机噪声、显微镜噪声）的去噪性能，且速度远超零样本方法。
 
 **[Unrolled Decomposed Unpaired Learning For Controllable Low-Light Video Enhanceme](unrolled_decomposed_unpaired_learning_for_controllable_low-light_video_enhanceme.md)**
 

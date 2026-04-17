@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 人体理解方向 38篇论文解读
+  ICML2025 人体理解方向 39篇论文解读
 description: >-
-  38篇ICML2025 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  39篇ICML2025 人体理解方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🧪 ICML2025** · **38** 篇论文解读
+**🧪 ICML2025** · **39** 篇论文解读
 
 **[A Generalizable Physics-Enhanced State Space Model For Long-Term Dynamics Foreca](a_generalizable_physics-enhanced_state_space_model_for_long-term_dynamics_foreca.md)**
 
@@ -93,6 +93,10 @@ description: >-
 **[Merge-Friendly Post-Training Quantization For Multi-Target Domain Adaptation](merge-friendly_post-training_quantization_for_multi-target_domain_adaptation.md)**
 
 :   首次系统分析量化引入的离散化噪声如何破坏模型融合效果，提出 HDRQ（Hessian and Distance Regularizing Quantization）——通过 Hessian 正则化平坦化损失曲面 + 距离正则化保持量化模型间权重对齐 + 噪声采样舍入消除舍入歧义，使量化模型在多目标域适应融合中性能接近全精度水平。
+
+**[Merit Maximum-Normalized Element-Wise Ratio For Language Model Large-Batch Train](merit_maximum-normalized_element-wise_ratio_for_language_model_large-batch_train.md)**
+
+:   提出 MERIT 优化器，通过最大范数归一化与逐元素信任比率扩展 LAMB，有效解决大批量训练中注意力 logit 爆炸导致的性能退化问题。
 
 **[Provably Improving Generalization Of Few-Shot Models With Synthetic Data](provably_improving_generalization_of_few-shot_models_with_synthetic_data.md)**
 

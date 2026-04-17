@@ -1,18 +1,22 @@
 ---
 title: >-
-  CVPR2026 LLM Agent方向 12篇论文解读
+  CVPR2026 LLM Agent方向 14篇论文解读
 description: >-
-  12篇CVPR2026 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  14篇CVPR2026 LLM Agent方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**📷 CVPR2026** · **12** 篇论文解读
+**📷 CVPR2026** · **14** 篇论文解读
 
 **[Carepilot A Multi-Agent Framework For Long-Horizon Computer Task Automation In H](carepilot_a_multi-agent_framework_for_long-horizon_computer_task_automation_in_h.md)**
 
 :   提出CareFlow基准（1050个医疗软件长视界工作流任务，8-24步，覆盖DICOM/3D Slicer/EMR/LIS四大系统）和CarePilot框架（基于Actor-Critic范式，集成工具grounding和双记忆机制），在CareFlow上超越GPT-5约15%的任务准确率。
+
+**[Echotrail-Gui Building Actionable Memory For Gui Agents](echotrail-gui_building_actionable_memory_for_gui_agents.md)**
+
+:   提出 EchoTrail-GUI 框架，通过评论模型引导的自主探索构建高质量操作记忆库，并在推理时动态检索相关经验注入提示，将 GPT-4o 在 AndroidWorld 上的任务成功率从 34.5% 提升至 51.7%。
 
 **[Echotrail-Gui Building Actionable Memory For Gui Agents Via Critic-Guided Self-E](echotrail-gui_building_actionable_memory_for_gui_agents_via_critic-guided_self-e.md)**
 
@@ -57,3 +61,7 @@ description: >-
 **[Towards Gui Agents Vision-Language Diffusion Models For Gui Grounding](towards_gui_agents_vision-language_diffusion_models_for_gui_grounding.md)**
 
 :   首次系统研究离散扩散视觉语言模型（DVLM）在 GUI Grounding 中的应用，将 LLaDA-V 适配为单步动作预测，并提出混合掩码调度（线性+确定性）以捕获边界框坐标间的几何层次依赖，在 Web/Desktop/Mobile 界面上展示了扩散模型作为 GUI Agent 基础的可行性。
+
+**[Worldmm Dynamic Multimodal Memory Agent For Long Video Reasoning](worldmm_dynamic_multimodal_memory_agent_for_long_video_reasoning.md)**
+
+:   提出 WorldMM，一个基于多模态记忆的视频推理 agent，构建情景记忆（多时间尺度文本知识图）、语义记忆（持续更新的关系知识图）和视觉记忆（帧级检索库）三类互补记忆，通过自适应多轮检索 agent 动态选择最相关的记忆源和时间粒度，在五个长视频 QA 基准上平均超越前 SOTA 8.4%。

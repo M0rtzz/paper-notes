@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM效率方向 28篇论文解读
+  ACL2025 LLM效率方向 29篇论文解读
 description: >-
-  28篇ACL2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  29篇ACL2025 LLM效率方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**💬 ACL2025** · **28** 篇论文解读
+**💬 ACL2025** · **29** 篇论文解读
 
 **[Adaptive Grouped Pe Context Window](adaptive_grouped_pe_context_window.md)**
 
@@ -113,6 +113,10 @@ description: >-
 **[Spindlekv Layered Kv Cache](spindlekv_layered_kv_cache.md)**
 
 :   SpindleKV 提出分层处理 KV cache 压缩的策略——深层使用注意力驱动的 token eviction（利用稀疏注意力），浅层使用基于相似性学习的 codebook 替换（利用 token 间高相似度），并解决了 GQA 兼容性问题，实现 50% KV cache 缩减而不损失性能。
+
+**[Tetris Optimal Draft Token Selection For Batch Speculative Decoding](tetris_optimal_draft_token_selection_for_batch_speculative_decoding.md)**
+
+:   Tetris 提出了一种在批量推测解码场景下，跨请求动态选择最优草稿token的方法，通过贪心选择累积接受概率最高的token来最大化有限计算资源下的推理吞吐量。
 
 **[Train Long Context Effectively](train_long_context_effectively.md)**
 

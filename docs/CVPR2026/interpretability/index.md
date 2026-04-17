@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 可解释性方向 29篇论文解读
+  CVPR2026 可解释性方向 34篇论文解读
 description: >-
-  29篇CVPR2026 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  34篇CVPR2026 可解释性方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**📷 CVPR2026** · **29** 篇论文解读
+**📷 CVPR2026** · **34** 篇论文解读
 
 **[Beyond Semantics Disentangling Information Scope In Sparse Autoencoders For Clip](beyond_semantics_disentangling_information_scope_in_sparse_autoencoders_for_clip.md)**
 
@@ -54,6 +54,10 @@ description: >-
 
 :   发现 MLLM 在细粒度负查询（涉及多个对象/属性/关系的查询中仅有一个细微错误）下幻觉率急剧上升，提出 FINER 基准和 FINER-Tuning 方法（基于 DPO），在 InternVL3.5-14B 上最高提升 24.2%。
 
+**[From Weights To Concepts Data-Free Interpretability Of Clip Via Singular Vector ](from_weights_to_concepts_data-free_interpretability_of_clip_via_singular_vector_.md)**
+
+:   本文提出 SITH（Semantic Inspection of Transformer Heads），一个完全无需数据和训练的 CLIP 可解释性框架：直接对注意力头的 Value-Output 权重矩阵做 SVD 分解，然后用自研的 COMP 算法将每个奇异向量解释为语义一致的概念稀疏组合，实现了比现有方法更细粒度的 intra-head 级别可解释性，并支持精准的权重编辑来改善下游性能。
+
 **[Geometry-Guided Camera Motion Understanding In Videollms](geometry-guided_camera_motion_understanding_in_videollms.md)**
 
 :   本文揭示了 VideoLLM 在细粒度相机运动原语（pan/tilt/dolly等）识别上几乎等于随机猜测，构建了 CameraMotionDataset（12K 段 × 15 种原子运动）和 CameraMotionVQA benchmark，并提出通过冻结 3DFM（VGGT）提取几何相机线索 + 轻量时序分类器 + structured prompting 注入的 model-agnostic 方案来弥补这一能力缺口。
@@ -65,6 +69,18 @@ description: >-
 **[How To Take A Memorable Picture Empowering Users With Actionable Feedback](how_to_take_a_memorable_picture_empowering_users_with_actionable_feedback.md)**
 
 :   定义了记忆性反馈（MemFeed）新任务，提出 MemCoach——一种 training-free 的 MLLM 激活导向方法，通过教师-学生策略将记忆性感知知识注入模型激活空间，使 MLLM 能生成提升照片记忆性的自然语言可操作建议。
+
+**[Inside-Out Measuring Generalization In Vision Transformers Through Inner Working](inside-out_measuring_generalization_in_vision_transformers_through_inner_working.md)**
+
+:   提出基于模型内部电路（circuits）的泛化性能预测指标，包括部署前模型选择的Dependency Depth Bias（DDB）和部署后性能监控的Circuit Shift Score（CSS），分别比现有代理指标的相关性平均提升13.4%和34.1%。
+
+**[Language Models Can Explain Visual Features Via Steering](language_models_can_explain_visual_features_via_steering.md)**
+
+:   提出通过对VLM视觉编码器进行SAE特征因果干预（steering），在输入空白图像后让语言模型描述其"看到"的视觉概念，从而实现无需评估图像集的可扩展视觉特征自动解释，并提出混合方法Steering-informed Top-k达到SOTA。
+
+**[Measuring The Unfaithfulness Of Concept-Based Explanations](measuring_the_unfaithfulness_of_concept-based_explanations.md)**
+
+:   本文揭示了现有无监督概念解释方法 (U-CBEMs) 的忠实度被高估——原因是使用了过于复杂的代理模型和有缺陷的删除式评估。作者提出 SURF（Surrogate Faithfulness），一个简单的线性代理 + 双空间度量框架，通过"随机概念应该更不忠实"的 sanity check 验证了其正确性，并首次系统地揭示了多个 SOTA U-CBEMs 实际上并不忠实。
 
 **[Missing No More Dictionary-Guided Cross-Modal Image Fusion Under Missing Infrare](missing_no_more_dictionary-guided_cross-modal_image_fusion_under_missing_infrare.md)**
 
@@ -117,6 +133,10 @@ description: >-
 **[Towards Faithful Multimodal Concept Bottleneck Models](towards_faithful_multimodal_concept_bottleneck_models.md)**
 
 :   提出f-CBM——首个忠实的多模态概念瓶颈模型框架，通过可微分泄漏损失减少概念表示中的非预期信息泄漏，同时用Kolmogorov-Arnold Network (KAN) 预测头提升概念检测精度，在任务准确率、概念检测和泄漏减少间取得最优Pareto前沿。
+
+**[Viro Robust And Efficient Neuro-Symbolic Reasoning With Verification For Referri](viro_robust_and_efficient_neuro-symbolic_reasoning_with_verification_for_referri.md)**
+
+:   VIRO在神经符号REC管道中嵌入轻量算子级验证机制（CLIP不确定性验证+空间逻辑验证），使每个推理步骤能自我验证并在无目标时提前终止，在零样本设置下以61.1%平衡准确率大幅超越组合推理baselines，同时保持0.3%以下的程序失败率和高效推理速度。
 
 **[Where Mllms Attend And What They Rely On Explaining Autoregressive Token Generat](where_mllms_attend_and_what_they_rely_on_explaining_autoregressive_token_generat.md)**
 

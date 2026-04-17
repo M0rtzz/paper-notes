@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 遥感方向 5篇论文解读
+  ECCV2024 遥感方向 6篇论文解读
 description: >-
-  5篇ECCV2024 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  6篇ECCV2024 遥感方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**🎞️ ECCV2024** · **5** 篇论文解读
+**🎞️ ECCV2024** · **6** 篇论文解读
 
 **[Adapting Fine-Grained Cross-View Localization To Areas Without Fine Ground Truth](adapting_fine-grained_cross-view_localization_to_areas_without_fine_ground_truth.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[Cross-Platform Video Person Reid A New Benchmark Dataset And Adaptation Approach](cross-platform_video_person_reid_a_new_benchmark_dataset_and_adaptation_approach.md)**
 
 :   构建首个地面-无人机跨平台视频行人重识别数据集G2A-VReID，并提出VSLA-CLIP方法，通过视觉-语义对齐和参数高效的Video Set-Level-Adapter将CLIP适配到视频ReID任务。
+
+**[Learning Representations Of Satellite Images From Metadata Supervision](learning_representations_of_satellite_images_from_metadata_supervision.md)**
+
+:   本文提出了 SatMIP（Satellite Metadata-Image Pretraining），将卫星图像的元数据（如时间、地理位置、传感器信息等）表示为文本描述，通过图像-元数据对比学习任务在共享嵌入空间中对齐图像和元数据，学习到既包含视觉特征又编码语义信息的卫星图像表征，并进一步提出 SatMIPS（结合图像自监督和元数据监督），在多个遥感下游任务上超越了 SimCLR 等纯视觉自监督方法。
 
 **[Masked Angle-Aware Autoencoder For Remote Sensing Images](masked_angle-aware_autoencoder_for_remote_sensing_images.md)**
 

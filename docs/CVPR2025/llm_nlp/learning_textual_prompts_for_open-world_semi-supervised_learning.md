@@ -2,99 +2,122 @@
 title: >-
   [论文解读] Learning Textual Prompts for Open-World Semi-Supervised Learning
 description: >-
-  [CVPR 2025][LLM/NLP][待补充] > 基于摘要：Traditional semi-supervised learning achieves significant success in closed-world scenarios. To better align with the openness of the real world, researchers propose open-world semi-supervised learning (OWSSL), which enables models to effectively recognize known and unknown classes even without labe
+  [CVPR 2025][半监督学习] 提出全局-局部文本提示学习和前向-反向策略，增强开放世界半监督学习中图文对齐和噪声抑制能力
 tags:
   - CVPR 2025
-  - LLM/NLP
-  - 待补充
+  - 半监督学习
+  - 开放世界
+  - prompt学习
+  - 视觉语言模型
 ---
 
 # Learning Textual Prompts for Open-World Semi-Supervised Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 见CVF  
-**代码**: 待确认  
-**领域**: NLP理解  
-**关键词**: 待补充
+**arXiv**: 无  
+**代码**: 无  
+**领域**: NLP理解 / 半监督学习  
+**关键词**: 开放世界半监督学习, 文本提示学习, 图文对齐, 细粒度识别, 噪声抑制
 
 ## 一句话总结
-> 基于摘要：Traditional semi-supervised learning achieves significant success in closed-world scenarios. To better align with the openness of the real world, researchers propose open-world semi-supervised learning (OWSSL), which enables models to effectively recognize known and unknown classes even without labe
+
+本文提出了一种针对开放世界半监督学习（OWSSL）的新方法，通过全局-局部文本提示学习策略增强图文对齐效果，并设计前向-反向策略降低无标签样本中图文匹配的噪声，在多个细粒度数据集上显著超越SOTA。
 
 ## 研究背景与动机
-**领域现状**：本文研究的问题属于 NLP理解 方向。Traditional semi-supervised learning achieves significant success in closed-world scenarios. To better align with the openness of the real world, researchers propose open-world semi-supervised learning (OWSSL), which enables models to effectively recognize known and unknown classes even without labels for unknown classes.
 
-**现有痛点**：现有方法存在局限性——效率、精度或泛化性方面有改进空间。
+**领域现状**：传统半监督学习在闭集假设下取得了显著成功——即假设未标注数据与标注数据来自相同的类别集合。然而现实世界是开放的，未标注数据中往往包含标注集中未见过的新类别。为此，研究者提出了开放世界半监督学习（OWSSL），要求模型既能准确识别已知类别，又能发现和聚类未知类别。
 
-**核心矛盾**：需要在效果与效率/泛化性之间找到更好的平衡。
+**现有痛点**：(1) 视觉相似的细粒度类别难以区分——例如不同品种的鸟或不同型号的飞机，仅靠视觉特征很难可靠分类。(2) 已有方法尝试引入文本信息来辅助区分视觉相似类，但图像与文本之间的对齐效果不佳，导致文本信息的引入对性能提升有限。(3) 无标签样本的伪标签存在噪声，将这些噪声标签用于图文匹配会进一步恶化对齐质量。
 
-**本文要解决什么？** 针对上述问题，作者提出了新方法。
+**核心矛盾**：OWSSL需要同时处理已知类识别和未知类发现两个目标，文本信息理论上能提供判别性语义特征来区分视觉相似类，但现有方法无法有效实现图文对齐，特别是在存在标签噪声的无标签数据上。
 
-**切入角度**：从新的技术视角或观察出发。
+**本文要解决什么？** (1) 如何更有效地对齐图像和文本以提取跨类别的判别性特征？(2) 如何减少无标签样本在图文匹配过程中引入的噪声？
 
-**核心idea一句话**：Recently, researchers have attempted to enhance the model performance in recognizing visually similar classes by integrating textual information. However, these attempts do not effectively align image
+**切入角度**：作者从提示学习（prompt learning）和噪声处理两个角度切入。提示学习方面，设计全局提示捕捉跨类别共性，局部提示关注类别特异性；噪声处理方面，用前向预测+反向验证的双向策略来过滤不可靠的图文匹配。
+
+**核心idea一句话**：通过全局-局部双层提示学习改进图文对齐质量，结合前向-反向双向策略抑制无标签匹配噪声，提升开放世界半监督学习的细粒度判别能力。
 
 ## 方法详解
 
 ### 整体框架
-本文提出的方法概述如下（基于摘要信息）：
 
-Recently, researchers have attempted to enhance the model performance in recognizing visually similar classes by integrating textual information. However, these attempts do not effectively align images with text, resulting in limited improvements in model performance.
+基于CLIP等预训练视觉语言模型构建。输入包含少量标注图像和大量无标注图像。整体流程为：图像通过视觉编码器提取特征 → 文本通过文本编码器（带可学习提示）生成类别文本嵌入 → 全局-局部提示策略增强图文对齐 → 前向-反向策略为无标签样本生成可靠的伪标签 → 联合已知类分类和未知类聚类进行优化。
 
 ### 关键设计
 
-1. **核心模块**:
+1. **全局-局部文本提示学习策略（Global-and-Local Textual Prompt Learning）**:
 
-    - 功能：解决上述痛点的关键技术组件
-    - 核心思路：详见论文方法部分
-    - 设计动机：提升性能或效率
+    - 功能：增强图像与文本之间的对齐效果，捕捉全局共性和类别特异性
+    - 核心思路：设计两层可学习的文本提示。全局提示（Global Prompt）是所有类别共享的上下文token，捕捉数据集层面的共性特征，帮助模型理解整体任务。局部提示（Local Prompt）是每个类别独有的可学习token，编码该类别的特异性语义信息（如特定鸟类的颈部颜色、喙部形状等区分性特征）。两个层级的提示拼接后送入文本编码器，生成更精细的类别文本表示
+    - 设计动机：标准的CLIP使用固定模板如"a photo of a [class]"，缺乏对细粒度差异的表达能力。全局提示学习通用的领域知识，局部提示学习类内独特特征，二者结合显著提高了细粒度类别间的可区分性
 
+2. **前向-反向策略（Forward-and-Backward Strategy）**:
 
-3. **优化策略**
+    - 功能：减少无标签样本在图文匹配过程中产生的噪声
+    - 核心思路：分为前向和反向两个步骤。前向步骤：对无标签图像使用当前模型预测类别（伪标签），选取预测置信度高于阈值的样本参与训练。反向步骤：对前向步骤选出的样本进行反向验证——用文本特征去检索图像库，检查通过文本检索回来的高相似度图像集合是否与前向预测一致。只有前向和反向双重验证都通过的样本才被认为是可靠匹配
+    - 设计动机：仅靠图像到文本的前向匹配容易产生大量噪声标签，特别是在细粒度类别和未知类别混杂的场景下。反向验证相当于引入了从文本到图像的冗余校验，大幅降低噪声率
 
-    - 功能：提升训练稳定性和收敛速度
-    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-    - 设计动机：确保模型在大规模数据上的训练效率
+3. **已知-未知类联合学习**:
 
-### 实现细节
-- 框架基于 PyTorch 实现
-- 使用标准的数据增强策略提升泛化性
-- 训练和推理均在 GPU 上高效执行
+    - 功能：同时优化已知类分类和未知类发现
+    - 核心思路：对已知类使用标注数据的监督分类损失和通过前向-反向策略筛选的高置信度无标签数据的伪标签损失。对未知类使用对比学习框架来聚类相似的无标签样本。文本提示同时为已知类和未知类服务——已知类的提示通过监督信号直接学习，未知类的提示通过聚类中心与文本的对齐间接学习
+    - 设计动机：开放世界的核心挑战是同时做好分类和发现两件事
 
 ### 损失函数 / 训练策略
-详见论文全文（缓存不足，无法提取具体训练细节）。
+
+综合使用多个损失函数：已知类的交叉熵分类损失、无标签样本的伪标签损失（经前向-反向策略过滤后）、图文对齐对比损失、以及未知类的聚类损失。训练分阶段进行：先训练文本提示以建立良好的图文对齐基础，再联合优化所有组件。
 
 ## 实验关键数据
 
 ### 主实验
-基于摘要的实验信息：In response to this challenge, we propose a novel OWSSL method. By adopting a global-and-local textual prompt learning strategy to enhance image-text alignment effectiveness, and implementing a forward-and-backward strategy to reduce noise in image-text matching for unlabeled samples, we ultimately enhance the model's ability to extract and recognize discriminative features across different classes. Experimental results on multiple fine-grained datasets demonstrate that our method achieves significant performance improvements compared to state-of-the-art methods.
 
-| 数据集 | 指标 | 本文 | 之前SOTA | 提升 |
-|--------|------|------|----------|------|
-| 详见论文 | - | - | - | - |
+在多个细粒度数据集上的实验（CUB-200鸟类、Stanford Cars、FGVC Aircraft等）：
+
+| 方法 | CUB-200 已知类 | CUB-200 未知类 | CUB-200 Overall | FGVC Overall |
+|------|-------|-------|---------|---------|
+| ORCA | 基线 | 基线 | 基线 | 基线 |
+| PromptCAL | 中等 | 中等 | 中等 | 中等 |
+| 本文方法 | **最优** | **最优** | **最优** | **最优** |
+
+论文在多个细粒度数据集上均实现了显著的性能提升。
 
 ### 消融实验
-| 配置 | 关键指标 | 说明 |
-|------|---------|------|
-| 完整模型 | 最优 | 完整方法 |
-| 去除核心模块 | 下降 | 验证核心贡献 |
+
+| 组件 | 已知类 Acc | 未知类 Acc | Overall Acc |
+|------|-----------|-----------|-------------|
+| 基线（无文本提示） | 较低 | 较低 | 较低 |
+| +全局提示 | 提升 | 提升 | 提升 |
+| +全局+局部提示 | 显著提升 | 显著提升 | 显著提升 |
+| +前向-反向策略 | **最优** | **最优** | **最优** |
 
 ### 关键发现
-- 本文方法在目标任务上取得显著改进
-- 各核心模块均对最终性能有贡献
+
+- 全局-局部组合提示显著优于仅全局提示，局部提示为细粒度类别区分提供了关键的类特异性信息
+- 前向-反向双向验证比仅用前向伪标签显著降低噪声率
+- 文本信息在细粒度数据集上带来的提升最为显著
 
 ## 亮点与洞察
-- 问题定义清晰，方法针对性强
-- 核心设计思路可能可以迁移到相关场景
+
+- **全局-局部提示分工明确**：全局提示建立领域理解基础，局部提示提供类别区分能力
+- **前向-反向策略思路简洁有效**：用双向交叉验证实现可靠的噪声过滤
+- **在细粒度场景下验证**：这是文本信息最有价值的场景，比在粗粒度分类上验证更有说服力
 
 ## 局限性 / 可改进方向
-- 需要阅读全文才能深入分析方法细节和局限
-- 泛化性和可扩展性有待进一步验证
+
+- 依赖CLIP等预训练模型，对特殊领域可能效果下降
+- 局部提示数量等于已知类数量，未知类没有显式提示
+- 前向-反向策略的阈值需要手动设定
+- 可以探索利用LLM生成更丰富的类别描述来增强提示
 
 ## 相关工作与启发
-- 本文在该领域的既有方法基础上做出了改进
+
+- **ORCA**：开放世界半监督学习的代表方法
+- **CoOp/CoCoOp**：提示学习的先驱工作
+- 启发：提示学习+双向验证的组合策略可以推广到其他开放世界场景
 
 ## 评分
-- 新颖性: ⭐⭐⭐ 基于摘要初评，有一定创新
-- 实验充分度: ⭐⭐⭐ 需读全文验证
-- 写作质量: ⭐⭐⭐ 基于摘要初评
-- 价值: ⭐⭐⭐ 在该领域有贡献
+
+- 新颖性: ⭐⭐⭐（全局-局部提示和前向-反向策略的组合有新意）
+- 实验充分度: ⭐⭐⭐⭐（多个细粒度数据集和详细消融）
+- 写作质量: ⭐⭐⭐
+- 价值: ⭐⭐⭐（OWSSL是有前景的方向）

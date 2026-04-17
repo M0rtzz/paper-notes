@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 图像生成方向 153篇论文解读
+  ICLR2026 图像生成方向 151篇论文解读
 description: >-
-  153篇ICLR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  151篇ICLR2026 图像生成方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🔬 ICLR2026** · **153** 篇论文解读
+**🔬 ICLR2026** · **151** 篇论文解读
 
 **[A Hidden Semantic Bottleneck In Conditional Embeddings Of Diffusion Transformers](a_hidden_semantic_bottleneck_in_conditional_embeddings_of_diffusion_transformers.md)**
 
@@ -246,10 +246,6 @@ description: >-
 
 :   提出 Follow-Your-Shape，一个无需训练和掩码的形状感知编辑框架，通过计算反演与编辑轨迹间的 token 级速度差异构建 Trajectory Divergence Map (TDM) 来精确定位编辑区域，配合分阶段 KV 注入实现大幅形状变换且严格保持背景。
 
-**[Frame Guidance Training-Free Guidance For Frame-Level Control In Video Diffusion](frame_guidance_training-free_guidance_for_frame-level_control_in_video_diffusion.md)**
-
-:   提出 Frame Guidance，一种无需训练的帧级引导方法，通过 latent slicing（降低 60× 显存）和 Video Latent Optimization（VLO）两个核心组件，在不修改模型的情况下实现关键帧引导、风格化和循环视频等多种可控视频生成任务。
-
 **[Free Lunch For Stabilizing Rectified Flow Inversion](free_lunch_for_stabilizing_rectified_flow_inversion.md)**
 
 :   提出PMI（Proximal-Mean Inversion）和mimic-CFG两个无训练方法，通过将速度场向其历史均值做近端梯度校正来稳定Rectified Flow反演，在PIE-Bench上以更少的NFE达到SOTA的重建和编辑质量。
@@ -324,10 +320,6 @@ description: >-
 
 :   提出 InFOM，利用流匹配（flow matching）构建意图条件化的占据模型（occupancy model），通过变分推断推理数据中的潜在意图，实现无标注数据上的 RL 预训练，在 36 个状态任务和 4 个视觉任务上取得 1.8× 中位回报提升和 36% 成功率提升。
 
-**[Javisdit Unified Modeling And Optimization For Joint Audio-Video Generation](javisdit_unified_modeling_and_optimization_for_joint_audio-video_generation.md)**
-
-:   提出 JavisDiT++，一个面向联合音视频生成（JAVG）的简洁统一框架，通过模态特定 MoE 提升生成质量、时间对齐 RoPE 实现帧级同步、音视频 DPO 对齐人类偏好，基于 Wan2.1-1.3B 仅用约 1M 公开数据即达到 SOTA。
-
 **[Jointdiff Bridging Continuous And Discrete In Multi-Agent Trajectory Generation](jointdiff_bridging_continuous_and_discrete_in_multi-agent_trajectory_generation.md)**
 
 :   提出 JointDiff，一个联合连续-离散扩散框架，首次将高斯扩散（用于轨迹）和多项式扩散（用于控球事件）统一建模，同时引入 CrossGuid 模块支持弱控球引导和文本引导的语义可控生成，在体育多智能体轨迹生成上达到 SOTA。
@@ -367,10 +359,6 @@ description: >-
 **[Loopholing Discrete Diffusion Deterministic Bypass Of The Sampling Wall](loopholing_discrete_diffusion_deterministic_bypass_of_the_sampling_wall.md)**
 
 :   识别离散扩散模型中的"采样壁"问题（分类分布信息在采样后坍塌为 one-hot 向量），提出 Loopholing 机制引入确定性潜在路径传播丰富的分布信息，将生成困惑度降低最多 61%，大幅缩小与自回归模型的差距。
-
-**[Lora-Edit Controllable First-Frame-Guided Video Editing Via Mask-Aware Lora Fine](lora-edit_controllable_first-frame-guided_video_editing_via_mask-aware_lora_fine.md)**
-
-:   提出 LoRA-Edit，利用时空 mask 引导 LoRA 微调预训练 I2V 模型，实现可控的首帧引导视频编辑——mask 同时作为编辑区域指令和 LoRA 学习内容的引导信号，支持运动继承和外观控制。
 
 **[Lvtino Latent Video Consistency Inverse Solver For High Definition Video Restora](lvtino_latent_video_consistency_inverse_solver_for_high_definition_video_restora.md)**
 
@@ -427,6 +415,10 @@ description: >-
 **[No Caption No Problem Caption-Free Membership Inference Via Model-Fitted Embeddi](no_caption_no_problem_caption-free_membership_inference_via_model-fitted_embeddi.md)**
 
 :   提出 MoFit，首个面向无标题场景的扩散模型成员推断攻击框架，通过构建过拟合于目标模型的代理图像和条件嵌入，利用成员样本对条件错配的不对称敏感性实现有效推断。
+
+**[Offline Reinforcement Learning With Generative Trajectory Policies](offline_reinforcement_learning_with_generative_trajectory_policies.md)**
+
+:   提出生成轨迹策略（GTP），通过统一视角将扩散模型、流匹配、一致性模型视为ODE解映射的特例，学习完整的连续时间轨迹解映射，并引入分数近似和优势权重两个适配技术，在D4RL基准上实现SOTA。
 
 **[Pareto-Conditioned Diffusion Models For Offline Multi-Objective Optimization](pareto-conditioned_diffusion_models_for_offline_multi-objective_optimization.md)**
 
@@ -511,10 +503,6 @@ description: >-
 **[Senseflow Scaling Distribution Matching For Flow-Based Text-To-Image Distillatio](senseflow_scaling_distribution_matching_for_flow-based_text-to-image_distillatio.md)**
 
 :   提出 SenseFlow，通过隐式分布对齐（IDA）和段内引导（ISG）将分布匹配蒸馏（DMD）扩展到大规模 flow-based 文生图模型（SD 3.5 Large 8B / FLUX.1 dev 12B），实现 4 步高质量图像生成。
-
-**[Sigmark Scalable In-Generation Watermark With Blind Extraction For Video Diffusi](sigmark_scalable_in-generation_watermark_with_blind_extraction_for_video_diffusi.md)**
-
-:   SIGMark提出首个面向现代视频扩散模型的盲水印框架，通过全局帧级伪随机编码(GF-PRC)实现恒定提取成本的可扩展盲水印，并设计分段组排序(SGO)模块应对因果3D VAE下的时序扰动，在HunyuanVideo和Wan-2.2上实现高bit精度与强鲁棒性。
 
 **[Smote And Mirrors Exposing Privacy Leakage From Synthetic Minority Oversampling](smote_and_mirrors_exposing_privacy_leakage_from_synthetic_minority_oversampling.md)**
 
@@ -607,6 +595,10 @@ description: >-
 **[Vfscale Intrinsic Reasoning Through Verifier-Free Test-Time Scalable Diffusion M](vfscale_intrinsic_reasoning_through_verifier-free_test-time_scalable_diffusion_m.md)**
 
 :   VFScale提出无需外部验证器的测试时可缩放扩散模型，通过MRNCL损失和KL正则化改善能量景观使其内在能量函数可作为验证器，结合混合MCTS去噪实现高效搜索，在6×6训练的迷宫模型能解决88%的15×15迷宫，而标准扩散模型完全失败。
+
+**[Visual Autoregressive Modeling For Instruction-Guided Image Editing](visual_autoregressive_modeling_for_instruction-guided_image_editing.md)**
+
+:   提出VAREdit，将指令引导的图像编辑重新定义为多尺度预测问题，通过Scale-Aligned Reference模块解决最细尺度条件化的尺度失配问题，在编辑遵循度和效率上大幅超越扩散模型方法。
 
 **[When One Modality Rules Them All Backdoor Modality Collapse In Multimodal Diffus](when_one_modality_rules_them_all_backdoor_modality_collapse_in_multimodal_diffus.md)**
 

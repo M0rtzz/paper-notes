@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 音频/语音方向 15篇论文解读
+  CVPR2026 音频/语音方向 18篇论文解读
 description: >-
-  15篇CVPR2026 音频/语音方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  18篇CVPR2026 音频/语音方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**📷 CVPR2026** · **15** 篇论文解读
+**📷 CVPR2026** · **18** 篇论文解读
 
 **[Babyvlm-V2 Toward Developmentally Grounded Pretraining And Benchmarking Of Visio](babyvlm-v2_toward_developmentally_grounded_pretraining_and_benchmarking_of_visio.md)**
 
@@ -41,6 +41,18 @@ description: >-
 **[Omniret Efficient And High-Fidelity Omni Modality Retrieval](omniret_efficient_and_high-fidelity_omni_modality_retrieval.md)**
 
 :   提出首个支持文本-视觉-音频三模态组合查询的统一检索模型 OmniRet，通过共享媒体重采样器（Shared Media Resampler）提升计算效率，并引入注意力切片 Wasserstein 池化（ASWP）保留细粒度信息，在 13 个检索任务上取得 12 项领先。
+
+**[Omnisonic Towards Universal And Holistic Audio Generation From Video And Text](omnisonic_towards_universal_and_holistic_audio_generation_from_video_and_text.md)**
+
+:   提出 Universal Holistic Audio Generation (UniHAGen) 任务和 OmniSonic 框架，通过 TriAttn-DiT 架构的三路交叉注意力和 MoE 门控机制，首次实现同时生成屏幕内/屏外环境声和人声的统一音频合成，在新构建的 UniHAGen-Bench 上全面超越 SOTA。
+
+**[Phasr Generalized Image Shadow Removal With Physically Aligned Priors](phasr_generalized_image_shadow_removal_with_physically_aligned_priors.md)**
+
+:   提出PhaSR框架，通过双层物理先验对齐——全局级的PAN执行无参数Retinex分解抑制色彩偏差、局部级的GSRA利用差分注意力对齐DepthAnything深度先验和DINO-v2语义嵌入——实现从单光源直射阴影到多光源环境光场景的泛化阴影去除，在WSRD+和Ambient6K上达到SOTA且FLOPs最低。
+
+**[Semantic Audio-Visual Navigation In Continuous Environments](semantic_audio-visual_navigation_in_continuous_environments.md)**
+
+:   本文提出 SAVN-CE 任务，将语义音视觉导航扩展到连续3D环境中，并设计 MAGNet（记忆增强目标描述网络），通过融合历史上下文和自运动线索实现在目标声音消失后的稳健目标推理，成功率绝对提升最高达 12.1%。
 
 **[Solution For 10Th Competition On Ambivalencehesitancy Ah Video Recognition Chall](solution_for_10th_competition_on_ambivalencehesitancy_ah_video_recognition_chall.md)**
 

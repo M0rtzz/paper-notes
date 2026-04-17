@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 自动驾驶方向 51篇论文解读
+  NeurIPS2025 自动驾驶方向 50篇论文解读
 description: >-
-  51篇NeurIPS2025 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
+  50篇NeurIPS2025 自动驾驶方向论文深度解读，每篇5分钟读懂核心思想。每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🧠 NeurIPS2025** · **51** 篇论文解读
+**🧠 NeurIPS2025** · **50** 篇论文解读
 
 **[3Eed Ground Everything Everywhere In 3D](3eed_ground_everything_everywhere_in_3d.md)**
 
@@ -137,10 +137,6 @@ description: >-
 **[Regret Lower Bounds For Decentralized Multi-Agent Stochastic Shortest Path Probl](regret_lower_bounds_for_decentralized_multi-agent_stochastic_shortest_path_probl.md)**
 
 :   本文首次为去中心化多智能体随机最短路径问题（Dec-MASSP）在线性函数逼近设定下建立了 $\Omega(\sqrt{K})$ 的 regret 下界，通过构造难以学习的实例族并利用对称性论证识别最优策略结构，证明了该下界与已有上界在 episode 数 $K$ 上达到匹配。
-
-**[Rlgf Reinforcement Learning With Geometric Feedback For Autonomous Driving Video](rlgf_reinforcement_learning_with_geometric_feedback_for_autonomous_driving_video.md)**
-
-:   本文首次系统量化自动驾驶视频生成中的几何失真问题，提出 RLGF 框架通过层次化几何奖励（消失点-车道线-深度-占用）和潜空间滑动窗口优化策略，将 3D 目标检测 mAP 提升 12.7 个绝对百分点（25.75→31.42），大幅缩小合成数据与真实数据的性能差距。
 
 **[Sdtagnet Leveraging Text-Annotated Navigation Maps For Online Hd Map Constructio](sdtagnet_leveraging_text-annotated_navigation_maps_for_online_hd_map_constructio.md)**
 
