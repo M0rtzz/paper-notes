@@ -1,26 +1,40 @@
 #!/usr/bin/env python3
 """
-后处理 mkdocs build 生成的 search_index.json，大幅精简索引以降低浏览器内存占用。
+Post-process the search_index.json produced by `mkdocs build` to drastically
+shrink the search index and reduce browser memory footprint.
 
-问题：12K 论文页面 × body text → 200+ MB JSON → lunr 内存索引 ~450 MB。
-方案 v3：
-  1. 去掉所有 body text
-  2. text 字段只保留非会议标签（会议名已在 URL 路径中，lunr 会索引 location）
-  3. 不注入双语同义词（改为客户端查询展开，见 main.html 中的 JS）
-  4. 目标：lunr 内存 < 50 MB
+Problem: 12K+ paper pages x body text => 200+ MB JSON => lunr in-memory index ~450 MB.
+Strategy v4:
+  1. Drop all body text.
+  2. Keep only non-conference tags (conference name is already in the URL path,
+     and lunr indexes the location field).
+  3. Do not inject bilingual synonyms (handled client-side via a Worker shim,
+     see overrides/main.html).
+  4. Drop low-frequency tags (paper-specific noise tags) to shrink the lunr
+     token table.
+  5. Goal: lunr memory < 50 MB so the desktop search no longer freezes on
+     "Initializing search engine".
 
-用法: python scripts/trim_search_index.py [site_dir]
+Usage: python scripts/trim_search_index.py [site_dir]
 """
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
-# 会议名模式，用于从 tags 中过滤掉会议标签（已在 URL 路径中，冗余索引）
+# Conference name pattern. These tags are removed because the conference is
+# already encoded in the URL path, so indexing them again is redundant.
 _CONF_PATTERN = re.compile(
     r'^(ICLR|CVPR|ACL|NeurIPS|AAAI|ECCV|ICCV|ICML|EMNLP|NAACL)\s*\d{4}$',
     re.IGNORECASE,
 )
+
+# Tags appearing fewer than this many times across the whole site are
+# discarded. In a 13K-paper corpus the long tail of single-paper tags adds
+# zero discoverability value but balloons the lunr inverted index from ~2K
+# tokens to 34K, which freezes the desktop search worker on init.
+MIN_TAG_FREQ = 5
 
 
 def main():
@@ -37,7 +51,7 @@ def main():
     original_size = index_path.stat().st_size
     original_count = len(data["docs"])
 
-    # 将同一页面的多个 section 合并为一个文档
+    # Merge multiple section docs of the same page into a single doc.
     pages = {}  # location_base -> merged doc
     for doc in data["docs"]:
         loc = doc.get("location", "")
@@ -45,7 +59,7 @@ def main():
         title = doc.get("title", "").strip()
         tags = doc.get("tags", [])
 
-        # Skip index/home pages
+        # Skip index/home pages.
         base_clean = base.rstrip("/")
         if base_clean == "" or base_clean.count("/") < 2 or base_clean.endswith("index"):
             continue
@@ -65,24 +79,37 @@ def main():
         if tags:
             pages[base]["_tags"].update(tags)
 
-    # 构建 text 字段：清空 body text，仅靠 title 搜索
-    # tags 保留在 doc 中供 MkDocs UI 显示，但不放入 text 以减少 lunr 索引体积
-    # (30K unique tags → 太多 tokens → lunr 倒排索引 100MB+)
-    # 双语搜索通过客户端 Worker 拦截实现
+    # text field: clear body text, search relies on title only.
+    # Tags stay on the doc for the MkDocs UI to render them, but are NOT
+    # pushed into the text field — 30K+ unique tags would blow up the
+    # inverted index (100MB+). Bilingual search is handled client-side.
+
+    # Compute global tag frequency first, used to drop rare (paper-specific)
+    # noise tags.
+    tag_freq: Counter[str] = Counter()
+    for doc in pages.values():
+        for tag in doc["_tags"]:
+            if not _CONF_PATTERN.match(tag.strip()):
+                tag_freq[tag] += 1
+    keep_tags = {t for t, c in tag_freq.items() if c >= MIN_TAG_FREQ}
+
     conf_removed = 0
+    rare_removed = 0
     for doc in pages.values():
         all_tags = list(doc.pop("_tags"))
-        # 过滤掉会议名标签
+        # Filter out conference-name tags and rare tags.
         filtered_tags = []
         for tag in all_tags:
             if _CONF_PATTERN.match(tag.strip()):
                 conf_removed += 1
+            elif tag not in keep_tags:
+                rare_removed += 1
             else:
                 filtered_tags.append(tag)
 
         if filtered_tags:
             doc["tags"] = filtered_tags
-        # text 设为空，搜索仅匹配 title（lunr 也索引 title 字段）
+        # Empty text field — search matches against title (lunr also indexes title).
         doc["text"] = ""
 
     data["docs"] = list(pages.values())
@@ -94,6 +121,8 @@ def main():
     print(f"  ✓ search_index.json: {original_size/1024/1024:.2f} MB → {new_size/1024/1024:.2f} MB")
     print(f"    merged sections: {original_count} → {len(data['docs'])} docs")
     print(f"    removed {conf_removed} conference name tags (redundant with URL)")
+    print(f"    removed {rare_removed} rare tag occurrences (freq < {MIN_TAG_FREQ})")
+    print(f"    unique tags kept: {len(keep_tags)} (was {len(tag_freq)})")
     print(f"    bilingual search: handled client-side (no synonyms in index)")
 
 
