@@ -18,6 +18,29 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ page.canonical_url }}" />
 {% if page and page.meta and page.meta.description %}
+{% if page.is_homepage %}
+<meta property="og:title" content="{{ page.title | e }}" />
+<meta property="og:description" content="{{ page.meta.description }}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ page.title | e }}" />
+<meta name="twitter:description" content="{{ page.meta.description }}" />
+
+<!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ config.site_name }}",
+  "url": "{{ page.canonical_url }}",
+  "description": "{{ page.meta.description | e }}",
+  "author": {
+    "@type": "Person",
+    "name": "ZhaoYang",
+    "url": "https://github.com/zhaoyang97"
+  }
+}
+</script>
+{% else %}
 <meta property="og:title" content="[论文解读] {{ page.title | e }}" />
 <meta property="og:description" content="{{ page.meta.description }}" />
 <meta name="twitter:card" content="summary" />
@@ -46,6 +69,7 @@
   }
 }
 </script>
+{% endif %}
 {% endif %}
 
 <!-- JSON-LD: BreadcrumbList -->
