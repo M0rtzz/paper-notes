@@ -15,13 +15,11 @@ tags:
 
 # Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2410.22815](https://arxiv.org/abs/2410.22815) |
-| **代码** | 未公开 |
-| **领域** | others |
-| **关键词** | Federated Learning, LoRA, PEFT, Communication Efficiency, Rank Selection |
+**会议**: ACL 2025  
+**arXiv**: [2410.22815](https://arxiv.org/abs/2410.22815)  
+**代码**: 未公开  
+**领域**: others  
+**关键词**: Federated Learning, LoRA, PEFT, Communication Efficiency, Rank Selection  
 
 ## 一句话总结
 

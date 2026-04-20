@@ -9,14 +9,12 @@ tags:
 
 # Pitfalls of Scale: Investigating the Inverse Task of Redefinition in Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| 作者 | Elena Stringli, Maria Lymperaiou, Giorgos Filandrianos, Athanasios Voulodimos, Giorgos Stamou (NTUA) |
-| arXiv | [2502.12821](https://arxiv.org/abs/2502.12821) |
-| 代码 | — |
-| 领域 | LLM/NLP, 推理评估 |
-| 关键词 | inverse scaling, redefinition, anchoring, memorization, reasoning flexibility, physical constants |
+**会议**: ACL 2025  
+**作者**: Elena Stringli, Maria Lymperaiou, Giorgos Filandrianos, Athanasios Voulodimos, Giorgos Stamou (NTUA)  
+**arXiv**: [2502.12821](https://arxiv.org/abs/2502.12821)  
+**代码**: —  
+**领域**: LLM/NLP, 推理评估  
+**关键词**: inverse scaling, redefinition, anchoring, memorization, reasoning flexibility, physical constants  
 
 ## 一句话总结
 

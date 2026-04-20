@@ -9,16 +9,11 @@ arxiv: "2312.07352"
 
 # CholecTrack20: A Multi-Perspective Tracking Dataset for Surgical Tools
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | CholecTrack20: A Multi-Perspective Tracking Dataset for Surgical Tools |
-| 作者 | Chinedu Innocent Nwoye, Kareem Elgharably 等 |
-| 机构 | University of Strasbourg / University of Basel |
-| 会议 | CVPR 2025 |
-| arXiv | 2312.07352 |
-| 许可 | CC-BY-NC-SA 4.0 |
+**作者**: Chinedu Innocent Nwoye, Kareem Elgharably 等  
+**机构**: University of Strasbourg / University of Basel  
+**会议**: CVPR 2025  
+**arXiv**: 2312.07352  
+**许可**: CC-BY-NC-SA 4.0  
 
 ## 研究背景与动机
 

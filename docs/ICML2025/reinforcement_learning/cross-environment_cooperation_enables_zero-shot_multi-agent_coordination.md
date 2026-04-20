@@ -9,13 +9,11 @@ tags:
 
 # Cross-environment Cooperation Enables Zero-shot Multi-agent Coordination
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ICML 2025 |
-| **arXiv** | [2504.12714](https://arxiv.org/abs/2504.12714) |
-| **代码** | [https://kjha02.github.io/publication/cross-env-coop](https://kjha02.github.io/publication/cross-env-coop) |
-| **领域** | 强化学习 / 多智能体协作 / 零样本协调 |
-| **关键词** | Zero-shot Coordination, Cross-Environment Cooperation, Procedural Generation, Multi-agent RL, Human-AI Collaboration |
+**会议**: ICML 2025  
+**arXiv**: [2504.12714](https://arxiv.org/abs/2504.12714)  
+**代码**: [https://kjha02.github.io/publication/cross-env-coop](https://kjha02.github.io/publication/cross-env-coop)  
+**领域**: 强化学习 / 多智能体协作 / 零样本协调  
+**关键词**: Zero-shot Coordination, Cross-Environment Cooperation, Procedural Generation, Multi-agent RL, Human-AI Collaboration  
 
 ## 一句话总结
 

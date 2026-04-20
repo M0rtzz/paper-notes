@@ -14,13 +14,11 @@ tags:
 
 # LLaVA-KD: A Framework of Distilling Multimodal Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICCV2025 |
-| arXiv | [2410.16236](https://arxiv.org/abs/2410.16236) |
-| 代码 | [GitHub](https://github.com/Fantasyele/LLaVA-KD) |
-| 领域 | 多模态VLM |
-| 关键词 | 知识蒸馏, 多模态大模型, 小模型压缩, 视觉语言对齐, 关系蒸馏 |
+**会议**: ICCV2025  
+**arXiv**: [2410.16236](https://arxiv.org/abs/2410.16236)  
+**代码**: [GitHub](https://github.com/Fantasyele/LLaVA-KD)  
+**领域**: 多模态VLM  
+**关键词**: 知识蒸馏, 多模态大模型, 小模型压缩, 视觉语言对齐, 关系蒸馏  
 
 ## 一句话总结
 

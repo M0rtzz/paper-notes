@@ -9,14 +9,12 @@ tags:
 
 # Can One Safety Loop Guard Them All? Agentic Guard Rails for Federated Computing
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Narasimha Raghavan Veeraragavan, Jan Franz Nygård |
-| arXiv | [2506.20000](https://arxiv.org/abs/2506.20000) |
-| 代码 | 未公开 |
-| 领域 | AI 安全, 联邦计算, 隐私保护 |
-| 关键词 | federated computing, guard rails, privacy-preserving, FHE, DP, MPC, finite-state machine |
+**会议**: ICML 2025  
+**作者**: Narasimha Raghavan Veeraragavan, Jan Franz Nygård  
+**arXiv**: [2506.20000](https://arxiv.org/abs/2506.20000)  
+**代码**: 未公开  
+**领域**: AI 安全, 联邦计算, 隐私保护  
+**关键词**: federated computing, guard rails, privacy-preserving, FHE, DP, MPC, finite-state machine  
 
 ## 一句话总结
 

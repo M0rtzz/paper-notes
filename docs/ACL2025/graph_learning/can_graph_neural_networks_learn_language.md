@@ -9,13 +9,11 @@ tags:
 
 # Can Graph Neural Networks Learn Language with Extremely Weak Text Supervision?
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2412.08174](https://arxiv.org/abs/2412.08174) |
-| 代码 | [Violet24K/Morpher](https://github.com/Violet24K/Morpher) |
-| 领域 | graph_learning |
-| 关键词 | 图神经网络, 多模态提示学习, 图文对齐, 少样本学习, 零样本分类 |
+**会议**: ACL 2025  
+**arXiv**: [2412.08174](https://arxiv.org/abs/2412.08174)  
+**代码**: [Violet24K/Morpher](https://github.com/Violet24K/Morpher)  
+**领域**: graph_learning  
+**关键词**: 图神经网络, 多模态提示学习, 图文对齐, 少样本学习, 零样本分类  
 
 ## 一句话总结
 

@@ -9,13 +9,11 @@ tags:
 
 # Watching the Watchers: Exposing Gender Disparities in Machine Translation Quality Estimation
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2410.10995](https://arxiv.org/abs/2410.10995) |
-| **代码** | [GitHub](https://github.com/deep-spin/gender-bias-qe-metrics) |
-| **领域** | 多语言/机器翻译 (Multilingual / MT) |
-| **关键词** | 质量评估, 性别偏差, 机器翻译, 公平性, QE指标 |
+**会议**: ACL 2025  
+**arXiv**: [2410.10995](https://arxiv.org/abs/2410.10995)  
+**代码**: [GitHub](https://github.com/deep-spin/gender-bias-qe-metrics)  
+**领域**: 多语言/机器翻译 (Multilingual / MT)  
+**关键词**: 质量评估, 性别偏差, 机器翻译, 公平性, QE指标  
 
 ## 一句话总结
 

@@ -9,13 +9,11 @@ tags:
 
 # Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2505.15993](https://arxiv.org/abs/2505.15993) |
-| 代码 | 待公开 |
-| 领域 | LLM推理与解释性 |
-| 关键词 | LLM reasoning, Sudoku, explanation generation, human-AI collaboration, puzzle solving |
+**会议**: ACL 2025  
+**arXiv**: [2505.15993](https://arxiv.org/abs/2505.15993)  
+**代码**: 待公开  
+**领域**: LLM推理与解释性  
+**关键词**: LLM reasoning, Sudoku, explanation generation, human-AI collaboration, puzzle solving  
 
 ## 一句话总结
 

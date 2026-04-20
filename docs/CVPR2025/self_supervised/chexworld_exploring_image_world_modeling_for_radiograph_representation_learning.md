@@ -11,15 +11,10 @@ tags:
 
 # CheXWorld: Image World Modeling for Radiograph Representation Learning
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | CheXWorld: Exploring Image World Modeling for Radiograph Representation Learning |
-| 会议 | CVPR 2025 |
-| 机构 | 清华大学 / 解放军总医院 |
-| arXiv | 2504.13820 |
-| 关键词 | 胸片、JEPA、世界模型、自监督学习、表征学习 |
+**会议**: CVPR 2025  
+**机构**: 清华大学 / 解放军总医院  
+**arXiv**: 2504.13820  
+**关键词**: 胸片、JEPA、世界模型、自监督学习、表征学习  
 
 ## 研究背景与动机
 

@@ -9,13 +9,11 @@ tags:
 
 # Hallucination Detox: Sensitivity Dropout (SenD) for Large Language Model Training
 
-| 项目 | 内容 |
-|------|------|
-| **会议/期刊** | ACL 2025 |
-| **arXiv** | [2410.15460](https://arxiv.org/abs/2410.15460) |
-| **代码** | [GitHub](https://github.com/EMZEDI/SEND) |
-| **领域** | LLM安全 / 幻觉缓解 |
-| **关键词** | hallucination, dropout, training dynamics, EigenScore, sensitive embedding indices |
+**会议/期刊**: ACL 2025  
+**arXiv**: [2410.15460](https://arxiv.org/abs/2410.15460)  
+**代码**: [GitHub](https://github.com/EMZEDI/SEND)  
+**领域**: LLM安全 / 幻觉缓解  
+**关键词**: hallucination, dropout, training dynamics, EigenScore, sensitive embedding indices  
 
 ## 一句话总结
 

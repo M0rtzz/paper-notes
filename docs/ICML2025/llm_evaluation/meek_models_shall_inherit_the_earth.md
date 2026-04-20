@@ -9,14 +9,12 @@ tags:
 
 # Meek Models Shall Inherit the Earth
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Hans Gundlach, Jayson Lynch, Neil Thompson (MIT CSAIL) |
-| arXiv | [2507.07931](https://arxiv.org/abs/2507.07931) |
-| 代码 | 无 |
-| 领域 | LLM评估, AI 治理, 缩放定律 |
-| 关键词 | scaling laws, diminishing returns, compute scaling, AI democratization, AI governance |
+**会议**: ICML 2025  
+**作者**: Hans Gundlach, Jayson Lynch, Neil Thompson (MIT CSAIL)  
+**arXiv**: [2507.07931](https://arxiv.org/abs/2507.07931)  
+**代码**: 无  
+**领域**: LLM评估, AI 治理, 缩放定律  
+**关键词**: scaling laws, diminishing returns, compute scaling, AI democratization, AI governance  
 
 ## 一句话总结
 

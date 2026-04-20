@@ -9,14 +9,11 @@ tags:
 
 # EpMAN: Episodic Memory AttentioN for Generalizing to Longer Contexts
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | EpMAN: Episodic Memory AttentioN for Generalizing to Longer Contexts |
-| 会议 | ACL 2025 |
-| arXiv | 2502.14280 |
-| 代码 | - |
-| 领域 | others |
-| 关键词 | long context, episodic memory, attention, context length extension, retrieval-augmented generation |
+**会议**: ACL 2025  
+**arXiv**: 2502.14280  
+**代码**: -  
+**领域**: others  
+**关键词**: long context, episodic memory, attention, context length extension, retrieval-augmented generation  
 
 ## 一句话总结
 

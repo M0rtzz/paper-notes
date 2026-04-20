@@ -9,13 +9,11 @@ tags:
 
 # ProxAnn: Use-Oriented Evaluations of Topic Models and Document Clustering
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2507.00828](https://arxiv.org/abs/2507.00828) |
-| 代码 | [github.com/ahoho/proxann](https://github.com/ahoho/proxann) |
-| 领域 | 主题模型评估 |
-| 关键词 | topic model evaluation, proxy annotator, LLM evaluation, document clustering, qualitative content analysis |
+**会议**: ACL 2025  
+**arXiv**: [2507.00828](https://arxiv.org/abs/2507.00828)  
+**代码**: [github.com/ahoho/proxann](https://github.com/ahoho/proxann)  
+**领域**: 主题模型评估  
+**关键词**: topic model evaluation, proxy annotator, LLM evaluation, document clustering, qualitative content analysis  
 
 ## 一句话总结
 

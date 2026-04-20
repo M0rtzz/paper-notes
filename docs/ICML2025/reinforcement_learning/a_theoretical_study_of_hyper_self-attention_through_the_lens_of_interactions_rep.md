@@ -9,14 +9,12 @@ tags:
 
 # A Theoretical Study of (Hyper) Self-Attention through the Lens of Interactions: Representation, Training, Generalization
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Muhammed Ustaomeroglu, Guannan Qu (CMU) |
-| arXiv | [2506.06179](https://arxiv.org/abs/2506.06179) |
-| 代码 | 无 |
-| 领域 | 理论分析, Self-Attention |
-| 关键词 | self-attention, mutual interaction, representation theory, HyperAttention, length generalization |
+**会议**: ICML 2025  
+**作者**: Muhammed Ustaomeroglu, Guannan Qu (CMU)  
+**arXiv**: [2506.06179](https://arxiv.org/abs/2506.06179)  
+**代码**: 无  
+**领域**: 理论分析, Self-Attention  
+**关键词**: self-attention, mutual interaction, representation theory, HyperAttention, length generalization  
 
 ## 一句话总结
 

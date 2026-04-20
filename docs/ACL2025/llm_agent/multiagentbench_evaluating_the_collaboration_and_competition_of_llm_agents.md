@@ -11,15 +11,12 @@ tags:
 
 ## 基本信息
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents |
-| 会议 | ACL 2025 |
-| arXiv | 2503.01935 |
-| 代码 | [MultiagentBench/MARBLE](https://github.com/MultiagentBench/MARBLE) |
-| 机构 | University of Illinois Urbana-Champaign |
-| 领域 | LLM Agent / 多智能体系统 |
-| 关键词 | multi-agent, benchmark, collaboration, competition, coordination protocol, emergent behavior |
+**会议**: ACL 2025  
+**arXiv**: 2503.01935  
+**代码**: [MultiagentBench/MARBLE](https://github.com/MultiagentBench/MARBLE)  
+**机构**: University of Illinois Urbana-Champaign  
+**领域**: LLM Agent / 多智能体系统  
+**关键词**: multi-agent, benchmark, collaboration, competition, coordination protocol, emergent behavior  
 
 ## 一句话总结
 

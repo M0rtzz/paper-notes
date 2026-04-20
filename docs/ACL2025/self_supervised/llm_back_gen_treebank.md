@@ -9,13 +9,11 @@ tags:
 
 # Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2505.20976](https://arxiv.org/abs/2505.20976) |
-| 代码 | [GitHub](https://github.com/guopeiming/Back_Parsing_LLM) |
-| 领域 | 句法分析 / 跨领域迁移 |
-| 关键词 | Constituency Parsing, Cross-domain, LLM Back Generation, Contrastive Learning, Treebank Generation |
+**会议**: ACL 2025  
+**arXiv**: [2505.20976](https://arxiv.org/abs/2505.20976)  
+**代码**: [GitHub](https://github.com/guopeiming/Back_Parsing_LLM)  
+**领域**: 句法分析 / 跨领域迁移  
+**关键词**: Constituency Parsing, Cross-domain, LLM Back Generation, Contrastive Learning, Treebank Generation  
 
 ## 一句话总结
 

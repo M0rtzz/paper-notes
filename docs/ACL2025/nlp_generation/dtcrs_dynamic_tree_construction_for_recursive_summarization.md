@@ -9,14 +9,11 @@ tags:
 
 # DTCRS: Dynamic Tree Construction for Recursive Summarization
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | DTCRS: Dynamic Tree Construction for Recursive Summarization |
-| 会议 | ACL 2025 |
-| arXiv | [2604.07012](https://arxiv.org/abs/2604.07012) |
-| 代码 | 未公开 |
-| 领域 | NLP Generation / RAG / 文本摘要 |
-| 关键词 | Recursive Summarization, RAG, Summary Tree, Question Decomposition, GMM Clustering |
+**会议**: ACL 2025  
+**arXiv**: [2604.07012](https://arxiv.org/abs/2604.07012)  
+**代码**: 未公开  
+**领域**: NLP Generation / RAG / 文本摘要  
+**关键词**: Recursive Summarization, RAG, Summary Tree, Question Decomposition, GMM Clustering  
 
 ## 一句话总结
 

@@ -9,13 +9,11 @@ tags:
 
 # Improve Language Model and Brain Alignment via Associative Memory
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2505.13844](https://arxiv.org/abs/2505.13844) |
-| **代码** | [GitHub](https://github.com/lemonsis/Association) |
-| **领域** | 认知神经科学 / 语言模型 |
-| **关键词** | brain alignment, associative memory, fMRI, 指令微调, GPT-2, LLaMA-2 |
+**会议**: ACL 2025  
+**arXiv**: [2505.13844](https://arxiv.org/abs/2505.13844)  
+**代码**: [GitHub](https://github.com/lemonsis/Association)  
+**领域**: 认知神经科学 / 语言模型  
+**关键词**: brain alignment, associative memory, fMRI, 指令微调, GPT-2, LLaMA-2  
 
 ## 一句话总结
 

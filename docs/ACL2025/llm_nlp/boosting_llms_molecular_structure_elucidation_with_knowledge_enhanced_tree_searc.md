@@ -9,14 +9,12 @@ tags:
 
 # Boosting LLM's Molecular Structure Elucidation with Knowledge Enhanced Tree Search Reasoning
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| 作者 | Xiang Zhuang, Bin Wu, Jiyu Cui, Kehua Feng, Xiaotong Li, Huabin Xing, Keyan Ding, Qiang Zhang, Huajun Chen (浙江大学, UCL) |
-| arXiv | [2506.23056](https://arxiv.org/abs/2506.23056) |
-| 代码 | [GitHub](https://github.com/HICAI-ZJU/K-MSE) |
-| 领域 | LLM/NLP, 化学推理, 分子结构解析 |
-| 关键词 | molecular structure elucidation, MCTS, knowledge base, reward model, spectral data, test-time scaling |
+**会议**: ACL 2025  
+**作者**: Xiang Zhuang, Bin Wu, Jiyu Cui, Kehua Feng, Xiaotong Li, Huabin Xing, Keyan Ding, Qiang Zhang, Huajun Chen (浙江大学, UCL)  
+**arXiv**: [2506.23056](https://arxiv.org/abs/2506.23056)  
+**代码**: [GitHub](https://github.com/HICAI-ZJU/K-MSE)  
+**领域**: LLM/NLP, 化学推理, 分子结构解析  
+**关键词**: molecular structure elucidation, MCTS, knowledge base, reward model, spectral data, test-time scaling  
 
 ## 一句话总结
 

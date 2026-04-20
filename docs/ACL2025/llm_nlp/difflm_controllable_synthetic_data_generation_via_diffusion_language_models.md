@@ -9,13 +9,11 @@ tags:
 
 # DiffLM: Controllable Synthetic Data Generation via Diffusion Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2411.03250](https://arxiv.org/abs/2411.03250) |
-| 代码 | [bytedance/DiffLM](https://github.com/bytedance/DiffLM) |
-| 领域 | 数据合成、生成模型 |
-| 关键词 | 合成数据、VAE、扩散模型、LLM、结构化数据生成 |
+**会议**: ACL 2025  
+**arXiv**: [2411.03250](https://arxiv.org/abs/2411.03250)  
+**代码**: [bytedance/DiffLM](https://github.com/bytedance/DiffLM)  
+**领域**: 数据合成、生成模型  
+**关键词**: 合成数据、VAE、扩散模型、LLM、结构化数据生成  
 
 ## 一句话总结
 

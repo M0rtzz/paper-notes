@@ -9,13 +9,11 @@ tags:
 
 # Personalized Generation In Large Model Era: A Survey
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 (Findings) |
-| **arXiv** | [2503.02614](https://arxiv.org/abs/2503.02614) |
-| **代码** | 未公开 |
-| **领域** | others |
-| **关键词** | Personalized Generation, Survey, User Modeling, LLM, Diffusion Model, Multimodal |
+**会议**: ACL 2025 (Findings)  
+**arXiv**: [2503.02614](https://arxiv.org/abs/2503.02614)  
+**代码**: 未公开  
+**领域**: others  
+**关键词**: Personalized Generation, Survey, User Modeling, LLM, Diffusion Model, Multimodal  
 
 ## 一句话总结
 

@@ -9,13 +9,11 @@ tags:
 
 # What Is That Talk About? A Video-to-Text Summarization Dataset for Scientific Presentations
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2502.08279](https://arxiv.org/abs/2502.08279) |
-| 代码 | [dongqi.me/projects/VISTA](https://dongqi.me/projects/VISTA) |
-| 领域 | 视频文本摘要 |
-| 关键词 | video summarization, scientific presentations, plan-based generation, multimodal, dataset |
+**会议**: ACL 2025  
+**arXiv**: [2502.08279](https://arxiv.org/abs/2502.08279)  
+**代码**: [dongqi.me/projects/VISTA](https://dongqi.me/projects/VISTA)  
+**领域**: 视频文本摘要  
+**关键词**: video summarization, scientific presentations, plan-based generation, multimodal, dataset  
 
 ## 一句话总结
 

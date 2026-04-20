@@ -9,13 +9,11 @@ tags:
 
 # ATRIE: Automating Legal Interpretation with LLMs: Retrieval, Generation, and Evaluation
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2501.01743](https://arxiv.org/abs/2501.01743) |
-| 代码 | [GitHub](https://github.com/lkc233/ATRIE) |
-| 领域 | 法律NLP / 检索增强生成 |
-| 关键词 | Legal Interpretation, RAG, Legal Concept Entailment, Doctrinal Legal Research, LLM |
+**会议**: ACL 2025  
+**arXiv**: [2501.01743](https://arxiv.org/abs/2501.01743)  
+**代码**: [GitHub](https://github.com/lkc233/ATRIE)  
+**领域**: 法律NLP / 检索增强生成  
+**关键词**: Legal Interpretation, RAG, Legal Concept Entailment, Doctrinal Legal Research, LLM  
 
 ## 一句话总结
 

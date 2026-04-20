@@ -14,13 +14,11 @@ tags:
 
 # A Measure of the System Dependence of Automated Metrics
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2412.03152](https://arxiv.org/abs/2412.03152) |
-| **代码** | 附录中提供 |
-| **领域** | others |
-| **关键词** | Machine Translation, Automated Metrics, System Dependence, Evaluation, SysDep |
+**会议**: ACL 2025  
+**arXiv**: [2412.03152](https://arxiv.org/abs/2412.03152)  
+**代码**: 附录中提供  
+**领域**: others  
+**关键词**: Machine Translation, Automated Metrics, System Dependence, Evaluation, SysDep  
 
 ## 一句话总结
 

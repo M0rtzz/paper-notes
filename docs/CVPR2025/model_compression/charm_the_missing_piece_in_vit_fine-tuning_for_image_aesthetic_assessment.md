@@ -9,15 +9,10 @@ arxiv: "2504.02522"
 
 # Charm: The Missing Piece in ViT Fine-Tuning for Image Aesthetic Assessment
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Charm: The Missing Piece in ViT Fine-Tuning for Image Aesthetic Assessment |
-| 作者 | Fatemeh Behrad, Farzad Khorasani 等 |
-| 机构 | KU Leuven |
-| 会议 | CVPR 2025 |
-| arXiv | 2504.02522 |
+**作者**: Fatemeh Behrad, Farzad Khorasani 等  
+**机构**: KU Leuven  
+**会议**: CVPR 2025  
+**arXiv**: 2504.02522  
 
 ## 研究背景与动机
 

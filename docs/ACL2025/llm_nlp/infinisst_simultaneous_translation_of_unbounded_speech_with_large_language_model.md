@@ -9,14 +9,12 @@ tags:
 
 # InfiniSST: Simultaneous Translation of Unbounded Speech with Large Language Model
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| 作者 | Siqi Ouyang, Xi Xu, Lei Li (CMU) |
-| arXiv | [2503.02969](https://arxiv.org/abs/2503.02969) |
-| 代码 | [GitHub](https://github.com/LeiLiLab/InfiniSST) |
-| 领域 | LLM/NLP, 语音翻译 |
-| 关键词 | simultaneous translation, streaming speech, KV cache, multi-turn dialogue, unbounded input |
+**会议**: ACL 2025  
+**作者**: Siqi Ouyang, Xi Xu, Lei Li (CMU)  
+**arXiv**: [2503.02969](https://arxiv.org/abs/2503.02969)  
+**代码**: [GitHub](https://github.com/LeiLiLab/InfiniSST)  
+**领域**: LLM/NLP, 语音翻译  
+**关键词**: simultaneous translation, streaming speech, KV cache, multi-turn dialogue, unbounded input  
 
 ## 一句话总结
 

@@ -11,15 +11,10 @@ tags:
 
 # SAIL: Assessing and Learning Alignment of Unimodal Vision and Language Models
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | SAIL: Assessing and Learning Alignment of Unimodal Vision and Language Models |
-| 会议 | CVPR 2025 |
-| 机构 | Mila / Université de Montréal |
-| arXiv | 2412.04616 |
-| 关键词 | 视觉语言对齐、对比学习、DINOv2、NV-Embed |
+**会议**: CVPR 2025  
+**机构**: Mila / Université de Montréal  
+**arXiv**: 2412.04616  
+**关键词**: 视觉语言对齐、对比学习、DINOv2、NV-Embed  
 
 ## 研究背景与动机
 

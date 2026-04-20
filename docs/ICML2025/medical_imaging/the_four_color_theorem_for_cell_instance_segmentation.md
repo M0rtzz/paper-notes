@@ -9,13 +9,11 @@ tags:
 
 # The Four Color Theorem for Cell Instance Segmentation
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| arXiv | [2506.09724](https://arxiv.org/abs/2506.09724) |
-| 代码 | [GitHub](https://github.com/zhangye-zoe/FCIS) |
-| 领域 | 医学图像分割 / 实例分割 / 图论 |
-| 关键词 | 四色定理, 细胞实例分割, 语义分割, 贪心着色, 渐进训练, 编码变换 |
+**会议**: ICML 2025  
+**arXiv**: [2506.09724](https://arxiv.org/abs/2506.09724)  
+**代码**: [GitHub](https://github.com/zhangye-zoe/FCIS)  
+**领域**: 医学图像分割 / 实例分割 / 图论  
+**关键词**: 四色定理, 细胞实例分割, 语义分割, 贪心着色, 渐进训练, 编码变换  
 
 ## 一句话总结
 

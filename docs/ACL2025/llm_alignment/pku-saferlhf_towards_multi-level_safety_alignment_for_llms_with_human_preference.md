@@ -11,15 +11,12 @@ tags:
 
 ## 基本信息
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference |
-| 会议 | ACL 2025 |
-| arXiv | 2406.15513 |
-| 数据集 | [PKU-Alignment/PKU-SafeRLHF](https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF) |
-| 机构 | Peking University / HKUST / Infinigence-AI |
-| 领域 | LLM 安全对齐 / RLHF |
-| 关键词 | safety alignment, RLHF, preference data, harm categories, severity levels, moderation |
+**会议**: ACL 2025  
+**arXiv**: 2406.15513  
+**数据集**: [PKU-Alignment/PKU-SafeRLHF](https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF)  
+**机构**: Peking University / HKUST / Infinigence-AI  
+**领域**: LLM 安全对齐 / RLHF  
+**关键词**: safety alignment, RLHF, preference data, harm categories, severity levels, moderation  
 
 ## 一句话总结
 

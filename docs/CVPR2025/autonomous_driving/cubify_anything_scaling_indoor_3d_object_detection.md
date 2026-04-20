@@ -11,14 +11,9 @@ tags:
 
 # Cubify Anything: Scaling Indoor 3D Object Detection
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Cubify Anything: Scaling Indoor 3D Object Detection |
-| 会议 | CVPR 2025 |
-| arXiv | 2412.04458 |
-| 主题 | 室内3D物体检测 / 长方体表示 |
+**会议**: CVPR 2025  
+**arXiv**: 2412.04458  
+**主题**: 室内3D物体检测 / 长方体表示  
 
 ## 研究背景与动机
 

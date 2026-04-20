@@ -11,15 +11,12 @@ tags:
 
 ## 基本信息
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | RoCoFT: Efficient Finetuning of Large Language Models with Row-Column Updates |
-| 会议 | ACL 2025 |
-| arXiv | 2410.10075 |
-| 代码 | [Kowsher/RoCoFT](https://github.com/Kowsher/RoCoFT) |
-| 机构 | Nokia Bell Labs / UCF / UIC |
-| 领域 | 参数高效微调 / LLM |
-| 关键词 | PEFT, LoRA, row-column updates, NTK, parameter-efficient finetuning |
+**会议**: ACL 2025  
+**arXiv**: 2410.10075  
+**代码**: [Kowsher/RoCoFT](https://github.com/Kowsher/RoCoFT)  
+**机构**: Nokia Bell Labs / UCF / UIC  
+**领域**: 参数高效微调 / LLM  
+**关键词**: PEFT, LoRA, row-column updates, NTK, parameter-efficient finetuning  
 
 ## 一句话总结
 

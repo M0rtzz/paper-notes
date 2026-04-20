@@ -18,10 +18,10 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ page.canonical_url }}" />
 {% if page and page.meta and page.meta.description %}
-<meta property="og:title" content="{{ page.title | e }}" />
+<meta property="og:title" content="[论文解读] {{ page.title | e }}" />
 <meta property="og:description" content="{{ page.meta.description }}" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{ page.title | e }}" />
+<meta name="twitter:title" content="[论文解读] {{ page.title | e }}" />
 <meta name="twitter:description" content="{{ page.meta.description }}" />
 
 <!-- JSON-LD: ScholarlyArticle -->
@@ -29,8 +29,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "name": "{{ page.title | e }}",
-  "headline": "论文解读: {{ page.title | e }}",
+  "name": "[论文解读] {{ page.title | e }}",
+  "headline": "[论文解读] {{ page.title | e }}",
   "description": "{{ page.meta.description | e }}",
   "url": "{{ page.canonical_url }}",
   "datePublished": "{{ page.meta.date | default(config.extra.build_date | default('')) }}",

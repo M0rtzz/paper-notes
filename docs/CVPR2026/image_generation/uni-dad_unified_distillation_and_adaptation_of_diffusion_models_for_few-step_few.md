@@ -9,13 +9,11 @@ tags:
 
 # Uni-DAD: Unified Distillation and Adaptation of Diffusion Models for Few-step Few-shot Image Generation
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | CVPR 2026 |
-| arXiv | [2511.18281](https://arxiv.org/abs/2511.18281) |
-| 代码 | [GitHub](https://github.com/yaramohamadi/uni-DAD) |
-| 领域 | 图像生成 |
-| 关键词 | 扩散模型蒸馏, 少样本图像生成, 域适应, GAN, 分布匹配蒸馏 |
+**会议**: CVPR 2026  
+**arXiv**: [2511.18281](https://arxiv.org/abs/2511.18281)  
+**代码**: [GitHub](https://github.com/yaramohamadi/uni-DAD)  
+**领域**: 图像生成  
+**关键词**: 扩散模型蒸馏, 少样本图像生成, 域适应, GAN, 分布匹配蒸馏  
 
 ## 一句话总结
 

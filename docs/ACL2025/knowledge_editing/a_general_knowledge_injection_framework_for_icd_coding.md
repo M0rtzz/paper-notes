@@ -9,13 +9,11 @@ tags:
 
 # A General Knowledge Injection Framework for ICD Coding
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2505.18708](https://arxiv.org/abs/2505.18708) |
-| **代码** | [GitHub](https://github.com/xuzhang0112/GKI-ICD) |
-| **领域** | 知识编辑 (Knowledge Editing) |
-| **关键词** | ICD编码, 知识注入, 多任务学习, 指南合成, 医疗文本分类 |
+**会议**: ACL 2025  
+**arXiv**: [2505.18708](https://arxiv.org/abs/2505.18708)  
+**代码**: [GitHub](https://github.com/xuzhang0112/GKI-ICD)  
+**领域**: 知识编辑 (Knowledge Editing)  
+**关键词**: ICD编码, 知识注入, 多任务学习, 指南合成, 医疗文本分类  
 
 ## 一句话总结
 

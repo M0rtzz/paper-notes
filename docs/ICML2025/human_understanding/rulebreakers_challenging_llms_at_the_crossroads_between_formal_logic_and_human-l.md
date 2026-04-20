@@ -9,14 +9,12 @@ tags:
 
 # RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Jason Chan, Robert Gaizauskas, Zhixue Zhao (University of Sheffield) |
-| arXiv | [2410.16502](https://arxiv.org/abs/2410.16502) |
-| 代码 | [GitHub](https://github.com/jasonchanly/rulebreakers) |
-| 领域 | LLM评估, 认知科学, 推理 |
-| 关键词 | rulebreaker, formal logic, human-like reasoning, modus tollens, disjunctive syllogism |
+**会议**: ICML 2025  
+**作者**: Jason Chan, Robert Gaizauskas, Zhixue Zhao (University of Sheffield)  
+**arXiv**: [2410.16502](https://arxiv.org/abs/2410.16502)  
+**代码**: [GitHub](https://github.com/jasonchanly/rulebreakers)  
+**领域**: LLM评估, 认知科学, 推理  
+**关键词**: rulebreaker, formal logic, human-like reasoning, modus tollens, disjunctive syllogism  
 
 ## 一句话总结
 

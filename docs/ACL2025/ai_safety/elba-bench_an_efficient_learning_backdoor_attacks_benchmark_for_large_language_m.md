@@ -9,14 +9,11 @@ tags:
 
 # ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models |
-| 会议 | ACL 2025 |
-| arXiv | [2502.18511](https://arxiv.org/abs/2502.18511) |
-| 代码 | 未公开（提供通用工具箱） |
-| 领域 | AI Safety / 后门攻击 |
-| 关键词 | Backdoor Attack, LLM Security, Benchmark, PEFT Attack, In-Context Learning Attack |
+**会议**: ACL 2025  
+**arXiv**: [2502.18511](https://arxiv.org/abs/2502.18511)  
+**代码**: 未公开（提供通用工具箱）  
+**领域**: AI Safety / 后门攻击  
+**关键词**: Backdoor Attack, LLM Security, Benchmark, PEFT Attack, In-Context Learning Attack  
 
 ## 一句话总结
 

@@ -14,13 +14,11 @@ tags:
 
 # PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2502.20616](https://arxiv.org/abs/2502.20616) |
-| **代码** | 未公开 |
-| **领域** | others |
-| **关键词** | Personalization, RAG, Synthetic Data, User Profile, Benchmark, Private Data |
+**会议**: ACL 2025  
+**arXiv**: [2502.20616](https://arxiv.org/abs/2502.20616)  
+**代码**: 未公开  
+**领域**: others  
+**关键词**: Personalization, RAG, Synthetic Data, User Profile, Benchmark, Private Data  
 
 ## 一句话总结
 

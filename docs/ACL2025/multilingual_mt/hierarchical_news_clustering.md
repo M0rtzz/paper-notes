@@ -9,13 +9,11 @@ tags:
 
 # Hierarchical Level-Wise News Article Clustering via Multilingual Matryoshka Embeddings
 
-| 项目 | 内容 |
-|------|------|
-| **会议/期刊** | ACL 2025 |
-| **arXiv** | [2506.00277](https://arxiv.org/abs/2506.00277) |
-| **代码** | [GitHub](https://github.com/hanshanley/multilingual-matryoshka-news) |
-| **领域** | 多语言 / 新闻聚类 |
-| **关键词** | Matryoshka embeddings, multilingual, hierarchical clustering, news similarity, agglomerative clustering |
+**会议/期刊**: ACL 2025  
+**arXiv**: [2506.00277](https://arxiv.org/abs/2506.00277)  
+**代码**: [GitHub](https://github.com/hanshanley/multilingual-matryoshka-news)  
+**领域**: 多语言 / 新闻聚类  
+**关键词**: Matryoshka embeddings, multilingual, hierarchical clustering, news similarity, agglomerative clustering  
 
 ## 一句话总结
 

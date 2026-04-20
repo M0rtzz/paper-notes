@@ -9,13 +9,11 @@ tags:
 
 # GraphNarrator: Generating Textual Explanations for Graph Neural Networks
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2410.15268](https://arxiv.org/abs/2410.15268) |
-| 代码 | 无 |
-| 领域 | graph_learning |
-| 关键词 | GNN可解释性, 自然语言解释, 文本属性图, 专家迭代, 知识蒸馏 |
+**会议**: ACL 2025  
+**arXiv**: [2410.15268](https://arxiv.org/abs/2410.15268)  
+**代码**: 无  
+**领域**: graph_learning  
+**关键词**: GNN可解释性, 自然语言解释, 文本属性图, 专家迭代, 知识蒸馏  
 
 ## 一句话总结
 

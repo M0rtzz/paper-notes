@@ -9,13 +9,11 @@ tags:
 
 # Radar: Enhancing Radiology Report Generation with Supplementary Knowledge Injection
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2505.14318](https://arxiv.org/abs/2505.14318) |
-| 代码 | [https://github.com/wjhou/Radar](https://github.com/wjhou/Radar) |
-| 领域 | 医学影像 / 放射学报告生成 / 多模态 LLM |
-| 关键词 | radiology report generation, knowledge injection, supplementary knowledge, LLM, chest X-ray |
+**会议**: ACL 2025  
+**arXiv**: [2505.14318](https://arxiv.org/abs/2505.14318)  
+**代码**: [https://github.com/wjhou/Radar](https://github.com/wjhou/Radar)  
+**领域**: 医学影像 / 放射学报告生成 / 多模态 LLM  
+**关键词**: radiology report generation, knowledge injection, supplementary knowledge, LLM, chest X-ray  
 
 ## 一句话总结
 

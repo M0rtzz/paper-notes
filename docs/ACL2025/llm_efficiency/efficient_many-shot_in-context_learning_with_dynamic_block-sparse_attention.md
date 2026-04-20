@@ -9,14 +9,11 @@ tags:
 
 # Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention |
-| 会议 | ACL 2025 |
-| arXiv | [2503.08640](https://arxiv.org/abs/2503.08640) |
-| 代码 | [millix19/dbsa](https://github.com/millix19/dbsa) |
-| 领域 | LLM Efficiency / In-Context Learning |
-| 关键词 | Many-Shot ICL, Block-Sparse Attention, KV Cache, Retrieval ICL, Inference Efficiency |
+**会议**: ACL 2025  
+**arXiv**: [2503.08640](https://arxiv.org/abs/2503.08640)  
+**代码**: [millix19/dbsa](https://github.com/millix19/dbsa)  
+**领域**: LLM Efficiency / In-Context Learning  
+**关键词**: Many-Shot ICL, Block-Sparse Attention, KV Cache, Retrieval ICL, Inference Efficiency  
 
 ## 一句话总结
 

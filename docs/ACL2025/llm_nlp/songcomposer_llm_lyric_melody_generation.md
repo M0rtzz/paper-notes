@@ -9,13 +9,11 @@ tags:
 
 # SongComposer: A Large Language Model for Lyric and Melody Generation in Song Composition
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2402.17645](https://arxiv.org/abs/2402.17645) |
-| 代码 | [项目主页](https://pjlab-songcomposer.github.io/) |
-| 领域 | llm_nlp |
-| 关键词 | 歌曲创作, 大语言模型, 旋律生成, 歌词生成, 符号音乐表示 |
+**会议**: ACL 2025  
+**arXiv**: [2402.17645](https://arxiv.org/abs/2402.17645)  
+**代码**: [项目主页](https://pjlab-songcomposer.github.io/)  
+**领域**: llm_nlp  
+**关键词**: 歌曲创作, 大语言模型, 旋律生成, 歌词生成, 符号音乐表示  
 
 ## 一句话总结
 

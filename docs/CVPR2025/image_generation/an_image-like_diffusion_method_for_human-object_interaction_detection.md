@@ -11,15 +11,10 @@ tags:
 
 # HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection |
-| 会议 | CVPR 2025 |
-| 机构 | Lancaster University |
-| arXiv | 2503.18134 |
-| 关键词 | 人物交互检测、扩散模型、多项式扩散、HOI Image |
+**会议**: CVPR 2025  
+**机构**: Lancaster University  
+**arXiv**: 2503.18134  
+**关键词**: 人物交互检测、扩散模型、多项式扩散、HOI Image  
 
 ## 研究背景与动机
 

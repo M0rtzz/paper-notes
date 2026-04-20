@@ -9,13 +9,11 @@ tags:
 
 # When Should Dense Retrievers Be Updated in Evolving Corpora? Detecting Out-of-Distribution Corpora Using GradNormIR
 
-| 项目 | 内容 |
-|------|------|
-| **会议/期刊** | ACL 2025 |
-| **arXiv** | [2506.01877](https://arxiv.org/abs/2506.01877) |
-| **代码** | [GitHub](https://github.com/dayoon-ko/gradnormir) |
-| **领域** | 信息检索 / OOD检测 |
-| **关键词** | dense retriever, out-of-distribution, gradient norm, corpus evolution, retrieval robustness |
+**会议/期刊**: ACL 2025  
+**arXiv**: [2506.01877](https://arxiv.org/abs/2506.01877)  
+**代码**: [GitHub](https://github.com/dayoon-ko/gradnormir)  
+**领域**: 信息检索 / OOD检测  
+**关键词**: dense retriever, out-of-distribution, gradient norm, corpus evolution, retrieval robustness  
 
 ## 一句话总结
 

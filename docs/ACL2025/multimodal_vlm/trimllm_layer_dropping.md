@@ -9,13 +9,11 @@ tags:
 
 # TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2412.11242](https://arxiv.org/abs/2412.11242) |
-| 代码 | 未提供 |
-| 领域 | 模型压缩 |
-| 关键词 | layer dropping, model compression, domain-specific LLM, layer-wise specialization, inference speedup |
+**会议**: ACL 2025  
+**arXiv**: [2412.11242](https://arxiv.org/abs/2412.11242)  
+**代码**: 未提供  
+**领域**: 模型压缩  
+**关键词**: layer dropping, model compression, domain-specific LLM, layer-wise specialization, inference speedup  
 
 ## 一句话总结
 

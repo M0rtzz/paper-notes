@@ -9,13 +9,11 @@ tags:
 
 # HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring
 
-| 项目 | 内容 |
-|------|------|
-| **会议/期刊** | ACL 2025 |
-| **arXiv** | [2506.02959](https://arxiv.org/abs/2506.02959) |
-| **代码** | - |
-| **领域** | AIGC检测 / 人机协作文本检测 |
-| **关键词** | machine-generated text detection, fine-grained detection, human-AI coauthoring, word-level attribution, sequence labeling |
+**会议/期刊**: ACL 2025  
+**arXiv**: [2506.02959](https://arxiv.org/abs/2506.02959)  
+**代码**: -  
+**领域**: AIGC检测 / 人机协作文本检测  
+**关键词**: machine-generated text detection, fine-grained detection, human-AI coauthoring, word-level attribution, sequence labeling  
 
 ## 一句话总结
 

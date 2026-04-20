@@ -9,14 +9,11 @@ tags:
 
 # Dialectal Coverage and Generalization in Arabic Speech Recognition
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | Dialectal Coverage and Generalization in Arabic Speech Recognition |
-| 会议 | ACL 2025 |
-| arXiv | [2411.05872](https://arxiv.org/abs/2411.05872) |
-| 代码 | [mbzuai-nlp/ArTST](https://github.com/mbzuai-nlp/ArTST) |
-| 领域 | Audio & Speech / 语音识别 |
-| 关键词 | Arabic ASR, Dialectal Speech, Multi-Dialectal Pre-Training, Code-Switching, ArTST |
+**会议**: ACL 2025  
+**arXiv**: [2411.05872](https://arxiv.org/abs/2411.05872)  
+**代码**: [mbzuai-nlp/ArTST](https://github.com/mbzuai-nlp/ArTST)  
+**领域**: Audio & Speech / 语音识别  
+**关键词**: Arabic ASR, Dialectal Speech, Multi-Dialectal Pre-Training, Code-Switching, ArTST  
 
 ## 一句话总结
 

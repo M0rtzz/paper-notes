@@ -12,14 +12,9 @@ tags:
 
 # Bimba: Selective-Scan Compression for Long-Range Video Question Answering
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Bimba: Selective-Scan Compression for Long-Range Video Question Answering |
-| 会议 | CVPR 2025 |
-| arXiv | 2503.09590 |
-| 主题 | 长视频问答 / Token压缩 |
+**会议**: CVPR 2025  
+**arXiv**: 2503.09590  
+**主题**: 长视频问答 / Token压缩  
 
 ## 研究背景与动机
 

@@ -9,13 +9,11 @@ tags:
 
 # LADM: Long-context Training Data Selection with Attention-based Dependency Measurement for LLMs
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2503.02502](https://arxiv.org/abs/2503.02502) |
-| 代码 | [ZNLP/LADM](https://github.com/ZNLP/LADM) |
-| 领域 | llm_efficiency |
-| 关键词 | 长上下文建模, 数据选择, 注意力机制, 上下文依赖, 持续预训练 |
+**会议**: ACL 2025  
+**arXiv**: [2503.02502](https://arxiv.org/abs/2503.02502)  
+**代码**: [ZNLP/LADM](https://github.com/ZNLP/LADM)  
+**领域**: llm_efficiency  
+**关键词**: 长上下文建模, 数据选择, 注意力机制, 上下文依赖, 持续预训练  
 
 ## 一句话总结
 

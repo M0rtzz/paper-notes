@@ -11,15 +11,10 @@ tags:
 
 # AutoSSVH: Automated Frame Sampling for Self-Supervised Video Hashing
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | AutoSSVH: Exploring Automated Frame Sampling for Efficient Self-Supervised Video Hashing |
-| 会议 | CVPR 2025 |
-| 机构 | 哈尔滨工业大学（深圳） / 清华大学 / 鹏城实验室 |
-| arXiv | 2504.03587 |
-| 关键词 | 视频哈希、帧采样、Gumbel-Softmax、梯度反转、自监督 |
+**会议**: CVPR 2025  
+**机构**: 哈尔滨工业大学（深圳） / 清华大学 / 鹏城实验室  
+**arXiv**: 2504.03587  
+**关键词**: 视频哈希、帧采样、Gumbel-Softmax、梯度反转、自监督  
 
 ## 研究背景与动机
 

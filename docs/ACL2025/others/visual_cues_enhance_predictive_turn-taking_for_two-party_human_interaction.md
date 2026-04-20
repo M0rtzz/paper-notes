@@ -9,13 +9,11 @@ tags:
 
 # Visual Cues Enhance Predictive Turn-Taking for Two-Party Human Interaction
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2505.21043](https://arxiv.org/abs/2505.21043) |
-| **代码** | [github.com/russelsa/mm-vap](https://github.com/russelsa/mm-vap) |
-| **领域** | others |
-| **关键词** | Turn-Taking, Multimodal, Facial Action Units, Predictive Model, Video Conferencing |
+**会议**: ACL 2025  
+**arXiv**: [2505.21043](https://arxiv.org/abs/2505.21043)  
+**代码**: [github.com/russelsa/mm-vap](https://github.com/russelsa/mm-vap)  
+**领域**: others  
+**关键词**: Turn-Taking, Multimodal, Facial Action Units, Predictive Model, Video Conferencing  
 
 ## 一句话总结
 

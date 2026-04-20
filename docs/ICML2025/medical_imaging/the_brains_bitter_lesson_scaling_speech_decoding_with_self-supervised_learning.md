@@ -9,13 +9,11 @@ tags:
 
 # The Brain's Bitter Lesson: Scaling Speech Decoding With Self-Supervised Learning
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| arXiv | [2406.04328](https://arxiv.org/abs/2406.04328) |
-| 代码 | - |
-| 领域 | 脑机接口 / 自监督学习 / 语音解码 |
-| 关键词 | MEG, 自监督学习, pretext task, 语音解码, 跨被试泛化, 脑信号, scaling |
+**会议**: ICML 2025  
+**arXiv**: [2406.04328](https://arxiv.org/abs/2406.04328)  
+**代码**: -  
+**领域**: 脑机接口 / 自监督学习 / 语音解码  
+**关键词**: MEG, 自监督学习, pretext task, 语音解码, 跨被试泛化, 脑信号, scaling  
 
 ## 一句话总结
 

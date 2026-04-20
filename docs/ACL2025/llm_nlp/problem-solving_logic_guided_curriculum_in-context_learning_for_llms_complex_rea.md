@@ -9,13 +9,11 @@ tags:
 
 # Problem-Solving Logic Guided Curriculum In-Context Learning for LLMs Complex Reasoning
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2502.15401](https://arxiv.org/abs/2502.15401) |
-| 代码 | [https://github.com/maxuetao/CurriculumICL](https://github.com/maxuetao/CurriculumICL) |
-| 领域 | LLM / In-Context Learning / 复杂推理 |
-| 关键词 | in-context learning, curriculum learning, problem-solving logic, demonstration selection, chain-of-thought |
+**会议**: ACL 2025  
+**arXiv**: [2502.15401](https://arxiv.org/abs/2502.15401)  
+**代码**: [https://github.com/maxuetao/CurriculumICL](https://github.com/maxuetao/CurriculumICL)  
+**领域**: LLM / In-Context Learning / 复杂推理  
+**关键词**: in-context learning, curriculum learning, problem-solving logic, demonstration selection, chain-of-thought  
 
 ## 一句话总结
 

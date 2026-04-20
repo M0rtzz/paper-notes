@@ -9,15 +9,10 @@ arxiv: "2504.04753"
 
 # CADCrafter: Generating Computer-Aided Design Models from Unconstrained Images
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | CADCrafter: Generating Computer-Aided Design Models from Unconstrained Images |
-| 作者 | Cheng Chen, Xiaohui Zeng, Yuwei Li, Hippolyte Music, Tobias Ritschel, Sanja Fidler, Florian Shkurti |
-| 机构 | NTU / A*STAR / UT Austin |
-| 会议 | CVPR 2025 |
-| arXiv | 2504.04753 |
+**作者**: Cheng Chen, Xiaohui Zeng, Yuwei Li, Hippolyte Music, Tobias Ritschel, Sanja Fidler, Florian Shkurti  
+**机构**: NTU / A*STAR / UT Austin  
+**会议**: CVPR 2025  
+**arXiv**: 2504.04753  
 
 ## 研究背景与动机
 

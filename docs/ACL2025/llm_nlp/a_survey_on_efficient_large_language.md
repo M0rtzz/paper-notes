@@ -9,13 +9,11 @@ tags:
 
 # A Survey on Efficient Large Language Model Training: From Data-centric Perspectives
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2510.25817](https://arxiv.org/abs/2510.25817) |
-| **代码** | [GitHub](https://github.com/luo-junyu/Awesome-Data-Efficient-LLM) |
-| **领域** | LLM 训练 / 数据效率 |
-| **关键词** | 数据高效训练, 后训练, 数据选择, 合成数据, 知识蒸馏, 自演化数据 |
+**会议**: ACL 2025  
+**arXiv**: [2510.25817](https://arxiv.org/abs/2510.25817)  
+**代码**: [GitHub](https://github.com/luo-junyu/Awesome-Data-Efficient-LLM)  
+**领域**: LLM 训练 / 数据效率  
+**关键词**: 数据高效训练, 后训练, 数据选择, 合成数据, 知识蒸馏, 自演化数据  
 
 ## 一句话总结
 

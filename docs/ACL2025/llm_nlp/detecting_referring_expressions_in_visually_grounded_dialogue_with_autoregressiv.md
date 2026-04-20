@@ -9,13 +9,11 @@ tags:
 
 # Detecting Referring Expressions in Visually Grounded Dialogue with Autoregressive Language Models
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2506.21294](https://arxiv.org/abs/2506.21294) |
-| **代码** | [GitHub](https://github.com/willemsenbram/mention-detection-vgd) |
-| **领域** | 对话理解 / 视觉-语言 |
-| **关键词** | mention detection, referring expressions, visually grounded dialogue, 自回归语言模型, 参数高效微调 |
+**会议**: ACL 2025  
+**arXiv**: [2506.21294](https://arxiv.org/abs/2506.21294)  
+**代码**: [GitHub](https://github.com/willemsenbram/mention-detection-vgd)  
+**领域**: 对话理解 / 视觉-语言  
+**关键词**: mention detection, referring expressions, visually grounded dialogue, 自回归语言模型, 参数高效微调  
 
 ## 一句话总结
 

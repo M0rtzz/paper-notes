@@ -9,14 +9,12 @@ tags:
 
 # Merge-Friendly Post-Training Quantization for Multi-Target Domain Adaptation
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Juncheol Shin, Minsang Seok, Seonggon Kim, Eunhyeok Park |
-| arXiv | [2505.23651](https://arxiv.org/abs/2505.23651) |
-| 代码 | 未公开 |
-| 领域 | 模型压缩, 域适应 |
-| 关键词 | post-training quantization, model merging, multi-target domain adaptation, error barrier, Hessian regularization |
+**会议**: ICML 2025  
+**作者**: Juncheol Shin, Minsang Seok, Seonggon Kim, Eunhyeok Park  
+**arXiv**: [2505.23651](https://arxiv.org/abs/2505.23651)  
+**代码**: 未公开  
+**领域**: 模型压缩, 域适应  
+**关键词**: post-training quantization, model merging, multi-target domain adaptation, error barrier, Hessian regularization  
 
 ## 一句话总结
 

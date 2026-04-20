@@ -9,13 +9,11 @@ tags:
 
 # EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2508.01625](https://arxiv.org/abs/2508.01625) |
-| 代码 | — |
-| 领域 | 模型压缩、MoE |
-| 关键词 | MoE 量化、路由器校准、动态专家剪枝、expert-shift、推理加速 |
+**会议**: ACL 2025  
+**arXiv**: [2508.01625](https://arxiv.org/abs/2508.01625)  
+**代码**: —  
+**领域**: 模型压缩、MoE  
+**关键词**: MoE 量化、路由器校准、动态专家剪枝、expert-shift、推理加速  
 
 ## 一句话总结
 

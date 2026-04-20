@@ -9,13 +9,11 @@ tags:
 
 # OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2412.19723](https://arxiv.org/abs/2412.19723) |
-| 代码 | [OS-Genesis Homepage](https://os-genesis.github.io/) |
-| 领域 | GUI Agent / 数据合成 |
-| 关键词 | GUI Agent, Trajectory Synthesis, Reverse Task Synthesis, VLM, Reward Model |
+**会议**: ACL 2025  
+**arXiv**: [2412.19723](https://arxiv.org/abs/2412.19723)  
+**代码**: [OS-Genesis Homepage](https://os-genesis.github.io/)  
+**领域**: GUI Agent / 数据合成  
+**关键词**: GUI Agent, Trajectory Synthesis, Reverse Task Synthesis, VLM, Reward Model  
 
 ## 一句话总结
 

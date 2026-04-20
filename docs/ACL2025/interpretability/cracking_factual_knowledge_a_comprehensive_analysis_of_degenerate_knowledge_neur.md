@@ -9,13 +9,11 @@ tags:
 
 # Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ACL 2025 |
-| **arXiv** | [2402.13731](https://arxiv.org/abs/2402.13731) |
-| **代码** | 即将公开 |
-| **领域** | 可解释性 (Interpretability) |
-| **关键词** | 知识神经元, 退化知识神经元, 持久同调, 事实知识存储, 鲁棒性 |
+**会议**: ACL 2025  
+**arXiv**: [2402.13731](https://arxiv.org/abs/2402.13731)  
+**代码**: 即将公开  
+**领域**: 可解释性 (Interpretability)  
+**关键词**: 知识神经元, 退化知识神经元, 持久同调, 事实知识存储, 鲁棒性  
 
 ## 一句话总结
 

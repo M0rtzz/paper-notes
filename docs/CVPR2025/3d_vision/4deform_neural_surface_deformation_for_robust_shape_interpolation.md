@@ -11,15 +11,10 @@ tags:
 
 # 4Deform: Neural Surface Deformation for Robust Shape Interpolation
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | 4Deform: Neural Surface Deformation for Robust Shape Interpolation |
-| 会议 | CVPR 2025 |
-| 机构 | TU Munich / University of Bonn |
-| arXiv | 2502.20208 |
-| 主题 | 神经表面变形 / 形状插值 |
+**会议**: CVPR 2025  
+**机构**: TU Munich / University of Bonn  
+**arXiv**: 2502.20208  
+**主题**: 神经表面变形 / 形状插值  
 
 ## 研究背景与动机
 

@@ -9,13 +9,11 @@ tags:
 
 # SConU: Selective Conformal Uncertainty in Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2504.14154](https://arxiv.org/abs/2504.14154) |
-| 代码 | [Zhiyuan-GG/SConU](https://github.com/Zhiyuan-GG/SConU) |
-| 领域 | LLM 可靠性、不确定性量化 |
-| 关键词 | conformal prediction、可交换性、p-value、错误覆盖率、QA |
+**会议**: ACL 2025  
+**arXiv**: [2504.14154](https://arxiv.org/abs/2504.14154)  
+**代码**: [Zhiyuan-GG/SConU](https://github.com/Zhiyuan-GG/SConU)  
+**领域**: LLM 可靠性、不确定性量化  
+**关键词**: conformal prediction、可交换性、p-value、错误覆盖率、QA  
 
 ## 一句话总结
 

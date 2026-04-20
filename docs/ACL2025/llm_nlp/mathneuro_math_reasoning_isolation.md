@@ -9,13 +9,11 @@ tags:
 
 # Math Neurosurgery: Isolating Language Models' Math Reasoning Abilities Using Only Forward Passes
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2410.16930](https://arxiv.org/abs/2410.16930) |
-| 代码 | [https://github.com/bryanchrist/MathNeuro](https://github.com/bryanchrist/MathNeuro) |
-| 领域 | LLM / 可解释性 / 数学推理 |
-| 关键词 | math reasoning, parameter importance, skill localization, pruning, neuron isolation |
+**会议**: ACL 2025  
+**arXiv**: [2410.16930](https://arxiv.org/abs/2410.16930)  
+**代码**: [https://github.com/bryanchrist/MathNeuro](https://github.com/bryanchrist/MathNeuro)  
+**领域**: LLM / 可解释性 / 数学推理  
+**关键词**: math reasoning, parameter importance, skill localization, pruning, neuron isolation  
 
 ## 一句话总结
 

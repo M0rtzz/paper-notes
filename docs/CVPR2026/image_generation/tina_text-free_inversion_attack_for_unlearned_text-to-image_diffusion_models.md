@@ -11,13 +11,11 @@ tags:
 
 ## 基本信息
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | CVPR 2026 |
-| arXiv | [2603.17828](https://arxiv.org/abs/2603.17828) |
-| 代码 | [GitHub](https://github.com/qianlong0502/TINA) |
-| 领域 | 图像生成 / AI安全 / 概念擦除攻击 |
-| 关键词 | Concept Erasure, Machine Unlearning, DDIM Inversion, Text-to-Image Diffusion, Adversarial Attack |
+**会议**: CVPR 2026  
+**arXiv**: [2603.17828](https://arxiv.org/abs/2603.17828)  
+**代码**: [GitHub](https://github.com/qianlong0502/TINA)  
+**领域**: 图像生成 / AI安全 / 概念擦除攻击  
+**关键词**: Concept Erasure, Machine Unlearning, DDIM Inversion, Text-to-Image Diffusion, Adversarial Attack  
 
 ## 一句话总结
 

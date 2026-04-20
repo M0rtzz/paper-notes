@@ -11,14 +11,9 @@ tags:
 
 # AniMer: Animal Pose and Shape Estimation Using Family Aware Transformer
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | AniMer: Animal Pose and Shape Estimation Using Family Aware Transformer |
-| 会议 | CVPR 2025 |
-| arXiv | 2412.00837 |
-| 主题 | 动物姿态与形状估计 |
+**会议**: CVPR 2025  
+**arXiv**: 2412.00837  
+**主题**: 动物姿态与形状估计  
 
 ## 研究背景与动机
 

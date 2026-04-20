@@ -11,15 +11,12 @@ tags:
 
 ## 基本信息
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | Persona Dynamics: Unveiling the Impact of Personality Traits on Agents in Text-Based Games |
-| 会议 | ACL 2025 |
-| arXiv | 2504.06868 |
-| 代码 | [pull-ups/PANDA](https://github.com/pull-ups/PANDA) |
-| 模型 | [mirlab/PersonalityClassifier](https://huggingface.co/mirlab/PersonalityClassifier) |
-| 领域 | 智能体/人格特质/文本游戏 |
-| 关键词 | personality traits, text-based games, Big Five, Dark Triad, DRRN, reinforcement learning |
+**会议**: ACL 2025  
+**arXiv**: 2504.06868  
+**代码**: [pull-ups/PANDA](https://github.com/pull-ups/PANDA)  
+**模型**: [mirlab/PersonalityClassifier](https://huggingface.co/mirlab/PersonalityClassifier)  
+**领域**: 智能体/人格特质/文本游戏  
+**关键词**: personality traits, text-based games, Big Five, Dark Triad, DRRN, reinforcement learning  
 
 ## 一句话总结
 

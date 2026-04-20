@@ -9,14 +9,11 @@ tags:
 
 # Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models
 
-| 项目 | 内容 |
-|------|------|
-| 标题 | Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models |
-| 会议 | ACL 2025 |
-| arXiv | [2503.01461](https://arxiv.org/abs/2503.01461) |
-| 代码 | [AIDC-AI/Marco-o1](https://github.com/AIDC-AI/Marco-o1) |
-| 领域 | LLM Reasoning / 知识蒸馏 |
-| 关键词 | Reasoning Distillation, MCTS, Chain-of-Thought, DPO, Formalistic Thinking |
+**会议**: ACL 2025  
+**arXiv**: [2503.01461](https://arxiv.org/abs/2503.01461)  
+**代码**: [AIDC-AI/Marco-o1](https://github.com/AIDC-AI/Marco-o1)  
+**领域**: LLM Reasoning / 知识蒸馏  
+**关键词**: Reasoning Distillation, MCTS, Chain-of-Thought, DPO, Formalistic Thinking  
 
 ## 一句话总结
 

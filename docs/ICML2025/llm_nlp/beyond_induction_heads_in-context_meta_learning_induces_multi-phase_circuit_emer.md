@@ -9,13 +9,11 @@ tags:
 
 # Beyond Induction Heads: In-Context Meta Learning Induces Multi-Phase Circuit Emergence
 
-| 项目 | 内容 |
-|------|------|
-| **会议** | ICML 2025 |
-| **arXiv** | [2505.16694](https://arxiv.org/abs/2505.16694) |
-| **代码** | [gouki510/In-Context-Meta-Learning](https://github.com/gouki510/In-Context-Meta-Learning) |
-| **领域** | LLM/NLP · 机械可解释性 · In-Context Learning |
-| **关键词** | In-Context Learning, Induction Head, Multi-Phase Circuit, Meta-Learning, Mechanistic Interpretability |
+**会议**: ICML 2025  
+**arXiv**: [2505.16694](https://arxiv.org/abs/2505.16694)  
+**代码**: [gouki510/In-Context-Meta-Learning](https://github.com/gouki510/In-Context-Meta-Learning)  
+**领域**: LLM/NLP · 机械可解释性 · In-Context Learning  
+**关键词**: In-Context Learning, Induction Head, Multi-Phase Circuit, Meta-Learning, Mechanistic Interpretability  
 
 ## 一句话总结
 

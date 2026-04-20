@@ -9,13 +9,11 @@ tags:
 
 # Centurio: On Drivers of Multilingual Ability of Large Vision-Language Model
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2501.05122](https://arxiv.org/abs/2501.05122) |
-| 代码 | [gregor-ge.github.io/Centurio](https://gregor-ge.github.io/Centurio) |
-| 领域 | 多模态视觉语言模型 |
-| 关键词 | multilingual LVLM, vision-language, training data distribution, OCR, language fidelity |
+**会议**: ACL 2025  
+**arXiv**: [2501.05122](https://arxiv.org/abs/2501.05122)  
+**代码**: [gregor-ge.github.io/Centurio](https://gregor-ge.github.io/Centurio)  
+**领域**: 多模态视觉语言模型  
+**关键词**: multilingual LVLM, vision-language, training data distribution, OCR, language fidelity  
 
 ## 一句话总结
 

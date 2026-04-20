@@ -9,14 +9,12 @@ tags:
 
 # Large Language Models for Predictive Analysis: How Far Are They?
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| 作者 | Qin Chen, Yuanyi Ren, Xiaojun Ma, Yuyang Shi (Peking University, Harvard University) |
-| arXiv | [2505.17149](https://arxiv.org/abs/2505.17149) |
-| 代码 | GitHub |
-| 领域 | LLM/NLP, 基准评测 |
-| 关键词 | predictive analysis, benchmark, code generation, text analysis, text-code alignment, LLM evaluation |
+**会议**: ACL 2025  
+**作者**: Qin Chen, Yuanyi Ren, Xiaojun Ma, Yuyang Shi (Peking University, Harvard University)  
+**arXiv**: [2505.17149](https://arxiv.org/abs/2505.17149)  
+**代码**: GitHub  
+**领域**: LLM/NLP, 基准评测  
+**关键词**: predictive analysis, benchmark, code generation, text analysis, text-code alignment, LLM evaluation  
 
 ## 一句话总结
 

@@ -11,15 +11,10 @@ tags:
 
 # ASAP: Advancing Semantic Alignment for Multi-Modal Manipulation Detection
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | ASAP: Advancing Semantic Alignment Promotes Multi-Modal Manipulation Detecting and Grounding |
-| 会议 | CVPR 2025 |
-| 机构 | 合肥工业大学 |
-| arXiv | 2412.12718 |
-| 关键词 | 多模态篡改检测、语义对齐、大模型辅助、交叉注意力 |
+**会议**: CVPR 2025  
+**机构**: 合肥工业大学  
+**arXiv**: 2412.12718  
+**关键词**: 多模态篡改检测、语义对齐、大模型辅助、交叉注意力  
 
 ## 研究背景与动机
 

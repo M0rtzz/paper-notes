@@ -9,14 +9,12 @@ tags:
 
 # Position: Uncertainty Quantification Needs Reassessment for Large-language Model Agents
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Michael Kirchhof, Gjergji Kasneci, Enkelejda Kasneci |
-| arXiv | [2505.22655](https://arxiv.org/abs/2505.22655) |
-| 代码 | 无 |
-| 领域 | 不确定性量化, LLM Agent |
-| 关键词 | uncertainty quantification, aleatoric, epistemic, LLM agents, position paper |
+**会议**: ICML 2025  
+**作者**: Michael Kirchhof, Gjergji Kasneci, Enkelejda Kasneci  
+**arXiv**: [2505.22655](https://arxiv.org/abs/2505.22655)  
+**代码**: 无  
+**领域**: 不确定性量化, LLM Agent  
+**关键词**: uncertainty quantification, aleatoric, epistemic, LLM agents, position paper  
 
 ## 一句话总结
 

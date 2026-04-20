@@ -11,15 +11,10 @@ tags:
 
 # Anomize: Better Open Vocabulary Video Anomaly Detection
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Anomize: Better Open Vocabulary Video Anomaly Detection |
-| 会议 | CVPR 2025 |
-| 机构 | 武汉大学 / 复旦大学 / 北京大学 |
-| arXiv | 2503.18094 |
-| 关键词 | 视频异常检测、开放词汇、LSTM、GPT-4、双流架构 |
+**会议**: CVPR 2025  
+**机构**: 武汉大学 / 复旦大学 / 北京大学  
+**arXiv**: 2503.18094  
+**关键词**: 视频异常检测、开放词汇、LSTM、GPT-4、双流架构  
 
 ## 研究背景与动机
 

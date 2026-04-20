@@ -11,15 +11,10 @@ tags:
 
 # Escaping Plato's Cave: Towards the Alignment of 3D and Text Latent Spaces
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Escaping Plato's Cave: Towards the Alignment of 3D and Text Latent Spaces |
-| 会议 | CVPR 2025 |
-| 机构 | École Polytechnique / Sapienza Università di Roma / UT Austin |
-| arXiv | 2503.05283 |
-| 关键词 | 3D-Text对齐、CCA、子空间投影、跨模态检索 |
+**会议**: CVPR 2025  
+**机构**: École Polytechnique / Sapienza Università di Roma / UT Austin  
+**arXiv**: 2503.05283  
+**关键词**: 3D-Text对齐、CCA、子空间投影、跨模态检索  
 
 ## 研究背景与动机
 

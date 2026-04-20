@@ -9,13 +9,11 @@ tags:
 
 # SelfElicit: Your Language Model Secretly Knows Where is the Relevant Evidence
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2502.08767](https://arxiv.org/abs/2502.08767) |
-| 代码 | [ZhiningLiu1998/SelfElicit](https://github.com/ZhiningLiu1998/SelfElicit) |
-| 领域 | 上下文增强、QA |
-| 关键词 | 注意力分析、证据定位、上下文高亮、推理时增强、无训练 |
+**会议**: ACL 2025  
+**arXiv**: [2502.08767](https://arxiv.org/abs/2502.08767)  
+**代码**: [ZhiningLiu1998/SelfElicit](https://github.com/ZhiningLiu1998/SelfElicit)  
+**领域**: 上下文增强、QA  
+**关键词**: 注意力分析、证据定位、上下文高亮、推理时增强、无训练  
 
 ## 一句话总结
 

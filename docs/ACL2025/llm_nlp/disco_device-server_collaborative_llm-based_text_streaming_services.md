@@ -9,13 +9,11 @@ tags:
 
 # DiSCo: Device-Server Collaborative LLM-Based Text Streaming Services
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2502.11417](https://arxiv.org/abs/2502.11417) |
-| 代码 | 未开源 |
-| 领域 | LLM 推理系统 / 端云协同 |
-| 关键词 | Device-Server Collaboration, QoE, TTFT, TBT, Token Migration, LLM Serving |
+**会议**: ACL 2025  
+**arXiv**: [2502.11417](https://arxiv.org/abs/2502.11417)  
+**代码**: 未开源  
+**领域**: LLM 推理系统 / 端云协同  
+**关键词**: Device-Server Collaboration, QoE, TTFT, TBT, Token Migration, LLM Serving  
 
 ## 一句话总结
 

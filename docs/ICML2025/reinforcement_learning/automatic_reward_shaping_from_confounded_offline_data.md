@@ -9,14 +9,12 @@ tags:
 
 # Automatic Reward Shaping from Confounded Offline Data
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ICML 2025 |
-| 作者 | Mingxuan Li, Junzhe Zhang, Elias Bareinboim (Columbia University) |
-| arXiv | [2505.11478](https://arxiv.org/abs/2505.11478) |
-| 代码 | 无 |
-| 领域 | 强化学习, 因果推理 |
-| 关键词 | reward shaping, confounded MDP, causal inference, PBRS, offline RL |
+**会议**: ICML 2025  
+**作者**: Mingxuan Li, Junzhe Zhang, Elias Bareinboim (Columbia University)  
+**arXiv**: [2505.11478](https://arxiv.org/abs/2505.11478)  
+**代码**: 无  
+**领域**: 强化学习, 因果推理  
+**关键词**: reward shaping, confounded MDP, causal inference, PBRS, offline RL  
 
 ## 一句话总结
 

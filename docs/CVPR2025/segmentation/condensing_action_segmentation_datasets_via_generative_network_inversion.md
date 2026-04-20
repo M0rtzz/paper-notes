@@ -12,15 +12,10 @@ tags:
 
 # Condensing Action Segmentation Datasets via Generative Network Inversion
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Condensing Action Segmentation Datasets via Generative Network Inversion |
-| 会议 | CVPR 2025 |
-| 机构 | National University of Singapore (NUS) |
-| arXiv | 2503.14112 |
-| 主题 | 数据集蒸馏 / 时序动作分割 |
+**会议**: CVPR 2025  
+**机构**: National University of Singapore (NUS)  
+**arXiv**: 2503.14112  
+**主题**: 数据集蒸馏 / 时序动作分割  
 
 ## 研究背景与动机
 

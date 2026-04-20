@@ -9,13 +9,11 @@ tags:
 
 # WXImpactBench: A Disruptive Weather Impact Understanding Benchmark for Evaluating Large Language Models
 
-| 项目 | 内容 |
-|------|------|
-| **会议/期刊** | ACL 2025 |
-| **arXiv** | [2505.20249](https://arxiv.org/abs/2505.20249) |
-| **代码** | [GitHub](https://github.com/Michaelyya/WXImpactBench) |
-| **领域** | LLM评估 / 气候文本理解 |
-| **关键词** | benchmark, weather impact, LLM evaluation, multi-label classification, question answering |
+**会议/期刊**: ACL 2025  
+**arXiv**: [2505.20249](https://arxiv.org/abs/2505.20249)  
+**代码**: [GitHub](https://github.com/Michaelyya/WXImpactBench)  
+**领域**: LLM评估 / 气候文本理解  
+**关键词**: benchmark, weather impact, LLM evaluation, multi-label classification, question answering  
 
 ## 一句话总结
 

@@ -9,13 +9,11 @@ tags:
 
 # EdiText: Controllable Coarse-to-Fine Text Editing with Diffusion Language Models
 
-| 项目 | 内容 |
-|------|------|
-| 会议 | ACL 2025 |
-| arXiv | [2502.19765](https://arxiv.org/abs/2502.19765) |
-| 代码 | - |
-| 领域 | NLP / 文本编辑 / 扩散模型 |
-| 关键词 | diffusion language model, text editing, SDEdit, self-conditioning, controllable generation |
+**会议**: ACL 2025  
+**arXiv**: [2502.19765](https://arxiv.org/abs/2502.19765)  
+**代码**: -  
+**领域**: NLP / 文本编辑 / 扩散模型  
+**关键词**: diffusion language model, text editing, SDEdit, self-conditioning, controllable generation  
 
 ## 一句话总结
 

@@ -11,14 +11,9 @@ tags:
 
 # Co-op: Correspondence-Based Novel Object Pose Estimation
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | Co-op: Correspondence-Based Novel Object Pose Estimation |
-| 会议 | CVPR 2025 |
-| arXiv | 2503.17731 |
-| 主题 | 新物体位姿估计 / 对应关系匹配 |
+**会议**: CVPR 2025  
+**arXiv**: 2503.17731  
+**主题**: 新物体位姿估计 / 对应关系匹配  
 
 ## 研究背景与动机
 

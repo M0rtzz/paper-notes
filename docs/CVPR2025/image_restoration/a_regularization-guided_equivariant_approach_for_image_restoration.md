@@ -10,16 +10,11 @@ code: "https://github.com/yulu919/EQ-REG"
 
 # EQ-Reg: A Regularization-Guided Equivariant Approach for Image Restoration
 
-## 论文信息
-
-| 项目 | 内容 |
-|------|------|
-| 标题 | A Regularization-Guided Equivariant Approach for Image Restoration |
-| 作者 | Lu Yu, Jiahao Li, Yutong Zhang 等 |
-| 机构 | Xi'an Jiaotong University / Macau UST / Pengcheng Lab |
-| 会议 | CVPR 2025 |
-| arXiv | 2505.19799 |
-| 代码 | https://github.com/yulu919/EQ-REG |
+**作者**: Lu Yu, Jiahao Li, Yutong Zhang 等  
+**机构**: Xi'an Jiaotong University / Macau UST / Pengcheng Lab  
+**会议**: CVPR 2025  
+**arXiv**: 2505.19799  
+**代码**: https://github.com/yulu919/EQ-REG  
 
 ## 研究背景与动机
 
