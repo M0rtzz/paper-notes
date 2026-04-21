@@ -1,16 +1,51 @@
 """Post-build hook: slim down search_index.json for fast client-side search.
 
-Strategy:
-  1. Merge section-level entries (#anchor) into their parent page entry,
-     keeping only one doc per page with a combined title.
-  2. Clear all 'text' fields (title-only indexing).
+Why this matters
+----------------
+MkDocs' search plugin emits one doc per <h2> heading (~230k entries / 262MB on
+this repo). Worse, every paper note shares the same Chinese section headings
+("一句话总结", "研究背景与动机", "方法详解", ...), so if we naively concatenate
+those into each paper's title field, those generic phrases end up in ~14k
+documents. Lunr.js then spends forever building the inverted index and the
+desktop UI sits on "正在初始化搜索引擎" forever.
 
-This reduces ~230k entries / 262MB to ~13k entries / ~1-2MB.
+Strategy
+--------
+  1. Collapse all section-level entries (#anchor) into a single doc per page.
+  2. Keep **only the base page's title** — do NOT merge section headings into
+     the title field. This is the single biggest win for lunr performance.
+  3. Clear all 'text' fields (title-only + tag indexing).
+  4. Preserve the first doc's `tags` so tag-based filtering still works.
+  5. Filter low-frequency tags (freq < MIN_TAG_FREQ) — long-tail paper-specific
+     tags explode the lunr token table without aiding discoverability.
+  6. Drop conference-name tags (the conference is already in the URL path and
+     the location field is indexed separately).
+  7. Skip conference-root / section-index stubs (they have huge nav-derived
+     titles that bloat the index without helping search).
 """
 
 import json
 import os
-from collections import OrderedDict
+import re
+from collections import Counter, OrderedDict
+
+_CONF_PATTERN = re.compile(
+    r"^(ICLR|CVPR|ACL|NeurIPS|AAAI|ECCV|ICCV|ICML|EMNLP|NAACL)\s*\d{4}$",
+    re.IGNORECASE,
+)
+
+MIN_TAG_FREQ = 5
+
+
+def _is_index_page(base: str) -> bool:
+    """Conference root / section index pages: e.g. 'AAAI2026/', 'AAAI2026/3d_vision/'.
+
+    Paper pages have the form '<CONF>/<AREA>/<slug>/' (>=3 path segments).
+    """
+    clean = base.strip("/")
+    if not clean:
+        return True
+    return clean.count("/") < 2
 
 
 def on_post_build(config, **kwargs):
@@ -26,33 +61,55 @@ def on_post_build(config, **kwargs):
         return
 
     original_count = len(docs)
+    original_size = os.path.getsize(index_path)
 
-    # Group docs by base page (location without #fragment)
-    pages = OrderedDict()  # base_loc -> merged doc
+    # ── Pass 1: collapse section entries, keep only the base page title ──
+    pages: "OrderedDict[str, dict]" = OrderedDict()
     for doc in docs:
         loc = doc.get("location", "")
         base = loc.split("#")[0]
 
+        if _is_index_page(base):
+            continue
+
         if base not in pages:
-            # First entry for this page: use as the base doc
             pages[base] = {
                 "location": base,
-                "title": doc.get("title", ""),
+                "title": doc.get("title", "").strip(),
                 "text": "",
+                "_tags": set(doc.get("tags") or []),
             }
         else:
-            # Subsequent section entry: append title if meaningful and short enough
-            section_title = doc.get("title", "").strip()
-            existing_title = pages[base]["title"]
-            if (
-                section_title
-                and section_title not in existing_title
-                and len(existing_title) < 300
-            ):
-                pages[base]["title"] += " | " + section_title
+            # Subsequent section entry: only collect tags, never merge titles.
+            tags = doc.get("tags") or []
+            if tags:
+                pages[base]["_tags"].update(tags)
+
+    # ── Pass 2: tag frequency filtering ──
+    tag_freq: "Counter[str]" = Counter()
+    for page in pages.values():
+        for tag in page["_tags"]:
+            if _CONF_PATTERN.match(tag.strip()):
+                continue
+            tag_freq[tag] += 1
+    keep_tags = {t for t, c in tag_freq.items() if c >= MIN_TAG_FREQ}
+
+    conf_removed = 0
+    rare_removed = 0
+    for page in pages.values():
+        raw_tags = page.pop("_tags")
+        kept = []
+        for tag in raw_tags:
+            if _CONF_PATTERN.match(tag.strip()):
+                conf_removed += 1
+            elif tag not in keep_tags:
+                rare_removed += 1
+            else:
+                kept.append(tag)
+        if kept:
+            page["tags"] = kept
 
     slim_docs = list(pages.values())
-
     data["docs"] = slim_docs
 
     with open(index_path, "w", encoding="utf-8") as f:
@@ -60,6 +117,7 @@ def on_post_build(config, **kwargs):
 
     new_size = os.path.getsize(index_path)
     print(
-        f"[slim_search_index] {original_count} -> {len(slim_docs)} entries, "
-        f"index size: {new_size / 1024 / 1024:.1f} MB"
+        f"[slim_search_index] {original_count} -> {len(slim_docs)} docs, "
+        f"{original_size / 1024 / 1024:.1f} MB -> {new_size / 1024 / 1024:.1f} MB; "
+        f"tags kept={len(keep_tags)} (dropped {rare_removed} rare, {conf_removed} conf)"
     )

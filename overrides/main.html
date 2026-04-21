@@ -270,40 +270,69 @@
 <!-- Add deep-search fallback link in search results (both mobile and desktop) -->
 <script>
 (function() {
-  // Observe search input changes and inject "deep search via Bing" link
-  var injected = false;
-  var observer = new MutationObserver(function() {
-    var searchOutput = document.querySelector('.md-search-result');
-    var searchInput = document.querySelector('.md-search__input');
-    if (!searchOutput || !searchInput) return;
+  // Inject a "全文深度搜索 via Bing" link at the bottom of search results.
+  //
+  // IMPORTANT: we must NOT use a MutationObserver on `.md-search` with
+  // subtree:true and then appendChild into `.md-search-result`, because the
+  // append mutates the observed subtree → triggers the observer again → infinite
+  // loop → tab OOM ("喔唷，崩溃啦 / Out of Memory"). Instead we listen to the
+  // search input's `input` event (which does NOT fire from our own DOM
+  // mutations) and debounce updates to the fallback link.
+  var lastQuery = null;
+  var scheduled = false;
 
-    // Remove old link if exists
-    var oldLink = searchOutput.querySelector('.deep-search-link');
-    if (oldLink) oldLink.remove();
+  function updateLink() {
+    scheduled = false;
+    var input = document.querySelector('.md-search__input');
+    var output = document.querySelector('.md-search-result');
+    if (!input || !output) return;
 
-    var query = searchInput.value.trim();
-    if (!query) return;
+    var query = input.value.trim();
 
-    // Add deep search link at the bottom of results
-    var link = document.createElement('div');
-    link.className = 'deep-search-link';
-    link.style.cssText = 'padding:12px 16px;text-align:center;border-top:1px solid var(--md-default-fg-color--lightest);';
+    // Only touch the DOM if query actually changed — avoids churn while user
+    // is typing and prevents redundant re-renders.
+    if (query === lastQuery) return;
+    lastQuery = query;
+
+    var existing = output.querySelector('.deep-search-link');
+    if (!query) {
+      if (existing) existing.remove();
+      return;
+    }
+
     var encoded = encodeURIComponent(query);
     var site = 'site:zhaoyang97.github.io/Paper-Notes/+';
-    link.innerHTML = '<a href="https://www.bing.com/search?q=' + site + encoded +
+    var html =
+      '<a href="https://www.bing.com/search?q=' + site + encoded +
       '" target="_blank" rel="noopener" style="color:var(--md-accent-fg-color);font-size:0.85rem;">' +
-      '🔍 全文深度搜索「' + query.replace(/</g,'&lt;') + '」(via Bing)</a>' +
+      '🔍 全文深度搜索「' + query.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '」(via Bing)</a>' +
       '<span style="display:block;font-size:0.75rem;color:var(--md-default-fg-color--light);margin-top:2px;">' +
       '站内搜索仅匹配标题和标签，点此搜索全文内容</span>';
-    searchOutput.appendChild(link);
-  });
 
-  // Start observing when DOM is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    var target = document.querySelector('.md-search');
-    if (target) {
-      observer.observe(target, { childList: true, subtree: true, characterData: true });
+    if (existing) {
+      existing.innerHTML = html;
+    } else {
+      var link = document.createElement('div');
+      link.className = 'deep-search-link';
+      link.style.cssText = 'padding:12px 16px;text-align:center;border-top:1px solid var(--md-default-fg-color--lightest);';
+      link.innerHTML = html;
+      output.appendChild(link);
     }
+  }
+
+  function schedule() {
+    if (scheduled) return;
+    scheduled = true;
+    // Defer to rAF so we merge rapid events and run after Material renders
+    // its own results.
+    (window.requestAnimationFrame || function(fn){setTimeout(fn,16);})(updateLink);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var input = document.querySelector('.md-search__input');
+    if (!input) return;
+    input.addEventListener('input', schedule);
+    input.addEventListener('focus', schedule);
   });
 })();
 </script>
